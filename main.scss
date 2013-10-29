@@ -1,0 +1,24 @@
+.ft-footer {
+    margin: 20px 0 0 0;
+    padding: 10px 0 0 0;
+	background-color: #f6e9d8; /* Tint 1 */
+    font-size: 12px;
+	font-family: BentonSans, Helvetica, Arial, sans-serif;
+}
+
+.ft-footer-link {
+	display: block;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #e9decf; /* Tint 2 */
+	color: #434343; /* New palette color? */
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.ft-footer-copyright {
+	padding: 10px 0;
+	color: #4c4c4c; /* New palette color? - can this be the same as the .ft-footer-link color */
+	white-space: nowrap;
+	font-size: 9px;
+	line-height: 14px;
+}
