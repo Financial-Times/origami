@@ -6,7 +6,7 @@ $ftColor-Tint2: #e9decf;
 
 .ft-footer-module {
     margin: 20px 0 0 0;
-    padding: $ftFooterSpacingUnit 0 0 0;
+    padding: 5px 0 0 0;
 	background-color: $ftColor-Tint1;
     font-size: 12px;
 	font-family: BentonSans, Helvetica, Arial, sans-serif;
@@ -14,11 +14,10 @@ $ftColor-Tint2: #e9decf;
 
 .ft-footer-link {
 	display: block;
-	margin-bottom: 5px;
 	border-bottom: 1px solid $ftColor-Tint2;
 	color: #434343; /* New palette color? */
 	font-size: 14px;
-	line-height: 24px;
+	line-height: 30px;
 }
 
 .ft-footer-link:hover,
@@ -33,4 +32,15 @@ $ftColor-Tint2: #e9decf;
 	white-space: nowrap;
 	font-size: 9px;
 	line-height: 14px;
+}
+
+.ft-footer-pearson {
+	padding-top: $ftFooterSpacingUnit;
+	padding-bottom: $ftFooterSpacingUnit;
+	background-color: $ftColor-Tint2;
+	color: #716f69; /* New palette color? */
+}
+
+.ft-footer-pearson .ft-grid-col-d6:last-child {
+	text-align: right;
 }
