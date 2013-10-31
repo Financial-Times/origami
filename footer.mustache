@@ -1,37 +1,14 @@
 <footer class="ft-footer-module">
 	<div class="ft-grid-row">
+		{{#footer.links}}
 		<div class="ft-grid-col-s6-m6">
-			<a href="http://www.ft.com/aboutus" class="ft-footer-link">About us</a>
+			<a href="{{href}}" class="ft-footer-link">{{{text}}}</a>
 		</div>
-		<div class="ft-grid-col-s6-m6">
-			<a href="http://aboutus.ft.com/contact-us" class="ft-footer-link">Contact</a>
-		</div>
-		<div class="ft-grid-col-s6-m6">
-			<a href="http://www.ft.com/servicestools/help/terms" class="ft-footer-link">T &amp; Cs</a>
-		</div>
-		<div class="ft-grid-col-s6-m6">
-			<a href="http://www.ft.com/help" class="ft-footer-link">Help</a>
-		</div>
-		<div class="ft-grid-col-s6-m6">
-			<a href="http://m.ft.com/feedback" class="ft-footer-link">Feedback</a>
-		</div>
-		<div class="ft-grid-col-s6-m6">
-			<a href="http://www.ft.com/advertising" class="ft-footer-link">Advertise with the FT</a>
-		</div>
-		<div class="ft-grid-col-s6-m6">
-			<a href="http://www.ft.com/servicestools/help/privacy" class="ft-footer-link">Privacy policy</a>
-		</div>
-		<div class="ft-grid-col-s6-m6">
-			<a href="http://www.ft.com/cookiepolicy" class="ft-footer-link">Cookie policy</a>
-		</div>
-		<div class="ft-grid-col-s6-m6">
-			<a href="http://www.ft.com/servicestools/help/copyright" class="ft-footer-link">Copyright</a>
-		</div>
+		{{/footer.links}}
 	</div>
 	<div class="ft-grid-row">
 		<div class="ft-grid-col-d12 ft-footer-copyright">
-			&#169; THE FINANCIAL TIMES LTD 2013. <wbr />
-			<acronym title="Financial Times">FT</acronym> and 'Financial Times' are trademarks of The Financial Times Ltd.
+			{{{footer.copyrightText}}}
 		</div>
 	</div>
 	<div class="ft-footer-pearson">

@@ -1,0 +1,41 @@
+{
+	"links": [
+		{
+			"text": "About us",
+			"href": "http://www.ft.com/aboutus"
+		},
+		{
+			"text": "Contact",
+			"href": "http://aboutus.ft.com/contact-us"
+		},
+		{
+			"text": "T &amp; Cs",
+			"href": "http://www.ft.com/servicestools/help/terms"
+		},
+		{
+			"text": "Help",
+			"href": "http://www.ft.com/help"
+		},
+		{
+			"text": "Feedback",
+			"href": "http://m.ft.com/feedback"
+		},
+		{
+			"text": "Advertise with the FT",
+			"href": "http://www.ft.com/advertising"
+		},
+		{
+			"text": "Privacy policy",
+			"href": "http://www.ft.com/servicestools/help/privacy"
+		},
+		{
+			"text": "Cookie policy",
+			"href": "http://www.ft.com/cookiepolicy"
+		},
+		{
+			"text": "Copyright",
+			"href": "http://www.ft.com/servicestools/help/copyright"
+		}
+	],
+	"copyrightText": "&#169; THE FINANCIAL TIMES LTD 2013. <wbr /><acronym title=\"Financial Times\">FT</acronym> and 'Financial Times' are trademarks of The Financial Times Ltd."
+}
