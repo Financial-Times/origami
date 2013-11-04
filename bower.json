@@ -1,3 +1,4 @@
 {
+	"name": "footer-module",
 	"main": ["main.scss", "footer.mustache", "footer.json"]
 }
