@@ -1,4 +1,7 @@
 {
 	"name": "footer-module",
-	"main": ["main.scss", "footer.mustache", "footer.json"]
+	"main": ["main.scss", "footer.mustache", "footer.json"],
+	"dependencies": {
+		"grid-module": "http://git.svc.ft.com:9080/git/origami/grid-module.git#0.2.6"
+	}
 }
