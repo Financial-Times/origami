@@ -37,5 +37,6 @@
 			"href": "http://www.ft.com/servicestools/help/copyright"
 		}
 	],
-	"copyrightText": "&#169; THE FINANCIAL TIMES LTD 2013. <wbr /><acronym title=\"Financial Times\">FT</acronym> and 'Financial Times' are trademarks of The Financial Times Ltd."
+	"copyrightYear": "2013",
+	"copyrightText": "<acronym title=\"Financial Times\">FT</acronym> and 'Financial Times' are trademarks of The Financial Times Ltd."
 }
