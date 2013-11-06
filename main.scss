@@ -9,16 +9,16 @@
 
 /* Backgrounds / fills */
 $ftColor-PageBg: $ftColor-Pink;
-$ftColor-InsetContentBg:
+$ftColor-InsetContentBg: inherit !default;
 
 /* Type */
-$ftColor-BodyText:
-$ftColor-LinkText:
-$ftColor-LinkTextHover:
-$ftColor-HeadingGeneric:
-$ftColor-HeadingStyle1:
-$ftColor-Byline:
-$ftColor-Timestamp:
+$ftColor-BodyText: inherit !default;
+$ftColor-LinkText: inherit !default;
+$ftColor-LinkTextHover: inherit !default;
+$ftColor-HeadingGeneric: inherit !default;
+$ftColor-HeadingStyle1: inherit !default;
+$ftColor-Byline: inherit !default;
+$ftColor-Timestamp: inherit !default;
 
 /* Buttons */
 
