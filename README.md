@@ -2,6 +2,16 @@
 
 Origami module for the FT responsive page footer.
 
+## Installation
+
+Add this to your depdendencies in bower.json:
+
+     "dependencies": {
+          "footer-module": "http://git.svc.ft.com:9080/git/origami/footer-module.git#0.3.2"
+     }
+
+It's strongly advised to specify at least the major and minor version as a tag.
+
 ## Module contents
 
 This module contains three assets:
@@ -17,7 +27,7 @@ This module depends on:
 * **origami/grid-module** - for layout CSS
 * **Mustache** - for rendering the template
 * **SASS** - For compiling the CSS
-* **Browser support for HTMl5 semantic elements** - or HTML5 Shiv/Shim
+* **Browser support for HTML5 semantic elements** - or [HTML5 Shiv](https://github.com/aFarkas/html5shiv)/[Shim](https://code.google.com/p/html5shim/)
 
 The footer will soon also depend upon **origami/colors-module** for colour variables and **origami/fonts-module** for fonts.
 
@@ -39,11 +49,10 @@ The footer will soon also depend upon **origami/colors-module** for colour varia
 
 The SCSS is defined in `main.scss`. There are no varibles, functions or mixins that are expected to be of use outside this module.
 
-
 ## Responsive behavior
 
 The on small and medium screens, the footer links will render in two vertical columns. On larger screens, the links will render horizontally.
 
 In order to make the copyright text wrap nicely at all screen sizes, the copyright year has a word break element after it, and the `copyrightText` is set to not wrap. This means that if you replace the content of `copyrightText` for something much longer, it is advisable to put further `<wbr/>` elements inline. For example:
 
-`copyrightText: "This is a really really long piece of copyright related text, that may wrap at small screen sizes, so if it does wrap, I want the line break to be here <wbr /> to make things nice and predictable.`
+    copyrightText: "This is a really really long piece of copyright related text, that may wrap at small screen sizes, so if it does wrap, I want the line break to be here <wbr /> to make things nice and predictable.
