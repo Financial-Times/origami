@@ -3,6 +3,6 @@
 	"main": ["main.scss", "header.mustache"],
 	"dependencies": {
 		"grid-module": "http://git.svc.ft.com:9080/git/origami/grid-module.git#0.3.x",
-		"colors-module": "https://github.com/wheresrhys/colors-module.git#595b53354dddd03b867e24c892ea90ad3218eca8"
+		 "colors-module": "https://github.com/Financial-Times/colors-module.git"
 	}
 }
