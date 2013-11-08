@@ -1,0 +1,24 @@
+$ftFooterSpacingUnit: 10px;
+
+// TODO: Remove these and use Velcro/colors-module instead
+$ftColor-Tint1: #f6e9d8;
+$ftColor-Tint2: #e9decf;
+
+.ft-header-nav-bar{
+   	background-color: $ftColor-DarkGrey;
+   	height: 20px;
+}
+
+.ft-header-logo {
+	padding: 10px;
+	height: 20px;
+	background: #ffe2c6; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffe2c6 0%, #f7d8b9 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffe2c6), color-stop(100%,#f7d8b9)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffe2c6 0%,#f7d8b9 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffe2c6 0%,#f7d8b9 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffe2c6 0%,#f7d8b9 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffe2c6 0%,#f7d8b9 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffe2c6', endColorstr='#f7d8b9',GradientType=0 ); /* IE6-9 */	
+}
+
