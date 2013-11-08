@@ -1,8 +1,6 @@
-$ftFooterSpacingUnit: 10px;
+@import 'colors-module/colors.scss';
 
-// TODO: Remove these and use Velcro/colors-module instead
-$ftColor-Tint1: #f6e9d8;
-$ftColor-Tint2: #e9decf;
+$ftFooterSpacingUnit: 10px;
 
 .ft-footer-module {
     margin: 20px 0 0 0;
