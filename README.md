@@ -47,7 +47,7 @@ The footer will soon also depend upon **origami/colors-module** for colour varia
 
 ## Stylesheet
 
-The SCSS is defined in `main.scss`. There are no varibles, functions or mixins that are expected to be of use outside this module.
+The SCSS is defined in `main.scss`. There are no variables, functions or mixins that are expected to be of use outside this module.
 
 ## Responsive behavior
 
