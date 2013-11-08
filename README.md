@@ -1,6 +1,6 @@
 # Footer module
 
-Origami module for the FT responsive page footer.
+Origami module for the responsive FT page footer.
 
 ## Installation
 
