@@ -6,6 +6,9 @@ $ftColor-Tint1: #f6e9d8;
 $ftColor-Tint2: #e9decf;
 $ftColor-DarkDarkGrey: #333333;
 
+
+$ft-header-img-root: '/img' !default;
+
 .ft-header-module {
 	min-height: 77px;
 	margin-bottom: 10px;
@@ -30,6 +33,10 @@ $ftColor-DarkDarkGrey: #333333;
 	box-sizing: border-box;
 	width: 82px;
 	display: block;
+}
+
+.lt-ie9 .ft-header-logo {
+	background: url(#{$ft-header-img-root}ft-logo.gif) no-repeat;
 }
 
 .ft-header-logo .ft-initials {
