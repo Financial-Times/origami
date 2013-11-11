@@ -10,18 +10,20 @@ $ftColor-DarkDarkGrey: #333333;
 $ft-header-img-root: '/img' !default;
 
 .ft-header-module {
-	min-height: 77px;
 	margin-bottom: 10px;
+	min-height: 77px;
 }
 
 .ft-header-nav-bar{
-   	background-color: $ftColor-DarkDarkGrey;
    	height: 50px;
+   	background-color: $ftColor-DarkDarkGrey;
 }
 
 .ft-header-logo {
-	padding: 11px 0 66px;
-	height: 20px;
+	display: block;
+	padding: 11px 0 31px;
+	width: 82px;
+	height: 35px;
 	background: #ffe2c6; /* Old browsers */
 	background: -moz-linear-gradient(top,  #ffe2c6 0%, #f7d8b9 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffe2c6), color-stop(100%,#f7d8b9)); /* Chrome,Safari4+ */
@@ -29,10 +31,6 @@ $ft-header-img-root: '/img' !default;
 	background: -o-linear-gradient(top,  #ffe2c6 0%,#f7d8b9 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  #ffe2c6 0%,#f7d8b9 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #ffe2c6 0%,#f7d8b9 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffe2c6', endColorstr='#f7d8b9',GradientType=0 ); /* IE6-9 */	
-	box-sizing: border-box;
-	width: 82px;
-	display: block;
 }
 
 .lt-ie9 .ft-header-logo {
@@ -40,7 +38,7 @@ $ft-header-img-root: '/img' !default;
 }
 
 .ft-header-logo .ft-initials {
-	fill: $ftColor-DarkDarkGrey;
 	height: 35px;
+	fill: $ftColor-DarkDarkGrey;
 }
 
