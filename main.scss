@@ -24,13 +24,14 @@ $ft-header-img-root: '/img' !default;
 	padding: 11px 0 31px;
 	width: 82px;
 	height: 35px;
-	background: #ffe2c6; /* Old browsers */
+	background: #ffe2c6; 
 	background: -moz-linear-gradient(top,  #ffe2c6 0%, #f7d8b9 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffe2c6), color-stop(100%,#f7d8b9)); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top,  #ffe2c6 0%,#f7d8b9 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top,  #ffe2c6 0%,#f7d8b9 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  #ffe2c6 0%,#f7d8b9 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #ffe2c6 0%,#f7d8b9 100%); /* W3C */
+	text-align: center; // needed for firefox
 }
 
 .lt-ie9 .ft-header-logo {
