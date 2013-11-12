@@ -35,6 +35,9 @@ $ftFooterSpacingUnit: 10px;
 .ft-footer-pearson {
 	padding-top: $ftFooterSpacingUnit;
 	padding-bottom: $ftFooterSpacingUnit;
+	font-family: ft-icons;
+	font-size: 11px;
+	line-height: 20px;
 	background-color: $ftColor-Tint2;
 	color: #716f69; /* New palette color? */
 }

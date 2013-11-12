@@ -1,7 +1,7 @@
 {
   "description": "Footer",
   "origamiType": "module",
-  "origamiVersion": 0.1,
+  "origamiVersion": 1,
   "support": "web.team@ft.com",
-  "supportStatus": "not implemented"
+  "supportStatus": "active"
 }
