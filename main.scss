@@ -7,15 +7,21 @@ $ftColor-DarkDarkGrey: #333333;
 @if ($ft-header-sticky) {
 	@if (length($ft-header-sticky) > 0) {
 		
-		@include ftHeaderPositionStatic();
+		@if (length($ft-header-sticky) < 4) {
+			@include ftHeaderPositionStatic();
+		}
 
-		@each $layout in $ft-header-sticky {
-			@include ftGridRespondTo($layout) {
-				@include ftHeaderPositionFixed(); 
-			}
-		} 		
+		@if (length($ft-header-sticky) == 4) {
+			@include ftHeaderPositionFixed();
+		} @else {
+			@each $layout in $ft-header-sticky {
+				@include ftGridRespondTo($layout) {
+					@include ftHeaderPositionFixed(); 
+				}
+			}				
+		}	
 
-	} else {
+	} @else {
 		@include ftHeaderPositionFixed();
 	}
 	
