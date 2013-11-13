@@ -1,4 +1,4 @@
-<footer class="ft-footer-module" data-version="0.3.4" data-component="footer">
+<footer class="ft-footer-module" data-version="0.3.5" data-component="footer">
 	<div class="ft-grid-row">
 		{{#footer.links}}
 		<div class="ft-grid-col-s6-m6">
@@ -6,11 +6,9 @@
 		</div>
 		{{/footer.links}}
 	</div>
-	<div class="ft-grid-row">
-		<div class="ft-grid-col-d12 ft-footer-copyright">
-			&#169; THE FINANCIAL TIMES LTD {{footer.copyrightYear}}. <wbr />
-			{{{footer.copyrightText}}}
-		</div>
+	<div class="ft-grid-row ft-grid-col-d12 ft-footer-copyright">
+		<div class="ft-footer-copyright-text">&#169; THE FINANCIAL TIMES LTD {{footer.copyrightYear}}. </div>
+		<div class="ft-footer-copyright-text">{{{footer.copyrightText}}}</div>
 	</div>
 	<div class="ft-footer-pearson">
 		<div class="ft-grid-row">

@@ -27,9 +27,13 @@ $ftFooterSpacingUnit: 10px;
 	padding-top: $ftFooterSpacingUnit;
 	padding-bottom: $ftFooterSpacingUnit;
 	color: #4c4c4c; /* New palette color? - can this be the same as the .ft-footer-link color */
-	white-space: nowrap;
 	font-size: 9px;
 	line-height: 14px;
+}
+
+.ft-footer-copyright-text {
+	display: inline-block;
+	padding-right: $ftFooterSpacingUnit;
 }
 
 .ft-footer-pearson {
