@@ -34,6 +34,9 @@ $ftColor-DarkDarkGrey: #333333;
 	padding: 11px 0 31px;
 	width: 82px;
 	height: 35px;
+}
+
+.inlinesvg .ft-header-logo {
 	background: #ffe2c6; 
 	background: -moz-linear-gradient(top,  #ffe2c6 0%, #f7d8b9 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffe2c6), color-stop(100%,#f7d8b9)); /* Chrome,Safari4+ */
@@ -44,12 +47,14 @@ $ftColor-DarkDarkGrey: #333333;
 	text-align: center; // needed for firefox
 }
 
-.lt-ie9 .ft-header-logo {
-	background: url(#{$ft-header-img-root}ft-logo.gif) no-repeat;
-}
-
-.ft-header-logo .ft-initials {
+.inlinesvg .ft-header-logo .ft-initials {
 	height: 35px;
 	fill: $ftColor-DarkDarkGrey;
 }
+
+.no-inlinesvg .ft-header-logo {
+	background: url(#{$ft-header-img-root}ft-logo.gif) no-repeat;
+}
+
+
 
