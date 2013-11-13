@@ -33,11 +33,14 @@ The header will soon also depend upon **origami/colors-module** for colour varia
 
 ## Stylesheet
 
-The SCSS is defined in `main.scss`. There are no variables, functions or mixins that are expected to be of use outside this module.
+The SCSS is defined in `main.scss`.
 
-### Images
+###Variables
+To use these set them *before* including `header-module/main.scss` in your stylesheet
 
-To correctly include the ft logo for ie7 & 8 you will neet to configure your server to make `header-module/img` public and set the `$ft-header-img-root` variable in your sass *before* importing the header module's sass and also make sure 
-
-    $ft-header-img-root: 'assets/header-module/img';
-    @import 'header-module/main';
+* `$ft-header-img-root`: *['/img']* Path to images folder (To correctly include the FT logo for ie7 & 8 you will need to make sure `img/ft-logo.gif` is avaiable via this path)
+* `$ft-header-top-offset`: *[0]* Distance of header from top of page (only applied when the header has `position: fixed`);
+* `$ft-header-sticky`: *[$ft-grid-small,$ft-grid-medium]* Configures when a 'sticky' fixed position header is used:
+	* `false` - header is never sticky
+	* `true` - header is always sticky
+	* comma-separated list of [grid-module layout identifiers](link-to-grid-module-docs-eventually) - header will be sicky at these layout sizes only.

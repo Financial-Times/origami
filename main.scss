@@ -1,22 +1,26 @@
-//@import 'colors-module/main';
-$ftFooterSpacingUnit: 10px;
+@import '_variables';
+@import '_mixins';
 
-// TODO: Remove these and use Velcro/colors-module instead
-$ftColor-Tint1: #f6e9d8;
-$ftColor-Tint2: #e9decf;
+// TODO: Remove this and use Velcro/colors-module instead
 $ftColor-DarkDarkGrey: #333333;
 
+@if ($ft-header-sticky) {
+	@if (length($ft-header-sticky) > 0) {
+		
+		@include ftHeaderPositionStatic();
 
-$ft-header-img-root: '/img' !default;
+		@each $layout in $ft-header-sticky {
+			@include ftGridRespondTo($layout) {
+				@include ftHeaderPositionFixed(); 
+			}
+		} 		
 
-.ft-header-module {
-	margin-bottom: 10px;
-	min-height: 77px;
-}
-
-.ft-header-nav-bar{
-   	height: 50px;
-   	background-color: $ftColor-DarkDarkGrey;
+	} else {
+		@include ftHeaderPositionFixed();
+	}
+	
+} @else {
+	@include ftHeaderPositionStatic();
 }
 
 .ft-header-logo {
