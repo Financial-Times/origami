@@ -34,6 +34,13 @@ $ftColor-DarkDarkGrey: #333333;
 	padding: 11px 0 31px;
 	width: 82px;
 	height: 35px;
+	// default gif for when inline svg not supported
+	// not wrapped in `no-inlinesvg` in case modernizr fails to run
+	background: url(#{$ft-header-img-root}ft-logo.gif) no-repeat; 
+}
+
+.ft-header-logo .ft-initials {
+	display: none;
 }
 
 .inlinesvg .ft-header-logo {
@@ -48,13 +55,7 @@ $ftColor-DarkDarkGrey: #333333;
 }
 
 .inlinesvg .ft-header-logo .ft-initials {
+	display: block;
 	height: 35px;
 	fill: $ftColor-DarkDarkGrey;
 }
-
-.no-inlinesvg .ft-header-logo {
-	background: url(#{$ft-header-img-root}ft-logo.gif) no-repeat;
-}
-
-
-
