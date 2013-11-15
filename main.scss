@@ -51,11 +51,11 @@ $ftColor-DarkDarkGrey: #333333;
 	background: -o-linear-gradient(top,  #ffe2c6 0%,#f7d8b9 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  #ffe2c6 0%,#f7d8b9 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #ffe2c6 0%,#f7d8b9 100%); /* W3C */
-	text-align: center; // needed for firefox
 }
 
 .inlinesvg .ft-header-logo .ft-initials {
 	display: block;
 	height: 35px;
 	fill: $ftColor-DarkDarkGrey;
+	width: 100%; // needed for firefox
 }
