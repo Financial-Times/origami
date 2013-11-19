@@ -1,32 +1,34 @@
 @import 'colors-module/colors.scss';
+@import 'fonts-module/main.scss';
 
 $ftFooterSpacingUnit: 10px;
+$ftColor-Charcoal: #333 !default; // To go in colors-module
 
 .ft-footer-module {
     margin: 20px 0 0 0;
     padding: 5px 0 0 0;
 	background-color: $ftColor-Tint1;
     font-size: 12px;
-	font-family: BentonSans, Helvetica, Arial, sans-serif;
+	font-family: $ft-font-sanserif; 
 }
 
 .ft-footer-link {
 	display: block;
 	border-bottom: 1px solid $ftColor-Tint2;
-	color: #434343; /* New palette color? */
+	color: $ftColor-Charcoal;
 	font-size: 14px;
 	line-height: 30px;
 }
 
 .ft-footer-link:hover,
 .ft-footer-link:focus {
-	color: #2e6e9e; /* Blue */
+	color: $ftColor-Blue;
 }
 
 .ft-footer-copyright {
 	padding-top: $ftFooterSpacingUnit;
 	padding-bottom: $ftFooterSpacingUnit;
-	color: #4c4c4c; /* New palette color? - can this be the same as the .ft-footer-link color */
+	color: $ftColor-Charcoal;
 	font-size: 9px;
 	line-height: 14px;
 }
@@ -39,7 +41,6 @@ $ftFooterSpacingUnit: 10px;
 .ft-footer-pearson {
 	padding-top: $ftFooterSpacingUnit;
 	padding-bottom: $ftFooterSpacingUnit;
-	font-family: ft-icons;
 	font-size: 11px;
 	line-height: 20px;
 	background-color: $ftColor-Tint2;
