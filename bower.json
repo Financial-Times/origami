@@ -2,7 +2,7 @@
 	"name": "header-module",
 	"main": ["main.scss", "header.mustache", "img/ft-logo.gif"],
 	"dependencies": {
-		"grid-module": "http://git.svc.ft.com:9080/git/origami/grid-module.git#0.3.x",
+		"grid-module": "http://git.svc.ft.com:9080/git/origami/grid-module.git#1.0.x",
 		"colors-module": "https://github.com/Financial-Times/colors-module.git",
 		"modernizr": "2.6.*"
 	}
