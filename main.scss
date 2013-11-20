@@ -2,7 +2,6 @@
 @import 'fonts-module/main.scss';
 
 $ftFooterSpacingUnit: 10px;
-$ftColor-Charcoal: #333 !default; // To go in colors-module
 
 .ft-footer-module {
     margin: 20px 0 0 0;
@@ -47,6 +46,6 @@ $ftColor-Charcoal: #333 !default; // To go in colors-module
 	color: #716f69; /* New palette color? */
 }
 
-.ft-footer-pearson .ft-grid-col-d6:last-child {
+.ft-footer-pearsonlogo {
 	text-align: right;
 }
