@@ -1,6 +1,7 @@
 {
 	"name": "footer-module",
 	"main": ["main.scss", "footer.mustache", "footer.json"],
+	"ignore": ["README.md"],
 	"dependencies": {
 		"fonts-module": "http://git.svc.ft.com:9080/git/origami/fonts-module.git#0.1.x",
 		"colors-module": "https://github.com/Financial-Times/colors-module.git#0.1.x",
