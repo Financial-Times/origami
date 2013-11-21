@@ -1,0 +1,17 @@
+{
+  "name": "tracking-module",
+  "version": "0.0.1",
+  "description": "Origami module for FT tracking.",
+  "repository": {
+    "type": "git",
+    "url": "http://git.svc.ft.com:9080/git/origami/tracking-module.git"
+  },
+  "keywords": [
+    "ft",
+    "tracking"
+  ],
+  "author": "Mark Stephens <mark.stephens@ft.com>",
+  "devDependencies": {
+    "grunt": "~0.4.1"
+  }
+}

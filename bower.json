@@ -1,7 +1,26 @@
 {
-	"name": "tracking-module",
-	"main": ["tracking.mustache"],
-	"ignore": ["README.md"],
-	"dependencies": {
-	}
+  "name": "tracking-module",
+  "main": [
+    "tracking.mustache"
+  ],
+  "ignore": [
+    "README.md",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "0.0.1",
+  "authors": [
+    "Mark Stephens <mark.stephens@ft.com>",
+    "Web Team <web.team@ft.com>"
+  ],
+  "description": "Origami module for FT tracking.",
+  "keywords": [
+    "ft",
+    "tracking"
+  ],
+  "homepage": "http://git.svc.ft.com/summary/origami%2Ftracking-module.git",
+  "private": true
 }
