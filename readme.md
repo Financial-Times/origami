@@ -7,7 +7,7 @@ Origami module for the responsive FT page header.
 Add this to your dependencies in bower.json:
 
      "dependencies": {
-          "header-module": "http://git.svc.ft.com:9080/git/origami/footer-module.git#{semver}"
+          "ft-header-module": "http://git.svc.ft.com:9080/git/origami/header-module.git#{semver}"
      }
 
 It's strongly advised to specify at least the major and minor version as a [semver](http://semver.org/) tag.
@@ -38,9 +38,9 @@ The SCSS is defined in `main.scss`.
 ###Variables
 To use these set them *before* including `header-module/main.scss` in your stylesheet
 
-* `$ft-header-img-root`: *['/img']* Path to images folder (To correctly include the FT logo for browsers that don't support inline svg you will need to make sure `img/ft-logo.gif` is avaiable via this path)
-* `$ft-header-top-offset`: *[0]* Distance of header from top of page (only applied when the header has `position: fixed`);
-* `$ft-header-sticky`: *[$ft-grid-small,$ft-grid-medium]* Configures when a 'sticky' fixed position header is used:
+* `$o-ft-header-img-root`: *['/img']* Path to images folder (To correctly include the FT logo for browsers that don't support inline svg you will need to make sure `img/ft-logo.gif` is avaiable via this path)
+* `$o-ft-header-top-offset`: *[0]* Distance of header from top of page (only applied when the header has `position: fixed`);
+* `$o-ft-header-sticky`: *[$o-grid-small,$o-grid-medium]* Configures when a 'sticky' fixed position header is used:
 	* `false` - header is never sticky
 	* `true` - header is always sticky
 	* comma-separated list of [grid-module layout identifiers](link-to-grid-module-docs-eventually) - header will be sicky at these layout sizes only.

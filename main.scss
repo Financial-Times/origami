@@ -4,46 +4,46 @@
 // TODO: Remove this and use Velcro/colors-module instead
 $ftColor-DarkDarkGrey: #333333;
 
-@if ($ft-header-sticky) {
-	@if (length($ft-header-sticky) > 0) {
+@if ($o-ft-header-sticky) {
+	@if (length($o-ft-header-sticky) > 0) {
 		
-		@if (length($ft-header-sticky) < 4) {
-			@include ftHeaderPositionStatic();
+		@if (length($o-ft-header-sticky) < 4) {
+			@include oFtHeaderPositionStatic();
 		}
 
-		@if (length($ft-header-sticky) == 4) {
-			@include ftHeaderPositionFixed();
+		@if (length($o-ft-header-sticky) == 4) {
+			@include oFtHeaderPositionFixed();
 		} @else {
-			@each $layout in $ft-header-sticky {
-				@include ftGridRespondTo($layout) {
-					@include ftHeaderPositionFixed(); 
+			@each $layout in $o-ft-header-sticky {
+				@include oGridRespondTo($layout) {
+					@include oFtHeaderPositionFixed(); 
 				}
 			}				
 		}	
 
 	} @else {
-		@include ftHeaderPositionFixed();
+		@include oFtHeaderPositionFixed();
 	}
 	
 } @else {
-	@include ftHeaderPositionStatic();
+	@include oFtHeaderPositionStatic();
 }
 
-.ft-header-logo {
+.o-ft-header-logo {
 	display: block;
 	padding: 11px 0 31px;
 	width: 82px;
 	height: 35px;
 	// default gif for when inline svg not supported
 	// not wrapped in `no-inlinesvg` in case modernizr fails to run
-	background: url(#{$ft-header-img-root}ft-logo.gif) no-repeat; 
+	background: url(#{$o-ft-header-img-root}ft-logo.gif) no-repeat; 
 }
 
-.ft-header-logo .ft-initials {
+.o-ft-header-logo .ft-initials {
 	display: none;
 }
 
-.inlinesvg .ft-header-logo {
+.inlinesvg .o-ft-header-logo {
 	background: #ffe2c6; 
 	background: -moz-linear-gradient(top,  #ffe2c6 0%, #f7d8b9 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffe2c6), color-stop(100%,#f7d8b9)); /* Chrome,Safari4+ */
@@ -53,7 +53,7 @@ $ftColor-DarkDarkGrey: #333333;
 	background: linear-gradient(to bottom,  #ffe2c6 0%,#f7d8b9 100%); /* W3C */
 }
 
-.inlinesvg .ft-header-logo .ft-initials {
+.inlinesvg .o-ft-header-logo .ft-initials {
 	display: block;
 	height: 35px;
 	fill: $ftColor-DarkDarkGrey;

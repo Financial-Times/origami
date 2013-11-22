@@ -1,13 +1,13 @@
 // Generates css for a fixed position header at the top of the page
-@mixin ftHeaderPositionFixed () {
-	.ft-header-module {
+@mixin oFtHeaderPositionFixed () {
+	.o-ft-header {
 		margin-bottom: 10px;
-		min-height: 77 + $ft-header-top-offset + px;
+		min-height: 77 + $o-ft-header-top-offset + px;
 	}
 
-	.ft-header-nav-bar{
+	.o-ft-header-nav-bar {
 		position: fixed;
-		top: $ft-header-top-offset + px;
+		top: $o-ft-header-top-offset + px;
 		right: 0;
 		left: 0;
 	   	height: 50px;
@@ -16,13 +16,13 @@
 }
 
 // Generates css for a static header at the top of the page
-@mixin ftHeaderPositionStatic () {
-	.ft-header-module {
+@mixin oFtHeaderPositionStatic () {
+	.o-ft-header {
 		margin-bottom: 10px;
 		min-height: 77px;
 	}
 
-	.ft-header-nav-bar{
+	.o-ft-header-nav-bar {
 	   	height: 50px;
 	   	background-color: $ftColor-DarkDarkGrey;
 	}
