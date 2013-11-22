@@ -7,7 +7,7 @@ Origami module for the FT tracking.
 Add this to your depdendencies in bower.json:
 
      "dependencies": {
-          "tracking-module": "http://git.svc.ft.com:9080/git/origami/tracking.git#0.0.1"
+          "tracking-module": "http://git.svc.ft.com:9080/git/origami/tracking-module.git#0.0.2"
      }
 
 It's strongly advised to specify at least the major and minor version as a tag.
@@ -24,6 +24,6 @@ This module doesn't depend on anything. Yet.
 
 ## Template
 
-`tracking.mustache` expects a `environment` object, containing one property:
+`tracking.mustache` expects a `tracking` object, containing the following properties:
 
-* `production` - Is the site in a production environment. Boolean.
+* `domain` - The domain of the tag collector, either statstest.ft.com or stats.ft.com.

@@ -20,7 +20,7 @@ module.exports = function (grunt) {
     			},
     			{
     				location: "README.md",
-    				regex: /("tracking-module": "http:\/\/git\.svc\.ft\.com\:9080\/git\/origami\/tracking.git#)(\d\.\d\.\d)(")/
+    				regex: /("tracking-module": "http:\/\/git\.svc\.ft\.com\:9080\/git\/origami\/tracking-module.git#)(\d\.\d\.\d)(")/
     			},
     			{
     				location: "tracking.mustache",
