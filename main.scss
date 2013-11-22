@@ -1,17 +1,17 @@
-@import 'colors-module/colors.scss';
-@import 'fonts-module/main.scss';
+@import "colors-module/colors";
+@import "fonts-module/main";
 
-$ftFooterSpacingUnit: 10px;
+$o-ft-footer-spacing-unit: 10px;
 
-.ft-footer-module {
+.o-ft-footer {
     margin: 20px 0 0 0;
     padding: 5px 0 0 0;
 	background-color: $ftColor-Tint1;
     font-size: 12px;
-	font-family: $ft-font-sanserif; 
+	font-family: $o-font-sansserif; 
 }
 
-.ft-footer-link {
+.o-ft-footer-link {
 	display: block;
 	border-bottom: 1px solid $ftColor-Tint2;
 	color: $ftColor-Charcoal;
@@ -19,33 +19,33 @@ $ftFooterSpacingUnit: 10px;
 	line-height: 30px;
 }
 
-.ft-footer-link:hover,
-.ft-footer-link:focus {
+.o-ft-footer-link:hover,
+.o-ft-footer-link:focus {
 	color: $ftColor-Blue;
 }
 
-.ft-footer-copyright {
-	padding-top: $ftFooterSpacingUnit;
-	padding-bottom: $ftFooterSpacingUnit;
+.o-ft-footer-copyright {
+	padding-top: $o-ft-footer-spacing-unit;
+	padding-bottom: $o-ft-footer-spacing-unit;
 	color: $ftColor-Charcoal;
 	font-size: 9px;
 	line-height: 14px;
 }
 
-.ft-footer-copyright-text {
+.o-ft-footer-copyright-text {
 	display: inline-block;
-	padding-right: $ftFooterSpacingUnit;
+	padding-right: $o-ft-footer-spacing-unit;
 }
 
-.ft-footer-pearson {
-	padding-top: $ftFooterSpacingUnit;
-	padding-bottom: $ftFooterSpacingUnit;
+.o-ft-footer-pearson {
+	padding-top: $o-ft-footer-spacing-unit;
+	padding-bottom: $o-ft-footer-spacing-unit;
 	font-size: 11px;
 	line-height: 20px;
 	background-color: $ftColor-Tint2;
 	color: #716f69; /* New palette color? */
 }
 
-.ft-footer-pearsonlogo {
+.o-ft-footer-pearsonlogo {
 	text-align: right;
 }
