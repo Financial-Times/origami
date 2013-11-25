@@ -4,30 +4,30 @@
 $o-ft-footer-spacing-unit: 10px;
 
 .o-ft-footer {
-    margin: 20px 0 0 0;
-    padding: 5px 0 0 0;
-	background-color: $ftColor-Tint1;
+    margin-top: 10px;
+    padding-top: 5px;
+	background-color: $o-colors-ft-tint1;
     font-size: 12px;
 	font-family: $o-font-sansserif; 
 }
 
 .o-ft-footer-link {
 	display: block;
-	border-bottom: 1px solid $ftColor-Tint2;
-	color: $ftColor-Charcoal;
+	border-bottom: 1px solid $o-colors-ft-tint2;
+	color: $o-colors-ft-charcoal;
 	font-size: 14px;
 	line-height: 30px;
 }
 
 .o-ft-footer-link:hover,
 .o-ft-footer-link:focus {
-	color: $ftColor-Blue;
+	color: $o-colors-ft-blue;
 }
 
 .o-ft-footer-copyright {
 	padding-top: $o-ft-footer-spacing-unit;
 	padding-bottom: $o-ft-footer-spacing-unit;
-	color: $ftColor-Charcoal;
+	color: $o-colors-ft-charcoal;
 	font-size: 9px;
 	line-height: 14px;
 }
@@ -42,7 +42,7 @@ $o-ft-footer-spacing-unit: 10px;
 	padding-bottom: $o-ft-footer-spacing-unit;
 	font-size: 11px;
 	line-height: 20px;
-	background-color: $ftColor-Tint2;
+	background-color: $o-colors-ft-tint2;
 	color: #716f69; /* New palette color? */
 }
 
