@@ -1,9 +1,6 @@
 @import '_variables';
 @import '_mixins';
 
-// TODO: Remove this and use Velcro/colors-module instead
-$ftColor-DarkDarkGrey: #333333;
-
 @if ($o-ft-header-sticky) {
 	@if (length($o-ft-header-sticky) > 0) {
 		
@@ -56,6 +53,6 @@ $ftColor-DarkDarkGrey: #333333;
 .inlinesvg .o-ft-header-logo .ft-initials {
 	display: block;
 	height: 35px;
-	fill: $ftColor-DarkDarkGrey;
+	fill: $o-colors-ft-charcoal;
 	width: 100%; // needed for firefox
 }
