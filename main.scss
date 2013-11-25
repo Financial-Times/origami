@@ -11,7 +11,8 @@ $o-ft-footer-spacing-unit: 10px;
 	font-family: $o-font-sansserif; 
 }
 
-.o-ft-footer-link {
+.o-ft-footer-link:link,
+.o-ft-footer-link:visited, {
 	display: block;
 	border-bottom: 1px solid $o-colors-ft-tint2;
 	color: $o-colors-ft-charcoal;
