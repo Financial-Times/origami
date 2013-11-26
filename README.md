@@ -8,7 +8,7 @@ This module contains only SASS variables, so if compiled on its own, it will pro
 
 	@import "colors-module/main";
 
-	$my-body-text-color: $o-colors-ft-charcoal;
+	$my-body-text-color: $o-colors-charcoal;
 
 	.my-thing {
 		color: $my-body-text-color;
