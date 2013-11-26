@@ -1,34 +1,36 @@
-@import "colors-module/main";
-@import "fonts-module/main";
+@import "ft-velcro/main";
+
+@include oFontsInclude(BentonSans);
 
 $o-ft-footer-spacing-unit: 10px;
 
 .o-ft-footer {
     margin-top: 10px;
     padding-top: 5px;
-	background-color: $o-colors-ft-tint1;
-    font-size: 12px;
-	font-family: $o-font-sansserif; 
+	background-color: $o-colors-tint1;
+    @include oVelcroFontSize(14);
+	font-family: $o-velcro-ui-font;
 }
 
 .o-ft-footer-link:link,
 .o-ft-footer-link:visited, {
 	display: block;
-	border-bottom: 1px solid $o-colors-ft-tint2;
-	color: $o-colors-ft-charcoal;
+	border-bottom: 1px solid $o-colors-tint2;
+	color: $o-colors-charcoal;
 	font-size: 14px;
 	line-height: 29px;
+	text-decoration: none;
 }
 
 .o-ft-footer-link:hover,
 .o-ft-footer-link:focus {
-	color: $o-colors-ft-blue;
+	color: $o-colors-blue;
 }
 
 .o-ft-footer-copyright {
 	padding-top: $o-ft-footer-spacing-unit;
 	padding-bottom: $o-ft-footer-spacing-unit;
-	color: $o-colors-ft-charcoal;
+	color: $o-colors-charcoal;
 	font-size: 9px;
 	line-height: 14px;
 }
@@ -43,7 +45,7 @@ $o-ft-footer-spacing-unit: 10px;
 	padding-bottom: $o-ft-footer-spacing-unit;
 	font-size: 11px;
 	line-height: 20px;
-	background-color: $o-colors-ft-tint2;
+	background-color: $o-colors-tint2;
 	color: #716f69; /* New palette color? */
 }
 
