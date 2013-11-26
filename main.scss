@@ -1,1 +1,55 @@
-@import "brands/ft";
+/**
+ * Colour palette
+ *
+ * Avoid using these colours directly in products.  Instead, prefer the colour
+ * use case variables in main.scss
+ */
+
+/* Primary Palette */
+$o-colors-ft-pink: #fff1e0;
+$o-colors-ft-black: #000000;
+$o-colors-ft-charcoal: #333333;
+$o-colors-ft-blue: #2e6e9e;
+$o-colors-ft-claret: #9e2f50;
+$o-colors-ft-orange: #d66d06;
+
+/* Greys */
+$o-colors-ft-warm-grey1: #a7a59b;
+$o-colors-ft-warm-grey2: #74736c;
+$o-colors-ft-cool-grey1: #777;
+$o-colors-ft-cool-grey2: #dfded8;
+$o-colors-ft-dark-grey: #505050;
+
+/* Tints */
+$o-colors-ft-tint1: #f6e9d8;
+$o-colors-ft-tint2: #e9decf;
+$o-colors-ft-tint3: #cec6b9;
+
+/* Colors */
+$o-colors-ft-red: #c00;
+$o-colors-ft-green: #458b00;
+
+/* Highlight colors */
+$o-colors-ft-red2: #c36256;
+$o-colors-ft-orange: #eda45e;
+$o-colors-ft-coffee: #94826b;
+$o-colors-ft-yellow: #eed485;
+$o-colors-ft-leaf: #a6a471;
+$o-colors-ft-turquoise: #819e9a;
+$o-colors-ft-blue2: #75a5c2;
+$o-colors-ft-purple: #75a5c2;
+$o-colors-ft-eggplant: #936971;
+$o-colors-ft-platinum: #c1b8b4;
+
+/* Highlight tints */
+$o-colors-ft-red-tint1: #b1493f;
+$o-colors-ft-red-tint2: #c36256;
+$o-colors-ft-red-tint3: #d17c70;
+$o-colors-ft-red-tint4: #df9c92;
+$o-colors-ft-red-tint5: #ebbcb3;
+
+$o-colors-ft-blue-tint1: #b1493f;
+$o-colors-ft-blue-tint2: #75a5c2;
+$o-colors-ft-blue-tint3: #8ab5cd;
+$o-colors-ft-blue-tint4: #a9cadc;
+$o-colors-ft-blue-tint5: #bcd7e5;
