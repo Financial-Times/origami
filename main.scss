@@ -2,9 +2,11 @@
 
 @include oFontsInclude(BentonSans);
 
+$o-ft-footer-img-root: '/img' !default;
 $o-ft-footer-spacing-unit: 10px;
+$o-footer-prefix: o-ft-footer;
 
-.o-ft-footer {
+.#{$o-footer-prefix} {
     margin-top: 10px;
     padding-top: 5px;
 	background-color: $o-colors-tint1;
@@ -12,8 +14,8 @@ $o-ft-footer-spacing-unit: 10px;
 	font-family: $o-velcro-ui-font;
 }
 
-.o-ft-footer-link:link,
-.o-ft-footer-link:visited, {
+.#{$o-footer-prefix}-link:link,
+.#{$o-footer-prefix}-link:visited, {
 	display: block;
 	border-bottom: 1px solid $o-colors-tint2;
 	color: $o-colors-charcoal;
@@ -22,12 +24,12 @@ $o-ft-footer-spacing-unit: 10px;
 	text-decoration: none;
 }
 
-.o-ft-footer-link:hover,
-.o-ft-footer-link:focus {
+.#{$o-footer-prefix}-link:hover,
+.#{$o-footer-prefix}-link:focus {
 	color: $o-colors-blue;
 }
 
-.o-ft-footer-copyright {
+.#{$o-footer-prefix}-copyright {
 	padding-top: $o-ft-footer-spacing-unit;
 	padding-bottom: $o-ft-footer-spacing-unit;
 	color: $o-colors-charcoal;
@@ -35,20 +37,40 @@ $o-ft-footer-spacing-unit: 10px;
 	line-height: 14px;
 }
 
-.o-ft-footer-copyright-text {
+.#{$o-footer-prefix}-copyright-text {
 	display: inline-block;
 	padding-right: $o-ft-footer-spacing-unit;
 }
 
-.o-ft-footer-pearson {
-	padding-top: $o-ft-footer-spacing-unit;
-	padding-bottom: $o-ft-footer-spacing-unit;
-	font-size: 11px;
-	line-height: 20px;
+.#{$o-footer-prefix}-pearson-row {
+	padding-top: $o-ft-footer-spacing-unit + 5;
+	padding-bottom: $o-ft-footer-spacing-unit + 5;
 	background-color: $o-colors-tint2;
-	color: #716f69; /* New palette color? */
 }
 
-.o-ft-footer-pearsonlogo {
-	text-align: right;
+.#{$o-footer-prefix}-pearson {
+	height: 16px;
+	background-image: url($o-ft-footer-img-root + 'pearson_sprite.gif');
+	fill: $o-colors-warm-grey2;
+	svg {
+		display: none;
+	}
+}
+
+.inlinesvg .#{$o-footer-prefix}-pearson {
+	background-image: none;
+	svg {
+		display: block;
+	}
+}
+
+.#{$o-footer-prefix}-pearson-alwayslearning {
+	float: left;
+	width: 170px;
+}
+
+.#{$o-footer-prefix}-pearson-logo {
+	float: right;
+	width: 100px;
+	background-position: 0 -16px;
 }
