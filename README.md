@@ -25,11 +25,10 @@ This module contains three assets:
 This module depends on:
 
 * **origami/grid-module** - for layout CSS
+* **ft-velcro (v2)** - for colours and fonts
 * **Mustache** - for rendering the template
-* **SASS** - For compiling the CSS
-* **Browser support for HTML5 semantic elements** - or [HTML5 Shiv](https://github.com/aFarkas/html5shiv)/[Shim](https://code.google.com/p/html5shim/)
-
-The footer will soon also depend upon **origami/colors-module** for colour variables and **origami/fonts-module** for fonts.
+* **SASS** - for compiling the CSS
+* **Modernzr** - for Inline SVG support detection, and shim/shiv of HTML5 semantic elements
 
 ## Template
 
@@ -56,3 +55,5 @@ The on small and medium screens, the footer links will render in two vertical co
 In order to make the copyright text wrap nicely at all screen sizes, the copyright year has a word break element after it, and the `copyrightText` is set to not wrap. This means that if you replace the content of `copyrightText` for something much longer, it is advisable to put further `<wbr/>` elements inline. For example:
 
     copyrightText: "This is a really really long piece of copyright related text, that may wrap at small screen sizes, so if it does wrap, I want the line break to be here <wbr /> to make things nice and predictable.
+
+The Pearson logo and 'always learning' text is rendered as an SVG, with a GIF fallback for older browsers.
