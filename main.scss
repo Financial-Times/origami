@@ -4,7 +4,6 @@
 
 @include oFontsInclude(BentonSans);
 
-// module
 $o-ft-footer-name: ft-footer-module;
 $o-ft-footer-version: null !default;
 $o-ft-footer-assets-path: $o-ft-footer-name !default;
@@ -24,7 +23,11 @@ $o-ft-footer-spacing-unit: 10px;
 }
 
 .o-ft-footer-link:link,
+<<<<<<< HEAD
 .o-ft-footer-link:visited, {
+=======
+.o-ft-footer-link:visited, { 
+>>>>>>> removed superfluous sass variable storing the module prefix
 	display: block;
 	border-bottom: 1px solid $o-colors-tint2;
 	color: $o-colors-charcoal;
