@@ -1,3 +1,16 @@
+@import "assets";
+@import "grid-module/main";
+@import "ft-velcro/main";
+
+
+$o-ft-header-name: ft-header-module;
+$o-ft-header-version: null !default;
+$o-ft-header-assets-path: $o-ft-header-name !default;
+
+@function oFtHeaderUseAsset ($asset) {
+    @return oUseAsset($asset, $o-ft-header-assets-path, $o-ft-header-version)
+}
+
 @import '_variables';
 @import '_mixins';
 
@@ -33,7 +46,7 @@
 	height: 35px;
 	// default gif for when inline svg not supported
 	// not wrapped in `no-inlinesvg` in case modernizr fails to run
-	background: url(#{$o-ft-header-img-root}ft-logo.gif) no-repeat; 
+	background: url(oFtHeaderUseAsset("img/ft-logo.gif")) no-repeat; 
 }
 
 .o-ft-header-logo .ft-initials {
