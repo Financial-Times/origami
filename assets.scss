@@ -1,0 +1,17 @@
+// util module 
+$o-global-assets-path: '/bower_components' !default;
+
+@function oUseAsset ($asset, $module: null, $version: null) {
+
+    $full-path: $asset;
+
+    @if ($version) {
+        $full-path: $version + '/' + $full-path;
+    }
+
+    @if ($module) {
+        $full-path: $module + '/' + $full-path;
+    }
+
+    @return $o-global-assets-path + '/' + $full-path;
+}
