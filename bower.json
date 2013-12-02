@@ -1,6 +1,6 @@
 {
 	"name": "ft-footer-module",
-	"main": ["main.scss", "footer.mustache", "footer.json"],
+	"main": ["main.scss", "footer.mustache", "footer.json", "img/pearson_sprite.gif"],
 	"ignore": ["README.md"],
 	"dependencies": {
 		"ft-velcro": "https://github.com/Financial-Times/ft-velcro.git#2.0.x",
