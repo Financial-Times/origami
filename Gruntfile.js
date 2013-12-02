@@ -14,7 +14,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     'origami-demo': {
       options: {
-        modernizr: false,
+        modernizr: true,
         viewModel: {
           footer: require('./footer.json')
         }
