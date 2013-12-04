@@ -1,4 +1,4 @@
-@import "assets";
+@import "assets-module/main";
 @import "ft-velcro/main";
 @import "grid-module/main";
 
@@ -9,7 +9,7 @@ $o-ft-footer-version: null !default;
 $o-ft-footer-assets-path: $o-ft-footer-name !default;
 
 @function oFtFooterUseAsset ($asset) {
-    @return oUseAsset($asset, $o-ft-footer-assets-path, $o-ft-footer-version)
+    @return oAssetsUse($asset, $o-ft-footer-assets-path, $o-ft-footer-version)
 }
 
 $o-ft-footer-spacing-unit: 10px;
