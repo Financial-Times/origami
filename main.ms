@@ -1,4 +1,4 @@
-<header class="o-ft-header" data-o-component="ft-header" data-o-version="0.2.3">
+<header class="o-ft-header" data-o-component="ft-header" data-o-version="0.3.0">
   <div class="o-ft-header-nav-bar">
     <div class="o-grid-row o-grid-col|12|">
       <a href="/" class="o-ft-header-logo">         

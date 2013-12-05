@@ -1,11 +1,15 @@
 {
 	"name": "ft-header-module",
-	"main": ["main.scss", "header.mustache", "img/ft-logo.gif"],
-	"ignore": ["README.md"],
+	"main": ["main.scss", "main.ms", "img/ft-logo.gif"],
+	"ignore": [
+		"README.md",
+		"package.json",
+		"Gruntfile.js"
+	],
 	"dependencies": {
 		"grid-module": "http://git.svc.ft.com:9080/git/origami/grid-module.git#>=1.1.x",
 		"ft-velcro": "https://github.com/Financial-Times/ft-velcro.git#2.x.x",
-		"modernizr": "2.6.*",
+		"modernizr": ">=2.6.* <3",
 		"assets-module": "http://git.svc.ft.com:9080/git/origami/assets-module.git#>=0.1.1"
 	}
 }
