@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.nav {
+  position: fixed;
+  width: 100%;
+  height: 30px;
+  background: red;
+  top: 0;
+}
+
+.login-trigger {
+  float: left;
+}
+
+.dialog__content {
+  background-color: #ccc;
+  padding: 5px;
+   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.dialog--dropdown {
+  position: absolute;
+  transition: max-height 0.5s;
+  max-height: 0;
+  overflow: hidden;
+
+}
+
+.dialog--dropdown.is-open {
+  max-height: 50px;
+}
+
+.dialog--dropdown {
+  position: absolute;
+  transition: height 0.5s;
+}
+
+.dialog--dropdown__content {
+  
+}
+
+.login-form {
+  right: 0;
+  top: 30px;
+  margin-left: 100px;
+}
+
+.login-form .dialog__content {
+  min-width: 250px;
+  
+}
+
+
+
+.dialog--overlay {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  display: flex;
+ 
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+ 
+  -webkit-box-pack: center; 
+  -moz-box-pack: center; 
+  -ms-flex-pack: center; 
+  -webkit-justify-content: center;
+  justify-content: center;
+ 
+ 
+ 
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+ 
+  position:fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+ 
+.dialog--overlay__content {
+    padding: 5px;
+    min-height: 10px;
+    min-width: 10px;
+    margin-top: 100px;
+    margin: auto;
+    background-color: #fff;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    border: 1px solid #a5a5a5;
+    position: relative;
+    -webkit-align-self: center;
+    align-self: center;
+    -webkit-align-content: center;
+    align-content: center;
+}
+
+
+.dialog--full-width {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  
+} 
+
+.dialog--full-height {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 100%;
+ 
+} 
+
+.dialog--full-width .dialog__content{
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  overflow-x: scroll;
+  
+}
+
+.dialog--full-height .dialog__content{
+  border-top: none;
+  border-bottom: none;
+  border-radius: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 100%;
+   overflow-y: scroll;
+}
