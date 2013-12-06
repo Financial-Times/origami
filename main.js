@@ -71,7 +71,7 @@ $.fn.responsiveDialog = function () {
 
 $('.dialog-trigger').click(function () {
     $('.dialog').removeClass('is-open');
-    $('.' + this.dataset.target).toggleClass('is-open').responsiveDialog();
+    $('.' + $(this).data('target')).toggleClass('is-open').responsiveDialog();
 });
 
 // $('.dialog--overlay').click(function () {
