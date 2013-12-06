@@ -13,8 +13,9 @@ body {
   top: 0;
 }
 
-.login-trigger {
-  float: left;
+.bottom {
+  top: auto;
+  bottom: 0;
 }
 
 .dialog__content {
@@ -27,19 +28,16 @@ body {
 
 .dialog--dropdown {
   position: absolute;
-  transition: max-height 0.5s;
-  max-height: 0;
   overflow: hidden;
-
+  display: none;
 }
 
 .dialog--dropdown {
   position: absolute;
-  transition: height 0.5s;
 }
 
 .dialog--dropdown.is-open {
-  max-height: 50px;
+  display: block;
 }
 
 
@@ -50,15 +48,62 @@ body {
   
 }
 
-.login-form {
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+// .top-right,
+// .top-left {
+//   margin-bottom: 30px;
+// }
+
+.top-right {
   right: 0;
   top: 30px;
   margin-left: 100px;
 }
 
-.login-form .dialog__content {
+.top-right .dialog__content {
   min-width: 250px;
-  
+}
+
+.top-left {
+  left: 0;
+  top: 30px;
+  margin-right: 50px;
+}
+
+.top-left .dialog__content {
+  min-width: 400px;
+}
+
+// .bottom-right,
+// .bottom-left {
+//   margin-top: 30px;
+// }
+
+.bottom-right {
+  right: 0;
+  bottom: 30px;
+  margin-left: 100px;
+}
+
+.bottom-right .dialog__content {
+  min-width: 250px;
+}
+
+.bottom-left {
+  left: 0;
+  bottom: 30px;
+  margin-right: 50px;
+}
+
+.bottom-left .dialog__content {
+  min-width: 400px;
 }
 
 
@@ -140,7 +185,7 @@ body {
   padding-top: 0;
   padding-bottom: 0;
   height: 100%;
- 
+  position: fixed;
 } 
 
 .dialog--full-width .dialog__content{

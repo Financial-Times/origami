@@ -50,6 +50,7 @@ $.fn.resizify = function () {
 /* document.getElementById('username').focus(); */
 
 $('.dialog-trigger').click(function () {
+    $('.dialog').removeClass('is-open');
     $('.' + this.dataset.target).toggleClass('is-open').resizify();
 });
 
