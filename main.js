@@ -2,14 +2,16 @@ function getSpacing(el, side) {
   return parseInt(el.css('padding-' + side), 10) + parseInt(el.css('margin-' + side), 10);
 }
 
-function getWrappedWidth(el, wrapper) {
-  return el.outerWidth() + getSpacing(wrapper, 'left') + getSpacing(wrapper, 'right');
-}
+var dialogDimensionCalculators = {
+  width: function (el, wrapper) {
+    return el.outerWidth() + getSpacing(wrapper, 'left') + getSpacing(wrapper, 'right');
+  },
+  height: function (el, wrapper) {
+    return el.outerHeight() + getSpacing(wrapper, 'top') + getSpacing(wrapper, 'bottom');
+  } 
+};
 
 
-function getWrappedHeight(el, wrapper) {
-  return el.outerHeight() + getSpacing(wrapper, 'top') + getSpacing(wrapper, 'bottom');
-}
 
 function isLegacyOverlay (el) {
   return !Modernizr.flexbox && !Modernizr.flexboxlegacy && el.hasClass('dialog--overlay');
@@ -20,51 +22,46 @@ function isLegacyOverlay (el) {
 
 
 $.fn.resizify = function () {
-  $(window).off("resize.resizify");
+  var win = $(window);
+
+  win.off("resize.resizify");
   
+  
+
   return this.each(function () {
     var dialogWrapper = $(this),
-      dialogEl = dialogWrapper.children(".dialog__content"),
-      dialogOrigWidth = getWrappedWidth(dialogEl, dialogWrapper);
-      dialogOrigHeight = getWrappedHeight(dialogEl, dialogWrapper);
+        dialogEl = dialogWrapper.children(".dialog__content"),
+        dialogDimensions = {
+          width: dialogDimensionCalculators.width(dialogEl, dialogWrapper),
+          height: dialogDimensionCalculators.height(dialogEl, dialogWrapper)
+        };
 
-    function resizeDialog() {
-      var win = $(window),
-          vw = win.width(),
-          vh = win.height();
-      
-      if (vw <= dialogOrigWidth) {
-        dialogWrapper.addClass("dialog--full-width");
+    function fullScreenSwitch (dimension) {
+      var edge = dimension === 'width' ? 'left' : 'top',
+          ucDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1);
+
+      if (win[dimension]() <= dialogDimensions[dimension]) {
+        dialogWrapper.addClass('dialog--full-' + dimension);
         if (isLegacyOverlay(dialogWrapper)) {
-          dialogEl.css('margin-left', 0);
+          dialogEl.css('margin-' + edge, 0);
         }
       } else {
-         dialogWrapper.removeClass("dialog--full-width");
-         dialogOrigWidth = Math.max(getWrappedWidth(dialogEl, dialogWrapper), dialogOrigWidth);
+         dialogWrapper.removeClass('dialog--full-' + dimension);
+         dialogDimensions[dimension] = Math.max(dialogDimensionCalculators[dimension](dialogEl, dialogWrapper), dialogDimensions[dimension]);
          if (isLegacyOverlay(dialogWrapper)) {
-          dialogEl.css('margin-left', - dialogEl.outerWidth()/2);
+          dialogEl.css('margin-' + edge, -dialogEl['outer' + ucDimension]()/2);
          }
       }
-      
-      
-      if (vh <= dialogOrigHeight) {
-        dialogWrapper.addClass("dialog--full-height");
-        if (isLegacyOverlay(dialogWrapper)) {
-          dialogEl.css('margin-top', 0);
-        }
-      } else {
-        dialogWrapper.removeClass("dialog--full-height");
-        dialogOrigHeight = Math.max(getWrappedHeight(dialogEl, dialogWrapper), dialogOrigHeight);
-        if (isLegacyOverlay(dialogWrapper)) {
-          dialogEl.css('margin-top', - dialogEl.outerHeight()/2);
-        }
-      }
-      
+    }
+    
+    function resizeDialog() {
+      fullScreenSwitch('width');
+      fullScreenSwitch('height');
     }
 
     resizeDialog();
 
-    $(window).on("resize.resizify", function() {
+    win.on("resize.resizify", function() {
         resizeDialog();
     });
 
