@@ -1,0 +1,17 @@
+.dialog--dropdown {
+  position: absolute;
+  overflow: hidden;
+  display: none;
+}
+
+.dialog--dropdown {
+  position: absolute;
+}
+
+.dialog--dropdown.is-open {
+  display: block;
+}
+
+.dialog--dropdown__content {
+  
+}

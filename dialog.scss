@@ -1,0 +1,46 @@
+.dialog--full-width {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+} 
+
+.dialog--full-height {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 100%;
+  position: fixed;
+  display: block;
+} 
+
+.dialog__content {
+  background-color: #ccc;
+  padding: 5px;
+   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+.dialog--full-width .dialog__content{
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  overflow-x: scroll;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.dialog--full-height .dialog__content{
+  border-top: none;
+  border-bottom: none;
+  border-radius: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 100%;
+  overflow-y: scroll;
+  margin-top: 0;
+  margin-bottom: 0;
+}
