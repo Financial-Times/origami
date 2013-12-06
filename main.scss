@@ -33,14 +33,18 @@ body {
 
 }
 
-.dialog--dropdown.is-open {
-  max-height: 50px;
-}
-
 .dialog--dropdown {
   position: absolute;
   transition: height 0.5s;
 }
+
+.dialog--dropdown.is-open {
+  max-height: 50px;
+}
+
+
+
+
 
 .dialog--dropdown__content {
   
@@ -60,11 +64,7 @@ body {
 
 
 .dialog--overlay {
-  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox; /* TWEENER - IE 10 */
-  display: -webkit-flex;
-  display: flex;
+
  
   -webkit-box-align: center;
   -webkit-flex-align: center;
@@ -99,9 +99,20 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+.dialog--overlay {
+  display: none;
+}
+
+.dialog--overlay.is-open {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  display: flex;
+}
  
 .dialog--overlay__content {
-    padding: 5px;
     min-height: 10px;
     min-width: 10px;
     margin-top: 100px;
@@ -123,7 +134,6 @@ body {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
-  
 } 
 
 .dialog--full-height {
@@ -137,8 +147,8 @@ body {
   border-left: none;
   border-right: none;
   border-radius: 0;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   width: 100%;
   overflow-x: scroll;
   
@@ -148,8 +158,8 @@ body {
   border-top: none;
   border-bottom: none;
   border-radius: 0;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   height: 100%;
-   overflow-y: scroll;
+  overflow-y: scroll;
 }
