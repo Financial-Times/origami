@@ -1,72 +1,69 @@
-function getSpacing(el, side) {
-  return parseInt(el.css('padding-' + side), 10) + parseInt(el.css('margin-' + side), 10);
-}
-
-var dialogDimensionCalculators = {
-  width: function (el, wrapper) {
-    return el.outerWidth() + getSpacing(wrapper, 'left') + getSpacing(wrapper, 'right');
-  },
-  height: function (el, wrapper) {
-    return el.outerHeight() + getSpacing(wrapper, 'top') + getSpacing(wrapper, 'bottom');
-  } 
-};
-
-
-
-function isLegacyOverlay (el) {
-  return !Modernizr.flexbox && !Modernizr.flexboxlegacy && el.hasClass('dialog--overlay');
-}
 
 
 
 
 
-$.fn.resizify = function () {
+
+$.fn.responsiveDialog = function () {
+
+  function getSpacing(el, side) {
+    return parseInt(el.css('padding-' + side), 10) + parseInt(el.css('margin-' + side), 10);
+  }
+
   var win = $(window);
 
-  win.off("resize.resizify");
-  
-  
+  var Plugin = function (el) {
+    var self = this;
+    this.dialogWrapper = el;
+    this.dialogEl = this.dialogWrapper.children(".dialog__content");
+    this.isLegacyOverlay = !Modernizr.flexbox && !Modernizr.flexboxlegacy && this.dialogWrapper.hasClass('dialog--overlay');
+    this.idealWidth = this.recalculateIdealWidth();
+    this.idealHeight = this.recalculateIdealHeight();
+    this.resizeDialog();
+    win.on("resize.responsiveDialog", function() {
+        self.resizeDialog();
+    });
+  };
 
-  return this.each(function () {
-    var dialogWrapper = $(this),
-        dialogEl = dialogWrapper.children(".dialog__content"),
-        dialogDimensions = {
-          width: dialogDimensionCalculators.width(dialogEl, dialogWrapper),
-          height: dialogDimensionCalculators.height(dialogEl, dialogWrapper)
-        };
+  Plugin.prototype = {
 
-    function fullScreenSwitch (dimension) {
+    fullScreenSwitch: function (dimension) {
       var edge = dimension === 'width' ? 'left' : 'top',
-          ucDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1);
+          capitalisedDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1);
 
-      if (win[dimension]() <= dialogDimensions[dimension]) {
-        dialogWrapper.addClass('dialog--full-' + dimension);
-        if (isLegacyOverlay(dialogWrapper)) {
-          dialogEl.css('margin-' + edge, 0);
+      if (win[dimension]() <= this['ideal' + capitalisedDimension]) {
+        this.dialogWrapper.addClass('dialog--full-' + dimension);
+        if (this.isLegacyOverlay) {
+          this.dialogEl.css('margin-' + edge, 0);
         }
       } else {
-         dialogWrapper.removeClass('dialog--full-' + dimension);
-         dialogDimensions[dimension] = Math.max(dialogDimensionCalculators[dimension](dialogEl, dialogWrapper), dialogDimensions[dimension]);
-         if (isLegacyOverlay(dialogWrapper)) {
-          dialogEl.css('margin-' + edge, -dialogEl['outer' + ucDimension]()/2);
-         }
+        this.dialogWrapper.removeClass('dialog--full-' + dimension);
+        this['ideal' + capitalisedDimension] = Math.max(
+          this['recalculateIdeal' + capitalisedDimension](this.dialogEl, this.dialogWrapper),
+          this['ideal' + capitalisedDimension]
+        );
+        if (this.isLegacyOverlay) {
+          this.dialogEl.css('margin-' + edge, -this.dialogEl['outer' + capitalisedDimension]()/2);
+        }
       }
+    },
+    resizeDialog: function () {
+      this.fullScreenSwitch('width');
+      this.fullScreenSwitch('height');
+    },
+    recalculateIdealWidth: function () {
+      return this.dialogEl.outerWidth() + getSpacing(this.dialogWrapper, 'left') + getSpacing(this.dialogWrapper, 'right');
+    },
+    recalculateIdealHeight: function () {
+      return this.dialogEl.outerHeight() + getSpacing(this.dialogWrapper, 'top') + getSpacing(this.dialogWrapper, 'bottom');
     }
-    
-    function resizeDialog() {
-      fullScreenSwitch('width');
-      fullScreenSwitch('height');
-    }
+  };
+ 
 
-    resizeDialog();
-
-    win.on("resize.resizify", function() {
-        resizeDialog();
-    });
-
-
-
+  return this.each(function () {
+    win.off("resize.responsiveDialog");
+    var wrapper = $(this);
+    wrapper.data('responsive-dialog', new Plugin(wrapper));
   });
 };
 
@@ -74,7 +71,7 @@ $.fn.resizify = function () {
 
 $('.dialog-trigger').click(function () {
     $('.dialog').removeClass('is-open');
-    $('.' + this.dataset.target).toggleClass('is-open').resizify();
+    $('.' + this.dataset.target).toggleClass('is-open').responsiveDialog();
 });
 
 // $('.dialog--overlay').click(function () {
