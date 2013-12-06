@@ -139,7 +139,9 @@ body {
     -moz-border-radius: 12px;
     border-radius: 12px;
     border: 1px solid #a5a5a5;
-    position: relative;
+    position: absolute;
+    left: 50%;
+    top: 50%;
 }
 
 .flexbox,
@@ -182,10 +184,19 @@ body {
     align-self: center;
     -webkit-align-content: center;
     align-content: center;
+    position: relative;
+    left: auto;
+    top: auto;
   }
 }
  
+.dialog--full-width .dialog--overlay__content {
+  left: auto;
+}
 
+.dialog--full-height .dialog--overlay__content {
+  top: auto;
+}
 
 
 .dialog--full-width {
@@ -199,7 +210,10 @@ body {
   padding-bottom: 0;
   height: 100%;
   position: fixed;
+  display: block;
 } 
+
+
 
 .dialog--full-width .dialog__content{
   border-left: none;
@@ -209,7 +223,9 @@ body {
   padding-right: 20px;
   width: 100%;
   overflow-x: scroll;
-  
+  margin-left: 0;
+  margin-right: 0;
+
 }
 
 .dialog--full-height .dialog__content{
@@ -220,4 +236,6 @@ body {
   padding-bottom: 20px;
   height: 100%;
   overflow-y: scroll;
+  margin-top: 0;
+  margin-bottom: 0;
 }

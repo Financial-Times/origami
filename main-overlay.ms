@@ -10,7 +10,7 @@
        	<p>Overlay content.</p>
        	<input id="username" />
 			<br>
-			<input id="pasword" type="password" /
+			<input id="pasword" type="password" />
     </div>
 </div>
 <div class="dialog dialog--overlay wide-tall">

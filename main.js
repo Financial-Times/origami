@@ -11,6 +11,12 @@ function getWrappedHeight(el, wrapper) {
   return el.outerHeight() + getSpacing(wrapper, 'top') + getSpacing(wrapper, 'bottom');
 }
 
+function isLegacyOverlay (el) {
+  return !Modernizr.flexbox && !Modernizr.flexboxlegacy && el.hasClass('dialog--overlay');
+}
+
+
+
 
 
 $.fn.resizify = function () {
@@ -22,8 +28,6 @@ $.fn.resizify = function () {
       dialogOrigWidth = getWrappedWidth(dialogEl, dialogWrapper);
       dialogOrigHeight = getWrappedHeight(dialogEl, dialogWrapper);
 
-
-
     function resizeDialog() {
       var win = $(window),
           vw = win.width(),
@@ -31,17 +35,29 @@ $.fn.resizify = function () {
       
       if (vw <= dialogOrigWidth) {
         dialogWrapper.addClass("dialog--full-width");
+        if (isLegacyOverlay(dialogWrapper)) {
+          dialogEl.css('margin-left', 0);
+        }
       } else {
          dialogWrapper.removeClass("dialog--full-width");
          dialogOrigWidth = Math.max(getWrappedWidth(dialogEl, dialogWrapper), dialogOrigWidth);
+         if (isLegacyOverlay(dialogWrapper)) {
+          dialogEl.css('margin-left', - dialogEl.outerWidth()/2);
+         }
       }
       
       
       if (vh <= dialogOrigHeight) {
         dialogWrapper.addClass("dialog--full-height");
+        if (isLegacyOverlay(dialogWrapper)) {
+          dialogEl.css('margin-top', 0);
+        }
       } else {
         dialogWrapper.removeClass("dialog--full-height");
         dialogOrigHeight = Math.max(getWrappedHeight(dialogEl, dialogWrapper), dialogOrigHeight);
+        if (isLegacyOverlay(dialogWrapper)) {
+          dialogEl.css('margin-top', - dialogEl.outerHeight()/2);
+        }
       }
       
     }
