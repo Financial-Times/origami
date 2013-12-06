@@ -12,11 +12,7 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    'origami-demo': {
-      options: {
-        modernizr: true
-      }
-    },
+    'origami-demo': {},
     watch: {
       'origami-demo': {
           files: ['*.scss', '*.js', '*.ms'],
@@ -24,7 +20,7 @@ module.exports = function(grunt) {
       }
     }
   });
-
+ 
   grunt.loadNpmTasks('grunt-origami-demoer');
   grunt.loadNpmTasks('grunt-contrib-watch');
 

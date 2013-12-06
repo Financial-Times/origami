@@ -6,8 +6,11 @@
 <div class="dialog dialog--overlay wide-squat">
     <div class="dialog__content dialog--overlay__content">
     	<h1>Overlay title - long version</h1>
+    	       	<p>Overlay content.</p>
        	<p>Overlay content.</p>
-       	<p>Overlay content.</p>
+       	<input id="username" />
+			<br>
+			<input id="pasword" type="password" /
     </div>
 </div>
 <div class="dialog dialog--overlay wide-tall">

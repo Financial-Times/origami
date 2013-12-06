@@ -2,6 +2,14 @@ function getSpacing(el, side) {
   return parseInt(el.css('padding-' + side), 10) + parseInt(el.css('margin-' + side), 10);
 }
 
+function getWrappedWidth(el, wrapper) {
+  return el.outerWidth() + getSpacing(wrapper, 'left') + getSpacing(wrapper, 'right');
+}
+
+
+function getWrappedHeight(el, wrapper) {
+  return el.outerHeight() + getSpacing(wrapper, 'top') + getSpacing(wrapper, 'bottom');
+}
 
 
 
@@ -11,8 +19,8 @@ $.fn.resizify = function () {
   return this.each(function () {
     var dialogWrapper = $(this),
       dialogEl = dialogWrapper.children(".dialog__content"),
-      dialogOrigWidth = dialogEl.outerWidth() + getSpacing(dialogWrapper, 'left') + getSpacing(dialogWrapper, 'right'),
-      dialogOrigHeight = dialogEl.outerHeight() + getSpacing(dialogWrapper, 'top') + getSpacing(dialogWrapper, 'bottom');
+      dialogOrigWidth = getWrappedWidth(dialogEl, dialogWrapper);
+      dialogOrigHeight = getWrappedHeight(dialogEl, dialogWrapper);
 
 
 
@@ -25,6 +33,7 @@ $.fn.resizify = function () {
         dialogWrapper.addClass("dialog--full-width");
       } else {
          dialogWrapper.removeClass("dialog--full-width");
+         dialogOrigWidth = Math.max(getWrappedWidth(dialogEl, dialogWrapper), dialogOrigWidth);
       }
       
       
@@ -32,6 +41,7 @@ $.fn.resizify = function () {
         dialogWrapper.addClass("dialog--full-height");
       } else {
         dialogWrapper.removeClass("dialog--full-height");
+        dialogOrigHeight = Math.max(getWrappedHeight(dialogEl, dialogWrapper), dialogOrigHeight);
       }
       
     }
@@ -54,6 +64,11 @@ $('.dialog-trigger').click(function () {
     $('.' + this.dataset.target).toggleClass('is-open').resizify();
 });
 
-$('.dialog--overlay').click(function () {
-    $(this).removeClass('is-open');
+// $('.dialog--overlay').click(function () {
+//     $(this).removeClass('is-open');
+// });
+
+$(document).keyup(function(e) {
+
+  if (e.keyCode == 27) { $('.dialog').removeClass('is-open'); }   // esc
 });
