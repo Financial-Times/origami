@@ -1,17 +1,36 @@
-.dialog--dropdown {
+.dialog--dropdown,
+.dialog--dropup {
 	position: absolute;
-	overflow: hidden;
 	display: block;
-	position: absolute;
-	-webkit-transition: max-height 0.2s;
-	transition: max-height 0.2s;
-	max-height: 0px;
 }
 
-// .dialog--dropdown.is-open {
-// 	overflow: visible;
-// }
+.dialog--dropdown__content,
+.dialog--dropup__content {
+  	position: absolute;
+  	opacity: 0.5;
+	-webkit-transition-property: -webkit-transform;
+	transition-property: transform;	
+	-webkit-transition-duration: 0.2s;
+	transition-duration: 0.2s;	
+}
 
-.dialog--dropdown__content {
-  
+.is-open .dialog--dropdown__content,
+.is-open .dialog--dropup__content {
+	opacity: 1;
+}
+
+.is-open .dialog--dropdown__content {
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+}
+
+.is-open .dialog--dropup__content {
+	-webkit-transform: translateY(-100%);
+	-moz-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+	-o-transform: translateY(-100%);
+	transform: translateY(-100%);
 }
