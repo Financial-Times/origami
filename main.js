@@ -52,6 +52,12 @@ $.fn.responsiveDialog = function () {
     },
     recalculateIdealHeight: function () {
       return this.dialogEl.outerHeight() + getSpacing(this.dialogWrapper, 'top') + getSpacing(this.dialogWrapper, 'bottom');
+    },
+    close: function () {
+
+    },
+    destroy: function () {
+      
     }
   };
 

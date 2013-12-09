@@ -7,10 +7,6 @@
 .dialog--dropdown__content,
 .dialog--dropup__content {
   	position: absolute;
-	-webkit-transition-property: -webkit-transform;
-	transition-property: transform;	
-	-webkit-transition-duration: 0.2s;
-	transition-duration: 0.2s;	
 	display: none;
 }
 
@@ -33,25 +29,31 @@
 
 	.dialog--dropdown__content,
 	.dialog--dropup__content {
+		position: static;
 		display: block;
 		opacity: 0.5;
+		-webkit-transition: -webkit-transform 0.3s;
+		-moz-transition: -moz-transform 0.3s;
+		-ms-transition: -ms-transform 0.3s;
+		-o-transition: -o-transform 0.3s;
+		transition: transform 0.3s;
 	}
 	
 	.dialog--dropdown__content {
-		-webkit-transform: translateY(-100%);
-		-moz-transform: translateY(-100%);
-		-ms-transform: translateY(-100%);
-		-o-transform: translateY(-100%);
-		transform: translateY(-100%);
+		-webkit-transform: translateY(-100%) scaleY(0);
+		-moz-transform: translateY(-100%) scaleY(0);
+		-ms-transform: translateY(-100%) scaleY(0);
+		-o-transform: translateY(-100%) scaleY(0);
+		transform: translateY(-100%) scaleY(0);
 		top: auto;
 	} 
 
 	.dialog--dropup__content {
-		-webkit-transform: translateY(0);
-		-moz-transform: translateY(0);
-		-ms-transform: translateY(0);
-		-o-transform: translateY(0);
-		transform: translateY(0);
+		-webkit-transform: translateY(100%) scaleY(0);
+		-moz-transform: translateY(100%) scaleY(0);
+		-ms-transform: translateY(100%) scaleY(0);
+		-o-transform: translateY(100%) scaleY(0);
+		transform: translateY(100%) scaleY(0);
 		bottom: auto;
 	}
 
@@ -63,20 +65,20 @@
 		}
 
 		.dialog--dropdown__content {
-			-webkit-transform: translateY(0);
-			-moz-transform: translateY(0);
-			-ms-transform: translateY(0);
-			-o-transform: translateY(0);
-			transform: translateY(0);
+			-webkit-transform: translateY(0) scaleY(1);
+			-moz-transform: translateY(0) scaleY(1);
+			-ms-transform: translateY(0) scaleY(1);
+			-o-transform: translateY(0) scaleY(1);
+			transform: translateY(0) scaleY(1);
 			
 		}
 
 		.dialog--dropup__content {
-			-webkit-transform: translateY(-100%);
-			-moz-transform: translateY(-100%);
-			-ms-transform: translateY(-100%);
-			-o-transform: translateY(-100%);
-			transform: translateY(-100%);
+			-webkit-transform: translateY(0) scaleY(1);
+			-moz-transform: translateY(0) scaleY(1);
+			-ms-transform: translateY(0) scaleY(1);
+			-o-transform: translateY(0) scaleY(1);
+			transform: translateY(0) scaleY(1);
 			
 		}
 	}
