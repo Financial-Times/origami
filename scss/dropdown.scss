@@ -1,16 +1,16 @@
 .dialog--dropdown {
-  position: absolute;
-  overflow: hidden;
-  display: none;
-}
- 
-.dialog--dropdown {
-  position: absolute;
+	position: absolute;
+	overflow: hidden;
+	display: block;
+	position: absolute;
+	-webkit-transition: max-height 0.2s;
+	transition: max-height 0.2s;
+	max-height: 0px;
 }
 
-.dialog--dropdown.is-open {
-  display: block;
-}
+// .dialog--dropdown.is-open {
+// 	overflow: visible;
+// }
 
 .dialog--dropdown__content {
   

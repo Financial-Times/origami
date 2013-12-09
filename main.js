@@ -1,11 +1,17 @@
+var win = $(window),
+    maxHeightStylesheet = $('<style>').appendTo('head'),
+    pixelsPerSecond = 1000;
+
+function getSpacing(el, side) {
+  return parseInt(el.css('padding-' + side), 10) + parseInt(el.css('margin-' + side), 10);
+}
+
+function updateMaxHeight () {
+  maxHeightStylesheet.html('.dialog--dropdown.is-open {max-height: ' + win.height() + 'px;}');
+}
 
 $.fn.responsiveDialog = function () {
 
-  function getSpacing(el, side) {
-    return parseInt(el.css('padding-' + side), 10) + parseInt(el.css('margin-' + side), 10);
-  }
-
-  var win = $(window);
 
   var Plugin = function (el) {
     var self = this;
@@ -18,7 +24,7 @@ $.fn.responsiveDialog = function () {
     win.on("resize.responsiveDialog", function() {
         self.resizeDialog();
     });
-  }; 
+  };
  
   Plugin.prototype = {
 
@@ -53,7 +59,6 @@ $.fn.responsiveDialog = function () {
       return this.dialogEl.outerHeight() + getSpacing(this.dialogWrapper, 'top') + getSpacing(this.dialogWrapper, 'bottom');
     }
   };
- 
 
   return this.each(function () {
     win.off("resize.responsiveDialog");
@@ -62,6 +67,10 @@ $.fn.responsiveDialog = function () {
   });
 };
 
+updateMaxHeight();
+win.on("resize.responsiveDialog", function() {
+    updateMaxHeight();
+});
 /* document.getElementById('username').focus(); */
 
 $('.dialog-trigger').click(function () {
