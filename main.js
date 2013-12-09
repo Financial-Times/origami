@@ -1,9 +1,4 @@
 
-
-
-
-
-
 $.fn.responsiveDialog = function () {
 
   function getSpacing(el, side) {
@@ -23,8 +18,8 @@ $.fn.responsiveDialog = function () {
     win.on("resize.responsiveDialog", function() {
         self.resizeDialog();
     });
-  };
-
+  }; 
+ 
   Plugin.prototype = {
 
     fullScreenSwitch: function (dimension) {
@@ -70,8 +65,14 @@ $.fn.responsiveDialog = function () {
 /* document.getElementById('username').focus(); */
 
 $('.dialog-trigger').click(function () {
-    $('.dialog').removeClass('is-open');
-    $('.' + $(this).data('target')).toggleClass('is-open').responsiveDialog();
+  var targetDialog = $('.' + $(this).data('target'));
+    $('.dialog').not(targetDialog).removeClass('is-open');
+    targetDialog.toggleClass('is-open');
+    if (targetDialog.hasClass('is-open')) {
+      targetDialog.responsiveDialog();
+    }
+
+    
 });
 
 // $('.dialog--overlay').click(function () {
