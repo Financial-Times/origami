@@ -1,91 +1,152 @@
-var win = $(window),
-    pixelsPerSecond = 1000;
-
-function getSpacing(el, side) {
-  return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
-}
-
-$.fn.responsiveDialog = function () {
-
-
-  var Plugin = function (el) {
-    var self = this;
-    this.dialogWrapper = el;
-    this.dialogEl = this.dialogWrapper.children(".dialog__content");
-    this.isLegacyOverlay = !Modernizr.flexbox && !Modernizr.flexboxlegacy && this.dialogWrapper.hasClass('dialog--overlay');
-    this.idealWidth = this.recalculateIdealWidth();
-    this.idealHeight = this.recalculateIdealHeight();
-    this.resizeDialog();
-    win.on("resize.responsiveDialog", function() {
-        self.resizeDialog();
-    });
-  };
- 
-  Plugin.prototype = {
-
-    fullScreenSwitch: function (dimension) {
-      var edge = dimension === 'width' ? 'left' : 'top',
-          capitalisedDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1);
-
-      if (win[dimension]() <= this['ideal' + capitalisedDimension]) {
-        this.dialogWrapper.addClass('dialog--full-' + dimension);
-        if (this.isLegacyOverlay) {
-          this.dialogEl.css('margin-' + edge, 0);
-        }
-      } else {
-        this.dialogWrapper.removeClass('dialog--full-' + dimension);
-        this['ideal' + capitalisedDimension] = Math.max(
-          this['recalculateIdeal' + capitalisedDimension](this.dialogEl, this.dialogWrapper),
-          this['ideal' + capitalisedDimension]
-        );
-        if (this.isLegacyOverlay) {
-          this.dialogEl.css('margin-' + edge, -this.dialogEl['outer' + capitalisedDimension]()/2);
-        }
-      }
-    },
-    resizeDialog: function () {
-      this.fullScreenSwitch('width');
-      this.fullScreenSwitch('height');
-    },
-    recalculateIdealWidth: function () {
-      return this.dialogEl.outerWidth() + getSpacing(this.dialogWrapper, 'left') + getSpacing(this.dialogWrapper, 'right');
-    },
-    recalculateIdealHeight: function () {
-      return this.dialogEl.outerHeight() + getSpacing(this.dialogWrapper, 'top') + getSpacing(this.dialogWrapper, 'bottom');
-    },
-    close: function () {
-
-    },
-    destroy: function () {
-      
-    }
-  };
-
-  return this.each(function () {
-    win.off("resize.responsiveDialog");
-    var wrapper = $(this);
-    wrapper.data('responsive-dialog', new Plugin(wrapper));
-  });
-};
-
-/* document.getElementById('username').focus(); */
-
-$('.dialog-trigger').click(function () {
-  var targetDialog = $('.' + $(this).data('target'));
-    $('.dialog').not(targetDialog).removeClass('is-open');
-    targetDialog.toggleClass('is-open');
-    if (targetDialog.hasClass('is-open')) {
-      targetDialog.responsiveDialog();
-    }
-
+(function () {
     
-});
+    var win = $(window);
 
-// $('.dialog--overlay').click(function () {
-//     $(this).removeClass('is-open');
-// });
+    function getSpacing(el, side) {
+        return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
+    }
 
-$(document).keyup(function(e) {
 
-  if (e.keyCode == 27) { $('.dialog').removeClass('is-open'); }   // esc
+
+
+    var Dialog = (function () {
+
+        var initialised = false,
+            wrapper,
+            content,
+            idealDimensions = {},
+            dimensionCalculators = {
+                width: function () {
+                    return content.outerWidth() + getSpacing(wrapper, 'left') + getSpacing(wrapper, 'right');
+                },
+                height: function () {
+                    return content.outerHeight() + getSpacing(wrapper, 'top') + getSpacing(wrapper, 'bottom');
+                },
+            },
+            isLegacyOverlay;
+
+        var init = function () {
+                var wrapper = $('<section class="o-dialog">'),
+                    content = $('<section class="o-dialog__content">');
+
+                wrapper.append(content).appendTo('body');
+
+                $(document).on('keyup.o-dialog', function (ev) {
+                    if (ev.keyCode === 27) {
+                        close();
+                    }
+                }).on('close.o-dialog', close);
+
+                content.on('click.o-dialog', function (ev) {
+                    ev.stopPropagation();
+                });
+
+                wrapper.on('click.o-dialog', function (ev) {
+                    close();
+                });
+
+            },
+
+            open = function (opts) { //content, srcType, handler) {
+                content || init();
+
+                content.focus();
+
+                var targetDialog = $('.' + $(this).data('target'));
+                $('.dialog').not(targetDialog).removeClass('is-open');
+                targetDialog.toggleClass('is-open');
+                if (targetDialog.hasClass('is-open')) {
+                    targetDialog.responsiveDialog();
+                }
+
+                isLegacyOverlay = !Modernizr.flexbox && !Modernizr.flexboxlegacy && this.dialogWrapper.hasClass('dialog--overlay');
+                idealDimensions.width = dimensionCalculators.width();
+                idealDimensions.height = dimensionCalculators.height();
+                respondToWindow();
+                win.on('resize.o-dialog', function() {
+                    respondToWindow();
+                });
+
+
+
+
+            },
+
+            close = function () {
+                wrapper.removeClass('is-open');
+                win.off('resize.o-dialog');
+            },
+
+            respondToWindow = function () {
+                reposition('width');
+                reposition('height');
+            },
+
+            reposition = function (dimension) {
+                var edge = dimension === 'width' ? 'left' : 'top',
+                    capitalisedDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1);
+
+                if (win[dimension]() <= idealDimensions[dimension]) {
+                    wrapper.addClass('dialog--full-' + dimension);
+                    if (isLegacyOverlay) {
+                        content.css('margin-' + edge, 0);
+                    }
+                } else {
+                    wrapper.removeClass('dialog--full-' + dimension);
+                    idealDimensions[dimension] = Math.max(
+                        dimensionCalculators[dimension](),
+                        idealDimensions[dimension]
+                    );
+                    if (isLegacyOverlay) {
+                        content.css('margin-' + edge, -content['outer' + capitalisedDimension]()/2);
+                    }
+                }
+            };
+
+        return {
+            open: open
+        };
+
+    })();
+   
+    $.fn.oDialogTrigger = function () {
+        this.each(function () {
+            var options = $(this).data('o-dialog');
+
+            if (typeof options === 'string') {
+                options = {
+                    src: options
+                };
+            }
+
+            var src = options.src,
+                srcType = options.srcType,
+                content;
+
+            if (!srcType) {
+                if (/^(https?\:\/)?\//.test(src)) {
+                    srcType = 'url';
+                } else if ((content = $(src)) && content.length) {
+                    srcType = 'local';
+                } else {
+                    srcType = 'string';
+                    content = src;
+                }
+            } else if (srcType === 'local') {
+                content = $(src);
+            }
+
+            dialog = Dialog.open({
+                content: content,
+                srcType: srcType,
+                handler: options.handler,
+                classes: options.classes,
+                type: options.type || 'overlay'
+            });
+        });
+    };
+
+    $('.o-dialog--trigger').oDialogTrigger();
+
+      
 });
