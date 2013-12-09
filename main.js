@@ -1,25 +1,8 @@
 var win = $(window),
-    maxHeightStylesheet,
     pixelsPerSecond = 1000;
 
 function getSpacing(el, side) {
   return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
-}
-
-function updateMaxHeight () {
-  var styles;
-  
-  if (!Modernizr.csstransforms) {
-    maxHeightStylesheet = maxHeightStylesheet ||  $('<style></style>').appendTo('head');
-    styles = '.dialog--dropdown__content {top: -' + win.height() + 'px;}' +
-              '.dialog--dropup__content {bottom: -' + win.height() + 'px;}';
-
-    if ((typeof maxHeightStylesheet.prop('styleSheet').cssText) !== 'undefined') {
-      maxHeightStylesheet.prop('styleSheet').cssText = styles;
-    } else {
-      maxHeightStylesheet.html(styles);
-    }
-  }
 }
 
 $.fn.responsiveDialog = function () {
@@ -79,10 +62,6 @@ $.fn.responsiveDialog = function () {
   });
 };
 
-updateMaxHeight();
-win.on("resize.responsiveDialog", function() {
-    updateMaxHeight();
-});
 /* document.getElementById('username').focus(); */
 
 $('.dialog-trigger').click(function () {
