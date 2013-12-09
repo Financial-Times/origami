@@ -7,7 +7,8 @@ function getSpacing(el, side) {
 }
 
 function updateMaxHeight () {
-  maxHeightStylesheet.html('.dialog--dropdown__content {top: -' + win.height() + 'px;}.dialog--dropup__content {bottom: -' + win.height() + 'px;}');
+  maxHeightStylesheet.html('.dialog--dropdown__content {transform: translateY(-100%);-webkit-transform: translateY(-100%);}' + 
+                            '.dialog--dropup__content {transform: translateY(0);-webkit-transform: translateY(0);');
 }
 
 $.fn.responsiveDialog = function () {

@@ -17,6 +17,7 @@ body {
 .dialog--full-width .dialog__content {
   right: auto;
   left: auto;
+  min-width: 0;
 }
 
 .dialog--full-height {
