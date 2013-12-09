@@ -1,14 +1,25 @@
 var win = $(window),
-    maxHeightStylesheet = $('<style>').appendTo('head'),
+    maxHeightStylesheet,
     pixelsPerSecond = 1000;
 
 function getSpacing(el, side) {
-  return parseInt(el.css('padding-' + side), 10) + parseInt(el.css('margin-' + side), 10);
+  return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
 }
 
 function updateMaxHeight () {
-  maxHeightStylesheet.html('.dialog--dropdown__content {transform: translateY(-100%);-webkit-transform: translateY(-100%);}' + 
-                            '.dialog--dropup__content {transform: translateY(0);-webkit-transform: translateY(0);');
+  var styles;
+  
+  if (!Modernizr.csstransforms) {
+    maxHeightStylesheet = maxHeightStylesheet ||  $('<style></style>').appendTo('head');
+    styles = '.dialog--dropdown__content {top: -' + win.height() + 'px;}' +
+              '.dialog--dropup__content {bottom: -' + win.height() + 'px;}';
+
+    if ((typeof maxHeightStylesheet.prop('styleSheet').cssText) !== 'undefined') {
+      maxHeightStylesheet.prop('styleSheet').cssText = styles;
+    } else {
+      maxHeightStylesheet.html(styles);
+    }
+  }
 }
 
 $.fn.responsiveDialog = function () {

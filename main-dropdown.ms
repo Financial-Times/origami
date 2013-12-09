@@ -6,9 +6,9 @@
 </div>
     <div class="dialog dialog--dropdown top-left"> 
 		<form class="dialog__content dialog--dropdown__content">
-			<input id="username" />
+			<input />
 			<br>
-			<input id="pasword" type="password" />
+			<input type="password" />
 		</form>
     </div>
     <div class="dialog dialog--dropdown top-right"> 
@@ -44,9 +44,9 @@
 </div>
     <div class="dialog dialog--dropup bottom-left"> 
 		<form class="dialog__content dialog--dropup__content">
-			<input id="username" />
+			<input />
 			<br>
-			<input id="pasword" type="password" />
+			<input type="password" />
 		</form>
     </div>
     <div class="dialog dialog--dropup bottom-right"> 
