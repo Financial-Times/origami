@@ -1,13 +1,29 @@
+html {
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 .dialog--full-width {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
+  min-width: 0;
+}
+
+.dialog--full-width .dialog__content {
+  right: auto;
+  left: auto;
 }
 
 .dialog--full-height {
   padding-top: 0;
   padding-bottom: 0;
   height: 100%;
+  min-height: 0;
   position: fixed;
   display: block;
 } 

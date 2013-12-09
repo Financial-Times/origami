@@ -1,17 +1,22 @@
-.dialog--dropdown {
+.dialog--dropdown,
+.dialog--dropup {
 	position: absolute;
-	overflow: hidden;
 	display: block;
-	position: absolute;
-	-webkit-transition: max-height 0.2s;
-	transition: max-height 0.2s;
-	max-height: 0px;
 }
 
-// .dialog--dropdown.is-open {
-// 	overflow: visible;
-// }
+.dialog--dropdown__content,
+.dialog--dropup__content {
+  	position: absolute;
+	-webkit-transition-property: top bottom;
+	transition-property: top bottom;	
+	-webkit-transition-duration: 0.2s;
+	transition-duration: 0.2s;	
+}
 
-.dialog--dropdown__content {
-  
+.is-open .dialog--dropdown__content {
+	top: 0px;
+}
+
+.is-open .dialog--dropup__content {
+	bottom: 0px;
 }
