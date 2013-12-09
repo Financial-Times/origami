@@ -5,6 +5,15 @@ function getSpacing(el, side) {
   return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
 }
 
+$.fn.prefixedOne = function () {
+  this.one('-webkit-' + arguments[0], arguments[1], arguments[2]);
+  this.one('-moz-' + arguments[0], arguments[1], arguments[2]);
+  this.one('-ms-' + arguments[0], arguments[1], arguments[2]);
+  this.one('-o-' + arguments[0], arguments[1], arguments[2]);
+  this.one(arguments[0], arguments[1], arguments[2]);
+  return this;
+};
+
 $.fn.responsiveDialog = function () {
 
 
@@ -57,14 +66,17 @@ $.fn.responsiveDialog = function () {
 
     },
     destroy: function () {
-      
+
     }
   };
 
   return this.each(function () {
     win.off("resize.responsiveDialog");
     var wrapper = $(this);
-    wrapper.data('responsive-dialog', new Plugin(wrapper));
+    wrapper.addClass('dialog--active');
+    setTimeout(function () {
+      wrapper.data('responsive-dialog', new Plugin(wrapper));
+    }, 1);
   });
 };
 
@@ -72,7 +84,10 @@ $.fn.responsiveDialog = function () {
 
 $('.dialog-trigger').click(function () {
   var targetDialog = $('.' + $(this).data('target'));
-    $('.dialog').not(targetDialog).removeClass('is-open');
+    $('.dialog--active').not(targetDialog).removeClass('is-open').find('.dialog__content').prefixedOne('transitionEnd', function () {
+      console.log('asdsa')
+      $(this).parent().removeClass('dialog--active');
+    });
     targetDialog.toggleClass('is-open');
     if (targetDialog.hasClass('is-open')) {
       targetDialog.responsiveDialog();
