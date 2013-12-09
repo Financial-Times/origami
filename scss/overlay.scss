@@ -82,6 +82,17 @@
     top: auto;
   }
 }
+
+.dialog--overlay.dialog--full-width {
+  padding-left: 0;
+  padding-right: 0;
+
+}
+
+.dialog--overlay.dialog--full-height {
+  padding-top: 0;
+  padding-bottom: 0;
+}
  
 .dialog--full-width .dialog--overlay__content {
   left: auto;
