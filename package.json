@@ -1,6 +1,6 @@
 {
   "name": "tracking-module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Origami module for FT tracking.",
   "repository": {
     "type": "git",
