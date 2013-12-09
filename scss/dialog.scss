@@ -2,7 +2,7 @@
   padding-left: 0;
   padding-right: 0;
   width: 100%;
-} 
+}
 
 .dialog--full-height {
   padding-top: 0;
@@ -25,10 +25,8 @@
   border-left: none;
   border-right: none;
   border-radius: 0;
-  padding-left: 20px;
-  padding-right: 20px;
   width: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
   margin-left: 0;
   margin-right: 0;
 }
@@ -37,10 +35,8 @@
   border-top: none;
   border-bottom: none;
   border-radius: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   margin-top: 0;
   margin-bottom: 0;
 }

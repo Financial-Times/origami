@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     'origami-demo': {},
     watch: {
       'origami-demo': {
-          files: ['*.scss', '*.js', '*.ms'],
+          files: ['./main.scss', './main.js', './*.ms', './*.mustache', './scss/**/*'],
           tasks: ['origami-demo']
       }
     }
@@ -27,5 +27,6 @@ module.exports = function(grunt) {
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['origami-demo']);
+
 
 };

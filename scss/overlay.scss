@@ -85,8 +85,12 @@
  
 .dialog--full-width .dialog--overlay__content {
   left: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .dialog--full-height .dialog--overlay__content {
   top: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
