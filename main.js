@@ -106,7 +106,6 @@
                     dialog = dialogs[0] || createDialogHtml();
                 }
 
-                dialog.wrapper.appendTo('body');
                 return dialog;
             },
 
@@ -156,6 +155,10 @@
                 assignClasses(dialog, opts);
                 
                 dialog.content.html(opts.content);
+
+                dialog.parent = (opts.type === 'overlay' || !lastTrigger) ? 'body' : lastTrigger.offsetParent;
+
+                dialog.wrapper.appendTo(dialog.parent);
 
                 // forces redraw before .is-open starts the animation
                 dialog.wrapper[0].offsetWidth;
