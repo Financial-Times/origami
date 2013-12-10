@@ -3,7 +3,7 @@
 <button class="o-dialog--trigger" data-o-dialog='{"type": "overlay", "src": "#wide-tall"}'>wide-tall</button>
 <button class="o-dialog--trigger" data-o-dialog='{"type": "overlay", "src": "#narrow-squat"}'>narrow-squat</button>
 <button class="o-dialog--trigger" data-o-dialog='{"type": "overlay", "src": "#narrow-tall"}'>narrow-tall</button>
-{{> ./body.ms}}
+
 <div id="wide-squat">
     	<h1>Overlay title - long version</h1>
     	       	<p>Overlay content.</p>
@@ -40,7 +40,9 @@
 	    <button class="o-dialog--trigger left" data-o-dialog='{"type": "dropdown", "src": "#top-left", "classes": "top-left"}'>top-left</button>
 		<button class="o-dialog--trigger right" data-o-dialog='{"type": "dropdown", "src": "#top-right", "classes": "top-right"}'>top-right</button>
 	</div>
-	<form id="top-left">
+	
+</div>
+<form id="top-left">
 		<input />
 		<br>
 		<input type="password" />
@@ -67,14 +69,13 @@
 		<br>
 		<input  type="password" />
 	</form>
-</div>
-
 <div class="nav bottom">
 	<div class="nav__bar">
 	    <button class="o-dialog--trigger left" data-o-dialog='{"type": "dropup", "src": "#bottom-left", "classes": "bottom-left"}'>bottom-left</button>
 		<button class="o-dialog--trigger right" data-o-dialog='{"type": "dropup", "src": "#bottom-right", "classes": "bottom-right"}'>bottom-right</button>
 	</div>
-	<form id="bottom-left">
+	
+ </div><form id="bottom-left">
 		<input />
 		<br>
 		<input type="password" />
@@ -92,4 +93,3 @@
 		<br>
 		<input  type="password" />
 	</form>
- </div>
