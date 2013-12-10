@@ -1,4 +1,21 @@
 (function () {
+
+    
+// $('.dialog-trigger').click(function () {
+//   var targetDialog = $('.' + $(this).data('target'));
+//     $('.dialog--active').not(targetDialog).removeClass('is-open').find('.dialog__content').prefixedOne('transitionEnd', function () {
+//       console.log('asdsa')
+//       $(this).parent().removeClass('dialog--active');
+//     });
+
+//     $.fn.prefixedOne = function () {
+//   this.one('-webkit-' + arguments[0], arguments[1], arguments[2]);
+//   this.one('-moz-' + arguments[0], arguments[1], arguments[2]);
+//   this.one('-ms-' + arguments[0], arguments[1], arguments[2]);
+//   this.one('-o-' + arguments[0], arguments[1], arguments[2]);
+//   this.one(arguments[0], arguments[1], arguments[2]);
+//   return this;
+// };
     
     var win = $(window);
 
