@@ -6,7 +6,7 @@ This is an [Origami](http://financial-times.github.io/ft-origami/) module that p
 
 This module contains only SASS variables, so if compiled on its own, it will produce no output.  To be useful, you must install the module in your project, and import `main.scss` into your own CSS, then use the variables to set the colours of your CSS selectors. In general it's advisable to define mappings of colours to particular use cases in your product/module, and then use these use case variables in your product/module's styles. For example, in your own CSS, put:
 
-	@import "colors-module/main";
+	@import "o-colors/main";
 
 	$my-body-text-color: $o-colors-charcoal;
 
