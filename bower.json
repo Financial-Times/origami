@@ -3,7 +3,7 @@
 	"main": ["main.scss", "header.mustache", "img/ft-logo.gif"],
 	"ignore": ["README.md"],
 	"dependencies": {
-		"grid-module": "http://git.svc.ft.com:9080/git/origami/grid-module.git#1.1.x",
+		"o-grid": "http://git.svc.ft.com:9080/git/origami/o-grid.git#1.1.x",
 		"ft-velcro": "https://github.com/Financial-Times/ft-velcro.git#2.0.x",
 		"modernizr": "2.6.*"
 	}
