@@ -33,7 +33,7 @@
 
         var init = function () {
                 wrapper = $('<section class="o-dialog">');
-                content = $('<section class="o-dialog__content">');
+                content = $('<div class="o-dialog__content">');
 
                 wrapper.append(content).appendTo('body');
 
@@ -97,7 +97,7 @@
 
             assignClasses = function (options) {
                 wrapper[0].className = 'dialog dialog--' + options.type + ' ' + options.classes;
-                content[0].className = 'dialog__content dialog__content--' + options.type;
+                content[0].className = 'dialog__content dialog--' + options.type + '__content';
             },
 
             close = function () {

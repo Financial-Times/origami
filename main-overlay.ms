@@ -1,20 +1,17 @@
-<button class="dialog-trigger" data-target="wide-squat">wide-squat</button>
-<button class="dialog-trigger" data-target="wide-tall">wide-tall</button>
-<button class="dialog-trigger" data-target="narrow-squat">narrow-squat</button>
-<button class="dialog-trigger" data-target="narrow-tall">narrow-tall</button>
+<button class="o-dialog--trigger" data-o-dialog='{"type": "overlay", "src": "#wide-squat"}'>wide-squat</button>
+<button class="o-dialog--trigger" data-o-dialog='{"type": "overlay", "src": "#wide-tall"}'>wide-tall</button>
+<button class="o-dialog--trigger" data-o-dialog='{"type": "overlay", "src": "#narrow-squat"}'>narrow-squat</button>
+<button class="o-dialog--trigger" data-o-dialog='{"type": "overlay", "src": "#narrow-tall"}'>narrow-tall</button>
 {{> ./body.ms}}
-<div class="dialog dialog--overlay wide-squat">
-    <div class="dialog__content dialog--overlay__content">
+<div id="wide-squat">
     	<h1>Overlay title - long version</h1>
     	       	<p>Overlay content.</p>
        	<p>Overlay content.</p>
        	<input id="username" />
 			<br>
 			<input id="pasword" type="password" />
-    </div>
 </div>
-<div class="dialog dialog--overlay wide-tall">
-    <div class="dialog__content dialog--overlay__content">
+<div id="wide-tall">
     	<h1>Overlay title - long version</h1>
        	<p>Overlay content.</p>
        	<p>Overlay content.</p>
@@ -23,22 +20,17 @@
        	<p>Overlay content.</p>
        	<p>Overlay content.</p>
        	<p>Overlay content.</p>
-    </div>
 </div>
-<div class="dialog dialog--overlay narrow-squat">
-    <div class="dialog__content dialog--overlay__content">
+<div id="narrow-squat">
     	<h1>Overlay title</h1>
        	<p>Overlay content.</p>
        	<p>Overlay content.</p>
-    </div>
 </div>
-<div class="dialog dialog--overlay narrow-tall">
-    <div class="dialog__content dialog--overlay__content">
+<div id="narrow-tall">
     	<h1>Overlay title</h1>
        	<p>Overlay content.</p>
        	<p>Overlay content.</p>
        	<p>Overlay content.</p>
        	<p>Overlay content.</p>
        	<p>Overlay content.</p>
-    </div>
 </div>
