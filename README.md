@@ -7,7 +7,7 @@ Origami module for the responsive FT page footer.
 Add this to your depdendencies in bower.json:
 
      "dependencies": {
-          "ft-footer-module": "http://git.svc.ft.com:9080/git/origami/footer-module.git#{semver}"
+          "o-ft-footer": "http://git.svc.ft.com:9080/git/origami/o-ft-footer.git#{semver}"
      }
 
 It's strongly advised to specify at least the major and minor version as a [semver](http://semver.org/) tag.
