@@ -18,6 +18,8 @@ body {
 .o-dialog--full-width {
   padding-left: 0;
   padding-right: 0;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
   width: 100%;
   min-width: 0;
 }
