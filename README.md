@@ -24,7 +24,7 @@ This module contains three assets:
 
 This module depends on:
 
-* **origami/grid-module** - for layout CSS
+* **origami/o-grid** - for layout CSS
 * **ft-velcro (v2)** - for colours and fonts
 * **Mustache** - for rendering the template
 * **SASS** - for compiling the CSS
