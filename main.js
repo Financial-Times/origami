@@ -1,21 +1,8 @@
 (function () {
 
-    
-// $('.dialog-trigger').click(function () {
-//   var targetDialog = $('.' + $(this).data('target'));
-//     $('.dialog--active').not(targetDialog).removeClass('is-open').find('.dialog__content').prefixedOne('transitionEnd', function () {
-//       console.log('asdsa')
-//       $(this).parent().removeClass('dialog--active');
-//     });
 
-//     $.fn.prefixedOne = function () {
-//   this.one('-webkit-' + arguments[0], arguments[1], arguments[2]);
-//   this.one('-moz-' + arguments[0], arguments[1], arguments[2]);
-//   this.one('-ms-' + arguments[0], arguments[1], arguments[2]);
-//   this.one('-o-' + arguments[0], arguments[1], arguments[2]);
-//   this.one(arguments[0], arguments[1], arguments[2]);
-//   return this;
-// };
+
+
     
     var win = $(window);
 
@@ -196,14 +183,13 @@
                 dialog.wrapper.removeClass('is-open');
                 win.off('resize.o-dialog');
                 $('body').off('click.o-dialog');
-                setTimeout(function () {
+                dialog.content.transitionEnd(function () {
                     if (typeof lastPickedDialogNumber !== 'number') {
                         activeDialog = null;
                     }
                     dialog.content.empty();
                     dialog.wrapper.detach();
-                }, 200);
-                
+                });
             },
 
             respondToWindow = function (dialog) {
@@ -242,6 +228,15 @@
         return this.click(function () {
             Dialog.trigger($(this).data('o-dialog'), this);
         });
+    };
+
+    $.fn.transitionEnd = function () {
+      this.one('webkitTransitionEnd', arguments[1], arguments[2]);
+      this.one('mozTransitionEnd', arguments[1], arguments[2]);
+      this.one('msTransitionEnd', arguments[1], arguments[2]);
+      this.one('oTransitionEnd', arguments[1], arguments[2]);
+      this.one('transitionEnd', arguments[1], arguments[2]);
+      return this;
     };
 
     $('.o-dialog--trigger').oDialogTrigger();
