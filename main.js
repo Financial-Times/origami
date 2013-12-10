@@ -9,15 +9,19 @@
     var Dialog = (function () {
 
         var initialised = false,
+            lastTrigger,
+            dialogs = [],
+            activeDialog,
+            lastPickedDialogNumber,
             wrapper,
             content,
-            idealDimensions = {},
+            globalListenersApplied = false,
             dimensionCalculators = {
-                width: function () {
-                    return content.outerWidth() + getSpacing(wrapper, 'left') + getSpacing(wrapper, 'right');
+                width: function (dialog) {
+                    return dialog.content.outerWidth() + getSpacing(dialog.wrapper, 'left') + getSpacing(dialog.wrapper, 'right');
                 },
-                height: function () {
-                    return content.outerHeight() + getSpacing(wrapper, 'top') + getSpacing(wrapper, 'bottom');
+                height: function (dialog) {
+                    return dialog.content.outerHeight() + getSpacing(dialog.wrapper, 'top') + getSpacing(dialog.wrapper, 'bottom');
                 },
             },
             isLegacyOverlay,
@@ -31,17 +35,13 @@
                 alignTo: 'right'
             };
 
-        var init = function () {
+        var createDialogHtml = function () {
                 wrapper = $('<section class="o-dialog">');
                 content = $('<div class="o-dialog__content">');
 
-                wrapper.append(content).appendTo('body');
+                wrapper.append(content);
 
-                $(document).on('keyup.o-dialog', function (ev) {
-                    if (ev.keyCode === 27) {
-                        close();
-                    }
-                }).on('close.o-dialog', close);
+                globalListeners();
 
                 content.on('click.o-dialog', function (ev) {
                     ev.stopPropagation();
@@ -51,10 +51,73 @@
                     close();
                 });
 
+                dialogs.push({
+                    wrapper: wrapper,
+                    content: content
+                });
+                return ;
             },
 
-            open = function (opts) { //content, srcType, handler) {
-                content || init();
+            globalListeners = function () {
+                if (globalListenersApplied) {
+                    return;
+                }
+                $(document).on('keyup.o-dialog', function (ev) {
+                    if (ev.keyCode === 27) {
+                        close();
+                    }
+                }).on('close.o-dialog', close);
+
+                globalListenersApplied = true;
+            },
+
+            getEmptyDialog = function () {
+                var nextAvailableEmptyDialog,
+                    dialog;
+                if (dialogs.length === 2) {
+                    if (activeDialog) {
+                        nextAvailableEmptyDialog = (activeDialog) % dialogs.length;
+                    } else {
+                        nextAvailableEmptyDialog = 0;
+                    }
+                } else if (dialogs.length === 1) {
+                    if (activeDialog) {
+                        nextAvailableEmptyDialog = 1;
+                    } else {
+                        nextAvailableEmptyDialog = 0;
+                    }
+                } else {
+                    nextAvailableEmptyDialog = 0;
+                }
+
+                if (dialogs.length <= nextAvailableEmptyDialog) {
+                    createDialogHtml();
+                }
+
+                lastPickedDialogNumber = nextAvailableEmptyDialog;
+                dialog = dialogs[nextAvailableEmptyDialog];
+                dialog.wrapper.appendTo('body');
+                return dialog;
+            },
+
+            trigger = function (opts, trigger) { //content, srcType, handler) {
+                               
+
+                if (activeDialog && dialogs[activeDialog -1].wrapper.hasClass('is-open')) {
+                    
+                    close(dialogs[activeDialog -1]);
+                    //dialogs.active = getEmptyDialog();
+
+                    if (trigger === lastTrigger) {
+                        lastPickedDialogNumber = null;
+                        lastTrigger = null;
+                        return;
+                    }
+                }
+
+                var dialog = getEmptyDialog();
+
+                lastTrigger = trigger;
 
                 if (typeof opts === 'string') {
                     opts = {
@@ -67,79 +130,100 @@
                         opts.srcType = 'url';
                     } else if ((opts.content = $(opts.src)) && opts.content.length) {
                         opts.srcType = 'selector';
+                        opts.content = opts.content.clone();
                     } else {
                         opts.srcType = 'string';
                         opts.content = opts.src;
                     }
                 } else if (opts.srcType === 'selector') {
-                    opts.content = $(opts.src);
+                    opts.content = $(opts.src).clone();
                 }
 
                 opts = $.extend({}, defaults, opts);
 
                 isLegacyOverlay = !Modernizr.flexbox && !Modernizr.flexboxlegacy && opts.type === 'overlay';
 
-                assignClasses(opts);
+                assignClasses(dialog, opts);
                 
-                content.html(opts.content);
+                dialog.content.html(opts.content);
 
-                wrapper.addClass('is-open');
-                content.focus();
+                // forces redraw before .is-open starts the animation
+                dialog.wrapper[0].offsetWidth;
+                dialog.wrapper.addClass('is-open');
+                dialog.content.focus();
 
-                idealDimensions.width = dimensionCalculators.width();
-                idealDimensions.height = dimensionCalculators.height();
-                respondToWindow();
+                dialog.width = dimensionCalculators.width(dialog);
+                dialog.height = dimensionCalculators.height(dialog);
+                respondToWindow(dialog);
                 win.on('resize.o-dialog', function() {
-                    respondToWindow();
+                    respondToWindow(dialog);
                 });
+                setTimeout(function () {
+                    $('body').on('click.o-dialog', function () {
+                        close(dialog);
+                    });
+                }, 1);
+                
+
+                activeDialog = lastPickedDialogNumber + 1;
 
             },
 
-            assignClasses = function (options) {
-                wrapper[0].className = 'dialog dialog--' + options.type + ' ' + options.classes;
-                content[0].className = 'dialog__content dialog--' + options.type + '__content';
+            assignClasses = function (dialog, options) {
+                dialog.wrapper[0].className = 'dialog dialog--' + options.type + ' ' + options.classes;
+                dialog.content[0].className = 'dialog__content dialog--' + options.type + '__content';
             },
 
-            close = function () {
-                wrapper.removeClass('is-open');
+            close = function (dialog) {
+                dialog = dialog || dialogs[activeDialog - 1];
+                dialog.wrapper.removeClass('is-open');
                 win.off('resize.o-dialog');
+                $('body').off('click.o-dialog');
+                setTimeout(function () {
+                    if (typeof lastPickedDialogNumber !== 'number') {
+                        activeDialog = null;
+                    }
+                    dialog.content.empty();
+                    dialog.wrapper.detach();
+                }, 200);
+                
             },
 
-            respondToWindow = function () {
-                reAlign('width');
-                reAlign('height');
+            respondToWindow = function (dialog) {
+                reAlign('width', dialog);
+                reAlign('height', dialog);
             },
 
-            reAlign = function (dimension) {
+            reAlign = function (dimension, dialog) {
                 var edge = dimension === 'width' ? 'left' : 'top',
                     capitalisedDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1);
 
-                if (win[dimension]() <= idealDimensions[dimension]) {
-                    wrapper.addClass('dialog--full-' + dimension);
+                if (win[dimension]() <= dialog[dimension]) {
+                    dialog.wrapper.addClass('dialog--full-' + dimension);
                     if (isLegacyOverlay) {
-                        content.css('margin-' + edge, 0);
+                        dialog.content.css('margin-' + edge, 0);
                     }
                 } else {
-                    wrapper.removeClass('dialog--full-' + dimension);
-                    idealDimensions[dimension] = Math.max(
-                        dimensionCalculators[dimension](),
-                        idealDimensions[dimension]
+                    dialog.wrapper.removeClass('dialog--full-' + dimension);
+                    dialog[dimension] = Math.max(
+                        dimensionCalculators[dimension](dialog),
+                        dialog[dimension]
                     );
                     if (isLegacyOverlay) {
-                        content.css('margin-' + edge, -content['outer' + capitalisedDimension]()/2);
+                        dialog.content.css('margin-' + edge, -dialog.content['outer' + capitalisedDimension]()/2);
                     }
                 }
             };
 
         return {
-            open: open
+            trigger: trigger
         };
 
     })();
    
     $.fn.oDialogTrigger = function () {
         return this.click(function () {
-            Dialog.open($(this).data('o-dialog'));
+            Dialog.trigger($(this).data('o-dialog'), this);
         });
     };
 
