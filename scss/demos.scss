@@ -37,27 +37,20 @@ body {
 }
 
 .top-right {
-  right: 0;
-  top: 30px;
   margin-left: 100px;
   margin-bottom: 60px;
 }
 
 .top-right .o-dialog__content {
-  min-width: 250px;
-  right: 0;
+  min-width: 250px; 
 }
 
 .top-left {
-  left: 0;
-  top: 30px;
   margin-right: 50px;
-
 }
 
 .top-left .o-dialog__content {
   min-width: 400px;
-  left: 0;
 }
 
 

@@ -106,7 +106,6 @@
                     dialog = dialogs[0] || createDialogHtml();
                 }
 
-                dialog.wrapper.appendTo('body');
                 return dialog;
             },
 
@@ -157,6 +156,16 @@
                 
                 dialog.content.html(opts.content);
 
+                dialog.parent = (opts.type === 'overlay' || !lastTrigger) ? 'body' : lastTrigger.offsetParent;
+
+                if (opts.type === 'dropup' || opts.type === 'dropdown') {
+                    if (!lastTrigger) {
+                        return;
+                    }
+                }
+
+                dialog.wrapper.appendTo(dialog.parent);
+
                 // forces redraw before .is-open starts the animation
                 dialog.wrapper[0].offsetWidth;
                 dialog.wrapper.addClass('is-open');
@@ -164,9 +173,10 @@
 
                 dialog.width = dimensionCalculators.width(dialog);
                 dialog.height = dimensionCalculators.height(dialog);
-                respondToWindow(dialog);
+                respondToWindow(dialog, opts, lastTrigger);
+
                 win.on('resize.o-dialog', function() {
-                    respondToWindow(dialog);
+                    respondToWindow(dialog, opts, lastTrigger);
                 });
                 setTimeout(function () {
                     $('body').on('click.o-dialog', function () {
@@ -176,6 +186,41 @@
                 
 
                 activeDialog = lastPickedDialogNumber + 1;
+
+            },
+
+            anchorDropdown = function (dialog, options, trigger) {
+                if (options.type === 'dropup' || options.type === 'dropdown') {
+
+                    var align,
+                        offset,
+                        triggerRightEdge = trigger.offsetLeft + trigger.offsetWidth;
+
+                    if (dialog.width > win.width() || triggerRightEdge - dialog.width < 0) {
+                        align = 'l';
+                    } else {
+                        align = 'r';
+                    }
+
+                    if (dialog.fullWidth) {
+                        offset = 0;
+                    } else if (align === 'l') {
+                        offset = trigger.offsetLeft;
+                    } else {
+                        offset = trigger.offsetParent.offsetWidth - triggerRightEdge;
+                    }
+
+                    if (align === 'l') {
+                        dialog.wrapper.css('left', offset).addClass('o-dialog--dropdown--left').removeClass('o-dialog--dropdown--right');
+                    } else {
+                        dialog.wrapper.css('right', offset).addClass('o-dialog--dropdown--right').removeClass('o-dialog--dropdown--left');
+                    }
+                    if (options.type === 'dropdown') {
+                        dialog.wrapper.css('top', trigger.offsetTop + trigger.offsetHeight);
+                    } else {
+                        dialog.wrapper.css('bottom', trigger.offsetParent.offsetHeight - trigger.offsetTop);
+                    }
+                }
 
             },
 
@@ -204,12 +249,14 @@
                     activeDialog = null;
                 }
                 dialog.content.empty();
-                dialog.wrapper.detach();
+                dialog.wrapper.detach().attr('style', null);
             },
 
-            respondToWindow = function (dialog) {
+            respondToWindow = function (dialog, opts, lastTrigger) {
+
                 reAlign('width', dialog);
                 reAlign('height', dialog);
+                anchorDropdown(dialog, opts, lastTrigger);
             },
 
             reAlign = function (dimension, dialog) {
@@ -217,12 +264,14 @@
                     capitalisedDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1);
 
                 if (win[dimension]() <= dialog[dimension]) {
-                    dialog.wrapper.addClass('dialog--full-' + dimension);
+                    dialog['full' + capitalisedDimension] = true;
+                    dialog.wrapper.addClass('o-dialog--full-' + dimension);
                     if (isLegacyOverlay) {
                         dialog.content.css('margin-' + edge, 0);
                     }
                 } else {
-                    dialog.wrapper.removeClass('dialog--full-' + dimension);
+                    dialog['full' + capitalisedDimension] = false;
+                    dialog.wrapper.removeClass('o-dialog--full-' + dimension).attr('style', null);
                     dialog[dimension] = Math.max(
                         dimensionCalculators[dimension](dialog),
                         dialog[dimension]
