@@ -24,23 +24,22 @@ This module contains three assets:
 
 This module depends on:
 
-* **origami/grid-module** - for layout CSS
+* **origami/o-grid** - for layout CSS
+* **ft-velcro (v2)** - for colours and fonts
 * **Mustache** - for rendering the template
 * **SASS** - For compiling the CSS
 * **Modernizr** - for `inlinesvg` feature detection and cross-browser HTML5 semantic elements
-
-The header will soon also depend upon **origami/colors-module** for colour variables and **origami/fonts-module** for fonts.
 
 ## Stylesheet
 
 The SCSS is defined in `main.scss`.
 
 ###Variables
-To use these set them *before* including `header-module/main.scss` in your stylesheet
+To use these set them *before* including `o-ft-header/main.scss` in your stylesheet
 
 * `$o-ft-header-img-root`: *['/img']* Path to images folder (To correctly include the FT logo for browsers that don't support inline svg you will need to make sure `img/ft-logo.gif` is avaiable via this path)
 * `$o-ft-header-top-offset`: *[0]* Distance of header from top of page (only applied when the header has `position: fixed`);
 * `$o-ft-header-sticky`: *[$o-grid-small,$o-grid-medium]* Configures when a 'sticky' fixed position header is used:
 	* `false` - header is never sticky
 	* `true` - header is always sticky
-	* comma-separated list of [grid-module layout identifiers](link-to-grid-module-docs-eventually) - header will be sicky at these layout sizes only.
+	* comma-separated list of [o-grid layout identifiers](link-to-grid-module-docs-eventually) - header will be sicky at these layout sizes only.

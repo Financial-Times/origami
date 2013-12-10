@@ -1,5 +1,5 @@
 {
-	"name": "ft-header-module",
+	"name": "o-ft-header",
 	"main": ["main.scss", "header.mustache", "img/ft-logo.gif"],
 	"ignore": ["README.md"],
 	"dependencies": {
