@@ -1,7 +1,8 @@
 (function () {
 
     var win = $(window),
-        animated = Modernizr.csstransforms && Modernizr.csstransitions;
+        animated = Modernizr.csstransforms,
+        noFlexbox = !Modernizr.flexbox && !Modernizr.flexboxlegacy;
 
     function getSpacing(el, side) {
         return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
@@ -150,7 +151,7 @@
 
                 opts = $.extend({}, defaults, opts);
 
-                isLegacyOverlay = !Modernizr.flexbox && !Modernizr.flexboxlegacy && opts.type === 'overlay';
+                isLegacyOverlay = noFlexbox && opts.type === 'overlay';
 
                 assignClasses(dialog, opts);
                 
@@ -230,7 +231,8 @@
                         dialog.content.css('margin-' + edge, -dialog.content['outer' + capitalisedDimension]()/2);
                     }
                 }
-                if (!isLegacyOverlay) {
+
+                if (noFlexbox && !isLegacyOverlay) {
                     dialog.content.css('margin-' + edge, 'auto');
                 }
             };
