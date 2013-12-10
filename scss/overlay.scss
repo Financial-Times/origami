@@ -1,8 +1,4 @@
-
-
-
-
-.dialog--overlay {
+.o-dialog--overlay {
   position:fixed;
   height: 100%;
   width: 100%;
@@ -15,15 +11,15 @@
   box-sizing: border-box; 
 }
 
-.dialog--overlay {
+.o-dialog--overlay {
   display: none;
 }
 
-.dialog--overlay.is-open {
+.o-dialog--overlay.is-open {
   display: block;
 }
 
-.dialog--overlay__content {
+.o-dialog--overlay__content {
     min-height: 10px;
     min-width: 10px;
     margin-top: 100px;
@@ -39,7 +35,7 @@
 
 .flexbox,
 .flexboxlegacy {
-  .dialog--overlay { 
+  .o-dialog--overlay { 
     -webkit-box-align: center;
     -webkit-flex-align: center;
     -ms-flex-align: center;
@@ -63,7 +59,7 @@
     flex-direction: column;
   }
 
-  .dialog--overlay.is-open {
+  .o-dialog--overlay.is-open {
     display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox; /* TWEENER - IE 10 */
@@ -71,7 +67,7 @@
     display: flex;
   }
 
-  .dialog--overlay__content {
+  .o-dialog--overlay__content {
     margin: auto;
     -webkit-align-self: center;
     align-self: center;
@@ -83,24 +79,23 @@
   }
 }
 
-.dialog--overlay.dialog--full-width {
+.o-dialog--overlay.o-dialog--full-width {
   padding-left: 0;
   padding-right: 0;
-
 }
 
-.dialog--overlay.dialog--full-height {
+.o-dialog--overlay.o-dialog--full-height {
   padding-top: 0;
   padding-bottom: 0;
 }
  
-.dialog--full-width .dialog--overlay__content {
+.o-dialog--full-width .o-dialog--overlay__content {
   left: auto;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-.dialog--full-height .dialog--overlay__content {
+.o-dialog--full-height .o-dialog--overlay__content {
   top: auto;
   padding-top: 20px;
   padding-bottom: 20px;

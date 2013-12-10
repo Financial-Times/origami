@@ -179,8 +179,8 @@
             },
 
             assignClasses = function (dialog, options) {
-                dialog.wrapper[0].className = 'dialog dialog--' + options.type + ' ' + options.classes;
-                dialog.content[0].className = 'dialog__content dialog--' + options.type + '__content';
+                dialog.wrapper[0].className = 'o-dialog o-dialog--' + options.type + ' ' + options.classes;
+                dialog.content[0].className = 'o-dialog__content o-dialog--' + options.type + '__content';
             },
 
             close = function (dialog) {
@@ -231,7 +231,7 @@
                     }
                 }
                 if (!isLegacyOverlay) {
-                    dialog.content.css('margin-' + edge, 0);
+                    dialog.content.css('margin-' + edge, 'auto');
                 }
             };
 
