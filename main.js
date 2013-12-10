@@ -6,9 +6,6 @@
         return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
     }
 
-
-
-
     var Dialog = (function () {
 
         var initialised = false,
@@ -23,11 +20,20 @@
                     return content.outerHeight() + getSpacing(wrapper, 'top') + getSpacing(wrapper, 'bottom');
                 },
             },
-            isLegacyOverlay;
+            isLegacyOverlay,
+            defaults = {
+                src: '',
+                srcType: 'selector',
+                handler: $.noop,
+                handlerContext: window,
+                classes: '',
+                type: 'overlay',
+                alignTo: 'right'
+            };
 
         var init = function () {
-                var wrapper = $('<section class="o-dialog">'),
-                    content = $('<section class="o-dialog__content">');
+                wrapper = $('<section class="o-dialog">');
+                content = $('<section class="o-dialog__content">');
 
                 wrapper.append(content).appendTo('body');
 
@@ -50,16 +56,36 @@
             open = function (opts) { //content, srcType, handler) {
                 content || init();
 
-                content.focus();
-
-                var targetDialog = $('.' + $(this).data('target'));
-                $('.dialog').not(targetDialog).removeClass('is-open');
-                targetDialog.toggleClass('is-open');
-                if (targetDialog.hasClass('is-open')) {
-                    targetDialog.responsiveDialog();
+                if (typeof opts === 'string') {
+                    opts = {
+                        src: opts
+                    };
                 }
 
-                isLegacyOverlay = !Modernizr.flexbox && !Modernizr.flexboxlegacy && this.dialogWrapper.hasClass('dialog--overlay');
+                if (!opts.srcType) {
+                    if (/^(https?\:\/)?\//.test(opts.src)) {
+                        opts.srcType = 'url';
+                    } else if ((opts.content = $(opts.src)) && opts.content.length) {
+                        opts.srcType = 'selector';
+                    } else {
+                        opts.srcType = 'string';
+                        opts.content = opts.src;
+                    }
+                } else if (opts.srcType === 'selector') {
+                    opts.content = $(opts.src);
+                }
+
+                opts = $.extend({}, defaults, opts);
+
+                isLegacyOverlay = !Modernizr.flexbox && !Modernizr.flexboxlegacy && opts.type === 'overlay';
+
+                assignClasses(opts);
+                
+                content.html(opts.content);
+
+                wrapper.addClass('is-open');
+                content.focus();
+
                 idealDimensions.width = dimensionCalculators.width();
                 idealDimensions.height = dimensionCalculators.height();
                 respondToWindow();
@@ -67,9 +93,11 @@
                     respondToWindow();
                 });
 
+            },
 
-
-
+            assignClasses = function (options) {
+                wrapper[0].className = 'dialog dialog--' + options.type + ' ' + options.classes;
+                content[0].className = 'dialog__content dialog__content--' + options.type;
             },
 
             close = function () {
@@ -78,11 +106,11 @@
             },
 
             respondToWindow = function () {
-                reposition('width');
-                reposition('height');
+                reAlign('width');
+                reAlign('height');
             },
 
-            reposition = function (dimension) {
+            reAlign = function (dimension) {
                 var edge = dimension === 'width' ? 'left' : 'top',
                     capitalisedDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1);
 
@@ -110,43 +138,12 @@
     })();
    
     $.fn.oDialogTrigger = function () {
-        this.each(function () {
-            var options = $(this).data('o-dialog');
-
-            if (typeof options === 'string') {
-                options = {
-                    src: options
-                };
-            }
-
-            var src = options.src,
-                srcType = options.srcType,
-                content;
-
-            if (!srcType) {
-                if (/^(https?\:\/)?\//.test(src)) {
-                    srcType = 'url';
-                } else if ((content = $(src)) && content.length) {
-                    srcType = 'local';
-                } else {
-                    srcType = 'string';
-                    content = src;
-                }
-            } else if (srcType === 'local') {
-                content = $(src);
-            }
-
-            dialog = Dialog.open({
-                content: content,
-                srcType: srcType,
-                handler: options.handler,
-                classes: options.classes,
-                type: options.type || 'overlay'
-            });
+        return this.click(function () {
+            Dialog.open($(this).data('o-dialog'));
         });
     };
 
     $('.o-dialog--trigger').oDialogTrigger();
 
-      
-});
+    return Dialog;
+})();
