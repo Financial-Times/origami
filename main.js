@@ -1,10 +1,7 @@
 (function () {
 
-
-
-
-    
-    var win = $(window);
+    var win = $(window),
+        animated = Modernizr.csstransforms && Modernizr.csstransitions;
 
     function getSpacing(el, side) {
         return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
@@ -26,7 +23,7 @@
                 },
                 height: function (dialog) {
                     return dialog.content.outerHeight() + getSpacing(dialog.wrapper, 'top') + getSpacing(dialog.wrapper, 'bottom');
-                },
+                }
             },
             isLegacyOverlay,
             defaults = {
@@ -40,8 +37,8 @@
             };
 
         var createDialogHtml = function () {
-                wrapper = $('<section class="o-dialog">');
-                content = $('<div class="o-dialog__content">');
+                wrapper = $('<section class="o-dialog"></section>');
+                content = $('<div class="o-dialog__content"></div>');
 
                 wrapper.append(content);
 
@@ -59,7 +56,7 @@
                     wrapper: wrapper,
                     content: content
                 });
-                return ;
+                return dialogs[dialogs.length - 1];
             },
 
             globalListeners = function () {
@@ -78,28 +75,36 @@
             getEmptyDialog = function () {
                 var nextAvailableEmptyDialog,
                     dialog;
-                if (dialogs.length === 2) {
-                    if (activeDialog) {
-                        nextAvailableEmptyDialog = (activeDialog) % dialogs.length;
+                if (animated) {
+                    
+                    if (dialogs.length === 2) {
+                        if (activeDialog) {
+                            nextAvailableEmptyDialog = (activeDialog) % dialogs.length;
+                        } else {
+                            nextAvailableEmptyDialog = 0;
+                        }
+                    } else if (dialogs.length === 1) {
+                        if (activeDialog) {
+                            nextAvailableEmptyDialog = 1;
+                        } else {
+                            nextAvailableEmptyDialog = 0;
+                        }
                     } else {
                         nextAvailableEmptyDialog = 0;
                     }
-                } else if (dialogs.length === 1) {
-                    if (activeDialog) {
-                        nextAvailableEmptyDialog = 1;
-                    } else {
-                        nextAvailableEmptyDialog = 0;
+
+                    if (dialogs.length <= nextAvailableEmptyDialog) {
+                        createDialogHtml();
                     }
+
+                    lastPickedDialogNumber = nextAvailableEmptyDialog;
+                    dialog = dialogs[nextAvailableEmptyDialog];
+                    
                 } else {
-                    nextAvailableEmptyDialog = 0;
+                    lastPickedDialogNumber = 0;
+                    dialog = dialogs[0] || createDialogHtml();
                 }
 
-                if (dialogs.length <= nextAvailableEmptyDialog) {
-                    createDialogHtml();
-                }
-
-                lastPickedDialogNumber = nextAvailableEmptyDialog;
-                dialog = dialogs[nextAvailableEmptyDialog];
                 dialog.wrapper.appendTo('body');
                 return dialog;
             },
@@ -183,13 +188,22 @@
                 dialog.wrapper.removeClass('is-open');
                 win.off('resize.o-dialog');
                 $('body').off('click.o-dialog');
-                dialog.content.transitionEnd(function () {
-                    if (typeof lastPickedDialogNumber !== 'number') {
-                        activeDialog = null;
-                    }
-                    dialog.content.empty();
-                    dialog.wrapper.detach();
-                });
+                if (animated) {
+                    dialog.content.transitionEnd(function () {
+                        cleanUpDialog(dialog);
+                    });
+                } else {
+                    cleanUpDialog(dialog);
+                }
+                
+            },
+
+            cleanUpDialog = function (dialog) {
+                if (typeof lastPickedDialogNumber !== 'number') {
+                    activeDialog = null;
+                }
+                dialog.content.empty();
+                dialog.wrapper.detach();
             },
 
             respondToWindow = function (dialog) {
@@ -215,6 +229,9 @@
                     if (isLegacyOverlay) {
                         dialog.content.css('margin-' + edge, -dialog.content['outer' + capitalisedDimension]()/2);
                     }
+                }
+                if (!isLegacyOverlay) {
+                    dialog.content.css('margin-' + edge, 0);
                 }
             };
 

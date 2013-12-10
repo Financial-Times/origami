@@ -3,7 +3,7 @@
 <button class="o-dialog--trigger" data-o-dialog='{"type": "overlay", "src": "#wide-tall"}'>wide-tall</button>
 <button class="o-dialog--trigger" data-o-dialog='{"type": "overlay", "src": "#narrow-squat"}'>narrow-squat</button>
 <button class="o-dialog--trigger" data-o-dialog='{"type": "overlay", "src": "#narrow-tall"}'>narrow-tall</button>
-{{> ./body.ms}}
+
 <div id="wide-squat">
     	<h1>Overlay title - long version</h1>
     	       	<p>Overlay content.</p>
