@@ -215,8 +215,11 @@
                     } else {
                         dialog.wrapper.css('right', offset).addClass('o-dialog--dropdown--right').removeClass('o-dialog--dropdown--left');
                     }
-
-                    dialog.wrapper.css('top', trigger.offsetTop + trigger.offsetHeight);
+                    if (options.type === 'dropdown') {
+                        dialog.wrapper.css('top', trigger.offsetTop + trigger.offsetHeight);
+                    } else {
+                        dialog.wrapper.css('bottom', trigger.offsetParent.offsetHeight - trigger.offsetTop);
+                    }
                 }
 
             },
