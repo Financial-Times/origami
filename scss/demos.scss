@@ -23,6 +23,14 @@ body {
   z-index: 1;
 }
 
+.o-dialog--overlay__content {
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    border: 1px solid #a5a5a5;
+    background: white;
+}
+
 .bottom {
   top: auto;
   bottom: 0;

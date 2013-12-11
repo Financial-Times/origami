@@ -7,17 +7,13 @@ body {
   height: 100%;
 }
 
-// .o-dialog {
-//   display: none;
-// }
-
-// .o-dialog--active {
-//   display: block;
-// }
-
 .o-dialog--full-width {
   padding-left: 0;
   padding-right: 0;
+  // margins are used by product/other component developers to set a buffer around the dialog
+  // and once the edge of the page is within the buffer it switches to full-width mode.
+  // As these buffers can be set by the developer using selectors of arbitrary specicifity
+  // !important is used here in order to always over-ride these margins when switching to full width mode
   margin-left: 0 !important;
   margin-right: 0 !important;
   width: 100%;
