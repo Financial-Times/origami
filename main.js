@@ -8,59 +8,31 @@
         return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
     }
 
-    function toCamel (str) {
-        return str.replace(/[A-Z]/g, function ($0, $1) {
-            return $0.toLowerCase() + '-';
+    function toCamelStyleProp (str) {
+        return str.replace(/(?:\-)([a-z])/gi, function ($0, $1) {
+            return $1.toUpperCase();
         });
     }
 
-    function toHyphenated (str) {
+    function toHyphenatedStyleProp (str) {
         return str.replace(/([A-Z])/g, function (str,m1) {
             return '-' + m1.toLowerCase();
         }).replace(/^ms-/,'-ms-');
     }
 
-    function getPrefixedHyphenatedProperty (prop) {
-        prop = toCamel(prop);
+    function getPrefixedStyleProp (prop) {
+        prop = toCamelStyleProp(prop);
         prop = Modernizr.prefixed(prop);
-        return toHyphenated(prop);
+        return toHyphenatedStyleProp(prop);
     }
 
     function getStyleProperty (el, prop) {
-        return getComputedStyle(el,null).getPropertyValue(getPrefixedHyphenatedProperty(prop));
-    }
-
-    function hasTransition ($el, cssClass, mode) {
-
-        var el = $el[0],
-            transitioners = getStyleProperty(el, 'transition-property').split(' '),
-            initialState = [],
-            finalState = [],
-            i = transitioners.length - 1;
-
-        for (;i>=0;i--) {
-            initialState.unshift(getStyleProperty(el, transitioners[i]));
-        }
-
-        $el[mode + 'Class'](cssClass);
-
-        for (;i>=0;i--) {
-            finalState.unshift(getStyleProperty(el, transitioners[i]));
-        }
-
-        for (;i>=0;i--) {
-            if (finalState[i] !== initialState[i]) {
-                return true;
-            }
-        }
-
-        return false;
+        return getComputedStyle(el,null).getPropertyValue(getPrefixedStyleProp(prop));
     }
 
     var Dialog = (function () {
 
-        var initialised = false,
-            lastTrigger,
+        var lastTrigger,
             dialogs = [],
             activeDialog,
             lastPickedDialogNumber,
@@ -97,7 +69,7 @@
                 dialog = {
                     wrapper: wrapper,
                     content: content
-                }
+                };
 
                 content.on('click.o-dialog', function (ev) {
                     ev.stopPropagation();
@@ -231,11 +203,13 @@
                 win.on('resize.o-dialog', function() {
                     respondToWindow(dialog, lastTrigger);
                 });
-                setTimeout(function () {
-                    $('body').on('click.o-dialog', function () {
+
+                $('body').on('click.o-dialog', function (ev) {
+                    if (!/o\-dialog\-\-trigger/.test(ev.target.className)) {
                         close(dialog);
-                    });
-                }, 1);
+                    }
+                    
+                });
                 
 
                 activeDialog = lastPickedDialogNumber + 1;
@@ -284,19 +258,69 @@
 
             close = function (dialog) {
                 dialog = dialog || dialogs[activeDialog - 1];
-                hasTransition(dialog.wrapper, 'is-open', 'remove');
-                dialog.wrapper.removeClass('is-open');
+
                 win.off('resize.o-dialog');
                 $('body').off('click.o-dialog');
                 if (animated) {
-                    dialog.content.transitionEnd(function () {
-                        console.log('cleaningup')
+                    doAfterTransition(dialog.wrapper, 'is-open', 'remove', dialog.content, function () {
                         cleanUpDialog(dialog);
                     });
+                    
                 } else {
+                    dialog.wrapper.removeClass('is-open');
                     cleanUpDialog(dialog);
                 }
                 
+            },
+
+            doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEl, callback) {
+                $transitioningEl = $transitioningEl || $wrapper;
+
+                var transitioningEl = $transitioningEl[0],
+                    duration = +getStyleProperty(transitioningEl, 'transition-duration').replace(/[^\.\d]/g, ''),
+                    transitioners = getStyleProperty(transitioningEl, 'transition-property').split(' '),
+                    initialState = [],
+                    changedState = [],
+                    i,
+                    callbackHasRun = false,
+
+                    //makes sure callback doesn't get called twice by accident
+                    singletonCallback = function () {
+                        if (!callbackHasRun) {
+                            callbackHasRun = true;
+                            callback();
+                        }
+                    };
+
+                // if no transition defined just call the callback
+                if (duration === 0) {
+                    $wrapper[mode + 'Class'](cssClass);
+                    callback();
+                    return;
+                }
+
+                for (i = transitioners.length - 1;i>=0;i--) {
+                    initialState.unshift(getStyleProperty(transitioningEl, transitioners[i]));
+                }
+
+                $wrapper[mode + 'Class'](cssClass);
+
+                setTimeout(function () {
+                    for (i = transitioners.length - 1;i>=0;i--) {
+                        changedState.unshift(getStyleProperty(transitioningEl, transitioners[i]));
+                    }
+
+                    for (i = transitioners.length - 1;i>=0;i--) {
+                        if (changedState[i] !== initialState[i]) {
+                            $transitioningEl.transitionEnd(singletonCallback);
+
+                            // failsafe in case the transitionEnd event doesn't fire
+                            setTimeout(singletonCallback, duration * 1000);
+                            return;
+                        }
+                    }
+                    singletonCallback();
+                }, 20);
             },
 
             cleanUpDialog = function (dialog) {
@@ -359,12 +383,12 @@
     };
 
     $.fn.transitionEnd = function () {
-      this.one('webkitTransitionEnd', arguments[0]);
-      this.one('mozTransitionEnd', arguments[0]);
-      this.one('msTransitionEnd', arguments[0]);
-      this.one('oTransitionEnd', arguments[0]);
-      this.one('transitionEnd', arguments[0]);
-      return this;
+        this.one('webkitTransitionEnd', arguments[0]);
+        this.one('mozTransitionEnd', arguments[0]);
+        this.one('msTransitionEnd', arguments[0]);
+        this.one('oTransitionEnd', arguments[0]);
+        this.one('transitionEnd', arguments[0]);
+        return this;
     };
 
     $('.o-dialog--trigger').oDialogTrigger();
