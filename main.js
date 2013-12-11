@@ -32,8 +32,7 @@
 
     var Dialog = (function () {
 
-        var lastTrigger,
-            dialogs = [],
+        var dialogs = [],
             activeDialog,
             lastPickedDialogNumber,
             wrapper,
@@ -133,23 +132,61 @@
             },
 
             trigger = function (opts, trigger) { //content, srcType, handler) {
-                               
+                
+                var lastDialog;
 
                 if (activeDialog && dialogs[activeDialog -1].wrapper.hasClass('is-open')) {
                     
-                    close(dialogs[activeDialog -1]);
+                    lastDialog = dialogs[activeDialog -1];
+                    close(lastDialog);
                     //dialogs.active = getEmptyDialog();
 
-                    if (trigger === lastTrigger) {
+                    if (trigger === lastDialog.trigger) {
                         lastPickedDialogNumber = null;
-                        lastTrigger = null;
                         return;
                     }
                 }
 
-                var dialog = getEmptyDialog();
+                var dialog = setupDialog(opts, trigger);
+                
+                if (!dialog) {
+                    return;
+                }
 
-                lastTrigger = trigger;
+                attachDialog(dialog);
+
+                activeDialog = lastPickedDialogNumber + 1;
+
+            },
+
+            attachDialog = function (dialog) {
+                dialog.parent = (dialog.opts.type === 'overlay' || !dialog.trigger) ? 'body' : dialog.trigger.offsetParent;
+
+                dialog.wrapper.appendTo(dialog.parent);
+
+                // forces redraw before .is-open starts the animation
+                dialog.wrapper[0].offsetWidth;
+                dialog.wrapper.addClass('is-open');
+                dialog.content.focus();
+
+                dialog.width = dimensionCalculators.width(dialog);
+                dialog.height = dimensionCalculators.height(dialog);
+                respondToWindow(dialog);
+
+                win.on('resize.o-dialog', function() {
+                    respondToWindow(dialog);
+                });
+
+                $('body').on('click.o-dialog', function (ev) {
+                    if (!/o\-dialog\-\-trigger/.test(ev.target.className)) {
+                        close(dialog);
+                    }
+                    
+                });
+            },
+
+            setupDialog = function (opts, trigger) {
+                var dialog = getEmptyDialog();
 
                 if (typeof opts === 'string') {
                     opts = {
@@ -173,54 +210,34 @@
 
                 opts = $.extend({}, defaults, opts);
 
-                isLegacyOverlay = noFlexbox && opts.type === 'overlay';
-
-                assignClasses(dialog, opts);
-                
-                dialog.content.html(opts.content);
-
-                dialog.parent = (opts.type === 'overlay' || !lastTrigger) ? 'body' : lastTrigger.offsetParent;
-
                 if (opts.type === 'dropup' || opts.type === 'dropdown') {
-                    if (!lastTrigger) {
+                    if (!trigger) {
                         return;
                     }
                 }
 
-                dialog.wrapper.appendTo(dialog.parent);
+                dialog.trigger = trigger;
 
-                dialog.type = opts.type;
+                opts.isLegacyOverlay = noFlexbox && opts.type === 'overlay';
 
-                // forces redraw before .is-open starts the animation
-                dialog.wrapper[0].offsetWidth;
-                dialog.wrapper.addClass('is-open');
-                dialog.content.focus();
+                dialog.opts = opts;
 
-                dialog.width = dimensionCalculators.width(dialog);
-                dialog.height = dimensionCalculators.height(dialog);
-                respondToWindow(dialog, lastTrigger);
-
-                win.on('resize.o-dialog', function() {
-                    respondToWindow(dialog, lastTrigger);
-                });
-
-                $('body').on('click.o-dialog', function (ev) {
-                    if (!/o\-dialog\-\-trigger/.test(ev.target.className)) {
-                        close(dialog);
-                    }
-                    
-                });
+                assignClasses(dialog);
                 
+                dialog.content.html(opts.content);
 
-                activeDialog = lastPickedDialogNumber + 1;
-
+                return dialog;
             },
-
-            anchorDropdown = function (dialog, trigger) {
-                if (dialog.type === 'dropup' || dialog.type === 'dropdown') {
+            assignClasses = function (dialog) {
+                dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.type + ' ' + dialog.opts.classes;
+                dialog.content[0].className = 'o-dialog__content o-dialog--' + dialog.opts.type + '__content';
+            },
+            anchorDropdown = function (dialog) {
+                if (dialog.opts.type === 'dropup' || dialog.opts.type === 'dropdown') {
 
                     var align,
                         offset,
+                        trigger = dialog.trigger;
                         triggerRightEdge = trigger.offsetLeft + trigger.offsetWidth;
 
                     if (dialog.width > win.width() || triggerRightEdge - dialog.width < 0) {
@@ -242,7 +259,8 @@
                     } else {
                         dialog.wrapper.css('right', offset).addClass('o-dialog--dropdown--right').removeClass('o-dialog--dropdown--left');
                     }
-                    if (dialog.type === 'dropdown') {
+
+                    if (dialog.opts.type === 'dropdown') {
                         dialog.wrapper.css('top', trigger.offsetTop + trigger.offsetHeight);
                     } else {
                         dialog.wrapper.css('bottom', trigger.offsetParent.offsetHeight - trigger.offsetTop);
@@ -251,10 +269,7 @@
 
             },
 
-            assignClasses = function (dialog, options) {
-                dialog.wrapper[0].className = 'o-dialog o-dialog--' + options.type + ' ' + options.classes;
-                dialog.content[0].className = 'o-dialog__content o-dialog--' + options.type + '__content';
-            },
+
 
             close = function (dialog) {
                 dialog = dialog || dialogs[activeDialog - 1];
@@ -331,16 +346,16 @@
                 dialog.wrapper.detach().attr('style', null);
             },
 
-            respondToWindow = function (dialog, lastTrigger) {
+            respondToWindow = function (dialog) {
 
                 reAlign('width', dialog);
                 reAlign('height', dialog);
-                anchorDropdown(dialog, lastTrigger);
+                anchorDropdown(dialog);
             },
 
             reAlign = function (dimension, dialog) {
 
-                if (dimension === 'height' && dialog.type !== 'overlay') {
+                if (dimension === 'height' && dialog.opts.type !== 'overlay') {
                     return;
                 }
 
