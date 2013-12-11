@@ -201,7 +201,7 @@
 
                 dialog.trigger = trigger;
 
-                opts.isLegacyOverlay = !isFlexbox && opts.type === 'overlay';
+                dialog.isLegacyOverlay = !isFlexbox && opts.type === 'overlay';
 
                 dialog.opts = opts;
 
@@ -381,7 +381,7 @@
                 if (win[dimension]() <= dialog[dimension]) {
                     dialog['full' + capitalisedDimension] = true;
                     dialog.wrapper.addClass('o-dialog--full-' + dimension);
-                    if (isLegacyOverlay) {
+                    if (dialog.isLegacyOverlay) {
                         dialog.content.css('margin-' + edge, 0);
                     }
                 } else {
@@ -391,12 +391,12 @@
                         dimensionCalculators[dimension](dialog),
                         dialog[dimension]
                     );
-                    if (isLegacyOverlay) {
+                    if (dialog.isLegacyOverlay) {
                         dialog.content.css('margin-' + edge, -dialog.content['outer' + capitalisedDimension]()/2);
                     }
                 }
 
-                if (!isFlexbox && !isLegacyOverlay) {
+                if (!isFlexbox && !dialog.isLegacyOverlay) {
                     dialog.content.css('margin-' + edge, 'auto');
                 }
             };
