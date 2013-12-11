@@ -15,6 +15,7 @@
   -ms-transition: opacity 1s ease-in-out;
   -o-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
+  pointer-events: none;
   // -webkit-transform: translateZ(0);
   // -moz-transform: translateZ(0);
   // -ms-transform: translateZ(0);
@@ -23,6 +24,7 @@
 }
 
 .o-dialog--overlay.is-open {
+    pointer-events: auto;
     opacity: 1;
 }
 
@@ -44,6 +46,12 @@
 .flexbox,
 .flexboxlegacy {
   .o-dialog--overlay { 
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    display: flex;
+
     -webkit-box-align: center;
     -webkit-flex-align: center;
     -ms-flex-align: center;
@@ -56,8 +64,6 @@
     -webkit-justify-content: center;
     justify-content: center;
    
-   
-   
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -65,14 +71,6 @@
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-  }
-
-  .o-dialog--overlay.is-open {
-    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox; /* TWEENER - IE 10 */
-    display: -webkit-flex;
-    display: flex;
   }
 
   .o-dialog--overlay__content {

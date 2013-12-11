@@ -1,8 +1,8 @@
 (function () {
 
     var win = $(window),
-        animated = Modernizr.csstransforms,
-        noFlexbox = !Modernizr.flexbox && !Modernizr.flexboxlegacy;
+        isAnimatable = Modernizr.csstransforms,
+        isntFlexbox = !Modernizr.flexbox && !Modernizr.flexboxlegacy;
 
     function getSpacing(el, side) {
         return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
@@ -26,13 +26,22 @@
         return toHyphenatedStyleProp(prop);
     }
 
-    function getStyleProperty (el, prop) {
+    function getStyleValue (el, prop) {
         return getComputedStyle(el,null).getPropertyValue(getPrefixedStyleProp(prop));
+    }
+
+    function getStyleValues (el, props) {
+        var vals = [];
+
+        for (var i = props.length - 1;i>=0;i--) {
+            vals.unshift(getStyleValue(el, props[i]));
+        }
+        return vals;
     }
 
     var Dialog = (function () {
 
-        var dialogs = animated ? Array(2) : [],
+        var dialogs = isAnimatable ? Array(2) : [],
             wrapper,
             content,
             globalListenersApplied = false,
@@ -94,7 +103,7 @@
 
             getEmptyDialog = function () {
 
-                if (animated) {
+                if (isAnimatable) {
                     if (dialogs[0] && dialogs[0].active) {
                         dialogs.reverse();
                     }
@@ -193,7 +202,7 @@
 
                 dialog.trigger = trigger;
 
-                opts.isLegacyOverlay = noFlexbox && opts.type === 'overlay';
+                opts.isLegacyOverlay = isntFlexbox && opts.type === 'overlay';
 
                 dialog.opts = opts;
 
@@ -256,8 +265,8 @@
 
                 win.off('resize.o-dialog');
                 $('body').off('click.o-dialog');
-                if (animated) {
-                    doAfterTransition(dialog.wrapper, 'is-open', 'remove', dialog.content, function () {
+                if (isAnimatable) {
+                    doAfterTransition(dialog.wrapper, 'is-open', 'remove', dialog.content.add(dialog.wrapper), function () {
                         cleanUpDialog(dialog);
                     });
                     
@@ -268,56 +277,86 @@
                 
             },
 
-            doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEl, callback) {
-                $transitioningEl = $transitioningEl || $wrapper;
+            doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEls, callback) {
+                $transitioningEls = $transitioningEls || $wrapper;
 
-                var transitioningEl = $transitioningEl[0],
-                    duration = +getStyleProperty(transitioningEl, 'transition-duration').replace(/[^\.\d]/g, ''),
-                    transitioners = getStyleProperty(transitioningEl, 'transition-property').split(' '),
-                    initialState = [],
-                    changedState = [],
-                    i,
+                var maxDuration = 0,
+                    possibleTransitions = [],
                     callbackHasRun = false,
+                    singletonCallback;
 
-                    //makes sure callback doesn't get called twice by accident
-                    singletonCallback = function () {
-                        if (!callbackHasRun) {
-                            callbackHasRun = true;
-                            callback();
-                        }
-                    };
+                $transitioningEls.each(function (item) {
+                    var details,
+                        duration = +getStyleValue(this, 'transition-duration').replace(/[^\.\d]/g, ''),
+                        properties;
+
+                    if (duration) {
+                        properties = getStyleValue(this, 'transition-property');
+                        
+                        properties = properties === 'all' ? [] : properties.split(' ');
+                    
+                        details = {
+                            el: this,
+                            duration: duration,
+                            properties: properties,
+                            initialState: getStyleValues(this, properties)
+                        };
+                        possibleTransitions.push(details);
+
+                        maxDuration = Math.max(maxDuration, details.duration);
+                    }
+                    
+                });
 
                 // if no transition defined just call the callback
-                if (duration === 0) {
+                if (maxDuration === 0) {
                     $wrapper[mode + 'Class'](cssClass);
                     callback();
                     return;
                 }
 
-                for (i = transitioners.length - 1;i>=0;i--) {
-                    initialState.unshift(getStyleProperty(transitioningEl, transitioners[i]));
-                }
+                // makes sure callback only gets called once
+                singletonCallback = function () {
+                    if (!callbackHasRun) {
+                        callbackHasRun = true;
+                        callback();
+                    }
+                };
 
                 $wrapper[mode + 'Class'](cssClass);
 
                 setTimeout(function () {
-                    window.requestAnimationFrame(function () {
-                        for (i = transitioners.length - 1;i>=0;i--) {
-                            changedState.unshift(getStyleProperty(transitioningEl, transitioners[i]));
-                        }
+                    Modernizr.prefixed('requestAnimationFrame', window)(function () {
+                        var duration = 0;
 
-                        for (i = transitioners.length - 1;i>=0;i--) {
-                            if (changedState[i] !== initialState[i]) {
-                                $transitioningEl.transitionEnd(singletonCallback);
-
-                                // failsafe in case the transitionEnd event doesn't fire
-                                setTimeout(singletonCallback, duration * 1000);
-                                return;
+                        $.each(possibleTransitions, function (index, details) {
+                            var i,
+                                changedState = [];
+                            for (i = details.properties.length - 1;i>=0;i--) {
+                                changedState.unshift(getStyleValue(details.el, details.properties[i]));
                             }
+
+                            for (i = details.properties.length - 1;i>=0;i--) {
+                                if (changedState[i] !== details.initialState[i]) {
+
+                                    // todo: move this to listen on the wrapper and only respond to the slowest animation
+                                    $(details.el).transitionEnd(singletonCallback);
+
+                                    // failsafe in case the transitionEnd event doesn't fire
+                                    setTimeout(singletonCallback, details.duration * 1000);
+                                    duration = Math.max(duration, details.duration);
+                                }
+                            }
+                        });
+                        if (!duration) {
+                            singletonCallback();
                         }
-                        singletonCallback();
                     });
-                }, 1);
+                }, 20);
+
+                // failsafe in case something really weird happens (transitions tend to be buggy in a lot of browsers
+                // e.g. currently in firefox requestAnimationFrame isn't running the callback when opacity is transitioned)
+                setTimeout(singletonCallback, maxDuration * 1000);
             },
 
             cleanUpDialog = function (dialog) {
@@ -360,7 +399,7 @@
                     }
                 }
 
-                if (noFlexbox && !isLegacyOverlay) {
+                if (isntFlexbox && !isLegacyOverlay) {
                     dialog.content.css('margin-' + edge, 'auto');
                 }
             };
