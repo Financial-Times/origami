@@ -303,9 +303,10 @@
                     
                 });
 
+                $wrapper[mode + 'Class'](cssClass);
+                
                 // if no transition defined just call the callback
                 if (maxDuration === 0) {
-                    $wrapper[mode + 'Class'](cssClass);
                     callback();
                     return;
                 }
@@ -318,7 +319,7 @@
                     }
                 };
 
-                $wrapper[mode + 'Class'](cssClass);
+                
 
                 setTimeout(function () {
                     Modernizr.prefixed('requestAnimationFrame', window)(function () {
