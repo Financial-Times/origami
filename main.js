@@ -166,6 +166,8 @@
 
                 dialog.wrapper.appendTo(dialog.parent);
 
+                dialog.type = opts.type;
+
                 // forces redraw before .is-open starts the animation
                 dialog.wrapper[0].offsetWidth;
                 dialog.wrapper.addClass('is-open');
@@ -173,10 +175,10 @@
 
                 dialog.width = dimensionCalculators.width(dialog);
                 dialog.height = dimensionCalculators.height(dialog);
-                respondToWindow(dialog, opts, lastTrigger);
+                respondToWindow(dialog, lastTrigger);
 
                 win.on('resize.o-dialog', function() {
-                    respondToWindow(dialog, opts, lastTrigger);
+                    respondToWindow(dialog, lastTrigger);
                 });
                 setTimeout(function () {
                     $('body').on('click.o-dialog', function () {
@@ -189,8 +191,8 @@
 
             },
 
-            anchorDropdown = function (dialog, options, trigger) {
-                if (options.type === 'dropup' || options.type === 'dropdown') {
+            anchorDropdown = function (dialog, trigger) {
+                if (dialog.type === 'dropup' || dialog.type === 'dropdown') {
 
                     var align,
                         offset,
@@ -215,7 +217,7 @@
                     } else {
                         dialog.wrapper.css('right', offset).addClass('o-dialog--dropdown--right').removeClass('o-dialog--dropdown--left');
                     }
-                    if (options.type === 'dropdown') {
+                    if (dialog.type === 'dropdown') {
                         dialog.wrapper.css('top', trigger.offsetTop + trigger.offsetHeight);
                     } else {
                         dialog.wrapper.css('bottom', trigger.offsetParent.offsetHeight - trigger.offsetTop);
@@ -252,14 +254,19 @@
                 dialog.wrapper.detach().attr('style', null);
             },
 
-            respondToWindow = function (dialog, opts, lastTrigger) {
+            respondToWindow = function (dialog, lastTrigger) {
 
                 reAlign('width', dialog);
                 reAlign('height', dialog);
-                anchorDropdown(dialog, opts, lastTrigger);
+                anchorDropdown(dialog, lastTrigger);
             },
 
             reAlign = function (dimension, dialog) {
+
+                if (dimension === 'height' && dialog.type !== 'overlay') {
+                    return;
+                }
+
                 var edge = dimension === 'width' ? 'left' : 'top',
                     capitalisedDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1);
 
