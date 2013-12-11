@@ -2,7 +2,7 @@
 
     var win = $(window),
         isAnimatable = Modernizr.csstransforms,
-        isntFlexbox = !Modernizr.flexbox && !Modernizr.flexboxlegacy;
+        isFlexbox = Modernizr.flexbox || Modernizr.flexboxlegacy;
 
     function getSpacing(el, side) {
         return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
@@ -15,7 +15,7 @@
     }
 
     function toHyphenatedStyleProp (str) {
-        return str.replace(/([A-Z])/g, function (str,m1) {
+        return str.replace(/([A-Z])/g, function (str, m1) {
             return '-' + m1.toLowerCase();
         }).replace(/^ms-/,'-ms-');
     }
@@ -27,7 +27,7 @@
     }
 
     function getStyleValue (el, prop) {
-        return getComputedStyle(el,null).getPropertyValue(getPrefixedStyleProp(prop));
+        return getComputedStyle(el, null).getPropertyValue(getPrefixedStyleProp(prop));
     }
 
     function getStyleValues (el, props) {
@@ -165,7 +165,6 @@
                     if (!/o\-dialog\-\-trigger/.test(ev.target.className)) {
                         close(dialog);
                     }
-                    
                 });
             },
 
@@ -202,7 +201,7 @@
 
                 dialog.trigger = trigger;
 
-                opts.isLegacyOverlay = isntFlexbox && opts.type === 'overlay';
+                opts.isLegacyOverlay = !isFlexbox && opts.type === 'overlay';
 
                 dialog.opts = opts;
 
@@ -261,7 +260,6 @@
                 if (!dialog.active) {
                     return;
                 }
-                
 
                 win.off('resize.o-dialog');
                 $('body').off('click.o-dialog');
@@ -355,7 +353,6 @@
                 }, 20);
 
                 // failsafe in case something really weird happens (transitions tend to be buggy in a lot of browsers
-                // e.g. currently in firefox requestAnimationFrame isn't running the callback when opacity is transitioned)
                 setTimeout(singletonCallback, maxDuration * 1000);
             },
 
@@ -399,7 +396,7 @@
                     }
                 }
 
-                if (isntFlexbox && !isLegacyOverlay) {
+                if (!isFlexbox && !isLegacyOverlay) {
                     dialog.content.css('margin-' + edge, 'auto');
                 }
             };

@@ -10,17 +10,12 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; 
   opacity: 0;
-  -webkit-transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -ms-transition: opacity 1s ease-in-out;
-  -o-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   pointer-events: none;
-  // -webkit-transform: translateZ(0);
-  // -moz-transform: translateZ(0);
-  // -ms-transform: translateZ(0);
-  // -o-transform: translateZ(0);
-  // transform: translateZ(0);
 }
 
 .o-dialog--overlay.is-open {
