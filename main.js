@@ -70,7 +70,7 @@
 
                 wrapper.append(content);
 
-                globalListeners();
+                globalListenersApplied || globalListeners();
 
                 dialog = {
                     wrapper: wrapper,
@@ -78,20 +78,20 @@
                 };
 
                 content.on('click.o-dialog', function (ev) {
-                    ev.stopPropagation();
+                    ev.oDialogContentClick = true;
                 });
 
                 wrapper.on('click.o-dialog', function (ev) {
-                    close(dialog);
+                    if (!ev.oDialogContentClick) {
+                        close(dialog);
+                    }
+                    
                 });
 
                 return dialog;
             },
 
             globalListeners = function () {
-                if (globalListenersApplied) {
-                    return;
-                }
                 $(document).on('keyup.o-dialog', function (ev) {
                     if (ev.keyCode === 27) {
                         close();
@@ -162,7 +162,7 @@
                 });
 
                 $('body').on('click.o-dialog', function (ev) {
-                    if (!/o\-dialog\-\-trigger/.test(ev.target.className)) {
+                    if (!ev.oDialogContentClick && !/o\-dialog\-\-trigger/.test(ev.target.className)) {
                         close(dialog);
                     }
                 });
