@@ -107,11 +107,8 @@
                     if (dialogs[0] && dialogs[0].active) {
                         dialogs.reverse();
                     }
-                    if (!dialogs[0]) {
-                        dialogs[0] = createDialogHtml();
-                    }
-                    
-                } else {
+                }
+                if (!dialogs[0]) {
                     dialogs[0] = createDialogHtml();
                 }
 
