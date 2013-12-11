@@ -32,9 +32,7 @@
 
     var Dialog = (function () {
 
-        var dialogs = [],
-            activeDialog,
-            lastPickedDialogNumber,
+        var dialogs = animated ? Array(2) : [],
             wrapper,
             content,
             globalListenersApplied = false,
@@ -78,7 +76,6 @@
                     close(dialog);
                 });
 
-                dialogs.push(dialog);
                 return dialog;
             },
 
@@ -96,53 +93,33 @@
             },
 
             getEmptyDialog = function () {
-                var nextAvailableEmptyDialog,
-                    dialog;
+
                 if (animated) {
-                    
-                    if (dialogs.length === 2) {
-                        if (activeDialog) {
-                            nextAvailableEmptyDialog = (activeDialog) % dialogs.length;
-                        } else {
-                            nextAvailableEmptyDialog = 0;
-                        }
-                    } else if (dialogs.length === 1) {
-                        if (activeDialog) {
-                            nextAvailableEmptyDialog = 1;
-                        } else {
-                            nextAvailableEmptyDialog = 0;
-                        }
-                    } else {
-                        nextAvailableEmptyDialog = 0;
+                    if (dialogs[0] && dialogs[0].active) {
+                        dialogs.reverse();
                     }
-
-                    if (dialogs.length <= nextAvailableEmptyDialog) {
-                        createDialogHtml();
+                    if (!dialogs[0]) {
+                        dialogs[0] = createDialogHtml();
                     }
-
-                    lastPickedDialogNumber = nextAvailableEmptyDialog;
-                    dialog = dialogs[nextAvailableEmptyDialog];
                     
                 } else {
-                    lastPickedDialogNumber = 0;
-                    dialog = dialogs[0] || createDialogHtml();
+                    dialogs[0] = createDialogHtml();
                 }
 
-                return dialog;
+                return dialogs[0];
             },
 
             trigger = function (opts, trigger) { //content, srcType, handler) {
                 
                 var lastDialog;
 
-                if (activeDialog && dialogs[activeDialog -1].wrapper.hasClass('is-open')) {
+                if (dialogs[0] && dialogs[0].active) {
                     
-                    lastDialog = dialogs[activeDialog -1];
+                    lastDialog = dialogs[0];
                     close(lastDialog);
                     //dialogs.active = getEmptyDialog();
 
                     if (trigger === lastDialog.trigger) {
-                        lastPickedDialogNumber = null;
                         return;
                     }
                 }
@@ -154,9 +131,6 @@
                 }
 
                 attachDialog(dialog);
-
-                activeDialog = lastPickedDialogNumber + 1;
-
             },
 
             attachDialog = function (dialog) {
@@ -171,6 +145,7 @@
 
                 dialog.width = dimensionCalculators.width(dialog);
                 dialog.height = dimensionCalculators.height(dialog);
+                dialog.active = true;
                 respondToWindow(dialog);
 
                 win.on('resize.o-dialog', function() {
@@ -228,10 +203,12 @@
 
                 return dialog;
             },
+
             assignClasses = function (dialog) {
                 dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.type + ' ' + dialog.opts.classes;
                 dialog.content[0].className = 'o-dialog__content o-dialog--' + dialog.opts.type + '__content';
             },
+
             anchorDropdown = function (dialog) {
                 if (dialog.opts.type === 'dropup' || dialog.opts.type === 'dropdown') {
 
@@ -270,9 +247,12 @@
             },
 
 
-
             close = function (dialog) {
-                dialog = dialog || dialogs[activeDialog - 1];
+                dialog = dialog || dialogs[0];
+                if (!dialog.active) {
+                    return;
+                }
+                
 
                 win.off('resize.o-dialog');
                 $('body').off('click.o-dialog');
@@ -321,27 +301,27 @@
                 $wrapper[mode + 'Class'](cssClass);
 
                 setTimeout(function () {
-                    for (i = transitioners.length - 1;i>=0;i--) {
-                        changedState.unshift(getStyleProperty(transitioningEl, transitioners[i]));
-                    }
-
-                    for (i = transitioners.length - 1;i>=0;i--) {
-                        if (changedState[i] !== initialState[i]) {
-                            $transitioningEl.transitionEnd(singletonCallback);
-
-                            // failsafe in case the transitionEnd event doesn't fire
-                            setTimeout(singletonCallback, duration * 1000);
-                            return;
+                    window.requestAnimationFrame(function () {
+                        for (i = transitioners.length - 1;i>=0;i--) {
+                            changedState.unshift(getStyleProperty(transitioningEl, transitioners[i]));
                         }
-                    }
-                    singletonCallback();
-                }, 20);
+
+                        for (i = transitioners.length - 1;i>=0;i--) {
+                            if (changedState[i] !== initialState[i]) {
+                                $transitioningEl.transitionEnd(singletonCallback);
+
+                                // failsafe in case the transitionEnd event doesn't fire
+                                setTimeout(singletonCallback, duration * 1000);
+                                return;
+                            }
+                        }
+                        singletonCallback();
+                    });
+                }, 1);
             },
 
             cleanUpDialog = function (dialog) {
-                if (typeof lastPickedDialogNumber !== 'number') {
-                    activeDialog = null;
-                }
+                dialog.active = false;
                 dialog.content.empty();
                 dialog.wrapper.detach().attr('style', null);
             },
