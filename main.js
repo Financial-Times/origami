@@ -8,6 +8,55 @@
         return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
     }
 
+    function toCamel (str) {
+        return str.replace(/[A-Z]/g, function ($0, $1) {
+            return $0.toLowerCase() + '-';
+        });
+    }
+
+    function toHyphenated (str) {
+        return str.replace(/([A-Z])/g, function (str,m1) {
+            return '-' + m1.toLowerCase();
+        }).replace(/^ms-/,'-ms-');
+    }
+
+    function getPrefixedHyphenatedProperty (prop) {
+        prop = toCamel(prop);
+        prop = Modernizr.prefixed(prop);
+        return toHyphenated(prop);
+    }
+
+    function getStyleProperty (el, prop) {
+        return getComputedStyle(el,null).getPropertyValue(getPrefixedHyphenatedProperty(prop));
+    }
+
+    function hasTransition ($el, cssClass, mode) {
+
+        var el = $el[0],
+            transitioners = getStyleProperty(el, 'transition-property').split(' '),
+            initialState = [],
+            finalState = [],
+            i = transitioners.length - 1;
+
+        for (;i>=0;i--) {
+            initialState.unshift(getStyleProperty(el, transitioners[i]));
+        }
+
+        $el[mode + 'Class'](cssClass);
+
+        for (;i>=0;i--) {
+            finalState.unshift(getStyleProperty(el, transitioners[i]));
+        }
+
+        for (;i>=0;i--) {
+            if (finalState[i] !== initialState[i]) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     var Dialog = (function () {
 
         var initialised = false,
@@ -45,19 +94,21 @@
 
                 globalListeners();
 
+                dialog = {
+                    wrapper: wrapper,
+                    content: content
+                }
+
                 content.on('click.o-dialog', function (ev) {
                     ev.stopPropagation();
                 });
 
                 wrapper.on('click.o-dialog', function (ev) {
-                    close();
+                    close(dialog);
                 });
 
-                dialogs.push({
-                    wrapper: wrapper,
-                    content: content
-                });
-                return dialogs[dialogs.length - 1];
+                dialogs.push(dialog);
+                return dialog;
             },
 
             globalListeners = function () {
@@ -231,11 +282,13 @@
 
             close = function (dialog) {
                 dialog = dialog || dialogs[activeDialog - 1];
+                hasTransition(dialog.wrapper, 'is-open', 'remove');
                 dialog.wrapper.removeClass('is-open');
                 win.off('resize.o-dialog');
                 $('body').off('click.o-dialog');
                 if (animated) {
                     dialog.content.transitionEnd(function () {
+                        console.log('cleaningup')
                         cleanUpDialog(dialog);
                     });
                 } else {
@@ -299,11 +352,11 @@
     };
 
     $.fn.transitionEnd = function () {
-      this.one('webkitTransitionEnd', arguments[1], arguments[2]);
-      this.one('mozTransitionEnd', arguments[1], arguments[2]);
-      this.one('msTransitionEnd', arguments[1], arguments[2]);
-      this.one('oTransitionEnd', arguments[1], arguments[2]);
-      this.one('transitionEnd', arguments[1], arguments[2]);
+      this.one('webkitTransitionEnd', arguments[0]);
+      this.one('mozTransitionEnd', arguments[0]);
+      this.one('msTransitionEnd', arguments[0]);
+      this.one('oTransitionEnd', arguments[0]);
+      this.one('transitionEnd', arguments[0]);
       return this;
     };
 
