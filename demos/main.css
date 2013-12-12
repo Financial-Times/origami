@@ -487,27 +487,6 @@ html {
 .o-ft-form-label--inline {
   line-height: 26px; }
 
-.o-ft-form-label--error {
-  color: #cc0000; }
-
-.o-ft-form-error {
-  display: block;
-  margin-top: -1px;
-  margin-bottom: 20px;
-  padding: 3px 7px;
-  font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
-  font-size: 11px;
-  font-style: italic;
-  color: #fff;
-  background-color: #cc0000; }
-
-.o-ft-form-label--error ~ .o-ft-form-field[type="text"] {
-  margin-bottom: 0; }
-
-.o-ft-form-label--error ~ .o-ft-form-field[type="checkbox"],
-.o-ft-form-label--error ~ .o-ft-form-field[type="radio"] {
-  margin-bottom: 6px; }
-
 .o-ft-form-field[type="text"] {
   box-sizing: border-box;
   -webkit-appearance: none;
