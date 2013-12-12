@@ -1,6 +1,10 @@
 "use strict";
 
 var domUtils = require('./domUtils'),
+    L = 'left',
+    R = 'right',
+    T = 'top',
+    B = 'bottom',
     win = $(window),
     isAnimatable = Modernizr.csstransforms,
     isFlexbox = Modernizr.flexbox || Modernizr.flexboxlegacy,
@@ -19,7 +23,7 @@ var domUtils = require('./domUtils'),
         srcType: 'selector',
         classes: '',
         type: 'overlay',
-        isDismissable: true,
+        isDismissable: true, //
         isAnchoredToTrigger: false,
         verticalAnchorSide: null,
         horizontalAnchorSide: null,
@@ -134,10 +138,8 @@ var createDialogHtml = function () {
 
         opts = $.extend({}, defaults, types[opts.type] || {}, opts);
 
-        if (opts.type === 'dropup' || opts.type === 'dropdown') {
-            if (!trigger) {
-                return;
-            }
+        if (opts.isAnchoredToTrigger && !trigger) {
+            return;
         }
 
         dialog.trigger = trigger;
@@ -149,7 +151,8 @@ var createDialogHtml = function () {
         return dialog;
     },
     attachDialog = function (dialog) {
-        dialog.parent = (dialog.opts.type === 'overlay' || !dialog.trigger) ? 'body' : dialog.trigger.offsetParent;
+
+        dialog.parent = (!dialog.opts.isAnchoredToTrigger || !dialog.trigger) ? 'body' : dialog.trigger.offsetParent;
 
         dialog.wrapper.appendTo(dialog.parent);
 
@@ -197,7 +200,7 @@ var createDialogHtml = function () {
     },
 
     anchorDropdown = function (dialog) {
-        if (dialog.opts.type === 'dropup' || dialog.opts.type === 'dropdown') {
+        if (dialog.opts.isAnchoredToTrigger) {
 
             var align,
                 offset,
@@ -364,7 +367,7 @@ var createDialogHtml = function () {
             return;
         }
 
-        var edge = dimension === 'width' ? 'left' : 'top',
+        var edge = dimension === 'width' ? L : T,
             capitalisedDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1);
 
         if (win[dimension]() <= dialog[dimension]) {
