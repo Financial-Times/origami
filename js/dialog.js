@@ -26,12 +26,12 @@ var domUtils = require('./domUtils'),
         classes: '',
         type: 'overlay',
         isDismissable: true, //
-        isAnchoredToTrigger: false,
+        isAnchoredToTrigger: false, //
         verticalAnchorSide: null,
         horizontalAnchorSide: null,
         hasOverlay: true,
-        isCenteredVertically: true,
-        isCenteredHorizontally: true,
+        isCenteredVertically: true, //
+        isCenteredHorizontally: true, //
         snapsToFullHeight: true,
         snapsToFullWidth: true,
         onTrigger: $.noop,
@@ -365,17 +365,17 @@ var createDialogHtml = function () {
 
     reAlign = function (dimension, dialog) {
 
-        if (dimension === 'height' && dialog.opts.type !== 'overlay') {
+        if ((dimension === H && !dialog.opts.isCenteredVertically) || (dimension === W && !dialog.opts.isCenteredHorizontally)) {
             return;
         }
 
-        var edge = dimension === 'width' ? L : T,
+        var edge = dimension === W ? L : T,
             capitalisedDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1);
 
         if (win[dimension]() <= dialog[dimension]) {
             dialog['full' + capitalisedDimension] = true;
             dialog.wrapper.addClass('o-dialog--full-' + dimension);
-            if (dialog.isLegacyOverlay) {
+            if (!isFlexbox) {
                 dialog.content.css('margin-' + edge, 0);
             }
         } else {
@@ -385,12 +385,12 @@ var createDialogHtml = function () {
                 dimensionCalculators[dimension](dialog),
                 dialog[dimension]
             );
-            if (dialog.isLegacyOverlay) {
+            if (!isFlexbox) {
                 dialog.content.css('margin-' + edge, -dialog.content['outer' + capitalisedDimension]()/2);
             }
         }
 
-        if (!isFlexbox && !dialog.isLegacyOverlay) {
+        if (!isFlexbox && dimension === W && !dialog.opts.isCenteredHorizontally) {
             dialog.content.css('margin-' + edge, 'auto');
         }
     };
