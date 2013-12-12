@@ -664,21 +664,22 @@ textarea.o-ft-form-field {
   font-size: 12px; }
 
 .o-ft-form-button-negative {
-  background: #b7315c;
-  background: -webkit-gradient(linear, left top, left bottom, from(#cc3366), to(#9f2f50));
-  background: -moz-linear-gradient(#cc3366, #9f2f50);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$top, endColorstr=$bottom);
-  box-shadow: inset 0 1px 0 #d89aad;
-  -moz-box-shadow: inset 0 1px 0 #d89aad;
-  -webkit-box-shadow: inset 0 1px 0 #d89aad; }
+  padding: 0;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  color: #2e6e9e;
+  background: transparent; }
 
-.o-ft-form-button.o-ft-form-button--disabled, .o-ft-form-button[disabled] {
-  background: #acacac;
-  background: -webkit-gradient(linear, left top, left bottom, from(#b5b5b5), to(#a5a5a5));
-  background: -moz-linear-gradient(#b5b5b5, #a5a5a5);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$top, endColorstr=$bottom);
-  box-shadow: inset 0 1px 0 #a5a5a5;
-  -moz-box-shadow: inset 0 1px 0 #a5a5a5;
-  -webkit-box-shadow: inset 0 1px 0 #a5a5a5;
-  cursor: default;
-  color: #000; }
+.o-ft-form-button.o-ft-form-button--disabled,
+.o-ft-form-button[disabled] {
+  opacity: 0.5;
+  cursor: default; }
+
+.o-ft-form-button.o-ft-form-button--disabled:hover,
+.o-ft-form-button[disabled]:hover {
+  color: #fff; }
+
+.o-ft-form-button-negative.o-ft-form-button--disabled:hover,
+.o-ft-form-button-negative[disabled]:hover {
+  color: #2e6e9e; }

@@ -59,13 +59,24 @@
 }
 
 .#{$o-ft-forms-prefix}-button-negative {
-    @include backgroundGradientVertical(#b7315c, #cc3366, #9f2f50);
-    @include boxShadow(inset 0 1px 0 #D89AAD);
+    padding: 0;
+    @include boxShadow(none);
+    color: $o-colors-blue;
+    background: transparent;
 }
 
-.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-button--disabled, .#{$o-ft-forms-prefix}-button[disabled] {
-    @include backgroundGradientVertical(#acacac, #b5b5b5, #a5a5a5);
-    @include boxShadow(inset 0 1px 0 #a5a5a5);
+.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-button--disabled,
+.#{$o-ft-forms-prefix}-button[disabled] {
+    opacity: 0.5;
     cursor: default;
-    color: #000;
+}
+
+.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-button--disabled:hover,
+.#{$o-ft-forms-prefix}-button[disabled]:hover {
+    color: #fff;
+}
+
+.#{$o-ft-forms-prefix}-button-negative.#{$o-ft-forms-prefix}-button--disabled:hover,
+.#{$o-ft-forms-prefix}-button-negative[disabled]:hover {
+    color: $o-colors-blue;
 }

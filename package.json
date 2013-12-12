@@ -1,6 +1,6 @@
 {
   "name": "o-ft-forms",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "FT branded form elements, including buttons",
   "main": "main.scss",
   "devDependencies": {
