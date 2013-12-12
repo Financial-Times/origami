@@ -34,17 +34,17 @@ var createDialogHtml = function () {
 
         globalListenersApplied || globalListeners();
 
-        dialog = {
+        var dialog = {
             wrapper: wrapper,
             content: content
         };
 
         content.on('click.o-dialog', function (ev) {
-            ev.originalEvent.oDialogContentClick = true;
+            ev.oDialogContentClick = true;
         });
 
         wrapper.on('click.o-dialog', function (ev) {
-            if (!ev.originalEvent.oDialogContentClick) {
+            if (!ev.oDialogContentClick) {
                 close(dialog);
             }
             
@@ -119,11 +119,13 @@ var createDialogHtml = function () {
             respondToWindow(dialog);
         });
 
-        $('body').on('click.o-dialog', function (ev) {
-            if (!ev.originalEvent.oDialogContentClick && !ev.originalEvent.oDialogTriggerClick) {
-                close(dialog);
-            }
-        });
+        setTimeout(function () {
+            $('body').on('click.o-dialog', function (ev) {
+                if (!ev.oDialogContentClick && !ev.oDialogTriggerClick) {
+                    close(dialog);
+                }
+            });
+        }, 1);
     },
 
     setupDialog = function (opts, trigger) {
@@ -180,7 +182,7 @@ var createDialogHtml = function () {
 
             var align,
                 offset,
-                trigger = dialog.trigger;
+                trigger = dialog.trigger,
                 triggerRightEdge = trigger.offsetLeft + trigger.offsetWidth;
 
             if (dialog.width > win.width() || triggerRightEdge - dialog.width < 0) {
