@@ -22,8 +22,8 @@
 	font-family: $o-ft-forms-font;
 	font-size: 11px;
 	font-style: italic;
-	color: $o-colors-dark-grey;
-	background-color: $o-colors-tint3;
+	color: #fff;
+	background-color: $o-colors-red;
 }
 
 .#{$o-ft-forms-prefix}-label--error ~ .#{$o-ft-forms-prefix}-field[type="text"] {
@@ -64,44 +64,4 @@ select.#{$o-ft-forms-prefix}-field {
 textarea.#{$o-ft-forms-prefix}-field {
 	@include commonField();
 	min-height: 70px;
-}
-
-.#{$o-ft-forms-prefix}-prefix {
-	border-left: $o-ft-forms-fieldborder;
-}
-
-.#{$o-ft-forms-prefix}-suffix {
-	border-right: $o-ft-forms-fieldborder;
-}
-
-.#{$o-ft-forms-prefix}-prefix, .#{$o-ft-forms-prefix}-suffix {
-	display: block;
-	border-top: $o-ft-forms-fieldborder;
-	border-bottom: $o-ft-forms-fieldborder;
-	width: 100%;
-	font-family: $o-ft-forms-font;
-	font-size: $o-ft-forms-fontsize-field;
-	line-height: 28px;
-	text-align: center;
-	overflow: hidden;
-	background-color: $o-colors-tint1;
-	color: $o-colors-warm-grey2;
-}
-
-.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-prefix, .#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-suffix {
-	margin: 0;
-	border-radius: 0;
-	padding: 0;
-	width: 100%;
-	line-height: 30px;
-}
-
-.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-prefix {
-    border-top-left-radius: $o-ft-forms-buttonradius;
-    border-bottom-left-radius: $o-ft-forms-buttonradius;
-}
-
-.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-suffix {
-    border-top-right-radius: $o-ft-forms-buttonradius;
-    border-bottom-right-radius: $o-ft-forms-buttonradius;
 }

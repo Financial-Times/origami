@@ -1,5 +1,3 @@
-$o-grid-mq-type: width;
-$o-grid-is-fluid: true;
 @import "o-grid/main.scss";
 @import "ft-velcro/main.scss";
 
@@ -17,4 +15,6 @@ $o-grid-is-fluid: true;
 @import "src/scss/_variables.scss";
 @import "src/scss/_mixins.scss";
 @import "src/scss/fields.scss";
+@import "src/scss/field-errors.scss";
+@import "src/scss/prefix-suffix.scss";
 @import "src/scss/buttons.scss";
