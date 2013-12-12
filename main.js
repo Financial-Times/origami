@@ -8,6 +8,7 @@ var win = $(window),
 var Dialog = (function () {
 
     var dialogs = isAnimatable ? Array(2) : [],
+        types = {},
         wrapper,
         content,
         globalListenersApplied = false,
@@ -367,8 +368,11 @@ var Dialog = (function () {
         };
 
     return {
-        trigger: trigger
-        
+        trigger: trigger,
+        addType: function (name, conf) {
+            types[name] = $.extend({}, defaults, conf);
+        }
+
     };
 
 })();
