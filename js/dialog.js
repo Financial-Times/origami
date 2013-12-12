@@ -40,11 +40,11 @@ var createDialogHtml = function () {
         };
 
         content.on('click.o-dialog', function (ev) {
-            ev.oDialogContentClick = true;
+            ev.originalEvent.oDialogContentClick = true;
         });
 
         wrapper.on('click.o-dialog', function (ev) {
-            if (!ev.oDialogContentClick) {
+            if (!ev.originalEvent.oDialogContentClick) {
                 close(dialog);
             }
             
@@ -120,7 +120,7 @@ var createDialogHtml = function () {
         });
 
         $('body').on('click.o-dialog', function (ev) {
-            if (!ev.oDialogContentClick && !/o\-dialog\-\-trigger/.test(ev.target.className)) {
+            if (!ev.originalEvent.oDialogContentClick && !ev.originalEvent.oDialogTriggerClick) {
                 close(dialog);
             }
         });

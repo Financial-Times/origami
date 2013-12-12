@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     },
     watch: {
       'origami-demo': {
-          files: ['./main.scss', './main.js', './js/**/*' './*.ms', './*.mustache', './scss/**/*'],
+          files: ['./main.scss', './main.js', './js/**/*', './*.ms', './*.mustache', './scss/**/*'],
           tasks: ['origami-demo']
       }
     }
