@@ -173,11 +173,14 @@ var createDialogHtml = function () {
         });
 
         if (dialog.opts.isDismissable) {
-            $('body').on('click.o-dialog', function (ev) {
-                if (!ev.originalEvent.oDialogContentClick && !ev.originalEvent.oDialogTriggerClick) {
-                    close(dialog);
-                }
-            });
+            setTimeout(function () {
+                $('body').on('click.o-dialog', function (ev) {
+                    if (!ev.oDialogContentClick && !ev.oDialogTriggerClick) {
+                        close(dialog);
+                    }
+                });
+            }, 1);
+
 
             $(document).on('keyup.o-dialog', function (ev) {
                 if (ev.keyCode === 27) {
@@ -186,7 +189,7 @@ var createDialogHtml = function () {
             });
 
             dialog.wrapper.on('click.o-dialog', function (ev) {
-                if (!ev.originalEvent.oDialogContentClick) {
+                if (!ev.oDialogContentClick) {
                     close(dialog);
                 }
                 
