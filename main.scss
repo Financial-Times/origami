@@ -1,10 +1,10 @@
-@import "assets-module/main";
+@import "o-assets/main";
 @import "ft-velcro/main";
-@import "grid-module/main";
+@import "o-grid/main";
 
 @include oFontsInclude(BentonSans);
 
-$o-ft-footer-name: ft-footer-module;
+$o-ft-footer-name: o-ft-footer;
 $o-ft-footer-version: null !default;
 $o-ft-footer-assets-path: $o-ft-footer-name !default;
 
