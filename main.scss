@@ -1,12 +1,20 @@
+@import "assets-module/main";
 @import "ft-velcro/main";
+@import "grid-module/main";
 
 @include oFontsInclude(BentonSans);
 
-$o-ft-footer-img-root: '/img' !default;
-$o-ft-footer-spacing-unit: 10px;
-$o-footer-prefix: o-ft-footer;
+$o-ft-footer-name: ft-footer-module;
+$o-ft-footer-version: null !default;
+$o-ft-footer-assets-path: $o-ft-footer-name !default;
 
-.#{$o-footer-prefix} {
+@function oFtFooterUseAsset ($asset) {
+    @return oAssetsUse($asset, $o-ft-footer-assets-path, $o-ft-footer-version)
+}
+
+$o-ft-footer-spacing-unit: 10px;
+
+.o-ft-footer {
     margin-top: 10px;
     padding-top: 5px;
 	background-color: $o-colors-tint1;
@@ -14,8 +22,8 @@ $o-footer-prefix: o-ft-footer;
 	font-family: $o-velcro-ui-font;
 }
 
-.#{$o-footer-prefix}-link:link,
-.#{$o-footer-prefix}-link:visited, {
+.o-ft-footer-link:link,
+.o-ft-footer-link:visited {
 	display: block;
 	border-bottom: 1px solid $o-colors-tint2;
 	color: $o-colors-charcoal;
@@ -24,12 +32,12 @@ $o-footer-prefix: o-ft-footer;
 	text-decoration: none;
 }
 
-.#{$o-footer-prefix}-link:hover,
-.#{$o-footer-prefix}-link:focus {
+.o-ft-footer-link:hover,
+.o-ft-footer-link:focus {
 	color: $o-colors-blue;
 }
 
-.#{$o-footer-prefix}-copyright {
+.o-ft-footer-copyright {
 	padding-top: $o-ft-footer-spacing-unit;
 	padding-bottom: $o-ft-footer-spacing-unit;
 	color: $o-colors-charcoal;
@@ -37,39 +45,39 @@ $o-footer-prefix: o-ft-footer;
 	line-height: 14px;
 }
 
-.#{$o-footer-prefix}-copyright-text {
+.o-ft-footer-copyright-text {
 	display: inline-block;
 	padding-right: $o-ft-footer-spacing-unit;
 }
 
-.#{$o-footer-prefix}-pearson-row {
+.o-ft-footer-pearson-row {
 	padding-top: $o-ft-footer-spacing-unit + 5;
 	padding-bottom: $o-ft-footer-spacing-unit + 5;
 	background-color: $o-colors-tint2;
 }
 
-.#{$o-footer-prefix}-pearson {
+.o-ft-footer-pearson {
 	height: 16px;
-	background-image: url($o-ft-footer-img-root + 'pearson_sprite.gif');
+	background-image: url(oFtFooterUseAsset("img/pearson_sprite.gif"));
 	fill: $o-colors-warm-grey2;
 	svg {
 		display: none;
 	}
 }
 
-.inlinesvg .#{$o-footer-prefix}-pearson {
+.inlinesvg .o-ft-footer-pearson {
 	background-image: none;
 	svg {
 		display: block;
 	}
 }
 
-.#{$o-footer-prefix}-pearson-alwayslearning {
+.o-ft-footer-pearson-alwayslearning {
 	float: left;
 	width: 170px;
 }
 
-.#{$o-footer-prefix}-pearson-logo {
+.o-ft-footer-pearson-logo {
 	float: right;
 	width: 100px;
 	background-position: 0 -16px;
