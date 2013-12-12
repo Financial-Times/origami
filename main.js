@@ -107,11 +107,8 @@
                     if (dialogs[0] && dialogs[0].active) {
                         dialogs.reverse();
                     }
-                    if (!dialogs[0]) {
-                        dialogs[0] = createDialogHtml();
-                    }
-                    
-                } else {
+                }
+                if (!dialogs[0]) {
                     dialogs[0] = createDialogHtml();
                 }
 
@@ -306,9 +303,10 @@
                     
                 });
 
+                $wrapper[mode + 'Class'](cssClass);
+                
                 // if no transition defined just call the callback
                 if (maxDuration === 0) {
-                    $wrapper[mode + 'Class'](cssClass);
                     callback();
                     return;
                 }
@@ -321,7 +319,7 @@
                     }
                 };
 
-                $wrapper[mode + 'Class'](cssClass);
+                
 
                 setTimeout(function () {
                     Modernizr.prefixed('requestAnimationFrame', window)(function () {
@@ -338,8 +336,8 @@
                                 if (changedState[i] !== details.initialState[i]) {
 
                                     // todo: move this to listen on the wrapper and only respond to the slowest animation
-                                    $(details.el).transitionEnd(singletonCallback);
-
+                                    $(details.el).one(Modernizr.prefixed('transitionEnd'), singletonCallback);
+                                
                                     // failsafe in case the transitionEnd event doesn't fire
                                     setTimeout(singletonCallback, details.duration * 1000);
                                     duration = Math.max(duration, details.duration);
@@ -413,14 +411,6 @@
         });
     };
 
-    $.fn.transitionEnd = function () {
-        this.one('webkitTransitionEnd', arguments[0]);
-        this.one('mozTransitionEnd', arguments[0]);
-        this.one('msTransitionEnd', arguments[0]);
-        this.one('oTransitionEnd', arguments[0]);
-        this.one('transitionEnd', arguments[0]);
-        return this;
-    };
 
     $('.o-dialog--trigger').oDialogTrigger();
 
