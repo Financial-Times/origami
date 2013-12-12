@@ -1,12 +1,5 @@
-var Dialog = require('./js/dialog');
-
-$.fn.oDialogTrigger = function () {
-    return this.click(function (ev) {
-        ev.originalEvent.oDialogTriggerClick = true;
-        Dialog.trigger($(this).data('o-dialog'), this);
-    });
-};
-
+var Dialog = require('./js/dialog'),
+    plugin = require('./js/jquery.dialog-trigger');
 
 $('.o-dialog--trigger').oDialogTrigger();
 
