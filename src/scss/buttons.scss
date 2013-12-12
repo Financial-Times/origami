@@ -1,0 +1,71 @@
+/** buttons.scss */
+
+.#{$o-ft-forms-prefix}-button {
+    display: inline-block;
+    margin: 0 10px $o-ft-forms-marginbottom 0;
+    padding: 0 8px;
+    border-width: 0;
+    border-radius: $o-ft-forms-buttonradius;
+    width: auto;
+    @include backgroundGradientVertical(#4e8fbd, #549ccf, #4782ab);
+    @include boxShadow(inset 0 1px 0 #90bfe0);
+    font-family: $o-ft-forms-font;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.#{$o-ft-forms-prefix}-button-group {
+    overflow: hidden;
+}
+
+.#{$o-ft-forms-prefix}-button-group .o-ft-form-button {
+    float: left;
+    margin-right: 1px;
+    border-radius: 0;
+}
+
+.#{$o-ft-forms-prefix}-button-group .o-ft-form-button:first-child {
+    border-top-left-radius: $o-ft-forms-buttonradius;
+    border-bottom-left-radius: $o-ft-forms-buttonradius;
+}
+
+.#{$o-ft-forms-prefix}-button-group .o-ft-form-button:last-child {
+    border-top-right-radius: $o-ft-forms-buttonradius;
+    border-bottom-right-radius: $o-ft-forms-buttonradius;
+}
+
+.#{$o-ft-forms-prefix}-button:hover {
+    color: $o-colors-cool-grey2;
+}
+
+.#{$o-ft-forms-prefix}-button-large {
+    min-height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+}
+
+.#{$o-ft-forms-prefix}-button-medium {
+    min-height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+}
+
+.#{$o-ft-forms-prefix}-button-small {
+    min-height: 16px;
+    line-height: 16px;
+    font-size: $o-ft-forms-fontsize-field;
+}
+
+.#{$o-ft-forms-prefix}-button-negative {
+    @include backgroundGradientVertical(#b7315c, #cc3366, #9f2f50);
+    @include boxShadow(inset 0 1px 0 #D89AAD);
+}
+
+.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-button--disabled, .#{$o-ft-forms-prefix}-button[disabled] {
+    @include backgroundGradientVertical(#acacac, #b5b5b5, #a5a5a5);
+    @include boxShadow(inset 0 1px 0 #a5a5a5);
+    cursor: default;
+    color: #000;
+}

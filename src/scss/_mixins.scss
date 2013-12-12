@@ -1,0 +1,29 @@
+@mixin commonField() {
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	margin: 0 0 $o-ft-forms-marginbottom 0;
+	border: $o-ft-forms-fieldborder;
+	border-radius: 0;
+	padding: 7px;
+	width: 100%;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+	color: $o-colors-warm-grey2;
+	font-family: $o-ft-forms-font;
+	font-size: $o-ft-forms-fontsize-field;
+}
+
+@mixin backgroundGradientVertical($solid, $top, $bottom) {
+    background: $solid;
+    background: -webkit-gradient(linear, left top, left bottom, from($top), to($bottom));
+    background: -moz-linear-gradient($top, $bottom);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$top, endColorstr=$bottom);
+    // -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=$top,  endColorstr=$bottom)";
+}
+
+@mixin boxShadow($value) {
+    box-shadow: $value;
+    -moz-box-shadow: $value;
+    -webkit-box-shadow: $value;
+}

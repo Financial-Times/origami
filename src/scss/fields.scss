@@ -1,0 +1,107 @@
+.#{$o-ft-forms-prefix}-label {
+	display: block;
+	margin-bottom: 10px;
+	color: $o-colors-warm-grey2;
+	font-family: $o-ft-forms-font;
+	font-size: $o-ft-forms-fontsize-label;
+}
+
+.#{$o-ft-forms-prefix}-label--inline {
+	line-height: 26px;
+}
+
+.#{$o-ft-forms-prefix}-label--error {
+	color: $o-colors-red;
+}
+
+.#{$o-ft-forms-prefix}-error {
+	display: block;
+	margin-top: -1px;
+	margin-bottom: $o-ft-forms-marginbottom;
+	padding: 3px 7px;
+	font-family: $o-ft-forms-font;
+	font-size: 11px;
+	font-style: italic;
+	color: $o-colors-dark-grey;
+	background-color: $o-colors-tint3;
+}
+
+.#{$o-ft-forms-prefix}-label--error ~ .#{$o-ft-forms-prefix}-field[type="text"] {
+	margin-bottom: 0;
+}
+
+.#{$o-ft-forms-prefix}-label--error ~ .#{$o-ft-forms-prefix}-field[type="checkbox"],
+.#{$o-ft-forms-prefix}-label--error ~ .#{$o-ft-forms-prefix}-field[type="radio"] {
+	margin-bottom: 6px;
+}
+
+.#{$o-ft-forms-prefix}-field[type="text"] {
+	@include commonField();
+	min-height: 20px;
+}
+
+.#{$o-ft-forms-prefix}-field[type="checkbox"], .#{$o-ft-forms-prefix}-field[type="radio"] {
+	margin-bottom:  $o-ft-forms-marginbottom;
+}
+
+.#{$o-ft-forms-prefix}-field[type="checkbox"] + .#{$o-ft-forms-prefix}-label,
+.#{$o-ft-forms-prefix}-field[type="radio"] + .#{$o-ft-forms-prefix}-label {
+	display: inline-block;
+	margin-left: 5px;
+	margin-right: 10px;
+	margin-bottom: 0;
+	vertical-align: baseline;
+}
+
+select.#{$o-ft-forms-prefix}-field {
+	@include commonField();
+	background-image: url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==');
+	background-repeat: no-repeat;
+	background-position-x: 97%;
+	background-position-y: center;
+}
+
+textarea.#{$o-ft-forms-prefix}-field {
+	@include commonField();
+	min-height: 70px;
+}
+
+.#{$o-ft-forms-prefix}-prefix {
+	border-left: $o-ft-forms-fieldborder;
+}
+
+.#{$o-ft-forms-prefix}-suffix {
+	border-right: $o-ft-forms-fieldborder;
+}
+
+.#{$o-ft-forms-prefix}-prefix, .#{$o-ft-forms-prefix}-suffix {
+	display: block;
+	border-top: $o-ft-forms-fieldborder;
+	border-bottom: $o-ft-forms-fieldborder;
+	width: 100%;
+	font-family: $o-ft-forms-font;
+	font-size: $o-ft-forms-fontsize-field;
+	line-height: 28px;
+	text-align: center;
+	overflow: hidden;
+	background-color: $o-colors-tint1;
+	color: $o-colors-warm-grey2;
+}
+
+.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-prefix, .#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-suffix {
+	margin: 0;
+	border-radius: 0;
+	padding: 0;
+	width: 100%;
+	line-height: 30px;
+}
+
+.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-prefix {
+    border-top-left-radius: $o-ft-forms-buttonradius;
+    border-bottom-left-radius: $o-ft-forms-buttonradius;
+}
+
+.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-suffix {
+    border-top-right-radius: $o-ft-forms-buttonradius;
+    border-bottom-right-radius: $o-ft-forms-buttonradius;
+}
