@@ -12,7 +12,11 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    'origami-demo': {},
+    'origami-demo': {
+      options: {
+        scriptMode: 'browserify'
+      }
+    },
     watch: {
       'origami-demo': {
           files: ['./main.scss', './main.js', './*.ms', './*.mustache', './scss/**/*'],
