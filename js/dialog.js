@@ -21,13 +21,13 @@ var domUtils = require('./domUtils'),
         type: 'overlay',
         isDismissable: true,
         isAnchoredToTrigger: false,
-        verticalAnchorSide: null,        
-        horizontalAnchorSide: null, 
+        verticalAnchorSide: null,
+        horizontalAnchorSide: null,
         hasOverlay: true,
         isCenteredVertically: true,
         isCenteredHorizontally: true,
-        canFillHeight: true,
-        canFillWidth: true,
+        snapsToFullHeight: true,
+        snapsToFullWidth: true,
         onTrigger: $.noop,
         onFail: $.noop,
         onBeforeRender: $.noop,
@@ -54,22 +54,11 @@ var createDialogHtml = function () {
             ev.oDialogContentClick = true;
         });
 
-        wrapper.on('click.o-dialog', function (ev) {
-            if (!ev.oDialogContentClick) {
-                close(dialog);
-            }
-            
-        });
-
         return dialog;
     },
 
     globalListeners = function () {
-        $(document).on('keyup.o-dialog', function (ev) {
-            if (ev.keyCode === 27) {
-                close();
-            }
-        }).on('close.o-dialog', close);
+        $(document).on('close.o-dialog', close);
 
         globalListenersApplied = true;
     },
@@ -104,14 +93,12 @@ var createDialogHtml = function () {
         }
 
         var dialog = configureDialog(opts, trigger);
-
-        dialog.opts.onTrigger();
         
         if (!dialog) {
             dialog.opts.onFail();
             return;
         }
-
+        dialog.opts.onTrigger();
         assignClasses(dialog);
         
         dialog.content.html(dialog.opts.content);
@@ -120,34 +107,6 @@ var createDialogHtml = function () {
         attachDialog(dialog);
         dialog.opts.onAfterRender();
 
-    },
-
-    attachDialog = function (dialog) {
-        dialog.parent = (dialog.opts.type === 'overlay' || !dialog.trigger) ? 'body' : dialog.trigger.offsetParent;
-
-        dialog.wrapper.appendTo(dialog.parent);
-
-        // forces redraw before .is-open starts the animation
-        dialog.wrapper[0].offsetWidth;
-        dialog.wrapper.addClass('is-open');
-        dialog.content.focus();
-
-        dialog.width = dimensionCalculators.width(dialog);
-        dialog.height = dimensionCalculators.height(dialog);
-        dialog.active = true;
-        respondToWindow(dialog);
-
-        win.on('resize.o-dialog', function() {
-            respondToWindow(dialog);
-        });
-
-        setTimeout(function () {
-            $('body').on('click.o-dialog', function (ev) {
-                if (!ev.oDialogContentClick && !ev.oDialogTriggerClick) {
-                    close(dialog);
-                }
-            });
-        }, 1);
     },
 
     configureDialog = function (opts, trigger) {
@@ -173,7 +132,7 @@ var createDialogHtml = function () {
             opts.content = $(opts.src).clone();
         }
 
-        opts = $.extend({}, defaults, opts);
+        opts = $.extend({}, defaults, types[opts.type] || {}, opts);
 
         if (opts.type === 'dropup' || opts.type === 'dropdown') {
             if (!trigger) {
@@ -189,6 +148,48 @@ var createDialogHtml = function () {
 
         return dialog;
     },
+    attachDialog = function (dialog) {
+        dialog.parent = (dialog.opts.type === 'overlay' || !dialog.trigger) ? 'body' : dialog.trigger.offsetParent;
+
+        dialog.wrapper.appendTo(dialog.parent);
+
+        // forces redraw before .is-open starts the animation
+        dialog.wrapper[0].offsetWidth;
+        dialog.wrapper.addClass('is-open');
+        dialog.content.focus();
+
+        dialog.width = dimensionCalculators.width(dialog);
+        dialog.height = dimensionCalculators.height(dialog);
+        dialog.active = true;
+        respondToWindow(dialog);
+
+        win.on('resize.o-dialog', function() {
+            respondToWindow(dialog);
+        });
+
+        if (dialog.opts.isDismissable) {
+            $('body').on('click.o-dialog', function (ev) {
+                if (!ev.originalEvent.oDialogContentClick && !ev.originalEvent.oDialogTriggerClick) {
+                    close(dialog);
+                }
+            });
+
+            $(document).on('keyup.o-dialog', function (ev) {
+                if (ev.keyCode === 27) {
+                    close();
+                }
+            });
+
+            dialog.wrapper.on('click.o-dialog', function (ev) {
+                if (!ev.originalEvent.oDialogContentClick) {
+                    close(dialog);
+                }
+                
+            });
+        }
+    },
+
+
 
     assignClasses = function (dialog) {
         dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.type + ' ' + dialog.opts.classes;
@@ -239,7 +240,14 @@ var createDialogHtml = function () {
         }
 
         win.off('resize.o-dialog');
-        $('body').off('click.o-dialog');
+
+        if (dialog.opts.isDismissable) {
+            $('body').off('click.o-dialog');
+            $(document).off('keyup.o-dialog');
+            dialog.wrapper.off('click.o-dialog');
+        }
+
+
         if (isAnimatable) {
             doAfterTransition(dialog.wrapper, 'is-open', 'remove', dialog.content.add(dialog.wrapper), function () {
                 cleanUpDialog(dialog);
@@ -381,6 +389,7 @@ var createDialogHtml = function () {
             dialog.content.css('margin-' + edge, 'auto');
         }
     };
+
 
 module.exports = {
     trigger: trigger,
