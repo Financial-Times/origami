@@ -17,11 +17,25 @@ var domUtils = require('./domUtils'),
     defaults = {
         src: '',
         srcType: 'selector',
-        handler: $.noop,
-        handlerContext: window,
         classes: '',
         type: 'overlay',
-        alignTo: 'right'
+        isDismissable: true,
+        isAnchoredToTrigger: false,
+        verticalAnchorSide: null,        
+        horizontalAnchorSide: null, 
+        hasOverlay: true,
+        isCenteredVertically: true,
+        isCenteredHorizontally: true,
+        canFillHeight: true,
+        canFillWidth: true,
+        onTrigger: $.noop,
+        onFail: $.noop,
+        onBeforeRender: $.noop,
+        onAfterRender: $.noop,
+        onBeforeResize: $.noop,
+        onAfterResize: $.noop,
+        onBeforeClose: $.noop,
+        onAfterClose: $.noop
     };
 
 var createDialogHtml = function () {
@@ -76,6 +90,7 @@ var createDialogHtml = function () {
 
     trigger = function (opts, trigger) {
 
+
         var lastDialog;
 
         if (dialogs[0] && dialogs[0].active) {
@@ -88,13 +103,23 @@ var createDialogHtml = function () {
             }
         }
 
-        var dialog = setupDialog(opts, trigger);
+        var dialog = configureDialog(opts, trigger);
+
+        dialog.opts.onTrigger();
         
         if (!dialog) {
+            dialog.opts.onFail();
             return;
         }
 
+        assignClasses(dialog);
+        
+        dialog.content.html(dialog.opts.content);
+
+        dialog.opts.onBeforeRender();
         attachDialog(dialog);
+        dialog.opts.onAfterRender();
+
     },
 
     attachDialog = function (dialog) {
@@ -125,7 +150,7 @@ var createDialogHtml = function () {
         }, 1);
     },
 
-    setupDialog = function (opts, trigger) {
+    configureDialog = function (opts, trigger) {
         var dialog = getEmptyDialog();
 
         if (typeof opts === 'string') {
@@ -161,10 +186,6 @@ var createDialogHtml = function () {
         dialog.isLegacyOverlay = !isFlexbox && opts.type === 'overlay';
 
         dialog.opts = opts;
-
-        assignClasses(dialog);
-        
-        dialog.content.html(opts.content);
 
         return dialog;
     },
@@ -211,6 +232,7 @@ var createDialogHtml = function () {
     },
 
     close = function (dialog) {
+        dialog.opts.onBeforeClose();
         dialog = dialog || dialogs[0];
         if (!dialog.active) {
             return;
@@ -317,13 +339,15 @@ var createDialogHtml = function () {
         dialog.active = false;
         dialog.content.empty();
         dialog.wrapper.detach().attr('style', null);
+        dialog.opts.onAfterClose();
     },
 
     respondToWindow = function (dialog) {
-
+        dialog.opts.onBeforeResize();
         reAlign('width', dialog);
         reAlign('height', dialog);
         anchorDropdown(dialog);
+        dialog.opts.onAfterResize();
     },
 
     reAlign = function (dimension, dialog) {
