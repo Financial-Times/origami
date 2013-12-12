@@ -336,6 +336,7 @@
                                 if (changedState[i] !== details.initialState[i]) {
 
                                     // todo: move this to listen on the wrapper and only respond to the slowest animation
+                                    // do something like checking to see if target = this and set a flag after timeout(maxDuration - 50) has run
                                     $(details.el).one(Modernizr.prefixed('transitionEnd'), singletonCallback);
                                 
                                     // failsafe in case the transitionEnd event doesn't fire
