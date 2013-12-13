@@ -218,6 +218,20 @@ var createDialogHtml = function () {
                 align = 'r';
             }
 
+            // Pseudo code of how this needs to work
+            // P = preferred edge to align to
+            // O = opposite edge of dropdown
+            // Pw, Ow = edges of window
+            // if (O is too close to Ow) {
+            //     swap P and O
+            //     if (O is too close to Ow) {
+            //         go to full width mode
+            //          // need to implement a way that something other than the basic window width test can force full width
+            //     }
+            // } else {
+            //     no problemo
+            // }
+
             if (dialog.fullWidth) {
                 offset = 0;
             } else if (align === 'l') {
