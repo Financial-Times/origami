@@ -5,9 +5,6 @@ var domUtils = require('./domUtils'),
     isAnimatable = Modernizr.csstransforms,
     isFlexbox = Modernizr.flexbox || Modernizr.flexboxlegacy,
     dialogs = isAnimatable ? Array(2) : [],
-    types = {},
-    wrapper,
-    content,
     globalListenersApplied = false,
     dimensionCalculators = {
         width: function (dialog) {
@@ -17,7 +14,6 @@ var domUtils = require('./domUtils'),
             return dialog.content.outerHeight() + domUtils.getSpacing(dialog.wrapper, 'top') + domUtils.getSpacing(dialog.wrapper, 'bottom');
         }
     },
-    isLegacyOverlay,
     defaults = {
         src: '',
         srcType: 'selector',
@@ -29,17 +25,16 @@ var domUtils = require('./domUtils'),
     };
 
 var createDialogHtml = function () {
-        wrapper = $('<section class="o-dialog"></section>');
-        content = $('<div class="o-dialog__content"></div>');
+        var wrapper = $('<section class="o-dialog"></section>'),
+            content = $('<div class="o-dialog__content"></div>'),
+            dialog = {
+                wrapper: wrapper,
+                content: content
+            };
 
         wrapper.append(content);
 
         globalListenersApplied || globalListeners();
-
-        var dialog = {
-            wrapper: wrapper,
-            content: content
-        };
 
         content.on('click.o-dialog', function (ev) {
             ev.oDialogContentClick = true;
