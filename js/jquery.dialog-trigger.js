@@ -1,3 +1,5 @@
+"use strict";
+
 var Dialog = require('./dialog');
 
 $.fn.oDialogTrigger = function () {

@@ -1,3 +1,5 @@
+"use strict";
+
 var domUtils = require('./domUtils'),
     win = $(window),
     isAnimatable = Modernizr.csstransforms,
