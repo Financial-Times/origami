@@ -163,7 +163,7 @@ var createDialogHtml = function () {
 
         dialog.opts = opts;
 
-        dialog.opts.innerClasses = dialog.opts.innerClasses + opts.content[0].className;
+        dialog.opts.classes += ' ' + opts.content[0].className;
 
         assignClasses(dialog);
         
