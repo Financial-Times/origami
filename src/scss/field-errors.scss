@@ -1,8 +1,24 @@
-.#{$o-ft-forms-prefix}-label--error {
-	color: $o-colors-red;
+.#{$o-ft-forms-prefix}-field--error .#{$o-ft-forms-prefix}-label {
+	color: $o-ft-forms-labelcolor-error;
+}
+
+.#{$o-ft-forms-prefix}-field--error select.#{$o-ft-forms-prefix}-field,
+.#{$o-ft-forms-prefix}-field--error textarea.#{$o-ft-forms-prefix}-field,
+.#{$o-ft-forms-prefix}-field--error .#{$o-ft-forms-prefix}-field[type="text"] {
+	margin-bottom: 0;
+}
+
+.#{$o-ft-forms-prefix}-field--error .#{$o-ft-forms-prefix}-field[type="checkbox"],
+.#{$o-ft-forms-prefix}-field--error .#{$o-ft-forms-prefix}-field[type="radio"] {
+	margin-bottom: 6px;
+}
+.#{$o-ft-forms-prefix}-field--error .#{$o-ft-forms-prefix}-field[type="checkbox"] + .#{$o-ft-forms-prefix}-label,
+.#{$o-ft-forms-prefix}-field--error .#{$o-ft-forms-prefix}-field[type="radio"] + .#{$o-ft-forms-prefix}-label {
+	color: $o-ft-forms-labelcolor;
 }
 
 .#{$o-ft-forms-prefix}-error {
+	clear: both;
 	display: block;
 	margin-top: -1px;
 	margin-bottom: $o-ft-forms-marginbottom;
@@ -11,14 +27,5 @@
 	font-size: 11px;
 	font-style: italic;
 	color: #fff;
-	background-color: $o-colors-red;
-}
-
-.#{$o-ft-forms-prefix}-label--error ~ .#{$o-ft-forms-prefix}-field[type="text"] {
-	margin-bottom: 0;
-}
-
-.#{$o-ft-forms-prefix}-label--error ~ .#{$o-ft-forms-prefix}-field[type="checkbox"],
-.#{$o-ft-forms-prefix}-label--error ~ .#{$o-ft-forms-prefix}-field[type="radio"] {
-	margin-bottom: 6px;
+	background-color: $o-ft-forms-labelcolor-error;
 }

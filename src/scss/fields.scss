@@ -1,7 +1,7 @@
 .#{$o-ft-forms-prefix}-label {
 	display: block;
 	margin-bottom: 10px;
-	color: $o-colors-warm-grey2;
+	color: $o-ft-forms-labelcolor;
 	font-family: $o-ft-forms-font;
 	font-size: $o-ft-forms-fontsize-label;
 }
@@ -10,13 +10,16 @@
 	line-height: 26px;
 }
 
-.#{$o-ft-forms-prefix}-field[type="text"] {
+.#{$o-ft-forms-prefix}-field[type="text"],
+.#{$o-ft-forms-prefix}-field[type="password"] {
 	@include commonField();
-	min-height: 20px;
+	min-height: 30px;
 }
 
 .#{$o-ft-forms-prefix}-field[type="checkbox"], .#{$o-ft-forms-prefix}-field[type="radio"] {
-	margin-bottom:  $o-ft-forms-marginbottom;
+	display: inline-block;
+	margin-top: 7px;
+	margin-bottom: $o-ft-forms-marginbottom;
 }
 
 .#{$o-ft-forms-prefix}-field[type="checkbox"] + .#{$o-ft-forms-prefix}-label,
@@ -32,11 +35,11 @@ select.#{$o-ft-forms-prefix}-field {
 	@include commonField();
 	background-image: url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==');
 	background-repeat: no-repeat;
-	background-position-x: 97%;
-	background-position-y: center;
+	background-position: 97% center;
 }
 
 textarea.#{$o-ft-forms-prefix}-field {
 	@include commonField();
 	min-height: 70px;
+	vertical-align: top;
 }
