@@ -1,7 +1,10 @@
 {
-	"name": "responsive-dialog",
-	"main": ["main.scss", "main.js", "main-dropdown.ms", "main-overlay.ms"],
+	"name": "o-dialog",
+	"main": ["main.scss", "main.js"],
 	"ignore": [
+		"package.json",
+		"demo.ms",
+		"scss/demos.scss",
 		"README.md",
 		"package.json",
 		"Gruntfile.js"

@@ -14,7 +14,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     'origami-demo': {
       options: {
-        scriptMode: 'browserify'
+        scriptMode: 'browserify',
+        main: ['demo.ms']
       }
     },
     watch: {
