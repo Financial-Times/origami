@@ -36,18 +36,17 @@ var createDialogHtml = function () {
 
         globalListenersApplied || globalListeners();
 
-        content.on('click.o-dialog', function (ev) {
-            ev.oDialogContentClick = true;
-        });
-
         wrapper.on('click.o-dialog', function (ev) {
-            if (!ev.oDialogContentClick) {
+            if (!isContentClick(ev, dialog)) {
                 close(dialog);
             }
-            
         });
 
         return dialog;
+    },
+
+    isContentClick = function (ev, dialog) {
+        return !!$(dialog.content).has(ev.target).length;
     },
 
     globalListeners = function () {
@@ -97,6 +96,8 @@ var createDialogHtml = function () {
         attachDialog(dialog);
     },
 
+
+
     attachDialog = function (dialog) {
         dialog.parent = (dialog.opts.type === 'overlay' || !dialog.trigger) ? 'body' : dialog.trigger.offsetParent;
 
@@ -118,7 +119,7 @@ var createDialogHtml = function () {
 
         setTimeout(function () {
             $('body').on('click.o-dialog', function (ev) {
-                if (!ev.oDialogContentClick && !ev.oDialogTriggerClick) {
+                if (!isContentClick(ev, dialog)) {
                     close(dialog);
                 }
             });
