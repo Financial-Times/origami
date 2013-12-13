@@ -1,9 +1,6 @@
 "use strict";
-var Dialog = require('./js/dialog'),
-    plugin = require('./js/jquery.dialog-trigger');
+var Dialog = require('./js/dialog');
 
-$('.o-dialog--trigger').oDialogTrigger();
-
-module.exports = Dialog;
-
- 
+$('body').on('click.o-dialog--trigger', '.o-dialog--trigger', function (ev) {
+    Dialog.trigger($(this).data('o-dialog'), this);
+});

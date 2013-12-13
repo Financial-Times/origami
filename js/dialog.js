@@ -218,7 +218,7 @@ var createDialogHtml = function () {
         }
 
         win.off('resize.o-dialog');
-        $('body').off('click.o-dialog');
+        $('body').off('click.o-dialog', null);
         if (isAnimatable) {
             doAfterTransition(dialog.wrapper, 'is-open', 'remove', dialog.content.add(dialog.wrapper), function () {
                 cleanUpDialog(dialog);
