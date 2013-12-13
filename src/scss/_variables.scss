@@ -1,9 +1,18 @@
+// Class names
 $o-ft-forms-prefix: o-ft-forms;
-$o-ft-forms-labelcolor: $o-colors-warm-grey2;
-$o-ft-forms-labelcolor-error: $o-colors-red;
+
+// Margins
+$o-ft-forms-marginbottom: 20px;
+
+// Border styles
 $o-ft-forms-fieldborder: 1px solid $o-colors-tint3;
 $o-ft-forms-buttonradius: 4px;
-$o-ft-forms-marginbottom: 20px;
+
+// Fonts
 $o-ft-forms-font: BentonSans-normal,Helvetica,Arial,sans-serif;
 $o-ft-forms-fontsize-label: 14px;
 $o-ft-forms-fontsize-field: 12px;
+
+// Colours
+$o-ft-forms-labelcolor: $o-colors-warm-grey2;
+$o-ft-forms-labelcolor-error: $o-colors-red;

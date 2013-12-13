@@ -1,6 +1,7 @@
 /** buttons.scss */
 
-.#{$o-ft-forms-prefix}-button {
+.#{$o-ft-forms-prefix}__button {
+    @include boxSizing(border-box);
     display: inline-block;
     margin: 0 10px $o-ft-forms-marginbottom 0;
     padding: 0 8px;
@@ -15,66 +16,66 @@
     cursor: pointer;
 }
 
-.#{$o-ft-forms-prefix}-button-group {
+.#{$o-ft-forms-prefix}__buttongroup {
     overflow: hidden;
 }
 
-.#{$o-ft-forms-prefix}-button-group .#{$o-ft-forms-prefix}-button {
+.#{$o-ft-forms-prefix}__buttongroup .#{$o-ft-forms-prefix}__button {
     float: left;
     margin-right: 1px;
     border-radius: 0;
 }
 
-.#{$o-ft-forms-prefix}-button-group .#{$o-ft-forms-prefix}-button:first-child {
+.#{$o-ft-forms-prefix}__buttongroup .#{$o-ft-forms-prefix}__button:first-child {
     border-top-left-radius: $o-ft-forms-buttonradius;
     border-bottom-left-radius: $o-ft-forms-buttonradius;
 }
 
-.#{$o-ft-forms-prefix}-button-group .#{$o-ft-forms-prefix}-button:last-child {
+.#{$o-ft-forms-prefix}__buttongroup .#{$o-ft-forms-prefix}__button:last-child {
     border-top-right-radius: $o-ft-forms-buttonradius;
     border-bottom-right-radius: $o-ft-forms-buttonradius;
 }
 
-.#{$o-ft-forms-prefix}-button:hover {
+.#{$o-ft-forms-prefix}__button:hover {
     color: $o-colors-cool-grey2;
 }
 
-.#{$o-ft-forms-prefix}-button-large {
+.#{$o-ft-forms-prefix}__button--large {
     min-height: 30px;
     line-height: 30px;
     font-size: 16px;
 }
 
-.#{$o-ft-forms-prefix}-button-medium {
+.#{$o-ft-forms-prefix}__button--medium {
     min-height: 24px;
     line-height: 24px;
     font-size: 14px;
 }
 
-.#{$o-ft-forms-prefix}-button-small {
+.#{$o-ft-forms-prefix}__button--small {
     min-height: 16px;
     line-height: 16px;
     font-size: $o-ft-forms-fontsize-field;
 }
 
-.#{$o-ft-forms-prefix}-button-negative {
+.#{$o-ft-forms-prefix}__button--negative {
     padding: 0;
     color: $o-colors-blue;
     background: transparent;
 }
 
-.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-button--disabled,
-.#{$o-ft-forms-prefix}-button[disabled] {
+.#{$o-ft-forms-prefix}__button.#{$o-ft-forms-prefix}__button--disabled,
+.#{$o-ft-forms-prefix}__button[disabled] {
     opacity: 0.5;
     cursor: default;
 }
 
-.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-button--disabled:hover,
-.#{$o-ft-forms-prefix}-button[disabled]:hover {
+.#{$o-ft-forms-prefix}__button.#{$o-ft-forms-prefix}__button--disabled:hover,
+.#{$o-ft-forms-prefix}__button[disabled]:hover {
     color: #fff;
 }
 
-.#{$o-ft-forms-prefix}-button-negative.#{$o-ft-forms-prefix}-button--disabled:hover,
-.#{$o-ft-forms-prefix}-button-negative[disabled]:hover {
+.#{$o-ft-forms-prefix}__button--negative.#{$o-ft-forms-prefix}__button--disabled:hover,
+.#{$o-ft-forms-prefix}__button--negative[disabled]:hover {
     color: $o-colors-blue;
 }

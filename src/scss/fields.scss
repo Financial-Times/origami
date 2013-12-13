@@ -1,4 +1,4 @@
-.#{$o-ft-forms-prefix}-label {
+.#{$o-ft-forms-prefix}__label {
 	display: block;
 	margin-bottom: 10px;
 	color: $o-ft-forms-labelcolor;
@@ -6,24 +6,39 @@
 	font-size: $o-ft-forms-fontsize-label;
 }
 
-.#{$o-ft-forms-prefix}-label--inline {
-	line-height: 26px;
+.#{$o-ft-forms-prefix}__label--inline {
+	padding-top: 6px;
+	line-height: 18px;
 }
 
-.#{$o-ft-forms-prefix}-field[type="text"],
-.#{$o-ft-forms-prefix}-field[type="password"] {
+.#{$o-ft-forms-prefix}__field[type="text"],
+.#{$o-ft-forms-prefix}__field[type="password"],
+.#{$o-ft-forms-prefix}__field[type="search"],
+.#{$o-ft-forms-prefix}__field[type="url"],
+.#{$o-ft-forms-prefix}__field[type="email"],
+.#{$o-ft-forms-prefix}__field[type="tel"],
+.#{$o-ft-forms-prefix}__field[type="date"],
+.#{$o-ft-forms-prefix}__field[type="time"],
+.#{$o-ft-forms-prefix}__field[type="datetime"],
+.#{$o-ft-forms-prefix}__field[type="datetime-local"],
+.#{$o-ft-forms-prefix}__field[type="month"],
+.#{$o-ft-forms-prefix}__field[type="week"],
+.#{$o-ft-forms-prefix}__field[type="number"],
+.#{$o-ft-forms-prefix}__field[type="color"],
+.#{$o-ft-forms-prefix}__field[type="range"] {
 	@include commonField();
 	min-height: 30px;
 }
 
-.#{$o-ft-forms-prefix}-field[type="checkbox"], .#{$o-ft-forms-prefix}-field[type="radio"] {
+.#{$o-ft-forms-prefix}__field[type="checkbox"],
+.#{$o-ft-forms-prefix}__field[type="radio"] {
 	display: inline-block;
 	margin-top: 7px;
 	margin-bottom: $o-ft-forms-marginbottom;
 }
 
-.#{$o-ft-forms-prefix}-field[type="checkbox"] + .#{$o-ft-forms-prefix}-label,
-.#{$o-ft-forms-prefix}-field[type="radio"] + .#{$o-ft-forms-prefix}-label {
+.#{$o-ft-forms-prefix}__field[type="checkbox"] + .#{$o-ft-forms-prefix}__label,
+.#{$o-ft-forms-prefix}__field[type="radio"] + .#{$o-ft-forms-prefix}__label {
 	display: inline-block;
 	margin-left: 5px;
 	margin-right: 10px;
@@ -31,14 +46,15 @@
 	vertical-align: baseline;
 }
 
-select.#{$o-ft-forms-prefix}-field {
+select.#{$o-ft-forms-prefix}__field {
 	@include commonField();
+	min-height: 30px;
 	background-image: url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==');
 	background-repeat: no-repeat;
 	background-position: 97% center;
 }
 
-textarea.#{$o-ft-forms-prefix}-field {
+textarea.#{$o-ft-forms-prefix}__field {
 	@include commonField();
 	min-height: 70px;
 	vertical-align: top;

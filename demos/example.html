@@ -13,7 +13,7 @@
 <body>
 	<style>
 body {
-	margin-top: 20px;
+	margin: 20px 0;
 	background-color: #fff1e0;
 }
 h1, h2 {
@@ -27,9 +27,6 @@ h2 {
 	font-size: 18px;
 	line-height: 24px;
 }
-.example {
-	margin-top: 20px;
-}
 </style>
 
 <div class="o-grid-row o-grid-col|12|">
@@ -41,179 +38,81 @@ h2 {
 </div>
 <div class="o-grid-row">
   	<div class="o-grid-col|3|s12|m6|">
-		<label class="o-ft-forms-label">Text input</label>
-		<input type="text" placeholder="placeholder" class="o-ft-forms-field" />
+		<label class="o-ft-forms__label">Text input</label>
+		<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
   	<div class="o-grid-col|3|s12|m6|">
-		<label class="o-ft-forms-label">Text input with value entered</label>
-		<input type="text" placeholder="placeholder" class="o-ft-forms-field" value="Field value" />
+		<label class="o-ft-forms__label">Text input with value entered</label>
+		<input type="text" placeholder="placeholder" class="o-ft-forms__field" value="Field value" />
   	</div>
-  	<div class="o-grid-col|3|s12|m6|">
-		<label class="o-ft-forms-label">Text input with prefix label</label>
-		<div class="o-grid-row o-grid-no-gutter">
-			<div class="o-grid-col|3|">
-				<span class="o-ft-forms-prefix">http://</span>
-			</div>
-			<div class="o-grid-col|9|">
-				<input type="text" placeholder="placeholder" class="o-ft-forms-field" />
-			</div>
-		</div>
-  	</div>
-  	<div class="o-grid-col|3|s12|m6|">
-		<label class="o-ft-forms-label">Text input with suffix label</label>
-		<div class="o-grid-row o-grid-no-gutter">
-			<div class="o-grid-col|9|">
-				<input type="text" placeholder="placeholder" class="o-ft-forms-field" />
-			</div>
-			<div class="o-grid-col|3|">
-				<span class="o-ft-forms-suffix">.com</span>
-			</div>
-		</div>
-  	</div>
-</div>
-<div class="o-grid-row">
-  	<div class="o-grid-col|3|s12|m6|">
-		<label class="o-ft-forms-label">Password input</label>
-		<input type="password" placeholder="placeholder" class="o-ft-forms-field" value="secret" />
-  	</div>
-	<div class="o-grid-col|3|s12|m6| o-ft-forms-field--error">
-		<label class="o-ft-forms-label">Text input (error)</label>
-		<input type="text" placeholder="placeholder" class="o-ft-forms-field" />
-		<small class="o-ft-forms-error">Invalid entry</small>
+	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+		<label class="o-ft-forms__label">Text input (error)</label>
+		<input type="text" placeholder="placeholder" class="o-ft-forms__field" value="Field value" />
+		<small class="o-ft-forms__errortext">Invalid entry</small>
 	</div>
 	<div class="o-grid-col|3|s12|m6|">
-		<label class="o-ft-forms-label">Text input with prefix button (span)</label>
-		<div class="o-grid-row o-grid-no-gutter">
-			<div class="o-grid-col|3|">
-				<span class="o-ft-forms-prefix o-ft-forms-button">Go</span>
-			</div>
-			<div class="o-grid-col|9|">
-				<input type="text" placeholder="placeholder" class="o-ft-forms-field" />
-			</div>
-		</div>
-	</div>
-	<div class="o-grid-col|3|s12|m6|">
-		<label class="o-ft-forms-label">Text input with suffix button (span)</label>
-		<div class="o-grid-row o-grid-no-gutter">
-			<div class="o-grid-col|9|">
-				<input type="text" placeholder="placeholder" class="o-ft-forms-field" />
-			</div>
-			<div class="o-grid-col|3|">
-				<span class="o-ft-forms-suffix o-ft-forms-button">Go</span>
-			</div>
-		</div>
+		<label class="o-ft-forms__label">URL input :invalid</label>
+		<input type="url" placeholder="placeholder" class="o-ft-forms__field" value="http://" />
 	</div>
 </div>
 <div class="o-grid-row">
   	<div class="o-grid-col|3|s12|m12|">
 		<div class="o-grid-row">
 			<div class="o-grid-col|4|">
-				<label class="o-ft-forms-label o-ft-forms-label--inline">Inline label</label>
+				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
 			<div class="o-grid-col|8|">
-				<input type="text" placeholder="Inline Text Input" class="o-ft-forms-field">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
 		</div>
   	</div>
-	<div class="o-grid-col|3|s12|m12| o-ft-forms-field--error">
+	<div class="o-grid-col|3|s12|m12|">&nbsp;</div>
+	<div class="o-grid-col|3|s12|m12| o-ft-forms--error">
 		<div class="o-grid-row">
 			<div class="o-grid-col|4|">
-				<label class="o-ft-forms-label o-ft-forms-label--inline">Inline label</label>
+				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
 			<div class="o-grid-col|8|">
-				<input type="text" placeholder="Inline Text Input" class="o-ft-forms-field">
-				<small class="o-ft-forms-error">Invalid entry</small>
-			</div>
-		</div>
-	</div>
-	<div class="o-grid-col|3|s12|m12|">
-		<label class="o-ft-forms-label">Text input with prefix button (button)</label>
-		<div class="o-grid-row o-grid-no-gutter">
-			<div class="o-grid-col|3|">
-				<button type="button" class="o-ft-forms-prefix o-ft-forms-button">Go</button>
-			</div>
-			<div class="o-grid-col|9|">
-				<input type="text" placeholder="placeholder" class="o-ft-forms-field" />
-			</div>
-		</div>
-	</div>
-	<div class="o-grid-col|3|s12|m12|">
-		<label class="o-ft-forms-label">Text input with suffix button (button)</label>
-		<div class="o-grid-row o-grid-no-gutter">
-			<div class="o-grid-col|9|">
-				<input type="text" placeholder="placeholder" class="o-ft-forms-field" />
-			</div>
-			<div class="o-grid-col|3|">
-				<button type="button" class="o-ft-forms-suffix o-ft-forms-button">Go</button>
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+				<small class="o-ft-forms__errortext">Invalid entry</small>
 			</div>
 		</div>
 	</div>
 </div>
 
 <div class="o-grid-row o-grid-col|12|">
-	<h2>Selects</h2>
+	<h2>Select boxes</h2>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|3|">
-		<label class="o-ft-forms-label">Select box</label>
-		<select class="o-ft-forms-field">
+	<div class="o-grid-col|3|s12|m6|">
+		<label class="o-ft-forms__label">Select box</label>
+		<select class="o-ft-forms__field">
 			<option value="option1">Option 1</option>
 			<option value="option2">Option 2</option>
 			<option value="option3">Option 3</option>
 			<option value="option4">Option 4</option>
 		</select>
 	</div>
-	<div class="o-grid-col|3| o-ft-forms-field--error">
-		<label class="o-ft-forms-label">Select box (error)</label>
-		<select class="o-ft-forms-field">
+	<div class="o-grid-col|3|s0|m0|">&nbsp;</div>
+	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+		<label class="o-ft-forms__label">Select box (error)</label>
+		<select class="o-ft-forms__field">
 			<option value="option1">Option 1</option>
 			<option value="option2">Option 2</option>
 			<option value="option3">Option 3</option>
 			<option value="option4">Option 4</option>
 		</select>
-		<small class="o-ft-forms-error">Invalid entry</small>
-	</div>
-	<div class="o-grid-col|3|">
-		<label class="o-ft-forms-label">Select box with prefix label (span)</label>
-		<div class="o-grid-row o-grid-no-gutter">
-			<div class="o-grid-col|3|">
-				<span class="o-ft-forms-prefix">http://</span>
-			</div>
-			<div class="o-grid-col|9|">
-				<select class="o-ft-forms-field">
-					<option value="option1">Option 1</option>
-					<option value="option2">Option 2</option>
-					<option value="option3">Option 3</option>
-					<option value="option4">Option 4</option>
-				</select>
-			</div>
-		</div>
-	</div>
-	<div class="o-grid-col|3|">
-		<label class="o-ft-forms-label">Select box with suffix label (span)</label>
-		<div class="o-grid-row o-grid-no-gutter">
-			<div class="o-grid-col|9|">
-				<select class="o-ft-forms-field">
-					<option value="option1">Option 1</option>
-					<option value="option2">Option 2</option>
-					<option value="option3">Option 3</option>
-					<option value="option4">Option 4</option>
-				</select>
-			</div>
-			<div class="o-grid-col|3|">
-				<span class="o-ft-forms-suffix">.com</span>
-			</div>
-		</div>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|3|">
+	<div class="o-grid-col|3|s12|m6|">
 		<div class="o-grid-row o-grid-no-gutter">
 			<div class="o-grid-col|3|">
-				<label class="o-ft-forms-label o-ft-forms-label--inline">Inline label</label>
+				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
 			<div class="o-grid-col|9|">
-				<select class="o-ft-forms-field">
+				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
 					<option value="option3">Option 3</option>
@@ -222,88 +121,20 @@ h2 {
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|3| o-ft-forms-field--error">
+	<div class="o-grid-col|3|s0|m0|">&nbsp;</div>
+	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
 		<div class="o-grid-row o-grid-no-gutter">
 			<div class="o-grid-col|3|">
-				<label class="o-ft-forms-label o-ft-forms-label--inline">Inline label</label>
+				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
 			<div class="o-grid-col|9|">
-				<select class="o-ft-forms-field">
+				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
 					<option value="option3">Option 3</option>
 					<option value="option4">Option 4</option>
 				</select>
-				<small class="o-ft-forms-error">Invalid entry</small>
-			</div>
-		</div>
-	</div>
-	<div class="o-grid-col|3|">
-		<label class="o-ft-forms-label">Select box with prefix button (span)</label>
-		<div class="o-grid-row o-grid-no-gutter">
-			<div class="o-grid-col|3|">
-				<span href="#" class="o-ft-forms-prefix o-ft-forms-button">Go</span>
-			</div>
-			<div class="o-grid-col|9|">
-				<select class="o-ft-forms-field">
-					<option value="option1">Option 1</option>
-					<option value="option2">Option 2</option>
-					<option value="option3">Option 3</option>
-					<option value="option4">Option 4</option>
-				</select>
-			</div>
-		</div>
-	</div>
-	<div class="o-grid-col|3|">
-		<label class="o-ft-forms-label">Select box with suffix button (span)</label>
-		<div class="o-grid-row o-grid-no-gutter">
-			<div class="o-grid-col|9|">
-				<select class="o-ft-forms-field">
-					<option value="option1">Option 1</option>
-					<option value="option2">Option 2</option>
-					<option value="option3">Option 3</option>
-					<option value="option4">Option 4</option>
-				</select>
-			</div>
-			<div class="o-grid-col|3|">
-				<span href="#" class="o-ft-forms-suffix o-ft-forms-button">Go</span>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="o-grid-row">
-	<div class="o-grid-col|6|">
-		&nbsp;
-	</div>
-	<div class="o-grid-col|3|">
-		<label class="o-ft-forms-label">Select box with prefix button (button)</label>
-		<div class="o-grid-row o-grid-no-gutter">
-			<div class="o-grid-col|3|">
-				<button type="button" class="o-ft-forms-prefix o-ft-forms-button">Go</button>
-			</div>
-			<div class="o-grid-col|9|">
-				<select class="o-ft-forms-field">
-					<option value="option1">Option 1</option>
-					<option value="option2">Option 2</option>
-					<option value="option3">Option 3</option>
-					<option value="option4">Option 4</option>
-				</select>
-			</div>
-		</div>
-	</div>
-	<div class="o-grid-col|3|">
-		<label class="o-ft-forms-label">Select box with suffix button (button)</label>
-		<div class="o-grid-row o-grid-no-gutter">
-			<div class="o-grid-col|9|">
-				<select class="o-ft-forms-field">
-					<option value="option1">Option 1</option>
-					<option value="option2">Option 2</option>
-					<option value="option3">Option 3</option>
-					<option value="option4">Option 4</option>
-				</select>
-			</div>
-			<div class="o-grid-col|3|">
-				<button type="button" class="o-ft-forms-suffix o-ft-forms-button">Go</button>
+				<small class="o-ft-forms__errortext">Invalid entry</small>
 			</div>
 		</div>
 	</div>
@@ -313,35 +144,35 @@ h2 {
 	<h2>Textarea</h2>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|6|">
-		<label class="o-ft-forms-label">Textarea</label>
-		<textarea placeholder="placeholder" class="o-ft-forms-field"></textarea>
+	<div class="o-grid-col|6|s12|m12|">
+		<label class="o-ft-forms__label">Textarea</label>
+		<textarea placeholder="placeholder" class="o-ft-forms__field"></textarea>
 	</div>
-	<div class="o-grid-col|6| o-ft-forms-field--error">
-		<label class="o-ft-forms-label">Textarea (error)</label>
-		<textarea placeholder="placeholder" class="o-ft-forms-field"></textarea>
-		<small class="o-ft-forms-error">Invalid entry</small>
+	<div class="o-grid-col|6|s12|m12| o-ft-forms--error">
+		<label class="o-ft-forms__label">Textarea (error)</label>
+		<textarea placeholder="placeholder" class="o-ft-forms__field"></textarea>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|6|">
+	<div class="o-grid-col|6|s12|m12|">
 		<div class="o-grid-row o-grid-no-gutter">
 			<div class="o-grid-col|3|">
-				<label class="o-ft-forms-label o-ft-forms-label--inline">Inline label</label>
+				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
 			<div class="o-grid-col|9|">
-				<textarea placeholder="placeholder" class="o-ft-forms-field"></textarea>
+				<textarea placeholder="placeholder" class="o-ft-forms__field"></textarea>
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|6|">
-		<div class="o-grid-row o-grid-no-gutter o-ft-forms-field--error">
+	<div class="o-grid-col|6|s12|m12|">
+		<div class="o-grid-row o-grid-no-gutter o-ft-forms--error">
 			<div class="o-grid-col|3|">
-				<label class="o-ft-forms-label o-ft-forms-label--inline">Inline label (error)</label>
+				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label (error)</label>
 			</div>
 			<div class="o-grid-col|9|">
-				<textarea placeholder="placeholder" class="o-ft-forms-field"></textarea>
-				<small class="o-ft-forms-error">Invalid entry</small>
+				<textarea placeholder="placeholder" class="o-ft-forms__field"></textarea>
+				<small class="o-ft-forms__errortext">Invalid entry</small>
 			</div>
 		</div>
 	</div>
@@ -351,43 +182,43 @@ h2 {
 	<h2>Radio</h2>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|6|">
-		<label class="o-ft-forms-label">Label</label>
-		<input type="radio" name="radio" value="1" class="o-ft-forms-field" id="radio1"><label for="radio1" class="o-ft-forms-label">Radio 1</label>
-		<input type="radio" name="radio" value="2" class="o-ft-forms-field" id="radio2"><label for="radio2" class="o-ft-forms-label">Radio 2</label>
-		<input type="radio" name="radio" value="3" class="o-ft-forms-field" id="radio3"><label for="radio3" class="o-ft-forms-label">Radio 3</label>
+	<div class="o-grid-col|6|s12|m12|">
+		<label class="o-ft-forms__label">Label</label>
+		<input type="radio" name="radio" value="1" class="o-ft-forms__field" id="radio1"><label for="radio1" class="o-ft-forms__label">Radio 1</label>
+		<input type="radio" name="radio" value="2" class="o-ft-forms__field" id="radio2"><label for="radio2" class="o-ft-forms__label">Radio 2</label>
+		<input type="radio" name="radio" value="3" class="o-ft-forms__field" id="radio3"><label for="radio3" class="o-ft-forms__label">Radio 3</label>
 	</div>
-	<div class="o-grid-col|6| o-ft-forms-field--error">
-		<label class="o-ft-forms-label">Label (error)</label>
-		<input type="radio" name="radio" value="1" class="o-ft-forms-field" id="radio1"><label for="radio1" class="o-ft-forms-label">Radio 1</label>
-		<input type="radio" name="radio" value="2" class="o-ft-forms-field" id="radio2"><label for="radio2" class="o-ft-forms-label">Radio 2</label>
-		<input type="radio" name="radio" value="3" class="o-ft-forms-field" id="radio3"><label for="radio3" class="o-ft-forms-label">Radio 3</label>
-		<small class="o-ft-forms-error">Invalid entry</small>
+	<div class="o-grid-col|6|s12|m12| o-ft-forms--error">
+		<label class="o-ft-forms__label">Label (error)</label>
+		<input type="radio" name="radio" value="1" class="o-ft-forms__field" id="radio1"><label for="radio1" class="o-ft-forms__label">Radio 1</label>
+		<input type="radio" name="radio" value="2" class="o-ft-forms__field" id="radio2"><label for="radio2" class="o-ft-forms__label">Radio 2</label>
+		<input type="radio" name="radio" value="3" class="o-ft-forms__field" id="radio3"><label for="radio3" class="o-ft-forms__label">Radio 3</label>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|6|">
+	<div class="o-grid-col|6|s12|m12|">
 		<div class="o-grid-row">
 			<div class="o-grid-col|3|">
-				<label class="o-ft-forms-label o-ft-forms-label--inline">Inline label</label>
+				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
 			<div class="o-grid-col|9|">
-				<input type="radio" name="radio" value="1" class="o-ft-forms-field" id="radio1"><label for="radio1" class="o-ft-forms-label">Radio 1</label>
-				<input type="radio" name="radio" value="2" class="o-ft-forms-field" id="radio2"><label for="radio2" class="o-ft-forms-label">Radio 2</label>
-				<input type="radio" name="radio" value="3" class="o-ft-forms-field" id="radio3"><label for="radio3" class="o-ft-forms-label">Radio 3</label>
+				<input type="radio" name="radio" value="1" class="o-ft-forms__field" id="radio1"><label for="radio1" class="o-ft-forms__label">Radio 1</label>
+				<input type="radio" name="radio" value="2" class="o-ft-forms__field" id="radio2"><label for="radio2" class="o-ft-forms__label">Radio 2</label>
+				<input type="radio" name="radio" value="3" class="o-ft-forms__field" id="radio3"><label for="radio3" class="o-ft-forms__label">Radio 3</label>
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|6|">
-		<div class="o-grid-row">
-			<div class="o-grid-col|3| o-ft-forms-field--error">
-				<label class="o-ft-forms-label o-ft-forms-label--inline">Inline label (error)</label>
+	<div class="o-grid-col|6|s12|m12|">
+		<div class="o-grid-row o-ft-forms--error">
+			<div class="o-grid-col|3|">
+				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label (error)</label>
 			</div>
 			<div class="o-grid-col|9|">
-				<input type="radio" name="radio" value="1" class="o-ft-forms-field" id="radio1"><label for="radio1" class="o-ft-forms-label">Radio 1</label>
-				<input type="radio" name="radio" value="2" class="o-ft-forms-field" id="radio2"><label for="radio2" class="o-ft-forms-label">Radio 2</label>
-				<input type="radio" name="radio" value="3" class="o-ft-forms-field" id="radio3"><label for="radio3" class="o-ft-forms-label">Radio 3</label>
-				<small class="o-ft-forms-error">Invalid entry</small>
+				<input type="radio" name="radio" value="1" class="o-ft-forms__field" id="radio1"><label for="radio1" class="o-ft-forms__label">Radio 1</label>
+				<input type="radio" name="radio" value="2" class="o-ft-forms__field" id="radio2"><label for="radio2" class="o-ft-forms__label">Radio 2</label>
+				<input type="radio" name="radio" value="3" class="o-ft-forms__field" id="radio3"><label for="radio3" class="o-ft-forms__label">Radio 3</label>
+				<small class="o-ft-forms__errortext">Invalid entry</small>
 			</div>
 		</div>
 	</div>
@@ -397,114 +228,567 @@ h2 {
 	<h2>Checkboxes</h2>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|6|">
-		<label class="o-ft-forms-label">Label</label>
-		<input type="checkbox" name="checkbox" value="1" class="o-ft-forms-field" id="checkbox1"><label for="checkbox1" class="o-ft-forms-label">Checkbox 1</label>
-		<input type="checkbox" name="checkbox" value="2" class="o-ft-forms-field" id="checkbox2"><label for="checkbox2" class="o-ft-forms-label">Checkbox 2</label>
-		<input type="checkbox" name="checkbox" value="3" class="o-ft-forms-field" id="checkbox3"><label for="checkbox3" class="o-ft-forms-label">Checkbox 3</label>
+	<div class="o-grid-col|6|s12|m12|">
+		<label class="o-ft-forms__label">Label</label>
+		<input type="checkbox" name="checkbox" value="1" class="o-ft-forms__field" id="checkbox1"><label for="checkbox1" class="o-ft-forms__label">Checkbox 1</label>
+		<input type="checkbox" name="checkbox" value="2" class="o-ft-forms__field" id="checkbox2"><label for="checkbox2" class="o-ft-forms__label">Checkbox 2</label>
+		<input type="checkbox" name="checkbox" value="3" class="o-ft-forms__field" id="checkbox3"><label for="checkbox3" class="o-ft-forms__label">Checkbox 3</label>
 	</div>
-	<div class="o-grid-col|6| o-ft-forms-field--error">
-		<label class="o-ft-forms-label">Label (error)</label>
-		<input type="checkbox" name="checkbox" value="1" class="o-ft-forms-field" id="checkbox1"><label for="checkbox1" class="o-ft-forms-label">Checkbox 1</label>
-		<input type="checkbox" name="checkbox" value="2" class="o-ft-forms-field" id="checkbox2"><label for="checkbox2" class="o-ft-forms-label">Checkbox 2</label>
-		<input type="checkbox" name="checkbox" value="3" class="o-ft-forms-field" id="checkbox3"><label for="checkbox3" class="o-ft-forms-label">Checkbox 3</label>
-		<small class="o-ft-forms-error">Invalid entry</small>
+	<div class="o-grid-col|6|s12|m12| o-ft-forms--error">
+		<label class="o-ft-forms__label">Label (error)</label>
+		<input type="checkbox" name="checkbox" value="1" class="o-ft-forms__field" id="checkbox1"><label for="checkbox1" class="o-ft-forms__label">Checkbox 1</label>
+		<input type="checkbox" name="checkbox" value="2" class="o-ft-forms__field" id="checkbox2"><label for="checkbox2" class="o-ft-forms__label">Checkbox 2</label>
+		<input type="checkbox" name="checkbox" value="3" class="o-ft-forms__field" id="checkbox3"><label for="checkbox3" class="o-ft-forms__label">Checkbox 3</label>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|6|">
+	<div class="o-grid-col|6|s12|m12|">
 		<div class="o-grid-row">
 			<div class="o-grid-col|3|">
-				<label class="o-ft-forms-label o-ft-forms-label--inline">Label</label>
+				<label class="o-ft-forms__label o-ft-forms__label--inline">Label</label>
 			</div>
 			<div class="o-grid-col|9|">
-				<input type="checkbox" name="checkbox" value="1" class="o-ft-forms-field" id="checkbox1"><label for="checkbox1" class="o-ft-forms-label">Checkbox 1</label>
-				<input type="checkbox" name="checkbox" value="2" class="o-ft-forms-field" id="checkbox2"><label for="checkbox2" class="o-ft-forms-label">Checkbox 2</label>
-				<input type="checkbox" name="checkbox" value="3" class="o-ft-forms-field" id="checkbox3"><label for="checkbox3" class="o-ft-forms-label">Checkbox 3</label>
+				<input type="checkbox" name="checkbox" value="1" class="o-ft-forms__field" id="checkbox1"><label for="checkbox1" class="o-ft-forms__label">Checkbox 1</label>
+				<input type="checkbox" name="checkbox" value="2" class="o-ft-forms__field" id="checkbox2"><label for="checkbox2" class="o-ft-forms__label">Checkbox 2</label>
+				<input type="checkbox" name="checkbox" value="3" class="o-ft-forms__field" id="checkbox3"><label for="checkbox3" class="o-ft-forms__label">Checkbox 3</label>
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|6| o-ft-forms-field--error">
+	<div class="o-grid-col|6|s12|m12| o-ft-forms--error">
 		<div class="o-grid-row">
 			<div class="o-grid-col|3|">
-				<label class="o-ft-forms-label o-ft-forms-label--inline">Inline label (error)</label>
+				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label (error)</label>
 			</div>
 			<div class="o-grid-col|9|">
-				<input type="checkbox" name="checkbox" value="1" class="o-ft-forms-field" id="checkbox1"><label for="checkbox1" class="o-ft-forms-label">Checkbox 1</label>
-				<input type="checkbox" name="checkbox" value="2" class="o-ft-forms-field" id="checkbox2"><label for="checkbox2" class="o-ft-forms-label">Checkbox 2</label>
-				<input type="checkbox" name="checkbox" value="3" class="o-ft-forms-field" id="checkbox3"><label for="checkbox3" class="o-ft-forms-label">Checkbox 3</label>
-				<small class="o-ft-forms-error">Invalid entry</small>
+				<input type="checkbox" name="checkbox" value="1" class="o-ft-forms__field" id="checkbox1"><label for="checkbox1" class="o-ft-forms__label">Checkbox 1</label>
+				<input type="checkbox" name="checkbox" value="2" class="o-ft-forms__field" id="checkbox2"><label for="checkbox2" class="o-ft-forms__label">Checkbox 2</label>
+				<input type="checkbox" name="checkbox" value="3" class="o-ft-forms__field" id="checkbox3"><label for="checkbox3" class="o-ft-forms__label">Checkbox 3</label>
+				<small class="o-ft-forms__errortext">Invalid entry</small>
 			</div>
 		</div>
 	</div>
 </div>
 
 <div class="o-grid-row o-grid-col|12|">
+	<h2>Prefixes and suffixes</h2>
+</div>
+<div class="o-grid-row">
+  	<div class="o-grid-col|3|s12|m6|">
+		<label class="o-ft-forms__label">Text input with prefix label</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|3|">
+				<span class="o-ft-forms__prefix">http://</span>
+			</div>
+			<div class="o-grid-col|9|">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+			</div>
+		</div>
+  	</div>
+  	<div class="o-grid-col|3|s12|m6|">
+		<label class="o-ft-forms__label">Text input with suffix label</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|9|">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+			</div>
+			<div class="o-grid-col|3|">
+				<span class="o-ft-forms__suffix">.com</span>
+			</div>
+		</div>
+  	</div>
+	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+		<label class="o-ft-forms__label">Text input with prefix label (span) (error)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|3|">
+				<span class="o-ft-forms__prefix">.com</span>
+			</div>
+			<div class="o-grid-col|9|">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+			</div>
+		</div>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
+	</div>
+	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+		<label class="o-ft-forms__label">Text input with suffix label (span) (error)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|9|">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+			</div>
+			<div class="o-grid-col|3|">
+				<span class="o-ft-forms__suffix">.com</span>
+			</div>
+		</div>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
+	</div>
+</div>
+<div class="o-grid-row">
+	<div class="o-grid-col|3|s12|m6|">
+		<label class="o-ft-forms__label">Select box with prefix label (span)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|3|">
+				<span class="o-ft-forms__prefix">http://</span>
+			</div>
+			<div class="o-grid-col|9|">
+				<select class="o-ft-forms__field">
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+					<option value="option4">Option 4</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="o-grid-col|3|s12|m6|">
+		<label class="o-ft-forms__label">Select box with suffix label (span)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|9|">
+				<select class="o-ft-forms__field">
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+					<option value="option4">Option 4</option>
+				</select>
+			</div>
+			<div class="o-grid-col|3|">
+				<span class="o-ft-forms__suffix">.com</span>
+			</div>
+		</div>
+	</div>
+	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+		<label class="o-ft-forms__label">Select box with prefix label (span)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|3|">
+				<span class="o-ft-forms__prefix">http://</span>
+			</div>
+			<div class="o-grid-col|9|">
+				<select class="o-ft-forms__field">
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+					<option value="option4">Option 4</option>
+				</select>
+			</div>
+		</div>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
+	</div>
+	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+		<label class="o-ft-forms__label">Select box with suffix label (span)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|9|">
+				<select class="o-ft-forms__field">
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+					<option value="option4">Option 4</option>
+				</select>
+			</div>
+			<div class="o-grid-col|3|">
+				<span class="o-ft-forms__suffix">.com</span>
+			</div>
+		</div>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
+	</div>
+</div>
+<div class="o-grid-row">
+	<div class="o-grid-col|3|s12|m6|">
+		<label class="o-ft-forms__label">Text input with prefix button (span)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|3|">
+				<span class="o-ft-forms__prefix o-ft-forms__button">Go</span>
+			</div>
+			<div class="o-grid-col|9|">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+			</div>
+		</div>
+	</div>
+	<div class="o-grid-col|3|s12|m6|">
+		<label class="o-ft-forms__label">Text input with suffix button (span)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|9|">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+			</div>
+			<div class="o-grid-col|3|">
+				<span class="o-ft-forms__suffix o-ft-forms__button">Go</span>
+			</div>
+		</div>
+	</div>
+	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+		<label class="o-ft-forms__label">Text input with prefix button (span)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|3|">
+				<span class="o-ft-forms__prefix o-ft-forms__button">Go</span>
+			</div>
+			<div class="o-grid-col|9|">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+			</div>
+		</div>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
+	</div>
+	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+		<label class="o-ft-forms__label">Text input with suffix button (span)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|9|">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+			</div>
+			<div class="o-grid-col|3|">
+				<span class="o-ft-forms__suffix o-ft-forms__button">Go</span>
+			</div>
+		</div>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
+	</div>
+</div>
+<div class="o-grid-row">
+	<div class="o-grid-col|3|s12|m6|">
+		<label class="o-ft-forms__label">Select box with prefix button (span)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|3|">
+				<span href="#" class="o-ft-forms__prefix o-ft-forms__button">Go</span>
+			</div>
+			<div class="o-grid-col|9|">
+				<select class="o-ft-forms__field">
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+					<option value="option4">Option 4</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="o-grid-col|3|s12|m6|">
+		<label class="o-ft-forms__label">Select box with suffix button (span)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|9|">
+				<select class="o-ft-forms__field">
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+					<option value="option4">Option 4</option>
+				</select>
+			</div>
+			<div class="o-grid-col|3|">
+				<span href="#" class="o-ft-forms__suffix o-ft-forms__button">Go</span>
+			</div>
+		</div>
+	</div>
+	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+		<label class="o-ft-forms__label">Select box with prefix button (span)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|3|">
+				<span href="#" class="o-ft-forms__prefix o-ft-forms__button">Go</span>
+			</div>
+			<div class="o-grid-col|9|">
+				<select class="o-ft-forms__field">
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+					<option value="option4">Option 4</option>
+				</select>
+			</div>
+		</div>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
+	</div>
+	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+		<label class="o-ft-forms__label">Select box with suffix button (span)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|9|">
+				<select class="o-ft-forms__field">
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+					<option value="option4">Option 4</option>
+				</select>
+			</div>
+			<div class="o-grid-col|3|">
+				<span href="#" class="o-ft-forms__suffix o-ft-forms__button">Go</span>
+			</div>
+		</div>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
+	</div>
+</div>
+<div class="o-grid-row">
+	<div class="o-grid-col|3|s12|m12|">
+		<label class="o-ft-forms__label">Text input with prefix button (button)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|3|">
+				<button type="button" class="o-ft-forms__prefix o-ft-forms__button">Go</button>
+			</div>
+			<div class="o-grid-col|9|">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+			</div>
+		</div>
+	</div>
+	<div class="o-grid-col|3|s12|m12|">
+		<label class="o-ft-forms__label">Text input with suffix button (button)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|9|">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+			</div>
+			<div class="o-grid-col|3|">
+				<button type="button" class="o-ft-forms__suffix o-ft-forms__button">Go</button>
+			</div>
+		</div>
+	</div>
+	<div class="o-grid-col|3|s12|m12| o-ft-forms--error">
+		<label class="o-ft-forms__label">Text input with prefix button (button)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|3|">
+				<button type="button" class="o-ft-forms__prefix o-ft-forms__button">Go</button>
+			</div>
+			<div class="o-grid-col|9|">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+			</div>
+		</div>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
+	</div>
+	<div class="o-grid-col|3|s12|m12| o-ft-forms--error">
+		<label class="o-ft-forms__label">Text input with suffix button (button)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|9|">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+			</div>
+			<div class="o-grid-col|3|">
+				<button type="button" class="o-ft-forms__suffix o-ft-forms__button">Go</button>
+			</div>
+		</div>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
+	</div>
+</div>
+<div class="o-grid-row">
+	<div class="o-grid-col|3|s12|m6|">
+		<label class="o-ft-forms__label">Select box with prefix button (button)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|3|">
+				<button type="button" class="o-ft-forms__prefix o-ft-forms__button">Go</button>
+			</div>
+			<div class="o-grid-col|9|">
+				<select class="o-ft-forms__field">
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+					<option value="option4">Option 4</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="o-grid-col|3|s12|m6|">
+		<label class="o-ft-forms__label">Select box with suffix button (button)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|9|">
+				<select class="o-ft-forms__field">
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+					<option value="option4">Option 4</option>
+				</select>
+			</div>
+			<div class="o-grid-col|3|">
+				<button type="button" class="o-ft-forms__suffix o-ft-forms__button">Go</button>
+			</div>
+		</div>
+	</div>
+	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+		<label class="o-ft-forms__label">Select box with prefix button (button)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|3|">
+				<button type="button" class="o-ft-forms__prefix o-ft-forms__button">Go</button>
+			</div>
+			<div class="o-grid-col|9|">
+				<select class="o-ft-forms__field">
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+					<option value="option4">Option 4</option>
+				</select>
+			</div>
+		</div>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
+	</div>
+	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+		<label class="o-ft-forms__label">Select box with suffix button (button)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|9|">
+				<select class="o-ft-forms__field">
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+					<option value="option4">Option 4</option>
+				</select>
+			</div>
+			<div class="o-grid-col|3|">
+				<button type="button" class="o-ft-forms__suffix o-ft-forms__button">Go</button>
+			</div>
+		</div>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
+	</div>
+</div>
+<div class="o-grid-row">
+  	<div class="o-grid-col|6|s12|m12|">
+		<label class="o-ft-forms__label">Text input with prefix label and suffix button</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|1|">
+				<span class="o-ft-forms__prefix">http://</span>
+			</div>
+			<div class="o-grid-col|10|">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+			</div>
+			<div class="o-grid-col|1|">
+				<button type="button" class="o-ft-forms__suffix o-ft-forms__button">Go</button>
+			</div>
+		</div>
+  	</div>
+  	<div class="o-grid-col|6|s12|m12| o-ft-forms--error">
+		<label class="o-ft-forms__label">Text input with prefix label and suffix button (error)</label>
+		<div class="o-grid-row o-grid-no-gutter">
+			<div class="o-grid-col|1|">
+				<span class="o-ft-forms__prefix">http://</span>
+			</div>
+			<div class="o-grid-col|10|">
+				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+			</div>
+			<div class="o-grid-col|1|">
+				<button type="button" class="o-ft-forms__suffix o-ft-forms__button">Go</button>
+			</div>
+		</div>
+		<small class="o-ft-forms__errortext">Invalid entry</small>
+  	</div>
+</div>
+
+<div class="o-grid-row o-grid-col|12|">
 	<h2>Buttons</h2>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|4|">
-	  	<label class="o-ft-forms-label">Individual buttons (small)</label>
-		<a href="#" class="o-ft-forms-button o-ft-forms-button-small">a</a>
-		<button type="button" class="o-ft-forms-button o-ft-forms-button-small">button</button>
-		<a href="#" class="o-ft-forms-button o-ft-forms-button-small o-ft-forms-button-negative">a</a>
-		<button type="button" class="o-ft-forms-button o-ft-forms-button-small o-ft-forms-button-negative">button</button>
-		<a href="#" class="o-ft-forms-button o-ft-forms-button-small o-ft-forms-button--disabled">a</a>
-		<button type="button" class="o-ft-forms-button o-ft-forms-button-small o-ft-forms-button--disabled">button</button>
-		<a href="#" class="o-ft-forms-button o-ft-forms-button-small o-ft-forms-button-negative o-ft-forms-button--disabled">a</a>
-		<button type="button" class="o-ft-forms-button o-ft-forms-button-small o-ft-forms-button-negative o-ft-forms-button--disabled">button</button>
+	<div class="o-grid-col|4|s12|m12|">
+	  	<label class="o-ft-forms__label">Individual buttons (small)</label>
+		<a href="#" class="o-ft-forms__button o-ft-forms__button--small">a</a>
+		<button type="button" class="o-ft-forms__button o-ft-forms__button--small">button</button>
+		<a href="#" class="o-ft-forms__button o-ft-forms__button--small o-ft-forms__button--negative">a</a>
+		<button type="button" class="o-ft-forms__button o-ft-forms__button--small o-ft-forms__button--negative">button</button>
+		<a href="#" class="o-ft-forms__button o-ft-forms__button--small o-ft-forms__button--disabled">a</a>
+		<button type="button" class="o-ft-forms__button o-ft-forms__button--small o-ft-forms__button--disabled">button</button>
+		<a href="#" class="o-ft-forms__button o-ft-forms__button--small o-ft-forms__button--negative o-ft-forms__button--disabled">a</a>
+		<button type="button" class="o-ft-forms__button o-ft-forms__button--small o-ft-forms__button--negative o-ft-forms__button--disabled">button</button>
 	</div>
-	<div class="o-grid-col|4|">
-	  	<label class="o-ft-forms-label">Individual buttons (medium)</label>
-		<a href="#" class="o-ft-forms-button o-ft-forms-button-medium">a</a>
-		<button type="button" class="o-ft-forms-button o-ft-forms-button-medium">button</button>
-		<a href="#" class="o-ft-forms-button o-ft-forms-button-medium o-ft-forms-button-negative">a</a>
-		<button type="button" class="o-ft-forms-button o-ft-forms-button-medium o-ft-forms-button-negative">button</button>
-		<a href="#" class="o-ft-forms-button o-ft-forms-button-medium o-ft-forms-button--disabled">a</a>
-		<button type="button" class="o-ft-forms-button o-ft-forms-button-medium o-ft-forms-button--disabled">button</button>
-		<a href="#" class="o-ft-forms-button o-ft-forms-button-medium o-ft-forms-button-negative o-ft-forms-button--disabled">a</a>
-		<button type="button" class="o-ft-forms-button o-ft-forms-medium-small o-ft-forms-button-negative o-ft-forms-button--disabled">button</button>
+	<div class="o-grid-col|4|s12|m12|">
+	  	<label class="o-ft-forms__label">Individual buttons (medium)</label>
+		<a href="#" class="o-ft-forms__button o-ft-forms__button--medium">a</a>
+		<button type="button" class="o-ft-forms__button o-ft-forms__button--medium">button</button>
+		<a href="#" class="o-ft-forms__button o-ft-forms__button--medium o-ft-forms__button--negative">a</a>
+		<button type="button" class="o-ft-forms__button o-ft-forms__button--medium o-ft-forms__button--negative">button</button>
+		<a href="#" class="o-ft-forms__button o-ft-forms__button--medium o-ft-forms__button--disabled">a</a>
+		<button type="button" class="o-ft-forms__button o-ft-forms__button--medium o-ft-forms__button--disabled">button</button>
+		<a href="#" class="o-ft-forms__button o-ft-forms__button--medium o-ft-forms__button--negative o-ft-forms__button--disabled">a</a>
+		<button type="button" class="o-ft-forms__button o-ft-forms--medium o-ft-forms__button--negative o-ft-forms__button--disabled">button</button>
 	</div>
-	<div class="o-grid-col|4|">
-	  	<label class="o-ft-forms-label">Individual buttons (large)</label>
-		<a href="#" class="o-ft-forms-button o-ft-forms-button-large">a</a>
-		<button type="button" class="o-ft-forms-button o-ft-forms-button-large">button</button>
-		<a href="#" class="o-ft-forms-button o-ft-forms-button-large o-ft-forms-button-negative">a</a>
-		<button type="button" class="o-ft-forms-button o-ft-forms-button-large o-ft-forms-button-negative">button</button>
-		<a href="#" class="o-ft-forms-button o-ft-forms-button-large o-ft-forms-button--disabled">a</a>
-		<button type="button" class="o-ft-forms-button o-ft-forms-button-large o-ft-forms-button--disabled">button</button>
-		<a href="#" class="o-ft-forms-button o-ft-forms-button-large o-ft-forms-button-negative o-ft-forms-button--disabled">a</a>
-		<button type="button" class="o-ft-forms-button o-ft-forms-button-large o-ft-forms-button-negative o-ft-forms-button--disabled">button</button>
+	<div class="o-grid-col|4|s12|m12|">
+	  	<label class="o-ft-forms__label">Individual buttons (large)</label>
+		<a href="#" class="o-ft-forms__button o-ft-forms__button--large">a</a>
+		<button type="button" class="o-ft-forms__button o-ft-forms__button--large">button</button>
+		<a href="#" class="o-ft-forms__button o-ft-forms__button--large o-ft-forms__button--negative">a</a>
+		<button type="button" class="o-ft-forms__button o-ft-forms__button--large o-ft-forms__button--negative">button</button>
+		<a href="#" class="o-ft-forms__button o-ft-forms__button--large o-ft-forms__button--disabled">a</a>
+		<button type="button" class="o-ft-forms__button o-ft-forms__button--large o-ft-forms__button--disabled">button</button>
+		<a href="#" class="o-ft-forms__button o-ft-forms__button-large o-ft-forms__button--negative o-ft-forms__button--disabled">a</a>
+		<button type="button" class="o-ft-forms__button o-ft-forms__button--large o-ft-forms__button--negative o-ft-forms__button--disabled">button</button>
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|4|">
-		<label class="o-ft-forms-label">Button group (small)</label>
-		<div class="o-ft-forms-button-group">
-			<a href="#" class="o-ft-forms-button o-ft-forms-button-small">a</a>
-			<a href="#" class="o-ft-forms-button o-ft-forms-button-small">a</a>
-			<button type="button" class="o-ft-forms-button o-ft-forms-button-small">button</button>
-			<button type="button" class="o-ft-forms-button o-ft-forms-button-small">button</button>
+	<div class="o-grid-col|4|s12|m12|">
+		<label class="o-ft-forms__label">Button group (small)</label>
+		<div class="o-ft-forms__buttongroup">
+			<a href="#" class="o-ft-forms__button o-ft-forms__button--small">a</a>
+			<a href="#" class="o-ft-forms__button o-ft-forms__button--small">a</a>
+			<button type="button" class="o-ft-forms__button o-ft-forms__button--small">button</button>
+			<button type="button" class="o-ft-forms__button o-ft-forms__button--small">button</button>
 		</div>
 	</div>
-	<div class="o-grid-col|4|">
-		<label class="o-ft-forms-label">Button group (medium)</label>
-		<div class="o-ft-forms-button-group">
-			<a href="#" class="o-ft-forms-button o-ft-forms-button-medium">a</a>
-			<a href="#" class="o-ft-forms-button o-ft-forms-button-medium">a</a>
-			<button type="button" class="o-ft-forms-button o-ft-forms-button-medium">button</button>
-			<button type="button" class="o-ft-forms-button o-ft-forms-button-medium">button</button>
+	<div class="o-grid-col|4|s12|m12|">
+		<label class="o-ft-forms__label">Button group (medium)</label>
+		<div class="o-ft-forms__buttongroup">
+			<a href="#" class="o-ft-forms__button o-ft-forms__button--medium">a</a>
+			<a href="#" class="o-ft-forms__button o-ft-forms__button--medium">a</a>
+			<button type="button" class="o-ft-forms__button o-ft-forms__button--medium">button</button>
+			<button type="button" class="o-ft-forms__button o-ft-forms__button--medium">button</button>
 		</div>
 	</div>
-	<div class="o-grid-col|4|">
-		<label class="o-ft-forms-label">Button group (large)</label>
-		<div class="o-ft-forms-button-group">
-			<a href="#" class="o-ft-forms-button o-ft-forms-button-large">a</a>
-			<a href="#" class="o-ft-forms-button o-ft-forms-button-large">a</a>
-			<button type="button" class="o-ft-forms-button o-ft-forms-button-large">button</button>
-			<button type="button" class="o-ft-forms-button o-ft-forms-button-large">button</button>
+	<div class="o-grid-col|4|s12|m12|">
+		<label class="o-ft-forms__label">Button group (large)</label>
+		<div class="o-ft-forms__buttongroup">
+			<a href="#" class="o-ft-forms__button o-ft-forms__button--large">a</a>
+			<a href="#" class="o-ft-forms__button o-ft-forms__button--large">a</a>
+			<button type="button" class="o-ft-forms__button o-ft-forms__button--large">button</button>
+			<button type="button" class="o-ft-forms__button o-ft-forms__button--large">button</button>
 		</div>
 	</div>
+</div>
+
+<div class="o-grid-row o-grid-col|12|">
+	<h2>Input - all types</h2>
+</div>
+<div class="o-grid-row">
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">text</label>
+		<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+  	</div>
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">password</label>
+		<input type="password" placeholder="placeholder" class="o-ft-forms__field" value="secretsquirrel" />
+  	</div>
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">search</label>
+		<input type="search" placeholder="placeholder" class="o-ft-forms__field" />
+  	</div>
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">url</label>
+		<input type="url" placeholder="placeholder" class="o-ft-forms__field" />
+  	</div>
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">email</label>
+		<input type="email" placeholder="placeholder" class="o-ft-forms__field" />
+  	</div>
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">tel</label>
+		<input type="tel" placeholder="placeholder" class="o-ft-forms__field" />
+  	</div>
+</div>
+<div class="o-grid-row">
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">date</label>
+		<input type="date" placeholder="placeholder" class="o-ft-forms__field" />
+  	</div>
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">time</label>
+		<input type="time" placeholder="placeholder" class="o-ft-forms__field" />
+  	</div>
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">datetime</label>
+		<input type="datetime" placeholder="placeholder" class="o-ft-forms__field" />
+  	</div>
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">datetime-local</label>
+		<input type="datetime-local" placeholder="placeholder" class="o-ft-forms__field" />
+  	</div>
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">month</label>
+		<input type="month" placeholder="placeholder" class="o-ft-forms__field" />
+  	</div>
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">week</label>
+		<input type="week" placeholder="placeholder" class="o-ft-forms__field" />
+  	</div>
+</div>
+<div class="o-grid-row">
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">number</label>
+		<input type="number" placeholder="placeholder" class="o-ft-forms__field" />
+  	</div>
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">color</label>
+		<input type="color" placeholder="placeholder" class="o-ft-forms__field" />
+  	</div>
+  	<div class="o-grid-col|2|s12|m6|">
+		<label class="o-ft-forms__label">range</label>
+		<input type="range" placeholder="placeholder" class="o-ft-forms__field" />
+  	</div>
 </div>
 
 	

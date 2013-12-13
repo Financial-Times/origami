@@ -1,12 +1,14 @@
-.#{$o-ft-forms-prefix}-prefix {
+.#{$o-ft-forms-prefix}__prefix {
 	border-left: $o-ft-forms-fieldborder;
 }
 
-.#{$o-ft-forms-prefix}-suffix {
+.#{$o-ft-forms-prefix}__suffix {
 	border-right: $o-ft-forms-fieldborder;
 }
 
-.#{$o-ft-forms-prefix}-prefix, .#{$o-ft-forms-prefix}-suffix {
+.#{$o-ft-forms-prefix}__prefix,
+.#{$o-ft-forms-prefix}__suffix {
+	@include boxSizing(border-box);
 	display: block;
 	border-top: $o-ft-forms-fieldborder;
 	border-bottom: $o-ft-forms-fieldborder;
@@ -16,25 +18,28 @@
 	font-size: $o-ft-forms-fontsize-field;
 	line-height: 28px;
 	text-align: center;
+	vertical-align: top;
 	overflow: hidden;
 	background-color: $o-colors-tint1;
 	color: $o-colors-warm-grey2;
 }
 
-.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-prefix, .#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-suffix {
+.#{$o-ft-forms-prefix}__button.#{$o-ft-forms-prefix}__prefix,
+.#{$o-ft-forms-prefix}__button.#{$o-ft-forms-prefix}__suffix {
 	margin: 0;
 	border-radius: 0;
 	padding: 0;
 	width: 100%;
-	line-height: 30px;
+	min-height: 30px;
+	line-height: 28px;
 }
 
-.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-prefix {
-    border-top-left-radius: $o-ft-forms-buttonradius;
-    border-bottom-left-radius: $o-ft-forms-buttonradius;
-}
+// .#{$o-ft-forms-prefix}__button.#{$o-ft-forms-prefix}__prefix {
+//     border-top-left-radius: $o-ft-forms-buttonradius;
+//     border-bottom-left-radius: $o-ft-forms-buttonradius;
+// }
 
-.#{$o-ft-forms-prefix}-button.#{$o-ft-forms-prefix}-suffix {
-    border-top-right-radius: $o-ft-forms-buttonradius;
-    border-bottom-right-radius: $o-ft-forms-buttonradius;
-}
+// .#{$o-ft-forms-prefix}__button.#{$o-ft-forms-prefix}__suffix {
+//     border-top-right-radius: $o-ft-forms-buttonradius;
+//     border-bottom-right-radius: $o-ft-forms-buttonradius;
+// }

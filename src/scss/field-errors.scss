@@ -1,27 +1,37 @@
-.#{$o-ft-forms-prefix}-field--error .#{$o-ft-forms-prefix}-label {
+.#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__label {
 	color: $o-ft-forms-labelcolor-error;
 }
 
-.#{$o-ft-forms-prefix}-field--error select.#{$o-ft-forms-prefix}-field,
-.#{$o-ft-forms-prefix}-field--error textarea.#{$o-ft-forms-prefix}-field,
-.#{$o-ft-forms-prefix}-field--error .#{$o-ft-forms-prefix}-field[type="text"] {
+.#{$o-ft-forms-prefix}--error select.#{$o-ft-forms-prefix}__field,
+.#{$o-ft-forms-prefix}--error textarea.#{$o-ft-forms-prefix}__field,
+.#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__field:not([type="checkbox"]):not([type="radio"]) {
 	margin-bottom: 0;
 }
 
-.#{$o-ft-forms-prefix}-field--error .#{$o-ft-forms-prefix}-field[type="checkbox"],
-.#{$o-ft-forms-prefix}-field--error .#{$o-ft-forms-prefix}-field[type="radio"] {
+.#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__field[type="checkbox"],
+.#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__field[type="radio"] {
 	margin-bottom: 6px;
 }
-.#{$o-ft-forms-prefix}-field--error .#{$o-ft-forms-prefix}-field[type="checkbox"] + .#{$o-ft-forms-prefix}-label,
-.#{$o-ft-forms-prefix}-field--error .#{$o-ft-forms-prefix}-field[type="radio"] + .#{$o-ft-forms-prefix}-label {
+.#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__field[type="checkbox"] + .#{$o-ft-forms-prefix}__label,
+.#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__field[type="radio"] + .#{$o-ft-forms-prefix}__label {
 	color: $o-ft-forms-labelcolor;
 }
 
-.#{$o-ft-forms-prefix}-error {
+.#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__field,
+.#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__prefix:not(.#{$o-ft-forms-prefix}__button),
+.#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__suffix:not(.#{$o-ft-forms-prefix}__button),
+.#{$o-ft-forms-prefix}__field:invalid {
+	border-color: $o-ft-forms-labelcolor-error;
+	color: $o-ft-forms-labelcolor-error;
+}
+
+.#{$o-ft-forms-prefix}__errortext {
 	clear: both;
 	display: block;
 	margin-top: -1px;
 	margin-bottom: $o-ft-forms-marginbottom;
+	border-bottom-left-radius: $o-ft-forms-buttonradius;
+	border-bottom-right-radius: $o-ft-forms-buttonradius;
 	padding: 3px 7px;
 	font-family: $o-ft-forms-font;
 	font-size: 11px;
