@@ -9,9 +9,10 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    ".idea"
   ],
-  "version": "0.0.2",
+  "version": "0.0.3",
   "authors": [
     "Mark Stephens <mark.stephens@ft.com>",
     "Web Team <web.team@ft.com>"

@@ -1,1 +1,4 @@
+.idea
+origami-tracking.iml
 node_modules
+build
