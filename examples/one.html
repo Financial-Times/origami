@@ -3,11 +3,57 @@
 <html>
 <head>
     <title>Example: one</title>
+    <link rel="stylesheet" href="../build/examples/example.css" />
     <script src="../build/track.latest.js"></script>
 </head>
 <body>
 
-Example: one
+<h1>Example 1: <code>init</code></h1>
+
+<h2>Call <code>Track.init</code> with the following arguments.</h2>
+
+<form id="example">
+    <fieldset>
+        <legend>Parameters</legend>
+
+        <p>
+            <label for="developer">Developer</label>
+            <input type="checkbox" name="developer" id="developer" value="true" checked="checked" />
+        </p>
+        <p>
+            <label for="environment">Environment</label>
+            <select name="environment" id="environment"><option value="test" selected="selected">Test</option><option value="production">Production</option></select>
+        </p>
+    </fieldset>
+
+    <p><input type="submit"></p>
+</form>
+
+<h3>Javascript</h3>
+<pre id="javascript"></pre>
+
+<h3>Messages</h3>
+<ol id="messages"></ol>
+
+
+<script src="../src/vendor/jquery/jquery.min.js"></script>
+<script src="../build/examples/util.js"></script>
+<script src="helper.js"></script>
+<script>
+    (function ($) {
+        var util = require('util');
+
+        $('#example').on('submit', function (event) {
+            event.preventDefault();
+
+            var data = $(this).serializeObject();
+
+            $('#javascript').text('Track.init(' + util.inspect(data) + ');');
+
+            Track.init(data);
+        });
+    }(jQuery));
+</script>
 
 </body>
 </html>

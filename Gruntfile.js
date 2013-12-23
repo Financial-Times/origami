@@ -1,3 +1,4 @@
+/*global module*/
 module.exports = function (grunt) {
     "use strict";
 
@@ -26,14 +27,27 @@ module.exports = function (grunt) {
                 {
                     location: "tracking.mustache",
                     regex: /(data-version=")(\d\.\d\.\d)(")/
+                },
+                {
+                    location: "main.js",
+                    regex: /(module\.version = "Track version )(\d\.\d\.\d)(";)/
                 }
             ]
         },
 
         jshint: {
-            track: ['Gruntfile.js', 'main.js', 'src/**/*.js', 'test/**/*.js'],
+            track: [
+                'Gruntfile.js',
+                'main.js',
+                'src/**/*.js',
+                'test/**/*.js',
+                'examples/**/*.js'
+            ],
             options: {
-                ignores: ["src/javascript/utils.js"]
+                ignores: [
+                    "src/vendor/**",
+                    "src/javascript/utils.js"
+                ]
             }
         },
 
@@ -58,12 +72,6 @@ module.exports = function (grunt) {
                 objectToExport: 'Track', // optional, internal object that will be exported
                 amdModuleId: 'track', // optional, if missing the AMD module will be anonymous
                 globalAlias: 'track' // optional, changes the name of the global variable
-                /*deps: { // optional
-                    'default': ['foo', 'bar'],
-                    amd: ['foobar', 'barbar'],
-                    cjs: ['foo', 'barbar'],
-                    global: ['foobar', 'bar']
-                }*/
             }
         },
 
@@ -85,40 +93,44 @@ module.exports = function (grunt) {
                     { src: '<%=build_folder %>/track.<%=pkg.version %>.umd.min.js', dest: '<%=build_folder %>/track.latest.umd.min.js' }
                 ]
             }
+        },
+
+        // Examples and Docs
+        browserify: {
+            'examples': {
+                files: {
+                    '<%= build_folder %>/examples/util.js': ['examples/util.js']
+                },
+                options: {
+                    alias: 'util'
+                }
+            }
+        },
+        compass: {
+            examples: {
+                options: {
+                    sassDir: 'examples',
+                    cssDir: '<%= build_folder %>/examples'
+                }
+            },
+
+            options: {
+                outputStyle: 'compressed'
+            }
         }
     });
 
-    grunt.registerMultiTask('version', 'Bumps the version in all required files.', function () {
-        var options = this.options(),
-            new_version = options.current_version.split('.');
-
-        new_version[2] = parseInt(new_version[2], 10) + 1;
-        new_version = new_version.join('.');
-
-        grunt.log.writeln("New version " + new_version);
-
-        this.data.forEach(function (file) {
-            grunt.log.writeln(" - Changing " + file.location);
-
-            var contents = grunt.file.read(file.location);
-
-            if (file.regex.test(contents)) {
-                grunt.file.write(file.location, contents.replace(file.regex, RegExp.$1 + new_version + RegExp.$3));
-            }
-        });
-
-        grunt.log.ok();
-        grunt.log.subhead('Now commit changes and run git tag ' + new_version);
-
-    });
+    grunt.loadTasks("src/grunt-tasks");
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-umd');
-    //grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-compass');
 
-    grunt.registerTask('default', "Default.", ['jshint', 'clean', 'concat', 'umd', 'uglify', 'copy']);
+
+    grunt.registerTask('default', "Default.", ['jshint', 'clean', 'concat', 'umd', 'uglify', 'copy', 'browserify', 'compass']);
 };

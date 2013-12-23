@@ -12,8 +12,11 @@ var Track = (function (module) {
 
     module.init = function (config) {
         self.config = config;
+        self.log = null;
+        self.internalCounter = 1;
 
         if (config.hasOwnProperty('developer')) {
+            delete config.developer;
             self.log = true;
         }
 
@@ -21,7 +24,8 @@ var Track = (function (module) {
     };
 
     module.destroy = function () {
-
+        self.log = null;
+        self.internalCounter = 1;
     };
 
     module.toString = function () {

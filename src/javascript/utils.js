@@ -1,3 +1,5 @@
+/*global Track, console*/
+
 Track._Utils = (function (parent, console) {
     "use strict";
 
@@ -6,7 +8,7 @@ Track._Utils = (function (parent, console) {
 
     function log() {
         if (self.log && console) {
-            console.log(arguments);
+            console.log.apply(null, arguments);
         }
     }
 
@@ -36,10 +38,29 @@ Track._Utils = (function (parent, console) {
         /*jshint forin:true */
 
         return target;
-    };
+    }
+
+    function encode(str) {
+        return encodeURIComponent(str);
+    }
+
+    function serialize(keys, object) {
+        var i,
+            qs = [];
+
+        for (i = 0; i < keys.length; i++) {
+            if (object.hasOwnProperty(keys[i])) {
+                qs.push(keys[i] + '=' + encode(object[keys[i]]));
+            }
+        }
+
+        return qs.join('&');
+    }
 
     return {
         log: log,
-        merge: merge
+        merge: merge,
+        encode: encode,
+        serialize: serialize
     };
 }(Track, console));

@@ -23,5 +23,8 @@
     "tracking"
   ],
   "homepage": "http://git.svc.ft.com/summary/origami%2Ftracking-module.git",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "jquery": "2.0.x"
+  }
 }
