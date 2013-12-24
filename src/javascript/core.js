@@ -1,4 +1,10 @@
 /*global Track, window, document*/
+
+/*
+ * Core functionality. Queuing and sending tags
+ *
+ * @class Track._Core
+ */
 Track._Core = (function (parent, window, document) {
     "use strict";
 

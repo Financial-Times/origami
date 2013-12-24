@@ -1,0 +1,94 @@
+{
+    "project": {
+        "name": "tracking-module",
+        "description": "Origami module for FT tracking.",
+        "version": "0.0.3",
+        "url": ""
+    },
+    "files": {
+        "build/docs/track.js": {
+            "name": "build/docs/track.js",
+            "modules": {
+                "track": 1
+            },
+            "classes": {
+                "Track": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "track": {
+            "name": "track",
+            "submodules": {},
+            "classes": {
+                "Track": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "build/docs/track.js",
+            "line": 10,
+            "description": "Origami tracking module",
+            "itemtype": "main"
+        }
+    },
+    "classes": {
+        "Track": {
+            "name": "Track",
+            "shortname": "Track",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "track",
+            "namespace": "",
+            "file": "build/docs/track.js",
+            "line": 10,
+            "description": "The Track object.",
+            "type": "{*}"
+        }
+    },
+    "classitems": [
+        {
+            "file": "build/docs/track.js",
+            "line": 24,
+            "description": "Initialise the Track module",
+            "itemtype": "method",
+            "name": "init",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "Configuration object"
+                }
+            ],
+            "class": "Track",
+            "module": "track"
+        },
+        {
+            "file": "build/docs/track.js",
+            "line": 42,
+            "description": "Destroy",
+            "itemtype": "method",
+            "name": "destroy",
+            "class": "Track",
+            "module": "track"
+        },
+        {
+            "file": "build/docs/track.js",
+            "line": 52,
+            "description": "Overload to string method.",
+            "itemtype": "method",
+            "name": "toString",
+            "return": {
+                "description": "the module's version.",
+                "type": "String"
+            },
+            "class": "Track",
+            "module": "track"
+        }
+    ],
+    "warnings": []
+}

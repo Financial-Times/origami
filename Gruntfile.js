@@ -88,6 +88,7 @@ module.exports = function (grunt) {
             track: {
                 files: [
                     { src: '<%=build_folder %>/track.<%=pkg.version %>.js', dest: '<%=build_folder %>/track.latest.js' },
+                    { src: '<%=build_folder %>/track.<%=pkg.version %>.js', dest: '<%=build_folder %>/docs/track.js' },
                     { src: '<%=build_folder %>/track.<%=pkg.version %>.umd.js', dest: '<%=build_folder %>/track.latest.umd.js' },
                     { src: '<%=build_folder %>/track.<%=pkg.version %>.min.js', dest: '<%=build_folder %>/track.latest.min.js' },
                     { src: '<%=build_folder %>/track.<%=pkg.version %>.umd.min.js', dest: '<%=build_folder %>/track.latest.umd.min.js' }
@@ -117,6 +118,38 @@ module.exports = function (grunt) {
             options: {
                 outputStyle: 'compressed'
             }
+        },
+
+        watch: {
+            build: {
+                files: '<%=concat.track.src %>',
+                tasks: ['build'],
+                options: {
+                    spawn: false
+                }
+            },
+            examples: {
+                files: 'examples',
+                tasks: ['docs'],
+                options: {
+                    spawn: false
+                }
+
+            }
+        },
+
+        yuidoc: {
+            compile: {
+                name: '<%= pkg.name %>',
+                description: '<%= pkg.description %>',
+                version: '<%= pkg.version %>',
+                url: '<%= pkg.homepage %>',
+                options: {
+                    paths: '<%=build_folder %>/docs', // Have to do this and then exclude everything to get the main.js included.
+                    //themedir: 'path/to/custom/theme/',
+                    outdir: 'docs/'
+                }
+            }
         }
     });
 
@@ -130,7 +163,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-yuidoc');
+
+    grunt.registerTask('build', "Build", ['jshint', 'clean', 'concat', 'umd', 'uglify', 'copy']);
+    grunt.registerTask('examples', "Examples", ['browserify', 'compass']);
+    grunt.registerTask('docs', "Docs", ['yuidoc']);
 
 
-    grunt.registerTask('default', "Default.", ['jshint', 'clean', 'concat', 'umd', 'uglify', 'copy', 'browserify', 'compass']);
+    grunt.registerTask('default', "Default.", ['build', 'examples', 'docs']);
 };

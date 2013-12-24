@@ -2,6 +2,11 @@
 Track.page = (function (module, window, document) {
     "use strict";
 
+    /*
+     * @private
+     * @final
+     * Format of the page tag
+     */
     var format = 'pcrtgyuo';
 
     // Shared "internal" scope
@@ -38,7 +43,8 @@ Track.page = (function (module, window, document) {
     return function (config, callback) {
         config = module._Utils.merge(defaultPageConfig, config);
 
-        module._Core.track(module._Utils.merge(config, {
+        module._Core.track({
+            async: config.async,
             format: format,
             values: {
                 p: url(config.url), // Page
@@ -50,7 +56,9 @@ Track.page = (function (module, window, document) {
                 // u: Unique click ID, set in Core later,
                 // o: Internal counter, set in Core later
             }
-        }), callback);
+        }, callback);
+
+        self.page_sent = true;
     };
 
 }(Track, window, document));
