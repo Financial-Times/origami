@@ -45,6 +45,8 @@
             
                 <li><a href="../classes/Track._Core.html">Track._Core</a></li>
             
+                <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
+            
                 <li><a href="../classes/Track._Utils.html">Track._Utils</a></li>
             
                 <li><a href="../classes/Track.page.html">Track.page</a></li>
@@ -58,6 +60,8 @@
                 <li><a href="../modules/_Utils.html">_Utils</a></li>
             
                 <li><a href="../modules/page.html">page</a></li>
+            
+                <li><a href="../modules/Send.html">Send</a></li>
             
                 <li><a href="../modules/Track.html">Track</a></li>
             
@@ -100,7 +104,7 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-/*global Track, console*/
+/*global Track, console, encodeURIComponent, escape*/
 
 /**
  * Common utilities for the tracking module.
@@ -109,7 +113,7 @@
  * @class Track._Utils
  * @static
  */
-Track._Utils = (function (parent, console) {
+Track._Utils = (function (parent, console, encodeURIComponent, escape) {
     &quot;use strict&quot;;
 
     /**
@@ -187,7 +191,33 @@ Track._Utils = (function (parent, console) {
      * @return {String} The encoded string.
      */
     function encode(str) {
-        return encodeURIComponent(str);
+        try {
+            return encodeURIComponent(str);
+        } catch (error) {
+            return escape(str);
+        }
+    }
+
+    /**
+     * Function to create a unique-ish hash of a string.
+     * @method hash
+     * @param txt
+     * @return {String}
+     */
+    function hash(txt) {
+        if (!txt) {
+            return &quot;&quot;;
+        }
+
+        var seed = 0x811c9dc5,
+            i;
+
+        for (i = 0; i &lt; txt.length; i++) {
+            seed += (seed &lt;&lt; 1) + (seed &lt;&lt; 4) + (seed &lt;&lt; 7) + (seed &lt;&lt; 8) + (seed &lt;&lt; 24);
+            seed ^= txt.charCodeAt(i);
+        }
+
+        return Number(seed &amp; 0x00000000ffffffff).toString(16);
     }
 
     /**
@@ -266,11 +296,12 @@ Track._Utils = (function (parent, console) {
         isUndefined: is,
         merge: merge,
         encode: encode,
+        hash: hash,
         objectKeys: objectKeys,
         serialize: serialize,
         unserialize: unserialize
     };
-}(Track, console));
+}(Track, console, encodeURIComponent, escape));
     </pre>
 </div>
 

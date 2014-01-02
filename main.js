@@ -53,7 +53,7 @@ var Track = (function (module) {
      */
     module.destroy = function () {
         self.log = null;
-        self.internalCounter = 1;
+        self.internalCounter = 0;
         self.page_sent = false;
     };
 

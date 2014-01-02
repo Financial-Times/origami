@@ -45,6 +45,8 @@
             
                 <li><a href="../classes/Track._Core.html">Track._Core</a></li>
             
+                <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
+            
                 <li><a href="../classes/Track._Utils.html">Track._Utils</a></li>
             
                 <li><a href="../classes/Track.page.html">Track.page</a></li>
@@ -58,6 +60,8 @@
                 <li><a href="../modules/_Utils.html">_Utils</a></li>
             
                 <li><a href="../modules/page.html">page</a></li>
+            
+                <li><a href="../modules/Send.html">Send</a></li>
             
                 <li><a href="../modules/Track.html">Track</a></li>
             
@@ -151,8 +155,8 @@
 
                     <ul class="index-list methods">
                         
-                            <li class="index-item method private">
-                                <a href="#method_hash">hash</a>
+                            <li class="index-item method">
+                                <a href="#method_clickID">clickID</a>
 
                                 
                                 
@@ -165,15 +169,15 @@
                                 
                             </li>
                         
-                            <li class="index-item method">
-                                <a href="#method_track">track</a>
+                            <li class="index-item method private">
+                                <a href="#method_requestID">requestID</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item method private">
-                                <a href="#method_uniqueIdentifier">uniqueIdentifier</a>
+                            <li class="index-item method">
+                                <a href="#method_track">track</a>
 
                                 
                                 
@@ -217,21 +221,11 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_hash" class="method item private">
-    <h3 class="name"><code>hash</code></h3>
+                    <div id="method_clickID" class="method item">
+    <h3 class="name"><code>clickID</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>txt</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
     
 
     
@@ -242,8 +236,6 @@
 
     
 
-    
-        <span class="flag private">private</span>
     
 
     
@@ -265,7 +257,7 @@
             
         
         
-        <a href="../files/build_docs_core.js.html#l40"><code>build&#x2F;docs&#x2F;core.js:40</code></a>
+        <a href="../files/build_docs_core.js.html#l39"><code>build&#x2F;docs&#x2F;core.js:39</code></a>
         
         </p>
 
@@ -276,33 +268,10 @@
     </div>
 
     <div class="description">
-        <p>Function to create a unique-ish hash of a string.</p>
+        <p>Generate and store a new ClickID.</p>
 
     </div>
 
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">txt</code>
-                        <span class="type">Object</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
     
 
     
@@ -314,6 +283,9 @@
                     
                         <span class="type">String</span>:
                     
+                    <p>The ClickID.
+TODO Could this be generated externally?</p>
+
                 
             </div>
         </div>
@@ -361,7 +333,7 @@
             
         
         
-        <a href="../files/build_docs_core.js.html#l73"><code>build&#x2F;docs&#x2F;core.js:73</code></a>
+        <a href="../files/build_docs_core.js.html#l61"><code>build&#x2F;docs&#x2F;core.js:61</code></a>
         
         </p>
 
@@ -386,6 +358,79 @@
                 
                     
                         <span class="type">Number</span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_requestID" class="method item private">
+    <h3 class="name"><code>requestID</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">String</span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/build_docs_core.js.html#l51"><code>build&#x2F;docs&#x2F;core.js:51</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Create a requestID (unique identifier) for the page impression.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">String</span>:
                     
                 
             </div>
@@ -432,6 +477,8 @@
     
 
     
+        <span class="flag async">async</span>
+    
 
     <div class="meta">
         
@@ -444,7 +491,7 @@
             
         
         
-        <a href="../files/build_docs_core.js.html#l84"><code>build&#x2F;docs&#x2F;core.js:84</code></a>
+        <a href="../files/build_docs_core.js.html#l72"><code>build&#x2F;docs&#x2F;core.js:72</code></a>
         
         </p>
 
@@ -502,79 +549,6 @@
         </div>
     
 
-    
-
-    
-</div>
-
-                
-                    <div id="method_uniqueIdentifier" class="method item private">
-    <h3 class="name"><code>uniqueIdentifier</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type">String</span>
-        </span>
-    
-
-    
-
-    
-        <span class="flag private">private</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/build_docs_core.js.html#l63"><code>build&#x2F;docs&#x2F;core.js:63</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Create a Click-ID (unique identifier) for the page impression.</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type">String</span>:
-                    
-                
-            </div>
-        </div>
     
 
     

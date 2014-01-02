@@ -3,6 +3,7 @@ YUI.add("yuidoc-meta", function(Y) {
     "classes": [
         "Track",
         "Track._Core",
+        "Track._Core.Send",
         "Track._Utils",
         "Track.page"
     ],
@@ -27,6 +28,11 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "page",
             "name": "page",
             "description": "Page functionality. For tracking a page."
+        },
+        {
+            "displayName": "Send",
+            "name": "Send",
+            "description": "Queuing and sending tags\nKeep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request."
         },
         {
             "displayName": "Track",

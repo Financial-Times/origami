@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>build/docs/core.js - tracking-module</title>
+    <title>Send - tracking-module</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -100,115 +100,51 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: build/docs/core.js</h1>
+                        <h1>Send Module</h1>
+<div class="box clearfix meta">
+    
 
-<div class="file">
-    <pre class="code prettyprint linenums">
-/*global Track, window, document*/
+    
 
-/**
- * Core functionality. Queuing and sending tags
- * @module Track
- * @submodule _Core
- * @class Track._Core
- * @static
- */
-Track._Core = (function (parent, window, document) {
-    &quot;use strict&quot;;
+    
+        <div class="foundat">
+            Defined in: <a href="../files/build_docs_send.js.html#l2"><code>build&#x2F;docs&#x2F;send.js:2</code></a>
+        </div>
+    
 
-    /**
-     * Shared &quot;internal&quot; scope.
-     * @property _self
-     * @type {Object}
-     * @private
-     */
-    var self = parent._self = parent._self || {},
-        /**
-         * Default properties for sending a tracking request.
-         * @property defaultConfig
-         * @type {Object}
-         * @example
-         {
-         environment: &#x27;test&#x27;,
-         clickID: &quot;t&quot; + (new Date()).valueOf(),
-         async: true,
-         callback: function () {}
-         }
-         @private
-         */
-            defaultConfig = {
-            environment: &#x27;test&#x27;,
-            async: true,
-            callback: function () {}
-        };
+    
+</div>
 
-    /**
-     * Generate and store a new ClickID.
-     * @method clickID
-     * @return {String} The ClickID.
-     * TODO Could this be generated externally?
-     */
-    function clickID() {
-        var click_id = &quot;t&quot; + (new Date()).valueOf() + &quot;h&quot; + window.history.length;
-        defaultConfig.clickID = click_id;
-        return click_id;
-    }
 
-    /**
-     * Create a requestID (unique identifier) for the page impression.
-     * @method requestID
-     * @return {String}
-     * @private
-     */
-    function requestID() {
-        return window.history.length + &quot;.&quot; + (Math.random() * 1000) + &quot;.&quot; + (new Date()).getTime() + &quot;.&quot; + parent._Utils.hash(document.location.href + document.referrer);
-    }
 
-    /**
-     * Count of the number of tracking requests made.
-     * @method internalCounter
-     * @return {Number}
-     * @private
-     */
-    function internalCounter() {
-        self.internalCounter = self.internalCounter + 1;
-        return self.internalCounter;
-    }
+<div class="box intro">
+    <p>Queuing and sending tags
+Keep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request.</p>
 
-    /**
-     * Make a tracking request.
-     * @method track
-     * @param config Should be passed an object containing a format and the values for that format
-     * @param [callback] Fired when the request has been made.
-     * @async
-     */
-    function track(config, callback) {
-        if (parent._Utils.isUndefined(callback)) {
-            callback = function () {};
-        }
+</div>
 
-        config = parent._Utils.merge(parent._Utils.merge(defaultConfig, self.config), parent._Utils.merge(config, { callback: callback }));
 
-        // Used for the queue
-        config.requestID = requestID();
-        // Values for the request
-        config.values = parent._Utils.merge({
-            c: &#x27;&#x27;,
-            t: config.clickID,
-            u: config.requestID,
-            o: internalCounter()
-        }, config.values);
 
-        parent._Utils.log(config);
-    }
+<div class="yui3-g">
+    <div class="yui3-u-1-2">
+        
+            <p>This module provides the following classes:</p>
 
-    return {
-        clickID: clickID,
-        track: track
-    };
-}(Track, window, document));
+            <ul class="module-classes">
+            
+                <li class="module-class">
+                    <a href="../classes/Track._Core.Send.html">
+                        Track._Core.Send
+                    </a>
+                </li>
+            
+            </ul>
+        
+    </div>
 
-    </pre>
+    <div class="yui3-u-1-2">
+        
+    </div>
 </div>
 
                     </div>

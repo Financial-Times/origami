@@ -1,4 +1,4 @@
-/*global window, document, Track*/
+/*global Track, window, document*/
 
 /**
  * Page functionality. For tracking a page.
@@ -65,7 +65,7 @@ Track.page = (function (module, window, document) {
      * @private
      */
     function url(u) {
-        if (typeof u === "undefined") {
+        if (module._Utils.isUndefined(u)) {
             throw new Error('URL must be specified');
         }
 
@@ -77,7 +77,14 @@ Track.page = (function (module, window, document) {
             u = document.location.protocol + "//" + document.location.hostname + u;
         }
 
-        return u.indexOf('?') === -1 ? u + window.location.search : u + "&" + window.location.search.substring(1);
+        if (u.indexOf('?') === -1) {
+            u = u + window.location.search;
+        } else {
+            // Merge query string params to avoid duplicates.
+            u = u.substr(0, u.indexOf('?')) + "?" + module._Utils.serialize(module._Utils.merge(module._Utils.unserialize(window.location.search.substring(1)), module._Utils.unserialize(u.substr(u.indexOf('?') + 1))));
+        }
+
+        return u;
     }
 
     /**
@@ -85,10 +92,13 @@ Track.page = (function (module, window, document) {
      * @method page
      * @param [config] {Object} Configuration object. If omitted, will use the defaults.
      * @param [callback] {Function} Callback function. Called when request completed.
+     * @async
      */
     return function (config, callback) {
         config = module._Utils.merge(defaultPageConfig, config);
 
+        // New ClickID for a new Page.
+        module._Core.clickID();
         module._Core.track({
             async: config.async,
             format: format,
@@ -97,7 +107,7 @@ Track.page = (function (module, window, document) {
                 // c: Cookie, set in Core later,
                 r: config.referrer, // Referrer
                 // t: Click ID, set in Core later.
-                g: module._Utils.serialize(['co', 'sr', 'lt', 'jv'], config),
+                g: module._Utils.serialize(config, ['co', 'sr', 'lt', 'jv']),
                 y: 'page'
                 // u: Unique click ID, set in Core later,
                 // o: Internal counter, set in Core later

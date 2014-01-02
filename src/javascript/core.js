@@ -32,42 +32,30 @@ Track._Core = (function (parent, window, document) {
          */
             defaultConfig = {
             environment: 'test',
-            clickID: "t" + (new Date()).valueOf(),
             async: true,
             callback: function () {}
         };
 
     /**
-     * Function to create a unique-ish hash of a string.
-     * @method hash
-     * @param txt
-     * @return {String}
-     * @private
+     * Generate and store a new ClickID.
+     * @method clickID
+     * @return {String} The ClickID.
+     * TODO Could this be generated externally?
      */
-    function hash(txt) {
-        if (!txt) {
-            return "";
-        }
-
-        var seed = 0x811c9dc5,
-            i;
-
-        for (i = 0; i < txt.length; i++) {
-            seed += (seed << 1) + (seed << 4) + (seed << 7) + (seed << 8) + (seed << 24);
-            seed ^= txt.charCodeAt(i);
-        }
-
-        return Number(seed & 0x00000000ffffffff).toString(16);
+    function clickID() {
+        var click_id = "t" + (new Date()).valueOf() + "h" + window.history.length;
+        defaultConfig.clickID = click_id;
+        return click_id;
     }
 
     /**
-     * Create a Click-ID (unique identifier) for the page impression.
-     * @method uniqueIdentifier
+     * Create a requestID (unique identifier) for the page impression.
+     * @method requestID
      * @return {String}
      * @private
      */
-    function uniqueIdentifier() {
-        return window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + hash(document.location.href + document.referrer);
+    function requestID() {
+        return window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + parent._Utils.hash(document.location.href + document.referrer);
     }
 
     /**
@@ -77,7 +65,8 @@ Track._Core = (function (parent, window, document) {
      * @private
      */
     function internalCounter() {
-        return self.internalCounter++;
+        self.internalCounter = self.internalCounter + 1;
+        return self.internalCounter;
     }
 
     /**
@@ -85,14 +74,22 @@ Track._Core = (function (parent, window, document) {
      * @method track
      * @param config Should be passed an object containing a format and the values for that format
      * @param [callback] Fired when the request has been made.
+     * @async
      */
     function track(config, callback) {
+        if (parent._Utils.isUndefined(callback)) {
+            callback = function () {};
+        }
+
         config = parent._Utils.merge(parent._Utils.merge(defaultConfig, self.config), parent._Utils.merge(config, { callback: callback }));
 
+        // Used for the queue
+        config.requestID = requestID();
+        // Values for the request
         config.values = parent._Utils.merge({
             c: '',
             t: config.clickID,
-            u: uniqueIdentifier(),
+            u: config.requestID,
             o: internalCounter()
         }, config.values);
 
@@ -100,6 +97,7 @@ Track._Core = (function (parent, window, document) {
     }
 
     return {
+        clickID: clickID,
         track: track
     };
 }(Track, window, document));

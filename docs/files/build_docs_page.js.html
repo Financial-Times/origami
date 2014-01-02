@@ -45,6 +45,8 @@
             
                 <li><a href="../classes/Track._Core.html">Track._Core</a></li>
             
+                <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
+            
                 <li><a href="../classes/Track._Utils.html">Track._Utils</a></li>
             
                 <li><a href="../classes/Track.page.html">Track.page</a></li>
@@ -58,6 +60,8 @@
                 <li><a href="../modules/_Utils.html">_Utils</a></li>
             
                 <li><a href="../modules/page.html">page</a></li>
+            
+                <li><a href="../modules/Send.html">Send</a></li>
             
                 <li><a href="../modules/Track.html">Track</a></li>
             
@@ -100,7 +104,7 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-/*global window, document, Track*/
+/*global Track, window, document*/
 
 /**
  * Page functionality. For tracking a page.
@@ -194,10 +198,13 @@ Track.page = (function (module, window, document) {
      * @method page
      * @param [config] {Object} Configuration object. If omitted, will use the defaults.
      * @param [callback] {Function} Callback function. Called when request completed.
+     * @async
      */
     return function (config, callback) {
         config = module._Utils.merge(defaultPageConfig, config);
 
+        // New ClickID for a new Page.
+        module._Core.clickID();
         module._Core.track({
             async: config.async,
             format: format,
