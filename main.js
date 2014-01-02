@@ -27,7 +27,7 @@ var Track = (function (module) {
      * @property version
      * @type {String}
      */
-    module.version = "Track version 0.0.3";
+    module.version = "Track version 0.0.4";
 
     /**
      * Initialise the Track module.

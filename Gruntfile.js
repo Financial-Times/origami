@@ -5,6 +5,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         build_folder: './build',
+        versioned_build_folder: './build/<%=pkg.version %>',
 
         version : {
             options : {
@@ -46,12 +47,13 @@ module.exports = function (grunt) {
             options: {
                 ignores: [
                     "src/vendor/**",
+                    "examples/jquery/**",
                     "src/javascript/utils.js"
                 ]
             }
         },
 
-        clean: ['<%=build_folder %>'],
+        clean: ['<%=build_folder %>/docs', '<%=build_folder %>/examples'],
 
         concat: {
             track: {
@@ -59,14 +61,14 @@ module.exports = function (grunt) {
                     'main.js',
                     'src/javascript/**/*.js'
                 ],
-                dest: '<%=build_folder %>/track.<%=pkg.version %>.js'
+                dest: '<%=versioned_build_folder %>/track.<%=pkg.version %>.js'
             }
         },
 
         umd: {
             track: {
-                src: '<%=build_folder %>/track.<%=pkg.version %>.js',
-                dest: '<%=build_folder %>/track.<%=pkg.version %>.umd.js', // optional, if missing the src will be used
+                src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.js',
+                dest: '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.js', // optional, if missing the src will be used
                 //template: 'path/to/template.hbs', // optional; a template from templates subdir can be specified by name (e.g. 'umd');
                 // if missing the templates/umd.hbs file will be used
                 objectToExport: 'Track', // optional, internal object that will be exported
@@ -78,8 +80,8 @@ module.exports = function (grunt) {
         uglify: {
             track: {
                 files: {
-                    '<%=build_folder %>/track.<%=pkg.version %>.min.js': '<%=build_folder %>/track.<%=pkg.version %>.js',
-                    '<%=build_folder %>/track.<%=pkg.version %>.umd.min.js': '<%=build_folder %>/track.<%=pkg.version %>.umd.js'
+                    '<%=versioned_build_folder %>/track.<%=pkg.version %>.min.js': '<%=versioned_build_folder %>/track.<%=pkg.version %>.js',
+                    '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.min.js': '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.js'
                 }
             }
         },
@@ -87,10 +89,10 @@ module.exports = function (grunt) {
         copy: {
             track: {
                 files: [
-                    { src: '<%=build_folder %>/track.<%=pkg.version %>.js', dest: '<%=build_folder %>/track.latest.js' },
-                    { src: '<%=build_folder %>/track.<%=pkg.version %>.umd.js', dest: '<%=build_folder %>/track.latest.umd.js' },
-                    { src: '<%=build_folder %>/track.<%=pkg.version %>.min.js', dest: '<%=build_folder %>/track.latest.min.js' },
-                    { src: '<%=build_folder %>/track.<%=pkg.version %>.umd.min.js', dest: '<%=build_folder %>/track.latest.umd.min.js' }
+                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.js', dest: '<%=build_folder %>/track.latest.js' },
+                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.js', dest: '<%=build_folder %>/track.latest.umd.js' },
+                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.min.js', dest: '<%=build_folder %>/track.latest.min.js' },
+                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.min.js', dest: '<%=build_folder %>/track.latest.umd.min.js' }
                 ]
             },
             docs: {

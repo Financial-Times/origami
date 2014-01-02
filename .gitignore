@@ -1,6 +1,7 @@
 .idea
 origami-tracking.iml
 node_modules
-build
+build/docs
+build/examples
 .sass-cache
 src/vendor/jquery
