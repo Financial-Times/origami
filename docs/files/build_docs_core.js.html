@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Track - tracking-module</title>
+    <title>build/docs/core.js - tracking-module</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -96,104 +96,124 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Track Module</h1>
-<div class="box clearfix meta">
-    
+                        <h1 class="file-heading">File: build/docs/core.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
+/*global Track, window, document*/
 
-    
-        <div class="foundat">
-            Defined in: <a href="../files/build_docs_utils.js.html#l3"><code>build&#x2F;docs&#x2F;utils.js:3</code></a>
-        </div>
-    
+/**
+ * Core functionality. Queuing and sending tags
+ * @module Track
+ * @submodule _Core
+ * @class Track._Core
+ * @static
+ */
+Track._Core = (function (parent, window, document) {
+    &quot;use strict&quot;;
 
-    
-</div>
+    /**
+     * Shared &quot;internal&quot; scope.
+     * @property _self
+     * @type {Object}
+     * @private
+     */
+    var self = parent._self = parent._self || {},
+        /**
+         * Default properties for sending a tracking request.
+         * @property defaultConfig
+         * @type {Object}
+         * @example
+         {
+         environment: &#x27;test&#x27;,
+         clickID: &quot;t&quot; + (new Date()).valueOf(),
+         async: true,
+         callback: function () {}
+         }
+         @private
+         */
+            defaultConfig = {
+            environment: &#x27;test&#x27;,
+            clickID: &quot;t&quot; + (new Date()).valueOf(),
+            async: true,
+            callback: function () {}
+        };
 
+    /**
+     * Function to create a unique-ish hash of a string.
+     * @method hash
+     * @param txt
+     * @return {String}
+     * @private
+     */
+    function hash(txt) {
+        if (!txt) {
+            return &quot;&quot;;
+        }
 
+        var seed = 0x811c9dc5,
+            i;
 
-<div class="box intro">
-    <p>Origami tracking module.</p>
+        for (i = 0; i &lt; txt.length; i++) {
+            seed += (seed &lt;&lt; 1) + (seed &lt;&lt; 4) + (seed &lt;&lt; 7) + (seed &lt;&lt; 8) + (seed &lt;&lt; 24);
+            seed ^= txt.charCodeAt(i);
+        }
 
-</div>
+        return Number(seed &amp; 0x00000000ffffffff).toString(16);
+    }
 
+    /**
+     * Create a Click-ID (unique identifier) for the page impression.
+     * @method uniqueIdentifier
+     * @return {String}
+     * @private
+     */
+    function uniqueIdentifier() {
+        return window.history.length + &quot;.&quot; + (Math.random() * 1000) + &quot;.&quot; + (new Date()).getTime() + &quot;.&quot; + hash(document.location.href + document.referrer);
+    }
 
+    /**
+     * Count of the number of tracking requests made.
+     * @method internalCounter
+     * @return {Number}
+     * @private
+     */
+    function internalCounter() {
+        self.internalCounter = self.internalCounter + 1;
+        return self.internalCounter;
+    }
 
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
+    /**
+     * Make a tracking request.
+     * @method track
+     * @param config Should be passed an object containing a format and the values for that format
+     * @param [callback] Fired when the request has been made.
+     */
+    function track(config, callback) {
+        if (parent._Utils.isUndefined(callback)) {
+            callback = function () {};
+        }
 
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/Track.html">
-                        Track
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/Track._Core.html">
-                        Track._Core
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/Track._Utils.html">
-                        Track._Utils
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/Track.page.html">
-                        Track.page
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
+        config = parent._Utils.merge(parent._Utils.merge(defaultConfig, self.config), parent._Utils.merge(config, { callback: callback }));
 
-    <div class="yui3-u-1-2">
-        
-            <p>This module is a rollup of the following modules:</p>
+        config.values = parent._Utils.merge({
+            c: &#x27;&#x27;,
+            t: config.clickID,
+            u: uniqueIdentifier(),
+            o: internalCounter()
+        }, config.values);
 
-            <ul class="module-submodules">
-            
-                <li class="module-submodule">
-                    <a href="../modules/_Core.html">
-                        _Core
-                    </a>
+        parent._Utils.log(config);
 
-                    <div class="module-submodule-description">
-                        Core functionality. Queuing and sending tags
-                    </div>
-                </li>
-            
-                <li class="module-submodule">
-                    <a href="../modules/_Utils.html">
-                        _Utils
-                    </a>
+        callback();
+    }
 
-                    <div class="module-submodule-description">
-                        Common utilities for the tracking module.
-                    </div>
-                </li>
-            
-                <li class="module-submodule">
-                    <a href="../modules/page.html">
-                        page
-                    </a>
+    return {
+        track: track
+    };
+}(Track, window, document));
 
-                    <div class="module-submodule-description">
-                        Page functionality. For tracking a page.
-                    </div>
-                </li>
-            
-            </ul>
-        
-    </div>
+    </pre>
 </div>
 
                     </div>

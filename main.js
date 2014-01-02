@@ -1,28 +1,36 @@
 // http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
 
 /**
- * Origami tracking module
+ * Origami tracking module.
  *
- * @module track
+ * @module Track
  * @main
- */
-
-/**
+ *
  * The Track object.
  * @class Track
+ * @static
  * @type {*}
  */
 var Track = (function (module) {
     "use strict";
 
-    // Shared "internal" scope
+    /**
+     * Shared "internal" scope.
+     * @property _self
+     * @type {Object}
+     * @private
+     */
     var self = module._self = module._self || {};
 
+    /**
+     * The version of the tracking module.
+     * @property version
+     * @type {String}
+     */
     module.version = "Track version 0.0.3";
 
-
     /**
-     * Initialise the Track module
+     * Initialise the Track module.
      * @method init
      * @param config Configuration object
      */
@@ -40,7 +48,7 @@ var Track = (function (module) {
     };
 
     /**
-     * Destroy
+     * Clean up the tracking module.
      * @method destroy
      */
     module.destroy = function () {
@@ -50,8 +58,7 @@ var Track = (function (module) {
     };
 
     /**
-     * Overload to string method.
-     *
+     * Overload toString method to show the version.
      * @method toString
      * @return {String} the module's version.
      */

@@ -6,35 +6,140 @@
         "url": ""
     },
     "files": {
-        "build/docs/track.js": {
-            "name": "build/docs/track.js",
+        "build/docs/core.js": {
+            "name": "build/docs/core.js",
             "modules": {
-                "track": 1
+                "_Core": 1
+            },
+            "classes": {
+                "Track._Core": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "build/docs/main.js": {
+            "name": "build/docs/main.js",
+            "modules": {
+                "Track": 1
             },
             "classes": {
                 "Track": 1
             },
             "fors": {},
             "namespaces": {}
+        },
+        "build/docs/page.js": {
+            "name": "build/docs/page.js",
+            "modules": {
+                "page": 1
+            },
+            "classes": {
+                "Track.page": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "build/docs/utils.js": {
+            "name": "build/docs/utils.js",
+            "modules": {
+                "_Utils": 1
+            },
+            "classes": {
+                "Track._Utils": 1
+            },
+            "fors": {},
+            "namespaces": {}
         }
     },
     "modules": {
-        "track": {
-            "name": "track",
-            "submodules": {},
+        "Track": {
+            "name": "Track",
+            "submodules": {
+                "_Core": 1,
+                "page": 1,
+                "_Utils": 1
+            },
             "classes": {
-                "Track": 1
+                "Track._Core": 1,
+                "Track": 1,
+                "Track.page": 1,
+                "Track._Utils": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "build/docs/track.js",
-            "line": 10,
-            "description": "Origami tracking module",
-            "itemtype": "main"
+            "file": "build/docs/utils.js",
+            "line": 3,
+            "description": "Origami tracking module.",
+            "itemtype": "main",
+            "static": 1,
+            "type": "{*}"
+        },
+        "_Core": {
+            "name": "_Core",
+            "submodules": {},
+            "classes": {
+                "Track._Core": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Track",
+            "namespace": "",
+            "file": "build/docs/core.js",
+            "line": 3,
+            "description": "Core functionality. Queuing and sending tags",
+            "static": 1
+        },
+        "page": {
+            "name": "page",
+            "submodules": {},
+            "classes": {
+                "Track.page": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Track",
+            "namespace": "",
+            "file": "build/docs/page.js",
+            "line": 3,
+            "description": "Page functionality. For tracking a page.",
+            "static": 1
+        },
+        "_Utils": {
+            "name": "_Utils",
+            "submodules": {},
+            "classes": {
+                "Track._Utils": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Track",
+            "namespace": "",
+            "file": "build/docs/utils.js",
+            "line": 3,
+            "description": "Common utilities for the tracking module.",
+            "static": 1
         }
     },
     "classes": {
+        "Track._Core": {
+            "name": "Track._Core",
+            "shortname": "Track._Core",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Track",
+            "submodule": "_Core",
+            "namespace": "",
+            "file": "build/docs/core.js",
+            "line": 3,
+            "description": "Core functionality. Queuing and sending tags"
+        },
         "Track": {
             "name": "Track",
             "shortname": "Track",
@@ -43,19 +148,178 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "track",
+            "module": "Track",
             "namespace": "",
-            "file": "build/docs/track.js",
-            "line": 10,
-            "description": "The Track object.",
-            "type": "{*}"
+            "file": "build/docs/main.js",
+            "line": 3,
+            "description": "Origami tracking module.",
+            "mainName": "The Track object.",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true
+        },
+        "Track.page": {
+            "name": "Track.page",
+            "shortname": "Track.page",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Track",
+            "submodule": "page",
+            "namespace": "",
+            "file": "build/docs/page.js",
+            "line": 3,
+            "description": "Page functionality. For tracking a page."
+        },
+        "Track._Utils": {
+            "name": "Track._Utils",
+            "shortname": "Track._Utils",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Track",
+            "submodule": "_Utils",
+            "namespace": "",
+            "file": "build/docs/utils.js",
+            "line": 3,
+            "description": "Common utilities for the tracking module."
         }
     },
     "classitems": [
         {
-            "file": "build/docs/track.js",
-            "line": 24,
-            "description": "Initialise the Track module",
+            "file": "build/docs/core.js",
+            "line": 13,
+            "description": "Shared \"internal\" scope.",
+            "itemtype": "property",
+            "name": "_self",
+            "type": "{Object}",
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core",
+            "module": "Track",
+            "submodule": "_Core"
+        },
+        {
+            "file": "build/docs/core.js",
+            "line": 20,
+            "description": "Default properties for sending a tracking request.",
+            "itemtype": "property",
+            "name": "defaultConfig",
+            "type": "{Object}",
+            "example": [
+                "\n        {\n        environment: 'test',\n        clickID: \"t\" + (new Date()).valueOf(),\n        async: true,\n        callback: function () {}\n        }"
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core",
+            "module": "Track",
+            "submodule": "_Core"
+        },
+        {
+            "file": "build/docs/core.js",
+            "line": 40,
+            "description": "Function to create a unique-ish hash of a string.",
+            "itemtype": "method",
+            "name": "hash",
+            "params": [
+                {
+                    "name": "txt",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core",
+            "module": "Track",
+            "submodule": "_Core"
+        },
+        {
+            "file": "build/docs/core.js",
+            "line": 63,
+            "description": "Create a Click-ID (unique identifier) for the page impression.",
+            "itemtype": "method",
+            "name": "uniqueIdentifier",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core",
+            "module": "Track",
+            "submodule": "_Core"
+        },
+        {
+            "file": "build/docs/core.js",
+            "line": 73,
+            "description": "Count of the number of tracking requests made.",
+            "itemtype": "method",
+            "name": "internalCounter",
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core",
+            "module": "Track",
+            "submodule": "_Core"
+        },
+        {
+            "file": "build/docs/core.js",
+            "line": 84,
+            "description": "Make a tracking request.",
+            "itemtype": "method",
+            "name": "track",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "Should be passed an object containing a format and the values for that format"
+                },
+                {
+                    "name": "callback",
+                    "description": "Fired when the request has been made.",
+                    "optional": true
+                }
+            ],
+            "class": "Track._Core",
+            "module": "Track",
+            "submodule": "_Core"
+        },
+        {
+            "file": "build/docs/main.js",
+            "line": 17,
+            "description": "Shared \"internal\" scope.",
+            "itemtype": "property",
+            "name": "_self",
+            "type": "{Object}",
+            "access": "private",
+            "tagname": "",
+            "class": "Track",
+            "module": "Track"
+        },
+        {
+            "file": "build/docs/main.js",
+            "line": 25,
+            "description": "The version of the tracking module.",
+            "itemtype": "property",
+            "name": "version",
+            "type": "{String}",
+            "class": "Track",
+            "module": "Track"
+        },
+        {
+            "file": "build/docs/main.js",
+            "line": 32,
+            "description": "Initialise the Track module.",
             "itemtype": "method",
             "name": "init",
             "params": [
@@ -65,21 +329,21 @@
                 }
             ],
             "class": "Track",
-            "module": "track"
+            "module": "Track"
         },
         {
-            "file": "build/docs/track.js",
-            "line": 42,
-            "description": "Destroy",
+            "file": "build/docs/main.js",
+            "line": 50,
+            "description": "Clean up the tracking module.",
             "itemtype": "method",
             "name": "destroy",
             "class": "Track",
-            "module": "track"
+            "module": "Track"
         },
         {
-            "file": "build/docs/track.js",
-            "line": 52,
-            "description": "Overload to string method.",
+            "file": "build/docs/main.js",
+            "line": 60,
+            "description": "Overload toString method to show the version.",
             "itemtype": "method",
             "name": "toString",
             "return": {
@@ -87,7 +351,270 @@
                 "type": "String"
             },
             "class": "Track",
-            "module": "track"
+            "module": "Track"
+        },
+        {
+            "file": "build/docs/page.js",
+            "line": 13,
+            "description": "Format of the page tracking request.",
+            "itemtype": "property",
+            "name": "format",
+            "final": 1,
+            "type": "{String}",
+            "access": "private",
+            "tagname": "",
+            "class": "Track.page",
+            "module": "Track",
+            "submodule": "page"
+        },
+        {
+            "file": "build/docs/page.js",
+            "line": 22,
+            "description": "Shared \"internal\" scope.",
+            "itemtype": "property",
+            "name": "_self",
+            "type": "{Object}",
+            "access": "private",
+            "tagname": "",
+            "class": "Track.page",
+            "module": "Track",
+            "submodule": "page"
+        },
+        {
+            "file": "build/docs/page.js",
+            "line": 30,
+            "description": "Default properties for page tracking requests.",
+            "example": [
+                "\n        {\n        url: document.URL,\n        referrer: document.referrer,\n\n        co: window.screen.colorDepth,\n        sr: window.screen.width + 'x' + window.screen.height,\n        lt: (new Date()).toISOString(),\n        jv: '', // TODO\n\n        async: false // Send this tag syncronously\n        }"
+            ],
+            "itemtype": "property",
+            "name": "defaultPageConfig",
+            "type": "{Object}",
+            "access": "private",
+            "tagname": "",
+            "class": "Track.page",
+            "module": "Track",
+            "submodule": "page"
+        },
+        {
+            "file": "build/docs/page.js",
+            "line": 60,
+            "description": "Constructs a URL in the format required by iJento, allowing different inputs.",
+            "itemtype": "method",
+            "name": "url",
+            "params": [
+                {
+                    "name": "u",
+                    "description": "A URL or path. e.g. http://www.ft.com/markets or /markets",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The full URL in the correct format.",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Track.page",
+            "module": "Track",
+            "submodule": "page"
+        },
+        {
+            "file": "build/docs/page.js",
+            "line": 90,
+            "description": "Make the page tracking request.",
+            "itemtype": "method",
+            "name": "page",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "Configuration object. If omitted, will use the defaults.",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "Callback function. Called when request completed.",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "Track.page",
+            "module": "Track",
+            "submodule": "page"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 13,
+            "description": "Shared \"internal\" scope.",
+            "itemtype": "property",
+            "name": "_self",
+            "type": "{Object}",
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 21,
+            "description": "Log messages to the browser console. Requires \"log\" to be set on init.",
+            "itemtype": "method",
+            "name": "log",
+            "params": [
+                {
+                    "name": "arguments",
+                    "description": "",
+                    "type": "Mixed",
+                    "multiple": true
+                }
+            ],
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 32,
+            "description": "Tests if variable is a certain type. Defaults to check for undefined if no type specified.",
+            "itemtype": "method",
+            "name": "is",
+            "params": [
+                {
+                    "name": "variable",
+                    "description": "The variable to check.",
+                    "type": "Mixed"
+                },
+                {
+                    "name": "type",
+                    "description": "The type to test for. Defaults to undefined.",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 46,
+            "description": "Merge objects together. Will remove \"falsy\" values.",
+            "itemtype": "method",
+            "name": "merge",
+            "params": [
+                {
+                    "name": "target",
+                    "description": "The original object to merge in to.",
+                    "type": "Object"
+                },
+                {
+                    "name": "options",
+                    "description": "The object to merge into the target. If omitted, will merge target into a new empty Object.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "The merged object.",
+                "type": "Object"
+            },
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 81,
+            "description": "URL encode a string.",
+            "itemtype": "method",
+            "name": "encode",
+            "params": [
+                {
+                    "name": "str",
+                    "description": "The string to be encoded.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The encoded string.",
+                "type": "String"
+            },
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 91,
+            "description": "Polyfill for Object.keys as it doesn't exist in older browsers.",
+            "itemtype": "method",
+            "name": "objectKeys",
+            "params": [
+                {
+                    "name": "o",
+                    "description": "The object to fond the keys from.",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "The keys.",
+                "type": "Array"
+            },
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 112,
+            "description": "For the chosen keys, turns an object into a query string.",
+            "itemtype": "method",
+            "name": "serialize",
+            "params": [
+                {
+                    "name": "object",
+                    "description": "The object containing the values."
+                },
+                {
+                    "name": "keys",
+                    "description": "The keys you want to use in the query string.",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "The query string.",
+                "type": "String"
+            },
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 140,
+            "description": "Unserialize a query string into an object. Opposite of serialize.",
+            "itemtype": "method",
+            "name": "unserialize",
+            "params": [
+                {
+                    "name": "qs",
+                    "description": "The query string to turn into an Object.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
         }
     ],
     "warnings": []

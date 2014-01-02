@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Track - tracking-module</title>
+    <title>Track._Core - tracking-module</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -96,7 +96,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Track Class</h1>
+                        <h1>Track._Core Class</h1>
 <div class="box meta">
     
 
@@ -104,13 +104,14 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/build_docs_main.js.html#l3"><code>build&#x2F;docs&#x2F;main.js:3</code></a>
+            Defined in: <a href="../files/build_docs_core.js.html#l3"><code>build&#x2F;docs&#x2F;core.js:3</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/Track.html">Track</a>
+            Module: <a href="../modules/_Core.html">_Core</a><br>
+            Parent Module: <a href="../modules/Track.html">Track</a>
         
     
 
@@ -120,7 +121,7 @@
 
 
 <div class="box intro">
-    <p>Origami tracking module.</p>
+    <p>Core functionality. Queuing and sending tags</p>
 
 </div>
 
@@ -150,22 +151,29 @@
 
                     <ul class="index-list methods">
                         
-                            <li class="index-item method">
-                                <a href="#method_destroy">destroy</a>
+                            <li class="index-item method private">
+                                <a href="#method_hash">hash</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private">
+                                <a href="#method_internalCounter">internalCounter</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_init">init</a>
+                                <a href="#method_track">track</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item method">
-                                <a href="#method_toString">toString</a>
+                            <li class="index-item method private">
+                                <a href="#method_uniqueIdentifier">uniqueIdentifier</a>
 
                                 
                                 
@@ -188,8 +196,8 @@
                                 
                             </li>
                         
-                            <li class="index-item property">
-                                <a href="#property_version">version</a>
+                            <li class="index-item property private">
+                                <a href="#property_defaultConfig">defaultConfig</a>
 
                                 
                                 
@@ -209,17 +217,33 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_destroy" class="method item">
-    <h3 class="name"><code>destroy</code></h3>
+                    <div id="method_hash" class="method item private">
+    <h3 class="name"><code>hash</code></h3>
 
     
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>txt</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">String</span>
+        </span>
     
 
     
 
     
-
+        <span class="flag private">private</span>
     
 
     
@@ -241,7 +265,7 @@
             
         
         
-        <a href="../files/build_docs_main.js.html#l50"><code>build&#x2F;docs&#x2F;main.js:50</code></a>
+        <a href="../files/build_docs_core.js.html#l40"><code>build&#x2F;docs&#x2F;core.js:40</code></a>
         
         </p>
 
@@ -252,20 +276,128 @@
     </div>
 
     <div class="description">
-        <p>Clean up the tracking module.</p>
+        <p>Function to create a unique-ish hash of a string.</p>
 
     </div>
 
     
+        <div class="params">
+            <h4>Parameters:</h4>
 
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">txt</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">String</span>:
+                    
+                
+            </div>
+        </div>
     
 
     
 </div>
 
                 
-                    <div id="method_init" class="method item">
-    <h3 class="name"><code>init</code></h3>
+                    <div id="method_internalCounter" class="method item private">
+    <h3 class="name"><code>internalCounter</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Number</span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/build_docs_core.js.html#l73"><code>build&#x2F;docs&#x2F;core.js:73</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Count of the number of tracking requests made.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Number</span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_track" class="method item">
+    <h3 class="name"><code>track</code></h3>
 
     
         <div class="args">
@@ -274,6 +406,12 @@
                 <li class="arg">
                     
                         <code>config</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[callback]</code>
                     
                 </li>
             
@@ -306,7 +444,7 @@
             
         
         
-        <a href="../files/build_docs_main.js.html#l32"><code>build&#x2F;docs&#x2F;main.js:32</code></a>
+        <a href="../files/build_docs_core.js.html#l84"><code>build&#x2F;docs&#x2F;core.js:84</code></a>
         
         </p>
 
@@ -317,7 +455,7 @@
     </div>
 
     <div class="description">
-        <p>Initialise the Track module.</p>
+        <p>Make a tracking request.</p>
 
     </div>
 
@@ -336,7 +474,24 @@
                     
 
                     <div class="param-description">
-                        <p>Configuration object</p>
+                        <p>Should be passed an object containing a format and the values for that format</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[callback]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Fired when the request has been made.</p>
 
                     </div>
 
@@ -353,8 +508,8 @@
 </div>
 
                 
-                    <div id="method_toString" class="method item">
-    <h3 class="name"><code>toString</code></h3>
+                    <div id="method_uniqueIdentifier" class="method item private">
+    <h3 class="name"><code>uniqueIdentifier</code></h3>
 
     
         <span class="paren">()</span>
@@ -368,6 +523,8 @@
 
     
 
+    
+        <span class="flag private">private</span>
     
 
     
@@ -389,7 +546,7 @@
             
         
         
-        <a href="../files/build_docs_main.js.html#l60"><code>build&#x2F;docs&#x2F;main.js:60</code></a>
+        <a href="../files/build_docs_core.js.html#l63"><code>build&#x2F;docs&#x2F;core.js:63</code></a>
         
         </p>
 
@@ -400,7 +557,7 @@
     </div>
 
     <div class="description">
-        <p>Overload toString method to show the version.</p>
+        <p>Create a Click-ID (unique identifier) for the page impression.</p>
 
     </div>
 
@@ -415,8 +572,6 @@
                     
                         <span class="type">String</span>:
                     
-                    <p>the module&#39;s version.</p>
-
                 
             </div>
         </div>
@@ -459,7 +614,7 @@
             
         
         
-        <a href="../files/build_docs_main.js.html#l17"><code>build&#x2F;docs&#x2F;main.js:17</code></a>
+        <a href="../files/build_docs_core.js.html#l13"><code>build&#x2F;docs&#x2F;core.js:13</code></a>
         
         </p>
 
@@ -481,12 +636,14 @@
 </div>
 
                 
-                    <div id="property_version" class="property item">
-    <h3 class="name"><code>version</code></h3>
-    <span class="type">String</span>
+                    <div id="property_defaultConfig" class="property item private">
+    <h3 class="name"><code>defaultConfig</code></h3>
+    <span class="type">Object</span>
 
     
 
+    
+        <span class="flag private">private</span>
     
 
     
@@ -504,7 +661,7 @@
             
         
         
-        <a href="../files/build_docs_main.js.html#l25"><code>build&#x2F;docs&#x2F;main.js:25</code></a>
+        <a href="../files/build_docs_core.js.html#l20"><code>build&#x2F;docs&#x2F;core.js:20</code></a>
         
         </p>
 
@@ -514,12 +671,26 @@
     </div>
 
     <div class="description">
-        <p>The version of the tracking module.</p>
+        <p>Default properties for sending a tracking request.</p>
 
     </div>
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>    {
+    environment: &#39;test&#39;,
+    clickID: &quot;t&quot; + (new Date()).valueOf(),
+    async: true,
+    callback: function () {}
+    }</code></pre>
+
+            </div>
+        </div>
     
 
     

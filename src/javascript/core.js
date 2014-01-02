@@ -1,23 +1,49 @@
 /*global Track, window, document*/
 
-/*
+/**
  * Core functionality. Queuing and sending tags
- *
+ * @module Track
+ * @submodule _Core
  * @class Track._Core
+ * @static
  */
 Track._Core = (function (parent, window, document) {
     "use strict";
 
-    // Shared "internal" scope
+    /**
+     * Shared "internal" scope.
+     * @property _self
+     * @type {Object}
+     * @private
+     */
     var self = parent._self = parent._self || {},
-
-        defaultConfig = {
+        /**
+         * Default properties for sending a tracking request.
+         * @property defaultConfig
+         * @type {Object}
+         * @example
+         {
+         environment: 'test',
+         clickID: "t" + (new Date()).valueOf(),
+         async: true,
+         callback: function () {}
+         }
+         @private
+         */
+            defaultConfig = {
             environment: 'test',
             clickID: "t" + (new Date()).valueOf(),
             async: true,
             callback: function () {}
         };
 
+    /**
+     * Function to create a unique-ish hash of a string.
+     * @method hash
+     * @param txt
+     * @return {String}
+     * @private
+     */
     function hash(txt) {
         if (!txt) {
             return "";
@@ -34,18 +60,31 @@ Track._Core = (function (parent, window, document) {
         return Number(seed & 0x00000000ffffffff).toString(16);
     }
 
+    /**
+     * Create a Click-ID (unique identifier) for the page impression.
+     * @method uniqueIdentifier
+     * @return {String}
+     * @private
+     */
     function uniqueIdentifier() {
         return window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + hash(document.location.href + document.referrer);
     }
 
+    /**
+     * Count of the number of tracking requests made.
+     * @method internalCounter
+     * @return {Number}
+     * @private
+     */
     function internalCounter() {
         return self.internalCounter++;
     }
 
-    /*
-        Track
-         config: Should be passed an object containing a format and the values for that format
-         callback: Fired when the request has been made.
+    /**
+     * Make a tracking request.
+     * @method track
+     * @param config Should be passed an object containing a format and the values for that format
+     * @param [callback] Fired when the request has been made.
      */
     function track(config, callback) {
         config = parent._Utils.merge(parent._Utils.merge(defaultConfig, self.config), parent._Utils.merge(config, { callback: callback }));

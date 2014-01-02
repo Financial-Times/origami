@@ -1,17 +1,41 @@
 /*global Track, console*/
 
+/**
+ * Common utilities for the tracking module.
+ * @module Track
+ * @submodule _Utils
+ * @class Track._Utils
+ * @static
+ */
 Track._Utils = (function (parent, console) {
     "use strict";
 
-    // Shared "internal" scope
+    /**
+     * Shared "internal" scope.
+     * @property _self
+     * @type {Object}
+     * @private
+     */
     var self = parent._self = parent._self || {};
 
+    /**
+     * Log messages to the browser console. Requires "log" to be set on init.
+     * @method log
+     * @param arguments* {Mixed}
+     */
     function log() {
         if (self.log && console) {
             console.log.apply(null, arguments);
         }
     }
 
+    /**
+     * Merge objects together. Will remove "falsy" values.
+     * @method merge
+     * @param target {Object} The original object to merge in to.
+     * @param [options] {Object} The object to merge into the target. If omitted, will merge target into a new empty Object.
+     * @return {Object} The merged object.
+     */
     function merge(target, options) {
         if (!options) {
             options = target;
@@ -40,6 +64,12 @@ Track._Utils = (function (parent, console) {
         return target;
     }
 
+    /**
+     * URL encode a string.
+     * @method encode
+     * @param str {String} The string to be encoded.
+     * @return {String} The encoded string.
+     */
     function encode(str) {
         return encodeURIComponent(str);
     }

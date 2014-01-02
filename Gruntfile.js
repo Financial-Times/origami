@@ -88,10 +88,15 @@ module.exports = function (grunt) {
             track: {
                 files: [
                     { src: '<%=build_folder %>/track.<%=pkg.version %>.js', dest: '<%=build_folder %>/track.latest.js' },
-                    { src: '<%=build_folder %>/track.<%=pkg.version %>.js', dest: '<%=build_folder %>/docs/track.js' },
                     { src: '<%=build_folder %>/track.<%=pkg.version %>.umd.js', dest: '<%=build_folder %>/track.latest.umd.js' },
                     { src: '<%=build_folder %>/track.<%=pkg.version %>.min.js', dest: '<%=build_folder %>/track.latest.min.js' },
                     { src: '<%=build_folder %>/track.<%=pkg.version %>.umd.min.js', dest: '<%=build_folder %>/track.latest.umd.min.js' }
+                ]
+            },
+            docs: {
+                files: [
+                    { src: 'main.js', dest: '<%=build_folder %>/docs/main.js' },
+                    { cwd: 'src/javascript/', src: '**/*.js', dest: '<%=build_folder %>/docs', expand: true }
                 ]
             }
         },
@@ -120,24 +125,6 @@ module.exports = function (grunt) {
             }
         },
 
-        watch: {
-            build: {
-                files: '<%=concat.track.src %>',
-                tasks: ['build'],
-                options: {
-                    spawn: false
-                }
-            },
-            examples: {
-                files: 'examples',
-                tasks: ['docs'],
-                options: {
-                    spawn: false
-                }
-
-            }
-        },
-
         yuidoc: {
             compile: {
                 name: '<%= pkg.name %>',
@@ -146,9 +133,26 @@ module.exports = function (grunt) {
                 url: '<%= pkg.homepage %>',
                 options: {
                     paths: '<%=build_folder %>/docs', // Have to do this and then exclude everything to get the main.js included.
-                    //themedir: 'path/to/custom/theme/',
                     outdir: 'docs/'
                 }
+            }
+        },
+
+        watch: {
+            build: {
+                files: '<%=concat.track.src %>',
+                tasks: ['concat', 'umd', 'uglify', 'copy:track', 'docs'],
+                options: {
+                    spawn: false
+                }
+            },
+            examples: {
+                files: 'examples',
+                tasks: ['examples'],
+                options: {
+                    spawn: false
+                }
+
             }
         }
     });
@@ -166,9 +170,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-yuidoc');
 
-    grunt.registerTask('build', "Build", ['jshint', 'clean', 'concat', 'umd', 'uglify', 'copy']);
+    grunt.registerTask('build', "Build", ['jshint', 'clean', 'concat', 'umd', 'uglify', 'copy:track']);
     grunt.registerTask('examples', "Examples", ['browserify', 'compass']);
-    grunt.registerTask('docs', "Docs", ['yuidoc']);
+    grunt.registerTask('docs', "Docs", ['copy:docs', 'yuidoc']);
 
 
     grunt.registerTask('default', "Default.", ['build', 'examples', 'docs']);
