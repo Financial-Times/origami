@@ -154,6 +154,7 @@ var Track = (function (module) {
             self.developer = true;
         } else {
             self.developer = null;
+            self.noSend = null;
         }
     };
 
@@ -170,8 +171,17 @@ var Track = (function (module) {
         if (config.hasOwnProperty(&#x27;developer&#x27;)) {
             delete config.developer;
             module.developer();
+
+            if (config.hasOwnProperty(&#x27;noSend&#x27;)) {
+                delete config.noSend;
+                self.noSend = true;
+            }
         }
 
+        // Initialize the sending queue.
+        module._Core.Send.init();
+
+        // Track the page.
         module.page();
     };
 

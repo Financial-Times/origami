@@ -4,7 +4,7 @@
 <head>
     <title>Example 1: init</title>
     <link rel="stylesheet" href="../build/examples/example.css" />
-    <script src="../build/track.latest.min.js"></script>
+    <script src="../build/track.latest.js"></script>
 </head>
 <body>
 
@@ -14,12 +14,18 @@
 
 <form id="example">
     <fieldset>
-        <legend>Parameters</legend>
-
+        <legend>Developer</legend>
         <p>
-            <label for="developer">Developer</label>
             <input type="checkbox" name="developer" id="developer" value="true" checked="checked" />
+            <label for="developer">Developer <small>- Developer mode, log to console out etc.</small></label>
         </p>
+        <p>
+            <input type="checkbox" name="noSend" id="noSend" value="true" checked="checked" />
+            <label for="noSend">noSend <small>- Don&rsquo;t send any requests.</small></label>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>Parameters</legend>
         <p>
             <label for="environment">Environment</label>
             <select name="environment" id="environment"><option value="test" selected="selected">Test</option><option value="production">Production</option></select>

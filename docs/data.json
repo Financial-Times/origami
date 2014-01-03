@@ -6,6 +6,17 @@
         "url": ""
     },
     "files": {
+        "build/docs/core/send.js": {
+            "name": "build/docs/core/send.js",
+            "modules": {
+                "Send": 1
+            },
+            "classes": {
+                "Track._Core.Send": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "build/docs/core.js": {
             "name": "build/docs/core.js",
             "modules": {
@@ -39,17 +50,6 @@
             "fors": {},
             "namespaces": {}
         },
-        "build/docs/send.js": {
-            "name": "build/docs/send.js",
-            "modules": {
-                "Send": 1
-            },
-            "classes": {
-                "Track._Core.Send": 1
-            },
-            "fors": {},
-            "namespaces": {}
-        },
         "build/docs/utils.js": {
             "name": "build/docs/utils.js",
             "modules": {
@@ -63,10 +63,42 @@
         }
     },
     "modules": {
+        "_Core": {
+            "name": "_Core",
+            "submodules": {
+                "Send": 1
+            },
+            "classes": {
+                "Track._Core.Send": 1,
+                "Track._Core": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "module": "Track",
+            "file": "build/docs/core.js",
+            "line": 3,
+            "description": "Core functionality. Queuing and sending tags",
+            "static": 1
+        },
+        "Send": {
+            "name": "Send",
+            "submodules": {},
+            "classes": {
+                "Track._Core.Send": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "_Core",
+            "namespace": "",
+            "file": "build/docs/core/send.js",
+            "line": 2,
+            "description": "Queuing and sending tags\nKeep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request.",
+            "static": 1
+        },
         "Track": {
             "name": "Track",
             "submodules": {
-                "_Core": 1,
                 "page": 1,
                 "_Utils": 1
             },
@@ -86,25 +118,6 @@
             "static": 1,
             "type": "{*}"
         },
-        "_Core": {
-            "name": "_Core",
-            "submodules": {
-                "Send": 1
-            },
-            "classes": {
-                "Track._Core": 1,
-                "Track._Core.Send": 1
-            },
-            "fors": {},
-            "is_submodule": 1,
-            "namespaces": {},
-            "module": "Track",
-            "namespace": "",
-            "file": "build/docs/send.js",
-            "line": 2,
-            "description": "Core functionality. Queuing and sending tags",
-            "static": 1
-        },
         "page": {
             "name": "page",
             "submodules": {},
@@ -119,22 +132,6 @@
             "file": "build/docs/page.js",
             "line": 3,
             "description": "Page functionality. For tracking a page.",
-            "static": 1
-        },
-        "Send": {
-            "name": "Send",
-            "submodules": {},
-            "classes": {
-                "Track._Core.Send": 1
-            },
-            "fors": {},
-            "is_submodule": 1,
-            "namespaces": {},
-            "module": "_Core",
-            "namespace": "",
-            "file": "build/docs/send.js",
-            "line": 2,
-            "description": "Queuing and sending tags\nKeep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request.",
             "static": 1
         },
         "_Utils": {
@@ -155,6 +152,21 @@
         }
     },
     "classes": {
+        "Track._Core.Send": {
+            "name": "Track._Core.Send",
+            "shortname": "Track._Core.Send",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "_Core",
+            "submodule": "Send",
+            "namespace": "",
+            "file": "build/docs/core/send.js",
+            "line": 2,
+            "description": "Queuing and sending tags\nKeep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request."
+        },
         "Track._Core": {
             "name": "Track._Core",
             "shortname": "Track._Core",
@@ -203,21 +215,6 @@
             "line": 3,
             "description": "Page functionality. For tracking a page."
         },
-        "Track._Core.Send": {
-            "name": "Track._Core.Send",
-            "shortname": "Track._Core.Send",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "_Core",
-            "submodule": "Send",
-            "namespace": "",
-            "file": "build/docs/send.js",
-            "line": 2,
-            "description": "Queuing and sending tags\nKeep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request."
-        },
         "Track._Utils": {
             "name": "Track._Utils",
             "shortname": "Track._Utils",
@@ -236,6 +233,358 @@
     },
     "classitems": [
         {
+            "file": "build/docs/core/send.js",
+            "line": 13,
+            "description": "Shared \"internal\" scope.",
+            "itemtype": "property",
+            "name": "_self",
+            "type": "{Object}",
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 21,
+            "description": "iJento production server.",
+            "itemtype": "property",
+            "name": "iJentoProdServer",
+            "final": 1,
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 28,
+            "description": "iJento test server.",
+            "itemtype": "property",
+            "name": "iJentoProdServer",
+            "final": 1,
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 35,
+            "description": "iJento image path.",
+            "itemtype": "property",
+            "name": "trackerUrl",
+            "final": 1,
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 43,
+            "description": "Queue store.",
+            "itemtype": "property",
+            "name": "store",
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 49,
+            "description": "Local Storage key.",
+            "itemtype": "property",
+            "name": "storageKey",
+            "final": 1,
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 56,
+            "description": "Requests being sent right now.",
+            "itemtype": "property",
+            "name": "currentRequests",
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 63,
+            "description": "Marks a request as current.",
+            "itemtype": "method",
+            "name": "started",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The ID of the request.",
+                    "type": "String"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 73,
+            "description": "Marks a request as no longer current.",
+            "itemtype": "method",
+            "name": "finished",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The ID of the request.",
+                    "type": "String"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 83,
+            "description": "Save the current store to localStorage so that old requests can still be sent after a page refresh.",
+            "itemtype": "method",
+            "name": "save",
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 99,
+            "description": "Gets the next pending request.",
+            "itemtype": "method",
+            "name": "next",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 119,
+            "description": "Marks a request as no longer current and removes it from the queue.",
+            "itemtype": "method",
+            "name": "success",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The ID of the request.",
+                    "type": "String"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 137,
+            "description": "Generates an Adler 32 checksum of the input data.",
+            "itemtype": "method",
+            "name": "generateChecksum",
+            "params": [
+                {
+                    "name": "input",
+                    "description": "The input string.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The checksum.",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 163,
+            "description": "Encodes a given input string in base64.",
+            "itemtype": "method",
+            "name": "encodeString",
+            "params": [
+                {
+                    "name": "input",
+                    "description": "The string to encode.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The base64-encoded value of the input string.",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 203,
+            "description": "Encode the values into an iJento string.",
+            "itemtype": "method",
+            "name": "encodeDetails",
+            "params": [
+                {
+                    "name": "format",
+                    "description": "The format (or ordering) of the values.",
+                    "type": "String"
+                },
+                {
+                    "name": "values",
+                    "description": "The values to encode.",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "The encoded string.",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 224,
+            "description": "Get the tracking pixel url for the chosen environment.",
+            "itemtype": "method",
+            "name": "taggingServer",
+            "params": [
+                {
+                    "name": "environment",
+                    "description": "The environment. Either <code>production</code> or <code>test</code>.",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Host and path of the iJento tracking pixel.",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 235,
+            "description": "Attempts to send a tracking request.",
+            "itemtype": "method",
+            "name": "sendRequest",
+            "params": [
+                {
+                    "name": "request",
+                    "description": "The request to be sent.",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "Callback to fire the next item in the queue.",
+                    "type": "Function"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "async": 1,
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 334,
+            "description": "Adds a new request to the list of pending requests",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "request",
+                    "description": "The request to queue"
+                }
+            ],
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 349,
+            "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
+            "itemtype": "method",
+            "name": "run",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 365,
+            "description": "Convenience function to add and run a request all in one go.",
+            "itemtype": "method",
+            "name": "addAndRun",
+            "params": [
+                {
+                    "name": "request",
+                    "description": "The request to queue and run.",
+                    "type": "Object"
+                }
+            ],
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 375,
+            "description": "Init the queue and send any leftover tags.",
+            "itemtype": "method",
+            "name": "init",
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
             "file": "build/docs/core.js",
             "line": 13,
             "description": "Shared \"internal\" scope.",
@@ -250,7 +599,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 20,
+            "line": 21,
             "description": "Default properties for sending a tracking request.",
             "itemtype": "property",
             "name": "defaultConfig",
@@ -266,7 +615,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 38,
+            "line": 39,
             "description": "Generate and store a new ClickID.",
             "itemtype": "method",
             "name": "clickID",
@@ -287,7 +636,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 52,
+            "line": 53,
             "description": "Create a requestID (unique identifier) for the page impression.",
             "itemtype": "method",
             "name": "requestID",
@@ -310,7 +659,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 67,
+            "line": 68,
             "description": "Count of the number of tracking requests made.",
             "itemtype": "method",
             "name": "internalCounter",
@@ -326,7 +675,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 78,
+            "line": 79,
             "description": "Make a tracking request.",
             "itemtype": "method",
             "name": "track",
@@ -387,7 +736,7 @@
         },
         {
             "file": "build/docs/main.js",
-            "line": 54,
+            "line": 55,
             "description": "Initialise the Track module.",
             "itemtype": "method",
             "name": "init",
@@ -402,7 +751,7 @@
         },
         {
             "file": "build/docs/main.js",
-            "line": 72,
+            "line": 82,
             "description": "Clean up the tracking module.",
             "itemtype": "method",
             "name": "destroy",
@@ -411,7 +760,7 @@
         },
         {
             "file": "build/docs/main.js",
-            "line": 82,
+            "line": 92,
             "description": "Overload toString method to show the version.",
             "itemtype": "method",
             "name": "toString",
@@ -451,10 +800,10 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 30,
+            "line": 31,
             "description": "Default properties for page tracking requests.",
             "example": [
-                "\n        {\n        url: document.URL,\n        referrer: document.referrer,\n\n        co: window.screen.colorDepth,\n        sr: window.screen.width + 'x' + window.screen.height,\n        lt: (new Date()).toISOString(),\n        jv: '', // TODO\n\n        async: false // Send this tag syncronously\n        }"
+                "\n        {\n        url: document.URL,\n        referrer: document.referrer,\n\n        co: window.screen.colorDepth,\n        sr: window.screen.width + 'x' + window.screen.height,\n        lt: (new Date()).toISOString(),\n        jv: (window.navigator.javaEnabled() ? '1' : '0'),\n\n        async: false // Send this tag syncronously\n        }"
             ],
             "itemtype": "property",
             "name": "defaultPageConfig",
@@ -467,7 +816,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 60,
+            "line": 61,
             "description": "Constructs a URL in the format required by iJento, allowing different inputs.",
             "itemtype": "method",
             "name": "url",
@@ -490,7 +839,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 90,
+            "line": 91,
             "description": "Make the page tracking request.",
             "itemtype": "method",
             "name": "page",
@@ -512,358 +861,6 @@
             "class": "Track.page",
             "module": "Track",
             "submodule": "page"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 13,
-            "description": "Shared \"internal\" scope.",
-            "itemtype": "property",
-            "name": "_self",
-            "type": "{Object}",
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 21,
-            "description": "iJento production server.",
-            "itemtype": "property",
-            "name": "iJentoProdServer",
-            "final": 1,
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 28,
-            "description": "iJento test server.",
-            "itemtype": "property",
-            "name": "iJentoProdServer",
-            "final": 1,
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 35,
-            "description": "iJento image path.",
-            "itemtype": "property",
-            "name": "trackerUrl",
-            "final": 1,
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 43,
-            "description": "Queue store.",
-            "itemtype": "property",
-            "name": "store",
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 49,
-            "description": "Local Storage key.",
-            "itemtype": "property",
-            "name": "storageKey",
-            "final": 1,
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 56,
-            "description": "Requests being sent right now.",
-            "itemtype": "property",
-            "name": "currentRequests",
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 63,
-            "description": "Marks a request as current.",
-            "itemtype": "method",
-            "name": "started",
-            "params": [
-                {
-                    "name": "id",
-                    "description": "The ID of the request.",
-                    "type": "String"
-                }
-            ],
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 73,
-            "description": "Marks a request as no longer current.",
-            "itemtype": "method",
-            "name": "finished",
-            "params": [
-                {
-                    "name": "id",
-                    "description": "The ID of the request.",
-                    "type": "String"
-                }
-            ],
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 83,
-            "description": "Save the current store to localStorage so that old requests can still be sent after a page refresh.",
-            "itemtype": "method",
-            "name": "save",
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 99,
-            "description": "Gets the next pending request.",
-            "itemtype": "method",
-            "name": "next",
-            "return": {
-                "description": "",
-                "type": "Object"
-            },
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 119,
-            "description": "Marks a request as no longer current and removes it from the queue.",
-            "itemtype": "method",
-            "name": "success",
-            "params": [
-                {
-                    "name": "id",
-                    "description": "The ID of the request.",
-                    "type": "String"
-                }
-            ],
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 137,
-            "description": "Generates an Adler 32 checksum of the input data.",
-            "itemtype": "method",
-            "name": "generateChecksum",
-            "params": [
-                {
-                    "name": "input",
-                    "description": "The input string.",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "The checksum.",
-                "type": "String"
-            },
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 163,
-            "description": "Encodes a given input string in base64.",
-            "itemtype": "method",
-            "name": "encodeString",
-            "params": [
-                {
-                    "name": "input",
-                    "description": "The string to encode.",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "The base64-encoded value of the input string.",
-                "type": "String"
-            },
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 203,
-            "description": "Encode the values into an iJento string.",
-            "itemtype": "method",
-            "name": "encodeDetails",
-            "params": [
-                {
-                    "name": "format",
-                    "description": "The format (or ordering) of the values.",
-                    "type": "String"
-                },
-                {
-                    "name": "values",
-                    "description": "The values to encode.",
-                    "type": "Object"
-                }
-            ],
-            "return": {
-                "description": "The encoded string.",
-                "type": "String"
-            },
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 224,
-            "description": "Get the tracking pixel url for the chosen environment.",
-            "itemtype": "method",
-            "name": "taggingServer",
-            "params": [
-                {
-                    "name": "environment",
-                    "description": "The environment. Either <code>production</code> or <code>test</code>.",
-                    "type": "String",
-                    "optional": true
-                }
-            ],
-            "return": {
-                "description": "Host and path of the iJento tracking pixel.",
-                "type": "String"
-            },
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 235,
-            "description": "Attempts to send a tracking request.",
-            "itemtype": "method",
-            "name": "sendRequest",
-            "params": [
-                {
-                    "name": "request",
-                    "description": "The request to be sent.",
-                    "type": "Object"
-                },
-                {
-                    "name": "next",
-                    "description": "Callback to fire the next item in the queue.",
-                    "type": "Function"
-                }
-            ],
-            "access": "private",
-            "tagname": "",
-            "async": 1,
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 330,
-            "description": "Adds a new request to the list of pending requests",
-            "itemtype": "method",
-            "name": "add",
-            "params": [
-                {
-                    "name": "request",
-                    "description": "The request to queue"
-                }
-            ],
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 341,
-            "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
-            "itemtype": "method",
-            "name": "run",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 357,
-            "description": "Convenience function to add and run a request all in one go.",
-            "itemtype": "method",
-            "name": "addAndRun",
-            "params": [
-                {
-                    "name": "request",
-                    "description": "The request to queue and run.",
-                    "type": "Object"
-                }
-            ],
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/send.js",
-            "line": 367,
-            "description": "Init the queue and send any leftover tags.",
-            "itemtype": "method",
-            "name": "init",
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
         },
         {
             "file": "build/docs/utils.js",

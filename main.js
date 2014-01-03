@@ -48,6 +48,7 @@ var Track = (function (module) {
             self.developer = true;
         } else {
             self.developer = null;
+            self.noSend = null;
         }
     };
 
@@ -64,8 +65,17 @@ var Track = (function (module) {
         if (config.hasOwnProperty('developer')) {
             delete config.developer;
             module.developer();
+
+            if (config.hasOwnProperty('noSend')) {
+                delete config.noSend;
+                self.noSend = true;
+            }
         }
 
+        // Initialize the sending queue.
+        module._Core.Send.init();
+
+        // Track the page.
         module.page();
     };
 

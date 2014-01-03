@@ -48,6 +48,7 @@ var Track = (function (module) {
             self.developer = true;
         } else {
             self.developer = null;
+            self.noSend = null;
         }
     };
 
@@ -64,8 +65,17 @@ var Track = (function (module) {
         if (config.hasOwnProperty('developer')) {
             delete config.developer;
             module.developer();
+
+            if (config.hasOwnProperty('noSend')) {
+                delete config.noSend;
+                self.noSend = true;
+            }
         }
 
+        // Initialize the sending queue.
+        module._Core.Send.init();
+
+        // Track the page.
         module.page();
     };
 
@@ -90,640 +100,6 @@ var Track = (function (module) {
 
     return module;
 }({}));
-
-/*global Track, window, document*/
-
-/**
- * Core functionality. Queuing and sending tags
- * @module Track
- * @submodule _Core
- * @class Track._Core
- * @static
- */
-Track._Core = (function (parent, window, document) {
-    "use strict";
-
-    /**
-     * Shared "internal" scope.
-     * @property _self
-     * @type {Object}
-     * @private
-     */
-    var self = parent._self = parent._self || {},
-        /**
-         * Default properties for sending a tracking request.
-         * @property defaultConfig
-         * @type {Object}
-         * @example
-         {
-         environment: 'test',
-         async: true,
-         callback: function () {}
-         }
-         @private
-         */
-            defaultConfig = {
-            environment: 'test',
-            async: true,
-            callback: function () {}
-        };
-
-    /**
-     * Generate and store a new ClickID.
-     * @method clickID
-     * @param [click_id] Optional ClickID, if you want to use your own. Otherwise will create one for you.
-     * @return {String|Mixed} The ClickID.
-     */
-    function clickID(click_id) {
-        if (parent._Utils.isUndefined(click_id)) {
-            click_id = "t" + (new Date()).valueOf() + "h" + window.history.length;
-        }
-        defaultConfig.clickID = click_id;
-        return click_id;
-    }
-
-    /**
-     * Create a requestID (unique identifier) for the page impression.
-     * @method requestID
-     * @param [request_id] Optional RequestID, if you want to use your own. Otherwise will create one for you.
-     * @return {String|Mixed} The RequestID.
-     * @private
-     */
-    function requestID(request_id) {
-        if (parent._Utils.isUndefined(request_id)) {
-            request_id = window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + parent._Utils.hash(document.location.href + document.referrer);
-        }
-
-        return request_id;
-    }
-
-    /**
-     * Count of the number of tracking requests made.
-     * @method internalCounter
-     * @return {Number}
-     * @private
-     */
-    function internalCounter() {
-        self.internalCounter = self.internalCounter + 1;
-        return self.internalCounter;
-    }
-
-    /**
-     * Make a tracking request.
-     * @method track
-     * @param config Should be passed an object containing a format and the values for that format
-     * @param [callback] Fired when the request has been made.
-     * @async
-     */
-    function track(config, callback) {
-        if (parent._Utils.isUndefined(callback)) {
-            callback = function () {};
-        }
-
-        config = parent._Utils.merge(parent._Utils.merge(defaultConfig, self.config), parent._Utils.merge(config, { callback: callback }));
-
-        // Used for the queue
-        config.requestID = requestID();
-        // Values for the request
-        config.values = parent._Utils.merge({
-            c: '',
-            t: config.clickID,
-            u: config.requestID,
-            o: internalCounter()
-        }, config.values);
-
-        parent._Utils.log(config);
-    }
-
-    return {
-        clickID: clickID,
-        track: track
-    };
-}(Track, window, document));
-
-
-/*global Track, window, document*/
-
-/**
- * Page functionality. For tracking a page.
- * @module Track
- * @submodule page
- * @class Track.page
- * @static
- */
-Track.page = (function (module, window, document) {
-    "use strict";
-
-    /**
-     * Format of the page tracking request.
-     * @property format
-     * @final
-     * @type {String}
-     * @private
-     */
-    var format = 'pcrtgyuo',
-
-        /**
-         * Shared "internal" scope.
-         * @property _self
-         * @type {Object}
-         * @private
-         */
-            self = module._self = module._self || {},
-
-        /**
-         * Default properties for page tracking requests.
-         * @example
-         {
-         url: document.URL,
-         referrer: document.referrer,
-
-         co: window.screen.colorDepth,
-         sr: window.screen.width + 'x' + window.screen.height,
-         lt: (new Date()).toISOString(),
-         jv: '', // TODO
-
-         async: false // Send this tag syncronously
-         }
-         * @property defaultPageConfig
-         * @type {Object}
-         * @private
-         */
-            defaultPageConfig = {
-            url: document.URL,
-            referrer: document.referrer,
-
-            co: window.screen.colorDepth,
-            sr: window.screen.width + 'x' + window.screen.height,
-            lt: (new Date()).toISOString(),
-            jv: '', // TODO
-
-            async: false // Send this tag syncronously
-        };
-
-    /**
-     * Constructs a URL in the format required by iJento, allowing different inputs.
-     * @method url
-     * @param u {String} A URL or path. e.g. http://www.ft.com/markets or /markets
-     * @return {String} The full URL in the correct format.
-     * @private
-     */
-    function url(u) {
-        if (module._Utils.isUndefined(u)) {
-            throw new Error('URL must be specified');
-        }
-
-        if (u.indexOf('://') === -1) {
-            if (u.substring(0, 1) !== '/') {
-                u = '/' + u;
-            }
-
-            u = document.location.protocol + "//" + document.location.hostname + u;
-        }
-
-        if (u.indexOf('?') === -1) {
-            u = u + window.location.search;
-        } else {
-            // Merge query string params to avoid duplicates.
-            u = u.substr(0, u.indexOf('?')) + "?" + module._Utils.serialize(module._Utils.merge(module._Utils.unserialize(window.location.search.substring(1)), module._Utils.unserialize(u.substr(u.indexOf('?') + 1))));
-        }
-
-        return u;
-    }
-
-    /**
-     * Make the page tracking request.
-     * @method page
-     * @param [config] {Object} Configuration object. If omitted, will use the defaults.
-     * @param [callback] {Function} Callback function. Called when request completed.
-     * @async
-     */
-    return function (config, callback) {
-        config = module._Utils.merge(defaultPageConfig, config);
-
-        // New ClickID for a new Page.
-        module._Core.clickID();
-        module._Core.track({
-            async: config.async,
-            format: format,
-            values: {
-                p: url(config.url), // Page
-                // c: Cookie, set in Core later,
-                r: config.referrer, // Referrer
-                // t: Click ID, set in Core later.
-                g: module._Utils.serialize(config, ['co', 'sr', 'lt', 'jv']),
-                y: 'page'
-                // u: Unique click ID, set in Core later,
-                // o: Internal counter, set in Core later
-            }
-        }, callback);
-
-        self.page_sent = true;
-    };
-
-}(Track, window, document));
-
-
-/*global Track, window*/
-/**
- * Queuing and sending tags
- * Keep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request.
- * @module _Core
- * @submodule Send
- * @class Track._Core.Send
- * @static
- */
-Track._Core.Send = (function (parent, window) {
-    "use strict";
-
-    /**
-     * Shared "internal" scope.
-     * @property _self
-     * @type {Object}
-     * @private
-     */
-    var self = parent._self = parent._self || {},
-
-        /**
-         * iJento production server.
-         * @property iJentoProdServer
-         * @final
-         * @private
-         */
-            iJentoProdServer = 'http://stats.ft.com',
-        /**
-         * iJento test server.
-         * @property iJentoProdServer
-         * @final
-         * @private
-         */
-            iJentoTestServer = 'http://statstest.ft.com',
-        /**
-         * iJento image path.
-         * @property trackerUrl
-         * @final
-         * @private
-         */
-            iJentoPath = "/si/track.gif",
-
-        /**
-         * Queue store.
-         * @property store
-         * @private
-         */
-            store = [],
-        /**
-         * Local Storage key.
-         * @property storageKey
-         * @final
-         * @private
-         */
-            storageKey = "ft-tracking_requests",
-        /**
-         * Requests being sent right now.
-         * @property currentRequests
-         * @private
-         */
-            currentRequests = {};
-
-    /**
-     * Marks a request as current.
-     * @method started
-     * @param id {String} The ID of the request.
-     * @private
-     */
-    function started(id) {
-        currentRequests[id] = true;
-    }
-
-    /**
-     * Marks a request as no longer current.
-     * @method finished
-     * @param id {String} The ID of the request.
-     * @private
-     */
-    function finished(id) {
-        delete currentRequests[id];
-    }
-
-    /**
-     * Save the current store to localStorage so that old requests can still be sent after a page refresh.
-     * @method save
-     * @private
-     */
-    function save() {
-        try {
-            if (!window.localStorage) {
-                return;
-            }
-
-            window.localStorage.setItem(storageKey, JSON.stringify(store));
-        } catch (e) {
-        }
-    }
-
-    /**
-     * Gets the next pending request.
-     * @method next
-     * @return {Object}
-     * @private
-     */
-    function next() {
-        if (store.length === 0) {
-            return null;
-        }
-
-        // If the next request is still current, then don't return it.
-        // (It is possible that there are requests further in the queue which could be sent at this point, but it's probably best to wait in case we end up making a ridiculous number of concurrent requests).
-        if (currentRequests[store[0].requestID]) {
-            return null;
-        }
-
-        return store[0];
-    }
-
-    /**
-     * Marks a request as no longer current and removes it from the queue.
-     * @method success
-     * @param id {String} The ID of the request.
-     * @private
-     */
-    function success(id) {
-        var i, l;
-        finished(id);
-        for (i = 0, l = store.length; i < l; i = i + 1) {
-            if (id === store[i].requestID) {
-                store.splice(i, 1);
-                save();
-                break;
-            }
-        }
-    }
-
-    /**
-     * Generates an Adler 32 checksum of the input data.
-     * @method generateChecksum
-     * @param input {String} The input string.
-     * @return {String} The checksum.
-     * @private
-     */
-    function generateChecksum(input) {
-        var a = 1,
-            b = 0,
-            i,
-            chk;
-
-        for (i = 0; i < input.length; i = i + 1) {
-            a += input.charCodeAt(i);
-            b += a;
-        }
-
-        // A and B must be modulo 65521 (the largest prime number smaller than 2^16)
-        a %= 65521;
-        b %= 65521;
-
-        chk = (b * 65536) + a;
-        return chk.toString(16);
-    }
-
-    /**
-     * Encodes a given input string in base64.
-     * @method encodeString
-     * @param input {String} The string to encode.
-     * @return {String} The base64-encoded value of the input string.
-     * @private
-     */
-    function encodeString(input) {
-        if (!input) {
-            return '';
-        }
-
-        try {
-            return window.btoa(parent._Utils.unencode(parent._Utils.encode(input)));
-        } catch (error) {
-            var TRANS_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
-                output = [],
-                i,
-                numBytesLeft,
-                value;
-            /* jshint -W016 */
-            /* jslint bitwise:false */
-            for (i = 0; i < input.length; i += 3) {
-                numBytesLeft = input.length - i;
-                value = 0;
-                value = (input.charCodeAt(i) << 16) & 0x00ff0000;
-                value |= (numBytesLeft > 1) ? (input.charCodeAt(i + 1) << 8) & 0x0000ff00 : 0;
-                value |= (numBytesLeft > 2) ? input.charCodeAt(i + 2) & 0x000000ff : 0;
-
-                output.push(TRANS_CHARS.charAt((value & 0x00fC0000) >> 18));
-                output.push(TRANS_CHARS.charAt((value & 0x0003f000) >> 12));
-                output.push((numBytesLeft > 1) ? TRANS_CHARS.charAt((value & 0x00000fc0) >> 6) : '_');
-                output.push((numBytesLeft > 2) ? TRANS_CHARS.charAt((value & 0x0000003f)) : '_');
-            }
-            /* jshint +W016 */
-            /* jslint bitwise:true */
-            return output.join('');
-        }
-    }
-
-    /**
-     * Encode the values into an iJento string.
-     * @method encodeDetails
-     * @param format {String} The format (or ordering) of the values.
-     * @param values {Object} The values to encode.
-     * @return {String} The encoded string.
-     * @private
-     */
-    function encodeDetails(format, values) {
-        format = format.split('');
-
-        var i,
-            output = [];
-
-        for (i = 0; i < format.length; i = i + 1) {
-            output.push(encodeString(values[format[i]]));
-        }
-
-        return output.join('*')  + "*";
-    }
-
-    /**
-     * Get the tracking pixel url for the chosen environment.
-     * @method taggingServer
-     * @param [environment] {String} The environment. Either <code>production</code> or <code>test</code>.
-     * @return {String} Host and path of the iJento tracking pixel.
-     * @private
-     */
-    function taggingServer(environment) {
-        return (environment === 'production' ? iJentoProdServer : iJentoTestServer) + iJentoPath;
-    }
-
-    /**
-     * Attempts to send a tracking request.
-     * @method sendRequest
-     * @param request {Object} The request to be sent.
-     * @param next {Function} Callback to fire the next item in the queue.
-     * @private
-     * @async
-     */
-    function sendRequest(request, next) {
-        /* Example request:
-         *  {
-         *      environment: 'test',
-         *      clickID: 't1388678300273',
-         *      async: false,
-         *      callback: [Function],
-         *      format: 'pcrtgyuo',
-         *      values: {
-         *          c: '',
-         *          t: 't1388678300273',
-         *          u: '8.289.8675019387156.1388678301549.-fdc94dd',
-         *          o: 1,
-         *          p: 'http://www.ft.com/home/uk',
-         *          r: '',
-         *          g: 'co=24&sr=1920x1080<=2014-01-02T15%3A58%3A20.273Z&jv=',
-         *          y: 'page'
-         *      },
-         *      requestID: '8.289.8675019387156.1388678301549.-fdc94dd',
-         *      queueTime: 1234
-         *  }
-         */
-        var offlineLag = (new Date()).getTime() - request.queueTime,
-            query,
-            checksum,
-            path,
-            xmlHttp;
-
-        // Only bothered about offlineLag if it's longer than a second, but less than a month. (Especially as Date can be dodgy)
-        if (offlineLag > 1000 && offlineLag < (31 * 24 * 60 * 60 * 1000)) {
-            request.offlineLag = offlineLag; // TODO
-        }
-        delete request.queueTime;
-
-        query = "f=" + request.format + "&d=" + encodeDetails(request.format, request.values);
-        checksum = "&c=" + generateChecksum(query);
-
-        try {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlHttp = new window.XMLHttpRequest();
-        } catch (e) {
-            // code for IE6, IE5
-            try {
-                xmlHttp = new window.ActiveXObject("Microsoft.XMLHttp");
-            } catch (ee) {
-                // TODO imagetag
-            }
-        }
-
-        function requestFinished() {
-            if (request.callback) {
-                request.callback.call(request, xmlHttp);
-            }
-            if (xmlHttp.status >= 200 && xmlHttp.status < 300) {
-                success(request.requestID);
-                next();
-            } else {
-                finished(request.requestID);
-            }
-        }
-
-        if (request.async) {
-            xmlHttp.onreadystatechange = function () {
-                if (xmlHttp.readyState === 4) {
-                    requestFinished();
-                }
-            };
-            xmlHttp.onerror = requestFinished;
-        }
-
-        started(request.requestID);
-
-        path = ['f=', request.format, '&', 'd=', query, '&', 'c=', checksum].join('');
-
-        if (self.developer) {
-            parent._Utils.log(taggingServer(request.environment) + '?' + path);
-        }
-
-        xmlHttp.open("POST", taggingServer(request.environment), request.async);
-        xmlHttp.send(path);
-
-        if (!request.async) {
-            requestFinished();
-        }
-    }
-
-
-    /**
-     * Adds a new request to the list of pending requests
-     * @method add
-     * @param request The request to queue
-     */
-    function add(request) {
-        request.queueTime = (new Date()).getTime();
-        store.push(request);
-        save();
-    }
-
-    /**
-     * If there are any requests queued, attempts to send the next one
-     * Otherwise, does nothing
-     * @method run
-     */
-    function run() {
-        var nextRequest = next();
-
-        if (!nextRequest) {
-            return;
-        }
-
-        // Send this request, then try run again.
-        sendRequest(nextRequest, run);
-    }
-
-    /**
-     * Convenience function to add and run a request all in one go.
-     * @method addAndRun
-     * @param request {Object} The request to queue and run.
-     */
-    function addAndRun(request) {
-        add(request);
-        run();
-    }
-
-    /**
-     * Init the queue and send any leftover tags.
-     * @method init
-     * @private
-     */
-    function init() {
-        // Attempt to fetch the existing store from localStorage, if there is one.
-        try {
-            if (window.localStorage) {
-                var storeData = window.localStorage.getItem(storageKey);
-                if (storeData) {
-                    store = JSON.parse(storeData);
-                }
-            }
-        } catch (error) {
-        }
-
-        // If any tracking calls are made whilst offline, try sending them the next time the device comes online
-        if (window.addEventListener) {
-            window.addEventListener("online", run);
-        }
-
-        // On startup, try sending any requests queued from a previous session.
-        run();
-    }
-
-    init();
-
-    return {
-        add: add,
-        run: run,
-        addAndRun: addAndRun
-    };
-}(Track, window));
 
 /*global Track, console, window*/
 
@@ -944,3 +320,651 @@ Track._Utils = (function (parent, console, window) {
         unserialize: unserialize
     };
 }(Track, console, window));
+/*global Track, window, document*/
+
+/**
+ * Core functionality. Queuing and sending tags
+ * @module Track
+ * @submodule _Core
+ * @class Track._Core
+ * @static
+ */
+Track._Core = (function (parent, window, document) {
+    "use strict";
+
+    /**
+     * Shared "internal" scope.
+     * @property _self
+     * @type {Object}
+     * @private
+     */
+    var self = parent._self = parent._self || {},
+        utils = parent._Utils,
+        /**
+         * Default properties for sending a tracking request.
+         * @property defaultConfig
+         * @type {Object}
+         * @example
+         {
+         environment: 'test',
+         async: true,
+         callback: function () {}
+         }
+         @private
+         */
+            defaultConfig = {
+            environment: 'test',
+            async: true,
+            callback: function () {}
+        };
+
+    /**
+     * Generate and store a new ClickID.
+     * @method clickID
+     * @param [click_id] Optional ClickID, if you want to use your own. Otherwise will create one for you.
+     * @return {String|Mixed} The ClickID.
+     */
+    function clickID(click_id) {
+        if (utils.isUndefined(click_id)) {
+            click_id = "t" + (new Date()).valueOf() + "h" + window.history.length;
+        }
+        defaultConfig.clickID = click_id;
+        return click_id;
+    }
+
+    /**
+     * Create a requestID (unique identifier) for the page impression.
+     * @method requestID
+     * @param [request_id] Optional RequestID, if you want to use your own. Otherwise will create one for you.
+     * @return {String|Mixed} The RequestID.
+     * @private
+     */
+    function requestID(request_id) {
+        if (utils.isUndefined(request_id)) {
+            request_id = window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + utils.hash(document.location.href + document.referrer);
+        }
+
+        return request_id;
+    }
+
+    /**
+     * Count of the number of tracking requests made.
+     * @method internalCounter
+     * @return {Number}
+     * @private
+     */
+    function internalCounter() {
+        self.internalCounter = self.internalCounter + 1;
+        return self.internalCounter;
+    }
+
+    /**
+     * Make a tracking request.
+     * @method track
+     * @param config Should be passed an object containing a format and the values for that format
+     * @param [callback] Fired when the request has been made.
+     * @async
+     */
+    function track(config, callback) {
+        if (utils.isUndefined(callback)) {
+            callback = function () {};
+        }
+
+        var request = utils.merge(utils.merge(defaultConfig, self.config), utils.merge(config, { callback: callback }));
+
+        // Used for the queue
+        request.requestID = requestID();
+        // Values for the request
+        request.values = utils.merge({
+            c: '',
+            t: request.clickID,
+            u: request.requestID,
+            o: internalCounter()
+        }, request.values);
+
+        utils.log(request);
+
+        parent._Core.Send.addAndRun(request);
+    }
+
+    return {
+        clickID: clickID,
+        track: track
+    };
+}(Track, window, document));
+
+/*global Track, window*/
+/**
+ * Queuing and sending tags
+ * Keep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request.
+ * @module _Core
+ * @submodule Send
+ * @class Track._Core.Send
+ * @static
+ */
+Track._Core.Send = (function (parent, window) {
+    "use strict";
+
+    /**
+     * Shared "internal" scope.
+     * @property _self
+     * @type {Object}
+     * @private
+     */
+    var self = parent._self = parent._self || {},
+        utils = parent._Utils,
+        /**
+         * iJento production server.
+         * @property iJentoProdServer
+         * @final
+         * @private
+         */
+            iJentoProdServer = 'http://stats.ft.com',
+        /**
+         * iJento test server.
+         * @property iJentoProdServer
+         * @final
+         * @private
+         */
+            iJentoTestServer = 'http://statstest.ft.com',
+        /**
+         * iJento image path.
+         * @property trackerUrl
+         * @final
+         * @private
+         */
+            iJentoPath = "/si/track.gif",
+
+        /**
+         * Queue store.
+         * @property store
+         * @private
+         */
+            store = [],
+        /**
+         * Local Storage key.
+         * @property storageKey
+         * @final
+         * @private
+         */
+            storageKey = "o-tracking-module_requests",
+        /**
+         * Requests being sent right now.
+         * @property currentRequests
+         * @private
+         */
+            currentRequests = {};
+
+    /**
+     * Marks a request as current.
+     * @method started
+     * @param id {String} The ID of the request.
+     * @private
+     */
+    function started(id) {
+        currentRequests[id] = true;
+    }
+
+    /**
+     * Marks a request as no longer current.
+     * @method finished
+     * @param id {String} The ID of the request.
+     * @private
+     */
+    function finished(id) {
+        delete currentRequests[id];
+    }
+
+    /**
+     * Save the current store to localStorage so that old requests can still be sent after a page refresh.
+     * @method save
+     * @private
+     */
+    function save() {
+        try {
+            if (!window.localStorage) {
+                return;
+            }
+
+            window.localStorage.setItem(storageKey, JSON.stringify(store));
+        } catch (e) {
+        }
+    }
+
+    /**
+     * Gets the next pending request.
+     * @method next
+     * @return {Object}
+     * @private
+     */
+    function next() {
+        if (store.length === 0) {
+            return null;
+        }
+
+        // If the next request is still current, then don't return it.
+        // (It is possible that there are requests further in the queue which could be sent at this point, but it's probably best to wait in case we end up making a ridiculous number of concurrent requests).
+        if (currentRequests[store[0].requestID]) {
+            return null;
+        }
+
+        return store[0];
+    }
+
+    /**
+     * Marks a request as no longer current and removes it from the queue.
+     * @method success
+     * @param id {String} The ID of the request.
+     * @private
+     */
+    function success(id) {
+        var i, l;
+        finished(id);
+        for (i = 0, l = store.length; i < l; i = i + 1) {
+            if (id === store[i].requestID) {
+                store.splice(i, 1);
+                save();
+                break;
+            }
+        }
+    }
+
+    /**
+     * Generates an Adler 32 checksum of the input data.
+     * @method generateChecksum
+     * @param input {String} The input string.
+     * @return {String} The checksum.
+     * @private
+     */
+    function generateChecksum(input) {
+        var a = 1,
+            b = 0,
+            i,
+            chk;
+
+        for (i = 0; i < input.length; i = i + 1) {
+            a += input.charCodeAt(i);
+            b += a;
+        }
+
+        // A and B must be modulo 65521 (the largest prime number smaller than 2^16)
+        a %= 65521;
+        b %= 65521;
+
+        chk = (b * 65536) + a;
+        return chk.toString(16);
+    }
+
+    /**
+     * Encodes a given input string in base64.
+     * @method encodeString
+     * @param input {String} The string to encode.
+     * @return {String} The base64-encoded value of the input string.
+     * @private
+     */
+    function encodeString(input) {
+        if (!input) {
+            return '';
+        }
+
+        try {
+            return window.btoa(utils.unencode(utils.encode(input)));
+        } catch (error) {
+            var TRANS_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
+                output = [],
+                i,
+                numBytesLeft,
+                value;
+            /* jshint -W016 */
+            /* jslint bitwise:false */
+            for (i = 0; i < input.length; i += 3) {
+                numBytesLeft = input.length - i;
+                value = 0;
+                value = (input.charCodeAt(i) << 16) & 0x00ff0000;
+                value |= (numBytesLeft > 1) ? (input.charCodeAt(i + 1) << 8) & 0x0000ff00 : 0;
+                value |= (numBytesLeft > 2) ? input.charCodeAt(i + 2) & 0x000000ff : 0;
+
+                output.push(TRANS_CHARS.charAt((value & 0x00fC0000) >> 18));
+                output.push(TRANS_CHARS.charAt((value & 0x0003f000) >> 12));
+                output.push((numBytesLeft > 1) ? TRANS_CHARS.charAt((value & 0x00000fc0) >> 6) : '_');
+                output.push((numBytesLeft > 2) ? TRANS_CHARS.charAt((value & 0x0000003f)) : '_');
+            }
+            /* jshint +W016 */
+            /* jslint bitwise:true */
+            return output.join('');
+        }
+    }
+
+    /**
+     * Encode the values into an iJento string.
+     * @method encodeDetails
+     * @param format {String} The format (or ordering) of the values.
+     * @param values {Object} The values to encode.
+     * @return {String} The encoded string.
+     * @private
+     */
+    function encodeDetails(format, values) {
+        format = format.split('');
+
+        var i,
+            output = [];
+
+        for (i = 0; i < format.length; i = i + 1) {
+            output.push(encodeString(values[format[i]]));
+        }
+
+        return output.join('*')  + "*";
+    }
+
+    /**
+     * Get the tracking pixel url for the chosen environment.
+     * @method taggingServer
+     * @param [environment] {String} The environment. Either <code>production</code> or <code>test</code>.
+     * @return {String} Host and path of the iJento tracking pixel.
+     * @private
+     */
+    function taggingServer(environment) {
+        return (environment === 'production' ? iJentoProdServer : iJentoTestServer) + iJentoPath;
+    }
+
+    /**
+     * Attempts to send a tracking request.
+     * @method sendRequest
+     * @param request {Object} The request to be sent.
+     * @param callback {Function} Callback to fire the next item in the queue.
+     * @private
+     * @async
+     */
+    function sendRequest(request, callback) {
+        /* Example request:
+         *  {
+         *      environment: 'test',
+         *      clickID: 't1388678300273',
+         *      async: false,
+         *      callback: [Function],
+         *      format: 'pcrtgyuo',
+         *      values: {
+         *          c: '',
+         *          t: 't1388678300273',
+         *          u: '8.289.8675019387156.1388678301549.-fdc94dd',
+         *          o: 1,
+         *          p: 'http://www.ft.com/home/uk',
+         *          r: '',
+         *          g: 'co=24&sr=1920x1080<=2014-01-02T15%3A58%3A20.273Z&jv=',
+         *          y: 'page'
+         *      },
+         *      requestID: '8.289.8675019387156.1388678301549.-fdc94dd',
+         *      queueTime: 1234
+         *  }
+         */
+        var offlineLag = (new Date()).getTime() - request.queueTime,
+            query,
+            checksum,
+            path,
+            xmlHttp;
+
+        // Only bothered about offlineLag if it's longer than a second, but less than a month. (Especially as Date can be dodgy)
+        if (offlineLag > 1000 && offlineLag < (31 * 24 * 60 * 60 * 1000)) {
+            request.offlineLag = offlineLag; // TODO
+            request.values.p += (request.values.p.indexOf('?') === -1 ? '?' : '&') + 'offlineLag=' + offlineLag;
+        }
+
+        query = "f=" + request.format + "&d=" + encodeDetails(request.format, request.values);
+        checksum = "&c=" + generateChecksum(query);
+
+        try {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlHttp = new window.XMLHttpRequest();
+        } catch (e) {
+            // code for IE6, IE5
+            try {
+                xmlHttp = new window.ActiveXObject("Microsoft.XMLHttp");
+            } catch (ee) {
+                // TODO imagetag
+            }
+        }
+
+        function requestFinished() {
+            if (utils.is(request.callback, 'function')) {
+                request.callback.call(request, xmlHttp);
+            }
+            if (xmlHttp.status >= 200 && xmlHttp.status < 300) {
+                success(request.requestID);
+                callback();
+            } else {
+                finished(request.requestID);
+                // TODO Wait a bit, then try again?
+            }
+        }
+
+        if (request.async) {
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState === 4) {
+                    requestFinished();
+                }
+            };
+            xmlHttp.onerror = requestFinished;
+        }
+
+        started(request.requestID);
+
+        path = [query, checksum].join('');
+
+        if (self.developer) {
+            utils.log(taggingServer(request.environment) + '?' + path);
+        }
+
+        // Both developer and noSend flags have to be set to stop the request sending.
+        if (!(self.developer && self.noSend)) {
+            xmlHttp.open("POST", taggingServer(request.environment), request.async);
+            xmlHttp.send(path);
+        }
+
+        if (!request.async) {
+            requestFinished();
+        }
+    }
+
+
+    /**
+     * Adds a new request to the list of pending requests
+     * @method add
+     * @param request The request to queue
+     */
+    function add(request) {
+        request.queueTime = (new Date()).getTime();
+        store.push(request);
+        save();
+
+        if (self.developer) {
+            utils.log('Store', store);
+        }
+    }
+
+    /**
+     * If there are any requests queued, attempts to send the next one
+     * Otherwise, does nothing
+     * @method run
+     */
+    function run() {
+        var nextRequest = next();
+
+        if (!nextRequest) {
+            return;
+        }
+
+        // Send this request, then try run again.
+        sendRequest(nextRequest, run);
+    }
+
+    /**
+     * Convenience function to add and run a request all in one go.
+     * @method addAndRun
+     * @param request {Object} The request to queue and run.
+     */
+    function addAndRun(request) {
+        add(request);
+        run();
+    }
+
+    /**
+     * Init the queue and send any leftover tags.
+     * @method init
+     * @private
+     */
+    function init() {
+        // Attempt to fetch the existing store from localStorage, if there is one.
+        try {
+            if (window.localStorage) {
+                var storeData = window.localStorage.getItem(storageKey);
+                if (storeData) {
+                    store = JSON.parse(storeData);
+
+                    if (self.developer && store.length > 0) {
+                        utils.log('Found store from previous session.', store);
+                    }
+                }
+            }
+        } catch (error) {
+        }
+
+        // If any tracking calls are made whilst offline, try sending them the next time the device comes online
+        if (window.addEventListener) {
+            window.addEventListener("online", run);
+        }
+
+        // On startup, try sending any requests queued from a previous session.
+        run();
+    }
+
+    return {
+        init: init,
+        add: add,
+        run: run,
+        addAndRun: addAndRun
+    };
+}(Track, window));
+
+
+/*global Track, window, document*/
+
+/**
+ * Page functionality. For tracking a page.
+ * @module Track
+ * @submodule page
+ * @class Track.page
+ * @static
+ */
+Track.page = (function (module, window, document) {
+    "use strict";
+
+    /**
+     * Format of the page tracking request.
+     * @property format
+     * @final
+     * @type {String}
+     * @private
+     */
+    var format = 'pcrtgyuo',
+
+        /**
+         * Shared "internal" scope.
+         * @property _self
+         * @type {Object}
+         * @private
+         */
+            self = module._self = module._self || {},
+        utils = module._Utils,
+
+        /**
+         * Default properties for page tracking requests.
+         * @example
+         {
+         url: document.URL,
+         referrer: document.referrer,
+
+         co: window.screen.colorDepth,
+         sr: window.screen.width + 'x' + window.screen.height,
+         lt: (new Date()).toISOString(),
+         jv: (window.navigator.javaEnabled() ? '1' : '0'),
+
+         async: false // Send this tag syncronously
+         }
+         * @property defaultPageConfig
+         * @type {Object}
+         * @private
+         */
+            defaultPageConfig = {
+            url: document.URL,
+            referrer: document.referrer,
+
+            co: window.screen.colorDepth,
+            sr: window.screen.width + 'x' + window.screen.height,
+            lt: (new Date()).toISOString(),
+            jv: (window.navigator.javaEnabled() ? '1' : '0'),
+
+            async: false // Send this tag syncronously
+        };
+
+    /**
+     * Constructs a URL in the format required by iJento, allowing different inputs.
+     * @method url
+     * @param u {String} A URL or path. e.g. http://www.ft.com/markets or /markets
+     * @return {String} The full URL in the correct format.
+     * @private
+     */
+    function url(u) {
+        if (utils.isUndefined(u)) {
+            throw new Error('URL must be specified');
+        }
+
+        if (u.indexOf('://') === -1) {
+            if (u.substring(0, 1) !== '/') {
+                u = '/' + u;
+            }
+
+            u = document.location.protocol + "//" + document.location.hostname + u;
+        }
+
+        if (u.indexOf('?') === -1) {
+            u = u + window.location.search;
+        } else {
+            // Merge query string params to avoid duplicates.
+            u = u.substr(0, u.indexOf('?')) + "?" + utils.serialize(utils.merge(utils.unserialize(window.location.search.substring(1)), utils.unserialize(u.substr(u.indexOf('?') + 1))));
+        }
+
+        return u;
+    }
+
+    /**
+     * Make the page tracking request.
+     * @method page
+     * @param [config] {Object} Configuration object. If omitted, will use the defaults.
+     * @param [callback] {Function} Callback function. Called when request completed.
+     * @async
+     */
+    return function (config, callback) {
+        config = utils.merge(defaultPageConfig, config);
+
+        // New ClickID for a new Page.
+        module._Core.clickID();
+        module._Core.track({
+            async: config.async,
+            format: format,
+            values: {
+                p: url(config.url), // Page
+                // c: Cookie, set in Core later,
+                r: config.referrer, // Referrer
+                // t: Click ID, set in Core later.
+                g: utils.serialize(config, ['co', 'sr', 'lt', 'jv']),
+                y: 'page'
+                // u: Unique click ID, set in Core later,
+                // o: Internal counter, set in Core later
+            }
+        }, callback);
+
+        self.page_sent = true;
+    };
+
+}(Track, window, document));
+

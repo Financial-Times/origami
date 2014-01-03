@@ -132,6 +132,7 @@ Track.page = (function (module, window, document) {
          * @private
          */
             self = module._self = module._self || {},
+        utils = module._Utils,
 
         /**
          * Default properties for page tracking requests.
@@ -143,7 +144,7 @@ Track.page = (function (module, window, document) {
          co: window.screen.colorDepth,
          sr: window.screen.width + &#x27;x&#x27; + window.screen.height,
          lt: (new Date()).toISOString(),
-         jv: &#x27;&#x27;, // TODO
+         jv: (window.navigator.javaEnabled() ? &#x27;1&#x27; : &#x27;0&#x27;),
 
          async: false // Send this tag syncronously
          }
@@ -158,7 +159,7 @@ Track.page = (function (module, window, document) {
             co: window.screen.colorDepth,
             sr: window.screen.width + &#x27;x&#x27; + window.screen.height,
             lt: (new Date()).toISOString(),
-            jv: &#x27;&#x27;, // TODO
+            jv: (window.navigator.javaEnabled() ? &#x27;1&#x27; : &#x27;0&#x27;),
 
             async: false // Send this tag syncronously
         };
@@ -171,7 +172,7 @@ Track.page = (function (module, window, document) {
      * @private
      */
     function url(u) {
-        if (module._Utils.isUndefined(u)) {
+        if (utils.isUndefined(u)) {
             throw new Error(&#x27;URL must be specified&#x27;);
         }
 
@@ -187,7 +188,7 @@ Track.page = (function (module, window, document) {
             u = u + window.location.search;
         } else {
             // Merge query string params to avoid duplicates.
-            u = u.substr(0, u.indexOf(&#x27;?&#x27;)) + &quot;?&quot; + module._Utils.serialize(module._Utils.merge(module._Utils.unserialize(window.location.search.substring(1)), module._Utils.unserialize(u.substr(u.indexOf(&#x27;?&#x27;) + 1))));
+            u = u.substr(0, u.indexOf(&#x27;?&#x27;)) + &quot;?&quot; + utils.serialize(utils.merge(utils.unserialize(window.location.search.substring(1)), utils.unserialize(u.substr(u.indexOf(&#x27;?&#x27;) + 1))));
         }
 
         return u;
@@ -201,7 +202,7 @@ Track.page = (function (module, window, document) {
      * @async
      */
     return function (config, callback) {
-        config = module._Utils.merge(defaultPageConfig, config);
+        config = utils.merge(defaultPageConfig, config);
 
         // New ClickID for a new Page.
         module._Core.clickID();
@@ -213,7 +214,7 @@ Track.page = (function (module, window, document) {
                 // c: Cookie, set in Core later,
                 r: config.referrer, // Referrer
                 // t: Click ID, set in Core later.
-                g: module._Utils.serialize(config, [&#x27;co&#x27;, &#x27;sr&#x27;, &#x27;lt&#x27;, &#x27;jv&#x27;]),
+                g: utils.serialize(config, [&#x27;co&#x27;, &#x27;sr&#x27;, &#x27;lt&#x27;, &#x27;jv&#x27;]),
                 y: &#x27;page&#x27;
                 // u: Unique click ID, set in Core later,
                 // o: Internal counter, set in Core later

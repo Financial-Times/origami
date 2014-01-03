@@ -17,7 +17,7 @@ Track._Core.Send = (function (parent, window) {
      * @private
      */
     var self = parent._self = parent._self || {},
-
+        utils = parent._Utils,
         /**
          * iJento production server.
          * @property iJentoProdServer
@@ -52,7 +52,7 @@ Track._Core.Send = (function (parent, window) {
          * @final
          * @private
          */
-            storageKey = "ft-tracking_requests",
+            storageKey = "o-tracking-module_requests",
         /**
          * Requests being sent right now.
          * @property currentRequests
@@ -173,7 +173,7 @@ Track._Core.Send = (function (parent, window) {
         }
 
         try {
-            return window.btoa(parent._Utils.unencode(parent._Utils.encode(input)));
+            return window.btoa(utils.unencode(utils.encode(input)));
         } catch (error) {
             var TRANS_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
                 output = [],
@@ -236,11 +236,11 @@ Track._Core.Send = (function (parent, window) {
      * Attempts to send a tracking request.
      * @method sendRequest
      * @param request {Object} The request to be sent.
-     * @param next {Function} Callback to fire the next item in the queue.
+     * @param callback {Function} Callback to fire the next item in the queue.
      * @private
      * @async
      */
-    function sendRequest(request, next) {
+    function sendRequest(request, callback) {
         /* Example request:
          *  {
          *      environment: 'test',
@@ -271,8 +271,8 @@ Track._Core.Send = (function (parent, window) {
         // Only bothered about offlineLag if it's longer than a second, but less than a month. (Especially as Date can be dodgy)
         if (offlineLag > 1000 && offlineLag < (31 * 24 * 60 * 60 * 1000)) {
             request.offlineLag = offlineLag; // TODO
+            request.values.p += (request.values.p.indexOf('?') === -1 ? '?' : '&') + 'offlineLag=' + offlineLag;
         }
-        delete request.queueTime;
 
         query = "f=" + request.format + "&d=" + encodeDetails(request.format, request.values);
         checksum = "&c=" + generateChecksum(query);
@@ -290,14 +290,15 @@ Track._Core.Send = (function (parent, window) {
         }
 
         function requestFinished() {
-            if (request.callback) {
+            if (utils.is(request.callback, 'function')) {
                 request.callback.call(request, xmlHttp);
             }
             if (xmlHttp.status >= 200 && xmlHttp.status < 300) {
                 success(request.requestID);
-                next();
+                callback();
             } else {
                 finished(request.requestID);
+                // TODO Wait a bit, then try again?
             }
         }
 
@@ -312,14 +313,17 @@ Track._Core.Send = (function (parent, window) {
 
         started(request.requestID);
 
-        path = ['f=', request.format, '&', 'd=', query, '&', 'c=', checksum].join('');
+        path = [query, checksum].join('');
 
         if (self.developer) {
-            parent._Utils.log(taggingServer(request.environment) + '?' + path);
+            utils.log(taggingServer(request.environment) + '?' + path);
         }
 
-        xmlHttp.open("POST", taggingServer(request.environment), request.async);
-        xmlHttp.send(path);
+        // Both developer and noSend flags have to be set to stop the request sending.
+        if (!(self.developer && self.noSend)) {
+            xmlHttp.open("POST", taggingServer(request.environment), request.async);
+            xmlHttp.send(path);
+        }
 
         if (!request.async) {
             requestFinished();
@@ -336,6 +340,10 @@ Track._Core.Send = (function (parent, window) {
         request.queueTime = (new Date()).getTime();
         store.push(request);
         save();
+
+        if (self.developer) {
+            utils.log('Store', store);
+        }
     }
 
     /**
@@ -376,6 +384,10 @@ Track._Core.Send = (function (parent, window) {
                 var storeData = window.localStorage.getItem(storageKey);
                 if (storeData) {
                     store = JSON.parse(storeData);
+
+                    if (self.developer && store.length > 0) {
+                        utils.log('Found store from previous session.', store);
+                    }
                 }
             }
         } catch (error) {
@@ -390,9 +402,8 @@ Track._Core.Send = (function (parent, window) {
         run();
     }
 
-    init();
-
     return {
+        init: init,
         add: add,
         run: run,
         addAndRun: addAndRun

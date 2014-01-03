@@ -17,6 +17,7 @@ Track._Core = (function (parent, window, document) {
      * @private
      */
     var self = parent._self = parent._self || {},
+        utils = parent._Utils,
         /**
          * Default properties for sending a tracking request.
          * @property defaultConfig
@@ -42,7 +43,7 @@ Track._Core = (function (parent, window, document) {
      * @return {String|Mixed} The ClickID.
      */
     function clickID(click_id) {
-        if (parent._Utils.isUndefined(click_id)) {
+        if (utils.isUndefined(click_id)) {
             click_id = "t" + (new Date()).valueOf() + "h" + window.history.length;
         }
         defaultConfig.clickID = click_id;
@@ -57,8 +58,8 @@ Track._Core = (function (parent, window, document) {
      * @private
      */
     function requestID(request_id) {
-        if (parent._Utils.isUndefined(request_id)) {
-            request_id = window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + parent._Utils.hash(document.location.href + document.referrer);
+        if (utils.isUndefined(request_id)) {
+            request_id = window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + utils.hash(document.location.href + document.referrer);
         }
 
         return request_id;
@@ -83,23 +84,25 @@ Track._Core = (function (parent, window, document) {
      * @async
      */
     function track(config, callback) {
-        if (parent._Utils.isUndefined(callback)) {
+        if (utils.isUndefined(callback)) {
             callback = function () {};
         }
 
-        config = parent._Utils.merge(parent._Utils.merge(defaultConfig, self.config), parent._Utils.merge(config, { callback: callback }));
+        var request = utils.merge(utils.merge(defaultConfig, self.config), utils.merge(config, { callback: callback }));
 
         // Used for the queue
-        config.requestID = requestID();
+        request.requestID = requestID();
         // Values for the request
-        config.values = parent._Utils.merge({
+        request.values = utils.merge({
             c: '',
-            t: config.clickID,
-            u: config.requestID,
+            t: request.clickID,
+            u: request.requestID,
             o: internalCounter()
-        }, config.values);
+        }, request.values);
 
-        parent._Utils.log(config);
+        utils.log(request);
+
+        parent._Core.Send.addAndRun(request);
     }
 
     return {

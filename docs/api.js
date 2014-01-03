@@ -8,6 +8,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Track.page"
     ],
     "modules": [
+        "Send",
         "Track",
         "_Core",
         "_Utils",

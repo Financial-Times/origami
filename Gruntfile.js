@@ -74,6 +74,9 @@ module.exports = function (grunt) {
             track: {
                 src: [
                     'main.js',
+                    'src/javascript/utils.js',
+                    'src/javascript/core.js',
+                    'src/javascript/core/*.js',
                     'src/javascript/**/*.js'
                 ],
                 dest: '<%=versioned_build_folder %>/track.<%=pkg.version %>.js'

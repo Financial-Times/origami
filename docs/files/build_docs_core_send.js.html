@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>build/docs/send.js - tracking-module</title>
+    <title>build/docs/core/send.js - tracking-module</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -100,7 +100,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: build/docs/send.js</h1>
+                        <h1 class="file-heading">File: build/docs/core/send.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
@@ -123,7 +123,7 @@ Track._Core.Send = (function (parent, window) {
      * @private
      */
     var self = parent._self = parent._self || {},
-
+        utils = parent._Utils,
         /**
          * iJento production server.
          * @property iJentoProdServer
@@ -158,7 +158,7 @@ Track._Core.Send = (function (parent, window) {
          * @final
          * @private
          */
-            storageKey = &quot;ft-tracking_requests&quot;,
+            storageKey = &quot;o-tracking-module_requests&quot;,
         /**
          * Requests being sent right now.
          * @property currentRequests
@@ -279,7 +279,7 @@ Track._Core.Send = (function (parent, window) {
         }
 
         try {
-            return window.btoa(parent._Utils.unencode(parent._Utils.encode(input)));
+            return window.btoa(utils.unencode(utils.encode(input)));
         } catch (error) {
             var TRANS_CHARS = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;,
                 output = [],
@@ -342,11 +342,11 @@ Track._Core.Send = (function (parent, window) {
      * Attempts to send a tracking request.
      * @method sendRequest
      * @param request {Object} The request to be sent.
-     * @param next {Function} Callback to fire the next item in the queue.
+     * @param callback {Function} Callback to fire the next item in the queue.
      * @private
      * @async
      */
-    function sendRequest(request, next) {
+    function sendRequest(request, callback) {
         /* Example request:
          *  {
          *      environment: &#x27;test&#x27;,
@@ -377,8 +377,8 @@ Track._Core.Send = (function (parent, window) {
         // Only bothered about offlineLag if it&#x27;s longer than a second, but less than a month. (Especially as Date can be dodgy)
         if (offlineLag &gt; 1000 &amp;&amp; offlineLag &lt; (31 * 24 * 60 * 60 * 1000)) {
             request.offlineLag = offlineLag; // TODO
+            request.values.p += (request.values.p.indexOf(&#x27;?&#x27;) === -1 ? &#x27;?&#x27; : &#x27;&amp;&#x27;) + &#x27;offlineLag=&#x27; + offlineLag;
         }
-        delete request.queueTime;
 
         query = &quot;f=&quot; + request.format + &quot;&amp;d=&quot; + encodeDetails(request.format, request.values);
         checksum = &quot;&amp;c=&quot; + generateChecksum(query);
@@ -396,14 +396,15 @@ Track._Core.Send = (function (parent, window) {
         }
 
         function requestFinished() {
-            if (request.callback) {
+            if (utils.is(request.callback, &#x27;function&#x27;)) {
                 request.callback.call(request, xmlHttp);
             }
             if (xmlHttp.status &gt;= 200 &amp;&amp; xmlHttp.status &lt; 300) {
                 success(request.requestID);
-                next();
+                callback();
             } else {
                 finished(request.requestID);
+                // TODO Wait a bit, then try again?
             }
         }
 
@@ -418,14 +419,17 @@ Track._Core.Send = (function (parent, window) {
 
         started(request.requestID);
 
-        path = [&#x27;f=&#x27;, request.format, &#x27;&amp;&#x27;, &#x27;d=&#x27;, query, &#x27;&amp;&#x27;, &#x27;c=&#x27;, checksum].join(&#x27;&#x27;);
+        path = [query, checksum].join(&#x27;&#x27;);
 
         if (self.developer) {
-            parent._Utils.log(taggingServer(request.environment) + &#x27;?&#x27; + path);
+            utils.log(taggingServer(request.environment) + &#x27;?&#x27; + path);
         }
 
-        xmlHttp.open(&quot;POST&quot;, taggingServer(request.environment), request.async);
-        xmlHttp.send(path);
+        // Both developer and noSend flags have to be set to stop the request sending.
+        if (!(self.developer &amp;&amp; self.noSend)) {
+            xmlHttp.open(&quot;POST&quot;, taggingServer(request.environment), request.async);
+            xmlHttp.send(path);
+        }
 
         if (!request.async) {
             requestFinished();
@@ -442,6 +446,10 @@ Track._Core.Send = (function (parent, window) {
         request.queueTime = (new Date()).getTime();
         store.push(request);
         save();
+
+        if (self.developer) {
+            utils.log(&#x27;Store&#x27;, store);
+        }
     }
 
     /**
@@ -482,6 +490,10 @@ Track._Core.Send = (function (parent, window) {
                 var storeData = window.localStorage.getItem(storageKey);
                 if (storeData) {
                     store = JSON.parse(storeData);
+
+                    if (self.developer &amp;&amp; store.length &gt; 0) {
+                        utils.log(&#x27;Found store from previous session.&#x27;, store);
+                    }
                 }
             }
         } catch (error) {
@@ -496,9 +508,8 @@ Track._Core.Send = (function (parent, window) {
         run();
     }
 
-    init();
-
     return {
+        init: init,
         add: add,
         run: run,
         addAndRun: addAndRun
