@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Example 2: page</title>
+    <link rel="stylesheet" href="../build/examples/example.css" />
+    <script src="../build/track.latest.min.js"></script>
+</head>
+<body>
+
+<h1>Example 2: <code>page</code></h1>
+
+<h2>Call <code>Track.page</code> with the following arguments.</h2>
+
+<form id="example">
+    <fieldset>
+        <legend>Parameters</legend>
+
+        <p>
+            <label for="url">URL</label>
+            <input name="url" id="url" value="" type="url" />
+        </p>
+    </fieldset>
+
+    <p><input type="submit"></p>
+</form>
+
+<h3>Javascript</h3>
+<pre id="javascript"></pre>
+
+<h3>Messages</h3>
+<ol id="messages"></ol>
+
+
+<script src="../src/vendor/jquery/jquery.min.js"></script>
+<script src="../build/examples/util.js"></script>
+<script src="helper.js"></script>
+<script>
+    (function ($) {
+        var util = require('util');
+
+        Track.init({ developer: true, environment: 'test' });
+
+        $('#url').val(document.location);
+
+        $('#example').on('submit', function (event) {
+            event.preventDefault();
+
+            var data = $(this).serializeObject();
+
+            $('#javascript').text('Track.page(' + util.inspect(data) + ');');
+
+            Track.page(data);
+        });
+    }(jQuery));
+</script>
+
+</body>
+</html>

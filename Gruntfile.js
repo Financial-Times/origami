@@ -164,7 +164,7 @@ module.exports = function (grunt) {
                 }
             },
             examples: {
-                files: 'examples',
+                files: './examples/*',
                 tasks: ['examples'],
                 options: {
                     spawn: false

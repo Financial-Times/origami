@@ -8,6 +8,13 @@ pre {
   background: #FFC;
   padding: 0.3em;
 }
+input {
+  padding: 0.2em;
+  width: 50%;
+}
+input[type=submit] {
+  width: auto;
+}
 #messages {
   margin-left: 0;
   padding-left: 0;
