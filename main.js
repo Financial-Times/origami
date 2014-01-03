@@ -2,6 +2,7 @@
 
 /**
  * Origami tracking module.
+ * <pre>Track.init({ environment: 'test' });</pre>
  *
  * @module Track
  * @main
@@ -11,7 +12,10 @@
  * @static
  * @type {*}
  */
+
+/*jshint -W098 */
 var Track = (function (module) {
+    /*jshint +W098 */
     "use strict";
 
     /**
@@ -30,6 +34,24 @@ var Track = (function (module) {
     module.version = "Track version 0.0.4";
 
     /**
+     * Turn on/off developer mode. (Can also be activated on init.)
+     * @method developer
+     * @param [level] {Boolean} Turn on or off, defaults to on if omitted.
+     */
+    module.developer = function (level) {
+        if (module._Utils.isUndefined(level)) {
+            level = true;
+        }
+
+        // Extra brackets on purpose, in case a non-boolean argument is used.
+        if ((level)) {
+            self.developer = true;
+        } else {
+            self.developer = null;
+        }
+    };
+
+    /**
      * Initialise the Track module.
      * @method init
      * @param config Configuration object
@@ -41,7 +63,7 @@ var Track = (function (module) {
 
         if (config.hasOwnProperty('developer')) {
             delete config.developer;
-            self.log = true;
+            module.developer();
         }
 
         module.page();
@@ -52,7 +74,7 @@ var Track = (function (module) {
      * @method destroy
      */
     module.destroy = function () {
-        self.log = null;
+        module.developer(false);
         self.internalCounter = 0;
         self.page_sent = false;
     };
@@ -60,7 +82,7 @@ var Track = (function (module) {
     /**
      * Overload toString method to show the version.
      * @method toString
-     * @return {String} the module's version.
+     * @return {String} The module's version.
      */
     module.toString = function () {
         return module.version;

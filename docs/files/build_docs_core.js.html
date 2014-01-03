@@ -130,7 +130,6 @@ Track._Core = (function (parent, window, document) {
          * @example
          {
          environment: &#x27;test&#x27;,
-         clickID: &quot;t&quot; + (new Date()).valueOf(),
          async: true,
          callback: function () {}
          }
@@ -145,11 +144,13 @@ Track._Core = (function (parent, window, document) {
     /**
      * Generate and store a new ClickID.
      * @method clickID
-     * @return {String} The ClickID.
-     * TODO Could this be generated externally?
+     * @param [click_id] Optional ClickID, if you want to use your own. Otherwise will create one for you.
+     * @return {String|Mixed} The ClickID.
      */
-    function clickID() {
-        var click_id = &quot;t&quot; + (new Date()).valueOf() + &quot;h&quot; + window.history.length;
+    function clickID(click_id) {
+        if (parent._Utils.isUndefined(click_id)) {
+            click_id = &quot;t&quot; + (new Date()).valueOf() + &quot;h&quot; + window.history.length;
+        }
         defaultConfig.clickID = click_id;
         return click_id;
     }
@@ -157,11 +158,16 @@ Track._Core = (function (parent, window, document) {
     /**
      * Create a requestID (unique identifier) for the page impression.
      * @method requestID
-     * @return {String}
+     * @param [request_id] Optional RequestID, if you want to use your own. Otherwise will create one for you.
+     * @return {String|Mixed} The RequestID.
      * @private
      */
-    function requestID() {
-        return window.history.length + &quot;.&quot; + (Math.random() * 1000) + &quot;.&quot; + (new Date()).getTime() + &quot;.&quot; + parent._Utils.hash(document.location.href + document.referrer);
+    function requestID(request_id) {
+        if (parent._Utils.isUndefined(request_id)) {
+            request_id = window.history.length + &quot;.&quot; + (Math.random() * 1000) + &quot;.&quot; + (new Date()).getTime() + &quot;.&quot; + parent._Utils.hash(document.location.href + document.referrer);
+        }
+
+        return request_id;
     }
 
     /**

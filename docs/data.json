@@ -81,7 +81,7 @@
             "tag": "module",
             "file": "build/docs/utils.js",
             "line": 3,
-            "description": "Origami tracking module.",
+            "description": "Origami tracking module.\n<pre>Track.init({ environment: 'test' });</pre>",
             "itemtype": "main",
             "static": 1,
             "type": "{*}"
@@ -182,7 +182,7 @@
             "namespace": "",
             "file": "build/docs/main.js",
             "line": 3,
-            "description": "Origami tracking module.",
+            "description": "Origami tracking module.\n<pre>Track.init({ environment: 'test' });</pre>",
             "mainName": "The Track object.",
             "tag": "main",
             "itemtype": "main",
@@ -256,7 +256,7 @@
             "name": "defaultConfig",
             "type": "{Object}",
             "example": [
-                "\n        {\n        environment: 'test',\n        clickID: \"t\" + (new Date()).valueOf(),\n        async: true,\n        callback: function () {}\n        }"
+                "\n        {\n        environment: 'test',\n        async: true,\n        callback: function () {}\n        }"
             ],
             "access": "private",
             "tagname": "",
@@ -266,13 +266,20 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 39,
+            "line": 38,
             "description": "Generate and store a new ClickID.",
             "itemtype": "method",
             "name": "clickID",
+            "params": [
+                {
+                    "name": "click_id",
+                    "description": "Optional ClickID, if you want to use your own. Otherwise will create one for you.",
+                    "optional": true
+                }
+            ],
             "return": {
-                "description": "The ClickID.\nTODO Could this be generated externally?",
-                "type": "String"
+                "description": "The ClickID.",
+                "type": "String|Mixed"
             },
             "class": "Track._Core",
             "module": "Track",
@@ -280,13 +287,20 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 51,
+            "line": 52,
             "description": "Create a requestID (unique identifier) for the page impression.",
             "itemtype": "method",
             "name": "requestID",
+            "params": [
+                {
+                    "name": "request_id",
+                    "description": "Optional RequestID, if you want to use your own. Otherwise will create one for you.",
+                    "optional": true
+                }
+            ],
             "return": {
-                "description": "",
-                "type": "String"
+                "description": "The RequestID.",
+                "type": "String|Mixed"
             },
             "access": "private",
             "tagname": "",
@@ -296,7 +310,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 61,
+            "line": 67,
             "description": "Count of the number of tracking requests made.",
             "itemtype": "method",
             "name": "internalCounter",
@@ -312,7 +326,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 72,
+            "line": 78,
             "description": "Make a tracking request.",
             "itemtype": "method",
             "name": "track",
@@ -334,7 +348,7 @@
         },
         {
             "file": "build/docs/main.js",
-            "line": 17,
+            "line": 21,
             "description": "Shared \"internal\" scope.",
             "itemtype": "property",
             "name": "_self",
@@ -346,7 +360,7 @@
         },
         {
             "file": "build/docs/main.js",
-            "line": 25,
+            "line": 29,
             "description": "The version of the tracking module.",
             "itemtype": "property",
             "name": "version",
@@ -356,7 +370,24 @@
         },
         {
             "file": "build/docs/main.js",
-            "line": 32,
+            "line": 36,
+            "description": "Turn on/off developer mode. (Can also be activated on init.)",
+            "itemtype": "method",
+            "name": "developer",
+            "params": [
+                {
+                    "name": "level",
+                    "description": "Turn on or off, defaults to on if omitted.",
+                    "type": "Boolean",
+                    "optional": true
+                }
+            ],
+            "class": "Track",
+            "module": "Track"
+        },
+        {
+            "file": "build/docs/main.js",
+            "line": 54,
             "description": "Initialise the Track module.",
             "itemtype": "method",
             "name": "init",
@@ -371,7 +402,7 @@
         },
         {
             "file": "build/docs/main.js",
-            "line": 50,
+            "line": 72,
             "description": "Clean up the tracking module.",
             "itemtype": "method",
             "name": "destroy",
@@ -380,12 +411,12 @@
         },
         {
             "file": "build/docs/main.js",
-            "line": 60,
+            "line": 82,
             "description": "Overload toString method to show the version.",
             "itemtype": "method",
             "name": "toString",
             "return": {
-                "description": "the module's version.",
+                "description": "The module's version.",
                 "type": "String"
             },
             "class": "Track",
@@ -704,7 +735,7 @@
         },
         {
             "file": "build/docs/send.js",
-            "line": 196,
+            "line": 203,
             "description": "Encode the values into an iJento string.",
             "itemtype": "method",
             "name": "encodeDetails",
@@ -732,7 +763,7 @@
         },
         {
             "file": "build/docs/send.js",
-            "line": 217,
+            "line": 224,
             "description": "Get the tracking pixel url for the chosen environment.",
             "itemtype": "method",
             "name": "taggingServer",
@@ -756,7 +787,7 @@
         },
         {
             "file": "build/docs/send.js",
-            "line": 228,
+            "line": 235,
             "description": "Attempts to send a tracking request.",
             "itemtype": "method",
             "name": "sendRequest",
@@ -772,6 +803,8 @@
                     "type": "Function"
                 }
             ],
+            "access": "private",
+            "tagname": "",
             "async": 1,
             "class": "Track._Core.Send",
             "module": "_Core",
@@ -779,7 +812,7 @@
         },
         {
             "file": "build/docs/send.js",
-            "line": 315,
+            "line": 330,
             "description": "Adds a new request to the list of pending requests",
             "itemtype": "method",
             "name": "add",
@@ -795,7 +828,7 @@
         },
         {
             "file": "build/docs/send.js",
-            "line": 326,
+            "line": 341,
             "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
             "itemtype": "method",
             "name": "run",
@@ -805,7 +838,7 @@
         },
         {
             "file": "build/docs/send.js",
-            "line": 342,
+            "line": 357,
             "description": "Convenience function to add and run a request all in one go.",
             "itemtype": "method",
             "name": "addAndRun",
@@ -822,8 +855,8 @@
         },
         {
             "file": "build/docs/send.js",
-            "line": 352,
-            "description": "Init",
+            "line": 367,
+            "description": "Init the queue and send any leftover tags.",
             "itemtype": "method",
             "name": "init",
             "access": "private",
@@ -919,7 +952,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 81,
+            "line": 83,
             "description": "URL encode a string.",
             "itemtype": "method",
             "name": "encode",
@@ -940,7 +973,28 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 95,
+            "line": 97,
+            "description": "URL unencode a string.",
+            "itemtype": "method",
+            "name": "unencode",
+            "params": [
+                {
+                    "name": "str",
+                    "description": "The string to be unencoded.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The unencoded string.",
+                "type": "String"
+            },
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 111,
             "description": "Function to create a unique-ish hash of a string.",
             "itemtype": "method",
             "name": "hash",
@@ -960,7 +1014,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 117,
+            "line": 137,
             "description": "Polyfill for Object.keys as it doesn't exist in older browsers.",
             "itemtype": "method",
             "name": "objectKeys",
@@ -981,7 +1035,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 138,
+            "line": 158,
             "description": "For the chosen keys, turns an object into a query string.",
             "itemtype": "method",
             "name": "serialize",
@@ -1006,7 +1060,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 166,
+            "line": 186,
             "description": "Unserialize a query string into an object. Opposite of serialize.",
             "itemtype": "method",
             "name": "unserialize",

@@ -47,9 +47,24 @@ module.exports = function (grunt) {
             options: {
                 ignores: [
                     "src/vendor/**",
-                    "examples/jquery/**",
-                    "src/javascript/utils.js"
-                ]
+                    "examples/jquery/**"/*,
+                     "src/javascript/utils.js"*/
+                ],
+
+                forin: true,
+                noarg: true,
+                noempty: true,
+                eqeqeq: true,
+                bitwise: true,
+                strict: true,
+                undef: true,
+                unused: true,
+                curly: true,
+                browser: true,
+                newcap: true,
+                immed: true,
+                trailing: true,
+                smarttabs: true
             }
         },
 

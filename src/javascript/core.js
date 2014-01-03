@@ -24,7 +24,6 @@ Track._Core = (function (parent, window, document) {
          * @example
          {
          environment: 'test',
-         clickID: "t" + (new Date()).valueOf(),
          async: true,
          callback: function () {}
          }
@@ -39,11 +38,13 @@ Track._Core = (function (parent, window, document) {
     /**
      * Generate and store a new ClickID.
      * @method clickID
-     * @return {String} The ClickID.
-     * TODO Could this be generated externally?
+     * @param [click_id] Optional ClickID, if you want to use your own. Otherwise will create one for you.
+     * @return {String|Mixed} The ClickID.
      */
-    function clickID() {
-        var click_id = "t" + (new Date()).valueOf() + "h" + window.history.length;
+    function clickID(click_id) {
+        if (parent._Utils.isUndefined(click_id)) {
+            click_id = "t" + (new Date()).valueOf() + "h" + window.history.length;
+        }
         defaultConfig.clickID = click_id;
         return click_id;
     }
@@ -51,11 +52,16 @@ Track._Core = (function (parent, window, document) {
     /**
      * Create a requestID (unique identifier) for the page impression.
      * @method requestID
-     * @return {String}
+     * @param [request_id] Optional RequestID, if you want to use your own. Otherwise will create one for you.
+     * @return {String|Mixed} The RequestID.
      * @private
      */
-    function requestID() {
-        return window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + parent._Utils.hash(document.location.href + document.referrer);
+    function requestID(request_id) {
+        if (parent._Utils.isUndefined(request_id)) {
+            request_id = window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + parent._Utils.hash(document.location.href + document.referrer);
+        }
+
+        return request_id;
     }
 
     /**

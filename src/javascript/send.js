@@ -1,4 +1,4 @@
-/*global Track, window, XMLHttpRequest, ActiveXObject*/
+/*global Track, window*/
 /**
  * Queuing and sending tags
  * Keep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request.
@@ -7,7 +7,7 @@
  * @class Track._Core.Send
  * @static
  */
-Track._Core.Send = (function (parent, window, XMLHttpRequest, ActiveXObject) {
+Track._Core.Send = (function (parent, window) {
     "use strict";
 
     /**
@@ -172,25 +172,32 @@ Track._Core.Send = (function (parent, window, XMLHttpRequest, ActiveXObject) {
             return '';
         }
 
-        var output = [],
-            i,
-            numBytesLeft,
-            value;
+        try {
+            return window.btoa(parent._Utils.unencode(parent._Utils.encode(input)));
+        } catch (error) {
+            var TRANS_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
+                output = [],
+                i,
+                numBytesLeft,
+                value;
+            /* jshint -W016 */
+            /* jslint bitwise:false */
+            for (i = 0; i < input.length; i += 3) {
+                numBytesLeft = input.length - i;
+                value = 0;
+                value = (input.charCodeAt(i) << 16) & 0x00ff0000;
+                value |= (numBytesLeft > 1) ? (input.charCodeAt(i + 1) << 8) & 0x0000ff00 : 0;
+                value |= (numBytesLeft > 2) ? input.charCodeAt(i + 2) & 0x000000ff : 0;
 
-        for (i = 0; i < input.length; i += 3) {
-            numBytesLeft = input.length - i;
-            value = 0;
-            value = (input.charCodeAt(i) << 16) & 0x00ff0000;
-            value |= (numBytesLeft > 1) ? (input.charCodeAt(i + 1) << 8) & 0x0000ff00 : 0;
-            value |= (numBytesLeft > 2) ? input.charCodeAt(i + 2) & 0x000000ff : 0;
-
-            output.push(TRANS_CHARS.charAt((value & 0x00fC0000) >> 18));
-            output.push(TRANS_CHARS.charAt((value & 0x0003f000) >> 12));
-            output.push((numBytesLeft > 1) ? TRANS_CHARS.charAt((value & 0x00000fc0) >> 6) : '_');
-            output.push((numBytesLeft > 2) ? TRANS_CHARS.charAt((value & 0x0000003f)) : '_');
+                output.push(TRANS_CHARS.charAt((value & 0x00fC0000) >> 18));
+                output.push(TRANS_CHARS.charAt((value & 0x0003f000) >> 12));
+                output.push((numBytesLeft > 1) ? TRANS_CHARS.charAt((value & 0x00000fc0) >> 6) : '_');
+                output.push((numBytesLeft > 2) ? TRANS_CHARS.charAt((value & 0x0000003f)) : '_');
+            }
+            /* jshint +W016 */
+            /* jslint bitwise:true */
+            return output.join('');
         }
-
-        return output.join('');
     }
 
     /**
@@ -230,6 +237,7 @@ Track._Core.Send = (function (parent, window, XMLHttpRequest, ActiveXObject) {
      * @method sendRequest
      * @param request {Object} The request to be sent.
      * @param next {Function} Callback to fire the next item in the queue.
+     * @private
      * @async
      */
     function sendRequest(request, next) {
@@ -257,6 +265,7 @@ Track._Core.Send = (function (parent, window, XMLHttpRequest, ActiveXObject) {
         var offlineLag = (new Date()).getTime() - request.queueTime,
             query,
             checksum,
+            path,
             xmlHttp;
 
         // Only bothered about offlineLag if it's longer than a second, but less than a month. (Especially as Date can be dodgy)
@@ -270,11 +279,11 @@ Track._Core.Send = (function (parent, window, XMLHttpRequest, ActiveXObject) {
 
         try {
             // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlHttp = new XMLHttpRequest();
+            xmlHttp = new window.XMLHttpRequest();
         } catch (e) {
             // code for IE6, IE5
             try {
-                xmlHttp = new ActiveXObject("Microsoft.XMLHttp");
+                xmlHttp = new window.ActiveXObject("Microsoft.XMLHttp");
             } catch (ee) {
                 // TODO imagetag
             }
@@ -303,8 +312,14 @@ Track._Core.Send = (function (parent, window, XMLHttpRequest, ActiveXObject) {
 
         started(request.requestID);
 
+        path = ['f=', request.format, '&', 'd=', query, '&', 'c=', checksum].join('');
+
+        if (self.developer) {
+            parent._Utils.log(taggingServer(request.environment) + '?' + path);
+        }
+
         xmlHttp.open("POST", taggingServer(request.environment), request.async);
-        xmlHttp.send(['f=', request.format, '&', 'd=', query, '&', 'c=', checksum].join(''));
+        xmlHttp.send(path);
 
         if (!request.async) {
             requestFinished();
@@ -350,7 +365,7 @@ Track._Core.Send = (function (parent, window, XMLHttpRequest, ActiveXObject) {
     }
 
     /**
-     * Init
+     * Init the queue and send any leftover tags.
      * @method init
      * @private
      */
@@ -382,4 +397,4 @@ Track._Core.Send = (function (parent, window, XMLHttpRequest, ActiveXObject) {
         run: run,
         addAndRun: addAndRun
     };
-}(Track, window, XMLHttpRequest, ActiveXObject));
+}(Track, window));

@@ -1,4 +1,4 @@
-/*global Track, console, encodeURIComponent, escape*/
+/*global Track, console, window*/
 
 /**
  * Common utilities for the tracking module.
@@ -7,7 +7,7 @@
  * @class Track._Utils
  * @static
  */
-Track._Utils = (function (parent, console, encodeURIComponent, escape) {
+Track._Utils = (function (parent, console, window) {
     "use strict";
 
     /**
@@ -24,7 +24,7 @@ Track._Utils = (function (parent, console, encodeURIComponent, escape) {
      * @param arguments* {Mixed}
      */
     function log() {
-        if (self.log && console) {
+        if (self.developer && console) {
             console.log.apply(null, arguments);
         }
     }
@@ -58,7 +58,8 @@ Track._Utils = (function (parent, console, encodeURIComponent, escape) {
 
         var name, src, copy;
 
-        /*jshint forin:false */
+        /* jshint -W089 */
+        /* jslint forin:false */
         for (name in options) {
             src = target[name];
             copy = options[name];
@@ -73,7 +74,8 @@ Track._Utils = (function (parent, console, encodeURIComponent, escape) {
                 target[name] = copy;
             }
         }
-        /*jshint forin:true */
+        /* jshint +W089 */
+        /* jslint forin:true */
 
         return target;
     }
@@ -86,9 +88,23 @@ Track._Utils = (function (parent, console, encodeURIComponent, escape) {
      */
     function encode(str) {
         try {
-            return encodeURIComponent(str);
+            return window.encodeURIComponent(str);
         } catch (error) {
-            return escape(str);
+            return window.escape(str);
+        }
+    }
+
+    /**
+     * URL unencode a string.
+     * @method unencode
+     * @param str {String} The string to be unencoded.
+     * @return {String} The unencoded string.
+     */
+    function unencode(str) {
+        try {
+            return window.decodeURIComponent(str);
+        } catch (error) {
+            return window.unescape(str);
         }
     }
 
@@ -106,12 +122,16 @@ Track._Utils = (function (parent, console, encodeURIComponent, escape) {
         var seed = 0x811c9dc5,
             i;
 
+        /* jshint -W016 */
+        /* jslint bitwise:false */
         for (i = 0; i < txt.length; i++) {
             seed += (seed << 1) + (seed << 4) + (seed << 7) + (seed << 8) + (seed << 24);
             seed ^= txt.charCodeAt(i);
         }
 
         return Number(seed & 0x00000000ffffffff).toString(16);
+        /* jshint +W016 */
+        /* jslint bitwise:true */
     }
 
     /**
@@ -190,9 +210,10 @@ Track._Utils = (function (parent, console, encodeURIComponent, escape) {
         isUndefined: is,
         merge: merge,
         encode: encode,
+        unencode: unencode,
         hash: hash,
         objectKeys: objectKeys,
         serialize: serialize,
         unserialize: unserialize
     };
-}(Track, console, encodeURIComponent, escape));
+}(Track, console, window));

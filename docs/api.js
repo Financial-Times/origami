@@ -37,7 +37,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Track",
             "name": "Track",
-            "description": "Origami tracking module."
+            "description": "Origami tracking module.\n<pre>Track.init({ environment: 'test' });</pre>"
         }
     ]
 } };
