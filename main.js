@@ -2,6 +2,21 @@
 
 /**
  * Origami tracking module.
+ * ========================
+ * From this specification: https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing
+ *
+ * Features
+ * --------
+ * * Use AJAX instead of image requests
+ * * Bundle requests
+ * * Handle offline
+ * * Use storage methods other than cookies
+ * * Make the API cleaner and easier to use
+ * * Origami module
+ * * Use a single configuration object
+ *
+ * Example
+ * -------
  * <pre>Track.init({ environment: 'test' });</pre>
  *
  * @module Track

@@ -46,7 +46,7 @@ module.exports = function (grunt) {
             ],
             options: {
                 ignores: [
-                    "src/vendor/**",
+                    "src/resources/vendor/**",
                     "examples/jquery/**"/*,
                      "src/javascript/utils.js"*/
                 ],
@@ -152,6 +152,7 @@ module.exports = function (grunt) {
                 version: '<%= pkg.version %>',
                 url: '<%= pkg.homepage %>',
                 options: {
+                    themedir: 'src/resources/yui-doc-theme/',
                     paths: '<%=build_folder %>/docs', // Have to do this and then exclude everything to get the main.js included.
                     outdir: 'docs/'
                 }
@@ -177,7 +178,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadTasks("src/grunt-tasks");
+    grunt.loadTasks("src/resources/grunt-tasks");
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');

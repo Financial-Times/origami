@@ -45,14 +45,7 @@ Track._Core.Send = (function (parent, window) {
          * @property store
          * @private
          */
-            store = [],
-        /**
-         * Local Storage key.
-         * @property storageKey
-         * @final
-         * @private
-         */
-            storageKey = "o-tracking-module_requests",
+            store,
         /**
          * Requests being sent right now.
          * @property currentRequests
@@ -81,54 +74,21 @@ Track._Core.Send = (function (parent, window) {
     }
 
     /**
-     * Save the current store to localStorage so that old requests can still be sent after a page refresh.
-     * @method save
-     * @private
-     */
-    function save() {
-        try {
-            if (!window.localStorage) {
-                return;
-            }
-
-            window.localStorage.setItem(storageKey, JSON.stringify(store));
-        } catch (e) {
-        }
-    }
-
-    /**
-     * Gets the next pending request.
-     * @method next
-     * @return {Object}
-     * @private
-     */
-    function next() {
-        if (store.length === 0) {
-            return null;
-        }
-
-        // If the next request is still current, then don't return it.
-        // (It is possible that there are requests further in the queue which could be sent at this point, but it's probably best to wait in case we end up making a ridiculous number of concurrent requests).
-        if (currentRequests[store[0].requestID]) {
-            return null;
-        }
-
-        return store[0];
-    }
-
-    /**
      * Marks a request as no longer current and removes it from the queue.
      * @method success
      * @param id {String} The ID of the request.
      * @private
      */
     function success(id) {
-        var i, l;
         finished(id);
-        for (i = 0, l = store.length; i < l; i = i + 1) {
-            if (id === store[i].requestID) {
-                store.splice(i, 1);
-                save();
+
+        var replacement = store.all(),
+            i;
+
+        for (i = 0; i < replacement.length; i = i + 1) {
+            if (id === replacement[i].requestID) {
+                replacement.splice(i, 1);
+                store.replace(replacement).save();
                 break;
             }
         }
@@ -338,8 +298,8 @@ Track._Core.Send = (function (parent, window) {
      */
     function add(request) {
         request.queueTime = (new Date()).getTime();
-        store.push(request);
-        save();
+
+        store.add(request).save();
 
         if (self.developer) {
             utils.log('Store', store);
@@ -352,7 +312,7 @@ Track._Core.Send = (function (parent, window) {
      * @method run
      */
     function run() {
-        var nextRequest = next();
+        var nextRequest = store.first();
 
         if (!nextRequest) {
             return;
@@ -378,20 +338,7 @@ Track._Core.Send = (function (parent, window) {
      * @private
      */
     function init() {
-        // Attempt to fetch the existing store from localStorage, if there is one.
-        try {
-            if (window.localStorage) {
-                var storeData = window.localStorage.getItem(storageKey);
-                if (storeData) {
-                    store = JSON.parse(storeData);
-
-                    if (self.developer && store.length > 0) {
-                        utils.log('Found store from previous session.', store);
-                    }
-                }
-            }
-        } catch (error) {
-        }
+        store = new Track._Core.Store('requests');
 
         // If any tracking calls are made whilst offline, try sending them the next time the device comes online
         if (window.addEventListener) {

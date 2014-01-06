@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Track._Core - tracking-module</title>
+    <title>Track._Core.Store - tracking-module</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -104,7 +104,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Track._Core Class</h1>
+                        <h1>Track._Core.Store Class</h1>
 <div class="box meta">
     
 
@@ -112,14 +112,14 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/build_docs_core.js.html#l3"><code>build&#x2F;docs&#x2F;core.js:3</code></a>
+            Defined in: <a href="../files/build_docs_core_store.js.html#l2"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:2</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/_Core.html">_Core</a><br>
-            Parent Module: <a href="../modules/Track.html">Track</a>
+            Module: <a href="../modules/Store.html">Store</a><br>
+            Parent Module: <a href="../modules/_Core.html">_Core</a>
         
     
 
@@ -129,7 +129,8 @@
 
 
 <div class="box intro">
-    <p>Core functionality. Queuing and sending tags</p>
+    <p>Class for storing data
+Will choose the &quot;best&quot; storage method available. Can also specify a type of storage.</p>
 
 </div>
 
@@ -160,28 +161,42 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_clickID">clickID</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method private">
-                                <a href="#method_internalCounter">internalCounter</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method private">
-                                <a href="#method_requestID">requestID</a>
+                                <a href="#method_add">add</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_track">track</a>
+                                <a href="#method_all">all</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_first">first</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_last">last</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_replace">replace</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_save">save</a>
 
                                 
                                 
@@ -198,14 +213,35 @@
                     <ul class="index-list properties">
                         
                             <li class="index-item property private">
-                                <a href="#property__self">_self</a>
+                                <a href="#property_keyPrefix">keyPrefix</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item property private">
-                                <a href="#property_defaultConfig">defaultConfig</a>
+                                <a href="#property_loadStore">loadStore</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_storage">storage</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_storageKey">storageKey</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property private">
+                                <a href="#property_store">store</a>
 
                                 
                                 
@@ -225,8 +261,8 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_clickID" class="method item">
-    <h3 class="name"><code>clickID</code></h3>
+                    <div id="method_add" class="method item">
+    <h3 class="name"><code>add</code></h3>
 
     
         <div class="args">
@@ -234,7 +270,7 @@
             
                 <li class="arg">
                     
-                        <code class="optional">[click_id]</code>
+                        <code>item</code>
                     
                 </li>
             
@@ -244,7 +280,7 @@
 
     
         <span class="returns-inline">
-            <span class="type">String | Mixed</span>
+            <span class="type"></span>
         </span>
     
 
@@ -256,6 +292,8 @@
 
     
 
+    
+        <span class="flag chainable">chainable</span>
     
 
     
@@ -271,7 +309,7 @@
             
         
         
-        <a href="../files/build_docs_core.js.html#l39"><code>build&#x2F;docs&#x2F;core.js:39</code></a>
+        <a href="../files/build_docs_core_store.js.html#l201"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:201</code></a>
         
         </p>
 
@@ -282,7 +320,7 @@
     </div>
 
     <div class="description">
-        <p>Generate and store a new ClickID.</p>
+        <p>Add data to the store.</p>
 
     </div>
 
@@ -294,15 +332,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name optional">[click_id]</code>
-                        <span class="type">Object</span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                        <code class="param-name">item</code>
+                        <span class="type"></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>Optional ClickID, if you want to use your own. Otherwise will create one for you.</p>
+                        <p>An item or an array of items.</p>
 
                     </div>
 
@@ -320,9 +357,7 @@
             <div class="returns-description">
                 
                     
-                        <span class="type">String | Mixed</span>:
-                    
-                    <p>The ClickID.</p>
+                    <p>Returns this.</p>
 
                 
             </div>
@@ -333,8 +368,8 @@
 </div>
 
                 
-                    <div id="method_internalCounter" class="method item private">
-    <h3 class="name"><code>internalCounter</code></h3>
+                    <div id="method_all" class="method item">
+    <h3 class="name"><code>all</code></h3>
 
     
         <span class="paren">()</span>
@@ -342,14 +377,12 @@
 
     
         <span class="returns-inline">
-            <span class="type">Number</span>
+            <span class="type">Array</span>
         </span>
     
 
     
 
-    
-        <span class="flag private">private</span>
     
 
     
@@ -371,7 +404,7 @@
             
         
         
-        <a href="../files/build_docs_core.js.html#l68"><code>build&#x2F;docs&#x2F;core.js:68</code></a>
+        <a href="../files/build_docs_core_store.js.html#l143"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:143</code></a>
         
         </p>
 
@@ -382,7 +415,7 @@
     </div>
 
     <div class="description">
-        <p>Count of the number of tracking requests made.</p>
+        <p>Gets the contents of the store.</p>
 
     </div>
 
@@ -395,8 +428,10 @@
             <div class="returns-description">
                 
                     
-                        <span class="type">Number</span>:
+                        <span class="type">Array</span>:
                     
+                    <p>The array of items.</p>
+
                 
             </div>
         </div>
@@ -406,8 +441,154 @@
 </div>
 
                 
-                    <div id="method_requestID" class="method item private">
-    <h3 class="name"><code>requestID</code></h3>
+                    <div id="method_first" class="method item">
+    <h3 class="name"><code>first</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Mixed</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/build_docs_core_store.js.html#l165"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:165</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Gets the first item in the store.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Mixed</span>:
+                    
+                    <p>Returns the item.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_last" class="method item">
+    <h3 class="name"><code>last</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Mixed</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/build_docs_core_store.js.html#l180"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:180</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Gets the last item in the store.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Mixed</span>:
+                    
+                    <p>Returns the item.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_replace" class="method item">
+    <h3 class="name"><code>replace</code></h3>
 
     
         <div class="args">
@@ -415,7 +596,7 @@
             
                 <li class="arg">
                     
-                        <code class="optional">[request_id]</code>
+                        <code>items</code>
                     
                 </li>
             
@@ -425,20 +606,20 @@
 
     
         <span class="returns-inline">
-            <span class="type">String | Mixed</span>
+            <span class="type"></span>
         </span>
     
 
     
 
     
-        <span class="flag private">private</span>
-    
 
     
 
     
 
+    
+        <span class="flag chainable">chainable</span>
     
 
     
@@ -454,7 +635,7 @@
             
         
         
-        <a href="../files/build_docs_core.js.html#l53"><code>build&#x2F;docs&#x2F;core.js:53</code></a>
+        <a href="../files/build_docs_core_store.js.html#l234"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:234</code></a>
         
         </p>
 
@@ -465,7 +646,7 @@
     </div>
 
     <div class="description">
-        <p>Create a requestID (unique identifier) for the page impression.</p>
+        <p>Overwrite the store with something completely new.</p>
 
     </div>
 
@@ -477,15 +658,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name optional">[request_id]</code>
-                        <span class="type">Object</span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                        <code class="param-name">items</code>
+                        <span class="type">Array</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>Optional RequestID, if you want to use your own. Otherwise will create one for you.</p>
+                        <p>The new array of data.</p>
 
                     </div>
 
@@ -503,9 +683,7 @@
             <div class="returns-description">
                 
                     
-                        <span class="type">String | Mixed</span>:
-                    
-                    <p>The RequestID.</p>
+                    <p>Returns this.</p>
 
                 
             </div>
@@ -516,27 +694,17 @@
 </div>
 
                 
-                    <div id="method_track" class="method item">
-    <h3 class="name"><code>track</code></h3>
+                    <div id="method_save" class="method item">
+    <h3 class="name"><code>save</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>config</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code class="optional">[callback]</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
     
 
     
@@ -548,11 +716,9 @@
     
 
     
-
+        <span class="flag chainable">chainable</span>
     
 
-    
-        <span class="flag async">async</span>
     
 
     <div class="meta">
@@ -566,7 +732,7 @@
             
         
         
-        <a href="../files/build_docs_core.js.html#l79"><code>build&#x2F;docs&#x2F;core.js:79</code></a>
+        <a href="../files/build_docs_core_store.js.html#l254"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:254</code></a>
         
         </p>
 
@@ -577,53 +743,24 @@
     </div>
 
     <div class="description">
-        <p>Make a tracking request.</p>
+        <p>Save the current store to localStorage so that old requests can still be sent after a page refresh.</p>
 
     </div>
 
     
-        <div class="params">
-            <h4>Parameters:</h4>
 
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">config</code>
-                        <span class="type">Object</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>Should be passed an object containing a format and the values for that format</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[callback]</code>
-                        <span class="type">Object</span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>Fired when the request has been made.</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
     
+        <div class="returns">
+            <h4>Returns:</h4>
 
+            <div class="returns-description">
+                
+                    
+                    <p>Returns this.</p>
+
+                
+            </div>
+        </div>
     
 
     
@@ -638,9 +775,9 @@
                 <h2 class="off-left">Properties</h2>
 
                 
-                    <div id="property__self" class="property item private">
-    <h3 class="name"><code>_self</code></h3>
-    <span class="type">Object</span>
+                    <div id="property_keyPrefix" class="property item private">
+    <h3 class="name"><code>keyPrefix</code></h3>
+    <span class="type">Unknown</span>
 
     
 
@@ -648,6 +785,8 @@
         <span class="flag private">private</span>
     
 
+    
+        <span class="flag final">final</span>
     
 
     
@@ -663,7 +802,7 @@
             
         
         
-        <a href="../files/build_docs_core.js.html#l13"><code>build&#x2F;docs&#x2F;core.js:13</code></a>
+        <a href="../files/build_docs_core_store.js.html#l27"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:27</code></a>
         
         </p>
 
@@ -673,7 +812,7 @@
     </div>
 
     <div class="description">
-        <p>Shared &quot;internal&quot; scope.</p>
+        <p>Internal Storage key prefix.</p>
 
     </div>
 
@@ -685,9 +824,9 @@
 </div>
 
                 
-                    <div id="property_defaultConfig" class="property item private">
-    <h3 class="name"><code>defaultConfig</code></h3>
-    <span class="type">Object</span>
+                    <div id="property_loadStore" class="property item private">
+    <h3 class="name"><code>loadStore</code></h3>
+    <span class="type">Unknown</span>
 
     
 
@@ -710,7 +849,7 @@
             
         
         
-        <a href="../files/build_docs_core.js.html#l21"><code>build&#x2F;docs&#x2F;core.js:21</code></a>
+        <a href="../files/build_docs_core_store.js.html#l34"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:34</code></a>
         
         </p>
 
@@ -720,25 +859,149 @@
     </div>
 
     <div class="description">
-        <p>Default properties for sending a tracking request.</p>
+        <p>Temporary var containing data from a previously saved store.</p>
 
     </div>
 
     
 
     
-        <div class="example">
-            <h4>Example:</h4>
 
-            <div class="example-content">
-                <pre class="code prettyprint"><code>    {
-    environment: &#39;test&#39;,
-    async: true,
-    callback: function () {}
-    }</code></pre>
+    
+</div>
 
-            </div>
-        </div>
+                
+                    <div id="property_storage" class="property item">
+    <h3 class="name"><code>storage</code></h3>
+    <span class="type">Object</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/build_docs_core_store.js.html#l48"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:48</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The storage method to use.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_storageKey" class="property item">
+    <h3 class="name"><code>storageKey</code></h3>
+    <span class="type">Unknown</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/build_docs_core_store.js.html#l41"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:41</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The key/name of this store.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_store" class="property item private">
+    <h3 class="name"><code>store</code></h3>
+    <span class="type">Unknown</span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/build_docs_core_store.js.html#l21"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:21</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Store data.</p>
+
+    </div>
+
+    
+
     
 
     
