@@ -147,7 +147,7 @@ module.exports = function (grunt) {
 
         yuidoc: {
             compile: {
-                name: '<%= pkg.name %>',
+                name: 'Origami Tracking module',
                 description: '<%= pkg.description %>',
                 version: '<%= pkg.version %>',
                 url: '<%= pkg.homepage %>',
