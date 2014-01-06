@@ -41,19 +41,19 @@
 }
 
 .#{$o-ft-forms-prefix}__button--large {
-    min-height: 30px;
+    height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
     line-height: 30px;
     font-size: 16px;
 }
 
 .#{$o-ft-forms-prefix}__button--medium {
-    min-height: 24px;
+    height: 24px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
     line-height: 24px;
     font-size: 14px;
 }
 
 .#{$o-ft-forms-prefix}__button--small {
-    min-height: 16px;
+    height: 16px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
     line-height: 16px;
     font-size: $o-ft-forms-fontsize-field;
 }

@@ -3,10 +3,19 @@
 }
 
 .#{$o-ft-forms-prefix}--error select.#{$o-ft-forms-prefix}__field,
-.#{$o-ft-forms-prefix}--error textarea.#{$o-ft-forms-prefix}__field,
+.#{$o-ft-forms-prefix}--error textarea.#{$o-ft-forms-prefix}__field {
+	margin-bottom: 0;
+}
+
 .#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__field:not([type="checkbox"]):not([type="radio"]) {
 	margin-bottom: 0;
 }
+
+.lt-ie9 .#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__field[type="text"],
+.lt-ie9 .#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__field[type="password"] {
+ 	margin-bottom: 0;
+ }
+
 
 .#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__field[type="checkbox"],
 .#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__field[type="radio"] {

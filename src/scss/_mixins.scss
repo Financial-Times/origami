@@ -16,7 +16,7 @@
     background: $solid;
     background: -webkit-gradient(linear, left top, left bottom, from($top), to($bottom));
     background: -moz-linear-gradient($top, $bottom);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$top, endColorstr=$bottom);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$top},  endColorstr=#{$bottom})";
 }
 
 @mixin appearance($value) {

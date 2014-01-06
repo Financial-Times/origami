@@ -30,16 +30,6 @@
 	border-radius: 0;
 	padding: 0;
 	width: 100%;
-	min-height: 30px;
+	height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
 	line-height: 28px;
 }
-
-// .#{$o-ft-forms-prefix}__button.#{$o-ft-forms-prefix}__prefix {
-//     border-top-left-radius: $o-ft-forms-buttonradius;
-//     border-bottom-left-radius: $o-ft-forms-buttonradius;
-// }
-
-// .#{$o-ft-forms-prefix}__button.#{$o-ft-forms-prefix}__suffix {
-//     border-top-right-radius: $o-ft-forms-buttonradius;
-//     border-bottom-right-radius: $o-ft-forms-buttonradius;
-// }

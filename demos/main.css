@@ -468,12 +468,12 @@ html {
 /*
 	Styles for font size, colour and vertical rhythm of text on standard FT brnaded pages
 */
-/* Add to grid module ?? */
-.o-grid-row .o-grid-no-gutter {
+.o-grid-row .gutterless,
+.lt-ie9 .o-grid-row .gutterless {
   margin-left: 0;
   margin-right: 0; }
 
-.o-grid-row .o-grid-no-gutter > [class*="o-grid-col|"] {
+.o-grid-row .gutterless > [class*="o-grid-col"] {
   padding-left: 0;
   padding-right: 0; }
 
@@ -518,7 +518,8 @@ html {
   color: #74736c;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
   font-size: 12px;
-  min-height: 30px; }
+  height: 30px;
+  /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */ }
 
 .o-ft-forms__field[type="checkbox"],
 .o-ft-forms__field[type="radio"] {
@@ -550,7 +551,8 @@ select.o-ft-forms__field {
   color: #74736c;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
   font-size: 12px;
-  min-height: 30px;
+  height: 30px;
+  /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
   background-image: url("data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==");
   background-repeat: no-repeat;
   background-position: 97% center; }
@@ -571,15 +573,22 @@ textarea.o-ft-forms__field {
   color: #74736c;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
   font-size: 12px;
-  min-height: 70px;
+  height: 70px;
+  /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
   vertical-align: top; }
 
 .o-ft-forms--error .o-ft-forms__label {
   color: #cc0000; }
 
 .o-ft-forms--error select.o-ft-forms__field,
-.o-ft-forms--error textarea.o-ft-forms__field,
+.o-ft-forms--error textarea.o-ft-forms__field {
+  margin-bottom: 0; }
+
 .o-ft-forms--error .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]) {
+  margin-bottom: 0; }
+
+.lt-ie9 .o-ft-forms--error .o-ft-forms__field[type="text"],
+.lt-ie9 .o-ft-forms--error .o-ft-forms__field[type="password"] {
   margin-bottom: 0; }
 
 .o-ft-forms--error .o-ft-forms__field[type="checkbox"],
@@ -640,7 +649,8 @@ textarea.o-ft-forms__field {
   border-radius: 0;
   padding: 0;
   width: 100%;
-  min-height: 30px;
+  height: 30px;
+  /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
   line-height: 28px; }
 
 /** buttons.scss */
@@ -657,7 +667,7 @@ textarea.o-ft-forms__field {
   background: #4e8fbd;
   background: -webkit-gradient(linear, left top, left bottom, from(#549ccf), to(#4782ab));
   background: -moz-linear-gradient(#549ccf, #4782ab);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$top, endColorstr=$bottom);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#549ccf,  endColorstr=#4782ab)";
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
   color: #fff;
   text-decoration: none;
@@ -684,17 +694,20 @@ textarea.o-ft-forms__field {
   color: #dfded8; }
 
 .o-ft-forms__button--large {
-  min-height: 30px;
+  height: 30px;
+  /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
   line-height: 30px;
   font-size: 16px; }
 
 .o-ft-forms__button--medium {
-  min-height: 24px;
+  height: 24px;
+  /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
   line-height: 24px;
   font-size: 14px; }
 
 .o-ft-forms__button--small {
-  min-height: 16px;
+  height: 16px;
+  /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
   line-height: 16px;
   font-size: 12px; }
 

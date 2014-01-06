@@ -1,13 +1,13 @@
 @import "o-grid/main.scss";
 @import "ft-velcro/main.scss";
 
-/* Add to grid module ?? */
-.o-grid-row .o-grid-no-gutter {
+.o-grid-row .gutterless,
+.lt-ie9 .o-grid-row .gutterless {
 	margin-left: 0;
 	margin-right: 0;
 }
 
-.o-grid-row .o-grid-no-gutter > [class*="o-grid-col|"] {
+.o-grid-row .gutterless > [class*="o-grid-col"] {
 	padding-left: 0;
 	padding-right: 0;
 }
