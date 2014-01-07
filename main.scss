@@ -1,17 +1,5 @@
 @import "o-grid/main.scss";
 @import "ft-velcro/main.scss";
-
-.o-grid-row .gutterless,
-.lt-ie9 .o-grid-row .gutterless {
-	margin-left: 0;
-	margin-right: 0;
-}
-
-.o-grid-row .gutterless > [class*="o-grid-col"] {
-	padding-left: 0;
-	padding-right: 0;
-}
-
 @import "src/scss/_variables.scss";
 @import "src/scss/_mixins.scss";
 @import "src/scss/fields.scss";

@@ -34,11 +34,22 @@ html {
   max-width: none;
   min-width: 0; }
 
+.o-grid-row.o-grid-row-compact,
+.o-grid-row .o-grid-row.o-grid-row-compact,
+.lt-ie9 .o-grid-row.o-grid-row-compact,
+.lt-ie9 .o-grid-row .o-grid-row.o-grid-row-compact {
+  margin-left: 0;
+  margin-right: 0; }
+
 /* Default grid: Layout 1 FIXED (well, max-width) */
 [class*="o-grid-col"] {
   float: left;
   padding-left: 1%;
   padding-right: 1%; }
+
+.o-grid-row-compact > [class*="o-grid-col"] {
+  padding-left: 0;
+  padding-right: 0; }
 
 [class*="|0|"],
 [class*="|s0|"],
@@ -104,13 +115,24 @@ html {
     margin-right: -10px;
     width: auto; }
 
+  .o-grid-row.o-grid-row-compact,
+  .lt-ie9 .o-grid-row.o-grid-row-compact,
+  .o-grid-row .o-grid-row.o-grid-row-compact,
+  .lt-ie9 .o-grid-row .o-grid-row.o-grid-row-compact {
+    margin-left: 0;
+    margin-right: 0; }
+
   [class*="o-grid-col"] {
     float: left;
     padding-left: 10px;
     padding-right: 10px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    *behavior: url(/polyfills/boxsizing.htc); }
+    *behavior: url(../bower_componentso-grid/polyfills/boxsizing.htc); }
+
+  .o-grid-row-compact > [class*="o-grid-col"] {
+    padding-left: 0;
+    padding-right: 0; }
 
   [class*="|s0|"],
   [class*="|shide|"] {
@@ -378,13 +400,22 @@ html {
     margin-left: -5px;
     margin-right: -5px;
     width: auto; }
+  .lt-ie9 .o-grid-row.o-grid-row-compact,
+  .lt-ie9 .lt-ie9 .o-grid-row.o-grid-row-compact,
+  .lt-ie9 .o-grid-row .o-grid-row.o-grid-row-compact,
+  .lt-ie9 .lt-ie9 .o-grid-row .o-grid-row.o-grid-row-compact {
+    margin-left: 0;
+    margin-right: 0; }
   .lt-ie9 [class*="o-grid-col"] {
     float: left;
     padding-left: 5px;
     padding-right: 5px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    *behavior: url(/polyfills/boxsizing.htc); }
+    *behavior: url(../bower_componentso-grid/polyfills/boxsizing.htc); }
+  .lt-ie9 .o-grid-row-compact > [class*="o-grid-col"] {
+    padding-left: 0;
+    padding-right: 0; }
   .lt-ie9 [class*="|hide|"],
   .lt-ie9 [class*="|0|"] {
     display: none; }
@@ -468,15 +499,6 @@ html {
 /*
 	Styles for font size, colour and vertical rhythm of text on standard FT brnaded pages
 */
-.o-grid-row .gutterless,
-.lt-ie9 .o-grid-row .gutterless {
-  margin-left: 0;
-  margin-right: 0; }
-
-.o-grid-row .gutterless > [class*="o-grid-col"] {
-  padding-left: 0;
-  padding-right: 0; }
-
 .o-ft-forms__label {
   display: block;
   margin-bottom: 10px;
