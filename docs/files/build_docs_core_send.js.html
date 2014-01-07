@@ -45,6 +45,8 @@
             
                 <li><a href="../classes/Track._Core.html">Track._Core</a></li>
             
+                <li><a href="../classes/Track._Core.Queue.html">Track._Core.Queue</a></li>
+            
                 <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
             
                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
@@ -62,6 +64,8 @@
                 <li><a href="../modules/_Utils.html">_Utils</a></li>
             
                 <li><a href="../modules/page.html">page</a></li>
+            
+                <li><a href="../modules/Queue.html">Queue</a></li>
             
                 <li><a href="../modules/Send.html">Send</a></li>
             
@@ -151,11 +155,11 @@ Track._Core.Send = (function (parent, window) {
             iJentoPath = &quot;/si/track.gif&quot;,
 
         /**
-         * Queue store.
-         * @property store
+         * Queue queue.
+         * @property queue
          * @private
          */
-            store,
+            queue,
         /**
          * Requests being sent right now.
          * @property currentRequests
@@ -192,13 +196,13 @@ Track._Core.Send = (function (parent, window) {
     function success(id) {
         finished(id);
 
-        var replacement = store.all(),
+        var replacement = queue.all(),
             i;
 
         for (i = 0; i &lt; replacement.length; i = i + 1) {
             if (id === replacement[i].requestID) {
                 replacement.splice(i, 1);
-                store.replace(replacement).save();
+                queue.replace(replacement).save();
                 break;
             }
         }
@@ -400,7 +404,6 @@ Track._Core.Send = (function (parent, window) {
         }
     }
 
-
     /**
      * Adds a new request to the list of pending requests
      * @method add
@@ -409,10 +412,10 @@ Track._Core.Send = (function (parent, window) {
     function add(request) {
         request.queueTime = (new Date()).getTime();
 
-        store.add(request).save();
+        queue.add(request).save();
 
         if (self.developer) {
-            utils.log(&#x27;Store&#x27;, store);
+            utils.log(&#x27;Queue&#x27;, queue);
         }
     }
 
@@ -422,7 +425,7 @@ Track._Core.Send = (function (parent, window) {
      * @method run
      */
     function run() {
-        var nextRequest = store.first();
+        var nextRequest = queue.first();
 
         if (!nextRequest) {
             return;
@@ -448,7 +451,7 @@ Track._Core.Send = (function (parent, window) {
      * @private
      */
     function init() {
-        store = new Track._Core.Store(&#x27;requests&#x27;);
+        queue = new Track._Core.Queue(&#x27;requests&#x27;);
 
         // If any tracking calls are made whilst offline, try sending them the next time the device comes online
         if (window.addEventListener) {

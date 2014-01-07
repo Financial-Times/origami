@@ -45,6 +45,8 @@
             
                 <li><a href="../classes/Track._Core.html">Track._Core</a></li>
             
+                <li><a href="../classes/Track._Core.Queue.html">Track._Core.Queue</a></li>
+            
                 <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
             
                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
@@ -62,6 +64,8 @@
                 <li><a href="../modules/_Utils.html">_Utils</a></li>
             
                 <li><a href="../modules/page.html">page</a></li>
+            
+                <li><a href="../modules/Queue.html">Queue</a></li>
             
                 <li><a href="../modules/Send.html">Send</a></li>
             
@@ -133,7 +137,8 @@ Track._Core.Store = function (name, config) {
      * @property store
      * @private
      */
-    this.store = [];
+    this.data = null;
+
     /**
      * Internal Storage key prefix.
      * @property keyPrefix
@@ -141,6 +146,7 @@ Track._Core.Store = function (name, config) {
      * @private
      */
     var keyPrefix = &quot;o-tracking-module&quot;,
+
         /**
          * Temporary var containing data from a previously saved store.
          * @property loadStore
@@ -154,9 +160,8 @@ Track._Core.Store = function (name, config) {
      */
     this.storageKey = [keyPrefix, name].join(&#x27;_&#x27;);
 
-    // Determine best storage method.
     /**
-     * The storage method to use.
+     * The storage method to use. Determines best storage method.
      * @property storage
      * @type {Object}
      */
@@ -244,137 +249,51 @@ Track._Core.Store = function (name, config) {
     // Retrieve any previous store with the same name.
     loadStore = this.storage.load(this.storageKey);
     if (loadStore) {
-        this.store = JSON.parse(loadStore);
+        this.data = JSON.parse(loadStore);
     }
 
     return this;
 };
 
 /**
- * Gets the contents of the store.
- * @method all
- * @return {Array} The array of items.
+ * Get/Read the current data.
+ * @method read
+ * @return Returns the data from the store.
  */
-Track._Core.Store.prototype.all = function () {
+Track._Core.Store.prototype.read = function () {
     &quot;use strict&quot;;
-
-    if (this.store.length === 0) {
-        return null;
-    }
-
-    var items = [],
-        i;
-
-    for (i = 0; i &lt; this.store.length; i = i + 1) {
-        items.push(this.store[i].item);
-    }
-
-    return items;
+    return this.data;
 };
 
 /**
- * Gets the first item in the store.
- * @method first
- * @return {Mixed} Returns the item.
- */
-Track._Core.Store.prototype.first = function () {
-    &quot;use strict&quot;;
-
-    if (this.store.length === 0) {
-        return null;
-    }
-
-    return this.store[0].item;
-};
-
-/**
- * Gets the last item in the store.
- * @method last
- * @return {Mixed} Returns the item.
- */
-Track._Core.Store.prototype.last = function () {
-    &quot;use strict&quot;;
-
-    if (this.store.length === 0) {
-        return null;
-    }
-
-    return this.store.slice(-1).item;
-};
-
-Track._Core.Store.prototype.id = function () {
-    &quot;use strict&quot;;
-
-    return (Math.random() * 10000) + &quot;.&quot; + (new Date()).getTime();
-};
-
-/**
- * Add data to the store.
- * @method add
- * @param item {*} An item or an array of items.
+ * Write the supplied data to the store.
+ * @method write
+ * @param data {String} The data to write.
  * @return Returns this.
  * @chainable
  */
-Track._Core.Store.prototype.add = function (item) {
+Track._Core.Store.prototype.write = function (data) {
     &quot;use strict&quot;;
 
-    var self = this,
-        i;
-
-    // I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn&#x27;t work out how to get to &quot;this&quot; from within the module.
-    function doAdd(item) {
-        self.store.push({
-            created_at: (new Date()).valueOf(),
-            id: self.id(),
-            item: item
-        });
-    }
-
-    if (Track._Utils.is(item, &#x27;object&#x27;) &amp;&amp; item.constructor.toString().match(/array/i)) {
-        for (i = 0; i &lt; item.length; i = i + 1) {
-            doAdd(item[i]);
-        }
-    } else {
-        doAdd(item);
-    }
-
-    return self;
-};
-
-/**
- * Overwrite the store with something completely new.
- * @method replace
- * @param items {Array} The new array of data.
- * @return Returns this.
- * @chainable
- */
-Track._Core.Store.prototype.replace = function (items) {
-    &quot;use strict&quot;;
-
-    if (Track._Utils.is(items, &#x27;object&#x27;) &amp;&amp; items.constructor.toString().match(/array/i)) {
-        this.store = [];
-        this.add(items).save();
-
-        return this;
-    }
-
-    throw new Error(&#x27;Argument invalid, must be an array.&#x27;);
-};
-
-/**
- * Save the current store to localStorage so that old requests can still be sent after a page refresh.
- * @method save
- * @return Returns this.
- * @chainable
- */
-Track._Core.Store.prototype.save = function () {
-    &quot;use strict&quot;;
-
-    this.storage.save(this.storageKey, JSON.stringify(this.store));
+    // Set this.data, in-case we&#x27;re on a file:// domain and can&#x27;t set cookies.
+    this.data = data;
+    this.storage.save(this.storageKey, JSON.stringify(this.data));
 
     return this;
 };
 
+/**
+ * Delete the current data.
+ * @method destroy
+ * @return Returns this.
+ * @chainable
+ */
+Track._Core.Store.prototype.destroy = function () {
+    &quot;use strict&quot;;
+    this.data = null;
+    this.storage.remove(this.storageKey);
+    return this;
+};
     </pre>
 </div>
 

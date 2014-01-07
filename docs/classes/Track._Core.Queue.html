@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Track._Core.Store - Origami Tracking module</title>
+    <title>Track._Core.Queue - Origami Tracking module</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -108,7 +108,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Track._Core.Store Class</h1>
+                        <h1>Track._Core.Queue Class</h1>
 <div class="box meta">
     
 
@@ -116,13 +116,13 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/build_docs_core_store.js.html#l2"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:2</code></a>
+            Defined in: <a href="../files/build_docs_core_queue.js.html#l2"><code>build&#x2F;docs&#x2F;core&#x2F;queue.js:2</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/Store.html">Store</a><br>
+            Module: <a href="../modules/Queue.html">Queue</a><br>
             Parent Module: <a href="../modules/_Core.html">_Core</a>
         
     
@@ -133,8 +133,7 @@
 
 
 <div class="box intro">
-    <p>Class for storing data
-Will choose the &quot;best&quot; storage method available. Can also specify a type of storage.</p>
+    <p>Class for handling a queue backed up by a store.</p>
 
 </div>
 
@@ -165,21 +164,42 @@ Will choose the &quot;best&quot; storage method available. Can also specify a ty
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_destroy">destroy</a>
+                                <a href="#method_add">add</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_read">read</a>
+                                <a href="#method_all">all</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_write">write</a>
+                                <a href="#method_first">first</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_last">last</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_replace">replace</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_save">save</a>
 
                                 
                                 
@@ -196,14 +216,7 @@ Will choose the &quot;best&quot; storage method available. Can also specify a ty
                     <ul class="index-list properties">
                         
                             <li class="index-item property private">
-                                <a href="#property_keyPrefix">keyPrefix</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property private">
-                                <a href="#property_loadStore">loadStore</a>
+                                <a href="#property_queue">queue</a>
 
                                 
                                 
@@ -211,20 +224,6 @@ Will choose the &quot;best&quot; storage method available. Can also specify a ty
                         
                             <li class="index-item property">
                                 <a href="#property_storage">storage</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#property_storageKey">storageKey</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property private">
-                                <a href="#property_store">store</a>
 
                                 
                                 
@@ -244,152 +243,8 @@ Will choose the &quot;best&quot; storage method available. Can also specify a ty
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_destroy" class="method item">
-    <h3 class="name"><code>destroy</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <span class="flag chainable">chainable</span>
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/build_docs_core_store.js.html#l171"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:171</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Delete the current data.</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                    <p>Returns this.</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_read" class="method item">
-    <h3 class="name"><code>read</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/build_docs_core_store.js.html#l144"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:144</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Get/Read the current data.</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                    <p>Returns the data from the store.</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_write" class="method item">
-    <h3 class="name"><code>write</code></h3>
+                    <div id="method_add" class="method item">
+    <h3 class="name"><code>add</code></h3>
 
     
         <div class="args">
@@ -397,7 +252,7 @@ Will choose the &quot;best&quot; storage method available. Can also specify a ty
             
                 <li class="arg">
                     
-                        <code>data</code>
+                        <code>item</code>
                     
                 </li>
             
@@ -436,7 +291,7 @@ Will choose the &quot;best&quot; storage method available. Can also specify a ty
             
         
         
-        <a href="../files/build_docs_core_store.js.html#l154"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:154</code></a>
+        <a href="../files/build_docs_core_queue.js.html#l97"><code>build&#x2F;docs&#x2F;core&#x2F;queue.js:97</code></a>
         
         </p>
 
@@ -447,7 +302,7 @@ Will choose the &quot;best&quot; storage method available. Can also specify a ty
     </div>
 
     <div class="description">
-        <p>Write the supplied data to the store.</p>
+        <p>Add data to the store.</p>
 
     </div>
 
@@ -459,14 +314,14 @@ Will choose the &quot;best&quot; storage method available. Can also specify a ty
             
                 <li class="param">
                     
-                        <code class="param-name">data</code>
-                        <span class="type">String</span>
+                        <code class="param-name">item</code>
+                        <span class="type"></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>The data to write.</p>
+                        <p>An item or an array of items.</p>
 
                     </div>
 
@@ -495,6 +350,405 @@ Will choose the &quot;best&quot; storage method available. Can also specify a ty
 </div>
 
                 
+                    <div id="method_all" class="method item">
+    <h3 class="name"><code>all</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Array</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/build_docs_core_queue.js.html#l39"><code>build&#x2F;docs&#x2F;core&#x2F;queue.js:39</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Gets the contents of the store.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Array</span>:
+                    
+                    <p>The array of items.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_first" class="method item">
+    <h3 class="name"><code>first</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Mixed</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/build_docs_core_queue.js.html#l61"><code>build&#x2F;docs&#x2F;core&#x2F;queue.js:61</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Gets the first item in the store.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Mixed</span>:
+                    
+                    <p>Returns the item.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_last" class="method item">
+    <h3 class="name"><code>last</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Mixed</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/build_docs_core_queue.js.html#l76"><code>build&#x2F;docs&#x2F;core&#x2F;queue.js:76</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Gets the last item in the store.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Mixed</span>:
+                    
+                    <p>Returns the item.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_replace" class="method item">
+    <h3 class="name"><code>replace</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>items</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag chainable">chainable</span>
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/build_docs_core_queue.js.html#l130"><code>build&#x2F;docs&#x2F;core&#x2F;queue.js:130</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Overwrite the store with something completely new.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">items</code>
+                        <span class="type">Array</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The new array of data.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                    <p>Returns this.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_save" class="method item">
+    <h3 class="name"><code>save</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag chainable">chainable</span>
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/build_docs_core_queue.js.html#l150"><code>build&#x2F;docs&#x2F;core&#x2F;queue.js:150</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Save the current store to localStorage so that old requests can still be sent after a page refresh.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                    <p>Returns this.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
             </div>
         
 
@@ -503,57 +757,8 @@ Will choose the &quot;best&quot; storage method available. Can also specify a ty
                 <h2 class="off-left">Properties</h2>
 
                 
-                    <div id="property_keyPrefix" class="property item private">
-    <h3 class="name"><code>keyPrefix</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag private">private</span>
-    
-
-    
-        <span class="flag final">final</span>
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/build_docs_core_store.js.html#l28"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:28</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Internal Storage key prefix.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_loadStore" class="property item private">
-    <h3 class="name"><code>loadStore</code></h3>
+                    <div id="property_queue" class="property item private">
+    <h3 class="name"><code>queue</code></h3>
     <span class="type">Unknown</span>
 
     
@@ -577,7 +782,7 @@ Will choose the &quot;best&quot; storage method available. Can also specify a ty
             
         
         
-        <a href="../files/build_docs_core_store.js.html#l36"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:36</code></a>
+        <a href="../files/build_docs_core_queue.js.html#l17"><code>build&#x2F;docs&#x2F;core&#x2F;queue.js:17</code></a>
         
         </p>
 
@@ -587,7 +792,7 @@ Will choose the &quot;best&quot; storage method available. Can also specify a ty
     </div>
 
     <div class="description">
-        <p>Temporary var containing data from a previously saved store.</p>
+        <p>Queue data.</p>
 
     </div>
 
@@ -622,7 +827,7 @@ Will choose the &quot;best&quot; storage method available. Can also specify a ty
             
         
         
-        <a href="../files/build_docs_core_store.js.html#l49"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:49</code></a>
+        <a href="../files/build_docs_core_queue.js.html#l24"><code>build&#x2F;docs&#x2F;core&#x2F;queue.js:24</code></a>
         
         </p>
 
@@ -633,98 +838,6 @@ Will choose the &quot;best&quot; storage method available. Can also specify a ty
 
     <div class="description">
         <p>The storage method to use. Determines best storage method.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_storageKey" class="property item">
-    <h3 class="name"><code>storageKey</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/build_docs_core_store.js.html#l43"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:43</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The key/name of this store.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_store" class="property item private">
-    <h3 class="name"><code>store</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag private">private</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/build_docs_core_store.js.html#l21"><code>build&#x2F;docs&#x2F;core&#x2F;store.js:21</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Store data.</p>
 
     </div>
 

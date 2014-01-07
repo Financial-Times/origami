@@ -459,6 +459,169 @@ Track._Core = (function (parent, window, document) {
     };
 }(Track, window, document));
 
+/*global Track */
+/**
+ * Class for handling a queue backed up by a store.
+ * @module _Core
+ * @submodule Queue
+ * @class Track._Core.Queue
+ * @param name {String} The name of the queue.
+ * @constructor
+ */
+Track._Core.Queue = function (name) {
+    "use strict";
+
+    if (Track._Utils.isUndefined(name)) {
+        throw new Error('You must specify a name for the queue.');
+    }
+
+    /**
+     * Queue data.
+     * @property queue
+     * @private
+     */
+    this.queue = [];
+
+    /**
+     * The storage method to use. Determines best storage method.
+     * @property storage
+     * @type {Object}
+     */
+    this.storage = new Track._Core.Store(name);
+
+    // Retrieve any previous store with the same name.
+    if (this.storage.read()) {
+        this.queue = this.storage.read();
+    }
+
+    return this;
+};
+
+/**
+ * Gets the contents of the store.
+ * @method all
+ * @return {Array} The array of items.
+ */
+Track._Core.Queue.prototype.all = function () {
+    "use strict";
+
+    if (this.queue.length === 0) {
+        return null;
+    }
+
+    var items = [],
+        i;
+
+    for (i = 0; i < this.queue.length; i = i + 1) {
+        items.push(this.queue[i].item);
+    }
+
+    return items;
+};
+
+/**
+ * Gets the first item in the store.
+ * @method first
+ * @return {Mixed} Returns the item.
+ */
+Track._Core.Queue.prototype.first = function () {
+    "use strict";
+
+    if (this.queue.length === 0) {
+        return null;
+    }
+
+    return this.queue[0].item;
+};
+
+/**
+ * Gets the last item in the store.
+ * @method last
+ * @return {Mixed} Returns the item.
+ */
+Track._Core.Queue.prototype.last = function () {
+    "use strict";
+
+    if (this.queue.length === 0) {
+        return null;
+    }
+
+    return this.queue.slice(-1).item;
+};
+
+Track._Core.Queue.prototype.id = function () {
+    "use strict";
+
+    return (Math.random() * 10000) + "." + (new Date()).getTime();
+};
+
+/**
+ * Add data to the store.
+ * @method add
+ * @param item {*} An item or an array of items.
+ * @return Returns this.
+ * @chainable
+ */
+Track._Core.Queue.prototype.add = function (item) {
+    "use strict";
+
+    var self = this,
+        i;
+
+    // I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn't work out how to get to "this" from within the module.
+    function doAdd(item) {
+        self.queue.push({
+            created_at: (new Date()).valueOf(),
+            id: self.id(),
+            item: item
+        });
+    }
+
+    if (Track._Utils.is(item, 'object') && item.constructor.toString().match(/array/i)) {
+        for (i = 0; i < item.length; i = i + 1) {
+            doAdd(item[i]);
+        }
+    } else {
+        doAdd(item);
+    }
+
+    return self;
+};
+
+/**
+ * Overwrite the store with something completely new.
+ * @method replace
+ * @param items {Array} The new array of data.
+ * @return Returns this.
+ * @chainable
+ */
+Track._Core.Queue.prototype.replace = function (items) {
+    "use strict";
+
+    if (Track._Utils.is(items, 'object') && items.constructor.toString().match(/array/i)) {
+        this.queue = [];
+        this.add(items).save();
+
+        return this;
+    }
+
+    throw new Error('Argument invalid, must be an array.');
+};
+
+/**
+ * Save the current store to localStorage so that old requests can still be sent after a page refresh.
+ * @method save
+ * @return Returns this.
+ * @chainable
+ */
+Track._Core.Queue.prototype.save = function () {
+    "use strict";
+
+    this.storage.write(this.queue);
+
+    return this;
+};
+
 /*global Track, window*/
 /**
  * Queuing and sending tags
@@ -502,11 +665,11 @@ Track._Core.Send = (function (parent, window) {
             iJentoPath = "/si/track.gif",
 
         /**
-         * Queue store.
-         * @property store
+         * Queue queue.
+         * @property queue
          * @private
          */
-            store,
+            queue,
         /**
          * Requests being sent right now.
          * @property currentRequests
@@ -543,13 +706,13 @@ Track._Core.Send = (function (parent, window) {
     function success(id) {
         finished(id);
 
-        var replacement = store.all(),
+        var replacement = queue.all(),
             i;
 
         for (i = 0; i < replacement.length; i = i + 1) {
             if (id === replacement[i].requestID) {
                 replacement.splice(i, 1);
-                store.replace(replacement).save();
+                queue.replace(replacement).save();
                 break;
             }
         }
@@ -751,7 +914,6 @@ Track._Core.Send = (function (parent, window) {
         }
     }
 
-
     /**
      * Adds a new request to the list of pending requests
      * @method add
@@ -760,10 +922,10 @@ Track._Core.Send = (function (parent, window) {
     function add(request) {
         request.queueTime = (new Date()).getTime();
 
-        store.add(request).save();
+        queue.add(request).save();
 
         if (self.developer) {
-            utils.log('Store', store);
+            utils.log('Queue', queue);
         }
     }
 
@@ -773,7 +935,7 @@ Track._Core.Send = (function (parent, window) {
      * @method run
      */
     function run() {
-        var nextRequest = store.first();
+        var nextRequest = queue.first();
 
         if (!nextRequest) {
             return;
@@ -799,7 +961,7 @@ Track._Core.Send = (function (parent, window) {
      * @private
      */
     function init() {
-        store = new Track._Core.Store('requests');
+        queue = new Track._Core.Queue('requests');
 
         // If any tracking calls are made whilst offline, try sending them the next time the device comes online
         if (window.addEventListener) {
@@ -843,7 +1005,8 @@ Track._Core.Store = function (name, config) {
      * @property store
      * @private
      */
-    this.store = [];
+    this.data = null;
+
     /**
      * Internal Storage key prefix.
      * @property keyPrefix
@@ -851,6 +1014,7 @@ Track._Core.Store = function (name, config) {
      * @private
      */
     var keyPrefix = "o-tracking-module",
+
         /**
          * Temporary var containing data from a previously saved store.
          * @property loadStore
@@ -864,9 +1028,8 @@ Track._Core.Store = function (name, config) {
      */
     this.storageKey = [keyPrefix, name].join('_');
 
-    // Determine best storage method.
     /**
-     * The storage method to use.
+     * The storage method to use. Determines best storage method.
      * @property storage
      * @type {Object}
      */
@@ -954,137 +1117,51 @@ Track._Core.Store = function (name, config) {
     // Retrieve any previous store with the same name.
     loadStore = this.storage.load(this.storageKey);
     if (loadStore) {
-        this.store = JSON.parse(loadStore);
+        this.data = JSON.parse(loadStore);
     }
 
     return this;
 };
 
 /**
- * Gets the contents of the store.
- * @method all
- * @return {Array} The array of items.
+ * Get/Read the current data.
+ * @method read
+ * @return Returns the data from the store.
  */
-Track._Core.Store.prototype.all = function () {
+Track._Core.Store.prototype.read = function () {
     "use strict";
-
-    if (this.store.length === 0) {
-        return null;
-    }
-
-    var items = [],
-        i;
-
-    for (i = 0; i < this.store.length; i = i + 1) {
-        items.push(this.store[i].item);
-    }
-
-    return items;
+    return this.data;
 };
 
 /**
- * Gets the first item in the store.
- * @method first
- * @return {Mixed} Returns the item.
- */
-Track._Core.Store.prototype.first = function () {
-    "use strict";
-
-    if (this.store.length === 0) {
-        return null;
-    }
-
-    return this.store[0].item;
-};
-
-/**
- * Gets the last item in the store.
- * @method last
- * @return {Mixed} Returns the item.
- */
-Track._Core.Store.prototype.last = function () {
-    "use strict";
-
-    if (this.store.length === 0) {
-        return null;
-    }
-
-    return this.store.slice(-1).item;
-};
-
-Track._Core.Store.prototype.id = function () {
-    "use strict";
-
-    return (Math.random() * 10000) + "." + (new Date()).getTime();
-};
-
-/**
- * Add data to the store.
- * @method add
- * @param item {*} An item or an array of items.
+ * Write the supplied data to the store.
+ * @method write
+ * @param data {String} The data to write.
  * @return Returns this.
  * @chainable
  */
-Track._Core.Store.prototype.add = function (item) {
+Track._Core.Store.prototype.write = function (data) {
     "use strict";
 
-    var self = this,
-        i;
-
-    // I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn't work out how to get to "this" from within the module.
-    function doAdd(item) {
-        self.store.push({
-            created_at: (new Date()).valueOf(),
-            id: self.id(),
-            item: item
-        });
-    }
-
-    if (Track._Utils.is(item, 'object') && item.constructor.toString().match(/array/i)) {
-        for (i = 0; i < item.length; i = i + 1) {
-            doAdd(item[i]);
-        }
-    } else {
-        doAdd(item);
-    }
-
-    return self;
-};
-
-/**
- * Overwrite the store with something completely new.
- * @method replace
- * @param items {Array} The new array of data.
- * @return Returns this.
- * @chainable
- */
-Track._Core.Store.prototype.replace = function (items) {
-    "use strict";
-
-    if (Track._Utils.is(items, 'object') && items.constructor.toString().match(/array/i)) {
-        this.store = [];
-        this.add(items).save();
-
-        return this;
-    }
-
-    throw new Error('Argument invalid, must be an array.');
-};
-
-/**
- * Save the current store to localStorage so that old requests can still be sent after a page refresh.
- * @method save
- * @return Returns this.
- * @chainable
- */
-Track._Core.Store.prototype.save = function () {
-    "use strict";
-
-    this.storage.save(this.storageKey, JSON.stringify(this.store));
+    // Set this.data, in-case we're on a file:// domain and can't set cookies.
+    this.data = data;
+    this.storage.save(this.storageKey, JSON.stringify(this.data));
 
     return this;
 };
 
+/**
+ * Delete the current data.
+ * @method destroy
+ * @return Returns this.
+ * @chainable
+ */
+Track._Core.Store.prototype.destroy = function () {
+    "use strict";
+    this.data = null;
+    this.storage.remove(this.storageKey);
+    return this;
+};
 
 /*global Track, window, document*/
 

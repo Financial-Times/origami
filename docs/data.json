@@ -6,6 +6,17 @@
         "url": ""
     },
     "files": {
+        "build/docs/core/queue.js": {
+            "name": "build/docs/core/queue.js",
+            "modules": {
+                "Queue": 1
+            },
+            "classes": {
+                "Track._Core.Queue": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "build/docs/core/send.js": {
             "name": "build/docs/core/send.js",
             "modules": {
@@ -77,10 +88,12 @@
         "_Core": {
             "name": "_Core",
             "submodules": {
+                "Queue": 1,
                 "Send": 1,
                 "Store": 1
             },
             "classes": {
+                "Track._Core.Queue": 1,
                 "Track._Core.Send": 1,
                 "Track._Core.Store": 1,
                 "Track._Core": 1
@@ -92,6 +105,29 @@
             "line": 3,
             "description": "Core functionality. Queuing and sending tags",
             "static": 1
+        },
+        "Queue": {
+            "name": "Queue",
+            "submodules": {},
+            "classes": {
+                "Track._Core.Queue": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "_Core",
+            "namespace": "",
+            "file": "build/docs/core/queue.js",
+            "line": 2,
+            "description": "Class for handling a queue backed up by a store.",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the queue.",
+                    "type": "String"
+                }
+            ],
+            "is_constructor": 1
         },
         "Send": {
             "name": "Send",
@@ -194,6 +230,21 @@
         }
     },
     "classes": {
+        "Track._Core.Queue": {
+            "name": "Track._Core.Queue",
+            "shortname": "Track._Core.Queue",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "_Core",
+            "submodule": "Queue",
+            "namespace": "",
+            "file": "build/docs/core/queue.js",
+            "line": 2,
+            "description": "Class for handling a queue backed up by a store."
+        },
         "Track._Core.Send": {
             "name": "Track._Core.Send",
             "shortname": "Track._Core.Send",
@@ -290,6 +341,127 @@
     },
     "classitems": [
         {
+            "file": "build/docs/core/queue.js",
+            "line": 17,
+            "description": "Queue data.",
+            "itemtype": "property",
+            "name": "queue",
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Queue",
+            "module": "_Core",
+            "submodule": "Queue"
+        },
+        {
+            "file": "build/docs/core/queue.js",
+            "line": 24,
+            "description": "The storage method to use. Determines best storage method.",
+            "itemtype": "property",
+            "name": "storage",
+            "type": "{Object}",
+            "class": "Track._Core.Queue",
+            "module": "_Core",
+            "submodule": "Queue"
+        },
+        {
+            "file": "build/docs/core/queue.js",
+            "line": 39,
+            "description": "Gets the contents of the store.",
+            "itemtype": "method",
+            "name": "all",
+            "return": {
+                "description": "The array of items.",
+                "type": "Array"
+            },
+            "class": "Track._Core.Queue",
+            "module": "_Core",
+            "submodule": "Queue"
+        },
+        {
+            "file": "build/docs/core/queue.js",
+            "line": 61,
+            "description": "Gets the first item in the store.",
+            "itemtype": "method",
+            "name": "first",
+            "return": {
+                "description": "Returns the item.",
+                "type": "Mixed"
+            },
+            "class": "Track._Core.Queue",
+            "module": "_Core",
+            "submodule": "Queue"
+        },
+        {
+            "file": "build/docs/core/queue.js",
+            "line": 76,
+            "description": "Gets the last item in the store.",
+            "itemtype": "method",
+            "name": "last",
+            "return": {
+                "description": "Returns the item.",
+                "type": "Mixed"
+            },
+            "class": "Track._Core.Queue",
+            "module": "_Core",
+            "submodule": "Queue"
+        },
+        {
+            "file": "build/docs/core/queue.js",
+            "line": 97,
+            "description": "Add data to the store.",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "item",
+                    "description": "An item or an array of items.",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "Returns this."
+            },
+            "chainable": 1,
+            "class": "Track._Core.Queue",
+            "module": "_Core",
+            "submodule": "Queue"
+        },
+        {
+            "file": "build/docs/core/queue.js",
+            "line": 130,
+            "description": "Overwrite the store with something completely new.",
+            "itemtype": "method",
+            "name": "replace",
+            "params": [
+                {
+                    "name": "items",
+                    "description": "The new array of data.",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "Returns this."
+            },
+            "chainable": 1,
+            "class": "Track._Core.Queue",
+            "module": "_Core",
+            "submodule": "Queue"
+        },
+        {
+            "file": "build/docs/core/queue.js",
+            "line": 150,
+            "description": "Save the current store to localStorage so that old requests can still be sent after a page refresh.",
+            "itemtype": "method",
+            "name": "save",
+            "return": {
+                "description": "Returns this."
+            },
+            "chainable": 1,
+            "class": "Track._Core.Queue",
+            "module": "_Core",
+            "submodule": "Queue"
+        },
+        {
             "file": "build/docs/core/send.js",
             "line": 13,
             "description": "Shared \"internal\" scope.",
@@ -344,9 +516,9 @@
         {
             "file": "build/docs/core/send.js",
             "line": 43,
-            "description": "Queue store.",
+            "description": "Queue queue.",
             "itemtype": "property",
-            "name": "store",
+            "name": "queue",
             "access": "private",
             "tagname": "",
             "class": "Track._Core.Send",
@@ -547,7 +719,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 294,
+            "line": 293,
             "description": "Adds a new request to the list of pending requests",
             "itemtype": "method",
             "name": "add",
@@ -563,7 +735,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 309,
+            "line": 308,
             "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
             "itemtype": "method",
             "name": "run",
@@ -573,7 +745,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 325,
+            "line": 324,
             "description": "Convenience function to add and run a request all in one go.",
             "itemtype": "method",
             "name": "addAndRun",
@@ -590,7 +762,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 335,
+            "line": 334,
             "description": "Init the queue and send any leftover tags.",
             "itemtype": "method",
             "name": "init",
@@ -614,7 +786,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 27,
+            "line": 28,
             "description": "Internal Storage key prefix.",
             "itemtype": "property",
             "name": "keyPrefix",
@@ -627,7 +799,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 34,
+            "line": 36,
             "description": "Temporary var containing data from a previously saved store.",
             "itemtype": "property",
             "name": "loadStore",
@@ -639,7 +811,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 41,
+            "line": 43,
             "description": "The key/name of this store.",
             "itemtype": "property",
             "name": "storageKey",
@@ -649,8 +821,8 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 48,
-            "description": "The storage method to use.",
+            "line": 49,
+            "description": "The storage method to use. Determines best storage method.",
             "itemtype": "property",
             "name": "storage",
             "type": "{Object}",
@@ -660,13 +832,12 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 143,
-            "description": "Gets the contents of the store.",
+            "line": 144,
+            "description": "Get/Read the current data.",
             "itemtype": "method",
-            "name": "all",
+            "name": "read",
             "return": {
-                "description": "The array of items.",
-                "type": "Array"
+                "description": "Returns the data from the store."
             },
             "class": "Track._Core.Store",
             "module": "_Core",
@@ -674,43 +845,15 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 165,
-            "description": "Gets the first item in the store.",
+            "line": 154,
+            "description": "Write the supplied data to the store.",
             "itemtype": "method",
-            "name": "first",
-            "return": {
-                "description": "Returns the item.",
-                "type": "Mixed"
-            },
-            "class": "Track._Core.Store",
-            "module": "_Core",
-            "submodule": "Store"
-        },
-        {
-            "file": "build/docs/core/store.js",
-            "line": 180,
-            "description": "Gets the last item in the store.",
-            "itemtype": "method",
-            "name": "last",
-            "return": {
-                "description": "Returns the item.",
-                "type": "Mixed"
-            },
-            "class": "Track._Core.Store",
-            "module": "_Core",
-            "submodule": "Store"
-        },
-        {
-            "file": "build/docs/core/store.js",
-            "line": 201,
-            "description": "Add data to the store.",
-            "itemtype": "method",
-            "name": "add",
+            "name": "write",
             "params": [
                 {
-                    "name": "item",
-                    "description": "An item or an array of items.",
-                    "type": "*"
+                    "name": "data",
+                    "description": "The data to write.",
+                    "type": "String"
                 }
             ],
             "return": {
@@ -723,31 +866,10 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 234,
-            "description": "Overwrite the store with something completely new.",
+            "line": 171,
+            "description": "Delete the current data.",
             "itemtype": "method",
-            "name": "replace",
-            "params": [
-                {
-                    "name": "items",
-                    "description": "The new array of data.",
-                    "type": "Array"
-                }
-            ],
-            "return": {
-                "description": "Returns this."
-            },
-            "chainable": 1,
-            "class": "Track._Core.Store",
-            "module": "_Core",
-            "submodule": "Store"
-        },
-        {
-            "file": "build/docs/core/store.js",
-            "line": 254,
-            "description": "Save the current store to localStorage so that old requests can still be sent after a page refresh.",
-            "itemtype": "method",
-            "name": "save",
+            "name": "destroy",
             "return": {
                 "description": "Returns this."
             },

@@ -3,12 +3,14 @@ YUI.add("yuidoc-meta", function(Y) {
     "classes": [
         "Track",
         "Track._Core",
+        "Track._Core.Queue",
         "Track._Core.Send",
         "Track._Core.Store",
         "Track._Utils",
         "Track.page"
     ],
     "modules": [
+        "Queue",
         "Send",
         "Store",
         "Track",
@@ -31,6 +33,11 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "page",
             "name": "page",
             "description": "Page functionality. For tracking a page."
+        },
+        {
+            "displayName": "Queue",
+            "name": "Queue",
+            "description": "Class for handling a queue backed up by a store."
         },
         {
             "displayName": "Send",

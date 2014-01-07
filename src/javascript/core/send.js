@@ -41,11 +41,11 @@ Track._Core.Send = (function (parent, window) {
             iJentoPath = "/si/track.gif",
 
         /**
-         * Queue store.
-         * @property store
+         * Queue queue.
+         * @property queue
          * @private
          */
-            store,
+            queue,
         /**
          * Requests being sent right now.
          * @property currentRequests
@@ -82,13 +82,13 @@ Track._Core.Send = (function (parent, window) {
     function success(id) {
         finished(id);
 
-        var replacement = store.all(),
+        var replacement = queue.all(),
             i;
 
         for (i = 0; i < replacement.length; i = i + 1) {
             if (id === replacement[i].requestID) {
                 replacement.splice(i, 1);
-                store.replace(replacement).save();
+                queue.replace(replacement).save();
                 break;
             }
         }
@@ -290,7 +290,6 @@ Track._Core.Send = (function (parent, window) {
         }
     }
 
-
     /**
      * Adds a new request to the list of pending requests
      * @method add
@@ -299,10 +298,10 @@ Track._Core.Send = (function (parent, window) {
     function add(request) {
         request.queueTime = (new Date()).getTime();
 
-        store.add(request).save();
+        queue.add(request).save();
 
         if (self.developer) {
-            utils.log('Store', store);
+            utils.log('Queue', queue);
         }
     }
 
@@ -312,7 +311,7 @@ Track._Core.Send = (function (parent, window) {
      * @method run
      */
     function run() {
-        var nextRequest = store.first();
+        var nextRequest = queue.first();
 
         if (!nextRequest) {
             return;
@@ -338,7 +337,7 @@ Track._Core.Send = (function (parent, window) {
      * @private
      */
     function init() {
-        store = new Track._Core.Store('requests');
+        queue = new Track._Core.Queue('requests');
 
         // If any tracking calls are made whilst offline, try sending them the next time the device comes online
         if (window.addEventListener) {

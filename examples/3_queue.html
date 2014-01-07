@@ -2,13 +2,13 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Example 2: store</title>
+    <title>Example 2: queue</title>
     <link rel="stylesheet" href="../build/examples/example.css" />
     <script src="../build/track.latest.js"></script>
 </head>
 <body>
 
-<h1>Example 2: <code>store</code></h1>
+<h1>Example 2: <code>queue</code></h1>
 
 <form id="init">
     <fieldset>
@@ -17,26 +17,14 @@
             <label for="name">Name</label>
             <input type="text" name="name" id="name" value="example" />
         </p>
-        <p>
-            <label for="storage">Force storage method</label>
-            <select name="storage" id="storage"><option value="">Choose for me</option><option value="cookie">Cookies</option></select>
-        </p>
 
         <p><input type="submit"></p>
     </fieldset>
 </form>
 
-<form id="read" style="display: none;">
+<form id="add" style="display: none;">
     <fieldset>
-        <legend>Read</legend>
-
-        <p><input type="submit"></p>
-    </fieldset>
-</form>
-
-<form id="write" style="display: none;">
-    <fieldset>
-        <legend>Write</legend>
+        <legend>Add</legend>
         <p>
             <label for="add_value">Value</label>
             <input type="text" name="add_value" id="add_value" value="Hello!" />
@@ -46,9 +34,17 @@
     </fieldset>
 </form>
 
-<form id="destroy" style="display: none;">
+<form id="save" style="display: none;">
     <fieldset>
-        <legend>Destroy</legend>
+        <legend>Save</legend>
+
+        <p><input type="submit"></p>
+    </fieldset>
+</form>
+
+<form id="getAll" style="display: none;">
+    <fieldset>
+        <legend>Get all</legend>
 
         <p><input type="submit"></p>
     </fieldset>
@@ -67,7 +63,7 @@
 <script>
     (function ($) {
         var util = require('util'),
-                store;
+                queue;
 
         Track.developer();
 
@@ -81,39 +77,43 @@
                 config.storage = 'cookie';
             }
 
-            $('#javascript').text('var store = new Track._Core.Store("' + data.name + '", ' + util.inspect(config) + ');');
+            $('#javascript').text('var queue = new Track._Core.Queue("' + data.name + '", ' + util.inspect(config) + ');');
 
-            store = new Track._Core.Store(data.name, config);
+            queue = new Track._Core.Queue(data.name, config);
 
-            console.log(store);
+            console.log(queue);
 
-            $('#read, #write, #destroy').show();
+            $('#add, #save, #getAll').show();
         });
 
-        $('#write').on('submit', function (event) {
+        $('#add').on('submit', function (event) {
             event.preventDefault();
 
             var data = $(this).serializeObject();
 
-            $('#javascript').append("\n" + 'store.write("' + data.add_value + '");');
+            $('#javascript').append("\n" + 'queue.add("' + data.add_value + '");');
 
-            console.log(store.write(data.add_value));
+            queue.add(data.add_value);
+
+            console.log(queue);
         });
 
-        $('#read').on('submit', function (event) {
+        $('#save').on('submit', function (event) {
             event.preventDefault();
 
-            $('#javascript').append("\n" + 'store.read();');
+            $('#javascript').append("\n" + 'queue.save();');
 
-            console.log(store.read());
+            queue.save();
+
+            console.log(queue);
         });
 
-        $('#destroy').on('submit', function (event) {
+        $('#getAll').on('submit', function (event) {
             event.preventDefault();
 
-            $('#javascript').append("\n" + 'store.destroy();');
+            $('#javascript').append("\n" + 'queue.all();');
 
-            console.log(store.destroy());
+            console.log(queue.all());
         });
     }(jQuery));
 </script>
