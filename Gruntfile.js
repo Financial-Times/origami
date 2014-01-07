@@ -175,6 +175,15 @@ module.exports = function (grunt) {
                 }
 
             }
+        },
+
+        mocha: {
+            track: {
+                src: ['tests/**/*.html']
+            },
+            options: {
+                run: true
+            }
         }
     });
 
@@ -190,11 +199,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-yuidoc');
+    grunt.loadNpmTasks('grunt-mocha');
 
     grunt.registerTask('build', "Build", ['jshint', 'clean', 'concat', 'umd', 'uglify', 'copy:track']);
     grunt.registerTask('examples', "Examples", ['browserify', 'compass']);
     grunt.registerTask('docs', "Docs", ['copy:docs', 'yuidoc']);
+    grunt.registerTask('test', "Test", ['mocha']);
 
-
-    grunt.registerTask('default', "Default.", ['build', 'examples', 'docs']);
+    grunt.registerTask('default', "Default.", ['build', 'test', 'examples', 'docs']);
 };

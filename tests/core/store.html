@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Track: Store</title>
+    <link rel="stylesheet" href="../resources/mocha.css" />
+    <script src="../resources/mocha.js"></script>
+    <script src="../resources/chai.js"></script>
+    <script>mocha.setup('bdd')</script>
+</head>
+<body>
+<div id="mocha"></div>
+
+<script src="../../build/track.latest.min.js"></script>
+
+<!-- TEST -->
+<script>
+    /*global describe, it, chai */
+    var expect = chai.expect;
+
+    describe('Track._Core.Store', function () {
+
+        describe('init()', function () {
+
+            it('should use local storage by default', function () {
+                expect((new Track._Core.Store('test')).storage._type).to.equal('localStorage');
+            });
+
+            if (document.location.toString().match('^file://') && navigator.userAgent.indexOf('PhantomJS') < 0) {
+                it('should still work if there is no storage mechanism available', function () {
+                    expect((new Track._Core.Store('test', { storage: 'cookie' })).storage._type).to.equal('none');
+                });
+            } else {
+                it('can use cookies for storage', function () {
+                    expect((new Track._Core.Store('test', { storage: 'cookie' })).storage._type).to.equal('cookie');
+                });
+            }
+        });
+
+        var store = new Track._Core.Store('test');
+
+        describe('write()', function () {
+            it('should save a value', function () {
+                expect(store.write('TESTING').read()).to.equal('TESTING');
+            });
+        });
+
+        describe('read()', function () {
+            it('should retrieve a value', function () {
+                expect(store.read()).to.equal('TESTING');
+            });
+        });
+
+    });
+</script>
+
+<script>
+    if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+        mocha.checkLeaks();
+        mocha.run();
+    }
+</script>
+</body>
+</html>
