@@ -17,6 +17,8 @@
 
 @mixin oFtTypographyFontSize($size, $lineHeight: null, $offset: 0) {
 	font-size: $size + px;
+	// In some version of webkit there was some bug (unfortunately neglected to document at the time)
+	// with using unitless line-height, hence removal of this line
 	// line-height: $originalLineHeight / $originalHeight;
 	@if ($lineHeight) {
 		line-height: $lineHeight + px;
@@ -32,10 +34,4 @@
 		margin-top: $offset + px;
 		padding-bottom: -$offset + px;
 	}
-}
-
-
-@mixin oFtTypographyBodyBlock () {
-	margin-bottom: 24px;
-	margin-top: 24px;
 }
