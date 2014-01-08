@@ -1,0 +1,35 @@
+@mixin oFtTypographyClass ($classes) {
+	$aggregatedSelector: ();	
+	
+	@each $class in $classes {
+
+		$aggregatedSelector: append($aggregatedSelector, #{'%o-ft-typography-#{$class}'}, comma);
+	  
+		@if (not $o-ft-typography-is-silent) {
+			$aggregatedSelector: append($aggregatedSelector, #{'.o-ft-typography-#{$class}'}, comma);
+		}
+	}
+
+	#{$aggregatedSelector} {
+		@content;
+	}
+}
+
+@mixin oFtTypographyFontSize($size, $lineHeight: null, $offset: 0) {
+	font-size: $size + px;
+	// line-height: $originalLineHeight / $originalHeight;
+	@if ($lineHeight) {
+		line-height: $lineHeight + px;
+	}
+	@include oFtTypographyFontOffset($offset);
+}
+
+@mixin oFtTypographyFontOffset ($offset) {
+	@if ($offset > 0) {
+		padding-top: $offset + px;
+		margin-bottom: -$offset + px;
+	} @else if ($offset < 0) {
+		margin-top: $offset + px;
+		padding-bottom: -$offset + px;
+	}
+}
