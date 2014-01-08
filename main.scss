@@ -26,6 +26,7 @@
 	/* Article subheadings ('leads') */
 	@include oFtTypographyClass(lead) {
 		@include oFtTypographyFontSize(16, 30);
+		@include oFtTypographyBodyBlock();
 		font-family: $o-ft-typography-subheading-font;
 		color: $o-colors-article-subheading;
 		margin-bottom: 15px;
@@ -71,13 +72,12 @@
 		color: $o-colors-article-body-text;
 	}
 
-	@mixin oFtTypographyBodyTextBlock () {
-		margin-bottom: 24px;
-		margin-top: 24px;
-	}
-
 @include oFtTypographyClass(body)  {
 	@include oFtTypographyBodyTextStyle();
+}
+
+@include oFtTypographyClass(body__block) {
+	@include oFtTypographyBodyBlock();
 }
 
 @include oFtTypographyClass(body--bold) {
@@ -94,16 +94,19 @@
 }
 
 @include oFtTypographyClass(body--super) {
+	font-size: 0.75em;
 	vertical-align: super;
 }
 
 @include oFtTypographyClass(body--sub) {
+	font-size: 0.75em;
 	vertical-align: sub;
 }
 
 @include oFtTypographyClass(body__list) {
 	list-style-position: outside;
 	padding-left: 20px;
+	@include oFtTypographyBodyBlock();
 }
 
 @include oFtTypographyClass(body__list--ordered) {

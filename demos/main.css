@@ -1,0 +1,137 @@
+html, body {
+  margin: 0;
+  padding: 0; }
+
+/**
+ * Colour palette
+ *
+ * Avoid using these colours directly in products.  Instead, prefer the colour
+ * use case variables provided elsewhere in this module.
+ */
+/* Primary Palette */
+/* Greys */
+/* Tints */
+/* Colors */
+/* Highlight colors */
+/* Highlight tints */
+/**
+ * Colour use cases
+ *
+ * Use these instead of the palette variables directly.
+ */
+/* Load fonts */
+@font-face {
+  font-family: BentonSans-normal;
+  font-style: normal;
+  font-weight: normal;
+  src: url(../bower_componentso-fonts/webfonts/BentonSans-normal.eot);
+  src: url(../bower_componentso-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(../bower_componentso-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(../bower_componentso-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
+
+@font-face {
+  font-family: BentonSans-bold;
+  font-style: normal;
+  font-weight: normal;
+  src: url(../bower_componentso-fonts/webfonts/BentonSans-bold.eot);
+  src: url(../bower_componentso-fonts/webfonts/BentonSans-bold.eot?#iefix) format("embedded-opentype"), url(../bower_componentso-fonts/webfonts/BentonSans-bold.woff) format("woff"), url(../bower_componentso-fonts/webfonts/BentonSans-bold.ttf) format("truetype"); }
+
+@font-face {
+  font-family: MillerDisplay-normal;
+  font-style: normal;
+  font-weight: normal;
+  src: url(../bower_componentso-fonts/webfonts/MillerDisplay-normal.eot);
+  src: url(../bower_componentso-fonts/webfonts/MillerDisplay-normal.eot?#iefix) format("embedded-opentype"), url(../bower_componentso-fonts/webfonts/MillerDisplay-normal.woff) format("woff"), url(../bower_componentso-fonts/webfonts/MillerDisplay-normal.ttf) format("truetype"); }
+
+/* Headings */
+/* Titles */
+.o-ft-typography-title {
+  font-family: MillerDisplay-normal, Georgia, "Times New Roman", serif;
+  color: black; }
+
+.o-ft-typography-title--primary {
+  font-size: 30px;
+  line-height: 36px;
+  margin-top: -5px;
+  padding-bottom: 5px; }
+
+/* Article subheadings ('leads') */
+.o-ft-typography-lead {
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 24px;
+  margin-top: 24px;
+  font-family: BentonSans-bold, Helvetica, Arial, sans-serif;
+  color: #333333;
+  margin-bottom: 15px;
+  border-top: 1px dotted #74736c;
+  border-bottom: 1px dotted #74736c; }
+  .o-ft-typography-lead + * {
+    margin-top: 0; }
+
+/* Links */
+.o-ft-typography-title__link, .o-ft-typography-lead__link {
+  text-decoration: none;
+  color: black; }
+
+.o-ft-typography-title__link--hover, .o-ft-typography-title__link:hover, .o-ft-typography-lead__link--hover, .o-ft-typography-lead__link:hover {
+  color: #2e6e9e; }
+
+/* Article metadata */
+.o-ft-typography-byline {
+  font-size: 14px;
+  line-height: 24px;
+  font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
+  color: #74736c; }
+
+.o-ft-typography-timestamp {
+  font-size: 14px;
+  line-height: 24px;
+  font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
+  color: #74736c; }
+
+/* Article content */
+/* Utility mixins for body text*/
+.o-ft-typography-body {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #333333; }
+
+.o-ft-typography-body__block {
+  margin-bottom: 24px;
+  margin-top: 24px; }
+
+.o-ft-typography-body--bold {
+  font-weight: bold; }
+
+.o-ft-typography-body--italic {
+  font-style: italic; }
+
+.o-ft-typography-body--small {
+  font-size: 0.75em; }
+
+.o-ft-typography-body--super {
+  font-size: 0.75em;
+  vertical-align: super; }
+
+.o-ft-typography-body--sub {
+  font-size: 0.75em;
+  vertical-align: sub; }
+
+.o-ft-typography-body__list {
+  list-style-position: outside;
+  padding-left: 20px;
+  margin-bottom: 24px;
+  margin-top: 24px; }
+
+.o-ft-typography-body__list--ordered {
+  list-style-type: decimal; }
+
+.o-ft-typography-body__list--unordered {
+  list-style-type: disc; }
+
+.o-ft-typography-body__link {
+  text-decoration: none;
+  color: #2e6e9e; }
+
+.o-ft-typography-body__link--hover, .o-ft-typography-body__link:hover {
+  color: black; }

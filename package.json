@@ -1,0 +1,15 @@
+{
+  "name": "o-ft-typography",
+  "version": "0.0.1",
+  "repository": "http://git.svc.ft.com:9080/summary/origami%2Fo-ft-typography.git",
+  "dependencies": {},
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  },
+  "devDependencies": {
+    "grunt": "0.4.x",
+    "grunt-origami-demoer": "*",
+    "grunt-contrib-watch": "*"
+  }
+}

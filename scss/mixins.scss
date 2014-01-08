@@ -33,3 +33,9 @@
 		padding-bottom: -$offset + px;
 	}
 }
+
+
+@mixin oFtTypographyBodyBlock () {
+	margin-bottom: 24px;
+	margin-top: 24px;
+}
