@@ -4,6 +4,13 @@
 @import "scss/mixins";
 
 
+/* Load fonts */
+@if (not $o-ft-typography-is-silent) {
+	@include oFontsInclude(BentonSans);
+	@include oFontsInclude(BentonSans, bold);
+	@include oFontsInclude(MillerDisplay);
+}
+
 /* Headings */
 
 	/* Titles */
