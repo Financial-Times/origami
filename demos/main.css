@@ -24,22 +24,22 @@ html, body {
   font-family: BentonSans-normal;
   font-style: normal;
   font-weight: normal;
-  src: url(../bower_componentso-fonts/webfonts/BentonSans-normal.eot);
-  src: url(../bower_componentso-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(../bower_componentso-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(../bower_componentso-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
+  src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot);
+  src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
 
 @font-face {
   font-family: BentonSans-bold;
   font-style: normal;
   font-weight: normal;
-  src: url(../bower_componentso-fonts/webfonts/BentonSans-bold.eot);
-  src: url(../bower_componentso-fonts/webfonts/BentonSans-bold.eot?#iefix) format("embedded-opentype"), url(../bower_componentso-fonts/webfonts/BentonSans-bold.woff) format("woff"), url(../bower_componentso-fonts/webfonts/BentonSans-bold.ttf) format("truetype"); }
+  src: url(../bower_components/o-fonts/webfonts/BentonSans-bold.eot);
+  src: url(../bower_components/o-fonts/webfonts/BentonSans-bold.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-bold.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-bold.ttf) format("truetype"); }
 
 @font-face {
   font-family: MillerDisplay-normal;
   font-style: normal;
   font-weight: normal;
-  src: url(../bower_componentso-fonts/webfonts/MillerDisplay-normal.eot);
-  src: url(../bower_componentso-fonts/webfonts/MillerDisplay-normal.eot?#iefix) format("embedded-opentype"), url(../bower_componentso-fonts/webfonts/MillerDisplay-normal.woff) format("woff"), url(../bower_componentso-fonts/webfonts/MillerDisplay-normal.ttf) format("truetype"); }
+  src: url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.eot);
+  src: url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.ttf) format("truetype"); }
 
 /* Headings */
 /* Titles */
@@ -57,8 +57,6 @@ html, body {
 .o-ft-typography-lead {
   font-size: 16px;
   line-height: 30px;
-  margin-bottom: 24px;
-  margin-top: 24px;
   font-family: BentonSans-bold, Helvetica, Arial, sans-serif;
   color: #333333;
   margin-bottom: 15px;
@@ -96,7 +94,7 @@ html, body {
   font-family: Georgia, "Times New Roman", serif;
   color: #333333; }
 
-.o-ft-typography-body__block {
+.o-ft-typography-lead, .o-ft-typography-body__list, .o-ft-typography-body__block {
   margin-bottom: 24px;
   margin-top: 24px; }
 
@@ -119,9 +117,7 @@ html, body {
 
 .o-ft-typography-body__list {
   list-style-position: outside;
-  padding-left: 20px;
-  margin-bottom: 24px;
-  margin-top: 24px; }
+  padding-left: 20px; }
 
 .o-ft-typography-body__list--ordered {
   list-style-type: decimal; }
