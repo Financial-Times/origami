@@ -30,7 +30,7 @@
 	@include oFtHeaderPositionStatic();
 }
 
-.o-ft-header-logo {
+.o-ft-header__logo {
 	display: block;
 	padding: 11px 0 31px;
 	width: 82px;
@@ -40,11 +40,11 @@
 	background: url(oFtHeaderAsset("img/ft-logo.gif")) no-repeat; 
 }
 
-.o-ft-header-logo .ft-initials {
+.o-ft-header__logo__ft-initials {
 	display: none;
 }
 
-.inlinesvg .o-ft-header-logo {
+.inlinesvg .o-ft-header__logo {
 	background: #ffe2c6; 
 	background: -moz-linear-gradient(top,  #ffe2c6 0%, #f7d8b9 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffe2c6), color-stop(100%,#f7d8b9)); /* Chrome,Safari4+ */
@@ -54,7 +54,7 @@
 	background: linear-gradient(to bottom,  #ffe2c6 0%,#f7d8b9 100%); /* W3C */
 }
 
-.inlinesvg .o-ft-header-logo .ft-initials {
+.inlinesvg .o-ft-header__logo__ft-initials {
 	display: block;
 	height: 35px;
 	fill: $o-colors-palette-charcoal;

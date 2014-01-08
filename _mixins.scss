@@ -9,7 +9,7 @@
 		min-height: 77 + $o-ft-header-top-offset + px;
 	}
 
-	.o-ft-header-nav-bar {
+	.o-ft-header__nav-bar {
 		position: fixed;
 		top: $o-ft-header-top-offset + px;
 		right: 0;
@@ -26,7 +26,7 @@
 		min-height: 77px;
 	}
 
-	.o-ft-header-nav-bar {
+	.o-ft-header__nav-bar {
 	   	height: 50px;
 	   	background-color: $o-colors-palette-charcoal;
 	}
