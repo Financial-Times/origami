@@ -488,7 +488,7 @@ html {
  * Colour palette
  *
  * Avoid using these colours directly in products.  Instead, prefer the colour
- * use case variables andmixins defined in velcro or your product's styleguide
+ * use case variables provided elsewhere in this module.
  */
 /* Primary Palette */
 /* Greys */
@@ -496,9 +496,11 @@ html {
 /* Colors */
 /* Highlight colors */
 /* Highlight tints */
-/*
-	Styles for font size, colour and vertical rhythm of text on standard FT brnaded pages
-*/
+/**
+ * Colour use cases
+ *
+ * Use these instead of the palette variables directly.
+ */
 .o-ft-forms__label {
   display: block;
   margin-bottom: 10px;
@@ -637,7 +639,7 @@ textarea.o-ft-forms__field {
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
   font-size: 11px;
   font-style: italic;
-  color: #fff;
+  color: white;
   background-color: #cc0000; }
 
 .o-ft-forms__prefix {
@@ -691,7 +693,7 @@ textarea.o-ft-forms__field {
   background: -moz-linear-gradient(#549ccf, #4782ab);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#549ccf,  endColorstr=#4782ab)";
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
-  color: #fff;
+  color: white;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer; }

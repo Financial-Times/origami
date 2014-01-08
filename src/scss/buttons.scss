@@ -10,7 +10,7 @@
     width: auto;
     @include backgroundGradientVertical(#4e8fbd, #549ccf, #4782ab);
     font-family: $o-ft-forms-font;
-    color: #fff;
+    color: $o-colors-forms-button-text;
     text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
@@ -37,7 +37,7 @@
 }
 
 .#{$o-ft-forms-prefix}__button:hover {
-    color: $o-colors-cool-grey2;
+    color: $o-colors-forms-button-text-hover;
 }
 
 .#{$o-ft-forms-prefix}__button--large {
@@ -60,7 +60,7 @@
 
 .#{$o-ft-forms-prefix}__button--negative {
     padding: 0;
-    color: $o-colors-blue;
+    color: $o-colors-forms-button-negative-text;
     background: transparent;
 }
 
@@ -77,5 +77,5 @@
 
 .#{$o-ft-forms-prefix}__button--negative.#{$o-ft-forms-prefix}__button--disabled:hover,
 .#{$o-ft-forms-prefix}__button--negative[disabled]:hover {
-    color: $o-colors-blue;
+    color: $o-colors-forms-button-negative-text-hover;
 }
