@@ -1,4 +1,6 @@
 $o-ft-typography-is-silent: false !default;
+$_o-ft-typography-default-wrapper-class: 'body-wrapper';
+$o-ft-typography-wrapper-class: $_o-ft-typography-default-wrapper-class !default;
 
 $o-ft-typography-body-font: $o-fonts-serif;
 $o-ft-typography-body-bold-font: $o-fonts-serif;

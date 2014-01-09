@@ -43,18 +43,18 @@ html, body {
 
 /* Headings */
 /* Titles */
-.o-ft-typography-title {
+.o-ft-typography-body-wrapper h1, .o-ft-typography-title {
   font-family: MillerDisplay-normal, Georgia, "Times New Roman", serif;
   color: black; }
 
-.o-ft-typography-title--primary {
+.o-ft-typography-body-wrapper h1, .o-ft-typography-title--primary {
   font-size: 30px;
   line-height: 36px;
   margin-top: -5px;
   padding-bottom: 5px; }
 
 /* Article subheadings ('leads') */
-.o-ft-typography-lead {
+.o-ft-typography-body-wrapper h2, .o-ft-typography-lead {
   font-size: 16px;
   line-height: 30px;
   font-family: BentonSans-bold, Helvetica, Arial, sans-serif;
@@ -62,15 +62,15 @@ html, body {
   margin-bottom: 15px;
   border-top: 1px dotted #74736c;
   border-bottom: 1px dotted #74736c; }
-  .o-ft-typography-lead + * {
+  .o-ft-typography-body-wrapper h2 + *, .o-ft-typography-lead + * {
     margin-top: 0; }
 
 /* Links */
-.o-ft-typography-title__link, .o-ft-typography-lead__link {
+.o-ft-typography-title__link, .o-ft-typography-body-wrapper h1 a, .o-ft-typography-body-wrapper h2 a, .o-ft-typography-lead__link {
   text-decoration: none;
   color: black; }
 
-.o-ft-typography-title__link--hover, .o-ft-typography-title__link:hover, .o-ft-typography-lead__link--hover, .o-ft-typography-lead__link:hover {
+.o-ft-typography-title__link--hover, .o-ft-typography-title__link:hover, .o-ft-typography-lead__link--hover, .o-ft-typography-body-wrapper h1 a:hover, .o-ft-typography-body-wrapper h2 a:hover, .o-ft-typography-lead__link:hover {
   color: #2e6e9e; }
 
 /* Article metadata */
@@ -88,46 +88,48 @@ html, body {
 
 /* Article content */
 /* Utility mixins for body text*/
-.o-ft-typography-body {
+.o-ft-typography-body-wrapper, .o-ft-typography-body {
   font-size: 16px;
   line-height: 24px;
   font-family: Georgia, "Times New Roman", serif;
   color: #333333; }
 
-.o-ft-typography-lead, .o-ft-typography-body__list, .o-ft-typography-body__block {
+.o-ft-typography-body-wrapper h2, .o-ft-typography-lead, .o-ft-typography-body-wrapper ol,
+.o-ft-typography-body-wrapper ul, .o-ft-typography-body__list, .o-ft-typography-body-wrapper p, .o-ft-typography-body__block {
   margin-bottom: 24px;
   margin-top: 24px; }
 
-.o-ft-typography-body--bold {
+.o-ft-typography-body-wrapper strong, .o-ft-typography-body--bold {
   font-weight: bold; }
 
-.o-ft-typography-body--italic {
+.o-ft-typography-body-wrapper em, .o-ft-typography-body--italic {
   font-style: italic; }
 
-.o-ft-typography-body--small {
+.o-ft-typography-body-wrapper small, .o-ft-typography-body--small {
   font-size: 0.75em; }
 
-.o-ft-typography-body--super {
+.o-ft-typography-body-wrapper super, .o-ft-typography-body--super {
   font-size: 0.75em;
   vertical-align: super; }
 
-.o-ft-typography-body--sub {
+.o-ft-typography-body-wrapper sub, .o-ft-typography-body--sub {
   font-size: 0.75em;
   vertical-align: sub; }
 
-.o-ft-typography-body__list {
+.o-ft-typography-body-wrapper ol,
+.o-ft-typography-body-wrapper ul, .o-ft-typography-body__list {
   list-style-position: outside;
   padding-left: 20px; }
 
-.o-ft-typography-body__list--ordered {
+.o-ft-typography-body-wrapper ol, .o-ft-typography-body__list--ordered {
   list-style-type: decimal; }
 
-.o-ft-typography-body__list--unordered {
+.o-ft-typography-body-wrapper ul, .o-ft-typography-body__list--unordered {
   list-style-type: disc; }
 
-.o-ft-typography-body__link {
+.o-ft-typography-body-wrapper a, .o-ft-typography-body__link {
   text-decoration: none;
   color: #2e6e9e; }
 
-.o-ft-typography-body__link--hover, .o-ft-typography-body__link:hover {
+.o-ft-typography-body__link--hover, .o-ft-typography-body-wrapper a:hover, .o-ft-typography-body__link:hover {
   color: black; }

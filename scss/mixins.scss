@@ -35,3 +35,21 @@
 		padding-bottom: -$offset + px;
 	}
 }
+
+//
+// Wraps a given block of styles in the given selector (if it exists)
+//
+// @param $selector {string|null} css selector to wrap the styles in
+//
+@mixin oFtTypographyWrapInSelector ($selector:null, $alwaysOutputPlainToo: false) {
+	@if (not $selector or $alwaysOutputPlainToo) {
+		@content
+	}
+	@if($selector) {
+		#{$selector} { @content }
+	} 
+}
+
+@mixin oFtTypographyExtend ($class) {
+	@extend #{'%o-ft-typography-#{$class}'};
+}

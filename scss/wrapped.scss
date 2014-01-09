@@ -1,0 +1,79 @@
+@mixin oFtTypographyDefineContentWrapper ($selector) {
+	@if ($selector == $_o-ft-typography-default-wrapper-class) {
+		@include oFtTypographyClass($selector) {
+			@include ftTypographyWrappableContentStyles();
+		}
+	} @else {
+		@include oFontsInclude(MillerDisplay);
+		@include oFtTypographyWrapInSelector($selector) {
+			@include ftTypographyWrappableContentStyles();
+		}
+	}
+}
+
+@mixin ftTypographyWrappableContentStyles () {
+
+	@include oFtTypographyExtend(body);
+
+	h1 {
+		@include oFtTypographyExtend(title);
+		@include oFtTypographyExtend(title--primary);
+
+		a {
+			@include oFtTypographyExtend(lead__link);
+		}
+	}
+
+	h2 {
+		@include oFtTypographyExtend(lead);
+
+		a {
+			@include oFtTypographyExtend(lead__link);
+		}
+	}
+
+	a {
+		@include oFtTypographyExtend(body__link);
+	}
+
+	p {
+		@include oFtTypographyExtend(body__block);
+	}
+
+	strong {
+		@include oFtTypographyExtend(body--bold);
+	}
+
+	em {
+		@include oFtTypographyExtend(body--italic);
+	}				
+
+	small {
+		@include oFtTypographyExtend(body--small);
+	}
+
+	super {
+		@include oFtTypographyExtend(body--super);
+	}
+
+	sub {
+		@include oFtTypographyExtend(body--sub);
+	}
+
+	ol,
+	ul {
+		@include oFtTypographyExtend(body__list);
+	}
+
+	ol {
+		@include oFtTypographyExtend(body__list--ordered);
+	}
+
+	ul {
+		@include oFtTypographyExtend(body__list--unordered);
+	}
+
+}
+
+
+

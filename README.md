@@ -20,6 +20,13 @@ To apply the styles to elements you can't or don't wish to add classes to extend
 
     }
 
+### Wrappers
+To apply standard FT content styles styles to `h1, h2, p, a, strong, em, small, super, sub, ul, ol, li` tags within a container either:
+
+* use `oFtTypographyDefineContentWrapper('.your-wrapper-class');`
+* set `$o-ft-typography-wrapper-class: '.your-wrapper-class';` This will also suppress styles for the default wrapper '.o-ft-typography-body-text' from being outputted
+    
+
 ### Silent mode (Product developers only)
 
 To prevent the module outputting all its default classes and style rules by default set `$o-ft-typography-is-silent: true`. This may result in some origami dependencies which rely on the default styles' presence breaking, so this should be done with care. You will also need to include one or more of the following lines in your sass in order to load the fonts required by the typography you are using (due to the limitations of sass' mixins, this cannot at present be done automatically)
