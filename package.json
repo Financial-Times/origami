@@ -1,8 +1,6 @@
 {
   "name": "o-ft-typography",
-  "version": "0.0.1",
-  "repository": "http://git.svc.ft.com:9080/summary/origami%2Fo-ft-typography.git",
-  "dependencies": {},
+  "private": true,
   "engines": {
     "node": "0.10.x",
     "npm": "1.2.x"
