@@ -2,6 +2,6 @@
   "description": "Responsive, configurable dialogs",
   "origamiType": "module",
   "origamiVersion": 1,
-  "support": "web.team@ft.com",
-  "supportStatus": "active"
+  "support": "rhys.evans@ft.com",
+  "supportStatus": "not implemented"
 }

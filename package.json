@@ -1,8 +1,6 @@
 {
-  "name": "ft-footer-module",
-  "version": "0.0.1",
-  "repository": "http://git.svc.ft.com:9080/summary/product%2Fft-article.git",
-  "dependencies": {},
+  "name": "o-ft-footer",
+  "private": true,
   "engines": {
     "node": "0.10.x",
     "npm": "1.2.x"
