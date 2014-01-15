@@ -7,11 +7,17 @@
 
 /* Primary Palette */
 $o-colors-palette-pink: #fff1e0;
+@include oColorsClasses(pink, $o-colors-palette-pink);
 $o-colors-palette-black: #000000;
+@include oColorsClasses(black, $o-colors-palette-black);
 $o-colors-palette-charcoal: #333333;
+@include oColorsClasses(charcoal, $o-colors-palette-charcoal);
 $o-colors-palette-blue: #2e6e9e;
+@include oColorsClasses(blue, $o-colors-palette-blue);
 $o-colors-palette-claret: #9e2f50;
+@include oColorsClasses(claret, $o-colors-palette-claret);
 $o-colors-palette-orange: #d66d06;
+@include oColorsClasses(orange, $o-colors-palette-orange);
 
 /* Greys */
 $o-colors-palette-warm-grey1: #a7a59b;

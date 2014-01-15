@@ -1,2 +1,6 @@
+
+$o-colors-is-silent: false !default;
+
+@import 'src/scss/_mixins';
 @import 'src/scss/palette';
 @import 'src/scss/use-cases';

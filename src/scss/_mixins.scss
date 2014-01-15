@@ -1,0 +1,11 @@
+
+@mixin oColorsClasses($name, $val) {
+  @if (not $o-colors-is-silent) {
+		.o-colors-#{$name}--bg {
+		  background-color: $val;
+		}
+		.o-colors-#{$name}--fg {
+		  color: $val;
+		}
+	}
+}
