@@ -1,6 +1,22 @@
 
 $o-colors-is-silent: false !default;
 
-@import 'src/scss/_mixins';
+@import 'src/scss/_functions';
+
 @import 'src/scss/palette';
 @import 'src/scss/use-cases';
+
+@if (not $o-colors-is-silent) {
+	@each $i in $o-colors-usecase-list {
+		@if nth($i,3) == text {
+			.o-colors-#{nth($i,1)} {
+				color: _oColorsGetPaletteColor(nth($i,2));
+			}
+		} @else if nth($i,3) == background {
+			.o-colors-#{nth($i,1)} {
+				background-color: _oColorsGetPaletteColor(nth($i,2));
+			}
+		}
+	}
+}
+

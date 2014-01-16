@@ -1,61 +1,58 @@
 /**
  * Colour palette
  *
- * Avoid using these colours directly in products.  Instead, prefer the colour
- * use case variables provided elsewhere in this module.
+ * These are the colours that make up the FT palette.  We don't use these colours directly, but instead assign them to 'use cases', which are defined in use-cases.scss.
  */
 
-/* Primary Palette */
-$o-colors-palette-pink: #fff1e0;
-@include oColorsClasses(pink, $o-colors-palette-pink);
-$o-colors-palette-black: #000000;
-@include oColorsClasses(black, $o-colors-palette-black);
-$o-colors-palette-charcoal: #333333;
-@include oColorsClasses(charcoal, $o-colors-palette-charcoal);
-$o-colors-palette-blue: #2e6e9e;
-@include oColorsClasses(blue, $o-colors-palette-blue);
-$o-colors-palette-claret: #9e2f50;
-@include oColorsClasses(claret, $o-colors-palette-claret);
-$o-colors-palette-orange: #d66d06;
-@include oColorsClasses(orange, $o-colors-palette-orange);
 
-/* Greys */
-$o-colors-palette-warm-grey1: #a7a59b;
-$o-colors-palette-warm-grey2: #74736c;
-$o-colors-palette-cool-grey1: #777;
-$o-colors-palette-cool-grey2: #dfded8;
-$o-colors-palette-dark-grey: #505050;
+$o-colors-palette-list:
 
-/* Tints */
-$o-colors-palette-tint1: #f6e9d8;
-$o-colors-palette-tint2: #e9decf;
-$o-colors-palette-tint3: #cec6b9;
+	/* Primary Palette */
+    pink       #fff1e0,
+    black      #000000,
+    white      #ffffff,
+    blue       #2e6e9e,
+    claret     #9e2f50,
+    orange     #d66d06,
+    charcoal   #333333,
 
-/* Colors */
-$o-colors-palette-red: #c00;
-$o-colors-palette-green: #458b00;
+    /* Greys */
+    warm-grey1 #a7a59b,
+    warm-grey2 #74736c,
+    cool-grey1 #777,
+    cool-grey2 #dfded8,
+    dark-grey  #505050,
 
-/* Highlight colors */
-$o-colors-palette-red2: #c36256;
-$o-colors-palette-orange: #eda45e;
-$o-colors-palette-coffee: #94826b;
-$o-colors-palette-yellow: #eed485;
-$o-colors-palette-leaf: #a6a471;
-$o-colors-palette-turquoise: #819e9a;
-$o-colors-palette-blue2: #75a5c2;
-$o-colors-palette-purple: #75a5c2;
-$o-colors-palette-eggplant: #936971;
-$o-colors-palette-platinum: #c1b8b4;
+	/* Tints */
+	tint1      #f6e9d8,
+	tint2      #e9decf,
+	tint3      #cec6b9,
 
-/* Highlight tints */
-$o-colors-palette-red-tint1: #b1493f;
-$o-colors-palette-red-tint2: #c36256;
-$o-colors-palette-red-tint3: #d17c70;
-$o-colors-palette-red-tint4: #df9c92;
-$o-colors-palette-red-tint5: #ebbcb3;
+	/* Colors */
+	red        #c00,
+	green      #458b00,
 
-$o-colors-palette-blue-tint1: #b1493f;
-$o-colors-palette-blue-tint2: #75a5c2;
-$o-colors-palette-blue-tint3: #8ab5cd;
-$o-colors-palette-blue-tint4: #a9cadc;
-$o-colors-palette-blue-tint5: #bcd7e5;
+	/* Highlight colors */
+	red2       #c36256,
+	orange     #eda45e,
+	coffee     #94826b,
+	yellow     #eed485,
+	leaf       #a6a471,
+	turquoise  #819e9a,
+	blue2      #75a5c2,
+	purple     #75a5c2,
+	eggplant   #936971,
+	platinum   #c1b8b4,
+
+	/* Highlight tints */
+	red-tint1  #b1493f,
+	red-tint2  #c36256,
+	red-tint3  #d17c70,
+	red-tint4  #df9c92,
+	red-tint5  #ebbcb3,
+	blue-tint1 #b1493f,
+	blue-tint2 #75a5c2,
+	blue-tint3 #8ab5cd,
+	blue-tint4 #a9cadc,
+	blue-tint5 #bcd7e5
+;

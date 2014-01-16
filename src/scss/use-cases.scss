@@ -1,30 +1,33 @@
 /**
  * Colour use cases
  *
- * Use these instead of the palette variables directly.
+ * These mappings define what we use our colours for.  In each case, there is a use case name, a colour from the palette (see palette.scss) and either 'text' or 'background' to specify whether the colour is being used in the foreground or background.
  */
 
-$o-colors-link-text: $o-colors-palette-blue; 
-$o-colors-link-text-hover: $o-colors-palette-black;
-$o-colors-alt-link-text: $o-colors-palette-charcoal; 
-$o-colors-alt-link-text-hover: $o-colors-palette-blue;
+$o-colors-usecase-list:
 
-$o-colors-article-body-text: $o-colors-palette-charcoal;
-$o-colors-article-title: $o-colors-palette-black;
-$o-colors-article-subheading: $o-colors-palette-charcoal;
-$o-colors-article-byline: $o-colors-palette-warm-grey2;
-$o-colors-article-divider: $o-colors-palette-warm-grey2;
+	link-text                     blue       text,
+	link-text-hover               black      text,
+	alt-link-text                 charcoal   text,
+	alt-link-text-hover           blue       text,
 
-// o-ft-forms use-cases
-$o-colors-forms-label-text: $o-colors-palette-cool-grey1;
-$o-colors-forms-label-error: $o-colors-palette-red;
-$o-colors-forms-label-bg-error: $o-colors-palette-red;
-$o-colors-forms-field-text: $o-colors-palette-warm-grey2;
-$o-colors-forms-prefixsuffix-text: $o-colors-palette-warm-grey2;
-$o-colors-forms-prefixsuffix-bg: $o-colors-palette-tint1;
-$o-colors-forms-button-text: #fff;
-$o-colors-forms-button-text-hover: $o-colors-palette-cool-grey2;
-$o-colors-forms-button-negative-text: $o-colors-palette-blue;
-$o-colors-forms-button-negative-text-hover: $o-colors-palette-blue;
-$o-colors-forms-error-text: #fff;
-$o-colors-forms-error-bg: $o-colors-palette-red;
+	article-body-text             charcoal   text,
+	article-title                 black      text,
+	article-subheading            charcoal   text,
+	article-byline                warm-grey2 text,
+	article-divider               warm-grey2 text,
+
+	// o-ft-forms use-cases
+	forms-label-text              cool-grey1 text,
+	forms-label-error             red        text,
+	forms-label-bg-error          red        background,
+	forms-field-text              warm-grey2 text,
+	forms-prefixsuffix-text       warm-grey2 text,
+	forms-prefixsuffix-bg         tint1      background,
+	forms-button-text             white      text,
+	forms-button-text-hover       cool-grey2 text,
+	forms-button-negative-text    blue       text,
+	forms-button-negative-text-hover blue    text,
+	forms-error-text              white      text,
+	forms-error-bg                red        background
+;
