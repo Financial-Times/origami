@@ -9,7 +9,7 @@
 
 @function oColorsGetColorFor($name) {
 	@each $i in $o-colors-usecase-list {
-		@if nth($i,1) == $name {
+		@if nth($i,1) + '-' + nth($i,3) == $name {
 			@return _oColorsGetPaletteColor(nth($i,2));
 		}
 	}

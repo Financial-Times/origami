@@ -9,14 +9,17 @@ $o-colors-is-silent: false !default;
 @if (not $o-colors-is-silent) {
 	@each $i in $o-colors-usecase-list {
 		@if nth($i,3) == text {
-			.o-colors-#{nth($i,1)} {
+			.o-colors-#{nth($i,1)}-text {
 				color: _oColorsGetPaletteColor(nth($i,2));
 			}
 		} @else if nth($i,3) == background {
-			.o-colors-#{nth($i,1)} {
+			.o-colors-#{nth($i,1)}-background {
 				background-color: _oColorsGetPaletteColor(nth($i,2));
+			}
+		} @else if nth($i,3) == border {
+			.o-colors-#{nth($i,1)}-border {
+				border-color: _oColorsGetPaletteColor(nth($i,2));
 			}
 		}
 	}
 }
-
