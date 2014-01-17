@@ -4,16 +4,26 @@ This is an [Origami](http://financial-times.github.io/ft-origami/) module that p
 
 ## Usage
 
-This module contains only SASS variables, so if compiled on its own, it will produce no output.  To be useful, you must install the module in your project, and import `main.scss` into your own CSS, then use the variables to set the colours of your CSS selectors. In general it's advisable to define mappings of colours to particular use cases in your product/module, and then use these use case variables in your product/module's styles. For example, in your own CSS, put:
+Install the module or use the [build service](http://financial-times.github.io/ft-origami/docs/developer-guide/build-service) to load it into your page.  If you install the module, you should use it via the `oColorsGetColorFor` function:
 
-	@import "o-colors/main";
+    .mything {
+    	color: oColorsGetColorFor(article-body-text);
+    }
 
-	$my-body-text-color: $o-colors-charcoal;
+Alternatively, you may extend placeholder classes:
 
-	.my-thing {
-		color: $my-body-text-color;
-	}
+    .mything {
+    	@extend %o-colors-article-body-text;
+    }
 
-To compile your finished CSS bundle, incorporating the colors module and your own CSS, run a SASS processor such as [Smartsass](https://github.com/theblacksmith/smartsass), and set the `include-path` to wherever you put your modules.  If you are using bower to install modules, this is typically `bower_components`:
+Finally, if the module is configured to be noisy, you may use concrete classes directly in your HTML (not recommended, except for prototypes and demos):
 
-	scss --include-path bower_components resources/scss/style.scss public/resources/bundle.css
+    <p class='o-colors-article-body-text'>Article text</p>
+
+If you load the module via the build service, it will be configured to be noisy automatically.
+
+## Silent configuration
+
+This module support silent use, in which it will output no concrete selectors, only mixins, functions and placeholders.  You can then use these in your own CSS to import only the elements of the module that you need.  This is recommended, and can be configured by setting the following variable before the import in your SASS:
+
+    $o-colors-is-silent: true;
