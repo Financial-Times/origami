@@ -33,8 +33,3 @@ $o-colors-is-silent: false !default;
 		color: #{nth($i,2)};
 	}
 }
-
-
-.thing {
-	@extend %o-colors-link-text;
-}
