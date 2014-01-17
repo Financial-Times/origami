@@ -5,8 +5,10 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Test for colours module</title>
       <meta name="viewport" content="width=device-width">
-      <link rel="stylesheet" href="http://10.112.58.98/bundles/css?modules=o-colors,o-grid@1">
       <style>
+        .sample {
+          margin-bottom: 10px;
+        }
         .swatch {
           width: 50px;
           height: 50px;
@@ -18,22 +20,22 @@
           float: left;
           margin-right: 10px;
         }
-        .testcolour {
-          background-color: green;
-        }
-        .testcolour2 {
-          color: red;
+        .name {
+          font-weight: bold;
+          font-size: 130%;
         }
       </style>
+      <link rel="stylesheet" type='text/css' href="http://10.112.58.98/bundles/css?modules=o-colors@2">
+      <link rel="stylesheet" type='text/css' href="http://10.112.58.98/bundles/css?modules=o-techdocs">
   </head>
-  <body class='o-techdocs'>
+  <body class='o-techdocs o-techdocs-content'>
 
-    <h1>Palette</h1>
+    <h2>Palette</h2>
 
     <div class="o-grid-row palette-results">
     </div>
 
-    <h1>Use cases</h1>
+    <h2>Use cases</h2>
 
     <div class="o-grid-row use-cases-results">
     </div>
@@ -48,12 +50,15 @@
         var src = this.responseText;
         var m = src.match(/\$[\w\-]+\:\s*\n([^;]+);/);
         m[1].split(',').forEach(function(rule) {
-          var m = rule.replace(/\/*[\s\S]*?\*\//g, '').match(/\s*([\w\-]+)\s+([\w\-\#]+)(?:\s+([\w\-]+))?/);
-          if (type=='palette') {
-            palette[m[1]] = m[2];
-            el.innerHTML += '<div class="o-grid-col|4|m6|s12|"><div class="swatch .o-colors-palette-'+m[1]+'">A</div><h2>'+m[1]+'</h2><p>'+m[2]+'</p></div>';
-          } else {
-            el.innerHTML += '<div class="o-grid-col|4|m6|s12|"><div class="swatch .o-colors-'+m[1]+'-'+m[3]+'">A</div><h2>'+m[1]+'</h2><p>'+m[2]+' ('+palette[m[2]]+')</p></div>';
+          rule = rule.replace(/\/*[\s\S]*?\*\//g, '').replace(/\/\/.*/, '');
+          var m = rule.match(/\s*([\w\-]+)\s+([\w\-\#]+)(?:\s+([\w\-]+))?/);
+          if (m) {
+            if (type=='palette') {
+              palette[m[1]] = m[2];
+              el.innerHTML += '<div class="o-grid-col|4|l3|m6|s12| sample"><div class="swatch o-colors-palette-'+m[1]+'">A</div><div class="name">'+m[1]+'</div><div class="descrip">'+m[2]+'</div></div>';
+            } else {
+              el.innerHTML += '<div class="o-grid-col|4|l3|m6|s12| sample"><div class="swatch o-colors-'+m[1]+'-'+m[3]+'">A</div><div class="name">'+m[1]+' <em>'+m[3]+'</em></div><div class="descrip">'+m[2]+' ('+palette[m[2]]+')</div></div>';
+            }
           }
         });
       };

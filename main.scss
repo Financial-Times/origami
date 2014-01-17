@@ -30,11 +30,6 @@ $o-colors-is-silent: false !default;
 		$selector: $selector + ', %' + $selector;
 	}
 	.#{$selector} {
-		color: #{nth($i,2)};
+		background-color: #{nth($i,2)};
 	}
-}
-
-
-.thing {
-	@extend %o-colors-link-text;
 }
