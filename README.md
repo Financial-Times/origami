@@ -1,4 +1,4 @@
-# Colours
+# Colours [![Build Status](https://travis-ci.org/Financial-Times/o-colors.png?branch=master)](https://travis-ci.org/Financial-Times/o-colors)
 
 This is an [Origami](http://financial-times.github.io/ft-origami/) module that provides variables to define the FT digital colour palette.
 
