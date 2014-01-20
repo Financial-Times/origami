@@ -51,3 +51,5 @@ Instructions for maintaining the color palette for non-developers:
 1. Edit the file, following the instructions in the comments at the top of the file
 1. Switch back to the Github app and click the 'Changes' tab.  Verify that it says 'committing to <your new branch name>' and that the list shows the files with the changes you made.
 1. Type a description of your change, and press 'Commit & Sync'
+1. Load the [GitHub website page for this module](https://github.com/Financial-Times/o-colors).  If you're logged in, there should be a 'You recently pushed branches' label, and a button to 'Compare and pull request'.  Click that button.
+1. Modify your description, if you wish, and click 'Send pull request'.  GitHub will now run automated tests on your commit to ensure that the module still works correctly.
