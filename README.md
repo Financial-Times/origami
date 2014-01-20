@@ -52,4 +52,4 @@ Instructions for maintaining the color palette for non-developers:
 1. Switch back to the Github app and click the 'Changes' tab.  Verify that it says 'committing to <your new branch name>' and that the list shows the files with the changes you made.
 1. Type a description of your change, and press 'Commit & Sync'
 1. Load the [GitHub website page for this module](https://github.com/Financial-Times/o-colors).  If you're logged in, there should be a 'You recently pushed branches' label, and a button to 'Compare and pull request'.  Click that button.
-1. Modify your description, if you wish, and click 'Send pull request'.  GitHub will now run automated tests on your commit to ensure that the module still works correctly.
+1. Modify your description, if you wish, and click 'Send pull request'.  GitHub will now run automated tests on your commit to ensure that the module still works correctly.  The pull request should not be merged until it shows "All is well — The Travis CI build passed".
