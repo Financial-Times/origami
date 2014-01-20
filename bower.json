@@ -1,6 +1,6 @@
 {
     "name": "o-colors",
-    "ignore": [],
+    "ignore": ["test/*"],
     "dependencies": {},
     "devDependencies": {}
 }
