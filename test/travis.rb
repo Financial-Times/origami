@@ -2,6 +2,8 @@
 
 # Compile o-colors normally
 result = `compass compile main.scss --sass-dir=. --css-dir=build`
+
+# Check the exit code was 0 (i.e. no errors), raise an exception with the output from sass if not
 raise result unless $?.to_i == 0
 raise "When compiled the module should output some CSS" unless File.exists?('build/main.css');
 puts "Regular compile worked successfully"
