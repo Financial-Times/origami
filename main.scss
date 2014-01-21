@@ -30,6 +30,13 @@
 	@include oFtHeaderPositionStatic();
 }
 
+.o-ft-header__topbar__content {
+	@extend %o-grid-row;
+	@extend %o-grid-col;
+	@extend %o-grid-colspan-12;
+}
+ 
+
 .o-ft-header__logo {
 	display: block;
 	padding: 11px 0 31px;
@@ -57,6 +64,6 @@
 .inlinesvg .o-ft-header__logo__ft-initials {
 	display: block;
 	height: 35px;
-	fill: $o-colors-palette-charcoal;
+	fill: oColorsGetColorFor(ft-initials-text);
 	width: 100%; // needed for firefox
 }

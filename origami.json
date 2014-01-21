@@ -1,0 +1,12 @@
+{
+  "description": "Financial Times page header",
+  "origamiType": "module",
+  "origamiVersion": 0.1,
+  "support": "web.team@ft.com",
+  "supportStatus": "active",
+  "browserFeatures": {
+  	"required": "html5",
+  	"optional": "inlinesvg"
+  },
+  "demos": ["demos/main.html"]
+}

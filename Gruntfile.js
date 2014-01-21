@@ -14,7 +14,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     'origami-demo': {
       options: {
-        modernizr: true
+        modernizr: true,
+        main: ["main.mustache"]
       }
     },
     watch: {

@@ -9,13 +9,13 @@
 		min-height: 77 + $o-ft-header-top-offset + px;
 	}
 
-	.o-ft-header__nav-bar {
+	.o-ft-header__topbar {
 		position: fixed;
 		top: $o-ft-header-top-offset + px;
 		right: 0;
 		left: 0;
 	   	height: 50px;
-	   	background-color: $o-colors-palette-charcoal;
+	   	background-color: oColorsGetColorFor(header-background);
 	}	
 }
 
@@ -26,8 +26,8 @@
 		min-height: 77px;
 	}
 
-	.o-ft-header__nav-bar {
+	.o-ft-header__topbar {
 	   	height: 50px;
-	   	background-color: $o-colors-palette-charcoal;
+	   	background-color: oColorsGetColorFor(header-background);
 	}
 }
