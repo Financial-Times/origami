@@ -10,39 +10,39 @@
 
 $o-colors-usecase-list:
 
-	// Links
-	link                          blue       text,
-	link-hover                    black      text,
-	alt-link                      charcoal   text,
-	alt-link-hover                blue       text,
+    // Links
+    link                          blue       text,
+    link-hover                    black      text,
+    alt-link                      charcoal   text,
+    alt-link-hover                blue       text,
 
-	// FT wrapper
-	page 						  pink       background,
-	header 						  charcoal 	 background,
-	ft-initials 				  charcoal   text,
-	footer 						  tint1		 background,
-	footer-underline 			  tint2		 border,
-	pearson 				      tint2 	 background,
-	pearson                       warm-grey2 text,
+    // FT wrapper
+    page                          pink       background,
+    header                        charcoal   background,
+    ft-initials                   charcoal   text,
+    footer                        tint1      background,
+    footer-underline              tint2      border,
+    pearson                       tint2      background,
+    pearson                       warm-grey2 text,
 
-	// Article
-	article-body                  charcoal   text,
-	article-title                 black      text,
-	article-subheading            charcoal   text,
-	article-byline                warm-grey2 text,
-	article-divider               warm-grey2 text,
+    // Article
+    article-body                  charcoal   text,
+    article-title                 black      text,
+    article-subheading            charcoal   text,
+    article-byline                warm-grey2 text,
+    article-divider               warm-grey2 text,
 
-	// o-ft-forms use-cases
-	forms-label                   cool-grey1 text,
-	forms-label-error             red        text,
-	forms-label-error             red        background,
-	forms-field                   warm-grey2 text,
-	forms-prefixsuffix            warm-grey2 text,
-	forms-prefixsuffix            tint1      background,
-	forms-button                  white      text,
-	forms-button-hover            cool-grey2 text,
-	forms-button-negative         blue       text,
-	forms-button-negative-hover   blue       text,
-	forms-error                   white      text,
-	forms-error                   red        background
+    // o-ft-forms use-cases
+    forms-label                   cool-grey1 text,
+    forms-label-error             red        text,
+    forms-label-error             red        background,
+    forms-field                   warm-grey2 text,
+    forms-prefixsuffix            warm-grey2 text,
+    forms-prefixsuffix            tint1      background,
+    forms-button                  white      text,
+    forms-button-hover            cool-grey2 text,
+    forms-button-negative         blue       text,
+    forms-button-negative-hover   blue       text,
+    forms-error                   white      text,
+    forms-error                   red        background
 ;
