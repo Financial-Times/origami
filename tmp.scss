@@ -1,4 +1,10 @@
-@import "o-assets/main";
+html, body {
+	margin: 0;
+	padding: 0;
+}
+$o-grid-mq-type: width;
+$o-ft-footer-is-silent: false;
+$o-assets-global-path: "../bower_components/";@import "o-assets/main";
 @import "o-ft-typography/main";
 @import "o-colors/main";
 @import "o-grid/main";

@@ -17,7 +17,8 @@ module.exports = function(grunt) {
         modernizr: true,
         viewModel: {
           footer: require('./footer.json')
-        }
+        },
+        main: ["main.mustache"]
       }
     },
     watch: {
