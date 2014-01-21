@@ -5,19 +5,20 @@ html, body {
 /**
  * Colour palette
  *
- * Avoid using these colours directly in products.  Instead, prefer the colour
- * use case variables provided elsewhere in this module.
+ * These are the colours that make up the FT palette.  We don't use these colours directly, but instead assign them to 'use cases', which are defined in use-cases.scss.  In the list below, each line contains a color name and a colour code, and is finished with a comma:
+ *
+ *  <colorname>   <colour code>,
+ *
+ * The colour name must be a single word comprising just letters, numbers, and dashes.  You can have as many spaces between the colour name and the colour code as you like (so you can line them up neatly), and you *MUST* finish the line with a comma (except the final entry, which should not have a comma)
  */
-/* Primary Palette */
-/* Greys */
-/* Tints */
-/* Colors */
-/* Highlight colors */
-/* Highlight tints */
 /**
  * Colour use cases
  *
- * Use these instead of the palette variables directly.
+ * These mappings define what we use our colours for.  In the list below, each line contains a use case, a color name and a role, and is finished with a comma:
+ *
+ *  <use case>   <colorname>   <role>,
+ *
+ * The use case name must be a single word comprising just letters, numbers, and dashes.  The colour name should be an exact match for a colour defiend in palette.scss, and the role must be 'text', 'border', or 'background'.   You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
  */
 /* Load fonts */
 @font-face {

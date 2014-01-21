@@ -1,7 +1,7 @@
 @import "o-colors/main";
 @import "o-fonts/main";
-@import "scss/variables";
-@import "scss/mixins";
+@import "scss/_variables";
+@import "scss/_mixins";
 
 
 /* Load fonts */
@@ -11,7 +11,7 @@
 	@include oFontsInclude(MillerDisplay);
 }
 
-@import "scss/standalone";
-@import "scss/wrapped";
+@import "scss/_standalone";
+@import "scss/_wrapped";
 
 @include oFtTypographyDefineContentWrapper($o-ft-typography-wrapper-class);

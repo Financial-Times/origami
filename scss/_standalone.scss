@@ -3,7 +3,7 @@
 	/* Titles */
 	@include oFtTypographyClass(title) {
 		font-family: $o-ft-typography-title-font;
-		color: $o-colors-article-title;	
+		color: oColorsGetColorFor(article-title-text);	
 	}
 
 	@include oFtTypographyClass(title--primary) {
@@ -15,10 +15,10 @@
 		@include oFtTypographyFontSize(16, 30);
 		@include oFtTypographyExtend(body__block);
 		font-family: $o-ft-typography-subheading-font;
-		color: $o-colors-article-subheading;
+		color: oColorsGetColorFor(article-subheading-text);
 		margin-bottom: 15px;
-		border-top: 1px dotted $o-colors-article-divider;
-		border-bottom: 1px dotted $o-colors-article-divider;
+		border-top: 1px dotted oColorsGetColorFor(article-divider-border);
+		border-bottom: 1px dotted oColorsGetColorFor(article-divider-border);
 
 		& + * {
 			margin-top: 0;
@@ -28,11 +28,11 @@
 	/* Links */
 	@include oFtTypographyClass(title__link lead__link) {
 		text-decoration: none;
-		color: $o-colors-article-title;
+		color: oColorsGetColorFor(article-title-text);
 	}
 
 	@include oFtTypographyClass(title__link--hover 'title__link:hover' lead__link--hover 'lead__link:hover')  {
-		color: $o-colors-link-text;
+		color: oColorsGetColorFor(link-text);
 	}
 
 
@@ -40,13 +40,13 @@
 @include oFtTypographyClass(byline)  {
 	@include oFtTypographyFontSize(14, 24);
 	font-family: $o-ft-typography-ui-font;
-	color: $o-colors-article-byline;
+	color: oColorsGetColorFor(article-byline-text);
 }
 
 @include oFtTypographyClass(timestamp)  {
 	@include oFtTypographyFontSize(14, 24);
 	font-family: $o-ft-typography-ui-font;
-	color: $o-colors-article-byline;
+	color: oColorsGetColorFor(article-byline-text);
 }
 
 
@@ -56,7 +56,7 @@
 	@mixin oFtTypographyBodyTextStyle () {
 		@include oFtTypographyFontSize(16, 24);
 		font-family: $o-ft-typography-body-font;
-		color: $o-colors-article-body-text;
+		color: oColorsGetColorFor(article-body-text);
 	}
 
 @include oFtTypographyClass(body)  {
@@ -107,9 +107,9 @@
 
 @include oFtTypographyClass(body__link) {
 	text-decoration: none;
-	color: $o-colors-link-text;
+	color: oColorsGetColorFor(link-text);
 }
 
 @include oFtTypographyClass(body__link--hover 'body__link:hover') {
-	color: $o-colors-link-text-hover;
+	color: oColorsGetColorFor(link-hover-text);
 }
