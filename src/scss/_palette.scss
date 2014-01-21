@@ -1,0 +1,62 @@
+/**
+ * Colour palette
+ *
+ * These are the colours that make up the FT palette.  We don't use these colours directly, but instead assign them to 'use cases', which are defined in use-cases.scss.  In the list below, each line contains a color name and a colour code, and is finished with a comma:
+ *
+ *  <colorname>   <colour code>,
+ *
+ * The colour name must be a single word comprising just letters, numbers, and dashes.  You can have as many spaces between the colour name and the colour code as you like (so you can line them up neatly), and you *MUST* finish the line with a comma (except the final entry, which should not have a comma)
+ */
+
+
+$o-colors-palette-list:
+
+	/* Primary Palette */
+	pink       #fff1e0,
+	black      #000000,
+	white      #ffffff,
+	blue       #2e6e9e,
+	claret     #9e2f50,
+	orange     #d66d06,
+	charcoal   #333333,
+
+	/* Greys */
+	warm-grey1 #a7a59b,
+	warm-grey2 #74736c,
+	cool-grey1 #777,
+	cool-grey2 #dfded8,
+	dark-grey  #505050,
+
+	/* Tints */
+	tint1      #f6e9d8,
+	tint2      #e9decf,
+	tint3      #cec6b9,
+
+	/* Colors */
+	red        #c00,
+	green      #458b00,
+
+	/* Highlight colors */
+	red2       #c36256,
+	orange     #eda45e,
+	coffee     #94826b,
+	yellow     #eed485,
+	leaf       #a6a471,
+	turquoise  #819e9a,
+	blue2      #75a5c2,
+	purple     #75a5c2,
+	eggplant   #936971,
+	platinum   #c1b8b4,
+
+	/* Highlight tints */
+	red-tint1  #b1493f,
+	red-tint2  #c36256,
+	red-tint3  #d17c70,
+	red-tint4  #df9c92,
+	red-tint5  #ebbcb3,
+	blue-tint1 #b1493f,
+	blue-tint2 #75a5c2,
+	blue-tint3 #8ab5cd,
+	blue-tint4 #a9cadc,
+	blue-tint5 #bcd7e5
+;

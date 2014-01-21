@@ -1,2 +1,35 @@
+
+$o-colors-is-silent: false !default;
+
+@import 'src/scss/functions';
+
 @import 'src/scss/palette';
 @import 'src/scss/use-cases';
+
+// Output use case placeholders and (if noisy) concrete classes
+@each $i in $o-colors-usecase-list {
+	$selector: 'o-colors-' + nth($i,1) + '-' + nth($i,3);
+	@if (not $o-colors-is-silent) {
+		$selector: $selector + ', .' + $selector;
+	}
+	%#{$selector} {
+		@if nth($i,3) == text {
+			color: _oColorsGetPaletteColor(nth($i,2));
+		} @else if nth($i,3) == background {
+			background-color: _oColorsGetPaletteColor(nth($i,2));
+		} @else if nth($i,3) == border {
+			border-color: _oColorsGetPaletteColor(nth($i,2));
+		}
+	}
+}
+
+// Output palette placeholders and (if noisy) concrete classes
+@each $i in $o-colors-palette-list {
+	$selector: 'o-colors-palette-' + nth($i,1);
+	@if (not $o-colors-is-silent) {
+		$selector: $selector + ', .' + $selector;
+	}
+	%#{$selector} {
+		background-color: #{nth($i,2)};
+	}
+}

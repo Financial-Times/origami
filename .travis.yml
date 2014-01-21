@@ -1,0 +1,6 @@
+script:
+ - "test/travis.rb"
+language: ruby
+before_install:
+ - gem install sass
+ - gem install compass

@@ -1,0 +1,37 @@
+/**
+ * Colour use cases
+ *
+ * These mappings define what we use our colours for.  In the list below, each line contains a use case, a color name and a role, and is finished with a comma:
+ *
+ *  <use case>   <colorname>   <role>,
+ *
+ * The use case name must be a single word comprising just letters, numbers, and dashes.  The colour name should be an exact match for a colour defiend in palette.scss, and the role must be 'text', 'border', or 'background'.   You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ */
+
+$o-colors-usecase-list:
+
+	link                          blue       text,
+	link-hover                    black      text,
+	alt-link                      charcoal   text,
+	alt-link-hover                blue       text,
+
+	article-body                  charcoal   text,
+	article-title                 black      text,
+	article-subheading            charcoal   text,
+	article-byline                warm-grey2 text,
+	article-divider               warm-grey2 text,
+
+	// o-ft-forms use-cases
+	forms-label                   cool-grey1 text,
+	forms-label-error             red        text,
+	forms-label-error             red        background,
+	forms-field                   warm-grey2 text,
+	forms-prefixsuffix            warm-grey2 text,
+	forms-prefixsuffix            tint1      background,
+	forms-button                  white      text,
+	forms-button-hover            cool-grey2 text,
+	forms-button-negative         blue       text,
+	forms-button-negative-hover   blue       text,
+	forms-error                   white      text,
+	forms-error                   red        background
+;
