@@ -1,6 +1,9 @@
 {
     "name": "o-colors",
-    "ignore": ["test/*"],
+    "ignore": [
+    	"README.md",
+    	"test/*"
+    ],
     "dependencies": {},
     "devDependencies": {}
 }
