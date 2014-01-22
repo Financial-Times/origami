@@ -45,7 +45,7 @@
     ['palette', 'use-cases'].forEach(function(type) {
       var oReq = new XMLHttpRequest();
       var el = document.querySelector('.'+type+'-results');
-      oReq.open("GET", "../src/scss/"+type+".scss", true);
+      oReq.open("GET", "../src/scss/_"+type+".scss", true);
       oReq.onload = function() {
         var src = this.responseText;
         var m = src.match(/\$[\w\-]+\:\s*\n([^;]+);/);
