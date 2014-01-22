@@ -1,9 +1,15 @@
 @import "o-assets/main";
 @import "o-grid/main";
+@import "o-fonts/main";
 @import "o-colors/main";
 
 @import '_variables';
 @import '_mixins';
+
+/* Load fonts */
+@if (not $o-ft-header-is-silent) {
+	@include oFontsInclude(BentonSans);
+}
 
 @if ($o-ft-header-sticky) {
 	@if (length($o-ft-header-sticky) > 0) {
@@ -42,6 +48,7 @@
 	padding: 11px 0 31px;
 	width: 82px;
 	height: 35px;
+	float: left;
 	// default gif for when inline svg not supported
 	// not wrapped in `no-inlinesvg` in case modernizr fails to run
 	background: url(oFtHeaderAsset("img/ft-logo.gif")) no-repeat; 
@@ -66,4 +73,28 @@
 	height: 35px;
 	fill: oColorsGetColorFor(ft-initials-text);
 	width: 100%; // needed for firefox
+}
+
+
+.o-ft-header__topbar__items {
+	text-align: right;
+	overflow: hidden;
+	height: 50px;
+}
+
+.o-ft-header__topbar__item {
+	display: inline-block;
+	min-width: 50px;
+	height: 50px;
+	text-align: center;
+	color: #fff;
+	background-color: #333;
+	font-family: $o-fonts-bentonsans-normal;
+	font-size: 25px;
+	line-height: 50px;
+	cursor: pointer;
+}
+
+.o-ft-header__topbar__item:hover {
+	color: #ddd;
 }

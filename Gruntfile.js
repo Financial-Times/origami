@@ -15,7 +15,10 @@ module.exports = function(grunt) {
     'origami-demo': {
       options: {
         modernizr: true,
-        main: ["main.mustache"]
+        main: ["main.mustache"],
+        viewModel: {
+          oFtHeaderTopbarItems: '<div>Example toolbar content</div>'
+        }
       }
     },
     watch: {
