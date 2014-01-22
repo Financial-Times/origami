@@ -16,50 +16,50 @@ h2 {
 }
 </style>
 
-<div class="o-grid-row o-grid-col|12|">
+<div class="o-grid-row" data-o-grid-colspan="12">
 	<h1>o-ft-forms</h1>
 </div>
 
-<div class="o-grid-row o-grid-col|12|">
+<div class="o-grid-row" data-o-grid-colspan="12">
 	<h2>Inputs</h2>
 </div>
 <div class="o-grid-row">
-  	<div class="o-grid-col|3|s12|m6|">
+  	<div data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">Text input</label>
 		<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
-  	<div class="o-grid-col|3|s12|m6|">
+  	<div data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">Text input with value entered</label>
 		<input type="text" placeholder="placeholder" class="o-ft-forms__field" value="Field value" />
   	</div>
-	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Text input (error)</label>
 		<input type="text" placeholder="placeholder" class="o-ft-forms__field" value="Field value" />
 		<small class="o-ft-forms__errortext">Invalid entry</small>
 	</div>
-	<div class="o-grid-col|3|s12|m6|">
+	<div data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">URL input :invalid</label>
 		<input type="url" placeholder="placeholder" class="o-ft-forms__field" value="http://" />
 	</div>
 </div>
 <div class="o-grid-row">
-  	<div class="o-grid-col|3|s12|m12|">
+  	<div data-o-grid-colspan="3 S12 M12">
 		<div class="o-grid-row">
-			<div class="o-grid-col|4|">
+			<div data-o-grid-colspan="4">
 				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
-			<div class="o-grid-col|8|">
+			<div data-o-grid-colspan="8">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
 		</div>
   	</div>
-	<div class="o-grid-col|3|s12|m12|">&nbsp;</div>
-	<div class="o-grid-col|3|s12|m12| o-ft-forms--error">
+	<div data-o-grid-colspan="3 S12 M12">&nbsp;</div>
+	<div data-o-grid-colspan="3 S12 M12" class="o-ft-forms--error">
 		<div class="o-grid-row">
-			<div class="o-grid-col|4|">
+			<div data-o-grid-colspan="4">
 				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
-			<div class="o-grid-col|8|">
+			<div data-o-grid-colspan="8">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 				<small class="o-ft-forms__errortext">Invalid entry</small>
 			</div>
@@ -67,11 +67,11 @@ h2 {
 	</div>
 </div>
 
-<div class="o-grid-row o-grid-col|12|">
+<div class="o-grid-row" data-o-grid-colspan="12">
 	<h2>Select boxes</h2>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|3|s12|m6|">
+	<div data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">Select box</label>
 		<select class="o-ft-forms__field">
 			<option value="option1">Option 1</option>
@@ -80,8 +80,8 @@ h2 {
 			<option value="option4">Option 4</option>
 		</select>
 	</div>
-	<div class="o-grid-col|3|s0|m0|">&nbsp;</div>
-	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+	<div data-o-grid-colspan="3 s0 m0">&nbsp;</div>
+	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Select box (error)</label>
 		<select class="o-ft-forms__field">
 			<option value="option1">Option 1</option>
@@ -93,12 +93,12 @@ h2 {
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|3|s12|m6|">
+	<div data-o-grid-colspan="3 S12 M6">
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -108,13 +108,13 @@ h2 {
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|3|s0|m0|">&nbsp;</div>
-	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+	<div data-o-grid-colspan="3 s0 m0">&nbsp;</div>
+	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms--error">
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -127,37 +127,37 @@ h2 {
 	</div>
 </div>
 
-<div class="o-grid-row o-grid-col|12|">
+<div class="o-grid-row" data-o-grid-colspan="12">
 	<h2>Textarea</h2>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|6|s12|m12|">
+	<div data-o-grid-colspan="6 S12 M12">
 		<label class="o-ft-forms__label">Textarea</label>
 		<textarea placeholder="placeholder" class="o-ft-forms__field"></textarea>
 	</div>
-	<div class="o-grid-col|6|s12|m12| o-ft-forms--error">
+	<div data-o-grid-colspan="6 S12 M12" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Textarea (error)</label>
 		<textarea placeholder="placeholder" class="o-ft-forms__field"></textarea>
 		<small class="o-ft-forms__errortext">Invalid entry</small>
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|6|s12|m12|">
+	<div data-o-grid-colspan="6 S12 M12">
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<textarea placeholder="placeholder" class="o-ft-forms__field"></textarea>
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|6|s12|m12|">
+	<div data-o-grid-colspan="6 S12 M12">
 		<div class="o-grid-row o-grid-row-compact o-ft-forms--error">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label (error)</label>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<textarea placeholder="placeholder" class="o-ft-forms__field"></textarea>
 				<small class="o-ft-forms__errortext">Invalid entry</small>
 			</div>
@@ -165,17 +165,17 @@ h2 {
 	</div>
 </div>
 
-<div class="o-grid-row o-grid-col|12|">
+<div class="o-grid-row" data-o-grid-colspan="12">
 	<h2>Radio</h2>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|6|s12|m12|">
+	<div data-o-grid-colspan="6 S12 M12">
 		<label class="o-ft-forms__label">Label</label>
 		<input type="radio" name="radio" value="1" class="o-ft-forms__field" id="radio1"><label for="radio1" class="o-ft-forms__label">Radio 1</label>
 		<input type="radio" name="radio" value="2" class="o-ft-forms__field" id="radio2"><label for="radio2" class="o-ft-forms__label">Radio 2</label>
 		<input type="radio" name="radio" value="3" class="o-ft-forms__field" id="radio3"><label for="radio3" class="o-ft-forms__label">Radio 3</label>
 	</div>
-	<div class="o-grid-col|6|s12|m12| o-ft-forms--error">
+	<div data-o-grid-colspan="6 S12 M12" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Label (error)</label>
 		<input type="radio" name="radio" value="1" class="o-ft-forms__field" id="radio1"><label for="radio1" class="o-ft-forms__label">Radio 1</label>
 		<input type="radio" name="radio" value="2" class="o-ft-forms__field" id="radio2"><label for="radio2" class="o-ft-forms__label">Radio 2</label>
@@ -184,24 +184,24 @@ h2 {
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|6|s12|m12|">
+	<div data-o-grid-colspan="6 S12 M12">
 		<div class="o-grid-row">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="radio" name="radio" value="1" class="o-ft-forms__field" id="radio1"><label for="radio1" class="o-ft-forms__label">Radio 1</label>
 				<input type="radio" name="radio" value="2" class="o-ft-forms__field" id="radio2"><label for="radio2" class="o-ft-forms__label">Radio 2</label>
 				<input type="radio" name="radio" value="3" class="o-ft-forms__field" id="radio3"><label for="radio3" class="o-ft-forms__label">Radio 3</label>
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|6|s12|m12|">
+	<div data-o-grid-colspan="6 S12 M12">
 		<div class="o-grid-row o-ft-forms--error">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label (error)</label>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="radio" name="radio" value="1" class="o-ft-forms__field" id="radio1"><label for="radio1" class="o-ft-forms__label">Radio 1</label>
 				<input type="radio" name="radio" value="2" class="o-ft-forms__field" id="radio2"><label for="radio2" class="o-ft-forms__label">Radio 2</label>
 				<input type="radio" name="radio" value="3" class="o-ft-forms__field" id="radio3"><label for="radio3" class="o-ft-forms__label">Radio 3</label>
@@ -211,17 +211,17 @@ h2 {
 	</div>
 </div>
 
-<div class="o-grid-row o-grid-col|12|">
+<div class="o-grid-row" data-o-grid-colspan="12">
 	<h2>Checkboxes</h2>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|6|s12|m12|">
+	<div data-o-grid-colspan="6 S12 M12">
 		<label class="o-ft-forms__label">Label</label>
 		<input type="checkbox" name="checkbox" value="1" class="o-ft-forms__field" id="checkbox1"><label for="checkbox1" class="o-ft-forms__label">Checkbox 1</label>
 		<input type="checkbox" name="checkbox" value="2" class="o-ft-forms__field" id="checkbox2"><label for="checkbox2" class="o-ft-forms__label">Checkbox 2</label>
 		<input type="checkbox" name="checkbox" value="3" class="o-ft-forms__field" id="checkbox3"><label for="checkbox3" class="o-ft-forms__label">Checkbox 3</label>
 	</div>
-	<div class="o-grid-col|6|s12|m12| o-ft-forms--error">
+	<div data-o-grid-colspan="6 S12 M12" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Label (error)</label>
 		<input type="checkbox" name="checkbox" value="1" class="o-ft-forms__field" id="checkbox1"><label for="checkbox1" class="o-ft-forms__label">Checkbox 1</label>
 		<input type="checkbox" name="checkbox" value="2" class="o-ft-forms__field" id="checkbox2"><label for="checkbox2" class="o-ft-forms__label">Checkbox 2</label>
@@ -230,24 +230,24 @@ h2 {
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|6|s12|m12|">
+	<div data-o-grid-colspan="6 S12 M12">
 		<div class="o-grid-row">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<label class="o-ft-forms__label o-ft-forms__label--inline">Label</label>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="checkbox" name="checkbox" value="1" class="o-ft-forms__field" id="checkbox1"><label for="checkbox1" class="o-ft-forms__label">Checkbox 1</label>
 				<input type="checkbox" name="checkbox" value="2" class="o-ft-forms__field" id="checkbox2"><label for="checkbox2" class="o-ft-forms__label">Checkbox 2</label>
 				<input type="checkbox" name="checkbox" value="3" class="o-ft-forms__field" id="checkbox3"><label for="checkbox3" class="o-ft-forms__label">Checkbox 3</label>
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|6|s12|m12| o-ft-forms--error">
+	<div data-o-grid-colspan="6 S12 M12" class="o-ft-forms--error">
 		<div class="o-grid-row">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label (error)</label>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="checkbox" name="checkbox" value="1" class="o-ft-forms__field" id="checkbox1"><label for="checkbox1" class="o-ft-forms__label">Checkbox 1</label>
 				<input type="checkbox" name="checkbox" value="2" class="o-ft-forms__field" id="checkbox2"><label for="checkbox2" class="o-ft-forms__label">Checkbox 2</label>
 				<input type="checkbox" name="checkbox" value="3" class="o-ft-forms__field" id="checkbox3"><label for="checkbox3" class="o-ft-forms__label">Checkbox 3</label>
@@ -257,51 +257,51 @@ h2 {
 	</div>
 </div>
 
-<div class="o-grid-row o-grid-col|12|">
+<div class="o-grid-row" data-o-grid-colspan="12">
 	<h2>Prefixes and suffixes</h2>
 </div>
 <div class="o-grid-row">
-  	<div class="o-grid-col|3|s12|m6|">
+  	<div data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">Text input with prefix label</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span class="o-ft-forms__prefix">http://</span>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
 		</div>
   	</div>
-  	<div class="o-grid-col|3|s12|m6|">
+  	<div data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">Text input with suffix label</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span class="o-ft-forms__suffix">.com</span>
 			</div>
 		</div>
   	</div>
-	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Text input with prefix label (span) (error)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span class="o-ft-forms__prefix">.com</span>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
 		</div>
 		<small class="o-ft-forms__errortext">Invalid entry</small>
 	</div>
-	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Text input with suffix label (span) (error)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span class="o-ft-forms__suffix">.com</span>
 			</div>
 		</div>
@@ -309,13 +309,13 @@ h2 {
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|3|s12|m6|">
+	<div data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">Select box with prefix label (span)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span class="o-ft-forms__prefix">http://</span>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -325,10 +325,10 @@ h2 {
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|3|s12|m6|">
+	<div data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">Select box with suffix label (span)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -336,18 +336,18 @@ h2 {
 					<option value="option4">Option 4</option>
 				</select>
 			</div>
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span class="o-ft-forms__suffix">.com</span>
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Select box with prefix label (span)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span class="o-ft-forms__prefix">http://</span>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -358,10 +358,10 @@ h2 {
 		</div>
 		<small class="o-ft-forms__errortext">Invalid entry</small>
 	</div>
-	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Select box with suffix label (span)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -369,7 +369,7 @@ h2 {
 					<option value="option4">Option 4</option>
 				</select>
 			</div>
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span class="o-ft-forms__suffix">.com</span>
 			</div>
 		</div>
@@ -377,47 +377,47 @@ h2 {
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|3|s12|m6|">
+	<div data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">Text input with prefix button (span)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span class="o-ft-forms__prefix o-ft-forms__button">Go</span>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|3|s12|m6|">
+	<div data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">Text input with suffix button (span)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span class="o-ft-forms__suffix o-ft-forms__button">Go</span>
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Text input with prefix button (span)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span class="o-ft-forms__prefix o-ft-forms__button">Go</span>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
 		</div>
 		<small class="o-ft-forms__errortext">Invalid entry</small>
 	</div>
-	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Text input with suffix button (span)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span class="o-ft-forms__suffix o-ft-forms__button">Go</span>
 			</div>
 		</div>
@@ -425,13 +425,13 @@ h2 {
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|3|s12|m6|">
+	<div data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">Select box with prefix button (span)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span href="#" class="o-ft-forms__prefix o-ft-forms__button">Go</span>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -441,10 +441,10 @@ h2 {
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|3|s12|m6|">
+	<div data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">Select box with suffix button (span)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -452,18 +452,18 @@ h2 {
 					<option value="option4">Option 4</option>
 				</select>
 			</div>
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span href="#" class="o-ft-forms__suffix o-ft-forms__button">Go</span>
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Select box with prefix button (span)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span href="#" class="o-ft-forms__prefix o-ft-forms__button">Go</span>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -474,10 +474,10 @@ h2 {
 		</div>
 		<small class="o-ft-forms__errortext">Invalid entry</small>
 	</div>
-	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Select box with suffix button (span)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -485,7 +485,7 @@ h2 {
 					<option value="option4">Option 4</option>
 				</select>
 			</div>
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<span href="#" class="o-ft-forms__suffix o-ft-forms__button">Go</span>
 			</div>
 		</div>
@@ -493,47 +493,47 @@ h2 {
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|3|s12|m12|">
+	<div data-o-grid-colspan="3 S12 M12">
 		<label class="o-ft-forms__label">Text input with prefix button (button)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<button type="button" class="o-ft-forms__prefix o-ft-forms__button">Go</button>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|3|s12|m12|">
+	<div data-o-grid-colspan="3 S12 M12">
 		<label class="o-ft-forms__label">Text input with suffix button (button)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<button type="button" class="o-ft-forms__suffix o-ft-forms__button">Go</button>
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|3|s12|m12| o-ft-forms--error">
+	<div data-o-grid-colspan="3 S12 M12" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Text input with prefix button (button)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<button type="button" class="o-ft-forms__prefix o-ft-forms__button">Go</button>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
 		</div>
 		<small class="o-ft-forms__errortext">Invalid entry</small>
 	</div>
-	<div class="o-grid-col|3|s12|m12| o-ft-forms--error">
+	<div data-o-grid-colspan="3 S12 M12" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Text input with suffix button (button)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<button type="button" class="o-ft-forms__suffix o-ft-forms__button">Go</button>
 			</div>
 		</div>
@@ -541,13 +541,13 @@ h2 {
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|3|s12|m6|">
+	<div data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">Select box with prefix button (button)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<button type="button" class="o-ft-forms__prefix o-ft-forms__button">Go</button>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -557,10 +557,10 @@ h2 {
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|3|s12|m6|">
+	<div data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">Select box with suffix button (button)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -568,18 +568,18 @@ h2 {
 					<option value="option4">Option 4</option>
 				</select>
 			</div>
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<button type="button" class="o-ft-forms__suffix o-ft-forms__button">Go</button>
 			</div>
 		</div>
 	</div>
-	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Select box with prefix button (button)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<button type="button" class="o-ft-forms__prefix o-ft-forms__button">Go</button>
 			</div>
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -590,10 +590,10 @@ h2 {
 		</div>
 		<small class="o-ft-forms__errortext">Invalid entry</small>
 	</div>
-	<div class="o-grid-col|3|s12|m6| o-ft-forms--error">
+	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Select box with suffix button (button)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|9|">
+			<div data-o-grid-colspan="9">
 				<select class="o-ft-forms__field">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -601,7 +601,7 @@ h2 {
 					<option value="option4">Option 4</option>
 				</select>
 			</div>
-			<div class="o-grid-col|3|">
+			<div data-o-grid-colspan="3">
 				<button type="button" class="o-ft-forms__suffix o-ft-forms__button">Go</button>
 			</div>
 		</div>
@@ -609,30 +609,30 @@ h2 {
 	</div>
 </div>
 <div class="o-grid-row">
-  	<div class="o-grid-col|6|s12|m12|">
+  	<div data-o-grid-colspan="6 S12 M12">
 		<label class="o-ft-forms__label">Text input with prefix label and suffix button</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|1|">
+			<div data-o-grid-colspan="1">
 				<span class="o-ft-forms__prefix">http://</span>
 			</div>
-			<div class="o-grid-col|10|">
+			<div data-o-grid-colspan="10">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
-			<div class="o-grid-col|1|">
+			<div data-o-grid-colspan="1">
 				<button type="button" class="o-ft-forms__suffix o-ft-forms__button">Go</button>
 			</div>
 		</div>
   	</div>
-  	<div class="o-grid-col|6|s12|m12| o-ft-forms--error">
+  	<div data-o-grid-colspan="6 S12 M12" class="o-ft-forms--error">
 		<label class="o-ft-forms__label">Text input with prefix label and suffix button (error)</label>
 		<div class="o-grid-row o-grid-row-compact">
-			<div class="o-grid-col|1|">
+			<div data-o-grid-colspan="1">
 				<span class="o-ft-forms__prefix">http://</span>
 			</div>
-			<div class="o-grid-col|10|">
+			<div data-o-grid-colspan="10">
 				<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
 			</div>
-			<div class="o-grid-col|1|">
+			<div data-o-grid-colspan="1">
 				<button type="button" class="o-ft-forms__suffix o-ft-forms__button">Go</button>
 			</div>
 		</div>
@@ -640,11 +640,11 @@ h2 {
   	</div>
 </div>
 
-<div class="o-grid-row o-grid-col|12|">
+<div class="o-grid-row" data-o-grid-colspan="12">
 	<h2>Buttons</h2>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|4|s12|m12|">
+	<div data-o-grid-colspan="4 S12 M12">
 	  	<label class="o-ft-forms__label">Individual buttons (small)</label>
 		<a href="#" class="o-ft-forms__button o-ft-forms__button--small">a</a>
 		<button type="button" class="o-ft-forms__button o-ft-forms__button--small">button</button>
@@ -655,7 +655,7 @@ h2 {
 		<a href="#" class="o-ft-forms__button o-ft-forms__button--small o-ft-forms__button--negative o-ft-forms__button--disabled">a</a>
 		<button type="button" class="o-ft-forms__button o-ft-forms__button--small o-ft-forms__button--negative o-ft-forms__button--disabled">button</button>
 	</div>
-	<div class="o-grid-col|4|s12|m12|">
+	<div data-o-grid-colspan="4 S12 M12">
 	  	<label class="o-ft-forms__label">Individual buttons (medium)</label>
 		<a href="#" class="o-ft-forms__button o-ft-forms__button--medium">a</a>
 		<button type="button" class="o-ft-forms__button o-ft-forms__button--medium">button</button>
@@ -666,7 +666,7 @@ h2 {
 		<a href="#" class="o-ft-forms__button o-ft-forms__button--medium o-ft-forms__button--negative o-ft-forms__button--disabled">a</a>
 		<button type="button" class="o-ft-forms__button o-ft-forms--medium o-ft-forms__button--negative o-ft-forms__button--disabled">button</button>
 	</div>
-	<div class="o-grid-col|4|s12|m12|">
+	<div data-o-grid-colspan="4 S12 M12">
 	  	<label class="o-ft-forms__label">Individual buttons (large)</label>
 		<a href="#" class="o-ft-forms__button o-ft-forms__button--large">a</a>
 		<button type="button" class="o-ft-forms__button o-ft-forms__button--large">button</button>
@@ -679,7 +679,7 @@ h2 {
 	</div>
 </div>
 <div class="o-grid-row">
-	<div class="o-grid-col|4|s12|m12|">
+	<div data-o-grid-colspan="4 S12 M12">
 		<label class="o-ft-forms__label">Button group (small)</label>
 		<div class="o-ft-forms__buttongroup">
 			<a href="#" class="o-ft-forms__button o-ft-forms__button--small">a</a>
@@ -688,7 +688,7 @@ h2 {
 			<button type="button" class="o-ft-forms__button o-ft-forms__button--small">button</button>
 		</div>
 	</div>
-	<div class="o-grid-col|4|s12|m12|">
+	<div data-o-grid-colspan="4 S12 M12">
 		<label class="o-ft-forms__label">Button group (medium)</label>
 		<div class="o-ft-forms__buttongroup">
 			<a href="#" class="o-ft-forms__button o-ft-forms__button--medium">a</a>
@@ -697,7 +697,7 @@ h2 {
 			<button type="button" class="o-ft-forms__button o-ft-forms__button--medium">button</button>
 		</div>
 	</div>
-	<div class="o-grid-col|4|s12|m12|">
+	<div data-o-grid-colspan="4 S12 M12">
 		<label class="o-ft-forms__label">Button group (large)</label>
 		<div class="o-ft-forms__buttongroup">
 			<a href="#" class="o-ft-forms__button o-ft-forms__button--large">a</a>
@@ -708,71 +708,71 @@ h2 {
 	</div>
 </div>
 
-<div class="o-grid-row o-grid-col|12|">
+<div class="o-grid-row" data-o-grid-colspan="12">
 	<h2>Input - all types</h2>
 </div>
 <div class="o-grid-row">
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">text</label>
 		<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">password</label>
 		<input type="password" placeholder="placeholder" class="o-ft-forms__field" value="secretsquirrel" />
   	</div>
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">search</label>
 		<input type="search" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">url</label>
 		<input type="url" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">email</label>
 		<input type="email" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">tel</label>
 		<input type="tel" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
 </div>
 <div class="o-grid-row">
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">date</label>
 		<input type="date" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">time</label>
 		<input type="time" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">datetime</label>
 		<input type="datetime" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">datetime-local</label>
 		<input type="datetime-local" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">month</label>
 		<input type="month" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">week</label>
 		<input type="week" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
 </div>
 <div class="o-grid-row">
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">number</label>
 		<input type="number" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">color</label>
 		<input type="color" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
-  	<div class="o-grid-col|2|s12|m6|">
+  	<div data-o-grid-colspan="2 S12 M6">
 		<label class="o-ft-forms__label">range</label>
 		<input type="range" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>

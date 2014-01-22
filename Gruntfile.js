@@ -7,7 +7,8 @@ module.exports = function(grunt) {
     'origami-demo': {
       options: {
         modernizr: false,
-        main: ['main.scss', 'example.mustache'],
+        main: ['example.mustache'],
+        sassExtras: 'demo.scss',
         viewModel: {}// a javascript object of example content to be consumed by your module's template
       }
     },

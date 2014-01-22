@@ -5,7 +5,7 @@ $o-ft-forms-prefix: o-ft-forms;
 $o-ft-forms-marginbottom: 20px;
 
 // Border styles
-$o-ft-forms-fieldborder: 1px solid $o-colors-palette-tint3;
+$o-ft-forms-fieldborder: 1px solid oColorsGetColorFor(forms-field-border);
 $o-ft-forms-buttonradius: 4px;
 
 // Fonts

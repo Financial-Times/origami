@@ -20,8 +20,8 @@
 	text-align: center;
 	vertical-align: top;
 	overflow: hidden;
-	background-color: $o-colors-forms-prefixsuffix-bg;
-	color: $o-colors-forms-prefixsuffix-text;
+	background-color: oColorsGetColorFor(forms-prefixsuffix-background);
+	color: oColorsGetColorFor(forms-prefixsuffix-text);
 }
 
 .#{$o-ft-forms-prefix}__button.#{$o-ft-forms-prefix}__prefix,

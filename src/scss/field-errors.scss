@@ -1,5 +1,5 @@
 .#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__label {
-	color: $o-colors-forms-label-error;
+	color: oColorsGetColorFor(forms-label-error-text);
 }
 
 .#{$o-ft-forms-prefix}--error select.#{$o-ft-forms-prefix}__field,
@@ -23,15 +23,15 @@
 }
 .#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__field[type="checkbox"] + .#{$o-ft-forms-prefix}__label,
 .#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__field[type="radio"] + .#{$o-ft-forms-prefix}__label {
-	color: $o-colors-forms-label-text;
+	color: oColorsGetColorFor(forms-label-text);
 }
 
 .#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__field,
 .#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__prefix:not(.#{$o-ft-forms-prefix}__button),
 .#{$o-ft-forms-prefix}--error .#{$o-ft-forms-prefix}__suffix:not(.#{$o-ft-forms-prefix}__button),
 .#{$o-ft-forms-prefix}__field:invalid {
-	border-color: $o-colors-forms-label-error;
-	color: $o-colors-forms-label-error;
+	border-color: oColorsGetColorFor(forms-label-error-text);
+	color: oColorsGetColorFor(forms-label-error-text);
 }
 
 .#{$o-ft-forms-prefix}__errortext {
@@ -43,6 +43,6 @@
 	font-family: $o-ft-forms-font;
 	font-size: 11px;
 	font-style: italic;
-	color: $o-colors-forms-error-text;
-	background-color: $o-colors-forms-error-bg;
+	color: oColorsGetColorFor(forms-error-text);
+	background-color: oColorsGetColorFor(forms-error-background);
 }
