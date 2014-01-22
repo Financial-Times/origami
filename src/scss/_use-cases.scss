@@ -16,14 +16,12 @@ $o-colors-usecase-list:
     alt-link                      charcoal          text,
     alt-link-hover                blue              text,
 
-    // FT wrapper
-    page                          pink              background,
-    header                        charcoal          background,
-    ft-initials                   charcoal          text,
-    footer                        tint1             background,
-    footer-underline              tint2             border,
-    pearson                       tint2             background,
-    pearson                       warm-grey2        text,
+    // Generics
+    page                          pink              background,    
+    table                         tint1             background,
+    table-header-row              warm-grey1        border,
+    table-row                     tint3             border,
+    box                           tint1             background,
 
     // Article
     article-body                  charcoal          text,
@@ -32,7 +30,15 @@ $o-colors-usecase-list:
     article-byline                warm-grey2        text,
     article-divider               warm-grey2        border,
 
-    // o-ft-forms use-cases
+    // FT header and footer
+    header                        charcoal          background,
+    ft-initials                   charcoal          text,
+    footer                        tint1             background,
+    footer-underline              tint2             border,
+    pearson                       tint2             background,
+    pearson                       warm-grey2        text,
+
+    // Forms (o-ft-forms)
     forms-label                   cool-grey1        text,
     forms-label-error             red               text,
     forms-label-error             red               background,
@@ -45,5 +51,17 @@ $o-colors-usecase-list:
     forms-button-negative         blue              text,
     forms-button-negative-hover   blue              text,
     forms-error                   white             text,
-    forms-error                   red               background
+    forms-error                   red               background,
+
+    // Tech docs
+    block-code-sample             tint1             background,
+    block-code-sample             tint2             border,
+    block-code-sample             charcoal          text,
+    inline-code-sample            tint1             background,
+    inline-code-sample            claret            text,
+    docs-aside                    tint1             background,
+    docs-aside                    tint2             border,
+    docs-nav                      tint1             background,
+    docs-nav-active               tint2             background,
+    docs-inpagenav-link           claret            text
 ;
