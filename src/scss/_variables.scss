@@ -1,6 +1,6 @@
 // Class names
 $o-ft-forms-prefix: o-ft-forms;
-
+$o-ft-forms-is-silent: true !default;
 // Margins
 $o-ft-forms-marginbottom: 20px;
 
@@ -9,6 +9,6 @@ $o-ft-forms-fieldborder: 1px solid oColorsGetColorFor(forms-field-border);
 $o-ft-forms-buttonradius: 4px;
 
 // Fonts
-$o-ft-forms-font: BentonSans-normal,Helvetica,Arial,sans-serif;
+$o-ft-forms-font: $o-fonts-bentonsans-normal;
 $o-ft-forms-fontsize-label: 14px;
 $o-ft-forms-fontsize-field: 12px;
