@@ -567,6 +567,7 @@ html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  *behavior: url(../bower_components/o-useragent/polyfills/boxsizing.htc);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -600,6 +601,7 @@ select.o-ft-forms__field {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  *behavior: url(../bower_components/o-useragent/polyfills/boxsizing.htc);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -622,6 +624,7 @@ textarea.o-ft-forms__field {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  *behavior: url(../bower_components/o-useragent/polyfills/boxsizing.htc);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -690,6 +693,7 @@ textarea.o-ft-forms__field {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  *behavior: url(../bower_components/o-useragent/polyfills/boxsizing.htc);
   display: block;
   border-top: 1px solid #cec6b9;
   border-bottom: 1px solid #cec6b9;
@@ -719,6 +723,7 @@ textarea.o-ft-forms__field {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  *behavior: url(../bower_components/o-useragent/polyfills/boxsizing.htc);
   display: inline-block;
   margin: 0 10px 20px 0;
   padding: 0 8px;

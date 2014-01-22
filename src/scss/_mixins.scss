@@ -1,6 +1,6 @@
-@mixin commonField() {
-	@include boxSizing(border-box);
-	@include appearance(none);
+@mixin oFtFormsCommonField() {
+	@include oFtFormsBoxSizing(border-box);
+	@include oFtFormsAppearance(none);
 	margin: 0 0 $o-ft-forms-marginbottom 0;
 	border: $o-ft-forms-fieldborder;
 	border-radius: 0;
@@ -12,21 +12,22 @@
 	font-size: $o-ft-forms-fontsize-field;
 }
 
-@mixin backgroundGradientVertical($solid, $top, $bottom) {
+@mixin oFtFormsBackgroundGradientVertical($solid, $top, $bottom) {
     background: $solid;
     background: -webkit-gradient(linear, left top, left bottom, from($top), to($bottom));
     background: -moz-linear-gradient($top, $bottom);
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$top},  endColorstr=#{$bottom})";
 }
 
-@mixin appearance($value) {
+@mixin oFtFormsAppearance($value) {
 	-webkit-appearance: $value;
     -moz-appearance: $value;
     appearance: $value;
 }
 
-@mixin boxSizing($value) {
+@mixin oFtFormsBoxSizing($value) {
 	-webkit-box-sizing: $value;
     -moz-box-sizing: $value;
     box-sizing: $value;
+    @include oUseragentIe7BoxSizing();	
 }

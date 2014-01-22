@@ -1,14 +1,14 @@
 /** buttons.scss */
 
 .#{$o-ft-forms-prefix}__button {
-    @include boxSizing(border-box);
+    @include oFtFormsBoxSizing(border-box);
     display: inline-block;
     margin: 0 10px $o-ft-forms-marginbottom 0;
     padding: 0 8px;
     border-width: 0;
     border-radius: $o-ft-forms-buttonradius;
     width: auto;
-    @include backgroundGradientVertical(#4e8fbd, #549ccf, #4782ab);
+    @include oFtFormsBackgroundGradientVertical(#4e8fbd, #549ccf, #4782ab);
     font-family: $o-ft-forms-font;
     color: oColorsGetColorFor(forms-button-text);
     text-decoration: none;

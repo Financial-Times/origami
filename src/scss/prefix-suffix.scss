@@ -8,7 +8,7 @@
 
 .#{$o-ft-forms-prefix}__prefix,
 .#{$o-ft-forms-prefix}__suffix {
-	@include boxSizing(border-box);
+	@include oFtFormsBoxSizing(border-box);
 	display: block;
 	border-top: $o-ft-forms-fieldborder;
 	border-bottom: $o-ft-forms-fieldborder;
