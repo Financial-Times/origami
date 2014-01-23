@@ -211,18 +211,3 @@ html, body {
   text-align: right;
   overflow: hidden;
   height: 50px; }
-
-.o-ft-header__topbar__item {
-  display: inline-block;
-  min-width: 50px;
-  height: 50px;
-  text-align: center;
-  color: #fff;
-  background-color: #333;
-  font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
-  font-size: 25px;
-  line-height: 50px;
-  cursor: pointer; }
-
-.o-ft-header__topbar__item:hover {
-  color: #ddd; }

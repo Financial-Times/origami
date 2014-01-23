@@ -82,7 +82,13 @@
 	height: 50px;
 }
 
-.o-ft-header__topbar__item {
+$o-ft-header-topbar-item-selector: #{'%o-ft-header__topbar__item'};
+
+@if (not $o-ft-header-is-silent) {
+	$o-ft-header-topbar-item-selector: append($o-ft-header-topbar-item-selector, #{'.o-ft-header__topbar__item'}, comma);
+}
+
+#{$o-ft-header-topbar-item-selector} {
 	display: inline-block;
 	min-width: 50px;
 	height: 50px;
@@ -93,8 +99,8 @@
 	font-size: 25px;
 	line-height: 50px;
 	cursor: pointer;
-}
 
-.o-ft-header__topbar__item:hover {
-	color: #ddd;
+	&:hover {
+		color: #ddd;
+	}
 }
