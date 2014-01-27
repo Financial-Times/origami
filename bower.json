@@ -1,8 +1,7 @@
 {
   "name": "tracking-module",
   "main": [
-    "main.js",
-    "tracking.mustache"
+    "main.js"
   ],
   "ignore": [
     "README.md",
@@ -13,7 +12,6 @@
     "tests",
     ".idea"
   ],
-  "version": "0.0.4",
   "authors": [
     "Mark Stephens <mark.stephens@ft.com>",
     "Web Team <web.team@ft.com>"
@@ -23,7 +21,6 @@
     "ft",
     "tracking"
   ],
-  "homepage": "http://git.svc.ft.com/summary/origami%2Ftracking-module.git",
   "private": true,
   "devDependencies": {
     "jquery": "2.0.x"
