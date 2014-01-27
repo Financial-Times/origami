@@ -24,7 +24,8 @@
 		}
 	}
 
-	h2 {
+	h2,
+	h3 {
 		@include oFtTypographyExtend(lead);
 
 		a {
@@ -52,7 +53,7 @@
 		@include oFtTypographyExtend(body--small);
 	}
 
-	super {
+	sup {
 		@include oFtTypographyExtend(body--super);
 	}
 

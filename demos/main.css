@@ -55,7 +55,8 @@ html, body {
   padding-bottom: 5px; }
 
 /* Article subheadings ('leads') */
-.o-ft-typography-body-wrapper h2, .o-ft-typography-lead {
+.o-ft-typography-body-wrapper h2,
+.o-ft-typography-body-wrapper h3, .o-ft-typography-lead {
   font-size: 16px;
   line-height: 30px;
   font-family: BentonSans-bold, Helvetica, Arial, sans-serif;
@@ -63,15 +64,18 @@ html, body {
   margin-bottom: 15px;
   border-top: 1px dotted #74736c;
   border-bottom: 1px dotted #74736c; }
-  .o-ft-typography-body-wrapper h2 + *, .o-ft-typography-lead + * {
+  .o-ft-typography-body-wrapper h2 + *,
+  .o-ft-typography-body-wrapper h3 + *, .o-ft-typography-lead + * {
     margin-top: 0; }
 
 /* Links */
-.o-ft-typography-title__link, .o-ft-typography-body-wrapper h1 a, .o-ft-typography-body-wrapper h2 a, .o-ft-typography-lead__link {
+.o-ft-typography-title__link, .o-ft-typography-body-wrapper h1 a, .o-ft-typography-body-wrapper h2 a,
+.o-ft-typography-body-wrapper h3 a, .o-ft-typography-lead__link {
   text-decoration: none;
   color: black; }
 
-.o-ft-typography-title__link--hover, .o-ft-typography-title__link:hover, .o-ft-typography-lead__link--hover, .o-ft-typography-body-wrapper h1 a:hover, .o-ft-typography-body-wrapper h2 a:hover, .o-ft-typography-lead__link:hover {
+.o-ft-typography-title__link--hover, .o-ft-typography-title__link:hover, .o-ft-typography-lead__link--hover, .o-ft-typography-body-wrapper h1 a:hover, .o-ft-typography-body-wrapper h2 a:hover,
+.o-ft-typography-body-wrapper h3 a:hover, .o-ft-typography-lead__link:hover {
   color: #2e6e9e; }
 
 /* Article metadata */
@@ -95,7 +99,8 @@ html, body {
   font-family: Georgia, "Times New Roman", serif;
   color: #333333; }
 
-.o-ft-typography-body-wrapper h2, .o-ft-typography-lead, .o-ft-typography-body-wrapper ol,
+.o-ft-typography-body-wrapper h2,
+.o-ft-typography-body-wrapper h3, .o-ft-typography-lead, .o-ft-typography-body-wrapper ol,
 .o-ft-typography-body-wrapper ul, .o-ft-typography-body__list, .o-ft-typography-body-wrapper p, .o-ft-typography-body__block {
   margin-bottom: 24px;
   margin-top: 24px; }
@@ -109,7 +114,7 @@ html, body {
 .o-ft-typography-body-wrapper small, .o-ft-typography-body--small {
   font-size: 0.75em; }
 
-.o-ft-typography-body-wrapper super, .o-ft-typography-body--super {
+.o-ft-typography-body-wrapper sup, .o-ft-typography-body--super {
   font-size: 0.75em;
   vertical-align: super; }
 
