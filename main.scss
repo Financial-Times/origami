@@ -92,9 +92,12 @@
 }
 
 $o-ft-header-topbar-item-selector: #{'%o-ft-header__topbar__item'};
+$o-ft-header-topbar-item-active-selector: #{'%o-ft-header__topbar__item--active'};
+$o-ft-header-topbar-item-inactive-selector: #{'%o-ft-header__topbar__item--inactive'};
 
 @if (not $o-ft-header-is-silent) {
 	$o-ft-header-topbar-item-selector: append($o-ft-header-topbar-item-selector, #{'.o-ft-header__topbar__item'}, comma);
+	$o-ft-header-topbar-item-active-selector: append($o-ft-header-topbar-item-active-selector, #{'.o-ft-header__topbar__item--active'}, comma);
 }
 
 #{$o-ft-header-topbar-item-selector} {
@@ -102,14 +105,34 @@ $o-ft-header-topbar-item-selector: #{'%o-ft-header__topbar__item'};
 	min-width: 50px;
 	height: 50px;
 	text-align: center;
-	color: #fff;
-	background-color: #333;
+	@include _oFtHeaderItemInactiveStyles();
+	border-left: 1px solid oColorsGetColorFor(header-item-border);
 	font-family: $o-fonts-bentonsans-normal;
 	font-size: 25px;
 	line-height: 50px;
 	cursor: pointer;
 
 	&:hover {
-		color: #ddd;
+		@include _oFtHeaderItemActiveStyles();
 	}
+}
+
+
+#{$o-ft-header-topbar-item-active-selector} {
+	@include _oFtHeaderItemActiveStyles();
+}
+
+#{$o-ft-header-topbar-item-inactive-selector} {
+	@include _oFtHeaderItemInactiveStyles();
+}
+
+
+@mixin _oFtHeaderItemActiveStyles () {
+	color: oColorsGetColorFor(header-item-active-text);
+	background-color: oColorsGetColorFor(header-item-active-background);
+}
+
+@mixin _oFtHeaderItemInactiveStyles () {
+	color: oColorsGetColorFor(header-item-text);
+	background-color: oColorsGetColorFor(header-item-background);
 }
