@@ -1,9 +1,10 @@
 {
     "name": "o-colors",
+    "main": ["main.scss"],
     "ignore": [
     	"README.md",
-    	"test/*"
-    ],
-    "dependencies": {},
-    "devDependencies": {}
+    	"test",
+    	"demos",
+    	".travis.yml"
+    ]
 }
