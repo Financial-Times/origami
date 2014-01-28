@@ -32,6 +32,10 @@ $o-colors-usecase-list:
 
     // FT header and footer
     header                        charcoal          background,
+    header-item                   charcoal          background,
+    header-item                   white             text,
+    header-item-active            tint2             background,
+    header-item-active            blue              text,
     ft-initials                   charcoal          text,
     footer                        tint1             background,
     footer-underline              tint2             border,
