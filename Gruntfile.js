@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     'origami-demo': {
       options: {
         modernizr: true,
-        main: ["main.mustache"],
+        main: ["main.mustache", "img/ft-logo.gif"],
         viewModel: {
           oFtHeaderTopbarItems: '<div>Example toolbar content</div>'
         }
