@@ -2,6 +2,7 @@
 @import "o-grid/main";
 @import "o-fonts/main";
 @import "o-colors/main";
+@import "o-hoverable/main";
 
 @import '_variables';
 @import '_mixins';
@@ -113,7 +114,7 @@ $o-ft-header-topbar-item-active-selector: #{'%o-ft-header__topbar__item--active'
 	line-height: 50px;
 	cursor: pointer;
 
-	&:hover {
+	#{$o-hoverable-if-hover-enabled} &:hover {
 		@include _oFtHeaderItemActiveStyles();
 	}
 }
