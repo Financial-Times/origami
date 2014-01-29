@@ -1,18 +1,22 @@
 {
-	"name": "o-dialog",
-	"main": ["main.scss", "main.js"],
-	"ignore": [
-		"package.json",
-		"demo.ms",
-		"scss/demos.scss",
-		"README.md",
-		"package.json",
-		"Gruntfile.js"
-	],
-	"dependencies": {
-		"jquery": "1.10.x",
-		"modernizr": ">=2.6.* <3"
-	}
+  "name": "o-dialog",
+  "main": [
+    "main.scss",
+    "main.js"
+  ],
+  "ignore": [
+    "package.json",
+    "demo.ms",
+    "scss/demos.scss",
+    "README.md",
+    "package.json",
+    "Gruntfile.js"
+  ],
+  "dependencies": {
+    "jquery": "1.10.x",
+    "modernizr": ">=2.6.* <3"
+  },
+  "devDependencies": {
+    "o-ft-header": "https://github.com/Financial-Times/o-ft-header.git#partials"
+  }
 }
-
-

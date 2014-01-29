@@ -2,7 +2,7 @@
  * grunt-contrib-uglify
  * http://gruntjs.com/
  *
- * Copyright (c) 2013 "Cowboy" Ben Alman, contributors
+ * Copyright (c) 2013 'Cowboy' Ben Alman, contributors
  * Licensed under the MIT license.
  */
 
@@ -15,12 +15,12 @@ module.exports = function(grunt) {
     'origami-demo': {
       options: {
         scriptMode: 'browserify',
-        main: ['demo.ms']
+        main: ['demo.mustache']
       }
     },
     watch: {
       'origami-demo': {
-          files: ['./main.scss', './main.js', './js/**/*', './*.ms', './*.mustache', './scss/**/*'],
+          files: ['./main.scss', './main.js', './js/**/*', './demo.mustache','./scss/**/*'],
           tasks: ['origami-demo']
       }
     }

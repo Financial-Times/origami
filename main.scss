@@ -1,4 +1,6 @@
+$o-ft-header-z-index: 2;
+@import "o-ft-header/main";
 @import "scss/dialog";
 @import "scss/dropdown";
 @import "scss/overlay";
-// @import "scss/demos";
+@import "scss/demos";
