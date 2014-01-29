@@ -119,6 +119,14 @@ $o-ft-header-topbar-item-inactive-selector: #{'%o-ft-header__topbar__item--inact
 	}
 }
 
+@include oGridRespondTo(l xl) {
+	#{$o-ft-header-topbar-item-selector} {
+		&:last-child {
+			border-right: 1px solid oColorsGetColorFor(header-item-border);
+		}
+	}
+}
+
 
 #{$o-ft-header-topbar-item-active-selector} {
 	@include _oFtHeaderItemActiveStyles();
