@@ -1,6 +1,6 @@
 var Dialog = require('../dialog');
 
-Dialog.addType('dropup', {
+Dialog.addPreset('dropup', {
     isDismissable: true,
     isAnchoredToTrigger: true,
     verticalAnchorSide: 'top',

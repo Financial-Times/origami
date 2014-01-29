@@ -1,5 +1,4 @@
 {{ > o-ft-header/main.mustache }}
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.js"></script>
 <p>
 the body content of the page
 the body content of the page
@@ -7,21 +6,21 @@ the body content of the page
 the body content of the page
 the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page</p>
 <h2>Overlay triggers </h2>
-<button class="o-dialog--trigger" data-o-dialog='{"type": "overlay", "src": "#wide-squat"}'>wide-squat</button>
-<button class="o-dialog--trigger" data-o-dialog='{"type": "overlay", "src": "#wide-tall"}'>wide-tall</button>
-<button class="o-dialog--trigger" data-o-dialog='{"type": "overlay", "src": "#narrow-squat"}'>narrow-squat</button>
-<button class="o-dialog--trigger" data-o-dialog='{"type": "overlay", "src": "#narrow-tall"}'>narrow-tall</button>
+<button data-o-dialog__trigger='{"preset": "overlay", "src": "#wide-squat"}'>wide-squat</button>
+<button data-o-dialog__trigger='{"preset": "overlay", "src": "#wide-tall"}'>wide-tall</button>
+<button data-o-dialog__trigger='{"preset": "overlay", "src": "#narrow-squat"}'>narrow-squat</button>
+<button data-o-dialog__trigger='{"preset": "overlay", "src": "#narrow-tall"}'>narrow-tall</button>
 <div class="nav">
 	<div class="nav__bar">
-	    <button class="o-dialog--trigger left" data-o-dialog='{"type": "dropdown", "src": "#top-left", "classes": "top-left"}'>top-left</button>
-		<button class="o-dialog--trigger right" data-o-dialog='{"type": "dropdown", "src": "#top-right", "classes": "top-right"}'>top-right</button>
+	    <button class="left" data-o-dialog__trigger='{"preset": "dropdown", "src": "#top-left", "classes": "top-left"}'>top-left</button>
+		<button class="right" data-o-dialog__trigger='{"preset": "dropdown", "src": "#top-right", "classes": "top-right"}'>top-right</button>
 	</div>
 	
 </div>
 <div class="nav bottom">
 	<div class="nav__bar">
-	    <button class="o-dialog--trigger left" data-o-dialog='{"type": "dropup", "src": "#bottom-left", "classes": "bottom-left"}'>bottom-left</button>
-		<button class="o-dialog--trigger right" data-o-dialog='{"type": "dropup", "src": "#bottom-right", "classes": "bottom-right"}'>bottom-right</button>
+	    <button class="left" data-o-dialog__trigger='{"preset": "dropup", "src": "#bottom-left", "classes": "bottom-left"}'>bottom-left</button>
+		<button class="right" data-o-dialog__trigger='{"preset": "dropup", "src": "#bottom-right", "classes": "bottom-right"}'>bottom-right</button>
 	</div>
 	
  </div>

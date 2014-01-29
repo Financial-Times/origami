@@ -1,6 +1,7 @@
 "use strict";
 
-var domUtils = require('./domUtils'),
+var $ = require('jquery'),
+    domUtils = require('./domUtils'),
     L = 'left',
     R = 'right',
     T = 'top',
@@ -8,6 +9,7 @@ var domUtils = require('./domUtils'),
     H = 'height',
     W = 'width',
     win = $(window),
+    presets = {},
     isAnimatable = Modernizr.csstransforms,
     isFlexbox = Modernizr.flexbox || Modernizr.flexboxlegacy,
     dialogs = isAnimatable ? Array(2) : [],
@@ -141,7 +143,7 @@ var createDialogHtml = function () {
             opts.content = $(opts.src).clone();
         }
 
-        opts = $.extend({}, defaults, types[opts.type] || {}, opts);
+        opts = $.extend({}, defaults, presets[opts.preset] || {}, opts);
 
         if (opts.isAnchoredToTrigger && !trigger) {
             return;
@@ -149,7 +151,7 @@ var createDialogHtml = function () {
 
         dialog.trigger = trigger;
 
-        dialog.isLegacyOverlay = !isFlexbox && opts.type === 'overlay';
+        dialog.isLegacyOverlay = !isFlexbox && opts.preset === 'overlay';
 
         dialog.opts = opts;
 
@@ -203,8 +205,8 @@ var createDialogHtml = function () {
 
 
     assignClasses = function (dialog) {
-        dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.type + ' ' + dialog.opts.classes;
-        dialog.content[0].className = 'o-dialog__content o-dialog--' + dialog.opts.type + '__content';
+        dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.classes;
+        dialog.content[0].className = 'o-dialog__content o-dialog--' + dialog.opts.preset + '__content';
     },
 
     anchorDropdown = function (dialog) {
@@ -249,7 +251,7 @@ var createDialogHtml = function () {
                 dialog.wrapper.css('right', offset).addClass('o-dialog--dropdown--right').removeClass('o-dialog--dropdown--left');
             }
 
-            if (dialog.opts.type === 'dropdown') {
+            if (dialog.opts.preset === 'dropdown') {
                 dialog.wrapper.css('top', trigger.offsetTop + trigger.offsetHeight);
             } else {
                 dialog.wrapper.css('bottom', trigger.offsetParent.offsetHeight - trigger.offsetTop);
@@ -389,7 +391,7 @@ var createDialogHtml = function () {
         var edge = dimension === W ? L : T,
             capitalisedDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1);
 
-        if (config['snapsToFull' + capitalisedDimension]) {
+        if (dialog.opts['snapsToFull' + capitalisedDimension]) {
             if (win[dimension]() <= dialog[dimension]) {
                 dialog['full' + capitalisedDimension] = true;
                 dialog.wrapper.addClass('o-dialog--full-' + dimension);
@@ -417,7 +419,7 @@ var createDialogHtml = function () {
 
 module.exports = {
     trigger: trigger,
-    addType: function (name, conf) {
-        types[name] = $.extend({}, defaults, conf);
+    addPreset: function (name, conf) {
+        presets[name] = $.extend({}, defaults, conf);
     }
 };

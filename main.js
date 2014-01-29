@@ -1,9 +1,14 @@
 "use strict";
-var Dialog = require('./js/dialog');
+var $ = require('jquery'),
+	Dialog = require('./js/dialog');
 
-require('./js/dialog-types/overlay');
-require('./js/dialog-types/dropdown');
+require('./js/dialog-presets/overlay');
+require('./js/dialog-presets/dropdown');
+require('./js/dialog-presets/dropup');
 
-$('.o-dialog--trigger').oDialogTrigger();
+$(document).on('click.o-dialog__trigger', '[data-o-dialog__trigger]', function (ev) {
+    ev.oDialogTriggerClick = true;
+    Dialog.trigger($(this).data('o-dialog__trigger'), this);
+});
 
 module.exports = Dialog;
