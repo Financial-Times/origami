@@ -1,9 +1,10 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
+        "Queue",
+        "Settings",
         "Track",
         "Track._Core",
-        "Track._Core.Queue",
         "Track._Core.Send",
         "Track._Core.Store",
         "Track._Utils",
@@ -16,6 +17,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Track",
         "_Core",
         "_Utils",
+        "main",
         "page"
     ],
     "allModules": [
@@ -28,6 +30,11 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "_Utils",
             "name": "_Utils",
             "description": "Common utilities for the tracking module."
+        },
+        {
+            "displayName": "main",
+            "name": "main",
+            "description": "Origami tracking module.\n========================\nFrom this specification: https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing\n\nFeatures\n--------\n* Use AJAX instead of image requests\n* Bundle requests TODO\n* Handle offline\n* Use storage methods other than cookies\n* Make the API cleaner and easier to use\n* Origami module\n* Use a single configuration object\n\nExample\n-------\n<pre>Track.init({ environment: 'test' });</pre>"
         },
         {
             "displayName": "page",
@@ -52,7 +59,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Track",
             "name": "Track",
-            "description": "Origami tracking module.\n========================\nFrom this specification: https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing\n\nFeatures\n--------\n* Use AJAX instead of image requests\n* Bundle requests\n* Handle offline\n* Use storage methods other than cookies\n* Make the API cleaner and easier to use\n* Origami module\n* Use a single configuration object\n\nExample\n-------\n<pre>Track.init({ environment: 'test' });</pre>"
+            "description": "Settings store."
         }
     ]
 } };

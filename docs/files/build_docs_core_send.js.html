@@ -41,11 +41,13 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
+                <li><a href="../classes/Queue.html">Queue</a></li>
+            
+                <li><a href="../classes/Settings.html">Settings</a></li>
+            
                 <li><a href="../classes/Track.html">Track</a></li>
             
                 <li><a href="../classes/Track._Core.html">Track._Core</a></li>
-            
-                <li><a href="../classes/Track._Core.Queue.html">Track._Core.Queue</a></li>
             
                 <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
             
@@ -62,6 +64,8 @@
                 <li><a href="../modules/_Core.html">_Core</a></li>
             
                 <li><a href="../modules/_Utils.html">_Utils</a></li>
+            
+                <li><a href="../modules/main.html">main</a></li>
             
                 <li><a href="../modules/page.html">page</a></li>
             
@@ -112,7 +116,6 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-/*global Track, window*/
 /**
  * Queuing and sending tags
  * Keep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request.
@@ -121,17 +124,20 @@
  * @class Track._Core.Send
  * @static
  */
-Track._Core.Send = (function (parent, window) {
+
+/*global module, require, window */
+module.exports = (function (window) {
     &quot;use strict&quot;;
 
     /**
      * Shared &quot;internal&quot; scope.
-     * @property _self
+     * @property _settings
      * @type {Object}
      * @private
      */
-    var self = parent._self = parent._self || {},
-        utils = parent._Utils,
+    var settings = require(&quot;./settings&quot;),
+        utils = require(&quot;../utils&quot;),
+        Queue = require(&quot;./queue&quot;),
         /**
          * iJento production server.
          * @property iJentoProdServer
@@ -165,7 +171,66 @@ Track._Core.Send = (function (parent, window) {
          * @property currentRequests
          * @private
          */
-            currentRequests = {};
+            currentRequests = {},
+
+    // TODO
+        transmitter = (function () {
+            var xmlHttp,
+                image;
+
+            try {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlHttp = new window.XMLHttpRequest();
+            } catch (e) {
+                // code for IE6, IE5
+                try {
+                    xmlHttp = new window.ActiveXObject(&quot;Microsoft.XMLHttp&quot;);
+                } catch (ee) {}
+            }
+
+            if (xmlHttp) {
+                return function (domain, path, async, callback) {
+                    if (async) {
+                        xmlHttp.onreadystatechange = function () {
+                            if (xmlHttp.readyState === 4) {
+                                callback.call(xmlHttp);
+                            }
+                        };
+                    }
+
+                    xmlHttp.onerror = function () { callback.call(xmlHttp); };
+
+                    // Both developer and noSend flags have to be set to stop the request sending.
+                    if (!(settings.get(&#x27;developer&#x27;) &amp;&amp; settings.get(&#x27;noSend&#x27;))) {
+                        xmlHttp.open(&quot;POST&quot;, domain, async);
+                        xmlHttp.send(path);
+                    }
+
+                    if (!async) {
+                        callback.call(xmlHttp);
+                    }
+                };
+            }
+
+            // TODO imagetag
+            image = new window.Image();
+
+            return function (domain, path, async, callback) {
+                if (async) {
+                    image.onreadystatechange(function () {
+                        callback.call(image);
+                    });
+                }
+
+                if (!(settings.get(&#x27;developer&#x27;) &amp;&amp; settings.get(&#x27;noSend&#x27;))) {
+                    image.src = domain + path;
+                }
+
+                if (!async) {
+                    callback.call(image);
+                }
+            };
+        }());
 
     /**
      * Marks a request as current.
@@ -339,8 +404,7 @@ Track._Core.Send = (function (parent, window) {
         var offlineLag = (new Date()).getTime() - request.queueTime,
             query,
             checksum,
-            path,
-            xmlHttp;
+            path;
 
         // Only bothered about offlineLag if it&#x27;s longer than a second, but less than a month. (Especially as Date can be dodgy)
         if (offlineLag &gt; 1000 &amp;&amp; offlineLag &lt; (31 * 24 * 60 * 60 * 1000)) {
@@ -351,19 +415,7 @@ Track._Core.Send = (function (parent, window) {
         query = &quot;f=&quot; + request.format + &quot;&amp;d=&quot; + encodeDetails(request.format, request.values);
         checksum = &quot;&amp;c=&quot; + generateChecksum(query);
 
-        try {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlHttp = new window.XMLHttpRequest();
-        } catch (e) {
-            // code for IE6, IE5
-            try {
-                xmlHttp = new window.ActiveXObject(&quot;Microsoft.XMLHttp&quot;);
-            } catch (ee) {
-                // TODO imagetag
-            }
-        }
-
-        function requestFinished() {
+        function requestFinished(xmlHttp) {
             if (utils.is(request.callback, &#x27;function&#x27;)) {
                 request.callback.call(request, xmlHttp);
             }
@@ -376,32 +428,15 @@ Track._Core.Send = (function (parent, window) {
             }
         }
 
-        if (request.async) {
-            xmlHttp.onreadystatechange = function () {
-                if (xmlHttp.readyState === 4) {
-                    requestFinished();
-                }
-            };
-            xmlHttp.onerror = requestFinished;
-        }
-
         started(request.requestID);
 
         path = [query, checksum].join(&#x27;&#x27;);
 
-        if (self.developer) {
+        if (settings.get(&#x27;developer&#x27;)) {
             utils.log(taggingServer(request.environment) + &#x27;?&#x27; + path);
         }
 
-        // Both developer and noSend flags have to be set to stop the request sending.
-        if (!(self.developer &amp;&amp; self.noSend)) {
-            xmlHttp.open(&quot;POST&quot;, taggingServer(request.environment), request.async);
-            xmlHttp.send(path);
-        }
-
-        if (!request.async) {
-            requestFinished();
-        }
+        transmitter(taggingServer(request.environment), path, request.async, requestFinished);
     }
 
     /**
@@ -414,7 +449,7 @@ Track._Core.Send = (function (parent, window) {
 
         queue.add(request).save();
 
-        if (self.developer) {
+        if (settings.get(&#x27;developer&#x27;)) {
             utils.log(&#x27;Queue&#x27;, queue);
         }
     }
@@ -451,7 +486,7 @@ Track._Core.Send = (function (parent, window) {
      * @private
      */
     function init() {
-        queue = new Track._Core.Queue(&#x27;requests&#x27;);
+        queue = new Queue(&#x27;requests&#x27;);
 
         // If any tracking calls are made whilst offline, try sending them the next time the device comes online
         if (window.addEventListener) {
@@ -468,7 +503,7 @@ Track._Core.Send = (function (parent, window) {
         run: run,
         addAndRun: addAndRun
     };
-}(Track, window));
+}(window));
 
     </pre>
 </div>

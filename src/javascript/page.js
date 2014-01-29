@@ -1,5 +1,3 @@
-/*global Track, window, document*/
-
 /**
  * Page functionality. For tracking a page.
  * @module Track
@@ -7,7 +5,9 @@
  * @class Track.page
  * @static
  */
-Track.page = (function (module, window, document) {
+
+/*global module, require, window, document */
+module.exports = (function (window, document) {
     "use strict";
 
     /**
@@ -25,8 +25,8 @@ Track.page = (function (module, window, document) {
          * @type {Object}
          * @private
          */
-            self = module._self = module._self || {},
-        utils = module._Utils,
+        settings = require("./core/settings"),
+        utils = require("./utils"),
 
         /**
          * Default properties for page tracking requests.
@@ -115,8 +115,8 @@ Track.page = (function (module, window, document) {
             }
         }, callback);
 
-        self.page_sent = true;
+        settings.page_sent = true;
     };
 
-}(Track, window, document));
+}(window, document));
 

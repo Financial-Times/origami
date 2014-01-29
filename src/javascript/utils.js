@@ -1,5 +1,3 @@
-/*global Track, console, window*/
-
 /**
  * Common utilities for the tracking module.
  * @module Track
@@ -7,7 +5,9 @@
  * @class Track._Utils
  * @static
  */
-Track._Utils = (function (parent, console, window) {
+
+/*global module, require, window, console */
+module.exports = (function (console, window) {
     "use strict";
 
     /**
@@ -16,7 +16,7 @@ Track._Utils = (function (parent, console, window) {
      * @type {Object}
      * @private
      */
-    var self = parent._self = parent._self || {};
+    var settings = require("./core/settings");
 
     /**
      * Log messages to the browser console. Requires "log" to be set on init.
@@ -24,7 +24,7 @@ Track._Utils = (function (parent, console, window) {
      * @param arguments* {Mixed}
      */
     function log() {
-        if (self.developer && console) {
+        if (settings.get('developer') && console) {
             console.log.apply(null, arguments);
         }
     }
@@ -216,4 +216,4 @@ Track._Utils = (function (parent, console, window) {
         serialize: serialize,
         unserialize: unserialize
     };
-}(Track, console, window));
+}(console, window));

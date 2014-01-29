@@ -1,5 +1,3 @@
-// http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
-
 /**
  * Origami tracking module.
  * ========================
@@ -8,7 +6,7 @@
  * Features
  * --------
  * * Use AJAX instead of image requests
- * * Bundle requests
+ * * Bundle requests TODO
  * * Handle offline
  * * Use storage methods other than cookies
  * * Make the API cleaner and easier to use
@@ -28,9 +26,8 @@
  * @type {*}
  */
 
-/*jshint -W098 */
-var Track = (function (module) {
-    /*jshint +W098 */
+/*global require, module */
+module.exports = (function () {
     "use strict";
 
     /**
@@ -39,79 +36,87 @@ var Track = (function (module) {
      * @type {Object}
      * @private
      */
-    var self = module._self = module._self || {};
+    var settings = require("./src/javascript/core/settings"),
+        utils = require("./src/javascript/utils"),
 
-    /**
-     * The version of the tracking module.
-     * @property version
-     * @type {String}
-     */
-    module.version = "Track version 0.0.4";
+        /**
+         * The version of the tracking module.
+         * @property version
+         * @type {String}
+         */
+            version = "Track version 0.0.4";
 
     /**
      * Turn on/off developer mode. (Can also be activated on init.)
      * @method developer
      * @param [level] {Boolean} Turn on or off, defaults to on if omitted.
      */
-    module.developer = function (level) {
-        if (module._Utils.isUndefined(level)) {
+    function developer(level) {
+        if (utils.isUndefined(level)) {
             level = true;
         }
 
         // Extra brackets on purpose, in case a non-boolean argument is used.
         if ((level)) {
-            self.developer = true;
+            settings.set('developer', true);
         } else {
-            self.developer = null;
-            self.noSend = null;
+            settings.set('developer', null);
+            settings.set('noSend', null);
         }
-    };
+    }
+
+    /**
+     * Clean up the tracking module.
+     * @method destroy
+     */
+    function destroy() {
+        developer(false);
+        settings.set('internalCounter', 0);
+        settings.set('page_sent', false);
+    }
 
     /**
      * Initialise the Track module.
      * @method init
      * @param config Configuration object
      */
-    module.init = function (config) {
-        self.config = config;
+    function init(config) {
+        settings.set('config', config);
 
-        module.destroy();
+        destroy();
 
         if (config.hasOwnProperty('developer')) {
             delete config.developer;
-            module.developer();
+            developer();
 
             if (config.hasOwnProperty('noSend')) {
                 delete config.noSend;
-                self.noSend = true;
+                settings.set('noSend', true);
             }
         }
 
         // Initialize the sending queue.
-        module._Core.Send.init();
+        require("./src/javascript/core/send").init();
 
         // Track the page.
-        module.page();
-    };
-
-    /**
-     * Clean up the tracking module.
-     * @method destroy
-     */
-    module.destroy = function () {
-        module.developer(false);
-        self.internalCounter = 0;
-        self.page_sent = false;
-    };
+        require('./src/javascript/page')();
+    }
 
     /**
      * Overload toString method to show the version.
      * @method toString
      * @return {String} The module's version.
      */
-    module.toString = function () {
-        return module.version;
-    };
+    function toString() {
+        return version;
+    }
 
-    return module;
-}({}));
+    return {
+        developer: developer,
+        init: init,
+        destroy: destroy,
+        toString: toString,
+
+        page: require('./src/javascript/page')
+    };
+}());

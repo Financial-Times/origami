@@ -1,4 +1,3 @@
-/*global Track, window*/
 /**
  * Queuing and sending tags
  * Keep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request.
@@ -7,17 +6,20 @@
  * @class Track._Core.Send
  * @static
  */
-Track._Core.Send = (function (parent, window) {
+
+/*global module, require, window */
+module.exports = (function (window) {
     "use strict";
 
     /**
      * Shared "internal" scope.
-     * @property _self
+     * @property _settings
      * @type {Object}
      * @private
      */
-    var self = parent._self = parent._self || {},
-        utils = parent._Utils,
+    var settings = require("./settings"),
+        utils = require("../utils"),
+        Queue = require("./queue"),
         /**
          * iJento production server.
          * @property iJentoProdServer
@@ -51,7 +53,66 @@ Track._Core.Send = (function (parent, window) {
          * @property currentRequests
          * @private
          */
-            currentRequests = {};
+            currentRequests = {},
+
+    // TODO
+        transmitter = (function () {
+            var xmlHttp,
+                image;
+
+            try {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlHttp = new window.XMLHttpRequest();
+            } catch (e) {
+                // code for IE6, IE5
+                try {
+                    xmlHttp = new window.ActiveXObject("Microsoft.XMLHttp");
+                } catch (ee) {}
+            }
+
+            if (xmlHttp) {
+                return function (domain, path, async, callback) {
+                    if (async) {
+                        xmlHttp.onreadystatechange = function () {
+                            if (xmlHttp.readyState === 4) {
+                                callback.call(xmlHttp);
+                            }
+                        };
+                    }
+
+                    xmlHttp.onerror = function () { callback.call(xmlHttp); };
+
+                    // Both developer and noSend flags have to be set to stop the request sending.
+                    if (!(settings.get('developer') && settings.get('noSend'))) {
+                        xmlHttp.open("POST", domain, async);
+                        xmlHttp.send(path);
+                    }
+
+                    if (!async) {
+                        callback.call(xmlHttp);
+                    }
+                };
+            }
+
+            // TODO imagetag
+            image = new window.Image();
+
+            return function (domain, path, async, callback) {
+                if (async) {
+                    image.onreadystatechange(function () {
+                        callback.call(image);
+                    });
+                }
+
+                if (!(settings.get('developer') && settings.get('noSend'))) {
+                    image.src = domain + path;
+                }
+
+                if (!async) {
+                    callback.call(image);
+                }
+            };
+        }());
 
     /**
      * Marks a request as current.
@@ -225,8 +286,7 @@ Track._Core.Send = (function (parent, window) {
         var offlineLag = (new Date()).getTime() - request.queueTime,
             query,
             checksum,
-            path,
-            xmlHttp;
+            path;
 
         // Only bothered about offlineLag if it's longer than a second, but less than a month. (Especially as Date can be dodgy)
         if (offlineLag > 1000 && offlineLag < (31 * 24 * 60 * 60 * 1000)) {
@@ -237,19 +297,7 @@ Track._Core.Send = (function (parent, window) {
         query = "f=" + request.format + "&d=" + encodeDetails(request.format, request.values);
         checksum = "&c=" + generateChecksum(query);
 
-        try {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlHttp = new window.XMLHttpRequest();
-        } catch (e) {
-            // code for IE6, IE5
-            try {
-                xmlHttp = new window.ActiveXObject("Microsoft.XMLHttp");
-            } catch (ee) {
-                // TODO imagetag
-            }
-        }
-
-        function requestFinished() {
+        function requestFinished(xmlHttp) {
             if (utils.is(request.callback, 'function')) {
                 request.callback.call(request, xmlHttp);
             }
@@ -262,32 +310,15 @@ Track._Core.Send = (function (parent, window) {
             }
         }
 
-        if (request.async) {
-            xmlHttp.onreadystatechange = function () {
-                if (xmlHttp.readyState === 4) {
-                    requestFinished();
-                }
-            };
-            xmlHttp.onerror = requestFinished;
-        }
-
         started(request.requestID);
 
         path = [query, checksum].join('');
 
-        if (self.developer) {
+        if (settings.get('developer')) {
             utils.log(taggingServer(request.environment) + '?' + path);
         }
 
-        // Both developer and noSend flags have to be set to stop the request sending.
-        if (!(self.developer && self.noSend)) {
-            xmlHttp.open("POST", taggingServer(request.environment), request.async);
-            xmlHttp.send(path);
-        }
-
-        if (!request.async) {
-            requestFinished();
-        }
+        transmitter(taggingServer(request.environment), path, request.async, requestFinished);
     }
 
     /**
@@ -300,7 +331,7 @@ Track._Core.Send = (function (parent, window) {
 
         queue.add(request).save();
 
-        if (self.developer) {
+        if (settings.get('developer')) {
             utils.log('Queue', queue);
         }
     }
@@ -337,7 +368,7 @@ Track._Core.Send = (function (parent, window) {
      * @private
      */
     function init() {
-        queue = new Track._Core.Queue('requests');
+        queue = new Queue('requests');
 
         // If any tracking calls are made whilst offline, try sending them the next time the device comes online
         if (window.addEventListener) {
@@ -354,4 +385,4 @@ Track._Core.Send = (function (parent, window) {
         run: run,
         addAndRun: addAndRun
     };
-}(Track, window));
+}(window));

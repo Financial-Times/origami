@@ -17,7 +17,7 @@
     /*global describe, it, chai */
     var expect = chai.expect;
 
-    describe('Track._Core.Store', function () {
+    describe('Store', function () {
 
         describe('init()', function () {
 

@@ -68,7 +68,7 @@ module.exports = function (grunt) {
             }
         },
 
-        clean: ['<%=build_folder %>/docs', '<%=build_folder %>/examples'],
+        clean: ['<%=build_folder %>'],
 
         concat: {
             track: {
@@ -99,7 +99,7 @@ module.exports = function (grunt) {
             track: {
                 files: {
                     '<%=versioned_build_folder %>/track.<%=pkg.version %>.min.js': '<%=versioned_build_folder %>/track.<%=pkg.version %>.js',
-                    '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.min.js': '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.js'
+                    //'<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.min.js': '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.js'
                 }
             }
         },
@@ -108,9 +108,9 @@ module.exports = function (grunt) {
             track: {
                 files: [
                     { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.js', dest: '<%=build_folder %>/track.latest.js' },
-                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.js', dest: '<%=build_folder %>/track.latest.umd.js' },
+                    // src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.js', dest: '<%=build_folder %>/track.latest.umd.js' },
                     { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.min.js', dest: '<%=build_folder %>/track.latest.min.js' },
-                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.min.js', dest: '<%=build_folder %>/track.latest.umd.min.js' }
+                    //{ src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.min.js', dest: '<%=build_folder %>/track.latest.umd.min.js' }
                 ]
             },
             docs: {
@@ -129,6 +129,15 @@ module.exports = function (grunt) {
                 },
                 options: {
                     alias: 'util'
+                }
+            },
+            'track': {
+                files: {
+                    '<%=versioned_build_folder %>/track.<%=pkg.version %>.js': ['./main.js']
+                },
+                options: {
+                    //alias: './main.js:track',
+                    standalone: "Track"
                 }
             }
         },
@@ -201,8 +210,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-yuidoc');
     grunt.loadNpmTasks('grunt-mocha');
 
-    grunt.registerTask('build', "Build", ['jshint', 'clean', 'concat', 'umd', 'uglify', 'copy:track']);
-    grunt.registerTask('examples', "Examples", ['browserify', 'compass']);
+    grunt.registerTask('build', "Build", ['jshint', 'clean', 'browserify:track', 'uglify', 'copy:track']);
+    grunt.registerTask('examples', "Examples", ['browserify:examples', 'compass']);
     grunt.registerTask('docs', "Docs", ['copy:docs', 'yuidoc']);
     grunt.registerTask('test', "Test", ['mocha']);
 

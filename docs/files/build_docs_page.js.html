@@ -41,11 +41,13 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
+                <li><a href="../classes/Queue.html">Queue</a></li>
+            
+                <li><a href="../classes/Settings.html">Settings</a></li>
+            
                 <li><a href="../classes/Track.html">Track</a></li>
             
                 <li><a href="../classes/Track._Core.html">Track._Core</a></li>
-            
-                <li><a href="../classes/Track._Core.Queue.html">Track._Core.Queue</a></li>
             
                 <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
             
@@ -62,6 +64,8 @@
                 <li><a href="../modules/_Core.html">_Core</a></li>
             
                 <li><a href="../modules/_Utils.html">_Utils</a></li>
+            
+                <li><a href="../modules/main.html">main</a></li>
             
                 <li><a href="../modules/page.html">page</a></li>
             
@@ -112,8 +116,6 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-/*global Track, window, document*/
-
 /**
  * Page functionality. For tracking a page.
  * @module Track
@@ -121,7 +123,9 @@
  * @class Track.page
  * @static
  */
-Track.page = (function (module, window, document) {
+
+/*global module, require, window, document */
+module.exports = (function (window, document) {
     &quot;use strict&quot;;
 
     /**
@@ -139,8 +143,8 @@ Track.page = (function (module, window, document) {
          * @type {Object}
          * @private
          */
-            self = module._self = module._self || {},
-        utils = module._Utils,
+        settings = require(&quot;./core/settings&quot;),
+        utils = require(&quot;./utils&quot;),
 
         /**
          * Default properties for page tracking requests.
@@ -229,10 +233,10 @@ Track.page = (function (module, window, document) {
             }
         }, callback);
 
-        self.page_sent = true;
+        settings.page_sent = true;
     };
 
-}(Track, window, document));
+}(window, document));
 
 
     </pre>

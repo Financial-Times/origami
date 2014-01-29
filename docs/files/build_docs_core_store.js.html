@@ -41,11 +41,13 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
+                <li><a href="../classes/Queue.html">Queue</a></li>
+            
+                <li><a href="../classes/Settings.html">Settings</a></li>
+            
                 <li><a href="../classes/Track.html">Track</a></li>
             
                 <li><a href="../classes/Track._Core.html">Track._Core</a></li>
-            
-                <li><a href="../classes/Track._Core.Queue.html">Track._Core.Queue</a></li>
             
                 <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
             
@@ -62,6 +64,8 @@
                 <li><a href="../modules/_Core.html">_Core</a></li>
             
                 <li><a href="../modules/_Utils.html">_Utils</a></li>
+            
+                <li><a href="../modules/main.html">main</a></li>
             
                 <li><a href="../modules/page.html">page</a></li>
             
@@ -112,7 +116,6 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-/*global Track, window*/
 /**
  * Class for storing data
  * Will choose the &quot;best&quot; storage method available. Can also specify a type of storage.
@@ -123,177 +126,183 @@
  * @param [config] {Object} Optional config object for extra configuration.
  * @constructor
  */
-Track._Core.Store = function (name, config) {
+// TODO Look at all storage mechanisms for a starting value, and propagate up to the &quot;best&quot; mechanism.
+/*global module, require, window */
+module.exports = (function () {
     &quot;use strict&quot;;
 
-    if (Track._Utils.isUndefined(name)) {
-        throw new Error(&#x27;You must specify a name for the store.&#x27;);
-    }
+    var Store = function (name, config) {
 
-    this.config = Track._Utils.merge({ storage: &#x27;best&#x27;, expires: &#x27;10 years&#x27; }, config);
+        var utils = require(&quot;../utils&quot;);
 
-    /**
-     * Store data.
-     * @property store
-     * @private
-     */
-    this.data = null;
+        if (utils.isUndefined(name)) {
+            throw new Error(&#x27;You must specify a name for the store.&#x27;);
+        }
 
-    /**
-     * Internal Storage key prefix.
-     * @property keyPrefix
-     * @final
-     * @private
-     */
-    var keyPrefix = &quot;o-tracking-module&quot;,
+        this.config = utils.merge({ storage: &#x27;best&#x27;, expires: &#x27;10 years&#x27; }, config);
 
         /**
-         * Temporary var containing data from a previously saved store.
-         * @property loadStore
+         * Store data.
+         * @property store
          * @private
          */
-            loadStore;
+        this.data = null;
 
-    /**
-     * The key/name of this store.
-     * @property storageKey
-     */
-    this.storageKey = [keyPrefix, name].join(&#x27;_&#x27;);
+        /**
+         * Internal Storage key prefix.
+         * @property keyPrefix
+         * @final
+         * @private
+         */
+        var keyPrefix = &quot;o-tracking-module&quot;,
 
-    /**
-     * The storage method to use. Determines best storage method.
-     * @property storage
-     * @type {Object}
-     */
-    this.storage = (function (config, window) {
-        var test_key = keyPrefix + &#x27;_InternalTest&#x27;;
+            /**
+             * Temporary var containing data from a previously saved store.
+             * @property loadStore
+             * @private
+             */
+                loadStore;
 
-        // If cookie has been manually specified, don&#x27;t bother with local storage.
-        if (config.storage !== &#x27;cookie&#x27;) {
-            try {
-                if (window.localStorage) {
-                    window.localStorage.setItem(test_key, &#x27;TEST&#x27;);
+        /**
+         * The key/name of this store.
+         * @property storageKey
+         */
+        this.storageKey = (this.config.hasOwnProperty(&#x27;nameOverride&#x27;) ? this.config.nameOverride : [keyPrefix, name].join(&#x27;_&#x27;));
 
-                    if (window.localStorage.getItem(test_key) === &#x27;TEST&#x27;) {
-                        window.localStorage.removeItem(test_key);
+        /**
+         * The storage method to use. Determines best storage method.
+         * @property storage
+         * @type {Object}
+         */
+        this.storage = (function (config, window) {
+            var test_key = keyPrefix + &#x27;_InternalTest&#x27;;
 
-                        return {
-                            _type: &#x27;localStorage&#x27;,
-                            load: function (name) { return window.localStorage.getItem.call(window.localStorage, name); },
-                            save: function (name, value) { return window.localStorage.setItem.call(window.localStorage, name, value); },
-                            remove: function (name) { return window.localStorage.removeItem.call(window.localStorage, name); }
-                        };
+            // If cookie has been manually specified, don&#x27;t bother with local storage.
+            if (config.storage !== &#x27;cookie&#x27;) {
+                try {
+                    if (window.localStorage) {
+                        window.localStorage.setItem(test_key, &#x27;TEST&#x27;);
+
+                        if (window.localStorage.getItem(test_key) === &#x27;TEST&#x27;) {
+                            window.localStorage.removeItem(test_key);
+
+                            return {
+                                _type: &#x27;localStorage&#x27;,
+                                load: function (name) { return window.localStorage.getItem.call(window.localStorage, name); },
+                                save: function (name, value) { return window.localStorage.setItem.call(window.localStorage, name, value); },
+                                remove: function (name) { return window.localStorage.removeItem.call(window.localStorage, name); }
+                            };
+                        }
+                    }
+                } catch (error) {
+                }
+            }
+
+            function cookieLoad(name) {
+                name = name + &quot;=&quot;;
+
+                var cookies = window.document.cookie.split(&#x27;;&#x27;),
+                    i,
+                    cookie;
+
+                for (i = 0; i &lt; cookies.length; i = i + 1) {
+                    cookie = cookies[i].trim();
+                    if (cookie.indexOf(name) === 0) {
+                        return cookie.substring(name.length, cookie.length);
                     }
                 }
-            } catch (error) {
+
+                return null;
             }
-        }
 
-        function cookieLoad(name) {
-            name = name + &quot;=&quot;;
+            function cookieSave(name, value, expiry) {
+                var d,
+                    expires = &#x27;&#x27;,
+                    cookie;
 
-            var cookies = window.document.cookie.split(&#x27;;&#x27;),
-                i,
-                cookie;
-
-            for (i = 0; i &lt; cookies.length; i = i + 1) {
-                cookie = cookies[i].trim();
-                if (cookie.indexOf(name) === 0) {
-                    return cookie.substring(name.length, cookie.length);
+                if (utils.is(expiry, &#x27;number&#x27;)) {
+                    d = new Date();
+                    d.setTime(d.getTime() + (expiry * 24 * 60 * 60 * 1000));
+                    expires = &quot;expires=&quot; + d.toGMTString() + &#x27;;&#x27;;
                 }
+
+                cookie = utils.encode(name) + &#x27;=&#x27; + utils.encode(value) + &quot;;&quot; + expires + &#x27;path=/;&#x27;;
+                window.document.cookie = cookie;
             }
 
-            return null;
-        }
-
-        function cookieSave(name, value, expiry) {
-            var d,
-                expires = &#x27;&#x27;,
-                cookie;
-
-            if (Track._Utils.is(expiry, &#x27;number&#x27;)) {
-                d = new Date();
-                d.setTime(d.getTime() + (expiry * 24 * 60 * 60 * 1000));
-                expires = &quot;expires=&quot; + d.toGMTString() + &#x27;;&#x27;;
+            function cookieRemove(name) {
+                cookieSave(name, &#x27;&#x27;, -1);
             }
 
-            cookie = Track._Utils.encode(name) + &#x27;=&#x27; + Track._Utils.encode(value) + &quot;;&quot; + expires + &#x27;path=/;&#x27;;
-            window.document.cookie = cookie;
-        }
+            cookieSave(test_key, &quot;TEST&quot;);
 
-        function cookieRemove(name) {
-            cookieSave(name, &#x27;&#x27;, -1);
-        }
+            if (cookieLoad(test_key) === &#x27;TEST&#x27;) {
+                cookieRemove(test_key);
 
-        cookieSave(test_key, &quot;TEST&quot;);
-
-        if (cookieLoad(test_key) === &#x27;TEST&#x27;) {
-            cookieRemove(test_key);
+                return {
+                    _type: &#x27;cookie&#x27;,
+                    load: cookieLoad,
+                    save: cookieSave,
+                    remove: cookieRemove
+                };
+            }
 
             return {
-                _type: &#x27;cookie&#x27;,
-                load: cookieLoad,
-                save: cookieSave,
-                remove: cookieRemove
+                _type: &#x27;none&#x27;,
+                load: function () {},
+                save: function () {},
+                remove: function () {}
             };
+        }(this.config, window));
+
+        // Retrieve any previous store with the same name.
+        loadStore = this.storage.load(this.storageKey);
+        if (loadStore) {
+            this.data = JSON.parse(loadStore);
         }
 
-        return {
-            _type: &#x27;none&#x27;,
-            load: function () {},
-            save: function () {},
-            remove: function () {}
-        };
-    }(this.config, window));
+        return this;
+    };
 
-    // Retrieve any previous store with the same name.
-    loadStore = this.storage.load(this.storageKey);
-    if (loadStore) {
-        this.data = JSON.parse(loadStore);
-    }
+    /**
+     * Get/Read the current data.
+     * @method read
+     * @return Returns the data from the store.
+     */
+    Store.prototype.read = function () {
+        return this.data;
+    };
 
-    return this;
-};
+    /**
+     * Write the supplied data to the store.
+     * @method write
+     * @param data {String} The data to write.
+     * @return Returns this.
+     * @chainable
+     */
+    Store.prototype.write = function (data) {
+        // Set this.data, in-case we&#x27;re on a file:// domain and can&#x27;t set cookies.
+        this.data = data;
+        this.storage.save(this.storageKey, JSON.stringify(this.data));
 
-/**
- * Get/Read the current data.
- * @method read
- * @return Returns the data from the store.
- */
-Track._Core.Store.prototype.read = function () {
-    &quot;use strict&quot;;
-    return this.data;
-};
+        return this;
+    };
 
-/**
- * Write the supplied data to the store.
- * @method write
- * @param data {String} The data to write.
- * @return Returns this.
- * @chainable
- */
-Track._Core.Store.prototype.write = function (data) {
-    &quot;use strict&quot;;
+    /**
+     * Delete the current data.
+     * @method destroy
+     * @return Returns this.
+     * @chainable
+     */
+    Store.prototype.destroy = function () {
+        this.data = null;
+        this.storage.remove(this.storageKey);
+        return this;
+    };
 
-    // Set this.data, in-case we&#x27;re on a file:// domain and can&#x27;t set cookies.
-    this.data = data;
-    this.storage.save(this.storageKey, JSON.stringify(this.data));
+    return Store;
+}());
 
-    return this;
-};
-
-/**
- * Delete the current data.
- * @method destroy
- * @return Returns this.
- * @chainable
- */
-Track._Core.Store.prototype.destroy = function () {
-    &quot;use strict&quot;;
-    this.data = null;
-    this.storage.remove(this.storageKey);
-    return this;
-};
     </pre>
 </div>
 

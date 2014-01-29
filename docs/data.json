@@ -12,7 +12,7 @@
                 "Queue": 1
             },
             "classes": {
-                "Track._Core.Queue": 1
+                "Queue": 1
             },
             "fors": {},
             "namespaces": {}
@@ -24,6 +24,17 @@
             },
             "classes": {
                 "Track._Core.Send": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "build/docs/core/settings.js": {
+            "name": "build/docs/core/settings.js",
+            "modules": {
+                "Track": 1
+            },
+            "classes": {
+                "Settings": 1
             },
             "fors": {},
             "namespaces": {}
@@ -53,7 +64,7 @@
         "build/docs/main.js": {
             "name": "build/docs/main.js",
             "modules": {
-                "Track": 1
+                "main": 1
             },
             "classes": {
                 "Track": 1
@@ -93,7 +104,7 @@
                 "Store": 1
             },
             "classes": {
-                "Track._Core.Queue": 1,
+                "Queue": 1,
                 "Track._Core.Send": 1,
                 "Track._Core.Store": 1,
                 "Track._Core": 1
@@ -102,7 +113,7 @@
             "namespaces": {},
             "module": "Track",
             "file": "build/docs/core.js",
-            "line": 3,
+            "line": 1,
             "description": "Core functionality. Queuing and sending tags",
             "static": 1
         },
@@ -110,7 +121,7 @@
             "name": "Queue",
             "submodules": {},
             "classes": {
-                "Track._Core.Queue": 1
+                "Queue": 1
             },
             "fors": {},
             "is_submodule": 1,
@@ -118,7 +129,7 @@
             "module": "_Core",
             "namespace": "",
             "file": "build/docs/core/queue.js",
-            "line": 2,
+            "line": 1,
             "description": "Class for handling a queue backed up by a store.",
             "params": [
                 {
@@ -141,9 +152,28 @@
             "module": "_Core",
             "namespace": "",
             "file": "build/docs/core/send.js",
-            "line": 2,
+            "line": 1,
             "description": "Queuing and sending tags\nKeep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request.",
             "static": 1
+        },
+        "Track": {
+            "name": "Track",
+            "submodules": {
+                "page": 1,
+                "_Utils": 1
+            },
+            "classes": {
+                "Settings": 1,
+                "Track._Core": 1,
+                "Track.page": 1,
+                "Track._Utils": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "build/docs/utils.js",
+            "line": 1,
+            "description": "Settings store."
         },
         "Store": {
             "name": "Store",
@@ -157,7 +187,7 @@
             "module": "_Core",
             "namespace": "",
             "file": "build/docs/core/store.js",
-            "line": 2,
+            "line": 1,
             "description": "Class for storing data\nWill choose the \"best\" storage method available. Can also specify a type of storage.",
             "params": [
                 {
@@ -174,24 +204,18 @@
             ],
             "is_constructor": 1
         },
-        "Track": {
-            "name": "Track",
-            "submodules": {
-                "page": 1,
-                "_Utils": 1
-            },
+        "main": {
+            "name": "main",
+            "submodules": {},
             "classes": {
-                "Track._Core": 1,
-                "Track": 1,
-                "Track.page": 1,
-                "Track._Utils": 1
+                "Track": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "build/docs/utils.js",
-            "line": 3,
-            "description": "Origami tracking module.\n========================\nFrom this specification: https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing\n\nFeatures\n--------\n* Use AJAX instead of image requests\n* Bundle requests\n* Handle offline\n* Use storage methods other than cookies\n* Make the API cleaner and easier to use\n* Origami module\n* Use a single configuration object\n\nExample\n-------\n<pre>Track.init({ environment: 'test' });</pre>",
+            "file": "build/docs/main.js",
+            "line": 1,
+            "description": "Origami tracking module.\n========================\nFrom this specification: https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing\n\nFeatures\n--------\n* Use AJAX instead of image requests\n* Bundle requests TODO\n* Handle offline\n* Use storage methods other than cookies\n* Make the API cleaner and easier to use\n* Origami module\n* Use a single configuration object\n\nExample\n-------\n<pre>Track.init({ environment: 'test' });</pre>",
             "itemtype": "main",
             "static": 1,
             "type": "{*}"
@@ -208,7 +232,7 @@
             "module": "Track",
             "namespace": "",
             "file": "build/docs/page.js",
-            "line": 3,
+            "line": 1,
             "description": "Page functionality. For tracking a page.",
             "static": 1
         },
@@ -224,15 +248,15 @@
             "module": "Track",
             "namespace": "",
             "file": "build/docs/utils.js",
-            "line": 3,
+            "line": 1,
             "description": "Common utilities for the tracking module.",
             "static": 1
         }
     },
     "classes": {
-        "Track._Core.Queue": {
-            "name": "Track._Core.Queue",
-            "shortname": "Track._Core.Queue",
+        "Queue": {
+            "name": "Queue",
+            "shortname": "Queue",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -242,7 +266,7 @@
             "submodule": "Queue",
             "namespace": "",
             "file": "build/docs/core/queue.js",
-            "line": 2,
+            "line": 1,
             "description": "Class for handling a queue backed up by a store."
         },
         "Track._Core.Send": {
@@ -257,8 +281,22 @@
             "submodule": "Send",
             "namespace": "",
             "file": "build/docs/core/send.js",
-            "line": 2,
+            "line": 1,
             "description": "Queuing and sending tags\nKeep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request."
+        },
+        "Settings": {
+            "name": "Settings",
+            "shortname": "Settings",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Track",
+            "namespace": "",
+            "file": "build/docs/core/settings.js",
+            "line": 1,
+            "description": "Settings store."
         },
         "Track._Core.Store": {
             "name": "Track._Core.Store",
@@ -272,7 +310,7 @@
             "submodule": "Store",
             "namespace": "",
             "file": "build/docs/core/store.js",
-            "line": 2,
+            "line": 1,
             "description": "Class for storing data\nWill choose the \"best\" storage method available. Can also specify a type of storage."
         },
         "Track._Core": {
@@ -287,7 +325,7 @@
             "submodule": "_Core",
             "namespace": "",
             "file": "build/docs/core.js",
-            "line": 3,
+            "line": 1,
             "description": "Core functionality. Queuing and sending tags"
         },
         "Track": {
@@ -298,11 +336,11 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "Track",
+            "module": "main",
             "namespace": "",
             "file": "build/docs/main.js",
-            "line": 3,
-            "description": "Origami tracking module.\n========================\nFrom this specification: https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing\n\nFeatures\n--------\n* Use AJAX instead of image requests\n* Bundle requests\n* Handle offline\n* Use storage methods other than cookies\n* Make the API cleaner and easier to use\n* Origami module\n* Use a single configuration object\n\nExample\n-------\n<pre>Track.init({ environment: 'test' });</pre>",
+            "line": 1,
+            "description": "Origami tracking module.\n========================\nFrom this specification: https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing\n\nFeatures\n--------\n* Use AJAX instead of image requests\n* Bundle requests TODO\n* Handle offline\n* Use storage methods other than cookies\n* Make the API cleaner and easier to use\n* Origami module\n* Use a single configuration object\n\nExample\n-------\n<pre>Track.init({ environment: 'test' });</pre>",
             "mainName": "The Track object.",
             "tag": "main",
             "itemtype": "main",
@@ -320,7 +358,7 @@
             "submodule": "page",
             "namespace": "",
             "file": "build/docs/page.js",
-            "line": 3,
+            "line": 1,
             "description": "Page functionality. For tracking a page."
         },
         "Track._Utils": {
@@ -335,37 +373,39 @@
             "submodule": "_Utils",
             "namespace": "",
             "file": "build/docs/utils.js",
-            "line": 3,
+            "line": 1,
             "description": "Common utilities for the tracking module."
         }
     },
     "classitems": [
         {
             "file": "build/docs/core/queue.js",
-            "line": 17,
+            "line": 22,
             "description": "Queue data.",
             "itemtype": "property",
             "name": "queue",
             "access": "private",
             "tagname": "",
-            "class": "Track._Core.Queue",
+            "class": "Queue",
             "module": "_Core",
             "submodule": "Queue"
         },
         {
             "file": "build/docs/core/queue.js",
-            "line": 24,
+            "line": 29,
             "description": "The storage method to use. Determines best storage method.",
             "itemtype": "property",
             "name": "storage",
             "type": "{Object}",
-            "class": "Track._Core.Queue",
+            "access": "private",
+            "tagname": "",
+            "class": "Queue",
             "module": "_Core",
             "submodule": "Queue"
         },
         {
             "file": "build/docs/core/queue.js",
-            "line": 39,
+            "line": 45,
             "description": "Gets the contents of the store.",
             "itemtype": "method",
             "name": "all",
@@ -373,13 +413,13 @@
                 "description": "The array of items.",
                 "type": "Array"
             },
-            "class": "Track._Core.Queue",
+            "class": "Queue",
             "module": "_Core",
             "submodule": "Queue"
         },
         {
             "file": "build/docs/core/queue.js",
-            "line": 61,
+            "line": 65,
             "description": "Gets the first item in the store.",
             "itemtype": "method",
             "name": "first",
@@ -387,13 +427,13 @@
                 "description": "Returns the item.",
                 "type": "Mixed"
             },
-            "class": "Track._Core.Queue",
+            "class": "Queue",
             "module": "_Core",
             "submodule": "Queue"
         },
         {
             "file": "build/docs/core/queue.js",
-            "line": 76,
+            "line": 78,
             "description": "Gets the last item in the store.",
             "itemtype": "method",
             "name": "last",
@@ -401,13 +441,13 @@
                 "description": "Returns the item.",
                 "type": "Mixed"
             },
-            "class": "Track._Core.Queue",
+            "class": "Queue",
             "module": "_Core",
             "submodule": "Queue"
         },
         {
             "file": "build/docs/core/queue.js",
-            "line": 97,
+            "line": 95,
             "description": "Add data to the store.",
             "itemtype": "method",
             "name": "add",
@@ -422,13 +462,13 @@
                 "description": "Returns this."
             },
             "chainable": 1,
-            "class": "Track._Core.Queue",
+            "class": "Queue",
             "module": "_Core",
             "submodule": "Queue"
         },
         {
             "file": "build/docs/core/queue.js",
-            "line": 130,
+            "line": 126,
             "description": "Overwrite the store with something completely new.",
             "itemtype": "method",
             "name": "replace",
@@ -443,13 +483,13 @@
                 "description": "Returns this."
             },
             "chainable": 1,
-            "class": "Track._Core.Queue",
+            "class": "Queue",
             "module": "_Core",
             "submodule": "Queue"
         },
         {
             "file": "build/docs/core/queue.js",
-            "line": 150,
+            "line": 144,
             "description": "Save the current store to localStorage so that old requests can still be sent after a page refresh.",
             "itemtype": "method",
             "name": "save",
@@ -457,16 +497,16 @@
                 "description": "Returns this."
             },
             "chainable": 1,
-            "class": "Track._Core.Queue",
+            "class": "Queue",
             "module": "_Core",
             "submodule": "Queue"
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 13,
+            "line": 14,
             "description": "Shared \"internal\" scope.",
             "itemtype": "property",
-            "name": "_self",
+            "name": "_settings",
             "type": "{Object}",
             "access": "private",
             "tagname": "",
@@ -476,7 +516,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 21,
+            "line": 23,
             "description": "iJento production server.",
             "itemtype": "property",
             "name": "iJentoProdServer",
@@ -489,7 +529,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 28,
+            "line": 30,
             "description": "iJento test server.",
             "itemtype": "property",
             "name": "iJentoProdServer",
@@ -502,7 +542,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 35,
+            "line": 37,
             "description": "iJento image path.",
             "itemtype": "property",
             "name": "trackerUrl",
@@ -515,7 +555,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 43,
+            "line": 45,
             "description": "Queue queue.",
             "itemtype": "property",
             "name": "queue",
@@ -527,7 +567,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 49,
+            "line": 51,
             "description": "Requests being sent right now.",
             "itemtype": "property",
             "name": "currentRequests",
@@ -539,7 +579,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 56,
+            "line": 117,
             "description": "Marks a request as current.",
             "itemtype": "method",
             "name": "started",
@@ -558,7 +598,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 66,
+            "line": 127,
             "description": "Marks a request as no longer current.",
             "itemtype": "method",
             "name": "finished",
@@ -577,7 +617,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 76,
+            "line": 137,
             "description": "Marks a request as no longer current and removes it from the queue.",
             "itemtype": "method",
             "name": "success",
@@ -596,7 +636,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 97,
+            "line": 158,
             "description": "Generates an Adler 32 checksum of the input data.",
             "itemtype": "method",
             "name": "generateChecksum",
@@ -619,7 +659,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 123,
+            "line": 184,
             "description": "Encodes a given input string in base64.",
             "itemtype": "method",
             "name": "encodeString",
@@ -642,7 +682,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 163,
+            "line": 224,
             "description": "Encode the values into an iJento string.",
             "itemtype": "method",
             "name": "encodeDetails",
@@ -670,7 +710,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 184,
+            "line": 245,
             "description": "Get the tracking pixel url for the chosen environment.",
             "itemtype": "method",
             "name": "taggingServer",
@@ -694,7 +734,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 195,
+            "line": 256,
             "description": "Attempts to send a tracking request.",
             "itemtype": "method",
             "name": "sendRequest",
@@ -719,7 +759,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 293,
+            "line": 324,
             "description": "Adds a new request to the list of pending requests",
             "itemtype": "method",
             "name": "add",
@@ -735,7 +775,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 308,
+            "line": 339,
             "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
             "itemtype": "method",
             "name": "run",
@@ -745,7 +785,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 324,
+            "line": 355,
             "description": "Convenience function to add and run a request all in one go.",
             "itemtype": "method",
             "name": "addAndRun",
@@ -762,7 +802,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 334,
+            "line": 365,
             "description": "Init the queue and send any leftover tags.",
             "itemtype": "method",
             "name": "init",
@@ -774,7 +814,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 21,
+            "line": 26,
             "description": "Store data.",
             "itemtype": "property",
             "name": "store",
@@ -786,7 +826,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 28,
+            "line": 33,
             "description": "Internal Storage key prefix.",
             "itemtype": "property",
             "name": "keyPrefix",
@@ -799,7 +839,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 36,
+            "line": 41,
             "description": "Temporary var containing data from a previously saved store.",
             "itemtype": "property",
             "name": "loadStore",
@@ -811,7 +851,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 43,
+            "line": 48,
             "description": "The key/name of this store.",
             "itemtype": "property",
             "name": "storageKey",
@@ -821,7 +861,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 49,
+            "line": 54,
             "description": "The storage method to use. Determines best storage method.",
             "itemtype": "property",
             "name": "storage",
@@ -832,7 +872,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 144,
+            "line": 149,
             "description": "Get/Read the current data.",
             "itemtype": "method",
             "name": "read",
@@ -845,7 +885,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 154,
+            "line": 158,
             "description": "Write the supplied data to the store.",
             "itemtype": "method",
             "name": "write",
@@ -866,7 +906,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 171,
+            "line": 173,
             "description": "Delete the current data.",
             "itemtype": "method",
             "name": "destroy",
@@ -991,7 +1031,7 @@
         },
         {
             "file": "build/docs/main.js",
-            "line": 36,
+            "line": 33,
             "description": "Shared \"internal\" scope.",
             "itemtype": "property",
             "name": "_self",
@@ -999,21 +1039,21 @@
             "access": "private",
             "tagname": "",
             "class": "Track",
-            "module": "Track"
+            "module": "main"
         },
         {
             "file": "build/docs/main.js",
-            "line": 44,
+            "line": 42,
             "description": "The version of the tracking module.",
             "itemtype": "property",
             "name": "version",
             "type": "{String}",
             "class": "Track",
-            "module": "Track"
+            "module": "main"
         },
         {
             "file": "build/docs/main.js",
-            "line": 51,
+            "line": 49,
             "description": "Turn on/off developer mode. (Can also be activated on init.)",
             "itemtype": "method",
             "name": "developer",
@@ -1026,11 +1066,20 @@
                 }
             ],
             "class": "Track",
-            "module": "Track"
+            "module": "main"
         },
         {
             "file": "build/docs/main.js",
-            "line": 70,
+            "line": 68,
+            "description": "Clean up the tracking module.",
+            "itemtype": "method",
+            "name": "destroy",
+            "class": "Track",
+            "module": "main"
+        },
+        {
+            "file": "build/docs/main.js",
+            "line": 78,
             "description": "Initialise the Track module.",
             "itemtype": "method",
             "name": "init",
@@ -1041,20 +1090,11 @@
                 }
             ],
             "class": "Track",
-            "module": "Track"
+            "module": "main"
         },
         {
             "file": "build/docs/main.js",
-            "line": 97,
-            "description": "Clean up the tracking module.",
-            "itemtype": "method",
-            "name": "destroy",
-            "class": "Track",
-            "module": "Track"
-        },
-        {
-            "file": "build/docs/main.js",
-            "line": 107,
+            "line": 105,
             "description": "Overload toString method to show the version.",
             "itemtype": "method",
             "name": "toString",
@@ -1063,7 +1103,7 @@
                 "type": "String"
             },
             "class": "Track",
-            "module": "Track"
+            "module": "main"
         },
         {
             "file": "build/docs/page.js",

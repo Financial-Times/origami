@@ -1,5 +1,3 @@
-/*global Track, window, document*/
-
 /**
  * Core functionality. Queuing and sending tags
  * @module Track
@@ -7,7 +5,9 @@
  * @class Track._Core
  * @static
  */
-Track._Core = (function (parent, window, document) {
+
+/*global module, require, window, document*/
+module.exports = (function (window, document) {
     "use strict";
 
     /**
@@ -16,8 +16,8 @@ Track._Core = (function (parent, window, document) {
      * @type {Object}
      * @private
      */
-    var self = parent._self = parent._self || {},
-        utils = parent._Utils,
+    var settings = require("./core/settings"),
+        utils = require("./utils"),
         /**
          * Default properties for sending a tracking request.
          * @property defaultConfig
@@ -30,7 +30,7 @@ Track._Core = (function (parent, window, document) {
          }
          @private
          */
-            defaultConfig = {
+        defaultConfig = {
             environment: 'test',
             async: true,
             callback: function () {}
@@ -72,8 +72,8 @@ Track._Core = (function (parent, window, document) {
      * @private
      */
     function internalCounter() {
-        self.internalCounter = self.internalCounter + 1;
-        return self.internalCounter;
+        settings.set('internalCounter', settings.get('internalCounter') + 1);
+        return settings.get('internalCounter');
     }
 
     /**
@@ -88,7 +88,7 @@ Track._Core = (function (parent, window, document) {
             callback = function () {};
         }
 
-        var request = utils.merge(utils.merge(defaultConfig, self.config), utils.merge(config, { callback: callback }));
+        var request = utils.merge(utils.merge(defaultConfig, settings.config), utils.merge(config, { callback: callback }));
 
         // Used for the queue
         request.requestID = requestID();
@@ -109,4 +109,4 @@ Track._Core = (function (parent, window, document) {
         clickID: clickID,
         track: track
     };
-}(Track, window, document));
+}(window, document));
