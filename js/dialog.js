@@ -32,8 +32,8 @@ var domUtils = require('./domUtils'),
         hasOverlay: true,
         isCenteredVertically: true, //
         isCenteredHorizontally: true, //
-        snapsToFullHeight: true,
-        snapsToFullWidth: true,
+        snapsToFullHeight: true, //
+        snapsToFullWidth: true, //
         onTrigger: $.noop,
         onFail: $.noop,
         onBeforeRender: $.noop,
@@ -389,27 +389,29 @@ var createDialogHtml = function () {
         var edge = dimension === W ? L : T,
             capitalisedDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1);
 
-        if (win[dimension]() <= dialog[dimension]) {
-            dialog['full' + capitalisedDimension] = true;
-            dialog.wrapper.addClass('o-dialog--full-' + dimension);
-            if (!isFlexbox) {
-                dialog.content.css('margin-' + edge, 0);
-            }
-        } else {
-            dialog['full' + capitalisedDimension] = false;
-            dialog.wrapper.removeClass('o-dialog--full-' + dimension).attr('style', null);
-            dialog[dimension] = Math.max(
-                dimensionCalculators[dimension](dialog),
-                dialog[dimension]
-            );
-            if (!isFlexbox) {
-                dialog.content.css('margin-' + edge, -dialog.content['outer' + capitalisedDimension]()/2);
+        if (config['snapsToFull' + capitalisedDimension]) {
+            if (win[dimension]() <= dialog[dimension]) {
+                dialog['full' + capitalisedDimension] = true;
+                dialog.wrapper.addClass('o-dialog--full-' + dimension);
+                if (!isFlexbox) {
+                    dialog.content.css('margin-' + edge, 0);
+                }
+            } else {
+                dialog['full' + capitalisedDimension] = false;
+                dialog.wrapper.removeClass('o-dialog--full-' + dimension).attr('style', null);
+                dialog[dimension] = Math.max(
+                    dimensionCalculators[dimension](dialog),
+                    dialog[dimension]
+                );
+                if (!isFlexbox) {
+                    dialog.content.css('margin-' + edge, -dialog.content['outer' + capitalisedDimension]()/2);
+                }
             }
         }
-
         if (!isFlexbox && dimension === W && !dialog.opts.isCenteredHorizontally) {
             dialog.content.css('margin-' + edge, 'auto');
         }
+
     };
 
 
