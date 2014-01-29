@@ -6,6 +6,9 @@
 		"package.json",
 		"Gruntfile.js"
 	],
+	"devDependencies": {
+	    "modernizr": ">=2.6 <3"
+	},
 	"dependencies": {
 		"o-colors": "https://github.com/Financial-Times/o-colors.git#>=1.1.1",
 		"o-ft-typography": "https://github.com/Financial-Times/o-ft-typography.git#>=0.1.x",

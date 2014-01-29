@@ -8,6 +8,8 @@
   "devDependencies": {
     "grunt": "0.4.x",
     "grunt-origami-demoer": "*",
-    "grunt-contrib-watch": "*"
+    "grunt-contrib-watch": "*",
+    "debowerify": "~0.5.2",
+    "browserify": "~3.24.1"
   }
 }
