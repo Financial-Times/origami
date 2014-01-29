@@ -13,17 +13,17 @@ module.exports = function (grunt) {
             },
 
             files : [
-                {
+                /*{
                     location: "bower.json",
                     regex: /("version"\s*:\s*["'])(\d\.\d\.\d)(["'])/
-                },
+                },*/
                 {
                     location: "package.json",
                     regex: /("version"\s*:\s*["'])(\d\.\d\.\d)(["'])/
                 },
                 {
                     location: "README.md",
-                    regex: /("tracking-module": "http:\/\/git\.svc\.ft\.com\:9080\/git\/origami\/tracking-module.git#)(\d\.\d\.\d)(")/
+                    regex: /("tracking-module": "https:\/\/github\.com\/Financial-Times\/o-tracking\.git#)(\d\.\d\.\d)(")/
                 },
                 {
                     location: "tracking.mustache",
@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                 },
                 {
                     location: "main.js",
-                    regex: /(module\.version = "Track version )(\d\.\d\.\d)(";)/
+                    regex: /(version = "Track version )(\d\.\d\.\d)(";)/
                 }
             ]
         },

@@ -2,7 +2,7 @@
     "project": {
         "name": "Origami Tracking module",
         "description": "Origami module for FT tracking.",
-        "version": "0.0.4",
+        "version": "0.0.1",
         "url": ""
     },
     "files": {
@@ -30,9 +30,7 @@
         },
         "build/docs/core/settings.js": {
             "name": "build/docs/core/settings.js",
-            "modules": {
-                "Track": 1
-            },
+            "modules": {},
             "classes": {
                 "Settings": 1
             },
@@ -64,7 +62,7 @@
         "build/docs/main.js": {
             "name": "build/docs/main.js",
             "modules": {
-                "main": 1
+                "Track": 1
             },
             "classes": {
                 "Track": 1
@@ -165,6 +163,7 @@
             "classes": {
                 "Settings": 1,
                 "Track._Core": 1,
+                "Track": 1,
                 "Track.page": 1,
                 "Track._Utils": 1
             },
@@ -173,7 +172,10 @@
             "tag": "module",
             "file": "build/docs/utils.js",
             "line": 1,
-            "description": "Settings store."
+            "description": "Origami tracking module.\n========================\nFrom this specification: https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing\n\nFeatures\n--------\n* Use AJAX instead of image requests\n* Bundle requests TODO\n* Handle offline\n* Use storage methods other than cookies\n* Make the API cleaner and easier to use\n* Origami module\n* Use a single configuration object\n\nExample\n-------\n<pre>Track.init({ environment: 'test' });</pre>",
+            "itemtype": "main",
+            "static": 1,
+            "type": "{*}"
         },
         "Store": {
             "name": "Store",
@@ -203,22 +205,6 @@
                 }
             ],
             "is_constructor": 1
-        },
-        "main": {
-            "name": "main",
-            "submodules": {},
-            "classes": {
-                "Track": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "build/docs/main.js",
-            "line": 1,
-            "description": "Origami tracking module.\n========================\nFrom this specification: https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing\n\nFeatures\n--------\n* Use AJAX instead of image requests\n* Bundle requests TODO\n* Handle offline\n* Use storage methods other than cookies\n* Make the API cleaner and easier to use\n* Origami module\n* Use a single configuration object\n\nExample\n-------\n<pre>Track.init({ environment: 'test' });</pre>",
-            "itemtype": "main",
-            "static": 1,
-            "type": "{*}"
         },
         "page": {
             "name": "page",
@@ -336,7 +322,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "main",
+            "module": "Track",
             "namespace": "",
             "file": "build/docs/main.js",
             "line": 1,
@@ -1039,7 +1025,7 @@
             "access": "private",
             "tagname": "",
             "class": "Track",
-            "module": "main"
+            "module": "Track"
         },
         {
             "file": "build/docs/main.js",
@@ -1049,7 +1035,7 @@
             "name": "version",
             "type": "{String}",
             "class": "Track",
-            "module": "main"
+            "module": "Track"
         },
         {
             "file": "build/docs/main.js",
@@ -1066,7 +1052,7 @@
                 }
             ],
             "class": "Track",
-            "module": "main"
+            "module": "Track"
         },
         {
             "file": "build/docs/main.js",
@@ -1075,7 +1061,7 @@
             "itemtype": "method",
             "name": "destroy",
             "class": "Track",
-            "module": "main"
+            "module": "Track"
         },
         {
             "file": "build/docs/main.js",
@@ -1090,7 +1076,7 @@
                 }
             ],
             "class": "Track",
-            "module": "main"
+            "module": "Track"
         },
         {
             "file": "build/docs/main.js",
@@ -1103,7 +1089,7 @@
                 "type": "String"
             },
             "class": "Track",
-            "module": "main"
+            "module": "Track"
         },
         {
             "file": "build/docs/page.js",
