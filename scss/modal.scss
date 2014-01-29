@@ -1,10 +1,9 @@
-.o-dialog--overlay {
+.o-dialog--modal {
   position:fixed;
   height: 100%;
   width: 100%;
   top: 0;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.7);
   padding: 10px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -18,7 +17,7 @@
   pointer-events: none;
 }
 
-.o-dialog--overlay.is-open {
+.o-dialog--modal.is-open {
     pointer-events: auto;
     opacity: 1;
 }
@@ -35,7 +34,7 @@
 
 .flexbox,
 .flexboxlegacy {
-  .o-dialog--overlay { 
+  .o-dialog--modal { 
     display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox; /* TWEENER - IE 10 */
@@ -75,12 +74,12 @@
   }
 }
 
-.o-dialog--overlay.o-dialog--full-width {
+.o-dialog--modal.o-dialog--full-width {
   padding-left: 0;
   padding-right: 0;
 }
 
-.o-dialog--overlay.o-dialog--full-height {
+.o-dialog--modal.o-dialog--full-height {
   padding-top: 0;
   padding-bottom: 0;
   z-index: 3;

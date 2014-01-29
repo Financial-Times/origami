@@ -2,6 +2,7 @@
 
 var $ = require('jquery'),
     domUtils = require('./domUtils'),
+    prefixr = require('./prefixr'),
     L = 'left',
     R = 'right',
     T = 'top',
@@ -10,8 +11,8 @@ var $ = require('jquery'),
     W = 'width',
     win = $(window),
     presets = {},
-    isAnimatable = Modernizr.csstransforms,
-    isFlexbox = Modernizr.flexbox || Modernizr.flexboxlegacy,
+    isAnimatable = $('html').hasClass('csstransforms'),
+    isFlexbox = $('html').hasClass('flexbox') || $('html').hasClass('flexboxlegacy'),
     dialogs = isAnimatable ? Array(2) : [],
     globalListenersApplied = false,
     dimensionCalculators = {
@@ -26,12 +27,12 @@ var $ = require('jquery'),
         src: '',
         srcType: 'selector',
         classes: '',
-        type: 'overlay',
+        preset: 'modal',
         isDismissable: true, //
         isAnchoredToTrigger: false, //
         verticalAnchorSide: null,
         horizontalAnchorSide: null,
-        hasOverlay: true,
+        hasOverlay: false, //
         isCenteredVertically: true, //
         isCenteredHorizontally: true, //
         snapsToFullHeight: true, //
@@ -205,7 +206,7 @@ var createDialogHtml = function () {
 
 
     assignClasses = function (dialog) {
-        dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.classes;
+        dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.classes + (dialog.opts.hasOverlay ? ' o-dialog--overlay' : '');
         dialog.content[0].className = 'o-dialog__content o-dialog--' + dialog.opts.preset + '__content';
     },
 
@@ -334,7 +335,7 @@ var createDialogHtml = function () {
         
 
         setTimeout(function () {
-            Modernizr.prefixed('requestAnimationFrame', window)(function () {
+            prefixr('requestAnimationFrame', window)(function () {
                 var duration = 0;
 
                 $.each(possibleTransitions, function (index, details) {
@@ -349,7 +350,7 @@ var createDialogHtml = function () {
 
                             // todo: move this to listen on the wrapper and only respond to the slowest animation
                             // do something like checking to see if target = this and set a flag after timeout(maxDuration - 50) has run
-                            $(details.el).one(Modernizr.prefixed('transitionEnd'), singletonCallback);
+                            $(details.el).one(prefixr('transitionEnd'), singletonCallback);
                         
                             // failsafe in case the transitionEnd event doesn't fire
                             setTimeout(singletonCallback, details.duration * 1000);

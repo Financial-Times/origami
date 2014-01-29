@@ -1,5 +1,7 @@
 "use strict";
 
+var prefixr = require('./prefixr');
+
 function getSpacing(el, side) {
     return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
 }
@@ -18,7 +20,7 @@ function toHyphenatedStyleProp (str) {
 
 function getPrefixedStyleProp (prop) {
     prop = toCamelStyleProp(prop);
-    prop = Modernizr.prefixed(prop);
+    prop = prefixr(prop);
     return toHyphenatedStyleProp(prop);
 }
 

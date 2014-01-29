@@ -1,6 +1,7 @@
 var Dialog = require('../dialog');
 
-Dialog.addPreset('overlay', {
+Dialog.addPreset('modal', {
+	hasOverlay: true,
     isDismissable: true,
     isAnchoredToTrigger: false,
     hasOverlay: true,
