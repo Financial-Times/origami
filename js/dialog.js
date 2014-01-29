@@ -63,6 +63,10 @@ var createDialogHtml = function () {
         return dialog;
     },
 
+    isContentClick = function (ev, dialog) {
+        return !!$(dialog.content).has(ev.target).length;
+    },
+
     globalListeners = function () {
         $(document).on('close.o-dialog', close);
 
@@ -112,7 +116,6 @@ var createDialogHtml = function () {
         dialog.opts.onBeforeRender();
         attachDialog(dialog);
         dialog.opts.onAfterRender();
-
     },
 
     configureDialog = function (opts, trigger) {
@@ -262,14 +265,11 @@ var createDialogHtml = function () {
         }
 
         win.off('resize.o-dialog');
-
         if (dialog.opts.isDismissable) {
             $('body').off('click.o-dialog');
             $(document).off('keyup.o-dialog');
             dialog.wrapper.off('click.o-dialog');
         }
-
-
         if (isAnimatable) {
             doAfterTransition(dialog.wrapper, 'is-open', 'remove', dialog.content.add(dialog.wrapper), function () {
                 cleanUpDialog(dialog);
