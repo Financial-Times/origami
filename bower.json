@@ -4,6 +4,7 @@
 	"ignore": [
 		"README.md",
 		"package.json",
+		"demos",
 		"Gruntfile.js"
 	],
 	"devDependencies": {
