@@ -36,6 +36,15 @@
 	@include oFtHeaderPositionStatic();
 }
 
+.o-ft-header {
+    margin-bottom: 10px;
+}
+
+.o-ft-header__topbar {
+    height: 50px;
+    background-color: oColorsGetColorFor(header-background);
+}
+
 .o-ft-header__topbar__content {
 	@extend %o-grid-row;
 	@extend %o-grid-col;

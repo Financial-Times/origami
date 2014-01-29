@@ -144,37 +144,33 @@ html, body {
  */
 /* Load fonts */
 .o-ft-header {
-  margin-bottom: 10px;
   min-height: 77px; }
+
+@media screen and (max-width: 600px) {
+  .o-ft-header {
+    min-height: 77px; }
+
+  .o-ft-header__topbar {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    left: 0; } }
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+  .o-ft-header {
+    min-height: 77px; }
+
+  .o-ft-header__topbar {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    left: 0; } }
+.o-ft-header {
+  margin-bottom: 10px; }
 
 .o-ft-header__topbar {
   height: 50px;
   background-color: #333333; }
 
-@media screen and (max-width: 600px) {
-  .o-ft-header {
-    margin-bottom: 10px;
-    min-height: 77px; }
-
-  .o-ft-header__topbar {
-    position: fixed;
-    top: 0px;
-    right: 0;
-    left: 0;
-    height: 50px;
-    background-color: #333333; } }
-@media screen and (min-width: 601px) and (max-width: 1000px) {
-  .o-ft-header {
-    margin-bottom: 10px;
-    min-height: 77px; }
-
-  .o-ft-header__topbar {
-    position: fixed;
-    top: 0px;
-    right: 0;
-    left: 0;
-    height: 50px;
-    background-color: #333333; } }
 .o-ft-header__logo {
   display: block;
   padding: 11px 0 31px;

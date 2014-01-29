@@ -24,6 +24,7 @@ The SCSS is defined in `main.scss`.
 To use these set them *before* including `o-ft-header/main.scss` in your stylesheet
 
 * `$o-ft-header-top-offset`: *[0]* Distance of header from top of page (only applied when the header has `position: fixed`);
+* `$o-ft-header-z-index`: *[false]* z-index of header. Whn header is not fixed this also sets `position: relative`
 * `$o-ft-header-sticky`: *[$o-grid-small,$o-grid-medium]* Configures when a 'sticky' fixed position header is used:
 	* `false` - header is never sticky
 	* `true` - header is always sticky

@@ -4,30 +4,31 @@
 
 // Generates css for a fixed position header at the top of the page
 @mixin oFtHeaderPositionFixed () {
-	.o-ft-header {
-		margin-bottom: 10px;
-		min-height: 77 + $o-ft-header-top-offset + px;
-	}
+    .o-ft-header {
+        min-height: 77 + $o-ft-header-top-offset + px;
+    }
 
-	.o-ft-header__topbar {
-		position: fixed;
-		top: $o-ft-header-top-offset + px;
-		right: 0;
-		left: 0;
-	   	height: 50px;
-	   	background-color: oColorsGetColorFor(header-background);
-	}	
+    .o-ft-header__topbar {
+        position: fixed;
+        top: $o-ft-header-top-offset + px;
+        right: 0;
+        left: 0;
+        @if ($o-ft-header-z-index) {
+            z-index: $o-ft-header-z-index;
+        }
+    }   
 }
 
 // Generates css for a static header at the top of the page
 @mixin oFtHeaderPositionStatic () {
-	.o-ft-header {
-		margin-bottom: 10px;
-		min-height: 77px;
-	}
+    .o-ft-header {
+        min-height: 77px;
+    }
 
-	.o-ft-header__topbar {
-	   	height: 50px;
-	   	background-color: oColorsGetColorFor(header-background);
-	}
+    @if ($o-ft-header-z-index) {
+        .o-ft-header__topbar {
+            position: relative;
+            z-index: $o-ft-header-z-index;
+        }
+    }
 }
