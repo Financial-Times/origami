@@ -101,6 +101,11 @@ $o-ft-header-topbar-item-active-selector: #{'%o-ft-header__topbar__item--active'
 	$o-ft-header-topbar-item-active-selector: append($o-ft-header-topbar-item-active-selector, #{'.o-ft-header__topbar__item--active'}, comma);
 }
 
+@mixin _oFtHeaderItemActiveStyles () {
+	color: oColorsGetColorFor(header-item-active-text);
+	background-color: oColorsGetColorFor(header-item-active-background);
+}
+
 #{$o-ft-header-topbar-item-selector} {
 	display: inline-block;
 	min-width: 50px;
@@ -134,9 +139,6 @@ $o-ft-header-topbar-item-active-selector: #{'%o-ft-header__topbar__item--active'
 
 
 
-@mixin _oFtHeaderItemActiveStyles () {
-	color: oColorsGetColorFor(header-item-active-text);
-	background-color: oColorsGetColorFor(header-item-active-background);
-}
+
 
 

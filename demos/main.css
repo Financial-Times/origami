@@ -68,10 +68,20 @@ html, body {
 
   .o-grid-row-compact > .o-ft-header__topbar__content {
     padding-left: 0;
-    padding-right: 0; } }
+    padding-right: 0; }
+
+  .o-ft-header__topbar__content {
+    padding-right: 0; }
+    .o-ft-header__topbar__content > .o-grid-row {
+      margin-right: 0; } }
 @media screen {
   .o-ft-header__topbar__content {
     max-width: none; }
+
+  .o-ft-header__topbar__content {
+    padding-right: 0; }
+    .o-ft-header__topbar__content > .o-grid-row {
+      margin-right: 0; }
 
   .o-ft-header__topbar__content {
     float: none;
@@ -124,6 +134,13 @@ html, body {
 .o-useragent-ie7 .o-ft-header__topbar__content, .o-useragent-ie8 .o-ft-header__topbar__content {
   width: 960px;
   max-width: none; }
+.o-useragent-ie7 .o-ft-header__topbar__content,
+.o-useragent-ie8 .o-ft-header__topbar__content {
+  padding-right: 0; }
+  .o-useragent-ie7 .o-ft-header__topbar__content > .o-grid-row,
+  .o-useragent-ie8 .o-ft-header__topbar__content > .o-grid-row {
+    margin-right: 0; }
+
 /**
  * Colour palette
  *
@@ -143,6 +160,12 @@ html, body {
  * The use case name must be a single word comprising just letters, numbers, and dashes.  The colour name should be an exact match for a colour defiend in palette.scss, and the role must be 'text', 'border', or 'background'.   You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
  */
 /* Load fonts */
+@font-face {
+  font-family: BentonSans-normal;
+  font-style: normal;
+  font-weight: normal;
+  src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot);
+  src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
 .o-ft-header {
   min-height: 77px; }
 
@@ -207,3 +230,29 @@ html, body {
   text-align: right;
   overflow: hidden;
   height: 50px; }
+
+.o-ft-header__topbar__item {
+  display: inline-block;
+  min-width: 50px;
+  height: 50px;
+  text-align: center;
+  color: white;
+  background-color: #333333;
+  border-left: 1px solid #74736c;
+  font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
+  font-size: 25px;
+  line-height: 50px;
+  cursor: pointer; }
+  .o-hoverable-on .o-ft-header__topbar__item:hover {
+    color: #2e6e9e;
+    background-color: #e9decf; }
+
+@media screen {
+  .o-ft-header__topbar__item:last-child {
+    border-right: 1px solid #74736c; } }
+@media screen {
+  .o-ft-header__topbar__item:last-child {
+    border-right: 1px solid #74736c; } }
+.o-ft-header__topbar__item--active {
+  color: #2e6e9e;
+  background-color: #e9decf; }
