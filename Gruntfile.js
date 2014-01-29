@@ -14,13 +14,14 @@ module.exports = function(grunt) {
   grunt.initConfig({
     'origami-demo': {
       options: {
-        modernizr: true,
-        main: ['demo.mustache']
+        modernizr: false,
+        main: ['demo.mustache'],
+        sassExtras: 'demos.scss'
       }
     },
     watch: {
       'origami-demo': {
-          files: ['*.scss', 'demo.mustache'],
+          files: ['main.scss', 'scss/*.scss', 'demo.mustache'],
           tasks: ['origami-demo']
       }
     }

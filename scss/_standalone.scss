@@ -1,17 +1,42 @@
 /* Headings */
 
-	/* Titles */
-	@include oFtTypographyClass(title) {
-		font-family: $o-ft-typography-title-font;
+	/* Heading */
+	@include oFtTypographyClass(heading) {
+		margin-bottom: 16px;
+		padding: 8px 10px 7px 10px;
+		border-top: 4px solid oColorsGetColorFor(table-header-row-border); // TODO: Add new use case to o-colors
+		border-bottom: 1px dotted oColorsGetColorFor(table-header-row-border); // TODO: Add new use case to o-colors
+		font-family: $o-ft-typography-page-heading-font;
+		@include oFtTypographyFontSize(16, 20);
+		color: oColorsGetColorFor(article-title); // TODO: Add new use case to o-colors
+	}
+
+	/* Subheading */
+	@include oFtTypographyClass(subheading) {
+		margin-bottom: 16px;
+		font-family: $o-ft-typography-subheading-font;
+		@include oFtTypographyFontSize(14, 20);
+		color: oColorsGetColorFor(article-body); // TODO: Add new use case to o-colors
+		background-color: oColorsGetColorFor(footer-underline-border); // TODO: Add new use case to o-colors
+	}
+	@include oFtTypographyClass(item-title) {
+		font-family: $o-ft-typography-subheading-font;
+		@include oFtTypographyFontSize(14, 20);
+		color: oColorsGetColorFor(article-body); // TODO: Add new use case to o-colors
+	}
+
+	/* Article h1 */
+	@include oFtTypographyClass(article-title) {
+		font-family: $o-ft-typography-article-title-font;
 		color: oColorsGetColorFor(article-title-text);	
 	}
 
-	@include oFtTypographyClass(title--primary) {
+	@include oFtTypographyClass(article-title--primary) {
 		@include oFtTypographyFontSize(30, 36, -5);
 	}
 
-	/* Article subheadings ('leads') */
-	@include oFtTypographyClass(lead) {
+	/* Article h2 ('leads') */
+	@include oFtTypographyClass(article-lead) {
 		@include oFtTypographyFontSize(16, 30);
 		@include oFtTypographyExtend(body__block);
 		font-family: $o-ft-typography-subheading-font;
@@ -25,48 +50,87 @@
 		}
 	}
 
-	/* Links */
-	@include oFtTypographyClass(title__link lead__link) {
-		text-decoration: none;
-		color: oColorsGetColorFor(article-title-text);
+	/* Article h3 ('subhead') */
+	@include oFtTypographyClass(article-subhead) {
+		@include oFtTypographyFontSize(16, 30);
+		@include oFtTypographyExtend(body__block);
+		font-family: $o-ft-typography-subheading-font;
+		color: oColorsGetColorFor(article-subheading-text);
+		margin-bottom: 15px;
+		& + * {
+			margin-top: 0;
+		}
 	}
 
-	@include oFtTypographyClass(title__link--hover 'title__link:hover' lead__link--hover 'lead__link:hover')  {
+	/* Links */
+	@include oFtTypographyClass(article-title__link article-lead__link article-subhead__link) {
+		text-decoration: none;
+		color: oColorsGetColorFor(article-title-text);
+		cursor: pointer;
+	}
+
+	@include oFtTypographyClass(article-title__link--hover 'article-title__link:hover' article-lead__link--hover 'article-lead__link:hover' article-subhead__link--hover 'article-subhead__link:hover')  {
 		color: oColorsGetColorFor(link-text);
+		cursor: pointer;
+	}
+
+	@include oFtTypographyClass(heading__link subheading__link item-title__link) {
+		text-decoration: none;
+		color: oColorsGetColorFor(link-text);
+		cursor: pointer;
+	}
+
+	@include oFtTypographyClass(heading__link--hover 'heading__link:hover' subheading__link--hover 'subheading__link:hover' item-title__link--hover 'item-title__link:hover')  {
+		color: oColorsGetColorFor(link-text-hover);
+		cursor: pointer;
 	}
 
 
 /* Article metadata */
-@include oFtTypographyClass(byline)  {
+@include oFtTypographyClass(article-byline)  {
 	@include oFtTypographyFontSize(14, 24);
 	font-family: $o-ft-typography-ui-font;
 	color: oColorsGetColorFor(article-byline-text);
 }
 
-@include oFtTypographyClass(timestamp)  {
+@include oFtTypographyClass(article-timestamp)  {
 	@include oFtTypographyFontSize(14, 24);
 	font-family: $o-ft-typography-ui-font;
 	color: oColorsGetColorFor(article-byline-text);
 }
 
+/* Body lead */
+@include oFtTypographyClass(body--lead) {
+	font-family: $o-ft-typography-body-font;
+	@include oFtTypographyFontSize(18, 24);
+	color: oColorsGetColorFor(table-header-row-border); // TODO: Add new use case to o-colors
+	-webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
+}
 
-/* Article content */
+/* Body */
+@include oFtTypographyClass(body) {
+	font-family: $o-ft-typography-body-font;
+	@include oFtTypographyFontSize(14, 20);
+	color: oColorsGetColorFor(article-body); // TODO: Add new use case to o-colors
+}
 
-	/* Utility mixins for body text*/
-	@mixin oFtTypographyBodyTextStyle () {
-		@include oFtTypographyFontSize(16, 24);
-		font-family: $o-ft-typography-body-font;
-		color: oColorsGetColorFor(article-body-text);
-	}
-
-@include oFtTypographyClass(body)  {
-	@include oFtTypographyBodyTextStyle();
+@include oFtTypographyClass(article-body)  {
+	@include oFtTypographyFontSize(16, 24);
+	font-family: $o-ft-typography-article-body-font;
+	color: oColorsGetColorFor(article-body-text);
 }
 
 @include oFtTypographyClass(body__block) {
+	margin-bottom: 21px;
+	margin-top: 21px;
+}
+
+@include oFtTypographyClass(article-body__block) {
 	margin-bottom: 24px;
 	margin-top: 24px;
 }
+
+/* Sub-body */
 
 @include oFtTypographyClass(body--bold) {
 	//font-family: $o-ft-typography-body-bold-font;
@@ -82,19 +146,44 @@
 }
 
 @include oFtTypographyClass(body--super) {
+	display: inline-block;
+	margin-top: -3px;
 	font-size: 0.75em;
 	vertical-align: super;
 }
 
 @include oFtTypographyClass(body--sub) {
+	display: inline-block;
+	margin-bottom: -5px;
 	font-size: 0.75em;
 	vertical-align: sub;
 }
 
+@include oFtTypographyClass(body__link) {
+	text-decoration: none;
+	color: oColorsGetColorFor(link-text);
+	cursor: pointer;
+}
+
+@include oFtTypographyClass(body__link--hover 'body__link:hover') {
+	color: oColorsGetColorFor(link-hover-text);
+	cursor: pointer;
+}
+
+/* Lists */
+
 @include oFtTypographyClass(body__list) {
 	list-style-position: outside;
 	padding-left: 20px;
+	@include oFtTypographyExtend(body);
 	@include oFtTypographyExtend(body__block);
+}
+
+@include oFtTypographyClass(article-body__list) {
+	list-style-position: outside;
+	padding-left: 20px;
+	@include oFtTypographyExtend(article-body);
+	@include oFtTypographyExtend(article-body__block);
 }
 
 @include oFtTypographyClass(body__list--ordered) {
@@ -103,13 +192,4 @@
 
 @include oFtTypographyClass(body__list--unordered) {
 	list-style-type: disc;
-}
-
-@include oFtTypographyClass(body__link) {
-	text-decoration: none;
-	color: oColorsGetColorFor(link-text);
-}
-
-@include oFtTypographyClass(body__link--hover 'body__link:hover') {
-	color: oColorsGetColorFor(link-hover-text);
 }

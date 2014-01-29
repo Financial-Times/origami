@@ -1,0 +1,85 @@
+// Article wrapped styles
+@mixin ftTypographyWrappableGeneralContentStyles () {
+
+	@include oFtTypographyExtend(article-body);
+
+	h1 {
+		@include oFtTypographyExtend(article-title);
+		@include oFtTypographyExtend(article-title--primary);
+
+		a {
+			@include oFtTypographyExtend(article-lead__link);
+		}
+	}
+
+	h2 {
+		@include oFtTypographyExtend(article-lead);
+
+		a {
+			@include oFtTypographyExtend(article-lead__link);
+		}
+	}
+
+	h2 {
+		@include oFtTypographyExtend(article-subhead);
+
+		a {
+			@include oFtTypographyExtend(article-subhead__link);
+		}
+	}
+
+	a {
+		@include oFtTypographyExtend(article-body__link);
+	}
+
+	p {
+		@include oFtTypographyExtend(article-body__block);
+	}
+
+	strong {
+		@include oFtTypographyExtend(article-body--bold);
+	}
+
+	em {
+		@include oFtTypographyExtend(article-body--italic);
+	}				
+
+	small {
+		@include oFtTypographyExtend(article-body--small);
+	}
+
+	sup {
+		@include oFtTypographyExtend(article-body--super);
+	}
+
+	sub {
+		@include oFtTypographyExtend(article-body--sub);
+	}
+
+	ol,
+	ul {
+		@include oFtTypographyExtend(article-body__list);
+	}
+
+	ol {
+		@include oFtTypographyExtend(article-body__list--ordered);
+	}
+
+	ul {
+		@include oFtTypographyExtend(article-body__list--unordered);
+	}
+
+}
+
+@mixin oFtTypographyDefineGeneralContentWrapper ($selector) {
+	@if ($selector == $_o-ft-typography-default-general-wrapper-class) {
+		@include oFtTypographyClass($selector) {
+			@include ftTypographyWrappableGeneralContentStyles();
+		}
+	} @else {
+		@include oFontsInclude(MillerDisplay);
+		@include oFtTypographyWrapInSelector($selector) {
+			@include ftTypographyWrappableGeneralContentStyles();
+		}
+	}
+}
