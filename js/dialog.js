@@ -2,7 +2,7 @@
 
 var $ = require('jquery'),
     domUtils = require('./domUtils'),
-    prefixr = require('./prefixr'),
+    doAfterTransition = require('./doAfterTransition'),
     L = 'left',
     R = 'right',
     T = 'top',
@@ -47,7 +47,37 @@ var $ = require('jquery'),
         onAfterClose: $.noop
     };
 
-var createDialogHtml = function () {
+var trigger = function (opts, trigger) {
+
+        var lastDialog;
+
+        if (dialogs[0] && dialogs[0].active) {
+            
+            lastDialog = dialogs[0];
+            close(lastDialog);
+
+            if (trigger === lastDialog.trigger) {
+                return;
+            }
+        }
+
+        var dialog = configureNewDialog(opts, trigger);
+        
+        if (!dialog) {
+            dialog.opts.onFail();
+            return;
+        }
+        dialog.opts.onTrigger();
+        assignClasses(dialog);
+        
+        dialog.content.html(dialog.opts.content);
+
+        dialog.opts.onBeforeRender();
+        attach(dialog);
+        dialog.opts.onAfterRender();
+    },
+
+    createDialogHtml = function () {
         var wrapper = $('<section class="o-dialog"></section>'),
             content = $('<div class="o-dialog__content"></div>'),
             dialog = {
@@ -90,38 +120,7 @@ var createDialogHtml = function () {
         return dialogs[0];
     },
 
-    trigger = function (opts, trigger) {
-
-
-        var lastDialog;
-
-        if (dialogs[0] && dialogs[0].active) {
-            
-            lastDialog = dialogs[0];
-            close(lastDialog);
-
-            if (trigger === lastDialog.trigger) {
-                return;
-            }
-        }
-
-        var dialog = configureDialog(opts, trigger);
-        
-        if (!dialog) {
-            dialog.opts.onFail();
-            return;
-        }
-        dialog.opts.onTrigger();
-        assignClasses(dialog);
-        
-        dialog.content.html(dialog.opts.content);
-
-        dialog.opts.onBeforeRender();
-        attachDialog(dialog);
-        dialog.opts.onAfterRender();
-    },
-
-    configureDialog = function (opts, trigger) {
+    configureNewDialog = function (opts, trigger) {
         var dialog = getEmptyDialog();
 
         if (typeof opts === 'string') {
@@ -158,14 +157,14 @@ var createDialogHtml = function () {
 
         return dialog;
     },
-    attachDialog = function (dialog) {
+    attach = function (dialog) {
 
         dialog.parent = (!dialog.opts.isAnchoredToTrigger || !dialog.trigger) ? 'body' : dialog.trigger.offsetParent;
 
         dialog.wrapper.appendTo(dialog.parent);
 
-        // forces redraw before .is-open starts the animation
-        dialog.wrapper[0].offsetWidth;
+        
+        dialog.wrapper[0].offsetWidth; // forces redraw before .is-open starts the animation
         dialog.wrapper.addClass('is-open');
         dialog.content.focus();
 
@@ -260,7 +259,7 @@ var createDialogHtml = function () {
         }
     },
 
-    close = function (dialog) {
+    close = function (dialog, destroy) {
         dialog.opts.onBeforeClose();
         dialog = dialog || dialogs[0];
         if (!dialog.active) {
@@ -273,105 +272,26 @@ var createDialogHtml = function () {
             $(document).off('keyup.o-dialog');
             dialog.wrapper.off('click.o-dialog');
         }
-        if (isAnimatable) {
+        if (isAnimatable && !destroy) {
             doAfterTransition(dialog.wrapper, 'is-open', 'remove', dialog.content.add(dialog.wrapper), function () {
-                cleanUpDialog(dialog);
+                detach(dialog);
             });
             
         } else {
             dialog.wrapper.removeClass('is-open');
-            cleanUpDialog(dialog);
+            detach(dialog, destroy);
         }
         
     },
 
-    doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEls, callback) {
-        $transitioningEls = $transitioningEls || $wrapper;
-
-        var maxDuration = 0,
-            possibleTransitions = [],
-            callbackHasRun = false,
-            singletonCallback;
-
-        $transitioningEls.each(function (item) {
-            var details,
-                duration = +domUtils.getStyleValue(this, 'transition-duration').replace(/[^\.\d]/g, ''),
-                properties;
-
-            if (duration) {
-                properties = domUtils.getStyleValue(this, 'transition-property');
-                
-                properties = properties === 'all' ? [] : properties.split(' ');
-            
-                details = {
-                    el: this,
-                    duration: duration,
-                    properties: properties,
-                    initialState: domUtils.getStyleValues(this, properties)
-                };
-                possibleTransitions.push(details);
-
-                maxDuration = Math.max(maxDuration, details.duration);
-            }
-            
-        });
-
-        $wrapper[mode + 'Class'](cssClass);
-        
-        // if no transition defined just call the callback
-        if (maxDuration === 0) {
-            callback();
-            return;
-        }
-
-        // makes sure callback only gets called once
-        singletonCallback = function () {
-            if (!callbackHasRun) {
-                callbackHasRun = true;
-                callback();
-            }
-        };
-
-        
-
-        setTimeout(function () {
-            prefixr('requestAnimationFrame', window)(function () {
-                var duration = 0;
-
-                $.each(possibleTransitions, function (index, details) {
-                    var i,
-                        changedState = [];
-                    for (i = details.properties.length - 1;i>=0;i--) {
-                        changedState.unshift(domUtils.getStyleValue(details.el, details.properties[i]));
-                    }
-
-                    for (i = details.properties.length - 1;i>=0;i--) {
-                        if (changedState[i] !== details.initialState[i]) {
-
-                            // todo: move this to listen on the wrapper and only respond to the slowest animation
-                            // do something like checking to see if target = this and set a flag after timeout(maxDuration - 50) has run
-                            $(details.el).one(prefixr('transitionEnd'), singletonCallback);
-                        
-                            // failsafe in case the transitionEnd event doesn't fire
-                            setTimeout(singletonCallback, details.duration * 1000);
-                            duration = Math.max(duration, details.duration);
-                        }
-                    }
-                });
-                if (!duration) {
-                    singletonCallback();
-                }
-            });
-        }, 20);
-
-        // failsafe in case something really weird happens (transitions tend to be buggy in a lot of browsers
-        setTimeout(singletonCallback, maxDuration * 1000);
-    },
-
-    cleanUpDialog = function (dialog) {
+    detach = function (dialog, destroy) {
         dialog.active = false;
         dialog.content.empty();
         dialog.wrapper.detach().attr('style', null);
+        if (destroy) {
+            dialogs = Array(2);
+            win = null;
+        }
         dialog.opts.onAfterClose();
     },
 
@@ -420,6 +340,9 @@ var createDialogHtml = function () {
 
 module.exports = {
     trigger: trigger,
+    destroy: function () {
+        close(null, true);
+    },
     addPreset: function (name, conf) {
         presets[name] = $.extend({}, defaults, conf);
     }

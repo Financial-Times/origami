@@ -24,15 +24,6 @@ function contains( str, substr ) {
     return !!~('' + str).indexOf(substr);
 }
 
-
-// function setCss( str ) {
-//     mStyle.cssText = str;
-// }
-
-// function setCssAll( str1, str2 ) {
-//     return setCss(prefixes.join(str1 + ';') + ( str2 || '' ));
-// }
-
 if (!is(_hasOwnProperty, 'undefined') && !is(_hasOwnProperty.call, 'undefined')) {
     hasOwnProp = function (object, property) {
         return _hasOwnProperty.call(object, property);
