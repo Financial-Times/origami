@@ -1,6 +1,7 @@
 'use strict';
 
-var prefixr = require('./prefixr'),
+var $ = require('jquery'),
+    prefixr = require('./prefixr'),
 	domUtils = require('./domUtils');
 
 module.exports = function ($wrapper, cssClass, mode, $transitioningEls, callback) {
