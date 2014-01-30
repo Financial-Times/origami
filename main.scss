@@ -97,8 +97,8 @@ $o-ft-header-topbar-item-selector: #{'%o-ft-header__topbar__item'};
 $o-ft-header-topbar-item-active-selector: #{'%o-ft-header__topbar__item--active'};
 
 @if (not $o-ft-header-is-silent) {
-	$o-ft-header-topbar-item-selector: append($o-ft-header-topbar-item-selector, #{'.o-ft-header__topbar__item'}, comma) !global;
-	$o-ft-header-topbar-item-active-selector: append($o-ft-header-topbar-item-active-selector, #{'.o-ft-header__topbar__item--active'}, comma) !global;
+	$o-ft-header-topbar-item-selector: append($o-ft-header-topbar-item-selector, #{'.o-ft-header__topbar__item'}, comma);
+	$o-ft-header-topbar-item-active-selector: append($o-ft-header-topbar-item-active-selector, #{'.o-ft-header__topbar__item--active'}, comma);
 }
 
 @mixin _oFtHeaderItemActiveStyles () {
