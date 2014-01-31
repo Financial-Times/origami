@@ -17,10 +17,13 @@
             z-index: $o-ft-header-z-index;
         }
     }   
+    @include oGridTargetAtFixedLayout() {
+        @include oFtHeaderPositionStatic(true);
+    }
 }
 
 // Generates css for a static header at the top of the page
-@mixin oFtHeaderPositionStatic () {
+@mixin oFtHeaderPositionStatic ($include-topbar-position: false) {
     .o-ft-header {
         min-height: 77px;
     }
@@ -29,6 +32,10 @@
         .o-ft-header__topbar {
             position: relative;
             z-index: $o-ft-header-z-index;
+        }
+    } @else if ($include-topbar-position) {
+        .o-ft-header__topbar {
+            position: static;
         }
     }
 }

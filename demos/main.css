@@ -12,7 +12,7 @@ html, body {
 	* 'less than' classes targeting ie versions less than a given version e.g. lt-ie9 & lt-ie8
 */
 /* 
-	Deprectaes support for ie7 or 8, making sure that both browser specific and lt- selectors are removed
+	Deprecates support for ie7 or 8, making sure that both browser specific and lt- selectors are removed
 */
 /* 
 	Note: The identically named mixins and functions below is not a mistake; it means they can be used to either 
@@ -121,6 +121,8 @@ html, body {
   clear: both;
   display: block;
   width: 100%; }
+.o-useragent-ie7 body, .o-useragent-ie8 body {
+  min-width: 960px; }
 .o-useragent-ie7 .o-ft-header__topbar__content, .o-useragent-ie8 .o-ft-header__topbar__content {
   width: 960px;
   max-width: none; }
@@ -154,7 +156,12 @@ html, body {
     position: fixed;
     top: 0px;
     right: 0;
-    left: 0; } }
+    left: 0; }
+
+  .o-useragent-ie7 .o-ft-header, .o-useragent-ie8 .o-ft-header {
+    min-height: 77px; }
+  .o-useragent-ie7 .o-ft-header__topbar, .o-useragent-ie8 .o-ft-header__topbar {
+    position: static; } }
 @media screen and (min-width: 601px) and (max-width: 1000px) {
   .o-ft-header {
     min-height: 77px; }
@@ -163,7 +170,12 @@ html, body {
     position: fixed;
     top: 0px;
     right: 0;
-    left: 0; } }
+    left: 0; }
+
+  .o-useragent-ie7 .o-ft-header, .o-useragent-ie8 .o-ft-header {
+    min-height: 77px; }
+  .o-useragent-ie7 .o-ft-header__topbar, .o-useragent-ie8 .o-ft-header__topbar {
+    position: static; } }
 .o-ft-header {
   margin-bottom: 10px; }
 
