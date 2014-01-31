@@ -80,9 +80,11 @@ var trigger = function (opts, trigger) {
     createDialogHtml = function () {
         var wrapper = $('<section class="o-dialog"></section>'),
             content = $('<div class="o-dialog__content"></div>'),
+            overlay = $('<div class="o-dialog__overlay"></div>'),
             dialog = {
                 wrapper: wrapper,
-                content: content
+                content: content,
+                overlay: overlay
             };
 
         wrapper.append(content);
@@ -151,8 +153,6 @@ var trigger = function (opts, trigger) {
 
         dialog.trigger = trigger;
 
-        dialog.isLegacyOverlay = !isFlexbox && opts.preset === 'overlay';
-
         dialog.opts = opts;
 
         return dialog;
@@ -161,11 +161,19 @@ var trigger = function (opts, trigger) {
 
         dialog.parent = (!dialog.opts.isAnchoredToTrigger || !dialog.trigger) ? 'body' : dialog.trigger.offsetParent;
 
+        if (dialog.opts.hasOverlay) {
+            dialog.overlay.appendTo('body');
+        }
+
         dialog.wrapper.appendTo(dialog.parent);
+
 
         
         dialog.wrapper[0].offsetWidth; // forces redraw before .is-open starts the animation
         dialog.wrapper.addClass('is-open');
+        if (dialog.opts.hasOverlay) {
+            dialog.overlay.addClass('is-open');
+        }
         dialog.content.focus();
 
         dialog.width = dimensionCalculators.width(dialog);
@@ -205,7 +213,8 @@ var trigger = function (opts, trigger) {
 
 
     assignClasses = function (dialog) {
-        dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.classes + (dialog.opts.hasOverlay ? ' o-dialog--overlay' : '');
+        dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.classes;
+        dialog.overlay[0].className = 'o-dialog__overlay o-dialog--' + dialog.opts.preset + '__overlay';
         dialog.content[0].className = 'o-dialog__content o-dialog--' + dialog.opts.preset + '__content';
     },
 
@@ -273,7 +282,8 @@ var trigger = function (opts, trigger) {
             dialog.wrapper.off('click.o-dialog');
         }
         if (isAnimatable && !destroy) {
-            doAfterTransition(dialog.wrapper, 'is-open', 'remove', dialog.content.add(dialog.wrapper), function () {
+            var wrapper = dialog.opts.hasOverlay ? dialog.wrapper.add(dialog.overlay) : dialog.wrapper ;
+            doAfterTransition(wrapper, 'is-open', 'remove', wrapper.add(dialog.content), function () {
                 detach(dialog);
             });
             
@@ -288,6 +298,9 @@ var trigger = function (opts, trigger) {
         dialog.active = false;
         dialog.content.empty();
         dialog.wrapper.detach().attr('style', null);
+        if (dialog.opts.hasOverlay) {
+            dialog.overlay.detach();
+        }
         if (destroy) {
             dialogs = Array(2);
             win = null;

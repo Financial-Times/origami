@@ -3,7 +3,7 @@
   height: 100%;
   width: 100%;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   padding: 10px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -22,7 +22,7 @@
     opacity: 1;
 }
 
-.o-dialog--overlay__content {
+.o-dialog--modal__content {
     min-height: 10px;
     min-width: 10px;
     margin-top: 100px;
@@ -62,7 +62,7 @@
     flex-direction: column;
   }
 
-  .o-dialog--overlay__content {
+  .o-dialog--modal__content {
     margin: auto;
     -webkit-align-self: center;
     align-self: center;
@@ -85,13 +85,13 @@
   z-index: 3;
 }
  
-.o-dialog--full-width .o-dialog--overlay__content {
+.o-dialog--full-width .o-dialog--modal__content {
   left: auto;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-.o-dialog--full-height .o-dialog--overlay__content {
+.o-dialog--full-height .o-dialog--modal__content {
   top: auto;
   padding-top: 20px;
   padding-bottom: 20px;
