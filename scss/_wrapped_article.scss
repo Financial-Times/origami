@@ -33,31 +33,31 @@
 	}
 
 	a {
-		@include oFtTypographyExtend(article-body__link);
+		@include oFtTypographyExtend(body__link);
 	}
 
 	p {
-		@include oFtTypographyExtend(article-body__block);
+		@include oFtTypographyExtend(body__block);
 	}
 
 	strong {
-		@include oFtTypographyExtend(article-body--bold);
+		@include oFtTypographyExtend(body--bold);
 	}
 
 	em {
-		@include oFtTypographyExtend(article-body--italic);
+		@include oFtTypographyExtend(body--italic);
 	}				
 
 	small {
-		@include oFtTypographyExtend(article-body--small);
+		@include oFtTypographyExtend(body--small);
 	}
 
 	sup {
-		@include oFtTypographyExtend(article-body--super);
+		@include oFtTypographyExtend(body--super);
 	}
 
 	sub {
-		@include oFtTypographyExtend(article-body--sub);
+		@include oFtTypographyExtend(body--sub);
 	}
 
 	ol,
@@ -66,11 +66,11 @@
 	}
 
 	ol {
-		@include oFtTypographyExtend(article-body__list--ordered);
+		@include oFtTypographyExtend(body__list--ordered);
 	}
 
 	ul {
-		@include oFtTypographyExtend(article-body__list--unordered);
+		@include oFtTypographyExtend(body__list--unordered);
 	}
 
 }
