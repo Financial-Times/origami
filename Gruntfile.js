@@ -23,7 +23,7 @@ module.exports = function(grunt) {
     },
     watch: {
       'origami-demo': {
-          files: ['*.scss', 'footer.mustache', 'footer.json', 'bower-components/**/*'],
+          files: ['*.scss', 'footer.mustache', 'footer.json', 'bower-components/**/*', '!tmp.scss'],
           tasks: ['origami-demo']
       }
     }
