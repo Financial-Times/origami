@@ -35,8 +35,8 @@ $o-ft-footer-spacing-unit: 10px;
 
 .o-ft-footer__link-wrapper {
 	@extend %o-grid-col;
-	@extend %o-grid-colspan-S6;	
-	@extend %o-grid-colspan-M6;	
+	@extend %o-grid-colspan-S6 !optional;	
+	@extend %o-grid-colspan-M6 !optional;	
 }
 
 .o-ft-footer__link:link,
