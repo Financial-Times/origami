@@ -1,7 +1,16 @@
 {
   "name": "o-ft-typography",
   "main": ["main.scss"],
-  "ignore": ["README.md", "demos", "demo.mustache", "Gruntfile.js", "package.json"],
+  "ignore": [
+    "README.md",
+    "demos",
+    "demo.mustache",
+    "demo.scss",
+    "Gruntfile.js",
+    "package.json",
+    ".travis.yml",
+    "test"
+    ],
   "dependencies": {
     "o-fonts": "https://github.com/Financial-Times/o-fonts.git#>=0.5.0",
     "o-colors": "https://github.com/Financial-Times/o-colors.git#>=2.1.0"
