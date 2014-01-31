@@ -12,6 +12,9 @@
 }
 
 @import "scss/_standalone";
-@import "scss/_wrapped";
 
-@include oFtTypographyDefineContentWrapper($o-ft-typography-wrapper-class);
+@import "scss/_wrapped_general";
+@include oFtTypographyDefineGeneralContentWrapper($o-ft-typography-general-wrapper-class);
+
+@import "scss/_wrapped_article";
+@include oFtTypographyDefineArticleContentWrapper($o-ft-typography-article-wrapper-class);

@@ -1,35 +1,34 @@
-@mixin oFtTypographyDefineContentWrapper ($selector) {
-	@if ($selector == $_o-ft-typography-default-wrapper-class) {
+@mixin oFtTypographyDefineGeneralContentWrapper ($selector) {
+	@if ($selector == $_o-ft-typography-default-general-wrapper-class) {
 		@include oFtTypographyClass($selector) {
-			@include ftTypographyWrappableContentStyles();
+			@include ftTypographyWrappableGeneralContentStyles();
 		}
 	} @else {
 		@include oFontsInclude(MillerDisplay);
 		@include oFtTypographyWrapInSelector($selector) {
-			@include ftTypographyWrappableContentStyles();
+			@include ftTypographyWrappableGeneralContentStyles();
 		}
 	}
 }
 
-@mixin ftTypographyWrappableContentStyles () {
+// Article wrapped styles
+@mixin ftTypographyWrappableGeneralContentStyles () {
 
 	@include oFtTypographyExtend(body);
 
-	h1 {
-		@include oFtTypographyExtend(title);
-		@include oFtTypographyExtend(title--primary);
+	h2 {
+		@include oFtTypographyExtend(heading-medium);
 
 		a {
-			@include oFtTypographyExtend(lead__link);
+			@include oFtTypographyExtend(heading-medium__link);
 		}
 	}
 
-	h2,
 	h3 {
-		@include oFtTypographyExtend(lead);
+		@include oFtTypographyExtend(heading-small);
 
 		a {
-			@include oFtTypographyExtend(lead__link);
+			@include oFtTypographyExtend(heading-small__link);
 		}
 	}
 
@@ -75,6 +74,3 @@
 	}
 
 }
-
-
-

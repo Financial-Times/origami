@@ -4,6 +4,9 @@
   "ignore": ["README.md", "demos", "demo.mustache", "Gruntfile.js", "package.json"],
   "dependencies": {
     "o-fonts": "https://github.com/Financial-Times/o-fonts.git#>=0.5.0",
-    "o-colors": "https://github.com/Financial-Times/o-colors.git#>=2.0.3"
+    "o-colors": "https://github.com/Financial-Times/o-colors.git#>=2.1.0"
+  },
+  "devDependencies": {
+  	"o-grid": "https://github.com/Financial-Times/o-grid.git#2.0.3"
   }
 }
