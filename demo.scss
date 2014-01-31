@@ -1,0 +1,45 @@
+$o-grid-is-silent: false;
+@import "o-grid/main";
+
+body {
+	background-color: #fff;
+}
+
+@mixin demo-heading() {
+	padding: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+.demo-heading-col {
+	@include demo-heading();
+	margin: 0 0 20px 0;
+	font-size: 16px;
+	text-align: center;
+	letter-spacing: 2px;
+	background-color: #a7a59b;
+	color: #fff;
+}
+
+.demo-heading-row {
+	@include demo-heading();
+	margin: 0 0 20px 0;
+	font-size: 14px;
+	color: #666;
+}
+
+.demo-example {
+	margin: 0 0 20px 0;
+	border: 1px solid #edd;
+	padding: 15px;
+	background-color: #fff1e0;
+	box-shadow: 5px 5px 10px #eee;
+}
+
+.demo-placeholder {
+	margin: 0 0 10px 0;
+	padding: 4px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #f88;
+}

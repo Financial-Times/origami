@@ -4,12 +4,22 @@ $o-ft-typography-general-wrapper-class: $_o-ft-typography-default-general-wrappe
 $_o-ft-typography-default-article-wrapper-class: 'article-body-wrapper';
 $o-ft-typography-article-wrapper-class: $_o-ft-typography-default-article-wrapper-class !default;
 
+$o-ft-typography-heading-large-font: $o-fonts-bentonsans-bold;
+$o-ft-typography-heading-medium-font: $o-fonts-bentonsans-bold;
+$o-ft-typography-heading-small-font: $o-fonts-bentonsans-bold;
+
+$o-ft-typography-title-large-font: $o-fonts-millerdisplay-normal;
+$o-ft-typography-title-medium-font: $o-fonts-millerdisplay-normal;
+$o-ft-typography-title-small-font: $o-fonts-millerdisplay-normal;
+
+$o-ft-typography-lead-large-font: $o-fonts-millerdisplay-normal;
+$o-ft-typography-lead-medium-font: $o-fonts-millerdisplay-normal;
+$o-ft-typography-lead-small-font: $o-fonts-bentonsans-normal;
+
+$o-ft-typography-brand-font: $o-fonts-bentonsans-bold;
+$o-ft-typography-metadata-font: $o-fonts-bentonsans-normal;
+
 $o-ft-typography-body-font: $o-fonts-sans-serif;
+
+$o-ft-typography-article-subheading-font: $o-fonts-bentonsans-bold;
 $o-ft-typography-article-body-font: $o-fonts-serif;
-$o-ft-typography-article-body-bold-font: $o-fonts-serif;
-$o-ft-typography-page-heading-font: $o-fonts-bentonsans-bold;
-$o-ft-typography-subheading-font: $o-fonts-bentonsans-bold;
-$o-ft-typography-page-font: $o-fonts-bentonsans-normal;
-$o-ft-typography-article-title-font: $o-fonts-millerdisplay-normal;
-$o-ft-typography-subheading-font: $o-fonts-bentonsans-bold;
-$o-ft-typography-ui-font: $o-fonts-bentonsans-normal;

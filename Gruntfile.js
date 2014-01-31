@@ -16,12 +16,12 @@ module.exports = function(grunt) {
       options: {
         modernizr: false,
         main: ['demo.mustache'],
-        sassExtras: 'demos.scss'
+        sassExtras: 'demo.scss'
       }
     },
     watch: {
       'origami-demo': {
-          files: ['main.scss', 'scss/*.scss', 'demo.mustache'],
+          files: ['main.scss', 'scss/*.scss', 'demo.scss', 'demo.mustache'],
           tasks: ['origami-demo']
       }
     }

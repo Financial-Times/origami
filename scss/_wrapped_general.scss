@@ -16,26 +16,19 @@
 
 	@include oFtTypographyExtend(body);
 
-	h1 {
-		@include oFtTypographyExtend(heading);
-		a {
-			@include oFtTypographyExtend(heading__link);
-		}
-	}
-
 	h2 {
-		@include oFtTypographyExtend(subheading);
+		@include oFtTypographyExtend(heading-medium);
 
 		a {
-			@include oFtTypographyExtend(subheading__link);
+			@include oFtTypographyExtend(heading-medium__link);
 		}
 	}
 
 	h3 {
-		@include oFtTypographyExtend(item-title);
+		@include oFtTypographyExtend(heading-small);
 
 		a {
-			@include oFtTypographyExtend(item-title__link);
+			@include oFtTypographyExtend(heading-small__link);
 		}
 	}
 
