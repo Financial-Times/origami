@@ -1,6 +1,6 @@
 "use strict";
 
-var prefixr = require('./prefixr');
+var prefixr = require('o-useragent').vendorify;
 
 function getSpacing(el, side) {
     return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);

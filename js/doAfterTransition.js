@@ -1,7 +1,7 @@
 'use strict';
 
 var $ = require('jquery'),
-    prefixr = require('./prefixr'),
+    prefixr = require('o-useragent').vendorify,
 	domUtils = require('./domUtils');
 
 module.exports = function ($wrapper, cssClass, mode, $transitioningEls, callback) {
