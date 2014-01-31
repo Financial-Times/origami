@@ -1,4 +1,4 @@
-#FT Typography <small>*o-ft-typography*</small>
+#FT Typography [![Build Status](https://travis-ci.org/Financial-Times/o-ft-typography.png?branch=master)](https://travis-ci.org/Financial-Times/o-colors)
 
 Typographical styles for FT branded sites - fonts, weight, colors, sizes and vertical rhythm
 
