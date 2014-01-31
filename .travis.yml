@@ -3,5 +3,7 @@ script:
 language: ruby
 before_script:
  - chmod +x ./test/travis.rb
+ - npm install -g bower
+ - bower install
 before_install:
  - gem install sass
