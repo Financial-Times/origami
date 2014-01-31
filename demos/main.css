@@ -247,10 +247,13 @@ html, body {
     color: #2e6e9e;
     background-color: #e9decf; }
 
-@media screen {
+@media screen and (min-width: 1001px) and (max-width: 1400px) {
   .o-ft-header__topbar__item:last-child {
     border-right: 1px solid #74736c; } }
-@media screen {
+.o-useragent-ie7 .o-ft-header__topbar__item:last-child, .o-useragent-ie8 .o-ft-header__topbar__item:last-child {
+  border-right: 1px solid #74736c; }
+
+@media screen and (min-width: 1401px) {
   .o-ft-header__topbar__item:last-child {
     border-right: 1px solid #74736c; } }
 .o-ft-header__topbar__item--active {
