@@ -23,12 +23,25 @@ $o-colors-usecase-list:
     table-row                     tint3             border,
     box                           tint1             background,
 
-    // Article
+    // Typography
+    heading                       charcoal          text,
+    heading-large                 warm-grey1        border,
+    heading-large                 black             text,
+    title                         black             text,
+    lead                          dark-grey         text,
+    lead-medium                   cool-grey1        text,
+    brand                         black             text,
+    byline                        warm-grey2        text,
+    timestamp                     warm-grey2        text,
+    body-lead                     warm-grey1        text,
+    body                          charcoal          text,
+    article-body-lead             charcoal          text,
+    article-body-lead             warm-grey2        border,
     article-body                  charcoal          text,
-    article-title                 black             text,
+    article-title                 black             text,   // DEPRECATED
     article-subheading            charcoal          text,
-    article-byline                warm-grey2        text,
-    article-divider               warm-grey2        border,
+    article-byline                warm-grey2        text,   // DEPRECATED
+    article-divider               warm-grey2        border, // DEPRECATED
 
     // FT header and footer
     header                        charcoal          background,
