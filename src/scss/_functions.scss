@@ -4,6 +4,7 @@
 			@return nth($i,2);
 		}
 	}
+	@warn "Undefined color used";
 	@return black
 }
 
@@ -13,5 +14,6 @@
 			@return _oColorsGetPaletteColor(nth($i,2));
 		}
 	}
+	@warn "Undefined color used";
 	@return black
 }
