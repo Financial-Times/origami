@@ -1,3 +1,5 @@
 bower_components/
 node_modules/
 .sass-cache/
+origami-templates
+tmp.scss

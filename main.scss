@@ -2,6 +2,7 @@
 @import "o-grid/main";
 @import "o-fonts/main";
 @import "o-colors/main";
+@import "o-hoverable/main";
 
 @import '_variables';
 @import '_mixins';
@@ -49,6 +50,7 @@
 	@extend %o-grid-row;
 	@extend %o-grid-col;
 	@extend %o-grid-colspan-12;
+	@extend %o-grid-no-right-gutter;
 }
  
 
@@ -92,9 +94,16 @@
 }
 
 $o-ft-header-topbar-item-selector: #{'%o-ft-header__topbar__item'};
+$o-ft-header-topbar-item-active-selector: #{'%o-ft-header__topbar__item--active'};
 
 @if (not $o-ft-header-is-silent) {
 	$o-ft-header-topbar-item-selector: append($o-ft-header-topbar-item-selector, #{'.o-ft-header__topbar__item'}, comma);
+	$o-ft-header-topbar-item-active-selector: append($o-ft-header-topbar-item-active-selector, #{'.o-ft-header__topbar__item--active'}, comma);
+}
+
+@mixin _oFtHeaderItemActiveStyles () {
+	color: oColorsGetColorFor(header-item-active-text);
+	background-color: oColorsGetColorFor(header-item-active-background);
 }
 
 #{$o-ft-header-topbar-item-selector} {
@@ -102,14 +111,34 @@ $o-ft-header-topbar-item-selector: #{'%o-ft-header__topbar__item'};
 	min-width: 50px;
 	height: 50px;
 	text-align: center;
-	color: #fff;
-	background-color: #333;
+	color: oColorsGetColorFor(header-item-text);
+	background-color: oColorsGetColorFor(header-item-background);
+	border-left: 1px solid oColorsGetColorFor(header-item-border);
 	font-family: $o-fonts-bentonsans-normal;
 	font-size: 25px;
 	line-height: 50px;
 	cursor: pointer;
 
-	&:hover {
-		color: #ddd;
+	#{$o-hoverable-if-hover-enabled} &:hover {
+		@include _oFtHeaderItemActiveStyles();
 	}
 }
+
+@include oGridRespondTo(L XL) {
+	#{$o-ft-header-topbar-item-selector} {
+		&:last-child {
+			border-right: 1px solid oColorsGetColorFor(header-item-border);
+		}
+	}
+}
+
+
+#{$o-ft-header-topbar-item-active-selector} {
+	@include _oFtHeaderItemActiveStyles();
+}
+
+
+
+
+
+
