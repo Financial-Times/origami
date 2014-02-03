@@ -617,6 +617,7 @@ html, body {
   line-height: 20px;
   color: #333333;
   text-shadow: 6px 0 4px #fff1e0;
+  text-transform: uppercase;
   background-position: bottom right;
   background-repeat: no-repeat;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAAPAQMAAADEaZ8BAAAABlBMVEUAAADs3s8R/6e7AAAAAXRSTlMAQObYZgAAADBJREFUSMdj+D90QcNQdvyDUccPEPgw6njiwKjjh43jh3SGHdKOb2AYBaNgFAwdAACrOE9c1sAQpgAAAABJRU5ErkJggg=="); }

@@ -15,6 +15,7 @@
 	@include oFtTypographyFontSize(14, 20);
 	color: oColorsGetColorFor(heading-text);
 	text-shadow: 6px 0 4px oColorsGetColorFor(page-background);
+	text-transform: uppercase;
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAAPAQMAAADEaZ8BAAAABlBMVEUAAADs3s8R/6e7AAAAAXRSTlMAQObYZgAAADBJREFUSMdj+D90QcNQdvyDUccPEPgw6njiwKjjh43jh3SGHdKOb2AYBaNgFAwdAACrOE9c1sAQpgAAAABJRU5ErkJggg==');
