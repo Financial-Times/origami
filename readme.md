@@ -20,6 +20,12 @@ Origami module for the responsive FT page header. Also provides styles that can 
 
 ## Customisation
 
+### Mustache variables
+To use these define an object `o-ft-header` in the data passed to your view and set one or more of the following values
+
+* **logo-url**: The url of the page clicking on the FT logo should lead to. If unset the link will point to `http://ft.com`
+* **o-version**: The version of o-ft-header being used (this is normally only used by the build service)
+
 ### SCSS Variables
 To use these set them *before* including `o-ft-header/main.scss` in your stylesheet
 
@@ -31,14 +37,14 @@ To use these set them *before* including `o-ft-header/main.scss` in your stylesh
 	* `true` - header is always sticky
 	* comma-separated list of [o-grid layout identifiers](https://github.com/Financial-Times/o-grid) - header will be sticky at these layout sizes only.
 * `$o-ft-header-top-offset`: *[0]* Distance of header from top of page (only applied when the header is sticky);
-* `$o-ft-header-version` and `$o-ft-header-assets-path` which should only be altered when configuring how products use [origami/assets-module](http://git.svc.ft.com/summary/?r=origami/o-assets.git).
+* `$o-ft-header-version` and `$o-ft-header-assets-path` which should only be altered when configuring how products use [o-assets](https://github.com/Financial-Times/o-assets).
 
 ### Injecting content
 
-The default content of `{{ > o-ft-header/partials/topbar-items }}` is empty. To inject content into the `<div class="o-ft-header__topbar__items"></div>` container you will need to
+The default content of `{{ > partials/topbar-items }}` is empty. To inject content into the `<div class="o-ft-header__topbar__items"></div>` container you will need to
 
 1. Define your own mustache template with the content you want to appear there. To style your content with the standard header item styles extend the following sass placeholder classes: `%o-ft-header__topbar__item` and `%o-ft-header__topbar__item--active`
-1. Register this partial with your mustache renderer under the name/path `o-ft-header/partials/topbar-items` (see the [origami docs](http://financial-times.github.io/ft-origami/docs/syntax/mustache/) for more details).
+1. Register this partial with your mustache renderer under the name/path `partials/topbar-items` (see the [origami docs](http://financial-times.github.io/ft-origami/docs/syntax/mustache/) for more details).
 
 ## Development
 To install locally (including demo files) run the following from terminal (you will already need bower, node, npm and grunt-cli installed globally):
