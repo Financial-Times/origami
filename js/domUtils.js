@@ -1,31 +1,13 @@
 "use strict";
 
-var prefixr = require('o-useragent').vendorify;
+var prefixer = require('o-useragent').prefixer;
 
 function getSpacing(el, side) {
     return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
 }
 
-function toCamelStyleProp (str) {
-    return str.replace(/(?:\-)([a-z])/gi, function ($0, $1) {
-        return $1.toUpperCase();
-    });
-}
-
-function toHyphenatedStyleProp (str) {
-    return str.replace(/([A-Z])/g, function (str, m1) {
-        return '-' + m1.toLowerCase();
-    }).replace(/^ms-/,'-ms-');
-}
-
-function getPrefixedStyleProp (prop) {
-    prop = toCamelStyleProp(prop);
-    prop = prefixr(prop);
-    return toHyphenatedStyleProp(prop);
-}
-
 function getStyleValue (el, prop) {
-    return getComputedStyle(el, null).getPropertyValue(getPrefixedStyleProp(prop));
+    return getComputedStyle(el, null).getPropertyValue(prefixer(prop));
 }
 
 function getStyleValues (el, props) {

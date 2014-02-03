@@ -1,7 +1,7 @@
 'use strict';
 
 var $ = require('jquery'),
-    prefixr = require('o-useragent').vendorify,
+    prefixer = require('o-useragent').prefixer,
 	domUtils = require('./domUtils');
 
 module.exports = function ($wrapper, cssClass, mode, $transitioningEls, callback) {
@@ -52,7 +52,7 @@ module.exports = function ($wrapper, cssClass, mode, $transitioningEls, callback
     };
 
     setTimeout(function () {
-        prefixr('requestAnimationFrame', window)(function () {
+        prefixer('requestAnimationFrame', window)(function () {
             var duration = 0;
 
             $.each(possibleTransitions, function (index, details) {
@@ -67,7 +67,7 @@ module.exports = function ($wrapper, cssClass, mode, $transitioningEls, callback
 
                         // todo: move this to listen on the wrapper and only respond to the slowest animation
                         // do something like checking to see if target = this and set a flag after timeout(maxDuration - 50) has run
-                        $(details.el).one(prefixr('transitionEnd'), singletonCallback);
+                        $(details.el).one(prefixer('transitionEnd'), singletonCallback);
                     
                         // failsafe in case the transitionEnd event doesn't fire
                         setTimeout(singletonCallback, details.duration * 1000);
