@@ -1,7 +1,14 @@
-@include oDialogClass(--modal__content) {
-    @extend %o-colors-dialog-border !optional;
+@import "o-fonts/main";
+
+@if (not $o-dialog-is-silent) {
+	@include oFontsInclude(BentonSans);
+}
+
+@include oDialogClass(-modal__content) {
     @extend %o-colors-dialog-background !optional;
     @extend %o-colors-dialog-text !optional;	
+    border: 2px solid oColorsGetColorFor(dialog-border);
+
 
     &:before {
 	    @extend %o-colors-dialog-close-border !optional;
@@ -15,7 +22,10 @@
     }
 }
 
-@include oDialogClass(--modal__heading) {
+@include oDialogClass(-modal__heading) {
+	@include oFtTypographyFontSize(14);
+	font-family: $o-fonts-bentonsans-normal;
+	margin: 0;
     @extend %o-colors-dialog-heading-background !optional;
     @extend %o-colors-dialog-heading-text !optional;
 }
