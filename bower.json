@@ -16,7 +16,7 @@
     "jquery": "1.10.x",
     "o-useragent": "https://github.com/Financial-Times/o-useragent.git#>=0.3.0",
     "o-colors": "https://github.com/Financial-Times/o-colors.git#dialog-usecases",
-    "o-font": "https://github.com/Financial-Times/o-font.git"
+    "o-fonts": "https://github.com/Financial-Times/o-fonts.git"
   },
   "devDependencies": {
     "modernizr": ">=2.6.* <3",
