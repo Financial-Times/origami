@@ -24,7 +24,7 @@ Origami module for the responsive FT page header. Also provides styles that can 
 To use these define an object `o-ft-header` in the data passed to your view and set one or more of the following values
 
 * **logo-url**: The url of the page clicking on the FT logo should lead to. If unset the link will point to `http://ft.com`
-* **o-version**: The version of o-ft-header being used (this is normally only used by the build service)
+* **module-version**: The version of o-ft-header being used (this is normally only used by the build service)
 
 ### SCSS Variables
 To use these set them *before* including `o-ft-header/main.scss` in your stylesheet

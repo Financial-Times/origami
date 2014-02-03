@@ -1,0 +1,273 @@
+html, body {
+  margin: 0;
+  padding: 0; }
+
+/**
+
+
+**/
+/*
+	This mixin allows ie7 and 8 to be targeted using either
+	* specific classes for each of ie7 and ie8
+	* 'less than' classes targeting ie versions less than a given version e.g. lt-ie9 & lt-ie8
+*/
+/* 
+	Deprecates support for ie7 or 8, making sure that both browser specific and lt- selectors are removed
+*/
+/* 
+	Note: The identically named mixins and functions below is not a mistake; it means they can be used to either 
+	output a string or to wrap some style rules in a selector
+*/
+.o-ft-header__topbar__content {
+  margin: 0 auto; }
+
+.o-ft-header__topbar__content {
+  clear: both;
+  width: 100%; }
+
+.o-ft-header__topbar__content:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.o-ft-header__topbar__content {
+  max-width: 600px;
+  min-width: 240px; }
+
+.o-ft-header__topbar__content .o-ft-header__topbar__content {
+  margin-left: -1%;
+  margin-right: -1%;
+  width: auto;
+  max-width: none;
+  min-width: 0; }
+
+.o-ft-header__topbar__content {
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%; }
+
+.o-ft-header__topbar__content {
+  float: none;
+  clear: both;
+  display: block;
+  width: 98%; }
+
+/* Override fixed defaults for responsive grid */
+@media screen {
+  .o-ft-header__topbar__content .o-ft-header__topbar__content {
+    margin-left: -10px;
+    margin-right: -10px;
+    width: auto; }
+
+  .o-ft-header__topbar__content {
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+
+  .o-grid-row-compact > .o-ft-header__topbar__content {
+    padding-left: 0;
+    padding-right: 0; }
+
+  .o-ft-header__topbar__content {
+    padding-right: 0; }
+    .o-ft-header__topbar__content > .o-grid-row {
+      margin-right: 0; } }
+@media screen {
+  .o-ft-header__topbar__content {
+    max-width: none; }
+
+  .o-ft-header__topbar__content {
+    padding-right: 0; }
+    .o-ft-header__topbar__content > .o-grid-row {
+      margin-right: 0; }
+
+  .o-ft-header__topbar__content {
+    float: none;
+    clear: both;
+    display: block;
+    width: 100%; } }
+@media screen and (max-width: 600px) {
+  .o-ft-header__topbar__content {
+    max-width: none; }
+
+  /* ensures d12 and d0 can be over-ridden by styles for S layout */ }
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+  .o-ft-header__topbar__content {
+    max-width: none; }
+
+  /* ensures d12 and d0 can be over-ridden by styles for M layout */ }
+@media screen and (min-width: 1001px) and (max-width: 1400px) {
+  .o-ft-header__topbar__content {
+    max-width: none; }
+
+  /* ensures d12 and d0 can be over-ridden by styles for L layout */ }
+.o-useragent-ie7, .o-useragent-ie8 {
+  /* ensures d12 and d0 can be over-ridden by styles for L layout */ }
+  .o-useragent-ie7 .o-ft-header__topbar__content, .o-useragent-ie8 .o-ft-header__topbar__content {
+    max-width: none; }
+@media screen and (min-width: 1401px) {
+  .o-ft-header__topbar__content {
+    max-width: 1360px; }
+
+  /* ensures d12 and d0 can be over-ridden by styles for XL layout */ }
+.o-useragent-ie7 .o-ft-header__topbar__content .o-ft-header__topbar__content, .o-useragent-ie8 .o-ft-header__topbar__content .o-ft-header__topbar__content {
+  margin-left: -5px;
+  margin-right: -5px;
+  width: auto; }
+.o-useragent-ie7 .o-ft-header__topbar__content, .o-useragent-ie8 .o-ft-header__topbar__content {
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url(../bower_components/o-useragent/polyfills/boxsizing.htc); }
+.o-useragent-ie7 .o-grid-row-compact > .o-ft-header__topbar__content, .o-useragent-ie8 .o-grid-row-compact > .o-ft-header__topbar__content {
+  padding-left: 0;
+  padding-right: 0; }
+.o-useragent-ie7 .o-ft-header__topbar__content, .o-useragent-ie8 .o-ft-header__topbar__content {
+  float: none;
+  clear: both;
+  display: block;
+  width: 100%; }
+.o-useragent-ie7 body, .o-useragent-ie8 body {
+  min-width: 960px; }
+.o-useragent-ie7 .o-ft-header__topbar__content, .o-useragent-ie8 .o-ft-header__topbar__content {
+  width: 960px;
+  max-width: none; }
+.o-useragent-ie7 .o-ft-header__topbar__content,
+.o-useragent-ie8 .o-ft-header__topbar__content {
+  padding-right: 0; }
+  .o-useragent-ie7 .o-ft-header__topbar__content > .o-grid-row,
+  .o-useragent-ie8 .o-ft-header__topbar__content > .o-grid-row {
+    margin-right: 0; }
+
+/**
+ * Colour palette
+ *
+ * These are the colours that make up the FT palette.  We don't use these colours directly, but instead assign them to 'use cases', which are defined in use-cases.scss.  In the list below, each line contains a color name and a colour code, and is finished with a comma:
+ *
+ *  <colorname>   <colour code>,
+ *
+ * The colour name must be a single word comprising just letters, numbers, and dashes.  You can have as many spaces between the colour name and the colour code as you like (so you can line them up neatly), and you *MUST* finish the line with a comma (except the final entry, which should not have a comma)
+ */
+/**
+ * Colour use cases
+ *
+ * These mappings define what we use our colours for.  In the list below, each line contains a use case, a color name and a role, and is finished with a comma:
+ *
+ *  <use case>   <colorname>   <role>,
+ *
+ * The use case name must be a single word comprising just letters, numbers, and dashes.  The colour name should be an exact match for a colour defiend in palette.scss, and the role must be 'text', 'border', or 'background'.   You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ */
+/* Load fonts */
+@font-face {
+  font-family: BentonSans-normal;
+  font-style: normal;
+  font-weight: normal;
+  src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot);
+  src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
+.o-ft-header {
+  min-height: 77px; }
+
+@media screen and (max-width: 600px) {
+  .o-ft-header {
+    min-height: 77px; }
+
+  .o-ft-header__topbar {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    left: 0; }
+
+  .o-useragent-ie7 .o-ft-header, .o-useragent-ie8 .o-ft-header {
+    min-height: 77px; }
+  .o-useragent-ie7 .o-ft-header__topbar, .o-useragent-ie8 .o-ft-header__topbar {
+    position: static; } }
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+  .o-ft-header {
+    min-height: 77px; }
+
+  .o-ft-header__topbar {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    left: 0; }
+
+  .o-useragent-ie7 .o-ft-header, .o-useragent-ie8 .o-ft-header {
+    min-height: 77px; }
+  .o-useragent-ie7 .o-ft-header__topbar, .o-useragent-ie8 .o-ft-header__topbar {
+    position: static; } }
+.o-ft-header {
+  margin-bottom: 10px; }
+
+.o-ft-header__topbar {
+  height: 50px;
+  background-color: #333333; }
+
+.o-ft-header__logo {
+  display: block;
+  padding: 11px 0 31px;
+  width: 82px;
+  height: 35px;
+  float: left;
+  background: url(../bower_components/o-ft-header/img/ft-logo.gif) no-repeat; }
+
+.o-ft-header__logo__ft-initials {
+  display: none; }
+
+.inlinesvg .o-ft-header__logo {
+  background: #ffe2c6;
+  background: -moz-linear-gradient(top, #ffe2c6 0%, #f7d8b9 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffe2c6), color-stop(100%, #f7d8b9));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ffe2c6 0%, #f7d8b9 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ffe2c6 0%, #f7d8b9 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ffe2c6 0%, #f7d8b9 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ffe2c6 0%, #f7d8b9 100%);
+  /* W3C */ }
+
+.inlinesvg .o-ft-header__logo__ft-initials {
+  display: block;
+  height: 35px;
+  fill: #333333;
+  width: 100%; }
+
+.o-ft-header__topbar__items {
+  text-align: right;
+  overflow: hidden;
+  height: 50px; }
+
+.o-ft-header__topbar__item {
+  display: inline-block;
+  min-width: 50px;
+  height: 50px;
+  text-align: center;
+  color: white;
+  background-color: #333333;
+  border-left: 1px solid #505050;
+  font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
+  font-size: 25px;
+  line-height: 50px;
+  cursor: pointer; }
+  .o-hoverable-on .o-ft-header__topbar__item:hover {
+    color: #2e6e9e;
+    background-color: #e9decf; }
+
+@media screen and (min-width: 1001px) and (max-width: 1400px) {
+  .o-ft-header__topbar__item:last-child {
+    border-right: 1px solid #505050; } }
+.o-useragent-ie7 .o-ft-header__topbar__item:last-child, .o-useragent-ie8 .o-ft-header__topbar__item:last-child {
+  border-right: 1px solid #505050; }
+
+@media screen and (min-width: 1401px) {
+  .o-ft-header__topbar__item:last-child {
+    border-right: 1px solid #505050; } }
+.o-ft-header__topbar__item--active {
+  color: #2e6e9e;
+  background-color: #e9decf; }

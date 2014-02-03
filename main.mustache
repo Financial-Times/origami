@@ -1,4 +1,4 @@
-<header class="o-ft-header" data-o-component="ft-header" data-o-version="{{o-ft-header.o-version}}">
+<header class="o-ft-header" data-o-component="ft-header" data-o-version="{{o-ft-header.module-version}}">
   <div class="o-ft-header__topbar">
     <div class="o-ft-header__topbar__content">
       <a href="{{#o-ft-header.logo-url}}{{o-ft-header.logo-url}}{{/o-ft-header.logo-url}}{{^o-ft-header.logo-url}}http://ft.com{{/o-ft-header.logo-url}}" class="o-ft-header__logo">         
@@ -9,7 +9,7 @@
         </svg>
       </a>
       <div class="o-ft-header__topbar__items">
-        {{ > partials/topbar-items }}
+        {{ > partials/topbar-items.mustache }}
       </div>
     </div>
   </div>
