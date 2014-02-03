@@ -1,6 +1,4 @@
-var Dialog = require('../dialog');
-
-Dialog.addPreset('dropup', {
+module.exports = {
     isDismissable: true,
     isAnchoredToTrigger: true,
     verticalAnchorSide: 'top',
@@ -9,4 +7,4 @@ Dialog.addPreset('dropup', {
     isCenteredHorizontally: false,
     snapsToFullHeight: false,
     snapsToFullWidth: true
-});
+};

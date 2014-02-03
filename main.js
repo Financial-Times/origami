@@ -2,9 +2,9 @@
 var $ = require('jquery'),
 	Dialog = require('./js/dialog');
 
-require('./js/dialog-presets/modal');
-require('./js/dialog-presets/dropdown');
-require('./js/dialog-presets/dropup');
+Dialog.addPreset('modal', require('./js/dialog-presets/modal'));
+Dialog.addPreset('dropdown', require('./js/dialog-presets/dropdown'));
+Dialog.addPreset('dropup', require('./js/dialog-presets/dropup'));
 
 $(document).on('click.o-dialog__trigger', '[data-o-dialog__trigger]', function (ev) {
     ev.oDialogTriggerClick = true;
