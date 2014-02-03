@@ -27,6 +27,6 @@ puts "Checked silent compile"
 # Attempting to use an undefined color generates a warning
 stdout, stderr, status = Open3.capture3 "sass --scss test/undefined-colors-warn.scss build/undefined-colors-warn.css --style compressed"
 raise "Using an undefined color shouldn't fail build" unless status.success?
-raise "Using an undefined color should throw a warning" unless stderr.squish.match /^WARNING\: Undefined color used on line [0-9]+ of [0-9A-Za-z_\/\\\.]+$/
+raise "Using an undefined color should throw a warning" unless stderr.squish.match /^WARNING\: Undefined use-case used on line [0-9]+ of [0-9A-Za-z_\/\\\.]+$/
 raise "Using an undefined color should not affect output" unless File.open("build/undefined-colors-warn.css").read.squish == ".test{color:#000}"
 puts "Checked non-fatal warnings thrown when undefined color used"
