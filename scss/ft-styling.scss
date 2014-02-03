@@ -7,7 +7,7 @@
 	    @extend %o-colors-dialog-close-border !optional;
 	    @extend %o-colors-dialog-close-background !optional;
 	    @extend %o-colors-dialog-close-text !optional;    
-	    content: '\x00d7',
+	    content: '\x00d7';
 	    display: block;
 	    position: absolute;
 	    top: 10px;

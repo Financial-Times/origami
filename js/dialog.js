@@ -136,13 +136,14 @@ var trigger = function (opts, trigger) {
                 opts.srcType = 'url';
             } else if ((opts.content = $(opts.src)) && opts.content.length) {
                 opts.srcType = 'selector';
-                opts.content = opts.content.clone();
+                opts.content = opts.content[0].nodeName === 'SCRIPT' ? $(opts.content.text()): opts.content.clone();
             } else {
                 opts.srcType = 'string';
                 opts.content = opts.src;
             }
         } else if (opts.srcType === 'selector') {
-            opts.content = $(opts.src).clone();
+            opts.content = $(opts.src);
+            opts.content = opts.content[0].nodeName === 'SCRIPT' ? $(opts.content.text()): opts.content.clone();
         }
 
         opts = $.extend({}, defaults, presets[opts.preset] || {}, opts);

@@ -7,6 +7,7 @@ Dialog.addPreset('dropdown', require('./js/dialog-presets/dropdown'));
 Dialog.addPreset('dropup', require('./js/dialog-presets/dropup'));
 
 $(document).on('click.o-dialog__trigger', '[data-o-dialog__trigger]', function (ev) {
+	ev.preventDefault();
     ev.oDialogTriggerClick = true;
     Dialog.trigger($(this).data('o-dialog__trigger'), this);
 });
