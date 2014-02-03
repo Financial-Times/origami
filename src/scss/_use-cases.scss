@@ -38,10 +38,10 @@ $o-colors-usecase-list:
     article-body-lead             charcoal          text,
     article-body-lead             warm-grey2        border,
     article-body                  charcoal          text,
-    article-title                 black             text,   // DEPRECATED
+    article-title                 black             text DEPRECATED,
     article-subheading            charcoal          text,
-    article-byline                warm-grey2        text,   // DEPRECATED
-    article-divider               warm-grey2        border, // DEPRECATED
+    article-byline                warm-grey2        text DEPRECATED,
+    article-divider               warm-grey2        border DEPRECATED,
 
     // FT header and footer
     header                        charcoal          background,
