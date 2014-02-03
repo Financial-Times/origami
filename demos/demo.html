@@ -247,24 +247,14 @@
 	</div>
 </div>
 
-
-<div class="o-grid-row">
-	<div data-o-grid-colspan="2">&nbsp;</div>
-	<div data-o-grid-colspan="5">
-		<h1 class="demo-heading-col">General</h1>
-	</div>
-	<div data-o-grid-colspan="5">
-		<h1 class="demo-heading-col">Article</h1>
-	</div>
+<div class="o-grid-row" data-o-grid-colspan="12">
+	<h1 class="demo-heading-col">Article subheadings</h1>
 </div>
 <div class="o-grid-row">
 	<div data-o-grid-colspan="2">
-		<h1 class="demo-heading-row">Article subheading 1 (wrapped h2)</h1>
+		<h1 class="demo-heading-row">Article subheading 1</h1>
 	</div>
-	<div data-o-grid-colspan="5">
-		<p class="demo-placeholder">Re-use Heading 2?</p>
-	</div>
-	<div data-o-grid-colspan="5">
+	<div data-o-grid-colspan="10">
 		<div class="demo-example">
 			<div class="o-ft-typography-article-subheading1">
 				Article subheading 1
@@ -276,12 +266,9 @@
 </div>
 <div class="o-grid-row">
 	<div data-o-grid-colspan="2">
-		<h1 class="demo-heading-row">Article subheading 2 (wrapped h3)</h1>
+		<h1 class="demo-heading-row">Article subheading 2</h1>
 	</div>
-	<div data-o-grid-colspan="5">
-		<p class="demo-placeholder">Re-use Heading 3?</p>
-	</div>
-	<div data-o-grid-colspan="5">
+	<div data-o-grid-colspan="10">
 		<div class="demo-example">
 			<div class="o-ft-typography-article-subheading2">
 				Article subheading 2
@@ -291,9 +278,22 @@
 		</div>
 	</div>
 </div>
+
+<div class="o-grid-row" data-o-grid-colspan="12">
+	<h1 class="demo-heading-col">Body text</h1>
+</div>
+<div class="o-grid-row">
+	<div data-o-grid-colspan="2">&nbsp;</div>
+	<div data-o-grid-colspan="5">
+		<h1 class="demo-heading-col-sub">General</h1>
+	</div>
+	<div data-o-grid-colspan="5">
+		<h1 class="demo-heading-col-sub">Article</h1>
+	</div>
+</div>
 <div class="o-grid-row">
 	<div data-o-grid-colspan="2">
-		<h1 class="demo-heading-row">Lead body (not wrapped)</h1>
+		<h1 class="demo-heading-row">Lead body</h1>
 	</div>
 	<div data-o-grid-colspan="5">
 		<div class="demo-example">
@@ -308,7 +308,7 @@
 </div>
 <div class="o-grid-row">
 	<div data-o-grid-colspan="2">
-		<h1 class="demo-heading-row">Body (wrapped p)</h1>
+		<h1 class="demo-heading-row">Body</h1>
 	</div>
 	<div data-o-grid-colspan="5">
 		<div class="demo-example">
@@ -325,7 +325,7 @@
 </div>
 <div class="o-grid-row">
 	<div data-o-grid-colspan="2">
-		<h1 class="demo-heading-row">Lists (wrapped ol and ul)</h1>
+		<h1 class="demo-heading-row">Lists</h1>
 	</div>
 	<div data-o-grid-colspan="5">
 		<div class="demo-example">
@@ -349,6 +349,45 @@
 				<li>Ordered list item</li>
 			</ol>
 			<ul class="o-ft-typography-article-body__list o-ft-typography-body__list--unordered">
+				<li>Unordered list item</li>
+				<li>Unordered list item</li>
+				<li>Unordered list item</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="o-grid-row">
+	<div data-o-grid-colspan="2"><h1 class="demo-heading-row">Wrapped styles</h1></div>
+	<div data-o-grid-colspan="5">
+		<div class="demo-example o-ft-typography-body-wrapper">
+			<h2>h2 - gets styled as a Heading Medium</h2>
+			<h3>h3 - gets styled as a Heading Small</h3>
+			<p>Paragraph. Gets styled as a general body. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras viverra auctor nisi, nec aliquet metus. Pellentesque enim lacus, feugiat sit amet erat a, mollis lacinia lacus. Curabitur suscipit congue ornare. Vestibulum ac tortor vel elit porttitor mattis nec id lectus. Suspendisse luctus nulla at enim blandit, at dictum sapien mattis. Donec id tellus ac libero tempor rutrum eu vel lacus. Mauris fringilla justo id purus placerat condimentum.</p>
+			<p>Sub-paragraph styles: <strong>strong</strong>, <em>emic</em>, <small>small</small>, <sup>sup</sup>, <sub>sub</sub>, <a href="#">link</a> and back to normal. Cras viverra auctor nisi, nec aliquet metus. Pellentesque enim lacus, feugiat sit amet erat a, mollis lacinia lacus.</p>
+			<ol>
+				<li>Ordered list item</li>
+				<li>Ordered list item</li>
+				<li>Ordered list item</li>
+			</ol>
+			<ul>
+				<li>Unordered list item</li>
+				<li>Unordered list item</li>
+				<li>Unordered list item</li>
+			</ul>
+		</div>
+	</div>
+	<div data-o-grid-colspan="5">
+		<div class="demo-example o-ft-typography-article-body-wrapper">
+			<h2>h2 - gets styled as an Article Subheading 1</h2>
+			<h3>h3 - gets styled as an Article Subheading 2</h3>
+			<p>Paragraph. Gets styled as an article body. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras viverra auctor nisi, nec aliquet metus. Pellentesque enim lacus, feugiat sit amet erat a, mollis lacinia lacus. Curabitur suscipit congue ornare. Vestibulum ac tortor vel elit porttitor mattis nec id lectus. Suspendisse luctus nulla at enim blandit, at dictum sapien mattis. Donec id tellus ac libero tempor rutrum eu vel lacus. Mauris fringilla justo id purus placerat condimentum.</p>
+			<p>Sub-paragraph styles: <strong>strong</strong>, <em>emic</em>, <small>small</small>, <sup>sup</sup>, <sub>sub</sub>, <a href="#">link</a> and back to normal. Cras viverra auctor nisi, nec aliquet metus. Pellentesque enim lacus, feugiat sit amet erat a, mollis lacinia lacus.</p>
+			<ol>
+				<li>Ordered list item</li>
+				<li>Ordered list item</li>
+				<li>Ordered list item</li>
+			</ol>
+			<ul>
 				<li>Unordered list item</li>
 				<li>Unordered list item</li>
 				<li>Unordered list item</li>

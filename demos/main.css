@@ -522,6 +522,17 @@ body {
   background-color: #a7a59b;
   color: #fff; }
 
+.demo-heading-col-sub {
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: #dfded8;
+  color: #777; }
+
 .demo-heading-row {
   padding: 5px;
   font-family: Arial, Helvetica, sans-serif;
@@ -599,7 +610,7 @@ html, body {
   line-height: 20px;
   color: black; }
 
-.o-ft-typography-heading-medium {
+.o-ft-typography-body-wrapper h2, .o-ft-typography-heading-medium {
   margin: 0 0 16px 0;
   font-family: BentonSans-bold, Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -610,24 +621,24 @@ html, body {
   background-repeat: no-repeat;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAAPAQMAAADEaZ8BAAAABlBMVEUAAADs3s8R/6e7AAAAAXRSTlMAQObYZgAAADBJREFUSMdj+D90QcNQdvyDUccPEPgw6njiwKjjh43jh3SGHdKOb2AYBaNgFAwdAACrOE9c1sAQpgAAAABJRU5ErkJggg=="); }
 
-.o-ft-typography-heading-small {
+.o-ft-typography-body-wrapper h3, .o-ft-typography-heading-small {
   margin: 0 0 8px 0;
   font-family: BentonSans-bold, Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
   color: #333333; }
 
-.o-ft-typography-heading-large__link, .o-ft-typography-heading-medium__link, .o-ft-typography-heading-small__link {
+.o-ft-typography-heading-large__link, .o-ft-typography-body-wrapper h2 a, .o-ft-typography-heading-medium__link, .o-ft-typography-body-wrapper h3 a, .o-ft-typography-heading-small__link {
   text-decoration: none;
   color: #2e6e9e;
   cursor: pointer; }
 
-.o-ft-typography-heading-large__link--hover, .o-ft-typography-heading-large__link:hover, .o-ft-typography-heading-medium__link--hover, .o-ft-typography-heading-medium__link:hover, .o-ft-typography-heading-small__link--hover, .o-ft-typography-heading-small__link:hover {
+.o-ft-typography-heading-large__link--hover, .o-ft-typography-heading-large__link:hover, .o-ft-typography-heading-medium__link--hover, .o-ft-typography-body-wrapper h2 a:hover, .o-ft-typography-heading-medium__link:hover, .o-ft-typography-heading-small__link--hover, .o-ft-typography-body-wrapper h3 a:hover, .o-ft-typography-heading-small__link:hover {
   color: black;
   cursor: pointer; }
 
 /* Titles */
-.o-ft-typography-article-body-wrapper h1, .o-ft-typography-title-large {
+.o-ft-typography-title-large {
   font-family: MillerDisplay-normal, Georgia, "Times New Roman", serif;
   font-size: 30px;
   line-height: 36px;
@@ -647,12 +658,12 @@ html, body {
   line-height: 17px;
   color: black; }
 
-.o-ft-typography-article-body-wrapper h1 a, .o-ft-typography-title-large__link, .o-ft-typography-title-medium__link, .o-ft-typography-title-small__link {
+.o-ft-typography-title-large__link, .o-ft-typography-title-medium__link, .o-ft-typography-title-small__link {
   text-decoration: none;
   color: black;
   cursor: pointer; }
 
-.o-ft-typography-title-large__link--hover, .o-ft-typography-article-body-wrapper h1 a:hover, .o-ft-typography-title-large__link:hover, .o-ft-typography-title-medium__link--hover, .o-ft-typography-title-medium__link:hover, .o-ft-typography-title-small__link--hover, .o-ft-typography-title-small__link:hover {
+.o-ft-typography-title-large__link--hover, .o-ft-typography-title-large__link:hover, .o-ft-typography-title-medium__link--hover, .o-ft-typography-title-medium__link:hover, .o-ft-typography-title-small__link--hover, .o-ft-typography-title-small__link:hover {
   color: #2e6e9e;
   cursor: pointer; }
 
@@ -738,7 +749,7 @@ html, body {
 
 .o-ft-typography-article-body-wrapper h2 a, .o-ft-typography-article-subheading1__link, .o-ft-typography-article-body-wrapper h3 a, .o-ft-typography-article-subheading2__link {
   text-decoration: none;
-  color: black;
+  color: #333333;
   cursor: pointer; }
 
 .o-ft-typography-article-subheading1__link--hover, .o-ft-typography-article-body-wrapper h2 a:hover, .o-ft-typography-article-subheading1__link:hover, .o-ft-typography-article-subheading2__link--hover, .o-ft-typography-article-body-wrapper h3 a:hover, .o-ft-typography-article-subheading2__link:hover {
@@ -764,57 +775,57 @@ html, body {
 
 /* Body */
 .o-ft-typography-body-wrapper ol,
-.o-ft-typography-body-wrapper ul, .o-ft-typography-body__list, .o-ft-typography-body-wrapper, .o-ft-typography-body {
+.o-ft-typography-body-wrapper ul, .o-ft-typography-body__list, .o-ft-typography-body-wrapper p, .o-ft-typography-body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
   color: #333333; }
 
 .o-ft-typography-article-body-wrapper ol,
-.o-ft-typography-article-body-wrapper ul, .o-ft-typography-article-body__list, .o-ft-typography-article-body-wrapper, .o-ft-typography-article-body {
+.o-ft-typography-article-body-wrapper ul, .o-ft-typography-article-body__list, .o-ft-typography-article-body-wrapper p, .o-ft-typography-article-body {
   font-size: 16px;
   line-height: 24px;
   font-family: Georgia, "Times New Roman", serif;
   color: #333333; }
 
 .o-ft-typography-article-body-wrapper h2, .o-ft-typography-article-subheading1, .o-ft-typography-article-body-wrapper h3, .o-ft-typography-article-subheading2, .o-ft-typography-body-wrapper ol,
-.o-ft-typography-body-wrapper ul, .o-ft-typography-body__list, .o-ft-typography-body-wrapper p, .o-ft-typography-body__block {
+.o-ft-typography-body-wrapper ul, .o-ft-typography-body__list, .o-ft-typography-body-wrapper p, .o-ft-typography-article-body-wrapper p, .o-ft-typography-body__block {
   margin-bottom: 21px;
   margin-top: 21px; }
 
 .o-ft-typography-article-body-wrapper ol,
-.o-ft-typography-article-body-wrapper ul, .o-ft-typography-article-body__list, .o-ft-typography-article-body-wrapper p, .o-ft-typography-article-body__block {
+.o-ft-typography-article-body-wrapper ul, .o-ft-typography-article-body__list, .o-ft-typography-article-body__block {
   margin-bottom: 24px;
   margin-top: 24px; }
 
 /* Sub-body */
-.o-ft-typography-body-wrapper strong, .o-ft-typography-body--bold {
+.o-ft-typography-body-wrapper strong, .o-ft-typography-article-body-wrapper strong, .o-ft-typography-body--bold {
   font-weight: bold; }
 
-.o-ft-typography-body-wrapper em, .o-ft-typography-body--italic {
+.o-ft-typography-body-wrapper em, .o-ft-typography-article-body-wrapper em, .o-ft-typography-body--italic {
   font-style: italic; }
 
-.o-ft-typography-body-wrapper small, .o-ft-typography-body--small {
+.o-ft-typography-body-wrapper small, .o-ft-typography-article-body-wrapper small, .o-ft-typography-body--small {
   font-size: 0.75em; }
 
-.o-ft-typography-body-wrapper sup, .o-ft-typography-body--super {
+.o-ft-typography-body-wrapper sup, .o-ft-typography-article-body-wrapper sup, .o-ft-typography-body--super {
   display: inline-block;
   margin-top: -3px;
   font-size: 0.75em;
   vertical-align: super; }
 
-.o-ft-typography-body-wrapper sub, .o-ft-typography-body--sub {
+.o-ft-typography-body-wrapper sub, .o-ft-typography-article-body-wrapper sub, .o-ft-typography-body--sub {
   display: inline-block;
   margin-bottom: -5px;
   font-size: 0.75em;
   vertical-align: sub; }
 
-.o-ft-typography-body-wrapper a, .o-ft-typography-body__link {
+.o-ft-typography-body-wrapper a, .o-ft-typography-article-body-wrapper a, .o-ft-typography-body__link {
   text-decoration: none;
   color: #2e6e9e;
   cursor: pointer; }
 
-.o-ft-typography-body__link--hover, .o-ft-typography-body-wrapper a:hover, .o-ft-typography-body__link:hover {
+.o-ft-typography-body__link--hover, .o-ft-typography-body-wrapper a:hover, .o-ft-typography-article-body-wrapper a:hover, .o-ft-typography-body__link:hover {
   color: black;
   cursor: pointer; }
 
@@ -829,8 +840,8 @@ html, body {
   list-style-position: outside;
   padding-left: 20px; }
 
-.o-ft-typography-body-wrapper ol, .o-ft-typography-body__list--ordered {
+.o-ft-typography-body-wrapper ol, .o-ft-typography-article-body-wrapper ol, .o-ft-typography-body__list--ordered {
   list-style-type: decimal; }
 
-.o-ft-typography-body-wrapper ul, .o-ft-typography-body__list--unordered {
+.o-ft-typography-body-wrapper ul, .o-ft-typography-article-body-wrapper ul, .o-ft-typography-body__list--unordered {
   list-style-type: disc; }

@@ -21,6 +21,16 @@ body {
 	color: #fff;
 }
 
+.demo-heading-col-sub {
+	@include demo-heading();
+	margin: 0 0 10px 0;
+	font-size: 14px;
+	text-align: center;
+	letter-spacing: 1px;
+	background-color: #dfded8;
+	color: #777;
+}
+
 .demo-heading-row {
 	@include demo-heading();
 	margin: 0 0 20px 0;

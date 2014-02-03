@@ -14,8 +14,6 @@
 // Article wrapped styles
 @mixin ftTypographyWrappableGeneralContentStyles () {
 
-	@include oFtTypographyExtend(body);
-
 	h2 {
 		@include oFtTypographyExtend(heading-medium);
 
@@ -37,6 +35,7 @@
 	}
 
 	p {
+		@include oFtTypographyExtend(body);
 		@include oFtTypographyExtend(body__block);
 	}
 
