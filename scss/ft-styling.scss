@@ -1,0 +1,21 @@
+@include oDialogClass(--modal__content) {
+    @extend %o-colors-dialog-border !optional;
+    @extend %o-colors-dialog-background !optional;
+    @extend %o-colors-dialog-text !optional;	
+
+    &:before {
+	    @extend %o-colors-dialog-close-border !optional;
+	    @extend %o-colors-dialog-close-background !optional;
+	    @extend %o-colors-dialog-close-text !optional;    
+	    content: '\x00d7',
+	    display: block;
+	    position: absolute;
+	    top: 10px;
+	    right: 10px;
+    }
+}
+
+@include oDialogClass(--modal__heading) {
+    @extend %o-colors-dialog-heading-background !optional;
+    @extend %o-colors-dialog-heading-text !optional;
+}
