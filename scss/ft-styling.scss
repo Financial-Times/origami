@@ -12,11 +12,6 @@
     border: 2px solid oColorsGetColorFor(dialog-border);
 
 }
-.o-dialog--full-height {
-	@include oDialogClass(modal__content) {
-	    overflow-y: hidden;
-	}
-}
 
 .o-dialog--closable {
 	@include oDialogClass(modal__content) {
@@ -57,6 +52,7 @@
 
 @include oDialogClass(body, '__') {
 	padding: 5px;
+	box-sizing: border-box;
 }
 
 .o-dialog--closable.o-dialog--modal {

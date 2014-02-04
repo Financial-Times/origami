@@ -50,6 +50,9 @@ var trigger = function (opts, trigger) {
         
         dialog.content.html(dialog.opts.content);
 
+        dialog.body = dialog.content.is(dialog.opts.bodySelector) ? dialog.content : dialog.content.find(dialog.opts.bodySelector);
+        dialog.heading = dialog.content.find(dialog.opts.headingSelector);
+
         dialog.opts.onBeforeRender();
         attach(dialog);
         dialog.opts.onAfterRender();
@@ -225,7 +228,7 @@ var trigger = function (opts, trigger) {
             //     no problemo
             // }
 
-            if (dialog.fullWidth) {
+            if (dialog.isFullWidth) {
                 offset = 0;
             } else if (align === 'l') {
                 offset = trigger.offsetLeft;
@@ -291,7 +294,7 @@ var trigger = function (opts, trigger) {
         dialog.opts.onBeforeResize();
         reAlign('width', dialog);
         reAlign('height', dialog);
-        adjustContentHeight(dialog);
+        adjustBodyHeight(dialog);
         anchorDropdown(dialog);
         dialog.opts.onAfterResize();
     },
@@ -307,13 +310,13 @@ var trigger = function (opts, trigger) {
 
         if (dialog.opts['snapsToFull' + capitalisedDimension]) {
             if (win[dimension]() <= dialog[dimension]) {
-                dialog['full' + capitalisedDimension] = true;
+                dialog['isFull' + capitalisedDimension] = true;
                 dialog.wrapper.addClass('o-dialog--full-' + dimension);
                 if (!isFlexbox) {
                     dialog.content.css('margin-' + edge, 0);
                 }
             } else {
-                dialog['full' + capitalisedDimension] = false;
+                dialog['isFull' + capitalisedDimension] = false;
                 dialog.wrapper.removeClass('o-dialog--full-' + dimension).attr('style', null);
                 dialog[dimension] = Math.max(
                     dimensionCalculators[dimension](dialog),
@@ -330,9 +333,13 @@ var trigger = function (opts, trigger) {
 
     },
 
-    adjustContentHeight = function (dialog) {
+    adjustBodyHeight = function (dialog) {
         if (dialog.opts.hasHeading && !isFlexbox) {
-
+            if (dialog.isFullHeight) {
+                dialog.body.height(dialog.content.height() - dialog.heading.outerHeight());
+            } else {
+                dialog.body.css('height', null);
+            }
         }
     };
 
