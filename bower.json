@@ -6,8 +6,8 @@
   ],
   "ignore": [
     "package.json",
-    "demo.ms",
-    "scss/demos.scss",
+    "demo.mustache",
+    "demo.scss",
     "README.md",
     "package.json",
     "Gruntfile.js"

@@ -3,5 +3,9 @@
   "origamiType": "module",
   "origamiVersion": 1,
   "support": "rhys.evans@ft.com",
-  "supportStatus": "not implemented"
+  "supportStatus": "active",
+  "browserFeatures": {
+  	"optional": ["csstransforms", "csstransitions", "flexbox", "flexboxlegacy", "rgba"]
+  },
+  "demos": ["demos/demo.html"]
 }
