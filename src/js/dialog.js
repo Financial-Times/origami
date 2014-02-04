@@ -354,5 +354,11 @@ module.exports = {
     },
     addPreset: function (name, conf) {
         presets[name] = $.extend({}, defaults, conf);
+    },
+    addTemplate: function (name, tpl) {
+        templates[name] = tpl;
+    },
+    removeTemplate: function (name) {
+        templates[name] = undefined;
     }
 };
