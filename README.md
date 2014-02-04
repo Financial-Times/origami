@@ -41,7 +41,7 @@ The `options` object takes the following properties. All are optional, with the 
 	* `selector` - clone the first html element matching the selector `options.src` (if the element is a script tag it's assumed this is a template and the content is cloned, discarding the outer script tag)
 	* `string` - use the string `options.src` directly as the content 
 	* `template`  - retrieve and render the mustache template `options.src` *(not implemented)*
-* `src: ['']` - String specifying where to retrieve content to place in the dialog. If srcType is not specified o-dialog will try and calculate which `srcType` to use as follows:
+* `src: ['']` - String specifying where to retrieve content to place in the dialog. If `srcType` is not specified o-dialog will try and calculate which `srcType` to use as follows:
 	* If `options.src` is an obvious url (matching `/^(https?\:\/)?\//`) sets `options.srcType` to `url`
 	* If `options.src` wen treated as a selector matches some element, sets `options.srcType` to `selector`
 	* Otherwise sets `options.srcType` to `string`
@@ -58,8 +58,8 @@ The `options` object takes the following properties. All are optional, with the 
 * `hasCloseButton: [false]` - Whether or not the overlay shoudl have a close button
 * `isCenteredVertically: [true]` - Whether or not the dialog is centered horizontally on the screen
 * `isCenteredHorizontally: [true]` - Whether or not the dialog is centered horizontally on the screen
-* `snapsToFullHeight: [true]` - Whether or not the dialog will switch to occupying the full height of the screen with scroll bars at small screen sizes
-* `snapsToFullWidth: [true]` - Whether or not the dialog will switch to occupying the full width of the screen with scroll bars at small screen sizes
+* `snapsToFullHeight: [true]` - Whether or not the dialog will intelligently switch to occupying the full height of the screen with scroll bars at small screen sizes
+* `snapsToFullWidth: [true]` - Whether or not the dialog will intelligently switch to occupying the full width of the screen with scroll bars at small screen sizes
 
 #### Events
 The following event listeners can also be set on the options object. To use set to a function which expects to be passed the current dialog object (which contains references to its options, DOM elements and DOM properties)
