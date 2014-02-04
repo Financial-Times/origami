@@ -117,14 +117,14 @@ var trigger = function (opts, trigger) {
                 opts.srcType = 'url';
             } else if ((opts.content = $(opts.src)) && opts.content.length) {
                 opts.srcType = 'selector';
-                opts.content = opts.content[0].nodeName === 'SCRIPT' ? $(opts.content.text()): opts.content.clone();
+                opts.content = opts.content[0].nodeName === 'SCRIPT' ? $(opts.content.html()): opts.content.clone();
             } else {
                 opts.srcType = 'string';
                 opts.content = opts.src;
             }
         } else if (opts.srcType === 'selector') {
             opts.content = $(opts.src);
-            opts.content = opts.content[0].nodeName === 'SCRIPT' ? $(opts.content.text()): opts.content.clone();
+            opts.content = opts.content[0].nodeName === 'SCRIPT' ? $(opts.content.html()): opts.content.clone();
         }
 
         opts = $.extend({}, defaults, presets[opts.preset] || {}, opts);
@@ -294,7 +294,6 @@ var trigger = function (opts, trigger) {
         dialog.opts.onBeforeResize();
         reAlign('width', dialog);
         reAlign('height', dialog);
-        adjustBodyHeight(dialog);
         anchorDropdown(dialog);
         dialog.opts.onAfterResize();
     },
@@ -314,10 +313,14 @@ var trigger = function (opts, trigger) {
                 dialog.wrapper.addClass('o-dialog--full-' + dimension);
                 if (!isFlexbox) {
                     dialog.content.css('margin-' + edge, 0);
+                    adjustBodyHeight(dialog, true);
                 }
             } else {
                 dialog['isFull' + capitalisedDimension] = false;
                 dialog.wrapper.removeClass('o-dialog--full-' + dimension).attr('style', null);
+                if (!isFlexbox) {
+                    adjustBodyHeight(dialog, false);
+                }
                 dialog[dimension] = Math.max(
                     dimensionCalculators[dimension](dialog),
                     dialog[dimension]
@@ -333,12 +336,12 @@ var trigger = function (opts, trigger) {
 
     },
 
-    adjustBodyHeight = function (dialog) {
-        if (dialog.opts.hasHeading && !isFlexbox) {
-            if (dialog.isFullHeight) {
+    adjustBodyHeight = function (dialog, fullHeight) {
+        if (dialog.opts.hasHeading) {
+            if (fullHeight) {
                 dialog.body.height(dialog.content.height() - dialog.heading.outerHeight());
             } else {
-                dialog.body.css('height', null);
+                dialog.body.css('height', '');
             }
         }
     };
