@@ -1,6 +1,5 @@
 module.exports = {
 	hasOverlay: true,
-	hasHeading: true,
 	hasCloseButton: true,
     isDismissable: true,
     isAnchoredToTrigger: false,

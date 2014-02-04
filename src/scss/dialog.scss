@@ -54,7 +54,7 @@
 
 .flexbox,
 .flexboxlegacy {
-  .o-dialog--full-height .o-dialog__content {
+  .o-dialog--full-height .o-dialog__content:not(.o-dialog__body) {
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -93,19 +93,17 @@
       
     }
 
-    &:not(.o-dialog__body) {
-      .o-dialog__heading {
-        -webkit-box-ordinal-group: 1;
-        -moz-box-ordinal-group: 1;
-        -webkit-box-flex: 0;
-        -moz-box-flex: 0;
-        -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
-        -webkit-align-self: auto;
-        -ms-flex-item-align: auto;
-        align-self: auto;
-      }
+    .o-dialog__heading {
+      -webkit-box-ordinal-group: 1;
+      -moz-box-ordinal-group: 1;
+      -webkit-box-flex: 0;
+      -moz-box-flex: 0;
+      -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+      -webkit-align-self: auto;
+      -ms-flex-item-align: auto;
+      align-self: auto;
     }
   }
 

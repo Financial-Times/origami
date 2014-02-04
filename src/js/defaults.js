@@ -11,7 +11,7 @@ module.exports = {
     horizontalAnchorSide: null,
     headingSelector: '.o-dialog__heading',
     bodySelector: '.o-dialog__body',
-    hasHeading: true,
+    hasHeading: false,
     hasOverlay: false, //
     hasCloseButton: false, //
     isCenteredVertically: true, //

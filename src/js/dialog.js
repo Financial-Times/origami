@@ -46,13 +46,19 @@ var trigger = function (opts, trigger) {
             return;
         }
         dialog.opts.onTrigger();
-        assignClasses(dialog);
+        
         
         dialog.content.html(dialog.opts.content);
+
+        if (dialog.opts.hasCloseButton) {
+            dialog.content.append('<button class="o-dialog__close">close</button>');
+        }
 
         dialog.body = dialog.content.is(dialog.opts.bodySelector) ? dialog.content : dialog.content.find(dialog.opts.bodySelector);
         dialog.heading = dialog.content.find(dialog.opts.headingSelector);
 
+        dialog.opts.hasHeading = !!dialog.heading.length;
+        assignClasses(dialog);
         dialog.opts.onBeforeRender();
         attach(dialog);
         dialog.opts.onAfterRender();
@@ -170,8 +176,10 @@ var trigger = function (opts, trigger) {
         if (dialog.opts.isDismissable) {
             setTimeout(function () {
                 $('body').on('click.o-dialog', function (ev) {
-                    if (!ev.oDialogContentClick && !ev.oDialogTriggerClick) {
-                        close(dialog);
+                    if (dialog.active) {
+                        if (!dialog.content[0].contains(ev.target) || (dialog.opts.hasCloseButton && $(ev.target).is('.o-dialog__close'))) {
+                            close(dialog);
+                        }
                     }
                 });
             }, 1);
@@ -182,20 +190,13 @@ var trigger = function (opts, trigger) {
                     close();
                 }
             });
-
-            dialog.wrapper.on('click.o-dialog', function (ev) {
-                if (!ev.oDialogContentClick) {
-                    close(dialog);
-                }
-                
-            });
         }
     },
 
 
 
     assignClasses = function (dialog) {
-        dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.classes + (dialog.opts.hasCloseButton ? ' o-dialog--closable': '');
+        dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.classes + (dialog.opts.hasCloseButton ? ' o-dialog--closable' : '');
         dialog.overlay[0].className = 'o-dialog__overlay o-dialog--' + dialog.opts.preset + '__overlay';
         dialog.content[0].className = 'o-dialog__content o-dialog--' + dialog.opts.preset + '__content' + (dialog.opts.hasHeading ? '' : ' o-dialog__body');
     },
@@ -261,7 +262,6 @@ var trigger = function (opts, trigger) {
         if (dialog.opts.isDismissable) {
             $('body').off('click.o-dialog');
             $(document).off('keyup.o-dialog');
-            dialog.wrapper.off('click.o-dialog');
         }
         if (isAnimatable && !destroy) {
             var wrapper = dialog.opts.hasOverlay ? dialog.wrapper.add(dialog.overlay) : dialog.wrapper ;

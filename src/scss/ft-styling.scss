@@ -13,27 +13,36 @@
 
 }
 
-.o-dialog--closable {
-	@include oDialogClass(modal__content) {
-	    &:before {
-	    	border: 2px solid oColorsGetColorFor(dialog-close-border);
-		    @extend %o-colors-dialog-close-background !optional;
-		    @extend %o-colors-dialog-close-text !optional;    
-			content: '\00d7';
-			display: block;
-			position: absolute;
-			top: 8px;
-			right: 6px;
-			height: 18px;
-			width: 18px;
-			font-size: 23px;
-			border-radius: 11px;
-			line-height: 16px;
-			text-align: center;
-			font-family: $o-fonts-bentonsans-lighter;
-	    }
-	}
+
+@include oDialogClass(close, '__') {
+	border: 2px solid oColorsGetColorFor(dialog-close-border);
+    @extend %o-colors-dialog-close-background !optional;
+ 	color: oColorsGetColorFor(dialog-close-background);   
+
+	display: block;
+	position: absolute;
+	top: 7px;
+	right: 6px;
+	height: 22px;
+	width: 22px;
+	font-size: 23px;
+	border-radius: 11px;
+	line-height: 16px;
+	text-align: center;
+	font-family: $o-fonts-bentonsans-lighter;
+	overflow: hidden;
+	vertical-align: center;
+	padding: 0;
+	cursor: pointer;
+
+	&:before {
+    	content: '\00d7';
+    	display: block;    
+    	color: oColorsGetColorFor(dialog-close-text);   
+
+    }
 }
+
 
 .o-dialog--modal {
 	@include oDialogClass(heading, '__') {
@@ -45,8 +54,6 @@
 		letter-spacing: 0.4px;
 	    @extend %o-colors-dialog-heading-background !optional;
 	    @extend %o-colors-dialog-heading-text !optional;
-
-
 	}
 }
 
