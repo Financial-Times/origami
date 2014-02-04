@@ -1,4 +1,4 @@
-#FT Typography <small>*o-ft-typography*</small>
+#FT Typography [![Build Status](https://travis-ci.org/Financial-Times/o-ft-typography.png?branch=master)](https://travis-ci.org/Financial-Times/o-typography)
 
 Typographical styles for FT branded sites - fonts, weight, colors, sizes and vertical rhythm
 
@@ -21,11 +21,18 @@ To apply the styles to elements you can't or don't wish to add classes to extend
     }
 
 ### Wrappers
-To apply standard FT content styles styles to `h1, h2, p, a, strong, em, small, super, sub, ul, ol, li` tags within a container either:
+Standard FT content styles can be applied to child `h1, h2, h3, p, a, strong, em, small, sup, sub, ul, ol, li` tags within a container for either general styles or article-specific styles.
 
-* use `oFtTypographyDefineContentWrapper('.your-wrapper-class');`
-* set `$o-ft-typography-wrapper-class: '.your-wrapper-class';` This will also suppress styles for the default wrapper '.o-ft-typography-body-text' from being outputted
+#### General:
+
+* use `oFtTypographyDefineGeneralContentWrapper('.your-wrapper-class');`
+* set `$o-ft-typography-general-wrapper-class: '.your-wrapper-class';` This will also suppress styles for the default wrapper '.o-ft-typography-body-text' from being outputted
     
+#### Article-specific
+
+* use `oFtTypographyDefineArticleContentWrapper('.your-wrapper-class');`
+* set `$o-ft-typography-article-wrapper-class: '.your-wrapper-class';` This will also suppress styles for the default wrapper '.o-ft-typography-article-body-text' from being outputted
+
 
 ### Silent mode (Product developers only)
 

@@ -1,75 +1,216 @@
 /* Headings */
+@include oFtTypographyClass(heading-large) {
+	margin: 0 0 16px 0;
+	padding: 8px 10px 7px 10px;
+	border-top: 4px solid oColorsGetColorFor(heading-large-border);
+	border-bottom: 1px dotted oColorsGetColorFor(heading-large-border);
+	font-family: $o-ft-typography-heading-large-font;
+	@include oFtTypographyFontSize(16, 20);
+	color: oColorsGetColorFor(heading-large-text);
+}
 
-	/* Titles */
-	@include oFtTypographyClass(title) {
-		font-family: $o-ft-typography-title-font;
-		color: oColorsGetColorFor(article-title-text);	
-	}
+@include oFtTypographyClass(heading-medium) {
+	margin: 0 0 16px 0;
+	font-family: $o-ft-typography-heading-medium-font;
+	@include oFtTypographyFontSize(14, 20);
+	color: oColorsGetColorFor(heading-text);
+	text-shadow: 6px 0 4px oColorsGetColorFor(page-background);
+	text-transform: uppercase;
+	background-position: bottom right;
+	background-repeat: no-repeat;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAAPAQMAAADEaZ8BAAAABlBMVEUAAADs3s8R/6e7AAAAAXRSTlMAQObYZgAAADBJREFUSMdj+D90QcNQdvyDUccPEPgw6njiwKjjh43jh3SGHdKOb2AYBaNgFAwdAACrOE9c1sAQpgAAAABJRU5ErkJggg==');
+}
 
-	@include oFtTypographyClass(title--primary) {
-		@include oFtTypographyFontSize(30, 36, -5);
-	}
+@include oFtTypographyClass(heading-small) {
+	margin: 0 0 8px 0;
+	font-family: $o-ft-typography-heading-small-font;
+	@include oFtTypographyFontSize(14, 20);
+	color: oColorsGetColorFor(heading-text);
+}
 
-	/* Article subheadings ('leads') */
-	@include oFtTypographyClass(lead) {
-		@include oFtTypographyFontSize(16, 30);
-		@include oFtTypographyExtend(body__block);
-		font-family: $o-ft-typography-subheading-font;
-		color: oColorsGetColorFor(article-subheading-text);
-		margin-bottom: 15px;
-		border-top: 1px dotted oColorsGetColorFor(article-divider-border);
-		border-bottom: 1px dotted oColorsGetColorFor(article-divider-border);
+@include oFtTypographyClass(heading-large__link heading-medium__link heading-small__link) {
+	text-decoration: none;
+	color: oColorsGetColorFor(link-text);
+	cursor: pointer;
+}
 
-		& + * {
-			margin-top: 0;
-		}
-	}
+@include oFtTypographyClass(heading-large__link--hover 'heading-large__link:hover' heading-medium__link--hover 'heading-medium__link:hover' heading-small__link--hover 'heading-small__link:hover')  {
+	color: oColorsGetColorFor(link-text-hover);
+	cursor: pointer;
+}
 
-	/* Links */
-	@include oFtTypographyClass(title__link lead__link) {
-		text-decoration: none;
-		color: oColorsGetColorFor(article-title-text);
-	}
+/* Titles */
+@include oFtTypographyClass(title-large) {
+	font-family: $o-ft-typography-title-large-font;
+	@include oFtTypographyFontSize(30, 36, -5);
+	color: oColorsGetColorFor(title-text);
+}
 
-	@include oFtTypographyClass(title__link--hover 'title__link:hover' lead__link--hover 'lead__link:hover')  {
-		color: oColorsGetColorFor(link-text);
-	}
+@include oFtTypographyClass(title-medium) {
+	font-family: $o-ft-typography-title-medium-font;
+	@include oFtTypographyFontSize(21, 26);
+	color: oColorsGetColorFor(title-text);
+}
 
+@include oFtTypographyClass(title-small) {
+	font-family: $o-ft-typography-title-small-font;
+	@include oFtTypographyFontSize(15, 17);
+	color: oColorsGetColorFor(title-text);
+}
 
-/* Article metadata */
+@include oFtTypographyClass(title-large__link title-medium__link title-small__link) {
+	text-decoration: none;
+	color: oColorsGetColorFor(title-text);
+	cursor: pointer;
+}
+
+@include oFtTypographyClass(title-large__link--hover 'title-large__link:hover' title-medium__link--hover 'title-medium__link:hover' title-small__link--hover 'title-small__link:hover')  {
+	color: oColorsGetColorFor(link-text);
+	cursor: pointer;
+}
+
+/* Leads */
+@include oFtTypographyClass(lead-large) {
+	font-family: $o-ft-typography-lead-large-font;
+	@include oFtTypographyFontSize(21, 26);
+	color: oColorsGetColorFor(lead-text);
+}
+
+@include oFtTypographyClass(lead-medium) {
+	font-family: $o-ft-typography-lead-medium-font;
+	@include oFtTypographyFontSize(17, 21); 
+	color: oColorsGetColorFor(lead-medium-text);
+}
+
+@include oFtTypographyClass(lead-small) {
+	font-family: $o-ft-typography-lead-small-font;
+	@include oFtTypographyFontSize(13, 17);
+	color: oColorsGetColorFor(lead-text);
+}
+
+@include oFtTypographyClass(lead-large__link lead-medium__link lead-small__link) {
+	text-decoration: none;
+	color: oColorsGetColorFor(link-text);
+	cursor: pointer;
+}
+
+@include oFtTypographyClass(lead-large__link--hover 'lead-large__link:hover' lead-medium__link--hover 'lead-medium__link:hover' lead-small__link--hover 'lead-small__link:hover')  {
+	color: oColorsGetColorFor(link-hover-text);
+	cursor: pointer;
+}
+
+/* Metadata */
+@include oFtTypographyClass(brand)  {
+	margin: 0;
+	@include oFtTypographyFontSize(12, 14);
+	font-family: $o-ft-typography-brand-font;
+	color: oColorsGetColorFor(brand-text);
+}
+
+@include oFtTypographyClass(brand__link) {
+	text-decoration: none;
+	color: oColorsGetColorFor(link-text);
+	cursor: pointer;
+}
+
+@include oFtTypographyClass(brand__link--hover 'brand__link:hover')  {
+	color: oColorsGetColorFor(link-hover-text);
+	cursor: pointer;
+}
+
 @include oFtTypographyClass(byline)  {
+	margin: 0;
 	@include oFtTypographyFontSize(14, 24);
-	font-family: $o-ft-typography-ui-font;
-	color: oColorsGetColorFor(article-byline-text);
+	font-family: $o-ft-typography-metadata-font;
+	color: oColorsGetColorFor(byline-text);
 }
 
 @include oFtTypographyClass(timestamp)  {
+	margin: 0;
 	@include oFtTypographyFontSize(14, 24);
-	font-family: $o-ft-typography-ui-font;
-	color: oColorsGetColorFor(article-byline-text);
+	font-family: $o-ft-typography-metadata-font;
+	color: oColorsGetColorFor(timestamp-text);
 }
 
+/* Article subheadings */
+@mixin article-subheading() {
+	margin-bottom: 15px;
+	@include oFtTypographyFontSize(16, 30);
+	@include oFtTypographyExtend(body__block);
+	font-family: $o-ft-typography-article-subheading-font;
+	color: oColorsGetColorFor(article-subheading-text);
+}
 
-/* Article content */
-
-	/* Utility mixins for body text*/
-	@mixin oFtTypographyBodyTextStyle () {
-		@include oFtTypographyFontSize(16, 24);
-		font-family: $o-ft-typography-body-font;
-		color: oColorsGetColorFor(article-body-text);
+@include oFtTypographyClass(article-subheading1) {
+	@include article-subheading();
+	border-top: 1px dotted oColorsGetColorFor(article-divider-border);
+	border-bottom: 1px dotted oColorsGetColorFor(article-divider-border);
+	& + * {
+		margin-top: 0;
 	}
+}
 
-@include oFtTypographyClass(body)  {
-	@include oFtTypographyBodyTextStyle();
+@include oFtTypographyClass(article-subheading2) {
+	@include article-subheading();
+	& + * {
+		margin-top: 0;
+	}
+}
+
+@include oFtTypographyClass(article-subheading1__link article-subheading2__link) {
+	text-decoration: none;
+	color: oColorsGetColorFor(article-subheading-text);
+	cursor: pointer;
+}
+
+@include oFtTypographyClass(article-subheading1__link--hover 'article-subheading1__link:hover' article-subheading2__link--hover 'article-subheading2__link:hover')  {
+	color: oColorsGetColorFor(link-text);
+	cursor: pointer;
+}
+
+/* Body lead */
+@include oFtTypographyClass(body--lead) {
+	font-family: $o-ft-typography-body-font;
+	@include oFtTypographyFontSize(18, 24);
+	color: oColorsGetColorFor(body-lead-text);
+	-webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
+}
+
+@include oFtTypographyClass(article-body--lead) {
+	margin: 0 0 9px 0;
+	border-bottom: 1px dotted oColorsGetColorFor(article-body-lead-border); //
+	padding: 0 0 14px 0;
+	font-family: $o-ft-typography-article-body-font;
+	@include oFtTypographyFontSize(21, 27);
+	color: oColorsGetColorFor(article-body-lead-text);
+}
+
+/* Body */
+@include oFtTypographyClass(body) {
+	font-family: $o-ft-typography-body-font;
+	@include oFtTypographyFontSize(14, 20);
+	color: oColorsGetColorFor(body-text);
+}
+
+@include oFtTypographyClass(article-body)  {
+	@include oFtTypographyFontSize(16, 24);
+	font-family: $o-ft-typography-article-body-font;
+	color: oColorsGetColorFor(article-body-text);
 }
 
 @include oFtTypographyClass(body__block) {
+	margin-bottom: 21px;
+	margin-top: 21px;
+}
+
+@include oFtTypographyClass(article-body__block) {
 	margin-bottom: 24px;
 	margin-top: 24px;
 }
 
+/* Sub-body */
+
 @include oFtTypographyClass(body--bold) {
-	//font-family: $o-ft-typography-body-bold-font;
 	font-weight: bold;
 }
 
@@ -82,19 +223,43 @@
 }
 
 @include oFtTypographyClass(body--super) {
+	display: inline-block;
+	margin-top: -3px;
 	font-size: 0.75em;
 	vertical-align: super;
 }
 
 @include oFtTypographyClass(body--sub) {
+	display: inline-block;
+	margin-bottom: -5px;
 	font-size: 0.75em;
 	vertical-align: sub;
 }
 
+@include oFtTypographyClass(body__link) {
+	text-decoration: none;
+	color: oColorsGetColorFor(link-text);
+	cursor: pointer;
+}
+
+@include oFtTypographyClass(body__link--hover 'body__link:hover') {
+	color: oColorsGetColorFor(link-hover-text);
+	cursor: pointer;
+}
+
+/* Lists */
 @include oFtTypographyClass(body__list) {
 	list-style-position: outside;
 	padding-left: 20px;
+	@include oFtTypographyExtend(body);
 	@include oFtTypographyExtend(body__block);
+}
+
+@include oFtTypographyClass(article-body__list) {
+	list-style-position: outside;
+	padding-left: 20px;
+	@include oFtTypographyExtend(article-body);
+	@include oFtTypographyExtend(article-body__block);
 }
 
 @include oFtTypographyClass(body__list--ordered) {
@@ -103,13 +268,4 @@
 
 @include oFtTypographyClass(body__list--unordered) {
 	list-style-type: disc;
-}
-
-@include oFtTypographyClass(body__link) {
-	text-decoration: none;
-	color: oColorsGetColorFor(link-text);
-}
-
-@include oFtTypographyClass(body__link--hover 'body__link:hover') {
-	color: oColorsGetColorFor(link-hover-text);
 }
