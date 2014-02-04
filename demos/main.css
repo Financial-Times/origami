@@ -35,6 +35,14 @@ html, body {
 .o-dialog__close {
   background-color: #2e6e9e; }
 
+/*
+	This mixin allows ie7 and 8 to be targeted using either
+	* specific classes for each of ie7 and ie8
+	* 'less than' classes targeting ie versions less than a given version e.g. lt-ie9 & lt-ie8
+*/
+/* 
+	Deprecates support for ie7 or 8, making sure that both browser specific and lt- selectors are removed
+*/
 .o-dialog--full-width {
   padding-left: 0;
   padding-right: 0;
@@ -242,8 +250,7 @@ html, body {
 .o-dialog--modal__content {
   min-height: 10px;
   min-width: 10px;
-  margin-top: 100px;
-  margin: 0 auto;
+  margin: 100px auto 0;
   position: absolute;
   left: 50%;
   top: 50%; }
@@ -386,39 +393,45 @@ html, body {
   border: 2px solid white; }
 
 .o-dialog__close {
-  border: 2px solid white;
-  color: #2e6e9e;
-  display: block;
   position: absolute;
   top: 7px;
   right: 6px;
-  height: 22px;
-  width: 22px;
-  font-size: 23px;
-  border-radius: 11px;
-  line-height: 16px;
-  text-align: center;
-  font-family: BentonSans-lighter, Helvetica, Arial, sans-serif;
+  display: block;
   overflow: hidden;
-  vertical-align: center;
   padding: 0;
+  width: 22px;
+  height: 22px;
+  border: 2px solid white;
+  border-radius: 11px;
+  color: #2e6e9e;
+  vertical-align: center;
+  text-align: center;
+  font-size: 23px;
+  font-family: BentonSans-lighter, Helvetica, Arial, sans-serif;
+  line-height: 16px;
   cursor: pointer; }
   .o-dialog__close:before {
-    content: '\00d7';
     display: block;
-    color: white; }
+    color: white;
+    content: '\00d7'; }
+
+.o-useragent-ie8 .o-dialog__close {
+  padding-top: 1px;
+  padding-left: 2px; }
 
 .o-dialog--modal .o-dialog__heading {
   font-size: 14px;
-  font-family: BentonSans-lighter, Helvetica, Arial, sans-serif;
-  font-weight: normal;
   margin: 0;
   padding: 10px;
-  letter-spacing: 0.4px; }
+  letter-spacing: 0.4px;
+  font-weight: normal;
+  font-family: BentonSans-lighter, Helvetica, Arial, sans-serif; }
 
 .o-dialog__body {
-  padding: 5px;
-  box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px; }
 
 .o-dialog--closable.o-dialog--modal .o-dialog__heading {
   padding-right: 35px; }

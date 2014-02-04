@@ -330,6 +330,7 @@ var trigger = function (opts, trigger) {
                     dimensionCalculators[dimension](dialog),
                     dialog[dimension]
                 );
+
                 if (!isFlexbox) {
                     dialog.content.css('margin-' + edge, -dialog.content['outer' + capitalisedDimension]()/2);
                 }

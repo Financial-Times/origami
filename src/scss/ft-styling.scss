@@ -15,51 +15,59 @@
 
 
 @include oDialogClass(close, '__') {
-	border: 2px solid oColorsGetColorFor(dialog-close-border);
     @extend %o-colors-dialog-close-background !optional;
- 	color: oColorsGetColorFor(dialog-close-background);   
-
-	display: block;
 	position: absolute;
 	top: 7px;
-	right: 6px;
-	height: 22px;
-	width: 22px;
-	font-size: 23px;
-	border-radius: 11px;
-	line-height: 16px;
-	text-align: center;
-	font-family: $o-fonts-bentonsans-lighter;
+	right: 6px;   
+
+	display: block;
 	overflow: hidden;
-	vertical-align: center;
 	padding: 0;
+	width: 22px;
+	height: 22px;
+	border: 2px solid oColorsGetColorFor(dialog-close-border);
+	border-radius: 11px;
+ 	color: oColorsGetColorFor(dialog-close-background);
+	vertical-align: center;
+	text-align: center;
+	font-size: 23px;
+	font-family: $o-fonts-bentonsans-lighter;
+	line-height: 16px;
 	cursor: pointer;
 
 	&:before {
-    	content: '\00d7';
     	display: block;    
-    	color: oColorsGetColorFor(dialog-close-text);   
-
+    	color: oColorsGetColorFor(dialog-close-text);
+    	content: '\00d7';   
     }
+}
+
+@include oUseragentTarget(ie8) {
+	@include oDialogClass(close, '__') {
+		padding-top: 1px;
+		padding-left: 2px;
+	}
 }
 
 
 .o-dialog--modal {
 	@include oDialogClass(heading, '__') {
 		@include oFtTypographyFontSize(14);
-		font-family: $o-fonts-bentonsans-lighter;
-		font-weight: normal;
+	    @extend %o-colors-dialog-heading-background !optional;
+	    @extend %o-colors-dialog-heading-text !optional;
 		margin: 0;
 		padding: 10px;
 		letter-spacing: 0.4px;
-	    @extend %o-colors-dialog-heading-background !optional;
-	    @extend %o-colors-dialog-heading-text !optional;
+		font-weight: normal;
+		font-family: $o-fonts-bentonsans-lighter;
 	}
 }
 
 @include oDialogClass(body, '__') {
+	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
 	padding: 5px;
-	box-sizing: border-box;
 }
 
 .o-dialog--closable.o-dialog--modal {

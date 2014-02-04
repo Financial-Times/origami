@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if IE 7]>         <html class="no-js o-useragent-ie7"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js o-useragent-ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js o-useragent-ie8"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
@@ -37,104 +37,108 @@ the body content of the page  the body content of the page  the body content of 
 <button data-o-dialog__trigger='{"preset": "modal", "src": "#wide-tall"}'>wide-tall</button>
 <button data-o-dialog__trigger='{"preset": "modal", "src": "#narrow-squat"}'>narrow-squat</button>
 <button data-o-dialog__trigger='{"preset": "modal", "src": "#narrow-tall"}'>narrow-tall</button>
+<p>
+the body content of the page
+the body content of the page
+the body content of the page
+the body content of the page
+the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page</p>
 <div class="nav">
 	<div class="nav__bar">
 	    <button class="left" data-o-dialog__trigger='{"preset": "dropdown", "src": "#top-left", "classes": "top-left"}'>top-left</button>
 		<button class="right" data-o-dialog__trigger='{"preset": "dropdown", "src": "#top-right", "classes": "top-right"}'>top-right</button>
 	</div>
-	
 </div>
 <div class="nav bottom">
 	<div class="nav__bar">
 	    <button class="left" data-o-dialog__trigger='{"preset": "dropup", "src": "#bottom-left", "classes": "bottom-left"}'>bottom-left</button>
 		<button class="right" data-o-dialog__trigger='{"preset": "dropup", "src": "#bottom-right", "classes": "bottom-right"}'>bottom-right</button>
 	</div>
-	
- </div>
+</div>
+
+	<script type="text/template" id="wide-squat">
+	    	   	
+	    	<p>Overlay content.</p>
+	       	<p>Overlay content.</p>
+	       	<input id="username" />
+				<br>
+				<input id="pasword" type="password" />
+				<p>Overlay content.</p>
+	       	<p>Overlay content.</p>
+	</script>
+	<script type="text/template" id="wide-tall">
+	    	<h1 class="o-dialog__heading">Overlay title - long version</h1>
+	    	<div class="o-dialog__body">
+		       	<p>Overlay content.</p>
+		       	<p>Overlay content.</p>
+		       	<p>Overlay content.</p>
+		       	<p>Overlay content.</p>
+		       	<p>Overlay content.</p>
+		       	<p>Overlay content.</p>
+		       	<p>Overlay content.</p>
+	       </div>
+	</script>
+	<script type="text/template" id="narrow-squat">
+	    	<h1 class="o-dialog__heading">Overlay title</h1>
+	       	<p>Overlay content.</p>
+	       	<p>Overlay content.</p>
+	</script>
+	<script type="text/template" id="narrow-tall">
+	    	<h1 class="o-dialog__heading">Overlay title</h1>
+	       	<p>Overlay content.</p>
+	       	<p>Overlay content.</p>
+	       	<p>Overlay content.</p>
+	       	<p>Overlay content.</p>
+	       	<p>Overlay content.</p>
+	</script>
 <div class="hidden">
-<script type="text/template" id="wide-squat">
-    	   	
-    	<p>Overlay content.</p>
-       	<p>Overlay content.</p>
-       	<input id="username" />
+	<form id="top-left">
+			<input />
 			<br>
-			<input id="pasword" type="password" />
-			<p>Overlay content.</p>
-       	<p>Overlay content.</p>
-</script>
-<script type="text/template" id="wide-tall">
-    	<h1 class="o-dialog__heading">Overlay title - long version</h1>
-    	<div class="o-dialog__body">
-	       	<p>Overlay content.</p>
-	       	<p>Overlay content.</p>
-	       	<p>Overlay content.</p>
-	       	<p>Overlay content.</p>
-	       	<p>Overlay content.</p>
-	       	<p>Overlay content.</p>
-	       	<p>Overlay content.</p>
-       </div>
-</script>
-<script type="text/template" id="narrow-squat">
-    	<h1 class="o-dialog__heading">Overlay title</h1>
-       	<p>Overlay content.</p>
-       	<p>Overlay content.</p>
-</script>
-<script type="text/template" id="narrow-tall">
-    	<h1 class="o-dialog__heading">Overlay title</h1>
-       	<p>Overlay content.</p>
-       	<p>Overlay content.</p>
-       	<p>Overlay content.</p>
-       	<p>Overlay content.</p>
-       	<p>Overlay content.</p>
-</script>
+			<input type="password" />
+		</form>
+		<form id="top-right">
+			<input  />
+			<br>
+			<input type="password" />
+			<br>
+			<input type="password" />
+			<br>
+			<input type="password" />
+			<br>
+			<input type="password" />
+			<br> 
+			<input type="password" />
+			<input  type="password" />
+			<br>
+			<input type="password" />
+			<br>
+			<input type="password" />
+			<br>
+			<input type="password" />
+			<br>
+			<input  type="password" />
+		</form>
+	<form id="bottom-left">
+			<input />
+			<br>
+			<input type="password" />
+		</form>
+		<form id="bottom-right">
+			<input  />
+			<br>
+			<input  type="password" />
+			<br>
+			<input type="password" />
+			<br>
+			<input type="password" />
+			<br>
+			<input type="password" />
+			<br>
+			<input  type="password" />
+		</form>
 
-<form id="top-left">
-		<input />
-		<br>
-		<input type="password" />
-	</form>
-	<form id="top-right">
-		<input  />
-		<br>
-		<input type="password" />
-		<br>
-		<input type="password" />
-		<br>
-		<input type="password" />
-		<br>
-		<input type="password" />
-		<br> 
-		<input type="password" />
-		<input  type="password" />
-		<br>
-		<input type="password" />
-		<br>
-		<input type="password" />
-		<br>
-		<input type="password" />
-		<br>
-		<input  type="password" />
-	</form>
-<form id="bottom-left">
-		<input />
-		<br>
-		<input type="password" />
-	</form>
-	<form id="bottom-right">
-		<input  />
-		<br>
-		<input  type="password" />
-		<br>
-		<input type="password" />
-		<br>
-		<input type="password" />
-		<br>
-		<input type="password" />
-		<br>
-		<input  type="password" />
-	</form>
-
-	</div>
+</div>
 	<script src="main.js"></script>
 </body>
 </html>

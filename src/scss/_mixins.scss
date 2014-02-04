@@ -60,3 +60,15 @@
 		#{$selector} { @content }
  	} 
 }
+
+// 
+// Adds cross-browser box-sizing styles
+//
+@mixin oDialogBoxSizing($value, $polyfill: false) {
+	-moz-box-sizing: $value;
+	box-sizing: $value;
+	@if ($polyfill) {
+		@include oUseragentIe7BoxSizing();		
+	}
+}
+
