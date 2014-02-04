@@ -291,6 +291,7 @@ var trigger = function (opts, trigger) {
         dialog.opts.onBeforeResize();
         reAlign('width', dialog);
         reAlign('height', dialog);
+        adjustContentHeight(dialog);
         anchorDropdown(dialog);
         dialog.opts.onAfterResize();
     },
@@ -327,6 +328,12 @@ var trigger = function (opts, trigger) {
             dialog.content.css('margin-' + edge, 'auto');
         }
 
+    },
+
+    adjustContentHeight = function (dialog) {
+        if (dialog.opts.hasHeading && !isFlexbox) {
+
+        }
     };
 
 

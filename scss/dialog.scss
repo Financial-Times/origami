@@ -1,12 +1,3 @@
-html {
-  min-height: 100%;
-  height: 100%;
-}
-
-body {
-  height: 100%;
-}
-
 .o-dialog--full-width {
   padding-left: 0;
   padding-right: 0;
@@ -36,9 +27,7 @@ body {
 } 
 
 .o-dialog__content {
-  background-color: #fff;
-  padding: 5px;
-   -webkit-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   overflow-y: auto;
@@ -46,9 +35,6 @@ body {
 
 
 .o-dialog--full-width .o-dialog__content{
-  border-left: none;
-  border-right: none;
-  border-radius: 0;
   width: 100%;
   overflow-x: auto;
   margin-left: 0;
@@ -56,13 +42,87 @@ body {
 }
 
 .o-dialog--full-height .o-dialog__content{
-  border-top: none;
-  border-bottom: none;
-  border-radius: 0;
   height: 100%; 
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.o-dialog--full-height .o-dialog__body{
+  overflow-y: auto;
+}
+
+.flexbox,
+.flexboxlegacy {
+  .o-dialog--full-height .o-dialog__content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+
+    .o-dialog__body {
+      -webkit-box-ordinal-group: 1;
+      -moz-box-ordinal-group: 1;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      -webkit-align-self: auto;
+      -ms-flex-item-align: auto;
+      align-self: auto;
+      overflow-y: auto;
+    }
+  }
+
+  .o-dialog__heading {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+  }
+
+
+}
+// /*
+//     Legacy Firefox implementation treats all flex containers
+//     as inline-block elements.
+// */
+
+// @-moz-document url-prefix() {
+// .flex-container {
+//     width: 100%;
+//     -moz-box-sizing: border-box;
+//     }
+
+// }
+
+
+
 
 .o-dialog__overlay {
   background-color: rgba(0, 0, 0, 0.4);
@@ -81,7 +141,7 @@ body {
 }
 
 .o-dialog__overlay.is-open {
-    pointer-events: auto;
-    opacity: 1;
+  pointer-events: auto;
+  opacity: 1;
 }
 
