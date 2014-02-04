@@ -6,7 +6,7 @@ Configurable custom dialog box that can be used to show modal windows. The dialo
 
 Run the following in your project's root directory
    
-    bower install o-dialog=http://git.svc.ft.com:9080/git/origami/o-dialog.git
+    bower install o-dialog=https://github.com/Financial-Times/o-dialog.git
 
 (If your project doesn't already contain a bower.json file you will need to create one first with the content `{"name": "your-project-name"}`).
 
