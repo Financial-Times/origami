@@ -109,6 +109,10 @@ var trigger = function (opts, trigger) {
         return dialogs[0];
     },
 
+    copyContent = function (content) {
+        return content[0].nodeName === 'SCRIPT' ? $(content.html()): content.clone();
+    },
+
     configureNewDialog = function (opts, trigger) {
         var dialog = getEmptyDialog();
 
@@ -123,14 +127,14 @@ var trigger = function (opts, trigger) {
                 opts.srcType = 'url';
             } else if ((opts.content = $(opts.src)) && opts.content.length) {
                 opts.srcType = 'selector';
-                opts.content = opts.content[0].nodeName === 'SCRIPT' ? $(opts.content.html()): opts.content.clone();
+                opts.content = copyContent(opts.content);
             } else {
                 opts.srcType = 'string';
                 opts.content = opts.src;
             }
         } else if (opts.srcType === 'selector') {
             opts.content = $(opts.src);
-            opts.content = opts.content[0].nodeName === 'SCRIPT' ? $(opts.content.html()): opts.content.clone();
+            opts.content = copyContent(opts.content);
         }
 
         opts = $.extend({}, defaults, presets[opts.preset] || {}, opts);
