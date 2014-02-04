@@ -1,31 +1,66 @@
 @import "o-fonts/main";
+@import "o-colors/main";
+@import "o-ft-typography/main";
 
 @if (not $o-dialog-is-silent) {
-	@include oFontsInclude(BentonSans);
+	@include oFontsInclude(BentonSans, lighter);
 }
 
-@include oDialogClass(-modal__content) {
+@include oDialogClass(modal__content) {
     @extend %o-colors-dialog-background !optional;
     @extend %o-colors-dialog-text !optional;	
     border: 2px solid oColorsGetColorFor(dialog-border);
 
-
-    &:before {
-	    @extend %o-colors-dialog-close-border !optional;
-	    @extend %o-colors-dialog-close-background !optional;
-	    @extend %o-colors-dialog-close-text !optional;    
-	    content: '\x00d7';
-	    display: block;
-	    position: absolute;
-	    top: 10px;
-	    right: 10px;
-    }
+}
+.o-dialog--full-height {
+	@include oDialogClass(modal__content) {
+	    overflow-y: hidden;
+	}
 }
 
-@include oDialogClass(-modal__heading) {
-	@include oFtTypographyFontSize(14);
-	font-family: $o-fonts-bentonsans-normal;
-	margin: 0;
-    @extend %o-colors-dialog-heading-background !optional;
-    @extend %o-colors-dialog-heading-text !optional;
+.o-dialog--closable {
+	@include oDialogClass(modal__content) {
+	    &:before {
+	    	border: 2px solid oColorsGetColorFor(dialog-close-border);
+		    @extend %o-colors-dialog-close-background !optional;
+		    @extend %o-colors-dialog-close-text !optional;    
+			content: '\00d7';
+			display: block;
+			position: absolute;
+			top: 8px;
+			right: 6px;
+			height: 18px;
+			width: 18px;
+			font-size: 23px;
+			border-radius: 11px;
+			line-height: 16px;
+			text-align: center;
+			font-family: $o-fonts-bentonsans-lighter;
+	    }
+	}
+}
+
+.o-dialog--modal {
+	@include oDialogClass(heading, '__') {
+		@include oFtTypographyFontSize(14);
+		font-family: $o-fonts-bentonsans-lighter;
+		font-weight: normal;
+		margin: 0;
+		padding: 10px;
+		letter-spacing: 0.4px;
+	    @extend %o-colors-dialog-heading-background !optional;
+	    @extend %o-colors-dialog-heading-text !optional;
+
+
+	}
+}
+
+@include oDialogClass(body, '__') {
+	padding: 5px;
+}
+
+.o-dialog--closable.o-dialog--modal {
+	@include oDialogClass(heading, '__') {
+		padding-right: 35px;
+	}
 }

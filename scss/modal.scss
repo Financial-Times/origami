@@ -82,17 +82,12 @@
 .o-dialog--modal.o-dialog--full-height {
   padding-top: 0;
   padding-bottom: 0;
-  z-index: 3;
 }
  
 .o-dialog--full-width .o-dialog--modal__content {
   left: auto;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 .o-dialog--full-height .o-dialog--modal__content {
   top: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }

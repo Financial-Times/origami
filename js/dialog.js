@@ -23,29 +23,7 @@ var $ = require('jquery'),
             return dialog.content.outerHeight() + domUtils.getSpacing(dialog.wrapper, 'top') + domUtils.getSpacing(dialog.wrapper, 'bottom');
         }
     },
-    defaults = {
-        src: '',
-        srcType: 'selector',
-        classes: '',
-        preset: 'modal',
-        isDismissable: true, //
-        isAnchoredToTrigger: false, //
-        verticalAnchorSide: null,
-        horizontalAnchorSide: null,
-        hasOverlay: false, //
-        isCenteredVertically: true, //
-        isCenteredHorizontally: true, //
-        snapsToFullHeight: true, //
-        snapsToFullWidth: true, //
-        onTrigger: $.noop,
-        onFail: $.noop,
-        onBeforeRender: $.noop,
-        onAfterRender: $.noop,
-        onBeforeResize: $.noop,
-        onAfterResize: $.noop,
-        onBeforeClose: $.noop,
-        onAfterClose: $.noop
-    };
+    defaults = require('./defaults');
 
 var trigger = function (opts, trigger) {
 
@@ -214,9 +192,9 @@ var trigger = function (opts, trigger) {
 
 
     assignClasses = function (dialog) {
-        dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.classes;
+        dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.classes + (dialog.opts.hasCloseButton ? ' o-dialog--closable': '');
         dialog.overlay[0].className = 'o-dialog__overlay o-dialog--' + dialog.opts.preset + '__overlay';
-        dialog.content[0].className = 'o-dialog__content o-dialog--' + dialog.opts.preset + '__content';
+        dialog.content[0].className = 'o-dialog__content o-dialog--' + dialog.opts.preset + '__content' + (dialog.opts.hasHeading ? '' : ' o-dialog__body');
     },
 
     anchorDropdown = function (dialog) {
