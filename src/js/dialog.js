@@ -43,10 +43,10 @@ var trigger = function (opts, trigger) {
         var dialog = configureNewDialog(opts, trigger);
         
         if (!dialog) {
-            dialog.opts.onFail();
+            dialog.opts.onFail(dialog);
             return;
         }
-        dialog.opts.onTrigger();
+        dialog.opts.onTrigger(dialog);
         
         
         dialog.content.html(dialog.opts.content);
@@ -60,9 +60,9 @@ var trigger = function (opts, trigger) {
 
         dialog.opts.hasHeading = !!dialog.heading.length;
         assignClasses(dialog);
-        dialog.opts.onBeforeRender();
+        dialog.opts.onBeforeRender(dialog);
         attach(dialog);
-        dialog.opts.onAfterRender();
+        dialog.opts.onAfterRender(dialog);
     },
 
     createDialogHtml = function () {
@@ -257,7 +257,7 @@ var trigger = function (opts, trigger) {
     },
 
     close = function (dialog, destroy) {
-        dialog.opts.onBeforeClose();
+        dialog.opts.onBeforeClose(dialog);
         dialog = dialog || dialogs[0];
         if (!dialog.active) {
             return;
@@ -292,15 +292,15 @@ var trigger = function (opts, trigger) {
             dialogs = Array(2);
             win = null;
         }
-        dialog.opts.onAfterClose();
+        dialog.opts.onAfterClose(dialog);
     },
 
     respondToWindow = function (dialog) {
-        dialog.opts.onBeforeResize();
+        dialog.opts.onBeforeResize(dialog);
         reAlign('width', dialog);
         reAlign('height', dialog);
         anchorDropdown(dialog);
-        dialog.opts.onAfterResize();
+        dialog.opts.onAfterResize(dialog);
     },
 
     reAlign = function (dimension, dialog) {
@@ -354,6 +354,7 @@ var trigger = function (opts, trigger) {
 
 
 module.exports = {
+    close: close,
     trigger: trigger,
     destroy: function () {
         close(null, true);
