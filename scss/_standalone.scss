@@ -35,7 +35,7 @@
 }
 
 @include oFtTypographyClass(heading-large__link--hover 'heading-large__link:hover' heading-medium__link--hover 'heading-medium__link:hover' heading-small__link--hover 'heading-small__link:hover')  {
-	color: oColorsGetColorFor(link-text-hover);
+	color: oColorsGetColorFor(link-hover-text);
 	cursor: pointer;
 }
 

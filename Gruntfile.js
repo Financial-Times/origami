@@ -16,7 +16,7 @@ module.exports = function(grunt) {
       options: {
         modernizr: false,
         main: ['demo.mustache'],
-        sassExtras: 'demo.scss'
+        sassExtras: 'demo-extras.scss'
       }
     },
     watch: {
