@@ -32,6 +32,18 @@ By default o-dialog includes only those styles needed to correctly position itse
 	* `o-dialog__body` - where `o-dialog__heading` is used, `o-dialog__body` should be used to wrap the remaining content. It *must not* be used when a heading isn't present  - o-dialog will manually add the class to the content's outer wrapper when a heading isn't present.
 * CSS transitions can be used when hiding or showing content. As long as they are applied to one of the outer elements (`o-dialog`, `o-dialog__overlay` or `o-dialog__content`) the js shoudl wait for the transition to end befoer proceeding to alter the DOM.
 
+#### Default FT Styles
+Styles for the default FT branded dialogs are included in the module but not output by default (unless requesting the module via the build service). To turn on these styles set `$o-dialog-is-silent: false`. Alternatively `@extend` any of the following placeholder classes to apply the styles to selectors of your choice:
+
+* `%o-dialog--modal__content`
+* `%o-dialog__close`
+* `%o-dialog__heading`
+* `%o-dialog__body`
+
+Note, that if using the extend method you will also need to include The Benton Sans Lighter font in your product as follows:
+
+	@include oFontsInclude(BentonSans, lighter);
+
 ### Configuration
 
 The `options` object takes the following properties. All are optional, with the exception of `src`. By default the dialog will behave similarly to a native dialog.
@@ -114,11 +126,11 @@ Use `o-dialog#addpreset(name, obj)` to define your own preset configurations, wh
 
 1. Trigger for a modal dialog with no close button and content from a url
 	
-		<a data-o-dialog__trigger="{'preset':'modal','hasCloseButton':false,src:'http://same.domain/faq.html'}">dialog</a>
+		<a data-o-dialog__trigger="{'preset':'modal','hasCloseButton':false,'src':'http://same.domain/faq.html'}">dialog</a>
 
 1. Trigger for a dropup dialog with a close button and content from a hidden div in the page
 	
-		<a data-o-dialog__trigger="{'preset':'dropup','hasCloseButton':true,src:'.hidden-dialog-content'}">dialog</a>
+		<a data-o-dialog__trigger="{'preset':'dropup','hasCloseButton':true,'src':'.hidden-dialog-content'}">dialog</a>
 
 ## TODO
 
