@@ -15,12 +15,12 @@ module.exports = function(grunt) {
     'origami-demo': {
       options: {
         scriptMode: 'browserify',
-        main: ['demo.mustache']
+        main: ['demo.mustache', 'img/overlay-bg.png']
       }
     },
     watch: {
       'origami-demo': {
-          files: ['./**/*.scss', './**/*.js', './demo.mustache', '!tmp.scss'],
+          files: ['./**/*.scss', './**/*.js', './demo.mustache', '!tmp.scss', '!demo/*', '!origami-templates'],
           tasks: ['origami-demo']
       }
     }

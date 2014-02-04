@@ -17,6 +17,7 @@
     "o-useragent": "https://github.com/Financial-Times/o-useragent.git#>=0.3.0",
     "o-colors": "https://github.com/Financial-Times/o-colors.git#dialog-usecases",
     "o-fonts": "https://github.com/Financial-Times/o-fonts.git",
+    "o-assets": "https://github.com/Financial-Times/o-assets.git",
     "o-ft-typography": "https://github.com/Financial-Times/o-ft-typography.git#>=0.1.x"
   },
   "devDependencies": {
