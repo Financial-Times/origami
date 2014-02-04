@@ -1,7 +1,3 @@
-/**
-
-
-**/
 /*
 	This mixin allows ie7 and 8 to be targeted using either
 	* specific classes for each of ie7 and ie8
@@ -584,21 +580,18 @@ html, body {
   font-weight: normal;
   src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot);
   src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
-
 @font-face {
   font-family: BentonSans-bold;
   font-style: normal;
   font-weight: normal;
   src: url(../bower_components/o-fonts/webfonts/BentonSans-bold.eot);
   src: url(../bower_components/o-fonts/webfonts/BentonSans-bold.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-bold.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-bold.ttf) format("truetype"); }
-
 @font-face {
   font-family: MillerDisplay-normal;
   font-style: normal;
   font-weight: normal;
   src: url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.eot);
   src: url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.ttf) format("truetype"); }
-
 /* Headings */
 .o-ft-typography-heading-large {
   margin: 0 0 16px 0;
