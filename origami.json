@@ -5,7 +5,7 @@
   "support": "rhys.evans@ft.com",
   "supportStatus": "active",
   "browserFeatures": {
-  	"optional": ["csstransforms", "csstransitions", "flexbox", "flexboxlegacy", "rgba"]
+  	"optional": ["csstransforms", "csstransitions", "flexbox", "flexboxlegacy", "rgba", "requestAnimationFrame"]
   },
   "demos": ["demos/demo.html"]
 }
