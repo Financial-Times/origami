@@ -4,9 +4,7 @@ module.exports = {
         options: {
             outfile: '_specRunner.html',
             keepRunner: false,
-            //specs: ['tmp/bundle.test.js'],
             specs: ['test/specs/**/*.js'],
-            
             helpers: ['test/helpers/**/*.js'],
             template: require('grunt-template-jasmine-istanbul'),
             templateOptions: {
@@ -27,9 +25,8 @@ module.exports = {
         }
     },
     browser: {
-        src: ['tmp/vanilla.js'], //'public/src/**/*.js', '!public/src/main.js'],
+        src: ['tmp/vanilla.js'],
         options: {
-            // run: false, // can just use grunt jasmine:browser:build
             outfile: 'specRunner.html',
             keepRunner: true,
             specs: ['test/specs/**/*.js'],

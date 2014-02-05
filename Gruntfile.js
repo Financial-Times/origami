@@ -19,6 +19,9 @@ module.exports = function(grunt) {
           pkg: grunt.file.readJSON('package.json'),
           bwr: grunt.file.readJSON('bower.json'),
           o: grunt.file.readJSON('origami.json')
+      },
+      loadGruntTasks: {
+        pattern: ['grunt-*', '!grunt-template-jasmine-istanbul']
       }
   });
 
@@ -27,6 +30,7 @@ module.exports = function(grunt) {
   // By default, lint and run all tests.
   grunt.registerTask('default', ['origami-demo']);
   grunt.registerTask('test', [
+      'jshint',
       'instrument',
       'browserify:instrumented',
       'jasmine:automated',
