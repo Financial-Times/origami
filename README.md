@@ -48,31 +48,31 @@ Note, that if using the extend method you will also need to include The Benton S
 
 The `options` object takes the following properties. All are optional, with the exception of `src`. By default the dialog will behave similarly to a native dialog.
 
-* `srcType: ['selector']` - Specifies the method to use to retrieve content to insert into the dialog:
+* `srcType: 'selector'` - Specifies the method to use to retrieve content to insert into the dialog:
 	* `url` - fetch the content from the url `options.src` *(not implemented)*
 	* `selector` - clone the first html element matching the selector `options.src` (if the element is a script tag it's assumed this is a template and the content is cloned, discarding the outer script tag)
 	* `string` - use the string `options.src` directly as the content 
 	* `template`  - retrieve and render the mustache template `options.src` *(not implemented)*
-* `src: ['']` - String specifying where to retrieve content to place in the dialog. If `srcType` is not specified o-dialog will try and calculate which `srcType` to use as follows:
+* `src: ''` - String specifying where to retrieve content to place in the dialog. If `srcType` is not specified o-dialog will try and calculate which `srcType` to use as follows:
 	* If `options.src` is an obvious url (matching `/^(https?\:\/)?\//`) sets `options.srcType` to `url`
 	* If `options.src` wen treated as a selector matches some element, sets `options.srcType` to `selector`
 	* Otherwise sets `options.srcType` to `string`
-* `outerClasses: ['']` - Additional classes to put on the dialog's outer element
-* `innerClasses: ['']` - Additional classes to put on the dialog's inner (content) element
-* `preset: ['modal']` - Name of the configruration preset to use
-* `isDismissable: [true]` - Whether or not the user can dismiss the dialog via standard actions (esc key, clicking away from the dialog or clicking a close button)
-* `isAnchoredToTrigger: [false]` - Whether or not the dialog shoul be positioned relative to the element which triggered its appearance *(experimental)*
-* `verticalAnchorSide: [null]` - Whether to anchor to the top or bottom of the trigger *(not implemented)*
-* `horizontalAnchorSide: [null]` - Whether to anchor to the right or left of the trigger *(not implemented)*
-* `headingSelector: ['.o-dialog__heading']` - Selector that identifies the dialog's heading content (see notes above on styling)
-* `bodySelector: ['.o-dialog__body']` - Selector that identifies the dialog's body content (see notes above on styling)
-* `hasHeading: [false]` - Whether or not the content has a heading (this shodul not be set manually - it is set programmatically following analysis of the properties above and the content being injected)
-* `hasOverlay: [false]` - Whether or not the dialog should sit on top of a greyed out overlay
-* `hasCloseButton: [false]` - Whether or not the overlay shoudl have a close button
-* `isCenteredVertically: [true]` - Whether or not the dialog is centered horizontally on the screen
-* `isCenteredHorizontally: [true]` - Whether or not the dialog is centered horizontally on the screen
-* `snapsToFullHeight: [true]` - Whether or not the dialog will intelligently switch to occupying the full height of the screen with scroll bars at small screen sizes
-* `snapsToFullWidth: [true]` - Whether or not the dialog will intelligently switch to occupying the full width of the screen with scroll bars at small screen sizes
+* `outerClasses: ''` - Additional classes to put on the dialog's outer element
+* `innerClasses: ''` - Additional classes to put on the dialog's inner (content) element
+* `preset: 'modal'` - Name of the configruration preset to use
+* `isDismissable: true` - Whether or not the user can dismiss the dialog via standard actions (esc key, clicking away from the dialog or clicking a close button)
+* `isAnchoredToTrigger: false` - Whether or not the dialog shoul be positioned relative to the element which triggered its appearance *(experimental)*
+* `verticalAnchorSide: null` - Whether to anchor to the top or bottom of the trigger *(not implemented)*
+* `horizontalAnchorSide: null` - Whether to anchor to the right or left of the trigger *(not implemented)*
+* `headingSelector: '.o-dialog__heading'` - Selector that identifies the dialog's heading content (see notes above on styling)
+* `bodySelector: '.o-dialog__body'` - Selector that identifies the dialog's body content (see notes above on styling)
+* `hasHeading: false` - Whether or not the content has a heading (this shodul not be set manually - it is set programmatically following analysis of the properties above and the content being injected)
+* `hasOverlay: false` - Whether or not the dialog should sit on top of a greyed out overlay
+* `hasCloseButton: false` - Whether or not the overlay shoudl have a close button
+* `isCenteredVertically: true` - Whether or not the dialog is centered horizontally on the screen
+* `isCenteredHorizontally: true` - Whether or not the dialog is centered horizontally on the screen
+* `snapsToFullHeight: true` - Whether or not the dialog will intelligently switch to occupying the full height of the screen with scroll bars at small screen sizes
+* `snapsToFullWidth: true` - Whether or not the dialog will intelligently switch to occupying the full width of the screen with scroll bars at small screen sizes
 
 #### Events
 The following event listeners can also be set on the options object. To use set to a function which expects to be passed the current dialog object (which contains references to its options, DOM elements and DOM properties)

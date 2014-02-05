@@ -6,7 +6,7 @@
 // oDialogClass(row col) => .o-dialog-row, %o-dialog-row, .o-dialog-col, %o-dialog-col
 // oDialogClass((row col, box), true) => .o-dialog-row .o-dialog-col, %o-dialog-row %o-dialog-col, .o-dialog-box, %o-dialog-box
 //
-@function oDialogClass ($classes, $separator: '--', $compound: false) {
+@function oDialogClass ($classes, $separator: '-', $compound: false) {
 	$aggregated-selector: ();	
 	
 	@each $class in $classes {
@@ -15,21 +15,21 @@
 			$loud-compound-selector: null;
 			$silent-compound-selector: null;
 			@each $part in $class {
-				$silent-compound-selector: append($silent-compound-selector, #{'%o-dialog#{$separator}#{$part}'});
+				$silent-compound-selector: append($silent-compound-selector, #{'%o-dialog#{$separator}#{$separator}#{$part}'});
 		    }
 		    $aggregated-selector: append($aggregated-selector, $silent-compound-selector, comma);
 			@if (not $o-dialog-is-silent) {
 				@each $part in $class {
-					$loud-compound-selector: append($loud-compound-selector, #{'.o-dialog#{$separator}#{$part}'});
+					$loud-compound-selector: append($loud-compound-selector, #{'.o-dialog#{$separator}#{$separator}#{$part}'});
 				}
 				$aggregated-selector: append($aggregated-selector, $loud-compound-selector, comma);
 			}				
 		} @else {
 
-			$aggregated-selector: append($aggregated-selector, #{'%o-dialog#{$separator}#{$class}'}, comma);
+			$aggregated-selector: append($aggregated-selector, #{'%o-dialog#{$separator}#{$separator}#{$class}'}, comma);
 		  
 			@if (not $o-dialog-is-silent) {
-				$aggregated-selector: append($aggregated-selector, #{'.o-dialog#{$separator}#{$class}'}, comma);
+				$aggregated-selector: append($aggregated-selector, #{'.o-dialog#{$separator}#{$separator}#{$class}'}, comma);
 			}
 		}
 	}
@@ -40,7 +40,7 @@
 //
 // Same as above but is immediately used to wrap some styles in the generated selector
 //
-@mixin oDialogClass ($classes, $separator: '--', $compound: false) {
+@mixin oDialogClass ($classes, $separator: '-', $compound: false) {
 	@include oDialogWrapInSelector(oDialogClass($classes, $separator, $compound)) { 
 		@content 
 	}

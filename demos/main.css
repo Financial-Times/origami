@@ -86,6 +86,14 @@ html, body {
   margin-bottom: 0;
   overflow-y: hidden; }
 
+.o-dialog__body:after {
+  content: " ";
+  display: table;
+  clear: both; }
+
+.o-useragent-ie7 .o-dialog__body {
+  zoom: 1; }
+
 .o-dialog--full-height .o-dialog__body {
   overflow-y: auto; }
 

@@ -48,12 +48,34 @@
   overflow-y: hidden;
 }
 
-.o-dialog--full-height .o-dialog__body {
+.o-dialog__body, 
+%o-dialog__body {
+
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+
+@include oUseragentTarget(ie7) {
+  .o-dialog__body,
+  %o-dialog__body {
+    zoom: 1;
+  }
+}
+
+
+.o-dialog--full-height .o-dialog__body,
+.o-dialog--full-height %o-dialog__body {
   overflow-y: auto;
 }
 
 .flexbox,
 .flexboxlegacy {
+  // we just use .o-dialog__body here as it's added programmatically by the js so we don't need 
+  // to worry about users needing to extend with their own choice of selector
+  // and besides :not(%class) doesn't resolve properly in sass
   .o-dialog--full-height .o-dialog__content:not(.o-dialog__body) {
     display: -webkit-box;
     display: -moz-box;
@@ -79,7 +101,8 @@
     -ms-flex-line-pack: stretch;
     align-content: stretch;
 
-    .o-dialog__body {
+    .o-dialog__body,
+    %o-dialog__body {
       -webkit-box-ordinal-group: 1;
       -moz-box-ordinal-group: 1;
       -webkit-box-flex: 1;
@@ -93,7 +116,8 @@
       
     }
 
-    .o-dialog__heading {
+    .o-dialog__heading,
+    %o-dialog__heading {
       -webkit-box-ordinal-group: 1;
       -moz-box-ordinal-group: 1;
       -webkit-box-flex: 0;
