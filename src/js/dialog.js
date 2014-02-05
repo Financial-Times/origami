@@ -67,8 +67,8 @@ var trigger = function (opts, trigger) {
     },
 
     createDialogHtml = function () {
-        var wrapper = $('<section class="o-dialog"></section>'),
-            content = $('<div class="o-dialog__content"></div>'),
+        var wrapper = $('<div class="o-dialog"></div>'),
+            content = $('<section class="o-dialog__content"></section>'),
             overlay = $('<div class="o-dialog__overlay"></div>'),
             dialog = {
                 wrapper: wrapper,
@@ -202,9 +202,9 @@ var trigger = function (opts, trigger) {
 
 
     assignClasses = function (dialog) {
-        dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.classes + (dialog.opts.hasCloseButton ? ' o-dialog--closable' : '');
+        dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.outerClasses + (dialog.opts.hasCloseButton ? ' o-dialog--closable' : '');
         dialog.overlay[0].className = 'o-dialog__overlay o-dialog--' + dialog.opts.preset + '__overlay';
-        dialog.content[0].className = 'o-dialog__content o-dialog--' + dialog.opts.preset + '__content' + (dialog.opts.hasHeading ? '' : ' o-dialog__body');
+        dialog.content[0].className = 'o-dialog__content o-dialog--' + dialog.opts.preset + '__content' + ' ' + dialog.opts.innerClasses + (dialog.opts.hasHeading ? '' : ' o-dialog__body');
     },
 
     anchorDropdown = function (dialog) {

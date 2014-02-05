@@ -1,9 +1,10 @@
 var noop = function (){};
 
 module.exports = {
-    src: '',
+    src: undefined,
     srcType: 'selector',
-    classes: '',
+    outerClasses: '',
+    innerClasses: '',
     preset: 'modal',
     isDismissable: true, //
     isAnchoredToTrigger: false, //

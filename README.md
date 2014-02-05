@@ -57,7 +57,8 @@ The `options` object takes the following properties. All are optional, with the 
 	* If `options.src` is an obvious url (matching `/^(https?\:\/)?\//`) sets `options.srcType` to `url`
 	* If `options.src` wen treated as a selector matches some element, sets `options.srcType` to `selector`
 	* Otherwise sets `options.srcType` to `string`
-* `classes: ['']` - Additional classes to put on the dialog's outer element
+* `outerClasses: ['']` - Additional classes to put on the dialog's outer element
+* `innerClasses: ['']` - Additional classes to put on the dialog's inner (content) element
 * `preset: ['modal']` - Name of the configruration preset to use
 * `isDismissable: [true]` - Whether or not the user can dismiss the dialog via standard actions (esc key, clicking away from the dialog or clicking a close button)
 * `isAnchoredToTrigger: [false]` - Whether or not the dialog shoul be positioned relative to the element which triggered its appearance *(experimental)*
