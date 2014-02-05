@@ -311,7 +311,9 @@ var trigger = function (opts, trigger) {
         }
 
         var edge = dimension === W ? L : T,
-            capitalisedDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1);
+            otherDimension = dimension === W ? H : W,
+            capitalisedDimension = dimension.charAt(0).toUpperCase() + dimension.substr(1),
+            capitalisedOtherDimension = otherDimension.charAt(0).toUpperCase() + otherDimension.substr(1);
 
         if (dialog.opts['snapsToFull' + capitalisedDimension]) {
             if (win[dimension]() <= dialog[dimension]) {
@@ -327,10 +329,12 @@ var trigger = function (opts, trigger) {
                 if (!isFlexbox) {
                     adjustBodyHeight(dialog, false);
                 }
-                dialog[dimension] = Math.max(
-                    dimensionCalculators[dimension](dialog),
-                    dialog[dimension]
-                );
+                if (!dialog['isFull' + capitalisedOtherDimension]) {
+                    dialog[dimension] = Math.max(
+                        dimensionCalculators[dimension](dialog),
+                        dialog[dimension]
+                    );
+                }
 
                 if (!isFlexbox) {
                     dialog.content.css('margin-' + edge, -dialog.content['outer' + capitalisedDimension]()/2);
