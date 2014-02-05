@@ -1,28 +1,17 @@
 @import "o-assets/main";
 @import "scss/_variables";
+@import "scss/_functions";
+@import "scss/_mixins";
 
-@font-face {
-	font-family: $o-ft-icons-name;
-	src: url(oAssetsUse("/build/" + $o-ft-icons-name + ".eot"));
-	src: url(oAssetsUse("/build/" + $o-ft-icons-name + ".eot?#iefix")) format("embedded-opentype"),
-		 url(oAssetsUse("/build/" + $o-ft-icons-name + ".woff")) format("woff"),
-		 url(oAssetsUse("/build/" + $o-ft-icons-name + ".ttf")) format("truetype");
-	font-weight:normal;
-	font-style:normal;
+@if (not $o-ft-icons-is-silent) {
+	@include o-ft-icons-icon-font-face();
 }
 
-.icon {
-	font-family: $o-ft-icons-name;
-	display:inline-block;
-	vertical-align:middle;
-	font-weight:normal;
-	font-style:normal;
-	speak:none;
-	text-decoration:inherit;
-	text-transform:none;
-	text-rendering:optimizeLegibility;
-	-webkit-font-smoothing:antialiased;
-	-moz-osx-font-smoothing:grayscale;
+// Output base styles, either as just a placeholder class, or optionally a concrete class too.
+$base-icon-selectors: o-ft-icons-get-selectors(icon);
+#{$base-icon-selectors} {
+	@include o-ft-icons-base-icon-styles();
 }
 
+// Call mixins for each icon. These output at least a placeholder (silent) class, but optionally a concrete class too.
 @import "build/_ft-icons.scss";

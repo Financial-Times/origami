@@ -1,0 +1,54 @@
+@mixin o-ft-icons-icon-font-face() {
+	@if (not $o-ft-icons-font-face-already-output) {
+		$o-ft-icons-font-face-already-output: true;
+		@font-face {
+			font-family: $o-ft-icons-name;
+			src: url(oAssetsUse($o-ft-icons-name + ".eot"));
+			src: url(oAssetsUse($o-ft-icons-name + ".eot?#iefix")) format("embedded-opentype"),
+				 url(oAssetsUse($o-ft-icons-name + ".woff")) format("woff"),
+				 url(oAssetsUse($o-ft-icons-name + ".ttf")) format("truetype");
+			font-weight:normal;
+			font-style:normal;
+		}
+	}
+}
+
+// Base styles for all icons
+@mixin o-ft-icons-base-icon-styles() {
+	font-family: $o-ft-icons-name;	
+	display: inline-block;
+	vertical-align: middle;
+	font-weight: normal;
+	font-style: normal;
+	speak: none;
+	text-decoration: inherit;
+	text-transform: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// Placeholder (and optionally concrete class) for individual icon (modern browsers)
+@mixin o-ft-icons-icon($icon, $content) {
+	$icon-selectors: o-ft-icons-get-selectors("#{$icon}:before");
+	#{$icon-selectors} {
+		content: $content;
+	}
+}
+
+// Placeholder (and optionally concrete class) for individual icon (IE7 hack)
+@mixin o-ft-icons-icon-ie7($icon, $content) {
+	$icon-selectors: o-ft-icons-get-selectors($icon, true);
+	#{$icon-selectors} {
+		*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '#{$content}');
+	}
+}
+
+// Get an icon's styles (all styles required in one class, also font-face if it hasn't already been output)
+@mixin o-ft-icons-icon-as-class($icon, $class) {
+	@include o-ft-icons-icon-font-face();
+	.#{$class} {
+		@include o-ft-icons-base-icon-styles();
+		@extend %o-ft-icons-icon--#{$icon}; // This creates the separate selector for :before
+	}
+}

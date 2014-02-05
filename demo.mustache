@@ -1,0 +1,24 @@
+
+<h1 class="demo-heading1">o-ft-icons</h1>
+
+<p class="demo-count">{{icons.length}} icons in a web font generated from SVG sources.</p>
+
+<h2 class="demo-heading2">Using predefined CSS classes</h2>
+
+<ul class="demo-examples">
+	{{#icons}}
+	<li class="demo-example"><i class="o-ft-icons-icon o-ft-icons-icon--{{name}} demo-icon"></i><span class="demo-label">{{name}}</span></li>
+	{{/icons}}
+</ul>
+
+<h2 class="demo-heading2">Extending SASS placeholder</h2>
+
+<ul class="demo-examples">
+	<li class="demo-example"><i class="demo-silent-extend-base demo-silent-extend-icon demo-icon"></i><span class="demo-label">extend silent class</span></li>
+</ul>
+
+<h2 class="demo-heading2">Using class generator mixin</h2>
+
+<ul class="demo-examples">
+	<li class="demo-example"><i class="demo-named-class demo-icon"></i><span class="demo-label">named class</span></li>
+</ul>

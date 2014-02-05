@@ -19,6 +19,8 @@
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-webfont": "~0.3.2",
-    "grunt-contrib-clean": "~0.5.0"
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-origami-demoer": "~0.2.2",
+    "grunt-contrib-watch": "~0.5.3"
   }
 }
