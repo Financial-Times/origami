@@ -1,4 +1,4 @@
-# Dialog <small>o-dialog</small>
+# Dialog <small>o-dialog</small> [![Build Status](https://travis-ci.org/Financial-Times/o-dialog.png?branch=master)](https://travis-ci.org/Financial-Times/o-dialog)
 
 Configurable custom dialog box that can be used to show modal windows. The dialogs can also be switched to display differently on small screens.
 

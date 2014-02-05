@@ -11,27 +11,28 @@
 module.exports = function(grunt) {
 
   // Project configuration.
-  grunt.initConfig({
-    'origami-demo': {
-      options: {
-        scriptMode: 'browserify',
-        main: ['demo.mustache', 'img/overlay-bg.png']
+  var path = require('path');
+
+  require('load-grunt-config')(grunt, {
+      configPath: path.join(process.cwd(), 'grunt-config'),
+      config: {
+          pkg: grunt.file.readJSON('package.json'),
+          bwr: grunt.file.readJSON('bower.json'),
+          o: grunt.file.readJSON('origami.json')
       }
-    },
-    watch: {
-      'origami-demo': {
-          files: ['./main.scss', './main.js', './demo.mustache', 'src/**/*', 'bower-components/**/*', '!tmp.scss'],
-          tasks: ['origami-demo']
-      }
-    }
   });
+
+  grunt.loadTasks('grunt-tasks');
  
-  grunt.loadNpmTasks('grunt-origami-demoer');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-
-
   // By default, lint and run all tests.
   grunt.registerTask('default', ['origami-demo']);
-
+  grunt.registerTask('test', [
+      'instrument',
+      'browserify:instrumented',
+      'jasmine:automated',
+      'browserify:src',
+      'jasmine:browser:build',
+      'enforce-coverage'
+  ]);
 
 };
