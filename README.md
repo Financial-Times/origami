@@ -1,4 +1,4 @@
-o-ft-icons
+o-ft-icons  [![Build Status](https://travis-ci.org/Financial-Times/o-ft-icons.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-icons)
 ==========
 
 This module has 2 purposes:
