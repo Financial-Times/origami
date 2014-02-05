@@ -111,5 +111,16 @@ $o-colors-usecase-list:
     section-money                 section-red             text,
     section-money-alt             white                   border,
     section-money-alt             white                   background,
-    section-money-alt             white                   text
+    section-money-alt             white                   text,
+
+    // Dialogs
+    dialog                        white                   border,
+    dialog                        white                   background,
+    dialog                        charcoal                text,
+    dialog-heading                warm-grey1              background,
+    dialog-heading                white                   text,
+    dialog-close                  white                   border,
+    dialog-close                  blue                    background,
+    dialog-close                  white                   text
+
 ;
