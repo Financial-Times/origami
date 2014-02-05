@@ -7,14 +7,19 @@ function getSpacing(el, side) {
 }
 
 function getStyleValue (el, prop) {
-    return getComputedStyle(el, null).getPropertyValue(prefixer(prop));
+    return getStylePropValue(getComputedStyle(el, null), prop);
+}
+
+function getStylePropValue (computedStyle, prop) {
+    return computedStyle.getPropertyValue(prefixer(prop));
 }
 
 function getStyleValues (el, props) {
-    var vals = [];
+    var elStyles = getComputedStyle(el, null),
+        vals = [];
 
     for (var i = props.length - 1;i>=0;i--) {
-        vals.unshift(getStyleValue(el, props[i]));
+        vals.unshift(getStylePropValue(eStyles, props[i]));
     }
     return vals;
 }
