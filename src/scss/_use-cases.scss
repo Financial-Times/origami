@@ -1,11 +1,15 @@
 /**
  * Colour use cases
  *
- * These mappings define what we use our colours for.  In the list below, each line contains a use case, a color name and a role, and is finished with a comma:
+ * These mappings define what we use our colours for.  In the list below, each line contains a use case, a color name, a role, an optional status flag, and is finished with a comma:
  *
- *  <use case>   <colorname>   <role>,
+ *  <use case>   <colorname>   <role>   [<status>],
  *
- * The use case name must be a single word comprising just letters, numbers, and dashes.  The colour name should be an exact match for a colour defiend in palette.scss, and the role must be 'text', 'border', or 'background'.   You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ * The use case name must be a single word comprising just letters, numbers, and dashes.  
+ * The colour name should be an exact match for a colour defiend in palette.scss
+ * The role must be 'text', 'border', or 'background'.   
+ * The status must be 'DEPRECATED' or absent
+ * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
  */
 
 $o-colors-usecase-list:
@@ -38,10 +42,10 @@ $o-colors-usecase-list:
     article-body-lead             charcoal          text,
     article-body-lead             warm-grey2        border,
     article-body                  charcoal          text,
-    article-title                 black             text,   // DEPRECATED
+    article-title                 black             text        DEPRECATED,
     article-subheading            charcoal          text,
-    article-byline                warm-grey2        text,   // DEPRECATED
-    article-divider               warm-grey2        border, // DEPRECATED
+    article-byline                warm-grey2        text        DEPRECATED,
+    article-divider               warm-grey2        border      DEPRECATED,
 
     // FT header and footer
     header                        charcoal          background,

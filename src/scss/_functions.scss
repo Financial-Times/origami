@@ -1,7 +1,7 @@
 @function _oColorsGetPaletteColor($name) {
-	@each $i in $o-colors-palette-list {
-		@if nth($i,1) == $name {
-			@return nth($i,2);
+	@each $color in $o-colors-palette-list {
+		@if nth($color,1) == $name {
+			@return nth($color,2);
 		}
 	}
 	@warn "Undefined color used";
@@ -9,9 +9,14 @@
 }
 
 @function oColorsGetColorFor($name) {
-	@each $i in $o-colors-usecase-list {
-		@if nth($i,1) + '-' + nth($i,3) == $name {
-			@return _oColorsGetPaletteColor(nth($i,2));
+	@each $usecase in $o-colors-usecase-list {
+		@if nth($usecase,1) + '-' + nth($usecase,3) == $name {
+			@if (length($usecase) == 4) {
+				@if(nth($usecase,4) == DEPRECATED) {
+					@warn "Deprecated use-case '" + $name + "' used";
+				}
+			}
+			@return _oColorsGetPaletteColor(nth($usecase,2));
 		}
 	}
 	@warn "Undefined use-case '" + $name + "' used";
