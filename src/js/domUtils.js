@@ -19,7 +19,7 @@ function getStyleValues (el, props) {
         vals = [];
 
     for (var i = props.length - 1;i>=0;i--) {
-        vals.unshift(getStylePropValue(eStyles, props[i]));
+        vals.unshift(getStylePropValue(elStyles, props[i]));
     }
     return vals;
 }
