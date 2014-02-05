@@ -4,7 +4,7 @@ o-ft-icons  [![Build Status](https://travis-ci.org/Financial-Times/o-ft-icons.pn
 This module has 2 purposes:
 
 1. Provide standard FT-brand icons to Origami-consuming products via a web font and associated CSS classes.
-2. Contain SVG icon source files and means of building a web font from these sources.
+2. Contain SVG icon source files and a means of building an icon web font from these sources.
 
 
 ##To use this module's icons in your product
