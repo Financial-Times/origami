@@ -2,6 +2,14 @@ html, body {
   margin: 0;
   padding: 0; }
 
+/*
+	This mixin allows ie7 and 8 to be targeted using either
+	* specific classes for each of ie7 and ie8
+	* 'less than' classes targeting ie versions less than a given version e.g. lt-ie9 & lt-ie8
+*/
+/* 
+	Deprecates support for ie7 or 8, making sure that both browser specific and lt- selectors are removed
+*/
 @font-face {
   font-family: "ft-icons";
   src: url(../build/ft-icons.eot);
@@ -22,307 +30,307 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.msie7 .demo-named-class, .msie7 .o-ft-icons-icon--always-learning {
+.o-useragent-ie7 .demo-named-class, .o-useragent-ie7 .o-ft-icons-icon--always-learning {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe001;&nbsp;'); }
 
 .demo-silent-extend-icon:before, .demo-named-class:before, .o-ft-icons-icon--always-learning:before {
   content: "\e001"; }
 
-.msie7 .o-ft-icons-icon--arts {
+.o-useragent-ie7 .o-ft-icons-icon--arts {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe002;&nbsp;'); }
 
 .o-ft-icons-icon--arts:before {
   content: "\e002"; }
 
-.msie7 .o-ft-icons-icon--back-arrow {
+.o-useragent-ie7 .o-ft-icons-icon--back-arrow {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe003;&nbsp;'); }
 
 .o-ft-icons-icon--back-arrow:before {
   content: "\e003"; }
 
-.msie7 .o-ft-icons-icon--back-chevron {
+.o-useragent-ie7 .o-ft-icons-icon--back-chevron {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe004;&nbsp;'); }
 
 .o-ft-icons-icon--back-chevron:before {
   content: "\e004"; }
 
-.msie7 .o-ft-icons-icon--blogs {
+.o-useragent-ie7 .o-ft-icons-icon--blogs {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe005;&nbsp;'); }
 
 .o-ft-icons-icon--blogs:before {
   content: "\e005"; }
 
-.msie7 .o-ft-icons-icon--business-education {
+.o-useragent-ie7 .o-ft-icons-icon--business-education {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe006;&nbsp;'); }
 
 .o-ft-icons-icon--business-education:before {
   content: "\e006"; }
 
-.msie7 .o-ft-icons-icon--business-life {
+.o-useragent-ie7 .o-ft-icons-icon--business-life {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe007;&nbsp;'); }
 
 .o-ft-icons-icon--business-life:before {
   content: "\e007"; }
 
-.msie7 .o-ft-icons-icon--clippings {
+.o-useragent-ie7 .o-ft-icons-icon--clippings {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe008;&nbsp;'); }
 
 .o-ft-icons-icon--clippings:before {
   content: "\e008"; }
 
-.msie7 .o-ft-icons-icon--columnists {
+.o-useragent-ie7 .o-ft-icons-icon--columnists {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe009;&nbsp;'); }
 
 .o-ft-icons-icon--columnists:before {
   content: "\e009"; }
 
-.msie7 .o-ft-icons-icon--comment {
+.o-useragent-ie7 .o-ft-icons-icon--comment {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe00a;&nbsp;'); }
 
 .o-ft-icons-icon--comment:before {
   content: "\e00a"; }
 
-.msie7 .o-ft-icons-icon--companies {
+.o-useragent-ie7 .o-ft-icons-icon--companies {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe00b;&nbsp;'); }
 
 .o-ft-icons-icon--companies:before {
   content: "\e00b"; }
 
-.msie7 .o-ft-icons-icon--email {
+.o-useragent-ie7 .o-ft-icons-icon--email {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe00c;&nbsp;'); }
 
 .o-ft-icons-icon--email:before {
   content: "\e00c"; }
 
-.msie7 .o-ft-icons-icon--facebook {
+.o-useragent-ie7 .o-ft-icons-icon--facebook {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe00d;&nbsp;'); }
 
 .o-ft-icons-icon--facebook:before {
   content: "\e00d"; }
 
-.msie7 .o-ft-icons-icon--fast-ft {
+.o-useragent-ie7 .o-ft-icons-icon--fast-ft {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe00e;&nbsp;'); }
 
 .o-ft-icons-icon--fast-ft:before {
   content: "\e00e"; }
 
-.msie7 .o-ft-icons-icon--fast {
+.o-useragent-ie7 .o-ft-icons-icon--fast {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe00f;&nbsp;'); }
 
 .o-ft-icons-icon--fast:before {
   content: "\e00f"; }
 
-.msie7 .o-ft-icons-icon--feedback {
+.o-useragent-ie7 .o-ft-icons-icon--feedback {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe010;&nbsp;'); }
 
 .o-ft-icons-icon--feedback:before {
   content: "\e010"; }
 
-.msie7 .o-ft-icons-icon--font-size {
+.o-useragent-ie7 .o-ft-icons-icon--font-size {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe011;&nbsp;'); }
 
 .o-ft-icons-icon--font-size:before {
   content: "\e011"; }
 
-.msie7 .o-ft-icons-icon--ft-logo-square {
+.o-useragent-ie7 .o-ft-icons-icon--ft-logo-square {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe012;&nbsp;'); }
 
 .o-ft-icons-icon--ft-logo-square:before {
   content: "\e012"; }
 
-.msie7 .o-ft-icons-icon--ft-logo {
+.o-useragent-ie7 .o-ft-icons-icon--ft-logo {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe013;&nbsp;'); }
 
 .o-ft-icons-icon--ft-logo:before {
   content: "\e013"; }
 
-.msie7 .o-ft-icons-icon--ft {
+.o-useragent-ie7 .o-ft-icons-icon--ft {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe014;&nbsp;'); }
 
 .o-ft-icons-icon--ft:before {
   content: "\e014"; }
 
-.msie7 .o-ft-icons-icon--ftfm {
+.o-useragent-ie7 .o-ft-icons-icon--ftfm {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe015;&nbsp;'); }
 
 .o-ft-icons-icon--ftfm:before {
   content: "\e015"; }
 
-.msie7 .o-ft-icons-icon--house-and-home {
+.o-useragent-ie7 .o-ft-icons-icon--house-and-home {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe016;&nbsp;'); }
 
 .o-ft-icons-icon--house-and-home:before {
   content: "\e016"; }
 
-.msie7 .o-ft-icons-icon--leader-and-letters {
+.o-useragent-ie7 .o-ft-icons-icon--leader-and-letters {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe017;&nbsp;'); }
 
 .o-ft-icons-icon--leader-and-letters:before {
   content: "\e017"; }
 
-.msie7 .o-ft-icons-icon--lex {
+.o-useragent-ie7 .o-ft-icons-icon--lex {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe018;&nbsp;'); }
 
 .o-ft-icons-icon--lex:before {
   content: "\e018"; }
 
-.msie7 .o-ft-icons-icon--linkedin {
+.o-useragent-ie7 .o-ft-icons-icon--linkedin {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe019;&nbsp;'); }
 
 .o-ft-icons-icon--linkedin:before {
   content: "\e019"; }
 
-.msie7 .o-ft-icons-icon--live {
+.o-useragent-ie7 .o-ft-icons-icon--live {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe01a;&nbsp;'); }
 
 .o-ft-icons-icon--live:before {
   content: "\e01a"; }
 
-.msie7 .o-ft-icons-icon--magazine {
+.o-useragent-ie7 .o-ft-icons-icon--magazine {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe01b;&nbsp;'); }
 
 .o-ft-icons-icon--magazine:before {
   content: "\e01b"; }
 
-.msie7 .o-ft-icons-icon--markets-data {
+.o-useragent-ie7 .o-ft-icons-icon--markets-data {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe01c;&nbsp;'); }
 
 .o-ft-icons-icon--markets-data:before {
   content: "\e01c"; }
 
-.msie7 .o-ft-icons-icon--markets {
+.o-useragent-ie7 .o-ft-icons-icon--markets {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe01d;&nbsp;'); }
 
 .o-ft-icons-icon--markets:before {
   content: "\e01d"; }
 
-.msie7 .o-ft-icons-icon--money {
+.o-useragent-ie7 .o-ft-icons-icon--money {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe01e;&nbsp;'); }
 
 .o-ft-icons-icon--money:before {
   content: "\e01e"; }
 
-.msie7 .o-ft-icons-icon--more {
+.o-useragent-ie7 .o-ft-icons-icon--more {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe01f;&nbsp;'); }
 
 .o-ft-icons-icon--more:before {
   content: "\e01f"; }
 
-.msie7 .o-ft-icons-icon--morning {
+.o-useragent-ie7 .o-ft-icons-icon--morning {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe020;&nbsp;'); }
 
 .o-ft-icons-icon--morning:before {
   content: "\e020"; }
 
-.msie7 .o-ft-icons-icon--pearson {
+.o-useragent-ie7 .o-ft-icons-icon--pearson {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe021;&nbsp;'); }
 
 .o-ft-icons-icon--pearson:before {
   content: "\e021"; }
 
-.msie7 .o-ft-icons-icon--profile {
+.o-useragent-ie7 .o-ft-icons-icon--profile {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe022;&nbsp;'); }
 
 .o-ft-icons-icon--profile:before {
   content: "\e022"; }
 
-.msie7 .o-ft-icons-icon--recently-read {
+.o-useragent-ie7 .o-ft-icons-icon--recently-read {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe023;&nbsp;'); }
 
 .o-ft-icons-icon--recently-read:before {
   content: "\e023"; }
 
-.msie7 .o-ft-icons-icon--recommended-reads {
+.o-useragent-ie7 .o-ft-icons-icon--recommended-reads {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe024;&nbsp;'); }
 
 .o-ft-icons-icon--recommended-reads:before {
   content: "\e024"; }
 
-.msie7 .o-ft-icons-icon--refresh {
+.o-useragent-ie7 .o-ft-icons-icon--refresh {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe025;&nbsp;'); }
 
 .o-ft-icons-icon--refresh:before {
   content: "\e025"; }
 
-.msie7 .o-ft-icons-icon--search {
+.o-useragent-ie7 .o-ft-icons-icon--search {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe026;&nbsp;'); }
 
 .o-ft-icons-icon--search:before {
   content: "\e026"; }
 
-.msie7 .o-ft-icons-icon--sections {
+.o-useragent-ie7 .o-ft-icons-icon--sections {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe027;&nbsp;'); }
 
 .o-ft-icons-icon--sections:before {
   content: "\e027"; }
 
-.msie7 .o-ft-icons-icon--settings {
+.o-useragent-ie7 .o-ft-icons-icon--settings {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe028;&nbsp;'); }
 
 .o-ft-icons-icon--settings:before {
   content: "\e028"; }
 
-.msie7 .o-ft-icons-icon--share {
+.o-useragent-ie7 .o-ft-icons-icon--share {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe029;&nbsp;'); }
 
 .o-ft-icons-icon--share:before {
   content: "\e029"; }
 
-.msie7 .o-ft-icons-icon--sign-in {
+.o-useragent-ie7 .o-ft-icons-icon--sign-in {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe02a;&nbsp;'); }
 
 .o-ft-icons-icon--sign-in:before {
   content: "\e02a"; }
 
-.msie7 .o-ft-icons-icon--sign-out {
+.o-useragent-ie7 .o-ft-icons-icon--sign-out {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe02b;&nbsp;'); }
 
 .o-ft-icons-icon--sign-out:before {
   content: "\e02b"; }
 
-.msie7 .o-ft-icons-icon--special-report {
+.o-useragent-ie7 .o-ft-icons-icon--special-report {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe02c;&nbsp;'); }
 
 .o-ft-icons-icon--special-report:before {
   content: "\e02c"; }
 
-.msie7 .o-ft-icons-icon--subscribe {
+.o-useragent-ie7 .o-ft-icons-icon--subscribe {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe02d;&nbsp;'); }
 
 .o-ft-icons-icon--subscribe:before {
   content: "\e02d"; }
 
-.msie7 .o-ft-icons-icon--twitter {
+.o-useragent-ie7 .o-ft-icons-icon--twitter {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe02e;&nbsp;'); }
 
 .o-ft-icons-icon--twitter:before {
   content: "\e02e"; }
 
-.msie7 .o-ft-icons-icon--uk {
+.o-useragent-ie7 .o-ft-icons-icon--uk {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe02f;&nbsp;'); }
 
 .o-ft-icons-icon--uk:before {
   content: "\e02f"; }
 
-.msie7 .o-ft-icons-icon--up-arrow {
+.o-useragent-ie7 .o-ft-icons-icon--up-arrow {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe030;&nbsp;'); }
 
 .o-ft-icons-icon--up-arrow:before {
   content: "\e030"; }
 
-.msie7 .o-ft-icons-icon--up-down-arrow {
+.o-useragent-ie7 .o-ft-icons-icon--up-down-arrow {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe031;&nbsp;'); }
 
 .o-ft-icons-icon--up-down-arrow:before {
   content: "\e031"; }
 
-.msie7 .o-ft-icons-icon--upgrade {
+.o-useragent-ie7 .o-ft-icons-icon--upgrade {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe032;&nbsp;'); }
 
 .o-ft-icons-icon--upgrade:before {
   content: "\e032"; }
 
-.msie7 .o-ft-icons-icon--world {
+.o-useragent-ie7 .o-ft-icons-icon--world {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe033;&nbsp;'); }
 
 .o-ft-icons-icon--world:before {

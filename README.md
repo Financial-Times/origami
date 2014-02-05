@@ -110,14 +110,6 @@ Good examples: columnists.svg, back-arrow.svg
 
 Bad examples: RightArrow.svg, linked_in.svg, yahoo!.svg
 
-
-
-
-## How this module works
-
-The grunt default task generates icon font files and an _ft-icons.scss file which contains CSS class definitions for all the icons.
-A demo.html page is generated which shows the contents of the icon font, using CSS built from the SASS sources.
-
 ### Options
 
 IE7 support is switched off by default, but can be switched on by way of a SASS variable:

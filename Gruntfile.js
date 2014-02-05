@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 		icons: {
 			src: 'svg/*.svg',
 			dest: 'build/',
+      destCss: 'scss/',
 			options: {
 				engine: "fontforge",
 				font: "ft-icons",

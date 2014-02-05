@@ -3,6 +3,7 @@
     "main": ["main.scss"],
     "ignore": ["src", "demo","node_modules", "README.md", "Gruntfile.js"],
     "dependencies": {
-    	"o-assets": "https://github.com/Financial-Times/o-assets.git#~0.2.0"
+    	"o-assets": "https://github.com/Financial-Times/o-assets.git#~0.2.0",
+    	"o-useragent": "https://github.com/Financial-Times/o-useragent.git#0.3.0"
     }
 }

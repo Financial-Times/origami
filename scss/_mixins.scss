@@ -2,11 +2,11 @@
 	@if (not $o-ft-icons-font-face-already-output) {
 		$o-ft-icons-font-face-already-output: true;
 		@font-face {
-			font-family: $o-ft-icons-name;
-			src: url(oAssetsUse($o-ft-icons-name + ".eot"));
-			src: url(oAssetsUse($o-ft-icons-name + ".eot?#iefix")) format("embedded-opentype"),
-				 url(oAssetsUse($o-ft-icons-name + ".woff")) format("woff"),
-				 url(oAssetsUse($o-ft-icons-name + ".ttf")) format("truetype");
+			font-family: $o-ft-icons-font-name;
+			src: url(oAssetsUse($o-ft-icons-font-name + ".eot"));
+			src: url(oAssetsUse($o-ft-icons-font-name + ".eot?#iefix")) format("embedded-opentype"),
+				 url(oAssetsUse($o-ft-icons-font-name + ".woff")) format("woff"),
+				 url(oAssetsUse($o-ft-icons-font-name + ".ttf")) format("truetype");
 			font-weight:normal;
 			font-style:normal;
 		}
@@ -15,7 +15,7 @@
 
 // Base styles for all icons
 @mixin o-ft-icons-base-icon-styles() {
-	font-family: $o-ft-icons-name;	
+	font-family: $o-ft-icons-font-name;	
 	display: inline-block;
 	vertical-align: middle;
 	font-weight: normal;
@@ -38,9 +38,11 @@
 
 // Placeholder (and optionally concrete class) for individual icon (IE7 hack)
 @mixin o-ft-icons-icon-ie7($icon, $content) {
-	$icon-selectors: o-ft-icons-get-selectors($icon, true);
-	#{$icon-selectors} {
-		*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '#{$content}');
+	$icon-selectors: o-ft-icons-get-selectors($icon);
+	@include oUseragentTarget(ie7) {
+		#{$icon-selectors} {
+			*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '#{$content}');
+		}
 	}
 }
 
