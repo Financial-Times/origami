@@ -410,7 +410,7 @@ html, body {
   src: url(../bower_components/o-fonts/webfonts/BentonSans-lighter.eot);
   src: url(../bower_components/o-fonts/webfonts/BentonSans-lighter.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-lighter.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-lighter.ttf) format("truetype"); }
 .o-dialog--modal__content {
-  border: 2px solid white; }
+  border: 5px solid #a7a59b; }
 
 .o-dialog__close {
   position: absolute;

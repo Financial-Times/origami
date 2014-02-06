@@ -9,7 +9,7 @@
 @include oDialogClass(modal__content) {
     @extend %o-colors-dialog-background !optional;
     @extend %o-colors-dialog-text !optional;	
-    border: 2px solid oColorsGetColorFor(dialog-border);
+    border: 5px solid oColorsGetColorFor(dialog-border);
 
 }
 
