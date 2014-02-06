@@ -24,9 +24,5 @@ module.exports = function () {
 
     globalListenersApplied || globalListeners();
 
-    content.on('click.o-dialog', function (ev) {
-        ev.oDialogContentClick = true;
-    });
-
     return dialog;
 };    

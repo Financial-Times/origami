@@ -3,15 +3,15 @@
 var $ = require('jquery'),
     globals = require('./data/globals'),
     defaults = require('./data/defaults'),
-    close = require('./public/close'),
+    closeDialog = require('./public/close-dialog'),
     trigger = require('./public/trigger');
 
 
 module.exports = {
-    close: close,
+    close: closeDialog,
     trigger: trigger,
     destroy: function () {
-        close(null, true);
+        closeDialog(null, true);
     },
     addPreset: function (name, conf) {
         globals.presets[name] = $.extend({}, defaults, conf);
