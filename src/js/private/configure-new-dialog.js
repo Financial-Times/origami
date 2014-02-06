@@ -28,7 +28,7 @@ var $ = require('jquery'),
         for (var key in opts) {
             if (eventRX.test(key)) {
                 listener = opts[key];
-                if (typeof key === 'string') {
+                if (typeof listener === 'string') {
                     bound = listener.indexOf(':bound') > -1;
                     if (bound) {
                         listener = listener.replace(':bound', '');
