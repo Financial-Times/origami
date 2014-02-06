@@ -2,8 +2,70 @@
 
 var $ = require('jquery'),
     globals = require('../data/globals'),
+
+
+    bind = function (func, obj) {
+        if (Function.prototype.bind) {
+            return func.bind(obj);
+        } else {
+            return function () {
+                return func.apply(obj, arguments);
+            };
+        }
+    },
+
     copyContent = function (content) {
         return content[0].nodeName === 'SCRIPT' ? $(content.html()): content.clone();
+    },
+    setListeners = function (opts) {
+        var eventRX = /^on[A-Z]/,
+            listener,
+            listenerParent,
+            listenerName,
+            listenerPath,
+            bound;
+
+        for (var key in opts) {
+            if (eventRX.test(key)) {
+                listener = opts[key];
+                if (typeof key === 'string') {
+                    bound = listener.indexOf(':bound') > -1;
+                    if (bound) {
+                        listener = listener.replace(':bound', '');
+                    }
+                    if (listener.indexOf('#') > -1) {
+                        listener = listener.split('#');
+                        listenerParent = require(listener[0]);
+                        listenerName = listener[1];
+                        listener = listenerParent[listenerName];
+
+                    } else if (listener.indexOf('.') > -1) {
+                        listenerPath = listener.split('.');
+                        listenerParent = window;
+                        while (listenerName = listenerPath.unshift()) {
+                            if (typeof listener === 'object') {
+                                listenerParent = listener;
+                                listener = listenerParent[listenerName];
+                            } else {
+                                throw ('Event listener ' + key + ' not found');
+                            }
+                        }
+                    } else {
+                        listener = window[listener];
+                    }
+
+                    if (typeof listener !== 'function') {
+                        throw ('Event listener ' + key + ': ' + listener + ' is not a function');
+                    }
+
+                    if (bound) {
+                        listener = bind(listener, listenerParent);
+                    }
+                    opts[key] = listener;
+                }
+            }
+        }
+        return opts;
     };
 
 
@@ -39,7 +101,7 @@ module.exports = function (opts, trigger) {
 
     dialog.trigger = trigger;
 
-    dialog.opts = opts;
+    dialog.opts = setListeners(opts);
 
     return dialog;
 };

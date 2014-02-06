@@ -75,7 +75,7 @@ The `options` object takes the following properties. All are optional, with the 
 * `snapsToFullWidth: true` - Whether or not the dialog will intelligently switch to occupying the full width of the screen with scroll bars at small screen sizes
 
 #### Events
-The following event listeners can also be set on the options object. To use set to a function which expects to be passed the current dialog object (which contains references to its options, DOM elements and DOM properties)
+The following event listeners can also be set on the options object.
 
 * `onTrigger` - Called when a request to open a dialog is fired
 * `onFail` - Called when a dialog fails to initialise. The reason for the failure will be available in `dialog.errors` *(not implemented)*
@@ -85,6 +85,15 @@ The following event listeners can also be set on the options object. To use set 
 * `onAfterResize` - Called after a dialog finishes responding to a window resize event
 * `onBeforeClose` - Called when a request to close a dialog is fired
 * `onAfterClose` - Called after a dialog has been successfully closed and removed from the DOM
+
+Each event can be set to one of the following
+
+* A function
+* The name of a function available in the DOM e.g `ft.clearCookies` retrieves the function `window.ft.clearCookies`
+* The name of a method of a commonjs module e.g. `o-ft-signin#setRedirectUrl`
+* The preceding two approaches can be given the suffix `:bound` to bind the function to the object it is a method of
+
+When the event is fired the function is passed the current `dialog` object as a parameter
 
 ### Presets
 In addition to the above options, o-dialog has a number of configuration presets available, which set a number of configuration properties at once (but which can then be overridden by manually setting other options)
