@@ -1,21 +1,6 @@
 {
   "name": "o-ft-icons",
-  "version": "0.0.0",
-  "description": "FT brand icons",
-  "main": "main.scss",
-  "scripts": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Financial-Times/o-ft-icons.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/o-ft-icons/issues"
-  },
-  "homepage": "https://github.com/Financial-Times/o-ft-icons",
+  "private": true,
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-webfont": "~0.3.2",

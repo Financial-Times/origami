@@ -36,10 +36,10 @@ html, body {
 .demo-silent-extend-icon:before, .demo-named-class:before, .o-ft-icons-icon--always-learning:before {
   content: "\e001"; }
 
-.o-useragent-ie7 .o-ft-icons-icon--arts {
+.o-useragent-ie7 .demo-named-class2, .o-useragent-ie7 .o-ft-icons-icon--arts {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe002;&nbsp;'); }
 
-.o-ft-icons-icon--arts:before {
+.demo-named-class2:before, .o-ft-icons-icon--arts:before {
   content: "\e002"; }
 
 .o-useragent-ie7 .o-ft-icons-icon--back-arrow {
@@ -401,6 +401,19 @@ body {
   -moz-osx-font-smoothing: grayscale; }
 
 .demo-named-class {
+  font-family: "ft-icons";
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: normal;
+  font-style: normal;
+  speak: none;
+  text-decoration: inherit;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.demo-named-class2 {
   font-family: "ft-icons";
   display: inline-block;
   vertical-align: middle;

@@ -1,12 +1,12 @@
 @mixin o-ft-icons-icon-font-face() {
-	@if (not $o-ft-icons-font-face-already-output) {
-		$o-ft-icons-font-face-already-output: true;
+	@if (not $_o-ft-icons-font-face-already-output) {
+		$_o-ft-icons-font-face-already-output: true;
 		@font-face {
-			font-family: $o-ft-icons-font-name;
-			src: url(oAssetsUse($o-ft-icons-font-name + ".eot"));
-			src: url(oAssetsUse($o-ft-icons-font-name + ".eot?#iefix")) format("embedded-opentype"),
-				 url(oAssetsUse($o-ft-icons-font-name + ".woff")) format("woff"),
-				 url(oAssetsUse($o-ft-icons-font-name + ".ttf")) format("truetype");
+			font-family: $_o-ft-icons-font-name;
+			src: url(oAssetsUse($_o-ft-icons-font-name + ".eot"));
+			src: url(oAssetsUse($_o-ft-icons-font-name + ".eot?#iefix")) format("embedded-opentype"),
+				 url(oAssetsUse($_o-ft-icons-font-name + ".woff")) format("woff"),
+				 url(oAssetsUse($_o-ft-icons-font-name + ".ttf")) format("truetype");
 			font-weight:normal;
 			font-style:normal;
 		}
@@ -15,7 +15,7 @@
 
 // Base styles for all icons
 @mixin o-ft-icons-base-icon-styles() {
-	font-family: $o-ft-icons-font-name;	
+	font-family: $_o-ft-icons-font-name;
 	display: inline-block;
 	vertical-align: middle;
 	font-weight: normal;

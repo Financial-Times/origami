@@ -1,8 +1,6 @@
 $o-ft-icons-is-silent: true !default;
-$o-ft-icons-support-ie7: true !default;
-
+$o-ft-icons-support-ie7: false !default;
 $o-ft-icons-path: 'build/' !default;
 
-$o-ft-icons-font-name: 'ft-icons';
-
-$o-ft-icons-font-face-already-output: false;
+$_o-ft-icons-font-name: 'ft-icons';
+$_o-ft-icons-font-face-already-output: false;
