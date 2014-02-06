@@ -1,4 +1,5 @@
-bower_components
-.sass-cache
-node_modules
-origami-templates
+.idea/
+.sass-cache/
+bower_components/
+node_modules/
+origami-templates/

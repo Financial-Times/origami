@@ -1,20 +1,34 @@
 /* Headings */
+@include oFtTypographyClass(heading-xlarge) {
+  margin: 0 0 16px 0;
+  padding: 8px 10px 7px 10px;
+  border-top: 4px solid oColorsGetColorFor(heading-large-border); // Add new use case to o-colors
+  border-bottom: 1px dotted oColorsGetColorFor(heading-large-border); // Add new use case to o-colors
+  font-family: $_o-ft-typography-heading-xlarge-font;
+  font-weight: normal;
+  @include oFtTypographyFontSize(16, 20);
+  color: oColorsGetColorFor(heading-large-text);
+}
+
 @include oFtTypographyClass(heading-large) {
 	margin: 0 0 16px 0;
 	padding: 8px 10px 7px 10px;
 	border-top: 4px solid oColorsGetColorFor(heading-large-border);
 	border-bottom: 1px dotted oColorsGetColorFor(heading-large-border);
-	font-family: $o-ft-typography-heading-large-font;
-	@include oFtTypographyFontSize(16, 20);
+	font-family: $_o-ft-typography-heading-large-font;
+	font-weight: normal;
+    text-transform: uppercase;
+	@include oFtTypographyFontSize(14, 20);
 	color: oColorsGetColorFor(heading-large-text);
 }
 
 @include oFtTypographyClass(heading-medium) {
 	margin: 0 0 16px 0;
-	font-family: $o-ft-typography-heading-medium-font;
-	@include oFtTypographyFontSize(14, 20);
+	font-family: $_o-ft-typography-heading-medium-font;
+	font-weight: normal;
+	@include oFtTypographyFontSize(13, 20);
 	color: oColorsGetColorFor(heading-text);
-	text-shadow: 6px 0 4px oColorsGetColorFor(page-background);
+    @include oFtTypographyFauxTextBackground(oColorsGetColorFor(page-background));
 	text-transform: uppercase;
 	background-position: bottom right;
 	background-repeat: no-repeat;
@@ -23,7 +37,8 @@
 
 @include oFtTypographyClass(heading-small) {
 	margin: 0 0 8px 0;
-	font-family: $o-ft-typography-heading-small-font;
+	font-family: $_o-ft-typography-heading-small-font;
+	font-weight: bold;
 	@include oFtTypographyFontSize(14, 20);
 	color: oColorsGetColorFor(heading-text);
 }
@@ -41,19 +56,22 @@
 
 /* Titles */
 @include oFtTypographyClass(title-large) {
-	font-family: $o-ft-typography-title-large-font;
+	font-family: $_o-ft-typography-title-large-font;
+	font-weight: normal;
 	@include oFtTypographyFontSize(30, 36, -5);
 	color: oColorsGetColorFor(title-text);
 }
 
 @include oFtTypographyClass(title-medium) {
-	font-family: $o-ft-typography-title-medium-font;
+	font-family: $_o-ft-typography-title-medium-font;
+	font-weight: normal;
 	@include oFtTypographyFontSize(21, 26);
 	color: oColorsGetColorFor(title-text);
 }
 
 @include oFtTypographyClass(title-small) {
-	font-family: $o-ft-typography-title-small-font;
+	font-family: $_o-ft-typography-title-small-font;
+	font-weight: bold;
 	@include oFtTypographyFontSize(15, 17);
 	color: oColorsGetColorFor(title-text);
 }
@@ -71,19 +89,22 @@
 
 /* Leads */
 @include oFtTypographyClass(lead-large) {
-	font-family: $o-ft-typography-lead-large-font;
+	font-family: $_o-ft-typography-lead-large-font;
+	font-weight: normal;
 	@include oFtTypographyFontSize(21, 26);
 	color: oColorsGetColorFor(lead-text);
 }
 
 @include oFtTypographyClass(lead-medium) {
-	font-family: $o-ft-typography-lead-medium-font;
+	font-family: $_o-ft-typography-lead-medium-font;
+	font-weight: normal;
 	@include oFtTypographyFontSize(17, 21); 
 	color: oColorsGetColorFor(lead-medium-text);
 }
 
 @include oFtTypographyClass(lead-small) {
-	font-family: $o-ft-typography-lead-small-font;
+	font-family: $_o-ft-typography-lead-small-font;
+	font-weight: normal;
 	@include oFtTypographyFontSize(13, 17);
 	color: oColorsGetColorFor(lead-text);
 }
@@ -103,7 +124,8 @@
 @include oFtTypographyClass(brand)  {
 	margin: 0;
 	@include oFtTypographyFontSize(12, 14);
-	font-family: $o-ft-typography-brand-font;
+	font-family: $_o-ft-typography-brand-font;
+	font-weight: bold;
 	color: oColorsGetColorFor(brand-text);
 }
 
@@ -121,23 +143,27 @@
 @include oFtTypographyClass(byline)  {
 	margin: 0;
 	@include oFtTypographyFontSize(14, 24);
-	font-family: $o-ft-typography-metadata-font;
+	font-family: $_o-ft-typography-metadata-font;
+	font-weight: normal;
 	color: oColorsGetColorFor(byline-text);
 }
 
 @include oFtTypographyClass(timestamp)  {
 	margin: 0;
 	@include oFtTypographyFontSize(14, 24);
-	font-family: $o-ft-typography-metadata-font;
+	font-family: $_o-ft-typography-metadata-font;
+	font-weight: normal;
 	color: oColorsGetColorFor(timestamp-text);
 }
 
 /* Article subheadings */
 @mixin article-subheading() {
 	margin-bottom: 15px;
-	@include oFtTypographyFontSize(16, 30);
+	padding: 5px 0;
+	@include oFtTypographyFontSize(16, 20);
 	@include oFtTypographyExtend(body__block);
-	font-family: $o-ft-typography-article-subheading-font;
+	font-family: $_o-ft-typography-article-subheading-font;
+	font-weight: bold;
 	color: oColorsGetColorFor(article-subheading-text);
 }
 
@@ -170,7 +196,8 @@
 
 /* Body lead */
 @include oFtTypographyClass(body--lead) {
-	font-family: $o-ft-typography-body-font;
+	font-family: $_o-ft-typography-body-font;
+	font-weight: normal;
 	@include oFtTypographyFontSize(18, 24);
 	color: oColorsGetColorFor(body-lead-text);
 	-webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
@@ -180,21 +207,24 @@
 	margin: 0 0 9px 0;
 	border-bottom: 1px dotted oColorsGetColorFor(article-body-lead-border); //
 	padding: 0 0 14px 0;
-	font-family: $o-ft-typography-article-body-font;
+	font-family: $_o-ft-typography-article-body-font;
+	font-weight: normal;
 	@include oFtTypographyFontSize(21, 27);
 	color: oColorsGetColorFor(article-body-lead-text);
 }
 
 /* Body */
 @include oFtTypographyClass(body) {
-	font-family: $o-ft-typography-body-font;
+	font-family: $_o-ft-typography-body-font;
+	font-weight: normal;
 	@include oFtTypographyFontSize(14, 20);
 	color: oColorsGetColorFor(body-text);
 }
 
 @include oFtTypographyClass(article-body)  {
 	@include oFtTypographyFontSize(16, 24);
-	font-family: $o-ft-typography-article-body-font;
+	font-family: $_o-ft-typography-article-body-font;
+	font-weight: normal;
 	color: oColorsGetColorFor(article-body-text);
 }
 
@@ -251,6 +281,7 @@
 @include oFtTypographyClass(body__list) {
 	list-style-position: outside;
 	padding-left: 20px;
+	font-weight: normal;
 	@include oFtTypographyExtend(body);
 	@include oFtTypographyExtend(body__block);
 }

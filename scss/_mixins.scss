@@ -36,6 +36,14 @@
 	}
 }
 
+@mixin oFtTypographyFauxTextBackground($color) {
+  text-shadow: 4px 0 2px $color, -4px 0 2px $color,
+  0 4px 2px $color, 0 -4px 2px $color,
+  2px 0 4px $color, -2px 0 4px $color,
+  0 2px 4px $color, 0 -2px 4px $color,
+  6px 0 1px $color;
+}
+
 //
 // Wraps a given block of styles in the given selector (if it exists)
 //

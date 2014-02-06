@@ -1,3 +1,7 @@
+/**
+
+
+**/
 /*
 	This mixin allows ie7 and 8 to be targeted using either
 	* specific classes for each of ie7 and ie8
@@ -580,36 +584,53 @@ html, body {
   font-weight: normal;
   src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot);
   src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
+
 @font-face {
   font-family: BentonSans-bold;
   font-style: normal;
   font-weight: normal;
   src: url(../bower_components/o-fonts/webfonts/BentonSans-bold.eot);
   src: url(../bower_components/o-fonts/webfonts/BentonSans-bold.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-bold.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-bold.ttf) format("truetype"); }
+
 @font-face {
   font-family: MillerDisplay-normal;
   font-style: normal;
   font-weight: normal;
   src: url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.eot);
   src: url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.ttf) format("truetype"); }
+
 /* Headings */
+.o-ft-typography-heading-xlarge {
+  margin: 0 0 16px 0;
+  padding: 8px 10px 7px 10px;
+  border-top: 4px solid #a7a59b;
+  border-bottom: 1px dotted #a7a59b;
+  font-family: BentonSans-bold, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: black; }
+
 .o-ft-typography-heading-large {
   margin: 0 0 16px 0;
   padding: 8px 10px 7px 10px;
   border-top: 4px solid #a7a59b;
   border-bottom: 1px dotted #a7a59b;
   font-family: BentonSans-bold, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 14px;
   line-height: 20px;
   color: black; }
 
 .o-ft-typography-body-wrapper h2, .o-ft-typography-heading-medium {
   margin: 0 0 16px 0;
   font-family: BentonSans-bold, Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-weight: normal;
+  font-size: 13px;
   line-height: 20px;
   color: #333333;
-  text-shadow: 6px 0 4px #fff1e0;
+  text-shadow: 4px 0 2px #fff1e0, -4px 0 2px #fff1e0, 0 4px 2px #fff1e0, 0 -4px 2px #fff1e0, 2px 0 4px #fff1e0, -2px 0 4px #fff1e0, 0 2px 4px #fff1e0, 0 -2px 4px #fff1e0, 6px 0 1px #fff1e0;
   text-transform: uppercase;
   background-position: bottom right;
   background-repeat: no-repeat;
@@ -618,6 +639,7 @@ html, body {
 .o-ft-typography-body-wrapper h3, .o-ft-typography-heading-small {
   margin: 0 0 8px 0;
   font-family: BentonSans-bold, Helvetica, Arial, sans-serif;
+  font-weight: bold;
   font-size: 14px;
   line-height: 20px;
   color: #333333; }
@@ -634,6 +656,7 @@ html, body {
 /* Titles */
 .o-ft-typography-title-large {
   font-family: MillerDisplay-normal, Georgia, "Times New Roman", serif;
+  font-weight: normal;
   font-size: 30px;
   line-height: 36px;
   margin-top: -5px;
@@ -642,12 +665,14 @@ html, body {
 
 .o-ft-typography-title-medium {
   font-family: MillerDisplay-normal, Georgia, "Times New Roman", serif;
+  font-weight: normal;
   font-size: 21px;
   line-height: 26px;
   color: black; }
 
 .o-ft-typography-title-small {
   font-family: MillerDisplay-normal, Georgia, "Times New Roman", serif;
+  font-weight: bold;
   font-size: 15px;
   line-height: 17px;
   color: black; }
@@ -664,18 +689,21 @@ html, body {
 /* Leads */
 .o-ft-typography-lead-large {
   font-family: MillerDisplay-normal, Georgia, "Times New Roman", serif;
+  font-weight: normal;
   font-size: 21px;
   line-height: 26px;
   color: #505050; }
 
 .o-ft-typography-lead-medium {
   font-family: MillerDisplay-normal, Georgia, "Times New Roman", serif;
+  font-weight: normal;
   font-size: 17px;
   line-height: 21px;
   color: #777777; }
 
 .o-ft-typography-lead-small {
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
+  font-weight: normal;
   font-size: 13px;
   line-height: 17px;
   color: #505050; }
@@ -695,6 +723,7 @@ html, body {
   font-size: 12px;
   line-height: 14px;
   font-family: BentonSans-bold, Helvetica, Arial, sans-serif;
+  font-weight: bold;
   color: black; }
 
 .o-ft-typography-brand__link {
@@ -711,6 +740,7 @@ html, body {
   font-size: 14px;
   line-height: 24px;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
+  font-weight: normal;
   color: #74736c; }
 
 .o-ft-typography-timestamp {
@@ -718,14 +748,17 @@ html, body {
   font-size: 14px;
   line-height: 24px;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
+  font-weight: normal;
   color: #74736c; }
 
 /* Article subheadings */
 .o-ft-typography-article-body-wrapper h2, .o-ft-typography-article-subheading1 {
   margin-bottom: 15px;
+  padding: 5px 0;
   font-size: 16px;
-  line-height: 30px;
+  line-height: 20px;
   font-family: BentonSans-bold, Helvetica, Arial, sans-serif;
+  font-weight: bold;
   color: #333333;
   border-top: 1px dotted #74736c;
   border-bottom: 1px dotted #74736c; }
@@ -734,9 +767,11 @@ html, body {
 
 .o-ft-typography-article-body-wrapper h3, .o-ft-typography-article-subheading2 {
   margin-bottom: 15px;
+  padding: 5px 0;
   font-size: 16px;
-  line-height: 30px;
+  line-height: 20px;
   font-family: BentonSans-bold, Helvetica, Arial, sans-serif;
+  font-weight: bold;
   color: #333333; }
   .o-ft-typography-article-body-wrapper h3 + *, .o-ft-typography-article-subheading2 + * {
     margin-top: 0; }
@@ -753,6 +788,7 @@ html, body {
 /* Body lead */
 .o-ft-typography-body--lead {
   font-family: Helvetica, Arial, sans-serif;
+  font-weight: normal;
   font-size: 18px;
   line-height: 24px;
   color: #a7a59b;
@@ -763,6 +799,7 @@ html, body {
   border-bottom: 1px dotted #74736c;
   padding: 0 0 14px 0;
   font-family: Georgia, "Times New Roman", serif;
+  font-weight: normal;
   font-size: 21px;
   line-height: 27px;
   color: #333333; }
@@ -771,6 +808,7 @@ html, body {
 .o-ft-typography-body-wrapper ol,
 .o-ft-typography-body-wrapper ul, .o-ft-typography-body__list, .o-ft-typography-body-wrapper p, .o-ft-typography-body {
   font-family: Helvetica, Arial, sans-serif;
+  font-weight: normal;
   font-size: 14px;
   line-height: 20px;
   color: #333333; }
@@ -780,6 +818,7 @@ html, body {
   font-size: 16px;
   line-height: 24px;
   font-family: Georgia, "Times New Roman", serif;
+  font-weight: normal;
   color: #333333; }
 
 .o-ft-typography-article-body-wrapper h2, .o-ft-typography-article-subheading1, .o-ft-typography-article-body-wrapper h3, .o-ft-typography-article-subheading2, .o-ft-typography-body-wrapper ol,
@@ -827,7 +866,8 @@ html, body {
 .o-ft-typography-body-wrapper ol,
 .o-ft-typography-body-wrapper ul, .o-ft-typography-body__list {
   list-style-position: outside;
-  padding-left: 20px; }
+  padding-left: 20px;
+  font-weight: normal; }
 
 .o-ft-typography-article-body-wrapper ol,
 .o-ft-typography-article-body-wrapper ul, .o-ft-typography-article-body__list {
