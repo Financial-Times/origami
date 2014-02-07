@@ -1,29 +1,36 @@
 {
-  "name": "tracking-module",
+  "name": "o-tracking",
   "version": "0.0.1",
   "description": "Origami module for FT tracking.",
+  "main": "main.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
   "repository": {
     "type": "git",
     "url": "http://git.svc.ft.com:9080/git/origami/tracking-module.git"
   },
+  "author": "Mark Stephens <mark.stephens@ft.com>",
   "keywords": [
     "ft",
     "tracking"
   ],
-  "author": "Mark Stephens <mark.stephens@ft.com>",
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-jshint": "~0.7.2",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-umd": "~1.6.1",
-    "grunt-contrib-compass": "~0.7.0",
-    "browserify": "~3.14.0",
+    "grunt": "~0.4.2",
+    "browserify": "~3.24.6",
     "grunt-browserify": "~1.3.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-compass": "~0.7.1",
+    "grunt-contrib-uglify": "~0.3.2",
     "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-yuidoc": "~0.5.0",
-    "grunt-mocha": "~0.4.7"
+    "grunt-mocha": "~0.4.10"
   }
 }

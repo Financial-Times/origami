@@ -15,7 +15,7 @@
  *
  * Example
  * -------
- * <pre>Track.init({ environment: 'test' });</pre>
+ * <pre>Track.init({ environment: 'test', server: 'http://ftweb03299-lvpr-uk-d/' });</pre>
  *
  * @module Track
  * @main

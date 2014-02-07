@@ -4,11 +4,11 @@
  * @class Settings
  */
 
-/*global module*/
+/*global module */
+var settings = {};
+
 module.exports = (function () {
     "use strict";
-
-    var settings = {};
 
     function setValue(name, value) {
         settings[name] = value;

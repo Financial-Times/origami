@@ -10,14 +10,8 @@
 module.exports = (function (window, document) {
     "use strict";
 
-    /**
-     * Format of the page tracking request.
-     * @property format
-     * @final
-     * @type {String}
-     * @private
-     */
-    var format = 'pcrtgyuo',
+    var
+        Core = require("./core"),
 
         /**
          * Shared "internal" scope.
@@ -25,7 +19,7 @@ module.exports = (function (window, document) {
          * @type {Object}
          * @private
          */
-        settings = require("./core/settings"),
+            settings = require("./core/settings"),
         utils = require("./utils"),
 
         /**
@@ -47,13 +41,14 @@ module.exports = (function (window, document) {
          * @private
          */
             defaultPageConfig = {
+            type: 'page',
             url: document.URL,
             referrer: document.referrer,
 
-            co: window.screen.colorDepth,
-            sr: window.screen.width + 'x' + window.screen.height,
-            lt: (new Date()).toISOString(),
-            jv: (window.navigator.javaEnabled() ? '1' : '0'),
+            color: window.screen.colorDepth,
+            screen_res: window.screen.width + 'x' + window.screen.height,
+            local_time: (new Date()).toISOString(),
+            java: (window.navigator.javaEnabled() ? '1' : '0'),
 
             async: false // Send this tag syncronously
         };
@@ -97,23 +92,11 @@ module.exports = (function (window, document) {
      */
     return function (config, callback) {
         config = utils.merge(defaultPageConfig, config);
+        config.url = url(config.url);
 
         // New ClickID for a new Page.
-        module._Core.clickID();
-        module._Core.track({
-            async: config.async,
-            format: format,
-            values: {
-                p: url(config.url), // Page
-                // c: Cookie, set in Core later,
-                r: config.referrer, // Referrer
-                // t: Click ID, set in Core later.
-                g: utils.serialize(config, ['co', 'sr', 'lt', 'jv']),
-                y: 'page'
-                // u: Unique click ID, set in Core later,
-                // o: Internal counter, set in Core later
-            }
-        }, callback);
+        Core.clickID();
+        Core.track(config, callback);
 
         settings.page_sent = true;
     };

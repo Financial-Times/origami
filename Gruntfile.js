@@ -14,9 +14,9 @@ module.exports = function (grunt) {
 
             files : [
                 /*{
-                    location: "bower.json",
-                    regex: /("version"\s*:\s*["'])(\d\.\d\.\d)(["'])/
-                },*/
+                 location: "bower.json",
+                 regex: /("version"\s*:\s*["'])(\d\.\d\.\d)(["'])/
+                 },*/
                 {
                     location: "package.json",
                     regex: /("version"\s*:\s*["'])(\d\.\d\.\d)(["'])/
@@ -70,58 +70,6 @@ module.exports = function (grunt) {
 
         clean: ['<%=build_folder %>'],
 
-        concat: {
-            track: {
-                src: [
-                    'main.js',
-                    'src/javascript/utils.js',
-                    'src/javascript/core.js',
-                    'src/javascript/core/*.js',
-                    'src/javascript/**/*.js'
-                ],
-                dest: '<%=versioned_build_folder %>/track.<%=pkg.version %>.js'
-            }
-        },
-
-        umd: {
-            track: {
-                src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.js',
-                dest: '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.js', // optional, if missing the src will be used
-                //template: 'path/to/template.hbs', // optional; a template from templates subdir can be specified by name (e.g. 'umd');
-                // if missing the templates/umd.hbs file will be used
-                objectToExport: 'Track', // optional, internal object that will be exported
-                amdModuleId: 'track', // optional, if missing the AMD module will be anonymous
-                globalAlias: 'track' // optional, changes the name of the global variable
-            }
-        },
-
-        uglify: {
-            track: {
-                files: {
-                    '<%=versioned_build_folder %>/track.<%=pkg.version %>.min.js': '<%=versioned_build_folder %>/track.<%=pkg.version %>.js',
-                    //'<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.min.js': '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.js'
-                }
-            }
-        },
-
-        copy: {
-            track: {
-                files: [
-                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.js', dest: '<%=build_folder %>/track.latest.js' },
-                    // src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.js', dest: '<%=build_folder %>/track.latest.umd.js' },
-                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.min.js', dest: '<%=build_folder %>/track.latest.min.js' },
-                    //{ src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.min.js', dest: '<%=build_folder %>/track.latest.umd.min.js' }
-                ]
-            },
-            docs: {
-                files: [
-                    { src: 'main.js', dest: '<%=build_folder %>/docs/main.js' },
-                    { cwd: 'src/javascript/', src: '**/*.js', dest: '<%=build_folder %>/docs', expand: true }
-                ]
-            }
-        },
-
-        // Examples and Docs
         browserify: {
             'examples': {
                 files: {
@@ -141,6 +89,31 @@ module.exports = function (grunt) {
                 }
             }
         },
+
+        uglify: {
+            track: {
+                files: {
+                    '<%=versioned_build_folder %>/track.<%=pkg.version %>.min.js': '<%=versioned_build_folder %>/track.<%=pkg.version %>.js',
+                    //'<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.min.js': '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.js'
+                }
+            }
+        },
+
+        copy: {
+            track: {
+                files: [
+                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.js', dest: '<%=build_folder %>/track.latest.js' },
+                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.min.js', dest: '<%=build_folder %>/track.latest.min.js' }
+                ]
+            },
+            docs: {
+                files: [
+                    { src: 'main.js', dest: '<%=build_folder %>/docs/main.js' },
+                    { cwd: 'src/javascript/', src: '**/*.js', dest: '<%=build_folder %>/docs', expand: true }
+                ]
+            }
+        },
+
         compass: {
             examples: {
                 options: {
@@ -171,7 +144,7 @@ module.exports = function (grunt) {
         watch: {
             build: {
                 files: '<%=concat.track.src %>',
-                tasks: ['concat', 'umd', 'uglify', 'copy:track', 'docs'],
+                tasks: ['browserify:track', 'uglify', 'copy:track', 'docs'],
                 options: {
                     spawn: false
                 }
@@ -182,7 +155,6 @@ module.exports = function (grunt) {
                 options: {
                     spawn: false
                 }
-
             }
         },
 
@@ -191,7 +163,9 @@ module.exports = function (grunt) {
                 src: ['tests/**/*.html']
             },
             options: {
-                run: true
+                run: true,
+                logErrors: true,
+                log: true
             }
         }
     });
@@ -200,8 +174,6 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-umd');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -211,9 +183,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-mocha');
 
     grunt.registerTask('build', "Build", ['jshint', 'clean', 'browserify:track', 'uglify', 'copy:track']);
+    grunt.registerTask('test', "Test", ['mocha']);
     grunt.registerTask('examples', "Examples", ['browserify:examples', 'compass']);
     grunt.registerTask('docs', "Docs", ['copy:docs', 'yuidoc']);
-    grunt.registerTask('test', "Test", ['mocha']);
 
     grunt.registerTask('default', "Default.", ['build', 'test', 'examples', 'docs']);
 };

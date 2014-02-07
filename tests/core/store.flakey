@@ -10,33 +10,32 @@
 <body>
 <div id="mocha"></div>
 
-<script src="../../build/track.latest.min.js"></script>
-
 <!-- TEST -->
 <script>
-    /*global describe, it, chai */
-    var expect = chai.expect;
+    /*global require, describe, it, chai */
+    var Store = require("../../src/javascript/core/store"),
+        expect = chai.expect;
 
     describe('Store', function () {
 
         describe('init()', function () {
 
             it('should use local storage by default', function () {
-                expect((new Track._Core.Store('test')).storage._type).to.equal('localStorage');
+                expect((new Store('test')).storage._type).to.equal('localStorage');
             });
 
             if (document.location.toString().match('^file://') && navigator.userAgent.indexOf('PhantomJS') < 0) {
                 it('should still work if there is no storage mechanism available', function () {
-                    expect((new Track._Core.Store('test', { storage: 'cookie' })).storage._type).to.equal('none');
+                    expect((new Store('test', { storage: 'cookie' })).storage._type).to.equal('none');
                 });
             } else {
                 it('can use cookies for storage', function () {
-                    expect((new Track._Core.Store('test', { storage: 'cookie' })).storage._type).to.equal('cookie');
+                    expect((new Store('test', { storage: 'cookie' })).storage._type).to.equal('cookie');
                 });
             }
         });
 
-        var store = new Track._Core.Store('test');
+        var store = new Store('test');
 
         describe('write()', function () {
             it('should save a value', function () {

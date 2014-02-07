@@ -172,7 +172,7 @@
             "tag": "module",
             "file": "build/docs/utils.js",
             "line": 1,
-            "description": "Origami tracking module.\n========================\nFrom this specification: https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing\n\nFeatures\n--------\n* Use AJAX instead of image requests\n* Bundle requests TODO\n* Handle offline\n* Use storage methods other than cookies\n* Make the API cleaner and easier to use\n* Origami module\n* Use a single configuration object\n\nExample\n-------\n<pre>Track.init({ environment: 'test' });</pre>",
+            "description": "Origami tracking module.\n========================\nFrom this specification: https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing\n\nFeatures\n--------\n* Use AJAX instead of image requests\n* Bundle requests TODO\n* Handle offline\n* Use storage methods other than cookies\n* Make the API cleaner and easier to use\n* Origami module\n* Use a single configuration object\n\nExample\n-------\n<pre>Track.init({ environment: 'test', server: 'http://ftweb03299-lvpr-uk-d/' });</pre>",
             "itemtype": "main",
             "static": 1,
             "type": "{*}"
@@ -326,7 +326,7 @@
             "namespace": "",
             "file": "build/docs/main.js",
             "line": 1,
-            "description": "Origami tracking module.\n========================\nFrom this specification: https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing\n\nFeatures\n--------\n* Use AJAX instead of image requests\n* Bundle requests TODO\n* Handle offline\n* Use storage methods other than cookies\n* Make the API cleaner and easier to use\n* Origami module\n* Use a single configuration object\n\nExample\n-------\n<pre>Track.init({ environment: 'test' });</pre>",
+            "description": "Origami tracking module.\n========================\nFrom this specification: https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing\n\nFeatures\n--------\n* Use AJAX instead of image requests\n* Bundle requests TODO\n* Handle offline\n* Use storage methods other than cookies\n* Make the API cleaner and easier to use\n* Origami module\n* Use a single configuration object\n\nExample\n-------\n<pre>Track.init({ environment: 'test', server: 'http://ftweb03299-lvpr-uk-d/' });</pre>",
             "mainName": "The Track object.",
             "tag": "main",
             "itemtype": "main",
@@ -502,11 +502,10 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 23,
-            "description": "iJento production server.",
+            "line": 24,
+            "description": "Tracking collection server.",
             "itemtype": "property",
-            "name": "iJentoProdServer",
-            "final": 1,
+            "name": "domain",
             "access": "private",
             "tagname": "",
             "class": "Track._Core.Send",
@@ -515,33 +514,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 30,
-            "description": "iJento test server.",
-            "itemtype": "property",
-            "name": "iJentoProdServer",
-            "final": 1,
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/core/send.js",
-            "line": 37,
-            "description": "iJento image path.",
-            "itemtype": "property",
-            "name": "trackerUrl",
-            "final": 1,
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/core/send.js",
-            "line": 45,
+            "line": 31,
             "description": "Queue queue.",
             "itemtype": "property",
             "name": "queue",
@@ -553,7 +526,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 51,
+            "line": 37,
             "description": "Requests being sent right now.",
             "itemtype": "property",
             "name": "currentRequests",
@@ -565,7 +538,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 117,
+            "line": 44,
             "description": "Marks a request as current.",
             "itemtype": "method",
             "name": "started",
@@ -584,7 +557,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 127,
+            "line": 54,
             "description": "Marks a request as no longer current.",
             "itemtype": "method",
             "name": "finished",
@@ -603,7 +576,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 137,
+            "line": 64,
             "description": "Marks a request as no longer current and removes it from the queue.",
             "itemtype": "method",
             "name": "success",
@@ -622,105 +595,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 158,
-            "description": "Generates an Adler 32 checksum of the input data.",
-            "itemtype": "method",
-            "name": "generateChecksum",
-            "params": [
-                {
-                    "name": "input",
-                    "description": "The input string.",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "The checksum.",
-                "type": "String"
-            },
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/core/send.js",
-            "line": 184,
-            "description": "Encodes a given input string in base64.",
-            "itemtype": "method",
-            "name": "encodeString",
-            "params": [
-                {
-                    "name": "input",
-                    "description": "The string to encode.",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "The base64-encoded value of the input string.",
-                "type": "String"
-            },
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/core/send.js",
-            "line": 224,
-            "description": "Encode the values into an iJento string.",
-            "itemtype": "method",
-            "name": "encodeDetails",
-            "params": [
-                {
-                    "name": "format",
-                    "description": "The format (or ordering) of the values.",
-                    "type": "String"
-                },
-                {
-                    "name": "values",
-                    "description": "The values to encode.",
-                    "type": "Object"
-                }
-            ],
-            "return": {
-                "description": "The encoded string.",
-                "type": "String"
-            },
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/core/send.js",
-            "line": 245,
-            "description": "Get the tracking pixel url for the chosen environment.",
-            "itemtype": "method",
-            "name": "taggingServer",
-            "params": [
-                {
-                    "name": "environment",
-                    "description": "The environment. Either <code>production</code> or <code>test</code>.",
-                    "type": "String",
-                    "optional": true
-                }
-            ],
-            "return": {
-                "description": "Host and path of the iJento tracking pixel.",
-                "type": "String"
-            },
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Send",
-            "module": "_Core",
-            "submodule": "Send"
-        },
-        {
-            "file": "build/docs/core/send.js",
-            "line": 256,
+            "line": 85,
             "description": "Attempts to send a tracking request.",
             "itemtype": "method",
             "name": "sendRequest",
@@ -745,7 +620,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 324,
+            "line": 162,
             "description": "Adds a new request to the list of pending requests",
             "itemtype": "method",
             "name": "add",
@@ -761,7 +636,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 339,
+            "line": 177,
             "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
             "itemtype": "method",
             "name": "run",
@@ -771,7 +646,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 355,
+            "line": 193,
             "description": "Convenience function to add and run a request all in one go.",
             "itemtype": "method",
             "name": "addAndRun",
@@ -788,7 +663,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 365,
+            "line": 203,
             "description": "Init the queue and send any leftover tags.",
             "itemtype": "method",
             "name": "init",
@@ -906,7 +781,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 13,
+            "line": 16,
             "description": "Shared \"internal\" scope.",
             "itemtype": "property",
             "name": "_self",
@@ -919,7 +794,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 21,
+            "line": 24,
             "description": "Default properties for sending a tracking request.",
             "itemtype": "property",
             "name": "defaultConfig",
@@ -935,7 +810,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 39,
+            "line": 42,
             "description": "Generate and store a new ClickID.",
             "itemtype": "method",
             "name": "clickID",
@@ -956,7 +831,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 53,
+            "line": 56,
             "description": "Create a requestID (unique identifier) for the page impression.",
             "itemtype": "method",
             "name": "requestID",
@@ -979,7 +854,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 68,
+            "line": 71,
             "description": "Count of the number of tracking requests made.",
             "itemtype": "method",
             "name": "internalCounter",
@@ -995,7 +870,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 79,
+            "line": 82,
             "description": "Make a tracking request.",
             "itemtype": "method",
             "name": "track",
@@ -1093,21 +968,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 13,
-            "description": "Format of the page tracking request.",
-            "itemtype": "property",
-            "name": "format",
-            "final": 1,
-            "type": "{String}",
-            "access": "private",
-            "tagname": "",
-            "class": "Track.page",
-            "module": "Track",
-            "submodule": "page"
-        },
-        {
-            "file": "build/docs/page.js",
-            "line": 22,
+            "line": 16,
             "description": "Shared \"internal\" scope.",
             "itemtype": "property",
             "name": "_self",
@@ -1120,7 +981,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 31,
+            "line": 25,
             "description": "Default properties for page tracking requests.",
             "example": [
                 "\n        {\n        url: document.URL,\n        referrer: document.referrer,\n\n        co: window.screen.colorDepth,\n        sr: window.screen.width + 'x' + window.screen.height,\n        lt: (new Date()).toISOString(),\n        jv: (window.navigator.javaEnabled() ? '1' : '0'),\n\n        async: false // Send this tag syncronously\n        }"
@@ -1136,7 +997,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 61,
+            "line": 56,
             "description": "Constructs a URL in the format required by iJento, allowing different inputs.",
             "itemtype": "method",
             "name": "url",
@@ -1159,7 +1020,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 91,
+            "line": 86,
             "description": "Make the page tracking request.",
             "itemtype": "method",
             "name": "page",

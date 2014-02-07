@@ -20,27 +20,13 @@ module.exports = (function (window) {
     var settings = require("./settings"),
         utils = require("../utils"),
         Queue = require("./queue"),
+
         /**
-         * iJento production server.
-         * @property iJentoProdServer
-         * @final
+         * Tracking collection server.
+         * @property domain
          * @private
          */
-            iJentoProdServer = 'http://stats.ft.com',
-        /**
-         * iJento test server.
-         * @property iJentoProdServer
-         * @final
-         * @private
-         */
-            iJentoTestServer = 'http://statstest.ft.com',
-        /**
-         * iJento image path.
-         * @property trackerUrl
-         * @final
-         * @private
-         */
-            iJentoPath = "/si/track.gif",
+            domain = "http://track.ft.com",
 
         /**
          * Queue queue.
@@ -53,66 +39,7 @@ module.exports = (function (window) {
          * @property currentRequests
          * @private
          */
-            currentRequests = {},
-
-    // TODO
-        transmitter = (function () {
-            var xmlHttp,
-                image;
-
-            try {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlHttp = new window.XMLHttpRequest();
-            } catch (e) {
-                // code for IE6, IE5
-                try {
-                    xmlHttp = new window.ActiveXObject("Microsoft.XMLHttp");
-                } catch (ee) {}
-            }
-
-            if (xmlHttp) {
-                return function (domain, path, async, callback) {
-                    if (async) {
-                        xmlHttp.onreadystatechange = function () {
-                            if (xmlHttp.readyState === 4) {
-                                callback.call(xmlHttp);
-                            }
-                        };
-                    }
-
-                    xmlHttp.onerror = function () { callback.call(xmlHttp); };
-
-                    // Both developer and noSend flags have to be set to stop the request sending.
-                    if (!(settings.get('developer') && settings.get('noSend'))) {
-                        xmlHttp.open("POST", domain, async);
-                        xmlHttp.send(path);
-                    }
-
-                    if (!async) {
-                        callback.call(xmlHttp);
-                    }
-                };
-            }
-
-            // TODO imagetag
-            image = new window.Image();
-
-            return function (domain, path, async, callback) {
-                if (async) {
-                    image.onreadystatechange(function () {
-                        callback.call(image);
-                    });
-                }
-
-                if (!(settings.get('developer') && settings.get('noSend'))) {
-                    image.src = domain + path;
-                }
-
-                if (!async) {
-                    callback.call(image);
-                }
-            };
-        }());
+            currentRequests = {};
 
     /**
      * Marks a request as current.
@@ -156,104 +83,6 @@ module.exports = (function (window) {
     }
 
     /**
-     * Generates an Adler 32 checksum of the input data.
-     * @method generateChecksum
-     * @param input {String} The input string.
-     * @return {String} The checksum.
-     * @private
-     */
-    function generateChecksum(input) {
-        var a = 1,
-            b = 0,
-            i,
-            chk;
-
-        for (i = 0; i < input.length; i = i + 1) {
-            a += input.charCodeAt(i);
-            b += a;
-        }
-
-        // A and B must be modulo 65521 (the largest prime number smaller than 2^16)
-        a %= 65521;
-        b %= 65521;
-
-        chk = (b * 65536) + a;
-        return chk.toString(16);
-    }
-
-    /**
-     * Encodes a given input string in base64.
-     * @method encodeString
-     * @param input {String} The string to encode.
-     * @return {String} The base64-encoded value of the input string.
-     * @private
-     */
-    function encodeString(input) {
-        if (!input) {
-            return '';
-        }
-
-        try {
-            return window.btoa(utils.unencode(utils.encode(input)));
-        } catch (error) {
-            var TRANS_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
-                output = [],
-                i,
-                numBytesLeft,
-                value;
-            /* jshint -W016 */
-            /* jslint bitwise:false */
-            for (i = 0; i < input.length; i += 3) {
-                numBytesLeft = input.length - i;
-                value = 0;
-                value = (input.charCodeAt(i) << 16) & 0x00ff0000;
-                value |= (numBytesLeft > 1) ? (input.charCodeAt(i + 1) << 8) & 0x0000ff00 : 0;
-                value |= (numBytesLeft > 2) ? input.charCodeAt(i + 2) & 0x000000ff : 0;
-
-                output.push(TRANS_CHARS.charAt((value & 0x00fC0000) >> 18));
-                output.push(TRANS_CHARS.charAt((value & 0x0003f000) >> 12));
-                output.push((numBytesLeft > 1) ? TRANS_CHARS.charAt((value & 0x00000fc0) >> 6) : '_');
-                output.push((numBytesLeft > 2) ? TRANS_CHARS.charAt((value & 0x0000003f)) : '_');
-            }
-            /* jshint +W016 */
-            /* jslint bitwise:true */
-            return output.join('');
-        }
-    }
-
-    /**
-     * Encode the values into an iJento string.
-     * @method encodeDetails
-     * @param format {String} The format (or ordering) of the values.
-     * @param values {Object} The values to encode.
-     * @return {String} The encoded string.
-     * @private
-     */
-    function encodeDetails(format, values) {
-        format = format.split('');
-
-        var i,
-            output = [];
-
-        for (i = 0; i < format.length; i = i + 1) {
-            output.push(encodeString(values[format[i]]));
-        }
-
-        return output.join('*')  + "*";
-    }
-
-    /**
-     * Get the tracking pixel url for the chosen environment.
-     * @method taggingServer
-     * @param [environment] {String} The environment. Either <code>production</code> or <code>test</code>.
-     * @return {String} Host and path of the iJento tracking pixel.
-     * @private
-     */
-    function taggingServer(environment) {
-        return (environment === 'production' ? iJentoProdServer : iJentoTestServer) + iJentoPath;
-    }
-
-    /**
      * Attempts to send a tracking request.
      * @method sendRequest
      * @param request {Object} The request to be sent.
@@ -284,18 +113,13 @@ module.exports = (function (window) {
          *  }
          */
         var offlineLag = (new Date()).getTime() - request.queueTime,
-            query,
-            checksum,
-            path;
+            path,
+            xmlHttp = new window.XMLHttpRequest();
 
         // Only bothered about offlineLag if it's longer than a second, but less than a month. (Especially as Date can be dodgy)
         if (offlineLag > 1000 && offlineLag < (31 * 24 * 60 * 60 * 1000)) {
-            request.offlineLag = offlineLag; // TODO
-            request.values.p += (request.values.p.indexOf('?') === -1 ? '?' : '&') + 'offlineLag=' + offlineLag;
+            request.offlineLag = offlineLag;
         }
-
-        query = "f=" + request.format + "&d=" + encodeDetails(request.format, request.values);
-        checksum = "&c=" + generateChecksum(query);
 
         function requestFinished(xmlHttp) {
             if (utils.is(request.callback, 'function')) {
@@ -312,13 +136,27 @@ module.exports = (function (window) {
 
         started(request.requestID);
 
-        path = [query, checksum].join('');
+        path = utils.serialize(request);
 
-        if (settings.get('developer')) {
-            utils.log(taggingServer(request.environment) + '?' + path);
+        if (request.async) {
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState === 4) {
+                    requestFinished(xmlHttp);
+                }
+            };
         }
 
-        transmitter(taggingServer(request.environment), path, request.async, requestFinished);
+        xmlHttp.onerror = function () { callback.call(xmlHttp); };
+
+        // Both developer and noSend flags have to be set to stop the request sending.
+        if (!(settings.get('developer') && settings.get('noSend'))) {
+            xmlHttp.open("POST", domain, request.async);
+            xmlHttp.send(path);
+        }
+
+        if (!request.async) {
+            requestFinished(xmlHttp);
+        }
     }
 
     /**
@@ -369,6 +207,9 @@ module.exports = (function (window) {
      */
     function init() {
         queue = new Queue('requests');
+        if (settings.get('config') && settings.get('config').server) {
+            domain = settings.get('config').server;
+        }
 
         // If any tracking calls are made whilst offline, try sending them the next time the device comes online
         if (window.addEventListener) {

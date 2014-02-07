@@ -126,13 +126,16 @@
 module.exports = (function (window, document) {
     &quot;use strict&quot;;
 
-    /**
-     * Shared &quot;internal&quot; scope.
-     * @property _self
-     * @type {Object}
-     * @private
-     */
-    var settings = require(&quot;./core/settings&quot;),
+
+    var
+        Send = require(&quot;./core/send&quot;),
+        /**
+         * Shared &quot;internal&quot; scope.
+         * @property _self
+         * @type {Object}
+         * @private
+         */
+        settings = require(&quot;./core/settings&quot;),
         utils = require(&quot;./utils&quot;),
         /**
          * Default properties for sending a tracking request.
@@ -209,16 +212,16 @@ module.exports = (function (window, document) {
         // Used for the queue
         request.requestID = requestID();
         // Values for the request
-        request.values = utils.merge({
-            c: &#x27;&#x27;,
-            t: request.clickID,
-            u: request.requestID,
-            o: internalCounter()
-        }, request.values);
+        request = utils.merge({
+            cookie: &#x27;&#x27;,
+            clickID: request.clickID,
+            requestID: request.requestID,
+            counter: internalCounter()
+        }, request);
 
         utils.log(request);
 
-        parent._Core.Send.addAndRun(request);
+        Send.addAndRun(request);
     }
 
     return {

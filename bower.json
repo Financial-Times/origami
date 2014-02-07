@@ -1,5 +1,5 @@
 {
-  "name": "tracking-module",
+  "name": "o-tracking",
   "main": [
     "main.js"
   ],
@@ -23,6 +23,7 @@
   ],
   "private": true,
   "devDependencies": {
+    "o-techdocs": "https://github.com/Financial-Times/o-techdocs.git#0.0.3",
     "jquery": "2.0.x"
   }
 }
