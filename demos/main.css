@@ -1,7 +1,3 @@
-/**
-
-
-**/
 /*
 	This mixin allows ie7 and 8 to be targeted using either
 	* specific classes for each of ie7 and ie8
@@ -571,11 +567,15 @@ html, body {
 /**
  * Colour use cases
  *
- * These mappings define what we use our colours for.  In the list below, each line contains a use case, a color name and a role, and is finished with a comma:
+ * These mappings define what we use our colours for.  In the list below, each line contains a use case, a color name, a role, an optional status flag, and is finished with a comma:
  *
- *  <use case>   <colorname>   <role>,
+ *  <use case>   <colorname>   <role>   [<status>],
  *
- * The use case name must be a single word comprising just letters, numbers, and dashes.  The colour name should be an exact match for a colour defiend in palette.scss, and the role must be 'text', 'border', or 'background'.   You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ * The use case name must be a single word comprising just letters, numbers, and dashes.  
+ * The colour name should be an exact match for a colour defiend in palette.scss
+ * The role must be 'text', 'border', or 'background'.   
+ * The status must be 'DEPRECATED' or absent
+ * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
  */
 /* Load fonts */
 @font-face {
@@ -791,7 +791,7 @@ html, body {
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
-  color: #a7a59b;
+  color: #505050;
   -webkit-font-smoothing: antialiased; }
 
 .o-ft-typography-article-body--lead {
