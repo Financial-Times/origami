@@ -1,0 +1,21 @@
+{
+    "name": "o-ft-buttons",
+    "main": ["main.scss"],
+    "ignore": [
+        "README.md",
+        "demos",
+        "demo.mustache",
+        "demo.scss",
+        "Gruntfile.js",
+        "package.json",
+        ".travis.yml",
+        "test"
+    ],
+    "dependencies": {
+        "o-fonts": "https://github.com/Financial-Times/o-fonts.git#>=0.6.0",
+        "o-colors": "https://github.com/Financial-Times/o-colors.git#2.1.4"
+    },
+    "devDependencies": {
+        "o-grid": "https://github.com/Financial-Times/o-grid.git#2.0.4"
+    }
+}

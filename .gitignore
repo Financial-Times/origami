@@ -1,0 +1,5 @@
+.idea/
+.sass-cache/
+bower_components/
+node_modules/
+origami-templates/

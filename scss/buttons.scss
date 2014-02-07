@@ -1,0 +1,76 @@
+@include oFtButtonClass(__button) {
+  @include boxSizing(border-box);
+  display: inline-block;
+  margin: 0 10px $_o-ft-buttons-marginbottom 0;
+  padding: 0 8px;
+  border-width: 0;
+  border-radius: $_o-ft-buttons-buttonradius;
+  width: auto;
+  @include backgroundGradientVertical(#4e8fbd, #549ccf, #4782ab);
+  font-family: $o-fonts-bentonsans-normal;
+  color: oColorsGetColorFor(forms-button-text);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+@include oFtButtonClass(__buttongroup) {
+  overflow: hidden;
+
+  @include oFtButtonClass(__button) {
+    float: left;
+    margin-right: 1px;
+    border-radius: 0;
+  }
+
+  @include oFtButtonClass("__button:first-child") {
+    border-top-left-radius: $_o-ft-buttons-buttonradius;
+    border-bottom-left-radius: $_o-ft-buttons-buttonradius;
+  }
+
+  @include oFtButtonClass("__button:last-child") {
+    border-top-right-radius: $_o-ft-buttons-buttonradius;
+    border-bottom-right-radius: $_o-ft-buttons-buttonradius;
+  }
+}
+
+@include oFtButtonClass("__button:hover") {
+  color: oColorsGetColorFor(forms-button-hover-text);
+}
+
+@include oFtButtonClass(__button--large) {
+  height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
+  line-height: 30px;
+  font-size: 16px;
+}
+
+@include oFtButtonClass(__button--medium) {
+  height: 24px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
+  line-height: 24px;
+  font-size: 14px;
+}
+
+@include oFtButtonClass(__button--small) {
+  height: 16px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
+  line-height: 16px;
+  font-size: $_o-ft-buttons-fontsize-field;
+}
+
+@include oFtButtonClass(__button--negative) {
+  padding: 0;
+  color: oColorsGetColorFor(forms-button-negative-text);
+  background: transparent;
+}
+
+@include oFtButtonClass("__button--disabled" "__button[disabled]") {
+  opacity: 0.5;
+  cursor: default;
+}
+
+@include oFtButtonClass("__button--disabled:hover" "__button[disabled]:hover") {
+  color: #fff;
+}
+
+@include oFtButtonClass("__button--negative:hover") {
+  color: oColorsGetColorFor(forms-button-negative-hover-text);
+}

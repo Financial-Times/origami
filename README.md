@@ -1,6 +1,8 @@
-o-ft-buttons
+o-ft-buttons [![Build Status](https://travis-ci.org/Financial-Times/o-ft-buttons.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-buttons)
 ============
 
-Placeholder for Origami module awaiting implementation.
+Will contain standard FT-branded buttons.
 
-This buttons module will be separate to the [forms module](https://github.com/Financial-Times/o-ft-forms) as buttons may be used on their own.
+This buttons module will become a dependency of [forms module](https://github.com/Financial-Times/o-ft-forms).
+
+This module is marked as _not implemented_ as it is awaiting Design direction.

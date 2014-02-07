@@ -1,0 +1,8 @@
+{
+    "name": "o-ft-buttons",
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-origami-demoer": "~0.1.8",
+        "grunt-contrib-watch": "~0.5.3"
+    }
+}

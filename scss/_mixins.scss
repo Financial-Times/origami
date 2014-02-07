@@ -1,0 +1,25 @@
+@mixin oFtButtonClass($classes) {
+  $aggregatedSelector: ();
+  @each $class in $classes {
+    $aggregatedSelector: append($aggregatedSelector, #{'%#{$_o-ft-buttons-prefix}#{$class}'}, comma);
+    @if (not $o-ft-buttons-is-silent) {
+      $aggregatedSelector: append($aggregatedSelector, #{'.#{$_o-ft-buttons-prefix}#{$class}'}, comma);
+    }
+  }
+  #{$aggregatedSelector} {
+    @content;
+  }
+}
+
+@mixin backgroundGradientVertical($solid, $top, $bottom) {
+  background: $solid;
+  background: -webkit-gradient(linear, left top, left bottom, from($top), to($bottom));
+  background: -moz-linear-gradient($top, $bottom);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$top},  endColorstr=#{$bottom})";
+}
+
+@mixin boxSizing($value) {
+  -webkit-box-sizing: $value;
+  -moz-box-sizing: $value;
+  box-sizing: $value;
+}
