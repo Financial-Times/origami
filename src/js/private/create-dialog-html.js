@@ -1,7 +1,7 @@
 "use strict";
 
 var $ = require('jquery'),
-    closeDialog = require('../public/close-dialog')
+    closeDialog = require('../public/close-dialog'),
     
     globalListenersApplied = false,
 
