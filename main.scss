@@ -91,6 +91,7 @@
 	text-align: right;
 	overflow: hidden;
 	height: 50px;
+	float: right;
 }
 
 $o-ft-header-topbar-item-selector: #{'%o-ft-header__topbar__item'};
@@ -107,13 +108,13 @@ $o-ft-header-topbar-item-active-selector: #{'%o-ft-header__topbar__item--active'
 }
 
 #{$o-ft-header-topbar-item-selector} {
-	display: inline-block;
+	float: left;
 	min-width: 50px;
 	height: 50px;
 	text-align: center;
 	color: oColorsGetColorFor(header-item-text);
 	background-color: oColorsGetColorFor(header-item-background);
-	border-left: 1px solid oColorsGetColorFor(header-item-border);
+	border-right: 1px solid oColorsGetColorFor(header-item-border);
 	font-family: $o-fonts-bentonsans-normal;
 	font-size: 25px;
 	line-height: 50px;
@@ -121,14 +122,15 @@ $o-ft-header-topbar-item-active-selector: #{'%o-ft-header__topbar__item--active'
 
 	#{$o-hoverable-if-hover-enabled} &:hover {
 		@include _oFtHeaderItemActiveStyles();
+	}		
+	&:first-child {
+		border-left: 1px solid oColorsGetColorFor(header-item-border);
 	}
 }
 
-@include oGridRespondTo(L XL) {
-	#{$o-ft-header-topbar-item-selector} {
-		&:last-child {
-			border-right: 1px solid oColorsGetColorFor(header-item-border);
-		}
+@include oGridRespondTo(S M) {
+	.o-ft-header__topbar__items {
+		border-right: none;
 	}
 }
 

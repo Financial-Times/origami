@@ -2,10 +2,6 @@ html, body {
   margin: 0;
   padding: 0; }
 
-/**
-
-
-**/
 /*
 	This mixin allows ie7 and 8 to be targeted using either
 	* specific classes for each of ie7 and ie8
@@ -155,11 +151,15 @@ html, body {
 /**
  * Colour use cases
  *
- * These mappings define what we use our colours for.  In the list below, each line contains a use case, a color name and a role, and is finished with a comma:
+ * These mappings define what we use our colours for.  In the list below, each line contains a use case, a color name, a role, an optional status flag, and is finished with a comma:
  *
- *  <use case>   <colorname>   <role>,
+ *  <use case>   <colorname>   <role>   [<status>],
  *
- * The use case name must be a single word comprising just letters, numbers, and dashes.  The colour name should be an exact match for a colour defiend in palette.scss, and the role must be 'text', 'border', or 'background'.   You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ * The use case name must be a single word comprising just letters, numbers, and dashes.  
+ * The colour name should be an exact match for a colour defiend in palette.scss
+ * The role must be 'text', 'border', or 'background'.   
+ * The status must be 'DEPRECATED' or absent
+ * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
  */
 /* Load fonts */
 @font-face {
@@ -241,16 +241,17 @@ html, body {
 .o-ft-header__topbar__items {
   text-align: right;
   overflow: hidden;
-  height: 50px; }
+  height: 50px;
+  float: right; }
 
 .o-ft-header__topbar__item {
-  display: inline-block;
+  float: left;
   min-width: 50px;
   height: 50px;
   text-align: center;
   color: white;
   background-color: #333333;
-  border-left: 1px solid #505050;
+  border-right: 1px solid #505050;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
   font-size: 25px;
   line-height: 50px;
@@ -258,16 +259,15 @@ html, body {
   .o-hoverable-on .o-ft-header__topbar__item:hover {
     color: #2e6e9e;
     background-color: #e9decf; }
+  .o-ft-header__topbar__item:first-child {
+    border-left: 1px solid #505050; }
 
-@media screen and (min-width: 1001px) and (max-width: 1400px) {
-  .o-ft-header__topbar__item:last-child {
-    border-right: 1px solid #505050; } }
-.o-useragent-ie7 .o-ft-header__topbar__item:last-child, .o-useragent-ie8 .o-ft-header__topbar__item:last-child {
-  border-right: 1px solid #505050; }
-
-@media screen and (min-width: 1401px) {
-  .o-ft-header__topbar__item:last-child {
-    border-right: 1px solid #505050; } }
+@media screen and (max-width: 600px) {
+  .o-ft-header__topbar__items {
+    border-right: none; } }
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+  .o-ft-header__topbar__items {
+    border-right: none; } }
 .o-ft-header__topbar__item--active {
   color: #2e6e9e;
   background-color: #e9decf; }
