@@ -1,2 +1,3 @@
-/.sass-cache/
-/build/
+.idea/
+.sass-cache/
+test/output/

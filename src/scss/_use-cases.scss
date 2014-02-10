@@ -61,20 +61,27 @@ $o-colors-usecase-list:
     pearson                       tint2             background,
     pearson                       warm-grey2        text,
 
-    // Forms (o-ft-forms)
+    // Forms
     forms-label                   cool-grey1        text,
     forms-label-error             red               text,
     forms-label-error             red               background,
+    forms-label-error             red               border,
     forms-field                   warm-grey2        text,
     forms-field                   tint3             border,
     forms-prefixsuffix            warm-grey2        text,
     forms-prefixsuffix            tint1             background,
-    forms-button                  white             text,
-    forms-button-hover            cool-grey2        text,
-    forms-button-negative         blue              text,
-    forms-button-negative-hover   blue              text,
     forms-error                   white             text,
     forms-error                   red               background,
+    forms-button                  white             text        DEPRECATED,
+    forms-button-hover            cool-grey2        text        DEPRECATED,
+    forms-button-negative         blue              text        DEPRECATED,
+    forms-button-negative-hover   blue              text        DEPRECATED,
+
+    // Buttons
+    button                        white             text,
+    button-hover                  cool-grey2        text,
+    button-negative               blue              text,
+    button-negative-hover         blue              text,
 
     // Tech docs
     block-code-sample             tint1             background,
