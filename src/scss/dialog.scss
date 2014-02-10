@@ -137,7 +137,7 @@
 .o-dialog__overlay {
   background: url(oAssetsUse('img/overlay-bg.png', 'o-dialog'));
   position:fixed;
-  height: 100%;
+  height: 150%; // because on some phones scrolling upwards detaches a 100% height overlay from the bottom of the screen
   width: 100%;
   top: 0;
   z-index: 1;
