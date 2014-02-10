@@ -3,10 +3,10 @@
 		$_o-ft-icons-font-face-already-output: true;
 		@font-face {
 			font-family: $_o-ft-icons-font-name;
-			src: url(oAssetsUse($_o-ft-icons-font-name + ".eot"));
-			src: url(oAssetsUse($_o-ft-icons-font-name + ".eot?#iefix")) format("embedded-opentype"),
-				 url(oAssetsUse($_o-ft-icons-font-name + ".woff")) format("woff"),
-				 url(oAssetsUse($_o-ft-icons-font-name + ".ttf")) format("truetype");
+			src: url(oAssetsUse("build/" + $_o-ft-icons-font-name + ".eot", $o-ft-icons-assets-path, $o-ft-icons-version));
+			src: url(oAssetsUse("build/" + $_o-ft-icons-font-name + ".eot?#iefix", $o-ft-icons-assets-path, $o-ft-icons-version)) format("embedded-opentype"),
+				 url(oAssetsUse("build/" + $_o-ft-icons-font-name + ".woff", $o-ft-icons-assets-path, $o-ft-icons-version)) format("woff"),
+				 url(oAssetsUse("build/" + $_o-ft-icons-font-name + ".ttf", $o-ft-icons-assets-path, $o-ft-icons-version)) format("truetype");
 			font-weight:normal;
 			font-style:normal;
 		}
