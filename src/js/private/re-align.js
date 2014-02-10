@@ -28,7 +28,11 @@ module.exports = function (dimension, dialog) {
         capitalisedOtherDimension = otherDimension.charAt(0).toUpperCase() + otherDimension.substr(1);
 
     if (dialog.opts['snapsToFull' + capitalisedDimension]) {
-        if (globals.win[dimension]() <= dialog[dimension]) {
+        // for ios7 only win.innerHeight provides the correct value when the browser chrome is present
+        // need to use the jQuery method as a fallback as <ie9 don't support the property
+        var winDimension = globals.win[0]['inner' + capitalisedDimension] || globals.win['inner' + capitalisedDimension]();
+        
+        if (globals.win[0]['inner' + capitalisedDimension] <= dialog[dimension]) {
             dialog['isFull' + capitalisedDimension] = true;
             dialog.wrapper.addClass('o-dialog--full-' + dimension);
             if (!globals.isFlexbox) {
