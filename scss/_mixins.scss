@@ -11,14 +11,14 @@
   }
 }
 
-@mixin backgroundGradientVertical($solid, $top, $bottom) {
+@mixin oFtBackgroundGradientVertical($solid, $top, $bottom) {
   background: $solid;
   background: -webkit-gradient(linear, left top, left bottom, from($top), to($bottom));
   background: -moz-linear-gradient($top, $bottom);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$top},  endColorstr=#{$bottom})";
 }
 
-@mixin boxSizing($value) {
+@mixin oFtBoxSizing($value) {
   -webkit-box-sizing: $value;
   -moz-box-sizing: $value;
   box-sizing: $value;

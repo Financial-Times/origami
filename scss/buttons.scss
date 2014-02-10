@@ -1,14 +1,14 @@
 @include oFtButtonClass(__button) {
-  @include boxSizing(border-box);
+  @include oFtBoxSizing(border-box);
   display: inline-block;
   margin: 0 10px $_o-ft-buttons-marginbottom 0;
   padding: 0 8px;
   border-width: 0;
   border-radius: $_o-ft-buttons-buttonradius;
   width: auto;
-  @include backgroundGradientVertical(#4e8fbd, #549ccf, #4782ab);
+  @include oFtBackgroundGradientVertical(#4e8fbd, #549ccf, #4782ab);
   font-family: $o-fonts-bentonsans-normal;
-  color: oColorsGetColorFor(forms-button-text);
+  color: oColorsGetColorFor(button-text);
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
@@ -35,7 +35,7 @@
 }
 
 @include oFtButtonClass("__button:hover") {
-  color: oColorsGetColorFor(forms-button-hover-text);
+  color: oColorsGetColorFor(button-hover-text);
 }
 
 @include oFtButtonClass(__button--large) {
@@ -58,7 +58,7 @@
 
 @include oFtButtonClass(__button--negative) {
   padding: 0;
-  color: oColorsGetColorFor(forms-button-negative-text);
+  color: oColorsGetColorFor(button-negative-text);
   background: transparent;
 }
 
@@ -72,5 +72,5 @@
 }
 
 @include oFtButtonClass("__button--negative:hover") {
-  color: oColorsGetColorFor(forms-button-negative-hover-text);
+  color: oColorsGetColorFor(button-negative-hover-text);
 }
