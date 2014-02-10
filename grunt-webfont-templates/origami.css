@@ -4,8 +4,8 @@
 <% if (iconsStyles) { %>
 	<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--<%= glyphs[glyphIdx] %>, "&#x<%= codepoints[glyphIdx] %>;&nbsp;");
+			@include oFtIconsIconIe7(icon--<%= glyphs[glyphIdx] %>, "&#x<%= codepoints[glyphIdx] %>;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--<%= glyphs[glyphIdx] %>, "\<%= codepoints[glyphIdx] %>");
+		@include oFtIconsIcon(icon--<%= glyphs[glyphIdx] %>, "\<%= codepoints[glyphIdx] %>");
 	<% } %>
 <% } %>

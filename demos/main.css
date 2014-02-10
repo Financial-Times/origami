@@ -12,8 +12,8 @@ html, body {
 */
 @font-face {
   font-family: "ft-icons";
-  src: url(../build/ft-icons.eot);
-  src: url(../build/ft-icons.eot?#iefix) format("embedded-opentype"), url(../build/ft-icons.woff) format("woff"), url(../build/ft-icons.ttf) format("truetype");
+  src: url(../../o-ft-icons/build/ft-icons.eot);
+  src: url(../../o-ft-icons/build/ft-icons.eot?#iefix) format("embedded-opentype"), url(../../o-ft-icons/build/ft-icons.woff) format("woff"), url(../../o-ft-icons/build/ft-icons.ttf) format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -30,16 +30,16 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.o-useragent-ie7 .demo-named-class, .o-useragent-ie7 .o-ft-icons-icon--always-learning {
+.o-useragent-ie7 .o-ft-icons-icon--always-learning {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe001;&nbsp;'); }
 
-.demo-silent-extend-icon:before, .demo-named-class:before, .o-ft-icons-icon--always-learning:before {
+.demo-silent-extend-icon:before, .o-ft-icons-icon--always-learning:before {
   content: "\e001"; }
 
-.o-useragent-ie7 .demo-named-class2, .o-useragent-ie7 .o-ft-icons-icon--arts {
+.o-useragent-ie7 .o-ft-icons-icon--arts {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe002;&nbsp;'); }
 
-.demo-named-class2:before, .o-ft-icons-icon--arts:before {
+.o-ft-icons-icon--arts:before {
   content: "\e002"; }
 
 .o-useragent-ie7 .o-ft-icons-icon--back-arrow {
@@ -388,32 +388,6 @@ body {
   color: #777; }
 
 .demo-silent-extend-base {
-  font-family: "ft-icons";
-  display: inline-block;
-  vertical-align: middle;
-  font-weight: normal;
-  font-style: normal;
-  speak: none;
-  text-decoration: inherit;
-  text-transform: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-.demo-named-class {
-  font-family: "ft-icons";
-  display: inline-block;
-  vertical-align: middle;
-  font-weight: normal;
-  font-style: normal;
-  speak: none;
-  text-decoration: inherit;
-  text-transform: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-.demo-named-class2 {
   font-family: "ft-icons";
   display: inline-block;
   vertical-align: middle;

@@ -1,4 +1,4 @@
-$o-assets-global-path: '../build/';
+$o-assets-global-path: '../../';
 $o-ft-icons-support-ie7: true;
 
 @import "main.scss";
@@ -63,12 +63,10 @@ body {
 }
 
 .demo-silent-extend-base {
-	@include o-ft-icons-base-icon-styles();
+	@include oFtIconsBaseIconStyles();
 }
 
 // Test icon placeholder class
 .demo-silent-extend-icon:before {
 	@extend %o-ft-icons-icon--always-learning:before;
 }
-
-@include o-ft-icons-icon-as-class(always-learning, demo-named-class);

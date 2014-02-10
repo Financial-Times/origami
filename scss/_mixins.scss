@@ -1,4 +1,4 @@
-@mixin o-ft-icons-icon-font-face() {
+@mixin oFtIconsFontFace() {
 	@if (not $_o-ft-icons-font-face-already-output) {
 		$_o-ft-icons-font-face-already-output: true;
 		@font-face {
@@ -14,7 +14,7 @@
 }
 
 // Base styles for all icons
-@mixin o-ft-icons-base-icon-styles() {
+@mixin oFtIconsBaseIconStyles() {
 	font-family: $_o-ft-icons-font-name;
 	display: inline-block;
 	vertical-align: middle;
@@ -29,28 +29,19 @@
 }
 
 // Placeholder (and optionally concrete class) for individual icon (modern browsers)
-@mixin o-ft-icons-icon($icon, $content) {
-	$icon-selectors: o-ft-icons-get-selectors("#{$icon}:before");
+@mixin oFtIconsIcon($icon, $content) {
+	$icon-selectors: oFtIconsGetSelectors("#{$icon}:before");
 	#{$icon-selectors} {
 		content: $content;
 	}
 }
 
 // Placeholder (and optionally concrete class) for individual icon (IE7 hack)
-@mixin o-ft-icons-icon-ie7($icon, $content) {
-	$icon-selectors: o-ft-icons-get-selectors($icon);
+@mixin oFtIconsIconIe7($icon, $content) {
+	$icon-selectors: oFtIconsGetSelectors($icon);
 	@include oUseragentTarget(ie7) {
 		#{$icon-selectors} {
-			*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '#{$content}');
+			*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '#{$content}');
 		}
-	}
-}
-
-// Get an icon's styles (all styles required in one class, also font-face if it hasn't already been output)
-@mixin o-ft-icons-icon-as-class($icon, $class) {
-	@include o-ft-icons-icon-font-face();
-	.#{$class} {
-		@include o-ft-icons-base-icon-styles();
-		@extend %o-ft-icons-icon--#{$icon}; // This creates the separate selector for :before
 	}
 }

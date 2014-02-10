@@ -4,257 +4,257 @@
 
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--always-learning, "&#xe001;&nbsp;");
+			@include oFtIconsIconIe7(icon--always-learning, "&#xe001;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--always-learning, "\e001");
+		@include oFtIconsIcon(icon--always-learning, "\e001");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--arts, "&#xe002;&nbsp;");
+			@include oFtIconsIconIe7(icon--arts, "&#xe002;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--arts, "\e002");
+		@include oFtIconsIcon(icon--arts, "\e002");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--back-arrow, "&#xe003;&nbsp;");
+			@include oFtIconsIconIe7(icon--back-arrow, "&#xe003;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--back-arrow, "\e003");
+		@include oFtIconsIcon(icon--back-arrow, "\e003");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--back-chevron, "&#xe004;&nbsp;");
+			@include oFtIconsIconIe7(icon--back-chevron, "&#xe004;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--back-chevron, "\e004");
+		@include oFtIconsIcon(icon--back-chevron, "\e004");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--blogs, "&#xe005;&nbsp;");
+			@include oFtIconsIconIe7(icon--blogs, "&#xe005;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--blogs, "\e005");
+		@include oFtIconsIcon(icon--blogs, "\e005");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--business-education, "&#xe006;&nbsp;");
+			@include oFtIconsIconIe7(icon--business-education, "&#xe006;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--business-education, "\e006");
+		@include oFtIconsIcon(icon--business-education, "\e006");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--business-life, "&#xe007;&nbsp;");
+			@include oFtIconsIconIe7(icon--business-life, "&#xe007;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--business-life, "\e007");
+		@include oFtIconsIcon(icon--business-life, "\e007");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--clippings, "&#xe008;&nbsp;");
+			@include oFtIconsIconIe7(icon--clippings, "&#xe008;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--clippings, "\e008");
+		@include oFtIconsIcon(icon--clippings, "\e008");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--columnists, "&#xe009;&nbsp;");
+			@include oFtIconsIconIe7(icon--columnists, "&#xe009;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--columnists, "\e009");
+		@include oFtIconsIcon(icon--columnists, "\e009");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--comment, "&#xe00a;&nbsp;");
+			@include oFtIconsIconIe7(icon--comment, "&#xe00a;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--comment, "\e00a");
+		@include oFtIconsIcon(icon--comment, "\e00a");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--companies, "&#xe00b;&nbsp;");
+			@include oFtIconsIconIe7(icon--companies, "&#xe00b;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--companies, "\e00b");
+		@include oFtIconsIcon(icon--companies, "\e00b");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--email, "&#xe00c;&nbsp;");
+			@include oFtIconsIconIe7(icon--email, "&#xe00c;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--email, "\e00c");
+		@include oFtIconsIcon(icon--email, "\e00c");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--facebook, "&#xe00d;&nbsp;");
+			@include oFtIconsIconIe7(icon--facebook, "&#xe00d;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--facebook, "\e00d");
+		@include oFtIconsIcon(icon--facebook, "\e00d");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--fast-ft, "&#xe00e;&nbsp;");
+			@include oFtIconsIconIe7(icon--fast-ft, "&#xe00e;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--fast-ft, "\e00e");
+		@include oFtIconsIcon(icon--fast-ft, "\e00e");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--fast, "&#xe00f;&nbsp;");
+			@include oFtIconsIconIe7(icon--fast, "&#xe00f;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--fast, "\e00f");
+		@include oFtIconsIcon(icon--fast, "\e00f");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--feedback, "&#xe010;&nbsp;");
+			@include oFtIconsIconIe7(icon--feedback, "&#xe010;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--feedback, "\e010");
+		@include oFtIconsIcon(icon--feedback, "\e010");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--font-size, "&#xe011;&nbsp;");
+			@include oFtIconsIconIe7(icon--font-size, "&#xe011;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--font-size, "\e011");
+		@include oFtIconsIcon(icon--font-size, "\e011");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--ft-logo-square, "&#xe012;&nbsp;");
+			@include oFtIconsIconIe7(icon--ft-logo-square, "&#xe012;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--ft-logo-square, "\e012");
+		@include oFtIconsIcon(icon--ft-logo-square, "\e012");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--ft-logo, "&#xe013;&nbsp;");
+			@include oFtIconsIconIe7(icon--ft-logo, "&#xe013;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--ft-logo, "\e013");
+		@include oFtIconsIcon(icon--ft-logo, "\e013");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--ft, "&#xe014;&nbsp;");
+			@include oFtIconsIconIe7(icon--ft, "&#xe014;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--ft, "\e014");
+		@include oFtIconsIcon(icon--ft, "\e014");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--ftfm, "&#xe015;&nbsp;");
+			@include oFtIconsIconIe7(icon--ftfm, "&#xe015;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--ftfm, "\e015");
+		@include oFtIconsIcon(icon--ftfm, "\e015");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--house-and-home, "&#xe016;&nbsp;");
+			@include oFtIconsIconIe7(icon--house-and-home, "&#xe016;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--house-and-home, "\e016");
+		@include oFtIconsIcon(icon--house-and-home, "\e016");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--leader-and-letters, "&#xe017;&nbsp;");
+			@include oFtIconsIconIe7(icon--leader-and-letters, "&#xe017;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--leader-and-letters, "\e017");
+		@include oFtIconsIcon(icon--leader-and-letters, "\e017");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--lex, "&#xe018;&nbsp;");
+			@include oFtIconsIconIe7(icon--lex, "&#xe018;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--lex, "\e018");
+		@include oFtIconsIcon(icon--lex, "\e018");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--linkedin, "&#xe019;&nbsp;");
+			@include oFtIconsIconIe7(icon--linkedin, "&#xe019;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--linkedin, "\e019");
+		@include oFtIconsIcon(icon--linkedin, "\e019");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--live, "&#xe01a;&nbsp;");
+			@include oFtIconsIconIe7(icon--live, "&#xe01a;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--live, "\e01a");
+		@include oFtIconsIcon(icon--live, "\e01a");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--magazine, "&#xe01b;&nbsp;");
+			@include oFtIconsIconIe7(icon--magazine, "&#xe01b;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--magazine, "\e01b");
+		@include oFtIconsIcon(icon--magazine, "\e01b");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--markets-data, "&#xe01c;&nbsp;");
+			@include oFtIconsIconIe7(icon--markets-data, "&#xe01c;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--markets-data, "\e01c");
+		@include oFtIconsIcon(icon--markets-data, "\e01c");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--markets, "&#xe01d;&nbsp;");
+			@include oFtIconsIconIe7(icon--markets, "&#xe01d;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--markets, "\e01d");
+		@include oFtIconsIcon(icon--markets, "\e01d");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--money, "&#xe01e;&nbsp;");
+			@include oFtIconsIconIe7(icon--money, "&#xe01e;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--money, "\e01e");
+		@include oFtIconsIcon(icon--money, "\e01e");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--more, "&#xe01f;&nbsp;");
+			@include oFtIconsIconIe7(icon--more, "&#xe01f;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--more, "\e01f");
+		@include oFtIconsIcon(icon--more, "\e01f");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--morning, "&#xe020;&nbsp;");
+			@include oFtIconsIconIe7(icon--morning, "&#xe020;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--morning, "\e020");
+		@include oFtIconsIcon(icon--morning, "\e020");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--pearson, "&#xe021;&nbsp;");
+			@include oFtIconsIconIe7(icon--pearson, "&#xe021;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--pearson, "\e021");
+		@include oFtIconsIcon(icon--pearson, "\e021");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--profile, "&#xe022;&nbsp;");
+			@include oFtIconsIconIe7(icon--profile, "&#xe022;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--profile, "\e022");
+		@include oFtIconsIcon(icon--profile, "\e022");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--recently-read, "&#xe023;&nbsp;");
+			@include oFtIconsIconIe7(icon--recently-read, "&#xe023;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--recently-read, "\e023");
+		@include oFtIconsIcon(icon--recently-read, "\e023");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--recommended-reads, "&#xe024;&nbsp;");
+			@include oFtIconsIconIe7(icon--recommended-reads, "&#xe024;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--recommended-reads, "\e024");
+		@include oFtIconsIcon(icon--recommended-reads, "\e024");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--refresh, "&#xe025;&nbsp;");
+			@include oFtIconsIconIe7(icon--refresh, "&#xe025;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--refresh, "\e025");
+		@include oFtIconsIcon(icon--refresh, "\e025");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--search, "&#xe026;&nbsp;");
+			@include oFtIconsIconIe7(icon--search, "&#xe026;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--search, "\e026");
+		@include oFtIconsIcon(icon--search, "\e026");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--sections, "&#xe027;&nbsp;");
+			@include oFtIconsIconIe7(icon--sections, "&#xe027;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--sections, "\e027");
+		@include oFtIconsIcon(icon--sections, "\e027");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--settings, "&#xe028;&nbsp;");
+			@include oFtIconsIconIe7(icon--settings, "&#xe028;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--settings, "\e028");
+		@include oFtIconsIcon(icon--settings, "\e028");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--share, "&#xe029;&nbsp;");
+			@include oFtIconsIconIe7(icon--share, "&#xe029;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--share, "\e029");
+		@include oFtIconsIcon(icon--share, "\e029");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--sign-in, "&#xe02a;&nbsp;");
+			@include oFtIconsIconIe7(icon--sign-in, "&#xe02a;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--sign-in, "\e02a");
+		@include oFtIconsIcon(icon--sign-in, "\e02a");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--sign-out, "&#xe02b;&nbsp;");
+			@include oFtIconsIconIe7(icon--sign-out, "&#xe02b;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--sign-out, "\e02b");
+		@include oFtIconsIcon(icon--sign-out, "\e02b");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--special-report, "&#xe02c;&nbsp;");
+			@include oFtIconsIconIe7(icon--special-report, "&#xe02c;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--special-report, "\e02c");
+		@include oFtIconsIcon(icon--special-report, "\e02c");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--subscribe, "&#xe02d;&nbsp;");
+			@include oFtIconsIconIe7(icon--subscribe, "&#xe02d;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--subscribe, "\e02d");
+		@include oFtIconsIcon(icon--subscribe, "\e02d");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--twitter, "&#xe02e;&nbsp;");
+			@include oFtIconsIconIe7(icon--twitter, "&#xe02e;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--twitter, "\e02e");
+		@include oFtIconsIcon(icon--twitter, "\e02e");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--uk, "&#xe02f;&nbsp;");
+			@include oFtIconsIconIe7(icon--uk, "&#xe02f;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--uk, "\e02f");
+		@include oFtIconsIcon(icon--uk, "\e02f");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--up-arrow, "&#xe030;&nbsp;");
+			@include oFtIconsIconIe7(icon--up-arrow, "&#xe030;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--up-arrow, "\e030");
+		@include oFtIconsIcon(icon--up-arrow, "\e030");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--up-down-arrow, "&#xe031;&nbsp;");
+			@include oFtIconsIconIe7(icon--up-down-arrow, "&#xe031;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--up-down-arrow, "\e031");
+		@include oFtIconsIcon(icon--up-down-arrow, "\e031");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--upgrade, "&#xe032;&nbsp;");
+			@include oFtIconsIconIe7(icon--upgrade, "&#xe032;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--upgrade, "\e032");
+		@include oFtIconsIcon(icon--upgrade, "\e032");
 	
 		@if ($o-ft-icons-support-ie7) {
-			@include o-ft-icons-icon-ie7(icon--world, "&#xe033;&nbsp;");
+			@include oFtIconsIconIe7(icon--world, "&#xe033;&nbsp;");
 		}
-		@include o-ft-icons-icon(icon--world, "\e033");
+		@include oFtIconsIcon(icon--world, "\e033");
 	

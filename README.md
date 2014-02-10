@@ -17,11 +17,10 @@ If not using the [Origami build service](http://financial-times.github.io/ft-ori
 
 It is strongly recommended to specify a version tag.
 
-There are three ways to use the icons:
+There are two ways to use the icons:
 
 1. Using the predefined CSS classes
 2. Extending the predefined SASS placeholders into your own CSS classes
-3. Using the standalone icon class creator SASS mixin
 
 ### 1. Using the predefined CSS classes
 
@@ -39,43 +38,34 @@ Both the base class and the individual icon class must be applied to the HTML el
     
 ### 2. Extending the predefined SASS placeholders into your own CSS classes
 
-Import the `o-ft-icons` SASS and include the font-face & base icon styles like so:
+Import the `o-ft-icons` SASS and include the font-face like so:
 
     @import "o-ft-icons/main";
 
-    @include o-ft-icons-icon-font-face();
+    @include oFtIconsFontFace();
 
-    .icon {
-        @include o-ft-icons-base-icon-styles();
+Then either include the base styles and extend a specific icon's styles into one class...
+
+    .icon-columnists {
+        @include oFtIconsBaseIconStyles();
+        @extend %o-ft-icons-icon--columnists;
     }
 
-For each icon you want to use, @extend the SASS placeholder into your own class:
+...or have separate classes for the base styles and the specific icon: 
+
+    .icon {
+        @include oFtIconsBaseIconStyles();
+    }
 
     .icon--columnists {
         @extend %o-ft-icons-icon--columnists;
     }
 
-Apply both the base icon and individual icon classes in the HTML:
+Then apply both the base icon and individual icon classes in the HTML:
 
      <i class="icon icon--columnists"><i>
 
-### 3. Using the standalone icon class creator SASS mixin
-
-Import the `o-ft-icons` SASS:
-
-    @import "o-ft-icons/main";
-
-The `o-ft-icons-icon-as-class` mixin requires two arguments: icon name and class name. For example:
-
-    @include o-ft-icons-icon-as-class(columnists, my-columnist-icon);
-
-This will output a single CSS class containing all the necessary styles for that icon. It will also include the `font-face` declaration for the icon web font, if it has not already been included.
-
-In your HTML, you can then just use that class on its own:
-
-    <i class="my-columnist-icon"></i>
-
- If you are using multiple icons, this way is less efficient in that it will output more CSS because the icon base styles are duplicated in the generated CSS for each class you create.
+The latter way is more efficient if you are using more than one icon, as the base styles will not be duplicated for each icon.
 
 
 ##To add or edit icons and build the web font and demo page
