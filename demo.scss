@@ -1,0 +1,22 @@
+$o-grid-is-silent: false;
+$o-grid-mq-type: width;
+@import "o-grid/main";
+
+$o-font-path: '../bower_components/o-fonts/webfonts/';
+@import "main.scss";
+
+body {
+  margin: 20px 0;
+  background-color: #fff1e0;
+}
+h1, h2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+  font-size: 24px;
+  line-height: 32px;
+}
+h2 {
+  font-size: 18px;
+  line-height: 24px;
+}

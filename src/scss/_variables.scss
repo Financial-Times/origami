@@ -1,14 +1,5 @@
-// Class names
-$o-ft-forms-prefix: o-ft-forms;
+$o-ft-forms-is-silent: true !default;
 
-// Margins
-$o-ft-forms-marginbottom: 20px;
-
-// Border styles
-$o-ft-forms-fieldborder: 1px solid $o-colors-palette-tint3;
-$o-ft-forms-buttonradius: 4px;
-
-// Fonts
-$o-ft-forms-font: BentonSans-normal,Helvetica,Arial,sans-serif;
-$o-ft-forms-fontsize-label: 14px;
-$o-ft-forms-fontsize-field: 12px;
+$_o-ft-forms-marginbottom: 20px;
+$_o-ft-forms-fieldborder: 1px solid oColorsGetColorFor(forms-field-border);
+$_o-ft-forms-fontsize-field: 12px;

@@ -1,35 +1,42 @@
-.#{$o-ft-forms-prefix}__prefix {
-	border-left: $o-ft-forms-fieldborder;
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__prefix', '.o-ft-forms__prefix') {
+	border-left: $_o-ft-forms-fieldborder;
 }
 
-.#{$o-ft-forms-prefix}__suffix {
-	border-right: $o-ft-forms-fieldborder;
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__suffix', '.o-ft-forms__suffix') {
+	border-right: $_o-ft-forms-fieldborder;
 }
 
-.#{$o-ft-forms-prefix}__prefix,
-.#{$o-ft-forms-prefix}__suffix {
-	@include boxSizing(border-box);
-	display: block;
-	border-top: $o-ft-forms-fieldborder;
-	border-bottom: $o-ft-forms-fieldborder;
-	width: 100%;
-	min-height: 30px;
-	font-family: $o-ft-forms-font;
-	font-size: $o-ft-forms-fontsize-field;
-	line-height: 28px;
-	text-align: center;
-	vertical-align: top;
-	overflow: hidden;
-	background-color: $o-colors-forms-prefixsuffix-bg;
-	color: $o-colors-forms-prefixsuffix-text;
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__prefix, %o-ft-forms__suffix', '.o-ft-forms__prefix, .o-ft-forms__suffix') {
+  @include boxSizing(border-box);
+  display: block;
+  border-top: $_o-ft-forms-fieldborder;
+  border-bottom: $_o-ft-forms-fieldborder;
+  width: 100%;
+  min-height: 30px;
+  font-family: $o-fonts-bentonsans-normal;
+  font-size: $_o-ft-forms-fontsize-field;
+  line-height: 28px;
+  text-align: center;
+  vertical-align: top;
+  overflow: hidden;
+  background-color: oColorsGetColorFor(forms-prefixsuffix-background);
+  color: oColorsGetColorFor(forms-prefixsuffix-text);
 }
 
-.#{$o-ft-forms-prefix}__button.#{$o-ft-forms-prefix}__prefix,
-.#{$o-ft-forms-prefix}__button.#{$o-ft-forms-prefix}__suffix {
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__prefix--button, %o-ft-forms__suffix--button',
+  '.o-ft-buttons__button.o-ft-forms__prefix, .o-ft-buttons__button.o-ft-forms__suffix') {
 	margin: 0;
 	border-radius: 0;
 	padding: 0;
 	width: 100%;
 	height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
 	line-height: 28px;
+}
+
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__prefix--error, %o-ft-forms__suffix--error',
+  '.o-ft-forms--error .o-ft-forms__prefix:not(.o-ft-buttons__button),
+.o-ft-forms--error .o-ft-forms__suffix:not(.o-ft-buttons__button),
+.o-ft-forms__field:invalid') {
+  border-color: oColorsGetColorFor(forms-label-error-border);
+  color: oColorsGetColorFor(forms-label-error-text);
 }

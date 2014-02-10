@@ -1,61 +1,61 @@
-.#{$o-ft-forms-prefix}__label {
-	display: block;
-	margin-bottom: 10px;
-	color: $o-colors-forms-label-text;
-	font-family: $o-ft-forms-font;
-	font-size: $o-ft-forms-fontsize-label;
+@include oFtFormsClass(o-ft-forms__label) {
+  display: block;
+  margin-bottom: 10px;
+  color: oColorsGetColorFor(forms-label-text);
+  font-family: $o-fonts-bentonsans-normal;
+  font-size: 14px;
 }
 
-.#{$o-ft-forms-prefix}__label--inline {
-	padding-top: 6px;
-	line-height: 18px;
+@include oFtFormsClass(o-ft-forms__label--inline) {
+  padding-top: 6px;
+  line-height: 18px;
 }
 
-.#{$o-ft-forms-prefix}__field[type="text"],
-.#{$o-ft-forms-prefix}__field[type="password"],
-.#{$o-ft-forms-prefix}__field[type="search"],
-.#{$o-ft-forms-prefix}__field[type="url"],
-.#{$o-ft-forms-prefix}__field[type="email"],
-.#{$o-ft-forms-prefix}__field[type="tel"],
-.#{$o-ft-forms-prefix}__field[type="date"],
-.#{$o-ft-forms-prefix}__field[type="time"],
-.#{$o-ft-forms-prefix}__field[type="datetime"],
-.#{$o-ft-forms-prefix}__field[type="datetime-local"],
-.#{$o-ft-forms-prefix}__field[type="month"],
-.#{$o-ft-forms-prefix}__field[type="week"],
-.#{$o-ft-forms-prefix}__field[type="number"],
-.#{$o-ft-forms-prefix}__field[type="color"],
-.#{$o-ft-forms-prefix}__field[type="range"] {
+@include oFtFormsClass('o-ft-forms__field[type="text"]',
+'o-ft-forms__field[type="password"]',
+'o-ft-forms__field[type="search"]',
+'o-ft-forms__field[type="url"]',
+'o-ft-forms__field[type="email"]',
+'o-ft-forms__field[type="tel"]',
+'o-ft-forms__field[type="date"]',
+'o-ft-forms__field[type="time"]',
+'o-ft-forms__field[type="datetime"]',
+'o-ft-forms__field[type="datetime-local"]',
+'o-ft-forms__field[type="month"]',
+'o-ft-forms__field[type="week"]',
+'o-ft-forms__field[type="number"]',
+'o-ft-forms__field[type="color"]',
+'o-ft-forms__field[type="range"]') {
 	@include commonField();
 	height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
 }
 
-.#{$o-ft-forms-prefix}__field[type="checkbox"],
-.#{$o-ft-forms-prefix}__field[type="radio"] {
+@include oFtFormsClass('o-ft-forms__field[type="checkbox"]',
+'o-ft-forms__field[type="radio"]') {
 	display: inline-block;
 	margin-top: 7px;
-	margin-bottom: $o-ft-forms-marginbottom;
+	margin-bottom: $_o-ft-forms-marginbottom;
 }
 
-.#{$o-ft-forms-prefix}__field[type="checkbox"] + .#{$o-ft-forms-prefix}__label,
-.#{$o-ft-forms-prefix}__field[type="radio"] + .#{$o-ft-forms-prefix}__label {
-	display: inline-block;
-	margin-left: 5px;
-	margin-right: 10px;
-	margin-bottom: 0;
-	vertical-align: baseline;
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
+  '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label, .o-ft-forms__field[type="radio"] + .o-ft-forms__label') {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  vertical-align: baseline;
 }
 
-select.#{$o-ft-forms-prefix}__field {
-	@include commonField();
-	height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
-	background-image: url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==');
-	background-repeat: no-repeat;
-	background-position: 97% center;
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--select', '.o-ft-forms__field--select') {
+  @include commonField();
+  height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
+  background-image: url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==');
+  background-repeat: no-repeat;
+  background-position: 97% center;
 }
 
-textarea.#{$o-ft-forms-prefix}__field {
-	@include commonField();
-	height: 70px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
-	vertical-align: top;
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--textarea', '.o-ft-forms__field--textarea') {
+  @include commonField();
+  height: 70px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
+  vertical-align: top;
 }

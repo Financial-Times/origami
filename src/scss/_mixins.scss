@@ -1,32 +1,48 @@
 @mixin commonField() {
-	@include boxSizing(border-box);
-	@include appearance(none);
-	margin: 0 0 $o-ft-forms-marginbottom 0;
-	border: $o-ft-forms-fieldborder;
-	border-radius: 0;
-	padding: 7px 7px 6px 7px;
-	width: 100%;
-	background-color: #fff;
-	color: $o-colors-forms-field-text;
-	font-family: $o-ft-forms-font;
-	font-size: $o-ft-forms-fontsize-field;
-}
-
-@mixin backgroundGradientVertical($solid, $top, $bottom) {
-    background: $solid;
-    background: -webkit-gradient(linear, left top, left bottom, from($top), to($bottom));
-    background: -moz-linear-gradient($top, $bottom);
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$top},  endColorstr=#{$bottom})";
+  @include boxSizing(border-box);
+  @include appearance(none);
+  margin: 0 0 $_o-ft-forms-marginbottom 0;
+  border: $_o-ft-forms-fieldborder;
+  border-radius: 0;
+  padding: 7px 7px 6px 7px;
+  width: 100%;
+  background-color: #fff;
+  color: oColorsGetColorFor(forms-field-text);
+  font-family: $o-fonts-bentonsans-normal;
+  font-size: $_o-ft-forms-fontsize-field;
 }
 
 @mixin appearance($value) {
-	-webkit-appearance: $value;
-    -moz-appearance: $value;
-    appearance: $value;
+  -webkit-appearance: $value;
+  -moz-appearance: $value;
+  appearance: $value;
 }
 
 @mixin boxSizing($value) {
-	-webkit-box-sizing: $value;
-    -moz-box-sizing: $value;
-    box-sizing: $value;
+  -webkit-box-sizing: $value;
+  -moz-box-sizing: $value;
+  box-sizing: $value;
+}
+
+@mixin oFtFormsClass($classes...) {
+  $aggregatedSelector: ();
+  @each $class in $classes {
+    $aggregatedSelector: append($aggregatedSelector, #{'%#{$class}'}, comma);
+    @if (not $o-ft-forms-is-silent) {
+      $aggregatedSelector: append($aggregatedSelector, #{'.#{$class}'}, comma);
+    }
+  }
+  #{$aggregatedSelector} {
+    @content;
+  }
+}
+
+@mixin oFtFormsPlaceholderOptionalSelector($placeholder, $selector) {
+  $aggregatedSelector: (unquote($placeholder));
+  @if (not $o-ft-forms-is-silent) {
+    $aggregatedSelector: append($aggregatedSelector, #{$selector}, comma);
+  }
+  #{$aggregatedSelector} {
+    @content;
+  }
 }

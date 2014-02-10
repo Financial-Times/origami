@@ -2,14 +2,24 @@ html, body {
   margin: 0;
   padding: 0; }
 
+/*
+	This mixin allows ie7 and 8 to be targeted using either
+	* specific classes for each of ie7 and ie8
+	* 'less than' classes targeting ie versions less than a given version e.g. lt-ie9 & lt-ie8
+*/
+/* 
+	Deprecates support for ie7 or 8, making sure that both browser specific and lt- selectors are removed
+*/
+/* 
+	Note: The identically named mixins and functions below is not a mistake; it means they can be used to either 
+	output a string or to wrap some style rules in a selector
+*/
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%; }
 
-.o-grid-row,
-.o-grid-box,
-.o-grid-page {
+.o-grid-row, .o-grid-box, .o-grid-page {
   margin: 0 auto; }
 
 .o-grid-row {
@@ -21,486 +31,536 @@ html {
   display: block;
   clear: both; }
 
-.o-grid-row,
-.o-grid-page {
+.o-grid-row, .o-grid-page {
   max-width: 600px;
   min-width: 240px; }
 
-.o-grid-row .o-grid-row,
-.o-grid-box .o-grid-row {
+.o-grid-row .o-grid-row, .o-grid-box .o-grid-row {
   margin-left: -1%;
   margin-right: -1%;
   width: auto;
   max-width: none;
   min-width: 0; }
 
-.o-grid-row.o-grid-row-compact,
-.o-grid-row .o-grid-row.o-grid-row-compact,
-.lt-ie9 .o-grid-row.o-grid-row-compact,
-.lt-ie9 .o-grid-row .o-grid-row.o-grid-row-compact {
-  margin-left: 0;
-  margin-right: 0; }
-
-/* Default grid: Layout 1 FIXED (well, max-width) */
-[class*="o-grid-col"] {
+[data-o-grid-colspan] {
   float: left;
   padding-left: 1%;
   padding-right: 1%; }
 
-.o-grid-row-compact > [class*="o-grid-col"] {
-  padding-left: 0;
-  padding-right: 0; }
-
-[class*="|0|"],
-[class*="|s0|"],
-[class*="|hide|"],
-[class*="|shide|"] {
+[data-o-grid-colspan~="hide"], [data-o-grid-colspan~="0"] {
   display: none; }
 
-[class*="|1|"],
-[class*="|s1|"] {
+[data-o-grid-colspan~="1"] {
   width: 6.33333%; }
 
-[class*="|2|"],
-[class*="|s2|"] {
+[data-o-grid-colspan~="2"] {
   width: 14.66667%; }
 
-[class*="|3|"],
-[class*="|s3|"] {
+[data-o-grid-colspan~="3"] {
   width: 23%; }
 
-[class*="|4|"],
-[class*="|s4|"] {
+[data-o-grid-colspan~="4"] {
   width: 31.33333%; }
 
-[class*="|5|"],
-[class*="|s5|"] {
+[data-o-grid-colspan~="5"] {
   width: 39.66667%; }
 
-[class*="|6|"],
-[class*="|s6|"] {
+[data-o-grid-colspan~="6"] {
   width: 48%; }
 
-[class*="|7|"],
-[class*="|s7|"] {
+[data-o-grid-colspan~="7"] {
   width: 56.33333%; }
 
-[class*="|8|"],
-[class*="|s8|"] {
+[data-o-grid-colspan~="8"] {
   width: 64.66667%; }
 
-[class*="|9|"],
-[class*="|s9|"] {
+[data-o-grid-colspan~="9"] {
   width: 73%; }
 
-[class*="|10|"],
-[class*="|s10|"] {
+[data-o-grid-colspan~="10"] {
   width: 81.33333%; }
 
-[class*="|11|"],
-[class*="|s11|"] {
+[data-o-grid-colspan~="11"] {
   width: 89.66667%; }
 
-[class*="|12|"],
-[class*="|s12|"] {
+[data-o-grid-colspan~="12"] {
   float: none;
   clear: both;
+  display: block;
+  width: 98%; }
+
+[data-o-grid-colspan~="Shide"], [data-o-grid-colspan~="S0"] {
+  display: none; }
+
+[data-o-grid-colspan~="S1"] {
+  width: 6.33333%; }
+
+[data-o-grid-colspan~="S2"] {
+  width: 14.66667%; }
+
+[data-o-grid-colspan~="S3"] {
+  width: 23%; }
+
+[data-o-grid-colspan~="S4"] {
+  width: 31.33333%; }
+
+[data-o-grid-colspan~="S5"] {
+  width: 39.66667%; }
+
+[data-o-grid-colspan~="S6"] {
+  width: 48%; }
+
+[data-o-grid-colspan~="S7"] {
+  width: 56.33333%; }
+
+[data-o-grid-colspan~="S8"] {
+  width: 64.66667%; }
+
+[data-o-grid-colspan~="S9"] {
+  width: 73%; }
+
+[data-o-grid-colspan~="S10"] {
+  width: 81.33333%; }
+
+[data-o-grid-colspan~="S11"] {
+  width: 89.66667%; }
+
+[data-o-grid-colspan~="S12"] {
+  float: none;
+  clear: both;
+  display: block;
   width: 98%; }
 
 /* Override fixed defaults for responsive grid */
 @media screen {
-  .o-grid-row .o-grid-row,
-  .o-grid-box .o-grid-row {
+  .o-grid-row .o-grid-row, .o-grid-box .o-grid-row {
     margin-left: -10px;
     margin-right: -10px;
     width: auto; }
 
-  .o-grid-row.o-grid-row-compact,
-  .lt-ie9 .o-grid-row.o-grid-row-compact,
-  .o-grid-row .o-grid-row.o-grid-row-compact,
-  .lt-ie9 .o-grid-row .o-grid-row.o-grid-row-compact {
-    margin-left: 0;
-    margin-right: 0; }
-
-  [class*="o-grid-col"] {
+  [data-o-grid-colspan] {
     float: left;
     padding-left: 10px;
     padding-right: 10px;
     -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    *behavior: url(../bower_componentso-grid/polyfills/boxsizing.htc); }
+    box-sizing: border-box; }
 
-  .o-grid-row-compact > [class*="o-grid-col"] {
+  .o-grid-row-compact > [data-o-grid-colspan] {
     padding-left: 0;
     padding-right: 0; }
 
-  [class*="|s0|"],
-  [class*="|shide|"] {
-    display: block; }
-
-  [class*="|s12|"] {
-    clear: none; }
-
-  [class*="|s0|"], [class*="|s1|"], [class*="|s2|"], [class*="|s3|"], [class*="|s4|"], [class*="|s5|"], [class*="|s6|"], [class*="|s7|"], [class*="|s8|"], [class*="|s9|"], [class*="|s10|"], [class*="|s11|"], [class*="|s12|"] {
-    width: auto; } }
-@media screen {
-  [class*="|hide|"],
-  [class*="|0|"] {
-    display: none; }
-
-  [class*="|1|"] {
-    width: 8.33333%; }
-
-  [class*="|2|"] {
-    width: 16.66667%; }
-
-  [class*="|3|"] {
-    width: 25%; }
-
-  [class*="|4|"] {
-    width: 33.33333%; }
-
-  [class*="|5|"] {
-    width: 41.66667%; }
-
-  [class*="|6|"] {
-    width: 50%; }
-
-  [class*="|7|"] {
-    width: 58.33333%; }
-
-  [class*="|8|"] {
-    width: 66.66667%; }
-
-  [class*="|9|"] {
-    width: 75%; }
-
-  [class*="|10|"] {
-    width: 83.33333%; }
-
-  [class*="|11|"] {
-    width: 91.66667%; }
-
-  [class*="|12|"] {
-    float: none;
-    clear: both;
-    width: 100%; } }
-@media screen and (max-width: 600px) {
-  .o-grid-row,
-  .o-grid-page {
-    max-width: 600px; }
-
-  [class*="|shide|"],
-  [class*="|s0|"] {
-    display: none; }
-
-  [class*="|s1|"] {
-    width: 8.33333%; }
-
-  [class*="|s2|"] {
-    width: 16.66667%; }
-
-  [class*="|s3|"] {
-    width: 25%; }
-
-  [class*="|s4|"] {
-    width: 33.33333%; }
-
-  [class*="|s5|"] {
-    width: 41.66667%; }
-
-  [class*="|s6|"] {
-    width: 50%; }
-
-  [class*="|s7|"] {
-    width: 58.33333%; }
-
-  [class*="|s8|"] {
-    width: 66.66667%; }
-
-  [class*="|s9|"] {
-    width: 75%; }
-
-  [class*="|s10|"] {
-    width: 83.33333%; }
-
-  [class*="|s11|"] {
-    width: 91.66667%; }
-
-  /* ensures d12 and d0 can be over-ridden by styles for s layout */
-  [class*="|s1|"], [class*="|s2|"], [class*="|s3|"], [class*="|s4|"], [class*="|s5|"], [class*="|s6|"], [class*="|s7|"], [class*="|s8|"], [class*="|s9|"], [class*="|s10|"], [class*="|s11|"] {
-    float: left;
-    clear: none;
-    display: block; }
-
-  [class*="|s12|"] {
-    float: none;
-    clear: both;
-    width: 100%; } }
-@media screen and (min-width: 601px) and (max-width: 1000px) {
-  .o-grid-row,
-  .o-grid-page {
-    max-width: 780px; }
-
-  [class*="|mhide|"],
-  [class*="|m0|"] {
-    display: none; }
-
-  [class*="|m1|"] {
-    width: 8.33333%; }
-
-  [class*="|m2|"] {
-    width: 16.66667%; }
-
-  [class*="|m3|"] {
-    width: 25%; }
-
-  [class*="|m4|"] {
-    width: 33.33333%; }
-
-  [class*="|m5|"] {
-    width: 41.66667%; }
-
-  [class*="|m6|"] {
-    width: 50%; }
-
-  [class*="|m7|"] {
-    width: 58.33333%; }
-
-  [class*="|m8|"] {
-    width: 66.66667%; }
-
-  [class*="|m9|"] {
-    width: 75%; }
-
-  [class*="|m10|"] {
-    width: 83.33333%; }
-
-  [class*="|m11|"] {
-    width: 91.66667%; }
-
-  /* ensures d12 and d0 can be over-ridden by styles for m layout */
-  [class*="|m1|"], [class*="|m2|"], [class*="|m3|"], [class*="|m4|"], [class*="|m5|"], [class*="|m6|"], [class*="|m7|"], [class*="|m8|"], [class*="|m9|"], [class*="|m10|"], [class*="|m11|"] {
-    float: left;
-    clear: none;
-    display: block; }
-
-  [class*="|m12|"] {
-    float: none;
-    clear: both;
-    width: 100%; } }
-@media screen and (min-width: 1001px) and (max-width: 1400px) {
-  .o-grid-row,
-  .o-grid-page {
-    max-width: 960px; }
-
-  [class*="|lhide|"],
-  [class*="|l0|"] {
-    display: none; }
-
-  [class*="|l1|"] {
-    width: 8.33333%; }
-
-  [class*="|l2|"] {
-    width: 16.66667%; }
-
-  [class*="|l3|"] {
-    width: 25%; }
-
-  [class*="|l4|"] {
-    width: 33.33333%; }
-
-  [class*="|l5|"] {
-    width: 41.66667%; }
-
-  [class*="|l6|"] {
-    width: 50%; }
-
-  [class*="|l7|"] {
-    width: 58.33333%; }
-
-  [class*="|l8|"] {
-    width: 66.66667%; }
-
-  [class*="|l9|"] {
-    width: 75%; }
-
-  [class*="|l10|"] {
-    width: 83.33333%; }
-
-  [class*="|l11|"] {
-    width: 91.66667%; }
-
-  /* ensures d12 and d0 can be over-ridden by styles for l layout */
-  [class*="|l1|"], [class*="|l2|"], [class*="|l3|"], [class*="|l4|"], [class*="|l5|"], [class*="|l6|"], [class*="|l7|"], [class*="|l8|"], [class*="|l9|"], [class*="|l10|"], [class*="|l11|"] {
-    float: left;
-    clear: none;
-    display: block; }
-
-  [class*="|l12|"] {
-    float: none;
-    clear: both;
-    width: 100%; } }
-@media screen and (min-width: 1401px) {
-  .o-grid-row,
-  .o-grid-page {
-    max-width: 1360px; }
-
-  [class*="|xlhide|"],
-  [class*="|xl0|"] {
-    display: none; }
-
-  [class*="|xl1|"] {
-    width: 8.33333%; }
-
-  [class*="|xl2|"] {
-    width: 16.66667%; }
-
-  [class*="|xl3|"] {
-    width: 25%; }
-
-  [class*="|xl4|"] {
-    width: 33.33333%; }
-
-  [class*="|xl5|"] {
-    width: 41.66667%; }
-
-  [class*="|xl6|"] {
-    width: 50%; }
-
-  [class*="|xl7|"] {
-    width: 58.33333%; }
-
-  [class*="|xl8|"] {
-    width: 66.66667%; }
-
-  [class*="|xl9|"] {
-    width: 75%; }
-
-  [class*="|xl10|"] {
-    width: 83.33333%; }
-
-  [class*="|xl11|"] {
-    width: 91.66667%; }
-
-  /* ensures d12 and d0 can be over-ridden by styles for xl layout */
-  [class*="|xl1|"], [class*="|xl2|"], [class*="|xl3|"], [class*="|xl4|"], [class*="|xl5|"], [class*="|xl6|"], [class*="|xl7|"], [class*="|xl8|"], [class*="|xl9|"], [class*="|xl10|"], [class*="|xl11|"] {
-    float: left;
-    clear: none;
-    display: block; }
-
-  [class*="|xl12|"] {
-    float: none;
-    clear: both;
-    width: 100%; } }
-.lt-ie9 {
-  /* ensures d12 and d0 can be over-ridden by styles for l layout */ }
-  .lt-ie9 .o-grid-row .o-grid-row,
-  .lt-ie9 .o-grid-box .o-grid-row {
-    margin-left: -5px;
-    margin-right: -5px;
-    width: auto; }
-  .lt-ie9 .o-grid-row.o-grid-row-compact,
-  .lt-ie9 .lt-ie9 .o-grid-row.o-grid-row-compact,
-  .lt-ie9 .o-grid-row .o-grid-row.o-grid-row-compact,
-  .lt-ie9 .lt-ie9 .o-grid-row .o-grid-row.o-grid-row-compact {
+  .o-grid-row.o-grid-row-compact,
+  .o-grid-row .o-grid-row.o-grid-row-compact {
     margin-left: 0;
     margin-right: 0; }
-  .lt-ie9 [class*="o-grid-col"] {
-    float: left;
-    padding-left: 5px;
-    padding-right: 5px;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    *behavior: url(../bower_componentso-grid/polyfills/boxsizing.htc); }
-  .lt-ie9 .o-grid-row-compact > [class*="o-grid-col"] {
-    padding-left: 0;
-    padding-right: 0; }
-  .lt-ie9 [class*="|hide|"],
-  .lt-ie9 [class*="|0|"] {
+
+  .o-useragent-ie7 .o-grid-row.o-grid-row-compact,
+  .o-useragent-ie7 .o-grid-row .o-grid-row.o-grid-row-compact, .o-useragent-ie8 .o-grid-row.o-grid-row-compact,
+  .o-useragent-ie8 .o-grid-row .o-grid-row.o-grid-row-compact {
+    margin-left: 0;
+    margin-right: 0; }
+
+  [data-o-grid-colspan~="S0"], [data-o-grid-colspan~="Shide"] {
+    display: block; }
+
+  [data-o-grid-colspan~="S12"] {
+    clear: none; }
+
+  [data-o-grid-colspan~="S0"], [data-o-grid-colspan~="S1"], [data-o-grid-colspan~="S2"], [data-o-grid-colspan~="S3"], [data-o-grid-colspan~="S4"], [data-o-grid-colspan~="S5"], [data-o-grid-colspan~="S6"], [data-o-grid-colspan~="S7"], [data-o-grid-colspan~="S8"], [data-o-grid-colspan~="S9"], [data-o-grid-colspan~="S10"], [data-o-grid-colspan~="S11"], [data-o-grid-colspan~="S12"] {
+    width: auto; } }
+@media screen {
+  .o-grid-row, .o-grid-page {
+    max-width: none; }
+
+  [data-o-grid-colspan~="hide"], [data-o-grid-colspan~="0"] {
     display: none; }
-  .lt-ie9 [class*="|1|"] {
+
+  [data-o-grid-colspan~="1"] {
     width: 8.33333%; }
-  .lt-ie9 [class*="|2|"] {
+
+  [data-o-grid-colspan~="2"] {
     width: 16.66667%; }
-  .lt-ie9 [class*="|3|"] {
+
+  [data-o-grid-colspan~="3"] {
     width: 25%; }
-  .lt-ie9 [class*="|4|"] {
+
+  [data-o-grid-colspan~="4"] {
     width: 33.33333%; }
-  .lt-ie9 [class*="|5|"] {
+
+  [data-o-grid-colspan~="5"] {
     width: 41.66667%; }
-  .lt-ie9 [class*="|6|"] {
+
+  [data-o-grid-colspan~="6"] {
     width: 50%; }
-  .lt-ie9 [class*="|7|"] {
+
+  [data-o-grid-colspan~="7"] {
     width: 58.33333%; }
-  .lt-ie9 [class*="|8|"] {
+
+  [data-o-grid-colspan~="8"] {
     width: 66.66667%; }
-  .lt-ie9 [class*="|9|"] {
+
+  [data-o-grid-colspan~="9"] {
     width: 75%; }
-  .lt-ie9 [class*="|10|"] {
+
+  [data-o-grid-colspan~="10"] {
     width: 83.33333%; }
-  .lt-ie9 [class*="|11|"] {
+
+  [data-o-grid-colspan~="11"] {
     width: 91.66667%; }
-  .lt-ie9 [class*="|12|"] {
+
+  [data-o-grid-colspan~="12"] {
     float: none;
     clear: both;
-    width: 100%; }
-  .lt-ie9 [class*="|lhide|"],
-  .lt-ie9 [class*="|l0|"] {
+    display: block;
+    width: 100%; } }
+@media screen and (max-width: 600px) {
+  .o-grid-row, .o-grid-page {
+    max-width: none; }
+
+  [data-o-grid-colspan~="Shide"], [data-o-grid-colspan~="S0"] {
     display: none; }
-  .lt-ie9 [class*="|l1|"] {
+
+  [data-o-grid-colspan~="S1"] {
     width: 8.33333%; }
-  .lt-ie9 [class*="|l2|"] {
+
+  [data-o-grid-colspan~="S2"] {
     width: 16.66667%; }
-  .lt-ie9 [class*="|l3|"] {
+
+  [data-o-grid-colspan~="S3"] {
     width: 25%; }
-  .lt-ie9 [class*="|l4|"] {
+
+  [data-o-grid-colspan~="S4"] {
     width: 33.33333%; }
-  .lt-ie9 [class*="|l5|"] {
+
+  [data-o-grid-colspan~="S5"] {
     width: 41.66667%; }
-  .lt-ie9 [class*="|l6|"] {
+
+  [data-o-grid-colspan~="S6"] {
     width: 50%; }
-  .lt-ie9 [class*="|l7|"] {
+
+  [data-o-grid-colspan~="S7"] {
     width: 58.33333%; }
-  .lt-ie9 [class*="|l8|"] {
+
+  [data-o-grid-colspan~="S8"] {
     width: 66.66667%; }
-  .lt-ie9 [class*="|l9|"] {
+
+  [data-o-grid-colspan~="S9"] {
     width: 75%; }
-  .lt-ie9 [class*="|l10|"] {
+
+  [data-o-grid-colspan~="S10"] {
     width: 83.33333%; }
-  .lt-ie9 [class*="|l11|"] {
+
+  [data-o-grid-colspan~="S11"] {
     width: 91.66667%; }
-  .lt-ie9 [class*="|l1|"], .lt-ie9 [class*="|l2|"], .lt-ie9 [class*="|l3|"], .lt-ie9 [class*="|l4|"], .lt-ie9 [class*="|l5|"], .lt-ie9 [class*="|l6|"], .lt-ie9 [class*="|l7|"], .lt-ie9 [class*="|l8|"], .lt-ie9 [class*="|l9|"], .lt-ie9 [class*="|l10|"], .lt-ie9 [class*="|l11|"] {
+
+  /* ensures d12 and d0 can be over-ridden by styles for S layout */
+  [data-o-grid-colspan~="S1"], [data-o-grid-colspan~="S2"], [data-o-grid-colspan~="S3"], [data-o-grid-colspan~="S4"], [data-o-grid-colspan~="S5"], [data-o-grid-colspan~="S6"], [data-o-grid-colspan~="S7"], [data-o-grid-colspan~="S8"], [data-o-grid-colspan~="S9"], [data-o-grid-colspan~="S10"], [data-o-grid-colspan~="S11"] {
     float: left;
     clear: none;
     display: block; }
-  .lt-ie9 [class*="|l12|"] {
+
+  [data-o-grid-colspan~="S12"] {
     float: none;
     clear: both;
-    width: 100%; }
-  .lt-ie9 .o-grid-row,
-  .lt-ie9 .o-grid-page {
-    width: 960px;
+    display: block;
+    width: 100%; } }
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+  .o-grid-row, .o-grid-page {
     max-width: none; }
-  .lt-ie9 [class*="|s12|"] {
-    clear: none; }
+
+  [data-o-grid-colspan~="Mhide"], [data-o-grid-colspan~="M0"] {
+    display: none; }
+
+  [data-o-grid-colspan~="M1"] {
+    width: 8.33333%; }
+
+  [data-o-grid-colspan~="M2"] {
+    width: 16.66667%; }
+
+  [data-o-grid-colspan~="M3"] {
+    width: 25%; }
+
+  [data-o-grid-colspan~="M4"] {
+    width: 33.33333%; }
+
+  [data-o-grid-colspan~="M5"] {
+    width: 41.66667%; }
+
+  [data-o-grid-colspan~="M6"] {
+    width: 50%; }
+
+  [data-o-grid-colspan~="M7"] {
+    width: 58.33333%; }
+
+  [data-o-grid-colspan~="M8"] {
+    width: 66.66667%; }
+
+  [data-o-grid-colspan~="M9"] {
+    width: 75%; }
+
+  [data-o-grid-colspan~="M10"] {
+    width: 83.33333%; }
+
+  [data-o-grid-colspan~="M11"] {
+    width: 91.66667%; }
+
+  /* ensures d12 and d0 can be over-ridden by styles for M layout */
+  [data-o-grid-colspan~="M1"], [data-o-grid-colspan~="M2"], [data-o-grid-colspan~="M3"], [data-o-grid-colspan~="M4"], [data-o-grid-colspan~="M5"], [data-o-grid-colspan~="M6"], [data-o-grid-colspan~="M7"], [data-o-grid-colspan~="M8"], [data-o-grid-colspan~="M9"], [data-o-grid-colspan~="M10"], [data-o-grid-colspan~="M11"] {
+    float: left;
+    clear: none;
+    display: block; }
+
+  [data-o-grid-colspan~="M12"] {
+    float: none;
+    clear: both;
+    display: block;
+    width: 100%; } }
+@media screen and (min-width: 1001px) and (max-width: 1400px) {
+  .o-grid-row, .o-grid-page {
+    max-width: none; }
+
+  [data-o-grid-colspan~="Lhide"], [data-o-grid-colspan~="L0"] {
+    display: none; }
+
+  [data-o-grid-colspan~="L1"] {
+    width: 8.33333%; }
+
+  [data-o-grid-colspan~="L2"] {
+    width: 16.66667%; }
+
+  [data-o-grid-colspan~="L3"] {
+    width: 25%; }
+
+  [data-o-grid-colspan~="L4"] {
+    width: 33.33333%; }
+
+  [data-o-grid-colspan~="L5"] {
+    width: 41.66667%; }
+
+  [data-o-grid-colspan~="L6"] {
+    width: 50%; }
+
+  [data-o-grid-colspan~="L7"] {
+    width: 58.33333%; }
+
+  [data-o-grid-colspan~="L8"] {
+    width: 66.66667%; }
+
+  [data-o-grid-colspan~="L9"] {
+    width: 75%; }
+
+  [data-o-grid-colspan~="L10"] {
+    width: 83.33333%; }
+
+  [data-o-grid-colspan~="L11"] {
+    width: 91.66667%; }
+
+  /* ensures d12 and d0 can be over-ridden by styles for L layout */
+  [data-o-grid-colspan~="L1"], [data-o-grid-colspan~="L2"], [data-o-grid-colspan~="L3"], [data-o-grid-colspan~="L4"], [data-o-grid-colspan~="L5"], [data-o-grid-colspan~="L6"], [data-o-grid-colspan~="L7"], [data-o-grid-colspan~="L8"], [data-o-grid-colspan~="L9"], [data-o-grid-colspan~="L10"], [data-o-grid-colspan~="L11"] {
+    float: left;
+    clear: none;
+    display: block; }
+
+  [data-o-grid-colspan~="L12"] {
+    float: none;
+    clear: both;
+    display: block;
+    width: 100%; } }
+.o-useragent-ie7, .o-useragent-ie8 {
+  /* ensures d12 and d0 can be over-ridden by styles for L layout */ }
+  .o-useragent-ie7 .o-grid-row, .o-useragent-ie7 .o-grid-page, .o-useragent-ie8 .o-grid-row, .o-useragent-ie8 .o-grid-page {
+    max-width: none; }
+  .o-useragent-ie7 [data-o-grid-colspan~="Lhide"], .o-useragent-ie7 [data-o-grid-colspan~="L0"], .o-useragent-ie8 [data-o-grid-colspan~="Lhide"], .o-useragent-ie8 [data-o-grid-colspan~="L0"] {
+    display: none; }
+  .o-useragent-ie7 [data-o-grid-colspan~="L1"], .o-useragent-ie8 [data-o-grid-colspan~="L1"] {
+    width: 8.33333%; }
+  .o-useragent-ie7 [data-o-grid-colspan~="L2"], .o-useragent-ie8 [data-o-grid-colspan~="L2"] {
+    width: 16.66667%; }
+  .o-useragent-ie7 [data-o-grid-colspan~="L3"], .o-useragent-ie8 [data-o-grid-colspan~="L3"] {
+    width: 25%; }
+  .o-useragent-ie7 [data-o-grid-colspan~="L4"], .o-useragent-ie8 [data-o-grid-colspan~="L4"] {
+    width: 33.33333%; }
+  .o-useragent-ie7 [data-o-grid-colspan~="L5"], .o-useragent-ie8 [data-o-grid-colspan~="L5"] {
+    width: 41.66667%; }
+  .o-useragent-ie7 [data-o-grid-colspan~="L6"], .o-useragent-ie8 [data-o-grid-colspan~="L6"] {
+    width: 50%; }
+  .o-useragent-ie7 [data-o-grid-colspan~="L7"], .o-useragent-ie8 [data-o-grid-colspan~="L7"] {
+    width: 58.33333%; }
+  .o-useragent-ie7 [data-o-grid-colspan~="L8"], .o-useragent-ie8 [data-o-grid-colspan~="L8"] {
+    width: 66.66667%; }
+  .o-useragent-ie7 [data-o-grid-colspan~="L9"], .o-useragent-ie8 [data-o-grid-colspan~="L9"] {
+    width: 75%; }
+  .o-useragent-ie7 [data-o-grid-colspan~="L10"], .o-useragent-ie8 [data-o-grid-colspan~="L10"] {
+    width: 83.33333%; }
+  .o-useragent-ie7 [data-o-grid-colspan~="L11"], .o-useragent-ie8 [data-o-grid-colspan~="L11"] {
+    width: 91.66667%; }
+  .o-useragent-ie7 [data-o-grid-colspan~="L1"], .o-useragent-ie7 [data-o-grid-colspan~="L2"], .o-useragent-ie7 [data-o-grid-colspan~="L3"], .o-useragent-ie7 [data-o-grid-colspan~="L4"], .o-useragent-ie7 [data-o-grid-colspan~="L5"], .o-useragent-ie7 [data-o-grid-colspan~="L6"], .o-useragent-ie7 [data-o-grid-colspan~="L7"], .o-useragent-ie7 [data-o-grid-colspan~="L8"], .o-useragent-ie7 [data-o-grid-colspan~="L9"], .o-useragent-ie7 [data-o-grid-colspan~="L10"], .o-useragent-ie7 [data-o-grid-colspan~="L11"], .o-useragent-ie8 [data-o-grid-colspan~="L1"], .o-useragent-ie8 [data-o-grid-colspan~="L2"], .o-useragent-ie8 [data-o-grid-colspan~="L3"], .o-useragent-ie8 [data-o-grid-colspan~="L4"], .o-useragent-ie8 [data-o-grid-colspan~="L5"], .o-useragent-ie8 [data-o-grid-colspan~="L6"], .o-useragent-ie8 [data-o-grid-colspan~="L7"], .o-useragent-ie8 [data-o-grid-colspan~="L8"], .o-useragent-ie8 [data-o-grid-colspan~="L9"], .o-useragent-ie8 [data-o-grid-colspan~="L10"], .o-useragent-ie8 [data-o-grid-colspan~="L11"] {
+    float: left;
+    clear: none;
+    display: block; }
+  .o-useragent-ie7 [data-o-grid-colspan~="L12"], .o-useragent-ie8 [data-o-grid-colspan~="L12"] {
+    float: none;
+    clear: both;
+    display: block;
+    width: 100%; }
+
+@media screen and (min-width: 1401px) {
+  .o-grid-row, .o-grid-page {
+    max-width: 1360px; }
+
+  [data-o-grid-colspan~="XLhide"], [data-o-grid-colspan~="XL0"] {
+    display: none; }
+
+  [data-o-grid-colspan~="XL1"] {
+    width: 8.33333%; }
+
+  [data-o-grid-colspan~="XL2"] {
+    width: 16.66667%; }
+
+  [data-o-grid-colspan~="XL3"] {
+    width: 25%; }
+
+  [data-o-grid-colspan~="XL4"] {
+    width: 33.33333%; }
+
+  [data-o-grid-colspan~="XL5"] {
+    width: 41.66667%; }
+
+  [data-o-grid-colspan~="XL6"] {
+    width: 50%; }
+
+  [data-o-grid-colspan~="XL7"] {
+    width: 58.33333%; }
+
+  [data-o-grid-colspan~="XL8"] {
+    width: 66.66667%; }
+
+  [data-o-grid-colspan~="XL9"] {
+    width: 75%; }
+
+  [data-o-grid-colspan~="XL10"] {
+    width: 83.33333%; }
+
+  [data-o-grid-colspan~="XL11"] {
+    width: 91.66667%; }
+
+  /* ensures d12 and d0 can be over-ridden by styles for XL layout */
+  [data-o-grid-colspan~="XL1"], [data-o-grid-colspan~="XL2"], [data-o-grid-colspan~="XL3"], [data-o-grid-colspan~="XL4"], [data-o-grid-colspan~="XL5"], [data-o-grid-colspan~="XL6"], [data-o-grid-colspan~="XL7"], [data-o-grid-colspan~="XL8"], [data-o-grid-colspan~="XL9"], [data-o-grid-colspan~="XL10"], [data-o-grid-colspan~="XL11"] {
+    float: left;
+    clear: none;
+    display: block; }
+
+  [data-o-grid-colspan~="XL12"] {
+    float: none;
+    clear: both;
+    display: block;
+    width: 100%; } }
+.o-useragent-ie7 .o-grid-row .o-grid-row, .o-useragent-ie7 .o-grid-box .o-grid-row, .o-useragent-ie8 .o-grid-row .o-grid-row, .o-useragent-ie8 .o-grid-box .o-grid-row {
+  margin-left: -5px;
+  margin-right: -5px;
+  width: auto; }
+.o-useragent-ie7 [data-o-grid-colspan], .o-useragent-ie8 [data-o-grid-colspan] {
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url(../bower_components/o-useragent/polyfills/boxsizing.htc); }
+.o-useragent-ie7 .o-grid-row-compact > [data-o-grid-colspan], .o-useragent-ie8 .o-grid-row-compact > [data-o-grid-colspan] {
+  padding-left: 0;
+  padding-right: 0; }
+.o-useragent-ie7 .o-grid-row.o-grid-row-compact,
+.o-useragent-ie7 .o-grid-row .o-grid-row.o-grid-row-compact, .o-useragent-ie8 .o-grid-row.o-grid-row-compact,
+.o-useragent-ie8 .o-grid-row .o-grid-row.o-grid-row-compact {
+  margin-left: 0;
+  margin-right: 0; }
+.o-useragent-ie7 [data-o-grid-colspan~="hide"], .o-useragent-ie7 [data-o-grid-colspan~="0"], .o-useragent-ie8 [data-o-grid-colspan~="hide"], .o-useragent-ie8 [data-o-grid-colspan~="0"] {
+  display: none; }
+.o-useragent-ie7 [data-o-grid-colspan~="1"], .o-useragent-ie8 [data-o-grid-colspan~="1"] {
+  width: 8.33333%; }
+.o-useragent-ie7 [data-o-grid-colspan~="2"], .o-useragent-ie8 [data-o-grid-colspan~="2"] {
+  width: 16.66667%; }
+.o-useragent-ie7 [data-o-grid-colspan~="3"], .o-useragent-ie8 [data-o-grid-colspan~="3"] {
+  width: 25%; }
+.o-useragent-ie7 [data-o-grid-colspan~="4"], .o-useragent-ie8 [data-o-grid-colspan~="4"] {
+  width: 33.33333%; }
+.o-useragent-ie7 [data-o-grid-colspan~="5"], .o-useragent-ie8 [data-o-grid-colspan~="5"] {
+  width: 41.66667%; }
+.o-useragent-ie7 [data-o-grid-colspan~="6"], .o-useragent-ie8 [data-o-grid-colspan~="6"] {
+  width: 50%; }
+.o-useragent-ie7 [data-o-grid-colspan~="7"], .o-useragent-ie8 [data-o-grid-colspan~="7"] {
+  width: 58.33333%; }
+.o-useragent-ie7 [data-o-grid-colspan~="8"], .o-useragent-ie8 [data-o-grid-colspan~="8"] {
+  width: 66.66667%; }
+.o-useragent-ie7 [data-o-grid-colspan~="9"], .o-useragent-ie8 [data-o-grid-colspan~="9"] {
+  width: 75%; }
+.o-useragent-ie7 [data-o-grid-colspan~="10"], .o-useragent-ie8 [data-o-grid-colspan~="10"] {
+  width: 83.33333%; }
+.o-useragent-ie7 [data-o-grid-colspan~="11"], .o-useragent-ie8 [data-o-grid-colspan~="11"] {
+  width: 91.66667%; }
+.o-useragent-ie7 [data-o-grid-colspan~="12"], .o-useragent-ie8 [data-o-grid-colspan~="12"] {
+  float: none;
+  clear: both;
+  display: block;
+  width: 100%; }
+.o-useragent-ie7 body, .o-useragent-ie8 body {
+  min-width: 960px; }
+.o-useragent-ie7 .o-grid-row, .o-useragent-ie7 .o-grid-page, .o-useragent-ie8 .o-grid-row, .o-useragent-ie8 .o-grid-page {
+  width: 960px;
+  max-width: none; }
+.o-useragent-ie7 [data-o-grid-colspan~="S12"], .o-useragent-ie8 [data-o-grid-colspan~="S12"] {
+  clear: none; }
 /**
  * Colour palette
  *
- * Avoid using these colours directly in products.  Instead, prefer the colour
- * use case variables provided elsewhere in this module.
+ * These are the colours that make up the FT palette.  We don't use these colours directly, but instead assign them to 'use cases', which are defined in use-cases.scss.  In the list below, each line contains a color name and a colour code, and is finished with a comma:
+ *
+ *  <colorname>   <colour code>,
+ *
+ * The colour name must be a single word comprising just letters, numbers, and dashes.  You can have as many spaces between the colour name and the colour code as you like (so you can line them up neatly), and you *MUST* finish the line with a comma (except the final entry, which should not have a comma)
  */
-/* Primary Palette */
-/* Greys */
-/* Tints */
-/* Colors */
-/* Highlight colors */
-/* Highlight tints */
 /**
  * Colour use cases
  *
- * Use these instead of the palette variables directly.
+ * These mappings define what we use our colours for.  In the list below, each line contains a use case, a color name, a role, an optional status flag, and is finished with a comma:
+ *
+ *  <use case>   <colorname>   <role>   [<status>],
+ *
+ * The use case name must be a single word comprising just letters, numbers, and dashes.  
+ * The colour name should be an exact match for a colour defiend in palette.scss
+ * The role must be 'text', 'border', or 'background'.   
+ * The status must be 'DEPRECATED' or absent
+ * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
  */
+/**
+ * Colour palette
+ *
+ * These are the colours that make up the FT palette.  We don't use these colours directly, but instead assign them to 'use cases', which are defined in use-cases.scss.  In the list below, each line contains a color name and a colour code, and is finished with a comma:
+ *
+ *  <colorname>   <colour code>,
+ *
+ * The colour name must be a single word comprising just letters, numbers, and dashes.  You can have as many spaces between the colour name and the colour code as you like (so you can line them up neatly), and you *MUST* finish the line with a comma (except the final entry, which should not have a comma)
+ */
+/**
+ * Colour use cases
+ *
+ * These mappings define what we use our colours for.  In the list below, each line contains a use case, a color name, a role, an optional status flag, and is finished with a comma:
+ *
+ *  <use case>   <colorname>   <role>   [<status>],
+ *
+ * The use case name must be a single word comprising just letters, numbers, and dashes.  
+ * The colour name should be an exact match for a colour defiend in palette.scss
+ * The role must be 'text', 'border', or 'background'.   
+ * The status must be 'DEPRECATED' or absent
+ * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ */
+@font-face {
+  font-family: BentonSans-Normal;
+  font-style: normal;
+  font-weight: normal;
+  src: url(../bower_components/o-fonts/webfonts/BentonSans-Normal.eot);
+  src: url(../bower_components/o-fonts/webfonts/BentonSans-Normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-Normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-Normal.ttf) format("truetype"); }
+
 .o-ft-forms__label {
   display: block;
   margin-bottom: 10px;
@@ -512,21 +572,7 @@ html {
   padding-top: 6px;
   line-height: 18px; }
 
-.o-ft-forms__field[type="text"],
-.o-ft-forms__field[type="password"],
-.o-ft-forms__field[type="search"],
-.o-ft-forms__field[type="url"],
-.o-ft-forms__field[type="email"],
-.o-ft-forms__field[type="tel"],
-.o-ft-forms__field[type="date"],
-.o-ft-forms__field[type="time"],
-.o-ft-forms__field[type="datetime"],
-.o-ft-forms__field[type="datetime-local"],
-.o-ft-forms__field[type="month"],
-.o-ft-forms__field[type="week"],
-.o-ft-forms__field[type="number"],
-.o-ft-forms__field[type="color"],
-.o-ft-forms__field[type="range"] {
+.o-ft-forms__field[type="text"], .o-ft-forms__field[type="password"], .o-ft-forms__field[type="search"], .o-ft-forms__field[type="url"], .o-ft-forms__field[type="email"], .o-ft-forms__field[type="tel"], .o-ft-forms__field[type="date"], .o-ft-forms__field[type="time"], .o-ft-forms__field[type="datetime"], .o-ft-forms__field[type="datetime-local"], .o-ft-forms__field[type="month"], .o-ft-forms__field[type="week"], .o-ft-forms__field[type="number"], .o-ft-forms__field[type="color"], .o-ft-forms__field[type="range"] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -545,21 +591,19 @@ html {
   height: 30px;
   /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */ }
 
-.o-ft-forms__field[type="checkbox"],
-.o-ft-forms__field[type="radio"] {
+.o-ft-forms__field[type="checkbox"], .o-ft-forms__field[type="radio"] {
   display: inline-block;
   margin-top: 7px;
   margin-bottom: 20px; }
 
-.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label,
-.o-ft-forms__field[type="radio"] + .o-ft-forms__label {
+.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label, .o-ft-forms__field[type="radio"] + .o-ft-forms__label {
   display: inline-block;
   margin-left: 5px;
   margin-right: 10px;
   margin-bottom: 0;
   vertical-align: baseline; }
 
-select.o-ft-forms__field {
+.o-ft-forms__field--select {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -581,7 +625,7 @@ select.o-ft-forms__field {
   background-repeat: no-repeat;
   background-position: 97% center; }
 
-textarea.o-ft-forms__field {
+.o-ft-forms__field--textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -604,31 +648,19 @@ textarea.o-ft-forms__field {
 .o-ft-forms--error .o-ft-forms__label {
   color: #cc0000; }
 
-.o-ft-forms--error select.o-ft-forms__field,
-.o-ft-forms--error textarea.o-ft-forms__field {
+.o-ft-forms--error select.o-ft-forms__field, .o-ft-forms--error textarea.o-ft-forms__field {
   margin-bottom: 0; }
 
 .o-ft-forms--error .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]) {
-  margin-bottom: 0; }
-
-.lt-ie9 .o-ft-forms--error .o-ft-forms__field[type="text"],
-.lt-ie9 .o-ft-forms--error .o-ft-forms__field[type="password"] {
-  margin-bottom: 0; }
-
-.o-ft-forms--error .o-ft-forms__field[type="checkbox"],
-.o-ft-forms--error .o-ft-forms__field[type="radio"] {
-  margin-bottom: 6px; }
-
-.o-ft-forms--error .o-ft-forms__field[type="checkbox"] + .o-ft-forms__label,
-.o-ft-forms--error .o-ft-forms__field[type="radio"] + .o-ft-forms__label {
-  color: #777777; }
-
-.o-ft-forms--error .o-ft-forms__field,
-.o-ft-forms--error .o-ft-forms__prefix:not(.o-ft-forms__button),
-.o-ft-forms--error .o-ft-forms__suffix:not(.o-ft-forms__button),
-.o-ft-forms__field:invalid {
+  margin-bottom: 0;
   border-color: #cc0000;
   color: #cc0000; }
+
+.o-ft-forms--error .o-ft-forms__field[type="checkbox"], .o-ft-forms--error .o-ft-forms__field[type="radio"] {
+  margin-bottom: 6px; }
+
+.o-ft-forms--error .o-ft-forms__field[type="checkbox"] + .o-ft-forms__label, .o-ft-forms--error .o-ft-forms__field[type="radio"] + .o-ft-forms__label {
+  color: #777777; }
 
 .o-ft-forms__errortext {
   clear: both;
@@ -648,8 +680,7 @@ textarea.o-ft-forms__field {
 .o-ft-forms__suffix {
   border-right: 1px solid #cec6b9; }
 
-.o-ft-forms__prefix,
-.o-ft-forms__suffix {
+.o-ft-forms__prefix, .o-ft-forms__suffix {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -667,8 +698,7 @@ textarea.o-ft-forms__field {
   background-color: #f6e9d8;
   color: #74736c; }
 
-.o-ft-forms__button.o-ft-forms__prefix,
-.o-ft-forms__button.o-ft-forms__suffix {
+.o-ft-buttons__button.o-ft-forms__prefix, .o-ft-buttons__button.o-ft-forms__suffix {
   margin: 0;
   border-radius: 0;
   padding: 0;
@@ -677,78 +707,21 @@ textarea.o-ft-forms__field {
   /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
   line-height: 28px; }
 
-/** buttons.scss */
-.o-ft-forms__button {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  display: inline-block;
-  margin: 0 10px 20px 0;
-  padding: 0 8px;
-  border-width: 0;
-  border-radius: 4px;
-  width: auto;
-  background: #4e8fbd;
-  background: -webkit-gradient(linear, left top, left bottom, from(#549ccf), to(#4782ab));
-  background: -moz-linear-gradient(#549ccf, #4782ab);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#549ccf,  endColorstr=#4782ab)";
-  font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
-  color: white;
-  text-decoration: none;
-  white-space: nowrap;
-  cursor: pointer; }
+.o-ft-forms--error .o-ft-forms__prefix:not(.o-ft-buttons__button), .o-ft-forms--error .o-ft-forms__suffix:not(.o-ft-buttons__button), .o-ft-forms__field:invalid {
+  border-color: #cc0000;
+  color: #cc0000; }
 
-.o-ft-forms__buttongroup {
-  overflow: hidden; }
+body {
+  margin: 20px 0;
+  background-color: #fff1e0; }
 
-.o-ft-forms__buttongroup .o-ft-forms__button {
-  float: left;
-  margin-right: 1px;
-  border-radius: 0; }
+h1, h2 {
+  font-family: Arial, Helvetica, sans-serif; }
 
-.o-ft-forms__buttongroup .o-ft-forms__button:first-child {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px; }
+h1 {
+  font-size: 24px;
+  line-height: 32px; }
 
-.o-ft-forms__buttongroup .o-ft-forms__button:last-child {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px; }
-
-.o-ft-forms__button:hover {
-  color: #dfded8; }
-
-.o-ft-forms__button--large {
-  height: 30px;
-  /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
-  line-height: 30px;
-  font-size: 16px; }
-
-.o-ft-forms__button--medium {
-  height: 24px;
-  /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
-  line-height: 24px;
-  font-size: 14px; }
-
-.o-ft-forms__button--small {
-  height: 16px;
-  /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
-  line-height: 16px;
-  font-size: 12px; }
-
-.o-ft-forms__button--negative {
-  padding: 0;
-  color: #2e6e9e;
-  background: transparent; }
-
-.o-ft-forms__button.o-ft-forms__button--disabled,
-.o-ft-forms__button[disabled] {
-  opacity: 0.5;
-  cursor: default; }
-
-.o-ft-forms__button.o-ft-forms__button--disabled:hover,
-.o-ft-forms__button[disabled]:hover {
-  color: #fff; }
-
-.o-ft-forms__button--negative.o-ft-forms__button--disabled:hover,
-.o-ft-forms__button--negative[disabled]:hover {
-  color: #2e6e9e; }
+h2 {
+  font-size: 18px;
+  line-height: 24px; }
