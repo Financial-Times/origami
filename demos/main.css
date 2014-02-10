@@ -263,10 +263,16 @@ html, body {
     border-left: 1px solid #505050; }
 
 @media screen and (max-width: 600px) {
-  .o-ft-header__topbar__items {
+  .o-ft-header__topbar__item:last-child {
+    border-right: none; }
+
+  .o-ft-header__topbar__item--active {
     border-right: none; } }
 @media screen and (min-width: 601px) and (max-width: 1000px) {
-  .o-ft-header__topbar__items {
+  .o-ft-header__topbar__item:last-child {
+    border-right: none; }
+
+  .o-ft-header__topbar__item--active {
     border-right: none; } }
 .o-ft-header__topbar__item--active {
   color: #2e6e9e;

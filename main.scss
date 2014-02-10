@@ -129,7 +129,13 @@ $o-ft-header-topbar-item-active-selector: #{'%o-ft-header__topbar__item--active'
 }
 
 @include oGridRespondTo(S M) {
-	.o-ft-header__topbar__items {
+	#{$o-ft-header-topbar-item-selector}  {
+		&:last-child {
+			border-right: none;
+		}
+	}
+
+	#{$o-ft-header-topbar-item-active-selector} {
 		border-right: none;
 	}
 }
@@ -138,9 +144,3 @@ $o-ft-header-topbar-item-active-selector: #{'%o-ft-header__topbar__item--active'
 #{$o-ft-header-topbar-item-active-selector} {
 	@include _oFtHeaderItemActiveStyles();
 }
-
-
-
-
-
-
