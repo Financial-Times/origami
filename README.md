@@ -100,9 +100,7 @@ Good examples: columnists.svg, back-arrow.svg
 
 Bad examples: RightArrow.svg, linked_in.svg, yahoo!.svg
 
-### Options
+### IE7 support
 
-IE7 support is switched off by default, but can be switched on by way of a SASS variable:
-
-    $o-ft-icons-support-ie7: true;
+IE7 support is controlled by [o-useragent](https://github.com/Financial-Times/o-useragent).
     

@@ -3,9 +3,7 @@
 /* Call mixins for each icon */ 
 <% if (iconsStyles) { %>
 	<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-		@if ($o-ft-icons-support-ie7) {
-			@include oFtIconsIconIe7(icon--<%= glyphs[glyphIdx] %>, "&#x<%= codepoints[glyphIdx] %>;&nbsp;");
-		}
+		@include oFtIconsIconIe7(icon--<%= glyphs[glyphIdx] %>, "&#x<%= codepoints[glyphIdx] %>;&nbsp;");
 		@include oFtIconsIcon(icon--<%= glyphs[glyphIdx] %>, "\<%= codepoints[glyphIdx] %>");
 	<% } %>
 <% } %>
