@@ -130,7 +130,6 @@
       align-self: auto;
     }
   }
-
 }
 
 
@@ -147,8 +146,7 @@
   -ms-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
-  pointer-events: none;
- 
+  pointer-events: none; // so that as soon as is-open' class is gone clicks register on elements beneath the fading
 }
 
 .rgba .o-dialog__overlay {

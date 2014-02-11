@@ -77,8 +77,9 @@ The `options` object takes the following properties. All are optional, with the 
 #### Events
 The following event listeners can also be set on the options object.
 
-* `onTrigger` - Called when a request to open a dialog is fired
+
 * `onFail` - Called when a dialog fails to initialise. The reason for the failure will be available in `dialog.errors` *(not implemented)*
+* `onTrigger` - Called when a request to open a dialog is fired if initialisation succeeds
 * `onBeforeRender` - Called when a dialog's content is constructed but not yet added to the DOM
 * `onAfterRender` - Called when a dialog's content has been added to the DOM
 * `onBeforeResize` - Called when a dialog begins to respond to a window resize event

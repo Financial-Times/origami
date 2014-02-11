@@ -5,7 +5,7 @@ var $ = require('jquery'),
     reAlign = require('./re-align'),
     anchor = require('./anchor'),
     globals = require('../data/globals'),
-    closeDialog = require('../public/close-dialog'),
+    close = require('../public/close'),
 
     respondToWindow = function (dialog) {
         dialog.opts.onBeforeResize(dialog);
@@ -46,7 +46,7 @@ module.exports = function (dialog) {
             globals.body.on('click.o-dialog', function (ev) {
                 if (dialog.active) {
                     if (!dialog.content[0].contains(ev.target) || (dialog.opts.hasCloseButton && $(ev.target).is('.o-dialog__close'))) {
-                        closeDialog(dialog);
+                        close(dialog);
                     }
                 }
             });
@@ -55,7 +55,7 @@ module.exports = function (dialog) {
 
         globals.doc.on('keyup.o-dialog', function (ev) {
             if (ev.keyCode === 27) {
-                closeDialog();
+                close();
             }
         });
     }

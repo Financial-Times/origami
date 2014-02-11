@@ -56,7 +56,7 @@ body {
 }
 
 .top-right .o-dialog__content {
-  min-width: 250px; 
+  max-width: 250px; 
 }
 
 .top-left {
@@ -75,7 +75,7 @@ body {
 }
 
 .bottom-right .o-dialog__content {
-  min-width: 250px;
+  max-width: 250px;
    right: 0;
 }
 

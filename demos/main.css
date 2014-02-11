@@ -759,7 +759,7 @@ body {
   margin-bottom: 60px; }
 
 .top-right .o-dialog__content {
-  min-width: 250px; }
+  max-width: 250px; }
 
 .top-left {
   margin-right: 50px; }
@@ -773,7 +773,7 @@ body {
   margin-left: 100px; }
 
 .bottom-right .o-dialog__content {
-  min-width: 250px;
+  max-width: 250px;
   right: 0; }
 
 .bottom-left {

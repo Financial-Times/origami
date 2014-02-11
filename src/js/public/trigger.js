@@ -1,6 +1,9 @@
 "use strict";
 
 var globals = require('../data/globals'),
+    close = require('../public/close'),
+    handleOptions = require('../private/handle-options'),
+    attach = require('../private/attach'),
 
     assignClasses = function (dialog) {
         dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.outerClasses + (dialog.opts.hasCloseButton ? ' o-dialog--closable' : '');
@@ -22,15 +25,16 @@ module.exports = function (opts, trigger) {
         }
     }
 
-    var dialog = require('../private/configure-new-dialog')(opts, trigger);
+    var dialog = require('../private/get-dialog')();
+    dialog.trigger = trigger;
+    dialog.opts = handleOptions(opts, trigger);
     
-    if (!dialog) {
-        dialog.opts.onFail(dialog);
+    if (!dialog.opts) {
+        opts.onFail(dialog);
         return;
     }
     dialog.opts.onTrigger(dialog);
-    
-    
+        
     dialog.content.html(dialog.opts.content);
 
     if (dialog.opts.hasCloseButton) {
@@ -43,6 +47,6 @@ module.exports = function (opts, trigger) {
     dialog.opts.hasHeading = !!dialog.heading.length;
     assignClasses(dialog);
     dialog.opts.onBeforeRender(dialog);
-    require('../private/attach')(dialog);
+    attach(dialog);
     dialog.opts.onAfterRender(dialog);
 };

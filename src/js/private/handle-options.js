@@ -70,7 +70,7 @@ var $ = require('jquery'),
 
 
 module.exports = function (opts, trigger) {
-    var dialog = require('./get-empty-dialog')();
+    
 
     if (typeof opts === 'string') {
         opts = {
@@ -99,9 +99,5 @@ module.exports = function (opts, trigger) {
         return;
     }
 
-    dialog.trigger = trigger;
-
-    dialog.opts = setListeners(opts);
-
-    return dialog;
+    return setListeners(opts);
 };
