@@ -1,0 +1,34 @@
+@include oFtTypographySelectors(brand)  {
+  margin: 0;
+  @include oFtTypographyFontSize(12, 14);
+  font-family: $_o-ft-typography-brand-font;
+  font-weight: bold;
+  color: oColorsGetColorFor(brand-text);
+}
+
+@include oFtTypographySelectors(brand__link) {
+  text-decoration: none;
+  color: oColorsGetColorFor(link-text);
+  cursor: pointer;
+}
+
+@include oFtTypographySelectors(brand__link--hover, '#{$o-hoverable-if-hover-enabled} .#{$_o-ft-typography-selector-prefix}brand__link:hover') {
+  color: oColorsGetColorFor(link-hover-text);
+  cursor: pointer;
+}
+
+@include oFtTypographySelectors(byline)  {
+  margin: 0;
+  @include oFtTypographyFontSize(14, 24);
+  font-family: $_o-ft-typography-metadata-font;
+  font-weight: normal;
+  color: oColorsGetColorFor(byline-text);
+}
+
+@include oFtTypographySelectors(timestamp)  {
+  margin: 0;
+  @include oFtTypographyFontSize(14, 24);
+  font-family: $_o-ft-typography-metadata-font;
+  font-weight: normal;
+  color: oColorsGetColorFor(timestamp-text);
+}

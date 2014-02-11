@@ -1,0 +1,44 @@
+@include oFtTypographySelectors(body--bold) {
+  font-weight: bold;
+}
+
+@include oFtTypographySelectors(body--italic) {
+  font-style: italic;
+}
+
+@include oFtTypographySelectors(body--small) {
+  font-size: 0.75em;
+}
+
+@include oFtTypographySelectors(body--super) {
+  display: inline-block;
+  margin-top: -3px;
+  font-size: 0.75em;
+  vertical-align: super;
+}
+
+@include oFtTypographySelectors(body--sub) {
+  display: inline-block;
+  margin-bottom: -5px;
+  font-size: 0.75em;
+  vertical-align: sub;
+}
+
+@include oFtTypographySelectors(body__link) {
+  text-decoration: none;
+  color: oColorsGetColorFor(link-text);
+  cursor: pointer;
+}
+
+@include oFtTypographySelectors(body__link--hover '#{$o-hoverable-if-hover-enabled} body__link:hover') {
+  color: oColorsGetColorFor(link-hover-text);
+  cursor: pointer;
+}
+
+@include oFtTypographySelectors(body__list--ordered) {
+  list-style-type: decimal;
+}
+
+@include oFtTypographySelectors(body__list--unordered) {
+  list-style-type: disc;
+}

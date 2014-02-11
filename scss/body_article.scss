@@ -1,0 +1,28 @@
+@include oFtTypographySelectors(article-body--lead) {
+  margin: 0 0 9px 0;
+  border-bottom: 1px dotted oColorsGetColorFor(article-body-lead-border); //
+  padding: 0 0 14px 0;
+  font-family: $_o-ft-typography-article-body-font;
+  font-weight: normal;
+  @include oFtTypographyFontSize(21, 27);
+  color: oColorsGetColorFor(article-body-lead-text);
+}
+
+@include oFtTypographySelectors(article-body)  {
+  @include oFtTypographyFontSize(16, 24);
+  font-family: $_o-ft-typography-article-body-font;
+  font-weight: normal;
+  color: oColorsGetColorFor(article-body-text);
+}
+
+@include oFtTypographySelectors(article-body__block) {
+  margin-bottom: 24px;
+  margin-top: 24px;
+}
+
+@include oFtTypographySelectors(article-body__list) {
+  list-style-position: outside;
+  padding-left: 20px;
+  @include oFtTypographyExtend(article-body);
+  @include oFtTypographyExtend(article-body__block);
+}

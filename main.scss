@@ -1,17 +1,25 @@
 @import "o-colors/main";
 @import "o-fonts/main";
+@import "o-hoverable/main";
+@import "o-useragent/main";
 @import "scss/_variables";
+@import "scss/_functions";
 @import "scss/_mixins";
 
-
-/* Load fonts */
 @if (not $o-ft-typography-is-silent) {
 	@include oFontsInclude(BentonSans);
 	@include oFontsInclude(BentonSans, bold);
 	@include oFontsInclude(MillerDisplay);
 }
 
-@import "scss/_standalone";
+@import "scss/headings";
+@import "scss/titles";
+@import "scss/leads";
+@import "scss/metadata";
+@import "scss/article_subheadings";
+@import "scss/body_common";
+@import "scss/body_general";
+@import "scss/body_article";
 
 @import "scss/_wrapped_general";
 @include oFtTypographyDefineGeneralContentWrapper($o-ft-typography-general-wrapper-class);

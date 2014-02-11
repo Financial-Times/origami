@@ -1,0 +1,27 @@
+@include oFtTypographySelectors(body--lead) {
+  font-family: $_o-ft-typography-body-font;
+  font-weight: normal;
+  @include oFtTypographyFontSize(18, 24);
+  color: oColorsGetColorFor(body-lead-text);
+  -webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
+}
+
+@include oFtTypographySelectors(body) {
+  font-family: $_o-ft-typography-body-font;
+  font-weight: normal;
+  @include oFtTypographyFontSize(14, 20);
+  color: oColorsGetColorFor(body-text);
+}
+
+@include oFtTypographySelectors(body__block) {
+  margin-bottom: 21px;
+  margin-top: 21px;
+}
+
+@include oFtTypographySelectors(body__list) {
+  list-style-position: outside;
+  padding-left: 20px;
+  font-weight: normal;
+  @include oFtTypographyExtend(body);
+  @include oFtTypographyExtend(body__block);
+}

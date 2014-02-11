@@ -1,0 +1,17 @@
+// Get list of placeholders, prefixed with module name
+@function oFtGetPrefixedPlaceholders($names) {
+  $placeholders: ();
+  @each $name in $names {
+    $placeholders: append($placeholders, #{'%#{$_o-ft-typography-selector-prefix}#{unquote($name)}'}, comma);
+  }
+  @return $placeholders;
+}
+
+// Get list of CSS classes, prefixed with module name
+@function oFtGetPrefixedClasses($names) {
+  $classes: ();
+  @each $name in $names {
+    $classes: append($classes, #{'.#{$_o-ft-typography-selector-prefix}#{unquote($name)}'}, comma);
+  }
+  @return $classes;
+}

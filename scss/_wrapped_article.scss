@@ -1,6 +1,6 @@
 @mixin oFtTypographyDefineArticleContentWrapper ($selector) {
 	@if ($selector == $_o-ft-typography-default-article-wrapper-class) {
-		@include oFtTypographyClass($selector) {
+		@include oFtTypographySelectors($selector) {
 			@include ftTypographyWrappableArticleContentStyles();
 		}
 	} @else {

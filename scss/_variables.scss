@@ -4,6 +4,8 @@ $o-ft-typography-general-wrapper-class: $_o-ft-typography-default-general-wrappe
 $_o-ft-typography-default-article-wrapper-class: 'article-body-wrapper';
 $o-ft-typography-article-wrapper-class: $_o-ft-typography-default-article-wrapper-class !default;
 
+$_o-ft-typography-selector-prefix: o-ft-typography-;
+
 $_o-ft-typography-heading-xlarge-font: $o-fonts-bentonsans-bold;
 $_o-ft-typography-heading-large-font: $o-fonts-bentonsans-bold;
 $_o-ft-typography-heading-medium-font: $o-fonts-bentonsans-bold;

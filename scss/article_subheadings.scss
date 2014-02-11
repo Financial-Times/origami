@@ -1,0 +1,36 @@
+@mixin oFtTypographyArticleSubheading() {
+  margin-bottom: 15px;
+  padding: 5px 0;
+  @include oFtTypographyFontSize(16, 20);
+  @include oFtTypographyExtend(body__block);
+  font-family: $_o-ft-typography-article-subheading-font;
+  font-weight: bold;
+  color: oColorsGetColorFor(article-subheading-text);
+}
+
+@include oFtTypographySelectors(article-subheading1) {
+  @include oFtTypographyArticleSubheading();
+  border-top: 1px dotted oColorsGetColorFor(article-subheading-border);
+  border-bottom: 1px dotted oColorsGetColorFor(article-subheading-border);
+  & + * {
+    margin-top: 0;
+  }
+}
+
+@include oFtTypographySelectors(article-subheading2) {
+  @include oFtTypographyArticleSubheading();
+  & + * {
+    margin-top: 0;
+  }
+}
+
+@include oFtTypographySelectors(article-subheading1__link article-subheading2__link) {
+  text-decoration: none;
+  color: oColorsGetColorFor(article-subheading-text); // TODO: Should have its own use case
+  cursor: pointer;
+}
+
+@include oFtTypographySelectors(article-subheading1__link--hover article-subheading2__link--hover, '#{$o-hoverable-if-hover-enabled} .#{$_o-ft-typography-selector-prefix}article-subheading1__link:hover, #{$o-hoverable-if-hover-enabled} .#{$_o-ft-typography-selector-prefix}article-subheading2__link:hover') {
+  color: oColorsGetColorFor(link-text); // TODO: Should have its own use case
+  cursor: pointer;
+}

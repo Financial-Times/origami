@@ -1,0 +1,67 @@
+@include oFtTypographySelectors(heading-xlarge) {
+  margin: 0 0 16px 0;
+  padding: 8px 10px 7px 10px;
+  border-top: 4px solid oColorsGetColorFor(heading-large-border); // Add new use case to o-colors
+  border-bottom: 1px dotted oColorsGetColorFor(heading-large-border); // Add new use case to o-colors
+  font-family: $_o-ft-typography-heading-xlarge-font;
+  font-weight: normal;
+  @include oFtTypographyFontSize(16, 20);
+  color: oColorsGetColorFor(heading-large-text);
+}
+
+@include oFtTypographySelectors(heading-large) {
+  margin: 0 0 16px 0;
+  padding: 8px 10px 7px 10px;
+  border-top: 4px solid oColorsGetColorFor(heading-large-border);
+  border-bottom: 1px dotted oColorsGetColorFor(heading-large-border);
+  font-family: $_o-ft-typography-heading-large-font;
+  font-weight: normal;
+  text-transform: uppercase;
+  @include oFtTypographyFontSize(14, 20);
+  color: oColorsGetColorFor(heading-large-text);
+}
+
+@mixin oFtTypographyHeadingMediumStyles() {
+  margin: 0 0 16px 0;
+  font-family: $_o-ft-typography-heading-medium-font;
+  font-weight: normal;
+  @include oFtTypographyFontSize(13, 20);
+  color: oColorsGetColorFor(heading-text);
+  text-transform: uppercase;
+}
+
+@include oFtTypographySelectors(heading-medium) {
+  @include oFtTypographyHeadingMediumStyles();
+  @include oFtTypographyFauxTextBackground(oColorsGetColorFor(page-background));
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAAPAQMAAADEaZ8BAAAABlBMVEUAAADs3s8R/6e7AAAAAXRSTlMAQObYZgAAADBJREFUSMdj+D90QcNQdvyDUccPEPgw6njiwKjjh43jh3SGHdKOb2AYBaNgFAwdAACrOE9c1sAQpgAAAABJRU5ErkJggg==');
+}
+
+@include oUseragentTarget(ie7 ie8 ie9) {
+  @include oFtTypographySelectors(heading-medium) {
+    @include oFtTypographyHeadingMediumStyles();
+    border-bottom: 1px solid oColorsGetColorFor(heading-medium-border); // TODO: Add new use case for heading-medium-border -> tint2
+    background-image: none;
+  }
+}
+
+@include oFtTypographySelectors(heading-small) {
+  margin: 0 0 8px 0;
+  font-family: $_o-ft-typography-heading-small-font;
+  font-weight: bold;
+  @include oFtTypographyFontSize(14, 20);
+  color: oColorsGetColorFor(heading-text);
+}
+
+@include oFtTypographySelectors(heading-xlarge__link heading-large__link heading-medium__link heading-small__link) {
+  text-decoration: none;
+  color: oColorsGetColorFor(link-text);
+  cursor: pointer;
+}
+
+@include oFtTypographySelectors(heading-xlarge__link--hover heading-large__link--hover heading-medium__link--hover heading-small__link--hover,
+  '#{$o-hoverable-if-hover-enabled} .#{$_o-ft-typography-selector-prefix}heading-xlarge__link:hover, #{$o-hoverable-if-hover-enabled} .#{$_o-ft-typography-selector-prefix}heading-large__link:hover, #{$o-hoverable-if-hover-enabled} .#{$_o-ft-typography-selector-prefix}heading-medium__link:hover, #{$o-hoverable-if-hover-enabled} .#{$_o-ft-typography-selector-prefix}heading-small__link:hover') {
+  color: oColorsGetColorFor(link-hover-text);
+  cursor: pointer;
+}

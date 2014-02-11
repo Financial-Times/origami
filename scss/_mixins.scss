@@ -1,18 +1,11 @@
-@mixin oFtTypographyClass ($classes) {
-	$aggregatedSelector: ();	
-	
-	@each $class in $classes {
-
-		$aggregatedSelector: append($aggregatedSelector, #{'%o-ft-typography-#{$class}'}, comma);
-	  
-		@if (not $o-ft-typography-is-silent) {
-			$aggregatedSelector: append($aggregatedSelector, #{'.o-ft-typography-#{$class}'}, comma);
-		}
-	}
-
-	#{$aggregatedSelector} {
-		@content;
-	}
+@mixin oFtTypographyFontOffset($offset) {
+  @if ($offset > 0) {
+    padding-top: $offset + px;
+    margin-bottom: -$offset + px;
+  } @else if ($offset < 0) {
+    margin-top: $offset + px;
+    padding-bottom: -$offset + px;
+  }
 }
 
 @mixin oFtTypographyFontSize($size, $lineHeight: null, $offset: 0) {
@@ -24,16 +17,6 @@
 		line-height: $lineHeight + px;
 	}
 	@include oFtTypographyFontOffset($offset);
-}
-
-@mixin oFtTypographyFontOffset ($offset) {
-	@if ($offset > 0) {
-		padding-top: $offset + px;
-		margin-bottom: -$offset + px;
-	} @else if ($offset < 0) {
-		margin-top: $offset + px;
-		padding-bottom: -$offset + px;
-	}
 }
 
 @mixin oFtTypographyFauxTextBackground($color) {
@@ -49,7 +32,7 @@
 //
 // @param $selector {string|null} css selector to wrap the styles in
 //
-@mixin oFtTypographyWrapInSelector ($selector:null, $alwaysOutputPlainToo: false) {
+@mixin oFtTypographyWrapInSelector($selector:null, $alwaysOutputPlainToo: false) {
 	@if (not $selector or $alwaysOutputPlainToo) {
 		@content
 	}
@@ -60,4 +43,24 @@
 
 @mixin oFtTypographyExtend ($class) {
 	@extend #{'%o-ft-typography-#{$class}'} !optional;
+}
+
+/**
+  Wrap styles in module-name prefixed SASS placeholders and CSS classes (if not in silent mode),
+  and optionally CSS selectors (if not in silent mode)
+  $names:         SASS list of placeholder/class names in the format "name1 name2" but without the quotes.
+                  Will automatically by prefixed with module name.
+  $cssSelectors:  [optional] string. CSS selectors which should also receive the same styles.
+                  Does not get auto-prefixed, so must be exactly as you want output on the CSS.
+*/
+@mixin oFtTypographySelectors($names, $cssSelectors: ()) {
+  $selectors: ();
+  $selectors: append($selectors, oFtGetPrefixedPlaceholders($names));
+  @if (not $o-ft-typography-is-silent) {
+    $selectors: append($selectors, oFtGetPrefixedClasses($names));
+    $selectors: append($selectors, unquote($cssSelectors), comma);
+  }
+  #{$selectors} {
+    @content;
+  }
 }

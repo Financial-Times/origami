@@ -1,0 +1,32 @@
+@include oFtTypographySelectors(lead-large) {
+  font-family: $_o-ft-typography-lead-large-font;
+  font-weight: normal;
+  @include oFtTypographyFontSize(21, 26);
+  color: oColorsGetColorFor(lead-text);
+}
+
+@include oFtTypographySelectors(lead-medium) {
+  font-family: $_o-ft-typography-lead-medium-font;
+  font-weight: normal;
+  @include oFtTypographyFontSize(17, 21);
+  color: oColorsGetColorFor(lead-medium-text);
+}
+
+@include oFtTypographySelectors(lead-small) {
+  font-family: $_o-ft-typography-lead-small-font;
+  font-weight: normal;
+  @include oFtTypographyFontSize(13, 17);
+  color: oColorsGetColorFor(lead-text);
+}
+
+@include oFtTypographySelectors(lead-large__link lead-medium__link lead-small__link) {
+  text-decoration: none;
+  color: oColorsGetColorFor(link-text);
+  cursor: pointer;
+}
+
+@include oFtTypographySelectors(lead-large__link--hover lead-medium__link--hover lead-small__link--hover,
+  '#{$o-hoverable-if-hover-enabled} .#{$_o-ft-typography-selector-prefix}lead-large__link:hover, #{$o-hoverable-if-hover-enabled} .#{$_o-ft-typography-selector-prefix}lead-medium__link:hover, #{$o-hoverable-if-hover-enabled} .#{$_o-ft-typography-selector-prefix}lead-small__link:hover') {
+  color: oColorsGetColorFor(link-hover-text);
+  cursor: pointer;
+}
