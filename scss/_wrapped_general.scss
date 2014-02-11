@@ -1,22 +1,11 @@
-@mixin oFtTypographyDefineGeneralContentWrapper ($selector) {
-	@if ($selector == $_o-ft-typography-default-general-wrapper-class) {
-		@include oFtTypographySelectors($selector) {
-			@include ftTypographyWrappableGeneralContentStyles();
-		}
-	} @else {
-		@include oFontsInclude(MillerDisplay);
-		@include oFtTypographyWrapInSelector($selector) {
-			@include ftTypographyWrappableGeneralContentStyles();
-		}
-	}
-}
+@mixin ftTypographyWrapGeneralBodyStyles($selector) {
 
-// Article wrapped styles
-@mixin ftTypographyWrappableGeneralContentStyles () {
+  @include oFontsInclude(MillerDisplay);
+
+  @include oFtTypographySelectors($selector) {
 
 	h2 {
 		@include oFtTypographyExtend(heading-medium);
-
 		a {
 			@include oFtTypographyExtend(heading-medium__link);
 		}
@@ -24,7 +13,6 @@
 
 	h3 {
 		@include oFtTypographyExtend(heading-small);
-
 		a {
 			@include oFtTypographyExtend(heading-small__link);
 		}
@@ -39,37 +27,12 @@
 		@include oFtTypographyExtend(body__block);
 	}
 
-	strong {
-		@include oFtTypographyExtend(body--bold);
-	}
-
-	em {
-		@include oFtTypographyExtend(body--italic);
-	}				
-
-	small {
-		@include oFtTypographyExtend(body--small);
-	}
-
-	sup {
-		@include oFtTypographyExtend(body--super);
-	}
-
-	sub {
-		@include oFtTypographyExtend(body--sub);
-	}
-
 	ol,
 	ul {
 		@include oFtTypographyExtend(body__list);
 	}
 
-	ol {
-		@include oFtTypographyExtend(body__list--ordered);
-	}
+    @include oFtTypographyCommonWrappedBodyStyles();
 
-	ul {
-		@include oFtTypographyExtend(body__list--unordered);
-	}
-
+  }
 }

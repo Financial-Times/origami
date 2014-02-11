@@ -34,7 +34,7 @@ If you don't want to include the pre-defined classes in your HTML (or are a modu
     .article {
       p,
       blockquote {
-        @extend %o-ft-typography-body__block;   		
+        @extend %o-ft-typography-body__block;       	
       }
     }
 
@@ -48,10 +48,10 @@ Placeholders exist for all the same styles as pre-defined classes, and have the 
 
 ### Wrapper classes
 
-Wrapper classes apply styles automatically to naked `h1, h2, h3, p, a, strong, em, small, sup, sub, ul, ol, li` tags that are immediate descendents of the element to which the wrapper class is applied.  There is one wrapper class (and placeholder) for each category of typography:
+Wrapper classes apply styles automatically to naked `h2, h3, p, a, strong, em, small, sup, sub, ul, ol, li` tags that are descendents of the element to which the wrapper class is applied.  There is one wrapper class (and placeholder) for each category of typography:
 
-* `o-ft-typography-article-body-wrapper` Article
 * `o-ft-typography-body-wrapper` General
+* `o-ft-typography-article-body-wrapper` Article
 
 
 ### Silent mode
