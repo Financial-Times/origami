@@ -1,6 +1,8 @@
 @mixin ftTypographyWrapArticleBodyStyles($selector) {
 
-  @include oFontsInclude(MillerDisplay);
+  @if (not $o-ft-typography-is-silent) {
+    @include oFontsInclude(MillerDisplay);
+  }
 
   @include oFtTypographySelectors($selector) {
 
