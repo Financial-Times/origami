@@ -12,7 +12,7 @@
     "test"
     ],
   "dependencies": {
-    "o-fonts": "https://github.com/Financial-Times/o-fonts.git#>=0.5.0",
+    "o-fonts": "https://github.com/Financial-Times/o-fonts.git#>=0.6.1",
     "o-colors": "https://github.com/Financial-Times/o-colors.git#>=2.1.6",
     "o-hoverable": "https://github.com/Financial-Times/o-hoverable.git#0.1.0"
   },
