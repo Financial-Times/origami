@@ -6,10 +6,4 @@ Dialog.addPreset('modal', require('./src/js/presets/modal'));
 Dialog.addPreset('dropdown', require('./src/js/presets/dropdown'));
 Dialog.addPreset('dropup', require('./src/js/presets/dropup'));
 
-$(document).on('click.o-dialog__trigger', '[data-o-dialog__trigger]', function (ev) {
-	ev.preventDefault();
-    ev.oDialogTriggerClick = true;
-    Dialog.trigger($(this).data('o-dialog__trigger'), this);
-});
-
 module.exports = Dialog;
