@@ -32,7 +32,7 @@ module.exports = function (dimension, dialog) {
         // need to use the jQuery method as a fallback as <ie9 don't support the property
         var winDimension = globals.win[0]['inner' + capitalisedDimension] || globals.win['inner' + capitalisedDimension]();
         
-        if (globals.win[0]['inner' + capitalisedDimension] <= dialog[dimension]) {
+        if (winDimension <= dialog[dimension]) {
             dialog['isFull' + capitalisedDimension] = true;
             dialog.wrapper.addClass('o-dialog--full-' + dimension);
             if (!globals.isFlexbox) {

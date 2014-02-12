@@ -31,11 +31,13 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['origami-demo']);
   grunt.registerTask('test', [
       'jshint',
+      // build the manually run browser test page
+      'browserify:src',
+      'jasmine:browser:build',
+      // build the automatically run phantomjs page with test coverage reports
       'instrument',
       'browserify:instrumented',
       'jasmine:automated',
-      'browserify:src',
-      'jasmine:browser:build',
       'enforce-coverage'
   ]);
 

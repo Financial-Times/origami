@@ -26,4 +26,4 @@ module.exports = function () {
     globalListenersApplied || globalListeners();
 
     return dialog;
-};    
+};

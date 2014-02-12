@@ -1,3 +1,5 @@
+"use strict";
+
 var domUtils = require('./dom-utils');
 
 module.exports = {

@@ -13,7 +13,7 @@ module.exports = {
             debug: false,
             aliasMappings: [
                 {
-                    cwd: './tmp/instrumented/src/js/',      // Src matches are relative to this path.
+                    cwd: './tmp/instrumented/src/js/', // Src matches are relative to this path.
                     src: ['**/*.js'], // Actual pattern(s) to match.
                     dest: './src/js/'
                 }
@@ -31,6 +31,13 @@ module.exports = {
     src: {
         options: {
             debug: true,
+            aliasMappings: [
+                {
+                    cwd: './src/js/', // Src matches are relative to this path.
+                    src: ['**/*.js'], // Actual pattern(s) to match.
+                    dest: './src/js/'
+                }
+            ],
             transform: ['debowerify']
         },
         files: {

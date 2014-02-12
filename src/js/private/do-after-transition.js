@@ -12,7 +12,7 @@ module.exports = function ($wrapper, cssClass, mode, $transitioningEls, callback
         callbackHasRun = false,
         singletonCallback;
 
-    $transitioningEls.each(function (item) {
+    $transitioningEls.each(function () {
         var details,
             duration = +domUtils.getStyleValue(this, 'transition-duration').replace(/[^\.\d]/g, ''),
             properties;
@@ -44,7 +44,7 @@ module.exports = function ($wrapper, cssClass, mode, $transitioningEls, callback
     }
 
     // makes sure callback only gets called once
-    var singletonCallback = function () {
+    singletonCallback = function () {
         if (!callbackHasRun) {
             callbackHasRun = true;
             callback();

@@ -16,8 +16,10 @@
   "immed": true,
   "trailing": true,
   "smarttabs": true,
+  "-W030": false,
   "globals": {
     "require": false,
-    "console": false
+    "console": false,
+    "close": true
   }
 }
