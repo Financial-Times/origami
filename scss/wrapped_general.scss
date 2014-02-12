@@ -1,0 +1,33 @@
+@include oFtTypographySelectors(body-wrapper) {
+
+  h2 {
+      @include oFtTypographyExtend(heading-medium);
+      a {
+          @include oFtTypographyExtend(heading-medium__link);
+      }
+  }
+
+  h3 {
+      @include oFtTypographyExtend(heading-small);
+      a {
+          @include oFtTypographyExtend(heading-small__link);
+      }
+  }
+
+  a {
+      @include oFtTypographyExtend(body__link);
+  }
+
+  p {
+      @include oFtTypographyExtend(body);
+      @include oFtTypographyExtend(body__block);
+  }
+
+  ol,
+  ul {
+      @include oFtTypographyExtend(body__list);
+  }
+
+  @include oFtTypographyCommonWrappedBodyStyles();
+
+}

@@ -1,0 +1,33 @@
+@include oFtTypographySelectors(article-body-wrapper) {
+
+  h2 {
+      @include oFtTypographyExtend(article-subheading1);
+      a {
+          @include oFtTypographyExtend(article-subheading1__link);
+      }
+  }
+
+  h3 {
+      @include oFtTypographyExtend(article-subheading2);
+      a {
+          @include oFtTypographyExtend(article-subheading2__link);
+      }
+  }
+
+  a {
+      @include oFtTypographyExtend(body__link);
+  }
+
+  p {
+      @include oFtTypographyExtend(article-body);
+      @include oFtTypographyExtend(body__block);
+  }
+
+  ol,
+  ul {
+      @include oFtTypographyExtend(article-body__list);
+  }
+
+  @include oFtTypographyCommonWrappedBodyStyles();
+
+}
