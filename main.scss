@@ -20,9 +20,6 @@
 @import "scss/body_common";
 @import "scss/body_general";
 @import "scss/body_article";
-
-@import "scss/_wrapped_general";
-@include oFtTypographyDefineGeneralContentWrapper($o-ft-typography-general-wrapper-class);
-
-@import "scss/_wrapped_article";
-@include oFtTypographyDefineArticleContentWrapper($o-ft-typography-article-wrapper-class);
+@import "scss/_wrapped_common";
+@import "scss/wrapped_general";
+@import "scss/wrapped_article";
