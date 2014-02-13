@@ -15,7 +15,8 @@ var $ = require('jquery'),
         close: close,
         trigger: trigger,
         destroy: function () {
-            close(null, true);
+            // called as a method of Dialog to facilitate testing
+            Dialog.close(null, true);
         },
         addPreset: function (name, conf) {
             globals.presets[name] = $.extend({}, defaults, conf);
@@ -28,6 +29,6 @@ var $ = require('jquery'),
         }
     };
 
-Dialog.listen();
+// Dialog.listen();
 
 module.exports = Dialog;

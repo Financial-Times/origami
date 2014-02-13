@@ -18,7 +18,7 @@ describe('global module variables (./data/globals.js)', function () {
         expect(globals.W).toEqual('width');
     });
 
-    it('should store references to the DOM', function () {
+    xit('should store references to the DOM', function () {
         var ref = {
             win: window,
             body: document.getElementsByTagName('body')[0],

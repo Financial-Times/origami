@@ -1,4 +1,3 @@
-
 jasmine._addCustomMatchers = function () {
     "use strict";
     var jasmineEnv = jasmine.getEnv();
@@ -9,7 +8,8 @@ jasmine._addCustomMatchers = function () {
             return {
                 compare: function (actual) {
                     return {
-                        pass: typeof actual === 'function'
+                        pass: typeof actual === 'function',
+                        message: 'not a function'
                     };
                 }
             };
@@ -30,7 +30,19 @@ jasmine._addCustomMatchers = function () {
             return {
                 compare: function (actual) {
                     return {
-                        pass: actual instanceof Array
+                        pass: actual instanceof Array,
+                        message: 'not an array'
+                    };
+                }
+            };
+        },
+
+        toBeAnObject: function () {
+            return {
+                compare: function (actual) {
+                    return {
+                        pass: typeof actual === 'object',
+                        message: 'not an object'
                     };
                 }
             };
