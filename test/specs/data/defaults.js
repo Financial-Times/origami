@@ -2,7 +2,7 @@
 
 var defaults = require('src/js/data/defaults');
 
-describe("default settings", function () {
+describe("default settings (./data/defaults.js)", function () {
     beforeEach(jasmine._addCustomMatchers);
     it('should define appropriate default settings', function () {
         expect(defaults.src).toEqual(undefined);

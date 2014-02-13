@@ -4,7 +4,7 @@ module.exports = {
         options: {
             outfile: '_specRunner.html',
             keepRunner: false,
-            specs: ['test/specs/**/*.js'],
+            specs: ['tmp/specs.js'],
             helpers: ['test/helpers/**/*.js'],
             template: require('grunt-template-jasmine-istanbul'),
             templateOptions: {
@@ -29,7 +29,7 @@ module.exports = {
         options: {
             outfile: 'specRunner.html',
             keepRunner: true,
-            specs: ['test/specs/**/*.js'],
+            specs: ['tmp/specs.js'],
             helpers: ['test/helpers/**/*.js']
         }
     }

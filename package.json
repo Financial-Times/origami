@@ -19,7 +19,7 @@
     "grunt-istanbul": "~0.2.4",
     "grunt-browserify": "~1.3.0",
     "istanbul": "~0.2.4",
-    "grunt-contrib-jasmine": "~0.6.1",
+    "grunt-contrib-jasmine": "https://github.com/wheresrhys/grunt-contrib-jasmine.git#patch-1",
     "grunt-contrib-jshint": "~0.8.0"
   }
 }

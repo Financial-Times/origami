@@ -4,6 +4,7 @@ jasmine._addCustomMatchers = function () {
     var jasmineEnv = jasmine.getEnv();
 
     jasmine.addMatchers({
+
         toBeAFunction: function () {
             return {
                 compare: function (actual) {
