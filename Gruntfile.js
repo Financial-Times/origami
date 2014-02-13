@@ -42,4 +42,12 @@ module.exports = function(grunt) {
       'enforce-coverage'
   ]);
 
+
+  
+  grunt.registerTask('browserTest', [
+      'browserify:specs',
+      'browserify:src',
+      'jasmine:browser:build',
+  ]);
+
 };
