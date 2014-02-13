@@ -1,7 +1,7 @@
 "use strict";
 
 var globals = require('../data/globals'),
-    dimensionCalculators = require('../private/dimension-calculators'),
+    dimensionCalculators = require('../private').dimensionCalculators,
 
 
     adjustBodyHeight = function (dialog, fullHeight) {

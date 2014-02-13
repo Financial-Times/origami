@@ -64,18 +64,4 @@ describe('listen (./public/listen.js)', function () {
         expect(ev.originalEvent.defaultPrevented).toBeFalsy();
         $el.remove();
     });
-
-
 });
-
-// 'use strict';
-
-// var $ = require('jquery');
-
-// module.exports = function () {
-//  var Dialog = this;
-//  $(document).on('click.o-dialog__trigger', '[data-o-dialog__trigger]', function (ev) {
-//      ev.preventDefault();
-//      Dialog.trigger($(this).data('o-dialog__trigger'), this);
-//  });
-// };

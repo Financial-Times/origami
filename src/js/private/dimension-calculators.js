@@ -1,6 +1,6 @@
 "use strict";
 
-var domUtils = require('./dom-utils');
+var domUtils = require('../private').domUtils;
 
 module.exports = {
     width: function (dialog) {

@@ -1,15 +1,41 @@
+"use strict";
+
+var trigger,
+    Dialog,
+    el,
+    $ = require('jquery');
+
+describe('trigger (./public/trigger.js)', function () {
+    beforeEach(function () {
+        jasmine._addCustomMatchers();
+        trigger = require('src/js/public/trigger');
+        Dialog = require('src/js/dialog');
+    });
+
+    it('should unhandle clicks on elements with "data-o-dialog__trigger" set', function () {
+        var el = document.createElement('span'),
+            $el = $(el).appendTo('body');
+
+        el.setAttribute('data-o-dialog__trigger', '{}');
+        
+        Dialog.listen();
+        $el.trigger('click.o-dialog__trigger');
+        expect(Dialog.trigger).toHaveBeenCalled();
+        Dialog.trigger.calls.reset();
+        Dialog.unlisten();
+        $el.trigger('click.o-dialog__trigger');
+        expect(Dialog.trigger).not.toHaveBeenCalled();
+    });
+});
 // "use strict";
 
 // var globals = require('../data/globals'),
 //     close = require('../public/close'),
 //     handleOptions = require('../private/handle-options'),
 //     attach = require('../private/attach'),
+//     injectContent = require('../private/inject-content');
 
-//     assignClasses = function (dialog) {
-//         dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.outerClasses + (dialog.opts.hasCloseButton ? ' o-dialog--closable' : '');
-//         dialog.overlay[0].className = 'o-dialog__overlay o-dialog--' + dialog.opts.preset + '__overlay';
-//         dialog.content[0].className = 'o-dialog__content o-dialog--' + dialog.opts.preset + '__content' + ' ' + dialog.opts.innerClasses + (dialog.opts.hasHeading ? '' : ' o-dialog__body');
-//     };
+
 
 // module.exports = function (opts, trigger) {
 
@@ -34,18 +60,7 @@
 //         return;
 //     }
 //     dialog.opts.onTrigger(dialog);
-        
-//     dialog.content.html(dialog.opts.content);
-
-//     if (dialog.opts.hasCloseButton) {
-//         dialog.content.append('<button class="o-dialog__close">close</button>');
-//     }
-
-//     dialog.body = dialog.content.is(dialog.opts.bodySelector) ? dialog.content : dialog.content.find(dialog.opts.bodySelector);
-//     dialog.heading = dialog.content.find(dialog.opts.headingSelector);
-
-//     dialog.opts.hasHeading = !!dialog.heading.length;
-//     assignClasses(dialog);
+//     injectContent(dialog);
 //     dialog.opts.onBeforeRender(dialog);
 //     attach(dialog);
 //     dialog.opts.onAfterRender(dialog);

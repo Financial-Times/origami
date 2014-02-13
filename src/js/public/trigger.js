@@ -1,10 +1,8 @@
 "use strict";
 
 var globals = require('../data/globals'),
-    close = require('../public/close'),
-    handleOptions = require('../private/handle-options'),
-    attach = require('../private/attach'),
-    injectContent = require('../private/inject-content');
+    Dialog = require('../Dialog'),
+    privates = require('../private');
 
 
 
@@ -15,24 +13,24 @@ module.exports = function (opts, trigger) {
     if (globals.dialogs[0] && globals.dialogs[0].active) {
         
         lastDialog = globals.dialogs[0];
-        close(lastDialog);
+        Dialog.close(lastDialog);
 
         if (trigger === lastDialog.trigger) {
             return;
         }
     }
 
-    var dialog = require('../private/get-dialog')();
+    var dialog = privates.getDialog();
     dialog.trigger = trigger;
-    dialog.opts = handleOptions(opts, trigger);
+    dialog.opts = privates.handleOptions(opts, trigger);
     
     if (!dialog.opts) {
         opts.onFail(dialog);
         return;
     }
     dialog.opts.onTrigger(dialog);
-    injectContent(dialog);
+    privates.injectContent(dialog);
     dialog.opts.onBeforeRender(dialog);
-    attach(dialog);
+    privates.attach(dialog);
     dialog.opts.onAfterRender(dialog);
 };

@@ -1,6 +1,7 @@
 "use strict";
 var globals = require('../data/globals'),
-    detach = require('../private/detach');
+    privates = require('../private'),
+    detach = privates.detach;
 
 module.exports = function (dialog, destroy) {
     dialog.opts.onBeforeClose(dialog);
@@ -16,7 +17,7 @@ module.exports = function (dialog, destroy) {
     }
     if (globals.isAnimatable && !destroy) {
         var wrapper = dialog.opts.hasOverlay ? dialog.wrapper.add(dialog.overlay) : dialog.wrapper ;
-        require('../private/do-after-transition')(wrapper, 'is-open', 'remove', wrapper.add(dialog.content), function () {
+        privates.doAfterTransition(wrapper, 'is-open', 'remove', wrapper.add(dialog.content), function () {
             detach(dialog);
         });
         

@@ -1,17 +1,15 @@
 "use strict";
 
 var $ = require('jquery'),
-    dimensionCalculators = require('./dimension-calculators'),
-    reAlign = require('./re-align'),
-    anchor = require('./anchor'),
+    privates = require('../private'),
     globals = require('../data/globals'),
-    close = require('../public/close'),
+    Dialog = require('../dialog'),
 
     respondToWindow = function (dialog) {
         dialog.opts.onBeforeResize(dialog);
-        reAlign('width', dialog);
-        reAlign('height', dialog);
-        anchor(dialog);
+        privates.reAlign('width', dialog);
+        privates.reAlign('height', dialog);
+        privates.anchor(dialog);
         dialog.opts.onAfterResize(dialog);
     };
 
@@ -32,8 +30,8 @@ module.exports = function (dialog) {
     }
     dialog.content.focus();
 
-    dialog.width = dimensionCalculators.width(dialog);
-    dialog.height = dimensionCalculators.height(dialog);
+    dialog.width = privates.dimensionCalculators.width(dialog);
+    dialog.height = privates.dimensionCalculators.height(dialog);
     dialog.active = true;
     respondToWindow(dialog);
 
@@ -46,7 +44,7 @@ module.exports = function (dialog) {
             globals.body.on('click.o-dialog', function (ev) {
                 if (dialog.active) {
                     if (!dialog.content[0].contains(ev.target) || (dialog.opts.hasCloseButton && $(ev.target).is('.o-dialog__close'))) {
-                        close(dialog);
+                        Dialog.close(dialog);
                     }
                 }
             });
@@ -55,7 +53,7 @@ module.exports = function (dialog) {
 
         globals.doc.on('keyup.o-dialog', function (ev) {
             if (ev.keyCode === 27) {
-                close();
+                Dialog.close();
             }
         });
     }

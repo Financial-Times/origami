@@ -1,12 +1,12 @@
 "use strict";
 
 var $ = require('jquery'),
-    close = require('../public/close'),
+    Dialog = require('../dialog'),
     
     globalListenersApplied = false,
 
     globalListeners = function () {
-        $(document).on('close.o-dialog', close);
+        $(document).on('close.o-dialog', Dialog.close);
 
         globalListenersApplied = true;
     };

@@ -2,7 +2,7 @@
 
 var $ = require('jquery'),
     prefixer = require('o-useragent').prefixer,
-	domUtils = require('./dom-utils');
+	domUtils = require('../private').domUtils;
 
 module.exports = function ($wrapper, cssClass, mode, $transitioningEls, callback) {
     $transitioningEls = $transitioningEls || $wrapper;
