@@ -10,7 +10,7 @@ module.exports = function () {
         }
     }
     if (!globals.dialogs[0]) {
-        globals.dialogs[0] = require('./create-html')();
+        globals.dialogs[0] = require('./create-container')();
     }
 
     return globals.dialogs[0];

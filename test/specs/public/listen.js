@@ -5,7 +5,7 @@ var listen,
     el,
     $ = require('jquery');
 
-describe('dialog (./dialog.js)', function () {
+describe('listen (./public/listen.js)', function () {
     beforeEach(function () {
         jasmine._addCustomMatchers();
         listen = require('src/js/public/listen');
