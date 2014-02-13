@@ -2,27 +2,32 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Example 3: page</title>
+    <title>Example 4: page</title>
     <link rel="stylesheet" href="../build/examples/example.css" />
     <script src="../build/track.latest.min.js"></script>
 </head>
 <body>
 
-<h1>Example 3: <code>page</code></h1>
+<h1>Example 4: <code>page</code></h1>
 
 <h2>Call <code>Track.page</code> with the following arguments.</h2>
 
 <form id="example">
-    <fieldset>
+    <fieldset id="config">
+        <legend>Config</legend>
+
+        <div class="fields"></div>
+
+    </fieldset>
+
+    <fieldset id="params">
         <legend>Parameters</legend>
 
-        <p>
-            <label for="url">URL</label>
-            <input name="url" id="url" value="" type="url" />
-        </p>
+        <div class="fields"></div>
 
-        <p><input type="submit"></p>
     </fieldset>
+
+    <p><input type="submit"></p>
 </form>
 
 <h3>Javascript</h3>
@@ -39,9 +44,39 @@
     (function ($) {
         var util = require('util');
 
-        Track.init({ developer: true, environment: 'test' });
+        var
+                config = {
+                    environment: 'test',
+                    developer: 'true',
+                    server: 'http://ftweb03299-lvpr-uk-d/'
+                },
+                params = {
+                    url: document.location,
+                    referrer: ''
+                },
+                key;
 
-        $('#url').val(document.location);
+        for (key in config) {
+            if (config.hasOwnProperty(key)) {
+                $('#config .fields').append([
+                    '<p>',
+                    '<input type="checkbox" name="', key, '" id="config_', key, '" value="', config[key] ,'" checked="checked" /> ',
+                    '<label for="config_', key, '">', key, ': ', config[key] ,'</label>',
+                    '</p>'
+                ].join(''));
+            }
+        }
+
+        for (key in params) {
+            if (params.hasOwnProperty(key)) {
+                $('#params .fields').append([
+                    '<p>',
+                    '<label for="params_', key, '">', key, '</label> ',
+                    '<input name="', key, '" id="params_', key, '" value="', params[key] ,'" type="text" />',
+                    '</p>'
+                ].join(''));
+            }
+        }
 
         $('#example').on('submit', function (event) {
             event.preventDefault();
@@ -50,7 +85,7 @@
 
             $('#javascript').text('Track.page(' + util.inspect(data) + ');');
 
-            Track.page(data);
+            Track.init(data);
         });
     }(jQuery));
 </script>

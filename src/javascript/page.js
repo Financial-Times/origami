@@ -4,6 +4,35 @@
  * @submodule page
  * @class Track.page
  * @static
+ *
+ * Params:
+        // Site
+        'channel',
+        // Page
+        'url',
+        'uuid',
+        'level',
+        'siteMap',
+        'title',
+        'assetType',
+        'edition',
+        'brand',
+        'theme',
+        'hurdle',
+        'error',
+        'searchQuery',
+        // User
+        'cohort',
+        'passportID',
+        'country',
+        'region',
+        'metroArea',
+        // Marketing
+        'ftcamp',
+        'campaign',
+        // Implementation
+        'offlineLag',
+        'queueTime'
  */
 
 /*global module, require, window, document */
@@ -46,8 +75,8 @@ module.exports = (function (window, document) {
             referrer: document.referrer,
 
             color: window.screen.colorDepth,
-            screen_res: window.screen.width + 'x' + window.screen.height,
-            local_time: (new Date()).toISOString(),
+            screenRes: window.screen.width + 'x' + window.screen.height,
+            localTime: (new Date()).toISOString(),
             java: (window.navigator.javaEnabled() ? '1' : '0'),
 
             async: false // Send this tag syncronously

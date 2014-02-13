@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Example 1: init</title>
     <link rel="stylesheet" href="../build/examples/example.css" />
@@ -29,6 +29,16 @@
         <p>
             <label for="environment">Environment</label>
             <select name="environment" id="environment"><option value="test" selected="selected">Test</option><option value="production">Production</option></select>
+        </p>
+        <p>
+            <label for="server">Server
+                <select name="server" id="server">
+                    <option value="">(default)</option>
+                    <option value="http://ftweb03299-lvpr-uk-d/">http://ftweb03299-lvpr-uk-d/</option>
+                    <option value="http://track.ft.com">http://track.ft.com/</option>
+                </select>
+                <small>- Specify the collection server.</small>
+            </label>
         </p>
 
         <p><input type="submit"></p>

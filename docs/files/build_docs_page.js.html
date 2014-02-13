@@ -120,6 +120,35 @@
  * @submodule page
  * @class Track.page
  * @static
+ *
+ * Params:
+        // Site
+        &#x27;channel&#x27;,
+        // Page
+        &#x27;url&#x27;,
+        &#x27;uuid&#x27;,
+        &#x27;level&#x27;,
+        &#x27;siteMap&#x27;,
+        &#x27;title&#x27;,
+        &#x27;assetType&#x27;,
+        &#x27;edition&#x27;,
+        &#x27;brand&#x27;,
+        &#x27;theme&#x27;,
+        &#x27;hurdle&#x27;,
+        &#x27;error&#x27;,
+        &#x27;searchQuery&#x27;,
+        // User
+        &#x27;cohort&#x27;,
+        &#x27;passportID&#x27;,
+        &#x27;country&#x27;,
+        &#x27;region&#x27;,
+        &#x27;metroArea&#x27;,
+        // Marketing
+        &#x27;ftcamp&#x27;,
+        &#x27;campaign&#x27;,
+        // Implementation
+        &#x27;offlineLag&#x27;,
+        &#x27;queueTime&#x27;
  */
 
 /*global module, require, window, document */
@@ -162,8 +191,8 @@ module.exports = (function (window, document) {
             referrer: document.referrer,
 
             color: window.screen.colorDepth,
-            screen_res: window.screen.width + &#x27;x&#x27; + window.screen.height,
-            local_time: (new Date()).toISOString(),
+            screenRes: window.screen.width + &#x27;x&#x27; + window.screen.height,
+            localTime: (new Date()).toISOString(),
             java: (window.navigator.javaEnabled() ? &#x27;1&#x27; : &#x27;0&#x27;),
 
             async: false // Send this tag syncronously
