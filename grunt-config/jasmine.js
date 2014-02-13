@@ -29,7 +29,7 @@ module.exports = {
         options: {
             outfile: 'specRunner.html',
             keepRunner: true,
-            specs: ['tmp/specs.js'],
+            specs: ['test/specs/**/*.js'],
             helpers: ['test/helpers/**/*.js']
         }
     }

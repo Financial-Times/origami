@@ -17,5 +17,5 @@ module.exports = {
     templates: {},
     isAnimatable: isAnimatable,
     isFlexbox: html.hasClass('flexbox') || html.hasClass('flexboxlegacy'),
-    dialogs: isAnimatable ? (new Array(2)) : []
+    dialogs: new Array(2)
 };

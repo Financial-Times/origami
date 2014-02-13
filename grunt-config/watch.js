@@ -5,6 +5,6 @@ module.exports = {
 	},
 	test: {
 		files: './test/specs/**/*.js',
-		tasks: ['browserify:specs']
+		tasks: ['browserTest']
 	}
 };

@@ -1,11 +1,13 @@
 "use strict";
 
-
-var jQuery = require('jquery');
+var globals;
 
 describe('global module variables (./data/globals.js)', function () {
+    beforeEach(function () {
+        jasmine._addCustomMatchers();
+        globals = require('src/js/data/globals');
+    });
 
-    var globals = require('src/js/data/globals');
 
     it('should define some constants', function () {
         expect(globals.L).toEqual('left');
@@ -35,13 +37,26 @@ describe('global module variables (./data/globals.js)', function () {
             expect(typeof globals[container]).toBe('object');
             expect(Object.keys(globals[container]).length).toBe(0);
         });
+    });
+
+    it('should create containers for dialog objects', function () {
+        expect(globals.dialogs).toBeAnArray();
+        expect(globals.dialogs.length).toBe(2);
+        expect(globals.dialogs[0]).toBeUndefined();
+        expect(globals.dialogs[1]).toBeUndefined();
 
     });
 
-
-//     isAnimatable = html.hasClass('csstransforms');
-//     isAnimatable: isAnimatable,
-//     isFlexbox: html.hasClass('flexbox') || html.hasClass('flexboxlegacy'),
-
-//     dialogs: isAnimatable ? (new Array(2)) : []
+    describe('setting feature flags', function () {
+        it('should set to false when classes not present on the html tag', function () {
+            expect(globals.isAnimatable).toBeFalsy();
+            expect(globals.isAnimatable).toBeFalsy();
+            expect(globals.isFlexbox).toBeFalsy();
+        });
+        xit('should set to true when classes present on the html tag', function () {
+            expect(globals.isAnimatable).toBeFalsy();
+            expect(globals.isAnimatable).toBeFalsy();
+            expect(globals.isFlexbox).toBeFalsy();
+        });
+    });
 });
