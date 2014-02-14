@@ -3,10 +3,10 @@
     "main": ["main.scss"],
     "dependencies": {
         "o-fonts": "https://github.com/Financial-Times/o-fonts.git#>=0.6.0",
-        "o-colors": "https://github.com/Financial-Times/o-colors.git#2.1.5",
-        "o-ft-buttons": "https://github.com/Financial-Times/o-ft-buttons.git#0.1.0"
+        "o-colors": "https://github.com/Financial-Times/o-colors.git#~2.1.5",
+        "o-ft-buttons": "https://github.com/Financial-Times/o-ft-buttons.git#~0.1.0"
     },
     "devDependencies": {
-        "o-grid": "https://github.com/Financial-Times/o-grid.git#2.0.4"
+        "o-grid": "https://github.com/Financial-Times/o-grid.git#~2.0.4"
     }
 }
