@@ -2,7 +2,7 @@
 
 var $ = require('jquery'),
     globals = require('../data/globals'),
-
+    methods = require('../methods'),
 
     bind = function (func, obj) {
         if (Function.prototype.bind) {
@@ -69,7 +69,7 @@ var $ = require('jquery'),
     };
 
 
-module.exports = function (opts, trigger) {
+methods.handleOptions = function (opts, trigger) {
     
 
     if (typeof opts === 'string') {
@@ -101,3 +101,5 @@ module.exports = function (opts, trigger) {
 
     return setListeners(opts);
 };
+
+module.exports = methods;

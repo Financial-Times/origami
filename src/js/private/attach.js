@@ -1,19 +1,21 @@
 "use strict";
 
 var $ = require('jquery'),
-    privates = require('../private'),
+    methods = require('../private/re-align'),
     globals = require('../data/globals'),
-    Dialog = require('../dialog'),
 
     respondToWindow = function (dialog) {
         dialog.opts.onBeforeResize(dialog);
-        privates.reAlign('width', dialog);
-        privates.reAlign('height', dialog);
-        privates.anchor(dialog);
+        methods.reAlign('width', dialog);
+        methods.reAlign('height', dialog);
+        methods.anchor(dialog);
         dialog.opts.onAfterResize(dialog);
     };
 
-module.exports = function (dialog) {
+ require('../private/anchor');
+ require('../private/dimension-calculators');
+
+methods.attach = function (dialog) {
 
     dialog.parent = (!dialog.opts.isAnchoredToTrigger || !dialog.trigger) ? 'body' : dialog.trigger.offsetParent;
 
@@ -30,8 +32,8 @@ module.exports = function (dialog) {
     }
     dialog.content.focus();
 
-    dialog.width = privates.dimensionCalculators.width(dialog);
-    dialog.height = privates.dimensionCalculators.height(dialog);
+    dialog.width = methods.dimensionCalculators.width(dialog);
+    dialog.height = methods.dimensionCalculators.height(dialog);
     dialog.active = true;
     respondToWindow(dialog);
 
@@ -44,7 +46,7 @@ module.exports = function (dialog) {
             globals.body.on('click.o-dialog', function (ev) {
                 if (dialog.active) {
                     if (!dialog.content[0].contains(ev.target) || (dialog.opts.hasCloseButton && $(ev.target).is('.o-dialog__close'))) {
-                        Dialog.close(dialog);
+                        methods.close(dialog);
                     }
                 }
             });
@@ -53,8 +55,10 @@ module.exports = function (dialog) {
 
         globals.doc.on('keyup.o-dialog', function (ev) {
             if (ev.keyCode === 27) {
-                Dialog.close();
+                methods.close();
             }
         });
     }
 };
+
+module.exports = methods;

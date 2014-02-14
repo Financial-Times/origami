@@ -1,7 +1,10 @@
 'use strict';
 
-var $ = require('jquery');
+var $ = require('jquery'),
+	methods = require('../methods');
 
-module.exports = function () {
+methods.unlisten = function () {
 	$(document).off('click.o-dialog__trigger');
 };
+
+module.exports = methods;

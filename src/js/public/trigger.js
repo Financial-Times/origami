@@ -1,36 +1,40 @@
 "use strict";
 
 var globals = require('../data/globals'),
-    Dialog = require('../Dialog'),
-    privates = require('../private');
+    methods = require('../private/handle-options');
 
+require('../private/attach');
+require('../private/inject-content');
+require('../private/get-dialog');
+require('../public/close');
 
-
-module.exports = function (opts, trigger) {
+methods.trigger = function (opts, trigger) {
 
     var lastDialog;
 
     if (globals.dialogs[0] && globals.dialogs[0].active) {
         
         lastDialog = globals.dialogs[0];
-        Dialog.close(lastDialog);
+        methods.close(lastDialog);
 
         if (trigger === lastDialog.trigger) {
             return;
         }
     }
 
-    var dialog = privates.getDialog();
+    var dialog = methods.getDialog();
     dialog.trigger = trigger;
-    dialog.opts = privates.handleOptions(opts, trigger);
+    dialog.opts = methods.handleOptions(opts, trigger);
     
     if (!dialog.opts) {
         opts.onFail(dialog);
         return;
     }
     dialog.opts.onTrigger(dialog);
-    privates.injectContent(dialog);
+    methods.injectContent(dialog);
     dialog.opts.onBeforeRender(dialog);
-    privates.attach(dialog);
+    methods.attach(dialog);
     dialog.opts.onAfterRender(dialog);
 };
+
+module.exports = methods;

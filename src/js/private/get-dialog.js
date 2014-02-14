@@ -1,8 +1,9 @@
 "use strict";
 
-var globals = require('../data/globals');
+var methods = require('../private/create-container'),
+	globals = require('../data/globals');
 
-module.exports = function () {
+methods.getDialog = function () {
 
     if (globals.isAnimatable) {
         if (globals.dialogs[0] && globals.dialogs[0].active) {
@@ -10,8 +11,10 @@ module.exports = function () {
         }
     }
     if (!globals.dialogs[0]) {
-        globals.dialogs[0] = require('../private').createContainer();
+        globals.dialogs[0] = methods.createContainer();
     }
 
     return globals.dialogs[0];
 };
+
+module.exports = methods;

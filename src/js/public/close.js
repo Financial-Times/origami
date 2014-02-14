@@ -1,9 +1,10 @@
 "use strict";
 var globals = require('../data/globals'),
-    privates = require('../private'),
-    detach = privates.detach;
+    methods = require('../private/detach');
 
-module.exports = function (dialog, destroy) {
+require('../private/do-after-transition');
+
+methods.close = function (dialog, destroy) {
     dialog.opts.onBeforeClose(dialog);
     dialog = dialog || globals.dialogs[0];
     if (!dialog.active) {
@@ -17,13 +18,15 @@ module.exports = function (dialog, destroy) {
     }
     if (globals.isAnimatable && !destroy) {
         var wrapper = dialog.opts.hasOverlay ? dialog.wrapper.add(dialog.overlay) : dialog.wrapper ;
-        privates.doAfterTransition(wrapper, 'is-open', 'remove', wrapper.add(dialog.content), function () {
-            detach(dialog);
+        methods.doAfterTransition(wrapper, 'is-open', 'remove', wrapper.add(dialog.content), function () {
+            methods.detach(dialog);
         });
         
     } else {
         dialog.wrapper.removeClass('is-open');
-        detach(dialog, destroy);
+        methods.detach(dialog, destroy);
     }
     
 };
+
+module.exports = methods;

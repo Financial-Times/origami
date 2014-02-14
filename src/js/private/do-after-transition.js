@@ -1,10 +1,10 @@
 'use strict';
 
 var $ = require('jquery'),
-    prefixer = require('o-useragent').prefixer,
-	domUtils = require('../private').domUtils;
+    methods = require('../private/dom-utils'),
+    prefixer = require('o-useragent').prefixer;
 
-module.exports = function ($wrapper, cssClass, mode, $transitioningEls, callback) {
+methods.doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEls, callback) {
     $transitioningEls = $transitioningEls || $wrapper;
 
     var maxDuration = 0,
@@ -14,11 +14,11 @@ module.exports = function ($wrapper, cssClass, mode, $transitioningEls, callback
 
     $transitioningEls.each(function () {
         var details,
-            duration = +domUtils.getStyleValue(this, 'transition-duration').replace(/[^\.\d]/g, ''),
+            duration = +methods.domUtils.getStyleValue(this, 'transition-duration').replace(/[^\.\d]/g, ''),
             properties;
 
         if (duration) {
-            properties = domUtils.getStyleValue(this, 'transition-property');
+            properties = methods.domUtils.getStyleValue(this, 'transition-property');
             
             properties = properties === 'all' ? [] : properties.split(' ');
         
@@ -26,7 +26,7 @@ module.exports = function ($wrapper, cssClass, mode, $transitioningEls, callback
                 el: this,
                 duration: duration,
                 properties: properties,
-                initialState: domUtils.getStyleValues(this, properties)
+                initialState: methods.domUtils.getStyleValues(this, properties)
             };
             possibleTransitions.push(details);
 
@@ -59,7 +59,7 @@ module.exports = function ($wrapper, cssClass, mode, $transitioningEls, callback
                 var i,
                     changedState = [];
                 for (i = details.properties.length - 1;i>=0;i--) {
-                    changedState.unshift(domUtils.getStyleValue(details.el, details.properties[i]));
+                    changedState.unshift(methods.domUtils.getStyleValue(details.el, details.properties[i]));
                 }
 
                 for (i = details.properties.length - 1;i>=0;i--) {
@@ -84,3 +84,5 @@ module.exports = function ($wrapper, cssClass, mode, $transitioningEls, callback
     // failsafe in case something really weird happens (transitions tend to be buggy in a lot of browsers
     setTimeout(singletonCallback, maxDuration * 1000);
 };
+
+module.exports = methods;

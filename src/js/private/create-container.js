@@ -1,17 +1,17 @@
 "use strict";
 
 var $ = require('jquery'),
-    Dialog = require('../dialog'),
+    methods = require('../methods'),
     
     globalListenersApplied = false,
 
     globalListeners = function () {
-        $(document).on('close.o-dialog', Dialog.close);
+        $(document).on('close.o-dialog', methods.close);
 
         globalListenersApplied = true;
     };
 
-module.exports = function () {
+methods.createContainer = function () {
     var wrapper = $('<div class="o-dialog"></div>'),
         content = $('<section class="o-dialog__content"></section>'),
         overlay = $('<div class="o-dialog__overlay"></div>'),
@@ -27,3 +27,5 @@ module.exports = function () {
 
     return dialog;
 };
+
+module.exports = methods;

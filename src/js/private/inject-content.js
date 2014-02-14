@@ -1,12 +1,14 @@
 'use strict';
 
-var assignClasses = function (dialog) {
-    dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.outerClasses + (dialog.opts.hasCloseButton ? ' o-dialog--closable' : '');
-    dialog.overlay[0].className = 'o-dialog__overlay o-dialog--' + dialog.opts.preset + '__overlay';
-    dialog.content[0].className = 'o-dialog__content o-dialog--' + dialog.opts.preset + '__content' + ' ' + dialog.opts.innerClasses + (dialog.opts.hasHeading ? '' : ' o-dialog__body');
-};
+var methods = require('../methods'),
+    
+    assignClasses = function (dialog) {
+        dialog.wrapper[0].className = 'o-dialog o-dialog--' + dialog.opts.preset + ' ' + dialog.opts.outerClasses + (dialog.opts.hasCloseButton ? ' o-dialog--closable' : '');
+        dialog.overlay[0].className = 'o-dialog__overlay o-dialog--' + dialog.opts.preset + '__overlay';
+        dialog.content[0].className = 'o-dialog__content o-dialog--' + dialog.opts.preset + '__content' + ' ' + dialog.opts.innerClasses + (dialog.opts.hasHeading ? '' : ' o-dialog__body');
+    };
 
-module.exports = function (dialog) {
+methods.injectContent = function (dialog) {
     dialog.content.html(dialog.opts.content);
 
     if (dialog.opts.hasCloseButton) {
@@ -19,3 +21,5 @@ module.exports = function (dialog) {
     dialog.opts.hasHeading = !!dialog.heading.length;
     assignClasses(dialog);
 };
+
+module.exports = methods;

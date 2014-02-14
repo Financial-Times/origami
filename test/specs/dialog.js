@@ -1,6 +1,7 @@
 "use strict";
 
 var Dialog,
+    methods,
     globals,
     defaults;
 
@@ -8,21 +9,22 @@ describe('dialog (./dialog.js)', function () {
     beforeEach(function () {
         jasmine._addCustomMatchers();
         Dialog = require('src/js/dialog');
+        methods = require('src/js/methods');
         globals = require('src/js/data/globals');
         defaults = require('src/js/data/defaults');
     });
 
     it('should have other submodules available as methods', function () {
-        expect(Dialog.close).toBe(require('src/js/public/close'));
-        expect(Dialog.listen).toBe(require('src/js/public/listen'));
-        expect(Dialog.unlisten).toBe(require('src/js/public/unlisten'));
-        expect(Dialog.trigger).toBe(require('src/js/public/trigger'));
+        expect(Dialog.close).toBe(methods.close);
+        expect(Dialog.listen).toBe(methods.listen);
+        expect(Dialog.unlisten).toBe(methods.unlisten);
+        expect(Dialog.trigger).toBe(methods.trigger);
     });
 
     it('should have a destroy method which delegates to the close method', function () {
-        spyOn(Dialog, 'close');
+        spyOn(methods, 'close');
         Dialog.destroy();
-        expect(Dialog.close).toHaveBeenCalledWith(null, true);
+        expect(methods.close).toHaveBeenCalledWith(null, true);
     });
 
     it('should be possible to add new dialog preset types', function () {

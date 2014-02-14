@@ -1,7 +1,8 @@
 "use strict";
-var globals = require('../data/globals');
+var globals = require('../data/globals'),
+    methods = require('../methods');
 
-module.exports = function (dialog) {
+methods.anchor = function (dialog) {
     if (dialog.opts.isAnchoredToTrigger) {
 
         var align,
@@ -50,3 +51,5 @@ module.exports = function (dialog) {
         }
     }
 };
+
+module.exports = methods;

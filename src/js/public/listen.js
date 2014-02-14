@@ -1,14 +1,16 @@
 'use strict';
 
-var $ = require('jquery');
+var $ = require('jquery'),
+	methods = require('../public/trigger');
 
-module.exports = function () {
-    var Dialog = this;
+methods.listen = function () {
     $(document).on('click.o-dialog__trigger', '[data-o-dialog__trigger]', function (ev) {
         var conf = $(this).data('o-dialog__trigger');
-        Dialog.trigger(conf, this);
+        methods.trigger(conf, this);
         if (!conf.dontPreventDefault) {
             ev.preventDefault();
         }
     });
 };
+
+module.exports = methods;

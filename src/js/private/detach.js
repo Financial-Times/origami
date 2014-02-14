@@ -1,8 +1,9 @@
 "use strict";
 
-var globals = require('../data/globals');
+var globals = require('../data/globals'),
+    methods = require('../methods');
 
-module.exports = function (dialog, destroy) {
+methods.detach = function (dialog, destroy) {
     dialog.active = false;
     dialog.content.empty();
     dialog.wrapper.detach().attr('style', null);
@@ -18,3 +19,5 @@ module.exports = function (dialog, destroy) {
     }
     dialog.opts.onAfterClose(dialog);
 };
+
+module.exports = methods;

@@ -1,39 +1,37 @@
 "use strict";
 
-var listen,
-    Dialog,
+var methods,
     el,
     $ = require('jquery');
 
 describe('listen (./public/listen.js)', function () {
     beforeEach(function () {
         jasmine._addCustomMatchers();
-        listen = require('src/js/public/listen');
-        Dialog = require('src/js/dialog');
-        spyOn(Dialog, 'trigger');
+        methods = require('src/js/public/listen');
+        spyOn(methods, 'trigger');
     });
 
     it('should handle clicks on elements with "data-o-dialog__trigger" set', function () {
         var el = document.createElement('span'),
             $el = $(el).appendTo('body');
         o.fireEvent(el, 'click');
-        expect(Dialog.trigger).not.toHaveBeenCalled();
+        expect(methods.trigger).not.toHaveBeenCalled();
         $el.trigger('click');
-        expect(Dialog.trigger).not.toHaveBeenCalled();
+        expect(methods.trigger).not.toHaveBeenCalled();
         $el.trigger('click.o-dialog__trigger');
-        expect(Dialog.trigger).not.toHaveBeenCalled();
+        expect(methods.trigger).not.toHaveBeenCalled();
         el.setAttribute('data-o-dialog__trigger', '{}');
         o.fireEvent(el, 'click');
-        expect(Dialog.trigger).not.toHaveBeenCalled();
+        expect(methods.trigger).not.toHaveBeenCalled();
         el.removeAttribute('data-o-dialog__trigger', '{}');
-        Dialog.listen();
+        methods.listen();
         o.fireEvent(el, 'click');
-        expect(Dialog.trigger).not.toHaveBeenCalled();
+        expect(methods.trigger).not.toHaveBeenCalled();
         el.setAttribute('data-o-dialog__trigger', '{}');
         o.fireEvent(el, 'click');
-        expect(Dialog.trigger).not.toHaveBeenCalled();
+        expect(methods.trigger).not.toHaveBeenCalled();
         $el.trigger('click.o-dialog__trigger');
-        expect(Dialog.trigger).toHaveBeenCalledWith({}, el);
+        expect(methods.trigger).toHaveBeenCalledWith({}, el);
         $el.remove();
     });
 
@@ -45,7 +43,7 @@ describe('listen (./public/listen.js)', function () {
         spyOn($.Event.prototype, 'preventDefault');
         ev = $.Event('click.o-dialog__trigger');
 
-        Dialog.listen();
+        methods.listen();
         el.setAttribute('data-o-dialog__trigger', '{}');
         $el.trigger(ev);
         expect($.Event.prototype.preventDefault).toHaveBeenCalled();
@@ -58,7 +56,7 @@ describe('listen (./public/listen.js)', function () {
             ev = $.Event('click.o-dialog__trigger');
 
         spyOn(ev, 'preventDefault');
-        Dialog.listen();
+        methods.listen();
         el.setAttribute('data-o-dialog__trigger', '{"dontPreventDefault": true}');
         $el.trigger(ev);
         expect(ev.originalEvent.defaultPrevented).toBeFalsy();

@@ -3,20 +3,21 @@
 var $ = require('jquery'),
     globals = require('./data/globals'),
     defaults = require('./data/defaults'),
-    close = require('./public/close'),
-    listen = require('./public/listen'),
-    unlisten = require('./public/unlisten'),
-    trigger = require('./public/trigger'),
+    methods = require('./public/close');
+
+require('./public/listen');
+require('./public/unlisten');
+require('./public/trigger');
 
 
-    Dialog = {
-        listen: listen,
-        unlisten: unlisten,
-        close: close,
-        trigger: trigger,
+var Dialog = {
+        listen: methods.listen,
+        unlisten: methods.unlisten,
+        close: methods.close,
+        trigger: methods.trigger,
         destroy: function () {
             // called as a method of Dialog to facilitate testing
-            Dialog.close(null, true);
+            methods.close(null, true);
         },
         addPreset: function (name, conf) {
             globals.presets[name] = $.extend({}, defaults, conf);

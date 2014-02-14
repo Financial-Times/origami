@@ -1,19 +1,15 @@
 "use strict";
 
-var trigger,
-    Dialog,
+var methods,
     globals,
-    privates,
     el,
     $ = require('jquery');
 
 describe('trigger (./public/trigger.js)', function () {
     beforeEach(function () {
         jasmine._addCustomMatchers();
-        trigger = require('src/js/public/trigger');
-        Dialog = require('src/js/dialog');
+        methods = require('src/js/public/trigger');
         globals = require('src/js/data/globals');
-        privates = require('src/js/private');
     });
 
     it('should close any previously opened dialogs', function () {
@@ -22,9 +18,9 @@ describe('trigger (./public/trigger.js)', function () {
                 active: true,
                 onFail: onFail
             };
-        spyOn(Dialog, 'close');
-        trigger();
-        expect(Dialog.close).toHaveBeenCalledWith(dummyDialog);
+        spyOn(methods, 'close');
+        methods.trigger();
+        expect(methods.close).toHaveBeenCalledWith(dummyDialog);
         expect(onFail).toHaveBeenCalled();
     });
 
@@ -37,9 +33,9 @@ describe('trigger (./public/trigger.js)', function () {
                 trigger: dummyTrigger
             };
             
-        spyOn(Dialog, 'close');
-        trigger(null, dummyTrigger);
-        expect(Dialog.close).toHaveBeenCalledWith(dummyDialog);
+        spyOn(methods, 'close');
+        methods.trigger(null, dummyTrigger);
+        expect(methods.close).toHaveBeenCalledWith(dummyDialog);
         expect(onFail).not.toHaveBeenCalled();
     });
 });

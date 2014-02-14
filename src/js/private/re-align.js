@@ -1,7 +1,7 @@
 "use strict";
 
 var globals = require('../data/globals'),
-    dimensionCalculators = require('../private').dimensionCalculators,
+    methods = require('../private/dimension-calculators'),
 
 
     adjustBodyHeight = function (dialog, fullHeight) {
@@ -16,7 +16,7 @@ var globals = require('../data/globals'),
 
 
 
-module.exports = function (dimension, dialog) {
+methods.reAlign = function (dimension, dialog) {
 
     if ((dimension === globals.H && !dialog.opts.isCenteredVertically) || (dimension === globals.W && !dialog.opts.isCenteredHorizontally)) {
         return;
@@ -47,7 +47,7 @@ module.exports = function (dimension, dialog) {
             }
             if (!dialog['isFull' + capitalisedOtherDimension]) {
                 dialog[dimension] = Math.max(
-                    dimensionCalculators[dimension](dialog),
+                    methods.dimensionCalculators[dimension](dialog),
                     dialog[dimension]
                 );
             }
@@ -62,3 +62,6 @@ module.exports = function (dimension, dialog) {
     }
 
 };
+
+
+module.exports = methods;

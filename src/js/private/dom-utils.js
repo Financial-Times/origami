@@ -1,6 +1,7 @@
 "use strict";
 
-var prefixer = require('o-useragent').prefixer;
+var methods = require('../methods'),
+    prefixer = require('o-useragent').prefixer;
 
 function getSpacing(el, side) {
     return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
@@ -24,8 +25,10 @@ function getStyleValues (el, props) {
     return vals;
 }
 
-module.exports = {
+methods.domUtils = {
     getSpacing: getSpacing,
     getStyleValue: getStyleValue,
     getStyleValues: getStyleValues
 };
+
+module.exports = methods;
