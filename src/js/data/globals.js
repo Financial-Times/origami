@@ -1,21 +1,30 @@
-var $ = require('jquery'),
-    html = $('html'),
-    isAnimatable = html.hasClass('csstransforms');
+'use strict';
 
-module.exports = {
-    L: 'left',
-    R: 'right',
-    T: 'top',
-    B: 'bottom',
-    H: 'height',
-    W: 'width',
-    win: $(window),
-    body: $('body'),
-    doc: $(document),
-    html: html,
-    presets: {},
-    templates: {},
-    isAnimatable: isAnimatable,
-    isFlexbox: html.hasClass('flexbox') || html.hasClass('flexboxlegacy'),
-    dialogs: new Array(2)
-};
+var $ = require('jquery'),
+    globals = {};
+
+function init () {
+    var html = $('html'),
+        isAnimatable = html.hasClass('csstransforms');
+
+    globals.L = 'left';
+    globals.R = 'right';
+    globals.T = 'top';
+    globals.B = 'bottom';
+    globals.H = 'height';
+    globals.W = 'width';
+    globals.win = $(window);
+    globals.body = $('body');
+    globals.doc = $(document);
+    globals.html = html;
+    globals.presets = {};
+    globals.templates = {};
+    globals.isAnimatable = isAnimatable;
+    globals.isFlexbox = html.hasClass('flexbox') || html.hasClass('flexboxlegacy');
+    globals.dialogs = new Array(2);
+    globals.reset = init;
+}
+
+init();
+
+module.exports = globals;
