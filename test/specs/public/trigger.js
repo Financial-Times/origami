@@ -2,6 +2,8 @@
 
 var trigger,
     Dialog,
+    globals,
+    privates,
     el,
     $ = require('jquery');
 
@@ -10,21 +12,35 @@ describe('trigger (./public/trigger.js)', function () {
         jasmine._addCustomMatchers();
         trigger = require('src/js/public/trigger');
         Dialog = require('src/js/dialog');
+        globals = require('src/js/data/globals');
+        privates = require('src/js/private');
     });
 
-    it('should unhandle clicks on elements with "data-o-dialog__trigger" set', function () {
-        var el = document.createElement('span'),
-            $el = $(el).appendTo('body');
+    it('should close any previously opened dialogs', function () {
+        var onFail = jasmine.createSpy(),
+            dummyDialog = globals.dialogs[0] = {
+                active: true,
+                onFail: onFail
+            };
+        spyOn(Dialog, 'close');
+        trigger();
+        expect(Dialog.close).toHaveBeenCalledWith(dummyDialog);
+        expect(onFail).toHaveBeenCalled();
+    });
 
-        el.setAttribute('data-o-dialog__trigger', '{}');
-        
-        Dialog.listen();
-        $el.trigger('click.o-dialog__trigger');
-        expect(Dialog.trigger).toHaveBeenCalled();
-        Dialog.trigger.calls.reset();
-        Dialog.unlisten();
-        $el.trigger('click.o-dialog__trigger');
-        expect(Dialog.trigger).not.toHaveBeenCalled();
+    it('should close the same dialog and noyt retrigger if same trigger clicked again', function () {
+        var onFail = jasmine.createSpy(),
+            dummyTrigger = {},
+            dummyDialog = globals.dialogs[0] = {
+                active: true,
+                onFail: onFail,
+                trigger: dummyTrigger
+            };
+            
+        spyOn(Dialog, 'close');
+        trigger(null, dummyTrigger);
+        expect(Dialog.close).toHaveBeenCalledWith(dummyDialog);
+        expect(onFail).not.toHaveBeenCalled();
     });
 });
 // "use strict";
