@@ -27,14 +27,14 @@ module.exports = (function (window, document) {
          * @type {Object}
          * @example
          {
-         environment: 'test',
+         server: 'http://',
          async: true,
          callback: function () {}
          }
          @private
          */
         defaultConfig = {
-            environment: 'test',
+            server: "http://track.ft.com/test",
             async: true,
             callback: function () {}
         };

@@ -138,11 +138,11 @@ module.exports = (function (window) {
         Queue = require(&quot;./queue&quot;),
 
         /**
-         * Tracking collection server.
+         * Default tracking collection server.
          * @property domain
          * @private
          */
-            domain = &quot;http://track.ft.com&quot;,
+            domain = &quot;http://track.ft.com/test&quot;,
 
         /**
          * Queue queue.
@@ -209,7 +209,6 @@ module.exports = (function (window) {
     function sendRequest(request, callback) {
         /* Example request:
          *  {
-         *      environment: &#x27;test&#x27;,
          *      clickID: &#x27;t1388678300273&#x27;,
          *      async: false,
          *      callback: [Function],
