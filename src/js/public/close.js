@@ -5,12 +5,13 @@ var globals = require('../data/globals'),
 require('../private/do-after-transition');
 
 methods.close = function (dialog, destroy) {
-    dialog.opts.onBeforeClose(dialog);
+
     dialog = dialog || globals.dialogs[0];
-    if (!dialog.active) {
+    if (!dialog || !dialog.active) {
         return;
     }
 
+    dialog.opts.onBeforeClose(dialog);
     globals.win.off('resize.o-dialog');
     if (dialog.opts.isDismissable) {
         globals.body.off('click.o-dialog');

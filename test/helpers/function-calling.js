@@ -4,10 +4,12 @@
     var callOrder = [];
     spiesConf.forEach(function (spyConf) {
         var original = spyConf.obj[spyConf.method];
-        if (spyConf.obj[spyConf.method]) {
-            spyOn(spyConf.obj, spyConf.method);
-        } else {
-           spyConf.obj[spyConf.method] = jasmine.createSpy(spyConf.method);
+        if (!(original && original.and && original.calls)) {
+            if (spyConf.obj[spyConf.method]) {
+                spyOn(spyConf.obj, spyConf.method);
+            } else {
+               spyConf.obj[spyConf.method] = jasmine.createSpy(spyConf.method);
+            }
         }
 
         spyConf.obj[spyConf.method].and.callFake(function (args) {

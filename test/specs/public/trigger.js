@@ -1,9 +1,7 @@
 "use strict";
 
 var methods,
-    globals,
-    el,
-    $ = require('jquery');
+    globals;
 
 describe('trigger (./public/trigger.js)', function () {
     beforeEach(function () {
