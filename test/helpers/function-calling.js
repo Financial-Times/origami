@@ -12,13 +12,13 @@
             }
         }
 
-        spyConf.obj[spyConf.method].and.callFake(function (args) {
+        spyConf.obj[spyConf.method].and.callFake(function () {
             callOrder.push(spyConf);
             if (spyConf.callThrough) {
-                return original.apply(spyConf.obj, args);
+                return original.apply(spyConf.obj, arguments);
             }
             if (spyConf.callFake) {
-                return spyConf.callFake.apply(spyConf.obj, args);
+                return spyConf.callFake.apply(spyConf.obj, arguments);
             }
         });
 
