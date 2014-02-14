@@ -78,28 +78,34 @@ methods.handleOptions = function (opts, trigger) {
         };
     }
 
-    if (!opts.srcType) {
-        if (/^(https?\:\/)?\//.test(opts.src)) {
-            opts.srcType = 'url';
-        } else if ((opts.content = $(opts.src)) && opts.content.length) {
-            opts.srcType = 'selector';
-            opts.content = copyContent(opts.content);
-        } else {
-            opts.srcType = 'string';
-            opts.content = opts.src;
-        }
-    } else if (opts.srcType === 'selector') {
-        opts.content = $(opts.src);
-        opts.content = copyContent(opts.content);
-    }
-
-    opts = $.extend({}, require('../data/defaults'), globals.presets[opts.preset] || {}, opts);
-
-    if (opts.isAnchoredToTrigger && !trigger) {
+    if (!opts.src) {
         return;
     }
 
-    return setListeners(opts);
+    try {
+        if (!opts.srcType) {
+            if (/^(https?\:\/)?\//.test(opts.src)) {
+                opts.srcType = 'url';
+            } else if ((opts.content = $(opts.src)) && opts.content.length) {
+                opts.srcType = 'selector';
+                opts.content = copyContent(opts.content);
+            } else {
+                opts.srcType = 'string';
+                opts.content = opts.src;
+            }
+        } else if (opts.srcType === 'selector') {
+            opts.content = $(opts.src);
+            opts.content = copyContent(opts.content);
+        }
+
+        opts = $.extend({}, require('../data/defaults'), globals.presets[opts.preset] || {}, opts);
+
+        if (opts.isAnchoredToTrigger && !trigger) {
+            return;
+        }
+
+        return setListeners(opts);
+    } catch (e) {}
 };
 
 module.exports = methods;

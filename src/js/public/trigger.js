@@ -17,7 +17,7 @@ methods.trigger = function (opts, trigger) {
         lastDialog = globals.dialogs[0];
         methods.close(lastDialog);
 
-        if (trigger === lastDialog.trigger) {
+        if (trigger && trigger === lastDialog.trigger) {
             return;
         }
     }

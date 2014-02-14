@@ -10,70 +10,93 @@ describe('trigger (./public/trigger.js)', function () {
         jasmine._addCustomMatchers();
         methods = require('src/js/public/trigger');
         globals = require('src/js/data/globals');
+        globals.dialogs = Array(2);
     });
 
     it('should close any previously opened dialogs', function () {
-        var onFail = jasmine.createSpy(),
-            dummyDialog = globals.dialogs[0] = {
-                active: true,
-                onFail: onFail
+        var dummyDialog = globals.dialogs[0] = {
+                active: true
             };
         spyOn(methods, 'close');
-        methods.trigger();
+        spyOn(methods, 'getDialog').and.callThrough();
+        methods.trigger({onFail: function () {}});
         expect(methods.close).toHaveBeenCalledWith(dummyDialog);
-        expect(onFail).toHaveBeenCalled();
+        expect(methods.getDialog).toHaveBeenCalled();
     });
 
-    it('should close the same dialog and noyt retrigger if same trigger clicked again', function () {
-        var onFail = jasmine.createSpy(),
-            dummyTrigger = {},
+    it('should close the same dialog and not retrigger if same trigger clicked again', function () {
+        var dummyTrigger = {},
             dummyDialog = globals.dialogs[0] = {
                 active: true,
-                onFail: onFail,
                 trigger: dummyTrigger
             };
             
         spyOn(methods, 'close');
-        methods.trigger(null, dummyTrigger);
+        spyOn(methods, 'getDialog').and.callThrough();
+        methods.trigger({onFail: function () {}}, dummyTrigger);
         expect(methods.close).toHaveBeenCalledWith(dummyDialog);
-        expect(onFail).not.toHaveBeenCalled();
+        expect(methods.getDialog).not.toHaveBeenCalled();
+    });
+
+    it('should call the onFail method if options passed in are invalid', function () {
+        var onFail = jasmine.createSpy('on fail');
+        methods.trigger({onFail:onFail});
+        expect(onFail).toHaveBeenCalled();
+    });
+
+    it('should attach a reference to the triggering element', function () {
+        var dummyTrigger = {},
+            dummyDialog = globals.dialogs[0] = {};
+        methods.trigger({onFail: function () {}}, dummyTrigger);
+        expect(dummyDialog.trigger).toBe(dummyTrigger);
+    });
+
+    it('should call internal methods and event listeners in the expected order', function () {
+        var opts = {src: 'ya'},
+            dummyTrigger = {},
+            dummyDialog = globals.dialogs[0] = {};
+
+        o.verifyFunctionCalls(function () {
+            methods.trigger(opts, dummyTrigger);
+        }, [
+            {
+                obj: methods,
+                method: 'getDialog',
+                callThrough: true
+            },
+            {
+                obj: methods,
+                method: 'handleOptions',
+                callFake: function () {
+                    return opts;
+                },
+                params: [opts, dummyTrigger]
+            },
+            {
+                obj: opts,
+                method: 'onTrigger',
+                params: [dummyDialog]
+            },
+            {
+                obj: methods,
+                method: 'injectContent',
+                params: [dummyDialog]
+            },
+            {
+                obj: opts,
+                method: 'onBeforeRender',
+                params: [dummyDialog]
+            },
+            {
+                obj: methods,
+                method: 'attach',
+                params: [dummyDialog]
+            },
+            {
+                obj: opts,
+                method: 'onAfterRender',
+                params: [dummyDialog]
+            }
+        ]);
     });
 });
-// "use strict";
-
-// var globals = require('../data/globals'),
-//     close = require('../public/close'),
-//     handleOptions = require('../private/handle-options'),
-//     attach = require('../private/attach'),
-//     injectContent = require('../private/inject-content');
-
-
-
-// module.exports = function (opts, trigger) {
-
-//     var lastDialog;
-
-//     if (globals.dialogs[0] && globals.dialogs[0].active) {
-        
-//         lastDialog = globals.dialogs[0];
-//         close(lastDialog);
-
-//         if (trigger === lastDialog.trigger) {
-//             return;
-//         }
-//     }
-
-//     var dialog = require('../private/get-dialog')();
-//     dialog.trigger = trigger;
-//     dialog.opts = handleOptions(opts, trigger);
-    
-//     if (!dialog.opts) {
-//         opts.onFail(dialog);
-//         return;
-//     }
-//     dialog.opts.onTrigger(dialog);
-//     injectContent(dialog);
-//     dialog.opts.onBeforeRender(dialog);
-//     attach(dialog);
-//     dialog.opts.onAfterRender(dialog);
-// };
