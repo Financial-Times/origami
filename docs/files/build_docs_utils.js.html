@@ -186,7 +186,7 @@ module.exports = (function (console, window) {
             }
 
             // Gets rid of missing values too
-            if (typeof copy !== &quot;undefined&quot; &amp;&amp; copy !== null) {
+            if (typeof copy !== &quot;undefined&quot; &amp;&amp; copy !== null &amp;&amp; copy !== &#x27;&#x27;) {
                 target[name] = copy;
             }
         }

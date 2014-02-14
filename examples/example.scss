@@ -28,8 +28,24 @@ fieldset {
     padding: 0.2em;
     width: 50%;
   }
+
   input[type=submit], input[type=checkbox], input[type=radio] {
     width: auto;
+  }
+
+  p.params {
+    float: left;
+    width: 25%;
+    margin: 0.1em 0;
+    padding: 0.1em 0;
+
+    input, textarea {
+      width: 70%;
+    }
+
+    input[type=submit], input[type=checkbox], input[type=radio] {
+      width: auto;
+    }
   }
 }
 #messages {

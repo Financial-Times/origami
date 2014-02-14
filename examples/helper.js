@@ -30,6 +30,55 @@ jQuery.fn.serializeObject = function () {
     return objectData;
 };
 
+/*jshint -W098 */
+function renderConfig(config) {
+    "use strict";
+
+    var key, html = [];
+
+    for (key in config) {
+        if (config.hasOwnProperty(key)) {
+            html = html.concat([
+                '<p class="params">',
+                '<input type="checkbox" name="', key, '" id="config_', key, '" value="', config[key], '" checked="checked" /> ',
+                '<label for="config_', key, '">', key, ': ', config[key], '</label>',
+                '</p>'
+            ]);
+        }
+    }
+
+    return html.join('');
+}
+
+function renderParams(params) {
+    "use strict";
+
+    var key, html = [];
+
+    for (key in params) {
+        if (params.hasOwnProperty(key)) {
+            html.push('<p class="params">', '<label for="params_', key, '">', key, '</label> ');
+
+            if (params[key] instanceof Array) {
+                html.push('<select name="', key, '" id="params_', key, '">');
+
+                /*jshint -W083 */
+                params[key].forEach(function (val) {
+                    html.push('<option value="' + val + '">' + val + '</option>');
+                });
+
+                html.push('</select>');
+            } else {
+                html.push('<input name="', key, '" id="params_', key, '" value="', params[key], '" type="text" />');
+            }
+
+            html.push('</p>');
+        }
+    }
+
+    return html.join('');
+}
+
 (function ($, console) {
     "use strict";
 

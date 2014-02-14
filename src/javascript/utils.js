@@ -70,7 +70,7 @@ module.exports = (function (console, window) {
             }
 
             // Gets rid of missing values too
-            if (typeof copy !== "undefined" && copy !== null) {
+            if (typeof copy !== "undefined" && copy !== null && copy !== '') {
                 target[name] = copy;
             }
         }

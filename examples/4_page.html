@@ -51,32 +51,39 @@
                     server: 'http://ftweb03299-lvpr-uk-d/'
                 },
                 params = {
-                    url: document.location,
-                    referrer: ''
-                },
-                key;
+                    // Site
+                    channel : ['desktop', 'html5', 'epaper', 'flipboard'],
+                    // Page
+                    'url': ['http://www.ft.com/home/uk', document.location],
+                    'referrer': '',
+                    'uuid': '',
+                    'pageSubLevel': ['', '0', '1', '2', '3'],
+                    'siteMap': ['Sections.Front page', 'Sections.World'],
+                    'title': 'World business, finance, and political news from the Financial Times - FT.com',
+                    'assetType': ['front', 'story', 'blog', 'video', 'section', 'page'],
+                    'edition': ['UK', 'USA'],
+                    'brand': '',
+                    'theme': '',
+                    'hurdle': ['', 'hx', 'h1', 'h2'],
+                    'error': '',
+                    'searchQuery': '',
+                    // User
+                    'cohort': ['3', '1', '2'],
+                    'passportID': '4009049153',
+                    'country': 'GBR',
+                    'region': 'london',
+                    'metroArea': 'islington',
+                    // Marketing
+                    'ftcamp': '',
+                    'campaign': '',
+                    // Implementation
+                    'offlineLag': ''
+                };
 
-        for (key in config) {
-            if (config.hasOwnProperty(key)) {
-                $('#config .fields').append([
-                    '<p>',
-                    '<input type="checkbox" name="', key, '" id="config_', key, '" value="', config[key] ,'" checked="checked" /> ',
-                    '<label for="config_', key, '">', key, ': ', config[key] ,'</label>',
-                    '</p>'
-                ].join(''));
-            }
-        }
+        $('#config .fields').append(renderConfig(config));
+        $('#params .fields').append(renderParams(params));
 
-        for (key in params) {
-            if (params.hasOwnProperty(key)) {
-                $('#params .fields').append([
-                    '<p>',
-                    '<label for="params_', key, '">', key, '</label> ',
-                    '<input name="', key, '" id="params_', key, '" value="', params[key] ,'" type="text" />',
-                    '</p>'
-                ].join(''));
-            }
-        }
+        Track.init(config);
 
         $('#example').on('submit', function (event) {
             event.preventDefault();
@@ -85,7 +92,7 @@
 
             $('#javascript').text('Track.page(' + util.inspect(data) + ');');
 
-            Track.init(data);
+            Track.page(data);
         });
     }(jQuery));
 </script>

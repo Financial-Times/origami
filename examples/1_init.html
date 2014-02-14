@@ -13,36 +13,20 @@
 <h2>Call <code>Track.init</code> with the following arguments.</h2>
 
 <form id="example">
-    <fieldset>
+    <fieldset id="config">
         <legend>Developer</legend>
-        <p>
-            <input type="checkbox" name="developer" id="developer" value="true" checked="checked" />
-            <label for="developer">Developer <small>- Developer mode, log to console out etc.</small></label>
-        </p>
-        <p>
-            <input type="checkbox" name="noSend" id="noSend" value="true" checked="checked" />
-            <label for="noSend">noSend <small>- Don&rsquo;t send any requests.</small></label>
-        </p>
-    </fieldset>
-    <fieldset>
-        <legend>Parameters</legend>
-        <p>
-            <label for="environment">Environment</label>
-            <select name="environment" id="environment"><option value="test" selected="selected">Test</option><option value="production">Production</option></select>
-        </p>
-        <p>
-            <label for="server">Server
-                <select name="server" id="server">
-                    <option value="">(default)</option>
-                    <option value="http://ftweb03299-lvpr-uk-d/">http://ftweb03299-lvpr-uk-d/</option>
-                    <option value="http://track.ft.com">http://track.ft.com/</option>
-                </select>
-                <small>- Specify the collection server.</small>
-            </label>
-        </p>
 
-        <p><input type="submit"></p>
+        <div class="fields"></div>
+
     </fieldset>
+    <fieldset id="params">
+        <legend>Parameters</legend>
+
+        <div class="fields"></div>
+
+    </fieldset>
+
+    <p><input type="submit"></p>
 </form>
 
 <h3>Javascript</h3>
@@ -58,6 +42,47 @@
 <script>
     (function ($) {
         var util = require('util');
+
+        var
+                config = {
+                    developer: 'true',
+                    noSend: 'true'
+                },
+                params = {
+                    environment: ['test', 'production'],
+                    server: ['http://ftweb03299-lvpr-uk-d/', '', 'http://track.ft.com/'],
+
+                    // Site
+                    channel : ['desktop', 'html5', 'epaper', 'flipboard'],
+                    // Page
+                    'url': ['http://www.ft.com/home/uk', document.location],
+                    'referrer': '',
+                    'uuid': '',
+                    'pageSubLevel': ['', '0', '1', '2', '3'],
+                    'siteMap': ['Sections.Front page', 'Sections.World'],
+                    'title': 'World business, finance, and political news from the Financial Times - FT.com',
+                    'assetType': ['front', 'story', 'blog', 'video', 'section', 'page'],
+                    'edition': ['UK', 'USA'],
+                    'brand': '',
+                    'theme': '',
+                    'hurdle': ['', 'hx', 'h1', 'h2'],
+                    'error': '',
+                    'searchQuery': '',
+                    // User
+                    'cohort': ['3', '1', '2'],
+                    'passportID': '4009049153',
+                    'country': 'GBR',
+                    'region': 'london',
+                    'metroArea': 'islington',
+                    // Marketing
+                    'ftcamp': '',
+                    'campaign': '',
+                    // Implementation
+                    'offlineLag': ''
+                };
+
+        $('#config .fields').append(renderConfig(config));
+        $('#params .fields').append(renderParams(params));
 
         $('#example').on('submit', function (event) {
             event.preventDefault();

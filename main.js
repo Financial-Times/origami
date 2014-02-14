@@ -99,7 +99,7 @@ module.exports = (function () {
         require("./src/javascript/core/send").init();
 
         // Track the page.
-        require('./src/javascript/page')();
+        require('./src/javascript/page')(config);
     }
 
     /**
