@@ -18,11 +18,11 @@ describe('unlisten (./public/unlisten.js)', function () {
         el.setAttribute('data-o-dialog__trigger', '{}');
         
         methods.listen();
-        $el.trigger('click.o-dialog__trigger');
+        $el.trigger('click');
         expect(methods.trigger).toHaveBeenCalled();
         methods.trigger.calls.reset();
         methods.unlisten();
-        $el.trigger('click.o-dialog__trigger');
+        $el.trigger('click');
         expect(methods.trigger).not.toHaveBeenCalled();
     });
 });

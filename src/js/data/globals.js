@@ -23,6 +23,7 @@ function init () {
     globals.isFlexbox = html.hasClass('flexbox') || html.hasClass('flexboxlegacy');
     globals.dialogs = new Array(2);
     globals.reset = init;
+    return globals;
 }
 
 init();

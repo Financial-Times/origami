@@ -14,23 +14,21 @@ describe('listen (./public/listen.js)', function () {
     it('should handle clicks on elements with "data-o-dialog__trigger" set', function () {
         var el = document.createElement('span'),
             $el = $(el).appendTo('body');
-        o.fireEvent(el, 'click');
+        $el.trigger('click');
         expect(methods.trigger).not.toHaveBeenCalled();
         $el.trigger('click');
         expect(methods.trigger).not.toHaveBeenCalled();
         $el.trigger('click.o-dialog__trigger');
         expect(methods.trigger).not.toHaveBeenCalled();
         el.setAttribute('data-o-dialog__trigger', '{}');
-        o.fireEvent(el, 'click');
+        $el.trigger('click');
         expect(methods.trigger).not.toHaveBeenCalled();
         el.removeAttribute('data-o-dialog__trigger');
         methods.listen();
-        o.fireEvent(el, 'click');
+        $el.trigger('click');
         expect(methods.trigger).not.toHaveBeenCalled();
         el.setAttribute('data-o-dialog__trigger', '{}');
-        o.fireEvent(el, 'click');
-        expect(methods.trigger).toHaveBeenCalled();
-        $el.trigger('click.o-dialog__trigger');
+        $el.trigger('click');
         expect(methods.trigger).toHaveBeenCalledWith({}, el);
         $el.remove();
     });
