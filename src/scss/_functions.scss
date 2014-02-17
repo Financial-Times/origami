@@ -4,7 +4,7 @@
 			@return nth($color,2);
 		}
 	}
-	@warn "Undefined color used";
+	@warn "Undefined color '" + $name + "' used";
 	@return black
 }
 
