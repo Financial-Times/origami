@@ -13,15 +13,17 @@ end
 FileUtils.mkdir_p "test/output"
 
 # Compile o-colors normally
-result, status = Open3.capture2e "sass --scss main.scss test/output/main.css"
-raise result unless status.success?
+stdout, stderr, status = Open3.capture3 "sass --scss main.scss test/output/main.css"
+raise stderr unless status.success?
+raise stderr if stderr.length > 0
 raise "When compiled the module should not output any CSS" unless File.exists? 'test/output/main.css'
 puts "Default compile was correctly silent."
 File.delete('test/output/main.css')
 
 # Compile o-colors with silent mode turned off
-result, status = Open3.capture2e "sass --scss test/not-silent.scss test/output/not-silent.css --style compressed"
-raise result unless status.success?
+stdout, stderr, status = Open3.capture3 "sass --scss test/not-silent.scss test/output/not-silent.css --style compressed"
+raise stderr unless status.success?
+raise stderr if stderr.length > 0
 raise "When $o-colors-is-silent is set to true the module should not output any CSS" unless File.size('test/output/not-silent.css') == 0
 puts "Compile with silent mode off correctly produced some CSS."
 File.delete('test/output/not-silent.css')
