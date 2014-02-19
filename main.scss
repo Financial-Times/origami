@@ -8,20 +8,17 @@ $o-colors-is-silent: true !default;
 
 // Output use case placeholders and (if noisy) concrete classes
 @each $usecase in $o-colors-usecase-list {
-	$selector: 'o-colors-' + nth($usecase,1);
-    @if (nth($usecase,2) != default) {
-      $selector: $selector +  '--' + nth($usecase,2);
-    }
+	$selector: 'o-colors-' + nth($usecase,1) + '-' + nth($usecase,3);
 	@if (not $o-colors-is-silent) {
 		$selector: $selector + ', .' + $selector;
 	}
 	%#{$selector} {
-		@if nth($usecase,4) == text {
-			color: _oColorsGetPaletteColor(nth($usecase,3));
-		} @else if nth($usecase,4) == background {
-			background-color: _oColorsGetPaletteColor(nth($usecase,3));
-		} @else if nth($usecase,4) == border {
-			border-color: _oColorsGetPaletteColor(nth($usecase,3));
+		@if nth($usecase,3) == text or nth($usecase,3) == all {
+			color: _oColorsGetPaletteColor(nth($usecase,2));
+		} @else if nth($usecase,3) == background or nth($usecase,3) == all {
+			background-color: _oColorsGetPaletteColor(nth($usecase,2));
+		} @else if nth($usecase,3) == border or nth($usecase,3) == all {
+			border-color: _oColorsGetPaletteColor(nth($usecase,2));
 		}
 	}
 }
