@@ -27,11 +27,12 @@ This module doesn't depend on anything. Yet.
 `tracking.mustache` expects a `tracking` object, containing the following properties:
 
 ### Config
-* `developer`: `true` (Turn on developer mode)
-* `server`: [`http://ftweb03299-lvpr-uk-d/test`, `http://ftweb03299-lvpr-uk-d/prod`] (Location of tracking server)
+* environment: `test` OR `prod` (Choose environment)
+* developer: `true` (Turn on developer mode)
+* server: `http://ftweb03299-lvpr-uk-d/` (Location of tracking server)
 
 ### Site
-* `channel` : [`desktop`, `html5`, `epaper`, `flipboard`] (The product or channel)
+* channel : [`desktop`, `html5`, `epaper`, `flipboard`] (The product or channel)
 
 ### Page
 * `url`: [`http://www.ft.com/home/uk`, document.location]
@@ -47,7 +48,6 @@ This module doesn't depend on anything. Yet.
 * `hurdle`: [``, `hx`, `h1`, `h2`] (Barrier)
 * `error`: `` (Is this an error page?)
 * `searchQuery`: `` (Internal search query)
-* `js`: [`yes`, `no`]
 
 ### User
 * `cohort`: [`3`, `1`, `2`]

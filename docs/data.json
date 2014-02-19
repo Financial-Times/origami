@@ -503,7 +503,7 @@
         {
             "file": "build/docs/core/send.js",
             "line": 24,
-            "description": "Default tracking collection server.",
+            "description": "Tracking collection server.",
             "itemtype": "property",
             "name": "domain",
             "access": "private",
@@ -620,7 +620,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 161,
+            "line": 162,
             "description": "Adds a new request to the list of pending requests",
             "itemtype": "method",
             "name": "add",
@@ -636,7 +636,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 176,
+            "line": 177,
             "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
             "itemtype": "method",
             "name": "run",
@@ -646,7 +646,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 192,
+            "line": 193,
             "description": "Convenience function to add and run a request all in one go.",
             "itemtype": "method",
             "name": "addAndRun",
@@ -663,7 +663,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 202,
+            "line": 203,
             "description": "Init the queue and send any leftover tags.",
             "itemtype": "method",
             "name": "init",
@@ -800,7 +800,7 @@
             "name": "defaultConfig",
             "type": "{Object}",
             "example": [
-                "\n        {\n        server: 'http://',\n        async: true,\n        callback: function () {}\n        }"
+                "\n        {\n        environment: 'test',\n        async: true,\n        callback: function () {}\n        }"
             ],
             "access": "private",
             "tagname": "",
