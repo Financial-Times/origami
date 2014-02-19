@@ -11,7 +11,7 @@
         // Page
         'url',
         'uuid',
-        'level',
+        'pageSubsLevel',
         'siteMap',
         'title',
         'assetType',

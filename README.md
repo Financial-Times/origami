@@ -37,7 +37,7 @@ This module doesn't depend on anything. Yet.
 * `url`: [`http://www.ft.com/home/uk`, document.location]
 * `referrer`: ``
 * `uuid`: ``
-* `pageSubLevel`: [``, `0`, `1`, `2`, `3`] (Subscription level of the page)
+* `pageSubsLevel`: [``, `0`, `1`, `2`, `3`] (Subscription level of the page)
 * `siteMap`: [`Sections.Front page`, `Sections.World`]
 * `title`: `World business, finance, and political news from the Financial Times - FT.com`
 * `assetType`: [`front`, `story`, `blog`, `video`, `section`, `page`]
