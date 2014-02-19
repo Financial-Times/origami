@@ -8,17 +8,28 @@
 	@return black
 }
 
-@function oColorsGetColorFor($name) {
-	@each $usecase in $o-colors-usecase-list {
-		@if nth($usecase,1) + '-' + nth($usecase,3) == $name {
-			@if (length($usecase) == 4) {
-				@if(nth($usecase,4) == DEPRECATED) {
-					@warn "Deprecated use-case '" + $name + "' used";
-				}
-			}
-			@return _oColorsGetPaletteColor(nth($usecase,2));
-		}
-	}
-	@warn "Undefined use-case '" + $name + "' used";
-	@return black
+@function _oColorsGetUseCase($name, $variant) {
+  @each $usecase in $o-colors-usecase-list {
+    @if (nth($usecase, 1) == $name and nth($usecase, 2) == $variant) {
+      @if (length($usecase) == 5) {
+        @if(nth($usecase,5) == DEPRECATED) {
+          @warn "Deprecated use-case name '" + $name + "', variant '" + $variant + "' used";
+        }
+      }
+      @return _oColorsGetPaletteColor(nth($usecase,3));
+    }
+  }
+  @return undefined;
+}
+
+@function oColorsGetColorFor($name, $variant: "default") {
+  $color: _oColorsGetUseCase($name, $variant);
+  @if ($color == undefined) {
+    $color: _oColorsGetUseCase($name, default);
+  }
+  @if ($color == undefined) {
+    @warn "Undefined use-case: name '" + $name + "', variant '" + $variant + "' used";
+    $color: black;
+  }
+  @return $color;
 }
