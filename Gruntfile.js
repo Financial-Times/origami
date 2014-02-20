@@ -31,23 +31,10 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['origami-demo']);
   grunt.registerTask('test', [
       'jshint',
-      'browserify:specs',
-      'browserify:src',
-      'instrument',
-      'browserify:instrumented',
-
-      'jasmine:automated',
-      'jasmine:browser:build',
-
-      'enforce-coverage'
+      'karma:ci'
   ]);
 
-
-  
   grunt.registerTask('browserTest', [
-      'browserify:specs',
-      'browserify:src',
-      'jasmine:browser:build',
+    'karma:chrome'
   ]);
-
 };
