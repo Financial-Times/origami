@@ -5,7 +5,7 @@ var globals;
 describe('global module variables (./data/globals.js)', function () {
     beforeEach(function () {
         jasmine._addCustomMatchers();
-        globals = require('src/js/data/globals');
+        globals = require('../../../src/js/data/globals');
     });
 
 

@@ -7,7 +7,7 @@ var methods,
 describe('listen (./public/listen.js)', function () {
     beforeEach(function () {
         jasmine._addCustomMatchers();
-        methods = require('src/js/public/listen');
+        methods = require('../../../src/js/public/listen');
         spyOn(methods, 'trigger');
     });
 

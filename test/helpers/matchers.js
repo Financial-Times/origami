@@ -1,3 +1,7 @@
+'use strict';
+
+// var jasmine = require('../../node_modules/karma-jasmine/lib/jasmine');
+
 jasmine._addCustomMatchers = function () {
     "use strict";
     var jasmineEnv = jasmine.getEnv();

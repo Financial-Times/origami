@@ -8,10 +8,10 @@ var Dialog,
 describe('dialog (./dialog.js)', function () {
     beforeEach(function () {
         jasmine._addCustomMatchers();
-        Dialog = require('src/js/dialog');
-        methods = require('src/js/methods');
-        globals = require('src/js/data/globals');
-        defaults = require('src/js/data/defaults');
+        Dialog = require('../../src/js/dialog');
+        methods = require('../../src/js/methods');
+        globals = require('../../src/js/data/globals');
+        defaults = require('../../src/js/data/defaults');
     });
 
     it('should have other submodules available as methods', function () {

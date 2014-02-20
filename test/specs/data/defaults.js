@@ -1,6 +1,6 @@
 "use strict";
 
-var defaults = require('src/js/data/defaults');
+var defaults = require('../../../src/js/data/defaults');
 
 describe("default settings (./data/defaults.js)", function () {
     beforeEach(jasmine._addCustomMatchers);

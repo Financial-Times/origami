@@ -11,8 +11,8 @@ var methods,
 describe('close (./public/close.js)', function () {
     beforeEach(function () {
         jasmine._addCustomMatchers();
-        methods = require('src/js/public/close');
-        globals = require('src/js/data/globals');
+        methods = require('../../../src/js/public/close');
+        globals = require('../../../src/js/data/globals');
         globals.dialogs = Array(2);
         onBeforeClose = jasmine.createSpy('on before close');
         removeClass = jasmine.createSpy('remove class');

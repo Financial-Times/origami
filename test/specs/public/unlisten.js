@@ -7,7 +7,7 @@ var methods,
 describe('unlisten (./public/unlisten.js)', function () {
     beforeEach(function () {
         jasmine._addCustomMatchers();
-        methods = require('src/js/public/unlisten');
+        methods = require('../../../src/js/public/unlisten');
         spyOn(methods, 'trigger');
     });
 

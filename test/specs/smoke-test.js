@@ -11,12 +11,12 @@ var Dialog,
 describe('smoke-tests (./dialog.js)', function () {
     beforeEach(function () {
         jasmine._addCustomMatchers();
-        Dialog = require('src/js/dialog');
-        methods = require('src/js/methods');
-        globals = require('src/js/data/globals').reset();
-        defaults = require('src/js/data/defaults');
+        Dialog = require('../../src/js/dialog');
+        methods = require('../../src/js/methods');
+        globals = require('../../src/js/data/globals').reset();
+        defaults = require('../../src/js/data/defaults');
 
-        Dialog.addPreset('modal', require('src/js/presets/modal'));
+        Dialog.addPreset('modal', require('../../src/js/presets/modal'));
         Dialog.listen();
         content = $('<script>').attr({
             type: 'text/template',

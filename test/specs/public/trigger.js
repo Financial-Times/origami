@@ -6,8 +6,8 @@ var methods,
 describe('trigger (./public/trigger.js)', function () {
     beforeEach(function () {
         jasmine._addCustomMatchers();
-        methods = require('src/js/public/trigger');
-        globals = require('src/js/data/globals');
+        methods = require('../../../src/js/public/trigger');
+        globals = require('../../../src/js/data/globals');
         globals.dialogs = Array(2);
     });
 
