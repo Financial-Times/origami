@@ -1,7 +1,7 @@
 module.exports = {
   options: {
     frameworks: ['browserify', 'jasmine'],
-    files: ['test/helpers/*.js', 'src/js/**/*.js', 'test/specs/**/*.js'],
+    files: ['src/js/**/*.js', 'test/**/*.js'],
 
     preprocessors: {
       'test/**/*.js': ['browserify'],
