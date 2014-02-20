@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - "0.10"
+before_install:
+  - gem install sass --version "=3.2
 before_script:
   - npm install -g bower
   - bower install
