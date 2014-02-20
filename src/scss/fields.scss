@@ -1,9 +1,23 @@
+@include oFtFormsClass(o-ft-forms-field-group) {
+   position: relative;
+}
+
 @include oFtFormsClass(o-ft-forms__label) {
   display: block;
   margin-bottom: 10px;
   color: oColorsGetColorFor(forms-label-text);
   font-family: $o-fonts-bentonsans-normal;
   font-size: 14px;
+    small {
+        position:absolute;
+        color: oColorsGetColorFor(forms-field-text);
+        font-size: 10px;
+        display: block;
+        text-align: right;
+        right:42px;
+        top:3px;
+        line-height: 14.5px;
+    }
 }
 
 @include oFtFormsClass(o-ft-forms__label--inline) {
@@ -49,13 +63,15 @@
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--select', '.o-ft-forms__field--select') {
   @include commonField();
   height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
+  margin-bottom: 0;
   background-image: url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==');
   background-repeat: no-repeat;
   background-position: 97% center;
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--textarea', '.o-ft-forms__field--textarea') {
-  @include commonField();
+ @include commonField();
   height: 70px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
   vertical-align: top;
+  margin-bottom: 0;
 }
