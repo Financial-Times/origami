@@ -13,11 +13,11 @@ $o-colors-is-silent: true !default;
 		$selector: $selector + ', .' + $selector;
 	}
 	%#{$selector} {
-		@if nth($usecase,3) == text {
+		@if nth($usecase,3) == text or nth($usecase,3) == all {
 			color: _oColorsGetPaletteColor(nth($usecase,2));
-		} @else if nth($usecase,3) == background {
+		} @else if nth($usecase,3) == background or nth($usecase,3) == all {
 			background-color: _oColorsGetPaletteColor(nth($usecase,2));
-		} @else if nth($usecase,3) == border {
+		} @else if nth($usecase,3) == border or nth($usecase,3) == all {
 			border-color: _oColorsGetPaletteColor(nth($usecase,2));
 		}
 	}

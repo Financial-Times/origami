@@ -51,13 +51,14 @@
         var m = src.match(/\$[\w\-]+\:\s*\n([^;]+);/);
         m[1].split(',').forEach(function(rule) {
           rule = rule.replace(/\/*[\s\S]*?\*\//g, '').replace(/\/\/.*/, '');
-          var m = rule.match(/\s*([\w\-]+)\s+([\w\-\#]+)(?:\s+([\w\-]+))?/);
+          rule = rule.replace(/^\s+/, '').replace(/\s+$/, '');
+          var m = rule.split(/\s+/);
           if (m) {
             if (type=='palette') {
-              palette[m[1]] = m[2];
-              el.innerHTML += '<div class="o-grid-col|4|l3|m6|s12| sample"><div class="swatch o-colors-palette-'+m[1]+'">A</div><div class="name">'+m[1]+'</div><div class="descrip">'+m[2]+'</div></div>';
+              palette[m[0]] = m[1];
+              el.innerHTML += '<div class="o-grid-col|4|l3|m6|s12| sample"><div class="swatch o-colors-palette-'+m[0]+'">A</div><div class="name">'+m[0]+'</div><div class="descrip">'+m[1]+'</div></div>';
             } else {
-              el.innerHTML += '<div class="o-grid-col|4|l3|m6|s12| sample"><div class="swatch o-colors-'+m[1]+'-'+m[3]+'">A</div><div class="name">'+m[1]+' <em>'+m[3]+'</em></div><div class="descrip">'+m[2]+' ('+palette[m[2]]+')</div></div>';
+              el.innerHTML += '<div class="o-grid-col|4|l3|m6|s12| sample"><div class="swatch o-colors-'+m[0]+'-'+m[2]+'">A</div><div class="name">'+m[0]+' <em>'+m[2]+'</em></div><div class="descrip">'+m[1]+' ('+palette[m[1]]+')</div></div>';
             }
           }
         });
