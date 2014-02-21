@@ -1,6 +1,6 @@
 @include oFtFormsClass(o-ft-forms-field-group) {
    position: relative;
-   margin-bottom:20px;
+   //margin-bottom:20px;
 }
 
 @include oFtFormsClass(o-ft-forms__label) {
@@ -10,12 +10,10 @@
   font-family: $o-fonts-bentonsans-normal;
   font-size: 14px;
     small {
-        position:absolute;
         color: oColorsGetColorFor(forms-field-text);
         font-size: 10px;
-        display: block;
+        padding-left:8px;
         text-align: right;
-        right:42px;
         top:3px;
         line-height: 14.5px;
     }
