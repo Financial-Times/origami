@@ -7,8 +7,13 @@ This is an [Origami](http://financial-times.github.io/ft-origami/) module that p
 Install the module or use the [build service](http://financial-times.github.io/ft-origami/docs/developer-guide/build-service) to load it into your page.  If you install the module, you should use it via the `oColorsGetColorFor` function:
 
     .mything {
-    	color: oColorsGetColorFor(article-body-text);
+    	color: oColorsGetColorFor(article-life-arts-body article-body body, text);
     }
+
+The `oColorsGetColorFor` function takes two arguments:
+
+* **Use case list**: a list of colour use cases in order of preference.  The first one that is defined will be returned (similar behaivour to the CSS `font-family` property)
+* **Property**: The property that you want to use the colour for (background, border, or text)
 
 Alternatively, you may extend placeholder classes:
 
