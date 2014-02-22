@@ -2,7 +2,6 @@
     "name": "o-colors",
     "main": ["main.scss"],
     "ignore": [
-    	"README.md",
     	"test",
     	".travis.yml"
     ]
