@@ -5,6 +5,7 @@
 	"support": "dan.skinner@ft.com",
 	"supportStatus": "active",
 	"demos": [
-		"/demos/demo.html"
+		"/demos/palette.html",
+		"/demos/use-cases.html"
 	]
 }
