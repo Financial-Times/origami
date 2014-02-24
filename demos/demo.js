@@ -14,9 +14,9 @@ function loadDemo(showtype) {
         if (m) {
           if (type=='palette') {
             palette[m[0]] = m[1];
-            if (el) el.innerHTML += '<div class="o-grid-col|4|l3|m6|s12| sample"><div class="swatch o-colors-palette-'+m[0]+'">A</div><div class="name">'+m[0]+'</div><div class="descrip">'+m[1]+'</div></div>';
+            if (el) el.innerHTML += '<div data-o-grid-colspan="4 L3 M6 S12" class="sample"><div class="swatch o-colors-palette-'+m[0]+'">A</div><div class="name">'+m[0]+'</div><div class="descrip">'+m[1]+'</div></div>';
           } else {
-            if (el) el.innerHTML += '<div class="o-grid-col|4|l3|m6|s12| sample"><div class="swatch o-colors-'+m[0]+'-'+m[2]+'">A</div><div class="name">'+m[0]+' <em>'+m[2]+'</em></div><div class="descrip">'+m[1]+' ('+palette[m[1]]+')</div></div>';
+            if (el) el.innerHTML += '<div data-o-grid-colspan="4 L3 M6 S12" class="sample"><div class="swatch o-colors-'+m[0]+'-'+m[2]+'">A</div><div class="name">'+m[0]+' <em>'+m[2]+'</em></div><div class="descrip">'+m[1]+' ('+palette[m[1]]+')</div></div>';
           }
         }
       });
