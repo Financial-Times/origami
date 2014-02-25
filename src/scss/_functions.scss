@@ -12,7 +12,7 @@
   @each $usecase in $o-colors-usecase-list {
     @if (($property and $name == nth($usecase, 1) and $property == nth($usecase, 3)) or (not $property and $name == nth($usecase, 1) + '-' + nth($usecase, 3))) {
       @if (length($usecase) == 4 and nth($usecase,4) == DEPRECATED) {
-        @warn "Deprecated use-case name '" + $name + "', variant '" + $variant + "' used";
+        @warn "Deprecated use-case name '" + $name + "', variant '" + $property + "' used";
       }
       @return _oColorsGetPaletteColor(nth($usecase,2));
     }
