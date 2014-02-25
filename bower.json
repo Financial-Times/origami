@@ -2,8 +2,6 @@
     "name": "o-ft-buttons",
     "main": ["main.scss"],
     "ignore": [
-        "README.md",
-        "demos",
         "demo.mustache",
         "demo.scss",
         "Gruntfile.js",
