@@ -2,7 +2,6 @@
 	"name": "o-ft-footer",
 	"main": ["main.scss"],
 	"ignore": [
-		"README.md",
 		"package.json",
 		"Gruntfile.js"
 	],
