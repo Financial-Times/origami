@@ -23,7 +23,8 @@ jasmine._addCustomMatchers = function () {
             return {
                 compare: function (actual, func) {
                     return {
-                        pass: actual === func
+                        pass: typeof actual === 'function' && actual === func,
+                        message: 'not the correct function'
                     };
                 }
             };

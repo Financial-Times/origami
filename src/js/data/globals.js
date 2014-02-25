@@ -5,7 +5,7 @@ var $ = require('jquery'),
 
 function init () {
     var html = $('html'),
-        isAnimatable = html.hasClass('csstransforms');
+        isAnimatable = html.hasClass('csstransforms') && html.hasClass('csstransitions');
 
     globals.L = 'left';
     globals.R = 'right';
