@@ -10,9 +10,10 @@
 
 @function _oColorsGetUseCase($name, $property) {
   @each $usecase in $o-colors-usecase-list {
-    @if (($property and $name == nth($usecase, 1) and $property == nth($usecase, 3)) or (not $property and $name == nth($usecase, 1) + '-' + nth($usecase, 3))) {
+    @if ( ($property != "" and $name == nth($usecase, 1) and $property == nth($usecase, 3))
+        or ($property == "" and $name == nth($usecase, 1) + '-' + nth($usecase, 3)) ) {
       @if (length($usecase) == 4 and nth($usecase,4) == DEPRECATED) {
-        @warn "Deprecated use-case name '" + $name + "', variant '" + $property + "' used";
+        @warn "Deprecated use-case name '" + $name + "', property '" + $property + "' used";
       }
       @return _oColorsGetPaletteColor(nth($usecase,2));
     }
@@ -20,13 +21,13 @@
   @return undefined;
 }
 
-@function oColorsGetColorFor($namelist, $property: null) {
+@function oColorsGetColorFor($namelist, $property: "") {
   $color: undefined;
   @each $name in $namelist {
     @if ($color == undefined) {
       $color: _oColorsGetUseCase($name, $property);
     }
-    @if ($color == undefined and $property != null) {
+    @if ($color == undefined and $property != "") {
       $color: _oColorsGetUseCase($name, all);
     }
   }
