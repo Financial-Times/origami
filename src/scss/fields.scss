@@ -5,7 +5,7 @@
 
 @include oFtFormsClass(o-ft-forms__label) {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: oColorsGetColorFor(forms-label-text);
   font-family: $o-fonts-bentonsans-normal;
   font-size: 14px;

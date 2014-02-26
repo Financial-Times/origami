@@ -2,14 +2,8 @@
   color: oColorsGetColorFor(forms-label-valid-text);
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__label--select--valid %o-ft-forms__label--textarea--valid',
-  '.o-ft-forms--valid select.o-ft-forms__field, .o-ft-forms--valid textarea.o-ft-forms__field') {
-	margin-bottom: 0;
-}
-
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--valid',
   '.o-ft-forms--valid .o-ft-forms__field:not([type="checkbox"]):not([type="radio"])') {
-	margin-bottom: 0;
   border-color: oColorsGetColorFor(forms-field-valid-border);
   color: oColorsGetColorFor(forms-valid-text);
 }
@@ -27,7 +21,7 @@
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms--valid:after','.o-ft-forms--valid:after'){
   position: absolute;
   font-size: 18px;
-  top: 28px;
+  top: 25px;
   right: 10px;
   content: "\2713";
   color: oColorsGetColorFor(forms-valid-text);
