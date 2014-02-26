@@ -15,9 +15,13 @@
 .border {
   border-width: 2px;
   border-style: solid;
+  background-color: transparent !important;
 }
-.all, .background {
-  border: 1px dashed #bbb;
+.background {
+  border: 1px dashed #bbb !important;
+}
+.text {
+  background-color: transparent !important;
 }
 .text:after {
   content: 'A';

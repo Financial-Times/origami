@@ -41,7 +41,7 @@ function loadDemo(showtype) {
           roles.forEach(function(role) {
             var uc = usecases[i][role] || usecases[i]['all'];
             if (uc) {
-              op += '<td><div class="swatch '+role+' o-colors-'+i+'-'+role+' o-colors-'+i+'-all"></div><div class="descrip">'+uc+'<br/>'+palette[uc]+'</div></td>';
+              op += '<td><div class="swatch o-colors-'+i+'-'+role+' o-colors-'+i+'-all '+role+'"></div><div class="descrip">'+uc+'<br/>'+palette[uc]+'</div></td>';
             } else {
               op += '<td></td>';
             }
