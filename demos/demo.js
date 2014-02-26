@@ -1,8 +1,11 @@
 function loadDemo(showtype) {
   var palette = {};
-  ['palette', 'use-cases'].forEach(function(type) {
+  var usecases = {}, roles = [];
+  var el = document.querySelector('.'+showtype+'-results');
+  getdata('palette');
+
+  function getdata(type) {
     var oReq = new XMLHttpRequest();
-    var el = document.querySelector('.'+type+'-results');
     oReq.open("GET", "../src/scss/_"+type+".scss", true);
     oReq.onload = function() {
       var src = this.responseText;
@@ -14,13 +17,41 @@ function loadDemo(showtype) {
         if (m) {
           if (type=='palette') {
             palette[m[0]] = m[1];
-            if (el) el.innerHTML += '<div data-o-grid-colspan="4 L3 M6 S12" class="sample"><div class="swatch o-colors-palette-'+m[0]+'">A</div><div class="name">'+m[0]+'</div><div class="descrip">'+m[1]+'</div></div>';
+            if (showtype == 'palette') el.innerHTML += '<div data-o-grid-colspan="4 L3 M6 S12" class="sample"><div class="swatch background o-colors-palette-'+m[0]+'"></div><div class="name">'+m[0]+'</div><div class="descrip">'+m[1]+'</div></div>';
           } else {
-            if (el) el.innerHTML += '<div data-o-grid-colspan="4 L3 M6 S12" class="sample"><div class="swatch o-colors-'+m[0]+'-'+m[2]+'">A</div><div class="name">'+m[0]+' <em>'+m[2]+'</em></div><div class="descrip">'+m[1]+' ('+palette[m[1]]+')</div></div>';
+            if (roles.indexOf(m[2]) === -1 && m[2] !== 'all') roles.push(m[2]);
+            usecases[m[0]] = usecases[m[0]] || {};
+            usecases[m[0]][m[2]] = m[1];
           }
         }
       });
+      if (type == 'palette' && showtype == 'use-cases') {
+        getdata(showtype);
+      }
+      if (showtype == 'use-cases') {
+        var op = '';
+        op = '<table class="o-techdocs-table__table"><thead><tr><th>Use case</th>'
+        roles.forEach(function(role) {
+          op += '<th>'+role+' colour</th>';
+        });
+        op += '</tr></thead><tbody>';
+        console.log(usecases);
+        for (var i in usecases) {
+          op += '<tr><td>'+i+'</td>';
+          roles.forEach(function(role) {
+            var uc = usecases[i][role] || usecases[i]['all'];
+            if (uc) {
+              op += '<td><div class="swatch '+role+' o-colors-'+i+'-'+role+' o-colors-'+i+'-all"></div><div class="descrip">'+uc+'<br/>'+palette[uc]+'</div></td>';
+            } else {
+              op += '<td></td>';
+            }
+          });
+          op += '</tr>';
+        }
+        op += '</table>';
+        el.innerHTML = op;
+      }
     };
     oReq.send();
-  });
+  };
 }

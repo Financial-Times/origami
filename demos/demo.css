@@ -1,18 +1,29 @@
-        .sample {
-          margin-bottom: 10px;
-        }
-        .swatch {
-          width: 50px;
-          height: 50px;
-          border: 2px solid transparent;
-          color: transparent;
-          font-size: 40px;
-          text-align: center;
-          font-style: italic;
-          float: left;
-          margin-right: 10px;
-        }
-        .name {
-          font-weight: bold;
-          font-size: 130%;
-        }
+.sample {
+  margin-bottom: 10px;
+}
+.swatch {
+  width: 50px;
+  height: 50px;
+  border-radius: 3px;
+  color: transparent;
+  font-size: 40px;
+  text-align: center;
+  font-style: italic;
+  float: left;
+  margin-right: 10px;
+}
+.border {
+  border-width: 2px;
+  border-style: solid;
+}
+.all, .background {
+  border: 1px dashed #bbb;
+}
+.text:after {
+  content: 'A';
+}
+.name {
+  font-weight: bold;
+  font-size: 130%;
+  font-family: monospace;
+}
