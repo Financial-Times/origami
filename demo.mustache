@@ -11,7 +11,7 @@
 		<input type="text" placeholder="placeholder" class="o-ft-forms__field" />
   	</div>
   	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms-field-group o-ft-forms--valid" >
-		<label class="o-ft-forms__label">Text input with value entered</label>
+		<label class="o-ft-forms__label">Text input with valid entry</label>
 		<input type="text" placeholder="placeholder" class="o-ft-forms__field o-ft-forms__field--valid" value="Field value" />
   	</div>
 	<div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
@@ -26,8 +26,8 @@
 </div>
 <div class="o-grid-row">
   	<div data-o-grid-colspan="3 S12 M12">
-		<div class="o-grid-row">
-			<div data-o-grid-colspan="4">
+		<div class="o-grid-row" class="o-ft-forms-field-group">
+			<div data-o-grid-colspan="4" >
 				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
 			<div data-o-grid-colspan="8">
@@ -37,7 +37,7 @@
   	</div>
 	<div data-o-grid-colspan="3 S12 M12">&nbsp;</div>
 	<div data-o-grid-colspan="3 S12 M12" class="o-ft-forms--error">
-		<div class="o-grid-row">
+		<div class="o-grid-row" class="o-ft-forms-field-group">
 			<div data-o-grid-colspan="4">
 				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
@@ -53,7 +53,7 @@
 	<h2>Select boxes</h2>
 </div>
 <div class="o-grid-row">
-	<div data-o-grid-colspan="3 S12 M6">
+	<div data-o-grid-colspan="3 S12 M6" class="o-ft-forms-field-group">
 		<label class="o-ft-forms__label">Select box</label>
 		<select class="o-ft-forms__field--select">
 			<option value="option1">Option 1</option>
@@ -63,7 +63,7 @@
 		</select>
 	</div>
 	<div data-o-grid-colspan="3 S0 M0">&nbsp;</div>
-	<div class="o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
+	<div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
 		<label class="o-ft-forms__label">Select box (error)</label>
 		<select class="o-ft-forms__field--select">
 			<option value="option1">Option 1</option>
@@ -91,12 +91,12 @@
 		</div>
 	</div>
 	<div data-o-grid-colspan="3 S0 M0">&nbsp;</div>
-	<div class="o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
+	<div data-o-grid-colspan="3 S12 M6">
 		<div class="o-grid-row o-grid-row-compact">
 			<div data-o-grid-colspan="3">
 				<label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
 			</div>
-			<div data-o-grid-colspan="9">
+			<div data-o-grid-colspan="9" class="o-ft-forms-field-groups o-ft-forms--error">
 				<select class="o-ft-forms__field--select">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>

@@ -2,14 +2,6 @@ html, body {
   margin: 0;
   padding: 0; }
 
-/*
-	This mixin allows ie7 and 8 to be targeted using either
-	* specific classes for each of ie7 and ie8
-	* 'less than' classes targeting ie versions less than a given version e.g. lt-ie9 & lt-ie8
-*/
-/* 
-	Deprecates support for ie7 or 8, making sure that both browser specific and lt- selectors are removed
-*/
 /* 
 	Note: The identically named mixins and functions below is not a mistake; it means they can be used to either 
 	output a string or to wrap some style rules in a selector
@@ -151,12 +143,6 @@ html {
 
   .o-grid-row.o-grid-row-compact,
   .o-grid-row .o-grid-row.o-grid-row-compact {
-    margin-left: 0;
-    margin-right: 0; }
-
-  .o-useragent-ie7 .o-grid-row.o-grid-row-compact,
-  .o-useragent-ie7 .o-grid-row .o-grid-row.o-grid-row-compact, .o-useragent-ie8 .o-grid-row.o-grid-row-compact,
-  .o-useragent-ie8 .o-grid-row .o-grid-row.o-grid-row-compact {
     margin-left: 0;
     margin-right: 0; }
 
@@ -366,44 +352,6 @@ html {
     clear: both;
     display: block;
     width: 100%; } }
-.o-useragent-ie7, .o-useragent-ie8 {
-  /* ensures d12 and d0 can be over-ridden by styles for L layout */ }
-  .o-useragent-ie7 .o-grid-row, .o-useragent-ie7 .o-grid-page, .o-useragent-ie8 .o-grid-row, .o-useragent-ie8 .o-grid-page {
-    max-width: none; }
-  .o-useragent-ie7 [data-o-grid-colspan~="Lhide"], .o-useragent-ie7 [data-o-grid-colspan~="L0"], .o-useragent-ie8 [data-o-grid-colspan~="Lhide"], .o-useragent-ie8 [data-o-grid-colspan~="L0"] {
-    display: none; }
-  .o-useragent-ie7 [data-o-grid-colspan~="L1"], .o-useragent-ie8 [data-o-grid-colspan~="L1"] {
-    width: 8.33333%; }
-  .o-useragent-ie7 [data-o-grid-colspan~="L2"], .o-useragent-ie8 [data-o-grid-colspan~="L2"] {
-    width: 16.66667%; }
-  .o-useragent-ie7 [data-o-grid-colspan~="L3"], .o-useragent-ie8 [data-o-grid-colspan~="L3"] {
-    width: 25%; }
-  .o-useragent-ie7 [data-o-grid-colspan~="L4"], .o-useragent-ie8 [data-o-grid-colspan~="L4"] {
-    width: 33.33333%; }
-  .o-useragent-ie7 [data-o-grid-colspan~="L5"], .o-useragent-ie8 [data-o-grid-colspan~="L5"] {
-    width: 41.66667%; }
-  .o-useragent-ie7 [data-o-grid-colspan~="L6"], .o-useragent-ie8 [data-o-grid-colspan~="L6"] {
-    width: 50%; }
-  .o-useragent-ie7 [data-o-grid-colspan~="L7"], .o-useragent-ie8 [data-o-grid-colspan~="L7"] {
-    width: 58.33333%; }
-  .o-useragent-ie7 [data-o-grid-colspan~="L8"], .o-useragent-ie8 [data-o-grid-colspan~="L8"] {
-    width: 66.66667%; }
-  .o-useragent-ie7 [data-o-grid-colspan~="L9"], .o-useragent-ie8 [data-o-grid-colspan~="L9"] {
-    width: 75%; }
-  .o-useragent-ie7 [data-o-grid-colspan~="L10"], .o-useragent-ie8 [data-o-grid-colspan~="L10"] {
-    width: 83.33333%; }
-  .o-useragent-ie7 [data-o-grid-colspan~="L11"], .o-useragent-ie8 [data-o-grid-colspan~="L11"] {
-    width: 91.66667%; }
-  .o-useragent-ie7 [data-o-grid-colspan~="L1"], .o-useragent-ie7 [data-o-grid-colspan~="L2"], .o-useragent-ie7 [data-o-grid-colspan~="L3"], .o-useragent-ie7 [data-o-grid-colspan~="L4"], .o-useragent-ie7 [data-o-grid-colspan~="L5"], .o-useragent-ie7 [data-o-grid-colspan~="L6"], .o-useragent-ie7 [data-o-grid-colspan~="L7"], .o-useragent-ie7 [data-o-grid-colspan~="L8"], .o-useragent-ie7 [data-o-grid-colspan~="L9"], .o-useragent-ie7 [data-o-grid-colspan~="L10"], .o-useragent-ie7 [data-o-grid-colspan~="L11"], .o-useragent-ie8 [data-o-grid-colspan~="L1"], .o-useragent-ie8 [data-o-grid-colspan~="L2"], .o-useragent-ie8 [data-o-grid-colspan~="L3"], .o-useragent-ie8 [data-o-grid-colspan~="L4"], .o-useragent-ie8 [data-o-grid-colspan~="L5"], .o-useragent-ie8 [data-o-grid-colspan~="L6"], .o-useragent-ie8 [data-o-grid-colspan~="L7"], .o-useragent-ie8 [data-o-grid-colspan~="L8"], .o-useragent-ie8 [data-o-grid-colspan~="L9"], .o-useragent-ie8 [data-o-grid-colspan~="L10"], .o-useragent-ie8 [data-o-grid-colspan~="L11"] {
-    float: left;
-    clear: none;
-    display: block; }
-  .o-useragent-ie7 [data-o-grid-colspan~="L12"], .o-useragent-ie8 [data-o-grid-colspan~="L12"] {
-    float: none;
-    clear: both;
-    display: block;
-    width: 100%; }
-
 @media screen and (min-width: 1401px) {
   .o-grid-row, .o-grid-page {
     max-width: 1360px; }
@@ -455,61 +403,6 @@ html {
     clear: both;
     display: block;
     width: 100%; } }
-.o-useragent-ie7 .o-grid-row .o-grid-row, .o-useragent-ie7 .o-grid-box .o-grid-row, .o-useragent-ie8 .o-grid-row .o-grid-row, .o-useragent-ie8 .o-grid-box .o-grid-row {
-  margin-left: -5px;
-  margin-right: -5px;
-  width: auto; }
-.o-useragent-ie7 [data-o-grid-colspan], .o-useragent-ie8 [data-o-grid-colspan] {
-  float: left;
-  padding-left: 5px;
-  padding-right: 5px;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  *behavior: url(../bower_components/o-useragent/polyfills/boxsizing.htc); }
-.o-useragent-ie7 .o-grid-row-compact > [data-o-grid-colspan], .o-useragent-ie8 .o-grid-row-compact > [data-o-grid-colspan] {
-  padding-left: 0;
-  padding-right: 0; }
-.o-useragent-ie7 .o-grid-row.o-grid-row-compact,
-.o-useragent-ie7 .o-grid-row .o-grid-row.o-grid-row-compact, .o-useragent-ie8 .o-grid-row.o-grid-row-compact,
-.o-useragent-ie8 .o-grid-row .o-grid-row.o-grid-row-compact {
-  margin-left: 0;
-  margin-right: 0; }
-.o-useragent-ie7 [data-o-grid-colspan~="hide"], .o-useragent-ie7 [data-o-grid-colspan~="0"], .o-useragent-ie8 [data-o-grid-colspan~="hide"], .o-useragent-ie8 [data-o-grid-colspan~="0"] {
-  display: none; }
-.o-useragent-ie7 [data-o-grid-colspan~="1"], .o-useragent-ie8 [data-o-grid-colspan~="1"] {
-  width: 8.33333%; }
-.o-useragent-ie7 [data-o-grid-colspan~="2"], .o-useragent-ie8 [data-o-grid-colspan~="2"] {
-  width: 16.66667%; }
-.o-useragent-ie7 [data-o-grid-colspan~="3"], .o-useragent-ie8 [data-o-grid-colspan~="3"] {
-  width: 25%; }
-.o-useragent-ie7 [data-o-grid-colspan~="4"], .o-useragent-ie8 [data-o-grid-colspan~="4"] {
-  width: 33.33333%; }
-.o-useragent-ie7 [data-o-grid-colspan~="5"], .o-useragent-ie8 [data-o-grid-colspan~="5"] {
-  width: 41.66667%; }
-.o-useragent-ie7 [data-o-grid-colspan~="6"], .o-useragent-ie8 [data-o-grid-colspan~="6"] {
-  width: 50%; }
-.o-useragent-ie7 [data-o-grid-colspan~="7"], .o-useragent-ie8 [data-o-grid-colspan~="7"] {
-  width: 58.33333%; }
-.o-useragent-ie7 [data-o-grid-colspan~="8"], .o-useragent-ie8 [data-o-grid-colspan~="8"] {
-  width: 66.66667%; }
-.o-useragent-ie7 [data-o-grid-colspan~="9"], .o-useragent-ie8 [data-o-grid-colspan~="9"] {
-  width: 75%; }
-.o-useragent-ie7 [data-o-grid-colspan~="10"], .o-useragent-ie8 [data-o-grid-colspan~="10"] {
-  width: 83.33333%; }
-.o-useragent-ie7 [data-o-grid-colspan~="11"], .o-useragent-ie8 [data-o-grid-colspan~="11"] {
-  width: 91.66667%; }
-.o-useragent-ie7 [data-o-grid-colspan~="12"], .o-useragent-ie8 [data-o-grid-colspan~="12"] {
-  float: none;
-  clear: both;
-  display: block;
-  width: 100%; }
-.o-useragent-ie7 body, .o-useragent-ie8 body {
-  min-width: 960px; }
-.o-useragent-ie7 .o-grid-row, .o-useragent-ie7 .o-grid-page, .o-useragent-ie8 .o-grid-row, .o-useragent-ie8 .o-grid-page {
-  width: 960px;
-  max-width: none; }
-.o-useragent-ie7 [data-o-grid-colspan~="S12"], .o-useragent-ie8 [data-o-grid-colspan~="S12"] {
-  clear: none; }
 /**
  * Colour palette
  *
@@ -526,9 +419,9 @@ html {
  *
  *  <use case>   <colorname>   <role>   [<status>],
  *
- * The use case name must be a single word comprising just letters, numbers, and dashes.  
+ * The use case name must be a single word comprising just letters, numbers, and dashes.
  * The colour name should be an exact match for a colour defiend in palette.scss
- * The role must be 'text', 'border', or 'background'.   
+ * The role must be 'text', 'border', or 'background'.
  * The status must be 'DEPRECATED' or absent
  * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
  */
@@ -548,9 +441,9 @@ html {
  *
  *  <use case>   <colorname>   <role>   [<status>],
  *
- * The use case name must be a single word comprising just letters, numbers, and dashes.  
+ * The use case name must be a single word comprising just letters, numbers, and dashes.
  * The colour name should be an exact match for a colour defiend in palette.scss
- * The role must be 'text', 'border', or 'background'.   
+ * The role must be 'text', 'border', or 'background'.
  * The status must be 'DEPRECATED' or absent
  * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
  */
@@ -561,12 +454,23 @@ html {
   src: url(../bower_components/o-fonts/webfonts/BentonSans-Normal.eot);
   src: url(../bower_components/o-fonts/webfonts/BentonSans-Normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-Normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-Normal.ttf) format("truetype"); }
 
+.o-ft-forms-field-group {
+  position: relative;
+  padding-right: 10px; }
+
 .o-ft-forms__label {
   display: block;
-  margin-bottom: 10px;
-  color: #777777;
+  margin-bottom: 5px;
+  color: black;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
   font-size: 14px; }
+  .o-ft-forms__label small {
+    color: #74736c;
+    font-size: 10px;
+    padding-left: 8px;
+    text-align: right;
+    top: 3px;
+    line-height: 14.5px; }
 
 .o-ft-forms__label--inline {
   padding-top: 6px;
@@ -583,7 +487,7 @@ html {
   border: 1px solid #cec6b9;
   border-radius: 0;
   padding: 7px 7px 6px 7px;
-  width: 100%;
+  width: calc(100% - 18px);
   background-color: #fff;
   color: #74736c;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
@@ -614,13 +518,14 @@ html {
   border: 1px solid #cec6b9;
   border-radius: 0;
   padding: 7px 7px 6px 7px;
-  width: 100%;
+  width: calc(100% - 18px);
   background-color: #fff;
   color: #74736c;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
   font-size: 12px;
   height: 30px;
   /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
+  margin-bottom: 0;
   background-image: url("data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==");
   background-repeat: no-repeat;
   background-position: 97% center; }
@@ -636,17 +541,18 @@ html {
   border: 1px solid #cec6b9;
   border-radius: 0;
   padding: 7px 7px 6px 7px;
-  width: 100%;
+  width: calc(100% - 18px);
   background-color: #fff;
   color: #74736c;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
   font-size: 12px;
   height: 70px;
   /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
-  vertical-align: top; }
+  vertical-align: top;
+  margin-bottom: 0; }
 
 .o-ft-forms--error .o-ft-forms__label {
-  color: #cc0000; }
+  color: black; }
 
 .o-ft-forms--error select.o-ft-forms__field, .o-ft-forms--error textarea.o-ft-forms__field {
   margin-bottom: 0; }
@@ -660,19 +566,52 @@ html {
   margin-bottom: 6px; }
 
 .o-ft-forms--error .o-ft-forms__field[type="checkbox"] + .o-ft-forms__label, .o-ft-forms--error .o-ft-forms__field[type="radio"] + .o-ft-forms__label {
-  color: #777777; }
+  color: black; }
 
 .o-ft-forms__errortext {
   clear: both;
   display: block;
   margin-top: -1px;
   margin-bottom: 20px;
-  padding: 3px 7px;
+  padding: 3px 0;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
-  font-size: 11px;
-  font-style: italic;
-  color: white;
-  background-color: #cc0000; }
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  color: #cc0000; }
+
+.o-ft-forms--error:after {
+  position: absolute;
+  font-size: 18px;
+  top: 25px;
+  right: 10px;
+  content: "\2717";
+  color: #cc0000; }
+
+.o-ft-forms--valid .o-ft-forms__label {
+  color: black; }
+
+.o-ft-forms--valid select.o-ft-forms__field, .o-ft-forms--valid textarea.o-ft-forms__field {
+  margin-bottom: 0; }
+
+.o-ft-forms--valid .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]) {
+  margin-bottom: 0;
+  border-color: #458b00;
+  color: #458b00; }
+
+.o-ft-forms--valid .o-ft-forms__field[type="checkbox"], .o-ft-forms--valid .o-ft-forms__field[type="radio"] {
+  margin-bottom: 6px; }
+
+.o-ft-forms--valid .o-ft-forms__field[type="checkbox"] + .o-ft-forms__label, .o-ft-forms--valid .o-ft-forms__field[type="radio"] + .o-ft-forms__label {
+  color: black; }
+
+.o-ft-forms--valid:after {
+  position: absolute;
+  font-size: 18px;
+  top: 25px;
+  right: 10px;
+  content: "\2713";
+  color: #458b00; }
 
 .o-ft-forms__prefix {
   border-left: 1px solid #cec6b9; }
@@ -709,7 +648,11 @@ html {
 
 .o-ft-forms--error .o-ft-forms__prefix:not(.o-ft-buttons__button), .o-ft-forms--error .o-ft-forms__suffix:not(.o-ft-buttons__button), .o-ft-forms__field:invalid {
   border-color: #cc0000;
-  color: #cc0000; }
+  color: black; }
+
+.o-ft-forms--valid .o-ft-forms__prefix:not(.o-ft-buttons__button), .o-ft-forms--valid .o-ft-forms__suffix:not(.o-ft-buttons__button), .o-ft-forms__field:valid {
+  border-color: #458b00;
+  color: #458b00; }
 
 body {
   margin: 20px 0;
@@ -725,3 +668,6 @@ h1 {
 h2 {
   font-size: 18px;
   line-height: 24px; }
+
+.o-ft-forms__field:valid {
+  border: 1px solid #cec6b9; }
