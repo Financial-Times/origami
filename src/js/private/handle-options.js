@@ -94,8 +94,9 @@ methods.handleOptions = function (opts, trigger) {
                 opts.content = opts.src;
             }
         } else if (opts.srcType === 'selector') {
-            opts.content = $(opts.src);
-            opts.content = copyContent(opts.content);
+            opts.content = copyContent($(opts.src));
+        } else if (opts.srcType === 'string') {
+            opts.content = opts.src;
         }
 
         opts = $.extend({}, require('../data/defaults'), globals.presets[opts.preset] || {}, opts);
