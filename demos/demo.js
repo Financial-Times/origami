@@ -57,8 +57,8 @@ function loadDemo(showtype) {
   
   function resizeFrame() {
     parent && parent.postMessage(JSON.stringify({
-      guid: location.search.replace(/^.*?[\?\&]c3po-guid=([^\&]+).*?$/, '$1'),
       type: 'resize',
+      url: location.href,
       height: document.body.scrollHeight
     }), '*');
   }
