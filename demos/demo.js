@@ -51,7 +51,15 @@ function loadDemo(showtype) {
         op += '</table>';
         el.innerHTML = op;
       }
+      resizeFrame();
     };
     oReq.send();
   };
+  
+  function resizeFrame() {
+    parent && parent.postMessage(JSON.stringify({
+      type: 'resize',
+      height: document.body.scrollHeight
+    }), '*');
+  }
 }
