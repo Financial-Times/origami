@@ -26,7 +26,7 @@ function loadDemo(showtype) {
         }
       });
       if (type == 'palette' && showtype == 'use-cases') {
-        getdata(showtype);
+        return getdata(showtype);
       }
       if (showtype == 'use-cases') {
         var op = '';
@@ -35,7 +35,6 @@ function loadDemo(showtype) {
           op += '<th>'+role+' colour</th>';
         });
         op += '</tr></thead><tbody>';
-        console.log(usecases);
         for (var i in usecases) {
           op += '<tr><td>'+i+'</td>';
           roles.forEach(function(role) {
@@ -58,6 +57,7 @@ function loadDemo(showtype) {
   
   function resizeFrame() {
     parent && parent.postMessage(JSON.stringify({
+      guid: location.search.replace(/^.*?[\?\&]c3po-guid=([^\&]+).*?$/, '$1'),
       type: 'resize',
       height: document.body.scrollHeight
     }), '*');
