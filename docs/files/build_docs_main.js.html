@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.2</em>
+            <em>API Docs for Origami Tracking module: 0.0.3</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -160,7 +160,7 @@ module.exports = (function () {
          * @property version
          * @type {String}
          */
-            version = &quot;Track version 0.0.2&quot;;
+            version = &quot;Track version 0.0.3&quot;;
 
     /**
      * Turn on/off developer mode. (Can also be activated on init.)
@@ -228,10 +228,12 @@ module.exports = (function () {
     }
 
     return {
-        developer: developer,
         init: init,
+        developer: developer,
         destroy: destroy,
         toString: toString,
+
+        utils: utils,
 
         page: require(&#x27;./src/javascript/page&#x27;)
     };

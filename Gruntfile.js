@@ -23,11 +23,11 @@ module.exports = function (grunt) {
                 },
                 {
                     location: "README.md",
-                    regex: /("tracking-module": "https:\/\/github\.com\/Financial-Times\/o-tracking\.git#)(\d\.\d\.\d)(")/
+                    regex: /("tracking-module": "http:\/\/git\.svc\.ft\.com:8080\/scm\/track\/o-tracking\.git#>=)(\d\.\d\.\d)( < 1")/
                 },
                 {
                     location: "tracking.mustache",
-                    regex: /(data-version=")(\d\.\d\.\d)(")/
+                    regex: /(data-o-version=")(\d\.\d\.\d)(")/
                 },
                 {
                     location: "main.js",

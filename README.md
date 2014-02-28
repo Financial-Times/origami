@@ -7,7 +7,7 @@ Origami module for the FT tracking.
 Add this to your depdendencies in bower.json:
 
      "dependencies": {
-          "tracking-module": "https://github.com/Financial-Times/o-tracking.git#0.0.2"
+          "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.3 < 1"
      }
 
 It's strongly advised to specify at least the major and minor version as a tag.

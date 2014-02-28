@@ -44,7 +44,7 @@ module.exports = (function () {
          * @property version
          * @type {String}
          */
-            version = "Track version 0.0.2";
+            version = "Track version 0.0.3";
 
     /**
      * Turn on/off developer mode. (Can also be activated on init.)
@@ -112,10 +112,12 @@ module.exports = (function () {
     }
 
     return {
-        developer: developer,
         init: init,
+        developer: developer,
         destroy: destroy,
         toString: toString,
+
+        utils: utils,
 
         page: require('./src/javascript/page')
     };

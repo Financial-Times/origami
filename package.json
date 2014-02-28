@@ -1,6 +1,6 @@
 {
   "name": "o-tracking",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "description": "Origami module for FT tracking.",
   "main": "main.js",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://git.svc.ft.com:9080/git/origami/tracking-module.git"
+    "url": "http://git.svc.ft.com:8080/scm/track/o-tracking.git"
   },
   "author": "Mark Stephens <mark.stephens@ft.com>",
   "keywords": [
