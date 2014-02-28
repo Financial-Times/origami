@@ -9,7 +9,8 @@
     "demo.mustache",
     "demo.scss",
     "package.json",
-    "Gruntfile.js"
+    "Gruntfile.js",
+    "test"
   ],
   "dependencies": {
     "jquery": ">=1.5.0 <2",
