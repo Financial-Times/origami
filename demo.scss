@@ -20,3 +20,6 @@ h2 {
   font-size: 18px;
   line-height: 24px;
 }
+.o-ft-forms__field:valid {
+	border: $_o-ft-forms-fieldborder;
+}

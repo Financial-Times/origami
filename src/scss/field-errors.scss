@@ -11,7 +11,8 @@
   '.o-ft-forms--error .o-ft-forms__field:not([type="checkbox"]):not([type="radio"])') {
 	margin-bottom: 0;
     border-color: oColorsGetColorFor(forms-label-error-border);
-    color: oColorsGetColorFor(forms-label-error-text);
+    color: oColorsGetColorFor(forms-error-text);
+
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--checkbox--error, %o-ft-forms__field--select--error',
@@ -29,10 +30,19 @@
   display: block;
   margin-top: -1px;
   margin-bottom: $_o-ft-forms-marginbottom;
-  padding: 3px 7px;
+  padding: 3px 0;
   font-family: $o-fonts-bentonsans-normal;
-  font-size: 11px;
-  font-style: italic;
+  font-size: 12px;
+  font-weight:bold;
+  font-style: normal;
   color: oColorsGetColorFor(forms-error-text);
-  background-color: oColorsGetColorFor(forms-error-background);
+}
+
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms--error:after','.o-ft-forms--error:after'){
+  position: absolute;
+  font-size: 18px;
+  top: 25px;
+  right: 10px;
+  content: "\2717";
+  color: oColorsGetColorFor(forms-error-text);
 }
