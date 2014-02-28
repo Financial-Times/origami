@@ -4,7 +4,6 @@
     "main.js"
   ],
   "ignore": [
-    "README.md",
     "**/.*",
     "node_modules",
     "bower_components",
