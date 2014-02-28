@@ -50,16 +50,8 @@ function loadDemo(showtype) {
         op += '</table>';
         el.innerHTML = op;
       }
-      resizeFrame();
+      if (typeof OrigamiRegistry != 'undefined') OrigamiRegistry.resize();
     };
     oReq.send();
   };
-  
-  function resizeFrame() {
-    parent && parent.postMessage(JSON.stringify({
-      type: 'resize',
-      url: location.href,
-      height: document.body.scrollHeight
-    }), '*');
-  }
 }
