@@ -72,6 +72,12 @@
 		</div>
 	</div>
 </footer>
-	
+<script>
+parent && parent.postMessage(JSON.stringify({
+	type: 'resize',
+	url: location.href,
+	height: document.body.scrollHeight
+}), '*');
+</script>
 </body>
 </html>
