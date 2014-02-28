@@ -17,7 +17,7 @@ function loadDemo(showtype) {
         if (m) {
           if (type=='palette') {
             palette[m[0]] = m[1];
-            if (showtype == 'palette') el.innerHTML += '<div data-o-grid-colspan="4 L3 M6 S12" class="sample"><div class="swatch background o-colors-palette-'+m[0]+'"></div><div class="name">'+m[0]+'</div><div class="descrip">'+m[1]+'</div></div>';
+            if (showtype == 'palette') el.innerHTML += '<div data-o-grid-colspan="4 XL3 L3 M6 S12" class="sample"><div class="swatch background o-colors-palette-'+m[0]+'"></div><div class="name">'+m[0]+'</div><div class="descrip">'+m[1]+'</div></div>';
           } else {
             if (roles.indexOf(m[2]) === -1 && m[2] !== 'all') roles.push(m[2]);
             usecases[m[0]] = usecases[m[0]] || {};
@@ -30,7 +30,7 @@ function loadDemo(showtype) {
       }
       if (showtype == 'use-cases') {
         var op = '';
-        op = '<table class="o-techdocs-table__table"><thead><tr><th>Use case</th>'
+        op = '<table><thead><tr><th>Use case</th>'
         roles.forEach(function(role) {
           op += '<th>'+role+' colour</th>';
         });
