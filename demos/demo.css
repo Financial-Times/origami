@@ -31,3 +31,6 @@
   font-size: 130%;
   font-family: monospace;
 }
+table {
+  margin: 0;
+}
