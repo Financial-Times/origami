@@ -36,6 +36,6 @@ body, html {
   font-size: 130%;
   font-family: monospace;
 }
-table.o-techdocs-table {
+.o-techdocs-table, .o-techdocs-table > table {
   margin: 0;
 }
