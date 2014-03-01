@@ -1,17 +1,18 @@
 html, body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow: hidden; }
 
 /*
 	This mixin allows ie7 and 8 to be targeted using either
 	* specific classes for each of ie7 and ie8
 	* 'less than' classes targeting ie versions less than a given version e.g. lt-ie9 & lt-ie8
 */
-/* 
+/*
 	Deprecates support for ie7 or 8, making sure that both browser specific and lt- selectors are removed
 */
-/* 
-	Note: The identically named mixins and functions below is not a mistake; it means they can be used to either 
+/*
+	Note: The identically named mixins and functions below is not a mistake; it means they can be used to either
 	output a string or to wrap some style rules in a selector
 */
 .o-ft-header__topbar__content {
@@ -155,9 +156,9 @@ html, body {
  *
  *  <use case>   <colorname>   <role>   [<status>],
  *
- * The use case name must be a single word comprising just letters, numbers, and dashes.  
+ * The use case name must be a single word comprising just letters, numbers, and dashes.
  * The colour name should be an exact match for a colour defiend in palette.scss
- * The role must be 'text', 'border', or 'background'.   
+ * The role must be 'text', 'border', or 'background'.
  * The status must be 'DEPRECATED' or absent
  * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
  */
