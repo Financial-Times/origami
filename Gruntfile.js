@@ -46,7 +46,7 @@ module.exports = function (grunt) {
             ],
             options: {
                 ignores: [
-                    "src/resources/vendor/**",
+                    "./resources/vendor/**",
                     "examples/jquery/**"/*,
                      "src/javascript/utils.js"*/
                 ],
@@ -134,7 +134,7 @@ module.exports = function (grunt) {
                 version: '<%= pkg.version %>',
                 url: '<%= pkg.homepage %>',
                 options: {
-                    themedir: 'src/resources/yui-doc-theme/',
+                    themedir: './resources/yui-doc-theme/',
                     paths: '<%=build_folder %>/docs', // Have to do this and then exclude everything to get the main.js included.
                     outdir: 'docs/'
                 }
@@ -158,19 +158,46 @@ module.exports = function (grunt) {
             }
         },
 
-        mocha: {
-            track: {
-                src: ['tests/**/*.html']
-            },
+        karma: {
             options: {
-                run: true,
-                logErrors: true,
-                log: true
+                frameworks: ['browserify', 'mocha'],
+                files: ['src/javascript/**/*.js', 'test/**/*.js'],
+
+                preprocessors: {
+                    'test/**/*.js': ['browserify'],
+                    'src/javascript/**/*.js': ['browserify']
+                },
+                browserify: {
+                    transform: ['debowerify'],
+                    debug: false
+                },
+                singleRun: true,
+                browsers: ['PhantomJS'],
+
+                htmlReporter: {
+                    outputDir: '<%=build_folder %>/reports/unit-tests'
+                },
+
+                coverageReporter: {
+                    reporters: [
+                        { type: 'text' },
+                        { type : 'html', dir : '<%=build_folder %>/reports/coverage/' }
+                    ]
+                },
+
+                reporters: ['progress', 'html', 'coverage']
+            },
+            dev: {},
+            ci: {},
+            full: {
+                options: {
+                    browsers: ['Chrome', 'Firefox']
+                }
             }
         }
     });
 
-    grunt.loadTasks("src/resources/grunt-tasks");
+    grunt.loadTasks("./resources/grunt-tasks");
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -181,11 +208,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-yuidoc');
     grunt.loadNpmTasks('grunt-mocha');
+    grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('build', "Build", ['jshint', 'clean', 'browserify:track', 'uglify', 'copy:track']);
-    grunt.registerTask('test', "Test", ['mocha']);
+
+    grunt.registerTask('build', "Build", ['clean', 'browserify:track', 'uglify', 'copy:track']);
+    grunt.registerTask('test', "Test", ['jshint', 'karma:dev']);
     grunt.registerTask('examples', "Examples", ['browserify:examples', 'compass']);
     grunt.registerTask('docs', "Docs", ['copy:docs', 'yuidoc']);
 
-    grunt.registerTask('default', "Default.", ['build', 'test', 'examples', 'docs']);
+    grunt.registerTask('default', "Default.", ['test', 'build', 'examples', 'docs']);
 };

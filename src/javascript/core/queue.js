@@ -85,7 +85,7 @@ module.exports = (function () {
             return null;
         }
 
-        return this.queue.slice(-1).item;
+        return this.queue.slice(-1)[0].item;
     };
 
     Queue.prototype.id = function () {

@@ -97,7 +97,6 @@ module.exports = (function (window, document) {
         request.requestID = requestID();
         // Values for the request
         request = utils.merge({
-            cookie: '',
             clickID: request.clickID,
             requestID: request.requestID,
             counter: internalCounter()
