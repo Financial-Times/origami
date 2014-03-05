@@ -135,5 +135,11 @@ $o-colors-usecase-list:
     dialog-heading                    white                  text,
     dialog-close                      white                  border,
     dialog-close                      blue                   background,
-    dialog-close                      white                  text
+    dialog-close                      white                  text,
+    
+    // Healthchecks
+    health-ok                         green                  background,
+    health-ok                         white                  text,
+    health-error                      red                    background,
+    health-error                      white                  text
 ;
