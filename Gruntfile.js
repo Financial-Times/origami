@@ -179,13 +179,13 @@ module.exports = function (grunt) {
                 browsers: ['PhantomJS'],
 
                 htmlReporter: {
-                    outputDir: '<%=build_folder %>/reports/unit-tests'
+                    outputDir: './build/reports/unit-tests'
                 },
 
                 coverageReporter: {
                     reporters: [
-                        { type: 'text' },
-                        { type : 'html', dir : '<%=build_folder %>/reports/coverage/' }
+                        { type: 'text', dir : './build/reports/coverage/' },
+                        { type : 'html', dir : './build/reports/coverage/' }
                     ]
                 },
 
@@ -215,10 +215,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-karma');
 
 
-    grunt.registerTask('build', "Build", ['clean', 'browserify:track', 'uglify', 'copy:track']);
+    grunt.registerTask('build', "Build", ['browserify:track', 'uglify', 'copy:track']);
     grunt.registerTask('test', "Test", ['jshint', 'karma:dev']);
     grunt.registerTask('examples', "Examples", ['browserify:examples', 'compass']);
     grunt.registerTask('docs', "Docs", ['copy:docs', 'yuidoc']);
 
-    grunt.registerTask('default', "Default.", ['test', 'build', 'examples', 'docs']);
+    grunt.registerTask('default', "Default.", ['clean', 'test', 'build', 'examples', 'docs']);
 };
