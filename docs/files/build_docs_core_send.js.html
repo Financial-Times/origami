@@ -294,16 +294,23 @@ module.exports = (function (window) {
      * If there are any requests queued, attempts to send the next one
      * Otherwise, does nothing
      * @method run
+     * @param [callback] {Function} The callback function. Optional.
+     * @async
      */
-    function run() {
-        var nextRequest = queue.first();
+    function run(callback) {
+        if (utils.isUndefined(callback)) {
+            callback = function () {};
+        }
+
+        var next = function () { run(); callback(); },
+            nextRequest = queue.first();
 
         if (!nextRequest) {
             return;
         }
 
         // Send this request, then try run again.
-        sendRequest(nextRequest, run);
+        sendRequest(nextRequest, next);
     }
 
     /**

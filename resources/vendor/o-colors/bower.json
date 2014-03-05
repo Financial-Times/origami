@@ -1,0 +1,8 @@
+{
+    "name": "o-colors",
+    "main": ["main.scss"],
+    "ignore": [
+    	"test",
+    	".travis.yml"
+    ]
+}

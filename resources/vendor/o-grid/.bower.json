@@ -1,0 +1,24 @@
+{
+  "name": "o-grid",
+  "ignore": [
+    "docs-generator",
+    "Gruntfile.js",
+    "package.json",
+    ".jshintrc",
+    "src/scss/bundles"
+  ],
+  "dependencies": {
+    "o-useragent": "https://github.com/Financial-Times/o-useragent.git#>=0.2.0"
+  },
+  "homepage": "https://github.com/Financial-Times/o-grid",
+  "version": "2.0.5",
+  "_release": "2.0.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.5",
+    "commit": "a8d8ad758cd4531cc812641edb6732142c5e1b84"
+  },
+  "_source": "http://github.com/Financial-Times/o-grid.git",
+  "_target": "2.0.x",
+  "_originalSource": "http://github.com/Financial-Times/o-grid.git"
+}

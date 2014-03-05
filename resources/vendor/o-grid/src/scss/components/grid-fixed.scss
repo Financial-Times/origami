@@ -1,0 +1,8 @@
+@if ($o-grid-is-responsive or $o-grid-is-fixed-desktop) {
+
+	@include oGridTargetAtFixedLayout () {
+		@include oGridFixedGridStyles ();
+	}
+
+}
+

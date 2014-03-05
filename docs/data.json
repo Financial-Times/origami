@@ -640,13 +640,22 @@
             "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
             "itemtype": "method",
             "name": "run",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "The callback function. Optional.",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "async": 1,
             "class": "Track._Core.Send",
             "module": "_Core",
             "submodule": "Send"
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 193,
+            "line": 200,
             "description": "Convenience function to add and run a request all in one go.",
             "itemtype": "method",
             "name": "addAndRun",
@@ -663,7 +672,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 203,
+            "line": 210,
             "description": "Init the queue and send any leftover tags.",
             "itemtype": "method",
             "name": "init",

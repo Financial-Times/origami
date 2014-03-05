@@ -1,0 +1,21 @@
+{
+  "name": "o-assets",
+  "main": [
+    "main.js",
+    "main.scss"
+  ],
+  "ignore": [
+    "test/"
+  ],
+  "homepage": "https://github.com/Financial-Times/o-assets",
+  "version": "0.4.0",
+  "_release": "0.4.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.4.0",
+    "commit": "deec7f082e503e50a5e29ff4d9b97f4f5766cd95"
+  },
+  "_source": "https://github.com/Financial-Times/o-assets.git",
+  "_target": ">=0.2.0",
+  "_originalSource": "https://github.com/Financial-Times/o-assets.git"
+}

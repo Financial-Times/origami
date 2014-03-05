@@ -1,0 +1,139 @@
+/**
+ * Colour use cases
+ *
+ * These mappings define what we use our colours for.
+ *
+ * Use case:           Must be a single word comprising just letters, numbers, and dashes.
+ * Color name:         Must be an exact match for a name of a colour defined in palette.scss
+ * CSS class property: Should be 'text', 'border', 'background', or 'all'.
+ * Status:             Must be 'DEPRECATED' or absent
+ *
+ * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ *
+ *
+ *  <use case>                        <colorname>            <cssclassproperty>   [<status>]
+ */
+
+$o-colors-usecase-list:
+
+
+    // Generics
+    page                              pink                   background,
+    table                             tint1                  background,
+    table-header-row                  warm-grey1             border,
+    table-row                         tint3                  border,
+    box                               tint1                  background,
+    link                              blue                   text,
+    link-hover                        black                  text,
+    heading                           charcoal               text,
+    body                              charcoal               text,
+    title                             black                  text,
+    lead                              dark-grey              text,
+    error                             red                    all,
+    error                             white                  background,
+    control                           cool-grey2             text,
+    control                           charcoal               background,
+    control-hover                     white                  text,
+    overlay                           white                  text,
+    overlay                           charcoal               background,
+
+    link-alt                          charcoal               text,
+    link-alt-hover                    blue                   text,
+
+    // Typography
+    heading-medium                    tint2                  border,
+    heading-large                     warm-grey1             border,
+    heading-large                     black                  text,
+    lead-medium                       cool-grey1             text,
+    brand                             black                  text,
+    byline                            warm-grey2             text,
+    timestamp                         warm-grey2             text,
+    body-lead                         dark-grey              text,
+    article-body-lead                 charcoal               text,
+    article-body-lead                 warm-grey2             border,
+    article-body                      charcoal               text,
+    article-title                     black                  text                DEPRECATED,
+    article-subheading                charcoal               text,
+    article-subheading                warm-grey2             border,
+    article-byline                    warm-grey2             text                DEPRECATED,
+    article-divider                   warm-grey2             border              DEPRECATED,
+
+    // FT header and footer
+    header                            charcoal               background,
+    header-item                       dark-grey              border,
+    header-item                       charcoal               background,
+    header-item                       white                  text,
+    header-item-active                tint2                  background,
+    header-item-active                blue                   text,
+    ft-initials                       charcoal               text,
+    footer                            tint1                  background,
+    footer-underline                  tint2                  border,
+    pearson                           tint2                  background,
+    pearson                           warm-grey2             text,
+
+    // Forms
+    forms-label                       black                  text,
+    forms-label-error                 black                  text,
+    forms-label-error                 white                  background,
+    forms-label-error                 red                    border              DEPRECATED,
+    forms-field                       warm-grey2             text,
+    forms-field                       white                  background,
+    forms-field                       tint3                  border,
+    forms-field-error                 warm-grey2             text,
+    forms-field-error                 white                  background,
+    forms-field-error                 red                    border,
+    forms-error                       red                    text                DEPRECATED,
+    forms-error                       white                  background          DEPRECATED,
+    forms-label-valid                 black                  text,
+    forms-label-valid                 white                  background,
+    forms-field-valid                 warm-grey2             text,
+    forms-field-valid                 white                  background,
+    forms-field-valid                 green                  border,
+    forms-valid                       green                  text,
+    forms-valid                       white                  background,
+    forms-prefixsuffix                warm-grey2             text,
+    forms-prefixsuffix                tint1                  background,
+    forms-button                      white                  text                DEPRECATED,
+    forms-button-hover                cool-grey2             text                DEPRECATED,
+    forms-button-negative             blue                   text                DEPRECATED,
+    forms-button-negative-hover       blue                   text                DEPRECATED,
+    forms-section                     claret                 border,
+
+    // Buttons
+    button                            white                  text,
+    button-hover                      cool-grey2             text,
+    button-negative                   blue                   text,
+    button-negative-hover             blue                   text,
+
+    // Tech docs
+    block-code-sample                 tint1                  background,
+    block-code-sample                 tint2                  border,
+    block-code-sample                 charcoal               text,
+    inline-code-sample                tint1                  background,
+    inline-code-sample                claret                 text,
+    docs-aside                        tint1                  background,
+    docs-aside                        tint2                  border,
+    docs-nav                          tint1                  background,
+    docs-nav-active                   tint2                  background,
+    docs-inpagenav-link               claret                 text,
+
+    // Section colors
+    section-life-arts                 section-purple         all,
+    section-life-arts-alt             section-light-purple   all,
+    section-magazine                  section-blue           all,
+    section-magazine-alt              section-light-blue     all,
+    section-house-home                section-green          all,
+    section-house-home-alt            section-light-green    all,
+    section-money                     section-red            all,
+    section-money-alt                 white                  all,
+
+    // Dialogs
+    dialog                            warm-grey1             border,
+    dialog                            white                  background,
+    dialog                            charcoal               text,
+    dialog-heading                    warm-grey1             background,
+    dialog-heading                    white                  text,
+    dialog-close                      white                  border,
+    dialog-close                      blue                   background,
+    dialog-close                      white                  text
+;

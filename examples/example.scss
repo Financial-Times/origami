@@ -1,13 +1,5 @@
-body {
-  background: #FFF;
-  color: #000;
-  font: 0.9em Arial, sans-serif;
-  margin: 3em;
-}
-pre {
-  background: #FFC;
-  padding: 0.3em;
-}
+@import "o-techdocs/main.scss";
+
 fieldset {
   border: solid 1px;
   margin: 1em auto;
@@ -64,11 +56,5 @@ fieldset {
 
   span.date {
     float: left;
-  }
-
-  pre {
-    background: none;
-    margin: 0 0 0 120px;
-    padding: 0;
   }
 }

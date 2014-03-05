@@ -6,6 +6,7 @@
     "supportStatus": "not implemented",
     "demos": [
         "examples/1_init.html",
-        "examples/2_page.html"
+        "examples/2_page.html",
+        "docs"
     ]
 }

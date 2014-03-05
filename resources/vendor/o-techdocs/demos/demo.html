@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <!-- These twometa tags should always precede <title>.  Any others can come after -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Tech doc framework demo</title>
+      <meta name="viewport" content="width=device-width">
+
+      <!-- Include CSS and JS bundles.  These do not exist in the repo, so you have to run the build task to create them.  See instructions in the README for details.  JS can be loaded at the end of the document if you prefer. -->
+      <link rel="stylesheet" href="../buildcache/bundle.css">
+      <script src='../buildcache/bundle.js'></script>
+  </head>
+  <body class='o-techdocs'>
+
+    <!-- Tech doc module includes the Origami grid -->
+    <div class="o-grid-page">
+
+      <!-- Header-->
+      <div class="o-techdocs-page-header">
+        <h1>Documentation for a thing</h1>
+        <p class='o-techdocs-page-header__lead'>Subtitle for the documentation</p>
+      </div>
+
+      <!-- Navigation menu and main content (you can omit the row container entirely if you don't have any nav) -->
+      <div class="o-grid-row">
+
+        <!-- Navigation - optional, omit for single page docs.  o-techdocs-sidebar container allows an in-page navigation list to be appended after the site navigation -->
+        <div data-o-grid-colspan="3 M12 S12" class="o-techdocs-sidebar">
+          <ul class="o-techdocs-nav">
+            <li><a href="#">Link title 1</a></li>
+            <li><a href="#">Link title 2</a></li>
+            <li><a href="#">Link title 3</a></li>
+            <li><a href="#">Link title 4</a>
+              <ul class="o-techdocs-nav o-techdocs-nav__sub">
+                <li><a href="#">Sub link 1</a></li>
+                <li class="o-techdocs-nav__item--active"><a href="#">Sub link 2 (active)</a></li>
+                <li><a href="#">Sub link 3</a></li>
+                <li><a href="#">Sub link 4</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Link title 5</a></li>
+          </ul>
+        </div>
+
+        <!-- Main content (outer div for layout, inner for formatting) -->
+        <div data-o-grid-colspan="9 M12 S12">
+          <div class='o-techdocs-content'>
+
+            <h1>Sample content</h1>
+
+            <p>The following is sample content demonstrating all the built in styles supported by the tech docs module.  We use standard FT styles where possible, and basics such as headings (H1 to H4), bulleted and numbered lists, inline links and <code>&lt;code&gt;</code> are obviously supported, but the style samples here are designed to better support technical use cases rather than editorial ones.</p>
+
+            <p>The code examples are in the source of this page.</p>
+
+            <h2 id='headings'>Headings</h2>
+
+            <p>For best results and to enable the nav to auto-index your content easily, use <code>H1</code> once at the top of the document and then correctly nest any uses of <code>H2</code> to <code>H4</code>.
+
+            <h2 id="tables">Tables</h3>
+
+            <p>Give the table a class of <code>o-techdocs-table</code>:</p>
+
+            <table class='o-techdocs-table'>
+              <tr><th>Repo name</th><th>Host name</th></tr>
+              <tr><td>tweet-service</td><td>tweet.webservices.ft.com</td></tr>
+              <tr><td>nav-service</td><td>nav.webservices.ft.com</td></tr>
+              <tr><td>mostpopular-service</td><td>mostpopular.webservices.ft.com</td></tr>
+            </table>
+
+            <h2 id='code'>Code</h2>
+
+            <p>For inline code, wrap the content in a <code>&lt;code&gt;</code> tag.</p>
+
+            <p>For blocks, wrap in <code>&lt;pre&gt;&lt;code&gt;</code>:</p>
+
+<?prettify linenums=1?>
+<pre><code>$.ajax({
+url: "/api/getWeather",
+data: {
+  zipcode: 97201
+},
+success: function( data ) {
+  $( "#weather-temp" ).html( "<strong>" + data + "</strong> degrees" );
+}
+});</code></pre>
+
+            <p>To trigger syntax highlighting using <a href='https://code.google.com/p/google-code-prettify/'>prettify</a>, prefix the <code>&lt;pre&gt;</code> with a prettify inline hint such as <code>&lt;?prettify linenums=1?&gt;</code>, or add the <code>prettify</code> class, as documented in the <a href='https://code.google.com/p/google-code-prettify/wiki/GettingStarted'>prettify wifi</a>.  Since prettify auto-loads all its lang files, we use it from the Cloudflare CDN.  Put this at the end of your <code>&lt;body&gt;</code> to enable support:</p>
+
+<pre><code>&lt;script src='//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js'>&lt;/script>
+&lt;script>prettyPrint()&lt;/script></code></pre>
+
+            <h2 id='images'>Images</h2>
+
+            <p>Images will be auto-scaled to the width of the content area and given a border.</p>
+
+            <p><img src='image.jpg' alt='Montreal skyline' /></p>
+
+            <h2 id='asides'>Asides</h2>
+
+            <p>Use the <code>&lt;aside&gt;</code> tag to create inset boxed content, useful for examples, non-normative notes, warnings for the wary etc.  Fora heading inside the aside, use an <code>&lt;h4&gt;</code>.</p>
+
+            <aside>
+              <h4>Example heading for the aside</h4>
+              <p>Where features or elements of design are used in multiple websites, we need to build them to be usable in all those cases, and portable between them, rather than always building features solely in the context of one product.  These components should not be seen as an intrinsic part of <em>any</em> product, but instead as part of the <b>new digital FT</b>.</p>
+            </aside>
+
+            <h2 id='disabling-doc-styles'>Disabling doc styles</h2>
+            <p>To make it easier to author content in markdown, styles are applied to naked tags inside any <code>.o-techdocs-content</code> element.  However, if you want to include content that you don't want to affect with tech doc styles, you can simply close the <code>.o-techdocs-content</code> and open a new one when you want back into auto-formatting.</p>
+
+            <p>For example, here's some code that's not formatted using doc styles:</p>
+          </div>
+
+          <!-- Content outside of .o-techdocs-content is not affected by naked tag styling -->
+          <p><code>Sample text in a &lt;code&gt; tag</code></p>
+
+          <div class='o-techdocs-content'>
+            <p>Continue with formatted content in another <code>.o-techdocs-content</code> element after your raw content is finished.</p>
+          </div>
+        </div>
+
+      </div> <!-- /row containing nav and content -->
+
+      <div class='o-techdocs-footer o-techdocs-content'>
+        <p><a class='o-techdocs-pull-right' href='http://github.com/financial-times/ft-origami'>View project on Github</a>&copy; THE FINANCIAL TIMES LTD. FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+      </div>
+
+    </div> <!-- /page -->
+
+    <!-- Add this if you want syntax highlighting on your page -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js'></script>
+    <script>prettyPrint()</script>
+  </body>
+</html>

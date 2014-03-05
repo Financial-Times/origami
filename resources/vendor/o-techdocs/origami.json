@@ -1,0 +1,10 @@
+{
+	"description": "A framework for building technical documentation and tool UI",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "andrew.betts@ft.com",
+	"supportStatus": "active",
+	"demos": [
+		"demos/demo.html"
+	]
+}

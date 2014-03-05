@@ -1,0 +1,10 @@
+{
+  "name": "o-assets",
+  "main": [
+    "main.js",
+    "main.scss"
+  ],
+  "ignore": [
+    "test/"
+  ]
+}

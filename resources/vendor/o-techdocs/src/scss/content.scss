@@ -1,0 +1,219 @@
+
+.o-techdocs {
+  padding-bottom: 40px;
+  background-color: oColorsGetColorFor("page-background");
+  color: oColorsGetColorFor("article-body-text");
+  font-size: 14px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height: 1.428571429;
+}
+
+.o-techdocs-content {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+  }
+  h1 {
+    margin: 0 0 0.8em 0;
+    font-weight: normal;
+    font-size: 180%;
+  }
+  h2 {
+    margin: 1.5em 0 0.8em 0;
+    font-weight: bold;
+    font-size: 140%;
+  }
+  h3 {
+    border-bottom: 1px solid #ddd;
+    font-size: 120%;
+  }
+  h4  {
+    font-size: 18px;
+  }
+  a {
+    color: oColorsGetColorFor("link-text");
+    text-decoration: none;
+  }
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+  code,
+  pre {
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  }
+  code {
+    padding: 2px 4px;
+    border-radius: 4px;
+    background-color: oColorsGetColorFor("inline-code-sample-background");
+    color: oColorsGetColorFor("inline-code-sample-text");
+    white-space: pre-wrap;
+    font-size: 90%;
+  }
+
+  pre {
+    display: block;
+    overflow-x: auto;
+    margin: 0 0 10px;
+    padding: 9.5px;
+    border: 1px solid oColorsGetColorFor("block-code-sample-border");
+    border-radius: 4px;
+    background-color: oColorsGetColorFor("block-code-sample-background");
+    color: oColorsGetColorFor("block-code-sample-text");
+    word-wrap: inherit;
+    word-break: break-all;
+    font-size: 13px;
+    line-height: 1.428571429;
+  }
+
+  pre.prettyprint {
+    margin-bottom: 20px;
+  }
+  pre code {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    color: inherit;
+    white-space: pre;
+    font-size: inherit;
+  }
+
+  .pre-scrollable {
+    overflow-y: scroll;
+    max-height: 340px;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  img:not(.transparent) {
+    padding: 1px;
+    border: 2px solid #bbb;
+    background-color: white;
+  }
+  .alert-big {
+    margin: 1em 0;
+    font-size: 150%;
+  }
+
+  /* Fix for nested bulleted/numbered lists (Markdown does not consistently wrap in para tags) */
+  li>p {
+    margin-bottom:0;
+  }
+
+  aside {
+    margin-bottom: 20px;
+    padding: 19px;
+    min-height: 20px;
+    border: 1px solid oColorsGetColorFor("docs-aside-border");
+    border-radius: 4px;
+    background-color: oColorsGetColorFor("docs-aside-background");
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+    h4 {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  /* Theme GitHub gists to match FT style */
+  .gist .gist-file {
+    border: 1px solid oColorsGetColorFor("block-code-sample-border");
+    border-radius: 4px;
+    .gist-data {
+      background-color: oColorsGetColorFor("block-code-sample-background");
+      .line-numbers {
+        color: oColorsGetColorFor("block-code-sample-text");
+        background-color: oColorsGetColorFor("block-code-sample-background");
+        border-right: none;
+        padding: 1em;
+      }
+    }
+  }
+}
+
+.o-techdocs-table {
+  overflow: auto;
+  width: 100%;
+}
+.o-techdocs-table__table {
+  margin: 1em 0;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-top: 3px solid oColorsGetColorFor("table-background");
+  border-right: 5px solid oColorsGetColorFor("table-background");
+  border-bottom: 3px solid oColorsGetColorFor("table-background");
+  border-left: 5px solid oColorsGetColorFor("table-background");
+  background: oColorsGetColorFor("table-background");
+  >thead>tr>th,
+  >tbody>tr>th,
+  >tfoot>tr>th,
+  >thead>tr>td,
+  >tbody>tr>td,
+  >tfoot>tr>td {
+    padding: 8px;
+    border-top: 1px solid #ddd;
+    line-height: 1.428571429;
+    text-align: left;
+  }
+  >thead>tr>th,
+  >tbody>tr>th,
+  >tr>th {
+    border-bottom: 2px solid oColorsGetColorFor("table-header-row-border");
+    vertical-align: bottom;
+  }
+  >tbody>tr>td,
+  >tr>td {
+    border-bottom: 1px solid oColorsGetColorFor("table-row-border");
+    vertical-align: top;
+  }
+}
+
+
+
+
+
+
+
+@include oGridRespondTo(l) {
+  .o-techdocs-content {
+    h1 {
+      margin: 0 0 0.8em 0;
+      border-bottom: 1px solid #999;
+      font-size: 225%;
+    }
+    h2 {
+      margin: 1.5em 0 0.8em 0;
+      font-weight: 300;
+      font-size: 190%;
+    }
+    h3 {
+      border: 0;
+      font-size: 140%;
+    }
+  }
+}
+
+@include oGridRespondTo(xl) {
+  .o-techdocs-content {
+    h1 {
+      margin: 0 0 0.8em 0;
+      border-bottom: 1px solid #999;
+      font-size: 225%;
+    }
+    h2 {
+      margin: 1.5em 0 0.8em 0;
+      font-weight: 300;
+      font-size: 190%;
+    }
+    h3 {
+      border: 0;
+      font-size: 140%;
+    }
+  }
+}

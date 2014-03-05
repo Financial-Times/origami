@@ -5,6 +5,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         build_folder: './build',
+        examples_build: './examples/build',
         versioned_build_folder: './build/<%=pkg.version %>',
 
         version : {
@@ -42,12 +43,12 @@ module.exports = function (grunt) {
                 'main.js',
                 'src/**/*.js',
                 'test/**/*.js',
-                'examples/**/*.js'
+                './examples/*.js'
             ],
             options: {
                 ignores: [
                     "./resources/vendor/**",
-                    "examples/jquery/**"/*,
+                    "<%=examples_build %>/**"/*,
                      "src/javascript/utils.js"*/
                 ],
 
@@ -73,7 +74,7 @@ module.exports = function (grunt) {
         browserify: {
             'examples': {
                 files: {
-                    '<%= build_folder %>/examples/util.js': ['examples/util.js']
+                    '<%=examples_build %>/util.js': ['examples/util.js']
                 },
                 options: {
                     alias: 'util'
@@ -103,7 +104,8 @@ module.exports = function (grunt) {
             track: {
                 files: [
                     { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.js', dest: '<%=build_folder %>/track.latest.js' },
-                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.min.js', dest: '<%=build_folder %>/track.latest.min.js' }
+                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.min.js', dest: '<%=build_folder %>/track.latest.min.js' },
+                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.min.js', dest: '<%=examples_build %>/track.latest.min.js' }
                 ]
             },
             docs: {
@@ -117,8 +119,10 @@ module.exports = function (grunt) {
         compass: {
             examples: {
                 options: {
-                    sassDir: 'examples',
-                    cssDir: '<%= build_folder %>/examples'
+                    quiet: true,
+                    sassDir: './examples',
+                    importPath: "./resources/vendor",
+                    cssDir: '<%=examples_build %>'
                 }
             },
 
