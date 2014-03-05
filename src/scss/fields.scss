@@ -55,14 +55,13 @@
   display: inline-block;
   margin-left: 5px;
   margin-right: 10px;
-  margin-bottom: 0;
+  margin-bottom: $_o-ft-forms-marginbottom;
   vertical-align: baseline;
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--select', '.o-ft-forms__field--select') {
   @include commonField();
   height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
-  margin-bottom: 0;
   background-image: url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==');
   background-repeat: no-repeat;
   background-position: 97% center;
@@ -72,5 +71,4 @@
  @include commonField();
   height: 70px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
   vertical-align: top;
-  margin-bottom: 0;
 }
