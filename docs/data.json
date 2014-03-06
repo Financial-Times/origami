@@ -1006,7 +1006,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 85,
+            "line": 86,
             "description": "Constructs a URL in the format required by iJento, allowing different inputs.",
             "itemtype": "method",
             "name": "url",
@@ -1029,7 +1029,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 115,
+            "line": 116,
             "description": "Make the page tracking request.",
             "itemtype": "method",
             "name": "page",
@@ -1261,46 +1261,6 @@
             "return": {
                 "description": "",
                 "type": "Object"
-            },
-            "class": "Track._Utils",
-            "module": "Track",
-            "submodule": "_Utils"
-        },
-        {
-            "file": "build/docs/utils.js",
-            "line": 208,
-            "description": "Get a value from document.cookie matching the first match of the regexp you supply",
-            "itemtype": "method",
-            "name": "getValueFromCookie",
-            "params": [
-                {
-                    "name": "matcher",
-                    "description": "A regular expression /.../ where the first parens will be returned as the value"
-                }
-            ],
-            "return": {
-                "description": "The matching value or null if there is no match, or the cookie value is 'null' (primarily for TRK_REF)",
-                "type": "String"
-            },
-            "class": "Track._Utils",
-            "module": "Track",
-            "submodule": "_Utils"
-        },
-        {
-            "file": "build/docs/utils.js",
-            "line": 218,
-            "description": "Get a value from the url, used for uuid or querystring parameters",
-            "itemtype": "method",
-            "name": "getValueFromUrl",
-            "params": [
-                {
-                    "name": "matcher",
-                    "description": "A regular expression /.../ where the first parens will be returned as the value"
-                }
-            ],
-            "return": {
-                "description": "The matching value or null",
-                "type": "String"
             },
             "class": "Track._Utils",
             "module": "Track",

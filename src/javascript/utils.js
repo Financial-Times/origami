@@ -204,28 +204,6 @@ module.exports = (function (console, window) {
         return params;
     }
 
-
-    /**
-     * Get a value from document.cookie matching the first match of the regexp you supply
-     * @method getValueFromCookie
-     * @param matcher A regular expression /.../ where the first parens will be returned as the value
-     * @return {String} The matching value or null if there is no match, or the cookie value is 'null' (primarily for TRK_REF)
-     */
-    function getValueFromCookie(matcher) {
-        return window.document.cookie.match(matcher) && RegExp.$1 !== "" && RegExp.$1 !== "null" ? RegExp.$1 : null;
-    }
-
-    /**
-     * Get a value from the url, used for uuid or querystring parameters
-     * @method getValueFromUrl
-     * @param matcher A regular expression /.../ where the first parens will be returned as the value
-     * @return {String} The matching value or null
-     */
-    function getValueFromUrl(matcher) {
-        return window.document.location.href.match(matcher) && RegExp.$1 !== "" ? RegExp.$1 : null;
-    }
-
-
     return {
         log: log,
         is: is,
@@ -236,8 +214,6 @@ module.exports = (function (console, window) {
         hash: hash,
         objectKeys: objectKeys,
         serialize: serialize,
-        unserialize: unserialize,
-        getValueFromCookie: getValueFromCookie,
-        getValueFromUrl: getValueFromUrl
+        unserialize: unserialize
     };
 }(console, window));

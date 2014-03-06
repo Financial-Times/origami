@@ -78,6 +78,7 @@ module.exports = (function (window, document) {
             screenRes: window.screen.width + 'x' + window.screen.height,
             localTime: (new Date()).toISOString(),
             java: (window.navigator.javaEnabled() ? '1' : '0'),
+            js: '1',
 
             async: false // Send this tag syncronously
         };
