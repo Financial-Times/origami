@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 		icons: {
 			src: 'svg/*.svg',
 			dest: 'build/',
-      destCss: 'scss/',
+		    destCss: 'scss/',
 			options: {
 				engine: "fontforge",
 				font: "ft-icons",
@@ -25,13 +25,18 @@ module.exports = function(grunt) {
 	},
     'origami-demo': {
       options: {
-        modernizr: false,
-        main: ['demo.mustache']
+          modernizr: false
+      },
+      demos: {
+          main: {
+              template: 'demo.mustache',
+              sass: 'demo.scss'
+          }
       }
     },
     watch: {
       'origami-demo': {
-          files: ['main.scss', 'scss/*.scss', 'demo.mustache', 'demo.scss'],
+          files: ['main.scss', 'scss/*.scss', 'demo-src/*', 'svg/*'],
           tasks: ['demo']
       }
     }

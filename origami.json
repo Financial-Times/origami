@@ -4,7 +4,7 @@
   "origamiVersion": 1,
   "support": "dan.skinner@ft.com",
   "supportStatus": "not implemented",
-  "demos": ["demos/demo.html"],
+  "demos": ["demos/main.html"],
   "browserFeatures": {
       "required": ["fontface"]
   }

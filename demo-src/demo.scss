@@ -1,28 +1,14 @@
 $o-assets-global-path: '../../';
 $o-ft-icons-support-ie7: true;
 
-@import "main.scss";
+@import "../main";
 
 body {
 	margin: 30px;
 	background-color: #fff;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
-}
-
-.demo-heading1 {
-	margin: 0 0 30px 0;
-	font-size: 36px;
-	line-height: 42px;
-	color: #a7a59b;
-}
-
-.demo-heading2 {
-	clear: both;
-	margin: 0 0 20px 0;
-	font-size: 21px;
-	line-height: 28px;
-	color: #a7a59b;
+    overflow: auto;
 }
 
 .demo-count {
