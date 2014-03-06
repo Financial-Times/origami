@@ -496,16 +496,43 @@ html {
   /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */ }
 
 .o-ft-forms__field[type="checkbox"], .o-ft-forms__field[type="radio"] {
-  display: inline-block;
-  margin-top: 7px;
-  margin-bottom: 20px; }
+  display: none; }
 
 .o-ft-forms__field[type="checkbox"] + .o-ft-forms__label, .o-ft-forms__field[type="radio"] + .o-ft-forms__label {
   display: inline-block;
-  margin-left: 5px;
-  margin-right: 10px;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  margin-right: 15px;
   margin-bottom: 20px;
-  vertical-align: baseline; }
+  vertical-align: middle; }
+
+.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label:before, .o-ft-forms__field[type="radio"] + .o-ft-forms__label:before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  background-color: #fff;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.4) inset, 0 0 0 0 rgba(255, 255, 255, 0.2); }
+
+.o-ft-forms__field[type="radio"] + .o-ft-forms__label:before {
+  border-radius: 9px; }
+
+.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label:before, .o-ft-forms__field[type="radio"]:checked + .o-ft-forms__label:before {
+  content: "\2022";
+  color: rgba(255, 0, 0, 0.8);
+  font-size: 38px;
+  text-align: center;
+  line-height: 18px; }
+
+.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label:before {
+  content: "\2714";
+  font-size: 16px;
+  line-height: 18px; }
 
 .o-ft-forms__field--select {
   -webkit-box-sizing: border-box;
@@ -584,7 +611,7 @@ html {
   font-size: 18px;
   top: 25px;
   right: 10px;
-  content: "\2717";
+  content: "\2716";
   color: #cc0000; }
 
 .o-ft-forms--valid .o-ft-forms__label {
@@ -605,7 +632,7 @@ html {
   font-size: 18px;
   top: 25px;
   right: 10px;
-  content: "\2713";
+  content: "\2714";
   color: #458b00; }
 
 .o-ft-forms__prefix {
