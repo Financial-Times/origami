@@ -35,6 +35,9 @@ body, html {
   font-weight: bold;
   font-size: 130%;
   font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .o-techdocs-table, .o-techdocs-table > table {
   margin: 0;
