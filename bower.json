@@ -1,21 +1,18 @@
 {
-  "name": "o-ft-footer",
-  "main": [
-    "main.scss"
-  ],
-  "ignore": [
-    "README.md",
-    "package.json",
-    "Gruntfile.js"
-  ],
-  "devDependencies": {
-    "modernizr": ">=2.6 <3"
-  },
-  "dependencies": {
+	"name": "o-ft-footer",
+	"main": ["main.scss"],
+	"ignore": [
+		"package.json",
+		"Gruntfile.js"
+	],
+	"devDependencies": {
+	    "modernizr": ">=2.6 <3"
+	},
+	"dependencies": {
     "o-colors": ">=2.2.19 <3",
     "o-ft-typography": ">=0.1.0 <1",
     "o-grid": ">=2.0.0 <3",
     "o-assets": ">=0.2.0 <1",
     "o-fonts": ">=0.6.5 <1"
-  }
+	}
 }

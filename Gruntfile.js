@@ -14,13 +14,13 @@ module.exports = function(grunt) {
   grunt.initConfig({
     'origami-demo': {
       options: {
-        modernizr: true,
+        scriptMode: 'browserify',
         viewModel: {
           footer: require('./footer.json')
-        },
-        main: ["main.mustache"]
+        }
       }
     },
+
     watch: {
       'origami-demo': {
           files: ['*.scss', 'footer.mustache', 'footer.json', 'bower-components/**/*', '!tmp.scss'],
