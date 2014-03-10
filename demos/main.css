@@ -15,11 +15,17 @@ body {
 /**
  * Colour use cases
  *
- * These mappings define what we use our colours for.  In the list below, each line contains a use case, a color name and a role, and is finished with a comma:
+ * These mappings define what we use our colours for.
  *
- *  <use case>   <colorname>   <role>,
+ * Use case:           Must be a single word comprising just letters, numbers, and dashes.
+ * Color name:         Must be an exact match for a name of a colour defined in palette.scss
+ * CSS class property: Should be 'text', 'border', 'background', or 'all'.
+ * Status:             Must be 'DEPRECATED' or absent
  *
- * The use case name must be a single word comprising just letters, numbers, and dashes.  The colour name should be an exact match for a colour defiend in palette.scss, and the role must be 'text', 'border', or 'background'.   You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ *
+ *
+ *  <use case>                        <colorname>            <cssclassproperty>   [<status>]
  */
 /* Load fonts */
 /* Headings */
@@ -41,24 +47,18 @@ body {
 /**
  * Colour use cases
  *
- * These mappings define what we use our colours for.  In the list below, each line contains a use case, a color name and a role, and is finished with a comma:
+ * These mappings define what we use our colours for.
  *
- *  <use case>   <colorname>   <role>,
+ * Use case:           Must be a single word comprising just letters, numbers, and dashes.
+ * Color name:         Must be an exact match for a name of a colour defined in palette.scss
+ * CSS class property: Should be 'text', 'border', 'background', or 'all'.
+ * Status:             Must be 'DEPRECATED' or absent
  *
- * The use case name must be a single word comprising just letters, numbers, and dashes.  The colour name should be an exact match for a colour defiend in palette.scss, and the role must be 'text', 'border', or 'background'.   You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ *
+ *
+ *  <use case>                        <colorname>            <cssclassproperty>   [<status>]
  */
-/**
-
-
-**/
-/*
-	This mixin allows ie7 and 8 to be targeted using either
-	* specific classes for each of ie7 and ie8
-	* 'less than' classes targeting ie versions less than a given version e.g. lt-ie9 & lt-ie8
-*/
-/* 
-	Deprecates support for ie7 or 8, making sure that both browser specific and lt- selectors are removed
-*/
 /* 
 	Note: The identically named mixins and functions below is not a mistake; it means they can be used to either 
 	output a string or to wrap some style rules in a selector
@@ -158,39 +158,11 @@ body {
     max-width: none; }
 
   /* ensures d12 and d0 can be over-ridden by styles for L layout */ }
-.o-useragent-ie7, .o-useragent-ie8 {
-  /* ensures d12 and d0 can be over-ridden by styles for L layout */ }
-  .o-useragent-ie7 .o-ft-footer__row, .o-useragent-ie7 .o-ft-footer__full-width-row, .o-useragent-ie8 .o-ft-footer__row, .o-useragent-ie8 .o-ft-footer__full-width-row {
-    max-width: none; }
 @media screen and (min-width: 1401px) {
   .o-ft-footer__row, .o-ft-footer__full-width-row {
     max-width: 1360px; }
 
   /* ensures d12 and d0 can be over-ridden by styles for XL layout */ }
-.o-useragent-ie7 .o-ft-footer__row .o-ft-footer__row, .o-useragent-ie7 .o-ft-footer__full-width-row .o-ft-footer__row, .o-useragent-ie7 .o-ft-footer__row .o-ft-footer__full-width-row, .o-useragent-ie7 .o-ft-footer__full-width-row .o-ft-footer__full-width-row, .o-useragent-ie8 .o-ft-footer__row .o-ft-footer__row, .o-useragent-ie8 .o-ft-footer__full-width-row .o-ft-footer__row, .o-useragent-ie8 .o-ft-footer__row .o-ft-footer__full-width-row, .o-useragent-ie8 .o-ft-footer__full-width-row .o-ft-footer__full-width-row {
-  margin-left: -5px;
-  margin-right: -5px;
-  width: auto; }
-.o-useragent-ie7 .o-ft-footer__full-width-row, .o-useragent-ie7 .o-ft-footer__link-wrapper, .o-useragent-ie8 .o-ft-footer__full-width-row, .o-useragent-ie8 .o-ft-footer__link-wrapper {
-  float: left;
-  padding-left: 5px;
-  padding-right: 5px;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  *behavior: url(http://build.origami.ft.com/files/o-useragent/polyfills/boxsizing.htc); }
-.o-useragent-ie7 .o-grid-row-compact > .o-ft-footer__full-width-row, .o-useragent-ie7 .o-grid-row-compact > .o-ft-footer__link-wrapper, .o-useragent-ie8 .o-grid-row-compact > .o-ft-footer__full-width-row, .o-useragent-ie8 .o-grid-row-compact > .o-ft-footer__link-wrapper {
-  padding-left: 0;
-  padding-right: 0; }
-.o-useragent-ie7 .o-ft-footer__full-width-row, .o-useragent-ie8 .o-ft-footer__full-width-row {
-  float: none;
-  clear: both;
-  display: block;
-  width: 100%; }
-.o-useragent-ie7 body, .o-useragent-ie8 body {
-  min-width: 960px; }
-.o-useragent-ie7 .o-ft-footer__row, .o-useragent-ie7 .o-ft-footer__full-width-row, .o-useragent-ie8 .o-ft-footer__row, .o-useragent-ie8 .o-ft-footer__full-width-row {
-  width: 960px;
-  max-width: none; }
 @font-face {
   font-family: BentonSans-normal;
   font-style: normal;
@@ -233,7 +205,8 @@ body {
   padding-bottom: 15px;
   background-color: #e9decf; }
 
-.o-ft-footer__pearson {
+.o-ft-footer__pearson-tagline,
+.o-ft-footer__pearson-logo {
   height: 16px;
   background: url(http://build.origami.ft.com/files/o-ft-footer/img/pearson_sprite.gif) no-repeat;
   text-indent: 100%;

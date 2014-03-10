@@ -1,23 +1,19 @@
 <footer class="o-ft-footer" data-o-version="0.6.4" data-o-component="ft-footer">
-	<div class="o-ft-footer__row">
+	<nav class="o-ft-footer__row">
 		{{#footer.links}}
 		<div class="o-ft-footer__link-wrapper">
 			<a href="{{href}}" class="o-ft-footer__link">{{{text}}}</a>
 		</div>
 		{{/footer.links}}
-	</div>
+	</nav>
 	<div class="o-ft-footer__full-width-row o-ft-footer__copyright">
-		<div class="o-ft-footer__copyright-text">&#169; THE FINANCIAL TIMES LTD {{footer.copyrightYear}}. </div>
-		<div class="o-ft-footer__copyright-text">{{{footer.copyrightText}}}</div>
+		<p class="o-ft-footer__copyright-text">&#169; THE FINANCIAL TIMES LTD {{footer.copyrightYear}}. </p>
+		<p class="o-ft-footer__copyright-text">{{{footer.copyrightText}}}</p>
 	</div>
 	<div class="o-ft-footer__pearson-row">
 		<div class="o-ft-footer__full-width-row">
-			<div class="o-ft-footer__pearson o-ft-footer__pearson-tagline">
-				Always Learning
-			</div>
-			<div class="o-ft-footer__pearson o-ft-footer__pearson-logo">
-				Pearson
-			</div>
+			<div class="o-ft-footer__pearson-tagline">Always Learning</div>
+			<div class="o-ft-footer__pearson-logo">Pearson</div>
 		</div>
 	</div>
 </footer>

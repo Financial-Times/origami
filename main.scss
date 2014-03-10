@@ -1,25 +1,25 @@
+
 @import "o-assets/main";
 @import "o-fonts/main";
 @import "o-ft-typography/main";
 @import "o-colors/main";
 @import "o-grid/main";
 
-@include oFontsInclude(BentonSans);
-
 $o-ft-footer-name: o-ft-footer;
 $o-ft-footer-version: null !default;
 $o-ft-footer-assets-path: $o-ft-footer-name !default;
+$o-ft-footer-spacing-unit: 10px;
 
 @function oFtFooterUseAsset ($asset) {
     @return oAssetsUse($asset, $o-ft-footer-assets-path, $o-ft-footer-version)
 }
 
-$o-ft-footer-spacing-unit: 10px;
+@include oFontsInclude(BentonSans);
 
 .o-ft-footer {
     margin-top: 10px;
     padding-top: 5px;
-	background-color: oColorsGetColorFor(footer-background);
+	background-color: oColorsGetColorFor(footer, background);
     @include oFtTypographyFontSize(14);
 	font-family: $o-fonts-bentonsans-normal;
 }
@@ -43,8 +43,8 @@ $o-ft-footer-spacing-unit: 10px;
 .o-ft-footer__link:link,
 .o-ft-footer__link:visited {
 	display: block;
-	border-bottom: 1px solid oColorsGetColorFor(footer-underline-border);
-	color: oColorsGetColorFor(alt-link-text);
+	border-bottom: 1px solid oColorsGetColorFor(footer-item, border);
+	color: oColorsGetColorFor(link-alt, text);
 	font-size: 14px;
 	line-height: 29px;
 	text-decoration: none;
@@ -52,13 +52,13 @@ $o-ft-footer-spacing-unit: 10px;
 
 .o-ft-footer__link:hover,
 .o-ft-footer__link:focus {
-	color: oColorsGetColorFor(alt-link-hover-text);
+	color: oColorsGetColorFor(link-alt-hover, text);
 }
 
 .o-ft-footer__copyright {
 	padding-top: $o-ft-footer-spacing-unit;
 	padding-bottom: $o-ft-footer-spacing-unit;
-	color: oColorsGetColorFor(article-body-text);
+	color: oColorsGetColorFor(body, text);
 	font-size: 9px;
 	line-height: 14px;
 }
@@ -71,10 +71,11 @@ $o-ft-footer-spacing-unit: 10px;
 .o-ft-footer__pearson-row {
 	padding-top: $o-ft-footer-spacing-unit + 5;
 	padding-bottom: $o-ft-footer-spacing-unit + 5;
-	background-color: oColorsGetColorFor(pearson-background);
+	background-color: oColorsGetColorFor(pearson, background); 
 }
 
-.o-ft-footer__pearson {
+.o-ft-footer__pearson-tagline,
+.o-ft-footer__pearson-logo {
 	height: 16px;
 	background: url(oFtFooterUseAsset("img/pearson_sprite.gif")) no-repeat;
 	text-indent: 100%;
