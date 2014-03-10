@@ -67,7 +67,8 @@ $o-colors-usecase-list:
     header-item-active                blue                   text,
     ft-initials                       charcoal               text,
     footer                            tint1                  background,
-    footer-underline                  tint2                  border,
+    footer-underline                  tint2                  border              DEPRECATED,
+    footer-item                       tint2                  border,
     pearson                           tint2                  background,
     pearson                           warm-grey2             text,
 
