@@ -1,6 +1,7 @@
-html, body {
+body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow: hidden; }
 
 /**
  * Colour palette
@@ -56,7 +57,7 @@ html, body {
 	* 'less than' classes targeting ie versions less than a given version e.g. lt-ie9 & lt-ie8
 */
 /* 
-	Deprectaes support for ie7 or 8, making sure that both browser specific and lt- selectors are removed
+	Deprecates support for ie7 or 8, making sure that both browser specific and lt- selectors are removed
 */
 /* 
 	Note: The identically named mixins and functions below is not a mistake; it means they can be used to either 
@@ -176,7 +177,7 @@ html, body {
   padding-right: 5px;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  *behavior: url(../bower_components/o-useragent/polyfills/boxsizing.htc); }
+  *behavior: url(http://build.origami.ft.com/files/o-useragent/polyfills/boxsizing.htc); }
 .o-useragent-ie7 .o-grid-row-compact > .o-ft-footer__full-width-row, .o-useragent-ie7 .o-grid-row-compact > .o-ft-footer__link-wrapper, .o-useragent-ie8 .o-grid-row-compact > .o-ft-footer__full-width-row, .o-useragent-ie8 .o-grid-row-compact > .o-ft-footer__link-wrapper {
   padding-left: 0;
   padding-right: 0; }
@@ -185,6 +186,8 @@ html, body {
   clear: both;
   display: block;
   width: 100%; }
+.o-useragent-ie7 body, .o-useragent-ie8 body {
+  min-width: 960px; }
 .o-useragent-ie7 .o-ft-footer__row, .o-useragent-ie7 .o-ft-footer__full-width-row, .o-useragent-ie8 .o-ft-footer__row, .o-useragent-ie8 .o-ft-footer__full-width-row {
   width: 960px;
   max-width: none; }
@@ -192,9 +195,8 @@ html, body {
   font-family: BentonSans-normal;
   font-style: normal;
   font-weight: normal;
-  src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot);
-  src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
-
+  src: url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.eot);
+  src: url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
 .o-ft-footer {
   margin-top: 10px;
   padding-top: 5px;
@@ -233,7 +235,7 @@ html, body {
 
 .o-ft-footer__pearson {
   height: 16px;
-  background-image: url(../bower_components/o-ft-footer/img/pearson_sprite.gif);
+  background-image: url(http://build.origami.ft.com/files/o-ft-footer/img/pearson_sprite.gif);
   fill: #74736c; }
   .o-ft-footer__pearson svg {
     display: none; }
