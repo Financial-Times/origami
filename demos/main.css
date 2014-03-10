@@ -86,7 +86,7 @@ body {
   max-width: none;
   min-width: 0; }
 
-.o-ft-footer__full-width-row, .o-ft-footer__link-wrapper {
+.o-ft-footer__full-width-row, .o-ft-footer__link {
   float: left;
   padding-left: 1%;
   padding-right: 1%; }
@@ -97,7 +97,7 @@ body {
   display: block;
   width: 98%; }
 
-.o-ft-footer__link-wrapper {
+.o-ft-footer__link {
   width: 48%; }
 
 /* Override fixed defaults for responsive grid */
@@ -107,18 +107,18 @@ body {
     margin-right: -10px;
     width: auto; }
 
-  .o-ft-footer__full-width-row, .o-ft-footer__link-wrapper {
+  .o-ft-footer__full-width-row, .o-ft-footer__link {
     float: left;
     padding-left: 10px;
     padding-right: 10px;
     -moz-box-sizing: border-box;
     box-sizing: border-box; }
 
-  .o-grid-row-compact > .o-ft-footer__full-width-row, .o-grid-row-compact > .o-ft-footer__link-wrapper {
+  .o-grid-row-compact > .o-ft-footer__full-width-row, .o-grid-row-compact > .o-ft-footer__link {
     padding-left: 0;
     padding-right: 0; }
 
-  .o-ft-footer__link-wrapper {
+  .o-ft-footer__link {
     width: auto; } }
 @media screen {
   .o-ft-footer__row, .o-ft-footer__full-width-row {
@@ -133,11 +133,11 @@ body {
   .o-ft-footer__row, .o-ft-footer__full-width-row {
     max-width: none; }
 
-  .o-ft-footer__link-wrapper {
+  .o-ft-footer__link {
     width: 50%; }
 
   /* ensures d12 and d0 can be over-ridden by styles for S layout */
-  .o-ft-footer__link-wrapper {
+  .o-ft-footer__link {
     float: left;
     clear: none;
     display: block; } }
@@ -145,11 +145,11 @@ body {
   .o-ft-footer__row, .o-ft-footer__full-width-row {
     max-width: none; }
 
-  .o-ft-footer__link-wrapper {
+  .o-ft-footer__link {
     width: 50%; }
 
   /* ensures d12 and d0 can be over-ridden by styles for M layout */
-  .o-ft-footer__link-wrapper {
+  .o-ft-footer__link {
     float: left;
     clear: none;
     display: block; } }
@@ -176,17 +176,14 @@ body {
   font-size: 14px;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif; }
 
-.o-ft-footer__link:link,
-.o-ft-footer__link:visited {
+.o-ft-footer__link > a:link, .o-ft-footer__link > a:visited {
   display: block;
   border-bottom: 1px solid #e9decf;
   color: #333333;
   font-size: 14px;
   line-height: 29px;
   text-decoration: none; }
-
-.o-ft-footer__link:hover,
-.o-ft-footer__link:focus {
+.o-ft-footer__link > a:hover, .o-ft-footer__link > a:focus {
   color: #2e6e9e; }
 
 .o-ft-footer__copyright {
