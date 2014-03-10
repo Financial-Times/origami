@@ -76,17 +76,8 @@ $o-ft-footer-spacing-unit: 10px;
 .o-ft-footer__pearson {
 	height: 16px;
 	background-image: url(oFtFooterUseAsset("img/pearson_sprite.gif"));
+	background-image: url(oFtFooterUseAsset("img/pearson_sprite.svg"));
 	fill: oColorsGetColorFor(pearson-text);
-	svg {
-		display: none;
-	}
-}
-
-.inlinesvg .o-ft-footer__pearson {
-	background-image: none;
-	svg {
-		display: block;
-	}
 }
 
 .o-ft-footer__pearson-tagline {
