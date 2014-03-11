@@ -8,5 +8,5 @@
   	"required": ["html5"],
   	"optional": ["svg", "datauri", "css-gradient"]
   },
-  "demos": ["demos/main.html"]
+  "demos": ["demos/ft-header.html"]
 }
