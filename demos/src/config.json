@@ -1,8 +1,25 @@
 {
+    "options": {
+        "sass": "demos/src/demo.scss"
+    },
     "demos": {
-        "main": {
-            "template": "demos/src/demo.mustache",
-            "sass": "demos/src/demo.scss"
+        "headings": {
+            "template": "demos/src/headings.mustache"
+        },
+        "titles": {
+            "template": "demos/src/titles.mustache"
+        },
+        "leads": {
+            "template": "demos/src/leads.mustache"
+        },
+        "metadata": {
+            "template": "demos/src/metadata.mustache"
+        },
+        "article-subheadings": {
+            "template": "demos/src/article-subheadings.mustache"
+        },
+        "body": {
+            "template": "demos/src/body.mustache"
         }
     }
 }

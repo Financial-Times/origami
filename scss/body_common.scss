@@ -28,11 +28,9 @@
   text-decoration: none;
   color: oColorsGetColorFor(link-text);
   cursor: pointer;
-}
-
-@include oFtTypographySelectors(body__link--hover '#{$o-hoverable-if-hover-enabled} body__link:hover') {
-  color: oColorsGetColorFor(link-hover-text);
-  cursor: pointer;
+  &:hover {
+      color: oColorsGetColorFor(link-hover-text);
+  }
 }
 
 @include oFtTypographySelectors(body__list--ordered) {

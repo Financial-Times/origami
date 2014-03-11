@@ -4,7 +4,14 @@
 	"origamiVersion": 1,
 	"support": "dan.skinner@ft.com",
 	"supportStatus": "active",
-	"demos": ["demos/demo.html"],
+	"demos": [
+        "demos/headings.html",
+        "demos/titles.html",
+        "demos/leads.html",
+        "demos/metadata.html",
+        "demos/article-subheadings.html",
+        "demos/body.html"
+    ],
     "browserFeatures": {
         "optional": [
             "fontface",

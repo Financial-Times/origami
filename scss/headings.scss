@@ -58,10 +58,7 @@
   text-decoration: none;
   color: oColorsGetColorFor(link-text);
   cursor: pointer;
-}
-
-@include oFtTypographySelectors(heading-xlarge__link--hover heading-large__link--hover heading-medium__link--hover heading-small__link--hover,
-  '#{$o-hoverable-if-hover-enabled} .#{$_o-ft-typography-selector-prefix}heading-xlarge__link:hover, #{$o-hoverable-if-hover-enabled} .#{$_o-ft-typography-selector-prefix}heading-large__link:hover, #{$o-hoverable-if-hover-enabled} .#{$_o-ft-typography-selector-prefix}heading-medium__link:hover, #{$o-hoverable-if-hover-enabled} .#{$_o-ft-typography-selector-prefix}heading-small__link:hover') {
-  color: oColorsGetColorFor(link-hover-text);
-  cursor: pointer;
+  &:hover {
+    color: oColorsGetColorFor(link-hover-text);
+  }
 }
