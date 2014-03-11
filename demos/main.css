@@ -202,17 +202,19 @@ body {
   float: left;
   min-width: 50px;
   height: 50px;
+  font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
   text-align: center;
   color: white;
   background-color: #333333;
   border-right: 1px solid #505050;
-  font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
   font-size: 25px;
   line-height: 50px;
-  cursor: pointer; }
+  cursor: pointer;
+  text-decoration: none; }
   .o-hoverable-on .o-ft-header__topbar__item:hover {
     color: #2e6e9e;
-    background-color: #e9decf; }
+    background-color: #e9decf;
+    text-decoration: none; }
   .o-ft-header__topbar__item:first-child {
     border-left: 1px solid #505050; }
 

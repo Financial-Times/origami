@@ -7,10 +7,12 @@
 @import '_variables';
 @import '_mixins';
 
+
 /* Load fonts */
 @if (not $o-ft-header-is-silent) {
 	@include oFontsInclude(BentonSans);
 }
+
 
 @if ($o-ft-header-sticky) {
 	@if (length($o-ft-header-sticky) > 0) {
@@ -105,28 +107,30 @@ $o-ft-header-topbar-item-active-selector: #{'%o-ft-header__topbar__item--active'
 }
 
 @mixin _oFtHeaderItemActiveStyles () {
-	color: oColorsGetColorFor(header-item-active-text);
-	background-color: oColorsGetColorFor(header-item-active-background);
+	color: oColorsGetColorFor(header-item-active, text);
+	background-color: oColorsGetColorFor(header-item-active, background);
 }
 
 #{$o-ft-header-topbar-item-selector} {
 	float: left;
 	min-width: 50px;
 	height: 50px;
-	text-align: center;
-	color: oColorsGetColorFor(header-item-text);
-	background-color: oColorsGetColorFor(header-item-background);
-	border-right: 1px solid oColorsGetColorFor(header-item-border);
 	font-family: $o-fonts-bentonsans-normal;
+	text-align: center;
+	color: oColorsGetColorFor(header-item, text);
+	background-color: oColorsGetColorFor(header-item, background);
+	border-right: 1px solid oColorsGetColorFor(header-item, border);
 	font-size: 25px;
 	line-height: 50px;
 	cursor: pointer;
+	text-decoration: none;
 
 	#{$o-hoverable-if-hover-enabled} &:hover {
 		@include _oFtHeaderItemActiveStyles();
+		text-decoration: none;
 	}		
 	&:first-child {
-		border-left: 1px solid oColorsGetColorFor(header-item-border);
+		border-left: 1px solid oColorsGetColorFor(header-item, border);
 	}
 }
 

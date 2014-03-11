@@ -9,6 +9,7 @@
 'use strict';
 
 
+
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -16,6 +17,11 @@ module.exports = function(grunt) {
     'origami-demo': {
       options: {
         scriptMode: 'browserify',
+        viewModel: {
+          'o-ft-header': {
+            'topbar-items': grunt.file.read('./demo-src/topbar-items.html')
+          }
+        }
       }
     },
 
