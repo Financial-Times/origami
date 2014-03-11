@@ -1,3 +1,5 @@
+@import "o-fonts/main";
+
 $o-ft-typography-is-silent: true !default;
 
 $_o-ft-typography-selector-prefix: o-ft-typography-;
@@ -22,3 +24,13 @@ $_o-ft-typography-body-font: $o-fonts-sans-serif;
 
 $_o-ft-typography-article-subheading-font: $o-fonts-bentonsans-bold;
 $_o-ft-typography-article-body-font: $o-fonts-serif;
+
+
+// Use to define font faces that need including for given use cases
+$_o-ft-typography-fontface-usecase-mapping: (
+  title             MillerDisplay   normal,
+  metadata          BentonSans      normal,
+  lead              BentonSans      normal,
+  subheading        BentonSans      normal,
+  heading           BentonSans      bold
+);

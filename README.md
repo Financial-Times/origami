@@ -86,13 +86,10 @@ This can be turned off by setting a variable before you import the SASS:
 
 If you're not turning off silent mode, you will need to to load the fonts required by the typography you are using (due to the limitations of sass' mixins, this cannot at present be done automatically):
 
-	@include oFontsInclude(BentonSans);
-	@include oFontsInclude(BentonSans, bold);
-	@include oFontsInclude(MillerDisplay);
+	@include oFtTypographyIncludeFont(heading); // downloads BentonSans-bold font given the current FT styles
+  @include oFtTypographyIncludeFont(metadata); // downloads BentonSans-normal font given the current FT styles
+	@include oFtTypographyIncludeFont(title); // downloads MillerDisplay-normal font given the current FT styles
     
 See the [Origami fonts module](https://github.com/Financial-Times/o-fonts) for more information.
 
 Note that module developers must not set configuration for imported modules, but must assume that the imported module will be silent.
-
-## TODO
-* Specify and enforce the vertical rhythm using a variable and mixins
