@@ -1,4 +1,4 @@
-#FT Typography [![Build Status](https://travis-ci.org/Financial-Times/o-ft-typography.png?branch=master)](https://travis-ci.org/Financial-Times/o-typography)
+#FT Typography [![Build Status](https://travis-ci.org/Financial-Times/o-ft-typography.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-typography)
 
 Typographical styles for FT branded sites - fonts, weight, colors, sizes and vertical rhythm.
 
@@ -86,13 +86,8 @@ This can be turned off by setting a variable before you import the SASS:
 
 If you're not turning off silent mode, you will need to to load the fonts required by the typography you are using (due to the limitations of sass' mixins, this cannot at present be done automatically):
 
-	@include oFontsInclude(BentonSans);
-	@include oFontsInclude(BentonSans, bold);
-	@include oFontsInclude(MillerDisplay);
-    
-See the [Origami fonts module](https://github.com/Financial-Times/o-fonts) for more information.
+	@include oFtTypographyIncludeFont(heading); // downloads BentonSans-bold font given the current FT styles
+  @include oFtTypographyIncludeFont(metadata); // downloads BentonSans-normal font given the current FT styles
+	@include oFtTypographyIncludeFont(title); // downloads MillerDisplay-normal font given the current FT styles
 
-Note that module developers must not set configuration for imported modules, but must assume that the imported module will be silent.
-
-## TODO
-* Specify and enforce the vertical rhythm using a variable and mixins
+If a typography use case doesn't require a `@fontface` declaration in current FT branding nothing will be output by `oFtTypographyIncludeFont()`, but it's still a good idea to call it for each use case you use as it will mean your module will cope seamlessly with updates to FT's typography.

@@ -1,5 +1,4 @@
 @import "o-colors/main";
-@import "o-fonts/main";
 @import "o-hoverable/main";
 @import "o-useragent/main";
 @import "scss/_variables";
@@ -7,9 +6,9 @@
 @import "scss/_mixins";
 
 @if (not $o-ft-typography-is-silent) {
-	@include oFontsInclude(BentonSans);
-	@include oFontsInclude(BentonSans, bold);
-	@include oFontsInclude(MillerDisplay);
+    @each $usecase in $_o-ft-typography-fontface-usecase-mapping {
+        @include oFtTypographyIncludeFont(nth($usecase, 1));
+    }
 }
 
 @import "scss/headings";
