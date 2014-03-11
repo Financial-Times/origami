@@ -1,6 +1,8 @@
 $o-grid-is-silent: false;
 @import "o-grid/main";
-@import "main";
+
+$o-ft-typography-is-silent: false;
+@import "../../main";
 
 body {
 	background-color: #fff;

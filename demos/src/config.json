@@ -1,0 +1,8 @@
+{
+    "demos": {
+        "main": {
+            "template": "demos/src/demo.mustache",
+            "sass": "demos/src/demo.scss"
+        }
+    }
+}
