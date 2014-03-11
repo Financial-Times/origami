@@ -1,5 +1,5 @@
 /* Modernizr (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-css-boxsizing-html5-inlinesvg-cssclasses
+ * Build: http://modernizr.com/download/#-css-boxsizing-html5-svg-datauri-css-gradient-cssclasses
  */
 ;
 
@@ -129,12 +129,10 @@ window.Modernizr = (function( window, document, undefined ) {
         }
         return false;
     }
-
-    tests['inlinesvg'] = function() {
-      var div = document.createElement('div');
-      div.innerHTML = '<svg/>';
-      return (div.firstChild && div.firstChild.namespaceURI) == ns.svg;
-    };    for ( var feature in tests ) {
+    tests['svg'] = function() {
+        return !!document.createElementNS && !!document.createElementNS(ns.svg, 'svg').createSVGRect;
+    };
+    for ( var feature in tests ) {
         if ( hasOwnProp(tests, feature) ) {
                                     featureName  = feature.toLowerCase();
             Modernizr[featureName] = tests[feature]();
