@@ -4,9 +4,6 @@ module.exports = function(grunt) {
 
    // Project configuration.
   grunt.initConfig({
-	clean: {
-		before: ["build", "demo"]
-	},
 	webfont: {
 		icons: {
 			src: 'svg/*.svg',
@@ -23,28 +20,15 @@ module.exports = function(grunt) {
 			}
 		}
 	},
-    'origami-demo': {
-      options: {
-          modernizr: false
-      },
-      demos: {
-          main: {
-              template: 'demo.mustache',
-              sass: 'demo.scss'
-          }
-      }
-    },
     watch: {
-      'origami-demo': {
-          files: ['main.scss', 'scss/*.scss', 'demo-src/*', 'svg/*'],
+      'demo': {
+          files: ['main.scss', 'scss/*.scss', 'demo/src/*', 'svg/*'],
           tasks: ['demo']
       }
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-webfont');
-  grunt.loadNpmTasks('grunt-origami-demoer');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('demo', function() {
@@ -55,9 +39,21 @@ module.exports = function(grunt) {
         }),
         icons = files.map(function(file) {
           return { name: file.slice(0, -4) };
-        });
-    grunt.config.set("origami-demo.options.viewModel.icons", icons);
-    grunt.task.run(['clean', 'webfont', 'origami-demo']);
+        }),
+        done = this.async();
+      fs.writeFileSync('demos/src/data.json', JSON.stringify({ icons: icons }), { encoding: 'utf-8' });
+
+      grunt.task.run(['webfont']);
+      grunt.util.spawn({
+          cmd: "origami-build-tools",
+          args: [
+              "demo",
+              "demos/src/config.json",
+              "--buildservice"
+          ]
+      }, function() {
+          done();
+      });
   });
 
   grunt.registerTask('default', ["demo"]);

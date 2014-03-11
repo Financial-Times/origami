@@ -1,10 +1,11 @@
 $o-assets-global-path: '../../';
 $o-ft-icons-support-ie7: true;
+$o-ft-icons-is-silent: false;
 
-@import "../main";
+@import "../../main";
 
 body {
-	margin: 30px;
+	margin: 10px;
 	background-color: #fff;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
