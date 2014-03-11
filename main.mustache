@@ -1,14 +1,14 @@
-<footer class="o-ft-footer" data-o-version="0.6.4" data-o-component="ft-footer">
+<footer class="o-ft-footer" data-o-version="{{o-ft-footer.module-version}}" data-o-component="ft-footer">
 	<nav class="o-ft-footer__row">
-		{{#footer.links}}
+		{{#o-ft-footer.links}}
 		<div class="o-ft-footer__link">
 			<a href="{{href}}">{{{text}}}</a>
 		</div>
-		{{/footer.links}}
+		{{/o-ft-footer.links}}
 	</nav>
 	<div class="o-ft-footer__full-width-row o-ft-footer__copyright">
-		<p>&#169; THE FINANCIAL TIMES LTD {{footer.copyrightYear}}.</p>
-		<p>{{{footer.copyrightText}}}</p>
+		<p>&#169; THE FINANCIAL TIMES LTD {{o-ft-footer.copyrightYear}}.</p>
+		<p>{{{o-ft-footer.copyrightText}}}</p>
 	</div>
 	<div class="o-ft-footer__pearson-row">
 		<div class="o-ft-footer__full-width-row">

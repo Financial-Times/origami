@@ -16,7 +16,7 @@ module.exports = function(grunt) {
       options: {
         scriptMode: 'browserify',
         viewModel: {
-          footer: require('./footer.json')
+          "o-ft-footer": require('./footer.json')
         }
       }
     },
