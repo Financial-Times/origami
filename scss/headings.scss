@@ -1,6 +1,6 @@
 @include oFtTypographySelectors(heading-xlarge) {
   margin: 0 0 16px 0;
-  padding: 8px 10px 7px 10px;
+  padding: 8px 0 7px 0;
   border-top: 4px solid oColorsGetColorFor(heading-large-border); // Add new use case to o-colors
   border-bottom: 1px dotted oColorsGetColorFor(heading-large-border); // Add new use case to o-colors
   font-family: $_o-ft-typography-heading-xlarge-font;
@@ -11,7 +11,7 @@
 
 @include oFtTypographySelectors(heading-large) {
   margin: 0 0 16px 0;
-  padding: 8px 10px 7px 10px;
+  padding: 8px 0 7px 0;
   border-top: 4px solid oColorsGetColorFor(heading-large-border);
   border-bottom: 1px dotted oColorsGetColorFor(heading-large-border);
   font-family: $_o-ft-typography-heading-large-font;
