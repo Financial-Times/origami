@@ -8,5 +8,5 @@
   	"required": ["html5"],
   	"optional": ["svg", "datauri"]
   },
-  "demos": ["demos/main.html"]
+  "demos": ["demos/ft-footer.html"]
 }
