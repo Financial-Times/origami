@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
+
 /*
 	This mixin allows ie7 and 8 to be targeted using either
 	* specific classes for each of ie7 and ie8
@@ -209,7 +214,7 @@ html {
     clear: both;
     display: block;
     width: 100%; } }
-@media screen and (max-device-width: 600px) {
+@media screen and (max-width: 600px) {
   .o-grid-row, .o-grid-page {
     max-width: none; }
 
@@ -260,7 +265,7 @@ html {
     clear: both;
     display: block;
     width: 100%; } }
-@media screen and (min-device-width: 601px) and (max-device-width: 1000px) {
+@media screen and (min-width: 601px) and (max-width: 1000px) {
   .o-grid-row, .o-grid-page {
     max-width: none; }
 
@@ -311,7 +316,7 @@ html {
     clear: both;
     display: block;
     width: 100%; } }
-@media screen and (min-device-width: 1001px) and (max-device-width: 1400px) {
+@media screen and (min-width: 1001px) and (max-width: 1400px) {
   .o-grid-row, .o-grid-page {
     max-width: none; }
 
@@ -400,7 +405,7 @@ html {
     display: block;
     width: 100%; }
 
-@media screen and (min-device-width: 1401px) {
+@media screen and (min-width: 1401px) {
   .o-grid-row, .o-grid-page {
     max-width: 1360px; }
 
@@ -461,7 +466,7 @@ html {
   padding-right: 5px;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  *behavior: url(/bower_components/o-useragent/polyfills/boxsizing.htc); }
+  *behavior: url(http://build.origami.ft.com/files/o-useragent/polyfills/boxsizing.htc); }
 .o-useragent-ie7 .o-grid-row-compact > [data-o-grid-colspan], .o-useragent-ie8 .o-grid-row-compact > [data-o-grid-colspan] {
   padding-left: 0;
   padding-right: 0; }
@@ -504,57 +509,6 @@ html {
   max-width: none; }
 .o-useragent-ie7 [data-o-grid-colspan~="S12"], .o-useragent-ie8 [data-o-grid-colspan~="S12"] {
   clear: none; }
-body {
-  background-color: #fff; }
-
-.demo-heading-col {
-  padding: 5px;
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  margin: 0 0 20px 0;
-  font-size: 16px;
-  text-align: center;
-  letter-spacing: 2px;
-  background-color: #a7a59b;
-  color: #fff; }
-
-.demo-heading-col-sub {
-  padding: 5px;
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  margin: 0 0 10px 0;
-  font-size: 14px;
-  text-align: center;
-  letter-spacing: 1px;
-  background-color: #dfded8;
-  color: #777; }
-
-.demo-heading-row {
-  padding: 5px;
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  margin: 0 0 20px 0;
-  font-size: 14px;
-  color: #666; }
-
-.demo-example {
-  margin: 0 0 20px 0;
-  border: 1px solid #edd;
-  padding: 15px;
-  background-color: #fff1e0;
-  box-shadow: 5px 5px 10px #eee; }
-
-.demo-placeholder {
-  margin: 0 0 10px 0;
-  padding: 4px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  color: #f88; }
-
-html, body {
-  margin: 0;
-  padding: 0; }
-
 /**
  * Colour palette
  *
@@ -593,27 +547,39 @@ html, body {
   $cssSelectors:  [optional] string. CSS selectors which should also receive the same styles.
                   Does not get auto-prefixed, so must be exactly as you want output on the CSS.
 */
-@font-face {
-  font-family: BentonSans-normal;
-  font-style: normal;
-  font-weight: normal;
-  src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot);
-  src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
-
-@font-face {
-  font-family: BentonSans-bold;
-  font-style: normal;
-  font-weight: normal;
-  src: url(../bower_components/o-fonts/webfonts/BentonSans-bold.eot);
-  src: url(../bower_components/o-fonts/webfonts/BentonSans-bold.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-bold.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-bold.ttf) format("truetype"); }
-
+/** 
+ Provides a typography focused interface for oFontsInclude()
+**/
 @font-face {
   font-family: MillerDisplay-normal;
   font-style: normal;
   font-weight: normal;
-  src: url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.eot);
-  src: url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/MillerDisplay-normal.ttf) format("truetype"); }
-
+  src: url(http://build.origami.ft.com/files/o-fonts/webfonts/MillerDisplay-normal.eot);
+  src: url(http://build.origami.ft.com/files/o-fonts/webfonts/MillerDisplay-normal.eot?#iefix) format("embedded-opentype"), url(http://build.origami.ft.com/files/o-fonts/webfonts/MillerDisplay-normal.woff) format("woff"), url(http://build.origami.ft.com/files/o-fonts/webfonts/MillerDisplay-normal.ttf) format("truetype"); }
+@font-face {
+  font-family: BentonSans-normal;
+  font-style: normal;
+  font-weight: normal;
+  src: url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.eot);
+  src: url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
+@font-face {
+  font-family: BentonSans-normal;
+  font-style: normal;
+  font-weight: normal;
+  src: url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.eot);
+  src: url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
+@font-face {
+  font-family: BentonSans-normal;
+  font-style: normal;
+  font-weight: normal;
+  src: url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.eot);
+  src: url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
+@font-face {
+  font-family: BentonSans-bold;
+  font-style: normal;
+  font-weight: normal;
+  src: url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-bold.eot);
+  src: url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-bold.eot?#iefix) format("embedded-opentype"), url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-bold.woff) format("woff"), url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-bold.ttf) format("truetype"); }
 .o-ft-typography-heading-xlarge {
   margin: 0 0 16px 0;
   padding: 8px 10px 7px 10px;
@@ -658,7 +624,7 @@ html, body {
   line-height: 20px;
   color: #333333;
   text-transform: uppercase;
-  border-bottom: 1px solid #e9decf;
+  border-bottom: 1px solid black;
   background-image: none; }
 
 .o-useragent-ie7 .o-ft-typography-body-wrapper h2, .o-ft-typography-body-wrapper .o-useragent-ie7 h2, .o-useragent-ie7 .o-ft-typography-heading-medium, .o-useragent-ie8 .o-ft-typography-body-wrapper h2, .o-ft-typography-body-wrapper .o-useragent-ie8 h2, .o-useragent-ie8 .o-ft-typography-heading-medium {
@@ -669,7 +635,7 @@ html, body {
   line-height: 20px;
   color: #333333;
   text-transform: uppercase;
-  border-bottom: 1px solid #e9decf;
+  border-bottom: 1px solid black;
   background-image: none; }
 
 .o-ft-typography-body-wrapper h3, .o-ft-typography-heading-small {
@@ -792,8 +758,8 @@ html, body {
   font-family: BentonSans-bold, Helvetica, Arial, sans-serif;
   font-weight: bold;
   color: #333333;
-  border-top: 1px dotted #74736c;
-  border-bottom: 1px dotted #74736c; }
+  border-top: 1px dotted black;
+  border-bottom: 1px dotted black; }
   .o-ft-typography-article-body-wrapper h2 + *, .o-ft-typography-article-subheading1 + * {
     margin-top: 0; }
 
@@ -858,7 +824,7 @@ html, body {
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
-  color: #505050;
+  color: #a7a59b;
   -webkit-font-smoothing: antialiased; }
 
 .o-ft-typography-body-wrapper ol,
@@ -907,3 +873,50 @@ html, body {
 .o-ft-typography-article-body-wrapper ul, .o-ft-typography-article-body__list {
   list-style-position: outside;
   padding-left: 20px; }
+
+body {
+  background-color: #fff; }
+
+.demo-heading-col {
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 2px;
+  background-color: #a7a59b;
+  color: #fff; }
+
+.demo-heading-col-sub {
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: #dfded8;
+  color: #777; }
+
+.demo-heading-row {
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0 0 20px 0;
+  font-size: 14px;
+  color: #666; }
+
+.demo-example {
+  margin: 0 0 20px 0;
+  border: 1px solid #edd;
+  padding: 15px;
+  background-color: #fff1e0;
+  box-shadow: 5px 5px 10px #eee; }
+
+.demo-placeholder {
+  margin: 0 0 10px 0;
+  padding: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #f88; }

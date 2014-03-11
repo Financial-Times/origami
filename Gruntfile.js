@@ -15,8 +15,13 @@ module.exports = function(grunt) {
     'origami-demo': {
       options: {
         modernizr: false,
-        main: ['demo.mustache'],
-        sassExtras: 'demo-extras.scss'
+        demoSrcRoot: './'
+      },
+      demos: {
+        main: {
+          template: 'demo.mustache',
+          sass: 'demo.scss'
+        }
       }
     },
     watch: {
