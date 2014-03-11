@@ -1,15 +1,8 @@
-html, body {
+body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow: hidden; }
 
-/*
-	This mixin allows ie7 and 8 to be targeted using either
-	* specific classes for each of ie7 and ie8
-	* 'less than' classes targeting ie versions less than a given version e.g. lt-ie9 & lt-ie8
-*/
-/* 
-	Deprecates support for ie7 or 8, making sure that both browser specific and lt- selectors are removed
-*/
 /* 
 	Note: The identically named mixins and functions below is not a mistake; it means they can be used to either 
 	output a string or to wrap some style rules in a selector
@@ -99,46 +92,11 @@ html, body {
     max-width: none; }
 
   /* ensures d12 and d0 can be over-ridden by styles for L layout */ }
-.o-useragent-ie7, .o-useragent-ie8 {
-  /* ensures d12 and d0 can be over-ridden by styles for L layout */ }
-  .o-useragent-ie7 .o-ft-header__topbar__content, .o-useragent-ie8 .o-ft-header__topbar__content {
-    max-width: none; }
 @media screen and (min-width: 1401px) {
   .o-ft-header__topbar__content {
     max-width: 1360px; }
 
   /* ensures d12 and d0 can be over-ridden by styles for XL layout */ }
-.o-useragent-ie7 .o-ft-header__topbar__content .o-ft-header__topbar__content, .o-useragent-ie8 .o-ft-header__topbar__content .o-ft-header__topbar__content {
-  margin-left: -5px;
-  margin-right: -5px;
-  width: auto; }
-.o-useragent-ie7 .o-ft-header__topbar__content, .o-useragent-ie8 .o-ft-header__topbar__content {
-  float: left;
-  padding-left: 5px;
-  padding-right: 5px;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  *behavior: url(../bower_components/o-useragent/polyfills/boxsizing.htc); }
-.o-useragent-ie7 .o-grid-row-compact > .o-ft-header__topbar__content, .o-useragent-ie8 .o-grid-row-compact > .o-ft-header__topbar__content {
-  padding-left: 0;
-  padding-right: 0; }
-.o-useragent-ie7 .o-ft-header__topbar__content, .o-useragent-ie8 .o-ft-header__topbar__content {
-  float: none;
-  clear: both;
-  display: block;
-  width: 100%; }
-.o-useragent-ie7 body, .o-useragent-ie8 body {
-  min-width: 960px; }
-.o-useragent-ie7 .o-ft-header__topbar__content, .o-useragent-ie8 .o-ft-header__topbar__content {
-  width: 960px;
-  max-width: none; }
-.o-useragent-ie7 .o-ft-header__topbar__content,
-.o-useragent-ie8 .o-ft-header__topbar__content {
-  padding-right: 0; }
-  .o-useragent-ie7 .o-ft-header__topbar__content > .o-grid-row,
-  .o-useragent-ie8 .o-ft-header__topbar__content > .o-grid-row {
-    margin-right: 0; }
-
 /**
  * Colour palette
  *
@@ -151,23 +109,25 @@ html, body {
 /**
  * Colour use cases
  *
- * These mappings define what we use our colours for.  In the list below, each line contains a use case, a color name, a role, an optional status flag, and is finished with a comma:
+ * These mappings define what we use our colours for.
  *
- *  <use case>   <colorname>   <role>   [<status>],
+ * Use case:           Must be a single word comprising just letters, numbers, and dashes.
+ * Color name:         Must be an exact match for a name of a colour defined in palette.scss
+ * CSS class property: Should be 'text', 'border', 'background', or 'all'.
+ * Status:             Must be 'DEPRECATED' or absent
  *
- * The use case name must be a single word comprising just letters, numbers, and dashes.  
- * The colour name should be an exact match for a colour defiend in palette.scss
- * The role must be 'text', 'border', or 'background'.   
- * The status must be 'DEPRECATED' or absent
  * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ *
+ *
+ *  <use case>                        <colorname>            <cssclassproperty>   [<status>]
  */
 /* Load fonts */
 @font-face {
   font-family: BentonSans-normal;
   font-style: normal;
   font-weight: normal;
-  src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot);
-  src: url(../bower_components/o-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
+  src: url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.eot);
+  src: url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.eot?#iefix) format("embedded-opentype"), url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.woff) format("woff"), url(http://build.origami.ft.com/files/o-fonts/webfonts/BentonSans-normal.ttf) format("truetype"); }
 .o-ft-header {
   min-height: 77px; }
 
@@ -179,12 +139,7 @@ html, body {
     position: fixed;
     top: 0px;
     right: 0;
-    left: 0; }
-
-  .o-useragent-ie7 .o-ft-header, .o-useragent-ie8 .o-ft-header {
-    min-height: 77px; }
-  .o-useragent-ie7 .o-ft-header__topbar, .o-useragent-ie8 .o-ft-header__topbar {
-    position: static; } }
+    left: 0; } }
 @media screen and (min-width: 601px) and (max-width: 1000px) {
   .o-ft-header {
     min-height: 77px; }
@@ -193,12 +148,7 @@ html, body {
     position: fixed;
     top: 0px;
     right: 0;
-    left: 0; }
-
-  .o-useragent-ie7 .o-ft-header, .o-useragent-ie8 .o-ft-header {
-    min-height: 77px; }
-  .o-useragent-ie7 .o-ft-header__topbar, .o-useragent-ie8 .o-ft-header__topbar {
-    position: static; } }
+    left: 0; } }
 .o-ft-header {
   margin-bottom: 10px; }
 
@@ -211,13 +161,11 @@ html, body {
   padding: 11px 0 31px;
   width: 82px;
   height: 35px;
+  font-size: 50px;
+  text-align: center;
+  line-height: 35px;
+  color: #333333;
   float: left;
-  background: url(../bower_components/o-ft-header/img/ft-logo.gif) no-repeat; }
-
-.o-ft-header__logo__ft-initials {
-  display: none; }
-
-.inlinesvg .o-ft-header__logo {
   background: #ffe2c6;
   background: -moz-linear-gradient(top, #ffe2c6 0%, #f7d8b9 100%);
   /* FF3.6+ */
@@ -231,13 +179,19 @@ html, body {
   /* IE10+ */
   background: linear-gradient(to bottom, #ffe2c6 0%, #f7d8b9 100%);
   /* W3C */ }
+  .o-ft-header__logo > abbr {
+    display: block;
+    height: 35px;
+    width: 100%;
+    background: url(http://build.origami.ft.com/files/o-ft-header/img/ft-logo.gif) no-repeat;
+    background: url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' fill='#333333' viewBox='0 0 208.833 115.417' width='82' height='35' class='o-ft-header__logo__ft-initials'><path d='M37.753,97.264c0,12.081,3.225,13.439,17.001,13.952v4.421H0v-4.421c11.393-0.513,14.621-1.871,14.621-13.952V18.376c0-12.092-3.229-13.449-14.281-13.954V0h96.58l0.688,25.505h-4.762c-4.083-12.924-8.507-17-31.123-17H44.204c-5.262,0-6.451,1.183-6.451,5.95V51.02h8.628c18.029,0,21.942-3.24,24.15-15.315h4.42V76.52h-4.42c-2.378-13.604-9.184-17.002-24.15-17.002h-8.628V97.264z'></path><path d='M206.289,0H104.941l-2.354,25.514h5.81c3.713-12.497,9.17-17.008,21.369-17.008h14.284v88.758c0,12.081-3.23,13.439-16.323,13.952v4.421h55.779v-4.421c-13.96-0.513-16.327-1.871-16.327-13.952V8.505h14.278c12.206,0,17.669,4.512,21.373,17.008h5.81L206.289,0z'></path></svg>") no-repeat;
+    text-indent: 100%;
+    whitespace: nowrap;
+    overflow: hidden; }
 
-.inlinesvg .o-ft-header__logo__ft-initials {
-  display: block;
-  height: 35px;
-  fill: #333333;
-  width: 100%; }
-
+@media print {
+  .o-ft-header__logo abbr {
+    text-indent: 0; } }
 .o-ft-header__topbar__items {
   text-align: right;
   overflow: hidden;

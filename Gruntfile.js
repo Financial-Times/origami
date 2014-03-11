@@ -8,20 +8,20 @@
 
 'use strict';
 
+
 module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
     'origami-demo': {
       options: {
-        modernizr: true,
         scriptMode: 'browserify',
-        main: ["main.mustache", "img/ft-logo.gif"]
       }
     },
+
     watch: {
       'origami-demo': {
-          files: ['*.scss', 'header.mustache', 'bower-components/**/*'],
+          files: ['*.scss', 'main.mustache', 'bower-components/**/*', '!tmp.scss'],
           tasks: ['origami-demo']
       }
     }
