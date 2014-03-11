@@ -223,6 +223,10 @@ body {
   background-position: right 0; }
 
 @media screen and (max-width: 299px) {
+  .o-ft-footer__pearson-tagline {
+    background-size: 100%;
+    width: 59.25926%; }
+
   .o-ft-footer__pearson-logo {
-    margin-top: 5px;
-    float: left; } }
+    background-size: 100%;
+    width: 33.33333%; } }
