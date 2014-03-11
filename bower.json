@@ -2,6 +2,8 @@
   "name": "o-ft-typography",
   "main": ["main.scss"],
   "ignore": [
+    "demo.mustache",
+    "demo.scss",
     "Gruntfile.js",
     "package.json",
     ".travis.yml",
