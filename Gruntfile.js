@@ -14,8 +14,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     'origami-demo': {
       options: {
-        modernizr: false,
-        demoSrcRoot: './'
+        modernizr: false
       },
       demos: {
         main: {
