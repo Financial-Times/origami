@@ -16,7 +16,7 @@
     "jquery": ">=1.5.0 <2",
     "o-useragent": "https://github.com/Financial-Times/o-useragent.git#>=0.3.0 <1",
     "o-colors": "https://github.com/Financial-Times/o-colors.git#>=2.1.1 <3",
-    "o-fonts": "https://github.com/Financial-Times/o-fonts.git#>=0.5.0 <1",
+    "o-fonts": "http://git.svc.ft.com:8080/scm/orig/o-fonts.git#>=0.5.0 <1",
     "o-assets": "https://github.com/Financial-Times/o-assets.git#>=0.2.0 <1",
     "o-ft-typography": "https://github.com/Financial-Times/o-ft-typography.git#>=1.0.0 <2"
   },
