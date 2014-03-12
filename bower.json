@@ -1,19 +1,12 @@
 {
 	"name": "o-ft-footer",
 	"main": ["main.scss"],
-	"ignore": [
-		"package.json",
-		"Gruntfile.js"
-	],
-	"devDependencies": {
-	    "modernizr": ">=2.6 <3"
-	},
+	"ignore": [],
 	"dependencies": {
-		"o-colors": "https://github.com/Financial-Times/o-colors.git#>=1.1.1",
-		"o-ft-typography": "https://github.com/Financial-Times/o-ft-typography.git#>=0.1.x",
-		"o-grid": "https://github.com/Financial-Times/o-grid.git#>=2.0.0 <3",
-		"o-assets": "https://github.com/Financial-Times/o-assets.git#>=0.2.0 <1"
+        "o-colors": "https://github.com/Financial-Times/o-colors.git#>=2.2.19 <3",
+        "o-ft-typography": "https://github.com/Financial-Times/o-ft-typography.git#>=1 <2",
+        "o-grid": "https://github.com/Financial-Times/o-grid.git#>=2.0.0 <3",
+        "o-assets": "https://github.com/Financial-Times/o-assets.git#>=0.2.0 <1",
+        "o-fonts": "http://git.svc.ft.com:8080/scm/orig/o-fonts.git#>=0.6.5 <1"
 	}
 }
-
-
