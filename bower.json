@@ -8,7 +8,7 @@
   "dependencies": {
     "o-grid": "https://github.com/Financial-Times/o-grid.git#>=2.0.0 <3",
     "o-colors": "https://github.com/Financial-Times/o-colors.git#>=2.0.5 <3",
-    "o-fonts": "https://github.com/Financial-Times/o-fonts.git#>=0.5.0 <1",
+    "o-fonts": "http://git.svc.ft.com:8080/scm/orig/o-fonts.git#>=0.5.0 <1",
     "o-assets": "https://github.com/Financial-Times/o-assets.git#>=0.2.0 <1",
     "o-hoverable": "https://github.com/Financial-Times/o-hoverable.git"
   }
