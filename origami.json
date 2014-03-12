@@ -1,12 +1,12 @@
 {
-  "description": "Financial Times page header",
+  "description": "Responsive Financial Times page header",
   "origamiType": "module",
   "origamiVersion": 1,
-  "support": "web.team@ft.com",
+  "support": "rhys.evans@ft.com",
   "supportStatus": "active",
   "browserFeatures": {
   	"required": ["html5"],
-  	"optional": ["inlinesvg"]
+  	"optional": ["svg", "datauri", "css-gradient"]
   },
-  "demos": ["demos/main.html"]
+  "demos": ["demos/ft-header.html"]
 }
