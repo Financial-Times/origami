@@ -5,10 +5,9 @@ $o-grid-mq-type: width;
 $o-font-path: '../bower_components/o-fonts/webfonts/';
 
 $o-ft-buttons-is-silent: false;
-@import "main.scss";
+@import "../../main";
 
 body {
-  margin: 0;
   background-color: #fff1e0;
 }
 
