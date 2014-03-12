@@ -1,7 +1,7 @@
 o-ft-buttons [![Build Status](https://travis-ci.org/Financial-Times/o-ft-buttons.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-buttons)
 ============
 
-Will contain standard FT-branded buttons.
+Contain standard FT-branded buttons.
 
 This buttons module is a dependency of [forms module](https://github.com/Financial-Times/o-ft-forms).
 
