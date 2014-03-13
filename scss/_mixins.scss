@@ -1,24 +1,24 @@
-@mixin oFtButtonClass($classes) {
-  $aggregatedSelector: ();
-  @each $class in $classes {
-    $aggregatedSelector: append($aggregatedSelector, #{'%#{$_o-ft-buttons-prefix}#{$class}'}, comma);
-    @if (not $o-ft-buttons-is-silent) {
-      $aggregatedSelector: append($aggregatedSelector, #{'.#{$_o-ft-buttons-prefix}#{$class}'}, comma);
-    }
+/**
+  Wrap styles in SASS placeholders and CSS classes (if not in silent mode),
+  and optionally CSS selectors (if not in silent mode)
+  $names:         SASS list of placeholder/class names in the format "name1 name2" but without the quotes.
+                  Will automatically by prefixed with module name.
+  $cssSelectors:  [optional] string. CSS selectors which should also receive the same styles.
+                  Does not get auto-prefixed, so must be exactly as you want output on the CSS.
+*/
+@mixin oFtButtonSelectors($names, $cssSelectors: ()) {
+  $selectors: ();
+  $selectors: append($selectors, oFtButtonsGetPrefixedPlaceholders($names));
+  @if (not $o-ft-buttons-is-silent) {
+    $selectors: append($selectors, oFtButtonsGetPrefixedClasses($names));
+    $selectors: append($selectors, unquote($cssSelectors), comma);
   }
-  #{$aggregatedSelector} {
+  #{$selectors} {
     @content;
   }
 }
 
-@mixin oFtBackgroundGradientVertical($solid, $top, $bottom) {
-  background: $solid;
-  background: -webkit-gradient(linear, left top, left bottom, from($top), to($bottom));
-  background: -moz-linear-gradient($top, $bottom);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$top},  endColorstr=#{$bottom})";
-}
-
-@mixin oFtBoxSizing($value) {
+@mixin oFtButtonsBoxSizing($value) {
   -webkit-box-sizing: $value;
   -moz-box-sizing: $value;
   box-sizing: $value;

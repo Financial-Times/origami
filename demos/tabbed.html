@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js o-useragent-ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js o-useragent-ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>o-ft-buttons: tabbed demo</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <style>
+    body {
+        margin: 0;
+    }
+    .demo-message {
+        margin: 0 0 10px 0;
+        border-bottom: 1px solid #ddcc66;
+        padding: 3px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        text-align: center;
+        background-color: #ffee88;
+        color: #333;
+    }
+    </style>
+    <link rel="stylesheet" href="/bundles/css?modules=o-ft-buttons&main=o-ft-buttons/demos/src/demo.scss" />
+</head>
+<body>
+    
+    <div class="o-grid-row">
+    <div data-o-grid-colspan="2">
+        &nbsp;
+    </div>
+    <div data-o-grid-colspan="5">
+        <h2 class="demo__heading demo__heading--medium">SET1</h2>
+    </div>
+    <div data-o-grid-colspan="5">
+        <h2 class="demo__heading demo__heading--medium">SET2</h2>
+    </div>
+</div>
+<div class="o-grid-row">
+    <div data-o-grid-colspan="2">
+        <h2 class="demo__heading demo__heading--small">Tabbed (big)</h2>
+    </div>
+    <div data-o-grid-colspan="5">
+        <div class="o-ft-buttons__tabs">
+            <button class="o-ft-buttons o-ft-buttons--set1 o-ft-buttons--big o-ft-buttons--selected">John</button><!--
+         --><button class="o-ft-buttons o-ft-buttons--set1 o-ft-buttons--big">Paul</button><!--
+         --><button class="o-ft-buttons o-ft-buttons--set1 o-ft-buttons--big">George</button><!--
+         --><button class="o-ft-buttons o-ft-buttons--set1 o-ft-buttons--big">Ringo</button>
+        </div>
+    </div>
+    <div data-o-grid-colspan="5">
+        <div class="o-ft-buttons__tabs">
+            <button class="o-ft-buttons o-ft-buttons--set2 o-ft-buttons--big o-ft-buttons--selected">John</button><!--
+         --><button class="o-ft-buttons o-ft-buttons--set2 o-ft-buttons--big">Paul</button><!--
+         --><button class="o-ft-buttons o-ft-buttons--set2 o-ft-buttons--big">George</button><!--
+         --><button class="o-ft-buttons o-ft-buttons--set2 o-ft-buttons--big">Ringo</button>
+        </div>
+    </div>
+</div>
+<div class="o-grid-row">
+    <div data-o-grid-colspan="2">
+        <h2 class="demo__heading demo__heading--small">Tabbed (small)</h2>
+    </div>
+    <div data-o-grid-colspan="5">
+        <div class="o-ft-buttons__tabs">
+            <button class="o-ft-buttons o-ft-buttons--set1 o-ft-buttons--small o-ft-buttons--selected">John</button><!--
+         --><button class="o-ft-buttons o-ft-buttons--set1 o-ft-buttons--small">Paul</button><!--
+         --><button class="o-ft-buttons o-ft-buttons--set1 o-ft-buttons--small">George</button><!--
+         --><button class="o-ft-buttons o-ft-buttons--set1 o-ft-buttons--small">Ringo</button>
+        </div>
+    </div>
+    <div data-o-grid-colspan="5">
+        <div class="o-ft-buttons__tabs">
+            <button class="o-ft-buttons o-ft-buttons--set2 o-ft-buttons--small o-ft-buttons--selected">John</button><!--
+         --><button class="o-ft-buttons o-ft-buttons--set2 o-ft-buttons--small">Paul</button><!--
+         --><button class="o-ft-buttons o-ft-buttons--set2 o-ft-buttons--small">George</button><!--
+         --><button class="o-ft-buttons o-ft-buttons--set2 o-ft-buttons--small">Ringo</button>
+        </div>
+    </div>
+</div>
+    
+    <script src='http://registry.origami.ft.com/embedapi?autoload=resize'></script>
+</body>
+</html>

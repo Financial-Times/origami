@@ -1,7 +1,19 @@
 {
     "demos": {
-        "demo": {
-            "template": "demos/src/demo.mustache",
+        "individual": {
+            "template": "demos/src/individual.mustache",
+            "sass": "demos/src/demo.scss"
+        },
+        "pagination": {
+            "template": "demos/src/pagination.mustache",
+            "sass": "demos/src/demo.scss"
+        },
+        "grouped": {
+            "template": "demos/src/grouped.mustache",
+            "sass": "demos/src/demo.scss"
+        },
+        "tabbed": {
+            "template": "demos/src/tabbed.mustache",
             "sass": "demos/src/demo.scss"
         }
     }

@@ -1,0 +1,17 @@
+// Get list of placeholders
+@function oFtButtonsGetPrefixedPlaceholders($names) {
+  $placeholders: ();
+  @each $name in $names {
+    $placeholders: append($placeholders, #{'%#{unquote($name)}'}, comma);
+  }
+  @return $placeholders;
+}
+
+// Get list of CSS classes
+@function oFtButtonsGetPrefixedClasses($names) {
+  $classes: ();
+  @each $name in $names {
+    $classes: append($classes, #{'.#{unquote($name)}'}, comma);
+  }
+  @return $classes;
+}
