@@ -81,7 +81,7 @@ $o-ft-footer-spacing-unit: 10px;
 	background: url(oFtFooterUseAsset("img/pearson_sprite.gif")) no-repeat;
 	background: url(oFtFooterUseAsset("img/pearson_sprite.svg")) no-repeat;
 	text-indent: 100%;
-	whitespace: nowrap;
+	white-space: nowrap;
 	overflow: hidden;
 }
 
@@ -100,11 +100,11 @@ $o-ft-footer-spacing-unit: 10px;
 @media screen and (max-width:299px) {
 	// figures below seem weird because there is a 10px gutter between 'always learning' and 'pearson' in the sprite
 	.o-ft-footer__pearson-tagline {
-		background-size: (2800% / 17); // need to keep 17/28 of the width visible
+		background-size: (2700% / 17); // need to keep 17/28 of the width visible
 		width: (1600% / 27); // need to take up 17/27 of the width available, but we round down to 16 to allow for browser pixel roudning errors
 	}
 	.o-ft-footer__pearson-logo {
-		background-size: (2800% / 10);  // need to keep 10/28 of the width visible
+		background-size: (2700% / 10);  // need to keep 10/28 of the width visible
 		width: (900% / 27); // need to take up 10/27 of the width available, but we round down to 16 to allow for browser pixel roudning errors
 	}
 }
