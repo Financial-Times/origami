@@ -78,7 +78,6 @@
 		height: 35px;
 		width: 100%; // needed for firefox with svg
 		background: url(oFtHeaderAsset("img/ft-logo.gif")) no-repeat; 
-		fill: oColorsGetColorFor(ft-initials, text); 
 		background: url(oFtHeaderAsset("img/ft-logo.svg")) no-repeat;
 		text-indent: 100%;
 		whitespace: nowrap;
