@@ -1,6 +1,6 @@
 {
   "name": "o-tracking",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": true,
   "description": "Origami module for FT tracking.",
   "main": "main.js",

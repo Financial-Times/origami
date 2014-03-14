@@ -44,7 +44,7 @@ module.exports = (function () {
          * @property version
          * @type {String}
          */
-            version = "Track version 0.0.5";
+            version = "Track version 0.0.6";
 
     /**
      * Turn on/off developer mode. (Can also be activated on init.)

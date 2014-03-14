@@ -6,9 +6,12 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
+    "docs",
+    "examples",
+    "resources",
     "test",
     "tests",
+    "Gruntfile.js",
     ".idea"
   ],
   "authors": [
