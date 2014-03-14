@@ -26,7 +26,7 @@ module.exports = (function (window) {
          * @property domain
          * @private
          */
-            domain = "http://trace.ft.com",
+            domain = "http://tracking.ft.com",
 
         /**
          * Queue queue.
@@ -146,7 +146,7 @@ module.exports = (function (window) {
             };
         }
 
-        xmlHttp.onerror = function () { callback.call(xmlHttp); };
+        xmlHttp.onerror = function () { requestFinished(xmlHttp); };
 
         // Both developer and noSend flags have to be set to stop the request sending.
         if (!(settings.get('developer') && settings.get('noSend'))) {
@@ -189,8 +189,14 @@ module.exports = (function (window) {
         var next = function () { run(); callback(); },
             nextRequest = queue.first();
 
+        // Cancel if we've run out of requests.
         if (!nextRequest) {
-            return;
+            return callback();
+        }
+
+        // Cancel if the request is already started.
+        if (currentRequests[nextRequest.requestID]) {
+            return callback();
         }
 
         // Send this request, then try run again.

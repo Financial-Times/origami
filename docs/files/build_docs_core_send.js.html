@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.4</em>
+            <em>API Docs for Origami Tracking module: 0.0.5</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -142,7 +142,7 @@ module.exports = (function (window) {
          * @property domain
          * @private
          */
-            domain = &quot;http://trace.ft.com&quot;,
+            domain = &quot;http://tracking.ft.com&quot;,
 
         /**
          * Queue queue.
@@ -262,7 +262,7 @@ module.exports = (function (window) {
             };
         }
 
-        xmlHttp.onerror = function () { callback.call(xmlHttp); };
+        xmlHttp.onerror = function () { requestFinished(xmlHttp); };
 
         // Both developer and noSend flags have to be set to stop the request sending.
         if (!(settings.get(&#x27;developer&#x27;) &amp;&amp; settings.get(&#x27;noSend&#x27;))) {
@@ -305,8 +305,14 @@ module.exports = (function (window) {
         var next = function () { run(); callback(); },
             nextRequest = queue.first();
 
+        // Cancel if we&#x27;ve run out of requests.
         if (!nextRequest) {
-            return;
+            return callback();
+        }
+
+        // Cancel if the request is already started.
+        if (currentRequests[nextRequest.requestID]) {
+            return callback();
         }
 
         // Send this request, then try run again.

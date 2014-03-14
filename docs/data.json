@@ -2,7 +2,7 @@
     "project": {
         "name": "Origami Tracking module",
         "description": "Origami module for FT tracking.",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "url": ""
     },
     "files": {
@@ -655,7 +655,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 200,
+            "line": 206,
             "description": "Convenience function to add and run a request all in one go.",
             "itemtype": "method",
             "name": "addAndRun",
@@ -672,7 +672,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 210,
+            "line": 216,
             "description": "Init the queue and send any leftover tags.",
             "itemtype": "method",
             "name": "init",

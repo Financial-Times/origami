@@ -2,12 +2,14 @@
 
 Origami module for the FT tracking.
 
+![ScreenShot](resources/images/tracking_forwarder.svg)
+
 ## Installation
 
 Add this to your dependencies in bower.json:
 
      "dependencies": {
-          "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.4 < 1"
+          "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.5 < 1"
      }
 
 It's strongly advised to specify at least the major and minor version as a tag.
