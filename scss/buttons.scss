@@ -29,45 +29,45 @@
   line-height: 22px;
 }
 
-@include oFtButtonSelectors(o-ft-buttons--set1) {
-  border-color: $_o-ft-buttons-color-set1-standard-border;
-  background-color: $_o-ft-buttons-color-set1-standard-bg;
-  color: $_o-ft-buttons-color-set1-standard-fg;
+@include oFtButtonSelectors(o-ft-buttons--theme1) {
+  border-color: $_o-ft-buttons-color-theme1-standard-border;
+  background-color: $_o-ft-buttons-color-theme1-standard-bg;
+  color: $_o-ft-buttons-color-theme1-standard-fg;
   &:hover {
-    border-color: $_o-ft-buttons-color-set1-hover-border;
-    background-color: $_o-ft-buttons-color-set1-hover-bg;
-    color: $_o-ft-buttons-color-set1-hover-fg;
+    border-color: $_o-ft-buttons-color-theme1-hover-border;
+    background-color: $_o-ft-buttons-color-theme1-hover-bg;
+    color: $_o-ft-buttons-color-theme1-hover-fg;
   }
   &:active, &:focus, &.o-ft-buttons--selected {
-    border-color: $_o-ft-buttons-color-set1-active-border;
-    background-color: $_o-ft-buttons-color-set1-active-bg;
-    color: $_o-ft-buttons-color-set1-active-fg;
+    border-color: $_o-ft-buttons-color-theme1-active-border;
+    background-color: $_o-ft-buttons-color-theme1-active-bg;
+    color: $_o-ft-buttons-color-theme1-active-fg;
   }
   &.o-ft-buttons--disabled {
-    border-color: $_o-ft-buttons-color-set1-disabled-border;
-    background-color: $_o-ft-buttons-color-set1-disabled-bg;
-    color: $_o-ft-buttons-color-set1-disabled-fg;
+    border-color: $_o-ft-buttons-color-theme1-disabled-border;
+    background-color: $_o-ft-buttons-color-theme1-disabled-bg;
+    color: $_o-ft-buttons-color-theme1-disabled-fg;
   }
 }
 
-@include oFtButtonSelectors(o-ft-buttons--set2) {
-  border-color: $_o-ft-buttons-color-set2-standard-border;
-  background-color: $_o-ft-buttons-color-set2-standard-bg;
-  color: $_o-ft-buttons-color-set2-standard-fg;
+@include oFtButtonSelectors(o-ft-buttons--theme2) {
+  border-color: $_o-ft-buttons-color-theme2-standard-border;
+  background-color: $_o-ft-buttons-color-theme2-standard-bg;
+  color: $_o-ft-buttons-color-theme2-standard-fg;
   &:hover {
-    border-color: $_o-ft-buttons-color-set2-hover-border;
-    background-color: $_o-ft-buttons-color-set2-hover-bg;
-    color: $_o-ft-buttons-color-set2-hover-fg;
+    border-color: $_o-ft-buttons-color-theme2-hover-border;
+    background-color: $_o-ft-buttons-color-theme2-hover-bg;
+    color: $_o-ft-buttons-color-theme2-hover-fg;
   }
   &:active, &:focus, &.o-ft-buttons--selected {
-    border-color: $_o-ft-buttons-color-set2-active-border;
-    background-color: $_o-ft-buttons-color-set2-active-bg;
-    color: $_o-ft-buttons-color-set2-active-fg;
+    border-color: $_o-ft-buttons-color-theme2-active-border;
+    background-color: $_o-ft-buttons-color-theme2-active-bg;
+    color: $_o-ft-buttons-color-theme2-active-fg;
   }
   &.o-ft-buttons--disabled {
-    border-color: $_o-ft-buttons-color-set2-disabled-border;
-    background-color: $_o-ft-buttons-color-set2-disabled-bg;
-    color: $_o-ft-buttons-color-set2-disabled-fg;
+    border-color: $_o-ft-buttons-color-theme2-disabled-border;
+    background-color: $_o-ft-buttons-color-theme2-disabled-bg;
+    color: $_o-ft-buttons-color-theme2-disabled-fg;
   }
 }
 
@@ -76,7 +76,7 @@
   padding-left: 10px;
   padding-right: 10px;
   background-color: transparent;
-  color: $_o-ft-buttons-color-set2-standard-fg;
+  color: $_o-ft-buttons-color-theme2-standard-fg;
 }
 
 @include oFtButtonSelectors(o-ft-buttons__group) {
@@ -85,6 +85,11 @@
   }
   .o-ft-buttons + .o-ft-buttons {
     margin-left: 0;
+  }
+  .o-ft-buttons.o-ft-buttons--theme1 + .o-ft-buttons {
+    border-left-color: #fff1e0; // Assumed background color
+  }
+  .o-ft-buttons.o-ft-buttons--theme2 + .o-ft-buttons {
     border-left-width: 0;
   }
   .o-ft-buttons:first-child {
@@ -99,13 +104,18 @@
 }
 
 @include oFtButtonSelectors(o-ft-buttons__tabs) {
-  border-bottom: 1px solid $_o-ft-buttons-color-set2-standard-border;
+  border-bottom: 1px solid $_o-ft-buttons-color-theme2-standard-border;
   .o-ft-buttons {
     border-radius: 0;
     border-bottom-width: 0;
   }
   .o-ft-buttons + .o-ft-buttons {
     margin-left: 0;
+  }
+  .o-ft-buttons.o-ft-buttons--theme1 + .o-ft-buttons {
+    border-left-color: #fff1e0; // Assumed background color
+  }
+  .o-ft-buttons.o-ft-buttons--theme2 + .o-ft-buttons {
     border-left-width: 0;
   }
   .o-ft-buttons:first-child {
