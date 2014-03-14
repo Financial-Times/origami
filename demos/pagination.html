@@ -30,10 +30,58 @@
         &nbsp;
     </div>
     <div data-o-grid-colspan="5">
-        <h2 class="demo__heading demo__heading--medium">theme1</h2>
+        <h2 class="demo__heading demo__heading--medium">default</h2>
     </div>
     <div data-o-grid-colspan="5">
-        <h2 class="demo__heading demo__heading--medium">theme2</h2>
+        <h2 class="demo__heading demo__heading--medium">standout</h2>
+    </div>
+</div>
+<div class="o-grid-row">
+    <div data-o-grid-colspan="2">
+        <h2 class="demo__heading demo__heading--small">Pagination (default)</h2>
+    </div>
+    <div data-o-grid-colspan="5">
+        <div class="o-ft-buttons__pagination">
+            <button class="o-ft-buttons o-ft-buttons--disabled"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button>
+            <button class="o-ft-buttons o-ft-buttons--selected">1</button>
+            <button class="o-ft-buttons">2</button>
+            <button class="o-ft-buttons">3</button>
+            <div class="o-ft-buttons o-ft-buttons--faux"><span class="o-ft-buttons__icon o-ft-buttons__icon--more"></span></div>
+            <button class="o-ft-buttons">25</button>
+            <button class="o-ft-buttons">26</button>
+            <button class="o-ft-buttons">27</button>
+            <button class="o-ft-buttons"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
+        </div>
+    </div>
+    <div data-o-grid-colspan="5">
+        <div class="o-ft-buttons__pagination">
+            <button class="o-ft-buttons o-ft-buttons--standout o-ft-buttons--disabled"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button>
+            <button class="o-ft-buttons o-ft-buttons--standout o-ft-buttons--selected">1</button>
+            <button class="o-ft-buttons o-ft-buttons--standout">2</button>
+            <button class="o-ft-buttons o-ft-buttons--standout">3</button>
+            <div class="o-ft-buttons o-ft-buttons--faux"><span class="o-ft-buttons__icon o-ft-buttons__icon--more"></span></div>
+            <button class="o-ft-buttons o-ft-buttons--standout">25</button>
+            <button class="o-ft-buttons o-ft-buttons--standout">26</button>
+            <button class="o-ft-buttons o-ft-buttons--standout">27</button>
+            <button class="o-ft-buttons o-ft-buttons--standout"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
+        </div>
+    </div>
+</div>
+<div class="o-grid-row">
+    <div data-o-grid-colspan="2">
+        <h2 class="demo__heading demo__heading--small">Mini-pagination (default)</h2>
+    </div>
+    <div data-o-grid-colspan="5">
+        <div class="o-ft-buttons__group">
+            <button class="o-ft-buttons"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button><!--
+         --><button class="o-ft-buttons"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
+        </div>
+    </div>
+    <div data-o-grid-colspan="5">
+        <div class="o-ft-buttons__group">
+            <button class="o-ft-buttons o-ft-buttons--standout"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button><!--
+         --><button class="o-ft-buttons o-ft-buttons--standout"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
+        </div>
     </div>
 </div>
 <div class="o-grid-row">
@@ -42,94 +90,45 @@
     </div>
     <div data-o-grid-colspan="5">
         <div class="o-ft-buttons__pagination">
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--big o-ft-buttons--disabled"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button>
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--big o-ft-buttons--selected">1</button>
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--big">2</button>
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--big">3</button>
+            <button class="o-ft-buttons o-ft-buttons--big o-ft-buttons--disabled"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button>
+            <button class="o-ft-buttons o-ft-buttons--big o-ft-buttons--selected">1</button>
+            <button class="o-ft-buttons o-ft-buttons--big">2</button>
+            <button class="o-ft-buttons o-ft-buttons--big">3</button>
             <div class="o-ft-buttons o-ft-buttons--faux o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--more"></span></div>
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--big">25</button>
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--big">26</button>
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--big">27</button>
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
+            <button class="o-ft-buttons o-ft-buttons--big">25</button>
+            <button class="o-ft-buttons o-ft-buttons--big">26</button>
+            <button class="o-ft-buttons o-ft-buttons--big">27</button>
+            <button class="o-ft-buttons o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
         </div>
     </div>
     <div data-o-grid-colspan="5">
         <div class="o-ft-buttons__pagination">
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--big o-ft-buttons--disabled"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button>
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--big o-ft-buttons--selected">1</button>
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--big">2</button>
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--big">3</button>
+            <button class="o-ft-buttons o-ft-buttons--standout o-ft-buttons--big o-ft-buttons--disabled"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button>
+            <button class="o-ft-buttons o-ft-buttons--standout o-ft-buttons--big o-ft-buttons--selected">1</button>
+            <button class="o-ft-buttons o-ft-buttons--standout o-ft-buttons--big">2</button>
+            <button class="o-ft-buttons o-ft-buttons--standout o-ft-buttons--big">3</button>
             <div class="o-ft-buttons o-ft-buttons--faux o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--more"></span></div>
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--big">25</button>
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--big">26</button>
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--big">27</button>
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
+            <button class="o-ft-buttons o-ft-buttons--standout o-ft-buttons--big">25</button>
+            <button class="o-ft-buttons o-ft-buttons--standout o-ft-buttons--big">26</button>
+            <button class="o-ft-buttons o-ft-buttons--standout o-ft-buttons--big">27</button>
+            <button class="o-ft-buttons o-ft-buttons--standout o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
         </div>
     </div>
 </div>
-<div class="o-grid-row">
-    <div data-o-grid-colspan="2">
-        <h2 class="demo__heading demo__heading--small">Pagination (small)</h2>
-    </div>
-    <div data-o-grid-colspan="5">
-        <div class="o-ft-buttons__pagination">
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--small o-ft-buttons--disabled"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button>
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--small o-ft-buttons--selected">1</button>
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--small">2</button>
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--small">3</button>
-            <div class="o-ft-buttons o-ft-buttons--faux o-ft-buttons--small"><span class="o-ft-buttons__icon o-ft-buttons__icon--more"></span></div>
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--small">25</button>
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--small">26</button>
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--small">27</button>
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--small"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
-        </div>
-    </div>
-    <div data-o-grid-colspan="5">
-        <div class="o-ft-buttons__pagination">
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--small o-ft-buttons--disabled"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button>
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--small o-ft-buttons--selected">1</button>
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--small">2</button>
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--small">3</button>
-            <div class="o-ft-buttons o-ft-buttons--faux o-ft-buttons--small"><span class="o-ft-buttons__icon o-ft-buttons__icon--more"></span></div>
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--small">25</button>
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--small">26</button>
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--small">27</button>
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--small"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
-        </div>
-    </div>
-</div>
-
 <div class="o-grid-row">
     <div data-o-grid-colspan="2">
         <h2 class="demo__heading demo__heading--small">Mini-pagination (big)</h2>
     </div>
     <div data-o-grid-colspan="5">
         <div class="o-ft-buttons__group">
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button><!--
-         --><button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
+            <button class="o-ft-buttons o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button><!--
+         --><button class="o-ft-buttons o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
         </div>
     </div>
     <div data-o-grid-colspan="5">
         <div class="o-ft-buttons__group">
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button><!--
-         --><button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
-        </div>
-    </div>
-</div>
-<div class="o-grid-row">
-    <div data-o-grid-colspan="2">
-        <h2 class="demo__heading demo__heading--small">Mini-pagination (small)</h2>
-    </div>
-    <div data-o-grid-colspan="5">
-        <div class="o-ft-buttons__group">
-            <button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--small"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button><!--
-         --><button class="o-ft-buttons o-ft-buttons--theme1 o-ft-buttons--small"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
-        </div>
-    </div>
-    <div data-o-grid-colspan="5">
-        <div class="o-ft-buttons__group">
-            <button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--small"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button><!--
-         --><button class="o-ft-buttons o-ft-buttons--theme2 o-ft-buttons--small"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
+            <button class="o-ft-buttons o-ft-buttons--standout o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button><!--
+         --><button class="o-ft-buttons o-ft-buttons--standout o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--right"></span></button>
         </div>
     </div>
 </div>

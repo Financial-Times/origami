@@ -7,8 +7,7 @@
   "demos": ["demos/demo.html"],
     "browserFeatures": {
         "optional": [
-            "borderradius",
-            "cssgradients"
+            "borderradius"
         ]
     }
 }
