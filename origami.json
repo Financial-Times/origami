@@ -1,0 +1,18 @@
+{
+  "description": "Web font loader",
+  "origamiType": "module",
+  "origamiVersion": 1,
+  "support": "web.team@ft.com",
+  "supportStatus": "active",
+  "demos": [
+      "bentonsans-lighter.html",
+      "bentonsans-normal.html",
+      "bentonsans-bold.html",
+      "clarion-normal.html",
+      "clarion-bold.html",
+      "clarion-italic.html",
+      "millerdisplay-normal.html",
+      "millerdisplay-bold.html",
+      "millerdisplay-bolder.html"
+  ]
+}

@@ -1,0 +1,23 @@
+$o-fonts-path: 'http://build.origami.ft.com/files/o-fonts-assets@0.1.0/' !default;
+$o-fonts-name: o-fonts;
+$o-fonts-version: null !default;
+$o-fonts-assets-path: $o-fonts-name !default;
+
+$o-fonts-is-silent: true !default;
+
+$o-fonts-sans-serif: Helvetica, Arial, sans-serif;
+$o-fonts-serif: Georgia, 'Times New Roman', serif;
+
+$ft-fonts-already-included-list: () !default;
+
+$o-fonts-supported: BentonSans, MillerDisplay, Clarion;
+
+$o-fonts-bentonsans-lighter: BentonSans-lighter, $o-fonts-sans-serif;
+$o-fonts-bentonsans-normal: BentonSans-normal, $o-fonts-sans-serif;
+$o-fonts-bentonsans-bold: BentonSans-bold, $o-fonts-sans-serif;
+$o-fonts-millerdisplay-normal: MillerDisplay-normal, $o-fonts-serif;
+$o-fonts-millerdisplay-bold: MillerDisplay-bold, $o-fonts-serif;
+$o-fonts-millerdisplay-bolder: MillerDisplay-bolder, $o-fonts-serif;
+$o-fonts-clarion-normal: Clarion-normal, $o-fonts-serif;
+$o-fonts-clarion-bold: Clarion-bold, $o-fonts-serif;
+$o-fonts-clarion-italic: Clarion-italic, $o-fonts-serif;

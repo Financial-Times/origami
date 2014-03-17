@@ -1,0 +1,36 @@
+{
+    "options": {
+        "template": "demos/src/demo.mustache",
+        "sass": "demos/src/demo.scss"
+    },
+    "demos": {
+        "bentonsans-lighter": {
+            "data": { "font": "bentonsans-lighter" }
+        },
+        "bentonsans-normal": {
+            "data": { "font": "bentonsans-normal" }
+        },
+        "bentonsans-bold": {
+            "data": { "font": "bentonsans-bold" }
+        },
+        "millerdisplay-normal": {
+            "data": { "font": "millerdisplay-normal" }
+        },
+        "millerdisplay-bold": {
+            "data": { "font": "millerdisplay-bold" }
+        },
+        "millerdisplay-bolder": {
+            "data": { "font": "millerdisplay-bolder" }
+        },
+        "clarion-normal": {
+            "data": { "font": "clarion-normal" }
+        },
+        "clarion-bold": {
+            "data": { "font": "clarion-bold" }
+        },
+        "clarion-italic": {
+            "data": { "font": "clarion-italic" }
+
+        }
+    }
+}

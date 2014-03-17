@@ -1,0 +1,5 @@
+{
+    "name": "o-fonts",
+    "main": ["main.scss"],
+    "ignore": [""]
+}

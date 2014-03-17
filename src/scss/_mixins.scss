@@ -1,0 +1,50 @@
+@mixin oFontsSource($fontName) {
+	src: url(oFontsUseAsset($fontName + '.eot')); // IE9 Compat Modes
+	src: url(oFontsUseAsset($fontName + '.eot?#iefix')) format('embedded-opentype'), // IE6-IE8
+	     url(oFontsUseAsset($fontName + '.woff')) format('woff'), // Modern Browsers
+	     url(oFontsUseAsset($fontName + '.ttf'))  format('truetype'); // Safari, Android, iOS
+}
+
+@mixin oFontsInclude($family, $weight: normal, $style: normal) {
+	@if(not index($o-fonts-supported, $family)) {
+		@warn "#{$family} is not supported by o-fonts";
+	}
+
+	@if(not index($ft-fonts-already-included-list, ($family$weight$style))) {
+
+        $ft-fonts-already-included-list: append($ft-fonts-already-included-list, ($family$weight$style));
+
+        $font-suffix: $weight;
+
+        @if ($style != normal) {
+            @if ($weight == normal) {
+                $font-suffix:$style;
+            } @else {
+                $font-suffix:$font-suffix$style;
+            }
+        }
+
+        @font-face {
+            font-family: $family+-$font-suffix;
+            font-style: normal;
+            font-weight: normal;
+            @include oFontsSource($family+-$font-suffix);
+        }
+	}
+}
+
+@mixin oFontsIncludeAll() {
+  @include oFontsInclude(BentonSans, Lighter);
+  @include oFontsInclude(BentonSans, Normal);
+  @include oFontsInclude(BentonSans, Bold);
+  @include oFontsInclude(MillerDisplay, Normal);
+  @include oFontsInclude(MillerDisplay, Bold);
+  @include oFontsInclude(MillerDisplay, Bolder);
+  @include oFontsInclude(Clarion, Normal);
+  @include oFontsInclude(Clarion, Bold);
+  @include oFontsInclude(Clarion, null, Italic);
+}
+
+@function oFontsUseAsset ($asset) {
+    @return $o-fonts-path + $asset;
+}
