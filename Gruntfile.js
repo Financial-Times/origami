@@ -169,10 +169,9 @@ module.exports = function (grunt) {
 
                 preprocessors: {
                     'test/**/*.js': ['browserify'],
-                    'src/javascript/**/*.js': ['browserify']
+                    'src/javascript/**/*.js': ['browserify', 'coverage']
                 },
                 browserify: {
-                    transform: ['debowerify'],
                     debug: false
                 },
                 singleRun: true,

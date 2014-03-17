@@ -8,7 +8,7 @@ describe('Core', function () {
     describe('clickID', function () {
         it('should generate a clickID', function () {
             var clickID = Send.clickID(),
-                re = /t\d{13}h1/;
+                re = /t\d{13}h\d/;
             assert.ok(clickID.match(re), "'" + clickID + "'.match(" + re + ")");
         });
 

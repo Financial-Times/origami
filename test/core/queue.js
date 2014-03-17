@@ -3,6 +3,8 @@ var assert = require('assert'),
     Queue = require("../../src/javascript/core/queue"),
     queue_name = 'queue_test';
 
+// PhantomJS doesn't always create a "fresh" environment...
+(new Queue(queue_name)).replace([]);
 
 describe('Core.Queue', function () {
     "use strict";
