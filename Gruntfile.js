@@ -183,8 +183,9 @@ module.exports = function (grunt) {
 
                 coverageReporter: {
                     reporters: [
-                        { type: 'text', dir : './build/reports/coverage/' },
-                        { type : 'html', dir : './build/reports/coverage/' }
+                        { type: 'text', dir : './build/reports/coverage/' }/*,
+                        TODO Add this back in, when they sort out Karma https://github.com/xdissent/karma-browserify/issues/29
+                        { type : 'html', dir : './build/reports/coverage/' }*/
                     ]
                 },
 

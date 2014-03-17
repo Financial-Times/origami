@@ -27,6 +27,9 @@ var assert = require('assert'),
         metroArea: "islington"
     };
 
+// PhantomJS doesn't always create a "fresh" environment...
+(new (require("../../src/javascript/core/queue"))('requests')).replace([]);
+
 describe('Core.Send', function () {
     "use strict";
 
