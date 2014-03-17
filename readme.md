@@ -1,5 +1,5 @@
 
-# o-fonts
+# o-fonts [![Build Status](https://travis-ci.org/Financial-Times/o-fonts.png?branch=master)](https://travis-ci.org/Financial-Times/o-fonts)
 
 This module provides:
 
