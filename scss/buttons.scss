@@ -1,76 +1,140 @@
-@include oFtButtonClass(__button) {
-  @include oFtBoxSizing(border-box);
+
+@include oFtButtonSelectors(o-ft-buttons) {
+  @include oFtButtonsBoxSizing(border-box);
   display: inline-block;
-  margin: 0 10px $_o-ft-buttons-marginbottom 0;
-  padding: 0 8px;
-  border-width: 0;
-  border-radius: $_o-ft-buttons-buttonradius;
-  width: auto;
-  @include oFtBackgroundGradientVertical(#4e8fbd, #549ccf, #4782ab);
+  margin: 0;
+  padding: 0 14px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
   font-family: $o-fonts-bentonsans-normal;
-  color: oColorsGetColorFor(button-text);
+  font-size: 14px;
+  line-height: 22px;
   text-decoration: none;
-  white-space: nowrap;
-  cursor: pointer;
+  border-color: $_o-ft-buttons-color-standard-border;
+  background-color: $_o-ft-buttons-color-standard-bg;
+  color: $_o-ft-buttons-color-standard-fg;
+  & + .o-ft-buttons {
+    margin-left: 4px;
+  }
+  &:hover {
+    border-color: $_o-ft-buttons-color-hover-border;
+    background-color: $_o-ft-buttons-color-hover-bg;
+    color: $_o-ft-buttons-color-hover-fg;
+  }
+  &:active, &:focus, &.o-ft-buttons--selected {
+    border-color: $_o-ft-buttons-color-active-border;
+    background-color: $_o-ft-buttons-color-active-bg;
+    color: $_o-ft-buttons-color-active-fg;
+  }
+  &.o-ft-buttons--disabled,
+  &[disabled] {
+    border-color: $_o-ft-buttons-color-disabled-border;
+    background-color: $_o-ft-buttons-color-disabled-bg;
+    color: $_o-ft-buttons-color-disabled-fg;
+  }
 }
 
-@include oFtButtonClass(__buttongroup) {
-  overflow: hidden;
+@include oFtButtonSelectors(o-ft-buttons--big) {
+  padding-left: 18px;
+  padding-right: 18px;
+  font-size: 16px;
+  line-height: 34px;
+}
 
-  @include oFtButtonClass(__button) {
-    float: left;
-    margin-right: 1px;
+@include oFtButtonSelectors(o-ft-buttons--standout) {
+  border-color: $_o-ft-buttons-color-standout-standard-border;
+  background-color: $_o-ft-buttons-color-standout-standard-bg;
+  color: $_o-ft-buttons-color-standout-standard-fg;
+  &:hover {
+    border-color: $_o-ft-buttons-color-standout-hover-border;
+    background-color: $_o-ft-buttons-color-standout-hover-bg;
+    color: $_o-ft-buttons-color-standout-hover-fg;
+  }
+  &:active, &:focus, &.o-ft-buttons--selected {
+    border-color: $_o-ft-buttons-color-standout-active-border;
+    background-color: $_o-ft-buttons-color-standout-active-bg;
+    color: $_o-ft-buttons-color-standout-active-fg;
+  }
+  &.o-ft-buttons--disabled {
+    border-color: $_o-ft-buttons-color-standout-disabled-border;
+    background-color: $_o-ft-buttons-color-standout-disabled-bg;
+    color: $_o-ft-buttons-color-standout-disabled-fg;
+  }
+}
+
+@include oFtButtonSelectors(o-ft-buttons--faux) {
+  border-width: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: transparent;
+  color: $_o-ft-buttons-color-standard-fg;
+}
+
+@include oFtButtonSelectors(o-ft-buttons__group) {
+  .o-ft-buttons {
     border-radius: 0;
   }
-
-  @include oFtButtonClass("__button:first-child") {
-    border-top-left-radius: $_o-ft-buttons-buttonradius;
-    border-bottom-left-radius: $_o-ft-buttons-buttonradius;
+  .o-ft-buttons + .o-ft-buttons {
+    margin-left: 0;
+    border-left-width: 0;
   }
-
-  @include oFtButtonClass("__button:last-child") {
-    border-top-right-radius: $_o-ft-buttons-buttonradius;
-    border-bottom-right-radius: $_o-ft-buttons-buttonradius;
+  .o-ft-buttons.o-ft-buttons--standout + .o-ft-buttons {
+    border-left-color: #fff1e0; // Assumed background color
+    border-left-width: 1px;
+  }
+  .o-ft-buttons:first-child {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-left-width: 1px;
+  }
+  .o-ft-buttons:last-child {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
   }
 }
 
-@include oFtButtonClass("__button:hover") {
-  color: oColorsGetColorFor(button-hover-text);
+@include oFtButtonSelectors(o-ft-buttons__tabs) {
+  border-bottom: 1px solid $_o-ft-buttons-color-standard-border;
+  .o-ft-buttons {
+    border-radius: 0;
+    border-bottom-width: 0;
+  }
+  .o-ft-buttons + .o-ft-buttons {
+    margin-left: 0;
+    border-left-width: 0;
+  }
+  .o-ft-buttons.o-ft-buttons--standout + .o-ft-buttons {
+    border-left-color: #fff1e0; // Assumed background color
+    border-left-width: 1px;
+  }
+  .o-ft-buttons:first-child {
+    border-top-left-radius: 5px;
+    border-left-width: 1px;
+  }
+  .o-ft-buttons:last-child {
+    border-top-right-radius: 5px;
+  }
 }
 
-@include oFtButtonClass(__button--large) {
-  height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
-  line-height: 30px;
-  font-size: 16px;
+@include oFtButtonSelectors(o-ft-buttons__icon) {
+  @include oFtIconsBaseIconStyles();
+  .o-ft-buttons--big > & {
+    line-height: 33px;
+  }
+  .o-ft-buttons--small > & {
+    line-height: 21px;
+  }
 }
 
-@include oFtButtonClass(__button--medium) {
-  height: 24px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
-  line-height: 24px;
-  font-size: 14px;
+@include oFtButtonSelectors(o-ft-buttons__icon--left) {
+  @extend %o-ft-icons-icon--arrow-left;
 }
 
-@include oFtButtonClass(__button--small) {
-  height: 16px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
-  line-height: 16px;
-  font-size: $_o-ft-buttons-fontsize-field;
+@include oFtButtonSelectors(o-ft-buttons__icon--right) {
+  @extend %o-ft-icons-icon--arrow-right;
 }
 
-@include oFtButtonClass(__button--negative) {
-  padding: 0;
-  color: oColorsGetColorFor(button-negative-text);
-  background: transparent;
-}
-
-@include oFtButtonClass("__button--disabled" "__button[disabled]") {
-  opacity: 0.5;
-  cursor: default;
-}
-
-@include oFtButtonClass("__button--disabled:hover" "__button[disabled]:hover") {
-  color: #fff;
-}
-
-@include oFtButtonClass("__button--negative:hover") {
-  color: oColorsGetColorFor(button-negative-hover-text);
+@include oFtButtonSelectors(o-ft-buttons__icon--more) {
+  @extend %o-ft-icons-icon--more;
 }

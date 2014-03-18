@@ -1,8 +1,19 @@
 {
+    "options": {
+        "sass": "demos/src/demo.scss"
+    },
     "demos": {
-        "demo": {
-            "template": "demos/src/demo.mustache",
-            "sass": "demos/src/demo.scss"
+        "individual": {
+            "template": "demos/src/individual.mustache"
+        },
+        "pagination": {
+            "template": "demos/src/pagination.mustache"
+        },
+        "grouped": {
+            "template": "demos/src/grouped.mustache"
+        },
+        "tabbed": {
+            "template": "demos/src/tabbed.mustache"
         }
     }
 }

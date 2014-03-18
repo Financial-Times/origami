@@ -1,11 +1,14 @@
 @import "o-fonts/main";
 @import "o-colors/main";
+@import "o-ft-icons/main";
 
 @import "scss/_variables";
+@import "scss/_functions";
 @import "scss/_mixins";
 
 @if (not $o-ft-buttons-is-silent) {
-  @include oFontsInclude(BentonSans, Normal);
+  @include oFontsInclude(BentonSans, normal);
+  @include oFtIconsFontFace();
 }
 
 @import "scss/buttons";
