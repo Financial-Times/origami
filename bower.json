@@ -4,7 +4,7 @@
     "dependencies": {
         "o-fonts": "^0.7.0",
         "o-colors": "^2.2.20",
-        "o-ft-buttons": "^0.1.6"
+        "o-ft-buttons": "^0.2.0"
     },
     "devDependencies": {
         "o-grid": "^2.0.7"
