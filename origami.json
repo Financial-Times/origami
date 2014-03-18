@@ -2,7 +2,7 @@
 	"description": "FT brand typographic styles",
 	"origamiType": "module",
 	"origamiVersion": 1,
-	"support": "dan.skinner@ft.com",
+	"support": "https://github.com/Financial-Times/o-ft-typography/issues",
 	"supportStatus": "active",
 	"demos": [
         "demos/headings.html",
@@ -17,5 +17,8 @@
             "fontface",
             "textshadow"
         ]
+    },
+    "ci": {
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-typography/builds.json"
     }
 }

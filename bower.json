@@ -2,18 +2,14 @@
   "name": "o-ft-typography",
   "main": ["main.scss"],
   "ignore": [
-    "demo-src",
-    "Gruntfile.js",
-    "package.json",
-    ".travis.yml",
-    "test"
+    ".travis.yml"
   ],
   "dependencies": {
-    "o-fonts": "http://git.svc.ft.com:8080/scm/orig/o-fonts.git#>=0.6.1",
-    "o-colors": "https://github.com/Financial-Times/o-colors.git#>=2.1.6",
-    "o-hoverable": "https://github.com/Financial-Times/o-hoverable.git#0.1.0"
+    "o-fonts": "^0.7.0",
+    "o-colors": "^2.2.20",
+    "o-hoverable": "^0.1.1"
   },
   "devDependencies": {
-  	"o-grid": "https://github.com/Financial-Times/o-grid.git#2.0.3"
+  	"o-grid": "^2.0.7"
   }
 }
