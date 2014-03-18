@@ -451,8 +451,8 @@ html {
   font-family: BentonSans-Normal;
   font-style: normal;
   font-weight: normal;
-  src: url(../bower_components/o-fonts/webfonts/BentonSans-Normal.eot);
-  src: url(../bower_components/o-fonts/webfonts/BentonSans-Normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-Normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-Normal.ttf) format("truetype"); }
+  src: url("http://build.origami.ft.com/files/o-fonts-assets@0.1.1/BentonSans-Normal.eot");
+  src: url("http://build.origami.ft.com/files/o-fonts-assets@0.1.1/BentonSans-Normal.eot?#iefix") format("embedded-opentype"), url("http://build.origami.ft.com/files/o-fonts-assets@0.1.1/BentonSans-Normal.woff") format("woff"), url("http://build.origami.ft.com/files/o-fonts-assets@0.1.1/BentonSans-Normal.ttf") format("truetype"); }
 
 .o-ft-forms-field-group {
   position: relative;
