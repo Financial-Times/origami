@@ -55,6 +55,10 @@
             
                 <li><a href="../classes/Track._Utils.html">Track._Utils</a></li>
             
+                <li><a href="../classes/Track.data.html">Track.data</a></li>
+            
+                <li><a href="../classes/Track.event.html">Track.event</a></li>
+            
                 <li><a href="../classes/Track.page.html">Track.page</a></li>
             
             </ul>
@@ -64,6 +68,10 @@
                 <li><a href="../modules/_Core.html">_Core</a></li>
             
                 <li><a href="../modules/_Utils.html">_Utils</a></li>
+            
+                <li><a href="../modules/data.html">data</a></li>
+            
+                <li><a href="../modules/event.html">event</a></li>
             
                 <li><a href="../modules/page.html">page</a></li>
             
@@ -230,7 +238,13 @@ module.exports = (function (window) {
          */
         var offlineLag = (new Date()).getTime() - request.queueTime,
             path,
-            xmlHttp = new window.XMLHttpRequest();
+            xmlHttp = new window.XMLHttpRequest(),
+
+            async = request.async,
+            user_callback = request.callback;
+
+        delete request.callback;
+        delete request.async;
 
         // Only bothered about offlineLag if it&#x27;s longer than a second, but less than a month. (Especially as Date can be dodgy)
         if (offlineLag &gt; 1000 &amp;&amp; offlineLag &lt; (31 * 24 * 60 * 60 * 1000)) {
@@ -238,8 +252,8 @@ module.exports = (function (window) {
         }
 
         function requestFinished(xmlHttp) {
-            if (utils.is(request.callback, &#x27;function&#x27;)) {
-                request.callback.call(request, xmlHttp);
+            if (utils.is(user_callback, &#x27;function&#x27;)) {
+                user_callback.call(request, xmlHttp);
             }
             if (xmlHttp.status &gt;= 200 &amp;&amp; xmlHttp.status &lt; 300) {
                 success(request.requestID);
@@ -254,7 +268,7 @@ module.exports = (function (window) {
 
         path = utils.serialize(request);
 
-        if (request.async) {
+        if (async) {
             xmlHttp.onreadystatechange = function () {
                 if (xmlHttp.readyState === 4) {
                     requestFinished(xmlHttp);
@@ -266,11 +280,11 @@ module.exports = (function (window) {
 
         // Both developer and noSend flags have to be set to stop the request sending.
         if (!(settings.get(&#x27;developer&#x27;) &amp;&amp; settings.get(&#x27;noSend&#x27;))) {
-            xmlHttp.open(&quot;POST&quot;, domain, request.async);
+            xmlHttp.open(&quot;POST&quot;, domain, async);
             xmlHttp.send(path);
         }
 
-        if (!request.async) {
+        if (!async) {
             requestFinished(xmlHttp);
         }
     }

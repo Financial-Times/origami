@@ -114,7 +114,13 @@ module.exports = (function (window) {
          */
         var offlineLag = (new Date()).getTime() - request.queueTime,
             path,
-            xmlHttp = new window.XMLHttpRequest();
+            xmlHttp = new window.XMLHttpRequest(),
+
+            async = request.async,
+            user_callback = request.callback;
+
+        delete request.callback;
+        delete request.async;
 
         // Only bothered about offlineLag if it's longer than a second, but less than a month. (Especially as Date can be dodgy)
         if (offlineLag > 1000 && offlineLag < (31 * 24 * 60 * 60 * 1000)) {
@@ -122,8 +128,8 @@ module.exports = (function (window) {
         }
 
         function requestFinished(xmlHttp) {
-            if (utils.is(request.callback, 'function')) {
-                request.callback.call(request, xmlHttp);
+            if (utils.is(user_callback, 'function')) {
+                user_callback.call(request, xmlHttp);
             }
             if (xmlHttp.status >= 200 && xmlHttp.status < 300) {
                 success(request.requestID);
@@ -138,7 +144,7 @@ module.exports = (function (window) {
 
         path = utils.serialize(request);
 
-        if (request.async) {
+        if (async) {
             xmlHttp.onreadystatechange = function () {
                 if (xmlHttp.readyState === 4) {
                     requestFinished(xmlHttp);
@@ -150,11 +156,11 @@ module.exports = (function (window) {
 
         // Both developer and noSend flags have to be set to stop the request sending.
         if (!(settings.get('developer') && settings.get('noSend'))) {
-            xmlHttp.open("POST", domain, request.async);
+            xmlHttp.open("POST", domain, async);
             xmlHttp.send(path);
         }
 
-        if (!request.async) {
+        if (!async) {
             requestFinished(xmlHttp);
         }
     }

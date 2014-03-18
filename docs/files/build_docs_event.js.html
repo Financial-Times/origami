@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Queue - Origami Tracking module</title>
+    <title>build/docs/event.js - Origami Tracking module</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -118,50 +118,59 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Queue Module</h1>
-<div class="box clearfix meta">
-    
+                        <h1 class="file-heading">File: build/docs/event.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * For tracking multiple events per page.
+ * @module Track
+ * @submodule event
+ * @class Track.event
+ * @static
+ */
 
-    
-        <div class="foundat">
-            Defined in: <a href="../files/build_docs_core_queue.js.html#l1"><code>build&#x2F;docs&#x2F;core&#x2F;queue.js:1</code></a>
-        </div>
-    
+/*global module, require, window */
+module.exports = (function (window) {
+    &quot;use strict&quot;;
 
-    
-</div>
+    var
+        Core = require(&quot;./core&quot;),
+        utils = require(&quot;./utils&quot;),
+
+        /**
+         * Default properties for events.
+         * @property defaultEventConfig
+         * @type {Object}
+         * @private
+         */
+        defaultEventConfig = {
+            type: &#x27;event&#x27;
+        };
+
+    /**
+     * Make the page tracking request.
+     * @method data
+     * @param [config] {Object} Configuration object. If omitted, will use the defaults.
+     * @param [callback] {Function} Callback function. Called when request completed.
+     * @async
+     */
+    function event(type, value, callback) {
+        var config = utils.merge(defaultEventConfig, {
+            eventType: type,
+            eventData: value
+        });
+        Core.track(config, callback);
+    }
+
+    window.addEventListener(&#x27;oTrackingEvent&#x27;, event, false);
+
+    return event;
+
+}(window));
 
 
-
-<div class="box intro">
-    <p>Class for handling a queue backed up by a store.</p>
-
-</div>
-
-
-
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/Queue.html">
-                        Queue
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
-
-    <div class="yui3-u-1-2">
-        
-    </div>
+    </pre>
 </div>
 
                     </div>

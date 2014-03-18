@@ -90,7 +90,8 @@ module.exports = function isBuffer(arg) {
     && typeof arg.readUInt8 === 'function';
 }
 },{}],"p2BnaY":[function(require,module,exports){
-(function (process,global){// Copyright Joyent, Inc. and other Node contributors.
+(function (process,global){
+// Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
 // copy of this software and associated documentation files (the
@@ -676,6 +677,7 @@ exports._extend = function(origin, add) {
 function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
+
 }).call(this,require("/Users/mark.stephens/Sites/origami-tracking/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./support/isBuffer":4,"/Users/mark.stephens/Sites/origami-tracking/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":3,"inherits":2}],"util":[function(require,module,exports){
 module.exports=require('p2BnaY');

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Track - Origami Tracking module</title>
+    <title>Track.event - Origami Tracking module</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -118,7 +118,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Track Class</h1>
+                        <h1>Track.event Class</h1>
 <div class="box meta">
     
 
@@ -126,13 +126,14 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/build_docs_main.js.html#l1"><code>build&#x2F;docs&#x2F;main.js:1</code></a>
+            Defined in: <a href="../files/build_docs_event.js.html#l1"><code>build&#x2F;docs&#x2F;event.js:1</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/Track.html">Track</a>
+            Module: <a href="../modules/event.html">event</a><br>
+            Parent Module: <a href="../modules/Track.html">Track</a>
         
     
 
@@ -142,20 +143,8 @@
 
 
 <div class="box intro">
-    <h1 id="origami-tracking-module-">Origami tracking module.</h1>
-<p>From this specification: <a href="https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing">https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing</a></p>
-<h2 id="features">Features</h2>
-<ul>
-<li>Use AJAX instead of image requests</li>
-<li>Bundle requests TODO</li>
-<li>Handle offline</li>
-<li>Use storage methods other than cookies</li>
-<li>Make the API cleaner and easier to use</li>
-<li>Origami module</li>
-<li>Use a single configuration object</li>
-</ul>
-<h2 id="example">Example</h2>
-<pre>Track.init({ environment: 'test', server: 'http://ftweb03299-lvpr-uk-d/' });</pre>
+    <p>For tracking multiple events per page.</p>
+
 </div>
 
 
@@ -185,28 +174,7 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_destroy">destroy</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_developer">developer</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_init">init</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_toString">toString</a>
+                                <a href="#method_data">data</a>
 
                                 
                                 
@@ -223,14 +191,7 @@
                     <ul class="index-list properties">
                         
                             <li class="index-item property private">
-                                <a href="#property__self">_self</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#property_version">version</a>
+                                <a href="#property_defaultEventConfig">defaultEventConfig</a>
 
                                 
                                 
@@ -250,63 +211,8 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_destroy" class="method item">
-    <h3 class="name"><code>destroy</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/build_docs_main.js.html#l68"><code>build&#x2F;docs&#x2F;main.js:68</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Clean up the tracking module.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_developer" class="method item">
-    <h3 class="name"><code>developer</code></h3>
+                    <div id="method_data" class="method item">
+    <h3 class="name"><code>data</code></h3>
 
     
         <div class="args">
@@ -314,7 +220,13 @@
             
                 <li class="arg">
                     
-                        <code class="optional">[level]</code>
+                        <code class="optional">[config]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[callback]</code>
                     
                 </li>
             
@@ -335,6 +247,8 @@
     
 
     
+        <span class="flag async">async</span>
+    
 
     <div class="meta">
         
@@ -347,7 +261,7 @@
             
         
         
-        <a href="../files/build_docs_main.js.html#l49"><code>build&#x2F;docs&#x2F;main.js:49</code></a>
+        <a href="../files/build_docs_event.js.html#l27"><code>build&#x2F;docs&#x2F;event.js:27</code></a>
         
         </p>
 
@@ -358,7 +272,7 @@
     </div>
 
     <div class="description">
-        <p>Turn on/off developer mode. (Can also be activated on init.)</p>
+        <p>Make the page tracking request.</p>
 
     </div>
 
@@ -370,104 +284,32 @@
             
                 <li class="param">
                     
-                        <code class="param-name optional">[level]</code>
-                        <span class="type">Boolean</span>
+                        <code class="param-name optional">[config]</code>
+                        <span class="type">Object</span>
                         <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>Turn on or off, defaults to on if omitted.</p>
+                        <p>Configuration object. If omitted, will use the defaults.</p>
 
                     </div>
 
                     
                 </li>
             
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_init" class="method item">
-    <h3 class="name"><code>init</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>config</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/build_docs_main.js.html#l78"><code>build&#x2F;docs&#x2F;main.js:78</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Initialise the Track module.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
                 <li class="param">
                     
-                        <code class="param-name">config</code>
-                        <span class="type">Object</span>
+                        <code class="param-name optional">[callback]</code>
+                        <span class="type">Function</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>Configuration object</p>
+                        <p>Callback function. Called when request completed.</p>
 
                     </div>
 
@@ -478,79 +320,6 @@
         </div>
     
 
-    
-
-    
-</div>
-
-                
-                    <div id="method_toString" class="method item">
-    <h3 class="name"><code>toString</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type">String</span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/build_docs_main.js.html#l105"><code>build&#x2F;docs&#x2F;main.js:105</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Overload toString method to show the version.</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type">String</span>:
-                    
-                    <p>The module&#39;s version.</p>
-
-                
-            </div>
-        </div>
     
 
     
@@ -565,8 +334,8 @@
                 <h2 class="off-left">Properties</h2>
 
                 
-                    <div id="property__self" class="property item private">
-    <h3 class="name"><code>_self</code></h3>
+                    <div id="property_defaultEventConfig" class="property item private">
+    <h3 class="name"><code>defaultEventConfig</code></h3>
     <span class="type">Object</span>
 
     
@@ -590,7 +359,7 @@
             
         
         
-        <a href="../files/build_docs_main.js.html#l33"><code>build&#x2F;docs&#x2F;main.js:33</code></a>
+        <a href="../files/build_docs_event.js.html#l17"><code>build&#x2F;docs&#x2F;event.js:17</code></a>
         
         </p>
 
@@ -600,52 +369,7 @@
     </div>
 
     <div class="description">
-        <p>Shared &quot;internal&quot; scope.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_version" class="property item">
-    <h3 class="name"><code>version</code></h3>
-    <span class="type">String</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/build_docs_main.js.html#l42"><code>build&#x2F;docs&#x2F;main.js:42</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The version of the tracking module.</p>
+        <p>Default properties for events.</p>
 
     </div>
 

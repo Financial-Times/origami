@@ -59,6 +59,28 @@
             "fors": {},
             "namespaces": {}
         },
+        "build/docs/data.js": {
+            "name": "build/docs/data.js",
+            "modules": {
+                "data": 1
+            },
+            "classes": {
+                "Track.data": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "build/docs/event.js": {
+            "name": "build/docs/event.js",
+            "modules": {
+                "event": 1
+            },
+            "classes": {
+                "Track.event": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "build/docs/main.js": {
             "name": "build/docs/main.js",
             "modules": {
@@ -157,12 +179,16 @@
         "Track": {
             "name": "Track",
             "submodules": {
+                "data": 1,
+                "event": 1,
                 "page": 1,
                 "_Utils": 1
             },
             "classes": {
                 "Settings": 1,
                 "Track._Core": 1,
+                "Track.data": 1,
+                "Track.event": 1,
                 "Track": 1,
                 "Track.page": 1,
                 "Track._Utils": 1
@@ -205,6 +231,38 @@
                 }
             ],
             "is_constructor": 1
+        },
+        "data": {
+            "name": "data",
+            "submodules": {},
+            "classes": {
+                "Track.data": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Track",
+            "namespace": "",
+            "file": "build/docs/data.js",
+            "line": 1,
+            "description": "For tracking additional page-level data.",
+            "static": "Params:\n// Page level\n'uuid',\n'pageSubsLevel',\n'siteMap',\n'title',\n'assetType',\n'edition',\n'brand',\n'theme',\n'hurdle',\n'error',\n'searchQuery'"
+        },
+        "event": {
+            "name": "event",
+            "submodules": {},
+            "classes": {
+                "Track.event": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Track",
+            "namespace": "",
+            "file": "build/docs/event.js",
+            "line": 1,
+            "description": "For tracking multiple events per page.",
+            "static": 1
         },
         "page": {
             "name": "page",
@@ -313,6 +371,36 @@
             "file": "build/docs/core.js",
             "line": 1,
             "description": "Core functionality. Queuing and sending tags"
+        },
+        "Track.data": {
+            "name": "Track.data",
+            "shortname": "Track.data",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Track",
+            "submodule": "data",
+            "namespace": "",
+            "file": "build/docs/data.js",
+            "line": 1,
+            "description": "For tracking additional page-level data."
+        },
+        "Track.event": {
+            "name": "Track.event",
+            "shortname": "Track.event",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Track",
+            "submodule": "event",
+            "namespace": "",
+            "file": "build/docs/event.js",
+            "line": 1,
+            "description": "For tracking multiple events per page."
         },
         "Track": {
             "name": "Track",
@@ -620,7 +708,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 162,
+            "line": 168,
             "description": "Adds a new request to the list of pending requests",
             "itemtype": "method",
             "name": "add",
@@ -636,7 +724,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 177,
+            "line": 183,
             "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
             "itemtype": "method",
             "name": "run",
@@ -655,7 +743,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 206,
+            "line": 212,
             "description": "Convenience function to add and run a request all in one go.",
             "itemtype": "method",
             "name": "addAndRun",
@@ -672,7 +760,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 216,
+            "line": 222,
             "description": "Init the queue and send any leftover tags.",
             "itemtype": "method",
             "name": "init",
@@ -898,6 +986,82 @@
             "class": "Track._Core",
             "module": "Track",
             "submodule": "_Core"
+        },
+        {
+            "file": "build/docs/data.js",
+            "line": 31,
+            "description": "Default properties for data tracking requests.",
+            "itemtype": "property",
+            "name": "defaultDataConfig",
+            "type": "{Object}",
+            "access": "private",
+            "tagname": "",
+            "class": "Track.data",
+            "module": "Track",
+            "submodule": "data"
+        },
+        {
+            "file": "build/docs/data.js",
+            "line": 41,
+            "description": "Make the page tracking request.",
+            "itemtype": "method",
+            "name": "data",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "Configuration object. If omitted, will use the defaults.",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "Callback function. Called when request completed.",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "async": 1,
+            "class": "Track.data",
+            "module": "Track",
+            "submodule": "data"
+        },
+        {
+            "file": "build/docs/event.js",
+            "line": 17,
+            "description": "Default properties for events.",
+            "itemtype": "property",
+            "name": "defaultEventConfig",
+            "type": "{Object}",
+            "access": "private",
+            "tagname": "",
+            "class": "Track.event",
+            "module": "Track",
+            "submodule": "event"
+        },
+        {
+            "file": "build/docs/event.js",
+            "line": 27,
+            "description": "Make the page tracking request.",
+            "itemtype": "method",
+            "name": "data",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "Configuration object. If omitted, will use the defaults.",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "Callback function. Called when request completed.",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "async": 1,
+            "class": "Track.event",
+            "module": "Track",
+            "submodule": "event"
         },
         {
             "file": "build/docs/main.js",

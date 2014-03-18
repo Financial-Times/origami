@@ -164,8 +164,12 @@ module.exports = function (grunt) {
 
         karma: {
             options: {
-                frameworks: ['browserify', 'mocha'],
                 files: ['src/javascript/**/*.js', 'test/**/*.js'],
+
+                //logLevel: "DEBUG",
+                frameworks: ['browserify', 'mocha', 'sinon'],
+                singleRun: true,
+                browsers: ['PhantomJS'],
 
                 preprocessors: {
                     'test/**/*.js': ['browserify'],
@@ -174,22 +178,17 @@ module.exports = function (grunt) {
                 browserify: {
                     debug: false
                 },
-                singleRun: true,
-                browsers: ['PhantomJS'],
-
+                reporters: ['progress', 'html', 'coverage'],
                 htmlReporter: {
                     outputDir: './build/reports/unit-tests'
                 },
-
                 coverageReporter: {
                     reporters: [
                         { type: 'text', dir : './build/reports/coverage/' }/*,
-                        TODO Add this back in, when they sort out Karma https://github.com/xdissent/karma-browserify/issues/29
-                        { type : 'html', dir : './build/reports/coverage/' }*/
+                         TODO Add this back in, when they sort out Karma https://github.com/xdissent/karma-browserify/issues/29
+                         { type : 'html', dir : './build/reports/coverage/' }*/
                     ]
-                },
-
-                reporters: ['progress', 'html', 'coverage']
+                }
             },
             dev: {},
             ci: {},

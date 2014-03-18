@@ -8,6 +8,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "Track._Core.Send",
         "Track._Core.Store",
         "Track._Utils",
+        "Track.data",
+        "Track.event",
         "Track.page"
     ],
     "modules": [
@@ -17,6 +19,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "Track",
         "_Core",
         "_Utils",
+        "data",
+        "event",
         "page"
     ],
     "allModules": [
@@ -29,6 +33,16 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "_Utils",
             "name": "_Utils",
             "description": "Common utilities for the tracking module."
+        },
+        {
+            "displayName": "data",
+            "name": "data",
+            "description": "For tracking additional page-level data."
+        },
+        {
+            "displayName": "event",
+            "name": "event",
+            "description": "For tracking multiple events per page."
         },
         {
             "displayName": "page",

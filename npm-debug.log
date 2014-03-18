@@ -1,0 +1,29 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'shrinkwrap' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 error Error: Problems were encountered
+4 error Please correct and try again.
+4 error extraneous: fsevents@0.1.6 /Users/mark.stephens/Sites/origami-tracking/node_modules/karma-browserify/node_modules/chokidar/node_modules/fsevents
+4 error extraneous: recursive-readdir@0.0.2 /Users/mark.stephens/Sites/origami-tracking/node_modules/karma-browserify/node_modules/chokidar/node_modules/recursive-readdir
+4 error extraneous: fsevents@0.1.6 /Users/mark.stephens/Sites/origami-tracking/node_modules/karma/node_modules/chokidar/node_modules/fsevents
+4 error extraneous: recursive-readdir@0.0.2 /Users/mark.stephens/Sites/origami-tracking/node_modules/karma/node_modules/chokidar/node_modules/recursive-readdir
+4 error     at shrinkwrap_ (/usr/local/lib/node_modules/npm/lib/shrinkwrap.js:29:15)
+4 error     at /usr/local/lib/node_modules/npm/lib/shrinkwrap.js:23:5
+4 error     at /usr/local/lib/node_modules/npm/lib/ls.js:44:30
+4 error     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:116:5
+4 error     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:238:14
+4 error     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:48:11)
+4 error     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:238:14
+4 error     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:48:11)
+4 error     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:238:14
+4 error     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:48:11)
+5 error If you need help, you may report this *entire* log,
+5 error including the npm and node versions, at:
+5 error     <http://github.com/npm/npm/issues>
+6 error System Darwin 13.1.0
+7 error command "node" "/usr/local/bin/npm" "shrinkwrap"
+8 error cwd /Users/mark.stephens/Sites/origami-tracking
+9 error node -v v0.10.26
+10 error npm -v 1.4.3
+11 verbose exit [ 1, true ]

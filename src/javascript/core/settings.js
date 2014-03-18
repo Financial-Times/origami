@@ -5,7 +5,9 @@
  */
 
 /*global module */
-var settings = {};
+var settings = {
+    'internalCounter': 0
+};
 
 module.exports = (function () {
     "use strict";

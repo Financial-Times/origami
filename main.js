@@ -117,8 +117,8 @@ module.exports = (function () {
         destroy: destroy,
         toString: toString,
 
-        utils: utils,
-
-        page: require('./src/javascript/page')
+        page:  require('./src/javascript/page'),
+        data:  require('./src/javascript/data'),
+        event: require('./src/javascript/event')
     };
 }());

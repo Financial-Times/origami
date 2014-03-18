@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Queue - Origami Tracking module</title>
+    <title>build/docs/data.js - Origami Tracking module</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -118,50 +118,70 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Queue Module</h1>
-<div class="box clearfix meta">
-    
+                        <h1 class="file-heading">File: build/docs/data.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * For tracking additional page-level data.
+ * @module Track
+ * @submodule data
+ * @class Track.data
+ * @static
+ *
+ * Params:
+ // Page level
+ &#x27;uuid&#x27;,
+ &#x27;pageSubsLevel&#x27;,
+ &#x27;siteMap&#x27;,
+ &#x27;title&#x27;,
+ &#x27;assetType&#x27;,
+ &#x27;edition&#x27;,
+ &#x27;brand&#x27;,
+ &#x27;theme&#x27;,
+ &#x27;hurdle&#x27;,
+ &#x27;error&#x27;,
+ &#x27;searchQuery&#x27;
+ */
 
-    
-        <div class="foundat">
-            Defined in: <a href="../files/build_docs_core_queue.js.html#l1"><code>build&#x2F;docs&#x2F;core&#x2F;queue.js:1</code></a>
-        </div>
-    
+/*global module, require, window */
+module.exports = (function (window) {
+    &quot;use strict&quot;;
 
-    
-</div>
+    var
+        Core = require(&quot;./core&quot;),
+        utils = require(&quot;./utils&quot;),
+
+        /**
+         * Default properties for data tracking requests.
+         * @property defaultDataConfig
+         * @type {Object}
+         * @private
+         */
+        defaultDataConfig = {
+            type: &#x27;data&#x27;
+        };
+
+    /**
+     * Make the page tracking request.
+     * @method data
+     * @param [config] {Object} Configuration object. If omitted, will use the defaults.
+     * @param [callback] {Function} Callback function. Called when request completed.
+     * @async
+     */
+    function data(config, callback) {
+        config = utils.merge(defaultDataConfig, config);
+        Core.track(config, callback);
+    }
+
+    window.addEventListener(&#x27;oTrackingData&#x27;, data, false);
+
+    return data;
+
+}(window));
 
 
-
-<div class="box intro">
-    <p>Class for handling a queue backed up by a store.</p>
-
-</div>
-
-
-
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/Queue.html">
-                        Queue
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
-
-    <div class="yui3-u-1-2">
-        
-    </div>
+    </pre>
 </div>
 
                     </div>
