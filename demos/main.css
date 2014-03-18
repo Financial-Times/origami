@@ -419,9 +419,9 @@ html {
  *
  *  <use case>   <colorname>   <role>   [<status>],
  *
- * The use case name must be a single word comprising just letters, numbers, and dashes.  
+ * The use case name must be a single word comprising just letters, numbers, and dashes.
  * The colour name should be an exact match for a colour defiend in palette.scss
- * The role must be 'text', 'border', or 'background'.   
+ * The role must be 'text', 'border', or 'background'.
  * The status must be 'DEPRECATED' or absent
  * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
  */
@@ -441,9 +441,9 @@ html {
  *
  *  <use case>   <colorname>   <role>   [<status>],
  *
- * The use case name must be a single word comprising just letters, numbers, and dashes.  
+ * The use case name must be a single word comprising just letters, numbers, and dashes.
  * The colour name should be an exact match for a colour defiend in palette.scss
- * The role must be 'text', 'border', or 'background'.   
+ * The role must be 'text', 'border', or 'background'.
  * The status must be 'DEPRECATED' or absent
  * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
  */
@@ -451,8 +451,8 @@ html {
   font-family: BentonSans-Normal;
   font-style: normal;
   font-weight: normal;
-  src: url("http://build.origami.ft.com/files/o-fonts-assets@0.1.1/BentonSans-Normal.eot");
-  src: url("http://build.origami.ft.com/files/o-fonts-assets@0.1.1/BentonSans-Normal.eot?#iefix") format("embedded-opentype"), url("http://build.origami.ft.com/files/o-fonts-assets@0.1.1/BentonSans-Normal.woff") format("woff"), url("http://build.origami.ft.com/files/o-fonts-assets@0.1.1/BentonSans-Normal.ttf") format("truetype"); }
+  src: url(../bower_components/o-fonts/webfonts/BentonSans-Normal.eot);
+  src: url(../bower_components/o-fonts/webfonts/BentonSans-Normal.eot?#iefix) format("embedded-opentype"), url(../bower_components/o-fonts/webfonts/BentonSans-Normal.woff) format("woff"), url(../bower_components/o-fonts/webfonts/BentonSans-Normal.ttf) format("truetype"); }
 
 .o-ft-forms-field-group {
   position: relative;
@@ -495,7 +495,18 @@ html {
   height: 30px;
   /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */ }
 
-/*=============SELECT=============*/
+.o-ft-forms__field[type="checkbox"], .o-ft-forms__field[type="radio"] {
+  display: inline-block;
+  margin-top: 7px;
+  margin-bottom: 20px; }
+
+.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label, .o-ft-forms__field[type="radio"] + .o-ft-forms__label {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  vertical-align: baseline; }
+
 .o-ft-forms__field--select {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -514,14 +525,11 @@ html {
   font-size: 12px;
   height: 30px;
   /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
+  margin-bottom: 0;
   background-image: url("data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==");
   background-repeat: no-repeat;
-  background-position: 97% center;
-  /*Code below hides default select arrow in FF */
-  text-indent: 0.01px;
-  text-overflow: ''; }
+  background-position: 97% center; }
 
-/*=============TEXTAREA=============*/
 .o-ft-forms__field--textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -540,51 +548,13 @@ html {
   font-size: 12px;
   height: 70px;
   /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
-  vertical-align: top; }
-
-.o-ft-forms__field[type="checkbox"], .o-ft-forms__field[type="radio"] {
-  position: absolute;
-  margin: 2px;
-  opacity: 0; }
-
-.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label, .o-ft-forms__field[type="radio"] + .o-ft-forms__label {
-  display: inline-block;
-  position: relative;
-  margin-right: 15px;
-  margin-bottom: 20px;
-  padding-left: 25px;
-  vertical-align: middle;
-  cursor: pointer; }
-
-.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label .o-ft-forms__field--pseudo, .o-ft-forms__field[type="radio"] + .o-ft-forms__label .o-ft-forms__field--pseudo {
-  position: absolute;
-  margin-left: -25px;
-  width: 13px;
-  height: 13px;
-  border: 3px solid white;
-  box-shadow: 0 0 0 1px #cec6b9;
-  background-color: white; }
-
-.o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label .o-ft-forms__field--pseudo, .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label .o-ft-forms__field--pseudo {
-  box-shadow: 0 0 3px 1px #cec6b9; }
-
-.o-ft-forms__field[type="radio"] + .o-ft-forms__label .o-ft-forms__field--pseudo {
-  border-radius: 9px; }
-
-.o-ft-forms__field[type="radio"]:checked + .o-ft-forms__label .o-ft-forms__field--pseudo {
-  background-color: #9e2f50; }
-
-.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label .o-ft-forms__field--pseudo:after {
-  content: "\2714";
-  font-size: 17px;
-  line-height: 17px;
-  font-weight: bold;
-  color: #9e2f50; }
+  vertical-align: top;
+  margin-bottom: 0; }
 
 .o-ft-forms--error .o-ft-forms__label {
   color: black; }
 
-.o-ft-forms--error .o-ft-forms__field--select, .o-ft-forms--error .o-ft-forms__field--textarea {
+.o-ft-forms--error select.o-ft-forms__field, .o-ft-forms--error textarea.o-ft-forms__field {
   margin-bottom: 0; }
 
 .o-ft-forms--error .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]) {
@@ -596,8 +566,7 @@ html {
   margin-bottom: 6px; }
 
 .o-ft-forms--error .o-ft-forms__field[type="checkbox"] + .o-ft-forms__label, .o-ft-forms--error .o-ft-forms__field[type="radio"] + .o-ft-forms__label {
-  color: black;
-  margin-bottom: 6px; }
+  color: black; }
 
 .o-ft-forms__errortext {
   clear: both;
@@ -616,14 +585,17 @@ html {
   font-size: 18px;
   top: 25px;
   right: 10px;
-  content: "\2716";
-  color: #cc0000;
-  font-weight: bold; }
+  content: "\2717";
+  color: #cc0000; }
 
 .o-ft-forms--valid .o-ft-forms__label {
   color: black; }
 
+.o-ft-forms--valid select.o-ft-forms__field, .o-ft-forms--valid textarea.o-ft-forms__field {
+  margin-bottom: 0; }
+
 .o-ft-forms--valid .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]) {
+  margin-bottom: 0;
   border-color: #458b00;
   color: #458b00; }
 
@@ -638,7 +610,7 @@ html {
   font-size: 18px;
   top: 25px;
   right: 10px;
-  content: "\2714";
+  content: "\2713";
   color: #458b00; }
 
 .o-ft-forms__prefix {
