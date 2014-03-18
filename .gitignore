@@ -4,3 +4,5 @@ bower_components/
 node_modules/
 origami-templates/
 /bin
+/.classpath
+/.project

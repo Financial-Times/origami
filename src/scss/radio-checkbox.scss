@@ -1,0 +1,55 @@
+@include oFtFormsClass('o-ft-forms__field[type="checkbox"]',
+'o-ft-forms__field[type="radio"]') {
+  position: absolute;
+  margin: 2px;
+  opacity: 0;
+}
+
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
+  '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label,
+  .o-ft-forms__field[type="radio"] + .o-ft-forms__label') {
+  display: inline-block;
+  position: relative;
+  margin-right: 15px;
+  margin-bottom: $_o-ft-forms-marginbottom;
+  padding-left: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
+  '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label .o-ft-forms__field--pseudo,
+  .o-ft-forms__field[type="radio"] + .o-ft-forms__label .o-ft-forms__field--pseudo') {
+  position: absolute;
+  margin-left: -25px;
+  width: 13px;
+  height: 13px;
+  border: 3px solid oColorsGetColorFor(forms-field-background);
+  box-shadow: 0 0 0 1px oColorsGetColorFor(forms-field-border);
+  background-color: oColorsGetColorFor(forms-field-background);
+}
+
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
+  '.o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label .o-ft-forms__field--pseudo,
+  .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label .o-ft-forms__field--pseudo') {
+  box-shadow: 0 0 3px 1px oColorsGetColorFor(forms-field-border);
+}
+
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
+  '.o-ft-forms__field[type="radio"] + .o-ft-forms__label .o-ft-forms__field--pseudo') { 
+  border-radius:9px;
+}
+
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
+  '.o-ft-forms__field[type="radio"]:checked + .o-ft-forms__label .o-ft-forms__field--pseudo') {
+  background-color: oColorsGetColorFor(forms-section-border);
+}
+
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
+  '.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label .o-ft-forms__field--pseudo:after') {
+  content: "\2714";
+  font-size: 17px;
+  line-height: 17px;
+  font-weight: bold;
+  color: oColorsGetColorFor(forms-section-border);
+}

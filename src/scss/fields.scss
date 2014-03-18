@@ -44,70 +44,6 @@
   height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
 }
 
-
-/*=============CHECKBOXES AND RADIOS=============*/
-
-@include oFtFormsClass('o-ft-forms__field[type="checkbox"]',
-'o-ft-forms__field[type="radio"]') {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  margin: 2px;
-}
-
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
-  '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label, .o-ft-forms__field[type="radio"] + .o-ft-forms__label') {
-  display: inline-block;
-  cursor: pointer;
-  position: relative;
-  padding-left: 25px;
-  margin-right: 15px;
-  margin-bottom: $_o-ft-forms-marginbottom;
-  vertical-align: middle;
-}
-
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
-  '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label:before, .o-ft-forms__field[type="radio"] + .o-ft-forms__label:before') {
-  content: "";
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  margin-right: 10px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  background-color: oColorsGetColorFor(forms-field-background);
-  border: $_o-ft-forms-fieldborder;
-}
-
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
-  '.o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label:before, .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label:before') {
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3) inset, 0 0 0 0 rgba(255, 255, 255, 0.2);
-}
-
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
-  '.o-ft-forms__field[type="radio"] + .o-ft-forms__label:before') {
-  border-radius:9px;
-}
-
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
-  '.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label:before, .o-ft-forms__field[type="radio"]:checked + .o-ft-forms__label:before') {
-  content: "\2022";
-  color: oColorsGetColorFor(forms-section-border);
-  font-size: 38px;
-  text-align: center;
-  line-height: 18px;
-}
-
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
-  '.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label:before') {
-  content: "\2714";
-  font-size: 16px;
-  line-height: 18px;
-  font-weight: bold;
-}
-
 /*=============SELECT=============*/
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--select', '.o-ft-forms__field--select') {
@@ -120,6 +56,8 @@
   text-indent: 0.01px;
   text-overflow: '';
 }
+
+/*=============TEXTAREA=============*/
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--textarea', '.o-ft-forms__field--textarea') {
  @include commonField();
