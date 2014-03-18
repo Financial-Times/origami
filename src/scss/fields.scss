@@ -1,14 +1,15 @@
 @include oFtFormsClass(o-ft-forms-field-group) {
-   position: relative;
-   padding-right:10px;
+    position: relative;
+    padding-right:10px;
 }
 
 @include oFtFormsClass(o-ft-forms__label) {
-  display: block;
-  margin-bottom: 5px;
-  color: oColorsGetColorFor(forms-label-text);
-  font-family: $o-fonts-bentonsans-normal;
-  font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+    color: oColorsGetColorFor(forms-label-text);
+    font-family: $o-fonts-bentonsans-normal;
+    font-size: 14px;
+  
     small {
         color: oColorsGetColorFor(forms-field-text);
         font-size: 10px;
@@ -20,8 +21,8 @@
 }
 
 @include oFtFormsClass(o-ft-forms__label--inline) {
-  padding-top: 6px;
-  line-height: 18px;
+    padding-top: 6px;
+    line-height: 18px;
 }
 
 @include oFtFormsClass('o-ft-forms__field[type="text"]',
@@ -39,38 +40,27 @@
 'o-ft-forms__field[type="number"]',
 'o-ft-forms__field[type="color"]',
 'o-ft-forms__field[type="range"]') {
-	@include commonField();
-	height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
+    @include commonField();
+    height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
 }
 
-@include oFtFormsClass('o-ft-forms__field[type="checkbox"]',
-'o-ft-forms__field[type="radio"]') {
-	display: inline-block;
-	margin-top: 7px;
-	margin-bottom: $_o-ft-forms-marginbottom;
-}
-
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
-  '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label, .o-ft-forms__field[type="radio"] + .o-ft-forms__label') {
-  display: inline-block;
-  margin-left: 5px;
-  margin-right: 10px;
-  margin-bottom: 0;
-  vertical-align: baseline;
-}
+/*=============SELECT=============*/
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--select', '.o-ft-forms__field--select') {
-  @include commonField();
-  height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
-  margin-bottom: 0;
-  background-image: url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==');
-  background-repeat: no-repeat;
-  background-position: 97% center;
+    @include commonField();
+    height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
+    background-image: url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==');
+    background-repeat: no-repeat;
+    background-position: 97% center;
+    /*Code below hides default select arrow in FF */
+    text-indent: 0.01px;
+    text-overflow: '';
 }
 
+/*=============TEXTAREA=============*/
+
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--textarea', '.o-ft-forms__field--textarea') {
- @include commonField();
-  height: 70px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
-  vertical-align: top;
-  margin-bottom: 0;
+    @include commonField();
+    height: 70px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
+    vertical-align: top;
 }
