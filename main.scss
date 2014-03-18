@@ -6,7 +6,7 @@
 @import "src/scss/_mixins.scss";
 
 @if (not $o-ft-forms-is-silent) {
-  @include oFontsInclude(BentonSans, Normal);
+  @include oFontsInclude(BentonSans, normal);
 }
 
 @import "src/scss/fields.scss";

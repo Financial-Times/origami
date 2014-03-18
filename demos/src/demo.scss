@@ -3,7 +3,9 @@ $o-grid-mq-type: width;
 @import "o-grid/main";
 
 $o-font-path: '../bower_components/o-fonts/webfonts/';
-@import "main.scss";
+
+$o-ft-forms-is-silent: false;
+@import "../../main";
 
 body {
   margin: 20px 0;
