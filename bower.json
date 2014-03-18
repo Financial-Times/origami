@@ -10,7 +10,7 @@
         "test"
     ],
     "dependencies": {
-        "o-fonts": "http://git.svc.ft.com:8080/scm/orig/o-fonts.git#>=0.6.1 <1",
+        "o-fonts": "^0.7.0",
         "o-colors": "https://github.com/Financial-Times/o-colors.git#>=2.1.5 <3",
         "o-ft-icons": "https://github.com/Financial-Times/o-ft-icons.git#>=0.0.5 <1"
     },
