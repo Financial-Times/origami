@@ -77,8 +77,9 @@
 		display: block;
 		height: 35px;
 		width: 100%; // needed for firefox with svg
-		background: url(oFtHeaderAsset("img/ft-logo.gif")) no-repeat; 
-		background: url(oFtHeaderAsset("img/ft-logo.svg")) no-repeat;
+		background: url(oFtHeaderAsset('img/ft-logo.gif')) no-repeat; 
+		// the weird value for rgba is to prevent sass converting rgba(0,0,0,0) to 'transparent', which would cause the following line of css to be understood by ie7/8 and the svg to be downloaded
+		background: rgba(0,0,0,0.001) url(oFtHeaderAsset('img/ft-logo.svg')) no-repeat;
 		text-indent: 100%;
 		white-space: nowrap;
 		overflow: hidden;
