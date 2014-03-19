@@ -1,12 +1,6 @@
 $o-fonts-is-silent: false;
 @import "../../main";
 
-%demo-text {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  color: #888;
-}
-
 .demo-container {
   margin: 0 20px;
 }
@@ -15,7 +9,6 @@ $o-fonts-is-silent: false;
   clear: both;
   overflow: hidden;
   margin-bottom: 20px;
-  border-bottom: 1px dotted #888;
 }
 
 .demo-col {
@@ -29,7 +22,8 @@ $o-fonts-is-silent: false;
 }
 
 .demo-title {
-  @extend %demo-text;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #888;
   font-size: 36px;
   line-height: 48px;
 }
@@ -73,27 +67,6 @@ $o-fonts-is-silent: false;
 .demo-clarion-italic .demo-example {
   font-family: $o-fonts-clarion-italic;
 }
-
-.demo-size-x-small {
-  font-size: 11px;
-  line-height: 14px;
-}
-
-.demo-size-small {
-  font-size: 16px;
-  line-height: 21px;
-}
-
-.demo-size-medium {
-  font-size: 21px;
-  line-height: 28px;
-}
-
-.demo-size-large {
-  font-size: 28px;
-  line-height: 36px;
-}
-
 .demo-size-x-large {
   font-size: 36px;
   line-height: 44px;
@@ -102,158 +75,4 @@ $o-fonts-is-silent: false;
 .demo-size-huge {
   font-size: 300px;
   line-height: 300px;
-}
-
-.demo-size-10px {
-  font-size: 10px;
-  line-height: 1.3em;
-}
-
-.demo-size-11px {
-  font-size: 11px;
-  line-height: 1.3em;
-}
-
-.demo-size-12px {
-  font-size: 12px;
-  line-height: 1.3em;
-}
-
-.demo-size-13px {
-  font-size: 13px;
-  line-height: 1.3em;
-}
-
-.demo-size-14px {
-  font-size: 14px;
-  line-height: 1.3em;
-}
-
-.demo-size-16px {
-  font-size: 16px;
-  line-height: 1.3em;
-}
-
-.demo-size-18px {
-  font-size: 18px;
-  line-height: 1.3em;
-}
-
-.demo-size-20px {
-  font-size: 20px;
-  line-height: 1.3em;
-}
-
-.demo-size-24px {
-  font-size: 24px;
-  line-height: 1.3em;
-}
-
-.demo-size-30px {
-  font-size: 30px;
-  line-height: 1.3em;
-}
-
-.demo-size-36px {
-  font-size: 36px;
-  line-height: 1.3em;
-}
-
-.demo-size-48px {
-  font-size: 48px;
-  line-height: 1.3em;
-}
-
-.demo-size-60px {
-  font-size: 60px;
-  line-height: 1.3em;
-}
-
-.demo-size-72px {
-  font-size: 72px;
-  line-height: 1.3em;
-}
-
-.demo-size-90px {
-  font-size: 90px;
-  line-height: 1.3em;
-}
-
-.demo-paragraph-10px {
-  width: 120px;
-}
-
-.demo-paragraph-11px {
-  width: 132px;
-}
-
-.demo-paragraph-12px {
-  width: 144px;
-}
-
-.demo-paragraph-13px {
-  width: 156px;
-}
-
-.demo-paragraph-14px {
-  width: 168px;
-}
-
-.demo-paragraph-16px {
-  width: 192px;
-}
-
-.demo-paragraph-18px {
-  width: 216px;
-}
-
-.demo-paragraph-20px {
-  width: 240px;
-}
-
-.demo-paragraph-24px {
-  width: 288px;
-}
-
-.demo-paragraph-30px {
-  width: 360px;
-}
-
-.demo-paragraph-36px {
-  width: 432px;
-}
-
-.demo-paragraph-48px {
-  width: 576px;
-}
-
-.demo-paragraph-60px {
-  width: 720px;
-}
-
-.demo-paragraph-72px {
-  width: 864px;
-}
-
-.demo-paragraph-90px {
-  width: 1080px;
-}
-
-.demo-table-size {
-  display: block;
-  overflow: hidden;
-  margin: 0 0 30px 0;
-}
-
-.demo-table-size td {
-  padding-bottom: 15px;
-}
-
-.demo-table-size td:first-child {
-  @extend %demo-text;
-}
-
-.demo-table-size .demo-example {
-  white-space: nowrap;
-  overflow: hidden;
 }

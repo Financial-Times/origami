@@ -5,15 +5,15 @@
   "support": "https://github.com/Financial-Times/o-fonts/issues",
   "supportStatus": "active",
   "demos": [
-      "bentonsans-lighter.html",
-      "bentonsans-normal.html",
-      "bentonsans-bold.html",
-      "clarion-normal.html",
-      "clarion-bold.html",
-      "clarion-italic.html",
-      "millerdisplay-normal.html",
-      "millerdisplay-bold.html",
-      "millerdisplay-bolder.html"
+      "/demos/bentonsans-lighter.html",
+      "/demos/bentonsans-normal.html",
+      "/demos/bentonsans-bold.html",
+      "/demos/clarion-normal.html",
+      "/demos/clarion-bold.html",
+      "/demos/clarion-italic.html",
+      "/demos/millerdisplay-normal.html",
+      "/demos/millerdisplay-bold.html",
+      "/demos/millerdisplay-bolder.html"
   ],
   "ci": {
       "travis": "https://api.travis-ci.org/repos/Financial-Times/o-fonts/builds.json"
