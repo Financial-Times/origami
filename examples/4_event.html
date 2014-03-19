@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+    <title>Example 4: event</title>
+    <link rel="stylesheet" href="./build/example.css" />
+    <script src="./build/track.latest.min.js"></script>
+</head>
+<body class="o-techdocs">
+<header class="o-techdocs-page-header">
+    <h1>Example 4: <code>event</code></h1>
+</header>
+<header class="o-techdocs-page-header__lead">
+    <h2>Call <code>Track.event</code> with the following arguments.</h2>
+</header>
+
+<section class="o-techdocs-content">
+    <form id="example">
+        <fieldset id="config">
+            <legend>Config</legend>
+
+            <div class="fields"></div>
+
+        </fieldset>
+
+        <fieldset id="params">
+            <legend>Parameters</legend>
+
+            <div class="fields"></div>
+
+        </fieldset>
+
+        <p><input type="submit"></p>
+    </form>
+
+    <h3>Javascript</h3>
+    <pre id="javascript"></pre>
+
+    <h3>Messages</h3>
+    <ol id="messages"></ol>
+</section>
+
+<script src="../resources/vendor/jquery/jquery.min.js"></script>
+<script src="./build/util.js"></script>
+<script src="./helper.js"></script>
+<script>
+    (function ($) {
+        var util = require('util');
+
+        var
+                config = {
+                    environment: 'test',
+                    developer: 'true',
+                    server: 'http://ftweb03299-lvpr-uk-d/',
+                    // Site
+                    channel : 'desktop',
+                    // Page
+                    'url': 'http://www.ft.com/home/uk',
+                    'assetType': 'front',
+                    'hurdle': 'hx',
+                    // User
+                    'cohort': ['3', '1', '2'],
+                    'passportID': '4009049153',
+                    'country': 'GBR',
+                    'region': 'london',
+                    'metroArea': 'islington'
+                },
+
+                params = {
+                    'eventModel': ['video', 'slideshow', 'navigation', 'comment', 'generic'],
+                    'eventType': ['play', 'slide', 'hover'],
+                    'eventData': ['true', 'false', '1/2/3/4/5/6', '1', '0.0345']
+                };
+
+        $('#config .fields').append(renderConfig(config));
+        $('#params .fields').append(renderParams(params));
+
+        Track.init(config);
+
+        $('#example').on('submit', function (event) {
+            event.preventDefault();
+
+            var eventModel = $('#params_eventModel', this),
+                    eventType = $('#params_eventType', this),
+                    eventData = $('#params_eventType', this);
+
+            $('#javascript').text('Track.event(' + util.inspect(eventModel) + ', ' + util.inspect(eventType) + ', ' + util.inspect(eventData) + ');');
+
+            Track.event(eventModel, eventType, eventData);
+        });
+    }(jQuery));
+</script>
+
+</body>
+</html>

@@ -1043,12 +1043,19 @@
             "line": 27,
             "description": "Make the page tracking request.",
             "itemtype": "method",
-            "name": "data",
+            "name": "event",
             "params": [
                 {
-                    "name": "config",
-                    "description": "Configuration object. If omitted, will use the defaults.",
-                    "type": "Object",
+                    "name": "model",
+                    "description": "The model, for example: comment, video, slideshow"
+                },
+                {
+                    "name": "type",
+                    "description": "The type of event, for example: play, share"
+                },
+                {
+                    "name": "value",
+                    "description": "Optional, the value, defaults to true. Examples include the video play amount - 50%, or slideshow slide number.",
                     "optional": true
                 },
                 {

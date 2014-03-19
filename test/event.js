@@ -28,19 +28,20 @@ describe('event', function () {
         var callback = sinon.spy(),
             sent_data;
 
-        track_event('scroll', '50', callback);
+        track_event('slideshow', 'slide', '5', callback);
 
         server.respond();
         sent_data = callback.getCall(0).thisValue;
 
-        assert.deepEqual(Object.keys(sent_data), ["clickID", "requestID", "counter", "environment", "type", "eventType", "eventData", "queueTime"]);
+        assert.deepEqual(Object.keys(sent_data), ["clickID", "requestID", "counter", "environment", "type", "eventModel", "eventType", "eventData", "queueTime"]);
         assert.equal(sent_data.clickID, "clickID");
         assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.requestID), "RequestID is invalid. " + sent_data.requestID);
         assert.equal(sent_data.counter, 1);
         assert.equal(sent_data.environment, "test");
         assert.equal(sent_data.type, "event");
-        assert.equal(sent_data.eventType, "scroll");
-        assert.equal(sent_data.eventData, "50");
+        assert.equal(sent_data.eventModel, "slideshow");
+        assert.equal(sent_data.eventType, "slide");
+        assert.equal(sent_data.eventData, "5");
         assert.ok(/\d+/.test(sent_data.queueTime), "queueTime is invalid. " + sent_data.queueTime);
     });
 });

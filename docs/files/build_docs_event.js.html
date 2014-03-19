@@ -150,13 +150,16 @@ module.exports = (function (window) {
 
     /**
      * Make the page tracking request.
-     * @method data
-     * @param [config] {Object} Configuration object. If omitted, will use the defaults.
+     * @method event
+     * @param model The model, for example: comment, video, slideshow
+     * @param type The type of event, for example: play, share
+     * @param [value] Optional, the value, defaults to true. Examples include the video play amount - 50%, or slideshow slide number.
      * @param [callback] {Function} Callback function. Called when request completed.
      * @async
      */
-    function event(type, value, callback) {
+    function event(model, type, value, callback) {
         var config = utils.merge(defaultEventConfig, {
+            eventModel: model,
             eventType: type,
             eventData: value
         });

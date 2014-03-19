@@ -174,7 +174,7 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_data">data</a>
+                                <a href="#method_event">event</a>
 
                                 
                                 
@@ -211,8 +211,8 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_data" class="method item">
-    <h3 class="name"><code>data</code></h3>
+                    <div id="method_event" class="method item">
+    <h3 class="name"><code>event</code></h3>
 
     
         <div class="args">
@@ -220,7 +220,19 @@
             
                 <li class="arg">
                     
-                        <code class="optional">[config]</code>
+                        <code>model</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>type</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[value]</code>
                     
                 </li>
             
@@ -284,7 +296,39 @@
             
                 <li class="param">
                     
-                        <code class="param-name optional">[config]</code>
+                        <code class="param-name">model</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The model, for example: comment, video, slideshow</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">type</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The type of event, for example: play, share</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[value]</code>
                         <span class="type">Object</span>
                         <span class="flag optional" title="This parameter is optional.">optional</span>
                     
@@ -292,7 +336,7 @@
                     
 
                     <div class="param-description">
-                        <p>Configuration object. If omitted, will use the defaults.</p>
+                        <p>Optional, the value, defaults to true. Examples include the video play amount - 50%, or slideshow slide number.</p>
 
                     </div>
 
