@@ -19,6 +19,6 @@
       "travis": "https://api.travis-ci.org/repos/Financial-Times/o-fonts/builds.json"
   },
   "browserFeatures": {
-      "required": "fontface"
+      "optional": ["fontface"]
   }
 }
