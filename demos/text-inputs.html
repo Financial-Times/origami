@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js o-useragent-ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js o-useragent-ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>o-ft-forms: text-inputs demo</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <style>
+    body {
+        margin: 0;
+    }
+    </style>
+    <link rel="stylesheet" href="/bundles/css?modules=o-ft-forms:/demos/src/demo.scss" />
+</head>
+<body>
+    
+    <div class="o-grid-row">
+    <div data-o-grid-colspan="3 S12 M6" class="o-ft-forms-field-group">
+        <label class="o-ft-forms__label">Text input<small>prompt text ie password need 6 characters</small></label>
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+    </div>
+    <div data-o-grid-colspan="3 S12 M6" class="o-ft-forms-field-group o-ft-forms--valid" >
+        <label class="o-ft-forms__label">Text input with valid entry</label>
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field o-ft-forms__field--valid" value="Field value" />
+    </div>
+    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
+        <label class="o-ft-forms__label">Text input (error)</label>
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" value="Field value" />
+        <div class="o-ft-forms__errortext">Invalid entry</div>
+    </div>
+    <div data-o-grid-colspan="3 S12 M6" class="o-ft-forms-field-group o-ft-forms--error">
+        <label class="o-ft-forms__label">URL input :invalid</label>
+        <input type="url" placeholder="placeholder" class="o-ft-forms__field" value="http://" />
+    </div>
+</div>
+<div class="o-grid-row">
+    <div data-o-grid-colspan="3 S12 M12">
+        <div class="o-grid-row" class="o-ft-forms-field-group">
+            <div data-o-grid-colspan="4" >
+                <label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
+            </div>
+            <div data-o-grid-colspan="8">
+                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+            </div>
+        </div>
+    </div>
+    <div data-o-grid-colspan="3 S12 M12">&nbsp;</div>
+    <div data-o-grid-colspan="3 S12 M12" class="o-ft-forms--error">
+        <div class="o-grid-row" class="o-ft-forms-field-group">
+            <div data-o-grid-colspan="4">
+                <label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
+            </div>
+            <div data-o-grid-colspan="8">
+                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+                <small class="o-ft-forms__errortext">Invalid entry</small>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <script src='http://registry.origami.ft.com/embedapi?autoload=resize'></script>
+</body>
+</html>

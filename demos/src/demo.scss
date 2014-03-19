@@ -1,0 +1,14 @@
+$o-grid-is-silent: false;
+$o-grid-mq-type: width;
+@import "o-grid/main";
+
+$o-ft-forms-is-silent: false;
+@import "../../main";
+
+body {
+  background-color: #fff1e0;
+}
+
+.o-ft-forms__field:valid {
+	border: $_o-ft-forms-fieldborder;
+}

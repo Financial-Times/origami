@@ -1,9 +1,8 @@
-script:
- - "test/travis.rb"
-language: ruby
-before_script:
- - chmod +x ./test/travis.rb
- - npm install -g bower
- - bower install
+language: node_js
+node_js:
+  - "0.10"
 before_install:
- - gem install sass
+  - npm install -g https://github.com/Financial-Times/origami-build-tools/tarball/master
+  - origami-build-tools install
+script:
+  - origami-build-tools test
