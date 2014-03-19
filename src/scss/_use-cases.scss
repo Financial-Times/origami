@@ -72,14 +72,14 @@ $o-colors-usecase-list:
     pearson                           tint2                  background,
     pearson                           warm-grey2             text,
 
-    // Forms
+    // Forms (legacy/tbc)
     forms-label                       black                  text,
     forms-label-error                 black                  text,
     forms-label-error                 white                  background,
     forms-label-error                 red                    border              DEPRECATED,
-    forms-field                       warm-grey2             text,
-    forms-field                       white                  background,
-    forms-field                       tint3                  border,
+    forms-field                       warm-grey2             text                DEPRECATED,
+    forms-field                       white                  background          DEPRECATED,
+    forms-field                       tint3                  border              DEPRECATED,
     forms-field-error                 warm-grey2             text,
     forms-field-error                 white                  background,
     forms-field-error                 red                    border,
@@ -100,11 +100,43 @@ $o-colors-usecase-list:
     forms-button-negative-hover       blue                   text                DEPRECATED,
     forms-section                     claret                 border,
 
+    // Forms
+    form-field-standard               tint3                  border,
+    form-field-standard               white                  background,
+    form-field-standard               warm-grey1             text,
+    form-field-hover                  warm-grey2             border,
+    form-field-hover                  white                  background,
+    form-field-hover                  warm-grey1             text,
+    form-field-selected               warm-grey2             border,
+    form-field-selected               white                  background,
+    form-field-selected               charcoal               text,
+    form-field-disabled               tint2                  border,
+    form-field-disabled               tint2                  background,
+    form-field-disabled               warm-grey1             text,
+
     // Buttons
-    button                            white                  text,
-    button-hover                      cool-grey2             text,
-    button-negative                   blue                   text,
-    button-negative-hover             blue                   text,
+    button-standard                   warm-grey2             border,
+    button-standard                   pink                   background,
+    button-standard                   dark-grey              text,
+    button-hover                      warm-grey2             border,
+    button-hover                      tint2                  background,
+    button-hover                      dark-grey              text,
+    button-selected                   warm-grey2             border,
+    button-selected                   warm-grey2             background,
+    button-selected                   pink                   text,
+    button-disabled                   tint2                  border,
+    button-disabled                   tint2                  background,
+    button-disabled                   warm-grey1             text,
+    button-negative                   blue                   text                DEPRECATED,
+    button-negative-hover             blue                   text                DEPRECATED,
+
+    // Buttons (standout)
+    button-standout-standard          blue                   border,
+    button-standout-standard          blue                   background,
+    button-standout-standard          white                  text,
+    button-standout-hover             dark-blue              border,
+    button-standout-hover             dark-blue              background,
+    button-standout-hover             white                  text,
 
     // Tech docs
     block-code-sample                 tint1                  background,
