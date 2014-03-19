@@ -2,16 +2,11 @@
     "name": "o-ft-buttons",
     "main": ["main.scss"],
     "ignore": [
-        "demo.mustache",
-        "demo.scss",
-        "Gruntfile.js",
-        "package.json",
-        ".travis.yml",
-        "test"
+        ".travis.yml"
     ],
     "dependencies": {
         "o-fonts": "^0.7.0",
-        "o-colors": "^2.2.20",
+        "o-colors": "https://github.com/Financial-Times/o-colors.git#53caf777e40281bdb2958bbd5608dbeae960e877",
         "o-ft-icons": "^0.0.5"
     },
     "devDependencies": {

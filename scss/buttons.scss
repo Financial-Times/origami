@@ -22,10 +22,10 @@
     background-color: $_o-ft-buttons-color-hover-bg;
     color: $_o-ft-buttons-color-hover-fg;
   }
-  &:active, &:focus, &.o-ft-buttons--selected {
-    border-color: $_o-ft-buttons-color-active-border;
-    background-color: $_o-ft-buttons-color-active-bg;
-    color: $_o-ft-buttons-color-active-fg;
+  &.o-ft-buttons--selected {
+    border-color: $_o-ft-buttons-color-selected-border;
+    background-color: $_o-ft-buttons-color-selected-bg;
+    color: $_o-ft-buttons-color-selected-fg;
   }
   &.o-ft-buttons--disabled,
   &[disabled] {
@@ -51,10 +51,10 @@
     background-color: $_o-ft-buttons-color-standout-hover-bg;
     color: $_o-ft-buttons-color-standout-hover-fg;
   }
-  &:active, &:focus, &.o-ft-buttons--selected {
-    border-color: $_o-ft-buttons-color-standout-active-border;
-    background-color: $_o-ft-buttons-color-standout-active-bg;
-    color: $_o-ft-buttons-color-standout-active-fg;
+  &.o-ft-buttons--selected {
+    border-color: $_o-ft-buttons-color-standout-selected-border;
+    background-color: $_o-ft-buttons-color-standout-selected-bg;
+    color: $_o-ft-buttons-color-standout-selected-fg;
   }
   &.o-ft-buttons--disabled {
     border-color: $_o-ft-buttons-color-standout-disabled-border;
