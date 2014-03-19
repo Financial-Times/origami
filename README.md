@@ -19,7 +19,7 @@ and have 4 different states:
 
 * __standard__: without any interaction
 * __hover__: when the mouse pointer is over 
-* __active__: when it has focus, or the mouse button is pressed down on it
+* __selected__: marked as chosen
 * __disabled__: when clicking it will have no effect
 
 Button width is determined by its content.
