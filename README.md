@@ -31,3 +31,10 @@ The following browser features are used but will degrade gracefully:
 * __border-radius__: older browsers will show square corners
 * __web fonts__: older browsers will use websafe alternative fonts
 * __sibling CSS selectors__: spacing between tabs or button groups may be incorrect on very old browsers
+
+## Silent mode
+
+When consuming this module in silent mode, the following mixins should be included to ensure that the fonts and icons are requested:
+
+    @include oFtButtonsFontInclude();
+    @include oFtButtonsIconInclude();

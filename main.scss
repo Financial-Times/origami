@@ -7,8 +7,8 @@
 @import "scss/_mixins";
 
 @if (not $o-ft-buttons-is-silent) {
-  @include oFontsInclude(BentonSans, normal);
-  @include oFtIconsFontFace();
+  @include oFtButtonsFontInclude();
+  @include oFtButtonsIconInclude();
 }
 
 @import "scss/buttons";

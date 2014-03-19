@@ -23,3 +23,11 @@
   -moz-box-sizing: $value;
   box-sizing: $value;
 }
+
+@mixin oFtButtonsFontInclude() {
+  @include oFontsInclude(BentonSans, normal);
+}
+
+@mixin oFtButtonsIconInclude() {
+  @include oFtIconsFontFace();
+}
