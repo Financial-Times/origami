@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js o-useragent-ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js o-useragent-ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>o-ft-forms: select-boxes demo</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <style>
+    body {
+        margin: 0;
+    }
+    </style>
+    <link rel="stylesheet" href="/bundles/css?modules=o-ft-forms:/demos/src/demo.scss" />
+</head>
+<body>
+    
+    <div class="o-grid-row">
+    <div data-o-grid-colspan="3 S12 M6" class="o-ft-forms-field-group">
+        <label class="o-ft-forms__label">Select box</label>
+        <select class="o-ft-forms__field--select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+    </div>
+    <div data-o-grid-colspan="3 S0 M0">&nbsp;</div>
+    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
+        <label class="o-ft-forms__label">Select box (error)</label>
+        <select class="o-ft-forms__field--select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+        <small class="o-ft-forms__errortext">Invalid entry</small>
+    </div>
+</div>
+<div class="o-grid-row">
+    <div data-o-grid-colspan="3 S12 M6">
+        <div class="o-grid-row o-grid-row-compact">
+            <div data-o-grid-colspan="3">
+                <label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
+            </div>
+            <div data-o-grid-colspan="9">
+                <select class="o-ft-forms__field--select">
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                    <option value="option4">Option 4</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div data-o-grid-colspan="3 S0 M0">&nbsp;</div>
+    <div data-o-grid-colspan="3 S12 M6">
+        <div class="o-grid-row o-grid-row-compact">
+            <div data-o-grid-colspan="3">
+                <label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
+            </div>
+            <div data-o-grid-colspan="9" class="o-ft-forms-field-groups o-ft-forms--error">
+                <select class="o-ft-forms__field--select">
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                    <option value="option4">Option 4</option>
+                </select>
+                <small class="o-ft-forms__errortext">Invalid entry</small>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <script src='http://registry.origami.ft.com/embedapi?autoload=resize'></script>
+</body>
+</html>

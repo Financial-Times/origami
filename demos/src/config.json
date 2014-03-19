@@ -1,0 +1,25 @@
+{
+    "options": {
+        "sass": "demos/src/demo.scss"
+    },
+    "demos": {
+        "text-inputs": {
+            "template": "demos/src/text-inputs.mustache"
+        },
+        "select-boxes": {
+            "template": "demos/src/select-boxes.mustache"
+        },
+        "textareas": {
+            "template": "demos/src/textareas.mustache"
+        },
+        "radios": {
+            "template": "demos/src/radios.mustache"
+        },
+        "checkboxes": {
+            "template": "demos/src/checkboxes.mustache"
+        },
+        "prefix-suffix": {
+            "template": "demos/src/prefix-suffix.mustache"
+        }
+    }
+}
