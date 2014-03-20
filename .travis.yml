@@ -2,9 +2,8 @@ language: node_js
 node_js:
   - "0.10"
 before_install:
-  - gem install sass --version "=3.2"
-before_script:
+  - npm install -g https://github.com/Financial-Times/origami-build-tools/tarball/master
+  - origami-build-tools install
   - npm install -g karma
-  - npm install -g bower
-  - bower install
   - npm install -g grunt-cli
+  - origami-build-tools build

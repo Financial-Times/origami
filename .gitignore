@@ -1,7 +1,8 @@
-bower_components/
-node_modules/
 .sass-cache/
-origami-templates
+.idea/
+bower_components/
+build/
+node_modules/
 .grunt
 reports
 tmp
