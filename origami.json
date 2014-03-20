@@ -8,5 +8,8 @@
   	"required": ["html5"],
   	"optional": ["svg", "datauri", "css-gradient"]
   },
-  "demos": ["demos/ft-header.html"]
+  "demos": ["demos/ft-header.html"],
+  "ci": {
+      "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-header/builds.json"
+  }
 }

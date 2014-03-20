@@ -1,5 +1,5 @@
-bower_components/
-node_modules/
+.idea/
 .sass-cache/
-origami-templates
-tmp.scss
+bower_components/
+build/
+node_modules/

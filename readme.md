@@ -1,4 +1,4 @@
-# Header module
+# Header module [![Build Status](https://travis-ci.org/Financial-Times/o-ft-header.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-header)
 
 Origami module for the responsive FT page header. Also provides styles that can be extended by other front-end components intended to be injected into the header.
 
