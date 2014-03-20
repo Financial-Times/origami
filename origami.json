@@ -9,6 +9,9 @@
             "borderradius"
         ]
     },
+    "ci": {
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-forms/builds.json"
+    },
     "demos": [
         "/demos/text-inputs.html",
         "/demos/select-boxes.html",
@@ -16,8 +19,5 @@
         "/demos/radios.html",
         "/demos/checkboxes.html",
         "/demos/prefix-suffix.html"
-    ],
-    "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-forms/builds.json"
-    }
+    ]
 }
