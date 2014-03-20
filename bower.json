@@ -8,6 +8,6 @@
     "o-fonts": "^0.7.0",
     "o-colors": "^2.2.20",
     "o-hoverable": "^0.1.1",
-    "o-useragent": "^0.4.3"
+    "o-useragent": "^0.5.0"
   }
 }
