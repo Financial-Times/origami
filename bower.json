@@ -6,7 +6,7 @@
     ],
     "dependencies": {
         "o-fonts": "^0.7.0",
-        "o-colors": "https://github.com/Financial-Times/o-colors.git#53caf777e40281bdb2958bbd5608dbeae960e877",
+        "o-colors": "^2.3.0",
         "o-ft-icons": "^0.0.5"
     }
 }
