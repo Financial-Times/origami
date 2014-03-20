@@ -10,7 +10,6 @@ body, html {
   width: 50px;
   height: 50px;
   border-radius: 3px;
-  color: transparent;
   font-size: 40px;
   text-align: center;
   font-style: italic;
@@ -39,6 +38,6 @@ body, html {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.o-techdocs-table, .o-techdocs-table > table {
+table.o-techdocs-table, div.o-techdocs-table > table {
   margin: 0;
 }
