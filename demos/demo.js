@@ -9388,7 +9388,7 @@ var Dialog = {
 };
 
 module.exports = Dialog;
-},{"./../../bower_components/jquery/dist/jquery.js":1,"./data/defaults":6,"./data/globals":7,"./public/close":24,"./public/listen":25,"./public/trigger":26,"./public/unlisten":27}],9:[function(require,module,exports){
+},{"./../../bower_components/jquery/dist/jquery.js":1,"./data/defaults":6,"./data/globals":7,"./public/close":23,"./public/listen":24,"./public/trigger":25,"./public/unlisten":26}],9:[function(require,module,exports){
 'use strict';
 
 // var anchor = require('./private/anchor'),
@@ -9574,7 +9574,7 @@ methods.attach = function (dialog) {
 };
 
 module.exports = methods;
-},{"../data/globals":7,"../private/anchor":13,"../private/dimension-calculators":17,"../private/re-align":23,"./../../../bower_components/jquery/dist/jquery.js":1}],15:[function(require,module,exports){
+},{"../data/globals":7,"../private/anchor":13,"../private/dimension-calculators":17,"../private/re-align":22,"./../../../bower_components/jquery/dist/jquery.js":1}],15:[function(require,module,exports){
 "use strict";
 
 var $ = require("./../../../bower_components/jquery/dist/jquery.js"),
@@ -9633,23 +9633,27 @@ module.exports = methods;
 },{"../data/globals":7,"../methods":9}],17:[function(require,module,exports){
 "use strict";
 
-var methods = require('../private/dom-utils');
+var methods = require('../methods');
+
+function getSpacing(el, side) {
+    return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
+}
 
 methods.dimensionCalculators = {
     width: function (dialog) {
-        return dialog.content.outerWidth() + methods.domUtils.getSpacing(dialog.wrapper, 'left') + methods.domUtils.getSpacing(dialog.wrapper, 'right');
+        return dialog.content.outerWidth() + getSpacing(dialog.wrapper, 'left') + getSpacing(dialog.wrapper, 'right');
     },
     height: function (dialog) {
-        return dialog.content.outerHeight() + methods.domUtils.getSpacing(dialog.wrapper, 'top') + methods.domUtils.getSpacing(dialog.wrapper, 'bottom');
+        return dialog.content.outerHeight() + getSpacing(dialog.wrapper, 'top') + getSpacing(dialog.wrapper, 'bottom');
     }
 };
 
 module.exports = methods;
-},{"../private/dom-utils":19}],18:[function(require,module,exports){
+},{"../methods":9}],18:[function(require,module,exports){
 'use strict';
 
 var $ = require("./../../../bower_components/jquery/dist/jquery.js"),
-    methods = require('../private/dom-utils'),
+    methods = require('../methods'),
     prefixer = require("./../../../bower_components/o-useragent/main.js").prefixer;
 
 methods.doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEls, callback) {
@@ -9662,11 +9666,11 @@ methods.doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEl
 
     $transitioningEls.each(function () {
         var details,
-            duration = +methods.domUtils.getStyleValue(this, 'transition-duration').replace(/[^\.\d]/g, ''),
+            duration = +prefixer.getStyleValue(this, 'transition-duration').replace(/[^\.\d]/g, ''),
             properties;
 
         if (duration) {
-            properties = methods.domUtils.getStyleValue(this, 'transition-property');
+            properties = prefixer.getStyleValue(this, 'transition-property');
             
             properties = properties === 'all' ? [] : properties.split(' ');
         
@@ -9674,7 +9678,7 @@ methods.doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEl
                 el: this,
                 duration: duration,
                 properties: properties,
-                initialState: methods.domUtils.getStyleValues(this, properties)
+                initialState: prefixer.getStyleValue(this, properties.join(' '))
             };
             possibleTransitions.push(details);
 
@@ -9700,22 +9704,22 @@ methods.doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEl
     };
 
     setTimeout(function () {
-        prefixer('requestAnimationFrame', window)(function () {
+        prefixer.getDomProperty('requestAnimationFrame', window)(function () {
             var duration = 0;
 
             $.each(possibleTransitions, function (index, details) {
                 var i,
                     changedState = [];
                 for (i = details.properties.length - 1;i>=0;i--) {
-                    changedState.unshift(methods.domUtils.getStyleValue(details.el, details.properties[i]));
+                    changedState.unshift(prefixer.getStyleValue(details.el, details.properties[i]));
                 }
 
                 for (i = details.properties.length - 1;i>=0;i--) {
-                    if (changedState[i] !== details.initialState[i]) {
+                    if (changedState[i] !== details.initialState[i].value) {
 
                         // todo: move this to listen on the wrapper and only respond to the slowest animation
                         // do something like checking to see if target = this and set a flag after timeout(maxDuration - 50) has run
-                        $(details.el).one(prefixer('transitionEnd'), singletonCallback);
+                        $(details.el).one(prefixer.style('transition') + 'End', singletonCallback);
                     
                         // failsafe in case the transitionEnd event doesn't fire
                         setTimeout(singletonCallback, details.duration * 1000);
@@ -9734,42 +9738,7 @@ methods.doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEl
 };
 
 module.exports = methods;
-},{"../private/dom-utils":19,"./../../../bower_components/jquery/dist/jquery.js":1,"./../../../bower_components/o-useragent/main.js":2}],19:[function(require,module,exports){
-"use strict";
-
-var methods = require('../methods'),
-    prefixer = require("./../../../bower_components/o-useragent/main.js").prefixer;
-
-function getSpacing(el, side) {
-    return (parseInt(el.css('padding-' + side), 10) || 0) + (parseInt(el.css('margin-' + side), 10) || 0);
-}
-
-function getStyleValue (el, prop) {
-    return getStylePropValue(getComputedStyle(el, null), prop);
-}
-
-function getStylePropValue (computedStyle, prop) {
-    return computedStyle.getPropertyValue(prefixer(prop));
-}
-
-function getStyleValues (el, props) {
-    var elStyles = getComputedStyle(el, null),
-        vals = [];
-
-    for (var i = props.length - 1;i>=0;i--) {
-        vals.unshift(getStylePropValue(elStyles, props[i]));
-    }
-    return vals;
-}
-
-methods.domUtils = {
-    getSpacing: getSpacing,
-    getStyleValue: getStyleValue,
-    getStyleValues: getStyleValues
-};
-
-module.exports = methods;
-},{"../methods":9,"./../../../bower_components/o-useragent/main.js":2}],20:[function(require,module,exports){
+},{"../methods":9,"./../../../bower_components/jquery/dist/jquery.js":1,"./../../../bower_components/o-useragent/main.js":2}],19:[function(require,module,exports){
 "use strict";
 
 var methods = require('../private/create-container'),
@@ -9790,7 +9759,7 @@ methods.getDialog = function () {
 };
 
 module.exports = methods;
-},{"../data/globals":7,"../private/create-container":15}],21:[function(require,module,exports){
+},{"../data/globals":7,"../private/create-container":15}],20:[function(require,module,exports){
 "use strict";
 
 var $ = require("./../../../bower_components/jquery/dist/jquery.js"),
@@ -9903,7 +9872,7 @@ methods.handleOptions = function (opts, trigger) {
 };
 
 module.exports = methods;
-},{"../data/defaults":6,"../data/globals":7,"../methods":9,"./../../../bower_components/jquery/dist/jquery.js":1}],22:[function(require,module,exports){
+},{"../data/defaults":6,"../data/globals":7,"../methods":9,"./../../../bower_components/jquery/dist/jquery.js":1}],21:[function(require,module,exports){
 'use strict';
 
 var methods = require('../methods'),
@@ -9929,7 +9898,7 @@ methods.injectContent = function (dialog) {
 };
 
 module.exports = methods;
-},{"../methods":9}],23:[function(require,module,exports){
+},{"../methods":9}],22:[function(require,module,exports){
 "use strict";
 
 var globals = require('../data/globals'),
@@ -9997,7 +9966,7 @@ methods.reAlign = function (dimension, dialog) {
 
 
 module.exports = methods;
-},{"../data/globals":7,"../private/dimension-calculators":17}],24:[function(require,module,exports){
+},{"../data/globals":7,"../private/dimension-calculators":17}],23:[function(require,module,exports){
 "use strict";
 var globals = require('../data/globals'),
     methods = require('../private/detach');
@@ -10031,7 +10000,7 @@ methods.close = function (dialog, destroy) {
 };
 
 module.exports = methods;
-},{"../data/globals":7,"../private/detach":16,"../private/do-after-transition":18}],25:[function(require,module,exports){
+},{"../data/globals":7,"../private/detach":16,"../private/do-after-transition":18}],24:[function(require,module,exports){
 'use strict';
 
 var $ = require("./../../../bower_components/jquery/dist/jquery.js"),
@@ -10048,7 +10017,7 @@ methods.listen = function () {
 };
 
 module.exports = methods;
-},{"../public/trigger":26,"./../../../bower_components/jquery/dist/jquery.js":1}],26:[function(require,module,exports){
+},{"../public/trigger":25,"./../../../bower_components/jquery/dist/jquery.js":1}],25:[function(require,module,exports){
 "use strict";
 
 var globals = require('../data/globals'),
@@ -10089,7 +10058,7 @@ methods.trigger = function (opts, trigger) {
 };
 
 module.exports = methods;
-},{"../data/globals":7,"../private/attach":14,"../private/get-dialog":20,"../private/handle-options":21,"../private/inject-content":22,"../public/close":24}],27:[function(require,module,exports){
+},{"../data/globals":7,"../private/attach":14,"../private/get-dialog":19,"../private/handle-options":20,"../private/inject-content":21,"../public/close":23}],26:[function(require,module,exports){
 'use strict';
 
 var $ = require("./../../../bower_components/jquery/dist/jquery.js"),

@@ -1,7 +1,7 @@
 'use strict';
 
 var $ = require('jquery'),
-    methods = require('../private/dom-utils'),
+    methods = require('../methods'),
     prefixer = require('o-useragent').prefixer;
 
 methods.doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEls, callback) {
@@ -14,11 +14,11 @@ methods.doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEl
 
     $transitioningEls.each(function () {
         var details,
-            duration = +methods.domUtils.getStyleValue(this, 'transition-duration').replace(/[^\.\d]/g, ''),
+            duration = +prefixer.getStyleValue(this, 'transition-duration').replace(/[^\.\d]/g, ''),
             properties;
 
         if (duration) {
-            properties = methods.domUtils.getStyleValue(this, 'transition-property');
+            properties = prefixer.getStyleValue(this, 'transition-property');
             
             properties = properties === 'all' ? [] : properties.split(' ');
         
@@ -26,7 +26,7 @@ methods.doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEl
                 el: this,
                 duration: duration,
                 properties: properties,
-                initialState: methods.domUtils.getStyleValues(this, properties)
+                initialState: prefixer.getStyleValue(this, properties.join(' '))
             };
             possibleTransitions.push(details);
 
@@ -52,22 +52,22 @@ methods.doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEl
     };
 
     setTimeout(function () {
-        prefixer('requestAnimationFrame', window)(function () {
+        prefixer.getDomProperty('requestAnimationFrame', window)(function () {
             var duration = 0;
 
             $.each(possibleTransitions, function (index, details) {
                 var i,
                     changedState = [];
                 for (i = details.properties.length - 1;i>=0;i--) {
-                    changedState.unshift(methods.domUtils.getStyleValue(details.el, details.properties[i]));
+                    changedState.unshift(prefixer.getStyleValue(details.el, details.properties[i]));
                 }
 
                 for (i = details.properties.length - 1;i>=0;i--) {
-                    if (changedState[i] !== details.initialState[i]) {
+                    if (changedState[i] !== details.initialState[i].value) {
 
                         // todo: move this to listen on the wrapper and only respond to the slowest animation
                         // do something like checking to see if target = this and set a flag after timeout(maxDuration - 50) has run
-                        $(details.el).one(prefixer('transitionEnd'), singletonCallback);
+                        $(details.el).one(prefixer.style('transition') + 'End', singletonCallback);
                     
                         // failsafe in case the transitionEnd event doesn't fire
                         setTimeout(singletonCallback, details.duration * 1000);
