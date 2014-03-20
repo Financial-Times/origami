@@ -5,10 +5,19 @@
   "support": "rhys.evans@ft.com",
   "supportStatus": "not implemented",
   "browserFeatures": {
-  	"optional": ["csstransforms", "csstransitions", "flexbox", "flexbox-legacy", "rgba", "requestAnimationFrame"]
+    "optional": [
+      "csstransforms",
+      "csstransitions",
+      "flexbox",
+      "flexbox-legacy",
+      "rgba",
+      "requestAnimationFrame"
+    ]
   },
-  "demos": ["demos/demo.html"],
   "ci": {
-      "travis": "https://api.travis-ci.org/repos/Financial-Times/o-dialog/builds.json"
-  }
+    "travis": "https://api.travis-ci.org/repos/Financial-Times/o-dialog/builds.json"
+  },
+  "demos": [
+    "/demos/modals.html"
+  ]
 }
