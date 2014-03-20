@@ -9,8 +9,5 @@
     "o-colors": "^2.2.20",
     "o-hoverable": "^0.1.1",
     "o-useragent": "^0.4.3"
-  },
-  "devDependencies": {
-  	"o-grid": "^2.0.7"
   }
 }
