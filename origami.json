@@ -4,21 +4,23 @@
   "origamiVersion": 1,
   "support": "https://github.com/Financial-Times/o-fonts/issues",
   "supportStatus": "active",
-  "demos": [
-      "/demos/bentonsans-lighter.html",
-      "/demos/bentonsans-normal.html",
-      "/demos/bentonsans-bold.html",
-      "/demos/clarion-normal.html",
-      "/demos/clarion-bold.html",
-      "/demos/clarion-italic.html",
-      "/demos/millerdisplay-normal.html",
-      "/demos/millerdisplay-bold.html",
-      "/demos/millerdisplay-bolder.html"
-  ],
   "ci": {
-      "travis": "https://api.travis-ci.org/repos/Financial-Times/o-fonts/builds.json"
+    "travis": "https://api.travis-ci.org/repos/Financial-Times/o-fonts/builds.json"
   },
   "browserFeatures": {
-      "optional": ["fontface"]
-  }
+    "optional": [
+      "fontface"
+    ]
+  },
+  "demos": [
+    "/demos/bentonsans-lighter.html",
+    "/demos/bentonsans-normal.html",
+    "/demos/bentonsans-bold.html",
+    "/demos/millerdisplay-normal.html",
+    "/demos/millerdisplay-bold.html",
+    "/demos/millerdisplay-bolder.html",
+    "/demos/clarion-normal.html",
+    "/demos/clarion-bold.html",
+    "/demos/clarion-italic.html"
+  ]
 }

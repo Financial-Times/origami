@@ -12,20 +12,14 @@ $o-fonts-is-silent: false;
 }
 
 .demo-col {
-  float: left;
-  width: 50%;
   overflow: hidden;
+  word-wrap: break-word;
 }
 
-.demo-col:last-child {
+.demo-col:first-child {
+  float: right;
   text-align: right;
-}
-
-.demo-title {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #888;
-  font-size: 36px;
-  line-height: 48px;
+  width: 500px;
 }
 
 .demo-example {
@@ -68,11 +62,12 @@ $o-fonts-is-silent: false;
   font-family: $o-fonts-clarion-italic;
 }
 .demo-size-x-large {
+  padding-top: 15px;
   font-size: 36px;
   line-height: 44px;
 }
 
 .demo-size-huge {
-  font-size: 300px;
-  line-height: 300px;
+  font-size: 200px;
+  line-height: 200px;
 }
