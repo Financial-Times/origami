@@ -3,9 +3,16 @@
   "origamiType": "module",
   "origamiVersion": 1,
   "support": "dan.skinner@ft.com",
-  "supportStatus": "not implemented",
-  "demos": ["demos/main.html"],
+  "supportStatus": "active",
   "browserFeatures": {
-      "required": ["fontface"]
-  }
+    "required": [
+      "fontface"
+    ]
+  },
+  "ci": {
+    "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-icons/builds.json"
+  },
+  "demos": [
+    "/demos/main.html"
+  ]
 }

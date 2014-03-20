@@ -5,8 +5,6 @@ $o-ft-icons-is-silent: false;
 @import "../../main";
 
 body {
-	margin: 10px;
-	background-color: #fff;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
     overflow: auto;
@@ -33,27 +31,18 @@ body {
 
 .demo-icon {
 	display: inline-block;
-	width: 100px;
-	height: 100px;
+    border: 1px dotted #333;
+	width: 98px;
+	height: 98px;
 	font-size: 80px;
 	line-height: 100px;
 	text-align: center;
 	color: #000;
-	background-color: #fff1e0;
 }
 
 .demo-label {
 	display: inline-block;
 	padding: 0 0 0 10px;
 	font-size: 14px;
-	color:  #777;
-}
-
-.demo-silent-extend-base {
-	@include oFtIconsBaseIconStyles();
-}
-
-// Test icon placeholder class
-.demo-silent-extend-icon:before {
-	@extend %o-ft-icons-icon--always-learning:before;
+	color:  #333;
 }
