@@ -2,7 +2,6 @@
 $o-colors-is-silent: true !default;
 
 @import 'src/scss/functions';
-
 @import 'src/scss/palette';
 @import 'src/scss/use-cases';
 
@@ -28,9 +27,6 @@ $o-colors-is-silent: true !default;
 // Output palette placeholders and (if noisy) concrete classes
 @each $color in $o-colors-palette-list {
 	$selector: 'o-colors-palette-' + nth($color,1);
-	@if (not $o-colors-is-silent) {
-		$selector: $selector + ', .' + $selector;
-	}
 	%#{$selector} {
 		background-color: #{nth($color,2)};
 	}
