@@ -12,7 +12,7 @@
 
 	@if(not index($ft-fonts-already-included-list, ($family$weight$style))) {
 
-        $ft-fonts-already-included-list: append($ft-fonts-already-included-list, ($family$weight$style));
+        $ft-fonts-already-included-list: append($ft-fonts-already-included-list, ($family$weight$style)) !global;
 
         $font-suffix: $weight;
 
