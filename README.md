@@ -38,3 +38,11 @@ When consuming this module in silent mode, the following mixins should be includ
 
     @include oFtButtonsFontInclude();
     @include oFtButtonsIconInclude();
+
+SASS placeholders are provided to extend styles into your own selectors. For example:
+
+    .my-product-button {
+        @extend %o-ft-buttons;
+    }
+
+Look at the demo examples to see which placeholders you'll need. They're named the same as the CSS classes.
