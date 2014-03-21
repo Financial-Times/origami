@@ -21,7 +21,8 @@
   '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label .o-ft-forms__field--pseudo,
   .o-ft-forms__field[type="radio"] + .o-ft-forms__label .o-ft-forms__field--pseudo') {
   position: absolute;
-  margin-left: -25px;
+  top: 0;
+  left: 0;
   width: 13px;
   height: 13px;
   border: 3px solid oColorsGetColorFor(forms-field-background);
@@ -32,12 +33,15 @@
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
   '.o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label .o-ft-forms__field--pseudo,
   .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label .o-ft-forms__field--pseudo') {
-  box-shadow: 0 0 3px 1px oColorsGetColorFor(forms-field-border);
+  box-shadow: 0 0 0 3px oColorsGetColorFor(forms-field-border);
+  border-width: 2px;
+  top: 3px;
+  left: 1px;
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
   '.o-ft-forms__field[type="radio"] + .o-ft-forms__label .o-ft-forms__field--pseudo') { 
-  border-radius:9px;
+  border-radius: 10px;
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
