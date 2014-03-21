@@ -22,6 +22,7 @@
         'error',
         'searchQuery',
         // User
+        'userID',
         'cohort',
         'passportID',
         'country',

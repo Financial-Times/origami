@@ -9,7 +9,7 @@ Origami module for the FT tracking.
 Add this to your dependencies in bower.json:
 
      "dependencies": {
-          "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.7 < 1"
+          "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.8 < 1"
      }
 
 It's strongly advised to specify at least the major and minor version as a tag.
@@ -59,6 +59,7 @@ Both JS and non-JS versions take the same parameters.
 * `searchQuery`: `` Internal (meaning onsite) search query.
 
 ### User
+* `userID`: `` - A unique, persistent identifier for the user.
 * `cohort`: `3` / `1` / `2` - The user's subscription level.
 * `passportID`: `4009049153` - The user's passport ID.
 * `country`: `GBR` - The user's country.

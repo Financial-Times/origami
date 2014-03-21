@@ -2,7 +2,7 @@
     "project": {
         "name": "Origami Tracking module",
         "description": "Origami module for FT tracking.",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "url": ""
     },
     "files": {
@@ -278,7 +278,7 @@
             "file": "build/docs/page.js",
             "line": 1,
             "description": "Page functionality. For tracking a page.",
-            "static": "Params:\n       // Site\n       'channel',\n       // Page\n       'url',\n       'uuid',\n       'pageSubsLevel',\n       'siteMap',\n       'title',\n       'assetType',\n       'edition',\n       'brand',\n       'theme',\n       'hurdle',\n       'error',\n       'searchQuery',\n       // User\n       'cohort',\n       'passportID',\n       'country',\n       'region',\n       'metroArea',\n       // Marketing\n       'ftcamp',\n       'campaign',\n       // Implementation\n       'offlineLag',\n       'queueTime'"
+            "static": "Params:\n       // Site\n       'channel',\n       // Page\n       'url',\n       'uuid',\n       'pageSubsLevel',\n       'siteMap',\n       'title',\n       'assetType',\n       'edition',\n       'brand',\n       'theme',\n       'hurdle',\n       'error',\n       'searchQuery',\n       // User\n       'userID',\n       'cohort',\n       'passportID',\n       'country',\n       'region',\n       'metroArea',\n       // Marketing\n       'ftcamp',\n       'campaign',\n       // Implementation\n       'offlineLag',\n       'queueTime'"
         },
         "_Utils": {
             "name": "_Utils",
@@ -968,6 +968,27 @@
         {
             "file": "build/docs/core.js",
             "line": 82,
+            "description": "Get a user ID.",
+            "itemtype": "method",
+            "name": "userID",
+            "params": [
+                {
+                    "name": "userid",
+                    "description": "",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "The userID or null.",
+                "type": "*"
+            },
+            "class": "Track._Core",
+            "module": "Track",
+            "submodule": "_Core"
+        },
+        {
+            "file": "build/docs/core.js",
+            "line": 102,
             "description": "Make a tracking request.",
             "itemtype": "method",
             "name": "track",
@@ -1148,7 +1169,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 45,
+            "line": 46,
             "description": "Shared \"internal\" scope.",
             "itemtype": "property",
             "name": "_self",
@@ -1161,7 +1182,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 54,
+            "line": 55,
             "description": "Default properties for page tracking requests.",
             "example": [
                 "\n        {\n        url: document.URL,\n        referrer: document.referrer,\n\n        co: window.screen.colorDepth,\n        sr: window.screen.width + 'x' + window.screen.height,\n        lt: (new Date()).toISOString(),\n        jv: (window.navigator.javaEnabled() ? '1' : '0'),\n\n        async: false // Send this tag syncronously\n        }"
@@ -1177,7 +1198,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 86,
+            "line": 87,
             "description": "Constructs a URL in the format required by iJento, allowing different inputs.",
             "itemtype": "method",
             "name": "url",
@@ -1200,7 +1221,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 116,
+            "line": 117,
             "description": "Make the page tracking request.",
             "itemtype": "method",
             "name": "page",

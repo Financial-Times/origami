@@ -42,16 +42,18 @@ describe('Core', function () {
             Core.track({
                 type: 'page',
                 url: "http://www.ft.com/home/uk",
-                "clickID": "clickID"
+                "clickID": "clickID",
+                "userID": "userID"
             }, callback);
 
             server.respond();
 
             sent_data = callback.getCall(0).thisValue;
 
-            assert.deepEqual(Object.keys(sent_data), ["clickID", "requestID", "counter", "environment", "type", "url", "queueTime"]);
+            assert.deepEqual(Object.keys(sent_data), ["userID", "clickID", "requestID", "counter", "environment", "type", "url", "queueTime"]);
             assert.equal(sent_data.clickID, "clickID");
             assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.requestID), "RequestID is invalid. " + sent_data.requestID);
+            assert.equal(sent_data.userID, "userID");
             assert.equal(sent_data.counter, 1);
             assert.equal(sent_data.environment, "test");
             assert.equal(sent_data.type, "page");

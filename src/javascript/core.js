@@ -19,7 +19,7 @@ module.exports = (function (window, document) {
          * @type {Object}
          * @private
          */
-        settings = require("./core/settings"),
+            settings = require("./core/settings"),
         utils = require("./utils"),
         /**
          * Default properties for sending a tracking request.
@@ -33,7 +33,7 @@ module.exports = (function (window, document) {
          }
          @private
          */
-        defaultConfig = {
+            defaultConfig = {
             environment: 'test',
             async: true,
             callback: function () {}
@@ -80,6 +80,26 @@ module.exports = (function (window, document) {
     }
 
     /**
+     * Get a user ID.
+     * @method userID
+     * @param [userid]
+     * @return {*} The userID or null.
+     */
+    function userID(userid) {
+        if (typeof userid !== "undefined") {
+            return userid;
+        }
+
+        if (settings.get('config')) {
+            if (settings.get('config').hasOwnProperty('userID')) {
+                return settings.get('config').userID;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Make a tracking request.
      * @method track
      * @param config Should be passed an object containing a format and the values for that format
@@ -91,14 +111,13 @@ module.exports = (function (window, document) {
             callback = function () {};
         }
 
-        var request = utils.merge(utils.merge(defaultConfig, settings.config), utils.merge(config, { callback: callback }));
+        var request = utils.merge(utils.merge(defaultConfig), utils.merge(config, { callback: callback }));
 
-        // Used for the queue
-        request.requestID = requestID();
-        // Values for the request
+        /* Values here are kinda the mandatory ones, so we want to make sure they're possible. */
         request = utils.merge({
+            userID: userID(request.userID),
             clickID: request.clickID,
-            requestID: request.requestID,
+            requestID: requestID(), // Used for the queue
             counter: internalCounter()
         }, request);
 
