@@ -17,7 +17,7 @@
   & + .o-ft-buttons {
     margin-left: 4px;
   }
-  $o-hoverable-if-hover-enabled &:hover {
+  #{$o-hoverable-if-hover-enabled} &:hover {
     border-color: $_o-ft-buttons-color-hover-border;
     background-color: $_o-ft-buttons-color-hover-bg;
     color: $_o-ft-buttons-color-hover-fg;
@@ -46,7 +46,7 @@
   border-color: $_o-ft-buttons-color-standout-standard-border;
   background-color: $_o-ft-buttons-color-standout-standard-bg;
   color: $_o-ft-buttons-color-standout-standard-fg;
-  $o-hoverable-if-hover-enabled &:hover {
+  #{$o-hoverable-if-hover-enabled} &:hover {
     border-color: $_o-ft-buttons-color-standout-hover-border;
     background-color: $_o-ft-buttons-color-standout-hover-bg;
     color: $_o-ft-buttons-color-standout-hover-fg;
