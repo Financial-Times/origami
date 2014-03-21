@@ -1,6 +1,7 @@
 {
     "options": {
-        "sass": "demos/src/demo.scss"
+        "sass": "demos/src/demo.scss",
+        "bodyClasses": "o-hoverable-on"
     },
     "demos": {
         "individual": {
