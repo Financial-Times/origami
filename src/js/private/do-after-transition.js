@@ -52,7 +52,7 @@ methods.doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEl
     };
 
     setTimeout(function () {
-        prefixer.getDomProperty('requestAnimationFrame', window)(function () {
+        prefixer.getDomProperty(window, 'requestAnimationFrame')(function () {
             var duration = 0;
 
             $.each(possibleTransitions, function (index, details) {
