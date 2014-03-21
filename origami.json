@@ -3,7 +3,7 @@
     "origamiType": "module",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-ft-buttons/issues",
-    "supportStatus": "not implemented",
+    "supportStatus": "active",
     "browserFeatures": {
         "optional": [
             "borderradius"
