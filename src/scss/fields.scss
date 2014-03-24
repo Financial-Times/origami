@@ -6,12 +6,12 @@
 @include oFtFormsClass(o-ft-forms__label) {
   display: block;
   margin-bottom: 5px;
-  color: oColorsGetColorFor(forms-label-text);
+  color: oColorsGetColorFor(forms-label, text);
   font-family: $o-fonts-bentonsans-normal;
   font-size: 14px;
   
   small {
-    color: oColorsGetColorFor(forms-field-text);
+    color: oColorsGetColorFor(form-field-standard, text);
     font-size: 10px;
     padding-left:8px;
     text-align: right;

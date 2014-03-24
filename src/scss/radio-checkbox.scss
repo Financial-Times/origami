@@ -25,15 +25,15 @@
   left: 0;
   width: 13px;
   height: 13px;
-  border: 3px solid oColorsGetColorFor(forms-field-background);
-  box-shadow: 0 0 0 1px oColorsGetColorFor(forms-field-border);
-  background-color: oColorsGetColorFor(forms-field-background);
+  border: 3px solid oColorsGetColorFor(form-field-standard, background);
+  box-shadow: 0 0 0 1px oColorsGetColorFor(form-field-standard, border);
+  background-color: oColorsGetColorFor(form-field-standard, background);
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
   '.o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label .o-ft-forms__field--pseudo,
   .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label .o-ft-forms__field--pseudo') {
-  box-shadow: 0 0 0 3px oColorsGetColorFor(forms-field-border);
+  box-shadow: 0 0 0 3px oColorsGetColorFor(form-field-standard, border);
   border-width: 2px;
   top: 3px;
   left: 1px;
@@ -46,7 +46,7 @@
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
   '.o-ft-forms__field[type="radio"]:checked + .o-ft-forms__label .o-ft-forms__field--pseudo') {
-  background-color: oColorsGetColorFor(forms-section-border);
+  background-color: oColorsGetColorFor(forms-section, border);
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
@@ -55,5 +55,5 @@
   font-size: 17px;
   line-height: 17px;
   font-weight: bold;
-  color: oColorsGetColorFor(forms-section-border);
+  color: oColorsGetColorFor(forms-section, border);
 }
