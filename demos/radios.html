@@ -11,26 +11,41 @@
         margin: 0;
     }
     </style>
-    <link rel="stylesheet" href="/bundles/css?modules=o-ft-forms:/demos/src/demo.scss" />
+    <link rel="stylesheet" href="demo.css" />
 </head>
-<body>
-    
+<body class="">
+    <style>.demo-message { margin: 0 0 10px 0; border-bottom: 1px solid #ddcc66; padding: 3px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-align: center; background-color: #ffee88; color: #333; }</style><div class="demo-message"><strong>Warning:</strong> Demo built for local static assets. Do not commit this file. Run <code>origami-build-tools demo &lt;config&gt; --buildservice</code> instead.</div>
     <link rel="stylesheet" href="http://build.origami.ft.com/bundles/css?modules=o-grid@^2.0.7" />
 <div class="o-grid-row">
-    <div data-o-grid-colspan="6 S12 M12">
-        <label class="o-ft-forms__label">Label</label>
-        <input type="radio" name="radio" value="1" class="o-ft-forms__field" id="radio11"><label for="radio11" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 1</label>
-        <input type="radio" name="radio" value="2" class="o-ft-forms__field" id="radio12"><label for="radio12" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 2</label>
-        <input type="radio" name="radio" value="3" class="o-ft-forms__field" id="radio13"><label for="radio13" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 3</label>
+    <div data-o-grid-colspan="4 S12 M12">
+        <div class="o-ft-forms-field-group">
+            <label class="o-ft-forms__label">Label</label>
+            <input type="radio" name="radio" value="1" class="o-ft-forms__field" id="radio11"><label for="radio11" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 1</label>
+            <input type="radio" name="radio" value="2" class="o-ft-forms__field" id="radio12"><label for="radio12" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 2</label>
+            <input type="radio" name="radio" value="3" class="o-ft-forms__field" id="radio13"><label for="radio13" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 3</label>
+        </div>
     </div>
-    <div class="o-ft-forms--error" data-o-grid-colspan="6 S12 M12">
-        <label class="o-ft-forms__label">Label (error)</label>
-        <input type="radio" name="radio2" value="1" class="o-ft-forms__field" id="radio21"><label for="radio21" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 1</label>
-        <input type="radio" name="radio2" value="2" class="o-ft-forms__field" id="radio22"><label for="radio22" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 2</label>
-        <input type="radio" name="radio2" value="3" class="o-ft-forms__field" id="radio23"><label for="radio23" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 3</label>
-        <small class="o-ft-forms__errortext">Invalid entry</small>
+    <div data-o-grid-colspan="4 S12 M12">
+        <div class="o-ft-forms-field-group o-ft-forms--valid">
+            <label class="o-ft-forms__label">Label (valid)</label>
+            <input type="radio" name="radio2" value="1" class="o-ft-forms__field" id="radio21"><label for="radio21" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 1</label>
+            <input type="radio" name="radio2" value="2" class="o-ft-forms__field" id="radio22"><label for="radio22" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 2</label>
+            <input type="radio" name="radio2" value="3" class="o-ft-forms__field" id="radio23"><label for="radio23" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 3</label>
+        </div>
+    </div>
+    <div data-o-grid-colspan="4 S12 M12">
+        <div class="o-ft-forms-field-group o-ft-forms--error">
+            <label class="o-ft-forms__label">Label (error)</label>
+            <input type="radio" name="radio2" value="1" class="o-ft-forms__field" id="radio21"><label for="radio21" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 1</label>
+            <input type="radio" name="radio2" value="2" class="o-ft-forms__field" id="radio22"><label for="radio22" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 2</label>
+            <input type="radio" name="radio2" value="3" class="o-ft-forms__field" id="radio23"><label for="radio23" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 3</label>
+            <div class="o-ft-forms__errortext">Invalid entry</div>
+        </div>
     </div>
 </div>
+
+<!-- Designers currently say that inline labels will not exist -->
+<!--
 <div class="o-grid-row">
     <div data-o-grid-colspan="6 S12 M12">
         <div class="o-grid-row">
@@ -58,6 +73,7 @@
         </div>
     </div>
 </div>
+-->
     
     <script src='http://registry.origami.ft.com/embedapi?autoload=resize'></script>
 </body>

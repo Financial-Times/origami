@@ -8,16 +8,21 @@
         <label class="o-ft-forms__label">Text input with valid entry</label>
         <input type="text" placeholder="placeholder" class="o-ft-forms__field o-ft-forms__field--valid" value="Field value" />
     </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
+    <div data-o-grid-colspan="3 S12 M6" class="o-ft-forms-field-group o-ft-forms--error">
         <label class="o-ft-forms__label">Text input (error)</label>
         <input type="text" placeholder="placeholder" class="o-ft-forms__field" value="Field value" />
         <div class="o-ft-forms__errortext">Invalid entry</div>
     </div>
     <div data-o-grid-colspan="3 S12 M6" class="o-ft-forms-field-group o-ft-forms--error">
         <label class="o-ft-forms__label">URL input :invalid</label>
-        <input type="url" placeholder="placeholder" class="o-ft-forms__field" value="http://" />
+        <input type="url" placeholder="placeholder" class="o-ft-forms__field" value="hp://invalid.com" />
+        <div class="o-ft-forms__errortext">Please enter a valid url</div>
     </div>
 </div>
+
+
+<!-- Designers currently say that inline labels will not exist -->
+<!--
 <div class="o-grid-row">
     <div data-o-grid-colspan="3 S12 M12">
         <div class="o-grid-row" class="o-ft-forms-field-group">
@@ -42,3 +47,4 @@
         </div>
     </div>
 </div>
+-->

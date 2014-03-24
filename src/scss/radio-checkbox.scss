@@ -2,7 +2,7 @@
 'o-ft-forms__field[type="radio"]') {
   position: absolute;
   margin: 2px;
-  opacity: 0;
+  opacity: 0; // better than display:none as it allows tabbing
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',

@@ -37,14 +37,13 @@
   '.o-ft-forms--error .o-ft-forms__prefix:not(.o-ft-buttons__button),
 .o-ft-forms--error .o-ft-forms__suffix:not(.o-ft-buttons__button),
 .o-ft-forms__field:invalid') {
-  border-color: oColorsGetColorFor(forms-label-error error, border);
-  color: oColorsGetColorFor(forms-label-error error, text);
+  border-color: oColorsGetColorFor(error, border);
+  color: oColorsGetColorFor(error, text);
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__prefix--valid, %o-ft-forms__suffix--valid',
   '.o-ft-forms--valid .o-ft-forms__prefix:not(.o-ft-buttons__button),
-.o-ft-forms--valid .o-ft-forms__suffix:not(.o-ft-buttons__button),
-.o-ft-forms__field:valid') {
-  border-color: oColorsGetColorFor(forms-field-valid, border);
-  color: oColorsGetColorFor(forms-valid, text);
+.o-ft-forms--valid .o-ft-forms__suffix:not(.o-ft-buttons__button)') {
+  border-color: oColorsGetColorFor(valid, border);
+  color: oColorsGetColorFor(valid, text);
 }

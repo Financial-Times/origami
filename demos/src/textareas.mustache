@@ -1,15 +1,18 @@
 <link rel="stylesheet" href="http://build.origami.ft.com/bundles/css?modules=o-grid@^2.0.7" />
 <div class="o-grid-row">
-    <div data-o-grid-colspan="6 S12 M12">
+    <div data-o-grid-colspan="6 S12 M12" class="o-ft-forms-field-group">
         <label class="o-ft-forms__label">Textarea</label>
         <textarea placeholder="placeholder" class="o-ft-forms__field--textarea"></textarea>
     </div>
-    <div class="o-ft-forms--error" data-o-grid-colspan="6 S12 M12">
+    <div data-o-grid-colspan="6 S12 M12" class="o-ft-forms-field-group o-ft-forms--error">
         <label class="o-ft-forms__label">Textarea (error)</label>
         <textarea placeholder="placeholder" class="o-ft-forms__field--textarea"></textarea>
-        <small class="o-ft-forms__errortext">Invalid entry</small>
+        <div class="o-ft-forms__errortext">Invalid entry</div>
     </div>
 </div>
+
+<!-- Designers currently say that inline labels will not exist -->
+<!--
 <div class="o-grid-row">
     <div data-o-grid-colspan="6 S12 M12">
         <div class="o-grid-row o-grid-row-compact">
@@ -33,3 +36,4 @@
         </div>
     </div>
 </div>
+-->
