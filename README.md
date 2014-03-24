@@ -2,29 +2,56 @@
 
 Origami module for the FT tracking.
 
-![ScreenShot](resources/images/tracking_forwarder.svg)
+![ScreenShot](/resources/images/tracking_forwarder.svg)
+
+
+
+
+# Usage
+
+Tracking at the FT relies on the following concept:
+```
+A user uses one of our products (Website, WebApp, ePaper etc.)
+|- A user has many visits
+   |- A visit has many pages
+      |- A page has many events
+      |- A page has many links
+```
+
+Therefore, when you're thinking about when to use the below functions - and which one to use - think about these rules.
+For example:
+- Does the thing you want to track happen many times on a page (or could it) - such as moving to the next slide of a slideshow - use an `event`.
+- Is it describing the page or the user, include it in the `init` or `page` function.
+
+
+
+
+# Developers
 
 ## Installation
 
 Add this to your dependencies in bower.json:
-
-     "dependencies": {
-          "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.8 < 1"
-     }
+```
+"dependencies": {
+    "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.9 < 1"
+}
+```
 
 It's strongly advised to specify at least the major and minor version as a tag.
 
-## Module contents
 
-## Template
+## Including in a product
+
+### Template
 *The template also relies on a Cut the Mustard check which MUST be adhered to if you are using both JS and non-JS versions.*
 
-`tracking.mustache` expects a `tracking` object, containing the following properties:
-- tracking.domain - the domain of the tracking server
-- tracking.queryString - the parameters and values below compiled into a query string format.
+*Please avoid sending duplicate requests per page.*
 
-## JavaScript
-Use browserify to require main.js into your app. e.g.
+`tracking.mustache` expects a `tracking` object, containing the following properties:
+* tracking.domain - the domain of the tracking server
+* tracking.queryString - the parameters and values below compiled into a query string format.
+
+### JavaScript
 ```
 var track = require('o-tracking');
 ```
@@ -32,13 +59,19 @@ Then call the init function with the parameters below.
 ```
 track.init({ ...params... });
 ```
+## Methods
+* `init` - setup the component with some default values.
+* `page` - track a page - called for you the first time using init.
+* `link` - for tracking links. *TBC*
+* `event` - for tracking events on a page.
+* `log` - for arbitrary logging to Splunk.
 
 ## Parameters
 Both JS and non-JS versions take the same parameters.
 
 ### Config
 * `developer`: `true` / `false` Turn on developer mode - which logs to console more.
-* `server`: `http://trace.ft.com/` - Location of tracking server.
+* `server`: `http://test.tracking.ft.com/` - Location of tracking server.
 
 ### Site
 * `channel` : `desktop` / `html5` / `epaper` / `flipboard` - The product or channel
@@ -69,3 +102,18 @@ Both JS and non-JS versions take the same parameters.
 ### Marketing
 * `ftcamp`: `` - FT Camp parameter.
 * `campaign`: `` - Campaign parameter.
+
+
+
+
+# Contributing
+
+The following will get you setup:
+* Check out the code
+* `npm install`
+* `grunt`
+
+The following grunt tasks are available:
+* `grunt version` - bump a version number in all the files that need a version number changing.
+* `grunt test` - Test the code against the test suite.
+

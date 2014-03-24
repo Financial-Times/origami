@@ -26,7 +26,7 @@ module.exports = (function (window) {
          * @property domain
          * @private
          */
-            domain = "http://tracking.ft.com",
+            domain = "http://test.tracking.ft.com",
 
         /**
          * Queue queue.
