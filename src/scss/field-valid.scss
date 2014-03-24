@@ -1,11 +1,11 @@
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__label--valid', '.o-ft-forms--valid .o-ft-forms__label') {
-  color: oColorsGetColorFor(forms-label-valid-text);
+  color: oColorsGetColorFor(forms-label-valid, text);
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--valid',
   '.o-ft-forms--valid .o-ft-forms__field:not([type="checkbox"]):not([type="radio"])') {
-  border-color: oColorsGetColorFor(forms-field-valid-border);
-  color: oColorsGetColorFor(forms-valid-text);
+  border-color: oColorsGetColorFor(forms-field-valid, border);
+  color: oColorsGetColorFor(forms-valid, text);
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--checkbox--valid, %o-ft-forms__field--select--valid',
@@ -15,7 +15,7 @@
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradio-sibling-__label',
   '.o-ft-forms--valid .o-ft-forms__field[type="checkbox"] + .o-ft-forms__label, .o-ft-forms--valid .o-ft-forms__field[type="radio"] + .o-ft-forms__label') {
-	color: oColorsGetColorFor(forms-label-text);
+	color: oColorsGetColorFor(forms-label, text);
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms--valid:after','.o-ft-forms--valid:after'){
@@ -24,5 +24,5 @@
   top: 25px;
   right: 10px;
   content: "\2714";
-  color: oColorsGetColorFor(forms-valid-text);
+  color: oColorsGetColorFor(forms-valid, text);
 }
