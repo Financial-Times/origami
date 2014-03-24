@@ -14,7 +14,8 @@ function loadDemo(showtype) {
         rule = rule.replace(/\/*[\s\S]*?\*\//g, '').replace(/\/\/.*/, '');
         rule = rule.replace(/^\s+/, '').replace(/\s+$/, '');
         var m = rule.split(/\s+/);
-        if (m) {
+        
+        if (m && m[3] != 'DEPRECATED') {
           if (type=='palette') {
             palette[m[0]] = m[1];
             if (showtype == 'palette') el.innerHTML += '<div data-o-grid-colspan="4 XL3 L3 M6 S12" class="sample"><div class="swatch background o-colors-palette-'+m[0]+'"></div><div class="name">'+m[0]+'</div><div class="descrip">'+m[1]+'</div></div>';
