@@ -1,24 +1,42 @@
 @include oFtTypographySelectors(heading-xlarge) {
   margin: 0 0 16px 0;
   padding: 8px 0 7px 0;
-  border-top: 4px solid oColorsGetColorFor(heading-large-border); // Add new use case to o-colors
-  border-bottom: 1px dotted oColorsGetColorFor(heading-large-border); // Add new use case to o-colors
+  border-top: 4px solid oColorsGetColorFor(heading-xlarge heading-large heading, border); // Add new use case to o-colors
+  border-bottom: 1px dotted oColorsGetColorFor(heading-xlarge heading-large heading, border); // Add new use case to o-colors
   font-family: $_o-ft-typography-heading-xlarge-font;
   font-weight: normal;
   @include oFtTypographyFontSize(16, 20);
-  color: oColorsGetColorFor(heading-large-text);
+  color: oColorsGetColorFor(heading-xlarge heading, text);
+}
+
+@include oFtTypographySelectors(heading-xlarge__link) {
+  text-decoration: none;
+  color: oColorsGetColorFor(heading-large heading, text);
+  cursor: pointer;
+  &:hover {
+    color: oColorsGetColorFor(link, text);
+  }
 }
 
 @include oFtTypographySelectors(heading-large) {
   margin: 0 0 16px 0;
   padding: 8px 0 7px 0;
-  border-top: 4px solid oColorsGetColorFor(heading-large-border);
-  border-bottom: 1px dotted oColorsGetColorFor(heading-large-border);
+  border-top: 4px solid oColorsGetColorFor(heading-large heading, border);
+  border-bottom: 1px dotted oColorsGetColorFor(heading-large heading, border);
   font-family: $_o-ft-typography-heading-large-font;
   font-weight: normal;
   text-transform: uppercase;
   @include oFtTypographyFontSize(14, 20);
-  color: oColorsGetColorFor(heading-large-text);
+  color: oColorsGetColorFor(heading-large heading, text);
+}
+
+@include oFtTypographySelectors(heading-large__link) {
+  text-decoration: none;
+  color: oColorsGetColorFor(heading-large heading, text);
+  cursor: pointer;
+  &:hover {
+    color: oColorsGetColorFor(link, text);
+  }
 }
 
 @mixin oFtTypographyHeadingMediumStyles() {
@@ -26,13 +44,13 @@
   font-family: $_o-ft-typography-heading-medium-font;
   font-weight: normal;
   @include oFtTypographyFontSize(13, 20);
-  color: oColorsGetColorFor(heading-text);
+  color: oColorsGetColorFor(heading, text);
   text-transform: uppercase;
 }
 
 @include oFtTypographySelectors(heading-medium) {
   @include oFtTypographyHeadingMediumStyles();
-  @include oFtTypographyFauxTextBackground(oColorsGetColorFor(page-background));
+  @include oFtTypographyFauxTextBackground(oColorsGetColorFor(page, background));
   background-position: bottom right;
   background-repeat: no-repeat;
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAAPAQMAAADEaZ8BAAAABlBMVEUAAADs3s8R/6e7AAAAAXRSTlMAQObYZgAAADBJREFUSMdj+D90QcNQdvyDUccPEPgw6njiwKjjh43jh3SGHdKOb2AYBaNgFAwdAACrOE9c1sAQpgAAAABJRU5ErkJggg==');
@@ -41,7 +59,7 @@
 @include oUseragentTarget(ie7 ie8 ie9) {
   @include oFtTypographySelectors(heading-medium) {
     @include oFtTypographyHeadingMediumStyles();
-    border-bottom: 1px solid oColorsGetColorFor(heading-medium-border); // TODO: Add new use case for heading-medium-border -> tint2
+    border-bottom: 1px solid oColorsGetColorFor(heading-medium heading, border); // TODO: Add new use case for heading-medium-border -> tint2
     background-image: none;
   }
 }
@@ -51,14 +69,14 @@
   font-family: $_o-ft-typography-heading-small-font;
   font-weight: bold;
   @include oFtTypographyFontSize(14, 20);
-  color: oColorsGetColorFor(heading-text);
+  color: oColorsGetColorFor(heading, text);
 }
 
-@include oFtTypographySelectors(heading-xlarge__link heading-large__link heading-medium__link heading-small__link) {
+@include oFtTypographySelectors(heading-medium__link heading-small__link) {
   text-decoration: none;
-  color: oColorsGetColorFor(link-text);
+  color: oColorsGetColorFor(link, text);
   cursor: pointer;
   &:hover {
-    color: oColorsGetColorFor(link-hover-text);
+    color: oColorsGetColorFor(link-hover, text);
   }
 }
