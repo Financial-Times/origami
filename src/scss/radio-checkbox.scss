@@ -33,9 +33,9 @@
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
   '.o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label .o-ft-forms__field--pseudo,
   .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label .o-ft-forms__field--pseudo') {
-  box-shadow: 0 0 0 3px oColorsGetColorFor(form-field-standard, border);
+  box-shadow: 0 0 0 2px oColorsGetColorFor(form-field-standard, border);
   border-width: 2px;
-  top: 3px;
+  top: 1px;
   left: 1px;
 }
 
