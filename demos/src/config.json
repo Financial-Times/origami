@@ -20,6 +20,9 @@
         },
         "prefix-suffix": {
             "template": "demos/src/prefix-suffix.mustache"
+        },
+        "global-errors": {
+            "template": "demos/src/errors-global.mustache"
         }
     }
 }

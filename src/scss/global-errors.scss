@@ -1,16 +1,18 @@
 @include oFtFormsClass(o-ft-forms__section--error) {
     background:#fad8c9;
     // color to be added to pallet and user case to be added to o-colors
-   // background: oColorsGetColorFor(error-global, background);
+   // background: oColorsGetColorFor(error-section, background);
 }
 
 @include oFtFormsClass('o-ft-forms-section__errorMsg','o-ft-forms-globalMsg--error') {
     margin: 0 0 16px;
+    background: #c00;
     //Add image to icons?
-    //background: oColorsGetColorFor(error-all) url(../images/error-alert-icon.png) no-repeat;
-    background-size: 16px 16px;
-    background-position: 8px 6px;
-    padding: 0 8px 0 32px;
+    //background: oColorsGetColorFor(error-global, background) url(../images/error-alert-icon.png) no-repeat;
+    //background-size: 16px 16px;
+    //background-position: 8px 6px;
+    //padding: 0 8px 0 32px;
+    padding: 0 8px;
 
     p {
         padding: 8px 0;
