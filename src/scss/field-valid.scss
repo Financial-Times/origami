@@ -1,6 +1,6 @@
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--valid',
   '.o-ft-forms--valid .o-ft-forms__field:not([type="checkbox"]):not([type="radio"])') {
-  border-color: oColorsGetColorFor(valid, border);
+  border-color: oColorsGetColorFor(valid forms-field-valid, border);
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--checkbox--valid, %o-ft-forms__field--select--valid',
@@ -14,5 +14,5 @@
   top: 25px;
   right: 10px;
   content: "\2714";
-  color: oColorsGetColorFor(valid, text);
+  color: oColorsGetColorFor(valid forms-valid, text);
 }
