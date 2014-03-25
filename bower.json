@@ -1,9 +1,11 @@
 {
-	"name": "o-ft-forms",
-    "main": ["main.scss"],
-    "dependencies": {
-        "o-fonts": "^0.7.1",
-        "o-colors": "^2.2.20",
-        "o-ft-buttons": "^1.0.2"
-    }
+  "name": "o-ft-forms",
+  "main": [
+    "main.scss"
+  ],
+  "dependencies": {
+    "o-fonts": "^1.0.0",
+    "o-colors": "^2.2.20",
+    "o-ft-buttons": "^1.1.0"
+  }
 }
