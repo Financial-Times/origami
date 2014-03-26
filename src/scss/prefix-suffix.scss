@@ -12,10 +12,10 @@
   border-top: $_o-ft-forms-fieldborder;
   border-bottom: $_o-ft-forms-fieldborder;
   width: 100%;
-  min-height: 30px;
+  min-height: 24px;
   font-family: $o-fonts-bentonsans-normal;
   font-size: $_o-ft-forms-fontsize-field;
-  line-height: 28px;
+  line-height: 22px;
   text-align: center;
   vertical-align: top;
   overflow: hidden;
@@ -29,14 +29,13 @@
 	border-radius: 0;
 	padding: 0;
 	width: 100%;
-	height: 30px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
-	line-height: 28px;
+	height: 24px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
+	line-height: 24px;
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__prefix--error, %o-ft-forms__suffix--error',
   '.o-ft-forms--error .o-ft-forms__prefix:not(.o-ft-buttons__button),
-.o-ft-forms--error .o-ft-forms__suffix:not(.o-ft-buttons__button),
-.o-ft-forms__field:invalid') {
+.o-ft-forms--error .o-ft-forms__suffix:not(.o-ft-buttons__button)') {
   border-color: oColorsGetColorFor(error, border);
   color: oColorsGetColorFor(error, text);
 }
