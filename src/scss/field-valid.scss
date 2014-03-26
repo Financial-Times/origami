@@ -1,5 +1,7 @@
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--valid',
-  '.o-ft-forms--valid .o-ft-forms__field:not([type="checkbox"]):not([type="radio"])') {
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--valid %o-ft-forms__label--select--valid %o-ft-forms__label--textarea--valid',
+  '.o-ft-forms--valid .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]), 
+  .o-ft-forms--valid .o-ft-forms__field--select, 
+  .o-ft-forms--valid .o-ft-forms__field--textarea') {
   border-color: oColorsGetColorFor(valid forms-field-valid, border);
 }
 

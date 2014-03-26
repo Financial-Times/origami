@@ -242,10 +242,7 @@
   border-color: #458b00;
   color: #458b00; }
 
-.o-ft-forms--error .o-ft-forms__field--select, .o-ft-forms--error .o-ft-forms__field--textarea {
-  margin-bottom: 0; }
-
-.o-ft-forms--error .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]) {
+.o-ft-forms--error .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]), .o-ft-forms--error .o-ft-forms__field--select, .o-ft-forms--error .o-ft-forms__field--textarea {
   margin-bottom: 0;
   border-color: #cc0000; }
 
@@ -276,7 +273,7 @@
   color: #cc0000;
   font-weight: bold; }
 
-.o-ft-forms--valid .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]) {
+.o-ft-forms--valid .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]), .o-ft-forms--valid .o-ft-forms__field--select, .o-ft-forms--valid .o-ft-forms__field--textarea {
   border-color: #458b00; }
 
 .o-ft-forms--valid .o-ft-forms__field[type="checkbox"], .o-ft-forms--valid .o-ft-forms__field[type="radio"] {

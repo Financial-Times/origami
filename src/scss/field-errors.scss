@@ -1,10 +1,7 @@
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__label--select--error %o-ft-forms__label--textarea--error',
-  '.o-ft-forms--error .o-ft-forms__field--select, .o-ft-forms--error .o-ft-forms__field--textarea') {
-	margin-bottom: 0;
-}
-
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--error',
-  '.o-ft-forms--error .o-ft-forms__field:not([type="checkbox"]):not([type="radio"])') {
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--error %o-ft-forms__label--select--error %o-ft-forms__label--textarea--error',
+  '.o-ft-forms--error .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]), 
+  .o-ft-forms--error .o-ft-forms__field--select, 
+  .o-ft-forms--error .o-ft-forms__field--textarea') {
 	margin-bottom: 0;
     border-color: oColorsGetColorFor(error, border);
 }
