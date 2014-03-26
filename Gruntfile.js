@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 				engine: "fontforge",
 				font: "ft-icons",
 				types: "eot,woff,ttf",
-				hashes: false,
+				hashes: true,
 				stylesheet: "scss",
 				template: 'grunt-webfont-templates/origami.css',
 				htmlDemo: false

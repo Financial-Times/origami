@@ -3,7 +3,7 @@
   "private": true,
   "devDependencies": {
     "grunt": "~0.4.2",
-    "grunt-webfont": "~0.3.2",
+    "grunt-webfont": "~0.3.4",
     "grunt-contrib-watch": "~0.5.3"
   }
 }
