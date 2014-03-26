@@ -4,9 +4,9 @@
   margin: 0 0 $_o-ft-forms-marginbottom 0;
   border: $_o-ft-forms-fieldborder;
   border-radius: 0;
-  padding: 7px 7px 6px 7px;
+  padding: 3px 5px;
   width: calc(100% - 18px);
-  background-color: #fff;
+  background-color: oColorsGetColorFor(form-field-standard, background);
   color: oColorsGetColorFor(form-field-standard, text);
   font-family: $o-fonts-bentonsans-normal;
   font-size: $_o-ft-forms-fontsize-field;

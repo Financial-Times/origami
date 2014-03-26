@@ -13,7 +13,7 @@
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms--valid:after','.o-ft-forms--valid:after'){
   position: absolute;
   font-size: 18px;
-  top: 25px;
+  top: 22px;
   right: 10px;
   content: "\2714";
   color: oColorsGetColorFor(valid forms-valid, text);

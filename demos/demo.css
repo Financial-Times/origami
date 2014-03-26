@@ -100,16 +100,12 @@
   margin: 0 0 20px 0;
   border: 1px solid #cec6b9;
   border-radius: 0;
-  padding: 7px 7px 6px 7px;
+  padding: 3px 5px;
   width: calc(100% - 18px);
-  background-color: #fff;
+  background-color: white;
   color: #a7a59b;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  height: 30px;
-  /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */ }
-  .o-ft-forms__field[type="text"] :invalid, .o-ft-forms__field[type="text"] :valid, .o-ft-forms__field[type="password"] :invalid, .o-ft-forms__field[type="password"] :valid, .o-ft-forms__field[type="search"] :invalid, .o-ft-forms__field[type="search"] :valid, .o-ft-forms__field[type="url"] :invalid, .o-ft-forms__field[type="url"] :valid, .o-ft-forms__field[type="email"] :invalid, .o-ft-forms__field[type="email"] :valid, .o-ft-forms__field[type="tel"] :invalid, .o-ft-forms__field[type="tel"] :valid, .o-ft-forms__field[type="date"] :invalid, .o-ft-forms__field[type="date"] :valid, .o-ft-forms__field[type="time"] :invalid, .o-ft-forms__field[type="time"] :valid, .o-ft-forms__field[type="datetime"] :invalid, .o-ft-forms__field[type="datetime"] :valid, .o-ft-forms__field[type="datetime-local"] :invalid, .o-ft-forms__field[type="datetime-local"] :valid, .o-ft-forms__field[type="month"] :invalid, .o-ft-forms__field[type="month"] :valid, .o-ft-forms__field[type="week"] :invalid, .o-ft-forms__field[type="week"] :valid, .o-ft-forms__field[type="number"] :invalid, .o-ft-forms__field[type="number"] :valid, .o-ft-forms__field[type="color"] :invalid, .o-ft-forms__field[type="color"] :valid, .o-ft-forms__field[type="range"] :invalid, .o-ft-forms__field[type="range"] :valid {
-    border: 1px solid #cec6b9; }
+  font-size: 14px; }
 
 /*=============SELECT=============*/
 .o-ft-forms__field--select {
@@ -122,14 +118,12 @@
   margin: 0 0 20px 0;
   border: 1px solid #cec6b9;
   border-radius: 0;
-  padding: 7px 7px 6px 7px;
+  padding: 3px 5px;
   width: calc(100% - 18px);
-  background-color: #fff;
+  background-color: white;
   color: #a7a59b;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  height: 30px;
-  /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
+  font-size: 14px;
   background-image: url("data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==");
   background-repeat: no-repeat;
   background-position: 97% center;
@@ -148,12 +142,12 @@
   margin: 0 0 20px 0;
   border: 1px solid #cec6b9;
   border-radius: 0;
-  padding: 7px 7px 6px 7px;
+  padding: 3px 5px;
   width: calc(100% - 18px);
-  background-color: #fff;
+  background-color: white;
   color: #a7a59b;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   height: 70px;
   /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
   vertical-align: top; }
@@ -217,7 +211,7 @@
   width: 100%;
   min-height: 30px;
   font-family: BentonSans-normal, Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 28px;
   text-align: center;
   vertical-align: top;
@@ -267,7 +261,7 @@
 .o-ft-forms--error:after {
   position: absolute;
   font-size: 18px;
-  top: 25px;
+  top: 22px;
   right: 10px;
   content: "\2716";
   color: #cc0000;
@@ -282,7 +276,7 @@
 .o-ft-forms--valid:after {
   position: absolute;
   font-size: 18px;
-  top: 25px;
+  top: 22px;
   right: 10px;
   content: "\2714";
   color: #458b00; }
