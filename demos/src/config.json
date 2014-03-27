@@ -20,6 +20,9 @@
         },
         "body": {
             "template": "demos/src/body.mustache"
+        },
+        "labels": {
+            "template": "demos/src/labels.mustache"
         }
     }
 }

@@ -1,0 +1,29 @@
+%label-text {
+  font-family: $_o-ft-typography-label-font;
+  color: oColorsGetColorFor(label body, text);
+  > a {
+    text-decoration: none;
+    color: oColorsGetColorFor(link, text);
+    &:hover {
+      color: oColorsGetColorFor(link-hover, text);
+    }
+  }
+}
+
+@include oFtTypographySelectors(label-large) {
+  @extend %label-text;
+  font-weight: bold;
+  @include oFtTypographyFontSize(16, 21);
+}
+
+@include oFtTypographySelectors(label-medium) {
+  @extend %label-text;
+  font-weight: bold;
+  @include oFtTypographyFontSize(14, 17);
+}
+
+@include oFtTypographySelectors(label-small) {
+  @extend %label-text;
+  font-weight: normal;
+  @include oFtTypographyFontSize(12, 15);
+}
