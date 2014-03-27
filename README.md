@@ -28,9 +28,10 @@ Button width is determined by its content.
 
 The following browser features are used but will degrade gracefully:
 
+* __CSS negation pseudo-class__:  (`not()`) is used for the hover states. Buttons will not have hover states in IE8 and earlier.
+* __sibling CSS selectors__: spacing between tabs or button groups may be incorrect on very old browsers
 * __border-radius__: older browsers will show square corners
 * __web fonts__: older browsers will use websafe alternative fonts
-* __sibling CSS selectors__: spacing between tabs or button groups may be incorrect on very old browsers
 
 ## Silent mode
 
