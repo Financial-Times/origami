@@ -7,6 +7,9 @@
         "individual": {
             "template": "demos/src/individual.mustache"
         },
+        "individual-standout": {
+            "template": "demos/src/individual-standout.mustache"
+        },
         "pagination": {
             "template": "demos/src/pagination.mustache"
         },

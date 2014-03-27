@@ -1,0 +1,18 @@
+#{$o-hoverable-if-hover-enabled} {
+  @include oFtButtonSelectors(o-ft-buttons) {
+    &:not([disabled]):not(.o-ft-buttons--disabled):not(.o-ft-buttons--selected):not(.o-ft-buttons--faux):hover {
+      border-color: $_o-ft-buttons-color-hover-border;
+      background-color: $_o-ft-buttons-color-hover-bg;
+      color: $_o-ft-buttons-color-hover-fg;
+      cursor: pointer;
+    }
+  }
+  @include oFtButtonSelectors(o-ft-buttons--standout) {
+    &:not([disabled]):not(.o-ft-buttons--disabled):not(.o-ft-buttons--selected):not(.o-ft-buttons--faux):hover {
+      border-color: $_o-ft-buttons-color-standout-hover-border;
+      background-color: $_o-ft-buttons-color-standout-hover-bg;
+      color: $_o-ft-buttons-color-standout-hover-fg;
+      cursor: pointer;
+    }
+  }
+}

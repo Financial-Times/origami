@@ -1,37 +1,52 @@
-
 @include oFtButtonSelectors(o-ft-buttons) {
   @include oFtButtonsBoxSizing(border-box);
   display: inline-block;
   margin: 0;
   padding: 0 14px;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 5px;
   font-family: $o-fonts-bentonsans-normal;
   font-size: 14px;
   line-height: 22px;
   text-decoration: none;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
   border-color: $_o-ft-buttons-color-standard-border;
   background-color: $_o-ft-buttons-color-standard-bg;
   color: $_o-ft-buttons-color-standard-fg;
   & + .o-ft-buttons {
     margin-left: 4px;
   }
-  #{$o-hoverable-if-hover-enabled} &:hover {
-    border-color: $_o-ft-buttons-color-hover-border;
-    background-color: $_o-ft-buttons-color-hover-bg;
-    color: $_o-ft-buttons-color-hover-fg;
-  }
   &.o-ft-buttons--selected {
     border-color: $_o-ft-buttons-color-selected-border;
     background-color: $_o-ft-buttons-color-selected-bg;
     color: $_o-ft-buttons-color-selected-fg;
+    pointer-events: none;
   }
   &.o-ft-buttons--disabled,
   &[disabled] {
     border-color: $_o-ft-buttons-color-disabled-border;
     background-color: $_o-ft-buttons-color-disabled-bg;
     color: $_o-ft-buttons-color-disabled-fg;
+    pointer-events: none;
+  }
+}
+
+@include oFtButtonSelectors(o-ft-buttons--standout) {
+  border-color: $_o-ft-buttons-color-standout-standard-border;
+  background-color: $_o-ft-buttons-color-standout-standard-bg;
+  color: $_o-ft-buttons-color-standout-standard-fg;
+  &.o-ft-buttons--selected {
+    border-color: $_o-ft-buttons-color-standout-selected-border;
+    background-color: $_o-ft-buttons-color-standout-selected-bg;
+    color: $_o-ft-buttons-color-standout-selected-fg;
+    pointer-events: none;
+  }
+  &.o-ft-buttons--disabled {
+    border-color: $_o-ft-buttons-color-standout-disabled-border;
+    background-color: $_o-ft-buttons-color-standout-disabled-bg;
+    color: $_o-ft-buttons-color-standout-disabled-fg;
+    pointer-events: none;
   }
 }
 
@@ -42,99 +57,10 @@
   line-height: 34px;
 }
 
-@include oFtButtonSelectors(o-ft-buttons--standout) {
-  border-color: $_o-ft-buttons-color-standout-standard-border;
-  background-color: $_o-ft-buttons-color-standout-standard-bg;
-  color: $_o-ft-buttons-color-standout-standard-fg;
-  #{$o-hoverable-if-hover-enabled} &:hover {
-    border-color: $_o-ft-buttons-color-standout-hover-border;
-    background-color: $_o-ft-buttons-color-standout-hover-bg;
-    color: $_o-ft-buttons-color-standout-hover-fg;
-  }
-  &.o-ft-buttons--selected {
-    border-color: $_o-ft-buttons-color-standout-selected-border;
-    background-color: $_o-ft-buttons-color-standout-selected-bg;
-    color: $_o-ft-buttons-color-standout-selected-fg;
-  }
-  &.o-ft-buttons--disabled {
-    border-color: $_o-ft-buttons-color-standout-disabled-border;
-    background-color: $_o-ft-buttons-color-standout-disabled-bg;
-    color: $_o-ft-buttons-color-standout-disabled-fg;
-  }
-}
-
 @include oFtButtonSelectors(o-ft-buttons--faux) {
   border-width: 0;
   padding-left: 10px;
   padding-right: 10px;
   background-color: transparent;
   color: $_o-ft-buttons-color-standard-fg;
-}
-
-@include oFtButtonSelectors(o-ft-buttons__group) {
-  .o-ft-buttons {
-    border-radius: 0;
-  }
-  .o-ft-buttons + .o-ft-buttons {
-    margin-left: 0;
-    border-left-width: 0;
-  }
-  .o-ft-buttons.o-ft-buttons--standout + .o-ft-buttons {
-    border-left-color: #fff1e0; // Assumed background color
-    border-left-width: 1px;
-  }
-  .o-ft-buttons:first-child {
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    border-left-width: 1px;
-  }
-  .o-ft-buttons:last-child {
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-}
-
-@include oFtButtonSelectors(o-ft-buttons__tabs) {
-  border-bottom: 1px solid $_o-ft-buttons-color-standard-border;
-  .o-ft-buttons {
-    border-radius: 0;
-    border-bottom-width: 0;
-  }
-  .o-ft-buttons + .o-ft-buttons {
-    margin-left: 0;
-    border-left-width: 0;
-  }
-  .o-ft-buttons.o-ft-buttons--standout + .o-ft-buttons {
-    border-left-color: #fff1e0; // Assumed background color
-    border-left-width: 1px;
-  }
-  .o-ft-buttons:first-child {
-    border-top-left-radius: 5px;
-    border-left-width: 1px;
-  }
-  .o-ft-buttons:last-child {
-    border-top-right-radius: 5px;
-  }
-}
-
-@include oFtButtonSelectors(o-ft-buttons__icon) {
-  @include oFtIconsBaseIconStyles();
-  .o-ft-buttons--big > & {
-    line-height: 33px;
-  }
-  .o-ft-buttons--small > & {
-    line-height: 21px;
-  }
-}
-
-@include oFtButtonSelectors(o-ft-buttons__icon--left) {
-  @extend %o-ft-icons-icon--arrow-left;
-}
-
-@include oFtButtonSelectors(o-ft-buttons__icon--right) {
-  @extend %o-ft-icons-icon--arrow-right;
-}
-
-@include oFtButtonSelectors(o-ft-buttons__icon--more) {
-  @extend %o-ft-icons-icon--more;
 }

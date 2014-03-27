@@ -1,0 +1,21 @@
+@include oFtButtonSelectors(o-ft-buttons__icon) {
+  @include oFtIconsBaseIconStyles();
+  .o-ft-buttons--big > & {
+    line-height: 33px;
+  }
+  .o-ft-buttons--small > & {
+    line-height: 21px;
+  }
+}
+
+@include oFtButtonSelectors(o-ft-buttons__icon--left) {
+  @extend %o-ft-icons-icon--arrow-left;
+}
+
+@include oFtButtonSelectors(o-ft-buttons__icon--right) {
+  @extend %o-ft-icons-icon--arrow-right;
+}
+
+@include oFtButtonSelectors(o-ft-buttons__icon--more) {
+  @extend %o-ft-icons-icon--more;
+}
