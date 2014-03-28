@@ -23,6 +23,9 @@
         },
         "labels": {
             "template": "demos/src/labels.mustache"
+        },
+        "badges": {
+            "template": "demos/src/badges.mustache"
         }
     }
 }
