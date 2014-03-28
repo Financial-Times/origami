@@ -59,6 +59,8 @@
             
                 <li><a href="../classes/Track.event.html">Track.event</a></li>
             
+                <li><a href="../classes/Track.link.html">Track.link</a></li>
+            
                 <li><a href="../classes/Track.page.html">Track.page</a></li>
             
             </ul>
@@ -72,6 +74,8 @@
                 <li><a href="../modules/data.html">data</a></li>
             
                 <li><a href="../modules/event.html">event</a></li>
+            
+                <li><a href="../modules/link.html">link</a></li>
             
                 <li><a href="../modules/page.html">page</a></li>
             
@@ -122,6 +126,14 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
+/**
+ * For tracking links.
+ * @module Track
+ * @submodule link
+ * @class Track.link
+ * @static
+ */
+
 /*global module, require, window */
 module.exports = (function (window) {
     &quot;use strict&quot;;
@@ -228,6 +240,11 @@ module.exports = (function (window) {
         return true;
     }
 
+    /**
+     * Set the callback called on every link tracking event.
+     * @method onClick
+     * @param cb {Function} The callback.
+     */
     function onClick(cb) {
         callback = cb;
     }

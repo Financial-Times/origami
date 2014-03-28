@@ -83,8 +83,12 @@
         },
         "build/docs/link.js": {
             "name": "build/docs/link.js",
-            "modules": {},
-            "classes": {},
+            "modules": {
+                "link": 1
+            },
+            "classes": {
+                "Track.link": 1
+            },
             "fors": {},
             "namespaces": {}
         },
@@ -188,6 +192,7 @@
             "submodules": {
                 "data": 1,
                 "event": 1,
+                "link": 1,
                 "page": 1,
                 "_Utils": 1
             },
@@ -196,6 +201,7 @@
                 "Track._Core": 1,
                 "Track.data": 1,
                 "Track.event": 1,
+                "Track.link": 1,
                 "Track": 1,
                 "Track.page": 1,
                 "Track._Utils": 1
@@ -269,6 +275,22 @@
             "file": "build/docs/event.js",
             "line": 1,
             "description": "For tracking multiple events per page.",
+            "static": 1
+        },
+        "link": {
+            "name": "link",
+            "submodules": {},
+            "classes": {
+                "Track.link": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Track",
+            "namespace": "",
+            "file": "build/docs/link.js",
+            "line": 1,
+            "description": "For tracking links.",
             "static": 1
         },
         "page": {
@@ -408,6 +430,21 @@
             "file": "build/docs/event.js",
             "line": 1,
             "description": "For tracking multiple events per page."
+        },
+        "Track.link": {
+            "name": "Track.link",
+            "shortname": "Track.link",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Track",
+            "submodule": "link",
+            "namespace": "",
+            "file": "build/docs/link.js",
+            "line": 1,
+            "description": "For tracking links."
         },
         "Track": {
             "name": "Track",
@@ -1069,7 +1106,7 @@
         {
             "file": "build/docs/event.js",
             "line": 27,
-            "description": "Make the page tracking request.",
+            "description": "Track an event.",
             "itemtype": "method",
             "name": "event",
             "params": [
@@ -1100,19 +1137,20 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 9,
+            "line": 17,
             "description": "Default properties for events.",
             "itemtype": "property",
             "name": "defaultEventConfig",
             "type": "{Object}",
             "access": "private",
             "tagname": "",
-            "class": "Track",
-            "module": "Track"
+            "class": "Track.link",
+            "module": "Track",
+            "submodule": "link"
         },
         {
             "file": "build/docs/link.js",
-            "line": 27,
+            "line": 35,
             "description": "Calculates the parents of a HTML element.",
             "itemtype": "method",
             "name": "parentTree",
@@ -1129,12 +1167,13 @@
             },
             "access": "private",
             "tagname": "",
-            "class": "Track",
-            "module": "Track"
+            "class": "Track.link",
+            "module": "Track",
+            "submodule": "link"
         },
         {
             "file": "build/docs/link.js",
-            "line": 77,
+            "line": 85,
             "description": "Tracks a link.",
             "itemtype": "method",
             "name": "track",
@@ -1152,12 +1191,13 @@
                 }
             ],
             "async": 1,
-            "class": "Track",
-            "module": "Track"
+            "class": "Track.link",
+            "module": "Track",
+            "submodule": "link"
         },
         {
             "file": "build/docs/link.js",
-            "line": 95,
+            "line": 103,
             "description": "Handle a click event.",
             "itemtype": "method",
             "name": "clickEvent",
@@ -1173,12 +1213,30 @@
             },
             "access": "private",
             "tagname": "",
-            "class": "Track",
-            "module": "Track"
+            "class": "Track.link",
+            "module": "Track",
+            "submodule": "link"
         },
         {
             "file": "build/docs/link.js",
-            "line": 111,
+            "line": 115,
+            "description": "Set the callback called on every link tracking event.",
+            "itemtype": "method",
+            "name": "onClick",
+            "params": [
+                {
+                    "name": "cb",
+                    "description": "The callback.",
+                    "type": "Function"
+                }
+            ],
+            "class": "Track.link",
+            "module": "Track",
+            "submodule": "link"
+        },
+        {
+            "file": "build/docs/link.js",
+            "line": 124,
             "description": "Setup and initialise link tracking.\n\nThe config object can have three key/values - all are optional.\n* root: The root element to search for links. Defaults to window.document - useful if trying to track links from an iframe.\n* selector: The selector to use to search for links. Defaults to 'a'.\n* event: The event to listen on. Defaults to 'click'.\n* links: If you've already worked out the links to track, then this is used to pass them over. Must be an array with elements that accept events.",
             "itemtype": "method",
             "name": "init",
@@ -1194,8 +1252,9 @@
                 "description": "The links setup in this init.",
                 "type": "Array"
             },
-            "class": "Track",
-            "module": "Track"
+            "class": "Track.link",
+            "module": "Track",
+            "submodule": "link"
         },
         {
             "file": "build/docs/main.js",
@@ -1568,7 +1627,7 @@
     "warnings": [
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " build/docs/link.js:111"
+            "line": " build/docs/link.js:124"
         }
     ]
 }

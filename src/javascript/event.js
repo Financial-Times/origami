@@ -25,7 +25,7 @@ module.exports = (function (window) {
         };
 
     /**
-     * Make the page tracking request.
+     * Track an event.
      * @method event
      * @param model The model, for example: comment, video, slideshow
      * @param type The type of event, for example: play, share

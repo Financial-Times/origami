@@ -60,11 +60,59 @@ Then call the init function with the parameters below.
 track.init({ ...params... });
 ```
 ## Methods
-* `init` - setup the component with some default values.
-* `page` - track a page - called for you the first time using init.
-* `link` - for tracking links. *TBC*
-* `event` - for tracking events on a page.
-* `log` - for arbitrary logging to Splunk.
+### `init`
+Setup the component with some default values *and* send a page tracking request.
+```
+track.init({ ...params... });
+```
+See the parameters list below.
+
+### `page`
+Track a page - called for you the first time using init.
+```
+track.page({ ...params... }, callback);
+```
+See the parameters list below.
+Optional callback, called when request has completed.
+
+
+### `link`
+For tracking links.
+```
+track.link.init(params);
+```
+The params object can take a couple of configuration options:
+- `root` - The root element the module will listen for clicks, defaults to `window.document`. Useful if you have some iFrames.
+- `selector` - The elements to watch for clicks - can only be a tag name at the moment, defaults to 'a'.
+- `event` - The event to listen on, defaults to 'click'.
+- `links` - Array of Elements to track, which have been manually chosen, if this is provided, root and selector options are ignored. Defaults to null.
+- `callback` - Optional callback, called on every tracking event.
+
+```
+track.link.onClick(callback);
+```
+- `callback` - Set the callback to be called on every tracking event.
+
+```
+track.link.track(element, callback);
+```
+Manually track a link without using the built in events.
+- `element` - The element to track.
+- `callback` - Optional callback, called when the request has been sent.
+
+### `event`
+For tracking events on a page.
+```
+track.event(model, type, value, callback)
+```
+- model - The model, for example: comment, video, slideshow
+- type - The type of event, for example: play, share
+- value - Optional, the value, defaults to true. Examples include the video play amount - 50%, or slideshow slide number.
+- callback - Callback function. Called when request completed.
+
+### `log`
+For arbitrary logging to Splunk.
+
 
 ## Parameters
 Both JS and non-JS versions take the same parameters.

@@ -10,6 +10,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Track._Utils",
         "Track.data",
         "Track.event",
+        "Track.link",
         "Track.page"
     ],
     "modules": [
@@ -21,6 +22,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "_Utils",
         "data",
         "event",
+        "link",
         "page"
     ],
     "allModules": [
@@ -43,6 +45,11 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "event",
             "name": "event",
             "description": "For tracking multiple events per page."
+        },
+        {
+            "displayName": "link",
+            "name": "link",
+            "description": "For tracking links."
         },
         {
             "displayName": "page",

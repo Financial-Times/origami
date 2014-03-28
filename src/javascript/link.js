@@ -1,3 +1,11 @@
+/**
+ * For tracking links.
+ * @module Track
+ * @submodule link
+ * @class Track.link
+ * @static
+ */
+
 /*global module, require, window */
 module.exports = (function (window) {
     "use strict";
@@ -104,6 +112,11 @@ module.exports = (function (window) {
         return true;
     }
 
+    /**
+     * Set the callback called on every link tracking event.
+     * @method onClick
+     * @param cb {Function} The callback.
+     */
     function onClick(cb) {
         callback = cb;
     }
