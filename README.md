@@ -33,7 +33,7 @@ For example:
 Add this to your dependencies in bower.json:
 ```
 "dependencies": {
-    "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.10 < 1"
+    "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.11 < 1"
 }
 ```
 
@@ -43,9 +43,8 @@ It's strongly advised to specify at least the major and minor version as a tag.
 ## Including in a product
 
 ### Template
-*The template also relies on a Cut the Mustard check which MUST be adhered to if you are using both JS and non-JS versions.*
-
-*Please avoid sending duplicate requests per page.*
+**The template also relies on a Cut the Mustard check which MUST be adhered to if you are using both JS and non-JS versions.**
+**Please avoid sending duplicate requests per page.**
 
 `tracking.mustache` expects a `tracking` object, containing the following properties:
 * tracking.domain - the domain of the tracking server

@@ -16,23 +16,23 @@ module.exports = function (grunt) {
             files : [
                 /*{
                  location: "bower.json",
-                 regex: /("version"\s*:\s*["'])(\d\.\d\.\d)(["'])/
+                 regex: /("version"\s*:\s*["'])(\d+\.\d+\.\d+)(["'])/
                  },*/
                 {
                     location: "package.json",
-                    regex: /("version"\s*:\s*["'])(\d\.\d\.\d)(["'])/
+                    regex: /("version"\s*:\s*["'])(\d+\.\d+\.\d+)(["'])/
                 },
                 {
                     location: "README.md",
-                    regex: /("tracking-module": "http:\/\/git\.svc\.ft\.com:8080\/scm\/track\/o-tracking\.git#>=)(\d\.\d\.\d)( < 1")/
+                    regex: /("tracking-module": "http:\/\/git\.svc\.ft\.com:8080\/scm\/track\/o-tracking\.git#>=)(\d+\.\d+\.\d+)( < 1")/
                 },
                 {
                     location: "tracking.mustache",
-                    regex: /(data-o-version=")(\d\.\d\.\d)(")/
+                    regex: /(data-o-version=")(\d+\.\d+\.\d+)(")/
                 },
                 {
                     location: "main.js",
-                    regex: /(version = "Track version )(\d\.\d\.\d)(";)/
+                    regex: /(version = "Track version )(\d+\.\d+\.\d+)(";)/
                 }
             ]
         },
