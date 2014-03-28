@@ -23,6 +23,9 @@
         },
         "global-errors": {
             "template": "demos/src/global-errors.mustache"
+        },
+        "section-errors": {
+            "template": "demos/src/section-errors.mustache"
         }
     }
 }

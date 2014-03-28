@@ -19,6 +19,7 @@
         "/demos/radios.html",
         "/demos/checkboxes.html",
         "/demos/prefix-suffix.html",
-        "/demos/global-errors.html"
+        "/demos/global-errors.html",
+        "/demos/section-errors.html"
     ]
 }

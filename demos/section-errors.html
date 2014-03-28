@@ -4,7 +4,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
-    <title>o-ft-forms: global-errors demo</title>
+    <title>o-ft-forms: section-errors demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <style>
     body {
@@ -18,10 +18,10 @@
     <link rel="stylesheet" href="http://build.origami.ft.com/bundles/css?modules=o-grid@^2.0.7" />
 <div class="o-grid-row">
     <div data-o-grid-colspan="6 S12 M6">
-        <div class="o-ft-forms-globalMsg--error">
-            <p>This is a global error message that relates to the entire form</p>
-        </div>
-        <fieldset class="o-ft-forms__section">
+        <fieldset class="o-ft-forms__section o-ft-forms__section--error">
+            <div class="o-ft-forms-section__errorMsg">
+                <p>This is a section error message that highlights a group of fields</p>
+            </div>
             <div class="o-ft-forms-field-group">
                 <label class="o-ft-forms__label">Field label</label>
                 <small class="o-ft-forms__additional-info">Additional field information</small>
