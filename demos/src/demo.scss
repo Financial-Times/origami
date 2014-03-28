@@ -1,10 +1,2 @@
 $o-ft-forms-is-silent: false;
 @import "../../main";
-
-body {
-  background-color: #fff1e0;
-}
-
-.o-ft-forms__field:valid {
-	border: $_o-ft-forms-fieldborder;
-}
