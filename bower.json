@@ -3,10 +3,10 @@
 	"main": ["main.scss"],
 	"ignore": [],
 	"dependencies": {
-        "o-colors": "^2.2.20",
-        "o-ft-typography": "^1.4.0",
+        "o-colors": "^2.3.3",
+        "o-ft-typography": "^1.7.0",
         "o-grid": "^2.0.7",
         "o-assets": "^0.4.0",
-        "o-fonts": "^0.7.0"
+        "o-fonts": "^1.0.0"
 	}
 }

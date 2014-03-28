@@ -5,8 +5,15 @@
   "support": "rhys.evans@ft.com",
   "supportStatus": "active",
   "browserFeatures": {
-  	"required": ["html5"],
-  	"optional": ["svg", "datauri"]
+    "required": [
+      "html5"
+    ],
+    "optional": [
+      "svg",
+      "datauri"
+    ]
   },
-  "demos": ["demos/ft-footer.html"]
+  "demos": [
+    "/demos/ft-footer.html"
+  ]
 }
