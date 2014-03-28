@@ -81,6 +81,13 @@
             "fors": {},
             "namespaces": {}
         },
+        "build/docs/link.js": {
+            "name": "build/docs/link.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "build/docs/main.js": {
             "name": "build/docs/main.js",
             "modules": {
@@ -708,7 +715,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 168,
+            "line": 172,
             "description": "Adds a new request to the list of pending requests",
             "itemtype": "method",
             "name": "add",
@@ -724,7 +731,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 183,
+            "line": 187,
             "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
             "itemtype": "method",
             "name": "run",
@@ -743,7 +750,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 212,
+            "line": 216,
             "description": "Convenience function to add and run a request all in one go.",
             "itemtype": "method",
             "name": "addAndRun",
@@ -760,7 +767,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 222,
+            "line": 226,
             "description": "Init the queue and send any leftover tags.",
             "itemtype": "method",
             "name": "init",
@@ -907,7 +914,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 42,
+            "line": 41,
             "description": "Generate and store a new ClickID.",
             "itemtype": "method",
             "name": "clickID",
@@ -928,7 +935,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 56,
+            "line": 55,
             "description": "Create a requestID (unique identifier) for the page impression.",
             "itemtype": "method",
             "name": "requestID",
@@ -951,7 +958,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 71,
+            "line": 70,
             "description": "Count of the number of tracking requests made.",
             "itemtype": "method",
             "name": "internalCounter",
@@ -967,7 +974,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 82,
+            "line": 81,
             "description": "Get a user ID.",
             "itemtype": "method",
             "name": "userID",
@@ -988,7 +995,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 102,
+            "line": 101,
             "description": "Make a tracking request.",
             "itemtype": "method",
             "name": "track",
@@ -1090,6 +1097,105 @@
             "class": "Track.event",
             "module": "Track",
             "submodule": "event"
+        },
+        {
+            "file": "build/docs/link.js",
+            "line": 9,
+            "description": "Default properties for events.",
+            "itemtype": "property",
+            "name": "defaultEventConfig",
+            "type": "{Object}",
+            "access": "private",
+            "tagname": "",
+            "class": "Track",
+            "module": "Track"
+        },
+        {
+            "file": "build/docs/link.js",
+            "line": 27,
+            "description": "Calculates the parents of a HTML element.",
+            "itemtype": "method",
+            "name": "parentTree",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "The starting element.",
+                    "type": "Element"
+                }
+            ],
+            "return": {
+                "description": "The tree of parent elements.",
+                "type": "Array"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Track",
+            "module": "Track"
+        },
+        {
+            "file": "build/docs/link.js",
+            "line": 77,
+            "description": "Tracks a link.",
+            "itemtype": "method",
+            "name": "track",
+            "params": [
+                {
+                    "name": "link",
+                    "description": "The link to track.",
+                    "type": "Element"
+                },
+                {
+                    "name": "callback",
+                    "description": "Optional callback function.",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "async": 1,
+            "class": "Track",
+            "module": "Track"
+        },
+        {
+            "file": "build/docs/link.js",
+            "line": 95,
+            "description": "Handle a click event.",
+            "itemtype": "method",
+            "name": "clickEvent",
+            "params": [
+                {
+                    "name": "event",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Track",
+            "module": "Track"
+        },
+        {
+            "file": "build/docs/link.js",
+            "line": 111,
+            "description": "Setup and initialise link tracking.\n\nThe config object can have three key/values - all are optional.\n* root: The root element to search for links. Defaults to window.document - useful if trying to track links from an iframe.\n* selector: The selector to use to search for links. Defaults to 'a'.\n* event: The event to listen on. Defaults to 'click'.\n* links: If you've already worked out the links to track, then this is used to pass them over. Must be an array with elements that accept events.",
+            "itemtype": "method",
+            "name": "init",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "Initial configuration",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "The links setup in this init.",
+                "type": "Array"
+            },
+            "class": "Track",
+            "module": "Track"
         },
         {
             "file": "build/docs/main.js",
@@ -1459,5 +1565,10 @@
             "submodule": "_Utils"
         }
     ],
-    "warnings": []
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " build/docs/link.js:111"
+        }
+    ]
 }

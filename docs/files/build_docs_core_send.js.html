@@ -243,6 +243,10 @@ module.exports = (function (window) {
             async = request.async,
             user_callback = request.callback;
 
+        /*if (xmlHttp.hasOwnProperty(&quot;withCredentials&quot;)) {
+            xmlHttp.withCredentials = true;
+        }*/
+
         delete request.callback;
         delete request.async;
 

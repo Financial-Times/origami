@@ -33,8 +33,7 @@ module.exports = (function (window, document) {
          }
          @private
          */
-            defaultConfig = {
-            environment: 'test',
+        defaultConfig = {
             async: true,
             callback: function () {}
         };
@@ -127,7 +126,8 @@ module.exports = (function (window, document) {
     }
 
     return {
-        clickID: clickID,
+        setClickID: clickID,
+        getClickID: function () { return defaultConfig.clickID; },
         track: track
     };
 }(window, document));

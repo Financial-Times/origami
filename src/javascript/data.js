@@ -46,7 +46,7 @@ module.exports = (function (window) {
      * @async
      */
     function data(config, callback) {
-        config = utils.merge(defaultDataConfig, config);
+        config = utils.merge(utils.merge(defaultDataConfig), config);
         Core.track(config, callback);
     }
 

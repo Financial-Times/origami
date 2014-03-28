@@ -81,7 +81,7 @@ module.exports = (function (window, document) {
             java: (window.navigator.javaEnabled() ? '1' : '0'),
             js: '1',
 
-            async: false // Send this tag syncronously
+            async: true // Send this tag asyncronously - as sync doesn't work in FF, as it doesn't send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
         };
 
     /**
@@ -122,11 +122,11 @@ module.exports = (function (window, document) {
      * @async
      */
     return function (config, callback) {
-        config = utils.merge(defaultPageConfig, config);
+        config = utils.merge(utils.merge(defaultPageConfig), config);
         config.url = url(config.url);
 
         // New ClickID for a new Page.
-        Core.clickID();
+        Core.setClickID();
         Core.track(config, callback);
 
         settings.page_sent = true;

@@ -119,6 +119,7 @@ module.exports = (function () {
 
         page:  require('./src/javascript/page'),
         data:  require('./src/javascript/data'),
-        event: require('./src/javascript/event')
+        event: require('./src/javascript/event'),
+        link: require('./src/javascript/link')
     };
 }());

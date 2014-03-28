@@ -8,13 +8,13 @@ describe('Core', function () {
 
     describe('clickID', function () {
         it('should generate a clickID', function () {
-            var clickID = Core.clickID(),
+            var clickID = Core.setClickID(),
                 re = /t\d{13}h\d/;
             assert.ok(clickID.match(re), "'" + clickID + "'.match(" + re + ")");
         });
 
         it('should use the clickID given it', function () {
-            assert.equal(Core.clickID("myClickID"), "myClickID");
+            assert.equal(Core.setClickID("myClickID"), "myClickID");
         });
     });
 
@@ -50,12 +50,11 @@ describe('Core', function () {
 
             sent_data = callback.getCall(0).thisValue;
 
-            assert.deepEqual(Object.keys(sent_data), ["userID", "clickID", "requestID", "counter", "environment", "type", "url", "queueTime"]);
+            assert.deepEqual(Object.keys(sent_data), ["userID", "clickID", "requestID", "counter", "type", "url", "queueTime"]);
             assert.equal(sent_data.clickID, "clickID");
             assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.requestID), "RequestID is invalid. " + sent_data.requestID);
             assert.equal(sent_data.userID, "userID");
             assert.equal(sent_data.counter, 1);
-            assert.equal(sent_data.environment, "test");
             assert.equal(sent_data.type, "page");
             assert.equal(sent_data.url, "http://www.ft.com/home/uk");
             assert.ok(/\d+/.test(sent_data.queueTime), "queueTime is invalid. " + sent_data.queueTime);

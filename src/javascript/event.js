@@ -34,7 +34,7 @@ module.exports = (function (window) {
      * @async
      */
     function event(model, type, value, callback) {
-        var config = utils.merge(defaultEventConfig, {
+        var config = utils.merge(utils.merge(defaultEventConfig), {
             eventModel: model,
             eventType: type,
             eventData: value
