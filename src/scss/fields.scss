@@ -10,29 +10,20 @@
     padding-left:6px;
 }
 
-@include oFtFormsClass(o-ft-forms__label) {
-    display: block;
-    margin-bottom: 5px;
-    color: oColorsGetColorFor(forms-label, text);
-    font-family: $o-fonts-bentonsans-normal;
-    font-size: 14px;
-   
-    small {
-        color: oColorsGetColorFor(form-field-standard, text);
-        font-size: 10px;
-        padding-left:8px;
-        text-align: right;
-        top: 3px;
-        line-height: 14.5px;
-    }
+@include oFtFormsClass(o-ft-forms__additional-info) {
+  display: block;
+  margin-top: -2px;
+  margin-bottom: 4px;
+  color: oColorsGetColorFor(form-field-additional-info label body, text);
+  @extend %o-ft-typography-label-small;
 }
 
-/* Can be removed once inline are confirmed unnecessary
-@include oFtFormsClass(o-ft-forms__label--inline) {
-    padding-top: 6px;
-    line-height: 18px;
+@include oFtFormsClass(o-ft-forms__label) {
+    display: block;
+    @extend %o-ft-typography-label-medium;
+    margin-bottom: 5px;
+    color: oColorsGetColorFor(form-field-label label body, text);
 }
-*/
 
 @include oFtFormsClass('o-ft-forms__field[type="text"]',
 'o-ft-forms__field[type="password"]',
@@ -50,14 +41,12 @@
 'o-ft-forms__field[type="color"]',
 'o-ft-forms__field[type="range"]') {
     @include commonField();
-    //height: 24px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
 }
 
 /*=============SELECT=============*/
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--select', '.o-ft-forms__field--select') {
     @include commonField();
-    //height: 24px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
     background-image: url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==');
     background-repeat: no-repeat;
     background-position: 97% center;
@@ -70,6 +59,5 @@
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--textarea', '.o-ft-forms__field--textarea') {
     @include commonField();
-    height: 70px; /* Using min-height when width is also set, causes IE8 to ignore the box-sizing:border-box setting, so have to use height instead */
     vertical-align: top;
 }

@@ -22,7 +22,7 @@
             "template": "demos/src/prefix-suffix.mustache"
         },
         "global-errors": {
-            "template": "demos/src/errors-global.mustache"
+            "template": "demos/src/global-errors.mustache"
         }
     }
 }

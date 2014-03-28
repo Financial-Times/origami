@@ -11,11 +11,6 @@
 	margin-bottom: 6px;
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradio-sibling-__label',
-  '.o-ft-forms--error .o-ft-forms__field[type="checkbox"] + .o-ft-forms__label, .o-ft-forms--error .o-ft-forms__field[type="radio"] + .o-ft-forms__label') {
-	margin-bottom: 6px;
-}
-
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__errortext', '.o-ft-forms__errortext') {
   clear: both;
   display: block;
