@@ -13,6 +13,9 @@
       "datauri"
     ]
   },
+  "ci": {
+    "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-footer/builds.json"
+  },
   "demos": [
     "/demos/ft-footer.html"
   ]
