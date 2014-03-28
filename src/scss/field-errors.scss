@@ -2,7 +2,6 @@
   '.o-ft-forms--error .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]), 
   .o-ft-forms--error .o-ft-forms__field--select, 
   .o-ft-forms--error .o-ft-forms__field--textarea') {
-	margin-bottom: 0;
     border-color: oColorsGetColorFor(error, border);
 }
 
@@ -15,20 +14,20 @@
   clear: both;
   display: block;
   margin-top: -1px;
-  margin-bottom: $_o-ft-forms-marginbottom;
   padding: 3px 0;
   font-family: $o-fonts-bentonsans-normal;
   font-size: 12px;
   font-weight:bold;
   font-style: normal;
   color: oColorsGetColorFor(error, text);
+  position:relative; //needed for :after icon
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms--error:after','.o-ft-forms--error:after'){
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms--error .o-ft-forms__errortext:after','.o-ft-forms--error .o-ft-forms__errortext:after'){
   position: absolute;
   font-size: 18px;
-  top: 22px;
-  right: 10px;
+  top: -25px;
+  right: 0;
   content: "\2716";
   color: oColorsGetColorFor(error, text);
   font-weight: bold;
