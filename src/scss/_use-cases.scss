@@ -57,6 +57,7 @@ $o-colors-usecase-list:
     article-subheading                warm-grey2             border,
     article-byline                    warm-grey2             text                DEPRECATED,
     article-divider                   warm-grey2             border              DEPRECATED,
+    label                             charcoal               text,
 
     // FT header and footer
     header                            charcoal               background,
@@ -73,7 +74,7 @@ $o-colors-usecase-list:
     pearson                           warm-grey2             text,
 
     // Forms (legacy/tbc)
-    forms-label                       black                  text,
+    forms-label                       black                  text                DEPRECATED,
     forms-label-error                 black                  text,
     forms-label-error                 white                  background,
     forms-label-error                 red                    border              DEPRECATED,
@@ -101,6 +102,8 @@ $o-colors-usecase-list:
     forms-section                     claret                 border,
 
     // Forms
+    form-field-label                  charcoal               text,
+    form-field-additional-info        dark-grey              text,
     form-field-standard               tint3                  border,
     form-field-standard               white                  background,
     form-field-standard               warm-grey1             text,
