@@ -2,7 +2,7 @@
     "project": {
         "name": "Origami Tracking module",
         "description": "Origami module for FT tracking.",
-        "version": "0.0.9",
+        "version": "0.0.10",
         "url": ""
     },
     "files": {
