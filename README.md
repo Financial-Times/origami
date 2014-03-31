@@ -87,6 +87,9 @@ Then run
 
 This will generate the web font from the SVG sources and also create the HTML demo page showing each of the icons.
 
+###SVG version
+The icons module uses SVG version 1.1. Files can be created in any vector graphics software. In Adobe Illustrator use the "save as" function and set to version 1.1
+
 ###SVG file naming rules
 
 The file must be named according to the following rules:
