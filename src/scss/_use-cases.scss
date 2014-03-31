@@ -6,7 +6,13 @@
  * Use case:           Must be a single word comprising just letters, numbers, and dashes.
  * Color name:         Must be an exact match for a name of a colour defined in palette.scss
  * CSS class property: Should be 'text', 'border', 'background', or 'all'.
- * Status:             Must be 'DEPRECATED' or absent
+ * Status:             Should normally not have a value. For out-dated colour use cases it should have one of the following values:
+                        'DEPRECATED' - The use case should not be used. Emits a warning during teh SASS build
+                                        In general should only be used where *every* role (text, background, border) for the use case
+                                        is permanently deprecated
+                        'DISABLED' - The use case + role combination currently inherits from a more generic use case. 
+                                    Behaves the same as 'DEPRECATED' if the user has not specified a valid fallback use case
+                                    If a valid fallback is specified it silently ignores the disabled use case in favour of the fallback
  *
  * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
  *
@@ -76,7 +82,7 @@ $o-colors-usecase-list:
     forms-label                       black                  text,
     forms-label-error                 black                  text,
     forms-label-error                 white                  background,
-    forms-label-error                 red                    border              DEPRECATED,
+    forms-label-error                 red                    border              DISABLED,
     forms-field                       warm-grey2             text                DEPRECATED,
     forms-field                       white                  background          DEPRECATED,
     forms-field                       tint3                  border              DEPRECATED,
