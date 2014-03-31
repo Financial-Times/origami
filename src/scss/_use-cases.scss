@@ -25,6 +25,7 @@ $o-colors-usecase-list:
 
     // Generics
     page                              pink                   background,
+    page                              black                  text,
     table                             tint1                  background,
     table-header-row                  warm-grey1             border,
     table-row                         tint3                  border,
@@ -42,6 +43,8 @@ $o-colors-usecase-list:
     control-hover                     white                  text,
     overlay                           white                  text,
     overlay                           charcoal               background,
+    badge                             white                  text,
+    badge                             red                    background,
 
     link-alt                          charcoal               text,
     link-alt-hover                    blue                   text,
@@ -63,6 +66,7 @@ $o-colors-usecase-list:
     article-subheading                warm-grey2             border,
     article-byline                    warm-grey2             text                DEPRECATED,
     article-divider                   warm-grey2             border              DEPRECATED,
+    label                             charcoal               text,
 
     // FT header and footer
     header                            charcoal               background,
@@ -79,7 +83,7 @@ $o-colors-usecase-list:
     pearson                           warm-grey2             text,
 
     // Forms (legacy/tbc)
-    forms-label                       black                  text,
+    forms-label                       black                  text                DEPRECATED,
     forms-label-error                 black                  text,
     forms-label-error                 white                  background,
     forms-label-error                 red                    border              DISABLED,
@@ -107,6 +111,8 @@ $o-colors-usecase-list:
     forms-section                     claret                 border,
 
     // Forms
+    form-field-label                  charcoal               text,
+    form-field-additional-info        dark-grey              text,
     form-field-standard               tint3                  border,
     form-field-standard               white                  background,
     form-field-standard               warm-grey1             text,
@@ -180,5 +186,11 @@ $o-colors-usecase-list:
     status-ok                         green                  background,
     status-ok                         white                  text,
     status-error                      red                    background,
-    status-error                      white                  text
+    status-error                      white                  text,
+    severity-1                        blue-tint1             background,
+    severity-1                        white                  text,
+    severity-2                        orange-tint1           background,
+    severity-2                        white                  text,
+    severity-3                        yellow-tint1           background,
+    severity-3                        white                  text
 ;
