@@ -15,12 +15,9 @@
     @if ( ($property != all and $name == nth($usecase, 1) and $property == nth($usecase, 3))
         or ($property == all and $name == nth($usecase, 1) + '-' + nth($usecase, 3))  
         or (nth($usecase, 3) == all and $name == nth($usecase, 1)) ) {
-
       @if (length($usecase) == 4 and nth($usecase,4) == DEPRECATED) {
-        @return (
-          color: _oColorsGetPaletteColor(nth($usecase,2)),
-          warning: "Deprecated use-case name '" + $name + "', property '" + $property + "' used"
-        );  
+        @warn "Deprecated use-case name '" + $name + "', property '" + $property + "' used";
+        @return (color: _oColorsGetPaletteColor(nth($usecase,2))); 
       } @if (length($usecase) == 4 and nth($usecase,4) == DISABLED) {
         $warning: "Disabled use-case name '" + $name + "', property '" + $property + "' used - please add a current use case + role combination to the fallback stack used in oColorsGetColorFor()";
         $provisionalColor: _oColorsGetPaletteColor(nth($usecase,2));
