@@ -7,7 +7,7 @@
  * Color name:         Must be an exact match for a name of a colour defined in palette.scss
  * CSS class property: Should be 'text', 'border', 'background', or 'all'.
  * Status:             Should normally not have a value. For out-dated colour use cases it should have one of the following values:
-                        'DEPRECATED' - The use case should not be used. Emits a warning during teh SASS build
+                        'DEPRECATED' - The use case should not be used. Emits a warning during the SASS build
                                         In general should only be used where *every* role (text, background, border) for the use case
                                         is permanently deprecated
                         'DISABLED' - The use case + role combination currently inherits from a more generic use case. 
