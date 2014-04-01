@@ -1,0 +1,14 @@
+{
+    "name": "o-tabs",
+    "main": [
+        "main.scss"
+    ],
+    "ignore": [
+        ".gitignore"
+    ],
+    "dependencies": {
+        "o-colors": "^2.3.0",
+        "o-ft-typography": "^1.7.0",
+        "o-hoverable": "^0.1.1"
+    }
+}

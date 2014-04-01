@@ -1,7 +1,12 @@
-o-tabs
-======
+# o-tabs [![Build Status](https://travis-ci.org/Financial-Times/o-tabs.png?branch=master)](https://travis-ci.org/Financial-Times/o-tabs)
 
 > A single content area with multiple panels, each associated with a header in a list.
+
+---
+
+__Status__: Gathering requirements. Not yet implemented.
+
+---
 
 ## Styles
 

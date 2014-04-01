@@ -1,0 +1,10 @@
+{
+    "description": "Tabs",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "https://github.com/Financial-Times/o-tabs/issues",
+    "supportStatus": "not implemented",
+    "ci": {
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-tabs/builds.json"
+    }
+}
