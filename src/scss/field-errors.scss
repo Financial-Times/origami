@@ -2,33 +2,23 @@
   '.o-ft-forms--error .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]), 
   .o-ft-forms--error .o-ft-forms__field--select, 
   .o-ft-forms--error .o-ft-forms__field--textarea') {
-    border-color: oColorsGetColorFor(error, border);
-}
-
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--checkbox--error, %o-ft-forms__field--select--error',
-  '.o-ft-forms--error .o-ft-forms__field[type="checkbox"], .o-ft-forms--error .o-ft-forms__field[type="radio"]') {
-	margin-bottom: 6px;
+    border-color: oColorsGetColorFor(form-field-invalid error, border);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color: oColorsGetColorFor(form-field-invalid error form-field-standard, text);
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__errortext', '.o-ft-forms__errortext') {
   clear: both;
   display: block;
   margin-top: -1px;
-  padding: 3px 0;
+  padding: 3px 5px;
   font-family: $o-fonts-bentonsans-normal;
-  font-size: 12px;
-  font-weight:bold;
+  font-size: 14px;
   font-style: normal;
-  color: oColorsGetColorFor(error, text);
-  position:relative; //needed for :after icon
-}
-
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms--error .o-ft-forms__errortext:after','.o-ft-forms--error .o-ft-forms__errortext:after'){
-  position: absolute;
-  font-size: 18px;
-  top: -25px;
-  right: 0;
-  content: "\2716";
-  color: oColorsGetColorFor(error, text);
-  font-weight: bold;
+  color: oColorsGetColorFor(form-error error, text);
+  background-color: oColorsGetColorFor(form-error error, background);
+  border: 1px solid oColorsGetColorFor(form-error error, background);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }

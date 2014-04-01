@@ -5,11 +5,21 @@
   border: $_o-ft-forms-fieldborder;
   border-radius: 5px;
   padding: 3px 5px;
-  width: calc(100% - 18px);
+  width: 100%;
   background-color: oColorsGetColorFor(form-field-standard, background);
   color: oColorsGetColorFor(form-field-standard, text);
   font-family: $o-fonts-bentonsans-normal;
   font-size: $_o-ft-forms-fontsize-field;
+}
+  
+@mixin commonFieldFocus() {
+    border-color: oColorsGetColorFor(form-field-hover form-field-selected, border);
+}
+  
+@mixin commonFieldDisabled() {
+    border-color: oColorsGetColorFor(form-field-disabled, border);
+    background-color: oColorsGetColorFor(form-field-disabled, background);
+    color: oColorsGetColorFor(form-field-disabled, text);
 }
 
 @mixin appearance($value) {

@@ -2,19 +2,5 @@
   '.o-ft-forms--valid .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]), 
   .o-ft-forms--valid .o-ft-forms__field--select, 
   .o-ft-forms--valid .o-ft-forms__field--textarea') {
-  border-color: oColorsGetColorFor(valid forms-field-valid, border);
-}
-
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--checkbox--valid, %o-ft-forms__field--select--valid',
-  '.o-ft-forms--valid .o-ft-forms__field[type="checkbox"], .o-ft-forms--valid .o-ft-forms__field[type="radio"]') {
-	margin-bottom: 6px;
-}
-
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms--valid:after','.o-ft-forms--valid:after'){
-  position: absolute;
-  font-size: 18px;
-  bottom: 2px;
-  right: 10px;
-  content: "\2714";
-  color: oColorsGetColorFor(valid forms-valid, text);
+  border-color: oColorsGetColorFor(form-field-valid, border);
 }

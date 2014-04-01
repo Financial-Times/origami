@@ -1,13 +1,13 @@
 @include oFtFormsClass(o-ft-forms__section) {
-    padding:0 0 6px 0;
-    margin:10px 0;
-    border:0 none;
+    padding: 0 0 6px 0;
+    margin: 10px 0;
+    border: 0 none;
 }
 
 @include oFtFormsClass(o-ft-forms-field-group) {
     position: relative;
-    padding-right: 28px;
-    padding-left:6px;
+    padding-right: 6px;
+    padding-left: 6px;
     margin-bottom: 20px;
 }
 
@@ -26,28 +26,30 @@
     color: oColorsGetColorFor(form-field-label label body, text);
 }
 
-@include oFtFormsClass('o-ft-forms__field[type="text"]',
-'o-ft-forms__field[type="password"]',
-'o-ft-forms__field[type="search"]',
-'o-ft-forms__field[type="url"]',
-'o-ft-forms__field[type="email"]',
-'o-ft-forms__field[type="tel"]',
-'o-ft-forms__field[type="date"]',
-'o-ft-forms__field[type="time"]',
-'o-ft-forms__field[type="datetime"]',
-'o-ft-forms__field[type="datetime-local"]',
-'o-ft-forms__field[type="month"]',
-'o-ft-forms__field[type="week"]',
-'o-ft-forms__field[type="number"]',
-'o-ft-forms__field[type="color"]',
-'o-ft-forms__field[type="range"]') {
+/*=============TEXT INPUTS, SELECTS AND TEXTAREAS=============*/
+
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field %o-ft-forms__label--select %o-ft-forms__label--textarea',
+  '.o-ft-forms__field:not([type="checkbox"]):not([type="radio"]), 
+  .o-ft-forms__field--select, 
+  .o-ft-forms__field--textarea') {
     @include commonField();
 }
 
-/*=============SELECT=============*/
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field:disabled %o-ft-forms__label--select:disabled %o-ft-forms__label--textarea:disabled',
+  '.o-ft-forms__field:disabled:not([type="checkbox"]):not([type="radio"]), 
+  .o-ft-forms__field--select:disabled, 
+  .o-ft-forms__field--textarea:disabled') {
+    @include commonFieldDisabled();
+}
+
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field:focus %o-ft-forms__label--select:focus %o-ft-forms__label--textarea:focus',
+  '.o-ft-forms__field:focus:not([type="checkbox"]):not([type="radio"]), 
+  .o-ft-forms__field--select:focus, 
+  .o-ft-forms__field--textarea:focus') {
+    @include commonFieldFocus();
+}
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--select', '.o-ft-forms__field--select') {
-    @include commonField();
     padding-top: 2px;
     padding-bottom: 1px;
     background-image: url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==');
@@ -58,9 +60,6 @@
     text-overflow: '';
 }
 
-/*=============TEXTAREA=============*/
-
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--textarea', '.o-ft-forms__field--textarea') {
-    @include commonField();
     vertical-align: top;
 }
