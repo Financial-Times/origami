@@ -17,7 +17,7 @@ This uses buttons from [o-ft-buttons](https://github.com/Financial-Times/o-ft-bu
 
 #### Style 1, variant 2: "Big"
 
-![tab buttons big](https://raw.githubusercontent.com/Financial-Timejquerys/o-tabs/master/files/tab-buttons-big.png)
+![tab buttons big](https://raw.githubusercontent.com/Financial-Times/o-tabs/master/files/tab-buttons-big.png)
 
 These examples show "John" as the selected tab.
 
