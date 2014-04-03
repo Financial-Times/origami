@@ -5,6 +5,7 @@
     border-color: oColorsGetColorFor(form-field-invalid error, border);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    border-bottom: 0;
     color: oColorsGetColorFor(form-field-invalid error form-field-standard, text);
 }
 
