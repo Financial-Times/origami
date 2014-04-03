@@ -64,7 +64,7 @@
     vertical-align: top;
 }
 
-<!-- TBC - This is to hide Chrome's style for autocompleted fields -->
+/* TBC - This is to hide Chrome's style for autocompleted fields*/
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field:-webkit-autofill',
   '.o-ft-forms__field:-webkit-autofill, 
   .o-ft-forms__field--select:-webkit-autofill, 
