@@ -100,10 +100,11 @@ module.exports = (function () {
      * @chainable
      */
     Queue.prototype.add = function (item) {
+        // I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn't work out how to get to "this" from within the module.
+
         var self = this,
             i;
 
-        // I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn't work out how to get to "this" from within the module.
         function doAdd(item) {
             self.queue.push({
                 created_at: (new Date()).valueOf(),
@@ -139,6 +140,31 @@ module.exports = (function () {
         }
 
         throw new Error('Argument invalid, must be an array.');
+    };
+
+    /**
+     * Pop the first item from the queue.
+     * @method shift
+     * @return {*} The item.
+     */
+    Queue.prototype.shift = function () {
+        var replacement = this.all(),
+            nextItem = this.first(),
+            i;
+
+        if (!nextItem) {
+            return null;
+        }
+
+        for (i = 0; i < replacement.length; i = i + 1) {
+            if (nextItem.requestID === replacement[i].requestID) {
+                replacement.splice(i, 1);
+                this.replace(replacement).save();
+                break;
+            }
+        }
+
+        return nextItem;
     };
 
     /**

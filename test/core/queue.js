@@ -66,6 +66,18 @@ describe('Core.Queue', function () {
         });
     });
 
+    describe('shift', function () {
+        it('should shift an item off the front of the queue', function () {
+            var pre_shift = queue.all(),
+                item = queue.shift();
+            assert.deepEqual(pre_shift, [item].concat(queue.all()));
+        });
+
+        it('should have the correct number of items', function () {
+            assert.equal(queue.all().length, 3);
+        });
+    });
+
     describe('saving', function () {
         it('should persist the queue', function () {
             assert.doesNotThrow(function () {
@@ -82,7 +94,7 @@ describe('Core.Queue', function () {
         });
 
         it('should have the correct number of items', function () {
-            assert.equal(queue2.all().length, 4);
+            assert.equal(queue2.all().length, 3);
         });
     });
 });

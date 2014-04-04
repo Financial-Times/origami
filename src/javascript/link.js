@@ -11,8 +11,12 @@ module.exports = (function (window) {
     "use strict";
 
     var
+        Queue = require("./core/queue"),
         Core = require("./core"),
+
         utils = require("./utils"),
+
+        internalQueue,
 
         /**
          * Default properties for events.
@@ -30,6 +34,54 @@ module.exports = (function (window) {
         window.Element.prototype.addEventListener = function (type, listener) {
             this.attachEvent("on" + type, listener);
         };
+    }
+
+    /**
+     * Check if a URL is going to the same site (internal)
+     * @method isInternal
+     * @param url {String} The url to check.
+     * @return {Boolean}
+     */
+    function isInternal(url) {
+        return url.indexOf(window.document.location.hostname) > -1;
+    }
+
+    /**
+     * Check if a URL is going to an external site.
+     * @method isExternal
+     * @param url {String} The url to check.
+     * @return {Boolean}
+     */
+    function isExternal(url) {
+        return !isInternal(url);
+    }
+
+    /**
+     * Checks if a URL is pointing at a file.
+     * NOTE: Don't want to maintain a list of file extensions, so try best guess.
+     * @method isFile
+     * @param url {String} The url to check.
+     * @return {Boolean}
+     */
+    function isFile(url) {
+        var path = url.replace(/^\w+:\/\//, '').replace(/(#|\?).+/g, '').replace(/\/$/, '');
+
+        // It must have a slash to have a file path
+        if (path.indexOf('/') === -1) {
+            return false;
+        }
+
+        // No extension
+        if (!path.match(/\.(\w{2,4})$/)) {
+            return false;
+        }
+
+        // Obviously a web page.
+        if (['html', 'htm', 'php'].indexOf(RegExp.$1) > -1) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -83,24 +135,6 @@ module.exports = (function (window) {
     }
 
     /**
-     * Tracks a link.
-     * @method track
-     * @param link {Element} The link to track.
-     * @param [callback] {Function} Optional callback function.
-     * @async
-     */
-    function track(link, callback) {
-        var linkID = createLinkID(link),
-            config = utils.merge(utils.merge(defaultLinkConfig), {
-                'requestPage': '', // TODO
-                'link': linkID,
-                'referrerClickID': Core.getClickID()
-            });
-
-        Core.track(config, callback);
-    }
-
-    /**
      * Handle a click event.
      * @method clickEvent
      * @param event
@@ -108,8 +142,25 @@ module.exports = (function (window) {
      * @private
      */
     function clickEvent(event) {
-        track(event.target, callback);
-        return true;
+        var link = event.target,
+
+            linkID = createLinkID(link),
+            config = utils.merge(utils.merge(defaultLinkConfig), {
+                'requestPage': '', // TODO
+                'link': linkID,
+                'referrerClickID': Core.getClickID()
+            });
+
+        if (isExternal(link.href) || isFile(link.href)) {
+            // Send now
+            config.async = false;
+            Core.track(config, callback);
+        }
+
+        if (isInternal(link.href)) {
+            // Queue and send on next page.
+            internalQueue.add(config);
+        }
     }
 
     /**
@@ -119,6 +170,22 @@ module.exports = (function (window) {
      */
     function onClick(cb) {
         callback = cb;
+    }
+
+    /**
+     * If there are any requests queued, attempts to send the next one
+     * Otherwise, does nothing
+     * @method run
+     * @param [callback] {Function} The callback function. Optional.
+     * @async
+     */
+    function runQueue() {
+        var next = function () { runQueue(); callback(); },
+            nextLink = internalQueue.shift();
+
+        if (nextLink) {
+            Core.track(nextLink, next);
+        }
     }
 
     /**
@@ -135,6 +202,10 @@ module.exports = (function (window) {
      */
     function init(config) {
         var links, i;
+
+        internalQueue = new Queue('links');
+
+        runQueue();
 
         if (typeof config === "undefined") {
             config = {};
@@ -154,7 +225,7 @@ module.exports = (function (window) {
             links = config.links;
 
             for (i = 0; i < links.length; i = i + 1) {
-                links[i].addEventListener(config.event, clickEvent);
+                links[i].addEventListener(config.event, clickEvent, false);
             }
         } else {
             if (typeof config.root !== "object" || typeof config.selector !== "string") {
@@ -165,13 +236,12 @@ module.exports = (function (window) {
                 if (event.target.tagName === config.selector.toUpperCase()) {
                     clickEvent.call(event.target, event);
                 }
-            });
+            }, false);
         }
     }
 
     return {
         init: init,
-        track: track,
         onClick: onClick
     };
 }(window));

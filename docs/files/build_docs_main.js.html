@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.11</em>
+            <em>API Docs for Origami Tracking module: 0.0.12</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -172,7 +172,7 @@ module.exports = (function () {
          * @property version
          * @type {String}
          */
-            version = &quot;Track version 0.0.11&quot;;
+            version = &quot;Track version 0.0.12&quot;;
 
     /**
      * Turn on/off developer mode. (Can also be activated on init.)
@@ -227,7 +227,8 @@ module.exports = (function () {
         require(&quot;./src/javascript/core/send&quot;).init();
 
         // Track the page.
-        require(&#x27;./src/javascript/page&#x27;)(config);
+        // Commented out, as it&#x27;s safer in-case oTracking is included within another module, and they call init...
+        //require(&#x27;./src/javascript/page&#x27;)(config);
     }
 
     /**

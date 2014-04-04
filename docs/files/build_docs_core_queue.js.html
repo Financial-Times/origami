@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.11</em>
+            <em>API Docs for Origami Tracking module: 0.0.12</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -228,10 +228,11 @@ module.exports = (function () {
      * @chainable
      */
     Queue.prototype.add = function (item) {
+        // I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn&#x27;t work out how to get to &quot;this&quot; from within the module.
+
         var self = this,
             i;
 
-        // I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn&#x27;t work out how to get to &quot;this&quot; from within the module.
         function doAdd(item) {
             self.queue.push({
                 created_at: (new Date()).valueOf(),
@@ -267,6 +268,31 @@ module.exports = (function () {
         }
 
         throw new Error(&#x27;Argument invalid, must be an array.&#x27;);
+    };
+
+    /**
+     * Pop the first item from the queue.
+     * @method shift
+     * @return {*} The item.
+     */
+    Queue.prototype.shift = function () {
+        var replacement = this.all(),
+            nextItem = this.first(),
+            i;
+
+        if (!nextItem) {
+            return null;
+        }
+
+        for (i = 0; i &lt; replacement.length; i = i + 1) {
+            if (nextItem.requestID === replacement[i].requestID) {
+                replacement.splice(i, 1);
+                this.replace(replacement).save();
+                break;
+            }
+        }
+
+        return nextItem;
     };
 
     /**

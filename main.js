@@ -44,7 +44,7 @@ module.exports = (function () {
          * @property version
          * @type {String}
          */
-            version = "Track version 0.0.11";
+            version = "Track version 0.0.12";
 
     /**
      * Turn on/off developer mode. (Can also be activated on init.)
@@ -99,7 +99,8 @@ module.exports = (function () {
         require("./src/javascript/core/send").init();
 
         // Track the page.
-        require('./src/javascript/page')(config);
+        // Commented out, as it's safer in-case oTracking is included within another module, and they call init...
+        //require('./src/javascript/page')(config);
     }
 
     /**

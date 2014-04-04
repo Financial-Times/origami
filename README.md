@@ -33,7 +33,7 @@ For example:
 Add this to your dependencies in bower.json:
 ```
 "dependencies": {
-    "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.11 < 1"
+    "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.12 < 1"
 }
 ```
 
@@ -60,14 +60,14 @@ track.init({ ...params... });
 ```
 ## Methods
 ### `init`
-Setup the component with some default values *and* send a page tracking request.
+Setup the component with some setup values.
 ```
 track.init({ ...params... });
 ```
 See the parameters list below.
 
 ### `page`
-Track a page - called for you the first time using init.
+Track a page
 ```
 track.page({ ...params... }, callback);
 ```
@@ -92,13 +92,6 @@ track.link.onClick(callback);
 ```
 - `callback` - Set the callback to be called on every tracking event.
 
-```
-track.link.track(element, callback);
-```
-Manually track a link without using the built in events.
-- `element` - The element to track.
-- `callback` - Optional callback, called when the request has been sent.
-
 ### `event`
 For tracking events on a page.
 ```
@@ -112,6 +105,40 @@ track.event(model, type, value, callback)
 ### `log`
 For arbitrary logging to Splunk.
 
+## Example
+```
+var track = require('o-tracking');
+track.init({
+    // Setup
+    server: FT.config.tracking.domain,
+    channel: FT.config.tracking.params.channel
+});
+
+track.page({
+    // Page
+    //url: FT.config.tracking.params.url,
+    //referrer: document.referrer,
+    uuid: FT.config.tracking.params.uuid,
+    pageSubsLevel: FT.config.tracking.params.pageSubsLevel,
+    siteMap: FT.config.tracking.params.siteMap,
+    title: FT.config.tracking.params.title,
+    assetType: FT.config.tracking.params.assetType,
+    edition: FT.config.tracking.params.edition,
+    brand: FT.config.tracking.params.brand,
+    theme: FT.config.tracking.params.theme,
+    searchQuery: '',
+    campaign: '',
+    // User
+    userID: getValueFromCookie(/SIVISITOR=([\w\*]+);?/),
+    cohort: findSubType(getValueFromCookie(/FT_P=[A-Za-z0-9=&|]*prod=([A-Za-z0-9=|]*);?/)),
+    passportID: getValueFromCookie(/USERID=([0-9]*):/),
+    country: getValueFromCookie(/AYSC=[^;]*_14([a-zA-Z0-9%]+)/),
+    region: getValueFromCookie(/AYSC=[^;]*_17([a-zA-Z0-9%]+)/),
+    metroArea: getValueFromCookie(/AYSC=[^;]*_18([a-zA-Z0-9%]+)/)
+});
+
+track.link.init();
+```
 
 ## Parameters
 Both JS and non-JS versions take the same parameters.

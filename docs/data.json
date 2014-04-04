@@ -2,7 +2,7 @@
     "project": {
         "name": "Origami Tracking module",
         "description": "Origami module for FT tracking.",
-        "version": "0.0.11",
+        "version": "0.0.12",
         "url": ""
     },
     "files": {
@@ -586,7 +586,7 @@
         },
         {
             "file": "build/docs/core/queue.js",
-            "line": 126,
+            "line": 127,
             "description": "Overwrite the store with something completely new.",
             "itemtype": "method",
             "name": "replace",
@@ -607,7 +607,21 @@
         },
         {
             "file": "build/docs/core/queue.js",
-            "line": 144,
+            "line": 145,
+            "description": "Pop the first item from the queue.",
+            "itemtype": "method",
+            "name": "shift",
+            "return": {
+                "description": "The item.",
+                "type": "*"
+            },
+            "class": "Queue",
+            "module": "_Core",
+            "submodule": "Queue"
+        },
+        {
+            "file": "build/docs/core/queue.js",
+            "line": 170,
             "description": "Save the current store to localStorage so that old requests can still be sent after a page refresh.",
             "itemtype": "method",
             "name": "save",
@@ -1137,7 +1151,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 17,
+            "line": 21,
             "description": "Default properties for events.",
             "itemtype": "property",
             "name": "defaultEventConfig",
@@ -1150,7 +1164,70 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 35,
+            "line": 39,
+            "description": "Check if a URL is going to the same site (internal)",
+            "itemtype": "method",
+            "name": "isInternal",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "The url to check.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Track.link",
+            "module": "Track",
+            "submodule": "link"
+        },
+        {
+            "file": "build/docs/link.js",
+            "line": 49,
+            "description": "Check if a URL is going to an external site.",
+            "itemtype": "method",
+            "name": "isExternal",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "The url to check.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Track.link",
+            "module": "Track",
+            "submodule": "link"
+        },
+        {
+            "file": "build/docs/link.js",
+            "line": 59,
+            "description": "Checks if a URL is pointing at a file.\nNOTE: Don't want to maintain a list of file extensions, so try best guess.",
+            "itemtype": "method",
+            "name": "isFile",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "The url to check.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Track.link",
+            "module": "Track",
+            "submodule": "link"
+        },
+        {
+            "file": "build/docs/link.js",
+            "line": 87,
             "description": "Calculates the parents of a HTML element.",
             "itemtype": "method",
             "name": "parentTree",
@@ -1173,31 +1250,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 85,
-            "description": "Tracks a link.",
-            "itemtype": "method",
-            "name": "track",
-            "params": [
-                {
-                    "name": "link",
-                    "description": "The link to track.",
-                    "type": "Element"
-                },
-                {
-                    "name": "callback",
-                    "description": "Optional callback function.",
-                    "type": "Function",
-                    "optional": true
-                }
-            ],
-            "async": 1,
-            "class": "Track.link",
-            "module": "Track",
-            "submodule": "link"
-        },
-        {
-            "file": "build/docs/link.js",
-            "line": 103,
+            "line": 137,
             "description": "Handle a click event.",
             "itemtype": "method",
             "name": "clickEvent",
@@ -1219,7 +1272,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 115,
+            "line": 166,
             "description": "Set the callback called on every link tracking event.",
             "itemtype": "method",
             "name": "onClick",
@@ -1236,7 +1289,26 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 124,
+            "line": 175,
+            "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
+            "itemtype": "method",
+            "name": "run",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "The callback function. Optional.",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "async": 1,
+            "class": "Track.link",
+            "module": "Track",
+            "submodule": "link"
+        },
+        {
+            "file": "build/docs/link.js",
+            "line": 191,
             "description": "Setup and initialise link tracking.\n\nThe config object can have three key/values - all are optional.\n* root: The root element to search for links. Defaults to window.document - useful if trying to track links from an iframe.\n* selector: The selector to use to search for links. Defaults to 'a'.\n* event: The event to listen on. Defaults to 'click'.\n* links: If you've already worked out the links to track, then this is used to pass them over. Must be an array with elements that accept events.",
             "itemtype": "method",
             "name": "init",
@@ -1321,7 +1393,7 @@
         },
         {
             "file": "build/docs/main.js",
-            "line": 105,
+            "line": 106,
             "description": "Overload toString method to show the version.",
             "itemtype": "method",
             "name": "toString",
@@ -1627,7 +1699,7 @@
     "warnings": [
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " build/docs/link.js:124"
+            "line": " build/docs/link.js:191"
         }
     ]
 }

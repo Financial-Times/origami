@@ -23,7 +23,7 @@ describe('link', function () {
         server.restore();
     });
 
-    it('should track a link', function () {
+    it('should track an external link', function () {
         server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
         var callback = sinon.spy(),
@@ -32,7 +32,7 @@ describe('link', function () {
             aLink = document.createElement('a'),
             event = document.createEvent('HTMLEvents');
 
-        aLink.href = "http://www.ft.com/home/uk";
+        aLink.href = "http://www.google.com";
 
         link.init({
             links: [aLink],
@@ -52,7 +52,7 @@ describe('link', function () {
         assert.equal(sent_data.userID, "userID");
         assert.equal(sent_data.counter, 1);
         assert.equal(sent_data.type, "link");
-        assert.equal(sent_data.link, "a/home-uk");
+        assert.equal(sent_data.link, "a/www.google.com");
         assert.equal(sent_data.referrerClickID, "clickID");
         assert.ok(/\d+/.test(sent_data.queueTime), "queueTime is invalid. " + sent_data.queueTime);
     });
