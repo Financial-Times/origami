@@ -1,4 +1,16 @@
 $o-ft-forms-is-silent: true !default;
 
+
 $_o-ft-forms-fieldborder: 1px solid oColorsGetColorFor(form-field-standard, border);
-$_o-ft-forms-fontsize-field: 16px;
+$_o-ft-forms-field-borderradius: 5px;
+
+$_o-ft-form-field-default-fontsize: 14px;
+$_o-ft-form-field-big-fontsize: 16px;
+$_o-ft-forms-fontsize-field: $_o-ft-form-field-big-fontsize;
+
+$_o-ft-form-field-default-padding-topbottom: 3px;
+$_o-ft-form-field-default-padding-leftright: 1px;
+$_o-ft-form-field-big-padding-topbottom: 7px;
+$_o-ft-form-field-big-padding-leftright: 5px;
+
+$_o-ft-forms-fieldgroup-padding: 6px;

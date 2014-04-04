@@ -1,13 +1,13 @@
 @include oFtFormsClass(o-ft-forms__section) {
-    padding: 0 0 6px 0;
+    padding: 0 0 $_o-ft-forms-fieldgroup-padding 0;
     margin: 10px 0;
     border: 0 none;
 }
 
 @include oFtFormsClass(o-ft-forms-field-group) {
     position: relative;
-    padding-right: 6px;
-    padding-left: 6px;
+    padding-right: $_o-ft-forms-fieldgroup-padding;
+    padding-left: $_o-ft-forms-fieldgroup-padding;
     margin-bottom: 20px;
 }
 
@@ -50,8 +50,8 @@
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--select', '.o-ft-forms__field--select') {
-    padding-top: 7px;
-    padding-bottom: 6px;
+    padding-top: $_o-ft-form-field-big-padding-topbottom - 1px;
+    padding-bottom: $_o-ft-form-field-big-padding-topbottom - 1px;
     background-image: url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==');
     background-repeat: no-repeat;
     background-position: 97% center;
