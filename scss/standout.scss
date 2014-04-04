@@ -1,0 +1,24 @@
+@mixin oFtButtonsButtonStandout($buttonClass, $force-non-silent: true) {
+
+  @include oFtButtonSelectors(#{$buttonClass}--standout, $force-non-silent) {
+    @include oFtButtonsColors($_o-ft-buttons-color-standout-standard-border, $_o-ft-buttons-color-standout-standard-bg, $_o-ft-buttons-color-standout-standard-fg);
+
+    &.#{$buttonClass}--selected {
+      @include oFtButtonsColors($_o-ft-buttons-color-standout-selected-border, $_o-ft-buttons-color-standout-selected-bg, $_o-ft-buttons-color-standout-selected-fg);
+      pointer-events: none;
+    }
+
+    &.#{$buttonClass}--disabled,
+    &[disabled] {
+      @include oFtButtonsColors($_o-ft-buttons-color-standout-disabled-border, $_o-ft-buttons-color-standout-disabled-bg, $_o-ft-buttons-color-standout-disabled-fg);
+      pointer-events: none;
+    }
+  }
+
+  #{$o-hoverable-if-hover-enabled} {
+    @include oFtButtonSelectors(#{$buttonClass}--standout, $force-non-silent) {
+      @include oFtButtonsButtonHover($buttonClass, $_o-ft-buttons-color-standout-hover-border, $_o-ft-buttons-color-standout-hover-bg, $_o-ft-buttons-color-standout-hover-fg);
+    }
+  }
+
+}

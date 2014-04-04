@@ -3,18 +3,20 @@
 @import "o-ft-icons/main";
 @import "o-hoverable/main";
 
-@import "scss/_variables";
-@import "scss/_functions";
-@import "scss/_mixins";
+@import "scss/variables";
+@import "scss/mixins";
 
 @if (not $o-ft-buttons-is-silent) {
   @include oFtButtonsFontInclude();
   @include oFtButtonsIconInclude();
 }
 
-@import "scss/buttons";
-@import "scss/hover";
+@import "scss/base";
 @import "scss/group";
-@import "scss/tabs";
 @import "scss/pagination";
+@import "scss/faux";
+@import "scss/big";
+@import "scss/standout";
 @import "scss/icons";
+
+@include oFtButtonsAll(o-ft-buttons, false);

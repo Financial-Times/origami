@@ -1,0 +1,37 @@
+@mixin oFtButtonsButton($buttonClass, $force-non-silent: true) {
+
+  @include oFtButtonSelectors($buttonClass, $force-non-silent) {
+    @include oFtButtonsBoxSizing(border-box);
+    display: inline-block;
+    margin: 0;
+    padding: 0 14px;
+    @include oFtButtonsTypography();
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    @include oFtButtonsColors($_o-ft-buttons-color-standard-border, $_o-ft-buttons-color-standard-bg, $_o-ft-buttons-color-standard-fg);
+
+    & + & {
+      margin-left: 4px;
+    }
+
+    &.#{$buttonClass}--selected {
+      @include oFtButtonsColors($_o-ft-buttons-color-selected-border, $_o-ft-buttons-color-selected-bg, $_o-ft-buttons-color-selected-fg);
+      pointer-events: none;
+    }
+
+    &.#{$buttonClass}--disabled,
+    &[disabled] {
+      @include oFtButtonsColors($_o-ft-buttons-color-disabled-border, $_o-ft-buttons-color-disabled-bg, $_o-ft-buttons-color-disabled-fg);
+      pointer-events: none;
+    }
+
+  }
+
+  #{$o-hoverable-if-hover-enabled} {
+    @include oFtButtonSelectors($buttonClass, $force-non-silent) {
+      @include oFtButtonsButtonHover($buttonClass, $_o-ft-buttons-color-hover-border, $_o-ft-buttons-color-hover-bg, $_o-ft-buttons-color-hover-fg);
+    }
+  }
+
+}
