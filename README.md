@@ -111,7 +111,14 @@ var track = require('o-tracking');
 track.init({
     // Setup
     server: FT.config.tracking.domain,
-    channel: FT.config.tracking.params.channel
+    channel: FT.config.tracking.params.channel,
+    // User
+    userID: getValueFromCookie(/SIVISITOR=([\w\*]+);?/),
+    cohort: findSubType(getValueFromCookie(/FT_P=[A-Za-z0-9=&|]*prod=([A-Za-z0-9=|]*);?/)),
+    passportID: getValueFromCookie(/USERID=([0-9]*):/),
+    country: getValueFromCookie(/AYSC=[^;]*_14([a-zA-Z0-9%]+)/),
+    region: getValueFromCookie(/AYSC=[^;]*_17([a-zA-Z0-9%]+)/),
+    metroArea: getValueFromCookie(/AYSC=[^;]*_18([a-zA-Z0-9%]+)/)
 });
 
 track.page({
@@ -127,14 +134,7 @@ track.page({
     brand: FT.config.tracking.params.brand,
     theme: FT.config.tracking.params.theme,
     searchQuery: '',
-    campaign: '',
-    // User
-    userID: getValueFromCookie(/SIVISITOR=([\w\*]+);?/),
-    cohort: findSubType(getValueFromCookie(/FT_P=[A-Za-z0-9=&|]*prod=([A-Za-z0-9=|]*);?/)),
-    passportID: getValueFromCookie(/USERID=([0-9]*):/),
-    country: getValueFromCookie(/AYSC=[^;]*_14([a-zA-Z0-9%]+)/),
-    region: getValueFromCookie(/AYSC=[^;]*_17([a-zA-Z0-9%]+)/),
-    metroArea: getValueFromCookie(/AYSC=[^;]*_18([a-zA-Z0-9%]+)/)
+    campaign: ''
 });
 
 track.link.init();

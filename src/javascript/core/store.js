@@ -36,7 +36,7 @@ module.exports = (function () {
          * @final
          * @private
          */
-        var keyPrefix = "o-tracking-module",
+        var keyPrefix = "o-tracking",
 
             /**
              * Temporary var containing data from a previously saved store.

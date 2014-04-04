@@ -159,7 +159,7 @@ module.exports = (function (window) {
 
         if (isInternal(link.href)) {
             // Queue and send on next page.
-            internalQueue.add(config);
+            internalQueue.add(config).save();
         }
     }
 
