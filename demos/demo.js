@@ -51,7 +51,10 @@ function loadDemo(showtype) {
         op += '</table>';
         el.innerHTML = op;
       }
-      if (typeof OrigamiRegistry != 'undefined') OrigamiRegistry.resize();
+      if (typeof OrigamiRegistry != 'undefined') {
+        window.addEventListener('resize', OrigamiRegistry.resize, false);
+        OrigamiRegistry.resize();
+      }
     };
     oReq.send();
   };
