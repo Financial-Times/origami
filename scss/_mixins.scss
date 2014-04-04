@@ -8,7 +8,7 @@
   $selectors: ();
   $selectors: append($selectors, oFtButtonsGetPrefixedPlaceholders($names));
   @if (not $o-ft-buttons-is-silent) {
-    $selectors: append($selectors, oFtButtonsGetPrefixedClasses($names));
+    $selectors: append($selectors, oFtButtonsGetPrefixedClasses($names), comma);
   }
   #{$selectors} {
     @content;
