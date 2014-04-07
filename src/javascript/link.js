@@ -24,7 +24,7 @@ module.exports = (function (window) {
          * @type {Object}
          * @private
          */
-        defaultLinkConfig = {
+            defaultLinkConfig = {
             type: 'link'
         },
 
@@ -105,6 +105,12 @@ module.exports = (function (window) {
         return tree.concat(parentTree(element.parentElement));
     }
 
+    /**
+     * Create the identifier of the link. TODO: https://rally1.rallydev.com/#/16966478977d/detail/defect/17919485944
+     * @method createLinkID
+     * @param link
+     * @return {String} The ID for the link.
+     */
     function createLinkID(link) {
         var parents = parentTree(link),
             name = link.href;
@@ -135,32 +141,42 @@ module.exports = (function (window) {
     }
 
     /**
-     * Handle a click event.
-     * @method clickEvent
-     * @param event
-     * @return {Boolean}
-     * @private
+     * Track the link.
+     * @method track
+     * @param element
+     * @return {*}
      */
-    function clickEvent(event) {
-        var link = event.target,
-
-            linkID = createLinkID(link),
+    function track(element) {
+        var linkID = createLinkID(element),
             config = utils.merge(utils.merge(defaultLinkConfig), {
                 'requestPage': '', // TODO
                 'link': linkID,
                 'referrerClickID': Core.getClickID()
             });
 
-        if (isExternal(link.href) || isFile(link.href)) {
+        if (isExternal(element.href) || isFile(element.href)) {
             // Send now
             config.async = false;
-            Core.track(config, callback);
+            return Core.track(config, callback);
         }
 
-        if (isInternal(link.href)) {
+        if (isInternal(element.href)) {
             // Queue and send on next page.
             internalQueue.add(config).save();
         }
+
+        return true;
+    }
+
+    /**
+     * Handle a click event.
+     * @method clickEvent
+     * @param event {Event} The event.
+     * @return {Boolean}
+     * @private
+     */
+    function clickEvent(event) {
+        return track(event.target);
     }
 
     /**
@@ -240,8 +256,11 @@ module.exports = (function (window) {
         }
     }
 
+    window.addEventListener('oTracking.Link', track, false);
+
     return {
         init: init,
-        onClick: onClick
+        onClick: onClick,
+        track: track
     };
 }(window));

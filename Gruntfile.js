@@ -69,7 +69,7 @@ module.exports = function (grunt) {
             }
         },
 
-        clean: ['<%=build_folder %>'],
+        clean: ['<%=build_folder %>', '<%=examples_build %>'],
 
         browserify: {
             'examples': {
@@ -112,6 +112,16 @@ module.exports = function (grunt) {
                 files: [
                     { src: 'main.js', dest: '<%=build_folder %>/docs/main.js' },
                     { cwd: 'src/javascript/', src: '**/*.js', dest: '<%=build_folder %>/docs', expand: true }
+                ]
+            },
+            readme: {
+                files: [
+                    { src: 'resources/images/tracking_forwarder.svg', dest: 'docs/tracking_forwarder.svg' }
+                ]
+            },
+            examples: {
+                files: [
+                    { src: 'resources/vendor/jquery/jquery.min.js', dest: '<%=examples_build %>/jquery.min.js' }
                 ]
             }
         },
@@ -216,8 +226,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', "Build", ['browserify:track', 'uglify', 'copy:track']);
     grunt.registerTask('test', "Test", ['jshint', 'karma:dev']);
-    grunt.registerTask('examples', "Examples", ['browserify:examples', 'compass']);
-    grunt.registerTask('docs', "Docs", ['copy:docs', 'yuidoc']);
+    grunt.registerTask('examples', "Examples", ['browserify:examples', 'compass', 'copy:examples']);
+    grunt.registerTask('docs', "Docs", ['copy:docs', 'yuidoc', 'copy:readme']);
 
     grunt.registerTask('default', "Default.", ['clean', 'test', 'build', 'examples', 'docs']);
 };

@@ -166,6 +166,12 @@ module.exports = (function (window) {
             type: &#x27;data&#x27;
         };
 
+    if (!window.Element.prototype.addEventListener) {
+        window.Element.prototype.addEventListener = function (type, listener) {
+            this.attachEvent(&quot;on&quot; + type, listener);
+        };
+    }
+
     /**
      * Make the page tracking request.
      * @method data
@@ -178,7 +184,7 @@ module.exports = (function (window) {
         Core.track(config, callback);
     }
 
-    window.addEventListener(&#x27;oTrackingData&#x27;, data, false);
+    window.addEventListener(&#x27;oTracking.Data&#x27;, data, false);
 
     return data;
 

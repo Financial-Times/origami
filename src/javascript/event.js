@@ -24,6 +24,12 @@ module.exports = (function (window) {
             type: 'event'
         };
 
+    if (!window.Element.prototype.addEventListener) {
+        window.Element.prototype.addEventListener = function (type, listener) {
+            this.attachEvent("on" + type, listener);
+        };
+    }
+
     /**
      * Track an event.
      * @method event
@@ -42,7 +48,7 @@ module.exports = (function (window) {
         Core.track(config, callback);
     }
 
-    window.addEventListener('oTrackingEvent', event, false);
+    window.addEventListener('oTracking.Event', function (e) { event(e.model, e.type, e.value); }, false);
 
     return event;
 

@@ -2,7 +2,7 @@
 
 Origami module for the FT tracking.
 
-![ScreenShot](/resources/images/tracking_forwarder.svg)
+![ScreenShot](/docs/tracking_forwarder.svg)
 
 
 
@@ -104,6 +104,20 @@ track.event(model, type, value, callback)
 
 ### `log`
 For arbitrary logging to Splunk.
+
+## Events
+oTracking listens to the following events on `window`. This is so other components can trigger tracking requests.
+### oTracking.Data
+For tracking data (additional page or user attributes).
+Look at the parameters below.
+Example: ```var event = new CustomEvent('oTracking.Data', { 'hurdle': 'h8' });```
+
+### oTracking.Event
+For tracking events (meaning tracking events) (such as gallery pane views or video play/pause events).
+Example: ```var event = new CustomEvent('oTracking.Event', { 'model': 'video', 'type': 'play', 'value': '50%',  });```
+
+### oTracking.Link - for tracking a link (all links will be listened to automatically if using `track.link.init()`)
+Example: ```var event = new CustomEvent('oTracking.Link', DOMElement);```
 
 ## Example
 ```
