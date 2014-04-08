@@ -6,5 +6,10 @@
     "supportStatus": "not implemented",
     "ci": {
         "travis": "https://api.travis-ci.org/repos/Financial-Times/o-tabs/builds.json"
-    }
+    },
+    "demos": [
+        "/demos/base-style.html",
+        "/demos/buttontabs.html",
+        "/demos/buttontabs-big.html"
+    ]
 }

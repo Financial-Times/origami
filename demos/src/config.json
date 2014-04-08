@@ -1,0 +1,18 @@
+{
+    "options": {
+        "js": "main.js",
+        "sass": "demos/src/demo.scss",
+        "bodyClasses": "o-hoverable-on"
+    },
+    "demos": {
+        "base-style": {
+            "template": "demos/src/base-style.mustache"
+        },
+        "buttontabs": {
+            "template": "demos/src/buttontabs.mustache"
+        },
+        "buttontabs-big": {
+            "template": "demos/src/buttontabs-big.mustache"
+        }
+    }
+}

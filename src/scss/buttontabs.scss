@@ -1,0 +1,53 @@
+@include oTabsSelectors(o-tabs--buttontabs) {
+  &.o-tabs--js {
+    ul {
+      border-bottom: 1px solid $_o-ft-buttons-color-standard-border;
+      font-size: 0;
+    }
+
+    @include oFtButtonsButton(o-tabs__tab);
+
+    .o-tabs__tab {
+      @extend %o-tabs__tab;
+      border-radius: 0;
+      border-bottom-width: 0;
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-left-width: 1px;
+      }
+      &:last-child {
+        border-top-right-radius: 5px;
+      }
+      a {
+        display: inline-block;
+        text-decoration: none;
+        color: inherit;
+      }
+      &.o-tabs__tab--selected a {
+        font-weight: normal;
+      }
+    }
+
+    .o-tabs__tab + .o-tabs__tab {
+      margin-left: 0;
+      border-left-width: 0;
+    }
+
+    &.o-tabs--big .o-tabs__tab {
+      padding: 0;
+      a {
+        padding-left: 18px;
+        padding-right: 18px;
+        @include oFtButtonsTypographyBig();
+      }
+    }
+  }
+}
+
+#{$o-hoverable-if-hover-enabled} {
+  @include oTabsSelectors(o-tabs--js) {
+    &.o-tabs--buttontabs .o-tabs__tab:hover {
+      @include oFtButtonsButtonHover(o-tabs__tab, $_o-ft-buttons-color-hover-border, $_o-ft-buttons-color-hover-bg, $_o-ft-buttons-color-hover-fg);
+    }
+  }
+}
