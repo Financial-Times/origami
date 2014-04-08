@@ -154,20 +154,20 @@ module.exports = (function (window) {
          * @property domain
          * @private
          */
-            domain = &quot;http://test.tracking.ft.com&quot;,
+        domain = &quot;http://test.tracking.ft.com&quot;,
 
         /**
          * Queue queue.
          * @property queue
          * @private
          */
-            queue,
+        queue,
         /**
          * Requests being sent right now.
          * @property currentRequests
          * @private
          */
-            currentRequests = {};
+        currentRequests = {};
 
     /**
      * Marks a request as current.
@@ -248,8 +248,8 @@ module.exports = (function (window) {
             user_callback = request.callback;
 
         /*if (xmlHttp.hasOwnProperty(&quot;withCredentials&quot;)) {
-            xmlHttp.withCredentials = true;
-        }*/
+         xmlHttp.withCredentials = true;
+         }*/
 
         delete request.callback;
         delete request.async;
@@ -288,7 +288,8 @@ module.exports = (function (window) {
 
         // Both developer and noSend flags have to be set to stop the request sending.
         if (!(settings.get(&#x27;developer&#x27;) &amp;&amp; settings.get(&#x27;noSend&#x27;))) {
-            xmlHttp.open(&quot;POST&quot;, domain, async);
+            xmlHttp.open(&#x27;POST&#x27;, domain, async);
+            xmlHttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);
             xmlHttp.send(path);
         }
 
@@ -338,7 +339,7 @@ module.exports = (function (window) {
         }
 
         // Send this request, then try run again.
-        sendRequest(nextRequest, next);
+        return sendRequest(nextRequest, next);
     }
 
     /**

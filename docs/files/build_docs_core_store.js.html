@@ -143,7 +143,23 @@ module.exports = (function () {
 
     var Store = function (name, config) {
 
-        var utils = require(&quot;../utils&quot;);
+        var
+            /**
+             * Internal Storage key prefix.
+             * @property keyPrefix
+             * @final
+             * @private
+             */
+            keyPrefix = &quot;o-tracking&quot;,
+
+            /**
+             * Temporary var containing data from a previously saved store.
+             * @property loadStore
+             * @private
+             */
+            loadStore,
+
+            utils = require(&quot;../utils&quot;);
 
         if (utils.isUndefined(name)) {
             throw new Error(&#x27;You must specify a name for the store.&#x27;);
@@ -157,21 +173,6 @@ module.exports = (function () {
          * @private
          */
         this.data = null;
-
-        /**
-         * Internal Storage key prefix.
-         * @property keyPrefix
-         * @final
-         * @private
-         */
-        var keyPrefix = &quot;o-tracking&quot;,
-
-            /**
-             * Temporary var containing data from a previously saved store.
-             * @property loadStore
-             * @private
-             */
-                loadStore;
 
         /**
          * The key/name of this store.

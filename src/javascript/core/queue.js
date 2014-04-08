@@ -65,7 +65,7 @@ module.exports = (function () {
     /**
      * Gets the first item in the store.
      * @method first
-     * @return {Mixed} Returns the item.
+     * @return {*} Returns the item.
      */
     Queue.prototype.first = function () {
         if (this.queue.length === 0) {
@@ -78,7 +78,7 @@ module.exports = (function () {
     /**
      * Gets the last item in the store.
      * @method last
-     * @return {Mixed} Returns the item.
+     * @return {*} Returns the item.
      */
     Queue.prototype.last = function () {
         if (this.queue.length === 0) {

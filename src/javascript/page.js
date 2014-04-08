@@ -49,7 +49,7 @@ module.exports = (function (window, document) {
          * @type {Object}
          * @private
          */
-            settings = require("./core/settings"),
+        settings = require("./core/settings"),
         utils = require("./utils"),
 
         /**
@@ -70,7 +70,7 @@ module.exports = (function (window, document) {
          * @type {Object}
          * @private
          */
-            defaultPageConfig = {
+        defaultPageConfig = {
             type: 'page',
             url: document.URL,
             referrer: document.referrer,

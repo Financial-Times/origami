@@ -10,16 +10,17 @@
 module.exports = (function (window, document) {
     "use strict";
 
-
     var
         Send = require("./core/send"),
+
         /**
          * Shared "internal" scope.
          * @property _self
          * @type {Object}
          * @private
          */
-            settings = require("./core/settings"),
+        settings = require("./core/settings"),
+
         utils = require("./utils"),
         /**
          * Default properties for sending a tracking request.
@@ -42,7 +43,7 @@ module.exports = (function (window, document) {
      * Generate and store a new ClickID.
      * @method clickID
      * @param [click_id] Optional ClickID, if you want to use your own. Otherwise will create one for you.
-     * @return {String|Mixed} The ClickID.
+     * @return {String|*} The ClickID.
      */
     function clickID(click_id) {
         if (utils.isUndefined(click_id)) {
@@ -56,7 +57,7 @@ module.exports = (function (window, document) {
      * Create a requestID (unique identifier) for the page impression.
      * @method requestID
      * @param [request_id] Optional RequestID, if you want to use your own. Otherwise will create one for you.
-     * @return {String|Mixed} The RequestID.
+     * @return {String|*} The RequestID.
      * @private
      */
     function requestID(request_id) {

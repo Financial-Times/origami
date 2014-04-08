@@ -543,7 +543,7 @@
             "name": "first",
             "return": {
                 "description": "Returns the item.",
-                "type": "Mixed"
+                "type": "*"
             },
             "class": "Queue",
             "module": "_Core",
@@ -557,7 +557,7 @@
             "name": "last",
             "return": {
                 "description": "Returns the item.",
-                "type": "Mixed"
+                "type": "*"
             },
             "class": "Queue",
             "module": "_Core",
@@ -766,7 +766,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 172,
+            "line": 173,
             "description": "Adds a new request to the list of pending requests",
             "itemtype": "method",
             "name": "add",
@@ -782,7 +782,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 187,
+            "line": 188,
             "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
             "itemtype": "method",
             "name": "run",
@@ -801,7 +801,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 216,
+            "line": 217,
             "description": "Convenience function to add and run a request all in one go.",
             "itemtype": "method",
             "name": "addAndRun",
@@ -818,7 +818,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 226,
+            "line": 227,
             "description": "Init the queue and send any leftover tags.",
             "itemtype": "method",
             "name": "init",
@@ -830,19 +830,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 26,
-            "description": "Store data.",
-            "itemtype": "property",
-            "name": "store",
-            "access": "private",
-            "tagname": "",
-            "class": "Track._Core.Store",
-            "module": "_Core",
-            "submodule": "Store"
-        },
-        {
-            "file": "build/docs/core/store.js",
-            "line": 33,
+            "line": 19,
             "description": "Internal Storage key prefix.",
             "itemtype": "property",
             "name": "keyPrefix",
@@ -855,7 +843,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 41,
+            "line": 27,
             "description": "Temporary var containing data from a previously saved store.",
             "itemtype": "property",
             "name": "loadStore",
@@ -867,7 +855,19 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 48,
+            "line": 42,
+            "description": "Store data.",
+            "itemtype": "property",
+            "name": "store",
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Store",
+            "module": "_Core",
+            "submodule": "Store"
+        },
+        {
+            "file": "build/docs/core/store.js",
+            "line": 49,
             "description": "The key/name of this store.",
             "itemtype": "property",
             "name": "storageKey",
@@ -877,7 +877,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 54,
+            "line": 55,
             "description": "The storage method to use. Determines best storage method.",
             "itemtype": "property",
             "name": "storage",
@@ -888,7 +888,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 149,
+            "line": 150,
             "description": "Get/Read the current data.",
             "itemtype": "method",
             "name": "read",
@@ -901,7 +901,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 158,
+            "line": 159,
             "description": "Write the supplied data to the store.",
             "itemtype": "method",
             "name": "write",
@@ -922,7 +922,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 173,
+            "line": 174,
             "description": "Delete the current data.",
             "itemtype": "method",
             "name": "destroy",
@@ -949,7 +949,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 24,
+            "line": 25,
             "description": "Default properties for sending a tracking request.",
             "itemtype": "property",
             "name": "defaultConfig",
@@ -965,7 +965,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 41,
+            "line": 42,
             "description": "Generate and store a new ClickID.",
             "itemtype": "method",
             "name": "clickID",
@@ -978,7 +978,7 @@
             ],
             "return": {
                 "description": "The ClickID.",
-                "type": "String|Mixed"
+                "type": "String|*"
             },
             "class": "Track._Core",
             "module": "Track",
@@ -986,7 +986,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 55,
+            "line": 56,
             "description": "Create a requestID (unique identifier) for the page impression.",
             "itemtype": "method",
             "name": "requestID",
@@ -999,7 +999,7 @@
             ],
             "return": {
                 "description": "The RequestID.",
-                "type": "String|Mixed"
+                "type": "String|*"
             },
             "access": "private",
             "tagname": "",
@@ -1009,7 +1009,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 70,
+            "line": 71,
             "description": "Count of the number of tracking requests made.",
             "itemtype": "method",
             "name": "internalCounter",
@@ -1025,7 +1025,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 81,
+            "line": 82,
             "description": "Get a user ID.",
             "itemtype": "method",
             "name": "userID",
@@ -1046,7 +1046,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 101,
+            "line": 102,
             "description": "Make a tracking request.",
             "itemtype": "method",
             "name": "track",
@@ -1334,14 +1334,6 @@
             "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
             "itemtype": "method",
             "name": "run",
-            "params": [
-                {
-                    "name": "callback",
-                    "description": "The callback function. Optional.",
-                    "type": "Function",
-                    "optional": true
-                }
-            ],
             "async": 1,
             "class": "Track.link",
             "module": "Track",
@@ -1349,7 +1341,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 207,
+            "line": 206,
             "description": "Setup and initialise link tracking.\n\nThe config object can have three key/values - all are optional.\n* root: The root element to search for links. Defaults to window.document - useful if trying to track links from an iframe.\n* selector: The selector to use to search for links. Defaults to 'a'.\n* event: The event to listen on. Defaults to 'click'.\n* links: If you've already worked out the links to track, then this is used to pass them over. Must be an array with elements that accept events.",
             "itemtype": "method",
             "name": "init",
@@ -1740,7 +1732,7 @@
     "warnings": [
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " build/docs/link.js:207"
+            "line": " build/docs/link.js:206"
         }
     ]
 }

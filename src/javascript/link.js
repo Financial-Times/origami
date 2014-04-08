@@ -24,7 +24,7 @@ module.exports = (function (window) {
          * @type {Object}
          * @private
          */
-            defaultLinkConfig = {
+        defaultLinkConfig = {
             type: 'link'
         },
 
@@ -192,7 +192,6 @@ module.exports = (function (window) {
      * If there are any requests queued, attempts to send the next one
      * Otherwise, does nothing
      * @method run
-     * @param [callback] {Function} The callback function. Optional.
      * @async
      */
     function runQueue() {
