@@ -1,32 +1,33 @@
 @include oTabsSelectors(o-tabs--js) {
-  ul {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    text-align: left;
-  }
+  &.o-tabs {
+    ul {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      text-align: left;
+    }
 
-  &.o-tabs--alignright ul {
-    text-align: right;
-  }
+    &.o-tabs--alignright ul {
+      text-align: right;
+    }
 
-  [data-o-tabs-tab] {
-    display: inline-block;
-    padding: 0;
-    list-style-type: none;
-    a {
+    [data-o-tabs-tab] {
       display: inline-block;
-      text-decoration: none;
-      color: inherit;
-    }
-    &.o-tabs__tab--selected a {
-      color: inherit;
-      font-weight: bold;
+      padding: 0;
+      list-style-type: none;
+      a {
+        display: inline-block;
+        text-decoration: none;
+        color: inherit;
+      }
+      &.o-tabs__tab--selected a {
+        color: inherit;
+        font-weight: bold;
+      }
     }
   }
-
 }
 
-@include oTabsSelectors(o-tabs__content--hidden) {
+@include oTabsSelectors(o-tabs--hidden) {
   display: none;
 }

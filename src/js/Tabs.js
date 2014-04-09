@@ -9,8 +9,8 @@ function Tabs(el) {
         contentEls,
         selectedTabIndex = -1,
         selectedTabClass = "o-tabs__tab--selected",
-        selectedContentClass = "o-tabs__content--selected",
-        unselectedContentClass = "o-tabs__content--hidden";
+        selectedContentClass = "o-tabs--selected",
+        unselectedContentClass = "o-tabs--hidden";
 
     function getTabTargetId(tabEl) {
         var aEls = tabEl.getElementsByTagName('a');
