@@ -20,37 +20,10 @@ function removeClass(el, c) {
     }
 }
 
-function getNativeMethod(methodList, obj) {
-    "use strict";
-    for (var c = 0, l = methodList.length; c < l; c++) {
-        if (methodList[c] in obj) {
-            return methodList[c];
-        }
-    }
-}
-
-var methodToUse = getNativeMethod(["matches", "matchesSelector", "webkitMatchesSelector", "mozMatchesSelector", "msMatchesSelector","oMatchesSelector"], Element.prototype);
-
-function matchesSelector(el, selector) {
-    "use strict";
-    if (methodToUse) {
-        if (el[methodToUse]) {
-            return el[methodToUse](selector);
-        } else {
-            return false;
-        }
-    } else {
-        var nodes = (el.parentNode || el.document).querySelectorAll(selector),
-            i = -1;
-        while (nodes[++i] && nodes[i] !== el){}
-        return !!nodes[i];
-    }
-}
-
 function getClosest(el, selector) {
     "use strict";
     while (el) {
-        if (matchesSelector(el, selector)) {
+        if (el.matches(selector)) {
             return el;
         } else {
             el = el.parentElement;
@@ -62,7 +35,8 @@ function getClosest(el, selector) {
 function getElementIndex(el) {
     "use strict";
     var i = 0;
-    while (el = el.previousSibling) {
+    while (el.previousSibling) {
+        el = el.previousSibling;
         if (el.nodeType === 1) {
             ++i;
         }
@@ -74,5 +48,5 @@ exports.hasClass = hasClass;
 exports.addClass = addClass;
 exports.removeClass = removeClass;
 exports.getClosest = getClosest;
-exports.matchesSelector = matchesSelector;
+//exports.matchesSelector = matchesSelector;
 exports.getElementIndex = getElementIndex;

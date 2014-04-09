@@ -1,6 +1,6 @@
 {
     "options": {
-        "js": "main.js",
+        "js": "demos/src/demo.js",
         "sass": "demos/src/demo.scss",
         "bodyClasses": "o-hoverable-on"
     },

@@ -4,6 +4,13 @@
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-tabs/issues",
     "supportStatus": "active",
+    "browserFeatures": {
+        "required": [
+            "matches",
+            "queryselector",
+            "addeventlistener"
+        ]
+    },
     "ci": {
         "travis": "https://api.travis-ci.org/repos/Financial-Times/o-tabs/builds.json"
     },

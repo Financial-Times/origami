@@ -35,7 +35,7 @@ function Tabs(el) {
     }
 
     function getSelectedTabElement() {
-        var selectedTabEl = el.querySelector('.o-tabs__tab--selected');
+        var selectedTabEl = el.querySelector('.' + selectedTabClass);
         return (selectedTabEl) ? getTabIndexFromElement(selectedTabEl) : 0;
     }
 
@@ -99,9 +99,9 @@ Tabs.prototype.createAllIn = function(el) {
     var tabs = [], tEls, c, l;
     el = el || document.body;
     if (el.querySelectorAll) {
-        tEls = el.querySelectorAll('[data-o-component=o-tabs');
+        tEls = el.querySelectorAll('[data-o-component=o-tabs]');
         for (c = 0, l = tEls.length; c < l; c++) {
-            if (!dom.matchesSelector(tEls[c], '[data-o-tabs-autoconstruct=false]')) {
+            if (!tEls[c].matches('[data-o-tabs-autoconstruct=false]')) {
                 tabs.push(new Tabs(tEls[c]));
             }
         }
