@@ -1,13 +1,13 @@
 @include oTabsSelectors(o-tabs--js) {
   &.o-tabs {
-    ul {
+    [data-o-tabs] {
       margin: 0;
       padding: 0;
       overflow: hidden;
       text-align: left;
     }
 
-    &.o-tabs--alignright ul {
+    &.o-tabs--alignright [data-o-tabs] {
       text-align: right;
     }
 

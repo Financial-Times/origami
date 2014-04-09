@@ -4,10 +4,10 @@
 
 ## Markup
 
-The following HTML structure is expected:
+This is an example of an HTML structure that __o-tabs__ expects:
 
     <div data-o-component="o-tabs" data-o-version="1.0.0" class="o-tabs">
-        <ul>
+        <ul data-o-tabs>
             <li data-o-tabs-tab><a href="#tabContent1">Tab 1</a></li>
             <li data-o-tabs-tab><a href="#tabContent2">Tab 2</a></li>
             <li data-o-tabs-tab><a href="#tabContent3">Tab 3</a></li>
@@ -23,22 +23,29 @@ The following HTML structure is expected:
         </div>
     </div>
 
-The `data-o-tabs-tab` attributes tell __o-tabs__ which elements are the tab controls. The `href`s of the links they contain are used to associate content elements with their tab elements.
+The key things are:
+
+* the `data-o-component="o-tabs"` attribute and `o-tabs` class on the root element.
+* the `data-o-tabs` attribute on the container of the tabs
+* the `data-o-tab` attribute on each of the tab elements
+* the tab elements contain a link whose `href` attribute points to the ID of a content element.
 
 To set the initially selected tab, add a `o-tabs__tab--selected` class to a `<li>`, otherwise the first tab will be selected.
 
 ### Core experience
 
-When the browser has JavaScript disabled, or the 'cuts-the-mustard' fails, the tabs will be left as a basic list of links, with each tab content element displayed one below the other. A product may choose to hide the tabs by doing something like this:
+When the browser has JavaScript disabled, or the 'cuts-the-mustard' fails, the tabs will be left as a basic list of links, and each tab content element will remain unstyled. It's recommended that the default styling is to have each of the content elements displayed one below the other.
 
-    .o-tabs { display: none; }
-    .o-tabs--js { display: block; }
+A product may choose to hide the tabs by doing something like this:
+
+    .o-tabs [data-o-tabs] { display: none; }
+    .o-tabs--js [data-o-tabs] { display: block; }
 
 ### Full experience
 
 The _full experience_ will show as functional tabs, and only the content element for the selected tab will be shown.
 
-If the heights of the content elements vary, then any content below will move up and down as the user switches between tabs. If this is not desired, it is the responsibility of the product to address this.
+If the heights of the content elements vary, then any content below will move up and down as the user switches between tabs. If this is not desired, it is the responsibility of the consumer to address this.
 
 ## Construction
 
@@ -67,7 +74,7 @@ __o-tabs__ can be used with or without its built-in tab styling, called __button
 To apply the __buttontabs__ styling, also add a `o-tabs--buttontabs` class to the root element, and `o-tabs__tab` to each `<li>`:
 
     <div data-o-component="o-tabs" data-o-version="1.0.0" class="o-tabs o-tabs--buttontabs">
-        <ul>
+        <ul data-o-tabs>
             <li data-o-tabs-tab class="o-tabs__tab"><a href="#tabContent1">Tab 1</a></li>
             <li data-o-tabs-tab class="o-tabs__tab"><a href="#tabContent2">Tab 2</a></li>
             <li data-o-tabs-tab class="o-tabs__tab"><a href="#tabContent3">Tab 3</a></li>
@@ -99,10 +106,10 @@ Additional CSS classes will be added to indicate interaction states:
 
 ## Events
 
-The following events will be dispatched on the Tabs' root DOM element:
+The following events will be dispatched on the Tabs' root DOM element, in the `detail` property of the event object:
 
-* `oTabsReady`: The Tabs object has initialised and has made all required DOM changes
-* `oTabsTabSelected`: A tab has been selected. Passes two arguments: the indexes of the selected tab and last selected tab.
+* `oTabsReady`: The Tabs object has initialised.
+* `oTabsTabSelected`: A tab has been selected. Passes two arguments: the indexes of the `selected` tab and `lastSelected` tab.
 
 ## API
 
@@ -111,4 +118,4 @@ Tabs are indexed starting from 0.
 The following API methods will be provided:
 
 * `selectTab(idx)`: Select tab `idx`. Does nothing if tab `idx` does not exist or is already selected.
-* `destroy()`: Unbind events, return DOM to previous state.
+* `destroy()`: Unbind events, remove `o-tabs--js` class.

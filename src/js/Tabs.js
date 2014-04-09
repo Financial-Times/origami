@@ -1,11 +1,13 @@
 /*global module, require*/
 
-var dom = require('./dom');
+var dom = require('./dom'),
+    events = require('./events');
 
 function Tabs(el) {
     "use strict";
 
-    var tabEls,
+    var tabsObj = this,
+        tabEls,
         contentEls,
         selectedTabIndex = -1,
         selectedTabClass = "o-tabs__tab--selected",
@@ -55,28 +57,41 @@ function Tabs(el) {
                     dom.addClass(contentEls[c], unselectedContentClass);
                 }
             }
-            // TODO: Trigger event
+            events.trigger(el, 'oTabsTabSelected', {
+                tabs: tabsObj,
+                selected: i,
+                lastSelected: selectedTabIndex
+            });
             selectedTabIndex = i;
         }
     }
 
-    function bindClickEvents() {
-        el.addEventListener("click", function(ev) {
-            ev.preventDefault();
-            var tabEl = dom.getClosest(ev.target, '[data-o-tabs-tab]');
-            if (tabEl) {
-                var i = getTabIndexFromElement(tabEl);
-                selectTab(i);
-            }
-        });
+    function clickHandler(ev) {
+        ev.preventDefault();
+        var tabEl = dom.getClosest(ev.target, '[data-o-tabs-tab]');
+        if (tabEl) {
+            var i = getTabIndexFromElement(tabEl);
+            selectTab(i);
+        }
+    }
+
+    function destroy() {
+        events.unlisten(el, "click", clickHandler);
+        dom.removeClass(el, "o-tabs--js");
     }
 
     tabEls = el.querySelectorAll('[data-o-tabs-tab]');
     contentEls = getTabContentEls(tabEls);
     dom.addClass(el, "o-tabs--js");
-    selectTab(getSelectedTabElement());
-    bindClickEvents();
+    events.listen(el, "click", clickHandler);
 
+    this.selectTab = selectTab;
+    this.destroy = destroy;
+
+    events.trigger(el, 'oTabsReady', {
+        tabs: tabsObj
+    });
+    selectTab(getSelectedTabElement());
 }
 
 Tabs.prototype.createAllIn = function(el) {

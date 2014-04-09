@@ -1,6 +1,6 @@
 @include oTabsSelectors(o-tabs--buttontabs) {
   &.o-tabs--js {
-    ul {
+    [data-o-tabs] {
       border-bottom: 1px solid $_o-ft-buttons-color-standard-border;
       font-size: 0;
     }

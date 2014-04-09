@@ -1,4 +1,4 @@
-/*global module */
+/*global exports */
 
 function hasClass(el, c) {
     "use strict";
@@ -70,11 +70,9 @@ function getElementIndex(el) {
     return i;
 }
 
-module.exports = {
-    hasClass: hasClass,
-    addClass: addClass,
-    removeClass: removeClass,
-    getClosest: getClosest,
-    matchesSelector: matchesSelector,
-    getElementIndex: getElementIndex
-};
+exports.hasClass = hasClass;
+exports.addClass = addClass;
+exports.removeClass = removeClass;
+exports.getClosest = getClosest;
+exports.matchesSelector = matchesSelector;
+exports.getElementIndex = getElementIndex;
