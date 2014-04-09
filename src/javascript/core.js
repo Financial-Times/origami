@@ -6,12 +6,13 @@
  * @static
  */
 
-/*global module, require, window, document*/
-module.exports = (function (window, document) {
+/*global module, require, window*/
+module.exports = (function (window) {
     "use strict";
 
     var
         Send = require("./core/send"),
+        User = require("./core/user"),
 
         /**
          * Shared "internal" scope.
@@ -62,7 +63,7 @@ module.exports = (function (window, document) {
      */
     function requestID(request_id) {
         if (utils.isUndefined(request_id)) {
-            request_id = window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + utils.hash(document.location.href + document.referrer);
+            request_id = utils.createUniqueID();
         }
 
         return request_id;
@@ -77,26 +78,6 @@ module.exports = (function (window, document) {
     function internalCounter() {
         settings.set('internalCounter', settings.get('internalCounter') + 1);
         return settings.get('internalCounter');
-    }
-
-    /**
-     * Get a user ID.
-     * @method userID
-     * @param [userid]
-     * @return {*} The userID or null.
-     */
-    function userID(userid) {
-        if (typeof userid !== "undefined") {
-            return userid;
-        }
-
-        if (settings.get('config')) {
-            if (settings.get('config').hasOwnProperty('userID')) {
-                return settings.get('config').userID;
-            }
-        }
-
-        return null;
     }
 
     /**
@@ -115,7 +96,7 @@ module.exports = (function (window, document) {
 
         /* Values here are kinda the mandatory ones, so we want to make sure they're possible. */
         request = utils.merge({
-            userID: userID(request.userID),
+            userID: User.userID(),
             clickID: request.clickID,
             requestID: requestID(), // Used for the queue
             counter: internalCounter()
@@ -131,4 +112,4 @@ module.exports = (function (window, document) {
         getClickID: function () { return defaultConfig.clickID; },
         track: track
     };
-}(window, document));
+}(window));

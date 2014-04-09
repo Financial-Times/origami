@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.15</em>
+            <em>API Docs for Origami Tracking module: 0.0.16</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -52,6 +52,8 @@
                 <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
             
                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
+            
+                <li><a href="../classes/Track._Core.User.html">Track._Core.User</a></li>
             
                 <li><a href="../classes/Track._Utils.html">Track._Utils</a></li>
             
@@ -137,6 +139,14 @@
 /*global module, require, window, console */
 module.exports = (function (console, window) {
     &quot;use strict&quot;;
+
+    /**
+     * An array of characters used by the base-64 encoding methods.
+     *
+     * @private
+     * @final
+     */
+    var TRANS_CHARS = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;;
 
     /**
      * Shared &quot;internal&quot; scope.
@@ -237,6 +247,43 @@ module.exports = (function (console, window) {
     }
 
     /**
+     * Encodes a given input string in base64.
+     * @method b64encode
+     * @param {String} input the string to encode
+     * @return {String} The base64-encoded value of the input string.
+     */
+    function b64encode(input) {
+        if (!input) {
+            return &#x27;&#x27;;
+        }
+
+        input = encode(input);
+
+        if (window.btoa) {
+            return window.btoa(input);
+        }
+
+        var i, numBytesLeft, value, output = &#x27;&#x27;;
+
+        for (i = 0; i &lt; input.length; i += 3) {
+            numBytesLeft = input.length - i;
+            value = 0;
+            /* jshint -W016 */
+            /* jslint bitwise:false */
+            value = (input.charCodeAt(i) &lt;&lt; 16) &amp; 0x00ff0000;
+            value |= (numBytesLeft &gt; 1) ? (input.charCodeAt(i + 1) &lt;&lt; 8) &amp; 0x0000ff00 : 0;
+            value |= (numBytesLeft &gt; 2) ? input.charCodeAt(i + 2) &amp; 0x000000ff : 0;
+            output += TRANS_CHARS.charAt((value &amp; 0x00fC0000) &gt;&gt; 18);
+            output += TRANS_CHARS.charAt((value &amp; 0x0003f000) &gt;&gt; 12);
+            output += ((numBytesLeft &gt; 1) ? TRANS_CHARS.charAt((value &amp; 0x00000fc0) &gt;&gt; 6) : &#x27;_&#x27;);
+            output += ((numBytesLeft &gt; 2) ? TRANS_CHARS.charAt((value &amp; 0x0000003f)) : &#x27;_&#x27;);
+            /* jshint +W016 */
+            /* jslint bitwise:true */
+        }
+        return output;
+    }
+
+    /**
      * Function to create a unique-ish hash of a string.
      * @method hash
      * @param txt
@@ -271,6 +318,10 @@ module.exports = (function (console, window) {
     function objectKeys(o) {
         if (o !== Object(o)) {
             throw new TypeError(&#x27;Object.keys called on a non-object&#x27;);
+        }
+
+        if (Object.hasOwnProperty(&quot;keys&quot;)) {
+            return Object.keys(o);
         }
 
         var k = [], p;
@@ -367,6 +418,15 @@ module.exports = (function (console, window) {
         ].join(&#x27;&#x27;);
     }
 
+    /**
+     * Generate a unique ID.
+     * @method createUniqueID
+     * @return {String}
+     */
+    function createUniqueID() {
+        return window.history.length + &quot;.&quot; + (Math.random() * 1000) + &quot;.&quot; + (new Date()).getTime() + &quot;.&quot; + hash(window.document.location.href + window.document.referrer);
+    }
+
     return {
         log: log,
         is: is,
@@ -378,7 +438,9 @@ module.exports = (function (console, window) {
         objectKeys: objectKeys,
         serialize: serialize,
         unserialize: unserialize,
-        toISOString: toISOString
+        b64encode: b64encode,
+        toISOString: toISOString,
+        createUniqueID: createUniqueID
     };
 }(console, window));
     </pre>

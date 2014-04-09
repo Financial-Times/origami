@@ -7,14 +7,14 @@ var assert = require("assert"),
 describe('link', function () {
     "use strict";
 
-    var server;
+    var server, userID;
 
     before(function () {
         require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
         (new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
         require("../src/javascript/core/send").init(); // Init the sender.
         require("../src/javascript/core").setClickID('clickID'); // Fix the click ID to stop it generating one.
-        require("../src/javascript/core/settings").set('config', { 'userID': 'userID' }); // Set the userID.
+        userID = require("../src/javascript/core/user").init(); // Init the user identifier.
 
         server = sinon.fakeServer.create(); // Catch AJAX requests
     });
@@ -49,7 +49,7 @@ describe('link', function () {
         assert.deepEqual(Object.keys(sent_data), ["userID", "clickID", "requestID", "counter", "type", "link", "referrerClickID", "queueTime"]);
         assert.equal(sent_data.clickID, "clickID");
         assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.requestID), "RequestID is invalid. " + sent_data.requestID);
-        assert.equal(sent_data.userID, "userID");
+        assert.equal(sent_data.userID, userID);
         assert.equal(sent_data.counter, 1);
         assert.equal(sent_data.type, "link");
         assert.equal(sent_data.link, "a/www.google.com");

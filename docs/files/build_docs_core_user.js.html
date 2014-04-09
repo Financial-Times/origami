@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>data - Origami Tracking module</title>
+    <title>build/docs/core/user.js - Origami Tracking module</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -124,50 +124,82 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>data Module</h1>
-<div class="box clearfix meta">
-    
+                        <h1 class="file-heading">File: build/docs/core/user.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * Class for user.
+ * Handling the user identifier.
+ * @module _Core
+ * @submodule Store
+ * @class Track._Core.User
+ * @static
+ */
 
-    
-        <div class="foundat">
-            Defined in: <a href="../files/build_docs_data.js.html#l1"><code>build&#x2F;docs&#x2F;data.js:1</code></a>
-        </div>
-    
+/*global module, require */
+var userID;
 
-    
-</div>
+module.exports = (function () {
+    &quot;use strict&quot;;
+
+    var
+        defaultUserConfig = {
+            storage: &#x27;best&#x27;,
+            name: &#x27;userID&#x27;,
+            value: null
+        },
+
+        utils = require(&quot;../utils&quot;),
+        Store = require(&quot;./store&quot;);
+
+    /**
+     * Init
+     * @method init
+     * @param config {String|Object} The value of a userID to use or configuration object.
+     */
+    function init(config) {
+        if (typeof config === &#x27;string&#x27;) {
+            config = { value: config };
+        }
+
+        if (typeof config === &#x27;undefined&#x27;) {
+            config = {};
+        }
+
+        var c = utils.merge(defaultUserConfig, config),
+            store;
+
+        // config.name is important here, means the user has specifically asked for a cookie name.
+        if (c.storage === &#x27;cookie&#x27; &amp;&amp; config.name) {
+            c.nameOverride = c.name;
+        }
+
+        store = new Store(c.name, c);
+
+        userID = store.read();
+
+        if (!userID) {
+            userID = c.value;
+        }
+
+        if (!userID) {
+            userID = utils.b64encode(utils.createUniqueID());
+        }
+
+        store.write(userID); // Refreshes the cookie...
+
+        return userID;
+    }
 
 
+    return {
+        init: init,
+        userID: function () { return userID; }
+    };
+}());
 
-<div class="box intro">
-    <p>For tracking additional page-level data.</p>
-
-</div>
-
-
-
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/Track.data.html">
-                        Track.data
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
-
-    <div class="yui3-u-1-2">
-        
-    </div>
+    </pre>
 </div>
 
                     </div>

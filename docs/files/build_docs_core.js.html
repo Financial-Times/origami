@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.15</em>
+            <em>API Docs for Origami Tracking module: 0.0.16</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -52,6 +52,8 @@
                 <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
             
                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
+            
+                <li><a href="../classes/Track._Core.User.html">Track._Core.User</a></li>
             
                 <li><a href="../classes/Track._Utils.html">Track._Utils</a></li>
             
@@ -134,12 +136,13 @@
  * @static
  */
 
-/*global module, require, window, document*/
-module.exports = (function (window, document) {
+/*global module, require, window*/
+module.exports = (function (window) {
     &quot;use strict&quot;;
 
     var
         Send = require(&quot;./core/send&quot;),
+        User = require(&quot;./core/user&quot;),
 
         /**
          * Shared &quot;internal&quot; scope.
@@ -190,7 +193,7 @@ module.exports = (function (window, document) {
      */
     function requestID(request_id) {
         if (utils.isUndefined(request_id)) {
-            request_id = window.history.length + &quot;.&quot; + (Math.random() * 1000) + &quot;.&quot; + (new Date()).getTime() + &quot;.&quot; + utils.hash(document.location.href + document.referrer);
+            request_id = utils.createUniqueID();
         }
 
         return request_id;
@@ -205,26 +208,6 @@ module.exports = (function (window, document) {
     function internalCounter() {
         settings.set(&#x27;internalCounter&#x27;, settings.get(&#x27;internalCounter&#x27;) + 1);
         return settings.get(&#x27;internalCounter&#x27;);
-    }
-
-    /**
-     * Get a user ID.
-     * @method userID
-     * @param [userid]
-     * @return {*} The userID or null.
-     */
-    function userID(userid) {
-        if (typeof userid !== &quot;undefined&quot;) {
-            return userid;
-        }
-
-        if (settings.get(&#x27;config&#x27;)) {
-            if (settings.get(&#x27;config&#x27;).hasOwnProperty(&#x27;userID&#x27;)) {
-                return settings.get(&#x27;config&#x27;).userID;
-            }
-        }
-
-        return null;
     }
 
     /**
@@ -243,7 +226,7 @@ module.exports = (function (window, document) {
 
         /* Values here are kinda the mandatory ones, so we want to make sure they&#x27;re possible. */
         request = utils.merge({
-            userID: userID(request.userID),
+            userID: User.userID(),
             clickID: request.clickID,
             requestID: requestID(), // Used for the queue
             counter: internalCounter()
@@ -259,7 +242,7 @@ module.exports = (function (window, document) {
         getClickID: function () { return defaultConfig.clickID; },
         track: track
     };
-}(window, document));
+}(window));
 
     </pre>
 </div>

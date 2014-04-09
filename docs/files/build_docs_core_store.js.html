@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.15</em>
+            <em>API Docs for Origami Tracking module: 0.0.16</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -52,6 +52,8 @@
                 <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
             
                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
+            
+                <li><a href="../classes/Track._Core.User.html">Track._Core.User</a></li>
             
                 <li><a href="../classes/Track._Utils.html">Track._Utils</a></li>
             
@@ -136,7 +138,7 @@
  * @param [config] {Object} Optional config object for extra configuration.
  * @constructor
  */
-// TODO Look at all storage mechanisms for a starting value, and propagate up to the &quot;best&quot; mechanism.
+// TODO Look at all storage mechanisms for a starting value, and propagate up to the &quot;best&quot; mechanism?
 /*global module, require, window */
 module.exports = (function () {
     &quot;use strict&quot;;
@@ -165,7 +167,7 @@ module.exports = (function () {
             throw new Error(&#x27;You must specify a name for the store.&#x27;);
         }
 
-        this.config = utils.merge({ storage: &#x27;best&#x27;, expires: &#x27;10 years&#x27; }, config);
+        this.config = utils.merge({ storage: &#x27;best&#x27;, expires: (10 * 365) }, config);
 
         /**
          * Store data.
@@ -269,7 +271,11 @@ module.exports = (function () {
         // Retrieve any previous store with the same name.
         loadStore = this.storage.load(this.storageKey);
         if (loadStore) {
-            this.data = JSON.parse(loadStore);
+            try {
+                this.data = JSON.parse(loadStore);
+            } catch (error) {
+                this.data = loadStore;
+            }
         }
 
         return this;
@@ -294,7 +300,7 @@ module.exports = (function () {
     Store.prototype.write = function (data) {
         // Set this.data, in-case we&#x27;re on a file:// domain and can&#x27;t set cookies.
         this.data = data;
-        this.storage.save(this.storageKey, JSON.stringify(this.data));
+        this.storage.save(this.storageKey, (typeof this.data === &#x27;string&#x27; ? this.data : JSON.stringify(this.data)), this.config.expires);
 
         return this;
     };

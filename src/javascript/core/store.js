@@ -8,7 +8,7 @@
  * @param [config] {Object} Optional config object for extra configuration.
  * @constructor
  */
-// TODO Look at all storage mechanisms for a starting value, and propagate up to the "best" mechanism.
+// TODO Look at all storage mechanisms for a starting value, and propagate up to the "best" mechanism?
 /*global module, require, window */
 module.exports = (function () {
     "use strict";
@@ -37,7 +37,7 @@ module.exports = (function () {
             throw new Error('You must specify a name for the store.');
         }
 
-        this.config = utils.merge({ storage: 'best', expires: '10 years' }, config);
+        this.config = utils.merge({ storage: 'best', expires: (10 * 365) }, config);
 
         /**
          * Store data.
@@ -141,7 +141,11 @@ module.exports = (function () {
         // Retrieve any previous store with the same name.
         loadStore = this.storage.load(this.storageKey);
         if (loadStore) {
-            this.data = JSON.parse(loadStore);
+            try {
+                this.data = JSON.parse(loadStore);
+            } catch (error) {
+                this.data = loadStore;
+            }
         }
 
         return this;
@@ -166,7 +170,7 @@ module.exports = (function () {
     Store.prototype.write = function (data) {
         // Set this.data, in-case we're on a file:// domain and can't set cookies.
         this.data = data;
-        this.storage.save(this.storageKey, JSON.stringify(this.data));
+        this.storage.save(this.storageKey, (typeof this.data === 'string' ? this.data : JSON.stringify(this.data)), this.config.expires);
 
         return this;
     };

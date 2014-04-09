@@ -2,7 +2,7 @@
 
 Origami module for the FT tracking.
 
-![ScreenShot](/docs/tracking_forwarder.svg)
+![ScreenShot](docs/tracking_forwarder.svg)
 
 
 
@@ -33,7 +33,7 @@ For example:
 Add this to your dependencies in bower.json:
 ```
 "dependencies": {
-    "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.15 < 1"
+    "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.16 < 1"
 }
 ```
 
@@ -180,7 +180,14 @@ Both JS and non-JS versions take the same parameters.
 * `searchQuery`: `` Internal (meaning onsite) search query.
 
 ### User
-* `userID`: `` - A unique, persistent identifier for the user.
+* `userID`: `` - A unique, persistent identifier for the user.  VERY OPTIONAL.
+        Values can be a string or object. A good strategy is to pass the product's old value - used before oTracking. Then oTracking can store it as necessary.
+        If passing an object - example:
+        ```{
+              storage: 'cookie',
+              name: 'SIVISITOR',
+              value: getValueFromCookie(/SIVISITOR=([\w\*]+);?/)
+          }```
 * `cohort`: `3` / `1` / `2` - The user's subscription level.
 * `passportID`: `4009049153` - The user's passport ID.
 * `country`: `GBR` - The user's country.

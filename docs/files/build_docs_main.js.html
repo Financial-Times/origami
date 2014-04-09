@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.15</em>
+            <em>API Docs for Origami Tracking module: 0.0.16</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -52,6 +52,8 @@
                 <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
             
                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
+            
+                <li><a href="../classes/Track._Core.User.html">Track._Core.User</a></li>
             
                 <li><a href="../classes/Track._Utils.html">Track._Utils</a></li>
             
@@ -172,7 +174,7 @@ module.exports = (function () {
          * @property version
          * @type {String}
          */
-            version = &quot;Track version 0.0.15&quot;;
+        version = &quot;Track version 0.0.16&quot;;
 
     /**
      * Turn on/off developer mode. (Can also be activated on init.)
@@ -213,6 +215,7 @@ module.exports = (function () {
 
         destroy();
 
+        // Developer mode
         if (config.hasOwnProperty(&#x27;developer&#x27;)) {
             delete config.developer;
             developer();
@@ -222,6 +225,9 @@ module.exports = (function () {
                 settings.set(&#x27;noSend&#x27;, true);
             }
         }
+
+        // User identifier
+        require(&quot;./src/javascript/core/user&quot;).init(config.userID);
 
         // Initialize the sending queue.
         require(&quot;./src/javascript/core/send&quot;).init();

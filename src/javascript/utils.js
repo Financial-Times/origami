@@ -11,6 +11,14 @@ module.exports = (function (console, window) {
     "use strict";
 
     /**
+     * An array of characters used by the base-64 encoding methods.
+     *
+     * @private
+     * @final
+     */
+    var TRANS_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+    /**
      * Shared "internal" scope.
      * @property _self
      * @type {Object}
@@ -109,6 +117,43 @@ module.exports = (function (console, window) {
     }
 
     /**
+     * Encodes a given input string in base64.
+     * @method b64encode
+     * @param {String} input the string to encode
+     * @return {String} The base64-encoded value of the input string.
+     */
+    function b64encode(input) {
+        if (!input) {
+            return '';
+        }
+
+        input = encode(input);
+
+        if (window.btoa) {
+            return window.btoa(input);
+        }
+
+        var i, numBytesLeft, value, output = '';
+
+        for (i = 0; i < input.length; i += 3) {
+            numBytesLeft = input.length - i;
+            value = 0;
+            /* jshint -W016 */
+            /* jslint bitwise:false */
+            value = (input.charCodeAt(i) << 16) & 0x00ff0000;
+            value |= (numBytesLeft > 1) ? (input.charCodeAt(i + 1) << 8) & 0x0000ff00 : 0;
+            value |= (numBytesLeft > 2) ? input.charCodeAt(i + 2) & 0x000000ff : 0;
+            output += TRANS_CHARS.charAt((value & 0x00fC0000) >> 18);
+            output += TRANS_CHARS.charAt((value & 0x0003f000) >> 12);
+            output += ((numBytesLeft > 1) ? TRANS_CHARS.charAt((value & 0x00000fc0) >> 6) : '_');
+            output += ((numBytesLeft > 2) ? TRANS_CHARS.charAt((value & 0x0000003f)) : '_');
+            /* jshint +W016 */
+            /* jslint bitwise:true */
+        }
+        return output;
+    }
+
+    /**
      * Function to create a unique-ish hash of a string.
      * @method hash
      * @param txt
@@ -143,6 +188,10 @@ module.exports = (function (console, window) {
     function objectKeys(o) {
         if (o !== Object(o)) {
             throw new TypeError('Object.keys called on a non-object');
+        }
+
+        if (Object.hasOwnProperty("keys")) {
+            return Object.keys(o);
         }
 
         var k = [], p;
@@ -239,6 +288,15 @@ module.exports = (function (console, window) {
         ].join('');
     }
 
+    /**
+     * Generate a unique ID.
+     * @method createUniqueID
+     * @return {String}
+     */
+    function createUniqueID() {
+        return window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + hash(window.document.location.href + window.document.referrer);
+    }
+
     return {
         log: log,
         is: is,
@@ -250,6 +308,8 @@ module.exports = (function (console, window) {
         objectKeys: objectKeys,
         serialize: serialize,
         unserialize: unserialize,
-        toISOString: toISOString
+        b64encode: b64encode,
+        toISOString: toISOString,
+        createUniqueID: createUniqueID
     };
 }(console, window));

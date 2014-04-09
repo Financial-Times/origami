@@ -7,6 +7,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Track._Core",
         "Track._Core.Send",
         "Track._Core.Store",
+        "Track._Core.User",
         "Track._Utils",
         "Track.data",
         "Track.event",

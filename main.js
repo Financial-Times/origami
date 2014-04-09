@@ -44,7 +44,7 @@ module.exports = (function () {
          * @property version
          * @type {String}
          */
-            version = "Track version 0.0.15";
+        version = "Track version 0.0.16";
 
     /**
      * Turn on/off developer mode. (Can also be activated on init.)
@@ -85,6 +85,7 @@ module.exports = (function () {
 
         destroy();
 
+        // Developer mode
         if (config.hasOwnProperty('developer')) {
             delete config.developer;
             developer();
@@ -94,6 +95,9 @@ module.exports = (function () {
                 settings.set('noSend', true);
             }
         }
+
+        // User identifier
+        require("./src/javascript/core/user").init(config.userID);
 
         // Initialize the sending queue.
         require("./src/javascript/core/send").init();

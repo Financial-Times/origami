@@ -2,7 +2,7 @@
     "project": {
         "name": "Origami Tracking module",
         "description": "Origami module for FT tracking.",
-        "version": "0.0.15",
+        "version": "0.0.16",
         "url": ""
     },
     "files": {
@@ -44,6 +44,15 @@
             },
             "classes": {
                 "Track._Core.Store": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "build/docs/core/user.js": {
+            "name": "build/docs/core/user.js",
+            "modules": {},
+            "classes": {
+                "Track._Core.User": 1
             },
             "fors": {},
             "namespaces": {}
@@ -138,6 +147,7 @@
                 "Queue": 1,
                 "Track._Core.Send": 1,
                 "Track._Core.Store": 1,
+                "Track._Core.User": 1,
                 "Track._Core": 1
             },
             "fors": {},
@@ -220,14 +230,15 @@
             "name": "Store",
             "submodules": {},
             "classes": {
-                "Track._Core.Store": 1
+                "Track._Core.Store": 1,
+                "Track._Core.User": 1
             },
             "fors": {},
             "is_submodule": 1,
             "namespaces": {},
             "module": "_Core",
             "namespace": "",
-            "file": "build/docs/core/store.js",
+            "file": "build/docs/core/user.js",
             "line": 1,
             "description": "Class for storing data\nWill choose the \"best\" storage method available. Can also specify a type of storage.",
             "params": [
@@ -243,7 +254,8 @@
                     "optional": true
                 }
             ],
-            "is_constructor": 1
+            "is_constructor": 1,
+            "static": 1
         },
         "data": {
             "name": "data",
@@ -385,6 +397,21 @@
             "file": "build/docs/core/store.js",
             "line": 1,
             "description": "Class for storing data\nWill choose the \"best\" storage method available. Can also specify a type of storage."
+        },
+        "Track._Core.User": {
+            "name": "Track._Core.User",
+            "shortname": "Track._Core.User",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "_Core",
+            "submodule": "Store",
+            "namespace": "",
+            "file": "build/docs/core/user.js",
+            "line": 1,
+            "description": "Class for user.\nHandling the user identifier."
         },
         "Track._Core": {
             "name": "Track._Core",
@@ -888,7 +915,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 150,
+            "line": 154,
             "description": "Get/Read the current data.",
             "itemtype": "method",
             "name": "read",
@@ -901,7 +928,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 159,
+            "line": 163,
             "description": "Write the supplied data to the store.",
             "itemtype": "method",
             "name": "write",
@@ -922,7 +949,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 174,
+            "line": 178,
             "description": "Delete the current data.",
             "itemtype": "method",
             "name": "destroy",
@@ -935,8 +962,25 @@
             "submodule": "Store"
         },
         {
+            "file": "build/docs/core/user.js",
+            "line": 26,
+            "description": "Init",
+            "itemtype": "method",
+            "name": "init",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "The value of a userID to use or configuration object.",
+                    "type": "String|Object"
+                }
+            ],
+            "class": "Track._Core.User",
+            "module": "_Core",
+            "submodule": "Store"
+        },
+        {
             "file": "build/docs/core.js",
-            "line": 16,
+            "line": 17,
             "description": "Shared \"internal\" scope.",
             "itemtype": "property",
             "name": "_self",
@@ -949,7 +993,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 25,
+            "line": 26,
             "description": "Default properties for sending a tracking request.",
             "itemtype": "property",
             "name": "defaultConfig",
@@ -965,7 +1009,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 42,
+            "line": 43,
             "description": "Generate and store a new ClickID.",
             "itemtype": "method",
             "name": "clickID",
@@ -986,7 +1030,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 56,
+            "line": 57,
             "description": "Create a requestID (unique identifier) for the page impression.",
             "itemtype": "method",
             "name": "requestID",
@@ -1009,7 +1053,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 71,
+            "line": 72,
             "description": "Count of the number of tracking requests made.",
             "itemtype": "method",
             "name": "internalCounter",
@@ -1025,28 +1069,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 82,
-            "description": "Get a user ID.",
-            "itemtype": "method",
-            "name": "userID",
-            "params": [
-                {
-                    "name": "userid",
-                    "description": "",
-                    "optional": true
-                }
-            ],
-            "return": {
-                "description": "The userID or null.",
-                "type": "*"
-            },
-            "class": "Track._Core",
-            "module": "Track",
-            "submodule": "_Core"
-        },
-        {
-            "file": "build/docs/core.js",
-            "line": 102,
+            "line": 83,
             "description": "Make a tracking request.",
             "itemtype": "method",
             "name": "track",
@@ -1426,7 +1449,7 @@
         },
         {
             "file": "build/docs/main.js",
-            "line": 106,
+            "line": 110,
             "description": "Overload toString method to show the version.",
             "itemtype": "method",
             "name": "toString",
@@ -1517,6 +1540,17 @@
         {
             "file": "build/docs/utils.js",
             "line": 13,
+            "description": "An array of characters used by the base-64 encoding methods.",
+            "access": "private",
+            "tagname": "",
+            "final": 1,
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 21,
             "description": "Shared \"internal\" scope.",
             "itemtype": "property",
             "name": "_self",
@@ -1529,7 +1563,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 21,
+            "line": 29,
             "description": "Log messages to the browser console. Requires \"log\" to be set on init.",
             "itemtype": "method",
             "name": "log",
@@ -1547,7 +1581,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 32,
+            "line": 40,
             "description": "Tests if variable is a certain type. Defaults to check for undefined if no type specified.",
             "itemtype": "method",
             "name": "is",
@@ -1574,7 +1608,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 46,
+            "line": 54,
             "description": "Merge objects together. Will remove \"falsy\" values.",
             "itemtype": "method",
             "name": "merge",
@@ -1601,7 +1635,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 83,
+            "line": 91,
             "description": "URL encode a string.",
             "itemtype": "method",
             "name": "encode",
@@ -1622,7 +1656,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 97,
+            "line": 105,
             "description": "URL unencode a string.",
             "itemtype": "method",
             "name": "unencode",
@@ -1643,7 +1677,28 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 111,
+            "line": 119,
+            "description": "Encodes a given input string in base64.",
+            "itemtype": "method",
+            "name": "b64encode",
+            "params": [
+                {
+                    "name": "input",
+                    "description": "the string to encode",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The base64-encoded value of the input string.",
+                "type": "String"
+            },
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 156,
             "description": "Function to create a unique-ish hash of a string.",
             "itemtype": "method",
             "name": "hash",
@@ -1663,7 +1718,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 137,
+            "line": 182,
             "description": "Polyfill for Object.keys as it doesn't exist in older browsers.",
             "itemtype": "method",
             "name": "objectKeys",
@@ -1684,7 +1739,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 158,
+            "line": 207,
             "description": "For the chosen keys, turns an object into a query string.",
             "itemtype": "method",
             "name": "serialize",
@@ -1709,7 +1764,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 186,
+            "line": 235,
             "description": "Unserialize a query string into an object. Opposite of serialize.",
             "itemtype": "method",
             "name": "unserialize",
@@ -1730,7 +1785,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 207,
+            "line": 256,
             "description": "Pad a number below 10.",
             "itemtype": "method",
             "name": "pad",
@@ -1751,7 +1806,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 221,
+            "line": 270,
             "description": "IE friendly Date toISOString",
             "itemtype": "method",
             "name": "toISOString",
@@ -1769,12 +1824,30 @@
             "class": "Track._Utils",
             "module": "Track",
             "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 291,
+            "description": "Generate a unique ID.",
+            "itemtype": "method",
+            "name": "createUniqueID",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
         }
     ],
     "warnings": [
         {
             "message": "replacing incorrect tag: returns with return",
             "line": " build/docs/link.js:206"
+        },
+        {
+            "message": "Missing item type\nAn array of characters used by the base-64 encoding methods.",
+            "line": " build/docs/utils.js:13"
         }
     ]
 }

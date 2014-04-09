@@ -21,8 +21,8 @@ describe('Utils', function () {
             { value: {}, answer: 'object' },
             { value: function () {}, answer: 'function' }
         ].forEach(function (test) {
-            assert.ok(Utils.is(test.value, test.answer), test.value + " is a " + test.answer);
-        });
+                assert.ok(Utils.is(test.value, test.answer), test.value + " is a " + test.answer);
+            });
     });
 
     it('should provide isUndefined functionality', function () {
@@ -50,12 +50,17 @@ describe('Utils', function () {
     });
 
     it('should provide serialize functionality', function () {
-
         assert.equal(Utils.serialize({ 'one' : 'one', 'two': 'two' }, ['one']), "one=one");
     });
 
     it('should provide unserialize functionality', function () {
         assert.deepEqual(Utils.unserialize("one=one&two=two"), { 'one' : 'one', 'two': 'two' });
+    });
+
+    it('should provide base64 encoding', function () {
+        assert.equal(Utils.b64encode('b64 encoding should be easier'), 'YjY0JTIwZW5jb2RpbmclMjBzaG91bGQlMjBiZSUyMGVhc2llcg==');
+        // UTF8 string
+        assert.equal(Utils.b64encode('✓ à la mode'), 'JUUyJTlDJTkzJTIwJUMzJUEwJTIwbGElMjBtb2Rl');
     });
 
     it('should provide toISOString functionality', function () {
