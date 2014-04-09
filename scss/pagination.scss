@@ -1,18 +1,19 @@
-@include oFtButtonSelectors(o-ft-buttons__pagination) {
-  .o-ft-buttons {
-    padding-left: 5px;
-    padding-right: 5px;
-    min-width: 24px;
+@mixin oFtButtonsButtonPagination($buttonClass, $paginationClass, $force-non-silent: true) {
+
+  @include oFtButtonSelectors($paginationClass, $force-non-silent) {
+    .#{$buttonClass} {
+      padding-left: 5px;
+      padding-right: 5px;
+      min-width: 24px;
+      &.#{$buttonClass}--big {
+        padding-left: 9px;
+        padding-right: 9px;
+        min-width: 36px;
+      }
+    }
+    .#{$buttonClass} + .#{$buttonClass} {
+      margin-left: 0;
+    }
   }
-  .o-ft-buttons.o-ft-buttons--big {
-    padding-left: 9px;
-    padding-right: 9px;
-    min-width: 36px;
-  }
-  .o-ft-buttons + .o-ft-buttons {
-    margin-left: 0;
-  }
-  .o-ft-buttons--faux {
-    min-width: 0 !important;
-  }
+
 }
