@@ -30,7 +30,7 @@ The key things are:
 * the `data-o-tab` attribute on each of the tab elements
 * the tab elements contain a link whose `href` attribute points to the ID of a content element.
 
-To set the initially selected tab, add a `o-tabs__tab--selected` class to a `<li>`, otherwise the first tab will be selected.
+To set the initially selected tab, add a `o-tabs__tab--selected` class to a tab element, otherwise the first tab will be selected.
 
 ### Core experience
 
@@ -95,8 +95,8 @@ These examples show "John" as the selected tab. The horizontal line extends to t
 
 __Options__
 
-* Align right: Add `o-tabs--alignright` to the root element.
-* Big: Add `o-tabs--big` to the root element.
+* __Align right__: Add `o-tabs--alignright` to the root element.
+* __Big__: Add `o-tabs--big` to the root element.
 
 Additional CSS classes will be added to indicate interaction states:
 
@@ -106,16 +106,20 @@ Additional CSS classes will be added to indicate interaction states:
 
 ## Events
 
-The following events will be dispatched on the Tabs' root DOM element, in the `detail` property of the event object:
+The following events will be dispatched on the Tabs' root DOM element:
 
-* `oTabsReady`: The Tabs object has initialised.
-* `oTabsTabSelected`: A tab has been selected. Passes two arguments: the indexes of the `selected` tab and `lastSelected` tab.
+* `oTabsReady`: The Tabs object has initialised. Event properties:
+    * `detail.tabs`: The __o-tabs__ object.
+* `oTabsTabSelected`: A tab has been selected. Event properties:
+    * `detail.tabs`: The __o-tabs__ object.
+    * `detail.selected`: The index of the selected tab.
+    * `detail.lastSelected`: The index of the last selected tab.
 
 ## API
 
 Tabs are indexed starting from 0.
 
-The following API methods will be provided:
+The following API methods are provided:
 
 * `selectTab(idx)`: Select tab `idx`. Does nothing if tab `idx` does not exist or is already selected.
 * `destroy()`: Unbind events, remove `o-tabs--js` class.
