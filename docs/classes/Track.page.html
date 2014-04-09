@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.14</em>
+            <em>API Docs for Origami Tracking module: 0.0.15</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -560,7 +560,7 @@
 
     co: window.screen.colorDepth,
     sr: window.screen.width + &#39;x&#39; + window.screen.height,
-    lt: (new Date()).toISOString(),
+    lt: utils.toISOString(new Date()),
     jv: (window.navigator.javaEnabled() ? &#39;1&#39; : &#39;0&#39;),
 
     async: false // Send this tag syncronously

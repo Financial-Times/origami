@@ -61,7 +61,7 @@ module.exports = (function (window, document) {
 
          co: window.screen.colorDepth,
          sr: window.screen.width + 'x' + window.screen.height,
-         lt: (new Date()).toISOString(),
+         lt: utils.toISOString(new Date()),
          jv: (window.navigator.javaEnabled() ? '1' : '0'),
 
          async: false // Send this tag syncronously
@@ -77,7 +77,7 @@ module.exports = (function (window, document) {
 
             color: window.screen.colorDepth,
             screenRes: window.screen.width + 'x' + window.screen.height,
-            localTime: (new Date()).toISOString(),
+            localTime: utils.toISOString(new Date()),
             java: (window.navigator.javaEnabled() ? '1' : '0'),
             js: '1',
 

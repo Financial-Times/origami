@@ -2,7 +2,7 @@
     "project": {
         "name": "Origami Tracking module",
         "description": "Origami module for FT tracking.",
-        "version": "0.0.14",
+        "version": "0.0.15",
         "url": ""
     },
     "files": {
@@ -1455,7 +1455,7 @@
             "line": 55,
             "description": "Default properties for page tracking requests.",
             "example": [
-                "\n        {\n        url: document.URL,\n        referrer: document.referrer,\n\n        co: window.screen.colorDepth,\n        sr: window.screen.width + 'x' + window.screen.height,\n        lt: (new Date()).toISOString(),\n        jv: (window.navigator.javaEnabled() ? '1' : '0'),\n\n        async: false // Send this tag syncronously\n        }"
+                "\n        {\n        url: document.URL,\n        referrer: document.referrer,\n\n        co: window.screen.colorDepth,\n        sr: window.screen.width + 'x' + window.screen.height,\n        lt: utils.toISOString(new Date()),\n        jv: (window.navigator.javaEnabled() ? '1' : '0'),\n\n        async: false // Send this tag syncronously\n        }"
             ],
             "itemtype": "property",
             "name": "defaultPageConfig",
@@ -1723,6 +1723,48 @@
             "return": {
                 "description": "",
                 "type": "Object"
+            },
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 207,
+            "description": "Pad a number below 10.",
+            "itemtype": "method",
+            "name": "pad",
+            "params": [
+                {
+                    "name": "number",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 221,
+            "description": "IE friendly Date toISOString",
+            "itemtype": "method",
+            "name": "toISOString",
+            "params": [
+                {
+                    "name": "date",
+                    "description": "",
+                    "type": "Date"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
             },
             "class": "Track._Utils",
             "module": "Track",

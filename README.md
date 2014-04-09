@@ -33,7 +33,7 @@ For example:
 Add this to your dependencies in bower.json:
 ```
 "dependencies": {
-    "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.14 < 1"
+    "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.15 < 1"
 }
 ```
 

@@ -204,6 +204,41 @@ module.exports = (function (console, window) {
         return params;
     }
 
+    /**
+     * Pad a number below 10.
+     * @method pad
+     * @param number {Number}
+     * @return {String}
+     */
+    function pad(number) {
+        var r = String(number);
+        if (r.length === 1) {
+            r = '0' + r;
+        }
+        return r;
+    }
+
+    /**
+     * IE friendly Date toISOString
+     * @method toISOString
+     * @param date {Date}
+     * @return {String}
+     */
+    function toISOString(date) {
+        if (Date.prototype.hasOwnProperty("toISOString")) {
+            return date.toISOString();
+        }
+
+        return [
+            date.getUTCFullYear(), '-', pad(date.getUTCMonth() + 1), '-', pad(date.getUTCDate()),
+            'T',
+            pad(date.getUTCHours()), ':', pad(date.getUTCMinutes()), ':', pad(date.getUTCSeconds()),
+            '.',
+            String((date.getUTCMilliseconds() / 1000).toFixed(3)).slice(2, 5),
+            'Z'
+        ].join('');
+    }
+
     return {
         log: log,
         is: is,
@@ -214,6 +249,7 @@ module.exports = (function (console, window) {
         hash: hash,
         objectKeys: objectKeys,
         serialize: serialize,
-        unserialize: unserialize
+        unserialize: unserialize,
+        toISOString: toISOString
     };
 }(console, window));

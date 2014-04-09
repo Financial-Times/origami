@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.14</em>
+            <em>API Docs for Origami Tracking module: 0.0.15</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -189,7 +189,7 @@ module.exports = (function (window, document) {
 
          co: window.screen.colorDepth,
          sr: window.screen.width + &#x27;x&#x27; + window.screen.height,
-         lt: (new Date()).toISOString(),
+         lt: utils.toISOString(new Date()),
          jv: (window.navigator.javaEnabled() ? &#x27;1&#x27; : &#x27;0&#x27;),
 
          async: false // Send this tag syncronously
@@ -205,7 +205,7 @@ module.exports = (function (window, document) {
 
             color: window.screen.colorDepth,
             screenRes: window.screen.width + &#x27;x&#x27; + window.screen.height,
-            localTime: (new Date()).toISOString(),
+            localTime: utils.toISOString(new Date()),
             java: (window.navigator.javaEnabled() ? &#x27;1&#x27; : &#x27;0&#x27;),
             js: &#x27;1&#x27;,
 

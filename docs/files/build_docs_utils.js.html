@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.14</em>
+            <em>API Docs for Origami Tracking module: 0.0.15</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -332,6 +332,41 @@ module.exports = (function (console, window) {
         return params;
     }
 
+    /**
+     * Pad a number below 10.
+     * @method pad
+     * @param number {Number}
+     * @return {String}
+     */
+    function pad(number) {
+        var r = String(number);
+        if (r.length === 1) {
+            r = &#x27;0&#x27; + r;
+        }
+        return r;
+    }
+
+    /**
+     * IE friendly Date toISOString
+     * @method toISOString
+     * @param date {Date}
+     * @return {String}
+     */
+    function toISOString(date) {
+        if (Date.prototype.hasOwnProperty(&quot;toISOString&quot;)) {
+            return date.toISOString();
+        }
+
+        return [
+            date.getUTCFullYear(), &#x27;-&#x27;, pad(date.getUTCMonth() + 1), &#x27;-&#x27;, pad(date.getUTCDate()),
+            &#x27;T&#x27;,
+            pad(date.getUTCHours()), &#x27;:&#x27;, pad(date.getUTCMinutes()), &#x27;:&#x27;, pad(date.getUTCSeconds()),
+            &#x27;.&#x27;,
+            String((date.getUTCMilliseconds() / 1000).toFixed(3)).slice(2, 5),
+            &#x27;Z&#x27;
+        ].join(&#x27;&#x27;);
+    }
+
     return {
         log: log,
         is: is,
@@ -342,7 +377,8 @@ module.exports = (function (console, window) {
         hash: hash,
         objectKeys: objectKeys,
         serialize: serialize,
-        unserialize: unserialize
+        unserialize: unserialize,
+        toISOString: toISOString
     };
 }(console, window));
     </pre>

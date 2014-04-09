@@ -1,4 +1,4 @@
-/*global require, describe, it, window */
+/*global require, describe, it */
 var assert = require('assert'),
     Utils = require("../src/javascript/utils");
 
@@ -58,14 +58,8 @@ describe('Utils', function () {
         assert.deepEqual(Utils.unserialize("one=one&two=two"), { 'one' : 'one', 'two': 'two' });
     });
 
-    it('should provide getValueFromCookie functionality', function () {
-        window.document.cookie = "";
-        window.document.cookie = "";
-
-
-    });
-
-    it('should provide getValueFromUrl functionality', function () {
-
+    it('should provide toISOString functionality', function () {
+        var date = new Date(1397036781758);
+        assert.equal(Utils.toISOString(date), "2014-04-09T09:46:21.758Z");
     });
 });
