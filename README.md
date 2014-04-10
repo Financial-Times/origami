@@ -52,13 +52,13 @@ The `$base-class` must be the same for all mixins included.
 
 These are the base styles that must be called in addition to any of the other mixins listed below.
 
-Includes default button style, with `--selected`, `--disabled` and `:hover` variants.
+Includes default button style, with _selected_, _disabled_ and `:hover` states.
 
 E.g. `oFtButtonsButton(o-ft-buttons)` would output styles for the following selectors when used in non-silent mode:
 
 * `.o-ft-buttons`
-* `.o-ft-buttons--selected`
-* `.o-ft-buttons--disabled` (and `.o-ft-buttons[disabled]`)
+* `.o-ft-buttons--selected` and `.o-ft-buttons[aria-selected=true]`
+* `.o-ft-buttons--disabled`, `.o-ft-buttons[aria-disabled=true]` and `.o-ft-buttons[disabled]`
 * `.o-ft-buttons:hover`
 
 Example SASS:
