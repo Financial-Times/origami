@@ -10,9 +10,7 @@ function Tabs(el) {
         tabEls,
         contentEls,
         selectedTabIndex = -1,
-        selectedTabClass = "o-tabs__tab--selected",
-        selectedContentClass = "o-tabs--selected",
-        unselectedContentClass = "o-tabs--hidden";
+        hasInit = false;
 
     function getTabTargetId(tabEl) {
         var aEls = tabEl.getElementsByTagName('a');
@@ -22,8 +20,10 @@ function Tabs(el) {
     function getTabContentEls(tabEls) {
         var els = [], targetEl, c, l;
         for (c = 0, l = tabEls.length; c < l; c++) {
-            targetEl = document.getElementById(getTabTargetId(tabEls[c]));
+            var tabTargetId = getTabTargetId(tabEls[c]);
+            targetEl = document.getElementById(tabTargetId);
             if (targetEl) {
+                tabEls[c].setAttribute('aria-controls', tabTargetId);
                 els[c] = targetEl;
             }
         }
@@ -35,7 +35,7 @@ function Tabs(el) {
     }
 
     function getSelectedTabElement() {
-        var selectedTabEl = el.querySelector('.' + selectedTabClass);
+        var selectedTabEl = el.querySelector('[aria-selected=true]');
         return (selectedTabEl) ? getTabIndexFromElement(selectedTabEl) : 0;
     }
 
@@ -48,16 +48,16 @@ function Tabs(el) {
         if (isValidTab(i) && i !== selectedTabIndex) {
             for (c = 0, l = tabEls.length; c < l; c++) {
                 if (i === c) {
-                    dom.addClass(tabEls[c], selectedTabClass);
-                    dom.addClass(contentEls[c], selectedContentClass);
-                    dom.removeClass(contentEls[c], unselectedContentClass);
+                    tabEls[c].setAttribute('aria-selected', 'true');
+                    contentEls[c].setAttribute('aria-expanded', 'true');
+                    contentEls[c].setAttribute('aria-hidden', 'false');
                 } else {
-                    dom.removeClass(tabEls[c], selectedTabClass);
-                    dom.removeClass(contentEls[c], selectedContentClass);
-                    dom.addClass(contentEls[c], unselectedContentClass);
+                    tabEls[c].setAttribute('aria-selected', 'false');
+                    contentEls[c].setAttribute('aria-expanded', 'false');
+                    contentEls[c].setAttribute('aria-hidden', 'true');
                 }
             }
-            events.trigger(el, 'oTabsTabSelected', {
+            events.trigger(el, 'oTabs.tabSelect', {
                 tabs: tabsObj,
                 selected: i,
                 lastSelected: selectedTabIndex
@@ -68,30 +68,38 @@ function Tabs(el) {
 
     function clickHandler(ev) {
         ev.preventDefault();
-        var tabEl = dom.getClosest(ev.target, '[data-o-tabs-tab]');
+        var tabEl = dom.getClosest(ev.target, '[role=tab]');
         if (tabEl) {
             var i = getTabIndexFromElement(tabEl);
             selectTab(i);
         }
     }
 
+    function init() {
+        if (!hasInit) {
+            tabEls = el.querySelectorAll('[role=tab]');
+            contentEls = getTabContentEls(tabEls);
+            dom.addClass(el, "o-tabs--js");
+            events.listen(el, "click", clickHandler);
+            events.trigger(el, 'oTabs.ready', {
+                tabs: tabsObj
+            });
+            selectTab(getSelectedTabElement());
+            hasInit = true;
+        }
+    }
+
     function destroy() {
         events.unlisten(el, "click", clickHandler);
         dom.removeClass(el, "o-tabs--js");
+        hasInit = false;
     }
 
-    tabEls = el.querySelectorAll('[data-o-tabs-tab]');
-    contentEls = getTabContentEls(tabEls);
-    dom.addClass(el, "o-tabs--js");
-    events.listen(el, "click", clickHandler);
-
+    this.init = init;
     this.selectTab = selectTab;
     this.destroy = destroy;
 
-    events.trigger(el, 'oTabsReady', {
-        tabs: tabsObj
-    });
-    selectTab(getSelectedTabElement());
+    init();
 }
 
 Tabs.prototype.createAllIn = function(el) {
@@ -101,14 +109,12 @@ Tabs.prototype.createAllIn = function(el) {
     if (el.querySelectorAll) {
         tEls = el.querySelectorAll('[data-o-component=o-tabs]');
         for (c = 0, l = tEls.length; c < l; c++) {
-            if (!tEls[c].matches('[data-o-tabs-autoconstruct=false]')) {
+            if (!tEls[c].matches('[data-o-tabs-autoconstruct=false]') || !dom.hasClass(tEls[c], 'o-tabs--js')) {
                 tabs.push(new Tabs(tEls[c]));
             }
         }
     }
     return tabs;
 };
-
-Tabs.prototype.createAllIn();
 
 module.exports = Tabs;

@@ -4,82 +4,93 @@
 
 ## Markup
 
-This is an example of an HTML structure that __o-tabs__ expects:
+The tabs and their tabpanels must be contained within a single root element.
 
-    <div data-o-component="o-tabs" data-o-version="1.0.0" class="o-tabs">
-        <ul data-o-tabs>
-            <li data-o-tabs-tab><a href="#tabContent1">Tab 1</a></li>
-            <li data-o-tabs-tab><a href="#tabContent2">Tab 2</a></li>
-            <li data-o-tabs-tab><a href="#tabContent3">Tab 3</a></li>
-        </ul>
-        <div id="tabContent1">
-            Tab content 1
-        </div>
-        <div id="tabContent2">
-            Tab content 2
-        </div>
-        <div id="tabContent3">
-            Tab content 3
-        </div>
+The _tablist_, _tabs_ and _tabpanels_ must be identified by [ARIA](http://www.w3.org/TR/wai-aria/) `role` attributes.
+
+The _tab_ elements must contain a link whose `href` attribute points to the ID of a _tabpanel_ element.
+
+This is an example of an HTML structure that __o-tabs__ will accept:
+
+```html
+<div data-o-component="o-tabs" data-o-version="1.0.0" class="o-tabs">
+    <ul role="tablist">
+        <li role="tab"><a href="#tabContent1">Tab 1</a></li>
+        <li role="tab"><a href="#tabContent2">Tab 2</a></li>
+        <li role="tab"><a href="#tabContent3">Tab 3</a></li>
+    </ul>
+    <div id="tabContent1" role="tabpanel">
+        Tab content 1
     </div>
+    <div id="tabContent2" role="tabpanel">
+        Tab content 2
+    </div>
+    <div id="tabContent3" role="tabpanel">
+        Tab content 3
+    </div>
+</div>
+```
 
-The key things are:
-
-* the `data-o-component="o-tabs"` attribute and `o-tabs` class on the root element.
-* the `data-o-tabs` attribute on the container of the tabs
-* the `data-o-tab` attribute on each of the tab elements
-* the tab elements contain a link whose `href` attribute points to the ID of a content element.
-
-To set the initially selected tab, add a `o-tabs__tab--selected` class to a tab element, otherwise the first tab will be selected.
+To set the initially selected tab, add an `area-selected="true"` attribute to a tab element, otherwise the first tab will be selected.
 
 ### Core experience
 
-When the browser has JavaScript disabled, or the 'cuts-the-mustard' fails, the tabs will be left as a basic list of links, and each tab content element will remain unstyled. It's recommended that the default styling is to have each of the content elements displayed one below the other.
+Without the accompanying JavaScript, the tabs will receive no styling, and all tabpanels will remain visible. It's recommended that the default styling is to have each of the _tabpanels_ displayed one below the other.
 
 A product may choose to hide the tabs by doing something like this:
 
-    .o-tabs [data-o-tabs] { display: none; }
-    .o-tabs--js [data-o-tabs] { display: block; }
+```css
+.o-tabs [role=tablist] { display: none; }
+.o-tabs--js [role=tablist] { display: block; }
+```
 
-### Full experience
+### Primary experience
 
-The _full experience_ will show as functional tabs, and only the content element for the selected tab will be shown.
+The _primary experience_ will show as functional tabs, and only the _tabpanel_ for the selected tab will be shown.
 
-If the heights of the content elements vary, then any content below will move up and down as the user switches between tabs. If this is not desired, it is the responsibility of the consumer to address this.
+If the heights of the _tabpanels_ vary, then any content below will move up and down as the user switches between tabs. If this is not desired, it is the responsibility of the consumer to address this.
 
 ## Construction
 
 ### Declarative
 
-When the __o-tabs__ script loads, tabs instances are automatically constructed for each element in the `<body>` declaring itself to be an __o-tabs__ element (via the `data-o-component="o-tabs"` attribute).
+On `DOMContentLoaded`, tabs instances are automatically constructed for each element in the `<body>` declaring itself to be an __o-tabs__ element (via the `data-o-component="o-tabs"` attribute).
 
 Auto-construction can be disabled for a specific element via another data attribute `data-o-tabs-autoconstruct="false"`.
 
-Auto-construction can be invoked for a given page region, like so:
+Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), either the polyfill the event, or construction can be manually invoked:
 
-    var Tabs = require('o-tabs');
-    var tabsObjects = Tabs.createAllIn(document.querySelector('.myPageRegion'));
+```javascript
+var Tabs = require('o-tabs');
+var tabsObjects = Tabs.createAllIn(document.body);
+```
 
 An array of any constructed Tabs objects will be returned.
 
+`Tabs.createAllIn()` will not create Tabs objects for elements that already have Tabs objects constructed on them, therefore it's safe to call more than once on the same page region.
+
 ### Imperative
 
-    var Tabs = require('o-tabs');
-    var myTabs = new Tabs(document.querySelector('.myTabs'));
+```javascript
+var Tabs = require('o-tabs');
+var myTabs = new Tabs(document.querySelector('.myTabs'));
+```
 
 ## Styles
 
 __o-tabs__ can be used with or without its built-in tab styling, called __buttontabs__ (based on the buttons from [o-ft-buttons](https://github.com/Financial-Times/o-ft-buttons)).
 
-To apply the __buttontabs__ styling, also add a `o-tabs--buttontabs` class to the root element, and `o-tabs__tab` to each `<li>`:
+To apply the __buttontabs__ styling, add a `o-tabs--buttontabs` class to the root element:
 
-    <div data-o-component="o-tabs" data-o-version="1.0.0" class="o-tabs o-tabs--buttontabs">
-        <ul data-o-tabs>
-            <li data-o-tabs-tab class="o-tabs__tab"><a href="#tabContent1">Tab 1</a></li>
-            <li data-o-tabs-tab class="o-tabs__tab"><a href="#tabContent2">Tab 2</a></li>
-            <li data-o-tabs-tab class="o-tabs__tab"><a href="#tabContent3">Tab 3</a></li>
-        </ul>
-        ...
+```html
+<div data-o-component="o-tabs" data-o-version="1.0.0" class="o-tabs o-tabs--buttontabs">
+    <ul role="tablist">
+        <li role="tab"><a href="#tabContent1">Tab 1</a></li>
+        <li role="tab"><a href="#tabContent2">Tab 2</a></li>
+        <li role="tab"><a href="#tabContent3">Tab 3</a></li>
+    </ul>
+    ...
+```
 
 The __buttontabs__ style comes in two sizes:
 
@@ -98,22 +109,29 @@ __Options__
 * __Align right__: Add `o-tabs--alignright` to the root element.
 * __Big__: Add `o-tabs--big` to the root element.
 
-Additional CSS classes will be added to indicate interaction states:
+## ARIA
 
-* `o-tabs__tab--selected` added to the tab element when it is selected
-* `o-tabs--selected` added to the tab contents element when it is selected
-* `o-tabs--hidden` added to the tab contents element when it is not selected
+ARIA attributes will be set on elements as follows:
+
+__On init__, `aria-controls` is added to each tab element, with value being the ID of the associated tabpanel.
+
+__On init and selected tab change__ these attribute are set and updated as appropriate:
+
+* `aria-selected` is set on the tab elements
+* `aria-hidden` and `aria-expanded` are set on the tabpanels
+
+These state attributes are used by the __o-tabs__ CSS.
 
 ## Events
 
 The following events will be dispatched on the Tabs' root DOM element:
 
-* `oTabsReady`: The Tabs object has initialised. Event properties:
-    * `detail.tabs`: The __o-tabs__ object.
-* `oTabsTabSelected`: A tab has been selected. Event properties:
-    * `detail.tabs`: The __o-tabs__ object.
-    * `detail.selected`: The index of the selected tab.
-    * `detail.lastSelected`: The index of the last selected tab.
+* `oTabs.ready`: The Tabs object has initialised. Event detail:
+    * `tabs`: The __o-tabs__ object.
+* `oTabs.tabSelect`: A tab has been selected. Event detail:
+    * `tabs`: The __o-tabs__ object.
+    * `selected`: The index of the selected tab.
+    * `lastSelected`: The index of the last selected tab.
 
 ## API
 
@@ -121,5 +139,6 @@ Tabs are indexed starting from 0.
 
 The following API methods are provided:
 
+* `init()`: Set attributes/classes, bind events. Called automatically on construction. Does nothing if already been called.
 * `selectTab(idx)`: Select tab `idx`. Does nothing if tab `idx` does not exist or is already selected.
-* `destroy()`: Unbind events, remove `o-tabs--js` class.
+* `destroy()`: Unbind events, remove `o-tabs--js` class. After calling this, `init()` can be called again to re-initialise the tabs.

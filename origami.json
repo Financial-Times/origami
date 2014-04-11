@@ -9,6 +9,9 @@
             "matches",
             "queryselector",
             "addeventlistener"
+        ],
+        "optional": [
+            "domcontentready"
         ]
     },
     "ci": {

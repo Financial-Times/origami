@@ -1,13 +1,13 @@
 @include oTabsSelectors(o-tabs--buttontabs) {
   &.o-tabs--js {
-    [data-o-tabs] {
+    [role=tablist] {
       border-bottom: 1px solid $_o-ft-buttons-color-standard-border;
       font-size: 0;
     }
 
-    @include oFtButtonsButton(o-tabs__tab);
+    @include oFtButtonsButton(o-tabs__tab, false);
 
-    .o-tabs__tab {
+    [role=tab] {
       @extend %o-tabs__tab;
       border-radius: 0;
       border-bottom-width: 0;
@@ -23,17 +23,17 @@
         text-decoration: none;
         color: inherit;
       }
-      &.o-tabs__tab--selected a {
+      &[aria-selected] a {
         font-weight: normal;
       }
     }
 
-    .o-tabs__tab + .o-tabs__tab {
+    [role=tab] + [role=tab] {
       margin-left: 0;
       border-left-width: 0;
     }
 
-    &.o-tabs--big .o-tabs__tab {
+    &.o-tabs--big [role=tab] {
       padding: 0;
       a {
         padding-left: 18px;
@@ -46,7 +46,7 @@
 
 #{$o-hoverable-if-hover-enabled} {
   @include oTabsSelectors(o-tabs--js) {
-    &.o-tabs--buttontabs .o-tabs__tab:hover {
+    &.o-tabs--buttontabs [role=tab]:hover {
       @include oFtButtonsButtonHover(o-tabs__tab, $_o-ft-buttons-color-hover-border, $_o-ft-buttons-color-hover-bg, $_o-ft-buttons-color-hover-fg);
     }
   }
