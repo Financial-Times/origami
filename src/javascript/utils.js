@@ -6,25 +6,26 @@
  * @static
  */
 
-/*global module, require, window, console */
-module.exports = (function (console, window) {
+/*global module, require, window */
+module.exports = (function (window) {
     "use strict";
 
-    /**
-     * An array of characters used by the base-64 encoding methods.
-     *
-     * @private
-     * @final
-     */
-    var TRANS_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    var
+        /**
+         * An array of characters used by the base-64 encoding methods.
+         *
+         * @private
+         * @final
+         */
+        TRANS_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
 
-    /**
-     * Shared "internal" scope.
-     * @property _self
-     * @type {Object}
-     * @private
-     */
-    var settings = require("./core/settings");
+        /**
+         * Shared "internal" scope.
+         * @property _self
+         * @type {Object}
+         * @private
+         */
+        settings = require("./core/settings");
 
     /**
      * Log messages to the browser console. Requires "log" to be set on init.
@@ -32,8 +33,8 @@ module.exports = (function (console, window) {
      * @param arguments* {Mixed}
      */
     function log() {
-        if (settings.get('developer') && console) {
-            console.log.apply(null, arguments);
+        if (settings.get('developer') && window.console) {
+            window.console.log.apply(null, arguments);
         }
     }
 
@@ -297,6 +298,16 @@ module.exports = (function (console, window) {
         return window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + hash(window.document.location.href + window.document.referrer);
     }
 
+    function addEvent(element, event, listener) {
+        try {
+            element.addEventListener(event, listener, false);
+        } catch (error) {
+            try {
+                element.attachEvent("on" + event, listener);
+            } catch (err) {}
+        }
+    }
+
     return {
         log: log,
         is: is,
@@ -310,6 +321,7 @@ module.exports = (function (console, window) {
         unserialize: unserialize,
         b64encode: b64encode,
         toISOString: toISOString,
-        createUniqueID: createUniqueID
+        createUniqueID: createUniqueID,
+        addEvent: addEvent
     };
-}(console, window));
+}(window));

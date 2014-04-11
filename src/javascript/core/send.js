@@ -41,6 +41,39 @@ module.exports = (function (window) {
          */
         currentRequests = {};
 
+    function createXMLHttp() {
+        try {
+            var xmlHttp = new window.XMLHttpRequest();
+
+            // Check if the XMLHttpRequest object has a "withCredentials" property.
+            // "withCredentials" only exists on XMLHTTPRequest2 objects.
+            if (typeof xmlHttp.withCredentials !== "undefined") {
+                return {
+                    xmlHttp: xmlHttp,
+                    XDomainRequest: false
+                };
+            }
+
+            // Otherwise, check if XDomainRequest.
+            // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+            if (typeof window.XDomainRequest !== "undefined") {
+                return {
+                    xmlHttp: new window.XDomainRequest(),
+                    XDomainRequest: true
+                };
+            }
+        } catch (error) {
+            try {
+                return {
+                    xmlHttp: new window.ActiveXObject("Microsoft.XMLHTTP"),
+                    XDomainRequest: false
+                };
+            } catch (err) {}
+        }
+
+        return null;
+    }
+
     /**
      * Marks a request as current.
      * @method started
@@ -114,14 +147,15 @@ module.exports = (function (window) {
          */
         var offlineLag = (new Date()).getTime() - request.queueTime,
             path,
-            xmlHttp = new window.XMLHttpRequest(),
-
-            async = request.async,
+            xmlHttpObj = createXMLHttp(),
+            xmlHttp,
             user_callback = request.callback;
 
-        /*if (xmlHttp.hasOwnProperty("withCredentials")) {
-         xmlHttp.withCredentials = true;
-         }*/
+        if (!xmlHttpObj) {
+            return;
+        }
+
+        xmlHttp = xmlHttpObj.xmlHttp;
 
         delete request.callback;
         delete request.async;
@@ -148,25 +182,31 @@ module.exports = (function (window) {
 
         path = utils.serialize(request);
 
-        if (async) {
+        if (!xmlHttpObj.XDomainRequest) {
             xmlHttp.onreadystatechange = function () {
                 if (xmlHttp.readyState === 4) {
                     requestFinished(xmlHttp);
                 }
             };
+        } else {
+            xmlHttp.onload = function () {
+                requestFinished(xmlHttp);
+            };
         }
 
+
+        // Only works with XMLHttpRequest
         xmlHttp.onerror = function () { requestFinished(xmlHttp); };
 
         // Both developer and noSend flags have to be set to stop the request sending.
         if (!(settings.get('developer') && settings.get('noSend'))) {
-            xmlHttp.open('POST', domain, async);
-            xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xmlHttp.send(path);
-        }
+            xmlHttp.open('POST', domain, true);
+            // XDomainRequest doesn't like this header
+            if (!xmlHttpObj.XDomainRequest) {
+                xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            }
 
-        if (!async) {
-            requestFinished(xmlHttp);
+            xmlHttp.send(path);
         }
     }
 
@@ -236,9 +276,7 @@ module.exports = (function (window) {
         }
 
         // If any tracking calls are made whilst offline, try sending them the next time the device comes online
-        if (window.addEventListener) {
-            window.addEventListener("online", run);
-        }
+        utils.addEvent(window, 'online', run);
 
         // On startup, try sending any requests queued from a previous session.
         run();

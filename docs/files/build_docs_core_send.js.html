@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.16</em>
+            <em>API Docs for Origami Tracking module: 0.0.17</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -171,6 +171,39 @@ module.exports = (function (window) {
          */
         currentRequests = {};
 
+    function createXMLHttp() {
+        try {
+            var xmlHttp = new window.XMLHttpRequest();
+
+            // Check if the XMLHttpRequest object has a &quot;withCredentials&quot; property.
+            // &quot;withCredentials&quot; only exists on XMLHTTPRequest2 objects.
+            if (typeof xmlHttp.withCredentials !== &quot;undefined&quot;) {
+                return {
+                    xmlHttp: xmlHttp,
+                    XDomainRequest: false
+                };
+            }
+
+            // Otherwise, check if XDomainRequest.
+            // XDomainRequest only exists in IE, and is IE&#x27;s way of making CORS requests.
+            if (typeof window.XDomainRequest !== &quot;undefined&quot;) {
+                return {
+                    xmlHttp: new window.XDomainRequest(),
+                    XDomainRequest: true
+                };
+            }
+        } catch (error) {
+            try {
+                return {
+                    xmlHttp: new window.ActiveXObject(&quot;Microsoft.XMLHTTP&quot;),
+                    XDomainRequest: false
+                };
+            } catch (err) {}
+        }
+
+        return null;
+    }
+
     /**
      * Marks a request as current.
      * @method started
@@ -244,14 +277,15 @@ module.exports = (function (window) {
          */
         var offlineLag = (new Date()).getTime() - request.queueTime,
             path,
-            xmlHttp = new window.XMLHttpRequest(),
-
-            async = request.async,
+            xmlHttpObj = createXMLHttp(),
+            xmlHttp,
             user_callback = request.callback;
 
-        /*if (xmlHttp.hasOwnProperty(&quot;withCredentials&quot;)) {
-         xmlHttp.withCredentials = true;
-         }*/
+        if (!xmlHttpObj) {
+            return;
+        }
+
+        xmlHttp = xmlHttpObj.xmlHttp;
 
         delete request.callback;
         delete request.async;
@@ -278,25 +312,31 @@ module.exports = (function (window) {
 
         path = utils.serialize(request);
 
-        if (async) {
+        if (!xmlHttpObj.XDomainRequest) {
             xmlHttp.onreadystatechange = function () {
                 if (xmlHttp.readyState === 4) {
                     requestFinished(xmlHttp);
                 }
             };
+        } else {
+            xmlHttp.onload = function () {
+                requestFinished(xmlHttp);
+            };
         }
 
+
+        // Only works with XMLHttpRequest
         xmlHttp.onerror = function () { requestFinished(xmlHttp); };
 
         // Both developer and noSend flags have to be set to stop the request sending.
         if (!(settings.get(&#x27;developer&#x27;) &amp;&amp; settings.get(&#x27;noSend&#x27;))) {
-            xmlHttp.open(&#x27;POST&#x27;, domain, async);
-            xmlHttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);
-            xmlHttp.send(path);
-        }
+            xmlHttp.open(&#x27;POST&#x27;, domain, true);
+            // XDomainRequest doesn&#x27;t like this header
+            if (!xmlHttpObj.XDomainRequest) {
+                xmlHttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);
+            }
 
-        if (!async) {
-            requestFinished(xmlHttp);
+            xmlHttp.send(path);
         }
     }
 
@@ -366,9 +406,7 @@ module.exports = (function (window) {
         }
 
         // If any tracking calls are made whilst offline, try sending them the next time the device comes online
-        if (window.addEventListener) {
-            window.addEventListener(&quot;online&quot;, run);
-        }
+        utils.addEvent(window, &#x27;online&#x27;, run);
 
         // On startup, try sending any requests queued from a previous session.
         run();

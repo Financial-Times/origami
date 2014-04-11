@@ -38,12 +38,6 @@ module.exports = (function (window) {
             type: 'data'
         };
 
-    if (!window.Element.prototype.addEventListener) {
-        window.Element.prototype.addEventListener = function (type, listener) {
-            this.attachEvent("on" + type, listener);
-        };
-    }
-
     /**
      * Make the page tracking request.
      * @method data
@@ -56,7 +50,7 @@ module.exports = (function (window) {
         Core.track(config, callback);
     }
 
-    window.addEventListener('oTracking.Data', data, false);
+    utils.addEvent(window, 'oTracking.Data', data);
 
     return data;
 

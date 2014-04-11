@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.16</em>
+            <em>API Docs for Origami Tracking module: 0.0.17</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -136,25 +136,26 @@
  * @static
  */
 
-/*global module, require, window, console */
-module.exports = (function (console, window) {
+/*global module, require, window */
+module.exports = (function (window) {
     &quot;use strict&quot;;
 
-    /**
-     * An array of characters used by the base-64 encoding methods.
-     *
-     * @private
-     * @final
-     */
-    var TRANS_CHARS = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;;
+    var
+        /**
+         * An array of characters used by the base-64 encoding methods.
+         *
+         * @private
+         * @final
+         */
+        TRANS_CHARS = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;,
 
-    /**
-     * Shared &quot;internal&quot; scope.
-     * @property _self
-     * @type {Object}
-     * @private
-     */
-    var settings = require(&quot;./core/settings&quot;);
+        /**
+         * Shared &quot;internal&quot; scope.
+         * @property _self
+         * @type {Object}
+         * @private
+         */
+        settings = require(&quot;./core/settings&quot;);
 
     /**
      * Log messages to the browser console. Requires &quot;log&quot; to be set on init.
@@ -162,8 +163,8 @@ module.exports = (function (console, window) {
      * @param arguments* {Mixed}
      */
     function log() {
-        if (settings.get(&#x27;developer&#x27;) &amp;&amp; console) {
-            console.log.apply(null, arguments);
+        if (settings.get(&#x27;developer&#x27;) &amp;&amp; window.console) {
+            window.console.log.apply(null, arguments);
         }
     }
 
@@ -427,6 +428,16 @@ module.exports = (function (console, window) {
         return window.history.length + &quot;.&quot; + (Math.random() * 1000) + &quot;.&quot; + (new Date()).getTime() + &quot;.&quot; + hash(window.document.location.href + window.document.referrer);
     }
 
+    function addEvent(element, event, listener) {
+        try {
+            element.addEventListener(event, listener, false);
+        } catch (error) {
+            try {
+                element.attachEvent(&quot;on&quot; + event, listener);
+            } catch (err) {}
+        }
+    }
+
     return {
         log: log,
         is: is,
@@ -440,9 +451,10 @@ module.exports = (function (console, window) {
         unserialize: unserialize,
         b64encode: b64encode,
         toISOString: toISOString,
-        createUniqueID: createUniqueID
+        createUniqueID: createUniqueID,
+        addEvent: addEvent
     };
-}(console, window));
+}(window));
     </pre>
 </div>
 

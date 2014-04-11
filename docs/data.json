@@ -2,7 +2,7 @@
     "project": {
         "name": "Origami Tracking module",
         "description": "Origami module for FT tracking.",
-        "version": "0.0.16",
+        "version": "0.0.17",
         "url": ""
     },
     "files": {
@@ -711,7 +711,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 44,
+            "line": 77,
             "description": "Marks a request as current.",
             "itemtype": "method",
             "name": "started",
@@ -730,7 +730,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 54,
+            "line": 87,
             "description": "Marks a request as no longer current.",
             "itemtype": "method",
             "name": "finished",
@@ -749,7 +749,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 64,
+            "line": 97,
             "description": "Marks a request as no longer current and removes it from the queue.",
             "itemtype": "method",
             "name": "success",
@@ -768,7 +768,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 85,
+            "line": 118,
             "description": "Attempts to send a tracking request.",
             "itemtype": "method",
             "name": "sendRequest",
@@ -793,7 +793,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 173,
+            "line": 213,
             "description": "Adds a new request to the list of pending requests",
             "itemtype": "method",
             "name": "add",
@@ -809,7 +809,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 188,
+            "line": 228,
             "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
             "itemtype": "method",
             "name": "run",
@@ -828,7 +828,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 217,
+            "line": 257,
             "description": "Convenience function to add and run a request all in one go.",
             "itemtype": "method",
             "name": "addAndRun",
@@ -845,7 +845,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 227,
+            "line": 267,
             "description": "Init the queue and send any leftover tags.",
             "itemtype": "method",
             "name": "init",
@@ -857,7 +857,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 19,
+            "line": 18,
             "description": "Internal Storage key prefix.",
             "itemtype": "property",
             "name": "keyPrefix",
@@ -870,7 +870,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 27,
+            "line": 26,
             "description": "Temporary var containing data from a previously saved store.",
             "itemtype": "property",
             "name": "loadStore",
@@ -882,7 +882,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 42,
+            "line": 41,
             "description": "Store data.",
             "itemtype": "property",
             "name": "store",
@@ -894,7 +894,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 49,
+            "line": 48,
             "description": "The key/name of this store.",
             "itemtype": "property",
             "name": "storageKey",
@@ -904,7 +904,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 55,
+            "line": 54,
             "description": "The storage method to use. Determines best storage method.",
             "itemtype": "property",
             "name": "storage",
@@ -915,7 +915,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 154,
+            "line": 153,
             "description": "Get/Read the current data.",
             "itemtype": "method",
             "name": "read",
@@ -928,7 +928,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 163,
+            "line": 162,
             "description": "Write the supplied data to the store.",
             "itemtype": "method",
             "name": "write",
@@ -949,7 +949,7 @@
         },
         {
             "file": "build/docs/core/store.js",
-            "line": 178,
+            "line": 177,
             "description": "Delete the current data.",
             "itemtype": "method",
             "name": "destroy",
@@ -1104,7 +1104,7 @@
         },
         {
             "file": "build/docs/data.js",
-            "line": 47,
+            "line": 41,
             "description": "Make the page tracking request.",
             "itemtype": "method",
             "name": "data",
@@ -1142,7 +1142,7 @@
         },
         {
             "file": "build/docs/event.js",
-            "line": 33,
+            "line": 27,
             "description": "Track an event.",
             "itemtype": "method",
             "name": "event",
@@ -1187,7 +1187,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 39,
+            "line": 33,
             "description": "Check if a URL is going to the same site (internal)",
             "itemtype": "method",
             "name": "isInternal",
@@ -1208,7 +1208,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 49,
+            "line": 43,
             "description": "Check if a URL is going to an external site.",
             "itemtype": "method",
             "name": "isExternal",
@@ -1229,7 +1229,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 59,
+            "line": 53,
             "description": "Checks if a URL is pointing at a file.\nNOTE: Don't want to maintain a list of file extensions, so try best guess.",
             "itemtype": "method",
             "name": "isFile",
@@ -1250,7 +1250,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 87,
+            "line": 81,
             "description": "Calculates the parents of a HTML element.",
             "itemtype": "method",
             "name": "parentTree",
@@ -1273,7 +1273,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 108,
+            "line": 102,
             "description": "Create the identifier of the link. TODO: https://rally1.rallydev.com/#/16966478977d/detail/defect/17919485944",
             "itemtype": "method",
             "name": "createLinkID",
@@ -1293,7 +1293,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 143,
+            "line": 137,
             "description": "Track the link.",
             "itemtype": "method",
             "name": "track",
@@ -1313,7 +1313,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 171,
+            "line": 165,
             "description": "Handle a click event.",
             "itemtype": "method",
             "name": "clickEvent",
@@ -1336,7 +1336,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 182,
+            "line": 176,
             "description": "Set the callback called on every link tracking event.",
             "itemtype": "method",
             "name": "onClick",
@@ -1353,7 +1353,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 191,
+            "line": 185,
             "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
             "itemtype": "method",
             "name": "run",
@@ -1364,7 +1364,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 206,
+            "line": 200,
             "description": "Setup and initialise link tracking.\n\nThe config object can have three key/values - all are optional.\n* root: The root element to search for links. Defaults to window.document - useful if trying to track links from an iframe.\n* selector: The selector to use to search for links. Defaults to 'a'.\n* event: The event to listen on. Defaults to 'click'.\n* links: If you've already worked out the links to track, then this is used to pass them over. Must be an array with elements that accept events.",
             "itemtype": "method",
             "name": "init",
@@ -1539,7 +1539,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 13,
+            "line": 14,
             "description": "An array of characters used by the base-64 encoding methods.",
             "access": "private",
             "tagname": "",
@@ -1550,7 +1550,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 21,
+            "line": 22,
             "description": "Shared \"internal\" scope.",
             "itemtype": "property",
             "name": "_self",
@@ -1563,7 +1563,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 29,
+            "line": 30,
             "description": "Log messages to the browser console. Requires \"log\" to be set on init.",
             "itemtype": "method",
             "name": "log",
@@ -1581,7 +1581,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 40,
+            "line": 41,
             "description": "Tests if variable is a certain type. Defaults to check for undefined if no type specified.",
             "itemtype": "method",
             "name": "is",
@@ -1608,7 +1608,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 54,
+            "line": 55,
             "description": "Merge objects together. Will remove \"falsy\" values.",
             "itemtype": "method",
             "name": "merge",
@@ -1635,7 +1635,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 91,
+            "line": 92,
             "description": "URL encode a string.",
             "itemtype": "method",
             "name": "encode",
@@ -1656,7 +1656,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 105,
+            "line": 106,
             "description": "URL unencode a string.",
             "itemtype": "method",
             "name": "unencode",
@@ -1677,7 +1677,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 119,
+            "line": 120,
             "description": "Encodes a given input string in base64.",
             "itemtype": "method",
             "name": "b64encode",
@@ -1698,7 +1698,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 156,
+            "line": 157,
             "description": "Function to create a unique-ish hash of a string.",
             "itemtype": "method",
             "name": "hash",
@@ -1718,7 +1718,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 182,
+            "line": 183,
             "description": "Polyfill for Object.keys as it doesn't exist in older browsers.",
             "itemtype": "method",
             "name": "objectKeys",
@@ -1739,7 +1739,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 207,
+            "line": 208,
             "description": "For the chosen keys, turns an object into a query string.",
             "itemtype": "method",
             "name": "serialize",
@@ -1764,7 +1764,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 235,
+            "line": 236,
             "description": "Unserialize a query string into an object. Opposite of serialize.",
             "itemtype": "method",
             "name": "unserialize",
@@ -1785,7 +1785,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 256,
+            "line": 257,
             "description": "Pad a number below 10.",
             "itemtype": "method",
             "name": "pad",
@@ -1806,7 +1806,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 270,
+            "line": 271,
             "description": "IE friendly Date toISOString",
             "itemtype": "method",
             "name": "toISOString",
@@ -1827,7 +1827,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 291,
+            "line": 292,
             "description": "Generate a unique ID.",
             "itemtype": "method",
             "name": "createUniqueID",
@@ -1843,11 +1843,11 @@
     "warnings": [
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " build/docs/link.js:206"
+            "line": " build/docs/link.js:200"
         },
         {
             "message": "Missing item type\nAn array of characters used by the base-64 encoding methods.",
-            "line": " build/docs/utils.js:13"
+            "line": " build/docs/utils.js:14"
         }
     ]
 }

@@ -24,17 +24,11 @@ module.exports = (function (window) {
          * @type {Object}
          * @private
          */
-        defaultLinkConfig = {
+            defaultLinkConfig = {
             type: 'link'
         },
 
         callback = function () {};
-
-    if (!window.Element.prototype.addEventListener) {
-        window.Element.prototype.addEventListener = function (type, listener) {
-            this.attachEvent("on" + type, listener);
-        };
-    }
 
     /**
      * Check if a URL is going to the same site (internal)
@@ -240,22 +234,22 @@ module.exports = (function (window) {
             links = config.links;
 
             for (i = 0; i < links.length; i = i + 1) {
-                links[i].addEventListener(config.event, clickEvent, false);
+                utils.addEvent(links[i], config.event, clickEvent);
             }
         } else {
             if (typeof config.root !== "object" || typeof config.selector !== "string") {
                 throw "If supplying a config it must have a valid root element and a selector string";
             }
 
-            config.root.addEventListener(config.event, function (event) {
+            utils.addEvent(config.root, config.event, function (event) {
                 if (event.target.tagName === config.selector.toUpperCase()) {
                     clickEvent.call(event.target, event);
                 }
-            }, false);
+            });
         }
     }
 
-    window.addEventListener('oTracking.Link', track, false);
+    utils.addEvent(window, 'oTracking.Link', track);
 
     return {
         init: init,

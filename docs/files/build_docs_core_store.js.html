@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.16</em>
+            <em>API Docs for Origami Tracking module: 0.0.17</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -138,7 +138,6 @@
  * @param [config] {Object} Optional config object for extra configuration.
  * @constructor
  */
-// TODO Look at all storage mechanisms for a starting value, and propagate up to the &quot;best&quot; mechanism?
 /*global module, require, window */
 module.exports = (function () {
     &quot;use strict&quot;;
@@ -219,7 +218,7 @@ module.exports = (function () {
                     cookie;
 
                 for (i = 0; i &lt; cookies.length; i = i + 1) {
-                    cookie = cookies[i].trim();
+                    cookie = cookies[i].replace(/^\s+|\s+$/g, &#x27;&#x27;);
                     if (cookie.indexOf(name) === 0) {
                         return cookie.substring(name.length, cookie.length);
                     }

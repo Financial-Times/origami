@@ -8,7 +8,6 @@
  * @param [config] {Object} Optional config object for extra configuration.
  * @constructor
  */
-// TODO Look at all storage mechanisms for a starting value, and propagate up to the "best" mechanism?
 /*global module, require, window */
 module.exports = (function () {
     "use strict";
@@ -89,7 +88,7 @@ module.exports = (function () {
                     cookie;
 
                 for (i = 0; i < cookies.length; i = i + 1) {
-                    cookie = cookies[i].trim();
+                    cookie = cookies[i].replace(/^\s+|\s+$/g, '');
                     if (cookie.indexOf(name) === 0) {
                         return cookie.substring(name.length, cookie.length);
                     }

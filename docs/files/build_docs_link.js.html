@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.16</em>
+            <em>API Docs for Origami Tracking module: 0.0.17</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -154,17 +154,11 @@ module.exports = (function (window) {
          * @type {Object}
          * @private
          */
-        defaultLinkConfig = {
+            defaultLinkConfig = {
             type: &#x27;link&#x27;
         },
 
         callback = function () {};
-
-    if (!window.Element.prototype.addEventListener) {
-        window.Element.prototype.addEventListener = function (type, listener) {
-            this.attachEvent(&quot;on&quot; + type, listener);
-        };
-    }
 
     /**
      * Check if a URL is going to the same site (internal)
@@ -370,22 +364,22 @@ module.exports = (function (window) {
             links = config.links;
 
             for (i = 0; i &lt; links.length; i = i + 1) {
-                links[i].addEventListener(config.event, clickEvent, false);
+                utils.addEvent(links[i], config.event, clickEvent);
             }
         } else {
             if (typeof config.root !== &quot;object&quot; || typeof config.selector !== &quot;string&quot;) {
                 throw &quot;If supplying a config it must have a valid root element and a selector string&quot;;
             }
 
-            config.root.addEventListener(config.event, function (event) {
+            utils.addEvent(config.root, config.event, function (event) {
                 if (event.target.tagName === config.selector.toUpperCase()) {
                     clickEvent.call(event.target, event);
                 }
-            }, false);
+            });
         }
     }
 
-    window.addEventListener(&#x27;oTracking.Link&#x27;, track, false);
+    utils.addEvent(window, &#x27;oTracking.Link&#x27;, track);
 
     return {
         init: init,

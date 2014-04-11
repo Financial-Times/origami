@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.16</em>
+            <em>API Docs for Origami Tracking module: 0.0.17</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -168,12 +168,6 @@ module.exports = (function (window) {
             type: &#x27;data&#x27;
         };
 
-    if (!window.Element.prototype.addEventListener) {
-        window.Element.prototype.addEventListener = function (type, listener) {
-            this.attachEvent(&quot;on&quot; + type, listener);
-        };
-    }
-
     /**
      * Make the page tracking request.
      * @method data
@@ -186,7 +180,7 @@ module.exports = (function (window) {
         Core.track(config, callback);
     }
 
-    window.addEventListener(&#x27;oTracking.Data&#x27;, data, false);
+    utils.addEvent(window, &#x27;oTracking.Data&#x27;, data);
 
     return data;
 
