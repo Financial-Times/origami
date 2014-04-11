@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<!--[if IE 7]>         <html class="no-js o-useragent-ie7"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js o-useragent-ie8"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if IE 7]>         <html class="o-useragent-ie7 o-hoverable-on"> <![endif]-->
+<!--[if IE 8]>         <html class="o-useragent-ie8 o-hoverable-on"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
     <title>o-fonts: bentonsans-normal demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <style>
-    body {
-        margin: 0;
-    }
-    </style>
+    <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
     <link rel="stylesheet" href="/bundles/css?modules=o-fonts:/demos/src/demo.scss" />
 </head>
-<body>
+<body class="">
+    <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
     
     <div class="demo-container demo-bentonsans-normal">
 
@@ -28,12 +25,13 @@
                 ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
                 abcdefghijklmnopqrstuvwxyz<br />
                 0123456789<br />
-                .,!?:;()&%£$@-+*
+                .,!?:;()&amp;%£$@-+*
             </div>
         </div>
     </div>
 
 </div>
+
     
     <script src='http://registry.origami.ft.com/embedapi?autoload=resize'></script>
 </body>
