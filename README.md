@@ -4,30 +4,28 @@
 
 ## Markup
 
-The _tabs_ and their _tabpanels_ must be contained within a single root element.
-
 The _tablist_, _tabs_ and _tabpanels_ must be identified by [ARIA](http://www.w3.org/TR/wai-aria/) `role` attributes.
 
 The _tab_ elements must contain a link whose `href` attribute points to the ID of a _tabpanel_ element.
 
+The _tabpanel_ elements must have a `o-tabs__tabpanel` class added to them.
+
 This is an example of an HTML structure that __o-tabs__ will accept:
 
 ```html
-<div data-o-component="o-tabs" data-o-version="1.0.0" class="o-tabs">
-    <ul role="tablist">
-        <li role="tab"><a href="#tabContent1">Tab 1</a></li>
-        <li role="tab"><a href="#tabContent2">Tab 2</a></li>
-        <li role="tab"><a href="#tabContent3">Tab 3</a></li>
-    </ul>
-    <div id="tabContent1" role="tabpanel">
-        Tab content 1
-    </div>
-    <div id="tabContent2" role="tabpanel">
-        Tab content 2
-    </div>
-    <div id="tabContent3" role="tabpanel">
-        Tab content 3
-    </div>
+<ul data-o-component="o-tabs" data-o-version="1.0.0" class="o-tabs" role="tablist">
+    <li role="tab"><a href="#tabContent1">Tab 1</a></li>
+    <li role="tab"><a href="#tabContent2">Tab 2</a></li>
+    <li role="tab"><a href="#tabContent3">Tab 3</a></li>
+</ul>
+<div id="tabContent1" class="o-tabs__tabpanel" role="tabpanel">
+    Tab content 1
+</div>
+<div id="tabContent2" class="o-tabs__tabpanel" role="tabpanel">
+    Tab content 2
+</div>
+<div id="tabContent3" class="o-tabs__tabpanel" role="tabpanel">
+    Tab content 3
 </div>
 ```
 
@@ -37,11 +35,11 @@ To set the initially selected tab, add an `aria-selected="true"` attribute to a 
 
 Without the accompanying JavaScript, the _tabs_ will receive no styling, and all _tabpanels_ will remain visible. It's recommended that the default styling is to have each of the _tabpanels_ displayed one below the other.
 
-A product may choose to hide the tabs by doing something like this:
+A product may choose to hide the tabs like this:
 
 ```css
-.o-tabs [role=tablist] { display: none; }
-.o-tabs--js [role=tablist] { display: block; }
+.o-tabs { display: none; }
+.o-tabs--js { display: block; }
 ```
 
 ### Primary experience
@@ -83,13 +81,7 @@ __o-tabs__ comes with either _base styling_, which is just the minimum to be fun
 To apply the __buttontabs__ styling, add a `o-tabs--buttontabs` class to the root element:
 
 ```html
-<div data-o-component="o-tabs" data-o-version="1.0.0" class="o-tabs o-tabs--buttontabs">
-    <ul role="tablist">
-        <li role="tab"><a href="#tabContent1">Tab 1</a></li>
-        <li role="tab"><a href="#tabContent2">Tab 2</a></li>
-        <li role="tab"><a href="#tabContent3">Tab 3</a></li>
-    </ul>
-    ...
+<ul data-o-component="o-tabs" data-o-version="1.0.0" class="o-tabs o-tabs--buttontabs" role="tablist">
 ```
 
 The __buttontabs__ style comes in two sizes:

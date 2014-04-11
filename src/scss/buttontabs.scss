@@ -1,6 +1,6 @@
 @include oTabsSelectors(o-tabs--buttontabs) {
   &.o-tabs--js {
-    [role=tablist] {
+    &[role=tablist] {
       border-bottom: 1px solid $_o-ft-buttons-color-standard-border;
       font-size: 0;
     }

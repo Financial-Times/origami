@@ -43,18 +43,26 @@ function Tabs(el) {
         return (!isNaN(i) && i >= 0 && i < tabEls.length);
     }
 
+    function hidePanel(panelEl) {
+        panelEl.setAttribute('aria-expanded', 'false');
+        panelEl.setAttribute('aria-hidden', 'true');
+    }
+
+    function showPanel(panelEl) {
+        panelEl.setAttribute('aria-expanded', 'true');
+        panelEl.setAttribute('aria-hidden', 'false');
+    }
+
     function selectTab(i) {
         var c, l;
         if (isValidTab(i) && i !== selectedTabIndex) {
             for (c = 0, l = tabEls.length; c < l; c++) {
                 if (i === c) {
                     tabEls[c].setAttribute('aria-selected', 'true');
-                    contentEls[c].setAttribute('aria-expanded', 'true');
-                    contentEls[c].setAttribute('aria-hidden', 'false');
+                    showPanel(contentEls[c]);
                 } else {
                     tabEls[c].setAttribute('aria-selected', 'false');
-                    contentEls[c].setAttribute('aria-expanded', 'false');
-                    contentEls[c].setAttribute('aria-hidden', 'true');
+                    hidePanel(contentEls[c]);
                 }
             }
             events.trigger(el, 'oTabs.tabSelect', {
@@ -92,6 +100,9 @@ function Tabs(el) {
     function destroy() {
         events.unlisten(el, "click", clickHandler);
         dom.removeClass(el, "o-tabs--js");
+        for (var c = 0, l = contentEls.length; c < l; c++) {
+            showPanel(contentEls[c]);
+        }
         hasInit = false;
     }
 

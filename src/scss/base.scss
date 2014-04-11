@@ -1,12 +1,12 @@
 @include oTabsSelectors(o-tabs) {
   &.o-tabs--js {
-    [role=tablist] {
+    &[role=tablist] {
       margin: 0;
       padding: 0;
       text-align: left;
     }
 
-    &.o-tabs--alignright [role=tablist] {
+    &.o-tabs--alignright[role=tablist] {
       text-align: right;
     }
 
@@ -25,8 +25,11 @@
       }
     }
 
-    [aria-hidden=true] {
-      display: none;
-    }
+  }
+}
+
+@include oTabsSelectors(o-tabs__tabpanel) {
+  &[aria-hidden=true] {
+    display: none;
   }
 }
