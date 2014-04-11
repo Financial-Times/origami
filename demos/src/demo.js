@@ -12,4 +12,4 @@ if (!Element.prototype.matches) {
     };
 }
 
-require('../../main');
+require('./../../main');
