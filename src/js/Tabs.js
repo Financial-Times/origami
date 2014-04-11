@@ -1,9 +1,8 @@
 /*global module, require*/
 
-var dom = require('./dom'),
-    events = require('./events');
+var dom = require('./dom');
 
-function Tabs(el) {
+function Tabs(rootEl) {
     "use strict";
 
     var tabsObj = this,
@@ -35,7 +34,7 @@ function Tabs(el) {
     }
 
     function getSelectedTabElement() {
-        var selectedTabEl = el.querySelector('[aria-selected=true]');
+        var selectedTabEl = rootEl.querySelector('[aria-selected=true]');
         return (selectedTabEl) ? getTabIndexFromElement(selectedTabEl) : 0;
     }
 
@@ -53,6 +52,17 @@ function Tabs(el) {
         panelEl.setAttribute('aria-hidden', 'false');
     }
 
+    function dispatchCustomEvent(name, data) {
+        if (document.createEvent && rootEl.dispatchEvent) {
+            var event = document.createEvent('Event');
+            event.initEvent(name, true, true);
+            if (data) {
+                event.detail = data;
+            }
+            rootEl.dispatchEvent(event);
+        }
+    }
+
     function selectTab(i) {
         var c, l;
         if (isValidTab(i) && i !== selectedTabIndex) {
@@ -65,7 +75,7 @@ function Tabs(el) {
                     hidePanel(contentEls[c]);
                 }
             }
-            events.trigger(el, 'oTabs.tabSelect', {
+            dispatchCustomEvent('oTabs.tabSelect', {
                 tabs: tabsObj,
                 selected: i,
                 lastSelected: selectedTabIndex
@@ -85,11 +95,11 @@ function Tabs(el) {
 
     function init() {
         if (!hasInit) {
-            tabEls = el.querySelectorAll('[role=tab]');
+            tabEls = rootEl.querySelectorAll('[role=tab]');
             contentEls = getTabContentEls(tabEls);
-            dom.addClass(el, "o-tabs--js");
-            events.listen(el, "click", clickHandler);
-            events.trigger(el, 'oTabs.ready', {
+            rootEl.classList.add("o-tabs--js");
+            rootEl.addEventListener("click", clickHandler, false);
+            dispatchCustomEvent('oTabs.ready', {
                 tabs: tabsObj
             });
             selectTab(getSelectedTabElement());
@@ -98,8 +108,8 @@ function Tabs(el) {
     }
 
     function destroy() {
-        events.unlisten(el, "click", clickHandler);
-        dom.removeClass(el, "o-tabs--js");
+        rootEl.removeEventListener("click", clickHandler, false);
+        rootEl.classList.remove("o-tabs--js");
         for (var c = 0, l = contentEls.length; c < l; c++) {
             showPanel(contentEls[c]);
         }
@@ -120,7 +130,7 @@ Tabs.prototype.createAllIn = function(el) {
     if (el.querySelectorAll) {
         tEls = el.querySelectorAll('[data-o-component=o-tabs]');
         for (c = 0, l = tEls.length; c < l; c++) {
-            if (!tEls[c].matches('[data-o-tabs-autoconstruct=false]') || !dom.hasClass(tEls[c], 'o-tabs--js')) {
+            if (!tEls[c].matches('[data-o-tabs-autoconstruct=false]') || !tEls[c].classList.contains('o-tabs--js')) {
                 tabs.push(new Tabs(tEls[c]));
             }
         }
