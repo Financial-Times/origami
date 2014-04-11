@@ -4,7 +4,7 @@
 
 ## Markup
 
-The tabs and their tabpanels must be contained within a single root element.
+The _tabs_ and their _tabpanels_ must be contained within a single root element.
 
 The _tablist_, _tabs_ and _tabpanels_ must be identified by [ARIA](http://www.w3.org/TR/wai-aria/) `role` attributes.
 
@@ -31,11 +31,11 @@ This is an example of an HTML structure that __o-tabs__ will accept:
 </div>
 ```
 
-To set the initially selected tab, add an `area-selected="true"` attribute to a tab element, otherwise the first tab will be selected.
+To set the initially selected tab, add an `aria-selected="true"` attribute to a tab element, otherwise the first tab will be selected automatically.
 
 ### Core experience
 
-Without the accompanying JavaScript, the tabs will receive no styling, and all tabpanels will remain visible. It's recommended that the default styling is to have each of the _tabpanels_ displayed one below the other.
+Without the accompanying JavaScript, the _tabs_ will receive no styling, and all _tabpanels_ will remain visible. It's recommended that the default styling is to have each of the _tabpanels_ displayed one below the other.
 
 A product may choose to hide the tabs by doing something like this:
 
@@ -56,9 +56,9 @@ If the heights of the _tabpanels_ vary, then any content below will move up and 
 
 On `DOMContentLoaded`, tabs instances are automatically constructed for each element in the `<body>` declaring itself to be an __o-tabs__ element (via the `data-o-component="o-tabs"` attribute).
 
-Auto-construction can be disabled for a specific element via another data attribute `data-o-tabs-autoconstruct="false"`.
+Auto-construction can be disabled for a specific element via another data attribute (`data-o-tabs-autoconstruct="false"`).
 
-Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), either the polyfill the event, or construction can be manually invoked:
+Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), the event could be polyfilled, or construction can be manually invoked:
 
 ```javascript
 var Tabs = require('o-tabs');
@@ -73,12 +73,12 @@ An array of any constructed Tabs objects will be returned.
 
 ```javascript
 var Tabs = require('o-tabs');
-var myTabs = new Tabs(document.querySelector('.myTabs'));
+var myTabs = new Tabs(document.getElementById('myTabsRootElement'));
 ```
 
 ## Styles
 
-__o-tabs__ can be used with or without its built-in tab styling, called __buttontabs__ (based on the buttons from [o-ft-buttons](https://github.com/Financial-Times/o-ft-buttons)).
+__o-tabs__ comes with either _base styling_, which is just the minimum to be functional or _full styling_ (called __buttontabs__ as it's based on the buttons from [o-ft-buttons](https://github.com/Financial-Times/o-ft-buttons)).
 
 To apply the __buttontabs__ styling, add a `o-tabs--buttontabs` class to the root element:
 
@@ -115,7 +115,7 @@ ARIA attributes will be set on elements as follows:
 
 __On init__, `aria-controls` is added to each tab element, with value being the ID of the associated tabpanel.
 
-__On init and selected tab change__ these attribute are set and updated as appropriate:
+__On init and selected tab change__ these attributes are set and updated as appropriate:
 
 * `aria-selected` is set on the tab elements
 * `aria-hidden` and `aria-expanded` are set on the tabpanels
