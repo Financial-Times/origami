@@ -9,7 +9,8 @@ function Tabs(rootEl) {
         tabEls,
         contentEls,
         selectedTabIndex = -1,
-        hasInit = false;
+        hasInit = false,
+        myself = this;
 
     function getTabTargetId(tabEl) {
         var aEls = tabEl.getElementsByTagName('a');
@@ -65,7 +66,7 @@ function Tabs(rootEl) {
 
     function selectTab(i) {
         var c, l;
-        if (isValidTab(i) && i !== selectedTabIndex) {
+        if (hasInit && isValidTab(i) && i !== selectedTabIndex) {
             for (c = 0, l = tabEls.length; c < l; c++) {
                 if (i === c) {
                     tabEls[c].setAttribute('aria-selected', 'true');
@@ -89,7 +90,7 @@ function Tabs(rootEl) {
         var tabEl = dom.getClosest(ev.target, '[role=tab]');
         if (tabEl) {
             var i = getTabIndexFromElement(tabEl);
-            selectTab(i);
+            myself.selectTab(i);
         }
     }
 
@@ -102,8 +103,8 @@ function Tabs(rootEl) {
             dispatchCustomEvent('oTabs.ready', {
                 tabs: tabsObj
             });
-            selectTab(getSelectedTabElement());
             hasInit = true;
+            myself.selectTab(getSelectedTabElement());
         }
     }
 
