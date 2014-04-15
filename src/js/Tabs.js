@@ -1,6 +1,6 @@
 /*global module, require*/
 
-var dom = require('./dom');
+var oDom = require('o-dom');
 
 function Tabs(rootEl) {
     "use strict";
@@ -31,7 +31,7 @@ function Tabs(rootEl) {
     }
 
     function getTabIndexFromElement(el) {
-        return dom.getElementIndex(el);
+        return oDom.getIndex(el);
     }
 
     function getSelectedTabElement() {
@@ -87,7 +87,7 @@ function Tabs(rootEl) {
 
     function clickHandler(ev) {
         ev.preventDefault();
-        var tabEl = dom.getClosest(ev.target, '[role=tab]');
+        var tabEl = oDom.getClosestMatch(ev.target, '[role=tab]');
         if (tabEl) {
             var i = getTabIndexFromElement(tabEl);
             myself.selectTab(i);

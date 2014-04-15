@@ -4,6 +4,7 @@ node_js:
 before_install:
   - npm install -g https://github.com/Financial-Times/origami-build-tools/tarball/master
   - origami-build-tools install
+  - bower install
 script:
   - origami-build-tools test
   - npm test
