@@ -1,4 +1,4 @@
-/*global require, describe, it */
+/*global require, describe, it, sinon */
 var assert = require('assert'),
     Utils = require("../src/javascript/utils");
 
@@ -67,4 +67,20 @@ describe('Utils', function () {
         var date = new Date(1397036781758);
         assert.equal(Utils.toISOString(date), "2014-04-09T09:46:21.758Z");
     });
+
+    describe('internal page event', function () {
+        var callback = sinon.spy();
+
+        it('should provide onPage functionality', function () {
+            assert.doesNotThrow(function () {
+                Utils.onPage(callback);
+            });
+        });
+
+        it('should call the callback when page is triggered', function () {
+            Utils.triggerPage();
+            assert.ok(callback.called, 'callback was triggered.');
+        });
+    });
+
 });

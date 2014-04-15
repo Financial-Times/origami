@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.17</em>
+            <em>API Docs for Origami Tracking module: 0.0.18</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -258,6 +258,9 @@ module.exports = (function (window, document) {
         // New ClickID for a new Page.
         Core.setClickID();
         Core.track(config, callback);
+
+        // Alert internally that a new page has been tracked - for single page apps for example.
+        utils.triggerPage();
 
         settings.page_sent = true;
     };

@@ -216,6 +216,9 @@ module.exports = (function (window) {
 
         runQueue();
 
+        // Listen for page requests. If this is a single page app, we can send link requests now.
+        utils.onPage(runQueue);
+
         if (typeof config === "undefined") {
             config = {};
         }

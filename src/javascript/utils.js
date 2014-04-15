@@ -7,25 +7,30 @@
  */
 
 /*global module, require, window */
+var
+    /**
+     * An array of characters used by the base-64 encoding methods.
+     * @property TRANS_CHARS
+     * @private
+     * @final
+     */
+    TRANS_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
+
+    /**
+     * Shared "internal" scope.
+     * @property settings
+     * @private
+     */
+    settings = require("./core/settings"),
+
+    /**
+     * Record of callbacks to call when a page is tracked.
+     * @property page_callbacks
+     */
+    page_callbacks = [];
+
 module.exports = (function (window) {
     "use strict";
-
-    var
-        /**
-         * An array of characters used by the base-64 encoding methods.
-         *
-         * @private
-         * @final
-         */
-        TRANS_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
-
-        /**
-         * Shared "internal" scope.
-         * @property _self
-         * @type {Object}
-         * @private
-         */
-        settings = require("./core/settings");
 
     /**
      * Log messages to the browser console. Requires "log" to be set on init.
@@ -298,6 +303,13 @@ module.exports = (function (window) {
         return window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + hash(window.document.location.href + window.document.referrer);
     }
 
+    /**
+     * Utility to add event listeners.
+     * @method addEvent
+     * @param element
+     * @param event
+     * @param listener
+     */
     function addEvent(element, event, listener) {
         try {
             element.addEventListener(event, listener, false);
@@ -305,6 +317,29 @@ module.exports = (function (window) {
             try {
                 element.attachEvent("on" + event, listener);
             } catch (err) {}
+        }
+    }
+
+    /**
+     * Listen for page tracking requests.
+     * @method onPage
+     * @param cb
+     */
+    function onPage(cb) {
+        if (is(cb, 'function')) {
+            page_callbacks.push(cb);
+        }
+    }
+
+    /**
+     * Trigger the "page" listeners.
+     * @method triggerPage
+     */
+    function triggerPage() {
+        var i;
+
+        for (i = 0; i < page_callbacks.length; i = i + 1) {
+            page_callbacks[i]();
         }
     }
 
@@ -322,6 +357,8 @@ module.exports = (function (window) {
         b64encode: b64encode,
         toISOString: toISOString,
         createUniqueID: createUniqueID,
-        addEvent: addEvent
+        addEvent: addEvent,
+        onPage: onPage,
+        triggerPage: triggerPage
     };
 }(window));

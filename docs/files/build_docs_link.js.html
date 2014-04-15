@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.17</em>
+            <em>API Docs for Origami Tracking module: 0.0.18</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -345,6 +345,9 @@ module.exports = (function (window) {
         internalQueue = new Queue(&#x27;links&#x27;);
 
         runQueue();
+
+        // Listen for page requests. If this is a single page app, we can send link requests now.
+        utils.onPage(runQueue);
 
         if (typeof config === &quot;undefined&quot;) {
             config = {};

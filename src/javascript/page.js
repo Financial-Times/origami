@@ -129,6 +129,9 @@ module.exports = (function (window, document) {
         Core.setClickID();
         Core.track(config, callback);
 
+        // Alert internally that a new page has been tracked - for single page apps for example.
+        utils.triggerPage();
+
         settings.page_sent = true;
     };
 

@@ -2,7 +2,7 @@
     "project": {
         "name": "Origami Tracking module",
         "description": "Origami module for FT tracking.",
-        "version": "0.0.17",
+        "version": "0.0.18",
         "url": ""
     },
     "files": {
@@ -1539,8 +1539,10 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 14,
+            "line": 11,
             "description": "An array of characters used by the base-64 encoding methods.",
+            "itemtype": "property",
+            "name": "TRANS_CHARS",
             "access": "private",
             "tagname": "",
             "final": 1,
@@ -1550,11 +1552,10 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 22,
+            "line": 19,
             "description": "Shared \"internal\" scope.",
             "itemtype": "property",
-            "name": "_self",
-            "type": "{Object}",
+            "name": "settings",
             "access": "private",
             "tagname": "",
             "class": "Track._Utils",
@@ -1563,7 +1564,17 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 30,
+            "line": 26,
+            "description": "Record of callbacks to call when a page is tracked.",
+            "itemtype": "property",
+            "name": "page_callbacks",
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 35,
             "description": "Log messages to the browser console. Requires \"log\" to be set on init.",
             "itemtype": "method",
             "name": "log",
@@ -1581,7 +1592,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 41,
+            "line": 46,
             "description": "Tests if variable is a certain type. Defaults to check for undefined if no type specified.",
             "itemtype": "method",
             "name": "is",
@@ -1608,7 +1619,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 55,
+            "line": 60,
             "description": "Merge objects together. Will remove \"falsy\" values.",
             "itemtype": "method",
             "name": "merge",
@@ -1635,7 +1646,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 92,
+            "line": 97,
             "description": "URL encode a string.",
             "itemtype": "method",
             "name": "encode",
@@ -1656,7 +1667,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 106,
+            "line": 111,
             "description": "URL unencode a string.",
             "itemtype": "method",
             "name": "unencode",
@@ -1677,7 +1688,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 120,
+            "line": 125,
             "description": "Encodes a given input string in base64.",
             "itemtype": "method",
             "name": "b64encode",
@@ -1698,7 +1709,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 157,
+            "line": 162,
             "description": "Function to create a unique-ish hash of a string.",
             "itemtype": "method",
             "name": "hash",
@@ -1718,7 +1729,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 183,
+            "line": 188,
             "description": "Polyfill for Object.keys as it doesn't exist in older browsers.",
             "itemtype": "method",
             "name": "objectKeys",
@@ -1739,7 +1750,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 208,
+            "line": 213,
             "description": "For the chosen keys, turns an object into a query string.",
             "itemtype": "method",
             "name": "serialize",
@@ -1764,7 +1775,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 236,
+            "line": 241,
             "description": "Unserialize a query string into an object. Opposite of serialize.",
             "itemtype": "method",
             "name": "unserialize",
@@ -1785,7 +1796,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 257,
+            "line": 262,
             "description": "Pad a number below 10.",
             "itemtype": "method",
             "name": "pad",
@@ -1806,7 +1817,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 271,
+            "line": 276,
             "description": "IE friendly Date toISOString",
             "itemtype": "method",
             "name": "toISOString",
@@ -1827,7 +1838,7 @@
         },
         {
             "file": "build/docs/utils.js",
-            "line": 292,
+            "line": 297,
             "description": "Generate a unique ID.",
             "itemtype": "method",
             "name": "createUniqueID",
@@ -1838,16 +1849,62 @@
             "class": "Track._Utils",
             "module": "Track",
             "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 306,
+            "description": "Utility to add event listeners.",
+            "itemtype": "method",
+            "name": "addEvent",
+            "params": [
+                {
+                    "name": "element",
+                    "description": ""
+                },
+                {
+                    "name": "event",
+                    "description": ""
+                },
+                {
+                    "name": "listener",
+                    "description": ""
+                }
+            ],
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 323,
+            "description": "Listen for page tracking requests.",
+            "itemtype": "method",
+            "name": "onPage",
+            "params": [
+                {
+                    "name": "cb",
+                    "description": ""
+                }
+            ],
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
+        },
+        {
+            "file": "build/docs/utils.js",
+            "line": 334,
+            "description": "Trigger the \"page\" listeners.",
+            "itemtype": "method",
+            "name": "triggerPage",
+            "class": "Track._Utils",
+            "module": "Track",
+            "submodule": "_Utils"
         }
     ],
     "warnings": [
         {
             "message": "replacing incorrect tag: returns with return",
             "line": " build/docs/link.js:200"
-        },
-        {
-            "message": "Missing item type\nAn array of characters used by the base-64 encoding methods.",
-            "line": " build/docs/utils.js:14"
         }
     ]
 }

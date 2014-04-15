@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for Origami Tracking module: 0.0.17</em>
+            <em>API Docs for Origami Tracking module: 0.0.18</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -137,25 +137,30 @@
  */
 
 /*global module, require, window */
+var
+    /**
+     * An array of characters used by the base-64 encoding methods.
+     * @property TRANS_CHARS
+     * @private
+     * @final
+     */
+    TRANS_CHARS = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;,
+
+    /**
+     * Shared &quot;internal&quot; scope.
+     * @property settings
+     * @private
+     */
+    settings = require(&quot;./core/settings&quot;),
+
+    /**
+     * Record of callbacks to call when a page is tracked.
+     * @property page_callbacks
+     */
+    page_callbacks = [];
+
 module.exports = (function (window) {
     &quot;use strict&quot;;
-
-    var
-        /**
-         * An array of characters used by the base-64 encoding methods.
-         *
-         * @private
-         * @final
-         */
-        TRANS_CHARS = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;,
-
-        /**
-         * Shared &quot;internal&quot; scope.
-         * @property _self
-         * @type {Object}
-         * @private
-         */
-        settings = require(&quot;./core/settings&quot;);
 
     /**
      * Log messages to the browser console. Requires &quot;log&quot; to be set on init.
@@ -428,6 +433,13 @@ module.exports = (function (window) {
         return window.history.length + &quot;.&quot; + (Math.random() * 1000) + &quot;.&quot; + (new Date()).getTime() + &quot;.&quot; + hash(window.document.location.href + window.document.referrer);
     }
 
+    /**
+     * Utility to add event listeners.
+     * @method addEvent
+     * @param element
+     * @param event
+     * @param listener
+     */
     function addEvent(element, event, listener) {
         try {
             element.addEventListener(event, listener, false);
@@ -435,6 +447,29 @@ module.exports = (function (window) {
             try {
                 element.attachEvent(&quot;on&quot; + event, listener);
             } catch (err) {}
+        }
+    }
+
+    /**
+     * Listen for page tracking requests.
+     * @method onPage
+     * @param cb
+     */
+    function onPage(cb) {
+        if (is(cb, &#x27;function&#x27;)) {
+            page_callbacks.push(cb);
+        }
+    }
+
+    /**
+     * Trigger the &quot;page&quot; listeners.
+     * @method triggerPage
+     */
+    function triggerPage() {
+        var i;
+
+        for (i = 0; i &lt; page_callbacks.length; i = i + 1) {
+            page_callbacks[i]();
         }
     }
 
@@ -452,7 +487,9 @@ module.exports = (function (window) {
         b64encode: b64encode,
         toISOString: toISOString,
         createUniqueID: createUniqueID,
-        addEvent: addEvent
+        addEvent: addEvent,
+        onPage: onPage,
+        triggerPage: triggerPage
     };
 }(window));
     </pre>
