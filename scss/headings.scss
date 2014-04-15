@@ -13,7 +13,7 @@
   text-decoration: none;
   color: oColorsGetColorFor(heading-large heading, text);
   cursor: pointer;
-  &:hover {
+  #{$o-hoverable-if-hover-enabled} &:hover {
     color: oColorsGetColorFor(link, text);
   }
 }
@@ -34,7 +34,7 @@
   text-decoration: none;
   color: oColorsGetColorFor(heading-large heading, text);
   cursor: pointer;
-  &:hover {
+  #{$o-hoverable-if-hover-enabled} &:hover {
     color: oColorsGetColorFor(link, text);
   }
 }
@@ -76,7 +76,7 @@
   text-decoration: none;
   color: oColorsGetColorFor(link, text);
   cursor: pointer;
-  &:hover {
+  #{$o-hoverable-if-hover-enabled} &:hover {
     color: oColorsGetColorFor(link-hover, text);
   }
 }

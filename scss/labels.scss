@@ -3,7 +3,7 @@
   > a {
     text-decoration: none;
     color: oColorsGetColorFor(link, text);
-    &:hover {
+    #{$o-hoverable-if-hover-enabled} &:hover {
       color: oColorsGetColorFor(link-hover, text);
     }
   }
@@ -25,7 +25,7 @@
 
 @include oFtTypographySelectors(label-small) {
   @extend %label-text;
-  font-family: $_o-ft-typography-label-medium-font;
+  font-family: $_o-ft-typography-label-small-font;
   font-weight: normal;
   @include oFtTypographyFontSize(12, 15);
 }

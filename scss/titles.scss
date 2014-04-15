@@ -23,7 +23,7 @@
   text-decoration: none;
   color: oColorsGetColorFor(title-text);
   cursor: pointer;
-  &:hover {
+  #{$o-hoverable-if-hover-enabled} &:hover {
       color: oColorsGetColorFor(link-text);
   }
 }
