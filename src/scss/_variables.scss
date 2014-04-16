@@ -5,19 +5,19 @@ $o-fonts-assets-path: $o-fonts-name !default;
 
 $o-fonts-is-silent: true !default;
 
-$o-fonts-sans-serif: Helvetica, Arial, sans-serif;
-$o-fonts-serif: Georgia, 'Times New Roman', serif;
+$o-fonts-sans-serif: helvetica, arial, sans-serif;
+$o-fonts-serif: georgia, 'times new roman', serif;
 
 $ft-fonts-already-included-list: () !default;
 
-$o-fonts-supported: BentonSans, MillerDisplay, Clarion;
+$o-fonts-supported: bentonsans, millerdisplay, clarion;
 
-$o-fonts-bentonsans-lighter: BentonSans-lighter, $o-fonts-sans-serif;
-$o-fonts-bentonsans-normal: BentonSans-normal, $o-fonts-sans-serif;
-$o-fonts-bentonsans-bold: BentonSans-bold, $o-fonts-sans-serif;
-$o-fonts-millerdisplay-normal: MillerDisplay-normal, $o-fonts-serif;
-$o-fonts-millerdisplay-bold: MillerDisplay-bold, $o-fonts-serif;
-$o-fonts-millerdisplay-bolder: MillerDisplay-bolder, $o-fonts-serif;
-$o-fonts-clarion-normal: Clarion-normal, $o-fonts-serif;
-$o-fonts-clarion-bold: Clarion-bold, $o-fonts-serif;
-$o-fonts-clarion-italic: Clarion-italic, $o-fonts-serif;
+$o-fonts-bentonsans-lighter: bentonsans-lighter, $o-fonts-sans-serif;
+$o-fonts-bentonsans-normal: bentonsans-normal, $o-fonts-sans-serif;
+$o-fonts-bentonsans-bold: bentonsans-bold, $o-fonts-sans-serif;
+$o-fonts-millerdisplay-normal: millerdisplay-normal, $o-fonts-serif;
+$o-fonts-millerdisplay-bold: millerdisplay-bold, $o-fonts-serif;
+$o-fonts-millerdisplay-bolder: millerdisplay-bolder, $o-fonts-serif;
+$o-fonts-clarion-normal: clarion-normal, $o-fonts-serif;
+$o-fonts-clarion-bold: clarion-bold, $o-fonts-serif;
+$o-fonts-clarion-italic: clarion-italic, $o-fonts-serif;
