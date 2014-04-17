@@ -1,7 +1,6 @@
 /**
   Wrap styles in SASS placeholder and CSS class (if not in silent mode)
   $name:             name of placeholder/class.
-  $force-non-silent: <boolean> prevent silent mode
 */
 @mixin oTabsSelectors($name) {
   $selectors: #{'%#{$name}'};

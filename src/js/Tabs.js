@@ -7,7 +7,7 @@ function Tabs(rootEl) {
 
     var tabsObj = this,
         tabEls,
-        contentEls,
+        tabpanelEls,
         selectedTabIndex = -1,
         hasInit = false,
         myself = this;
@@ -17,13 +17,14 @@ function Tabs(rootEl) {
         return (aEls && aEls[0]) ? aEls[0].getAttribute('href').replace('#','') : '';
     }
 
-    function getTabContentEls(tabEls) {
+    function getTabPanelEls(tabEls) {
         var els = [], targetEl, c, l;
         for (c = 0, l = tabEls.length; c < l; c++) {
             var tabTargetId = getTabTargetId(tabEls[c]);
             targetEl = document.getElementById(tabTargetId);
             if (targetEl) {
                 tabEls[c].setAttribute('aria-controls', tabTargetId);
+                targetEl.setAttribute('role', 'tabpanel');
                 els[c] = targetEl;
             }
         }
@@ -70,10 +71,10 @@ function Tabs(rootEl) {
             for (c = 0, l = tabEls.length; c < l; c++) {
                 if (i === c) {
                     tabEls[c].setAttribute('aria-selected', 'true');
-                    showPanel(contentEls[c]);
+                    showPanel(tabpanelEls[c]);
                 } else {
                     tabEls[c].setAttribute('aria-selected', 'false');
-                    hidePanel(contentEls[c]);
+                    hidePanel(tabpanelEls[c]);
                 }
             }
             dispatchCustomEvent('oTabs.tabSelect', {
@@ -97,7 +98,7 @@ function Tabs(rootEl) {
     function init() {
         if (!hasInit) {
             tabEls = rootEl.querySelectorAll('[role=tab]');
-            contentEls = getTabContentEls(tabEls);
+            tabpanelEls = getTabPanelEls(tabEls);
             rootEl.classList.add("o-tabs--js");
             rootEl.addEventListener("click", clickHandler, false);
             dispatchCustomEvent('oTabs.ready', {
@@ -111,8 +112,8 @@ function Tabs(rootEl) {
     function destroy() {
         rootEl.removeEventListener("click", clickHandler, false);
         rootEl.classList.remove("o-tabs--js");
-        for (var c = 0, l = contentEls.length; c < l; c++) {
-            showPanel(contentEls[c]);
+        for (var c = 0, l = tabpanelEls.length; c < l; c++) {
+            showPanel(tabpanelEls[c]);
         }
         hasInit = false;
     }

@@ -29,7 +29,7 @@
 }
 
 @include oTabsSelectors(o-tabs__tabpanel) {
-  &[aria-hidden=true] {
+  &[role=tabpanel][aria-hidden=true] {
     display: none;
   }
 }

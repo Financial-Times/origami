@@ -18,13 +18,13 @@ This is an example of an HTML structure that __o-tabs__ will accept:
     <li role="tab"><a href="#tabContent2">Tab 2</a></li>
     <li role="tab"><a href="#tabContent3">Tab 3</a></li>
 </ul>
-<div id="tabContent1" class="o-tabs__tabpanel" role="tabpanel">
+<div id="tabContent1" class="o-tabs__tabpanel">
     Tab content 1
 </div>
-<div id="tabContent2" class="o-tabs__tabpanel" role="tabpanel">
+<div id="tabContent2" class="o-tabs__tabpanel">
     Tab content 2
 </div>
-<div id="tabContent3" class="o-tabs__tabpanel" role="tabpanel">
+<div id="tabContent3" class="o-tabs__tabpanel">
     Tab content 3
 </div>
 ```
@@ -45,6 +45,8 @@ A product may choose to hide the tabs like this:
 ### Primary experience
 
 The _primary experience_ will show as functional tabs, and only the _tabpanel_ for the selected tab will be shown.
+
+The JavaScript will add `role="tabpanel"` attributes to each _tabpanel_. These will be used in conjunction with the `aria-hidden="true"` attributes, to hide _tabpanels_ as appropriate. This means that without JS, all _tabpanels_ will remain visible.
 
 If the heights of the _tabpanels_ vary, then any content below will move up and down as the user switches between tabs. If this is not desired, it is the responsibility of the consumer to address this.
 
