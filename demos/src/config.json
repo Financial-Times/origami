@@ -1,0 +1,13 @@
+{
+    "options": {
+        "sass": "demos/src/demo.scss"
+    },
+    "demos": {
+        "headed-columns": {
+            "template": "demos/src/headed-columns.mustache"
+        },
+        "headed-rows": {
+            "template": "demos/src/headed-rows.mustache"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+$o-table-is-silent: true !default;
+
+@import "o-colors/main";
+@import "o-ft-typography/main";
+
+@import "src/scss/base";
+
+@if (not $o-table-is-silent) {
+  @include oTableBase(o-table);
+}

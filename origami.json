@@ -1,0 +1,14 @@
+{
+    "description": "FT-branded tables",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "https://github.com/Financial-Times/o-table/issues",
+    "supportStatus": "active",
+    "ci": {
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-table/builds.json"
+    },
+    "demos": [
+        "/demos/headed-columns.html",
+        "/demos/headed-rows.html"
+    ]
+}
