@@ -75,6 +75,9 @@ Install the following:
 * [fontforge](http://fontforge.org/)
 * [ttfautohint](http://www.freetype.org/ttfautohint/#download)
 
+On a Mac <ahref="http://brew.sh/">Homebrew</a> is a popular package manager to install these programs. You'll also need <a href="http://support.apple.com/kb/ht5293">X11</a> on your Mac.
+
+
 Clone this repo and at the command line, `cd` to the repo's directory and run:
 
     npm install
