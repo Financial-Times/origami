@@ -7,13 +7,13 @@ Utility for moderating listeners for browser events on window
 
 ## Methods
 
-### `o-viewport#listenTo(event)`
+### `o-viewport#listenTo(eventType)`
 Attaches a debounced/throttled (as appropriate) listener to events on window [`resize`, `scroll` or `orientation`] which in turn fires events within the `oViewport` namespace (see **Events** below)
 
 ### `o-viewport#getOrientation()`
 Provides a reasonably reliable (more so than `window.orientation`) of obtaining the current orientation of the viewport.
 
-### `o-viewport#setInterval(event, interval)` *Product use only*
+### `o-viewport#setInterval(eventType, interval)` *Product use only*
 Sets the debounce/throttle interval for a given event [`scroll`, `resize` or `orientation`]. 
 As a shorthand, calling `setInterval` with 1 - 3 numbers will set the intervals for `scroll`, `resize` and `orientation` in that order e.g. `setInterval(100, undefined, 300)` is equivalent to:
 

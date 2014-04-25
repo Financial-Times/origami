@@ -4,6 +4,7 @@ var prefixer = require('o-useragent').prefixer;
 var body;
 var debug;
 var delegate;
+var scrollDelegate;
 var initFlags = {};
 var intervals = {
     resize: 100,
@@ -11,9 +12,9 @@ var intervals = {
     scroll: 100
 };
 
-function broadcast (name, data) {
+function broadcast (eventType, data) {
     if (debug) {
-        console.log('o-viewport', name, data);
+        console.log('o-viewport', eventType, data);
     }
     body.dispatchEvent(new CustomEvent('oViewport.' + eventType, {
         detail: data,
@@ -35,23 +36,26 @@ var getOrientation = (function () {
     }
 })();
 
-function setInterval (event, interval) {
+function setInterval (eventType, interval) {
     if (typeof arguments[0] === 'number') {
         setInterval ('scroll', arguments[0]);
         setInterval ('resize', arguments[1]);
         setInterval ('orientation', arguments[2]);
     } else if (interval) {
-        intervals[event] = interval;
+        intervals[eventType] = interval;
     }
 }
 
-function init(event) {
-    if (initFlags[event]) return true;
+function init(eventType) {
+    if (initFlags[eventType]) return true;
 
-    initFlags[event] = true;
-
-    delegate = delegate || new Delegate(window);
-    
+    initFlags[eventType] = true;
+    if (eventType === 'scroll') {
+        scrollDelegate = scrollDelegate || new Delegate(document);
+    } else {
+        delegate = delegate || new Delegate(window);
+    }
+        
     body = body || document.body;
 }
 
@@ -59,7 +63,7 @@ function listenToResize () {
 
     if (init('resize')) return;
   
-    delegate.on('resize', _.debounce(function (ev) {
+    delegate.on('resize', null, _.debounce(function (ev) {
         broadcast('resize', {
             clientHeight: body.clientHeight,
             clientWidth: body.clientWidth,
@@ -72,7 +76,7 @@ function listenToOrientation () {
 
     if (init('orientation')) return;
 
-    delegate.on('orientationchange', _.debounce(function (ev) {
+    delegate.on('orientationchange', null, _.debounce(function (ev) {
         broadcast('orientation', {
             clientHeight: body.clientHeight,
             clientWidth: body.clientWidth,
@@ -86,7 +90,7 @@ function listenToScroll () {
 
     if (init('scroll')) return;
 
-    delegate.on('scroll', _.throttle(function (ev) {
+    scrollDelegate.on('scroll', null, _.throttle(function (ev) {
         broadcast('scroll', {
             clientHeight: body.clientHeight,
             clientWidth: body.clientWidth,
@@ -99,12 +103,12 @@ function listenToScroll () {
     }, intervals.scroll));
 }
 
-function listenTo (event) {
-    if (event === 'resize') {
+function listenTo (eventType) {
+    if (eventType === 'resize') {
         listenToResize();
-    } else if (event === 'scroll') {
+    } else if (eventType === 'scroll') {
         listenToScroll();
-    } else if (event === 'orientation') {
+    } else if (eventType === 'orientation') {
         listenToOrientation();
     }
 }
