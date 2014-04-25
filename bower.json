@@ -10,6 +10,9 @@
     "o-colors": "^2.2.20",
     "o-fonts": ">=0.7.0 <2",
     "o-assets": "^0.4.0",
-    "o-hoverable": "^0.1.1"
+    "o-hoverable": "^0.1.1",
+    "o-useragent": "^1.1.0",
+    "o-viewport": "https://github.com/Financial-Times/o-viewport.git",
+    "ftdomdelegate": "~1.0.0"
   }
 }

@@ -5,11 +5,19 @@
   "support": "rhys.evans@ft.com",
   "supportStatus": "active",
   "browserFeatures": {
-  	"required": ["html5"],
-  	"optional": ["svg", "datauri", "css-gradient"]
+    "required": [
+      "html5"
+    ],
+    "optional": [
+      "svg",
+      "datauri",
+      "css-gradient"
+    ]
   },
-  "demos": ["demos/ft-header.html"],
   "ci": {
-      "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-header/builds.json"
-  }
+    "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-header/builds.json"
+  },
+  "demos": [
+    "/demos/ft-header.html"
+  ]
 }

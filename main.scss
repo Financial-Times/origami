@@ -1,4 +1,5 @@
 @import "o-assets/main";
+@import "o-useragent/main";
 @import "o-grid/main";
 @import "o-fonts/main";
 @import "o-colors/main";
@@ -55,35 +56,65 @@
 	@extend %o-grid-no-right-gutter;
 }
 
+$_ft-header-logo-initials-height: 28px;
+$_ft-header-logo-initials-width: 49px;
+$_ft-header-logo-size: 60px;
+$_ft-header-logo-padding-top: 8px;
+$_ft-header-logo-condensed-size: 40px;
+$_ft-header-logo-scaling-factor: $_ft-header-logo-condensed-size / $_ft-header-logo-size;
+
+$_ft-header-logo-padding-bottom: $_ft-header-logo-size - ($_ft-header-logo-padding-top + $_ft-header-logo-initials-height);
+$_ft-header-logo-font-size: $_ft-header-logo-initials-height * 1.42;
+
 .o-ft-header__logo {
 	display: block;
-	padding: 11px 0 31px;
-	width: 82px;
-	height: 35px;
-	font-size: 50px;
+	padding-top: $_ft-header-logo-padding-top;
+	padding-left: 0;
+	padding-right: 0;
+	margin-top: 0;
+	padding-bottom: $_ft-header-logo-padding-bottom;
+	width: $_ft-header-logo-size;
+	height: $_ft-header-logo-initials-height;
+	font-size: $_ft-header-logo-font-size;
 	text-align: center;
-	line-height: 35px;
+	line-height: $_ft-header-logo-initials-height;
 	color: oColorsGetColorFor(ft-initials, text);
 	float: left;
 	background: #ffe2c6; 
-	background: -moz-linear-gradient(top,  #ffe2c6 0%, #f7d8b9 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffe2c6), color-stop(100%,#f7d8b9)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #ffe2c6 0%,#f7d8b9 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #ffe2c6 0%,#f7d8b9 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #ffe2c6 0%,#f7d8b9 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #ffe2c6 0%,#f7d8b9 100%); /* W3C */
+	@include oUseragentPrefixer(background, linear-gradient(to bottom,  #ffe2c6 0%,#f7d8b9 100%), true, false);
+	@include oUseragentPrefixer(transition-property, padding-top padding-bottom width height margin-top);
+	@include oUseragentPrefixer(transition-duration, 0.2s);
 
 	> abbr {	
+		@include oUseragentPrefixer(transition-property, width height);
+		@include oUseragentPrefixer(transition-duration, 0.2s);
 		display: block;
-		height: 35px;
-		width: 100%; // needed for firefox with svg
+		height: $_ft-header-logo-initials-height;
+		width: $_ft-header-logo-initials-width;
 		background: url(oFtHeaderAsset('img/ft-logo.gif')) no-repeat; 
 		// the weird value for rgba is to prevent sass converting rgba(0,0,0,0) to 'transparent', which would cause the following line of css to be understood by ie7/8 and the svg to be downloaded
-		background: rgba(0,0,0,0.001) url(oFtHeaderAsset('img/ft-logo.svg')) no-repeat;
+		background: rgba(255, 255, 255, 0.001) url(oFtHeaderAsset('img/ft-logo.svg')) no-repeat;
+		// background: rgba(0, 0, 0, 0.001) url(../img/ft-logo.svg) no-repeat;
 		text-indent: 100%;
 		white-space: nowrap;
 		overflow: hidden;
+		margin: 0 auto;
 	}
+}
+
+.o-ft-header--condensed .o-ft-header__logo {
+	margin-top: 5px;
+	padding-top: $_ft-header-logo-scaling-factor * $_ft-header-logo-padding-top;
+	padding-bottom: $_ft-header-logo-scaling-factor * $_ft-header-logo-padding-bottom;
+	width: $_ft-header-logo-scaling-factor * $_ft-header-logo-size;
+	height: $_ft-header-logo-scaling-factor * $_ft-header-logo-initials-height;
+	font-size: $_ft-header-logo-scaling-factor * $_ft-header-logo-font-size;
+	line-height: $_ft-header-logo-scaling-factor * $_ft-header-logo-initials-height;
+
+	> abbr {	
+		height: $_ft-header-logo-scaling-factor * $_ft-header-logo-initials-height;
+		width: $_ft-header-logo-scaling-factor * $_ft-header-logo-initials-width;
+	}	
 }
 
 @media print {
@@ -103,8 +134,8 @@ $o-ft-header-topbar-item-selector: #{'%o-ft-header__topbar__item'};
 $o-ft-header-topbar-item-active-selector: #{'%o-ft-header__topbar__item--active'};
 
 @if (not $o-ft-header-is-silent) {
-	$o-ft-header-topbar-item-selector: append($o-ft-header-topbar-item-selector, #{'.o-ft-header__topbar__item'}, comma);
-	$o-ft-header-topbar-item-active-selector: append($o-ft-header-topbar-item-active-selector, #{'.o-ft-header__topbar__item--active'}, comma);
+	$o-ft-header-topbar-item-selector: append($o-ft-header-topbar-item-selector, #{'.o-ft-header__topbar__item'}, comma) !global;
+	$o-ft-header-topbar-item-active-selector: append($o-ft-header-topbar-item-active-selector, #{'.o-ft-header__topbar__item--active'}, comma) !global;
 }
 
 @mixin _oFtHeaderItemActiveStyles () {
