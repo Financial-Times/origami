@@ -1,0 +1,9 @@
+{
+  "name": "o-viewport",
+  "description": "Utility for moderating listeners for browser events on window",
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "ftdomdelegate": "~1.0.0",
+    "o-useragent": "~1.1.0"
+  }
+}
