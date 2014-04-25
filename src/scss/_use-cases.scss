@@ -20,9 +20,11 @@ $o-colors-usecase-list:
     // Generics
     page                              pink                   background,
     page                              black                  text,
-    table                             pink-tint1             background,
+    table                             transparent            background,
+    table-striped                     pink                   background,
     table-header-row                  pink-tint4             border,
     table-row                         pink-tint3             border,
+    table-row-alt                     pink-tint1             background,
     box                               pink-tint1             background,
     link                              blue                   text,
     link-hover                        black                  text,

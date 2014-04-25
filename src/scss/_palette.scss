@@ -11,6 +11,10 @@
 
 $o-colors-palette-list:
 
+    /* Non-colour CSS values */
+    transparent    transparent,
+    inherit        inherit,
+
 	/* Primary Palette */
 	pink           #fff1e0,
 	black          #000000,
@@ -20,17 +24,17 @@ $o-colors-palette-list:
 	claret         #9e2f50,
 	orange         #d66d06,
 
-    grey-tint1     #b0b0b0, // new
-    grey-tint2     #999,    // new
-    grey-tint3     #777,    // was cool-grey1
-    grey-tint4     #505050, // was dark-grey
-    grey-tint5     #333,    // was charcoal
+    grey-tint1     #b0b0b0,
+    grey-tint2     #999,
+    grey-tint3     #777,
+    grey-tint4     #505050,
+    grey-tint5     #333,
 
-    pink-tint1     #f6e9d8, // was tint1
-    pink-tint2     #e9decf, // was tint2
-    pink-tint3     #cec6b9, // was tint3
-    pink-tint4     #a7a59b, // was warm-grey1
-    pink-tint5     #74736c, // was warm-grey2
+    pink-tint1     #f6e9d8,
+    pink-tint2     #e9decf,
+    pink-tint3     #cec6b9,
+    pink-tint4     #a7a59b,
+    pink-tint5     #74736c,
 
     /* Colors */
     red            #c00,
