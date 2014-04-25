@@ -3,11 +3,14 @@
         "sass": "demos/src/demo.scss"
     },
     "demos": {
-        "headed-columns": {
-            "template": "demos/src/headed-columns.mustache"
+        "basic": {
+            "template": "demos/src/basic.mustache"
         },
-        "headed-rows": {
-            "template": "demos/src/headed-rows.mustache"
+        "row-stripes": {
+            "template": "demos/src/row-stripes.mustache"
+        },
+        "lines": {
+            "template": "demos/src/lines.mustache"
         }
     }
 }

@@ -8,7 +8,8 @@
         "travis": "https://api.travis-ci.org/repos/Financial-Times/o-table/builds.json"
     },
     "demos": [
-        "/demos/headed-columns.html",
-        "/demos/headed-rows.html"
+        "/demos/basic.html",
+        "/demos/row-stripes.html",
+        "/demos/lines.html"
     ]
 }

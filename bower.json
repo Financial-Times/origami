@@ -1,7 +1,7 @@
 {
     "name": "o-table",
     "dependencies": {
-        "o-colors": "^2.3.8",
+        "o-colors": "^2.3.9",
         "o-ft-typography": "^1.8.1"
     },
     "main": [ "main.scss"],

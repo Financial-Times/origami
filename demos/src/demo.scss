@@ -1,2 +1,6 @@
 $o-table-is-silent: false;
 @import "./../../main";
+
+table.o-table {
+  max-width: 600px;
+}

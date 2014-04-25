@@ -1,36 +1,59 @@
 @mixin oTableBase($classname) {
 
   table.#{$classname} {
-    margin: 1em 0;
+    margin: 0 0 20px 0;
     border-spacing: 0;
     border-collapse: collapse;
-    border-color: oColorsGetColorFor(table, background);
-    border-style: solid;
-    border-width: 3px 5px;
     width: 100%;
-    background-color: oColorsGetColorFor(table, background);
+    background-color: oColorsGetColorFor(table page, background);
 
     @extend %o-ft-typography-body;
 
-    >thead>tr>th,
-    >tbody>tr>th,
-    >tfoot>tr>th,
-    >thead>tr>td,
-    >tbody>tr>td,
-    >tfoot>tr>td {
+    th,
+    td {
       padding: 8px;
-      border-top: 1px solid #ddd;
       line-height: 1.428571429;
       text-align: left;
-      border-bottom: 1px solid oColorsGetColorFor(table-row, border);
       vertical-align: top;
     }
 
-    >thead>tr>th:not([scope=row]),
-    >tbody>tr>th:not([scope=row]),
-    >tr>th:not([scope=row]) {
+    th[scope=row],
+    &.#{$classname}--vertical-lines th[scope=row] {
+      border-left: 2px solid oColorsGetColorFor(table-header-row, border);
+      border-right: 2px solid oColorsGetColorFor(table-header-row, border);
+    }
+
+    [data-type=numeric] {
+      text-align: right;
+    }
+
+    th:not([scope=row]) {
+      border-top: 2px solid oColorsGetColorFor(table-header-row, border);
+      border-right: none;
       border-bottom: 2px solid oColorsGetColorFor(table-header-row, border);
+      border-left: none;
       vertical-align: bottom;
+    }
+
+    &.#{$classname}--row-stripes {
+      background-color: oColorsGetColorFor(table-striped table page, background);
+      tbody tr:nth-child(even) {
+        background-color: oColorsGetColorFor(table-row-alt table, background);
+      }
+    }
+
+    &.#{$classname}--horizontal-lines {
+      td {
+        border-bottom: 1px solid oColorsGetColorFor(table-row, border);
+      }
+    }
+
+    &.#{$classname}--vertical-lines {
+      th,
+      td {
+        border-left: 1px solid oColorsGetColorFor(table-row, border);
+        border-right: 1px solid oColorsGetColorFor(table-row, border);
+      }
     }
 
   }
