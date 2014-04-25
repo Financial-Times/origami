@@ -49,7 +49,13 @@ function getOrientationListener () {
 }
 
 function setInterval (event, interval) {
-    intervals[event] = interval;
+    if (typeof arguments[0] === 'number') {
+        setInterval ('scroll', arguments[0]);
+        setInterval ('resize', arguments[1]);
+        setInterval ('orientation', arguments[2]);
+    } else if (interval) {
+        intervals[event] = interval;
+    }
 }
 
 function init(event) {
