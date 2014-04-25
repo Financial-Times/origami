@@ -59,34 +59,34 @@ function listenToResize () {
 
     if (init('resize')) return;
   
-    delegate.on('resize', _.debounce(intervals.resize, function (ev) {
+    delegate.on('resize', _.debounce(function (ev) {
         broadcast('resize', {
             clientHeight: body.clientHeight,
             clientWidth: body.clientWidth,
             originalEvent: ev
         });
-    }));
+    }, intervals.resize));
 }
 
 function listenToOrientation () {
 
     if (init('orientation')) return;
 
-    delegate.on('orientationchange', _.debounce(intervals.orientation, function (ev) {
+    delegate.on('orientationchange', _.debounce(function (ev) {
         broadcast('orientation', {
             clientHeight: body.clientHeight,
             clientWidth: body.clientWidth,
             orientation: getOrientation(),
             originalEvent: ev
         });
-    }));
+    }, intervals.orientation));
 }
 
 function listenToScroll () {
 
     if (init('scroll')) return;
 
-    delegate.on('scroll', _.throttle(intervals.scroll, function (ev) {
+    delegate.on('scroll', _.throttle(function (ev) {
         broadcast('scroll', {
             clientHeight: body.clientHeight,
             clientWidth: body.clientWidth,
@@ -96,7 +96,7 @@ function listenToScroll () {
             scrollWidth: body.scrollWidth,
             originalEvent: ev
         });
-    }));
+    }, intervals.scroll));
 }
 
 function listenTo (event) {
