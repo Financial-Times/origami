@@ -21,32 +21,19 @@ function broadcast (name, data) {
     }));
 }
 
-function getOrientationListener () {
-    
-    // not using window.orientation because of http://www.matthewgifford.com/blog/2011/12/22/a-misconception-about-window-orientation/
-
+var getOrientation = (function () {
     var orientationPropName = prefixer.dom(screen, 'orientation');
 
     if (orientationPropName) {
-        return function (ev) {
-            broadcast('orientation', {
-                clientHeight: body.clientHeight,
-                clientWidth: body.clientWidth,
-                orientation: screen[orientationPropName].split('-')[0],
-                originalEvent: ev
-            });
+        return function () {
+            return screen[orientationPropName].split('-')[0];
         };
     } else {
-        return function (ev) {
-            broadcast('orientation', {
-                clientHeight: body.clientHeight,
-                clientWidth: body.clientWidth,
-                orientation: body.clientHeight >= body.clientWidth ? 'portrait' : 'landscape',
-                originalEvent: ev
-            });
+        return function () {
+            return body.clientHeight >= body.clientWidth ? 'portrait' : 'landscape';
         };
     }
-}
+})();
 
 function setInterval (event, interval) {
     if (typeof arguments[0] === 'number') {
@@ -68,7 +55,7 @@ function init(event) {
     body = body || document.body;
 }
 
-function resize () {
+function listenToResize () {
 
     if (init('resize')) return;
   
@@ -81,14 +68,21 @@ function resize () {
     }));
 }
 
-function orientation () {
+function listenToOrientation () {
 
     if (init('orientation')) return;
 
-    delegate.on('orientationchange', _.debounce(intervals.orientation, getOrientationListener()));
+    delegate.on('orientationchange', _.debounce(intervals.orientation, function (ev) {
+        broadcast('orientation', {
+            clientHeight: body.clientHeight,
+            clientWidth: body.clientWidth,
+            orientation: getOrientation(),
+            originalEvent: ev
+        });
+    }));
 }
 
-function scroll () {
+function listenToScroll () {
 
     if (init('scroll')) return;
 
@@ -105,12 +99,21 @@ function scroll () {
     }));
 }
 
+function listenTo (event) {
+    if (event === 'resize') {
+        listenToResize();
+    } else if (event === 'scroll') {
+        listenToScroll();
+    } else if (event === 'orientation') {
+        listenToOrientation();
+    }
+}
+
 module.exports = {
     debug: function () {
         debug = true;
     },
-    resize: resize,
-    orientation: orientation,
-    scroll: scroll,
-    setInterval: setInterval
+    listenTo: listenTo,
+    setInterval: setInterval,
+    getOrientation: getOrientation
 };
