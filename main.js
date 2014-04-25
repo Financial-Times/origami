@@ -30,12 +30,12 @@ function condense (scrollTop) {
 
 function forceCondense () {
     forceCondensedMode = true;
-    condense();
+    condense(document.body.scrollTop);
 }
 
-function unforceCondense () {
+function unforceCondense (force) {
     forceCondensedMode = false;
-    condense();
+    condense(force ? 0 : document.body.scrollTop);
 }
 
 module.exports = {
