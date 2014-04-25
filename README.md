@@ -19,10 +19,10 @@ Attaches a throttled listener to the window scroll event, which broadcasts a nam
 
 ### `o-viewport#setInterval(event, interval)` *Product use only*
 Sets the debounce/throttle interval for a given event [`scroll`, `resize` or `orientation`]. 
-As a shorthand, calling `setInterval` with 1 - 3 numbers will set the intervals for `scroll`, `resize` nad `orientation` in that order e.g. `setInterval(100, 200, 300)`is equivalent to
+As a shorthand, calling `setInterval` with 1 - 3 numbers will set the intervals for `scroll`, `resize` and `orientation` in that order e.g. `setInterval(100, undefined, 300)` is equivalent to:
 
     setInterval('scroll', 100)
-    setInterval('resize', 200)
+    setInterval('resize', null) // which does nothing
     setInterval('orientation', 300)
 
 ## Events
