@@ -9,7 +9,6 @@ var el;
 
 function init () {
     viewport.listenTo('scroll');
-    viewport.listenTo('resize');
     var delegate = new Delegate(document.body);
     el = document.querySelector('.o-ft-header');
 
