@@ -15,9 +15,9 @@ To use these define an object `o-ft-header` in the data passed to your view and 
 To use these set them *before* including `o-ft-header/main.scss` in your stylesheet
 
 * `$o-ft-header-top-offset`: *[0]* Distance of header from top of page (only applied when the header has `position: fixed`);
-* `$o-ft-header-z-index`: *[false]* z-index of header. Whn header is not fixed this also sets `position: relative`
+* `$o-ft-header-z-index`: *[false]* z-index of header. When header is not fixed this also sets `position: relative`
 * `$o-ft-header-is-silent`: *[true]* When true prevents the stylesheet outputting styles for optional states/items
-* `$o-ft-header-sticky`: *[$o-grid-small,$o-grid-medium]* Configures when a 'sticky' fixed position header is used:
+* `$o-ft-header-sticky`: *[true]* Configures when a 'sticky' fixed position header is used:
 	* `false` - header is never sticky
 	* `true` - header is always sticky
 	* comma-separated list of [o-grid layout identifiers](https://github.com/Financial-Times/o-grid) - header will be sticky at these layout sizes only.
@@ -30,3 +30,16 @@ To inject content into the `<div class="o-ft-header__topbar__items"></div>` cont
 
 1. Set the html as the value for `o-ft-header.topbar-items` in your view model.
 1. Apply generic styles by extending the following sass placeholder classes: `%o-ft-header__topbar__item` and `%o-ft-header__topbar__item--active`
+
+### Javascript API
+
+The module contains limited javascript functionality to improve the look and feel of the header by shrinking/expanding the FT logo in response to user scrolling and other events (as defined by the developer)
+
+#### Initializing
+
+    require('o-ft-header').init();
+
+#### Methods
+
+* `forceCondense()`  Forces the FT logo to appear in it's reduced, non-overhanging size, irrespective of user scrolling
+* `unforceCondense(expandNow)`: Returns the FT logo size to being determined by user scrolling. If `expandNow` is `true` the logo will expand to full size immediately.
