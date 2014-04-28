@@ -24,16 +24,16 @@ function broadcast (eventType, data) {
 }
 
 var getOrientation = (function () {
-    var orientationPropName = prefixer.dom(screen, 'orientation');
-    var mqOrientationPropName = prefixer.dom(window, 'matchMedia');
+    var orientation = prefixer.dom(screen, 'orientation');
+    var matchMedia = prefixer.dom(window, 'matchMedia');
     
-    if (orientationPropName) {
+    if (orientation) {
         return function () {
-            return screen[orientationPropName].split('-')[0];
+            return screen[orientation].split('-')[0];
         };
-    } else if (mqOrientationPropName) {
+    } else if (matchMedia) {
         return function () {
-            return window.matchMedia('(orientation: portrait)') ? 'portrait' : 'landscape';
+            return window[matchMedia]('(orientation: portrait)') ? 'portrait' : 'landscape';
         };
     } else {
         return function () {
