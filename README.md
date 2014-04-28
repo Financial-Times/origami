@@ -28,7 +28,7 @@ As a shorthand, calling `setThrottleInterval` with 1 - 3 numbers will set the in
 Turns on debug mode (logging event details to the console). 
 
 ## Events
-Each of these custom events are fired on `document.body`, `event.detail.originalEvent` contains a reference to the original browser event and `event.detail.size` the result of `o-viewport#getSize()`. Additional properties in `event.detail` are detailed below:
+Each of these custom events are fired on `document.body`, `event.detail.originalEvent` contains a reference to the original browser event and `event.detail.viewport` the result of `o-viewport#getSize()`. Additional properties in `event.detail` are detailed below:
 
 ### `oViewport.resize`
 No additional properties
