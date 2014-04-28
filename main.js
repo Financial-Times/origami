@@ -5,18 +5,22 @@ require('o-hoverable');
 var viewport = require('o-viewport');
 var Delegate = require('ftdomdelegate');
 var forceCondensedMode;
+var initialised;
 var el;
 
 function init () {
-    viewport.listenTo('scroll');
-    var delegate = new Delegate(document.body);
-    el = document.querySelector('.o-ft-header');
+    if (!initialised) {
+        initialised = true;
+        viewport.listenTo('scroll');
+        var delegate = new Delegate(document);
+        el = document.querySelector('.o-ft-header');
 
-    delegate.on('oViewport.scroll', null, function (ev) {
-        condense(ev.detail.scrollTop);
-    });
+        delegate.on('oViewport.scroll', null, function (ev) {
+            condense(ev.detail.scrollTop);
+        });
 
-    condense(document.body.scrollTop);
+        condense(document.body.scrollTop);
+    }
 }
 
 function condense (scrollTop) {
@@ -32,9 +36,9 @@ function forceCondense () {
     condense(document.body.scrollTop);
 }
 
-function unforceCondense (force) {
+function unforceCondense (expandNow) {
     forceCondensedMode = false;
-    condense(force ? 0 : document.body.scrollTop);
+    condense(expandNow ? 0 : document.body.scrollTop);
 }
 
 module.exports = {
