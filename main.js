@@ -3,7 +3,7 @@
 require('o-hoverable');
 
 var viewport = require('o-viewport');
-var Delegate = require('ftdomdelegate');
+var Delegate = require('dom-delegate');
 var forceCondensedMode;
 var initialised;
 var el;
