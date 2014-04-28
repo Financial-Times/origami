@@ -4,17 +4,17 @@ $o-fonts-version: null !default;
 $o-fonts-assets-path: $o-fonts-name !default;
 
 $o-fonts-is-silent: true !default;
-
-$o-fonts-sans-serif: helvetica, arial, sans-serif;
+$_o-fonts-sans-serif: helvetica, arial, sans-serif;
+$o-fonts-sans-serif: bentonsans-normal, $_o-fonts-sans-serif;
 $o-fonts-serif: georgia, 'times new roman', serif;
 
 $ft-fonts-already-included-list: () !default;
 
 $o-fonts-supported: bentonsans, millerdisplay, clarion;
 
-$o-fonts-bentonsans-lighter: bentonsans-lighter, $o-fonts-sans-serif;
-$o-fonts-bentonsans-normal: bentonsans-normal, $o-fonts-sans-serif;
-$o-fonts-bentonsans-bold: bentonsans-bold, $o-fonts-sans-serif;
+$o-fonts-bentonsans-lighter: bentonsans-lighter, $_o-fonts-sans-serif;
+$o-fonts-bentonsans-normal: bentonsans-normal, $_o-fonts-sans-serif;
+$o-fonts-bentonsans-bold: bentonsans-bold, $_o-fonts-sans-serif;
 $o-fonts-millerdisplay-normal: millerdisplay-normal, $o-fonts-serif;
 $o-fonts-millerdisplay-bold: millerdisplay-bold, $o-fonts-serif;
 $o-fonts-millerdisplay-bolder: millerdisplay-bolder, $o-fonts-serif;
