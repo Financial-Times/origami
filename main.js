@@ -12,10 +12,10 @@ function init () {
     if (!initialised) {
         initialised = true;
         viewport.listenTo('scroll');
-        var delegate = new Delegate(document);
+        var delegate = new Delegate(document.body);
         el = document.querySelector('.o-ft-header');
 
-        delegate.on('oViewport.scroll', null, function (ev) {
+        delegate.on('oViewport.scroll', function (ev) {
             condense(ev.detail.scrollTop);
         });
 
