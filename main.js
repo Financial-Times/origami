@@ -75,8 +75,7 @@ function listenToResize () {
   
     delegate.on('resize', _.debounce(function (ev) {
         broadcast('resize', {
-            clientHeight: body.clientHeight,
-            clientWidth: body.clientWidth,
+            size: getSize(),
             originalEvent: ev
         });
     }, intervals.resize));
@@ -87,9 +86,9 @@ function listenToOrientation () {
     if (init('orientation')) return;
 
     delegate.on('orientationchange', _.debounce(function (ev) {
+        var dim = getSize();
         broadcast('orientation', {
-            clientHeight: body.clientHeight,
-            clientWidth: body.clientWidth,
+            size: getSize(),
             orientation: getOrientation(),
             originalEvent: ev
         });
@@ -101,9 +100,9 @@ function listenToScroll () {
     if (init('scroll')) return;
 
     delegate.on('scroll', _.throttle(function (ev) {
+        var dim = getSize();
         broadcast('scroll', {
-            clientHeight: body.clientHeight,
-            clientWidth: body.clientWidth,
+            size: getSize(),
             scrollHeight: body.scrollHeight,
             scrollLeft: body.scrollLeft,
             scrollTop: body.scrollTop,

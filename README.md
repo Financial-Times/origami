@@ -1,9 +1,9 @@
 o-viewport
 ==========
 
-Utility for moderating listeners for browser events on window
+Utility for moderating listeners for browser events on window and normalizing viewport properties across browsers.
 
-*Note: within the module and in the documentation below `orientation` is used instead of `orientationchange`, but the actual browser event listened to is `orientationchange`*
+*Note: within the module's API and in the documentation below `orientation` is used instead of `orientationchange`, but the actual browser event listened to is `orientationchange`*
 
 ## Methods
 
@@ -14,7 +14,7 @@ Attaches a debounced/throttled (as appropriate) listener to events on window [`r
 Provides a reasonably reliable way (more so than `window.orientation`) of obtaining the current orientation of the viewport.
 
 ### `o-viewport#getSize()`
-Provides a reliable way of obtaining the current dimensions of the viewport.
+Provides a reliable way of obtaining the current dimensions of the viewport. returns and object with teh properties `width` and `height`
 
 ### `o-viewport#setThrottleInterval(eventType, interval)` *Product use only*
 Sets the debounce/throttle interval for a given event [`scroll`, `resize` or `orientation`]. 
@@ -25,26 +25,20 @@ As a shorthand, calling `setThrottleInterval` with 1 - 3 numbers will set the in
     setThrottleInterval('orientation', 300)
 
 ### `o-viewport#debug()`
-Tuns on debug mode (logging event details to the console). 
+Turns on debug mode (logging event details to the console). 
 
 ## Events
-Each of these custom events are fired on `document.body` and `event.detail.originalEvent` contains a reference to the original browser event. Additiional properties in `event.detail` are detailed below:
+Each of these custom events are fired on `document.body`, `event.detail.originalEvent` contains a reference to the original browser event and `event.detail.size` the result of `o-viewport#getSize()`. Additional properties in `event.detail` are detailed below:
 
 ### `oViewport.resize`
-
-    clientHeight: body.clientHeight
-    clientWidth: body.clientWidth
+No additional properties
 
 ### `oViewport.orientation`
 
-    clientHeight: body.clientHeight
-    clientWidth: body.clientWidth
     orientation: 'portrait' or 'landscape'
 
 ### `oViewport.scroll`
 
-    clientHeight: body.clientHeight
-    clientWidth: body.clientWidth
     scrollHeight: body.scrollHeight
     scrollLeft: body.scrollLeft
     scrollTop: body.scrollTop
