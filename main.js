@@ -1,6 +1,6 @@
 'use strict';
 
-var Delegate = require('ftdomdelegate');
+var Delegate = require('dom-delegate');
 var _ = require('lodash');
 var prefixer = require('o-useragent').prefixer;
 var body;
