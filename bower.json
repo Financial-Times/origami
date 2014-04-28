@@ -4,7 +4,7 @@
   "main": "main.js",
   "dependencies": {
     "lodash": "~2.4.1",
-    "ftdomdelegate": "~1.0.1",
+    "dom-delegate": "~1.0.1",
     "o-useragent": "~1.1.0"
   }
 }
