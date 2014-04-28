@@ -1,5 +1,5 @@
 @mixin oFontsSource($fontName) {
-    $fontName: to-lower-case($fontName);
+  $fontName: to-lower-case($fontName);
 	src: url(oFontsUseAsset($fontName + '.eot')); // IE9 Compat Modes
 	src: url(oFontsUseAsset($fontName + '.eot?#iefix')) format('embedded-opentype'), // IE6-IE8
 	     url(oFontsUseAsset($fontName + '.woff')) format('woff'), // Modern Browsers
@@ -7,6 +7,10 @@
 }
 
 @mixin oFontsInclude($family, $weight: normal, $style: normal) {
+  $family: to-lower-case($family);
+  $weight: to-lower-case($weight);
+  $style: to-lower-case($style);
+
 	@if(not index($o-fonts-supported, $family)) {
 		@warn "#{$family} is not supported by o-fonts";
 	}
@@ -43,7 +47,7 @@
   @include oFontsInclude(MillerDisplay, bolder);
   @include oFontsInclude(Clarion, normal);
   @include oFontsInclude(Clarion, bold);
-  @include oFontsInclude(Clarion, null, italic);
+  @include oFontsInclude(Clarion, normal, italic);
 }
 
 @function oFontsUseAsset ($asset) {
