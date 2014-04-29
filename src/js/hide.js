@@ -1,10 +1,8 @@
 'use strict';
 
-var $ = require('jquery'),
-    methods = require('../methods'),
-    prefixer = require('o-useragent').prefixer;
+var prefixer = require('o-useragent').prefixer;
 
-methods.doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEls, callback) {
+var doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEls, callback) {
     $transitioningEls = $transitioningEls || $wrapper;
 
     var maxDuration = 0,
@@ -85,4 +83,45 @@ methods.doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEl
     setTimeout(singletonCallback, maxDuration * 1000);
 };
 
-module.exports = methods;
+var detach = function (dialog, destroy) {
+    dialog.active = false;
+    dialog.content.empty();
+    dialog.wrapper.detach().attr('style', null);
+    if (dialog.opts.hasOverlay) {
+        dialog.overlay.detach();
+    }
+    if (destroy) {
+        if (Object.keys) {
+            Object.keys(globals).forEach(function (key) {
+                delete globals[key];
+            });
+        }
+    }
+    dialog.opts.onAfterClose(dialog);
+};
+
+
+module.exports = function (destroy, immediate) {
+    dialog.opts.onBeforeClose(dialog);    
+    if (dialog.opts.isDismissable) {
+        globals.body.off('click.o-dialog');
+        globals.doc.off('keyup.o-dialog');
+    }
+    globals.win.off('resize.o-dialog');
+
+    this.delegate.off('click', '*', this.closeOnExternalClick);
+    this.delegate.off('oLayers.hideAll', 'body', this.hide);
+
+
+    if (globals.isAnimatable && !immediate) {
+        var wrapper = dialog.opts.hasOverlay ? dialog.wrapper.add(dialog.overlay) : dialog.wrapper ;
+        methods.doAfterTransition(wrapper, 'is-open', 'remove', wrapper.add(dialog.content), function () {
+            methods.detach(dialog);
+        });
+        
+    } else {
+        dialog.wrapper.removeClass('is-open');
+        methods.detach(dialog, immediate);
+    }
+    
+};

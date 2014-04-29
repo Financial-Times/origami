@@ -1,50 +1,29 @@
 <!DOCTYPE html>
-<!--[if IE 7]>         <html class="no-js o-useragent-ie7"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js o-useragent-ie8"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if IE 7]>         <html class="o-useragent-ie7 o-hoverable-on"> <![endif]-->
+<!--[if IE 8]>         <html class="o-useragent-ie8 o-hoverable-on"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
     <title>o-dialog: modals demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
+    <link rel="stylesheet" href="undefined" />
+</head>
+<body class="">
+    <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
+    <style>.demo-message { margin: 0 0 10px 0; border-bottom: 1px solid #ddcc66; padding: 3px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-align: center; background-color: #ffee88; color: #333; }</style><div class="demo-message"><strong>Warning:</strong> Demo built for local static assets. Do not commit this file. Run <code>origami-build-tools demo &lt;config&gt; --buildservice</code> instead.</div>
+    
     <style>
     body {
         margin: 0;
+        height: 1000px;
     }
-    </style>
-    <link rel="stylesheet" href="/bundles/css?modules=o-dialog:/demos/src/demo.scss" />
-</head>
-<body>
-    
+    </style>    
     <script src-="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.dev.js"></script>
-<p>
-the body content of the page
-the body content of the page
-the body content of the page
-the body content of the page
-the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page</p>
+
 <h2>Overlay triggers </h2>
-<button data-o-dialog__trigger='{"preset": "modal", "src": "#wide-squat"}'>wide-squat</button>
-<button data-o-dialog__trigger='{"preset": "modal", "src": "#wide-tall"}'>wide-tall</button>
-<button data-o-dialog__trigger='{"preset": "modal", "src": "#narrow-squat"}'>narrow-squat</button>
-<button data-o-dialog__trigger='{"preset": "modal", "src": "#narrow-tall"}'>narrow-tall</button>
-<p>
-the body content of the page
-the body content of the page
-the body content of the page
-the body content of the page
-the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page  the body content of the page</p>
-<div class="nav">
-	<div class="nav__bar">
-	    <button class="left" data-o-dialog__trigger='{"preset": "dropdown", "src": "#top-left", "classes": "top-left"}'>top-left</button>
-		<button class="right" data-o-dialog__trigger='{"preset": "dropdown", "src": "#top-right", "classes": "top-right"}'>top-right</button>
-	</div>
-</div>
-<div class="nav bottom">
-	<div class="nav__bar">
-	    <button class="left" data-o-dialog__trigger='{"preset": "dropup", "src": "#bottom-left", "classes": "bottom-left"}'>bottom-left</button>
-		<button class="right" data-o-dialog__trigger='{"preset": "dropup", "src": "#bottom-right", "classes": "bottom-right"}'>bottom-right</button>
-	</div>
-</div>
+<button class="o-modal__trigger" data-o-modal-src="#wide-squat">wide-squat</button>
+
 
 	<script type="text/template" id="wide-squat">
 	    	   	
@@ -56,80 +35,7 @@ the body content of the page  the body content of the page  the body content of 
 				<p>Overlay content.</p>
 	       	<p>Overlay content.</p>
 	</script>
-	<script type="text/template" id="wide-tall">
-	    	<h1 class="o-dialog__heading">Overlay title - long version</h1>
-	    	<div class="o-dialog__body">
-		       	<p>Overlay content.</p>
-		       	<p>Overlay content.</p>
-		       	<p>Overlay content.</p>
-		       	<p>Overlay content.</p>
-		       	<p>Overlay content.</p>
-		       	<p>Overlay content.</p>
-		       	<p>Overlay content.</p>
-	       </div>
-	</script>
-	<script type="text/template" id="narrow-squat">
-	    	<h1 class="o-dialog__heading">Overlay title</h1>
-	       	<p>Overlay content.</p>
-	       	<p>Overlay content.</p>
-	</script>
-	<script type="text/template" id="narrow-tall">
-	    	<h1 class="o-dialog__heading">Overlay title</h1>
-	       	<p>Overlay content.</p>
-	       	<p>Overlay content.</p>
-	       	<p>Overlay content.</p>
-	       	<p>Overlay content.</p>
-	       	<p>Overlay content.</p>
-	</script>
-<div class="hidden">
-	<form id="top-left">
-			<input />
-			<br>
-			<input type="password" />
-		</form>
-		<form id="top-right">
-			<input  />
-			<br>
-			<input type="password" />
-			<br>
-			<input type="password" />
-			<br>
-			<input type="password" />
-			<br>
-			<input type="password" />
-			<br> 
-			<input type="password" />
-			<input  type="password" />
-			<br>
-			<input type="password" />
-			<br>
-			<input type="password" />
-			<br>
-			<input type="password" />
-			<br>
-			<input  type="password" />
-		</form>
-	<form id="bottom-left">
-			<input />
-			<br>
-			<input type="password" />
-		</form>
-		<form id="bottom-right">
-			<input  />
-			<br>
-			<input  type="password" />
-			<br>
-			<input type="password" />
-			<br>
-			<input type="password" />
-			<br>
-			<input type="password" />
-			<br>
-			<input  type="password" />
-		</form>
-
-</div>
-    <script src="/bundles/js?modules=o-dialog:/demos/src/demo.js" />
+    <script src="demo.js"></script>
     <script src='http://registry.origami.ft.com/embedapi?autoload=resize'></script>
 </body>
 </html>

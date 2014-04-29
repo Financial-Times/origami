@@ -1,10 +1,7 @@
-"use strict";
-
-var globals = require('../data/globals'),
-    methods = require('../private/dimension-calculators'),
+'use strict';
 
 
-    adjustBodyHeight = function (dialog, fullHeight) {
+var adjustBodyHeight = function (dialog, fullHeight) {
         if (dialog.opts.hasHeading) {
             if (fullHeight) {
                 dialog.body.height(dialog.content.height() - dialog.heading.outerHeight());
@@ -16,7 +13,7 @@ var globals = require('../data/globals'),
 
 
 
-methods.reAlign = function (dimension, dialog) {
+var reAlign = function (dimension, dialog) {
 
     if ((dimension === globals.H && !dialog.opts.isCenteredVertically) || (dimension === globals.W && !dialog.opts.isCenteredHorizontally)) {
         return;
@@ -64,4 +61,41 @@ methods.reAlign = function (dimension, dialog) {
 };
 
 
-module.exports = methods;
+module.exports = function () {
+    var self = this;
+
+    this.opts.onBeforeRender(this);
+
+    this.wrapper.classList.add('is-open');
+    this.content.focus();
+
+    this.width = this.getWidth(this);
+    this.height = this.getHeight(this);
+
+    this.respondToWindow();
+
+    this.delegate.on('resize', function() {
+        this.respondToWindow();
+    });
+
+    this.hide = this.hide.bind(this);
+    this.delegate.on('oLayers.hideAll', 'body', this.hide);
+
+    if (this.opts.isDismissable) {
+
+        this.closeOnExternalClick = this.closeOnExternalClick.bind(this);
+
+        setTimeout(function () {
+            self.delegate.on('click', '*', this.closeOnExternalClick);
+        }, 1);
+
+
+        this.delegate.on('keyup', function (ev) {
+            if (ev.keyCode === 27) {
+                self.close();
+            }
+        });
+    }
+
+    this.opts.onAfterRender(this);
+};

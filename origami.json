@@ -16,8 +16,5 @@
   },
   "ci": {
     "travis": "https://api.travis-ci.org/repos/Financial-Times/o-dialog/builds.json"
-  },
-  "demos": [
-    "/demos/modals.html"
-  ]
+  }
 }
