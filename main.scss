@@ -31,8 +31,3 @@ $o-colors-is-silent: true !default;
 		background-color: #{nth($color,2)};
 	}
 }
-
-.thing {
-    border-color: oColorsGetColorFor(forms-label-error, border);
-    color: oColorsGetColorFor(forms-field error, text);
-}
