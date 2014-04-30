@@ -90,37 +90,28 @@ var doAfterTransition = function (wrapper, cssClass, mode, transitioningEls, cal
     setTimeout(singletonCallback, maxDuration * 1000);
 };
 
-var detach = function (destroy) {
-    destroy && this.context.removeChild(this.wrapper);
-    this.opts.onAfterClose(this);
-};
-
-
 module.exports = function (destroy, immediate) {
-    this.detach = detach;
-    this.opts.onBeforeClose(this);
+    if (this.isOpen()) {
+        this.opts.onBeforeClose(this);
 
-    var self = this;
+        var self = this;
 
-    if (destroy) {
-        this.delegate.off();
-    } else {
-        if (this.opts.isDismissable) {
-            this.delegate.off('click', '*', this.closeOnExternalClick);
-            this.delegate.off('keyup', this.closeOnEscapePress);
+        if (destroy) {
+            this.delegate.off();
+        } else {
+            this.delegate.root();
+            this.globalDelegate.off('oLayers.hideAll', 'body', this.hide);
         }
-        this.delegate.off('oViewport.resize', 'body', this.resizeListener);
-        this.delegate.off('oLayers.hideAll', 'body', this.hide);
-    }
 
-    if (this.isAnimatable && !immediate) {
-        doAfterTransition(this.wrapper, 'is-open', 'remove', [this.wrapper, this.content], function () {
-            self.detach(destroy);
-        });
-        
-    } else {
-        this.wrapper.classList.remove('is-open');
-        this.detach(destroy);
+        if (this.isAnimatable && !immediate) {
+            doAfterTransition(this.wrapper, 'is-open', 'remove', [this.wrapper, this.content], function () {
+                self.detach(destroy);
+            });
+            
+        } else {
+            this.wrapper.classList.remove('is-open');
+            this.detach(destroy);
+        }
     }
     
 };

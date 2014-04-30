@@ -5,7 +5,7 @@
   height: 100%;
   width: 100%;
   top: 0;
-  z-index: 2;
+  z-index: 1;
   padding: 10px;
   box-sizing: border-box; 
   opacity: 0;
@@ -212,8 +212,7 @@
   height: 150%; // because on some phones scrolling upwards detaches a 100% height overlay from the bottom of the screen
   width: 100%;
   top: 0;
-  z-index: 1;
-  opacity: 0;
+  margin: -10px;
   -webkit-transition: opacity 0.3s ease-in-out;
   -moz-transition: opacity 0.3s ease-in-out;
   -ms-transition: opacity 0.3s ease-in-out;

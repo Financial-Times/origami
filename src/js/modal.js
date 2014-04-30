@@ -60,6 +60,7 @@ var Modal = function (opts, trigger) {
     if (!this.opts) { return opts.onFail.call(this); }
     
     this.context = this.opts.context || document.body;
+    this.globalDelegate = delegate;
     this.create();
 };
 
@@ -143,7 +144,7 @@ Modal.prototype = {
     adjustBodyHeight: function (fullHeight) {
         if (this.opts.hasHeading) {
             if (fullHeight) {
-                this.body.style.height = this.content.height() - this.heading.outerHeight();
+                this.body.style.height = this.content.clientHeight - this.heading.offsetHeight;
             } else {
                 this.body.style.height = '';
             }

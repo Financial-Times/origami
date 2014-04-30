@@ -1,6 +1,6 @@
 'use strict';
 
-var Delegate = require('dom-delegate');
+
 var dom = require('o-dom');
 
 var wrapperSeed = document.createElement('div');
@@ -10,7 +10,7 @@ wrapperSeed.innerHTML = '<div class="o-modal__overlay"></div><section class="o-m
 
 module.exports = function () {
 
-    this.delegate = new Delegate(window);
+
 
     this.wrapper = wrapperSeed.cloneNode(true);
 
@@ -56,7 +56,7 @@ module.exports = function () {
     this.context.appendChild(this.wrapper);
 
     this.destroy = this.destroy.bind(this);
-    this.delegate.on('oLayers.removeAll', 'body', this.destroy);
+    this.globalDelegate.on('oLayers.removeAll', 'body', this.destroy);
 
     if (this.opts.openImmediately) {
         // this.wrapper.offsetWidth;
