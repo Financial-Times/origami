@@ -14,7 +14,7 @@
   ],
   "dependencies": {
     "o-useragent": ">=0.5.0 <2",
-    "o-colors": "^2.2.20",
+    "o-colors": "^2.3.10",
     "o-fonts": ">=0.7.0 <2",
     "o-assets": "^0.4.0 <2",
     "o-ft-typography": "^1.4.0",
@@ -25,8 +25,5 @@
   },
   "devDependencies": {
     "modernizr": ">=2.6.* <3"
-  },
-  "resolutions": {
-    "o-dom": "~0.3.0"
   }
 }

@@ -35,7 +35,7 @@ var setOptions = function (opts, trigger) {
     if (!opts.srcType) {
         if (/^(https?\:\/)?\//.test(opts.src)) {
             opts.srcType = 'url';
-        } else if ((opts.content = $(opts.src)) && opts.content.length) {
+        } else if (opts.content = document.querySelector(opts.src)) {
             opts.srcType = 'selector';
             opts.content = copyContent(opts.content);
         } else {
@@ -43,7 +43,7 @@ var setOptions = function (opts, trigger) {
             opts.content = opts.src;
         }
     } else if (opts.srcType === 'selector') {
-        opts.content = copyContent($(opts.src));
+        opts.content = copyContent(document.querySelector(opts.src));
     } else if (opts.srcType === 'string') {
         opts.content = opts.src;
     }
@@ -66,14 +66,14 @@ var Modal = function (opts, trigger) {
 Modal.listen = function () {
     delegate = delegate || new Delegate(document.body);
 
-    delegate.on('click', 'o-modal__trigger', function (ev) {
+    delegate.on('click', '.o-modal__trigger', function (ev) {
         new Modal(null, ev.target);
         ev.preventDefault();
     });
 };
 
 Modal.unlisten = function () {
-    delegate && delegate.off('click', 'o-modal__trigger');
+    delegate && delegate.off('click', '.o-modal__trigger');
 };
 
 Modal.defaults = require('./defaults');
@@ -100,6 +100,14 @@ Modal.prototype = {
             }
         }
     },
+    closeOnEscapePress: function (ev) {
+        if (ev.keyCode === 27) {
+            this.close();
+        }
+    },
+    resizeListener: function (ev) {
+        this.respondToWindow(ev.detail.viewport);
+    },
     broadcast: function (eventType, namespace, data) {
         namespace = namespace || 'oModal';
         var target = namespace === 'oLayers' ? this.context : this.dom.wrapper;
@@ -116,12 +124,12 @@ Modal.prototype = {
     },
     respondToWindow: function (size) {
         this.opts.onBeforeResize(this);
-        this.reAlign('width', size.width);
-        this.reAlign('height', size.height);
+        this.realign('width', size.width);
+        this.realign('height', size.height);
         this.opts.onAfterResize(this);
     },
     isOpen: function () {
-        return this.wrapper.classlist.contains('is-open');
+        return this.wrapper.classList.contains('is-open');
     },
     getWidth: function () {
         return this.content.clientWidth + getSpacing(this.wrapper, 'left') + getSpacing(this.wrapper, 'right');
@@ -130,7 +138,7 @@ Modal.prototype = {
         return this.content.clientHeight + getSpacing(this.wrapper, 'top') + getSpacing(this.wrapper, 'bottom');
     },
     fills: function (dimension) {
-        return this.wrapper.classlist.contains('o-modal--full-' + dimension);
+        return this.wrapper.classList.contains('o-modal--full-' + dimension);
     },
     adjustBodyHeight: function (fullHeight) {
         if (this.opts.hasHeading) {
@@ -141,6 +149,10 @@ Modal.prototype = {
             }
         }
     },
+    detach: function (destroy) {
+        destroy && this.context.removeChild(this.wrapper);
+        this.opts.onAfterClose(this);
+    }
 };
 
 module.exports = Modal;

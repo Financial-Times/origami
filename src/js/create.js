@@ -5,7 +5,7 @@ var dom = require('o-dom');
 
 var wrapperSeed = document.createElement('div');
 wrapperSeed.className = 'o-modal';
-wrapperSeed.innerHTML = '<div class="o-modal__overlay"></div><section class="o-modal __content"></section>';
+wrapperSeed.innerHTML = '<div class="o-modal__overlay"></div><section class="o-modal__content"></section>';
 
 
 module.exports = function () {
@@ -42,8 +42,8 @@ module.exports = function () {
 
     this.opts.hasHeading = !!this.heading;
 
-    this.wrapper.classList.add(this.opts.outerClasses);
-    this.content.classList.add(this.opts.innerClasses);
+    this.opts.outerClass && this.wrapper.classList.add(this.opts.outerClass);
+    this.opts.innerClass && this.content.classList.add(this.opts.innerClass);
 
     if (this.opts.hasCloseButton) {
         this.wrapper.classList.add('o-modal--closable');
@@ -53,7 +53,7 @@ module.exports = function () {
         this.content.classList.add('o-modal__body');
     }
 
-    this.wrapper.appendTo(this.context);
+    this.context.appendChild(this.wrapper);
 
     this.destroy = this.destroy.bind(this);
     this.delegate.on('oLayers.removeAll', 'body', this.destroy);

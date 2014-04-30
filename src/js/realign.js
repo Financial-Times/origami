@@ -20,13 +20,13 @@ module.exports = function (dimension, size) {
         // for ios7 only win.innerHeight provides the correct value when the browser chrome is present
         // need to use the jQuery method as a fallback as <ie9 don't support the property
         if (size <= this[dimension]) {
-            this.wrapper.classlist.add('o-modal--full-' + dimension);
+            this.wrapper.classList.add('o-modal--full-' + dimension);
             if (!this.isFlexbox) {
                 this.content.style['margin' + edge] = 0;
                 this.adjustBodyHeight(true);
             }
         } else {
-            this.wrapper.classlist.remove('o-modal--full-' + dimension);
+            this.wrapper.classList.remove('o-modal--full-' + dimension);
             this.wrapper.setAttribute('style', '');
             if (!this.isFlexbox) {
                 this.adjustBodyHeight(false);
@@ -39,7 +39,7 @@ module.exports = function (dimension, size) {
             }
 
             if (!this.isFlexbox) {
-                this.content.style['margin' + edge] = -this.content['outer' + capitalisedDimension]()/2;
+                this.content.style['margin' + edge] = (-this.content['client' + capitalisedDimension]/2) + 'px';
             }
         }
     }

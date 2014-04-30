@@ -15,10 +15,8 @@ module.exports = function () {
     this.height = this.getHeight(this);
 
     this.respondToWindow(viewport.getSize());
-
-    this.delegate.on('oViewport.resize', 'body', function (ev) {
-        this.respondToWindow(ev.detail.viewport);
-    });
+    this.resizeListener = this.resizeListener.bind(this);
+    this.delegate.on('oViewport.resize', 'body', this.resizeListener);
 
     this.hide = this.hide.bind(this);
     this.delegate.on('oLayers.hideAll', 'body', this.hide);
@@ -27,16 +25,13 @@ module.exports = function () {
 
         this.closeOnExternalClick = this.closeOnExternalClick.bind(this);
 
+        // wrapped in timeout to make sure it doesn't handle the click that opened the modal
         setTimeout(function () {
-            self.delegate.on('click', '*', this.closeOnExternalClick);
+            self.delegate.on('click', '*', self.closeOnExternalClick);
         }, 1);
 
-
-        this.delegate.on('keyup', function (ev) {
-            if (ev.keyCode === 27) {
-                self.close();
-            }
-        });
+        this.closeOnEscapePress = this.closeOnEscapePress.bind(this);
+        this.delegate.on('keyup', this.closeOnEscapePress);
     }
 
     this.opts.onAfterRender(this);

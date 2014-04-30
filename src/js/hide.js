@@ -1,17 +1,20 @@
 'use strict';
 
 var prefixer = require('o-useragent').prefixer;
+var Delegate = require('dom-delegate');
+var transitionEnd = prefixer.style('transition') + 'End';
 
-var doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEls, callback) {
-    $transitioningEls = $transitioningEls || $wrapper;
+var doAfterTransition = function (wrapper, cssClass, mode, transitioningEls, callback) {
+    transitioningEls = transitioningEls || wrapper;
 
     var maxDuration = 0,
         possibleTransitions = [],
         callbackHasRun = false,
-        singletonCallback;
+        singletonCallback,
+        delegate = new Delegate(wrapper);
 
-    $transitioningEls.each(function () {
-        var details,
+    transitioningEls.forEach(function () {
+        var transitionDetails,
             duration = +prefixer.getStyleValue(this, 'transition-duration').replace(/[^\.\d]/g, ''),
             properties;
 
@@ -20,20 +23,20 @@ var doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEls, c
             
             properties = properties === 'all' ? [] : properties.split(' ');
         
-            details = {
+            transitionDetails = {
                 el: this,
                 duration: duration,
                 properties: properties,
                 initialState: prefixer.getStyleValue(this, properties.join(' '))
             };
-            possibleTransitions.push(details);
+            possibleTransitions.push(transitionDetails);
 
-            maxDuration = Math.max(maxDuration, details.duration);
+            maxDuration = Math.max(maxDuration, transitionDetails.duration);
         }
         
     });
 
-    $wrapper[mode + 'Class'](cssClass);
+    wrapper.classList[mode](cssClass);
     
     // if no transition defined just call the callback
     if (maxDuration === 0) {
@@ -45,6 +48,7 @@ var doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEls, c
     singletonCallback = function () {
         if (!callbackHasRun) {
             callbackHasRun = true;
+            delegate.off();
             callback();
         }
     };
@@ -53,23 +57,26 @@ var doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEls, c
         prefixer.getDomProperty(window, 'requestAnimationFrame')(function () {
             var duration = 0;
 
-            $.each(possibleTransitions, function (index, details) {
+            possibleTransitions.forEach(function (transitionDetails) {
                 var i,
                     changedState = [];
-                for (i = details.properties.length - 1;i>=0;i--) {
-                    changedState.unshift(prefixer.getStyleValue(details.el, details.properties[i]));
+                for (i = transitionDetails.properties.length - 1;i>=0;i--) {
+                    changedState.unshift(prefixer.getStyleValue(transitionDetails.el, transitionDetails.properties[i]));
                 }
 
-                for (i = details.properties.length - 1;i>=0;i--) {
-                    if (changedState[i] !== details.initialState[i].value) {
+                for (i = transitionDetails.properties.length - 1;i>=0;i--) {
+                    if (changedState[i] !== transitionDetails.initialState[i].value) {
 
                         // todo: move this to listen on the wrapper and only respond to the slowest animation
                         // do something like checking to see if target = this and set a flag after timeout(maxDuration - 50) has run
-                        $(details.el).one(prefixer.style('transition') + 'End', singletonCallback);
+                        delegate.on(transitionEnd, '*', singletonCallback);
+                        if (transitioningEls.indexOf(wrapper) > -1) {
+                            delegate.on(transitionEnd, singletonCallback);
+                        }
                     
                         // failsafe in case the transitionEnd event doesn't fire
-                        setTimeout(singletonCallback, details.duration * 1000);
-                        duration = Math.max(duration, details.duration);
+                        setTimeout(singletonCallback, transitionDetails.duration * 1000);
+                        duration = Math.max(duration, transitionDetails.duration);
                     }
                 }
             });
@@ -83,45 +90,37 @@ var doAfterTransition = function ($wrapper, cssClass, mode, $transitioningEls, c
     setTimeout(singletonCallback, maxDuration * 1000);
 };
 
-var detach = function (dialog, destroy) {
-    dialog.active = false;
-    dialog.content.empty();
-    dialog.wrapper.detach().attr('style', null);
-    if (dialog.opts.hasOverlay) {
-        dialog.overlay.detach();
-    }
-    if (destroy) {
-        if (Object.keys) {
-            Object.keys(globals).forEach(function (key) {
-                delete globals[key];
-            });
-        }
-    }
-    dialog.opts.onAfterClose(dialog);
+var detach = function (destroy) {
+    destroy && this.context.removeChild(this.wrapper);
+    this.opts.onAfterClose(this);
 };
 
 
 module.exports = function (destroy, immediate) {
-    dialog.opts.onBeforeClose(dialog);    
-    if (dialog.opts.isDismissable) {
-        globals.body.off('click.o-dialog');
-        globals.doc.off('keyup.o-dialog');
+    this.detach = detach;
+    this.opts.onBeforeClose(this);
+
+    var self = this;
+
+    if (destroy) {
+        this.delegate.off();
+    } else {
+        if (this.opts.isDismissable) {
+            this.delegate.off('click', '*', this.closeOnExternalClick);
+            this.delegate.off('keyup', this.closeOnEscapePress);
+        }
+        this.delegate.off('oViewport.resize', 'body', this.resizeListener);
+        this.delegate.off('oLayers.hideAll', 'body', this.hide);
     }
-    globals.win.off('resize.o-dialog');
 
-    this.delegate.off('click', '*', this.closeOnExternalClick);
-    this.delegate.off('oLayers.hideAll', 'body', this.hide);
-
-
-    if (globals.isAnimatable && !immediate) {
-        var wrapper = dialog.opts.hasOverlay ? dialog.wrapper.add(dialog.overlay) : dialog.wrapper ;
-        methods.doAfterTransition(wrapper, 'is-open', 'remove', wrapper.add(dialog.content), function () {
-            methods.detach(dialog);
+    if (this.isAnimatable && !immediate) {
+        doAfterTransition(this.wrapper, 'is-open', 'remove', [this.wrapper, this.content], function () {
+            self.detach(destroy);
         });
         
     } else {
-        dialog.wrapper.removeClass('is-open');
-        methods.detach(dialog, immediate);
+        this.wrapper.classList.remove('is-open');
+        this.detach(destroy);
     }
     
 };
