@@ -2,32 +2,15 @@
 
 var Delegate = require('dom-delegate');
 var delegate;
-
-
-
-    // globals.L = 'left';
-    // globals.R = 'right';
-    // globals.T = 'top';
-    // globals.B = 'bottom';
-    // globals.H = 'height';
-    // globals.W = 'width';
-
 var _ = require('lodash');
-
-var unCapitalise = function (str) {
-    return str.charAt(0).toLowerCase() + str.substr(1);
-};
-
-var capitalise = function (str) {
-    return str.charAt(0).toUpperCase() + str.substr(1);
-};
+var utils = require('./utils');
 
 var copyContent = function (content) {
     return content.nodeName === 'SCRIPT' ? content.innerHTML: content.cloneNode(true);
 };
 
 function getSpacing(el, side) {
-    return (parseInt(el.style['padding' + capitalise(side)), 10) || 0) + (parseInt(el.style['margin' + capitalise(side)), 10) || 0);
+    return (parseInt(el.style['padding' + utils.capitalise(side)], 10) || 0) + (parseInt(el.style['margin' + utils.capitalise(side)], 10) || 0);
 }
 
 var setOptions = function (opts, trigger) {
@@ -42,7 +25,7 @@ var setOptions = function (opts, trigger) {
     if (trigger) {
         Object.keys(trigger.dataset).forEach(function (key) {
             if (key.indexOf('oModal') === 0) {
-                opts[unCapitalise(key.substr(6))] = trigger.dataset[key];
+                opts[utils.unCapitalise(key.substr(6))] = trigger.dataset[key];
             }
         });
     }
@@ -103,6 +86,7 @@ Modal.prototype = {
     create: require('./create'),
     show: require('./show'),
     hide: require('./hide'),
+    realign: require('./realign'),
     destroy: function (immediate) {
         this.hide(true, immediate);
     },
@@ -130,6 +114,12 @@ Modal.prototype = {
             bubbles: true
         }));
     },
+    respondToWindow: function (size) {
+        this.opts.onBeforeResize(this);
+        this.reAlign('width', size.width);
+        this.reAlign('height', size.height);
+        this.opts.onAfterResize(this);
+    },
     isOpen: function () {
         return this.wrapper.classlist.contains('is-open');
     },
@@ -138,7 +128,19 @@ Modal.prototype = {
     },
     getHeight: function () {
         return this.content.clientHeight + getSpacing(this.wrapper, 'top') + getSpacing(this.wrapper, 'bottom');
-    }
+    },
+    fills: function (dimension) {
+        return this.wrapper.classlist.contains('o-modal--full-' + dimension);
+    },
+    adjustBodyHeight: function (fullHeight) {
+        if (this.opts.hasHeading) {
+            if (fullHeight) {
+                this.body.style.height = this.content.height() - this.heading.outerHeight();
+            } else {
+                this.body.style.height = '';
+            }
+        }
+    },
 };
 
 module.exports = Modal;

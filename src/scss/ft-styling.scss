@@ -2,21 +2,21 @@
 @import "o-colors/main";
 @import "o-ft-typography/main";
 
-@if (not $o-dialog-is-silent) {
+@if (not $o-modal-is-silent) {
 	@include oFontsInclude(BentonSans, lighter);
 }
 
-@include oDialogClass(modal__content) {
-    @extend %o-colors-dialog-background !optional;
-    @extend %o-colors-dialog-text !optional;	
-    border: 5px solid oColorsGetColorFor(dialog-border);
+@include oModalClass(modal__content) {
+    @extend %o-colors-modal-background !optional;
+    @extend %o-colors-modal-text !optional;	
+    border: 5px solid oColorsGetColorFor(modal-border);
 
 }
 
 
-// @include oDialogClass(close, '_') {
-.o-dialog__close {
-    @extend %o-colors-dialog-close-background !optional;
+// @include oModalClass(close, '_') {
+.o-modal__close {
+    @extend %o-colors-modal-close-background !optional;
 	position: absolute;
 	top: 7px;
 	right: 6px;   
@@ -26,9 +26,9 @@
 	padding: 0;
 	width: 22px;
 	height: 22px;
-	border: 2px solid oColorsGetColorFor(dialog-close-border);
+	border: 2px solid oColorsGetColorFor(modal-close-border);
 	border-radius: 11px;
- 	color: oColorsGetColorFor(dialog-close-background);
+ 	color: oColorsGetColorFor(modal-close-background);
 	vertical-align: center;
 	text-align: center;
 	font-size: 23px;
@@ -38,24 +38,24 @@
 
 	&:before {
     	display: block;    
-    	color: oColorsGetColorFor(dialog-close-text);
+    	color: oColorsGetColorFor(modal-close-text);
     	content: '\00d7';   
     }
 }
 
 @include oUseragentTarget(ie8) {
-	@include oDialogClass(close, '_') {
+	@include oModalClass(close, '_') {
 		padding-top: 1px;
 		padding-left: 2px;
 	}
 }
 
 
-.o-dialog--modal {
-	@include oDialogClass(heading, '_') {
+.o-modal {
+	@include oModalClass(heading, '_') {
 		@include oFtTypographyFontSize(14);
-	    @extend %o-colors-dialog-heading-background !optional;
-	    @extend %o-colors-dialog-heading-text !optional;
+	    @extend %o-colors-modal-heading-background !optional;
+	    @extend %o-colors-modal-heading-text !optional;
 		margin: 0;
 		padding: 10px;
 		letter-spacing: 0.4px;
@@ -64,15 +64,15 @@
 	}
 }
 
-@include oDialogClass(body, '_') {
+@include oModalClass(body, '_') {
 	-webkit-box-sizing: border-box;
   	-moz-box-sizing: border-box;
   	box-sizing: border-box;
 	padding: 5px;
 }
 
-.o-dialog--closable.o-dialog--modal {
-	@include oDialogClass(heading, '_') {
+.o-modal--closable.o-modal {
+	@include oModalClass(heading, '_') {
 		padding-right: 35px;
 	}
 }

@@ -1,5 +1,5 @@
 {
-  "name": "o-dialog",
+  "name": "o-modal",
   "main": [
     "main.scss",
     "main.js"
@@ -21,9 +21,12 @@
     "dom-delegate": "~1.0.3",
     "o-viewport": "*",
     "lodash": "~2.4.1",
-    "o-dom": "~0.2.0"
+    "o-dom": "~0.3.0"
   },
   "devDependencies": {
     "modernizr": ">=2.6.* <3"
+  },
+  "resolutions": {
+    "o-dom": "~0.3.0"
   }
 }

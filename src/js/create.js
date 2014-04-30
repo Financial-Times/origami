@@ -1,6 +1,7 @@
 'use strict';
 
 var Delegate = require('dom-delegate');
+var dom = require('o-dom');
 
 var wrapperSeed = document.createElement('div');
 wrapperSeed.className = 'o-modal';
@@ -36,7 +37,7 @@ module.exports = function () {
         this.content.appendChild(button);
     }
 
-    this.body = this.content.is(this.opts.bodySelector) ? this.content : this.content.querySelector(this.opts.bodySelector);
+    this.body = dom.matches(this.content, this.opts.bodySelector) ? this.content : this.content.querySelector(this.opts.bodySelector);
     this.heading = this.content.querySelector(this.opts.headingSelector);
 
     this.opts.hasHeading = !!this.heading;

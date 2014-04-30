@@ -1,39 +1,171 @@
-.o-dialog--modal {
+@import "o-useragent/main";
+
+.o-modal {
   position:fixed;
   height: 100%;
   width: 100%;
   top: 0;
   z-index: 2;
   padding: 10px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; 
   opacity: 0;
-  -webkit-transition: opacity 0.3s ease-in-out;
-  -moz-transition: opacity 0.3s ease-in-out;
-  -ms-transition: opacity 0.3s ease-in-out;
-  -o-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
-  pointer-events: none;
+  @include oUseragentPrefixer(transition, opacity 0.3s ease-in-out);
+  pointer-events: none;  // so that as soon as is-open class is gone clicks register on elements beneath the fading
 }
 
-.o-dialog--modal.is-open {
+.o-modal.is-open {
     pointer-events: auto;
     opacity: 1;
 }
 
-.o-dialog--modal__content {
-    min-height: 10px;
-    min-width: 10px;
-    margin: 100px auto 0;
-    position: absolute;
-    left: 50%;
-    top: 50%;
+.o-modal--full-width {
+  padding-left: 0;
+  padding-right: 0;
+
+  // margins are used by product/other component developers to set a buffer around the modal
+  // and once the edge of the page is within the buffer it switches to full-width mode.
+  // As these buffers can be set by the developer using selectors of arbitrary specicifity
+  // !important is used here in order to always over-ride these margins when switching to full width mode
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100%;
+  min-width: 0;
+}
+
+
+// .o-modal.o-modal--full-width {
+//   padding-left: 0;
+//   padding-right: 0;
+// }
+
+
+.o-modal--full-height {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 100%;
+  min-height: 0;
+  position: fixed;
+  display: block;
+} 
+
+// .o-modal.o-modal--full-height {
+//   padding-top: 0;
+//   padding-bottom: 0;
+// }
+
+.o-modal__content {
+  box-sizing: border-box;
+  overflow-y: auto;
+  min-height: 10px;
+  min-width: 10px;
+  margin: 100px auto 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.o-modal--full-width .o-modal__content {
+  right: auto;
+  left: auto;
+  min-width: 0;
+  width: 100%;
+  overflow-x: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.o-modal--full-height .o-modal__content{
+  height: 100%; 
+  margin-top: 0;
+  margin-bottom: 0;
+  overflow-y: hidden;
+  top: auto;
+}
+
+.o-modal__body, 
+%o-modal__body {
+
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+
+@include oUseragentTarget(ie7) {
+  .o-modal__body,
+  %o-modal__body {
+    zoom: 1;
+  }
+}
+
+
+.o-modal--full-height .o-modal__body,
+.o-modal--full-height %o-modal__body {
+  overflow-y: auto;
 }
 
 .flexbox,
 .flexboxlegacy {
-  .o-dialog--modal { 
+  // we just use .o-modal__body here as it's added programmatically by the js so we don't need 
+  // to worry about users needing to extend with their own choice of selector
+  // and besides :not(%class) doesn't resolve properly in sass
+  .o-modal--full-height .o-modal__content:not(.o-modal__body) {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+
+    .o-modal__body,
+    %o-modal__body {
+      -webkit-box-ordinal-group: 1;
+      -moz-box-ordinal-group: 1;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      -webkit-align-self: auto;
+      -ms-flex-item-align: auto;
+      align-self: auto;
+      
+    }
+
+    .o-modal__heading,
+    %o-modal__heading {
+      -webkit-box-ordinal-group: 1;
+      -moz-box-ordinal-group: 1;
+      -webkit-box-flex: 0;
+      -moz-box-flex: 0;
+      -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+      -webkit-align-self: auto;
+      -ms-flex-item-align: auto;
+      align-self: auto;
+    }
+  }
+
+  .o-modal { 
     display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox; /* TWEENER - IE 10 */
@@ -61,7 +193,7 @@
     flex-direction: column;
   }
 
-  .o-dialog--modal__content {
+  .o-modal__content {
     margin: auto;
     -webkit-align-self: center;
     align-self: center;
@@ -73,20 +205,18 @@
   }
 }
 
-.o-dialog--modal.o-dialog--full-width {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.o-dialog--modal.o-dialog--full-height {
-  padding-top: 0;
-  padding-bottom: 0;
-}
- 
-.o-dialog--full-width .o-dialog--modal__content {
-  left: auto;
-}
-
-.o-dialog--full-height .o-dialog--modal__content {
-  top: auto;
+.o-modal__overlay {
+  background: url(oAssetsUse('img/overlay-bg.png', $o-modal-assets-path, $o-modal-version));
+  background: rgba(0, 0, 0, 0.4); 
+  position: fixed;
+  height: 150%; // because on some phones scrolling upwards detaches a 100% height overlay from the bottom of the screen
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
