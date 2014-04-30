@@ -49,7 +49,6 @@ Demo pages are built using [origami-build-tools](https://github.com/Financial-Ti
 
 This will generate demo pages in `demos/` for each demo defined in `demos/src/config.json`. Open the demo page(s) in a range of browsers to check they render as you expect.
 
-
 ### Checking font rendering
 
 Different browsers use different font formats. This is why there needs to be `.eot`, `.ttf` and `.woff` versions of each font. In order to check all formats of the font render correctly, the demo pages need to be opened in the following browsers:
@@ -74,17 +73,17 @@ To load any given font you will need to call the `oFontsInclude()` mixin e.g.
 
 Font families should not be defined explicitly in your module CSS.
 
-Instead, use this module's `oFontsGetFontFamilyForUseCase()` function to return the font-family name (with web safe fallbacks) for a given usecase.
+Instead, use this module's `oFontsGetFontFamilyForUseCase()` function to return the `font-family` name (with web safe fallbacks) for a given usecase.
 
 For example:
 
 ```sass
 .myClass {
-    font-family: oFontsGetFontFamilyForUseCase(page);
+    font-family: oFontsGetFontFamilyForUseCase(editorial-headline);
 }
 ```
 
-Would compile to something very like this:
+Would compile to something like this:
 
 ```css
 .myClass {
@@ -92,6 +91,8 @@ Would compile to something very like this:
 }
 ```
 
-`oFontsGetFontFamilyForUseCase()` has the added benefit of warning you if the font-face may not have been included.
+`oFontsGetFontFamilyForUseCase()` has the added benefit of warning you if the `@font-face` may not have been included.
 
-*Note that you still need to use `oFontsInclude()` to actually include the font family*
+If the use case requested has not been defined, then a SASS warning will be given on compilation, and the _default_ use case will be returned.
+
+Note that you still need to use `oFontsInclude()` to actually include the `@font-face`.

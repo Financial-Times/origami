@@ -39,7 +39,7 @@
     }
     @return _oFontGetFontFamilyWithFallbacks($family);
   } @else {
-    @warn "Font family use case '" + $usecase + "' not found";
-    @return inherit;
+    @warn "Font family use case '" + $usecase + "' not found. Using default instead.";
+    @return oFontsGetFontFamilyForUseCase(default);
   }
 }
