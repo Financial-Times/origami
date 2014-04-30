@@ -10,8 +10,6 @@ wrapperSeed.innerHTML = '<div class="o-modal__overlay"></div><section class="o-m
 
 module.exports = function () {
 
-
-
     this.wrapper = wrapperSeed.cloneNode(true);
 
     this.content = this.wrapper.children[1];
@@ -50,6 +48,8 @@ module.exports = function () {
     }
     
     if (this.opts.hasHeading) {
+        this.body.classList.add('o-modal__body');
+    } else {
         this.content.classList.add('o-modal__body');
     }
 

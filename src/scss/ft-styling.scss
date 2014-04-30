@@ -6,16 +6,13 @@
 	@include oFontsInclude(BentonSans, lighter);
 }
 
-@include oModalClass(modal__content) {
+@include oModalClass(content, '_') {
     @extend %o-colors-modal-background !optional;
     @extend %o-colors-modal-text !optional;	
     border: 5px solid oColorsGetColorFor(modal-border);
 
 }
-
-
-// @include oModalClass(close, '_') {
-.o-modal__close {
+@include oModalClass(close, '_') {
     @extend %o-colors-modal-close-background !optional;
 	position: absolute;
 	top: 7px;
@@ -51,17 +48,15 @@
 }
 
 
-.o-modal {
-	@include oModalClass(heading, '_') {
-		@include oFtTypographyFontSize(14);
-	    @extend %o-colors-modal-heading-background !optional;
-	    @extend %o-colors-modal-heading-text !optional;
-		margin: 0;
-		padding: 10px;
-		letter-spacing: 0.4px;
-		font-weight: normal;
-		font-family: $o-fonts-bentonsans-lighter;
-	}
+@include oModalClass(heading, '_') {
+	@include oFtTypographyFontSize(14);
+    @extend %o-colors-modal-heading-background !optional;
+    @extend %o-colors-modal-heading-text !optional;
+	margin: 0;
+	padding: 10px;
+	letter-spacing: 0.4px;
+	font-weight: normal;
+	font-family: $o-fonts-bentonsans-lighter;
 }
 
 @include oModalClass(body, '_') {
@@ -71,7 +66,7 @@
 	padding: 5px;
 }
 
-.o-modal--closable.o-modal {
+.o-modal--closable {
 	@include oModalClass(heading, '_') {
 		padding-right: 35px;
 	}
