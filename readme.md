@@ -3,31 +3,28 @@
 
 This module provides:
 
-* @font-face definitions
-* SASS variables
+* a means of including web fonts (by writing `@font-face` declarations)
+* a means of defining use cases for those fonts
+* a means of getting the `font-family` for a specific usecase
 
 It does not contain the web font files, which are contained in a separate, private repository (`o-fonts-assets`). The documentation below assumes the font assets have already been added to that.
 
-## Adding a new font family
+## Adding a new font family or variant
 
-If you are adding a font from a completely new font-family open `src/scss/_variables` in a text editor and add the font family name to the end of `$o-fonts-supported`. e.g if your font is `Courier-Light.ttf` add `Courier` to the end of the list.
+Open `src/scss/_variables` in a text editor. Add the font family name (if it's an entirely new family) and the variant styles to the `$_o-fonts-families` map:
+
+```sass
+$_o-fonts-families: (
+  BentonSans: (lighter, normal, bold),
+  MillerDisplay: (normal, bold),
+  Clarion: (normal, bold, (normal, italic)),
+  NewFontFamily: (new style1, new style2)
+);
+```
 
 Then follow these steps below for each variant in the family.
 
 ## Adding a new variant
-
-For each variant font-family, add a new variable in `src/scss/_variables` in the following format:
-
-    $o-fonts-<family>-<variant>: <family>-<variant>, fallbacks;
-    
-For example:
-
-    $o-fonts-bentonsans-lighter: BentonSans-lighter, $o-fonts-sans-serif;
-
-Also, for each variant, add an entry in the `oFontsIncludeAll` mixin:
-
-    @mixin oFontsIncludeAll() {
-      @include oFontsInclude(BentonSans, Lighter);
 
 Finally, add a new entry in `demos/src/config.json`, like so:
 
@@ -36,14 +33,21 @@ Finally, add a new entry in `demos/src/config.json`, like so:
             "data": { "font": "bentonsans-lighter" }
         },
 
+And a new entry in `demos/src/demo.scss`:
+
+```css
+.demo-bentonsans-normal .demo-example {
+  font-family: BentonSans;
+}
+```
 
 ## Building demo pages
 
 Demo pages are built using [origami-build-tools](https://github.com/Financial-Times/origami-build-tools), for example:
 
-    origami-build-tools demo demos/src/config --local --watch
+    origami-build-tools demo --local --watch
 
-This will generate demo pages in `demos/` for each font and variant. Open the demo page(s) in a range of browsers to check they render as you expect.
+This will generate demo pages in `demos/` for each demo defined in `demos/src/config.json`. Open the demo page(s) in a range of browsers to check they render as you expect.
 
 
 ### Checking font rendering
@@ -56,35 +60,38 @@ Different browsers use different font formats. This is why there needs to be `.e
 
 ## For developers
 
-Add this to your project's `bower.json` dependencies:
+Follow the standard Origami process for using this module:
 
-    dependencies": {
-        "o-fonts": "http://git.svc.ft.com:9080/git/origami/o-fonts.git#{semver}"
-    }
-
-In your project's SASS files, import the o-fonts's `main.scss`:
-
-    @import 'o-fonts/main.scss';
-
-It is assumed you have your bower_components folder listed in your SASS loadPath. If not, you will need to include the full path to the o-fonts.
+* Add an entry in your project's `bower.json` dependencies
+* `@import "o-fonts/main"` in your SASS
 
 To load any given font you will need to call the `oFontsInclude()` mixin e.g.
 
-    @include oFontsInclude(BentonSans, Bold);
-	@include oFontsInclude(Clarion, Normal, Italic);
+    @include oFontsInclude(BentonSans, bold);
+	@include oFontsInclude(Clarion, normal, italic);
 
 ### Specifying fonts
 
-The following variables are provided to specify standard font stacks:
+Font families should not be defined explicitly in your module CSS.
 
-* `$o-font-sansserif` - for Helvetica, Arial, sans-serif;
-* `$o-font-serif` - for Georgia, 'Times New Roman', serif;
+Instead, use this module's `oFontsGetFontFamilyForUseCase()` function to return the font-family name (with web safe fallbacks) for a given usecase.
 
-For all available font families and variants variables similar to the following are also automatically generated.
+For example:
 
-	$o-fonts-bentonsans-lighter: BentonSans-lighter, $o-fonts-sans-serif;
-	$o-fonts-bentonsans-normal: BentonSans-normal, $o-fonts-sans-serif;
-	$o-fonts-bentonsans-bold: BentonSans-bold, $o-fonts-sans-serif;
-	$o-fonts-clarion-italic: Clarion-italic, $o-fonts-serif;
+```sass
+.myClass {
+    font-family: oFontsGetFontFamilyForUseCase(page);
+}
+```
 
-*Note that you still need to use oFontsInclude() to actually include the font family*
+Would compile to something very like this:
+
+```css
+.myClass {
+    font-family: BentonSans, Helvetica, Arial, sans-serif;
+}
+```
+
+`oFontsGetFontFamilyForUseCase()` has the added benefit of warning you if the font-face may not have been included.
+
+*Note that you still need to use `oFontsInclude()` to actually include the font family*

@@ -1,5 +1,7 @@
-@import "src/scss/_variables";
-@import "src/scss/_mixins";
+@import "src/scss/variables";
+@import "src/scss/usecases";
+@import "src/scss/functions";
+@import "src/scss/mixins";
 
 @if (not $o-fonts-is-silent) {
   @include oFontsIncludeAll();

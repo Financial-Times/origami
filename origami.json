@@ -13,6 +13,9 @@
     ]
   },
   "demos": [
+    "/demos/BentonSans.html",
+    "/demos/MillerDisplay.html",
+    "/demos/Clarion.html",
     "/demos/bentonsans-lighter.html",
     "/demos/bentonsans-normal.html",
     "/demos/bentonsans-bold.html",

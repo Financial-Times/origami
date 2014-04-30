@@ -26,48 +26,72 @@ $o-fonts-is-silent: false;
   margin: 0 0 30px 0;
 }
 
+.demo-family-BentonSans .demo-example {
+  font-family: BentonSans;
+}
+
+.demo-family-MillerDisplay .demo-example {
+  font-family: MillerDisplay;
+}
+
+.demo-family-Clarion .demo-example {
+  font-family: Clarion;
+}
+
 .demo-bentonsans-lighter .demo-example {
-  font-family: $o-fonts-bentonsans-lighter;
+  font-family: BentonSans;
+  font-weight: lighter;
 }
 
 .demo-bentonsans-normal .demo-example {
-  font-family: $o-fonts-bentonsans-normal;
+  font-family: BentonSans;
 }
 
 .demo-bentonsans-bold .demo-example {
-  font-family: $o-fonts-bentonsans-bold;
+  font-family: BentonSans;
+  font-weight: bold;
 }
 
 .demo-millerdisplay-normal .demo-example {
-  font-family: $o-fonts-millerdisplay-normal;
+  font-family: MillerDisplay;
 }
 
 .demo-millerdisplay-bold .demo-example {
-  font-family: $o-fonts-millerdisplay-bold;
+  font-family: MillerDisplay;
+  font-weight: bold;
 }
 
 .demo-millerdisplay-bolder .demo-example {
-  font-family: $o-fonts-millerdisplay-bolder;
+  font-family: MillerDisplay;
+  font-weight: bolder;
 }
 
 .demo-clarion-normal .demo-example {
-  font-family: $o-fonts-clarion-normal;
+  font-family: Clarion;
 }
 
 .demo-clarion-bold .demo-example {
-  font-family: $o-fonts-clarion-bold;
+  font-family: Clarion;
+  font-weight: bold;
 }
 
 .demo-clarion-italic .demo-example {
-  font-family: $o-fonts-clarion-italic;
+  font-family: Clarion;
+  font-style: italic;
 }
-.demo-size-x-large {
+
+.demo-size-small {
   padding-top: 15px;
   font-size: 36px;
   line-height: 44px;
 }
 
-.demo-size-huge {
+.demo-size-medium {
+  font-size: 80px;
+  line-height: 110px;
+}
+
+.demo-size-large {
   font-size: 200px;
   line-height: 200px;
 }
