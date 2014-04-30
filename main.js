@@ -1,6 +1,5 @@
 'use strict';
 
-var Delegate = require('dom-delegate');
 var _ = require('lodash');
 var prefixer = require('o-useragent').prefixer;
 var body;
@@ -64,8 +63,6 @@ function init(eventType) {
 
     initFlags[eventType] = true;
     
-    delegate = delegate || new Delegate(window);
-        
     body = body || document.body;
 }
 
@@ -73,7 +70,7 @@ function listenToResize () {
 
     if (init('resize')) return;
   
-    delegate.on('resize', _.debounce(function (ev) {
+    window.addEventListener('resize', _.debounce(function (ev) {
         broadcast('resize', {
             viewport: getSize(),
             originalEvent: ev
@@ -85,7 +82,7 @@ function listenToOrientation () {
 
     if (init('orientation')) return;
 
-    delegate.on('orientationchange', _.debounce(function (ev) {
+    window.addEventListener('orientationchange', _.debounce(function (ev) {
         broadcast('orientation', {
             viewport: getSize(),
             orientation: getOrientation(),
@@ -98,7 +95,7 @@ function listenToScroll () {
 
     if (init('scroll')) return;
 
-    delegate.on('scroll', _.throttle(function (ev) {
+    window.addEventListener('scroll', _.throttle(function (ev) {
         broadcast('scroll', {
             viewport: getSize(),
             scrollHeight: body.scrollHeight,
