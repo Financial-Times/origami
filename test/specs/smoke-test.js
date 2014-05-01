@@ -17,11 +17,7 @@ describe('smoke-tests (./modal.js)', function () {
         };
         el = $('<span class="o-modal__trigger">').appendTo('body');
         
-        // tpl = $('<script>').attr({
-        //     type: 'text/template',
-        //     id: 'test-overlay-content'
-        // }).html(testContent).appendTo('body');
-        // el.attr('data-o-modal-src', '#test-overlay-content');
+
 
             
 
@@ -154,5 +150,24 @@ describe('smoke-tests (./modal.js)', function () {
     });
 
 
-    // it('should inject variety of content types');
+    it('should be able to inject content from template', function (done) {
+        var tpl = $('<script>').attr({
+            type: 'text/template',
+            id: 'test-overlay-content'
+        }).html(testContent).appendTo('body');
+
+        var mod = new Modal({
+            src: '#test-overlay-content',
+            outerClasses: 'test-outer-class',
+            innerClasses: 'test-inner-class',
+            headingSelector: '.test-heading',
+            bodySelector: '.test-body'
+        });
+        expect($('.o-modal').length).toBe(1);
+        mod.close();
+        expect($('.o-modal').length).toBe(0);
+        setTimeout(done, 2);
+
+        tpl.remove();
+    });
 });
