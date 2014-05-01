@@ -24,7 +24,7 @@ MUST
 
 <img src="images/share-tweet.png"/>
 
-<img src="images/share-counts"/>
+<img src="images/share-counts.png"/>
 
 TBD
 
