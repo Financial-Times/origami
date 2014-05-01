@@ -1,40 +1,56 @@
 'use strict';
 
 var Delegate = require('dom-delegate');
-var nativeOff = Delegate.prototype.off;
+var defaults = require('lodash-node/modern/objects/defaults');
+var ddOff = Delegate.prototype.off;
+var ddOn = Delegate.prototype.on;
 
-Delegate.prototype.off = function(event) {
-    if (event === true) {
-        nativeOff.apply(this);
-        this.offBody();
-    } else {
-        nativeOff.apply(this, arguments);
+var Events = function(root) {
+    Delegate.apply(this, root);
+    this.bodyDelegate = new Delegate(document.body);
+};
+
+Events.protoype = defaults({
+    on: function(event, selector, handler) {
+        if (selector === document.body) {
+            this.onBody(event, handler);
+        } else {
+            ddOn.apply(this, arguments);
+        }
+    },
+
+    off: function(event, selector, handler) {
+        if (event === true) {
+            ddOff.apply(this);
+            this.offBody();
+        } else if (selector === document.body) {
+            this.offBody(event, handler);
+        } else {
+            ddOff.apply(this, arguments);
+        }
+    },
+
+    onBody: function(event, handler) {
+        this.bodyDelegate.on(event, handler);
+    },
+
+    offBody: function(event, handler) {
+        this.bodyDelegate.off(event, handler);
+    },
+
+    disable: function() {
+        this._rootElement = this.rootElement;
+        this.rootElement = null;
+        this.bodyDelegate.root();
+    },
+
+    enable: function() {
+        if (!this._rootElement) return;
+        this.rootElement = this._rootElement;
+        this._rootElement = null;
+        this.bodyDelegate.root(document.body);
     }
-};
 
-Delegate.prototype.getBodyDelegate = function() {
-    return this.bodyDelegate || (this.bodyDelegate = new Delegate(document.body));
-};
+}, Delegate.prototype);
 
-Delegate.prototype.onBody = function(event, handler) {
-    this.getBodyDelegate().on(event, handler);
-};
-
-Delegate.prototype.offBody = function(event, handler) {
-    this.getBodyDelegate().off(event, handler);
-};
-
-Delegate.disable = function() {
-    this._rootElement = this.rootElement;
-    this.rootElement = null;
-    this.bodyDelegate.root();
-};
-
-Delegate.enable = function() {
-    if (!this._rootElement) return;
-    this.rootElement = this._rootElement;
-    this._rootElement = null;
-    this.bodyDelegate.root(document.body);
-};
-
-module.exports = Delegate;
+module.exports = Events;
