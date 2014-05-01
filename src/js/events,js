@@ -1,0 +1,40 @@
+'use strict';
+
+var Delegate = require('dom-delegate');
+var nativeOff = Delegate.prototype.off;
+
+Delegate.prototype.off = function(event) {
+    if (event === true) {
+        nativeOff.apply(this);
+        this.offBody();
+    } else {
+        nativeOff.apply(this, arguments);
+    }
+};
+
+Delegate.prototype.getBodyDelegate = function() {
+    return this.bodyDelegate || (this.bodyDelegate = new Delegate(document.body));
+};
+
+Delegate.prototype.onBody = function(event, handler) {
+    this.getBodyDelegate().on(event, handler);
+};
+
+Delegate.prototype.offBody = function(event, handler) {
+    this.getBodyDelegate().off(event, handler);
+};
+
+Delegate.disable = function() {
+    this._rootElement = this.rootElement;
+    this.rootElement = null;
+    this.bodyDelegate.root();
+};
+
+Delegate.enable = function() {
+    if (!this._rootElement) return;
+    this.rootElement = this._rootElement;
+    this._rootElement = null;
+    this.bodyDelegate.root(document.body);
+};
+
+module.exports = Delegate;
