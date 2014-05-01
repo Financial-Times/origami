@@ -6,14 +6,14 @@ module.exports = {
     preprocessors: {
       'test/**/*.js': ['browserify'],
       'src/js/**/*.js': ['browserify']
-    },
-    reporters: ['progress', 'html'],
+    }//,
+    // reporters: ['progress', 'html'],
 
-    // the default configuration
-    htmlReporter: {
-      outputDir: 'reports',
-      templatePath: 'node_modules/karma-html-reporter/jasmine_template.html'
-    }
+    // // the default configuration
+    // htmlReporter: {
+    //   outputDir: 'reports',
+    //   templatePath: 'node_modules/karma-html-reporter/jasmine_template.html'
+    // }
   },
   ci: {
     options: {
@@ -43,8 +43,8 @@ module.exports = {
       },
       singleRun: false,
       autoWatch: true,
-      browsers: ['Chrome'],
-      reporters: ['progress', 'dots', 'html']
+      browsers: ['Chrome']//,
+      // reporters: ['progress', 'dots', 'html']
     }
   }
 };

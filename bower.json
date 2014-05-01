@@ -20,10 +20,11 @@
     "o-ft-typography": "^1.4.0",
     "dom-delegate": "~1.0.3",
     "o-viewport": "*",
-    "lodash": "~2.4.1",
-    "o-dom": "~0.3.0"
+    "o-dom": "~0.3.0",
+    "lodash-node": "https://github.com/lodash/lodash-node.git#~2.4.1"
   },
   "devDependencies": {
-    "modernizr": ">=2.6.* <3"
+    "modernizr": ">=2.6.* <3",
+    "jquery": "~2.1.0"
   }
 }

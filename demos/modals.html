@@ -7,11 +7,11 @@
     <title>o-modal: modals demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
-    <link rel="stylesheet" href="undefined" />
+    <link rel="stylesheet" href="/bundles/css?modules=o-modal:/demos/src/demo.scss" />
 </head>
 <body class="">
     <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
-    <style>.demo-message { margin: 0 0 10px 0; border-bottom: 1px solid #ddcc66; padding: 3px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-align: center; background-color: #ffee88; color: #333; }</style><div class="demo-message"><strong>Warning:</strong> Demo built for local static assets. Do not commit this file. Run <code>origami-build-tools demo &lt;config&gt; --buildservice</code> instead.</div>
+    
     
     <style>
     body {
@@ -26,7 +26,8 @@
 
 
 	<script type="text/template" id="wide-squat">
-	    	   	
+    	<h1 class="o-modal__heading">Heading</h1>
+        <div class="o-modal__body">
 	    	<p>Overlay content.</p>
 	       	<p>Overlay content.</p>
 	       	<input id="username" />
@@ -34,8 +35,9 @@
 				<input id="pasword" type="password" />
 				<p>Overlay content.</p>
 	       	<p>Overlay content.</p>
+        </div>
 	</script>
-    <script src="demo.js"></script>
+    <script src="/bundles/js?modules=o-modal:/demos/src/demo.js"></script>
     <script src='http://registry.origami.ft.com/embedapi?autoload=resize'></script>
 </body>
 </html>

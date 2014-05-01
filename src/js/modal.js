@@ -2,16 +2,7 @@
 
 var Delegate = require('dom-delegate');
 var delegate;
-var _ = require('lodash');
 var utils = require('./utils');
-
-var copyContent = function (content) {
-    return content.nodeName === 'SCRIPT' ? content.innerHTML: content.cloneNode(true);
-};
-
-function getSpacing(el, side) {
-    return (parseInt(el.style['padding' + utils.capitalise(side)], 10) || 0) + (parseInt(el.style['margin' + utils.capitalise(side)], 10) || 0);
-}
 
 var setOptions = function (opts, trigger) {
     
@@ -35,21 +26,26 @@ var setOptions = function (opts, trigger) {
     if (!opts.srcType) {
         if (/^(https?\:\/)?\//.test(opts.src)) {
             opts.srcType = 'url';
-        } else if (opts.content = document.querySelector(opts.src)) {
-            opts.srcType = 'selector';
-            opts.content = copyContent(opts.content);
         } else {
-            opts.srcType = 'string';
-            opts.content = opts.src;
+            try {
+                opts.content = document.querySelector(opts.src);
+                if (!opts.content) {
+                    throw('selector doesn\'t match');
+                }
+                opts.srcType = 'selector';
+                opts.content = utils.copyContent(opts.content);
+            } catch (e) {
+                opts.srcType = 'string';
+                opts.content = opts.src;
+            }
         }
     } else if (opts.srcType === 'selector') {
-        opts.content = copyContent(document.querySelector(opts.src));
+        opts.content = utils.copyContent(document.querySelector(opts.src));
     } else if (opts.srcType === 'string') {
         opts.content = opts.src;
     }
 
-    return _.defaults(opts, Modal.defaults);
-
+    return require('lodash-node/modern/objects/defaults')(opts, Modal.defaults);
 };
 
 
@@ -60,7 +56,7 @@ var Modal = function (opts, trigger) {
     if (!this.opts) { return opts.onFail.call(this); }
     
     this.context = this.opts.context || document.body;
-    this.globalDelegate = delegate;
+    this.globalDelegate = delegate || new Delegate(document.body);
     this.create();
 };
 
@@ -92,11 +88,13 @@ Modal.prototype = {
         this.hide(true, immediate);
     },
     close: function (immediate) {
-        this.hide(this.closeAction === 'destroy', immediate);
+        this.hide(this.opts.closeAction === 'destroy', immediate === true);
     },
     closeOnExternalClick: function (ev) {
+        console.log(this.index);
+        // debugger;
         if (this.isOpen()) {
-            if (!this.content.contains(ev.target) || (this.opts.hasCloseButton && ev.target.classList.contains('o-modal__close'))) {
+            if (!this.content.contains(ev.target)) {
                 this.close();
             }
         }
@@ -112,8 +110,6 @@ Modal.prototype = {
     broadcast: function (eventType, namespace, data) {
         namespace = namespace || 'oModal';
         var target = namespace === 'oLayers' ? this.context : this.dom.wrapper;
-        
-        console.log(namespace + '.' + eventType, this, data);
         
         target.dispatchEvent(new CustomEvent(namespace + '.' + eventType, {
             detail: {
@@ -133,10 +129,10 @@ Modal.prototype = {
         return this.wrapper.classList.contains('is-open');
     },
     getWidth: function () {
-        return this.content.clientWidth + getSpacing(this.wrapper, 'left') + getSpacing(this.wrapper, 'right');
+        return this.content.clientWidth + utils.getSpacing(this.wrapper, 'left') + utils.getSpacing(this.wrapper, 'right');
     },
     getHeight: function () {
-        return this.content.clientHeight + getSpacing(this.wrapper, 'top') + getSpacing(this.wrapper, 'bottom');
+        return this.content.clientHeight + utils.getSpacing(this.wrapper, 'top') + utils.getSpacing(this.wrapper, 'bottom');
     },
     fills: function (dimension) {
         return this.wrapper.classList.contains('o-modal--full-' + dimension);
@@ -151,6 +147,8 @@ Modal.prototype = {
         }
     },
     detach: function (destroy) {
+        this.delegates.win.off();
+        this.delegates.wrap.off();
         destroy && this.context.removeChild(this.wrapper);
         this.opts.onAfterClose(this);
     }

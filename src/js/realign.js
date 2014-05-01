@@ -1,3 +1,5 @@
+'use strict';
+
 var capitalise = require('./utils').capitalise;
 
 var W = 'width',
@@ -17,8 +19,7 @@ module.exports = function (dimension, size) {
         capitalisedDimension = capitalise(dimension);
 
     if (this.opts['snapsToFull' + capitalisedDimension]) {
-        // for ios7 only win.innerHeight provides the correct value when the browser chrome is present
-        // need to use the jQuery method as a fallback as <ie9 don't support the property
+
         if (size <= this[dimension]) {
             this.wrapper.classList.add('o-modal--full-' + dimension);
             if (!this.isFlexbox) {

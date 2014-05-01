@@ -1,11 +1,23 @@
 'use strict';
 
+var unCapitalise = function (str) {
+    return str.charAt(0).toLowerCase() + str.substr(1);
+};
+
+var capitalise = function (str) {
+    return str.charAt(0).toUpperCase() + str.substr(1);
+};
+
 module.exports = {
-    unCapitalise: function (str) {
-        return str.charAt(0).toLowerCase() + str.substr(1);
+    unCapitalise: unCapitalise,
+
+    capitalise: capitalise,
+
+    copyContent: function (content) {
+        return content.nodeName === 'SCRIPT' ? content.innerHTML: content.cloneNode(true);
     },
 
-    capitalise: function (str) {
-        return str.charAt(0).toUpperCase() + str.substr(1);
+    getSpacing: function (el, side) {
+        return (parseInt(el.style['padding' + capitalise(side)], 10) || 0) + (parseInt(el.style['margin' + capitalise(side)], 10) || 0);
     }
 };

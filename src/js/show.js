@@ -19,27 +19,34 @@ module.exports = function () {
     this.respondToWindow(viewport.getSize());
     this.resizeListener = this.resizeListener.bind(this);
 
-    this.hide = this.hide.bind(this);
-    this.globalDelegate.on('oLayers.hideAll', 'body', this.hide);
 
-    if (this.delegate) {
-        this.delegate.root(window);
+
+    if (this.delegates) {
+        this.delegates.win.root(window);
+        this.delegates.wrap.root(this.wrapper);
     } else {
-        this.delegate = new Delegate(window);
+        this.close = this.close.bind(this);
 
-        this.delegate.on('oViewport.resize', 'body', this.resizeListener);
-        this.delegate.on('oLayers.open', 'body', this.close);
+        this.delegates = {
+            win: new Delegate(window),
+            wrap: new Delegate(this.wrapper)
+        };
+
+        this.globalDelegate.on('oLayers.closeAll', this.close);
+        
+        this.delegates.win.on('oViewport.resize', 'body', this.resizeListener);
+        this.delegates.win.on('oLayers.open', 'body', this.close);
         if (this.opts.isDismissable) {
-
+            this.delegates.wrap.on('click', '.o-modal__close', this.close);
             this.closeOnExternalClick = this.closeOnExternalClick.bind(this);
 
             // wrapped in timeout to make sure it doesn't handle the click that opened the modal
             setTimeout(function () {
-                self.delegate.on('click', '*', self.closeOnExternalClick);
+                self.delegates.wrap.on('click', self.closeOnExternalClick);
             }, 1);
 
             this.closeOnEscapePress = this.closeOnEscapePress.bind(this);
-            this.delegate.on('keyup', this.closeOnEscapePress);
+            this.delegates.win.on('keyup', this.closeOnEscapePress);
         }
     }
 
