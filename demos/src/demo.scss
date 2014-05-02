@@ -27,56 +27,56 @@ $o-fonts-is-silent: false;
 }
 
 .demo-family-BentonSans .demo-example {
-  font-family: oFontGetFontFamilyWithFallbacks(BentonSans);
+  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 }
 
 .demo-family-MillerDisplay .demo-example {
-  font-family: oFontGetFontFamilyWithFallbacks(MillerDisplay);
+  font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
 }
 
 .demo-family-Clarion .demo-example {
-  font-family: oFontGetFontFamilyWithFallbacks(Clarion);
+  font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
 }
 
 .demo-bentonsans-lighter .demo-example {
-  font-family: oFontGetFontFamilyWithFallbacks(BentonSans);
+  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
   font-weight: lighter;
 }
 
 .demo-bentonsans-normal .demo-example {
-  font-family: oFontGetFontFamilyWithFallbacks(BentonSans);
+  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 }
 
 .demo-bentonsans-bold .demo-example {
-  font-family: oFontGetFontFamilyWithFallbacks(BentonSans);
+  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
   font-weight: bold;
 }
 
 .demo-millerdisplay-normal .demo-example {
-  font-family: oFontGetFontFamilyWithFallbacks(MillerDisplay);
+  font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
 }
 
 .demo-millerdisplay-bold .demo-example {
-  font-family: oFontGetFontFamilyWithFallbacks(MillerDisplay);
+  font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
   font-weight: bold;
 }
 
 .demo-millerdisplay-bolder .demo-example {
-  font-family: oFontGetFontFamilyWithFallbacks(MillerDisplay);
+  font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
   font-weight: bolder;
 }
 
 .demo-clarion-normal .demo-example {
-  font-family: oFontGetFontFamilyWithFallbacks(Clarion);
+  font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
 }
 
 .demo-clarion-bold .demo-example {
-  font-family: oFontGetFontFamilyWithFallbacks(Clarion);
+  font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
   font-weight: bold;
 }
 
 .demo-clarion-italic .demo-example {
-  font-family: oFontGetFontFamilyWithFallbacks(Clarion);
+  font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
   font-style: italic;
 }
 

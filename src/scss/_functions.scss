@@ -18,7 +18,7 @@
   @return _oFontsStyleExistsInFamilyMap($_o-fonts-families-included, $family, $weight, $style);
 }
 
-@function oFontGetFontFamilyWithFallbacks($family) {
+@function oFontsGetFontFamilyWithFallbacks($family) {
   $family-with-fallbacks: map-get($_o-font-families-with-fallbacks, $family);
   @if ($family-with-fallbacks) {
     @return $family-with-fallbacks;
