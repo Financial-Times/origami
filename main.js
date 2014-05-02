@@ -1,7 +1,7 @@
 'use strict';
 
-var throttle = require('lodash/modern/functions/throttle');
-var debounce = require('lodash/modern/functions/debounce');
+var throttle = require('lodash-node/modern/functions/throttle');
+var debounce = require('lodash-node/modern/functions/debounce');
 var prefixer = require('o-useragent').prefixer;
 var body;
 var debug;
