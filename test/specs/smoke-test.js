@@ -41,6 +41,7 @@ describe('smoke-tests (./modal.js)', function () {
                 'data-o-modal-src': testContent,
                 'data-o-modal-outer-class': 'test-outer-class',
                 'data-o-modal-inner-class': 'test-inner-class',
+                'data-o-modal-close-class': 'test-close-class',
                 'data-o-modal-heading-selector': '.test-heading',
                 'data-o-modal-body-selector': '.test-body'
             });
@@ -62,7 +63,7 @@ describe('smoke-tests (./modal.js)', function () {
             var wrapper = $('.o-modal.o-modal--closable.test-outer-class.is-open'),
                 content = wrapper.find('.o-modal__content.test-inner-class'),
                 overlay = wrapper.find('.o-modal__overlay'),
-                close = content.find('button.o-modal__close'),
+                close = content.find('button.o-modal__close.test-close-class'),
                 heading = content.find('.o-modal__heading.test-heading'),
                 body = content.find('.o-modal__body.test-body');
 
@@ -160,6 +161,7 @@ describe('smoke-tests (./modal.js)', function () {
             src: '#test-overlay-content',
             outerClasses: 'test-outer-class',
             innerClasses: 'test-inner-class',
+            closeClass: 'test-close-class',
             headingSelector: '.test-heading',
             bodySelector: '.test-body'
         });

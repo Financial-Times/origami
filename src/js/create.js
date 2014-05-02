@@ -33,6 +33,7 @@ module.exports = function () {
         button.textContent = 'close';
         button.className = 'o-modal__close';
         this.content.appendChild(button);
+        this.opts.closeClass && button.classList.add(this.opts.closeClass);
     }
 
     this.body = dom.matches(this.content, this.opts.bodySelector) ? this.content : this.content.querySelector(this.opts.bodySelector);
@@ -40,12 +41,14 @@ module.exports = function () {
 
     this.opts.hasHeading = !!this.heading;
 
-    this.opts.outerClass && this.wrapper.classList.add(this.opts.outerClass);
-    this.opts.innerClass && this.content.classList.add(this.opts.innerClass);
-
     if (this.opts.hasCloseButton) {
         this.wrapper.classList.add('o-modal--closable');
     }
+
+    this.opts.outerClass && this.wrapper.classList.add(this.opts.outerClass);
+    this.opts.innerClass && this.content.classList.add(this.opts.innerClass);
+
+
     
     if (this.opts.hasHeading) {
         this.body.classList.add('o-modal__body');
