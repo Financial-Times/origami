@@ -1,6 +1,7 @@
 'use strict';
 
-var _ = require('lodash');
+var throttle = require('lodash/modern/functions/throttle');
+var debounce = require('lodash/modern/functions/debounce');
 var prefixer = require('o-useragent').prefixer;
 var body;
 var debug;
@@ -70,7 +71,7 @@ function listenToResize () {
 
     if (init('resize')) return;
   
-    window.addEventListener('resize', _.debounce(function (ev) {
+    window.addEventListener('resize', debounce(function (ev) {
         broadcast('resize', {
             viewport: getSize(),
             originalEvent: ev
@@ -82,7 +83,7 @@ function listenToOrientation () {
 
     if (init('orientation')) return;
 
-    window.addEventListener('orientationchange', _.debounce(function (ev) {
+    window.addEventListener('orientationchange', debounce(function (ev) {
         broadcast('orientation', {
             viewport: getSize(),
             orientation: getOrientation(),
@@ -95,7 +96,7 @@ function listenToScroll () {
 
     if (init('scroll')) return;
 
-    window.addEventListener('scroll', _.throttle(function (ev) {
+    window.addEventListener('scroll', throttle(function (ev) {
         broadcast('scroll', {
             viewport: getSize(),
             scrollHeight: body.scrollHeight,
