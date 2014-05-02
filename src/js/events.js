@@ -5,9 +5,13 @@ var defaults = require('lodash-node/modern/objects/defaults');
 var ddOff = Delegate.prototype.off;
 var ddOn = Delegate.prototype.on;
 
-var Events = function(root) {
-    Delegate.apply(this, root);
-    this.bodyDelegate = new Delegate(document.body);
+var Events = function(root, andBody) {
+    if (andBody) {
+        Delegate.apply(this, root);
+        this.bodyDelegate = new Delegate(document.body);
+    } else {
+        return new Delegate(root);
+    }
 };
 
 Events.protoype = defaults({
