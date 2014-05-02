@@ -3,8 +3,7 @@
   padding: 5px 0;
   @include oFtTypographyFontSize(16, 20);
   @include oFtTypographyExtend(body__block);
-  font-family: $_o-ft-typography-article-subheading-font;
-  font-weight: bold;
+  @include _oFtTypographyFont(BentonSans, bold);
   color: oColorsGetColorFor(article-subheading-text);
 }
 

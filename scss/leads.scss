@@ -1,20 +1,17 @@
 @include oFtTypographySelectors(lead-large) {
-  font-family: $_o-ft-typography-lead-large-font;
-  font-weight: normal;
+  @include _oFtTypographyFont(MillerDisplay, normal);
   @include oFtTypographyFontSize(21, 26);
   color: oColorsGetColorFor(lead-text);
 }
 
 @include oFtTypographySelectors(lead-medium) {
-  font-family: $_o-ft-typography-lead-medium-font;
-  font-weight: normal;
+  @include _oFtTypographyFont(MillerDisplay, normal);
   @include oFtTypographyFontSize(17, 21);
   color: oColorsGetColorFor(lead-medium-text);
 }
 
 @include oFtTypographySelectors(lead-small) {
-  font-family: $_o-ft-typography-lead-small-font;
-  font-weight: normal;
+  @include _oFtTypographyFont(BentonSans, normal);
   @include oFtTypographyFontSize(13, 17);
   color: oColorsGetColorFor(lead-text);
 }

@@ -1,19 +1,17 @@
 @include oFtTypographySelectors(title-large) {
-  font-family: $_o-ft-typography-title-large-font;
-  font-weight: normal;
+  @include _oFtTypographyFont(MillerDisplay);
   @include oFtTypographyFontSize(30, 36, -5);
   color: oColorsGetColorFor(title-text);
 }
 
 @include oFtTypographySelectors(title-medium) {
-  font-family: $_o-ft-typography-title-medium-font;
-  font-weight: normal;
+  @include _oFtTypographyFont(MillerDisplay);
   @include oFtTypographyFontSize(21, 26);
   color: oColorsGetColorFor(title-text);
 }
 
 @include oFtTypographySelectors(title-small) {
-  font-family: $_o-ft-typography-title-small-font;
+  @include _oFtTypographyFont(MillerDisplay);
   font-weight: bold;
   @include oFtTypographyFontSize(15, 17);
   color: oColorsGetColorFor(title-text);

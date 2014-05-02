@@ -4,31 +4,6 @@ $o-ft-typography-is-silent: true !default;
 
 $_o-ft-typography-selector-prefix: o-ft-typography-;
 
-$_o-ft-typography-heading-xlarge-font: $o-fonts-bentonsans-bold;
-$_o-ft-typography-heading-large-font: $o-fonts-bentonsans-bold;
-$_o-ft-typography-heading-medium-font: $o-fonts-bentonsans-bold;
-$_o-ft-typography-heading-small-font: $o-fonts-bentonsans-bold;
-
-$_o-ft-typography-title-large-font: $o-fonts-millerdisplay-normal;
-$_o-ft-typography-title-medium-font: $o-fonts-millerdisplay-normal;
-$_o-ft-typography-title-small-font: $o-fonts-millerdisplay-normal;
-
-$_o-ft-typography-lead-large-font: $o-fonts-millerdisplay-normal;
-$_o-ft-typography-lead-medium-font: $o-fonts-millerdisplay-normal;
-$_o-ft-typography-lead-small-font: $o-fonts-bentonsans-normal;
-
-$_o-ft-typography-brand-font: $o-fonts-bentonsans-bold;
-$_o-ft-typography-metadata-font: $o-fonts-bentonsans-normal;
-
-$_o-ft-typography-body-font: $o-fonts-sans-serif;
-
-$_o-ft-typography-article-subheading-font: $o-fonts-bentonsans-bold;
-$_o-ft-typography-article-body-font: $o-fonts-serif;
-
-$_o-ft-typography-label-large-font:  $o-fonts-bentonsans-bold;
-$_o-ft-typography-label-medium-font:  $o-fonts-bentonsans-bold;
-$_o-ft-typography-label-small-font:  $o-fonts-bentonsans-normal;
-
 // Use to define font faces that need including for given use cases
 $_o-ft-typography-fontface-usecase-mapping: (
   title             MillerDisplay   normal,
@@ -38,5 +13,9 @@ $_o-ft-typography-fontface-usecase-mapping: (
   heading           BentonSans      bold,
   label             BentonSans      normal,
   label             BentonSans      bold,
-  body              BentonSans      normal
+  body              BentonSans      normal,
+  body              BentonSans      bold,
+  body-article      MillerDisplay   normal,
+  body-article      Clarion         normal,
+  body-article      Clarion         bold
 );

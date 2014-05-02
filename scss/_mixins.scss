@@ -1,4 +1,8 @@
-@import "o-fonts/main";
+@mixin _oFtTypographyFont($family, $weight:normal, $style:normal) {
+  font-family: oFontsGetFontFamilyWithFallbacks($family);
+  font-weight: $weight;
+  font-style: $style;
+}
 
 @mixin oFtTypographyFontOffset($offset) {
   @if ($offset > 0) {

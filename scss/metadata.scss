@@ -1,8 +1,7 @@
 @include oFtTypographySelectors(brand)  {
   margin: 0;
   @include oFtTypographyFontSize(12, 14);
-  font-family: $_o-ft-typography-brand-font;
-  font-weight: bold;
+  @include _oFtTypographyFont(BentonSans, bold);
   color: oColorsGetColorFor(brand-text);
 }
 
@@ -18,15 +17,13 @@
 @include oFtTypographySelectors(byline)  {
   margin: 0;
   @include oFtTypographyFontSize(14, 24);
-  font-family: $_o-ft-typography-metadata-font;
-  font-weight: normal;
+  @include _oFtTypographyFont(BentonSans);
   color: oColorsGetColorFor(byline-text);
 }
 
 @include oFtTypographySelectors(timestamp)  {
   margin: 0;
   @include oFtTypographyFontSize(14, 24);
-  font-family: $_o-ft-typography-metadata-font;
-  font-weight: normal;
+  @include _oFtTypographyFont(BentonSans);
   color: oColorsGetColorFor(timestamp-text);
 }
