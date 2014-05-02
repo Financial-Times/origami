@@ -1,23 +1,43 @@
-$o-fonts-path: 'http://build.origami.ft.com/files/o-fonts-assets@0.1.1/' !default;
+$o-fonts-path: '//build.origami.ft.com/files/o-fonts-assets@0.1.2/' !default;
 $o-fonts-name: o-fonts;
 $o-fonts-version: null !default;
 $o-fonts-assets-path: $o-fonts-name !default;
 
 $o-fonts-is-silent: true !default;
-$_o-fonts-sans-serif: helvetica, arial, sans-serif;
-$o-fonts-sans-serif: bentonsans-normal, $_o-fonts-sans-serif;
-$o-fonts-serif: georgia, 'times new roman', serif;
 
-$ft-fonts-already-included-list: () !default;
+// Variables used by oFontGetFontFamilyWithFallbacks(). Not to be used by modules directly.
+$_o-fonts-serif: Georgia, 'Times New Roman', serif;
+$_o-fonts-sans-serif: BentonSans, Helvetica, Arial, sans-serif;
+$_o-fonts-millerdisplay: MillerDisplay, $_o-fonts-serif;
+$_o-fonts-clarion: Clarion, $_o-fonts-serif;
 
-$o-fonts-supported: bentonsans, millerdisplay, clarion;
+$_o-font-families-with-fallbacks: (
+  BentonSans: $_o-fonts-sans-serif,
+  MillerDisplay: $_o-fonts-millerdisplay,
+  Clarion: $_o-fonts-clarion
+);
 
-$o-fonts-bentonsans-lighter: bentonsans-lighter, $_o-fonts-sans-serif;
-$o-fonts-bentonsans-normal: bentonsans-normal, $_o-fonts-sans-serif;
-$o-fonts-bentonsans-bold: bentonsans-bold, $_o-fonts-sans-serif;
-$o-fonts-millerdisplay-normal: millerdisplay-normal, $o-fonts-serif;
-$o-fonts-millerdisplay-bold: millerdisplay-bold, $o-fonts-serif;
-$o-fonts-millerdisplay-bolder: millerdisplay-bolder, $o-fonts-serif;
-$o-fonts-clarion-normal: clarion-normal, $o-fonts-serif;
-$o-fonts-clarion-bold: clarion-bold, $o-fonts-serif;
-$o-fonts-clarion-italic: clarion-italic, $o-fonts-serif;
+// Map of all families, each with a list of styles for that family.
+// Only families and styles listed here will be allowed to be declared as @font-faces via the oFontsInclude mixin.
+$_o-fonts-families: (
+  BentonSans: (lighter, normal, bold),
+  MillerDisplay: (normal, bold),
+  Clarion: (normal, bold, (normal, italic))
+);
+
+// Map of families and styles which have already been included. Exists to avoid multiple @font-face definitions
+$_o-fonts-families-included: () !default;
+
+
+// These variables are deprecated. Modules should use the oFontsGetFontFamilyForUseCase function instead.
+$o-fonts-sans-serif: $_o-fonts-sans-serif;
+$o-fonts-serif: Georgia, 'Times New Roman', serif;
+$o-fonts-bentonsans-lighter: $o-fonts-sans-serif;
+$o-fonts-bentonsans-normal: $o-fonts-sans-serif;
+$o-fonts-bentonsans-bold: $o-fonts-sans-serif;
+$o-fonts-millerdisplay-normal: MillerDisplay, $o-fonts-serif;
+$o-fonts-millerdisplay-bold: MillerDisplay, $o-fonts-serif;
+$o-fonts-millerdisplay-bolder: MillerDisplay, $o-fonts-serif;
+$o-fonts-clarion-normal: Clarion, $o-fonts-serif;
+$o-fonts-clarion-bold: Clarion, $o-fonts-serif;
+$o-fonts-clarion-italic: Clarion, $o-fonts-serif;

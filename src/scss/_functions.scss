@@ -1,0 +1,32 @@
+@function _oFontsStyleExistsInFamilyMap($family-map, $family, $weight, $style) {
+  @each $familystyle in map-get($family-map, $family) {
+    @if (length($familystyle) == 1 ) {
+      $familystyle: ($familystyle normal);
+    }
+    @if (nth($familystyle, 1) == $weight and nth($familystyle, 2) == $style) {
+      @return true;
+    }
+  }
+  @return false;
+}
+
+@function _oFontsDefined($family, $weight, $style) {
+  @return _oFontsStyleExistsInFamilyMap($_o-fonts-families, $family, $weight, $style);
+}
+
+@function _oFontsAlreadyIncluded($family, $weight, $style) {
+  @return _oFontsStyleExistsInFamilyMap($_o-fonts-families-included, $family, $weight, $style);
+}
+
+@function oFontsGetFontFamilyWithFallbacks($family) {
+  $family-with-fallbacks: map-get($_o-font-families-with-fallbacks, $family);
+  @if ($family-with-fallbacks) {
+    @return $family-with-fallbacks;
+  }
+  @warn "Unknown font-family: " + $family;
+  @return inherit;
+}
+
+@function oFontsUseAsset($asset) {
+  @return $o-fonts-path + $asset;
+}

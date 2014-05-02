@@ -1,9 +1,21 @@
 {
     "options": {
-        "template": "demos/src/demo.mustache",
+        "template": "demos/src/variant.mustache",
         "sass": "demos/src/demo.scss"
     },
     "demos": {
+        "BentonSans": {
+            "template": "demos/src/family.mustache",
+            "data": { "font": "BentonSans" }
+        },
+        "MillerDisplay": {
+            "template": "demos/src/family.mustache",
+            "data": { "font": "MillerDisplay" }
+        },
+        "Clarion": {
+            "template": "demos/src/family.mustache",
+            "data": { "font": "Clarion" }
+        },
         "bentonsans-lighter": {
             "data": { "font": "bentonsans-lighter" }
         },
