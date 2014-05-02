@@ -18,7 +18,7 @@
   @return _oFontsStyleExistsInFamilyMap($_o-fonts-families-included, $family, $weight, $style);
 }
 
-@function _oFontGetFontFamilyWithFallbacks($family) {
+@function oFontGetFontFamilyWithFallbacks($family) {
   $family-with-fallbacks: map-get($_o-font-families-with-fallbacks, $family);
   @if ($family-with-fallbacks) {
     @return $family-with-fallbacks;
@@ -29,17 +29,4 @@
 
 @function oFontsUseAsset($asset) {
   @return $o-fonts-path + $asset;
-}
-
-@function oFontsGetFontFamilyForUseCase($usecase: default) {
-  $family: map-get($_o-fonts-usecases, $usecase);
-  @if ($family) {
-    @if (not map-get($_o-fonts-families-included, $family)) {
-      @warn "Font family '" + $family + "' may not have been included.";
-    }
-    @return _oFontGetFontFamilyWithFallbacks($family);
-  } @else {
-    @warn "Font family use case '" + $usecase + "' not found. Using default instead.";
-    @return oFontsGetFontFamilyForUseCase(default);
-  }
 }

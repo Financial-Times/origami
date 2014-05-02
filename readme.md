@@ -71,15 +71,13 @@ To load any given font you will need to call the `oFontsInclude()` mixin e.g.
 
 ### Specifying fonts
 
-Font families should not be defined explicitly in your module CSS.
-
-Instead, use this module's `oFontsGetFontFamilyForUseCase()` function to return the `font-family` name (with web safe fallbacks) for a given usecase.
+Use this module's `oFontsGetFontFamilyWithFallbacks()` function to return the passed `font-family` name with web safe fallbacks.
 
 For example:
 
 ```sass
 .myClass {
-    font-family: oFontsGetFontFamilyForUseCase(editorial-headline);
+    font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 }
 ```
 
@@ -91,8 +89,6 @@ Would compile to something like this:
 }
 ```
 
-`oFontsGetFontFamilyForUseCase()` has the added benefit of warning you if the `@font-face` may not have been included.
-
-If the use case requested has not been defined, then a SASS warning will be given on compilation, and the _default_ use case will be returned.
+`oFontsGetFontFamilyWithFallbacks()` has the added benefit of warning you if the `@font-face` may not have been included.
 
 Note that you still need to use `oFontsInclude()` to actually include the `@font-face`.

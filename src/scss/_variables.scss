@@ -1,11 +1,11 @@
-$o-fonts-path: 'http://build.origami.ft.com/files/o-fonts-assets@0.1.1/' !default;
+$o-fonts-path: '//build.origami.ft.com/files/o-fonts-assets@0.1.2/' !default;
 $o-fonts-name: o-fonts;
 $o-fonts-version: null !default;
 $o-fonts-assets-path: $o-fonts-name !default;
 
 $o-fonts-is-silent: true !default;
 
-// Variables used by font usecases. Not to be used by modules directly.
+// Variables used by oFontGetFontFamilyWithFallbacks(). Not to be used by modules directly.
 $_o-fonts-serif: Georgia, 'Times New Roman', serif;
 $_o-fonts-sans-serif: BentonSans, Helvetica, Arial, sans-serif;
 $_o-fonts-millerdisplay: MillerDisplay, $_o-fonts-serif;
