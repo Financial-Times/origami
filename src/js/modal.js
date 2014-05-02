@@ -91,10 +91,8 @@ Modal.prototype = {
         this.hide(this.opts.closeAction === 'destroy', immediate === true);
     },
     closeOnExternalClick: function (ev) {
-        console.log(this.index);
-        // debugger;
         if (this.isOpen()) {
-            if (!this.content.contains(ev.target)) {
+            if (ev.target === this.overlay) {
                 this.close();
             }
         }

@@ -6,8 +6,6 @@ viewport.listenTo('resize');
 var Delegate = require('dom-delegate');
 
 module.exports = function () {
-    var self = this;
-
     this.opts.onBeforeRender(this);
 
     this.wrapper.classList.add('is-open');
@@ -39,11 +37,8 @@ module.exports = function () {
         if (this.opts.isDismissable) {
             this.delegates.wrap.on('click', '.o-modal__close', this.close);
             this.closeOnExternalClick = this.closeOnExternalClick.bind(this);
-
-            // wrapped in timeout to make sure it doesn't handle the click that opened the modal
-            setTimeout(function () {
-                self.delegates.wrap.on('click', self.closeOnExternalClick);
-            }, 1);
+            
+            this.delegates.win.on('click', '.o-modal__overlay', this.closeOnExternalClick);
 
             this.closeOnEscapePress = this.closeOnEscapePress.bind(this);
             this.delegates.win.on('keyup', this.closeOnEscapePress);

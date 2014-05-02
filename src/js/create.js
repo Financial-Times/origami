@@ -5,19 +5,18 @@ var dom = require('o-dom');
 
 var wrapperSeed = document.createElement('div');
 wrapperSeed.className = 'o-modal';
-wrapperSeed.innerHTML = '<div class="o-modal__overlay"></div><section class="o-modal__content"></section>';
-
+wrapperSeed.innerHTML = '<section class="o-modal__content"></section>';
+var overlaySeed = document.createElement('div');
+overlaySeed.className = 'o-modal__overlay';
 
 module.exports = function () {
 
     this.wrapper = wrapperSeed.cloneNode(true);
 
-    this.content = this.wrapper.children[1];
-
-    if (this.opts.hasOverlay) {
-        this.overlay = this.wrapper.children[0];
-    } else {
-        this.wrapper.removeChild(this.wrapper.children[0]);
+    this.content = this.wrapper.children[0];
+    this.overlay = overlaySeed.cloneNode();
+    if (!this.opts.hasOverlay) {
+        this.overlay.classList.add('is-hidden');
     }
     
     this.broadcast('create', 'oLayers');
@@ -47,8 +46,6 @@ module.exports = function () {
 
     this.opts.outerClass && this.wrapper.classList.add(this.opts.outerClass);
     this.opts.innerClass && this.content.classList.add(this.opts.innerClass);
-
-
     
     if (this.opts.hasHeading) {
         this.body.classList.add('o-modal__body');
@@ -57,6 +54,7 @@ module.exports = function () {
     }
 
     this.context.appendChild(this.wrapper);
+    this.context.appendChild(this.overlay);
 
     this.destroy = this.destroy.bind(this);
     this.globalDelegate.on('oLayers.removeAll', 'body', this.destroy);

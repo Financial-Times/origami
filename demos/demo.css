@@ -1,0 +1,339 @@
+/**
+ * Colour palette
+ *
+ * These are the colours that make up the FT palette.  We don't use these colours directly, but instead assign them to 'use cases', which are defined in use-cases.scss.  In the list below, each line contains a color name and a colour code, and is finished with a comma:
+ *
+ *  <colorname>   <colour code>,
+ *
+ * The colour name must be a single word comprising just letters, numbers, and dashes.  You can have as many spaces between the colour name and the colour code as you like (so you can line them up neatly), and you *MUST* finish the line with a comma (except the final entry, which should not have a comma)
+ */
+/**
+ * Colour use cases
+ *
+ * These mappings define what we use our colours for.
+ *
+ * Use case:           Must be a single word comprising just letters, numbers, and dashes.
+ * Color name:         Must be an exact match for a name of a colour defined in palette.scss
+ * CSS class property: Should be 'text', 'border', 'background', or 'all'.
+ * Status:             Must be 'DEPRECATED' or absent
+ *
+ * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ *
+ *
+ *  <use case>                        <colorname>            <cssclassproperty>   [<status>]
+ */
+/**
+  DEFAULT LAYOUT
+**/
+.o-modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  padding: 10px;
+  box-sizing: border-box;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none; }
+
+.o-modal.is-open {
+  pointer-events: auto;
+  opacity: 1; }
+
+.o-modal__overlay {
+  background: url(http://build.origami.ft.com/files/o-modal/img/overlay-bg.png);
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  height: 150%;
+  width: 100%;
+  top: 0;
+  margin: -10px;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none; }
+  .o-modal__overlay.is-hidden {
+    visibility: hidden; }
+  .o-modal.is-open + .o-modal__overlay {
+    pointer-events: auto;
+    opacity: 1; }
+
+.o-modal__content {
+  box-sizing: border-box;
+  overflow-y: auto;
+  min-height: 10px;
+  min-width: 10px;
+  margin: 100px auto 0;
+  position: absolute;
+  left: 50%;
+  top: 50%; }
+
+.o-modal__body:after {
+  content: " ";
+  display: table;
+  clear: both; }
+
+/**
+  FULL WIDTH AND HEIGHT
+**/
+.o-modal--full-width {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100%;
+  min-width: 0; }
+  .o-modal--full-width .o-modal__overlay {
+    margin-right: 0;
+    margin-left: 0; }
+  .o-modal--full-width .o-modal__content {
+    right: auto;
+    left: auto;
+    min-width: 0;
+    width: 100%;
+    overflow-x: auto;
+    margin-left: 0;
+    margin-right: 0; }
+
+.o-modal--full-height {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 100%;
+  min-height: 0;
+  position: fixed;
+  display: block; }
+  .o-modal--full-height .o-modal__content {
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow-y: hidden;
+    top: auto; }
+  .o-modal--full-height .o-modal__body {
+    overflow-y: auto; }
+
+.flexbox,
+.flexboxlegacy {
+  /**
+    VERTICAL AND HORIZONTAL CENTERING
+  **/
+  /**
+    STRETCHING MODAL BODY TO FILL ALL SPACE NOT OCCUPIED MY MODAL HEADING
+  **/ }
+  .flexbox .o-modal,
+  .flexboxlegacy .o-modal {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .flexbox .o-modal__content,
+  .flexboxlegacy .o-modal__content {
+    margin: auto;
+    -webkit-align-self: center;
+    align-self: center;
+    -webkit-align-content: center;
+    align-content: center;
+    position: relative;
+    left: auto;
+    top: auto; }
+  .flexbox .o-modal--full-height .o-modal__content:not(.o-modal__body),
+  .flexboxlegacy .o-modal--full-height .o-modal__content:not(.o-modal__body) {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch; }
+    .flexbox .o-modal--full-height .o-modal__content:not(.o-modal__body) .o-modal__body,
+    .flexboxlegacy .o-modal--full-height .o-modal__content:not(.o-modal__body) .o-modal__body {
+      -webkit-box-ordinal-group: 1;
+      -moz-box-ordinal-group: 1;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      -webkit-align-self: auto;
+      -ms-flex-item-align: auto;
+      align-self: auto; }
+    .flexbox .o-modal--full-height .o-modal__content:not(.o-modal__body) .o-modal__heading,
+    .flexboxlegacy .o-modal--full-height .o-modal__content:not(.o-modal__body) .o-modal__heading {
+      -webkit-box-ordinal-group: 1;
+      -moz-box-ordinal-group: 1;
+      -webkit-box-flex: 0;
+      -moz-box-flex: 0;
+      -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+      -webkit-align-self: auto;
+      -ms-flex-item-align: auto;
+      align-self: auto; }
+
+/**
+ * Colour palette
+ *
+ * These are the colours that make up the FT palette.  We don't use these colours directly, but instead assign them to 'use cases', which are defined in use-cases.scss.  In the list below, each line contains a color name and a colour code, and is finished with a comma:
+ *
+ *  <colorname>   <colour code>,
+ *
+ * The colour name must be a single word comprising just letters, numbers, and dashes.  You can have as many spaces between the colour name and the colour code as you like (so you can line them up neatly), and you *MUST* finish the line with a comma (except the final entry, which should not have a comma)
+ */
+/**
+ * Colour use cases
+ *
+ * These mappings define what we use our colours for.
+ *
+ * Use case:           Must be a single word comprising just letters, numbers, and dashes.
+ * Color name:         Must be an exact match for a name of a colour defined in palette.scss
+ * CSS class property: Should be 'text', 'border', 'background', or 'all'.
+ * Status:             Must be 'DEPRECATED' or absent
+ *
+ * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ *
+ *
+ *  <use case>                        <colorname>            <cssclassproperty>   [<status>]
+ */
+/**
+ * Colour palette
+ *
+ * These are the colours that make up the FT palette.  We don't use these colours directly, but instead assign them to 'use cases', which are defined in use-cases.scss.  In the list below, each line contains a color name and a colour code, and is finished with a comma:
+ *
+ *  <colorname>   <colour code>,
+ *
+ * The colour name must be a single word comprising just letters, numbers, and dashes.  You can have as many spaces between the colour name and the colour code as you like (so you can line them up neatly), and you *MUST* finish the line with a comma (except the final entry, which should not have a comma)
+ */
+/**
+ * Colour use cases
+ *
+ * These mappings define what we use our colours for.
+ *
+ * Use case:           Must be a single word comprising just letters, numbers, and dashes.
+ * Color name:         Must be an exact match for a name of a colour defined in palette.scss
+ * CSS class property: Should be 'text', 'border', 'background', or 'all'.
+ * Status:             Must be 'DEPRECATED' or absent
+ *
+ * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ *
+ *
+ *  <use case>                        <colorname>            <cssclassproperty>   [<status>]
+ */
+/**
+  Wrap styles in module-name prefixed SASS placeholders and CSS classes (if not in silent mode),
+  and optionally CSS selectors (if not in silent mode)
+  $names:         SASS list of placeholder/class names in the format "name1 name2" but without the quotes.
+                  Will automatically by prefixed with module name.
+  $cssSelectors:  [optional] string. CSS selectors which should also receive the same styles.
+                  Does not get auto-prefixed, so must be exactly as you want output on the CSS.
+*/
+/** 
+ Provides a typography focused interface for oFontsInclude()
+**/
+@font-face {
+  font-family: bentonsans-lighter;
+  font-style: normal;
+  font-weight: normal;
+  src: url("http://build.origami.ft.com/files/o-fonts-assets@0.1.1/bentonsans-lighter.eot");
+  src: url("http://build.origami.ft.com/files/o-fonts-assets@0.1.1/bentonsans-lighter.eot?#iefix") format("embedded-opentype"), url("http://build.origami.ft.com/files/o-fonts-assets@0.1.1/bentonsans-lighter.woff") format("woff"), url("http://build.origami.ft.com/files/o-fonts-assets@0.1.1/bentonsans-lighter.ttf") format("truetype"); }
+.o-modal__content {
+  border: 5px solid #a7a59b;
+  background: white;
+  color: #333333; }
+
+.o-modal__close {
+  position: absolute;
+  top: 7px;
+  right: 6px;
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+  border: 2px solid white;
+  border-radius: 11px;
+  background: #2e6e9e;
+  color: #2e6e9e;
+  vertical-align: center;
+  text-align: center;
+  font-size: 23px;
+  font-family: bentonsans-lighter, helvetica, arial, sans-serif;
+  line-height: 16px;
+  cursor: pointer; }
+  .o-modal__close:before {
+    display: block;
+    color: white;
+    content: '\00d7'; }
+
+.o-modal__heading {
+  font-size: 14px;
+  margin: 0;
+  padding: 10px;
+  background: #a7a59b;
+  color: white;
+  letter-spacing: 0.4px;
+  font-weight: normal;
+  font-family: bentonsans-lighter, helvetica, arial, sans-serif; }
+
+.o-modal__body {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px; }
+
+.o-modal--closable .o-modal__heading {
+  padding-right: 35px; }
+
+html {
+  min-height: 100%;
+  height: 100%; }
+
+body {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%; }
+
+/*# sourceMappingURL=demo.css.map */
