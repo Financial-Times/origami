@@ -1,10 +1,11 @@
+
+
 @include oFtTypographySelectors(heading-xlarge) {
   margin: 0 0 16px 0;
   padding: 8px 0 7px 0;
   border-top: 4px solid oColorsGetColorFor(heading-xlarge heading-large heading, border); // Add new use case to o-colors
   border-bottom: 1px dotted oColorsGetColorFor(heading-xlarge heading-large heading, border); // Add new use case to o-colors
-  font-family: $_o-ft-typography-heading-xlarge-font;
-  font-weight: normal;
+  @include _oFtTypographyFont(BentonSans, bold);
   @include oFtTypographyFontSize(16, 20);
   color: oColorsGetColorFor(heading-xlarge heading, text);
 }
@@ -23,8 +24,7 @@
   padding: 8px 0 7px 0;
   border-top: 4px solid oColorsGetColorFor(heading-large heading, border);
   border-bottom: 1px dotted oColorsGetColorFor(heading-large heading, border);
-  font-family: $_o-ft-typography-heading-large-font;
-  font-weight: normal;
+  @include _oFtTypographyFont(BentonSans, bold);
   text-transform: uppercase;
   @include oFtTypographyFontSize(14, 20);
   color: oColorsGetColorFor(heading-large heading, text);
@@ -41,8 +41,7 @@
 
 @mixin oFtTypographyHeadingMediumStyles() {
   margin: 0 0 16px 0;
-  font-family: $_o-ft-typography-heading-medium-font;
-  font-weight: normal;
+  @include _oFtTypographyFont(BentonSans, bold);
   @include oFtTypographyFontSize(13, 20);
   color: oColorsGetColorFor(heading, text);
   text-transform: uppercase;
@@ -59,15 +58,14 @@
 @include oUseragentTarget(ie7 ie8 ie9) {
   @include oFtTypographySelectors(heading-medium) {
     @include oFtTypographyHeadingMediumStyles();
-    border-bottom: 1px solid oColorsGetColorFor(heading-medium heading, border); // TODO: Add new use case for heading-medium-border -> tint2
+    border-bottom: 1px solid oColorsGetColorFor(heading-medium heading, border);
     background-image: none;
   }
 }
 
 @include oFtTypographySelectors(heading-small) {
   margin: 0 0 8px 0;
-  font-family: $_o-ft-typography-heading-small-font;
-  font-weight: bold;
+  @include _oFtTypographyFont(BentonSans, bold);
   @include oFtTypographyFontSize(14, 20);
   color: oColorsGetColorFor(heading, text);
 }

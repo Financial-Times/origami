@@ -1,17 +1,15 @@
 @include oFtTypographySelectors(article-body--lead) {
   margin: 0 0 9px 0;
-  border-bottom: 1px dotted oColorsGetColorFor(article-body-lead-border); //
+  border-bottom: 1px dotted oColorsGetColorFor(article-body-lead-border);
   padding: 0 0 14px 0;
-  font-family: $_o-ft-typography-article-body-font;
-  font-weight: normal;
+  @include _oFtTypographyFont(MillerDisplay, normal);
   @include oFtTypographyFontSize(21, 27);
   color: oColorsGetColorFor(article-body-lead-text);
 }
 
 @include oFtTypographySelectors(article-body)  {
   @include oFtTypographyFontSize(16, 24);
-  font-family: $_o-ft-typography-article-body-font;
-  font-weight: normal;
+  @include _oFtTypographyFont(Clarion, normal);
   color: oColorsGetColorFor(article-body-text);
 }
 

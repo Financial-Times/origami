@@ -11,21 +11,18 @@
 
 @include oFtTypographySelectors(label-large) {
   @extend %label-text;
-  font-family: $_o-ft-typography-label-large-font;
-  font-weight: bold;
+  @include _oFtTypographyFont(BentonSans, bold);
   @include oFtTypographyFontSize(16, 21);
 }
 
 @include oFtTypographySelectors(label-medium) {
   @extend %label-text;
-  font-family: $_o-ft-typography-label-medium-font;
-  font-weight: bold;
+  @include _oFtTypographyFont(BentonSans, bold);
   @include oFtTypographyFontSize(14, 17);
 }
 
 @include oFtTypographySelectors(label-small) {
   @extend %label-text;
-  font-family: $_o-ft-typography-label-small-font;
-  font-weight: normal;
+  @include _oFtTypographyFont(BentonSans, normal);
   @include oFtTypographyFontSize(12, 15);
 }

@@ -2,7 +2,7 @@
   display: inline-block;
   border-radius: 5px;
   padding: 0 4px;
-  font-family: $o-fonts-bentonsans-bold;
+  @include _oFtTypographyFont(BentonSans, bold);
   font-size: 10px;
   font-weight: normal;
   line-height: 14px;
