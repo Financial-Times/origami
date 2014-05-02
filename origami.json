@@ -6,12 +6,14 @@
   "supportStatus": "active",
   "browserFeatures": {
     "required": [
-      "html5"
+      "classlist"
     ],
     "optional": [
       "svg",
       "datauri",
-      "css-gradient"
+      "cssgradients",
+      "mediaqueries",
+      "csstransitions"
     ]
   },
   "ci": {
