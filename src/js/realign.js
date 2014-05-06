@@ -20,7 +20,7 @@ module.exports = function (dimension, size) {
 
     if (this.opts['snapsToFull' + capitalisedDimension]) {
 
-        if (size <= this[dimension]) {
+        if (size <= this[dimension] || (this.isFlexbox && this.body['scroll' + capitalisedDimension] > this.body['offset' + capitalisedDimension])) {
             this.wrapper.classList.add('o-modal--full-' + dimension);
             if (!this.isFlexbox) {
                 this.content.style['margin' + edge] = 0;
@@ -31,16 +31,18 @@ module.exports = function (dimension, size) {
             this.wrapper.setAttribute('style', '');
             if (!this.isFlexbox) {
                 this.adjustBodyHeight(false);
+            } else {
+
             }
             if (!this.fills(otherDimension)) {
                 this[dimension] = Math.max(
                     this['get' + capitalisedDimension](),
                     this[dimension]
                 );
-            }
+            } 
 
             if (!this.isFlexbox) {
-                this.content.style['margin' + edge] = (-this.content['client' + capitalisedDimension]/2) + 'px';
+                this.content.style['margin' + edge] = (-this.content['offset' + capitalisedDimension]/2) + 'px';
             }
         }
     }

@@ -29,7 +29,6 @@
   height: 150%; // because on some phones scrolling upwards detaches a 100% height overlay from the bottom of the screen
   width: 100%;
   top: 0;
-  margin: -10px;
   opacity: 0;
   @include oUseragentPrefixer(transition, opacity 0.3s ease-in-out);
   pointer-events: none; 
@@ -46,7 +45,7 @@
 
 .o-modal__content {
   box-sizing: border-box;
-  overflow-y: auto;
+  overflow: hidden;
   min-height: 10px;
   min-width: 10px;
   margin: 100px auto 0;
@@ -55,8 +54,10 @@
   top: 50%;
 }
 
-.o-modal__body, 
-%o-modal__body {
+.o-modal__body {
+
+  overflow-y: auto;
+  height: 100%;
 
   &:after {
     content: " ";
@@ -66,8 +67,7 @@
 }
 
 @include oUseragentTarget(ie7) {
-  .o-modal__body,
-  %o-modal__body {
+  .o-modal__body {
     zoom: 1;
   }
 }
@@ -117,15 +117,8 @@
     height: 100%; 
     margin-top: 0;
     margin-bottom: 0;
-    overflow-y: hidden;
     top: auto;
   }
-
-  .o-modal__body,
-  %o-modal__body {
-    overflow-y: auto;
-  }
-
 }
 
 @import "flexbox";

@@ -46,7 +46,7 @@
   /**
     STRETCHING MODAL BODY TO FILL ALL SPACE NOT OCCUPIED MY MODAL HEADING
   **/
-  .o-modal--full-height .o-modal__content:not(.o-modal__body) {
+  .o-modal__content:not(.o-modal__body) {
     // we just use .o-modal__body here as it's added programmatically by the js so we don't need 
     // to worry about users needing to extend with their own choice of selector
     // and besides :not(%class) doesn't resolve properly in sass
@@ -73,33 +73,32 @@
     -webkit-align-content: stretch;
     -ms-flex-line-pack: stretch;
     align-content: stretch;
+  }
 
-    .o-modal__body,
-    %o-modal__body {
-      -webkit-box-ordinal-group: 1;
-      -moz-box-ordinal-group: 1;
-      -webkit-box-flex: 1;
-      -moz-box-flex: 1;
-      -webkit-flex: 1 1 auto;
-      -ms-flex: 1 1 auto;
-      flex: 1 1 auto;
-      -webkit-align-self: auto;
-      -ms-flex-item-align: auto;
-      align-self: auto;
-    }
+  .o-modal__body {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    height: auto;
+  }
 
-    .o-modal__heading,
-    %o-modal__heading {
-      -webkit-box-ordinal-group: 1;
-      -moz-box-ordinal-group: 1;
-      -webkit-box-flex: 0;
-      -moz-box-flex: 0;
-      -webkit-flex: 0 0 auto;
-      -ms-flex: 0 0 auto;
-      flex: 0 0 auto;
-      -webkit-align-self: auto;
-      -ms-flex-item-align: auto;
-      align-self: auto;
-    }
+  .o-modal__heading {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
   }
 }

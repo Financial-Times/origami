@@ -13,21 +13,21 @@ module.exports = function (wrapper, cssClass, mode, transitioningEls, callback) 
         singletonCallback,
         delegate = new Delegate(wrapper);
 
-    transitioningEls.forEach(function () {
+    transitioningEls.forEach(function (el) {
         var transitionDetails,
-            duration = +prefixer.getStyleValue(this, 'transition-duration').replace(/[^\.\d]/g, ''),
+            duration = +prefixer.getStyleValue(el, 'transition-duration').replace(/[^\.\d]/g, ''),
             properties;
 
         if (duration) {
-            properties = prefixer.getStyleValue(this, 'transition-property');
+            properties = prefixer.getStyleValue(el, 'transition-property');
             
             properties = properties === 'all' ? [] : properties.split(' ');
         
             transitionDetails = {
-                el: this,
+                el: el,
                 duration: duration,
                 properties: properties,
-                initialState: prefixer.getStyleValue(this, properties.join(' '))
+                initialState: prefixer.getStyleValue(el, properties.join(' '))
             };
             possibleTransitions.push(transitionDetails);
 

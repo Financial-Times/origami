@@ -1,6 +1,5 @@
 'use strict';
 var viewport = require('o-viewport');
-viewport.debug();
 viewport.listenTo('resize');
 
 var Delegate = require('dom-delegate');

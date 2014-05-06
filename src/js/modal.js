@@ -147,7 +147,10 @@ Modal.prototype = {
     detach: function (destroy) {
         this.delegates.win.off();
         this.delegates.wrap.off();
-        destroy && this.context.removeChild(this.wrapper);
+        if (destroy) {
+            this.context.removeChild(this.wrapper);
+            this.context.removeChild(this.overlay);
+        }
         this.opts.onAfterClose(this);
     }
 };
