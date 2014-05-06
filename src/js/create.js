@@ -35,7 +35,6 @@ module.exports = function () {
         this.opts.closeClass && button.classList.add(this.opts.closeClass);
     }
 
-    this.body = dom.matches(this.content, this.opts.bodySelector) ? this.content : this.content.querySelector(this.opts.bodySelector);
     this.heading = this.content.querySelector(this.opts.headingSelector);
 
     this.opts.hasHeading = !!this.heading;
@@ -48,8 +47,10 @@ module.exports = function () {
     this.opts.innerClass && this.content.classList.add(this.opts.innerClass);
     
     if (this.opts.hasHeading) {
+        this.body = this.content.querySelector(this.opts.bodySelector);
         this.body.classList.add('o-modal__body');
     } else {
+        this.body = this.content;
         this.content.classList.add('o-modal__body');
     }
 
