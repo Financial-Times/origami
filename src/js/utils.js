@@ -19,5 +19,11 @@ module.exports = {
 
     getSpacing: function (el, side) {
         return (parseInt(el.style['padding' + capitalise(side)], 10) || 0) + (parseInt(el.style['margin' + capitalise(side)], 10) || 0);
+    },
+
+    attrToData: function (name) {
+        return name.replace('data-o-modal-', '').replace(/\-\w/g, function ($0) {
+            return $0.charAt(1).toUpperCase();
+        });
     }
 };

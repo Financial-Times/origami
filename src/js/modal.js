@@ -14,11 +14,20 @@ var setOptions = function (opts, trigger) {
 
     // get config from data attributes on trigger
     if (trigger) {
-        Object.keys(trigger.dataset).forEach(function (key) {
-            if (key.indexOf('oModal') === 0) {
-                opts[utils.unCapitalise(key.substr(6))] = trigger.dataset[key];
-            }
-        });
+        if (trigger.dataset) {
+            Object.keys(trigger.dataset).forEach(function (key) {
+                if (key.indexOf('oModal') === 0) {
+                    opts[utils.unCapitalise(key.substr(6))] = trigger.dataset[key];
+                }
+            });            
+        } else {
+            Array.prototype.forEach.call(trigger.attributes, function (attr) {
+                if (attr.name.indexOf('data-o-modal') === 0) {
+                    opts[utils.attrToData(attr.name)] = attr.value;
+                }                
+            });
+        }
+
     }
 
     if (!opts.src) { return; }
