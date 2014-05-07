@@ -1,3 +1,3 @@
 /*global require*/
-var oTable = require('../../main');
+var oTable = require('./../../main');
 oTable.wrap();
