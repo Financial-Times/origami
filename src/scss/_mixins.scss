@@ -1,0 +1,17 @@
+@mixin oTableAll($classname: o-table) {
+  .#{$classname}-wrapper {
+    @extend %o-table-wrapper;
+  }
+  .#{$classname} {
+    @extend %o-table-base;
+  }
+  .#{$classname}--row-stripes {
+    @extend %o-table-row-stripes;
+  }
+  .#{$classname}--horizontal-lines {
+    @extend %o-table-horizontal-lines;
+  }
+  .#{$classname}--vertical-lines {
+    @extend %o-table-vertical-lines;
+  }
+}

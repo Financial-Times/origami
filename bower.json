@@ -1,12 +1,16 @@
 {
     "name": "o-table",
     "dependencies": {
-        "o-colors": "^2.3.9",
-        "o-ft-typography": "^1.8.1"
+        "o-dom": "^0.3.0",
+        "o-colors": "^2.3.10",
+        "o-ft-typography": "^1.9.0"
     },
-    "main": [ "main.scss"],
+    "main": [ "main.scss", "main.js"],
     "ignore": [
+        ".gitignore",
         "build",
-        ".gitignore"
+        "test",
+        "karma.conf.js",
+        "package.json"
     ]
 }

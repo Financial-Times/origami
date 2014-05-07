@@ -1,60 +1,37 @@
-@mixin oTableBase($classname) {
+%o-table-base {
+  margin: 0 0 20px 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: oColorsGetColorFor(table page, background);
 
-  table.#{$classname} {
-    margin: 0 0 20px 0;
-    border-spacing: 0;
-    border-collapse: collapse;
-    width: 100%;
-    background-color: oColorsGetColorFor(table page, background);
+  @extend %o-ft-typography-body;
 
-    @extend %o-ft-typography-body;
-
-    th,
-    td {
-      padding: 8px;
-      line-height: 1.428571429;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th[scope=row],
-    &.#{$classname}--vertical-lines th[scope=row] {
-      border-left: 2px solid oColorsGetColorFor(table-header-row, border);
-      border-right: 2px solid oColorsGetColorFor(table-header-row, border);
-    }
-
-    [data-type=numeric] {
-      text-align: right;
-    }
-
-    th:not([scope=row]) {
-      border-top: 2px solid oColorsGetColorFor(table-header-row, border);
-      border-right: none;
-      border-bottom: 2px solid oColorsGetColorFor(table-header-row, border);
-      border-left: none;
-      vertical-align: bottom;
-    }
-
-    &.#{$classname}--row-stripes {
-      background-color: oColorsGetColorFor(table-striped table page, background);
-      tbody tr:nth-child(even) {
-        background-color: oColorsGetColorFor(table-row-alt table, background);
-      }
-    }
-
-    &.#{$classname}--horizontal-lines {
-      td {
-        border-bottom: 1px solid oColorsGetColorFor(table-row, border);
-      }
-    }
-
-    &.#{$classname}--vertical-lines {
-      th,
-      td {
-        border-left: 1px solid oColorsGetColorFor(table-row, border);
-        border-right: 1px solid oColorsGetColorFor(table-row, border);
-      }
-    }
-
+  th,
+  td {
+    padding: 8px;
+    line-height: 1.428571429;
+    text-align: left;
+    vertical-align: top;
   }
+
+  [data-o-table-data-type=numeric] {
+    text-align: right;
+  }
+
+  th[scope=row] {
+    border-left: 2px solid oColorsGetColorFor(table-header-row, border);
+    border-right: 2px solid oColorsGetColorFor(table-header-row, border);
+  }
+
+  th:not([scope=row]) {
+    border-top: 2px solid oColorsGetColorFor(table-header-row, border);
+    border-bottom: 2px solid oColorsGetColorFor(table-header-row, border);
+    vertical-align: bottom;
+  }
+}
+
+%o-table-wrapper {
+  width: 100%;
+  overflow: auto;
 }

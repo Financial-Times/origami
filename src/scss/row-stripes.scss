@@ -1,0 +1,6 @@
+%o-table-row-stripes {
+  background-color: oColorsGetColorFor(table-striped table page, background);
+  tbody tr:nth-child(even) {
+    background-color: oColorsGetColorFor(table-row-alt table, background);
+  }
+}

@@ -62,24 +62,70 @@ When they're are not present, browsers will implicitly wrap table contents in `t
 </table>
 ```
 
-## Variant classes
+## Small screen rendering
+
+Where there is not enough horizontal space for a table to fit, it can be made horizontally scrollable by wrapping it in an element with a class of `o-table-wrapper`:
+
+```html
+<div class="o-table-wrapper">
+    <table class="o-table">
+        ...
+    </table>
+</div>
+```
+
+This can also be done using the provided `wrap()` javascript function:
+
+```javascript
+var oTable = require('o-table');
+oTable.wrap();
+```
+
+This function can be passed two arguments:
+
+* target tables selector (default `.o-table`);
+* wrapper CSS class (default `o-table-wrapper`);
+
+For example, to wrap only tables within a certain part of the page, you can do this:
+
+```javascript
+var oTable = require('o-table');
+oTable.wrap('.content-zone .o-table', 'o-table-custom-wrapper');
+```
+
+Note that tables matching the selector will not be wrapped, if they already have a parent node that has the wrapper class.
+
+## Silent mode
+
+If using __o-table__ in silent mode, `@extend` the placeholder `%o-table-base` into your own table class:
+
+```sass
+  .my-table {
+    @extend %o-table-base;
+  }
+```
+
+## Variant classes and placeholders
 
 Additional classes may be added to the table root element to also apply the following styling options. They can be combined as required.
 
 ### Row stripes
 
 Class: `o-table--row-stripes`
+Placeholder: %o-table-row-stripes
 
 A background colour will be set on the whole table, and alternate rows within the `tbody` will have their background colour set to a pink tint.
 
 ### Horizontal lines
 
 Class: `o-table--horizontal-lines`
+Placeholder: %o-table-horizontal-lines
 
 Thin lines will be rendered under each `td` element giving the appearance of lines between rows.
 
 ### Vertical lines
 
 Class: `o-table--vertical-lines`
+Placeholder: %o-table-vertical-lines
 
 Thin lines will be rendered to the left and right of each `td` element giving the appearance of lines between columns.
