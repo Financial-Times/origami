@@ -5,8 +5,8 @@ var oDom = require('o-dom');
 function wrapElement(targetEl, wrapEl) {
     "use strict";
     var parentEl = targetEl.parentNode;
+    parentEl.insertBefore(wrapEl, targetEl);
     wrapEl.appendChild(targetEl);
-    parentEl.appendChild(wrapEl);
 }
 
 function wrap(tableSelector, wrapClass) {
