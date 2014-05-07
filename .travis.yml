@@ -4,6 +4,10 @@ node_js:
 before_install:
   - npm cache clean
   - npm install -g https://github.com/Financial-Times/origami-build-tools/tarball/master
-  - origami-build-tools install
+#  - origami-build-tools install
+  - npm install -g bower
+  - npm install
+  - bower install --config.registry.search=http://registry.origami.ft.com --config.registry.search=https://bower.herokuapp.com
 script:
   - origami-build-tools test
+  - npm test

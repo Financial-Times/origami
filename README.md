@@ -111,21 +111,18 @@ Additional classes may be added to the table root element to also apply the foll
 
 ### Row stripes
 
-Class: `o-table--row-stripes`
-Placeholder: %o-table-row-stripes
+Class: `o-table--row-stripes`, SASS placeholder: `%o-table-row-stripes`
 
 A background colour will be set on the whole table, and alternate rows within the `tbody` will have their background colour set to a pink tint.
 
 ### Horizontal lines
 
-Class: `o-table--horizontal-lines`
-Placeholder: %o-table-horizontal-lines
+Class: `o-table--horizontal-lines`, SASS placeholder: `%o-table-horizontal-lines`
 
 Thin lines will be rendered under each `td` element giving the appearance of lines between rows.
 
 ### Vertical lines
 
-Class: `o-table--vertical-lines`
-Placeholder: %o-table-vertical-lines
+Class: `o-table--vertical-lines`, SASS placeholder: `%o-table-vertical-lines`
 
 Thin lines will be rendered to the left and right of each `td` element giving the appearance of lines between columns.
