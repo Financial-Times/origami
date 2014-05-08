@@ -1,17 +1,11 @@
 @include oFtTypographySelectors(body-wrapper) {
 
   h2 {
-      @include oFtTypographyExtend(heading-medium);
-      a {
-          @include oFtTypographyExtend(heading-medium__link);
-      }
+      @include oFtTypographyExtend(heading5);
   }
 
   h3 {
-      @include oFtTypographyExtend(heading-small);
-      a {
-          @include oFtTypographyExtend(heading-small__link);
-      }
+      @include oFtTypographyExtend(heading6);
   }
 
   a {
