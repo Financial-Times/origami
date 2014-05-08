@@ -30,7 +30,7 @@
   width: 100%;
   top: 0;
   opacity: 0;
-  z-index: 1;
+  // z-index: 1; don't set z-index here  - because it's positioned and teh last thing in the container it will naturally overlay page content, and means we don't need z-index 2 on the overlay content 
   @include oUseragentPrefixer(transition, opacity 0.3s ease-in-out);
   pointer-events: none; 
 
