@@ -1,27 +1,21 @@
 @include oFtTypographySelectors(title-large) {
   @include _oFtTypographyFont(MillerDisplay);
   @include oFtTypographyFontSize(30, 36, -5);
-  color: oColorsGetColorFor(title-text);
+  color: oColorsGetColorFor(title, text);
+  @include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }
 
 @include oFtTypographySelectors(title-medium) {
   @include _oFtTypographyFont(MillerDisplay);
   @include oFtTypographyFontSize(21, 26);
-  color: oColorsGetColorFor(title-text);
+  color: oColorsGetColorFor(title, text);
+  @include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }
 
 @include oFtTypographySelectors(title-small) {
   @include _oFtTypographyFont(MillerDisplay);
   font-weight: bold;
   @include oFtTypographyFontSize(15, 17);
-  color: oColorsGetColorFor(title-text);
-}
-
-@include oFtTypographySelectors(title-large__link title-medium__link title-small__link) {
-  text-decoration: none;
-  color: oColorsGetColorFor(title-text);
-  cursor: pointer;
-  #{$o-hoverable-if-hover-enabled} &:hover {
-      color: oColorsGetColorFor(link-text);
-  }
+  color: oColorsGetColorFor(title, text);
+  @include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }

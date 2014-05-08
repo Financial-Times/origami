@@ -1,12 +1,6 @@
 %label-text {
   color: oColorsGetColorFor(label body, text);
-  > a {
-    text-decoration: none;
-    color: oColorsGetColorFor(link, text);
-    #{$o-hoverable-if-hover-enabled} &:hover {
-      color: oColorsGetColorFor(link-hover, text);
-    }
-  }
+  @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
 @include oFtTypographySelectors(label-large) {

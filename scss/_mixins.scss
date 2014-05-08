@@ -68,3 +68,14 @@
     }
   }
 }
+
+@mixin _oFtTypographyLinkStyle($color, $hover-color) {
+  a {
+    text-decoration: none;
+    color: $color;
+    cursor: pointer;
+    #{$o-hoverable-if-hover-enabled} &:hover {
+      color: $hover-color;
+    }
+  }
+}

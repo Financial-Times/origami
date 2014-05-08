@@ -2,16 +2,8 @@
   margin: 0;
   @include oFtTypographyFontSize(12, 14);
   @include _oFtTypographyFont(BentonSans, bold);
-  color: oColorsGetColorFor(brand-text);
-}
-
-@include oFtTypographySelectors(brand__link) {
-  text-decoration: none;
-  color: oColorsGetColorFor(link-text);
-  cursor: pointer;
-  #{$o-hoverable-if-hover-enabled} &:hover {
-    color: oColorsGetColorFor(link-hover-text);
-  }
+  color: oColorsGetColorFor(brand, text);
+  @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
 @include oFtTypographySelectors(byline)  {
