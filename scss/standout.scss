@@ -3,14 +3,11 @@
   @include oFtButtonSelectors(#{$buttonClass}--standout, $force-non-silent) {
     @include oFtButtonsColors($_o-ft-buttons-color-standout-standard-border, $_o-ft-buttons-color-standout-standard-bg, $_o-ft-buttons-color-standout-standard-fg);
 
-    &.#{$buttonClass}--selected,
     &[aria-selected=true] {
       @include oFtButtonsColors($_o-ft-buttons-color-standout-selected-border, $_o-ft-buttons-color-standout-selected-bg, $_o-ft-buttons-color-standout-selected-fg);
       pointer-events: none;
     }
 
-    &.#{$buttonClass}--disabled,
-    &[aria-disabled=true],
     &[disabled] {
       @include oFtButtonsColors($_o-ft-buttons-color-standout-disabled-border, $_o-ft-buttons-color-standout-disabled-bg, $_o-ft-buttons-color-standout-disabled-fg);
       pointer-events: none;

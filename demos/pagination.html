@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<!--[if IE 7]>         <html class="no-js o-useragent-ie7"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js o-useragent-ie8"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if IE 7]>         <html class="o-useragent-ie7 o-hoverable-on"> <![endif]-->
+<!--[if IE 8]>         <html class="o-useragent-ie8 o-hoverable-on"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
     <title>o-ft-buttons: pagination demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <style>
-    body {
-        margin: 0;
-    }
-    </style>
+    <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
     <link rel="stylesheet" href="/bundles/css?modules=o-ft-buttons:/demos/src/demo.scss" />
 </head>
 <body class="o-hoverable-on">
+    <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
     
-    <div class="o-ft-buttons__pagination">
-    <button class="o-ft-buttons o-ft-buttons--disabled"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button>
-    <button class="o-ft-buttons o-ft-buttons--selected">1</button>
+    
+<div class="o-ft-buttons__pagination">
+    <button class="o-ft-buttons" disabled="disabled"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button>
+    <button class="o-ft-buttons" aria-selected="true">1</button>
     <button class="o-ft-buttons">2</button>
     <button class="o-ft-buttons">3</button>
     <div class="o-ft-buttons o-ft-buttons--faux"><span class="o-ft-buttons__icon o-ft-buttons__icon--more"></span></div>
@@ -39,8 +37,8 @@
 <br />
 
 <div class="o-ft-buttons__pagination">
-    <button class="o-ft-buttons o-ft-buttons--big o-ft-buttons--disabled"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button>
-    <button class="o-ft-buttons o-ft-buttons--big o-ft-buttons--selected">1</button>
+    <button class="o-ft-buttons o-ft-buttons--big" disabled="disabled"><span class="o-ft-buttons__icon o-ft-buttons__icon--left"></span></button>
+    <button class="o-ft-buttons o-ft-buttons--big" aria-selected="true">1</button>
     <button class="o-ft-buttons o-ft-buttons--big">2</button>
     <button class="o-ft-buttons o-ft-buttons--big">3</button>
     <div class="o-ft-buttons o-ft-buttons--faux o-ft-buttons--big"><span class="o-ft-buttons__icon o-ft-buttons__icon--more"></span></div>

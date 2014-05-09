@@ -28,7 +28,8 @@
 }
 
 @mixin oFtButtonsTypography($font-size: 14px, $line-height: 22px) {
-  font-family: $o-fonts-bentonsans-normal;
+  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+  font-weight: normal;
   font-size: $font-size;
   line-height: $line-height;
   text-decoration: none;
@@ -46,7 +47,7 @@
 }
 
 @mixin oFtButtonsButtonHover($buttonClass, $borderColor, $backgroundColor, $color) {
-  &:not([disabled]):not([aria-disabled=true]):not(#{#{$buttonClass}--disabled}):not([aria-selected=true]):not(#{#{$buttonClass}--selected}):not(#{#{$buttonClass}--faux}):hover {
+  &:not([disabled]):not([disabled]):not([aria-selected=true]):not(#{#{$buttonClass}--faux}):hover {
     @include oFtButtonsColors($borderColor, $backgroundColor, $color);
     cursor: pointer;
   }

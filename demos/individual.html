@@ -1,30 +1,28 @@
 <!DOCTYPE html>
-<!--[if IE 7]>         <html class="no-js o-useragent-ie7"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js o-useragent-ie8"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if IE 7]>         <html class="o-useragent-ie7 o-hoverable-on"> <![endif]-->
+<!--[if IE 8]>         <html class="o-useragent-ie8 o-hoverable-on"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
     <title>o-ft-buttons: individual demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <style>
-    body {
-        margin: 0;
-    }
-    </style>
+    <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
     <link rel="stylesheet" href="/bundles/css?modules=o-ft-buttons:/demos/src/demo.scss" />
 </head>
 <body class="o-hoverable-on">
+    <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
     
-    <button class="o-ft-buttons">Standard</button><!--
---><button class="o-ft-buttons o-ft-buttons--selected">Selected</button><!--
---><button class="o-ft-buttons o-ft-buttons--disabled">Disabled</button>
+    
+<button class="o-ft-buttons">Standard</button><!--
+--><button class="o-ft-buttons" aria-selected="true">Selected</button><!--
+--><button class="o-ft-buttons" disabled="disabled">Disabled</button>
 
 <br />
 <br />
 
 <button class="o-ft-buttons o-ft-buttons--big">Standard</button><!--
---><button class="o-ft-buttons o-ft-buttons--big o-ft-buttons--selected">Selected</button><!--
---><button class="o-ft-buttons o-ft-buttons--big o-ft-buttons--disabled">Disabled</button>
+--><button class="o-ft-buttons o-ft-buttons--big" aria-selected="true">Selected</button><!--
+--><button class="o-ft-buttons o-ft-buttons--big" disabled="disabled">Disabled</button>
 
     
     <script src='http://registry.origami.ft.com/embedapi?autoload=resize'></script>

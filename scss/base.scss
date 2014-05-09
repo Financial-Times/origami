@@ -15,14 +15,11 @@
       margin-left: 4px;
     }
 
-    &.#{$buttonClass}--selected,
     &[aria-selected=true] {
       @include oFtButtonsColors($_o-ft-buttons-color-selected-border, $_o-ft-buttons-color-selected-bg, $_o-ft-buttons-color-selected-fg);
       pointer-events: none;
     }
 
-    &.#{$buttonClass}--disabled,
-    &[aria-disabled=true],
     &[disabled] {
       @include oFtButtonsColors($_o-ft-buttons-color-disabled-border, $_o-ft-buttons-color-disabled-bg, $_o-ft-buttons-color-disabled-fg);
       pointer-events: none;
