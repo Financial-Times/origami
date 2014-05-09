@@ -1,7 +1,4 @@
-#{$o-quote-class-type}o-quote {
-  display: block;
-  margin: 0;
-  padding: 28px 28px 28px 28px;
+#{$o-quote-class-type}o-quote--standard {
   background-color: oColorsGetColorFor(quote, background);
   line-height: 21px;
 
@@ -10,8 +7,6 @@
   }
 
   p {
-    margin: 0 0 14px 0;
-    padding: 0;
     color: oColorsGetColorFor(quote, text);
     font-size: 16px;
     font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
@@ -31,27 +26,23 @@
     vertical-align: top;
   }
   p:before {
-    content: "“";
     margin-top: 21px;
     margin-right: 7px;
   }
   p:after {
-    content: "”";
     margin-top: 29px;
     margin-left: 9px;
   }
-}
 
-#{$o-quote-class-type}o-quote__cite {
-  display: block;
-  text-align: right;
-  font-size: 16px;
-  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-  font-weight: normal;
-  font-style: normal;
-
-  &:before {
-    content: '-';
-    margin-right: 4px;
+  #{$o-quote-class-type}o-quote__cite {
+    font-size: 16px;
+    font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+    font-weight: normal;
+    font-style: normal;
+  
+    &:before {
+      content: '-';
+      margin-right: 4px;
+    }
   }
 }

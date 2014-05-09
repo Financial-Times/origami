@@ -5,6 +5,7 @@
   "support": "matthew.andrews@ft.com",
   "supportStatus": "not implemented",
   "demos": [
-    "/demos/basic.html"
+    "/demos/base.html",
+    "/demos/standard.html"
   ]
 }

@@ -3,8 +3,11 @@
     "sass": "demos/src/demo.scss"
   },
   "demos": {
-    "basic": {
-      "template": "demos/src/basic.mustache"
+    "base": {
+      "template": "demos/src/base.mustache"
+    },
+    "standard": {
+      "template": "demos/src/standard.mustache"
     }
   }
 }
