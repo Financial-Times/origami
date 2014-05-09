@@ -1,0 +1,10 @@
+{
+  "options": {
+    "sass": "demos/src/demo.scss"
+  },
+  "demos": {
+      "basic": {
+      "template": "demos/src/basic.mustache"
+    }
+  }
+}

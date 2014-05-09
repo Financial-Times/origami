@@ -1,0 +1,11 @@
+$o-quote-is-silent: true !default;
+
+$o-quote-class-type: unquote(".");
+
+@if $o-quote-is-silent == true {
+  $o-quote-class-type: unquote("%");
+}
+
+#{$o-quote-class-type}o-quote {
+  background-color: _oColorsGetPaletteColor(pink-tint2);
+}

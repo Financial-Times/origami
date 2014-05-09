@@ -1,0 +1,4 @@
+/build
+/bower_components/
+/.sass-cache
+.ruby-version
