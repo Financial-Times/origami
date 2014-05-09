@@ -9,5 +9,6 @@ $o-quote-class-type: unquote(".");
 }
 
 #{$o-quote-class-type}o-quote {
-  background-color: _oColorsGetPaletteColor(pink-tint2);
+  background-color: oColorsGetColorFor(quote, background);
+  color: oColorsGetColorFor(quote, text);
 }
