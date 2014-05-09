@@ -4,5 +4,7 @@
   "origamiVersion": 1,
   "support": "matthew.andrews@ft.com",
   "supportStatus": "not implemented",
-  "demos": []
+  "demos": [
+    "/demos/basic.html"
+  ]
 }

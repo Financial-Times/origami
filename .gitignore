@@ -2,3 +2,5 @@
 /bower_components/
 /.sass-cache
 .ruby-version
+/demos/demo.css
+/demos/demo.css.map

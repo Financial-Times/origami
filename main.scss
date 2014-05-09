@@ -1,5 +1,7 @@
 $o-quote-is-silent: true !default;
 
+@import "o-colors/main";
+
 $o-quote-class-type: unquote(".");
 
 @if $o-quote-is-silent == true {
