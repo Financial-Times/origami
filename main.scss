@@ -1,14 +1,14 @@
 $o-quote-is-silent: true !default;
 
 @import "o-colors/main";
+@import "o-fonts/main";
 
-$o-quote-class-type: unquote(".");
+$o-quote-class-type: unquote("%");
 
-@if $o-quote-is-silent == true {
-  $o-quote-class-type: unquote("%");
+@if $o-quote-is-silent == false {
+  $o-quote-class-type: unquote(".");
+  @include oFontsInclude(MillerDisplay);
+  @include oFontsInclude(BentonSans);
 }
 
-#{$o-quote-class-type}o-quote {
-  background-color: oColorsGetColorFor(quote, background);
-  color: oColorsGetColorFor(quote, text);
-}
+@import "src/default";
