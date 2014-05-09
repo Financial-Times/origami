@@ -10,7 +10,8 @@ Simply add an `o-quote` class to any quote you wish to apply the styles to.
 
 ```html
 <blockquote class="o-quote">
-  ...
+  <p>...</p>
+  <cite class="o-quote__cite">Anonymous</cite>
 </blockquote>
 ```
 
