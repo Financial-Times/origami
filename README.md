@@ -1,4 +1,4 @@
-# o-quote [![Build Status](https://travis-ci.org/Financial-Times/o-quote.svg?branch=themeable)](https://travis-ci.org/Financial-Times/o-quote)
+# o-quote [![Build Status](https://travis-ci.org/Financial-Times/o-quote.svg?branch=master)](https://travis-ci.org/Financial-Times/o-quote)
 
 ___
 Styling for quotes - block, pull or otherwise.
