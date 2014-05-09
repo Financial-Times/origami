@@ -15,9 +15,6 @@
         "metadata": {
             "template": "demos/src/metadata.mustache"
         },
-        "article-subheadings": {
-            "template": "demos/src/article-subheadings.mustache"
-        },
         "body": {
             "template": "demos/src/body.mustache"
         },
