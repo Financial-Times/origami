@@ -29,3 +29,19 @@ MUST
 TBD
 
 - Share counts.
+
+From _o-permalink_
+
+Rendering and generation of shortened, permanent links to FT resources.
+
+MUST
+
+- Provide an representation of a bit.ly generated permanent link.
+- Provide a means to copy that link to a clipboard.
+
+<img src="images/permalink.png"/>
+
+TBD 
+
+- Someone mentioned that some products (Ie, ft.com) do the bit.ly API request
+  on the client. I'd be dubious about implementing that.
