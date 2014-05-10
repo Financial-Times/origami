@@ -8,8 +8,8 @@ MUST
 - Provide the ability to share the current page (ie. location.href).
 - Provide the ability to share a given URL (ie. adjacent to a headline + standfirst on a section or index).
 - Use a standard set of social media icons (via o-icons).
-- Provide an representation of a bit.ly generated permanent link.
-- Provide a means to copy that link to a clipboard.
+- Provide a copyable representation of a link 
+- Provide a means to copy that link to a clipboard - @dansearle-ft says, 'Does this mean doing the actual copying to the clipboard for you, or just pre-selecting the link in an input? The latter seems to be beyond what the FastFT page does at the moment.'
 
 ```html
 <ul data-o-component="o-share" data-o-version="0.1.0" class="o-share">
