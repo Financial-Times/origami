@@ -3,6 +3,10 @@ o-share [![Build Status](https://travis-ci.org/Financial-Times/o-share.png?branc
 
 Social media and URL sharing buttons.
 
+___
+Designs shown below are existing (non-Origami) implementations and are not the design that this module will implement.
+___
+
 MUST
 
 - Provide the ability to share a URL provided by the product
@@ -11,26 +15,30 @@ MUST
 
 ## Construction
 
-__MVP:__ Products must provide the source HTML, in the following format:
+__MVP:__ Products must provide the source HTML, in the following format (TBC):
 
 ```html
-<ul data-o-component="o-share" data-o-version="0.1.0" class="o-share">
-    <li>
-        <a class="o-share__action" href="https://twitter.com/intent/tweet?text={{headline}}&url={{url}}">
-            Share this on Twitter
-        </a>
-    </li>
-    ... 
-</ul>
+<div data-o-component="o-share" data-o-version="0.1.0" class="o-share">
+    <ul>
+        <li>
+            <a class="o-share__action" href="https://twitter.com/intent/tweet?text={{headline}}&url={{url}}">Twitter</a>
+        </li>
+        ...
+    </ul>
+</div>
 ```
 
-__Future:__ __o-share__ will provide an API which, when passed the necessary data, will create the share link elements.
+__Future:__ __o-share__ may provide an API which, when passed the necessary data, will create the share link elements.
 
 ## Style options
 
 Share buttons can be shown horizontally or vertically.
 
 ### Vertical: icons and text
+
+__MVP:__ Vertical list will not be supported.
+
+__Future:__ Vertical list will be supported.
 
 This module does not provide the 'flyout' styling and behaviour, only the share button list.
 
@@ -48,7 +56,7 @@ __Future:__ Will show as many as will fit (product expresses a priority, with lo
 
 <img src="images/share-tweet.png"/>
 
-## Sharing a URL (envelope button)
+## Sharing a URL (link button)
 
 __MVP:__ Does not include the actual copying to the clipboard (users must do that manually).
 
@@ -58,9 +66,9 @@ __Future:__ Provide additional button to copy to the clipboard, possibly using [
 
 ## Share counts
 
-__MVP:__ Share counts will not be shown.
+__MVP:__ No share count will be shown.
 
-__Future:__ Aggregated share counts and/or individual share counts (using an Origami share count service) will be shown. Will provide a means of setting a minimum share count, below which share counts will not be shown.
+__Future:__ Aggregated share count (using an Origami share count service) will be shown. Will provide a means of setting a minimum share count, below which share counts will not be shown.
 
 <img src="images/share-counts.png"/>
 
@@ -80,9 +88,9 @@ URL share button will not display at all. User can of course still copy the brow
 
 ## Events
 
-MVP: This module will trigger the following:
+__MVP:__ This module will trigger the following:
 
 * `oShare.open` - when a share link has been opened (popup/flyout opened as a result of button click)
 * `oShare.copy` - when the URL has been copied
 
-Future: Will also trigger events for __o-tracking__ when the above events occur.
+__Future:__ Will also trigger events for __o-tracking__ when the above events occur.
