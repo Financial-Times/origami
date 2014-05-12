@@ -15,7 +15,7 @@
             "description": "For row striping, add or mixin o-table--row-stripes"
         },
         {
-            "path": "/demos/lines.html".
+            "path": "/demos/lines.html",
             "expanded": false
         }
     ]
