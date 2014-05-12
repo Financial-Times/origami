@@ -95,11 +95,11 @@ function timeAgo (date, fallback) {
 function watch (container, date) {
     container = container || document.body;
     if (container.classList.contains('o-date-updater')) {
-        date = date || container.getAttribute('datetime') || container.dataset.date;
+        date = date || container.getAttribute('datetime');
         createUpdater(container, date);
     } else {
         Array.prototype.forEach.apply(container.querySelectorAll('.o-date-updater'), function (el) {
-            createUpdater(el, el.getAttribute('datetime') || el.dataset.date);
+            createUpdater(el, el.getAttribute('datetime'));
         });
     }
 }
