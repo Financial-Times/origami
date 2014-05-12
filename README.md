@@ -52,7 +52,7 @@ __Future:__ Will show as many as will fit (product expresses a priority, with lo
 
 __MVP:__ Does not include the actual copying to the clipboard (users must do that manually).
 
-__Future:__ Provide additional button to copy to the clipboard.
+__Future:__ Provide additional button to copy to the clipboard, possibly using [zeroclipboard](https://github.com/zeroclipboard/zeroclipboard)
 
 <img src="images/share-url.png"/>
 
@@ -80,4 +80,9 @@ URL share button will not display at all. User can of course still copy the brow
 
 ## Events
 
-This module will trigger __o-tracking__ events when a share buttons is clicked, and when a `copy` event is triggered on the URL text.
+MVP: This module will trigger the following:
+
+* `oShare.open` - when a share link has been opened (popup/flyout opened as a result of button click)
+* `oShare.copy` - when the URL has been copied
+
+Future: Will also trigger events for __o-tracking__ when the above events occur.
