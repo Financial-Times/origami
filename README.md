@@ -19,7 +19,7 @@ Simply add an `o-quote` class to any quote you wish to apply the styles to.
 
 Either extend the base classes to create a custom theme or use the standard theme.
 
-```
+```html
 <blockquote class="o-quote o-quote--standard">
   <p>...</p>
   <cite class='o-quote__cite'>Anonymous</cite>
