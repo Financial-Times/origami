@@ -1,4 +1,4 @@
-# o-quote [![Build Status](https://travis-ci.org/Financial-Times/o-quote.png?branch=master)](https://travis-ci.org/financial-times/o-quote)
+# o-quote [![Build Status](https://travis-ci.org/Financial-Times/o-quote.svg?branch=master)](https://travis-ci.org/Financial-Times/o-quote)
 
 ___
 Styling for quotes - block, pull or otherwise.
@@ -12,6 +12,18 @@ Simply add an `o-quote` class to any quote you wish to apply the styles to.
 <blockquote class="o-quote">
   <p>...</p>
   <cite class="o-quote__cite">Anonymous</cite>
+</blockquote>
+```
+
+## Themeable
+
+Either extend the base classes to create a custom theme or use the standard theme.
+
+```html
+<blockquote class="o-quote o-quote--standard">
+  <p>...</p>
+  <cite class='o-quote__cite'>Anonymous</cite>
+  ...
 </blockquote>
 ```
 

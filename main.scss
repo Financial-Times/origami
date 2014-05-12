@@ -11,4 +11,5 @@ $o-quote-class-type: unquote("%");
   @include oFontsInclude(BentonSans);
 }
 
-@import "src/default";
+@import "src/base";
+@import "src/standard";
