@@ -1,0 +1,13 @@
+{
+    "name": "o-share",
+    "dependencies": {
+        "o-colors": ">=2.3.11"
+    },
+    "main": [
+        "main.scss"
+    ],
+    "ignore": [
+        ".gitignore",
+        "images"
+    ]
+}

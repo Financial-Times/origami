@@ -1,4 +1,4 @@
-o-share
+o-share [![Build Status](https://travis-ci.org/Financial-Times/o-share.png?branch=master)](https://travis-ci.org/Financial-Times/o-share)
 =======
 
 Social media and URL sharing buttons.

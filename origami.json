@@ -1,0 +1,14 @@
+{
+    "description": "Share module",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "https://github.com/Financial-Times/o-share/issues",
+    "supportStatus": "not implemented",
+    "browserFeatures": {
+        "required": [],
+        "optional": []
+    },
+    "ci": {
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-share/builds.json"
+    }
+}
