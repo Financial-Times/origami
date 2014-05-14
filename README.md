@@ -52,13 +52,13 @@ Required values:
 
 Share buttons are shown horizontally. In future, other display options will be provided.
 
-Products choose which share buttons will be shown by only including the markup for the buttons they want.
+Products choose which share buttons will be shown, and in what order, by only including the markup for the buttons they want. It is best to put the share URL action first when right-aligning the __o-share__ element, or last when left-aligning it.
 
 ## Sharing a URL (link button)
 
 Does not include the actual copying to the clipboard (users must do that manually), but will indicate to users when the URL has been copied.
 
-In future may provide additional button to copy to the clipboard, possibly using [zeroclipboard](https://github.com/zeroclipboard/zeroclipboard)
+In future may provide an additional button to copy to the clipboard, possibly using [zeroclipboard](https://github.com/zeroclipboard/zeroclipboard)
 
 ## Share counts
 
@@ -66,15 +66,15 @@ Does not yet show share count.
 
 In future will show a total share count (using an Origami share count aggregator service). There will be a minimum share count, below which share counts will not be shown.
 
-## Experience
+## Behaviour
 
-### Primary
+### Primary experience
 
 When clicked, social media share buttons will open the social media intent links in popup windows. Only one popup will be shown for each social media network, but if a user clicks multiple social media buttons, then one popup for each will be opened.
 
 When clicked, the URL share button will show the URL (see image above) in place of the envelope icon, in an `<input>` element. When the element loses focus, it will close.
 
-### Core
+### Core experience
 
 Social media share buttons will function as plain `<a>` elements (and can be set to `target="_blank"` if the product wishes..
 

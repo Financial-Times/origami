@@ -1,8 +1,7 @@
 /*global require,module*/
 
 var oDom = require('o-dom'),
-    shareDom = require('./shareDom'),
-    ToolTip = require('./ToolTip');
+    TextCopyHelper = require('./TextCopyHelper');
 
 function ShareLinks(rootEl) {
     "use strict";
@@ -39,38 +38,22 @@ function ShareLinks(rootEl) {
         if (!url || !parentEl || parentEl.hasAttribute("aria-selected")) {
             return;
         }
-        var inputEl = shareDom.createInputEl(url),
-            inputWidth,
-            tooltip;
-        inputEl.addEventListener('blur', function() {
-            parentEl.removeChild(inputEl);
-            parentEl.removeAttribute('aria-selected');
-            tooltip.destroy();
-            tooltip = null;
-            inputEl = null;
-        }, false);
-        inputEl.addEventListener('copy', function() {
-            tooltip.setText('Copied!');
-            dispatchCustomEvent('oTabs.copy', {
-                share: shareObj,
-                action: "url",
-                url: url
-            });
-        }, false);
-        inputEl.addEventListener('keyup', function(ev) {
-            if (ev.keyCode === 27) {
-                inputEl.blur();
-            }
-        }, false);
         parentEl.setAttribute('aria-selected', 'true');
-        parentEl.insertBefore(inputEl, parentEl.childNodes[0]);
-        inputWidth = shareDom.getPixelWidthOfText(url, inputEl);
-        if (inputWidth) {
-            inputEl.style.width = inputWidth + 'px';
-        }
-        inputEl.focus();
-        inputEl.select();
-        tooltip = new ToolTip('Copy this link for sharing', parentEl);
+        new TextCopyHelper({
+            message: "Copy this link for sharing",
+            text: url,
+            parentEl: parentEl,
+            onCopy: function() {
+                dispatchCustomEvent('oTabs.copy', {
+                    share: shareObj,
+                    action: "url",
+                    url: url
+                });
+            },
+            onClose: function() {
+                parentEl.removeAttribute('aria-selected');
+            }
+        });
         dispatchCustomEvent('oTabs.open', {
             share: shareObj,
             action: "url",
