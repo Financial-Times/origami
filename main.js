@@ -81,89 +81,56 @@ function timeAgo (date, fallback) {
     date = toDate(date);
     var interval = (new Date()) - date();
     if (interval < 30 * 1000) {
-        // just now
+        return 'just now';
     } else if (interval < 90 * 1000) {
-        // minute
+        return 'minute ago';
     } else if (interval < 55 * 60 * 1000) {
-        // minutes
+        return 'minutes ago';
     } else {
         return fallback ? format(date, fallback) : '';
     }
 }
 
 
-function watch (container, date) {
+function initTimeAgo (container, date) {
     container = container || document.body;
-    if (container.classList.contains('o-date-updater')) {
+    if (container.classList.contains('o-date--updater')) {
         date = date || container.getAttribute('datetime');
-        createUpdater(container, date);
+        showTimeAgo(container, date);
     } else {
-        Array.prototype.forEach.apply(container.querySelectorAll('.o-date-updater'), function (el) {
-            createUpdater(el, el.getAttribute('datetime'));
+        Array.prototype.forEach.apply(container.querySelectorAll('.o-date--updater'), function (el) {
+            showTimeAgo(el, el.getAttribute('datetime'));
         });
     }
+
+    autoUpdate();
 }
 
-function pause (container, destroy) {
-    // container = container || document.body;
-    // if (container.classList.contains('o-date-updater')) {
-    //     date = date || container.getAttribute('datetime') || container.dataset.date;
-    //     createUpdater(container, date);
-    // } else {
-    //     Array.prototype.forEach.apply(container.querySelectorAll('.o-date-updater'), function (el) {
-    //         createUpdater(el, el.getAttribute('datetime') || el.dataset.date);
-    //     });
-    // }
-}
+function autoUpdate () {
 
-function unwatch (container, destroy) {
-    // container = container || document.body;
-    // if (container.classList.contains('o-date-updater')) {
-    //     date = date || container.getAttribute('datetime') || container.dataset.date;
-    //     createUpdater(container, date);
-    // } else {
-    //     Array.prototype.forEach.apply(container.querySelectorAll('.o-date-updater'), function (el) {
-    //         createUpdater(el, el.getAttribute('datetime') || el.dataset.date);
-    //     });
-    // }
-}
-
-function refresh () {
-    updaters.forEach(function (u) {
-        u.update();
-    });
-    return setTimeout(refresh, 60000);
-}
-
-function createUpdater (el, date) {
-    timer = timer || refresh();
-    updaters.push(new Updater(el, date));
-}
-
-function Updater (el, date) {
-    this.date = toDate(date);
-    this.el = el;
-    this.init();
-}
-
-Updater.prototype = {
-    init: function () {
-        this.fallback = this.el.dataset.oDateUpdateFallback || 'long';
-    },
-    update: function () {
-        if (!this.paused) {
-            this.printer.innerHTML = this.timeAgo();
-        }
-    },
-    timeAgo: function () {
-        return timeAgo(this.date, this.fallback);
+    if (!timer) {
+        timer = setTimeout (function exec () {
+            document.querySelectorAll('.o-date-updater', function (el) {
+                showTimeAgo(el, el.getAttribute('datetime'));
+            });
+            setTimeout(exec, 60000);
+        }, 600000);
     }
-};
+}
+
+function unautoUpdate () {
+    clearTimeout(timer);
+}
+
+function showTimeAgo(el, date) {
+    var fallback = el.dataset.oDateUpdateFallback || 'long';
+    var printer = el.querySelector('o-date__output') || el;
+    printer.innerHTML = timeAgo(toDate(date), fallback);
+}
 
 module.exports = {
     format: format,
-    watch: watch,
-    unwatch: unwatch,
-    pause: pause,
+    autoUpdate: autoUpdate,
+    unautoUpdate: unautoUpdate,
     timeAgo: timeAgo
 };
