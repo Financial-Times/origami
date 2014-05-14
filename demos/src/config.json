@@ -1,0 +1,12 @@
+{
+    "options": {
+        "sass": "demos/src/demo.scss",
+        "js": "main.js",
+        "data": "demos/src/data.json"
+    },
+    "demos": {
+        "horizontal": {
+            "template": "demos/src/horizontal.mustache"
+        }
+    }
+}

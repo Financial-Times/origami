@@ -1,0 +1,28 @@
+@function _oShareStripUnits($n) {
+  @return $n / ($n * 0 + 1);
+}
+
+@function _oShareStripUnitIfZero($n) {
+  @if (_oShareStripUnits($n) == 0) {
+    @return 0;
+  }
+  @return $n;
+}
+
+@function _oShareGetSpriteUrl() {
+  $url: "http://image.webservices.ft.com/v1/images/raw/";
+  @each $social, $num in $_o-share-sprite-elements {
+    $url: $url + "ftsocial:" + $social + ",";
+  }
+  $url: str-slice($url, 1, -2) + "?width=" + _oShareStripUnits($_o-share-icon-size) + "&source=o-share";
+  @return $url;
+}
+
+@function _oShareGetSpriteIndex($name) {
+  @for $i from 1 through length($_o-share-sprite-elements) {
+    @if (nth($_o-share-sprite-elements, $i) == $name) {
+      @return $i - 1;
+    }
+  }
+  @return -1;
+}

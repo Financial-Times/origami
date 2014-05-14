@@ -3,74 +3,68 @@ o-share [![Build Status](https://travis-ci.org/Financial-Times/o-share.png?branc
 
 Social media and URL sharing buttons.
 
-___
-Designs shown below are existing (non-Origami) implementations and are not the design that this module will implement.
-___
-
-MUST
-
-- Provide the ability to share a URL provided by the product
-- Use a standard set of social media icons.
-- Provide a copyable representation of a link
+- Provides the ability to share a URL provided by the product
+- Uses a standard set of social media icons.
+- Provides a copyable representation of a link
 
 ## Construction
 
-__MVP:__ Products must provide the source HTML, in the following format (TBC):
+__MVP:__ Products must provide the source HTML, in the following format, with the template `{{tag}}`s replaced with real values:
 
 ```html
 <div data-o-component="o-share" data-o-version="0.1.0" class="o-share">
     <ul>
-        <li>
-            <a class="o-share__action" href="https://twitter.com/intent/tweet?text={{headline}}&url={{url}}">Twitter</a>
+        <li class="o-share__action o-share__action--url" data-o-share-action="url">
+            <a href="{{{url}}}"><i>URL</i></a>
         </li>
-        ...
+        <li class="o-share__action o-share__action--twitter">
+            <a href="https://twitter.com/intent/tweet?url={{url}}&text={{title}}&related={{relatedTwitterAccounts}}&via=FT"><i>Twitter</i></a>
+        </li>
+        <li class="o-share__action o-share__action--facebook">
+            <a href="http://www.facebook.com/sharer.php?u={{url}}&t={{title}}+|+{{titleExtra}}"><i>Facebook</i></a>
+        </li>
+        <li class="o-share__action o-share__action--googleplus">
+            <a href="https://plus.google.com/share?url={{url}}"><i>Google+</i></a>
+        </li>
+        <li class="o-share__action o-share__action--linkedin">
+            <a href="http://www.linkedin.com/shareArticle?mini=true&url={{url}}&title={{title}}+|+{{titleExtra}}&summary={{summary}}&source=Financial+Times"><i>LinkedIn</i></a>
+        </li>
+        <li class="o-share__action o-share__action--stumbleupon">
+            <a href="http://www.stumbleupon.com/submit?url={{url}}&title={{title}}"><i>StumbleUpon</i></a>
+        </li>
+        <li class="o-share__action o-share__action--reddit">
+            <a href="http://reddit.com/submit?url={{url}}&title={{title}}"><i>Reddit</i></a>
+        </li>
+        <li class="o-share__action o-share__action--tumblr">
+            <a href="http://www.tumblr.com/share/link?url={{url}}&name={{title}}&description={{summary}}"><i>Tumblr</i></a>
+        </li>
     </ul>
 </div>
 ```
 
-__Future:__ __o-share__ may provide an API which, when passed the necessary data, will create the share link elements.
+Required values:
 
-## Style options
+* `{{url}}`: The URL to be shared.
+* `{{title}}`: The title of the content to be shared
+* `{{titleExtra}}`: Any additional text relating to the title, e.g. site _section_.
+* `{{summary}}`: Summary text to be shared.
+* `{{relatedTwitterAccounts}}`: Comma-separated list of Twitter accounts to encourage the user to follow. See [Twitter intents](https://dev.twitter.com/docs/intents) for more info.
 
-Share buttons can be shown horizontally or vertically.
+Share buttons are shown horizontally. In future, other display options will be provided.
 
-### Vertical: icons and text
-
-__MVP:__ Vertical list will not be supported.
-
-__Future:__ Vertical list will be supported.
-
-This module does not provide the 'flyout' styling and behaviour, only the share button list.
-
-<img src="images/share-buttons.png"/>
-
-### Horizontal: icons only
-
-Icons can either be evenly spaced to fill the available space, or can have fixed spacing (controlled via CSS modifier class).
-
-__MVP:__ Products choose which share buttons will be shown.
-
-__Future:__ Will show as many as will fit (product expresses a priority, with lower-priority ones dropping off into a 'hamburger' icon menu?)
-
-<img src="images/share-more-on.png"/>
-
-<img src="images/share-tweet.png"/>
+Products choose which share buttons will be shown by only including the markup for the buttons they want.
 
 ## Sharing a URL (link button)
 
-__MVP:__ Does not include the actual copying to the clipboard (users must do that manually).
+Does not include the actual copying to the clipboard (users must do that manually), but will indicate to users when the URL has been copied.
 
-__Future:__ Provide additional button to copy to the clipboard, possibly using [zeroclipboard](https://github.com/zeroclipboard/zeroclipboard)
-
-<img src="images/share-url.png"/>
+In future may provide additional button to copy to the clipboard, possibly using [zeroclipboard](https://github.com/zeroclipboard/zeroclipboard)
 
 ## Share counts
 
-__MVP:__ No share count will be shown.
+Does not yet show share count.
 
-__Future:__ Aggregated share count (using an Origami share count service) will be shown. Will provide a means of setting a minimum share count, below which share counts will not be shown.
-
-<img src="images/share-counts.png"/>
+In future will show a total share count (using an Origami share count aggregator service). There will be a minimum share count, below which share counts will not be shown.
 
 ## Experience
 
@@ -82,15 +76,16 @@ When clicked, the URL share button will show the URL (see image above) in place 
 
 ### Core
 
-Social media share buttons will function has plain `<a>` elements targeting a `_blank` window.
+Social media share buttons will function as plain `<a>` elements (and can be set to `target="_blank"` if the product wishes..
 
 URL share button will not display at all. User can of course still copy the browser URL.
 
 ## Events
 
-__MVP:__ This module will trigger the following:
+This module will trigger the following events on its root element:
 
+* `oShare.ready` - when a share links behaviour has been initialised
 * `oShare.open` - when a share link has been opened (popup/flyout opened as a result of button click)
 * `oShare.copy` - when the URL has been copied
 
-__Future:__ Will also trigger events for __o-tracking__ when the above events occur.
+In future it may also trigger events for __o-tracking__ when the above events occur.

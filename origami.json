@@ -5,10 +5,20 @@
     "support": "https://github.com/Financial-Times/o-share/issues",
     "supportStatus": "not implemented",
     "browserFeatures": {
-        "required": [],
-        "optional": []
+        "required": [
+            "queryselector",
+            "classlist",
+            "addeventlistener"
+        ],
+        "optional": [
+            "getComputedStyle",
+            "canvas"
+        ]
     },
     "ci": {
         "travis": "https://api.travis-ci.org/repos/Financial-Times/o-share/builds.json"
-    }
+    },
+    "demos": [
+        "/demos/horizontal.html"
+    ]
 }
