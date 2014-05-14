@@ -79,17 +79,35 @@ function format (date, tpl) {
 
 function timeAgo (date, fallback) {
     date = toDate(date);
-    var interval = (new Date()) - date();
-    if (interval < 30 * 1000) {
-        return 'just now';
-    } else if (interval < 90 * 1000) {
-        return 'minute ago';
-    } else if (interval < 55 * 60 * 1000) {
-        return 'minutes ago';
+    var interval = Math.round(((new Date()) - date) / 1000);
+    if (interval < 45) {
+        return interval + ' seconds ago';
+    } else if (interval < 90) {
+        return 'a minute ago';
+    } else if (interval < 45 * 60) {
+        return Math.round(interval / 60) + ' minutes ago';
+    }  else if (interval < 90 * 60) {
+        return 'an hour ago';
+    } else if (interval < 22 * 60 * 60) {
+        return  Math.round(interval / (60 * 60)) + ' hours ago';
+    } else if (interval < 36 * 60 * 60) {
+        return 'a day ago';
+    } else if (interval < 25 * 60 * 60 * 24) {
+        return Math.round(interval / (60 * 60 * 24)) + ' days ago';
+    } else if (interval < 45 * 60 * 60 * 24) {
+        return 'a month ago';
+    } else if (interval < 345 * 60 * 60 * 24) {
+        return Math.round(interval / (60 * 60 * 24 * 30)) + ' months ago';
+    } else if (interval < 547 * 60 * 60 * 24) {
+        return 'a year ago';
     } else {
-        return fallback ? format(date, fallback) : '';
+        return Math.round(interval / (60 * 60 * 24 * 365)) + ' years ago';
+    // } else {
+    //     return fallback ? format(date, fallback) : '';
     }
 }
+
+
 
 
 function initTimeAgo (container, date) {
@@ -98,7 +116,7 @@ function initTimeAgo (container, date) {
         date = date || container.getAttribute('datetime');
         showTimeAgo(container, date);
     } else {
-        Array.prototype.forEach.apply(container.querySelectorAll('.o-date--updater'), function (el) {
+        Array.prototype.forEach.call(container.querySelectorAll('.o-date--updater'), function (el) {
             showTimeAgo(el, el.getAttribute('datetime'));
         });
     }
@@ -132,5 +150,6 @@ module.exports = {
     format: format,
     autoUpdate: autoUpdate,
     unautoUpdate: unautoUpdate,
+    initTimeAgo: initTimeAgo,
     timeAgo: timeAgo
 };
