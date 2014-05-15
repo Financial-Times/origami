@@ -4,6 +4,8 @@ var months = 'January,February,March,April,May,June,July,August,September,Octobe
 var days = 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'.split(',');
 var timer;
 var updaters = [];
+var timeAgoThreshold = -1;
+var thresholds = ['years', 'months', 'days', 'hours', 'minutes'];
 
 
 var formats = {
@@ -82,39 +84,39 @@ function timeAgo (date, fallback) {
     var interval = Math.round(((new Date()) - date) / 1000);
     if (interval < 45) {
         return interval + ' seconds ago';
-    } else if (interval < 90) {
+    } else if (timeAgoThreshold < 4 && interval < 90) {
         return 'a minute ago';
-    } else if (interval < 45 * 60) {
+    } else if (timeAgoThreshold < 4 && interval < 45 * 60) {
         return Math.round(interval / 60) + ' minutes ago';
-    }  else if (interval < 90 * 60) {
+    }  else if (timeAgoThreshold < 3 && interval < 90 * 60) {
         return 'an hour ago';
-    } else if (interval < 22 * 60 * 60) {
+    } else if (timeAgoThreshold < 3 && interval < 22 * 60 * 60) {
         return  Math.round(interval / (60 * 60)) + ' hours ago';
-    } else if (interval < 36 * 60 * 60) {
+    } else if (timeAgoThreshold < 2 && interval < 36 * 60 * 60) {
         return 'a day ago';
-    } else if (interval < 25 * 60 * 60 * 24) {
+    } else if (timeAgoThreshold < 2 && interval < 25 * 60 * 60 * 24) {
         return Math.round(interval / (60 * 60 * 24)) + ' days ago';
-    } else if (interval < 45 * 60 * 60 * 24) {
+    } else if (timeAgoThreshold < 1 && interval < 45 * 60 * 60 * 24) {
         return 'a month ago';
-    } else if (interval < 345 * 60 * 60 * 24) {
+    } else if (timeAgoThreshold < 1 && interval < 345 * 60 * 60 * 24) {
         return Math.round(interval / (60 * 60 * 24 * 30)) + ' months ago';
-    } else if (interval < 547 * 60 * 60 * 24) {
+    } else if (timeAgoThreshold < 0 && interval < 547 * 60 * 60 * 24) {
         return 'a year ago';
-    } else {
+    } else if (timeAgoThreshold < 0) {
         return Math.round(interval / (60 * 60 * 24 * 365)) + ' years ago';
-    // } else {
-    //     return fallback ? format(date, fallback) : '';
     }
+    return fallback ? format(date, fallback) : '';
+}
+
+function setTimeAgoThreshold (unit) {
+    timeAgoThreshold = thresholds.indexOf(unit);
 }
 
 
-
-
-function initTimeAgo (container, date) {
+function initTimeAgo (container) {
     container = container || document.body;
     if (container.classList.contains('o-date--updater')) {
-        date = date || container.getAttribute('datetime');
-        showTimeAgo(container, date);
+        showTimeAgo(container, container.getAttribute('datetime'));
     } else {
         Array.prototype.forEach.call(container.querySelectorAll('.o-date--updater'), function (el) {
             showTimeAgo(el, el.getAttribute('datetime'));
@@ -151,5 +153,6 @@ module.exports = {
     autoUpdate: autoUpdate,
     unautoUpdate: unautoUpdate,
     initTimeAgo: initTimeAgo,
-    timeAgo: timeAgo
+    timeAgo: timeAgo,
+    setTimeAgoThreshold: setTimeAgoThreshold
 };
