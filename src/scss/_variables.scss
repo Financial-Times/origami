@@ -1,7 +1,7 @@
 $o-share-is-silent: true !default;
 $_o-share-icon-size: 24px;
 
-// Used to request and show the sprite. Order doesn't affect markup.
-$_o-share-sprite-elements: (email, twitter, facebook, linkedin, stumbleupon, reddit, tumblr);
+// Used to request and show the sprite. Order doesn't affect class names or markup.
+$_o-share-sprite-elements: (email, twitter, facebook, googleplus, linkedin, stumbleupon, reddit, tumblr);
 
 $_o-share-tooltip-bg: rgba(0, 0, 0, 0.6);
