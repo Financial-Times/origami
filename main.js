@@ -135,7 +135,7 @@ function init (el, self) {
     if (self) {
         showTimeAgo(el);
     } else {
-        Array.prototype.forEach.call(el.querySelectorAll('time:not[.o-date--ignore], .o-date'), function (el) {
+        Array.prototype.forEach.call(el.querySelectorAll('time:not(.o-date--ignore), .o-date'), function (el) {
             showTimeAgo(el);
         });
     }
