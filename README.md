@@ -2,6 +2,14 @@
 
 o-date provides javascript utilities for formatting and updating dates in FT style
 
+## Core experience
+
+To provide the best non-js fallback you should markup your dates as follows
+
+    <time datetime={date.toISOString()}>{FT formatted date (including time if appropriate)}</time>
+
+This module's `format` method will also run in node and can be used to populate your viewmodel with the appropriate formatted date string. It's not recommended to output the 'time ago' server side as it will not be cacheable and will not update in the browser if the user leaves the page open for a prolonged period of time.
+
 ## API
 
 ### o-date#format(date, tpl)
