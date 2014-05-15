@@ -21,7 +21,7 @@ Returns a date formatted as a string
 
      - 'datetime': formats the date in the standard FT long format, including the time e.g. May 15, 2014 8:10 am
      - 'date': formats the date in the standard FT long format e.g. May 15, 2014
-     - Any other string: time date placeholders will be replaced with values extracted from the date provided (see `main.js` for valid placeholder strings). *In most cases this should not be used, in favour of the standard FT date and datetime formats'
+     - Any other string: time date placeholders will be replaced with values extracted from the date provided (see `main.js` for valid placeholder strings). To avoid e.g. the 'mm' in 'common' being replaced with the month prefix with a double backslash 'co\\mmon' i.e. *In most cases this should not be used, in favour of the standard FT date and datetime formats'
 
 ### o-date#timeAgo(date)
 

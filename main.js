@@ -19,15 +19,15 @@ var formatReplacementsMap = {
     MM: 'pad2(date.getMonth() + 1, 2)',
     M: '(date.getMonth() + 1)',
     yyyy: 'date.getFullYear()',
-    yy: 'date.getFullYear().substr(0, 2)',
+    yy: '(""+date.getFullYear()).substr(-2, 2)',
     EEEE: 'days[date.getDay()]',
     EEE: 'days[date.getDay()].substr(0,3)',
     d: 'date.getDate()',
-    dd: 'pad2(date.getDate() + 1, 2)',
+    dd: 'pad2(date.getDate(), 2)',
     m: 'date.getMinutes()',
     mm: 'pad2(date.getMinutes(), 2)',
-    h: '((date.getHours() % 12) - 1)',
-    hh: 'pad2((date.getHours() % 12) - 1, 2)',
+    h: '((date.getHours() % 12))',
+    hh: 'pad2((date.getHours() % 12), 2)',
     a: '(date.getHours() >= 12 ? "pm" : "am")'
 };
 
@@ -36,7 +36,10 @@ function compile (format) {
     
     var funcString = 'var months= "' + months + '".split(","), days= "' + days + '".split(",");';
     funcString +='function pad2 (number) {return ("0" + number).slice(-2)}';
-    funcString += 'return "' + tpl.replace(/[a-z]+/ig, function (match) {
+    funcString += 'return "' + tpl.replace(/\\?[a-z]+/ig, function (match) {
+        if (match.charAt(0) === '\\') {
+            return match.substr(1);
+        }
         var replacer = formatReplacementsMap[match];
 
         return replacer ? '" + ' + replacer + ' + "' : match;
@@ -50,6 +53,7 @@ function toDate (date) {
 }
 
 function format (date, format) {
+    format = format || 'datetime';
     var tpl = compiledTemplates[format] || compile(format);
     return tpl(toDate(date));
 }
@@ -69,7 +73,7 @@ function autoUpdate () {
 
 function showTimeAgo(el, date) {
     var date = el.getAttribute('datetime');
-    var printer = el.querySelector('o-date__output') || el;
+    var printer = el.querySelector('.o-date__printer') || el;
     printer.innerHTML = timeAgo(toDate(date));
     el.title = format(date, 'datetime');
 }
@@ -83,7 +87,7 @@ function timeAgo (date) {
         return 'a minute ago';
     } else if (interval < 45 * 60) {
         return Math.round(interval / 60) + ' minutes ago';
-    }  else if (interval < 90 * 60) {
+    } else if (interval < 90 * 60) {
         return 'an hour ago';
     } else if (interval < 22 * 60 * 60) {
         return  Math.round(interval / (60 * 60)) + ' hours ago';
@@ -98,7 +102,7 @@ function timeAgo (date) {
     } else if (interval < 547 * 60 * 60 * 24) {
         return 'a year ago';
     } else {
-        return Math.round(interval / (60 * 60 * 24 * 365)) + ' years ago';
+        return Math.max(2, Math.round(interval / (60 * 60 * 24 * 365))) + ' years ago';
     }
 }
 

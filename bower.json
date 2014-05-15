@@ -2,5 +2,9 @@
   "name": "o-date",
   "main": [
     "main.js"
+  ],
+  "ignore": [
+    "test",
+    "package.json"
   ]
 }

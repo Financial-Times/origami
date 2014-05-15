@@ -1,0 +1,23 @@
+{
+  "name": "o-date",
+  "version": "0.0.0",
+  "description": "FT branded dates",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Financial-Times/o-date.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/o-date/issues"
+  },
+  "homepage": "https://github.com/Financial-Times/o-date",
+  "devDependencies": {
+    "jsdom": "~0.10.5",
+    "tape": "~2.13.0"
+  }
+}
