@@ -4,7 +4,6 @@ function createInputEl(value) {
     "use strict";
     var inputEl = document.createElement('input');
     inputEl.setAttribute('type', 'text');
-    inputEl.setAttribute('readonly', 'true');
     inputEl.setAttribute('value', value);
     return inputEl;
 }
