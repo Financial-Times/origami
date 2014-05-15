@@ -9,10 +9,12 @@ o-date provides javascript utilities for formatting and updating dates in FT sty
 Returns a date formatted as a string
 
 * `date` A javascript `Date` object or a valid string to pass to the `Date` constructor
-* `tpl`  - 'full': formats the date in the standard FT long format, including the time
-         - 'date': formats the date in the standard FT long format
-         - 'shortDate': formats the date in the standard FT short format
-         - Any other string: time date placeholders will be replaced with values extracted from the date provided (see `main.js` for valid placeholder strings)
+* `tpl`  A string specifying what format to output the date in:
+
+     - 'full': formats the date in the standard FT long format, including the time e.g. May 15, 2014 8:10 am
+     - 'date': formats the date in the standard FT long format e.g. May 15, 2014
+     - 'shortDate': formats the date in the standard FT short format e.g. 15/5/14
+     - Any other string: time date placeholders will be replaced with values extracted from the date provided (see `main.js` for valid placeholder strings)
 
 ### o-date#timeAgo(date)
 
