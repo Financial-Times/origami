@@ -3,9 +3,8 @@
 var months = 'January,February,March,April,May,June,July,August,September,October,November,December';
 var days = 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday';
 var formats = {
-    full: 'MMMM d, yyyy h:mm a',
-    date: 'MMMM d, yyyy',
-    shortDate: 'd/M/yy'
+    datetime: 'MMMM d, yyyy h:mm a',
+    date: 'MMMM d, yyyy'
 };
 
 var compiledTemplates = {};
@@ -43,8 +42,6 @@ function compile (format) {
         return replacer ? '" + ' + replacer + ' + "' : match;
     }) + '"';
 
-    console.log(funcString);
-
     return Function('date', funcString);
 }
 
@@ -74,7 +71,7 @@ function showTimeAgo(el, date) {
     var date = el.getAttribute('datetime');
     var printer = el.querySelector('o-date__output') || el;
     printer.innerHTML = timeAgo(toDate(date));
-    el.title = format(date, 'full');
+    el.title = format(date, 'datetime');
 }
 
 function timeAgo (date) {

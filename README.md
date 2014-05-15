@@ -11,9 +11,8 @@ Returns a date formatted as a string
 * `date` A javascript `Date` object or a valid string to pass to the `Date` constructor
 * `tpl`  A string specifying what format to output the date in:
 
-     - 'full': formats the date in the standard FT long format, including the time e.g. May 15, 2014 8:10 am
+     - 'datetime': formats the date in the standard FT long format, including the time e.g. May 15, 2014 8:10 am
      - 'date': formats the date in the standard FT long format e.g. May 15, 2014
-     - 'shortDate': formats the date in the standard FT short format e.g. 15/5/14
      - Any other string: time date placeholders will be replaced with values extracted from the date provided (see `main.js` for valid placeholder strings)
 
 ### o-date#timeAgo(date)
