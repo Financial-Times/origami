@@ -2,16 +2,16 @@
 
 var months = 'January,February,March,April,May,June,July,August,September,October,November,December'.split(',');
 var days = 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'.split(',');
-var timer;
-var updaters = [];
-var timeAgoThreshold = -1;
-var thresholds = ['years', 'months', 'days', 'hours', 'minutes'];
-
-
 var formats = {
-    long: 'MMMM d, yyyy h:mm a',
-    short: 'd/M/yy'
+    full: 'MMMM d, yyyy h:mm a',
+    date: 'MMMM d, yyyy',
+    shortDate: 'd/M/yy'
 };
+
+var compiledTemplates = {};
+
+var timer;
+
 
 /*
     See http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html for formatting conventions used
@@ -62,69 +62,25 @@ function pad2 (number) {
     return ('0' + number).slice(-2);
 }
 
-function compileTemplate (tpl) {
-
+function compile (format) {
+    var tpl = formats[format] || format;
+    return (compiledTemplates[format] = function (date) {
+        return tpl.replace(/[a-z]+/ig, function (match) {
+            var replacer = formatReplacementsMap[match];
+            return replacer ? replacer.apply(date) : match;
+        });
+    });
 }
 
 function toDate (date) {
     return date instanceof Date ? date : new Date(date);
 }
 
-function format (date, tpl) {
-    tpl = formats[tpl] || tpl;
-    date = toDate(date);
-    return tpl.replace(/[a-z]+/ig, function (match) {
-        var replacer = formatReplacementsMap[match];
-        return replacer ? replacer.apply(date) : match;
-    });
+function format (date, format) {
+    var tpl = compiledTemplates[format] || compile(format);
+    return tpl(toDate(date));
 }
 
-function timeAgo (date, fallback) {
-    date = toDate(date);
-    var interval = Math.round(((new Date()) - date) / 1000);
-    if (interval < 45) {
-        return interval + ' seconds ago';
-    } else if (timeAgoThreshold < 4 && interval < 90) {
-        return 'a minute ago';
-    } else if (timeAgoThreshold < 4 && interval < 45 * 60) {
-        return Math.round(interval / 60) + ' minutes ago';
-    }  else if (timeAgoThreshold < 3 && interval < 90 * 60) {
-        return 'an hour ago';
-    } else if (timeAgoThreshold < 3 && interval < 22 * 60 * 60) {
-        return  Math.round(interval / (60 * 60)) + ' hours ago';
-    } else if (timeAgoThreshold < 2 && interval < 36 * 60 * 60) {
-        return 'a day ago';
-    } else if (timeAgoThreshold < 2 && interval < 25 * 60 * 60 * 24) {
-        return Math.round(interval / (60 * 60 * 24)) + ' days ago';
-    } else if (timeAgoThreshold < 1 && interval < 45 * 60 * 60 * 24) {
-        return 'a month ago';
-    } else if (timeAgoThreshold < 1 && interval < 345 * 60 * 60 * 24) {
-        return Math.round(interval / (60 * 60 * 24 * 30)) + ' months ago';
-    } else if (timeAgoThreshold < 0 && interval < 547 * 60 * 60 * 24) {
-        return 'a year ago';
-    } else if (timeAgoThreshold < 0) {
-        return Math.round(interval / (60 * 60 * 24 * 365)) + ' years ago';
-    }
-    return fallback ? format(date, fallback) : '';
-}
-
-function setTimeAgoThreshold (unit) {
-    timeAgoThreshold = thresholds.indexOf(unit);
-}
-
-
-function initTimeAgo (container) {
-    container = container || document.body;
-    if (container.classList.contains('o-date--updater')) {
-        showTimeAgo(container, container.getAttribute('datetime'));
-    } else {
-        Array.prototype.forEach.call(container.querySelectorAll('.o-date--updater'), function (el) {
-            showTimeAgo(el, el.getAttribute('datetime'));
-        });
-    }
-
-    autoUpdate();
-}
 
 function autoUpdate () {
 
@@ -138,21 +94,57 @@ function autoUpdate () {
     }
 }
 
-function unautoUpdate () {
-    clearTimeout(timer);
-}
 
 function showTimeAgo(el, date) {
-    var fallback = el.dataset.oDateUpdateFallback || 'long';
+    var date = el.getAttribute('datetime');
     var printer = el.querySelector('o-date__output') || el;
-    printer.innerHTML = timeAgo(toDate(date), fallback);
+    printer.innerHTML = timeAgo(toDate(date));
+    el.title = format(date, 'full');
+}
+
+function timeAgo (date) {
+    date = toDate(date);
+    var interval = Math.round(((new Date()) - date) / 1000);
+    if (interval < 45) {
+        return interval + ' seconds ago';
+    } else if (interval < 90) {
+        return 'a minute ago';
+    } else if (interval < 45 * 60) {
+        return Math.round(interval / 60) + ' minutes ago';
+    }  else if (interval < 90 * 60) {
+        return 'an hour ago';
+    } else if (interval < 22 * 60 * 60) {
+        return  Math.round(interval / (60 * 60)) + ' hours ago';
+    } else if (interval < 36 * 60 * 60) {
+        return 'a day ago';
+    } else if (interval < 25 * 60 * 60 * 24) {
+        return Math.round(interval / (60 * 60 * 24)) + ' days ago';
+    } else if (interval < 45 * 60 * 60 * 24) {
+        return 'a month ago';
+    } else if (interval < 345 * 60 * 60 * 24) {
+        return Math.round(interval / (60 * 60 * 24 * 30)) + ' months ago';
+    } else if (interval < 547 * 60 * 60 * 24) {
+        return 'a year ago';
+    } else {
+        return Math.round(interval / (60 * 60 * 24 * 365)) + ' years ago';
+    }
+}
+
+function init (el, self) {
+    el = el || document.body;
+    if (self) {
+        showTimeAgo(el);
+    } else {
+        Array.prototype.forEach.call(el.querySelectorAll('time:not[.o-date--ignore], .o-date'), function (el) {
+            showTimeAgo(el);
+        });
+    }
+
+    autoUpdate();
 }
 
 module.exports = {
     format: format,
-    autoUpdate: autoUpdate,
-    unautoUpdate: unautoUpdate,
-    initTimeAgo: initTimeAgo,
     timeAgo: timeAgo,
-    setTimeAgoThreshold: setTimeAgoThreshold
+    init: init
 };
