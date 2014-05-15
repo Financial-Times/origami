@@ -1,7 +1,7 @@
 'use strict';
 
-var months = 'January,February,March,April,May,June,July,August,September,October,November,December'.split(',');
-var days = 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'.split(',');
+var months = 'January,February,March,April,May,June,July,August,September,October,November,December';
+var days = 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday';
 var formats = {
     full: 'MMMM d, yyyy h:mm a',
     date: 'MMMM d, yyyy',
@@ -9,67 +9,43 @@ var formats = {
 };
 
 var compiledTemplates = {};
-
 var timer;
-
 
 /*
     See http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html for formatting conventions used
 */
 var formatReplacementsMap = {
-    MMMM: function () {
-        return months[this.getMonth()];
-    },
-    MMM: function () {
-        return months[this.getMonth()].substr(0,3);
-    },
-    MM: function () {
-        return pad2(this.getMonth() + 1, 2);
-    },
-    M: function () {
-        return this.getMonth() + 1;
-    },
-    yyyy: Date.prototype.getFullYear,
-    yy: function () {
-        return this.getFullYear().substr(0, 2);
-    },
-    EEEE: function () {
-        return days[this.getDay()];
-    },
-    EEE: function () {
-        return days[this.getDay()].substr(0,3);
-    },
-    d: Date.prototype.getDate,
-    dd: function () {
-        return pad2(this.getDate() + 1, 2);
-    },
-    m: Date.prototype.getMinutes,
-    mm: function () {
-        return pad2(this.getMinutes(), 2);
-    },
-    h: function () {
-        return (this.getHours() % 12) - 1;
-    },
-    hh: function () {
-        return pad2((this.getHours() % 12) - 1, 2);
-    },
-    a: function () {
-        return this.getHours() >= 12 ? 'pm' : 'am';
-    }
+    MMMM: 'months[date.getMonth()]',
+    MMM: 'months[date.getMonth()].substr(0,3)',
+    MM: 'pad2(date.getMonth() + 1, 2)',
+    M: '(date.getMonth() + 1)',
+    yyyy: 'date.getFullYear()',
+    yy: 'date.getFullYear().substr(0, 2)',
+    EEEE: 'days[date.getDay()]',
+    EEE: 'days[date.getDay()].substr(0,3)',
+    d: 'date.getDate()',
+    dd: 'pad2(date.getDate() + 1, 2)',
+    m: 'date.getMinutes()',
+    mm: 'pad2(date.getMinutes(), 2)',
+    h: '((date.getHours() % 12) - 1)',
+    hh: 'pad2((date.getHours() % 12) - 1, 2)',
+    a: '(date.getHours() >= 12 ? "pm" : "am")'
 };
-
-function pad2 (number) {
-    return ('0' + number).slice(-2);
-}
 
 function compile (format) {
     var tpl = formats[format] || format;
-    return (compiledTemplates[format] = function (date) {
-        return tpl.replace(/[a-z]+/ig, function (match) {
-            var replacer = formatReplacementsMap[match];
-            return replacer ? replacer.apply(date) : match;
-        });
-    });
+    
+    var funcString = 'var months= "' + months + '".split(","), days= "' + days + '".split(",");';
+    funcString +='function pad2 (number) {return ("0" + number).slice(-2)}';
+    funcString += 'return "' + tpl.replace(/[a-z]+/ig, function (match) {
+        var replacer = formatReplacementsMap[match];
+
+        return replacer ? '" + ' + replacer + ' + "' : match;
+    }) + '"';
+
+    console.log(funcString);
+
+    return Function('date', funcString);
 }
 
 function toDate (date) {
@@ -80,7 +56,6 @@ function format (date, format) {
     var tpl = compiledTemplates[format] || compile(format);
     return tpl(toDate(date));
 }
-
 
 function autoUpdate () {
 
