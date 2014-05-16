@@ -58,15 +58,15 @@ function format (date, format) {
     return tpl(toDate(date));
 }
 
+function update (noExec) {
+    noExec || Array.prototype.forEach.call(document.querySelectorAll('.o-date'), function (el) {
+        ftTime(el, el.getAttribute('datetime'));
+    });
+    timer = setTimeout(update, 60000);
+}
+
 function autoUpdate () {
-    if (!timer) {
-        timer = setTimeout(function exec () {
-            document.querySelectorAll('.o-date', function (el) {
-                ftTime(el, el.getAttribute('datetime'));
-            });
-            setTimeout(exec, 60000);
-        }, 600000);
-    }
+    timer || update(true);
 }
 
 
