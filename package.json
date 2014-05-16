@@ -4,7 +4,7 @@
   "description": "FT branded dates",
   "main": "main.js",
   "scripts": {
-    "test": "test"
+    "test": "node ./test/test"
   },
   "repository": {
     "type": "git",

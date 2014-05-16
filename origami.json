@@ -6,5 +6,8 @@
   "supportStatus": "not implemented",
   "features": {
     "required": "classlist"
-  }
+  },
+  "demos": [
+    "/demos/dates.html"
+  ]
 }
