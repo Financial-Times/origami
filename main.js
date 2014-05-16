@@ -1,7 +1,7 @@
 'use strict';
 
-var months = 'January,February,March,April,May,June,July,August,September,October,November,December';
-var days = 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday';
+var months = '["' + 'January,February,March,April,May,June,July,August,September,October,November,December'.split(',').join('","') + '"]';
+var days = '["' + 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'.split(',').join('","') + '"]';
 var formats = {
     datetime: 'MMMM d, yyyy h:mm a',
     date: 'MMMM d, yyyy'
@@ -34,7 +34,7 @@ var formatReplacementsMap = {
 function compile (format) {
     var tpl = formats[format] || format;
     
-    var funcString = 'var months= "' + months + '".split(","), days= "' + days + '".split(",");';
+    var funcString = 'var months= ' + months + ', days= ' + days + ';';
     funcString +='function pad2 (number) {return ("0" + number).slice(-2)}';
     funcString += 'return "' + tpl.replace(/\\?[a-z]+/ig, function (match) {
         if (match.charAt(0) === '\\') {
@@ -62,7 +62,7 @@ function autoUpdate () {
 
     if (!timer) {
         timer = setTimeout (function exec () {
-            document.querySelectorAll('.o-date-updater', function (el) {
+            document.querySelectorAll('.o-date', function (el) {
                 showTimeAgo(el, el.getAttribute('datetime'));
             });
             setTimeout(exec, 60000);
@@ -71,16 +71,17 @@ function autoUpdate () {
 }
 
 
-function showTimeAgo(el, date) {
-    var date = el.getAttribute('datetime');
+function ftTime(el) {
+    var date = toDate(el.getAttribute('datetime'));
     var printer = el.querySelector('.o-date__printer') || el;
-    printer.innerHTML = timeAgo(toDate(date));
+    var interval = Math.round(((new Date()) - date) / 1000);
+    printer.innerHTML = interval < (365 * 60 * 60 * 24) ? timeAgo(toDate(date), interval) : format(date, 'date');
     el.title = format(date, 'datetime');
 }
 
-function timeAgo (date) {
+function timeAgo (date, interval) {
     date = toDate(date);
-    var interval = Math.round(((new Date()) - date) / 1000);
+    var interval = interval || Math.round(((new Date()) - date) / 1000);
     if (interval < 45) {
         return interval + ' seconds ago';
     } else if (interval < 90) {
@@ -106,13 +107,14 @@ function timeAgo (date) {
     }
 }
 
-function init (el, self) {
+function init (el) {
     el = el || document.body;
-    if (self) {
-        showTimeAgo(el);
+    if (el.tagName === 'TIME') {
+        el.classList.add('o-date');
+        ftTime(el);
     } else {
-        Array.prototype.forEach.call(el.querySelectorAll('time:not(.o-date--ignore), .o-date'), function (el) {
-            showTimeAgo(el);
+        Array.prototype.forEach.call(el.querySelectorAll('time.o-date'), function (el) {
+            ftTime(el);
         });
     }
 

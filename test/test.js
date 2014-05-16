@@ -77,22 +77,26 @@ test('getting time ago', function (t) {
 
 test('writing to the DOM', function (t) {
 
+    var date1 = new Date((new Date()) - (new Date(50 * 24 * 60 * 60 * 1000)));
+    var isoDate1 = date1.toISOString();
+
+    t.plan(9);
+
+
+    jsdom.env('<time class="o-date"  datetime="' + isoDate1 + '"><span>dummy stuff</span><span class="o-date__printer"></span></time>', ['./classlist.js'], function (errors, window) {
+        oDate.init(window.document);
+        var el = window.document.querySelector('time');
+        t.equal(el.querySelector('.o-date__printer').innerHTML, oDate.timeAgo(date1));
+        t.equal(el.textContent, 'dummy stuff' + oDate.timeAgo(date1));
+        window.close();
+
+    });
+
     var date = new Date(2000, 5, 15, 6, 37, 22, 499);
     var expected = 'June 15, 2000 6:37 am';
     var isoDate = date.toISOString();
-    var endCount = 0;
 
-    function end () {
-        if (endCount === 2) {
-            t.end();
-        } else {
-            endCount++;
-        }
-    }
-
-    t.plan(8);
-
-    jsdom.env('<time datetime="' + isoDate + '">dummy stuff</time>', [], function (errors, window) {
+    jsdom.env('<time class="o-date" datetime="' + isoDate + '">dummy stuff</time>', ['./classlist.js'], function (errors, window) {
         // function mockTimeout (window) {
         //     var toCall;
         //     window.setTimeout = function (func) {
@@ -106,66 +110,36 @@ test('writing to the DOM', function (t) {
 
         // var tick = mockTimeout(window);
         var el = window.document.querySelector('time');
-        oDate.init(el, true);
+        oDate.init(el);
         t.equal(el.getAttribute('datetime'), isoDate);
-        t.equal(el.innerHTML, oDate.timeAgo(date));
+        t.equal(el.innerHTML, oDate.format(date, 'date'));
         t.equal(el.title, oDate.format(date));
         el.datetime = (new Date()).toISOString();
         // tick();
         // t.ok(el.innerHTML.indexOf('seconds ago') > -1);
         window.close();
-        end();
+
     });
 
-    jsdom.env('<time datetime="' + isoDate + '"><span>dummy stuff</span><span class="o-date__printer"></span></time>', [], function (errors, window) {
-        oDate.init(window.document);
-        var el = window.document.querySelector('time');
-        t.equal(el.querySelector('.o-date__printer').innerHTML, oDate.timeAgo(date));
-        t.equal(el.textContent, 'dummy stuff' + oDate.timeAgo(date));
-        window.close();
-        end();
-    });
 
-    jsdom.env('<time datetime="' + isoDate + '"></time><div>' +
-        '<time class="o-date--ignore" datetime="' + isoDate + '"></time>' +
-        '<time datetime="' + isoDate.replace('2000-06-15', '2014-05-20') + '"></time>' +
+
+    jsdom.env('<time class="o-date" datetime="' + isoDate + '"></time><div>' +
         '<time datetime="' + isoDate + '"></time>' +
-        '</div>', [], function (errors, window) {
+        '<span class="o-date" datetime="' + isoDate + '"></span>' +
+        '<time class="o-date" datetime="' + isoDate.replace('2000-06-15', '2014-05-20') + '"></time>' +
+        '<time class="o-date" datetime="' + isoDate + '"></time>' +
+        '</div>', ['./classlist.js'], function (errors, window) {
         oDate.init(window.document.querySelector('div'));
         var times = window.document.querySelectorAll('time');
         t.notOk(times[0].textContent, 'no update outside of scanned area');
-        t.notOk(times[1].textContent, 'no update if has class o-date--ignore');
+        t.notOk(times[1].textContent, 'no update if has no o-date class');
+        t.notOk(window.document.querySelector('span.o-date').textContent, 'no update if not a <time> el');
         t.notEqual(times[2].title, times[3].title);
         window.close();
-        end();
+        t.end();
     });
 
+
+
+
 });
-
-
-// test("make sure the thingie is a thing", function (t) {
-//   t.equal(thingie, "thing", "thingie should be thing")
-//   t.deepEqual(array, ["foo", "bar"], "array has foo and bar elements")
-//   t.deepEqual(object, {foo: 42}, "object has foo property")
-//   t.type(thingie, "string", "type of thingie is string")
-//   t.ok(true, "this is always true")
-//   t.notOk(false, "this is never true")
-//   t.test("a child test", function (t) {
-//     t.equal(this, superEasy, "right!?")
-//     t.similar(7, 2, "ever notice 7 is kinda like 2?", {todo: true})
-//     t.test("so skippable", {skip: true}, function (t) {
-//       t.plan(1) // only one test in this block
-//       t.ok(true, "but when the flag changes, it'll pass")
-//       // no need to end, since we had a plan.
-//     })
-//     t.end()
-//   })
-//   t.ok(99, "can also skip individual assertions", {skip: true})
-//   // end lets it know it's over.
-//   t.end()
-// })
-// test("another one", function (t) {
-//   t.plan(1)
-//   t.ok(true, "It's ok to plan, and also end.  Watch.")
-//   t.end() // but it must match the plan!
-// })

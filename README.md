@@ -6,9 +6,13 @@ o-date provides javascript utilities for formatting and updating dates in FT sty
 
 To provide the best non-js fallback you should markup your dates as follows
 
-    <time datetime={date.toISOString()}>{FT formatted date (including time if appropriate)}</time>
+    <time class="o-date" datetime={date.toISOString()}>{FT formatted date (including time if appropriate)}</time>
 
 This module's `format` method will also run in node and can be used to populate your viewmodel with the appropriate formatted date string. It's not recommended to output the 'time ago' server side as it will not be cacheable and will not update in the browser if the user leaves the page open for a prolonged period of time.
+
+## Enhanced experience
+
+To display dates in the standard relative time format run `require('o-date').init()` once the DOM has loaded. Run `require('o-date').init(el)` on any elements containing dates that are added to the page after DOM load.
 
 ## API
 
@@ -29,9 +33,8 @@ Returns the time since the given date, formatted as a human readable string e.g.
 
 * `date` A javascript `Date` object or a valid string to pass to the `Date` constructor
 
-### o-date#init(el, self) 
+### o-date#init(el) 
 
-Within a given container element converts dates to display using the time ago format and periodically updates their values. Within the container all elements with the class `o-date` and all `<time>` elements will be updated, with the exception of those with the class `o-date--ignore`. If the element contains an element with the class `o-date__printer` the time ago string will be output here, otherwise it will replace the contents of the element.
+Within a given container element converts dates to display using the time ago format and periodically updates their values. Within the container all `<time>` elements with the class `o-date` will be updated. If the element contains an element with the class `o-date__printer` the time ago string will be output here, otherwise it will replace the contents of the element.
 
-* `container` A `HTMLElement` within which to scan for `.o-date` and `<time>` elements
-* `self` Boolean: if true then `el` itself will have its value updated, rather than querying for suitable elements within it
+* `container` A `HTMLElement` within which to scan for `.o-date`elements. If the element itself is a `<time>` element with the class `o-date` then o-date will run directly on this element rather than querying for suitable elements within it.
