@@ -96,4 +96,19 @@ function ShareLinks(rootEl) {
     this.destroy = destroy;
 }
 
+ShareLinks.prototype.createAllIn = function(el) {
+    "use strict";
+    var shareLinks = [], sEls, c, l;
+    el = el || document.body;
+    if (el.querySelectorAll) {
+        sEls = el.querySelectorAll('[data-o-component=o-share]');
+        for (c = 0, l = sEls.length; c < l; c++) {
+            if (!sEls[c].classList.contains('o-shareLinks--js')) {
+                shareLinks.push(new ShareLinks(sEls[c]));
+            }
+        }
+    }
+    return shareLinks;
+};
+
 module.exports = ShareLinks;

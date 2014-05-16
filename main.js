@@ -1,9 +1,10 @@
-/*global require*/
+/*global require, module*/
 
 var ShareLinks = require('./src/js/ShareLinks');
 
-var shareEls = document.querySelectorAll('.o-share');
+document.addEventListener("DOMContentLoaded", function() {
+    "use strict";
+    ShareLinks.prototype.createAllIn(document.body);
+});
 
-for (var c = 0, l = shareEls.length; c < l; c++) {
-    new ShareLinks(shareEls[c]);
-}
+module.exports = ShareLinks;

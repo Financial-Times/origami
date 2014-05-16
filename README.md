@@ -9,7 +9,7 @@ Social media and URL sharing buttons.
 
 ## Construction
 
-__MVP:__ Products must provide the source HTML, in the following format, with the template `{{tag}}`s replaced with real values:
+Products must provide the source HTML, in the following format, with the template `{{tag}}`s replaced with real values:
 
 ```html
 <div data-o-component="o-share" data-o-version="0.1.0" class="o-share">
@@ -49,6 +49,21 @@ Required values:
 * `{{titleExtra}}`: Any additional text relating to the title, e.g. site _section_.
 * `{{summary}}`: Summary text to be shared.
 * `{{relatedTwitterAccounts}}`: Comma-separated list of Twitter accounts to encourage the user to follow. See [Twitter intents](https://dev.twitter.com/docs/intents) for more info.
+
+On `DOMContentLoaded`, __o-share__ instances are automatically constructed for each element in the `<body>` declaring itself to be an __o-share__ element (via the `data-o-component="o-share"` attribute).
+
+Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), the event could be polyfilled, or construction can be manually invoked:
+
+```javascript
+var oShare = require('o-share');
+var oShareObjects = oShare.createAllIn(document.body);
+```
+
+An array of any constructed __o-share__ objects will be returned.
+
+`oShare.createAllIn()` will not create __o-share__ objects for elements that already have __o-share__ objects constructed on them, therefore it's safe to call more than once on the same page region.
+
+## Presentation
 
 Share buttons are shown horizontally. In future, other display options will be provided.
 
