@@ -59,11 +59,10 @@ function format (date, format) {
 }
 
 function autoUpdate () {
-
     if (!timer) {
-        timer = setTimeout (function exec () {
+        timer = setTimeout(function exec () {
             document.querySelectorAll('.o-date', function (el) {
-                showTimeAgo(el, el.getAttribute('datetime'));
+                ftTime(el, el.getAttribute('datetime'));
             });
             setTimeout(exec, 60000);
         }, 600000);
@@ -81,7 +80,7 @@ function ftTime(el) {
 
 function timeAgo (date, interval) {
     date = toDate(date);
-    var interval = interval || Math.round(((new Date()) - date) / 1000);
+    interval = interval || Math.round(((new Date()) - date) / 1000);
     if (interval < 45) {
         return interval + ' seconds ago';
     } else if (interval < 90) {
