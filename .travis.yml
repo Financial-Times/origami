@@ -2,10 +2,7 @@ language: node_js
 node_js:
   - "0.10"
 before_install:
-#  - npm install -g https://github.com/Financial-Times/origami-build-tools/tarball/master
-  - npm install -g bower
-  - npm install
-  - bower install --config.registry.search=http://registry.origami.ft.com --config.registry.search=https://bower.herokuapp.com
+  - npm install -g https://github.com/Financial-Times/origami-build-tools/tarball/master
 script:
-#  - origami-build-tools test
+  - origami-build-tools test
   - npm test
