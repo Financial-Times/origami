@@ -1,5 +1,5 @@
 @include oTabsSelectors(o-tabs) {
-  &.o-tabs--js {
+  &[data-o-tabs-js] {
     &[role=tablist] {
       margin: 0;
       padding: 0;
