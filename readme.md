@@ -47,7 +47,7 @@ Optional.
 
 Individual _Tool Items_ in the _Tools_ container may have their own responsive behaviour. For example, a search input field may collapse to just be an icon button.
 
-If there is not enough available space for a _Tool_ item to display at all, then it will be hidden there and an entry added to the __More Menu__ instead.
+If there is not enough available space for a _Tool_ item to display at all, then it will be hidden there and an entry added to the _More Menu_ instead.
 
 Core experience: Nothing will be added to the _More Menu_. What is shown in _Tools_ depends on the Tool in question.
 
@@ -164,13 +164,11 @@ Draft Tool Item markup:
 
 ```html
 <div class="o-ft-header__tools-item">
-    <div class="o-ft-header__tools-item__button">
-        <a href="http://search.ft.com"><i class="icon-search"></i> Search</a>
-    </div>
-    <div class="o-ft-header__tools-item__content">
-        <input type="search" name="ft-search" />
+    <a href="http://search.ft.com" class="o-ft-header__tools-item__button"><i class="icon-search"></i> Search</a>
+    <form class="o-ft-header__tools-item__content" method="get" action="http://search.ft.com/search">
+        <input type="search" name="queryText" />
         <button type="submit">Search</button>
-    </div>
+    </form>
 </div>
 ```
 
@@ -192,14 +190,18 @@ Only works for _sticky_ headers. Not available for core experience.
 
 ### Events
 
-`oHeader.ready` Header has initialised
-`oHeader.minimise` Header has minimised
-`oHeader.maximise` Header has maximised
-`oHeader.moreMenuContentChange` Something has either been added or removed from the _More Menu_. Event detail will indicate what was added/removed.
-`oHeader.flyoutOpen` A _Flyout_ has opened. Event detail will indicate which flyout it is (_Navigation_ item, _More Menu_)
-`oHeader.flyoutClose` A _Flyout_ has opened. Event detail will indicate which flyout it is (_Navigation_ item, _More Menu_)
+The following events will be dispatched on the __o-header__ root element:
+
+* `oHeader.ready` Header has initialised
+* `oHeader.minimise` Header has minimised
+* `oHeader.maximise` Header has maximised
+* `oHeader.moreMenuContentChange` Something has either been added or removed from the _More Menu_. Event detail will indicate what was added/removed.
+* `oHeader.flyoutOpen` A _Flyout_ has opened. Event detail will indicate which flyout it is (_Navigation_ item, _More Menu_)
+* `oHeader.flyoutClose` A _Flyout_ has opened. Event detail will indicate which flyout it is (_Navigation_ item, _More Menu_)
 
 ### API
 
-`.minimise()` Force the header to minimise, regardless of the page scroll position.
-`.maximise()` Force the header to maximise, regardless of the page scroll position.
+__Methods:__
+
+* `.minimise()` Force the header to minimise, regardless of the page scroll position.
+* `.maximise()` Force the header to maximise, regardless of the page scroll position.
