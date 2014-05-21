@@ -4,9 +4,10 @@
         "js": "main.js",
         "data": "demos/src/data.json"
     },
-    "demos": {
-        "horizontal": {
+    "demos": [
+        {
+            "name": "horizontal",
             "template": "demos/src/horizontal.mustache"
         }
-    }
+    ]
 }

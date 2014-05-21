@@ -19,6 +19,10 @@
         "travis": "https://api.travis-ci.org/repos/Financial-Times/o-share/builds.json"
     },
     "demos": [
-        "/demos/horizontal.html"
+        {
+            "path": "/demos/horizontal.html",
+            "expanded": true,
+            "description": ""
+        }
     ]
 }
