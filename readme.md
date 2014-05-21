@@ -1,45 +1,205 @@
-# Header module [![Build Status](https://travis-ci.org/Financial-Times/o-ft-header.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-header)
+# Header [![Build Status](https://travis-ci.org/Financial-Times/o-ft-header.png?branch=version2)](https://travis-ci.org/Financial-Times/o-ft-header)
 
-Origami module for the responsive FT page header. Also provides styles that can be extended by other front-end components intended to be injected into the header.
+Responsive FT page header.
 
-## Customisation
+## Element containers
 
-### Mustache variables
-To use these define an object `o-ft-header` in the data passed to your view and set one or more of the following values
+The header consists of the following element containers, divided into three distinct areas:
 
-* `logo-url`: The url of the page clicking on the FT logo should lead to. If unset the link will point to `http://ft.com`
-* `module-version`: The version of o-ft-header being used (this is normally only used by the build service)
-* `topbar-items`: html for additional items to inject into the header
+* __Primary Bar__, containing:
+    * Logo
+    * Title
+    * Tools
+    * Custom content
+* __Secondary Bar__, containing:
+    * Subtitle
+    * Navigation
+    * More Menu
+    * Flyout
+* __Tertiary Bar__, containing:
+    * Breadcrumb
 
-### SCSS Variables
-To use these set them *before* including `o-ft-header/main.scss` in your stylesheet
+__Rough layout of header elements:__
 
-* `$o-ft-header-top-offset`: *[0]* Distance of header from top of page (only applied when the header has `position: fixed`);
-* `$o-ft-header-z-index`: *[false]* z-index of header. When header is not fixed this also sets `position: relative`
-* `$o-ft-header-is-silent`: *[true]* When true prevents the stylesheet outputting styles for optional states/items
-* `$o-ft-header-sticky`: *[true]* Configures when a 'sticky' fixed position header is used:
-	* `false` - header is never sticky
-	* `true` - header is always sticky
-	* comma-separated list of [o-grid layout identifiers](https://github.com/Financial-Times/o-grid) - header will be sticky at these layout sizes only.
-* `$o-ft-header-top-offset`: *[0]* Distance of header from top of page (only applied when the header is sticky);
-* `$o-ft-header-version` and `$o-ft-header-assets-path` which should only be altered when configuring how products use [o-assets](https://github.com/Financial-Times/o-assets).
+![Wireframe](docs/wireframe.png)
 
-### Injecting content
+Whilst it is possible that all optional elements may be used at once, it is unlikely to be desirable. Products should exercise restraint in what they put in it.
 
-To inject content into the `<div class="o-ft-header__topbar__items"></div>` container you will need to
+### Primary Bar
 
-1. Set the html as the value for `o-ft-header.topbar-items` in your view model.
-1. Apply generic styles by extending the following sass placeholder classes: `%o-ft-header__topbar__item` and `%o-ft-header__topbar__item--active`
+The Primary Bar has a background colour that extends the full width of the page. It is always be visible.
 
-### Javascript API
+#### Logo
 
-The module contains limited javascript functionality to improve the look and feel of the header by shrinking/expanding the FT logo in response to user scrolling and other events (as defined by the developer)
+Required.
 
-#### Initializing
+Normally the FT logo, but could be something else.
 
-    require('o-ft-header').init();
+#### Title
 
-#### Methods
+Optional.
 
-* `forceCondense()`  Forces the FT logo to appear in it's reduced, non-overhanging size, irrespective of user scrolling
-* `unforceCondense(expandNow)`: Returns the FT logo size to being determined by user scrolling. If `expandNow` is `true` the logo will expand to full size immediately.
+Masthead brand or product name.
+
+#### Tools
+
+Optional.
+
+Individual _Tool Items_ in the _Tools_ container may have their own responsive behaviour. For example, a search input field may collapse to just be an icon button.
+
+If there is not enough available space for a _Tool_ item to display at all, then it will be hidden there and an entry added to the __More Menu__ instead.
+
+Core experience: Nothing will be added to the _More Menu_. What is shown in _Tools_ depends on the Tool in question.
+
+#### Custom content
+
+Optional.
+
+E.g. Membership Ad or "Back to ft.com" link.
+
+### Secondary Bar
+
+The Secondary Bar has a background colour that extends the full width of the page. It is always be visible, even if there is no _Subtitle_ or _Navigation_, because a _More Menu_ may be required.
+
+#### Subtitle
+
+Optional.
+
+Could be used to show current site section.
+
+#### Navigation
+
+Optional.
+
+Primary experience: The navigation structure can be single level, or hierarchical - in which case a _Flyout_ will open when necessary.
+
+Core experience: Top level navigation items only will be shown.
+
+#### More Menu
+
+Optional for preset items, required for responsively-added _Tool Item_ or _Navigation Items_.
+
+Can be preset to contain a list of options.
+
+Primary experience: Any _Tool_ or _Navigation_ items that cannot be displayed in their sections will be added to the More Menu.
+
+Clicking the More Menu will open a _Flyout_.
+
+Core experience: Hidden.
+
+#### Flyout
+
+Depends on Tools and Navigation contents.
+
+Opens below the _secondary bar_, covering the _tertiary bar_.
+
+Primary experience: Below a certain screen width, it will expand to fill the full screen width, otherwise the width will be set by the content it's showing.
+
+Core experience: Hidden.
+
+### Tertiary Bar
+
+The Tertiary Bar is transparent and is not full page width. It will only be present if it has any content (e.g. there are _Breadcrumbs_).
+
+#### Breadcrumb
+
+Optional.
+
+___
+
+Draft header markup, excluding content:
+
+```html
+<div data-o-component="o-ft-header" data-o-version="2.0.0" class="o-ft-header">
+    <div class="o-ft-header__primary">
+        <div class="o-ft-header__logo">
+            /* logo content */
+        </div>
+        <div class="o-ft-header__title">
+            /* title content */
+        </div>
+        <div class="o-ft-header__tools">
+            /* tools content */
+        </div>
+        <div class="o-ft-header__custom">
+            /* custom content */
+        </div>
+    </div>
+    <div class="o-ft-header__secondary">
+        <div class="o-ft-header__subtitle">
+            /* subtitle content */
+        </div>
+        <div class="o-ft-header__nav">
+            /* navigation content */
+        </div>
+    </div>
+    <div class="o-ft-header__tertiary">
+        <div class="o-ft-header__breadcrumb">
+            /* breadcrumb content */
+        </div>
+    </div>
+</div>
+```
+
+
+## Tool Items
+
+Within the _Tools_ container, there may be zero or more _Tool Items_. These consist of:
+
+### Tool Item Button
+
+Required.
+
+For example, a search icon button.
+
+### Tool Item Content
+
+Optional.
+
+For example, a search input field and button.
+
+___
+
+Draft Tool Item markup:
+
+```html
+<div class="o-ft-header__tools-item">
+    <div class="o-ft-header__tools-item__button">
+        <a href="http://search.ft.com"><i class="icon-search"></i> Search</a>
+    </div>
+    <div class="o-ft-header__tools-item__content">
+        <input type="search" name="ft-search" />
+        <button type="submit">Search</button>
+    </div>
+</div>
+```
+
+## Behaviour options
+
+### Sticky
+
+Options: true/false/list of grid layout identifiers. (default: false)
+
+A _sticky_ header will remain visible in the top of the viewport when the page scrolls.
+
+### Minimizable
+
+A _minimizable_ header header will reduce in height slightly when the page has scrolled, in order to obscure as little of the page content as possible.
+
+Only works for _sticky_ headers. Not available for core experience.
+
+## JavaScript
+
+### Events
+
+`oHeader.ready` Header has initialised
+`oHeader.minimise` Header has minimised
+`oHeader.maximise` Header has maximised
+`oHeader.moreMenuContentChange` Something has either been added or removed from the _More Menu_. Event detail will indicate what was added/removed.
+`oHeader.flyoutOpen` A _Flyout_ has opened. Event detail will indicate which flyout it is (_Navigation_ item, _More Menu_)
+`oHeader.flyoutClose` A _Flyout_ has opened. Event detail will indicate which flyout it is (_Navigation_ item, _More Menu_)
+
+### API
+
+`.minimise()` Force the header to minimise, regardless of the page scroll position.
+`.maximise()` Force the header to maximise, regardless of the page scroll position.
