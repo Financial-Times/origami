@@ -7,6 +7,11 @@
 
   @extend %o-ft-typography-body;
 
+  caption {
+    caption-side: top;
+    @extend %o-table__caption--top;
+  }
+
   th,
   td {
     padding: 8px;

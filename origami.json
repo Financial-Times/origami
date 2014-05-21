@@ -8,15 +8,25 @@
         "travis": "https://api.travis-ci.org/repos/Financial-Times/o-table/builds.json"
     },
     "demos": [
-        "/demos/basic.html",
         {
-            "path": "/demos/row-stripes.html",
-            "expanded": false,
-            "description": "For row striping, add or mixin o-table--row-stripes"
+            "path": "/demos/basic.html",
+            "expanded": true,
+            "description": ""
         },
         {
-            "path": "/demos/lines.html",
-            "expanded": false
+            "path": "/demos/local/row-stripes.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/local/lines.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/captions.html",
+            "expanded": true,
+            "description": ""
         }
     ]
 }

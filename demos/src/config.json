@@ -3,15 +3,22 @@
         "sass": "demos/src/demo.scss",
         "js": "demos/src/demo.js"
     },
-    "demos": {
-        "basic": {
+    "demos": [
+        {
+            "name": "basic",
             "template": "demos/src/basic.mustache"
         },
-        "row-stripes": {
+        {
+            "name": "row-stripes",
             "template": "demos/src/row-stripes.mustache"
         },
-        "lines": {
+        {
+            "name": "lines",
             "template": "demos/src/lines.mustache"
+        },
+        {
+            "name": "captions",
+            "template": "demos/src/captions.mustache"
         }
-    }
+    ]
 }

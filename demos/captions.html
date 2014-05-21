@@ -4,7 +4,7 @@
 <!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
-    <title>o-table: row-stripes demo</title>
+    <title>o-table: captions demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
     <link rel="stylesheet" href="/bundles/css?modules=o-table:/demos/src/demo.scss" />
@@ -12,53 +12,19 @@
 <body class="">
     <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
     
-    <table class="o-table o-table--row-stripes">
+    <table class="o-table">
     <caption>
-        Row stripes
+        Top caption (default)
     </caption>
-    <thead>
-        <tr>
-            <th>Heading</th>
-            <th>Heading</th>
-            <th data-o-table-data-type="numeric">Heading</th>
-            <th data-o-table-data-type="numeric">Heading</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>text data</td>
-            <td>text data</td>
-            <td data-o-table-data-type="numeric">123</td>
-            <td data-o-table-data-type="numeric">123.45</td>
-        </tr>
-        <tr>
-            <td>text data</td>
-            <td>text data</td>
-            <td data-o-table-data-type="numeric">22</td>
-            <td data-o-table-data-type="numeric">22.2</td>
-        </tr>
-        <tr>
-            <td>text data</td>
-            <td>text data</td>
-            <td data-o-table-data-type="numeric">3</td>
-            <td data-o-table-data-type="numeric">3.0</td>
-        </tr>
-    </tbody>
-</table>
-
-<table class="o-table o-table--row-stripes o-table--horizontal-lines o-table--vertical-lines">
-    <caption>
-        Row stripes and both horizontal and vertical lines
+    <caption class="o-table__caption--bottom">
+        Bottom caption
     </caption>
-    <thead>
     <tr>
         <th>Heading</th>
         <th>Heading</th>
         <th data-o-table-data-type="numeric">Heading</th>
         <th data-o-table-data-type="numeric">Heading</th>
     </tr>
-    </thead>
-    <tbody>
     <tr>
         <td>text data</td>
         <td>text data</td>
@@ -77,7 +43,6 @@
         <td data-o-table-data-type="numeric">3</td>
         <td data-o-table-data-type="numeric">3.0</td>
     </tr>
-    </tbody>
 </table>
     <script src="/bundles/js?modules=o-table:/demos/src/demo.js"></script>
     <script src='http://registry.origami.ft.com/embedapi?autoload=resize'></script>
