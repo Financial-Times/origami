@@ -15,17 +15,17 @@
         },
         {
             "path": "/demos/row-stripes.html",
-            "expanded": true,
+            "expanded": false,
             "description": ""
         },
         {
             "path": "/demos/lines.html",
-            "expanded": true,
+            "expanded": false,
             "description": ""
         },
         {
             "path": "/demos/captions.html",
-            "expanded": true,
+            "expanded": false,
             "description": ""
         }
     ]
