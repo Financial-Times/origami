@@ -34,19 +34,19 @@
 
 @include oGridRespondTo(S) {
   .o-ft-header__tools {
-    width: 60px;
+    width: 55px;
   }
 }
 
 @include oGridRespondTo(M) {
   .o-ft-header__tools {
-    width: 120px;
+    width: 110px;
   }
 }
 
 @include oGridRespondTo(L XL) {
   .o-ft-header__tools {
-    width: 240px;
+    width: 220px;
   }
 }
 
