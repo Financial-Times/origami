@@ -9,10 +9,12 @@
     "o-grid": "^2.0.7",
     "o-colors": "^2.2.20",
     "o-fonts": ">=0.7.0 <2",
+    "o-ft-icons": "^1.2.2",
     "o-assets": "^0.4.0",
     "o-hoverable": "^0.1.1",
     "o-useragent": "^1.1.0",
     "o-viewport": "*",
-    "dom-delegate": "~1.0.0"
+    "dom-delegate": "~1.0.0",
+    "o-prioritised-content-filter": "^0.1.0"
   }
 }

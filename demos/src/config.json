@@ -1,0 +1,21 @@
+{
+    "options": {
+        "sass": "demos/src/demo.scss"
+    },
+    "demos": [
+        {
+            "name": "skeleton",
+            "template": "demos/src/skeleton.mustache"
+        },
+        {
+            "name": "header",
+            "template": "demos/src/header.mustache",
+            "js": "demos/src/demo.js"
+        },
+        {
+            "name": "branded",
+            "template": "demos/src/branded.mustache",
+            "js": "demos/src/demo.js"
+        }
+    ]
+}

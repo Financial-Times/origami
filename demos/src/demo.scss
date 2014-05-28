@@ -1,7 +1,18 @@
 $o-grid-mq-type: width;
-$o-ft-header-is-silent: false;
 @import "../../main";
 
-body {
-    height: 1500px;
+.demo__logo--placeholder {
+  outline: 2px dotted red;
+}
+
+.demo__primary--placeholder {
+  outline: 2px dotted green;
+}
+
+.demo__secondary--placeholder {
+  outline: 2px dotted orange;
+}
+
+.demo__logo--alphaville {
+  width: 153px;
 }

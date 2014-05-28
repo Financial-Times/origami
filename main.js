@@ -1,48 +1,49 @@
-'use strict';
+/*global require,module*/
 
-require('o-hoverable');
+var oPCF = require('o-prioritised-content-filter');
 
-var viewport = require('o-viewport');
-var Delegate = require('dom-delegate');
-var forceCondensedMode;
-var initialised;
-var el;
+function Header(rootEl) {
+    "use strict";
 
-function init () {
-    if (!initialised) {
-        initialised = true;
-        viewport.listenTo('scroll');
-        var delegate = new Delegate(document.body);
-        el = document.querySelector('.o-ft-header');
+    var primaryNavEl = rootEl.querySelector('.o-ft-header__primary nav ul'),
+        secondaryNavEl = rootEl.querySelector('.o-ft-header__secondary nav ul'),
+        toolsEl = rootEl.querySelector('.o-ft-header__tools'),
+        primaryNavContentFilter,
+        secondaryNavContentFilter,
+        toolsContentFilter;
 
-        delegate.on('oViewport.scroll', function (ev) {
-            condense(ev.detail.scrollTop);
-        });
-
-        condense(document.body.scrollTop);
+    if (primaryNavEl) {
+        primaryNavContentFilter = new oPCF(primaryNavEl, { filterOnResize: false });
     }
-}
-
-function condense (scrollTop) {
-    if (scrollTop >= 30 || forceCondensedMode) {
-        el.classList.add('o-ft-header--condensed');
-    } else {
-        el.classList.remove('o-ft-header--condensed');
+    if (secondaryNavEl) {
+        secondaryNavContentFilter = new oPCF(secondaryNavEl, { filterOnResize: false });
     }
+    if (toolsEl) {
+        toolsContentFilter = new oPCF(toolsEl, { filterOnResize: false });
+    }
+
+    function resizeHandler() {
+        if (primaryNavContentFilter) {
+            primaryNavContentFilter.filter();
+        }
+        if (secondaryNavContentFilter) {
+            secondaryNavContentFilter.filter();
+        }
+        if (toolsContentFilter) {
+            toolsContentFilter.filter();
+        }
+    }
+
+    function destroy() {
+        window.removeEventListener('resize', resizeHandler, false);
+    }
+
+    window.addEventListener('resize', resizeHandler, false);
+
+    this.destroy = destroy;
+
 }
 
-function forceCondense () {
-    forceCondensedMode = true;
-    condense(document.body.scrollTop);
-}
 
-function unforceCondense (expandNow) {
-    forceCondensedMode = false;
-    condense(expandNow ? 0 : document.body.scrollTop);
-}
+module.exports = Header;
 
-module.exports = {
-    init: init,
-    forceCondense: forceCondense,
-    unforceCondense: unforceCondense
-};

@@ -1,0 +1,100 @@
+.o-ft-header {
+  min-height: 55px;
+  max-height: 75px;
+  font-family: BentonSans, Helvetica, Arial, Sans-serif;
+  background-image: -webkit-linear-gradient(top, #333333 55px, transparent 20px);
+  ul, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  [aria-hidden=true] {
+    display: none;
+  }
+}
+
+.o-ft-header__content {
+  @extend %o-grid-row;
+  @extend %o-grid-col;
+  @extend %o-grid-colspan-12;
+  @extend %o-grid-no-left-gutter;
+  @extend %o-grid-no-right-gutter;
+  position: relative;
+}
+
+.o-ft-header__primary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 55px;
+  color: #ffffff;
+  a {
+    color: #ffffff;
+    &:hover {
+      color: #aaaaaa;
+    }
+  }
+}
+
+.o-ft-header__primary__left {
+  flex: 1 1 auto;
+}
+
+.o-ft-header__primary__centre {
+  flex: 1 1 auto;
+}
+
+.o-ft-header__primary__right {
+  flex: 0 0 auto;
+}
+
+.o-ft-header__secondary {
+  height: 20px;
+  line-height: 20px;
+  color: #ffffff;
+  a {
+    color: #ffffff;
+    &:hover {
+      color: #aaaaaa;
+    }
+  }
+}
+
+.o-ft-header:not(.o-ft-header--branded) .o-ft-header__secondary {
+  color: #333333;
+  a {
+    color: oColorsGetColorFor(link-alt, text);
+    &:hover {
+      color: oColorsGetColorFor(link-alt-hover, text);
+    }
+  }
+}
+
+.o-ft-header--branded {
+  background-color: #2e6e9e; // Alphaville blue
+}
+
+.o-ft-header__title {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 55px;
+}
+
+.o-ft-header__ft-masthead {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  i {
+    @extend %o-ft-icons-icon--ft-logo;
+    @include oFtIconsBaseIconStyles();
+    margin-top: -9px;
+    font-size: 216px;
+  }
+}

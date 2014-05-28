@@ -1,25 +1,39 @@
 {
-  "description": "Responsive Financial Times page header",
-  "origamiType": "module",
-  "origamiVersion": 1,
-  "support": "rhys.evans@ft.com",
-  "supportStatus": "active",
-  "browserFeatures": {
-    "required": [
-      "classlist"
-    ],
-    "optional": [
-      "svg",
-      "datauri",
-      "cssgradients",
-      "mediaqueries",
-      "csstransitions"
+    "description": "Responsive Financial Times page header",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "rhys.evans@ft.com",
+    "supportStatus": "active",
+    "browserFeatures": {
+        "required": [
+            "classlist"
+        ],
+        "optional": [
+            "svg",
+            "datauri",
+            "cssgradients",
+            "mediaqueries",
+            "csstransitions"
+        ]
+    },
+    "ci": {
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-header/builds.json"
+    },
+    "demos": [
+        {
+            "path": "/demos/skeleton.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/header.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/branded.html",
+            "expanded": true,
+            "description": ""
+        }
     ]
-  },
-  "ci": {
-    "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-header/builds.json"
-  },
-  "demos": [
-    "/demos/ft-header.html"
-  ]
 }

@@ -1,0 +1,3 @@
+@function oFtHeaderAsset ($asset) {
+  @return oAssetsUse($asset, $o-ft-header-assets-path, $o-ft-header-version)
+}

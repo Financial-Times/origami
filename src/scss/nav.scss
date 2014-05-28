@@ -1,0 +1,30 @@
+.o-ft-header nav {
+  overflow: hidden;
+  white-space: nowrap;
+  ul {
+    display: inline-block;
+    width: 100%;
+  }
+  li {
+    display: inline-block;
+    padding-right: 10px;
+  }
+}
+
+.o-ft-header__primary nav {
+  padding-right: 25px;
+  text-align: right;
+  ul {
+    margin-top: 20px;
+  }
+  li {
+    margin-right: -4px;
+  }
+}
+
+.o-ft-header__secondary nav {
+  font-size: 12px;
+  ul {
+    display: inline-block;
+  }
+}

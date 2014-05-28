@@ -2,9 +2,5 @@
 .sass-cache/
 bower_components/
 build/
+demos/local/
 node_modules/
-.DS_Store
-demos/.DS_Store
-demos/demo.css
-demos/demo.css.map
-demos/demo.js
