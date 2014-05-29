@@ -132,7 +132,7 @@ Tabs.prototype.createAllIn = function(el) {
     if (el.querySelectorAll) {
         tEls = el.querySelectorAll('[data-o-component=o-tabs]');
         for (c = 0, l = tEls.length; c < l; c++) {
-            if (!tEls[c].matches('[data-o-tabs-autoconstruct=false]') || !tEls[c].classList.contains('o-tabs--js')) {
+            if (!oDom.matches(tEls[c], '[data-o-tabs-autoconstruct=false]') || !tEls[c].classList.contains('o-tabs--js')) {
                 tabs.push(new Tabs(tEls[c]));
             }
         }

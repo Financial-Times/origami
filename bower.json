@@ -12,6 +12,6 @@
         "o-ft-typography": "^1.7.0",
         "o-hoverable": "^0.1.1",
         "o-ft-buttons": "^1.4.0",
-        "o-dom": "^0.2.0"
+        "o-dom": "^0.3.0"
     }
 }
