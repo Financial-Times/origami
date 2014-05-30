@@ -14,6 +14,7 @@ function init () {
         viewport.listenTo('scroll');
         var delegate = new Delegate(document.body);
         el = document.querySelector('.o-ft-header');
+        if (!el) return;
 
         delegate.on('oViewport.scroll', function (ev) {
             condense(ev.detail.scrollTop);
