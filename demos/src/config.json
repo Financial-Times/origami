@@ -4,15 +4,18 @@
         "sass": "demos/src/demo.scss",
         "bodyClasses": "o-hoverable-on"
     },
-    "demos": {
-        "base-style": {
+    "demos": [
+        {
+            "name": "base-style",
             "template": "demos/src/base-style.mustache"
         },
-        "buttontabs": {
+        {
+            "name": "buttontabs",
             "template": "demos/src/buttontabs.mustache"
         },
-        "buttontabs-big": {
+        {
+            "name": "buttontabs-big",
             "template": "demos/src/buttontabs-big.mustache"
         }
-    }
+    ]
 }

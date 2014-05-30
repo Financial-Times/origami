@@ -6,10 +6,8 @@
     "supportStatus": "active",
     "browserFeatures": {
         "required": [
-            "matches",
             "queryselector",
-            "addeventlistener",
-            "classlist"
+            "addeventlistener"
         ],
         "optional": [
             "domcontentready"
@@ -19,8 +17,20 @@
         "travis": "https://api.travis-ci.org/repos/Financial-Times/o-tabs/builds.json"
     },
     "demos": [
-        "/demos/base-style.html",
-        "/demos/buttontabs.html",
-        "/demos/buttontabs-big.html"
+        {
+            "path": "/demos/base-style.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/buttontabs.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/buttontabs-big.html",
+            "expanded": true,
+            "description": ""
+        }
     ]
 }
