@@ -25,6 +25,9 @@
   [data-nav-level] {
     li {
       position: relative;
+      &[aria-hidden=true] {
+        display: none;
+      }
       > ul {
         display: none;
       }
