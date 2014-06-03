@@ -1,0 +1,22 @@
+
+@include oFtIconsFontFace();
+
+.o-ft-header__icon__search {
+  @extend %o-ft-icons-icon--search;
+}
+
+.o-ft-header__icon__saves {
+  @extend %o-ft-icons-icon--columnists;
+}
+
+.o-ft-header__icon__clippings {
+  @extend %o-ft-icons-icon--clippings;
+}
+
+.o-ft-header__icon__account {
+  @extend %o-ft-icons-icon--profile;
+}
+
+.o-ft-header__icon__more {
+  @extend %o-ft-icons-icon--sections;
+}

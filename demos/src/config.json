@@ -1,6 +1,7 @@
 {
     "options": {
-        "sass": "demos/src/demo.scss"
+        "sass": "demos/src/demo.scss",
+        "js": "demos/src/demo.js"
     },
     "demos": [
         {
@@ -9,13 +10,20 @@
         },
         {
             "name": "header",
-            "template": "demos/src/header.mustache",
-            "js": "demos/src/demo.js"
+            "template": "demos/src/header.mustache"
         },
         {
             "name": "branded",
-            "template": "demos/src/branded.mustache",
-            "js": "demos/src/demo.js"
+            "template": "demos/src/branded.mustache"
+        },
+        {
+            "name": "mega-dropdown",
+            "template": "demos/src/mega-dropdown.mustache"
+        },
+        {
+            "name": "nav",
+            "template": "demos/src/nav.mustache",
+            "js": "demos/src/nav.js"
         }
     ]
 }

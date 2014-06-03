@@ -1,6 +1,7 @@
+/*global require*/
 var oHeader = require('../../main.js'),
-    headerEl = document.querySelector('header');
+    headerEls = document.querySelectorAll('header');
 
-if (headerEl) {
-    new oHeader(headerEl);
+for (var c = 0, l = headerEls.length; c < l; c++) {
+    new oHeader(headerEls[c]);
 }
