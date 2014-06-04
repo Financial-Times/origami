@@ -29,3 +29,17 @@
     text-indent: -100%;
   }
 }
+
+.o-ft-header__ft-masthead {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  i {
+    @extend %o-ft-icons-icon--ft-logo;
+    @include oFtIconsBaseIconStyles();
+    margin-top: -9px;
+    height: 55px;
+    overflow: hidden;
+    font-size: 216px;
+  }
+}
