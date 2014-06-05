@@ -14,6 +14,7 @@
     "o-hoverable": "^0.1.1",
     "o-useragent": "^1.1.0",
     "o-viewport": "*",
+    "o-dom": "^0.3.0",
     "dom-delegate": "~1.0.0",
     "o-prioritised-content-filter": "^0.1.0"
   }

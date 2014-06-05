@@ -7,21 +7,6 @@
   a {
     text-decoration: none;
   }
-  [data-nav-level]:not([data-nav-level='1']) {
-    background-color: #000;
-    & > li {
-      border-top: 1px solid #666;
-      & > a {
-        color: #fff;
-        padding-top: 10px;
-        padding-left: 20px;
-        padding-bottom: 10px;
-        &:hover {
-          color: #ddd;
-        }
-      }
-    }
-  }
   [data-nav-level] {
     li {
       position: relative;
@@ -44,10 +29,9 @@
         display: inline-block;
       }
     }
-  }
-  [data-nav-level='3'] {
-    li {
-      background-color: #333;
+    & > .nav--parent.nav--align-right [data-nav-level='2'] {
+      position: absolute;
+      right: 0;
     }
   }
 
@@ -63,7 +47,7 @@
 
   [data-nav-level='2'] {
     position: absolute;
-    & > .nav--parent.nav--right [data-nav-level='3'] {
+    & > .nav--parent.nav--outside-right [data-nav-level='3'] {
       position: absolute;
       left: 100%;
       top: -1px;

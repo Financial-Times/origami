@@ -30,6 +30,7 @@ function Header(rootEl) {
         responsiveNavs = responsiveNavEls.map(function(el) {
             return new ResponsiveNav(el);
         });
+        resize();
         oViewport.listenTo('resize');
         bodyDelegate.on('oViewport.resize', resize);
     }

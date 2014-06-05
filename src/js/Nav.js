@@ -1,6 +1,7 @@
 /*global require, module*/
 
-var DomDelegate = require('dom-delegate');
+var DomDelegate = require('dom-delegate'),
+    oDom = require('o-dom');
 
 function nodeListToArray(nl) {
     "use strict";
@@ -43,31 +44,40 @@ function Nav(rootEl) {
         });
     }
 
+    function level2ListFitsInWindow(l2El) {
+        return l2El.getBoundingClientRect().right < window.innerWidth;
+    }
+
     function elementFitsToRight(el1, el2) {
         return el1.getBoundingClientRect().right + el2.offsetWidth < window.innerWidth;
     }
 
     function positionChildListEl(parentEl, childEl) {
-        parentEl.classList.remove('nav--right');
+        parentEl.classList.remove('nav--align-right');
+        parentEl.classList.remove('nav--outside-right');
         parentEl.classList.remove('nav--left');
-        if (elementFitsToRight(parentEl, childEl)) {
-            parentEl.classList.add('nav--right');
+        if (getLevel(parentEl) === 1) {
+            if (!level2ListFitsInWindow(childEl)) {
+                parentEl.classList.add('nav--align-right');
+            }
+        } else {
+            if (elementFitsToRight(parentEl, childEl)) {
+                parentEl.classList.add('nav--outside-right');
+            }
         }
     }
 
     function expandItem(itemEl) {
         itemEl.setAttribute('aria-expanded', 'true');
-        if (getLevel(itemEl) > 1) {
-            var childListEl = itemEl.querySelector('ul');
-            if (childListEl) {
-                positionChildListEl(itemEl, childListEl);
-            }
+        var childListEl = itemEl.querySelector('ul');
+        if (childListEl) {
+            positionChildListEl(itemEl, childListEl);
         }
     }
 
     function handleClick(ev) {
         ev.preventDefault();
-        var itemEl = ev.target.parentNode;
+        var itemEl = oDom.getClosestMatch(ev.target, 'li');
         if (!isParent(itemEl)) {
             return;
         }

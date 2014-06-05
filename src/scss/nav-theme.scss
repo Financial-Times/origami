@@ -1,4 +1,27 @@
+%o-ft-header__nav--theme {
+  [data-nav-level]:not([data-nav-level='1']) {
+    & > li {
+      border-top: 1px solid #666;
+      & > a {
+        color: #fff;
+        padding: 10px 20px;
+        &:hover {
+          color: #ddd;
+        }
+      }
+    }
+  }
+  [data-nav-level='2'] {
+    font-size: 14px;
+    background-color: _oColorsGetPaletteColor(grey-tint5);
+  }
+  [data-nav-level='3'] {
+    background-color: _oColorsGetPaletteColor(grey-tint4);
+  }
+}
+
 .o-ft-header__nav--primary-theme {
+  @extend %o-ft-header__nav--theme;
   height: 55px;
   font-size: 16px;
   text-align: right;
@@ -27,6 +50,7 @@
 }
 
 .o-ft-header__nav--secondary-theme {
+  @extend %o-ft-header__nav--theme;
   font-size: 12px;
   a {
     padding: 0 20px 0 0;
@@ -38,28 +62,34 @@
 }
 
 .o-ft-header__nav--tools-theme {
+  @extend %o-ft-header__nav--theme;
   min-width: 55px;
   min-height: 55px;
   border-right: 1px solid #666666;
   white-space: nowrap;
-  overflow: hidden;
-  li {
-    float: left;
-  }
-  a {
-    display: inline-block;
-    border-left: 1px solid #666666;
-    width: 54px;
-    height: 55px;
-    font-size: 11px;
-    text-align: center;
-    color: #dddddd;
-    &:hover {
-      color: #aaaaaa;
-      i {
-        color: #aaaaaa;
+
+  [data-nav-level='1'] {
+    & > li {
+      float: left;
+      & > a {
+        display: inline-block;
+        border-left: 1px solid #666666;
+        width: 54px;
+        height: 55px;
+        font-size: 11px;
+        text-align: center;
+        color: #dddddd;
+        &:hover {
+          color: #aaaaaa;
+          i {
+            color: #aaaaaa;
+          }
+        }
       }
     }
+  }
+  [data-nav-level='2'] {
+//    padding:
   }
   i {
     @include oFtIconsBaseIconStyles();
