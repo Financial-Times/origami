@@ -2,7 +2,6 @@
   height: 55px;
   font-size: 16px;
   text-align: right;
-  background-color: #333;
   li {
     text-align: left;
   }
@@ -10,7 +9,7 @@
     padding: 0 20px 0 0;
   }
   .nav--parent > a {
-    padding-right: 30px;
+    padding-right: 20px;
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAYAAACzzX7wAAAAPElEQVQImW3JMQ0AMAgEwNeEG2zggxk7bwMf7HRoaNK0tx5EpKuqf1S1AQBm9qS77xwRcZLknYNkZ+aVCyxsRRbyyW4mAAAAAElFTkSuQmCC') no-repeat 91% center;
   }
   [data-nav-level='1'] {

@@ -13,31 +13,56 @@
     <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
     
     <header data-o-component="o-ft-header" data-o-version="" class="o-ft-header">
-    <div class="o-ft-header__content">
-        <div class="o-ft-header__logo o-ft-header__logo--ft">
-            <a href="http://www.ft.com"><abbr title="Financial Times">FT</abbr></a>
-        </div>
-        <div class="o-ft-header__primary">
-            <div class="o-ft-header__primary__left">
-                <h1 class="o-ft-header__title">Mega Dropdown from Primary bar</h1>
+    <div class="o-ft-header__container">
+        <div class="o-ft-header__brand">
+            <div class="o-ft-header__logo o-ft-header__logo--ft">
+                <a href="http://www.ft.com"><abbr title="Financial Times">FT</abbr></a>
             </div>
-            <nav class="o-ft-header__primary__centre">
-                <ul>
-                    <li data-priority="2"><a href="/">Nav item p2</a></li>
-                    <li data-priority="3"><a href="/">Nav item p3</a></li>
-                    <li data-priority="1"><a href="/">Nav item p1</a></li>
-                    <li data-priority="3"><a href="/">Nav item p3</a></li>
-                    <li data-priority="2"><a href="/">Nav item p2</a></li>
-                    <li data-priority="2"><a href="/">Nav item p2</a></li>
-                    <li data-more aria-hidden="true"><a href="/">More</a></li>
-                </ul>
-            </nav>
         </div>
-        <div class="o-ft-header__mega-dropdown">
-             [flyout primary]
-        </div>
-        <div class="o-ft-header__secondary">
-            [secondary]
+        <div class="o-ft-header__content">
+            <div class="o-ft-header__primary">
+                <div class="o-ft-header__primary__left">
+                    <h1 class="o-ft-header__title">Mega Dropdown from Primary bar</h1>
+                </div>
+                <nav class="o-ft-header__primary__center o-ft-header__nav o-ft-header__nav--primary-theme">
+                    <ul data-nav-level="1">
+                        <li data-priority="2"><a href="#">Item 1</a>
+                        <li data-priority="3"><a href="#">Item 1</a>
+                        <li data-priority="1" class="nav--parent"><a href="#">Parent Item 1</a>
+                            <ul data-nav-level="2">
+                                <li><a href="#">Item 1.1</a></li>
+                                <li><a href="#">Item 1.2</a></li>
+                                <li><a href="#">Item 1.3</a></li>
+                                <li><a href="#">Item 1.4</a></li>
+                            </ul>
+                        </li>
+                        <li data-priority="2"><a href="#">Item 1</a>
+                        </li>
+                        <li data-priority="1" class="nav--parent"><a href="#">Parent Item 1</a>
+                            <ul data-nav-level="2">
+                                <li><a href="#">Item 1.1</a></li>
+                                <li class="nav--parent"><a href="#">Parent Item 1.2</a>
+                                    <ul data-nav-level="3">
+                                        <li><a href="#">Item 1.2.1</a></li>
+                                        <li><a href="#">Item 1.2.2</a></li>
+                                        <li><a href="#">Item 1.2.3</a></li>
+                                        <li><a href="#">Item 1.2.4</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Item 1.3</a></li>
+                                <li><a href="#">Item 1.4</a></li>
+                            </ul>
+                        </li>
+                        <li data-more class="nav--parent"><a href="#">More</a></li>
+                    </ul>
+                </nav>
+                <div class="o-ft-header__mega-dropdown">
+                    [flyout primary]
+                </div>
+            </div>
+            <div class="o-ft-header__secondary">
+                [secondary]
+            </div>
         </div>
     </div>
 </header>
@@ -49,30 +74,55 @@
 </div>
 
 <header data-o-component="o-ft-header" data-o-version="" class="o-ft-header o-ft-header--branded">
-    <div class="o-ft-header__content">
-        <div class="o-ft-header__logo o-ft-header__logo--ft">
-            <a href="http://www.ft.com"><abbr title="Financial Times">FT</abbr></a>
-        </div>
-        <div class="o-ft-header__primary">
-            <div class="o-ft-header__primary__left">
-                <h1 class="o-ft-header__title">Mega Dropdown from Secondary bar</h1>
+    <div class="o-ft-header__container">
+        <div class="o-ft-header__brand">
+            <div class="o-ft-header__logo o-ft-header__logo--ft">
+                <a href="http://www.ft.com"><abbr title="Financial Times">FT</abbr></a>
             </div>
         </div>
-        <div class="o-ft-header__secondary">
-            <nav>
-                <ul>
-                    <li data-priority="2"><a href="/">Nav item p2</a></li>
-                    <li data-priority="1"><a href="/">Nav item p1</a></li>
-                    <li data-priority="3"><a href="/">Nav item p3</a></li>
-                    <li data-priority="2"><a href="/">Nav item p2</a></li>
-                    <li data-priority="3"><a href="/">Nav item p3</a></li>
-                    <li data-priority="2"><a href="/">Nav item p2</a></li>
-                    <li data-more aria-hidden="true"><a href="/">More</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="o-ft-header__mega-dropdown">
-            [flyout secondary]
+        <div class="o-ft-header__content">
+            <div class="o-ft-header__primary">
+                <div class="o-ft-header__primary__left">
+                    <h1 class="o-ft-header__title">Mega Dropdown from Secondary bar</h1>
+                </div>
+            </div>
+            <div class="o-ft-header__secondary">
+                <nav class="o-ft-header__secondary__right o-ft-header__nav o-ft-header__nav--secondary-theme">
+                    <ul data-nav-level="1">
+                        <li data-priority="2"><a href="#">Item 1</a>
+                        <li data-priority="3"><a href="#">Item 1</a>
+                        <li data-priority="1" class="nav--parent"><a href="#">Parent Item 1</a>
+                            <ul data-nav-level="2">
+                                <li><a href="#">Item 1.1</a></li>
+                                <li><a href="#">Item 1.2</a></li>
+                                <li><a href="#">Item 1.3</a></li>
+                                <li><a href="#">Item 1.4</a></li>
+                            </ul>
+                        </li>
+                        <li data-priority="2"><a href="#">Item 1</a>
+                        </li>
+                        <li data-priority="1" class="nav--parent"><a href="#">Parent Item 1</a>
+                            <ul data-nav-level="2">
+                                <li><a href="#">Item 1.1</a></li>
+                                <li class="nav--parent"><a href="#">Parent Item 1.2</a>
+                                    <ul data-nav-level="3">
+                                        <li><a href="#">Item 1.2.1</a></li>
+                                        <li><a href="#">Item 1.2.2</a></li>
+                                        <li><a href="#">Item 1.2.3</a></li>
+                                        <li><a href="#">Item 1.2.4</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Item 1.3</a></li>
+                                <li><a href="#">Item 1.4</a></li>
+                            </ul>
+                        </li>
+                        <li data-more class="nav--parent"><a href="#">More</a></li>
+                    </ul>
+                </nav>
+                <div class="o-ft-header__mega-dropdown">
+                    [flyout secondary]
+                </div>
+            </div>
         </div>
     </div>
 </header>

@@ -1,7 +1,18 @@
 .o-ft-header__mega-dropdown {
   position: absolute;
+  left: 0;
   padding: 15px 33px;
   min-height: 100px;
   width: 100%;
+  color: #333;
   background-color: _oColorsGetPaletteColor(pink-tint1);
+}
+
+.o-ft-header__primary .o-ft-header__mega-dropdown {
+  top: 55px;
+  border-top: 20px solid _oColorsGetPaletteColor(pink-tint2);
+}
+
+.o-ft-header__secondary .o-ft-header__mega-dropdown {
+  top: 75px;
 }
