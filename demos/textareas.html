@@ -1,41 +1,33 @@
 <!DOCTYPE html>
-<!--[if IE 7]>         <html class="no-js o-useragent-ie7"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js o-useragent-ie8"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if IE 7]>         <html class="o-useragent-ie7 o-hoverable-on"> <![endif]-->
+<!--[if IE 8]>         <html class="o-useragent-ie8 o-hoverable-on"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
     <title>o-ft-forms: textareas demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <style>
-    body {
-        margin: 0;
-    }
-    </style>
+    <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
     <link rel="stylesheet" href="/bundles/css?modules=o-ft-forms:/demos/src/demo.scss" />
 </head>
 <body class="">
+    <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
     
-    <link rel="stylesheet" href="http://build.origami.ft.com/bundles/css?modules=o-grid@^2.0.7" />
-<div class="o-grid-row">
-    <div data-o-grid-colspan="6 S12 M12" class="o-ft-forms-field-group">
-        <label class="o-ft-forms__label">Textarea</label>
-        <textarea placeholder="placeholder" class="o-ft-forms__field--textarea"></textarea>
-    </div>
-    <div data-o-grid-colspan="6 S12 M12" class="o-ft-forms-field-group">
-        <label class="o-ft-forms__label">Textarea disabled</label>
-        <textarea placeholder="placeholder" class="o-ft-forms__field--textarea" disabled="disabled"></textarea>
-    </div>
+    <div class="o-ft-forms-field-group">
+    <label class="o-ft-forms__label">Textarea</label>
+    <textarea placeholder="placeholder" class="o-ft-forms__field--textarea"></textarea>
 </div>
-<div class="o-grid-row">
-    <div data-o-grid-colspan="6 S12 M12" class="o-ft-forms-field-group o-ft-forms--valid">
-        <label class="o-ft-forms__label">Textarea (valid)</label>
-        <textarea placeholder="placeholder" class="o-ft-forms__field--textarea"></textarea>
-    </div>
-    <div data-o-grid-colspan="6 S12 M12" class="o-ft-forms-field-group o-ft-forms--error">
-        <label class="o-ft-forms__label">Textarea (error)</label>
-        <textarea placeholder="placeholder" class="o-ft-forms__field--textarea"></textarea>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
-    </div>
+<div class="o-ft-forms-field-group">
+    <label class="o-ft-forms__label">Textarea disabled</label>
+    <textarea placeholder="placeholder" class="o-ft-forms__field--textarea" disabled="disabled"></textarea>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms--valid">
+    <label class="o-ft-forms__label">Textarea (valid)</label>
+    <textarea placeholder="placeholder" class="o-ft-forms__field--textarea"></textarea>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms--error">
+    <label class="o-ft-forms__label">Textarea (error)</label>
+    <textarea placeholder="placeholder" class="o-ft-forms__field--textarea"></textarea>
+    <div class="o-ft-forms__errortext">Invalid entry</div>
 </div>
 
 <!-- Designers currently say that inline labels will not exist -->
