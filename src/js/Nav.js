@@ -1,14 +1,8 @@
 /*global require, module*/
 
 var DomDelegate = require('dom-delegate'),
-    oDom = require('o-dom');
-
-function nodeListToArray(nl) {
-    "use strict";
-    return [].map.call(nl, function(element) {
-        return element;
-    });
-}
+    oDom = require('o-dom'),
+    utils = require('./utils');
 
 function Nav(rootEl) {
     "use strict";
@@ -29,7 +23,7 @@ function Nav(rootEl) {
     }
 
     function collapseAll() {
-        nodeListToArray(rootEl.querySelectorAll('[data-nav-level="1"] > li[aria-expanded=true]')).forEach(function(childListItemEl) {
+        utils.nodeListToArray(rootEl.querySelectorAll('[data-nav-level="1"] > li[aria-expanded=true]')).forEach(function(childListItemEl) {
             collapseItem(childListItemEl);
         });
     }
@@ -37,11 +31,12 @@ function Nav(rootEl) {
     // Recursive collapse of nav item
     function collapseItem(itemEl) {
         itemEl.setAttribute('aria-expanded', 'false');
-        nodeListToArray(itemEl.querySelector('ul').children).forEach(function(childListItemEl) {
+        utils.nodeListToArray(itemEl.querySelector('ul').children).forEach(function(childListItemEl) {
             if (isExpanded(childListItemEl)) {
                 collapseItem(childListItemEl);
             }
         });
+        utils.dispatchCustomEvent(itemEl, 'oFtHeader.collapse');
     }
 
     function level2ListFitsInWindow(l2El) {
@@ -69,6 +64,7 @@ function Nav(rootEl) {
 
     function expandItem(itemEl) {
         itemEl.setAttribute('aria-expanded', 'true');
+        utils.dispatchCustomEvent(itemEl, 'oFtHeader.expand');
         var childListEl = itemEl.querySelector('ul');
         if (childListEl) {
             positionChildListEl(itemEl, childListEl);

@@ -54,4 +54,21 @@
     }
   }
 
+  .nav__more--some {
+    .nav__more--if-some {
+      display: block;
+    }
+    .nav__more--if-all {
+      display: none;
+    }
+  }
+  .nav__more--all {
+    .nav__more--if-some {
+      display: none;
+    }
+    .nav__more--if-all {
+      display: block;
+    }
+  }
+
 }

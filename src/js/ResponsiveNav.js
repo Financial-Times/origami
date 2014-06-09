@@ -34,27 +34,34 @@ function ResponsiveNav(rootEl) {
         moreListEl.appendChild(itemEl);
     }
 
-    function hiddenElementsHandler(hiddenEls) {
-        // TODO: Update text of more menu (e.g. "More" when some items remain, "Menu" when all items are hidden)
-        if (hiddenEls.length > 0) {
-            nav.collapseAll();
-            if (moreListEl) {
-                // TODO: Only do this when the more menu is expanded (no point updating the DOM otherwise)
-                emptyMoreList();
-                for (var c = 0, l = hiddenEls.length; c < l; c++) {
-                    var aEl = hiddenEls[c].querySelector('a');
-                    addItemToMoreList(aEl.innerText, aEl.href);
-                }
-            }
+    function populateMoreList(hiddenEls) {
+        emptyMoreList();
+        for (var c = 0, l = hiddenEls.length; c < l; c++) {
+            var aEl = hiddenEls[c].querySelector('a');
+            addItemToMoreList(aEl.innerText, aEl.href);
         }
     }
 
-    function pcfChangeHandler(ev) {
-        if (!ev.detail || !ev.detail.hiddenItems) {
-            return;
+    function setMoreElClass(remainingItems) {
+        if (remainingItems === 0) {
+            moreEl.classList.add('nav__more--all');
+            moreEl.classList.remove('nav__more--some');
+        } else {
+            moreEl.classList.add('nav__more--some');
+            moreEl.classList.remove('nav__more--all');
         }
-        if (ev.target === contentFilterEl) {
-            hiddenElementsHandler(ev.detail.hiddenItems);
+    }
+
+    function contentFilterChangeHandler(ev) {
+        if (ev.target === contentFilterEl && ev.detail.hiddenItems.length > 0) {
+            nav.collapseAll();
+            setMoreElClass(ev.detail.remainingItems.length);
+        }
+    }
+
+    function navExpandHandler(ev) {
+        if (ev.target === moreEl) {
+            populateMoreList(contentFilter.getHiddenItems());
         }
     }
 
@@ -71,7 +78,8 @@ function ResponsiveNav(rootEl) {
         if (contentFilterEl) {
             contentFilter = new oPrioritisedContentFilter(contentFilterEl, { filterOnResize: false });
         }
-        rootDelegate.on('oPrioritisedContentFilter.change', pcfChangeHandler);
+        rootDelegate.on('oPrioritisedContentFilter.change', contentFilterChangeHandler);
+        rootDelegate.on('oFtHeader.expand', navExpandHandler);
     }
 
     function destroy() {
