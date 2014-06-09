@@ -17,4 +17,10 @@
   .#{$classname}--vertical-lines {
     @extend %o-table-vertical-lines;
   }
+  .#{$classname}--horizontal-borders {
+    @extend %o-table-horizontal-borders;
+  }
+  .#{$classname}--vertical-borders {
+    @extend %o-table-vertical-borders;
+  }
 }

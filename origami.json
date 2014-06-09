@@ -14,18 +14,13 @@
             "description": ""
         },
         {
-            "path": "/demos/row-stripes.html",
-            "expanded": false,
-            "description": ""
-        },
-        {
-            "path": "/demos/lines.html",
-            "expanded": false,
-            "description": ""
-        },
-        {
             "path": "/demos/captions.html",
-            "expanded": false,
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/modifiers.html",
+            "expanded": true,
             "description": ""
         }
     ]
