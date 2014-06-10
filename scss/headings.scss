@@ -1,19 +1,28 @@
-@include oFtTypographySelectors(heading1) {
+@include oFtTypographySelectors(heading1-layout) {
   margin: 0 0 16px 0;
   padding: 8px 0 7px 0;
   border-top: 4px solid oColorsGetColorFor(heading1 heading-large heading, border); // Add new use case to o-colors
   border-bottom: 1px dotted oColorsGetColorFor(heading1 heading-large heading, border); // Add new use case to o-colors
+}
+
+
+@include oFtTypographySelectors(heading1) {
+  @extend #{oFtGetPrefixedPlaceholders(heading1-layout)};
   @include _oFtTypographyFont(BentonSans, bold);
   @include oFtTypographyFontSize(16, 20);
   color: oColorsGetColorFor(heading-xlarge heading, text);
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(heading-large heading, text), oColorsGetColorFor(link, text));
 }
 
-@include oFtTypographySelectors(heading2) {
+@include oFtTypographySelectors(heading2-layout) {
   margin: 0 0 16px 0;
   padding: 8px 0 7px 0;
   border-top: 4px solid oColorsGetColorFor(heading2 heading-large heading, border);
   border-bottom: 1px dotted oColorsGetColorFor(heading2 heading-large heading, border);
+}
+
+@include oFtTypographySelectors(heading2) {
+  @extend #{oFtGetPrefixedPlaceholders(heading2-layout)};
   @include _oFtTypographyFont(BentonSans, bold);
   text-transform: uppercase;
   @include oFtTypographyFontSize(14, 20);
@@ -21,35 +30,49 @@
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(heading2 heading-large heading, text), oColorsGetColorFor(link, text));
 }
 
-@mixin oFtTypographyHeading3and4() {
+@mixin oFtTypographyHeading3and4Layout() {
   margin-bottom: 15px;
   padding: 5px 0;
+}
+
+@mixin oFtTypographyHeading3and4Text() {
   @include oFtTypographyFontSize(16, 20);
   @include oFtTypographyExtend(body__block);
   @include _oFtTypographyFont(BentonSans, bold);
   color: oColorsGetColorFor(article-subheading-text);
 }
 
-@include oFtTypographySelectors(heading3) {
-  @include oFtTypographyHeading3and4();
+
+@include oFtTypographySelectors(heading3-layout) {
+  @include oFtTypographyHeading3and4Layout();
   border-top: 1px dotted oColorsGetColorFor(article-subheading-border);
   border-bottom: 1px dotted oColorsGetColorFor(article-subheading-border);
+  & + * {
+    margin-top: 0;
+  }
+}
+
+@include oFtTypographySelectors(heading3) {
+  @include oFtTypographyHeading3and4Text();
+  @extend #{oFtGetPrefixedPlaceholders(heading3-layout)};
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(heading3 article-subheading, text), oColorsGetColorFor(link, text));
+}
+
+@include oFtTypographySelectors(heading4-layout) {
+  @include oFtTypographyHeading3and4Layout();
   & + * {
     margin-top: 0;
   }
 }
 
 @include oFtTypographySelectors(heading4) {
-  @include oFtTypographyHeading3and4();
+  @include oFtTypographyHeading3and4Text();
+  @extend #{oFtGetPrefixedPlaceholders(heading4-layout)};
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(heading4 article-subheading, text), oColorsGetColorFor(link, text));
-  & + * {
-    margin-top: 0;
-  }
 }
 
-@mixin oFtTypographyHeading5Styles() {
-  margin: 0 0 16px 0;
+
+@mixin oFtTypographyHeading5TextStyles() {
   @include _oFtTypographyFont(BentonSans, bold);
   @include oFtTypographyFontSize(13, 20);
   color: oColorsGetColorFor(heading5 heading, text);
@@ -57,24 +80,37 @@
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
-@include oFtTypographySelectors(heading5) {
-  @include oFtTypographyHeading5Styles();
-  @include oFtTypographyFauxTextBackground(oColorsGetColorFor(page, background));
+@mixin oFtTypographyHeading5LayoutStyles() {
+  margin: 0 0 16px 0;
+}
+
+@include oFtTypographySelectors(heading5-layout) {
+  @include oFtTypographyHeading5LayoutStyles();
   background-position: bottom right;
   background-repeat: no-repeat;
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAAPAQMAAADEaZ8BAAAABlBMVEUAAADs3s8R/6e7AAAAAXRSTlMAQObYZgAAADBJREFUSMdj+D90QcNQdvyDUccPEPgw6njiwKjjh43jh3SGHdKOb2AYBaNgFAwdAACrOE9c1sAQpgAAAABJRU5ErkJggg==');
 }
 
+@include oFtTypographySelectors(heading5) {
+  @include oFtTypographyHeading5TextStyles();
+  @extend #{oFtGetPrefixedPlaceholders(heading5-layout)};
+  @include oFtTypographyFauxTextBackground(oColorsGetColorFor(page, background));
+}
+
 @include oUseragentTarget(ie7 ie8 ie9) {
-  @include oFtTypographySelectors(heading5) {
-    @include oFtTypographyHeading5Styles();
+  @include oFtTypographySelectors(heading5-layout) {
+    // @include oFtTypographyHeading5Styles();
     border-bottom: 1px solid oColorsGetColorFor(heading5 heading-medium heading, border);
     background-image: none;
   }
 }
 
-@include oFtTypographySelectors(heading6) {
+@include oFtTypographySelectors(heading6-layout) {
   margin: 0 0 8px 0;
+}
+
+@include oFtTypographySelectors(heading6) {
+  @extend #{oFtGetPrefixedPlaceholders(heading6-layout)};
   @include _oFtTypographyFont(BentonSans, bold);
   @include oFtTypographyFontSize(14, 20);
   color: oColorsGetColorFor(heading6 heading, text);
