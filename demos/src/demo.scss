@@ -1,6 +1,10 @@
 $o-grid-mq-type: width;
 @import "../../main";
 
+.demo__header {
+  position: relative;
+}
+
 .demo__logo--placeholder {
   position: relative;
   width: 75px;

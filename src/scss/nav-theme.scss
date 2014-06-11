@@ -73,7 +73,7 @@
 
   [data-nav-level='1'] {
     & > li {
-      float: left;
+      display: inline-block;
       & > a {
         display: inline-block;
         border-left: 1px solid #666666;

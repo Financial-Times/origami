@@ -138,17 +138,36 @@ function Nav(rootEl) {
         positionLevel3s();
     }
 
+    function setTabIndexes() {
+        var itemEls = rootEl.querySelectorAll('li > a:not([href])');
+        for (var c = 0, l = itemEls.length; c < l; c++) {
+            if (itemEls[c].tabIndex === 0) { // Don't override tabIndex if something else has set it, but otherwise set it to zero to make it focusable.
+                itemEls[c].tabIndex = 0;
+            }
+        }
+    }
+
+    function init() {
+        setTabIndexes();
+        rootDelegate.on('click', handleClick);
+        rootDelegate.on('keyup', function(ev) { // Pressing enter key on anchors without @href won't trigger a click event
+            if (!ev.target.hasAttribute('href') && ev.keyCode === 13 && isElementInsideNav(ev.target)) {
+                handleClick(ev);
+            }
+        });
+        bodyDelegate.on('click', function(ev) {
+            if (!isElementInsideNav(ev.target)) {
+                collapseAll();
+            }
+        });
+    }
+
     function destroy() {
         rootDelegate.destroy();
         bodyDelegate.destroy();
     }
 
-    rootDelegate.on('click', handleClick);
-    bodyDelegate.on('click', function(ev) {
-        if (!isElementInsideNav(ev.target)) {
-            collapseAll();
-        }
-    });
+    init();
 
     this.resize = resize;
     this.collapseAll = collapseAll;
