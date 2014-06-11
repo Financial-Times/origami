@@ -14,6 +14,10 @@ function ResponsiveNav(rootEl) {
         moreEl,
         moreListEl;
 
+    function isMegaDropdownControl(el) {
+        return el.hasAttribute('aria-controls');
+    }
+
     function resize() {
         nav.resize();
         if (contentFilter) {
@@ -28,21 +32,17 @@ function ResponsiveNav(rootEl) {
     function addItemToMoreList(text, href) {
         var itemEl = document.createElement('li'),
             aEl = document.createElement('a');
-        if (href) {
-            aEl.innerText = text;
-            aEl.href = href;
-            itemEl.appendChild(aEl);
-        } else {
-            itemEl.innerText = text;
-        }
+        aEl.innerText = text;
+        aEl.href = href;
+        itemEl.appendChild(aEl);
         moreListEl.appendChild(itemEl);
     }
 
     function populateMoreList(hiddenEls) {
         emptyMoreList();
         for (var c = 0, l = hiddenEls.length; c < l; c++) {
-            var sourceEl = hiddenEls[c].querySelector('a') || hiddenEls[c];
-            addItemToMoreList(sourceEl.innerText, sourceEl.href);
+            var aEl = hiddenEls[c].querySelector('a');
+            addItemToMoreList(aEl.innerText, aEl.href);
         }
     }
 
@@ -74,16 +74,16 @@ function ResponsiveNav(rootEl) {
         rootDelegate = new DomDelegate(rootEl);
         contentFilterEl = rootEl.querySelector('ul');
         moreEl = rootEl.querySelector('[data-more]');
-        if (moreEl) {
+        if (moreEl && !isMegaDropdownControl(moreEl)) {
             moreListEl = document.createElement('ul');
             moreListEl.setAttribute('data-nav-level', '2');
             moreEl.appendChild(moreListEl);
+            rootDelegate.on('oFtHeader.expand', navExpandHandler);
         }
         if (contentFilterEl) {
             contentFilter = new oPrioritisedContentFilter(contentFilterEl, { filterOnResize: false });
         }
         rootDelegate.on('oPrioritisedContentFilter.change', contentFilterChangeHandler);
-        rootDelegate.on('oFtHeader.expand', navExpandHandler);
     }
 
     function destroy() {

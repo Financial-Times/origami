@@ -32,6 +32,16 @@ function Nav(rootEl) {
         return el.getAttribute('aria-expanded') === 'true';
     }
 
+    function isElementInsideNav(el) {
+        var l1Els = rootEl.querySelectorAll('[data-nav-level="1"] > li');
+        for (var c = 0, l = l1Els.length; c < l; c++) {
+            if (l1Els[c].contains(el)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     function getLevel(el) {
         return parseInt(el.parentNode.getAttribute('data-nav-level'), 10);
     }
@@ -134,8 +144,8 @@ function Nav(rootEl) {
     }
 
     rootDelegate.on('click', handleClick);
-    bodyDelegate.on('click', null, function(ev) {
-        if (!rootEl.contains(ev.target)) {
+    bodyDelegate.on('click', function(ev) {
+        if (!isElementInsideNav(ev.target)) {
             collapseAll();
         }
     });
