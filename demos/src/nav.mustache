@@ -39,8 +39,8 @@
 
 <nav class="o-ft-header__nav o-ft-header__nav--primary-theme" style="background-color: #333;">
     <ul data-nav-level="1">
-        <li><a href="#">Item 1</a>
-        <li><a href="#">Item 1</a>
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 1</a></li>
         <li class="nav--parent"><a href="#">Parent Item 1</a>
             <ul data-nav-level="2">
                 <li><a href="#">Item 1.1</a></li>
@@ -49,8 +49,7 @@
                 <li><a href="#">Item 1.4</a></li>
             </ul>
         </li>
-        <li><a href="#">Item 1</a>
-        </li>
+        <li><a href="#">Item 1</a></li>
         <li class="nav--parent"><a href="#">Parent Item 1</a>
             <ul data-nav-level="2">
                 <li><a href="#">Item 1.1</a></li>
@@ -76,8 +75,8 @@
 
 <nav class="o-ft-header__nav  o-ft-header__nav--secondary-theme">
     <ul data-nav-level="1">
-        <li><a href="#">Item 1</a>
-        <li><a href="#">Item 1</a>
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 1</a></li>
         <li class="nav--parent"><a href="#">Parent Item 1</a>
             <ul data-nav-level="2">
                 <li><a href="#">Item 1.1</a></li>
@@ -86,8 +85,7 @@
                 <li><a href="#">Item 1.4</a></li>
             </ul>
         </li>
-        <li><a href="#">Item 1</a>
-        </li>
+        <li><a href="#">Item 1</a></li>
         <li class="nav--parent"><a href="#">Parent Item 1</a>
             <ul data-nav-level="2">
                 <li><a href="#">Item 1.1</a></li>
@@ -108,3 +106,24 @@
 
 <br />
 <br />
+
+<h1>Primary theme with megadropdown</h1>
+
+<nav class="o-ft-header__nav o-ft-header__nav--primary-theme" style="background-color: #333;">
+    <ul data-nav-level="1">
+        <li><a href="#">Item 1</a></li>
+        <li aria-controls="megadropdown1">Mega 1</li>
+        <li class="nav--parent"><a href="#">Item 2</a>
+            <ul data-nav-level="2">
+                <li><a href="#">Item 2.1</a></li>
+                <li><a href="#">Item 2.2</a></li>
+                <li><a href="#">Item 2.3</a></li>
+            </ul>
+        </li>
+        <li aria-controls="megadropdown2">Mega 2</li>
+        <li aria-controls="megadropdown3">Mega 3</li>
+    </ul>
+</nav>
+<div id="megadropdown1" class="o-ft-header__mega-dropdown demo__mega-dropdown" aria-hidden="true">Megadropdown 1</div>
+<div id="megadropdown2" class="o-ft-header__mega-dropdown demo__mega-dropdown" aria-hidden="true">Megadropdown 2</div>
+<div id="megadropdown3" class="o-ft-header__mega-dropdown demo__mega-dropdown" aria-hidden="true">Megadropdown 3</div>

@@ -25,22 +25,26 @@
   height: 55px;
   font-size: 16px;
   text-align: right;
+  color: #fff;
   li {
     text-align: left;
   }
   a {
     padding: 0 20px 0 0;
   }
+  [aria-controls],
   .nav--parent > a {
     padding-right: 20px;
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAYAAACzzX7wAAAAPElEQVQImW3JMQ0AMAgEwNeEG2zggxk7bwMf7HRoaNK0tx5EpKuqf1S1AQBm9qS77xwRcZLknYNkZ+aVCyxsRRbyyW4mAAAAAElFTkSuQmCC') no-repeat 91% center;
   }
   [data-nav-level='1'] {
     & > li {
+      &[aria-controls],
       & > a {
         text-transform: uppercase;
         line-height: 55px;
         color: #fff;
+        cursor: pointer;
         &:hover {
           color: #ddd;
         }
@@ -55,6 +59,7 @@
   a {
     padding: 0 20px 0 0;
   }
+  [aria-controls],
   .nav--parent > a {
     padding-right: 20px;
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAYAAACzzX7wAAAAPElEQVQImW3JMQ0AMAgEwNeEG2zggxk7bwMf7HRoaNK0tx5EpKuqf1S1AQBm9qS77xwRcZLknYNkZ+aVCyxsRRbyyW4mAAAAAElFTkSuQmCC') no-repeat 91% center;
@@ -87,9 +92,6 @@
         }
       }
     }
-  }
-  [data-nav-level='2'] {
-//    padding:
   }
   i {
     @include oFtIconsBaseIconStyles();

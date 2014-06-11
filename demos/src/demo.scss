@@ -25,3 +25,7 @@ $o-grid-mq-type: width;
 .demo__logo--alphaville {
   width: 153px;
 }
+
+.demo__mega-dropdown[aria-hidden=true] {
+  display: none;
+}

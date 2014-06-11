@@ -10,8 +10,22 @@ function Nav(rootEl) {
     var bodyDelegate = new DomDelegate(document.body),
         rootDelegate = new DomDelegate(rootEl);
 
-    function isParent(el) {
-        return el.classList.contains('nav--parent');
+    function getChildListEl(el) {
+        return el.querySelector('ul');
+    }
+
+    function hasChildList(el) {
+        return !!getChildListEl(el);
+    }
+
+    function getMegaDropdownEl(itemEl) {
+        if (itemEl.hasAttribute('aria-controls')) {
+            return document.getElementById(itemEl.getAttribute('aria-controls'));
+        }
+    }
+
+    function isControlEl(el) {
+        return !!(getChildListEl(el) || getMegaDropdownEl(el));
     }
 
     function isExpanded(el) {
@@ -20,23 +34,6 @@ function Nav(rootEl) {
 
     function getLevel(el) {
         return parseInt(el.parentNode.getAttribute('data-nav-level'), 10);
-    }
-
-    function collapseAll() {
-        utils.nodeListToArray(rootEl.querySelectorAll('[data-nav-level="1"] > li[aria-expanded=true]')).forEach(function(childListItemEl) {
-            collapseItem(childListItemEl);
-        });
-    }
-
-    // Recursive collapse of nav item
-    function collapseItem(itemEl) {
-        itemEl.setAttribute('aria-expanded', 'false');
-        utils.nodeListToArray(itemEl.querySelector('ul').children).forEach(function(childListItemEl) {
-            if (isExpanded(childListItemEl)) {
-                collapseItem(childListItemEl);
-            }
-        });
-        utils.dispatchCustomEvent(itemEl, 'oFtHeader.collapse');
     }
 
     function level2ListFitsInWindow(l2El) {
@@ -51,6 +48,9 @@ function Nav(rootEl) {
         parentEl.classList.remove('nav--align-right');
         parentEl.classList.remove('nav--outside-right');
         parentEl.classList.remove('nav--left');
+        if (!childEl) {
+            return;
+        }
         if (getLevel(parentEl) === 1) {
             if (!level2ListFitsInWindow(childEl)) {
                 parentEl.classList.add('nav--align-right');
@@ -62,28 +62,57 @@ function Nav(rootEl) {
         }
     }
 
-    function expandItem(itemEl) {
-        itemEl.setAttribute('aria-expanded', 'true');
-        utils.dispatchCustomEvent(itemEl, 'oFtHeader.expand');
-        var childListEl = itemEl.querySelector('ul');
-        if (childListEl) {
-            positionChildListEl(itemEl, childListEl);
+    function hideEl(el) {
+        if (el) {
+            el.setAttribute('aria-hidden', 'true');
         }
     }
 
-    function handleClick(ev) {
-        ev.preventDefault();
-        var itemEl = oDom.getClosestMatch(ev.target, 'li');
-        if (!isParent(itemEl)) {
-            return;
+    function showEl(el) {
+        if (el) {
+            el.removeAttribute('aria-hidden');
         }
-        if (!isExpanded(itemEl)) {
-            if (getLevel(itemEl) === 1) {
-                collapseAll();
+    }
+
+    function collapseAll(nodeList) {
+        if (!nodeList) {
+            nodeList = rootEl.querySelectorAll('[data-nav-level="1"] > li[aria-expanded=true]');
+        }
+        utils.nodeListToArray(nodeList).forEach(function(childListItemEl) {
+            if (isExpanded(childListItemEl)) {
+                collapseItem(childListItemEl);
             }
-            expandItem(itemEl);
-        } else {
-            collapseItem(itemEl);
+        });
+    }
+
+    function collapseItem(itemEl) {
+        itemEl.setAttribute('aria-expanded', 'false');
+        if (hasChildList(itemEl)) {
+            collapseAll(getChildListEl(itemEl).children);
+        }
+        hideEl(getMegaDropdownEl(itemEl));
+        utils.dispatchCustomEvent(itemEl, 'oFtHeader.collapse');
+    }
+
+    function expandItem(itemEl) {
+        if (getLevel(itemEl) === 1) {
+            collapseAll();
+        }
+        itemEl.setAttribute('aria-expanded', 'true');
+        utils.dispatchCustomEvent(itemEl, 'oFtHeader.expand');
+        positionChildListEl(itemEl, getChildListEl(itemEl));
+        showEl(getMegaDropdownEl(itemEl));
+    }
+
+    function handleClick(ev) {
+        var itemEl = oDom.getClosestMatch(ev.target, 'li');
+        if (itemEl && isControlEl(itemEl)) {
+            ev.preventDefault();
+            if (!isExpanded(itemEl)) {
+                expandItem(itemEl);
+            } else {
+                collapseItem(itemEl);
+            }
         }
     }
 
@@ -104,7 +133,7 @@ function Nav(rootEl) {
         bodyDelegate.destroy();
     }
 
-    rootDelegate.on('click', '.nav--parent > a', handleClick);
+    rootDelegate.on('click', handleClick);
     bodyDelegate.on('click', null, function(ev) {
         if (!rootEl.contains(ev.target)) {
             collapseAll();
