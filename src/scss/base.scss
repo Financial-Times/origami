@@ -11,6 +11,9 @@
   a {
     text-decoration: none;
   }
+  [aria-hidden=true] {
+    display: none;
+  }
 }
 
 .o-ft-header__container {

@@ -28,17 +28,21 @@ function ResponsiveNav(rootEl) {
     function addItemToMoreList(text, href) {
         var itemEl = document.createElement('li'),
             aEl = document.createElement('a');
-        aEl.innerText = text;
-        aEl.href = href;
-        itemEl.appendChild(aEl);
+        if (href) {
+            aEl.innerText = text;
+            aEl.href = href;
+            itemEl.appendChild(aEl);
+        } else {
+            itemEl.innerText = text;
+        }
         moreListEl.appendChild(itemEl);
     }
 
     function populateMoreList(hiddenEls) {
         emptyMoreList();
         for (var c = 0, l = hiddenEls.length; c < l; c++) {
-            var aEl = hiddenEls[c].querySelector('a');
-            addItemToMoreList(aEl.innerText, aEl.href);
+            var sourceEl = hiddenEls[c].querySelector('a') || hiddenEls[c];
+            addItemToMoreList(sourceEl.innerText, sourceEl.href);
         }
     }
 
