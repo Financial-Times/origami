@@ -1,5 +1,6 @@
 $o-grid-mq-type: width;
 @import "../../main";
+@import "o-ft-icons/main";
 
 .demo__header {
   position: relative;
@@ -32,4 +33,36 @@ $o-grid-mq-type: width;
 
 .demo__mega-dropdown[aria-hidden=true] {
   display: none;
+}
+
+
+@include oFtIconsFontFace();
+
+.demo__icon {
+  @include oFtIconsBaseIconStyles();
+  display: block;
+  margin-top: 5px;
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
+}
+
+.demo__icon__search {
+  @extend %o-ft-icons-icon--search;
+}
+
+.demo__icon__settings {
+  @extend %o-ft-icons-icon--settings;
+}
+
+.demo__icon__share {
+  @extend %o-ft-icons-icon--share;
+}
+
+.demo__icon__account {
+  @extend %o-ft-icons-icon--profile;
+}
+
+.demo__icon__more {
+  @extend %o-ft-icons-icon--sections;
 }

@@ -34,6 +34,7 @@
   }
   [aria-controls] > a,
   .nav--parent > a {
+    padding-right: 25px;
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAYAAACzzX7wAAAAPElEQVQImW3JMQ0AMAgEwNeEG2zggxk7bwMf7HRoaNK0tx5EpKuqf1S1AQBm9qS77xwRcZLknYNkZ+aVCyxsRRbyyW4mAAAAAElFTkSuQmCC') no-repeat 91% center;
   }
   [data-nav-level='1'] {
@@ -59,8 +60,8 @@
   }
   [aria-controls] > a,
   .nav--parent > a {
-    padding-right: 20px;
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAYAAACzzX7wAAAAPElEQVQImW3JMQ0AMAgEwNeEG2zggxk7bwMf7HRoaNK0tx5EpKuqf1S1AQBm9qS77xwRcZLknYNkZ+aVCyxsRRbyyW4mAAAAAElFTkSuQmCC') no-repeat 91% center;
+    padding-right: 25px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAYAAACzzX7wAAAAPElEQVQImW3JMQ0AMAgEwNeEG2zggxk7bwMf7HRoaNK0tx5EpKuqf1S1AQBm9qS77xwRcZLknYNkZ+aVCyxsRRbyyW4mAAAAAElFTkSuQmCC') no-repeat 90% center;
     cursor: pointer;
   }
 }
@@ -91,14 +92,6 @@
         }
       }
     }
-  }
-  i {
-    @include oFtIconsBaseIconStyles();
-    display: block;
-    margin-top: 5px;
-    font-size: 20px;
-    line-height: 30px;
-    color: #ffffff;
   }
 }
 
