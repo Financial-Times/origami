@@ -9,6 +9,13 @@
             "template": "demos/src/basic.mustache"
         },
         {
+            "name": "skinny",
+            "template": "demos/src/basic.mustache",
+            "data": {
+                "modifierClass": "o-table--skinny"
+            }
+        },
+        {
             "name": "captions",
             "template": "demos/src/captions.mustache"
         },
