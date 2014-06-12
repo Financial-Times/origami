@@ -1,4 +1,5 @@
 .idea/
+.jshintrc
 .sass-cache/
 bower_components/
 build/

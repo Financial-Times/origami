@@ -9,16 +9,12 @@
             "template": "demos/src/basic.mustache"
         },
         {
-            "name": "row-stripes",
-            "template": "demos/src/row-stripes.mustache"
-        },
-        {
-            "name": "lines",
-            "template": "demos/src/lines.mustache"
-        },
-        {
             "name": "captions",
             "template": "demos/src/captions.mustache"
+        },
+        {
+            "name": "modifiers",
+            "template": "demos/src/interactive.mustache"
         }
     ]
 }

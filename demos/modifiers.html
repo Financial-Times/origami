@@ -4,7 +4,7 @@
 <!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
-    <title>o-table: basic demo</title>
+    <title>o-table: modifiers demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
     <link rel="stylesheet" href="/bundles/css?modules=o-table:/demos/src/demo.scss" />
@@ -12,7 +12,36 @@
 <body class="">
     <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
     
-    <table class="o-table">
+    <form class="demo__controls">
+
+    <label>
+        <input type="checkbox" data-switch-class="o-table--row-stripes" />
+        <span>Row stripes</span>
+    </label>
+
+    <label>
+        <input type="checkbox" data-switch-class="o-table--horizontal-lines" />
+        <span>Horizontal lines</span>
+    </label>
+
+    <label>
+        <input type="checkbox" data-switch-class="o-table--vertical-lines" />
+        <span>Vertical lines</span>
+    </label>
+
+    <label>
+        <input type="checkbox" data-switch-class="o-table--horizontal-borders" />
+        <span>Horizontal borders</span>
+    </label>
+
+    <label>
+        <input type="checkbox" data-switch-class="o-table--vertical-borders" />
+        <span>Vertical borders</span>
+    </label>
+
+</form>
+
+<table class="o-table">
     <tr>
         <th>Column heading</th>
         <th>Column heading</th>

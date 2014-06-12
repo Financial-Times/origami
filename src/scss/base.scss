@@ -25,12 +25,10 @@
   }
 
   th[scope=row] {
-    border-left: 2px solid oColorsGetColorFor(table-header-row, border);
     border-right: 2px solid oColorsGetColorFor(table-header-row, border);
   }
 
   th:not([scope=row]) {
-    border-top: 2px solid oColorsGetColorFor(table-header-row, border);
     border-bottom: 2px solid oColorsGetColorFor(table-header-row, border);
     vertical-align: bottom;
   }

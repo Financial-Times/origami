@@ -8,6 +8,7 @@ $o-table-is-silent: true !default;
 @import "src/scss/base";
 @import "src/scss/row-stripes";
 @import "src/scss/lines";
+@import "src/scss/borders";
 
 @if (not $o-table-is-silent) {
   @include oTableAll();
