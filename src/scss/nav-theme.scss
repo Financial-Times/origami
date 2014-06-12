@@ -6,7 +6,7 @@
         color: #fff;
         padding: 10px 20px;
         &:hover {
-          color: #ddd;
+          color: oColorsGetColorFor(link-alt-hover, text);
         }
       }
     }
@@ -44,7 +44,7 @@
         color: #fff;
         cursor: pointer;
         &:hover {
-          color: #ddd;
+          color: oColorsGetColorFor(link-alt-hover, text);
         }
       }
     }
@@ -57,6 +57,7 @@
   a {
     padding: 0 20px 0 0;
   }
+  [aria-controls] > a,
   .nav--parent > a {
     padding-right: 20px;
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAYAAACzzX7wAAAAPElEQVQImW3JMQ0AMAgEwNeEG2zggxk7bwMf7HRoaNK0tx5EpKuqf1S1AQBm9qS77xwRcZLknYNkZ+aVCyxsRRbyyW4mAAAAAElFTkSuQmCC') no-repeat 91% center;

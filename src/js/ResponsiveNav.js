@@ -1,6 +1,6 @@
 /*global require,module*/
 
-var oPrioritisedContentFilter = require('o-prioritised-content-filter'),
+var SquishyList = require('o-squishy-list'),
     DomDelegate = require('dom-delegate'),
     Nav = require('./Nav');
 
@@ -21,7 +21,7 @@ function ResponsiveNav(rootEl) {
     function resize() {
         nav.resize();
         if (contentFilter) {
-            contentFilter.filter();
+            contentFilter.squish();
         }
     }
 
@@ -81,9 +81,9 @@ function ResponsiveNav(rootEl) {
             rootDelegate.on('oFtHeader.expand', navExpandHandler);
         }
         if (contentFilterEl) {
-            contentFilter = new oPrioritisedContentFilter(contentFilterEl, { filterOnResize: false });
+            contentFilter = new SquishyList(contentFilterEl, { filterOnResize: false });
         }
-        rootDelegate.on('oPrioritisedContentFilter.change', contentFilterChangeHandler);
+        rootDelegate.on('oSquishyList.change', contentFilterChangeHandler);
     }
 
     function destroy() {
