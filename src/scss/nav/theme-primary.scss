@@ -1,0 +1,35 @@
+.o-ft-header__nav--primary-theme {
+  @extend %o-ft-header__nav--theme;
+  height: 55px;
+  font-size: 16px;
+  text-align: right;
+  color: #fff;
+  li {
+    text-align: left;
+    &[aria-controls][aria-expanded="true"]:after {
+      @include oFtPrimaryNavArrow();
+      z-index: $_o-ft-header-mega-dropdown-zindex+1;
+    }
+  }
+  a {
+    padding: 0 20px 0 0;
+  }
+  [data-nav-level='1'] {
+    & > li {
+      &[aria-selected="true"]:after {
+        @include oFtPrimaryNavArrow();
+      }
+      & > a {
+        text-transform: uppercase;
+        line-height: 55px;
+        color: #fff;
+        cursor: pointer;
+        background-position: right 22px;
+        &:focus,
+        &:hover {
+          color: oColorsGetColorFor(link-alt-hover, text);
+        }
+      }
+    }
+  }
+}

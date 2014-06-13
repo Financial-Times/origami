@@ -1,6 +1,6 @@
 {
     "options": {
-        "sass": "demos/src/demo.scss",
+        "sass": "demos/src/scss/demo.scss",
         "js": "demos/src/demo.js"
     },
     "demos": [
@@ -14,7 +14,8 @@
         },
         {
             "name": "branded",
-            "template": "demos/src/branded.mustache"
+            "template": "demos/src/branded.mustache",
+            "sass": "demos/src/scss/branded.scss"
         },
         {
             "name": "mega-dropdown",

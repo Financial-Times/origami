@@ -1,6 +1,10 @@
 $o-grid-mq-type: width;
-@import "../../main";
+@import "../../../main";
 @import "o-ft-icons/main";
+
+body {
+  min-height: 100%;
+}
 
 .demo__title {
   margin: 40px 0 10px 0;
@@ -35,12 +39,17 @@ $o-grid-mq-type: width;
   outline: 2px dotted orange;
 }
 
-.demo__logo--alphaville {
-  width: 153px;
-}
-
 .demo__mega-dropdown[aria-hidden=true] {
   display: none;
+}
+
+.demo__content {
+  @extend %o-grid-row;
+  @extend %o-grid-colspan-12;
+  font-size: 15px;
+  line-height: 20px;
+  color: transparent;
+  text-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
 

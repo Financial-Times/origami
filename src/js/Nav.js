@@ -154,10 +154,10 @@ function Nav(rootEl) {
     }
 
     function setTabIndexes() {
-        var itemEls = rootEl.querySelectorAll('li > a:not([href])');
-        for (var c = 0, l = itemEls.length; c < l; c++) {
-            if (itemEls[c].tabIndex === 0) { // Don't override tabIndex if something else has set it, but otherwise set it to zero to make it focusable.
-                itemEls[c].tabIndex = 0;
+        var aEls = rootEl.querySelectorAll('li > a:not([href])');
+        for (var c = 0, l = aEls.length; c < l; c++) {
+            if (aEls[c].tabIndex === 0) { // Don't override tabIndex if something else has set it, but otherwise set it to zero to make it focusable.
+                aEls[c].tabIndex = 0;
             }
         }
     }

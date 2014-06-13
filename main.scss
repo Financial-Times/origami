@@ -10,7 +10,10 @@
 @import "src/scss/mixins";
 @import "src/scss/base";
 @import "src/scss/logo";
-@import "src/scss/nav";
-@import "src/scss/nav-theme";
 @import "src/scss/breadcrumb";
+@import "src/scss/nav/nav-base";
+@import "src/scss/nav/theme-base";
+@import "src/scss/nav/theme-primary";
+@import "src/scss/nav/theme-secondary";
+@import "src/scss/nav/theme-tools";
 @import "src/scss/mega-dropdown";

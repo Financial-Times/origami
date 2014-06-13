@@ -7,7 +7,7 @@
     <title>o-ft-header: nav demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
-    <link rel="stylesheet" href="/bundles/css?modules=o-ft-header:/demos/src/demo.scss" />
+    <link rel="stylesheet" href="/bundles/css?modules=o-ft-header:/demos/src/scss/demo.scss" />
 </head>
 <body class="">
     <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
@@ -17,53 +17,53 @@
 <header class="demo__header">
     <nav class="o-ft-header__nav">
         <ul data-nav-level="1">
-            <li><a href="#">Item 1</a></li>
-            <li><a href="#">Item 2</a></li>
-            <li class="nav--parent"><a href="#">Item 3 (parent)</a>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li class="nav--parent"><a>Item 3 (parent)</a>
                 <ul data-nav-level="2">
-                    <li><a href="#">Item 3.1</a></li>
-                    <li class="nav--parent"><a href="#">Item 3.2 (parent)</a>
+                    <li><a>Item 3.1</a></li>
+                    <li class="nav--parent"><a>Item 3.2 (parent)</a>
                         <ul data-nav-level="3">
-                            <li><a href="#">Item 3.2.1</a></li>
-                            <li><a href="#">Item 3.2.2</a></li>
-                            <li><a href="#">Item 3.2.3</a></li>
-                            <li><a href="#">Item 3.2.4</a></li>
+                            <li><a>Item 3.2.1</a></li>
+                            <li><a>Item 3.2.2</a></li>
+                            <li><a>Item 3.2.3</a></li>
+                            <li><a>Item 3.2.4</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Item 3.3</a></li>
-                    <li class="nav--parent"><a href="#">Parent Item 3.4</a>
+                    <li><a>Item 3.3</a></li>
+                    <li class="nav--parent"><a>Parent Item 3.4</a>
                         <ul data-nav-level="3">
-                            <li><a href="#">Item 3.4.1</a></li>
-                            <li><a href="#">Item 3.4.2</a></li>
-                            <li><a href="#">Item 3.4.3</a></li>
-                            <li><a href="#">Item 3.4.4</a></li>
+                            <li><a>Item 3.4.1</a></li>
+                            <li><a>Item 3.4.2</a></li>
+                            <li><a>Item 3.4.3</a></li>
+                            <li><a>Item 3.4.4</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Item 3.5</a></li>
+                    <li><a>Item 3.5</a></li>
                 </ul>
             </li>
-            <li><a href="#">Item 1</a></li>
-            <li class="nav--parent"><a href="#">Parent Item 1</a>
+            <li><a>Item 1</a></li>
+            <li class="nav--parent"><a>Parent Item 1</a>
                 <ul data-nav-level="2">
-                    <li><a href="#">Item 1.1</a></li>
-                    <li class="nav--parent"><a href="#">Parent Item 1.2</a>
+                    <li><a>Item 1.1</a></li>
+                    <li class="nav--parent"><a>Parent Item 1.2</a>
                         <ul data-nav-level="3">
-                            <li><a href="#">Item 1.2.1</a></li>
-                            <li><a href="#">Item 1.2.2</a></li>
-                            <li><a href="#">Item 1.2.3</a></li>
-                            <li><a href="#">Item 1.2.4</a></li>
+                            <li><a>Item 1.2.1</a></li>
+                            <li><a>Item 1.2.2</a></li>
+                            <li><a>Item 1.2.3</a></li>
+                            <li><a>Item 1.2.4</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Item 1.3</a></li>
-                    <li class="nav--parent"><a href="#">Parent Item 1.4</a>
+                    <li><a>Item 1.3</a></li>
+                    <li class="nav--parent"><a>Parent Item 1.4</a>
                         <ul data-nav-level="3">
-                            <li><a href="#">Item 1.2.1</a></li>
-                            <li><a href="#">Item 1.2.2</a></li>
-                            <li><a href="#">Item 1.2.3</a></li>
-                            <li><a href="#">Item 1.2.4</a></li>
+                            <li><a>Item 1.2.1</a></li>
+                            <li><a>Item 1.2.2</a></li>
+                            <li><a>Item 1.2.3</a></li>
+                            <li><a>Item 1.2.4</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Item 1.5</a></li>
+                    <li><a>Item 1.5</a></li>
                 </ul>
             </li>
         </ul>
@@ -75,53 +75,53 @@
 <header class="demo__header">
     <nav class="o-ft-header__nav o-ft-header__nav--primary-theme" style="background-color: #333;">
         <ul data-nav-level="1">
-            <li><a href="#">Item 1</a></li>
-            <li><a href="#">Item 2</a></li>
-            <li class="nav--parent"><a href="#">Item 3 (parent)</a>
+            <li aria-selected="true"><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li class="nav--parent"><a>Item 3 (parent)</a>
                 <ul data-nav-level="2">
-                    <li><a href="#">Item 3.1</a></li>
-                    <li class="nav--parent"><a href="#">Item 3.2 (parent)</a>
+                    <li><a>Item 3.1</a></li>
+                    <li class="nav--parent"><a>Item 3.2 (parent)</a>
                         <ul data-nav-level="3">
-                            <li><a href="#">Item 3.2.1</a></li>
-                            <li><a href="#">Item 3.2.2</a></li>
-                            <li><a href="#">Item 3.2.3</a></li>
-                            <li><a href="#">Item 3.2.4</a></li>
+                            <li><a>Item 3.2.1</a></li>
+                            <li><a>Item 3.2.2</a></li>
+                            <li><a>Item 3.2.3</a></li>
+                            <li><a>Item 3.2.4</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Item 3.3</a></li>
-                    <li class="nav--parent"><a href="#">Parent Item 3.4</a>
+                    <li><a>Item 3.3</a></li>
+                    <li class="nav--parent"><a>Parent Item 3.4</a>
                         <ul data-nav-level="3">
-                            <li><a href="#">Item 3.4.1</a></li>
-                            <li><a href="#">Item 3.4.2</a></li>
-                            <li><a href="#">Item 3.4.3</a></li>
-                            <li><a href="#">Item 3.4.4</a></li>
+                            <li><a>Item 3.4.1</a></li>
+                            <li><a>Item 3.4.2</a></li>
+                            <li><a>Item 3.4.3</a></li>
+                            <li><a>Item 3.4.4</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Item 3.5</a></li>
+                    <li><a>Item 3.5</a></li>
                 </ul>
             </li>
-            <li><a href="#">Item 1</a></li>
-            <li class="nav--parent"><a href="#">Parent Item 1</a>
+            <li><a>Item 1</a></li>
+            <li class="nav--parent"><a>Parent Item 1</a>
                 <ul data-nav-level="2">
-                    <li><a href="#">Item 1.1</a></li>
-                    <li class="nav--parent"><a href="#">Parent Item 1.2</a>
+                    <li><a>Item 1.1</a></li>
+                    <li class="nav--parent"><a>Parent Item 1.2</a>
                         <ul data-nav-level="3">
-                            <li><a href="#">Item 1.2.1</a></li>
-                            <li><a href="#">Item 1.2.2</a></li>
-                            <li><a href="#">Item 1.2.3</a></li>
-                            <li><a href="#">Item 1.2.4</a></li>
+                            <li><a>Item 1.2.1</a></li>
+                            <li><a>Item 1.2.2</a></li>
+                            <li><a>Item 1.2.3</a></li>
+                            <li><a>Item 1.2.4</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Item 1.3</a></li>
-                    <li class="nav--parent"><a href="#">Parent Item 1.4</a>
+                    <li><a>Item 1.3</a></li>
+                    <li class="nav--parent"><a>Parent Item 1.4</a>
                         <ul data-nav-level="3">
-                            <li><a href="#">Item 1.2.1</a></li>
-                            <li><a href="#">Item 1.2.2</a></li>
-                            <li><a href="#">Item 1.2.3</a></li>
-                            <li><a href="#">Item 1.2.4</a></li>
+                            <li><a>Item 1.2.1</a></li>
+                            <li><a>Item 1.2.2</a></li>
+                            <li><a>Item 1.2.3</a></li>
+                            <li><a>Item 1.2.4</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Item 1.5</a></li>
+                    <li><a>Item 1.5</a></li>
                 </ul>
             </li>
         </ul>
@@ -133,13 +133,13 @@
 <header class="demo__header">
     <nav class="o-ft-header__nav o-ft-header__nav--primary-theme" style="background-color: #333;">
         <ul data-nav-level="1">
-            <li><a href="#">Item 1</a></li>
+            <li aria-selected="true"><a>Item 1</a></li>
             <li aria-controls="megadropdown1"><a>Mega 1</a></li>
-            <li class="nav--parent"><a href="#">Item 2</a>
+            <li class="nav--parent"><a>Item 2</a>
                 <ul data-nav-level="2">
-                    <li><a href="#">Item 2.1</a></li>
-                    <li><a href="#">Item 2.2</a></li>
-                    <li><a href="#">Item 2.3</a></li>
+                    <li><a>Item 2.1</a></li>
+                    <li><a>Item 2.2</a></li>
+                    <li><a>Item 2.3</a></li>
                 </ul>
             </li>
             <li aria-controls="megadropdown2"><a>Mega 2</a></li>
@@ -154,32 +154,32 @@
 <h1 class="demo__title">Secondary theme</h1>
 
 <header class="demo__header">
-    <nav class="o-ft-header__nav  o-ft-header__nav--secondary-theme">
+    <nav class="o-ft-header__nav o-ft-header__nav--secondary-theme" style="background-color: #2e6e9e;">
         <ul data-nav-level="1">
-            <li><a href="#">Item 1</a></li>
-            <li><a href="#">Item 1</a></li>
-            <li class="nav--parent"><a href="#">Parent Item 1</a>
+            <li><a>Item 1</a></li>
+            <li><a>Item 1</a></li>
+            <li class="nav--parent"><a>Parent Item 1</a>
                 <ul data-nav-level="2">
-                    <li><a href="#">Item 1.1</a></li>
-                    <li><a href="#">Item 1.2</a></li>
-                    <li><a href="#">Item 1.3</a></li>
-                    <li><a href="#">Item 1.4</a></li>
+                    <li><a>Item 1.1</a></li>
+                    <li><a>Item 1.2</a></li>
+                    <li><a>Item 1.3</a></li>
+                    <li><a>Item 1.4</a></li>
                 </ul>
             </li>
-            <li><a href="#">Item 1</a></li>
-            <li class="nav--parent"><a href="#">Parent Item 1</a>
+            <li><a>Item 1</a></li>
+            <li class="nav--parent"><a>Parent Item 1</a>
                 <ul data-nav-level="2">
-                    <li><a href="#">Item 1.1</a></li>
-                    <li class="nav--parent"><a href="#">Parent Item 1.2</a>
+                    <li><a>Item 1.1</a></li>
+                    <li class="nav--parent"><a>Parent Item 1.2</a>
                         <ul data-nav-level="3">
-                            <li><a href="#">Item 1.2.1</a></li>
-                            <li><a href="#">Item 1.2.2</a></li>
-                            <li><a href="#">Item 1.2.3</a></li>
-                            <li><a href="#">Item 1.2.4</a></li>
+                            <li><a>Item 1.2.1</a></li>
+                            <li><a>Item 1.2.2</a></li>
+                            <li><a>Item 1.2.3</a></li>
+                            <li><a>Item 1.2.4</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Item 1.3</a></li>
-                    <li><a href="#">Item 1.4</a></li>
+                    <li><a>Item 1.3</a></li>
+                    <li><a>Item 1.4</a></li>
                 </ul>
             </li>
         </ul>
@@ -191,16 +191,16 @@
 <header class="demo__header">
     <nav class="o-ft-header__primary__right o-ft-header__nav o-ft-header__nav--tools-theme" style="background-color: #333;">
         <ul data-nav-level="1"><!--
-        --><li data-priority="1"><a href="/"><i class="demo__icon demo__icon__search"></i>Tool 1</a></li><!--
-        --><li data-priority="3"><a href="/"><i class="demo__icon demo__icon__settings"></i>Tool 2</a></li><!--
-        --><li data-priority="4"><a href="/"><i class="demo__icon demo__icon__share"></i>Tool 3</a></li><!--
-        --><li data-priority="2"><a href="/"><i class="demo__icon demo__icon__account"></i>Tool 4</a></li><!--
-        --><li data-more class="nav--parent"><a href="/"><i class="demo__icon demo__icon__more"></i>More</a>
+        --><li data-priority="1"><a><i class="demo__icon demo__icon__search"></i>Tool 1</a></li><!--
+        --><li data-priority="3"><a><i class="demo__icon demo__icon__settings"></i>Tool 2</a></li><!--
+        --><li data-priority="4"><a><i class="demo__icon demo__icon__share"></i>Tool 3</a></li><!--
+        --><li data-priority="2"><a><i class="demo__icon demo__icon__account"></i>Tool 4</a></li><!--
+        --><li data-more class="nav--parent"><a><i class="demo__icon demo__icon__more"></i>More</a>
                 <ul data-nav-level="2">
-                    <li><a href="#">More Tools 1</a></li>
-                    <li><a href="#">More Tools 2</a></li>
-                    <li><a href="#">More Tools 3</a></li>
-                    <li><a href="#">More Tools 4</a></li>
+                    <li><a>More Tools 1</a></li>
+                    <li><a>More Tools 2</a></li>
+                    <li><a>More Tools 3</a></li>
+                    <li><a>More Tools 4</a></li>
                 </ul>
         </li><!--
     --></ul>

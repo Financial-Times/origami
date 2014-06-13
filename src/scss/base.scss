@@ -2,6 +2,7 @@
   min-height: 55px;
   max-height: 75px;
   font-family: BentonSans, Helvetica, Arial, Sans-serif;
+  background-color: $o-ft-header-brand-color;
   background-image: -webkit-linear-gradient(top, #333333 55px, transparent 20px);
   a {
     text-decoration: none;
@@ -88,18 +89,8 @@
   vertical-align: top;
 }
 
-.o-ft-header:not(.o-ft-header--branded) .o-ft-header__secondary {
-  color: #333333;
-  a {
-    color: oColorsGetColorFor(link-alt, text);
-    &:hover {
-      color: oColorsGetColorFor(link-alt-hover, text);
-    }
-  }
-}
-
 .o-ft-header--branded {
-  background-color: #2e6e9e; // Alphaville blue
+  background-color: $o-ft-header-brand-color;
 }
 
 .o-ft-header__title {
@@ -109,4 +100,5 @@
   font-weight: normal;
   font-size: 24px;
   line-height: 55px;
+  white-space: nowrap;
 }

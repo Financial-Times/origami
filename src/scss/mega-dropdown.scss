@@ -10,6 +10,7 @@
   width: 100%;
   color: #333;
   background-color: _oColorsGetPaletteColor(pink-tint1);
+  z-index: $_o-ft-header-mega-dropdown-zindex;
 }
 
 .o-ft-header__mega-dropdown--secondary {
