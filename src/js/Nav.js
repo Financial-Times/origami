@@ -33,9 +33,14 @@ function Nav(rootEl) {
     }
 
     function isElementInsideNav(el) {
-        var l1Els = rootEl.querySelectorAll('[data-nav-level="1"] > li');
-        for (var c = 0, l = l1Els.length; c < l; c++) {
-            if (l1Els[c].contains(el)) {
+        var expandedLevel1El = rootEl.querySelector('[data-nav-level="1"] > [aria-expanded="true"]'),
+            allLevel1Els;
+        if (expandedLevel1El && getMegaDropdownEl(expandedLevel1El).contains(el)) {
+            return true;
+        }
+        allLevel1Els = rootEl.querySelectorAll('[data-nav-level="1"] > li');
+        for (var c = 0, l = allLevel1Els.length; c < l; c++) {
+            if (allLevel1Els[c].contains(el)) {
                 return true;
             }
         }
