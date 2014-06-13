@@ -1,16 +1,30 @@
 .o-ft-header__nav--secondary-theme {
   @extend %o-ft-header__nav--theme;
   a {
-    padding: 0 20px 0 0;
+    padding: 0 5px;
   }
   [data-nav-level='1'] {
     & > li > a {
       font-size: 12px;
       line-height: 20px;
+      &:focus,
+      &:hover {
+        color: #ccc;
+      }
     }
     & > [aria-controls] > a,
     & > .nav--parent > a {
       background-position: right 6px;
+    }
+  }
+  [aria-selected="true"] {
+    background-color: mix($o-ft-header-brand-color, #ffffff, 75%);
+  }
+  [aria-expanded="true"][aria-controls] {
+    background-color: _oColorsGetPaletteColor(pink-tint1);
+    & > a {
+      background-image: none;
+      color: #333;
     }
   }
 }

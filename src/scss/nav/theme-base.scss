@@ -22,9 +22,9 @@
     }
   }
   [data-nav-level='2'] {
-    border-right: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    border-left: 1px solid #fff;
+    border-right: $_o-ft-header-dropdown-border;
+    border-bottom: $_o-ft-header-dropdown-border;
+    border-left: $_o-ft-header-dropdown-border;
     font-size: 14px;
     background-color: _oColorsGetPaletteColor(grey-tint5);
   }
@@ -33,9 +33,9 @@
   }
   .nav--outside-right > [data-nav-level] {
     margin-top: -2px;
-    border-top: 1px solid #fff;
-    border-right: 1px solid #fff;
-    border-bottom: 1px solid #fff;
+    border-top: $_o-ft-header-dropdown-border;
+    border-right: $_o-ft-header-dropdown-border;
+    border-bottom: $_o-ft-header-dropdown-border;
   }
   [aria-controls] > a,
   .nav--parent > a {

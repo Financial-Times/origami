@@ -14,8 +14,8 @@
   }
   [data-nav-level='1'] {
     & > li {
-      &[aria-selected="true"]:after {
-        @include oFtPrimaryNavArrow();
+      &[aria-selected="true"] > a {
+        color: $o-ft-header-brand-color;
       }
       & > a {
         text-transform: uppercase;
