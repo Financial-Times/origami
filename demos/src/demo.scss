@@ -2,6 +2,14 @@ $o-grid-mq-type: width;
 @import "../../main";
 @import "o-ft-icons/main";
 
+.demo__title {
+  margin: 40px 0 10px 0;
+  border-top: 1px solid #ddd;
+  padding: 5px 0;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
 .demo__header {
   position: relative;
 }

@@ -113,10 +113,16 @@ function Nav(rootEl) {
         utils.dispatchCustomEvent(itemEl, 'oFtHeader.collapse');
     }
 
-    function expandItem(itemEl) {
-        if (getLevel(itemEl) === 1) {
-            collapseAll();
+    function collapseSiblingItems(itemEl) {
+        var listLevel = oDom.getClosestMatch(itemEl, 'ul').getAttribute('data-nav-level'),
+            listItemEls = rootEl.querySelectorAll('[data-nav-level="' + listLevel + '"] > li[aria-expanded="true"]');
+        for (var c = 0, l = listItemEls.length; c < l; c++) {
+            collapseItem(listItemEls[c]);
         }
+    }
+
+    function expandItem(itemEl) {
+        collapseSiblingItems(itemEl);
         itemEl.setAttribute('aria-expanded', 'true');
         utils.dispatchCustomEvent(itemEl, 'oFtHeader.expand');
         positionChildListEl(itemEl, getChildListEl(itemEl));
