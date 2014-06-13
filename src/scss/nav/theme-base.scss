@@ -1,6 +1,15 @@
 %o-ft-header__nav--theme {
-  a:focus {
+  a {
+    color: #fff;
+    cursor: pointer;
+  }
+  a:focus,
+  a:hover {
     outline: none;
+    color: oColorsGetColorFor(link-alt-hover, text);
+    i {
+      color: oColorsGetColorFor(link-alt-hover, text);
+    }
   }
   [data-nav-level]:not([data-nav-level='1']) {
     & > li {
@@ -8,12 +17,7 @@
       font-size: 14px;
       line-height: 16px;
       & > a {
-        color: #fff;
         padding: 10px 20px;
-      }
-      & > a:focus,
-      & > a:hover {
-        color: oColorsGetColorFor(link-alt-hover, text);
       }
     }
   }
@@ -39,7 +43,6 @@
     background-image: url($_o-ft-header-img-down-arrow-url);
     background-repeat: no-repeat;
     background-position: right 14px;
-    cursor: pointer;
   }
   .nav--parent.nav--outside-right[aria-expanded="true"] > a {
     background-image: url($_o-ft-header-img-right-arrow-url);

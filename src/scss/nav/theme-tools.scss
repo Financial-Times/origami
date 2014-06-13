@@ -19,13 +19,6 @@
         height: 55px;
         font-size: 11px;
         text-align: center;
-        color: #dddddd;
-        &:focus,
-        &:focus i,
-        &:hover,
-        &:hover i {
-          color: oColorsGetColorFor(link-alt-hover, text);
-        }
       }
     }
   }

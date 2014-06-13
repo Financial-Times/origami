@@ -1,16 +1,13 @@
 .o-ft-header__nav--secondary-theme {
   @extend %o-ft-header__nav--theme;
-  font-size: 12px;
-  line-height: 20px;
   a {
     padding: 0 20px 0 0;
-    color: #fff;
-    &:focus,
-    &:hover {
-      color: oColorsGetColorFor(link-hover, text);
-    }
   }
   [data-nav-level='1'] {
+    & > li > a {
+      font-size: 12px;
+      line-height: 20px;
+    }
     & > [aria-controls] > a,
     & > .nav--parent > a {
       background-position: right 6px;
