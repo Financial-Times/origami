@@ -23,7 +23,7 @@
   .#{$classname}--vertical-borders {
     @extend %o-table-vertical-borders;
   }
-  .#{$classname}--skinny {
-    @extend %o-table-skinny;
+  .#{$classname}--compact {
+    @extend %o-table-compact;
   }
 }

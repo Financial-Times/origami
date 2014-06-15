@@ -9,10 +9,10 @@
             "template": "demos/src/basic.mustache"
         },
         {
-            "name": "skinny",
+            "name": "compact",
             "template": "demos/src/basic.mustache",
             "data": {
-                "modifierClass": "o-table--skinny"
+                "modifierClass": "o-table--compact"
             }
         },
         {
