@@ -23,4 +23,7 @@
   .#{$classname}--vertical-borders {
     @extend %o-table-vertical-borders;
   }
+  .#{$classname}--compact {
+    @extend %o-table-compact;
+  }
 }

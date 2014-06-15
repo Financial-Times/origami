@@ -9,6 +9,13 @@
             "template": "demos/src/basic.mustache"
         },
         {
+            "name": "compact",
+            "template": "demos/src/basic.mustache",
+            "data": {
+                "modifierClass": "o-table--compact"
+            }
+        },
+        {
             "name": "captions",
             "template": "demos/src/captions.mustache"
         },
