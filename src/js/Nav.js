@@ -173,7 +173,8 @@ function Nav(rootEl) {
         }
     }
 
-    function setLayerContext() {
+    function setLayersContext() {
+        // The Nav implements o-layers, not product developers
         rootEl.classList.add('o-layers__context');
 
         rootDelegate.on('oLayers.New', function(e) {
@@ -191,7 +192,7 @@ function Nav(rootEl) {
 
     function init() {
         setTabIndexes();
-        setLayerContext();
+        setLayersContext();
         rootDelegate.on('click', handleClick);
         rootDelegate.on('keyup', function(ev) { // Pressing enter key on anchors without @href won't trigger a click event
             if (!ev.target.hasAttribute('href') && ev.keyCode === 13 && isElementInsideNav(ev.target)) {
