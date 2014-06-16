@@ -1,9 +1,6 @@
 @mixin oShareBase($classname: o-share) {
   .#{$classname} {
     display: inline-block;
-    border-radius: 3px;
-    padding: 3px;
-    background-color: _oColorsGetPaletteColor(pink-tint2); // TODO: use use-case
     ul {
       margin: 0;
       padding: 0;
