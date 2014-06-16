@@ -4,6 +4,9 @@ $o-ft-header-assets-path: $o-ft-header-name !default;
 
 $o-ft-header-brand-color: _oColorsGetPaletteColor(claret) !default; // Alphaville blue #2e6e9e
 
+$o-ft-header-logo-width: 75px !default;
+$o-ft-header-primary-left-width: 230px !default;
+
 $_o-ft-header-mega-dropdown-zindex: 10;
 
 $_o-ft-header-dropdown-border: 1px solid rgba(255, 255, 255, 0.5);
