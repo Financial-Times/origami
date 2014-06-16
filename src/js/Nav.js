@@ -100,7 +100,7 @@ function Nav(rootEl) {
 
         utils.nodeListToArray(nodeList).forEach(function(childListItemEl) {
             if (isExpanded(childListItemEl)) {
-                dispatchClosedEvent(childListItemEl);
+                collapseItem(childListItemEl);
             }
         });
     }
@@ -108,16 +108,17 @@ function Nav(rootEl) {
     function collapseItem(itemEl) {
         itemEl.setAttribute('aria-expanded', 'false');
         if (hasChildList(itemEl)) {
-            dispatchCloseAllEvent(itemEl);
+            collapseAll(getChildListEl(itemEl).children);
         }
         hideEl(getMegaDropdownEl(itemEl));
+        dispatchCloseEvent(itemEl);
     }
 
     function collapseSiblingItems(itemEl) {
         var listLevel = oDom.getClosestMatch(itemEl, 'ul').getAttribute('data-nav-level'),
             listItemEls = rootEl.querySelectorAll('[data-nav-level="' + listLevel + '"] > li[aria-expanded="true"]');
         for (var c = 0, l = listItemEls.length; c < l; c++) {
-            dispatchClosedEvent(listItemEls[c]);
+            collapseItem(listItemEls[c]);
         }
     }
 
@@ -126,6 +127,8 @@ function Nav(rootEl) {
         itemEl.setAttribute('aria-expanded', 'true');
         positionChildListEl(itemEl, getChildListEl(itemEl));
         showEl(getMegaDropdownEl(itemEl));
+        dispatchCloseAllEvent(itemEl);
+        dispatchExpandEvent(itemEl);
     }
 
     function dispatchExpandEvent(itemEl) {
@@ -136,8 +139,8 @@ function Nav(rootEl) {
         utils.dispatchCustomEvent(itemEl, 'oLayers.CloseAll', {'el': itemEl});
     }
 
-    function dispatchClosedEvent(itemEl) {
-        utils.dispatchCustomEvent(itemEl, 'oLayers.Close', {'el': itemEl});
+    function dispatchCloseEvent(itemEl) {
+        utils.dispatchCustomEvent(itemEl, 'oLayers.Close', {'zIndex': 10, 'el': itemEl});
     }
 
     function handleClick(ev) {
@@ -145,9 +148,9 @@ function Nav(rootEl) {
         if (itemEl && isControlEl(itemEl)) {
             ev.preventDefault();
             if (!isExpanded(itemEl)) {
-                dispatchExpandEvent(itemEl);
+                expandItem(itemEl);
             } else {
-                dispatchClosedEvent(itemEl);
+                collapseItem(itemEl);            
             }
         }
     }
@@ -174,19 +177,18 @@ function Nav(rootEl) {
     }
 
     function setLayersContext() {
-        // The Nav implements o-layers, not product developers
-        rootEl.classList.add('o-layers__context');
-
-        rootDelegate.on('oLayers.New', function(e) {
-            expandItem(e.detail.el);
+        // We'll use the body as the default context
+        bodyDelegate.on('oLayers.New', function(e) {
+            if (!isElementInsideNav(e.detail.el)) {
+                collapseAll();
+            }
         });
 
-        rootDelegate.on('oLayers.CloseAll', function(e) {
-            collapseAll(getChildListEl(e.detail.el).children);
-        });
-
-        rootDelegate.on('oLayers.Close', function(e) {
-            collapseItem(e.detail.el);
+        bodyDelegate.on('oLayers.CloseAll', function(e) {
+            console.log(e.detail.el);
+            if (!isElementInsideNav(e.detail.el)) {
+                collapseAll();
+            }
         });
     }
 
