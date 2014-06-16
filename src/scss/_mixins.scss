@@ -4,6 +4,12 @@
   }
   .#{$classname} {
     @extend %o-table-base;
+    caption.#{$classname}__caption--top {
+      @extend %o-table__caption--top;
+    }
+  }
+  .#{$classname} {
+    @extend %o-table-base;
     caption.#{$classname}__caption--bottom {
       @extend %o-table__caption--bottom;
     }

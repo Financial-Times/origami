@@ -8,8 +8,9 @@
   @extend %o-ft-typography-body;
 
   caption {
-    caption-side: top;
-    // @extend %o-table__caption--top;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   th,
