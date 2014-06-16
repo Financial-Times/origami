@@ -21,7 +21,7 @@
         },
         {
             "name": "modifiers",
-            "template": "demos/src/interactive.mustache"
+            "template": "demos/src/modifiers.mustache"
         }
     ]
 }
