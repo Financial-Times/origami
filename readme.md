@@ -70,7 +70,7 @@ Each _navigation item_ can be either:
 
 * __Standalone item__
 * __Parent of sub-level__: opens further navigation list with child options
-* __Controller for DOM element__: shows and hides a element elsewhere on the page, e.g. a 'mega-dropdown'
+* __Controller for DOM element__: shows and hides an element elsewhere on the page, e.g. a 'mega-dropdown'
 
 Where a _navigation item_ is both a link and a parent or controller for mega-dropdown, the default behaviour on click will be cancelled.
 
@@ -137,3 +137,7 @@ If there's a chance that all nav items will be hidden and added to the More list
 ```html
     <li data-more class="nav--parent"><a><span class="nav__more--if-some">More</span><span class="nav__more--if-all">Menu</span></a></li>
 ```
+
+## Hover events
+
+It implements [o-hoverable](https://github.com/Financial-Times/o-hoverable). If a product wants hover effects to be triggered, it needs to [implement o-hoverable](https://github.com/Financial-Times/o-hoverable#using-in-a-product) too.
