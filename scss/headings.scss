@@ -27,7 +27,7 @@
 @include oFtTypographySelectors(heading2-text) {
   @include _oFtTypographyFont(BentonSans, bold);
   text-transform: uppercase;
-  @include oFtTypographyFontSize(14, 20);
+  @include oFtTypographyFontSize(13, 20);
   color: oColorsGetColorFor(heading-large heading, text);
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(heading2 heading-large heading, text), oColorsGetColorFor(link, text));
 }
