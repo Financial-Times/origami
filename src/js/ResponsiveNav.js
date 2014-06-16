@@ -78,7 +78,7 @@ function ResponsiveNav(rootEl) {
             moreListEl = document.createElement('ul');
             moreListEl.setAttribute('data-nav-level', '2');
             moreEl.appendChild(moreListEl);
-            rootDelegate.on('oFtHeader.expand', navExpandHandler);
+            rootDelegate.on('oLayers.New', navExpandHandler);
         }
         if (contentFilterEl) {
             contentFilter = new SquishyList(contentFilterEl, { filterOnResize: false });
