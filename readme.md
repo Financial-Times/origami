@@ -138,6 +138,13 @@ If there's a chance that all nav items will be hidden and added to the More list
     <li data-more class="nav--parent"><a><span class="nav__more--if-some">More</span><span class="nav__more--if-all">Menu</span></a></li>
 ```
 
+## Adjusting widths
+
+The logo, the primary-left and the primary-right need to have a fixed width for primary-centre to adjust appropiately. A product might want to change the default width for the logo (75px), or for the primary-left (230px). In that case, you would need to add the following variables to your stylesheet before importing this module's sass:
+
+$o-ft-header-logo-width: 153px;
+$o-ft-header-primary-left-width: 120px;
+
 ## Hover events
 
 It implements [o-hoverable](https://github.com/Financial-Times/o-hoverable). If a product wants hover effects to be triggered, it needs to [implement o-hoverable](https://github.com/Financial-Times/o-hoverable#using-in-a-product) too.

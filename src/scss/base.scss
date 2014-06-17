@@ -27,6 +27,10 @@
   vertical-align: top;
 }
 
+.o-ft-header__logo {
+  width: $o-ft-header-logo-width;
+}
+
 .o-ft-header__content {
   display: table-cell;
   table-layout: fixed;
@@ -49,8 +53,8 @@
 
 .o-ft-header__primary__left {
   display: table-cell;
-//  width: 218px;
   vertical-align: top;
+  width: $o-ft-header-primary-left-width;
 }
 
 .o-ft-header__primary__center {
