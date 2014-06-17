@@ -8,7 +8,7 @@
       font-size: 12px;
       line-height: 20px;
       &:focus,
-      &:hover {
+      $o-hoverable-if-hover-enabled &:hover {
         color: #ccc;
       }
     }
