@@ -97,6 +97,7 @@ function Nav(rootEl) {
         if (!nodeList) {
             nodeList = rootEl.querySelectorAll('[data-nav-level="1"] > li[aria-expanded=true]');
         }
+
         utils.nodeListToArray(nodeList).forEach(function(childListItemEl) {
             if (isExpanded(childListItemEl)) {
                 collapseItem(childListItemEl);
@@ -110,7 +111,7 @@ function Nav(rootEl) {
             collapseAll(getChildListEl(itemEl).children);
         }
         hideEl(getMegaDropdownEl(itemEl));
-        utils.dispatchCustomEvent(itemEl, 'oFtHeader.collapse');
+        dispatchCloseEvent(itemEl);
     }
 
     function collapseSiblingItems(itemEl) {
@@ -124,9 +125,22 @@ function Nav(rootEl) {
     function expandItem(itemEl) {
         collapseSiblingItems(itemEl);
         itemEl.setAttribute('aria-expanded', 'true');
-        utils.dispatchCustomEvent(itemEl, 'oFtHeader.expand');
         positionChildListEl(itemEl, getChildListEl(itemEl));
         showEl(getMegaDropdownEl(itemEl));
+        dispatchCloseAllEvent(itemEl);
+        dispatchExpandEvent(itemEl);
+    }
+
+    function dispatchExpandEvent(itemEl) {
+        utils.dispatchCustomEvent(itemEl, 'oLayers.new', {'zIndex': 10, 'el': itemEl});
+    }
+
+    function dispatchCloseAllEvent(itemEl) {
+        utils.dispatchCustomEvent(itemEl, 'oLayers.closeAll', {'el': itemEl});
+    }
+
+    function dispatchCloseEvent(itemEl) {
+        utils.dispatchCustomEvent(itemEl, 'oLayers.close', {'zIndex': 10, 'el': itemEl});
     }
 
     function handleClick(ev) {
@@ -136,7 +150,7 @@ function Nav(rootEl) {
             if (!isExpanded(itemEl)) {
                 expandItem(itemEl);
             } else {
-                collapseItem(itemEl);
+                collapseItem(itemEl);            
             }
         }
     }
@@ -162,8 +176,25 @@ function Nav(rootEl) {
         }
     }
 
+    function setLayersContext() {
+        // We'll use the body as the default context
+        bodyDelegate.on('oLayers.new', function(e) {
+            if (!isElementInsideNav(e.detail.el)) {
+                collapseAll();
+            }
+        });
+
+        bodyDelegate.on('oLayers.closeAll', function(e) {
+            console.log(e.detail.el);
+            if (!isElementInsideNav(e.detail.el)) {
+                collapseAll();
+            }
+        });
+    }
+
     function init() {
         setTabIndexes();
+        setLayersContext();
         rootDelegate.on('click', handleClick);
         rootDelegate.on('keyup', function(ev) { // Pressing enter key on anchors without @href won't trigger a click event
             if (!ev.target.hasAttribute('href') && ev.keyCode === 13 && isElementInsideNav(ev.target)) {

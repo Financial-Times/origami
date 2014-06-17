@@ -70,7 +70,7 @@ Each _navigation item_ can be either:
 
 * __Standalone item__
 * __Parent of sub-level__: opens further navigation list with child options
-* __Controller for DOM element__: shows and hides a element elsewhere on the page, e.g. a 'mega-dropdown'
+* __Controller for DOM element__: shows and hides an element elsewhere on the page, e.g. a 'mega-dropdown'
 
 Where a _navigation item_ is both a link and a parent or controller for mega-dropdown, the default behaviour on click will be cancelled.
 
@@ -144,3 +144,7 @@ The logo, the primary-left and the primary-right need to have a fixed width for 
 
 $o-ft-header-logo-width: 153px;
 $o-ft-header-primary-left-width: 120px;
+
+## Hover events
+
+It implements [o-hoverable](https://github.com/Financial-Times/o-hoverable). If a product wants hover effects to be triggered, it needs to [implement o-hoverable](https://github.com/Financial-Times/o-hoverable#using-in-a-product) too.
