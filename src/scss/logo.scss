@@ -43,7 +43,7 @@
     height: 55px;
     overflow: hidden;
     font-size: 216px;
-    $o-hoverable-if-hover-enabled &:hover {
+    #{$o-hoverable-if-hover-enabled} &:hover {
       color: #eee;
     }
   }

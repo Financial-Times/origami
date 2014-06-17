@@ -4,7 +4,7 @@
     cursor: pointer;
   }
   a:focus,
-  $o-hoverable-if-hover-enabled a:hover {
+  #{$o-hoverable-if-hover-enabled} a:hover {
     outline: none;
     color: oColorsGetColorFor(link-alt-hover, text);
     i {
