@@ -132,15 +132,15 @@ function Nav(rootEl) {
     }
 
     function dispatchExpandEvent(itemEl) {
-        utils.dispatchCustomEvent(itemEl, 'oLayers.New', {'zIndex': 10, 'el': itemEl});
+        utils.dispatchCustomEvent(itemEl, 'oLayers.new', {'zIndex': 10, 'el': itemEl});
     }
 
     function dispatchCloseAllEvent(itemEl) {
-        utils.dispatchCustomEvent(itemEl, 'oLayers.CloseAll', {'el': itemEl});
+        utils.dispatchCustomEvent(itemEl, 'oLayers.closeAll', {'el': itemEl});
     }
 
     function dispatchCloseEvent(itemEl) {
-        utils.dispatchCustomEvent(itemEl, 'oLayers.Close', {'zIndex': 10, 'el': itemEl});
+        utils.dispatchCustomEvent(itemEl, 'oLayers.close', {'zIndex': 10, 'el': itemEl});
     }
 
     function handleClick(ev) {
@@ -178,13 +178,13 @@ function Nav(rootEl) {
 
     function setLayersContext() {
         // We'll use the body as the default context
-        bodyDelegate.on('oLayers.New', function(e) {
+        bodyDelegate.on('oLayers.new', function(e) {
             if (!isElementInsideNav(e.detail.el)) {
                 collapseAll();
             }
         });
 
-        bodyDelegate.on('oLayers.CloseAll', function(e) {
+        bodyDelegate.on('oLayers.closeAll', function(e) {
             console.log(e.detail.el);
             if (!isElementInsideNav(e.detail.el)) {
                 collapseAll();
