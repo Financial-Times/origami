@@ -35,7 +35,7 @@
   }
 }
 
-@mixin oShareActionUrl($classname: o-share) {
+@mixin oShareActionLink($classname: o-share) {
   .#{$classname}__action--url {
     display: none;
     i {

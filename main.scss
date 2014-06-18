@@ -9,7 +9,7 @@
 
 @if (not $o-share-is-silent) {
   @include oShareBase();
-  @include oShareActionUrl();
+  @include oShareActionLink();
   @include oShareActionIcon(twitter);
   @include oShareActionIcon(twitter);
   @include oShareActionIcon(facebook);

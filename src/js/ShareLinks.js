@@ -34,7 +34,7 @@ function ShareLinks(rootEl) {
         }
     }
 
-    function shareUrl(url, parentEl) {
+    function copyLink(url, parentEl) {
         if (!url || !parentEl || parentEl.hasAttribute("aria-selected")) {
             return;
         }
@@ -91,7 +91,7 @@ function ShareLinks(rootEl) {
 
     init();
 
-    this.shareUrl = destroy;
+    this.copyLink = destroy;
     this.shareViaSocialMedia = destroy;
     this.destroy = destroy;
 }
