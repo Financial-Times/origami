@@ -1,4 +1,6 @@
+.DS_Store
 .idea/
+.jshintrc
 .sass-cache/
 bower_components/
 build/

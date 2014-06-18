@@ -39,7 +39,7 @@
   .#{$classname}__action--url {
     display: none;
     i {
-      @include _oShareSprite(email);
+      @include _oShareSprite(link);
     }
     input {
       display: block;
