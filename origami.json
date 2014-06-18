@@ -2,8 +2,8 @@
     "description": "Responsive Financial Times page header",
     "origamiType": "module",
     "origamiVersion": 1,
-    "support": "rhys.evans@ft.com",
-    "supportStatus": "active",
+    "support": "alberto.elias@ft.com",
+    "supportStatus": "experimental",
     "browserFeatures": {
         "required": [
             "classlist"
