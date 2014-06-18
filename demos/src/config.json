@@ -21,11 +21,6 @@
             "name": "mega-dropdown",
             "template": "demos/src/mega-dropdown.mustache",
             "sass": "demos/src/scss/mega-dropdown.scss"
-        },
-        {
-            "name": "nav",
-            "template": "demos/src/nav.mustache",
-            "js": "demos/src/nav.js"
         }
     ]
 }
