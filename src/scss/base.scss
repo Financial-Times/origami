@@ -45,7 +45,7 @@
   color: #ffffff;
   a {
     color: #ffffff;
-    $o-hoverable-if-hover-enabled &:hover {
+    #{$o-hoverable-if-hover-enabled} &:hover {
       color: #aaaaaa;
     }
   }
@@ -75,7 +75,7 @@
   color: #ffffff;
   a {
     color: #ffffff;
-    $o-hoverable-if-hover-enabled &:hover {
+    #{$o-hoverable-if-hover-enabled} &:hover {
       color: #aaaaaa;
     }
   }
