@@ -1,3 +1,22 @@
+@mixin oFtHeaderDownArrow($size: 8px, $color: #333) {
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+  border-top: $size solid $color;
+  width: 0;
+  height: 0;
+  content: ".";
+  text-indent: $size;
+  overflow: hidden;
+}
+
+@mixin oFtHeaderArrow() {
+  @include oFtHeaderDownArrow(8px, #333);
+  position: absolute;
+  left: 50%;
+  top: 55px;
+  margin-left: -4px;
+}
+
 @function oFtHeaderAsset ($asset) {
   @return oAssetsUse($asset, $o-ft-header-assets-path, $o-ft-header-version)
 }
