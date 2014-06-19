@@ -1,11 +1,16 @@
+@function oColorsGetPaletteColor($name) {
+  @each $color in $o-colors-palette-list {
+    @if nth($color,1) == $name {
+      @return nth($color,2);
+    }
+  }
+  @warn "Undefined color '" + $name + "' used";
+  @return black;
+}
+
 @function _oColorsGetPaletteColor($name) {
-	@each $color in $o-colors-palette-list {
-		@if nth($color,1) == $name {
-			@return nth($color,2);
-		}
-	}
-	@warn "Undefined color '" + $name + "' used";
-	@return black;
+  @warn "_oColorsGetPaletteColor (with underscore prefix) is deprecated and will be removed in o-colors 3.x. Use oColorsGetPaletteColor() instead.";
+  @return oColorsGetPaletteColor($name);
 }
 
 @function _oColorsGetUseCase($name, $property) {
@@ -15,7 +20,7 @@
       @if (length($usecase) == 4 and nth($usecase,4) == DEPRECATED) {
         @warn "Deprecated use-case name '" + $name + "', property '" + $property + "' used";
       }
-      @return _oColorsGetPaletteColor(nth($usecase,2));
+      @return oColorsGetPaletteColor(nth($usecase,2));
     }
   }
   @return undefined;
