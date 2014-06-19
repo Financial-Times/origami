@@ -30,22 +30,22 @@
             padding: 10px 20px;
         }
     }
+}
 
-    @include oGridRespondTo(S) {
-        .o-ft-header__nav--tools-theme {
-            width: 55px;
-        }
+@include oGridRespondTo(S) {
+    .o-ft-header__nav--tools-theme {
+        width: 55px;
     }
+}
 
-    @include oGridRespondTo(M) {
-        .o-ft-header__nav--tools-theme {
-            width: 110px;
-        }
+@include oGridRespondTo(M) {
+    .o-ft-header__nav--tools-theme {
+        width: 110px;
     }
+}
 
-    @include oGridRespondTo(L XL) {
-        .o-ft-header__nav--tools-theme {
-            width: 220px;
-        }
+@include oGridRespondTo(L XL) {
+    .o-ft-header__nav--tools-theme {
+        width: 220px;
     }
 }

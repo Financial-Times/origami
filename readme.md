@@ -49,7 +49,7 @@ $o-ft-header-primary-left-width
 An __o-ft-header__ object must be constructed for every `<header>` you have on your page that uses this module.
 
 ```javascript
-var oHierarchicalNav = require('o-hierarchical-nav');
-var nav = document.querySelector('.o-hierarchical-nav');
-var hierarchicalNav = new oHierarchicalNav(nav);
+var oFtHeader = require('o-ft-header');
+var header = document.querySelector('.o-ft-header');
+var ftHeader = new oFtHeader(header);
 ```
