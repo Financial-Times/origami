@@ -26,13 +26,15 @@ Each content container can contain one of the following:
 
 For navigation, this module uses [o-hierarchical-nav](https://github.com/Financial-Times/o-hierarchical-nav), so please check out its documentation to add it in your header.
 
+There are three horizontal Navigation styles depending on the class you add to the `<nav>`:
+
+* __Primary__: `o-ft-header__nav--primary-theme`
+* __Secondary__: `o-ft-header__nav--secondary-theme`
+* __Tools__: `o-ft-header__nav--tools-theme`
+
 ## Brands
 
-To add your brand color, you need to change both o-ft-header's and o-hierarchical-nav's variables:
-
-$o-ft-header-brand-color
-
-$o-hierarchical-nav-brand-color
+To add your brand color, you need to set the `$o-ft-header-brand-color` variable:
 
 ## Adjusting widths
 
@@ -41,3 +43,13 @@ The logo, the primary-left and the primary-right need to have a fixed width for 
 $o-ft-header-logo-width
 
 $o-ft-header-primary-left-width
+
+## Javascript instantiation
+
+An __o-ft-header__ object must be constructed for every `<header>` you have on your page that uses this module.
+
+```javascript
+var oFtHeader = require('o-ft-header');
+var header = document.querySelector('.o-ft-header');
+var ftHeader = new oFtHeader(header);
+```

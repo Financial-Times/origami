@@ -1,0 +1,42 @@
+.o-ft-header__nav--primary-theme {
+    @extend %o-hierarchical-nav--horizontal-theme;
+    height: 55px;
+    text-align: right;
+
+    li {
+        text-align: left;
+        &[aria-controls][aria-expanded="true"]:after {
+            @include oFtHeaderArrow();
+            z-index: $_o-hierarchical-nav-mega-dropdown-zindex+1;
+        }
+    }
+
+    a {
+        padding-right: 20px;
+    }
+
+    [data-o-hierarchical-nav-level='1'] {
+        & > li {
+            &[aria-selected="true"] > a {
+                color: $o-ft-header-brand-color;
+            }
+
+            & > a {
+                text-transform: uppercase;
+                font-size: 16px;
+                line-height: 55px;
+                background-position: right 22px;
+            }
+        }
+    }
+
+    [data-o-hierarchical-nav-level]:not([data-o-hierarchical-nav-level='1']) {
+        a {
+            padding: 10px 20px;
+        }
+    }
+
+    @at-root .o-hierarchical-nav__mega-dropdown {
+        top: 55px;
+    }
+}
