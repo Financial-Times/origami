@@ -26,7 +26,6 @@ function broadcast (eventType, data) {
 var getOrientation = (function () {
     var orientation = prefixer.dom(screen, 'orientation');
     var matchMedia = prefixer.dom(window, 'matchMedia');
-    
     if (orientation) {
         return function () {
             return screen[orientation].split('-')[0];
@@ -100,8 +99,8 @@ function listenToScroll () {
         broadcast('scroll', {
             viewport: getSize(),
             scrollHeight: body.scrollHeight,
-            scrollLeft: body.scrollLeft,
-            scrollTop: body.scrollTop,
+            scrollLeft: (document.documentElement && document.documentElement.scrollLeft) || document.body.scrollLeft,
+            scrollTop: (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop,
             scrollWidth: body.scrollWidth,
             originalEvent: ev
         });

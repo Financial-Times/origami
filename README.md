@@ -24,11 +24,14 @@ As a shorthand, calling `setThrottleInterval` with 1 - 3 numbers will set the in
     setThrottleInterval('resize') // which does nothing
     setThrottleInterval('orientation', 300)
 
+The default value for each of these is 100ms
+
+
 ### `o-viewport#debug()`
 Turns on debug mode (logging event details to the console). 
 
 ## Events
-Each of these custom events are fired on `document.body`, `event.detail.originalEvent` contains a reference to the original browser event and `event.detail.viewport` the result of `o-viewport#getSize()`. Additional properties in `event.detail` are detailed below:
+Each of these custom events are fired on `document.body`. For each custom event `event.detail.originalEvent` contains a reference to the original browser event and `event.detail.viewport` the result of `o-viewport#getSize()`. Additional properties in `event.detail` are detailed below:
 
 ### `oViewport.resize`
 No additional properties
@@ -39,7 +42,12 @@ No additional properties
 
 ### `oViewport.scroll`
 
+    scrollLeft: body.scrollLeft // or documentElement.scrollLeft in < ie10 
+    scrollTop: body.scrollTop //  or documentElement.scrollTop in < ie10 
     scrollHeight: body.scrollHeight
-    scrollLeft: body.scrollLeft
-    scrollTop: body.scrollTop
     scrollWidth: body.scrollWidth
+
+## Throttling
+
+* `oViewport.resize` and `oViewport.orientation` are debounced i.e. if the native event fires several times in quick succession the custom event will fire only once `n` miliseconds after the last event, where `n` is the throttle inerval
+* `oViewport.scroll` is throttled i.e. if the native `scroll` event fires several times in quick succession the custom event will fire at most once every `n` miliseconds, where `n` is the throttle inerval
