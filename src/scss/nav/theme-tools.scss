@@ -44,7 +44,8 @@
     }
 
     @include oGridRespondTo(L XL) {
-    .o-ft-header__nav--tools-theme {
-    width: 220px;
+        .o-ft-header__nav--tools-theme {
+            width: 220px;
+        }
     }
 }
