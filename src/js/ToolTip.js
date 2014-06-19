@@ -8,7 +8,7 @@ function ToolTip(text, refEl) {
 
     function create() {
         tipEl = document.createElement('div');
-        tipEl.classList.add(cssClass);
+        tipEl.className = cssClass;
         tipEl.innerHTML = '<div class="' + cssClass + '__text">' + text + '</div><div class="' + cssClass + '__arrow"></div>';
         refEl.insertBefore(tipEl, refEl.childNodes[0]);
         tipEl.style.width = tipEl.clientWidth + "px"; // Set width based on initial text

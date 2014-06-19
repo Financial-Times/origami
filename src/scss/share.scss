@@ -29,7 +29,7 @@
     a {
       text-decoration: none;
       &:focus i {
-        box-shadow: 0 0 2px #000;
+        box-shadow: 0 0 2px #000000;
       }
     }
   }
@@ -44,18 +44,18 @@
     input {
       display: block;
       margin: 0;
-      border: none;
+      border: 0;
       border-radius: 2px;
       padding: 5px 8px;
       width: 140px;
       font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
       font-size: 12px;
       line-height: 14px;
-      box-shadow: 0 0 3px #333;
+      box-shadow: 0 0 3px #333333;
     }
   }
 
-  .#{$classname}--js .#{$classname}__action--url {
+  [data-o-share--js] .#{$classname}__action--url {
     display: block;
   }
 

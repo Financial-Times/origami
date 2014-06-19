@@ -3,7 +3,7 @@
     position: absolute;
     top: -40px;
     opacity: 0;
-    -webkit-transition: opacity .25s;
+    -webkit-transition: opacity 0.25s;
   }
   .#{$classname}-tooltip__text {
     border-radius: 3px;
@@ -14,10 +14,10 @@
     font-size: 14px;
     line-height: 14px;
     text-align: center;
-    color: #fff; // TODO: Use case
-    background-color: #333;
+    color: #ffffff; // TODO: Use case
+    background-color: #333333;
     background-color: $_o-share-tooltip-bg;
-    text-shadow: 0 0 1px #000;
+    text-shadow: 0 0 1px #000000;
   }
   .#{$classname}-tooltip__arrow {
     position: relative;
