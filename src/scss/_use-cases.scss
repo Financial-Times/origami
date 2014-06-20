@@ -184,15 +184,31 @@ $o-colors-usecase-list:
     section-money                     section-red            all,
     section-money-alt                 white                  all,
 
-    // Dialogs
-    dialog                            pink-tint4             border,
-    dialog                            white                  background,
-    dialog                            grey-tint5             text,
-    dialog-heading                    pink-tint4             background,
-    dialog-heading                    white                  text,
-    dialog-close                      white                  border,
-    dialog-close                      blue                   background,
-    dialog-close                      white                  text,
+
+    // fastFT
+    fastft-companies                    blue-tint2          text,
+    fastft-economy                      red-tint2           text,
+    fastft-world-news                   bluegreen-tint1     text,
+    fastft-comment                      purple-tint2        text,
+    fastft-markets                      orange-tint1        text,
+
+    // Modals
+    dialog                            pink-tint4             border         DEPRECATED,
+    dialog                            white                  background     DEPRECATED,
+    dialog                            grey-tint5             text           DEPRECATED,
+    dialog-heading                    pink-tint4             background     DEPRECATED,
+    dialog-heading                    white                  text           DEPRECATED,
+    dialog-close                      white                  border         DEPRECATED,
+    dialog-close                      blue                   background     DEPRECATED,
+    dialog-close                      white                  text           DEPRECATED,
+    modal                             pink-tint4             border,
+    modal                             white                  background,
+    modal                             grey-tint5             text,
+    modal-heading                     pink-tint4             background,
+    modal-heading                     white                  text,
+    modal-close                       white                  border,
+    modal-close                       blue                   background,
+    modal-close                       white                  text,
     infobox                           yellow-tint1           background,
 
     // Panels
@@ -210,5 +226,9 @@ $o-colors-usecase-list:
     severity-2                        orange-tint1           background,
     severity-2                        white                  text,
     severity-3                        yellow-tint1           background,
-    severity-3                        white                  text
+    severity-3                        white                  text,
+
+    // Quotes
+    quote                             pink-tint2             background,
+    quote                             grey-tint4             text
 ;
