@@ -23,7 +23,7 @@ $o-fonts-is-silent: false;
 }
 
 .demo-example {
-  margin: 0 0 30px 0;
+  margin: 0 0 30px;
 }
 
 .demo-family-BentonSans .demo-example {
@@ -78,6 +78,48 @@ $o-fonts-is-silent: false;
 .demo-clarion-italic .demo-example {
   font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
   font-style: italic;
+}
+
+.demo-financierdisplay-normal .demo-example {
+  font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplay);
+  font-style: normal;
+}
+
+.demo-financierdisplay-italic .demo-example {
+  font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplay);
+  font-style: italic;
+}
+
+.demo-financiertext-normal .demo-example {
+  font-family: oFontsGetFontFamilyWithFallbacks(FinancierText);
+  font-style: normal;
+}
+
+.demo-financiertext-italic .demo-example {
+  font-family: oFontsGetFontFamilyWithFallbacks(FinancierText);
+  font-style: italic;
+}
+
+.demo-metric-normal .demo-example {
+  font-family: oFontsGetFontFamilyWithFallbacks(Metric);
+  font-style: normal;
+}
+
+.demo-metric-italic .demo-example {
+  font-family: oFontsGetFontFamilyWithFallbacks(Metric);
+  font-style: italic;
+}
+
+.demo-metric-bold .demo-example {
+  font-family: oFontsGetFontFamilyWithFallbacks(Metric);
+  font-style: normal;
+  font-weight: bold;
+}
+
+.demo-metric-bold-italic .demo-example {
+  font-family: oFontsGetFontFamilyWithFallbacks(Metric);
+  font-style: italic;
+  font-weight: bold;
 }
 
 .demo-size-small {

@@ -1,4 +1,4 @@
-$o-fonts-path: '//build.origami.ft.com/files/o-fonts-assets@0.1.2/' !default;
+$o-fonts-path: '//build.origami.ft.com/files/o-fonts-assets@0.2.1/' !default;
 $o-fonts-name: o-fonts;
 $o-fonts-version: null !default;
 $o-fonts-assets-path: $o-fonts-name !default;
@@ -10,11 +10,17 @@ $_o-fonts-serif: Georgia, 'Times New Roman', serif;
 $_o-fonts-sans-serif: BentonSans, Helvetica, Arial, sans-serif;
 $_o-fonts-millerdisplay: MillerDisplay, $_o-fonts-serif;
 $_o-fonts-clarion: Clarion, $_o-fonts-serif;
+$_o-fonts-financierdisplay: FinancierDisplay, serif;
+$_o-fonts-financiertext: FinancierText, serif;
+$_o-fonts-metric: Metric, sans-serif;
 
 $_o-font-families-with-fallbacks: (
   BentonSans: $_o-fonts-sans-serif,
   MillerDisplay: $_o-fonts-millerdisplay,
-  Clarion: $_o-fonts-clarion
+  Clarion: $_o-fonts-clarion,
+  FinancierDisplay: $_o-fonts-financierdisplay,
+  FinancierText: $_o-fonts-financiertext,
+  Metric: $_o-fonts-metric
 );
 
 // Map of all families, each with a list of styles for that family.
@@ -22,7 +28,10 @@ $_o-font-families-with-fallbacks: (
 $_o-fonts-families: (
   BentonSans: (lighter, normal, bold),
   MillerDisplay: (normal, bold),
-  Clarion: (normal, bold, (normal, italic))
+  Clarion: (normal, bold, (normal, italic)),
+  FinancierDisplay: (normal, (normal, italic)),
+  FinancierText: (normal, (normal, italic)),
+  Metric: (normal, (normal, italic), bold, (bold, italic))
 );
 
 // Map of families and styles which have already been included. Exists to avoid multiple @font-face definitions
