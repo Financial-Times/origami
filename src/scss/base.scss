@@ -22,15 +22,6 @@
   display: table;
 }
 
-.o-ft-header__brand {
-  display: table-cell;
-  vertical-align: top;
-}
-
-.o-ft-header__logo {
-  width: $o-ft-header-logo-width;
-}
-
 .o-ft-header__content {
   display: table-cell;
   table-layout: fixed;

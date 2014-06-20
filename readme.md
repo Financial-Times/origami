@@ -38,9 +38,7 @@ To add your brand color, you need to set the `$o-ft-header-brand-color` variable
 
 ## Adjusting widths
 
-The logo, the primary-left and the primary-right need to have a fixed width for primary-centre to adjust appropiately. A product might want to change the default width for the logo (75px), or for the primary-left (230px). In that case, you would need to add the following variables to your stylesheet before importing this module's sass:
-
-$o-ft-header-logo-width
+The logo, the primary-left and the primary-right need to have a fixed width for primary-centre to adjust appropiately. A product might want to change the default width for the primary-left (230px). In that case, you would need to add the following variable to your stylesheet before importing this module's sass:
 
 $o-ft-header-primary-left-width
 

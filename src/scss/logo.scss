@@ -1,9 +1,8 @@
 .o-ft-header__logo {
-  position: relative;
   margin-right: 20px;
-  min-width: 75px;
-  height: 75px;
-  z-index: 99;
+  display: inline-block;
+  vertical-align: top;
+  height: 55px;
   > img {
     display: inline-block;
     vertical-align: top;
@@ -13,19 +12,17 @@
 
 .o-ft-header__logo--ft {
   > a {
-    position: absolute;
     display: inline-block;
-    padding: 5px 8px;
-    width: 59px;
-    height: 65px;
+    width: 55px;
+    height: 55px;
     background: #ffe2c6 -webkit-linear-gradient(top, #ffe7ce 0, #ffdcb8 75px);
     overflow: hidden;
   }
   abbr {
     display: block;
-    margin-top: 8px;
-    width: 59px;
-    height: 57px;
+    margin: 8px auto 0 auto;
+    width: 47px;
+    height: 26px;
     background: rgba(255, 255, 255, 0.001) url(oFtHeaderAsset('img/ft-logo.svg')) no-repeat;
     text-indent: -100%;
   }
@@ -35,11 +32,11 @@
   margin: 0;
   padding: 0;
   width: 218px;
+  display: inline-block;
   i {
     @extend %o-ft-icons-icon--ft-logo;
     @include oFtIconsBaseIconStyles();
-    display: block;
-    margin-top: -9px;
+    margin-top: -11px;
     height: 55px;
     overflow: hidden;
     font-size: 216px;
