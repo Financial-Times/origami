@@ -79,7 +79,7 @@ function ShareLinks(rootEl) {
     }
 
     function init() {
-        rootDomDelegate = new DomDelegate(rootEl).
+        rootDomDelegate = new DomDelegate(rootEl);
         rootDomDelegate.on('click', handleClick);
         rootEl.setAttribute('data-o-share--js', '');
         dispatchCustomEvent('oShare.ready', {
@@ -104,7 +104,7 @@ ShareLinks.prototype.createAllIn = function(el) {
     var shareLinks = [], sEls, c, l;
     el = el || document.body;
     if (el.querySelectorAll) {
-        sEls = el.querySelectorAll('[data-o-component=o-share]:not([o-share--js])');
+        sEls = el.querySelectorAll('[data-o-component=o-share]:not([data-o-share--js])');
         for (c = 0, l = sEls.length; c < l; c++) {
             shareLinks.push(new ShareLinks(sEls[c]));
         }
