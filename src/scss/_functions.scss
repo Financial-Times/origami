@@ -1,4 +1,4 @@
-@function _oColorsGetPaletteColor($name) {
+@function oColorsGetPaletteColor($name) {
   @each $color in $o-colors-palette-list {
     @if nth($color,1) == $name {
       @return nth($color,2);
@@ -6,6 +6,11 @@
   }
   @warn "Undefined color '" + $name + "' used";
   @return black;
+}
+
+@function _oColorsGetPaletteColor($name) {
+  @warn "_oColorsGetPaletteColor (with underscore prefix) is deprecated and will be removed in o-colors 3.x. Use oColorsGetPaletteColor() instead.";
+  @return oColorsGetPaletteColor($name);
 }
 
 @function _oColorsGetUseCase($name, $property) {
@@ -17,12 +22,12 @@
         or (nth($usecase, 3) == all and $name == nth($usecase, 1)) ) {
       @if (length($usecase) == 4 and nth($usecase,4) == DEPRECATED) {
         @warn "Deprecated use-case name '" + $name + "', property '" + $property + "' used";
-        @return (color: _oColorsGetPaletteColor(nth($usecase,2))); 
+        @return (color: oColorsGetPaletteColor(nth($usecase,2))); 
       } @if (length($usecase) == 4 and nth($usecase,4) == DISABLED) {
         $warning: "Disabled use-case name '" + $name + "', property '" + $property + "' used - please add a current use case + role combination to the fallback stack used in oColorsGetColorFor()";
-        $provisionalColor: _oColorsGetPaletteColor(nth($usecase,2));
+        $provisionalColor: oColorsGetPaletteColor(nth($usecase,2));
       } @else {
-        @return (color: _oColorsGetPaletteColor(nth($usecase,2)));    
+        @return (color: oColorsGetPaletteColor(nth($usecase,2)));    
       }
     }
   }
