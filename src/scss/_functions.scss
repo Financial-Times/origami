@@ -1,34 +1,56 @@
 @function _oColorsGetPaletteColor($name) {
-	@each $color in $o-colors-palette-list {
-		@if nth($color,1) == $name {
-			@return nth($color,2);
-		}
-	}
-	@warn "Undefined color '" + $name + "' used";
-	@return black;
+  @each $color in $o-colors-palette-list {
+    @if nth($color,1) == $name {
+      @return nth($color,2);
+    }
+  }
+  @warn "Undefined color '" + $name + "' used";
+  @return black;
 }
 
 @function _oColorsGetUseCase($name, $property) {
+  $warning: null;
+  $provisionalColor: null;
   @each $usecase in $o-colors-usecase-list {
-    @if ( ($property != "" and $name == nth($usecase, 1) and $property == nth($usecase, 3))
-        or ($property == "" and $name == nth($usecase, 1) + '-' + nth($usecase, 3)) ) {
+    @if ( ($property != all and $name == nth($usecase, 1) and $property == nth($usecase, 3))
+        or ($property == all and $name == nth($usecase, 1) + '-' + nth($usecase, 3))  
+        or (nth($usecase, 3) == all and $name == nth($usecase, 1)) ) {
       @if (length($usecase) == 4 and nth($usecase,4) == DEPRECATED) {
         @warn "Deprecated use-case name '" + $name + "', property '" + $property + "' used";
+        @return (color: _oColorsGetPaletteColor(nth($usecase,2))); 
+      } @if (length($usecase) == 4 and nth($usecase,4) == DISABLED) {
+        $warning: "Disabled use-case name '" + $name + "', property '" + $property + "' used - please add a current use case + role combination to the fallback stack used in oColorsGetColorFor()";
+        $provisionalColor: _oColorsGetPaletteColor(nth($usecase,2));
+      } @else {
+        @return (color: _oColorsGetPaletteColor(nth($usecase,2)));    
       }
-      @return _oColorsGetPaletteColor(nth($usecase,2));
     }
+  }
+  @if ($provisionalColor) {
+    @return (color: $provisionalColor, warning: $warning);    
   }
   @return undefined;
 }
 
+
 @function oColorsGetColorFor($namelist, $property: "") {
   $color: undefined;
+  $candidateColor: undefined;
   @each $name in $namelist {
-    @if ($color == undefined) {
-      $color: _oColorsGetUseCase($name, $property);
-    }
-    @if ($color == undefined and $property != "") {
-      $color: _oColorsGetUseCase($name, all);
+    @if ($color == undefined or map-has-key($color, warning)) {
+      @if ($property == "") {
+        $candidateColor: _oColorsGetUseCase($name, all);
+      } @else {
+        $candidateColor: _oColorsGetUseCase($name, $property);        
+      }
+
+      @if ($color == undefined) {
+        $color: $candidateColor;
+      } @else if (map-has-key($color, warning)) {
+        @if ( $candidateColor != undefined and not map-has-key($candidateColor, warning)) {
+          $color: $candidateColor;
+        }
+      }
     }
   }
   @if ($color == undefined) {
@@ -37,7 +59,9 @@
       $error: $error + " for property '" + $property;
     }
     @warn $error;
-    $color: black;
+    $color: (color: black);
+  } @else if (map-has-key($color, warning)) {
+    @warn map-get($color, warning);
   }
-  @return $color;
+  @return map-get($color, color);
 }
