@@ -6,9 +6,7 @@
     "supportStatus": "not implemented",
     "browserFeatures": {
         "required": [
-            "queryselector",
-            "classlist",
-            "addeventlistener"
+            "queryselector""
         ],
         "optional": [
             "getComputedStyle",

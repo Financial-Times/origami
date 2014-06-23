@@ -1,12 +1,14 @@
 /*global require,module*/
 
-var oDom = require('o-dom'),
+var DomDelegate = require('ftdomdelegate'),
+    oDom = require('o-dom'),
     TextCopyHelper = require('./TextCopyHelper');
 
 function ShareLinks(rootEl) {
     "use strict";
 
-    var shareObj = this,
+    var rootDomDelegate,
+        shareObj = this,
         openWindows = {};
 
     function dispatchCustomEvent(name, data) {
@@ -77,16 +79,17 @@ function ShareLinks(rootEl) {
     }
 
     function init() {
-        rootEl.classList.add('o-share--js');
-        rootEl.addEventListener('click', handleClick, false);
+        rootDomDelegate = new DomDelegate(rootEl);
+        rootDomDelegate.on('click', handleClick);
+        rootEl.setAttribute('data-o-share--js', '');
         dispatchCustomEvent('oShare.ready', {
             share: shareObj
         });
     }
 
     function destroy() {
-        rootEl.classList.remove('o-share--js');
-        rootEl.removeEventListener('click', handleClick, false);
+        rootEl.removeAttribute('data-o-share--js');
+        rootDomDelegate.destroy();
     }
 
     init();
@@ -101,11 +104,9 @@ ShareLinks.prototype.createAllIn = function(el) {
     var shareLinks = [], sEls, c, l;
     el = el || document.body;
     if (el.querySelectorAll) {
-        sEls = el.querySelectorAll('[data-o-component=o-share]');
+        sEls = el.querySelectorAll('[data-o-component=o-share]:not([data-o-share--js])');
         for (c = 0, l = sEls.length; c < l; c++) {
-            if (!sEls[c].classList.contains('o-shareLinks--js')) {
-                shareLinks.push(new ShareLinks(sEls[c]));
-            }
+            shareLinks.push(new ShareLinks(sEls[c]));
         }
     }
     return shareLinks;
