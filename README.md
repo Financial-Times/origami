@@ -1,7 +1,7 @@
 o-viewport
 ==========
 
-Utility for moderating listeners for browser events on window and normalizing viewport properties across browsers.
+Utility for attaching debounced listeners to resize, scroll and orientation events on window.
 
 *Note: within the module's API and in the documentation below `orientation` is used instead of `orientationchange`, but the actual browser event listened to is `orientationchange`*
 
