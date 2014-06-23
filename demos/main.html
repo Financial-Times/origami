@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<!--[if IE 7]>         <html class="no-js o-useragent-ie7"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js o-useragent-ie8"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if IE 7]>         <html class="o-useragent-ie7 o-hoverable-on"> <![endif]-->
+<!--[if IE 8]>         <html class="o-useragent-ie8 o-hoverable-on"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
     <title>o-ft-icons: main demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <style>
-    body {
-        margin: 0;
-    }
-    </style>
+    <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
     <link rel="stylesheet" href="/bundles/css?modules=o-ft-icons:/demos/src/demo.scss" />
 </head>
 <body class="">
+    <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
     
     <ul class="demo-examples">
 	<li class="demo-example"><i class="o-ft-icons-icon o-ft-icons-icon--always-learning demo-icon"></i><span class="demo-label">always-learning</span></li>
@@ -30,6 +27,7 @@
 	<li class="demo-example"><i class="o-ft-icons-icon o-ft-icons-icon--comment demo-icon"></i><span class="demo-label">comment</span></li>
 	<li class="demo-example"><i class="o-ft-icons-icon o-ft-icons-icon--companies demo-icon"></i><span class="demo-label">companies</span></li>
 	<li class="demo-example"><i class="o-ft-icons-icon o-ft-icons-icon--cross demo-icon"></i><span class="demo-label">cross</span></li>
+	<li class="demo-example"><i class="o-ft-icons-icon o-ft-icons-icon--down-arrow demo-icon"></i><span class="demo-label">down-arrow</span></li>
 	<li class="demo-example"><i class="o-ft-icons-icon o-ft-icons-icon--email demo-icon"></i><span class="demo-label">email</span></li>
 	<li class="demo-example"><i class="o-ft-icons-icon o-ft-icons-icon--facebook demo-icon"></i><span class="demo-label">facebook</span></li>
 	<li class="demo-example"><i class="o-ft-icons-icon o-ft-icons-icon--fast-ft demo-icon"></i><span class="demo-label">fast-ft</span></li>
@@ -73,7 +71,7 @@
 	<li class="demo-example"><i class="o-ft-icons-icon o-ft-icons-icon--world demo-icon"></i><span class="demo-label">world</span></li>
 </ul>
 
-<p class="demo-count">55 icons in a web font generated from SVG sources.</p>
+<p class="demo-count">56 icons in a web font generated from SVG sources.</p>
     
     <script src='http://registry.origami.ft.com/embedapi?autoload=resize'></script>
 </body>

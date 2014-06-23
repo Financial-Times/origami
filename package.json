@@ -2,8 +2,8 @@
   "name": "o-ft-icons",
   "private": true,
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-webfont": "~0.3.4",
+    "grunt": "~0.4.4",
+    "grunt-webfont": "~0.4.2",
     "grunt-contrib-watch": "~0.5.3"
   }
 }
