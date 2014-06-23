@@ -2,3 +2,5 @@
 .sass-cache/
 build/
 test/output/
+demos/local
+.DS_Store

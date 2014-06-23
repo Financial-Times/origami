@@ -1,3 +1,7 @@
+@mixin oColorsSetUseCase($usecase, $property, $color) {
+  $o-colors-usecase-list: append($o-colors-usecase-list, $usecase $color $property) !global;
+}
+
 @function oColorsGetPaletteColor($name) {
   @each $color in $o-colors-palette-list {
     @if nth($color,1) == $name {
