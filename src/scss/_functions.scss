@@ -1,6 +1,6 @@
 @function _oFontsStyleExistsInFamilyMap($family-map, $family, $weight, $style) {
   @each $familystyle in map-get($family-map, $family) {
-    @if (length($familystyle) == 1 ) {
+    @if (length($familystyle) == 1) {
       $familystyle: ($familystyle normal);
     }
     @if (nth($familystyle, 1) == $weight and nth($familystyle, 2) == $style) {

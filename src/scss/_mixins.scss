@@ -3,7 +3,7 @@
 	src: url(oFontsUseAsset($fontName + '.eot')); // IE9 Compat Modes
 	src: url(oFontsUseAsset($fontName + '.eot?#iefix')) format('embedded-opentype'), // IE6-IE8
 	     url(oFontsUseAsset($fontName + '.woff')) format('woff'), // Modern Browsers
-	     url(oFontsUseAsset($fontName + '.ttf'))  format('truetype'); // Safari, Android, iOS
+	     url(oFontsUseAsset($fontName + '.ttf')) format('truetype'); // Safari, Android, iOS
 }
 
 @mixin oFontsInclude($family, $weight:normal, $style:normal) {
@@ -20,7 +20,7 @@
       @if ($weight == normal) {
         $font-suffix:$style;
       } @else {
-        $font-suffix:$font-suffix$style;
+        $font-suffix:#{$font-suffix}-$style;
       }
     }
 
@@ -37,7 +37,7 @@
         $new-included-styles: $already-included-styles;
       }
       $new-included-styles: append($already-included-styles, ($weight $style));
-      $_o-fonts-families-included: map-merge($_o-fonts-families-included, ( #{$family}: $new-included-styles));
+      $_o-fonts-families-included: map-merge($_o-fonts-families-included, (#{$family}: $new-included-styles));
     }
   }
 }

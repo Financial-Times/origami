@@ -3,46 +3,89 @@
         "template": "demos/src/variant.mustache",
         "sass": "demos/src/demo.scss"
     },
-    "demos": {
-        "BentonSans": {
+    "demos": [
+        {
+            "name": "BentonSans",
             "template": "demos/src/family.mustache",
             "data": { "font": "BentonSans" }
         },
-        "MillerDisplay": {
+        {
+            "name": "MillerDisplay",
             "template": "demos/src/family.mustache",
             "data": { "font": "MillerDisplay" }
         },
-        "Clarion": {
+        {
+            "name": "Clarion",
             "template": "demos/src/family.mustache",
             "data": { "font": "Clarion" }
         },
-        "bentonsans-lighter": {
+        {
+            "name": "bentonsans-lighter",
             "data": { "font": "bentonsans-lighter" }
         },
-        "bentonsans-normal": {
+        {
+            "name": "bentonsans-normal",
             "data": { "font": "bentonsans-normal" }
         },
-        "bentonsans-bold": {
+        {
+            "name": "bentonsans-bold",
             "data": { "font": "bentonsans-bold" }
         },
-        "millerdisplay-normal": {
+        {
+            "name": "millerdisplay-normal",
             "data": { "font": "millerdisplay-normal" }
         },
-        "millerdisplay-bold": {
+        {
+            "name": "millerdisplay-bold",
             "data": { "font": "millerdisplay-bold" }
         },
-        "millerdisplay-bolder": {
+        {
+            "name": "millerdisplay-bolder",
             "data": { "font": "millerdisplay-bolder" }
         },
-        "clarion-normal": {
+        {
+            "name": "clarion-normal",
             "data": { "font": "clarion-normal" }
         },
-        "clarion-bold": {
+        {
+            "name": "clarion-bold",
             "data": { "font": "clarion-bold" }
         },
-        "clarion-italic": {
+        {
+            "name": "clarion-italic",
             "data": { "font": "clarion-italic" }
-
+        },
+        {
+            "name": "financierdisplay-normal",
+            "data": { "font": "financierdisplay-normal" }
+        },
+        {
+            "name": "financierdisplay-italic",
+            "data": { "font": "financierdisplay-italic" }
+        },
+        {
+            "name": "financiertext-normal",
+            "data": { "font": "financiertext-normal" }
+        },
+        {
+            "name": "financiertext-italic",
+            "data": { "font": "financiertext-italic" }
+        },
+        {
+            "name": "metric-normal",
+            "data": { "font": "metric-normal" }
+        },
+        {
+            "name": "metric-italic",
+            "data": { "font": "metric-italic" }
+        },
+        {
+            "name": "metric-bold",
+            "data": { "font": "metric-bold" }
+        },
+        {
+            "name": "metric-bold-italic",
+            "data": { "font": "metric-bold-italic" }
         }
-    }
+    ]
 }
