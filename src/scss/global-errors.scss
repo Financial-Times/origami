@@ -20,6 +20,7 @@
         color: white;
         //  color: oColorsGetColorFor(error-global, text);
         font-size: 14px;
-        font-family: $o-fonts-bentonsans-bold;
+        font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+        font-weight: bold;
     }
 }

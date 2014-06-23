@@ -28,7 +28,7 @@
   border-bottom: $_o-ft-forms-fieldborder;
   width: 100%;
   padding: $_o-ft-form-field-big-padding-topbottom $_o-ft-form-field-big-padding-leftright;
-  font-family: $o-fonts-bentonsans-normal;
+  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
   font-size: $_o-ft-form-field-big-fontsize;
   text-align: center;
   vertical-align: top;
