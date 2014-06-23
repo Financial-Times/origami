@@ -13,8 +13,11 @@ To be fired on a module's owned DOM or `document.body`
 ```
 {
    error: // the error that's been caught
-   stack: // [] array of modules through which the error has passed. e.g. the module catching the error will set this to [o-modulename#method]. Parent modules *may* listen for `oErrors.log` within their owned DOM and use array.shift() to add their module name to this stack
-   info: // an object or string with further useful debug info e.g. params originally passed in to th method that caught the error
+   stack: // [] array of modules through which the error has passed. e.g. the module catching the error will 
+            set this to [o-modulename#method]. Parent modules *may* listen for `oErrors.log` within their 
+            owned DOM and use array.shift() to add their module name to this stack
+   info: // an object or string with further useful debug info e.g. params originally passed in to the method
+            that caught the error
 }
 ```
 
