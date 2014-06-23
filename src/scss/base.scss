@@ -26,6 +26,13 @@
   display: table-cell;
   table-layout: fixed;
   width: 100%;
+  color: #ffffff;
+  a {
+    color: #ffffff;
+    #{$o-hoverable-if-hover-enabled} &:hover {
+      color: oColorsGetColorFor(control-hover, text);
+    }
+  }
 }
 
 .o-ft-header__primary {
@@ -33,13 +40,6 @@
   table-layout: fixed;
   width: 100%;
   height: 55px;
-  color: #ffffff;
-  a {
-    color: #ffffff;
-    #{$o-hoverable-if-hover-enabled} &:hover {
-      color: #aaaaaa;
-    }
-  }
 }
 
 .o-ft-header__primary__left {
@@ -63,13 +63,6 @@
   table-layout: fixed;
   width: 100%;
   height: 20px;
-  color: #ffffff;
-  a {
-    color: #ffffff;
-    #{$o-hoverable-if-hover-enabled} &:hover {
-      color: #aaaaaa;
-    }
-  }
 }
 
 .o-ft-header__secondary__left {

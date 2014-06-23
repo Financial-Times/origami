@@ -9,8 +9,8 @@
   overflow: hidden;
 }
 
-@mixin oFtHeaderArrow() {
-  @include oFtHeaderDownArrow(8px, #333);
+@mixin oFtHeaderArrow($color: #333) {
+  @include oFtHeaderDownArrow(8px, $color);
   position: absolute;
   left: 50%;
   top: 55px;
