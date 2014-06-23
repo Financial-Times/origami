@@ -1,29 +1,109 @@
 {
-  "description": "Web font loader",
-  "origamiType": "module",
-  "origamiVersion": 1,
-  "support": "https://github.com/Financial-Times/o-fonts/issues",
-  "supportStatus": "active",
-  "ci": {
-    "travis": "https://api.travis-ci.org/repos/Financial-Times/o-fonts/builds.json"
-  },
-  "browserFeatures": {
-    "optional": [
-      "fontface"
+    "description": "Web font loader",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "https://github.com/Financial-Times/o-fonts/issues",
+    "supportStatus": "active",
+    "ci": {
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-fonts/builds.json"
+    },
+    "browserFeatures": {
+        "optional": [
+            "fontface"
+        ]
+    },
+    "demos": [
+        {
+            "path": "/demos/BentonSans.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/MillerDisplay.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/Clarion.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/bentonsans-lighter.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/bentonsans-normal.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/bentonsans-bold.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/millerdisplay-normal.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/millerdisplay-bold.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/millerdisplay-bolder.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/clarion-normal.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/clarion-bold.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/clarion-italic.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/financierdisplay-normal.html",
+            "description": ""
+        },
+        {
+            "path": "/demos/financierdisplay-italic.html",
+            "description": ""
+        },
+        {
+            "path": "/demos/financiertext-normal.html",
+            "description": ""
+        },
+        {
+            "path": "/demos/financiertext-italic.html",
+            "description": ""
+        },
+        {
+            "path": "/demos/metric-normal.html",
+            "description": ""
+        },
+        {
+            "path": "/demos/metric-italic.html",
+            "description": ""
+        },
+        {
+            "path": "/demos/metric-bold.html",
+            "description": ""
+        },
+        {
+            "path": "/demos/metric-bold-italic.html",
+            "description": ""
+        }
     ]
-  },
-  "demos": [
-    "/demos/BentonSans.html",
-    "/demos/MillerDisplay.html",
-    "/demos/Clarion.html",
-    "/demos/bentonsans-lighter.html",
-    "/demos/bentonsans-normal.html",
-    "/demos/bentonsans-bold.html",
-    "/demos/millerdisplay-normal.html",
-    "/demos/millerdisplay-bold.html",
-    "/demos/millerdisplay-bolder.html",
-    "/demos/clarion-normal.html",
-    "/demos/clarion-bold.html",
-    "/demos/clarion-italic.html"
-  ]
 }
