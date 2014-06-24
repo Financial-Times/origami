@@ -27,6 +27,18 @@ Alternatively, you may extend placeholder classes:
     	@extend %o-colors-article-body-text;
     }
     
+You can also add use cases for your particular module or product. This is done using the `oColorsSetUseCase` mixin:
+
+```sass
+@include oColorsSetUseCase(email, text, grey-tint-5);
+```
+
+It takes three arguments:
+
+* **Use case**: your particular use case
+* **Property**: the property for which the color should be used for (background, border, or text)
+* **Color**: a color from the palette
+
 Sometimes you may need to access the palette directly, in which case the `oColorsGetPaletteColor` function should be used:
 
 ```sass
