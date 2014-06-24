@@ -11,22 +11,31 @@ body {
 }
 
 .demo-count {
-	color: #777777;
+  margin-left: 30px;
+  color: #777777;
 }
 
 .demo-examples {
 	clear: both;
-	margin: 0 0 30px;
+	margin: 20px 0;
 	padding: 0;
 	list-style-type: none;
 	overflow: hidden;
 }
 
 .demo-example {
-	float: left;
-	margin: 0 0 20px;
-	padding: 0;
-	width: 20%;
+  float: left;
+  margin: 0 0 20px;
+  padding: 0;
+  width: 180px;
+  text-align: center;
+}
+
+.demo-label {
+  display: block;
+  padding: 5px 0;
+  font-size: 14px;
+  color: #333333;
 }
 
 .demo-icon {
@@ -38,11 +47,4 @@ body {
 	line-height: 100px;
 	text-align: center;
 	color: #000000;
-}
-
-.demo-label {
-	display: inline-block;
-	padding: 0 0 0 10px;
-	font-size: 14px;
-	color: #333333;
 }
