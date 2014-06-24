@@ -38,7 +38,7 @@ describe("tabs behaviour", function() {
     });
 
     it("is has correct initial dom changes", function() {
-        expect(tabsEl.hasAttribute('data-o-tabs-js')).toBe(true);
+        expect(tabsEl.hasAttribute('data-o-tabs--js')).toBe(true);
         expect(tabsEl.querySelectorAll('li')[0].getAttribute('aria-controls')).toBe('tabContent1');
         expect(tabsEl.querySelectorAll('li')[1].getAttribute('aria-controls')).toBe('tabContent2');
         expect(tabsEl.querySelectorAll('li')[2].getAttribute('aria-controls')).toBe('tabContent3');

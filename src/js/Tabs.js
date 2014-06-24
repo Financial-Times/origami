@@ -99,7 +99,7 @@ function Tabs(rootEl) {
         if (!hasInit) {
             tabEls = rootEl.querySelectorAll('[role=tab]');
             tabpanelEls = getTabPanelEls(tabEls);
-            rootEl.setAttribute('data-o-tabs-js', '');
+            rootEl.setAttribute('data-o-tabs--js', '');
             rootEl.addEventListener("click", clickHandler, false);
             dispatchCustomEvent('oTabs.ready', {
                 tabs: tabsObj
@@ -111,7 +111,7 @@ function Tabs(rootEl) {
 
     function destroy() {
         rootEl.removeEventListener("click", clickHandler, false);
-        rootEl.removeAttribute('data-o-tabs-js');
+        rootEl.removeAttribute('data-o-tabs--js');
         for (var c = 0, l = tabpanelEls.length; c < l; c++) {
             showPanel(tabpanelEls[c]);
         }
@@ -132,7 +132,7 @@ Tabs.prototype.createAllIn = function(el) {
     if (el.querySelectorAll) {
         tEls = el.querySelectorAll('[data-o-component=o-tabs]');
         for (c = 0, l = tEls.length; c < l; c++) {
-            if (!oDom.matches(tEls[c], '[data-o-tabs-autoconstruct=false]') || !tEls[c].hasAttribute('data-o-tabs-js')) {
+            if (!oDom.matches(tEls[c], '[data-o-tabs-autoconstruct=false]') || !tEls[c].hasAttribute('data-o-tabs--js')) {
                 tabs.push(new Tabs(tEls[c]));
             }
         }
