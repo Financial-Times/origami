@@ -84,11 +84,19 @@ Clone this repo and at the command line, `cd` to the repo's directory and run:
 
 Add or edit an SVG file to the `svg` folder (see SVG file naming rules).
 
-Then run
+Next, run:
 
     grunt
 
-This will generate the web font from the SVG sources and also create the HTML demo page showing each of the icons.
+This will generate the web font from the SVG sources.
+
+Finally, run:
+
+    origami-build-tools demo --local
+
+This creates the HTML demo page showing each of the icons. Unfortunately the generated `local/demo.css` will try to load the icon font from build service, so to see the demos locally there is a final step of editing these paths to point to the newly created local file.
+
+In `demo.css`, replace `http://build.origami.ft.com/files/o-ft-icons` with `../..`.
 
 ###SVG version
 The icons module uses SVG version 1.1. Files can be created in any vector graphics software. In Adobe Illustrator use the "save as" function and set to version 1.1
