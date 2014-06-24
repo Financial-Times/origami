@@ -1,0 +1,3 @@
+@mixin oColorsSetUseCase($usecase, $property, $color) {
+  $o-colors-usecase-list: append($o-colors-usecase-list, $usecase $color $property) !global;
+}
