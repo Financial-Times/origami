@@ -84,6 +84,12 @@
     vertical-align: middle;
 }
 
+.o-ft-header__primary__featured {
+    display: table-cell;
+    vertical-align: middle;
+    width: $o-ft-header-primary-featured-width;
+}
+
 .o-ft-header__secondary {
     display: table;
     table-layout: fixed;

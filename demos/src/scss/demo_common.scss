@@ -37,6 +37,14 @@ $o-grid-mq-type: width;
   display: none;
 }
 
+.demo__promo {
+  vertical-align: bottom;
+
+  img {
+    vertical-align: bottom;
+  }
+}
+
 .demo__content {
   @extend %o-grid-row;
   @extend %o-grid-colspan-12;
