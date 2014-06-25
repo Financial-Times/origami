@@ -17,6 +17,7 @@ function Header(rootEl) {
         hierarchicalNavs = [];
 
     function init() {
+        rootEl.setAttribute('data-o-ft-header--js', '');
         bodyDelegate = new DomDelegate(document.body);
         hierarchicalNavs = hierarchicalNavEls.map(function(el) {
             return new oHierarchicalNav(el);
@@ -30,6 +31,7 @@ function Header(rootEl) {
                 hierarchicalNavs[c].destroy();
             }
         }
+        rootEl.removeAttribute('data-o-ft-header--js');
     }
 
     init();
@@ -37,5 +39,18 @@ function Header(rootEl) {
     this.destroy = destroy;
 
 }
+
+Header.prototype.createAllIn = function(el) {
+    "use strict";
+    if (!el) {
+        el = document.body;
+    }
+    var headerEls = el.querySelectorAll('[data-o-component="o-ft-header"]:not([data-o-ft-header--js]'),
+        headers = [];
+    for (var c = 0, l = headerEls.length; c < l; c++) {
+        headers.push(new Header(headerEls[c]));
+    }
+    return headers;
+};
 
 module.exports = Header;
