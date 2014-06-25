@@ -11,7 +11,8 @@
         },
         {
             "name": "header",
-            "template": "demos/src/header.mustache"
+            "template": "demos/src/header.mustache",
+            "sass": "demos/src/scss/header.scss"
         },
         {
             "name": "branded",
@@ -22,6 +23,10 @@
             "name": "mega-dropdown",
             "template": "demos/src/mega-dropdown.mustache",
             "sass": "demos/src/scss/mega-dropdown.scss"
+        },
+        {
+            "name": "header-no-secondary",
+            "template": "/demos/src/header-no-secondary.mustache"
         }
     ]
 }

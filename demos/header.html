@@ -7,7 +7,7 @@
     <title>o-ft-header: header demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
-    <link rel="stylesheet" href="/bundles/css?modules=o-ft-header:/demos/src/scss/demo.scss" />
+    <link rel="stylesheet" href="/bundles/css?modules=o-ft-header:/demos/src/scss/header.scss" />
 </head>
 <body class="o-hoverable-on">
     <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
@@ -50,7 +50,7 @@
                                 <li><a>Item 4.4</a></li>
                             </ul>
                         </li>
-                        <li data-more class="o-hierarchical-nav__parent"><a><span class="o-hierarchical-nav__more--if-some">More</span><span class="o-hierarchical-nav__more--if-all">Menu</span></a></li>
+                        <li data-more class="o-hierarchical-nav__parent"><a><span class="o-hierarchical-nav__more--if-some">More <i class="o-hierarchical-nav__parent__down-arrow"></i></span><span class="o-hierarchical-nav__more--if-all">Menu <i class="o-hierarchical-nav__parent__down-arrow"></i></span></a></li>
                     </ul>
                 </nav>
                 <nav class="o-ft-header__primary__right o-hierarchical-nav o-ft-header__nav--tools-theme" data-o-component="hierarchical-nav" data-o-version="">
@@ -65,9 +65,7 @@
             </div>
             <div class="o-ft-header__secondary">
                 <div class="o-ft-header__secondary__left">
-                    <div class="o-ft-header__breadcrumb">
-                        <a href="/">Bread</a> &raquo; crumb
-                    </div>
+                    <h2 class="o-ft-header__tagline">Market-moving news and views, 24 hours a day</h2>
                 </div>
                 <div class="o-ft-header__secondary__right">
 

@@ -3,18 +3,19 @@
 
     a {
         padding: 0 5px;
+        font-size: 14px;
     }
 
     li[aria-controls][aria-expanded="true"]:after {
             @include oFtHeaderArrow($o-ft-header-brand-color);
-            top: 20px;
+            top: 25px;
             z-index: $_o-hierarchical-nav-mega-dropdown-zindex+1;
     }
 
     [data-o-hierarchical-nav-level='1'] {
         & > li > a {
-            font-size: 12px;
-            line-height: 20px;
+            line-height: 25px;
+            max-height: 25px;
         }
 
         & > a {

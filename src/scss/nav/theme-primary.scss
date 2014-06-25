@@ -1,6 +1,6 @@
 .o-ft-header__nav--primary-theme {
     @extend %o-hierarchical-nav--horizontal-theme;
-    height: 55px;
+    height: 80px;
     text-align: right;
 
     li {
@@ -13,6 +13,7 @@
 
     a {
         padding-right: 20px;
+        font-size: 14px;
     }
 
     [data-o-hierarchical-nav-level='1'] {
@@ -23,9 +24,9 @@
 
             & > a {
                 text-transform: uppercase;
-                font-size: 16px;
-                line-height: 55px;
-                background-position: right 22px;
+                font-weight: normal;
+                line-height: 80px;
+                max-height: 80px;
             }
         }
     }

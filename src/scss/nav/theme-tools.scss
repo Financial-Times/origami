@@ -1,8 +1,7 @@
 .o-ft-header__nav--tools-theme {
     @extend %o-hierarchical-nav--horizontal-theme;
-    min-width: 55px;
-    min-height: 55px;
-    border-right: 1px solid #666666;
+    min-width: 45px;
+    height: 80px;
     white-space: nowrap;
 
     [data-o-hierarchical-nav-level='1'] {
@@ -13,39 +12,54 @@
         }
 
         & > li {
-            display: inline-block;
+            display: -webkit-inline-flex;
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+
+            height: 80px;
             & > a {
                 display: inline-block;
                 border-left: 1px solid #666666;
-                width: 54px;
-                height: 55px;
+                width: 45px;
+                height: 45px;
                 font-size: 11px;
                 text-align: center;
+                /* Would need to add as fallback for IE8 and IE9
+                margin-top: 17px; */
             }
         }
     }
 
     [data-o-hierarchical-nav-level]:not([data-o-hierarchical-nav-level='1']) {
+        top: 80px;
+
         a {
             padding: 10px 20px;
+            font-size: 14px;
         }
     }
 }
 
 @include oGridRespondTo(S) {
     .o-ft-header__nav--tools-theme {
-        width: 55px;
+        width: 46px;
     }
 }
 
 @include oGridRespondTo(M) {
     .o-ft-header__nav--tools-theme {
-        width: 110px;
+        width: 92px;
     }
 }
 
 @include oGridRespondTo(L XL) {
     .o-ft-header__nav--tools-theme {
-        width: 220px;
+        width: 184px;
     }
 }
