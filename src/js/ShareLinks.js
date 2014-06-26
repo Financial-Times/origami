@@ -26,7 +26,7 @@ function ShareLinks(rootEl) {
         ev.preventDefault();
         var actionEl = oDom.getClosestMatch(ev.target, 'li'),
             url;
-        if (actionEl && actionEl.querySelector('a[href]')) {
+        if (rootEl.contains(actionEl) && actionEl.querySelector('a[href]')) {
             url = actionEl.querySelector('a[href]').href;
             if (actionEl.getAttribute('data-o-share-action') === "url") {
                 shareUrl(url, actionEl);
