@@ -2,7 +2,8 @@ $o-ft-header-name: o-ft-header;
 $o-ft-header-version: null !default;
 $o-ft-header-assets-path: $o-ft-header-name !default;
 
-$o-ft-header-brand-color: _oColorsGetPaletteColor(claret) !default; // Alphaville blue #2e6e9e
+$o-ft-header-brand-color: oColorsGetPaletteColor(claret) !default; // Alphaville blue #2e6e9e
 
-$o-ft-header-logo-width: 75px !default;
-$o-ft-header-primary-left-width: 230px !default;
+$o-ft-header-primary-left-width: 297px !default;
+$o-ft-header-secondary-left-width: 150px !default;
+$o-ft-header-primary-featured-width: 160px !default;

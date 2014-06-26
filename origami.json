@@ -39,6 +39,11 @@
             "path": "/demos/mega-dropdown.html",
             "expanded": true,
             "description": ""
+        },
+        {
+            "path": "/demos/header-no-secondary.html",
+            "expanded": true,
+            "description": ""
         }
     ]
 }

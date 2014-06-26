@@ -10,6 +10,7 @@ The header consists of the following content containers:
 * Primary: Left
 * Primary: Centre
 * Primary: Right
+* Primary: Featured
 * Secondary: Left
 * Secondary: Right
 
@@ -34,15 +35,17 @@ There are three horizontal Navigation styles depending on the class you add to t
 
 ## Brands
 
-To add your brand color, you need to set the `$o-ft-header-brand-color` variable:
+To add your brand color, you need to set the `$o-ft-header-brand-color` variable. 
+
+If you want mega-dropdowns to appear showing part of your branded secondary container, you would also need to add the class `.o-ft-header__mega-dropdown--primary` on your DOM element.
 
 ## Adjusting widths
 
-The logo, the primary-left and the primary-right need to have a fixed width for primary-centre to adjust appropiately. A product might want to change the default width for the logo (75px), or for the primary-left (230px). In that case, you would need to add the following variables to your stylesheet before importing this module's sass:
-
-$o-ft-header-logo-width
+The primary-left, primary-right, primary-featured and secondary-left need to have a fixed width for primary-centre to adjust appropiately. To change any the default widths, you would need to add the following variables to your stylesheet before importing this module's sass:
 
 $o-ft-header-primary-left-width
+$o-ft-header-secondary-left-width
+$o-ft-header-primary-featured-width
 
 ## Javascript instantiation
 

@@ -1,107 +1,118 @@
+@include oFontsInclude(BentonSans, normal);
+
 .o-ft-header {
-  min-height: 55px;
-  max-height: 75px;
-  font-family: BentonSans, Helvetica, Arial, Sans-serif;
-  background-color: $o-ft-header-brand-color;
-  background-image: -webkit-linear-gradient(top, #333333 55px, transparent 20px);
-  a {
-    text-decoration: none;
-  }
-  [aria-hidden=true] {
-    display: none;
-  }
+    min-height: 85px;
+    max-height: 125px;
+    font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+    background-color: $o-ft-header-brand-color;
+    background-image: -webkit-linear-gradient(top, oColorsGetColorFor(header, background) 80px, transparent 20px);
+    a {
+        text-decoration: none;
+    }
+    [aria-hidden=true] {
+        display: none;
+    }
 }
 
 .o-ft-header__container {
-  @extend %o-grid-row;
-  @extend %o-grid-col;
-  @extend %o-grid-colspan-12;
-  @extend %o-grid-no-left-gutter;
-  @extend %o-grid-no-right-gutter;
-  position: relative;
-  display: table;
-}
-
-.o-ft-header__brand {
-  display: table-cell;
-  vertical-align: top;
-}
-
-.o-ft-header__logo {
-  width: $o-ft-header-logo-width;
+    @extend %o-grid-row;
+    @extend %o-grid-col;
+    @extend %o-grid-colspan-12;
+    @extend %o-grid-no-left-gutter;
+    @extend %o-grid-no-right-gutter;
+    position: relative;
+    display: table;
 }
 
 .o-ft-header__content {
-  display: table-cell;
-  table-layout: fixed;
-  width: 100%;
+    display: table-cell;
+    table-layout: fixed;
+    width: 100%;
+    color: oColorsGetColorFor(header-item, text);
+    a {
+        color: oColorsGetColorFor(header-item, text);
+        #{$o-hoverable-if-hover-enabled} &:hover {
+            color: oColorsGetColorFor(header-item, text);
+            opacity: 0.7;
+        }
+    }
+}
+
+.o-ft-header__title {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 24px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.o-ft-header__tagline {
+    font-weight: normal;
+    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .o-ft-header__primary {
-  display: table;
-  table-layout: fixed;
-  width: 100%;
-  height: 55px;
-  color: #ffffff;
-  a {
-    color: #ffffff;
-    #{$o-hoverable-if-hover-enabled} &:hover {
-      color: #aaaaaa;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 80px;
+
+    .o-ft-header__tagline {
+        font-size: 16px;
+        line-height: 80px;
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: right;
     }
-  }
 }
 
 .o-ft-header__primary__left {
-  display: table-cell;
-  vertical-align: top;
-  width: $o-ft-header-primary-left-width;
+    display: table-cell;
+    vertical-align: middle;
+    width: $o-ft-header-primary-left-width;
 }
 
 .o-ft-header__primary__center {
-  display: table-cell;
-  vertical-align: top;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .o-ft-header__primary__right {
-  display: table-cell;
-  vertical-align: top;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.o-ft-header__primary__featured {
+    display: table-cell;
+    vertical-align: middle;
+    width: $o-ft-header-primary-featured-width;
 }
 
 .o-ft-header__secondary {
-  display: table;
-  table-layout: fixed;
-  width: 100%;
-  height: 20px;
-  color: #ffffff;
-  a {
-    color: #ffffff;
-    #{$o-hoverable-if-hover-enabled} &:hover {
-      color: #aaaaaa;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    min-height: 5px;
+    max-height: 25px;
+
+    .o-ft-header__tagline {
+        font-size: 14px;
+        line-height: 25px;
     }
-  }
 }
 
 .o-ft-header__secondary__left {
-  display: table-cell;
-  width: 150px;
-  vertical-align: top;
+    display: table-cell;
+    width: $o-ft-header-secondary-left-width;
+    vertical-align: middle;
 }
 
 .o-ft-header__secondary__right {
   display: table-cell;
-  vertical-align: top;
-}
-
-.o-ft-header--branded {
-  background-color: $o-ft-header-brand-color;
-}
-
-.o-ft-header__title {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 55px;
-  white-space: nowrap;
+  vertical-align: middle;
 }
