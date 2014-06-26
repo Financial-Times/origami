@@ -6,7 +6,7 @@
     li {
         text-align: left;
         &[aria-controls][aria-expanded="true"]:after {
-            @include oFtHeaderArrow();
+            @include oFtHeaderUpArrow($o-ft-header-brand-color);
             z-index: $_o-hierarchical-nav-mega-dropdown-zindex+1;
         }
     }
@@ -18,8 +18,10 @@
 
     [data-o-hierarchical-nav-level='1'] {
         & > li {
-            &[aria-selected="true"] > a {
-                color: $o-ft-header-brand-color;
+            &[aria-selected="true"] > a,
+            &[aria-controls][aria-expanded="true"] > a {
+                color: oColorsGetColorFor(header-item, text);
+                opacity: 0.7;
             }
 
             & > a {
@@ -36,4 +38,8 @@
             padding: 10px 20px;
         }
     }
+}
+
+.o-ft-header__mega-dropdown--primary.o-hierarchical-nav__mega-dropdown {
+    top: 85px;
 }

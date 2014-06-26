@@ -1,9 +1,11 @@
+@include oFontsInclude(BentonSans, normal);
+
 .o-ft-header {
     min-height: 85px;
     max-height: 125px;
-    font-family: BentonSans, Helvetica, Arial, Sans-serif;
+    font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
     background-color: $o-ft-header-brand-color;
-    background-image: -webkit-linear-gradient(top, #333333 80px, transparent 20px);
+    background-image: -webkit-linear-gradient(top, oColorsGetColorFor(header, background) 80px, transparent 20px);
     a {
         text-decoration: none;
     }
@@ -26,11 +28,12 @@
     display: table-cell;
     table-layout: fixed;
     width: 100%;
-    color: #ffffff;
+    color: oColorsGetColorFor(header-item, text);
     a {
-        color: #ffffff;
+        color: oColorsGetColorFor(header-item, text);
         #{$o-hoverable-if-hover-enabled} &:hover {
-            color: oColorsGetColorFor(control-hover, text);
+            color: oColorsGetColorFor(header-item, text);
+            opacity: 0.7;
         }
     }
 }
