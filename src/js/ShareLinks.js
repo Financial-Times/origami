@@ -29,14 +29,14 @@ function ShareLinks(rootEl) {
         if (rootEl.contains(actionEl) && actionEl.querySelector('a[href]')) {
             url = actionEl.querySelector('a[href]').href;
             if (actionEl.getAttribute('data-o-share-action') === "url") {
-                shareUrl(url, actionEl);
+                copyLink(url, actionEl);
             } else {
                 shareSocial(url);
             }
         }
     }
 
-    function shareUrl(url, parentEl) {
+    function copyLink(url, parentEl) {
         if (!url || !parentEl || parentEl.hasAttribute("aria-selected")) {
             return;
         }
@@ -94,7 +94,7 @@ function ShareLinks(rootEl) {
 
     init();
 
-    this.shareUrl = destroy;
+    this.copyLink = destroy;
     this.shareViaSocialMedia = destroy;
     this.destroy = destroy;
 }

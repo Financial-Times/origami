@@ -1,0 +1,44 @@
+<div data-o-component="o-share" data-o-version="0.1.0" class="o-share">
+    <ul>
+        {{#o-share.withLink}}
+        <li class="o-share__action o-share__action--link" data-o-share-action="link">
+            <a href="{{{o-share.url}}}"><i>URL</i></a>
+        </li>
+        {{/o-share.withLink}}
+        {{#o-share.withTwitter}}
+        <li class="o-share__action o-share__action--twitter">
+            <a href="https://twitter.com/intent/tweet?url={{o-share.url}}&amp;text={{o-share.title}}&amp;related={{o-share.relatedTwitterAccounts}}&amp;via=FT"><i>Twitter</i></a>
+        </li>
+        {{/o-share.withTwitter}}
+        {{#o-share.withFacebook}}
+        <li class="o-share__action o-share__action--facebook">
+            <a href="http://www.facebook.com/sharer.php?u={{o-share.url}}&amp;t={{o-share.title}}+|+{{o-share.titleExtra}}"><i>Facebook</i></a>
+        </li>
+        {{/o-share.withFacebook}}
+        {{#o-share.withGoogleplus}}
+        <li class="o-share__action o-share__action--googleplus">
+            <a href="https://plus.google.com/share?url={{o-share.url}}"><i>Google+</i></a>
+        </li>
+        {{/o-share.withGoogleplus}}
+        {{#o-share.withLinkedin}}
+        <li class="o-share__action o-share__action--linkedin">
+            <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{o-share.url}}&amp;title={{o-share.title}}+|+{{o-share.titleExtra}}&amp;summary={{o-share.summary}}&amp;source=Financial+Times"><i>LinkedIn</i></a>
+        </li>
+        {{/o-share.withLinkedin}}
+        {{#o-share.withStumbleupon}}
+        <li class="o-share__action o-share__action--stumbleupon">
+            <a href="http://www.stumbleupon.com/submit?url={{o-share.url}}&amp;title={{o-share.title}}"><i>StumbleUpon</i></a>
+        </li>
+        {{/o-share.withStumbleupon}}
+        {{#o-share.withReddit}}
+        <li class="o-share__action o-share__action--reddit">
+            <a href="http://reddit.com/submit?url={{o-share.url}}&amp;title={{o-share.title}}"><i>Reddit</i></a>
+        </li>
+        {{/o-share.withReddit}}
+        {{#o-share.withTumblr}}
+        <li class="o-share__action o-share__action--tumblr">
+            <a href="http://www.tumblr.com/share/link?url={{o-share.url}}&amp;name={{o-share.title}}&amp;description={{o-share.summary}}"><i>Tumblr</i></a>
+        </li>
+        {{/o-share.withTumblr}}
+    </ul>
+</div>
