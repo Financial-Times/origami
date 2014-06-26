@@ -1,5 +1,7 @@
 /*global require,describe,beforeEach,afterEach,it,expect*/
 
+require('./helpers/polyfill');
+
 var fixtures = require('./helpers/fixtures'),
     triggerEvent = require('./helpers/triggerEvent'),
     ShareLinks = require('./../main'),

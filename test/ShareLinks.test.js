@@ -1,5 +1,7 @@
 /*global require,describe,beforeEach,afterEach,it,expect,spyOn*/
 
+require('./helpers/polyfill');
+
 var fixtures = require('./helpers/fixtures'),
     triggerEvent = require('./helpers/triggerEvent'),
     ShareLinks = require('./../main'),
@@ -25,7 +27,7 @@ describe("general behaviour", function() {
     });
 
     it("initialisation", function() {
-        expect(shareLinksEl.classList.contains('o-share--js')).toBe(true);
+        expect(shareLinksEl.hasAttribute('data-o-share--js')).toBe(true);
     });
 
 });

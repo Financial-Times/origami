@@ -1,13 +1,21 @@
 /*global require, module*/
 
-var ToolTip = require('./ToolTip'),
+var DomDelegate = require('ftdomdelegate'),
+    ToolTip = require('./ToolTip'),
     shareDom = require('./shareDom');
 
 function TextCopyHelper(config) {
     "use strict";
 
+    var bodyDomDelegate,
+        inputDomDelegate,
+        inputEl,
+        inputWidth,
+        tooltip;
+
     function close() {
-        inputEl.removeEventListener('blur', close, false);
+        bodyDomDelegate.destroy();
+        inputDomDelegate.destroy();
         config.parentEl.removeChild(inputEl);
         tooltip.destroy();
         tooltip = null;
@@ -17,25 +25,7 @@ function TextCopyHelper(config) {
         }
     }
 
-    function handleCopy() {
-        tooltip.setText('Copied!');
-        if (typeof config.onCopy === "function") {
-            config.onCopy();
-        }
-    }
-
-    function handleKeyup(ev) {
-        if (ev.keyCode === 27) {
-            inputEl.blur();
-        }
-    }
-
-    var inputEl = shareDom.createInputEl(config.text),
-        inputWidth,
-        tooltip;
-    inputEl.addEventListener('blur', close, false);
-    inputEl.addEventListener('copy', handleCopy, false);
-    inputEl.addEventListener('keyup', handleKeyup, false);
+    inputEl = shareDom.createInputEl(config.text);
     config.parentEl.insertBefore(inputEl, config.parentEl.childNodes[0]);
     inputWidth = shareDom.getPixelWidthOfText(config.text, inputEl);
     if (inputWidth !== -1) {
@@ -44,6 +34,25 @@ function TextCopyHelper(config) {
     inputEl.focus();
     inputEl.select();
     tooltip = new ToolTip(config.message, config.parentEl);
+    bodyDomDelegate = new DomDelegate(document.body);
+    inputDomDelegate = new DomDelegate(inputEl);
+    bodyDomDelegate.on('click', function handleBodyClick(ev) {
+        if (!config.parentEl.contains(ev.target)) {
+            close();
+        }
+    });
+    inputDomDelegate.on('blur', close);
+    inputDomDelegate.on('copy', function() {
+        tooltip.setText('Copied!');
+        if (typeof config.onCopy === "function") {
+            config.onCopy();
+        }
+    });
+    inputDomDelegate.on('keyup', function (ev) {
+        if (ev.keyCode === 27) {
+            inputEl.blur();
+        }
+    });
 }
 
 module.exports = TextCopyHelper;
