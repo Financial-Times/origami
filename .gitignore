@@ -2,6 +2,7 @@
 .sass-cache/
 bower_components/
 build/
+demos/local/
 node_modules/
 /bin
 /.classpath
