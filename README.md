@@ -1,4 +1,4 @@
-# Footer module
+# Footer module [![Build Status](https://travis-ci.org/Financial-Times/o-ft-footer.svg?branch=master)](https://travis-ci.org/Financial-Times/o-ft-footer)
 
 Origami module for the responsive FT page footer.
 
