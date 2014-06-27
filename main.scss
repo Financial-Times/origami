@@ -3,6 +3,7 @@
 @import "o-ft-typography/main";
 @import "o-colors/main";
 @import "o-grid/main";
+@import "o-hoverable/main";
 
 $o-ft-footer-name: o-ft-footer;
 $o-ft-footer-version: null !default;
@@ -16,11 +17,12 @@ $o-ft-footer-spacing-unit: 10px;
 @include oFontsInclude(BentonSans);
 
 .o-ft-footer {
-    @include oFtTypographyFontSize(14);
-    margin-top: 10px;
-    padding-top: 5px;
-	background-color: oColorsGetColorFor(footer, background);
-	font-family: $o-fonts-bentonsans-normal;
+  @include oFtTypographyFontSize(14);
+  margin-top: 10px;
+  padding-top: 5px;
+  background-color: oColorsGetColorFor(footer, background);
+  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+  font-weight: normal;
 }
 
 .o-ft-footer__row {
@@ -49,7 +51,7 @@ $o-ft-footer-spacing-unit: 10px;
 			line-height: 29px;
 		}
 
-		&:hover,
+		#{$o-hoverable-if-hover-enabled} &:hover,
 		&:focus {
 			color: oColorsGetColorFor(link-alt-hover, text);
 		}
@@ -80,7 +82,7 @@ $o-ft-footer-spacing-unit: 10px;
 	height: 16px;
 	background: url(oFtFooterUseAsset("img/pearson_sprite.gif")) no-repeat;
 	// the weird value for rgba is to prevent sass converting rgba(0,0,0,0) to 'transparent', which would cause the following line of css to be understood by ie7/8 and the svg to be downloaded
-	background: rgba(0,0,0,0.001) url(oFtFooterUseAsset("img/pearson_sprite.svg")) no-repeat;
+	background: rgba(0, 0, 0, 0.001) url(oFtFooterUseAsset("img/pearson_sprite.svg")) no-repeat;
 	text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;
