@@ -2,6 +2,7 @@
 $o-colors-is-silent: true !default;
 
 @import 'src/scss/functions';
+@import 'src/scss/mixins';
 @import 'src/scss/palette';
 @import 'src/scss/use-cases';
 
