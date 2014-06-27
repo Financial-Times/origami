@@ -1,7 +1,7 @@
 @include oFtFormsClass(o-ft-forms__section) {
-    padding: 0 0 $_o-ft-forms-fieldgroup-padding 0;
+    padding: 0 0 $_o-ft-forms-fieldgroup-padding;
     margin: 10px 0;
-    border: 0 none;
+    border: 0;
 }
 
 @include oFtFormsClass(o-ft-forms-field-group) {
@@ -26,7 +26,7 @@
     color: oColorsGetColorFor(form-field-label label body, text);
 }
 
-/*=============TEXT INPUTS, SELECTS AND TEXTAREAS=============*/
+//=============TEXT INPUTS, SELECTS AND TEXTAREAS=============
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field %o-ft-forms__label--select %o-ft-forms__label--textarea',
   '.o-ft-forms__field:not([type="checkbox"]):not([type="radio"]), 
@@ -55,7 +55,7 @@
     background-image: url('data:image/svg+xml;base64, PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iOS41NzZweCIgaGVpZ2h0PSI1LjIwNXB4IiB2aWV3Qm94PSIwIDAgOS41NzYgNS4yMDUiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDkuNTc2IDUuMjA1IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwb2x5Z29uIHBvaW50cz0iMCwwIDQuNjExLDUuMjA1IDkuNTc2LDAgIi8+DQo8L3N2Zz4NCg==');
     background-repeat: no-repeat;
     background-position: 97% center;
-    /*Code below hides default select arrow in FF */
+    //Code below hides default select arrow in FF
     text-indent: 0.01px;
     text-overflow: '';
 }
@@ -64,7 +64,7 @@
     vertical-align: top;
 }
 
-/* TBC - This is to hide Chrome's style for autocompleted fields*/
+// TBC - This is to hide Chrome's style for autocompleted fields
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field:-webkit-autofill',
   '.o-ft-forms__field:-webkit-autofill, 
   .o-ft-forms__field--select:-webkit-autofill, 
