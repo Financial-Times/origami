@@ -1,6 +1,6 @@
-/build
-/bower_components/
-/.sass-cache
+.idea/
 .ruby-version
-/demos/demo.css
-/demos/demo.css.map
+.sass-cache/
+build/
+bower_components/
+demos/local/

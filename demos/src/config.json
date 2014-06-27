@@ -2,12 +2,14 @@
   "options": {
     "sass": "demos/src/demo.scss"
   },
-  "demos": {
-    "base": {
+  "demos": [
+    {
+      "name": "base",
       "template": "demos/src/base.mustache"
     },
-    "standard": {
+    {
+      "name": "standard",
       "template": "demos/src/standard.mustache"
     }
-  }
+    ]
 }

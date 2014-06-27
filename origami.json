@@ -1,11 +1,19 @@
 {
-  "description": "Styling for blockquotes, pull-quotes and any other types of quote",
-  "origamiType": "module",
-  "origamiVersion": 1,
-  "support": "matthew.andrews@ft.com",
-  "supportStatus": "not implemented",
-  "demos": [
-    "/demos/base.html",
-    "/demos/standard.html"
-  ]
+    "description": "Styling for blockquotes, pull-quotes and any other types of quote",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "matthew.andrews@ft.com",
+    "supportStatus": "experimental",
+    "demos": [
+        {
+            "path": "/demos/base.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/standard.html",
+            "expanded": true,
+            "description": ""
+        }
+    ]
 }

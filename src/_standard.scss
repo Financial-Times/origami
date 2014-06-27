@@ -13,9 +13,7 @@
     font-style: italic;
   }
 
-  /**
-   * Quote marks
-   */
+  // Quote marks
   p:before,
   p:after {
     font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
