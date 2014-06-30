@@ -9,6 +9,10 @@
         & > .o-hierarchical-nav__parent > a {
             padding-right: 0;
             background-image: none;
+
+            i {
+                display: block;
+            }
         }
 
         & > li {

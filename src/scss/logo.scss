@@ -19,7 +19,7 @@
   }
   abbr {
     display: block;
-    margin: 8px auto 0 auto;
+    margin: 8px auto 0;
     width: 47px;
     height: 26px;
     background: rgba(255, 255, 255, 0.001) url(oFtHeaderAsset('img/ft-logo.svg')) no-repeat;
@@ -40,7 +40,7 @@
     overflow: hidden;
     font-size: 216px;
     #{$o-hoverable-if-hover-enabled} &:hover {
-      color: #eee;
+      color: #eeeeee;
     }
   }
 }
