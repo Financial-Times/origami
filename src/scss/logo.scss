@@ -33,7 +33,7 @@
   width: 218px;
   display: inline-block;
   i {
-    @extend %o-ft-icons-icon--ft-logo;
+    @extend %o-ft-icons-icon--brand-ft;
     @include oFtIconsBaseIconStyles();
     margin-top: -11px;
     height: 60px;

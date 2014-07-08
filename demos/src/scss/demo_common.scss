@@ -1,6 +1,5 @@
 $o-grid-mq-type: width;
 $o-fonts-path: 'http://build.origami.ft.com/files/o-fonts-assets@0.2.1/';
-$o-ft-icons-assets-path: 'o-ft-icons@2.0.0';
 @import "../../../main";
 @import "o-ft-icons/main";
 
@@ -84,5 +83,5 @@ i.demo__icon {
 }
 
 .demo__icon__more {
-  @extend %o-ft-icons-icon--sections;
+  @extend %o-ft-icons-icon--hamburger;
 }
