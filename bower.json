@@ -15,7 +15,7 @@
     "o-useragent": "^1.1.0",
     "o-viewport": "*",
     "o-dom": "^0.3.0",
-    "dom-delegate": "~1.0.0",
+    "ftdomdelegate": ">=1.0.0 <3",
     "o-squishy-list": "^1.0.0",
     "o-layers": "^0.1.0",
     "o-hierarchical-nav": "0.2.3"

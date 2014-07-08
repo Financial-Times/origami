@@ -1,6 +1,6 @@
 /*global require,module*/
 
-var DomDelegate = require('dom-delegate'),
+var DomDelegate = require('ftdomdelegate'),
     oHierarchicalNav = require('o-hierarchical-nav');
 
 function Header(rootEl) {
