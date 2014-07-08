@@ -6,6 +6,8 @@
     font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
     background-color: $o-ft-header-brand-color;
     background-image: -webkit-linear-gradient(top, oColorsGetColorFor(header, background) 80px, transparent 20px);
+    background-image: -moz-linear-gradient(top, oColorsGetColorFor(header, background) 80px, transparent 20px);
+    background-image: linear-gradient(to bottom, oColorsGetColorFor(header, background) 80px, transparent 20px);
     a {
         text-decoration: none;
     }
