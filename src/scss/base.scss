@@ -4,10 +4,7 @@
     min-height: 85px;
     max-height: 125px;
     font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-    background-color: $o-ft-header-brand-color;
-    background-image: -webkit-linear-gradient(top, oColorsGetColorFor(header, background) 80px, transparent 20px);
-    background-image: -moz-linear-gradient(top, oColorsGetColorFor(header, background) 80px, transparent 20px);
-    background-image: linear-gradient(to bottom, oColorsGetColorFor(header, background) 80px, transparent 20px);
+    background: oColorsGetColorFor(header, background);
     a {
         text-decoration: none;
     }
@@ -59,6 +56,10 @@
 }
 
 .o-ft-header__primary {
+    background: -webkit-linear-gradient(top, oColorsGetColorFor(header, background) 80px, transparent 20px);
+    background: -moz-linear-gradient(top, oColorsGetColorFor(header, background) 80px, transparent 20px);
+    background: linear-gradient(to bottom, oColorsGetColorFor(header, background) 80px, transparent 20px);
+    
     display: table;
     table-layout: fixed;
     width: 100%;
@@ -96,10 +97,11 @@
 }
 
 .o-ft-header__secondary {
+    background-color: $o-ft-header-brand-color;
     display: table;
     table-layout: fixed;
     width: 100%;
-    min-height: 5px;
+    min-height: 6px;
     max-height: 25px;
 
     .o-ft-header__tagline {

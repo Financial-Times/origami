@@ -1,7 +1,6 @@
 $o-grid-mq-type: width;
 $o-fonts-path: 'http://build.origami.ft.com/files/o-fonts-assets@0.2.1/';
 @import "../../../main";
-@import "o-ft-icons/main";
 
 .demo__title {
   margin: 40px 0 10px 0;
@@ -43,6 +42,12 @@ $o-fonts-path: 'http://build.origami.ft.com/files/o-fonts-assets@0.2.1/';
 
   img {
     vertical-align: bottom;
+  }
+}
+
+@include oGridRespondTo(S M) {
+  .demo__promo {
+    display: none;
   }
 }
 

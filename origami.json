@@ -13,7 +13,8 @@
             "datauri",
             "cssgradients",
             "mediaqueries",
-            "csstransitions"
+            "csstransitions",
+            "customevent"
         ]
     },
     "ci": {
