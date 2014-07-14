@@ -45,7 +45,7 @@ Header.prototype.createAllIn = function(el) {
     if (!el) {
         el = document.body;
     }
-    var headerEls = el.querySelectorAll('[data-o-component="o-ft-header"]:not([data-o-ft-header--js]'),
+    var headerEls = el.querySelectorAll('[data-o-component="o-ft-header"]:not([data-o-ft-header--js])'),
         headers = [];
     for (var c = 0, l = headerEls.length; c < l; c++) {
         headers.push(new Header(headerEls[c]));
