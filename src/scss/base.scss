@@ -56,10 +56,6 @@
 }
 
 .o-ft-header__primary {
-    background: -webkit-linear-gradient(top, oColorsGetColorFor(header, background) 80px, transparent 20px);
-    background: -moz-linear-gradient(top, oColorsGetColorFor(header, background) 80px, transparent 20px);
-    background: linear-gradient(to bottom, oColorsGetColorFor(header, background) 80px, transparent 20px);
-    
     display: table;
     table-layout: fixed;
     width: 100%;

@@ -21,12 +21,14 @@
     vertical-align: middle;
   }
   abbr {
-    display: block;
     margin: 8px auto 0;
     width: 47px;
     height: 26px;
+    display: block;
     background: rgba(255, 255, 255, 0.001) url(oFtHeaderAsset('img/ft-logo.svg')) no-repeat;
-    text-indent: -100%;
+
+    color: transparent;
+    @include oUseragentPrefixer(user-select, none);
   }
 }
 

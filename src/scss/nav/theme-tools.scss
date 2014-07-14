@@ -10,6 +10,7 @@
             padding-right: 0;
             background-image: none;
 
+            // Default icon style is inline-block, but the icon should appear on top of the label
             i {
                 display: block;
             }
@@ -48,6 +49,7 @@
 
     [data-o-hierarchical-nav-level]:not([data-o-hierarchical-nav-level='1']) {
         top: 80px;
+        right: 0;
 
         a {
             padding: 10px 20px;
