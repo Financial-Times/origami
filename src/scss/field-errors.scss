@@ -14,7 +14,7 @@
   display: block;
   margin-top: -1px;
   padding: 3px 5px;
-  font-family: $o-fonts-bentonsans-normal;
+  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
   font-size: 14px;
   font-style: normal;
   color: oColorsGetColorFor(form-error error, text);

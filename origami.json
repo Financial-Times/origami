@@ -13,13 +13,45 @@
         "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-forms/builds.json"
     },
     "demos": [
-        "/demos/text-inputs.html",
-        "/demos/select-boxes.html",
-        "/demos/textareas.html",
-        "/demos/radios.html",
-        "/demos/checkboxes.html",
-        "/demos/prefix-suffix.html",
-        "/demos/global-errors.html",
-        "/demos/section-errors.html"
+        {
+            "path": "/demos/text-inputs.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/select-boxes.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/textareas.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/radios.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/checkboxes.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/prefix-suffix.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/global-errors.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/section-errors.html",
+            "expanded": true,
+            "description": ""
+        }
     ]
 }

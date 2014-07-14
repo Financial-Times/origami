@@ -31,7 +31,6 @@
   content: '';
 }
 
-
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
   '.o-ft-forms__field[type="radio"] + .o-ft-forms__label::before') {
   border-radius: 50%;

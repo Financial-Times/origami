@@ -2,30 +2,38 @@
     "options": {
         "sass": "demos/src/demo.scss"
     },
-    "demos": {
-        "text-inputs": {
+    "demos": [
+        {
+            "name": "text-inputs",
             "template": "demos/src/text-inputs.mustache"
         },
-        "select-boxes": {
+        {
+            "name": "select-boxes",
             "template": "demos/src/select-boxes.mustache"
         },
-        "textareas": {
+        {
+            "name": "textareas",
             "template": "demos/src/textareas.mustache"
         },
-        "radios": {
+        {
+            "name": "radios",
             "template": "demos/src/radios.mustache"
         },
-        "checkboxes": {
+        {
+            "name": "checkboxes",
             "template": "demos/src/checkboxes.mustache"
         },
-        "prefix-suffix": {
+        {
+            "name": "prefix-suffix",
             "template": "demos/src/prefix-suffix.mustache"
         },
-        "global-errors": {
+        {
+            "name": "global-errors",
             "template": "demos/src/global-errors.mustache"
         },
-        "section-errors": {
+        {
+            "name": "section-errors",
             "template": "demos/src/section-errors.mustache"
         }
-    }
+    ]
 }

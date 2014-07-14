@@ -8,7 +8,7 @@
   width: 100%;
   background-color: oColorsGetColorFor(form-field-standard, background);
   color: oColorsGetColorFor(form-field-standard, text);
-  font-family: $o-fonts-bentonsans-normal;
+  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
   font-size: $_o-ft-form-field-big-fontsize;
   outline: none;
 }
