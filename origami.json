@@ -3,5 +3,12 @@
   "origamiType": "module",
   "origamiVersion": 1,
   "support": "rhys.evans@ft.com",
-  "supportStatus": "experimental"
+  "supportStatus": "experimental",
+  "browserFeatures": {
+        "required": [
+            "createevent",
+            "customevent"
+        ],
+        "optional": []
+    },
 }
