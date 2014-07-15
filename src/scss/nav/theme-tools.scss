@@ -3,6 +3,7 @@
     min-width: 45px;
     height: 80px;
     white-space: nowrap;
+    overflow: hidden;
 
     [data-o-hierarchical-nav-level='1'] {
         & > [aria-controls] > a,
