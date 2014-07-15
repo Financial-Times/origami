@@ -3,19 +3,20 @@
 $_o-ft-icons-font-file-name: str-slice('<%= fontSrc1 %>', 9, -7);
 
 @if (not $o-ft-icons-is-silent) {
-    @include oFtIconsFontFace();
+	@include oFtIconsFontFace();
 }
 
 /* Output base styles, either as just a placeholder class, or optionally a concrete class too. */
 $o-ft-icons-base-icon-selectors: oFtIconsGetSelectors(icon);
 #{$o-ft-icons-base-icon-selectors} {
-    @include oFtIconsBaseIconStyles();
+	@include oFtIconsBaseIconStyles();
 }
 
-/* Call mixins for each icon */ 
+/* Call mixins for each icon */
 <% if (iconsStyles) { %>
 	<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
 		@include oFtIconsIconIe7(icon--<%= glyphs[glyphIdx] %>, "&#x<%= codepoints[glyphIdx] %>;&nbsp;");
 		@include oFtIconsIcon(icon--<%= glyphs[glyphIdx] %>, "\<%= codepoints[glyphIdx] %>");
+		@include oFtIconsIcon(icon--<%= glyphs[glyphIdx] %>--after, "\<%= codepoints[glyphIdx] %>", "after");
 	<% } %>
 <% } %>
