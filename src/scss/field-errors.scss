@@ -16,5 +16,6 @@
   font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
   font-size: 14px;
   font-style: normal;
+  font-weight: bold;
   color: oColorsGetColorFor(form-field-invalid, text);
 }
