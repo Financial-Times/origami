@@ -2,7 +2,7 @@
 
 var oHeader = require('./src/js/Header'),
     constructAll = function() {
-        "use strict";
+        'use strict';
         oHeader.prototype.createAllIn(document.body);
         document.removeEventListener('o.DOMContentLoaded', constructAll);
     };
