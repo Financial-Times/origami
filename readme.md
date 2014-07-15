@@ -2,6 +2,19 @@
 
 Responsive FT page header.
 
+## Browser Support
+
+Tested and working on:
+
+* Chrome
+* Firefox
+* Safari
+* IE >= 9, except for the masthead and the css `user-select` property doesn't work on the `abbr` tag of the logo
+
+Tested and not completely supported:
+
+* IE8 doesn't support the `<nav>` and `<header>` element. Products need to use HTML5Shiv which is bundled in Modernizr. Also, it runs as core experience.
+
 ## Element containers
 
 The header consists of the following content containers:
