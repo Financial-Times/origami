@@ -40,9 +40,8 @@
   i {
     @extend %o-ft-icons-icon--brand-ft-masthead;
     @include oFtIconsBaseIconStyles();
-    margin-top: -11px;
-    height: 60px;
-    overflow: hidden;
+    margin-top: -70px;
+    height: 80px;
     font-size: 216px;
     #{$o-hoverable-if-hover-enabled} &:hover {
       color: #eeeeee;

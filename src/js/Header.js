@@ -41,7 +41,7 @@ function Header(rootEl) {
 }
 
 Header.prototype.createAllIn = function(el) {
-    "use strict";
+    'use strict';
     if (!el) {
         el = document.body;
     }
