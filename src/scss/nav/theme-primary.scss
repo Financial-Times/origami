@@ -2,6 +2,7 @@
     @extend %o-hierarchical-nav--horizontal-theme;
     height: 80px;
     text-align: right;
+    overflow: hidden;
 
     li {
         text-align: left;

@@ -2,6 +2,22 @@
 
 Responsive FT page header.
 
+## Browser Support
+
+Tested and working on:
+
+|  Browsers  | Primary Experience | Core Experience |
+|:----------:|:------------------:|:---------------:|
+|   Chrome   |        35+         |       35+       |
+|   Firefox  |        30+         |       30+       |
+|   Safari   |        7+          |       7+        |
+|   IE       |        9+          |       8+        |
+
+Known issues:
+
+* IE: Masthead not displaying properly
+* IE8 doesn't support the `<nav>` and `<header>` element. Products need to use HTML5Shiv which is bundled in Modernizr. Also, it runs as core experience.
+
 ## Element containers
 
 The header consists of the following content containers:

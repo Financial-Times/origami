@@ -20,6 +20,11 @@ function Header(rootEl) {
         rootEl.setAttribute('data-o-ft-header--js', '');
         bodyDelegate = new DomDelegate(document.body);
         hierarchicalNavs = hierarchicalNavEls.map(function(el) {
+            /* 
+            *  Overflow is hidden by default on tools theme for it to resize properly on core experience
+            *  where level 2 and 3 menus won't appear anyway, but in primary experience they do need to appear
+            */
+            el.style.overflow = 'visible';
             return new oHierarchicalNav(el);
         });
     }
