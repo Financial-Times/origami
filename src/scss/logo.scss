@@ -19,15 +19,15 @@
         background-image: linear-gradient(to bottom,  #ffe7ce 0, #ffdcb8 75px);
         vertical-align: middle;
     }
-    abbr {
+    abbr, p {
         margin: 8px auto 0;
         width: 47px;
         height: 26px;
         display: block;
         background: rgba(255, 255, 255, 0.001) url(oFtHeaderAsset('img/ft-logo.svg')) no-repeat;
 
-        color: transparent;
-        @include oUseragentPrefixer(user-select, none);
+        text-indent: 100%;
+        overflow: hidden;
     }
 }
 
