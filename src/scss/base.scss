@@ -20,6 +20,7 @@
     @extend %o-grid-no-right-gutter;
     position: relative;
     display: table;
+    max-width: none;
 }
 
 .o-ft-header__content {
