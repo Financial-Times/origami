@@ -68,12 +68,16 @@
   top: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-radio-internal-size) / 2;
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
-  '.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label::after') {
-  content: "\2714";
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__checkboxradiolabel',
+  '.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label::after'
+) {
+  @include oFtIconsBaseIconStyles();
+  // @extend %o-ft-icons-icon--tick--after;
+  content: '\f135'; // FIXME We should be extending the tick icon placeholder but o-ft-icons currently has no support for attaching icons using ::after
   font-size: $_o-ft-forms-checkbox-ticksize;
   font-weight: bold;
-  color: oColorsGetColorFor(forms-section, border);
+  color: oColorsGetColorFor(form-radiocheckbox-checked, background);
   position: absolute;
-  left: $_o-ft-forms-radiocheckbox-size - $_o-ft-forms-checkbox-ticksize;
+  left: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-checkbox-ticksize) / 2;
 }

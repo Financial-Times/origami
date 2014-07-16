@@ -2,6 +2,7 @@
 @import "o-fonts/main";
 @import "o-ft-typography/main";
 @import "o-ft-buttons/main";
+@import "o-ft-icons/main";
 
 @import "src/scss/variables";
 @import "src/scss/mixins";
@@ -9,6 +10,7 @@
 
 @if (not $o-ft-forms-is-silent) {
   @include oFtTypographyIncludeFont(label);
+  @include oFtIconsFontFace();
 }
 
 @import "src/scss/fields";
