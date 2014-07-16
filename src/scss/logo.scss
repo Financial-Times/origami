@@ -19,7 +19,8 @@
     abbr {
         width: 100%;
         height: 100%;
-        background: rgba(255, 255, 255, 0.001) url(oFtHeaderAsset('img/ft-logo.svg')) no-repeat;
+        background: rgba(255, 255, 255, 0.001) url(oFtHeaderAsset('img/ft-logo.png')) no-repeat;
+        background-image: url(oFtHeaderAsset('img/ft-logo.svg')), none;
         display: block;
         text-indent: 100%;
         overflow: hidden;
