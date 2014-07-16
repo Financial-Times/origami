@@ -22,39 +22,59 @@
 @include oFtFormsClass(o-ft-forms__label) {
     display: block;
     @extend %o-ft-typography-label-medium;
-    margin-bottom: 5px;
+    margin-bottom: $_o-ft-forms-label-marginbottom;
     color: oColorsGetColorFor(form-field-label label body, text);
 }
 
 //=============TEXT INPUTS, SELECTS AND TEXTAREAS=============
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field %o-ft-forms__label--select %o-ft-forms__label--textarea',
-  '.o-ft-forms__field:not([type="checkbox"]):not([type="radio"]), 
-  .o-ft-forms__field--select, 
+  '.o-ft-forms__field:not([type="checkbox"]):not([type="radio"]),
+  .o-ft-forms__field--select,
   .o-ft-forms__field--textarea') {
     @include commonField();
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field:disabled %o-ft-forms__label--select:disabled %o-ft-forms__label--textarea:disabled',
-  '.o-ft-forms__field:disabled:not([type="checkbox"]):not([type="radio"]), 
-  .o-ft-forms__field--select:disabled, 
+  '.o-ft-forms__field:disabled:not([type="checkbox"]):not([type="radio"]),
+  .o-ft-forms__field--select:disabled,
   .o-ft-forms__field--textarea:disabled') {
     @include commonFieldDisabled();
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field:focus %o-ft-forms__label--select:focus %o-ft-forms__label--textarea:focus',
-  '.o-ft-forms__field:focus:not([type="checkbox"]):not([type="radio"]), 
-  .o-ft-forms__field--select:focus, 
+  '.o-ft-forms__field:focus:not([type="checkbox"]):not([type="radio"]),
+  .o-ft-forms__field--select:focus,
   .o-ft-forms__field--textarea:focus') {
     @include commonFieldFocus();
+}
+
+@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms-field-group-select-trigger', '.o-ft-forms-field-group--select::after') {
+  @include oFtIconsBaseIconStyles();
+  content: "\f105"; // FIXME When icons supports background-images/getting code-point of an icon
+  width: 32px;
+  border-left: $_o-ft-forms-fieldborder;
+  background-color: oColorsGetColorFor(forms-prefixsuffix, background);
+  position: absolute;
+  z-index: 1;
+  right: $_o-ft-forms-fieldgroup-padding + $_o-ft-forms-fieldborder-width;
+  top: 17px + $_o-ft-forms-label-marginbottom + $_o-ft-forms-fieldborder-width; // 17px is line-height of label. It isn't exposed as a variable
+  border-top-right-radius: $_o-ft-forms-field-borderradius;
+  border-bottom-right-radius: $_o-ft-forms-field-borderradius;
+  text-align: center;
+  padding-top: 2px;
+  box-sizing: border-box;
+  color: oColorsGetColorFor(forms-prefixsuffix, text);
+  pointer-events: none;
+  font-size: 19px;
+  line-height: 1;
+  padding: ($_o-ft-form-field-big-padding-topbottom - 1px) 0;
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--select', '.o-ft-forms__field--select') {
     padding-top: $_o-ft-form-field-big-padding-topbottom - 1px;
     padding-bottom: $_o-ft-form-field-big-padding-topbottom - 1px;
-    background-image: url('data:image/svg+xml;base64, PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iOS41NzZweCIgaGVpZ2h0PSI1LjIwNXB4IiB2aWV3Qm94PSIwIDAgOS41NzYgNS4yMDUiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDkuNTc2IDUuMjA1IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwb2x5Z29uIHBvaW50cz0iMCwwIDQuNjExLDUuMjA1IDkuNTc2LDAgIi8+DQo8L3N2Zz4NCg==');
-    background-repeat: no-repeat;
-    background-position: 97% center;
+    cursor: pointer;
     //Code below hides default select arrow in FF
     text-indent: 0.01px;
     text-overflow: '';
@@ -66,8 +86,8 @@
 
 // TBC - This is to hide Chrome's style for autocompleted fields
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field:-webkit-autofill',
-  '.o-ft-forms__field:-webkit-autofill, 
-  .o-ft-forms__field--select:-webkit-autofill, 
+  '.o-ft-forms__field:-webkit-autofill,
+  .o-ft-forms__field--select:-webkit-autofill,
   .o-ft-forms__field--textarea:-webkit-autofill') {
     -webkit-box-shadow: 0 0 0px 1000px oColorsGetColorFor(form-field-standard, background) inset;
 }

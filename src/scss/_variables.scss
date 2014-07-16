@@ -1,7 +1,7 @@
 $o-ft-forms-is-silent: true !default;
 
-
-$_o-ft-forms-fieldborder: 1px solid oColorsGetColorFor(form-field-standard, border);
+$_o-ft-forms-fieldborder-width: 1px;
+$_o-ft-forms-fieldborder: $_o-ft-forms-fieldborder-width solid oColorsGetColorFor(form-field-standard, border);
 $_o-ft-forms-field-borderradius: 5px;
 
 $_o-ft-form-field-default-fontsize: 14px;
@@ -18,3 +18,5 @@ $_o-ft-forms-fieldgroup-padding: 6px;
 $_o-ft-forms-radiocheckbox-size: 20px;
 $_o-ft-forms-radio-internal-size: 14px;
 $_o-ft-forms-checkbox-ticksize: 17px;
+
+$_o-ft-forms-label-marginbottom: 5px;
