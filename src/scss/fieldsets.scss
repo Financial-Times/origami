@@ -1,0 +1,12 @@
+@include oFtFormsClass(o-ft-forms__section, o-ft-forms__section--with-border) {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+@include oFtFormsClass(o-ft-forms__section--with-border) {
+    border-bottom-color: oColorsGetColorFor(table-header-row-border);
+    border-bottom-style: dotted;
+    border-bottom-width: 2px;
+    }
+
