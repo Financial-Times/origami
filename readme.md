@@ -55,6 +55,22 @@ To add your brand color, you need to set the `$o-ft-header-brand-color` variable
 
 If you want mega-dropdowns to appear showing part of your branded secondary container, you would also need to add the class `.o-ft-header__mega-dropdown--primary` on your DOM element.
 
+## Logos
+
+If you want to have the FT logo on your website, you just need to have the following markup:
+
+```html
+<div class="o-ft-header__logo o-ft-header__logo--ft">
+    <a href="http://www.ft.com"><abbr title="Financial Times">FT</abbr></a>
+</div>
+```
+
+You can also have a 'Back to FT.com' button on your navigation based on the tools theme using this markup:
+
+```html
+<a href="http://ft.com"><i class="o-ft-header__back-to-ft">Back to FT.com</i></a>
+```
+
 ## Adjusting widths
 
 The primary-left, primary-right, primary-featured and secondary-left need to have a fixed width for primary-centre to adjust appropiately. To change any the default widths, you would need to add the following variables to your stylesheet before importing this module's sass:
