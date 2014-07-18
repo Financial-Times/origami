@@ -34,8 +34,8 @@
     display: inline-block;
     vertical-align: middle;
     i {
-        background: url(oAssetsResolve('img/ft-masthead.png', o-ft-header)) no-repeat;
-        background-image: url(oAssetsResolve('img/ft-masthead.svg', o-ft-header)), none;
+        background: url(oFtHeaderAsset('img/ft-masthead.png')) no-repeat;
+        background-image: url(oFtHeaderAsset('img/ft-masthead.svg')), none;
         height: 18px;
         width: 100%;
         background-size: 100%;
