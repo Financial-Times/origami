@@ -18,17 +18,8 @@
         }
 
         & > li {
-            display: -webkit-inline-flex;
-            display: -webkit-inline-box;
-            display: -ms-inline-flexbox;
-            display: inline-flex;
-
-            -webkit-box-align: center;
-            -webkit-align-items: center;
-            -ms-flex-align: center;
-            align-items: center;
-
             height: 80px;
+            vertical-align: middle;
 
             &[aria-selected="true"] > a {
                 color: oColorsGetColorFor(header-item, text);
@@ -43,8 +34,8 @@
                 font-size: 11px;
                 text-align: center;
                 padding: 0 5px;
-                /* Would need to add as fallback for IE8 and IE9
-                margin-top: 17px; */
+                // Half of the space left to center the item vertically
+                margin-top: 17px; 
             }
         }
     }
@@ -57,7 +48,6 @@
         height: 100%;
         width: 100%;
         display: inline-block;
-        vertical-align: middle;
     }
 
     [data-o-hierarchical-nav-level]:not([data-o-hierarchical-nav-level='1']) {
