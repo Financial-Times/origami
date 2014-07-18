@@ -33,9 +33,9 @@
     display: inline-block;
     vertical-align: middle;
     i {
-        background: url(http://image.webservices.ft.com/v1/images/raw/fticon:brand-ft-masthead?width=216&format=png&source=o-ft-header) no-repeat;
-        background-image: url(oAssetsResolve('svg/brand-ft-masthead.svg', o-ft-icons)), none;
-        height: 19px;
+        background: url(oAssetsResolve('img/ft-masthead.png', o-ft-header)) no-repeat;
+        background-image: url(oAssetsResolve('img/ft-masthead.svg', o-ft-header)), none;
+        height: 18px;
         width: 100%;
         background-size: 100%;
         display: inline-block;
