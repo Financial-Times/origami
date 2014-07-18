@@ -10,7 +10,7 @@
 
     li[aria-controls][aria-expanded="true"]:after {
             @include oFtHeaderDownArrow($_o-ft-header-secondary-selected);
-            top: 25px;
+            top: 24px;
             z-index: $_o-hierarchical-nav-mega-dropdown-zindex+1;
     }
 
