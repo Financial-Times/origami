@@ -11,6 +11,7 @@
   @include oFtTypographyIncludeFont(label);
 }
 
+@import "src/scss/fieldsets";
 @import "src/scss/fields";
 @import "src/scss/radio-checkbox";
 @import "src/scss/prefix-suffix";

@@ -1,0 +1,13 @@
+@include oFtFormsClass(o-ft-forms__section, o-ft-forms__section--with-border) {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+@include oFtFormsClass(o-ft-forms__section--with-border) {
+    border-bottom-color: oColorsGetPaletteColor(pink-tint4);
+    border-bottom-style: dotted;
+    border-bottom-width: 2px;
+
+    }
+
