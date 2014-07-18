@@ -15,8 +15,13 @@ Tested and working on:
 
 Known issues:
 
-* IE: Masthead not displaying properly
-* IE8 doesn't support the `<nav>` and `<header>` element. Products need to use HTML5Shiv which is bundled in Modernizr. Also, it runs as core experience.
+* IE: 
+	* Masthead not displaying properly
+* IE8 and IE9:
+	* Tools theme is aligned to the top due to them not supporting _flex-box_.
+	* Secondary bar doesn't occupy full width of XL screens because they don't support _linear-gradient_.
+* IE8:
+	* It doesn't support the `<nav>` and `<header>` element. Products need to use HTML5Shiv which is bundled in Modernizr. Also, it runs as core experience.
 
 ## Element containers
 

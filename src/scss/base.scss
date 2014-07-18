@@ -5,6 +5,10 @@
     max-height: 125px;
     font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
     background: oColorsGetColorFor(header, background);
+    background-image: -webkit-linear-gradient(top, transparent 80px, $o-ft-header-brand-color 20px);
+    background-image: -moz-linear-gradient(top, transparent 80px, $o-ft-header-brand-color 20px);
+    background-image: linear-gradient(to bottom, transparent 80px, $o-ft-header-brand-color 20px);
+
     a {
         text-decoration: none;
     }
@@ -17,8 +21,6 @@
     @extend %o-grid-row;
     @extend %o-grid-col;
     @extend %o-grid-colspan-12;
-    @extend %o-grid-no-left-gutter;
-    @extend %o-grid-no-right-gutter;
     position: relative;
 
     color: oColorsGetColorFor(header-item, text);
@@ -28,6 +30,11 @@
             color: oColorsGetColorFor(header-item, text);
             opacity: 0.7;
         }
+    }
+
+    .o-hierarchical-nav__mega-dropdown {
+        right: 10px;
+        left: 10px;
     }
 }
 
