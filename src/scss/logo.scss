@@ -13,7 +13,7 @@
         display: inline-block;
         width: 60px;
         height: 60px;
-        background-color: #ffe2c6;
+
         vertical-align: middle;
     }
     abbr {
@@ -31,14 +31,13 @@
     padding: 0;
     width: 218px;
     display: inline-block;
+    vertical-align: middle;
     i {
-        @extend %o-ft-icons-icon--brand-ft-masthead;
-        @include oFtIconsBaseIconStyles();
-        margin-top: -70px; // Fix to position masthead properly due to the alignment of the text in the SVG
-        height: 80px;
-        font-size: 216px;
-        #{$o-hoverable-if-hover-enabled} &:hover {
-            color: #eeeeee;
-        }
+        background: url(http://image.webservices.ft.com/v1/images/raw/fticon:brand-ft-masthead?width=216&format=png&source=o-ft-header) no-repeat;
+        background-image: url(oAssetsResolve('svg/brand-ft-masthead.svg', o-ft-icons)), none;
+        height: 19px;
+        width: 100%;
+        background-size: 100%;
+        display: inline-block;
     }
 }
