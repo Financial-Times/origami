@@ -3,7 +3,7 @@
     "origamiType": "module",
     "origamiVersion": 1,
     "support": "alberto.elias@ft.com",
-    "supportStatus": "experimental",
+    "supportStatus": "active",
     "browserFeatures": {
         "required": [
             "classlist"
@@ -28,22 +28,22 @@
         },
         {
             "path": "/demos/header.html",
-            "expanded": true,
+            "expanded": false,
             "description": ""
         },
         {
             "path": "/demos/branded.html",
-            "expanded": true,
+            "expanded": false,
             "description": ""
         },
         {
             "path": "/demos/mega-dropdown.html",
-            "expanded": true,
+            "expanded": false,
             "description": ""
         },
         {
             "path": "/demos/header-no-secondary.html",
-            "expanded": true,
+            "expanded": false,
             "description": ""
         }
     ]
