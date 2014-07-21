@@ -32,3 +32,6 @@ $o-colors-is-silent: true !default;
 		background-color: #{nth($color,2)};
 	}
 }
+
+
+@include oColorsColorFor(form-field-standard body, all);
