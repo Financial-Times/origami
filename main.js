@@ -1,10 +1,12 @@
 /*global require, module*/
 
-var ShareLinks = require('./src/js/ShareLinks');
+var ShareLinks = require('./src/js/ShareLinks'),
+    constructAll = function() {
+        'use strict';
+        ShareLinks.prototype.createAllIn(document.body);
+        document.removeEventListener('o.DOMContentLoaded', constructAll);
+    };
 
-document.addEventListener("DOMContentLoaded", function() {
-    "use strict";
-    ShareLinks.prototype.createAllIn(document.body);
-});
+document.addEventListener('o.DOMContentLoaded', constructAll);
 
 module.exports = ShareLinks;
