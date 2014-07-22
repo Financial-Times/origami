@@ -1,380 +1,279 @@
 <link rel="stylesheet" href="http://build.origami.ft.com/bundles/css?modules=o-grid@^2.0.7" />
-<div class="o-grid-row">
-    <div class="o-ft-forms-field-group" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Text input with prefix label</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="3">
-                <span class="o-ft-forms__prefix">http://</span>
-            </div>
-            <div data-o-grid-colspan="9">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-        </div>
-    </div>
-    <div class="o-ft-forms-field-group" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Text input with suffix label</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="9">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-            <div data-o-grid-colspan="3">
-                <span class="o-ft-forms__suffix">.com</span>
-            </div>
-        </div>
-    </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Text input with prefix label (span) (error)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="3">
-                <span class="o-ft-forms__prefix">.com</span>
-            </div>
-            <div data-o-grid-colspan="9">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-        </div>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
-    </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Text input with suffix label (span) (error)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="9">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-            <div data-o-grid-colspan="3">
-                <span class="o-ft-forms__suffix">.com</span>
-            </div>
-        </div>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
+<div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Text input with prefix label</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <span class="o-ft-forms__prefix">http://</span>
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
     </div>
 </div>
-<div class="o-grid-row">
-    <div class="o-ft-forms-field-group" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Select box with prefix label (span)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="3">
-                <span class="o-ft-forms__prefix">http://</span>
-            </div>
-            <div data-o-grid-colspan="9">
-                <select class="o-ft-forms__field--select">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="o-ft-forms-field-group" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Select box with suffix label (span)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="9">
-                <select class="o-ft-forms__field--select">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                </select>
-            </div>
-            <div data-o-grid-colspan="3">
-                <span class="o-ft-forms__suffix">.com</span>
-            </div>
-        </div>
-    </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Select box with prefix label (span)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="3">
-                <span class="o-ft-forms__prefix">http://</span>
-            </div>
-            <div data-o-grid-colspan="9">
-                <select class="o-ft-forms__field--select">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                </select>
-            </div>
-        </div>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
-    </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Select box with suffix label (span)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="9">
-                <select class="o-ft-forms__field--select">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                </select>
-            </div>
-            <div data-o-grid-colspan="3">
-                <span class="o-ft-forms__suffix">.com</span>
-            </div>
-        </div>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Text input with suffix label</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field o-ft-forms__field--suffixed" />
+        <span class="o-ft-forms__suffix">.com</span>
     </div>
 </div>
-<div class="o-grid-row">
-    <div class="o-ft-forms-field-group" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Text input with prefix button (span)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="3">
-                <span class="o-ft-forms__prefix o-ft-buttons__button">Go</span>
-            </div>
-            <div data-o-grid-colspan="9">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-        </div>
+<div class="o-ft-forms-field-group o-ft-forms--error o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Text input with prefix label (span) (error)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <span class="o-ft-forms__prefix">http://</span>
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
     </div>
-    <div class="o-ft-forms-field-group" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Text input with suffix button (span)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="9">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-            <div data-o-grid-colspan="3">
-                <span class="o-ft-forms__suffix o-ft-buttons__button">Go</span>
-            </div>
-        </div>
+    <div class="o-ft-forms__errortext">Invalid entry</div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms--error o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Text input with suffix label (span) (error)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+        <span class="o-ft-forms__suffix">.com</span>
     </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Text input with prefix button (span)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="3">
-                <span class="o-ft-forms__prefix o-ft-buttons__button">Go</span>
-            </div>
-            <div data-o-grid-colspan="9">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-        </div>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
-    </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Text input with suffix button (span)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="9">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-            <div data-o-grid-colspan="3">
-                <span class="o-ft-forms__suffix o-ft-buttons__button">Go</span>
-            </div>
-        </div>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
+    <div class="o-ft-forms__errortext">Invalid entry</div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Select box with prefix label (span)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <span class="o-ft-forms__prefix">http://</span>
+        <select class="o-ft-forms__field--select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
     </div>
 </div>
-<div class="o-grid-row">
-    <div class="o-ft-forms-field-group" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Select box with prefix button (span)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="3">
-                <span href="#" class="o-ft-forms__prefix o-ft-buttons__button">Go</span>
-            </div>
-            <div data-o-grid-colspan="9">
-                <select class="o-ft-forms__field--select">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="o-ft-forms-field-group" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Select box with suffix button (span)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="9">
-                <select class="o-ft-forms__field--select">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                </select>
-            </div>
-            <div data-o-grid-colspan="3">
-                <span href="#" class="o-ft-forms__suffix o-ft-buttons__button">Go</span>
-            </div>
-        </div>
-    </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Select box with prefix button (span)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="3">
-                <span href="#" class="o-ft-forms__prefix o-ft-buttons__button">Go</span>
-            </div>
-            <div data-o-grid-colspan="9">
-                <select class="o-ft-forms__field--select">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                </select>
-            </div>
-        </div>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
-    </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Select box with suffix button (span)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="9">
-                <select class="o-ft-forms__field--select">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                </select>
-            </div>
-            <div data-o-grid-colspan="3">
-                <span href="#" class="o-ft-forms__suffix o-ft-buttons__button">Go</span>
-            </div>
-        </div>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
+<div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Select box with suffix label (span)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <select class="o-ft-forms__field--select o-ft-forms__field--suffixed">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+        <span class="o-ft-forms__suffix">.com</span>
     </div>
 </div>
-<div class="o-grid-row">
-    <div class="o-ft-forms-field-group" data-o-grid-colspan="3 S12 M12"">
-        <label class="o-ft-forms__label">Text input with prefix button (button)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="3">
-                <button type="button" class="o-ft-forms__prefix o-ft-buttons__button">Go</button>
-            </div>
-            <div data-o-grid-colspan="9">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-        </div>
+<div class="o-ft-forms-field-group o-ft-forms--error o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Select box with prefix label (span)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <span class="o-ft-forms__prefix">http://</span>
+        <select class="o-ft-forms__field--select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
     </div>
-    <div class="o-ft-forms-field-group" data-o-grid-colspan="3 S12 M12"">
-        <label class="o-ft-forms__label">Text input with suffix button (button)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="9">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-            <div data-o-grid-colspan="3">
-                <button type="button" class="o-ft-forms__suffix o-ft-buttons__button">Go</button>
-            </div>
-        </div>
+    <div class="o-ft-forms__errortext">Invalid entry</div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms--error o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Select box with suffix label (span)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <select class="o-ft-forms__field--select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+        <span class="o-ft-forms__suffix">.com</span>
     </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M12">
-        <label class="o-ft-forms__label">Text input with prefix button (button)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="3">
-                <button type="button" class="o-ft-forms__prefix o-ft-buttons__button">Go</button>
-            </div>
-            <div data-o-grid-colspan="9">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-        </div>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
-    </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M12">
-        <label class="o-ft-forms__label">Text input with suffix button (button)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="9">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-            <div data-o-grid-colspan="3">
-                <button type="button" class="o-ft-forms__suffix o-ft-buttons__button">Go</button>
-            </div>
-        </div>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
+    <div class="o-ft-forms__errortext">Invalid entry</div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Text input with prefix button (span)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <span class="o-ft-forms__prefix o-ft-buttons__button">Go</span>
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
     </div>
 </div>
-<div class="o-grid-row">
-    <div class="o-ft-forms-field-group" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Select box with prefix button (button)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="3">
-                <button type="button" class="o-ft-forms__prefix o-ft-buttons__button">Go</button>
-            </div>
-            <div data-o-grid-colspan="9">
-                <select class="o-ft-forms__field--select">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="o-ft-forms-field-group" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Select box with suffix button (button)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="9">
-                <select class="o-ft-forms__field--select">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                </select>
-            </div>
-            <div data-o-grid-colspan="3">
-                <button type="button" class="o-ft-forms__suffix o-ft-buttons__button">Go</button>
-            </div>
-        </div>
-    </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Select box with prefix button (button)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="3">
-                <button type="button" class="o-ft-forms__prefix o-ft-buttons__button">Go</button>
-            </div>
-            <div data-o-grid-colspan="9">
-                <select class="o-ft-forms__field--select">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                </select>
-            </div>
-        </div>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
-    </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="3 S12 M6">
-        <label class="o-ft-forms__label">Select box with suffix button (button)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="9">
-                <select class="o-ft-forms__field--select">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                </select>
-            </div>
-            <div data-o-grid-colspan="3">
-                <button type="button" class="o-ft-forms__suffix o-ft-buttons__button">Go</button>
-            </div>
-        </div>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
+<div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Text input with suffix button (span)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+        <span class="o-ft-forms__suffix o-ft-buttons__button">Go</span>
     </div>
 </div>
-<div class="o-grid-row">
-    <div class="o-ft-forms-field-group" data-o-grid-colspan="6 S12 M12">
-        <label class="o-ft-forms__label">Text input with prefix label and suffix button</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="2">
-                <span class="o-ft-forms__prefix">http://</span>
-            </div>
-            <div data-o-grid-colspan="8">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-            <div data-o-grid-colspan="2">
-                <button type="button" class="o-ft-forms__suffix o-ft-buttons__button">Go</button>
-            </div>
+<div class="o-ft-forms-field-group o-ft-forms--error o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Text input with prefix button (span)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <span class="o-ft-forms__prefix o-ft-buttons__button">Go</span>
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+    </div>
+    <div class="o-ft-forms__errortext">Invalid entry</div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms--error o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Text input with suffix button (span)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+        <span class="o-ft-forms__suffix o-ft-buttons__button">Go</span>
+    </div>
+    <div class="o-ft-forms__errortext">Invalid entry</div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Select box with prefix button (span)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <span href="#" class="o-ft-forms__prefix o-ft-buttons__button">Go</span>
+        <select class="o-ft-forms__field--select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+    </div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Select box with suffix button (span)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <select class="o-ft-forms__field--select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+        <span href="#" class="o-ft-forms__suffix o-ft-buttons__button">Go</span>
+    </div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms--error o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Select box with prefix button (span)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <span href="#" class="o-ft-forms__prefix o-ft-buttons__button">Go</span>
+        <select class="o-ft-forms__field--select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+    </div>
+    <div class="o-ft-forms__errortext">Invalid entry</div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms--error o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Select box with suffix button (span)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <select class="o-ft-forms__field--select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+        <span href="#" class="o-ft-forms__suffix o-ft-buttons__button">Go</span>
+    </div>
+    <div class="o-ft-forms__errortext">Invalid entry</div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Text input with prefix button (button)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <div class="o-ft-forms__prefix">
+            <button type="button" class="o-ft-buttons">Go</button>
+        </div>
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+    </div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Text input with suffix button (button)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+        <div class="o-ft-forms__suffix">
+            <button type="button" class="o-ft-buttons">Go</button>
         </div>
     </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error" data-o-grid-colspan="6 S12 M12">
-        <label class="o-ft-forms__label">Text input with prefix label and suffix button (error)</label>
-        <div class="o-grid-row o-grid-row-compact">
-            <div data-o-grid-colspan="2">
-                <span class="o-ft-forms__prefix">http://</span>
-            </div>
-            <div data-o-grid-colspan="8">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-            <div data-o-grid-colspan="2">
-                <button type="button" class="o-ft-forms__suffix o-ft-buttons__button">Go</button>
-            </div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms--error o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Text input with prefix button (button)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <div class="o-ft-forms__prefix">
+            <button type="button" class="o-ft-buttons">Go</button>
         </div>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
     </div>
+    <div class="o-ft-forms__errortext">Invalid entry</div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms--error o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Text input with suffix button (button)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+        <div class="o-ft-forms__suffix">
+            <button type="button" class="o-ft-buttons">Go</button>
+        </div>
+    </div>
+    <div class="o-ft-forms__errortext">Invalid entry</div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Select box with prefix button (button)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <div class="o-ft-forms__prefix">
+            <button type="button" class="o-ft-buttons">Go</button>
+        </div>
+        <select class="o-ft-forms__field--select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+    </div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Select box with suffix button (button)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <select class="o-ft-forms__field--select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+        <div class="o-ft-forms__suffix">
+            <button type="button" class="o-ft-buttons">Go</button>
+        </div>
+    </div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms--error o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Select box with prefix button (button)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <div class="o-ft-forms__prefix">
+            <button type="button" class="o-ft-buttons">Go</button>
+        </div>
+        <select class="o-ft-forms__field--select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+    </div>
+    <div class="o-ft-forms__errortext">Invalid entry</div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms--error o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Select box with suffix button (button)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <select class="o-ft-forms__field--select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+        <div class="o-ft-forms__suffix">
+            <button type="button" class="o-ft-buttons">Go</button>
+        </div>
+    </div>
+    <div class="o-ft-forms__errortext">Invalid entry</div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Text input with prefix label and suffix button</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <span class="o-ft-forms__prefix">http://</span>
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+        <div class="o-ft-forms__suffix">
+            <button type="button" class=" o-ft-buttons">Go</button>
+        </div>
+    </div>
+</div>
+<div class="o-ft-forms-field-group o-ft-forms--error o-ft-forms-field-group--affixed">
+    <label class="o-ft-forms__label">Text input with prefix label and suffix button (error)</label>
+    <div class="o-ft-forms__affix-wrapper">
+        <span class="o-ft-forms__prefix">http://</span>
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+        <div class="o-ft-forms__suffix">
+            <button type="button" class="o-ft-buttons">Go</button>
+        </div>
+    </div>
+    <div class="o-ft-forms__errortext">Invalid entry</div>
 </div>

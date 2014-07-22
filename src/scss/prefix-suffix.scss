@@ -1,50 +1,105 @@
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__prefix, %o-ft-forms__prefix--button', '.o-ft-forms__prefix, .o-ft-buttons__button.o-ft-forms__prefix') {
-	border-left: $_o-ft-forms-fieldborder;
-	border-right: 0;
-    border-top-left-radius: $_o-ft-forms-field-borderradius;
-    border-bottom-left-radius: $_o-ft-forms-field-borderradius;
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__affix-wrapper',
+  '.o-ft-forms__affix-wrapper'
+) {
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__suffix %o-ft-forms__suffix--button', '.o-ft-forms__suffix, .o-ft-buttons__button.o-ft-forms__suffix') {
-	border-right: $_o-ft-forms-fieldborder;
-    border-left: 0;
-    border-top-right-radius: $_o-ft-forms-field-borderradius;
-    border-bottom-right-radius: $_o-ft-forms-field-borderradius;
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__field--affixed',
+  '.o-ft-forms__affix-wrapper .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]),
+  .o-ft-forms__affix-wrapper .o-ft-forms__field--select'
+) {
+  display: table-cell;
+  border-radius: 0;
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__prefix + .o-ft-forms__field', '.o-ft-forms__prefix + .o-ft-forms__field') {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__field--prefixed',
+  '.o-ft-forms__affix-wrapper .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]):first-child,
+  .o-ft-forms__affix-wrapper .o-ft-forms__field--select:first-child'
+) {
+  border-top-left-radius: $_o-ft-forms-field-borderradius;
+  border-bottom-left-radius: $_o-ft-forms-field-borderradius;
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__prefix, %o-ft-forms__suffix', '.o-ft-forms__prefix, .o-ft-forms__suffix') {
-  @include boxSizing(border-box);
-  display: block;
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__field-suffixed',
+  '.o-ft-forms__affix-wrapper .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]):last-child,
+  .o-ft-forms__affix-wrapper .o-ft-forms__field--select:last-child'
+) {
+  border-top-right-radius: $_o-ft-forms-field-borderradius;
+  border-bottom-right-radius: $_o-ft-forms-field-borderradius;
+}
+
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__prefix,
+  %o-ft-forms__suffix',
+  '.o-ft-forms__prefix,
+  .o-ft-forms__suffix'
+) {
+  display: table-cell;
+  width: 1%;
+  white-space: nowrap;
   border-top: $_o-ft-forms-fieldborder;
   border-bottom: $_o-ft-forms-fieldborder;
-  width: 100%;
   padding: $_o-ft-form-field-big-padding-topbottom $_o-ft-form-field-big-padding-leftright;
   font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
   font-size: $_o-ft-form-field-big-fontsize;
   text-align: center;
-  vertical-align: top;
-  overflow: hidden;
   background-color: oColorsGetColorFor(forms-prefixsuffix, background);
   color: oColorsGetColorFor(forms-prefixsuffix form-field-standard, text);
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__prefix--button, %o-ft-forms__suffix--button', '.o-ft-buttons__button.o-ft-forms__prefix, .o-ft-buttons__button.o-ft-forms__suffix') {
-	margin: 0;
-	width: 100%;
-	padding: $_o-ft-form-field-big-padding-topbottom $_o-ft-form-field-big-padding-leftright;
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__prefix',
+  '.o-ft-forms__prefix'
+) {
+  border-left: $_o-ft-forms-fieldborder;
+  border-right: 0;
+  border-top-left-radius: $_o-ft-forms-field-borderradius;
+  border-bottom-left-radius: $_o-ft-forms-field-borderradius;
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__prefix--error, %o-ft-forms__suffix--error', '.o-ft-forms--error .o-ft-forms__prefix:not(.o-ft-buttons__button), .o-ft-forms--error .o-ft-forms__suffix:not(.o-ft-buttons__button)') {
-    border-color: oColorsGetColorFor(form-field-invalid error, border);
-    color: oColorsGetColorFor(form-field-invalid error, text);
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__suffix',
+  '.o-ft-forms__suffix'
+) {
+  border-right: $_o-ft-forms-fieldborder;
+  border-left: 0;
+  border-top-right-radius: $_o-ft-forms-field-borderradius;
+  border-bottom-right-radius: $_o-ft-forms-field-borderradius;
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__prefix--valid, %o-ft-forms__suffix--valid', '.o-ft-forms--valid .o-ft-forms__prefix:not(.o-ft-buttons__button), .o-ft-forms--valid .o-ft-forms__suffix:not(.o-ft-buttons__button)') {
-    border-color: oColorsGetColorFor(form-field-valid, border);
-    color: oColorsGetColorFor(form-field-valid, text);
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__prefix--error,
+  %o-ft-forms__suffix--error',
+  '.o-ft-forms--error .o-ft-forms__prefix,
+  .o-ft-forms--error .o-ft-forms__suffix'
+) {
+  border-color: oColorsGetColorFor(form-field-invalid error, border);
+  color: oColorsGetColorFor(form-field-invalid error, text);
+}
+
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__prefix--valid,
+  %o-ft-forms__suffix--valid',
+  '.o-ft-forms--valid .o-ft-forms__prefix,
+  .o-ft-forms--valid .o-ft-forms__suffix'
+) {
+  border-color: oColorsGetColorFor(form-field-valid, border);
+  color: oColorsGetColorFor(form-field-valid, text);
+}
+
+.o-ft-forms__prefix button,
+.o-ft-forms__suffix button {
+  border-width: 0;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
 }

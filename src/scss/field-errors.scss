@@ -2,8 +2,6 @@
   '.o-ft-forms--error .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]),
   .o-ft-forms--error .o-ft-forms__field--select,
   .o-ft-forms--error .o-ft-forms__field--textarea') {
-    border-bottom-left-radius: $_o-ft-forms-field-borderradius;
-    border-bottom-right-radius: $_o-ft-forms-field-borderradius;
     border-color: oColorsGetColorFor(form-field-invalid error, border);
     color: oColorsGetColorFor(form-field-invalid error form-field-standard, text);
 }
