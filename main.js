@@ -106,7 +106,6 @@ function timeAgo (date, interval) {
     }
 }
 
-// Deprecated and will be removed in next major release
 function init (el) {
     ftTime(el);
 }
@@ -117,7 +116,7 @@ var createAllIn = function(el) {
     }
     var dateEls = el.querySelectorAll('[data-o-component="o-date"]');
     for (var i = 0; i < dateEls.length; i++) {
-        ftTime(dateEls[i]);
+        init(dateEls[i]);
     }
     autoUpdate();
 };
