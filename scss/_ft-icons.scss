@@ -17,160 +17,213 @@ $o-ft-icons-base-icon-selectors: oFtIconsGetSelectors(icon);
 	
 		@include oFtIconsIconIe7(icon--arrow-down, "&#xf101;&nbsp;");
 		@include oFtIconsIcon(icon--arrow-down, "\f101");
+		@include oFtIconsIcon(icon--arrow-down--after, "\f101", "after");
 	
 		@include oFtIconsIconIe7(icon--arrow-downwards, "&#xf102;&nbsp;");
 		@include oFtIconsIcon(icon--arrow-downwards, "\f102");
+		@include oFtIconsIcon(icon--arrow-downwards--after, "\f102", "after");
 	
 		@include oFtIconsIconIe7(icon--arrow-left, "&#xf103;&nbsp;");
 		@include oFtIconsIcon(icon--arrow-left, "\f103");
+		@include oFtIconsIcon(icon--arrow-left--after, "\f103", "after");
 	
 		@include oFtIconsIconIe7(icon--arrow-right, "&#xf104;&nbsp;");
 		@include oFtIconsIcon(icon--arrow-right, "\f104");
+		@include oFtIconsIcon(icon--arrow-right--after, "\f104", "after");
 	
 		@include oFtIconsIconIe7(icon--arrow-up-down, "&#xf105;&nbsp;");
 		@include oFtIconsIcon(icon--arrow-up-down, "\f105");
+		@include oFtIconsIcon(icon--arrow-up-down--after, "\f105", "after");
 	
 		@include oFtIconsIconIe7(icon--arrow-up, "&#xf106;&nbsp;");
 		@include oFtIconsIcon(icon--arrow-up, "\f106");
+		@include oFtIconsIcon(icon--arrow-up--after, "\f106", "after");
 	
 		@include oFtIconsIconIe7(icon--arrow-upwards, "&#xf107;&nbsp;");
 		@include oFtIconsIcon(icon--arrow-upwards, "\f107");
+		@include oFtIconsIcon(icon--arrow-upwards--after, "\f107", "after");
 	
 		@include oFtIconsIconIe7(icon--brand-always-learning, "&#xf108;&nbsp;");
 		@include oFtIconsIcon(icon--brand-always-learning, "\f108");
+		@include oFtIconsIcon(icon--brand-always-learning--after, "\f108", "after");
 	
 		@include oFtIconsIconIe7(icon--brand-fast-ft, "&#xf109;&nbsp;");
 		@include oFtIconsIcon(icon--brand-fast-ft, "\f109");
+		@include oFtIconsIcon(icon--brand-fast-ft--after, "\f109", "after");
 	
 		@include oFtIconsIconIe7(icon--brand-fast, "&#xf10a;&nbsp;");
 		@include oFtIconsIcon(icon--brand-fast, "\f10a");
+		@include oFtIconsIcon(icon--brand-fast--after, "\f10a", "after");
 	
 		@include oFtIconsIconIe7(icon--brand-ft-logo-square, "&#xf10b;&nbsp;");
 		@include oFtIconsIcon(icon--brand-ft-logo-square, "\f10b");
+		@include oFtIconsIcon(icon--brand-ft-logo-square--after, "\f10b", "after");
 	
 		@include oFtIconsIconIe7(icon--brand-ft-masthead, "&#xf10c;&nbsp;");
 		@include oFtIconsIcon(icon--brand-ft-masthead, "\f10c");
+		@include oFtIconsIcon(icon--brand-ft-masthead--after, "\f10c", "after");
 	
 		@include oFtIconsIconIe7(icon--brand-ft, "&#xf10d;&nbsp;");
 		@include oFtIconsIcon(icon--brand-ft, "\f10d");
+		@include oFtIconsIcon(icon--brand-ft--after, "\f10d", "after");
 	
 		@include oFtIconsIconIe7(icon--brand-pearson, "&#xf10e;&nbsp;");
 		@include oFtIconsIcon(icon--brand-pearson, "\f10e");
+		@include oFtIconsIcon(icon--brand-pearson--after, "\f10e", "after");
 	
 		@include oFtIconsIconIe7(icon--clippings, "&#xf10f;&nbsp;");
 		@include oFtIconsIcon(icon--clippings, "\f10f");
+		@include oFtIconsIcon(icon--clippings--after, "\f10f", "after");
 	
 		@include oFtIconsIconIe7(icon--comment, "&#xf110;&nbsp;");
 		@include oFtIconsIcon(icon--comment, "\f110");
+		@include oFtIconsIcon(icon--comment--after, "\f110", "after");
 	
 		@include oFtIconsIconIe7(icon--cross, "&#xf111;&nbsp;");
 		@include oFtIconsIcon(icon--cross, "\f111");
+		@include oFtIconsIcon(icon--cross--after, "\f111", "after");
 	
 		@include oFtIconsIconIe7(icon--eye, "&#xf112;&nbsp;");
 		@include oFtIconsIcon(icon--eye, "\f112");
+		@include oFtIconsIcon(icon--eye--after, "\f112", "after");
 	
 		@include oFtIconsIconIe7(icon--font-size, "&#xf113;&nbsp;");
 		@include oFtIconsIcon(icon--font-size, "\f113");
+		@include oFtIconsIcon(icon--font-size--after, "\f113", "after");
 	
 		@include oFtIconsIconIe7(icon--hamburger, "&#xf114;&nbsp;");
 		@include oFtIconsIcon(icon--hamburger, "\f114");
+		@include oFtIconsIcon(icon--hamburger--after, "\f114", "after");
 	
 		@include oFtIconsIconIe7(icon--more, "&#xf115;&nbsp;");
 		@include oFtIconsIcon(icon--more, "\f115");
+		@include oFtIconsIcon(icon--more--after, "\f115", "after");
 	
 		@include oFtIconsIconIe7(icon--profile, "&#xf116;&nbsp;");
 		@include oFtIconsIcon(icon--profile, "\f116");
+		@include oFtIconsIcon(icon--profile--after, "\f116", "after");
 	
 		@include oFtIconsIconIe7(icon--refresh, "&#xf117;&nbsp;");
 		@include oFtIconsIcon(icon--refresh, "\f117");
+		@include oFtIconsIcon(icon--refresh--after, "\f117", "after");
 	
 		@include oFtIconsIconIe7(icon--search, "&#xf118;&nbsp;");
 		@include oFtIconsIcon(icon--search, "\f118");
+		@include oFtIconsIcon(icon--search--after, "\f118", "after");
 	
 		@include oFtIconsIconIe7(icon--section-arts, "&#xf119;&nbsp;");
 		@include oFtIconsIcon(icon--section-arts, "\f119");
+		@include oFtIconsIcon(icon--section-arts--after, "\f119", "after");
 	
 		@include oFtIconsIconIe7(icon--section-blogs, "&#xf11a;&nbsp;");
 		@include oFtIconsIcon(icon--section-blogs, "\f11a");
+		@include oFtIconsIcon(icon--section-blogs--after, "\f11a", "after");
 	
 		@include oFtIconsIconIe7(icon--section-business-education, "&#xf11b;&nbsp;");
 		@include oFtIconsIcon(icon--section-business-education, "\f11b");
+		@include oFtIconsIcon(icon--section-business-education--after, "\f11b", "after");
 	
 		@include oFtIconsIconIe7(icon--section-business-life, "&#xf11c;&nbsp;");
 		@include oFtIconsIcon(icon--section-business-life, "\f11c");
+		@include oFtIconsIcon(icon--section-business-life--after, "\f11c", "after");
 	
 		@include oFtIconsIconIe7(icon--section-columnists, "&#xf11d;&nbsp;");
 		@include oFtIconsIcon(icon--section-columnists, "\f11d");
+		@include oFtIconsIcon(icon--section-columnists--after, "\f11d", "after");
 	
 		@include oFtIconsIconIe7(icon--section-companies, "&#xf11e;&nbsp;");
 		@include oFtIconsIcon(icon--section-companies, "\f11e");
+		@include oFtIconsIcon(icon--section-companies--after, "\f11e", "after");
 	
 		@include oFtIconsIconIe7(icon--section-ftfm, "&#xf11f;&nbsp;");
 		@include oFtIconsIcon(icon--section-ftfm, "\f11f");
+		@include oFtIconsIcon(icon--section-ftfm--after, "\f11f", "after");
 	
 		@include oFtIconsIconIe7(icon--section-house-and-home, "&#xf120;&nbsp;");
 		@include oFtIconsIcon(icon--section-house-and-home, "\f120");
+		@include oFtIconsIcon(icon--section-house-and-home--after, "\f120", "after");
 	
 		@include oFtIconsIconIe7(icon--section-leader-and-letters, "&#xf121;&nbsp;");
 		@include oFtIconsIcon(icon--section-leader-and-letters, "\f121");
+		@include oFtIconsIcon(icon--section-leader-and-letters--after, "\f121", "after");
 	
 		@include oFtIconsIconIe7(icon--section-lex, "&#xf122;&nbsp;");
 		@include oFtIconsIcon(icon--section-lex, "\f122");
+		@include oFtIconsIcon(icon--section-lex--after, "\f122", "after");
 	
 		@include oFtIconsIconIe7(icon--section-magazine, "&#xf123;&nbsp;");
 		@include oFtIconsIcon(icon--section-magazine, "\f123");
+		@include oFtIconsIcon(icon--section-magazine--after, "\f123", "after");
 	
 		@include oFtIconsIconIe7(icon--section-markets-data, "&#xf124;&nbsp;");
 		@include oFtIconsIcon(icon--section-markets-data, "\f124");
+		@include oFtIconsIcon(icon--section-markets-data--after, "\f124", "after");
 	
 		@include oFtIconsIconIe7(icon--section-markets, "&#xf125;&nbsp;");
 		@include oFtIconsIcon(icon--section-markets, "\f125");
+		@include oFtIconsIcon(icon--section-markets--after, "\f125", "after");
 	
 		@include oFtIconsIconIe7(icon--section-money, "&#xf126;&nbsp;");
 		@include oFtIconsIcon(icon--section-money, "\f126");
+		@include oFtIconsIcon(icon--section-money--after, "\f126", "after");
 	
 		@include oFtIconsIconIe7(icon--section-special-report, "&#xf127;&nbsp;");
 		@include oFtIconsIcon(icon--section-special-report, "\f127");
+		@include oFtIconsIcon(icon--section-special-report--after, "\f127", "after");
 	
 		@include oFtIconsIconIe7(icon--section-uk, "&#xf128;&nbsp;");
 		@include oFtIconsIcon(icon--section-uk, "\f128");
+		@include oFtIconsIcon(icon--section-uk--after, "\f128", "after");
 	
 		@include oFtIconsIconIe7(icon--section-world, "&#xf129;&nbsp;");
 		@include oFtIconsIcon(icon--section-world, "\f129");
+		@include oFtIconsIcon(icon--section-world--after, "\f129", "after");
 	
 		@include oFtIconsIconIe7(icon--settings, "&#xf12a;&nbsp;");
 		@include oFtIconsIcon(icon--settings, "\f12a");
+		@include oFtIconsIcon(icon--settings--after, "\f12a", "after");
 	
 		@include oFtIconsIconIe7(icon--share, "&#xf12b;&nbsp;");
 		@include oFtIconsIcon(icon--share, "\f12b");
+		@include oFtIconsIcon(icon--share--after, "\f12b", "after");
 	
 		@include oFtIconsIconIe7(icon--sign-in, "&#xf12c;&nbsp;");
 		@include oFtIconsIcon(icon--sign-in, "\f12c");
+		@include oFtIconsIcon(icon--sign-in--after, "\f12c", "after");
 	
 		@include oFtIconsIconIe7(icon--sign-out, "&#xf12d;&nbsp;");
 		@include oFtIconsIcon(icon--sign-out, "\f12d");
+		@include oFtIconsIcon(icon--sign-out--after, "\f12d", "after");
 	
 		@include oFtIconsIconIe7(icon--social-email, "&#xf12e;&nbsp;");
 		@include oFtIconsIcon(icon--social-email, "\f12e");
+		@include oFtIconsIcon(icon--social-email--after, "\f12e", "after");
 	
 		@include oFtIconsIconIe7(icon--social-facebook, "&#xf12f;&nbsp;");
 		@include oFtIconsIcon(icon--social-facebook, "\f12f");
+		@include oFtIconsIcon(icon--social-facebook--after, "\f12f", "after");
 	
 		@include oFtIconsIconIe7(icon--social-linkedin, "&#xf130;&nbsp;");
 		@include oFtIconsIcon(icon--social-linkedin, "\f130");
+		@include oFtIconsIcon(icon--social-linkedin--after, "\f130", "after");
 	
 		@include oFtIconsIconIe7(icon--social-twitter, "&#xf131;&nbsp;");
 		@include oFtIconsIcon(icon--social-twitter, "\f131");
+		@include oFtIconsIcon(icon--social-twitter--after, "\f131", "after");
 	
 		@include oFtIconsIconIe7(icon--speechbubble, "&#xf132;&nbsp;");
 		@include oFtIconsIcon(icon--speechbubble, "\f132");
+		@include oFtIconsIcon(icon--speechbubble--after, "\f132", "after");
 	
 		@include oFtIconsIconIe7(icon--subscribe, "&#xf133;&nbsp;");
 		@include oFtIconsIcon(icon--subscribe, "\f133");
+		@include oFtIconsIcon(icon--subscribe--after, "\f133", "after");
 	
 		@include oFtIconsIconIe7(icon--thumb-up, "&#xf134;&nbsp;");
 		@include oFtIconsIcon(icon--thumb-up, "\f134");
+		@include oFtIconsIcon(icon--thumb-up--after, "\f134", "after");
 	
 		@include oFtIconsIconIe7(icon--tick, "&#xf135;&nbsp;");
 		@include oFtIconsIcon(icon--tick, "\f135");
+		@include oFtIconsIcon(icon--tick--after, "\f135", "after");
 	
