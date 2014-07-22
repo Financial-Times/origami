@@ -29,8 +29,8 @@
 }
 
 // Placeholder (and optionally concrete class) for individual icon (modern browsers)
-@mixin oFtIconsIcon($icon, $content) {
-	$icon-selectors: oFtIconsGetSelectors("#{$icon}:before");
+@mixin oFtIconsIcon($icon, $content, $placement: 'before') {
+	$icon-selectors: oFtIconsGetSelectors("#{$icon}:#{$placement}");
 	#{$icon-selectors} {
 		content: $content;
 	}
