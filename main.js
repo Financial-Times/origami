@@ -59,8 +59,8 @@ function format (date, format) {
 }
 
 function update (noExec) {
-    noExec || Array.prototype.forEach.call(document.querySelectorAll('.o-date'), function (el) {
-        ftTime(el, el.getAttribute('datetime'));
+    noExec || Array.prototype.forEach.call(document.querySelectorAll('[data-o-component="o-date"]'), function (el) {
+        ftTime(el);
     });
     timer = setTimeout(update, 60000);
 }
@@ -106,22 +106,32 @@ function timeAgo (date, interval) {
     }
 }
 
+// Deprecated and will be removed in next major release
 function init (el) {
-    el = el || document.body;
-    if (el.tagName === 'TIME') {
-        el.classList.add('o-date');
-        ftTime(el);
-    } else {
-        Array.prototype.forEach.call(el.querySelectorAll('time.o-date'), function (el) {
-            ftTime(el);
-        });
-    }
-
-    autoUpdate();
+    ftTime(el);
 }
+
+var createAllIn = function(el) {
+    if (!el) {
+        el = document.body;
+    }
+    var dateEls = el.querySelectorAll('[data-o-component="o-date"]');
+    for (var i = 0; i < dateEls.length; i++) {
+        ftTime(dateEls[i]);
+    }
+    autoUpdate();
+};
+
+var constructAll = function() {
+    createAllIn(document.body);
+    document.removeEventListener('o.DOMContentLoaded', constructAll);
+};
+
+document.addEventListener('o.DOMContentLoaded', constructAll);
 
 module.exports = {
     format: format,
     timeAgo: timeAgo,
-    init: init
+    init: init,
+    constructAll: constructAll
 };
