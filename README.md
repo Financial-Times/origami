@@ -49,6 +49,19 @@ Sometimes you may need to access the palette directly, in which case the `oColor
 
 `oColorsGetPaletteColor` takes a single argument: the name of the palette colour.
 
+In case you would prefer to get all three default CSS properties for a specific use case list, you can use the `oColorsFor` mixin:
+
+```sass
+.my-thing {
+    @include oColorsFor(body);
+}
+```
+
+It takes two arguments:
+
+* **Use case list**: a list of colour use cases in order of preference.  The first one that is defined will be returned.
+* **Property list**: a list of all the properties you want the colour applied to (background, border, text). They each correspond to `background-colour`, `border-color` and `color`. Default is _all_ which includes all three properties.
+
 #### Silent mode
 
 This module supports silent mode and will be silent by default.
