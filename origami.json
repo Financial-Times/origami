@@ -10,7 +10,8 @@
         ],
         "optional": [
             "getComputedStyle",
-            "canvas"
+            "canvas",
+            "customevent"
         ]
     },
     "ci": {
