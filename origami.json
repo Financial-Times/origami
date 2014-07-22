@@ -7,10 +7,12 @@
     "browserFeatures": {
         "required": [
             "queryselector",
-            "addeventlistener"
+            "addeventlistener",
+            "classList"
         ],
         "optional": [
-            "domcontentready"
+            "domcontentready",
+            "customevent"
         ]
     },
     "ci": {
@@ -24,12 +26,12 @@
         },
         {
             "path": "/demos/buttontabs.html",
-            "expanded": true,
+            "expanded": false,
             "description": ""
         },
         {
             "path": "/demos/buttontabs-big.html",
-            "expanded": true,
+            "expanded": false,
             "description": ""
         }
     ]
