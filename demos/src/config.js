@@ -5,9 +5,7 @@ module.exports = {
         "bodyClasses": "o-hoverable-on",
         "template": "main.mustache",
         "data": {
-            "content": function() {
-                    return require('fs').readFileSync('demos/src/content.html')
-            }
+            "content": require('fs').readFileSync('demos/src/content.html')
         }
     },
     "demos": [
@@ -15,12 +13,8 @@ module.exports = {
             "name": "skeleton",
             "data": {
                 "o-ft-header": {
-                    "primary": function() {
-                        return require('fs').readFileSync('demos/src/primary/skeleton.html')
-                    },
-                    "secondary": function() {
-                        return require('fs').readFileSync('demos/src/secondary/skeleton.html')
-                    }
+                    "primary": require('fs').readFileSync('demos/src/primary/skeleton.html'),
+                    "secondary": require('fs').readFileSync('demos/src/secondary/skeleton.html')
                 }
             }
         },
@@ -29,12 +23,8 @@ module.exports = {
             "sass": "demos/src/scss/header.scss",
             "data": {
                 "o-ft-header": {
-                    "primary": function() {
-                        return require('fs').readFileSync('demos/src/primary/header.html')
-                    },
-                    "secondary": function() {
-                        return require('fs').readFileSync('demos/src/secondary/header.html')
-                    }
+                    "primary": require('fs').readFileSync('demos/src/primary/header.html'),
+                    "secondary": require('fs').readFileSync('demos/src/secondary/header.html')
                 }
             }
         },
@@ -43,12 +33,8 @@ module.exports = {
             "sass": "demos/src/scss/branded.scss",
             "data": {
                 "o-ft-header": {
-                    "primary": function() {
-                        return require('fs').readFileSync('demos/src/primary/branded.html')
-                    },
-                    "secondary": function() {
-                        return require('fs').readFileSync('demos/src/secondary/branded.html')
-                    }
+                    "primary": require('fs').readFileSync('demos/src/primary/branded.html'),
+                    "secondary": require('fs').readFileSync('demos/src/secondary/branded.html')
                 }
             }
         },
@@ -61,9 +47,7 @@ module.exports = {
             "name": "header-no-secondary",
             "data": {
                 "o-ft-header": {
-                    "primary": function() {
-                        return require('fs').readFileSync('demos/src/primary/header-no-secondary.html')
-                    }
+                    "primary": require('fs').readFileSync('demos/src/primary/header-no-secondary.html')
                 }
             }
         }
