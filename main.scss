@@ -3,16 +3,18 @@
 @import "o-ft-typography/main";
 @import "o-ft-buttons/main";
 
-@import "src/scss/_variables.scss";
-@import "src/scss/_mixins.scss";
+@import "src/scss/variables";
+@import "src/scss/mixins";
+@import "src/scss/color-use-cases";
 
 @if (not $o-ft-forms-is-silent) {
   @include oFtTypographyIncludeFont(label);
 }
 
-@import "src/scss/fields.scss";
-@import "src/scss/radio-checkbox.scss";
-@import "src/scss/prefix-suffix.scss";
-@import "src/scss/field-errors.scss";
-@import "src/scss/field-valid.scss";
-@import "src/scss/global-errors.scss";
+@import "src/scss/fieldsets";
+@import "src/scss/fields";
+@import "src/scss/radio-checkbox";
+@import "src/scss/prefix-suffix";
+@import "src/scss/field-errors";
+@import "src/scss/field-valid";
+@import "src/scss/global-errors";

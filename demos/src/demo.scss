@@ -1,2 +1,8 @@
 $o-ft-forms-is-silent: false;
 @import "../../main";
+
+.demo-column {
+    width: 50%;
+    float: left;
+    min-width: 300px;
+}

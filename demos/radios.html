@@ -1,46 +1,49 @@
 <!DOCTYPE html>
-<!--[if IE 7]>         <html class="no-js o-useragent-ie7"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js o-useragent-ie8"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if IE 7]>         <html class="o-useragent-ie7 o-hoverable-on"> <![endif]-->
+<!--[if IE 8]>         <html class="o-useragent-ie8 o-hoverable-on"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
     <title>o-ft-forms: radios demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <style>
-    body {
-        margin: 0;
-    }
-    </style>
+    <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
     <link rel="stylesheet" href="/bundles/css?modules=o-ft-forms:/demos/src/demo.scss" />
 </head>
 <body class="">
+    <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
     
-    <link rel="stylesheet" href="http://build.origami.ft.com/bundles/css?modules=o-grid@^2.0.7" />
-<div class="o-grid-row">
-    <div data-o-grid-colspan="4 S12 M12">
-        <div class="o-ft-forms-field-group">
-            <label class="o-ft-forms__label">Label</label>
-            <input type="radio" name="radio" value="1" class="o-ft-forms__field" id="radio11" checked="checked"><label for="radio11" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 1</label>
-            <input type="radio" name="radio" value="2" class="o-ft-forms__field" id="radio12"><label for="radio12" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 2</label>
-            <input type="radio" name="radio" value="3" class="o-ft-forms__field" id="radio13"><label for="radio13" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 3</label>
-        </div>
+    <div>
+    <div class="o-ft-forms-field-group">
+        <label class="o-ft-forms__label">Label</label>
+        <input type="radio" name="radio" value="1" class="o-ft-forms__field" id="radio11" checked="checked">
+        <label for="radio11" class="o-ft-forms__label">Radio 1</label>
+        <input type="radio" name="radio" value="2" class="o-ft-forms__field" id="radio12">
+        <label for="radio12" class="o-ft-forms__label">Radio 2</label>
+        <input type="radio" name="radio" value="3" class="o-ft-forms__field" id="radio13">
+        <label for="radio13" class="o-ft-forms__label">Radio 3</label>
     </div>
-    <div data-o-grid-colspan="4 S12 M12">
-        <div class="o-ft-forms-field-group o-ft-forms--valid">
-            <label class="o-ft-forms__label">Label (valid)</label>
-            <input type="radio" name="radio2" value="1" class="o-ft-forms__field" id="radio21" checked="checked"><label for="radio21" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 1</label>
-            <input type="radio" name="radio2" value="2" class="o-ft-forms__field" id="radio22"><label for="radio22" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 2</label>
-            <input type="radio" name="radio2" value="3" class="o-ft-forms__field" id="radio23"><label for="radio23" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 3</label>
-        </div>
+</div>
+<div>
+    <div class="o-ft-forms-field-group o-ft-forms--valid">
+        <label class="o-ft-forms__label">Label (valid)</label>
+        <input type="radio" name="radio2" value="1" class="o-ft-forms__field" id="radio21" checked="checked">
+        <label for="radio21" class="o-ft-forms__label">Radio 1</label>
+        <input type="radio" name="radio2" value="2" class="o-ft-forms__field" id="radio22">
+        <label for="radio22" class="o-ft-forms__label">Radio 2</label>
+        <input type="radio" name="radio2" value="3" class="o-ft-forms__field" id="radio23">
+        <label for="radio23" class="o-ft-forms__label">Radio 3</label>
     </div>
-    <div data-o-grid-colspan="4 S12 M12">
-        <div class="o-ft-forms-field-group o-ft-forms--error">
-            <label class="o-ft-forms__label">Label (error)</label>
-            <input type="radio" name="radio3" value="1" class="o-ft-forms__field" id="radio31" checked="checked"><label for="radio31" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 1</label>
-            <input type="radio" name="radio3" value="2" class="o-ft-forms__field" id="radio32"><label for="radio32" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 2</label>
-            <input type="radio" name="radio3" value="3" class="o-ft-forms__field" id="radio33"><label for="radio33" class="o-ft-forms__label"><span class="o-ft-forms__field--pseudo"></span>Radio 3</label>
-            <div class="o-ft-forms__errortext">Invalid entry</div>
-        </div>
+</div>
+<div>
+    <div class="o-ft-forms-field-group o-ft-forms--error">
+        <label class="o-ft-forms__label">Label (error)</label>
+        <input type="radio" name="radio3" value="1" class="o-ft-forms__field" id="radio31" checked="checked">
+        <label for="radio31" class="o-ft-forms__label">Radio 1</label>
+        <input type="radio" name="radio3" value="2" class="o-ft-forms__field" id="radio32">
+        <label for="radio32" class="o-ft-forms__label">Radio 2</label>
+        <input type="radio" name="radio3" value="3" class="o-ft-forms__field" id="radio33">
+        <label for="radio33" class="o-ft-forms__label">Radio 3</label>
+        <div class="o-ft-forms__errortext">Invalid entry</div>
     </div>
 </div>
 
@@ -76,6 +79,6 @@
 -->
 
     
-    <script src='http://registry.origami.ft.com/embedapi?autoload=resize'></script>
+    <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
 </body>
 </html>

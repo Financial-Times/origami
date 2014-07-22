@@ -2,9 +2,8 @@
   '.o-ft-forms--error .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]), 
   .o-ft-forms--error .o-ft-forms__field--select, 
   .o-ft-forms--error .o-ft-forms__field--textarea') {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom: 0;
+    border-bottom-left-radius: $_o-ft-forms-field-borderradius;
+    border-bottom-right-radius: $_o-ft-forms-field-borderradius;
     border-color: oColorsGetColorFor(form-field-invalid error, border);
     color: oColorsGetColorFor(form-field-invalid error form-field-standard, text);
 }
@@ -14,12 +13,9 @@
   display: block;
   margin-top: -1px;
   padding: 3px 5px;
-  font-family: $o-fonts-bentonsans-normal;
+  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
   font-size: 14px;
   font-style: normal;
-  color: oColorsGetColorFor(form-error error, text);
-  border-bottom-left-radius: $_o-ft-forms-field-borderradius;
-  border-bottom-right-radius: $_o-ft-forms-field-borderradius;
-  background-color: oColorsGetColorFor(form-error error, background);
-  border: 1px solid oColorsGetColorFor(form-error error, background);
+  font-weight: bold;
+  color: oColorsGetColorFor(form-field-invalid, text);
 }
