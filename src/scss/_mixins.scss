@@ -2,14 +2,14 @@
   $o-colors-usecase-list: append($o-colors-usecase-list, $usecase $color $property) !global;
 }
 
-@mixin oColorsColorFor($useCaseList, $propertyList:all) {
-  @if ($propertyList == 'all' or index($propertyList, 'background') != false) {
+@mixin oColorsFor($useCaseList, $propertyList: all) {
+  @if ($propertyList == 'all' or index($propertyList, 'background')) {
     background-color: oColorsGetColorFor($useCaseList, background);
   }
-  @if ($propertyList == 'all' or index($propertyList, 'text') != false) {
+  @if ($propertyList == 'all' or index($propertyList, 'text')) {
     color: oColorsGetColorFor($useCaseList, text);
   }
-  @if ($propertyList == 'all' or index($propertyList, 'border') != false) {
+  @if ($propertyList == 'all' or index($propertyList, 'border')) {
     border-color: oColorsGetColorFor($useCaseList, border);
   }
 }
