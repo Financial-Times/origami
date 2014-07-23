@@ -1,29 +1,66 @@
 'use strict';
 
-var unCapitalise = function (str) {
-    return str.charAt(0).toLowerCase() + str.substr(1);
-};
+var dom = require('o-dom');
 
-var capitalise = function (str) {
-    return str.charAt(0).toUpperCase() + str.substr(1);
-};
+var wrapperSeed = document.createElement('div');
+wrapperSeed.className = 'o-modal';
+wrapperSeed.innerHTML = '<section class="o-modal__content"></section>';
+var overlaySeed = document.createElement('div');
+overlaySeed.className = 'o-modal__overlay';
 
-module.exports = {
-    unCapitalise: unCapitalise,
+module.exports = function () {
 
-    capitalise: capitalise,
+    this.wrapper = wrapperSeed.cloneNode(true);
 
-    copyContent: function (content) {
-        return content.nodeName === 'SCRIPT' ? content.innerHTML: content.cloneNode(true);
-    },
+    this.content = this.wrapper.children[0];
+    this.overlay = overlaySeed.cloneNode();
+    if (!this.opts.hasOverlay) {
+        this.overlay.classList.add('is-hidden');
+    }
+    
+    this.broadcast('create', 'oLayers');
 
-    getSpacing: function (el, side) {
-        return (parseInt(el.style['padding' + capitalise(side)], 10) || 0) + (parseInt(el.style['margin' + capitalise(side)], 10) || 0);
-    },
+    if (typeof this.opts.content === 'string') {
+        this.content.innerHTML = this.opts.content;
+    } else {
+        this.content.appendChild(this.opts.content);
+    }
 
-    attrToData: function (name) {
-        return name.replace('data-o-modal-', '').replace(/\-\w/g, function ($0) {
-            return $0.charAt(1).toUpperCase();
-        });
+    if (this.opts.hasCloseButton) {
+        var button = document.createElement('button');
+        button.textContent = 'close';
+        button.className = 'o-modal__close';
+        this.content.appendChild(button);
+        this.opts.closeClass && button.classList.add(this.opts.closeClass);
+    }
+
+    this.heading = this.content.querySelector(this.opts.headingSelector);
+
+    this.opts.hasHeading = !!this.heading;
+
+    if (this.opts.hasCloseButton) {
+        this.wrapper.classList.add('o-modal--closable');
+    }
+
+    this.opts.outerClass && this.wrapper.classList.add(this.opts.outerClass);
+    this.opts.innerClass && this.content.classList.add(this.opts.innerClass);
+    
+    if (this.opts.hasHeading) {
+        this.body = this.content.querySelector(this.opts.bodySelector);
+        this.body.classList.add('o-modal__body');
+    } else {
+        this.body = this.content;
+        this.content.classList.add('o-modal__body');
+    }
+
+    this.context.appendChild(this.wrapper);
+    this.context.appendChild(this.overlay);
+
+    this.destroy = this.destroy.bind(this);
+    this.globalDelegate.on('oLayers.removeAll', 'body', this.destroy);
+
+    if (this.opts.openImmediately) {
+        // this.wrapper.offsetWidth;
+        this.show();
     }
 };

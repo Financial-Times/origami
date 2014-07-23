@@ -23,6 +23,7 @@
     "o-dom": "~0.3.0"
   },
   "devDependencies": {
-    "modernizr": ">=2.6.* <3"
+    "modernizr": ">=2.6.* <3",
+    "jquery": "~2.1.0"
   }
 }

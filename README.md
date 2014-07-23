@@ -1,4 +1,4 @@
-# o-modal [![Build Status](https://travis-ci.org/Financial-Times/o-modal.png?branch=master)](https://travis-ci.org/Financial-Times/o-modal)
+# Dialog <small>o-modal</small> [![Build Status](https://travis-ci.org/Financial-Times/o-modal.png?branch=master)](https://travis-ci.org/Financial-Times/o-modal)
 
 Configurable custom modal box that can be used to show modal windows. The modals can also be switched to display differently on small screens.
 
@@ -13,25 +13,25 @@ Then add `@import "o-modal/main"` to your sass stylesheets and use `require('o-m
 ## Usage
 o-modal can be used in two main ways
 
-* Direct calls to the `o-modal#trigger(options, [el])` method, where options are as documented below and el is an optional 'trigger element' to which the modal will be associated
+* Direct calls to the `o-modal#trigger(options, [el])` method, where options are documented below and el is an optional 'trigger element' to which the modal will be associated
 * Setting the property `data-o-modal__trigger` on an element to be a JSON of options. When clicked `o-modal#trigger` will be called with both this JSON and the element passed in
 
 Additionally, the modal can be closed by
 
-* Calling `o-modal#close()`
-* Firing the custom jQuery event `close.o-modal` on any DOM element (though the listener is attached to `document` so `$(document).trigger('close.o-modal')` will be most efficient)
+* Calling `close()` on a modal instance
+* Firing the custom event `oLayers.closeAll` on `document.body`
 
 ### Styling
 By default o-modal includes only those styles needed to correctly position itself. The exact look and feel should be completely customisable using your own stylesheets. There are however a few features/limitations to bear in mind
 
-* Padding on the outer `o-modal` element is used to set buffers between the modal's content and the edge of the window e.g setting `.o-modal{ padding: 100px}` will mean the modal will switch to full screen mode when the content gets within 100px of the window edge.
-* A number of classes serve special purposes. You can either `@extend` these in your sass or use directly in your html, but if `@extending` in sass you will need to set some properties on the modal's configuration so that the elements will be retrieved by the javascript.
-	* `o-modal__heading` - should be used to wrap any content which must always appear at the top of the modal i.e. outside of any scrollable area
-	* `o-modal__body` - it should be used to wrap the remaining content. It *must not* be used when a heading isn't present  - o-modal will manually add the class to the content's outer wrapper when a heading isn't present.
-* CSS transitions can be used when hiding or showing content. As long as they are applied to one of the outer elements (`o-modal`, `o-modal__overlay` or `o-modal__content`) the js should wait for the transition to end befoer proceeding to alter the DOM.
+* Padding on the outer `o-modal` element is used to set buffers between the dialog's content and the edge of the window e.g setting `.o-modal{ padding: 100px}` will mean the dialog will switch to full screen mode when the content gets within 100px of the window edge.
+* A number of classes serve special purposes. You can either `@extend` these in your sass or use directly in your html, but if `@extending` in sass you will need to set some properties on the dialog's configuration so that the elements will be retrieved by the javascript.
+	* `o-modal__heading` - should be used to wrap any content which must always appear at the top of the dialog i.e. outside of any scrollable area
+	* `o-modal__body` - where `o-modal__heading` is used, `o-modal__body` should be used to wrap the remaining content. It *must not* be used when a heading isn't present  - o-modal will manually add the class to the content's outer wrapper when a heading isn't present.
+* CSS transitions can be used when hiding or showing content. As long as they are applied to one of the outer elements (`o-modal`, `o-modal__overlay` or `o-modal__content`) the js shoudl wait for the transition to end befoer proceeding to alter the DOM.
 
 #### Default FT Styles
-Styles for the default FT branded modals are included in the module but not output by default (unless requesting the module via the build service). To turn on these styles set `$o-modal-is-silent: false`. Alternatively `@extend` any of the following placeholder classes to apply the styles to selectors of your choice:
+Styles for the default FT branded dialogs are included in the module but not output by default (unless requesting the module via the build service). To turn on these styles set `$o-modal-is-silent: false`. Alternatively `@extend` any of the following placeholder classes to apply the styles to selectors of your choice:
 
 * `%o-modal--modal__content`
 * `%o-modal__close`
@@ -129,12 +129,16 @@ In addition to the above options, o-modal has a number of configuration presets 
 ```
 #### Defining your own presets
 
+<<<<<<< HEAD
 Use `o-modal#addpreset(name, obj)` to define your own preset configurations, which can then be referenced via the `preset` property of any modal's config.
+=======
+Use `o-modal#addpreset(name, obj)` to define your own preset configurations, which can then be referenced via the `preset` property of any dialog's config.
+>>>>>>> 86fd3d315abf7decdc25a1891f2bd223daba06f3
 
 ## Examples
 
 1. Trigger for a modal modal with no close button and content from a url
-	
+
 		<a data-o-modal__trigger="{'preset':'modal','hasCloseButton':false,'src':'http://same.domain/faq.html'}">modal</a>
 
 1. Trigger for a dropup modal with a close button and content from a hidden div in the page
