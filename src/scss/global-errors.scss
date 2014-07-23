@@ -7,11 +7,6 @@
 @include oFtFormsClass('o-ft-forms-section__errorMsg', 'o-ft-forms-globalMsg--error') {
     margin: 0 0 16px;
     background-color: oColorsGetColorFor(error-global, background);
-    //Add image to icons?
-    //background: oColorsGetColorFor(error-global, background) url(../images/error-alert-icon.png) no-repeat;
-    //background-size: 16px 16px;
-    //background-position: 8px 6px;
-    //padding: 0 8px 0 32px;
     padding: 0 8px;
 
     p {
@@ -20,6 +15,5 @@
         color:oColorsGetColorFor(error-global, text);
         font-size: 14px;
         font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-        font-weight: bold;
     }
 }

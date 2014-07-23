@@ -1,9 +1,3 @@
-@include oFtFormsClass(o-ft-forms__section) {
-    padding: 0 0 $_o-ft-forms-fieldgroup-padding;
-    margin: 10px 0;
-    border: 0;
-}
-
 @include oFtFormsClass(o-ft-forms-field-group) {
     position: relative;
     padding-right: $_o-ft-forms-fieldgroup-padding;
