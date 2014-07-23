@@ -1,2 +1,4 @@
 @include oColorsSetUseCase(error-global, background, red);
 @include oColorsSetUseCase(error-global, text, white);
+@include oColorsSetUseCase(form-radiocheckbox-checked, background, grey-tint5);
+@include oColorsSetUseCase(form-radiocheckbox-hover, text, pink-tint5);
