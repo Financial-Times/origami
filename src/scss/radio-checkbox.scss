@@ -18,7 +18,6 @@
   position: relative;
   cursor: pointer;
   font-weight: normal;
-  white-space: nowrap;
   line-height: $_o-ft-forms-radiocheckbox-size;
 }
 
@@ -99,4 +98,5 @@
   color: oColorsGetColorFor(form-radiocheckbox-checked, background);
   position: absolute;
   left: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-checkbox-ticksize) / 2;
+  top: 0;
 }
