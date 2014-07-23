@@ -48,6 +48,12 @@
   }
 }
 
+/**
+ * Creates a ruleset from the content for one or more placeholders
+ * And optionally a set of selectors
+ * @param {String} $placeholder One or more placeholders, separated by commas
+ * @param {String} $selector Zero or more selectors, separated by commas
+ */
 @mixin oFtFormsPlaceholderOptionalSelector($placeholder, $selector) {
   $aggregatedSelector: (unquote($placeholder));
   @if (not $o-ft-forms-is-silent) {
