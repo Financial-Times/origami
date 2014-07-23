@@ -93,8 +93,11 @@
   color: oColorsGetColorFor(form-field-valid, text);
 }
 
-.o-ft-forms__prefix button,
-.o-ft-forms__suffix button {
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__affix__button',
+  '.o-ft-forms__prefix button,
+  .o-ft-forms__suffix button'
+) {
   border-width: 0;
   margin: 0;
   padding: 0;
