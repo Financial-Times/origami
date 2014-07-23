@@ -1,12 +1,12 @@
 //
-// Prefixes and generates both silent placeholders and, if $o-dialog-is-silent == false, concrete classes for a list of classnames
+// Prefixes and generates both silent placeholders and, if $o-modal-is-silent == false, concrete classes for a list of classnames
 // If $compound is set to true it will handle compund selectors too
 //
-// oDialogClass(row) => .o-dialog-row, %o-dialog-row
-// oDialogClass(row col) => .o-dialog-row, %o-dialog-row, .o-dialog-col, %o-dialog-col
-// oDialogClass((row col, box), true) => .o-dialog-row .o-dialog-col, %o-dialog-row %o-dialog-col, .o-dialog-box, %o-dialog-box
+// oModalClass(row) => .o-modal-row, %o-modal-row
+// oModalClass(row col) => .o-modal-row, %o-modal-row, .o-modal-col, %o-modal-col
+// oModalClass((row col, box), true) => .o-modal-row .o-modal-col, %o-modal-row %o-modal-col, .o-modal-box, %o-modal-box
 //
-@function oDialogClass ($classes, $separator: '-', $compound: false) {
+@function oModalClass ($classes, $separator: '-', $compound: false) {
 	$aggregated-selector: ();	
 	
 	@each $class in $classes {
@@ -15,21 +15,21 @@
 			$loud-compound-selector: null;
 			$silent-compound-selector: null;
 			@each $part in $class {
-				$silent-compound-selector: append($silent-compound-selector, #{'%o-dialog#{$separator}#{$separator}#{$part}'});
+				$silent-compound-selector: append($silent-compound-selector, #{'%o-modal#{$separator}#{$separator}#{$part}'});
 		    }
 		    $aggregated-selector: append($aggregated-selector, $silent-compound-selector, comma);
-			@if (not $o-dialog-is-silent) {
+			@if (not $o-modal-is-silent) {
 				@each $part in $class {
-					$loud-compound-selector: append($loud-compound-selector, #{'.o-dialog#{$separator}#{$separator}#{$part}'});
+					$loud-compound-selector: append($loud-compound-selector, #{'.o-modal#{$separator}#{$separator}#{$part}'});
 				}
 				$aggregated-selector: append($aggregated-selector, $loud-compound-selector, comma);
 			}				
 		} @else {
 
-			$aggregated-selector: append($aggregated-selector, #{'%o-dialog#{$separator}#{$separator}#{$class}'}, comma);
+			$aggregated-selector: append($aggregated-selector, #{'%o-modal#{$separator}#{$separator}#{$class}'}, comma);
 		  
-			@if (not $o-dialog-is-silent) {
-				$aggregated-selector: append($aggregated-selector, #{'.o-dialog#{$separator}#{$separator}#{$class}'}, comma);
+			@if (not $o-modal-is-silent) {
+				$aggregated-selector: append($aggregated-selector, #{'.o-modal#{$separator}#{$separator}#{$class}'}, comma);
 			}
 		}
 	}
@@ -40,8 +40,8 @@
 //
 // Same as above but is immediately used to wrap some styles in the generated selector
 //
-@mixin oDialogClass ($classes, $separator: '-', $compound: false) {
-	@include oDialogWrapInSelector(oDialogClass($classes, $separator, $compound)) { 
+@mixin oModalClass ($classes, $separator: '-', $compound: false) {
+	@include oModalWrapInSelector(oModalClass($classes, $separator, $compound)) { 
 		@content 
 	}
 }
@@ -51,7 +51,7 @@
 // If a $selector is not provided the styles are printed out unaltered
 // If $include-unwrapped is true then a copy of the unaltered styles is printed in addition to the wrapped styles
 //
-@mixin oDialogWrapInSelector ($selector:null, $include-unwrapped: false) {
+@mixin oModalWrapInSelector ($selector:null, $include-unwrapped: false) {
 	@if (not $selector or $include-unwrapped) {
 		@content
 	}
@@ -64,7 +64,7 @@
 // 
 // Adds cross-browser box-sizing styles
 //
-@mixin oDialogBoxSizing($value, $polyfill: false) {
+@mixin oModalBoxSizing($value, $polyfill: false) {
 	-moz-box-sizing: $value;
 	box-sizing: $value;
 	@if ($polyfill) {

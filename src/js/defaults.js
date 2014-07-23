@@ -10,8 +10,8 @@ module.exports = {
     isAnchoredToTrigger: false, //
     verticalAnchorSide: null,
     horizontalAnchorSide: null,
-    headingSelector: '.o-dialog__heading',
-    bodySelector: '.o-dialog__body',
+    headingSelector: '.o-modal__heading',
+    bodySelector: '.o-modal__body',
     hasHeading: false,
     hasOverlay: false, //
     hasCloseButton: false, //

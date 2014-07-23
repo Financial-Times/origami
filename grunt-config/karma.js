@@ -6,13 +6,6 @@ module.exports = {
     preprocessors: {
       'test/**/*.js': ['browserify'],
       'src/js/**/*.js': ['browserify']
-    },
-    reporters: ['progress', 'html'],
-
-    // the default configuration
-    htmlReporter: {
-      outputDir: 'reports',
-      templatePath: 'node_modules/karma-html-reporter/jasmine_template.html'
     }
   },
   ci: {
@@ -43,8 +36,7 @@ module.exports = {
       },
       singleRun: false,
       autoWatch: true,
-      browsers: ['Chrome'],
-      reporters: ['progress', 'dots', 'html']
+      browsers: ['Chrome']
     }
   }
 };
