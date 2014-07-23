@@ -122,16 +122,9 @@ var createAllIn = function(el) {
     autoUpdate();
 };
 
-var constructAll = function() {
-    createAllIn(document.body);
-    document.removeEventListener('o.DOMContentLoaded', constructAll);
-};
-
-document.addEventListener('o.DOMContentLoaded', constructAll);
-
 module.exports = {
     format: format,
     timeAgo: timeAgo,
     init: init,
-    constructAll: constructAll
+    createAllIn: createAllIn
 };
