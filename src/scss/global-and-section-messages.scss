@@ -17,3 +17,13 @@
         font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
     }
 }
+
+@include oFtFormsClass('o-ft-forms-section__message--error'){
+    @include border-radius($_o-ft-forms-field-borderradius);
+}
+
+@include oFtFormsClass('o-ft-forms__global-message--error'){
+    margin-left:6px;
+    margin-right:6px;
+    @include border-radius($_o-ft-forms-field-borderradius, $_o-ft-forms-field-borderradius);
+}
