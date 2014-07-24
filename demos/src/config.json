@@ -1,7 +1,7 @@
 {
     "options": {
         "sass": "demos/src/demo.scss",
-        "js": "main.js",
+        "js": "demos/src/demo.js",
         "data": "demos/src/data.json"
     },
     "demos": [

@@ -61,6 +61,14 @@ var oShareObjects = oShare.createAllIn(document.body);
 
 An array of any constructed __o-share__ objects will be returned.
 
+Alternatively, a `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct a __o-share__ object for each element with a `data-o-component="o-share"` attribute:
+
+```javascript
+document.addEventListener("DOMContentLoaded", function() {
+    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});
+```
+
 `oShare.createAllIn()` will not create __o-share__ objects for elements that already have __o-share__ objects constructed on them, therefore it's safe to call more than once on the same page region.
 
 ## Presentation
