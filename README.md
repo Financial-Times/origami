@@ -54,7 +54,13 @@ If the heights of the _tabpanels_ vary, then any content below will move up and 
 
 ### Declarative
 
-On `DOMContentLoaded`, tabs instances are automatically constructed for each element in the `<body>` declaring itself to be an __o-tabs__ element (via the `data-o-component="o-tabs"` attribute).
+A `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct a __o-tabs__ object for each element with a `data-o-component="o-tabs"` attribute:
+
+```javascript
+document.addEventListener("DOMContentLoaded", function() {
+    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});
+```
 
 Auto-construction can be disabled for a specific element via another data attribute (`data-o-tabs-autoconstruct="false"`).
 
