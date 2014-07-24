@@ -26,7 +26,6 @@ Known issues:
 
 The header consists of the following content containers:
 
-* Logo
 * Primary: Left
 * Primary: Centre
 * Primary: Right
@@ -53,11 +52,55 @@ There are three horizontal Navigation styles depending on the class you add to t
 * __Secondary__: `o-ft-header__nav--secondary-theme`
 * __Tools__: `o-ft-header__nav--tools-theme`
 
+Primary and Secondary navigations work identically except for the fact the one goes in a Primary container, and the other in the Secondary Container. They can both hold Standalone Items, [Sub-Levels](https://github.com/Financial-Times/o-hierarchical-nav#parent-of-sub-level) and [Controllers for a DOM element](https://github.com/Financial-Times/o-hierarchical-nav#controller-for-dom-element).
+
+As for the Tools theme, it should only be used in a Primary Container, normally in Primary Right. It's intended to be used to contain an icon and text in each element of the navigation. An example of the markup:
+
+```html
+<nav class="o-ft-header__primary__right o-hierarchical-nav o-ft-header__nav--tools-theme" data-o-component="hierarchical-nav" data-o-version="{{o-hierarchical-nav.module-version}}">
+    <ul data-o-hierarchical-nav-level="1"><!--
+        --><li data-priority="1"><a><i class="demo__icon demo__icon__search"></i>Tool 1</a></li><!--
+        --><li data-priority="3"><a><i class="demo__icon demo__icon__settings"></i>Tool 2</a></li><!--
+        --><li data-priority="4"><a><i class="demo__icon demo__icon__share"></i>Tool 3</a></li><!--
+        --><li data-priority="2"><a><i class="demo__icon demo__icon__account"></i>Tool 4</a></li><!--
+        --><li data-more class="o-hierarchical-nav__parent" aria-hidden="true"><a><i class="demo__icon demo__icon__more"></i>More</a></li><!--
+    --></ul>
+</nav>
+```
+
+### Responsiveness
+
+On primary experience, all navigations use [o-squishy-list](https://github.com/Financial-Times/o-squishy-list) to set priorities to top level items and only show as many items it can to fit the available width.
+
+### Hover events
+
+Like it's explained [here](https://github.com/Financial-Times/o-hierarchical-nav#hover-events), you need to implement [o-hoverable](https://github.com/Financial-Times/o-hoverable#using-in-a-product).
+
+### Arrow icons
+
+So that your nav elements have arrows telling the user in which direction the sub-level menu is going to appear, you can add an `<i>` tag with the class `.o-hierarchical-nav__parent_down-arrow` like explained [here](https://github.com/Financial-Times/o-hierarchical-nav#arrows).
+
 ## Brands
 
 To add your brand color, you need to set the `$o-ft-header-brand-color` variable. 
 
 If you want mega-dropdowns to appear showing part of your branded secondary container, you would also need to add the class `.o-ft-header__mega-dropdown--primary` on your DOM element.
+
+## Logos
+
+If you want to have the FT logo on your website, you just need to have the following markup:
+
+```html
+<div class="o-ft-header__logo o-ft-header__logo--ft">
+    <a href="http://www.ft.com"><abbr title="Financial Times">FT</abbr></a>
+</div>
+```
+
+You can also have a 'Back to FT.com' button on your navigation based on the tools theme using this markup:
+
+```html
+<a href="http://ft.com"><i class="o-ft-header__back-to-ft">Back to FT.com</i></a>
+```
 
 ## Adjusting widths
 

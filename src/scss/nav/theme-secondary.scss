@@ -1,6 +1,7 @@
 .o-ft-header__nav--secondary-theme {
     @extend %o-hierarchical-nav--horizontal-theme;
 
+    // SASS variable that slightly tints the colour to white for selected elements
     $_o-ft-header-secondary-selected: mix($o-ft-header-brand-color, oColorsGetPaletteColor(white), 75%);
 
     a {
@@ -9,7 +10,9 @@
     }
 
     li[aria-controls][aria-expanded="true"]:after {
+            // CSS arrow for mega-dropdown
             @include oFtHeaderDownArrow($_o-ft-header-secondary-selected);
+            // Position the arrow below the secondary bar
             top: 24px;
             z-index: $_o-hierarchical-nav-mega-dropdown-zindex+1;
     }
@@ -20,6 +23,7 @@
             max-height: 25px;
         }
 
+        // Set styling for selected and hovered a tags
         [aria-selected="true"] a,
         [aria-controls][aria-expanded="true"] a,
         #{$o-hoverable-if-hover-enabled} & > li > a:hover {
@@ -29,6 +33,7 @@
         }
     }
 
+    // Padding for all a tags that aren't in the first hierarchical nav level
     [data-o-hierarchical-nav-level]:not([data-o-hierarchical-nav-level='1']) {
         a {
             padding: 10px 20px;

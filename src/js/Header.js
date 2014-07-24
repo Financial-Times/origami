@@ -7,6 +7,7 @@ function Header(rootEl) {
     "use strict";
 
     var bodyDelegate,
+        // Gets all nav elements in the header
         hierarchicalNavEls = [
             rootEl.querySelector('.o-ft-header__nav--primary-theme'),
             rootEl.querySelector('.o-ft-header__nav--secondary-theme'),
@@ -29,6 +30,7 @@ function Header(rootEl) {
         });
     }
 
+    // Release header and all its navs from memory
     function destroy() {
         bodyDelegate.destroy();
         for (var c = 0, l = hierarchicalNavs.length; c < l; c++) {
@@ -45,6 +47,7 @@ function Header(rootEl) {
 
 }
 
+// Initializes all header elements in the page or whatever element is passed to it
 Header.prototype.createAllIn = function(el) {
     'use strict';
     if (!el) {
