@@ -1,25 +1,42 @@
-@include oFtFormsClass('o-ft-forms__field[type="checkbox"]',
-'o-ft-forms__field[type="radio"]') {
+@include oFtFormsClass(
+  'o-ft-forms__field[type="checkbox"]',
+  'o-ft-forms__field[type="radio"]'
+) {
   position: absolute;
   opacity: 0; // better than display:none as it allows tabbing
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
+// styling for checkbox and radio button labels
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__checkboxradiolabel',
   '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label,
-  .o-ft-forms__field[type="radio"] + .o-ft-forms__label') {
+  .o-ft-forms__field[type="radio"] + .o-ft-forms__label'
+) {
   display: inline-block;
   margin-right: 15px;
-  padding-left: 25px;
+  padding-left: $_o-ft-forms-radiocheckbox-size + 10px;
   position: relative;
   cursor: pointer;
   font-weight: normal;
-  white-space: nowrap;
   line-height: $_o-ft-forms-radiocheckbox-size;
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
-  '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label::before,
-  .o-ft-forms__field[type="radio"] + .o-ft-forms__label::before') {
+// apply different text colour to checkboxes and radio labels on hover and focus
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-froms__checkboxradiolabel--hover',
+  '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label:hover,
+  .o-ft-forms__field[type="radio"] + .o-ft-forms__label:hover,
+  .o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label,
+  .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label'
+) {
+  color: oColorsGetColorFor(form-radiocheckbox-hover, text);
+}
+
+// styling for the border of checkboxes
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__checkboxborder',
+  '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label::before'
+) {
   position: absolute;
   left: 0;
   width: $_o-ft-forms-radiocheckbox-size;
@@ -31,14 +48,32 @@
   content: '';
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
-  '.o-ft-forms__field[type="radio"] + .o-ft-forms__label::before') {
+// radio button border styles
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__radioborder',
+  '.o-ft-forms__field[type="radio"] + .o-ft-forms__label::before'
+) {
+  @extend %o-ft-forms__checkboxborder;
   border-radius: 50%;
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
-  '.o-ft-forms__field[type="radio"]:checked + .o-ft-forms__label::after') {
-  background-color: oColorsGetColorFor(forms-section, border);
+// apply different border colour to checkboxes and radio labels on hover and focus
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__checkboxradioborder--hover',
+  '.o-ft-forms__field[type="checkbox"]:hover + .o-ft-forms__label::before,
+  .o-ft-forms__field[type="radio"]:hover + .o-ft-forms__label::before,
+  .o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label::before,
+  .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label::before'
+) {
+  border-color: oColorsGetColorFor(form-field-hover, border);
+}
+
+// styling for checked radio button
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__radio--checked',
+  '.o-ft-forms__field[type="radio"]:checked + .o-ft-forms__label::after'
+) {
+  background-color: oColorsGetColorFor(form-radiocheckbox-checked, background);
   content: '';
   height: $_o-ft-forms-radio-internal-size;
   width: $_o-ft-forms-radio-internal-size;
@@ -48,12 +83,20 @@
   top: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-radio-internal-size) / 2;
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__checkboxradiolabel',
-  '.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label::after') {
-  content: "\2714";
+// styling for checked checkbox
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__checkbox--checked',
+  '.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label::after'
+) {
+  @include oFtIconsBaseIconStyles();
+  // FIXME There's currently no way to get the codepoint of an icon from o-ft-icons
+  // We can't extend one of the placeholders o-ft-icons provides either
+  // As it requires a dedicated element in the DOM to apply styles to
+  content: '\f135';
   font-size: $_o-ft-forms-checkbox-ticksize;
   font-weight: bold;
-  color: oColorsGetColorFor(forms-section, border);
+  color: oColorsGetColorFor(form-radiocheckbox-checked, background);
   position: absolute;
-  left: $_o-ft-forms-radiocheckbox-size - $_o-ft-forms-checkbox-ticksize;
+  left: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-checkbox-ticksize) / 2;
+  top: 0;
 }
