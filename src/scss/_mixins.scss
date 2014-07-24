@@ -12,11 +12,11 @@
   font-size: $_o-ft-form-field-big-fontsize;
   outline: none;
 }
-  
+
 @mixin commonFieldFocus() {
     border-color: oColorsGetColorFor(form-field-hover form-field-selected, border);
 }
-  
+
 @mixin commonFieldDisabled() {
     border-color: oColorsGetColorFor(form-field-disabled, border);
     background-color: oColorsGetColorFor(form-field-disabled, background);
@@ -33,6 +33,24 @@
   -webkit-box-sizing: $value;
   -moz-box-sizing: $value;
   box-sizing: $value;
+}
+
+@mixin border-radius($radiusTop: 5px, $radiusBottom: 0){
+
+  -webkit-border-top-left-radius: $radiusTop;
+  -webkit-border-top-right-radius: $radiusTop;
+  -webkit-border-bottom-right-radius: $radiusBottom;
+  -webkit-border-bottom-left-radius: $radiusBottom;
+
+  -moz-border-radius-topleft: $radiusTop;
+  -moz-border-radius-topright: $radiusTop;
+  -moz-border-radius-bottomright: $radiusBottom;
+  -moz-border-radius-bottomleft: $radiusBottom;
+
+  border-top-left-radius: $radiusTop;
+  border-top-right-radius: $radiusTop;
+  border-bottom-right-radius: $radiusBottom;
+  border-bottom-left-radius: $radiusBottom;
 }
 
 @mixin oFtFormsClass($classes...) {

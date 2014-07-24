@@ -1,0 +1,19 @@
+@include oFtFormsClass(o-ft-forms__section--error) {
+    background-color: #fad8c9;
+    // color to be added to palette and use case to be added to o-colors
+   // background: oColorsGetColorFor(error-section, background);
+}
+
+@include oFtFormsClass('o-ft-forms-section__message--error', 'o-ft-forms__global-message--error') {
+    margin: 0 0 16px;
+    background-color: oColorsGetColorFor(error-global, background);
+    padding: 0 8px;
+
+    p {
+        padding: 8px 0;
+        margin: 0;
+        color:oColorsGetColorFor(error-global, text);
+        font-size: 14px;
+        font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+    }
+}
