@@ -6,7 +6,9 @@
     "supportStatus": "active",
     "browserFeatures": {
         "required": [
-            "classlist"
+            "classlist",
+            "unknownelements",
+            "es5array"
         ],
         "optional": [
             "svg",
