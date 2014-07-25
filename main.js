@@ -45,7 +45,7 @@ function compile (format) {
         return replacer ? '" + ' + replacer + ' + "' : match;
     }) + '"';
 
-    return Function('date', funcString);
+    return (compiledTemplates[format] = Function('date', funcString));
 }
 
 function toDate (date) {
