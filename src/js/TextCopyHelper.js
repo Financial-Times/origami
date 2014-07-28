@@ -9,6 +9,7 @@ function TextCopyHelper(config) {
 
     var bodyDomDelegate,
         inputDomDelegate,
+        parentElDomDelegate,
         inputEl,
         inputWidth,
         tooltip;
@@ -31,26 +32,24 @@ function TextCopyHelper(config) {
     if (inputWidth !== -1) {
         inputEl.style.width = inputWidth + 'px';
     }
-    inputEl.focus();
     inputEl.select();
     tooltip = new ToolTip(config.message, config.parentEl);
     bodyDomDelegate = new DomDelegate(document.body);
     inputDomDelegate = new DomDelegate(inputEl);
-    bodyDomDelegate.on('click', function handleBodyClick(ev) {
+    bodyDomDelegate.on('click', function(ev) {
         if (!config.parentEl.contains(ev.target)) {
             close();
         }
     });
-    inputDomDelegate.on('blur', close);
+    bodyDomDelegate.on('keyup', function (ev) {
+        if (ev.keyCode === 27 || ev.keyCode === 9) {
+            close();
+        }
+    });
     inputDomDelegate.on('copy', function() {
         tooltip.setText('Copied!');
         if (typeof config.onCopy === "function") {
             config.onCopy();
-        }
-    });
-    inputDomDelegate.on('keyup', function (ev) {
-        if (ev.keyCode === 27) {
-            inputEl.blur();
         }
     });
 }
