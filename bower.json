@@ -1,0 +1,20 @@
+{
+  "name": "o-livefyre-comment-client",
+  "version": "0.1.0-pre1",
+  "main": "main.js",
+  "dependencies": {
+    "o-comments-data": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comments-data.git",
+    "comments-ui": "git+http://git.svc.ft.com:8080/scm/strat_p/comments-ui.git",
+    "js-scriptLoader": "git+http://git.svc.ft.com:8080/scm/strat_p/js-scriptloader.git#^0.1.0",
+    "js-events": "git+http://git.svc.ft.com:8080/scm/strat_p/js-events.git#^0.1.0",
+    "js-env-config": "git+http://git.svc.ft.com:8080/scm/strat_p/js-env-config.git#^0.1.0",
+    "js-logger": "git+http://git.svc.ft.com:8080/scm/strat_p/js-logger.git#^1.0.0",
+    "sizzle": "https://github.com/jquery/sizzle.git",
+    "hogan": "git+https://github.com/twitter/hogan.js.git#3.0.0"
+  },
+  "ignore": [
+    "node_modules",
+    "tests",
+    "Gruntfile.js"
+  ]
+}

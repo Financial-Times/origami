@@ -1,0 +1,9 @@
+{
+    "description": "Livefyre comment widget integration with FT.",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "hyperion@ft.com",
+    "supportStatus": "not implemented",
+    "ci": {},
+    "browserFeatures": {}
+}

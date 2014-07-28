@@ -1,0 +1,29 @@
+{
+  "name": "o-livefyre-comment-client",
+  "version": "0.1.0-pre1",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-uglify": "~0.3.3",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-browserify": "~2.0.7",
+    "grunt-shell": "~0.6.4",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-qunit": "~0.4.0",
+    "grunt-qunit-junit": "~0.1.0",
+    "debowerify": ">=0.5.1 <1",
+    "jshint-junit-reporter": "~0.0.6",
+    "textrequireify": "^1.0.0",
+
+    "doxx": "~0.7.4",
+
+    "gruntmodule-bower": "git+http://git.svc.ft.com:8080/scm/strat_p/gruntmodule-bower.git",
+    "gruntmodule-js-doc": "git+http://git.svc.ft.com:8080/scm/strat_p/gruntmodule-js-doc.git",
+    "gruntmodule-jshint": "git+http://git.svc.ft.com:8080/scm/strat_p/gruntmodule-jshint.git",
+    "gruntmodule-browserify-build": "git+http://git.svc.ft.com:8080/scm/strat_p/gruntmodule-browserify-build.git",
+    "gruntmodule-aggregator": "git+http://git.svc.ft.com:8080/scm/strat_p/gruntmodule-aggregator.git",
+    "gruntmodule-qunit": "git+http://git.svc.ft.com:8080/scm/strat_p/gruntmodule-qunit.git"
+  }
+}
