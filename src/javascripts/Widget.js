@@ -53,7 +53,7 @@ function Widget () {
     };
 
     this.init = function (callback) {
-        oCommentsData.getLivefyreInitConfig(self.config, function (err, initData) {
+        oCommentsData.api.getLivefyreInitConfig(self.config, function (err, initData) {
             if (err) {
                 callback(err);
                 return;
@@ -82,7 +82,7 @@ function Widget () {
                     }
                 }
 
-                oCommentsData.getAuth(function (err, authData) {
+                oCommentsData.api.getAuth(function (err, authData) {
                     if (err) {
                         authData = null;
                     }
