@@ -21,6 +21,14 @@
   line-height: $_o-ft-forms-radiocheckbox-size;
 }
 
+// include the base icon styles for the checkbox
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__checkboxlabel',
+  '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label'
+) {
+  @include oFtIconsBaseIconStyles();
+}
+
 // apply different text colour to checkboxes and radio labels on hover and focus
 @include oFtFormsPlaceholderOptionalSelector(
   '%o-ft-froms__checkboxradiolabel--hover',
@@ -88,7 +96,6 @@
   '%o-ft-forms__checkbox--checked',
   '.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label::after'
 ) {
-  @include oFtIconsBaseIconStyles();
   // FIXME There's currently no way to get the codepoint of an icon from o-ft-icons
   // We can't extend one of the placeholders o-ft-icons provides either
   // As it requires a dedicated element in the DOM to apply styles to
