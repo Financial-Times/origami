@@ -240,12 +240,12 @@
                             self.trigger('loaded.widget', widget);
 
                             widget.on('initialRenderComplete', function () {
-                                self.trigger('initialRenderComplete.widget');
-
                                 auth.getInstance().on('login.auth', login);
                                 auth.getInstance().on('logout.auth', logout);
 
                                 self.ui.addTermsAndGuidelineMessage();
+
+                                self.trigger('initialRenderComplete.widget');
                             });
 
                             var siteId = parseInt(initData.siteId, 10);
