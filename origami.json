@@ -2,8 +2,8 @@
     "description": "Module for tracking FT.",
     "origamiType": "module",
     "origamiVersion": 1,
-    "support": "web.team@ft.com",
-    "supportStatus": "not implemented",
+    "support": "arjun.gadhia@ft.com",
+    "supportStatus": "experimental",
     "demos": [
         "examples/1_init.html",
         "examples/2_page.html",
