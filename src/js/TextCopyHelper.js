@@ -9,7 +9,6 @@ function TextCopyHelper(config) {
 
     var bodyDomDelegate,
         inputDomDelegate,
-        parentElDomDelegate,
         inputEl,
         inputWidth,
         tooltip;
