@@ -9,6 +9,9 @@ This module provides:
 
 It does not contain the web font files, which are contained in a separate, private repository (`o-fonts-assets`). The documentation below assumes the font assets have already been added to that.
 
+# Browser support
+This module has been verified in Internet Explorer 7+, modern desktop browsers (Chrome, Safari, Firefox, ...) and mobile browsers (Android browser, iOS safari, Chrome mobile).
+
 ## Adding a new font family or variant
 
 Open `src/scss/_variables` in a text editor. Add the font family name (if it's an entirely new family) and the variant styles to the `$_o-fonts-families` map:
