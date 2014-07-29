@@ -30,7 +30,7 @@ exports.showSetPseudonymDialog = function (onSuccess, onFailure) {
                     }
 
 
-                    oCommentsData.getAuth({
+                    oCommentsData.api.getAuth({
                         force: true
                     }, function (err, authData) {
                         if (err) {
@@ -79,7 +79,7 @@ exports.showEmailAlertDialog = function () {
                         return;
                     }
 
-                    oCommentsData.getAuth({
+                    oCommentsData.api.getAuth({
                         force: true
                     }, function (err) {
                         if (err) {
@@ -121,7 +121,7 @@ exports.showSettingsDialog = function (currentSettings, onSuccess, onFailure) {
                         return;
                     }
 
-                    oCommentsData.getAuth({
+                    oCommentsData.api.getAuth({
                         force: true
                     }, function (err, authData) {
                         if (err) {
