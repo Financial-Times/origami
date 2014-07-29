@@ -57,7 +57,7 @@ function WidgetUi (widgetContainer) {
         var authContainer = sizzle('.fyre-auth', widgetContainer);
 
         if (authContainer.length) {
-            authContainer[0].appendChild(commentsUi.uiUtils.toDOM(commentsUi.templates.unavailableTemplate.render({
+            authContainer[0].appendChild(commentsUi.utils.toDOM(commentsUi.templates.unavailableTemplate.render({
                 message: commentsUi.i18n.texts.unavailable
             })));
         }
@@ -76,7 +76,7 @@ function WidgetUi (widgetContainer) {
                 editorContainers[i]
                     .parentNode
                     .insertBefore(
-                        commentsUi.uiUtils.toDOM(commentsUi.templates.termsAndGuidelinesTemplate.render()),
+                        commentsUi.utils.toDOM(commentsUi.templates.termsAndGuidelinesTemplate.render()),
                         editorContainers[i].nextSibling
                     );
             }
@@ -106,12 +106,12 @@ function WidgetUi (widgetContainer) {
 
                     var loginBarContainer = sizzle('.fyre-auth .fyre-login-bar', widgetContainer);
                     if (loginBarContainer.length) {
-                        loginBarContainer[0].appendChild(commentsUi.uiUtils.toDOM(commentsUi.templates.commentingSettingsLink.render()));
+                        loginBarContainer[0].appendChild(commentsUi.utils.toDOM(commentsUi.templates.commentingSettingsLink.render()));
                     }
 
                     var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comments-settings-text', widgetContainer);
                     if (settingsLink.length) {
-                        commentsUi.uiUtils.addEventListener('click', settingsLink[0], function () {
+                        commentsUi.utils.addEventListener('click', settingsLink[0], function () {
                             if (options && typeof options.onClick === 'function') {
                                 options.onClick();
                             }
