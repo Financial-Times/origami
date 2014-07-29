@@ -179,7 +179,38 @@ function Widget () {
     function login () {
         self.ui.addSettingsLink({
             onClick: function () {
-                commentsUi.userDialogs.showSettingsDialog();
+                oCommentsData.api.getAuth(function (err, authData) {
+                    if (err) {
+                        authData = null;
+
+                        // TODO
+                        return;
+                    }
+
+                    commentsUi.userDialogs.showSettingsDialog(authData, function (formData, responseCallback) {
+                        if (formData) {
+                            oCommentsData.api.updateUser(formData, function (err) {
+                                if (err) {
+                                    if (typeof err === 'object' && err.sudsError) {
+                                        if (commentsUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
+                                            responseCallback(commentsUi.i18n.serviceMessageOverrides[err.error]);
+                                        } else {
+                                            responseCallback(err.error);
+                                        }
+                                    } else {
+                                        responseCallback(commentsUi.i18n.texts.changePseudonymError);
+                                    }
+                                    
+                                    return;
+                                }
+
+                                responseCallback();
+                            });
+                        } else {
+                            responseCallback(commentsUi.i18n.texts.changePseudonymError);
+                        }
+                    });
+                });
             }
         });
     }
