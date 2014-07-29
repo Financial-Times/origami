@@ -1,0 +1,16 @@
+{
+	"options": {
+		"sass": "demos/src/demo.scss",
+		"bodyClasses": "o-techdocs o-techdocs-content"
+	},
+	"demos": [
+		{
+			"name": "palette",
+			"template": "demos/src/palette.mustache"
+		},
+		{
+			"name": "use-cases",
+			"template": "demos/src/use-cases.mustache"
+		}
+	]
+}

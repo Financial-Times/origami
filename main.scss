@@ -2,6 +2,7 @@
 $o-colors-is-silent: true !default;
 
 @import 'src/scss/functions';
+@import 'src/scss/mixins';
 @import 'src/scss/palette';
 @import 'src/scss/use-cases';
 
@@ -13,13 +14,13 @@ $o-colors-is-silent: true !default;
 	}
 	%#{$selector} {
 		@if nth($usecase,3) == text or nth($usecase,3) == all {
-			color: _oColorsGetPaletteColor(nth($usecase,2));
+			color: oColorsGetPaletteColor(nth($usecase,2));
 		}
 		@if nth($usecase,3) == background or nth($usecase,3) == all {
-			background-color: _oColorsGetPaletteColor(nth($usecase,2));
+			background-color: oColorsGetPaletteColor(nth($usecase,2));
 		}
 		@if nth($usecase,3) == border or nth($usecase,3) == all {
-			border-color: _oColorsGetPaletteColor(nth($usecase,2));
+			border-color: oColorsGetPaletteColor(nth($usecase,2));
 		}
 	}
 }
