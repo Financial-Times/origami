@@ -107,7 +107,7 @@ function WidgetUi (widgetContainer) {
                     var loginBarContainer = sizzle('.fyre-auth .fyre-login-bar', widgetContainer);
                     if (loginBarContainer.length) {
                         loginBarContainer[0].appendChild(commentsUi.utils.toDOM(commentsUi.templates.commentingSettingsLink.render({
-                            label: commentsUi.i18n.commentingSettingsLabel
+                            label: commentsUi.i18n.texts.commentingSettingsLabel
                         })));
                     }
 
