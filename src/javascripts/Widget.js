@@ -2,7 +2,6 @@ var resourceLoader = require('./resourceLoader.js'),
     auth = require('./auth.js'),
     envConfig = require('./config.js'),
     WidgetUi = require('./WidgetUi.js'),
-    userDialogs = require('./userDialogs.js'),
 
     commentsUi = require('comments-ui'),
     oCommentsData = require('o-comments-data');
@@ -180,16 +179,7 @@ function Widget () {
     function login () {
         self.ui.addSettingsLink({
             onClick: function () {
-                oCommentsData.api.getAuth(function (err, authData) {
-                    if (err) {
-                        authData = null;
-
-                        userDialogs.showInactivityMessage();
-                        return;
-                    }
-
-                    userDialogs.showSettingsDialog(authData);
-                });
+                self.trigger('settingsLinkClick.comments');
             }
         });
     }

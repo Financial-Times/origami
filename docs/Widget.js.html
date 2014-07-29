@@ -312,16 +312,7 @@
           <pre><code class="language-javascript">function login () {
         self.ui.addSettingsLink({
             onClick: function () {
-                oCommentsData.api.getAuth(function (err, authData) {
-                    if (err) {
-                        authData = null;
-
-                        userDialogs.showInactivityMessage();
-                        return;
-                    }
-
-                    userDialogs.showSettingsDialog(authData);
-                });
+                self.trigger('settingsLinkClick.comments');
             }
         });
     }</code></pre>

@@ -144,11 +144,3 @@ exports.showSettingsDialog = function (currentSettings, onSuccess, onFailure) {
         }
     );
 };
-
-exports.showInactivityMessage = function () {
-    "use strict";
-
-    commentsUi.userDialogs.showInactivityMessage(function () {
-        window.location.href = 'https://registration.ft.com/registration/barrier/login?location='+ encodeURIComponent(document.location.href);
-    });
-};
