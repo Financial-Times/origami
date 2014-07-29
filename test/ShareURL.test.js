@@ -35,15 +35,15 @@ describe("share url behaviour", function() {
         expect(shareLinksEl.querySelector('.o-share__action--url .o-share-tooltip__text').innerText).toBe('Copied!');
     });
 
-    it("share URL tool - closes on blur", function() {
-        triggerEvent(shareLinksEl.querySelector('.o-share__action--url input'), 'blur');
+    it("share URL tool - closes on pressing escape", function() {
+        triggerEvent(shareLinksEl.querySelector('.o-share__action--url input'), 'keyup', { keyCode: 27 });
         expect(shareLinksEl.querySelector('.o-share__action--url').hasAttribute('aria-selected')).toBe(false);
         expect(shareLinksEl.querySelectorAll('.o-share__action--url input').length).toBe(0);
         expect(shareLinksEl.querySelectorAll('.o-share__action--url .o-share-tooltip').length).toBe(0);
     });
 
-    it("share URL tool - closes on pressing escape", function() {
-        triggerEvent(shareLinksEl.querySelector('.o-share__action--url input'), 'keyup', { keyCode: 27 });
+    it("share URL tool - closes on pressing tav", function() {
+        triggerEvent(shareLinksEl.querySelector('.o-share__action--url input'), 'keyup', { keyCode: 9 });
         expect(shareLinksEl.querySelector('.o-share__action--url').hasAttribute('aria-selected')).toBe(false);
         expect(shareLinksEl.querySelectorAll('.o-share__action--url input').length).toBe(0);
         expect(shareLinksEl.querySelectorAll('.o-share__action--url .o-share-tooltip').length).toBe(0);
