@@ -1,8 +1,0 @@
-@function oFtIconsGetSelectors($icon) {
-	$aggregated-selector: ();
-	$aggregated-selector: append($aggregated-selector, #{'%o-ft-icons-#{$icon}'}, comma);
-	@if (not $o-ft-icons-is-silent) {
-		$aggregated-selector: append($aggregated-selector, #{'.o-ft-icons-#{$icon}'}, comma);
-	}
-	@return $aggregated-selector;
-}
