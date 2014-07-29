@@ -72,160 +72,146 @@
         <div class="span3 bs-docs-sidebar">
           <ul class="nav nav-list bs-docs-sidenav affix-top">
             <li><a href="index.html">Main</a></li>
-            <li class="active"><a href="auth.js.html">auth.js</a></li>
+            <li><a href="auth.js.html">auth.js</a></li>
             <li><a href="config.js.html">config.js</a></li>
             <li><a href="i18n.js.html">i18n.js</a></li>
             <li><a href="main.js.html">main.js</a></li>
             <li><a href="resourceLoader.js.html">resourceLoader.js</a></li>
-            <li><a href="userDialogs.js.html">userDialogs.js</a></li>
+            <li class="active"><a href="userDialogs.js.html">userDialogs.js</a></li>
             <li><a href="utils.js.html">utils.js</a></li>
             <li><a href="Widget.js.html">Widget.js</a></li>
             <li><a href="WidgetUi.js.html">WidgetUi.js</a></li>
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#logger"><i class="alert alert-success"></i><span>logger</span></a>
-              </li>
-              <li><a href="#Auth"><i class="alert alert-info"></i><span>Auth</span></a>
-              </li>
-              <li><a href="#authDelegate"><i class="alert alert-success"></i><span>authDelegate</span></a>
-              </li>
-              <li><a href="#getAuthDelegate"><i class="alert alert-info"></i><span>getAuthDelegate</span></a>
-              </li>
-              <li><a href="#login"><i class="alert alert-info"></i><span>login</span></a>
-              </li>
-              <li><a href="#logout"><i class="alert alert-info"></i><span>logout</span></a>
+              <li><a href="#commentsUi"><i class="alert alert-success"></i><span>commentsUi</span></a>
               </li>
             </ul>
           </div>
         </div>
         <div class="span9">
-          <section id="logger">
-            <h1>logger</h1>
+          <section id="commentsUi">
+            <h1>commentsUi</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-success radius ctx-type">declaration</div><span>logger</span>
+              <div class="label label-success radius ctx-type">declaration</div><span>commentsUi</span>
             </p>
           </section>
-          <div class="description"><p>global fyre</p> </div>
-          <pre><code class="language-javascript">var logger = require('js-logger'),
-    Events = require('js-events');</code></pre>
-          <section id="Auth">
-            <h1>Auth</h1>
-            <h5 class="subheader"></h5>
-            <p>
-              <div class="label label-info radius ctx-type">function</div><span>Auth()</span>
-            </p>
-          </section>
-          <table class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th style="width:20%">Option name</th>
-                <th style="width:20%">Type</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>lfObj</td>
-                <td>fyre</td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="description"><p>Auth creates Livefyre RemoteAuthDelegate, also provides login and logout into Livefyre.</p> </div>
-          <pre><code class="language-javascript">function Auth (lfObj) {
-    &quot;use strict&quot;;</code></pre>
-          <section id="authDelegate">
-            <h1>authDelegate</h1>
-            <h5 class="subheader"></h5>
-            <p>
-              <div class="label label-success radius ctx-type">declaration</div><span>authDelegate</span>
-            </p>
-          </section>
-          <div class="description"><p>See <a href='http://docs.livefyre.com/developers/user-auth/remote-profiles/#BuildingAuthDelegate'>http://docs.livefyre.com/developers/user-auth/remote-profiles/#BuildingAuthDelegate</a></p> </div>
-          <pre><code class="language-javascript">var authDelegate = new lfObj.conv.RemoteAuthDelegate();
+          <div class="description"> </div>
+          <pre><code class="language-javascript">var commentsUi = require('comments-ui');
+var oCommentsData = require('o-comments-data');
+var utils = require('./utils.js');
 
-    var event = new Events();
+exports.showSetPseudonymDialog = function (delegate) {
+    &quot;use strict&quot;;
 
-    this.on = event.on;
-    this.off = event.off;</code></pre>
-          <section id="getAuthDelegate">
-            <h1>getAuthDelegate</h1>
-            <h5 class="subheader"></h5>
-            <p>
-              <div class="label label-info radius ctx-type">method</div><span>this.getAuthDelegate()</span> -><span>RemoteAuthDelegate</span>
-            </p>
-          </section>
-          <div class="description"><p>Get the RemoteAuthDelegate instance.</p> </div>
-          <pre><code class="language-javascript">this.getAuthDelegate = function () {
-        return authDelegate;
-    };</code></pre>
-          <section id="login">
-            <h1>login</h1>
-            <h5 class="subheader"></h5>
-            <p>
-              <div class="label label-info radius ctx-type">method</div><span>this.login()</span>
-            </p>
-          </section>
-          <table class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th style="width:20%">Option name</th>
-                <th style="width:20%">Type</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>See</td>
-                <td>object</td>
-                <td>http://docs.livefyre.com/developers/getting-started/tokens/auth/#flex-step-1-user-auth-json-object</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="description"><p>Logs in the user in the Livefyre system.</p> </div>
-          <pre><code class="language-javascript">this.login = function (token) {
-        logger.log('login called with token', token);
+    commentsUi.userDialogs.showSetPseudonymDialog(
+        // onSubmit
+        function (formData, responseCallback) {
+            if (formData &amp;&amp; formData.pseudonym) {
+                oCommentsData.api.updateUser({
+                    pseudonym: formData.pseudonym
+                }, function (err) {
+                    if (err) {
+                        if (typeof err === 'object' &amp;&amp; err.sudsError) {
+                            if (commentsUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
+                                responseCallback(commentsUi.i18n.serviceMessageOverrides[err.error]);
+                            } else {
+                                responseCallback(err.error);
+                            }
+                        } else {
+                            responseCallback(commentsUi.i18n.texts.changePseudonymError);
+                        }
+                        
+                        return;
+                    }
 
-        var response = lfObj.conv.login(token);
-        event.trigger('login.auth', token);
+                    if (delegate) {
+                        delegate.success();
+                    }
+                    responseCallback();
+                });
+            } else {
+                responseCallback(commentsUi.i18n.texts.changePseudonymError);
+            }
+        },
 
-        return response;
-    };</code></pre>
-          <section id="logout">
-            <h1>logout</h1>
-            <h5 class="subheader"></h5>
-            <p>
-              <div class="label label-info radius ctx-type">method</div><span>this.logout()</span>
-            </p>
-          </section>
-          <div class="description"><p>Logs out the user in the Livefyre system, and also clears the token from the local cache.</p> </div>
-          <pre><code class="language-javascript">this.logout = function () {
-        var response = lfObj.conv.logout();
-        event.trigger('logout.auth');
-
-        return response;
-    };
-}
-
-
-var instance;
-module.exports = {
-    getInstance: function () {
-        &quot;use strict&quot;;
-
-        if (typeof fyre === 'undefined') {
-            return undefined;
+        // onClose
+        function () {
+            if (delegate) {
+                delegate.success();
+            }
+            utils.emptyLivefyreActionQueue();
         }
+    );
+};
 
-        if (typeof instance !== 'undefined') {
-            return instance;
+
+exports.showEmailAlertDialog = function () {
+    &quot;use strict&quot;;
+
+    commentsUi.userDialogs.showEmailAlertDialog(
+        // onSubmit
+        function (formData, responseCallback) {
+            if (formData) {
+                oCommentsData.api.updateUser(formData, function (err) {
+                    if (err) {
+                        if (typeof err === 'object' &amp;&amp; err.sudsError) {
+                            if (commentsUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
+                                responseCallback(commentsUi.i18n.serviceMessageOverrides[err.error]);
+                            } else {
+                                responseCallback(err.error);
+                            }
+                        } else {
+                            responseCallback(commentsUi.i18n.texts.changePseudonymError);
+                        }
+                        
+                        return;
+                    }
+
+                    responseCallback();
+                });
+            } else {
+                responseCallback(commentsUi.i18n.texts.changePseudonymError);
+            }
         }
+    );
+};
 
-        instance = new Auth(fyre);
-        return instance;
-    }
+exports.showSettingsDialog = function (currentSettings) {
+    &quot;use strict&quot;;
+
+    commentsUi.userDialogs.showSettingsDialog(currentSettings, function (formData, responseCallback) {
+        if (formData) {
+            oCommentsData.api.updateUser(formData, function (err) {
+                if (err) {
+                    if (typeof err === 'object' &amp;&amp; err.sudsError) {
+                        if (commentsUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
+                            responseCallback(commentsUi.i18n.serviceMessageOverrides[err.error]);
+                        } else {
+                            responseCallback(err.error);
+                        }
+                    } else {
+                        responseCallback(commentsUi.i18n.texts.changePseudonymError);
+                    }
+                    
+                    return;
+                }
+
+                responseCallback();
+            });
+        } else {
+            responseCallback(commentsUi.i18n.texts.changePseudonymError);
+        }
+    });
+};
+
+exports.showInactivityMessage = function () {
+    &quot;use strict&quot;;
+
+    commentsUi.userDialogs.showInactivityMessage(function () {
+        window.location.href = 'https://registration.ft.com/registration/barrier/login?location='+ encodeURIComponent(document.location.href);
+    });
 };</code></pre>
         </div>
       </div>

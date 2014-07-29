@@ -2,6 +2,7 @@ var resourceLoader = require('./resourceLoader.js'),
     auth = require('./auth.js'),
     envConfig = require('./config.js'),
     WidgetUi = require('./WidgetUi.js'),
+    userDialogs = require('./userDialogs.js'),
 
     commentsUi = require('comments-ui'),
     oCommentsData = require('o-comments-data');
@@ -183,33 +184,11 @@ function Widget () {
                     if (err) {
                         authData = null;
 
-                        // TODO
+                        userDialogs.showInactivityMessage();
                         return;
                     }
 
-                    commentsUi.userDialogs.showSettingsDialog(authData, function (formData, responseCallback) {
-                        if (formData) {
-                            oCommentsData.api.updateUser(formData, function (err) {
-                                if (err) {
-                                    if (typeof err === 'object' && err.sudsError) {
-                                        if (commentsUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
-                                            responseCallback(commentsUi.i18n.serviceMessageOverrides[err.error]);
-                                        } else {
-                                            responseCallback(err.error);
-                                        }
-                                    } else {
-                                        responseCallback(commentsUi.i18n.texts.changePseudonymError);
-                                    }
-                                    
-                                    return;
-                                }
-
-                                responseCallback();
-                            });
-                        } else {
-                            responseCallback(commentsUi.i18n.texts.changePseudonymError);
-                        }
-                    });
+                    userDialogs.showSettingsDialog(authData);
                 });
             }
         });

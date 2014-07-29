@@ -77,6 +77,7 @@
             <li><a href="i18n.js.html">i18n.js</a></li>
             <li><a href="main.js.html">main.js</a></li>
             <li><a href="resourceLoader.js.html">resourceLoader.js</a></li>
+            <li><a href="userDialogs.js.html">userDialogs.js</a></li>
             <li><a href="utils.js.html">utils.js</a></li>
             <li class="active"><a href="Widget.js.html">Widget.js</a></li>
             <li><a href="WidgetUi.js.html">WidgetUi.js</a></li>
@@ -311,7 +312,16 @@
           <pre><code class="language-javascript">function login () {
         self.ui.addSettingsLink({
             onClick: function () {
-                commentsUi.userDialogs.showSettingsDialog();
+                oCommentsData.api.getAuth(function (err, authData) {
+                    if (err) {
+                        authData = null;
+
+                        userDialogs.showInactivityMessage();
+                        return;
+                    }
+
+                    userDialogs.showSettingsDialog(authData);
+                });
             }
         });
     }</code></pre>

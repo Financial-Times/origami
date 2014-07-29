@@ -65,6 +65,8 @@ module.exports = {
 
     WidgetUi: require('./src/javascripts/WidgetUi.js'),
 
+    userDialogs: require('./src/javascripts/userDialogs.js'),
+
     /**
      * utils.js exposed.
      * @type {object}
