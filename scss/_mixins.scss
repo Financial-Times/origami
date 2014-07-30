@@ -1,3 +1,12 @@
+@function oFtIconsGetSelectors($icon) {
+	$aggregated-selector: ();
+	$aggregated-selector: append($aggregated-selector, #{'%o-ft-icons-#{$icon}'}, comma);
+	@if (not $o-ft-icons-is-silent) {
+		$aggregated-selector: append($aggregated-selector, #{'.o-ft-icons-#{$icon}'}, comma);
+	}
+	@return $aggregated-selector;
+}
+
 @mixin oFtIconsFontFace() {
 	@if (not $_o-ft-icons-font-face-already-output) {
 		$_o-ft-icons-font-face-already-output: true;
@@ -29,19 +38,27 @@
 }
 
 // Placeholder (and optionally concrete class) for individual icon (modern browsers)
-@mixin oFtIconsIcon($icon, $content, $placement: 'before') {
-	$icon-selectors: oFtIconsGetSelectors("#{$icon}:#{$placement}");
+@mixin _oFtIconsStandardsIcon($icon-class, $character-code, $placement: 'before') {
+	$icon-selectors: oFtIconsGetSelectors("#{$icon-class}:#{$placement}");
 	#{$icon-selectors} {
-		content: $content;
+		// a hack to enable outputting of a single backslash; escaping in sass is a bit of a mess!
+		content: str-slice("\x",1,1) + $character-code;
 	}
 }
 
 // Placeholder (and optionally concrete class) for individual icon (IE7 hack)
-@mixin oFtIconsIconIe7($icon, $content) {
-	$icon-selectors: oFtIconsGetSelectors($icon);
-	@include oUseragentTarget(ie7) {
+@mixin _oFtIconsIe7Icon($icon-class, $character-code) {
+
+	$icon-selectors: oFtIconsGetSelectors($icon-class);
+ 	@include oUseragentTarget(ie7) {
 		#{$icon-selectors} {
-			*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '#{$content}');
+			*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '#{"&#x#{$character-code};&nbsp;"}');
 		}
-	}
+ 	}
+}
+
+@mixin oFtIconsIcon ($icon-name, $character-code) {
+	@include _oFtIconsIe7Icon(icon--#{$icon-name}, $character-code);
+	@include _oFtIconsStandardsIcon(icon--#{$icon-name}, $character-code);
+	@include _oFtIconsStandardsIcon(icon--#{$icon-name}--after, $character-code, after);
 }
