@@ -115,7 +115,7 @@ var createAllIn = function(el) {
     if (!el) {
         el = document.body;
     }
-    var dateEls = el.querySelectorAll('[data-o-component="o-date"]');
+    var dateEls = el.querySelectorAll('[data-o-component~="o-date"]');
     for (var i = 0; i < dateEls.length; i++) {
         init(dateEls[i]);
     }
