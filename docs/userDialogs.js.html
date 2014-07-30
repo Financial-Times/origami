@@ -102,15 +102,18 @@
 var oCommentsData = require('o-comments-data');
 var utils = require('./utils.js');
 
-exports.showSetPseudonymDialog = function (onSuccess, onFailure) {
+exports.showSetPseudonymDialog = function (callbacks) {
     &quot;use strict&quot;;
 
-    onSuccess = onSuccess || function () {};
-    onFailure = onFailure || function () {};
+    if (!callbacks || typeof callbacks !== 'object') {
+        callbacks = {};
+    }
 
-    commentsUi.userDialogs.showSetPseudonymDialog(
-        // onSubmit
-        function (formData, responseCallback) {
+    callbacks.onSuccess = callbacks.onSuccess || function () {};
+    callbacks.onFailure = callbacks.onFailure || function () {};
+
+    commentsUi.userDialogs.showSetPseudonymDialog({
+        submit: function (formData, responseCallback) {
             if (formData &amp;&amp; formData.pseudonym) {
                 oCommentsData.api.updateUser({
                     pseudonym: formData.pseudonym
@@ -135,11 +138,11 @@ exports.showSetPseudonymDialog = function (onSuccess, onFailure) {
                     }, function (err, authData) {
                         if (err) {
                             responseCallback(commentsUi.i18n.texts.changePseudonymError);
-                            onFailure();
+                            callbacks.onFailure();
                             return;
                         }
 
-                        onSuccess(authData);
+                        callbacks.onSuccess(authData);
                         responseCallback();
                     });
                 });
@@ -147,22 +150,19 @@ exports.showSetPseudonymDialog = function (onSuccess, onFailure) {
                 responseCallback(commentsUi.i18n.texts.changePseudonymError);
             }
         },
-
-        // onClose
-        function () {
-            onFailure();
+        close: function () {
+            callbacks.onFailure();
             utils.emptyLivefyreActionQueue();
         }
-    );
+    });
 };
 
 
 exports.showEmailAlertDialog = function () {
     &quot;use strict&quot;;
 
-    commentsUi.userDialogs.showEmailAlertDialog(
-        // onSubmit
-        function (formData, responseCallback) {
+    commentsUi.userDialogs.showEmailAlertDialog({
+        submit: function (formData, responseCallback) {
             if (formData) {
                 oCommentsData.api.updateUser(formData, function (err) {
                     if (err) {
@@ -194,17 +194,21 @@ exports.showEmailAlertDialog = function () {
                 responseCallback(commentsUi.i18n.texts.genericError);
             }
         }
-    );
+    });
 };
 
-exports.showSettingsDialog = function (currentSettings, onSuccess, onFailure) {
+exports.showSettingsDialog = function (currentSettings, callbacks) {
     &quot;use strict&quot;;
 
-    onSuccess = onSuccess || function () {};
-    onFailure = onFailure || function () {};
+    if (!callbacks || typeof callbacks !== 'object') {
+        callbacks = {};
+    }
 
-    commentsUi.userDialogs.showSettingsDialog(currentSettings,
-        function (formData, responseCallback) {
+    callbacks.onSuccess = callbacks.onSuccess || function () {};
+    callbacks.onFailure = callbacks.onFailure || function () {};
+
+    commentsUi.userDialogs.showSettingsDialog(currentSettings, {
+        submit: function (formData, responseCallback) {
             if (formData) {
                 oCommentsData.api.updateUser(formData, function (err) {
                     if (err) {
@@ -225,12 +229,12 @@ exports.showSettingsDialog = function (currentSettings, onSuccess, onFailure) {
                         force: true
                     }, function (err, authData) {
                         if (err) {
-                            onFailure();
+                            callbacks.onFailure();
                             responseCallback(commentsUi.i18n.texts.genericError);
                             return;
                         }
 
-                        onSuccess(authData);
+                        callbacks.onSuccess(authData);
                         responseCallback();
                     });
                 });
@@ -238,11 +242,10 @@ exports.showSettingsDialog = function (currentSettings, onSuccess, onFailure) {
                 responseCallback(commentsUi.i18n.texts.genericError);
             }
         },
-        // onClose
-        function () {
-            onFailure();
+        close: function () {
+            callbacks.onFailure();
         }
-    );
+    });
 };</code></pre>
         </div>
       </div>
