@@ -1,5 +1,5 @@
 var config = require('./src/javascripts/config.js'),
-    oCommentsData = require('o-comments-data'),
+    oCommentData = require('o-comment-data'),
     defaultConfig = require('./config.json'),
     logger = require('js-logger');
 
@@ -11,7 +11,7 @@ config.set(defaultConfig);
 /**
  * Enable data caching.
  */
-oCommentsData.init('cache', true);
+oCommentData.init('cache', true);
 
 module.exports = {
     /**
@@ -40,11 +40,11 @@ module.exports = {
             config.set(keyOrObject, value);
 
             if (keyOrObject === 'sessionId') {
-                oCommentsData.init(keyOrObject, value);
+                oCommentData.init(keyOrObject, value);
             }
         } else if (typeof keyOrObject === 'object') {
             if (keyOrObject.hasOwnProperty('dependencies') && keyOrObject.dependencies.hasOwnProperty('o-comments-data')) {
-                oCommentsData.init(keyOrObject.dependencies['o-comments-data']);
+                oCommentData.init(keyOrObject.dependencies['o-comments-data']);
 
                 delete keyOrObject.dependencies;
             }
@@ -52,7 +52,7 @@ module.exports = {
             config.set(keyOrObject, value);
 
             if (keyOrObject.hasOwnProperty('sessionId')) {
-                oCommentsData.init('sessionId', keyOrObject.sessionId);
+                oCommentData.init('sessionId', keyOrObject.sessionId);
             }
         }
     },

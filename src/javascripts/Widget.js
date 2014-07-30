@@ -3,8 +3,8 @@ var resourceLoader = require('./resourceLoader.js'),
     envConfig = require('./config.js'),
     WidgetUi = require('./WidgetUi.js'),
 
-    commentsUi = require('comments-ui'),
-    oCommentsData = require('o-comments-data');
+    commentUi = require('comment-ui'),
+    oCommentData = require('o-comment-data');
 
 /* global fyre */
 
@@ -31,7 +31,7 @@ var resourceLoader = require('./resourceLoader.js'),
 function Widget () {
     "use strict";
 
-    commentsUi.Widget.apply(this, arguments);
+    commentUi.Widget.apply(this, arguments);
 
     var self = this;
 
@@ -53,7 +53,7 @@ function Widget () {
     };
 
     this.init = function (callback) {
-        oCommentsData.api.getLivefyreInitConfig(self.config, function (err, initData) {
+        oCommentData.api.getLivefyreInitConfig(self.config, function (err, initData) {
             if (err) {
                 callback(err);
                 return;
@@ -82,7 +82,7 @@ function Widget () {
                     }
                 }
 
-                oCommentsData.api.getAuth(function (err, authData) {
+                oCommentData.api.getAuth(function (err, authData) {
                     if (err) {
                         authData = null;
                     }
@@ -191,7 +191,7 @@ function Widget () {
         self.ui.removeSettingsLink();
     }
 }
-commentsUi.Widget.__extend(Widget);
+commentUi.Widget.__extend(Widget);
 
 Widget.__extend = function(child) {
     "use strict";

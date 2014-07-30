@@ -91,7 +91,7 @@
           <div class="description"><p>Default config (prod) is set.</p> </div>
           <pre><code class="language-javascript">config.set(defaultConfig);</code></pre>
           <div class="description"><p>Enable data caching.</p> </div>
-          <pre><code class="language-javascript">oCommentsData.init('cache', true);
+          <pre><code class="language-javascript">oCommentData.init('cache', true);
 
 module.exports = {</code></pre>
           <table class="table table-bordered table-striped">
@@ -135,11 +135,11 @@ module.exports = {</code></pre>
             config.set(keyOrObject, value);
 
             if (keyOrObject === 'sessionId') {
-                oCommentsData.init(keyOrObject, value);
+                oCommentData.init(keyOrObject, value);
             }
         } else if (typeof keyOrObject === 'object') {
             if (keyOrObject.hasOwnProperty('dependencies') &amp;&amp; keyOrObject.dependencies.hasOwnProperty('o-comments-data')) {
-                oCommentsData.init(keyOrObject.dependencies['o-comments-data']);
+                oCommentData.init(keyOrObject.dependencies['o-comments-data']);
 
                 delete keyOrObject.dependencies;
             }
@@ -147,7 +147,7 @@ module.exports = {</code></pre>
             config.set(keyOrObject, value);
 
             if (keyOrObject.hasOwnProperty('sessionId')) {
-                oCommentsData.init('sessionId', keyOrObject.sessionId);
+                oCommentData.init('sessionId', keyOrObject.sessionId);
             }
         }
     },</code></pre>

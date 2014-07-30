@@ -143,7 +143,7 @@
           <pre><code class="language-javascript">function Widget () {
     &quot;use strict&quot;;
 
-    commentsUi.Widget.apply(this, arguments);
+    commentUi.Widget.apply(this, arguments);
 
     var self = this;
 
@@ -184,7 +184,7 @@
     };
 
     this.init = function (callback) {
-        oCommentsData.api.getLivefyreInitConfig(self.config, function (err, initData) {
+        oCommentData.api.getLivefyreInitConfig(self.config, function (err, initData) {
             if (err) {
                 callback(err);
                 return;
@@ -213,7 +213,7 @@
                     }
                 }
 
-                oCommentsData.api.getAuth(function (err, authData) {
+                oCommentData.api.getAuth(function (err, authData) {
                     if (err) {
                         authData = null;
                     }
@@ -328,7 +328,7 @@
         self.ui.removeSettingsLink();
     }
 }
-commentsUi.Widget.__extend(Widget);
+commentUi.Widget.__extend(Widget);
 
 Widget.__extend = function(child) {
     &quot;use strict&quot;;

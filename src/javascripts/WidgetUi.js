@@ -1,5 +1,5 @@
 var logger = require('js-logger'),
-    commentsUi = require('comments-ui'),
+    commentUi = require('comment-ui'),
     sizzle = require('sizzle');
 
 /**
@@ -9,7 +9,7 @@ var logger = require('js-logger'),
 function WidgetUi (widgetContainer) {
     "use strict";
 
-    commentsUi.WidgetUi.apply(this, arguments);
+    commentUi.WidgetUi.apply(this, arguments);
 
     /**
      * Makes the Livefyre comments widget read-only by hiding the editors and action buttons.
@@ -57,8 +57,8 @@ function WidgetUi (widgetContainer) {
         var authContainer = sizzle('.fyre-auth', widgetContainer);
 
         if (authContainer.length) {
-            authContainer[0].appendChild(commentsUi.utils.toDOM(commentsUi.templates.unavailableTemplate.render({
-                message: commentsUi.i18n.texts.unavailable
+            authContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.unavailableTemplate.render({
+                message: commentUi.i18n.texts.unavailable
             })));
         }
     };
@@ -76,7 +76,7 @@ function WidgetUi (widgetContainer) {
                 editorContainers[i]
                     .parentNode
                     .insertBefore(
-                        commentsUi.utils.toDOM(commentsUi.templates.termsAndGuidelinesTemplate.render()),
+                        commentUi.utils.toDOM(commentUi.templates.termsAndGuidelinesTemplate.render()),
                         editorContainers[i].nextSibling
                     );
             }
@@ -106,14 +106,14 @@ function WidgetUi (widgetContainer) {
 
                     var loginBarContainer = sizzle('.fyre-auth .fyre-login-bar', widgetContainer);
                     if (loginBarContainer.length) {
-                        loginBarContainer[0].appendChild(commentsUi.utils.toDOM(commentsUi.templates.commentingSettingsLink.render({
-                            label: commentsUi.i18n.texts.commentingSettingsLabel
+                        loginBarContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.commentingSettingsLink.render({
+                            label: commentUi.i18n.texts.commentingSettingsLabel
                         })));
                     }
 
                     var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comments-settings-text', widgetContainer);
                     if (settingsLink.length) {
-                        commentsUi.utils.addEventListener('click', settingsLink[0], function () {
+                        commentUi.utils.addEventListener('click', settingsLink[0], function () {
                             if (options && typeof options.onClick === 'function') {
                                 options.onClick();
                             }
@@ -183,6 +183,6 @@ WidgetUi.__extend = function(child) {
     }
 };
 
-commentsUi.WidgetUi.__extend(WidgetUi);
+commentUi.WidgetUi.__extend(WidgetUi);
 
 module.exports = WidgetUi;
