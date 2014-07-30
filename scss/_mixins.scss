@@ -27,8 +27,10 @@
 	font-family: $_o-ft-icons-font-name;
 	display: inline-block;
 	vertical-align: middle;
-	font-weight: normal;
-	font-style: normal;
+	// These are marked as !important as the icon font is not designed to be used with faux bold or faux italic styles
+	// If bolder versions of an icon are required a new SVG should be designed and added to the icon font
+	font-weight: normal !important; 
+	font-style: normal !important;
 	speak: none;
 	text-decoration: inherit;
 	text-transform: none;
