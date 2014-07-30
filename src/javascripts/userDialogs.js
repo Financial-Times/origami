@@ -147,3 +147,6 @@ exports.showSettingsDialog = function (currentSettings, callbacks) {
         }
     });
 };
+
+
+exports.showInactivityMessage = commentUi.userDialogs.showInactivityMessage;
