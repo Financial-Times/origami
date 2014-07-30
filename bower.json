@@ -3,8 +3,8 @@
   "version": "0.1.0-pre5",
   "main": "main.js",
   "dependencies": {
-    "o-comments-data": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comments-data.git",
-    "comments-ui": "git+http://git.svc.ft.com:8080/scm/strat_p/comments-ui.git",
+    "o-comment-data": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-data.git",
+    "comment-ui": "git+http://git.svc.ft.com:8080/scm/strat_p/comment-ui.git",
     "js-scriptLoader": "git+http://git.svc.ft.com:8080/scm/strat_p/js-scriptloader.git#^0.1.0",
     "js-events": "git+http://git.svc.ft.com:8080/scm/strat_p/js-events.git#^0.1.0",
     "js-env-config": "git+http://git.svc.ft.com:8080/scm/strat_p/js-env-config.git#^0.1.0",
