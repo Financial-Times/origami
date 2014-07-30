@@ -9,6 +9,7 @@
     border-width: 1px;
     border-style: solid;
     border-radius: 5px;
+    -webkit-appearance: none;
     @include oFtButtonsColors($_o-ft-buttons-color-standard-border, $_o-ft-buttons-color-standard-bg, $_o-ft-buttons-color-standard-fg);
 
     & + & {
