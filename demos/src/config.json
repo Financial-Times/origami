@@ -1,9 +1,10 @@
 {
-    "demos": {
-        "main": {
+    "demos": [
+        {
+            "name": "main",
             "template": "demos/src/demo.mustache",
             "sass": "demos/src/demo.scss",
             "data": "demos/src/data.json"
         }
-    }
+    ]
 }
