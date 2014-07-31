@@ -1,4 +1,4 @@
-var logger = require('js-logger'),
+var commentUtilities = require('comment-utilities'),
     commentUi = require('comment-ui'),
     sizzle = require('sizzle');
 
@@ -91,7 +91,7 @@ function WidgetUi (widgetContainer) {
      *                             onAdded (callback function)
      */
     this.addSettingsLink = function (options) {
-        logger.log("Commenting settings link adding triggered.");
+        commentUtilities.logger.log("Commenting settings link adding triggered.");
 
         var noOfTrial = 0,
             interval = setInterval(function () {

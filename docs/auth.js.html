@@ -84,7 +84,7 @@
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#logger"><i class="alert alert-success"></i><span>logger</span></a>
+              <li><a href="#commentUtilities"><i class="alert alert-success"></i><span>commentUtilities</span></a>
               </li>
               <li><a href="#Auth"><i class="alert alert-info"></i><span>Auth</span></a>
               </li>
@@ -100,16 +100,15 @@
           </div>
         </div>
         <div class="span9">
-          <section id="logger">
-            <h1>logger</h1>
+          <section id="commentUtilities">
+            <h1>commentUtilities</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-success radius ctx-type">declaration</div><span>logger</span>
+              <div class="label label-success radius ctx-type">declaration</div><span>commentUtilities</span>
             </p>
           </section>
           <div class="description"><p>global fyre</p> </div>
-          <pre><code class="language-javascript">var logger = require('js-logger'),
-    Events = require('js-events');</code></pre>
+          <pre><code class="language-javascript">var commentUtilities = require('comment-utilities');</code></pre>
           <section id="Auth">
             <h1>Auth</h1>
             <h5 class="subheader"></h5>
@@ -146,7 +145,7 @@
           <div class="description"><p>See <a href='http://docs.livefyre.com/developers/user-auth/remote-profiles/#BuildingAuthDelegate'>http://docs.livefyre.com/developers/user-auth/remote-profiles/#BuildingAuthDelegate</a></p> </div>
           <pre><code class="language-javascript">var authDelegate = new lfObj.conv.RemoteAuthDelegate();
 
-    var event = new Events();
+    var event = new commentUtilities.Events();
 
     this.on = event.on;
     this.off = event.off;</code></pre>
@@ -186,7 +185,7 @@
           </table>
           <div class="description"><p>Logs in the user in the Livefyre system.</p> </div>
           <pre><code class="language-javascript">this.login = function (token) {
-        logger.log('login called with token', token);
+        commentUtilities.logger.log('login called with token', token);
 
         var response = lfObj.conv.login(token);
         event.trigger('login.auth', token);

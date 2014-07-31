@@ -107,7 +107,7 @@
         loaded: false,
         status: '',
         inProgress: false,
-        event: new Events()
+        event: new commentUtilities.Events()
     };
 
     return function (callback) {
@@ -129,7 +129,7 @@
             if (!status.inProgress) {
                 status.inProgress = true;
 
-                scriptLoader(
+                commentUtilities.scriptLoader(
                     {
                         url: envConfig.get().livefyre.resourceDomainBase + envConfig.get().resourceUrls.livefyreJs,
                         cache: true

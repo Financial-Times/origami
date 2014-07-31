@@ -1,4 +1,4 @@
-var storageWrapper = require('js-storage-wrapper');
+var commentUtilities = require('comment-utilities');
 
 /**
  * Livefyre creates a queue in localStorage when a user posts a comment without being logged in.
@@ -8,7 +8,7 @@ exports.emptyLivefyreActionQueue = function () {
     "use strict";
 
     if (typeof Storage !== 'undefined') {
-        storageWrapper.localStorage.removeItem('fyre-action-queue');
+        commentUtilities.storageWrapper.localStorage.removeItem('fyre-action-queue');
     }
 };
 

@@ -1,5 +1,4 @@
-var scriptLoader = require('js-scriptLoader'),
-    Events = require('js-events'),
+var commentUtilities = require('comment-utilities'),
     envConfig = require('./config.js');
 
 /**
@@ -12,7 +11,7 @@ exports.loadLivefyreCore = (function () {
         loaded: false,
         status: '',
         inProgress: false,
-        event: new Events()
+        event: new commentUtilities.Events()
     };
 
     return function (callback) {
@@ -34,7 +33,7 @@ exports.loadLivefyreCore = (function () {
             if (!status.inProgress) {
                 status.inProgress = true;
 
-                scriptLoader(
+                commentUtilities.scriptLoader(
                     {
                         url: envConfig.get().livefyre.resourceDomainBase + envConfig.get().resourceUrls.livefyreJs,
                         cache: true

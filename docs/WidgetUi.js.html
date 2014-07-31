@@ -241,7 +241,7 @@
           </table>
           <div class="description"><p>Inserts settings link and attaches the necessary click handler.<br />It also waits until the current pseudonym is loaded after the log in.</p> </div>
           <pre><code class="language-javascript">this.addSettingsLink = function (options) {
-        logger.log(&quot;Commenting settings link adding triggered.&quot;);
+        commentUtilities.logger.log(&quot;Commenting settings link adding triggered.&quot;);
 
         var noOfTrial = 0,
             interval = setInterval(function () {

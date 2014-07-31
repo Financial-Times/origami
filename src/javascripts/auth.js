@@ -1,7 +1,6 @@
 /* global fyre */
 
-var logger = require('js-logger'),
-    Events = require('js-events');
+var commentUtilities = require('comment-utilities');
 
 /**
  * Auth creates Livefyre RemoteAuthDelegate, also provides login and logout into Livefyre.
@@ -16,7 +15,7 @@ function Auth (lfObj) {
      */
     var authDelegate = new lfObj.conv.RemoteAuthDelegate();
 
-    var event = new Events();
+    var event = new commentUtilities.Events();
 
     this.on = event.on;
     this.off = event.off;
@@ -34,7 +33,7 @@ function Auth (lfObj) {
      * @param  {object} See http://docs.livefyre.com/developers/getting-started/tokens/auth/#flex-step-1-user-auth-json-object
      */
     this.login = function (token) {
-        logger.log('login called with token', token);
+        commentUtilities.logger.log('login called with token', token);
 
         var response = lfObj.conv.login(token);
         event.trigger('login.auth', token);
