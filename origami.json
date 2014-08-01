@@ -1,5 +1,5 @@
 {
-    "description": "Livefyre comment widget integration with FT.",
+    "description": "Livefyre comment widget integration with FT comments services and UI customization.",
     "origamiType": "module",
     "origamiVersion": 1,
     "support": "hyperion@ft.com",
