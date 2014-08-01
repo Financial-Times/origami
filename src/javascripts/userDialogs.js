@@ -9,8 +9,8 @@ exports.showSetPseudonymDialog = function (callbacks) {
         callbacks = {};
     }
 
-    callbacks.onSuccess = callbacks.onSuccess || function () {};
-    callbacks.onFailure = callbacks.onFailure || function () {};
+    callbacks.success = callbacks.success || function () {};
+    callbacks.failure = callbacks.failure || function () {};
 
     commentUi.userDialogs.showSetPseudonymDialog({
         submit: function (formData, responseCallback) {
@@ -38,11 +38,11 @@ exports.showSetPseudonymDialog = function (callbacks) {
                     }, function (err, authData) {
                         if (err) {
                             responseCallback(commentUi.i18n.texts.changePseudonymError);
-                            callbacks.onFailure();
+                            callbacks.failure();
                             return;
                         }
 
-                        callbacks.onSuccess(authData);
+                        callbacks.success(authData);
                         responseCallback();
                     });
                 });
@@ -51,7 +51,7 @@ exports.showSetPseudonymDialog = function (callbacks) {
             }
         },
         close: function () {
-            callbacks.onFailure();
+            callbacks.failure();
             utils.emptyLivefyreActionQueue();
         }
     });
@@ -104,8 +104,8 @@ exports.showSettingsDialog = function (currentSettings, callbacks) {
         callbacks = {};
     }
 
-    callbacks.onSuccess = callbacks.onSuccess || function () {};
-    callbacks.onFailure = callbacks.onFailure || function () {};
+    callbacks.success = callbacks.success || function () {};
+    callbacks.failure = callbacks.failure || function () {};
 
     commentUi.userDialogs.showSettingsDialog(currentSettings, {
         submit: function (formData, responseCallback) {
@@ -129,12 +129,12 @@ exports.showSettingsDialog = function (currentSettings, callbacks) {
                         force: true
                     }, function (err, authData) {
                         if (err) {
-                            callbacks.onFailure();
+                            callbacks.failure();
                             responseCallback(commentUi.i18n.texts.genericError);
                             return;
                         }
 
-                        callbacks.onSuccess(authData);
+                        callbacks.success(authData);
                         responseCallback();
                     });
                 });
@@ -143,7 +143,7 @@ exports.showSettingsDialog = function (currentSettings, callbacks) {
             }
         },
         close: function () {
-            callbacks.onFailure();
+            callbacks.failure();
         }
     });
 };
