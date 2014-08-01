@@ -10,7 +10,7 @@
     "dependencies": {
         "o-colors": "^2.3.11",
         "o-ft-typography": "^1.11.0",
-        "o-hoverable": "^0.1.1",
+        "o-hoverable": ">0.1.1 <=0.3.0",
         "o-ft-buttons": "^1.5.0",
         "o-dom": "^0.3.0"
     }
