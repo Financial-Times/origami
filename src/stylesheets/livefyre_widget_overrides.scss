@@ -331,7 +331,7 @@ $ftLinkHover: #000000;
 
 
         @mixin showMoreCommentsCommon {
-            background: url(oAssetsResolve('src/images/comment_arrows.png', o-livefyre-comment-client)) no-repeat;
+            background: url(oAssetsResolve('src/images/comment_reply_arrows.png', o-livefyre-comment-client)) no-repeat;
             width: 11px;
         };
 
