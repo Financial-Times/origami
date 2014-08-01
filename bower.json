@@ -11,7 +11,7 @@
     "o-fonts": ">=0.7.0 <2",
     "o-ft-icons": "^2.0.1",
     "o-assets": "^0.4.1",
-    "o-hoverable": "^0.1.1",
+    "o-hoverable": ">0.1.1 <=0.3.0",
     "o-useragent": "^1.1.0",
     "o-viewport": "*",
     "o-dom": "^0.3.0",
