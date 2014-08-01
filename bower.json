@@ -8,6 +8,6 @@
         "o-grid": "^2.1.5",
         "o-assets": "^0.4.0",
         "o-fonts": "^1.4.1",
-        "o-hoverable": "^0.1.1"
+        "o-hoverable": ">=0.1.1 <0.3"
 	}
 }
