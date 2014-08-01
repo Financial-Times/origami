@@ -1,7 +1,7 @@
 var config = require('./src/javascripts/config.js'),
     oCommentData = require('o-comment-data'),
     defaultConfig = require('./config.json'),
-    logger = require('js-logger');
+    commentUtilities = require('comment-utilities');
 
 /**
  * Default config (prod) is set.
@@ -97,7 +97,7 @@ module.exports = {
      */
     enableLogging: function () {
         "use strict";
-        logger.enable.apply(this, arguments);
+        commentUtilities.logger.enable.apply(this, arguments);
     },
 
     /**
@@ -106,7 +106,7 @@ module.exports = {
      */
     disableLogging: function () {
         "use strict";
-        logger.disable.apply(this, arguments);
+        commentUtilities.logger.disable.apply(this, arguments);
     },
 
     /**
@@ -115,6 +115,6 @@ module.exports = {
      */
     setLoggingLevel: function () {
         "use strict";
-        logger.setLevel.apply(this, arguments);
+        commentUtilities.logger.setLevel.apply(this, arguments);
     }
 };
