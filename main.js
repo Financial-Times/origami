@@ -77,7 +77,7 @@ function ftTime(el) {
     var printer = el.querySelector('.o-date__printer') || el;
     // If date hasn't been defined and printer isn't empty, keep the content of the printer
     if (date || (!date && printer.innerHTML.length === 0)) {
-        // If date hasn't been defined, and the printer is empty, we'll set the default to be the current text
+        // If date hasn't been defined, and the printer is empty, we'll set the default to be the current date
         if (!date) date = new Date();
         var interval = Math.round(((new Date()) - date) / 1000);
         printer.innerHTML = interval < (365 * 60 * 60 * 24) ? timeAgo(date, interval) : format(date, 'date');
