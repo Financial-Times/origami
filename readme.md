@@ -123,6 +123,7 @@ var ftHeader = new oFtHeader(header);
 Alternatively, a `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct a __o-ft-header__ object for each element with a `data-o-component="o-ft-header"` attribute:
 
 ```javascript
+require('o-ft-header');
 document.addEventListener("DOMContentLoaded", function() {
     document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
