@@ -13,61 +13,32 @@
     <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
     
     <div class="demo-column">
-    <div class="o-ft-forms-field-group">
+    <div class="o-ft-forms__field-group">
         <label class="o-ft-forms__label">Text input</label>
         <small class="o-ft-forms__additional-info">prompt text ie password needs 6 characters</small>
         <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
     </div>
-    <div class="o-ft-forms-field-group o-ft-forms--valid">
+    <div class="o-ft-forms__field-group o-ft-forms--valid">
         <label class="o-ft-forms__label">Text input with valid entry</label>
         <input type="text" placeholder="placeholder" class="o-ft-forms__field o-ft-forms__field--valid" value="Field value" />
     </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error">
+    <div class="o-ft-forms__field-group o-ft-forms--error">
         <label class="o-ft-forms__label">URL input :invalid</label>
         <input type="url" placeholder="placeholder" class="o-ft-forms__field" value="hp://invalid.com" />
         <div class="o-ft-forms__errortext">Please enter a valid url</div>
     </div>
 </div>
 <div class="demo-column">
-    <div class="o-ft-forms-field-group">
+    <div class="o-ft-forms__field-group">
         <label class="o-ft-forms__label">Text input disabled</label>
         <input type="text" placeholder="placeholder" class="o-ft-forms__field o-ft-forms__field--valid" value="Field value" disabled="disabled" />
     </div>
-    <div class="o-ft-forms-field-group o-ft-forms--error">
+    <div class="o-ft-forms__field-group o-ft-forms--error">
         <label class="o-ft-forms__label">Text input (error)</label>
         <input type="text" placeholder="placeholder" class="o-ft-forms__field" value="Field value" />
         <div class="o-ft-forms__errortext">Invalid entry</div>
     </div>
 </div>
-
-
-<!-- Designers currently say that inline labels will not exist -->
-<!--
-<div class="o-grid-row">
-    <div data-o-grid-colspan="3 S12 M12">
-        <div class="o-grid-row" class="o-ft-forms-field-group">
-            <div data-o-grid-colspan="4" >
-                <label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
-            </div>
-            <div data-o-grid-colspan="8">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-            </div>
-        </div>
-    </div>
-    <div data-o-grid-colspan="3 S12 M12">&nbsp;</div>
-    <div data-o-grid-colspan="3 S12 M12" class="o-ft-forms--error">
-        <div class="o-grid-row" class="o-ft-forms-field-group">
-            <div data-o-grid-colspan="4">
-                <label class="o-ft-forms__label o-ft-forms__label--inline">Inline label</label>
-            </div>
-            <div data-o-grid-colspan="8">
-                <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
-                <small class="o-ft-forms__errortext">Invalid entry</small>
-            </div>
-        </div>
-    </div>
-</div>
--->
 
     
     <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>

@@ -99,7 +99,7 @@
   // FIXME There's currently no way to get the codepoint of an icon from o-ft-icons
   // We can't extend one of the placeholders o-ft-icons provides either
   // As it requires a dedicated element in the DOM to apply styles to
-  content: '\f135';
+  content: '\e035';
   font-size: $_o-ft-forms-checkbox-ticksize;
   font-weight: bold;
   color: oColorsGetColorFor(form-radiocheckbox-checked, background);
