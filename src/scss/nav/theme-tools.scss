@@ -32,7 +32,7 @@
 
             & > a {
                 display: inline-block;
-                border-left: 1px solid #666666;
+                border-left: 1px dotted #666666;
                 width: 45px;
                 height: 45px;
                 font-size: 11px;
@@ -64,6 +64,12 @@
             padding: 10px 20px;
             font-size: 14px;
         }
+    }
+}
+
+@include oUseragentTarget((ie7, ie8)) {
+    .o-ft-header__nav--tools-theme .o-ft-header__back-to-ft {
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{oFtHeaderAsset('img/ft-logo.png')}',sizingMethod='scale');
     }
 }
 
