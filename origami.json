@@ -6,15 +6,16 @@
     "supportStatus": "active",
     "browserFeatures": {
         "required": [
-            "classlist"
+            "classlist",
+            "es5array",
+            "customevent"
         ],
         "optional": [
             "svg",
             "datauri",
             "cssgradients",
             "mediaqueries",
-            "csstransitions",
-            "customevent"
+            "csstransitions"
         ]
     },
     "ci": {
