@@ -6,7 +6,8 @@
     "supportStatus": "active",
     "browserFeatures": {
         "required": [
-            "classlist",
+            "classList",
+            "customevent",
             "unknownelements",
             "es5array"
         ],
@@ -15,8 +16,7 @@
             "datauri",
             "cssgradients",
             "mediaqueries",
-            "csstransitions",
-            "customevent"
+            "csstransitions"
         ]
     },
     "ci": {

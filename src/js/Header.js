@@ -13,7 +13,16 @@ function Header(rootEl) {
             rootEl.querySelector('.o-ft-header__nav--secondary-theme'),
             rootEl.querySelector('.o-ft-header__nav--tools-theme')
         ].filter(function(el) {
-            return el && el.nodeType === 1;
+            /* 
+            *  Overflow is hidden by default on the tools and primary theme for it to resize properly on core experience
+            *  where level 2 and 3 menus won't appear anyway, but in primary experience they do need to appear. We do this
+            *  here instead of the map function in init because this needs to be applied regardless of the nav having been
+            *  initialized previously, like when the o.DOMContententLoaded event is dispatched
+            */
+            if (el) {
+                el.style.overflow = 'visible';
+            }
+            return el && el.nodeType === 1 && !el.hasAttribute('data-o-hierarchical-nav--js');
         }),
         hierarchicalNavs = [];
 
@@ -21,11 +30,6 @@ function Header(rootEl) {
         rootEl.setAttribute('data-o-ft-header--js', '');
         bodyDelegate = new DomDelegate(document.body);
         hierarchicalNavs = hierarchicalNavEls.map(function(el) {
-            /* 
-            *  Overflow is hidden by default on the tools and primary theme for it to resize properly on core experience
-            *  where level 2 and 3 menus won't appear anyway, but in primary experience they do need to appear
-            */
-            el.style.overflow = 'visible';
             return new oHierarchicalNav(el);
         });
     }
