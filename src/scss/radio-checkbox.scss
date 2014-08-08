@@ -19,6 +19,7 @@
   cursor: pointer;
   font-weight: normal;
   line-height: $_o-ft-forms-radiocheckbox-size;
+   @include oUseragentPrefixer(user-select, none, false, $o-useragent-vendor-prefixes);
 }
 
 // include the base icon styles for the checkbox
