@@ -78,12 +78,27 @@ These are defined with their generic input types and the class
 
     .o-ft-forms__field
 
+Example HTML:
+
+ ```html<input type="radio"  class="o-ft-forms__field">```
+
 
 ####Section/group validation
 
 For user cases where validation rules need to be applied on a group of fields rather than at field level this can be done within a fieldset defined by:
 
     .o-ft-forms__section
+
+Example HTML:
+
+```html
+ <fieldset class="o-ft-forms__section o-ft-forms__section--error">
+ 	<div class="o-ft-forms-section__message--error">
+ 		<p>This is a section error message that highlights a group of fields</p>
+	</div>
+	<div class="o-ft-forms__field-group">
+</fieldset>
+```
 
 ####Global validation
 
@@ -103,8 +118,19 @@ Require classes:
     .o-ft-forms__suffix
 
 
-For example a basic text input with suffix would be contained within `.o-ft-forms-field-group--affixed` with the input and suffix span contained within `.o-ft-forms__affix-wrapper`
+For example a basic text input with suffix would be contained within '.o-ft-forms-field-group--affixed' with the input and suffix span contained within '.o-ft-forms__affix-wrapper'
 
+Example HTML:
+
+```html
+    <div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+     <label class="o-ft-forms__label">Text input with suffix label</label>
+     <div class="o-ft-forms__affix-wrapper">
+        <input type="text" class="o-ft-forms__field o-ft-forms__field--suffixed" />
+        <span class="o-ft-forms__suffix">.com</span>
+      </div>
+    </div>
+```
 
 ####Placeholder classes/@extend
 
