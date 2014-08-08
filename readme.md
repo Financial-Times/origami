@@ -36,12 +36,12 @@ and the input/s defined by:
 
 Example HTML:
 
- 
-    <div class="o-ft-forms__field-group">
-        <label class="o-ft-forms__label">Text input disabled</label>
-        <input type="text" placeholder="placeholder" class="o-ft-forms__field">
-    </div>
-    
+```html
+	<div class="o-ft-forms__field-group">
+	<label class="o-ft-forms__label">Text input disabled</label>
+	<input type="text" placeholder="placeholder" class="o-ft-forms__field">
+	</div>
+```
 
 ####Basic validation
 
@@ -56,12 +56,13 @@ The error message is a 4th element included in the basic `o-ft-forms__field-grou
     .o-ft-forms__errortext
 
 Example HTML:
-
+```html
     <div class="o-ft-forms__field-group o-ft-forms--error">
         <label class="o-ft-forms__label">Text input disabled</label>
         <input type="text" placeholder="placeholder" class="o-ft-forms__field">
         <div class="o-ft-forms__errortext">Please enter a valid url</div>
     </div>
+```
 
 All the form elements follow this basic structure with some variation applied to specific types such as checkbox groups as defined below.
 
