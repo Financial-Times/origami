@@ -1412,6 +1412,19 @@ body {
 }
 
 
+.msie8 .livefyre-comments.comments-overrides {
+    .fyre {
+        .fyre-login-bar {
+            float: none;
+        }
+
+        .fyre-editor {
+            margin-top: 0;
+        }
+    }
+}
+
+
 .comments-settings {
     font-size: 14px;
 }
