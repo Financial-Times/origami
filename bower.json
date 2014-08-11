@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "main": "main.js",
   "dependencies": {
-    "o-comment-data": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-data.git",
+    "o-comment-data": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-data.git#^0.1.0",
     "comment-ui": "git+http://git.svc.ft.com:8080/scm/strat_p/comment-ui.git#^0.2.0",
     "comment-utilities": "git+http://git.svc.ft.com:8080/scm/strat_p/comment-utilities.git#^0.1.0",
     "sizzle": "https://github.com/jquery/sizzle.git",
