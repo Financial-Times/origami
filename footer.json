@@ -1,40 +1,83 @@
 {
-	"links": [
+	"sections": [
 		{
-			"text": "About us",
-			"href": "http://www.ft.com/aboutus"
+			"text": "Home",
+			"href": "//www.ft.com"
 		},
 		{
-			"text": "Contact",
-			"href": "http://aboutus.ft.com/contact-us"
+			"text": "UK",
+			"href": "//www.ft.com/world/uk"
 		},
 		{
-			"text": "T &amp; Cs",
-			"href": "http://www.ft.com/servicestools/help/terms"
+			"text": "World",
+			"href": "//www.ft.com/world"
 		},
 		{
-			"text": "Help",
-			"href": "http://www.ft.com/help"
+			"text": "Companies",
+			"href": "//www.ft.com/companies"
 		},
 		{
-			"text": "Feedback",
-			"href": "http://m.ft.com/feedback"
+			"text": "Markets",
+			"href": "//www.ft.com/markets"
 		},
 		{
-			"text": "Advertise with the FT",
-			"href": "http://www.ft.com/advertising"
+			"text": "Global Economy",
+			"href": "//www.ft.com/global-economy"
 		},
 		{
-			"text": "Privacy policy",
-			"href": "http://www.ft.com/servicestools/help/privacy"
+			"text": "Lex",
+			"href": "//www.ft.com/lex"
 		},
 		{
-			"text": "Cookie policy",
-			"href": "http://www.ft.com/cookiepolicy"
+			"text": "Comment",
+			"href": "//www.ft.com/comment"
 		},
 		{
-			"text": "Copyright",
-			"href": "http://www.ft.com/servicestools/help/copyright"
+			"text": "Management",
+			"href": "//www.ft.com/management"
+		},
+		{
+			"text": "Personal Finance",
+			"href": "//www.ft.com/personal-finance"
+		},
+		{
+			"text": "Life & Arts",
+			"href": "//www.ft.com/life-arts"
+		}
+	],
+	"link_sections": [
+		{
+			"title": "Services",
+			"lists": [
+				[
+					{
+						"text": "Corporate subscriptions",
+						"href": "//ft.com"
+					},
+					{
+						"text": "Syndication",
+						"href": "//ft.com"
+					},
+					{
+						"text": "Conferences",
+						"href": "//ft.com"
+					}
+				],
+				[
+					{
+						"text": "Corporate subscriptions",
+						"href": "//ft.com"
+					},
+					{
+						"text": "Syndication",
+						"href": "//ft.com"
+					},
+					{
+						"text": "Conferences",
+						"href": "//ft.com"
+					}
+				]
+			]
 		}
 	],
 	"copyrightYear": "2014",

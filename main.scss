@@ -6,56 +6,101 @@
 @import "o-hoverable/main";
 
 $o-ft-footer-name: o-ft-footer;
-$o-ft-footer-version: null !default;
-$o-ft-footer-assets-path: $o-ft-footer-name !default;
-$o-ft-footer-spacing-unit: 10px;
-
-@function oFtFooterUseAsset ($asset) {
-    @return oAssetsUse($asset, $o-ft-footer-assets-path, $o-ft-footer-version);
-}
+$o-ft-footer-spacing-unit: 20px;
 
 @include oFontsInclude(BentonSans);
+@include oColorsSetUseCase(brand-color, border, claret);
 
 .o-ft-footer {
+  @include oColorsFor(footer);
   @include oFtTypographyFontSize(14);
-  margin-top: 10px;
-  padding-top: 5px;
-  background-color: oColorsGetColorFor(footer, background);
+
+  margin-top: 40px;
+  padding: 0;
+  border-color: oColorsGetColorFor(brand-color, border);
+  border-top-style: outset;
   font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
   font-weight: normal;
+
+  @extend %o-grid-col;
+  @extend %o-grid-colspan-12;
+}
+.o-ft-footer ul {
+	list-style-type: none;
+	padding: 0;
 }
 
 .o-ft-footer__row {
 	@extend %o-grid-row;
 }
 
-.o-ft-footer__full-width-row {
-	@extend %o-grid-row;
+.o-ft-footer__col {
 	@extend %o-grid-col;
-	@extend %o-grid-colspan-12;
+}
+
+.o-ft-footer__titlecol {
+	@extend %o-grid-col;
+    @extend %o-grid-colspan-12;
+}
+
+.o-ft-footer__divider {
+  border-bottom: #fff dotted 1px;
+
+}
+
+.nav-list__header {
+	@extend %o-grid-row;
+
+	> h3 {
+		margin-top: 0;
+		margin-bottom: $o-ft-footer-spacing-unit;
+		display: block;
+		@include oFtTypographyFontSize(14);
+		@extend %o-grid-col;
+		@extend %o-grid-colspan-12;
+		text-transform: uppercase;
+		color: oColorsGetColorFor(header-item, text);
+	}
 }
 
 .o-ft-footer__link {
-	@extend %o-grid-col;
-	@extend %o-grid-colspan-S6 !optional;	
-	@extend %o-grid-colspan-M6 !optional;	
-
 	> a {
-		&:link,
-		&:visited {
-			display: block;
-			border-bottom: 1px solid oColorsGetColorFor(footer-item, border);
-			color: oColorsGetColorFor(link-alt, text);
-			text-decoration: none;
-			font-size: 14px;
-			line-height: 29px;
-		}
-
 		#{$o-hoverable-if-hover-enabled} &:hover,
+		&:visited,
+		&:link {
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			display: inline-block;
+			text-decoration: none;
+			line-height: $o-ft-footer-spacing-unit;
+			color: oColorsGetColorFor(header-item, text);
+			width: 100%;
+		}
 		&:focus {
 			color: oColorsGetColorFor(link-alt-hover, text);
 		}
 	}
+}
+.o-ft-footer__nav-link {
+	> a {
+		#{$o-hoverable-if-hover-enabled} &:hover,
+		&:visited,
+		&:link {
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+		&:focus {
+			color: oColorsGetColorFor(link-alt-hover, text);
+		}
+	}
+}
+
+.o-ft-footer__col {
+	@extend %o-grid-col;
+	@extend %o-grid-colspan-2;
+    @extend %o-grid-colspan-M4;
+    @extend %o-grid-colspan-S12;
 }
 
 .o-ft-footer__copyright {
@@ -67,37 +112,47 @@ $o-ft-footer-spacing-unit: 10px;
 	> p {
 		display: inline-block;
 		margin: 0;
-		padding-right: $o-ft-footer-spacing-unit;		
+		padding-right: $o-ft-footer-spacing-unit;
 	}
 }
 
 .o-ft-footer__pearson-row {
-	padding-top: $o-ft-footer-spacing-unit + 5;
-	padding-bottom: $o-ft-footer-spacing-unit + 5;
-	background-color: oColorsGetColorFor(pearson, background); 
+	padding-top: $o-ft-footer-spacing-unit - 5;
+	padding-bottom: $o-ft-footer-spacing-unit - 5;
+	color: oColorsGetColorFor(pearson, text);
+	background-color: oColorsGetColorFor(pearson, background);
+	overflow: hidden;
 }
 
 .o-ft-footer__pearson-tagline,
 .o-ft-footer__pearson-logo {
 	height: 16px;
-	background: url(oFtFooterUseAsset("img/pearson_sprite.gif")) no-repeat;
+	background: url(oAssetsResolve("img/pearson_sprite.gif", o-ft-footer)) no-repeat;
 	// the weird value for rgba is to prevent sass converting rgba(0,0,0,0) to 'transparent', which would cause the following line of css to be understood by ie7/8 and the svg to be downloaded
-	background: rgba(0, 0, 0, 0.001) url(oFtFooterUseAsset("img/pearson_sprite.svg")) no-repeat;
-	text-indent: 100%;
+	background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/pearson_sprite.svg", o-ft-footer)) no-repeat;
 	white-space: nowrap;
-	overflow: hidden;
+	text-indent: 100%;
 }
 
 .o-ft-footer__pearson-tagline {
 	float: left;
 	width: 170px;
-	margin-right: 10px;
+	padding-right:10px;
 }
 
 .o-ft-footer__pearson-logo {
 	float: right;
 	width: 100px;
 	background-position: right 0;
+}
+
+.o-ft-footer nav {
+	margin-top: $o-ft-footer-spacing-unit;
+	margin-bottom: $o-ft-footer-spacing-unit;
+}
+
+.o-ft-footer__linksection {
+	@extend %o-grid-row;
 }
 
 @media screen and (max-width:299px) {

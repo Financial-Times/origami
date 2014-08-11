@@ -1,17 +1,39 @@
 <footer class="o-ft-footer" data-o-version="{{o-ft-footer.module-version}}" data-o-component="ft-footer">
-	<nav class="o-ft-footer__row">
-		{{#o-ft-footer.links}}
-		<div class="o-ft-footer__link">
-			<a href="{{href}}">{{{text}}}</a>
+	<nav>
+		<div class="nav-list__header">
+		<h3>Sections</h3>
 		</div>
-		{{/o-ft-footer.links}}
+		<ul class="o-ft-footer__row">
+		{{#o-ft-footer.sections}}
+			<li class="o-ft-footer__col o-ft-footer__link o-ft-footer__nav-link">
+				<a href="{{href}}">{{{text}}}</a>
+			</li>
+		{{/o-ft-footer.sections}}
+		</ul>
 	</nav>
+	<div class="o-ft-footer__divider"></div>
+	<div class="o-ft-footer__row">
+	{{#o-ft-footer.link_sections}}
+	<nav>
+		<div class="nav-list__header">
+		<h3>{{{title}}}</h3>
+		</div>
+		{{#lists}}
+			<ul class="o-ft-footer__col">
+				{{#.}}
+				<li class="o-ft-footer__link"><a href="{{href}}">{{{text}}}</a></li>
+				{{/.}}
+			</ul>
+		{{/lists}}
+	</nav>
+	{{/o-ft-footer.link_sections}}
+	</div>
 	<div class="o-ft-footer__full-width-row o-ft-footer__copyright">
 		<p>&#169; THE FINANCIAL TIMES LTD {{o-ft-footer.copyrightYear}}.</p>
 		<p>{{{o-ft-footer.copyrightText}}}</p>
 	</div>
 	<div class="o-ft-footer__pearson-row">
-		<div class="o-ft-footer__full-width-row">
+		<div class="o-ft-footer__row">
 			<div class="o-ft-footer__pearson-tagline">Always Learning</div>
 			<div class="o-ft-footer__pearson-logo">Pearson</div>
 		</div>
