@@ -1,6 +1,6 @@
 {
   "name": "o-livefyre-comment-client",
-  "version": "0.2.0-pre4",
+  "version": "0.2.0-pre5",
   "private": true,
   "dependencies": {},
   "devDependencies": {
