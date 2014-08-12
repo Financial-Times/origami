@@ -47,7 +47,7 @@ exports.showSetPseudonymDialog = function (callbacks) {
                     });
                 });
             } else {
-                responseCallback(commentUi.i18n.texts.changePseudonymError);
+                responseCallback(commentUi.i18n.texts.changePseudonymBlankError);
             }
         },
         close: function () {

@@ -73,6 +73,10 @@ module.exports = {
      */
     utils:  require('./src/javascripts/utils.js'),
 
+    utilities: commentUtilities,
+
+    dataService: oCommentData,
+
     /**
      * Auth.js exposed.
      * @type {object}
