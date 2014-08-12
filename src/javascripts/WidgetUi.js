@@ -162,7 +162,9 @@ function WidgetUi (widgetContainer) {
                 fyreStreamStatsEl.style.top = '-10px';
                 fyreStreamStatsEl.style.float = 'none';
                 fyreStreamStatsEl.style.width = '100%';
-                fyreStreamStatsEl.className = 'comments-header';
+                fyreStreamStatsEl.className = 'comment-header';
+
+                counterEl.className = '';
             }
         }
     };

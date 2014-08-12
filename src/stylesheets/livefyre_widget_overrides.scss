@@ -1096,6 +1096,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
     .comment-header {
         @extend %o-ft-typography-heading2;
+        padding: 3px 0;
     }
 }
 
