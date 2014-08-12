@@ -32,8 +32,8 @@
 // apply different text colour to checkboxes and radio labels on hover and focus
 @include oFtFormsPlaceholderOptionalSelector(
   '%o-ft-froms__checkboxradiolabel--hover',
-  '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label:hover,
-  .o-ft-forms__field[type="radio"] + .o-ft-forms__label:hover,
+  '#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="checkbox"] + .o-ft-forms__label:hover,
+  #{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="radio"] + .o-ft-forms__label:hover,
   .o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label,
   .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label'
 ) {
@@ -68,8 +68,8 @@
 // apply different border colour to checkboxes and radio labels on hover and focus
 @include oFtFormsPlaceholderOptionalSelector(
   '%o-ft-forms__checkboxradioborder--hover',
-  '.o-ft-forms__field[type="checkbox"]:hover + .o-ft-forms__label::before,
-  .o-ft-forms__field[type="radio"]:hover + .o-ft-forms__label::before,
+  '#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="checkbox"]:hover + .o-ft-forms__label::before,
+  #{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="radio"]:hover + .o-ft-forms__label::before,
   .o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label::before,
   .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label::before'
 ) {
