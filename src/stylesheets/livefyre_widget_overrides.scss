@@ -1,8 +1,8 @@
 $bentonFont: BentonSans,  Helvetica,  Arial,  sans-serif;
 $bentonBoldFont: BentonSans-Bold, BentonSans,  Helvetica,  Arial,  sans-serif;
 
-$ftLink: #2E6E9E;
-$ftLinkHover: #000000;
+$ftLink: oColorsGetPaletteColor(blue);
+$ftLinkHover: oColorsGetPaletteColor(black);
 
 
 @mixin borderRadiusClear {
@@ -30,26 +30,19 @@ $ftLinkHover: #000000;
     filter: none;
 }
 
-
-
-.ft-comments-article-separator {
-    width: 100%;
-    height: 4px;
-    background-color: #a7a59b;
-}
-
 .livefyre-comments.comments-overrides.comment-type-livecomments {
     clear: both;
+    color: oColorsGetPaletteColor(grey-tint5);
+    @extend %o-ft-typography-article-body-wrapper;
 
     .fyre {
         font-family: $bentonFont;
-
 
         a {
             color: $ftLink;
 
             &:hover {
-                color: #000000;
+                color: oColorsGetPaletteColor(black);
             }
         }
 
@@ -57,19 +50,19 @@ $ftLinkHover: #000000;
             margin-top: 10px;
         }
 
-        .fyre-live-container  {
+        .fyre-live-container {
             display: none;
         }
 
         .fyre-stream-stats,
-        .fyre-stream-livecount  {
+        .fyre-stream-livecount {
             font-family: $bentonFont;
             font-size: 14px;
             text-align: left;
         }
 
-        .fyre-stream-stats  {
-            color: #333333;
+        .fyre-stream-stats {
+            color: oColorsGetPaletteColor(grey-tint5);
             float: right;
             margin: 0;
 
@@ -88,11 +81,11 @@ $ftLinkHover: #000000;
             margin: 0;
         }
 
-        .fyre-stream-sort  {
+        .fyre-stream-sort {
             font: 14px/24px $bentonFont;
-            border-bottom: 1px solid #e9decf;
+            border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
             padding: 10px 0;
-            color: #000 !important;
+            color: oColorsGetPaletteColor(black) !important;
             margin: 20px 0 10px 0;
 
             a {
@@ -119,8 +112,8 @@ $ftLinkHover: #000000;
             color: $ftLink;
         }
 
-        .fyre-comment-stream  {
-            color: #333333;
+        .fyre-comment-stream {
+            color: oColorsGetPaletteColor(grey-tint5);
             font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
             margin: 0;
         }
@@ -132,21 +125,21 @@ $ftLinkHover: #000000;
             .fyre-comment-deleted {
                 font-family: $bentonFont;
                 font-size: 13px;
-                color: #505050;
+                color: oColorsGetPaletteColor(grey-tint4);
 
                 p {
                     font-style: italic;
-                    color: #505050;
+                    color: oColorsGetPaletteColor(grey-tint4);
                     padding-bottom: 10px;
                 }
             }
         }
 
-        .fyre-comment-date  {
-            color: #777;
+        .fyre-comment-date {
+            color: oColorsGetPaletteColor(grey-tint3);
         }
 
-        .fyre-login-bar  {
+        .fyre-login-bar {
             font-family: $bentonFont;
             font-weight: normal;
             position: static;
@@ -173,20 +166,20 @@ $ftLinkHover: #000000;
             }
         }
 
-        .fyre-help  {
+        .fyre-help {
             display: none;
         }
 
-        .fyre-box-wrapper  {
+        .fyre-box-wrapper {
             margin-top: 0;
             max-width: 100%;
             top: 0;
             border: 0;
 
             &:hover,
-            &.fyre-box-mobile-touch  {
+            &.fyre-box-mobile-touch {
                 // commented version for rollover enabled
-                //background: #f6e9d8;
+                //background: oColorsGetPaletteColor(pink-tint1);
                 background: inherit;
                 //border: 1px solid #CCC;
                 border: 0;
@@ -198,23 +191,23 @@ $ftLinkHover: #000000;
             }
 
             &:hover span.fyre-user-drop,
-            &.fyre-box-mobile-touch span.fyre-user-drop:hover  {
+            &.fyre-box-mobile-touch span.fyre-user-drop:hover {
                 // commented version for rollover enabled
                 //color: $ftLinkHover;
                 color: inherit;
                 cursor: default;
             }
 
-            a.fyre-user-profile-link  {
-                color: #000;
+            a.fyre-user-profile-link {
+                color: oColorsGetPaletteColor(black);
                 font-size: 14px;
                 padding: 0;
                 cursor: default;
                 white-space: normal;
             }
 
-            a:hover  {
-                color: #000;
+            a:hover {
+                color: oColorsGetPaletteColor(black);
             }
 
             .fyre-user-drop {
@@ -230,11 +223,11 @@ $ftLinkHover: #000000;
                 background: transparent;
 
                 li {
-                    background: #fff;
+                    background: oColorsGetPaletteColor(white);
                 }
             }
 
-            .fyre-user-avatar-25  {
+            .fyre-user-avatar-25 {
                 margin-left: 0;
             }
         }
@@ -248,7 +241,7 @@ $ftLinkHover: #000000;
             }
         }
 
-        .fyre-user-loggedin  {
+        .fyre-user-loggedin {
              font-weight: normal;
         }
 
@@ -257,7 +250,7 @@ $ftLinkHover: #000000;
         }
 
         .fyre-comment-head ,
-        .fyre-comment-body  {
+        .fyre-comment-body {
             margin-left: 0;
             padding: 0 0 10px 0;
         }
@@ -274,7 +267,7 @@ $ftLinkHover: #000000;
         .fyre-comment {
             margin: 0;
 
-            a.fyre-comment-edit  {
+            a.fyre-comment-edit {
                 color: $ftLink;
                 text-decoration: none;
 
@@ -285,7 +278,7 @@ $ftLinkHover: #000000;
         }
 
         a.fyre-comment-username {
-            color: #333333;
+            color: oColorsGetPaletteColor(grey-tint5);
             font-weight: bold;
 
             &:hover {
@@ -294,10 +287,10 @@ $ftLinkHover: #000000;
             }
         }
 
-        .fyre-comment-divider  {
+        .fyre-comment-divider {
             margin: 0;
 
-            & > span.fyre-comment-reply-wrapper  {
+            & > span.fyre-comment-reply-wrapper {
                 color: $ftLink;
                 font-size: 13px;
                 top: -9px !important;
@@ -307,8 +300,8 @@ $ftLinkHover: #000000;
                 }
             }
 
-            & > div.fyre-comment-divider  {
-                background: #e9decf;
+            & > div.fyre-comment-divider {
+                background: oColorsGetPaletteColor(pink-tint2);
                 margin: 0;
             }
         }
@@ -320,12 +313,12 @@ $ftLinkHover: #000000;
         .fyre-comment-source-13 > .fyre-comment-divider.fyre-divider-active > div.fyre-comment-divider,
         .fyre-comment-source-13 > .fyre-comment-divider.fyre-comment-collapse > div.fyre-comment-divider,
         .fyre-comment-divider.fyre-divider-active > div.fyre-comment-divider,
-        .fyre-comment-divider.fyre-comment-collapse > div.fyre-comment-divider  {
+        .fyre-comment-divider.fyre-comment-collapse > div.fyre-comment-divider {
             margin: 0 0 0 80px;
         }
 
         .fyre-comment-source-13 > .fyre-comment-divider.fyre-comment-expand > div.fyre-comment-divider,
-        .fyre-comment-divider.fyre-comment-expand > div.fyre-comment-divider  {
+        .fyre-comment-divider.fyre-comment-expand > div.fyre-comment-divider {
             margin: 0 0 0 150px;
         }
 
@@ -374,21 +367,21 @@ $ftLinkHover: #000000;
             font-size: 13px;
         }
 
-        .fyre-comment-like-count  {
+        .fyre-comment-like-count {
             font-size: 13px;
             padding: 0 5px;
-            color: #333333;
+            color: oColorsGetPaletteColor(grey-tint5);
         }
 
-        .fyre-comment-like-btn  {
+        .fyre-comment-like-btn {
             font-size: 13px;
         }
 
-        .fyre-comment-like-imgs  {
+        .fyre-comment-like-imgs {
             display: none;
         }
 
-        .fyre-comment-actions  {
+        .fyre-comment-actions {
             font-size: 13px;
             margin-top: 0;
 
@@ -454,8 +447,8 @@ $ftLinkHover: #000000;
         .fyre-like-count,
         .fyre-comment-source,
         .fyre-twitter-footer a,
-        .fyre-comment-edit  {
-            color: #777;
+        .fyre-comment-edit {
+            color: oColorsGetPaletteColor(grey-tint3);
         }
 
         .fyre-mod-deny {
@@ -490,8 +483,8 @@ $ftLinkHover: #000000;
             height: auto;
             width: auto;
 
-            background: #a7a59b;
-            color: #fff1e0;
+            background: oColorsGetPaletteColor(pink-tint4);
+            color: oColorsGetPaletteColor(pink);
             padding: 3px 10px;
             font-size: 13px;
             line-height: 15px;
@@ -508,10 +501,10 @@ $ftLinkHover: #000000;
             display: none;
         }
         .fyre-comment-author-tag[data-fyre-author-tag="FT"] {
-            background: #9e2f50;
+            background: oColorsGetPaletteColor(claret);
         }
         .fyre-pending {
-            background: #d66d06;
+            background: oColorsGetPaletteColor(orange);
         }
         .fyre-comment-article:hover .fyre-pending {
             display: none;
@@ -528,7 +521,7 @@ $ftLinkHover: #000000;
                 font-size: 12px;
                 line-height: 15px;
                 font-weight: bold;
-                color: #505050;
+                color: oColorsGetPaletteColor(grey-tint4);
                 display: block;
             }
 
@@ -543,7 +536,7 @@ $ftLinkHover: #000000;
             .fyre-featured-text {
                 display: none;
 
-                color: #fff1e0;
+                color: oColorsGetPaletteColor(pink);
                 font-size: 13px;
                 line-height: 16px;
                 font-family: $bentonFont;
@@ -581,8 +574,8 @@ $ftLinkHover: #000000;
                         width: 200px;
                         height: 36px;
                         @include gradientClear;
-                        background: #fff;
-                        border: 1px solid #E9DECF;
+                        background: oColorsGetPaletteColor(white);
+                        border: 1px solid oColorsGetPaletteColor(pink-tint2);
 
                         @include borderRadiusClear;
                         @include boxShadowClear;
@@ -593,7 +586,7 @@ $ftLinkHover: #000000;
 
                         .fyre-notifier-message-container {
                             width: 200px;
-                            background: #fff;
+                            background: oColorsGetPaletteColor(white);
 
                             @include textShadowClear;
                             @include borderRadiusClear;
@@ -604,7 +597,7 @@ $ftLinkHover: #000000;
                                 font-family: BentonSans, Helvetica,  Arial,  sans-serif;
                                 font-size: 13px;
                                 line-height: 26px;
-                                color: #505050;
+                                color: oColorsGetPaletteColor(grey-tint4);
                             }
                         }
                     }
@@ -613,10 +606,10 @@ $ftLinkHover: #000000;
 
             .fyre-notifier-base-shadow {
                 @include gradientClear;
-                background: #fff;
+                background: oColorsGetPaletteColor(white);
                 padding: 0;
                 bottom: 0;
-                border: 1px solid #E9DECF;
+                border: 1px solid oColorsGetPaletteColor(pink-tint2);
                 height: 34px;
 
                 @include borderRadiusClear;
@@ -636,7 +629,7 @@ $ftLinkHover: #000000;
                         line-height: 21px;
                         border: 0;
                         @include gradientClear;
-                        background: #cc0000;
+                        background: oColorsGetPaletteColor(red);
                         margin: 6px;
                         height: 20px;
                         padding: 0px 7px;
@@ -664,10 +657,10 @@ $ftLinkHover: #000000;
 
 
         .fyre-featured-content-wrapper {
-            color: #505050;
+            color: oColorsGetPaletteColor(grey-tint4);
             font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
             margin: 0 0 20px 0;
-            background: #f6e9d8;
+            background: oColorsGetPaletteColor(pink-tint1);
 
             .fyre-featured-body {
                 margin-bottom: 23px;
@@ -699,8 +692,8 @@ $ftLinkHover: #000000;
                 }
             }
 
-            .fyre-featured-authored-by  {
-                color: #505050;
+            .fyre-featured-authored-by {
+                color: oColorsGetPaletteColor(grey-tint4);
                 font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
                 margin: 0;
                 font-weight: bold;
@@ -723,7 +716,7 @@ $ftLinkHover: #000000;
                 background: #e7dece;
 
                 .fyre-featured-title {
-                    color: #505050;
+                    color: oColorsGetPaletteColor(grey-tint4);
                     padding: 0;
                     text-transform: uppercase;
                     font-size: 12px;
@@ -755,7 +748,7 @@ $ftLinkHover: #000000;
             }
 
             .fyre-comment-divider {
-                background: #cec6b9;
+                background: oColorsGetPaletteColor(pink-tint3);
                 margin: 23px 0;
             }
         }
@@ -770,11 +763,11 @@ $ftLinkHover: #000000;
                 @include gradientClear;
                 border: 0;
                 background: #406E9F;
-                color: #fff;
+                color: oColorsGetPaletteColor(white);
                 height: 22px;
 
                 .fyre-text {
-                    color: #fff;
+                    color: oColorsGetPaletteColor(white);
                     line-height: 22px;
                 }
 
@@ -787,7 +780,7 @@ $ftLinkHover: #000000;
         .fyre-stream-content-not-found {
             font-family: $bentonFont;
             font-size: 16px;
-            color: #505050 !important;
+            color: oColorsGetPaletteColor(grey-tint4) !important;
 
             a.fyre-stream-refresh {
                 font-family: $bentonFont;
@@ -814,7 +807,7 @@ $ftLinkHover: #000000;
 
         .fyre-mobile-menu {
             border: 4px solid #d9cdbf;
-            background: #FFF;
+            background: oColorsGetPaletteColor(white);
 
             .fyre-flag-menu-item {
                 border: 0;
@@ -841,8 +834,8 @@ $ftLinkHover: #000000;
 
         .fyre-editor-container {
             .fyre-editor-editable {
-                background-color: #ffffff;
-                border: 1px solid #e9decf;
+                background-color: oColorsGetPaletteColor(white);
+                border: 1px solid oColorsGetPaletteColor(pink-tint2);
 
                 @include borderRadiusClear;
                 @include boxShadowClear;
@@ -854,8 +847,8 @@ $ftLinkHover: #000000;
                 padding: 8px;
             }
 
-            .fyre-editor-editable.editable  {
-                color: #333333;
+            .fyre-editor-editable.editable {
+                color: oColorsGetPaletteColor(grey-tint5);
             }
 
             .fyre-editor-editable p {
@@ -864,7 +857,7 @@ $ftLinkHover: #000000;
             }
 
             .fyre-editor-editable p * {
-                color: #333333;
+                color: oColorsGetPaletteColor(grey-tint5);
                 font-family: $bentonFont;
                 font-size: 14px;
             }
@@ -876,41 +869,41 @@ $ftLinkHover: #000000;
 
         .fyre-editor-toolbar {
             .goog-toolbar {
-                > div  {
-                    background-color: #f6e9d8;
-                    border-bottom: 1px solid #e9decf;
-                    border-right: 1px solid #cec6b9;
+                > div {
+                    background-color: oColorsGetPaletteColor(pink-tint1);
+                    border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
+                    border-right: 1px solid oColorsGetPaletteColor(pink-tint3);
                     font: normal 12px $bentonFont;
                     @include gradientClear;
                 }
 
-                > div.goog-toolbar-separator  {
-                    border-bottom: 1px solid #e9decf;
+                > div.goog-toolbar-separator {
+                    border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
 
                     @include borderRadiusClear;
                 }
 
-                > div.fyre-button-left .fyre-button-left-outer-box .fyre-button-left-inner-box  {
+                > div.fyre-button-left .fyre-button-left-outer-box .fyre-button-left-inner-box {
                     color: $ftLink;
                     @include textShadowClear;
                 }
 
-                > div.fyre-button-left.fyre-format-button  {
-                    border-left: 1px solid #e9decf;
+                > div.fyre-button-left.fyre-format-button {
+                    border-left: 1px solid oColorsGetPaletteColor(pink-tint2);
                 }
 
-                > div.fyre-button-left:nth-child(2)  {
-                    border-bottom: 1px solid #e9decf;
+                > div.fyre-button-left:nth-child(2) {
+                    border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
 
                     @include borderRadiusClear;
                 }
 
-                > div.fyre-button-right  {
-                    border-left: 1px solid #cec6b9;
+                > div.fyre-button-right {
+                    border-left: 1px solid oColorsGetPaletteColor(pink-tint3);
                     border-right: none;
                 }
 
-                > div.fyre-button-right.fyre-post-button  {
+                > div.fyre-button-right.fyre-post-button {
                     background-color: transparent;
                     border-right: none;
 
@@ -925,37 +918,37 @@ $ftLinkHover: #000000;
                     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr=#549ccf,  endColorstr=#4781aa);
                 }
 
-                > div.fyre-button-right.fyre-post-button .fyre-button-right-outer-box  {
+                > div.fyre-button-right.fyre-post-button .fyre-button-right-outer-box {
                     padding: 0 10px;
                     border-bottom: 0;
                 }
 
-                > div.fyre-button-right.fyre-post-button .fyre-button-right-outer-box .fyre-button-right-inner-box  {
-                    color: #fff;
+                > div.fyre-button-right.fyre-post-button .fyre-button-right-outer-box .fyre-button-right-inner-box {
+                    color: oColorsGetPaletteColor(white);
                     font-weight: normal;
                     @include textShadowClear;
                 }
 
-                > div.fyre-button-right:last-child  {
-                    border-right: 1px solid #cec6b9;
-                    border-bottom: 1px solid #cec6b9;
+                > div.fyre-button-right:last-child {
+                    border-right: 1px solid oColorsGetPaletteColor(pink-tint3);
+                    border-bottom: 1px solid oColorsGetPaletteColor(pink-tint3);
                 }
 
                 > div.fyre-button-left-hover,
-                > div.fyre-button-right-hover  {
+                > div.fyre-button-right-hover {
                     @include gradientClear;
-                    background-color: #e9decf;
-                    color:#000000;
+                    background-color: oColorsGetPaletteColor(pink-tint2);
+                    color: oColorsGetPaletteColor(black);
                 }
 
                 > div.fyre-button-left-active ,
                 > div.fyre-button-right-active {
                     @include gradientClear;
-                    background-color: #e9decf;
+                    background-color: oColorsGetPaletteColor(pink-tint2);
                 }
 
                 > div.fyre-button-left .fyre-button-left-outer-box .fyre-button-left-inner-box:hover {
-                    color: #000;
+                    color: oColorsGetPaletteColor(black);
                 }
 
                 .fyre-raw-button {
@@ -964,11 +957,11 @@ $ftLinkHover: #000000;
 
                 .fyre-mention-button {
                     display: none;
-                    border-left: 1px solid #e9decf;
+                    border-left: 1px solid oColorsGetPaletteColor(pink-tint2);
                 }
             }
 
-            .fyre-share-button  {
+            .fyre-share-button {
                 color: $ftLink;
 
                 display: none;
@@ -976,50 +969,50 @@ $ftLinkHover: #000000;
 
             .fyre-share-button.fyre-button-left-open ,
             .fyre-share-button.fyre-button-right-open ,
-            .fyre-share-button.fyre-button-right-active  {
-                background: #f6e9d8;
+            .fyre-share-button.fyre-button-right-active {
+                background: oColorsGetPaletteColor(pink-tint1);
             }
 
             .fyre-share-button.fyre-button-left-open:hover ,
             .fyre-share-button.fyre-button-right-open:hover ,
-            .fyre-share-button.fyre-button-right-active:hover  {
-                background: #e9decf;
+            .fyre-share-button.fyre-button-right-active:hover {
+                background: oColorsGetPaletteColor(pink-tint2);
             }
 
-            .fyre-share-container  {
-                background-color: #f6e9d8;
-                border: 1px solid #cec6b9;
+            .fyre-share-container {
+                background-color: oColorsGetPaletteColor(pink-tint1);
+                border: 1px solid oColorsGetPaletteColor(pink-tint3);
 
                 @include borderRadiusClear;
 
                 width: auto;
             }
 
-            .fyre-share-container>span  {
+            .fyre-share-container>span {
                 background: none;
             }
 
-            .fyre-share-container > span>a  {
-                color: #333333;
+            .fyre-share-container > span>a {
+                color: oColorsGetPaletteColor(grey-tint5);
                 font-family: BentonSans, Helvetica, Arial, sans-serif;
                 padding: 8px 15px 8px 15px;
             }
 
-            .fyre-share-container > span > a span  {
+            .fyre-share-container > span > a span {
                 background-image: none;
             }
 
-            .fyre-share-container > span > a:hover  {
+            .fyre-share-container > span > a:hover {
                 color: $ftLink;
-                background-color: #e9decf;
+                background-color: oColorsGetPaletteColor(pink-tint2);
             }
         }
 
 
         .fyre-editor-disabled {
-            background: #fff;
+            background: oColorsGetPaletteColor(white);
             border: 1px solid #b2b2b2;
-            color: #505050;
+            color: oColorsGetPaletteColor(grey-tint4);
             font-family: $bentonFont;
             font-size: 13px;
             margin-top: 20px;
@@ -1039,23 +1032,23 @@ $ftLinkHover: #000000;
     .fyre-mention-menu.fyre-mention-connections {
         padding-bottom: 0;
     }
-    .fyre-mention-menu  {
+    .fyre-mention-menu {
         display: none;
 
-        border: 1px solid #f6e9d8;
+        border: 1px solid oColorsGetPaletteColor(pink-tint1);
         left: 0;
         margin-left: 0;
-        color: #505050;
+        color: oColorsGetPaletteColor(grey-tint4);
 
         @include borderRadiusClear;
 
         > .fyre-provider-connections {
-            border-color: #f6e9d8;
+            border-color: oColorsGetPaletteColor(pink-tint1);
             display: none;
         }
 
         .fyre-mention-item-display-name {
-            color: #505050;
+            color: oColorsGetPaletteColor(grey-tint4);
         }
 
         > .fyre-provider-connections > a.fyre-provider-facebook_connect_url,
@@ -1074,8 +1067,8 @@ $ftLinkHover: #000000;
 
     .fyre-editor-error {
         @include gradientClear;
-        background-color: #c00;
-        border: 1px solid #c00;
+        background-color: oColorsGetPaletteColor(red);
+        border: 1px solid oColorsGetPaletteColor(red);
         padding: 7px 25px 7px 7px;
         line-height: 14px;
         
@@ -1099,6 +1092,10 @@ $ftLinkHover: #000000;
             @include borderRadiusClear;
             @include boxShadowClear;
         }
+    }
+
+    .comment-header {
+        @extend %o-ft-typography-heading2;
     }
 }
 
@@ -1223,8 +1220,8 @@ $ftLinkHover: #000000;
 body {
     .fyre-hovercard-body {
         @include gradientClear;
-        background-color: #fff;
-        color: #777;
+        background-color: oColorsGetPaletteColor(white);
+        color: oColorsGetPaletteColor(grey-tint3);
         font: 14px/16px BentonSans, Arial, Helvetica, sans-serif;
 
         @include borderRadiusClear;
@@ -1238,7 +1235,7 @@ body {
     .fyre-hovercard-button {
         @include gradientClear;
         background-color: $ftLink;
-        color: #ffffff;
+        color: oColorsGetPaletteColor(white);
 
 
         @include borderRadiusClear;
@@ -1249,17 +1246,17 @@ body {
     .fyre-hovercard-button:hover {
         @include gradientClear;
         background-color: #549ccf;
-        color: #fff;
+        color: oColorsGetPaletteColor(white);
     }
 
 
     .fyre-modal-alert {
         @include gradientClear;
-        background-color: #fff;
+        background-color: oColorsGetPaletteColor(white);
         border: 3px solid #D9CDBF;
         padding: 2px;
 
-        color: #777;
+        color: oColorsGetPaletteColor(grey-tint3);
         font-size: 13px;
         font-family: $bentonFont;
         
@@ -1291,7 +1288,7 @@ body {
             padding-top: 9px;
             border-bottom: 0;
             text-transform: uppercase;
-            color: #666;
+            color: oColorsGetPaletteColor(grey-tint3);
             font-family: $bentonFont;
             font-size: 13px;
         }
@@ -1312,7 +1309,7 @@ body {
 
         .fyre-modal-subtitle,
         .fyre-modal-subtitle-u {
-            color: #000;
+            color: oColorsGetPaletteColor(black);
             font-size: 13px;
             font-family: $bentonFont;
             font-weight: normal;
@@ -1328,7 +1325,7 @@ body {
             font-family: $bentonFont;
             font-size: 14px;
             line-height: 16px;
-            color: #666;
+            color: oColorsGetPaletteColor(grey-tint3);
             border-color: #B3B0A8;
             padding: 4px;
 
@@ -1356,7 +1353,7 @@ body {
                 @include gradientClear;
                 background: $ftLink;
                 border: 0;
-                color: #fff;
+                color: oColorsGetPaletteColor(white);
                 font-family: $bentonFont;
                 font-weight: normal;
 

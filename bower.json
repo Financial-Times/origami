@@ -7,7 +7,10 @@
     "comment-ui": "git+http://git.svc.ft.com:8080/scm/strat_p/comment-ui.git#^0.2.0",
     "comment-utilities": "git+http://git.svc.ft.com:8080/scm/strat_p/comment-utilities.git#^0.1.0",
     "sizzle": "https://github.com/jquery/sizzle.git",
-    "hogan": "git+https://github.com/twitter/hogan.js.git#3.0.0"
+    "hogan": "git+https://github.com/twitter/hogan.js.git#3.0.0",
+    "o-ft-typography": "^1.12.2",
+    "o-colors": "^2.3.17",
+    "o-assets": "^0.4.2"
   },
   "ignore": [
     "node_modules",

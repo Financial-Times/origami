@@ -1,5 +1,10 @@
-@import 'bower_components/o-colors/main';
-@import 'bower_components/o-assets/main';
+@import 'o-ft-typography/main';
 
-@import 'bower_components/comment-ui/main';
+@include oFtTypographyIncludeFont(metadata);
+@include oFtTypographyIncludeFont(heading);
+
+@import 'o-colors/main';
+@import 'o-assets/main';
+
+@import 'comment-ui/main';
 @import 'src/stylesheets/livefyre_widget_overrides';
