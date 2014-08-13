@@ -82,6 +82,8 @@ function Widget () {
                     }
                 }
 
+                self.config.initExtension.editorCss = 'p { margin-bottom: 10px !important; }';
+
                 oCommentData.api.getAuth(function (err, authData) {
                     if (err) {
                         authData = null;
