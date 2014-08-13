@@ -1102,10 +1102,12 @@ $ftLinkHover: oColorsGetPaletteColor(black);
         @extend %o-ft-typography-heading2;
         padding: 3px 0;
     }
-}
 
-.railSection {
-    .livefyre-comments.comments-overrides.comments-type-livecomments {
+
+
+
+    // sidebar layout (in the rail list)
+    .comment-layout-side {
         .fyre {
             .fyre-comment {
                 a.fyre-comment-edit {
