@@ -30,10 +30,14 @@ $ftLinkHover: oColorsGetPaletteColor(black);
     filter: none;
 }
 
+
+.livefyre-comments {
+    @extend %o-ft-typography-article-body-wrapper;
+}
+
 .livefyre-comments.comments-overrides.comment-type-livecomments {
     clear: both;
     color: oColorsGetPaletteColor(grey-tint5);
-    @extend %o-ft-typography-article-body-wrapper;
 
     .fyre {
         font-family: $bentonFont;
