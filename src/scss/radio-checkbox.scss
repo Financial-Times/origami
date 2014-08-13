@@ -21,14 +21,6 @@
   line-height: $_o-ft-forms-radiocheckbox-size;
 }
 
-// include the base icon styles for the checkbox
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__checkboxlabel',
-  '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label'
-) {
-  @include oFtIconsBaseIconStyles();
-}
-
 // apply different text colour to checkboxes and radio labels on hover and focus
 @include oFtFormsPlaceholderOptionalSelector(
   '%o-ft-froms__checkboxradiolabel--hover',
@@ -96,14 +88,12 @@
   '%o-ft-forms__checkbox--checked',
   '.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label::after'
 ) {
-  // FIXME There's currently no way to get the codepoint of an icon from o-ft-icons
-  // We can't extend one of the placeholders o-ft-icons provides either
-  // As it requires a dedicated element in the DOM to apply styles to
-  content: '\e035';
-  font-size: $_o-ft-forms-checkbox-ticksize;
-  font-weight: bold;
-  color: oColorsGetColorFor(form-radiocheckbox-checked, background);
+  content: '';
+  height: $_o-ft-forms-checkbox-ticksize;
+  width: $_o-ft-forms-checkbox-ticksize;
   position: absolute;
   left: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-checkbox-ticksize) / 2;
-  top: 0;
+  top: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-checkbox-ticksize) / 2;
+  background-image: url("//image.webservices.ft.com/v1/images/raw/fticon:tick?width=" + _stripUnits($_o-ft-forms-checkbox-ticksize) + "&source=o-ft-forms");
+  background-repeat: no-repeat;
 }

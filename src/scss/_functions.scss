@@ -1,0 +1,3 @@
+@function _stripUnits($n) {
+    @return $n / ($n * 0 + 1);
+}
