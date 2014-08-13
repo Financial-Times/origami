@@ -5,7 +5,6 @@
         "o-fonts": "^1.4.1",
         "o-ft-typography": "^1.6.1",
         "o-colors": "^2.3.16",
-        "o-ft-buttons": "^1.2.0",
-        "o-ft-icons": "^2.0.1"
+        "o-ft-buttons": "^1.2.0"
     }
 }
