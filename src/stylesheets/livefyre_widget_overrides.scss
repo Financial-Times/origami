@@ -1107,7 +1107,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 
     // sidebar layout (in the rail list)
-    .comment-layout-side {
+    &.comment-layout-side {
         .fyre {
             .fyre-comment {
                 a.fyre-comment-edit {
