@@ -30,6 +30,17 @@
   @include oFtIconsBaseIconStyles();
 }
 
+// apply different text colour to checkboxes and radio labels on hover and focus
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-froms__checkboxradiolabel--hover',
+  '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label:hover,
+  .o-ft-forms__field[type="radio"] + .o-ft-forms__label:hover,
+  .o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label,
+  .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label'
+) {
+  color: oColorsGetColorFor(form-radiocheckbox-hover, text);
+}
+
 // styling for the border of checkboxes
 @include oFtFormsPlaceholderOptionalSelector(
   '%o-ft-forms__checkboxborder',
