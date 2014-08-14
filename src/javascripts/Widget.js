@@ -2,6 +2,9 @@ var resourceLoader = require('./resourceLoader.js'),
     auth = require('./auth.js'),
     envConfig = require('./config.js'),
     WidgetUi = require('./WidgetUi.js'),
+    utils = require('./utils.js'),
+    commentUtilities = require('comment-utilities'),
+    userDialogs = require('./userDialogs.js'),
 
     commentUi = require('comment-ui'),
     oCommentData = require('o-comment-data');
@@ -36,6 +39,14 @@ function Widget () {
     var self = this;
 
     this.ui = new WidgetUi(this.getWidgetEl());
+
+    this.forceMode = false;
+
+    if (self.config.authPageReload === true && utils.isLivefyreActionQueuePresent()) {
+        commentUtilities.logger.log("Force flag set.");
+
+        this.forceMode = true;
+    }
 
     /**
      * Loads the necessary resources - suds data and Livefyre JS core library
@@ -117,11 +128,56 @@ function Widget () {
 
                                 self.ui.addTermsAndGuidelineMessage();
 
+                                if (authData.token) {
+                                    auth.getInstance().login(authData.token);
+
+                                    if (self.forceMode === true) {
+                                        setTimeout(self.ui.scrollToWidget, 2000);
+                                    }
+                                } else if (authData.pseudonym === false) {
+                                    auth.getInstance().pseudonymMissing = true;
+                                    auth.getInstance().pseudonymWasMissing = true;
+
+                                    if (self.forceMode === true) {
+                                        userDialogs.showSetPseudonymDialog({
+                                            success: function (newAuthData) {
+                                                if (newAuthData && newAuthData.token) {
+                                                    auth.getInstance().login(newAuthData.token);
+                                                }
+                                            }
+                                        });
+                                    }
+
+                                    self.ui.hideSignInLink();
+                                } else if (authData.serviceUp === false) {
+                                    self.ui.makeReadOnly();
+                                    self.ui.hideSignInLink();
+                                    self.ui.addAuthNotAvailableMessage();
+                                }
+
                                 self.trigger('initialRenderComplete.widget');
                             });
 
                             var siteId = parseInt(initData.siteId, 10);
                             widget.on('commentPosted', function (eventData) {
+                                if (!auth.getInstance().pseudonymWasMissing) {
+                                    oCommentData.api.getAuth(function (err, authData) {
+                                        if (err) {
+                                            authData = null;
+                                        }
+
+                                        if (self.config.emailAlert !== false) {
+                                            if (authData && typeof authData === 'object') {
+                                                if (authData.token && !authData.settings) {
+                                                    userDialogs.showEmailAlertDialog();
+                                                }
+                                            }
+                                        }
+                                    });
+                                } else {
+                                    auth.getInstance().pseudonymWasMissing = false;
+                                }
+
                                 self.trigger('commentPosted.tracking', [siteId, eventData]);
                             });
 
@@ -139,6 +195,41 @@ function Widget () {
 
 
                             authDelegate.login = function (delegate) {
+                                oCommentData.api.getAuth(function (err, authData) {
+                                    if (auth.getInstance().pseudonymMissing === true) {
+                                        commentUtilities.logger.log('pseudonymMissing');
+                                        userDialogs.showSetPseudonymDialog({
+                                            success: function (newAuthData) {
+                                                delegate.success();
+
+                                                if (newAuthData && newAuthData.token) {
+                                                    auth.getInstance().login(newAuthData.token);
+                                                }
+                                            },
+                                            failure: function () {
+                                                delegate.failure();
+                                            }
+                                        });
+                                    } else if (!authData || !authData.token) {
+                                        if (self.config.authPageReload === true) {
+                                            delegate.failure();
+
+                                            self.trigger('loginRequired.authAction');
+                                        } else {
+                                            self.trigger('loginRequired.authAction', [delegate]);
+                                        }
+
+                                        commentUtilities.logger.log('session expired, show inactivity message');
+                                        userDialogs.showInactivityMessage({
+                                            submit: function () {
+                                                window.location.href = 'https://registration.ft.com/registration/barrier/login?location='+ encodeURIComponent(document.location.href);
+                                            }
+                                        });
+                                        delegate.failure();
+                                    }
+                                });
+
+
                                 self.trigger('login.authAction', delegate);
                             };
 
@@ -181,7 +272,22 @@ function Widget () {
     function login () {
         self.ui.addSettingsLink({
             onClick: function () {
-                self.trigger('settingsLinkClick.comments');
+                oCommentData.api.getAuth(function (err, currentAuthData) {
+                    if (err) {
+                        self.trigger('loginRequired.authAction');
+                        return;
+                    }
+
+                    userDialogs.showSettingsDialog(currentAuthData, {
+                        success: function (newAuthData) {
+                            if (newAuthData && newAuthData.token) {
+                                auth.getInstance().logout();
+                                commentUtilities.logger.debug('new settings', newAuthData);
+                                auth.getInstance().login(newAuthData.token);
+                            }
+                        }
+                    });
+                });
             }
         });
     }

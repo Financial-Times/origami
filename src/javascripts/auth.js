@@ -21,6 +21,18 @@ function Auth (lfObj) {
     this.off = event.off;
 
     /**
+     * Pseudonym is still missing.
+     * @type {Boolean}
+     */
+    this.pseudonymMissing = false;
+
+    /**
+     * Pseudonym was missing since the page was loaded and only 1 comment was posted.
+     * @type {Boolean}
+     */
+    this.pseudonymWasMissing = false;
+
+    /**
      * Get the RemoteAuthDelegate instance.
      * @return {RemoteAuthDelegate}
      */
