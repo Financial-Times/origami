@@ -220,14 +220,6 @@ function Widget () {
                                         } else {
                                             self.trigger('loginRequired.authAction', [delegate]);
                                         }
-
-                                        commentUtilities.logger.log('session expired, show inactivity message');
-                                        userDialogs.showInactivityMessage({
-                                            submit: function () {
-                                                window.location.href = 'https://registration.ft.com/registration/barrier/login?location='+ encodeURIComponent(document.location.href);
-                                            }
-                                        });
-                                        delegate.failure();
                                     }
                                 });
 
