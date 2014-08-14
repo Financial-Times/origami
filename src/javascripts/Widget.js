@@ -128,31 +128,33 @@ function Widget () {
 
                                 self.ui.addTermsAndGuidelineMessage();
 
-                                if (authData.token) {
-                                    auth.getInstance().login(authData.token);
+                                if (authData) {
+                                    if (authData.token) {
+                                        auth.getInstance().login(authData.token);
 
-                                    if (self.forceMode === true) {
-                                        setTimeout(self.ui.scrollToWidget, 2000);
-                                    }
-                                } else if (authData.pseudonym === false) {
-                                    auth.getInstance().pseudonymMissing = true;
-                                    auth.getInstance().pseudonymWasMissing = true;
+                                        if (self.forceMode === true) {
+                                            setTimeout(self.ui.scrollToWidget, 2000);
+                                        }
+                                    } else if (authData.pseudonym === false) {
+                                        auth.getInstance().pseudonymMissing = true;
+                                        auth.getInstance().pseudonymWasMissing = true;
 
-                                    if (self.forceMode === true) {
-                                        userDialogs.showSetPseudonymDialog({
-                                            success: function (newAuthData) {
-                                                if (newAuthData && newAuthData.token) {
-                                                    auth.getInstance().login(newAuthData.token);
+                                        if (self.forceMode === true) {
+                                            userDialogs.showSetPseudonymDialog({
+                                                success: function (newAuthData) {
+                                                    if (newAuthData && newAuthData.token) {
+                                                        auth.getInstance().login(newAuthData.token);
+                                                    }
                                                 }
-                                            }
-                                        });
-                                    }
+                                            });
+                                        }
 
-                                    self.ui.hideSignInLink();
-                                } else if (authData.serviceUp === false) {
-                                    self.ui.makeReadOnly();
-                                    self.ui.hideSignInLink();
-                                    self.ui.addAuthNotAvailableMessage();
+                                        self.ui.hideSignInLink();
+                                    } else if (authData.serviceUp === false) {
+                                        self.ui.makeReadOnly();
+                                        self.ui.hideSignInLink();
+                                        self.ui.addAuthNotAvailableMessage();
+                                    }
                                 }
 
                                 self.trigger('initialRenderComplete.widget');
