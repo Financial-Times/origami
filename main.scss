@@ -19,7 +19,7 @@ $o-ft-footer-spacing-unit: 20px;
   padding: 0;
   border-color: oColorsGetColorFor(brand-color, border);
   border-top-style: outset;
-  border-top: 5px;
+  border-top-width: 5px;
   font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
   font-weight: normal;
 
