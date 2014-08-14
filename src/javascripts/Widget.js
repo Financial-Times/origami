@@ -102,7 +102,7 @@ function Widget () {
 
                     self.trigger('loaded.auth', authData);
 
-                    if (self.config.authPageReload === true && (!self.config.user.isLoggedIn() || !authData || (!authData.token && authData.pseudonym !== false))) {
+                    if (self.config.authPageReload === true && (!authData || (!authData.token && authData.pseudonym !== false))) {
                         initData.authPageReload = true;
                     }
 

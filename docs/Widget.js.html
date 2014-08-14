@@ -230,7 +230,7 @@
 
                     self.trigger('loaded.auth', authData);
 
-                    if (self.config.authPageReload === true &amp;&amp; (!self.config.user.isLoggedIn() || !authData || (!authData.token &amp;&amp; authData.pseudonym !== false))) {
+                    if (self.config.authPageReload === true &amp;&amp; (!authData || (!authData.token &amp;&amp; authData.pseudonym !== false))) {
                         initData.authPageReload = true;
                     }
 
