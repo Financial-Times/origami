@@ -12,7 +12,6 @@ o.fireEvent = function (el, event, data) {
 };
 
 o.fireCustomEvent = function (el, event, data) {
-    
     el.dispatchEvent(new CustomEvent(event, {
         detail: data,
         bubbles: true

@@ -1,26 +1,39 @@
 {
-  "description": "Responsive, configurable dialogs",
-  "origamiType": "module",
-  "origamiVersion": 1,
-  "support": "alberto.elias@ft.com",
-  "supportStatus": "experimental",
-  "browserFeatures": {
-    "required": [
-      ""
-    ],
-    "optional": [
-      "csstransforms",
-      "csstransitions",
-      "flexbox",
-      "flexbox-legacy",
-      "rgba",
-      "requestAnimationFrame"
+    "description": "Responsive, configurable overlays",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "alberto.elias@ft.com",
+    "supportStatus": "experimental",
+    "browserFeatures": {
+        "required": [
+            "es5object",
+            "classList",
+            "customevent"
+        ],
+        "optional": [
+            "csstransforms",
+            "csstransitions",
+            "flexbox",
+            "flexbox-legacy",
+            "rgba",
+            "requestAnimationFrame"
+        ]
+    },
+    "ci": {
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-overlay/builds.json"
+    },
+    "demos": [
+        {
+            "title": "modal",
+            "path": "/demos/modal.html",
+            "description": "Modal shaded overlay",
+            "expanded": true
+        },
+        {
+            "title": "centered-overlay",
+            "path": "/demos/centered-overlay.html",
+            "description": "Non-modal non-shaded centered overlay",
+            "expanded": true
+        }
     ]
-  },
-  "ci": {
-    "travis": "https://api.travis-ci.org/repos/Financial-Times/o-modal/builds.json"
-  },
-  "demos": [
-    "/demos/modals.html"
-  ]
 }

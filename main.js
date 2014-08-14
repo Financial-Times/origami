@@ -1,4 +1,10 @@
 'use strict';
-var Modal = require('./src/js/modal');
+var oOverlay = require('./src/js/overlay'),
+    constructAll = function() {
+        'use strict';
+        oOverlay.init(document.body);
+        document.removeEventListener('o.DOMContentLoaded', constructAll);
+    };
 
-module.exports = Modal;
+document.addEventListener('o.DOMContentLoaded', constructAll);
+module.exports = oOverlay;

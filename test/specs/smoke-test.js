@@ -1,162 +1,184 @@
 'use strict';
 
-var Modal,
-    el,
-    tpl,
-    currentModal,
-    testContent = '<h1 class=\"o-modal__heading test-heading\">test title</h1><div class=\"o-modal__body test-body\">test body</div>',
+var Overlay,
+    testContent = '<div class="test-overlay"><span class="test-overlay__text">Hello Overlay</span></div>';
 
-    $ = require('jquery');
-
-describe('smoke-tests (./modal.js)', function () {
-    beforeEach(function () {
-        jasmine._addCustomMatchers();
-        Modal = require('../../src/js/modal');
-        Modal.defaults.onBeforeRender = function (mod) {
-            currentModal = mod;
-        };
-        el = $('<span class="o-modal__trigger">').appendTo('body');
+describe('smoke-tests (./overlay.js)', function() {
+    beforeEach(function() {
+        Overlay = require('../../src/js/overlay');
     });
 
-    afterEach(function () {
-        el.remove();
-        tpl && tpl.remove();
-        Array.prototype.forEach.call(document.querySelectorAll('.o-modal, .o-modal__overlay'), function (el) {
-            el.parentNode.removeChild(el);
-        });
-        currentModal.delegates.win.off();
-        currentModal.delegates.wrap.off();
-        currentModal.globalDelegate.off();
+    afterEach(function() {
+        var overlays = document.querySelectorAll('.o-overlay, .o-overlay-shadow');
+        for (var i = 0; i < overlays.length; i++) {
+            overlays[i].parentNode.removeChild(overlays[i]);
+        }
     });
 
-    describe('opening and closing', function () {
+    describe('opening and closing', function() {
 
-        beforeEach(function () {
-            el.attr({
-                'data-o-modal-src': testContent,
-                'data-o-modal-outer-class': 'test-outer-class',
-                'data-o-modal-inner-class': 'test-inner-class',
-                'data-o-modal-close-class': 'test-close-class',
-                'data-o-modal-heading-selector': '.test-heading',
-                'data-o-modal-body-selector': '.test-body'
-            });
+        beforeEach(function() {
+            var el = document.createElement('button');
+            el.setAttribute('data-o-overlay-src', '.test-overlay');
+            el.setAttribute('data-o-overlay-heading-title', 'test title');
+            el.className = 'o-overlay-trigger';
+            document.body.appendChild(el);
+
+            document.body.innerHTML += testContent;
         });
 
-        afterEach(function () {
-            Modal.unlisten();
+        afterEach(function() {
+            var testEl = document.querySelector('.test-overlay');
+            testEl.parentNode.removeChild(testEl);
+            var triggerEl = document.querySelector('.o-overlay-trigger');
+            triggerEl.parentNode.removeChild(triggerEl);
+            Overlay.destroy();
         });
 
-        it('should open with correct content when trigger is clicked', function () {
+        it('should open with correct content when trigger is clicked', function() {
             
-            o.fireEvent(el[0], 'click');
-            expect($('.o-modal').length).toBe(0);
+            var trigger = document.querySelector('.o-overlay-trigger');
+            o.fireEvent(trigger, 'click');
+            var overlays = document.querySelectorAll('.o-overlay');
+            expect(overlays.length).toBe(0);
             
-            Modal.listen();
+            Overlay.init();
             
-            o.fireEvent(el[0], 'click');
+            o.fireEvent(trigger, 'click');
 
-            var wrapper = $('.o-modal.o-modal--closable.test-outer-class.is-open'),
-                content = wrapper.find('.o-modal__content.test-inner-class'),
-                overlay = $('.o-modal + .o-modal__overlay'),
-                close = content.find('button.o-modal__close.test-close-class'),
-                heading = content.find('.o-modal__heading.test-heading'),
-                body = content.find('.o-modal__body.test-body');
-
-            
+            var wrapper = document.querySelectorAll('.o-overlay'),
+            content = wrapper[0].querySelectorAll('.o-overlay__content'),
+            heading = wrapper[0].querySelectorAll('.o-overlay__heading'),
+            shadow = document.querySelectorAll('.o-overlay-shadow'),
+            close = heading[0].querySelectorAll('.o-overlay__close'),
+            testBody = content[0].querySelectorAll('.test-overlay');
+        
             expect(wrapper.length).toBe(1);
             expect(content.length).toBe(1);
-            expect(overlay.length).toBe(1);
-            expect(close.length).toBe(1);
+            expect(shadow.length).toBe(1);
             expect(heading.length).toBe(1);
-            expect(body.length).toBe(1);
+            expect(close.length).toBe(1);
+            expect(testBody.length).toBe(1);
+
+            o.fireEvent(close[0], 'click');
+
         });
-        it('should be closable in many different ways', function () {
-            spyOn(Modal.prototype, 'close');
-            Modal.listen();
+        it('modal should be closable with esc key, close button and with new layer', function() {
+            var trigger = document.querySelector('.o-overlay-trigger');
+            var originalOverlayClose = Overlay.prototype.close;
+            spyOn(Overlay.prototype, 'close');
+            Overlay.init();
             
-            o.fireEvent(el[0], 'click');
-                
-            o.fireEvent($('button.o-modal__close')[0], 'click');
-            o.fireEvent($('.o-modal__overlay')[0], 'click');
-            o.fireEvent(document, 'keyup', {
+            o.fireEvent(trigger, 'click');
+
+            var close = document.querySelector('.o-overlay__close');
+
+            o.fireEvent(close, 'click');
+            o.fireEvent(document.body, 'click');
+            o.fireEvent(document.body, 'keyup', {
                 keyCode: 27
             });
-            o.fireCustomEvent(document.body, 'oLayers.closeAll');
-            o.fireCustomEvent(document.body, 'oLayers.open');
+            o.fireCustomEvent(document.body, 'oLayers.new');
 
-            expect(Modal.prototype.close.calls.count()).toBe(5);
-                
+            expect(Overlay.prototype.close.calls.count()).toBe(3);
+            var currentOverlay = Overlay.getOverlays()[0];
+            currentOverlay.close = originalOverlayClose;
+            currentOverlay.close();
+
         });
-        it('should remove all traces on close', function () {
-            Modal.listen();
+
+        it('non-modal should be closable in different ways', function() {
+            var trigger = document.querySelector('.o-overlay-trigger');
+            var originalOverlayClose = Overlay.prototype.close;
+            spyOn(Overlay.prototype, 'close');
+            trigger.setAttribute('data-o-overlay-modal', 'false');
+            Overlay.init();
             
-            o.fireEvent(el[0], 'click');
+            o.fireEvent(trigger, 'click');
+            
+            o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
+            o.fireEvent(document.body, 'click');
+            o.fireEvent(document.body, 'keyup', {
+                keyCode: 27
+            });
+            o.fireCustomEvent(document.body, 'oLayers.new');
 
-            o.fireEvent($('button.o-modal__close')[0], 'click');
+            expect(Overlay.prototype.close.calls.count()).toBe(4);
 
-            expect($('.o-modal').length).toBe(0);
+            var currentOverlay = Overlay.getOverlays()[0];
+            currentOverlay.close = originalOverlayClose;
+            currentOverlay.close();
+        });
 
-            Modal.unlisten();
+        it('should remove all traces on close', function() {
+            var trigger = document.querySelector('.o-overlay-trigger');
+            trigger.setAttribute('data-o-overlay-modal', 'false');
+            Overlay.init();
+            
+            o.fireEvent(trigger, 'click');
 
-            o.fireEvent(el[0], 'click');
-            expect($('.o-modal').length).toBe(0);
+            o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
 
-            spyOn(Modal.prototype, 'close');
-            spyOn(Modal.prototype, 'realign');
-            spyOn(Modal.prototype, 'resizeListener');
-            spyOn(Modal.prototype, 'closeOnExternalClick');
-            spyOn(Modal.prototype, 'closeOnEscapePress');
+            expect(document.querySelectorAll('.o-overlay').length).toBe(0);
+
+            Overlay.destroy();
+
+            o.fireEvent(trigger, 'click');
+            expect(document.querySelectorAll('.o-overlay').length).toBe(0);
+
+            spyOn(Overlay.prototype, 'close');
+            spyOn(Overlay.prototype, 'realign');
+            spyOn(Overlay.prototype, 'resizeListener');
+            spyOn(Overlay.prototype, 'closeOnExternalClick');
+            spyOn(Overlay.prototype, 'closeOnEscapePress');
            
-            o.fireCustomEvent(document.body, 'oLayers.closeAll');
             o.fireCustomEvent(document.body, 'oViewport.resize');
-            o.fireCustomEvent(document.body, 'oLayers.open');
-            o.fireEvent($('.o-modal__overlay')[0], 'click');
-            o.fireEvent(document, 'keyup');
+            o.fireCustomEvent(document.body, 'oLayers.new');
+            o.fireEvent(document.body, 'click');
+            o.fireEvent(document.body, 'keyup');
 
-            expect(Modal.prototype.close).not.toHaveBeenCalled();
-            expect(Modal.prototype.realign).not.toHaveBeenCalled();
-            expect(Modal.prototype.resizeListener).not.toHaveBeenCalled();
-            expect(Modal.prototype.closeOnExternalClick).not.toHaveBeenCalled();
-            expect(Modal.prototype.closeOnEscapePress).not.toHaveBeenCalled();
-
-                
+            expect(Overlay.prototype.close).not.toHaveBeenCalled();
+            expect(Overlay.prototype.realign).not.toHaveBeenCalled();
+            expect(Overlay.prototype.resizeListener).not.toHaveBeenCalled();
+            expect(Overlay.prototype.closeOnExternalClick).not.toHaveBeenCalled();
+            expect(Overlay.prototype.closeOnEscapePress).not.toHaveBeenCalled();
+  
         });
 
 
 
-        it('should be possible to open and close imperatively', function () {
-            var mod = new Modal({
-                src: testContent,
-                outerClasses: 'test-outer-class',
-                innerClasses: 'test-inner-class',
-                headingSelector: '.test-heading',
-                bodySelector: '.test-body'
-            });
-            expect($('.o-modal').length).toBe(1);
+        it('should be possible to open and close imperatively', function() {
+            var mod = new Overlay({
+                html: testContent
+            }, document.querySelector('.o-overlay-trigger'));
+
+            var overlays = document.querySelectorAll('.o-overlay');
+            
+            expect(overlays.length).toBe(1);
             mod.close();
-            expect($('.o-modal').length).toBe(0);
+            overlays = document.querySelectorAll('.o-overlay');
+            expect(overlays.length).toBe(0);
         });
 
     });
 
 
-    it('should be able to inject content from template', function () {
-        var tpl = $('<script>').attr({
-            type: 'text/template',
-            id: 'test-overlay-content'
-        }).html(testContent).appendTo('body');
+    it('should be able to inject content from template', function() {
+        var scriptEl = document.createElement('script');
+        scriptEl.id = 'test-overlay-content';
+        scriptEl.setAttribute('type', 'text/template');
+        scriptEl.innerHTML = "Test content";
+        document.body.appendChild(scriptEl);
+        
+        var mod = new Overlay({
+            src: '#test-overlay-content'
+        }, document.querySelector('.o-overlay-trigger'));
 
-        var mod = new Modal({
-            src: '#test-overlay-content',
-            outerClasses: 'test-outer-class',
-            innerClasses: 'test-inner-class',
-            closeClass: 'test-close-class',
-            headingSelector: '.test-heading',
-            bodySelector: '.test-body'
-        });
-        expect($('.o-modal').length).toBe(1);
+        var overlays = document.querySelectorAll('.o-overlay');
+        expect(overlays.length).toBe(1);
         mod.close();
-        expect($('.o-modal').length).toBe(0);
-        tpl.remove();
+        overlays = document.querySelectorAll('.o-overlay');
+        expect(overlays.length).toBe(0);
+        document.body.removeChild(scriptEl);
     });
 });

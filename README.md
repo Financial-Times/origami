@@ -1,153 +1,63 @@
-# Dialog <small>o-modal</small> [![Build Status](https://travis-ci.org/Financial-Times/o-modal.png?branch=master)](https://travis-ci.org/Financial-Times/o-modal)
+# o-overlay [![Build Status](https://travis-ci.org/Financial-Times/o-overlay.png?branch=master)](https://travis-ci.org/Financial-Times/o-overlay)
 
-Configurable custom modal box that can be used to show modal windows. The modals can also be switched to display differently on small screens.
+Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens.
 
 ## Installation
 
 Run the following in your project's root directory
    
-    bower install o-modal
+    bower install o-overlay
 
-Then add `@import "o-modal/main"` to your sass stylesheets and use `require('o-modal')` in your javascript.
+Then add `@import "o-overlay/main"` to your sass stylesheets and use `require('o-overlay')` in your javascript.
 
 ## Usage
-o-modal can be used in two main ways
+The constructor function accepts two parameters: 
+    * options: Documented below
+    * trigger element: HTMLElement to which the overlay will be associated
 
-* Direct calls to the `o-modal#trigger(options, [el])` method, where options are documented below and el is an optional 'trigger element' to which the modal will be associated
-* Setting the property `data-o-modal__trigger` on an element to be a JSON of options. When clicked `o-modal#trigger` will be called with both this JSON and the element passed in
+You can get an array of all open overlays with the method `o-overlay#getOverlays`.
 
-Additionally, the modal can be closed by
+o-overlay can be instantiated in two main ways:
 
-* Calling `close()` on a modal instance
-* Firing the custom event `oLayers.closeAll` on `document.body`
+### Declaratively
+Setting the different options as `data-attributes` on the trigger. When the trigger is clicked, you would then need to create a new Overlay object setting the options parameter as `null` and the trigger to be the target of the event.
 
-### Styling
-By default o-modal includes only those styles needed to correctly position itself. The exact look and feel should be completely customisable using your own stylesheets. There are however a few features/limitations to bear in mind
+You can also set the class `o-overlay-trigger` on the trigger and run `o-overlay#init(el)` so that all triggers that are children of the specified element (the default is `document.body`) are instantiated automatically.
 
-* Padding on the outer `o-modal` element is used to set buffers between the dialog's content and the edge of the window e.g setting `.o-modal{ padding: 100px}` will mean the dialog will switch to full screen mode when the content gets within 100px of the window edge.
-* A number of classes serve special purposes. You can either `@extend` these in your sass or use directly in your html, but if `@extending` in sass you will need to set some properties on the dialog's configuration so that the elements will be retrieved by the javascript.
-	* `o-modal__heading` - should be used to wrap any content which must always appear at the top of the dialog i.e. outside of any scrollable area
-	* `o-modal__body` - where `o-modal__heading` is used, `o-modal__body` should be used to wrap the remaining content. It *must not* be used when a heading isn't present  - o-modal will manually add the class to the content's outer wrapper when a heading isn't present.
-* CSS transitions can be used when hiding or showing content. As long as they are applied to one of the outer elements (`o-modal`, `o-modal__overlay` or `o-modal__content`) the js shoudl wait for the transition to end befoer proceeding to alter the DOM.
+Instead of running `o-overlay#init(el)`, you can also instantiate all triggers together with other Origami modules by dispatching the `o.DOMContentLoaded` event.
 
-#### Default FT Styles
-Styles for the default FT branded dialogs are included in the module but not output by default (unless requesting the module via the build service). To turn on these styles set `$o-modal-is-silent: false`. Alternatively `@extend` any of the following placeholder classes to apply the styles to selectors of your choice:
+If at some point you want to deactivate the triggers, just run `o-overlay#destroy`.
 
-* `%o-modal--modal__content`
-* `%o-modal__close`
-* `%o-modal__heading`
-* `%o-modal__body`
+### Imperatively
+Creating a new Overlay object passing the options as a JSON object, and optionally, associating it with a trigger element.
 
-Note, that if using the extend method you will also need to include The Benton Sans Lighter font in your product as follows:
+Additionally, the overlay can be closed by
 
-	@include oFontsInclude(BentonSans, lighter);
+* Calling `close()` on a overlay instance
 
-### Configuration
+## Options
 
-The `options` object takes the following properties. All are optional, with the exception of `src`. By default the modal will behave similarly to a native modal.
+These are the options you can set for your overlay:
 
-* `srcType: 'selector'` - Specifies the method to use to retrieve content to insert into the modal:
-	* `url` - fetch the content from the url `options.src` *(not implemented)*
-	* `selector` - clone the first html element matching the selector `options.src` (if the element is a script tag it's assumed this is a template and the content is cloned, discarding the outer script tag)
-	* `string` - use the string `options.src` directly as the content 
-	* `template`  - retrieve and render the mustache template `options.src` *(not implemented)*
-* `src: ''` - String specifying where to retrieve content to place in the modal. If `srcType` is not specified o-modal will try and calculate which `srcType` to use as follows:
-	* If `options.src` is an obvious url (matching `/^(https?\:\/)?\//`) sets `options.srcType` to `url`
-	* If `options.src` wen treated as a selector matches some element, sets `options.srcType` to `selector`
-	* Otherwise sets `options.srcType` to `string`
-* `outerClasses: ''` - Additional classes to put on the modal's outer element
-* `innerClasses: ''` - Additional classes to put on the modal's inner (content) element
-* `preset: 'modal'` - Name of the configruration preset to use
-* `isDismissable: true` - Whether or not the user can dismiss the modal via standard actions (esc key, clicking away from the modal or clicking a close button)
-* `isAnchoredToTrigger: false` - Whether or not the modal shoul be positioned relative to the element which triggered its appearance *(experimental)*
-* `verticalAnchorSide: null` - Whether to anchor to the top or bottom of the trigger *(not implemented)*
-* `horizontalAnchorSide: null` - Whether to anchor to the right or left of the trigger *(not implemented)*
-* `headingSelector: '.o-modal__heading'` - Selector that identifies the modal's heading content (see notes above on styling)
-* `bodySelector: '.o-modal__body'` - Selector that identifies the modal's body content (see notes above on styling)
-* `hasHeading: false` - Whether or not the content has a heading (this shodul not be set manually - it is set programmatically following analysis of the properties above and the content being injected)
-* `hasOverlay: false` - Whether or not the modal should sit on top of a greyed out overlay
-* `hasCloseButton: false` - Whether or not the overlay shoudl have a close button
-* `isCenteredVertically: true` - Whether or not the modal is centered horizontally on the screen
-* `isCenteredHorizontally: true` - Whether or not the modal is centered horizontally on the screen
-* `snapsToFullHeight: true` - Whether or not the modal will intelligently switch to occupying the full height of the screen with scroll bars at small screen sizes
-* `snapsToFullWidth: true` - Whether or not the modal will intelligently switch to occupying the full width of the screen with scroll bars at small screen sizes
+* heading: It's a JSON object with two options. 
+    * title: Your overlay's title
+    * shaded: true/false. You can choose between a shaded style or not
+* modal: true/false. Choose if you want your overlay to have modal behaviour or not. Setting this as true will also add a translucent shadow between your page and the overlay
+* src: It can be either a _url_ where your raw HTML is, or a _CSS selector_ to where your content is in the page. 
+* html: Raw HTML string
 
-#### Events
-The following event listeners can also be set on the options object.
+The only option that must be set is either the *src* or the *html* one. Please keep in mind that the *html* option can't be set as a data-attribute, and if you set both, the *html* one will be used.
 
+Data-attributes have the same name as in the JSON format, but with dashes. So for *src* it will be `data-o-overlay-src` and for the *heading.title* it will be `data-o-overlay-heading-title`.
 
-* `onFail` - Called when a modal fails to initialise. The reason for the failure will be available in `modal.errors` *(not implemented)*
-* `onTrigger` - Called when a request to open a modal is fired if initialisation succeeds
-* `onBeforeRender` - Called when a modal's content is constructed but not yet added to the DOM
-* `onAfterRender` - Called when a modal's content has been added to the DOM
-* `onBeforeResize` - Called when a modal begins to respond to a window resize event
-* `onAfterResize` - Called after a modal finishes responding to a window resize event
-* `onBeforeClose` - Called when a request to close a modal is fired
-* `onAfterClose` - Called after a modal has been successfully closed and removed from the DOM
+## Styling
+To use the styling provided by the module, you can either extend the sass placeholder classes, or set silent mode to false:
 
-Each event can be set to one of the following
+`$o-overlay-is-silent: false;`
 
-* A function
-* The name of a function available in the DOM e.g `ft.clearCookies` retrieves the function `window.ft.clearCookies`
-* The name of a method of a commonjs module e.g. `o-ft-signin#setRedirectUrl`
-* The preceding two approaches can be given the suffix `:bound` to bind the function to the object it is a method of
+## UI Notes
 
-When the event is fired the function is passed the current `modal` object as a parameter
-
-### Presets
-In addition to the above options, o-modal has a number of configuration presets available, which set a number of configuration properties at once (but which can then be overridden by manually setting other options)
-
-#### Modal (preset name: `modal`)
-
-```javascript
-{
-	hasOverlay: true,
-	hasCloseButton: true,
-    isDismissable: true,
-    isAnchoredToTrigger: false,
-    isCenteredVertically: true,
-    isCenteredHorizontally: true,
-    snapsToFullHeight: true,
-    snapsToFullWidth: true
-}
-```
-
-#### Dropdown & dropup (preset names: `dropdown`, `dropup`) *(experimental)*
-```javascript
-{
-    isDismissable: true,
-    isAnchoredToTrigger: true,
-    verticalAnchorSide: 'bottom', // or ``top`` for dropups
-    hasOverlay: false,
-    hasHeading: false,
-    hasCloseButton: false,
-    isCenteredVertically: false,
-    isCenteredHorizontally: false,
-    snapsToFullHeight: false,
-    snapsToFullWidth: true
-}
-```
-#### Defining your own presets
-
-<<<<<<< HEAD
-Use `o-modal#addpreset(name, obj)` to define your own preset configurations, which can then be referenced via the `preset` property of any modal's config.
-=======
-Use `o-modal#addpreset(name, obj)` to define your own preset configurations, which can then be referenced via the `preset` property of any dialog's config.
->>>>>>> 86fd3d315abf7decdc25a1891f2bd223daba06f3
-
-## Examples
-
-1. Trigger for a modal modal with no close button and content from a url
-
-		<a data-o-modal__trigger="{'preset':'modal','hasCloseButton':false,'src':'http://same.domain/faq.html'}">modal</a>
-
-1. Trigger for a dropup modal with a close button and content from a hidden div in the page
-	
-		<a data-o-modal__trigger="{'preset':'dropup','hasCloseButton':true,'src':'.hidden-modal-content'}">modal</a>
-
-## TODO
-
-* ability to store templates and reference by name
-* ability to draw content from sources other than the DOM
-* Behaviour of dropdowns at small screen sizes
-* Configurability of where a dropdown is anchored to
+* Having a heading is optional, though you won't have a close button if a heading hasn't been set. If you don't need to have an overlay with a close button, please check with the design team first.
+* Heading titles should be as short as possible, and must not be empty.
+* Overlays should not appear on hover, and if they do there must be a 200ms dwell on the element before the overlay appears, AND it must be possible to also launch the overlay by clicking, to ensure the overlay still works on devices that lack a hoverable pointer.
+* Overlays won't appear in core experience, so should not be used for any critical functionality unless you have a fallback set for it.

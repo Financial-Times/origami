@@ -1,7 +1,62 @@
 @import "o-colors/main";
 @import "o-assets/main";
 @import "o-useragent/main";
+@import "o-fonts/main";
+@import "o-ft-typography/main";
+@import "o-ft-icons/main";
+
 @import "src/scss/_variables";
-@import "src/scss/_mixins";
-@import "src/scss/modal";
-@import "src/scss/ft-styling";
+@import "src/scss/overlay";
+
+@mixin oOverlayIncludeAll($classname: o-overlay) {
+	.#{$classname} {
+		@extend %o-overlay;
+	}
+
+	.#{$classname}-shadow {
+		@extend %o-overlay-shadow;
+	}
+
+	.#{$classname}__heading {
+		@extend %o-overlay__heading;
+	}
+
+	.#{$classname}__title {
+		@extend %o-overlay__title;
+	}
+
+	.#{$classname}__close {
+		@extend %o-overlay__close;
+	}
+
+	.#{$classname}__close-icon {
+		@extend %o-overlay__close-icon;
+	}
+
+	.#{$classname}__heading--shaded {
+		@extend %o-overlay__heading--shaded;
+	}
+
+	.#{$classname}__content {
+		@extend %o-overlay__content;
+	}
+
+	.#{$classname}__content--no-gutter {
+		@extend %o-overlay__content--no-gutter;
+	}
+
+	.#{$classname}--full-width {
+		@extend %o-overlay--full-width;
+	}
+
+	.#{$classname}--full-height {
+		@extend %o-overlay--full-height;
+	}
+}
+
+@if (not $o-overlay-is-silent) {
+	@include oFontsInclude(BentonSans, normal);
+	@include oFontsInclude(BentonSans, bold);
+	@include oFtIconsFontFace();
+	@include oOverlayIncludeAll();
+}
