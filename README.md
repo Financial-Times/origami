@@ -10,7 +10,7 @@ Install the module and `@import` the SASS, or use the [build service](http://fin
 
 The preferred way of using __o-colors__ is to use colour _use cases_ rather than access the palette directly. This is done via the `oColorsGetColorFor` function:
 
-```sass
+```scss
 .my-thing {
     color: oColorsGetColorFor(article-life-arts-body article-body body, text);
 }
@@ -23,13 +23,15 @@ The `oColorsGetColorFor` function takes two arguments:
 
 Alternatively, you may extend placeholder classes:
 
-    .my-thing {
-    	@extend %o-colors-article-body-text;
-    }
+```scss
+.my-thing {
+  @extend %o-colors-article-body-text;
+}
+```
     
 You can also add use cases for your particular module or product. This is done using the `oColorsSetUseCase` mixin:
 
-```sass
+```scss
 @include oColorsSetUseCase(email, text, grey-tint-5);
 ```
 
@@ -41,7 +43,7 @@ It takes three arguments:
 
 Sometimes you may need to access the palette directly, in which case the `oColorsGetPaletteColor` function should be used:
 
-```sass
+```scss
 .my-thing {
     color: oColorsGetPaletteColor(grey-tint4);
 }
@@ -51,7 +53,7 @@ Sometimes you may need to access the palette directly, in which case the `oColor
 
 In case you would prefer to get all three default CSS properties for a specific use case list, you can use the `oColorsFor` mixin:
 
-```sass
+```scss
 .my-thing {
     @include oColorsFor(body);
 }
@@ -70,16 +72,19 @@ In silent mode it will output no concrete selectors, only functions and placehol
 
 It is not recommended, but silent mode can be turned off by setting the following variable before the import in your SASS:
 
+```scss
     $o-colors-is-silent: false;
-    
+```
+
 With silent mode turned off, concrete classes will be output. See "Using via the build service".
 
 ### Using via the build service
 
 Use concrete classes directly in your HTML (not recommended, except for prototypes and demos):
 
+```html
     <p class='o-colors-article-body-text'>Article text</p>
-
+```
 
 ## Development
 
