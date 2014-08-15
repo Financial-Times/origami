@@ -30,8 +30,7 @@ module.exports = function(grunt) {
   // By default, lint and run all tests.
   grunt.registerTask('default', ['origami-demo']);
   grunt.registerTask('test', [
-      'jshint',
-      'karma:ci'
+      'jshint'
   ]);
 
   grunt.registerTask('browserTest', [

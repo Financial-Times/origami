@@ -1,6 +1,10 @@
 $o-overlay-is-silent: false;
 @import "../../main";
 
+html {
+	height: 100%;
+}
+
 body {
 	height: 100%;
 	@include oColorsFor(page, background text);

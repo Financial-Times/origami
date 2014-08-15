@@ -10,8 +10,8 @@
     box-sizing: border-box; 
     opacity: 1;
     @include oUseragentPrefixer(transition, opacity 0.3s ease-in-out);
-    border: 2px solid oColorsGetColorFor(overlay, border);
-    background: oColorsGetColorFor(overlay, background);
+    border: 2px solid oColorsGetColorFor(o-overlay, border);
+    background: oColorsGetColorFor(o-overlay, background);
     @include oUseragentPrefixer(border-radius, 5px);
 }
 
@@ -30,8 +30,8 @@
 %o-overlay__heading {
     @include oFtTypographyFontSize(14);
     margin: 0;
-    background: oColorsGetColorFor(overlay-heading, background);
-    color: oColorsGetColorFor(overlay-heading, text);
+    background: oColorsGetColorFor(o-overlay-heading, background);
+    color: oColorsGetColorFor(o-overlay-heading, text);
     font-weight: bold;
 }
 
@@ -59,25 +59,25 @@
     line-height: 23px;
     border: 1px solid;
     @include oUseragentPrefixer(border-radius, 50%);
-    @include oColorsFor(overlay-close);
+    @include oColorsFor(o-overlay-close);
 
     #{$o-hoverable-if-hover-enabled} &:hover {
-        color: oColorsGetColorFor(overlay-close-shaded, text);
-        background-color: oColorsGetColorFor(overlay-close-shaded, background);
+        color: oColorsGetColorFor(o-overlay-close-shaded, text);
+        background-color: oColorsGetColorFor(o-overlay-close-shaded, background);
     }
 }
 
 %o-overlay__heading--shaded {
-    background: oColorsGetColorFor(overlay-heading-shaded, background);
-    color: oColorsGetColorFor(overlay-heading-shaded, text);
+    background: oColorsGetColorFor(o-overlay-heading-shaded, background);
+    color: oColorsGetColorFor(o-overlay-heading-shaded, text);
     font-weight: normal;
 
     %o-overlay__close-icon {
-        @include oColorsFor(overlay-close-shaded);
+        @include oColorsFor(o-overlay-close-shaded);
 
         #{$o-hoverable-if-hover-enabled} &:hover {
-            color: oColorsGetColorFor(overlay-close, text);
-            background-color: oColorsGetColorFor(overlay-close, background);
+            color: oColorsGetColorFor(o-overlay-close, text);
+            background-color: oColorsGetColorFor(o-overlay-close, background);
         }
     }    
 }

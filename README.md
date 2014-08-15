@@ -50,6 +50,8 @@ The only option that must be set is either the *src* or the *html* one. Please k
 
 Data-attributes have the same name as in the JSON format, but with dashes. So for *src* it will be `data-o-overlay-src` and for the *heading.title* it will be `data-o-overlay-heading-title`.
 
+_o-overlays will throw an error if the options aren't set correctly._
+
 ## Styling
 To use the styling provided by the module, you can either extend the sass placeholder classes, or set silent mode to false:
 

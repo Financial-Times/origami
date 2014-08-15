@@ -180,5 +180,22 @@ describe('smoke-tests (./overlay.js)', function() {
         overlays = document.querySelectorAll('.o-overlay');
         expect(overlays.length).toBe(0);
         document.body.removeChild(scriptEl);
+        console.log('ok');
+    });
+
+    it('should be able to inject content from a url', function() {
+        var mod = new Overlay({
+            src: 'http://build.origami.ft.com/files/o-tweet@0.2.5/demos/demo.html'
+        }, document.querySelector('.o-overlay-trigger'));
+
+        var overlays = document.querySelectorAll('.o-overlay');
+        expect(overlays.length).toBe(1);
+
+        console.log(mod.content.innerHTML);
+        expect(mod.content.innerHTML).toContain('<div class="o-tweet__h-card">');
+
+        mod.close();
+        overlays = document.querySelectorAll('.o-overlay');
+        expect(overlays.length).toBe(0);
     });
 });

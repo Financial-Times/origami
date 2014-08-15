@@ -24,7 +24,7 @@ var setOptions = function(opts, trigger) {
 
     if (!opts.html && opts.src) {
         if (/^(https?\:\/)?\//.test(opts.src)) {
-            opts.html = utils.getContentFromURL(opts.src);
+            opts.html = utils.copyContentFromUrl(opts.src);
         } else {
             opts.html = utils.copyContent(document.querySelector(opts.src));
         }
