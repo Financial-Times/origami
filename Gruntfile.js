@@ -1,3 +1,4 @@
+/* global process */
 /*
  * grunt-contrib-uglify
  * http://gruntjs.com/

@@ -1,4 +1,6 @@
+/* global process */
 module.exports = function (grunt) {
+    'use strict';
     var path = require('path');
 
     grunt.registerTask('enforce-coverage', function () {

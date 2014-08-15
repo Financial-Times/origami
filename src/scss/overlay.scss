@@ -1,6 +1,4 @@
-/**
-  DEFAULT LAYOUT
-**/
+// DEFAULT LAYOUT
 %o-overlay {
     position: fixed;
     font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
@@ -102,9 +100,7 @@
     }
 }
 
-/**
-  FULL WIDTH AND HEIGHT
-**/
+// FULL WIDTH AND HEIGHT
 
 %o-overlay--full-width {
     padding-left: 0;

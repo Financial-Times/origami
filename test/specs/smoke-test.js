@@ -1,3 +1,4 @@
+/* global afterEach, beforeEach, describe, it, o, expect, spyOn */
 'use strict';
 
 var Overlay,
@@ -180,7 +181,6 @@ describe('smoke-tests (./overlay.js)', function() {
         overlays = document.querySelectorAll('.o-overlay');
         expect(overlays.length).toBe(0);
         document.body.removeChild(scriptEl);
-        console.log('ok');
     });
 
     it('should be able to inject content from a url', function() {
@@ -191,7 +191,6 @@ describe('smoke-tests (./overlay.js)', function() {
         var overlays = document.querySelectorAll('.o-overlay');
         expect(overlays.length).toBe(1);
 
-        console.log(mod.content.innerHTML);
         expect(mod.content.innerHTML).toContain('<div class="o-tweet__h-card">');
 
         mod.close();
