@@ -5,7 +5,7 @@ var nativeNonBubblers = ['error', 'blur', 'focus', 'scroll', 'resize'];
 
 o.fireEvent = function (el, event, data) {
     var evt = document.createEvent('HTMLEvents');
-    evt.initEvent(event, !(nativeNonBubblers.indexOf(event) > -1), true);
+    evt.initEvent(event, !(nativeNonBubblers.indexOf(event) > -1), true); // jshint ignore:line
     data && Object.keys(data).forEach(function (key) {
         evt[key] = data[key];
     });
