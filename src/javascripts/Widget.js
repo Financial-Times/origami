@@ -28,6 +28,7 @@ var resourceLoader = require('./resourceLoader.js'),
  *  - stream_type: livecomments, livechat, liveblog
  *  - initExtension: object which contains key-value pairs which should be added to the init object
  *  - stringOverrides: key-value pairs which override default LF strings
+ *  - authPageReload: if authentication needs a page reload. By default it's false.
  * 
  * @param {object} config Configuration object. See in the description the fields that are mandatory.
  */

@@ -1,6 +1,6 @@
 @import 'o-ft-typography/main';
 
-@include oFtTypographyIncludeFont(metadata);
+@include oFtTypographyIncludeFont(body);
 @include oFtTypographyIncludeFont(heading);
 
 @import 'o-colors/main';

@@ -139,6 +139,7 @@
 <li>stream_type: livecomments, livechat, liveblog</li>
 <li>initExtension: object which contains key-value pairs which should be added to the init object</li>
 <li>stringOverrides: key-value pairs which override default LF strings</li>
+<li>authPageReload: if authentication needs a page reload. By default it's false.</li>
 </ul> </div>
           <pre><code class="language-javascript">function Widget () {
     &quot;use strict&quot;;
@@ -256,31 +257,33 @@
 
                                 self.ui.addTermsAndGuidelineMessage();
 
-                                if (authData.token) {
-                                    auth.getInstance().login(authData.token);
+                                if (authData) {
+                                    if (authData.token) {
+                                        auth.getInstance().login(authData.token);
 
-                                    if (self.forceMode === true) {
-                                        setTimeout(self.ui.scrollToWidget, 2000);
-                                    }
-                                } else if (authData.pseudonym === false) {
-                                    auth.getInstance().pseudonymMissing = true;
-                                    auth.getInstance().pseudonymWasMissing = true;
+                                        if (self.forceMode === true) {
+                                            setTimeout(self.ui.scrollToWidget, 2000);
+                                        }
+                                    } else if (authData.pseudonym === false) {
+                                        auth.getInstance().pseudonymMissing = true;
+                                        auth.getInstance().pseudonymWasMissing = true;
 
-                                    if (self.forceMode === true) {
-                                        userDialogs.showSetPseudonymDialog({
-                                            success: function (newAuthData) {
-                                                if (newAuthData &amp;&amp; newAuthData.token) {
-                                                    auth.getInstance().login(newAuthData.token);
+                                        if (self.forceMode === true) {
+                                            userDialogs.showSetPseudonymDialog({
+                                                success: function (newAuthData) {
+                                                    if (newAuthData &amp;&amp; newAuthData.token) {
+                                                        auth.getInstance().login(newAuthData.token);
+                                                    }
                                                 }
-                                            }
-                                        });
-                                    }
+                                            });
+                                        }
 
-                                    self.ui.hideSignInLink();
-                                } else if (authData.serviceUp === false) {
-                                    self.ui.makeReadOnly();
-                                    self.ui.hideSignInLink();
-                                    self.ui.addAuthNotAvailableMessage();
+                                        self.ui.hideSignInLink();
+                                    } else if (authData.serviceUp === false) {
+                                        self.ui.makeReadOnly();
+                                        self.ui.hideSignInLink();
+                                        self.ui.addAuthNotAvailableMessage();
+                                    }
                                 }
 
                                 self.trigger('initialRenderComplete.widget');
@@ -346,14 +349,6 @@
                                         } else {
                                             self.trigger('loginRequired.authAction', [delegate]);
                                         }
-
-                                        commentUtilities.logger.log('session expired, show inactivity message');
-                                        userDialogs.showInactivityMessage({
-                                            submit: function () {
-                                                window.location.href = 'https://registration.ft.com/registration/barrier/login?location='+ encodeURIComponent(document.location.href);
-                                            }
-                                        });
-                                        delegate.failure();
                                     }
                                 });
 
