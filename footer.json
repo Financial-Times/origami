@@ -48,38 +48,103 @@
 	"link_sections": [
 		{
 			"title": "Services",
-			"lists": [
-				[
-					{
-						"text": "Corporate subscriptions",
-						"href": "//ft.com"
-					},
-					{
-						"text": "Syndication",
-						"href": "//ft.com"
-					},
-					{
-						"text": "Conferences",
-						"href": "//ft.com"
-					}
-				],
-				[
-					{
-						"text": "Corporate subscriptions",
-						"href": "//ft.com"
-					},
-					{
-						"text": "Syndication",
-						"href": "//ft.com"
-					},
-					{
-						"text": "Conferences",
-						"href": "//ft.com"
-					}
-				]
+			"items": [
+				{
+					"text": "Corporate subscriptions",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Syndication",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Conferences",
+					"href": "//ft.com"
+				}
+			]
+		},
+		{
+			"items": [
+				{
+					"text": "Corporate subscriptions",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Syndication",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Conferences",
+					"href": "//ft.com"
+				}
+			]
+		},
+		{
+			"items": [
+				{
+					"text": "FT Collection",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Jobs",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Non-exec directors' club",
+					"href": "//ft.com"
+				}
+			]
+		},
+		{
+			"title": "Support",
+			"items": [
+				{
+					"text": "Help",
+					"href": "//ft.com"
+				},
+				{
+					"text": "About us",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Site tour",
+					"href": "//ft.com"
+				}
+			]
+		},
+		{
+			"items": [
+				{
+					"text": "Contact us",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Sitemap",
+					"href": "//ft.com"
+				}
+			]
+		},
+		{
+			"title": "Legal & Advertising",
+			"items": [
+				{
+					"text": "Advertise with the FT",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Terms &amp; conditions",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Cookie & privacy policy",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Copyright",
+					"href": "//ft.com"
+				}
 			]
 		}
 	],
-	"copyrightYear": "2014",
-	"copyrightText": "<abbr title=\"Financial Times\">FT</abbr> and 'Financial Times' are trademarks of The Financial Times Ltd."
+	"copyrightYear": "2014"
 }

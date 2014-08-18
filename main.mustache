@@ -1,39 +1,31 @@
+<script src='//polyfill.webservices.ft.com/v1/polyfill.min.js'></script>
 <footer class="o-ft-footer" data-o-version="{{o-ft-footer.module-version}}" data-o-component="ft-footer">
-	<nav>
-		<div class="nav-list__header">
-		<h3>Sections</h3>
-		</div>
-		<ul class="o-ft-footer__row">
+	<nav class='o-ft-footer__row o-ft-footer__col--wide'>
+		<h3 class='o-ft-footer__title'>Sections</h3>
+		<ul class="o-ft-footer__row o-ft-footer__section-list">
 		{{#o-ft-footer.sections}}
-			<li class="o-ft-footer__col o-ft-footer__link o-ft-footer__nav-link">
-				<a href="{{href}}">{{{text}}}</a>
-			</li>
+			<li class="o-ft-footer__link o-ft-footer__section-link o-ft-footer__col"><a href="{{href}}">{{{text}}}</a></li>
 		{{/o-ft-footer.sections}}
 		</ul>
 	</nav>
-	<div class="o-ft-footer__divider"></div>
-	<div class="o-ft-footer__row">
-	{{#o-ft-footer.link_sections}}
-	<nav>
-		<div class="nav-list__header">
-		<h3>{{{title}}}</h3>
-		</div>
-		{{#lists}}
-			<ul class="o-ft-footer__col">
-				{{#.}}
-				<li class="o-ft-footer__link"><a href="{{href}}">{{{text}}}</a></li>
-				{{/.}}
+	<div class="o-ft-footer__row o-ft-footer__link-lists">
+		{{#o-ft-footer.link_sections}}
+		<nav class='o-ft-footer__col o-ft-footer__link-list'>
+			{{#title}}<h3 class='o-ft-footer__title'>{{{title}}}</h3>{{/title}}
+			<ul>
+				{{#items}}
+					<li class="o-ft-footer__link"><a href="{{href}}">{{{text}}}</a></li>
+				{{/items}}
 			</ul>
-		{{/lists}}
-	</nav>
-	{{/o-ft-footer.link_sections}}
+		</nav>
+		{{/o-ft-footer.link_sections}}
 	</div>
-	<div class="o-ft-footer__full-width-row o-ft-footer__copyright">
+	<div class="o-ft-footer__row o-ft-footer__copyright o-ft-footer__col--wide">
 		<p>&#169; THE FINANCIAL TIMES LTD {{o-ft-footer.copyrightYear}}.</p>
-		<p>{{{o-ft-footer.copyrightText}}}</p>
+		<p><abbr title="Financial Times">FT</abbr> and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
 	</div>
-	<div class="o-ft-footer__pearson-row">
-		<div class="o-ft-footer__row">
+	<div class="o-ft-footer__pearson">
+		<div class="o-ft-footer__row o-ft-footer__col--wide">
 			<div class="o-ft-footer__pearson-tagline">Always Learning</div>
 			<div class="o-ft-footer__pearson-logo">Pearson</div>
 		</div>

@@ -7,76 +7,85 @@
     <title>o-ft-footer: ft-footer demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
-    <link rel="stylesheet" href="/bundles/css?modules=o-ft-footer:/demos/src/demo.scss" />
+    <link rel="stylesheet" href="/bundles/css?modules=o-ft-footer" />
 </head>
 <body class="">
     <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
     
-    <footer class="o-ft-footer" data-o-version="" data-o-component="ft-footer">
-	<nav>
-		<div class="nav-list__header">
-		<h3>Sections</h3>
-		</div>
-		<ul class="o-ft-footer__row">
-			<li class="o-ft-footer__col o-ft-footer__link o-ft-footer__nav-link">
-				<a href="&#x2F;&#x2F;www.ft.com">Home</a>
-			</li>
-			<li class="o-ft-footer__col o-ft-footer__link o-ft-footer__nav-link">
-				<a href="&#x2F;&#x2F;www.ft.com&#x2F;world&#x2F;uk">UK</a>
-			</li>
-			<li class="o-ft-footer__col o-ft-footer__link o-ft-footer__nav-link">
-				<a href="&#x2F;&#x2F;www.ft.com&#x2F;world">World</a>
-			</li>
-			<li class="o-ft-footer__col o-ft-footer__link o-ft-footer__nav-link">
-				<a href="&#x2F;&#x2F;www.ft.com&#x2F;companies">Companies</a>
-			</li>
-			<li class="o-ft-footer__col o-ft-footer__link o-ft-footer__nav-link">
-				<a href="&#x2F;&#x2F;www.ft.com&#x2F;markets">Markets</a>
-			</li>
-			<li class="o-ft-footer__col o-ft-footer__link o-ft-footer__nav-link">
-				<a href="&#x2F;&#x2F;www.ft.com&#x2F;global-economy">Global Economy</a>
-			</li>
-			<li class="o-ft-footer__col o-ft-footer__link o-ft-footer__nav-link">
-				<a href="&#x2F;&#x2F;www.ft.com&#x2F;lex">Lex</a>
-			</li>
-			<li class="o-ft-footer__col o-ft-footer__link o-ft-footer__nav-link">
-				<a href="&#x2F;&#x2F;www.ft.com&#x2F;comment">Comment</a>
-			</li>
-			<li class="o-ft-footer__col o-ft-footer__link o-ft-footer__nav-link">
-				<a href="&#x2F;&#x2F;www.ft.com&#x2F;management">Management</a>
-			</li>
-			<li class="o-ft-footer__col o-ft-footer__link o-ft-footer__nav-link">
-				<a href="&#x2F;&#x2F;www.ft.com&#x2F;personal-finance">Personal Finance</a>
-			</li>
-			<li class="o-ft-footer__col o-ft-footer__link o-ft-footer__nav-link">
-				<a href="&#x2F;&#x2F;www.ft.com&#x2F;life-arts">Life & Arts</a>
-			</li>
+    <script src='//polyfill.webservices.ft.com/v1/polyfill.min.js'></script>
+<footer class="o-ft-footer" data-o-version="" data-o-component="ft-footer">
+	<nav class='o-ft-footer__row o-ft-footer__col--wide'>
+		<h3 class='o-ft-footer__title'>Sections</h3>
+		<ul class="o-ft-footer__row o-ft-footer__section-list">
+			<li class="o-ft-footer__link o-ft-footer__section-link o-ft-footer__col"><a href="&#x2F;&#x2F;www.ft.com">Home</a></li>
+			<li class="o-ft-footer__link o-ft-footer__section-link o-ft-footer__col"><a href="&#x2F;&#x2F;www.ft.com&#x2F;world&#x2F;uk">UK</a></li>
+			<li class="o-ft-footer__link o-ft-footer__section-link o-ft-footer__col"><a href="&#x2F;&#x2F;www.ft.com&#x2F;world">World</a></li>
+			<li class="o-ft-footer__link o-ft-footer__section-link o-ft-footer__col"><a href="&#x2F;&#x2F;www.ft.com&#x2F;companies">Companies</a></li>
+			<li class="o-ft-footer__link o-ft-footer__section-link o-ft-footer__col"><a href="&#x2F;&#x2F;www.ft.com&#x2F;markets">Markets</a></li>
+			<li class="o-ft-footer__link o-ft-footer__section-link o-ft-footer__col"><a href="&#x2F;&#x2F;www.ft.com&#x2F;global-economy">Global Economy</a></li>
+			<li class="o-ft-footer__link o-ft-footer__section-link o-ft-footer__col"><a href="&#x2F;&#x2F;www.ft.com&#x2F;lex">Lex</a></li>
+			<li class="o-ft-footer__link o-ft-footer__section-link o-ft-footer__col"><a href="&#x2F;&#x2F;www.ft.com&#x2F;comment">Comment</a></li>
+			<li class="o-ft-footer__link o-ft-footer__section-link o-ft-footer__col"><a href="&#x2F;&#x2F;www.ft.com&#x2F;management">Management</a></li>
+			<li class="o-ft-footer__link o-ft-footer__section-link o-ft-footer__col"><a href="&#x2F;&#x2F;www.ft.com&#x2F;personal-finance">Personal Finance</a></li>
+			<li class="o-ft-footer__link o-ft-footer__section-link o-ft-footer__col"><a href="&#x2F;&#x2F;www.ft.com&#x2F;life-arts">Life & Arts</a></li>
 		</ul>
 	</nav>
-	<div class="o-ft-footer__divider"></div>
-	<div class="o-ft-footer__row">
-	<nav>
-		<div class="nav-list__header">
-		<h3>Services</h3>
-		</div>
-			<ul class="o-ft-footer__col">
-				<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Corporate subscriptions</a></li>
-				<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Syndication</a></li>
-				<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Conferences</a></li>
+	<div class="o-ft-footer__row o-ft-footer__link-lists">
+		<nav class='o-ft-footer__col o-ft-footer__link-list'>
+			<h3 class='o-ft-footer__title'>Services</h3>
+			<ul>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Corporate subscriptions</a></li>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Syndication</a></li>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Conferences</a></li>
 			</ul>
-			<ul class="o-ft-footer__col">
-				<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Corporate subscriptions</a></li>
-				<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Syndication</a></li>
-				<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Conferences</a></li>
+		</nav>
+		<nav class='o-ft-footer__col o-ft-footer__link-list'>
+			
+			<ul>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Corporate subscriptions</a></li>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Syndication</a></li>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Conferences</a></li>
 			</ul>
-	</nav>
+		</nav>
+		<nav class='o-ft-footer__col o-ft-footer__link-list'>
+			
+			<ul>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">FT Collection</a></li>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Jobs</a></li>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Non-exec directors' club</a></li>
+			</ul>
+		</nav>
+		<nav class='o-ft-footer__col o-ft-footer__link-list'>
+			<h3 class='o-ft-footer__title'>Support</h3>
+			<ul>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Help</a></li>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">About us</a></li>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Site tour</a></li>
+			</ul>
+		</nav>
+		<nav class='o-ft-footer__col o-ft-footer__link-list'>
+			
+			<ul>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Contact us</a></li>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Sitemap</a></li>
+			</ul>
+		</nav>
+		<nav class='o-ft-footer__col o-ft-footer__link-list'>
+			<h3 class='o-ft-footer__title'>Legal & Advertising</h3>
+			<ul>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Advertise with the FT</a></li>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Terms &amp; conditions</a></li>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Cookie & privacy policy</a></li>
+					<li class="o-ft-footer__link"><a href="&#x2F;&#x2F;ft.com">Copyright</a></li>
+			</ul>
+		</nav>
 	</div>
-	<div class="o-ft-footer__full-width-row o-ft-footer__copyright">
+	<div class="o-ft-footer__row o-ft-footer__copyright o-ft-footer__col--wide">
 		<p>&#169; THE FINANCIAL TIMES LTD 2014.</p>
 		<p><abbr title="Financial Times">FT</abbr> and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
 	</div>
-	<div class="o-ft-footer__pearson-row">
-		<div class="o-ft-footer__row">
+	<div class="o-ft-footer__pearson">
+		<div class="o-ft-footer__row o-ft-footer__col--wide">
 			<div class="o-ft-footer__pearson-tagline">Always Learning</div>
 			<div class="o-ft-footer__pearson-logo">Pearson</div>
 		</div>
