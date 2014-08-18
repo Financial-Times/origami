@@ -8,15 +8,21 @@
 $o-ft-footer-spacing-unit: 20px;
 
 @include oFontsInclude(BentonSans);
-@include oColorsSetUseCase(brand-color, border, claret);
+
+// TODO: Remove this when a default shared brand color is defined in o-colors
+@include oColorsSetUseCase(o-ft-footer-brand, border, claret);
+
+@include oColorsSetUseCase(o-ft-footer, background, grey-tint5);
+@include oColorsSetUseCase(o-ft-footer, text, white);
+@include oColorsSetUseCase(o-ft-footer__pearson, background, grey-tint4);
 
 .o-ft-footer {
-	@include oColorsFor(footer);
+	@include oColorsFor(o-ft-footer);
 	@include oFtTypographyFontSize(14);
 
 	margin-top: 40px;
 	padding: 0;
-	border-top: 5px solid oColorsGetColorFor(footer-brand-color brand-color, border);
+	border-top: 5px solid oColorsGetColorFor(o-ft-footer-brand brand, border);
 	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 	line-height: $o-ft-footer-spacing-unit;
 
@@ -111,10 +117,10 @@ $o-ft-footer-spacing-unit: 20px;
 }
 
 .o-ft-footer__pearson {
-	background-color: oColorsGetColorFor(pearson, background);
+	background-color: oColorsGetColorFor(o-ft-footer__pearson o-ft-footer, background);
 	padding-top: $o-ft-footer-spacing-unit - 5;
 	padding-bottom: $o-ft-footer-spacing-unit - 5;
-	color: oColorsGetColorFor(pearson, text);
+	color: oColorsGetColorFor(o-ft-footer__pearson o-ft-footer, text);
 }
 
 .o-ft-footer__pearson-tagline,
