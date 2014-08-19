@@ -1,42 +1,150 @@
 {
-	"links": [
+	"sections": [
 		{
-			"text": "About us",
-			"href": "http://www.ft.com/aboutus"
+			"text": "Home",
+			"href": "//www.ft.com"
 		},
 		{
-			"text": "Contact",
-			"href": "http://aboutus.ft.com/contact-us"
+			"text": "UK",
+			"href": "//www.ft.com/world/uk"
 		},
 		{
-			"text": "T &amp; Cs",
-			"href": "http://www.ft.com/servicestools/help/terms"
+			"text": "World",
+			"href": "//www.ft.com/world"
 		},
 		{
-			"text": "Help",
-			"href": "http://www.ft.com/help"
+			"text": "Companies",
+			"href": "//www.ft.com/companies"
 		},
 		{
-			"text": "Feedback",
-			"href": "http://m.ft.com/feedback"
+			"text": "Markets",
+			"href": "//www.ft.com/markets"
 		},
 		{
-			"text": "Advertise with the FT",
-			"href": "http://www.ft.com/advertising"
+			"text": "Global Economy",
+			"href": "//www.ft.com/global-economy"
 		},
 		{
-			"text": "Privacy policy",
-			"href": "http://www.ft.com/servicestools/help/privacy"
+			"text": "Lex",
+			"href": "//www.ft.com/lex"
 		},
 		{
-			"text": "Cookie policy",
-			"href": "http://www.ft.com/cookiepolicy"
+			"text": "Comment",
+			"href": "//www.ft.com/comment"
 		},
 		{
-			"text": "Copyright",
-			"href": "http://www.ft.com/servicestools/help/copyright"
+			"text": "Management",
+			"href": "//www.ft.com/management"
+		},
+		{
+			"text": "Personal Finance",
+			"href": "//www.ft.com/personal-finance"
+		},
+		{
+			"text": "Life & Arts",
+			"href": "//www.ft.com/life-arts"
 		}
 	],
-	"copyrightYear": "2014",
-	"copyrightText": "<abbr title=\"Financial Times\">FT</abbr> and 'Financial Times' are trademarks of The Financial Times Ltd."
+	"link_sections": [
+		{
+			"title": "Services",
+			"items": [
+				{
+					"text": "Corporate subscriptions",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Syndication",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Conferences",
+					"href": "//ft.com"
+				}
+			]
+		},
+		{
+			"items": [
+				{
+					"text": "Corporate subscriptions",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Syndication",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Conferences",
+					"href": "//ft.com"
+				}
+			]
+		},
+		{
+			"items": [
+				{
+					"text": "FT Collection",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Jobs",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Non-exec directors' club",
+					"href": "//ft.com"
+				}
+			]
+		},
+		{
+			"title": "Support",
+			"items": [
+				{
+					"text": "Help",
+					"href": "//ft.com"
+				},
+				{
+					"text": "About us",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Site tour",
+					"href": "//ft.com"
+				}
+			]
+		},
+		{
+			"items": [
+				{
+					"text": "Contact us",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Sitemap",
+					"href": "//ft.com"
+				}
+			]
+		},
+		{
+			"title": "Legal & Advertising",
+			"items": [
+				{
+					"text": "Advertise with the FT",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Terms &amp; conditions",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Cookie & privacy policy",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Copyright",
+					"href": "//ft.com"
+				}
+			]
+		}
+	],
+	"copyrightYear": "2014"
 }
