@@ -5,6 +5,8 @@ var resourceLoader = require('./resourceLoader.js'),
     utils = require('./utils.js'),
     commentUtilities = require('comment-utilities'),
     userDialogs = require('./userDialogs.js'),
+    merge = require('js-merge'),
+    i18n = require('./i18n.js'),
 
     commentUi = require('comment-ui'),
     oCommentData = require('o-comment-data');
@@ -42,6 +44,14 @@ function Widget () {
     this.ui = new WidgetUi(this.getWidgetEl());
 
     this.forceMode = false;
+
+    /**
+     * Merge custom string overrides with FT specific string overrides.
+     * @type {Object}
+     */
+    var stringOverrides = self.config.stringOverrides ? merge({}, i18n.lfStringOverride, self.config.stringOverrides) : i18n.lfStringOverride;
+    self.config.stringOverrides = stringOverrides;
+
 
     if (self.config.authPageReload === true && utils.isLivefyreActionQueuePresent()) {
         commentUtilities.logger.log("Force flag set.");

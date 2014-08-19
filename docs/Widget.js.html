@@ -86,6 +86,8 @@
             <ul class="nav nav-list bs-docs-sidenav affix-top">
               <li><a href="#Widget"><i class="alert alert-info"></i><span>Widget</span></a>
               </li>
+              <li><a href="#stringOverrides"><i class="alert alert-success"></i><span>stringOverrides</span></a>
+              </li>
               <li><a href="#loadResources"><i class="alert alert-info"></i><span>loadResources</span></a>
               </li>
               <li><a href="#login"><i class="alert alert-info"></i><span>login</span></a>
@@ -150,7 +152,18 @@
 
     this.ui = new WidgetUi(this.getWidgetEl());
 
-    this.forceMode = false;
+    this.forceMode = false;</code></pre>
+          <section id="stringOverrides">
+            <h1>stringOverrides</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-success radius ctx-type">declaration</div><span>stringOverrides</span>
+            </p>
+          </section>
+          <div class="description"><p>Merge custom string overrides with FT specific string overrides.</p> </div>
+          <pre><code class="language-javascript">var stringOverrides = self.config.stringOverrides ? merge({}, i18n.lfStringOverride, self.config.stringOverrides) : i18n.lfStringOverride;
+    self.config.stringOverrides = stringOverrides;
+
 
     if (self.config.authPageReload === true &amp;&amp; utils.isLivefyreActionQueuePresent()) {
         commentUtilities.logger.log(&quot;Force flag set.&quot;);
