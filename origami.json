@@ -2,12 +2,13 @@
     "description": "Responsive, configurable overlays",
     "origamiType": "module",
     "origamiVersion": 1,
-    "support": "alberto.elias@ft.com",
+    "support": "https://github.com/Financial-Times/o-overlay/issues",
     "supportStatus": "experimental",
     "browserFeatures": {
         "required": [
             "es5object",
-            "classList",
+            "es5string",
+            "classlist",
             "customevent"
         ],
         "optional": [

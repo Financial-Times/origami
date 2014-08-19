@@ -8,9 +8,9 @@ var oLayers = require('o-layers');
 var utils = require('./utils');
 var overlays = [];
 
-var setOptions = function(opts, trigger) {
+var setOptions = function(trigger, opts) {
     
-    // get config from data attributes if they're haven't been passed via JS
+    // Get config from data attributes if they haven't been passed via JS
     if (!opts) {
         opts = {};
         Array.prototype.forEach.call(trigger.attributes, function(attr) {
@@ -26,7 +26,7 @@ var setOptions = function(opts, trigger) {
         if (/^(https?\:\/)?\//.test(opts.src)) {
             opts.html = utils.copyContentFromUrl(opts.src);
         } else {
-            opts.html = utils.copyContent(document.querySelector(opts.src));
+            opts.html = utils.copyContentFromElement(document.querySelector(opts.src));
         }
     }
 
@@ -39,15 +39,15 @@ var setOptions = function(opts, trigger) {
         throw new Error('"o-overlay error": To have a heading, a non-empty title needs to be set');
     }
 
-    // If the overlay doesn't have an arrow, and the property modal hasn't been set, the default will be modal = true
+    // Overlays that don't point at anything should be modal by default
     if (!opts.arrow && typeof opts.modal === 'undefined') {
         opts.modal = true;
     }
 
     if (opts.arrow) {
-        // A direction needs to be set for the arrow overlay UI to work
+        // Default arrow direction is 'left'
         if (!opts.arrow.direction) {
-            throw new Error('"o-overlay error": To use the arrow overlay UI, you need to set a default direction for the arrow');
+            opts.arrow.direction = 'left';
         }
 
         // If the direction of the arrow is 'top' or 'bottom', the heading can't be shaded
@@ -67,13 +67,13 @@ var setOptions = function(opts, trigger) {
 };
 
 
-var Overlay = function(opts, trigger) {
+var Overlay = function(trigger, opts) {
     this.trigger = trigger;
     this.context = oLayers.getLayerContext(this.trigger);
-    this.opts = setOptions(opts, trigger);
+    this.opts = setOptions(trigger, opts);
 
     if (!this.opts) {
-        throw new Error('"o-overlay error": Options haven\'t been set properly');
+        throw new Error('"o-overlay error": Required options have not been set');
     }
 
     // Check if the overlay has been previously instantiated and if it has, close it
@@ -267,7 +267,7 @@ Overlay.prototype = {
                 layer: this,
                 data: data || {}
             },
-            // We don't want it to bubble above it's layer context and trigger a listener on a parent context
+            // Don't bubble above the overlay's layer context otherwise we risk triggering a listener on a parent context
             bubbles: namespace !== 'oLayers' ? true : false
         }));
     },
@@ -297,7 +297,7 @@ Overlay.init = function(el) {
     delegate = delegate || new Delegate(el);
 
     delegate.on('click', '.o-overlay-trigger', function(ev) {
-        new Overlay(null, ev.target);
+        new Overlay(ev.target, null);
     });
 };
 

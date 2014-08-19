@@ -4,8 +4,8 @@ node_js:
 before_install:
   - npm install -g https://github.com/Financial-Times/origami-build-tools/tarball/node-0.10
   - origami-build-tools install
-  # Removed because test won't run on PhantomJS because it doesn't support things like CustomEvents 
-  # - npm install -g karma
-  # - npm install -g grunt-cli
+  # Commented out as PhantomJS doesn't support things like CustomEvents, so testing only works on Chrome
+  # - npm install -g grunt-cli
+  # - origami-build-tools build
 script:
   - origami-build-tools test
