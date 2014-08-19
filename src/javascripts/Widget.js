@@ -276,7 +276,7 @@ function Widget () {
             onClick: function () {
                 oCommentData.api.getAuth(function (err, currentAuthData) {
                     if (err) {
-                        self.trigger('loginRequired.authAction');
+                        self.trigger('login.authAction');
                         return;
                     }
 
