@@ -12,13 +12,13 @@ $o-ft-footer-spacing-unit: 20px;
 // TODO: Remove this when a default shared brand color is defined in o-colors
 @include oColorsSetUseCase(o-ft-footer-brand, border, claret);
 
-@include oColorsSetUseCase(o-ft-footer, "background", "grey-tint5");
-@include oColorsSetUseCase(o-ft-footer, "text", "white");
-@include oColorsSetUseCase(o-ft-footer__pearson, "background", "grey-tint4");
-@include oColorsSetUseCase(o-ft-footer_divider, "border", "white");
+@include oColorsSetUseCase(o-ft-footer, background, grey-tint5);
+@include oColorsSetUseCase(o-ft-footer, text, white);
+@include oColorsSetUseCase(o-ft-footer__pearson, background, grey-tint4);
+@include oColorsSetUseCase(o-ft-footer__divider, border, white);
 
 .o-ft-footer {
-	@include oColorsFor(o-ft-footer);
+	@include oColorsFor(o-ft-footer, text background);
 	@include oFtTypographyFontSize(14);
 
 	margin-top: 40px;
@@ -31,7 +31,7 @@ $o-ft-footer-spacing-unit: 20px;
 		margin-top: $o-ft-footer-spacing-unit;
 		margin-bottom: $o-ft-footer-spacing-unit;
 		padding-bottom: $o-ft-footer-spacing-unit;
-		border-bottom: oColorsGetColorFor(o-ft-footer__divider) dotted 1px;
+		border-bottom: oColorsGetColorFor(o-ft-footer__divider, border) dotted 1px;
 	}
 
 	ul {
@@ -168,11 +168,11 @@ $o-ft-footer-spacing-unit: 20px;
 	.o-ft-footer__pearson-tagline {
 		max-width: 170px;
 		background-size: (2700% / 17); // need to keep 17/28 of the width visible
-		width: (1600% / 27); // need to take up 17/27 of the width available, but we round down to 16 to allow for browser pixel roudning errors
+		width: (1600% / 27); // need to take up 17/27 of the width available, but we round down to 16 to allow for browser pixel rounding errors
 	}
 	.o-ft-footer__pearson-logo {
 		max-width: 100px;
 		background-size: (2700% / 10);  // need to keep 10/28 of the width visible
-		width: (900% / 27); // need to take up 10/27 of the width available, but we round down to 16 to allow for browser pixel roudning errors
+		width: (900% / 27); // need to take up 10/27 of the width available, but we round down to 16 to allow for browser pixel rounding errors
 	}
 }
