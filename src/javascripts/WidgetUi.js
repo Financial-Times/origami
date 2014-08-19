@@ -107,7 +107,7 @@ function WidgetUi (widgetContainer) {
                         loginBarContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.commentingSettingsLink.render()));
                     }
 
-                    var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comments-settings-text', widgetContainer);
+                    var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comment-settings-text', widgetContainer);
                     if (settingsLink.length) {
                         commentUi.utils.addEventListener('click', settingsLink[0], function () {
                             if (options && typeof options.onClick === 'function') {
@@ -129,7 +129,7 @@ function WidgetUi (widgetContainer) {
      * Removes the settings link from the widget.
      */
     this.removeSettingsLink = function () {
-        var el = sizzle('.comments-settings', widgetContainer);
+        var el = sizzle('.comment-settings', widgetContainer);
         if (el.length) {
             el[0].parentNode.removeChild(el[0]);
         }
