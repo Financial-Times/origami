@@ -67,11 +67,12 @@
     background: oColorsGetColorFor(o-overlay-heading, background);
     color: oColorsGetColorFor(o-overlay-heading, text);
     font-weight: bold;
+    overflow: auto;
 }
 
 %o-overlay__title {
     margin: 10px 0 10px 20px;
-    display: inline-block;
+    display: block;
     line-height: 20px;
 }
 

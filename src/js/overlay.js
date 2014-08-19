@@ -213,13 +213,6 @@ Overlay.prototype = {
                 this.wrapper.style[edge] = offset + 'px';                            
             }
         }
-
-        // Set a fixed width for the title so the text wraps
-        if (dimension === 'width' && this.opts.heading) {
-            var title = this.wrapper.querySelector('.o-overlay__title');
-            // The width of the title is the width of the whole overlay without borders minus its margin-left and the width of the close button
-            title.style.width = this.wrapper.clientWidth - utils.getSpacing(title, 'left') - document.querySelector('.o-overlay__close').offsetWidth + 'px';
-        }
     },
 
     close: function() {
