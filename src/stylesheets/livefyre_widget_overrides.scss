@@ -168,6 +168,10 @@ $ftLinkHover: oColorsGetPaletteColor(black);
                 display: inline-block;
                 position: relative;
             }
+
+            .comment-settings {
+                font-size: 14px;
+            }
         }
 
         .fyre-help {
@@ -1142,10 +1146,6 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             .fyre-stream-stats .fyre-comment-count span {
                 font-size: 11px;
                 line-height: 25px;
-            }
-
-            .comment-settings {
-                font-size: 14px;
             }
 
             .fyre-stream-stats {
