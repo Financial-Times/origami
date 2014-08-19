@@ -35,7 +35,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
     @extend %o-ft-typography-article-body-wrapper;
 }
 
-.livefyre-comments.comments-overrides.comment-type-livecomments {
+.livefyre-comments.comment-overrides.comment-type-livecomments {
     clear: both;
     color: oColorsGetPaletteColor(grey-tint5);
 
@@ -1137,11 +1137,15 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
             .fyre-login-bar,
             .fyre-box-wrapper a.fyre-user-profile-link,
-            .fyre-login-bar .comments-settings .comments-settings-text,
+            .fyre-login-bar .comment-settings .comment-settings-text,
             .fyre-login-bar a.fyre-user-loggedout,
             .fyre-stream-stats .fyre-comment-count span {
                 font-size: 11px;
                 line-height: 25px;
+            }
+
+            .comment-settings {
+                font-size: 14px;
             }
 
             .fyre-stream-stats {
@@ -1416,7 +1420,7 @@ body {
 }
 
 
-.msie8 .livefyre-comments.comments-overrides {
+.msie8 .livefyre-comments.comment-overrides {
     .fyre {
         .fyre-login-bar {
             float: none;
@@ -1426,9 +1430,4 @@ body {
             margin-top: 0;
         }
     }
-}
-
-
-.comments-settings {
-    font-size: 14px;
 }
