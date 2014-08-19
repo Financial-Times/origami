@@ -122,8 +122,8 @@ Overlay.prototype = {
             title.className = 'o-overlay__title';
             title.innerHTML = this.opts.heading.title;
 
-            heading.appendChild(title);
             heading.appendChild(button);
+            heading.appendChild(title);
             wrapperEl.appendChild(heading);
         }
 
@@ -189,34 +189,36 @@ Overlay.prototype = {
             if (!this.opts.arrow) {
                 this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
             } else {
-                // TODO: Check if dimension is width or height and act accordingly
                 this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.direction);
                 var offset = 0;
+                // Protrusion distance for the arrow
+                var arrowSize = 10;
                 var targetClientRect = this.opts.arrow.target.getBoundingClientRect();
-                switch (this.opts.arrow.direction) {
-                    case 'top':
-                        offset = targetClientRect.bottom;
-                        break;
-                    case 'bottom':
-                        offset = targetClientRect.top;
-                        break;
-                    case 'left':
-                        offset = targetClientRect.right;
-                        break;
-                    case 'right':
-                        offset = targetClientRect.left;
-                        break;
-                }
-                // Add the 10px protrusion distance for the arrow
-                this.wrapper.style[this.opts.arrow.direction] = offset + 10 + 'px';
+                if (dimension === 'width') {
+                    if (this.opts.arrow.direction === 'left') {
+                        offset = targetClientRect.right + arrowSize;
+                    } else if (this.opts.arrow.direction === 'right') {
+                        offset = targetClientRect.left - this.width - arrowSize;
+                    }
+                    //this.wrapper.style.top = targetClientRect.height / 2 + targetClientRect.top;
+                } else {
+                    if (this.opts.arrow.direction === 'top') {
+                        offset = targetClientRect.bottom + arrowSize;
+                    } else if (this.opts.arrow.direction === 'bottom') {
+                        offset = targetClientRect.top - this.height - arrowSize;
+                    }
+                    this.wrapper.style.left = targetClientRect.width / 2 + targetClientRect.left;
+                }    
+
+                this.wrapper.style[edge] = offset + 'px';                            
             }
         }
 
         // Set a fixed width for the title so the text wraps
         if (dimension === 'width' && this.opts.heading) {
             var title = this.wrapper.querySelector('.o-overlay__title');
-            // The width of the title is the width of the whole overlay without borders minus the width of the close button
-            title.style.width = this.wrapper.clientWidth - document.querySelector('.o-overlay__close').offsetWidth + 'px';
+            // The width of the title is the width of the whole overlay without borders minus its margin-left and the width of the close button
+            title.style.width = this.wrapper.clientWidth - utils.getSpacing(title, 'left') - document.querySelector('.o-overlay__close').offsetWidth + 'px';
         }
     },
 
