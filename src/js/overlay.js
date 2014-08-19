@@ -50,9 +50,13 @@ var setOptions = function(trigger, opts) {
             opts.arrow.direction = 'left';
         }
 
+        if (opts.arrow.direction !== 'left' && opts.arrow.direction !== 'right' && opts.arrow.direction !== 'top' && opts.arrow.direction !== 'bottom') {
+            throw new Error('"o-overlay error": The direction of the arrow has to be either "top", "bottom", "left" or "right".');
+        }
+
         // If the direction of the arrow is 'top' or 'bottom', the heading can't be shaded
         if ((opts.arrow.direction === 'top' || opts.arrow.direction === 'bottom') && opts.heading.shaded) {
-            throw new Error('"o-overlay error": The direction of the error can\'t be set to "top" or "bottom" when the shaded heading option is set to true.');
+            throw new Error('"o-overlay error": The direction of the arrow can\'t be set to "top" or "bottom" when the shaded heading option is set to true.');
         }
 
         // Default target for the arrow will be the trigger
@@ -178,10 +182,6 @@ Overlay.prototype = {
         var edge = dimension === 'width' ? 'left' : 'top';
 
         if (size <= this[dimension]) {
-            this.wrapper.classList.remove('o-overlay__arrow-top', 
-                'o-overlay__arrow-bottom',
-                'o-overlay__arrow-left',
-                'o-overlay__arrow-right');
             this.wrapper.classList.add('o-overlay--full-' + dimension);
             this.wrapper.style['margin' + utils.capitalise(edge)] = 0;
         } else {
@@ -189,28 +189,7 @@ Overlay.prototype = {
             if (!this.opts.arrow) {
                 this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
             } else {
-                this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.direction);
-                var offset = 0;
-                // Protrusion distance for the arrow
-                var arrowSize = 10;
-                var targetClientRect = this.opts.arrow.target.getBoundingClientRect();
-                if (dimension === 'width') {
-                    if (this.opts.arrow.direction === 'left') {
-                        offset = targetClientRect.right + arrowSize;
-                    } else if (this.opts.arrow.direction === 'right') {
-                        offset = targetClientRect.left - this.width - arrowSize;
-                    }
-                    //this.wrapper.style.top = targetClientRect.height / 2 + targetClientRect.top;
-                } else {
-                    if (this.opts.arrow.direction === 'top') {
-                        offset = targetClientRect.bottom + arrowSize;
-                    } else if (this.opts.arrow.direction === 'bottom') {
-                        offset = targetClientRect.top - this.height - arrowSize;
-                    }
-                    this.wrapper.style.left = targetClientRect.width / 2 + targetClientRect.left;
-                }    
-
-                this.wrapper.style[edge] = offset + 'px';                            
+                this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.direction);   
             }
         }
     },
@@ -270,6 +249,41 @@ Overlay.prototype = {
     respondToWindow: function(size) {
         this.realign('width', size.width);
         this.realign('height', size.height);
+
+        if (this.opts.arrow && !this.fills()) {
+            var offset = 0;
+            // Protrusion distance for the arrow
+            var arrowSize = 10;
+            var targetClientRect = this.opts.arrow.target.getBoundingClientRect();
+            switch (this.opts.arrow.direction) {
+                case 'left':
+                    offset = targetClientRect.right + arrowSize;
+                    break;
+                case 'right':
+                    offset = targetClientRect.left - this.width - arrowSize;
+                    break;
+                case 'top':
+                    offset = targetClientRect.bottom + arrowSize;
+                    break;
+                case 'bottom':
+                    offset = targetClientRect.top - this.height - arrowSize;
+                    break;
+            }
+
+            var edge = (this.opts.arrow.direction === 'left' || this.opts.arrow.direction === 'right') ? 'left' : 'top';
+            var oppositeEdge = (this.opts.arrow.direction === 'left' || this.opts.arrow.direction === 'right') ? 'top' : 'left';
+            var dimension = (this.opts.arrow.direction === 'left' || this.opts.arrow.direction === 'right') ? 'height' : 'width';
+            this.wrapper.style[edge] = offset + 'px';
+            // 1. Get where the element is positioned
+            // 2. Add its width or height divided by two to get its center
+            // 3. Substract the width or height divided by two of the overlay so the arrow, which is in the center, points to the center of the target
+            this.wrapper.style[oppositeEdge] = targetClientRect[oppositeEdge] + (targetClientRect[dimension] / 2) - (this[dimension] / 2) + 'px'; 
+        } else {
+            this.wrapper.classList.remove('o-overlay__arrow-top', 
+                                            'o-overlay__arrow-bottom',
+                                            'o-overlay__arrow-left',
+                                            'o-overlay__arrow-right');
+        }
     },
 
     getWidth: function () {
