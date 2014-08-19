@@ -57,9 +57,7 @@ function WidgetUi (widgetContainer) {
         var authContainer = sizzle('.fyre-auth', widgetContainer);
 
         if (authContainer.length) {
-            authContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.unavailableTemplate.render({
-                message: commentUi.i18n.texts.unavailable
-            })));
+            authContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.unavailableTemplate.render()));
         }
     };
 
@@ -106,9 +104,7 @@ function WidgetUi (widgetContainer) {
 
                     var loginBarContainer = sizzle('.fyre-auth .fyre-login-bar', widgetContainer);
                     if (loginBarContainer.length) {
-                        loginBarContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.commentingSettingsLink.render({
-                            label: commentUi.i18n.texts.commentingSettingsLabel
-                        })));
+                        loginBarContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.commentingSettingsLink.render()));
                     }
 
                     var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comments-settings-text', widgetContainer);
