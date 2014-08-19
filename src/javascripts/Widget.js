@@ -227,9 +227,9 @@ function Widget () {
                                         if (self.config.authPageReload === true) {
                                             delegate.failure();
 
-                                            self.trigger('login.authAction');
+                                            self.trigger('loginRequired.authAction');
                                         } else {
-                                            self.trigger('login.authAction', delegate);
+                                            self.trigger('loginRequired.authAction', delegate);
                                         }
                                     }
                                 });
@@ -276,7 +276,7 @@ function Widget () {
             onClick: function () {
                 oCommentData.api.getAuth(function (err, currentAuthData) {
                     if (err) {
-                        self.trigger('login.authAction');
+                        self.trigger('loginRequired.authAction');
                         return;
                     }
 

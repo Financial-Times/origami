@@ -222,7 +222,7 @@ Arguments of the handler: siteId, eventData, where eventData has the following s
 }
 ```
 
-###### login.authAction
+###### loginRequired.authAction
 Triggered when the user tries to post a comment without being logged in, or simply the user clicks the sign in link without being logged in (or with session expired, but it's up to the product to handle this case).
 
 The cases when the user is logged in but doesn't have a pseudonym is automatically covered.
