@@ -4,27 +4,23 @@ Configurable custom overlay box that can be used to show overlay windows. The ov
 
 ## Installation
 
-Run the following in your project's root directory
-   
-    bower install o-overlay
-
-Then add `@import "o-overlay/main"` to your sass stylesheets and use `require('o-overlay')` in your javascript.
+For installation info please refer to this module's page in the Origami registry
 
 ## Usage
 The constructor function accepts two parameters: 
-    * options: Documented below
     * trigger element: HTMLElement to which the overlay will be associated
+    * options: Documented below  
 
 You can get an array of all open overlays with the method `o-overlay#getOverlays`.
 
 o-overlay can be instantiated in two main ways:
 
 ### Declaratively
-Setting the different options as `data-attributes` on the trigger. When the trigger is clicked, you would then need to create a new Overlay object setting the options parameter as `null` and the trigger to be the target of the event.
+Setting the different options as `data-attributes` on the trigger. You can then instantiate (add a click event to it that creates an overlay) all triggers (each trigger with its own overlay object) together with other Origami modules by dispatching the `o.DOMContentLoaded` event and setting the class `o-overlay-trigger` on your different triggers.
 
-You can also set the class `o-overlay-trigger` on the trigger and run `o-overlay#init(el)` so that all triggers that are children of the specified element (the default is `document.body`) are instantiated automatically.
+If you don't want to instantiate all modules at the same time, you can run `o-overlay#init(el)` so that all triggers that are children of the specified element (which will be its o-layers context and the default is `document.body`) are instantiated automatically.
 
-Instead of running `o-overlay#init(el)`, you can also instantiate all triggers together with other Origami modules by dispatching the `o.DOMContentLoaded` event.
+If you'd rather do everything manually, when the trigger is clicked, you would then need to create a new Overlay object setting the options parameter as `null` and the trigger to be the target of the event.
 
 If at some point you want to deactivate the triggers, just run `o-overlay#destroy`.
 

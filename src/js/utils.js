@@ -9,7 +9,7 @@ module.exports = {
         return str.charAt(0).toUpperCase() + str.substr(1);
     },
 
-    copyContent: function(content) {
+    copyContentFromElement: function(content) {
         return content.nodeName === 'SCRIPT' ? content.innerHTML: content.outerHTML;
     },
 
