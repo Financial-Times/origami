@@ -127,13 +127,12 @@ $o-ft-footer-spacing-unit: 20px;
 .o-ft-footer__pearson-tagline,
 .o-ft-footer__pearson-logo {
 	height: 16px;
-	background: url(oAssetsResolve("img/pearson_sprite.gif", o-ft-footer)) no-repeat;
+	background-image: url(oAssetsResolve("img/pearson_sprite.gif", o-ft-footer));
+	background-repeat: no-repeat;
 	white-space: nowrap;
 
 	// The weird value for rgba is to prevent sass converting rgba(0,0,0,0) to 'transparent', which would cause the following line of css to be understood by ie7/8 and the svg to be downloaded
 	background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/pearson_sprite.svg", o-ft-footer)) no-repeat;
-	color: transparent;
-	user-select: none;
 }
 
 .o-ft-footer__pearson-tagline {
