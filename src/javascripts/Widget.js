@@ -217,15 +217,12 @@ function Widget () {
                                         if (self.config.authPageReload === true) {
                                             delegate.failure();
 
-                                            self.trigger('loginRequired.authAction');
+                                            self.trigger('login.authAction');
                                         } else {
-                                            self.trigger('loginRequired.authAction', [delegate]);
+                                            self.trigger('login.authAction', delegate);
                                         }
                                     }
                                 });
-
-
-                                self.trigger('login.authAction', delegate);
                             };
 
                             authDelegate.logout = function (delegate) {

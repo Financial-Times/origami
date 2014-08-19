@@ -92,58 +92,47 @@
 <p>Integration of the widget provided by Livefyre. The integration means </p>
 <hr>
 <h2 id="how-to-use-it">How to use it</h2>
-<p>There are two ways of using this module:</p>
 <h3 id="standalone">Standalone</h3>
-<p>Run <code>grunt</code>, then insert the JS found in the dist folder:</p>
-<pre><code class="lang-javascript">&lt;script src=&quot;dist/javascripts/oLivefyreCommentClient.min.js&quot;&gt;&lt;/script&gt;</code></pre>
-<p>The module&#39;s API can be accessed using <code>oLivefyreCommentClient</code> in the global scope.</p>
-<h3 id="bower-and-browserify">Bower and browserify</h3>
-<p>With bower, simply require the module:</p>
+<p>Using the build tool, the script exposes a global variable named <code>oLivefyreCommentClient</code>.</p>
+<h3 id="bower">Bower</h3>
+<p>As a bower dependency:</p>
 <pre><code class="lang-javascript">var oLivefyreCommentClient = require(&#39;o-livefyre-comment-client&#39;);</code></pre>
-<p>The module should be built using <code>browserify</code> (with <code>debowerify</code> and <code>textrequireify</code> transforms).</p>
-<hr>
 <h2 id="configuration">Configuration</h2>
 <p><strong>The methods which are meant to configure the module are the following:</strong></p>
 <h3 id="init">init</h3>
-<p>This method is responsible for changing the default configuration used by this module. Calling this method with an object will merge the default configuration with the object specified (deep merge, primitive type values of the same key will be overwritten).<br>Adding a dependencies field will set the configuration of dependency modules.</p>
+<p>This method is responsible for changing the default configuration used by this module. Calling this method with an object will merge the default configuration with the object specified (deep merge, only primitive type values of the same key will be overwritten).<br>Adding a <code>dependencies</code> field will set the configuration of dependency modules.</p>
 <h5 id="default-configuration">Default configuration</h5>
 <pre><code class="lang-javascript">{
-    &quot;suds&quot;: {
-        &quot;baseUrl&quot;: &quot;http://session-user-data.webservices.ft.com&quot;,
-        &quot;endpoints&quot;: {
-            &quot;livefyre&quot;: {
-                &quot;init&quot;: &quot;/v1/livefyre/init&quot;,
-            },
-            &quot;user&quot;: {
-                &quot;updateUser&quot;: &quot;/v1/user/updateuser&quot;,
-                &quot;getAuth&quot;: &quot;/v1/user/getauth&quot;
-            }
-        }
+    &quot;livefyre&quot;: {
+        &quot;network&quot;: &quot;ft.fyre.co&quot;,
+        &quot;domain&quot;: &quot;ft.auth.fyre.co&quot;,
+        &quot;resourceDomainBase&quot;: &quot;http://zor.livefyre.com&quot;
     },
-    &quot;ccs&quot;: {
-        &quot;baseUrl&quot;: &quot;http://comment-creation-service.webservices.ft.com&quot;,
-        &quot;endpoints&quot;: {
-            &quot;getComments&quot;: &quot;/v1/getComments&quot;,
-            &quot;postComment&quot;: &quot;/v1/postComment&quot;
-        }
-    },
-    &quot;cacheConfig&quot;: {
-        &quot;authBaseName&quot;: &quot;comments-prod-auth-&quot;,
-        &quot;initBaseName&quot;: &quot;comments-prod-init-&quot;
+    &quot;resourceUrls&quot;: {
+        &quot;livefyreJs&quot;: &quot;/wjs/v3.0/javascripts/livefyre.js&quot;
     }
 }</code></pre>
 <h5 id="change-the-environment">Change the environment</h5>
 <p>In order to change to the TEST environment, use the following code:</p>
-<pre><code class="lang-javascript">oCommentsData.init({
-    &quot;suds&quot;: {
-        &quot;baseUrl&quot;: &quot;http://test.session-user-data.webservices.ft.com&quot;
+<pre><code class="lang-javascript">oLivefyreCommentClient.init({
+    &quot;livefyre&quot;: {
+        &quot;network&quot;: &quot;ft-1.fyre.co&quot;,
+        &quot;domain&quot;: &quot;ft-1.auth.fyre.co&quot;,
+        &quot;resourceDomainBase&quot;: &quot;http://zor.livefyre.com&quot;
     },
-    &quot;ccs&quot;: {
-        &quot;baseUrl&quot;: &quot;http://test.comment-creation-service.webservices.ft.com&quot;
-    },
-    &quot;cacheConfig&quot;: {
-        &quot;authBaseName&quot;: &quot;comments-test-auth-&quot;,
-        &quot;initBaseName&quot;: &quot;comments-test-init-&quot;
+    dependencies: {
+        &quot;o-comment-data&quot;: {
+            &quot;suds&quot;: {
+                &quot;baseUrl&quot;: &quot;http://test.session-user-data.webservices.ft.com&quot;
+            },
+            &quot;ccs&quot;: {
+                &quot;baseUrl&quot;: &quot;http://test.comment-creation-service.webservices.ft.com&quot;
+            },
+            &quot;cacheConfig&quot;: {
+                &quot;authBaseName&quot;: &quot;comments-test-auth-&quot;,
+                &quot;initBaseName&quot;: &quot;comments-test-init-&quot;
+            }
+        }
     }
 });</code></pre>
 <hr>
@@ -156,69 +145,126 @@
 <h6 id="setlogginglevel">setLoggingLevel</h6>
 <p>This method sets the logging level. This could be a number from 0 to 4 (where 0 is debug, 4 is error), or a string from the available methods of &#39;console&#39; (debug, log, info, warn, error).<br>Default is 3 (warn).</p>
 <hr>
-<h2 id="integrated-submodules">Integrated submodules</h2>
-<p>The submodules that are exposed are the following:</p>
+<h2 id="how-to-include-comments-on-the-page">How to include comments on the page</h2>
 <h3 id="widget">Widget</h3>
-<p>Widget can be used to load a Livefyre widget on the page. It is responsible to talk with SUDS, load Livefyre core resources, load an LF widget on the page and handle Livefyre events.</p>
+<p>In order to load comments on a page, you should create an instance of <code>Widget</code>.</p>
+<pre><code class="lang-javascript">var widgetInstance = new oLivefyreCommentClient.Widget({
+    elId: &#39;commentWrapper&#39;,
+    articleId: &#39;post12315&#39;,
+    url: &#39;http://www.example.com/post12315&#39;,
+    title: &#39;Test comments&#39;
+});
+
+widgetInstance.on(&#39;loginRequired.authAction&#39;, function (delegate) {
+    // Login is required, handle the login process.
+    if (delegate) {
+        if (loginSuccessful) {
+            delegate.success();
+        } else {
+            delegate.failure();
+        }
+    }
+}
+});
+
+widgetInstance.load();</code></pre>
 <h5 id="configuration">Configuration</h5>
-<p>To create an instance, you need to provide a configuration object. This should have the following structure:</p>
+<p>To create an instance, you will need to provide a configuration object. This should have the following structure:</p>
 <h6 id="mandatory-fields-">Mandatory fields:</h6>
 <ul>
 <li>elId: ID of the HTML element in which the widget should be loaded</li>
 <li>articleId: ID of the article, any string</li>
 <li>url: canonical URL of the page</li>
 <li>title: Title of the page</li>
-<li><strong>user</strong>: User object which has the following utilities:<ul>
-<li>isLoggedIn: function which returns true or false based on the user&#39;s logged in status</li>
-<li>getSession: function which returns the user&#39;s session if he&#39;s logged in</li>
-<li>getUserId: function</li>
-<li>getEmail: function</li>
-</ul>
-</li>
 </ul>
 <h6 id="optional-fields-">Optional fields:</h6>
 <ul>
+<li>authPageReload: true or false. True if the login process reloads the page. Default value is false.</li>
+<li>emailAlert: if a user has not yet saved the email preferences, an alert is shown after each post. This flag can have true/false values meaning if the email alert should be shown or not. The default value is true.</li>
 <li>stream_type: livecomments, livechat, liveblog</li>
 <li>initExtension: object which contains key-value pairs which should be added to the init object</li>
-<li>stringOverrides: key-value pairs which override default LF strings</li>
+<li>stringOverrides: key-value pairs which override default Livefyre strings</li>
+<li>timeout: time in seconds which when exceeded an &quot;unable to load&quot; message is displayed. Default value is 15.</li>
 </ul>
 <h5 id="methods">Methods</h5>
 <h6 id="load">load</h6>
-<p>The only method that can be called is &#39;load&#39;. This method will initiate loading Livefyre core resources, getting the necessary information from SUDS, and loading the widget on its place specified.</p>
-<p>This method can be called once (calling it multiple types will have no effect).</p>
-<h3 id="auth">Auth</h3>
+<p>This method loads the Widget on the page.</p>
+<h5 id="events">Events</h5>
+<p>You can listen to the events using the <code>on</code> method, which works similar to the one in jQuery.</p>
+<pre><code class="lang-javascript">widgetInstance.on(&#39;nameOfTheEvent&#39;, function () {
+    // event handler
+});</code></pre>
+<p>Using the <code>off</code> method event handlers can be removed.</p>
+<p>List of events:</p>
+<h6 id="timeout-widget">timeout.widget</h6>
+<p>Triggered when loading the widget exceeded a given time.</p>
+<h6 id="error-resources">error.resources</h6>
+<p>Triggered when the necessary resource files (e.g. Livefyre&#39;s core JS library) couldn&#39;t be loaded.</p>
+<h6 id="error-init">error.init</h6>
+<p>Triggered when the initialization process ended up with errors.</p>
+<h6 id="error-widget">error.widget</h6>
+<p>Triggered when any error appear (triggered together with the above mentioned error events).</p>
+<h6 id="loaded-init">loaded.init</h6>
+<p>Init object is loaded. The handler receives as a parameter the object.</p>
+<h6 id="loaded-auth">loaded.auth</h6>
+<p>The first time the auth object is loaded, it is broadcasted using this event. The handler receives as a parameter the object.</p>
+<h6 id="ready-widget">ready.widget</h6>
+<p>The widget is ready to be loaded, the initialization process has finished.</p>
+<h6 id="loaded-widget">loaded.widget</h6>
+<p>The Livefyre widget has loaded the necessary data and created a <code>Livefyre widget</code> instance, but not yet rendered it. The handler receives the Livefyre widget object as a parameter.</p>
+<h6 id="initialrendercomplete-widget">initialRenderComplete.widget</h6>
+<p>The widget is rendered, the DOM is populated with the elements of the widget.</p>
+<h6 id="commentposted-tracking">commentPosted.tracking</h6>
+<p>A comment is posted.<br>Arguments of the handler: siteId, eventData, where eventData has the following structure:</p>
+<pre><code class="lang-javascript">{
+  authorId: &quot;_u2012@livefyre.com&quot; // The ID of the Author of the comment 
+  parent: &quot;893549&quot; // The ID of the comment that this new comment is in reply to, else null
+  bodyHtml: &quot;&lt;p&gt;42&lt;/p&gt;&quot; // The HTML of the submitted Content
+  sharedToFacebook: true // Whether the comment was also posted to Facebook
+  sharedToTwitter: false // Whether the comment was also posted to Twitter
+}</code></pre>
+<h6 id="commentliked-tracking">commentLiked.tracking</h6>
+<p>A comment is recommended.<br>Arguments of the handler: siteId, eventData, where eventData has the following structure:</p>
+<pre><code class="lang-javascript">{
+  targetId: &quot;245625&quot; // The ID of the comment that was liked
+  targetAuthorId: &quot;i_am_author@livefyre.com&quot; // The ID of the author of the comment that was liked
+}</code></pre>
+<h6 id="commentshared-tracking">commentShared.tracking</h6>
+<p>A comment is shared.<br>Arguments of the handler: siteId, eventData, where eventData has the following structure:</p>
+<pre><code class="lang-javascript">{
+  targetId: &quot;256255&quot; // The ID of the comment that was shared
+  sharedToFacebook: false // Whether the comment was shared to Facebook
+  sharedToTwitter: true // Whether the comment was shared to Twitter
+}</code></pre>
+<h6 id="socialmention-tracking">socialMention.tracking</h6>
+<p>A user sent a social mention through a comment.<br>Arguments of the handler: siteId, eventData, where eventData has the following structure:</p>
+<pre><code class="lang-javascript">{
+  id: &#39;111111@fb.gw.livefyre.com&#39; // ID of the mentioned user
+  displayName: &#39;testUser&#39; // Display name of mentioned user
+  message: &quot;@testUser Wow, I can&#39;t believe it either!&quot; // Message that was sent to the particular user
+  provider: &#39;twitter&#39; // Provider to which the mention was shared
+}</code></pre>
+<h6 id="login-authaction">login.authAction</h6>
+<p>Triggered when the user tries to post a comment without being logged in, or simply the user clicks the sign in link without being logged in (or with session expired, but it&#39;s up to the product to handle this case).</p>
+<p>The cases when the user is logged in but doesn&#39;t have a pseudonym is automatically covered.</p>
+<h6 id="logout-authaction">logout.authAction</h6>
+<p>Triggered when the user logs out.</p>
+<h3 id="auth">auth</h3>
+<p>This module is handling the authentication into the Livefyre system.</p>
+<h5 id="methods-of-auth">Methods of auth</h5>
+<h6 id="getinstance">getInstance</h6>
+<p>As auth is a singleton module, it has just one instance. This method should be called only when the Livefyre resources are loaded and the <code>fyre</code> object is available.</p>
+<h5 id="methods-of-the-single-instance">Methods of the single instance</h5>
+<h6 id="getauthdelegate">getAuthDelegate</h6>
 <p>Creates Livefyre RemoteAuthDelegate, also provides login and logout into Livefyre.<br>See <a href="http://docs.livefyre.com/developers/user-auth/remote-profiles/#BuildingAuthDelegate">http://docs.livefyre.com/developers/user-auth/remote-profiles/#BuildingAuthDelegate</a></p>
-<h3 id="cache">cache</h3>
-<p>Provides caching options for the data received from SUDS (init, auth, settings).<br>It also provides validation based on the user&#39;s identity and expiry time of the tokens.</p>
-<h3 id="initobjloader">initObjLoader</h3>
-<p>This is a wrapper around Suds&#39; init endpoint, but incorporating a cache layer as well.<br>The only method is &#39;init&#39;. Calling this method will result in the response of o-suds.endpoints.livefyre.user, but the call is not made if there is valid data in the cache.</p>
-<h5 id="configuration">Configuration</h5>
-<h6 id="mandatory-fields-">Mandatory fields:</h6>
-<ul>
-<li>elId: ID of the HTML element in which the widget should be loaded</li>
-<li>articleId: ID of the article, any string</li>
-<li>url: canonical URL of the page</li>
-<li>title: Title of the page</li>
-<li>user: User object which has the following utilities:<ul>
-<li>isLoggedIn: function which returns true or false based on the user&#39;s logged in status</li>
-<li>getSession: function which returns the user&#39;s session if he&#39;s logged in</li>
-<li>getUserId: function</li>
-<li>getEmail: function</li>
-</ul>
-</li>
-</ul>
-<h6 id="optional-fields-">Optional fields:</h6>
-<ul>
-<li>stream_type: livecomments, livechat, liveblog</li>
-<li>force: if true, cache content is ignored</li>
-</ul>
+<h6 id="login">login</h6>
+<h6 id="logout">logout</h6>
+<h3 id="userdialogs">userDialogs</h3>
 <h3 id="resourceloader">resourceLoader</h3>
 <p>This is responsible for loading Livefyre&#39;s core JS libraries, and it also provides a helper to load CSS override.</p>
-<p>Methods:</p>
-<ul>
-<li>loadLivefyreCore</li>
-<li>loadCssOverrides</li>
-</ul>
+<h5 id="methods-">Methods:</h5>
+<h6 id="loadlivefyrecore">loadLivefyreCore</h6>
+<h6 id="loadcssoverrides">loadCssOverrides</h6>
 <h3 id="i18n">i18n</h3>
 <p>It exposes the following objects:</p>
 <h5 id="lfstringoverride">lfStringOverride</h5>
@@ -234,38 +280,6 @@
 <p>Detects if the URL is a Livefyre permalink.</p>
 <h5 id="cloneobject">cloneObject</h5>
 <p>Deferences a plain Object and returns a deep copy (same content with different references).</p>
-<h3 id="enablelogging">enableLogging</h3>
-<p>This method enables logging of the module. It logs using the global &#39;console&#39; if available (if not, nothing happens).</p>
-<h3 id="disablelogging">disableLogging</h3>
-<p>This method disables logging of the module.</p>
-<h3 id="setlogginglevel">setLoggingLevel</h3>
-<p>This method sets the logging level. This could be a number from 0 to 4 (where 0 is debug, 4 is error), or a string from the available methods of &#39;console&#39; (debug, log, info, warn, error).<br>Default is 3 (warn).</p>
-<h2 id="default-configuration">Default configuration</h2>
-<pre><code class="lang-javascript">{
-    &quot;livefyre&quot;: {
-        &quot;network&quot;: &quot;ft.fyre.co&quot;,
-        &quot;domain&quot;: &quot;ft.auth.fyre.co&quot;,
-        &quot;resourceDomainBase&quot;: &quot;http://zor.livefyre.com&quot;
-    },
-    &quot;resourceUrls&quot;: {
-        &quot;livefyreJs&quot;: &quot;/wjs/v3.0/javascripts/livefyre.js&quot;
-    }
-}</code></pre>
-<h2 id="change-the-environment">Change the environment</h2>
-<p>In order to change to the TEST environment, use this:</p>
-<pre><code class="lang-javascript">var commentsCore = require(&#39;o-comments-core&#39;);
-commentsCore.init({
-    &quot;dependencies&quot;: {
-        &quot;o-suds&quot;: {
-            &quot;baseUrl&quot;: &quot;http://test.session-user-data.webservices.ft.com&quot;
-        }
-    },
-    &quot;livefyre&quot;: {
-        &quot;network&quot;: &quot;ft-int-0.fyre.co&quot;,
-        &quot;domain&quot;: &quot;ft-int-0.auth.fyre.co&quot;,
-        &quot;resourceDomainBase&quot;: &quot;http://zor.t402.livefyre.com&quot;
-    }
-});</code></pre>
 </section>
         </div>
       </div>
