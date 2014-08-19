@@ -122,8 +122,8 @@ Overlay.prototype = {
             title.className = 'o-overlay__title';
             title.innerHTML = this.opts.heading.title;
 
-            heading.appendChild(title);
             heading.appendChild(button);
+            heading.appendChild(title);
             wrapperEl.appendChild(heading);
         }
 
@@ -183,13 +183,6 @@ Overlay.prototype = {
         } else {
             this.wrapper.classList.remove('o-overlay--full-' + dimension);
             this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
-        }
-
-        // Set a fixed width for the title so the text wraps
-        if (dimension === 'width' && this.opts.heading) {
-            var title = this.wrapper.querySelector('.o-overlay__title');
-            // The width of the title is the width of the whole overlay without borders minus the width of the close button
-            title.style.width = this.wrapper.clientWidth - document.querySelector('.o-overlay__close').offsetWidth + 'px';
         }
     },
 
