@@ -1,0 +1,47 @@
+// Default arrow styling
+@mixin _oOverlayArrow() {
+	content: "";
+  	position: absolute;
+}
+
+// Default top/bottom arrow styling
+@mixin _oOverlayVerticalArrow($size: 10px) {
+	border-left: $size solid transparent;
+	border-right: $size solid transparent;
+	left: 50%;
+	margin-left: -$size;
+	@include _oOverlayArrow();
+}
+
+@mixin oOverlayUpArrow($color: #74736c, $size: 10px) {
+	border-bottom: $size solid $color;
+	top: -($size + $o-overlay-border-width);
+	@include _oOverlayVerticalArrow($size);
+}
+
+@mixin oOverlayDownArrow($color: #74736c, $size: 10px) {
+	border-top: $size solid $color;
+	bottom: -($size + $o-overlay-border-width);
+	@include _oOverlayVerticalArrow($size);
+}
+
+// Default left/right arrow styling
+@mixin _oOverlayHorizontalArrow($size: 10px) {
+	border-top: $size solid transparent;
+	border-bottom: $size solid transparent;
+	top: 50%;
+	margin-top: -$size;
+	@include _oOverlayArrow();
+}
+
+@mixin oOverlayLeftArrow($color: #74736c, $size: 10px) {
+	border-right: $size solid $color;
+	left: -($size + $o-overlay-border-width);
+	@include _oOverlayHorizontalArrow($size);
+}
+
+@mixin oOverlayRightArrow($color: #74736c, $size: 10px) {
+	border-left: $size solid $color;
+	right: -($size + $o-overlay-border-width);
+	@include _oOverlayHorizontalArrow($size);
+}

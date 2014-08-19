@@ -12,6 +12,11 @@
         {
         	"name": "centered-overlay",
         	"template": "demos/src/centered-overlay.mustache"
+        },
+        {
+            "name": "smallscale",
+            "template": "demos/src/smallscale.mustache",
+            "sass": "demos/src/smallscale.scss"
         }
     ]
 }

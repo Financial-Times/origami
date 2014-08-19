@@ -6,7 +6,8 @@
 @import "o-ft-icons/main";
 
 @import "src/scss/_variables";
-@import "src/scss/_color-use-cases.scss";
+@import "src/scss/_color-use-cases";
+@import "src/scss/_mixins";
 @import "src/scss/overlay";
 
 @mixin oOverlayIncludeAll($classname: o-overlay) {
@@ -16,6 +17,22 @@
 
 	.#{$classname}-shadow {
 		@extend %o-overlay-shadow;
+	}
+
+	.#{$classname}__arrow-top {
+		@extend %o-overlay__arrow-top;
+	}
+
+	.#{$classname}__arrow-bottom {
+		@extend %o-overlay__arrow-bottom;
+	}
+
+	.#{$classname}__arrow-left {
+		@extend %o-overlay__arrow-left;
+	}
+
+	.#{$classname}__arrow-right {
+		@extend %o-overlay__arrow-right;
 	}
 
 	.#{$classname}__heading {

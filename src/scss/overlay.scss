@@ -8,7 +8,7 @@
     box-sizing: border-box; 
     opacity: 1;
     @include oUseragentPrefixer(transition, opacity 0.3s ease-in-out);
-    border: 2px solid oColorsGetColorFor(o-overlay, border);
+    border: $o-overlay-border-width solid oColorsGetColorFor(o-overlay, border);
     background: oColorsGetColorFor(o-overlay, background);
     @include oUseragentPrefixer(border-radius, 5px);
 }
@@ -23,6 +23,44 @@
     z-index: 10;
     opacity: 1;
     @include oUseragentPrefixer(transition, opacity 0.3s ease-in-out);
+}
+
+%o-overlay__arrow {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+%o-overlay__arrow-top {
+    @extend %o-overlay__arrow;
+
+    &:before {
+        @include oOverlayUpArrow();
+    }
+}
+
+%o-overlay__arrow-bottom {
+    @extend %o-overlay__arrow;
+
+    &:after {
+        @include oOverlayDownArrow();
+    }
+}
+
+%o-overlay__arrow-left {
+    @extend %o-overlay__arrow;
+
+    &:before {
+        @include oOverlayLeftArrow();
+    }
+}
+
+%o-overlay__arrow-right {
+    @extend %o-overlay__arrow;
+
+    &:after {
+        @include oOverlayRightArrow();
+    }
 }
 
 %o-overlay__heading {
