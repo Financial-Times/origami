@@ -189,9 +189,7 @@
         var authContainer = sizzle('.fyre-auth', widgetContainer);
 
         if (authContainer.length) {
-            authContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.unavailableTemplate.render({
-                message: commentUi.i18n.texts.unavailable
-            })));
+            authContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.unavailableTemplate.render()));
         }
     };</code></pre>
           <section id="addTermsAndGuidelineMessage">
@@ -256,12 +254,10 @@
 
                     var loginBarContainer = sizzle('.fyre-auth .fyre-login-bar', widgetContainer);
                     if (loginBarContainer.length) {
-                        loginBarContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.commentingSettingsLink.render({
-                            label: commentUi.i18n.texts.commentingSettingsLabel
-                        })));
+                        loginBarContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.commentingSettingsLink.render()));
                     }
 
-                    var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comments-settings-text', widgetContainer);
+                    var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comment-settings-text', widgetContainer);
                     if (settingsLink.length) {
                         commentUi.utils.addEventListener('click', settingsLink[0], function () {
                             if (options &amp;&amp; typeof options.onClick === 'function') {
@@ -287,7 +283,7 @@
           </section>
           <div class="description"><p>Removes the settings link from the widget.</p> </div>
           <pre><code class="language-javascript">this.removeSettingsLink = function () {
-        var el = sizzle('.comments-settings', widgetContainer);
+        var el = sizzle('.comment-settings', widgetContainer);
         if (el.length) {
             el[0].parentNode.removeChild(el[0]);
         }

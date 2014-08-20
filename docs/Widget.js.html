@@ -152,7 +152,13 @@
 
     this.ui = new WidgetUi(this.getWidgetEl());
 
-    this.forceMode = false;</code></pre>
+    this.forceMode = false;
+
+
+
+    this.config.stream_type = this.config.stream_type || &quot;livecomments&quot;;
+
+    this.getWidgetEl().className += ' o-livefyre-comment-client livefyre-comment-overrides comment-type-' + self.config.stream_type;</code></pre>
           <section id="stringOverrides">
             <h1>stringOverrides</h1>
             <h5 class="subheader"></h5>
@@ -358,9 +364,9 @@
                                         if (self.config.authPageReload === true) {
                                             delegate.failure();
 
-                                            self.trigger('login.authAction');
+                                            self.trigger('loginRequired.authAction');
                                         } else {
-                                            self.trigger('login.authAction', delegate);
+                                            self.trigger('loginRequired.authAction', delegate);
                                         }
                                     }
                                 });

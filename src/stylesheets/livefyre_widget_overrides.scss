@@ -31,11 +31,11 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 }
 
 
-.livefyre-comments {
+.o-livefyre-comment-client {
     @extend %o-ft-typography-article-body-wrapper;
 }
 
-.livefyre-comments.comment-overrides.comment-type-livecomments {
+.o-livefyre-comment-client.livefyre-comment-overrides.comment-type-livecomments {
     clear: both;
     color: oColorsGetPaletteColor(grey-tint5);
 
@@ -1420,7 +1420,7 @@ body {
 }
 
 
-.msie8 .livefyre-comments.comment-overrides {
+.msie8 .o-livefyre-comment-client.livefyre-comment-overrides {
     .fyre {
         .fyre-login-bar {
             float: none;

@@ -45,6 +45,12 @@ function Widget () {
 
     this.forceMode = false;
 
+
+
+    this.config.stream_type = this.config.stream_type || "livecomments";
+
+    this.getWidgetEl().className += ' o-livefyre-comment-client livefyre-comment-overrides comment-type-' + self.config.stream_type;
+
     /**
      * Merge custom string overrides with FT specific string overrides.
      * @type {Object}
