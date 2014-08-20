@@ -37,7 +37,7 @@ describe('smoke-tests (./overlay.js)', function() {
         });
 
         it('should open with correct content when trigger is clicked', function() {
-            
+            console.log("window.o");
             var trigger = document.querySelector('.o-overlay-trigger');
             o.fireEvent(trigger, 'click');
             var overlays = document.querySelectorAll('.o-overlay');

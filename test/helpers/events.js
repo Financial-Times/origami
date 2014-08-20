@@ -1,6 +1,7 @@
 'use strict';
-var o = window.o || {};
-
+if (!window.o) {
+    window.o = {};
+}
 var nativeNonBubblers = ['error', 'blur', 'focus', 'scroll', 'resize'];
 
 o.fireEvent = function (el, event, data) {

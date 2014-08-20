@@ -8,28 +8,7 @@ var oLayers = require('o-layers');
 var utils = require('./utils');
 var overlays = [];
 
-var setOptions = function(trigger, opts) {
-    
-    // Get config from data attributes if they haven't been passed via JS
-    if (!opts) {
-        opts = {};
-        Array.prototype.forEach.call(trigger.attributes, function(attr) {
-            if (attr.name.indexOf('data-o-overlay') === 0) {
-                // Remove the unnecessary part of the string the first time this is run for each attribute
-                var key = attr.name.replace('data-o-overlay-', '');
-                opts = utils.optionsFromKey(key, attr.value.toLowerCase(), opts);
-            }
-        });
-    }
-
-    if (!opts.html && opts.src) {
-        if (/^(https?\:\/)?\//.test(opts.src)) {
-            opts.html = utils.copyContentFromUrl(opts.src);
-        } else {
-            opts.html = utils.copyContentFromElement(document.querySelector(opts.src));
-        }
-    }
-
+var checkOptions = function(trigger, opts, callback) {
     if (!opts.html) {
         throw new Error('"o-overlay error": Content for the overlay needs to be set via the "html" or the "src" option.');
     }
@@ -63,29 +42,59 @@ var setOptions = function(trigger, opts) {
         }
     }
 
-    return opts;
+    callback(opts);
 };
 
+var setOptions = function(trigger, opts, callback) {
+    
+    // Get config from data attributes if they haven't been passed via JS
+    if (!opts) {
+        opts = {};
+        Array.prototype.forEach.call(trigger.attributes, function(attr) {
+            if (attr.name.indexOf('data-o-overlay') === 0) {
+                // Remove the unnecessary part of the string the first time this is run for each attribute
+                var key = attr.name.replace('data-o-overlay-', '');
+                opts = utils.optionsFromKey(key, attr.value.toLowerCase(), opts);
+            }
+        });
+    }
+
+    if (!opts.html && opts.src) {
+        if (/^(https?\:\/)?\//.test(opts.src)) {
+            utils.copyContentFromUrl(opts.src, function(html) {
+                opts.html = html;
+                checkOptions(trigger, opts, callback);
+            });
+        } else {
+            utils.copyContentFromElement(document.querySelector(opts.src), function(html) {
+                opts.html = html;
+                checkOptions(trigger, opts, callback);
+            });
+        }
+    }
+};
 
 var Overlay = function(trigger, opts) {
     this.trigger = trigger;
     this.context = oLayers.getLayerContext(this.trigger);
-    this.opts = setOptions(trigger, opts);
-
-    if (!this.opts) {
-        throw new Error('"o-overlay error": Required options have not been set');
-    }
-
-    // Check if the overlay has been previously instantiated and if it has, close it
-    for (var i = 0; i < overlays.length; i++) {
-        if (overlays[i].opts.html === this.opts.html) {
-            overlays[i].close();
-            return;
+    var self = this;
+    setOptions(trigger, opts, function(opts) {
+        self.opts = opts;
+        if (!self.opts) {
+            throw new Error('"o-overlay error": Required options have not been set');
         }
-    }
-    overlays.push(this);
-    
-    this.create();
+
+        // Check if the overlay has been previously instantiated and if it has, close it
+        for (var i = 0; i < overlays.length; i++) {
+            if (overlays[i].opts.html === self.opts.html) {
+                overlays[i].close();
+                return;
+            }
+        }
+        overlays.push(self);
+
+        self.create();
+    });
 };
 
 Overlay.prototype = {
@@ -261,6 +270,7 @@ Overlay.init = function(el) {
         el = document.body;
     }
     delegate = delegate || new Delegate(el);
+    var triggers = el.querySelectorAll('.o-overlay-trigger');
 
     delegate.on('click', '.o-overlay-trigger', function(ev) {
         new Overlay(ev.target, null);
