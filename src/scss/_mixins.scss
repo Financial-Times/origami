@@ -1,47 +1,108 @@
 // Default arrow styling
-@mixin _oOverlayArrow() {
-	content: "";
-  	position: absolute;
+@mixin _oOverlayArrow($size: 10px) {
+	// :before for the outer arrow that has the bordered colour, and :after for the inner arrow with the white background colour
+	&:before, &:after {
+		content: "";
+	  	position: absolute;
+	  	border: solid transparent;
+	}
+	
+	&:before {
+		// 1px offset so it appears properly
+		border-width: $size + $o-overlay-border-width + 1;
+	}
+
+	&:after {
+		border-width: $size;
+	}
 }
 
 // Default top/bottom arrow styling
 @mixin _oOverlayVerticalArrow($size: 10px) {
-	border-left: $size solid transparent;
-	border-right: $size solid transparent;
-	left: 50%;
-	margin-left: -$size;
 	@include _oOverlayArrow();
+	&:before, &:after {
+		left: 50%;
+	}
+
+	&:before {
+		// 1px offset so it appears properly
+		margin-left: -$size - $o-overlay-border-width - 1;
+	}
+
+	&:after {
+		margin-left: -$size;
+	}
 }
 
-@mixin oOverlayUpArrow($color: #74736c, $size: 10px) {
-	border-bottom: $size solid $color;
-	top: -($size + $o-overlay-border-width);
-	@include _oOverlayVerticalArrow($size);
+@mixin oOverlayUpArrow($color: #74736c) {
+	@include _oOverlayVerticalArrow();
+	&:before, &:after {
+		bottom: 100%;
+	}
+	&:before {
+		border-bottom-color: $color;
+	}
+
+	&:after {
+		border-bottom-color: oColorsGetColorFor(o-overlay, background);
+	}
 }
 
-@mixin oOverlayDownArrow($color: #74736c, $size: 10px) {
-	border-top: $size solid $color;
-	bottom: -($size + $o-overlay-border-width);
-	@include _oOverlayVerticalArrow($size);
+@mixin oOverlayDownArrow($color: #74736c) {
+	@include _oOverlayVerticalArrow();
+	&:before, &:after {
+		top: 100%;
+	}
+	&:before {
+		border-top-color: $color;
+	}
+
+	&:after {
+		border-top-color: oColorsGetColorFor(o-overlay, background);
+	}
 }
 
 // Default left/right arrow styling
 @mixin _oOverlayHorizontalArrow($size: 10px) {
-	border-top: $size solid transparent;
-	border-bottom: $size solid transparent;
-	top: 50%;
-	margin-top: -$size;
 	@include _oOverlayArrow();
+	&:before, &:after {
+		top: 50%;
+	}
+
+	&:before {
+		// 1px offset so it appears properly
+		margin-top: -$size - $o-overlay-border-width - 1;
+	}
+
+	&:after {
+		margin-top: -$size;
+	}
 }
 
-@mixin oOverlayLeftArrow($color: #74736c, $size: 10px) {
-	border-right: $size solid $color;
-	left: -($size + $o-overlay-border-width);
-	@include _oOverlayHorizontalArrow($size);
+@mixin oOverlayLeftArrow($color: #74736c) {
+	@include _oOverlayHorizontalArrow();
+	&:before, &:after {
+		right: 100%;
+	}
+	&:before {
+		border-right-color: $color;
+	}
+
+	&:after {
+		border-right-color: oColorsGetColorFor(o-overlay, background);
+	}
 }
 
-@mixin oOverlayRightArrow($color: #74736c, $size: 10px) {
-	border-left: $size solid $color;
-	right: -($size + $o-overlay-border-width);
-	@include _oOverlayHorizontalArrow($size);
+@mixin oOverlayRightArrow($color: #74736c) {
+	@include _oOverlayHorizontalArrow();
+	&:before, &:after {
+		left: 100%;
+	}
+	&:before {
+		border-left-color: $color;
+	}
+
+	&:after {
+		border-left-color: oColorsGetColorFor(o-overlay, background);
+	}
 }

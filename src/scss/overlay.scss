@@ -32,33 +32,25 @@
 %o-overlay__arrow-top {
     @extend %o-overlay__arrow;
 
-    &:before {
-        @include oOverlayUpArrow();
-    }
+    @include oOverlayUpArrow();
 }
 
 %o-overlay__arrow-bottom {
     @extend %o-overlay__arrow;
 
-    &:after {
-        @include oOverlayDownArrow();
-    }
+    @include oOverlayDownArrow();
 }
 
 %o-overlay__arrow-left {
     @extend %o-overlay__arrow;
 
-    &:before {
-        @include oOverlayLeftArrow();
-    }
+    @include oOverlayLeftArrow();
 }
 
 %o-overlay__arrow-right {
     @extend %o-overlay__arrow;
 
-    &:after {
-        @include oOverlayRightArrow();
-    }
+    @include oOverlayRightArrow();
 }
 
 %o-overlay__heading {
