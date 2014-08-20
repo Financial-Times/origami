@@ -1,3 +1,4 @@
+/* global o */
 'use strict';
 if (!window.o) {
     window.o = {};

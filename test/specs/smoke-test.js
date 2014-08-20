@@ -37,7 +37,6 @@ describe('smoke-tests (./overlay.js)', function() {
         });
 
         it('should open with correct content when trigger is clicked', function() {
-            console.log("window.o");
             var trigger = document.querySelector('.o-overlay-trigger');
             o.fireEvent(trigger, 'click');
             var overlays = document.querySelectorAll('.o-overlay');
@@ -149,9 +148,9 @@ describe('smoke-tests (./overlay.js)', function() {
 
 
         it('should be possible to open and close imperatively', function() {
-            var mod = new Overlay({
+            var mod = new Overlay(document.querySelector('.o-overlay-trigger'), {
                 html: testContent
-            }, document.querySelector('.o-overlay-trigger'));
+            });
 
             var overlays = document.querySelectorAll('.o-overlay');
             
@@ -164,16 +163,16 @@ describe('smoke-tests (./overlay.js)', function() {
     });
 
 
-    it('should be able to inject content from template', function() {
+    it('should be able to inject content from template', function(done) {
         var scriptEl = document.createElement('script');
         scriptEl.id = 'test-overlay-content';
         scriptEl.setAttribute('type', 'text/template');
         scriptEl.innerHTML = "Test content";
         document.body.appendChild(scriptEl);
         
-        var mod = new Overlay({
+        var mod = new Overlay(document.querySelector('.o-overlay-trigger'), {
             src: '#test-overlay-content'
-        }, document.querySelector('.o-overlay-trigger'));
+        });
 
         var overlays = document.querySelectorAll('.o-overlay');
         expect(overlays.length).toBe(1);
@@ -181,20 +180,25 @@ describe('smoke-tests (./overlay.js)', function() {
         overlays = document.querySelectorAll('.o-overlay');
         expect(overlays.length).toBe(0);
         document.body.removeChild(scriptEl);
+        done();
     });
 
-    it('should be able to inject content from a url', function() {
-        var mod = new Overlay({
+    it('should be able to inject content from a url', function(done) {
+        var mod = new Overlay(document.querySelector('.o-overlay-trigger'), {
             src: 'http://build.origami.ft.com/files/o-tweet@0.2.5/demos/demo.html'
-        }, document.querySelector('.o-overlay-trigger'));
+        });
 
-        var overlays = document.querySelectorAll('.o-overlay');
-        expect(overlays.length).toBe(1);
+        // Wait a bit until the content has been loaded
+        setTimeout(function() {
+            var overlays = document.querySelectorAll('.o-overlay');
+            expect(overlays.length).toBe(1);
 
-        expect(mod.content.innerHTML).toContain('<div class="o-tweet__h-card">');
+            expect(mod.content.innerHTML).toContain('<div class="o-tweet__h-card">');
 
-        mod.close();
-        overlays = document.querySelectorAll('.o-overlay');
-        expect(overlays.length).toBe(0);
+            mod.close();
+            overlays = document.querySelectorAll('.o-overlay');
+            expect(overlays.length).toBe(0);
+            done();
+        }, 500);
     });
 });

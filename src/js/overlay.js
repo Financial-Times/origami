@@ -71,6 +71,8 @@ var setOptions = function(trigger, opts, callback) {
                 checkOptions(trigger, opts, callback);
             });
         }
+    } else {
+        checkOptions(trigger, opts, callback);
     }
 };
 
@@ -270,7 +272,6 @@ Overlay.init = function(el) {
         el = document.body;
     }
     delegate = delegate || new Delegate(el);
-    var triggers = el.querySelectorAll('.o-overlay-trigger');
 
     delegate.on('click', '.o-overlay-trigger', function(ev) {
         new Overlay(ev.target, null);
