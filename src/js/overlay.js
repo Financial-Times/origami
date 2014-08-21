@@ -188,8 +188,6 @@ Overlay.prototype = {
             this.wrapper.classList.remove('o-overlay--full-' + dimension);
             if (!this.opts.arrow) {
                 this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
-            } else {
-                this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.direction);   
             }
         }
     },
@@ -251,11 +249,14 @@ Overlay.prototype = {
         this.realign('height', size.height);
 
         if (this.opts.arrow && !this.fills()) {
+            this.opts.arrow.currentDirection = this.getCurrentArrowDirection(this.opts.arrow.direction);
+            this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.currentDirection);
+
             var offset = 0;
             // Protrusion distance for the arrow
             var arrowSize = 10;
             var targetClientRect = this.opts.arrow.target.getBoundingClientRect();
-            switch (this.opts.arrow.direction) {
+            switch (this.opts.arrow.currentDirection) {
                 case 'left':
                     offset = targetClientRect.right + arrowSize;
                     break;
@@ -270,9 +271,9 @@ Overlay.prototype = {
                     break;
             }
 
-            var edge = (this.opts.arrow.direction === 'left' || this.opts.arrow.direction === 'right') ? 'left' : 'top';
-            var oppositeEdge = (this.opts.arrow.direction === 'left' || this.opts.arrow.direction === 'right') ? 'top' : 'left';
-            var dimension = (this.opts.arrow.direction === 'left' || this.opts.arrow.direction === 'right') ? 'height' : 'width';
+            var edge = (this.opts.arrow.currentDirection === 'left' || this.opts.arrow.currentDirection === 'right') ? 'left' : 'top';
+            var oppositeEdge = (this.opts.arrow.currentDirection === 'left' || this.opts.arrow.currentDirection === 'right') ? 'top' : 'left';
+            var dimension = (this.opts.arrow.currentDirection === 'left' || this.opts.arrow.currentDirection === 'right') ? 'height' : 'width';
             this.wrapper.style[edge] = offset + 'px';
             // 1. Get where the element is positioned
             // 2. Add its width or height divided by two to get its center
@@ -286,11 +287,49 @@ Overlay.prototype = {
         }
     },
 
-    getWidth: function () {
+    getCurrentArrowDirection: function(direction) {
+        var targetClientRect = this.opts.arrow.target.getBoundingClientRect();
+        var wrapperClientRect = this.wrapper.getBoundingClientRect();
+        // Check if the overlay won't fit on the side set in the options and that it will on the opposite side.
+        // In that case, use the opposite side
+        switch (this.opts.arrow.direction) {
+            case 'left':
+                if (targetClientRect.right + wrapperClientRect.width >= window.innerWidth &&
+                        targetClientRect.left - wrapperClientRect.width > 0) {
+
+                    direction = 'right';
+                }
+                break;
+            case 'right':
+                if (targetClientRect.left - wrapperClientRect.width <= 0 &&
+                        targetClientRect.right + wrapperClientRect.width < window.innerWidth) {
+
+                    direction = 'left';
+                }
+                break;
+            case 'top':
+                if (targetClientRect.bottom + wrapperClientRect.height >= window.innerHeight &&
+                        targetClientRect.top - wrapperClientRect.height > 0) {
+
+                    direction = 'bottom';
+                }
+                break;
+            case 'bottom':
+                if (targetClientRect.top - wrapperClientRect.height <= 0 &&
+                        targetClientRect.bottom + wrapperClientRect.height < window.innerHeight) {
+
+                    direction = 'top';
+                }
+                break;
+        }
+        return direction;
+    },
+
+    getWidth: function() {
         return this.wrapper.offsetWidth + utils.getSpacing(this.wrapper, 'left') + utils.getSpacing(this.wrapper, 'right');
     },
 
-    getHeight: function () {
+    getHeight: function() {
         return this.wrapper.offsetHeight + utils.getSpacing(this.wrapper, 'top') + utils.getSpacing(this.wrapper, 'bottom');
     },
 
