@@ -36,7 +36,11 @@ var checkOptions = function(trigger, opts, callback) {
 
         // Default target for the arrow will be the trigger
         if (!opts.arrow.target) {
-            opts.arrow.target = trigger;
+            if (trigger) {
+                opts.arrow.target = trigger;
+            } else {
+                throw new Error('"o-overlay error": If you don\'t set a trigger, you do need to set a target for the overlay.');
+            }
         } else {
             opts.arrow.target = document.querySelector(opts.arrow.target);
         }
@@ -76,32 +80,40 @@ var setOptions = function(trigger, opts, callback) {
     }
 };
 
-var Overlay = function(trigger, opts) {
-    this.trigger = trigger;
-    this.context = oLayers.getLayerContext(this.trigger);
-    var self = this;
-    setOptions(trigger, opts, function(opts) {
-        self.opts = opts;
-        if (!self.opts) {
-            throw new Error('"o-overlay error": Required options have not been set');
+var Overlay = function(id) {
+    var overlayExists = false;
+    for (var i = 0; i < overlays.length; i++) {
+        if (overlays[i].id = id) {
+            overlayExists = true
+            break;
         }
-
-        // Check if the overlay has been previously instantiated and if it has, close it
-        for (var i = 0; i < overlays.length; i++) {
-            if (overlays[i].opts.html === self.opts.html) {
-                overlays[i].close();
-                return;
-            }
-        }
-        overlays.push(self);
-
-        self.create();
-    });
+    }
+    if (!overlayExists) {
+        this.visible = false;
+        this.id = id;
+        overlays.push(this);
+    }
 };
 
 Overlay.prototype = {
 
-    create: function() {
+    create: function(trigger, opts) {
+        if (trigger) {
+            this.trigger = trigger;
+        }
+        this.context = oLayers.getLayerContext(this.trigger);
+        var self = this;
+        setOptions(trigger, opts, function(opts) {
+            self.opts = opts;
+            if (!self.opts) {
+                throw new Error('"o-overlay error": Required options have not been set');
+            }
+
+            self.render();
+        });
+    },
+
+    render: function() {
         var wrapperEl = document.createElement('div');
         wrapperEl.className = 'o-overlay';
         this.wrapper = wrapperEl;
@@ -180,6 +192,7 @@ Overlay.prototype = {
         this.delegates.doc.on('keyup', this.closeOnEscapePress);
 
         this.context.appendChild(this.wrapper);
+        this.visible = true;
         this.width = this.getWidth();
         this.height = this.getHeight();
         this.respondToWindow(viewport.getSize());
@@ -198,6 +211,9 @@ Overlay.prototype = {
     },
 
     close: function() {
+        console.log('weee');
+        console.log(this.visible);
+        console.log('wee2');
         this.delegates.doc.off();
         this.delegates.wrap.off();
         this.delegates.context.off();
@@ -205,19 +221,14 @@ Overlay.prototype = {
         if (this.opts.modal) {
             this.shadow.parentNode.removeChild(this.shadow);
         }
-        // Remove overlay from the array
-        for (var i = 0; i < overlays.length; i++) {
-            if (overlays[i].opts.html === this.opts.html) {
-                overlays.splice(i, 1);
-                return;
-            }
-        }
+        this.visible = false;
     },
 
     closeOnExternalClick: function(ev) {
         // Close the overlay if it's not modal and the click wasn't made on the actual overlay
         if (!this.wrapper.contains(ev.target)) {
             if (!this.opts.modal) {
+                console.log(1);
                 this.close();
             }
         }
@@ -225,6 +236,7 @@ Overlay.prototype = {
 
     closeOnEscapePress: function(ev) {
         if (ev.keyCode === 27) {
+            console.log(2);
             this.close();
         }
     },
@@ -273,8 +285,23 @@ Overlay.init = function(el) {
     }
     delegate = delegate || new Delegate(el);
 
+    var triggers = el.querySelectorAll('.o-overlay-trigger');
+    for (var t = 0; t < triggers.length; t++) {
+        new Overlay(triggers[t].getAttribute('data-o-overlay-id'));
+    }
+
     delegate.on('click', '.o-overlay-trigger', function(ev) {
-        new Overlay(ev.target, null);
+        for (var i = 0; i < overlays.length; i++) {
+            if (overlays[i].id === ev.target.getAttribute('data-o-overlay-id')) {
+                if (overlays[i].visible === true) {
+                    console.log(3);
+                    overlays[i].close();
+                } else {
+                    overlays[i].create(ev.target);
+                }
+                break;
+            }
+        }
     });
 };
 
