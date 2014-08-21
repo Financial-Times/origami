@@ -83,8 +83,8 @@ var setOptions = function(trigger, opts, callback) {
 var Overlay = function(id) {
     var overlayExists = false;
     for (var i = 0; i < overlays.length; i++) {
-        if (overlays[i].id = id) {
-            overlayExists = true
+        if (overlays[i].id === id) {
+            overlayExists = true;
             break;
         }
     }
@@ -211,9 +211,6 @@ Overlay.prototype = {
     },
 
     close: function() {
-        console.log('weee');
-        console.log(this.visible);
-        console.log('wee2');
         this.delegates.doc.off();
         this.delegates.wrap.off();
         this.delegates.context.off();
@@ -228,7 +225,6 @@ Overlay.prototype = {
         // Close the overlay if it's not modal and the click wasn't made on the actual overlay
         if (!this.wrapper.contains(ev.target)) {
             if (!this.opts.modal) {
-                console.log(1);
                 this.close();
             }
         }
@@ -236,7 +232,6 @@ Overlay.prototype = {
 
     closeOnEscapePress: function(ev) {
         if (ev.keyCode === 27) {
-            console.log(2);
             this.close();
         }
     },
@@ -289,12 +284,12 @@ Overlay.init = function(el) {
     for (var t = 0; t < triggers.length; t++) {
         new Overlay(triggers[t].getAttribute('data-o-overlay-id'));
     }
+    
 
     delegate.on('click', '.o-overlay-trigger', function(ev) {
         for (var i = 0; i < overlays.length; i++) {
             if (overlays[i].id === ev.target.getAttribute('data-o-overlay-id')) {
                 if (overlays[i].visible === true) {
-                    console.log(3);
                     overlays[i].close();
                 } else {
                     overlays[i].create(ev.target);
@@ -307,6 +302,7 @@ Overlay.init = function(el) {
 
 Overlay.destroy = function() {
     delegate && delegate.off('click', '.o-overlay-trigger');
+    overlays = [];
 };
 
 Overlay.getOverlays = function() {

@@ -10,6 +10,7 @@ describe('smoke-tests (./overlay.js)', function() {
     });
 
     afterEach(function() {
+        Overlay.destroy();
         var overlays = document.querySelectorAll('.o-overlay, .o-overlay-shadow');
         for (var i = 0; i < overlays.length; i++) {
             overlays[i].parentNode.removeChild(overlays[i]);
@@ -68,30 +69,22 @@ describe('smoke-tests (./overlay.js)', function() {
             var originalOverlayClose = Overlay.prototype.close;
             spyOn(Overlay.prototype, 'close');
             Overlay.init();
-            console.log(Overlay.prototype.close.calls.count());
             
             o.fireEvent(trigger, 'click');
-            console.log('uhm');
-            //o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
-            console.log('lol');
+            o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
             o.fireEvent(document.body, 'click');
-            console.log('hey');
             o.fireEvent(document.body, 'keyup', {
                 keyCode: 27
             });
-            console.log('hi');
             o.fireCustomEvent(document.body, 'oLayers.new');
 
             expect(Overlay.prototype.close.calls.count()).toBe(3);
             var currentOverlay = Overlay.getOverlays()[0];
             currentOverlay.close = originalOverlayClose;
-            console.log('ok');
-            console.log(currentOverlay.close);
             currentOverlay.close();
         });
 
         it('non-modal should be closable in different ways', function() {
-            console.log('out');
             var trigger = document.querySelector('.o-overlay-trigger');
             var originalOverlayClose = Overlay.prototype.close;
             spyOn(Overlay.prototype, 'close');

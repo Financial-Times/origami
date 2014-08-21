@@ -108,6 +108,7 @@
     padding-right: 0;
     width: 100%;
     left: 0;
+    overflow: hidden;
 
     %o-overlay__content {
         width: 100%;
@@ -120,6 +121,7 @@
     padding-bottom: 0;
     height: 100%;
     top: 0;
+    overflow: hidden;
 
     %o-overlay__content {
         height: 100%;
