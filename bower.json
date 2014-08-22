@@ -1,26 +1,25 @@
 {
-  "name": "o-dialog",
+  "name": "o-overlay",
   "main": [
     "main.scss",
     "main.js"
   ],
   "ignore": [
     "package.json",
-    "demo.mustache",
-    "demo.scss",
-    "package.json",
     "Gruntfile.js",
     "test"
   ],
   "dependencies": {
-    "jquery": ">=1.5.0 <3",
-    "o-useragent": ">=0.5.0 <2",
-    "o-colors": "^2.2.20",
+    "o-useragent": ">= 1.0.0 <2",
+    "o-colors": "^2.3.16",
     "o-fonts": ">=0.7.0 <2",
-    "o-assets": "^0.4.0",
-    "o-ft-typography": "^1.4.0"
-  },
-  "devDependencies": {
-    "modernizr": ">=2.6.* <3"
+    "o-assets": "^0.4.2",
+    "o-ft-typography": "^1.12.2",
+    "dom-delegate": "^2.0.1",
+    "o-viewport": "^0.1.1",
+    "o-dom": "^0.4.0",
+    "o-layers": "^0.2.0",
+    "o-ft-icons": "^2.2.1",
+    "o-hoverable": "^0.2.0"
   }
 }

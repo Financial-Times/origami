@@ -1,0 +1,17 @@
+{
+    "options": {
+        "sass": "demos/src/demo.scss",
+        "js": "demos/src/demo.js",
+        "bodyClasses": "o-hoverable-on"
+    },
+    "demos": [
+        {
+            "name": "modal",
+            "template": "demos/src/modal.mustache"
+        },
+        {
+            "name": "centered-overlay",
+            "template": "demos/src/centered-overlay.mustache"
+        }
+    ]
+}

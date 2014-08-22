@@ -6,13 +6,6 @@ module.exports = {
     preprocessors: {
       'test/**/*.js': ['browserify'],
       'src/js/**/*.js': ['browserify']
-    },
-    reporters: ['progress', 'html'],
-
-    // the default configuration
-    htmlReporter: {
-      outputDir: 'reports',
-      templatePath: 'node_modules/karma-html-reporter/jasmine_template.html'
     }
   },
   ci: {
@@ -23,16 +16,6 @@ module.exports = {
       },
       singleRun: true,
       browsers: ['PhantomJS']
-
-      // preprocessors: {
-      //   'test/**/*.js': ['browserify'],
-      //   'src/js/**/*.js': ['coverage', 'browserify']
-      // },
-      // 
-      // coverageReporter: {
-      //   type: 'html',
-      //   dir: 'coverage/'
-      // }
     }
   },
   chrome: {
@@ -43,8 +26,7 @@ module.exports = {
       },
       singleRun: false,
       autoWatch: true,
-      browsers: ['Chrome'],
-      reporters: ['progress', 'dots', 'html']
+      browsers: ['Chrome']
     }
   }
 };

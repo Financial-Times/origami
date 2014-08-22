@@ -1,5 +1,5 @@
 {
-  "name": "o-ft-footer",
+  "name": "o-overlay",
   "private": true,
   "engines": {
     "node": "0.10.x",

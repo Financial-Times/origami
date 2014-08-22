@@ -1,9 +1,9 @@
-"use strict";
-var $ = require('jquery'),
-	Dialog = require('./src/js/dialog');
+'use strict';
+var oOverlay = require('./src/js/overlay'),
+    constructAll = function() {
+        oOverlay.init();
+        document.removeEventListener('o.DOMContentLoaded', constructAll);
+    };
 
-Dialog.addPreset('modal', require('./src/js/presets/modal'));
-Dialog.addPreset('dropdown', require('./src/js/presets/dropdown'));
-Dialog.addPreset('dropup', require('./src/js/presets/dropup'));
-
-module.exports = Dialog;
+document.addEventListener('o.DOMContentLoaded', constructAll);
+module.exports = oOverlay;
