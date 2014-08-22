@@ -1,39 +1,13 @@
 'use strict';
 
 var Delegate = require('dom-delegate');
-var delegate;
 var viewport = require('o-viewport');
 viewport.listenTo('resize');
 var oLayers = require('o-layers');
 var utils = require('./utils');
-var overlays = [];
+var overlays = {};
 
-var setOptions = function(trigger, opts) {
-    
-    // Get config from data attributes if they haven't been passed via JS
-    if (!opts) {
-        opts = {};
-        Array.prototype.forEach.call(trigger.attributes, function(attr) {
-            if (attr.name.indexOf('data-o-overlay') === 0) {
-                // Remove the unnecessary part of the string the first time this is run for each attribute
-                var key = attr.name.replace('data-o-overlay-', '');
-                opts = utils.optionsFromKey(key, attr.value.toLowerCase(), opts);
-            }
-        });
-    }
-
-    if (!opts.html && opts.src) {
-        if (/^(https?\:\/)?\//.test(opts.src)) {
-            opts.html = utils.copyContentFromUrl(opts.src);
-        } else {
-            opts.html = utils.copyContentFromElement(document.querySelector(opts.src));
-        }
-    }
-
-    if (!opts.html) {
-        throw new Error('"o-overlay error": Content for the overlay needs to be set via the "html" or the "src" option.');
-    }
-
+var checkOptions = function(opts) {
     // There can't be a heading with an empty title
     if (opts.heading && (!opts.heading.title || !opts.heading.title.trim())) {
         throw new Error('"o-overlay error": To have a heading, a non-empty title needs to be set');
@@ -45,24 +19,33 @@ var setOptions = function(trigger, opts) {
     }
 
     if (opts.arrow) {
-        // Default arrow direction is 'left'
-        if (!opts.arrow.direction) {
-            opts.arrow.direction = 'left';
+        // Default arrow position is 'left'
+        if (!opts.arrow.position) {
+            opts.arrow.position = 'left';
         }
 
-        if (opts.arrow.direction !== 'left' && opts.arrow.direction !== 'right' && opts.arrow.direction !== 'top' && opts.arrow.direction !== 'bottom') {
-            throw new Error('"o-overlay error": The direction of the arrow has to be either "top", "bottom", "left" or "right".');
+        // Overlays with arrows can not be modal
+        if (opts.modal) {
+            opts.modal = false;
         }
 
-        // If the direction of the arrow is 'top' or 'bottom', the heading can't be shaded
-        if ((opts.arrow.direction === 'top' || opts.arrow.direction === 'bottom') && opts.heading.shaded) {
-            throw new Error('"o-overlay error": The direction of the arrow can\'t be set to "top" or "bottom" when the shaded heading option is set to true.');
+        if (opts.arrow.position !== 'left' && opts.arrow.position !== 'right' && opts.arrow.position !== 'top' && opts.arrow.position !== 'bottom') {
+            throw new Error('"o-overlay error": The position of the arrow has to be either "top", "bottom", "left" or "right".');
+        }
+
+        // If the position of the arrow is 'top' or 'bottom', the heading can't be shaded
+        if ((opts.arrow.position === 'top' || opts.arrow.position === 'bottom') && opts.heading.shaded) {
+            throw new Error('"o-overlay error": The position of the arrow can\'t be set to "top" or "bottom" when the shaded heading option is set to true.');
         }
 
         // Default target for the arrow will be the trigger
         if (!opts.arrow.target) {
-            opts.arrow.target = trigger;
-        } else {
+            if (opts.trigger) {
+                opts.arrow.target = opts.trigger;
+            } else {
+                throw new Error('"o-overlay error": For overlays with arrows, if you don\'t set a trigger, you do need to set a target for the overlay.');
+            }
+        } else if (!(opts.arrow.target instanceof HTMLElement)) {
             opts.arrow.target = document.querySelector(opts.arrow.target);
         }
     }
@@ -70,42 +53,92 @@ var setOptions = function(trigger, opts) {
     return opts;
 };
 
+var setOptions = function(opts) {
+    // Get config from data attributes set in the trigger if they haven't been passed via JS
+    if (opts instanceof HTMLElement) {
+        var trigger = opts;
+        opts = {};
+        Array.prototype.forEach.call(trigger.attributes, function(attr) {
+            if (attr.name.indexOf('data-o-overlay') === 0) {
+                // Remove the unnecessary part of the string the first time this is run for each attribute
+                var key = attr.name.replace('data-o-overlay-', '');
+                opts = utils.optionsFromKey(key, attr.value.toLowerCase(), opts);
+            }
+        });
+        opts.trigger = trigger;
+    } else if (opts.trigger && !(opts.trigger instanceof HTMLElement)) {
+        opts.trigger = document.querySelector(opts.trigger);
+    }
 
-var Overlay = function(trigger, opts) {
-    this.trigger = trigger;
-    this.context = oLayers.getLayerContext(this.trigger);
-    this.opts = setOptions(trigger, opts);
+    return checkOptions(opts);
+};
 
+var triggerClickHandler = function(ev) {
+	var overlay = overlays[ev.target.getAttribute('data-o-overlay-id')];
+    if (overlay) {
+        if (overlay.visible === true) {
+            overlay.close();
+        } else {
+            overlay.open();
+        }
+    }
+};
+
+var Overlay = function(id, opts) {
+    this.visible = false;
+    this.id = id;
+
+    this.opts = setOptions(opts);
     if (!this.opts) {
         throw new Error('"o-overlay error": Required options have not been set');
     }
-
-    // Check if the overlay has been previously instantiated and if it has, close it
-    for (var i = 0; i < overlays.length; i++) {
-        if (overlays[i].opts.html === this.opts.html) {
-            overlays[i].close();
-            return;
-        }
+    if (this.opts.trigger) {
+    	this.opts.trigger.addEventListener('click', triggerClickHandler, false);
     }
-    overlays.push(this);
-    
-    this.create();
+    this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : oLayers.getLayerContext(this.opts.trigger);
+
+    // Add this overlay to the overlays hashmap
+    overlays[id] = this;
 };
 
 Overlay.prototype = {
 
-    create: function() {
+    open: function() {
+        if (!this.content) {
+        	var self = this;
+            this.setContent(function(html) {
+            	self.opts.html = html;
+                if (!self.opts.html) {
+			        throw new Error('"o-overlay error": Content for the overlay needs to be set via the "html" or the "src" option.');
+			    }
+            	self.render();
+            });
+        } else {
+            this.show();
+        }
+    },
+
+    setContent: function(callback) {
+    	if (!this.opts.html && this.opts.src) {
+	        if (/^(https?\:\/)?\//.test(this.opts.src)) {
+	            utils.copyContentFromUrl(this.opts.src, function(html) {
+	            	callback(html);
+	            });
+	        } else {
+	            utils.copyContentFromElement(document.querySelector(this.opts.src), function(html) {
+	                callback(html);
+	            });
+        	}
+        } else {
+        	callback(this.opts.html);
+        }
+    	
+    },
+
+    render: function() {
         var wrapperEl = document.createElement('div');
         wrapperEl.className = 'o-overlay';
         this.wrapper = wrapperEl;
-
-        if (this.opts.modal) {
-            wrapperEl.classList.add('o-overlay--modal');
-            var shadow = document.createElement('div');
-            shadow.className = 'o-overlay-shadow';
-            this.shadow = shadow;
-            document.body.appendChild(shadow);
-        }
 
         if (this.opts.heading) {
             var heading = document.createElement('header');
@@ -136,8 +169,6 @@ Overlay.prototype = {
         wrapperEl.appendChild(content);
 
         this.content = content;
-        
-        this.broadcast('new', 'oLayers');
 
         if (typeof this.opts.html === 'string') {
             this.content.innerHTML = this.opts.html;
@@ -149,18 +180,27 @@ Overlay.prototype = {
     },
 
     show: function() {
+        if (this.opts.modal) {
+            this.wrapper.classList.add('o-overlay--modal');
+            var shadow = document.createElement('div');
+            shadow.className = 'o-overlay-shadow';
+            this.shadow = shadow;
+            document.body.appendChild(shadow);
+        }
+
         this.content.focus();
 
         this.delegates = {
-            doc: new Delegate(document.body),
-            wrap: new Delegate(this.wrapper),
-            context: new Delegate(this.context)
-        };
+	        doc: new Delegate(document.body),
+	        wrap: new Delegate(this.wrapper),
+	        context: new Delegate(this.context)
+	    };
             
         this.close = this.close.bind(this);
         this.resizeListener = this.resizeListener.bind(this);
         this.delegates.doc.on('oViewport.resize', 'body', this.resizeListener);
-        this.delegates.context.on('oLayers.new', this.close);
+        this.closeOnNewLayer = this.closeOnNewLayer.bind(this);
+        this.delegates.context.on('oLayers.new', this.closeOnNewLayer);
 
         if (this.opts.heading) {
             this.delegates.wrap.on('click', '.o-overlay__close', this.close);
@@ -172,7 +212,9 @@ Overlay.prototype = {
         this.closeOnEscapePress = this.closeOnEscapePress.bind(this);
         this.delegates.doc.on('keyup', this.closeOnEscapePress);
 
+        this.broadcast('new', 'oLayers');
         this.context.appendChild(this.wrapper);
+        this.visible = true;
         this.width = this.getWidth();
         this.height = this.getHeight();
         this.respondToWindow(viewport.getSize());
@@ -200,18 +242,12 @@ Overlay.prototype = {
         if (this.opts.modal) {
             this.shadow.parentNode.removeChild(this.shadow);
         }
-        // Remove overlay from the array
-        for (var i = 0; i < overlays.length; i++) {
-            if (overlays[i].opts.html === this.opts.html) {
-                overlays.splice(i, 1);
-                return;
-            }
-        }
+        this.visible = false;
     },
 
     closeOnExternalClick: function(ev) {
         // Close the overlay if it's not modal and the click wasn't made on the actual overlay
-        if (!this.wrapper.contains(ev.target)) {
+        if (!this.wrapper.contains(ev.target) && ev.target !== this.opts.trigger) {
             if (!this.opts.modal) {
                 this.close();
             }
@@ -220,6 +256,12 @@ Overlay.prototype = {
 
     closeOnEscapePress: function(ev) {
         if (ev.keyCode === 27) {
+            this.close();
+        }
+    },
+
+    closeOnNewLayer: function(ev) {
+        if (!ev.detail || ev.detail.el !== this) {
             this.close();
         }
     },
@@ -233,10 +275,9 @@ Overlay.prototype = {
     broadcast: function(eventType, namespace, data) {
         namespace = namespace || 'oOverlay';
         var target = namespace === 'oLayers' ? this.context : this.wrapper;
-        
         target.dispatchEvent(new CustomEvent(namespace + '.' + eventType, {
             detail: {
-                layer: this,
+                el: this,
                 data: data || {}
             },
             // Don't bubble above the overlay's layer context otherwise we risk triggering a listener on a parent context
@@ -249,14 +290,14 @@ Overlay.prototype = {
         this.realign('height', size.height);
 
         if (this.opts.arrow && !this.fills()) {
-            this.opts.arrow.currentDirection = this.getCurrentArrowDirection(this.opts.arrow.direction);
-            this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.currentDirection);
+            this.opts.arrow.currentposition = this.getCurrentArrowposition(this.opts.arrow.position);
+            this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.currentposition);
 
             var offset = 0;
             // Protrusion distance for the arrow
             var arrowSize = 10;
             var targetClientRect = this.opts.arrow.target.getBoundingClientRect();
-            switch (this.opts.arrow.currentDirection) {
+            switch (this.opts.arrow.currentposition) {
                 case 'left':
                     offset = targetClientRect.right + arrowSize;
                     break;
@@ -271,13 +312,13 @@ Overlay.prototype = {
                     break;
             }
 
-            var edge = (this.opts.arrow.currentDirection === 'left' || this.opts.arrow.currentDirection === 'right') ? 'left' : 'top';
-            var oppositeEdge = (this.opts.arrow.currentDirection === 'left' || this.opts.arrow.currentDirection === 'right') ? 'top' : 'left';
-            var dimension = (this.opts.arrow.currentDirection === 'left' || this.opts.arrow.currentDirection === 'right') ? 'height' : 'width';
+            var edge = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'left' : 'top';
+            var oppositeEdge = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'top' : 'left';
+            var dimension = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'height' : 'width';
             this.wrapper.style[edge] = offset + 'px';
             // 1. Get where the element is positioned
             // 2. Add its width or height divided by two to get its center
-            // 3. Substract the width or height divided by two of the overlay so the arrow, which is in the center, points to the center of the target
+            // 3. Substract the width or height divided by two of the overlay so the arrow, which is in the center, points to the center of the side of the target
             this.wrapper.style[oppositeEdge] = targetClientRect[oppositeEdge] + (targetClientRect[dimension] / 2) - (this[dimension] / 2) + 'px'; 
         } else {
             this.wrapper.classList.remove('o-overlay__arrow-top', 
@@ -287,42 +328,42 @@ Overlay.prototype = {
         }
     },
 
-    getCurrentArrowDirection: function(direction) {
+    getCurrentArrowposition: function(position) {
         var targetClientRect = this.opts.arrow.target.getBoundingClientRect();
         var wrapperClientRect = this.wrapper.getBoundingClientRect();
         // Check if the overlay won't fit on the side set in the options and that it will on the opposite side.
         // In that case, use the opposite side
-        switch (this.opts.arrow.direction) {
+        switch (this.opts.arrow.position) {
             case 'left':
                 if (targetClientRect.right + wrapperClientRect.width >= window.innerWidth &&
                         targetClientRect.left - wrapperClientRect.width > 0) {
 
-                    direction = 'right';
+                    position = 'right';
                 }
                 break;
             case 'right':
                 if (targetClientRect.left - wrapperClientRect.width <= 0 &&
                         targetClientRect.right + wrapperClientRect.width < window.innerWidth) {
 
-                    direction = 'left';
+                    position = 'left';
                 }
                 break;
             case 'top':
                 if (targetClientRect.bottom + wrapperClientRect.height >= window.innerHeight &&
                         targetClientRect.top - wrapperClientRect.height > 0) {
 
-                    direction = 'bottom';
+                    position = 'bottom';
                 }
                 break;
             case 'bottom':
                 if (targetClientRect.top - wrapperClientRect.height <= 0 &&
                         targetClientRect.bottom + wrapperClientRect.height < window.innerHeight) {
 
-                    direction = 'top';
+                    position = 'top';
                 }
                 break;
         }
-        return direction;
+        return position;
     },
 
     getWidth: function() {
@@ -335,6 +376,13 @@ Overlay.prototype = {
 
     fills: function(dimension) {
         return this.wrapper.classList.contains('o-overlay--full-' + dimension);
+    },
+
+    destroy: function() {
+    	if (this.opts.trigger) {
+    		this.opts.trigger.removeEventListener('click', triggerClickHandler);
+    	}
+        delete overlays[this.id];
     }
 };
 
@@ -342,15 +390,20 @@ Overlay.init = function(el) {
     if (!el) {
         el = document.body;
     }
-    delegate = delegate || new Delegate(el);
-
-    delegate.on('click', '.o-overlay-trigger', function(ev) {
-        new Overlay(ev.target, null);
-    });
+    var triggers = el.querySelectorAll('.o-overlay-trigger');
+    for (var t = 0; t < triggers.length; t++) {
+        // There can only be one overlay per trigger when set declaratively, so the first trigger found for a given overlay will be the one used to create the overlay
+        if (!overlays[triggers[t].getAttribute('data-o-overlay-id')]) {
+        	new Overlay(triggers[t].getAttribute('data-o-overlay-id'), triggers[t]);
+        }
+    }
 };
 
 Overlay.destroy = function() {
-    delegate && delegate.off('click', '.o-overlay-trigger');
+	var overlayIds = Object.keys(overlays);
+    overlayIds.forEach(function(id) { 
+        overlays[id].destroy(); 
+    });
 };
 
 Overlay.getOverlays = function() {

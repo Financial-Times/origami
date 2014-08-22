@@ -54,7 +54,7 @@
 }
 
 %o-overlay__heading {
-    @include oFtTypographyFontSize(14);
+    @include oFtTypographyFontSize(16);
     margin: 0;
     background: oColorsGetColorFor(o-overlay-heading, background);
     color: oColorsGetColorFor(o-overlay-heading, text);
@@ -66,6 +66,7 @@
     margin: 10px 0 10px 20px;
     display: block;
     line-height: 20px;
+    overflow: auto;
 }
 
 %o-overlay__close {
@@ -83,7 +84,8 @@
     @extend %o-ft-icons-icon--cross;
     width: 18px;
     height: 18px;
-    line-height: 23px;
+    font-size: 10px;
+    line-height: 19px;
     border: 1px solid;
     @include oUseragentPrefixer(border-radius, 50%);
     @include oColorsFor(o-overlay-close);
@@ -136,6 +138,7 @@
     padding-right: 0;
     width: 100%;
     left: 0;
+    overflow: hidden;
 
     %o-overlay__content {
         width: 100%;
@@ -148,6 +151,7 @@
     padding-bottom: 0;
     height: 100%;
     top: 0;
+    overflow: hidden;
 
     %o-overlay__content {
         height: 100%;

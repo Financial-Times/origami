@@ -9,20 +9,28 @@ module.exports = {
         return str.charAt(0).toUpperCase() + str.substr(1);
     },
 
-    copyContentFromElement: function(content) {
-        return content.nodeName === 'SCRIPT' ? content.innerHTML: content.outerHTML;
+    copyContentFromElement: function(content, callback) {
+        var html = content.nodeName === 'SCRIPT' ? content.innerHTML : content.outerHTML;
+        callback(html);
     },
 
-    copyContentFromUrl: function(url) {
+    copyContentFromUrl: function(url, callback) {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', url, false);
-        xhr.send(null);
+        xhr.open('GET', url, true);
+        xhr.onload = function(e) {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    callback(xhr.responseText);
+                } else {
+                    callback('Content failed to load correctly');
+                }
+            }
+        };
+        xhr.onerror = function(e) {
+            throw new Error('"o-overlay error": Fetching content from ' + url + ' failed with errror ' + e);
+        };
 
-        if (xhr.status === 200) {
-            return xhr.responseText;
-        } else {
-            return '';
-        }
+        xhr.send(null);
     },
 
     getSpacing: function(el, side) {

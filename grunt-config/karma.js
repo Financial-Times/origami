@@ -16,16 +16,6 @@ module.exports = {
       },
       singleRun: true,
       browsers: ['PhantomJS']
-
-      // preprocessors: {
-      //   'test/**/*.js': ['browserify'],
-      //   'src/js/**/*.js': ['coverage', 'browserify']
-      // },
-      // 
-      // coverageReporter: {
-      //   type: 'html',
-      //   dir: 'coverage/'
-      // }
     }
   },
   chrome: {
