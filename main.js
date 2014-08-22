@@ -72,10 +72,17 @@ function autoUpdate () {
 
 
 function ftTime(el) {
-    var date = toDate(el.getAttribute('datetime'));
+    var date = el.getAttribute('datetime');
+    // Keep date as null if datetime hasn't been defined
+    if (date) date = toDate(date);
     var printer = el.querySelector('.o-date__printer') || el;
-    var interval = Math.round(((new Date()) - date) / 1000);
-    printer.innerHTML = interval < (365 * 60 * 60 * 24) ? timeAgo(toDate(date), interval) : format(date, 'date');
+    // If date hasn't been defined and printer isn't empty, keep the content of the printer
+    if (date || (!date && printer.innerHTML.length === 0)) {
+        // If date hasn't been defined, and the printer is empty, we'll set the default to be the current date
+        if (!date) date = new Date();
+        var interval = Math.round(((new Date()) - date) / 1000);
+        printer.innerHTML = interval < (365 * 60 * 60 * 24) ? timeAgo(date, interval) : format(date, 'date');
+    }
     el.title = format(date, 'datetime');
 }
 

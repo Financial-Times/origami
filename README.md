@@ -1,6 +1,10 @@
 # o-date
 
-o-date provides javascript utilities for formatting and updating dates in FT style
+o-date provides javascript utilities for formatting and updating dates in FT style. This component is mainly useful when you want your dates formatted to express relative time.
+
+## Browser support
+
+This module has been verified in Internet Explorer 8+, modern desktop browsers (Chrome, Safari, Firefox, ...) and mobile browsers (Android browser, iOS safari, Chrome mobile).
 
 ## Core experience
 
