@@ -4,32 +4,42 @@ Configurable custom overlay box that can be used to show overlay windows. The ov
 
 ## Installation
 
-For installation info please refer to this module's page in the Origami registry
+For installation info please refer to this [module's page](http://registry.origami.ft.com/components/o-overlay#section-usage) in the Origami registry.
 
 ## Usage
 The constructor function accepts two parameters: 
-    * trigger element: HTMLElement to which the overlay will be associated
-    * options: Documented below  
+    * id: Unique id an overlay has and that is shared by all triggers that interact with the overlay.
+    * options: JSON object that configures the overlay or HTMLElement that will act as trigger and has the different options set declaratively. The different options are explained below.
 
-You can get an array of all open overlays with the method `o-overlay#getOverlays`.
+### Static methods
+    * `o-overlay#getOverlays`: Returns an array of all overlays
+    * `o-overlay#init`: Instantiates all triggers and populates the list with the different overlays set by those triggers
+    * `o-overlay#destroy`: Removes the listeners on the different triggers and empties the array of overlays
 
+### Instantiation
 o-overlay can be instantiated in two main ways:
 
-### Declaratively
-Setting the different options as `data-attributes` on the trigger. You can then instantiate (add a click event to it that creates an overlay) all triggers (each trigger with its own overlay object) together with other Origami modules by dispatching the `o.DOMContentLoaded` event and setting the class `o-overlay-trigger` on your different triggers.
+#### Declaratively
+Setting the different options as `data-attributes` on the trigger. You can then add a click event to it that creates an overlay on all triggers together with instantiating other Origami modules by setting the class `o-overlay-trigger` on your different triggers and dispatching the `o.DOMContentLoaded` event.
 
 If you don't want to instantiate all modules at the same time, you can run `o-overlay#init(el)` so that all triggers that are children of the specified element (which will be its o-layers context and the default is `document.body`) are instantiated automatically.
 
-If you'd rather do everything manually, when the trigger is clicked, you would then need to create a new Overlay object setting the options parameter as `null` and the trigger to be the target of the event.
+If you'd rather do everything manually, when the trigger is clicked, you would then need to create a new Overlay object passing the id and the trigger as an instance of HTMLElement.
 
 If at some point you want to deactivate the triggers, just run `o-overlay#destroy`.
 
-### Imperatively
-Creating a new Overlay object passing the options as a JSON object, and optionally, associating it with a trigger element.
+#### Imperatively
+Pass in an id and a configuration object to the constructor, and then run `open()` like this:
 
-Additionally, the overlay can be closed by
+```js
+var myOverlay = new Overlay('myOverlay', {
+   html: "Hello world",
+   trigger: document.querySelector('.blah')
+});
+myOverlay.open();
+```
 
-* Calling `close()` on a overlay instance
+Additionally, the overlay can be closed by calling `close()` on a overlay instance
 
 ## Options
 
@@ -40,7 +50,8 @@ These are the options you can set for your overlay:
     * shaded: true/false. You can choose between a shaded style or not
 * modal: true/false. Choose if you want your overlay to have modal behaviour or not. Setting this as true will also add a translucent shadow between your page and the overlay
 * src: It can be either a _url_ where your raw HTML is, or a _CSS selector_ to where your content is in the page. 
-* html: Raw HTML string
+* html: Raw HTML string. You can't set this option declaratively
+* trigger: HTMLElement or valid CSS selector. `o-overlay#init` will pass the trigger to the overlay, so this is not needed in declarative mode
 
 The only option that must be set is either the *src* or the *html* one. Please keep in mind that the *html* option can't be set as a data-attribute, and if you set both, the *html* one will be used.
 

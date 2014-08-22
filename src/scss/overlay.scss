@@ -26,7 +26,7 @@
 }
 
 %o-overlay__heading {
-    @include oFtTypographyFontSize(14);
+    @include oFtTypographyFontSize(16);
     margin: 0;
     background: oColorsGetColorFor(o-overlay-heading, background);
     color: oColorsGetColorFor(o-overlay-heading, text);

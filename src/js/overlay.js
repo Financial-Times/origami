@@ -8,7 +8,7 @@ var oLayers = require('o-layers');
 var utils = require('./utils');
 var overlays = [];
 
-var checkOptions = function(trigger, opts, callback) {
+var checkOptions = function(opts, callback) {
     if (!opts.html) {
         throw new Error('"o-overlay error": Content for the overlay needs to be set via the "html" or the "src" option.');
     }
@@ -24,24 +24,24 @@ var checkOptions = function(trigger, opts, callback) {
     }
 
     if (opts.arrow) {
-        // Default arrow direction is 'left'
-        if (!opts.arrow.direction) {
-            opts.arrow.direction = 'left';
+        // Default arrow position is 'left'
+        if (!opts.arrow.position) {
+            opts.arrow.position = 'left';
         }
 
-        // If the direction of the arrow is 'top' or 'bottom', the heading can't be shaded
-        if ((opts.arrow.direction === 'top' || opts.arrow.direction === 'bottom') && opts.shaded) {
-            throw new Error('"o-overlay error": The direction of the error can\'t be set to "top" or "bottom" when the shaded heading option is set to true.');
+        // If the position of the arrow is 'top' or 'bottom', the heading can't be shaded
+        if ((opts.arrow.position === 'top' || opts.arrow.position === 'bottom') && opts.shaded) {
+            throw new Error('"o-overlay error": The position of the error can\'t be set to "top" or "bottom" when the shaded heading option is set to true.');
         }
 
         // Default target for the arrow will be the trigger
         if (!opts.arrow.target) {
-            if (trigger) {
-                opts.arrow.target = trigger;
+            if (opts.trigger) {
+                opts.arrow.target = opts.trigger;
             } else {
                 throw new Error('"o-overlay error": If you don\'t set a trigger, you do need to set a target for the overlay.');
             }
-        } else {
+        } else if (!(opts.arrow.target instanceof HTMLElement)) {
             opts.arrow.target = document.querySelector(opts.arrow.target);
         }
     }
@@ -49,10 +49,10 @@ var checkOptions = function(trigger, opts, callback) {
     callback(opts);
 };
 
-var setOptions = function(trigger, opts, callback) {
-    
-    // Get config from data attributes if they haven't been passed via JS
-    if (!opts) {
+var setOptions = function(opts, callback) {
+    // Get config from data attributes set in the trigger if they haven't been passed via JS
+    if (opts instanceof HTMLElement) {
+        var trigger = opts;
         opts = {};
         Array.prototype.forEach.call(trigger.attributes, function(attr) {
             if (attr.name.indexOf('data-o-overlay') === 0) {
@@ -61,70 +61,57 @@ var setOptions = function(trigger, opts, callback) {
                 opts = utils.optionsFromKey(key, attr.value.toLowerCase(), opts);
             }
         });
+        opts.trigger = trigger;
+    } else if (opts.trigger && !(opts.trigger instanceof HTMLElement)) {
+        opts.trigger = document.querySelector(opts.trigger);
     }
 
     if (!opts.html && opts.src) {
         if (/^(https?\:\/)?\//.test(opts.src)) {
             utils.copyContentFromUrl(opts.src, function(html) {
                 opts.html = html;
-                checkOptions(trigger, opts, callback);
+                checkOptions(opts, callback);
             });
         } else {
             utils.copyContentFromElement(document.querySelector(opts.src), function(html) {
                 opts.html = html;
-                checkOptions(trigger, opts, callback);
+                checkOptions(opts, callback);
             });
         }
     } else {
-        checkOptions(trigger, opts, callback);
+        checkOptions(opts, callback);
     }
 };
 
-var Overlay = function(id) {
-    var overlayExists = false;
-    for (var i = 0; i < overlays.length; i++) {
-        if (overlays[i].id === id) {
-            overlayExists = true;
-            break;
-        }
-    }
-    if (!overlayExists) {
-        this.visible = false;
-        this.id = id;
-        overlays.push(this);
-    }
+var Overlay = function(id, opts) {
+    this.visible = false;
+    this.id = id;
+    this.opts = opts;
+    overlays.push(this);
 };
 
 Overlay.prototype = {
 
-    create: function(trigger, opts) {
-        if (trigger) {
-            this.trigger = trigger;
+    open: function() {
+        if (!this.content) {
+            var self = this;
+            setOptions(this.opts, function(opts) {
+                self.opts = opts;
+                if (!self.opts) {
+                    throw new Error('"o-overlay error": Required options have not been set');
+                }
+                self.context = self.opts.arrow ? oLayers.getLayerContext(self.opts.arrow.target) : oLayers.getLayerContext(self.opts.trigger);
+                self.render();
+            });
+        } else {
+            this.show();
         }
-        this.context = oLayers.getLayerContext(this.trigger);
-        var self = this;
-        setOptions(trigger, opts, function(opts) {
-            self.opts = opts;
-            if (!self.opts) {
-                throw new Error('"o-overlay error": Required options have not been set');
-            }
-
-            self.render();
-        });
     },
 
     render: function() {
         var wrapperEl = document.createElement('div');
         wrapperEl.className = 'o-overlay';
         this.wrapper = wrapperEl;
-
-        if (this.opts.modal) {
-            wrapperEl.classList.add('o-overlay--modal');
-            var shadow = document.createElement('div');
-            shadow.className = 'o-overlay-shadow';
-            this.shadow = shadow;
-            document.body.appendChild(shadow);
-        }
 
         if (this.opts.heading) {
             var heading = document.createElement('header');
@@ -155,8 +142,6 @@ Overlay.prototype = {
         wrapperEl.appendChild(content);
 
         this.content = content;
-        
-        this.broadcast('new', 'oLayers');
 
         if (typeof this.opts.html === 'string') {
             this.content.innerHTML = this.opts.html;
@@ -168,6 +153,14 @@ Overlay.prototype = {
     },
 
     show: function() {
+        if (this.opts.modal) {
+            this.wrapper.classList.add('o-overlay--modal');
+            var shadow = document.createElement('div');
+            shadow.className = 'o-overlay-shadow';
+            this.shadow = shadow;
+            document.body.appendChild(shadow);
+        }
+
         this.content.focus();
 
         this.delegates = {
@@ -179,7 +172,8 @@ Overlay.prototype = {
         this.close = this.close.bind(this);
         this.resizeListener = this.resizeListener.bind(this);
         this.delegates.doc.on('oViewport.resize', 'body', this.resizeListener);
-        this.delegates.context.on('oLayers.new', this.close);
+        this.closeOnNewLayer = this.closeOnNewLayer.bind(this);
+        this.delegates.context.on('oLayers.new', this.closeOnNewLayer);
 
         if (this.opts.heading) {
             this.delegates.wrap.on('click', '.o-overlay__close', this.close);
@@ -191,6 +185,7 @@ Overlay.prototype = {
         this.closeOnEscapePress = this.closeOnEscapePress.bind(this);
         this.delegates.doc.on('keyup', this.closeOnEscapePress);
 
+        this.broadcast('new', 'oLayers');
         this.context.appendChild(this.wrapper);
         this.visible = true;
         this.width = this.getWidth();
@@ -236,6 +231,12 @@ Overlay.prototype = {
         }
     },
 
+    closeOnNewLayer: function(ev) {
+        if (!ev.detail || ev.detail.el !== this) {
+            this.close();
+        }
+    },
+
     resizeListener: function(ev) {
         if (!this.wrapper.contains(ev.target)) {
             this.respondToWindow(ev.detail.viewport);
@@ -245,10 +246,9 @@ Overlay.prototype = {
     broadcast: function(eventType, namespace, data) {
         namespace = namespace || 'oOverlay';
         var target = namespace === 'oLayers' ? this.context : this.wrapper;
-        
         target.dispatchEvent(new CustomEvent(namespace + '.' + eventType, {
             detail: {
-                layer: this,
+                el: this,
                 data: data || {}
             },
             // Don't bubble above the overlay's layer context otherwise we risk triggering a listener on a parent context
@@ -282,7 +282,18 @@ Overlay.init = function(el) {
 
     var triggers = el.querySelectorAll('.o-overlay-trigger');
     for (var t = 0; t < triggers.length; t++) {
-        new Overlay(triggers[t].getAttribute('data-o-overlay-id'));
+        var overlayExists = false;
+        // There can only be one overlay per trigger when set declaratively, so the first trigger found for a given overlay will be the one used to create the overlay
+        for (var i = 0; i < overlays.length; i++) {
+            if (overlays[i].id === triggers[t].getAttribute('data-o-overlay-id')) {
+                overlayExists = true;
+                break;
+            }
+        }
+
+        if (!overlayExists) {
+            new Overlay(triggers[t].getAttribute('data-o-overlay-id'), triggers[t]);
+        }
     }
     
 
@@ -292,7 +303,7 @@ Overlay.init = function(el) {
                 if (overlays[i].visible === true) {
                     overlays[i].close();
                 } else {
-                    overlays[i].create(ev.target);
+                    overlays[i].open();
                 }
                 break;
             }
