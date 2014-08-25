@@ -7,31 +7,33 @@ $o-colors-is-silent: true !default;
 @import 'src/scss/use-cases';
 
 // Output use case placeholders and (if noisy) concrete classes
-@each $usecase in $o-colors-usecase-list {
-	$selector: 'o-colors-' + nth($usecase,1) + '-' + nth($usecase,3);
-	@if (not $o-colors-is-silent) {
-		$selector: $selector + ', .' + $selector;
-	}
-	%#{$selector} {
-		@if nth($usecase,3) == text or nth($usecase,3) == all {
-			color: oColorsGetPaletteColor(nth($usecase,2));
+@each $usecase, $props in $o-colors-usecases {
+	@each $prop, $color in $props {
+		$selector: 'o-colors-' + $usecase + '-' + $prop;
+		@if (not $o-colors-is-silent) {
+			$selector: $selector + ', .' + $selector;
 		}
-		@if nth($usecase,3) == background or nth($usecase,3) == all {
-			background-color: oColorsGetPaletteColor(nth($usecase,2));
-		}
-		@if nth($usecase,3) == border or nth($usecase,3) == all {
-			border-color: oColorsGetPaletteColor(nth($usecase,2));
+		%#{$selector} {
+			@if $prop == text or $prop == all {
+				color: oColorsGetPaletteColor($color);
+			}
+			@if $prop == background or $prop == all {
+				background-color: oColorsGetPaletteColor($color);
+			}
+			@if $prop == border or $prop == all {
+				border-color: oColorsGetPaletteColor($color);
+			}
 		}
 	}
 }
 
 // Output palette placeholders and (if noisy) concrete classes
-@each $color in $o-colors-palette-list {
-	$selector: 'o-colors-palette-' + nth($color,1);
+@each $name, $csscolor in $o-colors-palette {
+	$selector: 'o-colors-palette-' + $name;
 	@if (not $o-colors-is-silent) {
 		$selector: $selector + ', .' + $selector;
 	}
 	%#{$selector} {
-		background-color: #{nth($color,2)};
+		background-color: $csscolor;
 	}
 }

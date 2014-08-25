@@ -1,72 +1,56 @@
+/**
+ * Return the CSS color for a palette colour name
+ */
 @function oColorsGetPaletteColor($name) {
-  @each $color in $o-colors-palette-list {
-    @if nth($color,1) == $name {
-      @return nth($color,2);
-    }
-  }
-  @warn "Undefined color '" + $name + "' used";
-  @return black;
+	@if (map-has-key($o-colors-palette, $name)) {
+		@return map-get($o-colors-palette, $name);
+	} @else {
+		@warn "Color name '" + $name + "' is not defined in the palette";
+		@return transparent;
+	}
 }
 
-@function _oColorsGetPaletteColor($name) {
-  @warn "_oColorsGetPaletteColor (with underscore prefix) is deprecated and will be removed in o-colors 3.x. Use oColorsGetPaletteColor() instead.";
-  @return oColorsGetPaletteColor($name);
+/**
+ * Return the defined palette colour name for a use case / property combination
+ */
+@function _oColorsGetUseCase($usecase, $property) {
+	$props: map-get($o-colors-usecases, $usecase);
+	@if ($props) {
+		$color: map-get($props, $property);
+		@if ($color == null and $property != 'all') {
+			$color: map-get($props, all);
+		}
+		@if (map-has-key($props, '_deprecated')) {
+			@warn "Color use case " + $usecase + " is deprecated: " + map-get($props, '_deprecated');
+		}
+		@return $color;
+   	}
+	@return null;
 }
 
-@function _oColorsGetUseCase($name, $property) {
-  $warning: null;
-  $provisionalColor: null;
-  @each $usecase in $o-colors-usecase-list {
-    @if ( ($property != all and $name == nth($usecase, 1) and $property == nth($usecase, 3))
-        or ($property == all and $name == nth($usecase, 1) + '-' + nth($usecase, 3))  
-        or (nth($usecase, 3) == all and $name == nth($usecase, 1)) ) {
-      @if (length($usecase) == 4 and nth($usecase,4) == DEPRECATED) {
-        @warn "Deprecated use-case name '" + $name + "', property '" + $property + "' used";
-        @return (color: oColorsGetPaletteColor(nth($usecase,2))); 
-      } @if (length($usecase) == 4 and nth($usecase,4) == DISABLED) {
-        $warning: "Disabled use-case name '" + $name + "', property '" + $property + "' used - please add a current use case + role combination to the fallback stack used in oColorsGetColorFor()";
-        $provisionalColor: oColorsGetPaletteColor(nth($usecase,2));
-      } @else {
-        @return (color: oColorsGetPaletteColor(nth($usecase,2)));    
-      }
-    }
-  }
-  @if ($provisionalColor) {
-    @return (color: $provisionalColor, warning: $warning);    
-  }
-  @return undefined;
-}
-
-
-@function oColorsGetColorFor($namelist, $property: "") {
-  $color: undefined;
-  $candidateColor: undefined;
-  @each $name in $namelist {
-    @if ($color == undefined or map-has-key($color, warning)) {
-      @if ($property == "") {
-        $candidateColor: _oColorsGetUseCase($name, all);
-      } @else {
-        $candidateColor: _oColorsGetUseCase($name, $property);        
-      }
-
-      @if ($color == undefined) {
-        $color: $candidateColor;
-      } @else if (map-has-key($color, warning)) {
-        @if ( $candidateColor != undefined and not map-has-key($candidateColor, warning)) {
-          $color: $candidateColor;
-        }
-      }
-    }
-  }
-  @if ($color == undefined) {
-    $error: "Undefined use-case: can\'t resolve '" + $namelist + "' to a colour";
-    @if ($property) {
-      $error: $error + " for property '" + $property;
-    }
-    @warn $error;
-    $color: (color: black);
-  } @else if (map-has-key($color, warning)) {
-    @warn map-get($color, warning);
-  }
-  @return map-get($color, color);
+/**
+ * Return the CSS colour name of the first defined use case in a prioritised list for a use case / property combination
+ */
+@function oColorsGetColorFor($namelist, $property: all, $default: null) {
+	$color: null;
+	@each $name in $namelist {
+		@if ($color == null) {
+			$color: _oColorsGetUseCase($name, $property);
+		}
+	}
+	@if ($color == null) {
+		@if ($default == null) {
+			$warn: "Undefined use-case: can\'t resolve use case list '" + $namelist + "'";
+			@if ($property) {
+				$warn: $warn + " for property '" + $property + "'";
+			}
+			@warn $warn;
+			$color: transparent;
+		} @elseif ($default == undefined) {
+			@return undefined;
+		} @else {
+			$color: $default;
+		}
+	}
+	@return oColorsGetPaletteColor($color);
 }

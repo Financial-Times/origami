@@ -1,20 +1,14 @@
-$o-colors-is-silent: false;
 
-@import "../../main";
+/* Styles for demo UI */
 
-body, html {
-  margin:0;
-  padding:0;
-  overflow:hidden;
-}
-.sample {
+.demo-sample {
   margin-bottom: 10px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   height: 25px;
 }
-.swatch {
+.demo-swatch {
   width: 50px;
   height: 20px;
   border-radius: 3px;
@@ -25,33 +19,54 @@ body, html {
   display: inline-block;
   margin-right: 10px;
   vertical-align: middle;
-}
-.border {
   border-width: 2px;
   border-style: solid;
-  background-color: transparent !important;
+  color: transparent;
 }
-.background {
-  border: 1px dashed #bbb !important;
-}
-.text {
-  background-color: transparent !important;
-}
-.text:after {
+.demo-swatch:after {
   content: 'Abc';
 }
-.name {
+.demo-background {
+  border-width: 1px;
+  border-style: dashed;
+  border-color: #bbb;
+}
+.demo-name {
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.descrip {
+.demo-descrip {
   font-family: monospace;
   margin-left: 10px;
   font-size: 75%;
   color: #777;
 }
-table.o-techdocs-table, div.o-techdocs-table > table {
-  margin: 0;
+
+$o-colors-is-silent: false;
+
+@import "../../main";
+
+
+/* Functions and mixins demo - keep in sync with sass-usage.mustache */
+
+@include oColorsSetUseCase(custom-badge, border, green);
+@include oColorsSetUseCase(custom-badge, text, orange);
+
+.assign-palette-color-to-custom-class {
+  background-color: oColorsGetPaletteColor(blue);
 }
+.use-case-property-class {
+  background-color: oColorsGetColorFor(section-life-arts page, background);
+}
+.mixin-all-properties {
+  @include oColorsFor(badge);
+}
+.mixin-selected-properties {
+  @include oColorsFor(badge, background border); // There is no border on the badge use case
+}
+.mixin-custom-usecase {
+  @include oColorsFor(custom-badge badge, text background border);
+}
+

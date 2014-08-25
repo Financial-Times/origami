@@ -12,6 +12,10 @@
 		{
 			"name": "use-cases",
 			"template": "demos/src/use-cases.mustache"
+		},
+		{
+			"name": "sass-usage",
+			"template": "demos/src/sass-usage.mustache"
 		}
 	]
 }
