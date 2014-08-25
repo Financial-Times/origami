@@ -11,138 +11,146 @@
  * Special properties: You can use the following special properties to mark use cases:
  *
  *                     _deprecated: <msg>  Emits <msg> as a warning if referenced, but still works
- *
- *  <use case>              <properties>
  */
 
-$o-colors-usecases: (
-    page:                    (background: pink, text: grey-tint5),
-    box:                     (background: pink-tint1),
-    link:                    (text: blue),
-    link-hover:              (text: black),
-    link-alt:                (text: grey-tint5),
-    link-alt-hover:          (text: blue),
-    title:                   (text: black),
-    error:                   (text: red, border: red, background: white),
-    label:                   (text: grey-tint5),
-    body:                    (text: grey-tint5),
-    heading:                 (text: grey-tint5),
-    lead:                    (text: grey-tint4),
-    badge:                   (text: white, background: red),
-    muted:                   (text: pink-tint3),
+@mixin _oColorsCreateUseCases() {
+    @if (not variable-exists(o-colors-usecases)) {
+        $o-colors-usecases: () !global;
+    }
+    $o-colors-usecases: map-merge((
 
-    // Section colors
-    section-life-arts:       (all: section-purple),
-    section-life-arts-alt:   (all: section-light-purple),
-    section-magazine:        (all: section-blue),
-    section-magazine-alt:    (all: section-light-blue),
-    section-house-home:      (all: section-green),
-    section-house-home-alt:  (all: section-light-green),
-    section-money:           (all: section-red),
-    section-money-alt:       (all: white),
+/*      <use case>               <properties>                                    */
 
-    // Healthchecks (TODO: Move into o-techdocs)
-    status-ok:               (background: green, text: white),
-    status-error:            (background: red, text: white),
-    severity-1:              (background: blue-tint1, text: white),
-    severity-2:              (background: orange-tint1, text: white),
-    severity-3:              (background: yellow-tint1, text: white),
+        page:                    (background: pink, text: grey-tint5),
+        box:                     (background: pink-tint1),
+        link:                    (text: blue),
+        link-hover:              (text: black),
+        link-alt:                (text: grey-tint5),
+        link-alt-hover:          (text: blue),
+        title:                   (text: black),
+        error:                   (text: red, border: red, background: white),
+        label:                   (text: grey-tint5),
+        body:                    (text: grey-tint5),
+        heading:                 (text: grey-tint5),
+        lead:                    (text: grey-tint4),
+        badge:                   (text: white, background: red),
+        muted:                   (text: pink-tint3),
 
-    // Typography (TODO: Move into o-ft-typography)
-    heading-medium:          (border: pink-tint2),
-    heading-large:           (border: pink-tint4, text: black),
-    lead-medium:             (text: grey-tint3),
-    brand:                   (text: black),
-    byline:                  (text: pink-tint5),
-    timestamp:               (text: pink-tint5),
-    body-lead:               (text: grey-tint4),
-    article-body-lead:       (text: grey-tint5, border: pink-tint5),
-    article-body:            (text: grey-tint5),
-    article-title:           (text: black, _deprecated: "Redundant"),
-    article-subheading:      (text: grey-tint5, border: pink-tint5),
-    article-byline:          (text: pink-tint5, _deprecated: "Redundant"),
-    article-divider:         (border: pink-tint5, _deprecated: "Redundant"),
+        // Section colors
+        section-life-arts:       (all: section-purple),
+        section-life-arts-alt:   (all: section-light-purple),
+        section-magazine:        (all: section-blue),
+        section-magazine-alt:    (all: section-light-blue),
+        section-house-home:      (all: section-green),
+        section-house-home-alt:  (all: section-light-green),
+        section-money:           (all: section-red),
+        section-money-alt:       (all: white),
 
-    // Header (TODO: Move into o-ft-header)
-    header:                  (background: grey-tint5),
-    header-item:             (border: grey-tint4, background: grey-tint5, text: white),
-    header-item-active:      (background: pink-tint2, text: blue),
-    ft-initials:             (text: grey-tint5),
+        // Healthchecks (TODO: Move into o-techdocs)
+        status-ok:               (background: green, text: white),
+        status-error:            (background: red, text: white),
+        severity-1:              (background: blue-tint1, text: white),
+        severity-2:              (background: orange-tint1, text: white),
+        severity-3:              (background: yellow-tint1, text: white),
 
-    // Forms (TODO: Move into o-ft-forms)
-    form-field-label:        (text: grey-tint5),
-    form-field-additional-info: (text: grey-tint4),
-    form-field-standard:     (border: pink-tint3, background: white, text: grey-tint5),
-    form-field-hover:        (border: pink-tint5, background: white, text: grey-tint5),
-    form-field-selected:     (border: pink-tint5, background: white, text: grey-tint5),
-    form-field-disabled:     (border: pink-tint2, background: pink-tint2, text: pink-tint4),
-    form-field-valid:        (border: green, background: white, text: grey-tint5),
-    form-field-invalid:      (border: red, background: white, text: red),
-    form-error:              (border: red, background: red, text: white),
+        // Typography (TODO: Move into o-ft-typography)
+        heading-medium:          (border: pink-tint2),
+        heading-large:           (border: pink-tint4, text: black),
+        lead-medium:             (text: grey-tint3),
+        brand:                   (text: black),
+        byline:                  (text: pink-tint5),
+        timestamp:               (text: pink-tint5),
+        body-lead:               (text: grey-tint4),
+        article-body-lead:       (text: grey-tint5, border: pink-tint5),
+        article-body:            (text: grey-tint5),
+        article-title:           (text: black, _deprecated: "Redundant"),
+        article-subheading:      (text: grey-tint5, border: pink-tint5),
+        article-byline:          (text: pink-tint5, _deprecated: "Redundant"),
+        article-divider:         (border: pink-tint5, _deprecated: "Redundant"),
 
-    // Buttons (TODO: Move into o-ft-buttons)
-    button-standard:         (border: pink-tint5, background: pink, text: grey-tint4),
-    button-hover:            (border: pink-tint5, background: pink-tint2, text: grey-tint4),
-    button-selected:         (border: pink-tint5, background: pink-tint5, text: pink),
-    button-disabled:         (border: pink-tint2, background: pink-tint2, text: pink-tint4),
-    button-negative:         (text: blue, _deprecated: "Redundant"),
-    button-negative-hover:   (text: blue, _deprecated: "Redundant"),
-    button-standout-standard: (border: blue, background: blue, text: white),
-    button-standout-hover:   (border: dark-blue, background: dark-blue, text: white),
+        // Header (TODO: Move into o-ft-header)
+        header:                  (background: grey-tint5),
+        header-item:             (border: grey-tint4, background: grey-tint5, text: white),
+        header-item-active:      (background: pink-tint2, text: blue),
+        ft-initials:             (text: grey-tint5),
 
-    // Panels (TODO: move into o-aside-panel)
-    panel-heading:           (background: pink-tint2, border: pink-tint4),
-    panel-body:              (background: pink-tint1),
+        // Forms (TODO: Move into o-ft-forms)
+        form-field-label:        (text: grey-tint5),
+        form-field-additional-info: (text: grey-tint4),
+        form-field-standard:     (border: pink-tint3, background: white, text: grey-tint5),
+        form-field-hover:        (border: pink-tint5, background: white, text: grey-tint5),
+        form-field-selected:     (border: pink-tint5, background: white, text: grey-tint5),
+        form-field-disabled:     (border: pink-tint2, background: pink-tint2, text: pink-tint4),
+        form-field-valid:        (border: green, background: white, text: grey-tint5),
+        form-field-invalid:      (border: red, background: white, text: red),
+        form-error:              (border: red, background: red, text: white),
 
-    // Quotes (TODO: move into o-quote)
-    quote:                   (background: pink-tint2, text: grey-tint4),
+        // Buttons (TODO: Move into o-ft-buttons)
+        button-standard:         (border: pink-tint5, background: pink, text: grey-tint4),
+        button-hover:            (border: pink-tint5, background: pink-tint2, text: grey-tint4),
+        button-selected:         (border: pink-tint5, background: pink-tint5, text: pink),
+        button-disabled:         (border: pink-tint2, background: pink-tint2, text: pink-tint4),
+        button-negative:         (text: blue, _deprecated: "Redundant"),
+        button-negative-hover:   (text: blue, _deprecated: "Redundant"),
+        button-standout-standard: (border: blue, background: blue, text: white),
+        button-standout-hover:   (border: dark-blue, background: dark-blue, text: white),
+
+        // Panels (TODO: move into o-aside-panel)
+        panel-heading:           (background: pink-tint2, border: pink-tint4),
+        panel-body:              (background: pink-tint1),
+
+        // Quotes (TODO: move into o-quote)
+        quote:                   (background: pink-tint2, text: grey-tint4),
 
 
-    /* Deprecated */
+        /* Deprecated */
 
-    control:                 (text: white, background: grey-tint5, _deprecated: "Move into component"),
-    control-hover:           (text: grey-tint1, _deprecated: "Move into component"),
+        control:                 (text: white, background: grey-tint5, _deprecated: "Move into component"),
+        control-hover:           (text: grey-tint1, _deprecated: "Move into component"),
 
-    table:                   (background: transparent, _deprecated: "Moved into o-table component"),
-    table-striped:           (background: pink, _deprecated: "Moved into o-table component"),
-    table-header-row:        (border: pink-tint4, _deprecated: "Moved into o-table component"),
-    table-row:               (border: pink-tint3, _deprecated: "Moved into o-table component"),
-    table-row-alt:           (background: pink-tint1, _deprecated: "Moved into o-table component"),
+        table:                   (background: transparent, _deprecated: "Moved into o-table component"),
+        table-striped:           (background: pink, _deprecated: "Moved into o-table component"),
+        table-header-row:        (border: pink-tint4, _deprecated: "Moved into o-table component"),
+        table-row:               (border: pink-tint3, _deprecated: "Moved into o-table component"),
+        table-row-alt:           (background: pink-tint1, _deprecated: "Moved into o-table component"),
 
-    footer:                  (background: pink-tint1, _deprecated: "Moved into o-ft-footer"),
-    footer-underline:        (border: pink-tint2, _deprecated: "Moved into o-ft-footer"),
-    footer-item:             (border: pink-tint2, _deprecated: "Moved into o-ft-footer"),
-    pearson:                 (background: pink-tint2, text: pink-tint5, _deprecated: "Moved into o-ft-footer"),
+        footer:                  (background: pink-tint1, _deprecated: "Moved into o-ft-footer"),
+        footer-underline:        (border: pink-tint2, _deprecated: "Moved into o-ft-footer"),
+        footer-item:             (border: pink-tint2, _deprecated: "Moved into o-ft-footer"),
+        pearson:                 (background: pink-tint2, text: pink-tint5, _deprecated: "Moved into o-ft-footer"),
 
-    forms-label:             (text: black, _deprecated: "Redundant"),
-    forms-label-error:       (text: black, background: white, border: red, _deprecated: "Redundant"),
-    forms-field:             (text: pink-tint5, background: white, border: pink-tint3, _deprecated: "Redundant"),
-    forms-field-error:       (text: pink-tint5, background: white, border: red, _deprecated: "Redundant"),
-    forms-error:             (text: red, background: white, _deprecated: "Redundant"),
-    forms-label-valid:       (text: black, background: white, _deprecated: "Redundant"),
-    forms-field-valid:       (text: pink-tint5, background: white, border: green, _deprecated: "Redundant"),
-    forms-valid:             (text: green, background: white, _deprecated: "Redundant"),
-    forms-prefixsuffix:      (text: pink-tint5, background: pink-tint1, _deprecated: "Redundant"),
-    forms-button:            (text: white, _deprecated: "Redundant"),
-    forms-button-hover:      (text: grey-tint1, _deprecated: "Redundant"),
-    forms-button-negative:   (text: blue, _deprecated: "Redundant"),
-    forms-button-negative-hover: (text: blue, _deprecated: "Redundant"),
-    forms-section:           (border: claret, _deprecated: "Redundant"),
+        forms-label:             (text: black, _deprecated: "Redundant"),
+        forms-label-error:       (text: black, background: white, border: red, _deprecated: "Redundant"),
+        forms-field:             (text: pink-tint5, background: white, border: pink-tint3, _deprecated: "Redundant"),
+        forms-field-error:       (text: pink-tint5, background: white, border: red, _deprecated: "Redundant"),
+        forms-error:             (text: red, background: white, _deprecated: "Redundant"),
+        forms-label-valid:       (text: black, background: white, _deprecated: "Redundant"),
+        forms-field-valid:       (text: pink-tint5, background: white, border: green, _deprecated: "Redundant"),
+        forms-valid:             (text: green, background: white, _deprecated: "Redundant"),
+        forms-prefixsuffix:      (text: pink-tint5, background: pink-tint1, _deprecated: "Redundant"),
+        forms-button:            (text: white, _deprecated: "Redundant"),
+        forms-button-hover:      (text: grey-tint1, _deprecated: "Redundant"),
+        forms-button-negative:   (text: blue, _deprecated: "Redundant"),
+        forms-button-negative-hover: (text: blue, _deprecated: "Redundant"),
+        forms-section:           (border: claret, _deprecated: "Redundant"),
 
-    // Tech docs
-    block-code-sample:       (background: pink-tint1, border: pink-tint2, text: grey-tint5, _deprecated: "Moved into o-techdocs"),
-    inline-code-sample:      (background: pink-tint1, text: claret, _deprecated: "Moved into o-techdocs"),
-    docs-aside:              (background: pink-tint1, border: pink-tint2, _deprecated: "Moved into o-techdocs"),
-    docs-nav:                (background: pink-tint1, _deprecated: "Moved into o-techdocs"),
-    docs-nav-active:         (background: pink-tint2, _deprecated: "Moved into o-techdocs"),
-    docs-inpagenav-link:     (text: claret, _deprecated: "Moved into o-techdocs"),
+        // Tech docs
+        block-code-sample:       (background: pink-tint1, border: pink-tint2, text: grey-tint5, _deprecated: "Moved into o-techdocs"),
+        inline-code-sample:      (background: pink-tint1, text: claret, _deprecated: "Moved into o-techdocs"),
+        docs-aside:              (background: pink-tint1, border: pink-tint2, _deprecated: "Moved into o-techdocs"),
+        docs-nav:                (background: pink-tint1, _deprecated: "Moved into o-techdocs"),
+        docs-nav-active:         (background: pink-tint2, _deprecated: "Moved into o-techdocs"),
+        docs-inpagenav-link:     (text: claret, _deprecated: "Moved into o-techdocs"),
 
-    // Overlays
-    dialog:                  (border: pink-tint4, background: white, text: grey-tint5, _deprecated: "Moved into o-overlays"),
-    dialog-heading:          (background: pink-tint4, text: white, _deprecated: "Moved into o-overlays"),
-    dialog-close:            (border: white, background: blue, text: white, _deprecated: "Moved into o-overlays"),
-    modal:                   (border: pink-tint4, background: white, text: grey-tint5, _deprecated: "Moved into o-overlays"),
-    modal-heading:           (background: pink-tint4, text: white, _deprecated: "Moved into o-overlays"),
-    modal-close:             (border: white, background: blue, text: white, _deprecated: "Moved into o-overlays")
+        // Overlays
+        dialog:                  (border: pink-tint4, background: white, text: grey-tint5, _deprecated: "Moved into o-overlays"),
+        dialog-heading:          (background: pink-tint4, text: white, _deprecated: "Moved into o-overlays"),
+        dialog-close:            (border: white, background: blue, text: white, _deprecated: "Moved into o-overlays"),
+        modal:                   (border: pink-tint4, background: white, text: grey-tint5, _deprecated: "Moved into o-overlays"),
+        modal-heading:           (background: pink-tint4, text: white, _deprecated: "Moved into o-overlays"),
+        modal-close:             (border: white, background: blue, text: white, _deprecated: "Moved into o-overlays")
 
-) !global;
+    ), $o-colors-use-cases) !global;
+}
+
+@include _oColorsCreateUseCases();

@@ -44,13 +44,21 @@
   color: #777;
 }
 
+
+/* Demos - keep in sync with sass-usage.mustache where appropriate */
+
+// Remove silent mode for demo so that standard classes can be demoed in palette and use-cases demos
 $o-colors-is-silent: false;
 
+// You can add custom use cases before importing colors module by defining the use-cases map yourself
+$o-colors-use-cases: (
+  foo: (background:green)
+);
+
+// Import colors module
 @import "../../main";
 
-
-/* Functions and mixins demo - keep in sync with sass-usage.mustache */
-
+// Adding custom colours after importing the colours module requires calling the oColorsSetUseCase mixin
 @include oColorsSetUseCase(custom-badge, border, green);
 @include oColorsSetUseCase(custom-badge, text, orange);
 
@@ -68,5 +76,8 @@ $o-colors-is-silent: false;
 }
 .mixin-custom-usecase {
   @include oColorsFor(custom-badge badge, text background border);
+}
+.mixin-custom-usecase-map {
+  @include oColorsFor(foo);
 }
 

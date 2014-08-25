@@ -16,7 +16,7 @@ function loadDemo(showtype) {
       var src = this.responseText;
 
       // Extract the data
-      var m = src.match(/\$[\w\-]+\:\s*\(\s*\n([^;]+);/);
+      var m = src.match(/\$[\w\-]+\:\s*(?:map\-merge\()?\(\s*\n([^;]+);/);
 
       // Split into lines
       m[1].split('\n').forEach(function(rule) {

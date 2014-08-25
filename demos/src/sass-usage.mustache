@@ -38,11 +38,25 @@
 
 <div class="demo-sample">
 	<div class="demo-swatch mixin-custom-usecase"></div>
-	<span class="demo-name">Custom use cases</span>
+	<span class="demo-name">Custom use cases using mixin</span>
 </div>
 <pre><code>@include oColorsSetUseCase(custom-badge, border, green);
 @include oColorsSetUseCase(custom-badge, text, orange);
 
 .mixin-custom-usecase {
   @include oColorsFor(custom-badge badge, text background border);
+}</code></pre>
+
+
+<div class="demo-sample">
+	<div class="demo-swatch mixin-custom-usecase-map"></div>
+	<span class="demo-name">Custom use cases pre-module import</span>
+</div>
+<pre><code>$o-colors-use-cases: (
+  foo: (background:green)
+);
+@import "o-colors/main";
+
+.mixin-custom-usecase-map {
+  @include oColorsFor(foo);
 }</code></pre>
