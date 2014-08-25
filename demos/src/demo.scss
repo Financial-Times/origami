@@ -1,3 +1,5 @@
+$o-colors-is-silent: false;
+
 @import "../../main";
 
 body, html {
@@ -7,16 +9,22 @@ body, html {
 }
 .sample {
   margin-bottom: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: 25px;
 }
 .swatch {
   width: 50px;
-  height: 50px;
+  height: 20px;
   border-radius: 3px;
-  font-size: 40px;
+  font-size: 20px;
+  line-height: 20px;
   text-align: center;
   font-style: italic;
-  float: left;
+  display: inline-block;
   margin-right: 10px;
+  vertical-align: middle;
 }
 .border {
   border-width: 2px;
@@ -30,15 +38,19 @@ body, html {
   background-color: transparent !important;
 }
 .text:after {
-  content: 'A';
+  content: 'Abc';
 }
 .name {
   font-weight: bold;
-  font-size: 130%;
-  font-family: monospace;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.descrip {
+  font-family: monospace;
+  margin-left: 10px;
+  font-size: 75%;
+  color: #777;
 }
 table.o-techdocs-table, div.o-techdocs-table > table {
   margin: 0;
