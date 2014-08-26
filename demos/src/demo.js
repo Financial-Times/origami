@@ -11,7 +11,7 @@ function loadDemo(showtype) {
 
   function getData(type) {
     var oReq = new XMLHttpRequest();
-    oReq.open("GET", "../../src/scss/_"+type+".scss?sdfs", true);
+    oReq.open("GET", ((location.pathname.indexOf('/local') !== -1) ? "../" : "") + "../src/scss/_"+type+".scss", true);
     oReq.onload = function() {
       var src = this.responseText;
 
