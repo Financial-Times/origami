@@ -10,7 +10,7 @@ $o-colors-is-silent: true !default;
 @if (not $o-colors-is-silent) {
 	@each $usecase, $props in $o-colors-usecases {
 		@each $prop, $color in $props {
-			%#{'o-colors-' + $usecase + '-' + $prop} {
+			#{'.o-colors-' + $usecase + '-' + $prop} {
 				@if $prop == text or $prop == all {
 					color: oColorsGetPaletteColor($color);
 				}
@@ -24,7 +24,7 @@ $o-colors-is-silent: true !default;
 		}
 	}
 	@each $name, $csscolor in $o-colors-palette {
-		%#{'o-colors-palette-' + $name} {
+		#{'.o-colors-palette-' + $name} {
 			background-color: $csscolor;
 		}
 	}
