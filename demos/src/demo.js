@@ -12,6 +12,6 @@ times[0].setAttribute('datetime', today.toISOString());
 times[1].setAttribute('datetime', lastMonth.toISOString());
 
 document.addEventListener("DOMContentLoaded", function() {
-    "use strict";
-    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+	"use strict";
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });

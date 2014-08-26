@@ -118,6 +118,9 @@ var init = function(el) {
 	if (!el) {
 		el = document.body;
 	}
+	if (!(el instanceof HTMLElement)) {
+		el = document.querySelector(el);
+	}
 	var dateEls = el.querySelectorAll('[data-o-component~="o-date"]');
 	for (var i = 0; i < dateEls.length; i++) {
 		ftTime(dateEls[i]);
@@ -126,8 +129,8 @@ var init = function(el) {
 };
 
 var constructAll = function() {
-    init();
-    document.removeEventListener('o.DOMContentLoaded', constructAll);
+	init();
+	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
 if (typeof window !== 'undefined') {
