@@ -14,6 +14,13 @@ o-overlay can be instantiated in two ways:
 
 Set options as `data-` attributes on any element that has a `o-overlay-trigger` class, to create an overlay and open it when that element is clicked.
 
+```html
+<button class='o-overlay-trigger' data-o-overlay-src='#overlay1-content' data-o-overlay-id='overlay1'>Open!</button>
+<script type='text/template' id='overlay1-content'>
+   <p>Content of overlay</p>
+</script>
+```
+
 To activate overlays declared in markup, you can:
 
 * Dispatch the `o.DOMContentLoaded` event (which will also initialise all other compatible Origami modules on the page); or
