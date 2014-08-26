@@ -24,8 +24,7 @@ Set options as `data-` attributes on any element that has a `o-overlay-trigger` 
 To activate overlays declared in markup, you can:
 
 * Dispatch the `o.DOMContentLoaded` event (which will also initialise all other compatible Origami modules on the page); or
-* Run `o-overlay#init([el])` (optionally pass a parent element to search for trigger elements, which will form its o-layers context.  The default is `document.body`); or
-* Call `new Overlay(id, triggerEl)` to activate one single overlay
+* Run `o-overlay#init([el])` (optionally pass a parent element to search for trigger elements, which will form its o-layers context.  The default is `document.body`)
 
 
 ### Imperatively
@@ -33,11 +32,11 @@ To activate overlays declared in markup, you can:
 The constructor function accepts two arguments:
 
 * id: Unique identifer string for the overlay within the page
-* options: JSON object that configures the overlay, or an HTMLElement that will act as trigger.  The trigger element can configure the overlay using `data-` attributes.
+* options: JSON object that configures the overlayr.
 
 ```js
 var myOverlay = new Overlay('myOverlay', {
-   html: "Hello world",
+   html: 'Hello world',
    trigger: '.blah'
 });
 ```
@@ -89,6 +88,8 @@ Overlays with arrows can't be modal.
 To use the styling provided by the module, you can either extend the sass placeholder classes, or set silent mode to false:
 
 `$o-overlay-is-silent: false;`
+
+Please keep in mind that, currently, setting your own prefix for class names in Javascript isn't supported, but it will be in a future update.
 
 ## UI Notes
 
