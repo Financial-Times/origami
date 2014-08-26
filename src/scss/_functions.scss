@@ -6,7 +6,7 @@
 		@return map-get($o-colors-palette, $name);
 	} @else {
 		@warn "Color name '" + $name + "' is not defined in the palette";
-		@return transparent;
+		@return undefined;
 	}
 }
 
