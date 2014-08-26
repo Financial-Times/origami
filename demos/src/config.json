@@ -4,7 +4,7 @@
     },
     "demos": [
         {
-            "name": "Dates",
+            "name": "dates",
             "template": "demos/src/dates.mustache"
         }
     ]

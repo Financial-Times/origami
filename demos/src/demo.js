@@ -1,3 +1,5 @@
+require('../../main');
+
 var times = document.querySelectorAll('[data-o-component="o-date"]');
 
 var now = new Date();
@@ -11,5 +13,5 @@ times[1].setAttribute('datetime', lastMonth.toISOString());
 
 document.addEventListener("DOMContentLoaded", function() {
     "use strict";
-    require('../../main.js').createAllIn(document.body);
+    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
