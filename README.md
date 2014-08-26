@@ -10,13 +10,23 @@ This module has been verified in Internet Explorer 8+, modern desktop browsers (
 
 To provide the best non-js fallback you should markup your dates as follows
 
-    <time class="o-date" datetime={date.toISOString()}>{FT formatted date (including time if appropriate)}</time>
+    <time data-o-component="o-date" class="o-date" datetime="{{iso8601String}}">{FT formatted date (including time if appropriate)}</time>
 
-This module's `format` method will also run in node and can be used to populate your viewmodel with the appropriate formatted date string. It's not recommended to output the 'time ago' server side as it will not be cacheable and will not update in the browser if the user leaves the page open for a prolonged period of time.
+This module's `format` method will also run in node and can be used to populate your model with the appropriate formatted date string. It's not recommended to output the 'time ago' server side as it will not be cacheable and will not update in the browser if the user leaves the page open for a prolonged period of time.
 
 ## Enhanced experience
 
-To display dates in the standard relative time format run `require('o-date').init()` once the DOM has loaded. Run `require('o-date').init(el)` on any elements containing dates that are added to the page after DOM load.
+To display dates in the standard relative time format, a `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct each element with a `data-o-component="o-date"` attribute:
+
+```javascript
+document.addEventListener("DOMContentLoaded", function() {
+    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});
+```
+
+You can also run `require('o-date').createAllIn()` once the DOM has loaded if you don't want to initialise other modules at the same time.
+
+Run `require('o-date').init(el)` on any elements containing dates that are added to the page after DOM load.
 
 ## API
 

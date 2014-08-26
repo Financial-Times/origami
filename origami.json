@@ -3,9 +3,13 @@
   "origamiType": "module",
   "origamiVersion": 1,
   "support": "rhys.evans@ft.com",
-  "supportStatus": "not implemented",
+  "supportStatus": "experimental",
   "features": {
-    "required": "classlist"
+    "required": [
+      "classlist",
+      "customevent"
+
+    ]
   },
   "demos": [
     "/demos/dates.html"

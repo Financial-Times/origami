@@ -1,0 +1,11 @@
+{
+    "options": {
+        "js": "demos/src/demo.js"
+    },
+    "demos": [
+        {
+            "name": "dates",
+            "template": "demos/src/dates.mustache"
+        }
+    ]
+}
