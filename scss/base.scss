@@ -9,6 +9,7 @@
     border-width: 1px;
     border-style: solid;
     border-radius: 5px;
+    outline: 0;
     -moz-appearance: none;
     -webkit-appearance: none;
     @include oFtButtonsColors($_o-ft-buttons-color-standard-border, $_o-ft-buttons-color-standard-bg, $_o-ft-buttons-color-standard-fg);
@@ -20,11 +21,19 @@
     &[aria-selected=true] {
       @include oFtButtonsColors($_o-ft-buttons-color-selected-border, $_o-ft-buttons-color-selected-bg, $_o-ft-buttons-color-selected-fg);
       pointer-events: none;
+
+      &:focus {
+         @include oUseragentPrefixer(box-shadow, 0 0 0 0);
+      }
     }
 
     &[disabled] {
       @include oFtButtonsColors($_o-ft-buttons-color-disabled-border, $_o-ft-buttons-color-disabled-bg, $_o-ft-buttons-color-disabled-fg);
       pointer-events: none;
+    }
+
+    &:focus {
+      @include oUseragentPrefixer(box-shadow, inset 0 0 3px 1px $_o-ft-buttons-color-standout-standard-border);
     }
 
   }
