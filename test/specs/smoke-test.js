@@ -22,6 +22,7 @@ describe('smoke-tests (./overlay.js)', function() {
         beforeEach(function() {
             var el = document.createElement('button');
             el.setAttribute('data-o-overlay-src', '.test-overlay');
+            el.setAttribute('data-o-overlay-id', 'testOverlay');
             el.setAttribute('data-o-overlay-heading-title', 'test title');
             el.className = 'o-overlay-trigger';
             document.body.appendChild(el);
@@ -78,7 +79,7 @@ describe('smoke-tests (./overlay.js)', function() {
             o.fireCustomEvent(document.body, 'oLayers.new');
 
             expect(Overlay.prototype.close.calls.count()).toBe(3);
-            var currentOverlay = Overlay.getOverlays()[0];
+            var currentOverlay = Overlay.getOverlays()['testOverlay'];
             currentOverlay.close = originalOverlayClose;
             currentOverlay.close();
         });
@@ -100,7 +101,7 @@ describe('smoke-tests (./overlay.js)', function() {
 
             expect(Overlay.prototype.close.calls.count()).toBe(4);
 
-            var currentOverlay = Overlay.getOverlays()[0];
+            var currentOverlay = Overlay.getOverlays()['testOverlay'];
             currentOverlay.close = originalOverlayClose;
             currentOverlay.close();
         });

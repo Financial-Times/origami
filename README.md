@@ -7,62 +7,80 @@ Configurable custom overlay box that can be used to show overlay windows. The ov
 For installation info please refer to this [module's page](http://registry.origami.ft.com/components/o-overlay#section-usage) in the Origami registry.
 
 ## Usage
-The constructor function accepts two parameters: 
-    * id: Unique id an overlay has and that is shared by all triggers that interact with the overlay.
-    * options: JSON object that configures the overlay or HTMLElement that will act as trigger and has the different options set declaratively. The different options are explained below.
 
-### Static methods
-    * `o-overlay#getOverlays`: Returns an array of all overlays
-    * `o-overlay#init`: Instantiates all triggers and populates the list with the different overlays set by those triggers
-    * `o-overlay#destroy`: Removes the listeners on the different triggers and empties the array of overlays
+o-overlay can be instantiated in two ways:
 
-### Instantiation
-o-overlay can be instantiated in two main ways:
+### Declaratively
 
-#### Declaratively
-Setting the different options as `data-attributes` on the trigger. You can then add a click event to it that creates an overlay on all triggers together with instantiating other Origami modules by setting the class `o-overlay-trigger` on your different triggers and dispatching the `o.DOMContentLoaded` event.
+Set options as `data-` attributes on any element that has a `o-overlay-trigger` class, to create an overlay and open it when that element is clicked.
 
-If you don't want to instantiate all modules at the same time, you can run `o-overlay#init(el)` so that all triggers that are children of the specified element (which will be its o-layers context and the default is `document.body`) are instantiated automatically.
+```html
+<button class='o-overlay-trigger' data-o-overlay-src='#overlay1-content' data-o-overlay-id='overlay1'>Open!</button>
+<script type='text/template' id='overlay1-content'>
+   <p>Content of overlay</p>
+</script>
+```
 
-If you'd rather do everything manually, when the trigger is clicked, you would then need to create a new Overlay object passing the id and the trigger as an instance of HTMLElement.
+To activate overlays declared in markup, you can:
 
-If at some point you want to deactivate the triggers, just run `o-overlay#destroy`.
+* Dispatch the `o.DOMContentLoaded` event (which will also initialise all other compatible Origami modules on the page); or
+* Run `o-overlay#init([el])` (optionally pass a parent element to search for trigger elements, which will form its o-layers context.  The default is `document.body`)
 
-#### Imperatively
-Pass in an id and a configuration object to the constructor, and then run `open()` like this:
+
+### Imperatively
+
+The constructor function accepts two arguments:
+
+* id: Unique identifer string for the overlay within the page
+* options: JSON object that configures the overlay.
 
 ```js
 var myOverlay = new Overlay('myOverlay', {
-   html: "Hello world",
-   trigger: document.querySelector('.blah')
+   html: 'Hello world',
+   trigger: '.blah'
 });
-myOverlay.open();
 ```
 
-Additionally, the overlay can be closed by calling `close()` on a overlay instance
+### Option reference
 
-## Options
+* `heading`: Object. Options for the Overlay header
+    * `.title`: String. Your overlay's title
+    * `.shaded`: Boolean. Whether to shade the background of the header
+* `arrow`: Object. Options for the arrow
+    * `.position`: String. From which side of the overlay should the arrow protrude. It has to be 'top', 'bottom', 'left' or 'right'. _Default_: 'left'
+    * `.target`: String or HTMLElement. What should the arrow point at. It may be different from the trigger, and if the target isn't set, the trigger will be used by default. May be either an element or a querySelector string.
+* `modal`: Boolean. Whether the overlay should have modal behaviour or not. Setting this as true will add a translucent shadow between the page and the overlay
+* `src`: String. Either a _url_ from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted. 
+* `html`: String.  Raw HTML (cannot be set declaratively)
+* `trigger`: String. querySelector expression (cannot be set declaratively)
 
-These are the options you can set for your overlay:
+The only option that must be set is either `src` or `html`. The `html` option can't be set as a `data-` attribute, and if you set both, the `html` one will override `src`.
 
-* heading: It's a JSON object with two options. 
-    * title: Your overlay's title
-    * shaded: true/false. You can choose between a shaded style or not
-* modal: true/false. Choose if you want your overlay to have modal behaviour or not. Setting this as true will also add a translucent shadow between your page and the overlay
-* src: It can be either a _url_ where your raw HTML is, or a _CSS selector_ to where your content is in the page. 
-* html: Raw HTML string. You can't set this option declaratively
-* trigger: HTMLElement or valid CSS selector. `o-overlay#init` will pass the trigger to the overlay, so this is not needed in declarative mode
+For overlays with arrows, having a shaded heading is incompatible with positions 'top' and 'bottom', because an arrow pointing out of a shaded header looks weird.
 
-The only option that must be set is either the *src* or the *html* one. Please keep in mind that the *html* option can't be set as a data-attribute, and if you set both, the *html* one will be used.
-
-Data-attributes have the same name as in the JSON format, but with dashes. So for *src* it will be `data-o-overlay-src` and for the *heading.title* it will be `data-o-overlay-heading-title`.
+Data- attributes have the same name as in the JSON format, but with dashes. So for `src` it will be `data-o-overlay-src` and for the `heading.title` it will be `data-o-overlay-heading-title`.
 
 _o-overlays will throw an error if the options aren't set correctly._
 
-## Styling
-To use the styling provided by the module, you can either extend the sass placeholder classes, or set silent mode to false:
 
-`$o-overlay-is-silent: false;`
+## API
+
+### Static methods
+
+* `getOverlays()`: Returns an array of all overlays on the page
+* `init([el])`: Instantiates Overlays for all `o-overlay-trigger` elements within `el` (or `document.body` if not specified)
+* `destroy()`: Destroys all Overlay objects and unbinds event handlers from trigger elements.
+
+### Object methods
+
+* `open`: Display the overlay.  Content is loaded every time the overlay is opened.
+* `close`: Close (hide) the overlay.
+
+## Arrows
+
+Optionally, an overlay can be displayed to be pointing at a target element. The arrow can come out of any of the overlay's four sides and the preferred position is set as a config option. However, if the overlay doesn't fit next to the trigger in the default position, the module will check if it fits in the opposite position and change it if that is the case. This is not a permanent change, it's only until there is space again in the default position.
+
+Overlays with arrows can't be modal.
 
 ## UI Notes
 

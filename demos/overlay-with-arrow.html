@@ -4,32 +4,19 @@
 <!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
-    <title>o-overlay: centered-overlay demo</title>
+    <title>o-overlay: overlay-with-arrow demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
-    <link rel="stylesheet" href="/bundles/css?modules=o-overlay:/demos/src/demo.scss" />
+    <link rel="stylesheet" href="/bundles/css?modules=o-overlay:/demos/src/overlay-with-arrow.scss" />
 </head>
 <body class="o-hoverable-on">
     <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
     
     <script src='//polyfill.webservices.ft.com/v1/polyfill.min.js'></script>
 <h2>Overlay triggers </h2>
-<button class="o-overlay-trigger" data-o-overlay-id="wideSquat" data-o-overlay-src="#wide-squat" data-o-overlay-heading-title="Wide squat" data-o-overlay-heading-shaded="false" data-o-overlay-modal="false">wide-squat</button>
+<button class="o-overlay-trigger" data-o-overlay-src="#wide-squat" data-o-overlay-id="wideSquat" data-o-overlay-heading-title="Wide squat" data-o-overlay-arrow-position="bottom">wide-squat</button>
 
     <script type="text/template" id="wide-squat">
-        <p>Overlay content.</p>
-        <p>Overlay content.</p>
-        <input id="username" />
-        <br>
-        <input id="password" type="password" />
-        <p>Overlay content.</p>
-        <p>Overlay content.</p>
-                <p>Overlay content.</p>
-        <p>Overlay content.</p>
-        <input id="username" />
-        <br>
-        <input id="password" type="password" />
-        <p>Overlay content.</p>
         <p>Overlay content.</p>
     </script>
     <script src="/bundles/js?modules=o-overlay:/demos/src/demo.js"></script>

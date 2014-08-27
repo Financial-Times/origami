@@ -10,8 +10,13 @@
             "template": "demos/src/modal.mustache"
         },
         {
-            "name": "centered-overlay",
-            "template": "demos/src/centered-overlay.mustache"
+        	"name": "centered-overlay",
+        	"template": "demos/src/centered-overlay.mustache"
+        },
+        {
+            "name": "overlay-with-arrow",
+            "template": "demos/src/overlay-with-arrow.mustache",
+            "sass": "demos/src/overlay-with-arrow.scss"
         }
     ]
 }
