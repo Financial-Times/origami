@@ -215,7 +215,7 @@ function Widget () {
 
                             authDelegate.login = function (delegate) {
                                 oCommentData.api.getAuth(function (err, authData) {
-                                    if (auth.getInstance().pseudonymMissing === true) {
+                                    if (authData && authData.pseudonym === false) {
                                         commentUtilities.logger.log('pseudonymMissing');
                                         userDialogs.showSetPseudonymDialog({
                                             success: function (newAuthData) {
