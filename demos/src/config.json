@@ -14,9 +14,9 @@
         	"template": "demos/src/centered-overlay.mustache"
         },
         {
-            "name": "smallscale",
-            "template": "demos/src/smallscale.mustache",
-            "sass": "demos/src/smallscale.scss"
+            "name": "overlay-with-arrow",
+            "template": "demos/src/overlay-with-arrow.mustache",
+            "sass": "demos/src/overlay-with-arrow.scss"
         }
     ]
 }

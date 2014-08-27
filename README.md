@@ -32,7 +32,7 @@ To activate overlays declared in markup, you can:
 The constructor function accepts two arguments:
 
 * id: Unique identifer string for the overlay within the page
-* options: JSON object that configures the overlayr.
+* options: JSON object that configures the overlay.
 
 ```js
 var myOverlay = new Overlay('myOverlay', {
@@ -81,15 +81,6 @@ _o-overlays will throw an error if the options aren't set correctly._
 Optionally, an overlay can be displayed to be pointing at a target element. The arrow can come out of any of the overlay's four sides and the preferred position is set as a config option. However, if the overlay doesn't fit next to the trigger in the default position, the module will check if it fits in the opposite position and change it if that is the case. This is not a permanent change, it's only until there is space again in the default position.
 
 Overlays with arrows can't be modal.
-
-
-## Styling
-
-To use the styling provided by the module, you can either extend the sass placeholder classes, or set silent mode to false:
-
-`$o-overlay-is-silent: false;`
-
-Please keep in mind that, currently, setting your own prefix for class names in Javascript isn't supported, but it will be in a future update.
 
 ## UI Notes
 
