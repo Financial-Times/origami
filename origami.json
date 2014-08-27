@@ -1,5 +1,5 @@
 {
-    "description": "Responsive, configurable overlays",
+    "description": "Responsive, configurable overlays that support modal and non-modal centered overlays and overlays with arrows",
     "origamiType": "module",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-overlay/issues",
@@ -28,12 +28,18 @@
             "title": "modal",
             "path": "/demos/modal.html",
             "description": "Modal shaded overlay",
-            "expanded": true
+            "expanded": false
         },
         {
             "title": "centered-overlay",
             "path": "/demos/centered-overlay.html",
             "description": "Non-modal non-shaded centered overlay",
+            "expanded": false
+        },
+        {
+            "title": "overlay-with-arrow",
+            "path": "/demos/overlay-with-arrow.html",
+            "description": "Non-modal overlay with an arrow that points to a target",
             "expanded": true
         }
     ]

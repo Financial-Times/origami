@@ -38,6 +38,7 @@
 	@include _oOverlayVerticalArrow();
 	&:before, &:after {
 		bottom: 100%;
+		border-top-width: 0;
 	}
 	&:before {
 		border-bottom-color: $color;
@@ -52,6 +53,7 @@
 	@include _oOverlayVerticalArrow();
 	&:before, &:after {
 		top: 100%;
+		border-bottom-width: 0;
 	}
 	&:before {
 		border-top-color: $color;
@@ -83,6 +85,7 @@
 	@include _oOverlayHorizontalArrow();
 	&:before, &:after {
 		right: 100%;
+		border-left-width: 0;
 	}
 	&:before {
 		border-right-color: $color;
@@ -97,6 +100,7 @@
 	@include _oOverlayHorizontalArrow();
 	&:before, &:after {
 		left: 100%;
+		border-right-width: 0;
 	}
 	&:before {
 		border-left-color: $color;

@@ -52,7 +52,7 @@ var myOverlay = new Overlay('myOverlay', {
 * `modal`: Boolean. Whether the overlay should have modal behaviour or not. Setting this as true will add a translucent shadow between the page and the overlay
 * `src`: String. Either a _url_ from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted. 
 * `html`: String.  Raw HTML (cannot be set declaratively)
-* `trigger`: String. querySelector expression (cannot be set declaratively)
+* `trigger`: String or HTMLElement. querySelector expression or HTMLElement (cannot be set declaratively)
 
 The only option that must be set is either `src` or `html`. The `html` option can't be set as a `data-` attribute, and if you set both, the `html` one will override `src`.
 
