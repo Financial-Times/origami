@@ -1,6 +1,3 @@
-$bentonFont: BentonSans,  Helvetica,  Arial,  sans-serif;
-$bentonBoldFont: BentonSans-Bold, BentonSans,  Helvetica,  Arial,  sans-serif;
-
 $ftLink: oColorsGetPaletteColor(blue);
 $ftLinkHover: oColorsGetPaletteColor(black);
 
@@ -30,17 +27,13 @@ $ftLinkHover: oColorsGetPaletteColor(black);
     filter: none;
 }
 
-
-.o-livefyre-comment-client {
-    @extend %o-ft-typography-article-body-wrapper;
-}
-
 .o-livefyre-comment-client.livefyre-comment-overrides.comment-type-livecomments {
     clear: both;
     color: oColorsGetPaletteColor(grey-tint5);
+    font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 
     .fyre {
-        font-family: $bentonFont;
+        font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 
         a {
             color: $ftLink;
@@ -60,7 +53,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
         .fyre-stream-stats,
         .fyre-stream-livecount {
-            font-family: $bentonFont;
+            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
             font-size: 14px;
             text-align: left;
         }
@@ -86,7 +79,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
         }
 
         .fyre-stream-sort {
-            font: 14px/24px $bentonFont;
+            font: 14px/24px oFontsGetFontFamilyWithFallbacks(BentonSans);
             border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
             padding: 10px 0;
             color: oColorsGetPaletteColor(black) !important;
@@ -127,7 +120,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             margin: 10px 0 0 0;
 
             .fyre-comment-deleted {
-                font-family: $bentonFont;
+                font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
                 font-size: 13px;
                 color: oColorsGetPaletteColor(grey-tint4);
 
@@ -144,7 +137,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
         }
 
         .fyre-login-bar {
-            font-family: $bentonFont;
+            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
             font-weight: normal;
             position: static;
             width: auto;
@@ -497,7 +490,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             font-size: 13px;
             line-height: 15px;
             margin: 0 10px;
-            font-family: $bentonFont;
+            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 
             -webkit-border-radius: 10px;
             -moz-border-radius: 10px;
@@ -547,7 +540,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
                 color: oColorsGetPaletteColor(pink);
                 font-size: 13px;
                 line-height: 16px;
-                font-family: $bentonFont;
+                font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
                 margin: 0;
             }
         }
@@ -633,7 +626,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
                     .fyre-notifier-counter {
                         font-weight: bold;
                         font-size: 13px;
-                        font-family: $bentonBoldFont;
+                        font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
                         line-height: 21px;
                         border: 0;
                         @include gradientClear;
@@ -786,12 +779,12 @@ $ftLinkHover: oColorsGetPaletteColor(black);
         }
 
         .fyre-stream-content-not-found {
-            font-family: $bentonFont;
+            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
             font-size: 16px;
             color: oColorsGetPaletteColor(grey-tint4) !important;
 
             a.fyre-stream-refresh {
-                font-family: $bentonFont;
+                font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
                 color: $ftLink !important;
                 font-size: 13px;
                 text-decoration: none;
@@ -848,7 +841,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
                 @include borderRadiusClear;
                 @include boxShadowClear;
 
-                font-family: $bentonFont;
+                font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
                 font-size: 14px;
                 line-height: 16px;
 
@@ -866,7 +859,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
             .fyre-editor-editable p * {
                 color: oColorsGetPaletteColor(grey-tint5);
-                font-family: $bentonFont;
+                font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
                 font-size: 14px;
             }
 
@@ -881,7 +874,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
                     background-color: oColorsGetPaletteColor(pink-tint1);
                     border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
                     border-right: 1px solid oColorsGetPaletteColor(pink-tint3);
-                    font: normal 12px $bentonFont;
+                    font: normal 12px oFontsGetFontFamilyWithFallbacks(BentonSans);
                     @include gradientClear;
                 }
 
@@ -1021,7 +1014,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             background: oColorsGetPaletteColor(white);
             border: 1px solid #b2b2b2;
             color: oColorsGetPaletteColor(grey-tint4);
-            font-family: $bentonFont;
+            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
             font-size: 13px;
             margin-top: 20px;
             float: left;
@@ -1087,7 +1080,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
         .fyre-editor-error-message {
             font-size: 12px;
             line-height: 14px;
-            font-family: $bentonFont;
+            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
         }
 
         .fyre-editor-error-close,
@@ -1269,7 +1262,7 @@ body {
 
         color: oColorsGetPaletteColor(grey-tint3);
         font-size: 13px;
-        font-family: $bentonFont;
+        font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
         
         @include textShadowClear;
         @include borderRadiusClear;
@@ -1300,7 +1293,7 @@ body {
             border-bottom: 0;
             text-transform: uppercase;
             color: oColorsGetPaletteColor(grey-tint3);
-            font-family: $bentonFont;
+            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
             font-size: 13px;
         }
 
@@ -1322,7 +1315,7 @@ body {
         .fyre-modal-subtitle-u {
             color: oColorsGetPaletteColor(black);
             font-size: 13px;
-            font-family: $bentonFont;
+            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
             font-weight: normal;
         }
 
@@ -1333,7 +1326,7 @@ body {
 
         textarea.fyre-modal-textfield,
         .fyre-modal-textfield {
-            font-family: $bentonFont;
+            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
             font-size: 14px;
             line-height: 16px;
             color: oColorsGetPaletteColor(grey-tint3);
@@ -1365,7 +1358,7 @@ body {
                 background: $ftLink;
                 border: 0;
                 color: oColorsGetPaletteColor(white);
-                font-family: $bentonFont;
+                font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
                 font-weight: normal;
 
                 @include boxShadowClear;

@@ -1,6 +1,6 @@
 {
   "name": "o-livefyre-comment-client",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "main": "main.js",
   "dependencies": {
     "o-comment-data": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-data.git#^0.1.0",
@@ -11,7 +11,8 @@
     "hogan": "git+https://github.com/twitter/hogan.js.git#3.0.0",
     "o-ft-typography": "^1.12.2",
     "o-colors": "^2.3.17",
-    "o-assets": "^0.4.2"
+    "o-assets": "^0.4.2",
+    "o-fonts": "^1.4.1"
   },
   "ignore": [
     "node_modules",

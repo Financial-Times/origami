@@ -59,7 +59,7 @@ function Widget () {
     self.config.stringOverrides = stringOverrides;
 
 
-    if (self.config.authPageReload === true && utils.isLivefyreActionQueuePresent()) {
+    if (utils.isLivefyreActionQueuePresent()) {
         commentUtilities.logger.log("Force flag set.");
 
         this.forceMode = true;
@@ -119,7 +119,7 @@ function Widget () {
 
                     self.trigger('loaded.auth', authData);
 
-                    if (self.config.authPageReload === true && (!authData || (!authData.token && authData.pseudonym !== false))) {
+                    if (self.config.authPageReload === true) {
                         initData.authPageReload = true;
                     }
 
@@ -219,11 +219,15 @@ function Widget () {
                                         commentUtilities.logger.log('pseudonymMissing');
                                         userDialogs.showSetPseudonymDialog({
                                             success: function (newAuthData) {
-                                                delegate.success();
+                                                if (self.config.authPageReload === true) {
+                                                    utils.emptyLivefyreActionQueue();
+                                                }
 
                                                 if (newAuthData && newAuthData.token) {
                                                     auth.getInstance().login(newAuthData.token);
                                                 }
+
+                                                delegate.success();
                                             },
                                             failure: function () {
                                                 delegate.failure();
