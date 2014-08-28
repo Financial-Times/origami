@@ -3,7 +3,7 @@
     "origamiType": "module",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-share/issues",
-    "supportStatus": "not implemented",
+    "supportStatus": "experimental",
     "browserFeatures": {
         "required": [
             "queryselector"

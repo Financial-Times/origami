@@ -3,6 +3,7 @@
     position: absolute;
     top: -40px;
     opacity: 0;
+    cursor: default;
     -webkit-transition: opacity 0.25s;
   }
   .#{$classname}-tooltip__text {
@@ -14,10 +15,10 @@
     font-size: 14px;
     line-height: 14px;
     text-align: center;
-    color: #ffffff; // TODO: Use case
-    background-color: #333333;
+    color: oColorsGetColorFor(tooltip, text);
+    background-color: oColorsGetColorFor(tooltip, background);
     background-color: $_o-share-tooltip-bg;
-    text-shadow: 0 0 1px #000000;
+    text-shadow: 0 0 1px oColorsGetPaletteColor(black);
   }
   .#{$classname}-tooltip__arrow {
     position: relative;
