@@ -1,15 +1,15 @@
 %o-table-horizontal-borders {
-  border-top: 1px solid oColorsGetColorFor(table-row, border);
-  border-bottom: 1px solid oColorsGetColorFor(table-row, border);
+  border-top: 1px solid oColorsGetColorFor(o-table-row, border);
+  border-bottom: 1px solid oColorsGetColorFor(o-table-row, border);
   th:not([scope=row]) {
-    border-top: 2px solid oColorsGetColorFor(table-header-row, border);
+    border-top: 2px solid oColorsGetColorFor(o-table-header-row, border);
   }
 }
 
 %o-table-vertical-borders {
-  border-left: 1px solid oColorsGetColorFor(table-row, border);
-  border-right: 1px solid oColorsGetColorFor(table-row, border);
+  border-left: 1px solid oColorsGetColorFor(o-table-row, border);
+  border-right: 1px solid oColorsGetColorFor(o-table-row, border);
   th[scope=row] {
-    border-left: 2px solid oColorsGetColorFor(table-header-row, border);
+    border-left: 2px solid oColorsGetColorFor(o-table-header-row, border);
   }
 }

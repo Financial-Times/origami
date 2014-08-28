@@ -1,0 +1,5 @@
+@include oColorsSetUseCase(o-table, background, transparent);
+@include oColorsSetUseCase(o-table-striped, background, pink);
+@include oColorsSetUseCase(o-table-row, border, pink-tint3);
+@include oColorsSetUseCase(o-table-row-alt, background, pink-tint1);
+@include oColorsSetUseCase(o-table-header-row, border, pink-tint4);
