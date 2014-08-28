@@ -1,9 +1,8 @@
 /*global module, require*/
-
+'use strict';
 var oDom = require('o-dom');
 
 function Tabs(rootEl) {
-    "use strict";
 
     var tabsObj = this,
         tabEls,
@@ -125,10 +124,13 @@ function Tabs(rootEl) {
     init();
 }
 
-Tabs.prototype.createAllIn = function(el) {
-    "use strict";
+Tabs.init = function(el) {
     var tabs = [], tEls, c, l;
-    el = el || document.body;
+    if (!el) {
+        el = document.body;
+    } else if (!(el instanceof HTMLElement)) {
+        el = document.querySelector(el);
+    }
     if (el.querySelectorAll) {
         tEls = el.querySelectorAll('[data-o-component=o-tabs]');
         for (c = 0, l = tEls.length; c < l; c++) {
