@@ -77,6 +77,10 @@
     background: transparent;
     float: right;
     outline: none;
+
+    &:before {
+        margin-left: 1px;
+    }
 }
 
 %o-overlay__close-icon {

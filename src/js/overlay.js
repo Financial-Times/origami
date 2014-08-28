@@ -92,7 +92,7 @@ var Overlay = function(id, opts) {
 		throw new Error('"o-overlay error": Required options have not been set');
 	}
 	if (this.opts.trigger) {
-		this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id), false);
+		this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id));
 	}
 	this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : oLayers.getLayerContext(this.opts.trigger);
 
