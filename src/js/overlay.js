@@ -169,6 +169,10 @@ Overlay.prototype = {
 
 		this.content = content;
 
+		if (this.opts.compact) {
+			wrapperEl.classList.add('o-overlay--compact');
+		}
+
 		if (typeof this.opts.html === 'string') {
 			this.content.innerHTML = this.opts.html;
 		} else {

@@ -63,6 +63,10 @@
 		@extend %o-overlay__content--no-gutter;
 	}
 
+	.#{$classname}--compact {
+		@extend %o-overlay--compact;
+	}
+
 	.#{$classname}--full-width {
 		@extend %o-overlay--full-width;
 	}
