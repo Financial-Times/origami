@@ -1,5 +1,5 @@
+"use strict";
 function triggerEvent(el, eventName, data) {
-    "use strict";
     var event = document.createEvent('Event');
     event.initEvent(eventName, true, true);
     if (data) {

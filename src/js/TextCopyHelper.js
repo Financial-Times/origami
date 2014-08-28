@@ -1,11 +1,11 @@
 /*global require, module*/
+"use strict";
 
 var DomDelegate = require('ftdomdelegate'),
     ToolTip = require('./ToolTip'),
     shareDom = require('./shareDom');
 
 function TextCopyHelper(config) {
-    "use strict";
 
     var bodyDomDelegate,
         inputDomDelegate,

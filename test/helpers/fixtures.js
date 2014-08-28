@@ -1,9 +1,8 @@
 /*global exports*/
-
+"use strict";
 var sandboxEl;
 
 function createSandbox() {
-    "use strict";
     if (document.querySelector('.sandbox')) {
         sandboxEl = document.querySelector('.sandbox');
     } else {
@@ -14,18 +13,15 @@ function createSandbox() {
 }
 
 function reset() {
-    "use strict";
     sandboxEl.innerHTML = '';
 }
 
 function insert(html) {
-    "use strict";
     createSandbox();
     sandboxEl.innerHTML = html;
 }
 
 function insertShareLinks() {
-    "use strict";
     var html = [
         '<div data-o-component="o-share" data-o-version="0.1.0" class="o-share">',
         '<ul>',
