@@ -26,7 +26,6 @@ To activate overlays declared in markup, you can:
 * Dispatch the `o.DOMContentLoaded` event (which will also initialise all other compatible Origami modules on the page); or
 * Run `o-overlay#init([el])` (optionally pass a parent element to search for trigger elements, which will form its o-layers context.  The default is `document.body`)
 
-
 ### Imperatively
 
 The constructor function accepts two arguments:
@@ -58,6 +57,8 @@ var myOverlay = new Overlay('myOverlay', {
 The only option that must be set is either `src` or `html`. The `html` option can't be set as a `data-` attribute, and if you set both, the `html` one will override `src`.
 
 For overlays with arrows, having a shaded heading is incompatible with positions 'top' and 'bottom', because an arrow pointing out of a shaded header looks weird.
+
+For compact overlays, headings can't be shaded as this looks weird too.
 
 Data- attributes have the same name as in the JSON format, but with dashes. So for `src` it will be `data-o-overlay-src` and for the `heading.title` it will be `data-o-overlay-heading-title`.
 

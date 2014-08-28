@@ -140,8 +140,19 @@
     }
 
     %o-overlay__title {
-        margin: 10px 0 10px 20px;
+        margin: 5px 0 5px 10px;
         line-height: 20px;
+    }
+
+    %o-overlay__close-icon {
+        width: 14px;
+        height: 14px;
+        font-size: 8px;
+        line-height: 15px; 
+    }
+
+    %o-overlay__close {
+        padding: 5px 5px 5px 10px;
     }
 }
 
