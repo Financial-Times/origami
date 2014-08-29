@@ -16,7 +16,7 @@ FileUtils.mkdir_p "test/output"
 stdout, stderr, status = Open3.capture3 "sass --scss test/undefined-colors-warn.scss test/output/undefined-colors-warn.css --style compressed"
 raise "Using an undefined color shouldn't fail build" unless status.success?
 raise "Using an undefined color should throw a warning" unless stderr.squish.match /Undefined use\-case/
-raise "Using an undefined color should not affect output" unless File.open("test/output/undefined-colors-warn.css").read.squish == ".test{color:#000}"
+raise "Using an undefined color should not affect output" unless File.open("test/output/undefined-colors-warn.css").read.squish == ".test{color:transparent}"
 puts "Checked non-fatal warnings thrown when undefined color used"
 File.delete('test/output/undefined-colors-warn.css')
 
