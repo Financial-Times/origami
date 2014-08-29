@@ -8,7 +8,6 @@ function Tabs(rootEl) {
         tabEls,
         tabpanelEls,
         selectedTabIndex = -1,
-        hasInit = false,
         myself = this;
 
     function getTabTargetId(tabEl) {
@@ -95,17 +94,19 @@ function Tabs(rootEl) {
     }
 
     function init() {
-        if (!hasInit) {
-            tabEls = rootEl.querySelectorAll('[role=tab]');
-            tabpanelEls = getTabPanelEls(tabEls);
-            rootEl.setAttribute('data-o-tabs--js', '');
-            rootEl.addEventListener("click", clickHandler, false);
-            dispatchCustomEvent('oTabs.ready', {
-                tabs: tabsObj
-            });
-            hasInit = true;
-            myself.selectTab(getSelectedTabElement());
+        if (!rootEl) {
+            rootEl = document.body;
+        } else if (!(rootEl instanceof HTMLElement)) {
+            rootEl = document.querySelector(rootEl);
         }
+        tabEls = rootEl.querySelectorAll('[role=tab]');
+        tabpanelEls = getTabPanelEls(tabEls);
+        rootEl.setAttribute('data-o-tabs--js', '');
+        rootEl.addEventListener("click", clickHandler, false);
+        dispatchCustomEvent('oTabs.ready', {
+            tabs: tabsObj
+        });
+        myself.selectTab(getSelectedTabElement());
     }
 
     function destroy() {
@@ -114,10 +115,8 @@ function Tabs(rootEl) {
         for (var c = 0, l = tabpanelEls.length; c < l; c++) {
             showPanel(tabpanelEls[c]);
         }
-        hasInit = false;
     }
 
-    this.init = init;
     this.selectTab = selectTab;
     this.destroy = destroy;
 
