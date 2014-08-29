@@ -199,6 +199,6 @@ describe('smoke-tests (./overlay.js)', function() {
             overlays = document.querySelectorAll('.o-overlay');
             expect(overlays.length).toBe(0);
             done();
-        }, 300);
+        }, 500);
     });
 });

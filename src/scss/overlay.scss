@@ -77,6 +77,10 @@
     background: transparent;
     float: right;
     outline: none;
+
+    &:before {
+        margin-left: 1px;
+    }
 }
 
 %o-overlay__close-icon {
@@ -112,7 +116,6 @@
 }
 
 %o-overlay__content {
-    @extend %o-ft-typography-body-wrapper;
     position: relative;
     box-sizing: border-box;
     overflow: auto;

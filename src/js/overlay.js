@@ -37,7 +37,7 @@ var checkOptions = function(opts) {
 		}
 
 		// If the position of the arrow is 'top' or 'bottom', the heading can't be shaded
-		if ((opts.arrow.position === 'top' || opts.arrow.position === 'bottom') && opts.heading.shaded) {
+		if ((opts.arrow.position === 'top' || opts.arrow.position === 'bottom') && (opts.heading && opts.heading.shaded)) {
 			throw new Error('"o-overlay error": The position of the arrow can\'t be set to "top" or "bottom" when the shaded heading option is set to true.');
 		}
 
@@ -72,8 +72,8 @@ var getOptionsFromTrigger = function(trigger) {
 	return opts;
 };
 
-var triggerClickHandler = function(ev) {
-	var overlay = overlays[ev.target.getAttribute('data-o-overlay-id')];
+var triggerClickHandler = function(id) {
+	var overlay = overlays[id];
 	if (overlay) {
 		if (overlay.visible === true) {
 			overlay.close();
@@ -92,7 +92,7 @@ var Overlay = function(id, opts) {
 		throw new Error('"o-overlay error": Required options have not been set');
 	}
 	if (this.opts.trigger) {
-		this.opts.trigger.addEventListener('click', triggerClickHandler, false);
+		this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id), false);
 	}
 	this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : oLayers.getLayerContext(this.opts.trigger);
 
@@ -245,8 +245,9 @@ Overlay.prototype = {
 	},
 
 	closeOnExternalClick: function(ev) {
+
 		// Close the overlay if it's not modal and the click wasn't made on the actual overlay
-		if (!this.wrapper.contains(ev.target) && ev.target !== this.opts.trigger) {
+		if (!this.wrapper.contains(ev.target) && !this.opts.trigger.contains(ev.target)) {
 			if (!this.opts.modal) {
 				this.close();
 			}
@@ -293,8 +294,8 @@ Overlay.prototype = {
 			this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.currentposition);
 
 			var offset = 0;
-			// Protrusion distance for the arrow
-			var arrowSize = 10;
+			// Protrusion distance for the arrow. It's 13 due to the border around it
+			var arrowSize = 13;
 			var targetClientRect = this.opts.arrow.target.getBoundingClientRect();
 			switch (this.opts.arrow.currentposition) {
 				case 'left':
@@ -329,34 +330,37 @@ Overlay.prototype = {
 
 	getCurrentArrowposition: function(position) {
 		var targetClientRect = this.opts.arrow.target.getBoundingClientRect();
-		var wrapperClientRect = this.wrapper.getBoundingClientRect();
+		// Protrusion distance for the arrow. It's 13 due to the border around it
+		var arrowSize = 13;
+		var wrapperWidth = this.wrapper.getBoundingClientRect().width + arrowSize;
+		var wrapperHeight = this.wrapper.getBoundingClientRect().height + arrowSize;
 		// Check if the overlay won't fit on the side set in the options and that it will on the opposite side.
 		// In that case, use the opposite side
 		switch (this.opts.arrow.position) {
 			case 'left':
-				if (targetClientRect.right + wrapperClientRect.width >= window.innerWidth &&
-						targetClientRect.left - wrapperClientRect.width > 0) {
+				if (targetClientRect.right + wrapperWidth >= window.innerWidth &&
+						targetClientRect.left - wrapperWidth > 0) {
 
 					position = 'right';
 				}
 				break;
 			case 'right':
-				if (targetClientRect.left - wrapperClientRect.width <= 0 &&
-						targetClientRect.right + wrapperClientRect.width < window.innerWidth) {
+				if (targetClientRect.left - wrapperWidth <= 0 &&
+						targetClientRect.right + wrapperWidth < window.innerWidth) {
 
 					position = 'left';
 				}
 				break;
 			case 'top':
-				if (targetClientRect.bottom + wrapperClientRect.height >= window.innerHeight &&
-						targetClientRect.top - wrapperClientRect.height > 0) {
+				if (targetClientRect.bottom + wrapperHeight >= window.innerHeight &&
+						targetClientRect.top - wrapperHeight + arrowSize > 0) {
 
 					position = 'bottom';
 				}
 				break;
 			case 'bottom':
-				if (targetClientRect.top - wrapperClientRect.height <= 0 &&
-						targetClientRect.bottom + wrapperClientRect.height < window.innerHeight) {
+				if (targetClientRect.top - wrapperHeight <= 0 &&
+						targetClientRect.bottom + wrapperHeight < window.innerHeight) {
 
 					position = 'top';
 				}
