@@ -94,10 +94,6 @@ Finally, run:
 
     origami-build-tools demo --local
 
-This creates the HTML demo page showing each of the icons. Unfortunately the generated `local/demo.css` will try to load the icon font from build service, so to see the demos locally there is a final step of editing these paths to point to the newly created local file.
-
-In `demo.css`, replace `http://build.origami.ft.com/files/o-ft-icons` with `../..`.
-
 ###SVG version
 The icons module uses SVG version 1.1. Files can be created in any vector graphics software. In Adobe Illustrator use the "save as" function and set to version 1.1
 
