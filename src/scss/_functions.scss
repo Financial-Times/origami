@@ -21,7 +21,7 @@
 			$color: map-get($props, all);
 		}
 		@if (map-has-key($props, '_deprecated')) {
-			@warn "Color use case " + $usecase + " is deprecated: " + map-get($props, '_deprecated');
+			@warn "Color use case '" + $usecase + "'' is deprecated (property '"+$property+"' was requested): " + map-get($props, '_deprecated');
 		}
 		@return $color;
    	}

@@ -22,14 +22,10 @@
   border-width: 2px;
   border-style: solid;
   color: transparent;
+  border-color: transparent;
 }
 .demo-swatch:after {
   content: 'Abc';
-}
-.demo-background {
-  border-width: 1px;
-  border-style: dashed;
-  border-color: #bbb;
 }
 .demo-name {
   font-weight: bold;
@@ -59,8 +55,8 @@ $o-colors-use-cases: (
 @import "../../main";
 
 // Adding custom colours after importing the colours module requires calling the oColorsSetUseCase mixin
-@include oColorsSetUseCase(custom-badge, border, green);
-@include oColorsSetUseCase(custom-badge, text, orange);
+@include oColorsSetUseCase(custom-page, border, green);
+@include oColorsSetUseCase(custom-page, text, orange);
 
 .assign-palette-color-to-custom-class {
   background-color: oColorsGetPaletteColor(blue);
@@ -69,15 +65,14 @@ $o-colors-use-cases: (
   background-color: oColorsGetColorFor(section-life-arts page, background);
 }
 .mixin-all-properties {
-  @include oColorsFor(badge);
+  @include oColorsFor(page);
 }
 .mixin-selected-properties {
-  @include oColorsFor(badge, background border); // There is no border on the badge use case
+  @include oColorsFor(page, background border); // There is no border on the page use case
 }
 .mixin-custom-usecase {
-  @include oColorsFor(custom-badge badge, text background border);
+  @include oColorsFor(custom-page page, text background border);
 }
 .mixin-custom-usecase-map {
   @include oColorsFor(foo);
 }
-

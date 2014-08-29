@@ -14,13 +14,22 @@
  * Output property declarations for all defined properties for the specified use case
  */
 @mixin oColorsFor($useCaseList, $propertyList: all) {
-  @if (oColorsGetColorFor($useCaseList, background, undefined) != undefined and ($propertyList == 'all' or index($propertyList, 'background'))) {
-    background-color: oColorsGetColorFor($useCaseList, background);
+  @if ($propertyList == 'all' or index($propertyList, 'background')) {
+    $col: oColorsGetColorFor($useCaseList, background, undefined);
+    @if ($col != undefined) {
+      background-color: $col;
+    }
   }
-  @if (oColorsGetColorFor($useCaseList, text, undefined) != undefined and ($propertyList == 'all' or index($propertyList, 'text'))) {
-    color: oColorsGetColorFor($useCaseList, text);
+  @if ($propertyList == 'all' or index($propertyList, 'text')) {
+    $col: oColorsGetColorFor($useCaseList, text, undefined);
+    @if ($col != undefined) {
+      color: $col;
+    }
   }
-  @if (oColorsGetColorFor($useCaseList, border, undefined) != undefined and ($propertyList == 'all' or index($propertyList, 'border'))) {
-    border-color: oColorsGetColorFor($useCaseList, border);
+  @if ($propertyList == 'all' or index($propertyList, 'border')) {
+    $col: oColorsGetColorFor($useCaseList, border, undefined);
+    @if ($col != undefined) {
+      border-color: oColorsGetColorFor($useCaseList, border);
+    }
   }
 }

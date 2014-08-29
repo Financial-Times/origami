@@ -24,15 +24,10 @@ $o-colors-usecases: map-merge((
     box:                     (background: pink-tint1),
     link:                    (text: blue),
     link-hover:              (text: black),
-    link-alt:                (text: grey-tint5),
-    link-alt-hover:          (text: blue),
+    link-title:              (text: grey-tint5),
+    link-title-hover:        (text: blue),
     title:                   (text: black),
-    error:                   (text: red, border: red, background: white),
-    label:                   (text: grey-tint5),
     body:                    (text: grey-tint5),
-    heading:                 (text: grey-tint5),
-    lead:                    (text: grey-tint4),
-    badge:                   (text: white, background: red),
     muted:                   (text: pink-tint3),
 
     // Section colors
@@ -104,6 +99,13 @@ $o-colors-usecases: map-merge((
 
     /* Deprecated */
 
+    badge:                   (text: white, background: red, _deprecated: "Moved into o-ft-typography"),
+    error:                   (text: red, border: red, background: white, _deprecated: "Move into component"),
+    heading:                 (text: grey-tint5, _deprecated: "Use `body` instead"),
+    lead:                    (text: grey-tint4, _deprecated: "Moved into o-ft-typography"),
+    label:                   (text: grey-tint5, _deprecated: "Use `body` instead"),
+    link-alt:                (text: grey-tint5, _deprecated: "Use `link-title`"),
+    link-alt-hover:          (text: blue, _deprecated: "Use `link-title-hover`"),
     control:                 (text: white, background: grey-tint5, _deprecated: "Move into component"),
     control-hover:           (text: grey-tint1, _deprecated: "Move into component"),
 
