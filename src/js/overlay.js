@@ -21,6 +21,10 @@ var checkOptions = function(opts) {
 		opts.modal = true;
 	}
 
+	if (opts.compact && opts.heading && opts.heading.shaded) {
+		throw new Error('"o-overlay error": Compact overlays can\'t have a shaded header');
+	}
+
 	if (opts.arrow) {
 		// Default arrow position is 'left'
 		if (!opts.arrow.position) {
@@ -168,6 +172,10 @@ Overlay.prototype = {
 		wrapperEl.appendChild(content);
 
 		this.content = content;
+
+		if (this.opts.compact) {
+			wrapperEl.classList.add('o-overlay--compact');
+		}
 
 		if (typeof this.opts.html === 'string') {
 			this.content.innerHTML = this.opts.html;

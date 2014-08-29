@@ -25,34 +25,6 @@
     @include oUseragentPrefixer(transition, opacity 0.3s ease-in-out);
 }
 
-%o-overlay__arrow {
-    position: absolute;
-}
-
-%o-overlay__arrow-top {
-    @extend %o-overlay__arrow;
-
-    @include oOverlayUpArrow();
-}
-
-%o-overlay__arrow-bottom {
-    @extend %o-overlay__arrow;
-
-    @include oOverlayDownArrow();
-}
-
-%o-overlay__arrow-left {
-    @extend %o-overlay__arrow;
-
-    @include oOverlayLeftArrow();
-}
-
-%o-overlay__arrow-right {
-    @extend %o-overlay__arrow;
-
-    @include oOverlayRightArrow();
-}
-
 %o-overlay__heading {
     @include oFtTypographyFontSize(16);
     margin: 0;
@@ -77,10 +49,6 @@
     background: transparent;
     float: right;
     outline: none;
-
-    &:before {
-        margin-left: 1px;
-    }
 }
 
 %o-overlay__close-icon {
@@ -131,6 +99,60 @@
 
     %o-overlay__content--no-gutter {
         padding: 0;
+    }
+}
+
+%o-overlay__arrow {
+    position: absolute;
+}
+
+%o-overlay__arrow-top {
+    @extend %o-overlay__arrow;
+
+    @include oOverlayUpArrow();
+}
+
+%o-overlay__arrow-bottom {
+    @extend %o-overlay__arrow;
+
+    @include oOverlayDownArrow();
+}
+
+%o-overlay__arrow-left {
+    @extend %o-overlay__arrow;
+
+    @include oOverlayLeftArrow();
+}
+
+%o-overlay__arrow-right {
+    @extend %o-overlay__arrow;
+
+    @include oOverlayRightArrow();
+}
+
+%o-overlay--compact {
+    %o-overlay__heading {
+        @include oFtTypographyFontSize(12);
+    }
+
+    %o-overlay__content {
+        padding: 10px;
+    }
+
+    %o-overlay__title {
+        margin: 5px 0 5px 10px;
+        line-height: 20px;
+    }
+
+    %o-overlay__close-icon {
+        width: 14px;
+        height: 14px;
+        font-size: 8px;
+        line-height: 15px; 
+    }
+
+    %o-overlay__close {
+        padding: 5px 5px 5px 10px;
     }
 }
 

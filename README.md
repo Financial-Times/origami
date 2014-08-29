@@ -26,7 +26,6 @@ To activate overlays declared in markup, you can:
 * Dispatch the `o.DOMContentLoaded` event (which will also initialise all other compatible Origami modules on the page); or
 * Run `o-overlay#init([el])` (optionally pass a parent element to search for trigger elements, which will form its o-layers context.  The default is `document.body`)
 
-
 ### Imperatively
 
 The constructor function accepts two arguments:
@@ -50,6 +49,7 @@ var myOverlay = new Overlay('myOverlay', {
     * `.position`: String. From which side of the overlay should the arrow protrude. It has to be 'top', 'bottom', 'left' or 'right'. _Default_: 'left'
     * `.target`: String or HTMLElement. What should the arrow point at. It may be different from the trigger, and if the target isn't set, the trigger will be used by default. May be either an element or a querySelector string.
 * `modal`: Boolean. Whether the overlay should have modal behaviour or not. Setting this as true will add a translucent shadow between the page and the overlay
+* `compact`: Boolean. If true, the `.o-overlay--compact` class will be added to the overlay that reduces heading font-size and paddings in the content.
 * `src`: String. Either a _url_ from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted. 
 * `html`: String.  Raw HTML (cannot be set declaratively)
 * `trigger`: String or HTMLElement. querySelector expression or HTMLElement (cannot be set declaratively)
@@ -57,6 +57,8 @@ var myOverlay = new Overlay('myOverlay', {
 The only option that must be set is either `src` or `html`. The `html` option can't be set as a `data-` attribute, and if you set both, the `html` one will override `src`.
 
 For overlays with arrows, having a shaded heading is incompatible with positions 'top' and 'bottom', because an arrow pointing out of a shaded header looks weird.
+
+For compact overlays, headings can't be shaded as this looks weird too.
 
 Data- attributes have the same name as in the JSON format, but with dashes. So for `src` it will be `data-o-overlay-src` and for the `heading.title` it will be `data-o-overlay-heading-title`.
 
