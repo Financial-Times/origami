@@ -1,12 +1,12 @@
 @include oFtTypographySelectors(lead-large) {
-  @include _oFtTypographyFont(MillerDisplay, normal);
+  @include _oFtTypographyFont(Georgia, normal);
   @include oFtTypographyFontSize(21, 26);
   color: oColorsGetColorFor(lead, text);
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
 @include oFtTypographySelectors(lead-medium) {
-  @include _oFtTypographyFont(MillerDisplay, normal);
+  @include _oFtTypographyFont(Georgia, normal);
   @include oFtTypographyFontSize(17, 21);
   color: oColorsGetColorFor(lead-medium, text);
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));

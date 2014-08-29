@@ -1,4 +1,8 @@
 $o-ft-typography-is-silent: false;
+$o-assets-paths-map: (
+  o-fonts-assets: '//build.origami.ft.com/files/o-fonts-assets'
+);
+
 @import "../../main";
 
 .demo-row {
