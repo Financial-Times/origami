@@ -92,7 +92,7 @@ var Overlay = function(id, opts) {
 		throw new Error('"o-overlay error": Required options have not been set');
 	}
 	if (this.opts.trigger) {
-		this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id));
+		this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id), false);
 	}
 	this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : oLayers.getLayerContext(this.opts.trigger);
 
@@ -245,8 +245,9 @@ Overlay.prototype = {
 	},
 
 	closeOnExternalClick: function(ev) {
+
 		// Close the overlay if it's not modal and the click wasn't made on the actual overlay
-		if (!this.wrapper.contains(ev.target) && ev.target !== this.opts.trigger) {
+		if (!this.wrapper.contains(ev.target) && !this.opts.trigger.contains(ev.target)) {
 			if (!this.opts.modal) {
 				this.close();
 			}
