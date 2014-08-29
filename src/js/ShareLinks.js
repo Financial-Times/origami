@@ -79,6 +79,11 @@ function ShareLinks(rootEl) {
     }
 
     function init() {
+        if (!rootEl) {
+            rootEl = document.body;
+        } else if (!(rootEl instanceof HTMLElement)) {
+            rootEl = document.querySelector(rootEl);
+        }
         rootDomDelegate = new DomDelegate(rootEl);
         rootDomDelegate.on('click', handleClick);
         rootEl.setAttribute('data-o-share--js', '');
