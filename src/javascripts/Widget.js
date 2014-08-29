@@ -284,19 +284,23 @@ function Widget () {
     function login () {
         self.ui.addSettingsLink({
             onClick: function () {
-                oCommentData.api.getAuth(function (err, currentAuthData) {
-                    var showSettingsDialog = function () {
-                        userDialogs.showSettingsDialog(currentAuthData, {
-                            success: function (newAuthData) {
-                                if (newAuthData && newAuthData.token) {
-                                    auth.getInstance().logout();
-                                    commentUtilities.logger.debug('new settings', newAuthData);
-                                    auth.getInstance().login(newAuthData.token);
+                var showSettingsDialog = function () {
+                    oCommentData.api.getAuth(function (err, currentAuthData) {
+                        if (!err && currentAuthData) {
+                            userDialogs.showSettingsDialog(currentAuthData, {
+                                success: function (newAuthData) {
+                                    if (newAuthData && newAuthData.token) {
+                                        auth.getInstance().logout();
+                                        commentUtilities.logger.debug('new settings', newAuthData);
+                                        auth.getInstance().login(newAuthData.token);
+                                    }
                                 }
-                            }
-                        });
-                    };
+                            });
+                        }
+                    });
+                };
 
+                oCommentData.api.getAuth(function (err, currentAuthData) {
                     if (err || !currentAuthData) {
                         self.trigger('loginRequired.authAction', {
                             success: function () {
