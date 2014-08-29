@@ -1,11 +1,10 @@
 %o-table-base {
-  margin: 0 0 20px 0;
+  @extend %o-ft-typography-body;
+  margin: 0 0 20px;
   border-spacing: 0;
   border-collapse: collapse;
   width: 100%;
   background-color: oColorsGetColorFor(o-table page, background);
-
-  @extend %o-ft-typography-body;
 
   caption {
     width: 100%;

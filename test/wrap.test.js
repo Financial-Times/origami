@@ -1,10 +1,10 @@
 /*global require,describe,beforeEach,afterEach,it,expect*/
+"use strict";
 
 var sandbox = require('./helpers/sandbox'),
     oTable = require('./../main');
 
 describe("wrap()", function() {
-    "use strict";
 
     beforeEach(function(){
         sandbox.init();
@@ -21,7 +21,6 @@ describe("wrap()", function() {
 });
 
 describe("wrap() - default classes", function() {
-    "use strict";
 
     beforeEach(function(){
         sandbox.init();
@@ -54,7 +53,6 @@ describe("wrap() - default classes", function() {
 });
 
 describe("wrap() - custom classes", function() {
-    "use strict";
 
     beforeEach(function(){
         sandbox.init();

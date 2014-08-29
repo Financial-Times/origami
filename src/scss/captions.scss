@@ -10,13 +10,13 @@
 }
 
 %o-table__caption--top {
+  @extend %o-table__caption;
   caption-side: top;
   margin-bottom: -2px;
-  @extend %o-table__caption;
 }
 
 %o-table__caption--bottom {
+  @extend %o-table__caption;
   caption-side: bottom;
   margin-bottom: 0;
-  @extend %o-table__caption;
 }
