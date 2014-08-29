@@ -1,6 +1,6 @@
 %o-table__caption {
-  border-top: 2px solid oColorsGetColorFor(table-caption table-header-row, border);
-  border-bottom: 2px solid oColorsGetColorFor(table-caption table-header-row, border);
+  border-top: 2px solid oColorsGetColorFor(o-table-header-row, border);
+  border-bottom: 2px solid oColorsGetColorFor(o-table-header-row, border);
   padding: 9px 0;
   font-size: 14px;
   line-height: 18px;
@@ -10,13 +10,13 @@
 }
 
 %o-table__caption--top {
+  @extend %o-table__caption;
   caption-side: top;
   margin-bottom: -2px;
-  @extend %o-table__caption;
 }
 
 %o-table__caption--bottom {
+  @extend %o-table__caption;
   caption-side: bottom;
   margin-bottom: 0;
-  @extend %o-table__caption;
 }

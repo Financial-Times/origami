@@ -1,16 +1,15 @@
 /*global require, exports*/
+"use strict";
 
 var oDom = require('o-dom');
 
 function wrapElement(targetEl, wrapEl) {
-    "use strict";
     var parentEl = targetEl.parentNode;
     parentEl.insertBefore(wrapEl, targetEl);
     wrapEl.appendChild(targetEl);
 }
 
 function wrap(tableSelector, wrapClass) {
-    "use strict";
     tableSelector = typeof tableSelector === "string" ? tableSelector : ".o-table";
     wrapClass = typeof wrapClass === "string" ? wrapClass : "o-table-wrapper";
     var matchingEls = document.querySelectorAll(tableSelector),

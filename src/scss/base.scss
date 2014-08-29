@@ -1,11 +1,10 @@
 %o-table-base {
-  margin: 0 0 20px 0;
+  @extend %o-ft-typography-body;
+  margin: 0 0 20px;
   border-spacing: 0;
   border-collapse: collapse;
   width: 100%;
-  background-color: oColorsGetColorFor(table page, background);
-
-  @extend %o-ft-typography-body;
+  background-color: oColorsGetColorFor(o-table page, background);
 
   caption {
     width: 100%;
@@ -26,11 +25,11 @@
   }
 
   th[scope=row] {
-    border-right: 2px solid oColorsGetColorFor(table-header-row, border);
+    border-right: 2px solid oColorsGetColorFor(o-table-header-row, border);
   }
 
   th:not([scope=row]) {
-    border-bottom: 2px solid oColorsGetColorFor(table-header-row, border);
+    border-bottom: 2px solid oColorsGetColorFor(o-table-header-row, border);
     vertical-align: bottom;
   }
 }

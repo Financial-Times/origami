@@ -1,13 +1,13 @@
 %o-table-horizontal-lines {
   tr:not(:last-child) {
-    border-bottom: 1px solid oColorsGetColorFor(table-row, border);
+    border-bottom: 1px solid oColorsGetColorFor(o-table-row, border);
   }
 }
 
 %o-table-vertical-lines {
   th:not(:last-child):not(:first-child),
   td:not(:last-child):not(:first-child) {
-    border-left: 1px solid oColorsGetColorFor(table-row, border);
-    border-right: 1px solid oColorsGetColorFor(table-row, border);
+    border-left: 1px solid oColorsGetColorFor(o-table-row, border);
+    border-right: 1px solid oColorsGetColorFor(o-table-row, border);
   }
 }

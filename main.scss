@@ -3,6 +3,7 @@ $o-table-is-silent: true !default;
 @import "o-colors/main";
 @import "o-ft-typography/main";
 
+@import "src/scss/_color-use-cases";
 @import "src/scss/mixins";
 @import "src/scss/captions";
 @import "src/scss/base";

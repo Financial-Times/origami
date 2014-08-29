@@ -1,8 +1,19 @@
 # o-table [![Build Status](https://travis-ci.org/Financial-Times/o-table.png?branch=master)](https://travis-ci.org/Financial-Times/o-table)
 
-___
 Styling for tables.
-___
+
+## Browser support
+|  Browsers  | Primary Experience | Core Experience |
+|:----------:|:------------------:|:---------------:|
+|   Chrome   |        35+         |       35+       |
+|   Firefox  |        30+         |       30+       |
+|   Safari   |        7+          |       7+        |
+|   IE       |        9+          |       8+        |
+
+Known issues:
+
+* IE10 or below need the [polyfill service](http://polyfill.webservices.ft.com/)
+* IE8 doesn't support the `wrap` function
 
 ## Markup
 
