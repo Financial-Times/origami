@@ -1,16 +1,16 @@
 @include oFtTypographySelectors(article-body--lead) {
   margin: 0 0 9px 0;
-  border-bottom: 1px dotted oColorsGetColorFor(article-body-lead-border);
+  border-bottom: 1px dotted oColorsGetColorFor(o-ft-typography-article-body-lead, border);
   padding: 0 0 14px 0;
   @include _oFtTypographyFont(Georgia, normal);
   @include oFtTypographyFontSize(21, 27);
-  color: oColorsGetColorFor(article-body-lead-text);
+  @include oColorsFor(o-ft-typography-article-body-lead body, text);
 }
 
 @include oFtTypographySelectors(article-body)  {
   @include oFtTypographyFontSize(16, 24);
   @include _oFtTypographyFont(Georgia, normal);
-  color: oColorsGetColorFor(article-body-text);
+  @include oColorsFor(o-ft-typography-article-body body, text);
 }
 
 @include oFtTypographySelectors(article-body__block) {

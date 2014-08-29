@@ -1,14 +1,14 @@
 @include oFtTypographySelectors(body--lead) {
   @include _oFtTypographyFont(BentonSans, normal);
   @include oFtTypographyFontSize(18, 24);
-  color: oColorsGetColorFor(body-lead-text);
+  @include oColorsFor(o-ft-typography-body-lead body, text);
   -webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
 }
 
 @include oFtTypographySelectors(body) {
   @include _oFtTypographyFont(BentonSans, normal);
   @include oFtTypographyFontSize(14, 20);
-  color: oColorsGetColorFor(body-text);
+  @include oColorsFor(body, text);
 }
 
 @include oFtTypographySelectors(body__block) {
