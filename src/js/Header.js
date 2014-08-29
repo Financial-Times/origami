@@ -1,10 +1,10 @@
 /*global require,module*/
+"use strict";
 
 var DomDelegate = require('ftdomdelegate'),
     oHierarchicalNav = require('o-hierarchical-nav');
 
 function Header(rootEl) {
-    "use strict";
 
     var bodyDelegate,
         // Gets all nav elements in the header
@@ -27,6 +27,11 @@ function Header(rootEl) {
         hierarchicalNavs = [];
 
     function init() {
+        if (!rootEl) {
+            rootEl = document.body;
+        } else if (!(rootEl instanceof HTMLElement)) {
+            rootEl = document.querySelector(rootEl);
+        }
         rootEl.setAttribute('data-o-ft-header--js', '');
         bodyDelegate = new DomDelegate(document.body);
         hierarchicalNavs = hierarchicalNavEls.map(function(el) {
@@ -52,10 +57,11 @@ function Header(rootEl) {
 }
 
 // Initializes all header elements in the page or whatever element is passed to it
-Header.prototype.createAllIn = function(el) {
-    'use strict';
+Header.init = function(el) {
     if (!el) {
         el = document.body;
+    } else if (!(el instanceof HTMLElement)) {
+        el = document.querySelector(el);
     }
     var headerEls = el.querySelectorAll('[data-o-component="o-ft-header"]:not([data-o-ft-header--js])'),
         headers = [];
