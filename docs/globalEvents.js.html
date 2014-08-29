@@ -74,286 +74,35 @@
             <li><a href="index.html">Main</a></li>
             <li><a href="auth.js.html">auth.js</a></li>
             <li><a href="config.js.html">config.js</a></li>
-            <li><a href="globalEvents.js.html">globalEvents.js</a></li>
+            <li class="active"><a href="globalEvents.js.html">globalEvents.js</a></li>
             <li><a href="i18n.js.html">i18n.js</a></li>
             <li><a href="main.js.html">main.js</a></li>
             <li><a href="resourceLoader.js.html">resourceLoader.js</a></li>
-            <li class="active"><a href="userDialogs.js.html">userDialogs.js</a></li>
+            <li><a href="userDialogs.js.html">userDialogs.js</a></li>
             <li><a href="utils.js.html">utils.js</a></li>
             <li><a href="Widget.js.html">Widget.js</a></li>
             <li><a href="WidgetUi.js.html">WidgetUi.js</a></li>
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#commentUi"><i class="alert alert-success"></i><span>commentUi</span></a>
+              <li><a href="#Events"><i class="alert alert-success"></i><span>Events</span></a>
               </li>
             </ul>
           </div>
         </div>
         <div class="span9">
-          <section id="commentUi">
-            <h1>commentUi</h1>
+          <section id="Events">
+            <h1>Events</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-success radius ctx-type">declaration</div><span>commentUi</span>
+              <div class="label label-success radius ctx-type">declaration</div><span>Events</span>
             </p>
           </section>
           <div class="description"> </div>
-          <pre><code class="language-javascript">var commentUi = require('comment-ui');
-var oCommentData = require('o-comment-data');
-var utils = require('./utils.js');
+          <pre><code class="language-javascript">var Events = require('comment-utilities').Events;
+var events = new Events();
 
-
-var emailSubscribeOptions = ['immediately', 'hourly', 'on'];
-var emailUnsubscribeOptions = ['never', 'off'];
-
-var globalEvents = require('./globalEvents.js');
-
-function inArray (array, item) {
-    &quot;use strict&quot;;
-
-    if (Array.prototype.indexOf) {
-        return array.indexOf(item) !== -1 ? true : false;
-    } else {
-         for (var i = 0; i &lt; array.length; i++) {
-            if (array[i] === item) {
-                return true;
-            }
-         }
-         return false;
-    }
-}
-
-function isSubscribed (option) {
-    &quot;use strict&quot;;
-    
-    return inArray(emailSubscribeOptions, option);
-}
-
-function isUnsubscribed (option) {
-    &quot;use strict&quot;;
-    
-    return inArray(emailUnsubscribeOptions, option);
-}
-
-
-exports.showSetPseudonymDialog = function (callbacks) {
-    &quot;use strict&quot;;
-
-    if (!callbacks || typeof callbacks !== 'object') {
-        callbacks = {};
-    }
-
-    callbacks.success = callbacks.success || function () {};
-    callbacks.failure = callbacks.failure || function () {};
-
-    commentUi.userDialogs.showSetPseudonymDialog({
-        submit: function (formData, responseCallback) {
-            if (formData &amp;&amp; formData.pseudonym) {
-                oCommentData.api.updateUser({
-                    pseudonym: formData.pseudonym
-                }, function (err) {
-                    if (err) {
-                        if (typeof err === 'object' &amp;&amp; err.sudsError) {
-                            if (commentUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
-                                responseCallback(commentUi.i18n.serviceMessageOverrides[err.error]);
-                            } else {
-                                responseCallback(err.error);
-                            }
-                        } else {
-                            responseCallback(commentUi.i18n.texts.changePseudonymError);
-                        }
-                        
-                        return;
-                    }
-
-
-                    oCommentData.api.getAuth({
-                        force: true
-                    }, function (err, authData) {
-                        if (err) {
-                            responseCallback(commentUi.i18n.texts.changePseudonymError);
-                            callbacks.failure();
-                            return;
-                        }
-
-                        callbacks.success(authData);
-                        responseCallback();
-                    });
-                });
-            } else {
-                responseCallback(commentUi.i18n.texts.changePseudonymBlankError);
-            }
-        },
-        close: function () {
-            callbacks.failure();
-            utils.emptyLivefyreActionQueue();
-        }
-    });
-};
-
-exports.showEmailAlertDialog = function () {
-    &quot;use strict&quot;;
-
-    commentUi.userDialogs.showEmailAlertDialog({
-        submit: function (formData, responseCallback) {
-            if (formData) {
-                oCommentData.api.updateUser(formData, function (err) {
-                    if (err) {
-                        if (typeof err === 'object' &amp;&amp; err.sudsError) {
-                            if (commentUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
-                                responseCallback(commentUi.i18n.serviceMessageOverrides[err.error]);
-                            } else {
-                                responseCallback(err.error);
-                            }
-                        } else {
-                            responseCallback(commentUi.i18n.texts.genericError);
-                        }
-                        
-                        return;
-                    }
-
-                    oCommentData.api.getAuth({
-                        force: true
-                    }, function (err) {
-                        if (err) {
-                            responseCallback(commentUi.i18n.texts.genericError);
-                            return;
-                        }
-
-                        // success
-                        responseCallback();
-
-                        // get new subscribes
-                        // as this is the initial setup, there cannot be considered any unsubscribe
-                        var subscribes = [];
-                        if (isSubscribed(formData.emailcomments)) {
-                            subscribes.push('emailcomments');
-                        }
-                        if (isSubscribed(formData.emailreplies)) {
-                            subscribes.push('emailreplies');
-                        }
-                        if (isSubscribed(formData.emaillikes)) {
-                            subscribes.push('emaillikes');
-                        }
-                        if (isSubscribed(formData.emailautofollow)) {
-                            subscribes.push('emailautofollow');
-                        }
-
-                        if (subscribes.length) {
-                            globalEvents.trigger('subscribe.tracking', subscribes);
-                        }
-                    });
-                });
-            } else {
-                responseCallback(commentUi.i18n.texts.genericError);
-            }
-        }
-    });
-};
-
-exports.showSettingsDialog = function (currentSettings, callbacks) {
-    &quot;use strict&quot;;
-
-    if (!callbacks || typeof callbacks !== 'object') {
-        callbacks = {};
-    }
-
-    callbacks.success = callbacks.success || function () {};
-    callbacks.failure = callbacks.failure || function () {};
-
-    commentUi.userDialogs.showSettingsDialog(currentSettings, {
-        submit: function (formData, responseCallback) {
-            if (formData) {
-                oCommentData.api.updateUser(formData, function (err) {
-                    if (err) {
-                        if (typeof err === 'object' &amp;&amp; err.sudsError) {
-                            if (commentUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
-                                responseCallback(commentUi.i18n.serviceMessageOverrides[err.error]);
-                            } else {
-                                responseCallback(err.error);
-                            }
-                        } else {
-                            responseCallback(commentUi.i18n.texts.genericError);
-                        }
-                        
-                        return;
-                    }
-
-                    oCommentData.api.getAuth({
-                        force: true
-                    }, function (err, authData) {
-                        if (err) {
-                            callbacks.failure();
-                            responseCallback(commentUi.i18n.texts.genericError);
-                            return;
-                        }
-
-                        callbacks.success(authData);
-                        responseCallback();
-
-                        // get subscribes and unsubscribes
-                        var subscribes = [];
-                        var unsubscribes = [];
-
-                        if (currentSettings.emailcomments !== formData.emailcomments) {
-                            if ((isUnsubscribed(currentSettings.emailcomments) || !currentSettings.emailcomments) &amp;&amp; isSubscribed(formData.emailcomments)) {
-                                subscribes.push('emailcomments');
-                            }
-                            if (isSubscribed(currentSettings.emailcomments) &amp;&amp; isUnsubscribed(formData.emailcomments)) {
-                                unsubscribes.push('emailcomments');
-                            }
-                        }
-
-                        if (currentSettings.emailreplies !== formData.emailreplies) {
-                            if ((isUnsubscribed(currentSettings.emailreplies) || !currentSettings.emailreplies) &amp;&amp; isSubscribed(formData.emailreplies)) {
-                                subscribes.push('emailreplies');
-                            }
-                            if (isSubscribed(currentSettings.emailreplies) &amp;&amp; isUnsubscribed(formData.emailreplies)) {
-                                unsubscribes.push('emailreplies');
-                            }
-                        }
-
-                        if (currentSettings.emaillikes !== formData.emaillikes) {
-                            if ((isUnsubscribed(currentSettings.emaillikes) || !currentSettings.emaillikes) &amp;&amp; isSubscribed(formData.emaillikes)) {
-                                subscribes.push('emaillikes');
-                            }
-                            if (isSubscribed(currentSettings.emaillikes) &amp;&amp; isUnsubscribed(formData.emaillikes)) {
-                                unsubscribes.push('emaillikes');
-                            }
-                        }
-
-                        if (currentSettings.emailautofollow !== formData.emailautofollow) {
-                            if ((isUnsubscribed(currentSettings.emailautofollow) || !currentSettings.emailautofollow) &amp;&amp; isSubscribed(formData.emailautofollow)) {
-                                subscribes.push('emailautofollow');
-                            }
-                            if (isSubscribed(currentSettings.emailautofollow) &amp;&amp; isUnsubscribed(formData.emailautofollow)) {
-                                unsubscribes.push('emailautofollow');
-                            }
-                        }
-
-
-                        if (subscribes.length) {
-                            globalEvents.trigger('subscribe.tracking', subscribes);
-                        }
-
-                        if (unsubscribes.length) {
-                            globalEvents.trigger('unsubscribe.tracking', unsubscribes);
-                        }
-                    });
-                });
-            } else {
-                responseCallback(commentUi.i18n.texts.genericError);
-            }
-        },
-        close: function () {
-            callbacks.failure();
-        }
-    });
-};
-
-
-exports.showInactivityMessage = commentUi.userDialogs.showInactivityMessage;</code></pre>
+module.exports = events;</code></pre>
         </div>
       </div>
     </div>

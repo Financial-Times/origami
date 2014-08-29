@@ -74,6 +74,7 @@
             <li><a href="index.html">Main</a></li>
             <li><a href="auth.js.html">auth.js</a></li>
             <li><a href="config.js.html">config.js</a></li>
+            <li><a href="globalEvents.js.html">globalEvents.js</a></li>
             <li><a href="i18n.js.html">i18n.js</a></li>
             <li><a href="main.js.html">main.js</a></li>
             <li><a href="resourceLoader.js.html">resourceLoader.js</a></li>
@@ -418,20 +419,28 @@
         self.ui.addSettingsLink({
             onClick: function () {
                 oCommentData.api.getAuth(function (err, currentAuthData) {
-                    if (err) {
-                        self.trigger('loginRequired.authAction');
+                    var showSettingsDialog = function () {
+                        userDialogs.showSettingsDialog(currentAuthData, {
+                            success: function (newAuthData) {
+                                if (newAuthData &amp;&amp; newAuthData.token) {
+                                    auth.getInstance().logout();
+                                    commentUtilities.logger.debug('new settings', newAuthData);
+                                    auth.getInstance().login(newAuthData.token);
+                                }
+                            }
+                        });
+                    };
+
+                    if (err || !currentAuthData) {
+                        self.trigger('loginRequired.authAction', {
+                            success: function () {
+                                showSettingsDialog();
+                            }
+                        });
                         return;
                     }
 
-                    userDialogs.showSettingsDialog(currentAuthData, {
-                        success: function (newAuthData) {
-                            if (newAuthData &amp;&amp; newAuthData.token) {
-                                auth.getInstance().logout();
-                                commentUtilities.logger.debug('new settings', newAuthData);
-                                auth.getInstance().login(newAuthData.token);
-                            }
-                        }
-                    });
+                    showSettingsDialog();
                 });
             }
         });

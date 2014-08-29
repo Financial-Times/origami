@@ -74,6 +74,7 @@
             <li><a href="index.html">Main</a></li>
             <li><a href="auth.js.html">auth.js</a></li>
             <li><a href="config.js.html">config.js</a></li>
+            <li><a href="globalEvents.js.html">globalEvents.js</a></li>
             <li><a href="i18n.js.html">i18n.js</a></li>
             <li class="active"><a href="main.js.html">main.js</a></li>
             <li><a href="resourceLoader.js.html">resourceLoader.js</a></li>
@@ -184,7 +185,9 @@ module.exports = {</code></pre>
         &quot;use strict&quot;;
         commentUtilities.logger.setLevel.apply(this, arguments);
     }
-};</code></pre>
+};
+module.exports.on = globalEvents.on;
+module.exports.off = globalEvents.off;</code></pre>
         </div>
       </div>
     </div>

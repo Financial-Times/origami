@@ -1,3 +1,4 @@
+var globalEvents = require('./src/javascripts/globalEvents');
 var config = require('./src/javascripts/config.js'),
     oCommentData = require('o-comment-data'),
     defaultConfig = require('./config.json'),
@@ -122,3 +123,5 @@ module.exports = {
         commentUtilities.logger.setLevel.apply(this, arguments);
     }
 };
+module.exports.on = globalEvents.on;
+module.exports.off = globalEvents.off;
