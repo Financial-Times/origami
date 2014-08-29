@@ -1,10 +1,10 @@
 /*global require,module*/
+"use strict";
 
 var DomDelegate = require('ftdomdelegate'),
     oHierarchicalNav = require('o-hierarchical-nav');
 
 function Header(rootEl) {
-    "use strict";
 
     var bodyDelegate,
         // Gets all nav elements in the header
@@ -58,7 +58,6 @@ function Header(rootEl) {
 
 // Initializes all header elements in the page or whatever element is passed to it
 Header.init = function(el) {
-    'use strict';
     if (!el) {
         el = document.body;
     } else if (!(el instanceof HTMLElement)) {
