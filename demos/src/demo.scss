@@ -47,7 +47,7 @@
 $o-colors-is-silent: false;
 
 // You can add custom use cases before importing colors module by defining the use-cases map yourself
-$o-colors-use-cases: (
+$o-colors-usecases: (
   foo: (background:green)
 );
 

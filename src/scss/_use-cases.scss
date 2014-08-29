@@ -151,4 +151,4 @@ $o-colors-usecases: map-merge((
     modal-heading:           (background: pink-tint4, text: white, _deprecated: "Moved into o-overlays"),
     modal-close:             (border: white, background: blue, text: white, _deprecated: "Moved into o-overlays")
 
-), $o-colors-use-cases) !global;
+), $o-colors-usecases) !global;
