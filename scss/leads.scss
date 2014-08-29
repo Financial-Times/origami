@@ -1,20 +1,20 @@
 @include oFtTypographySelectors(lead-large) {
   @include _oFtTypographyFont(MillerDisplay, normal);
   @include oFtTypographyFontSize(21, 26);
-  color: oColorsGetColorFor(lead, text);
+  @include oColorsFor(o-ft-typography-lead-large o-ft-typography-lead body, text);
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
 @include oFtTypographySelectors(lead-medium) {
   @include _oFtTypographyFont(MillerDisplay, normal);
   @include oFtTypographyFontSize(17, 21);
-  color: oColorsGetColorFor(lead-medium, text);
+  @include oColorsFor(o-ft-typography-lead-medium o-ft-typography-lead body, text);
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
 @include oFtTypographySelectors(lead-small) {
   @include _oFtTypographyFont(BentonSans, normal);
   @include oFtTypographyFontSize(13, 17);
-  color: oColorsGetColorFor(lead, text);
+  @include oColorsFor(o-ft-typography-lead-small o-ft-typography-lead body, text);
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }

@@ -26,10 +26,10 @@
 
 @include oFtTypographySelectors(body__link) {
   text-decoration: none;
-  color: oColorsGetColorFor(link-text);
+  @include oColorsFor(link, text);
   cursor: pointer;
   #{$o-hoverable-if-hover-enabled} &:hover {
-      color: oColorsGetColorFor(link-hover-text);
+    @include oColorsFor(link-hover, text);
   }
 }
 
