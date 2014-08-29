@@ -65,7 +65,7 @@ function Tabs(rootEl) {
 
     function selectTab(i) {
         var c, l;
-        if (hasInit && isValidTab(i) && i !== selectedTabIndex) {
+        if (isValidTab(i) && i !== selectedTabIndex) {
             for (c = 0, l = tabEls.length; c < l; c++) {
                 if (i === c) {
                     tabEls[c].setAttribute('aria-selected', 'true');
