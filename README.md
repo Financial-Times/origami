@@ -88,6 +88,5 @@ If you're not turning off silent mode, you will need to to load the fonts requir
 
 	@include oFtTypographyIncludeFont(heading); // downloads BentonSans-bold font given the current FT styles
   @include oFtTypographyIncludeFont(metadata); // downloads BentonSans-normal font given the current FT styles
-	@include oFtTypographyIncludeFont(title); // downloads MillerDisplay-normal font given the current FT styles
 
 If a typography use case doesn't require a `@fontface` declaration in current FT branding nothing will be output by `oFtTypographyIncludeFont()`, but it's still a good idea to call it for each use case you use as it will mean your module will cope seamlessly with updates to FT's typography.
