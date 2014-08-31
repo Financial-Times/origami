@@ -31,7 +31,7 @@
 /**
  * Return the CSS colour name of the first defined use case in a prioritised list for a use case / property combination
  */
-@function oColorsGetColorFor($namelist, $property: all, $default: null) {
+@function oColorsGetColorFor($namelist, $property: all, $options: ()) {
 	$color: null;
 	@each $name in $namelist {
 		@if ($color == null) {
@@ -39,17 +39,19 @@
 		}
 	}
 	@if ($color == null) {
-		@if ($default == null) {
+		@if (map-has-key($options, default)) {
+			@if (map-get($options, default) == undefined or map-get($options, default) == null) {
+				@return map-get($options, default);
+			} @else {
+				$color: map-get($options, default);
+			}
+		} @else {
 			$warn: "Undefined use-case: can\'t resolve use case list '" + $namelist + "'";
 			@if ($property) {
 				$warn: $warn + " for property '" + $property + "'";
 			}
 			@warn $warn;
 			$color: transparent;
-		} @elseif ($default == undefined) {
-			@return undefined;
-		} @else {
-			$color: $default;
 		}
 	}
 	@return oColorsGetPaletteColor($color);
