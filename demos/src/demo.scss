@@ -1,20 +1,14 @@
-$o-colors-is-silent: false;
 
-@import "../../main";
+/* Styles for demo UI */
 
-body, html {
-  margin:0;
-  padding:0;
-  overflow:hidden;
-}
-.sample {
+.demo-sample {
   margin-bottom: 10px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   height: 25px;
 }
-.swatch {
+.demo-swatch {
   width: 50px;
   height: 20px;
   border-radius: 3px;
@@ -25,33 +19,60 @@ body, html {
   display: inline-block;
   margin-right: 10px;
   vertical-align: middle;
-}
-.border {
   border-width: 2px;
   border-style: solid;
-  background-color: transparent !important;
+  color: transparent;
+  border-color: transparent;
 }
-.background {
-  border: 1px dashed #bbb !important;
-}
-.text {
-  background-color: transparent !important;
-}
-.text:after {
+.demo-swatch:after {
   content: 'Abc';
 }
-.name {
+.demo-name {
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.descrip {
+.demo-descrip {
   font-family: monospace;
   margin-left: 10px;
   font-size: 75%;
   color: #777;
 }
-table.o-techdocs-table, div.o-techdocs-table > table {
-  margin: 0;
+
+
+/* Demos - keep in sync with sass-usage.mustache where appropriate */
+
+// Remove silent mode for demo so that standard classes can be demoed in palette and use-cases demos
+$o-colors-is-silent: false;
+
+// You can add custom use cases before importing colors module by defining the use-cases map yourself
+$o-colors-usecases: (
+  foo: (background:green)
+);
+
+// Import colors module
+@import "../../main";
+
+// Adding custom colours after importing the colours module requires calling the oColorsSetUseCase mixin
+@include oColorsSetUseCase(custom-page, border, green);
+@include oColorsSetUseCase(custom-page, text, orange);
+
+.assign-palette-color-to-custom-class {
+  background-color: oColorsGetPaletteColor(blue);
+}
+.use-case-property-class {
+  background-color: oColorsGetColorFor(section-life-arts page, background);
+}
+.mixin-all-properties {
+  @include oColorsFor(page);
+}
+.mixin-selected-properties {
+  @include oColorsFor(page, background border); // There is no border on the page use case
+}
+.mixin-custom-usecase {
+  @include oColorsFor(custom-page page, text background border);
+}
+.mixin-custom-usecase-map {
+  @include oColorsFor(foo);
 }

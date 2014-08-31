@@ -4,3 +4,4 @@ build/
 test/output/
 demos/local
 .DS_Store
+node_modules/

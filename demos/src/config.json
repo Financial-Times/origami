@@ -2,7 +2,7 @@
 	"options": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
-		"bodyClasses": "o-techdocs o-techdocs-content"
+		"bodyClasses": "o-techdocs-content"
 	},
 	"demos": [
 		{
@@ -12,6 +12,10 @@
 		{
 			"name": "use-cases",
 			"template": "demos/src/use-cases.mustache"
+		},
+		{
+			"name": "sass-usage",
+			"template": "demos/src/sass-usage.mustache"
 		}
 	]
 }

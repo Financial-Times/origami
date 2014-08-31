@@ -1,15 +1,35 @@
+/**
+ * Add a custom use case property
+ */
 @mixin oColorsSetUseCase($usecase, $property, $color) {
-  $o-colors-usecase-list: append($o-colors-usecase-list, $usecase $color $property) !global;
+  $propmap: ($property: $color);
+  @if (map-has-key($o-colors-usecases, $usecase)) {
+    $propmap: map-merge(map-get($o-colors-usecases, $usecase), $propmap);
+  }
+  $newmap: ($usecase: $propmap);
+  $o-colors-usecases: map-merge($o-colors-usecases, $newmap) !global;
 }
 
+/**
+ * Output property declarations for all defined properties for the specified use case
+ */
 @mixin oColorsFor($useCaseList, $propertyList: all) {
   @if ($propertyList == 'all' or index($propertyList, 'background')) {
-    background-color: oColorsGetColorFor($useCaseList, background);
+    $col: oColorsGetColorFor($useCaseList, background, (default:undefined));
+    @if ($col != undefined) {
+      background-color: $col;
+    }
   }
   @if ($propertyList == 'all' or index($propertyList, 'text')) {
-    color: oColorsGetColorFor($useCaseList, text);
+    $col: oColorsGetColorFor($useCaseList, text, (default:undefined));
+    @if ($col != undefined) {
+      color: $col;
+    }
   }
   @if ($propertyList == 'all' or index($propertyList, 'border')) {
-    border-color: oColorsGetColorFor($useCaseList, border);
+    $col: oColorsGetColorFor($useCaseList, border, (default:undefined));
+    @if ($col != undefined) {
+      border-color: oColorsGetColorFor($useCaseList, border);
+    }
   }
 }

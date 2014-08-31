@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="http://build.origami.ft.com/bundles/css?modules=o-techdocs@^3.0.2" />
+
+
+<div class="demo-sample">
+	<div class="demo-swatch assign-palette-color-to-custom-class"></div>
+	<span class="demo-name">Palette color function</span>
+</div>
+<pre><code>.assign-palette-color-to-custom-class {
+  background-color: oColorsGetPaletteColor(blue);
+}</code></pre>
+
+
+<div class="demo-sample">
+	<div class="demo-swatch use-case-property-class"></div>
+	<span class="demo-name">Existing use cases function</span>
+</div>
+<pre><code>.use-case-property-class {
+  background-color: oColorsGetColorFor(section-life-arts page, background);
+}</pre></code>
+
+
+<div class="demo-sample">
+	<div class="demo-swatch mixin-all-properties"></div>
+	<span class="demo-name">Existing use cases via mixin</span>
+</div>
+<pre><code>.mixin-all-properties {
+  @include oColorsFor(page);
+}</code></pre>
+
+<div class="demo-sample">
+	<div class="demo-swatch mixin-selected-properties"></div>
+	<span class="demo-name">Mixin selected properties</span>
+</div>
+<pre><code>.mixin-selected-properties {
+  @include oColorsFor(page, background border); // There is no border on the page use case
+}</code></pre>
+
+
+<div class="demo-sample">
+	<div class="demo-swatch mixin-custom-usecase"></div>
+	<span class="demo-name">Custom use cases using mixin</span>
+</div>
+<pre><code>@include oColorsSetUseCase(custom-page, border, green);
+@include oColorsSetUseCase(custom-page, text, orange);
+
+.mixin-custom-usecase {
+  @include oColorsFor(custom-page page, text background border);
+}</code></pre>
+
+
+<div class="demo-sample">
+	<div class="demo-swatch mixin-custom-usecase-map"></div>
+	<span class="demo-name">Custom use cases pre-module import</span>
+</div>
+<pre><code>$o-colors-usecases: (
+  foo: (background:green)
+);
+@import "o-colors/main";
+
+.mixin-custom-usecase-map {
+  @include oColorsFor(foo);
+}</code></pre>

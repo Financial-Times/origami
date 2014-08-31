@@ -4,220 +4,151 @@
  * These mappings define what we use our colours for.
  *
  * Use case:           Must be a single word comprising just letters, numbers, and dashes.
- * Color name:         Must be an exact match for a name of a colour defined in palette.scss
- * CSS class property: Should be 'text', 'border', 'background', or 'all'.
- * Status:             Should normally not have a value. For out-dated colour use cases it should have one of the following values:
-                        'DEPRECATED' - The use case should not be used. Emits a warning during the SASS build
-                                        In general should only be used where *every* role (text, background, border) for the use case
-                                        is permanently deprecated
-                        'DISABLED' - The use case + role combination currently inherits from a more generic use case. 
-                                    Behaves the same as 'DEPRECATED' if the user has not specified a valid fallback use case
-                                    If a valid fallback is specified it silently ignores the disabled use case in favour of the fallback
+ * Properties:         A SASS map of properties (must be 'border', 'text', 'background', or 'all')
+ *                     against palette colours (must be an exact match for a name of a colour defined
+ *                     in palette.scss).
  *
- * You can have as many spaces between each entry as you like (so you can line them up neatly), and you *MUST* finish each line with a comma (except the final entry, which should not have a comma).
+ * Special properties: You can use the following special properties to mark use cases:
  *
- *
- *  <use case>                        <colorname>            <cssclassproperty>   [<status>]
+ *                     _deprecated: <msg>  Emits <msg> as a warning if referenced, but still works
  */
 
-$o-colors-usecase-list:
+@if (not variable-exists(o-colors-usecases)) {
+    $o-colors-usecases: () !global;
+}
+$o-colors-usecases: map-merge((
 
+/*  <use case>               <properties>                                            */
 
-    // Generics
-    page                              pink                   background,
-    page                              black                  text,
-    table                             transparent            background,
-    table-striped                     pink                   background,
-    table-header-row                  pink-tint4             border,
-    table-row                         pink-tint3             border,
-    table-row-alt                     pink-tint1             background,
-    box                               pink-tint1             background,
-    link                              blue                   text,
-    link-hover                        black                  text,
-    heading                           grey-tint5             text,
-    body                              grey-tint5             text,
-    title                             black                  text,
-    lead                              grey-tint4             text,
-    error                             red                    all,
-    error                             white                  background,
-    control                           white                  text,
-    control                           grey-tint5             background,
-    control-hover                     grey-tint1             text,
-    badge                             white                  text,
-    badge                             red                    background,
-
-    link-alt                          grey-tint5             text,
-    link-alt-hover                    blue                   text,
-    muted                             pink-tint3             text,
-
-    // Typography
-    heading-medium                    pink-tint2             border,
-    heading-large                     pink-tint4             border,
-    heading-large                     black                  text,
-    lead-medium                       grey-tint3             text,
-    brand                             black                  text,
-    byline                            pink-tint5             text,
-    timestamp                         pink-tint5             text,
-    body-lead                         grey-tint4             text,
-    article-body-lead                 grey-tint5             text,
-    article-body-lead                 pink-tint5             border,
-    article-body                      grey-tint5             text,
-    article-title                     black                  text                DEPRECATED,
-    article-subheading                grey-tint5             text,
-    article-subheading                pink-tint5             border,
-    article-byline                    pink-tint5             text                DEPRECATED,
-    article-divider                   pink-tint5             border              DEPRECATED,
-    label                             grey-tint5             text,
-
-    // FT header and footer
-    header                            grey-tint5             background,
-    header-item                       grey-tint4             border,
-    header-item                       grey-tint5             background,
-    header-item                       white                  text,
-    header-item-active                pink-tint2             background,
-    header-item-active                blue                   text,
-    ft-initials                       grey-tint5             text,
-    footer                            pink-tint1             background,
-    footer-underline                  pink-tint2             border              DEPRECATED,
-    footer-item                       pink-tint2             border,
-    pearson                           pink-tint2             background,
-    pearson                           pink-tint5             text,
-
-    // Forms (legacy/tbc)
-    forms-label                       black                  text                DEPRECATED,
-    forms-label-error                 black                  text                DEPRECATED,
-    forms-label-error                 white                  background          DEPRECATED,
-    forms-label-error                 red                    border              DEPRECATED,
-    forms-field                       pink-tint5             text                DEPRECATED,
-    forms-field                       white                  background          DEPRECATED,
-    forms-field                       pink-tint3             border              DEPRECATED,
-    forms-field-error                 pink-tint5             text                DEPRECATED,
-    forms-field-error                 white                  background          DEPRECATED,
-    forms-field-error                 red                    border              DEPRECATED,
-    forms-error                       red                    text                DEPRECATED,
-    forms-error                       white                  background          DEPRECATED,
-    forms-label-valid                 black                  text                DEPRECATED,
-    forms-label-valid                 white                  background          DEPRECATED,
-    forms-field-valid                 pink-tint5             text                DEPRECATED,
-    forms-field-valid                 white                  background          DEPRECATED,
-    forms-field-valid                 green                  border              DEPRECATED,
-    forms-valid                       green                  text                DEPRECATED,
-    forms-valid                       white                  background          DEPRECATED,
-    forms-prefixsuffix                pink-tint5             text,
-    forms-prefixsuffix                pink-tint1             background,
-    forms-button                      white                  text                DEPRECATED,
-    forms-button-hover                grey-tint1             text                DEPRECATED,
-    forms-button-negative             blue                   text                DEPRECATED,
-    forms-button-negative-hover       blue                   text                DEPRECATED,
-    forms-section                     claret                 border,
-
-    // Forms
-    form-field-label                  grey-tint5             text,
-    form-field-additional-info        grey-tint4             text,
-    form-field-standard               pink-tint3             border,
-    form-field-standard               white                  background,
-    form-field-standard               grey-tint5             text,
-    form-field-hover                  pink-tint5             border,
-    form-field-hover                  white                  background,
-    form-field-hover                  grey-tint5             text,
-    form-field-selected               pink-tint5             border,
-    form-field-selected               white                  background,
-    form-field-selected               grey-tint5             text,
-    form-field-disabled               pink-tint2             border,
-    form-field-disabled               pink-tint2             background,
-    form-field-disabled               pink-tint4             text,
-    form-field-valid                  green                  border,
-    form-field-valid                  white                  background,
-    form-field-valid                  grey-tint5             text,
-    form-field-invalid                red                    border,
-    form-field-invalid                white                  background,
-    form-field-invalid                red                    text,
-    form-error                        red                    border,
-    form-error                        red                    background,
-    form-error                        white                  text,
-
-    // Buttons
-    button-standard                   pink-tint5             border,
-    button-standard                   pink                   background,
-    button-standard                   grey-tint4             text,
-    button-hover                      pink-tint5             border,
-    button-hover                      pink-tint2             background,
-    button-hover                      grey-tint4             text,
-    button-selected                   pink-tint5             border,
-    button-selected                   pink-tint5             background,
-    button-selected                   pink                   text,
-    button-disabled                   pink-tint2             border,
-    button-disabled                   pink-tint2             background,
-    button-disabled                   pink-tint4             text,
-    button-negative                   blue                   text                DEPRECATED,
-    button-negative-hover             blue                   text                DEPRECATED,
-
-    // Buttons (standout)
-    button-standout-standard          blue                   border,
-    button-standout-standard          blue                   background,
-    button-standout-standard          white                  text,
-    button-standout-hover             dark-blue              border,
-    button-standout-hover             dark-blue              background,
-    button-standout-hover             white                  text,
-
-    // Tech docs
-    block-code-sample                 pink-tint1             background,
-    block-code-sample                 pink-tint2             border,
-    block-code-sample                 grey-tint5             text,
-    inline-code-sample                pink-tint1             background,
-    inline-code-sample                claret                 text,
-    docs-aside                        pink-tint1             background,
-    docs-aside                        pink-tint2             border,
-    docs-nav                          pink-tint1             background,
-    docs-nav-active                   pink-tint2             background,
-    docs-inpagenav-link               claret                 text,
+    page:                    (background: pink, text: grey-tint5),
+    box:                     (background: pink-tint1),
+    link:                    (text: blue),
+    link-hover:              (text: black),
+    link-title:              (text: grey-tint5),
+    link-title-hover:        (text: blue),
+    title:                   (text: black),
+    body:                    (text: grey-tint5),
+    muted:                   (text: pink-tint3),
 
     // Section colors
-    section-life-arts                 section-purple         all,
-    section-life-arts-alt             section-light-purple   all,
-    section-magazine                  section-blue           all,
-    section-magazine-alt              section-light-blue     all,
-    section-house-home                section-green          all,
-    section-house-home-alt            section-light-green    all,
-    section-money                     section-red            all,
-    section-money-alt                 white                  all,
+    section-life-arts:       (all: section-purple),
+    section-life-arts-alt:   (all: section-light-purple),
+    section-magazine:        (all: section-blue),
+    section-magazine-alt:    (all: section-light-blue),
+    section-house-home:      (all: section-green),
+    section-house-home-alt:  (all: section-light-green),
+    section-money:           (all: section-red),
+    section-money-alt:       (all: white),
+
+    // Healthchecks (TODO: Move into o-techdocs)
+    status-ok:               (background: green, text: white),
+    status-error:            (background: red, text: white),
+    severity-1:              (background: blue-tint1, text: white),
+    severity-2:              (background: orange-tint1, text: white),
+    severity-3:              (background: yellow-tint1, text: white),
+
+    // Header (TODO: Move into o-ft-header)
+    header:                  (background: grey-tint5),
+    header-item:             (border: grey-tint4, background: grey-tint5, text: white),
+    header-item-active:      (background: pink-tint2, text: blue),
+    ft-initials:             (text: grey-tint5),
+
+    // Forms (TODO: Move into o-ft-forms)
+    form-field-label:        (text: grey-tint5),
+    form-field-additional-info: (text: grey-tint4),
+    form-field-standard:     (border: pink-tint3, background: white, text: grey-tint5),
+    form-field-hover:        (border: pink-tint5, background: white, text: grey-tint5),
+    form-field-selected:     (border: pink-tint5, background: white, text: grey-tint5),
+    form-field-disabled:     (border: pink-tint2, background: pink-tint2, text: pink-tint4),
+    form-field-valid:        (border: green, background: white, text: grey-tint5),
+    form-field-invalid:      (border: red, background: white, text: red),
+    form-error:              (border: red, background: red, text: white),
+
+    // Buttons (TODO: Move into o-ft-buttons)
+    button-standard:         (border: pink-tint5, background: pink, text: grey-tint4),
+    button-hover:            (border: pink-tint5, background: pink-tint2, text: grey-tint4),
+    button-selected:         (border: pink-tint5, background: pink-tint5, text: pink),
+    button-disabled:         (border: pink-tint2, background: pink-tint2, text: pink-tint4),
+    button-negative:         (text: blue, _deprecated: "Redundant"),
+    button-negative-hover:   (text: blue, _deprecated: "Redundant"),
+    button-standout-standard: (border: blue, background: blue, text: white),
+    button-standout-hover:   (border: dark-blue, background: dark-blue, text: white),
+
+    // Panels (TODO: move into o-aside-panel)
+    panel-heading:           (background: pink-tint2, border: pink-tint4),
+    panel-body:              (background: pink-tint1),
+
+    // Quotes (TODO: move into o-quote)
+    quote:                   (background: pink-tint2, text: grey-tint4),
+
+
+    /* Deprecated */
+
+    badge:                   (text: white, background: red, _deprecated: "Moved into o-ft-typography"),
+    error:                   (text: red, border: red, background: white, _deprecated: "Move into component"),
+    heading:                 (text: grey-tint5, _deprecated: "Use `body` instead"),
+    lead:                    (text: grey-tint4, _deprecated: "Moved into o-ft-typography"),
+    label:                   (text: grey-tint5, _deprecated: "Use `body` instead"),
+    link-alt:                (text: grey-tint5, _deprecated: "Use `link-title`"),
+    link-alt-hover:          (text: blue, _deprecated: "Use `link-title-hover`"),
+    control:                 (text: white, background: grey-tint5, _deprecated: "Move into component"),
+    control-hover:           (text: grey-tint1, _deprecated: "Move into component"),
+
+    table:                   (background: transparent, _deprecated: "Moved into o-table component"),
+    table-striped:           (background: pink, _deprecated: "Moved into o-table component"),
+    table-header-row:        (border: pink-tint4, _deprecated: "Moved into o-table component"),
+    table-row:               (border: pink-tint3, _deprecated: "Moved into o-table component"),
+    table-row-alt:           (background: pink-tint1, _deprecated: "Moved into o-table component"),
+
+    footer:                  (background: pink-tint1, _deprecated: "Moved into o-ft-footer"),
+    footer-underline:        (border: pink-tint2, _deprecated: "Moved into o-ft-footer"),
+    footer-item:             (border: pink-tint2, _deprecated: "Moved into o-ft-footer"),
+    pearson:                 (background: pink-tint2, text: pink-tint5, _deprecated: "Moved into o-ft-footer"),
+
+    forms-label:             (text: black, _deprecated: "Redundant"),
+    forms-label-error:       (text: black, background: white, border: red, _deprecated: "Redundant"),
+    forms-field:             (text: pink-tint5, background: white, border: pink-tint3, _deprecated: "Redundant"),
+    forms-field-error:       (text: pink-tint5, background: white, border: red, _deprecated: "Redundant"),
+    forms-error:             (text: red, background: white, _deprecated: "Redundant"),
+    forms-label-valid:       (text: black, background: white, _deprecated: "Redundant"),
+    forms-field-valid:       (text: pink-tint5, background: white, border: green, _deprecated: "Redundant"),
+    forms-valid:             (text: green, background: white, _deprecated: "Redundant"),
+    forms-prefixsuffix:      (text: pink-tint5, background: pink-tint1, _deprecated: "Redundant"),
+    forms-button:            (text: white, _deprecated: "Redundant"),
+    forms-button-hover:      (text: grey-tint1, _deprecated: "Redundant"),
+    forms-button-negative:   (text: blue, _deprecated: "Redundant"),
+    forms-button-negative-hover: (text: blue, _deprecated: "Redundant"),
+    forms-section:           (border: claret, _deprecated: "Redundant"),
+
+    // Tech docs
+    block-code-sample:       (background: pink-tint1, border: pink-tint2, text: grey-tint5, _deprecated: "Moved into o-techdocs"),
+    inline-code-sample:      (background: pink-tint1, text: claret, _deprecated: "Moved into o-techdocs"),
+    docs-aside:              (background: pink-tint1, border: pink-tint2, _deprecated: "Moved into o-techdocs"),
+    docs-nav:                (background: pink-tint1, _deprecated: "Moved into o-techdocs"),
+    docs-nav-active:         (background: pink-tint2, _deprecated: "Moved into o-techdocs"),
+    docs-inpagenav-link:     (text: claret, _deprecated: "Moved into o-techdocs"),
 
     // Overlays
-    dialog                            pink-tint4             border         DEPRECATED,
-    dialog                            white                  background     DEPRECATED,
-    dialog                            grey-tint5             text           DEPRECATED,
-    dialog-heading                    pink-tint4             background     DEPRECATED,
-    dialog-heading                    white                  text           DEPRECATED,
-    dialog-close                      white                  border         DEPRECATED,
-    dialog-close                      blue                   background     DEPRECATED,
-    dialog-close                      white                  text           DEPRECATED,
-    modal                             pink-tint4             border         DEPRECATED,
-    modal                             white                  background     DEPRECATED,
-    modal                             grey-tint5             text           DEPRECATED,
-    modal-heading                     pink-tint4             background     DEPRECATED,
-    modal-heading                     white                  text           DEPRECATED,
-    modal-close                       white                  border         DEPRECATED,
-    modal-close                       blue                   background     DEPRECATED,
-    modal-close                       white                  text           DEPRECATED,
+    dialog:                  (border: pink-tint4, background: white, text: grey-tint5, _deprecated: "Moved into o-overlays"),
+    dialog-heading:          (background: pink-tint4, text: white, _deprecated: "Moved into o-overlays"),
+    dialog-close:            (border: white, background: blue, text: white, _deprecated: "Moved into o-overlays"),
+    modal:                   (border: pink-tint4, background: white, text: grey-tint5, _deprecated: "Moved into o-overlays"),
+    modal-heading:           (background: pink-tint4, text: white, _deprecated: "Moved into o-overlays"),
+    modal-close:             (border: white, background: blue, text: white, _deprecated: "Moved into o-overlays"),
 
-    // Panels
-    panel-heading                     pink-tint2             background,
-    panel-heading                     pink-tint4             border,
-    panel-body                        pink-tint1             background,
-    
-    // Healthchecks
-    status-ok                         green                  background,
-    status-ok                         white                  text,
-    status-error                      red                    background,
-    status-error                      white                  text,
-    severity-1                        blue-tint1             background,
-    severity-1                        white                  text,
-    severity-2                        orange-tint1           background,
-    severity-2                        white                  text,
-    severity-3                        yellow-tint1           background,
-    severity-3                        white                  text,
+    // Typography
+    heading-medium:          (border: pink-tint2, _deprecated: "Moved into o-ft-typography"),
+    heading-large:           (border: pink-tint4, text: black, _deprecated: "Moved into o-ft-typography"),
+    lead-medium:             (text: grey-tint3, _deprecated: "Moved into o-ft-typography"),
+    brand:                   (text: black, _deprecated: "Moved into o-ft-typography"),
+    byline:                  (text: pink-tint5, _deprecated: "Moved into o-ft-typography"),
+    timestamp:               (text: pink-tint5, _deprecated: "Moved into o-ft-typography"),
+    body-lead:               (text: grey-tint4, _deprecated: "Moved into o-ft-typography"),
+    article-body-lead:       (text: grey-tint5, border: pink-tint5, _deprecated: "Moved into o-ft-typography"),
+    article-body:            (text: grey-tint5, _deprecated: "Moved into o-ft-typography"),
+    article-title:           (text: black, _deprecated: "Redundant"),
+    article-subheading:      (text: grey-tint5, border: pink-tint5, _deprecated: "Moved into o-ft-typography"),
+    article-byline:          (text: pink-tint5, _deprecated: "Redundant"),
+    article-divider:         (border: pink-tint5, _deprecated: "Redundant"),
 
-    // Quotes
-    quote                             pink-tint2             background,
-    quote                             grey-tint4             text
-!default;
+), $o-colors-usecases) !global;
