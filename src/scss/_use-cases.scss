@@ -18,7 +18,7 @@
 }
 $o-colors-usecases: map-merge((
 
-/*  <use case>               <properties>                                    */
+/*  <use case>               <properties>                                            */
 
     page:                    (background: pink, text: grey-tint5),
     box:                     (background: pink-tint1),
@@ -46,21 +46,6 @@ $o-colors-usecases: map-merge((
     severity-1:              (background: blue-tint1, text: white),
     severity-2:              (background: orange-tint1, text: white),
     severity-3:              (background: yellow-tint1, text: white),
-
-    // Typography (TODO: Move into o-ft-typography)
-    heading-medium:          (border: pink-tint2),
-    heading-large:           (border: pink-tint4, text: black),
-    lead-medium:             (text: grey-tint3),
-    brand:                   (text: black),
-    byline:                  (text: pink-tint5),
-    timestamp:               (text: pink-tint5),
-    body-lead:               (text: grey-tint4),
-    article-body-lead:       (text: grey-tint5, border: pink-tint5),
-    article-body:            (text: grey-tint5),
-    article-title:           (text: black, _deprecated: "Redundant"),
-    article-subheading:      (text: grey-tint5, border: pink-tint5),
-    article-byline:          (text: pink-tint5, _deprecated: "Redundant"),
-    article-divider:         (border: pink-tint5, _deprecated: "Redundant"),
 
     // Header (TODO: Move into o-ft-header)
     header:                  (background: grey-tint5),
@@ -149,6 +134,21 @@ $o-colors-usecases: map-merge((
     dialog-close:            (border: white, background: blue, text: white, _deprecated: "Moved into o-overlays"),
     modal:                   (border: pink-tint4, background: white, text: grey-tint5, _deprecated: "Moved into o-overlays"),
     modal-heading:           (background: pink-tint4, text: white, _deprecated: "Moved into o-overlays"),
-    modal-close:             (border: white, background: blue, text: white, _deprecated: "Moved into o-overlays")
+    modal-close:             (border: white, background: blue, text: white, _deprecated: "Moved into o-overlays"),
+
+    // Typography
+    heading-medium:          (border: pink-tint2, _deprecated: "Moved into o-ft-typography"),
+    heading-large:           (border: pink-tint4, text: black, _deprecated: "Moved into o-ft-typography"),
+    lead-medium:             (text: grey-tint3, _deprecated: "Moved into o-ft-typography"),
+    brand:                   (text: black, _deprecated: "Moved into o-ft-typography"),
+    byline:                  (text: pink-tint5, _deprecated: "Moved into o-ft-typography"),
+    timestamp:               (text: pink-tint5, _deprecated: "Moved into o-ft-typography"),
+    body-lead:               (text: grey-tint4, _deprecated: "Moved into o-ft-typography"),
+    article-body-lead:       (text: grey-tint5, border: pink-tint5, _deprecated: "Moved into o-ft-typography"),
+    article-body:            (text: grey-tint5, _deprecated: "Moved into o-ft-typography"),
+    article-title:           (text: black, _deprecated: "Redundant"),
+    article-subheading:      (text: grey-tint5, border: pink-tint5, _deprecated: "Moved into o-ft-typography"),
+    article-byline:          (text: pink-tint5, _deprecated: "Redundant"),
+    article-divider:         (border: pink-tint5, _deprecated: "Redundant"),
 
 ), $o-colors-usecases) !global;
