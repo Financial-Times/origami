@@ -1,61 +1,18 @@
 # Colours [![Build Status](https://travis-ci.org/Financial-Times/o-colors.png?branch=master)](https://travis-ci.org/Financial-Times/o-colors)
 
-This is an [Origami](http://financial-times.github.io/ft-origami/) module that provides variables to define the FT digital colour palette.
+This is an [Origami](http://origami.ft.com/) module that provides variables to define the FT digital colour palette.  For installation instructions, see the [registry page](http://registry.origami.ft.com/components/o-colors).
 
 ## Usage
 
-Install the module and `@import` the SASS, or use the [build service](http://financial-times.github.io/ft-origami/docs/developer-guide/build-service) to load it into your page.
+There are a number of ways of using colours in your component or product.  Here they are from most to least preferred.  All mixin and function approaches require you to import the module into your own build, while the final method of using predefined classes is compatible with using the build service.
 
-### Using via SASS import
+### Use case mixin
 
-The preferred way of using __o-colors__ is to use colour _use cases_ rather than access the palette directly. This is done via the `oColorsGetColorFor` function:
-
-```scss
-.my-thing {
-    color: oColorsGetColorFor(article-life-arts-body article-body body, text);
-}
-```
-
-The `oColorsGetColorFor` function takes two arguments:
-
-* **Use case list**: a list of colour use cases in order of preference.  The first one that is defined will be returned (similar behaivour to the CSS `font-family` property)
-* **Property**: The property that you want to use the colour for (background, border, or text)
-
-Alternatively, you may extend placeholder classes:
+Use the `oColorsFor` mixin to add colour-related properties to your ruleset:
 
 ```scss
 .my-thing {
-  @extend %o-colors-article-body-text;
-}
-```
-    
-You can also add use cases for your particular module or product. This is done using the `oColorsSetUseCase` mixin:
-
-```scss
-@include oColorsSetUseCase(email, text, grey-tint-5);
-```
-
-It takes three arguments:
-
-* **Use case**: your particular use case
-* **Property**: the property for which the color should be used for (background, border, or text)
-* **Color**: a color from the palette
-
-Sometimes you may need to access the palette directly, in which case the `oColorsGetPaletteColor` function should be used:
-
-```scss
-.my-thing {
-    color: oColorsGetPaletteColor(grey-tint4);
-}
-```
-
-`oColorsGetPaletteColor` takes a single argument: the name of the palette colour.
-
-In case you would prefer to get all three default CSS properties for a specific use case list, you can use the `oColorsFor` mixin:
-
-```scss
-.my-thing {
-    @include oColorsFor(body);
+	@include oColorsFor(custom-box box, background border);
 }
 ```
 
@@ -64,27 +21,65 @@ It takes two arguments:
 * **Use case list**: a list of colour use cases in order of preference.  The first one that is defined will be returned.
 * **Property list**: a list of all the properties you want the colour applied to (background, border, text). They each correspond to `background-colour`, `border-color` and `color`. Default is _all_ which includes all three properties.
 
-#### Silent mode
+In the example above, the background and border colours are set, preferably from the *custom-box* use case, and if either of those properties are not available for that use case, from the *box* use case.
 
-This module supports silent mode and will be silent by default.
+### Use case function
 
-In silent mode it will output no concrete selectors, only functions and placeholders. You can then use these in your own CSS to import only the elements of the module that you need.
+If you need to use a color value as part of a more complex CSS rule, eg a border color for just one side, or a gradient background, use the `oColorsGetColorFor` function:
 
-It is not recommended, but silent mode can be turned off by setting the following variable before the import in your SASS:
+```scss
+.my-thing {
+    color: oColorsGetColorFor(article-life-arts-body article-body body, text, (default:blue));
+}
+```
+
+The `oColorsGetColorFor` function takes three arguments:
+
+* **Use case list**: a list of colour use cases in order of preference.  The first one that is defined for the specified property will be returned
+* **Property**: The property that you want to use the colour for (background, border, or text).  Note that in contrast to the `oColorsFor` mixin, you must specify only one property.   Options are `background`, `border`, `text`, and `all`.
+* **Options**: A SASS *map* of additional options, all of which are optional, and may comprise:
+	* **default**: The name of a palette colour to return as the default if none of the specified use cases are defined for the desited property.  May also be set to null or undefined to return that instead of the built in default (which is transparent)
+
+### Palette colour function
+
+If you have a colour use case not covered by those built into the colors module, consider defining a custom use case (see below) and then using the use case mixin or function described above.  However, if you need to use a particular colour in one single place only, it may be worth using the `oColorsGetPaletteColor` function, which returns the CSS color for a palette colour name:
+
+```scss
+.my-thing {
+	color: oColorsGetPaletteColor(pink-tint4);
+}
+```
+
+### Predefined classes
+
+By default, o-colors is **silent**, so it outputs **no classes**.  To use predefined classes, you must disable silent mode before importing the colors module (if you are using the build service, it will do this for you):
 
 ```scss
     $o-colors-is-silent: false;
 ```
 
-With silent mode turned off, concrete classes will be output. See "Using via the build service".
-
-### Using via the build service
-
-Use concrete classes directly in your HTML (not recommended, except for prototypes and demos):
+You can then use predefined classes in your HTML.  All palette colors are available as `.o-colors-palette-[NAME]` (which style just `background-color`) and use cases are available as `.o-colors-[USECASE]-[PROPERTY]` (which style the appropriate property):
 
 ```html
-    <p class='o-colors-article-body-text'>Article text</p>
+    <p class='o-colors-body-text'>Article text</p>
 ```
+
+## Defining custom use cases
+
+You can add use cases for your particular component or product. This is done using the `oColorsSetUseCase` mixin:
+
+```scss
+@include oColorsSetUseCase(email, text, grey-tint5);
+```
+
+It takes three arguments:
+
+* **Use case**: your particular use case
+* **Property**: the property for which the color should be used for (background, border, or text)
+* **Color**: a color from the palette
+
+If you are creating a use case for a component, you *must* namespace your use case name with the name of your component.
+
 
 ## Development
 
@@ -104,8 +99,8 @@ Instructions for maintaining the color palette for non-developers:
 1. Create a new branch by clicking the `+` icon at the right end of the `master` branch, and name it after your proposed change (using just letters, numbers and underscores) eg `forms_use_cases`.
 1. Make sure your new branch is ticked, if not, double click it.
 1. Open the file you want to edit (created by Github on your computer) in a text editor such as [Sublime Text](http://www.sublimetext.com/) or [Brackets](http://brackets.io/) (don't just double click the file unless you've set up one of these editors to open `.scss` files by default)
-	* If you want to add or remove palette colours, the file you want is `src/scss/palette.scss`
-	* If you want to add or remove use cases for colours, the file you want is `src/scss/use-cases.scss`
+	* If you want to add or remove palette colours, the file you want is `src/scss/_palette.scss`
+	* If you want to add or remove use cases for colours, the file you want is `src/scss/_use-cases.scss`
 1. Edit the file, following the instructions in the comments at the top of the file
 1. Switch back to the Github app and click the 'Changes' tab.  Verify that it says 'committing to <your new branch name>' and that the list shows the files with the changes you made.
 1. Type a description of your change, and press 'Commit & Sync'
