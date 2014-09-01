@@ -28,7 +28,7 @@
         [aria-controls][aria-expanded="true"] a,
         #{$o-hoverable-if-hover-enabled} & > li > a:hover {
             background-color: $_o-ft-header-secondary-selected;
-            color: oColorsGetColorFor(heading ,text);
+            color: oColorsGetColorFor(link-title, text);
             opacity: 1;
         }
     }
