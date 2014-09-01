@@ -1,11 +1,11 @@
 /*global require,module*/
+"use strict";
 
 var DomDelegate = require('ftdomdelegate'),
     oDom = require('o-dom'),
     TextCopyHelper = require('./TextCopyHelper');
 
 function ShareLinks(rootEl) {
-    "use strict";
 
     var rootDomDelegate,
         shareObj = this,
@@ -79,6 +79,11 @@ function ShareLinks(rootEl) {
     }
 
     function init() {
+        if (!rootEl) {
+            rootEl = document.body;
+        } else if (!(rootEl instanceof HTMLElement)) {
+            rootEl = document.querySelector(rootEl);
+        }
         rootDomDelegate = new DomDelegate(rootEl);
         rootDomDelegate.on('click', handleClick);
         rootEl.setAttribute('data-o-share--js', '');
@@ -99,10 +104,13 @@ function ShareLinks(rootEl) {
     this.destroy = destroy;
 }
 
-ShareLinks.prototype.createAllIn = function(el) {
-    "use strict";
+ShareLinks.init = function(el) {
     var shareLinks = [], sEls, c, l;
-    el = el || document.body;
+    if (!el) {
+        el = document.body; 
+    } else if (!(el instanceof HTMLElement)) {
+        el = document.querySelector(el);
+    }
     if (el.querySelectorAll) {
         sEls = el.querySelectorAll('[data-o-component=o-share]:not([data-o-share--js])');
         for (c = 0, l = sEls.length; c < l; c++) {

@@ -1,4 +1,5 @@
 /*global require,describe,beforeEach,afterEach,it,expect,spyOn*/
+"use strict";
 
 require('./helpers/polyfill');
 
@@ -9,7 +10,6 @@ var fixtures = require('./helpers/fixtures'),
     shareLinksEl;
 
 describe("general behaviour", function() {
-    "use strict";
 
     beforeEach(function(){
         fixtures.insertShareLinks();
@@ -33,7 +33,6 @@ describe("general behaviour", function() {
 });
 
 describe("general behaviour", function() {
-    "use strict";
 
     var twitterLinkEl;
 

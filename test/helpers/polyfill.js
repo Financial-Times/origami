@@ -1,8 +1,7 @@
-
+"use strict";
 // Function.prototype.bind is not implemented in PhantomJS
 if (!Function.prototype.bind) {
-    Function.prototype.bind = function (oThis) {
-        "use strict";
+    Function.prototype.bind = function (oThis) { // jshint ignore:line
         if (typeof this !== "function") {
             // closest thing possible to the ECMAScript 5
             // internal IsCallable function
