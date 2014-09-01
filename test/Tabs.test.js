@@ -1,8 +1,6 @@
 /*global require,describe,beforeEach,afterEach,it,expect,spyOn*/
 'use strict';
 
-require('./helpers/polyfills');
-
 var fixtures = require('./helpers/fixtures'),
     Tabs = require('./../main'),
     testTabs,
