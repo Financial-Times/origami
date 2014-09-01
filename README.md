@@ -68,12 +68,12 @@ Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), the eve
 
 ```javascript
 var Tabs = require('o-tabs');
-var tabsObjects = Tabs.createAllIn(document.body);
+var tabsObjects = Tabs.init();
 ```
 
 An array of any constructed Tabs objects will be returned.
 
-`Tabs.createAllIn()` will not create Tabs objects for elements that already have Tabs objects constructed on them, therefore it's safe to call more than once on the same page region.
+`Tabs.init()` will not create Tabs objects for elements that already have Tabs objects constructed on them, therefore it's safe to call more than once on the same page region.
 
 ### Imperative
 
