@@ -1,6 +1,22 @@
 # o-tabs [![Build Status](https://travis-ci.org/Financial-Times/o-tabs.png?branch=master)](https://travis-ci.org/Financial-Times/o-tabs)
 
-> A single content area with multiple panels, each associated with a header in a list.
+A single content area with multiple panels, each associated with a header in a list.
+
+## Browser Support
+
+Tested and working on:
+
+|  Browsers  | Primary Experience | Core Experience |
+|:----------:|:------------------:|:---------------:|
+|   Chrome   |        35+         |       35+       |
+|   Firefox  |        30+         |       30+       |
+|   Safari   |        7+          |       7+        |
+|   IE       |        8+          |       8+        |
+
+Known issues:
+
+* IE8+ need the polyfill for `CustomEvent`
+* IE8 also needs the polyfill for `addEventListener`
 
 ## Markup
 
