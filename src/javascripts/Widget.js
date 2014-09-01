@@ -96,8 +96,7 @@ function Widget () {
             if (initData.unclassifiedArticle !== true) {
                 self.trigger('ready.widget');
 
-                var authInstance = auth.getInstance();
-                var authDelegate = authInstance.getAuthDelegate();
+                var authDelegate = auth.getAuthDelegate();
 
                 // extends the init data received from SUDS with some user specified fields.
                 if (self.config.initExtension && typeof self.config.initExtension === 'object') {
@@ -140,30 +139,24 @@ function Widget () {
                             self.trigger('loaded.widget', widget);
 
                             widget.on('initialRenderComplete', function () {
-                                auth.getInstance().on('login.auth', login);
-                                auth.getInstance().on('logout.auth', logout);
+                                auth.on('login.auth', login);
+                                auth.on('logout.auth', logout);
 
                                 self.ui.addTermsAndGuidelineMessage();
 
                                 if (authData) {
                                     if (authData.token) {
-                                        auth.getInstance().login(authData.token);
+                                        auth.login(authData.token);
 
                                         if (self.forceMode === true) {
                                             setTimeout(self.ui.scrollToWidget, 2000);
                                         }
                                     } else if (authData.pseudonym === false) {
-                                        auth.getInstance().pseudonymMissing = true;
-                                        auth.getInstance().pseudonymWasMissing = true;
+                                        auth.pseudonymMissing = true;
+                                        auth.pseudonymWasMissing = true;
 
                                         if (self.forceMode === true) {
-                                            userDialogs.showSetPseudonymDialog({
-                                                success: function (newAuthData) {
-                                                    if (newAuthData && newAuthData.token) {
-                                                        auth.getInstance().login(newAuthData.token);
-                                                    }
-                                                }
-                                            });
+                                            auth.loginRequired();
                                         }
 
                                         self.ui.hideSignInLink();
@@ -179,7 +172,7 @@ function Widget () {
 
                             var siteId = parseInt(initData.siteId, 10);
                             widget.on('commentPosted', function (eventData) {
-                                if (!auth.getInstance().pseudonymWasMissing) {
+                                if (!auth.pseudonymWasMissing) {
                                     oCommentData.api.getAuth(function (err, authData) {
                                         if (err) {
                                             authData = null;
@@ -194,7 +187,7 @@ function Widget () {
                                         }
                                     });
                                 } else {
-                                    auth.getInstance().pseudonymWasMissing = false;
+                                    auth.pseudonymWasMissing = false;
                                 }
 
                                 self.trigger('commentPosted.tracking', [siteId, eventData]);
@@ -214,35 +207,7 @@ function Widget () {
 
 
                             authDelegate.login = function (delegate) {
-                                oCommentData.api.getAuth(function (err, authData) {
-                                    if (authData && authData.pseudonym === false) {
-                                        commentUtilities.logger.log('pseudonymMissing');
-                                        userDialogs.showSetPseudonymDialog({
-                                            success: function (newAuthData) {
-                                                if (self.config.authPageReload === true) {
-                                                    utils.emptyLivefyreActionQueue();
-                                                }
-
-                                                if (newAuthData && newAuthData.token) {
-                                                    auth.getInstance().login(newAuthData.token);
-                                                }
-
-                                                delegate.success();
-                                            },
-                                            failure: function () {
-                                                delegate.failure();
-                                            }
-                                        });
-                                    } else if (!authData || !authData.token) {
-                                        if (self.config.authPageReload === true) {
-                                            delegate.failure();
-
-                                            self.trigger('loginRequired.authAction');
-                                        } else {
-                                            self.trigger('loginRequired.authAction', delegate);
-                                        }
-                                    }
-                                });
+                                auth.loginRequired(delegate);
                             };
 
                             authDelegate.logout = function (delegate) {
@@ -290,9 +255,9 @@ function Widget () {
                             userDialogs.showSettingsDialog(currentAuthData, {
                                 success: function (newAuthData) {
                                     if (newAuthData && newAuthData.token) {
-                                        auth.getInstance().logout();
+                                        auth.logout();
                                         commentUtilities.logger.debug('new settings', newAuthData);
-                                        auth.getInstance().login(newAuthData.token);
+                                        auth.login(newAuthData.token);
                                     }
                                 }
                             });
@@ -302,7 +267,7 @@ function Widget () {
 
                 oCommentData.api.getAuth(function (err, currentAuthData) {
                     if (err || !currentAuthData) {
-                        self.trigger('loginRequired.authAction', {
+                        auth.loginRequired({
                             success: function () {
                                 showSettingsDialog();
                             }

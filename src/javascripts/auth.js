@@ -1,19 +1,22 @@
 /* global fyre */
 
 var commentUtilities = require('comment-utilities');
+var userDialogs = require('./userDialogs');
+var oCommentData = require('o-comment-data');
 
 /**
  * Auth creates Livefyre RemoteAuthDelegate, also provides login and logout into Livefyre.
- * @param {fyre} lfObj
  */
-function Auth (lfObj) {
+function Auth () {
     "use strict";
+
+    var self = this;
 
     /**
      * See http://docs.livefyre.com/developers/user-auth/remote-profiles/#BuildingAuthDelegate
      * @type {RemoteAuthDelegate}
      */
-    var authDelegate = new lfObj.conv.RemoteAuthDelegate();
+    var authDelegate;
 
     var event = new commentUtilities.Events();
 
@@ -32,11 +35,22 @@ function Auth (lfObj) {
      */
     this.pseudonymWasMissing = false;
 
+
+    function getLfObj () {
+        return fyre;
+    }
+
     /**
      * Get the RemoteAuthDelegate instance.
      * @return {RemoteAuthDelegate}
      */
     this.getAuthDelegate = function () {
+        var lfObj = getLfObj();
+
+        if (!authDelegate && lfObj) {
+            authDelegate = new lfObj.conv.RemoteAuthDelegate();
+        }
+
         return authDelegate;
     };
 
@@ -47,7 +61,11 @@ function Auth (lfObj) {
     this.login = function (token) {
         commentUtilities.logger.log('login called with token', token);
 
-        var response = lfObj.conv.login(token);
+        if (!getLfObj()) {
+            return;
+        }
+
+        var response = getLfObj().conv.login(token);
         event.trigger('login.auth', token);
 
         return response;
@@ -57,28 +75,94 @@ function Auth (lfObj) {
      * Logs out the user in the Livefyre system, and also clears the token from the local cache.
      */
     this.logout = function () {
-        var response = lfObj.conv.logout();
+        if (!getLfObj()) {
+            return;
+        }
+
+        var response = getLfObj().conv.logout();
         event.trigger('logout.auth');
 
         return response;
     };
+
+
+    /**
+     * Login required and pseudonym is missing
+     * @param  {[type]} delegate [description]
+     * @return {[type]}          [description]
+     */
+    function loginRequiredPseudonymMissing (delegate) {
+        commentUtilities.logger.log('pseudonymMissing');
+
+        userDialogs.showSetPseudonymDialog({
+            success: function (authData) {
+                if (authData && authData.token) {
+                    self.login(authData.token);
+                }
+
+                if (delegate && delegate.success) {
+                    delegate.success();
+                }
+            },
+            failure: function () {
+                if (delegate && delegate.failure) {
+                    delegate.failure();
+                }
+            }
+        });
+    }
+
+    /**
+     * Login required, first attempt of the login process is successful.
+     * If the user is still not logged in, then fail.
+     * If the user has no pseudonym, ask for a pseudonym.
+     * @param  {[type]} delegate [description]
+     * @return {[type]}          [description]
+     */
+    function loginRequiredAfterASuccess (delegate) {
+        oCommentData.api.getAuth(function (err, authData) {
+            if (authData && authData.pseudonym === false) {
+                loginRequiredPseudonymMissing(delegate);
+            } else {
+                if (delegate && delegate.failure) {
+                    delegate.failure();
+                }
+            }
+        });
+    }
+
+    /**
+     * Login is required.
+     * If pseudonym is missing, ask for a pseudonym.
+     * If there is no known method to login the user, generate a `loginRequired.authAction` event that can be handled at the integration level.
+     * If successful, check if the user is logged in.
+     * @param  {[type]} delegate [description]
+     * @return {[type]}          [description]
+     */
+    this.loginRequired = function (delegate) {
+        oCommentData.api.getAuth(function (err, authData) {
+            if (authData && authData.pseudonym === false) {
+                loginRequiredPseudonymMissing(delegate);
+            } else if (!authData || !authData.token) {
+                event.trigger('loginRequired.authAction', {
+                    success: function () {
+                        loginRequiredAfterASuccess(delegate);
+                    },
+                    failure: function () {
+                        if (delegate && delegate.failure) {
+                            delegate.failure();
+                        }
+                    }
+                });
+            } else {
+                self.login(authData.token);
+                
+                if (delegate && delegate.success) {
+                    delegate.success();
+                }
+            }
+        });
+    };
 }
 
-
-var instance;
-module.exports = {
-    getInstance: function () {
-        "use strict";
-
-        if (typeof fyre === 'undefined') {
-            return undefined;
-        }
-
-        if (typeof instance !== 'undefined') {
-            return instance;
-        }
-
-        instance = new Auth(fyre);
-        return instance;
-    }
-};
+module.exports = new Auth();
