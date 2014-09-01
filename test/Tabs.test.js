@@ -1,6 +1,5 @@
 /*global require,describe,beforeEach,afterEach,it,expect,spyOn*/
-
-require('./helpers/polyfills');
+'use strict';
 
 var fixtures = require('./helpers/fixtures'),
     Tabs = require('./../main'),
@@ -11,7 +10,6 @@ var fixtures = require('./helpers/fixtures'),
     tabContentEl3;
 
 describe("tabs behaviour", function() {
-    "use strict";
 
     beforeEach(function(){
         fixtures.insertSimple();
@@ -34,7 +32,7 @@ describe("tabs behaviour", function() {
 
     it("is defined", function() {
         expect(Tabs).toBeDefined();
-        expect(Tabs.prototype.createAllIn).toBeDefined();
+        expect(Tabs.init).toBeDefined();
     });
 
     it("is has correct initial dom changes", function() {

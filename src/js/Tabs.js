@@ -1,15 +1,13 @@
 /*global module, require*/
-
+'use strict';
 var oDom = require('o-dom');
 
 function Tabs(rootEl) {
-    "use strict";
 
     var tabsObj = this,
         tabEls,
         tabpanelEls,
         selectedTabIndex = -1,
-        hasInit = false,
         myself = this;
 
     function getTabTargetId(tabEl) {
@@ -67,7 +65,7 @@ function Tabs(rootEl) {
 
     function selectTab(i) {
         var c, l;
-        if (hasInit && isValidTab(i) && i !== selectedTabIndex) {
+        if (isValidTab(i) && i !== selectedTabIndex) {
             for (c = 0, l = tabEls.length; c < l; c++) {
                 if (i === c) {
                     tabEls[c].setAttribute('aria-selected', 'true');
@@ -96,17 +94,19 @@ function Tabs(rootEl) {
     }
 
     function init() {
-        if (!hasInit) {
-            tabEls = rootEl.querySelectorAll('[role=tab]');
-            tabpanelEls = getTabPanelEls(tabEls);
-            rootEl.setAttribute('data-o-tabs--js', '');
-            rootEl.addEventListener("click", clickHandler, false);
-            dispatchCustomEvent('oTabs.ready', {
-                tabs: tabsObj
-            });
-            hasInit = true;
-            myself.selectTab(getSelectedTabElement());
+        if (!rootEl) {
+            rootEl = document.body;
+        } else if (!(rootEl instanceof HTMLElement)) {
+            rootEl = document.querySelector(rootEl);
         }
+        tabEls = rootEl.querySelectorAll('[role=tab]');
+        tabpanelEls = getTabPanelEls(tabEls);
+        rootEl.setAttribute('data-o-tabs--js', '');
+        rootEl.addEventListener("click", clickHandler, false);
+        dispatchCustomEvent('oTabs.ready', {
+            tabs: tabsObj
+        });
+        myself.selectTab(getSelectedTabElement());
     }
 
     function destroy() {
@@ -115,20 +115,21 @@ function Tabs(rootEl) {
         for (var c = 0, l = tabpanelEls.length; c < l; c++) {
             showPanel(tabpanelEls[c]);
         }
-        hasInit = false;
     }
 
-    this.init = init;
     this.selectTab = selectTab;
     this.destroy = destroy;
 
     init();
 }
 
-Tabs.prototype.createAllIn = function(el) {
-    "use strict";
+Tabs.init = function(el) {
     var tabs = [], tEls, c, l;
-    el = el || document.body;
+    if (!el) {
+        el = document.body;
+    } else if (!(el instanceof HTMLElement)) {
+        el = document.querySelector(el);
+    }
     if (el.querySelectorAll) {
         tEls = el.querySelectorAll('[data-o-component=o-tabs]');
         for (c = 0, l = tEls.length; c < l; c++) {

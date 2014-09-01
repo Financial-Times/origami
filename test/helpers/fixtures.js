@@ -1,9 +1,8 @@
 /*global exports*/
-
+'use strict';
 var sandboxEl;
 
 function createSandbox() {
-    "use strict";
     if (document.querySelector('.sandbox')) {
         sandboxEl = document.querySelector('.sandbox');
     } else {
@@ -14,18 +13,15 @@ function createSandbox() {
 }
 
 function reset() {
-    "use strict";
     sandboxEl.innerHTML = '';
 }
 
 function insert(html) {
-    "use strict";
     createSandbox();
     sandboxEl.innerHTML = html;
 }
 
 function insertSimple() {
-    "use strict";
     var html = [
         '<ul data-o-component="o-tabs" data-o-version="1.0.0" class="o-tabs" role="tablist">',
         '<li role="tab"><a href="#tabContent1">Tab 1</a></li>',

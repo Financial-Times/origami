@@ -1,9 +1,9 @@
 /*global require, module*/
+'use strict';
 
 var Tabs = require('./src/js/Tabs'),
     constructAll = function() {
-        'use strict';
-        Tabs.prototype.createAllIn(document.body);
+        Tabs.init();
         document.removeEventListener('o.DOMContentLoaded', constructAll);
     };
 
