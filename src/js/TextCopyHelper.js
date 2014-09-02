@@ -45,6 +45,10 @@ function TextCopyHelper(config) {
             close();
         }
     });
+    // Stop input from being edited
+    bodyDomDelegate.on('keypress', function(ev) {
+        ev.preventDefault();
+    });
     inputDomDelegate.on('copy', function() {
         tooltip.setText('Copied!');
         if (typeof config.onCopy === "function") {
