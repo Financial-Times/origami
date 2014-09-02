@@ -7,12 +7,28 @@ Social media and URL sharing buttons.
 - Uses a standard set of social media icons.
 - Provides a copyable representation of a link
 
+## Browser Support
+
+Tested and working on:
+
+|  Browsers  | Primary Experience | Core Experience |
+|:----------:|:------------------:|:---------------:|
+|   Chrome   |        35+         |       35+       |
+|   Firefox  |        30+         |       30+       |
+|   Safari   |        7+          |       7+        |
+|   IE       |        8+          |       8+        |
+
+Known issues:
+
+* IE8+ need the polyfill for `CustomEvent`
+* IE8 also needs the polyfill for `addEventListener`
+
 ## Construction
 
 Products must provide the source HTML, in the following format, with the template `{{tag}}`s replaced with real values:
 
 ```html
-<div data-o-component="o-share" data-o-version="0.1.0" class="o-share">
+<div data-o-component="o-share" class="o-share">
     <ul>
         <li class="o-share__action o-share__action--url" data-o-share-action="url">
             <a href="{{{url}}}"><i>URL</i></a>
@@ -56,7 +72,7 @@ Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), the eve
 
 ```javascript
 var oShare = require('o-share');
-var oShareObjects = oShare.createAllIn(document.body);
+var oShareObjects = oShare.init();
 ```
 
 An array of any constructed __o-share__ objects will be returned.
@@ -69,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 ```
 
-`oShare.createAllIn()` will not create __o-share__ objects for elements that already have __o-share__ objects constructed on them, therefore it's safe to call more than once on the same page region.
+`oShare.init()` will not create __o-share__ objects for elements that already have __o-share__ objects constructed on them, therefore it's safe to call more than once on the same page region.
 
 ## Presentation
 
