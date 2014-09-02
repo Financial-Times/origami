@@ -46,7 +46,7 @@ function TextCopyHelper(config) {
         }
     });
     // Stop input from being edited
-    bodyDomDelegate.on('keypress', function(ev) {
+    inputDomDelegate.on('keypress', function(ev) {
         ev.preventDefault();
     });
     inputDomDelegate.on('copy', function() {
