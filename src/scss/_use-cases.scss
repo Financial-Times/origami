@@ -136,6 +136,9 @@ $o-colors-usecases: map-merge((
     modal-heading:           (background: pink-tint4, text: white, _deprecated: "Moved into o-overlays"),
     modal-close:             (border: white, background: blue, text: white, _deprecated: "Moved into o-overlays"),
 
+    // Overlay but not really (required by gallery)
+    overlay:                 (text:white, background: grey-tint5, _deprecated: "Move into o-gallery"),
+
     // Typography
     heading-medium:          (border: pink-tint2, _deprecated: "Moved into o-ft-typography"),
     heading-large:           (border: pink-tint4, text: black, _deprecated: "Moved into o-ft-typography"),
