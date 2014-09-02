@@ -278,6 +278,8 @@ var utils = require('./utils.js');</code></pre>
                 }
             },
             failure: function () {
+                utils.emptyLivefyreActionQueue();
+
                 if (delegate &amp;&amp; delegate.failure) {
                     delegate.failure();
                 }
@@ -353,6 +355,8 @@ var utils = require('./utils.js');</code></pre>
                         loginRequiredAfterASuccess(delegate);
                     },
                     failure: function () {
+                        utils.emptyLivefyreActionQueue();
+                        
                         if (delegate &amp;&amp; delegate.failure) {
                             delegate.failure();
                         }

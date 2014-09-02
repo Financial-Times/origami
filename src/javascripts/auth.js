@@ -112,6 +112,8 @@ function Auth () {
                 }
             },
             failure: function () {
+                utils.emptyLivefyreActionQueue();
+
                 if (delegate && delegate.failure) {
                     delegate.failure();
                 }
@@ -156,6 +158,8 @@ function Auth () {
                         loginRequiredAfterASuccess(delegate);
                     },
                     failure: function () {
+                        utils.emptyLivefyreActionQueue();
+                        
                         if (delegate && delegate.failure) {
                             delegate.failure();
                         }
