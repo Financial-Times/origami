@@ -29,6 +29,7 @@ $o-colors-usecases: map-merge((
     title:                   (text: black),
     body:                    (text: grey-tint5),
     muted:                   (text: pink-tint3),
+    product-brand:           (background: claret),
 
     // Section colors
     section-life-arts:       (all: section-purple),
@@ -46,12 +47,6 @@ $o-colors-usecases: map-merge((
     severity-1:              (background: blue-tint1, text: white),
     severity-2:              (background: orange-tint1, text: white),
     severity-3:              (background: yellow-tint1, text: white),
-
-    // Header (TODO: Move into o-ft-header)
-    header:                  (background: grey-tint5),
-    header-item:             (border: grey-tint4, background: grey-tint5, text: white),
-    header-item-active:      (background: pink-tint2, text: blue),
-    ft-initials:             (text: grey-tint5),
 
     // Forms (TODO: Move into o-ft-forms)
     form-field-label:        (text: grey-tint5),
@@ -150,5 +145,11 @@ $o-colors-usecases: map-merge((
     article-subheading:      (text: grey-tint5, border: pink-tint5, _deprecated: "Moved into o-ft-typography"),
     article-byline:          (text: pink-tint5, _deprecated: "Redundant"),
     article-divider:         (border: pink-tint5, _deprecated: "Redundant"),
+
+    // Header
+    header:                  (background: grey-tint5, _deprecated: "Moved into o-ft-header"),
+    header-item:             (border: grey-tint4, background: grey-tint5, text: white, _deprecated: "Moved into o-ft-header"),
+    header-item-active:      (background: pink-tint2, text: blue, _deprecated: "Moved into o-ft-header"),
+    ft-initials:             (text: grey-tint5, _deprecated: "Redundant"),
 
 ), $o-colors-usecases) !global;
