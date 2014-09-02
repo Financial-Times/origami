@@ -3,6 +3,7 @@
 var commentUtilities = require('comment-utilities');
 var userDialogs = require('./userDialogs');
 var oCommentData = require('o-comment-data');
+var utils = require('./utils.js');
 
 /**
  * Auth creates Livefyre RemoteAuthDelegate, also provides login and logout into Livefyre.
@@ -35,6 +36,8 @@ function Auth () {
      */
     this.pseudonymWasMissing = false;
 
+
+    this.authPageReload = false;
 
     function getLfObj () {
         return fyre;
@@ -91,11 +94,15 @@ function Auth () {
      * @param  {[type]} delegate [description]
      * @return {[type]}          [description]
      */
-    function loginRequiredPseudonymMissing (delegate) {
+    this.loginRequiredPseudonymMissing = function (delegate, maintainCommentQueue) {
         commentUtilities.logger.log('pseudonymMissing');
 
         userDialogs.showSetPseudonymDialog({
             success: function (authData) {
+                if (self.authPageReload === true && !maintainCommentQueue) {
+                    utils.emptyLivefyreActionQueue();
+                }
+
                 if (authData && authData.token) {
                     self.login(authData.token);
                 }
@@ -110,7 +117,7 @@ function Auth () {
                 }
             }
         });
-    }
+    };
 
     /**
      * Login required, first attempt of the login process is successful.
@@ -122,7 +129,7 @@ function Auth () {
     function loginRequiredAfterASuccess (delegate) {
         oCommentData.api.getAuth(function (err, authData) {
             if (authData && authData.pseudonym === false) {
-                loginRequiredPseudonymMissing(delegate);
+                self.loginRequiredPseudonymMissing(delegate);
             } else {
                 if (delegate && delegate.failure) {
                     delegate.failure();
@@ -142,7 +149,7 @@ function Auth () {
     this.loginRequired = function (delegate) {
         oCommentData.api.getAuth(function (err, authData) {
             if (authData && authData.pseudonym === false) {
-                loginRequiredPseudonymMissing(delegate);
+                self.loginRequiredPseudonymMissing(delegate);
             } else if (!authData || !authData.token) {
                 event.trigger('loginRequired.authAction', {
                     success: function () {

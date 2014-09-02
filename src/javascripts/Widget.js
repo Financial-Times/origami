@@ -120,6 +120,8 @@ function Widget () {
 
                     if (self.config.authPageReload === true) {
                         initData.authPageReload = true;
+
+                        auth.authPageReload = true;
                     }
 
                     var networkConfig = {
@@ -156,7 +158,7 @@ function Widget () {
                                         auth.pseudonymWasMissing = true;
 
                                         if (self.forceMode === true) {
-                                            auth.loginRequired();
+                                            auth.loginRequiredPseudonymMissing(null, true);
                                         }
 
                                         self.ui.hideSignInLink();

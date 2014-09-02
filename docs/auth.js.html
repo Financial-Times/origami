@@ -89,8 +89,6 @@
               </li>
               <li><a href="#Auth"><i class="alert alert-info"></i><span>Auth</span></a>
               </li>
-              <li><a href="#authDelegate"><i class="alert alert-success"></i><span>authDelegate</span></a>
-              </li>
               <li><a href="#pseudonymMissing"><i class="alert alert-success"></i><span>pseudonymMissing</span></a>
               </li>
               <li><a href="#pseudonymWasMissing"><i class="alert alert-success"></i><span>pseudonymWasMissing</span></a>
@@ -100,6 +98,12 @@
               <li><a href="#login"><i class="alert alert-info"></i><span>login</span></a>
               </li>
               <li><a href="#logout"><i class="alert alert-info"></i><span>logout</span></a>
+              </li>
+              <li><a href="#loginRequiredPseudonymMissing"><i class="alert alert-info"></i><span>loginRequiredPseudonymMissing</span></a>
+              </li>
+              <li><a href="#loginRequiredAfterASuccess"><i class="alert alert-info"></i><span>loginRequiredAfterASuccess</span></a>
+              </li>
+              <li><a href="#loginRequired"><i class="alert alert-info"></i><span>loginRequired</span></a>
               </li>
             </ul>
           </div>
@@ -113,7 +117,10 @@
             </p>
           </section>
           <div class="description"><p>global fyre</p> </div>
-          <pre><code class="language-javascript">var commentUtilities = require('comment-utilities');</code></pre>
+          <pre><code class="language-javascript">var commentUtilities = require('comment-utilities');
+var userDialogs = require('./userDialogs');
+var oCommentData = require('o-comment-data');
+var utils = require('./utils.js');</code></pre>
           <section id="Auth">
             <h1>Auth</h1>
             <h5 class="subheader"></h5>
@@ -121,34 +128,13 @@
               <div class="label label-info radius ctx-type">function</div><span>Auth()</span>
             </p>
           </section>
-          <table class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th style="width:20%">Option name</th>
-                <th style="width:20%">Type</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>lfObj</td>
-                <td>fyre</td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
           <div class="description"><p>Auth creates Livefyre RemoteAuthDelegate, also provides login and logout into Livefyre.</p> </div>
-          <pre><code class="language-javascript">function Auth (lfObj) {
-    &quot;use strict&quot;;</code></pre>
-          <section id="authDelegate">
-            <h1>authDelegate</h1>
-            <h5 class="subheader"></h5>
-            <p>
-              <div class="label label-success radius ctx-type">declaration</div><span>authDelegate</span>
-            </p>
-          </section>
+          <pre><code class="language-javascript">function Auth () {
+    &quot;use strict&quot;;
+
+    var self = this;</code></pre>
           <div class="description"><p>See <a href='http://docs.livefyre.com/developers/user-auth/remote-profiles/#BuildingAuthDelegate'>http://docs.livefyre.com/developers/user-auth/remote-profiles/#BuildingAuthDelegate</a></p> </div>
-          <pre><code class="language-javascript">var authDelegate = new lfObj.conv.RemoteAuthDelegate();
+          <pre><code class="language-javascript">var authDelegate;
 
     var event = new commentUtilities.Events();
 
@@ -171,7 +157,14 @@
             </p>
           </section>
           <div class="description"><p>Pseudonym was missing since the page was loaded and only 1 comment was posted.</p> </div>
-          <pre><code class="language-javascript">this.pseudonymWasMissing = false;</code></pre>
+          <pre><code class="language-javascript">this.pseudonymWasMissing = false;
+
+
+    this.authPageReload = false;
+
+    function getLfObj () {
+        return fyre;
+    }</code></pre>
           <section id="getAuthDelegate">
             <h1>getAuthDelegate</h1>
             <h5 class="subheader"></h5>
@@ -181,6 +174,12 @@
           </section>
           <div class="description"><p>Get the RemoteAuthDelegate instance.</p> </div>
           <pre><code class="language-javascript">this.getAuthDelegate = function () {
+        var lfObj = getLfObj();
+
+        if (!authDelegate &amp;&amp; lfObj) {
+            authDelegate = new lfObj.conv.RemoteAuthDelegate();
+        }
+
         return authDelegate;
     };</code></pre>
           <section id="login">
@@ -210,7 +209,11 @@
           <pre><code class="language-javascript">this.login = function (token) {
         commentUtilities.logger.log('login called with token', token);
 
-        var response = lfObj.conv.login(token);
+        if (!getLfObj()) {
+            return;
+        }
+
+        var response = getLfObj().conv.login(token);
         event.trigger('login.auth', token);
 
         return response;
@@ -224,31 +227,149 @@
           </section>
           <div class="description"><p>Logs out the user in the Livefyre system, and also clears the token from the local cache.</p> </div>
           <pre><code class="language-javascript">this.logout = function () {
-        var response = lfObj.conv.logout();
+        if (!getLfObj()) {
+            return;
+        }
+
+        var response = getLfObj().conv.logout();
         event.trigger('logout.auth');
 
         return response;
+    };</code></pre>
+          <section id="loginRequiredPseudonymMissing">
+            <h1>loginRequiredPseudonymMissing</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>this.loginRequiredPseudonymMissing()</span> -><span>[type]</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>delegate</td>
+                <td>[type]</td>
+                <td>[description]</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Login required and pseudonym is missing</p> </div>
+          <pre><code class="language-javascript">this.loginRequiredPseudonymMissing = function (delegate, maintainCommentQueue) {
+        commentUtilities.logger.log('pseudonymMissing');
+
+        userDialogs.showSetPseudonymDialog({
+            success: function (authData) {
+                if (self.authPageReload === true &amp;&amp; !maintainCommentQueue) {
+                    utils.emptyLivefyreActionQueue();
+                }
+
+                if (authData &amp;&amp; authData.token) {
+                    self.login(authData.token);
+                }
+
+                if (delegate &amp;&amp; delegate.success) {
+                    delegate.success();
+                }
+            },
+            failure: function () {
+                if (delegate &amp;&amp; delegate.failure) {
+                    delegate.failure();
+                }
+            }
+        });
+    };</code></pre>
+          <section id="loginRequiredAfterASuccess">
+            <h1>loginRequiredAfterASuccess</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>loginRequiredAfterASuccess()</span> -><span>[type]</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>delegate</td>
+                <td>[type]</td>
+                <td>[description]</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Login required, first attempt of the login process is successful.<br />If the user is still not logged in, then fail.<br />If the user has no pseudonym, ask for a pseudonym.</p> </div>
+          <pre><code class="language-javascript">function loginRequiredAfterASuccess (delegate) {
+        oCommentData.api.getAuth(function (err, authData) {
+            if (authData &amp;&amp; authData.pseudonym === false) {
+                self.loginRequiredPseudonymMissing(delegate);
+            } else {
+                if (delegate &amp;&amp; delegate.failure) {
+                    delegate.failure();
+                }
+            }
+        });
+    }</code></pre>
+          <section id="loginRequired">
+            <h1>loginRequired</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>this.loginRequired()</span> -><span>[type]</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>delegate</td>
+                <td>[type]</td>
+                <td>[description]</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Login is required.<br />If pseudonym is missing, ask for a pseudonym.<br />If there is no known method to login the user, generate a <code>loginRequired.authAction</code> event that can be handled at the integration level.<br />If successful, check if the user is logged in.</p> </div>
+          <pre><code class="language-javascript">this.loginRequired = function (delegate) {
+        oCommentData.api.getAuth(function (err, authData) {
+            if (authData &amp;&amp; authData.pseudonym === false) {
+                self.loginRequiredPseudonymMissing(delegate);
+            } else if (!authData || !authData.token) {
+                event.trigger('loginRequired.authAction', {
+                    success: function () {
+                        loginRequiredAfterASuccess(delegate);
+                    },
+                    failure: function () {
+                        if (delegate &amp;&amp; delegate.failure) {
+                            delegate.failure();
+                        }
+                    }
+                });
+            } else {
+                self.login(authData.token);
+                
+                if (delegate &amp;&amp; delegate.success) {
+                    delegate.success();
+                }
+            }
+        });
     };
 }
 
-
-var instance;
-module.exports = {
-    getInstance: function () {
-        &quot;use strict&quot;;
-
-        if (typeof fyre === 'undefined') {
-            return undefined;
-        }
-
-        if (typeof instance !== 'undefined') {
-            return instance;
-        }
-
-        instance = new Auth(fyre);
-        return instance;
-    }
-};</code></pre>
+module.exports = new Auth();</code></pre>
         </div>
       </div>
     </div>
