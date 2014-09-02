@@ -39,9 +39,14 @@ module.exports = {
             }
         },
         {
-            "name": "mega-dropdown",
+            "name": "mega-dropdown-primary",
             "sass": "demos/src/scss/mega-dropdown.scss",
-            "template": "demos/src/mega-dropdown"
+            "template": "demos/src/mega-dropdown-primary.mustache"
+        },
+        {
+            "name": "mega-dropdown-secondary",
+            "sass": "demos/src/scss/mega-dropdown.scss",
+            "template": "demos/src/mega-dropdown-secondary.mustache"
         },
         {
             "name": "header-no-secondary",

@@ -82,7 +82,15 @@ So that your nav elements have arrows telling the user in which direction the su
 
 ## Brands
 
-To add your brand color, you need to set the `$o-ft-header-brand-color` variable. 
+To add your brand color, you need to set the `brand` colour custom use case like this:
+
+```scss
+@include oColorsSetUseCase(product-brand, claret);
+```
+
+This brand colour will be used in both this module and in [o-ft-footer](http://github.com/Financial-Times/o-ft-footer). If you want a different brand colour for the header, the use case you would need to set is `o-ft-header-product-brand`.
+
+_The `$o-ft-header-brand-color` variable is now deprecated and will be removed in next major release._
 
 If you want mega-dropdowns to appear showing part of your branded secondary container, you would also need to add the class `.o-ft-header__mega-dropdown--primary` on your DOM element.
 
