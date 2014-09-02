@@ -1,6 +1,22 @@
 # o-tabs [![Build Status](https://travis-ci.org/Financial-Times/o-tabs.png?branch=master)](https://travis-ci.org/Financial-Times/o-tabs)
 
-> A single content area with multiple panels, each associated with a header in a list.
+A single content area with multiple panels, each associated with a header in a list.
+
+## Browser Support
+
+Tested and working on:
+
+|  Browsers  | Primary Experience | Core Experience |
+|:----------:|:------------------:|:---------------:|
+|   Chrome   |        35+         |       35+       |
+|   Firefox  |        30+         |       30+       |
+|   Safari   |        7+          |       7+        |
+|   IE       |        8+          |       8+        |
+
+Known issues:
+
+* IE8+ need the polyfill for `CustomEvent`
+* IE8 also needs the polyfill for `addEventListener`
 
 ## Markup
 
@@ -68,12 +84,12 @@ Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), the eve
 
 ```javascript
 var Tabs = require('o-tabs');
-var tabsObjects = Tabs.createAllIn(document.body);
+var tabsObjects = Tabs.init();
 ```
 
 An array of any constructed Tabs objects will be returned.
 
-`Tabs.createAllIn()` will not create Tabs objects for elements that already have Tabs objects constructed on them, therefore it's safe to call more than once on the same page region.
+`Tabs.init()` will not create Tabs objects for elements that already have Tabs objects constructed on them, therefore it's safe to call more than once on the same page region.
 
 ### Imperative
 
