@@ -6,8 +6,3 @@
 @import 'src/scss/mixins';
 @import 'src/scss/base';
 @import 'src/scss/buttontabs';
-
-@if (not $o-tabs-is-silent) {
-  @include oFtButtonsFontInclude();
-  @include oFtButtonsIconInclude();
-}
