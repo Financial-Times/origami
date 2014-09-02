@@ -36,6 +36,80 @@ function isUnsubscribed (option) {
 }
 
 
+function getModifiedSubscribesUnsubscribes (currentSettings, newSettings) {
+    "use strict";
+
+    var subscribes = [];
+    var unsubscribes = [];
+
+    if (currentSettings.emailcomments !== newSettings.emailcomments) {
+        if ((isUnsubscribed(currentSettings.emailcomments) || !currentSettings.emailcomments) && isSubscribed(newSettings.emailcomments)) {
+            subscribes.push('emailcomments');
+        }
+        if (isSubscribed(currentSettings.emailcomments) && isUnsubscribed(newSettings.emailcomments)) {
+            unsubscribes.push('emailcomments');
+        }
+    }
+
+    if (currentSettings.emailreplies !== newSettings.emailreplies) {
+        if ((isUnsubscribed(currentSettings.emailreplies) || !currentSettings.emailreplies) && isSubscribed(newSettings.emailreplies)) {
+            subscribes.push('emailreplies');
+        }
+        if (isSubscribed(currentSettings.emailreplies) && isUnsubscribed(newSettings.emailreplies)) {
+            unsubscribes.push('emailreplies');
+        }
+    }
+
+    if (currentSettings.emaillikes !== newSettings.emaillikes) {
+        if ((isUnsubscribed(currentSettings.emaillikes) || !currentSettings.emaillikes) && isSubscribed(newSettings.emaillikes)) {
+            subscribes.push('emaillikes');
+        }
+        if (isSubscribed(currentSettings.emaillikes) && isUnsubscribed(newSettings.emaillikes)) {
+            unsubscribes.push('emaillikes');
+        }
+    }
+
+    if (currentSettings.emailautofollow !== newSettings.emailautofollow) {
+        if ((isUnsubscribed(currentSettings.emailautofollow) || !currentSettings.emailautofollow) && isSubscribed(newSettings.emailautofollow)) {
+            subscribes.push('emailautofollow');
+        }
+        if (isSubscribed(currentSettings.emailautofollow) && isUnsubscribed(newSettings.emailautofollow)) {
+            unsubscribes.push('emailautofollow');
+        }
+    }
+
+
+    return {
+        subscribes: subscribes,
+        unsubscribes: unsubscribes
+    };
+}
+
+function getNewSubscribes (newSettings) {
+    "use strict";
+
+    var subscribes = [];
+
+    if (isSubscribed(newSettings.emailcomments)) {
+        subscribes.push('emailcomments');
+    }
+    if (isSubscribed(newSettings.emailreplies)) {
+        subscribes.push('emailreplies');
+    }
+    if (isSubscribed(newSettings.emaillikes)) {
+        subscribes.push('emaillikes');
+    }
+    if (isSubscribed(newSettings.emailautofollow)) {
+        subscribes.push('emailautofollow');
+    }
+
+
+    return {
+        subscribes: subscribes
+    };
+}
+
+
 exports.showSetPseudonymDialog = function (callbacks) {
     "use strict";
 
@@ -125,22 +199,11 @@ exports.showEmailAlertDialog = function () {
 
                         // get new subscribes
                         // as this is the initial setup, there cannot be considered any unsubscribe
-                        var subscribes = [];
-                        if (isSubscribed(newUserDetails.settings.emailcomments)) {
-                            subscribes.push('emailcomments');
-                        }
-                        if (isSubscribed(newUserDetails.settings.emailreplies)) {
-                            subscribes.push('emailreplies');
-                        }
-                        if (isSubscribed(newUserDetails.settings.emaillikes)) {
-                            subscribes.push('emaillikes');
-                        }
-                        if (isSubscribed(newUserDetails.settings.emailautofollow)) {
-                            subscribes.push('emailautofollow');
-                        }
+                        var result;
+                        result = getNewSubscribes(newUserDetails.settings);
 
-                        if (subscribes.length) {
-                            globalEvents.trigger('subscribe.tracking', [subscribes]);
+                        if (result.subscribes.length) {
+                            globalEvents.trigger('subscribe.tracking', [result.subscribes]);
                         }
                     });
                 });
@@ -192,52 +255,21 @@ exports.showSettingsDialog = function (currentUserDetails, callbacks) {
                         responseCallback();
 
                         // get subscribes and unsubscribes
-                        var subscribes = [];
-                        var unsubscribes = [];
-
-                        if (currentUserDetails.settings.emailcomments !== newUserDetails.settings.emailcomments) {
-                            if ((isUnsubscribed(currentUserDetails.settings.emailcomments) || !currentUserDetails.settings.emailcomments) && isSubscribed(newUserDetails.settings.emailcomments)) {
-                                subscribes.push('emailcomments');
-                            }
-                            if (isSubscribed(currentUserDetails.settings.emailcomments) && isUnsubscribed(newUserDetails.settings.emailcomments)) {
-                                unsubscribes.push('emailcomments');
-                            }
-                        }
-
-                        if (currentUserDetails.settings.emailreplies !== newUserDetails.settings.emailreplies) {
-                            if ((isUnsubscribed(currentUserDetails.settings.emailreplies) || !currentUserDetails.settings.emailreplies) && isSubscribed(newUserDetails.settings.emailreplies)) {
-                                subscribes.push('emailreplies');
-                            }
-                            if (isSubscribed(currentUserDetails.settings.emailreplies) && isUnsubscribed(newUserDetails.settings.emailreplies)) {
-                                unsubscribes.push('emailreplies');
-                            }
-                        }
-
-                        if (currentUserDetails.settings.emaillikes !== newUserDetails.settings.emaillikes) {
-                            if ((isUnsubscribed(currentUserDetails.settings.emaillikes) || !currentUserDetails.settings.emaillikes) && isSubscribed(newUserDetails.settings.emaillikes)) {
-                                subscribes.push('emaillikes');
-                            }
-                            if (isSubscribed(currentUserDetails.settings.emaillikes) && isUnsubscribed(newUserDetails.settings.emaillikes)) {
-                                unsubscribes.push('emaillikes');
-                            }
-                        }
-
-                        if (currentUserDetails.settings.emailautofollow !== newUserDetails.settings.emailautofollow) {
-                            if ((isUnsubscribed(currentUserDetails.settings.emailautofollow) || !currentUserDetails.settings.emailautofollow) && isSubscribed(newUserDetails.settings.emailautofollow)) {
-                                subscribes.push('emailautofollow');
-                            }
-                            if (isSubscribed(currentUserDetails.settings.emailautofollow) && isUnsubscribed(newUserDetails.settings.emailautofollow)) {
-                                unsubscribes.push('emailautofollow');
-                            }
+                        var result;
+                        if (currentUserDetails.settings) {
+                            result = getModifiedSubscribesUnsubscribes(currentUserDetails.settings, newUserDetails.settings);
+                        } else {
+                            result = getNewSubscribes(newUserDetails.settings);
+                            result.unsubscribes = [];
                         }
 
 
-                        if (subscribes.length) {
-                            globalEvents.trigger('subscribe.tracking', [subscribes]);
+                        if (result.subscribes.length) {
+                            globalEvents.trigger('subscribe.tracking', [result.subscribes]);
                         }
 
-                        if (unsubscribes.length) {
-                            globalEvents.trigger('unsubscribe.tracking', [unsubscribes]);
+                        if (result.unsubscribes.length) {
+                            globalEvents.trigger('unsubscribe.tracking', [result.unsubscribes]);
                         }
                     });
                 });
