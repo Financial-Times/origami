@@ -40,13 +40,6 @@ $o-colors-usecases: map-merge((
     section-money:           (all: section-red),
     section-money-alt:       (all: white),
 
-    // Healthchecks (TODO: Move into o-techdocs)
-    status-ok:               (background: green, text: white),
-    status-error:            (background: red, text: white),
-    severity-1:              (background: blue-tint1, text: white),
-    severity-2:              (background: orange-tint1, text: white),
-    severity-3:              (background: yellow-tint1, text: white),
-
     // Header (TODO: Move into o-ft-header)
     header:                  (background: grey-tint5),
     header-item:             (border: grey-tint4, background: grey-tint5, text: white),
@@ -121,12 +114,18 @@ $o-colors-usecases: map-merge((
     forms-section:           (border: claret, _deprecated: "Redundant"),
 
     // Tech docs
-    block-code-sample:       (background: pink-tint1, border: pink-tint2, text: grey-tint5, _deprecated: "Moved into o-techdocs"),
-    inline-code-sample:      (background: pink-tint1, text: claret, _deprecated: "Moved into o-techdocs"),
-    docs-aside:              (background: pink-tint1, border: pink-tint2, _deprecated: "Moved into o-techdocs"),
-    docs-nav:                (background: pink-tint1, _deprecated: "Moved into o-techdocs"),
-    docs-nav-active:         (background: pink-tint2, _deprecated: "Moved into o-techdocs"),
-    docs-inpagenav-link:     (text: claret, _deprecated: "Moved into o-techdocs"),
+    block-code-sample:       (background: pink-tint1, border: pink-tint2, text: grey-tint5, _deprecated: "Redundant"),
+    inline-code-sample:      (background: pink-tint1, text: claret, _deprecated: "Redundant"),
+    docs-aside:              (background: pink-tint1, border: pink-tint2, _deprecated: "Redundant"),
+    docs-nav:                (background: pink-tint1, _deprecated: "Redundant"),
+    docs-nav-active:         (background: pink-tint2, _deprecated: "Redundant"),
+    docs-inpagenav-link:     (text: claret, _deprecated: "Redundant"),
+        // Healthchecks
+    status-ok:               (background: green, text: white, _deprecated: "Redundant"),
+    status-error:            (background: red, text: white, _deprecated: "Redundant"),
+    severity-1:              (background: blue-tint1, text: white, _deprecated: "Redundant"),
+    severity-2:              (background: orange-tint1, text: white, _deprecated: "Redundant"),
+    severity-3:              (background: yellow-tint1, text: white, _deprecated: "Redundant"),
 
     // Overlays
     dialog:                  (border: pink-tint4, background: white, text: grey-tint5, _deprecated: "Moved into o-overlays"),

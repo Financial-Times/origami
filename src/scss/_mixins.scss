@@ -1,6 +1,5 @@
-/**
- * Add a custom use case property
- */
+// Add a custom use case property
+
 @mixin oColorsSetUseCase($usecase, $property, $color) {
   $propmap: ($property: $color);
   @if (map-has-key($o-colors-usecases, $usecase)) {
@@ -10,9 +9,8 @@
   $o-colors-usecases: map-merge($o-colors-usecases, $newmap) !global;
 }
 
-/**
- * Output property declarations for all defined properties for the specified use case
- */
+// Output property declarations for all defined properties for the specified use case
+
 @mixin oColorsFor($useCaseList, $propertyList: all) {
   @if ($propertyList == 'all' or index($propertyList, 'background')) {
     $col: oColorsGetColorFor($useCaseList, background, (default:undefined));

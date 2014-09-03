@@ -1,6 +1,5 @@
-/**
- * Return the CSS color for a palette colour name
- */
+// Return the CSS color for a palette colour name
+ 
 @function oColorsGetPaletteColor($name) {
 	@if (map-has-key($o-colors-palette, $name)) {
 		@return map-get($o-colors-palette, $name);
@@ -10,9 +9,8 @@
 	}
 }
 
-/**
- * Return the defined palette colour name for a use case / property combination
- */
+// Return the defined palette colour name for a use case / property combination
+
 @function _oColorsGetUseCase($usecase, $property) {
 	$props: map-get($o-colors-usecases, $usecase);
 	@if ($props) {
@@ -28,9 +26,8 @@
 	@return null;
 }
 
-/**
- * Return the CSS colour name of the first defined use case in a prioritised list for a use case / property combination
- */
+// Return the CSS colour name of the first defined use case in a prioritised list for a use case / property combination
+
 @function oColorsGetColorFor($namelist, $property: all, $options: ()) {
 	$color: null;
 	@each $name in $namelist {
