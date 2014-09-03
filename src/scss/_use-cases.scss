@@ -29,6 +29,7 @@ $o-colors-usecases: map-merge((
     title:                   (text: black),
     body:                    (text: grey-tint5),
     muted:                   (text: pink-tint3),
+    product-brand:           (background: claret),
 
     // Section colors
     section-life-arts:       (all: section-purple),
@@ -46,19 +47,6 @@ $o-colors-usecases: map-merge((
     severity-1:              (background: blue-tint1, text: white),
     severity-2:              (background: orange-tint1, text: white),
     severity-3:              (background: yellow-tint1, text: white),
-
-    // Header (TODO: Move into o-ft-header)
-    header:                  (background: grey-tint5),
-    header-item:             (border: grey-tint4, background: grey-tint5, text: white),
-    header-item-active:      (background: pink-tint2, text: blue),
-    ft-initials:             (text: grey-tint5),
-
-    // Panels (TODO: move into o-aside-panel)
-    panel-heading:           (background: pink-tint2, border: pink-tint4),
-    panel-body:              (background: pink-tint1),
-
-    // Quotes (TODO: move into o-quote)
-    quote:                   (background: pink-tint2, text: grey-tint4),
 
 
     /* Deprecated */
@@ -143,7 +131,7 @@ $o-colors-usecases: map-merge((
     article-byline:          (text: pink-tint5, _deprecated: "Redundant"),
     article-divider:         (border: pink-tint5, _deprecated: "Redundant"),
     
-    // Buttons (TODO: Move into o-ft-buttons)
+    // Buttons
     button-standard:         (border: pink-tint5, background: pink, text: grey-tint4, _deprecated: "Moved into o-ft-buttons"),
     button-hover:            (border: pink-tint5, background: pink-tint2, text: grey-tint4, _deprecated: "Moved into o-ft-buttons"),
     button-selected:         (border: pink-tint5, background: pink-tint5, text: pink, _deprecated: "Moved into o-ft-buttons"),
@@ -152,5 +140,18 @@ $o-colors-usecases: map-merge((
     button-negative-hover:   (text: blue, _deprecated: "Redundant"),
     button-standout-standard: (border: blue, background: blue, text: white, _deprecated: "Moved into o-ft-buttons"),
     button-standout-hover:   (border: dark-blue, background: dark-blue, text: white, _deprecated: "Moved into o-ft-buttons"),
+
+    // Header
+    header:                  (background: grey-tint5, _deprecated: "Moved into o-ft-header"),
+    header-item:             (border: grey-tint4, background: grey-tint5, text: white, _deprecated: "Moved into o-ft-header"),
+    header-item-active:      (background: pink-tint2, text: blue, _deprecated: "Moved into o-ft-header"),
+    ft-initials:             (text: grey-tint5, _deprecated: "Redundant"),
+
+    // Quotes
+    quote:                   (background: pink-tint2, text: grey-tint4, _deprecated: "Moved into o-quote"),
+
+    // Panels
+    panel-heading:           (background: pink-tint2, border: pink-tint4, _deprecated: "Moved into o-aside-panel"),
+    panel-body:              (background: pink-tint1, _deprecated: "Moved into o-aside-panel")
 
 ), $o-colors-usecases) !global;
