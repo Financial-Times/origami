@@ -47,7 +47,7 @@
 }
 
 @mixin oFtButtonsButtonHover($buttonClass, $borderColor, $backgroundColor, $color) {
-  &:not([disabled]):not([disabled]):not([aria-selected=true]):not(#{#{$buttonClass}--faux}):hover {
+  &:not([disabled]):not([aria-selected=true]):not(#{#{$buttonClass}--faux}):hover {
     @include oFtButtonsColors($borderColor, $backgroundColor, $color);
     cursor: pointer;
   }
