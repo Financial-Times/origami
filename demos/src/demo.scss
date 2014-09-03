@@ -1,5 +1,5 @@
 
-/* Styles for demo UI */
+// Styles for demo UI 
 
 .demo-sample {
   margin-bottom: 10px;
@@ -41,7 +41,7 @@
 }
 
 
-/* Demos - keep in sync with sass-usage.mustache where appropriate */
+// Demos - keep in sync with sass-usage.mustache where appropriate 
 
 // Remove silent mode for demo so that standard classes can be demoed in palette and use-cases demos
 $o-colors-is-silent: false;
