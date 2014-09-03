@@ -1,13 +1,13 @@
 #{$o-quote-class-type}o-quote--standard {
-  background-color: oColorsGetColorFor(quote, background);
+  background-color: oColorsGetColorFor(o-quote, background);
   line-height: 21px;
 
   a {
-    color: oColorsGetColorFor(quote, text);
+    color: oColorsGetColorFor(o-quote, text);
   }
 
   p {
-    color: oColorsGetColorFor(quote, text);
+    color: oColorsGetColorFor(o-quote, text);
     font-size: 16px;
     font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
     font-style: italic;
