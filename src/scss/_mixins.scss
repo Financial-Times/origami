@@ -6,21 +6,19 @@
   border-radius: $_o-ft-forms-field-borderradius;
   padding: $_o-ft-form-field-big-padding-topbottom $_o-ft-form-field-big-padding-leftright;
   width: 100%;
-  background-color: oColorsGetColorFor(form-field-standard, background);
-  color: oColorsGetColorFor(form-field-standard, text);
+  background-color: oColorsGetColorFor(o-ft-forms-field-standard, background);
+  color: oColorsGetColorFor(o-ft-forms-field-standard, text);
   font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
   font-size: $_o-ft-form-field-big-fontsize;
   outline: none;
 }
 
 @mixin commonFieldFocus() {
-    border-color: oColorsGetColorFor(form-field-hover form-field-selected, border);
+    border-color: oColorsGetColorFor(o-ft-forms-field-hover, border);
 }
 
 @mixin commonFieldDisabled() {
-    border-color: oColorsGetColorFor(form-field-disabled, border);
-    background-color: oColorsGetColorFor(form-field-disabled, background);
-    color: oColorsGetColorFor(form-field-disabled, text);
+    @include oColorsFor(o-ft-forms-field-disabled);
 }
 
 @mixin appearance($value) {
@@ -35,7 +33,7 @@
   box-sizing: $value;
 }
 
-@mixin border-radius($radiusTop: $_o-ft-forms-field-borderradius, $radiusBottom: 0){
+@mixin border-radius($radiusTop: $_o-ft-forms-field-borderradius, $radiusBottom: 0) {
 
   -webkit-border-top-left-radius: $radiusTop;
   -webkit-border-top-right-radius: $radiusTop;

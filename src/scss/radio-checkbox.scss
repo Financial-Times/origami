@@ -38,7 +38,7 @@
   .o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label,
   .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label'
 ) {
-  color: oColorsGetColorFor(form-radiocheckbox-hover, text);
+  color: oColorsGetColorFor(o-ft-forms-radiocheckbox-hover, text);
 }
 
 // styling for the border of checkboxes
@@ -50,7 +50,7 @@
   left: 0;
   width: $_o-ft-forms-radiocheckbox-size;
   height: $_o-ft-forms-radiocheckbox-size;
-  border: 1px solid oColorsGetColorFor(form-field-standard, border);
+  border: 1px solid oColorsGetColorFor(o-ft-forms-field-standard, border);
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 3px;
@@ -74,7 +74,7 @@
   .o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label::before,
   .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label::before'
 ) {
-  border-color: oColorsGetColorFor(form-field-hover, border);
+  border-color: oColorsGetColorFor(o-ft-forms-field-hover, border);
 }
 
 // styling for checked radio button
@@ -82,7 +82,7 @@
   '%o-ft-forms__radio--checked',
   '.o-ft-forms__field[type="radio"]:checked + .o-ft-forms__label::after'
 ) {
-  background-color: oColorsGetColorFor(form-radiocheckbox-checked, background);
+  background-color: oColorsGetColorFor(o-ft-forms-radiocheckbox-checked, background);
   content: '';
   height: $_o-ft-forms-radio-internal-size;
   width: $_o-ft-forms-radio-internal-size;
@@ -103,7 +103,7 @@
   content: '\e035';
   font-size: $_o-ft-forms-checkbox-ticksize;
   font-weight: bold;
-  color: oColorsGetColorFor(form-radiocheckbox-checked, background);
+  color: oColorsGetColorFor(o-ft-forms-radiocheckbox-checked, background);
   position: absolute;
   left: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-checkbox-ticksize) / 2;
   top: 0;

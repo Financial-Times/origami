@@ -2,8 +2,8 @@
   '.o-ft-forms--error .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]), 
   .o-ft-forms--error .o-ft-forms__field--select, 
   .o-ft-forms--error .o-ft-forms__field--textarea') {
-    border-color: oColorsGetColorFor(form-field-invalid error, border);
-    color: oColorsGetColorFor(form-field-invalid error form-field-standard, text);
+    border-color: oColorsGetColorFor(o-ft-forms-field-invalid, border);
+    color: oColorsGetColorFor(fo-ft-forms-field-invalid o-ft-forms-field-standard, text);
 }
 
 @include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__errortext', '.o-ft-forms__errortext') {
@@ -15,5 +15,5 @@
   font-size: 14px;
   font-style: normal;
   font-weight: bold;
-  color: oColorsGetColorFor(form-field-invalid, text);
+  color: oColorsGetColorFor(o-ft-forms-field-invalid, text);
 }
