@@ -63,10 +63,6 @@ $o-colors-usecases: map-merge((
     button-standout-standard: (border: blue, background: blue, text: white),
     button-standout-hover:   (border: dark-blue, background: dark-blue, text: white),
 
-    // Panels (TODO: move into o-aside-panel)
-    panel-heading:           (background: pink-tint2, border: pink-tint4),
-    panel-body:              (background: pink-tint1),
-
     // Quotes (TODO: move into o-quote)
     quote:                   (background: pink-tint2, text: grey-tint4),
 
@@ -152,5 +148,9 @@ $o-colors-usecases: map-merge((
     article-subheading:      (text: grey-tint5, border: pink-tint5, _deprecated: "Moved into o-ft-typography"),
     article-byline:          (text: pink-tint5, _deprecated: "Redundant"),
     article-divider:         (border: pink-tint5, _deprecated: "Redundant"),
+
+    // Panels
+    panel-heading:           (background: pink-tint2, border: pink-tint4, _deprecated: "Moved into o-aside-panel")),
+    panel-body:              (background: pink-tint1, _deprecated: "Moved into o-aside-panel")),
 
 ), $o-colors-usecases) !global;
