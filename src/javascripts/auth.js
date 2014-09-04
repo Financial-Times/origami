@@ -129,7 +129,9 @@ function Auth () {
      * @return {[type]}          [description]
      */
     function loginRequiredAfterASuccess (delegate) {
-        oCommentData.api.getAuth(function (err, authData) {
+        oCommentData.api.getAuth({
+            force: true
+        }, function (err, authData) {
             if (authData && authData.pseudonym === false) {
                 self.loginRequiredPseudonymMissing(delegate);
             } else {
