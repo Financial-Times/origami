@@ -134,7 +134,7 @@ $o-colors-usecases: map-merge((
     button-standard:         (border: pink-tint5, background: pink, text: grey-tint4, _deprecated: "Moved into o-ft-buttons"),
     button-hover:            (border: pink-tint5, background: pink-tint2, text: grey-tint4, _deprecated: "Moved into o-ft-buttons"),
     button-selected:         (border: pink-tint5, background: pink-tint5, text: pink, _deprecated: "Moved into o-ft-buttons"),
-    button-disabled:         (border: pink-tint5, background: pink-tint5, text: ppink-tint5, _deprecated: "Moved into o-ft-buttons"),
+    button-disabled:         (border: pink-tint5, background: pink-tint5, text: pink-tint5, _deprecated: "Moved into o-ft-buttons"),
     button-negative:         (text: blue, _deprecated: "Redundant"),
     button-negative-hover:   (text: blue, _deprecated: "Redundant"),
     button-standout-standard: (border: blue, background: blue, text: white, _deprecated: "Moved into o-ft-buttons"),
