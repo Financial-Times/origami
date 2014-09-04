@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 /*
  * classList.js: Cross-browser full element.classList implementation.
  * 2012-11-15
@@ -6,8 +7,6 @@
  * Public Domain.
  * NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
  */
-
-/*global self, document, DOMException */
 
 /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js*/
 
@@ -174,3 +173,4 @@ if (objCtr.defineProperty) {
 }(self));
 
 }
+/* jshint ignore:end */

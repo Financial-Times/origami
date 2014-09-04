@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/Financial-Times/o-date",
   "devDependencies": {
-    "jsdom": "~0.10.5",
     "tape": "~2.13.0"
   }
 }

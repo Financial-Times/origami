@@ -2,7 +2,7 @@
   "description": "Utility for formatting and updating dates",
   "origamiType": "module",
   "origamiVersion": 1,
-  "support": "rhys.evans@ft.com",
+  "support": "https://github.com/Financial-Times/o-date/issues",
   "supportStatus": "experimental",
   "features": {
     "required": [
@@ -15,12 +15,12 @@
     {
       "path": "/demos/declarative.html",
       "expanded": true,
-      "description": "Declarative date demo"
+      "description": "Date will be set using the string in the datetime attribute and rendered as an absolute date as it was over a year ago."
     },
     {
       "path": "/demos/imperative.html",
       "expanded": false,
-      "description": "Imperative date demo"
+      "description": "We're setting the datetime attribute on both date elements imperatively and these are then rendered as relative dates"
     }
   ]
 }

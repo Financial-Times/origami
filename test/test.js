@@ -1,6 +1,5 @@
 'use strict';
 
-var jsdom = require('jsdom');
 var test = require("tape").test;
 var oDate = require('../main');//.readFileSync("../main.js", "utf-8");
 
