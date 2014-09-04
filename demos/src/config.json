@@ -4,8 +4,13 @@
     },
     "demos": [
         {
-            "name": "dates",
-            "template": "demos/src/dates.mustache"
+            "name": "declarative",
+            "template": "demos/src/declarative.mustache"
+        },
+        {
+            "name": "imperative",
+            "template": "demos/src/imperative.mustache",
+            "js": "demos/src/imperative.js"
         }
     ]
 }

@@ -1,17 +1,13 @@
-require('../../main');
+'use strict';
 
-var times = document.querySelectorAll('[data-o-component="o-date"]');
+function initDemos() {
+	require('../../main');
 
-var now = new Date();
-var today  = new Date();
-today.setHours(now.getHours() - 6);
-var lastMonth = new Date();
-lastMonth.setMonth(now.getMonth() - 6);
+	document.addEventListener("DOMContentLoaded", function() {
+		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+	});
+}
 
-times[0].setAttribute('datetime', today.toISOString());
-times[1].setAttribute('datetime', lastMonth.toISOString());
+initDemos();
 
-document.addEventListener("DOMContentLoaded", function() {
-	"use strict";
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-});
+module.exports = initDemos;

@@ -12,6 +12,15 @@
     ]
   },
   "demos": [
-    "/demos/dates.html"
+    {
+      "path": "/demos/declarative.html",
+      "expanded": true,
+      "description": "Declarative date demo"
+    },
+    {
+      "path": "/demos/imperative.html",
+      "expanded": false,
+      "description": "Imperative date demo"
+    }
   ]
 }
