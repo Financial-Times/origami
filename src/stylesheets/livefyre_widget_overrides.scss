@@ -160,6 +160,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
                 left: 0;
                 display: inline-block;
                 position: relative;
+                overflow: visible;
             }
 
             .comment-settings {
@@ -222,9 +223,15 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
             .fyre-box-list {
                 background: transparent;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 1000;
+                border: 1px solid oColorsGetPaletteColor(pink-tint4);
 
                 li {
                     background: oColorsGetPaletteColor(white);
+                    white-space: nowrap;
                 }
             }
 
