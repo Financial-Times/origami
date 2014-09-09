@@ -13,9 +13,7 @@
  *                     _deprecated: <msg>  Emits <msg> as a warning if referenced, but still works
  */
 
-@if (not variable-exists(o-colors-usecases)) {
-    $o-colors-usecases: () !global;
-}
+$o-colors-usecases: () !default;
 $o-colors-usecases: map-merge((
 
 /*  <use case>               <properties>                                            */
