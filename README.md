@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 ```
 
-You can also run `require('o-date').createAllIn()` once the DOM has loaded if you don't want to initialise other modules at the same time.
+You can also run `require('o-date').init()` once the DOM has loaded if you don't want to initialise other modules at the same time.
 
 Run `require('o-date').init(el)` on any elements containing dates that are added to the page after DOM load.
 
@@ -51,4 +51,4 @@ Returns the time since the given date, formatted as a human readable string e.g.
 
 Within a given container element converts dates to display using the time ago format and periodically updates their values. Within the container all `<time>` elements with the class `o-date` will be updated. If the element contains an element with the class `o-date__printer` the time ago string will be output here, otherwise it will replace the contents of the element.
 
-* `container` A `HTMLElement` within which to scan for `.o-date`elements. If the element itself is a `<time>` element with the class `o-date` then o-date will run directly on this element rather than querying for suitable elements within it.
+* `el` A `HTMLElement` within which to scan for `.o-date`elements. If the element itself is a `<time>` element with the this module's correct `data-o-component` data attribute, then o-date will run directly on this element rather than querying for suitable elements within it.

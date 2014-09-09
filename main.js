@@ -1,4 +1,4 @@
-/*global require, module*/
+/*global module*/
 'use strict';
 
 var months = '["' + 'January,February,March,April,May,June,July,August,September,October,November,December'.split(',').join('","') + '"]';
@@ -46,16 +46,16 @@ function compile (format) {
 		return replacer ? '" + ' + replacer + ' + "' : match;
 	}) + '"';
 
-	return (compiledTemplates[format] = Function('date', funcString));
+	return (compiledTemplates[format] = new Function('date', funcString));  // jshint ignore:line
 }
 
 function toDate (date) {
 	return date instanceof Date ? date : new Date(date);
 }
 
-function format (date, format) {
-	format = format || 'datetime';
-	var tpl = compiledTemplates[format] || compile(format);
+function format (date, dateFormat) {
+	dateFormat = dateFormat || 'datetime';
+	var tpl = compiledTemplates[dateFormat] || compile(dateFormat);
 	return tpl(toDate(date));
 }
 
@@ -120,6 +120,10 @@ var init = function(el) {
 	}
 	if (!(el instanceof HTMLElement)) {
 		el = document.querySelector(el);
+	}
+	if (el.getAttribute('data-o-component') === 'o-date') {
+		ftTime(el);
+		return;
 	}
 	var dateEls = el.querySelectorAll('[data-o-component~="o-date"]');
 	for (var i = 0; i < dateEls.length; i++) {
