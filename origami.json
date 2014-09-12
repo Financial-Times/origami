@@ -39,7 +39,12 @@
             "description": ""
         },
         {
-            "path": "/demos/mega-dropdown.html",
+            "path": "/demos/mega-dropdown-primary.html",
+            "expanded": false,
+            "description": ""
+        },
+        {
+            "path": "/demos/mega-dropdown-secondary.html",
             "expanded": false,
             "description": ""
         },

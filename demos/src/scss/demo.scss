@@ -1,5 +1,8 @@
 $o-grid-mq-type: width;
-$o-fonts-path: 'http://build.origami.ft.com/files/o-fonts-assets@0.2.1/';
+@import "o-colors/main";
+
+@include oColorsSetUseCase(product-brand, background, claret);
+
 @import "../../../main";
 
 .demo__title {
