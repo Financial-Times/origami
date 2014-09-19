@@ -9,6 +9,11 @@
 	}
 }
 
+@function _oColorsGetPaletteColor($name) {
+	@warn "_oColorsGetPaletteColor (with underscore prefix) is deprecated and will be removed in o-colors 3.x. Use oColorsGetPaletteColor() instead.";
+	@return oColorsGetPaletteColor($name);
+}
+
 // Return the defined palette colour name for a use case / property combination
 
 @function _oColorsGetUseCase($usecase, $property) {
