@@ -1,6 +1,6 @@
 {
   "name": "o-livefyre-comment-client",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "main": "main.js",
   "dependencies": {
     "o-comment-data": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-data.git#^0.5.0",
