@@ -227,11 +227,22 @@ $ftLinkHover: oColorsGetPaletteColor(black);
                 top: 100%;
                 left: 0;
                 z-index: 1000;
-                border: 1px solid oColorsGetPaletteColor(pink-tint4);
+                border: 0;
 
                 li {
                     background: oColorsGetPaletteColor(white);
                     white-space: nowrap;
+
+                    border-left: 1px solid oColorsGetPaletteColor(pink-tint4);
+                    border-right: 1px solid oColorsGetPaletteColor(pink-tint4);
+
+                    &:first-child {
+                        border-top: 1px solid oColorsGetPaletteColor(pink-tint4);
+                    }
+
+                    &:last-child {
+                        border-bottom: 1px solid oColorsGetPaletteColor(pink-tint4);
+                    }
                 }
             }
 
