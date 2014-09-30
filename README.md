@@ -1,26 +1,40 @@
 # o-livefyre-comment-client
 
-Integration of the widget provided by Livefyre. The integration means 
+Integration of the commenting widget provided by Livefyre.
 
 ---
 
 ## How to use it
-### Standalone
-Using the build tool, the script exposes a global variable named `oLivefyreCommentClient`.
+There are two ways of using this module:
+
+### Build tool
+Include the script provided by the build tool.
+The script exposes a global variable named `oLivefyreCommentClient`.
 
 ### Bower
 As a bower dependency:
 
 ```javascript
-var oLivefyreCommentClient = require('o-livefyre-comment-client');
+var oLivefyreCommentClient = require('o-comment-client');
 ```
 
+The module should be built using `browserify` (with `debowerify` transform).
+
+---
+
 ## Configuration
-<strong>The methods which are meant to configure the module are the following:</strong>
+**The methods which are meant to configure the module are the following:**
 
 ### init
-This method is responsible for changing the default configuration used by this module. Calling this method with an object will merge the default configuration with the object specified (deep merge, only primitive type values of the same key will be overwritten).
-Adding a `dependencies` field will set the configuration of dependency modules.
+This method is responsible for changing the default configuration used by this module. Calling this method with an object will merge the default configuration with the object specified (deep merge, primitive type values of the same key will be overwritten).
+
+In order to use this module with authentication enabled, you should specify the user's session ID:
+
+```javascript
+oLivefyreCommentClient.init({
+    sessionId: 'sessID'
+});
+```
 
 ##### Default configuration
 
@@ -67,23 +81,88 @@ oLivefyreCommentClient.init({
 
 ---
 
-## Logging
-Logging can be enabled for debugging purposes. It logs using the global 'console' if available (if not, nothing happens and it degrades gracefully).
-By default logging is disabled.
+## Usual integration example
+This integration considers that you have included the script using one of the methods mentioned in the `How to use it` section.
 
-###### enableLogging
-This method enables logging of the module.
+The following functions are used only for purpose of illustration, but they are not available as part of this module:
+ - readCookie
+ - login
 
-###### disableLogging
-This method disables logging of the module.
 
-###### setLoggingLevel
-This method sets the logging level. This could be a number from 0 to 4 (where 0 is debug, 4 is error), or a string from the available methods of 'console' (debug, log, info, warn, error).
-Default is 3 (warn).
+Read the user's session:
+
+```javascript
+var userSession = readCookie('FTSession');
+```
+
+
+Set the user's session if one is available:
+
+```javascript
+oLivefyreCommentClient.init({
+    sessionId: userSession
+});
+```
+
+
+Listen on the 'login required' event, and try to log in the user within the page:
+
+```javascript
+oLivefyreCommentClient.auth.on('loginRequired.authAction', function (delegate) {
+    // the user is not logged in, but an action was performed within the comment widget that requires the user to be logged in
+
+    login();
+    if (loggedIn) {
+        delegate.success();
+    } else if (loginRefused) {
+        delegate.failure();
+    } else if (loginFailure) {
+        delegate.failure();
+    }
+});
+```
+
+**Important: if the log in needs a page reload, don't call the failure function!**
+
+
+
+Listen the events the widget triggers (optional):
+
+```javascript
+widgetInstance.on(commentPosted.tracking, function (siteId, eventData) {
+    // a comment is posted, do something, track it
+});
+```
+
+
+Create an instance of the Widget with the parameters that are available:
+
+```javascript
+var widgetInstance = new oLivefyreCommentClient.Widget({
+    elId: 'container-id',
+    title: document.title,
+    url: document.location.href,
+    articleId: 'ID-of-the-article',
+    initExtension: {
+        datetimeFormat: {
+            minutesUntilAbsoluteTime: -1,
+            absoluteFormat: 'MMM dd hh:mm a'
+        }
+    }
+});
+```
+
+
+
+Load the widget:
+
+```javascript
+widgetInstance.load();
+```
 
 ---
 
-## How to include comments on the page
+## More about the submodules
 
 ### Widget
 
@@ -144,7 +223,8 @@ widgetInstance.on('nameOfTheEvent', function () {
 
 Using the `off` method event handlers can be removed.
 
-List of events:
+The list of events are:
+
 ###### timeout.widget
 Triggered when loading the widget exceeded a given time.
 
@@ -234,17 +314,17 @@ Triggered when the user logs out.
 ### auth
 This module is handling the authentication into the Livefyre system.
 
-##### Methods of auth
-###### getInstance
-As auth is a singleton module, it has just one instance. This method should be called only when the Livefyre resources are loaded and the `fyre` object is available.
-
-##### Methods of the single instance
+##### Methods
 ###### getAuthDelegate
 Creates Livefyre RemoteAuthDelegate, also provides login and logout into Livefyre.
 See http://docs.livefyre.com/developers/user-auth/remote-profiles/#BuildingAuthDelegate
 
 ###### login
+Logs in a livefyre user.
+
 ###### logout
+###### on
+###### off
 
 ### userDialogs
 
@@ -275,3 +355,19 @@ Livefyre creates a queue in localStorage when a user posts a comment without bei
 Detects if the URL is a Livefyre permalink.
 ##### cloneObject
 Deferences a plain Object and returns a deep copy (same content with different references).
+
+---
+
+## Logging
+Logging can be enabled for debugging purposes. It logs using the global 'console' if available (if not, nothing happens and it degrades gracefully).
+By default logging is disabled.
+
+### enableLogging
+This method enables logging of the module.
+
+### disableLogging
+This method disables logging of the module.
+
+### setLoggingLevel
+This method sets the logging level. This could be a number from 0 to 4 (where 0 is debug, 4 is error), or a string from the available methods of 'console' (debug, log, info, warn, error).
+Default is 3 (warn).

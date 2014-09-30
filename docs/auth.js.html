@@ -311,7 +311,9 @@ var utils = require('./utils.js');</code></pre>
           </table>
           <div class="description"><p>Login required, first attempt of the login process is successful.<br />If the user is still not logged in, then fail.<br />If the user has no pseudonym, ask for a pseudonym.</p> </div>
           <pre><code class="language-javascript">function loginRequiredAfterASuccess (delegate) {
-        oCommentData.api.getAuth(function (err, authData) {
+        oCommentData.api.getAuth({
+            force: true
+        }, function (err, authData) {
             if (authData &amp;&amp; authData.pseudonym === false) {
                 self.loginRequiredPseudonymMissing(delegate);
             } else {

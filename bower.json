@@ -1,9 +1,9 @@
 {
   "name": "o-livefyre-comment-client",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "main": "main.js",
   "dependencies": {
-    "o-comment-data": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-data.git#^0.5.0",
+    "o-comment-data": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-data.git#^0.6.0",
     "comment-ui": "git+http://git.svc.ft.com:8080/scm/strat_p/comment-ui.git#^0.2.0",
     "comment-utilities": "git+http://git.svc.ft.com:8080/scm/strat_p/comment-utilities.git#^0.1.0",
     "js-merge": "git+http://git.svc.ft.com:8080/scm/strat_p/js-merge.git#^0.1.0",

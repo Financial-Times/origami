@@ -91,12 +91,15 @@ function WidgetUi (widgetContainer) {
     this.addSettingsLink = function (options) {
         commentUtilities.logger.log("Commenting settings link adding triggered.");
 
-        var noOfTrial = 0,
-            interval = setInterval(function () {
-                var pseudonymContainer = sizzle('.fyre-auth .fyre-login-bar .fyre-box-wrapper .fyre-user-loggedin', widgetContainer);
-                if (pseudonymContainer.length || noOfTrial === 120) {
-                    clearInterval(interval);
+        var noOfTrial = 0;
 
+        clearInterval(checkPseudonymInterval);
+        checkPseudonymInterval = setInterval(function () {
+            var pseudonymContainer = sizzle('.fyre-auth .fyre-login-bar .fyre-box-wrapper .fyre-user-loggedin', widgetContainer);
+            if (pseudonymContainer.length || noOfTrial === 120) {
+                clearInterval(checkPseudonymInterval);
+
+                if (sizzle('.comment-settings', widgetContainer).length === 0) {
                     if (noOfTrial === 120) {
                         // give up
                         return;
@@ -119,11 +122,13 @@ function WidgetUi (widgetContainer) {
                             options.onAdded();
                         }
                     }
-                } else {
-                    noOfTrial++;
                 }
-            }, 500);
+            } else {
+                noOfTrial++;
+            }
+        }, 500);
     };
+    var checkPseudonymInterval;
 
     /**
      * Removes the settings link from the widget.

@@ -242,12 +242,15 @@
           <pre><code class="language-javascript">this.addSettingsLink = function (options) {
         commentUtilities.logger.log(&quot;Commenting settings link adding triggered.&quot;);
 
-        var noOfTrial = 0,
-            interval = setInterval(function () {
-                var pseudonymContainer = sizzle('.fyre-auth .fyre-login-bar .fyre-box-wrapper .fyre-user-loggedin', widgetContainer);
-                if (pseudonymContainer.length || noOfTrial === 120) {
-                    clearInterval(interval);
+        var noOfTrial = 0;
 
+        clearInterval(checkPseudonymInterval);
+        checkPseudonymInterval = setInterval(function () {
+            var pseudonymContainer = sizzle('.fyre-auth .fyre-login-bar .fyre-box-wrapper .fyre-user-loggedin', widgetContainer);
+            if (pseudonymContainer.length || noOfTrial === 120) {
+                clearInterval(checkPseudonymInterval);
+
+                if (sizzle('.comment-settings', widgetContainer).length === 0) {
                     if (noOfTrial === 120) {
                         // give up
                         return;
@@ -270,11 +273,13 @@
                             options.onAdded();
                         }
                     }
-                } else {
-                    noOfTrial++;
                 }
-            }, 500);
-    };</code></pre>
+            } else {
+                noOfTrial++;
+            }
+        }, 500);
+    };
+    var checkPseudonymInterval;</code></pre>
           <section id="removeSettingsLink">
             <h1>removeSettingsLink</h1>
             <h5 class="subheader"></h5>

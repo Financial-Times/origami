@@ -90,18 +90,25 @@
         </div>
         <div class="span9">
           <section id="Main"><h1 id="o-livefyre-comment-client">o-livefyre-comment-client</h1>
-<p>Integration of the widget provided by Livefyre. The integration means </p>
+<p>Integration of the commenting widget provided by Livefyre.</p>
 <hr>
 <h2 id="how-to-use-it">How to use it</h2>
-<h3 id="standalone">Standalone</h3>
-<p>Using the build tool, the script exposes a global variable named <code>oLivefyreCommentClient</code>.</p>
+<p>There are two ways of using this module:</p>
+<h3 id="build-tool">Build tool</h3>
+<p>Include the script provided by the build tool.<br>The script exposes a global variable named <code>oLivefyreCommentClient</code>.</p>
 <h3 id="bower">Bower</h3>
 <p>As a bower dependency:</p>
-<pre><code class="lang-javascript">var oLivefyreCommentClient = require(&#39;o-livefyre-comment-client&#39;);</code></pre>
+<pre><code class="lang-javascript">var oLivefyreCommentClient = require(&#39;o-comment-client&#39;);</code></pre>
+<p>The module should be built using <code>browserify</code> (with <code>debowerify</code> transform).</p>
+<hr>
 <h2 id="configuration">Configuration</h2>
 <p><strong>The methods which are meant to configure the module are the following:</strong></p>
 <h3 id="init">init</h3>
-<p>This method is responsible for changing the default configuration used by this module. Calling this method with an object will merge the default configuration with the object specified (deep merge, only primitive type values of the same key will be overwritten).<br>Adding a <code>dependencies</code> field will set the configuration of dependency modules.</p>
+<p>This method is responsible for changing the default configuration used by this module. Calling this method with an object will merge the default configuration with the object specified (deep merge, primitive type values of the same key will be overwritten).</p>
+<p>In order to use this module with authentication enabled, you should specify the user&#39;s session ID:</p>
+<pre><code class="lang-javascript">oLivefyreCommentClient.init({
+    sessionId: &#39;sessID&#39;
+});</code></pre>
 <h5 id="default-configuration">Default configuration</h5>
 <pre><code class="lang-javascript">{
     &quot;livefyre&quot;: {
@@ -137,16 +144,54 @@
     }
 });</code></pre>
 <hr>
-<h2 id="logging">Logging</h2>
-<p>Logging can be enabled for debugging purposes. It logs using the global &#39;console&#39; if available (if not, nothing happens and it degrades gracefully).<br>By default logging is disabled.</p>
-<h6 id="enablelogging">enableLogging</h6>
-<p>This method enables logging of the module.</p>
-<h6 id="disablelogging">disableLogging</h6>
-<p>This method disables logging of the module.</p>
-<h6 id="setlogginglevel">setLoggingLevel</h6>
-<p>This method sets the logging level. This could be a number from 0 to 4 (where 0 is debug, 4 is error), or a string from the available methods of &#39;console&#39; (debug, log, info, warn, error).<br>Default is 3 (warn).</p>
+<h2 id="usual-integration-example">Usual integration example</h2>
+<p>This integration considers that you have included the script using one of the methods mentioned in the <code>How to use it</code> section.</p>
+<p>The following functions are used only for purpose of illustration, but they are not available as part of this module:</p>
+<ul>
+<li>readCookie</li>
+<li>login</li>
+</ul>
+<p>Read the user&#39;s session:</p>
+<pre><code class="lang-javascript">var userSession = readCookie(&#39;FTSession&#39;);</code></pre>
+<p>Set the user&#39;s session if one is available:</p>
+<pre><code class="lang-javascript">oLivefyreCommentClient.init({
+    sessionId: userSession
+});</code></pre>
+<p>Listen on the &#39;login required&#39; event, and try to log in the user within the page:</p>
+<pre><code class="lang-javascript">oLivefyreCommentClient.auth.on(&#39;loginRequired.authAction&#39;, function (delegate) {
+    // the user is not logged in, but an action was performed within the comment widget that requires the user to be logged in
+
+    login();
+    if (loggedIn) {
+        delegate.success();
+    } else if (loginRefused) {
+        delegate.failure();
+    } else if (loginFailure) {
+        delegate.failure();
+    }
+});</code></pre>
+<p><strong>Important: if the log in needs a page reload, don&#39;t call the failure function!</strong></p>
+<p>Listen the events the widget triggers (optional):</p>
+<pre><code class="lang-javascript">widgetInstance.on(commentPosted.tracking, function (siteId, eventData) {
+    // a comment is posted, do something, track it
+});</code></pre>
+<p>Create an instance of the Widget with the parameters that are available:</p>
+<pre><code class="lang-javascript">var widgetInstance = new oLivefyreCommentClient.Widget({
+    elId: &#39;container-id&#39;,
+    title: document.title,
+    url: document.location.href,
+    articleId: &#39;ID-of-the-article&#39;,
+    initExtension: {
+        datetimeFormat: {
+            minutesUntilAbsoluteTime: -1,
+            absoluteFormat: &#39;MMM dd hh:mm a&#39;
+        }
+    }
+});</code></pre>
+<p>Load the widget:</p>
+<pre><code class="lang-javascript">widgetInstance.load();</code></pre>
 <hr>
-<h2 id="how-to-include-comments-on-the-page">How to include comments on the page</h2>
+<h2 id="more-about-the-submodules">More about the submodules</h2>
 <h3 id="widget">Widget</h3>
 <p>In order to load comments on a page, you should create an instance of <code>Widget</code>.</p>
 <pre><code class="lang-javascript">var widgetInstance = new oLivefyreCommentClient.Widget({
@@ -196,7 +241,7 @@ widgetInstance.load();</code></pre>
     // event handler
 });</code></pre>
 <p>Using the <code>off</code> method event handlers can be removed.</p>
-<p>List of events:</p>
+<p>The list of events are:</p>
 <h6 id="timeout-widget">timeout.widget</h6>
 <p>Triggered when loading the widget exceeded a given time.</p>
 <h6 id="error-resources">error.resources</h6>
@@ -252,14 +297,14 @@ widgetInstance.load();</code></pre>
 <p>Triggered when the user logs out.</p>
 <h3 id="auth">auth</h3>
 <p>This module is handling the authentication into the Livefyre system.</p>
-<h5 id="methods-of-auth">Methods of auth</h5>
-<h6 id="getinstance">getInstance</h6>
-<p>As auth is a singleton module, it has just one instance. This method should be called only when the Livefyre resources are loaded and the <code>fyre</code> object is available.</p>
-<h5 id="methods-of-the-single-instance">Methods of the single instance</h5>
+<h5 id="methods">Methods</h5>
 <h6 id="getauthdelegate">getAuthDelegate</h6>
 <p>Creates Livefyre RemoteAuthDelegate, also provides login and logout into Livefyre.<br>See <a href="http://docs.livefyre.com/developers/user-auth/remote-profiles/#BuildingAuthDelegate">http://docs.livefyre.com/developers/user-auth/remote-profiles/#BuildingAuthDelegate</a></p>
 <h6 id="login">login</h6>
+<p>Logs in a livefyre user.</p>
 <h6 id="logout">logout</h6>
+<h6 id="on">on</h6>
+<h6 id="off">off</h6>
 <h3 id="userdialogs">userDialogs</h3>
 <h3 id="resourceloader">resourceLoader</h3>
 <p>This is responsible for loading Livefyre&#39;s core JS libraries, and it also provides a helper to load CSS override.</p>
@@ -281,6 +326,15 @@ widgetInstance.load();</code></pre>
 <p>Detects if the URL is a Livefyre permalink.</p>
 <h5 id="cloneobject">cloneObject</h5>
 <p>Deferences a plain Object and returns a deep copy (same content with different references).</p>
+<hr>
+<h2 id="logging">Logging</h2>
+<p>Logging can be enabled for debugging purposes. It logs using the global &#39;console&#39; if available (if not, nothing happens and it degrades gracefully).<br>By default logging is disabled.</p>
+<h3 id="enablelogging">enableLogging</h3>
+<p>This method enables logging of the module.</p>
+<h3 id="disablelogging">disableLogging</h3>
+<p>This method disables logging of the module.</p>
+<h3 id="setlogginglevel">setLoggingLevel</h3>
+<p>This method sets the logging level. This could be a number from 0 to 4 (where 0 is debug, 4 is error), or a string from the available methods of &#39;console&#39; (debug, log, info, warn, error).<br>Default is 3 (warn).</p>
 </section>
         </div>
       </div>
