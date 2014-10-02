@@ -119,6 +119,11 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
             margin: 10px 0 0 0;
 
+            &.fyre-comment-highlight {
+                display: block;
+                margin-right: 0;
+            }
+
             .fyre-comment-deleted {
                 font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
                 font-size: 13px;
@@ -691,11 +696,11 @@ $ftLinkHover: oColorsGetPaletteColor(black);
                             }
                         }
                     }
-                }
 
-                .fyre-comment-wrapper:last-child {
-                    .fyre-comment-divider {
-                        display: none;
+                    &:last-child {
+                        .fyre-comment-divider {
+                            display: none;
+                        }
                     }
                 }
             }
