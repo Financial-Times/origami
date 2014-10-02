@@ -119,7 +119,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
             margin: 10px 0 0 0;
 
-            &.fyre-comment-highlight {
+            .fyre-comment-wrapper.fyre-comment-highlight {
                 display: block;
                 margin-right: 0;
             }
