@@ -2,4 +2,5 @@
 origami-tracking.iml
 node_modules/*
 build/*
+bower_components
 .sass-cache

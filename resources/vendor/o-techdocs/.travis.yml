@@ -1,9 +1,0 @@
-script:
- - "test/travis.rb"
-language: ruby
-before_install:
- - gem install sass
- - npm install -g bower
- - npm install -g grunt-cli
- - npm install
- - bower install
