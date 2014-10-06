@@ -48,6 +48,7 @@ module.exports = function (grunt) {
             options: {
                 ignores: [
                     "./resources/vendor/**",
+                    "./bower_components/**",
                     "<%=examples_build %>/**"/*,
                      "src/javascript/utils.js"*/
                 ],
@@ -121,7 +122,7 @@ module.exports = function (grunt) {
             },
             examples: {
                 files: [
-                    { src: 'resources/vendor/jquery/jquery.min.js', dest: '<%=examples_build %>/jquery.min.js' }
+                    { src: 'bower_components/jquery/jquery.min.js', dest: '<%=examples_build %>/jquery.min.js' }
                 ]
             }
         },
@@ -131,7 +132,7 @@ module.exports = function (grunt) {
                 options: {
                     quiet: true,
                     sassDir: './examples',
-                    importPath: "./resources/vendor",
+                    importPath: "./bower_components",
                     cssDir: '<%=examples_build %>'
                 }
             },
