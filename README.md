@@ -173,6 +173,7 @@ Include this where you want the widget to load:
 ```
 
 In order to built the DOM element, follow the steps:
+
 1. Add class o-livefyre-comment-client to the container element
 2. Add attribute `data-o-livefyre-comment-client-autoconstruct="true"`
 3. Specify a unique ID
