@@ -184,7 +184,7 @@ When done with the configuration of the widget, adding event listeners, etc.:
 oLivefyreCommentClient.initDomConstruct();
 ```
 
-**You don't want to wait until the document is fully loaded, call it whenever you are done with the configurations.**
+**You don't have to wait until the document is fully loaded, call it whenever you are done with the configurations.**
 
 
 
