@@ -15,8 +15,6 @@ config.set(defaultConfig);
  */
 oCommentData.init('cache', true);
 
-commentUtilities.initDomConstruct(Widget, 'o-livefyre-comment-client');
-
 module.exports = {
     /**
      * Adds or overrides configuration options. It also supports overriding or adding configs to dependencies.
@@ -59,6 +57,12 @@ module.exports = {
                 oCommentData.init('sessionId', keyOrObject.sessionId);
             }
         }
+    },
+
+    initDomConstruct: function () {
+        "use strict";
+        
+        commentUtilities.initDomConstruct(Widget, 'o-livefyre-comment-client');
     },
     
     /**

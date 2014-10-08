@@ -151,9 +151,15 @@ module.exports = {</code></pre>
                 oCommentData.init('sessionId', keyOrObject.sessionId);
             }
         }
+    },
+
+    initDomConstruct: function () {
+        &quot;use strict&quot;;
+        
+        commentUtilities.initDomConstruct(Widget, 'o-livefyre-comment-client');
     },</code></pre>
           <div class="description"><p>Widget.js exposed.</p> </div>
-          <pre><code class="language-javascript">Widget: require('./src/javascripts/Widget.js'),
+          <pre><code class="language-javascript">Widget: Widget,
 
     WidgetUi: require('./src/javascripts/WidgetUi.js'),
 

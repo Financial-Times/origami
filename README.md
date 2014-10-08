@@ -81,7 +81,8 @@ oLivefyreCommentClient.init({
 
 ---
 
-## Usual integration example
+## Integration
+### Programatically
 This integration considers that you have included the script using one of the methods mentioned in the `How to use it` section.
 
 The following functions are used only for purpose of illustration, but they are not available as part of this module:
@@ -159,6 +160,29 @@ Load the widget:
 ```javascript
 widgetInstance.load();
 ```
+
+
+### Using DOM element
+The Widget will be created using data from a DOM element.
+
+Example:
+
+```html
+<div class="o-livefyre-comment-client" id="comments-livefyre" data-o-livefyre-comment-client-autoconstruct="true" data-o-livefyre-comment-client-config-title="FT Alphaville Wrapper and Upgrade Brightcove Library | FT Alphaville" data-o-livefyre-comment-client-config-url="http://uat.ftalphaville.ft.com/marketslive/2014-08-28-3/" data-o-livefyre-comment-client-config-articleId="marketslive-test"></div>
+```
+
+In order a Widget to be created, do the following steps:
+1. Add class o-livefyre-comment-client to the container element
+2. Add attribute `data-o-livefyre-comment-client-autoconstruct="true"`
+3. Specify a unique ID
+4. Add configuration options that you want to pass to the widget in the following form: data-o-livefyre-comment-client-{configName}="{configValue}". Replace `{configName}` and `{configValue}` with the name of the configuration and value you want to pass.
+5. When you are done (e.g. sessionId is set with the init function, default configuration is changed if desired), call the following function:
+
+```javascript
+oLivefyreCommentClient.initDomConstruct();
+```
+
+You don't want to wait until the document is fully loaded, call it whenever you are done with the configurations.
 
 ---
 
