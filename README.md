@@ -172,7 +172,7 @@ Include this where you want the widget to load:
 <div class="o-livefyre-comment-client" id="commentWidget" data-o-livefyre-comment-client-autoconstruct="true" data-o-livefyre-comment-client-config-title="title-of-the-article" data-o-livefyre-comment-client-config-url="page-url" data-o-livefyre-comment-client-config-articleId="ID-of-the-article"></div>
 ```
 
-In order to built the DOM element, follow the steps:
+In order to build the DOM element, follow the steps:
 
 1. Add class o-livefyre-comment-client to the container element
 2. Add attribute `data-o-livefyre-comment-client-autoconstruct="true"`
