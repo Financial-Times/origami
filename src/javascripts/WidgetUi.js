@@ -22,13 +22,11 @@ function WidgetUi (widgetContainer) {
 
         style.type = 'text/css';
 
-        var css = '<style>'+
-                '#' + widgetContainer.id + ' .fyre-editor, '+
-                '#' + widgetContainer.id + ' .fyre-comment-like, '+
-                '#' + widgetContainer.id + ' .fyre-comment-action-button {'+
-                    'display: none;'+
-                '}'+
-            '</style>';
+        var css = '#' + widgetContainer.id + ' .fyre-editor, '+
+                  '#' + widgetContainer.id + ' .fyre-comment-like, '+
+                  '#' + widgetContainer.id + ' .fyre-comment-action-button {'+
+                      'display: none;'+
+                  '}';
 
         if (style.styleSheet){
             style.styleSheet.cssText = css;
@@ -45,11 +43,9 @@ function WidgetUi (widgetContainer) {
 
         style.type = 'text/css';
 
-        var css = '<style>'+
-                '#' + widgetContainer.id + ' .fyre-follow-button {'+
-                    'display: none;'+
-                '}'+
-            '</style>';
+        var css = '#' + widgetContainer.id + ' .fyre-follow-button {'+
+                      'display: none;'+
+                  '}';
 
         if (style.styleSheet){
             style.styleSheet.cssText = css;
