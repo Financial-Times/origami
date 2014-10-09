@@ -78,6 +78,10 @@ function Widget () {
 
             callback();
         });
+
+        if (envConfig.get().emailNotifications !== true) {
+            self.ui.hideFollowButton();
+        }
     };
 
     this.init = function (callback) {
@@ -180,7 +184,7 @@ function Widget () {
                                             authData = null;
                                         }
 
-                                        if (self.config.emailAlert !== false) {
+                                        if (self.config.emailAlert !== false || envConfig.get().emailNotifications === true) {
                                             if (authData && typeof authData === 'object') {
                                                 if (authData.token && !authData.settings) {
                                                     userDialogs.showEmailAlertDialog();
@@ -249,35 +253,59 @@ function Widget () {
      * Adds the "Commenting settings" link when login occurs.
      */
     function login () {
-        self.ui.addSettingsLink({
-            onClick: function () {
-                var showSettingsDialog = function () {
-                    oCommentData.api.getAuth(function (err, currentAuthData) {
-                        if (!err && currentAuthData) {
-                            userDialogs.showSettingsDialog(currentAuthData, {
-                                success: function (newAuthData) {
-                                    if (newAuthData && newAuthData.token) {
-                                        auth.logout();
-                                        commentUtilities.logger.debug('new settings', newAuthData);
-                                        auth.login(newAuthData.token);
-                                    }
-                                }
-                            });
+        var showSettingsDialog = function () {
+            oCommentData.api.getAuth(function (err, currentAuthData) {
+                if (!err && currentAuthData) {
+                    userDialogs.showSettingsDialog(currentAuthData, {
+                        success: function (newAuthData) {
+                            if (newAuthData && newAuthData.token) {
+                                auth.logout();
+                                commentUtilities.logger.debug('new settings', newAuthData);
+                                auth.login(newAuthData.token);
+                            }
                         }
                     });
-                };
+                }
+            });
+        };
 
+        var showChangePseudonymDialog = function () {
+            oCommentData.api.getAuth(function (err, currentAuthData) {
+                if (!err && currentAuthData) {
+                    userDialogs.showChangePseudonymDialog(currentAuthData.displayName, {
+                        success: function (newAuthData) {
+                            if (newAuthData && newAuthData.token) {
+                                auth.logout();
+                                commentUtilities.logger.debug('new settings', newAuthData);
+                                auth.login(newAuthData.token);
+                            }
+                        }
+                    });
+                }
+            });
+        };
+
+        var showConfigDialog = function () {
+            if (envConfig.get().emailNotifications !== true) {
+                showChangePseudonymDialog();
+            } else {
+                showSettingsDialog();
+            }
+        };
+
+        self.ui.addSettingsLink({
+            onClick: function () {
                 oCommentData.api.getAuth(function (err, currentAuthData) {
                     if (err || !currentAuthData) {
                         auth.loginRequired({
                             success: function () {
-                                showSettingsDialog();
+                                showConfigDialog();
                             }
                         });
                         return;
                     }
 
-                    showSettingsDialog();
+                    showConfigDialog();
                 });
             }
         });

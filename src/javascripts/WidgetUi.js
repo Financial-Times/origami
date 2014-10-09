@@ -1,5 +1,6 @@
 var commentUtilities = require('comment-utilities'),
     commentUi = require('comment-ui'),
+    envConfig = require('./config.js'),
     sizzle = require('sizzle');
 
 /**
@@ -25,6 +26,27 @@ function WidgetUi (widgetContainer) {
                 '#' + widgetContainer.attr('id') + ' .fyre-editor, '+
                 '#' + widgetContainer.attr('id') + ' .fyre-comment-like, '+
                 '#' + widgetContainer.attr('id') + ' .fyre-comment-action-button {'+
+                    'display: none;'+
+                '}'+
+            '</style>';
+
+        if (style.styleSheet){
+            style.styleSheet.cssText = css;
+        } else {
+            style.appendChild(document.createTextNode(css));
+        }
+
+        head.appendChild(style);
+    };
+
+    this.hideFollowButton = function () {
+        var head = document.head || document.getElementsByTagName('head')[0];
+        var style = document.createElement('style');
+
+        style.type = 'text/css';
+
+        var css = '<style>'+
+                '#' + widgetContainer.attr('id') + ' .fyre-follow-button {'+
                     'display: none;'+
                 '}'+
             '</style>';
@@ -107,7 +129,12 @@ function WidgetUi (widgetContainer) {
 
                     var loginBarContainer = sizzle('.fyre-auth .fyre-login-bar', widgetContainer);
                     if (loginBarContainer.length) {
-                        loginBarContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.commentingSettingsLink.render()));
+                        var commentingSettingsLinkConfig = {};
+                        if (envConfig.get().emailNotifications !== true) {
+                            commentingSettingsLinkConfig.label = "Edit pseudonym";
+                        }
+
+                        loginBarContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.commentingSettingsLink.render(commentingSettingsLinkConfig)));
                     }
 
                     var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comment-settings-text', widgetContainer);

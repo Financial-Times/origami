@@ -165,6 +165,63 @@ exports.showSetPseudonymDialog = function (callbacks) {
     });
 };
 
+
+/**
+ * Settings dialog where the user can change its pseudonym or email preferences.
+ * @param  {Object} currentPseudonym Required. Current pseudonym of the user.
+ * @param  {Function} callbacks Optional. Two possible fields: success and failure. Success will get the new authentication data as parameter.
+ */
+exports.showChangePseudonymDialog = function (currentPseudonym, callbacks) {
+    "use strict";
+
+    if (!callbacks || typeof callbacks !== 'object') {
+        callbacks = {};
+    }
+
+    callbacks.success = callbacks.success || function () {};
+    callbacks.failure = callbacks.failure || function () {};
+
+    commentUi.userDialogs.showChangePseudonymDialog(currentPseudonym, {
+        submit: function (formData, responseCallback) {
+            if (formData) {
+                oCommentData.api.updateUser(formData, function (err) {
+                    if (err) {
+                        if (typeof err === 'object' && err.sudsError) {
+                            if (commentUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
+                                responseCallback(commentUi.i18n.serviceMessageOverrides[err.error]);
+                            } else {
+                                responseCallback(err.error);
+                            }
+                        } else {
+                            responseCallback(commentUi.i18n.texts.genericError);
+                        }
+                        
+                        return;
+                    }
+
+                    oCommentData.api.getAuth({
+                        force: true
+                    }, function (err, authData) {
+                        if (err) {
+                            callbacks.failure();
+                            responseCallback(commentUi.i18n.texts.genericError);
+                            return;
+                        }
+
+                        callbacks.success(authData);
+                        responseCallback();
+                    });
+                });
+            } else {
+                responseCallback(commentUi.i18n.texts.genericError);
+            }
+        },
+        close: function () {
+            callbacks.failure();
+        }
+    });
+};
+
 exports.showEmailAlertDialog = function () {
     "use strict";
 

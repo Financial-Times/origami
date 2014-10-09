@@ -85,133 +85,42 @@
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#commentUi"><i class="alert alert-success"></i><span>commentUi</span></a>
+              <li><a href="#showChangePseudonymDialog"><i class="alert alert-info"></i><span>showChangePseudonymDialog</span></a>
               </li>
             </ul>
           </div>
         </div>
         <div class="span9">
-          <section id="commentUi">
-            <h1>commentUi</h1>
+          <section id="showChangePseudonymDialog">
+            <h1>showChangePseudonymDialog</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-success radius ctx-type">declaration</div><span>commentUi</span>
+              <div class="label label-info radius ctx-type">method</div><span>exports.showChangePseudonymDialog()</span>
             </p>
           </section>
-          <div class="description"> </div>
-          <pre><code class="language-javascript">var commentUi = require('comment-ui');
-var oCommentData = require('o-comment-data');
-var utils = require('./utils.js');
-
-
-var emailSubscribeOptions = ['immediately', 'hourly', 'on'];
-var emailUnsubscribeOptions = ['never', 'off'];
-
-var globalEvents = require('./globalEvents.js');
-
-function inArray (array, item) {
-    &quot;use strict&quot;;
-
-    if (Array.prototype.indexOf) {
-        return array.indexOf(item) !== -1 ? true : false;
-    } else {
-         for (var i = 0; i &lt; array.length; i++) {
-            if (array[i] === item) {
-                return true;
-            }
-         }
-         return false;
-    }
-}
-
-function isSubscribed (option) {
-    &quot;use strict&quot;;
-    
-    return inArray(emailSubscribeOptions, option);
-}
-
-function isUnsubscribed (option) {
-    &quot;use strict&quot;;
-    
-    return inArray(emailUnsubscribeOptions, option);
-}
-
-
-function getModifiedSubscribesUnsubscribes (currentSettings, newSettings) {
-    &quot;use strict&quot;;
-
-    var subscribes = [];
-    var unsubscribes = [];
-
-    if (currentSettings.emailcomments !== newSettings.emailcomments) {
-        if ((isUnsubscribed(currentSettings.emailcomments) || !currentSettings.emailcomments) &amp;&amp; isSubscribed(newSettings.emailcomments)) {
-            subscribes.push('emailcomments');
-        }
-        if (isSubscribed(currentSettings.emailcomments) &amp;&amp; isUnsubscribed(newSettings.emailcomments)) {
-            unsubscribes.push('emailcomments');
-        }
-    }
-
-    if (currentSettings.emailreplies !== newSettings.emailreplies) {
-        if ((isUnsubscribed(currentSettings.emailreplies) || !currentSettings.emailreplies) &amp;&amp; isSubscribed(newSettings.emailreplies)) {
-            subscribes.push('emailreplies');
-        }
-        if (isSubscribed(currentSettings.emailreplies) &amp;&amp; isUnsubscribed(newSettings.emailreplies)) {
-            unsubscribes.push('emailreplies');
-        }
-    }
-
-    if (currentSettings.emaillikes !== newSettings.emaillikes) {
-        if ((isUnsubscribed(currentSettings.emaillikes) || !currentSettings.emaillikes) &amp;&amp; isSubscribed(newSettings.emaillikes)) {
-            subscribes.push('emaillikes');
-        }
-        if (isSubscribed(currentSettings.emaillikes) &amp;&amp; isUnsubscribed(newSettings.emaillikes)) {
-            unsubscribes.push('emaillikes');
-        }
-    }
-
-    if (currentSettings.emailautofollow !== newSettings.emailautofollow) {
-        if ((isUnsubscribed(currentSettings.emailautofollow) || !currentSettings.emailautofollow) &amp;&amp; isSubscribed(newSettings.emailautofollow)) {
-            subscribes.push('emailautofollow');
-        }
-        if (isSubscribed(currentSettings.emailautofollow) &amp;&amp; isUnsubscribed(newSettings.emailautofollow)) {
-            unsubscribes.push('emailautofollow');
-        }
-    }
-
-
-    return {
-        subscribes: subscribes,
-        unsubscribes: unsubscribes
-    };
-}
-
-function getNewSubscribes (newSettings) {
-    &quot;use strict&quot;;
-
-    var subscribes = [];
-
-    if (isSubscribed(newSettings.emailcomments)) {
-        subscribes.push('emailcomments');
-    }
-    if (isSubscribed(newSettings.emailreplies)) {
-        subscribes.push('emailreplies');
-    }
-    if (isSubscribed(newSettings.emaillikes)) {
-        subscribes.push('emaillikes');
-    }
-    if (isSubscribed(newSettings.emailautofollow)) {
-        subscribes.push('emailautofollow');
-    }
-
-
-    return {
-        subscribes: subscribes
-    };
-}
-
-
-exports.showSetPseudonymDialog = function (callbacks) {
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>currentPseudonym</td>
+                <td>Object</td>
+                <td>Required. Current pseudonym of the user.</td>
+              </tr>
+              <tr>
+                <td>callbacks</td>
+                <td>Function</td>
+                <td>Optional. Two possible fields: success and failure. Success will get the new authentication data as parameter.</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Settings dialog where the user can change its pseudonym or email preferences.</p> </div>
+          <pre><code class="language-javascript">exports.showChangePseudonymDialog = function (currentPseudonym, callbacks) {
     &quot;use strict&quot;;
 
     if (!callbacks || typeof callbacks !== 'object') {
@@ -221,12 +130,10 @@ exports.showSetPseudonymDialog = function (callbacks) {
     callbacks.success = callbacks.success || function () {};
     callbacks.failure = callbacks.failure || function () {};
 
-    commentUi.userDialogs.showSetPseudonymDialog({
+    commentUi.userDialogs.showChangePseudonymDialog(currentPseudonym, {
         submit: function (formData, responseCallback) {
-            if (formData &amp;&amp; formData.pseudonym) {
-                oCommentData.api.updateUser({
-                    pseudonym: formData.pseudonym
-                }, function (err) {
+            if (formData) {
+                oCommentData.api.updateUser(formData, function (err) {
                     if (err) {
                         if (typeof err === 'object' &amp;&amp; err.sudsError) {
                             if (commentUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
@@ -235,19 +142,18 @@ exports.showSetPseudonymDialog = function (callbacks) {
                                 responseCallback(err.error);
                             }
                         } else {
-                            responseCallback(commentUi.i18n.texts.changePseudonymError);
+                            responseCallback(commentUi.i18n.texts.genericError);
                         }
                         
                         return;
                     }
 
-
                     oCommentData.api.getAuth({
                         force: true
                     }, function (err, authData) {
                         if (err) {
-                            responseCallback(commentUi.i18n.texts.changePseudonymError);
                             callbacks.failure();
+                            responseCallback(commentUi.i18n.texts.genericError);
                             return;
                         }
 
@@ -256,12 +162,11 @@ exports.showSetPseudonymDialog = function (callbacks) {
                     });
                 });
             } else {
-                responseCallback(commentUi.i18n.texts.changePseudonymBlankError);
+                responseCallback(commentUi.i18n.texts.genericError);
             }
         },
         close: function () {
             callbacks.failure();
-            utils.emptyLivefyreActionQueue();
         }
     });
 };

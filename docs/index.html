@@ -98,7 +98,7 @@
 <p>Include the script provided by the build tool.<br>The script exposes a global variable named <code>oLivefyreCommentClient</code>.</p>
 <h3 id="bower">Bower</h3>
 <p>As a bower dependency:</p>
-<pre><code class="lang-javascript">var oLivefyreCommentClient = require(&#39;o-comment-client&#39;);</code></pre>
+<pre><code class="lang-javascript">var oLivefyreCommentClient = require(&#39;o-livefyre-comment-client&#39;);</code></pre>
 <p>The module should be built using <code>browserify</code> (with <code>debowerify</code> transform).</p>
 <hr>
 <h2 id="configuration">Configuration</h2>
@@ -144,13 +144,14 @@
     }
 });</code></pre>
 <hr>
-<h2 id="usual-integration-example">Usual integration example</h2>
+<h2 id="integration">Integration</h2>
 <p>This integration considers that you have included the script using one of the methods mentioned in the <code>How to use it</code> section.</p>
 <p>The following functions are used only for purpose of illustration, but they are not available as part of this module:</p>
 <ul>
 <li>readCookie</li>
 <li>login</li>
 </ul>
+<p><strong>Common steps:</strong></p>
 <p>Read the user&#39;s session:</p>
 <pre><code class="lang-javascript">var userSession = readCookie(&#39;FTSession&#39;);</code></pre>
 <p>Set the user&#39;s session if one is available:</p>
@@ -175,6 +176,7 @@
 <pre><code class="lang-javascript">widgetInstance.on(commentPosted.tracking, function (siteId, eventData) {
     // a comment is posted, do something, track it
 });</code></pre>
+<h3 id="integration-programatically">Integration - programatically</h3>
 <p>Create an instance of the Widget with the parameters that are available:</p>
 <pre><code class="lang-javascript">var widgetInstance = new oLivefyreCommentClient.Widget({
     elId: &#39;container-id&#39;,
@@ -190,6 +192,23 @@
 });</code></pre>
 <p>Load the widget:</p>
 <pre><code class="lang-javascript">widgetInstance.load();</code></pre>
+<h3 id="integration-using-dom-element">Integration - using DOM element</h3>
+<p>The Widget will be created using data from a DOM element.</p>
+<p>Include this where you want the widget to load:</p>
+<pre><code class="lang-html">&lt;div class=&quot;o-livefyre-comment-client&quot; id=&quot;commentWidget&quot; data-o-livefyre-comment-client-autoconstruct=&quot;true&quot; data-o-livefyre-comment-client-config-title=&quot;title-of-the-article&quot; data-o-livefyre-comment-client-config-url=&quot;page-url&quot; data-o-livefyre-comment-client-config-articleId=&quot;ID-of-the-article&quot;&gt;&lt;/div&gt;</code></pre>
+<p>In order to build the DOM element, follow the steps:</p>
+<ol>
+<li>Add class o-livefyre-comment-client to the container element</li>
+<li>Add attribute <code>data-o-livefyre-comment-client-autoconstruct=&quot;true&quot;</code></li>
+<li>Specify a unique ID</li>
+<li>Add configuration options that you want to pass to the widget in the following form: data-o-livefyre-comment-client-{configName}=&quot;{configValue}&quot;. Replace <code>{configName}</code> and <code>{configValue}</code> with the name of the configuration and value you want to pass.</li>
+</ol>
+<p>When done with the configuration of the widget, adding event listeners, etc.:</p>
+<pre><code class="lang-javascript">oLivefyreCommentClient.initDomConstruct();</code></pre>
+<p><strong>You don&#39;t have to wait until the document is fully loaded, call it whenever you are done with the configurations.</strong></p>
+<p>If you need a reference of the JavaScript object created, you can find it the following way:</p>
+<pre><code class="lang-javascript">window[&#39;o-livefyre-comment-client-widget-&#39; + id]</code></pre>
+<p>where id is the ID of the DOM element (in this example <code>commentWidget</code>).</p>
 <hr>
 <h2 id="more-about-the-submodules">More about the submodules</h2>
 <h3 id="widget">Widget</h3>

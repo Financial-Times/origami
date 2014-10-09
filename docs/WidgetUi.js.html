@@ -162,6 +162,27 @@
         }
 
         head.appendChild(style);
+    };
+
+    this.hideFollowButton = function () {
+        var head = document.head || document.getElementsByTagName('head')[0];
+        var style = document.createElement('style');
+
+        style.type = 'text/css';
+
+        var css = '&lt;style&gt;'+
+                '#' + widgetContainer.attr('id') + ' .fyre-follow-button {'+
+                    'display: none;'+
+                '}'+
+            '&lt;/style&gt;';
+
+        if (style.styleSheet){
+            style.styleSheet.cssText = css;
+        } else {
+            style.appendChild(document.createTextNode(css));
+        }
+
+        head.appendChild(style);
     };</code></pre>
           <section id="hideSignInLink">
             <h1>hideSignInLink</h1>
@@ -258,7 +279,12 @@
 
                     var loginBarContainer = sizzle('.fyre-auth .fyre-login-bar', widgetContainer);
                     if (loginBarContainer.length) {
-                        loginBarContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.commentingSettingsLink.render()));
+                        var commentingSettingsLinkConfig = {};
+                        if (envConfig.get().emailNotifications !== true) {
+                            commentingSettingsLinkConfig.label = &quot;Edit pseudonym&quot;;
+                        }
+
+                        loginBarContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.commentingSettingsLink.render(commentingSettingsLinkConfig)));
                     }
 
                     var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comment-settings-text', widgetContainer);

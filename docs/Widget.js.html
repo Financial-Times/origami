@@ -210,6 +210,10 @@
 
             callback();
         });
+
+        if (envConfig.get().emailNotifications !== true) {
+            self.ui.hideFollowButton();
+        }
     };
 
     this.init = function (callback) {
@@ -312,7 +316,7 @@
                                             authData = null;
                                         }
 
-                                        if (self.config.emailAlert !== false) {
+                                        if (self.config.emailAlert !== false || envConfig.get().emailNotifications === true) {
                                             if (authData &amp;&amp; typeof authData === 'object') {
                                                 if (authData.token &amp;&amp; !authData.settings) {
                                                     userDialogs.showEmailAlertDialog();
@@ -383,35 +387,59 @@
           </section>
           <div class="description"><p>Adds the "Commenting settings" link when login occurs.</p> </div>
           <pre><code class="language-javascript">function login () {
-        self.ui.addSettingsLink({
-            onClick: function () {
-                var showSettingsDialog = function () {
-                    oCommentData.api.getAuth(function (err, currentAuthData) {
-                        if (!err &amp;&amp; currentAuthData) {
-                            userDialogs.showSettingsDialog(currentAuthData, {
-                                success: function (newAuthData) {
-                                    if (newAuthData &amp;&amp; newAuthData.token) {
-                                        auth.logout();
-                                        commentUtilities.logger.debug('new settings', newAuthData);
-                                        auth.login(newAuthData.token);
-                                    }
-                                }
-                            });
+        var showSettingsDialog = function () {
+            oCommentData.api.getAuth(function (err, currentAuthData) {
+                if (!err &amp;&amp; currentAuthData) {
+                    userDialogs.showSettingsDialog(currentAuthData, {
+                        success: function (newAuthData) {
+                            if (newAuthData &amp;&amp; newAuthData.token) {
+                                auth.logout();
+                                commentUtilities.logger.debug('new settings', newAuthData);
+                                auth.login(newAuthData.token);
+                            }
                         }
                     });
-                };
+                }
+            });
+        };
 
+        var showChangePseudonymDialog = function () {
+            oCommentData.api.getAuth(function (err, currentAuthData) {
+                if (!err &amp;&amp; currentAuthData) {
+                    userDialogs.showChangePseudonymDialog(currentAuthData.displayName, {
+                        success: function (newAuthData) {
+                            if (newAuthData &amp;&amp; newAuthData.token) {
+                                auth.logout();
+                                commentUtilities.logger.debug('new settings', newAuthData);
+                                auth.login(newAuthData.token);
+                            }
+                        }
+                    });
+                }
+            });
+        };
+
+        var showConfigDialog = function () {
+            if (envConfig.get().emailNotifications !== true) {
+                showChangePseudonymDialog();
+            } else {
+                showSettingsDialog();
+            }
+        };
+
+        self.ui.addSettingsLink({
+            onClick: function () {
                 oCommentData.api.getAuth(function (err, currentAuthData) {
                     if (err || !currentAuthData) {
                         auth.loginRequired({
                             success: function () {
-                                showSettingsDialog();
+                                showConfigDialog();
                             }
                         });
                         return;
                     }
 
-                    showSettingsDialog();
+                    showConfigDialog();
                 });
             }
         });

@@ -6,5 +6,6 @@
     },
     "resourceUrls": {
         "livefyreJs": "/wjs/v3.0/javascripts/livefyre.js"
-    }
+    },
+    "emailNotifications": true
 }
