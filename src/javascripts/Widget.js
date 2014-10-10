@@ -48,10 +48,14 @@ function Widget () {
 
 
     this.config.stream_type = this.config.stream_type || "livecomments";
-    if (!this.config.initExtension || typeof this.config.initExtension === 'object') {
+    if (!this.config.initExtension || typeof this.config.initExtension !== 'object') {
         this.config.initExtension = {};
     }
     this.config.initExtension.editorCss = 'p { margin-bottom: 10px !important; }';
+    /**
+     * Avatar disabled.
+     */
+    this.config.initExtension.disableAvatars = true;
 
     this.getWidgetEl().className += ' o-livefyre-comment-client livefyre-comment-overrides comment-type-' + self.config.stream_type;
 
