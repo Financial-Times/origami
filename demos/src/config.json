@@ -7,7 +7,7 @@
     "demos": [
         {
             "name": "horizontal",
-            "template": "demos/src/horizontal.mustache"
+            "template": "main.mustache"
         }
     ]
 }
