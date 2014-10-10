@@ -48,6 +48,10 @@ function Widget () {
 
 
     this.config.stream_type = this.config.stream_type || "livecomments";
+    if (!this.config.initExtension || typeof this.config.initExtension === 'object') {
+        this.config.initExtension = {};
+    }
+    this.config.initExtension.editorCss = 'p { margin-bottom: 10px !important; }';
 
     this.getWidgetEl().className += ' o-livefyre-comment-client livefyre-comment-overrides comment-type-' + self.config.stream_type;
 
@@ -103,17 +107,12 @@ function Widget () {
                 var authDelegate = auth.getAuthDelegate();
 
                 // extends the init data received from SUDS with some user specified fields.
-                if (self.config.initExtension && typeof self.config.initExtension === 'object') {
-                    var key;
-
-                    for (key in self.config.initExtension) {
-                        if (self.config.initExtension.hasOwnProperty(key)) {
-                            initData[key] = self.config.initExtension[key];
-                        }
+                var key;
+                for (key in self.config.initExtension) {
+                    if (self.config.initExtension.hasOwnProperty(key)) {
+                        initData[key] = self.config.initExtension[key];
                     }
                 }
-
-                self.config.initExtension.editorCss = 'p { margin-bottom: 10px !important; }';
 
                 oCommentData.api.getAuth(function (err, authData) {
                     if (err) {
