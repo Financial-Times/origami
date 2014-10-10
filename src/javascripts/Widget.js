@@ -187,7 +187,7 @@ function Widget () {
                                             authData = null;
                                         }
 
-                                        if (self.config.emailAlert !== false || envConfig.get().emailNotifications === true) {
+                                        if (self.config.emailAlert !== false && envConfig.get().emailNotifications === true) {
                                             if (authData && typeof authData === 'object') {
                                                 if (authData.token && !authData.settings) {
                                                     userDialogs.showEmailAlertDialog();
