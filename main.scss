@@ -12,12 +12,10 @@
   @include oShareBase();
   @include oShareActionLink();
   @include oShareActionIcon(twitter);
-  @include oShareActionIcon(twitter);
   @include oShareActionIcon(facebook);
-  @include oShareActionIcon(googleplus);
   @include oShareActionIcon(linkedin);
-  @include oShareActionIcon(stumbleupon);
+  @include oShareActionIcon(googleplus);
   @include oShareActionIcon(reddit);
-  @include oShareActionIcon(tumblr);
+  @include oShareActionIcon(pinterest);
   @include oShareTooltip();
 }
