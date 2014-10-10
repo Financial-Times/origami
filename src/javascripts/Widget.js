@@ -57,7 +57,15 @@ function Widget () {
      */
     this.config.initExtension.disableAvatars = true;
 
-    this.getWidgetEl().className += ' o-livefyre-comment-client livefyre-comment-overrides comment-type-' + self.config.stream_type;
+    if (this.getWidgetEl().className.indexOf('o-livefyre-comment-client') === -1) {
+        this.getWidgetEl().className += ' o-livefyre-comment-client';
+    }
+    if (this.getWidgetEl().className.indexOf('o-livefyre-comment-client-lf-overrides') === -1) {
+        this.getWidgetEl().className += ' o-livefyre-comment-client-lf-overrides';
+    }
+    if (this.getWidgetEl().className.indexOf('o-livefyre-comment-client-comment-type-' + self.config.stream_type) === -1) {
+        this.getWidgetEl().className += ' o-livefyre-comment-client-comment-type-' + self.config.stream_type;
+    }
 
     /**
      * Merge custom string overrides with FT specific string overrides.

@@ -27,7 +27,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
     filter: none;
 }
 
-.o-livefyre-comment-client.livefyre-comment-overrides.comment-type-livecomments {
+.o-livefyre-comment-client.o-livefyre-comment-client-lf-overrides.o-livefyre-comment-client-comment-type-livecomments {
     clear: both;
     color: oColorsGetPaletteColor(grey-tint5);
     font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
@@ -1425,7 +1425,7 @@ body {
 }
 
 
-.msie8 .o-livefyre-comment-client.livefyre-comment-overrides {
+.msie8 .o-livefyre-comment-client.o-livefyre-comment-client-lf-overrides {
     .fyre {
         .fyre-login-bar {
             float: none;
