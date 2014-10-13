@@ -16,6 +16,7 @@ $o-ft-footer-spacing-unit: 20px;
 @include oColorsSetUseCase(o-ft-footer, text, white);
 @include oColorsSetUseCase(o-ft-footer__pearson, background, grey-tint4);
 @include oColorsSetUseCase(o-ft-footer__divider, border, white);
+@include oColorsSetUseCase(o-ft-footer-item, text, white);
 
 .o-ft-footer {
 	@include oColorsFor(o-ft-footer, text background);
@@ -50,7 +51,7 @@ $o-ft-footer-spacing-unit: 20px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	width: 100%;
-	color: oColorsGetColorFor(header-item, text);
+	color: oColorsGetColorFor(o-ft-footer-item, text);
 }
 
 .o-ft-footer__link {
@@ -61,11 +62,11 @@ $o-ft-footer-spacing-unit: 20px;
 		&:visited,
 		&:link {
 			text-decoration: none;
-			color: oColorsGetColorFor(header-item, text);
+			color: oColorsGetColorFor(o-ft-footer-item, text);
 		}
 		#{$o-hoverable-if-hover-enabled} &:hover,
 		&:focus {
-			color: oColorsGetColorFor(link-alt-hover, text);
+			color: oColorsGetColorFor(link-title-hover, text);
 		}
 	}
 }
