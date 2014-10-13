@@ -6,16 +6,16 @@
 @import "scss/_functions";
 @import "scss/_mixins";
 
-// Force re-draw of web font in Chrome: https://code.google.com/p/chromium/issues/detail?id=336476
-body {
-  -webkit-animation-duration: 0.1s;
-  -webkit-animation-name: fontfix;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-delay: 0.1s;
-}
-
 @mixin oFtTypographyWebkitFontfix() {
+  // Force re-draw of web font in Chrome: https://code.google.com/p/chromium/issues/detail?id=336476
+  body {
+    -webkit-animation-duration: 0.1s;
+    -webkit-animation-name: fontfix;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 0.1s;
+  }
+
   @at-root {
     @-webkit-keyframes fontfix {
       from {
