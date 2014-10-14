@@ -119,7 +119,7 @@ module.exports = {</code></pre>
           <div class="description"><p>Adds or overrides configuration options. It also supports overriding or adding configs to dependencies.<br />For this you have to write the following:</p>
 
 <div class="highlight"><pre lang="">"dependencies": {
-      "o-comments-data": {
+      "o-comment-data": {
           "suds": {
               "baseUrl": "<a href='http://test.session-user-data.webservices.ft.com'>http://test.session-user-data.webservices.ft.com</a>"
           },
@@ -130,8 +130,6 @@ module.exports = {</code></pre>
   }
 </pre></div> </div>
           <pre><code class="language-javascript">init: function (keyOrObject, value) {
-        &quot;use strict&quot;;
-
         if (typeof keyOrObject === 'string') {
             config.set(keyOrObject, value);
 
@@ -139,8 +137,8 @@ module.exports = {</code></pre>
                 oCommentData.init(keyOrObject, value);
             }
         } else if (typeof keyOrObject === 'object') {
-            if (keyOrObject.hasOwnProperty('dependencies') &amp;&amp; keyOrObject.dependencies.hasOwnProperty('o-comments-data')) {
-                oCommentData.init(keyOrObject.dependencies['o-comments-data']);
+            if (keyOrObject.hasOwnProperty('dependencies') &amp;&amp; keyOrObject.dependencies.hasOwnProperty('o-comment-data')) {
+                oCommentData.init(keyOrObject.dependencies['o-comment-data']);
 
                 delete keyOrObject.dependencies;
             }
@@ -154,8 +152,6 @@ module.exports = {</code></pre>
     },
 
     initDomConstruct: function () {
-        &quot;use strict&quot;;
-        
         commentUtilities.initDomConstruct(Widget, 'o-livefyre-comment-client');
     },</code></pre>
           <div class="description"><p>Widget.js exposed.</p> </div>
@@ -178,17 +174,14 @@ module.exports = {</code></pre>
           <pre><code class="language-javascript">i18n: require('./src/javascripts/i18n.js'),</code></pre>
           <div class="description"><p>Enables logging.</p> </div>
           <pre><code class="language-javascript">enableLogging: function () {
-        &quot;use strict&quot;;
         commentUtilities.logger.enable.apply(this, arguments);
     },</code></pre>
           <div class="description"><p>Disables logging.</p> </div>
           <pre><code class="language-javascript">disableLogging: function () {
-        &quot;use strict&quot;;
         commentUtilities.logger.disable.apply(this, arguments);
     },</code></pre>
           <div class="description"><p>Sets logging level.</p> </div>
           <pre><code class="language-javascript">setLoggingLevel: function () {
-        &quot;use strict&quot;;
         commentUtilities.logger.setLevel.apply(this, arguments);
     }
 };

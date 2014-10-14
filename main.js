@@ -1,3 +1,5 @@
+"use strict";
+
 var globalEvents = require('./src/javascripts/globalEvents');
 var config = require('./src/javascripts/config.js'),
     oCommentData = require('o-comment-data'),
@@ -21,7 +23,7 @@ module.exports = {
      * For this you have to write the following:
      * ```
      * "dependencies": {
-     *       "o-comments-data": {
+     *       "o-comment-data": {
      *           "suds": {
      *               "baseUrl": "http://test.session-user-data.webservices.ft.com"
      *           },
@@ -36,8 +38,6 @@ module.exports = {
      * @param  {anything} value Optional. Should be specified only if keyOrObject is actually a key (string).
      */
     init: function (keyOrObject, value) {
-        "use strict";
-
         if (typeof keyOrObject === 'string') {
             config.set(keyOrObject, value);
 
@@ -45,8 +45,8 @@ module.exports = {
                 oCommentData.init(keyOrObject, value);
             }
         } else if (typeof keyOrObject === 'object') {
-            if (keyOrObject.hasOwnProperty('dependencies') && keyOrObject.dependencies.hasOwnProperty('o-comments-data')) {
-                oCommentData.init(keyOrObject.dependencies['o-comments-data']);
+            if (keyOrObject.hasOwnProperty('dependencies') && keyOrObject.dependencies.hasOwnProperty('o-comment-data')) {
+                oCommentData.init(keyOrObject.dependencies['o-comment-data']);
 
                 delete keyOrObject.dependencies;
             }
@@ -60,8 +60,6 @@ module.exports = {
     },
 
     initDomConstruct: function () {
-        "use strict";
-        
         commentUtilities.initDomConstruct(Widget, 'o-livefyre-comment-client');
     },
     
@@ -108,7 +106,6 @@ module.exports = {
      * @type {function}
      */
     enableLogging: function () {
-        "use strict";
         commentUtilities.logger.enable.apply(this, arguments);
     },
 
@@ -117,7 +114,6 @@ module.exports = {
      * @type {function}
      */
     disableLogging: function () {
-        "use strict";
         commentUtilities.logger.disable.apply(this, arguments);
     },
 
@@ -126,7 +122,6 @@ module.exports = {
      * @type {number|string}
      */
     setLoggingLevel: function () {
-        "use strict";
         commentUtilities.logger.setLevel.apply(this, arguments);
     }
 };

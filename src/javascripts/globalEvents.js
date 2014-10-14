@@ -1,3 +1,5 @@
+"use strict";
+
 var Events = require('comment-utilities').Events;
 var events = new Events();
 

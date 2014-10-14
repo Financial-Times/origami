@@ -680,7 +680,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
                 .fyre-comment-wrapper {
                     margin: 0;
-                    padding: 0 18px 0 18px;
+                    padding: 0 18px;
 
                     .fyre-comment-body {
                         margin-top: -10px;
@@ -775,7 +775,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             .fyre-stream-more-container {
                 @include gradientClear;
                 border: 0;
-                background: #406E9F;
+                background: #406e9f;
                 color: oColorsGetPaletteColor(white);
                 height: 22px;
 
@@ -913,21 +913,21 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
                 > div.fyre-button-right {
                     border-left: 1px solid oColorsGetPaletteColor(pink-tint3);
-                    border-right: none;
+                    border-right: 0;
                 }
 
                 > div.fyre-button-right.fyre-post-button {
                     background-color: transparent;
-                    border-right: none;
+                    border-right: 0;
 
                     @include borderRadiusClear;
 
-                    background-image: -webkit-gradient(linear,  left top,  left bottom,  from(#549ccf),  to(#4781aa));
-                    background-image: -webkit-linear-gradient(top,  #549ccf,  #4781aa);
-                    background-image: -moz-linear-gradient(top,  #549ccf,  #4781aa);
-                    background-image: -o-linear-gradient(top,  #549ccf,  #4781aa);
-                    background-image: -ms-linear-gradient(top,  #549ccf,  #4781aa);
-                    background-image: linear-gradient(top,  #549ccf,  #4781aa);
+                    background-image: -webkit-gradient(linear, left top, left bottom, from(#549ccf), to(#4781aa));
+                    background-image: -webkit-linear-gradient(top, #549ccf, #4781aa);
+                    background-image: -moz-linear-gradient(top, #549ccf, #4781aa);
+                    background-image: -o-linear-gradient(top, #549ccf, #4781aa);
+                    background-image: -ms-linear-gradient(top, #549ccf, #4781aa);
+                    background-image: linear-gradient(top, #549ccf, #4781aa);
                     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr=#549ccf,  endColorstr=#4781aa);
                 }
 
@@ -1008,7 +1008,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             .fyre-share-container > span>a {
                 color: oColorsGetPaletteColor(grey-tint5);
                 font-family: BentonSans, Helvetica, Arial, sans-serif;
-                padding: 8px 15px 8px 15px;
+                padding: 8px 15px;
             }
 
             .fyre-share-container > span > a span {
@@ -1269,7 +1269,7 @@ body {
     .fyre-modal-alert {
         @include gradientClear;
         background-color: oColorsGetPaletteColor(white);
-        border: 3px solid #D9CDBF;
+        border: 3px solid #d9cdbf;
         padding: 2px;
 
         color: oColorsGetPaletteColor(grey-tint3);
@@ -1291,7 +1291,7 @@ body {
     }
 
     .fyre-modal {
-        border: 4px solid #D9CDBF;
+        border: 4px solid #d9cdbf;
         outline: none;
         z-index: 2001;
 
@@ -1342,7 +1342,7 @@ body {
             font-size: 14px;
             line-height: 16px;
             color: oColorsGetPaletteColor(grey-tint3);
-            border-color: #B3B0A8;
+            border-color: #b3b0a8;
             padding: 4px;
 
             @include boxShadowClear;
@@ -1419,7 +1419,7 @@ body {
         }
 
         .fyre-mobile-flag-confirmation {
-            padding: 0 15px 0 15px;
+            padding: 0 15px;
         }
     }
 }

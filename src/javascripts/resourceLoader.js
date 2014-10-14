@@ -1,3 +1,5 @@
+"use strict";
+
 var commentUtilities = require('comment-utilities'),
     envConfig = require('./config.js');
 
@@ -5,8 +7,6 @@ var commentUtilities = require('comment-utilities'),
  * Load Livefyre's core Javascript library
  */
 exports.loadLivefyreCore = (function () {
-    "use strict";
-
     var status = {
         loaded: false,
         status: '',
@@ -72,8 +72,6 @@ exports.loadLivefyreCore = (function () {
  * Load a CSS override file
  */
 exports.loadCssOverrides = (function () {
-    "use strict";
-
     var loaded = [];
     var head = document.head || document.getElementsByTagName('head')[0];
 

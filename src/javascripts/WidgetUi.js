@@ -1,3 +1,5 @@
+"use strict";
+
 var commentUtilities = require('comment-utilities'),
     commentUi = require('comment-ui'),
     envConfig = require('./config.js'),
@@ -8,8 +10,6 @@ var commentUtilities = require('comment-utilities'),
  * @param {DOMElement} widgetContainer Container of the widget instance.
  */
 function WidgetUi (widgetContainer) {
-    "use strict";
-
     commentUi.WidgetUi.apply(this, arguments);
 
     /**
@@ -194,8 +194,6 @@ function WidgetUi (widgetContainer) {
     };
 }
 WidgetUi.__extend = function(child) {
-    "use strict";
-
     if (typeof Object.create === 'function') {
         child.prototype = Object.create(WidgetUi.prototype);
         child.prototype = Object.create(WidgetUi.prototype);

@@ -145,8 +145,6 @@
 <li>authPageReload: if authentication needs a page reload. By default it's false.</li>
 </ul> </div>
           <pre><code class="language-javascript">function Widget () {
-    &quot;use strict&quot;;
-
     commentUi.Widget.apply(this, arguments);
 
     var self = this;
@@ -158,8 +156,22 @@
 
 
     this.config.stream_type = this.config.stream_type || &quot;livecomments&quot;;
+    if (!this.config.initExtension || typeof this.config.initExtension !== 'object') {
+        this.config.initExtension = {};
+    }
+    this.config.initExtension.editorCss = 'p { margin-bottom: 10px !important; }';</code></pre>
+          <div class="description"><p>Avatar disabled.</p> </div>
+          <pre><code class="language-javascript">this.config.initExtension.disableAvatars = true;
 
-    this.getWidgetEl().className += ' o-livefyre-comment-client livefyre-comment-overrides comment-type-' + self.config.stream_type;</code></pre>
+    if (this.getWidgetEl().className.indexOf('o-livefyre-comment-client') === -1) {
+        this.getWidgetEl().className += ' o-livefyre-comment-client';
+    }
+    if (this.getWidgetEl().className.indexOf('o-livefyre-comment-client-lf-overrides') === -1) {
+        this.getWidgetEl().className += ' o-livefyre-comment-client-lf-overrides';
+    }
+    if (this.getWidgetEl().className.indexOf('o-livefyre-comment-client-comment-type-' + self.config.stream_type) === -1) {
+        this.getWidgetEl().className += ' o-livefyre-comment-client-comment-type-' + self.config.stream_type;
+    }</code></pre>
           <section id="stringOverrides">
             <h1>stringOverrides</h1>
             <h5 class="subheader"></h5>
@@ -168,7 +180,7 @@
             </p>
           </section>
           <div class="description"><p>Merge custom string overrides with FT specific string overrides.</p> </div>
-          <pre><code class="language-javascript">var stringOverrides = self.config.stringOverrides ? merge({}, i18n.lfStringOverride, self.config.stringOverrides) : i18n.lfStringOverride;
+          <pre><code class="language-javascript">var stringOverrides = self.config.stringOverrides ? commentUtilities.merge({}, i18n.lfStringOverride, self.config.stringOverrides) : i18n.lfStringOverride;
     self.config.stringOverrides = stringOverrides;
 
 
@@ -235,17 +247,12 @@
                 var authDelegate = auth.getAuthDelegate();
 
                 // extends the init data received from SUDS with some user specified fields.
-                if (self.config.initExtension &amp;&amp; typeof self.config.initExtension === 'object') {
-                    var key;
-
-                    for (key in self.config.initExtension) {
-                        if (self.config.initExtension.hasOwnProperty(key)) {
-                            initData[key] = self.config.initExtension[key];
-                        }
+                var key;
+                for (key in self.config.initExtension) {
+                    if (self.config.initExtension.hasOwnProperty(key)) {
+                        initData[key] = self.config.initExtension[key];
                     }
                 }
-
-                self.config.initExtension.editorCss = 'p { margin-bottom: 10px !important; }';
 
                 oCommentData.api.getAuth(function (err, authData) {
                     if (err) {
@@ -316,7 +323,7 @@
                                             authData = null;
                                         }
 
-                                        if (self.config.emailAlert !== false || envConfig.get().emailNotifications === true) {
+                                        if (self.config.emailAlert !== false &amp;&amp; envConfig.get().emailNotifications === true) {
                                             if (authData &amp;&amp; typeof authData === 'object') {
                                                 if (authData.token &amp;&amp; !authData.settings) {
                                                     userDialogs.showEmailAlertDialog();
@@ -459,8 +466,6 @@
 commentUi.Widget.__extend(Widget);
 
 Widget.__extend = function(child) {
-    &quot;use strict&quot;;
-
     if (typeof Object.create === 'function') {
         child.prototype = Object.create( Widget.prototype );
         child.prototype = Object.create(Widget.prototype);

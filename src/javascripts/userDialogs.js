@@ -1,3 +1,5 @@
+"use strict";
+
 var commentUi = require('comment-ui');
 var oCommentData = require('o-comment-data');
 var utils = require('./utils.js');
@@ -9,8 +11,6 @@ var emailUnsubscribeOptions = ['never', 'off'];
 var globalEvents = require('./globalEvents.js');
 
 function inArray (array, item) {
-    "use strict";
-
     if (Array.prototype.indexOf) {
         return array.indexOf(item) !== -1 ? true : false;
     } else {
@@ -24,21 +24,15 @@ function inArray (array, item) {
 }
 
 function isSubscribed (option) {
-    "use strict";
-    
     return inArray(emailSubscribeOptions, option);
 }
 
 function isUnsubscribed (option) {
-    "use strict";
-    
     return inArray(emailUnsubscribeOptions, option);
 }
 
 
 function getModifiedSubscribesUnsubscribes (currentSettings, newSettings) {
-    "use strict";
-
     var subscribes = [];
     var unsubscribes = [];
 
@@ -86,8 +80,6 @@ function getModifiedSubscribesUnsubscribes (currentSettings, newSettings) {
 }
 
 function getNewSubscribes (newSettings) {
-    "use strict";
-
     var subscribes = [];
 
     if (isSubscribed(newSettings.emailcomments)) {
@@ -111,8 +103,6 @@ function getNewSubscribes (newSettings) {
 
 
 exports.showSetPseudonymDialog = function (callbacks) {
-    "use strict";
-
     if (!callbacks || typeof callbacks !== 'object') {
         callbacks = {};
     }
@@ -172,8 +162,6 @@ exports.showSetPseudonymDialog = function (callbacks) {
  * @param  {Function} callbacks Optional. Two possible fields: success and failure. Success will get the new authentication data as parameter.
  */
 exports.showChangePseudonymDialog = function (currentPseudonym, callbacks) {
-    "use strict";
-
     if (!callbacks || typeof callbacks !== 'object') {
         callbacks = {};
     }
@@ -223,8 +211,6 @@ exports.showChangePseudonymDialog = function (currentPseudonym, callbacks) {
 };
 
 exports.showEmailAlertDialog = function () {
-    "use strict";
-
     commentUi.userDialogs.showEmailAlertDialog({
         submit: function (formData, responseCallback) {
             if (formData) {
@@ -272,8 +258,6 @@ exports.showEmailAlertDialog = function () {
 };
 
 exports.showSettingsDialog = function (currentUserDetails, callbacks) {
-    "use strict";
-
     if (!callbacks || typeof callbacks !== 'object') {
         callbacks = {};
     }

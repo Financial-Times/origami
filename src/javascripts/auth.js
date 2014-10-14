@@ -1,4 +1,5 @@
 /* global fyre */
+"use strict";
 
 var commentUtilities = require('comment-utilities');
 var userDialogs = require('./userDialogs');
@@ -9,8 +10,6 @@ var utils = require('./utils.js');
  * Auth creates Livefyre RemoteAuthDelegate, also provides login and logout into Livefyre.
  */
 function Auth () {
-    "use strict";
-
     var self = this;
 
     /**

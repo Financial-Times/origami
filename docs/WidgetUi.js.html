@@ -130,8 +130,6 @@
           </table>
           <div class="description"><p>FT specific UI customizing of the Livefyre widget.</p> </div>
           <pre><code class="language-javascript">function WidgetUi (widgetContainer) {
-    &quot;use strict&quot;;
-
     commentUi.WidgetUi.apply(this, arguments);</code></pre>
           <section id="makeReadOnly">
             <h1>makeReadOnly</h1>
@@ -147,13 +145,11 @@
 
         style.type = 'text/css';
 
-        var css = '&lt;style&gt;'+
-                '#' + widgetContainer.attr('id') + ' .fyre-editor, '+
-                '#' + widgetContainer.attr('id') + ' .fyre-comment-like, '+
-                '#' + widgetContainer.attr('id') + ' .fyre-comment-action-button {'+
-                    'display: none;'+
-                '}'+
-            '&lt;/style&gt;';
+        var css = '#' + widgetContainer.id + ' .fyre-editor, '+
+                  '#' + widgetContainer.id + ' .fyre-comment-like, '+
+                  '#' + widgetContainer.id + ' .fyre-comment-action-button {'+
+                      'display: none;'+
+                  '}';
 
         if (style.styleSheet){
             style.styleSheet.cssText = css;
@@ -170,11 +166,9 @@
 
         style.type = 'text/css';
 
-        var css = '&lt;style&gt;'+
-                '#' + widgetContainer.attr('id') + ' .fyre-follow-button {'+
-                    'display: none;'+
-                '}'+
-            '&lt;/style&gt;';
+        var css = '#' + widgetContainer.id + ' .fyre-follow-button {'+
+                      'display: none;'+
+                  '}';
 
         if (style.styleSheet){
             style.styleSheet.cssText = css;
@@ -355,8 +349,6 @@
     };
 }
 WidgetUi.__extend = function(child) {
-    &quot;use strict&quot;;
-
     if (typeof Object.create === 'function') {
         child.prototype = Object.create(WidgetUi.prototype);
         child.prototype = Object.create(WidgetUi.prototype);

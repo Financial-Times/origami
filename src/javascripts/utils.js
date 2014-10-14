@@ -1,3 +1,5 @@
+"use strict";
+
 var commentUtilities = require('comment-utilities');
 
 /**
@@ -5,16 +7,12 @@ var commentUtilities = require('comment-utilities');
  * This method clears the queue.
  */
 exports.emptyLivefyreActionQueue = function () {
-    "use strict";
-
     if (typeof Storage !== 'undefined') {
         commentUtilities.storageWrapper.localStorage.removeItem('fyre-action-queue');
     }
 };
 
 exports.isLivefyreActionQueuePresent = function () {
-    "use strict";
-
     if (typeof Storage !== 'undefined') {
         if (localStorage.getItem('fyre-action-queue')) {
             return true;
@@ -29,8 +27,6 @@ exports.isLivefyreActionQueuePresent = function () {
  * @return {Boolean}
  */
 exports.isPermalinkPresent = function () {
-    "use strict";
-
     if (document.location.hash) {
         if (document.location.hash.indexOf('lf-content') !== -1 || document.location.hash.indexOf('lf_comment') !== -1) {
             return true;
@@ -52,7 +48,5 @@ exports.isPermalinkPresent = function () {
  * @return {object}
  */
 exports.cloneObject = function (obj) {
-    "use strict";
-
     return JSON.parse(JSON.stringify(obj));
 };

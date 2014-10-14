@@ -1,3 +1,5 @@
+"use strict";
+
 var resourceLoader = require('./resourceLoader.js'),
     auth = require('./auth.js'),
     envConfig = require('./config.js'),
@@ -5,7 +7,6 @@ var resourceLoader = require('./resourceLoader.js'),
     utils = require('./utils.js'),
     commentUtilities = require('comment-utilities'),
     userDialogs = require('./userDialogs.js'),
-    merge = require('js-merge'),
     i18n = require('./i18n.js'),
 
     commentUi = require('comment-ui'),
@@ -35,8 +36,6 @@ var resourceLoader = require('./resourceLoader.js'),
  * @param {object} config Configuration object. See in the description the fields that are mandatory.
  */
 function Widget () {
-    "use strict";
-
     commentUi.Widget.apply(this, arguments);
 
     var self = this;
@@ -71,7 +70,7 @@ function Widget () {
      * Merge custom string overrides with FT specific string overrides.
      * @type {Object}
      */
-    var stringOverrides = self.config.stringOverrides ? merge({}, i18n.lfStringOverride, self.config.stringOverrides) : i18n.lfStringOverride;
+    var stringOverrides = self.config.stringOverrides ? commentUtilities.merge({}, i18n.lfStringOverride, self.config.stringOverrides) : i18n.lfStringOverride;
     self.config.stringOverrides = stringOverrides;
 
 
@@ -332,8 +331,6 @@ function Widget () {
 commentUi.Widget.__extend(Widget);
 
 Widget.__extend = function(child) {
-    "use strict";
-
     if (typeof Object.create === 'function') {
         child.prototype = Object.create( Widget.prototype );
         child.prototype = Object.create(Widget.prototype);

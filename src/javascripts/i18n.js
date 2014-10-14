@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Livefyre string overrides. See http://docs.livefyre.com/developers/reference/customization/string-customizations/
  * @type {Object}

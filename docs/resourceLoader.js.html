@@ -102,8 +102,6 @@
           </section>
           <div class="description"><p>Load Livefyre's core Javascript library</p> </div>
           <pre><code class="language-javascript">exports.loadLivefyreCore = (function () {
-    &quot;use strict&quot;;
-
     var status = {
         loaded: false,
         status: '',
@@ -172,8 +170,6 @@
           </section>
           <div class="description"><p>Load a CSS override file</p> </div>
           <pre><code class="language-javascript">exports.loadCssOverrides = (function () {
-    &quot;use strict&quot;;
-
     var loaded = [];
     var head = document.head || document.getElementsByTagName('head')[0];
 
