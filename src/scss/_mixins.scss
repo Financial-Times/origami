@@ -35,7 +35,7 @@
   box-sizing: $value;
 }
 
-@mixin border-radius($radiusTop: $_o-ft-forms-field-borderradius, $radiusBottom: 0){
+@mixin border-radius($radiusTop: $_o-ft-forms-field-borderradius, $radiusBottom: 0) {
 
   -webkit-border-top-left-radius: $radiusTop;
   -webkit-border-top-right-radius: $radiusTop;
