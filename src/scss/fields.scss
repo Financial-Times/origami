@@ -9,7 +9,7 @@
   display: block;
   margin-top: -2px;
   margin-bottom: 4px;
-  color: oColorsGetColorFor(form-field-additional-info label body, text);
+  color: oColorsGetColorFor(o-ft-forms-field-additional-info body, text);
   @extend %o-ft-typography-label-small;
 }
 
@@ -17,7 +17,7 @@
     display: block;
     @extend %o-ft-typography-label-medium;
     margin-bottom: $_o-ft-forms-label-marginbottom;
-    color: oColorsGetColorFor(form-field-label label body, text);
+    color: oColorsGetColorFor(o-ft-forms-field-label body, text);
 }
 
 //=============TEXT INPUTS, SELECTS AND TEXTAREAS=============
@@ -86,5 +86,5 @@
   '.o-ft-forms__field:-webkit-autofill,
   .o-ft-forms__field--select:-webkit-autofill,
   .o-ft-forms__field--textarea:-webkit-autofill') {
-    -webkit-box-shadow: 0 0 0px 1000px oColorsGetColorFor(form-field-standard, background) inset;
+    -webkit-box-shadow: 0 0 0px 1000px oColorsGetColorFor(o-ft-forms-field-standard, background) inset;
 }

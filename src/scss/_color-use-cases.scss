@@ -1,5 +1,35 @@
-@include oColorsSetUseCase(error-block, background, red);
-@include oColorsSetUseCase(error-block, text, white);
-@include oColorsSetUseCase(form-radiocheckbox-checked, background, grey-tint5);
-@include oColorsSetUseCase(form-radiocheckbox-hover, text, blue);
-@include oColorsSetUseCase(error-block-fallback, background, red-tint5);
+@include oColorsSetUseCase(o-ft-forms-error-block, background, red);
+@include oColorsSetUseCase(o-ft-forms-error-block, text, white);
+
+@include oColorsSetUseCase(o-ft-forms-radiocheckbox-checked, background, grey-tint5);
+
+@include oColorsSetUseCase(o-ft-forms-radiocheckbox-hover, text, blue);
+
+@include oColorsSetUseCase(o-ft-forms-error-block-fallback, background, red-tint5);
+
+@include oColorsSetUseCase(o-ft-forms-prefixsuffix, background, pink-tint1);
+@include oColorsSetUseCase(o-ft-forms-prefixsuffix, text, pink-tint5);
+
+@include oColorsSetUseCase(o-ft-forms-field-label, text, grey-tint5);
+
+@include oColorsSetUseCase(o-ft-forms-field-additional-info, text, grey-tint4);
+
+@include oColorsSetUseCase(o-ft-forms-field-standard, text, grey-tint5);
+@include oColorsSetUseCase(o-ft-forms-field-standard, border, pink-tint3);
+@include oColorsSetUseCase(o-ft-forms-field-standard, background, white);
+
+@include oColorsSetUseCase(o-ft-forms-field-hover, text, grey-tint5);
+@include oColorsSetUseCase(o-ft-forms-field-hover, border, pink-tint5);
+@include oColorsSetUseCase(o-ft-forms-field-hover, background, white);
+
+@include oColorsSetUseCase(o-ft-forms-field-disabled, text, pink-tint4);
+@include oColorsSetUseCase(o-ft-forms-field-disabled, border, pink-tint2);
+@include oColorsSetUseCase(o-ft-forms-field-disabled, background, pink-tint2);
+
+@include oColorsSetUseCase(o-ft-forms-field-valid, text, grey-tint5);
+@include oColorsSetUseCase(o-ft-forms-field-valid, border, green);
+@include oColorsSetUseCase(o-ft-forms-field-valid, background, white);
+
+@include oColorsSetUseCase(o-ft-forms-field-invalid, text, red);
+@include oColorsSetUseCase(o-ft-forms-field-invalid, border, red);
+@include oColorsSetUseCase(o-ft-forms-field-invalid, background, white);

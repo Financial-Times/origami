@@ -1,7 +1,7 @@
 $o-ft-forms-is-silent: true !default;
 
 $_o-ft-forms-fieldborder-width: 1px;
-$_o-ft-forms-fieldborder: $_o-ft-forms-fieldborder-width solid oColorsGetColorFor(form-field-standard, border);
+$_o-ft-forms-fieldborder: $_o-ft-forms-fieldborder-width solid oColorsGetColorFor(o-ft-forms-field-standard, border);
 $_o-ft-forms-field-borderradius: 5px;
 
 $_o-ft-form-field-default-fontsize: 14px;
