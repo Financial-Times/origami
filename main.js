@@ -50,13 +50,17 @@ function compile (format) {
 }
 
 function toDate (date) {
-	return date instanceof Date ? date : new Date(date);
+	date = date instanceof Date ? date : new Date(date);
+	if (date.toString() !== 'Invalid Date') {
+		return date;
+	}
 }
 
 function format (date, dateFormat) {
 	dateFormat = dateFormat || 'datetime';
 	var tpl = compiledTemplates[dateFormat] || compile(dateFormat);
-	return tpl(toDate(date));
+	date = toDate(date)
+	return date && tpl(date);
 }
 
 function update (noExec) {
@@ -73,21 +77,25 @@ function autoUpdate () {
 
 function ftTime(el) {
 	var date = el.getAttribute('datetime');
-	// Keep date as null if datetime hasn't been defined
-	if (date) date = toDate(date);
 	var printer = el.querySelector('.o-date__printer') || el;
-	// If date hasn't been defined and printer isn't empty, keep the content of the printer
-	if (date || (!date && printer.innerHTML.length === 0)) {
-		// If date hasn't been defined, and the printer is empty, we'll set the default to be the current date
-		if (!date) date = new Date();
-		var interval = Math.round(((new Date()) - date) / 1000);
-		printer.innerHTML = interval < (365 * 60 * 60 * 24) ? timeAgo(date, interval) : format(date, 'date');
+
+	if (date) {
+		date = toDate(date);
+	} else if (printer.innerHTML.length === 0) {
+		// Only define new date if printer is empty
+		date = new Date();
 	}
+
+	if (!date) return;
+
+	var interval = Math.round(((new Date()) - date) / 1000);
+	printer.innerHTML = interval < (365 * 60 * 60 * 24) ? timeAgo(date, interval) : format(date, 'date');
 	el.title = format(date, 'datetime');
 }
 
 function timeAgo (date, interval) {
 	date = toDate(date);
+	if (!date) return;
 	interval = interval || Math.round(((new Date()) - date) / 1000);
 	if (interval < 45) {
 		return interval + ' seconds ago';
