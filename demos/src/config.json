@@ -1,16 +1,13 @@
 {
     "options": {
-        "js": "demos/src/demo.js"
+        "js": "demos/src/demo.js",
+        "sass": "demos/src/demo.scss"
     },
     "demos": [
         {
             "name": "declarative",
             "template": "demos/src/declarative.mustache"
-        },
-        {
-            "name": "imperative",
-            "template": "demos/src/imperative.mustache",
-            "js": "demos/src/imperative.js"
+       
         }
     ]
 }

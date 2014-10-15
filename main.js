@@ -84,6 +84,7 @@ function ftTime(el) {
 		printer.innerHTML = interval < (365 * 60 * 60 * 24) ? timeAgo(date, interval) : format(date, 'date');
 	}
 	el.title = format(date, 'datetime');
+	el.classList.add('o-date--ready');
 }
 
 function timeAgo (date, interval) {
