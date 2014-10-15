@@ -2,58 +2,65 @@ o-ft-forms [![Build Status](https://travis-ci.org/Financial-Times/o-ft-forms.png
 ============
 ##Overview
 
-This module provides FT-branded styles for commonly used form elements and there corresponding validation states.
+This module provides FT-branded styles for commonly used form elements and their corresponding validation states.
 
 ---
 
-## Browser Support
+##Browser Support
 
 
-This module is currently supported on IE8+ and modern browsers (Chrome, Firefox, Safari etc) version -1 . It is also supported on i0S6+ and Chrome for Android >4.3.0.
+This module is currently supported on IE8+ and modern browsers (Chrome, Firefox, Safari etc) version -1. It is also supported on i0S6+ and Chrome for Android > 4.3.0.
 
 Known issues:
 
-Currently the prefixes and suffixes are not fully supported in >=IE8.
-The custom select dropdown icon is not supported in FF35, it currently reverts to the browser default.
+* Currently the prefixes and suffixes are not fully supported in IE =< 8.
+* Checkboxes and radio buttons will not receive custom styling in IE =< 8, though they'll still receive default browser styling.
+* The custom select dropdown icon is not supported in FF35; it currently reverts to the browser default.
 
 ---
 
 ##Usage
 
-####Basic form input structure.
+###Basic form field structure
 
-Each input is made up 3 core elements, it's containing element defined by:
+Each form field is made up of at least 3 elements:
 
-    .o-ft-forms__field-group
-
-it's label are defined by:
-
-    .o-ft-forms__label
-
-and the input/s defined by:
-
-    .o-ft-forms__field
+* A containing element defined by `.o-ft-forms__field-group`.
+* Its label, defined by `.o-ft-forms__label`.
+* One or more form controls (e.g. `input`, `select`, `textarea` elements), defined by `.o-ft-forms__field`.
 
 Example HTML:
 
 ```html
 	<div class="o-ft-forms__field-group">
-	<label class="o-ft-forms__label">Text input disabled</label>
-	<input type="text" placeholder="placeholder" class="o-ft-forms__field">
+	   <label class="o-ft-forms__label">Text input disabled</label>
+	   <input type="text" placeholder="placeholder" class="o-ft-forms__field">
 	</div>
 ```
 
-####Basic validation
+All the standard form elements follow this basic structure, with some variation as defined below.
 
-Validation styles are applied by including either:
+###Selects
 
-    .o-ft-forms--error
+Using the basic structure defined above, selects are styled by applying `.o-ft-forms__field--select` on the `select` element itself.
+    
+###Textareas
 
-    .o-ft-forms--valid
+Textareas are styled by applying `.o-ft-forms__field--textarea` to the `textarea` element itself.
+    
+###Checkboxes and radio buttons
 
-The error message is a 4th element included in the basic `o-ft-forms__field-group` with:
+In order for checkboxes and radio buttons to be styled correctly, their `type` attribute must be set.
 
-    .o-ft-forms__errortext
+Example HTML:
+
+ ```html<input type="radio"  class="o-ft-forms__field">```
+
+###Validation states
+
+Validation styles are applied by adding `.o-ft-forms--error` or `.o-ft-forms--valid` to the field's containing element. Child `.o-ft-forms__label` and `.o-ft-forms__field` elements will be styled appropriately.
+
+An error message, defined with `.o-ft-forms__errortext`, can be appended to the containing element.
 
 Example HTML:
 ```html
@@ -64,30 +71,11 @@ Example HTML:
     </div>
 ```
 
-All the form elements follow this basic structure with some variation applied to specific types such as checkbox groups as defined below.
+###Section/group validation
 
-#### Select dropdown boxes
+For use-cases where validation rules need to be applied to a group of fields rather than just one field, all relevant fields should be wrapped in a block-level element defined with a class of `.o-ft-forms__section`. Validation styles can then be added to this element with the `.o-ft-forms__section--error` modifier class.
 
-Using the basic structure defined above select boxes are styled on the select element itself with:
-
-    .o-ft-forms__select
-
-#### Check and radio boxes
-
-These are defined with their generic input types and the class
-
-    .o-ft-forms__field
-
-Example HTML:
-
- ```html<input type="radio"  class="o-ft-forms__field">```
-
-
-####Section/group validation
-
-For user cases where validation rules need to be applied on a group of fields rather than at field level this can be done within a fieldset defined by:
-
-    .o-ft-forms__section
+An error message can be prepended to the element, defined by a class of `.o-ft-forms-section__message--error`.
 
 Example HTML:
 
@@ -100,39 +88,27 @@ Example HTML:
 </fieldset>
 ```
 
-####Global validation
+###Global validation
 
-A global message element exist for generic validation error feedback and can be defined with:
+A global error message element exists for generic validation feedback and is defined with `.o-ft-forms__global-message--error`.
 
-    .o-ft-forms__global-message--error
+###Prefixes and suffixes
 
-####Prefixes and suffixes
-
-Require classes:
-
-    .o-ft-form__field-group--affixed
-    .o-ft-forms__affix-wrapper
-    .o-ft-forms__field--prefixed
-    .o-ft-forms__field--suffixed
-    .o-ft-forms__prefix
-    .o-ft-forms__suffix
-
-
-For example a basic text input with suffix would be contained within '.o-ft-forms-field-group--affixed' with the input and suffix span contained within '.o-ft-forms__affix-wrapper'
+Prefixes and suffixes are used for prepending or appending static text to a form control. The form control should be wrapped in a block-level element with a class of `.o-ft-forms__affix-wrapper`. Prefixes (defined by `.o-ft-forms__prefix`) and suffixes (defined by `.o-ft-forms__suffix`) can then be prepended/appended to this wrapper element.
 
 Example HTML:
 
 ```html
-    <div class="o-ft-forms-field-group o-ft-forms-field-group--affixed">
+    <div class="o-ft-forms__field-group">
      <label class="o-ft-forms__label">Text input with suffix label</label>
      <div class="o-ft-forms__affix-wrapper">
-        <input type="text" class="o-ft-forms__field o-ft-forms__field--suffixed" />
+        <input type="text" class="o-ft-forms__field" />
         <span class="o-ft-forms__suffix">.com</span>
       </div>
     </div>
 ```
 
-####Placeholder classes/@extend
+###Silent mode
 
 All of the above can be used in silent mode by extending your own class using their placeholder equivalents:
 
