@@ -100,28 +100,6 @@ $o-fonts-is-silent: false;
   font-style: italic;
 }
 
-.demo-metric-normal .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(Metric);
-  font-style: normal;
-}
-
-.demo-metric-italic .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(Metric);
-  font-style: italic;
-}
-
-.demo-metric-bold .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(Metric);
-  font-style: normal;
-  font-weight: bold;
-}
-
-.demo-metric-bold-italic .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(Metric);
-  font-style: italic;
-  font-weight: bold;
-}
-
 .demo-size-small {
   padding-top: 15px;
   font-size: 36px;

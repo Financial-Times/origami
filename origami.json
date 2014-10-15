@@ -88,22 +88,6 @@
         {
             "path": "/demos/financiertext-italic.html",
             "description": ""
-        },
-        {
-            "path": "/demos/metric-normal.html",
-            "description": ""
-        },
-        {
-            "path": "/demos/metric-italic.html",
-            "description": ""
-        },
-        {
-            "path": "/demos/metric-bold.html",
-            "description": ""
-        },
-        {
-            "path": "/demos/metric-bold-italic.html",
-            "description": ""
         }
     ]
 }
