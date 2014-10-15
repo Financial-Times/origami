@@ -29,6 +29,8 @@
     "gruntmodule-browserify-build": "git+http://git.svc.ft.com:8080/scm/strat_p/gruntmodule-browserify-build.git",
     "gruntmodule-aggregator": "git+http://git.svc.ft.com:8080/scm/strat_p/gruntmodule-aggregator.git",
     "gruntmodule-qunit": "git+http://git.svc.ft.com:8080/scm/strat_p/gruntmodule-qunit.git",
-    "gruntmodule-sass": "git+http://git.svc.ft.com:8080/scm/strat_p/gruntmodule-sass.git"
+    "gruntmodule-sass": "git+http://git.svc.ft.com:8080/scm/strat_p/gruntmodule-sass.git",
+
+    "bower": "*"
   }
 }
