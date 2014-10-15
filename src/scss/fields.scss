@@ -60,10 +60,11 @@
     padding-top: $_o-ft-form-field-big-padding-topbottom - 1px;
     padding-bottom: $_o-ft-form-field-big-padding-topbottom - 1px;
     cursor: pointer;
-    background-image: url("//image.webservices.ft.com/v1/images/raw/fticon:arrow-up-down?width=19&source=o-ft-forms");
+    background-image: url(oAssetsResolve("img/arrow-up-down.svg", o-ft-forms));
     background-position: 100% center;
     background-repeat: no-repeat;
     background-origin: content-box;
+    background-size: 19px;
     //Code below hides default select arrow in FF
     text-indent: 0.01px;
     text-overflow: '';
