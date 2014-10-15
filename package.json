@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "origami-build-tools": "https://github.com/Financial-Times/origami-build-tools/tarball/gulp",
+    "gulp": "^3.8.8",
+
     "grunt": "~0.4.0",
     "grunt-contrib-sass": "~0.7.3",
     "grunt-contrib-uglify": "~0.3.3",
