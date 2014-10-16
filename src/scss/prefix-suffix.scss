@@ -49,8 +49,8 @@
   font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
   font-size: $_o-ft-form-field-big-fontsize;
   text-align: center;
-  background-color: oColorsGetColorFor(forms-prefixsuffix, background);
-  color: oColorsGetColorFor(forms-prefixsuffix form-field-standard, text);
+  background-color: oColorsGetColorFor(o-ft-forms-prefixsuffix, background);
+  color: oColorsGetColorFor(o-ft-forms--prefixsuffix o-ft-forms-field-standard, text);
 }
 
 @include oFtFormsPlaceholderOptionalSelector(
@@ -79,8 +79,8 @@
   '.o-ft-forms--error .o-ft-forms__prefix,
   .o-ft-forms--error .o-ft-forms__suffix'
 ) {
-  border-color: oColorsGetColorFor(form-field-invalid error, border);
-  color: oColorsGetColorFor(form-field-invalid error, text);
+  border-color: oColorsGetColorFor(o-ft-forms-field-invalid, border);
+  color: oColorsGetColorFor(o-ft-forms-field-invalid, text);
 }
 
 @include oFtFormsPlaceholderOptionalSelector(
@@ -89,8 +89,7 @@
   '.o-ft-forms--valid .o-ft-forms__prefix,
   .o-ft-forms--valid .o-ft-forms__suffix'
 ) {
-  border-color: oColorsGetColorFor(form-field-valid, border);
-  color: oColorsGetColorFor(form-field-valid, text);
+  @include oColorsFor(o-ft-forms-field-valid, border text);
 }
 
 @include oFtFormsPlaceholderOptionalSelector(

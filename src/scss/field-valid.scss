@@ -2,5 +2,5 @@
   '.o-ft-forms--valid .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]), 
   .o-ft-forms--valid .o-ft-forms__field--select, 
   .o-ft-forms--valid .o-ft-forms__field--textarea') {
-  border-color: oColorsGetColorFor(form-field-valid, border);
+  border-color: oColorsGetColorFor(o-ft-forms-field-valid, border);
 }

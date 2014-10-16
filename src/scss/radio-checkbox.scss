@@ -19,18 +19,18 @@
   cursor: pointer;
   font-weight: normal;
   line-height: $_o-ft-forms-radiocheckbox-size;
-   @include oUseragentPrefixer(user-select, none, false, $o-useragent-vendor-prefixes);
+   @include oUseragentPrefixer(user-select, none);
 }
 
 // apply different text colour to checkboxes and radio labels on hover and focus
 @include oFtFormsPlaceholderOptionalSelector(
   '%o-ft-froms__checkboxradiolabel--hover',
-  '.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label:hover,
-  .o-ft-forms__field[type="radio"] + .o-ft-forms__label:hover,
+  '#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="checkbox"] + .o-ft-forms__label:hover,
+  #{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="radio"] + .o-ft-forms__label:hover,
   .o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label,
   .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label'
 ) {
-  color: oColorsGetColorFor(form-radiocheckbox-hover, text);
+  color: oColorsGetColorFor(o-ft-forms-radiocheckbox-hover, text);
 }
 
 // styling for the border of checkboxes
@@ -42,7 +42,7 @@
   left: 0;
   width: $_o-ft-forms-radiocheckbox-size;
   height: $_o-ft-forms-radiocheckbox-size;
-  border: 1px solid oColorsGetColorFor(form-field-standard, border);
+  border: 1px solid oColorsGetColorFor(o-ft-forms-field-standard, border);
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 3px;
@@ -61,12 +61,12 @@
 // apply different border colour to checkboxes and radio labels on hover and focus
 @include oFtFormsPlaceholderOptionalSelector(
   '%o-ft-forms__checkboxradioborder--hover',
-  '.o-ft-forms__field[type="checkbox"]:hover + .o-ft-forms__label::before,
-  .o-ft-forms__field[type="radio"]:hover + .o-ft-forms__label::before,
+  '#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="checkbox"]:hover + .o-ft-forms__label::before,
+  #{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="radio"]:hover + .o-ft-forms__label::before,
   .o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label::before,
   .o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label::before'
 ) {
-  border-color: oColorsGetColorFor(form-field-hover, border);
+  border-color: oColorsGetColorFor(o-ft-forms-field-hover, border);
 }
 
 // styling for checked radio button
@@ -74,7 +74,7 @@
   '%o-ft-forms__radio--checked',
   '.o-ft-forms__field[type="radio"]:checked + .o-ft-forms__label::after'
 ) {
-  background-color: oColorsGetColorFor(form-radiocheckbox-checked, background);
+  background-color: oColorsGetColorFor(o-ft-forms-radiocheckbox-checked, background);
   content: '';
   height: $_o-ft-forms-radio-internal-size;
   width: $_o-ft-forms-radio-internal-size;
