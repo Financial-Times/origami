@@ -8,7 +8,6 @@
 @import "src/scss/color-use-cases";
 @import "src/scss/variables";
 @import "src/scss/mixins";
-@import "src/scss/functions";
 
 @if (not $o-ft-forms-is-silent) {
   @include oFtTypographyIncludeFont(label);
