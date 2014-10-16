@@ -8,17 +8,25 @@ Integration of the commenting widget provided by Livefyre.
 There are two ways of using this module:
 
 ### Build tool
-Include the script provided by the build tool.
+Include the script provided by the build tool and the CSS file.
 The script exposes a global variable named `oLivefyreCommentClient`.
 
 ### Bower
 As a bower dependency:
 
+**Javascript:**
+
 ```javascript
 var oLivefyreCommentClient = require('o-livefyre-comment-client');
 ```
 
-The module should be built using `browserify` (with `debowerify` transform).
+**SCSS:**
+
+```ccs
+@import 'o-livefyre-comment-client/main';
+```
+
+The module should be built using `browserify` (with `debowerify` and `textrequireify` transform).
 
 ---
 

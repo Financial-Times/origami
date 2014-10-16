@@ -1153,6 +1153,11 @@ $ftLinkHover: oColorsGetPaletteColor(black);
                 line-height: 25px;
             }
 
+            .fyre-login-bar {
+                width: 100%;
+                overflow: hidden;
+            }
+
             .fyre-stream-stats {
                 display: none;
             }
@@ -1169,6 +1174,10 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             .fyre-comment-article {
                 font-size: 13px;
                 line-height: 16px;
+            }
+
+            .fyre-comment-head {
+                overflow: hidden;
             }
 
             .fyre-comment-body {
