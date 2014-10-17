@@ -12,7 +12,6 @@ $_o-fonts-millerdisplay: MillerDisplay, $_o-fonts-serif;
 $_o-fonts-clarion: Clarion, $_o-fonts-serif;
 $_o-fonts-financierdisplay: FinancierDisplay, serif;
 $_o-fonts-financiertext: FinancierText, serif;
-$_o-fonts-metric: Metric, sans-serif;
 
 $_o-font-families-with-fallbacks: (
   BentonSans: $_o-fonts-sans-serif,
@@ -20,7 +19,6 @@ $_o-font-families-with-fallbacks: (
   Clarion: $_o-fonts-clarion,
   FinancierDisplay: $_o-fonts-financierdisplay,
   FinancierText: $_o-fonts-financiertext,
-  Metric: $_o-fonts-metric
 );
 
 // Map of all families, each with a list of styles for that family.
@@ -31,7 +29,6 @@ $_o-fonts-families: (
   Clarion: (normal, bold, (normal, italic)),
   FinancierDisplay: (normal, (normal, italic)),
   FinancierText: (normal, (normal, italic)),
-  Metric: (normal, (normal, italic), bold, (bold, italic))
 );
 
 // Map of families and styles which have already been included. Exists to avoid multiple @font-face definitions

@@ -70,22 +70,6 @@
         {
             "name": "financiertext-italic",
             "data": { "font": "financiertext-italic" }
-        },
-        {
-            "name": "metric-normal",
-            "data": { "font": "metric-normal" }
-        },
-        {
-            "name": "metric-italic",
-            "data": { "font": "metric-italic" }
-        },
-        {
-            "name": "metric-bold",
-            "data": { "font": "metric-bold" }
-        },
-        {
-            "name": "metric-bold-italic",
-            "data": { "font": "metric-bold-italic" }
         }
     ]
 }
