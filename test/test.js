@@ -3,6 +3,12 @@
 var test = require("tape").test;
 var oDate = require('../main');//.readFileSync("../main.js", "utf-8");
 
+test('error handling', function (t) {
+    t.plan(2);
+    t.equal(oDate.format('not a date'), undefined);
+    t.equal(oDate.timeAgo('not a date'), undefined);
+});
+
 test('formatting dates using standard formats', function (t) {
     var date = new Date(2000, 5, 15, 6, 37, 22, 499);
     var expected = 'June 15, 2000 6:37 am';
