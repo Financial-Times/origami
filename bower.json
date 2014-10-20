@@ -14,7 +14,7 @@
     "o-hoverable": ">0.1.1 <=0.3.0",
     "o-useragent": ">=1.1.0 <3",
     "o-viewport": "1.0.0",
-    "o-dom": "^0.3.0",
+    "o-dom": "^0.4.0",
     "ftdomdelegate": ">=1.0.0 <3",
     "o-squishy-list": "^1.0.0",
     "o-layers": "^0.1.0",
