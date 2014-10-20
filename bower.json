@@ -18,6 +18,6 @@
     "ftdomdelegate": ">=1.0.0 <3",
     "o-squishy-list": "^1.0.0",
     "o-layers": "^0.1.0",
-    "o-hierarchical-nav": "^0.2.8"
+    "o-hierarchical-nav": "^0.3.0"
   }
 }
