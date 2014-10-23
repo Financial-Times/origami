@@ -5,10 +5,14 @@ var obt = require('origami-build-tools');
 
 
 gulp.task('verify', function() {
-    obt.verify(gulp, {
-        js: './main.js',
-        sass: './main.scss'
+    obt.verify(gulp, {});
+});
+
+gulp.task('build', function () {
+    obt.build(gulp, {
+        buildDir: 'build',
+        standalone: 'oLivefyreCommentClient'
     });
 });
 
-gulp.task('default', ['verify']);
+gulp.task('default', ['verify', 'build']);

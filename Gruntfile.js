@@ -1,3 +1,5 @@
+"use strict";
+
 var gruntBower = require('gruntmodule-bower'),
     gruntJsDoc = require('gruntmodule-js-doc'),
     gruntJsHint = require('gruntmodule-jshint'),
@@ -7,8 +9,6 @@ var gruntBower = require('gruntmodule-bower'),
     gruntModuleAggregator = require('gruntmodule-aggregator');
 
 module.exports = function (grunt) {
-    'use strict';
-
     var pkg = grunt.file.readJSON('package.json');
 
     gruntModuleAggregator.setGrunt(grunt);

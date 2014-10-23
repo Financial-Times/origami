@@ -83,7 +83,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
             padding: 10px 0;
             color: oColorsGetPaletteColor(black) !important;
-            margin: 20px 0 10px 0;
+            margin: 20px 0 10px;
 
             a {
                 color: $ftLink !important;
@@ -117,7 +117,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
         .fyre-comment-article {
             font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
-            margin: 10px 0 0 0;
+            margin: 10px 0 0;
 
             .fyre-comment-wrapper.fyre-comment-highlight {
                 display: block;
@@ -270,14 +270,14 @@ $ftLinkHover: oColorsGetPaletteColor(black);
         .fyre-comment-head ,
         .fyre-comment-body {
             margin-left: 0;
-            padding: 0 0 10px 0;
+            padding: 0 0 10px;
         }
         .fyre-comment-body {
             margin: 0;
         }
 
         .fyre-comment-footer {
-            margin: 0 0 10px 0;
+            margin: 0 0 10px;
             padding-top: 0;
             clear: both;
         }
@@ -308,7 +308,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
         .fyre-comment-divider {
             margin: 0;
 
-            & > span.fyre-comment-reply-wrapper {
+            > span.fyre-comment-reply-wrapper {
                 color: $ftLink;
                 font-size: 13px;
                 top: -9px !important;
@@ -318,7 +318,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
                 }
             }
 
-            & > div.fyre-comment-divider {
+            > div.fyre-comment-divider {
                 background: oColorsGetPaletteColor(pink-tint2);
                 margin: 0;
             }
@@ -377,7 +377,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             font-size: 13px;
             height: auto;
             top: 0;
-            border-right: 1px solid #ccc;
+            border-right: 1px solid #cccccc;
             margin-right: 7px;
         }
 
@@ -411,7 +411,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
                     color: $ftLinkHover;
                 }
 
-                & > span {
+                > span {
                     background-image: none;
                     width: auto;
                     height: auto;
@@ -465,25 +465,25 @@ $ftLinkHover: oColorsGetPaletteColor(black);
         }
 
         .fyre-mod-deny {
-            margin: 2px 0 0 0;
+            margin: 2px 0 0;
             padding: 1px 1px 2px 2px;
 
-            -webkit-border-radius: 10px 0px 0px 10px;
-            -moz-border-radius: 10px 0px 0px 10px;
-            -ms-border-radius: 10px 0px 0px 10px;
-            -o-border-radius: 10px 0px 0px 10px;
-            border-radius: 10px 0px 0px 10px;
+            -webkit-border-radius: 10px 0 0 10px;
+            -moz-border-radius: 10px 0 0 10px;
+            -ms-border-radius: 10px 0 0 10px;
+            -o-border-radius: 10px 0 0 10px;
+            border-radius: 10px 0 0 10px;
         }
 
         .fyre-mod-approve {
-            margin: 2px 10px 0 0;
+            margin: 2px 10px 0;
             padding: 1px 1px 2px 2px;
 
-            -webkit-border-radius: 0px 10px 10px 0px;
-            -moz-border-radius: 0px 10px 10px 0px;
-            -ms-border-radius: 0px 10px 10px 0px;
-            -o-border-radius: 0px 10px 10px 0px;
-            border-radius: 0px 10px 10px 0px;
+            -webkit-border-radius: 0 10px 10px 0;
+            -moz-border-radius: 0 10px 10px 0;
+            -ms-border-radius: 0 10px 10px 0;
+            -o-border-radius: 0 10px 10px 0;
+            border-radius: 0 10px 10px 0;
         }
 
         .fyre-moderator,
@@ -569,7 +569,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
         .fyre-notifier-container {
             background: rgba(206, 198, 185, 0.8);
-            padding: 8px 8px 0 8px;
+            padding: 8px 8px 0;
 
             @include borderRadiusClear;
 
@@ -672,7 +672,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
         .fyre-featured-content-wrapper {
             color: oColorsGetPaletteColor(grey-tint4);
             font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
-            margin: 0 0 20px 0;
+            margin: 0 0 20px;
             background: oColorsGetPaletteColor(pink-tint1);
 
             .fyre-featured-body {
@@ -686,7 +686,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
                         margin-top: -10px;
 
                         .fyre-comment {
-                            & > p:last-child:after {
+                            > p:last-child:after {
                                 content: url(oAssetsResolve('src/images/comment_featured_close_quote.png', o-livefyre-comment-client));
                                 float: right;
                                 width: 32px;
@@ -721,7 +721,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             }
 
             .fyre-featured-header {
-                margin: 0 0 23px 0;
+                margin: 0 0 23px;
                 width: auto;
                 height: auto;
                 border: 0;
