@@ -5,7 +5,7 @@ var obt = require('origami-build-tools');
 
 
 gulp.task('verify', function() {
-    obt.verify(gulp, {});
+    obt.verify(gulp);
 });
 
 gulp.task('build', function () {
