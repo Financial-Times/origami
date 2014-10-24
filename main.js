@@ -4,7 +4,7 @@ var globalEvents = require('./src/javascripts/globalEvents');
 var config = require('./src/javascripts/config.js'),
     oCommentData = require('o-comment-data'),
     defaultConfig = require('./config.json'),
-    commentUtilities = require('comment-utilities');
+    oCommentUtilities = require('o-comment-utilities');
 var Widget = require('./src/javascripts/Widget.js');
 
 /**
@@ -60,7 +60,7 @@ module.exports = {
     },
 
     initDomConstruct: function () {
-        commentUtilities.initDomConstruct(Widget, 'o-livefyre-comment-client');
+        oCommentUtilities.initDomConstruct(Widget, 'o-livefyre-comment-client');
     },
     
     /**
@@ -79,7 +79,7 @@ module.exports = {
      */
     utils:  require('./src/javascripts/utils.js'),
 
-    utilities: commentUtilities,
+    utilities: oCommentUtilities,
 
     dataService: oCommentData,
 
@@ -106,7 +106,7 @@ module.exports = {
      * @type {function}
      */
     enableLogging: function () {
-        commentUtilities.logger.enable.apply(this, arguments);
+        oCommentUtilities.logger.enable.apply(this, arguments);
     },
 
     /**
@@ -114,7 +114,7 @@ module.exports = {
      * @type {function}
      */
     disableLogging: function () {
-        commentUtilities.logger.disable.apply(this, arguments);
+        oCommentUtilities.logger.disable.apply(this, arguments);
     },
 
     /**
@@ -122,7 +122,7 @@ module.exports = {
      * @type {number|string}
      */
     setLoggingLevel: function () {
-        commentUtilities.logger.setLevel.apply(this, arguments);
+        oCommentUtilities.logger.setLevel.apply(this, arguments);
     }
 };
 module.exports.on = globalEvents.on;
