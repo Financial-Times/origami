@@ -95,7 +95,7 @@
   position: absolute;
   left: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-checkbox-ticksize) / 2;
   top: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-checkbox-ticksize) / 2;
-  background-image: url(oAssetsResolve("img/tick.svg", o-ft-forms));
+  background-image: url(oAssetsResolve("svg/tick.svg", o-ft-icons));
   background-repeat: no-repeat;
   background-size: $_o-ft-forms-checkbox-ticksize;
 }
