@@ -1,7 +1,7 @@
 "use strict";
 
-var commentUtilities = require('comment-utilities'),
-    commentUi = require('comment-ui'),
+var oCommentUtilities = require('o-comment-utilities'),
+    oCommentUi = require('o-comment-ui'),
     envConfig = require('./config.js'),
     sizzle = require('sizzle');
 
@@ -10,7 +10,7 @@ var commentUtilities = require('comment-utilities'),
  * @param {DOMElement} widgetContainer Container of the widget instance.
  */
 function WidgetUi (widgetContainer) {
-    commentUi.WidgetUi.apply(this, arguments);
+    oCommentUi.WidgetUi.apply(this, arguments);
 
     /**
      * Makes the Livefyre comments widget read-only by hiding the editors and action buttons.
@@ -75,7 +75,7 @@ function WidgetUi (widgetContainer) {
         var authContainer = sizzle('.fyre-auth', widgetContainer);
 
         if (authContainer.length) {
-            authContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.unavailableTemplate.render()));
+            authContainer[0].appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.unavailableTemplate.render()));
         }
     };
 
@@ -92,7 +92,7 @@ function WidgetUi (widgetContainer) {
                 editorContainers[i]
                     .parentNode
                     .insertBefore(
-                        commentUi.utils.toDOM(commentUi.templates.termsAndGuidelinesTemplate.render()),
+                        oCommentUi.utils.toDOM(oCommentUi.templates.termsAndGuidelinesTemplate.render()),
                         editorContainers[i].nextSibling
                     );
             }
@@ -107,7 +107,7 @@ function WidgetUi (widgetContainer) {
      *                             onAdded (callback function)
      */
     this.addSettingsLink = function (options) {
-        commentUtilities.logger.log("Commenting settings link adding triggered.");
+        oCommentUtilities.logger.log("Commenting settings link adding triggered.");
 
         var noOfTrial = 0;
 
@@ -130,12 +130,12 @@ function WidgetUi (widgetContainer) {
                             commentingSettingsLinkConfig.label = "Edit pseudonym";
                         }
 
-                        loginBarContainer[0].appendChild(commentUi.utils.toDOM(commentUi.templates.commentingSettingsLink.render(commentingSettingsLinkConfig)));
+                        loginBarContainer[0].appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.commentingSettingsLink.render(commentingSettingsLinkConfig)));
                     }
 
                     var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comment-settings-text', widgetContainer);
                     if (settingsLink.length) {
-                        commentUi.utils.addEventListener('click', settingsLink[0], function () {
+                        oCommentUi.utils.addEventListener('click', settingsLink[0], function () {
                             if (options && typeof options.onClick === 'function') {
                                 options.onClick();
                             }
@@ -205,6 +205,6 @@ WidgetUi.__extend = function(child) {
     }
 };
 
-commentUi.WidgetUi.__extend(WidgetUi);
+oCommentUi.WidgetUi.__extend(WidgetUi);
 
 module.exports = WidgetUi;

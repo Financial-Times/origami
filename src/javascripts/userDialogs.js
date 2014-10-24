@@ -1,6 +1,6 @@
 "use strict";
 
-var commentUi = require('comment-ui');
+var oCommentUi = require('o-comment-ui');
 var oCommentData = require('o-comment-data');
 var utils = require('./utils.js');
 
@@ -110,7 +110,7 @@ exports.showSetPseudonymDialog = function (callbacks) {
     callbacks.success = callbacks.success || function () {};
     callbacks.failure = callbacks.failure || function () {};
 
-    commentUi.userDialogs.showSetPseudonymDialog({
+    oCommentUi.userDialogs.showSetPseudonymDialog({
         submit: function (formData, responseCallback) {
             if (formData && formData.pseudonym) {
                 oCommentData.api.updateUser({
@@ -118,13 +118,13 @@ exports.showSetPseudonymDialog = function (callbacks) {
                 }, function (err) {
                     if (err) {
                         if (typeof err === 'object' && err.sudsError) {
-                            if (commentUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
-                                responseCallback(commentUi.i18n.serviceMessageOverrides[err.error]);
+                            if (oCommentUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
+                                responseCallback(oCommentUi.i18n.serviceMessageOverrides[err.error]);
                             } else {
                                 responseCallback(err.error);
                             }
                         } else {
-                            responseCallback(commentUi.i18n.texts.changePseudonymError);
+                            responseCallback(oCommentUi.i18n.texts.changePseudonymError);
                         }
                         
                         return;
@@ -135,7 +135,7 @@ exports.showSetPseudonymDialog = function (callbacks) {
                         force: true
                     }, function (err, authData) {
                         if (err) {
-                            responseCallback(commentUi.i18n.texts.changePseudonymError);
+                            responseCallback(oCommentUi.i18n.texts.changePseudonymError);
                             callbacks.failure();
                             return;
                         }
@@ -145,7 +145,7 @@ exports.showSetPseudonymDialog = function (callbacks) {
                     });
                 });
             } else {
-                responseCallback(commentUi.i18n.texts.changePseudonymBlankError);
+                responseCallback(oCommentUi.i18n.texts.changePseudonymBlankError);
             }
         },
         close: function () {
@@ -169,19 +169,19 @@ exports.showChangePseudonymDialog = function (currentPseudonym, callbacks) {
     callbacks.success = callbacks.success || function () {};
     callbacks.failure = callbacks.failure || function () {};
 
-    commentUi.userDialogs.showChangePseudonymDialog(currentPseudonym, {
+    oCommentUi.userDialogs.showChangePseudonymDialog(currentPseudonym, {
         submit: function (formData, responseCallback) {
             if (formData) {
                 oCommentData.api.updateUser(formData, function (err) {
                     if (err) {
                         if (typeof err === 'object' && err.sudsError) {
-                            if (commentUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
-                                responseCallback(commentUi.i18n.serviceMessageOverrides[err.error]);
+                            if (oCommentUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
+                                responseCallback(oCommentUi.i18n.serviceMessageOverrides[err.error]);
                             } else {
                                 responseCallback(err.error);
                             }
                         } else {
-                            responseCallback(commentUi.i18n.texts.genericError);
+                            responseCallback(oCommentUi.i18n.texts.genericError);
                         }
                         
                         return;
@@ -192,7 +192,7 @@ exports.showChangePseudonymDialog = function (currentPseudonym, callbacks) {
                     }, function (err, authData) {
                         if (err) {
                             callbacks.failure();
-                            responseCallback(commentUi.i18n.texts.genericError);
+                            responseCallback(oCommentUi.i18n.texts.genericError);
                             return;
                         }
 
@@ -201,7 +201,7 @@ exports.showChangePseudonymDialog = function (currentPseudonym, callbacks) {
                     });
                 });
             } else {
-                responseCallback(commentUi.i18n.texts.genericError);
+                responseCallback(oCommentUi.i18n.texts.genericError);
             }
         },
         close: function () {
@@ -211,19 +211,19 @@ exports.showChangePseudonymDialog = function (currentPseudonym, callbacks) {
 };
 
 exports.showEmailAlertDialog = function () {
-    commentUi.userDialogs.showEmailAlertDialog({
+    oCommentUi.userDialogs.showEmailAlertDialog({
         submit: function (formData, responseCallback) {
             if (formData) {
                 oCommentData.api.updateUser(formData, function (err) {
                     if (err) {
                         if (typeof err === 'object' && err.sudsError) {
-                            if (commentUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
-                                responseCallback(commentUi.i18n.serviceMessageOverrides[err.error]);
+                            if (oCommentUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
+                                responseCallback(oCommentUi.i18n.serviceMessageOverrides[err.error]);
                             } else {
                                 responseCallback(err.error);
                             }
                         } else {
-                            responseCallback(commentUi.i18n.texts.genericError);
+                            responseCallback(oCommentUi.i18n.texts.genericError);
                         }
                         
                         return;
@@ -233,7 +233,7 @@ exports.showEmailAlertDialog = function () {
                         force: true
                     }, function (err, newUserDetails) {
                         if (err) {
-                            responseCallback(commentUi.i18n.texts.genericError);
+                            responseCallback(oCommentUi.i18n.texts.genericError);
                             return;
                         }
 
@@ -251,7 +251,7 @@ exports.showEmailAlertDialog = function () {
                     });
                 });
             } else {
-                responseCallback(commentUi.i18n.texts.genericError);
+                responseCallback(oCommentUi.i18n.texts.genericError);
             }
         }
     });
@@ -265,19 +265,19 @@ exports.showSettingsDialog = function (currentUserDetails, callbacks) {
     callbacks.success = callbacks.success || function () {};
     callbacks.failure = callbacks.failure || function () {};
 
-    commentUi.userDialogs.showSettingsDialog(currentUserDetails, {
+    oCommentUi.userDialogs.showSettingsDialog(currentUserDetails, {
         submit: function (formData, responseCallback) {
             if (formData) {
                 oCommentData.api.updateUser(formData, function (err) {
                     if (err) {
                         if (typeof err === 'object' && err.sudsError) {
-                            if (commentUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
-                                responseCallback(commentUi.i18n.serviceMessageOverrides[err.error]);
+                            if (oCommentUi.i18n.serviceMessageOverrides.hasOwnProperty(err.error)) {
+                                responseCallback(oCommentUi.i18n.serviceMessageOverrides[err.error]);
                             } else {
                                 responseCallback(err.error);
                             }
                         } else {
-                            responseCallback(commentUi.i18n.texts.genericError);
+                            responseCallback(oCommentUi.i18n.texts.genericError);
                         }
                         
                         return;
@@ -288,7 +288,7 @@ exports.showSettingsDialog = function (currentUserDetails, callbacks) {
                     }, function (err, newUserDetails) {
                         if (err) {
                             callbacks.failure();
-                            responseCallback(commentUi.i18n.texts.genericError);
+                            responseCallback(oCommentUi.i18n.texts.genericError);
                             return;
                         }
 
@@ -315,7 +315,7 @@ exports.showSettingsDialog = function (currentUserDetails, callbacks) {
                     });
                 });
             } else {
-                responseCallback(commentUi.i18n.texts.genericError);
+                responseCallback(oCommentUi.i18n.texts.genericError);
             }
         },
         close: function () {
@@ -325,4 +325,4 @@ exports.showSettingsDialog = function (currentUserDetails, callbacks) {
 };
 
 
-exports.showInactivityMessage = commentUi.userDialogs.showInactivityMessage;
+exports.showInactivityMessage = oCommentUi.userDialogs.showInactivityMessage;

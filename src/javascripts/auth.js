@@ -1,7 +1,7 @@
 /* global fyre */
 "use strict";
 
-var commentUtilities = require('comment-utilities');
+var oCommentUtilities = require('o-comment-utilities');
 var userDialogs = require('./userDialogs');
 var oCommentData = require('o-comment-data');
 var utils = require('./utils.js');
@@ -18,7 +18,7 @@ function Auth () {
      */
     var authDelegate;
 
-    var event = new commentUtilities.Events();
+    var event = new oCommentUtilities.Events();
 
     this.on = event.on;
     this.off = event.off;
@@ -61,7 +61,7 @@ function Auth () {
      * @param  {object} See http://docs.livefyre.com/developers/getting-started/tokens/auth/#flex-step-1-user-auth-json-object
      */
     this.login = function (token) {
-        commentUtilities.logger.log('login called with token', token);
+        oCommentUtilities.logger.log('login called with token', token);
 
         if (!getLfObj()) {
             return;
@@ -94,7 +94,7 @@ function Auth () {
      * @return {[type]}          [description]
      */
     this.loginRequiredPseudonymMissing = function (delegate, maintainCommentQueue) {
-        commentUtilities.logger.log('pseudonymMissing');
+        oCommentUtilities.logger.log('pseudonymMissing');
 
         userDialogs.showSetPseudonymDialog({
             success: function (authData) {

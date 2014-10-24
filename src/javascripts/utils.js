@@ -1,6 +1,6 @@
 "use strict";
 
-var commentUtilities = require('comment-utilities');
+var oCommentUtilities = require('o-comment-utilities');
 
 /**
  * Livefyre creates a queue in localStorage when a user posts a comment without being logged in.
@@ -8,7 +8,7 @@ var commentUtilities = require('comment-utilities');
  */
 exports.emptyLivefyreActionQueue = function () {
     if (typeof Storage !== 'undefined') {
-        commentUtilities.storageWrapper.localStorage.removeItem('fyre-action-queue');
+        oCommentUtilities.storageWrapper.localStorage.removeItem('fyre-action-queue');
     }
 };
 

@@ -5,11 +5,11 @@ var resourceLoader = require('./resourceLoader.js'),
     envConfig = require('./config.js'),
     WidgetUi = require('./WidgetUi.js'),
     utils = require('./utils.js'),
-    commentUtilities = require('comment-utilities'),
+    oCommentUtilities = require('o-comment-utilities'),
     userDialogs = require('./userDialogs.js'),
     i18n = require('./i18n.js'),
 
-    commentUi = require('comment-ui'),
+    oCommentUi = require('o-comment-ui'),
     oCommentData = require('o-comment-data');
 
 /* global fyre */
@@ -36,7 +36,7 @@ var resourceLoader = require('./resourceLoader.js'),
  * @param {object} config Configuration object. See in the description the fields that are mandatory.
  */
 function Widget () {
-    commentUi.Widget.apply(this, arguments);
+    oCommentUi.Widget.apply(this, arguments);
 
     var self = this;
 
@@ -70,12 +70,12 @@ function Widget () {
      * Merge custom string overrides with FT specific string overrides.
      * @type {Object}
      */
-    var stringOverrides = self.config.stringOverrides ? commentUtilities.merge({}, i18n.lfStringOverride, self.config.stringOverrides) : i18n.lfStringOverride;
+    var stringOverrides = self.config.stringOverrides ? oCommentUtilities.merge({}, i18n.lfStringOverride, self.config.stringOverrides) : i18n.lfStringOverride;
     self.config.stringOverrides = stringOverrides;
 
 
     if (utils.isLivefyreActionQueuePresent()) {
-        commentUtilities.logger.log("Force flag set.");
+        oCommentUtilities.logger.log("Force flag set.");
 
         this.forceMode = true;
     }
@@ -270,7 +270,7 @@ function Widget () {
                         success: function (newAuthData) {
                             if (newAuthData && newAuthData.token) {
                                 auth.logout();
-                                commentUtilities.logger.debug('new settings', newAuthData);
+                                oCommentUtilities.logger.debug('new settings', newAuthData);
                                 auth.login(newAuthData.token);
                             }
                         }
@@ -286,7 +286,7 @@ function Widget () {
                         success: function (newAuthData) {
                             if (newAuthData && newAuthData.token) {
                                 auth.logout();
-                                commentUtilities.logger.debug('new settings', newAuthData);
+                                oCommentUtilities.logger.debug('new settings', newAuthData);
                                 auth.login(newAuthData.token);
                             }
                         }
@@ -328,7 +328,7 @@ function Widget () {
         self.ui.removeSettingsLink();
     }
 }
-commentUi.Widget.__extend(Widget);
+oCommentUi.Widget.__extend(Widget);
 
 Widget.__extend = function(child) {
     if (typeof Object.create === 'function') {

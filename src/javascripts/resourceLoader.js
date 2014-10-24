@@ -1,6 +1,6 @@
 "use strict";
 
-var commentUtilities = require('comment-utilities'),
+var oCommentUtilities = require('o-comment-utilities'),
     envConfig = require('./config.js');
 
 /**
@@ -11,7 +11,7 @@ exports.loadLivefyreCore = (function () {
         loaded: false,
         status: '',
         inProgress: false,
-        event: new commentUtilities.Events()
+        event: new oCommentUtilities.Events()
     };
 
     return function (callback) {
@@ -33,7 +33,7 @@ exports.loadLivefyreCore = (function () {
             if (!status.inProgress) {
                 status.inProgress = true;
 
-                commentUtilities.scriptLoader(
+                oCommentUtilities.scriptLoader(
                     {
                         url: envConfig.get().livefyre.resourceDomainBase + envConfig.get().resourceUrls.livefyreJs,
                         cache: true
