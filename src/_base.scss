@@ -1,24 +1,24 @@
 #{$o-quote-class-type}o-quote {
-  display: block;
-  margin: 0;
-  padding: 28px;
-  line-height: 21px;
+	display: block;
+	margin: 0;
+	padding: 28px;
+	line-height: 21px;
 
-  p {
-    margin: 0 0 14px 0;
-    padding: 0;
-  }
+	p {
+		margin: 0 0 14px;
+		padding: 0;
+	}
 
-  // Quote marks
-  p:before {
-    content: "“";
-  }
-  p:after {
-    content: "”";
-  }
+	// Quote marks
+	p:before {
+		content: "“";
+	}
+	p:after {
+		content: "”";
+	}
 }
 
 #{$o-quote-class-type}o-quote__cite {
-  display: block;
-  text-align: right;
+	display: block;
+	text-align: right;
 }

@@ -2,7 +2,7 @@
     "description": "Styling for blockquotes, pull-quotes and any other types of quote",
     "origamiType": "module",
     "origamiVersion": 1,
-    "support": "matthew.andrews@ft.com",
+    "support": "https://github.com/Financial-Times/o-quote/issues",
     "supportStatus": "experimental",
     "demos": [
         {
