@@ -43,12 +43,12 @@ Returns a date formatted as a string
 
 ### o-date#timeAgo(date)
 
-Returns the time since the given date, formatted as a human readable string e.g. '13 minutes ago'. 
+Returns the relative time since the given date, formatted as a human readable string e.g. '13 minutes ago'. 
 
 * `date` A javascript `Date` object or a valid string to pass to the `Date` constructor
 
 ### o-date#init(el) 
 
-Within a given container element converts dates to display using the time ago format and periodically updates their values. Within the container all `<time>` elements with the class `o-date` will be updated. If the element contains an element with the class `o-date__printer` the time ago string will be output here, otherwise it will replace the contents of the element. Once the `<time>` element has been formatted by o-date the class `o-date--ready` is added, enabling conditional styling and/or hiding the date until it is correctly formatted.
+Within a given container element, converts dates to relative time and periodically updates their values. Within the container all `<time>` elements with the class `o-date` will be updated. If a given `<time>` element contains an element with the class `o-date__printer` the relative time will be output here, otherwise it will replace the contents of the entire `<time>` element. Once the `<time>` element has been formatted by o-date, the class `o-date--ready` is added, enabling conditional styling and/or hiding the date until it is correctly formatted.
 
 * `el` A `HTMLElement` within which to scan for `.o-date`elements. If the element itself is a `<time>` element with the this module's correct `data-o-component` data attribute, then o-date will run directly on this element rather than querying for suitable elements within it.
