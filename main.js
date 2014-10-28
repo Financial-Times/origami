@@ -84,11 +84,11 @@ function ftTime(el) {
 		printer.innerHTML = interval < (365 * 60 * 60 * 24) ? timeAgo(date, interval) : format(date, 'date');
 	}
 	el.title = format(date, 'datetime');
-	el.classList.add('o-date--ready');
+	el.createAttribute('data-o-date-js');
 }
 
 function timeAgo (date, interval) {
-	date = toDate(date);
+    date = toDate(date);
 	interval = interval || Math.round(((new Date()) - date) / 1000);
 	if (interval < 45) {
 		return interval + ' seconds ago';
@@ -122,7 +122,7 @@ var init = function(el) {
 	if (!(el instanceof HTMLElement)) {
 		el = document.querySelector(el);
 	}
-	if (el.getAttribute('data-o-component') === 'o-date') {
+	if (/\bo-date\b/.test(el.getAttribute('data-o-component'))) {
 		ftTime(el);
 		return;
 	}
