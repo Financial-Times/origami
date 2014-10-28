@@ -6,9 +6,9 @@ $o-quote-is-silent: true !default;
 $o-quote-class-type: unquote("%");
 
 @if $o-quote-is-silent == false {
-  $o-quote-class-type: unquote(".") !global;
-  @include oFontsInclude(MillerDisplay);
-  @include oFontsInclude(BentonSans);
+	$o-quote-class-type: unquote(".") !global;
+	@include oFontsInclude(MillerDisplay);
+	@include oFontsInclude(BentonSans);
 }
 
 @import "src/color-use-cases";
