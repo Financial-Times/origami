@@ -6,7 +6,8 @@
     "demos": [
         {
             "name": "declarative",
-            "template": "demos/src/declarative.mustache"
+            "template": "demos/src/declarative.mustache",
+            "js": "demos/src/declarative.js"
         },
         {
             "name": "imperative",

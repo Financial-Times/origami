@@ -91,7 +91,7 @@ function ftTime(el) {
 	var interval = Math.round(((new Date()) - date) / 1000);
 	printer.innerHTML = interval < (365 * 60 * 60 * 24) ? timeAgo(date, interval) : format(date, 'date');
 	el.title = format(date, 'datetime');
-	el.createAttribute('data-o-date-js');
+	el.setAttribute('data-o-date-js', '');
 }
 
 function timeAgo (date, interval) {
