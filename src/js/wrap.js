@@ -1,4 +1,4 @@
-/*global require, exports*/
+/*global exports*/
 "use strict";
 
 function wrapElement(targetEl, wrapEl) {

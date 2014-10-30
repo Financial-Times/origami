@@ -11,7 +11,7 @@
         "required": [
             "Element.prototype.matches"
         ]
-    }
+    },
     "demos": [
         {
             "path": "/demos/basic.html",
