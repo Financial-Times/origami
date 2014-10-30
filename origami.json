@@ -7,6 +7,11 @@
     "ci": {
         "travis": "https://api.travis-ci.org/repos/Financial-Times/o-table/builds.json"
     },
+    "browserFeatures": {
+        "required": [
+            "Element.prototype.matches"
+        ]
+    }
     "demos": [
         {
             "path": "/demos/basic.html",
