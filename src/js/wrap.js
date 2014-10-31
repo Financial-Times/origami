@@ -1,7 +1,5 @@
-/*global require, exports*/
+/*global exports*/
 "use strict";
-
-var oDom = require('o-dom');
 
 function wrapElement(targetEl, wrapEl) {
     var parentEl = targetEl.parentNode;
@@ -19,7 +17,7 @@ function wrap(tableSelector, wrapClass) {
         wrapEl.setAttribute("class", wrapClass);
         for (var c = 0, l = matchingEls.length; c < l; c++) {
             var tableEl = matchingEls[c];
-            if (!oDom.matches(tableEl.parentNode, "." + wrapClass)) {
+            if (!tableEl.parentNode.matches("." + wrapClass)) {
                 wrapElement(tableEl, wrapEl.cloneNode(false));
             }
         }

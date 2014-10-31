@@ -15,6 +15,7 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
+            'http://polyfill.webservices.ft.com/v1/polyfill.js?ua=safari/4',
             'test/*.test.js'
         ],
 
@@ -51,7 +52,7 @@ module.exports = function(config) {
 
 
         // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: false,
+        autoWatch: true,
 
 
         // start these browsers
