@@ -1,6 +1,6 @@
 {
   "name": "o-livefyre-comment-client",
-  "version": "0.5.15",
+  "version": "0.5.16",
   "main": [
     "main.js",
     "main.scss"
