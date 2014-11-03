@@ -1036,7 +1036,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             @include borderRadiusClear;
 
             .fyre-editor-locked {
-                background-image: url(oAssetsResolve('src/images/comment_locked.png', o-livefyre-comment-client));
+                background-image: url(oAssetsResolve('src/images/comment_locked.png', o-comment-ui));
             }
         }
     }
