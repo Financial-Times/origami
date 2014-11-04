@@ -6,14 +6,16 @@
     <meta charset="utf-8" />
     <title>o-date: declarative demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <script src="//polyfill.webservices.ft.com/v1/polyfill.min.js"></script>
     <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
-    
+    <link rel="stylesheet" href="/bundles/css?modules=o-date:/demos/src/demo.scss" />
 </head>
 <body class="">
     <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
-    
-    <time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z">June 15, 2000</time>
-    <script src="/bundles/js?modules=o-date:/demos/src/demo.js"></script>
+    <time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z">June 15, 2000</time> (dates far in the past are formatted as exact dates)
+<br>
+<time data-o-component="o-date" class="o-date"></time> (more recent dates are formatted as relative times)
+    <script src="/bundles/js?modules=o-date:/demos/src/declarative.js"></script>
     <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
 </body>
 </html>
