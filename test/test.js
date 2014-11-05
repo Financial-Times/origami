@@ -79,6 +79,14 @@ test('getting time ago', function (t) {
     });
 });
 
+test('midday', function (t) {
+    var date = new Date(2000, 1, 5, 12, 7, 22, 499);
+    
+    t.plan(2);
+
+    t.equal(oDate.format(date, 'h:mm a'), '12:07 pm');
+    t.equal(oDate.format(date, 'hh:mm a'), '12:07 pm');
+});
 
 // Commented out as can't get jsdom to exit
 // May need to set up a proper test harness and trun in phantomjs... grrr!!!
