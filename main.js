@@ -27,8 +27,8 @@ var formatReplacementsMap = {
 	dd: 'pad2(date.getDate(), 2)',
 	m: 'date.getMinutes()',
 	mm: 'pad2(date.getMinutes(), 2)',
-	h: '((date.getHours() % 12))',
-	hh: 'pad2((date.getHours() % 12), 2)',
+	h: '((date.getHours() === 12 ? 12 : date.getHours() % 12))',
+	hh: 'pad2((date.getHours() === 12 ? 12 : date.getHours() % 12), 2)',
 	a: '(date.getHours() >= 12 ? "pm" : "am")'
 };
 
