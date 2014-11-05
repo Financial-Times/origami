@@ -13,23 +13,27 @@ var timer;
 
 /*
 	See http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html for formatting conventions used
+
+	Comments indicate the value returned for 3.05 pm on Tuesday 4th February 2014
 */
 var formatReplacementsMap = {
-	MMMM: 'months[date.getMonth()]',
-	MMM: 'months[date.getMonth()].substr(0,3)',
-	MM: 'pad2(date.getMonth() + 1, 2)',
-	M: '(date.getMonth() + 1)',
-	yyyy: 'date.getFullYear()',
-	yy: '(""+date.getFullYear()).substr(-2, 2)',
-	EEEE: 'days[date.getDay()]',
-	EEE: 'days[date.getDay()].substr(0,3)',
-	d: 'date.getDate()',
-	dd: 'pad2(date.getDate(), 2)',
-	m: 'date.getMinutes()',
-	mm: 'pad2(date.getMinutes(), 2)',
-	h: '((date.getHours() === 12 ? 12 : date.getHours() % 12))',
-	hh: 'pad2((date.getHours() === 12 ? 12 : date.getHours() % 12), 2)',
-	a: '(date.getHours() >= 12 ? "pm" : "am")'
+	MMMM: 'months[date.getMonth()]',  // e.g. February
+	MMM: 'months[date.getMonth()].substr(0,3)', // Feb 
+	MM: 'pad2(date.getMonth() + 1, 2)', // 02
+	M: '(date.getMonth() + 1)', // 2
+	yyyy: 'date.getFullYear()', // 2014
+	yy: '(""+date.getFullYear()).substr(-2, 2)', // 14
+	EEEE: 'days[date.getDay()]', // Tuesday
+	EEE: 'days[date.getDay()].substr(0,3)', // Tue
+	d: 'date.getDate()', // 4
+	dd: 'pad2(date.getDate())', // 04
+	m: 'date.getMinutes()', // 5
+	mm: 'pad2(date.getMinutes())', // 05
+	h: '(((date.getHours() + 11) % 12) + 1)', // 3
+	hh: 'pad2(((date.getHours() + 11) % 12) + 1)', // 03
+	H: 'date.getHours()', // 15
+	HH: 'pad2(date.getHours())', // 15
+	a: '(date.getHours() >= 12 ? "pm" : "am")' // pm
 };
 
 function compile (format) {

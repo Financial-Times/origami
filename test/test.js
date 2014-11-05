@@ -80,105 +80,46 @@ test('getting time ago', function (t) {
 });
 
 test('formatting hours', function (t) {
-    t.plan(48);
+    t.plan(24);
 
     var date;
 
     date = new Date(2000, 1, 5, 0, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '0');
-    t.equal(oDate.format(date, 'hh'), '00');
+    t.equal(oDate.format(date, 'h'), '12');
+    t.equal(oDate.format(date, 'hh'), '12');
+    t.equal(oDate.format(date, 'H'), '0');
+    t.equal(oDate.format(date, 'HH'), '00');
 
     date = new Date(2000, 1, 5, 1, 7, 22, 499);
     t.equal(oDate.format(date, 'h'), '1');
     t.equal(oDate.format(date, 'hh'), '01');
-
-    date = new Date(2000, 1, 5, 2, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '2');
-    t.equal(oDate.format(date, 'hh'), '02');
-
-    date = new Date(2000, 1, 5, 3, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '3');
-    t.equal(oDate.format(date, 'hh'), '03');
-
-    date = new Date(2000, 1, 5, 4, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '4');
-    t.equal(oDate.format(date, 'hh'), '04');
-
-    date = new Date(2000, 1, 5, 5, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '5');
-    t.equal(oDate.format(date, 'hh'), '05');
-
-    date = new Date(2000, 1, 5, 6, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '6');
-    t.equal(oDate.format(date, 'hh'), '06');
-
-    date = new Date(2000, 1, 5, 7, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '7');
-    t.equal(oDate.format(date, 'hh'), '07');
-
-    date = new Date(2000, 1, 5, 8, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '8');
-    t.equal(oDate.format(date, 'hh'), '08');
-
-    date = new Date(2000, 1, 5, 9, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '9');
-    t.equal(oDate.format(date, 'hh'), '09');
+    t.equal(oDate.format(date, 'H'), '1');
+    t.equal(oDate.format(date, 'HH'), '01');
 
     date = new Date(2000, 1, 5, 10, 7, 22, 499);
     t.equal(oDate.format(date, 'h'), '10');
     t.equal(oDate.format(date, 'hh'), '10');
-
-    date = new Date(2000, 1, 5, 11, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '11');
-    t.equal(oDate.format(date, 'hh'), '11');
+    t.equal(oDate.format(date, 'H'), '10');
+    t.equal(oDate.format(date, 'HH'), '10');
 
     date = new Date(2000, 1, 5, 12, 7, 22, 499);
     t.equal(oDate.format(date, 'h'), '12');
     t.equal(oDate.format(date, 'hh'), '12');
+    t.equal(oDate.format(date, 'H'), '12');
+    t.equal(oDate.format(date, 'HH'), '12');
 
     date = new Date(2000, 1, 5, 13, 7, 22, 499);
     t.equal(oDate.format(date, 'h'), '1');
     t.equal(oDate.format(date, 'hh'), '01');
-
-    date = new Date(2000, 1, 5, 14, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '2');
-    t.equal(oDate.format(date, 'hh'), '02');
-
-    date = new Date(2000, 1, 5, 15, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '3');
-    t.equal(oDate.format(date, 'hh'), '03');
-
-    date = new Date(2000, 1, 5, 16, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '4');
-    t.equal(oDate.format(date, 'hh'), '04');
-
-    date = new Date(2000, 1, 5, 17, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '5');
-    t.equal(oDate.format(date, 'hh'), '05');
-
-    date = new Date(2000, 1, 5, 18, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '6');
-    t.equal(oDate.format(date, 'hh'), '06');
-
-    date = new Date(2000, 1, 5, 19, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '7');
-    t.equal(oDate.format(date, 'hh'), '07');
-
-    date = new Date(2000, 1, 5, 20, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '8');
-    t.equal(oDate.format(date, 'hh'), '08');
-
-    date = new Date(2000, 1, 5, 21, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '9');
-    t.equal(oDate.format(date, 'hh'), '09');
-
-    date = new Date(2000, 1, 5, 22, 7, 22, 499);
-    t.equal(oDate.format(date, 'h'), '10');
-    t.equal(oDate.format(date, 'hh'), '10');
+    t.equal(oDate.format(date, 'H'), '13');
+    t.equal(oDate.format(date, 'HH'), '13');
 
     date = new Date(2000, 1, 5, 23, 7, 22, 499);
     t.equal(oDate.format(date, 'h'), '11');
     t.equal(oDate.format(date, 'hh'), '11');
+    t.equal(oDate.format(date, 'H'), '23');
+    t.equal(oDate.format(date, 'HH'), '23');
+
 });
 
 // Commented out as can't get jsdom to exit
