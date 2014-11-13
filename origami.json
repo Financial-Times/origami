@@ -1,18 +1,22 @@
 {
-  "description": "Financial Times icons",
-  "origamiType": "module",
-  "origamiVersion": 1,
-  "support": "dan.skinner@ft.com",
-  "supportStatus": "active",
-  "browserFeatures": {
-    "required": [
-      "fontface"
+    "description": "Financial Times icons",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "dan.skinner@ft.com",
+    "supportStatus": "active",
+    "browserFeatures": {
+        "required": [
+            "fontface"
+        ]
+    },
+    "ci": {
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-icons/builds.json"
+    },
+    "demos": [
+        {
+            "path": "/demos/main.html",
+            "expanded": true,
+            "description": ""
+        }
     ]
-  },
-  "ci": {
-    "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-icons/builds.json"
-  },
-  "demos": [
-    "/demos/main.html"
-  ]
 }
