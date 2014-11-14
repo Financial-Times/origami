@@ -20,5 +20,11 @@ exports.lfStringOverride = {
     topCommentsContentNotFoundMsg: "There aren't any recommendations yet.",
     errorLikeOwnComment: "You cannot recommend your own comment",
     shareDefaultText: "Read %s's comment on FT.com",
-    commentTombstone: "This comment has been removed"
+    commentTombstone: "This comment has been removed",
+    flagButton: "Report",
+    flagCommentTooltip: "Report",
+    flagConfirmationMessage: "Report %s's comment as %s?",
+    flagSubtitle: "Report as",
+    flagSuccessMsg: "Comment has been reported.",
+    flagTitle: "Report %s's comment"
 };
