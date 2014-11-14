@@ -14,11 +14,11 @@
 ) {
   display: inline-block;
   margin-right: 15px;
-  padding-left: $_o-ft-forms-radiocheckbox-size + 10px;
+  padding-left: $_o-ft-forms-radiocheckbox-default-size + 10px;
   position: relative;
   cursor: pointer;
   font-weight: normal;
-  line-height: $_o-ft-forms-radiocheckbox-size;
+  line-height: $_o-ft-forms-radiocheckbox-default-size;
    @include oUseragentPrefixer(user-select, none);
 }
 
@@ -40,8 +40,8 @@
 ) {
   position: absolute;
   left: 0;
-  width: $_o-ft-forms-radiocheckbox-size;
-  height: $_o-ft-forms-radiocheckbox-size;
+  width: $_o-ft-forms-radiocheckbox-default-size;
+  height: $_o-ft-forms-radiocheckbox-default-size;
   border: 1px solid oColorsGetColorFor(o-ft-forms-field-standard, border);
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -76,12 +76,12 @@
 ) {
   background-color: oColorsGetColorFor(o-ft-forms-radiocheckbox-checked, background);
   content: '';
-  height: $_o-ft-forms-radio-internal-size;
-  width: $_o-ft-forms-radio-internal-size;
+  height: $_o-ft-forms-radio-internal-default-size;
+  width: $_o-ft-forms-radio-internal-default-size;
   border-radius: 50%;
   position: absolute;
-  left: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-radio-internal-size) / 2;
-  top: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-radio-internal-size) / 2;
+  left: ($_o-ft-forms-radiocheckbox-default-size - $_o-ft-forms-radio-internal-default-size) / 2;
+  top: ($_o-ft-forms-radiocheckbox-default-size - $_o-ft-forms-radio-internal-default-size) / 2;
 }
 
 // styling for checked checkbox
@@ -90,12 +90,12 @@
   '.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label::after'
 ) {
   content: '';
-  height: $_o-ft-forms-checkbox-ticksize;
-  width: $_o-ft-forms-checkbox-ticksize;
+  height: $_o-ft-forms-checkbox-default-ticksize;
+  width: $_o-ft-forms-checkbox-default-ticksize;
   position: absolute;
-  left: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-checkbox-ticksize) / 2;
-  top: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-checkbox-ticksize) / 2;
+  left: ($_o-ft-forms-radiocheckbox-default-size - $_o-ft-forms-checkbox-default-ticksize) / 2;
+  top: ($_o-ft-forms-radiocheckbox-default-size - $_o-ft-forms-checkbox-default-ticksize) / 2;
   background-image: url(oAssetsResolve("svg/tick.svg", o-ft-icons));
   background-repeat: no-repeat;
-  background-size: $_o-ft-forms-checkbox-ticksize;
+  background-size: $_o-ft-forms-checkbox-default-ticksize;
 }
