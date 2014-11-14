@@ -26,7 +26,7 @@
   '%o-ft-forms__field,
   %o-ft-forms__label--select,
   %o-ft-forms__label--textarea',
-  '.o-ft-forms__field:not([type="checkbox"]):not([type="radio"]),
+  '.o-ft-forms__field--text,
   .o-ft-forms__field--select,
   .o-ft-forms__field--textarea'
 ) {
@@ -37,7 +37,7 @@
   '%o-ft-forms__field:disabled,
   %o-ft-forms__label--select:disabled,
   %o-ft-forms__label--textarea:disabled',
-  '.o-ft-forms__field:disabled:not([type="checkbox"]):not([type="radio"]),
+  '.o-ft-forms__field--text:disabled,
   .o-ft-forms__field--select:disabled,
   .o-ft-forms__field--textarea:disabled') {
     @include commonFieldDisabled();
@@ -47,7 +47,7 @@
   '%o-ft-forms__field:focus,
   %o-ft-forms__label--select:focus,
   %o-ft-forms__label--textarea:focus',
-  '.o-ft-forms__field:focus:not([type="checkbox"]):not([type="radio"]),
+  '.o-ft-forms__field--text:focus,
   .o-ft-forms__field--select:focus,
   .o-ft-forms__field--textarea:focus') {
     @include commonFieldFocus();
