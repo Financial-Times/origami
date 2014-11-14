@@ -45,7 +45,7 @@
   white-space: nowrap;
   border-top: $_o-ft-forms-fieldborder;
   border-bottom: $_o-ft-forms-fieldborder;
-  padding: $_o-ft-form-field-big-padding-topbottom $_o-ft-form-field-big-padding-leftright;
+  padding: $_o-ft-form-field-big-padding-top $_o-ft-form-field-big-padding-leftright $_o-ft-form-field-big-padding-bottom;
   font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
   font-size: $_o-ft-form-field-big-fontsize;
   text-align: center;

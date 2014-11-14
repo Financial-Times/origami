@@ -57,8 +57,8 @@
   '%o-ft-forms__field--select',
   '.o-ft-forms__field--select'
 ) {
-    padding-top: $_o-ft-form-field-big-padding-topbottom - 1px;
-    padding-bottom: $_o-ft-form-field-big-padding-topbottom - 1px;
+    padding-top: $_o-ft-form-field-big-padding-top;
+    padding-bottom: $_o-ft-form-field-big-padding-bottom;
     cursor: pointer;
     background-image: url(oAssetsResolve("svg/arrow-up-down.svg", o-ft-icons));
     background-position: 100% center;
