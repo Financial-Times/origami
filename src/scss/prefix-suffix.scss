@@ -9,7 +9,7 @@
 
 @include oFtFormsPlaceholderOptionalSelector(
   '%o-ft-forms__field--affixed',
-  '.o-ft-forms__affix-wrapper .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]),
+  '.o-ft-forms__affix-wrapper .o-ft-forms__field--text,
   .o-ft-forms__affix-wrapper .o-ft-forms__field--select'
 ) {
   display: table-cell;
@@ -18,7 +18,7 @@
 
 @include oFtFormsPlaceholderOptionalSelector(
   '%o-ft-forms__field--prefixed',
-  '.o-ft-forms__affix-wrapper .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]):first-child,
+  '.o-ft-forms__affix-wrapper .o-ft-forms__field--text:first-child,
   .o-ft-forms__affix-wrapper .o-ft-forms__field--select:first-child'
 ) {
   border-top-left-radius: $_o-ft-forms-field-borderradius;
@@ -27,7 +27,7 @@
 
 @include oFtFormsPlaceholderOptionalSelector(
   '%o-ft-forms__field-suffixed',
-  '.o-ft-forms__affix-wrapper .o-ft-forms__field:not([type="checkbox"]):not([type="radio"]):last-child,
+  '.o-ft-forms__affix-wrapper .o-ft-forms__field--text:last-child,
   .o-ft-forms__affix-wrapper .o-ft-forms__field--select:last-child'
 ) {
   border-top-right-radius: $_o-ft-forms-field-borderradius;
