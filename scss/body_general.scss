@@ -21,5 +21,13 @@
   padding-left: 20px;
   font-weight: normal;
   @include oFtTypographyBody;
-  @include oFtTypographyBodyBlock;
 }
+
+@mixin oFtTypographyBodyListOrdered{
+  list-style-type: decimal;
+}
+
+@mixin oFtTypographyBodyListUnordered{
+  list-style-type: disc;
+}
+

@@ -23,8 +23,6 @@
 @mixin oFtTypographyArticleBodyList{
   list-style-position: outside;
   padding-left: 20px;
-  @include oFtTypographyExtend(article-body);
-  @include oFtTypographyExtend(article-body__block);
+  @include oFtTypographyArticleBody;
 }
-
 

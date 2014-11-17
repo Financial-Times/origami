@@ -1,0 +1,30 @@
+@mixin oFtTypographyCommonWrappedBodyStyles() {
+  strong {
+    @include oFtTypographyExtend(body--bold);
+  }
+
+  em {
+    @include oFtTypographyExtend(body--italic);
+  }
+
+  small {
+    @include oFtTypographyExtend(body--small);
+  }
+
+  sup {
+    @include oFtTypographyExtend(body--super);
+  }
+
+  sub {
+    @include oFtTypographyExtend(body--sub);
+  }
+
+  ol {
+    @include oFtTypographyExtend(body__list--ordered);
+  }
+
+  ul {
+    @include oFtTypographyExtend(body__list--unordered);
+  }
+
+}

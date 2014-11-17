@@ -49,7 +49,19 @@ $o-assets-paths-map: (
 }
 
 .body-lead{
+  @include oFtTypographyBodyLead;
+}
+
+.article-body{
+  @include oFtTypographyArticleBody;
+}
+
+.article-body-lead{
   @include oFtTypographyArticleBodyLead;
+}
+
+.article-body-block{
+  @include oFtTypographyArticleBodyBlock;
 }
 
 b{
@@ -86,4 +98,10 @@ ol{
 
 ul{
   @include oFtTypographyBodyListUnordered;
+}
+
+.article{
+  ol, li{
+    @include oFtTypographyArticleBodyList;
+  }
 }
