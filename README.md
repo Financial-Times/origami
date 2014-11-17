@@ -1,4 +1,4 @@
-# o-livefyre-comment-client
+# o-comments
 
 Integration of the commenting widget provided by Livefyre.
 
@@ -9,7 +9,7 @@ There are two ways of using this module:
 
 ### Build tool
 Include the script provided by the build tool and the CSS file.
-The script exposes a global variable named `oLivefyreCommentClient`.
+The script exposes a global variable named `oComments`.
 
 ### Bower
 As a bower dependency:
@@ -17,13 +17,13 @@ As a bower dependency:
 **Javascript:**
 
 ```javascript
-var oLivefyreCommentClient = require('o-livefyre-comment-client');
+var oComments = require('o-comments');
 ```
 
 **SCSS:**
 
 ```ccs
-@import 'o-livefyre-comment-client/main';
+@import 'o-comments/main';
 ```
 
 The module should be built using `browserify` (with `debowerify` and `textrequireify` transform).
@@ -39,7 +39,7 @@ This method is responsible for changing the default configuration used by this m
 In order to use this module with authentication enabled, you should specify the user's session ID:
 
 ```javascript
-oLivefyreCommentClient.init({
+oComments.init({
     sessionId: 'sessID'
 });
 ```
@@ -64,14 +64,14 @@ oLivefyreCommentClient.init({
 In order to change to the TEST environment, use the following code:
 
 ```javascript
-oLivefyreCommentClient.init({
+oComments.init({
     "livefyre": {
         "network": "ft-1.fyre.co",
         "domain": "ft-1.auth.fyre.co",
         "resourceDomainBase": "http://zor.livefyre.com"
     },
     dependencies: {
-        "o-comment-data": {
+        "o-comment-api": {
             "suds": {
                 "baseUrl": "http://test.session-user-data.webservices.ft.com"
             },
@@ -109,7 +109,7 @@ var userSession = readCookie('FTSession');
 Set the user's session if one is available:
 
 ```javascript
-oLivefyreCommentClient.init({
+oComments.init({
     sessionId: userSession
 });
 ```
@@ -118,7 +118,7 @@ oLivefyreCommentClient.init({
 Listen on the 'login required' event, and try to log in the user within the page:
 
 ```javascript
-oLivefyreCommentClient.auth.on('loginRequired.authAction', function (delegate) {
+oComments.auth.on('loginRequired.authAction', function (delegate) {
     // the user is not logged in, but an action was performed within the comment widget that requires the user to be logged in
 
     login();
@@ -148,7 +148,7 @@ widgetInstance.on(commentPosted.tracking, function (siteId, eventData) {
 Create an instance of the Widget with the parameters that are available:
 
 ```javascript
-var widgetInstance = new oLivefyreCommentClient.Widget({
+var widgetInstance = new oComments.Widget({
     elId: 'container-id',
     title: document.title,
     url: document.location.href,
@@ -177,20 +177,20 @@ The Widget will be created using data from a DOM element.
 Include this where you want the widget to load:
 
 ```html
-<div class="o-livefyre-comment-client" id="commentWidget" data-o-livefyre-comment-client-autoconstruct="true" data-o-livefyre-comment-client-config-title="title-of-the-article" data-o-livefyre-comment-client-config-url="page-url" data-o-livefyre-comment-client-config-articleId="ID-of-the-article"></div>
+<div class="o-comments" id="commentWidget" data-o-comments-autoconstruct="true" data-o-comments-config-title="title-of-the-article" data-o-comments-config-url="page-url" data-o-comments-config-articleId="ID-of-the-article"></div>
 ```
 
 In order to build the DOM element, follow the steps:
 
-1. Add class o-livefyre-comment-client to the container element
-2. Add attribute `data-o-livefyre-comment-client-autoconstruct="true"`
+1. Add class o-comments to the container element
+2. Add attribute `data-o-comments-autoconstruct="true"`
 3. Specify a unique ID
-4. Add configuration options that you want to pass to the widget in the following form: data-o-livefyre-comment-client-{configName}="{configValue}". Replace `{configName}` and `{configValue}` with the name of the configuration and value you want to pass.
+4. Add configuration options that you want to pass to the widget in the following form: data-o-comments-{configName}="{configValue}". Replace `{configName}` and `{configValue}` with the name of the configuration and value you want to pass.
 
 When done with the configuration of the widget, adding event listeners, etc.:
 
 ```javascript
-oLivefyreCommentClient.initDomConstruct();
+oComments.initDomConstruct();
 ```
 
 **You don't have to wait until the document is fully loaded, call it whenever you are done with the configurations.**
@@ -200,7 +200,7 @@ oLivefyreCommentClient.initDomConstruct();
 If you need a reference of the JavaScript object created, you can find it the following way:
 
 ```javascript
-window['o-livefyre-comment-client-widget-' + id]
+window['o-comments-widget-' + id]
 ```
 
 where id is the ID of the DOM element (in this example `commentWidget`).
@@ -214,7 +214,7 @@ where id is the ID of the DOM element (in this example `commentWidget`).
 In order to load comments on a page, you should create an instance of `Widget`.
 
 ```javascript
-var widgetInstance = new oLivefyreCommentClient.Widget({
+var widgetInstance = new oComments.Widget({
     elId: 'commentWrapper',
     articleId: 'post12315',
     url: 'http://www.example.com/post12315',

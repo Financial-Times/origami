@@ -1,6 +1,6 @@
 {
   "name": "o-comments",
-  "version": "0.5.21",
+  "version": "0.5.22",
   "main": [
     "main.js",
     "main.scss"

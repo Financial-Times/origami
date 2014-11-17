@@ -10,7 +10,7 @@ var resourceLoader = require('./resourceLoader.js'),
     i18n = require('./i18n.js'),
 
     oCommentUi = require('o-comment-ui'),
-    oCommentData = require('o-comment-data');
+    oCommentApi = require('o-comment-api');
 
 /* global fyre */
 
@@ -56,14 +56,14 @@ function Widget () {
      */
     this.config.initExtension.disableAvatars = true;
 
-    if (this.getWidgetEl().className.indexOf('o-livefyre-comment-client') === -1) {
-        this.getWidgetEl().className += ' o-livefyre-comment-client';
+    if (this.getWidgetEl().className.indexOf('o-comments') === -1) {
+        this.getWidgetEl().className += ' o-comments';
     }
-    if (this.getWidgetEl().className.indexOf('o-livefyre-comment-client-lf-overrides') === -1) {
-        this.getWidgetEl().className += ' o-livefyre-comment-client-lf-overrides';
+    if (this.getWidgetEl().className.indexOf('o-comments-lf-overrides') === -1) {
+        this.getWidgetEl().className += ' o-comments-lf-overrides';
     }
-    if (this.getWidgetEl().className.indexOf('o-livefyre-comment-client-comment-type-' + self.config.stream_type) === -1) {
-        this.getWidgetEl().className += ' o-livefyre-comment-client-comment-type-' + self.config.stream_type;
+    if (this.getWidgetEl().className.indexOf('o-comments-comment-type-' + self.config.stream_type) === -1) {
+        this.getWidgetEl().className += ' o-comments-comment-type-' + self.config.stream_type;
     }
 
     /**
@@ -100,7 +100,7 @@ function Widget () {
     };
 
     this.init = function (callback) {
-        oCommentData.api.getLivefyreInitConfig(self.config, function (err, initData) {
+        oCommentApi.api.getLivefyreInitConfig(self.config, function (err, initData) {
             if (err) {
                 callback(err);
                 return;
@@ -125,7 +125,7 @@ function Widget () {
                     }
                 }
 
-                oCommentData.api.getAuth(function (err, authData) {
+                oCommentApi.api.getAuth(function (err, authData) {
                     if (err) {
                         authData = null;
                     }
@@ -189,7 +189,7 @@ function Widget () {
                             var siteId = parseInt(initData.siteId, 10);
                             widget.on('commentPosted', function (eventData) {
                                 if (!auth.pseudonymWasMissing) {
-                                    oCommentData.api.getAuth(function (err, authData) {
+                                    oCommentApi.api.getAuth(function (err, authData) {
                                         if (err) {
                                             authData = null;
                                         }
@@ -264,7 +264,7 @@ function Widget () {
      */
     function login () {
         var showSettingsDialog = function () {
-            oCommentData.api.getAuth(function (err, currentAuthData) {
+            oCommentApi.api.getAuth(function (err, currentAuthData) {
                 if (!err && currentAuthData) {
                     userDialogs.showSettingsDialog(currentAuthData, {
                         success: function (newAuthData) {
@@ -280,7 +280,7 @@ function Widget () {
         };
 
         var showChangePseudonymDialog = function () {
-            oCommentData.api.getAuth(function (err, currentAuthData) {
+            oCommentApi.api.getAuth(function (err, currentAuthData) {
                 if (!err && currentAuthData) {
                     userDialogs.showChangePseudonymDialog(currentAuthData.displayName, {
                         success: function (newAuthData) {
@@ -305,7 +305,7 @@ function Widget () {
 
         self.ui.addSettingsLink({
             onClick: function () {
-                oCommentData.api.getAuth(function (err, currentAuthData) {
+                oCommentApi.api.getAuth(function (err, currentAuthData) {
                     if (err || !currentAuthData) {
                         auth.loginRequired({
                             success: function () {

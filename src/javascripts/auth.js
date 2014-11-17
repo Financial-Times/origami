@@ -3,7 +3,7 @@
 
 var oCommentUtilities = require('o-comment-utilities');
 var userDialogs = require('./userDialogs');
-var oCommentData = require('o-comment-data');
+var oCommentApi = require('o-comment-api');
 var utils = require('./utils.js');
 
 /**
@@ -128,7 +128,7 @@ function Auth () {
      * @return {[type]}          [description]
      */
     function loginRequiredAfterASuccess (delegate) {
-        oCommentData.api.getAuth({
+        oCommentApi.api.getAuth({
             force: true
         }, function (err, authData) {
             if (authData && authData.pseudonym === false) {
@@ -150,7 +150,7 @@ function Auth () {
      * @return {[type]}          [description]
      */
     this.loginRequired = function (delegate) {
-        oCommentData.api.getAuth(function (err, authData) {
+        oCommentApi.api.getAuth(function (err, authData) {
             if (authData && authData.pseudonym === false) {
                 self.loginRequiredPseudonymMissing(delegate);
             } else if (!authData || !authData.token) {

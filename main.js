@@ -2,7 +2,7 @@
 
 var globalEvents = require('./src/javascripts/globalEvents');
 var config = require('./src/javascripts/config.js'),
-    oCommentData = require('o-comment-data'),
+    oCommentApi = require('o-comment-api'),
     defaultConfig = require('./config.json'),
     oCommentUtilities = require('o-comment-utilities');
 var Widget = require('./src/javascripts/Widget.js');
@@ -15,7 +15,7 @@ config.set(defaultConfig);
 /**
  * Enable data caching.
  */
-oCommentData.init('cache', true);
+oCommentApi.init('cache', true);
 
 module.exports = {
     /**
@@ -23,7 +23,7 @@ module.exports = {
      * For this you have to write the following:
      * ```
      * "dependencies": {
-     *       "o-comment-data": {
+     *       "o-comment-api": {
      *           "suds": {
      *               "baseUrl": "http://test.session-user-data.webservices.ft.com"
      *           },
@@ -42,11 +42,11 @@ module.exports = {
             config.set(keyOrObject, value);
 
             if (keyOrObject === 'sessionId') {
-                oCommentData.init(keyOrObject, value);
+                oCommentApi.init(keyOrObject, value);
             }
         } else if (typeof keyOrObject === 'object') {
-            if (keyOrObject.hasOwnProperty('dependencies') && keyOrObject.dependencies.hasOwnProperty('o-comment-data')) {
-                oCommentData.init(keyOrObject.dependencies['o-comment-data']);
+            if (keyOrObject.hasOwnProperty('dependencies') && keyOrObject.dependencies.hasOwnProperty('o-comment-api')) {
+                oCommentApi.init(keyOrObject.dependencies['o-comment-api']);
 
                 delete keyOrObject.dependencies;
             }
@@ -54,13 +54,13 @@ module.exports = {
             config.set(keyOrObject, value);
 
             if (keyOrObject.hasOwnProperty('sessionId')) {
-                oCommentData.init('sessionId', keyOrObject.sessionId);
+                oCommentApi.init('sessionId', keyOrObject.sessionId);
             }
         }
     },
 
     initDomConstruct: function () {
-        oCommentUtilities.initDomConstruct(Widget, 'o-livefyre-comment-client');
+        oCommentUtilities.initDomConstruct(Widget, 'o-comments');
     },
     
     /**
@@ -81,7 +81,7 @@ module.exports = {
 
     utilities: oCommentUtilities,
 
-    dataService: oCommentData,
+    dataService: oCommentApi,
 
     /**
      * Auth.js exposed.

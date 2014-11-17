@@ -27,7 +27,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
     filter: none;
 }
 
-.o-livefyre-comment-client.o-livefyre-comment-client-lf-overrides.o-livefyre-comment-client-comment-type-livecomments {
+.o-comments.o-comments-lf-overrides.o-comments-comment-type-livecomments {
     clear: both;
     color: oColorsGetPaletteColor(grey-tint5);
     font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
@@ -342,7 +342,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 
         @mixin showMoreCommentsCommon {
-            background: url(oAssetsResolve('src/images/comment_reply_arrows.png', o-livefyre-comment-client)) no-repeat;
+            background: url(oAssetsResolve('src/images/comment_reply_arrows.png', o-comments)) no-repeat;
             width: 11px;
         };
 
@@ -528,7 +528,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             border: 0;
 
             &:before {
-                content: url(oAssetsResolve('src/images/comment_editors_picks_small.png', o-livefyre-comment-client)) "Editor's pick";
+                content: url(oAssetsResolve('src/images/comment_editors_picks_small.png', o-comments)) "Editor's pick";
                 text-align: center;
                 text-transform: uppercase;
                 font-size: 12px;
@@ -687,7 +687,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
                         .fyre-comment {
                             > p:last-child:after {
-                                content: url(oAssetsResolve('src/images/comment_featured_close_quote.png', o-livefyre-comment-client));
+                                content: url(oAssetsResolve('src/images/comment_featured_close_quote.png', o-comments));
                                 float: right;
                                 width: 32px;
                                 height: 25px;
@@ -713,7 +713,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
             }
 
             .fyre-featured-quote {
-                background-image: url(oAssetsResolve('src/images/comment_featured_quote.png', o-livefyre-comment-client));
+                background-image: url(oAssetsResolve('src/images/comment_featured_quote.png', o-comments));
                 width: 32px;
                 height: 25px;
                 margin: 5px 15px 10px 2px;
@@ -737,7 +737,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
                 }
 
                 .fyre-featured-header-icon {
-                    background: url(oAssetsResolve('src/images/comment_editors_picks.png', o-livefyre-comment-client)) no-repeat;
+                    background: url(oAssetsResolve('src/images/comment_editors_picks.png', o-comments)) no-repeat;
                     width: 8px;
                     height: 16px;
                     margin-right: 8px;
@@ -1066,7 +1066,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
         > .fyre-provider-connections > a.fyre-provider-facebook_connect_url,
         > .fyre-provider-connections > a.fyre-provider-twitter_connect_url {
-            background-image: url(oAssetsResolve('src/images/comment_social_mention_sprite.png', o-livefyre-comment-client));
+            background-image: url(oAssetsResolve('src/images/comment_social_mention_sprite.png', o-comments));
         }
 
         > .fyre-provider-connections > a.fyre-provider-connect {
@@ -1074,7 +1074,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
         }
 
         .fyre-mention-item span.fyre-mention-item-livefyre {
-            background: url(oAssetsResolve('src/images/comment_FT_logo.png', o-livefyre-comment-client)) no-repeat;
+            background: url(oAssetsResolve('src/images/comment_FT_logo.png', o-comments)) no-repeat;
         }
     }
 
@@ -1097,7 +1097,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
         .fyre-editor-error-close,
         .fyre-editor-error-close:hover {
-            background: url(oAssetsResolve('src/images/comment_error_close.png', o-livefyre-comment-client)) no-repeat;
+            background: url(oAssetsResolve('src/images/comment_error_close.png', o-comments)) no-repeat;
             width: 12px;
             height: 12px;
 
@@ -1341,7 +1341,7 @@ body {
 
         .fyre-modal-twitter-icon,
         .fyre-modal-facebook-icon {
-            background-image: url(oAssetsResolve('src/images/comment_social_sprite.png', o-livefyre-comment-client));
+            background-image: url(oAssetsResolve('src/images/comment_social_sprite.png', o-comments));
         }
 
         textarea.fyre-modal-textfield,
@@ -1433,7 +1433,7 @@ body {
 }
 
 
-.msie8 .o-livefyre-comment-client.o-livefyre-comment-client-lf-overrides {
+.msie8 .o-comments.o-comments-lf-overrides {
     .fyre {
         .fyre-login-bar {
             float: none;
