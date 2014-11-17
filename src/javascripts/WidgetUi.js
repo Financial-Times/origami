@@ -1,208 +1,208 @@
 "use strict";
 
 var oCommentUtilities = require('o-comment-utilities'),
-    oCommentUi = require('o-comment-ui'),
-    envConfig = require('./config.js'),
-    sizzle = require('sizzle');
+	oCommentUi = require('o-comment-ui'),
+	envConfig = require('./config.js'),
+	sizzle = require('sizzle');
 
 /**
  * FT specific UI customizing of the Livefyre widget.
  * @param {DOMElement} widgetContainer Container of the widget instance.
  */
 function WidgetUi (widgetContainer) {
-    oCommentUi.WidgetUi.apply(this, arguments);
+	oCommentUi.WidgetUi.apply(this, arguments);
 
-    /**
-     * Makes the Livefyre comments widget read-only by hiding the editors and action buttons.
-     * @return {[type]} [description]
-     */
-    this.makeReadOnly = function () {
-        var head = document.head || document.getElementsByTagName('head')[0];
-        var style = document.createElement('style');
+	/**
+	 * Makes the Livefyre comments widget read-only by hiding the editors and action buttons.
+	 * @return {[type]} [description]
+	 */
+	this.makeReadOnly = function () {
+		var head = document.head || document.getElementsByTagName('head')[0];
+		var style = document.createElement('style');
 
-        style.type = 'text/css';
+		style.type = 'text/css';
 
-        var css = '#' + widgetContainer.id + ' .fyre-editor, '+
-                  '#' + widgetContainer.id + ' .fyre-comment-like, '+
-                  '#' + widgetContainer.id + ' .fyre-comment-action-button {'+
-                      'display: none;'+
-                  '}';
+		var css = '#' + widgetContainer.id + ' .fyre-editor, '+
+					'#' + widgetContainer.id + ' .fyre-comment-like, '+
+					'#' + widgetContainer.id + ' .fyre-comment-action-button {'+
+						'display: none;'+
+					'}';
 
-        if (style.styleSheet){
-            style.styleSheet.cssText = css;
-        } else {
-            style.appendChild(document.createTextNode(css));
-        }
+		if (style.styleSheet){
+			style.styleSheet.cssText = css;
+		} else {
+			style.appendChild(document.createTextNode(css));
+		}
 
-        head.appendChild(style);
-    };
+		head.appendChild(style);
+	};
 
-    this.hideFollowButton = function () {
-        var head = document.head || document.getElementsByTagName('head')[0];
-        var style = document.createElement('style');
+	this.hideFollowButton = function () {
+		var head = document.head || document.getElementsByTagName('head')[0];
+		var style = document.createElement('style');
 
-        style.type = 'text/css';
+		style.type = 'text/css';
 
-        var css = '#' + widgetContainer.id + ' .fyre-follow-button {'+
-                      'display: none;'+
-                  '}';
+		var css = '#' + widgetContainer.id + ' .fyre-follow-button {'+
+						'display: none;'+
+					'}';
 
-        if (style.styleSheet){
-            style.styleSheet.cssText = css;
-        } else {
-            style.appendChild(document.createTextNode(css));
-        }
+		if (style.styleSheet){
+			style.styleSheet.cssText = css;
+		} else {
+			style.appendChild(document.createTextNode(css));
+		}
 
-        head.appendChild(style);
-    };
+		head.appendChild(style);
+	};
 
-    /**
-     * Hide the sign in link (used when the user is signed in in FT, but doesn't have a pseudonym yet
-     * so can't be signed in into Livefyre).
-     */
-    this.hideSignInLink = function () {
-        var signInLinkContainer = sizzle('a.fyre-user-loggedout', widgetContainer);
+	/**
+	 * Hide the sign in link (used when the user is signed in in FT, but doesn't have a pseudonym yet
+	 * so can't be signed in into Livefyre).
+	 */
+	this.hideSignInLink = function () {
+		var signInLinkContainer = sizzle('a.fyre-user-loggedout', widgetContainer);
 
-        if (signInLinkContainer.length) {
-            signInLinkContainer[0].style.display = 'none';
-        }
-    };
+		if (signInLinkContainer.length) {
+			signInLinkContainer[0].style.display = 'none';
+		}
+	};
 
-    /**
-     * Inserts message when SUDS reports as authentication is not available.
-     */
-    this.addAuthNotAvailableMessage = function () {
-        var authContainer = sizzle('.fyre-auth', widgetContainer);
+	/**
+	 * Inserts message when SUDS reports as authentication is not available.
+	 */
+	this.addAuthNotAvailableMessage = function () {
+		var authContainer = sizzle('.fyre-auth', widgetContainer);
 
-        if (authContainer.length) {
-            authContainer[0].appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.unavailableTemplate.render()));
-        }
-    };
+		if (authContainer.length) {
+			authContainer[0].appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.unavailableTemplate.render()));
+		}
+	};
 
-    
 
-    /**
-     * Inserts the terms and guidelines text into the widget.
-     */
-    this.addTermsAndGuidelineMessage = function () {
-        var editorContainers = sizzle('.fyre-widget > .fyre-editor', widgetContainer);
 
-        if (editorContainers.length) {
-            for (var i = 0; i < editorContainers.length; i++) {
-                editorContainers[i]
-                    .parentNode
-                    .insertBefore(
-                        oCommentUi.utils.toDOM(oCommentUi.templates.termsAndGuidelinesTemplate.render()),
-                        editorContainers[i].nextSibling
-                    );
-            }
-        }
-    };
+	/**
+	 * Inserts the terms and guidelines text into the widget.
+	 */
+	this.addTermsAndGuidelineMessage = function () {
+		var editorContainers = sizzle('.fyre-widget > .fyre-editor', widgetContainer);
 
-    /**
-     * Inserts settings link and attaches the necessary click handler.
-     * It also waits until the current pseudonym is loaded after the log in.
-     * @param {Object} options Object which can have the following fields:
-     *                             onClick (callback function, required),
-     *                             onAdded (callback function)
-     */
-    this.addSettingsLink = function (options) {
-        oCommentUtilities.logger.log("Commenting settings link adding triggered.");
+		if (editorContainers.length) {
+			for (var i = 0; i < editorContainers.length; i++) {
+				editorContainers[i]
+					.parentNode
+					.insertBefore(
+						oCommentUi.utils.toDOM(oCommentUi.templates.termsAndGuidelinesTemplate.render()),
+						editorContainers[i].nextSibling
+					);
+			}
+		}
+	};
 
-        var noOfTrial = 0;
+	/**
+	 * Inserts settings link and attaches the necessary click handler.
+	 * It also waits until the current pseudonym is loaded after the log in.
+	 * @param {Object} options Object which can have the following fields:
+	 *                             onClick (callback function, required),
+	 *                             onAdded (callback function)
+	 */
+	this.addSettingsLink = function (options) {
+		oCommentUtilities.logger.log("Commenting settings link adding triggered.");
 
-        clearInterval(checkPseudonymInterval);
-        checkPseudonymInterval = setInterval(function () {
-            var pseudonymContainer = sizzle('.fyre-auth .fyre-login-bar .fyre-box-wrapper .fyre-user-loggedin', widgetContainer);
-            if (pseudonymContainer.length || noOfTrial === 120) {
-                clearInterval(checkPseudonymInterval);
+		var noOfTrial = 0;
 
-                if (sizzle('.comment-settings', widgetContainer).length === 0) {
-                    if (noOfTrial === 120) {
-                        // give up
-                        return;
-                    }
+		clearInterval(checkPseudonymInterval);
+		checkPseudonymInterval = setInterval(function () {
+			var pseudonymContainer = sizzle('.fyre-auth .fyre-login-bar .fyre-box-wrapper .fyre-user-loggedin', widgetContainer);
+			if (pseudonymContainer.length || noOfTrial === 120) {
+				clearInterval(checkPseudonymInterval);
 
-                    var loginBarContainer = sizzle('.fyre-auth .fyre-login-bar', widgetContainer);
-                    if (loginBarContainer.length) {
-                        var commentingSettingsLinkConfig = {};
-                        if (envConfig.get().emailNotifications !== true) {
-                            commentingSettingsLinkConfig.label = "Edit pseudonym";
-                        }
+				if (sizzle('.comment-settings', widgetContainer).length === 0) {
+					if (noOfTrial === 120) {
+						// give up
+						return;
+					}
 
-                        loginBarContainer[0].appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.commentingSettingsLink.render(commentingSettingsLinkConfig)));
-                    }
+					var loginBarContainer = sizzle('.fyre-auth .fyre-login-bar', widgetContainer);
+					if (loginBarContainer.length) {
+						var commentingSettingsLinkConfig = {};
+						if (envConfig.get().emailNotifications !== true) {
+							commentingSettingsLinkConfig.label = "Edit pseudonym";
+						}
 
-                    var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comment-settings-text', widgetContainer);
-                    if (settingsLink.length) {
-                        oCommentUi.utils.addEventListener('click', settingsLink[0], function () {
-                            if (options && typeof options.onClick === 'function') {
-                                options.onClick();
-                            }
-                        });
+						loginBarContainer[0].appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.commentingSettingsLink.render(commentingSettingsLinkConfig)));
+					}
 
-                        if (options && typeof options.onAdded === 'function') {
-                            options.onAdded();
-                        }
-                    }
-                }
-            } else {
-                noOfTrial++;
-            }
-        }, 500);
-    };
-    var checkPseudonymInterval;
+					var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comment-settings-text', widgetContainer);
+					if (settingsLink.length) {
+						oCommentUi.utils.addEventListener('click', settingsLink[0], function () {
+							if (options && typeof options.onClick === 'function') {
+								options.onClick();
+							}
+						});
 
-    /**
-     * Removes the settings link from the widget.
-     */
-    this.removeSettingsLink = function () {
-        var el = sizzle('.comment-settings', widgetContainer);
-        if (el.length) {
-            el[0].parentNode.removeChild(el[0]);
-        }
-    };
+						if (options && typeof options.onAdded === 'function') {
+							options.onAdded();
+						}
+					}
+				}
+			} else {
+				noOfTrial++;
+			}
+		}, 500);
+	};
+	var checkPseudonymInterval;
 
-    /**
-     * Comment counter is part of the Livefyre widget, but on FT.com this
-     * element is moved out into the header.
-     */
-    this.moveCommentCountOut = function () {
-        var fyreEl = sizzle('.fyre', widgetContainer);
-        var fyreStreamStatsEl = sizzle('.fyre-stream-stats', widgetContainer);
+	/**
+	 * Removes the settings link from the widget.
+	 */
+	this.removeSettingsLink = function () {
+		var el = sizzle('.comment-settings', widgetContainer);
+		if (el.length) {
+			el[0].parentNode.removeChild(el[0]);
+		}
+	};
 
-        if (fyreEl.length && fyreStreamStatsEl.length) {
-            var counterEl = sizzle('.fyre-comment-count', fyreStreamStatsEl[0]);
-            
-            if (counterEl.length) {
-                fyreEl = fyreEl[0];
-                fyreStreamStatsEl = fyreStreamStatsEl[0];
-                counterEl = counterEl[0];
+	/**
+	 * Comment counter is part of the Livefyre widget, but on FT.com this
+	 * element is moved out into the header.
+	 */
+	this.moveCommentCountOut = function () {
+		var fyreEl = sizzle('.fyre', widgetContainer);
+		var fyreStreamStatsEl = sizzle('.fyre-stream-stats', widgetContainer);
 
-                fyreEl.style.paddingTop = '30px';
-                fyreEl.style.position = 'relative';
+		if (fyreEl.length && fyreStreamStatsEl.length) {
+			var counterEl = sizzle('.fyre-comment-count', fyreStreamStatsEl[0]);
 
-                fyreStreamStatsEl.style.position = 'absolute';
-                fyreStreamStatsEl.style.top = '-10px';
-                fyreStreamStatsEl.style.float = 'none';
-                fyreStreamStatsEl.style.width = '100%';
-                fyreStreamStatsEl.className = 'comment-header';
+			if (counterEl.length) {
+				fyreEl = fyreEl[0];
+				fyreStreamStatsEl = fyreStreamStatsEl[0];
+				counterEl = counterEl[0];
 
-                counterEl.className = '';
-            }
-        }
-    };
+				fyreEl.style.paddingTop = '30px';
+				fyreEl.style.position = 'relative';
+
+				fyreStreamStatsEl.style.position = 'absolute';
+				fyreStreamStatsEl.style.top = '-10px';
+				fyreStreamStatsEl.style.float = 'none';
+				fyreStreamStatsEl.style.width = '100%';
+				fyreStreamStatsEl.className = 'comment-header';
+
+				counterEl.className = '';
+			}
+		}
+	};
 }
 WidgetUi.__extend = function(child) {
-    if (typeof Object.create === 'function') {
-        child.prototype = Object.create(WidgetUi.prototype);
-        child.prototype = Object.create(WidgetUi.prototype);
-    } else {
-        var Tmp = function () {};
-        Tmp.prototype = WidgetUi.prototype;
-        child.prototype = new Tmp();
-        child.prototype.constructor = child;
-    }
+	if (typeof Object.create === 'function') {
+		child.prototype = Object.create(WidgetUi.prototype);
+		child.prototype = Object.create(WidgetUi.prototype);
+	} else {
+		var Tmp = function () {};
+		Tmp.prototype = WidgetUi.prototype;
+		child.prototype = new Tmp();
+		child.prototype.constructor = child;
+	}
 };
 
 oCommentUi.WidgetUi.__extend(WidgetUi);

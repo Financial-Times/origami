@@ -3,1444 +3,1444 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 
 @mixin borderRadiusClear {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
-    border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	-o-border-radius: 0;
+	border-radius: 0;
 }
 
 @mixin boxShadowClear {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -ms-box-shadow: none;
-    -o-box-shadow: none;
-    box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-ms-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
 }
 
 @mixin textShadowClear {
-    text-shadow: none;
+	text-shadow: none;
 }
 
 @mixin gradientClear {
-    background-image: none;
-    filter: none;
+	background-image: none;
+	filter: none;
 }
 
 .o-comments.o-comments-lf-overrides.o-comments-comment-type-livecomments {
-    clear: both;
-    color: oColorsGetPaletteColor(grey-tint5);
-    font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-
-    .fyre {
-        font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-
-        a {
-            color: $ftLink;
-
-            &:hover {
-                color: oColorsGetPaletteColor(black);
-            }
-        }
-
-        .fyre-widget {
-            margin-top: 10px;
-        }
-
-        .fyre-live-container {
-            display: none;
-        }
-
-        .fyre-stream-stats,
-        .fyre-stream-livecount {
-            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-            font-size: 14px;
-            text-align: left;
-        }
-
-        .fyre-stream-stats {
-            color: oColorsGetPaletteColor(grey-tint5);
-            float: right;
-            margin: 0;
-
-            .fyre-comment-count {
-                font-weight: normal;
-                font-size: 14px;
-            }
-
-            span {
-                padding-right: 0;
-            }
-        }
-
-        .fyre-auth {
-            width: auto;
-            margin: 0;
-        }
-
-        .fyre-stream-sort {
-            font: 14px/24px oFontsGetFontFamilyWithFallbacks(BentonSans);
-            border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
-            padding: 10px 0;
-            color: oColorsGetPaletteColor(black) !important;
-            margin: 20px 0 10px;
-
-            a {
-                color: $ftLink !important;
-                text-decoration: none;
-
-                &:hover {
-                    color: $ftLinkHover !important;
-                }
-
-                &:active {
-                    font-weight: inherit;
-                }
-
-                &.fyre-stream-sort-selected {
-                    color: $ftLinkHover !important;
-                    font-weight: bold;
-                    text-decoration: none;
-                }
-            }
-        }
-
-        .fyre-stream-sort-selected {
-            color: $ftLink;
-        }
-
-        .fyre-comment-stream {
-            color: oColorsGetPaletteColor(grey-tint5);
-            font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
-            margin: 0;
-        }
-
-        .fyre-comment-article {
-            font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
-            margin: 10px 0 0;
-
-            .fyre-comment-wrapper.fyre-comment-highlight {
-                display: block;
-                margin-right: 0;
-            }
-
-            .fyre-comment-deleted {
-                font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-                font-size: 13px;
-                color: oColorsGetPaletteColor(grey-tint4);
-
-                p {
-                    font-style: italic;
-                    color: oColorsGetPaletteColor(grey-tint4);
-                    padding-bottom: 10px;
-                }
-            }
-        }
-
-        .fyre-comment-date {
-            color: oColorsGetPaletteColor(grey-tint3);
-        }
-
-        .fyre-login-bar {
-            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-            font-weight: normal;
-            position: static;
-            width: auto;
-            height: auto;
-            line-height: 25px;
-
-            a.fyre-user-loggedout {
-                color: $ftLink;
-                font-size: 14px;
-                line-height: 25px;
-                font-weight: normal;
-                margin: 0;
-
-                &:hover {
-                    color: $ftLinkHover;
-                }
-            }
-
-            .fyre-box-wrapper {
-                left: 0;
-                display: inline-block;
-                position: relative;
-                overflow: visible;
-            }
-
-            .comment-settings {
-                font-size: 14px;
-            }
-        }
-
-        .fyre-help {
-            display: none;
-        }
-
-        .fyre-box-wrapper {
-            margin-top: 0;
-            max-width: 100%;
-            top: 0;
-            border: 0;
-
-            &:hover,
-            &.fyre-box-mobile-touch {
-                // commented version for rollover enabled
-                //background: oColorsGetPaletteColor(pink-tint1);
-                background: inherit;
-                //border: 1px solid #CCC;
-                border: 0;
-
-                @include boxShadowClear;
-                @include borderRadiusClear;
-
-                max-width: 100%;
-            }
-
-            &:hover span.fyre-user-drop,
-            &.fyre-box-mobile-touch span.fyre-user-drop:hover {
-                // commented version for rollover enabled
-                //color: $ftLinkHover;
-                color: inherit;
-                cursor: default;
-            }
-
-            a.fyre-user-profile-link {
-                color: oColorsGetPaletteColor(black);
-                font-size: 14px;
-                padding: 0;
-                cursor: default;
-                white-space: normal;
-            }
-
-            a:hover {
-                color: oColorsGetPaletteColor(black);
-            }
-
-            .fyre-user-drop {
-                // commented version for rollover enabled
-                background: none;
-                //background-position-y: 7px;
-
-                margin-right: 0;
-                padding-right: 0;
-            }
-
-            .fyre-box-list {
-                background: transparent;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                z-index: 1000;
-                border: 0;
-                border-top: 1px solid oColorsGetPaletteColor(pink-tint4);
-                border-bottom: 1px solid oColorsGetPaletteColor(pink-tint4);
-
-                li {
-                    background: oColorsGetPaletteColor(white);
-                    white-space: nowrap;
-
-                    border-left: 1px solid oColorsGetPaletteColor(pink-tint4);
-                    border-right: 1px solid oColorsGetPaletteColor(pink-tint4);
-                }
-            }
-
-            .fyre-user-avatar-25 {
-                margin-left: 0;
-            }
-        }
-
-        .fyre-avatar-disabled {
-            margin-left: 0;
-
-            .fyre-user-profile-link {
-                margin-left: 0;
-                padding-left: 0;
-            }
-        }
-
-        .fyre-user-loggedin {
-             font-weight: normal;
-        }
-
-        .fyre-comment-user {
-            display: none;
-        }
-
-        .fyre-comment-head ,
-        .fyre-comment-body {
-            margin-left: 0;
-            padding: 0 0 10px;
-        }
-        .fyre-comment-body {
-            margin: 0;
-        }
-
-        .fyre-comment-footer {
-            margin: 0 0 10px;
-            padding-top: 0;
-            clear: both;
-        }
-
-        .fyre-comment {
-            margin: 0;
-
-            a.fyre-comment-edit {
-                color: $ftLink;
-                text-decoration: none;
-
-                &:hover {
-                    color: $ftLinkHover;
-                }
-            }
-        }
-
-        a.fyre-comment-username {
-            color: oColorsGetPaletteColor(grey-tint5);
-            font-weight: bold;
-
-            &:hover {
-                color: inherit;
-                cursor: default;
-            }
-        }
-
-        .fyre-comment-divider {
-            margin: 0;
-
-            > span.fyre-comment-reply-wrapper {
-                color: $ftLink;
-                font-size: 13px;
-                top: -9px !important;
-
-                &:hover {
-                    color: $ftLinkHover;
-                }
-            }
-
-            > div.fyre-comment-divider {
-                background: oColorsGetPaletteColor(pink-tint2);
-                margin: 0;
-            }
-        }
-
-        .fyre-comment-divider.fyre-comment-expand {
-            margin-bottom: 40px;
-        }
-
-        .fyre-comment-source-13 > .fyre-comment-divider.fyre-divider-active > div.fyre-comment-divider,
-        .fyre-comment-source-13 > .fyre-comment-divider.fyre-comment-collapse > div.fyre-comment-divider,
-        .fyre-comment-divider.fyre-divider-active > div.fyre-comment-divider,
-        .fyre-comment-divider.fyre-comment-collapse > div.fyre-comment-divider {
-            margin: 0 0 0 80px;
-        }
-
-        .fyre-comment-source-13 > .fyre-comment-divider.fyre-comment-expand > div.fyre-comment-divider,
-        .fyre-comment-divider.fyre-comment-expand > div.fyre-comment-divider {
-            margin: 0 0 0 150px;
-        }
-
-
-        @mixin showMoreCommentsCommon {
-            background: url(oAssetsResolve('src/images/comment_reply_arrows.png', o-comments)) no-repeat;
-            width: 11px;
-        };
-
-        .fyre-comment-source-13 > .fyre-comment-divider.fyre-divider-active > a,
-        .fyre-comment-source-13 > .fyre-comment-divider.fyre-comment-collapse > a,
-        .fyre-comment-divider.fyre-divider-active > a,
-        .fyre-comment-divider.fyre-comment-collapse > a {
-            @include showMoreCommentsCommon;
-            background-position: 0px 0px;
-            height: 8px;
-            top: -3px;
-        }
-
-
-        .fyre-comment-source-13 > .fyre-comment-divider.fyre-comment-expand > a,
-        .fyre-comment-divider.fyre-comment-expand > a {
-            @include showMoreCommentsCommon;
-            background-position: 0px -8px;
-            height: 11px;
-            top: -5px;
-        }
-
-        .fyre-comment-reply {
-            font-size: 13px;
-            top: 0;
-            padding: 0;
-
-            @include borderRadiusClear;
-        }
-
-        .fyre-comment-like {
-            font-size: 13px;
-            height: auto;
-            top: 0;
-            border-right: 1px solid #cccccc;
-            margin-right: 7px;
-        }
-
-        .fyre-comment-removal {
-            font-size: 13px;
-        }
-
-        .fyre-comment-like-count {
-            font-size: 13px;
-            padding: 0 5px;
-            color: oColorsGetPaletteColor(grey-tint5);
-        }
-
-        .fyre-comment-like-btn {
-            font-size: 13px;
-        }
-
-        .fyre-comment-like-imgs {
-            display: none;
-        }
-
-        .fyre-comment-actions {
-            font-size: 13px;
-            margin-top: 0;
-
-            a {
-                color: $ftLink;
-
-                &:hover {
-                    text-decoration: none;
-                    color: $ftLinkHover;
-                }
-
-                > span {
-                    background-image: none;
-                    width: auto;
-                    height: auto;
-                    margin-right: 0;
-                }
-
-                &.fyre-feature-link > span {
-                    background-image: none;
-                }
-            }
-        }
-
-        .fyre-comment-action-button {
-            color: $ftLink !important;
-            @include gradientClear;
-            border: 0;
-            font-weight: normal;
-            padding: 0;
-            margin: 0;
-            min-width: 0;
-
-            &:hover {
-                color: $ftLinkHover !important;
-            }
-        }
-
-        .fyre-comment-flag-mobile-btn {
-            &:before {
-                content: "Flag";
-                font-size: 13px;
-                background: none;
-            }
-
-            &:after {
-                left: 35px;
-                background-position: 0 0;
-                height: 8px;
-                top: -5px;
-
-                @include showMoreCommentsCommon;
-            }
-        }
-
-        .fyre-comment-user-rating,
-        .fyre-user-level,
-        .fyre-like-count,
-        .fyre-comment-source,
-        .fyre-twitter-footer a,
-        .fyre-comment-edit {
-            color: oColorsGetPaletteColor(grey-tint3);
-        }
-
-        .fyre-mod-deny {
-            margin: 2px 0 0;
-            padding: 1px 1px 2px 2px;
-
-            -webkit-border-radius: 10px 0 0 10px;
-            -moz-border-radius: 10px 0 0 10px;
-            -ms-border-radius: 10px 0 0 10px;
-            -o-border-radius: 10px 0 0 10px;
-            border-radius: 10px 0 0 10px;
-        }
-
-        .fyre-mod-approve {
-            margin: 2px 10px 0;
-            padding: 1px 1px 2px 2px;
-
-            -webkit-border-radius: 0 10px 10px 0;
-            -moz-border-radius: 0 10px 10px 0;
-            -ms-border-radius: 0 10px 10px 0;
-            -o-border-radius: 0 10px 10px 0;
-            border-radius: 0 10px 10px 0;
-        }
-
-        .fyre-moderator,
-        .fyre-comment-author-tag,
-        .fyre-comment-tag.fyre-featured,
-        .fyre-pending {
-            display: inline-block;
-            border: 0;
-            font-weight: normal;
-            height: auto;
-            width: auto;
-
-            background: oColorsGetPaletteColor(pink-tint4);
-            color: oColorsGetPaletteColor(pink);
-            padding: 3px 10px;
-            font-size: 13px;
-            line-height: 15px;
-            margin: 0 10px;
-            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-
-            -webkit-border-radius: 10px;
-            -moz-border-radius: 10px;
-            -ms-border-radius: 10px;
-            -o-border-radius: 10px;
-            border-radius: 10px;
-        }
-        .fyre-moderator {
-            display: none;
-        }
-        .fyre-comment-author-tag[data-fyre-author-tag="FT"] {
-            background: oColorsGetPaletteColor(claret);
-        }
-        .fyre-pending {
-            background: oColorsGetPaletteColor(orange);
-        }
-        .fyre-comment-article:hover .fyre-pending {
-            display: none;
-        }
-
-        .fyre-comment-tag.fyre-featured {
-            background: none;
-            border: 0;
-
-            &:before {
-                content: url(oAssetsResolve('src/images/comment_editors_picks_small.png', o-comments)) "Editor's pick";
-                text-align: center;
-                text-transform: uppercase;
-                font-size: 12px;
-                line-height: 15px;
-                font-weight: bold;
-                color: oColorsGetPaletteColor(grey-tint4);
-                display: block;
-            }
-
-            br {
-                display: none;
-            }
-
-            .fyre-featured-icon {
-                display: none;
-            }
-
-            .fyre-featured-text {
-                display: none;
-
-                color: oColorsGetPaletteColor(pink);
-                font-size: 13px;
-                line-height: 16px;
-                font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-                margin: 0;
-            }
-        }
-
-        .fyre-edit-profile-link {
-            display: none;
-        }
-
-        .fyre-logout-link {
-            display: none;
-        }
-
-
-
-        .fyre-notifier-container {
-            background: rgba(206, 198, 185, 0.8);
-            padding: 8px 8px 0;
-
-            @include borderRadiusClear;
-
-
-            .fyre-notifier {
-                max-height: 272px;
-
-                .fyre-notifier-list,
-                .fyre-notifier-archive {
-                    width: 200px;
-                }
-
-                .fyre-notification {
-                    .fyre-notifier-banner {
-                        width: 200px;
-                        height: 36px;
-                        @include gradientClear;
-                        background: oColorsGetPaletteColor(white);
-                        border: 1px solid oColorsGetPaletteColor(pink-tint2);
-
-                        @include borderRadiusClear;
-                        @include boxShadowClear;
-
-                        .fyre-notifier-avatar-container {
-                            display: none;
-                        }
-
-                        .fyre-notifier-message-container {
-                            width: 200px;
-                            background: oColorsGetPaletteColor(white);
-
-                            @include textShadowClear;
-                            @include borderRadiusClear;
-                            @include boxShadowClear;
-
-                            .fyre-notifier-message {
-                                width: 193px;
-                                font-family: BentonSans, Helvetica,  Arial,  sans-serif;
-                                font-size: 13px;
-                                line-height: 26px;
-                                color: oColorsGetPaletteColor(grey-tint4);
-                            }
-                        }
-                    }
-                }
-            }
-
-            .fyre-notifier-base-shadow {
-                @include gradientClear;
-                background: oColorsGetPaletteColor(white);
-                padding: 0;
-                bottom: 0;
-                border: 1px solid oColorsGetPaletteColor(pink-tint2);
-                height: 34px;
-
-                @include borderRadiusClear;
-                @include boxShadowClear;
-
-
-                .fyre-notifier-base {
-                    @include gradientClear;
-                    @include borderRadiusClear;
-                    @include boxShadowClear;
-
-
-                    .fyre-notifier-counter {
-                        font-weight: bold;
-                        font-size: 13px;
-                        font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-                        line-height: 21px;
-                        border: 0;
-                        @include gradientClear;
-                        background: oColorsGetPaletteColor(red);
-                        margin: 6px;
-                        height: 20px;
-                        padding: 0px 7px;
-
-                        @include textShadowClear;
-                        @include borderRadiusClear;
-                        @include boxShadowClear;
-                    }
-
-                    .fyre-notifier-caption {
-                        font-size: 13px;
-                        line-height: 32px;
-                        font-family: BentonSans, Helvetica,  Arial,  sans-serif;
-                    }
-
-                    .fyre-notifier-base-close {
-                        background: url(oAssetsResolve('src/images/comment_dialog_close.gif', comment-ui)) no-repeat;
-                        width: 20px;
-                        height: 20px;
-                        top: 6px;
-                    }
-                }
-            }
-        }
-
-
-        .fyre-featured-content-wrapper {
-            color: oColorsGetPaletteColor(grey-tint4);
-            font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
-            margin: 0 0 20px;
-            background: oColorsGetPaletteColor(pink-tint1);
-
-            .fyre-featured-body {
-                margin-bottom: 23px;
-
-                .fyre-comment-wrapper {
-                    margin: 0;
-                    padding: 0 18px;
-
-                    .fyre-comment-body {
-                        margin-top: -10px;
-
-                        .fyre-comment {
-                            > p:last-child:after {
-                                content: url(oAssetsResolve('src/images/comment_featured_close_quote.png', o-comments));
-                                float: right;
-                                width: 32px;
-                                height: 25px;
-                                display: block;
-                                padding-right: 16px;
-                            }
-                        }
-                    }
-
-                    &:last-child {
-                        .fyre-comment-divider {
-                            display: none;
-                        }
-                    }
-                }
-            }
-
-            .fyre-featured-authored-by {
-                color: oColorsGetPaletteColor(grey-tint4);
-                font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
-                margin: 0;
-                font-weight: bold;
-            }
-
-            .fyre-featured-quote {
-                background-image: url(oAssetsResolve('src/images/comment_featured_quote.png', o-comments));
-                width: 32px;
-                height: 25px;
-                margin: 5px 15px 10px 2px;
-                position: static;
-            }
-
-            .fyre-featured-header {
-                margin: 0 0 23px;
-                width: auto;
-                height: auto;
-                border: 0;
-                text-align: center;
-                background: #e7dece;
-
-                .fyre-featured-title {
-                    color: oColorsGetPaletteColor(grey-tint4);
-                    padding: 0;
-                    text-transform: uppercase;
-                    font-size: 12px;
-                    line-height: 30px;
-                }
-
-                .fyre-featured-header-icon {
-                    background: url(oAssetsResolve('src/images/comment_editors_picks.png', o-comments)) no-repeat;
-                    width: 8px;
-                    height: 16px;
-                    margin-right: 8px;
-                }
-            }
-
-            .fyre-comment-footer {
-                height: 23px;
-
-                .fyre-comment-like {
-                    display: none;
-                }
-
-                .fyre-comment-reply {
-                    display: none;
-                }
-
-                .fyre-comment-author-tag {
-                    display: none;
-                }
-            }
-
-            .fyre-comment-divider {
-                background: oColorsGetPaletteColor(pink-tint3);
-                margin: 23px 0;
-            }
-        }
-
-
-        .fyre-stream-more {
-            background: none;
-            top: -11px;
-            position: relative;
-
-            .fyre-stream-more-container {
-                @include gradientClear;
-                border: 0;
-                background: #406e9f;
-                color: oColorsGetPaletteColor(white);
-                height: 22px;
-
-                .fyre-text {
-                    color: oColorsGetPaletteColor(white);
-                    line-height: 22px;
-                }
-
-                .fyre-spinner {
-                    margin: 3px 4px;
-                }
-            }
-        }
-
-        .fyre-stream-content-not-found {
-            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-            font-size: 16px;
-            color: oColorsGetPaletteColor(grey-tint4) !important;
-
-            a.fyre-stream-refresh {
-                font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-                color: $ftLink !important;
-                font-size: 13px;
-                text-decoration: none;
-                margin-top: 5px;
-
-                &:hover {
-                    color: $ftLinkHover !important;
-                }
-            }
-        }
-
-
-
-        &.fyre-width-small {
-            .fyre-comment-actions a {
-                width: auto;
-                margin-right: 4px;
-            }
-        }
-
-
-        .fyre-mobile-menu {
-            border: 4px solid #d9cdbf;
-            background: oColorsGetPaletteColor(white);
-
-            .fyre-flag-menu-item {
-                border: 0;
-                @include gradientClear;
-
-                a {
-                    color: $ftLink;
-                    font-size: 13px;
-                    font-weight: normal;
-
-                    &:hover {
-                        color: $ftLinkHover;
-                    }
-                }
-            }
-        }
-    }
-
-
-
-    .fyre-editor {
-        margin-top: 10px;
-        position: static;
-
-        .fyre-editor-container {
-            .fyre-editor-editable {
-                background-color: oColorsGetPaletteColor(white);
-                border: 1px solid oColorsGetPaletteColor(pink-tint2);
-
-                @include borderRadiusClear;
-                @include boxShadowClear;
-
-                font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-                font-size: 14px;
-                line-height: 16px;
-
-                padding: 8px;
-            }
-
-            .fyre-editor-editable.editable {
-                color: oColorsGetPaletteColor(grey-tint5);
-            }
-
-            .fyre-editor-editable p {
-                line-height: 22px;
-                margin-bottom: 10px !important;
-            }
-
-            .fyre-editor-editable p * {
-                color: oColorsGetPaletteColor(grey-tint5);
-                font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-                font-size: 14px;
-            }
-
-            .fyre-editor-editable p a {
-                color: $ftLink;
-            }
-        }
-
-        .fyre-editor-toolbar {
-            .goog-toolbar {
-                > div {
-                    background-color: oColorsGetPaletteColor(pink-tint1);
-                    border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
-                    border-right: 1px solid oColorsGetPaletteColor(pink-tint3);
-                    font: normal 12px oFontsGetFontFamilyWithFallbacks(BentonSans);
-                    @include gradientClear;
-                }
-
-                > div.goog-toolbar-separator {
-                    border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
-
-                    @include borderRadiusClear;
-                }
-
-                > div.fyre-button-left .fyre-button-left-outer-box .fyre-button-left-inner-box {
-                    color: $ftLink;
-                    @include textShadowClear;
-                }
-
-                > div.fyre-button-left.fyre-format-button {
-                    border-left: 1px solid oColorsGetPaletteColor(pink-tint2);
-                }
-
-                > div.fyre-button-left:nth-child(2) {
-                    border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
-
-                    @include borderRadiusClear;
-                }
-
-                > div.fyre-button-right {
-                    border-left: 1px solid oColorsGetPaletteColor(pink-tint3);
-                    border-right: 0;
-                }
-
-                > div.fyre-button-right.fyre-post-button {
-                    background-color: transparent;
-                    border-right: 0;
-
-                    @include borderRadiusClear;
-
-                    background-image: -webkit-gradient(linear, left top, left bottom, from(#549ccf), to(#4781aa));
-                    background-image: -webkit-linear-gradient(top, #549ccf, #4781aa);
-                    background-image: -moz-linear-gradient(top, #549ccf, #4781aa);
-                    background-image: -o-linear-gradient(top, #549ccf, #4781aa);
-                    background-image: -ms-linear-gradient(top, #549ccf, #4781aa);
-                    background-image: linear-gradient(top, #549ccf, #4781aa);
-                    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr=#549ccf,  endColorstr=#4781aa);
-                }
-
-                > div.fyre-button-right.fyre-post-button .fyre-button-right-outer-box {
-                    padding: 0 10px;
-                    border-bottom: 0;
-                }
-
-                > div.fyre-button-right.fyre-post-button .fyre-button-right-outer-box .fyre-button-right-inner-box {
-                    color: oColorsGetPaletteColor(white);
-                    font-weight: normal;
-                    @include textShadowClear;
-                }
-
-                > div.fyre-button-right:last-child {
-                    border-right: 1px solid oColorsGetPaletteColor(pink-tint3);
-                    border-bottom: 1px solid oColorsGetPaletteColor(pink-tint3);
-                }
-
-                > div.fyre-button-left-hover,
-                > div.fyre-button-right-hover {
-                    @include gradientClear;
-                    background-color: oColorsGetPaletteColor(pink-tint2);
-                    color: oColorsGetPaletteColor(black);
-                }
-
-                > div.fyre-button-left-active ,
-                > div.fyre-button-right-active {
-                    @include gradientClear;
-                    background-color: oColorsGetPaletteColor(pink-tint2);
-                }
-
-                > div.fyre-button-left .fyre-button-left-outer-box .fyre-button-left-inner-box:hover {
-                    color: oColorsGetPaletteColor(black);
-                }
-
-                .fyre-raw-button {
-                    display: none;
-                }
-
-                .fyre-mention-button {
-                    display: none;
-                    border-left: 1px solid oColorsGetPaletteColor(pink-tint2);
-                }
-            }
-
-            .fyre-share-button {
-                color: $ftLink;
-
-                display: none;
-            }
-
-            .fyre-share-button.fyre-button-left-open ,
-            .fyre-share-button.fyre-button-right-open ,
-            .fyre-share-button.fyre-button-right-active {
-                background: oColorsGetPaletteColor(pink-tint1);
-            }
-
-            .fyre-share-button.fyre-button-left-open:hover ,
-            .fyre-share-button.fyre-button-right-open:hover ,
-            .fyre-share-button.fyre-button-right-active:hover {
-                background: oColorsGetPaletteColor(pink-tint2);
-            }
-
-            .fyre-share-container {
-                background-color: oColorsGetPaletteColor(pink-tint1);
-                border: 1px solid oColorsGetPaletteColor(pink-tint3);
-
-                @include borderRadiusClear;
-
-                width: auto;
-            }
-
-            .fyre-share-container>span {
-                background: none;
-            }
-
-            .fyre-share-container > span>a {
-                color: oColorsGetPaletteColor(grey-tint5);
-                font-family: BentonSans, Helvetica, Arial, sans-serif;
-                padding: 8px 15px;
-            }
-
-            .fyre-share-container > span > a span {
-                background-image: none;
-            }
-
-            .fyre-share-container > span > a:hover {
-                color: $ftLink;
-                background-color: oColorsGetPaletteColor(pink-tint2);
-            }
-        }
-
-
-        .fyre-editor-disabled {
-            background: oColorsGetPaletteColor(white);
-            border: 1px solid #b2b2b2;
-            color: oColorsGetPaletteColor(grey-tint4);
-            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-            font-size: 13px;
-            margin-top: 20px;
-            float: left;
-            width: 100%;
-
-
-            @include borderRadiusClear;
-
-            .fyre-editor-locked {
-                background-image: url(oAssetsResolve('src/images/comment_locked.png', o-comment-ui));
-            }
-        }
-    }
-
-
-    .fyre-mention-menu.fyre-mention-connections {
-        padding-bottom: 0;
-    }
-    .fyre-mention-menu {
-        display: none;
-
-        border: 1px solid oColorsGetPaletteColor(pink-tint1);
-        left: 0;
-        margin-left: 0;
-        color: oColorsGetPaletteColor(grey-tint4);
-
-        @include borderRadiusClear;
-
-        > .fyre-provider-connections {
-            border-color: oColorsGetPaletteColor(pink-tint1);
-            display: none;
-        }
-
-        .fyre-mention-item-display-name {
-            color: oColorsGetPaletteColor(grey-tint4);
-        }
-
-        > .fyre-provider-connections > a.fyre-provider-facebook_connect_url,
-        > .fyre-provider-connections > a.fyre-provider-twitter_connect_url {
-            background-image: url(oAssetsResolve('src/images/comment_social_mention_sprite.png', o-comments));
-        }
-
-        > .fyre-provider-connections > a.fyre-provider-connect {
-            display: none;
-        }
-
-        .fyre-mention-item span.fyre-mention-item-livefyre {
-            background: url(oAssetsResolve('src/images/comment_FT_logo.png', o-comments)) no-repeat;
-        }
-    }
-
-    .fyre-editor-error {
-        @include gradientClear;
-        background-color: oColorsGetPaletteColor(red);
-        border: 1px solid oColorsGetPaletteColor(red);
-        padding: 7px 25px 7px 7px;
-        line-height: 14px;
-        
-        @include textShadowClear;
-        @include borderRadiusClear;
-        @include boxShadowClear;
-
-        .fyre-editor-error-message {
-            font-size: 12px;
-            line-height: 14px;
-            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-        }
-
-        .fyre-editor-error-close,
-        .fyre-editor-error-close:hover {
-            background: url(oAssetsResolve('src/images/comment_error_close.png', o-comments)) no-repeat;
-            width: 12px;
-            height: 12px;
-
-            border: 0;
-            @include borderRadiusClear;
-            @include boxShadowClear;
-        }
-    }
-
-    .comment-header {
-        @extend %o-ft-typography-heading2;
-        padding: 3px 0;
-    }
-
-
-
-
-    // sidebar layout (in the rail list)
-    &.comment-layout-side {
-        .fyre {
-            .fyre-comment {
-                a.fyre-comment-edit {
-                    float: right;
-                    font-size: 11px;
-                }
-            }
-
-            .fyre-featured-content-wrapper {
-                display: none;
-            }
-
-            .fyre-stream-sort {
-                display: none;
-            }
-
-            .fyre-comment-stream {
-                margin-top: 15px;
-                max-height: 500px;
-                overflow-y: auto;
-                padding-right: 15px;
-            }
-
-            a.fyre-comment-username {
-                font-size: 12px;
-            }
-
-            .fyre-login-bar,
-            .fyre-box-wrapper a.fyre-user-profile-link,
-            .fyre-login-bar .comment-settings .comment-settings-text,
-            .fyre-login-bar a.fyre-user-loggedout,
-            .fyre-stream-stats .fyre-comment-count span {
-                font-size: 11px;
-                line-height: 25px;
-            }
-
-            .fyre-login-bar {
-                width: 100%;
-            }
-
-            .fyre-stream-stats {
-                display: none;
-            }
-
-            .fyre-moderator,
-            .fyre-comment-author-tag,
-            .fyre-comment-tag.fyre-featured,
-            .fyre .fyre-pending {
-                font-size: 10px;
-                padding: 2px 8px;
-                margin: 0 5px;
-            }
-
-            .fyre-comment-article {
-                font-size: 13px;
-                line-height: 16px;
-            }
-
-            .fyre-comment-head {
-                overflow: hidden;
-            }
-
-            .fyre-comment-body {
-                padding: 0;
-                clear: both;
-            }
-
-            .fyre-comment-footer {
-                margin: 0;
-            }
-
-            .fyre-comment-like {
-                display: none;
-            }
-
-            .fyre-comment-reply {
-                display: none;
-            }
-
-            .fyre-flag-link {
-                display: none;
-            }
-
-            .fyre-share-link {
-                display: none;
-            }
-
-            .fyre-comment-flag-mobile-btn {
-                display: none;
-            }
-
-            .fyre-comment-actions {
-                margin-top: -14px;
-
-                .fyre-feature-link {
-                    display: none;
-                }
-
-                a {
-                    font-size: 11px;
-                }
-            }
-
-            .fyre-comment-date {
-                float: left;
-                margin-right: 7px;
-                line-height: 16px;
-                height: auto;
-            }
-
-            .fyre-box-list li a {
-                font-size: 10px;
-            }
-
-            .fyre-editor .fyre-editor-toolbar .goog-toolbar {
-                .fyre-embed-button {
-                    display: none;
-                }
-            }
-        }
-    }
+	clear: both;
+	color: oColorsGetPaletteColor(grey-tint5);
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+
+	.fyre {
+		font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+
+		a {
+			color: $ftLink;
+
+			&:hover {
+				color: oColorsGetPaletteColor(black);
+			}
+		}
+
+		.fyre-widget {
+			margin-top: 10px;
+		}
+
+		.fyre-live-container {
+			display: none;
+		}
+
+		.fyre-stream-stats,
+		.fyre-stream-livecount {
+			font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+			font-size: 14px;
+			text-align: left;
+		}
+
+		.fyre-stream-stats {
+			color: oColorsGetPaletteColor(grey-tint5);
+			float: right;
+			margin: 0;
+
+			.fyre-comment-count {
+				font-weight: normal;
+				font-size: 14px;
+			}
+
+			span {
+				padding-right: 0;
+			}
+		}
+
+		.fyre-auth {
+			width: auto;
+			margin: 0;
+		}
+
+		.fyre-stream-sort {
+			font: 14px/24px oFontsGetFontFamilyWithFallbacks(BentonSans);
+			border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
+			padding: 10px 0;
+			color: oColorsGetPaletteColor(black) !important;
+			margin: 20px 0 10px;
+
+			a {
+				color: $ftLink !important;
+				text-decoration: none;
+
+				&:hover {
+					color: $ftLinkHover !important;
+				}
+
+				&:active {
+					font-weight: inherit;
+				}
+
+				&.fyre-stream-sort-selected {
+					color: $ftLinkHover !important;
+					font-weight: bold;
+					text-decoration: none;
+				}
+			}
+		}
+
+		.fyre-stream-sort-selected {
+			color: $ftLink;
+		}
+
+		.fyre-comment-stream {
+			color: oColorsGetPaletteColor(grey-tint5);
+			font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
+			margin: 0;
+		}
+
+		.fyre-comment-article {
+			font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
+			margin: 10px 0 0;
+
+			.fyre-comment-wrapper.fyre-comment-highlight {
+				display: block;
+				margin-right: 0;
+			}
+
+			.fyre-comment-deleted {
+				font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+				font-size: 13px;
+				color: oColorsGetPaletteColor(grey-tint4);
+
+				p {
+					font-style: italic;
+					color: oColorsGetPaletteColor(grey-tint4);
+					padding-bottom: 10px;
+				}
+			}
+		}
+
+		.fyre-comment-date {
+			color: oColorsGetPaletteColor(grey-tint3);
+		}
+
+		.fyre-login-bar {
+			font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+			font-weight: normal;
+			position: static;
+			width: auto;
+			height: auto;
+			line-height: 25px;
+
+			a.fyre-user-loggedout {
+				color: $ftLink;
+				font-size: 14px;
+				line-height: 25px;
+				font-weight: normal;
+				margin: 0;
+
+				&:hover {
+					color: $ftLinkHover;
+				}
+			}
+
+			.fyre-box-wrapper {
+				left: 0;
+				display: inline-block;
+				position: relative;
+				overflow: visible;
+			}
+
+			.comment-settings {
+				font-size: 14px;
+			}
+		}
+
+		.fyre-help {
+			display: none;
+		}
+
+		.fyre-box-wrapper {
+			margin-top: 0;
+			max-width: 100%;
+			top: 0;
+			border: 0;
+
+			&:hover,
+			&.fyre-box-mobile-touch {
+				// commented version for rollover enabled
+				//background: oColorsGetPaletteColor(pink-tint1);
+				background: inherit;
+				//border: 1px solid #CCC;
+				border: 0;
+
+				@include boxShadowClear;
+				@include borderRadiusClear;
+
+				max-width: 100%;
+			}
+
+			&:hover span.fyre-user-drop,
+			&.fyre-box-mobile-touch span.fyre-user-drop:hover {
+				// commented version for rollover enabled
+				//color: $ftLinkHover;
+				color: inherit;
+				cursor: default;
+			}
+
+			a.fyre-user-profile-link {
+				color: oColorsGetPaletteColor(black);
+				font-size: 14px;
+				padding: 0;
+				cursor: default;
+				white-space: normal;
+			}
+
+			a:hover {
+				color: oColorsGetPaletteColor(black);
+			}
+
+			.fyre-user-drop {
+				// commented version for rollover enabled
+				background: none;
+				//background-position-y: 7px;
+
+				margin-right: 0;
+				padding-right: 0;
+			}
+
+			.fyre-box-list {
+				background: transparent;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				z-index: 1000;
+				border: 0;
+				border-top: 1px solid oColorsGetPaletteColor(pink-tint4);
+				border-bottom: 1px solid oColorsGetPaletteColor(pink-tint4);
+
+				li {
+					background: oColorsGetPaletteColor(white);
+					white-space: nowrap;
+
+					border-left: 1px solid oColorsGetPaletteColor(pink-tint4);
+					border-right: 1px solid oColorsGetPaletteColor(pink-tint4);
+				}
+			}
+
+			.fyre-user-avatar-25 {
+				margin-left: 0;
+			}
+		}
+
+		.fyre-avatar-disabled {
+			margin-left: 0;
+
+			.fyre-user-profile-link {
+				margin-left: 0;
+				padding-left: 0;
+			}
+		}
+
+		.fyre-user-loggedin {
+			font-weight: normal;
+		}
+
+		.fyre-comment-user {
+			display: none;
+		}
+
+		.fyre-comment-head ,
+		.fyre-comment-body {
+			margin-left: 0;
+			padding: 0 0 10px;
+		}
+		.fyre-comment-body {
+			margin: 0;
+		}
+
+		.fyre-comment-footer {
+			margin: 0 0 10px;
+			padding-top: 0;
+			clear: both;
+		}
+
+		.fyre-comment {
+			margin: 0;
+
+			a.fyre-comment-edit {
+				color: $ftLink;
+				text-decoration: none;
+
+				&:hover {
+					color: $ftLinkHover;
+				}
+			}
+		}
+
+		a.fyre-comment-username {
+			color: oColorsGetPaletteColor(grey-tint5);
+			font-weight: bold;
+
+			&:hover {
+				color: inherit;
+				cursor: default;
+			}
+		}
+
+		.fyre-comment-divider {
+			margin: 0;
+
+			> span.fyre-comment-reply-wrapper {
+				color: $ftLink;
+				font-size: 13px;
+				top: -9px !important;
+
+				&:hover {
+					color: $ftLinkHover;
+				}
+			}
+
+			> div.fyre-comment-divider {
+				background: oColorsGetPaletteColor(pink-tint2);
+				margin: 0;
+			}
+		}
+
+		.fyre-comment-divider.fyre-comment-expand {
+			margin-bottom: 40px;
+		}
+
+		.fyre-comment-source-13 > .fyre-comment-divider.fyre-divider-active > div.fyre-comment-divider,
+		.fyre-comment-source-13 > .fyre-comment-divider.fyre-comment-collapse > div.fyre-comment-divider,
+		.fyre-comment-divider.fyre-divider-active > div.fyre-comment-divider,
+		.fyre-comment-divider.fyre-comment-collapse > div.fyre-comment-divider {
+			margin: 0 0 0 80px;
+		}
+
+		.fyre-comment-source-13 > .fyre-comment-divider.fyre-comment-expand > div.fyre-comment-divider,
+		.fyre-comment-divider.fyre-comment-expand > div.fyre-comment-divider {
+			margin: 0 0 0 150px;
+		}
+
+
+		@mixin showMoreCommentsCommon {
+			background: url(oAssetsResolve('src/images/comment_reply_arrows.png', o-comments)) no-repeat;
+			width: 11px;
+		};
+
+		.fyre-comment-source-13 > .fyre-comment-divider.fyre-divider-active > a,
+		.fyre-comment-source-13 > .fyre-comment-divider.fyre-comment-collapse > a,
+		.fyre-comment-divider.fyre-divider-active > a,
+		.fyre-comment-divider.fyre-comment-collapse > a {
+			@include showMoreCommentsCommon;
+			background-position: 0px 0px;
+			height: 8px;
+			top: -3px;
+		}
+
+
+		.fyre-comment-source-13 > .fyre-comment-divider.fyre-comment-expand > a,
+		.fyre-comment-divider.fyre-comment-expand > a {
+			@include showMoreCommentsCommon;
+			background-position: 0px -8px;
+			height: 11px;
+			top: -5px;
+		}
+
+		.fyre-comment-reply {
+			font-size: 13px;
+			top: 0;
+			padding: 0;
+
+			@include borderRadiusClear;
+		}
+
+		.fyre-comment-like {
+			font-size: 13px;
+			height: auto;
+			top: 0;
+			border-right: 1px solid #cccccc;
+			margin-right: 7px;
+		}
+
+		.fyre-comment-removal {
+			font-size: 13px;
+		}
+
+		.fyre-comment-like-count {
+			font-size: 13px;
+			padding: 0 5px;
+			color: oColorsGetPaletteColor(grey-tint5);
+		}
+
+		.fyre-comment-like-btn {
+			font-size: 13px;
+		}
+
+		.fyre-comment-like-imgs {
+			display: none;
+		}
+
+		.fyre-comment-actions {
+			font-size: 13px;
+			margin-top: 0;
+
+			a {
+				color: $ftLink;
+
+				&:hover {
+					text-decoration: none;
+					color: $ftLinkHover;
+				}
+
+				> span {
+					background-image: none;
+					width: auto;
+					height: auto;
+					margin-right: 0;
+				}
+
+				&.fyre-feature-link > span {
+					background-image: none;
+				}
+			}
+		}
+
+		.fyre-comment-action-button {
+			color: $ftLink !important;
+			@include gradientClear;
+			border: 0;
+			font-weight: normal;
+			padding: 0;
+			margin: 0;
+			min-width: 0;
+
+			&:hover {
+				color: $ftLinkHover !important;
+			}
+		}
+
+		.fyre-comment-flag-mobile-btn {
+			&:before {
+				content: "Flag";
+				font-size: 13px;
+				background: none;
+			}
+
+			&:after {
+				left: 35px;
+				background-position: 0 0;
+				height: 8px;
+				top: -5px;
+
+				@include showMoreCommentsCommon;
+			}
+		}
+
+		.fyre-comment-user-rating,
+		.fyre-user-level,
+		.fyre-like-count,
+		.fyre-comment-source,
+		.fyre-twitter-footer a,
+		.fyre-comment-edit {
+			color: oColorsGetPaletteColor(grey-tint3);
+		}
+
+		.fyre-mod-deny {
+			margin: 2px 0 0;
+			padding: 1px 1px 2px 2px;
+
+			-webkit-border-radius: 10px 0 0 10px;
+			-moz-border-radius: 10px 0 0 10px;
+			-ms-border-radius: 10px 0 0 10px;
+			-o-border-radius: 10px 0 0 10px;
+			border-radius: 10px 0 0 10px;
+		}
+
+		.fyre-mod-approve {
+			margin: 2px 10px 0;
+			padding: 1px 1px 2px 2px;
+
+			-webkit-border-radius: 0 10px 10px 0;
+			-moz-border-radius: 0 10px 10px 0;
+			-ms-border-radius: 0 10px 10px 0;
+			-o-border-radius: 0 10px 10px 0;
+			border-radius: 0 10px 10px 0;
+		}
+
+		.fyre-moderator,
+		.fyre-comment-author-tag,
+		.fyre-comment-tag.fyre-featured,
+		.fyre-pending {
+			display: inline-block;
+			border: 0;
+			font-weight: normal;
+			height: auto;
+			width: auto;
+
+			background: oColorsGetPaletteColor(pink-tint4);
+			color: oColorsGetPaletteColor(pink);
+			padding: 3px 10px;
+			font-size: 13px;
+			line-height: 15px;
+			margin: 0 10px;
+			font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			-ms-border-radius: 10px;
+			-o-border-radius: 10px;
+			border-radius: 10px;
+		}
+		.fyre-moderator {
+			display: none;
+		}
+		.fyre-comment-author-tag[data-fyre-author-tag="FT"] {
+			background: oColorsGetPaletteColor(claret);
+		}
+		.fyre-pending {
+			background: oColorsGetPaletteColor(orange);
+		}
+		.fyre-comment-article:hover .fyre-pending {
+			display: none;
+		}
+
+		.fyre-comment-tag.fyre-featured {
+			background: none;
+			border: 0;
+
+			&:before {
+				content: url(oAssetsResolve('src/images/comment_editors_picks_small.png', o-comments)) "Editor's pick";
+				text-align: center;
+				text-transform: uppercase;
+				font-size: 12px;
+				line-height: 15px;
+				font-weight: bold;
+				color: oColorsGetPaletteColor(grey-tint4);
+				display: block;
+			}
+
+			br {
+				display: none;
+			}
+
+			.fyre-featured-icon {
+				display: none;
+			}
+
+			.fyre-featured-text {
+				display: none;
+
+				color: oColorsGetPaletteColor(pink);
+				font-size: 13px;
+				line-height: 16px;
+				font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+				margin: 0;
+			}
+		}
+
+		.fyre-edit-profile-link {
+			display: none;
+		}
+
+		.fyre-logout-link {
+			display: none;
+		}
+
+
+
+		.fyre-notifier-container {
+			background: rgba(206, 198, 185, 0.8);
+			padding: 8px 8px 0;
+
+			@include borderRadiusClear;
+
+
+			.fyre-notifier {
+				max-height: 272px;
+
+				.fyre-notifier-list,
+				.fyre-notifier-archive {
+					width: 200px;
+				}
+
+				.fyre-notification {
+					.fyre-notifier-banner {
+						width: 200px;
+						height: 36px;
+						@include gradientClear;
+						background: oColorsGetPaletteColor(white);
+						border: 1px solid oColorsGetPaletteColor(pink-tint2);
+
+						@include borderRadiusClear;
+						@include boxShadowClear;
+
+						.fyre-notifier-avatar-container {
+							display: none;
+						}
+
+						.fyre-notifier-message-container {
+							width: 200px;
+							background: oColorsGetPaletteColor(white);
+
+							@include textShadowClear;
+							@include borderRadiusClear;
+							@include boxShadowClear;
+
+							.fyre-notifier-message {
+								width: 193px;
+								font-family: BentonSans, Helvetica,  Arial,  sans-serif;
+								font-size: 13px;
+								line-height: 26px;
+								color: oColorsGetPaletteColor(grey-tint4);
+							}
+						}
+					}
+				}
+			}
+
+			.fyre-notifier-base-shadow {
+				@include gradientClear;
+				background: oColorsGetPaletteColor(white);
+				padding: 0;
+				bottom: 0;
+				border: 1px solid oColorsGetPaletteColor(pink-tint2);
+				height: 34px;
+
+				@include borderRadiusClear;
+				@include boxShadowClear;
+
+
+				.fyre-notifier-base {
+					@include gradientClear;
+					@include borderRadiusClear;
+					@include boxShadowClear;
+
+
+					.fyre-notifier-counter {
+						font-weight: bold;
+						font-size: 13px;
+						font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+						line-height: 21px;
+						border: 0;
+						@include gradientClear;
+						background: oColorsGetPaletteColor(red);
+						margin: 6px;
+						height: 20px;
+						padding: 0px 7px;
+
+						@include textShadowClear;
+						@include borderRadiusClear;
+						@include boxShadowClear;
+					}
+
+					.fyre-notifier-caption {
+						font-size: 13px;
+						line-height: 32px;
+						font-family: BentonSans, Helvetica,  Arial,  sans-serif;
+					}
+
+					.fyre-notifier-base-close {
+						background: url(oAssetsResolve('src/images/comment_dialog_close.gif', comment-ui)) no-repeat;
+						width: 20px;
+						height: 20px;
+						top: 6px;
+					}
+				}
+			}
+		}
+
+
+		.fyre-featured-content-wrapper {
+			color: oColorsGetPaletteColor(grey-tint4);
+			font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
+			margin: 0 0 20px;
+			background: oColorsGetPaletteColor(pink-tint1);
+
+			.fyre-featured-body {
+				margin-bottom: 23px;
+
+				.fyre-comment-wrapper {
+					margin: 0;
+					padding: 0 18px;
+
+					.fyre-comment-body {
+						margin-top: -10px;
+
+						.fyre-comment {
+							> p:last-child:after {
+								content: url(oAssetsResolve('src/images/comment_featured_close_quote.png', o-comments));
+								float: right;
+								width: 32px;
+								height: 25px;
+								display: block;
+								padding-right: 16px;
+							}
+						}
+					}
+
+					&:last-child {
+						.fyre-comment-divider {
+							display: none;
+						}
+					}
+				}
+			}
+
+			.fyre-featured-authored-by {
+				color: oColorsGetPaletteColor(grey-tint4);
+				font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
+				margin: 0;
+				font-weight: bold;
+			}
+
+			.fyre-featured-quote {
+				background-image: url(oAssetsResolve('src/images/comment_featured_quote.png', o-comments));
+				width: 32px;
+				height: 25px;
+				margin: 5px 15px 10px 2px;
+				position: static;
+			}
+
+			.fyre-featured-header {
+				margin: 0 0 23px;
+				width: auto;
+				height: auto;
+				border: 0;
+				text-align: center;
+				background: #e7dece;
+
+				.fyre-featured-title {
+					color: oColorsGetPaletteColor(grey-tint4);
+					padding: 0;
+					text-transform: uppercase;
+					font-size: 12px;
+					line-height: 30px;
+				}
+
+				.fyre-featured-header-icon {
+					background: url(oAssetsResolve('src/images/comment_editors_picks.png', o-comments)) no-repeat;
+					width: 8px;
+					height: 16px;
+					margin-right: 8px;
+				}
+			}
+
+			.fyre-comment-footer {
+				height: 23px;
+
+				.fyre-comment-like {
+					display: none;
+				}
+
+				.fyre-comment-reply {
+					display: none;
+				}
+
+				.fyre-comment-author-tag {
+					display: none;
+				}
+			}
+
+			.fyre-comment-divider {
+				background: oColorsGetPaletteColor(pink-tint3);
+				margin: 23px 0;
+			}
+		}
+
+
+		.fyre-stream-more {
+			background: none;
+			top: -11px;
+			position: relative;
+
+			.fyre-stream-more-container {
+				@include gradientClear;
+				border: 0;
+				background: #406e9f;
+				color: oColorsGetPaletteColor(white);
+				height: 22px;
+
+				.fyre-text {
+					color: oColorsGetPaletteColor(white);
+					line-height: 22px;
+				}
+
+				.fyre-spinner {
+					margin: 3px 4px;
+				}
+			}
+		}
+
+		.fyre-stream-content-not-found {
+			font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+			font-size: 16px;
+			color: oColorsGetPaletteColor(grey-tint4) !important;
+
+			a.fyre-stream-refresh {
+				font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+				color: $ftLink !important;
+				font-size: 13px;
+				text-decoration: none;
+				margin-top: 5px;
+
+				&:hover {
+					color: $ftLinkHover !important;
+				}
+			}
+		}
+
+
+
+		&.fyre-width-small {
+			.fyre-comment-actions a {
+				width: auto;
+				margin-right: 4px;
+			}
+		}
+
+
+		.fyre-mobile-menu {
+			border: 4px solid #d9cdbf;
+			background: oColorsGetPaletteColor(white);
+
+			.fyre-flag-menu-item {
+				border: 0;
+				@include gradientClear;
+
+				a {
+					color: $ftLink;
+					font-size: 13px;
+					font-weight: normal;
+
+					&:hover {
+						color: $ftLinkHover;
+					}
+				}
+			}
+		}
+	}
+
+
+
+	.fyre-editor {
+		margin-top: 10px;
+		position: static;
+
+		.fyre-editor-container {
+			.fyre-editor-editable {
+				background-color: oColorsGetPaletteColor(white);
+				border: 1px solid oColorsGetPaletteColor(pink-tint2);
+
+				@include borderRadiusClear;
+				@include boxShadowClear;
+
+				font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+				font-size: 14px;
+				line-height: 16px;
+
+				padding: 8px;
+			}
+
+			.fyre-editor-editable.editable {
+				color: oColorsGetPaletteColor(grey-tint5);
+			}
+
+			.fyre-editor-editable p {
+				line-height: 22px;
+				margin-bottom: 10px !important;
+			}
+
+			.fyre-editor-editable p * {
+				color: oColorsGetPaletteColor(grey-tint5);
+				font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+				font-size: 14px;
+			}
+
+			.fyre-editor-editable p a {
+				color: $ftLink;
+			}
+		}
+
+		.fyre-editor-toolbar {
+			.goog-toolbar {
+				> div {
+					background-color: oColorsGetPaletteColor(pink-tint1);
+					border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
+					border-right: 1px solid oColorsGetPaletteColor(pink-tint3);
+					font: normal 12px oFontsGetFontFamilyWithFallbacks(BentonSans);
+					@include gradientClear;
+				}
+
+				> div.goog-toolbar-separator {
+					border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
+
+					@include borderRadiusClear;
+				}
+
+				> div.fyre-button-left .fyre-button-left-outer-box .fyre-button-left-inner-box {
+					color: $ftLink;
+					@include textShadowClear;
+				}
+
+				> div.fyre-button-left.fyre-format-button {
+					border-left: 1px solid oColorsGetPaletteColor(pink-tint2);
+				}
+
+				> div.fyre-button-left:nth-child(2) {
+					border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
+
+					@include borderRadiusClear;
+				}
+
+				> div.fyre-button-right {
+					border-left: 1px solid oColorsGetPaletteColor(pink-tint3);
+					border-right: 0;
+				}
+
+				> div.fyre-button-right.fyre-post-button {
+					background-color: transparent;
+					border-right: 0;
+
+					@include borderRadiusClear;
+
+					background-image: -webkit-gradient(linear, left top, left bottom, from(#549ccf), to(#4781aa));
+					background-image: -webkit-linear-gradient(top, #549ccf, #4781aa);
+					background-image: -moz-linear-gradient(top, #549ccf, #4781aa);
+					background-image: -o-linear-gradient(top, #549ccf, #4781aa);
+					background-image: -ms-linear-gradient(top, #549ccf, #4781aa);
+					background-image: linear-gradient(top, #549ccf, #4781aa);
+					filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr=#549ccf,  endColorstr=#4781aa);
+				}
+
+				> div.fyre-button-right.fyre-post-button .fyre-button-right-outer-box {
+					padding: 0 10px;
+					border-bottom: 0;
+				}
+
+				> div.fyre-button-right.fyre-post-button .fyre-button-right-outer-box .fyre-button-right-inner-box {
+					color: oColorsGetPaletteColor(white);
+					font-weight: normal;
+					@include textShadowClear;
+				}
+
+				> div.fyre-button-right:last-child {
+					border-right: 1px solid oColorsGetPaletteColor(pink-tint3);
+					border-bottom: 1px solid oColorsGetPaletteColor(pink-tint3);
+				}
+
+				> div.fyre-button-left-hover,
+				> div.fyre-button-right-hover {
+					@include gradientClear;
+					background-color: oColorsGetPaletteColor(pink-tint2);
+					color: oColorsGetPaletteColor(black);
+				}
+
+				> div.fyre-button-left-active ,
+				> div.fyre-button-right-active {
+					@include gradientClear;
+					background-color: oColorsGetPaletteColor(pink-tint2);
+				}
+
+				> div.fyre-button-left .fyre-button-left-outer-box .fyre-button-left-inner-box:hover {
+					color: oColorsGetPaletteColor(black);
+				}
+
+				.fyre-raw-button {
+					display: none;
+				}
+
+				.fyre-mention-button {
+					display: none;
+					border-left: 1px solid oColorsGetPaletteColor(pink-tint2);
+				}
+			}
+
+			.fyre-share-button {
+				color: $ftLink;
+
+				display: none;
+			}
+
+			.fyre-share-button.fyre-button-left-open ,
+			.fyre-share-button.fyre-button-right-open ,
+			.fyre-share-button.fyre-button-right-active {
+				background: oColorsGetPaletteColor(pink-tint1);
+			}
+
+			.fyre-share-button.fyre-button-left-open:hover ,
+			.fyre-share-button.fyre-button-right-open:hover ,
+			.fyre-share-button.fyre-button-right-active:hover {
+				background: oColorsGetPaletteColor(pink-tint2);
+			}
+
+			.fyre-share-container {
+				background-color: oColorsGetPaletteColor(pink-tint1);
+				border: 1px solid oColorsGetPaletteColor(pink-tint3);
+
+				@include borderRadiusClear;
+
+				width: auto;
+			}
+
+			.fyre-share-container>span {
+				background: none;
+			}
+
+			.fyre-share-container > span>a {
+				color: oColorsGetPaletteColor(grey-tint5);
+				font-family: BentonSans, Helvetica, Arial, sans-serif;
+				padding: 8px 15px;
+			}
+
+			.fyre-share-container > span > a span {
+				background-image: none;
+			}
+
+			.fyre-share-container > span > a:hover {
+				color: $ftLink;
+				background-color: oColorsGetPaletteColor(pink-tint2);
+			}
+		}
+
+
+		.fyre-editor-disabled {
+			background: oColorsGetPaletteColor(white);
+			border: 1px solid #b2b2b2;
+			color: oColorsGetPaletteColor(grey-tint4);
+			font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+			font-size: 13px;
+			margin-top: 20px;
+			float: left;
+			width: 100%;
+
+
+			@include borderRadiusClear;
+
+			.fyre-editor-locked {
+				background-image: url(oAssetsResolve('src/images/comment_locked.png', o-comment-ui));
+			}
+		}
+	}
+
+
+	.fyre-mention-menu.fyre-mention-connections {
+		padding-bottom: 0;
+	}
+	.fyre-mention-menu {
+		display: none;
+
+		border: 1px solid oColorsGetPaletteColor(pink-tint1);
+		left: 0;
+		margin-left: 0;
+		color: oColorsGetPaletteColor(grey-tint4);
+
+		@include borderRadiusClear;
+
+		> .fyre-provider-connections {
+			border-color: oColorsGetPaletteColor(pink-tint1);
+			display: none;
+		}
+
+		.fyre-mention-item-display-name {
+			color: oColorsGetPaletteColor(grey-tint4);
+		}
+
+		> .fyre-provider-connections > a.fyre-provider-facebook_connect_url,
+		> .fyre-provider-connections > a.fyre-provider-twitter_connect_url {
+			background-image: url(oAssetsResolve('src/images/comment_social_mention_sprite.png', o-comments));
+		}
+
+		> .fyre-provider-connections > a.fyre-provider-connect {
+			display: none;
+		}
+
+		.fyre-mention-item span.fyre-mention-item-livefyre {
+			background: url(oAssetsResolve('src/images/comment_FT_logo.png', o-comments)) no-repeat;
+		}
+	}
+
+	.fyre-editor-error {
+		@include gradientClear;
+		background-color: oColorsGetPaletteColor(red);
+		border: 1px solid oColorsGetPaletteColor(red);
+		padding: 7px 25px 7px 7px;
+		line-height: 14px;
+
+		@include textShadowClear;
+		@include borderRadiusClear;
+		@include boxShadowClear;
+
+		.fyre-editor-error-message {
+			font-size: 12px;
+			line-height: 14px;
+			font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+		}
+
+		.fyre-editor-error-close,
+		.fyre-editor-error-close:hover {
+			background: url(oAssetsResolve('src/images/comment_error_close.png', o-comments)) no-repeat;
+			width: 12px;
+			height: 12px;
+
+			border: 0;
+			@include borderRadiusClear;
+			@include boxShadowClear;
+		}
+	}
+
+	.comment-header {
+		@extend %o-ft-typography-heading2;
+		padding: 3px 0;
+	}
+
+
+
+
+	// sidebar layout (in the rail list)
+	&.comment-layout-side {
+		.fyre {
+			.fyre-comment {
+				a.fyre-comment-edit {
+					float: right;
+					font-size: 11px;
+				}
+			}
+
+			.fyre-featured-content-wrapper {
+				display: none;
+			}
+
+			.fyre-stream-sort {
+				display: none;
+			}
+
+			.fyre-comment-stream {
+				margin-top: 15px;
+				max-height: 500px;
+				overflow-y: auto;
+				padding-right: 15px;
+			}
+
+			a.fyre-comment-username {
+				font-size: 12px;
+			}
+
+			.fyre-login-bar,
+			.fyre-box-wrapper a.fyre-user-profile-link,
+			.fyre-login-bar .comment-settings .comment-settings-text,
+			.fyre-login-bar a.fyre-user-loggedout,
+			.fyre-stream-stats .fyre-comment-count span {
+				font-size: 11px;
+				line-height: 25px;
+			}
+
+			.fyre-login-bar {
+				width: 100%;
+			}
+
+			.fyre-stream-stats {
+				display: none;
+			}
+
+			.fyre-moderator,
+			.fyre-comment-author-tag,
+			.fyre-comment-tag.fyre-featured,
+			.fyre .fyre-pending {
+				font-size: 10px;
+				padding: 2px 8px;
+				margin: 0 5px;
+			}
+
+			.fyre-comment-article {
+				font-size: 13px;
+				line-height: 16px;
+			}
+
+			.fyre-comment-head {
+				overflow: hidden;
+			}
+
+			.fyre-comment-body {
+				padding: 0;
+				clear: both;
+			}
+
+			.fyre-comment-footer {
+				margin: 0;
+			}
+
+			.fyre-comment-like {
+				display: none;
+			}
+
+			.fyre-comment-reply {
+				display: none;
+			}
+
+			.fyre-flag-link {
+				display: none;
+			}
+
+			.fyre-share-link {
+				display: none;
+			}
+
+			.fyre-comment-flag-mobile-btn {
+				display: none;
+			}
+
+			.fyre-comment-actions {
+				margin-top: -14px;
+
+				.fyre-feature-link {
+					display: none;
+				}
+
+				a {
+					font-size: 11px;
+				}
+			}
+
+			.fyre-comment-date {
+				float: left;
+				margin-right: 7px;
+				line-height: 16px;
+				height: auto;
+			}
+
+			.fyre-box-list li a {
+				font-size: 10px;
+			}
+
+			.fyre-editor .fyre-editor-toolbar .goog-toolbar {
+				.fyre-embed-button {
+					display: none;
+				}
+			}
+		}
+	}
 }
 
 
 body {
-    .fyre-hovercard-body {
-        @include gradientClear;
-        background-color: oColorsGetPaletteColor(white);
-        color: oColorsGetPaletteColor(grey-tint3);
-        font: 14px/16px BentonSans, Arial, Helvetica, sans-serif;
+	.fyre-hovercard-body {
+		@include gradientClear;
+		background-color: oColorsGetPaletteColor(white);
+		color: oColorsGetPaletteColor(grey-tint3);
+		font: 14px/16px BentonSans, Arial, Helvetica, sans-serif;
 
-        @include borderRadiusClear;
-        @include boxShadowClear;
-    }
+		@include borderRadiusClear;
+		@include boxShadowClear;
+	}
 
-    .fyre-hovercard-display-name {
-        font: bold 14px/16px BentonSans ,Arial,Helvetica,Geneva,sans-serif;
-    }
+	.fyre-hovercard-display-name {
+		font: bold 14px/16px BentonSans ,Arial,Helvetica,Geneva,sans-serif;
+	}
 
-    .fyre-hovercard-button {
-        @include gradientClear;
-        background-color: $ftLink;
-        color: oColorsGetPaletteColor(white);
-
-
-        @include borderRadiusClear;
-        @include boxShadowClear;
-        @include textShadowClear;
-    }
-
-    .fyre-hovercard-button:hover {
-        @include gradientClear;
-        background-color: #549ccf;
-        color: oColorsGetPaletteColor(white);
-    }
+	.fyre-hovercard-button {
+		@include gradientClear;
+		background-color: $ftLink;
+		color: oColorsGetPaletteColor(white);
 
 
-    .fyre-modal-alert {
-        @include gradientClear;
-        background-color: oColorsGetPaletteColor(white);
-        border: 3px solid #d9cdbf;
-        padding: 2px;
+		@include borderRadiusClear;
+		@include boxShadowClear;
+		@include textShadowClear;
+	}
 
-        color: oColorsGetPaletteColor(grey-tint3);
-        font-size: 13px;
-        font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-        
-        @include textShadowClear;
-        @include borderRadiusClear;
-        @include boxShadowClear;
+	.fyre-hovercard-button:hover {
+		@include gradientClear;
+		background-color: #549ccf;
+		color: oColorsGetPaletteColor(white);
+	}
 
-        .fyre-modal-alert-title-close,
-        .fyre-modal-alert-title-close:active {
-            background: url(oAssetsResolve('src/images/comment_dialog_close.gif', comment-ui)) 0 0 no-repeat;
-            width: 20px;
-            height: 20px;
-            top: 4px;
-            right: 3px;
-        }
-    }
 
-    .fyre-modal {
-        border: 4px solid #d9cdbf;
-        outline: none;
-        z-index: 2001;
+	.fyre-modal-alert {
+		@include gradientClear;
+		background-color: oColorsGetPaletteColor(white);
+		border: 3px solid #d9cdbf;
+		padding: 2px;
 
-        @include boxShadowClear;
+		color: oColorsGetPaletteColor(grey-tint3);
+		font-size: 13px;
+		font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 
-        .fyre-modal-header,
-        .fyre-modal-title {
-            text-align: left;
-            padding-left: 11px;
-            padding-top: 9px;
-            border-bottom: 0;
-            text-transform: uppercase;
-            color: oColorsGetPaletteColor(grey-tint3);
-            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-            font-size: 13px;
-        }
+		@include textShadowClear;
+		@include borderRadiusClear;
+		@include boxShadowClear;
 
-        .fyre-modal-close,
-        .fyre-modal-title-close {
-            left: auto;
-            right: 10px;
-            background: url(oAssetsResolve('src/images/comment_dialog_close.gif', comment-ui));
-            width: 20px;
-            height: 20px;
-        }
+		.fyre-modal-alert-title-close,
+		.fyre-modal-alert-title-close:active {
+			background: url(oAssetsResolve('src/images/comment_dialog_close.gif', comment-ui)) 0 0 no-repeat;
+			width: 20px;
+			height: 20px;
+			top: 4px;
+			right: 3px;
+		}
+	}
 
-        .fyre-modal-close:active,
-        .fyre-modal-title-close:active {
-            background: url(oAssetsResolve('src/images/comment_dialog_close.gif', comment-ui));
-        }
+	.fyre-modal {
+		border: 4px solid #d9cdbf;
+		outline: none;
+		z-index: 2001;
 
-        .fyre-modal-subtitle,
-        .fyre-modal-subtitle-u {
-            color: oColorsGetPaletteColor(black);
-            font-size: 13px;
-            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-            font-weight: normal;
-        }
+		@include boxShadowClear;
 
-        .fyre-modal-twitter-icon,
-        .fyre-modal-facebook-icon {
-            background-image: url(oAssetsResolve('src/images/comment_social_sprite.png', o-comments));
-        }
+		.fyre-modal-header,
+		.fyre-modal-title {
+			text-align: left;
+			padding-left: 11px;
+			padding-top: 9px;
+			border-bottom: 0;
+			text-transform: uppercase;
+			color: oColorsGetPaletteColor(grey-tint3);
+			font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+			font-size: 13px;
+		}
 
-        textarea.fyre-modal-textfield,
-        .fyre-modal-textfield {
-            font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-            font-size: 14px;
-            line-height: 16px;
-            color: oColorsGetPaletteColor(grey-tint3);
-            border-color: #b3b0a8;
-            padding: 4px;
+		.fyre-modal-close,
+		.fyre-modal-title-close {
+			left: auto;
+			right: 10px;
+			background: url(oAssetsResolve('src/images/comment_dialog_close.gif', comment-ui));
+			width: 20px;
+			height: 20px;
+		}
 
-            @include boxShadowClear;
-            @include borderRadiusClear;
-        }
+		.fyre-modal-close:active,
+		.fyre-modal-title-close:active {
+			background: url(oAssetsResolve('src/images/comment_dialog_close.gif', comment-ui));
+		}
 
-        select {
-            margin-bottom: 9px;
-        }
+		.fyre-modal-subtitle,
+		.fyre-modal-subtitle-u {
+			color: oColorsGetPaletteColor(black);
+			font-size: 13px;
+			font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+			font-weight: normal;
+		}
 
-        .fyre-modal-textfield {
-            height: 29px;
-        }
+		.fyre-modal-twitter-icon,
+		.fyre-modal-facebook-icon {
+			background-image: url(oAssetsResolve('src/images/comment_social_sprite.png', o-comments));
+		}
 
-        .fyre-modal-share {
-            textarea.fyre-modal-textfield {
-                height: 55px;
-            }
-        }
+		textarea.fyre-modal-textfield,
+		.fyre-modal-textfield {
+			font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+			font-size: 14px;
+			line-height: 16px;
+			color: oColorsGetPaletteColor(grey-tint3);
+			border-color: #b3b0a8;
+			padding: 4px;
 
-        .fyre-modal-buttons {
-            > button {
-                outline: none;
-                @include gradientClear;
-                background: $ftLink;
-                border: 0;
-                color: oColorsGetPaletteColor(white);
-                font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-                font-weight: normal;
+			@include boxShadowClear;
+			@include borderRadiusClear;
+		}
 
-                @include boxShadowClear;
-            }
+		select {
+			margin-bottom: 9px;
+		}
 
-            > button[name="cancel"] {
-                @include gradientClear;
-                background: none;
-                border: 0;
-                margin-right: 8px;
-                color: $ftLink;
-                font-size: 14px;
+		.fyre-modal-textfield {
+			height: 29px;
+		}
 
-                &:active {
-                    @include boxShadowClear;
-                }
+		.fyre-modal-share {
+			textarea.fyre-modal-textfield {
+				height: 55px;
+			}
+		}
 
-                &:hover {
-                    color: $ftLinkHover;
-                }
-            }
+		.fyre-modal-buttons {
+			> button {
+				outline: none;
+				@include gradientClear;
+				background: $ftLink;
+				border: 0;
+				color: oColorsGetPaletteColor(white);
+				font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+				font-weight: normal;
 
-            > button[name="ok"] {
-                float: right;
-                margin-right: 0;
-            }
-        }
+				@include boxShadowClear;
+			}
 
-        .fyre-modal-flag-form {
-            .fyre-modal-subtitle[for=flagType] {
-                float: none;
-                clear: none;
-                display: inline;
-            }
+			> button[name="cancel"] {
+				@include gradientClear;
+				background: none;
+				border: 0;
+				margin-right: 8px;
+				color: $ftLink;
+				font-size: 14px;
 
-            .fyre-modal-flagas {
-                clear: none;
-                float: none;
-                margin-left: 10px;
-            }
+				&:active {
+					@include boxShadowClear;
+				}
 
-            .fyre-modal-select-error {
-                float: right;
-                width: 110px;
-            }
-        }
+				&:hover {
+					color: $ftLinkHover;
+				}
+			}
 
-        .fyre-mobile-flag-confirmation {
-            padding: 0 15px;
-        }
-    }
+			> button[name="ok"] {
+				float: right;
+				margin-right: 0;
+			}
+		}
+
+		.fyre-modal-flag-form {
+			.fyre-modal-subtitle[for=flagType] {
+				float: none;
+				clear: none;
+				display: inline;
+			}
+
+			.fyre-modal-flagas {
+				clear: none;
+				float: none;
+				margin-left: 10px;
+			}
+
+			.fyre-modal-select-error {
+				float: right;
+				width: 110px;
+			}
+		}
+
+		.fyre-mobile-flag-confirmation {
+			padding: 0 15px;
+		}
+	}
 }
 
 
 .msie8 .o-comments.o-comments-lf-overrides {
-    .fyre {
-        .fyre-login-bar {
-            float: none;
-        }
+	.fyre {
+		.fyre-login-bar {
+			float: none;
+		}
 
-        .fyre-editor {
-            margin-top: 0;
-        }
-    }
+		.fyre-editor {
+			margin-top: 0;
+		}
+	}
 }
