@@ -1,4 +1,4 @@
-@mixin oFtTypographyTitleLarge{
+@include oFtTypographySelectors(title-large) {
   font-family: Georgia, 'Times New Roman', serif;
   font-weight: normal;
   @include oFtTypographyFontSize(30, 36, -5);
@@ -6,7 +6,7 @@
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }
 
-@mixin oFtTypographyTitleMedium{
+@include oFtTypographySelectors(title-medium) {
   font-family: Georgia, 'Times New Roman', serif;
   font-weight: normal;
   @include oFtTypographyFontSize(21, 26);
@@ -14,7 +14,7 @@
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }
 
-@mixin oFtTypographyTitleSmall{
+@include oFtTypographySelectors(title-small) {
   font-family: Georgia, 'Times New Roman', serif;
   font-weight: bold;
   @include oFtTypographyFontSize(15, 17);

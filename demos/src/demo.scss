@@ -129,3 +129,15 @@ h5{
 h6{
   @include oFtTypographyHeading6;
 }
+
+.title-large{
+  @include oFtTypographyTitleLarge;
+}
+
+.title-medium{
+  @include oFtTypographyTitleMedium;
+}
+
+.title-small{
+  @include oFtTypographyTitleSmall;
+}
