@@ -1,12 +1,12 @@
 {
-  "name": "o-livefyre-comment-client",
-  "version": "0.5.20",
+  "name": "o-comments",
+  "version": "0.5.21",
   "main": [
     "main.js",
     "main.scss"
   ],
   "dependencies": {
-    "o-comment-data": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-data.git#^0.7.0",
+    "o-comment-api": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-api.git#^0.7.0",
     "o-comment-ui": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-ui.git#^0.2.0",
     "o-comment-utilities": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-utilities.git#^0.3.0",
     "sizzle": "git+https://github.com/jquery/sizzle.git#^2.0.0",

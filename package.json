@@ -1,5 +1,5 @@
 {
-  "name": "o-livefyre-comment-client",
+  "name": "o-comments",
   "private": true,
   "dependencies": {},
   "devDependencies": {
