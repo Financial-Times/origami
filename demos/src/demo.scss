@@ -105,3 +105,27 @@ ul{
     @include oFtTypographyArticleBodyList;
   }
 }
+
+h1{
+  @include oFtTypographyHeading1;
+}
+
+h2{
+  @include oFtTypographyHeading2;
+}
+
+h3{
+  @include oFtTypographyHeading3;
+}
+
+h4{
+  @include oFtTypographyHeading4;
+}
+
+h5{
+  @include oFtTypographyHeading5;
+}
+
+h6{
+  @include oFtTypographyHeading6;
+}
