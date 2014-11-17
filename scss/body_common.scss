@@ -1,30 +1,33 @@
-@include oFtTypographySelectors(body--bold) {
+// A lot of the mixins in this file seem pointless to me
+// surely it would be better to simply provide a base stylesheet with simple tag only rules?
+
+@mixin oFtTypographyBold{
   font-weight: bold;
 }
 
-@include oFtTypographySelectors(body--italic) {
+@mixin oFtTypographyItalic{
   font-style: italic;
 }
 
-@include oFtTypographySelectors(body--small) {
+@mixin oFtTypographySmall{
   font-size: 0.75em;
 }
 
-@include oFtTypographySelectors(body--super) {
+@mixin oFtTypographySuper{
   display: inline-block;
   margin-top: -3px;
   font-size: 0.75em;
   vertical-align: super;
 }
 
-@include oFtTypographySelectors(body--sub) {
+@mixin oFtTypographySub{
   display: inline-block;
   margin-bottom: -5px;
   font-size: 0.75em;
   vertical-align: sub;
 }
 
-@include oFtTypographySelectors(body__link) {
+@mixin oFtTypographyBodyLink{
   text-decoration: none;
   @include oColorsFor(link, text);
   cursor: pointer;
@@ -33,10 +36,11 @@
   }
 }
 
-@include oFtTypographySelectors(body__list--ordered) {
+@mixin oFtTypographyBodyListOrdered{
   list-style-type: decimal;
 }
 
-@include oFtTypographySelectors(body__list--unordered) {
+@mixin oFtTypographyBodyListUnordered{
   list-style-type: disc;
 }
+

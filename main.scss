@@ -5,6 +5,8 @@
 @import "scss/_variables";
 @import "scss/_functions";
 @import "scss/_mixins";
+@import "scss/deprecated/index";
+
 
 // Force re-draw of web font in Chrome: https://code.google.com/p/chromium/issues/detail?id=336476
 @include oUseragentTarget(chrome) {

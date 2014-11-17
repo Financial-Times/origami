@@ -23,3 +23,67 @@ $o-assets-paths-map: (
 .demo-col:last-child {
   padding-left: 20px;
 }
+
+.badge{
+  @include oFtTypographyBadge;
+}
+
+.label-large{
+  @include oFtTypographyLabelLarge;
+}
+
+.label-medium{
+  @include oFtTypographyLabelMedium;
+}
+
+.label-small{
+  @include oFtTypographyLabelSmall;
+}
+
+.body{
+  @include oFtTypographyBody;
+}
+
+.body-block{
+  @include oFtTypographyBodyBlock;
+}
+
+.body-lead{
+  @include oFtTypographyArticleBodyLead;
+}
+
+b{
+  @include oFtTypographyBold;
+}
+
+i{
+  @include oFtTypographyItalic;
+}
+
+small{
+  @include oFtTypographySmall;
+}
+
+sup{
+  @include oFtTypographySuper;
+}
+
+sub{
+  @include oFtTypographySub;
+}
+
+.body-link{
+  @include oFtTypographyBodyLink;
+}
+
+ol, li{
+  @include oFtTypographyBodyList;
+}
+
+ol{
+  @include oFtTypographyBodyListOrdered;
+}
+
+ul{
+  @include oFtTypographyBodyListUnordered;
+}

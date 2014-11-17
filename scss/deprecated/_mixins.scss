@@ -1,0 +1,24 @@
+
+@mixin oFtTypographyExtend ($class) {
+  @extend #{'%o-ft-typography-#{$class}'} !optional;
+}
+
+/**
+  Wrap styles in module-name prefixed SASS placeholders and CSS classes (if not in silent mode),
+  and optionally CSS selectors (if not in silent mode)
+  $names:         SASS list of placeholder/class names in the format "name1 name2" but without the quotes.
+                  Will automatically by prefixed with module name.
+  $cssSelectors:  [optional] string. CSS selectors which should also receive the same styles.
+                  Does not get auto-prefixed, so must be exactly as you want output on the CSS.
+*/
+@mixin oFtTypographySelectors($names, $cssSelectors: ()) {
+  $selectors: ();
+  $selectors: append($selectors, oFtGetPrefixedPlaceholders($names));
+  @if (not $o-ft-typography-is-silent) {
+    $selectors: append($selectors, oFtGetPrefixedClasses($names));
+    $selectors: append($selectors, unquote($cssSelectors), comma);
+  }
+  #{$selectors} {
+    @content;
+  }
+}

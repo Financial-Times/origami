@@ -1,0 +1,101 @@
+// general
+
+@include oFtTypographySelectors(body--lead) {
+  @include _oFtTypographyFont(BentonSans, normal);
+  @include oFtTypographyFontSize(18, 24);
+  @include oColorsFor(o-ft-typography-body-lead body, text);
+  -webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
+}
+
+@include oFtTypographySelectors(body) {
+  @include _oFtTypographyFont(BentonSans, normal);
+  @include oFtTypographyFontSize(14, 20);
+  @include oColorsFor(body, text);
+}
+
+@include oFtTypographySelectors(body__block) {
+  margin-bottom: 21px;
+  margin-top: 21px;
+}
+
+@include oFtTypographySelectors(body__list) {
+  list-style-position: outside;
+  padding-left: 20px;
+  font-weight: normal;
+  @include oFtTypographyExtend(body);
+  @include oFtTypographyExtend(body__block);
+}
+
+// common
+@include oFtTypographySelectors(body--bold) {
+  font-weight: bold;
+}
+
+@include oFtTypographySelectors(body--italic) {
+  font-style: italic;
+}
+
+@include oFtTypographySelectors(body--small) {
+  font-size: 0.75em;
+}
+
+@include oFtTypographySelectors(body--super) {
+  display: inline-block;
+  margin-top: -3px;
+  font-size: 0.75em;
+  vertical-align: super;
+}
+
+@include oFtTypographySelectors(body--sub) {
+  display: inline-block;
+  margin-bottom: -5px;
+  font-size: 0.75em;
+  vertical-align: sub;
+}
+
+@include oFtTypographySelectors(body__link) {
+  text-decoration: none;
+  @include oColorsFor(link, text);
+  cursor: pointer;
+  #{$o-hoverable-if-hover-enabled} &:hover {
+    @include oColorsFor(link-hover, text);
+  }
+}
+
+@include oFtTypographySelectors(body__list--ordered) {
+  list-style-type: decimal;
+}
+
+@include oFtTypographySelectors(body__list--unordered) {
+  list-style-type: disc;
+}
+
+// article
+@include oFtTypographySelectors(article-body--lead) {
+  margin: 0 0 9px 0;
+  border-bottom: 1px dotted oColorsGetColorFor(o-ft-typography-article-body-lead, border);
+  padding: 0 0 14px 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: normal;
+  @include oFtTypographyFontSize(21, 27);
+  @include oColorsFor(o-ft-typography-article-body-lead body, text);
+}
+
+@include oFtTypographySelectors(article-body)  {
+  @include oFtTypographyFontSize(16, 24);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: normal;
+  @include oColorsFor(o-ft-typography-article-body body, text);
+}
+
+@include oFtTypographySelectors(article-body__block) {
+  margin-bottom: 24px;
+  margin-top: 24px;
+}
+
+@include oFtTypographySelectors(article-body__list) {
+  list-style-position: outside;
+  padding-left: 20px;
+  @include oFtTypographyExtend(article-body);
+  @include oFtTypographyExtend(article-body__block);
+}

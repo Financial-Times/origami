@@ -1,25 +1,25 @@
-@include oFtTypographySelectors(body--lead) {
+@mixin oFtTypographyBodyLead{
   @include _oFtTypographyFont(BentonSans, normal);
   @include oFtTypographyFontSize(18, 24);
   @include oColorsFor(o-ft-typography-body-lead body, text);
   -webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
 }
 
-@include oFtTypographySelectors(body) {
+@mixin oFtTypographyBody{
   @include _oFtTypographyFont(BentonSans, normal);
   @include oFtTypographyFontSize(14, 20);
   @include oColorsFor(body, text);
 }
 
-@include oFtTypographySelectors(body__block) {
+@mixin oFtTypographyBodyBlock{
   margin-bottom: 21px;
   margin-top: 21px;
 }
 
-@include oFtTypographySelectors(body__list) {
+@mixin oFtTypographyBodyList{
   list-style-position: outside;
   padding-left: 20px;
   font-weight: normal;
-  @include oFtTypographyExtend(body);
-  @include oFtTypographyExtend(body__block);
+  @include oFtTypographyBody;
+  @include oFtTypographyBodyBlock;
 }
