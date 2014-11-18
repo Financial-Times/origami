@@ -1,35 +1,35 @@
-@mixin labelText{
-  @include oColorsFor(body, text);
-  @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
+@mixin labelText {
+	@include oColorsFor(body, text);
+	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
 
-@mixin oFtTypographyLabelLarge{
-  @include labelText;
-  @include _oFtTypographyFont(BentonSans, bold);
-  @include oFtTypographyFontSize(16, 21);
+@mixin oFtTypographyLabelLarge {
+	@include labelText;
+	@include _oFtTypographyFont(BentonSans, bold);
+	@include oFtTypographyFontSize(16, 21);
 }
 
-@mixin oFtTypographyLabelMedium{
-  @include labelText;
-  @include _oFtTypographyFont(BentonSans, bold);
-  @include oFtTypographyFontSize(14, 17);
+@mixin oFtTypographyLabelMedium {
+	@include labelText;
+	@include _oFtTypographyFont(BentonSans, bold);
+	@include oFtTypographyFontSize(14, 17);
 }
 
-@mixin oFtTypographyLabelSmall{
-  @include labelText;
-  @include _oFtTypographyFont(BentonSans, normal);
-  @include oFtTypographyFontSize(12, 15);
+@mixin oFtTypographyLabelSmall {
+	@include labelText;
+	@include _oFtTypographyFont(BentonSans, normal);
+	@include oFtTypographyFontSize(12, 15);
 }
 
-@if not $o-ft-typography-is-silent{
-  .o-ft-typography-label-large{
-    @include oFtTypographyLabelLarge;
-  }
-  .o-ft-typography-label-small{
-    @include oFtTypographyLabelSmall;
-  }
-  .o-ft-typography-label-medium{
-    @include oFtTypographyLabelMedium;
-  }
+@if not $o-ft-typography-is-silent {
+	.o-ft-typography-label-large {
+		@include oFtTypographyLabelLarge;
+	}
+	.o-ft-typography-label-small {
+		@include oFtTypographyLabelSmall;
+	}
+	.o-ft-typography-label-medium {
+		@include oFtTypographyLabelMedium;
+	}
 }

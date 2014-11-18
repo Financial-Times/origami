@@ -1,11 +1,11 @@
-@include oFtTypographySelectors(brand)  {
-  @include oFtTypographyBrand;
+@include oFtTypographySelectors(brand) {
+	@include oFtTypographyBrand;
 }
 
-@include oFtTypographySelectors(byline)  {
-  @include oFtTypographyByline;
+@include oFtTypographySelectors(byline) {
+	@include oFtTypographyByline;
 }
 
-@include oFtTypographySelectors(timestamp)  {
-  @include oFtTypographyTimestamp;
+@include oFtTypographySelectors(timestamp) {
+	@include oFtTypographyTimestamp;
 }

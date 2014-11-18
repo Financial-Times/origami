@@ -6,14 +6,14 @@ $_o-ft-typography-selector-prefix: o-ft-typography-;
 
 // Use to define font faces that need including for given use cases
 $_o-ft-typography-fontface-usecase-mapping: (
-  metadata          BentonSans      normal,
-  lead              BentonSans      normal,
-  subheading        BentonSans      normal,
-  heading           BentonSans      bold,
-  label             BentonSans      normal,
-  label             BentonSans      bold,
-  body              BentonSans      normal,
-  body              BentonSans      bold
+	metadata          BentonSans      normal,
+	lead              BentonSans      normal,
+	subheading        BentonSans      normal,
+	heading           BentonSans      bold,
+	label             BentonSans      normal,
+	label             BentonSans      bold,
+	body              BentonSans      normal,
+	body              BentonSans      bold
 );
 
 @include oColorsSetUseCase(o-ft-typography-heading-medium, border, pink-tint2);

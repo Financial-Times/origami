@@ -1,17 +1,17 @@
 @mixin _oFtTypographyFont($family, $weight:normal, $style:normal) {
-  font-family: oFontsGetFontFamilyWithFallbacks($family);
-  font-weight: $weight;
-  font-style: $style;
+	font-family: oFontsGetFontFamilyWithFallbacks($family);
+	font-weight: $weight;
+	font-style: $style;
 }
 
 @mixin oFtTypographyFontOffset($offset) {
-  @if ($offset > 0) {
-    padding-top: $offset + px;
-    margin-bottom: -$offset + px;
-  } @else if ($offset < 0) {
-    margin-top: $offset + px;
-    padding-bottom: -$offset + px;
-  }
+	@if ($offset > 0) {
+		padding-top: $offset + px;
+		margin-bottom: -$offset + px;
+	} @else if ($offset < 0) {
+		margin-top: $offset + px;
+		padding-bottom: -$offset + px;
+	}
 }
 
 @mixin oFtTypographyFontSize($size, $lineHeight: null, $offset: 0) {
@@ -26,33 +26,33 @@
 }
 
 @mixin oFtTypographyFauxTextBackground($color) {
-  text-shadow: 4px 0 2px $color, -4px 0 2px $color,
-  0 4px 2px $color, 0 -4px 2px $color,
-  2px 0 4px $color, -2px 0 4px $color,
-  0 2px 4px $color, 0 -2px 4px $color,
-  6px 0 1px $color;
+	text-shadow: 4px 0 2px $color, -4px 0 2px $color,
+	0 4px 2px $color, 0 -4px 2px $color,
+	2px 0 4px $color, -2px 0 4px $color,
+	0 2px 4px $color, 0 -2px 4px $color,
+	6px 0 1px $color;
 }
 
 
 
-/** 
+/**
  Provides a typography focused interface for oFontsInclude()
 **/
 @mixin oFtTypographyIncludeFont ($type) {
-  @each $usecase in $_o-ft-typography-fontface-usecase-mapping {
-    @if ($type == nth($usecase, 1)) {
-      @include oFontsInclude(nth($usecase, 2), nth($usecase, 3));
-    }
-  }
+	@each $usecase in $_o-ft-typography-fontface-usecase-mapping {
+		@if ($type == nth($usecase, 1)) {
+			@include oFontsInclude(nth($usecase, 2), nth($usecase, 3));
+		}
+	}
 }
 
 @mixin _oFtTypographyLinkStyle($color, $hover-color) {
-  a {
-    text-decoration: none;
-    color: $color;
-    cursor: pointer;
-    #{$o-hoverable-if-hover-enabled} &:hover {
-      color: $hover-color;
-    }
-  }
+	a {
+		text-decoration: none;
+		color: $color;
+		cursor: pointer;
+		#{$o-hoverable-if-hover-enabled} &:hover {
+			color: $hover-color;
+		}
+	}
 }

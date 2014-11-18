@@ -1,11 +1,11 @@
 @include oFtTypographySelectors(title-large) {
-  @include oFtTypographyTitleLarge;
+	@include oFtTypographyTitleLarge;
 }
 
 @include oFtTypographySelectors(title-medium) {
-  @include oFtTypographyTitleMedium;
+	@include oFtTypographyTitleMedium;
 }
 
 @include oFtTypographySelectors(title-small) {
-  @include oFtTypographyTitleSmall;
+	@include oFtTypographyTitleSmall;
 }

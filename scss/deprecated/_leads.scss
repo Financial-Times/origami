@@ -1,12 +1,11 @@
-
 @include oFtTypographySelectors(lead-large) {
-  @include oFtTypographyLeadLarge;
+	@include oFtTypographyLeadLarge;
 }
 
 @include oFtTypographySelectors(lead-medium) {
-  @include oFtTypographyLeadMedium;
+	@include oFtTypographyLeadMedium;
 }
 
 @include oFtTypographySelectors(lead-small) {
-  @include oFtTypographyLeadSmall;
+	@include oFtTypographyLeadSmall;
 }

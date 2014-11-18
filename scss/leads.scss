@@ -1,37 +1,36 @@
-@mixin oFtTypographyLeadLarge{
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: normal;
-  @include oFtTypographyFontSize(21, 26);
-  @include oColorsFor(o-ft-typography-lead-large o-ft-typography-lead body, text);
-  @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
+@mixin oFtTypographyLeadLarge {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-weight: normal;
+	@include oFtTypographyFontSize(21, 26);
+	@include oColorsFor(o-ft-typography-lead-large o-ft-typography-lead body, text);
+	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
-@mixin oFtTypographyLeadMedium{
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: normal;
-  @include oFtTypographyFontSize(17, 21);
-  @include oColorsFor(o-ft-typography-lead-medium o-ft-typography-lead body, text);
-  @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
+@mixin oFtTypographyLeadMedium {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-weight: normal;
+	@include oFtTypographyFontSize(17, 21);
+	@include oColorsFor(o-ft-typography-lead-medium o-ft-typography-lead body, text);
+	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
-@mixin oFtTypographyLeadSmall{
-  @include _oFtTypographyFont(BentonSans, normal);
-  @include oFtTypographyFontSize(13, 17);
-  @include oColorsFor(o-ft-typography-lead-small o-ft-typography-lead body, text);
-  @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
+@mixin oFtTypographyLeadSmall {
+	@include _oFtTypographyFont(BentonSans, normal);
+	@include oFtTypographyFontSize(13, 17);
+	@include oColorsFor(o-ft-typography-lead-small o-ft-typography-lead body, text);
+	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
-@if not $o-ft-typography-is-silent{
-  .o-ft-typography-lead-large{
-    @include oFtTypographyLeadLarge;
-  }
+@if not $o-ft-typography-is-silent {
+	.o-ft-typography-lead-large {
+		@include oFtTypographyLeadLarge;
+	}
 
-  .o-ft-typography-lead-medium{
-    @include oFtTypographyLeadMedium;
-  }
+	.o-ft-typography-lead-medium {
+		@include oFtTypographyLeadMedium;
+	}
 
-  .o-ft-typography-lead-small{
-    @include oFtTypographyLeadSmall;
-  }
+	.o-ft-typography-lead-small {
+		@include oFtTypographyLeadSmall;
+	}
 }
-

@@ -1,35 +1,35 @@
-@mixin oFtTypographyTitleLarge{
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: normal;
-  @include oFtTypographyFontSize(30, 36, -5);
-  @include oColorsFor(o-ft-typography-title-large o-ft-typography-title title, text);
-  @include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
+@mixin oFtTypographyTitleLarge {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-weight: normal;
+	@include oFtTypographyFontSize(30, 36, -5);
+	@include oColorsFor(o-ft-typography-title-large o-ft-typography-title title, text);
+	@include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }
 
-@mixin oFtTypographyTitleMedium{
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: normal;
-  @include oFtTypographyFontSize(21, 26);
-  @include oColorsFor(o-ft-typography-title-medium o-ft-typography-title title, text);
-  @include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
+@mixin oFtTypographyTitleMedium {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-weight: normal;
+	@include oFtTypographyFontSize(21, 26);
+	@include oColorsFor(o-ft-typography-title-medium o-ft-typography-title title, text);
+	@include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }
 
-@mixin oFtTypographyTitleSmall{
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: bold;
-  @include oFtTypographyFontSize(15, 17);
-  @include oColorsFor(o-ft-typography-title-small o-ft-typography-title title, text);
-  @include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
+@mixin oFtTypographyTitleSmall {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-weight: bold;
+	@include oFtTypographyFontSize(15, 17);
+	@include oColorsFor(o-ft-typography-title-small o-ft-typography-title title, text);
+	@include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }
 
-@if not $o-ft-typography-is-silent{
-  .o-ft-typography-title-large{
-    @include oFtTypographyTitleLarge;
-  }
-  .o-ft-typography-title-medium{
-    @include oFtTypographyTitleMedium;
-  }
-  .o-ft-typography-title-small{
-    @include oFtTypographyTitleSmall;
-  }
+@if not $o-ft-typography-is-silent {
+	.o-ft-typography-title-large {
+		@include oFtTypographyTitleLarge;
+	}
+	.o-ft-typography-title-medium {
+		@include oFtTypographyTitleMedium;
+	}
+	.o-ft-typography-title-small {
+		@include oFtTypographyTitleSmall;
+	}
 }

@@ -1,31 +1,31 @@
 @mixin oFtTypographyArticleBodyWrapper {
-  h2 {
-    @include oFtTypographyHeading3
-  }
+	h2 {
+		@include oFtTypographyHeading3;
+	}
 
-  h3 {
-    @include oFtTypographyHeading4;
-  }
+	h3 {
+		@include oFtTypographyHeading4;
+	}
 
-  a {
-    @include oFtTypographyBodyLink;
-  }
+	a {
+		@include oFtTypographyBodyLink;
+	}
 
-  p {
-    @include oFtTypographyArticleBody;
-    @include oFtTypographyArticleBodyBlock;
-  }
+	p {
+		@include oFtTypographyArticleBody;
+		@include oFtTypographyArticleBodyBlock;
+	}
 
-  ol,
-  ul {
-    @include oFtTypographyArticleBodyList;
-  }
+	ol,
+	ul {
+		@include oFtTypographyArticleBodyList;
+	}
 
-  @include oFtTypographyCommonWrappedBodyStyles();
+	@include oFtTypographyCommonWrappedBodyStyles();
 }
 
-@if not $o-ft-typography-is-silent{
-  .o-ft-typography-article-body-wrapper{
-    @include oFtTypographyArticleBodyWrapper;
-  }
+@if not $o-ft-typography-is-silent {
+	.o-ft-typography-article-body-wrapper {
+		@include oFtTypographyArticleBodyWrapper;
+	}
 }

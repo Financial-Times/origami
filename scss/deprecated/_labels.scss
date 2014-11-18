@@ -1,15 +1,15 @@
-%label-text{
-  @include labelText;
+%label-text {
+	@include labelText;
 }
 
 @include oFtTypographySelectors(label-large) {
-  @include oFtTypographyLabelLarge;
+	@include oFtTypographyLabelLarge;
 }
 
 @include oFtTypographySelectors(label-medium) {
-  @include oFtTypographyLabelMedium;
+	@include oFtTypographyLabelMedium;
 }
 
 @include oFtTypographySelectors(label-small) {
-  @include oFtTypographyLabelSmall;
+	@include oFtTypographyLabelSmall;
 }

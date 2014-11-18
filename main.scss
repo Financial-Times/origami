@@ -2,40 +2,40 @@
 @import "o-colors/main";
 @import "o-hoverable/main";
 @import "o-useragent/main";
-@import "scss/_variables";
-@import "scss/_functions";
-@import "scss/_mixins";
+@import "scss/variables";
+@import "scss/functions";
+@import "scss/mixins";
 
 
 // Force re-draw of web font in Chrome: https://code.google.com/p/chromium/issues/detail?id=336476
 @include oUseragentTarget(chrome) {
-  -webkit-animation-duration: 0.1s;
-  -webkit-animation-name: fontfix;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-delay: 0.1s;
+	-webkit-animation-duration: 0.1s;
+	-webkit-animation-name: fontfix;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 0.1s;
 }
 @mixin oFtTypographyWebkitFontfix() {
-  @at-root {
-    @-webkit-keyframes fontfix {
-      from {
-        opacity: 1;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  }
+	@at-root {
+		@-webkit-keyframes fontfix {
+			from {
+				opacity: 1;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+	}
 }
 
 @if (not $o-ft-typography-is-silent) {
-    @each $usecase in $_o-ft-typography-fontface-usecase-mapping {
-        @include oFtTypographyIncludeFont(nth($usecase, 1));
-    }
-    body {
-      @extend %o-useragent-chrome;
-    }
-    @include oFtTypographyWebkitFontfix();
+		@each $usecase in $_o-ft-typography-fontface-usecase-mapping {
+				@include oFtTypographyIncludeFont(nth($usecase, 1));
+		}
+		body {
+			@extend %o-useragent-chrome;
+		}
+		@include oFtTypographyWebkitFontfix();
 }
 
 @import "scss/headings";
@@ -45,7 +45,7 @@
 @import "scss/body_common";
 @import "scss/body_general";
 @import "scss/body_article";
-@import "scss/_wrapped_common";
+@import "scss/wrapped_common";
 @import "scss/wrapped_general";
 @import "scss/wrapped_article";
 @import "scss/labels";

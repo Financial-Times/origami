@@ -1,0 +1,170 @@
+linters:
+
+  # ENABLED:
+
+  # "border: 0" not "border: none"
+  BorderZero:
+    enabled: true
+
+  # No capitals in selectors
+  CapitalizationInSelector:
+    enabled: true
+
+  # Disallow "@debug"
+  DebugStatement:
+    enabled: true
+
+  # @extend must come first, then properties, then nested rulesets
+  DeclarationOrder:
+    enabled: true
+
+  # Disallow use of the same property more than once in the same ruleset
+  DuplicateProperty:
+    enabled: true
+
+  # Require a newline at the end of the file
+  FinalNewline:
+    enabled: true
+    present: true
+
+  # #12346 good, #123 bad.
+  HexLength:
+    enabled: true
+    style: long
+
+  # Require hex colors to be lowercase (if they include any of the letters a-f)
+  HexNotation:
+    enabled: true
+    style: lowercase
+
+  # Hex colors must be actual colors (ie not #ab or #00mm00)
+  HexValidation:
+    enabled: true
+
+  # Disallow combining of ID selectors with other selector tokens
+  IdWithExtraneousSelector:
+    enabled: true
+
+  # 0.1 not .1
+  # (differs from Guardian)
+  LeadingZero:
+    enabled: true
+    style: include_zero
+
+  # @extend %placeholders, don't @extend .a-class
+  PlaceholderInExtend:
+    enabled: true
+
+  # Disallow unknown CSS property names
+  PropertySpelling:
+    enabled: true
+    extra_properties: []
+
+  # margin: 1px not margin: 1px 1px 1px 1px;
+  Shorthand:
+    enabled: true
+
+  # rgb(0, 0, 0) not rgb(0,0,0)
+  SpaceAfterComma:
+    enabled: true
+
+  # margin: 0px not margin:0px
+  SpaceAfterPropertyColon:
+    enabled: true
+
+  # margin: 0px not margin : 0px
+  # (AB: clearly this should be called NoSpaceAfterPropertyName)
+  SpaceAfterPropertyName:
+    enabled: true
+
+  # .thing { not .thing{
+  SpaceBeforeBrace:
+    enabled: true
+    allow_single_line_padding: false
+
+  # rgb(0,0,0) not rgb( 0,0,0 )
+  SpaceBetweenParens:
+    enabled: true
+    spaces: 0
+
+  # Every property value must end with a semicolon
+  TrailingSemicolon:
+    enabled: true
+
+  # No unnecessary fractions: 1 not 1.0
+  UnnecessaryMantissa:
+    enabled: true
+
+
+
+  # DISABLED
+
+  # "#0f0" not "green"
+  # (AB: Causes problems with o-colors < 3, because o-colors uses color names that are also valid CSS color strings)
+  ColorKeyword:
+    enabled: false
+
+  # // not /**/
+  # (differs from Guardian)
+  Comment:
+    enabled: false
+
+  # Use single quotes, not double quotes
+  # (AB: This really doesn't matter IMHO)
+  # Differs from guardian
+  StringQuotes:
+    enabled: false
+
+  # URLs must not contain domain names
+  # (AB: We may want to use build service or responsive image proxy)
+  UrlFormat:
+    enabled: false
+
+  # url("example.com") not url(example.com)
+  UrlQuotes:
+    enabled: false
+
+  # No units on zero values: 0 not 0px
+  # (AB: it can be useful to express what unit you want something to be in if its value is ever adjusted away from zero)
+  ZeroUnit:
+    enabled: false
+
+  # Require an empty line between rulesets
+  EmptyLineBetweenBlocks:
+    enabled: false
+
+  # Disallow more than one ruleset with the same selector in the same file
+  MergeableSelector:
+    enabled: false
+
+  # Disallow empty rulesets
+  EmptyRule:
+    enabled: false
+
+  # Require spaces for indentation
+  # (AB: Absolutely not.  Revelation: tabs are designed to indent stuff)
+  # (differs from Guardian)
+  Indentation:
+    enabled: false
+
+  # Disallow camelcase and enforce BEM standards
+  # (AB: we have exceptions, we use camel for mixins and functions)
+  NameFormat:
+    enabled: false
+    convention: BEM
+
+  # Require properties to be in alphabetical order (also possible to specify a specific order)
+  # (AB: Alpha seems a bit weird.  Rhys had a tool to do this, maybe we should set the order here and use this tool)
+  PropertySortOrder:
+    enabled: false
+    order: []
+
+  # Rulesets with multiple (comma delimited) selectors must have each selector on a separate line
+  SingleLinePerSelector:
+    enabled: false
+
+  # Limit selector depth
+  # (AB: We decided to deal with this via peer review in https://github.com/Financial-Times/ft-origami/issues/243.  If SCSS-lint were to support excluding sections of code, we could turn this back on.  Issue: https://github.com/causes/scss-lint/issues/150)
+  SelectorDepth:
+    enabled: false
+    max_depth: 3
