@@ -1,15 +1,3 @@
-/**
-* Headings have been significantly refactored to use <h*> tags rather than <div>
-* Styled/unstyled content is acheived simply by using a <span> inside the <h*> tag
-* Anything outside the span will appear as unstyled
-**/
-
-@mixin HeadingsCommon{
-  font-size:1em;
-  line-height: 1em;
-  font-weight: normal;
-}
-
 @mixin oFtTypographyHeading1Layout{
   margin: 0 0 16px 0;
   padding: 8px 0 7px 0;

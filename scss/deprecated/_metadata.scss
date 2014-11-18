@@ -1,21 +1,11 @@
 @include oFtTypographySelectors(brand)  {
-  margin: 0;
-  @include oFtTypographyFontSize(12, 14);
-  @include _oFtTypographyFont(BentonSans, bold);
-  @include oColorsFor(o-ft-typography-brand body, text);
-  @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
+  @include oFtTypographyBrand;
 }
 
 @include oFtTypographySelectors(byline)  {
-  margin: 0;
-  @include oFtTypographyFontSize(14, 24);
-  @include _oFtTypographyFont(BentonSans);
-  @include oColorsFor(o-ft-typography-byline, text);
+  @include oFtTypographyByline;
 }
 
 @include oFtTypographySelectors(timestamp)  {
-  margin: 0;
-  @include oFtTypographyFontSize(14, 24);
-  @include _oFtTypographyFont(BentonSans);
-  @include oColorsFor(o-ft-typography-timestamp, text);
+  @include oFtTypographyTimestamp;
 }
