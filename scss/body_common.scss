@@ -1,6 +1,3 @@
-// A lot of the mixins in this file seem pointless to me
-// surely it would be better to simply provide a base stylesheet with simple tag only rules?
-
 @mixin oFtTypographyBold{
   font-weight: bold;
 }
@@ -33,6 +30,27 @@
   cursor: pointer;
   #{$o-hoverable-if-hover-enabled} &:hover {
     @include oColorsFor(link-hover, text);
+  }
+}
+
+@if not $o-ft-typography-is-silent{
+  .o-ft-typography-body--bold{
+    @include oFtTypographyBold;
+  }
+  .o-ft-typography-body--italic{
+    @include oFtTypographyItalic;
+  }
+  .o-ft-typography-boldy--small{
+    @include oFtTypographySmall;
+  }
+  .o-ft-typography-body--sup{
+    @include oFtTypographySuper;
+  }
+  .o-ft-typography-body--sub{
+    @include oFtTypographySub;
+  }
+  .o-ft-typography-body--link{
+    @include oFtTypographyBodyLink;
   }
 }
 

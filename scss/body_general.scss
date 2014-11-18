@@ -31,3 +31,27 @@
   list-style-type: disc;
 }
 
+@if not $o-ft-typography-is-silent{
+  .o-ft-typography-body{
+    @include oFtTypographyBody;
+  }
+  .o-ft-typography-body--lead{
+    @include oFtTypographyBodyLead;
+  }
+
+  .o-ft-typography-body__block{
+    @include oFtTypographyBodyBlock;
+  }
+
+  .o-ft-typography-body__list{
+    @include oFtTypographyBodyList;
+  }
+
+  .o-ft-typography-body__list--ordered{
+    @include oFtTypographyBodyListOrdered
+  }
+
+  .o-ft-typography-body__list--unordered{
+    @include oFtTypographyBodyListUnordered;
+  }
+}

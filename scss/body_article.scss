@@ -26,3 +26,18 @@
   @include oFtTypographyArticleBody;
 }
 
+@if $o-ft-typography-is-silent{
+  .o-ft-typography-article-body{
+    @include oFtTypographyArticleBody;
+  }
+  .o-ft-typography-article-body__block{
+    @include oFtTypographyArticleBodyBlock;
+  }
+  .o-ft-typography-article-body--lead{
+    @include oFtTypographyArticleBodyLead;
+  }
+  .o-ft-typography-article-body__list{
+    @include oFtTypographyArticleBodyList;
+  }
+}
+
