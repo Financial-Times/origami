@@ -141,3 +141,15 @@ h6{
 .title-small{
   @include oFtTypographyTitleSmall;
 }
+
+.lead-large{
+  @include oFtTypographyLeadLarge;
+}
+
+.lead-medium{
+  @include oFtTypographyLeadMedium;
+}
+
+.lead-small{
+  @include oFtTypographyLeadSmall;
+}

@@ -1,4 +1,4 @@
-@mixin oFtTypographyLeadLarge{
+@include oFtTypographySelectors(lead-large) {
   font-family: Georgia, 'Times New Roman', serif;
   font-weight: normal;
   @include oFtTypographyFontSize(21, 26);
@@ -6,7 +6,7 @@
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
-@mixin oFtTypographyLeadMedium{
+@include oFtTypographySelectors(lead-medium) {
   font-family: Georgia, 'Times New Roman', serif;
   font-weight: normal;
   @include oFtTypographyFontSize(17, 21);
@@ -14,7 +14,7 @@
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
-@mixin oFtTypographyLeadSmall{
+@include oFtTypographySelectors(lead-small) {
   @include _oFtTypographyFont(BentonSans, normal);
   @include oFtTypographyFontSize(13, 17);
   @include oColorsFor(o-ft-typography-lead-small o-ft-typography-lead body, text);
