@@ -43,7 +43,7 @@
 	@include oFtTypographyHeading3And4Layout;
 	border-top: 1px dotted oColorsGetColorFor(o-ft-typography-article-subheading, border);
 	border-bottom: 1px dotted oColorsGetColorFor(o-ft-typography-article-subheading, border);
-	& + * {
+	+ * {
 		margin-top: 0;
 	}
 }
@@ -57,7 +57,7 @@
 @mixin oFtTypographyHeading4Layout {
 	@include oFtTypographyHeading3And4Layout;
 
-	& + * {
+	+ * {
 		margin-top: 0;
 	}
 
