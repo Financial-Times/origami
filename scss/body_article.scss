@@ -24,9 +24,11 @@
   list-style-position: outside;
   padding-left: 20px;
   @include oFtTypographyArticleBody;
+  @include oFtTypographyArticleBody;
+  @include oFtTypographyArticleBodyBlock;
 }
 
-@if $o-ft-typography-is-silent{
+@if not $o-ft-typography-is-silent{
   .o-ft-typography-article-body{
     @include oFtTypographyArticleBody;
   }
