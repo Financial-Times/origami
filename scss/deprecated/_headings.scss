@@ -24,17 +24,7 @@
 	@extend #{oFtGetPrefixedPlaceholders(heading2-text)};
 }
 
-@mixin oFtTypographyHeading3and4Layout() {
-	@include oFtTypographyHeading3and4Layout;
-}
-
-@mixin oFtTypographyHeading3and4Text() {
-	@include oFtTypographyHeading3and4Text;
-}
-
-
 @include oFtTypographySelectors(heading3-layout) {
-	@include oFtTypographyHeading3and4Layout();
 	@include oFtTypographyHeading3Layout;
 }
 
@@ -48,12 +38,10 @@
 }
 
 @include oFtTypographySelectors(heading4-layout) {
-	@include oFtTypographyHeading3and4Layout();
 	@include oFtTypographyHeading4Layout;
 }
 
 @include oFtTypographySelectors(heading4-text) {
-	@include oFtTypographyHeading3and4Text();
 	@include oFtTypographyHeading4Text;
 }
 

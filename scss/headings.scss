@@ -34,7 +34,7 @@
 
 @mixin oFtTypographyHeading3And4Text {
 	@include oFtTypographyFontSize(16, 20);
-	@include oFtTypographyExtend(body__block);
+	@include oFtTypographyBodyBlock;
 	@include _oFtTypographyFont(BentonSans, bold);
 	@include oColorsFor(o-ft-typography-article-subheading, text);
 }
