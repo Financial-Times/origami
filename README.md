@@ -52,31 +52,31 @@ In addition to applying classes individual to elements, body styles can be appli
       <p>Article body block with <em>styled inline text</em>.</p>
     </div>
 
-Pre-defined classes are not available to module developers. Module developers are required to use the placeholders.
+Pre-defined classes are not available to module developers. Module developers are required to use the mixins.
 
-### 2. Extending SASS placeholders to your own CSS classes
+### 2. Using the mixins
 
-If you don't want to include the pre-defined classes in your HTML (or are a module developer) you may instead extend the typography placeholder classes in your own SASS.  You can apply both individual element styles:
+If you don't want to include the pre-defined classes in your HTML (or are a module developer) you may instead use the mixins provided:
 
     .article {
       p,
       blockquote {
-        @extend %o-ft-typography-body__block;           
+        @include oFtTypographyBodyBlock;
       }
     }
 
-And wrappers:
+For wrappers:
 
     .article {
-      @extend %o-ft-typography-article-body-wrapper;
+      @include oFtTypographyArticleBodyWrapper
     }
 
-Placeholders exist for all the same styles as pre-defined classes, and have the same names.
+Mixins exist for all the same styles as pre-defined classes, named with a camelCased version of the class name.
 
 
 ## Silent mode<a name="silentmode"></a>
 
-When you're not consuming this module via the build service, by default this module is set to 'silent' - meaning its SASS will not output any CSS classes, only SASS placeholders.
+When you're not consuming this module via the build service, by default this module is set to 'silent' - meaning its SASS will not output any CSS classes, only SASS mixins.
 
 This can be turned off by setting a variable before you import the SASS:
 
