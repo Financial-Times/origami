@@ -20,3 +20,14 @@
   @include oColorsFor(o-ft-typography-timestamp, text);
 }
 
+@if not $o-ft-typography-is-silent{
+  .o-ft-typography-brand{
+    @include oFtTypographyBrand;
+  }
+  .o-ft-typography-byline{
+    @include oFtTypographyByline;
+  }
+  .o-ft-typography-timestamp{
+    @include oFtTypographyTimestamp;
+  }
+}

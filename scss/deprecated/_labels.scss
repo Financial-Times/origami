@@ -1,0 +1,22 @@
+%label-text{
+  @include oColorsFor(body, text);
+  @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
+}
+
+@include oFtTypographySelectors(label-large) {
+  @extend %label-text;
+  @include _oFtTypographyFont(BentonSans, bold);
+  @include oFtTypographyFontSize(16, 21);
+}
+
+@include oFtTypographySelectors(label-medium) {
+  @extend %label-text;
+  @include _oFtTypographyFont(BentonSans, bold);
+  @include oFtTypographyFontSize(14, 17);
+}
+
+@include oFtTypographySelectors(label-small) {
+  @extend %label-text;
+  @include _oFtTypographyFont(BentonSans, normal);
+  @include oFtTypographyFontSize(12, 15);
+}

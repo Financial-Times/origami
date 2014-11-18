@@ -143,7 +143,6 @@
 }
 
 // Deprecated placeholders & classes for backwards compatibility
-// this stuff is SO deprecated it was deprecated before I created the deprecated folder!
 @include oFtTypographySelectors(heading-xlarge) {
   @extend %o-ft-typography-heading1;
 }

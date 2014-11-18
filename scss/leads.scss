@@ -20,3 +20,18 @@
   @include oColorsFor(o-ft-typography-lead-small o-ft-typography-lead body, text);
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
+
+@if not $o-ft-typography-is-silent{
+  .o-ft-typography-lead-large{
+    @include oFtTypographyLeadLarge;
+  }
+
+  .o-ft-typography-lead-medium{
+    @include oFtTypographyLeadMedium;
+  }
+
+  .o-ft-typography-lead-small{
+    @include oFtTypographyLeadSmall;
+  }
+}
+

@@ -21,3 +21,15 @@
   @include oColorsFor(o-ft-typography-title-small o-ft-typography-title title, text);
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }
+
+@if not $o-ft-typography-is-silent{
+  .o-ft-typography-title-large{
+    @include oFtTypographyTitleLarge;
+  }
+  .o-ft-typography-title-medium{
+    @include oFtTypographyTitleMedium;
+  }
+  .o-ft-typography-title-small{
+    @include oFtTypographyTitleSmall;
+  }
+}

@@ -3,25 +3,6 @@
   @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
-// deprecated, use mixins below instead
-@include oFtTypographySelectors(label-large) {
-  @include labelText;
-  @include _oFtTypographyFont(BentonSans, bold);
-  @include oFtTypographyFontSize(16, 21);
-}
-
-@include oFtTypographySelectors(label-medium) {
-  @include labelText;
-  @include _oFtTypographyFont(BentonSans, bold);
-  @include oFtTypographyFontSize(14, 17);
-}
-
-@include oFtTypographySelectors(label-small) {
-  @include labelText;
-  @include _oFtTypographyFont(BentonSans, normal);
-  @include oFtTypographyFontSize(12, 15);
-}
-
 
 @mixin oFtTypographyLabelLarge{
   @include labelText;
@@ -39,4 +20,16 @@
   @include labelText;
   @include _oFtTypographyFont(BentonSans, normal);
   @include oFtTypographyFontSize(12, 15);
+}
+
+@if not $o-ft-typography-is-silent{
+  .o-ft-typography-label-large{
+    @include oFtTypographyLabelLarge;
+  }
+  .o-ft-typography-label-small{
+    @include oFtTypographyLabelSmall;
+  }
+  .o-ft-typography-label-medium{
+    @include oFtTypographyLabelMedium;
+  }
 }

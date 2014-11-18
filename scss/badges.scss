@@ -11,3 +11,9 @@
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
+@if not $o-ft-typography-is-silent{
+  .o-ft-typography-badge{
+    @include oFtTypographyBadge;
+  }
+}
