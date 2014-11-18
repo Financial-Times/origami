@@ -11,7 +11,7 @@ gulp.task('verify', function() {
 gulp.task('build', function () {
 	obt.build(gulp, {
 		buildDir: 'build',
-		standalone: 'oLivefyreCommentClient'
+		standalone: 'oComments'
 	});
 });
 
