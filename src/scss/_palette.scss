@@ -1,55 +1,64 @@
 /**
  * Colour palette
  *
- * These are the colours that make up the FT palette.  We don't use these colours directly, but instead assign them to 'use cases', which are defined in use-cases.scss.  In the list below, each line contains a color name and a colour code, and is finished with a comma:
+ * These are the colours that make up the FT palette.
+ * We don't use these colours directly, but instead assign them to 'use cases',
+ * which are defined in use-cases.scss.
  *
- *  <colorname>:   <colour code>,
+ * In the list below, each line contains a colour name and a colour code,
+ * and is finished with a comma:
  *
- * The colour name must be a single word comprising just letters, numbers, and dashes.  You can have as many spaces between the colour name and the colour code as you like (so you can line them up neatly), and you *MUST* finish the line with a comma (except the final entry, which should not have a comma)
+ *  <colour name>:   <colour code>,
+ *
+ * The colour name must be a single word comprising just letters,
+ * numbers, and dashes.
+ *
+ * You can have as many spaces between the colour name and the colour code
+ * as you like (so you can line them up neatly), and you *MUST* finish the
+ * line with a comma (except the final entry, which should not have a comma)
  */
 
 
 $o-colors-palette: (
+	// Non-colour CSS values
+	transparent:           transparent,
+	inherit:               inherit,
 
-    /* Non-colour CSS values */
-    transparent:           transparent,
-    inherit:               inherit,
-
-	/* Primary Palette */
+	// Primary Palette
 	pink:                  #fff1e0,
 	black:                 #000000,
 	white:                 #ffffff,
 	blue:                  #2e6e9e,
-    dark-blue:             #275e86,
+	dark-blue:             #275e86,
 	claret:                #9e2f50,
 	orange:                #d66d06,
 
-    grey-tint1:            #b0b0b0,
-    grey-tint2:            #999999,
-    grey-tint3:            #777777,
-    grey-tint4:            #505050,
-    grey-tint5:            #333333,
+	grey-tint1:            #b0b0b0,
+	grey-tint2:            #999999,
+	grey-tint3:            #777777,
+	grey-tint4:            #505050,
+	grey-tint5:            #333333,
 
-    pink-tint1:            #f6e9d8,
-    pink-tint2:            #e9decf,
-    pink-tint3:            #cec6b9,
-    pink-tint4:            #a7a59b,
-    pink-tint5:            #74736c,
+	pink-tint1:            #f6e9d8,
+	pink-tint2:            #e9decf,
+	pink-tint3:            #cec6b9,
+	pink-tint4:            #a7a59b,
+	pink-tint5:            #74736c,
 
-    /* Colors */
-    red:                   #cc0000,
-    green:                 #458b00,
+	// Colours
+	red:                   #cc0000,
+	green:                 #458b00,
 
-    /* Highlight tints */
-    orange-tint1:          #eda45e,
-    brown-tint1:           #94826b,
-    yellow-tint1:          #eed485,
-    green-tint1:           #a6a471,
-    bluegreen-tint1:       #819e9a,
-    silver-tint1:          #c1b8b4,
+	// Highlight tints
+	orange-tint1:          #eda45e,
+	brown-tint1:           #94826b,
+	yellow-tint1:          #eed485,
+	green-tint1:           #a6a471,
+	bluegreen-tint1:       #819e9a,
+	silver-tint1:          #c1b8b4,
 
-    purple-tint1:          #936971,
-    purple-tint2:          #737e7e,
+	purple-tint1:          #936971,
+	purple-tint2:          #737e7e,
 
 	red-tint1:             #b1493f,
 	red-tint2:             #c36256,
@@ -63,7 +72,7 @@ $o-colors-palette: (
 	blue-tint4:            #a9cadc,
 	blue-tint5:            #bcd7e5,
 
-	/* Sections colors */
+	// Sections colours
 	section-purple:        #92288f,
 	section-light-purple:  #ebcaec,
 	section-blue:          #0e6dcc,

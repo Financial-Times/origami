@@ -1,5 +1,5 @@
 // Return the CSS color for a palette colour name
- 
+
 @function oColorsGetPaletteColor($name) {
 	@if (map-has-key($o-colors-palette, $name)) {
 		@return map-get($o-colors-palette, $name);
@@ -27,7 +27,7 @@
 			@warn "Color use case '" + $usecase + "' is deprecated (property '"+$property+"' was requested): " + map-get($props, '_deprecated');
 		}
 		@return $color;
-   	}
+	}
 	@return null;
 }
 
