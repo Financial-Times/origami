@@ -1,98 +1,98 @@
 .o-ft-header__nav--tools-theme {
-    @extend %o-hierarchical-nav--horizontal-theme;
-    // Min width of the element should fit at least one tool item
-    min-width: 55px;
-    height: 80px;
-    white-space: nowrap;
-    // Used in core experience so hidden elements don't continue appearing
-    overflow: hidden;
+	@extend %o-hierarchical-nav--horizontal-theme;
+	// Min width of the element should fit at least one tool item
+	min-width: 55px;
+	height: 80px;
+	white-space: nowrap;
+	// Used in core experience so hidden elements don't continue appearing
+	overflow: hidden;
 
-    [data-o-hierarchical-nav-level='1'] {
-        & > [aria-controls] > a,
-        & > .o-hierarchical-nav__parent > a {
-            padding-right: 0;
-            background-image: none;
+	[data-o-hierarchical-nav-level='1'] {
+		> [aria-controls] > a,
+		> .o-hierarchical-nav__parent > a {
+			padding-right: 0;
+			background-image: none;
 
-            // Default icon style is inline-block, but the icon should appear on top of the label
-            i {
-                display: block;
-            }
-        }
+			// Default icon style is inline-block, but the icon should appear on top of the label
+			i {
+				display: block;
+			}
+		}
 
-        & > li {
-            // Center elements vertically
-            height: 80px;
-            vertical-align: middle;
+		> li {
+			// Center elements vertically
+			height: 80px;
+			vertical-align: middle;
 
-            // Selected state for the elements
-            &[aria-selected="true"] > a {
-                color: oColorsGetColorFor(o-ft-header-item, text);
-                opacity: 0.7;
-            }
+			// Selected state for the elements
+			&[aria-selected="true"] > a {
+				color: oColorsGetColorFor(o-ft-header-item, text);
+				opacity: 0.7;
+			}
 
-            & > a {
-                display: inline-block;
-                border-left: 1px dotted #666666;
-                width: 45px;
-                height: 45px;
-                font-size: 11px;
-                text-align: center;
-                padding: 0 5px;
-                // Half of the space left to center the item vertically
-                margin-top: 17px; 
-            }
-        }
-    }
+			> a {
+				display: inline-block;
+				border-left: 1px dotted #666666;
+				width: 45px;
+				height: 45px;
+				font-size: 11px;
+				text-align: center;
+				padding: 0 5px;
+				// Half of the space left to center the item vertically
+				margin-top: 17px;
+			}
+		}
+	}
 
-    // Default styling for a back to ft button
-    .o-ft-header__back-to-ft {
-        @include oFtHeaderLogo();
-        background-size: 100%;
-        overflow: hidden;
-        text-indent: 100%;
-        height: 100%;
-        width: 100%;
-        display: inline-block;
-    }
+	// Default styling for a back to ft button
+	.o-ft-header__back-to-ft {
+		@include oFtHeaderLogo();
+		background-size: 100%;
+		overflow: hidden;
+		text-indent: 100%;
+		height: 100%;
+		width: 100%;
+		display: inline-block;
+	}
 
-    // Styling for menu navs that appear when o-squishy-list comes into play
-    [data-o-hierarchical-nav-level]:not([data-o-hierarchical-nav-level='1']) {
-        top: 80px;
-        right: 0;
+	// Styling for menu navs that appear when o-squishy-list comes into play
+	[data-o-hierarchical-nav-level]:not([data-o-hierarchical-nav-level='1']) {
+		top: 80px;
+		right: 0;
 
-        a {
-            padding: 10px 20px;
-            font-size: 14px;
-        }
-    }
+		a {
+			padding: 10px 20px;
+			font-size: 14px;
+		}
+	}
 }
 
 @include oUseragentTarget((ie7, ie8)) {
-    .o-ft-header__nav--tools-theme .o-ft-header__back-to-ft {
-        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{oFtHeaderAsset('img/ft-logo.png')}',sizingMethod='scale');
-    }
+	.o-ft-header__nav--tools-theme .o-ft-header__back-to-ft {
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{oFtHeaderAsset('img/ft-logo.png')}',sizingMethod='scale');
+	}
 }
 
 // Media queries to make the nav smaller as the screen gets smaller.
 // It can't be fluid because primary-center is the fluid element
 
-// Only show one item 
+// Only show one item
 @include oGridRespondTo(S) {
-    .o-ft-header__nav--tools-theme {
-        width: 56px;
-    }
+	.o-ft-header__nav--tools-theme {
+		width: 56px;
+	}
 }
 
 // Shows two items
 @include oGridRespondTo(M) {
-    .o-ft-header__nav--tools-theme {
-        width: 112px;
-    }
+	.o-ft-header__nav--tools-theme {
+		width: 112px;
+	}
 }
 
 // Shows all four items
 @include oGridRespondTo(L XL) {
-    .o-ft-header__nav--tools-theme {
-        width: 224px;
-    }
+	.o-ft-header__nav--tools-theme {
+		width: 224px;
+	}
 }
