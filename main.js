@@ -18,7 +18,7 @@ var timer;
 */
 var formatReplacementsMap = {
 	MMMM: 'months[date.getMonth()]',  // e.g. February
-	MMM: 'months[date.getMonth()].substr(0,3)', // Feb 
+	MMM: 'months[date.getMonth()].substr(0,3)', // Feb
 	MM: 'pad2(date.getMonth() + 1, 2)', // 02
 	M: '(date.getMonth() + 1)', // 2
 	yyyy: 'date.getFullYear()', // 2014
@@ -38,7 +38,7 @@ var formatReplacementsMap = {
 
 function compile (format) {
 	var tpl = formats[format] || format;
-	
+
 	var funcString = 'var months= ' + months + ', days= ' + days + ';';
 	funcString +='function pad2 (number) {return ("0" + number).slice(-2)}';
 	funcString += 'return "' + tpl.replace(/\\?[a-z]+/ig, function (match) {
@@ -63,7 +63,7 @@ function toDate (date) {
 function format (date, dateFormat) {
 	dateFormat = dateFormat || 'datetime';
 	var tpl = compiledTemplates[dateFormat] || compile(dateFormat);
-	date = toDate(date)
+	date = toDate(date);
 	return date && tpl(date);
 }
 
