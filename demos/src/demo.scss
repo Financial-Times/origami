@@ -1,54 +1,53 @@
-
-// Styles for demo UI 
+// Styles for demo UI
 
 .demo-sample {
-  margin-bottom: 10px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  height: 25px;
+	margin-bottom: 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	height: 25px;
 }
 .demo-swatch {
-  width: 50px;
-  height: 20px;
-  border-radius: 3px;
-  font-size: 20px;
-  line-height: 20px;
-  text-align: center;
-  font-style: italic;
-  display: inline-block;
-  margin-right: 10px;
-  vertical-align: middle;
-  border-width: 2px;
-  border-style: solid;
-  color: transparent;
-  border-color: transparent;
+	width: 50px;
+	height: 20px;
+	border-radius: 3px;
+	font-size: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-style: italic;
+	display: inline-block;
+	margin-right: 10px;
+	vertical-align: middle;
+	border-width: 2px;
+	border-style: solid;
+	color: transparent;
+	border-color: transparent;
 }
 .demo-swatch:after {
-  content: 'Abc';
+	content: 'Abc';
 }
 .demo-name {
-  font-weight: bold;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .demo-descrip {
-  font-family: monospace;
-  margin-left: 10px;
-  font-size: 75%;
-  color: #777777;
+	font-family: monospace;
+	margin-left: 10px;
+	font-size: 75%;
+	color: #777777;
 }
 
 
-// Demos - keep in sync with sass-usage.mustache where appropriate 
+// Demos - keep in sync with sass-usage.mustache where appropriate
 
 // Remove silent mode for demo so that standard classes can be demoed in palette and use-cases demos
 $o-colors-is-silent: false;
 
 // You can add custom use cases before importing colors module by defining the use-cases map yourself
 $o-colors-usecases: (
-  foo: (background:green)
+	foo: (background:green)
 );
 
 // Import colors module
@@ -59,20 +58,20 @@ $o-colors-usecases: (
 @include oColorsSetUseCase(custom-page, text, orange);
 
 .assign-palette-color-to-custom-class {
-  background-color: oColorsGetPaletteColor(blue);
+	background-color: oColorsGetPaletteColor(blue);
 }
 .use-case-property-class {
-  background-color: oColorsGetColorFor(section-life-arts page, background);
+	background-color: oColorsGetColorFor(section-life-arts page, background);
 }
 .mixin-all-properties {
-  @include oColorsFor(page);
+	@include oColorsFor(page);
 }
 .mixin-selected-properties {
-  @include oColorsFor(page, background border); // There is no border on the page use case
+	@include oColorsFor(page, background border); // There is no border on the page use case
 }
 .mixin-custom-usecase {
-  @include oColorsFor(custom-page page, text background border);
+	@include oColorsFor(custom-page page, text background border);
 }
 .mixin-custom-usecase-map {
-  @include oColorsFor(foo);
+	@include oColorsFor(foo);
 }
