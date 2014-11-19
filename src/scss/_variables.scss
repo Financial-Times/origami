@@ -4,15 +4,13 @@ $_o-ft-forms-fieldborder-width: 1px;
 $_o-ft-forms-fieldborder: $_o-ft-forms-fieldborder-width solid oColorsGetColorFor(o-ft-forms-field-standard, border);
 $_o-ft-forms-field-borderradius: 5px;
 
-$_o-ft-form-field-default-fontsize: 14px;
-$_o-ft-form-field-big-fontsize: 16px;
-$_o-ft-forms-fontsize-field: $_o-ft-form-field-big-fontsize;
+$_o-ft-form-field-small-fontsize: 14px;
+$_o-ft-form-field-default-fontsize: 16px;
 
-$_o-ft-form-field-default-padding-topbottom: 3px;
-$_o-ft-form-field-default-padding-leftright: 1px;
-$_o-ft-form-field-big-padding-top: 7px;
-$_o-ft-form-field-big-padding-bottom: 8px;
-$_o-ft-form-field-big-padding-leftright: 5px;
+$_o-ft-form-field-small-padding-topbottom: 3px;
+$_o-ft-form-field-default-padding-leftright: 5px;
+$_o-ft-form-field-default-padding-top: 7px;
+$_o-ft-form-field-default-padding-bottom: 8px;
 
 $_o-ft-forms-fieldgroup-padding: 6px;
 
