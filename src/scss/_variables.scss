@@ -14,21 +14,21 @@ $_o-fonts-financierdisplay: FinancierDisplay, serif;
 $_o-fonts-financiertext: FinancierText, serif;
 
 $_o-font-families-with-fallbacks: (
-  BentonSans: $_o-fonts-sans-serif,
-  MillerDisplay: $_o-fonts-millerdisplay,
-  Clarion: $_o-fonts-clarion,
-  FinancierDisplay: $_o-fonts-financierdisplay,
-  FinancierText: $_o-fonts-financiertext,
+	BentonSans: $_o-fonts-sans-serif,
+	MillerDisplay: $_o-fonts-millerdisplay,
+	Clarion: $_o-fonts-clarion,
+	FinancierDisplay: $_o-fonts-financierdisplay,
+	FinancierText: $_o-fonts-financiertext,
 );
 
 // Map of all families, each with a list of styles for that family.
 // Only families and styles listed here will be allowed to be declared as @font-faces via the oFontsInclude mixin.
 $_o-fonts-families: (
-  BentonSans: (lighter, normal, bold),
-  MillerDisplay: (normal, bold),
-  Clarion: (normal, bold, (normal, italic)),
-  FinancierDisplay: (normal, (normal, italic)),
-  FinancierText: (normal, (normal, italic)),
+	BentonSans: (lighter, normal, bold),
+	MillerDisplay: (normal, bold),
+	Clarion: (normal, bold, (normal, italic)),
+	FinancierDisplay: (normal, (normal, italic)),
+	FinancierText: (normal, (normal, italic)),
 );
 
 // Map of families and styles which have already been included. Exists to avoid multiple @font-face definitions
