@@ -19,7 +19,17 @@
   cursor: pointer;
   font-weight: normal;
   line-height: $_o-ft-forms-radiocheckbox-default-size;
-   @include oUseragentPrefixer(user-select, none);
+  @include oUseragentPrefixer(user-select, none);
+}
+
+// styling for small checkbox and radio button labels
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__checkboxradiolabel--small',
+  '.o-ft-forms__field--small[type="checkbox"] + .o-ft-forms__label,
+  .o-ft-forms__field--small[type="radio"] + .o-ft-forms__label'
+) {
+  padding-left: $_o-ft-forms-radiocheckbox-small-size + 10px;
+  line-height: $_o-ft-forms-radiocheckbox-small-size;
 }
 
 // apply different text colour to checkboxes and radio labels on hover and focus
@@ -58,6 +68,16 @@
   border-radius: 50%;
 }
 
+// styling for the border of small radio buttons and checkboxes
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__checkboxradioborder--small',
+  '.o-ft-forms__field--small[type="checkbox"] + .o-ft-forms__label::before,
+  .o-ft-forms__field--small[type="radio"] + .o-ft-forms__label::before'
+) {
+  width: $_o-ft-forms-radiocheckbox-small-size;
+  height: $_o-ft-forms-radiocheckbox-small-size;
+}
+
 // apply different border colour to checkboxes and radio labels on hover and focus
 @include oFtFormsPlaceholderOptionalSelector(
   '%o-ft-forms__checkboxradioborder--hover',
@@ -84,6 +104,17 @@
   top: ($_o-ft-forms-radiocheckbox-default-size - $_o-ft-forms-radio-internal-default-size) / 2;
 }
 
+// styling for small checked radio button
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__radio--small--checked',
+  '.o-ft-forms__field--small[type="radio"]:checked + .o-ft-forms__label::after'
+) {
+  height: $_o-ft-forms-radio-internal-small-size;
+  width: $_o-ft-forms-radio-internal-small-size;
+  left: ($_o-ft-forms-radiocheckbox-small-size - $_o-ft-forms-radio-internal-small-size) / 2;
+  top: ($_o-ft-forms-radiocheckbox-small-size - $_o-ft-forms-radio-internal-small-size) / 2;
+}
+
 // styling for checked checkbox
 @include oFtFormsPlaceholderOptionalSelector(
   '%o-ft-forms__checkbox--checked',
@@ -98,4 +129,16 @@
   background-image: url(oAssetsResolve("svg/tick.svg", o-ft-icons));
   background-repeat: no-repeat;
   background-size: $_o-ft-forms-checkbox-default-ticksize;
+}
+
+// styling for small checked checkbox
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__checkbox--small--checked',
+  '.o-ft-forms__field--small[type="checkbox"]:checked + .o-ft-forms__label::after'
+) {
+  height: $_o-ft-forms-checkbox-small-ticksize;
+  width: $_o-ft-forms-checkbox-small-ticksize;
+  left: ($_o-ft-forms-radiocheckbox-small-size - $_o-ft-forms-checkbox-small-ticksize) / 2;
+  top: ($_o-ft-forms-radiocheckbox-small-size - $_o-ft-forms-checkbox-small-ticksize) / 2;
+  background-size: $_o-ft-forms-checkbox-small-ticksize;
 }

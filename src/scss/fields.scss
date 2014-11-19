@@ -78,12 +78,21 @@
 }
 
 @include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__field--small',
+  '.o-ft-forms__field--small'
+) {
+  font-size: $_o-ft-form-field-small-fontsize;
+  padding-top: $_o-ft-form-field-small-padding-topbottom;
+  padding-bottom: $_o-ft-form-field-small-padding-topbottom;
+  background-size: $_o-ft-form-select-small-iconsize;
+}
+
+@include oFtFormsPlaceholderOptionalSelector(
   '%o-ft-forms__field--full-width',
   '.o-ft-forms__field--full-width'
 ) {
     width: 100%;
 }
-
 
 // TBC - This is to hide Chrome's style for autocompleted fields
 @include oFtFormsPlaceholderOptionalSelector(
