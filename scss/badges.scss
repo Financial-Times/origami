@@ -1,12 +1,18 @@
-@include oFtTypographySelectors(badge) {
-  display: inline-block;
-  border-radius: 5px;
-  padding: 0 4px;
-  @include _oFtTypographyFont(BentonSans, bold);
-  @include oColorsFor(o-ft-typography-badge box, background text);
-  font-size: 10px;
-  font-weight: normal;
-  line-height: 14px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+@mixin oFtTypographyBadge() {
+	display: inline-block;
+	border-radius: 5px;
+	padding: 0 4px;
+	@include _oFtTypographyFont(BentonSans, bold);
+	@include oColorsFor(o-ft-typography-badge box, background text);
+	font-size: 10px;
+	font-weight: normal;
+	line-height: 14px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+@if not $o-ft-typography-is-silent {
+	.o-ft-typography-badge {
+		@include oFtTypographyBadge;
+	}
 }

@@ -1,25 +1,58 @@
-@include oFtTypographySelectors(body--lead) {
-  @include _oFtTypographyFont(BentonSans, normal);
-  @include oFtTypographyFontSize(18, 24);
-  @include oColorsFor(o-ft-typography-body-lead body, text);
-  -webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
+@mixin oFtTypographyBodyLead {
+	@include _oFtTypographyFont(BentonSans, normal);
+	@include oFtTypographyFontSize(18, 24);
+	@include oColorsFor(o-ft-typography-body-lead body, text);
+	-webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
 }
 
-@include oFtTypographySelectors(body) {
-  @include _oFtTypographyFont(BentonSans, normal);
-  @include oFtTypographyFontSize(14, 20);
-  @include oColorsFor(body, text);
+@mixin oFtTypographyBody {
+	@include _oFtTypographyFont(BentonSans, normal);
+	@include oFtTypographyFontSize(14, 20);
+	@include oColorsFor(body, text);
 }
 
-@include oFtTypographySelectors(body__block) {
-  margin-bottom: 21px;
-  margin-top: 21px;
+@mixin oFtTypographyBodyBlock {
+	margin-bottom: 21px;
+	margin-top: 21px;
 }
 
-@include oFtTypographySelectors(body__list) {
-  list-style-position: outside;
-  padding-left: 20px;
-  font-weight: normal;
-  @include oFtTypographyExtend(body);
-  @include oFtTypographyExtend(body__block);
+@mixin oFtTypographyBodyList {
+	list-style-position: outside;
+	padding-left: 20px;
+	font-weight: normal;
+	@include oFtTypographyBody;
+	@include oFtTypographyBodyBlock;
+}
+
+@mixin oFtTypographyBodyListOrdered {
+	list-style-type: decimal;
+}
+
+@mixin oFtTypographyBodyListUnordered {
+	list-style-type: disc;
+}
+
+@if not $o-ft-typography-is-silent {
+	.o-ft-typography-body {
+		@include oFtTypographyBody;
+	}
+	.o-ft-typography-body--lead {
+		@include oFtTypographyBodyLead;
+	}
+
+	.o-ft-typography-body__block {
+		@include oFtTypographyBodyBlock;
+	}
+
+	.o-ft-typography-body__list {
+		@include oFtTypographyBodyList;
+	}
+
+	.o-ft-typography-body__list--ordered {
+		@include oFtTypographyBodyListOrdered;
+	}
+
+	.o-ft-typography-body__list--unordered {
+		@include oFtTypographyBodyListUnordered;
+	}
 }

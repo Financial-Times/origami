@@ -1,42 +1,55 @@
-@include oFtTypographySelectors(body--bold) {
-  font-weight: bold;
+@mixin oFtTypographyBold {
+	font-weight: bold;
 }
 
-@include oFtTypographySelectors(body--italic) {
-  font-style: italic;
+@mixin oFtTypographyItalic {
+	font-style: italic;
 }
 
-@include oFtTypographySelectors(body--small) {
-  font-size: 0.75em;
+@mixin oFtTypographySmall {
+	font-size: 0.75em;
 }
 
-@include oFtTypographySelectors(body--super) {
-  display: inline-block;
-  margin-top: -3px;
-  font-size: 0.75em;
-  vertical-align: super;
+@mixin oFtTypographySuper {
+	display: inline-block;
+	margin-top: -3px;
+	font-size: 0.75em;
+	vertical-align: super;
 }
 
-@include oFtTypographySelectors(body--sub) {
-  display: inline-block;
-  margin-bottom: -5px;
-  font-size: 0.75em;
-  vertical-align: sub;
+@mixin oFtTypographySub {
+	display: inline-block;
+	margin-bottom: -5px;
+	font-size: 0.75em;
+	vertical-align: sub;
 }
 
-@include oFtTypographySelectors(body__link) {
-  text-decoration: none;
-  @include oColorsFor(link, text);
-  cursor: pointer;
-  #{$o-hoverable-if-hover-enabled} &:hover {
-    @include oColorsFor(link-hover, text);
-  }
+@mixin oFtTypographyBodyLink {
+	text-decoration: none;
+	@include oColorsFor(link, text);
+	cursor: pointer;
+	#{$o-hoverable-if-hover-enabled} &:hover {
+		@include oColorsFor(link-hover, text);
+	}
 }
 
-@include oFtTypographySelectors(body__list--ordered) {
-  list-style-type: decimal;
-}
-
-@include oFtTypographySelectors(body__list--unordered) {
-  list-style-type: disc;
+@if not $o-ft-typography-is-silent {
+	.o-ft-typography-body--bold {
+		@include oFtTypographyBold;
+	}
+	.o-ft-typography-body--italic {
+		@include oFtTypographyItalic;
+	}
+	.o-ft-typography-boldy--small {
+		@include oFtTypographySmall;
+	}
+	.o-ft-typography-body--sup {
+		@include oFtTypographySuper;
+	}
+	.o-ft-typography-body--sub {
+		@include oFtTypographySub;
+	}
+	.o-ft-typography-body--link {
+		@include oFtTypographyBodyLink;
+	}
 }
