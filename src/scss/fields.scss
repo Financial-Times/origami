@@ -23,7 +23,7 @@
 //=============TEXT INPUTS, SELECTS AND TEXTAREAS=============
 
 @include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field,
+  '%o-ft-forms__field--text,
   %o-ft-forms__label--select,
   %o-ft-forms__label--textarea',
   '.o-ft-forms__field--text,
