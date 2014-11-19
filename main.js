@@ -11,14 +11,14 @@ var formats = {
 var compiledTemplates = {};
 var timer;
 
-/*
-	See http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html for formatting conventions used
-
-	Comments indicate the value returned for 3.05 pm on Tuesday 4th February 2014
+/**
+ * See http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html for formatting conventions used
+ *
+ *Comments indicate the value returned for 3.05 pm on Tuesday 4th February 2014
 */
 var formatReplacementsMap = {
 	MMMM: 'months[date.getMonth()]',  // e.g. February
-	MMM: 'months[date.getMonth()].substr(0,3)', // Feb 
+	MMM: 'months[date.getMonth()].substr(0,3)', // Feb
 	MM: 'pad2(date.getMonth() + 1, 2)', // 02
 	M: '(date.getMonth() + 1)', // 2
 	yyyy: 'date.getFullYear()', // 2014
@@ -38,7 +38,7 @@ var formatReplacementsMap = {
 
 function compile (format) {
 	var tpl = formats[format] || format;
-	
+
 	var funcString = 'var months= ' + months + ', days= ' + days + ';';
 	funcString +='function pad2 (number) {return ("0" + number).slice(-2)}';
 	funcString += 'return "' + tpl.replace(/\\?[a-z]+/ig, function (match) {
@@ -63,7 +63,7 @@ function toDate (date) {
 function format (date, dateFormat) {
 	dateFormat = dateFormat || 'datetime';
 	var tpl = compiledTemplates[dateFormat] || compile(dateFormat);
-	date = toDate(date)
+	date = toDate(date);
 	return date && tpl(date);
 }
 
@@ -155,7 +155,6 @@ var constructAll = function() {
 if (typeof window !== 'undefined') {
 	document.addEventListener('o.DOMContentLoaded', constructAll);
 }
-
 
 module.exports = {
 	format: format,
