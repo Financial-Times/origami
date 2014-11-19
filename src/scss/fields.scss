@@ -57,14 +57,13 @@
   '%o-ft-forms__field--select',
   '.o-ft-forms__field--select'
 ) {
-    padding-top: $_o-ft-form-field-big-padding-top;
-    padding-bottom: $_o-ft-form-field-big-padding-bottom;
     cursor: pointer;
     background-image: url(oAssetsResolve("svg/arrow-up-down.svg", o-ft-icons));
-    background-position: 100% center;
+    background-position: right $_o-ft-form-field-default-padding-leftright center;
     background-repeat: no-repeat;
-    background-origin: content-box;
-    background-size: 19px;
+    background-origin: border-box;
+    background-size: $_o-ft-form-select-iconsize;
+    padding-right: $_o-ft-form-select-iconsize + $_o-ft-form-field-default-padding-leftright;
     //Code below hides default select arrow in FF
     text-indent: 0.01px;
     text-overflow: '';
