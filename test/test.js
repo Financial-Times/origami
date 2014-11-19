@@ -1,7 +1,7 @@
 'use strict';
 
 var test = require("tape").test;
-var oDate = require('../main');//.readFileSync("../main.js", "utf-8");
+var oDate = require('../main');
 
 test('error handling', function (t) {
 	t.plan(2);
@@ -121,83 +121,3 @@ test('formatting hours', function (t) {
 	t.equal(oDate.format(date, 'HH'), '23');
 
 });
-
-// Commented out as can't get jsdom to exit
-// May need to set up a proper test harness and trun in phantomjs... grrr!!!
-// test('writing to the DOM', function (t) {
-
-//	var date1 = new Date((new Date()) - (new Date(50 * 24 * 60 * 60 * 1000)));
-//	var isoDate1 = date1.toISOString();
-
-//	t.plan(9);
-
-//	var exitCount = 0;
-
-//	function exit () {
-//		 if (exitCount === 2) {
-//			 return process.exit();
-//		 }
-//		 exitCount++;
-//	}
-
-
-//	jsdom.env('<time class="o-date"  datetime="' + isoDate1 + '"><span>dummy stuff</span><span class="o-date__printer"></span></time>', ['./classlist.js'], function (errors, window) {
-//		 oDate.init(window.document);
-//		 var el = window.document.querySelector('time');
-//		 t.equal(el.querySelector('.o-date__printer').innerHTML, oDate.timeAgo(date1));
-//		 t.equal(el.textContent, 'dummy stuff' + oDate.timeAgo(date1));
-//		 window.close();
-//		 exit();
-
-//	});
-
-//	var date = new Date(2000, 5, 15, 6, 37, 22, 499);
-//	var expected = 'June 15, 2000 6:37 am';
-//	var isoDate = date.toISOString();
-
-//	jsdom.env('<time class="o-date" datetime="' + isoDate + '">dummy stuff</time>', ['./classlist.js'], function (errors, window) {
-//		//function mockTimeout (window) {
-//		//	var toCall;
-//		//	window.setTimeout = function (func) {
-//		//		toCall = func;
-//		//	};
-
-//		//	return function () {
-//		//		 toCall();
-//		//	};
-//		// }
-
-//		// var tick = mockTimeout(window);
-//		var el = window.document.querySelector('time');
-//		oDate.init(el);
-//		t.equal(el.getAttribute('datetime'), isoDate);
-//		t.equal(el.innerHTML, oDate.format(date, 'date'));
-//		t.equal(el.title, oDate.format(date));
-//		el.datetime = (new Date()).toISOString();
-//		// tick();
-//		// t.ok(el.innerHTML.indexOf('seconds ago') > -1);
-//		window.close();
-//		exit();
-
-//	});
-
-
-
-//	jsdom.env('<time class="o-date" datetime="' + isoDate + '"></time><div>' +
-//		'<time datetime="' + isoDate + '"></time>' +
-//		'<span class="o-date" datetime="' + isoDate + '"></span>' +
-//		'<time class="o-date" datetime="' + isoDate.replace('2000-06-15', '2014-05-20') + '"></time>' +
-//		'<time class="o-date" datetime="' + isoDate + '"></time>' +
-//		'</div>', ['./classlist.js'], function (errors, window) {
-//		oDate.init(window.document.querySelector('div'));
-//		var times = window.document.querySelectorAll('time');
-//		t.notOk(times[0].textContent, 'no update outside of scanned area');
-//		t.notOk(times[1].textContent, 'no update if has no o-date class');
-//		t.notOk(window.document.querySelector('span.o-date').textContent, 'no update if not a <time> el');
-//		t.notEqual(times[2].title, times[3].title);
-//		window.close();
-//		exit();
-
-//	});
-
-// });

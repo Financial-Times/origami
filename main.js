@@ -11,10 +11,10 @@ var formats = {
 var compiledTemplates = {};
 var timer;
 
-/*
-	See http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html for formatting conventions used
-
-	Comments indicate the value returned for 3.05 pm on Tuesday 4th February 2014
+/**
+ * See http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html for formatting conventions used
+ *
+ *Comments indicate the value returned for 3.05 pm on Tuesday 4th February 2014
 */
 var formatReplacementsMap = {
 	MMMM: 'months[date.getMonth()]',  // e.g. February
@@ -155,7 +155,6 @@ var constructAll = function() {
 if (typeof window !== 'undefined') {
 	document.addEventListener('o.DOMContentLoaded', constructAll);
 }
-
 
 module.exports = {
 	format: format,
