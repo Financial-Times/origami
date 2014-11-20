@@ -3,5 +3,5 @@
 @import "src/scss/mixins";
 
 @if (not $o-fonts-is-silent) {
-  @include oFontsIncludeAll();
+	@include oFontsIncludeAll();
 }

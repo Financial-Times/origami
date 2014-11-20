@@ -7,17 +7,17 @@
         {
             "name": "BentonSans",
             "template": "demos/src/family.mustache",
-            "data": { "font": "BentonSans" }
+            "data": { "font": "bentonsans" }
         },
         {
             "name": "MillerDisplay",
             "template": "demos/src/family.mustache",
-            "data": { "font": "MillerDisplay" }
+            "data": { "font": "millerdisplay" }
         },
         {
             "name": "Clarion",
             "template": "demos/src/family.mustache",
-            "data": { "font": "Clarion" }
+            "data": { "font": "clarion" }
         },
         {
             "name": "bentonsans-lighter",

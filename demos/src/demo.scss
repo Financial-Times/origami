@@ -2,116 +2,116 @@ $o-fonts-is-silent: false;
 @import "../../main";
 
 .demo-container {
-  margin: 0 20px;
+	margin: 0 20px;
 }
 
 .demo-row {
-  clear: both;
-  overflow: hidden;
-  margin-bottom: 20px;
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 20px;
 }
 
 .demo-col {
-  overflow: hidden;
-  word-wrap: break-word;
+	overflow: hidden;
+	word-wrap: break-word;
 }
 
 .demo-col:first-child {
-  float: right;
-  text-align: right;
-  width: 500px;
+	float: right;
+	text-align: right;
+	width: 500px;
 }
 
 .demo-example {
-  margin: 0 0 30px;
+	margin: 0 0 30px;
 }
 
-.demo-family-BentonSans .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+.demo-family-bentonsans .demo-example {
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 }
 
-.demo-family-MillerDisplay .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
+.demo-family-millerdisplay .demo-example {
+	font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
 }
 
-.demo-family-Clarion .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
+.demo-family-clarion .demo-example {
+	font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
 }
 
 .demo-bentonsans-lighter .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-  font-weight: lighter;
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	font-weight: lighter;
 }
 
 .demo-bentonsans-normal .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 }
 
 .demo-bentonsans-bold .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-  font-weight: bold;
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	font-weight: bold;
 }
 
 .demo-millerdisplay-normal .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
+	font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
 }
 
 .demo-millerdisplay-bold .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
-  font-weight: bold;
+	font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
+	font-weight: bold;
 }
 
 .demo-millerdisplay-bolder .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
-  font-weight: bolder;
+	font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
+	font-weight: bolder;
 }
 
 .demo-clarion-normal .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
+	font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
 }
 
 .demo-clarion-bold .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
-  font-weight: bold;
+	font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
+	font-weight: bold;
 }
 
 .demo-clarion-italic .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
-  font-style: italic;
+	font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
+	font-style: italic;
 }
 
 .demo-financierdisplay-normal .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplay);
-  font-style: normal;
+	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplay);
+	font-style: normal;
 }
 
 .demo-financierdisplay-italic .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplay);
-  font-style: italic;
+	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplay);
+	font-style: italic;
 }
 
 .demo-financiertext-normal .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(FinancierText);
-  font-style: normal;
+	font-family: oFontsGetFontFamilyWithFallbacks(FinancierText);
+	font-style: normal;
 }
 
 .demo-financiertext-italic .demo-example {
-  font-family: oFontsGetFontFamilyWithFallbacks(FinancierText);
-  font-style: italic;
+	font-family: oFontsGetFontFamilyWithFallbacks(FinancierText);
+	font-style: italic;
 }
 
 .demo-size-small {
-  padding-top: 15px;
-  font-size: 36px;
-  line-height: 44px;
+	padding-top: 15px;
+	font-size: 36px;
+	line-height: 44px;
 }
 
 .demo-size-medium {
-  font-size: 80px;
-  line-height: 110px;
+	font-size: 80px;
+	line-height: 110px;
 }
 
 .demo-size-large {
-  font-size: 200px;
-  line-height: 200px;
+	font-size: 200px;
+	line-height: 200px;
 }

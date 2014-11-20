@@ -1,55 +1,55 @@
 @mixin oFontsSource($fontName) {
-  $fontName: to-lower-case($fontName);
+	$fontName: to-lower-case($fontName);
 	src: url(oFontsUseAsset($fontName + '.eot')); // IE9 Compat Modes
 	src: url(oFontsUseAsset($fontName + '.eot?#iefix')) format('embedded-opentype'), // IE6-IE8
-	     url(oFontsUseAsset($fontName + '.woff')) format('woff'), // Modern Browsers
-	     url(oFontsUseAsset($fontName + '.ttf')) format('truetype'); // Safari, Android, iOS
+	url(oFontsUseAsset($fontName + '.woff')) format('woff'), // Modern Browsers
+	url(oFontsUseAsset($fontName + '.ttf')) format('truetype'); // Safari, Android, iOS
 }
 
 @mixin oFontsInclude($family, $weight:normal, $style:normal) {
-  $weight: to-lower-case($weight);
-  $style: to-lower-case($style);
-  $font-is-defined: _oFontsDefined($family, $weight, $style);
-  $font-is-already-included: _oFontsAlreadyIncluded($family, $weight, $style);
+	$weight: to-lower-case($weight);
+	$style: to-lower-case($style);
+	$font-is-defined: _oFontsDefined($family, $weight, $style);
+	$font-is-already-included: _oFontsAlreadyIncluded($family, $weight, $style);
 
-  @if (not $font-is-defined) {
-    @warn "Font '" + $family + " " + $weight + " " + $style + "' not in permitted list. @font-face rule will not be output.";
-  } @else if (not $font-is-already-included) {
-    $font-suffix: $weight;
-    @if ($style != normal) {
-      @if ($weight == normal) {
-        $font-suffix:$style;
-      } @else {
-        $font-suffix:#{$font-suffix}-$style;
-      }
-    }
+	@if (not $font-is-defined) {
+		@warn "Font '" + $family + " " + $weight + " " + $style + "' not in permitted list. @font-face rule will not be output.";
+	} @else if (not $font-is-already-included) {
+		$font-suffix: $weight;
+		@if ($style != normal) {
+			@if ($weight == normal) {
+				$font-suffix:$style;
+			} @else {
+				$font-suffix:#{$font-suffix}-$style;
+			}
+		}
 
-    @font-face {
-      font-family: $family;
-      font-weight: $weight;
-      font-style: $style;
-      @include oFontsSource($family+-$font-suffix);
-    }
-    @if (not _oFontsStyleExistsInFamilyMap($_o-fonts-families-included, $family, $weight, $style)) {
-      $already-included-styles: map-get($_o-fonts-families-included, $family);
-      $new-included-styles: ();
-      @if ($already-included-styles) {
-        $new-included-styles: $already-included-styles;
-      }
-      $new-included-styles: append($already-included-styles, ($weight $style));
-      $_o-fonts-families-included: map-merge($_o-fonts-families-included, (#{$family}: $new-included-styles));
-    }
-  }
+		@font-face {
+			font-family: $family;
+			font-weight: $weight;
+			font-style: $style;
+			@include oFontsSource($family+-$font-suffix);
+		}
+		@if (not _oFontsStyleExistsInFamilyMap($_o-fonts-families-included, $family, $weight, $style)) {
+			$already-included-styles: map-get($_o-fonts-families-included, $family);
+			$new-included-styles: ();
+			@if ($already-included-styles) {
+				$new-included-styles: $already-included-styles;
+			}
+			$new-included-styles: append($already-included-styles, ($weight $style));
+			$_o-fonts-families-included: map-merge($_o-fonts-families-included, (#{$family}: $new-included-styles));
+		}
+	}
 }
 
 @mixin oFontsIncludeAll() {
-  @each $family, $font in $_o-fonts-families {
-    @each $style in $font {
-      @if (length($style) > 1) {
-        @include oFontsInclude($family, nth($style, 1), nth($style, 2));
-      } @else {
-        @include oFontsInclude($family, nth($style, 1));
-      }
-    }
-  }
+	@each $family, $font in $_o-fonts-families {
+		@each $style in $font {
+			@if (length($style) > 1) {
+				@include oFontsInclude($family, nth($style, 1), nth($style, 2));
+			} @else {
+				@include oFontsInclude($family, nth($style, 1));
+			}
+		}
+	}
 }

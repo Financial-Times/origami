@@ -16,12 +16,12 @@ This module has been verified in Internet Explorer 7+, modern desktop browsers (
 
 Open `src/scss/_variables` in a text editor. Add the font family name (if it's an entirely new family) and the variant styles to the `$_o-fonts-families` map:
 
-```sass
+```scss
 $_o-fonts-families: (
-  BentonSans: (lighter, normal, bold),
-  MillerDisplay: (normal, bold),
-  Clarion: (normal, bold, (normal, italic)),
-  NewFontFamily: (new style1, new style2)
+	BentonSans: (lighter, normal, bold),
+	MillerDisplay: (normal, bold),
+	Clarion: (normal, bold, (normal, italic)),
+	NewFontFamily: (new style1, new style2)
 );
 ```
 
@@ -40,7 +40,7 @@ And a new entry in `demos/src/demo.scss`:
 
 ```css
 .demo-bentonsans-normal .demo-example {
-  font-family: BentonSans;
+	font-family: BentonSans;
 }
 ```
 
@@ -69,8 +69,10 @@ Follow the standard Origami process for using this module:
 
 To load any given font you will need to call the `oFontsInclude()` mixin e.g.
 
-    @include oFontsInclude(BentonSans, bold);
+```scss
+	@include oFontsInclude(BentonSans, bold);
 	@include oFontsInclude(Clarion, normal, italic);
+```
 
 ### Specifying fonts
 
@@ -78,9 +80,9 @@ Use this module's `oFontsGetFontFamilyWithFallbacks()` function to return the pa
 
 For example:
 
-```sass
+```scss
 .myClass {
-    font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 }
 ```
 
