@@ -1,8 +1,8 @@
 // Basic styling for a simple breadcrumb to be used in a secondary container
 .o-ft-header__breadcrumb {
-  float: left;
-  margin-right: 20px;
-  font-size: 12px;
-  line-height: 20px;
-  color: oColorsGetColorFor(o-ft-header-item, text);
+	float: left;
+	margin-right: 20px;
+	font-size: 12px;
+	line-height: 20px;
+	color: oColorsGetColorFor(o-ft-header-item, text);
 }
