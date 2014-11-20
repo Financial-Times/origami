@@ -659,7 +659,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 					}
 
 					.fyre-notifier-base-close {
-						background: url(oAssetsResolve('src/images/comment_dialog_close.gif', comment-ui)) no-repeat;
+						background: url(oAssetsResolve('src/images/comment_dialog_close.gif', o-comment-ui)) no-repeat;
 						width: 20px;
 						height: 20px;
 						top: 6px;
@@ -1290,7 +1290,7 @@ body {
 
 		.fyre-modal-alert-title-close,
 		.fyre-modal-alert-title-close:active {
-			background: url(oAssetsResolve('src/images/comment_dialog_close.gif', comment-ui)) 0 0 no-repeat;
+			background: url(oAssetsResolve('src/images/comment_dialog_close.gif', o-comment-ui)) 0 0 no-repeat;
 			width: 20px;
 			height: 20px;
 			top: 4px;
@@ -1321,14 +1321,14 @@ body {
 		.fyre-modal-title-close {
 			left: auto;
 			right: 10px;
-			background: url(oAssetsResolve('src/images/comment_dialog_close.gif', comment-ui));
+			background: url(oAssetsResolve('src/images/comment_dialog_close.gif', o-comment-ui));
 			width: 20px;
 			height: 20px;
 		}
 
 		.fyre-modal-close:active,
 		.fyre-modal-title-close:active {
-			background: url(oAssetsResolve('src/images/comment_dialog_close.gif', comment-ui));
+			background: url(oAssetsResolve('src/images/comment_dialog_close.gif', o-comment-ui));
 		}
 
 		.fyre-modal-subtitle,
