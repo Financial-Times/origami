@@ -1,64 +1,16 @@
-/**
-  Wrap styles in SASS placeholder and CSS class (if not in silent mode)
-  $name:             name of placeholder/class.
-  $force-non-silent: <boolean> prevent silent mode
-*/
-@mixin oFtButtonSelectors($name, $force-non-silent) {
-  $selectors: #{'%#{$name}'};
-  @if (not $o-ft-buttons-is-silent or $force-non-silent) {
-    $selectors: append($selectors, #{'.#{$name}'}, comma);
-  }
-  #{$selectors} {
-    @content;
-  }
-}
-
-@mixin oFtButtonsBoxSizing($value) {
-  -webkit-box-sizing: $value;
-  -moz-box-sizing: $value;
-  box-sizing: $value;
-}
-
-@mixin oFtButtonsFontInclude() {
-  @include oFontsInclude(BentonSans, normal);
-}
-
-@mixin oFtButtonsIconInclude() {
-  @include oFtIconsFontFace();
-}
-
 @mixin oFtButtonsTypography($font-size: 14px, $line-height: 22px) {
-  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-  font-weight: normal;
-  font-size: $font-size;
-  line-height: $line-height;
-  text-decoration: none;
-  text-align: center;
+	font-size: $font-size;
+	line-height: $line-height;
+	text-decoration: none;
+	text-align: center;
 }
 
 @mixin oFtButtonsTypographyBig() {
-  @include oFtButtonsTypography(16px, 32px);
+	@include oFtButtonsTypography(16px, 32px);
 }
 
-@mixin oFtButtonsColors($borderColor, $backgroundColor, $color) {
-  border-color: $borderColor;
-  background-color: $backgroundColor;
-  color: $color;
-}
-
-@mixin oFtButtonsButtonHover($buttonClass, $borderColor, $backgroundColor, $color) {
-  &:not([disabled]):not([aria-selected=true]):not(#{#{$buttonClass}--faux}):hover {
-    @include oFtButtonsColors($borderColor, $backgroundColor, $color);
-    cursor: pointer;
-  }
-}
-
-@mixin oFtButtonsAll($base-class, $force-non-silent: true) {
-  @include oFtButtonsButton($base-class, $force-non-silent);
-  @include oFtButtonsButtonStandout($base-class, $force-non-silent);
-  @include oFtButtonsButtonGroup($base-class, #{$base-class}__group, $force-non-silent);
-  @include oFtButtonsButtonPagination($base-class, #{$base-class}__pagination, $force-non-silent);
-  @include oFtButtonsButtonFaux($base-class, $force-non-silent);
-  @include oFtButtonsButtonBig($base-class, $force-non-silent);
-  @include oFtButtonsIcons($base-class, #{$base-class}__icon, $force-non-silent);
+@mixin oFtButtonsButtonHover() {
+	&:not([disabled]):not([aria-selected=true]):not([aria-pressed=true]):hover {
+		@content;
+	}
 }

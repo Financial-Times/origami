@@ -1,7 +1,5 @@
-@mixin oFtButtonsButtonBig($buttonClass, $force-non-silent: true) {
-  @include oFtButtonSelectors(#{$buttonClass}--big, $force-non-silent) {
-      padding-left: 18px;
-      padding-right: 18px;
-      @include oFtButtonsTypographyBig();
-  }
+@mixin oFtButtonsBig() {
+	padding-left: 18px;
+	padding-right: 18px;
+	@include oFtButtonsTypographyBig();
 }

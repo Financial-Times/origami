@@ -1,47 +1,50 @@
-@mixin oFtButtonsButton($buttonClass, $force-non-silent: true) {
+@mixin oFtButtons() {
+	box-sizing: border-box;
+	display: inline-block;
+	margin: 0;
+	padding: 0 14px;
+	@include oFtButtonsTypography();
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 5px;
+	outline: 0;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	user-select: none;
+	cursor: pointer;
+	@include oColorsFor(o-ft-buttons-standard);
+	transition: box-shadow 0.3s, background-color 0.3s;
 
-  @include oFtButtonSelectors($buttonClass, $force-non-silent) {
-    @include oFtButtonsBoxSizing(border-box);
-    display: inline-block;
-    margin: 0;
-    padding: 0 14px;
-    @include oFtButtonsTypography();
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 5px;
-    outline: 0;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    @include oFtButtonsColors($_o-ft-buttons-color-standard-border, $_o-ft-buttons-color-standard-bg, $_o-ft-buttons-color-standard-fg);
+	&[aria-selected=true] {
+		@include oColorsFor(o-ft-buttons-selected);
 
-    & + & {
-      margin-left: 4px;
-    }
+		&:focus {
+			box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-ft-buttons-selected, text);
+		}
+	}
 
-    &[aria-selected=true] {
-      @include oFtButtonsColors($_o-ft-buttons-color-selected-border, $_o-ft-buttons-color-selected-bg, $_o-ft-buttons-color-selected-fg);
-      pointer-events: none;
+	&[aria-pressed=true] {
+		@include oColorsFor(o-ft-buttons-pressed);
 
-      &:focus {
-         @include oUseragentPrefixer(box-shadow, 0 0 0 0);
-      }
-    }
+		&:focus {
+			box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-ft-buttons-pressed, text);
+		}
+	}
 
-    &[disabled] {
-      @include oFtButtonsColors($_o-ft-buttons-color-disabled-border, $_o-ft-buttons-color-disabled-bg, $_o-ft-buttons-color-disabled-fg);
-      pointer-events: none;
-    }
+	&[disabled] {
+		cursor: default;
+		opacity: 0.4;
+	}
 
-    &:focus {
-      @include oUseragentPrefixer(box-shadow, inset 0 0 3px 1px $_o-ft-buttons-color-standout-standard-border);
-    }
+	&:focus {
+		transition: box-shadow 0.3s ease 0;
+		box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-ft-buttons-standard, border);
+	}
 
-  }
-
-  #{$o-hoverable-if-hover-enabled} {
-    @include oFtButtonSelectors($buttonClass, $force-non-silent) {
-      @include oFtButtonsButtonHover($buttonClass, $_o-ft-buttons-color-hover-border, $_o-ft-buttons-color-hover-bg, $_o-ft-buttons-color-hover-fg);
-    }
-  }
-
+	#{$o-hoverable-if-hover-enabled} & {
+		@include oFtButtonsButtonHover() {
+			transition: background-color 0.3s ease 0;
+			background-color: rgba(oColorsGetColorFor(o-ft-buttons-hover, background), 0.15);
+		}		
+	}
 }

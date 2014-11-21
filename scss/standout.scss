@@ -1,23 +1,13 @@
-@mixin oFtButtonsButtonStandout($buttonClass, $force-non-silent: true) {
+@mixin oFtButtonsStandout() {
+	@include oColorsFor(o-ft-buttons-standout);
 
-  @include oFtButtonSelectors(#{$buttonClass}--standout, $force-non-silent) {
-    @include oFtButtonsColors($_o-ft-buttons-color-standout-standard-border, $_o-ft-buttons-color-standout-standard-bg, $_o-ft-buttons-color-standout-standard-fg);
+	&:focus {
+		box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-ft-buttons-standout, border);
+	}
 
-    &[aria-selected=true] {
-      @include oFtButtonsColors($_o-ft-buttons-color-standout-selected-border, $_o-ft-buttons-color-standout-selected-bg, $_o-ft-buttons-color-standout-selected-fg);
-      pointer-events: none;
-    }
-
-    &[disabled] {
-      @include oFtButtonsColors($_o-ft-buttons-color-standout-disabled-border, $_o-ft-buttons-color-standout-disabled-bg, $_o-ft-buttons-color-standout-disabled-fg);
-      pointer-events: none;
-    }
-  }
-
-  #{$o-hoverable-if-hover-enabled} {
-    @include oFtButtonSelectors(#{$buttonClass}--standout, $force-non-silent) {
-      @include oFtButtonsButtonHover($buttonClass, $_o-ft-buttons-color-standout-hover-border, $_o-ft-buttons-color-standout-hover-bg, $_o-ft-buttons-color-standout-hover-fg);
-    }
-  }
-
+	#{$o-hoverable-if-hover-enabled} & {
+		@include oFtButtonsButtonHover() {
+			@include oColorsFor(o-ft-buttons-standout-hover);
+		}
+	}
 }

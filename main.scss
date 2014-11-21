@@ -1,23 +1,25 @@
 @import "o-fonts/main";
 @import "o-colors/main";
-@import "o-ft-icons/main";
 @import "o-hoverable/main";
+// Deprecated
+@import "o-ft-icons/main";
 
 @import "scss/color-use-cases";
 @import "scss/variables";
 @import "scss/mixins";
-
-@if (not $o-ft-buttons-is-silent) {
-  @include oFtButtonsFontInclude();
-  @include oFtButtonsIconInclude();
-}
+@import "scss/deprecated";
 
 @import "scss/base";
-@import "scss/group";
-@import "scss/pagination";
-@import "scss/faux";
 @import "scss/big";
 @import "scss/standout";
-@import "scss/icons";
+@import "scss/group";
+@import "scss/pagination";
 
-@include oFtButtonsAll(o-ft-buttons, false);
+@include oFtButtonsAll(o-ft-buttons);
+
+@import "scss/uncolored";
+@import "scss/inverse";
+
+@if (not $o-ft-buttons-is-silent) {
+  @include oFtButtonsIconInclude();
+}

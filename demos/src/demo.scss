@@ -21,3 +21,16 @@ $o-ft-buttons-is-silent: false;
   line-height: 22px;
   color: #cec6b9;
 }
+
+.demo__inverse {
+  background: black;
+}
+
+.demo__faux {
+  display: inline-block;
+}
+
+// So icon buttons align with the rest
+i {
+  line-height: 1px;
+}
