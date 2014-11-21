@@ -1,3 +1,11 @@
+/**
+ * @group o-ft-typography
+ * @link http://registry.origami.ft.com/components/o-ft-typography
+**/
+
+/**
+ * Large leader
+ */
 @mixin oFtTypographyLeadLarge {
 	font-family: Georgia, 'Times New Roman', serif;
 	font-weight: normal;
@@ -6,6 +14,9 @@
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
+/**
+ * Medium leader
+ */
 @mixin oFtTypographyLeadMedium {
 	font-family: Georgia, 'Times New Roman', serif;
 	font-weight: normal;
@@ -14,23 +25,12 @@
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
+/**
+ * Small leader
+ */
 @mixin oFtTypographyLeadSmall {
 	@include _oFtTypographyFont(BentonSans, normal);
 	@include oFtTypographyFontSize(13, 17);
 	@include oColorsFor(o-ft-typography-lead-small o-ft-typography-lead body, text);
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
-}
-
-@if not $o-ft-typography-is-silent {
-	.o-ft-typography-lead-large {
-		@include oFtTypographyLeadLarge;
-	}
-
-	.o-ft-typography-lead-medium {
-		@include oFtTypographyLeadMedium;
-	}
-
-	.o-ft-typography-lead-small {
-		@include oFtTypographyLeadSmall;
-	}
 }

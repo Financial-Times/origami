@@ -1,15 +1,32 @@
+/**
+ * @group o-ft-typography
+ * @link http://registry.origami.ft.com/components/o-ft-typography
+**/
+
+/**
+ * Make something bold
+ */
 @mixin oFtTypographyBold {
 	font-weight: bold;
 }
 
+/**
+ * Make something italic
+ */
 @mixin oFtTypographyItalic {
 	font-style: italic;
 }
 
+/**
+ * Small text
+ */
 @mixin oFtTypographySmall {
 	font-size: 0.75em;
 }
 
+/**
+ * Superscript text
+ */
 @mixin oFtTypographySuper {
 	display: inline-block;
 	margin-top: -3px;
@@ -17,6 +34,9 @@
 	vertical-align: super;
 }
 
+/**
+ * Subscript text
+ */
 @mixin oFtTypographySub {
 	display: inline-block;
 	margin-bottom: -5px;
@@ -24,32 +44,14 @@
 	vertical-align: sub;
 }
 
+/**
+ * Link styles
+ */
 @mixin oFtTypographyBodyLink {
 	text-decoration: none;
 	@include oColorsFor(link, text);
 	cursor: pointer;
 	#{$o-hoverable-if-hover-enabled} &:hover {
 		@include oColorsFor(link-hover, text);
-	}
-}
-
-@if not $o-ft-typography-is-silent {
-	.o-ft-typography-body--bold {
-		@include oFtTypographyBold;
-	}
-	.o-ft-typography-body--italic {
-		@include oFtTypographyItalic;
-	}
-	.o-ft-typography-boldy--small {
-		@include oFtTypographySmall;
-	}
-	.o-ft-typography-body--sup {
-		@include oFtTypographySuper;
-	}
-	.o-ft-typography-body--sub {
-		@include oFtTypographySub;
-	}
-	.o-ft-typography-body--link {
-		@include oFtTypographyBodyLink;
 	}
 }

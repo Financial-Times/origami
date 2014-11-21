@@ -1,3 +1,11 @@
+/**
+ * @group o-ft-typography
+ * @link http://registry.origami.ft.com/components/o-ft-typography
+**/
+
+/**
+ * Styles for a brand
+ */
 @mixin oFtTypographyBrand {
 	margin: 0;
 	@include oFtTypographyFontSize(12, 14);
@@ -6,6 +14,9 @@
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
+/**
+ * Styles for a byline
+ */
 @mixin oFtTypographyByline {
 	margin: 0;
 	@include oFtTypographyFontSize(14, 24);
@@ -13,21 +24,12 @@
 	@include oColorsFor(o-ft-typography-byline, text);
 }
 
+/**
+ * Styles for a timestamp
+ */
 @mixin oFtTypographyTimestamp {
 	margin: 0;
 	@include oFtTypographyFontSize(14, 24);
 	@include _oFtTypographyFont(BentonSans);
 	@include oColorsFor(o-ft-typography-timestamp, text);
-}
-
-@if not $o-ft-typography-is-silent {
-	.o-ft-typography-brand {
-		@include oFtTypographyBrand;
-	}
-	.o-ft-typography-byline {
-		@include oFtTypographyByline;
-	}
-	.o-ft-typography-timestamp {
-		@include oFtTypographyTimestamp;
-	}
 }

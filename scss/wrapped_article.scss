@@ -1,3 +1,11 @@
+/**
+ * @group o-ft-typography
+ * @link http://registry.origami.ft.com/components/o-ft-typography
+**/
+
+/**
+ * Add to a wrapper (maybe an <article> to style all text within
+ */
 @mixin oFtTypographyArticleBodyWrapper {
 	h2 {
 		@include oFtTypographyHeading3;
@@ -22,10 +30,4 @@
 	}
 
 	@include oFtTypographyCommonWrappedBodyStyles();
-}
-
-@if not $o-ft-typography-is-silent {
-	.o-ft-typography-article-body-wrapper {
-		@include oFtTypographyArticleBodyWrapper;
-	}
 }
