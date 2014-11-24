@@ -1,27 +1,33 @@
-@include oFtTypographySelectors(article-body-wrapper) {
+/**
+ * @group o-ft-typography
+ * @link http://registry.origami.ft.com/components/o-ft-typography
+**/
 
-  h2 {
-      @include oFtTypographyExtend(heading3);
-  }
+/**
+ * Add to a wrapper (maybe an <article> to style all text within
+ */
+@mixin oFtTypographyArticleBodyWrapper {
+	h2 {
+		@include oFtTypographyHeading3;
+	}
 
-  h3 {
-      @include oFtTypographyExtend(heading4);
-  }
+	h3 {
+		@include oFtTypographyHeading4;
+	}
 
-  a {
-      @include oFtTypographyExtend(body__link);
-  }
+	a {
+		@include oFtTypographyBodyLink;
+	}
 
-  p {
-      @include oFtTypographyExtend(article-body);
-      @include oFtTypographyExtend(body__block);
-  }
+	p {
+		@include oFtTypographyArticleBody;
+		@include oFtTypographyArticleBodyBlock;
+	}
 
-  ol,
-  ul {
-      @include oFtTypographyExtend(article-body__list);
-  }
+	ol,
+	ul {
+		@include oFtTypographyArticleBodyList;
+	}
 
-  @include oFtTypographyCommonWrappedBodyStyles();
-
+	@include oFtTypographyCommonWrappedBodyStyles();
 }

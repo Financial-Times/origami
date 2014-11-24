@@ -1,0 +1,194 @@
+// This file is not included
+// It contains all the concrete classes that will be need to be added in once the deprecated stuff is removed
+// in the next major version
+
+@if not $o-ft-typography-is-silent and not $o-ft-typography-classes-output {
+	//badges
+	.o-ft-typography-badge {
+		@include oFtTypographyBadge;
+	}
+
+	//headings
+	.o-ft-typography-heading1 {
+		@include oFtTypographyHeading1;
+	}
+	.o-ft-typography-heading2 {
+		@include oFtTypographyHeading2;
+	}
+	.o-ft-typography-heading3 {
+		@include oFtTypographyHeading3;
+	}
+	.o-ft-typography-heading4 {
+		@include oFtTypographyHeading4;
+	}
+	.o-ft-typography-heading5 {
+		@include oFtTypographyHeading5;
+	}
+	.o-ft-typography-heading6 {
+		@include oFtTypographyHeading6;
+	}
+
+	.o-ft-typography-heading1-layout {
+		@include oFtTypographyHeading1Layout;
+	}
+
+	.o-ft-typography-heading1-text {
+		@include oFtTypographyHeading1Text;
+	}
+
+	.o-ft-typography-heading2-layout {
+		@include oFtTypographyHeading2Layout;
+	}
+
+	.o-ft-typography-heading2-text {
+		@include oFtTypographyHeading2Text;
+	}
+
+	.o-ft-typography-heading3-layout {
+		@include oFtTypographyHeading3Layout;
+	}
+
+	.o-ft-typography-heading3-text {
+		@include oFtTypographyHeading3Text;
+	}
+
+	.o-ft-typography-heading4-layout {
+		@include oFtTypographyHeading4Layout;
+	}
+
+	.o-ft-typography-heading4-text {
+		@include oFtTypographyHeading4Text;
+	}
+
+	.o-ft-typography-heading5-layout {
+		@include oFtTypographyHeading5Layout;
+	}
+
+	.o-ft-typography-heading5-text {
+		@include oFtTypographyHeading5Text;
+	}
+
+	.o-ft-typography-heading6-layout {
+		@include oFtTypographyHeading6Layout;
+	}
+
+	.o-ft-typography-heading6-text {
+		@include oFtTypographyHeading6Text;
+	}
+
+	// titles
+	.o-ft-typography-title-large {
+		@include oFtTypographyTitleLarge;
+	}
+	.o-ft-typography-title-medium {
+		@include oFtTypographyTitleMedium;
+	}
+	.o-ft-typography-title-small {
+		@include oFtTypographyTitleSmall;
+	}
+
+	// leads
+	.o-ft-typography-lead-large {
+		@include oFtTypographyLeadLarge;
+	}
+
+	.o-ft-typography-lead-medium {
+		@include oFtTypographyLeadMedium;
+	}
+
+	.o-ft-typography-lead-small {
+		@include oFtTypographyLeadSmall;
+	}
+
+	// labels
+	.o-ft-typography-label-large {
+		@include oFtTypographyLabelLarge;
+	}
+	.o-ft-typography-label-small {
+		@include oFtTypographyLabelSmall;
+	}
+	.o-ft-typography-label-medium {
+		@include oFtTypographyLabelMedium;
+	}
+
+	// metadata
+	.o-ft-typography-brand {
+		@include oFtTypographyBrand;
+	}
+	.o-ft-typography-byline {
+		@include oFtTypographyByline;
+	}
+	.o-ft-typography-timestamp {
+		@include oFtTypographyTimestamp;
+	}
+
+	// body - common
+	.o-ft-typography-body--bold {
+		@include oFtTypographyBold;
+	}
+	.o-ft-typography-body--italic {
+		@include oFtTypographyItalic;
+	}
+	.o-ft-typography-boldy--small {
+		@include oFtTypographySmall;
+	}
+	.o-ft-typography-body--sup {
+		@include oFtTypographySuper;
+	}
+	.o-ft-typography-body--sub {
+		@include oFtTypographySub;
+	}
+	.o-ft-typography-body--link {
+		@include oFtTypographyBodyLink;
+	}
+
+	// body - general
+	.o-ft-typography-body {
+		@include oFtTypographyBody;
+	}
+	.o-ft-typography-body--lead {
+		@include oFtTypographyBodyLead;
+	}
+
+	.o-ft-typography-body__block {
+		@include oFtTypographyBodyBlock;
+	}
+
+	.o-ft-typography-body__list {
+		@include oFtTypographyBodyList;
+	}
+
+	.o-ft-typography-body__list--ordered {
+		@include oFtTypographyBodyListOrdered;
+	}
+
+	.o-ft-typography-body__list--unordered {
+		@include oFtTypographyBodyListUnordered;
+	}
+
+	// body wrapper
+	.o-ft-typography-body-wrapper {
+		@include oFtTypographyBodyWrapper;
+	}
+
+	// body article styles
+	.o-ft-typography-article-body {
+		@include oFtTypographyArticleBody;
+	}
+	.o-ft-typography-article-body__block {
+		@include oFtTypographyArticleBodyBlock;
+	}
+	.o-ft-typography-article-body--lead {
+		@include oFtTypographyArticleBodyLead;
+	}
+	.o-ft-typography-article-body__list {
+		@include oFtTypographyArticleBodyList;
+	}
+
+	// article wrapper
+	.o-ft-typography-article-body-wrapper {
+		@include oFtTypographyArticleBodyWrapper;
+	}
+
+	$o-ft-typography-classes-output : true;
+}

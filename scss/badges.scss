@@ -1,12 +1,20 @@
-@include oFtTypographySelectors(badge) {
-  display: inline-block;
-  border-radius: 5px;
-  padding: 0 4px;
-  @include _oFtTypographyFont(BentonSans, bold);
-  @include oColorsFor(o-ft-typography-badge box, background text);
-  font-size: 10px;
-  font-weight: normal;
-  line-height: 14px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+/**
+ * @group o-ft-typography
+ * @link http://registry.origami.ft.com/components/o-ft-typography
+**/
+
+/**
+ * Style an element like a badge
+ */
+@mixin oFtTypographyBadge() {
+	display: inline-block;
+	border-radius: 5px;
+	padding: 0 4px;
+	@include _oFtTypographyFont(BentonSans, bold);
+	@include oColorsFor(o-ft-typography-badge box, background text);
+	font-size: 10px;
+	font-weight: normal;
+	line-height: 14px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
 }

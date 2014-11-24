@@ -1,42 +1,57 @@
-@include oFtTypographySelectors(body--bold) {
-  font-weight: bold;
+/**
+ * @group o-ft-typography
+ * @link http://registry.origami.ft.com/components/o-ft-typography
+**/
+
+/**
+ * Make something bold
+ */
+@mixin oFtTypographyBold {
+	font-weight: bold;
 }
 
-@include oFtTypographySelectors(body--italic) {
-  font-style: italic;
+/**
+ * Make something italic
+ */
+@mixin oFtTypographyItalic {
+	font-style: italic;
 }
 
-@include oFtTypographySelectors(body--small) {
-  font-size: 0.75em;
+/**
+ * Small text
+ */
+@mixin oFtTypographySmall {
+	font-size: 0.75em;
 }
 
-@include oFtTypographySelectors(body--super) {
-  display: inline-block;
-  margin-top: -3px;
-  font-size: 0.75em;
-  vertical-align: super;
+/**
+ * Superscript text
+ */
+@mixin oFtTypographySuper {
+	display: inline-block;
+	margin-top: -3px;
+	font-size: 0.75em;
+	vertical-align: super;
 }
 
-@include oFtTypographySelectors(body--sub) {
-  display: inline-block;
-  margin-bottom: -5px;
-  font-size: 0.75em;
-  vertical-align: sub;
+/**
+ * Subscript text
+ */
+@mixin oFtTypographySub {
+	display: inline-block;
+	margin-bottom: -5px;
+	font-size: 0.75em;
+	vertical-align: sub;
 }
 
-@include oFtTypographySelectors(body__link) {
-  text-decoration: none;
-  @include oColorsFor(link, text);
-  cursor: pointer;
-  #{$o-hoverable-if-hover-enabled} &:hover {
-    @include oColorsFor(link-hover, text);
-  }
-}
-
-@include oFtTypographySelectors(body__list--ordered) {
-  list-style-type: decimal;
-}
-
-@include oFtTypographySelectors(body__list--unordered) {
-  list-style-type: disc;
+/**
+ * Link styles
+ */
+@mixin oFtTypographyBodyLink {
+	text-decoration: none;
+	@include oColorsFor(link, text);
+	cursor: pointer;
+	#{$o-hoverable-if-hover-enabled} &:hover {
+		@include oColorsFor(link-hover, text);
+	}
 }

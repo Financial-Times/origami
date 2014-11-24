@@ -1,25 +1,25 @@
 $o-ft-typography-is-silent: false;
 $o-assets-paths-map: (
-  o-fonts-assets: '//build.origami.ft.com/files/o-fonts-assets'
+	o-fonts-assets: '//build.origami.ft.com/files/o-fonts-assets'
 );
 
 @import "../../main";
 
 .demo-row {
-  clear: both;
-  overflow: hidden;
+	clear: both;
+	overflow: hidden;
 }
 
 .demo-col {
-  float: left;
-  box-sizing: border-box;
-  width: 50%;
+	float: left;
+	box-sizing: border-box;
+	width: 50%;
 }
 
 .demo-col:first-child {
-  padding-right: 20px;
+	padding-right: 20px;
 }
 
 .demo-col:last-child {
-  padding-left: 20px;
+	padding-left: 20px;
 }

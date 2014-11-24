@@ -1,22 +1,37 @@
-%label-text {
-  @include oColorsFor(body, text);
-  @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
+/**
+ * @group o-ft-typography
+ * @link http://registry.origami.ft.com/components/o-ft-typography
+**/
+
+// internal use only
+@mixin labelText {
+	@include oColorsFor(body, text);
+	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
-@include oFtTypographySelectors(label-large) {
-  @extend %label-text;
-  @include _oFtTypographyFont(BentonSans, bold);
-  @include oFtTypographyFontSize(16, 21);
+/**
+ * Large label
+ */
+@mixin oFtTypographyLabelLarge {
+	@include labelText;
+	@include _oFtTypographyFont(BentonSans, bold);
+	@include oFtTypographyFontSize(16, 21);
 }
 
-@include oFtTypographySelectors(label-medium) {
-  @extend %label-text;
-  @include _oFtTypographyFont(BentonSans, bold);
-  @include oFtTypographyFontSize(14, 17);
+/**
+ * Medium label
+ */
+@mixin oFtTypographyLabelMedium {
+	@include labelText;
+	@include _oFtTypographyFont(BentonSans, bold);
+	@include oFtTypographyFontSize(14, 17);
 }
 
-@include oFtTypographySelectors(label-small) {
-  @extend %label-text;
-  @include _oFtTypographyFont(BentonSans, normal);
-  @include oFtTypographyFontSize(12, 15);
+/**
+ * Small label
+ */
+@mixin oFtTypographyLabelSmall {
+	@include labelText;
+	@include _oFtTypographyFont(BentonSans, normal);
+	@include oFtTypographyFontSize(12, 15);
 }

@@ -1,22 +1,36 @@
-@include oFtTypographySelectors(lead-large) {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: normal;
-  @include oFtTypographyFontSize(21, 26);
-  @include oColorsFor(o-ft-typography-lead-large o-ft-typography-lead body, text);
-  @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
+/**
+ * @group o-ft-typography
+ * @link http://registry.origami.ft.com/components/o-ft-typography
+**/
+
+/**
+ * Large leader
+ */
+@mixin oFtTypographyLeadLarge {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-weight: normal;
+	@include oFtTypographyFontSize(21, 26);
+	@include oColorsFor(o-ft-typography-lead-large o-ft-typography-lead body, text);
+	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
-@include oFtTypographySelectors(lead-medium) {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: normal;
-  @include oFtTypographyFontSize(17, 21);
-  @include oColorsFor(o-ft-typography-lead-medium o-ft-typography-lead body, text);
-  @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
+/**
+ * Medium leader
+ */
+@mixin oFtTypographyLeadMedium {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-weight: normal;
+	@include oFtTypographyFontSize(17, 21);
+	@include oColorsFor(o-ft-typography-lead-medium o-ft-typography-lead body, text);
+	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
-@include oFtTypographySelectors(lead-small) {
-  @include _oFtTypographyFont(BentonSans, normal);
-  @include oFtTypographyFontSize(13, 17);
-  @include oColorsFor(o-ft-typography-lead-small o-ft-typography-lead body, text);
-  @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
+/**
+ * Small leader
+ */
+@mixin oFtTypographyLeadSmall {
+	@include _oFtTypographyFont(BentonSans, normal);
+	@include oFtTypographyFontSize(13, 17);
+	@include oColorsFor(o-ft-typography-lead-small o-ft-typography-lead body, text);
+	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }

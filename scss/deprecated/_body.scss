@@ -1,0 +1,66 @@
+
+@include oFtTypographySelectors(body--lead) {
+	@include oFtTypographyArticleBodyLead;
+}
+
+@include oFtTypographySelectors(body) {
+	@include oFtTypographyBody;
+}
+
+@include oFtTypographySelectors(body__block) {
+	@include oFtTypographyBodyBlock;
+}
+
+@include oFtTypographySelectors(body__list) {
+	@include oFtTypographyBodyList;
+}
+
+// common
+@include oFtTypographySelectors(body--bold) {
+	@include oFtTypographyBold;
+}
+
+@include oFtTypographySelectors(body--italic) {
+	@include oFtTypographyItalic;
+}
+
+@include oFtTypographySelectors(body--small) {
+	@include oFtTypographySmall;
+}
+
+@include oFtTypographySelectors(body--super) {
+	@include oFtTypographySmall;
+}
+
+@include oFtTypographySelectors(body--sub) {
+	@include oFtTypographySub;
+}
+
+@include oFtTypographySelectors(body__link) {
+	@include oFtTypographyBodyLink;
+}
+
+@include oFtTypographySelectors(body__list--ordered) {
+	@include oFtTypographyBodyListOrdered;
+}
+
+@include oFtTypographySelectors(body__list--unordered) {
+	@include oFtTypographyBodyListUnordered;
+}
+
+// article
+@include oFtTypographySelectors(article-body--lead) {
+	@include oFtTypographyArticleBodyLead;
+}
+
+@include oFtTypographySelectors(article-body) {
+	@include oFtTypographyArticleBody;
+}
+
+@include oFtTypographySelectors(article-body__block) {
+	@include oFtTypographyArticleBodyBlock;
+}
+
+@include oFtTypographySelectors(article-body__list) {
+	@include oFtTypographyArticleBodyList;
+}

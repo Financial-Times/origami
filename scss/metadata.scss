@@ -1,21 +1,35 @@
-@include oFtTypographySelectors(brand)  {
-  margin: 0;
-  @include oFtTypographyFontSize(12, 14);
-  @include _oFtTypographyFont(BentonSans, bold);
-  @include oColorsFor(o-ft-typography-brand body, text);
-  @include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
+/**
+ * @group o-ft-typography
+ * @link http://registry.origami.ft.com/components/o-ft-typography
+**/
+
+/**
+ * Styles for a brand
+ */
+@mixin oFtTypographyBrand {
+	margin: 0;
+	@include oFtTypographyFontSize(12, 14);
+	@include _oFtTypographyFont(BentonSans, bold);
+	@include oColorsFor(o-ft-typography-brand body, text);
+	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
-@include oFtTypographySelectors(byline)  {
-  margin: 0;
-  @include oFtTypographyFontSize(14, 24);
-  @include _oFtTypographyFont(BentonSans);
-  @include oColorsFor(o-ft-typography-byline, text);
+/**
+ * Styles for a byline
+ */
+@mixin oFtTypographyByline {
+	margin: 0;
+	@include oFtTypographyFontSize(14, 24);
+	@include _oFtTypographyFont(BentonSans);
+	@include oColorsFor(o-ft-typography-byline, text);
 }
 
-@include oFtTypographySelectors(timestamp)  {
-  margin: 0;
-  @include oFtTypographyFontSize(14, 24);
-  @include _oFtTypographyFont(BentonSans);
-  @include oColorsFor(o-ft-typography-timestamp, text);
+/**
+ * Styles for a timestamp
+ */
+@mixin oFtTypographyTimestamp {
+	margin: 0;
+	@include oFtTypographyFontSize(14, 24);
+	@include _oFtTypographyFont(BentonSans);
+	@include oColorsFor(o-ft-typography-timestamp, text);
 }

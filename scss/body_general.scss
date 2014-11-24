@@ -1,25 +1,57 @@
-@include oFtTypographySelectors(body--lead) {
-  @include _oFtTypographyFont(BentonSans, normal);
-  @include oFtTypographyFontSize(18, 24);
-  @include oColorsFor(o-ft-typography-body-lead body, text);
-  -webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
+/**
+ * @group o-ft-typography
+ * @link http://registry.origami.ft.com/components/o-ft-typography
+**/
+
+/**
+ * General leader styles
+ * @todo what is the difference between this and the other leader styles?
+ */
+@mixin oFtTypographyBodyLead {
+	@include _oFtTypographyFont(BentonSans, normal);
+	@include oFtTypographyFontSize(18, 24);
+	@include oColorsFor(o-ft-typography-body-lead body, text);
+	-webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
 }
 
-@include oFtTypographySelectors(body) {
-  @include _oFtTypographyFont(BentonSans, normal);
-  @include oFtTypographyFontSize(14, 20);
-  @include oColorsFor(body, text);
+/**
+ * General body text (apply to body tag)
+ */
+@mixin oFtTypographyBody {
+	@include _oFtTypographyFont(BentonSans, normal);
+	@include oFtTypographyFontSize(14, 20);
+	@include oColorsFor(body, text);
 }
 
-@include oFtTypographySelectors(body__block) {
-  margin-bottom: 21px;
-  margin-top: 21px;
+/**
+ * Apply to a block of text
+ */
+@mixin oFtTypographyBodyBlock {
+	margin-bottom: 21px;
+	margin-top: 21px;
 }
 
-@include oFtTypographySelectors(body__list) {
-  list-style-position: outside;
-  padding-left: 20px;
-  font-weight: normal;
-  @include oFtTypographyExtend(body);
-  @include oFtTypographyExtend(body__block);
+/**
+ * Styling for <ul> and <ol>
+ */
+@mixin oFtTypographyBodyList {
+	list-style-position: outside;
+	padding-left: 20px;
+	font-weight: normal;
+	@include oFtTypographyBody;
+	@include oFtTypographyBodyBlock;
+}
+
+/**
+ * Styles for <ol> tags
+ */
+@mixin oFtTypographyBodyListOrdered {
+	list-style-type: decimal;
+}
+
+/**
+ * Styles for <ul> tags
+ */
+@mixin oFtTypographyBodyListUnordered {
+	list-style-type: disc;
 }

@@ -1,30 +1,30 @@
 @mixin oFtTypographyCommonWrappedBodyStyles() {
-  strong {
-    @include oFtTypographyExtend(body--bold);
-  }
+	strong {
+		@include oFtTypographyBold;
+	}
 
-  em {
-    @include oFtTypographyExtend(body--italic);
-  }
+	em {
+		@include oFtTypographyItalic;
+	}
 
-  small {
-    @include oFtTypographyExtend(body--small);
-  }
+	small {
+		@include oFtTypographySmall;
+	}
 
-  sup {
-    @include oFtTypographyExtend(body--super);
-  }
+	sup {
+		@include oFtTypographySuper;
+	}
 
-  sub {
-    @include oFtTypographyExtend(body--sub);
-  }
+	sub {
+		@include oFtTypographySub;
+	}
 
-  ol {
-    @include oFtTypographyExtend(body__list--ordered);
-  }
+	ol {
+		@include oFtTypographyBodyListOrdered;
+	}
 
-  ul {
-    @include oFtTypographyExtend(body__list--unordered);
-  }
+	ul {
+		@include oFtTypographyBodyListUnordered;
+	}
 
 }
