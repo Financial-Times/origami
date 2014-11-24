@@ -64,15 +64,6 @@
 	@extend #{oFtGetPrefixedPlaceholders(heading5-text)};
 }
 
-// browser hack taken from here : http://browserhacks.com/#hack-e6b158b7e27bcb157326348efb5c0bb2
-html[lang='\
-en'] {
-	@include oFtTypographySelectors(heading5-layout) {
-		border-bottom: 1px solid oColorsGetColorFor(o-ft-typography-heading5 o-ft-typography-heading-medium body, border);
-		background-image: none;
-	}
-}
-
 @include oFtTypographySelectors(heading6-layout) {
 	@include oFtTypographyHeading6Layout;
 }
