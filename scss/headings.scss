@@ -1,3 +1,11 @@
+/**
+ * @group o-ft-typography
+ * @link http://registry.origami.ft.com/components/o-ft-typography
+**/
+
+/**
+ * Layout styles for heading level 1
+ */
 @mixin oFtTypographyHeading1Layout {
 	margin: 0 0 16px;
 	padding: 8px 0 7px;
@@ -5,6 +13,9 @@
 	border-bottom: 1px dotted oColorsGetColorFor(o-ft-typography-heading1 o-ft-typography-heading-large body, border);
 }
 
+/**
+ * Text styles for heading level 1
+ */
 @mixin oFtTypographyHeading1Text {
 	@include _oFtTypographyFont(BentonSans, bold);
 	@include oFtTypographyFontSize(16, 20);
@@ -12,6 +23,9 @@
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(o-ft-typography-heading-large body, text), oColorsGetColorFor(link, text));
 }
 
+/**
+ * Layout styles for heading 2
+ */
 @mixin oFtTypographyHeading2Layout {
 	margin: 0 0 16px;
 	padding: 8px 0 7px;
@@ -19,6 +33,9 @@
 	border-bottom: 1px dotted oColorsGetColorFor(o-ft-typography-heading2 o-ft-typography-heading-large body, border);
 }
 
+/**
+ * Text styles for heading level 2
+ */
 @mixin oFtTypographyHeading2Text {
 	@include _oFtTypographyFont(BentonSans, bold);
 	text-transform: uppercase;
@@ -32,6 +49,7 @@
 	padding: 5px 0;
 }
 
+
 @mixin oFtTypographyHeading3And4Text {
 	@include oFtTypographyFontSize(16, 20);
 	@include oFtTypographyBodyBlock;
@@ -39,6 +57,9 @@
 	@include oColorsFor(o-ft-typography-article-subheading, text);
 }
 
+/**
+ * Layout for level 3 heading
+ */
 @mixin oFtTypographyHeading3Layout {
 	@include oFtTypographyHeading3And4Layout;
 	border-top: 1px dotted oColorsGetColorFor(o-ft-typography-article-subheading, border);
@@ -48,12 +69,18 @@
 	}
 }
 
+/**
+ * Text styles for level 3 heading
+ */
 @mixin oFtTypographyHeading3Text {
 	@include oFtTypographyHeading3And4Text;
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(o-ft-typography-heading3 o-ft-typography-article-subheading, text), oColorsGetColorFor(link, text));
 
 }
 
+/**
+ * Layout styles for level 4 heading
+ */
 @mixin oFtTypographyHeading4Layout {
 	@include oFtTypographyHeading3And4Layout;
 
@@ -63,11 +90,17 @@
 
 }
 
+/**
+ * Text styles for level 4 heading
+ */
 @mixin oFtTypographyHeading4Text {
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(o-ft-typography-heading4 o-ft-typography-article-subheading body, text), oColorsGetColorFor(link, text));
 
 }
 
+/**
+ * Layout styles for level 5 heading
+ */
 @mixin oFtTypographyHeading5Layout {
 	margin: 0 0 16px;
 	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAAPAQMAAADEaZ8BAAAABlBMVEUAAADs3s8R/6e7AAAAAXRSTlMAQObYZgAAADBJREFUSMdj+D90QcNQdvyDUccPEPgw6njiwKjjh43jh3SGHdKOb2AYBaNgFAwdAACrOE9c1sAQpgAAAABJRU5ErkJggg==') bottom right no-repeat;
@@ -79,6 +112,9 @@
 
 }
 
+/**
+ * Text styles for level 5 heading
+ */
 @mixin oFtTypographyHeading5Text {
 	@include _oFtTypographyFont(BentonSans, bold);
 	@include oFtTypographyFontSize(13, 20);
@@ -88,10 +124,16 @@
 	@include oFtTypographyFauxTextBackground(oColorsGetColorFor(page, background));
 }
 
+/**
+ * Layout styles for heading level 6
+ */
 @mixin oFtTypographyHeading6Layout {
 	margin: 0 0 8px;
 }
 
+/**
+ * Text styles for level 6 heading
+ */
 @mixin oFtTypographyHeading6Text {
 	margin: 0 0 8px;
 	@include _oFtTypographyFont(BentonSans, bold);
@@ -100,101 +142,50 @@
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
+/**
+ * h1 styles
+ */
 @mixin oFtTypographyHeading1 {
 	@include oFtTypographyHeading1Layout;
 	@include oFtTypographyHeading1Text;
 }
 
+/**
+ * h2 styles
+ */
 @mixin oFtTypographyHeading2 {
 	@include oFtTypographyHeading2Layout;
 	@include oFtTypographyHeading2Text;
 }
 
+/**
+ * h3 styles
+ */
 @mixin oFtTypographyHeading3 {
 	@include oFtTypographyHeading3Text;
 	@include oFtTypographyHeading3Layout;
 }
 
+/**
+ * h4 styles
+ */
 @mixin oFtTypographyHeading4 {
 	@include oFtTypographyHeading4Layout;
 	@include oFtTypographyHeading4Text;
 }
 
+/**
+ * h5 styles
+ */
 @mixin oFtTypographyHeading5 {
 	@include oFtTypographyHeading5Layout;
 	@include oFtTypographyHeading5Text;
 }
 
+/**
+ * h6 styles
+ */
 @mixin oFtTypographyHeading6 {
 	@include oFtTypographyHeading6Layout;
 	@include oFtTypographyHeading6Text;
-}
-
-@if not $o-ft-typography-is-silent {
-	.o-ft-typography-heading1 {
-		@include oFtTypographyHeading1;
-	}
-	.o-ft-typography-heading2 {
-		@include oFtTypographyHeading2;
-	}
-	.o-ft-typography-heading3 {
-		@include oFtTypographyHeading3;
-	}
-	.o-ft-typography-heading4 {
-		@include oFtTypographyHeading4;
-	}
-	.o-ft-typography-heading5 {
-		@include oFtTypographyHeading5;
-	}
-	.o-ft-typography-heading6 {
-		@include oFtTypographyHeading6;
-	}
-
-	.o-ft-typography-heading1-layout {
-		@include oFtTypographyHeading1Layout;
-	}
-
-	.o-ft-typography-heading1-text {
-		@include oFtTypographyHeading1Text;
-	}
-
-	.o-ft-typography-heading2-layout {
-		@include oFtTypographyHeading2Layout;
-	}
-
-	.o-ft-typography-heading2-text {
-		@include oFtTypographyHeading2Text;
-	}
-
-	.o-ft-typography-heading3-layout {
-		@include oFtTypographyHeading3Layout;
-	}
-
-	.o-ft-typography-heading3-text {
-		@include oFtTypographyHeading3Text;
-	}
-
-	.o-ft-typography-heading4-layout {
-		@include oFtTypographyHeading4Layout;
-	}
-
-	.o-ft-typography-heading4-text {
-		@include oFtTypographyHeading4Text;
-	}
-
-	.o-ft-typography-heading5-layout {
-		@include oFtTypographyHeading5Layout;
-	}
-
-	.o-ft-typography-heading5-text {
-		@include oFtTypographyHeading5Text;
-	}
-
-	.o-ft-typography-heading6-layout {
-		@include oFtTypographyHeading6Layout;
-	}
-
-	.o-ft-typography-heading6-text {
-		@include oFtTypographyHeading6Text;
-	}
 }
