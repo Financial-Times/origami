@@ -1,21 +1,10 @@
-/**
- * @group o-table
- * @link http://registry.origami.ft.com/components/o-table
-**/
-
-/**
- * Add horizontal lines to a table
- */
-@mixin oTableHorizontalLines {
+%o-table-horizontal-lines {
 	tr:not(:last-child) {
 		border-bottom: 1px solid oColorsGetColorFor(o-table-row, border);
 	}
 }
 
-/**
- * Add verticle lines to a table
- */
-@mixin oTableVerticalLines {
+%o-table-vertical-lines {
 	th:not(:last-child):not(:first-child),
 	td:not(:last-child):not(:first-child) {
 		border-left: 1px solid oColorsGetColorFor(o-table-row, border);

@@ -1,13 +1,7 @@
-/**
- * @group o-table
- * @link http://registry.origami.ft.com/components/o-table
-**/
 
-/**
- * Base tables styles - add to <table>
- */
-@mixin oTableBase {
-	@include oFtTypographyBody;
+
+%o-table-base {
+	@extend %o-ft-typography-body;
 	margin: 0 0 20px;
 	border-spacing: 0;
 	border-collapse: collapse;
@@ -42,10 +36,7 @@
 	}
 }
 
-/**
- * Add to table's wrapper element (if there is one)
- */
-@mixin oTableWrapper {
+%o-table-wrapper {
 	width: 100%;
 	overflow: auto;
 }

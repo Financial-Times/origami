@@ -1,35 +1,32 @@
 @mixin oTableAll($classname: o-table) {
-  .#{$classname}-wrapper {
-    @extend %o-table-wrapper;
-  }
-  .#{$classname} {
-    @extend %o-table-base;
-    caption.#{$classname}__caption--top {
-      @extend %o-table__caption--top;
-    }
-  }
-  .#{$classname} {
-    @extend %o-table-base;
-    caption.#{$classname}__caption--bottom {
-      @extend %o-table__caption--bottom;
-    }
-  }
-  .#{$classname}--row-stripes {
-    @extend %o-table-row-stripes;
-  }
-  .#{$classname}--horizontal-lines {
-    @extend %o-table-horizontal-lines;
-  }
-  .#{$classname}--vertical-lines {
-    @extend %o-table-vertical-lines;
-  }
-  .#{$classname}--horizontal-borders {
-    @extend %o-table-horizontal-borders;
-  }
-  .#{$classname}--vertical-borders {
-    @extend %o-table-vertical-borders;
-  }
-  .#{$classname}--compact {
-    @extend %o-table-compact;
-  }
+	.#{$classname}-wrapper {
+		@include oTableWrapper;
+	}
+	.#{$classname} {
+		@include oTableBase;
+		caption.#{$classname}__caption--top {
+			@include oTableCaptionTop;
+		}
+		caption.#{$classname}__caption--bottom {
+			@include oTableCaptionBottom;
+		}
+	}
+	.#{$classname}--row-stripes {
+		@include oTableRowStripes;
+	}
+	.#{$classname}--horizontal-lines {
+		@include oTableHorizontalLines;
+	}
+	.#{$classname}--vertical-lines {
+		@include oTableVerticalLines;
+	}
+	.#{$classname}--horizontal-borders {
+		@include oTableHorizontalBorders;
+	}
+	.#{$classname}--vertical-borders {
+		@include oTableVerticalBorders;
+	}
+	.#{$classname}--compact {
+		@include oTableCompact;
+	}
 }
