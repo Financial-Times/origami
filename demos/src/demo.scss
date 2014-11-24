@@ -2,29 +2,29 @@ $o-table-is-silent: false;
 @import "./../../main";
 
 .o-table {
-  min-width: 500px;
+	min-width: 500px;
 }
 
 .o-table-wrapper {
-  max-width: 600px;
+	max-width: 600px;
 }
 
 .demo__controls {
-  display: none;
-  float: right;
-  width: 200px;
-  font-family: sans-serif;
-  font-size: 14px;
-  label {
-    display: block;
-    margin: 0 0 5px;
-    padding: 5px;
-  }
-  input:checked + span {
-    font-weight: bold;
-  }
+	display: none;
+	float: right;
+	width: 200px;
+	font-family: sans-serif;
+	font-size: 14px;
+	label {
+	display: block;
+	margin: 0 0 5px;
+	padding: 5px;
+}
+input:checked + span {
+	font-weight: bold;
+}
 }
 
 .demo-js .demo__controls {
-  display: block;
+	display: block;
 }

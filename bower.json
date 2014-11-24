@@ -2,7 +2,7 @@
     "name": "o-table",
     "dependencies": {
         "o-colors": "^2.3.10",
-        "o-ft-typography": "^1.9.0"
+        "o-ft-typography": "^1.15.1"
     },
     "main": [ "main.scss", "main.js"],
     "ignore": [

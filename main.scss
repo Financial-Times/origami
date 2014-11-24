@@ -13,5 +13,5 @@ $o-table-is-silent: true !default;
 @import "src/scss/borders";
 
 @if (not $o-table-is-silent) {
-  @include oTableAll();
+	@include oTableAll();
 }
