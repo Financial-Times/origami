@@ -108,11 +108,11 @@ Note that tables matching the selector will not be wrapped, if they already have
 
 ## Silent mode
 
-If using __o-table__ in silent mode, `@extend` the placeholder `%o-table-base` into your own table class:
+If using __o-table__ in silent mode, use the mixin `oTableBase' in your table styles:
 
 ```sass
   .my-table {
-    @extend %o-table-base;
+    @include oTableBase;
   }
 ```
 
@@ -122,18 +122,18 @@ Additional classes may be added to the table root element to also apply the foll
 
 ### Row stripes
 
-Class: `o-table--row-stripes`, SASS placeholder: `%o-table-row-stripes`
+Class: `o-table--row-stripes`, Mixin: `oTableRowStripes`
 
 A background colour will be set on the whole table, and alternate rows within the `tbody` will have their background colour set to a pink tint.
 
 ### Horizontal lines
 
-Class: `o-table--horizontal-lines`, SASS placeholder: `%o-table-horizontal-lines`
+Class: `o-table--horizontal-lines`, Mixin: `oTableHorizontalLines`
 
 Thin lines will be rendered under each `td` element giving the appearance of lines between rows.
 
 ### Vertical lines
 
-Class: `o-table--vertical-lines`, SASS placeholder: `%o-table-vertical-lines`
+Class: `o-table--vertical-lines`, Mixin : `oTableVerticalLines`
 
 Thin lines will be rendered to the left and right of each `td` element giving the appearance of lines between columns.
