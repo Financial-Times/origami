@@ -75,7 +75,6 @@
 @mixin oFtTypographyHeading3Text {
 	@include oFtTypographyHeading3And4Text;
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(o-ft-typography-heading3 o-ft-typography-article-subheading, text), oColorsGetColorFor(link, text));
-
 }
 
 /**
@@ -87,7 +86,6 @@
 	+ * {
 		margin-top: 0;
 	}
-
 }
 
 /**
@@ -95,7 +93,6 @@
  */
 @mixin oFtTypographyHeading4Text {
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(o-ft-typography-heading4 o-ft-typography-article-subheading body, text), oColorsGetColorFor(link, text));
-
 }
 
 /**
@@ -104,13 +101,10 @@
 @mixin oFtTypographyHeading5Layout {
 	margin: 0 0 16px;
 	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAAPAQMAAADEaZ8BAAAABlBMVEUAAADs3s8R/6e7AAAAAXRSTlMAQObYZgAAADBJREFUSMdj+D90QcNQdvyDUccPEPgw6njiwKjjh43jh3SGHdKOb2AYBaNgFAwdAACrOE9c1sAQpgAAAABJRU5ErkJggg==') bottom right no-repeat;
-	// browser hack taken from here : http://browserhacks.com/#hack-e6b158b7e27bcb157326348efb5c0bb2
 
-	html[lang='\
-en'] & {
-		border-bottom: 1px solid oColorsGetColorFor(o-ft-typography-heading5 o-ft-typography-heading-medium body, border);
-		background-image: none;
-	}
+	// IE < 8 don't support datauri, so we do this...
+	*border-bottom: 1px solid oColorsGetColorFor(o-ft-typography-heading5 o-ft-typography-heading-medium body, border);
+	*background-image: none;
 }
 
 /**
