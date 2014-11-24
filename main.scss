@@ -7,9 +7,9 @@
 @import "scss/mixins";
 
 @if (not $o-ft-typography-is-silent) {
-    @each $usecase in $_o-ft-typography-fontface-usecase-mapping {
-        @include oFtTypographyIncludeFont(nth($usecase, 1));
-    }
+	@each $usecase in $_o-ft-typography-fontface-usecase-mapping {
+		@include oFtTypographyIncludeFont(nth($usecase, 1));
+	}
 }
 
 @import "scss/titles";
