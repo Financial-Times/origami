@@ -105,11 +105,10 @@
 	margin: 0 0 16px;
 	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAAPAQMAAADEaZ8BAAAABlBMVEUAAADs3s8R/6e7AAAAAXRSTlMAQObYZgAAADBJREFUSMdj+D90QcNQdvyDUccPEPgw6njiwKjjh43jh3SGHdKOb2AYBaNgFAwdAACrOE9c1sAQpgAAAABJRU5ErkJggg==') bottom right no-repeat;
 
-	@include oUseragentTarget(ie7 ie8 ie9) {
+	.o-useragent-ie7 &, .o-useragent-ie8 &, .o-useragent-ie9 &, .lte-ie9 & {
 		border-bottom: 1px solid oColorsGetColorFor(o-ft-typography-heading5 o-ft-typography-heading-medium body, border);
 		background-image: none;
 	}
-
 }
 
 /**
