@@ -5,27 +5,11 @@
 @import "scss/deprecated/functions";
 @import "scss/mixins";
 
-
-@mixin oFtTypographyWebkitFontfix() {
-	@at-root {
-		@-webkit-keyframes fontfix {
-			from {
-				opacity: 1;
-			}
-			to {
-				opacity: 1;
-			}
-		}
+@if (not $o-ft-typography-is-silent) {
+	@each $usecase in $_o-ft-typography-fontface-usecase-mapping {
+		@include oFtTypographyIncludeFont(nth($usecase, 1));
 	}
 }
-
-@if (not $o-ft-typography-is-silent) {
-		@each $usecase in $_o-ft-typography-fontface-usecase-mapping {
-				@include oFtTypographyIncludeFont(nth($usecase, 1));
-		}
-		@include oFtTypographyWebkitFontfix();
-}
-
 
 @import "scss/titles";
 @import "scss/leads";
