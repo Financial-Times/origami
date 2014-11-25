@@ -1,4 +1,4 @@
-@mixin oFtButtons() {
+@mixin oFtButtonsStandard() {
 	box-sizing: border-box;
 	display: inline-block;
 	margin: 0;
@@ -13,7 +13,7 @@
 	user-select: none;
 	cursor: pointer;
 	@include oColorsFor(o-ft-buttons-standard);
-	transition: box-shadow 0.3s, background-color 0.3s;
+	transition: background-color 0.3s;
 
 	&[aria-selected=true] {
 		@include oColorsFor(o-ft-buttons-selected);
@@ -37,12 +37,11 @@
 	}
 
 	&:focus {
-		transition: box-shadow 0.3s ease 0;
 		box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-ft-buttons-standard, border);
 	}
 
 	#{$o-hoverable-if-hover-enabled} & {
-		@include oFtButtonsButtonHover() {
+		@include _oFtButtonsButtonHover() {
 			transition: background-color 0.3s ease 0;
 			background-color: rgba(oColorsGetColorFor(o-ft-buttons-hover, background), 0.15);
 		}		

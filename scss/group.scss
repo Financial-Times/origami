@@ -1,5 +1,5 @@
-@mixin oFtButtonsGroup($buttonClass: o-ft-buttons) {
-	.#{$buttonClass} {
+@mixin oFtButtonsGroup($buttonClass: $o-ft-buttons-class) {
+	> .#{$buttonClass} {
 		border-radius: 0;
 
 		+ .#{$buttonClass} {

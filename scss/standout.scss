@@ -2,11 +2,11 @@
 	@include oColorsFor(o-ft-buttons-standout);
 
 	&:focus {
-		box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-ft-buttons-standout, border);
+		box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-ft-buttons-standout, text);
 	}
 
 	#{$o-hoverable-if-hover-enabled} & {
-		@include oFtButtonsButtonHover() {
+		@include _oFtButtonsButtonHover() {
 			@include oColorsFor(o-ft-buttons-standout-hover);
 		}
 	}

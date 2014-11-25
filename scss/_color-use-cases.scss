@@ -21,6 +21,8 @@
 
 @include oColorsSetUseCase(o-ft-buttons-inverse-hover, background, white);
 
+@include oColorsSetUseCase(o-ft-buttons-inverse-focus, background, blue);
+
 @include oColorsSetUseCase(o-ft-buttons-standout, background, blue);
 @include oColorsSetUseCase(o-ft-buttons-standout, text, white);
 @include oColorsSetUseCase(o-ft-buttons-standout, border, blue);

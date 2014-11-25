@@ -1,5 +1,5 @@
 // Selectors
-@mixin oFtButtonSelectors($name: o-ft-buttons) {
+@mixin oFtButtonSelectors($name: $o-ft-buttons-class) {
 	$selectors: #{'%#{$name}'};
 	@if (not $o-ft-buttons-is-silent) {
 		$selectors: append($selectors, #{'.#{$name}'}, comma);
@@ -50,7 +50,7 @@
 @mixin oFtButtonsButton($buttonClass) {
 	@warn "oFtButtonsButton() is deprecated and will be removed in next major release. Please use oFtButtons() in your custom classes instead.";
 	@include oFtButtonSelectors($buttonClass) {
-		@include oFtButtons();
+		@include oFtButtonsStandard();
 	}
 }
 

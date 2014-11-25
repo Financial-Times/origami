@@ -9,7 +9,7 @@
 	@include oFtButtonsTypography(16px, 32px);
 }
 
-@mixin oFtButtonsButtonHover() {
+@mixin _oFtButtonsButtonHover() {
 	&:not([disabled]):not([aria-selected=true]):not([aria-pressed=true]):hover {
 		@content;
 	}
