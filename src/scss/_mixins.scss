@@ -4,10 +4,17 @@
 	}
 	.#{$classname} {
 		@include oTableBase;
-		caption.#{$classname}__caption--top {
+
+		.#{$classname}__caption,
+		// Todo: remove these
+		.#{$classname}__caption--top,
+		.#{$classname}__caption--bottom {
+			@include oTableCaption;
+		}
+		.#{$classname}__caption--top {
 			@include oTableCaptionTop;
 		}
-		caption.#{$classname}__caption--bottom {
+		.#{$classname}__caption--bottom {
 			@include oTableCaptionBottom;
 		}
 	}
