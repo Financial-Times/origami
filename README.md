@@ -10,8 +10,8 @@ Simply add an `o-quote` class to any quote you wish to apply the styles to.
 
 ```html
 <blockquote class="o-quote">
-  <p>...</p>
-  <cite class="o-quote__cite">Anonymous</cite>
+	<p>…</p>
+	<cite class="o-quote__cite">Anonymous</cite>
 </blockquote>
 ```
 
@@ -21,9 +21,9 @@ Either extend the base classes to create a custom theme or use the standard them
 
 ```html
 <blockquote class="o-quote o-quote--standard">
-  <p>...</p>
-  <cite class='o-quote__cite'>Anonymous</cite>
-  ...
+	<p>…</p>
+	<cite class='o-quote__cite'>Anonymous</cite>
+	…
 </blockquote>
 ```
 
@@ -32,7 +32,7 @@ Either extend the base classes to create a custom theme or use the standard them
 If using __o-quote__ in silent mode, `@extend` the placeholder `%o-quote` into your own table class:
 
 ```sass
-  .my-pulled-blockquote {
-    @extend %o-quote
-  }
+	.my-pulled-blockquote {
+		@extend %o-quote;
+	}
 ```

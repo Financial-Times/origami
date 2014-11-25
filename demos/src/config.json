@@ -1,15 +1,15 @@
 {
-  "options": {
-    "sass": "demos/src/demo.scss"
-  },
-  "demos": [
-    {
-      "name": "base",
-      "template": "demos/src/base.mustache"
-    },
-    {
-      "name": "standard",
-      "template": "demos/src/standard.mustache"
-    }
-    ]
+	"options": {
+		"sass": "demos/src/demo.scss"
+	},
+	"demos": [
+		{
+			"name": "base",
+			"template": "demos/src/base.mustache"
+		},
+		{
+			"name": "standard",
+			"template": "demos/src/standard.mustache"
+		}
+		]
 }
