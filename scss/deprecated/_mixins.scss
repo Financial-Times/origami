@@ -1,3 +1,6 @@
+@mixin oFtTypographyWebkitFontfix() {
+	@warn 'oFtTypographyWebkitFontfix is deprecated and will be removed in next major release';
+}
 
 @mixin oFtTypographyExtend ($class) {
 	@extend #{'%o-ft-typography-#{$class}'} !optional;
