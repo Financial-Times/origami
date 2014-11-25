@@ -4,7 +4,6 @@
 // Deprecated
 @import "o-ft-icons/main";
 
-@import "scss/color-use-cases";
 @import "scss/variables";
 @import "scss/mixins";
 @import "scss/deprecated";
@@ -25,7 +24,7 @@
 			@include oFtButtonsSize($size);
 		}
 	}
-	@each $theme in $o-ft-buttons-themes {
+	@each $theme, $properties in $o-ft-buttons-themes {
 		.#{$o-ft-buttons-class}--#{$theme} {
 			@include oFtButtonsTheme($theme);
 		}

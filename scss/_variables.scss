@@ -16,8 +16,72 @@ $o-ft-buttons-sizes: (
 	)
 );
 
-$o-ft-buttons-themes:
-	standard,
-	standout,
-	inverse,
-	uncolored;
+$o-ft-buttons-themes: (
+	standard: (
+		normal: (
+			color: oColorsGetPaletteColor(blue),
+			border-color: oColorsGetPaletteColor(blue),
+			background: transparent
+		),
+		hover: (
+			background: rgba(oColorsGetPaletteColor(pink-tint4), 0.15),
+		),
+		focus: (
+			background: oColorsGetPaletteColor(pink-tint4)
+		),
+		selected: (
+			background: oColorsGetPaletteColor(pink-tint5),
+			color: white,
+			border-color: oColorsGetPaletteColor(pink-tint5)
+		),
+		pressed: (
+			background: oColorsGetPaletteColor(green),
+			color: white,
+			border-color: oColorsGetPaletteColor(green)
+		),
+		disabled: ()
+	),
+
+	standout: (
+		normal: (
+			background: oColorsGetPaletteColor(blue),
+			color: white,
+			border-color: oColorsGetPaletteColor(blue)
+		),
+		hover: (
+			background: oColorsGetPaletteColor(dark-blue),
+			border-color: oColorsGetPaletteColor(dark-blue)
+		),
+		focus: (),
+		selected: (),
+		pressed: (),
+		disabled: ()
+	),
+
+	inverse: (
+		normal: (
+			color: white,
+			background: transparent,
+			border-color: white
+		),
+		hover: (
+			background: rgba(white, 0.3)
+		),
+		focus: (),
+		selected: (
+			background: white,
+			color: oColorsGetPaletteColor(grey-tint4),
+			border-color: white
+		),
+		pressed: (),
+		disabled: ()
+	),
+
+	uncolored: (
+		normal: (
+			color: oColorsGetPaletteColor(pink-tint5),
+			border-color: oColorsGetPaletteColor(pink-tint5),
+			background: transparent
+		)
+	)
+);

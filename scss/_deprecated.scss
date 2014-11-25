@@ -1,3 +1,39 @@
+@include oColorsSetUseCase(o-ft-buttons-standard, text, blue);
+@include oColorsSetUseCase(o-ft-buttons-standard, border, blue);
+@include oColorsSetUseCase(o-ft-buttons-standard, background, transparent);
+
+@include oColorsSetUseCase(o-ft-buttons-standard-hover, background, pink-tint4);
+
+@include oColorsSetUseCase(o-ft-buttons-standard-selected, background, pink-tint5);
+@include oColorsSetUseCase(o-ft-buttons-standard-selected, text, white);
+@include oColorsSetUseCase(o-ft-buttons-standard-selected, border, pink-tint5);
+
+@include oColorsSetUseCase(o-ft-buttons-uncolored, text, pink-tint5);
+@include oColorsSetUseCase(o-ft-buttons-uncolored, border, pink-tint5);
+@include oColorsSetUseCase(o-ft-buttons-uncolored, background, transparent);
+
+@include oColorsSetUseCase(o-ft-buttons-inverse, text, white);
+@include oColorsSetUseCase(o-ft-buttons-inverse, border, white);
+
+@include oColorsSetUseCase(o-ft-buttons-inverse-selected, background, white);
+@include oColorsSetUseCase(o-ft-buttons-inverse-selected, text, grey-tint4);
+@include oColorsSetUseCase(o-ft-buttons-inverse-selected, border, white);
+
+@include oColorsSetUseCase(o-ft-buttons-inverse-hover, background, white);
+
+@include oColorsSetUseCase(o-ft-buttons-inverse-focus, background, blue);
+
+@include oColorsSetUseCase(o-ft-buttons-standout, background, blue);
+@include oColorsSetUseCase(o-ft-buttons-standout, text, white);
+@include oColorsSetUseCase(o-ft-buttons-standout, border, blue);
+
+@include oColorsSetUseCase(o-ft-buttons-standout-hover, background, dark-blue);
+@include oColorsSetUseCase(o-ft-buttons-standout-hover, border, dark-blue);
+
+@include oColorsSetUseCase(o-ft-buttons-pressed, background, green);
+@include oColorsSetUseCase(o-ft-buttons-pressed, text, white);
+@include oColorsSetUseCase(o-ft-buttons-pressed, border, green);
+
 // Selectors
 @mixin oFtButtonSelectors($name: $o-ft-buttons-class) {
 	$selectors: #{'%#{$name}'};
