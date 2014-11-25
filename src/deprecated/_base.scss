@@ -1,0 +1,7 @@
+#{$o-quote-class-type}o-quote {
+	@include oQuote;
+}
+
+#{$o-quote-class-type}o-quote__cite {
+	@include oQuoteCite;
+}

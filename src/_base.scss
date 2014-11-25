@@ -1,4 +1,12 @@
-#{$o-quote-class-type}o-quote {
+/**
+ * @group o-quote
+ * @link http://registry.origami.ft.com/components/o-quote
+**/
+
+/**
+ * Base mixin for quotes
+ */
+@mixin oQuote {
 	display: block;
 	margin: 0;
 	padding: 28px;
@@ -18,7 +26,18 @@
 	}
 }
 
-#{$o-quote-class-type}o-quote__cite {
+@mixin oQuoteCite {
 	display: block;
 	text-align: right;
 }
+
+// uncomment the below when deprecated placeholder stuff is removed
+/*
+.o-quote {
+	@include oQuote;
+}
+
+.o-quote-quote__cite {
+	@include oQuoteCite;
+}
+*/

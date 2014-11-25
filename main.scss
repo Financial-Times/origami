@@ -14,3 +14,6 @@ $o-quote-class-type: unquote("%");
 @import "src/color-use-cases";
 @import "src/base";
 @import "src/standard";
+
+@import "src/deprecated/base";
+@import "src/deprecated/standard";
