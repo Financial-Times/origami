@@ -1,2 +1,23 @@
 $o-ft-buttons-is-silent: true !default;
 $o-ft-buttons-class: o-ft-buttons;
+
+$o-ft-buttons-sizes: (
+	medium: (
+		font-size: 14px,
+		height: 24px,
+		padding-left: 14px,
+		padding-right: 14px,
+	),
+	big: (
+		font-size: 16px,
+		height: 36px,
+		padding-left: 18px,
+		padding-right: 18px,
+	)
+);
+
+$o-ft-buttons-themes:
+	standard,
+	standout,
+	inverse,
+	uncolored;

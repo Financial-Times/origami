@@ -2,11 +2,11 @@
 @include oColorsSetUseCase(o-ft-buttons-standard, border, blue);
 @include oColorsSetUseCase(o-ft-buttons-standard, background, transparent);
 
-@include oColorsSetUseCase(o-ft-buttons-hover, background, pink-tint4);
+@include oColorsSetUseCase(o-ft-buttons-standard-hover, background, pink-tint4);
 
-@include oColorsSetUseCase(o-ft-buttons-selected, background, pink-tint5);
-@include oColorsSetUseCase(o-ft-buttons-selected, text, white);
-@include oColorsSetUseCase(o-ft-buttons-selected, border, pink-tint5);
+@include oColorsSetUseCase(o-ft-buttons-standard-selected, background, pink-tint5);
+@include oColorsSetUseCase(o-ft-buttons-standard-selected, text, white);
+@include oColorsSetUseCase(o-ft-buttons-standard-selected, border, pink-tint5);
 
 @include oColorsSetUseCase(o-ft-buttons-uncolored, text, pink-tint5);
 @include oColorsSetUseCase(o-ft-buttons-uncolored, border, pink-tint5);
@@ -33,7 +33,3 @@
 @include oColorsSetUseCase(o-ft-buttons-pressed, background, green);
 @include oColorsSetUseCase(o-ft-buttons-pressed, text, white);
 @include oColorsSetUseCase(o-ft-buttons-pressed, border, green);
-
-@include oColorsSetUseCase(o-ft-buttons-faux, background, transparent);
-@include oColorsSetUseCase(o-ft-buttons-faux, text, blue);
-@include oColorsSetUseCase(o-ft-buttons-faux, border, transparent);

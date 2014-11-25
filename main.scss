@@ -9,17 +9,33 @@
 @import "scss/mixins";
 @import "scss/deprecated";
 
-@import "scss/base";
-@import "scss/big";
-@import "scss/standout";
 @import "scss/group";
 @import "scss/pagination";
 
-@include oFtButtonsAll(o-ft-buttons);
-
-@import "scss/uncolored";
-@import "scss/inverse";
 
 @if (not $o-ft-buttons-is-silent) {
-  @include oFtButtonsIconInclude();
+	@include oFtButtonsIconInclude;
+
+	.#{$o-ft-buttons-class} {
+		@include oFtButtons;
+	}
+
+	@each $size, $properties in $o-ft-buttons-sizes {
+		.#{$o-ft-buttons-class}--#{$size} {
+			@include oFtButtonsSize($size);
+		}
+	}
+	@each $theme in $o-ft-buttons-themes {
+		.#{$o-ft-buttons-class}--#{$theme} {
+			@include oFtButtonsTheme($theme);
+		}
+	}
+	.o-ft-buttons__pagination, // Deprecated, invalidates the BEM naming convention
+	.o-ft-buttons-pagination {
+		@include oFtButtonsPagination;
+	}
+	.o-ft-buttons__group, // Deprecated, invalidates the BEM naming convention
+	.o-ft-buttons-group {
+		@include oFtButtonsGroup;
+	}
 }

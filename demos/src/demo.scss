@@ -1,36 +1,37 @@
 $o-ft-buttons-is-silent: false;
+$o-ft-icons-is-silent: false;
 
 @import "../../main";
 
 .demo__heading {
-  font-family: Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .demo__heading--medium {
-  margin: 0 0 20px;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 26px;
-  color: #000000;
+	margin: 0 0 20px;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 26px;
+	color: #000000;
 }
 
 .demo__heading--small {
-  margin: 0 0 40px;
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 22px;
-  color: #cec6b9;
+	margin: 0 0 40px;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 22px;
+	color: #cec6b9;
 }
 
 .demo__inverse {
-  background: black;
+	background: black;
 }
 
 .demo__faux {
-  display: inline-block;
+	display: inline-block;
 }
 
 // So icon buttons align with the rest
 i {
-  line-height: 1px;
+	line-height: 1px;
 }
