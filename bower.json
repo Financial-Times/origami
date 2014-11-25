@@ -2,8 +2,8 @@
 	"name": "o-ft-buttons",
 	"main": ["main.scss"],
 	"dependencies": {
-		"o-fonts": "^1.3.0",
-		"o-colors": "^2.4.0",
+		"o-fonts": "^1.4.2",
+		"o-colors": "^2.4.3",
 		"o-ft-icons": ">=1.1.1 <3",
 		"o-hoverable": ">0.1.1 <2"
 	}
