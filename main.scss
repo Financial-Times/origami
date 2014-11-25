@@ -1,8 +1,8 @@
 @import "o-fonts/main";
 @import "o-colors/main";
 @import "o-hoverable/main";
-// Deprecated
-@import "o-ft-icons/main";
+
+@import "o-ft-icons/main"; // Deprecated
 
 @import "scss/variables";
 @import "scss/mixins";
@@ -13,7 +13,7 @@
 
 
 @if (not $o-ft-buttons-is-silent) {
-	@include oFtButtonsIconInclude;
+	@include oFontsInclude(BentonSans, normal);
 
 	.#{$o-ft-buttons-class} {
 		@include oFtButtons;

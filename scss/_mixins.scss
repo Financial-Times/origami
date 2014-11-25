@@ -1,3 +1,21 @@
+/**
+ * @group o-ft-buttons
+ * @link http://registry.origami.ft.com/components/o-ft-buttons
+**/
+
+/**
+ * Button theme construct
+ * Ouputs dimensions for a specific button size
+ *
+ * @example
+ * .my-button--big {
+ * 	@include oFtButtonsSize(big);
+ * }
+ *
+ * @param {String} $size
+ *
+ * @requires {variable} $o-ft-buttons-sizes
+ */
 @mixin oFtButtonsSize($size) {
 	// Dimensions
 	$button-dimensions: map-get($o-ft-buttons-sizes, $size);
@@ -6,6 +24,20 @@
 	line-height: map-get($button-dimensions, height) - 2px; // height - border width
 }
 
+/**
+ * Button theme construct
+ * Ouputs styles for all button states
+ *
+ * @example
+ * .my-button--standout {
+ * 	@include oFtButtonsTheme(standout);
+ * }
+ *
+ * @param {String} $theme
+ *
+ * @requires {variable} $o-ft-buttons-themes
+ * @requires {variable} $o-hoverable-if-hover-enabled
+ */
 @mixin oFtButtonsTheme($theme) {
 	$states: map-get($o-ft-buttons-themes, $theme);
 
@@ -30,6 +62,7 @@
 	}
 
 	@if map-get($states, selected) {
+		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
 		&[aria-selected=true] {
 			@each $property, $value in map-get($states, selected) {
 				#{$property}: #{$value};
@@ -44,6 +77,7 @@
 	}
 
 	@if map-get($states, pressed) {
+		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
 		&[aria-pressed=true] {
 			@each $property, $value in map-get($states, pressed) {
 				#{$property}: #{$value};
@@ -58,32 +92,54 @@
 	}
 }
 
-@mixin oFtButtons($theme: standard, $size: medium) {
-	box-sizing: border-box;
+/**
+ * Button construct
+ * Basic button styling and default states for specific theme and size
+ *
+ * @example
+ * .my-button {
+ * 	@include oFtButtons;
+ * }
+ * .my-inverse-button {
+ * 	@include oFtButtons($theme: inverse);
+ * }
+ * .my-big-standout-button {
+ * 	@include oFtButtons(big, standout);
+ * }
+ * .my-big-button {
+ * 	@include oFtButtons(big);
+ * }
+ *
+ * @param {String} (medium) $size
+ * @param {String} (standard) $theme
+ *
+ * @requires {variable} $o-ft-buttons-sizes
+ */
+@mixin oFtButtons($size: medium, $theme: standard) {
 	display: inline-block;
+	box-sizing: border-box;
 	margin: 0;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	text-decoration: none;
-	text-align: center;
+	outline: 0;
 	border-width: 1px;
 	border-style: solid;
 	border-radius: 5px;
-	outline: 0;
-	user-select: none;
+	text-align: center;
+	text-decoration: none;
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 	cursor: pointer;
 	transition: background-color 0.3s;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	user-select: none;
 
-	@if $size {
-		@include oFtButtonsSize($size);
-	}
+	@include oFtButtonsSize($size);
+	@include oFtButtonsTheme($theme);
 
-	@if $theme {
-		@include oFtButtonsTheme($theme);
-	}
-
+	// Same as aria-disabled:
+	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-disabled
+	// This is a common style for all button themes
 	&[disabled] {
-		cursor: default;
 		opacity: 0.4;
+		cursor: default;
 	}
 }

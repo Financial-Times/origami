@@ -1,6 +1,28 @@
+/**
+ * @group o-ft-buttons
+ * @link http://registry.origami.ft.com/components/o-ft-buttons
+**/
+
+/**
+ * Silent mode: on (true) or off (false)
+ * Set to false to output default button classes
+ *
+ * @type Boolean
+ */
 $o-ft-buttons-is-silent: true !default;
+
+/**
+ * Default button class used when $o-ft-buttons-is-silent is true
+ *
+ * @type String
+ */
 $o-ft-buttons-class: o-ft-buttons;
 
+/**
+ * Button sizes, with their attached properties
+ *
+ * @type Map
+ */
 $o-ft-buttons-sizes: (
 	medium: (
 		font-size: 14px,
@@ -16,6 +38,12 @@ $o-ft-buttons-sizes: (
 	)
 );
 
+/**
+ * Button themes, with their respective states
+ * Each state is a Map of CSS properties
+ *
+ * @type Map
+ */
 $o-ft-buttons-themes: (
 	standard: (
 		normal: (
@@ -24,10 +52,10 @@ $o-ft-buttons-themes: (
 			background: transparent
 		),
 		hover: (
-			background: rgba(oColorsGetPaletteColor(pink-tint4), 0.15),
+			background: rgba(oColorsGetPaletteColor(pink-tint5), 0.15),
 		),
 		focus: (
-			background: oColorsGetPaletteColor(pink-tint4)
+			background: oColorsGetPaletteColor(pink-tint5)
 		),
 		selected: (
 			background: oColorsGetPaletteColor(pink-tint5),
@@ -38,8 +66,7 @@ $o-ft-buttons-themes: (
 			background: oColorsGetPaletteColor(green),
 			color: white,
 			border-color: oColorsGetPaletteColor(green)
-		),
-		disabled: ()
+		)
 	),
 
 	standout: (
@@ -51,11 +78,7 @@ $o-ft-buttons-themes: (
 		hover: (
 			background: oColorsGetPaletteColor(dark-blue),
 			border-color: oColorsGetPaletteColor(dark-blue)
-		),
-		focus: (),
-		selected: (),
-		pressed: (),
-		disabled: ()
+		)
 	),
 
 	inverse: (
@@ -67,14 +90,11 @@ $o-ft-buttons-themes: (
 		hover: (
 			background: rgba(white, 0.3)
 		),
-		focus: (),
 		selected: (
 			background: white,
 			color: oColorsGetPaletteColor(grey-tint4),
 			border-color: white
-		),
-		pressed: (),
-		disabled: ()
+		)
 	),
 
 	uncolored: (
