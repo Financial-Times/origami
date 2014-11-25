@@ -73,7 +73,7 @@ Example Sass:
 Example HTML:
 
 	<div class="my-button-group-class">
-		<button class="my-button-class">John</button><!--
+	    <button class="my-button-class">John</button><!--
 	 --><button class="my-button-class">Paul</button><!--
 	 --><button class="my-button-class">George</button><!--
 	 --><button class="my-button-class">Ringo</button>
@@ -97,7 +97,7 @@ Example Sass:
 Example HTML:
 
 	<div class="my-button-pagination-class">
-		<button class="my-button-class">1</button><!--
+	    <button class="my-button-class">1</button><!--
 	 --><button class="my-button-class">2</button><!--
 	 --><button class="my-button-class">3</button><!--
 	 --><button class="my-button-class">4</button>
