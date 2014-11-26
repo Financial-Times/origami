@@ -1,0 +1,114 @@
+/**
+ * @group o-ft-buttons
+ * @link http://registry.origami.ft.com/components/o-ft-buttons
+**/
+
+/**
+ * Theme: Standard
+ *
+ * @type Map
+ */
+@include oColorsSetUseCase(o-ft-buttons-standard-normal,   text,       blue);
+@include oColorsSetUseCase(o-ft-buttons-standard-normal,   border,     blue);
+@include oColorsSetUseCase(o-ft-buttons-standard-normal,   background, transparent);
+@include oColorsSetUseCase(o-ft-buttons-standard-hover,    background, pink-tint5);
+@include oColorsSetUseCase(o-ft-buttons-standard-focus,    background, pink-tint5);
+@include oColorsSetUseCase(o-ft-buttons-standard-selected, background, pink-tint5);
+@include oColorsSetUseCase(o-ft-buttons-standard-selected, text,       white);
+@include oColorsSetUseCase(o-ft-buttons-standard-selected, border,     pink-tint5);
+@include oColorsSetUseCase(o-ft-buttons-standard-pressed,  background, green);
+@include oColorsSetUseCase(o-ft-buttons-standard-pressed,  text,       white);
+@include oColorsSetUseCase(o-ft-buttons-standard-pressed,  border,     green);
+
+$o-ft-buttons-themes--standard: (
+	normal: (
+		color: oColorsGetColorFor(o-ft-buttons-standard-normal, text),
+		border-color: oColorsGetColorFor(o-ft-buttons-standard-normal, border),
+		background: oColorsGetColorFor(o-ft-buttons-standard-normal, background)
+	),
+	hover: (
+		background: rgba(oColorsGetColorFor(o-ft-buttons-standard-hover, background), 0.15),
+	),
+	focus: (
+		background: oColorsGetColorFor(o-ft-buttons-standard-focus, background)
+	),
+	selected: (
+		color: oColorsGetColorFor(o-ft-buttons-standard-selected, text),
+		background: oColorsGetColorFor(o-ft-buttons-standard-selected, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-standard-selected, border)
+	),
+	pressed: (
+		color: oColorsGetColorFor(o-ft-buttons-standard-pressed, text),
+		background: oColorsGetColorFor(o-ft-buttons-standard-pressed, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-standard-pressed, border)
+	)
+);
+
+/**
+ * Theme: Standout
+ *
+ * @type Map
+ */
+@include oColorsSetUseCase(o-ft-buttons-standout-normal, background, blue);
+@include oColorsSetUseCase(o-ft-buttons-standout-normal, text,       white);
+@include oColorsSetUseCase(o-ft-buttons-standout-normal, border,     blue);
+@include oColorsSetUseCase(o-ft-buttons-standout-hover,  background, dark-blue);
+@include oColorsSetUseCase(o-ft-buttons-standout-hover,  border,     dark-blue);
+
+$o-ft-buttons-themes--standout: (
+	normal: (
+		color: oColorsGetColorFor(o-ft-buttons-standout-normal, text),
+		background: oColorsGetColorFor(o-ft-buttons-standout-normal, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-standout-normal, border)
+	),
+	hover: (
+		background: oColorsGetColorFor(o-ft-buttons-standout-hover, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-standout-hover, border)
+	)
+);
+
+/**
+ * Theme: Inverse
+ *
+ * @type Map
+ */
+@include oColorsSetUseCase(o-ft-buttons-inverse-normal,   text,       white);
+@include oColorsSetUseCase(o-ft-buttons-inverse-normal,   border,     white);
+@include oColorsSetUseCase(o-ft-buttons-inverse-normal,   background, transparent);
+@include oColorsSetUseCase(o-ft-buttons-inverse-hover,    background, white);
+@include oColorsSetUseCase(o-ft-buttons-inverse-selected, background, white);
+@include oColorsSetUseCase(o-ft-buttons-inverse-selected, text,       grey-tint4);
+@include oColorsSetUseCase(o-ft-buttons-inverse-selected, border,     white);
+
+$o-ft-buttons-themes--inverse: (
+	normal: (
+		color: oColorsGetColorFor(o-ft-buttons-inverse-normal, text),
+		background: oColorsGetColorFor(o-ft-buttons-inverse-normal, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-inverse-normal, border)
+	),
+	hover: (
+		background: rgba(oColorsGetColorFor(o-ft-buttons-inverse-hover, background), 0.3)
+	),
+	selected: (
+		color: oColorsGetColorFor(o-ft-buttons-inverse-selected, text),
+		background: oColorsGetColorFor(o-ft-buttons-inverse-selected, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-inverse-selected, border)
+	)
+);
+
+/**
+ * Theme: Uncolored
+ *
+ * @type Map
+ */
+@include oColorsSetUseCase(o-ft-buttons-uncolored-normal, text, pink-tint5);
+@include oColorsSetUseCase(o-ft-buttons-uncolored-normal, border, pink-tint5);
+@include oColorsSetUseCase(o-ft-buttons-uncolored-normal, background, transparent);
+
+$o-ft-buttons-themes--uncolored: (
+	normal: (
+		color: oColorsGetColorFor(o-ft-buttons-uncolored-normal, text),
+		border-color: oColorsGetColorFor(o-ft-buttons-uncolored-normal, border),
+		background: oColorsGetColorFor(o-ft-buttons-uncolored-normal, background)
+	)
+);
