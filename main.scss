@@ -1,10 +1,10 @@
 @import "o-fonts/main";
 @import "o-colors/main";
 @import "o-hoverable/main";
-// Deprecated
-@import "o-ft-icons/main";
 
-@import "scss/color-use-cases";
+@import "o-ft-icons/main"; // Deprecated
+
+@import "scss/themes";
 @import "scss/variables";
 @import "scss/mixins";
 @import "scss/deprecated";
@@ -12,9 +12,10 @@
 @import "scss/group";
 @import "scss/pagination";
 
+@include oFtButtonsAll($o-ft-buttons-class);
 
 @if (not $o-ft-buttons-is-silent) {
-	@include oFtButtonsIconInclude;
+	@include oFontsInclude(BentonSans, normal);
 
 	.#{$o-ft-buttons-class} {
 		@include oFtButtons;
@@ -25,7 +26,7 @@
 			@include oFtButtonsSize($size);
 		}
 	}
-	@each $theme in $o-ft-buttons-themes {
+	@each $theme, $properties in $o-ft-buttons-themes {
 		.#{$o-ft-buttons-class}--#{$theme} {
 			@include oFtButtonsTheme($theme);
 		}

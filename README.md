@@ -1,5 +1,4 @@
-o-ft-buttons [![Build Status](https://travis-ci.org/Financial-Times/o-ft-buttons.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-buttons)
-============
+# o-ft-buttons [![Build Status](https://travis-ci.org/Financial-Times/o-ft-buttons.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-buttons)
 
 Standard FT-branded buttons.
 
@@ -46,14 +45,16 @@ These are the base styles that must be called in addition to any of the other mi
 Example Sass:
 
 ```scss
-	.my-button-class {
-		@include oFtButtons();
-	}
+.my-button-class {
+	@include oFtButtons();
+}
 ```
 
 Example HTML:
 
-	<button class="my-button-class">Standard</button>
+```html
+<button class="my-button-class">Standard</button>
+```
 
 Silent mode off: `.o-ft-buttons`
 
@@ -65,9 +66,9 @@ Include grouped button styles. It accepts one argument:
 Example Sass:
 
 ```scss
-	.my-button-group-class {
-		@include oFtButtonsGroup(my-button-class);
-	}
+.my-button-group-class {
+	@include oFtButtonsGroup(my-button-class);
+}
 ```
 
 Example HTML:
@@ -89,19 +90,21 @@ Include pagination buttons styles. It accepts one argument:
 Example Sass:
 
 ```scss
-	.my-button-pagination-class {
-		@include oFtButtonsPagination(my-button-class);
-	}
+.my-button-pagination-class {
+	@include oFtButtonsPagination(my-button-class);
+}
 ```
 
 Example HTML:
 
-	<div class="my-button-pagination-class">
-	    <button class="my-button-class">1</button><!--
-	 --><button class="my-button-class">2</button><!--
-	 --><button class="my-button-class">3</button><!--
-	 --><button class="my-button-class">4</button>
-	</div>
+```html
+<div class="my-button-pagination-class">
+    <button class="my-button-class">1</button><!--
+ --><button class="my-button-class">2</button><!--
+ --><button class="my-button-class">3</button><!--
+ --><button class="my-button-class">4</button>
+</div>
+```
 
 Silent mode off: `.o-ft-buttons-pagination`
 
@@ -112,14 +115,16 @@ Include the _big_ button styles.
 Example Sass:
 
 ```scss
-	.my-button-class--big {
-		@include oFtButtonsSize(big);
-	}
+.my-button-class--big {
+	@include oFtButtonsSize(big);
+}
 ```
 
 Example HTML:
 
-	<button class="my-button-class my-button-class--big">Big button</button>
+```html
+<button class="my-button-class my-button-class--big">Big button</button>
+```
 
 Silent mode off: `.o-ft-buttons--big`
 
@@ -130,14 +135,16 @@ Include the _standout_ button styles.
 Example Sass:
 
 ```scss
-	.my-button-class--standout {
-		@include oFtButtonsTheme(standout);
-	}
+.my-button-class--standout {
+	@include oFtButtonsTheme(standout);
+}
 ```
 
 Example HTML:
 
-	<button class="my-button-class my-button-class--standout">Standout button</button>
+```html
+<button class="my-button-class my-button-class--standout">Standout button</button>
+```
 
 Silent mode off: `.o-ft-buttons--standout`
 
@@ -148,14 +155,16 @@ Include the _inverse_ button styles.
 Example Sass:
 
 ```scss
-	.my-button-class--inverse {
-		@include oFtButtonsTheme(inverse);
-	}
+.my-button-class--inverse {
+	@include oFtButtonsTheme(inverse);
+}
 ```
 
 Example HTML:
 
-	<button class="my-button-class my-button-class--inverse">Inverse button</button>
+```html
+<button class="my-button-class my-button-class--inverse">Inverse button</button>
+```
 
 Silent mode off: `.o-ft-buttons--inverse`
 
@@ -166,14 +175,16 @@ Include the _uncolored_ button styles.
 Example Sass:
 
 ```scss
-	.my-button-class--uncolored {
-		@include oFtButtonsTheme(uncolored);
-	}
+.my-button-class--uncolored {
+	@include oFtButtonsTheme(uncolored);
+}
 ```
 
 Example HTML:
 
-	<button class="my-button-class my-button-class--uncolored">Uncolored button</button>
+```html
+<button class="my-button-class my-button-class--uncolored">Uncolored button</button>
+```
 
 Silent mode off: `.o-ft-buttons--inverse`
 

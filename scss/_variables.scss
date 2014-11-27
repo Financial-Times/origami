@@ -1,6 +1,28 @@
-$o-ft-buttons-is-silent: true !default;
-$o-ft-buttons-class: o-ft-buttons;
+/**
+ * @group o-ft-buttons
+ * @link http://registry.origami.ft.com/components/o-ft-buttons
+**/
 
+/**
+ * Silent mode: on (true) or off (false)
+ * Set to false to output default button classes
+ *
+ * @type Boolean
+ */
+$o-ft-buttons-is-silent: true !default;
+
+/**
+ * Default button class used when $o-ft-buttons-is-silent is true
+ *
+ * @type String
+ */
+$o-ft-buttons-class: o-ft-buttons !default;
+
+/**
+ * Button sizes, with their attached properties
+ *
+ * @type Map
+ */
 $o-ft-buttons-sizes: (
 	medium: (
 		font-size: 14px,
@@ -16,8 +38,16 @@ $o-ft-buttons-sizes: (
 	)
 );
 
-$o-ft-buttons-themes:
-	standard,
-	standout,
-	inverse,
-	uncolored;
+/**
+ * Button themes, with their respective states
+ * Each state is a Map of CSS properties, find
+ * all theme definitions in _themes.scss
+ *
+ * @type Map
+ */
+$o-ft-buttons-themes: (
+	standard: $o-ft-buttons-themes__standard,
+	standout: $o-ft-buttons-themes__standout,
+	inverse: $o-ft-buttons-themes__inverse,
+	uncolored: $o-ft-buttons-themes__uncolored
+);
