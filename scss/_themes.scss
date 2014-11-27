@@ -22,11 +22,11 @@
 $o-ft-buttons-themes__standard: (
 	normal: (
 		color: oColorsGetColorFor(o-ft-buttons-standard-normal, text),
-		border-color: oColorsGetColorFor(o-ft-buttons-standard-normal, border),
-		background: oColorsGetColorFor(o-ft-buttons-standard-normal, background)
+		background: oColorsGetColorFor(o-ft-buttons-standard-normal, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-standard-normal, border)
 	),
 	hover: (
-		background: rgba(oColorsGetColorFor(o-ft-buttons-standard-hover, background), 0.15),
+		background: rgba(oColorsGetColorFor(o-ft-buttons-standard-hover, background), 0.15)
 	),
 	focus: (
 		box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-ft-buttons-standard-normal, border)
@@ -66,6 +66,12 @@ $o-ft-buttons-themes__standout: (
 	),
 	focus: (
 		box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-ft-buttons-standout-normal, text)
+	),
+	disabled: (
+		// Looks like a standard disabled button
+		color: oColorsGetColorFor(o-ft-buttons-standard-normal, text),
+		background: oColorsGetColorFor(o-ft-buttons-standard-normal, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-standard-normal, border)
 	)
 );
 

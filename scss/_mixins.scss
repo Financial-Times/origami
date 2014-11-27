@@ -92,6 +92,14 @@
 			}
 		}
 	}
+
+	@if map-get($states, disabled) {
+		&[disabled] {
+			@each $property, $value in map-get($states, disabled) {
+				#{$property}: #{$value};
+			}
+		}
+	}
 }
 
 /**
