@@ -14,7 +14,7 @@ o-overlay can be instantiated in two ways:
 
 Set options as `data-` attributes on any element that has a `o-overlay-trigger` class, to create an overlay and open it when that element is clicked.
 
-```html
+``` html
 <button class='o-overlay-trigger' data-o-overlay-src='#overlay1-content' data-o-overlay-id='overlay1'>Open!</button>
 <script type='text/template' id='overlay1-content'>
    <p>Content of overlay</p>
@@ -83,6 +83,18 @@ _o-overlays will throw an error if the options aren't set correctly._
 Optionally, an overlay can be displayed to be pointing at a target element. The arrow can come out of any of the overlay's four sides and the preferred position is set as a config option. However, if the overlay doesn't fit next to the trigger in the default position, the module will check if it fits in the opposite position and change it if that is the case. This is not a permanent change, it's only until there is space again in the default position.
 
 Overlays with arrows can't be modal.
+
+## Events
+
+We implement [o-layers](https://github.com/Financial-Times/o-layers) events:
+
+* `oLayers.new`: It's dispatched right before the layer appears
+* `oLayers.close`: It's dispatched right after the layer is removed
+
+We also dispatch custom events:
+
+* `oOverlay.ready`: Dispatched when the overlay is loaded in the DOM
+* `oOverlay.destroy`: Dispatched when the overlay is removed from the DOM
 
 ## UI Notes
 

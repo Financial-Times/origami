@@ -225,6 +225,7 @@ Overlay.prototype = {
 		this.width = this.getWidth();
 		this.height = this.getHeight();
 		this.respondToWindow(viewport.getSize());
+		this.broadcast('ready');
 	},
 
 	realign: function(dimension, size) {
@@ -250,6 +251,8 @@ Overlay.prototype = {
 			this.shadow.parentNode.removeChild(this.shadow);
 		}
 		this.visible = false;
+		this.broadcast('close', 'oLayers');
+		this.broadcast('destroy');
 	},
 
 	closeOnExternalClick: function(ev) {
