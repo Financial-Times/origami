@@ -1,6 +1,5 @@
 {
   "name": "o-tabs",
-  "version": "0.0.0",
   "description": "UI tabs",
   "scripts": {
     "test": "./node_modules/karma/bin/karma start karma.conf.js"

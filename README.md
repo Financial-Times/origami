@@ -29,7 +29,7 @@ The _tabpanel_ elements must have a `o-tabs__tabpanel` class added to them.
 This is an example of an HTML structure that __o-tabs__ will accept:
 
 ```html
-<ul data-o-component="o-tabs" data-o-version="1.0.0" class="o-tabs" role="tablist">
+<ul data-o-component="o-tabs" class="o-tabs" role="tablist">
     <li role="tab"><a href="#tabContent1">Tab 1</a></li>
     <li role="tab"><a href="#tabContent2">Tab 2</a></li>
     <li role="tab"><a href="#tabContent3">Tab 3</a></li>
