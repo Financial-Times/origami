@@ -27,17 +27,17 @@
         {
             "path": "/demos/modal.html",
             "expanded": true,
-            "description": ""
+            "description": "Modal shaded overlay"
         },
         {
             "path": "/demos/centered-overlay.html",
-            "expanded": true,
-            "description": ""
+            "expanded": false,
+            "description": "Non-modal non-shaded centered overlay"
         },
         {
             "path": "/demos/overlay-with-arrow.html",
-            "expanded": true,
-            "description": ""
+            "expanded": false,
+            "description": "Non-modal overlay with an arrow that points to a target"
         }
     ]
 }
