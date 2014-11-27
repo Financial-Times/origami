@@ -12,6 +12,7 @@
 @import "scss/group";
 @import "scss/pagination";
 
+@include oFtButtonsAll($o-ft-buttons-class);
 
 @if (not $o-ft-buttons-is-silent) {
 	@include oFontsInclude(BentonSans, normal);
