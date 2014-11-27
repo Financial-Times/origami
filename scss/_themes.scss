@@ -64,6 +64,9 @@ $o-ft-buttons-themes__standout: (
 	hover: (
 		background: oColorsGetColorFor(o-ft-buttons-standout-hover, background),
 		border-color: oColorsGetColorFor(o-ft-buttons-standout-hover, border)
+	),
+	focus: (
+		background: oColorsGetColorFor(o-ft-buttons-standout-normal, text)
 	)
 );
 
