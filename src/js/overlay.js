@@ -68,7 +68,7 @@ var getOptionsFromTrigger = function(trigger) {
 			if (attr.name.indexOf('data-o-overlay') === 0) {
 				// Remove the unnecessary part of the string the first time this is run for each attribute
 				var key = attr.name.replace('data-o-overlay-', '');
-				opts = utils.optionsFromKey(key, attr.value.toLowerCase(), opts);
+				opts = utils.optionsFromKey(key, attr.value, opts);
 			}
 		});
 		opts.trigger = trigger;
