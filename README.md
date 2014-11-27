@@ -187,23 +187,27 @@ In order to build the DOM element, follow the steps:
 3. Specify a unique ID
 4. Add configuration options that you want to pass to the widget in the following form: data-o-comments-{configName}="{configValue}". Replace `{configName}` and `{configValue}` with the name of the configuration and value you want to pass.
 
-When done with the configuration of the widget, adding event listeners, etc.:
+If you need a reference of the JavaScript object created, you can listen the event on the body element the following way:
+
+```javascript
+var widgetInstance;
+document.body.addEventListener('oComments.domConstruct', function (evt) {
+    if (evt.detail.id === 'commentWidget') {
+        widgetInstance = evt.detail.instance;
+    }
+});
+```
+
+where evt.detail.id is the ID of the DOM element (in this example `commentWidget`).
+
+
+When done with the configuration of the widget, adding event listeners, etc., execute the following to initiate the widget generation:
 
 ```javascript
 oComments.initDomConstruct();
 ```
 
 **You don't have to wait until the document is fully loaded, call it whenever you are done with the configurations.**
-
-
-
-If you need a reference of the JavaScript object created, you can find it the following way:
-
-```javascript
-window['o-comments-widget-' + id]
-```
-
-where id is the ID of the DOM element (in this example `commentWidget`).
 
 ---
 

@@ -1,5 +1,6 @@
 "use strict";
 
+var self = module;
 var globalEvents = require('./src/javascripts/globalEvents');
 var config = require('./src/javascripts/config.js'),
 	oCommentApi = require('o-comment-api'),
@@ -60,7 +61,12 @@ module.exports = {
 	},
 
 	initDomConstruct: function () {
-		oCommentUtilities.initDomConstruct(Widget, 'o-comments');
+		oCommentUtilities.initDomConstruct({
+			Widget: Widget,
+			baseClass: 'o-comments',
+			namespace: 'oComments',
+			module: self
+		});
 	},
 
 	/**
