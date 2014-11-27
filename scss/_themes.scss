@@ -20,7 +20,7 @@
 @include oColorsSetUseCase(o-ft-buttons-standard-pressed,  text,       white);
 @include oColorsSetUseCase(o-ft-buttons-standard-pressed,  border,     green);
 
-$o-ft-buttons-themes--standard: (
+$o-ft-buttons-themes__standard: (
 	normal: (
 		color: oColorsGetColorFor(o-ft-buttons-standard-normal, text),
 		border-color: oColorsGetColorFor(o-ft-buttons-standard-normal, border),
@@ -55,7 +55,7 @@ $o-ft-buttons-themes--standard: (
 @include oColorsSetUseCase(o-ft-buttons-standout-hover,  background, dark-blue);
 @include oColorsSetUseCase(o-ft-buttons-standout-hover,  border,     dark-blue);
 
-$o-ft-buttons-themes--standout: (
+$o-ft-buttons-themes__standout: (
 	normal: (
 		color: oColorsGetColorFor(o-ft-buttons-standout-normal, text),
 		background: oColorsGetColorFor(o-ft-buttons-standout-normal, background),
@@ -80,7 +80,7 @@ $o-ft-buttons-themes--standout: (
 @include oColorsSetUseCase(o-ft-buttons-inverse-selected, text,       grey-tint4);
 @include oColorsSetUseCase(o-ft-buttons-inverse-selected, border,     white);
 
-$o-ft-buttons-themes--inverse: (
+$o-ft-buttons-themes__inverse: (
 	normal: (
 		color: oColorsGetColorFor(o-ft-buttons-inverse-normal, text),
 		background: oColorsGetColorFor(o-ft-buttons-inverse-normal, background),
@@ -105,7 +105,7 @@ $o-ft-buttons-themes--inverse: (
 @include oColorsSetUseCase(o-ft-buttons-uncolored-normal, border, pink-tint5);
 @include oColorsSetUseCase(o-ft-buttons-uncolored-normal, background, transparent);
 
-$o-ft-buttons-themes--uncolored: (
+$o-ft-buttons-themes__uncolored: (
 	normal: (
 		color: oColorsGetColorFor(o-ft-buttons-uncolored-normal, text),
 		border-color: oColorsGetColorFor(o-ft-buttons-uncolored-normal, border),

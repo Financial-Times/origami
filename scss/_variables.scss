@@ -16,7 +16,7 @@ $o-ft-buttons-is-silent: true !default;
  *
  * @type String
  */
-$o-ft-buttons-class: o-ft-buttons;
+$o-ft-buttons-class: o-ft-buttons !default;
 
 /**
  * Button sizes, with their attached properties
@@ -40,13 +40,14 @@ $o-ft-buttons-sizes: (
 
 /**
  * Button themes, with their respective states
- * Each state is a Map of CSS properties, see _themes.scss
+ * Each state is a Map of CSS properties, find 
+ * all theme definitions in _themes.scss
  *
  * @type Map
  */
 $o-ft-buttons-themes: (
-	standard: $o-ft-buttons-themes--standard,
-	standout: $o-ft-buttons-themes--standout,
-	inverse: $o-ft-buttons-themes--inverse,
-	uncolored: $o-ft-buttons-themes--uncolored
+	standard: $o-ft-buttons-themes__standard,
+	standout: $o-ft-buttons-themes__standout,
+	inverse: $o-ft-buttons-themes__inverse,
+	uncolored: $o-ft-buttons-themes__uncolored
 );

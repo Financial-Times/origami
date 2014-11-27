@@ -113,7 +113,9 @@
  * @param {String} (medium) $size
  * @param {String} (standard) $theme
  *
- * @requires {variable} $o-ft-buttons-sizes
+ * @requires {mixin} oFtButtonsSize
+ * @requires {mixin} oFtButtonsTheme
+ * @requires {mixin} oFontsGetFontFamilyWithFallbacks
  */
 @mixin oFtButtons($size: medium, $theme: standard) {
 	display: inline-block;
