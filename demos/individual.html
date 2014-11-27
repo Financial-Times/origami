@@ -6,23 +6,39 @@
     <meta charset="utf-8" />
     <title>o-ft-buttons: individual demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <script src="//polyfill.webservices.ft.com/v1/polyfill.min.js"></script>
     <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
     <link rel="stylesheet" href="/bundles/css?modules=o-ft-buttons:/demos/src/demo.scss" />
 </head>
 <body class="o-hoverable-on">
     <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
-    
-    
-<button class="o-ft-buttons">Standard</button><!--
---><button class="o-ft-buttons" aria-selected="true">Selected</button><!--
---><button class="o-ft-buttons" disabled="disabled">Disabled</button>
+    <h2>With anchors</h2>
+<a href="#" role="button" class="o-ft-buttons">Standard</a>
+<a href="#" role="button" class="o-ft-buttons" aria-selected="true">Selected</a>
+<a href="#" role="button" class="o-ft-buttons" aria-pressed="true">Pressed</a>
+<a href="#" role="button" class="o-ft-buttons" disabled="disabled" tabindex="-1">Disabled</a>
 
 <br />
 <br />
 
-<button class="o-ft-buttons o-ft-buttons--big">Standard</button><!--
---><button class="o-ft-buttons o-ft-buttons--big" aria-selected="true">Selected</button><!--
---><button class="o-ft-buttons o-ft-buttons--big" disabled="disabled">Disabled</button>
+<a href="#" role="button" class="o-ft-buttons o-ft-buttons--big">Standard</a>
+<a href="#" role="button" class="o-ft-buttons o-ft-buttons--big" aria-selected="true">Selected</a>
+<a href="#" role="button" class="o-ft-buttons o-ft-buttons--big" aria-pressed="true">Pressed</a>
+<a href="#" role="button" class="o-ft-buttons o-ft-buttons--big" disabled="disabled" tabindex="-1">Disabled</a>
+
+<h2>With buttons</h2>
+<button class="o-ft-buttons">Standard</button>
+<button class="o-ft-buttons" aria-selected="true">Selected</button>
+<button class="o-ft-buttons" aria-pressed="true">Pressed</button>
+<button class="o-ft-buttons" disabled="disabled">Disabled</button>
+
+<br />
+<br />
+
+<button class="o-ft-buttons o-ft-buttons--big">Standard</button>
+<button class="o-ft-buttons o-ft-buttons--big" aria-selected="true">Selected</button>
+<button class="o-ft-buttons o-ft-buttons--big" aria-pressed="true">Pressed</button>
+<button class="o-ft-buttons o-ft-buttons--big" disabled="disabled">Disabled</button>
 
     
     <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>

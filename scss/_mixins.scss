@@ -1,64 +1,157 @@
 /**
-  Wrap styles in SASS placeholder and CSS class (if not in silent mode)
-  $name:             name of placeholder/class.
-  $force-non-silent: <boolean> prevent silent mode
-*/
-@mixin oFtButtonSelectors($name, $force-non-silent) {
-  $selectors: #{'%#{$name}'};
-  @if (not $o-ft-buttons-is-silent or $force-non-silent) {
-    $selectors: append($selectors, #{'.#{$name}'}, comma);
-  }
-  #{$selectors} {
-    @content;
-  }
+ * @group o-ft-buttons
+ * @link http://registry.origami.ft.com/components/o-ft-buttons
+**/
+
+/**
+ * Button theme construct
+ * Ouputs dimensions for a specific button size
+ *
+ * @example
+ * .my-button--big {
+ * 	@include oFtButtonsSize(big);
+ * }
+ *
+ * @param {String} $size
+ *
+ * @requires {variable} $o-ft-buttons-sizes
+ */
+@mixin oFtButtonsSize($size) {
+	// Dimensions
+	$button-dimensions: map-get($o-ft-buttons-sizes, $size);
+	padding: 0 map-get($button-dimensions, padding-right) 0 map-get($button-dimensions, padding-left);
+	font-size: map-get($button-dimensions, font-size);
+	line-height: map-get($button-dimensions, height) - 2px; // height - border width
 }
 
-@mixin oFtButtonsBoxSizing($value) {
-  -webkit-box-sizing: $value;
-  -moz-box-sizing: $value;
-  box-sizing: $value;
+/**
+ * Button theme construct
+ * Ouputs styles for all button states
+ *
+ * @example
+ * .my-button--standout {
+ * 	@include oFtButtonsTheme(standout);
+ * }
+ *
+ * @param {String} $theme
+ *
+ * @requires {variable} $o-ft-buttons-themes
+ * @requires {variable} $o-hoverable-if-hover-enabled
+ */
+@mixin oFtButtonsTheme($theme) {
+	$states: map-get($o-ft-buttons-themes, $theme);
+
+	@each $property, $value in map-get($states, normal) {
+		#{$property}: #{$value};
+	}
+
+	&:focus {
+		@each $property, $value in map-get($states, focus) {
+			#{$property}: #{$value};
+		}
+	}
+
+	@if map-get($states, hover) {
+		#{$o-hoverable-if-hover-enabled} & {
+			// Apply :hover state only in these cases:
+			// - Not disabled
+			// - Not selected
+			// - Not pressed
+			&:not([disabled]):not([aria-selected=true]):not([aria-pressed=true]):hover {
+				background: map-get(map-get($states, hover), background);
+			}
+		}
+	}
+
+	@if map-get($states, selected) {
+		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+		&[aria-selected=true] {
+			@each $property, $value in map-get($states, selected) {
+				#{$property}: #{$value};
+			}
+
+			&:focus {
+				@if map-has-key(map-get($states, selected), color) {
+					box-shadow: inset 0 0 3px 1px map-get(map-get($states, selected), color);
+				}
+			}
+		}
+	}
+
+	@if map-get($states, pressed) {
+		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+		&[aria-pressed=true] {
+			@each $property, $value in map-get($states, pressed) {
+				#{$property}: #{$value};
+			}
+
+			&:focus {
+				@if map-has-key(map-get($states, pressed), color) {
+					box-shadow: inset 0 0 3px 1px map-get(map-get($states, pressed), color);
+				}
+			}
+		}
+	}
+
+	@if map-get($states, disabled) {
+		&[disabled] {
+			@each $property, $value in map-get($states, disabled) {
+				#{$property}: #{$value};
+			}
+		}
+	}
 }
 
-@mixin oFtButtonsFontInclude() {
-  @include oFontsInclude(BentonSans, normal);
-}
+/**
+ * Button construct
+ * Basic button styling and default states for specific theme and size
+ *
+ * @example
+ * .my-button {
+ * 	@include oFtButtons;
+ * }
+ * .my-inverse-button {
+ * 	@include oFtButtons($theme: inverse);
+ * }
+ * .my-big-standout-button {
+ * 	@include oFtButtons(big, standout);
+ * }
+ * .my-big-button {
+ * 	@include oFtButtons(big);
+ * }
+ *
+ * @param {String} (medium) $size
+ * @param {String} (standard) $theme
+ *
+ * @requires {mixin} oFtButtonsSize
+ * @requires {mixin} oFtButtonsTheme
+ * @requires {mixin} oFontsGetFontFamilyWithFallbacks
+ */
+@mixin oFtButtons($size: medium, $theme: standard) {
+	display: inline-block;
+	box-sizing: border-box;
+	margin: 0;
+	outline: 0;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 5px;
+	text-align: center;
+	text-decoration: none;
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	cursor: pointer;
+	transition: background-color 0.3s;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	user-select: none;
 
-@mixin oFtButtonsIconInclude() {
-  @include oFtIconsFontFace();
-}
+	@include oFtButtonsSize($size);
+	@include oFtButtonsTheme($theme);
 
-@mixin oFtButtonsTypography($font-size: 14px, $line-height: 22px) {
-  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-  font-weight: normal;
-  font-size: $font-size;
-  line-height: $line-height;
-  text-decoration: none;
-  text-align: center;
-}
-
-@mixin oFtButtonsTypographyBig() {
-  @include oFtButtonsTypography(16px, 32px);
-}
-
-@mixin oFtButtonsColors($borderColor, $backgroundColor, $color) {
-  border-color: $borderColor;
-  background-color: $backgroundColor;
-  color: $color;
-}
-
-@mixin oFtButtonsButtonHover($buttonClass, $borderColor, $backgroundColor, $color) {
-  &:not([disabled]):not([aria-selected=true]):not(#{#{$buttonClass}--faux}):hover {
-    @include oFtButtonsColors($borderColor, $backgroundColor, $color);
-    cursor: pointer;
-  }
-}
-
-@mixin oFtButtonsAll($base-class, $force-non-silent: true) {
-  @include oFtButtonsButton($base-class, $force-non-silent);
-  @include oFtButtonsButtonStandout($base-class, $force-non-silent);
-  @include oFtButtonsButtonGroup($base-class, #{$base-class}__group, $force-non-silent);
-  @include oFtButtonsButtonPagination($base-class, #{$base-class}__pagination, $force-non-silent);
-  @include oFtButtonsButtonFaux($base-class, $force-non-silent);
-  @include oFtButtonsButtonBig($base-class, $force-non-silent);
-  @include oFtButtonsIcons($base-class, #{$base-class}__icon, $force-non-silent);
+	// Same as aria-disabled:
+	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-disabled
+	// This is a common style for all button themes
+	&[disabled] {
+		opacity: 0.4;
+		cursor: default;
+	}
 }

@@ -1,23 +1,42 @@
 @import "o-fonts/main";
 @import "o-colors/main";
-@import "o-ft-icons/main";
 @import "o-hoverable/main";
 
-@import "scss/color-use-cases";
+@import "o-ft-icons/main"; // Deprecated
+
+@import "scss/themes";
 @import "scss/variables";
 @import "scss/mixins";
+@import "scss/deprecated";
 
-@if (not $o-ft-buttons-is-silent) {
-  @include oFtButtonsFontInclude();
-  @include oFtButtonsIconInclude();
-}
-
-@import "scss/base";
 @import "scss/group";
 @import "scss/pagination";
-@import "scss/faux";
-@import "scss/big";
-@import "scss/standout";
-@import "scss/icons";
 
-@include oFtButtonsAll(o-ft-buttons, false);
+@include oFtButtonsAll($o-ft-buttons-class);
+
+@if (not $o-ft-buttons-is-silent) {
+	@include oFontsInclude(BentonSans, normal);
+
+	.#{$o-ft-buttons-class} {
+		@include oFtButtons;
+	}
+
+	@each $size, $properties in $o-ft-buttons-sizes {
+		.#{$o-ft-buttons-class}--#{$size} {
+			@include oFtButtonsSize($size);
+		}
+	}
+	@each $theme, $properties in $o-ft-buttons-themes {
+		.#{$o-ft-buttons-class}--#{$theme} {
+			@include oFtButtonsTheme($theme);
+		}
+	}
+	.o-ft-buttons__pagination, // Deprecated, invalidates the BEM naming convention
+	.o-ft-buttons-pagination {
+		@include oFtButtonsPagination;
+	}
+	.o-ft-buttons__group, // Deprecated, invalidates the BEM naming convention
+	.o-ft-buttons-group {
+		@include oFtButtonsGroup;
+	}
+}

@@ -1,29 +1,53 @@
+/**
+ * @group o-ft-buttons
+ * @link http://registry.origami.ft.com/components/o-ft-buttons
+**/
+
+/**
+ * Silent mode: on (true) or off (false)
+ * Set to false to output default button classes
+ *
+ * @type Boolean
+ */
 $o-ft-buttons-is-silent: true !default;
-$o-ft-buttons-version: null !default;
-$o-ft-buttons-assets-path: o-ft-buttons !default;
 
-$_o-ft-buttons-color-standard-border: oColorsGetColorFor(o-ft-buttons-standard, border);
-$_o-ft-buttons-color-standard-bg: oColorsGetColorFor(o-ft-buttons-standard, background);
-$_o-ft-buttons-color-standard-fg: oColorsGetColorFor(o-ft-buttons-standard , text);
-$_o-ft-buttons-color-hover-border: oColorsGetColorFor(o-ft-buttons-hover , border);
-$_o-ft-buttons-color-hover-bg: oColorsGetColorFor(o-ft-buttons-hover , background);
-$_o-ft-buttons-color-hover-fg: oColorsGetColorFor(o-ft-buttons-hover, text);
-$_o-ft-buttons-color-selected-border: oColorsGetColorFor(o-ft-buttons-selected, border);
-$_o-ft-buttons-color-selected-bg: oColorsGetColorFor(o-ft-buttons-selected, background);
-$_o-ft-buttons-color-selected-fg: oColorsGetColorFor(o-ft-buttons-selected, text);
-$_o-ft-buttons-color-disabled-border: oColorsGetColorFor(o-ft-buttons-disabled, border);
-$_o-ft-buttons-color-disabled-bg: oColorsGetColorFor(o-ft-buttons-disabled, background);
-$_o-ft-buttons-color-disabled-fg: oColorsGetColorFor(o-ft-buttons-disabled, text);
+/**
+ * Default button class used when $o-ft-buttons-is-silent is true
+ *
+ * @type String
+ */
+$o-ft-buttons-class: o-ft-buttons !default;
 
-$_o-ft-buttons-color-standout-standard-border: oColorsGetColorFor(o-ft-buttons-standout-standard o-ft-buttons-standard, border);
-$_o-ft-buttons-color-standout-standard-bg: oColorsGetColorFor(o-ft-buttons-standout-standard o-ft-buttons-standard, background);
-$_o-ft-buttons-color-standout-standard-fg: oColorsGetColorFor(o-ft-buttons-standout-standard o-ft-buttons-standard, text);
-$_o-ft-buttons-color-standout-hover-border: oColorsGetColorFor(o-ft-buttons-standout-hover o-ft-buttons-hover, border);
-$_o-ft-buttons-color-standout-hover-bg: oColorsGetColorFor(o-ft-buttons-standout-hover o-ft-buttons-hover, background);
-$_o-ft-buttons-color-standout-hover-fg: oColorsGetColorFor(o-ft-buttons-standout-hover o-ft-buttons-hover, text);
-$_o-ft-buttons-color-standout-selected-border: oColorsGetColorFor(o-ft-buttons-standout-selected o-ft-buttons-selected, border);
-$_o-ft-buttons-color-standout-selected-bg: oColorsGetColorFor(o-ft-buttons-standout-selected o-ft-buttons-selected, background);
-$_o-ft-buttons-color-standout-selected-fg: oColorsGetColorFor(o-ft-buttons-standout-selected o-ft-buttons-selected, text);
-$_o-ft-buttons-color-standout-disabled-border: oColorsGetColorFor(o-ft-buttons-standout-disabled o-ft-buttons-disabled, border);
-$_o-ft-buttons-color-standout-disabled-bg: oColorsGetColorFor(o-ft-buttons-standout-disabled o-ft-buttons-disabled, background);
-$_o-ft-buttons-color-standout-disabled-fg: oColorsGetColorFor(o-ft-buttons-standout-disabled o-ft-buttons-disabled, text);
+/**
+ * Button sizes, with their attached properties
+ *
+ * @type Map
+ */
+$o-ft-buttons-sizes: (
+	medium: (
+		font-size: 14px,
+		height: 24px,
+		padding-left: 14px,
+		padding-right: 14px,
+	),
+	big: (
+		font-size: 16px,
+		height: 36px,
+		padding-left: 18px,
+		padding-right: 18px,
+	)
+);
+
+/**
+ * Button themes, with their respective states
+ * Each state is a Map of CSS properties, find
+ * all theme definitions in _themes.scss
+ *
+ * @type Map
+ */
+$o-ft-buttons-themes: (
+	standard: $o-ft-buttons-themes__standard,
+	standout: $o-ft-buttons-themes__standout,
+	inverse: $o-ft-buttons-themes__inverse,
+	uncolored: $o-ft-buttons-themes__uncolored
+);

@@ -1,0 +1,40 @@
+/**
+ * @group o-ft-buttons
+ * @link http://registry.origami.ft.com/components/o-ft-buttons
+**/
+
+/**
+ * Button group
+ * Applies styles to direct children
+ *
+ * @example
+ * .my-button-group {
+ * 	@include oFtButtonsGroup(my-buttons);
+ * }
+ *
+ * @param {String} ($o-ft-buttons-class) $buttonClass
+ *
+ * @requires {variable} o-ft-buttons-class
+ *
+ * @link http://build.origami.ft.com/files/o-ft-buttons/demos/grouped.html
+ */
+@mixin oFtButtonsGroup($buttonClass: $o-ft-buttons-class) {
+	> .#{$buttonClass} {
+		border-radius: 0;
+
+		+ .#{$buttonClass} {
+			border-left-width: 0;
+		}
+	}
+
+	:first-child {
+		border-bottom-left-radius: 5px;
+		border-top-left-radius: 5px;
+		border-left-width: 1px;
+	}
+
+	:last-child {
+		border-bottom-right-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+}

@@ -1,21 +1,23 @@
 {
-    "description": "Buttons module",
-    "origamiType": "module",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-ft-buttons/issues",
-    "supportStatus": "active",
-    "browserFeatures": {
-        "optional": [
-            "borderradius"
-        ]
-    },
-    "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-buttons/builds.json"
-    },
-    "demos": [
-        "/demos/individual.html",
-        "/demos/individual-standout.html",
-        "/demos/pagination.html",
-        "/demos/grouped.html"
-    ]
+	"description": "Buttons module",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-ft-buttons/issues",
+	"supportStatus": "active",
+	"browserFeatures": {
+		"optional": [
+			"borderradius"
+		]
+	},
+	"ci": {
+		"travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-buttons/builds.json"
+	},
+	"demos": [
+		"/demos/individual.html",
+		"/demos/individual-standout.html",
+		"/demos/individual-inverse.html",
+		"/demos/individual-uncolored.html",
+		"/demos/pagination.html",
+		"/demos/grouped.html"
+	]
 }

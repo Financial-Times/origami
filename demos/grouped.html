@@ -6,13 +6,34 @@
     <meta charset="utf-8" />
     <title>o-ft-buttons: grouped demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <script src="//polyfill.webservices.ft.com/v1/polyfill.min.js"></script>
     <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
     <link rel="stylesheet" href="/bundles/css?modules=o-ft-buttons:/demos/src/demo.scss" />
 </head>
 <body class="o-hoverable-on">
     <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
     
-    
+<h2>With anchors</h2>
+<div class="o-ft-buttons__group">
+    <a href="#" class="o-ft-buttons" aria-selected="true">John</a><!--
+ --><a href="#" class="o-ft-buttons">Paul</a><!--
+ --><a href="#" class="o-ft-buttons">George</a><!--
+ --><a href="#" class="o-ft-buttons">Ringo</a>
+</div>
+<br />
+<br />
+
+<div class="o-ft-buttons__group">
+    <a href="#" class="o-ft-buttons o-ft-buttons--big" aria-selected="true">John</a><!--
+ --><a href="#" class="o-ft-buttons o-ft-buttons--big">Paul</a><!--
+ --><a href="#" class="o-ft-buttons o-ft-buttons--big">George</a><!--
+ --><a href="#" class="o-ft-buttons o-ft-buttons--big">Ringo</a>
+</div>
+
+<br />
+<br />
+
+<h2>With buttons</h2>
 <div class="o-ft-buttons__group">
     <button class="o-ft-buttons" aria-selected="true">John</button><!--
  --><button class="o-ft-buttons">Paul</button><!--

@@ -1,20 +1,34 @@
 {
-    "options": {
-        "sass": "demos/src/demo.scss",
-        "bodyClasses": "o-hoverable-on"
-    },
-    "demos": {
-        "individual": {
-            "template": "demos/src/individual.mustache"
-        },
-        "individual-standout": {
-            "template": "demos/src/individual-standout.mustache"
-        },
-        "pagination": {
-            "template": "demos/src/pagination.mustache"
-        },
-        "grouped": {
-            "template": "demos/src/grouped.mustache"
-        }
-    }
+	"options": {
+		"sass": "demos/src/demo.scss",
+		"bodyClasses": "o-hoverable-on"
+	},
+	"demos": [
+		{
+			"name": "individual",
+			"template": "demos/src/individual.mustache"
+		},
+		{
+			"name": "individual-standout",
+			"template": "demos/src/individual-standout.mustache"
+		},
+		{
+			"name": "individual-uncolored",
+			"template": "demos/src/individual-uncolored.mustache"
+		},
+		{
+			"name": "individual-inverse",
+			"template": "demos/src/individual-inverse.mustache",
+			"bodyClasses": "o-hoverable-on demo__inverse"
+		},
+		{
+			"name": "pagination",
+			"template": "demos/src/pagination.mustache",
+			"dependencies": ["o-ft-icons@2.3.1"]
+		},
+		{
+			"name": "grouped",
+			"template": "demos/src/grouped.mustache"
+		}
+	]
 }
