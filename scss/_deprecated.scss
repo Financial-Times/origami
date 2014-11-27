@@ -129,6 +129,7 @@
 // Generate placeholder classes
 @mixin oFtButtonsAll($base-class) {
 	@warn "oFtButtonsAll() is deprecated and will be removed in next major release";
+	@include oFontsInclude(BentonSans, normal);
 	@include oFtButtonsButton($base-class);
 	@include oFtButtonsButtonStandout($base-class);
 	@include oFtButtonsButtonGroup($base-class, #{$base-class}__group);

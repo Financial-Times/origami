@@ -46,7 +46,9 @@
 	}
 
 	&:focus {
-		box-shadow: inset 0 0 3px 1px map-get(map-get($states, normal), border-color);
+		@each $property, $value in map-get($states, focus) {
+			#{$property}: #{$value};
+		}
 	}
 
 	@if map-get($states, hover) {
