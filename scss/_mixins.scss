@@ -43,8 +43,17 @@
 @mixin _oFtIconsStandardsIcon($icon-class, $character-code, $placement: 'before') {
 	$icon-selectors: oFtIconsGetSelectors("#{$icon-class}:#{$placement}");
 	#{$icon-selectors} {
-		// a hack to enable outputting of a single backslash; escaping in sass is a bit of a mess!
-		content: str-slice("\x",1,1) + $character-code;
+		// a hack to enable outputting of a single backslash;
+		// escaping in Sass is a bit of a mess!
+		// https://github.com/sass/sass/issues/659
+		// http://sassmeister.com/gist/04f5be11c5a6b26b8ff9
+		@if function-exists(selector-append) {
+			// Sass 3.4
+			content: unquote("\"\\#{$character-code}\"");
+		} @else {
+			// Sass 3.3
+			content: str-slice("\x",1,1) + $character-code;
+		}
 	}
 }
 
