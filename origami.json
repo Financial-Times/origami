@@ -1,38 +1,38 @@
 {
-    "description": "Tabs",
-    "origamiType": "module",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-tabs/issues",
-    "supportStatus": "active",
-    "browserFeatures": {
-        "required": [
-            "queryselector",
-            "addeventlistener",
-            "classlist"
-        ],
-        "optional": [
-            "domcontentready",
-            "customevent"
-        ]
-    },
-    "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-tabs/builds.json"
-    },
-    "demos": [
-        {
-            "path": "/demos/base-style.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/buttontabs.html",
-            "expanded": false,
-            "description": ""
-        },
-        {
-            "path": "/demos/buttontabs-big.html",
-            "expanded": false,
-            "description": ""
-        }
-    ]
+	"description": "Tabs",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-tabs/issues",
+	"supportStatus": "active",
+	"browserFeatures": {
+		"required": [
+			"queryselector",
+			"addeventlistener",
+			"classlist"
+		],
+		"optional": [
+			"domcontentready",
+			"customevent"
+		]
+	},
+	"ci": {
+		"travis": "https://api.travis-ci.org/repos/Financial-Times/o-tabs/builds.json"
+	},
+	"demos": [
+		{
+			"path": "/demos/base-style.html",
+			"expanded": true,
+			"description": ""
+		},
+		{
+			"path": "/demos/buttontabs.html",
+			"expanded": false,
+			"description": ""
+		},
+		{
+			"path": "/demos/buttontabs-big.html",
+			"expanded": false,
+			"description": ""
+		}
+	]
 }

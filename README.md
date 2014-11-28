@@ -30,18 +30,18 @@ This is an example of an HTML structure that __o-tabs__ will accept:
 
 ```html
 <ul data-o-component="o-tabs" class="o-tabs" role="tablist">
-    <li role="tab"><a href="#tabContent1">Tab 1</a></li>
-    <li role="tab"><a href="#tabContent2">Tab 2</a></li>
-    <li role="tab"><a href="#tabContent3">Tab 3</a></li>
+	<li role="tab"><a href="#tabContent1">Tab 1</a></li>
+	<li role="tab"><a href="#tabContent2">Tab 2</a></li>
+	<li role="tab"><a href="#tabContent3">Tab 3</a></li>
 </ul>
 <div id="tabContent1" class="o-tabs__tabpanel">
-    Tab content 1
+	Tab content 1
 </div>
 <div id="tabContent2" class="o-tabs__tabpanel">
-    Tab content 2
+	Tab content 2
 </div>
 <div id="tabContent3" class="o-tabs__tabpanel">
-    Tab content 3
+	Tab content 3
 </div>
 ```
 
@@ -74,7 +74,7 @@ A `o.DOMContentLoaded` event can be dispatched on the `document` to auto-constru
 
 ```javascript
 document.addEventListener("DOMContentLoaded", function() {
-    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
 
@@ -143,11 +143,11 @@ These state attributes are used by the __o-tabs__ CSS.
 The following events will be dispatched on the Tabs' root DOM element:
 
 * `oTabs.ready`: The Tabs object has initialised. Event detail:
-    * `tabs`: The __o-tabs__ object.
+	* `tabs`: The __o-tabs__ object.
 * `oTabs.tabSelect`: A tab has been selected. Event detail:
-    * `tabs`: The __o-tabs__ object.
-    * `selected`: The index of the selected tab.
-    * `lastSelected`: The index of the last selected tab.
+	* `tabs`: The __o-tabs__ object.
+	* `selected`: The index of the selected tab.
+	* `lastSelected`: The index of the last selected tab.
 
 ## API
 

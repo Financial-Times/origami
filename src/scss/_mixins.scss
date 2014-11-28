@@ -1,4 +1,4 @@
-// Wrap styles in SASS placeholder and CSS class (if not in silent mode)
+// Wrap styles in Sass placeholder and CSS class (if not in silent mode)
 // $name:             name of placeholder/class.
 @mixin oTabsSelectors($name) {
 	$selectors: #{'%#{$name}'};

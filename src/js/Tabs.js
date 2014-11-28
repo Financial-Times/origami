@@ -4,11 +4,11 @@ var oDom = require('o-dom');
 
 function Tabs(rootEl) {
 
-	var tabsObj = this,
-		tabEls,
-		tabpanelEls,
-		selectedTabIndex = -1,
-		myself = this;
+	var tabsObj = this;
+	var tabEls;
+	var tabpanelEls;
+	var selectedTabIndex = -1;
+	var myself = this;
 
 	function getTabTargetId(tabEl) {
 		var aEls = tabEl.getElementsByTagName('a');
