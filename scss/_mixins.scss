@@ -59,16 +59,13 @@
 
 // Placeholder (and optionally concrete class) for individual icon (IE7 hack)
 @mixin _oFtIconsIe7Icon($icon-class, $character-code) {
-
 	$icon-selectors: oFtIconsGetSelectors($icon-class);
-	@include oUseragentTarget(ie7) {
-		#{$icon-selectors} {
-			*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '#{"&#x#{$character-code};&nbsp;"}');
-		}
+	#{$icon-selectors} {
+		*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '#{"&#x#{$character-code};&nbsp;"}');
 	}
 }
 
-@mixin oFtIconsIcon ($icon-name, $character-code) {
+@mixin oFtIconsIcon($icon-name, $character-code) {
 	@include _oFtIconsIe7Icon(icon--#{$icon-name}, $character-code);
 	@include _oFtIconsStandardsIcon(icon--#{$icon-name}, $character-code);
 	@include _oFtIconsStandardsIcon(icon--#{$icon-name}--after, $character-code, after);
