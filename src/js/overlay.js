@@ -63,7 +63,7 @@ var checkOptions = function(opts) {
 var getOptionsFromTrigger = function(trigger) {
 	var opts = {};
 	// Get config from data attributes set in the trigger if they haven't been passed via JS
-	if (trigger instanceof HTMLElement) {		
+	if (trigger instanceof HTMLElement) {
 		Array.prototype.forEach.call(trigger.attributes, function(attr) {
 			if (attr.name.indexOf('data-o-overlay') === 0) {
 				// Remove the unnecessary part of the string the first time this is run for each attribute
@@ -135,7 +135,6 @@ Overlay.prototype = {
 		} else {
 			callback(this.opts.html);
 		}
-		
 	},
 
 	render: function() {
@@ -202,7 +201,7 @@ Overlay.prototype = {
 			wrap: new Delegate(this.wrapper),
 			context: new Delegate(this.context)
 		};
-			
+
 		this.close = this.close.bind(this);
 		this.resizeListener = this.resizeListener.bind(this);
 		this.delegates.doc.on('oViewport.resize', 'body', this.resizeListener);
@@ -330,12 +329,13 @@ Overlay.prototype = {
 			// 1. Get where the element is positioned
 			// 2. Add its width or height divided by two to get its center
 			// 3. Substract the width or height divided by two of the overlay so the arrow, which is in the center, points to the center of the side of the target
-			this.wrapper.style[oppositeEdge] = targetClientRect[oppositeEdge] + (targetClientRect[dimension] / 2) - (this[dimension] / 2) + 'px'; 
+			this.wrapper.style[oppositeEdge] = targetClientRect[oppositeEdge] + (targetClientRect[dimension] / 2) - (this[dimension] / 2) + 'px';
 		} else {
-			this.wrapper.classList.remove('o-overlay__arrow-top', 
-											'o-overlay__arrow-bottom',
-											'o-overlay__arrow-left',
-											'o-overlay__arrow-right');
+			this.wrapper.classList.remove('o-overlay__arrow-top',
+				'o-overlay__arrow-bottom',
+				'o-overlay__arrow-left',
+				'o-overlay__arrow-right'
+			);
 		}
 	},
 
@@ -418,8 +418,8 @@ Overlay.init = function(el) {
 
 Overlay.destroy = function() {
 	var overlayIds = Object.keys(overlays);
-	overlayIds.forEach(function(id) { 
-		overlays[id].destroy(); 
+	overlayIds.forEach(function(id) {
+		overlays[id].destroy();
 	});
 };
 

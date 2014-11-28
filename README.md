@@ -14,10 +14,10 @@ o-overlay can be instantiated in two ways:
 
 Set options as `data-` attributes on any element that has a `o-overlay-trigger` class, to create an overlay and open it when that element is clicked.
 
-``` html
-<button class='o-overlay-trigger' data-o-overlay-src='#overlay1-content' data-o-overlay-id='overlay1'>Open!</button>
-<script type='text/template' id='overlay1-content'>
-   <p>Content of overlay</p>
+```html
+<button class="o-overlay-trigger" data-o-overlay-src="#overlay1-content" data-o-overlay-id="overlay1">Open!</button>
+<script type="text/template" id="overlay1-content">
+	<p>Content of overlay</p>
 </script>
 ```
 
@@ -35,19 +35,19 @@ The constructor function accepts two arguments:
 
 ```js
 var myOverlay = new Overlay('myOverlay', {
-   html: 'Hello world',
-   trigger: '.blah'
+	html: 'Hello world',
+	trigger: '.blah'
 });
 ```
 
 ### Option reference
 
 * `heading`: Object. Options for the Overlay header
-    * `.title`: String. Your overlay's title
-    * `.shaded`: Boolean. Whether to shade the background of the header
+	* `.title`: String. Your overlay's title
+	* `.shaded`: Boolean. Whether to shade the background of the header
 * `arrow`: Object. Options for the arrow
-    * `.position`: String. From which side of the overlay should the arrow protrude. It has to be 'top', 'bottom', 'left' or 'right'. _Default_: 'left'
-    * `.target`: String or HTMLElement. What should the arrow point at. It may be different from the trigger, and if the target isn't set, the trigger will be used by default. May be either an element or a querySelector string.
+	* `.position`: String. From which side of the overlay should the arrow protrude. It has to be 'top', 'bottom', 'left' or 'right'. _Default_: 'left'
+	* `.target`: String or HTMLElement. What should the arrow point at. It may be different from the trigger, and if the target isn't set, the trigger will be used by default. May be either an element or a querySelector string.
 * `modal`: Boolean. Whether the overlay should have modal behaviour or not. Setting this as true will add a translucent shadow between the page and the overlay
 * `compact`: Boolean. If true, the `.o-overlay--compact` class will be added to the overlay that reduces heading font-size and paddings in the content.
 * `src`: String. Either a _url_ from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted. 

@@ -1,28 +1,28 @@
 {
-    "options": {
-        "sass": "demos/src/demo.scss",
-        "js": "demos/src/demo.js",
-        "bodyClasses": "o-hoverable-on"
-    },
-    "demos": [
-        {
-            "name": "modal",
-            "description": "Modal shaded overlay",
-            "template": "demos/src/modal.mustache",
-            "expanded": true
-        },
-        {
-        	"name": "centered-overlay",
-            "description": "Non-modal non-shaded centered overlay",
-        	"template": "demos/src/centered-overlay.mustache",
-            "expanded": false
-        },
-        {
-            "name": "overlay-with-arrow",
-            "description": "Non-modal overlay with an arrow that points to a target",
-            "template": "demos/src/overlay-with-arrow.mustache",
-            "sass": "demos/src/overlay-with-arrow.scss",
-            "expanded": false
-        }
-    ]
+	"options": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"bodyClasses": "o-hoverable-on"
+	},
+	"demos": [
+		{
+			"name": "modal",
+			"description": "Modal shaded overlay",
+			"template": "demos/src/modal.mustache",
+			"expanded": true
+		},
+		{
+			"name": "centered-overlay",
+			"description": "Non-modal non-shaded centered overlay",
+			"template": "demos/src/centered-overlay.mustache",
+			"expanded": false
+		},
+		{
+			"name": "overlay-with-arrow",
+			"description": "Non-modal overlay with an arrow that points to a target",
+			"template": "demos/src/overlay-with-arrow.mustache",
+			"sass": "demos/src/overlay-with-arrow.scss",
+			"expanded": false
+		}
+	]
 }
