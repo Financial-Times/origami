@@ -11,7 +11,7 @@
 		"o-colors": "^2.3.11",
 		"o-ft-typography": "^1.11.0",
 		"o-hoverable": ">0.1.1 <=0.3.0",
-		"o-ft-buttons": "^1.8.0",
+		"o-ft-buttons": "^1.7.1",
 		"o-dom": "^0.3.0"
 	}
 }
