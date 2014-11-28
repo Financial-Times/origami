@@ -3,10 +3,10 @@
 	// :before for the outer arrow that has the bordered colour, and :after for the inner arrow with the white background colour
 	&:before, &:after {
 		content: "";
-	  	position: absolute;
-	  	border: solid transparent;
+		position: absolute;
+		border: solid transparent;
 	}
-	
+
 	&:before {
 		// 1px offset so it appears properly
 		border-width: $size + $o-overlay-border-width + 1;

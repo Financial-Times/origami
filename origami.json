@@ -1,43 +1,43 @@
 {
-    "description": "Responsive, configurable overlays that support modal and non-modal centered overlays and overlays with arrows",
-    "origamiType": "module",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-overlay/issues",
-    "supportStatus": "experimental",
-    "browserFeatures": {
-        "required": [
-            "es5object",
-            "es5string",
-            "classlist",
-            "customevent"
-        ],
-        "optional": [
-            "csstransforms",
-            "csstransitions",
-            "flexbox",
-            "flexbox-legacy",
-            "rgba",
-            "requestAnimationFrame"
-        ]
-    },
-    "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-overlay/builds.json"
-    },
-    "demos": [
-        {
-            "path": "/demos/modal.html",
-            "expanded": true,
-            "description": "Modal shaded overlay"
-        },
-        {
-            "path": "/demos/centered-overlay.html",
-            "expanded": false,
-            "description": "Non-modal non-shaded centered overlay"
-        },
-        {
-            "path": "/demos/overlay-with-arrow.html",
-            "expanded": false,
-            "description": "Non-modal overlay with an arrow that points to a target"
-        }
-    ]
+	"description": "Responsive, configurable overlays that support modal and non-modal centered overlays and overlays with arrows",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-overlay/issues",
+	"supportStatus": "experimental",
+	"browserFeatures": {
+		"required": [
+			"es5object",
+			"es5string",
+			"classlist",
+			"customevent"
+		],
+		"optional": [
+			"csstransforms",
+			"csstransitions",
+			"flexbox",
+			"flexbox-legacy",
+			"rgba",
+			"requestAnimationFrame"
+		]
+	},
+	"ci": {
+		"travis": "https://api.travis-ci.org/repos/Financial-Times/o-overlay/builds.json"
+	},
+	"demos": [
+		{
+			"path": "/demos/modal.html",
+			"description": "Modal shaded overlay",
+			"expanded": true
+		},
+		{
+			"path": "/demos/centered-overlay.html",
+			"description": "Non-modal non-shaded centered overlay",
+			"expanded": false
+		},
+		{
+			"path": "/demos/overlay-with-arrow.html",
+			"description": "Non-modal overlay with an arrow that points to a target",
+			"expanded": false
+		}
+	]
 }
