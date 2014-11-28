@@ -118,16 +118,16 @@ oComments.init({
 Listen on the 'login required' event, and try to log in the user within the page:
 
 ```javascript
-oComments.auth.on('loginRequired.authAction', function (delegate) {
+oComments.auth.on('auth.loginRequired', function (evt) {
     // the user is not logged in, but an action was performed within the comment widget that requires the user to be logged in
 
     login();
     if (loggedIn) {
-        delegate.success();
+        evt.detail.success();
     } else if (loginRefused) {
-        delegate.failure();
+        evt.detail.failure();
     } else if (loginFailure) {
-        delegate.failure();
+        evt.detail.failure();
     }
 });
 ```
@@ -139,7 +139,7 @@ oComments.auth.on('loginRequired.authAction', function (delegate) {
 Listen the events the widget triggers (optional):
 
 ```javascript
-widgetInstance.on(commentPosted.tracking, function (siteId, eventData) {
+widgetInstance.on(tracking.postComment, function (evt) {
     // a comment is posted, do something, track it
 });
 ```
@@ -211,58 +211,9 @@ oComments.initDomConstruct();
 
 ---
 
-## More about the submodules
+## Events
 
-### Widget
-
-In order to load comments on a page, you should create an instance of `Widget`.
-
-```javascript
-var widgetInstance = new oComments.Widget({
-    elId: 'commentWrapper',
-    articleId: 'post12315',
-    url: 'http://www.example.com/post12315',
-    title: 'Test comments'
-});
-
-widgetInstance.on('loginRequired.authAction', function (delegate) {
-    // Login is required, handle the login process.
-    if (delegate) {
-        if (loginSuccessful) {
-            delegate.success();
-        } else {
-            delegate.failure();
-        }
-    }
-}
-});
-
-widgetInstance.load();
-```
-
-##### Configuration
-To create an instance, you will need to provide a configuration object. This should have the following structure:
-
-###### Mandatory fields:
- - elId: ID of the HTML element in which the widget should be loaded
- - articleId: ID of the article, any string
- - url: canonical URL of the page
- - title: Title of the page
-    
-###### Optional fields:
- - authPageReload: true or false. True if the login process reloads the page. Default value is false.
- - emailAlert: if a user has not yet saved the email preferences, an alert is shown after each post. This flag can have true/false values meaning if the email alert should be shown or not. The default value is true.
- - stream_type: livecomments, livechat, liveblog
- - initExtension: object which contains key-value pairs which should be added to the init object
- - stringOverrides: key-value pairs which override default Livefyre strings
- - timeout: time in seconds which when exceeded an "unable to load" message is displayed. Default value is 15.
-
-##### Methods
-###### load
-This method loads the Widget on the page.
-
-##### Events
-**Widget level events**
+### Widget level events
 Widget level events are triggered on the container of the widget. They have the following format:
 `oComments.nameOfTheEvent`, where 'nameOfTheEvent' is one of the following mentioned below.
 
@@ -292,36 +243,64 @@ widgetInstance.on('nameOfTheEvent', function (evt) {
 Using the `off` method event handlers can be removed.
 
 The list of events are:
-###### widget.timeout
+##### widget.timeout
 Triggered when loading the widget exceeded a given time.
 
-###### error.resources
+##### error.resources
 Triggered when the necessary resource files (e.g. Livefyre's core JS library) couldn't be loaded.
+Event detail data: error object/message.
 
-###### error.init
-Triggered when the initialization process ended up with errors.
+##### error.init
+Error while loading the initialization data and the comments.
+Event detail data: error object/message.
 
-###### error.widget
+##### error.widget
 Triggered when any error appear (triggered together with the above mentioned error events).
+Event detail data: error object/message.
 
-###### data.init
-Init object is loaded. The handler receives as a parameter the object.
+##### data.init
+Loaded when the initialization is finished and the necessary data is obtained.
+Event detail data: initialization data in the following form:
 
-###### data.auth
-The first time the auth object is loaded, it is broadcasted using this event. The handler receives as a parameter the object.
+```javascript
+{
+    "articleId": "e8cc08c6-cf4f-11e2-be7b-00144feab7de",
+    "el": "commentWidget",
+    "siteId": "359898",
+    "collectionMeta": "eyJhbGciOiJIUzI1NiJ9.eyJjaGVja3N1bSI6ImUwZDA4MTFmNTM0ODY2NWYwODlkZjI2ZGM0MGZkZTFiIiwiYXJ0aWNsZUlkIjoiZThjYzA4YzYtY2Y0Zi0xMWUyLWJlN2ItMDAxNDRmZWFiN2RlIiwidGl0bGUiOiJMaXZlZnlyZSB0ZXN0IHBhZ2UgLSBGVC5jb20iLCJ1cmwiOiJodHRwOi8vd3d3LmZ0LmNvbS9jbXMvcy8wL2U4Y2MwOGM2LWNmNGYtMTFlMi1iZTdiLTAwMTQ0ZmVhYjdkZS5odG1sIiwidHlwZSI6ImxpdmVjb21tZW50cyIsInN0cmVhbV90eXBlIjoibGl2ZWNvbW1lbnRzIiwidGFncyI6WyJzZWN0aW9ucy5HcmVhdCBKb3VybmV5cyIsInNlY3Rpb25zLkxpZmUgXHUwMDI2IEFydHMiLCJzZWN0aW9ucy5UcmF2ZWwiLCJzZWN0aW9ucy5FdXJvcGVhbiBkZXN0aW5hdGlvbnMiXX0.dvYd1K0FJAL6wmmTAlQ8peTyFP9M2GORoN7ZO9PvEYE",
+    "checksum": "e0d0811f5348665f089df26dc40fde1b"
+}
+```
 
-###### widget.ready
-The widget is ready to be loaded, the initialization process has finished.
+##### data.auth
+The first time the auth object is loaded, it is broadcasted using this event. Event detail data: authentication and user detail data in the following form:
 
-###### widget.load
+```javascript
+{
+    "token": "eyJhbGciOiJIUzI1NiJ9.eyJkb21haW4iOiJmdC0xLmZ5cmUuY28iLCJleHBpcmVzIjoxNDE3MTE2Nzk5LCJ1c2VyX2lkIjoiODk0ODc0MzkiLCJkaXNwbGF5X25hbWUiOiJyb2xpIG1haW4ifQ.maN1bKWvDQLA-mvgNp9lSKdI9Izj9rmX3XrEaVwUTNY",
+    "expires": 1417116799,
+    "displayName": "user pseudonym",
+    "settings": {
+        "emailcomments": "never",
+        "emailreplies": "never",
+        "emaillikes": "never",
+        "emailautofollow": "off"
+    }
+}
+```
+
+##### widget.ready
+The widget is ready to be rendered, the initialization process has finished.
+
+##### widget.load
 The Livefyre widget has loaded the necessary data and created a `Livefyre widget` instance, but not yet rendered it. The handler receives the Livefyre widget object as a parameter, access it using `detail.data.lfWidget`.
 
-###### widget.initialRenderComplete
-The widget is rendered, the DOM is populated with the elements of the widget.
+##### widget.renderComplete
+The UI is fully rendered.
 
-###### tracking.postComment
+##### tracking.postComment
 A comment is posted.
-Arguments of the handler: siteId, eventData, where eventData has the following structure:
+Event detail data: siteId, eventData, where eventData has the following structure:
 
 ```javascript
 {
@@ -333,9 +312,9 @@ Arguments of the handler: siteId, eventData, where eventData has the following s
 }
 ```
 
-###### tracking.likeComment
+##### tracking.likeComment
 A comment is recommended.
-Arguments of the handler: detail.data.siteId, detail.data.lfEventData, where lfEventData has the following structure:
+Event detail data: siteId, lfEventData, where lfEventData has the following structure:
 
 ```javascript
 {
@@ -344,9 +323,9 @@ Arguments of the handler: detail.data.siteId, detail.data.lfEventData, where lfE
 }
 ```
 
-###### tracking.shareComment
+##### tracking.shareComment
 A comment is shared.
-Arguments of the handler: siteId, eventData, where eventData has the following structure:
+Event detail data: siteId, eventData, where eventData has the following structure:
 
 ```javascript
 {
@@ -356,9 +335,9 @@ Arguments of the handler: siteId, eventData, where eventData has the following s
 }
 ```
 
-###### tracking.socialMention
+##### tracking.socialMention
 A user sent a social mention through a comment.
-Arguments of the handler: siteId, eventData, where eventData has the following structure:
+Event detail data: siteId, eventData, where eventData has the following structure:
 
 ```javascript
 {
@@ -370,7 +349,7 @@ Arguments of the handler: siteId, eventData, where eventData has the following s
 ```
 
 
-**Module level events**
+### Module level events
 These events are triggered on the `body` element. They have the same format as the widget level events: `oComments.nameOfTheEvent`, where nameOfTheEvent is one of the following below.
 
 The payload data consists only of event specific data:
@@ -382,18 +361,66 @@ The payload data consists only of event specific data:
 ```
 
 The events are the following:
-###### auth.login
+##### auth.login
 Triggered when a user is successfully logged in.
 Payload is the jwt token with which the user is logged in.
 
-###### auth.logout
+##### auth.logout
 Triggered when a user is logged out.
 
-###### authAction.loginRequired
-triggered on any activity which explicitly requires a logged in status. This could mean from the product perspective that the user is not logged in, or his/her login status expired (e.g. session expire).
+##### auth.loginRequired
+Triggered on any activity which explicitly requires a logged in status. This could mean from the product perspective that the user is not logged in, or his/her login status expired (e.g. session expire).
 
 The payload data contains two functions: success and failure. Based on the outcome of the login process, one of these should be called by the handler.
 **Important: if the log in needs a page reload, don't call the failure function!**
+
+```javascript
+oComments.auth.on('auth.loginRequired', function (evt) {
+    if (logInSuccess) {
+        evt.detail.success();
+    }
+
+    if (logInFails || logInRefused) {
+        evt.detail.failure();
+    }
+});
+```
+
+---
+
+## More about the submodules
+
+### Widget
+Widget incorporates all aspects of a commenting Widget: handling data and creating the UI.
+
+##### Configuration
+To create an instance, you will need to provide a configuration object. This should have the following structure:
+
+###### Mandatory fields:
+ - elId: ID of the HTML element in which the widget should be loaded
+ - articleId: ID of the article, any string
+ - url: canonical URL of the page
+ - title: Title of the page
+    
+###### Optional fields:
+ - authPageReload: true or false. True if the login process reloads the page. Default value is false.
+ - emailAlert: if a user has not yet saved the email preferences, an alert is shown after each post. This flag can have true/false values meaning if the email alert should be shown or not. The default value is true.
+ - stream_type: livecomments, livechat, liveblog
+ - initExtension: object which contains key-value pairs which should be added to the init object
+ - stringOverrides: key-value pairs which override default Livefyre strings
+ - timeout: time in seconds which when exceeded an "unable to load" message is displayed. Default value is 15.
+
+##### Methods
+###### load
+This method loads the Widget on the page.
+
+###### on
+With this method you can listen to events generated by the widget instance.
+
+###### off
+With this method event handlers attached with `on` can be deleted.
+
+
 
 ### auth
 This module is handling the authentication into the Livefyre system.

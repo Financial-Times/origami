@@ -153,7 +153,7 @@ function Widget () {
 						widget.on('initialRenderComplete', function () {
 							self.ui.addTermsAndGuidelineMessage();
 
-							auth.login(loggedIn, authData) {
+							auth.login(function (loggedIn, authData) {
 								if (!authData) {
 									authData = null;
 								}
@@ -179,7 +179,7 @@ function Widget () {
 										}
 									}
 								}
-							}
+							});
 
 							self.trigger('widget.renderComplete');
 						});
@@ -280,7 +280,7 @@ function Widget () {
 							if (newAuthData && newAuthData.token) {
 								auth.logout();
 								oCommentUtilities.logger.debug('new settings', newAuthData);
-								auth.login(newAuthData.token);
+								auth.login();
 							}
 						}
 					});
