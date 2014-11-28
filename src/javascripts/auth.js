@@ -58,6 +58,10 @@ function Auth () {
 	 * @param  {Function} callback Called with two parameters: loginStatus, authData.
 	 */
 	this.login = function (callback) {
+		if (typeof callback !== 'function') {
+			callback = function () {};
+		}
+
 		if (!getLfObj()) {
 			callback(false, null);
 			return;
