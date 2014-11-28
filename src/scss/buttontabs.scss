@@ -7,9 +7,12 @@
 
 		[role=tab] {
 			@include oFtButtons();
-
 			border-radius: 0;
 			border-bottom-width: 0;
+
+			a {
+				pointer-events: none;
+			}
 
 			&[aria-selected=true] a {
 				font-weight: normal; // reset weight set in the base styles

@@ -22,6 +22,8 @@ function Tabs(rootEl) {
 			targetEl = document.getElementById(tabTargetId);
 			if (targetEl) {
 				tabEls[c].setAttribute('aria-controls', tabTargetId);
+				tabEls[c].setAttribute('tabindex', '0');
+				tabEls[c].getElementsByTagName('a')[0].setAttribute('tabindex', '-1');
 				targetEl.setAttribute('role', 'tabpanel');
 				if (targetEl.children.length) {
 					targetEl.children[0].setAttribute('tabindex', '0');

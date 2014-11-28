@@ -52,7 +52,12 @@ describe("tabs behaviour", function() {
 		expect(tabContentEl2.getAttribute('aria-hidden')).toBe('true');
 		expect(tabContentEl3.getAttribute('aria-expanded')).toBe('false');
 		expect(tabContentEl3.getAttribute('aria-hidden')).toBe('true');
-		expect(tabContentEl2.querySelectorAll('.should-be-focusable')[0].getAttribute('tabindex')).toBe('0');
+		[].forEach.call(document.querySelectorAll('.should-be-focusable'), function(element) {
+			expect(element.getAttribute('tabindex')).toBe('0');
+		});
+		[].forEach.call(document.querySelectorAll('.should-not-be-focusable'), function(element) {
+			expect(element.getAttribute('tabindex')).toBe('-1');
+		});
 	});
 
 	it("selectTab(1)", function() {
