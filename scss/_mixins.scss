@@ -14,10 +14,10 @@
 			font-family: $_o-ft-icons-font-name;
 			src: url(oAssetsResolve($_o-ft-icons-font-file-name + ".eot", o-ft-icons));
 			src: url(oAssetsResolve($_o-ft-icons-font-file-name + ".eot?#iefix", o-ft-icons)) format("embedded-opentype"),
-				 url(oAssetsResolve($_o-ft-icons-font-file-name + ".woff", o-ft-icons)) format("woff"),
-				 url(oAssetsResolve($_o-ft-icons-font-file-name + ".ttf", o-ft-icons)) format("truetype");
-			font-weight:normal;
-			font-style:normal;
+				url(oAssetsResolve($_o-ft-icons-font-file-name + ".woff", o-ft-icons)) format("woff"),
+				url(oAssetsResolve($_o-ft-icons-font-file-name + ".ttf", o-ft-icons)) format("truetype");
+			font-weight: normal;
+			font-style: normal;
 		}
 	}
 }
@@ -29,7 +29,7 @@
 	vertical-align: middle;
 	// These are marked as !important as the icon font is not designed to be used with faux bold or faux italic styles
 	// If bolder versions of an icon are required a new SVG should be designed and added to the icon font
-	font-weight: normal !important; 
+	font-weight: normal !important;
 	font-style: normal !important;
 	speak: none;
 	text-decoration: inherit;
@@ -52,7 +52,7 @@
 			content: unquote("\"\\#{$character-code}\"");
 		} @else {
 			// Sass 3.3
-			content: str-slice("\x",1,1) + $character-code;
+			content: str-slice("\x", 1, 1) + $character-code;
 		}
 	}
 }
@@ -61,11 +61,11 @@
 @mixin _oFtIconsIe7Icon($icon-class, $character-code) {
 
 	$icon-selectors: oFtIconsGetSelectors($icon-class);
- 	@include oUseragentTarget(ie7) {
+	@include oUseragentTarget(ie7) {
 		#{$icon-selectors} {
 			*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '#{"&#x#{$character-code};&nbsp;"}');
 		}
- 	}
+	}
 }
 
 @mixin oFtIconsIcon ($icon-name, $character-code) {
