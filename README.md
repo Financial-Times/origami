@@ -41,6 +41,7 @@ This is an example of an HTML structure that __o-tabs__ will accept:
 	Tab content 2
 </div>
 <div id="tabContent3" class="o-tabs__tabpanel">
+	<div>Note: first elements of each tab will get focused when it is selected. In this case, this div will receive focus.</div>
 	Tab content 3
 </div>
 ```
@@ -105,7 +106,7 @@ __o-tabs__ comes with either _base styling_, which is just the minimum to be fun
 To apply the __buttontabs__ styling, add a `o-tabs--buttontabs` class to the root element:
 
 ```html
-<ul data-o-component="o-tabs" data-o-version="1.0.0" class="o-tabs o-tabs--buttontabs" role="tablist">
+<ul data-o-component="o-tabs" class="o-tabs o-tabs--buttontabs" role="tablist">
 ```
 
 The __buttontabs__ style comes in two sizes:

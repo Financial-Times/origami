@@ -52,6 +52,7 @@ describe("tabs behaviour", function() {
 		expect(tabContentEl2.getAttribute('aria-hidden')).toBe('true');
 		expect(tabContentEl3.getAttribute('aria-expanded')).toBe('false');
 		expect(tabContentEl3.getAttribute('aria-hidden')).toBe('true');
+		expect(tabContentEl2.querySelectorAll('.should-be-focusable')[0].getAttribute('tabindex')).toBe('0');
 	});
 
 	it("selectTab(1)", function() {

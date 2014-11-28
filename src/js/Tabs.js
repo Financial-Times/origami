@@ -23,6 +23,9 @@ function Tabs(rootEl) {
 			if (targetEl) {
 				tabEls[c].setAttribute('aria-controls', tabTargetId);
 				targetEl.setAttribute('role', 'tabpanel');
+				if (targetEl.children.length) {
+					targetEl.children[0].setAttribute('tabindex', '0');
+				}
 				els[c] = targetEl;
 			}
 		}
@@ -70,6 +73,9 @@ function Tabs(rootEl) {
 				if (i === c) {
 					tabEls[c].setAttribute('aria-selected', 'true');
 					showPanel(tabpanelEls[c]);
+					if (tabpanelEls[c].children.length) {
+						tabpanelEls[c].children[0].focus();
+					}
 				} else {
 					tabEls[c].setAttribute('aria-selected', 'false');
 					hidePanel(tabpanelEls[c]);

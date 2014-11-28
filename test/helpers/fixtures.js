@@ -29,7 +29,7 @@ function insertSimple() {
 		'<li role="tab"><a href="#tabContent3">Tab 3</a></li>',
 		'</ul>',
 		'<div id="tabContent1" class="o-tabs__tabpanel" role="tabpanel">Tab content 1</div>',
-		'<div id="tabContent2" class="o-tabs__tabpanel" role="tabpanel">Tab content 2</div>',
+		'<div id="tabContent2" class="o-tabs__tabpanel" role="tabpanel"><div class="should-be-focusable">Tab content 2</div></div>',
 		'<div id="tabContent3" class="o-tabs__tabpanel" role="tabpanel">Tab content 3</div>',
 	];
 	insert(html.join(''));
