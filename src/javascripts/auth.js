@@ -5,6 +5,7 @@ var oCommentUtilities = require('o-comment-utilities');
 var userDialogs = require('./userDialogs');
 var oCommentApi = require('o-comment-api');
 var utils = require('./utils.js');
+var globalEvents = require('./globalEvents.js');
 
 /**
  * Auth creates Livefyre RemoteAuthDelegate, also provides login and logout into Livefyre.
@@ -17,11 +18,6 @@ function Auth () {
 	 * @type {RemoteAuthDelegate}
 	 */
 	var authDelegate;
-
-	var event = new oCommentUtilities.Events();
-
-	this.on = event.on;
-	this.off = event.off;
 
 	/**
 	 * Pseudonym is still missing.
@@ -57,20 +53,41 @@ function Auth () {
 	};
 
 	/**
-	 * Logs in the user in the Livefyre system.
-	 * @param  {object} See http://docs.livefyre.com/developers/getting-started/tokens/auth/#flex-step-1-user-auth-json-object
+	 * Tries to obtain the user's login data. Calls a callback with the resulted status,
+	 * and also fires an event if the user can be logged in.
+	 * @param  {Function} callback Called with two parameters: loginStatus, authData.
 	 */
-	this.login = function (token) {
-		oCommentUtilities.logger.log('login called with token', token);
-
+	this.login = function (callback) {
 		if (!getLfObj()) {
+			callback(false, null);
 			return;
 		}
 
-		var response = getLfObj().conv.login(token);
-		event.trigger('login.auth', token);
+		oCommentApi.api.getAuth(function (err, authData) {
+			if (err) {
+				callback(false);
+				return;
+			}
 
-		return response;
+			if (authData) {
+				if (authData.token) {
+					getLfObj().conv.login(authData.token);
+					callback(true, authData);
+					globalEvents.trigger('auth.login', authData);
+				} else if (authData.pseudonym === false) {
+					// the user doesn't have pseudonym
+
+					self.pseudonymMissing = true;
+					self.pseudonymWasMissing = true;
+
+					callback(false, authData);
+				} else {
+					callback(false, authData);
+				}
+			} else {
+				callback(false);
+			}
+		});
 	};
 
 	/**
@@ -82,7 +99,7 @@ function Auth () {
 		}
 
 		var response = getLfObj().conv.logout();
-		event.trigger('logout.auth');
+		globalEvents.trigger('auth.logout');
 
 		return response;
 	};
@@ -154,7 +171,7 @@ function Auth () {
 			if (authData && authData.pseudonym === false) {
 				self.loginRequiredPseudonymMissing(delegate);
 			} else if (!authData || !authData.token) {
-				event.trigger('loginRequired.authAction', {
+				globalEvents.trigger('auth.loginRequired', {
 					success: function () {
 						loginRequiredAfterASuccess(delegate);
 					},

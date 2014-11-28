@@ -135,7 +135,7 @@ function WidgetUi (widgetContainer) {
 
 					var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comment-settings-text', widgetContainer);
 					if (settingsLink.length) {
-						oCommentUi.utils.addEventListener('click', settingsLink[0], function () {
+						settingsLink[0].addEventListener('click', function () {
 							if (options && typeof options.onClick === 'function') {
 								options.onClick();
 							}

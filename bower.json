@@ -7,7 +7,7 @@
   ],
   "dependencies": {
     "o-comment-api": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-api.git#^0.7.0",
-    "o-comment-ui": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-ui.git#^0.2.0",
+    "o-comment-ui": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-ui.git#c1ab8101f9a4f16ea05cba341cb684e90b8b7ec3",
     "o-comment-utilities": "git+http://git.svc.ft.com:8080/scm/strat_p/o-comment-utilities.git#^0.4.0",
     "sizzle": "git+https://github.com/jquery/sizzle.git#^2.0.0",
     "hogan": "git+https://github.com/twitter/hogan.js.git#3.0.0",

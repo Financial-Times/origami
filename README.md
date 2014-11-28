@@ -262,19 +262,37 @@ To create an instance, you will need to provide a configuration object. This sho
 This method loads the Widget on the page.
 
 ##### Events
-You can listen to the events using the `on` method, which works similar to the one in jQuery.
+**Widget level events**
+Widget level events are triggered on the container of the widget. They have the following format:
+`oComments.nameOfTheEvent`, where 'nameOfTheEvent' is one of the following mentioned below.
+
+All events has also a payload data to identify the widget from which the event is coming from, and also specific event data if there's some, which has the following format:
 
 ```javascript
-widgetInstance.on('nameOfTheEvent', function () {
+{
+    detail: {
+        id: "idOfTheWidget",
+        widget: widgetInstance,
+        data: {...} //data specific to the event
+    }
+}
+```
+
+
+There's also an easier way to listen to widget level events, with the following function:
+
+```javascript
+widgetInstance.on('nameOfTheEvent', function (evt) {
     // event handler
 });
 ```
 
+*Please note that you should omit the namespace (oComments.) before the event name.*
+
 Using the `off` method event handlers can be removed.
 
 The list of events are:
-
-###### timeout.widget
+###### widget.timeout
 Triggered when loading the widget exceeded a given time.
 
 ###### error.resources
@@ -286,22 +304,22 @@ Triggered when the initialization process ended up with errors.
 ###### error.widget
 Triggered when any error appear (triggered together with the above mentioned error events).
 
-###### loaded.init
+###### data.init
 Init object is loaded. The handler receives as a parameter the object.
 
-###### loaded.auth
+###### data.auth
 The first time the auth object is loaded, it is broadcasted using this event. The handler receives as a parameter the object.
 
-###### ready.widget
+###### widget.ready
 The widget is ready to be loaded, the initialization process has finished.
 
-###### loaded.widget
-The Livefyre widget has loaded the necessary data and created a `Livefyre widget` instance, but not yet rendered it. The handler receives the Livefyre widget object as a parameter.
+###### widget.load
+The Livefyre widget has loaded the necessary data and created a `Livefyre widget` instance, but not yet rendered it. The handler receives the Livefyre widget object as a parameter, access it using `detail.data.lfWidget`.
 
-###### initialRenderComplete.widget
+###### widget.initialRenderComplete
 The widget is rendered, the DOM is populated with the elements of the widget.
 
-###### commentPosted.tracking
+###### tracking.postComment
 A comment is posted.
 Arguments of the handler: siteId, eventData, where eventData has the following structure:
 
@@ -315,9 +333,9 @@ Arguments of the handler: siteId, eventData, where eventData has the following s
 }
 ```
 
-###### commentLiked.tracking
+###### tracking.likeComment
 A comment is recommended.
-Arguments of the handler: siteId, eventData, where eventData has the following structure:
+Arguments of the handler: detail.data.siteId, detail.data.lfEventData, where lfEventData has the following structure:
 
 ```javascript
 {
@@ -326,7 +344,7 @@ Arguments of the handler: siteId, eventData, where eventData has the following s
 }
 ```
 
-###### commentShared.tracking
+###### tracking.shareComment
 A comment is shared.
 Arguments of the handler: siteId, eventData, where eventData has the following structure:
 
@@ -338,7 +356,7 @@ Arguments of the handler: siteId, eventData, where eventData has the following s
 }
 ```
 
-###### socialMention.tracking
+###### tracking.socialMention
 A user sent a social mention through a comment.
 Arguments of the handler: siteId, eventData, where eventData has the following structure:
 
@@ -351,14 +369,31 @@ Arguments of the handler: siteId, eventData, where eventData has the following s
 }
 ```
 
-###### loginRequired.authAction
-Triggered when the user tries to post a comment without being logged in, or simply the user clicks the sign in link without being logged in (or with session expired, but it's up to the product to handle this case).
 
-The cases when the user is logged in but doesn't have a pseudonym is automatically covered.
+**Module level events**
+These events are triggered on the `body` element. They have the same format as the widget level events: `oComments.nameOfTheEvent`, where nameOfTheEvent is one of the following below.
 
-###### logout.authAction
-Triggered when the user logs out.
+The payload data consists only of event specific data:
 
+```javascript
+{
+    detail: {...} // event specific data
+}
+```
+
+The events are the following:
+###### auth.login
+Triggered when a user is successfully logged in.
+Payload is the jwt token with which the user is logged in.
+
+###### auth.logout
+Triggered when a user is logged out.
+
+###### authAction.loginRequired
+triggered on any activity which explicitly requires a logged in status. This could mean from the product perspective that the user is not logged in, or his/her login status expired (e.g. session expire).
+
+The payload data contains two functions: success and failure. Based on the outcome of the login process, one of these should be called by the handler.
+**Important: if the log in needs a page reload, don't call the failure function!**
 
 ### auth
 This module is handling the authentication into the Livefyre system.
@@ -372,8 +407,7 @@ See http://docs.livefyre.com/developers/user-auth/remote-profiles/#BuildingAuthD
 Logs in a livefyre user.
 
 ###### logout
-###### on
-###### off
+Logs the user out.
 
 ### userDialogs
 

@@ -131,5 +131,6 @@ module.exports = {
 		oCommentUtilities.logger.setLevel.apply(this, arguments);
 	}
 };
+
 module.exports.on = globalEvents.on;
 module.exports.off = globalEvents.off;

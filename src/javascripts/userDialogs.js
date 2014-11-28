@@ -246,7 +246,7 @@ exports.showEmailAlertDialog = function () {
 						result = getNewSubscribes(newUserDetails.settings);
 
 						if (result.subscribes.length) {
-							globalEvents.trigger('subscribe.tracking', [result.subscribes]);
+							globalEvents.trigger('tracking.subscribe', result.subscribes);
 						}
 					});
 				});
@@ -306,11 +306,11 @@ exports.showSettingsDialog = function (currentUserDetails, callbacks) {
 
 
 						if (result.subscribes.length) {
-							globalEvents.trigger('subscribe.tracking', [result.subscribes]);
+							globalEvents.trigger('tracking.subscribe', result.subscribes);
 						}
 
 						if (result.unsubscribes.length) {
-							globalEvents.trigger('unsubscribe.tracking', [result.unsubscribes]);
+							globalEvents.trigger('tracking.unsubscribe', result.unsubscribes);
 						}
 					});
 				});
