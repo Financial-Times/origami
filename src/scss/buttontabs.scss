@@ -6,6 +6,8 @@
 		}
 
 		[role=tab] {
+			// States are on the tab, and the child anchor
+			// will inherit from these states to look like a button
 			@include oFtButtons($target-selector: a);
 
 			a {
