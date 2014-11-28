@@ -11,14 +11,15 @@
 		}
 
 		[role=tab] {
-			display: inline-block;
+			display: inline;
 			padding: 0;
 			list-style-type: none;
+
 			a {
-				display: inline-block;
 				text-decoration: none;
 				color: inherit;
 			}
+
 			&[aria-selected=true] a {
 				color: inherit;
 				font-weight: bold;

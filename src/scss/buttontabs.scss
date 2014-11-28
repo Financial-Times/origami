@@ -1,53 +1,42 @@
 @include oTabsSelectors(o-tabs--buttontabs) {
 	&[data-o-tabs--js] {
 		&[role=tablist] {
-			border-bottom: 1px solid $_o-ft-buttons-color-standard-border;
+			border-bottom: 1px solid oColorsGetColorFor(o-ft-buttons-standard-normal, border);
 			font-size: 0;
 		}
 
-		@include oFtButtonsButton(o-tabs__tab, false);
-
 		[role=tab] {
-			@extend %o-tabs__tab;
-			border-radius: 0;
-			border-bottom-width: 0;
-			&:first-child {
+			@include oFtButtons($target-selector: a);
+
+			a {
+				border-radius: 0;
+				border-bottom-width: 0;
+			}
+			&[aria-selected=true] a {
+				font-weight: normal; // reset weight set in the base styles
+			}
+			&:first-child a {
 				border-top-left-radius: 5px;
 				border-left-width: 1px;
 			}
-			&:last-child {
+
+			&:last-child a {
 				border-top-right-radius: 5px;
-			}
-			a {
-				display: inline-block;
-				text-decoration: none;
-				color: inherit;
-			}
-			&[aria-selected] a {
-				font-weight: normal;
 			}
 		}
 
-		[role=tab] + [role=tab] {
+		[role=tab] + [role=tab] a {
 			margin-left: 0;
 			border-left-width: 0;
 		}
 
-		&.o-tabs--big [role=tab] {
-			padding: 0;
-			a {
-				padding-left: 18px;
-				padding-right: 18px;
-				@include oFtButtonsTypographyBig();
-			}
-		}
-	}
-}
-
-#{$o-hoverable-if-hover-enabled} {
-	@include oTabsSelectors(o-tabs--buttontabs) {
-		&[data-o-tabs-js] [role=tab]:hover {
-			@include oFtButtonsButtonHover(o-tabs__tab, $_o-ft-buttons-color-hover-border, $_o-ft-buttons-color-hover-bg, $_o-ft-buttons-color-hover-fg);
+		&.o-tabs--big [role=tab] a {
+			padding-left: 18px;
+			padding-right: 18px;
+			font-size: 16px;
+			line-height: 34px;
+			text-decoration: none;
+			text-align: center;
 		}
 	}
 }
