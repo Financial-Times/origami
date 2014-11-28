@@ -20,6 +20,7 @@
 
 // Selectors
 @mixin oFtButtonSelectors($name: $o-ft-buttons-class) {
+	@warn "oFtButtonSelectors() is now deprecated and will be removed in next major release";
 	$selectors: #{'%#{$name}'};
 	@if (not $o-ft-buttons-is-silent) {
 		$selectors: append($selectors, #{'.#{$name}'}, comma);
@@ -31,7 +32,20 @@
 
 // Icons
 @mixin oFtButtonsIconInclude() {
+	@warn "oFtButtonsIconInclude() is now deprecated and will be removed in next major release";
 	@include oFtIconsFontFace();
+}
+
+@mixin oFtButtonsBoxSizing($value) {
+	@warn "oFtButtonsBoxSizing() is now deprecated and will be removed in next major release";
+	-webkit-box-sizing: $value;
+	-moz-box-sizing: $value;
+	box-sizing: $value;
+}
+
+@mixin oFtButtonsFontInclude() {
+	@warn "oFtButtonsFontInclude() is now deprecated and will be removed in next major release";
+	@include oFontsInclude(BentonSans, normal);
 }
 
 @mixin oFtButtonsIcons($buttonClass, $iconClass) {
@@ -69,6 +83,29 @@
 		}
 	}
 }
+
+@mixin oFtButtonsTypography($font-size: 14px, $line-height: 22px) {
+	@warn "oFtButtonsTypography() is deprecated and will be removed in next major release.";
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	font-weight: normal;
+	font-size: $font-size;
+	line-height: $line-height;
+	text-decoration: none;
+	text-align: center;
+}
+
+@mixin oFtButtonsTypographyBig() {
+	@warn "oFtButtonsTypographyBig() is deprecated and will be removed in next major release.";
+	@include oFtButtonsTypography(16px, 32px);
+}
+
+@mixin oFtButtonsColors($borderColor, $backgroundColor, $color) {
+	@warn "oFtButtonsColors() is deprecated and will be removed in next major release.";
+	border-color: $borderColor;
+	background-color: $backgroundColor;
+	color: $color;
+}
+
 
 // Base
 @mixin oFtButtonsButton($buttonClass) {
