@@ -25,22 +25,19 @@
     },
     "demos": [
         {
-            "title": "modal",
             "path": "/demos/modal.html",
-            "description": "Modal shaded overlay",
-            "expanded": false
+            "expanded": true,
+            "description": "Modal shaded overlay"
         },
         {
-            "title": "centered-overlay",
             "path": "/demos/centered-overlay.html",
-            "description": "Non-modal non-shaded centered overlay",
-            "expanded": false
+            "expanded": false,
+            "description": "Non-modal non-shaded centered overlay"
         },
         {
-            "title": "overlay-with-arrow",
             "path": "/demos/overlay-with-arrow.html",
-            "description": "Non-modal overlay with an arrow that points to a target",
-            "expanded": true
+            "expanded": false,
+            "description": "Non-modal overlay with an arrow that points to a target"
         }
     ]
 }

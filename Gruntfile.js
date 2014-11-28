@@ -1,12 +1,4 @@
 /* global process */
-/*
- * grunt-contrib-uglify
- * http://gruntjs.com/
- *
- * Copyright (c) 2013 'Cowboy' Ben Alman, contributors
- * Licensed under the MIT license.
- */
-
 'use strict';
 
 module.exports = function(grunt) {
@@ -20,7 +12,7 @@ module.exports = function(grunt) {
           pkg: grunt.file.readJSON('package.json'),
           bwr: grunt.file.readJSON('bower.json'),
           o: grunt.file.readJSON('origami.json')
-      },
+      },  
       loadGruntTasks: {
         pattern: ['grunt-*', '!grunt-template-jasmine-istanbul']
       }
@@ -29,12 +21,11 @@ module.exports = function(grunt) {
   grunt.loadTasks('grunt-tasks');
  
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['origami-demo']);
-  grunt.registerTask('test', [
-      'jshint'
-  ]);
+  grunt.registerTask('default', ['test']);
 
   grunt.registerTask('browserTest', [
     'karma:chrome'
   ]);
+
+  grunt.registerTask('test', ['karma:ci']);
 };
