@@ -6,33 +6,31 @@
 		}
 
 		[role=tab] {
-			// States are on the tab, and the child anchor
-			// will inherit from these states to look like a button
-			@include oFtButtons($target-selector: a);
+			@include oFtButtons();
 
-			a {
-				border-radius: 0;
-				border-bottom-width: 0;
-			}
+			border-radius: 0;
+			border-bottom-width: 0;
+
 			&[aria-selected=true] a {
 				font-weight: normal; // reset weight set in the base styles
 			}
-			&:first-child a {
+
+			&:first-child {
 				border-top-left-radius: 5px;
 				border-left-width: 1px;
 			}
 
-			&:last-child a {
+			&:last-child {
 				border-top-right-radius: 5px;
 			}
 		}
 
-		[role=tab] + [role=tab] a {
+		[role=tab] + [role=tab] {
 			margin-left: 0;
 			border-left-width: 0;
 		}
 
-		&.o-tabs--big [role=tab] a {
+		&.o-tabs--big [role=tab] {
 			padding-left: 18px;
 			padding-right: 18px;
 			font-size: 16px;
