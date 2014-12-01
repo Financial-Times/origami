@@ -1,7 +1,6 @@
-o-viewport
-==========
+# o-viewport
 
-Utility for attaching debounced listeners to resize, scroll and orientation events on window.
+Utility for attaching debounced listeners to resize, scroll and orientation events on `window`.
 
 *Note: within the module's API and in the documentation below `orientation` is used instead of `orientationchange`, but the actual browser event listened to is `orientationchange`*
 
@@ -14,15 +13,17 @@ Attaches a debounced/throttled (as appropriate) listener to events on window [`r
 Provides a reasonably reliable way (more so than `window.orientation`) of obtaining the current orientation of the viewport.
 
 ### `o-viewport#getSize()`
-Provides a reliable way of obtaining the current dimensions of the viewport. returns and object with teh properties `width` and `height`
+Provides a reliable way of obtaining the current dimensions of the viewport. returns and object with the properties `width` and `height`
 
 ### `o-viewport#setThrottleInterval(eventType, interval)` *Product use only*
 Sets the debounce/throttle interval for a given event [`scroll`, `resize` or `orientation`]. 
 As a shorthand, calling `setThrottleInterval` with 1 - 3 numbers will set the intervals for `scroll`, `resize` and `orientation` in that order e.g. `setThrottleInterval(100, undefined, 300)` is equivalent to:
 
-    setThrottleInterval('scroll', 100)
-    setThrottleInterval('resize') // which does nothing
-    setThrottleInterval('orientation', 300)
+```js
+setThrottleInterval('scroll', 100)
+setThrottleInterval('resize') // which does nothing
+setThrottleInterval('orientation', 300)
+```
 
 The default value for each of these is 100ms
 
@@ -38,16 +39,18 @@ No additional properties
 
 ### `oViewport.orientation`
 
-    orientation: 'portrait' or 'landscape'
+	orientation: 'portrait' or 'landscape'
 
 ### `oViewport.scroll`
 
-    scrollLeft: body.scrollLeft // or documentElement.scrollLeft in < ie10 
-    scrollTop: body.scrollTop //  or documentElement.scrollTop in < ie10 
-    scrollHeight: body.scrollHeight
-    scrollWidth: body.scrollWidth
+```js
+scrollLeft: body.scrollLeft // or documentElement.scrollLeft in < ie10 
+scrollTop: body.scrollTop //  or documentElement.scrollTop in < ie10 
+scrollHeight: body.scrollHeight
+scrollWidth: body.scrollWidth
+```
 
 ## Throttling
 
-* `oViewport.resize` and `oViewport.orientation` are debounced i.e. if the native event fires several times in quick succession the custom event will fire only once `n` miliseconds after the last event, where `n` is the throttle inerval
-* `oViewport.scroll` is throttled i.e. if the native `scroll` event fires several times in quick succession the custom event will fire at most once every `n` miliseconds, where `n` is the throttle inerval
+* `oViewport.resize` and `oViewport.orientation` are debounced i.e. if the native event fires several times in quick succession the custom event will fire only once `n` milliseconds after the last event, where `n` is the throttle interval
+* `oViewport.scroll` is throttled i.e. if the native `scroll` event fires several times in quick succession the custom event will fire at most once every `n` milliseconds, where `n` is the throttle interval
