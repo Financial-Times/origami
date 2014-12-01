@@ -1,4 +1,4 @@
-# o-viewport
+# o-viewport [![Build Status](https://travis-ci.org/Financial-Times/o-dom.svg?branch=master)](https://travis-ci.org/Financial-Times/o-viewport)
 
 Utility for attaching debounced listeners to resize, scroll and orientation events on `window`.
 
