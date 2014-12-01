@@ -1,14 +1,14 @@
 {
-  "description": "Utility for moderating listeners for browser events on window",
-  "origamiType": "module",
-  "origamiVersion": 1,
-  "support": "rhys.evans@ft.com",
-  "supportStatus": "experimental",
-  "browserFeatures": {
-        "required": [
-            "createevent",
-            "customevent"
-        ],
-        "optional": []
-    },
+	"description": "Utility for moderating listeners for browser events on window",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "rhys.evans@ft.com",
+	"supportStatus": "experimental",
+	"browserFeatures": {
+		"required": [
+				"createevent",
+				"customevent"
+		],
+		"optional": []
+	}
 }
