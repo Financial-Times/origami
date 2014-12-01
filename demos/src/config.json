@@ -1,21 +1,21 @@
 {
-    "options": {
-        "js": "demos/src/demo.js",
-        "sass": "demos/src/demo.scss",
-        "bodyClasses": "o-hoverable-on"
-    },
-    "demos": [
-        {
-            "name": "base-style",
-            "template": "demos/src/base-style.mustache"
-        },
-        {
-            "name": "buttontabs",
-            "template": "demos/src/buttontabs.mustache"
-        },
-        {
-            "name": "buttontabs-big",
-            "template": "demos/src/buttontabs-big.mustache"
-        }
-    ]
+	"options": {
+		"js": "demos/src/demo.js",
+		"sass": "demos/src/demo.scss",
+		"bodyClasses": "o-hoverable-on"
+	},
+	"demos": [
+		{
+			"name": "base-style",
+			"template": "demos/src/base-style.mustache"
+		},
+		{
+			"name": "buttontabs",
+			"template": "demos/src/buttontabs.mustache"
+		},
+		{
+			"name": "buttontabs-big",
+			"template": "demos/src/buttontabs-big.mustache"
+		}
+	]
 }

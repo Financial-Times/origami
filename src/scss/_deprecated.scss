@@ -1,6 +1,8 @@
-// Wrap styles in SASS placeholder and CSS class (if not in silent mode)
+// Wrap styles in Sass placeholder and CSS class (if not in silent mode)
 // $name:             name of placeholder/class.
 @mixin oTabsSelectors($name) {
+	@warn "oTabsSelectors is now deprecated and will be removed in next major release";
+
 	$selectors: #{'%#{$name}'};
 	@if (not $o-tabs-is-silent) {
 		$selectors: append($selectors, #{'.#{$name}'}, comma);

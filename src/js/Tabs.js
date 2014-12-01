@@ -4,11 +4,11 @@ var oDom = require('o-dom');
 
 function Tabs(rootEl) {
 
-	var tabsObj = this,
-		tabEls,
-		tabpanelEls,
-		selectedTabIndex = -1,
-		myself = this;
+	var tabsObj = this;
+	var tabEls;
+	var tabpanelEls;
+	var selectedTabIndex = -1;
+	var myself = this;
 
 	function getTabTargetId(tabEl) {
 		var aEls = tabEl.getElementsByTagName('a');
@@ -22,7 +22,12 @@ function Tabs(rootEl) {
 			targetEl = document.getElementById(tabTargetId);
 			if (targetEl) {
 				tabEls[c].setAttribute('aria-controls', tabTargetId);
+				tabEls[c].setAttribute('tabindex', '0');
+				tabEls[c].getElementsByTagName('a')[0].setAttribute('tabindex', '-1');
 				targetEl.setAttribute('role', 'tabpanel');
+				if (targetEl.children.length) {
+					targetEl.children[0].setAttribute('tabindex', '0');
+				}
 				els[c] = targetEl;
 			}
 		}
@@ -70,6 +75,9 @@ function Tabs(rootEl) {
 				if (i === c) {
 					tabEls[c].setAttribute('aria-selected', 'true');
 					showPanel(tabpanelEls[c]);
+					if (tabpanelEls[c].children.length) {
+						tabpanelEls[c].children[0].focus();
+					}
 				} else {
 					tabEls[c].setAttribute('aria-selected', 'false');
 					hidePanel(tabpanelEls[c]);
