@@ -6,26 +6,28 @@
     <meta charset="utf-8" />
     <title>o-tabs: base-style demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <script src="//polyfill.webservices.ft.com/v1/polyfill.min.js"></script>
     <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
+    <script>(function(d) {d.className = d.className + ' demo-js';})(document.documentElement);</script>
     <link rel="stylesheet" href="/bundles/css?modules=o-tabs:/demos/src/demo.scss" />
 </head>
 <body class="o-hoverable-on">
-    <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
-    
-    <script src='//polyfill.webservices.ft.com/v1/polyfill.min.js'></script>
-<ul data-o-component="o-tabs" data-o-version="1.0.0" class="o-tabs" role="tablist">
-    <li role="tab"><a href="#tabContent1">Tab 1</a></li>
-    <li role="tab"><a href="#tabContent2">Tab 2</a></li>
-    <li role="tab"><a href="#tabContent3">Tab 3</a></li>
+    <ul data-o-component="o-tabs" class="o-tabs" role="tablist">
+	<li role="tab"><a href="#tabContent1">Tab 1</a></li>
+	<li role="tab"><a href="#tabContent2">Tab 2</a></li>
+	<li role="tab"><a href="#tabContent3">Tab 3</a></li>
 </ul>
 <div id="tabContent1" class="o-tabs__tabpanel">
-    Tab content 1
+	<h3>Tab content 1</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, ipsum.</p>
 </div>
 <div id="tabContent2" class="o-tabs__tabpanel">
-    Tab content 2
+	<h3>Tab content 2</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, ipsum.</p>
 </div>
 <div id="tabContent3" class="o-tabs__tabpanel">
-    Tab content 3
+	<h3>Tab content 3</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, ipsum.</p>
 </div>
 
     <script src="/bundles/js?modules=o-tabs:/demos/src/demo.js"></script>

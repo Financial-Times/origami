@@ -1,17 +1,17 @@
 {
-    "name": "o-tabs",
-    "main": [
-        "main.scss",
-        "main.js"
-    ],
-    "ignore": [
-        ".gitignore"
-    ],
-    "dependencies": {
-        "o-colors": "^2.3.11",
-        "o-ft-typography": "^1.11.0",
-        "o-hoverable": ">0.1.1 <=0.3.0",
-        "o-ft-buttons": "^1.5.0",
-        "o-dom": "^0.3.0"
-    }
+	"name": "o-tabs",
+	"main": [
+		"main.scss",
+		"main.js"
+	],
+	"ignore": [
+		".gitignore"
+	],
+	"dependencies": {
+		"o-colors": "^2.3.11",
+		"o-ft-typography": "^1.11.0",
+		"o-hoverable": ">0.1.1 <=0.3.0",
+		"o-ft-buttons": "^1.7.1",
+		"o-dom": "^0.3.0"
+	}
 }
