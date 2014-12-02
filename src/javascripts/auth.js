@@ -124,7 +124,7 @@ function Auth () {
 				}
 
 				if (authData && authData.token) {
-					self.login(authData.token);
+					self.login();
 				}
 
 				if (delegate && delegate.success) {
