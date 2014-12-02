@@ -314,17 +314,10 @@ function Widget () {
 
 		self.ui.addSettingsLink({
 			onClick: function () {
-				oCommentApi.api.getAuth(function (err, currentAuthData) {
-					if (err || !currentAuthData) {
-						auth.loginRequired({
-							success: function () {
-								showConfigDialog();
-							}
-						});
-						return;
+				auth.loginRequired({
+					success: function () {
+						showConfigDialog();
 					}
-
-					showConfigDialog();
 				});
 			}
 		});

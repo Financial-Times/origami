@@ -188,7 +188,7 @@ function Auth () {
 					}
 				});
 			} else {
-				self.login(authData.token);
+				self.login();
 
 				if (delegate && delegate.success) {
 					delegate.success();
