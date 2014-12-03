@@ -12,6 +12,8 @@ var oCommentUtilities = require('o-comment-utilities'),
 function WidgetUi (widgetContainer) {
 	oCommentUi.WidgetUi.apply(this, arguments);
 
+	var self = this;
+
 	/**
 	 * Makes the Livefyre comments widget read-only by hiding the editors and action buttons.
 	 * @return {[type]} [description]
@@ -22,9 +24,9 @@ function WidgetUi (widgetContainer) {
 
 		style.type = 'text/css';
 
-		var css = '#' + widgetContainer.id + ' .fyre-editor, '+
-					'#' + widgetContainer.id + ' .fyre-comment-like, '+
-					'#' + widgetContainer.id + ' .fyre-comment-action-button {'+
+		var css = '#' + self.widgetContainer.id + ' .fyre-editor, '+
+					'#' + self.widgetContainer.id + ' .fyre-comment-like, '+
+					'#' + self.widgetContainer.id + ' .fyre-comment-action-button {'+
 						'display: none;'+
 					'}';
 
@@ -43,7 +45,7 @@ function WidgetUi (widgetContainer) {
 
 		style.type = 'text/css';
 
-		var css = '#' + widgetContainer.id + ' .fyre-follow-button {'+
+		var css = '#' + self.widgetContainer.id + ' .fyre-follow-button {'+
 						'display: none;'+
 					'}';
 
@@ -61,7 +63,7 @@ function WidgetUi (widgetContainer) {
 	 * so can't be signed in into Livefyre).
 	 */
 	this.hideSignInLink = function () {
-		var signInLinkContainer = sizzle('a.fyre-user-loggedout', widgetContainer);
+		var signInLinkContainer = sizzle('a.fyre-user-loggedout', self.widgetContainer);
 
 		if (signInLinkContainer.length) {
 			signInLinkContainer[0].style.display = 'none';
@@ -72,7 +74,7 @@ function WidgetUi (widgetContainer) {
 	 * Inserts message when SUDS reports as authentication is not available.
 	 */
 	this.addAuthNotAvailableMessage = function () {
-		var authContainer = sizzle('.fyre-auth', widgetContainer);
+		var authContainer = sizzle('.fyre-auth', self.widgetContainer);
 
 		if (authContainer.length) {
 			authContainer[0].appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.unavailableTemplate.render()));
@@ -85,7 +87,7 @@ function WidgetUi (widgetContainer) {
 	 * Inserts the terms and guidelines text into the widget.
 	 */
 	this.addTermsAndGuidelineMessage = function () {
-		var editorContainers = sizzle('.fyre-widget > .fyre-editor', widgetContainer);
+		var editorContainers = sizzle('.fyre-widget > .fyre-editor', self.widgetContainer);
 
 		if (editorContainers.length) {
 			for (var i = 0; i < editorContainers.length; i++) {
@@ -113,17 +115,17 @@ function WidgetUi (widgetContainer) {
 
 		clearInterval(checkPseudonymInterval);
 		checkPseudonymInterval = setInterval(function () {
-			var pseudonymContainer = sizzle('.fyre-auth .fyre-login-bar .fyre-box-wrapper .fyre-user-loggedin', widgetContainer);
+			var pseudonymContainer = sizzle('.fyre-auth .fyre-login-bar .fyre-box-wrapper .fyre-user-loggedin', self.widgetContainer);
 			if (pseudonymContainer.length || noOfTrial === 120) {
 				clearInterval(checkPseudonymInterval);
 
-				if (sizzle('.comment-settings', widgetContainer).length === 0) {
+				if (sizzle('.comment-settings', self.widgetContainer).length === 0) {
 					if (noOfTrial === 120) {
 						// give up
 						return;
 					}
 
-					var loginBarContainer = sizzle('.fyre-auth .fyre-login-bar', widgetContainer);
+					var loginBarContainer = sizzle('.fyre-auth .fyre-login-bar', self.widgetContainer);
 					if (loginBarContainer.length) {
 						var commentingSettingsLinkConfig = {};
 						if (envConfig.get().emailNotifications !== true) {
@@ -133,7 +135,7 @@ function WidgetUi (widgetContainer) {
 						loginBarContainer[0].appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.commentingSettingsLink.render(commentingSettingsLinkConfig)));
 					}
 
-					var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comment-settings-text', widgetContainer);
+					var settingsLink = sizzle('.fyre-auth .fyre-login-bar .comment-settings-text', self.widgetContainer);
 					if (settingsLink.length) {
 						settingsLink[0].addEventListener('click', function () {
 							if (options && typeof options.onClick === 'function') {
@@ -157,7 +159,7 @@ function WidgetUi (widgetContainer) {
 	 * Removes the settings link from the widget.
 	 */
 	this.removeSettingsLink = function () {
-		var el = sizzle('.comment-settings', widgetContainer);
+		var el = sizzle('.comment-settings', self.widgetContainer);
 		if (el.length) {
 			el[0].parentNode.removeChild(el[0]);
 		}
@@ -168,8 +170,8 @@ function WidgetUi (widgetContainer) {
 	 * element is moved out into the header.
 	 */
 	this.moveCommentCountOut = function () {
-		var fyreEl = sizzle('.fyre', widgetContainer);
-		var fyreStreamStatsEl = sizzle('.fyre-stream-stats', widgetContainer);
+		var fyreEl = sizzle('.fyre', self.widgetContainer);
+		var fyreStreamStatsEl = sizzle('.fyre-stream-stats', self.widgetContainer);
 
 		if (fyreEl.length && fyreStreamStatsEl.length) {
 			var counterEl = sizzle('.fyre-comment-count', fyreStreamStatsEl[0]);
