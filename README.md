@@ -162,7 +162,25 @@ var widgetInstance = new oComments.Widget({
 });
 ```
 
+Instead of elId (ID of a DOM element), you can specify a selector or a DOM element:
 
+```javascript
+{
+    container: '.selector' || domElement
+}
+```
+
+If the element doesn't have an ID, a random ID will be generated.
+
+<br/>
+
+Listen the events the widget triggers (optional):
+
+```javascript
+widgetInstance.on('tracking.postComment', function (evt) {
+    // a comment is posted, do something, track it
+});
+```
 
 Load the widget:
 
