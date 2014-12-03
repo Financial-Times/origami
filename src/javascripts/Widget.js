@@ -331,12 +331,26 @@ function Widget () {
 		self.ui.removeSettingsLink();
 	}
 	globalEvents.on('auth.logout', logout);
+
+
+
+	var __superDestroy = this.destroy;
+	this.destroy = function () {
+		self.forceMode = null;
+
+		globalEvents.off('auth.login', login);
+		globalEvents.off('auth.logout', logout);
+
+		__superDestroy();
+		__superDestroy = null;
+
+		self = null;
+	};
 }
 oCommentUi.Widget.__extend(Widget, 'oComments');
 
 Widget.__extend = function(child, eventNamespace) {
 	if (typeof Object.create === 'function') {
-		child.prototype = Object.create( Widget.prototype );
 		child.prototype = Object.create(Widget.prototype);
 	} else {
 		var Tmp = function () {};

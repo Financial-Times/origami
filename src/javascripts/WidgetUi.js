@@ -196,7 +196,6 @@ function WidgetUi (widgetContainer) {
 WidgetUi.__extend = function(child) {
 	if (typeof Object.create === 'function') {
 		child.prototype = Object.create(WidgetUi.prototype);
-		child.prototype = Object.create(WidgetUi.prototype);
 	} else {
 		var Tmp = function () {};
 		Tmp.prototype = WidgetUi.prototype;
