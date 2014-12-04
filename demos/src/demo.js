@@ -1,5 +1,5 @@
 'use strict';
-require('../../main');
+window.overlay = require('../../main');
 
 document.addEventListener("DOMContentLoaded", function() {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));

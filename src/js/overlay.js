@@ -255,10 +255,15 @@ Overlay.prototype = {
 	},
 
 	closeOnExternalClick: function(ev) {
-
 		// Close the overlay if it's not modal and the click wasn't made on the actual overlay
-		if (!this.wrapper.contains(ev.target) && !this.opts.trigger.contains(ev.target)) {
-			if (!this.opts.modal) {
+		// or on the trigger, as that's handled in triggerClickHandler. Check if trigger exists
+		// first to not get an error
+		if (this.wrapper.contains(ev.target) && !this.opts.modal) {
+			if (this.opts.trigger) {
+				if (!this.opts.trigger.contains(ev.target)) {
+					this.close();
+				}
+			} else {
 				this.close();
 			}
 		}
