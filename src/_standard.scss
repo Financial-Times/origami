@@ -5,6 +5,9 @@
 
 /**
  * Add to container for a standard quote
+ *
+ * @requires {function} oColorsGetColorFor
+ * @requires {function} oFontsGetFontFamilyWithFallbacks
  */
 @mixin oQuoteStandard {
 	background-color: oColorsGetColorFor(o-quote, background);
@@ -43,6 +46,8 @@
 
 /**
  * Apply this to a <cite> within a standard quote block
+ *
+ * @requires {function} oFontsGetFontFamilyWithFallbacks
  */
 @mixin oQuoteStandardCite {
 	font-size: 16px;
@@ -56,13 +61,12 @@
 	}
 }
 
-// uncomment this below when removing deprecated placeholder classes
-/*
-.o-quote--standard {
-	@include oQuoteStandard;
-}
+@if $o-quote-is-silent == false {
+	.o-quote--standard {
+		@include oQuoteStandard;
+	}
 
-.o-quote--standard .o-quote__cite {
-	@include oQuoteStandardCite;
+	.o-quote--standard .o-quote__cite {
+		@include oQuoteStandardCite;
+	}
 }
-*/

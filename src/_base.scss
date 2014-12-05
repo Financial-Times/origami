@@ -4,7 +4,7 @@
 **/
 
 /**
- * Base mixin for quotes
+ * Base quote styles
  */
 @mixin oQuote {
 	display: block;
@@ -31,13 +31,12 @@
 	text-align: right;
 }
 
-// uncomment the below when deprecated placeholder stuff is removed
-/*
-.o-quote {
-	@include oQuote;
-}
+@if $o-quote-is-silent == false {
+	.o-quote {
+		@include oQuote;
+	}
 
-.o-quote-quote__cite {
-	@include oQuoteCite;
+	.o-quote-quote__cite {
+		@include oQuoteCite;
+	}
 }
-*/
