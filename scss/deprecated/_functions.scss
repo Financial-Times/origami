@@ -12,7 +12,7 @@ $_o-ft-typography-selector-prefix: o-ft-typography-;
 	}
 	$placeholders: ();
 	@each $name in $names {
-		$placeholders: append($placeholders, #{'%#{$_o-ft-typography-selector-prefix}#{unquote($name)}'}, comma);
+		$placeholders: append($placeholders, unquote('%#{$_o-ft-typography-selector-prefix}#{unquote($name)}'), comma);
 	}
 	@return $placeholders;
 }
@@ -24,7 +24,7 @@ $_o-ft-typography-selector-prefix: o-ft-typography-;
 	}
 	$classes: ();
 	@each $name in $names {
-		$classes: append($classes, #{'.#{$_o-ft-typography-selector-prefix}#{unquote($name)}'}, comma);
+		$classes: append($classes, unquote('.#{$_o-ft-typography-selector-prefix}#{unquote($name)}'), comma);
 	}
 	@return $classes;
 }

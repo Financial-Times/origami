@@ -5,7 +5,7 @@
 @import "scss/deprecated/functions";
 @import "scss/mixins";
 
-@if (not $o-ft-typography-is-silent) {
+@if ($o-ft-typography-is-silent == false) {
 	@each $usecase in $_o-ft-typography-fontface-usecase-mapping {
 		@include oFtTypographyIncludeFont(nth($usecase, 1));
 	}

@@ -8,7 +8,7 @@
 	@if $_o-ft-typography-deprecation-warnings {
 		@warn 'oFtTypographyExtend is deprecated and will be removed in the next major release';
 	}
-	@extend #{'%o-ft-typography-#{$class}'} !optional;
+	@extend %o-ft-typography-#{$class} !optional;
 }
 
 /**
@@ -31,7 +31,7 @@
 	}
 	$selectors: ();
 	$selectors: append($selectors, oFtGetPrefixedPlaceholders($names));
-	@if (not $o-ft-typography-is-silent) {
+	@if ($o-ft-typography-is-silent == false) {
 		$selectors: append($selectors, oFtGetPrefixedClasses($names));
 		$selectors: append($selectors, unquote($cssSelectors), comma);
 	}
