@@ -12,6 +12,8 @@ $o-table-is-silent: true !default;
 @import "src/scss/lines";
 @import "src/scss/borders";
 
+@import "src/scss/deprecated/index";
+
 @if (not $o-table-is-silent) {
 	@include oTableAll();
 }
