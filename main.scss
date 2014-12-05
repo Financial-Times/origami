@@ -3,10 +3,6 @@ $o-quote-is-silent: true !default;
 @import "o-colors/main";
 @import "o-fonts/main";
 
-@if variable-exists(o-quote-class-type) {
-	@warn '$o-quote-class-type is deprecated and will be removed in the next major release. Use mixins instead';
-}
-
 @if $o-quote-is-silent == false {
 	@include oFontsInclude(MillerDisplay);
 	@include oFontsInclude(BentonSans);
@@ -16,5 +12,6 @@ $o-quote-is-silent: true !default;
 @import "src/base";
 @import "src/standard";
 
+@import "src/deprecated/variables";
 @import "src/deprecated/base";
 @import "src/deprecated/standard";
