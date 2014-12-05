@@ -14,6 +14,6 @@ $o-table-is-silent: true !default;
 
 @import "src/scss/deprecated/index";
 
-@if (not $o-table-is-silent) {
+@if ($o-table-is-silent == false) {
 	@include oTableAll();
 }
