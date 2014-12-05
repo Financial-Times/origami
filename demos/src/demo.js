@@ -5,13 +5,14 @@
 
 	require('./../../main').wrap();
 
-	var tableEls,
-		checkboxEls;
+	var tableEls;
+	var checkboxEls;
 
 	function checkboxChangeHandler(ev) {
-		var cssClass = ev.target.getAttribute('data-switch-class'),
-			c,
-			l;
+		var cssClass = ev.target.getAttribute('data-switch-class');
+		var c;
+		var l;
+
 		for (c = 0, l = tableEls.length; c < l; c++) {
 			if (ev.target.checked) {
 				tableEls[c].classList.add(cssClass);

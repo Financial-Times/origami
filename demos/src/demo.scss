@@ -15,14 +15,15 @@ $o-table-is-silent: false;
 	width: 200px;
 	font-family: sans-serif;
 	font-size: 14px;
+
 	label {
-	display: block;
-	margin: 0 0 5px;
-	padding: 5px;
-}
-input:checked + span {
-	font-weight: bold;
-}
+		display: block;
+		margin: 0 0 5px;
+		padding: 5px;
+	}
+	input:checked + span {
+		font-weight: bold;
+	}
 }
 
 .demo-js .demo__controls {
