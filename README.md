@@ -15,6 +15,7 @@ Simply add an `o-quote` class to any quote you wish to apply the styles to.
 </blockquote>
 ```
 
+
 ## Themeable
 
 Either extend the base classes to create a custom theme or use the standard theme.
@@ -22,17 +23,31 @@ Either extend the base classes to create a custom theme or use the standard them
 ```html
 <blockquote class="o-quote o-quote--standard">
 	<p>…</p>
-	<cite class='o-quote__cite'>Anonymous</cite>
+	<cite class="o-quote__cite">Anonymous</cite>
 	…
 </blockquote>
 ```
 
-## Silent mode
+## Silent mode ([docs](http://origami.ft.com/docs/syntax/scss/#silent-styles))
 
-If using __o-quote__ in silent mode, `@extend` the placeholder `%o-quote` into your own table class:
+With `$o-quote-is-silent` is set to `true`, the module won't output any styles.  
+You can then use the mixins directly in your code:
 
-```sass
-	.my-pulled-blockquote {
-		@extend %o-quote;
+```html
+<div class="article-container">
+	<blockquote>
+		<p>…</p>
+		<cite>Anonymous</cite>
+	</blockquote>
+</div>
+```
+
+```scss
+.article-container blockquote {
+	@include oQuoteStandard;
+
+	cite {
+		@include oQuoteStandardCite;
 	}
+}
 ```
