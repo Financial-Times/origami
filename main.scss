@@ -7,7 +7,7 @@ $o-colors-is-silent: true !default;
 @import 'src/scss/use-cases';
 
 // If noisy, output concrete classes for use cases and palette colours
-@if (not $o-colors-is-silent) {
+@if ($o-colors-is-silent == false) {
 	@each $usecase, $props in $o-colors-usecases {
 		@each $prop, $color in $props {
 			#{'.o-colors-' + $usecase + '-' + $prop} {
