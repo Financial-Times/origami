@@ -21,7 +21,7 @@ Simply add an `o-table` class to any table you wish to apply the styles to:
 
 ```html
 <table class="o-table">
-    ...
+	...
 </table>
 ```
 
@@ -29,15 +29,15 @@ Where a `td` contains numeric data, or a `th` is for cells containing numeric da
 
 ```html
 <table class="o-table">
-    <tr>
-        <th>Index</th>
-        <th data-type="numeric">Value</th>
-    </tr>
-    <tr>
-        <td>FTSE 100</td>
-        <td data-type="numeric">6685.52</td>
-    </tr>
-    ...
+	<tr>
+		<th>Index</th>
+		<th data-type="numeric">Value</th>
+	</tr>
+	<tr>
+		<td>FTSE 100</td>
+		<td data-type="numeric">6685.52</td>
+	</tr>
+	...
 </table>
 ```
 
@@ -45,11 +45,11 @@ Where table headings (`th`) are used as row headings, ` scope="row"` attributes 
 
 ```html
 <table class="o-table">
-    <tr>
-        <th scope="row">FTSE 100</th>
-        <td data-type="numeric">6685.52</td>
-    </tr>
-    ...
+	<tr>
+		<th scope="row">FTSE 100</th>
+		<td data-type="numeric">6685.52</td>
+	</tr>
+	...
 </table>
 ```
 
@@ -57,19 +57,19 @@ When they're are not present, browsers will implicitly wrap table contents in `t
 
 ```html
 <table class="o-table">
-    <thead>
-        <tr>
-            <th>Index</th>
-            <th data-type="numeric">Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>FTSE 100</td>
-            <td data-type="numeric">6685.52</td>
-        </tr>
-        ...
-    </tbody>
+	<thead>
+		<tr>
+			<th>Index</th>
+			<th data-type="numeric">Value</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>FTSE 100</td>
+			<td data-type="numeric">6685.52</td>
+		</tr>
+		...
+	</tbody>
 </table>
 ```
 
@@ -79,9 +79,9 @@ Where there is not enough horizontal space for a table to fit, it can be made ho
 
 ```html
 <div class="o-table-wrapper">
-    <table class="o-table">
-        ...
-    </table>
+	<table class="o-table">
+		...
+	</table>
 </div>
 ```
 
@@ -111,9 +111,9 @@ Note that tables matching the selector will not be wrapped, if they already have
 If using __o-table__ in silent mode, use the mixin `oTableBase' in your table styles:
 
 ```sass
-  .my-table {
-    @include oTableBase;
-  }
+.my-table {
+	@include oTableBase;
+}
 ```
 
 ## Variant classes and placeholders
