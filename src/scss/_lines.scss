@@ -5,6 +5,7 @@
 
 /**
  * Add horizontal lines to a table
+ * @requires {function} oColorsGetColorFor
  */
 @mixin oTableHorizontalLines {
 	tr:not(:last-child) {
@@ -14,6 +15,7 @@
 
 /**
  * Add verticle lines to a table
+ * @requires {function} oColorsGetColorFor
  */
 @mixin oTableVerticalLines {
 	th:not(:last-child):not(:first-child),

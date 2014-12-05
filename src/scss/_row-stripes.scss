@@ -5,9 +5,11 @@
 
 /**
  * Add this to the table element to get row stripes
+ * @requires {function} oColorsGetColorFor
  */
 @mixin oTableRowStripes {
 	background-color: oColorsGetColorFor(o-table-striped o-table page, background);
+
 	caption {
 		background-color: oColorsGetColorFor(o-table-striped o-table page, background);
 	}

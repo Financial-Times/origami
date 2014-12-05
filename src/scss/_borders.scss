@@ -5,6 +5,7 @@
 
 /**
  * Use this mixin to get horizontal borders
+ * @requires {function} oColorsGetColorFor
  */
 @mixin oTableHorizontalBorders {
 	border-top: 1px solid oColorsGetColorFor(o-table-row, border);
@@ -16,6 +17,7 @@
 
 /**
  * Use this mixin to get vertical borders
+ * @requires {function} oColorsGetColorFor
  */
 @mixin oTableVerticalBorders {
 	border-left: 1px solid oColorsGetColorFor(o-table-row, border);

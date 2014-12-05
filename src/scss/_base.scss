@@ -5,6 +5,8 @@
 
 /**
  * Base tables styles - add to <table>
+ * @requires {mixin} oFtTypographyBody
+ * @requires {function} oColorsGetColorFor
  */
 @mixin oTableBase {
 	@include oFtTypographyBody;
