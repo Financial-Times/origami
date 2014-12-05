@@ -3,7 +3,7 @@ $o-quote-is-silent: true !default;
 @import "o-colors/main";
 @import "o-fonts/main";
 
-@if variable-exists($o-quote-class-type) {
+@if variable-exists(o-quote-class-type) {
 	@warn '$o-quote-class-type is deprecated and will be removed in the next major release. Use mixins instead';
 }
 
