@@ -1,4 +1,24 @@
-@mixin oFtTypographyCommonWrappedBodyStyles() {
+/**
+ * @group o-ft-typography
+ * @link http://registry.origami.ft.com/components/o-ft-typography
+**/
+
+/**
+ * Common body styles
+ * Apply to a wrapper to style all text inside it
+ *
+ * @example scss
+ * article { @include oFtTypographyCommonWrappedBodyStyles; }
+ *
+ * @requires {mixin} oFtTypographyBold
+ * @requires {mixin} oFtTypographyItalic
+ * @requires {mixin} oFtTypographySmall
+ * @requires {mixin} oFtTypographySuper
+ * @requires {mixin} oFtTypographySub
+ * @requires {mixin} oFtTypographyBodyListOrdered
+ * @requires {mixin} oFtTypographyBodyListUnordered
+ */
+@mixin oFtTypographyCommonWrappedBodyStyles {
 	strong {
 		@include oFtTypographyBold;
 	}

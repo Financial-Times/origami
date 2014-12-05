@@ -25,6 +25,12 @@
 @import "scss/wrapped_article";
 @import "scss/labels";
 @import "scss/badges";
+@import "scss/classes";
 
+// Switch off component deprecation warnings
+$_o-ft-typography-deprecation-warnings: false;
 
 @import "scss/deprecated/index";
+
+// Switch deprecation warnings back on
+$_o-ft-typography-deprecation-warnings: true;

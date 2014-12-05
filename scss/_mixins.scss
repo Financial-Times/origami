@@ -1,30 +1,67 @@
-@mixin _oFtTypographyFont($family, $weight:normal, $style:normal) {
+/**
+ * @group o-ft-typography
+ * @link http://registry.origami.ft.com/components/o-ft-typography
+**/
+
+
+/**
+ * Shorthand for font style settings
+ *
+ * @param {string} $family
+ * @param {string} $weight (normal)
+ * @param {string} $style (normal)
+ *
+ * @access private
+ * @requires oFontsGetFontFamilyWithFallbacks
+ */
+@mixin _oFtTypographyFont($family, $weight: normal, $style: normal) {
 	font-family: oFontsGetFontFamilyWithFallbacks($family);
 	font-weight: $weight;
 	font-style: $style;
 }
 
+
+/**
+ * Offset text vertically
+ * compensates dead space by removing some margin bottom
+ *
+ * @param {number} $offset - number of pixels to add (e.g. 3) or remove (e.g. -5)
+ */
 @mixin oFtTypographyFontOffset($offset) {
 	@if ($offset > 0) {
-		padding-top: $offset + px;
-		margin-bottom: -$offset + px;
+		padding-top: $offset * 1px;
+		margin-bottom: -$offset * 1px;
 	} @else if ($offset < 0) {
-		margin-top: $offset + px;
-		padding-bottom: -$offset + px;
+		margin-top: $offset * 1px;
+		padding-bottom: -$offset * 1px;
 	}
 }
 
+/**
+ * Shorthand for font size settings
+ *
+ * @param {number} $size - background color, e.g. 16
+ * @param {number} $lineHeight - line height
+ * @param {number} $offset - number of pixels to offset vertically
+ *
+ * @requires {mixin} oFtTypographyFontOffset
+ */
 @mixin oFtTypographyFontSize($size, $lineHeight: null, $offset: 0) {
-	font-size: $size + px;
+	font-size: $size * 1px;
 	// In some version of webkit there was some bug (unfortunately neglected to document at the time)
 	// with using unitless line-height, hence removal of this line
 	// line-height: $originalLineHeight / $originalHeight;
 	@if ($lineHeight) {
-		line-height: $lineHeight + px;
+		line-height: $lineHeight * 1px;
 	}
 	@include oFtTypographyFontOffset($offset);
 }
 
+/**
+ * Add a background to a text, using text-shadow instead of "background"
+ *
+ * @param {color} $color - Background color
+ */
 @mixin oFtTypographyFauxTextBackground($color) {
 	text-shadow: 4px 0 2px $color, -4px 0 2px $color,
 	0 4px 2px $color, 0 -4px 2px $color,
@@ -36,21 +73,37 @@
 
 
 /**
- Provides a typography focused interface for oFontsInclude()
-**/
-@mixin oFtTypographyIncludeFont ($type) {
-	@each $usecase in $_o-ft-typography-fontface-usecase-mapping {
+ * Provides a typography focused interface for oFontsInclude()
+ *
+ * @param {string} $type - one of $usecases
+ * @param {list} $usecases
+ *
+ * @requires {mixin} oFontsInclude
+ * @requires {variable} _o-ft-typography-fontface-usecase-mapping
+ */
+@mixin oFtTypographyIncludeFont($type, $usecases: $_o-ft-typography-fontface-usecase-mapping) {
+	@each $usecase in $usecases {
 		@if ($type == nth($usecase, 1)) {
 			@include oFontsInclude(nth($usecase, 2), nth($usecase, 3));
 		}
 	}
 }
 
+/**
+ * Links styles
+ *
+ * @param {color} $color
+ * @param {color} $hover-color
+ *
+ * @access private
+ * @requires {variable} o-hoverable-if-hover-enabled
+ */
 @mixin _oFtTypographyLinkStyle($color, $hover-color) {
 	a {
 		text-decoration: none;
 		color: $color;
 		cursor: pointer;
+
 		#{$o-hoverable-if-hover-enabled} &:hover {
 			color: $hover-color;
 		}

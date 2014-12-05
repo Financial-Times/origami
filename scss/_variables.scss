@@ -7,24 +7,24 @@
 
 /**
  * When silent mode is active, css classes will not be output
+ * @type Boolean (true)
  */
 $o-ft-typography-is-silent: true !default;
 
-// both deprecated code and new refactor can output css classes - this helps to prevent it happening twice
-$o-ft-typography-classes-output : false !default;
-
-$_o-ft-typography-selector-prefix: o-ft-typography-;
-
-// Use to define font faces that need including for given use cases
+/**
+ * Font face use cases
+ * @access private
+ * @type list
+ */
 $_o-ft-typography-fontface-usecase-mapping: (
-	metadata          BentonSans      normal,
-	lead              BentonSans      normal,
-	subheading        BentonSans      normal,
-	heading           BentonSans      bold,
-	label             BentonSans      normal,
-	label             BentonSans      bold,
-	body              BentonSans      normal,
-	body              BentonSans      bold
+	metadata      BentonSans    normal,
+	lead          BentonSans    normal,
+	subheading    BentonSans    normal,
+	heading       BentonSans    bold,
+	label         BentonSans    normal,
+	label         BentonSans    bold,
+	body          BentonSans    normal,
+	body          BentonSans    bold
 );
 
 @include oColorsSetUseCase(o-ft-typography-heading-medium, border, pink-tint2);

@@ -1,20 +1,34 @@
 @mixin oFtTypographyWebkitFontfix() {
-	@warn 'oFtTypographyWebkitFontfix is deprecated and will be removed in next major release';
+	@if $_o-ft-typography-deprecation-warnings {
+		@warn 'oFtTypographyWebkitFontfix is deprecated and will be removed in the next major release';
+	}
 }
 
-@mixin oFtTypographyExtend ($class) {
+@mixin oFtTypographyExtend($class) {
+	@if $_o-ft-typography-deprecation-warnings {
+		@warn 'oFtTypographyExtend is deprecated and will be removed in the next major release';
+	}
 	@extend #{'%o-ft-typography-#{$class}'} !optional;
 }
 
 /**
-	Wrap styles in module-name prefixed SASS placeholders and CSS classes (if not in silent mode),
-	and optionally CSS selectors (if not in silent mode)
-	$names:         SASS list of placeholder/class names in the format "name1 name2" but without the quotes.
-									Will automatically by prefixed with module name.
-	$cssSelectors:  [optional] string. CSS selectors which should also receive the same styles.
-									Does not get auto-prefixed, so must be exactly as you want output on the CSS.
+ * Wrap styles in module-name prefixed Sass placeholders
+ * and CSS classes (if not in silent mode),
+ * and optionally CSS selectors (if not in silent mode)
+ *
+ * @deprecated
+ *
+ * @param {String} $names - Sass list of placeholder/class names in the format "name1 name2" but without the quotes. Will automatically by prefixed with module name.
+ * @param {list} $cssSelectors (()) - CSS selectors which should also receive the same styles. Does not get auto-prefixed, so must be exactly as you want output on the CSS.
+ *
+ * @requires {function} oFtGetPrefixedPlaceholders
+ * @requires {function} oFtGetPrefixedClasses
+ * @requires {variable} $o-ft-typography-is-silent
 */
 @mixin oFtTypographySelectors($names, $cssSelectors: ()) {
+	@if $_o-ft-typography-deprecation-warnings {
+		@warn 'oFtTypographySelectors is deprecated and will be removed in the next major release';
+	}
 	$selectors: ();
 	$selectors: append($selectors, oFtGetPrefixedPlaceholders($names));
 	@if (not $o-ft-typography-is-silent) {
@@ -24,4 +38,11 @@
 	#{$selectors} {
 		@content;
 	}
+}
+
+@mixin labelText {
+	@if $_o-ft-typography-deprecation-warnings {
+		@warn 'labelText is deprecated and will be removed in the next major release';
+	}
+	@include _oFtlabelText;
 }
