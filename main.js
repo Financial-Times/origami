@@ -25,14 +25,15 @@ function broadcast (eventType, data) {
 
 var getOrientation = (function () {
 	var orientation = prefixer.dom(screen, 'orientation');
-	var matchMedia = prefixer.dom(window, 'matchMedia');
 	if (orientation) {
 		return function () {
-			return screen[orientation].split('-')[0];
+			return typeof screen[orientation] === 'string' ? 
+				screen[orientation].split('-')[0] :  
+				screen[orientation].type.split('-')[0];
 		};
-	} else if (matchMedia) {
+	} else if (window.matchMedia) {
 		return function () {
-			return window[matchMedia]('(orientation: portrait)') ? 'portrait' : 'landscape';
+			return window.matchMedia('(orientation: portrait)').matches ? 'portrait' : 'landscape';
 		};
 	} else {
 		return function () {
