@@ -4,6 +4,5 @@
 	"main": "main.js",
 	"dependencies": {
 		"lodash-node": "https://github.com/lodash/lodash-node.git#~2.4.1",
-		"o-useragent": ">1.1.0 <3"
 	}
 }

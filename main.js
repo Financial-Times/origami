@@ -3,7 +3,6 @@
 
 var throttle = require('lodash-node/modern/functions/throttle');
 var debounce = require('lodash-node/modern/functions/debounce');
-var prefixer = require('o-useragent').prefixer;
 var body;
 var debug;
 var initFlags = {};
@@ -24,12 +23,12 @@ function broadcast (eventType, data) {
 }
 
 var getOrientation = (function () {
-	var orientation = prefixer.dom(screen, 'orientation');
+	var orientation = window.screen.orientation || window.screen.mozOrientation || window.screen.msOrientation || undefined;
 	if (orientation) {
 		return function () {
-			return typeof screen[orientation] === 'string' ? 
-				screen[orientation].split('-')[0] :  
-				screen[orientation].type.split('-')[0];
+			return typeof orientation === 'string' ? 
+				orientation.split('-')[0] :  
+				orientation.type.split('-')[0];
 		};
 	} else if (window.matchMedia) {
 		return function () {
