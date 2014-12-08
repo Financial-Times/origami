@@ -21,7 +21,7 @@ Simply add an `o-table` class to any table you wish to apply the styles to:
 
 ```html
 <table class="o-table">
-    ...
+	...
 </table>
 ```
 
@@ -29,15 +29,15 @@ Where a `td` contains numeric data, or a `th` is for cells containing numeric da
 
 ```html
 <table class="o-table">
-    <tr>
-        <th>Index</th>
-        <th data-type="numeric">Value</th>
-    </tr>
-    <tr>
-        <td>FTSE 100</td>
-        <td data-type="numeric">6685.52</td>
-    </tr>
-    ...
+	<tr>
+		<th>Index</th>
+		<th data-type="numeric">Value</th>
+	</tr>
+	<tr>
+		<td>FTSE 100</td>
+		<td data-type="numeric">6685.52</td>
+	</tr>
+	...
 </table>
 ```
 
@@ -45,11 +45,11 @@ Where table headings (`th`) are used as row headings, ` scope="row"` attributes 
 
 ```html
 <table class="o-table">
-    <tr>
-        <th scope="row">FTSE 100</th>
-        <td data-type="numeric">6685.52</td>
-    </tr>
-    ...
+	<tr>
+		<th scope="row">FTSE 100</th>
+		<td data-type="numeric">6685.52</td>
+	</tr>
+	...
 </table>
 ```
 
@@ -57,19 +57,19 @@ When they're are not present, browsers will implicitly wrap table contents in `t
 
 ```html
 <table class="o-table">
-    <thead>
-        <tr>
-            <th>Index</th>
-            <th data-type="numeric">Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>FTSE 100</td>
-            <td data-type="numeric">6685.52</td>
-        </tr>
-        ...
-    </tbody>
+	<thead>
+		<tr>
+			<th>Index</th>
+			<th data-type="numeric">Value</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>FTSE 100</td>
+			<td data-type="numeric">6685.52</td>
+		</tr>
+		...
+	</tbody>
 </table>
 ```
 
@@ -79,9 +79,9 @@ Where there is not enough horizontal space for a table to fit, it can be made ho
 
 ```html
 <div class="o-table-wrapper">
-    <table class="o-table">
-        ...
-    </table>
+	<table class="o-table">
+		...
+	</table>
 </div>
 ```
 
@@ -108,12 +108,12 @@ Note that tables matching the selector will not be wrapped, if they already have
 
 ## Silent mode
 
-If using __o-table__ in silent mode, `@extend` the placeholder `%o-table-base` into your own table class:
+If using __o-table__ in silent mode, use the mixin `oTableBase' in your table styles:
 
 ```sass
-  .my-table {
-    @extend %o-table-base;
-  }
+.my-table {
+	@include oTableBase;
+}
 ```
 
 ## Variant classes and placeholders
@@ -122,18 +122,18 @@ Additional classes may be added to the table root element to also apply the foll
 
 ### Row stripes
 
-Class: `o-table--row-stripes`, SASS placeholder: `%o-table-row-stripes`
+Class: `o-table--row-stripes`, Mixin: `oTableRowStripes`
 
 A background colour will be set on the whole table, and alternate rows within the `tbody` will have their background colour set to a pink tint.
 
 ### Horizontal lines
 
-Class: `o-table--horizontal-lines`, SASS placeholder: `%o-table-horizontal-lines`
+Class: `o-table--horizontal-lines`, Mixin: `oTableHorizontalLines`
 
 Thin lines will be rendered under each `td` element giving the appearance of lines between rows.
 
 ### Vertical lines
 
-Class: `o-table--vertical-lines`, SASS placeholder: `%o-table-vertical-lines`
+Class: `o-table--vertical-lines`, Mixin : `oTableVerticalLines`
 
 Thin lines will be rendered to the left and right of each `td` element giving the appearance of lines between columns.

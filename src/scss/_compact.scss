@@ -1,0 +1,20 @@
+/**
+ * @group o-table
+ * @link http://registry.origami.ft.com/components/o-table
+**/
+
+/**
+ * Make a table 'compact'
+ */
+@mixin oTableCompact {
+	th {
+		font-size: 12px;
+		line-height: 16px;
+		padding: 6px 8px;
+	}
+	td {
+		font-size: 11px;
+		line-height: 15px;
+		padding: 6px 8px;
+	}
+}
