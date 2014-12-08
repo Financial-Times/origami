@@ -67,15 +67,10 @@
 	}
 }
 
-//IE [6,]7-8 hack http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
+//IE [6-]8 hack http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
 .o-ft-header__nav--tools-theme .o-ft-header__back-to-ft {
 	filter/*\**/: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{oFtHeaderAsset('img/ft-logo.png')}',sizingMethod='scale')\9;
 }
-//IE6 hack override hack
-* html .o-ft-header__nav--tools-theme .o-ft-header__back-to-ft {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{oFtHeaderAsset('img/ft-logo.png')}');
-}
-
 
 // Media queries to make the nav smaller as the screen gets smaller.
 // It can't be fluid because primary-center is the fluid element
