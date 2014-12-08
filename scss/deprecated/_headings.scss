@@ -52,7 +52,7 @@
 
 
 @include oFtTypographySelectors(heading5-layout) {
-	@include oFtTypographyHeading5Layout();
+	@include oFtTypographyHeading5Layout;
 }
 
 @include oFtTypographySelectors(heading5-text) {
@@ -69,7 +69,7 @@
 }
 
 @include oFtTypographySelectors(heading6-text) {
-	@include oFtTypographyHeading6Layout;
+	@include oFtTypographyHeading6Text;
 }
 
 @include oFtTypographySelectors(heading6) {

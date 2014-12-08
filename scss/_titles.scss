@@ -5,6 +5,10 @@
 
 /**
  * Large title
+ * @requires {mixin} oFtTypographyFontSize
+ * @requires {mixin} oColorsFor
+ * @requires {mixin} _oFtTypographyLinkStyle
+ * @requires {function} oColorsGetColorFor
  */
 @mixin oFtTypographyTitleLarge {
 	font-family: Georgia, 'Times New Roman', serif;
@@ -16,6 +20,10 @@
 
 /**
  * Medium title
+ * @requires {mixin} oFtTypographyFontSize
+ * @requires {mixin} oColorsFor
+ * @requires {mixin} _oFtTypographyLinkStyle
+ * @requires {function} oColorsGetColorFor
  */
 @mixin oFtTypographyTitleMedium {
 	font-family: Georgia, 'Times New Roman', serif;
@@ -27,6 +35,10 @@
 
 /**
  * Small title
+ * @requires {mixin} oFtTypographyFontSize
+ * @requires {mixin} oColorsFor
+ * @requires {mixin} _oFtTypographyLinkStyle
+ * @requires {function} oColorsGetColorFor
  */
 @mixin oFtTypographyTitleSmall {
 	font-family: Georgia, 'Times New Roman', serif;

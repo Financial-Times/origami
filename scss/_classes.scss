@@ -1,8 +1,4 @@
-// This file is not included
-// It contains all the concrete classes that will be need to be added in once the deprecated stuff is removed
-// in the next major version
-
-@if not $o-ft-typography-is-silent and not $o-ft-typography-classes-output {
+@if $o-ft-typography-is-silent == false {
 	//badges
 	.o-ft-typography-badge {
 		@include oFtTypographyBadge;
@@ -190,5 +186,4 @@
 		@include oFtTypographyArticleBodyWrapper;
 	}
 
-	$o-ft-typography-classes-output : true;
 }

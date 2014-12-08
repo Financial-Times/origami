@@ -5,6 +5,9 @@
 
 /**
  * Article leader styles
+ * @requires {function} oColorsGetColorFor
+ * @requires {mixin} oFtTypographyFontSize
+ * @requires {mixin} oColorsFor
  */
 @mixin oFtTypographyArticleBodyLead {
 	margin: 0 0 9px;
@@ -18,6 +21,8 @@
 
 /**
  * Default article text style
+ * @requires {mixin} oFtTypographyFontSize
+ * @requires {mixin} oColorsFor
  */
 @mixin oFtTypographyArticleBody {
 	@include oFtTypographyFontSize(16, 24);
@@ -36,6 +41,9 @@
 
 /**
  * Styles for <ul> and <ol> articles
+ * @requires {mixin} oFtTypographyArticleBody
+ * @requires {mixin} oFtTypographyArticleBody
+ * @requires {mixin} oFtTypographyArticleBodyBlock
  */
 @mixin oFtTypographyArticleBodyList {
 	list-style-position: outside;

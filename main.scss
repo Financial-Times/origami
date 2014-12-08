@@ -5,7 +5,7 @@
 @import "scss/deprecated/functions";
 @import "scss/mixins";
 
-@if (not $o-ft-typography-is-silent) {
+@if ($o-ft-typography-is-silent == false) {
 	@each $usecase in $_o-ft-typography-fontface-usecase-mapping {
 		@include oFtTypographyIncludeFont(nth($usecase, 1));
 	}
@@ -25,6 +25,12 @@
 @import "scss/wrapped_article";
 @import "scss/labels";
 @import "scss/badges";
+@import "scss/classes";
 
+// Switch off component deprecation warnings
+$_o-ft-typography-deprecation-warnings: false;
 
 @import "scss/deprecated/index";
+
+// Switch deprecation warnings back on
+$_o-ft-typography-deprecation-warnings: true;

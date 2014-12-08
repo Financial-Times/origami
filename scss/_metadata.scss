@@ -5,6 +5,11 @@
 
 /**
  * Styles for a brand
+ * @requires {mixin} oFtTypographyFontSize
+ * @requires {mixin} _oFtTypographyFont
+ * @requires {mixin} _oFtTypographyLinkStyle
+ * @requires {mixin} oColorsFor
+ * @requires {function} oColorsGetColorFor
  */
 @mixin oFtTypographyBrand {
 	margin: 0;
@@ -16,6 +21,9 @@
 
 /**
  * Styles for a byline
+ * @requires {mixin} oFtTypographyFontSize
+ * @requires {mixin} _oFtTypographyFont
+ * @requires {mixin} oColorsFor
  */
 @mixin oFtTypographyByline {
 	margin: 0;
@@ -26,6 +34,9 @@
 
 /**
  * Styles for a timestamp
+ * @requires {mixin} oFtTypographyFontSize
+ * @requires {mixin} _oFtTypographyFont
+ * @requires {mixin} oColorsFor
  */
 @mixin oFtTypographyTimestamp {
 	margin: 0;

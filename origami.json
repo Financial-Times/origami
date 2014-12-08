@@ -1,25 +1,53 @@
 {
-	"description": "FT brand typographic styles",
-	"origamiType": "module",
-	"origamiVersion": 1,
-	"support": "https://github.com/Financial-Times/o-ft-typography/issues",
-	"supportStatus": "active",
-	"browserFeatures": {
-		"optional": [
-			"fontface",
-			"textshadow"
-		]
-	},
-	"ci": {
-		"travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-typography/builds.json"
-	},
-	"demos": [
-		"/demos/headings.html",
-		"/demos/titles.html",
-		"/demos/leads.html",
-		"/demos/metadata.html",
-		"/demos/body.html",
-		"/demos/labels.html",
-		"/demos/badges.html"
-	]
+    "description": "FT brand typographic styles",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "https://github.com/Financial-Times/o-ft-typography/issues",
+    "supportStatus": "active",
+    "browserFeatures": {
+        "optional": [
+            "fontface",
+            "textshadow"
+        ]
+    },
+    "ci": {
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-typography/builds.json"
+    },
+    "demos": [
+        {
+            "path": "/demos/headings.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/titles.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/leads.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/metadata.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/body.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/labels.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/badges.html",
+            "expanded": true,
+            "description": ""
+        }
+    ]
 }

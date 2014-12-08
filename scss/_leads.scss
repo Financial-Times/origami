@@ -5,6 +5,10 @@
 
 /**
  * Large leader
+ * @requires {mixin} oFtTypographyFontSize
+ * @requires {mixin} _oFtTypographyLinkStyle
+ * @requires {mixin} oColorsFor
+ * @requires {function} oColorsGetColorFor
  */
 @mixin oFtTypographyLeadLarge {
 	font-family: Georgia, 'Times New Roman', serif;
@@ -16,6 +20,10 @@
 
 /**
  * Medium leader
+ * @requires {mixin} oFtTypographyFontSize
+ * @requires {mixin} _oFtTypographyLinkStyle
+ * @requires {mixin} oColorsFor
+ * @requires {function} oColorsGetColorFor
  */
 @mixin oFtTypographyLeadMedium {
 	font-family: Georgia, 'Times New Roman', serif;
@@ -27,6 +35,11 @@
 
 /**
  * Small leader
+ * @requires {mixin} oFtTypographyFontSize
+ * @requires {mixin} _oFtTypographyFont
+ * @requires {mixin} _oFtTypographyLinkStyle
+ * @requires {mixin} oColorsFor
+ * @requires {function} oColorsGetColorFor
  */
 @mixin oFtTypographyLeadSmall {
 	@include _oFtTypographyFont(BentonSans, normal);
