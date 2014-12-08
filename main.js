@@ -3,7 +3,6 @@
 
 var throttle = require('lodash-node/modern/functions/throttle');
 var debounce = require('lodash-node/modern/functions/debounce');
-var prefixer = require('o-useragent').prefixer;
 var body;
 var debug;
 var initFlags = {};
@@ -24,15 +23,16 @@ function broadcast (eventType, data) {
 }
 
 var getOrientation = (function () {
-	var orientation = prefixer.dom(screen, 'orientation');
-	var matchMedia = prefixer.dom(window, 'matchMedia');
+	var orientation = window.screen.orientation || window.screen.mozOrientation || window.screen.msOrientation || undefined;
 	if (orientation) {
 		return function () {
-			return screen[orientation].split('-')[0];
+			return typeof orientation === 'string' ? 
+				orientation.split('-')[0] :  
+				orientation.type.split('-')[0];
 		};
-	} else if (matchMedia) {
+	} else if (window.matchMedia) {
 		return function () {
-			return window[matchMedia]('(orientation: portrait)') ? 'portrait' : 'landscape';
+			return window.matchMedia('(orientation: portrait)').matches ? 'portrait' : 'landscape';
 		};
 	} else {
 		return function () {
