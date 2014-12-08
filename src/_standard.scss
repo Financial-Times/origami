@@ -1,4 +1,15 @@
-#{$o-quote-class-type}o-quote--standard {
+/**
+ * @group o-quote
+ * @link http://registry.origami.ft.com/components/o-quote
+**/
+
+/**
+ * Add to container for a standard quote
+ *
+ * @requires {function} oColorsGetColorFor
+ * @requires {function} oFontsGetFontFamilyWithFallbacks
+ */
+@mixin oQuoteStandard {
 	background-color: oColorsGetColorFor(o-quote, background);
 	line-height: 21px;
 
@@ -31,16 +42,31 @@
 		margin-top: 29px;
 		margin-left: 9px;
 	}
+}
 
-	#{$o-quote-class-type}o-quote__cite {
-		font-size: 16px;
-		font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-		font-weight: normal;
-		font-style: normal;
+/**
+ * Apply this to a <cite> within a standard quote block
+ *
+ * @requires {function} oFontsGetFontFamilyWithFallbacks
+ */
+@mixin oQuoteStandardCite {
+	font-size: 16px;
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	font-weight: normal;
+	font-style: normal;
 
-		&:before {
-			content: '-';
-			margin-right: 4px;
-		}
+	&:before {
+		content: '-';
+		margin-right: 4px;
+	}
+}
+
+@if $o-quote-is-silent == false {
+	.o-quote--standard {
+		@include oQuoteStandard;
+	}
+
+	.o-quote--standard .o-quote__cite {
+		@include oQuoteStandardCite;
 	}
 }

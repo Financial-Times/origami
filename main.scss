@@ -3,10 +3,7 @@ $o-quote-is-silent: true !default;
 @import "o-colors/main";
 @import "o-fonts/main";
 
-$o-quote-class-type: unquote("%");
-
 @if $o-quote-is-silent == false {
-	$o-quote-class-type: unquote(".") !global;
 	@include oFontsInclude(MillerDisplay);
 	@include oFontsInclude(BentonSans);
 }
@@ -14,3 +11,7 @@ $o-quote-class-type: unquote("%");
 @import "src/color-use-cases";
 @import "src/base";
 @import "src/standard";
+
+@import "src/deprecated/variables";
+@import "src/deprecated/base";
+@import "src/deprecated/standard";
