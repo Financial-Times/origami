@@ -19,7 +19,7 @@
   cursor: pointer;
   font-weight: normal;
   line-height: $_o-ft-forms-radiocheckbox-size;
-   @include oUseragentPrefixer(user-select, none);
+  user-select: none;
 }
 
 // apply different text colour to checkboxes and radio labels on hover and focus

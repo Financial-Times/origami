@@ -7,3 +7,5 @@ node_modules/
 /bin
 /.classpath
 /.project
+npm-debug.log
+.DS_Store
