@@ -7,10 +7,15 @@
 	z-index: 10;
 	box-sizing: border-box;
 	opacity: 1;
-	@include oUseragentPrefixer(transition, opacity 0.3s ease-in-out);
+	-webkit-transition: opacity 0.3s ease-in-out;
+	-moz-transition: opacity 0.3s ease-in-out;
+	-o-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
 	border: $o-overlay-border-width solid oColorsGetColorFor(o-overlay, border);
 	background: oColorsGetColorFor(o-overlay, background);
-	@include oUseragentPrefixer(border-radius, 5px);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 %o-overlay-shadow {
@@ -22,7 +27,10 @@
 	left: 0;
 	z-index: 10;
 	opacity: 1;
-	@include oUseragentPrefixer(transition, opacity 0.3s ease-in-out);
+	-webkit-transition: opacity 0.3s ease-in-out;
+	-moz-transition: opacity 0.3s ease-in-out;
+	-o-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
 }
 
 %o-overlay__heading {
@@ -59,7 +67,9 @@
 	font-size: 10px;
 	line-height: 19px;
 	border: 1px solid;
-	@include oUseragentPrefixer(border-radius, 50%);
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
 	@include oColorsFor(o-overlay-close);
 
 	#{$o-hoverable-if-hover-enabled} &:hover {
