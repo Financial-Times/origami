@@ -123,4 +123,4 @@ Bad examples: RightArrow.svg, linked_in.svg, yahoo!.svg
 
 ### IE7 support
 
-IE7 support is controlled by [o-useragent](https://github.com/Financial-Times/o-useragent).
+IE7 support is handled by an IE7 CSS expression hack, which is bundled into the main icons mixin.
