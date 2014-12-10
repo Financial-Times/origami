@@ -3,7 +3,7 @@
 	"main": ["main.scss"],
 	"dependencies": {
 		"o-fonts": "^1.3.0",
-		"o-colors": "^2.4.3",
+		"o-colors": "^2.3.17",
 		"o-ft-icons": ">=1.1.1 <3",
 		"o-hoverable": ">0.1.1 <2"
 	}
