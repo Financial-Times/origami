@@ -7,7 +7,7 @@ Utility for attaching debounced listeners to resize, scroll and orientation even
 ## Methods
 
 ### `o-viewport#listenTo(eventType)`
-Attaches a debounced/throttled (as appropriate) listener to events on window [`resize`, `scroll` or `orientation`] which in turn fires events within the `oViewport` namespace (see **Events** below)
+Attaches a debounced/throttled (as appropriate) listener to events on window [`resize`, `scroll` or `orientation`] which in turn fires events within the `oViewport` namespace (see **Events** below). This musn't be called before the `body` has been initialised, as the events are dispatched from `document.body`.
 
 ### `o-viewport#getOrientation()`
 Provides a reasonably reliable way (more so than `window.orientation`) of obtaining the current orientation of the viewport.
