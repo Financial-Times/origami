@@ -4,10 +4,10 @@ Standard FT-branded buttons.
 
 Buttons come in four themes:
 
-* __default__: monochrome
-* __uncolored__: 
+* __default__: blue outline
+* __uncolored__: monochrome
 * __inverse__: white
-* __standout__: blue
+* __standout__: solid blue
 
 and two sizes:
 
