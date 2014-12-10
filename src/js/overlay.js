@@ -2,7 +2,6 @@
 
 var Delegate = require('dom-delegate');
 var viewport = require('o-viewport');
-viewport.listenTo('resize');
 var oLayers = require('o-layers');
 var utils = require('./utils');
 var overlays = {};
@@ -88,6 +87,7 @@ var triggerClickHandler = function(id) {
 };
 
 var Overlay = function(id, opts) {
+	viewport.listenTo('resize');
 	this.visible = false;
 	this.id = id;
 
