@@ -3,7 +3,6 @@
 
 var throttle = require('lodash-node/modern/functions/throttle');
 var debounce = require('lodash-node/modern/functions/debounce');
-var body;
 var debug;
 var initFlags = {};
 var intervals = {
@@ -12,11 +11,11 @@ var intervals = {
 	scroll: 100
 };
 
-function broadcast (eventType, data) {
+function broadcast(eventType, data) {
 	if (debug) {
 		console.log('o-viewport', eventType, data);
 	}
-	body.dispatchEvent(new CustomEvent('oViewport.' + eventType, {
+	document.body.dispatchEvent(new CustomEvent('oViewport.' + eventType, {
 		detail: data,
 		bubbles: true
 	}));
@@ -26,8 +25,8 @@ var getOrientation = (function () {
 	var orientation = window.screen.orientation || window.screen.mozOrientation || window.screen.msOrientation || undefined;
 	if (orientation) {
 		return function () {
-			return typeof orientation === 'string' ? 
-				orientation.split('-')[0] :  
+			return typeof orientation === 'string' ?
+				orientation.split('-')[0] :
 				orientation.type.split('-')[0];
 		};
 	} else if (window.matchMedia) {
@@ -62,8 +61,6 @@ function init(eventType) {
 	if (initFlags[eventType]) return true;
 
 	initFlags[eventType] = true;
-
-	body = body || document.body;
 }
 
 function listenToResize () {
@@ -98,10 +95,10 @@ function listenToScroll () {
 	window.addEventListener('scroll', throttle(function (ev) {
 		broadcast('scroll', {
 			viewport: getSize(),
-			scrollHeight: body.scrollHeight,
+			scrollHeight: document.body.scrollHeight,
 			scrollLeft: (document.documentElement && document.documentElement.scrollLeft) || document.body.scrollLeft,
 			scrollTop: (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop,
-			scrollWidth: body.scrollWidth,
+			scrollWidth: document.body.scrollWidth,
 			originalEvent: ev
 		});
 	}, intervals.scroll));
