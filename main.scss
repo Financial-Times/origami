@@ -7,6 +7,10 @@
 @import "scss/themes";
 @import "scss/variables";
 @import "scss/mixins";
+
+// Switch off component deprecation warnings
+$_o-ft-buttons-deprecation-warnings: false;
+
 @import "scss/deprecated";
 
 @import "scss/group";
@@ -40,3 +44,6 @@
 		@include oFtButtonsGroup;
 	}
 }
+
+// Switch deprecation warnings back on
+$_o-ft-buttons-deprecation-warnings: true;
