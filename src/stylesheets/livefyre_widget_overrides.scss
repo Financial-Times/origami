@@ -168,7 +168,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 				overflow: visible;
 			}
 
-			.comment-settings {
+			.o-comment-ui-settings {
 				font-size: 14px;
 			}
 		}
@@ -1146,7 +1146,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 			.fyre-login-bar,
 			.fyre-box-wrapper a.fyre-user-profile-link,
-			.fyre-login-bar .comment-settings .comment-settings-text,
+			.fyre-login-bar .o-comment-ui-settings .o-comment-ui-settings-text,
 			.fyre-login-bar a.fyre-user-loggedout,
 			.fyre-stream-stats .fyre-comment-count span {
 				font-size: 11px;

@@ -19,6 +19,8 @@ function Auth () {
 	 */
 	var authDelegate;
 
+	var loggedIn = false;
+
 	/**
 	 * Pseudonym is still missing.
 	 * @type {Boolean}
@@ -78,6 +80,8 @@ function Auth () {
 					getLfObj().conv.login(authData.token);
 					callback(true, authData);
 					globalEvents.trigger('auth.login', authData);
+
+					loggedIn = true;
 				} else if (authData.pseudonym === false) {
 					// the user doesn't have pseudonym
 
@@ -188,7 +192,9 @@ function Auth () {
 					}
 				});
 			} else {
-				self.login();
+				if (!loggedIn) {
+					self.login();
+				}
 
 				if (delegate && delegate.success) {
 					delegate.success();
