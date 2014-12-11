@@ -6,36 +6,36 @@
     <meta charset="utf-8" />
     <title>o-ft-forms: text-inputs demo</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <script src="//polyfill.webservices.ft.com/v1/polyfill.min.js"></script>
     <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
     <link rel="stylesheet" href="/bundles/css?modules=o-ft-forms:/demos/src/demo.scss" />
 </head>
 <body class="">
     <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
-    
     <div class="demo-column">
     <div class="o-ft-forms__field-group">
         <label class="o-ft-forms__label">Text input</label>
         <small class="o-ft-forms__additional-info">prompt text ie password needs 6 characters</small>
-        <input type="text" placeholder="placeholder" class="o-ft-forms__field" />
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field o-ft-forms__field--text" />
     </div>
     <div class="o-ft-forms__field-group o-ft-forms--valid">
         <label class="o-ft-forms__label">Text input with valid entry</label>
-        <input type="text" placeholder="placeholder" class="o-ft-forms__field o-ft-forms__field--valid" value="Field value" />
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field o-ft-forms__field--text o-ft-forms__field--valid" value="Field value" />
     </div>
     <div class="o-ft-forms__field-group o-ft-forms--error">
         <label class="o-ft-forms__label">URL input :invalid</label>
-        <input type="url" placeholder="placeholder" class="o-ft-forms__field" value="hp://invalid.com" />
+        <input type="url" placeholder="placeholder" class="o-ft-forms__field o-ft-forms__field--text" value="hp://invalid.com" />
         <div class="o-ft-forms__errortext">Please enter a valid url</div>
     </div>
 </div>
 <div class="demo-column">
     <div class="o-ft-forms__field-group">
         <label class="o-ft-forms__label">Text input disabled</label>
-        <input type="text" placeholder="placeholder" class="o-ft-forms__field o-ft-forms__field--valid" value="Field value" disabled="disabled" />
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field o-ft-forms__field--text o-ft-forms__field--valid" value="Field value" disabled="disabled" />
     </div>
     <div class="o-ft-forms__field-group o-ft-forms--error">
         <label class="o-ft-forms__label">Text input (error)</label>
-        <input type="text" placeholder="placeholder" class="o-ft-forms__field" value="Field value" />
+        <input type="text" placeholder="placeholder" class="o-ft-forms__field o-ft-forms__field--text" value="Field value" />
         <div class="o-ft-forms__errortext">Invalid entry</div>
     </div>
 </div>
