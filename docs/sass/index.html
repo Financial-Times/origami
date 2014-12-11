@@ -1,0 +1,2847 @@
+<!doctype html>
+
+
+
+
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8" />
+
+<title>SassDoc</title>
+<link rel="stylesheet" href="assets/css/main.css" />
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width">
+<meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible">
+
+<!-- Thanks to Sass-lang.com for the icons -->
+<link href="http://sass-lang.com/favicon.ico" rel="shortcut icon">
+
+</head>
+<body>
+
+  
+  <aside class="sidebar" role="nav">
+    
+  <div class="sidebar__header">
+  <h1 class="sidebar__title">
+    
+      SassDoc
+    
+  </h1>
+</div>
+
+<div class="sidebar__body">
+  
+  
+    <button type="button" class="btn-toggle  js-btn-toggle" data-alt="Open all">Close all</button>
+
+    
+    
+      <p class="sidebar__item  sidebar__item--heading" data-slug="undefined"><a href="#undefined">Ungrouped</a></p>
+
+      
+      
+        <div>
+
+        
+        
+
+        
+        
+          <p class="sidebar__item  sidebar__item--sub-heading" data-slug="undefined-mixin"><a href="#undefined-mixin">mixins</a></p>
+
+          
+          
+            <ul class="list-unstyled">
+            <li class="sidebar__item  sassdoc__item" data-name="oFtButtonsGroup" data-type="mixin">
+              <a href="#mixin-oFtButtonsGroup">oFtButtonsGroup
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="oFtButtonsSize" data-type="mixin">
+              <a href="#mixin-oFtButtonsSize">oFtButtonsSize
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="oFtButtonsTheme" data-type="mixin">
+              <a href="#mixin-oFtButtonsTheme">oFtButtonsTheme
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="oFtButtons" data-type="mixin">
+              <a href="#mixin-oFtButtons">oFtButtons
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="oFtButtonsPagination" data-type="mixin">
+              <a href="#mixin-oFtButtonsPagination">oFtButtonsPagination
+              
+              
+              </a>
+            </li>
+            </ul>
+          
+        
+        
+      
+        
+
+        
+        
+
+        
+        
+          <p class="sidebar__item  sidebar__item--sub-heading" data-slug="undefined-variable"><a href="#undefined-variable">variables</a></p>
+
+          
+          
+            <ul class="list-unstyled">
+            <li class="sidebar__item  sassdoc__item" data-name="o-colors-palette" data-type="variable">
+              <a href="#variable-o-colors-palette">o-colors-palette
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="o-colors-usecases" data-type="variable">
+              <a href="#variable-o-colors-usecases">o-colors-usecases
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="o-ft-buttons-themes__standard" data-type="variable">
+              <a href="#variable-o-ft-buttons-themes__standard">o-ft-buttons-themes__standard
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="o-ft-buttons-themes__standout" data-type="variable">
+              <a href="#variable-o-ft-buttons-themes__standout">o-ft-buttons-themes__standout
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="o-ft-buttons-themes__inverse" data-type="variable">
+              <a href="#variable-o-ft-buttons-themes__inverse">o-ft-buttons-themes__inverse
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="o-ft-buttons-themes__uncolored" data-type="variable">
+              <a href="#variable-o-ft-buttons-themes__uncolored">o-ft-buttons-themes__uncolored
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="o-ft-buttons-is-silent" data-type="variable">
+              <a href="#variable-o-ft-buttons-is-silent">o-ft-buttons-is-silent
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="o-ft-buttons-class" data-type="variable">
+              <a href="#variable-o-ft-buttons-class">o-ft-buttons-class
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="o-ft-buttons-sizes" data-type="variable">
+              <a href="#variable-o-ft-buttons-sizes">o-ft-buttons-sizes
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="o-ft-buttons-themes" data-type="variable">
+              <a href="#variable-o-ft-buttons-themes">o-ft-buttons-themes
+              
+              
+              </a>
+            </li>
+            </ul>
+          
+        
+        </div>
+      
+
+    
+  
+</div>
+
+
+  </aside>
+
+  
+  <article class="main" role="main">
+
+    
+    <header class="header" role="banner">
+  <div class="container">
+  
+
+    <div class="sassdoc__searchbar  searchbar">
+       <label for="js-search-input" class="visually-hidden">Search</label>
+       <div class="searchbar__form" id="js-search">
+         <input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search" />
+         <ul class="searchbar__suggestions" id="js-search-suggestions"></ul>
+       </div>
+     </div>
+  </div>
+</header>
+
+
+    <div class="container">
+    
+
+  
+  
+
+    
+    
+      <section class="main__section">
+        <h1 class="main__heading" id="undefined">Ungrouped</h1>
+
+        
+        
+
+          
+          
+
+          
+          
+            <section class="main__sub-section" id="undefined-mixin">
+              <h2 class="main__heading--secondary">mixins</h2>
+
+              
+              
+                <section class="main__item  item" id="mixin-oFtButtonsGroup">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-oFtButtonsGroup">oFtButtonsGroup</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@mixin oFtButtonsGroup($($o-ft-buttons-class)) { 
+	&gt; .#{$buttonClass} {
+		border-radius: 0;
+
+		+ .#{$buttonClass} {
+			border-left-width: 0;
+		}
+	}
+
+	:first-child {
+		border-bottom-left-radius: 5px;
+		border-top-left-radius: 5px;
+		border-left-width: 1px;
+	}
+
+	:last-child {
+		border-bottom-right-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+ }"
+    data-collapsed="@mixin oFtButtonsGroup($($o-ft-buttons-class)) { ... }"><code>@mixin oFtButtonsGroup($($o-ft-buttons-class)) { ... }</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Button group
+Applies styles to direct children</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$($o-ft-buttons-class)</code></th>
+          <td data-label="desc"><p>$buttonClass</p>
+</td>
+          <td data-label="type">
+          
+            String
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+  <div class="item__example  example">
+    
+    <pre class="example__code"><code class="language-scss">.my-button-group {
+	@include oFtButtonsGroup(my-buttons);
+}</code></pre>
+  </div>
+  
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li>
+        <a href="#variable-o-ft-buttons-class"><code>o-ft-buttons-class</code></a>
+        
+      </li>
+    
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="http://build.origami.ft.com/files/o-ft-buttons/demos/grouped.html">
+        
+          http://build.origami.ft.com/files/o-ft-buttons/demos/grouped.html
+        
+      </a>
+    </li>
+  
+  </ul>
+
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="mixin-oFtButtonsSize">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-oFtButtonsSize">oFtButtonsSize</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@mixin oFtButtonsSize($size) { 
+	// Dimensions
+	$button-dimensions: map-get($o-ft-buttons-sizes, $size);
+	padding: 0 map-get($button-dimensions, padding-right) 0 map-get($button-dimensions, padding-left);
+	font-size: map-get($button-dimensions, font-size);
+	line-height: map-get($button-dimensions, height) - 2px; // height - border width
+ }"
+    data-collapsed="@mixin oFtButtonsSize($size) { ... }"><code>@mixin oFtButtonsSize($size) { ... }</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Button theme construct
+Ouputs dimensions for a specific button size</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$size</code></th>
+          <td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td>
+          <td data-label="type">
+          
+            String
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+  <div class="item__example  example">
+    
+    <pre class="example__code"><code class="language-scss">.my-button--big {
+	@include oFtButtonsSize(big);
+}</code></pre>
+  </div>
+  
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li>
+        <a href="#variable-o-ft-buttons-sizes"><code>o-ft-buttons-sizes</code></a>
+        
+      </li>
+    
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+
+
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#mixin-oFtButtons"><code>oFtButtons</code></a></li>
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="http://registry.origami.ft.com/components/o-ft-buttons">
+        
+          http://registry.origami.ft.com/components/o-ft-buttons
+        
+      </a>
+    </li>
+  
+  </ul>
+
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="mixin-oFtButtonsTheme">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-oFtButtonsTheme">oFtButtonsTheme</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@mixin oFtButtonsTheme($theme) { 
+	$states: map-get($o-ft-buttons-themes, $theme);
+
+	@each $property, $value in map-get($states, normal) {
+		#{$property}: #{$value};
+	}
+
+	&amp;:focus {
+		@each $property, $value in map-get($states, focus) {
+			#{$property}: #{$value};
+		}
+	}
+
+	@if map-get($states, hover) {
+		#{$o-hoverable-if-hover-enabled} &amp; {
+			// Apply :hover state only in these cases:
+			// - Not disabled
+			// - Not selected
+			// - Not pressed
+			&amp;:not([disabled]):not([aria-selected=true]):not([aria-pressed=true]):hover {
+				background: map-get(map-get($states, hover), background);
+			}
+		}
+	}
+
+	@if map-get($states, selected) {
+		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+		&amp;[aria-selected=true] {
+			@each $property, $value in map-get($states, selected) {
+				#{$property}: #{$value};
+			}
+
+			&amp;:focus {
+				@if map-has-key(map-get($states, selected), color) {
+					box-shadow: inset 0 0 3px 1px map-get(map-get($states, selected), color);
+				}
+			}
+		}
+	}
+
+	@if map-get($states, pressed) {
+		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+		&amp;[aria-pressed=true] {
+			@each $property, $value in map-get($states, pressed) {
+				#{$property}: #{$value};
+			}
+
+			&amp;:focus {
+				@if map-has-key(map-get($states, pressed), color) {
+					box-shadow: inset 0 0 3px 1px map-get(map-get($states, pressed), color);
+				}
+			}
+		}
+	}
+
+	@if map-get($states, disabled) {
+		&amp;[disabled] {
+			@each $property, $value in map-get($states, disabled) {
+				#{$property}: #{$value};
+			}
+		}
+	}
+ }"
+    data-collapsed="@mixin oFtButtonsTheme($theme) { ... }"><code>@mixin oFtButtonsTheme($theme) { ... }</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Button theme construct
+Ouputs styles for all button states</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$theme</code></th>
+          <td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td>
+          <td data-label="type">
+          
+            String
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+  <div class="item__example  example">
+    
+    <pre class="example__code"><code class="language-scss">.my-button--standout {
+	@include oFtButtonsTheme(standout);
+}</code></pre>
+  </div>
+  
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li>
+        <a href="#variable-o-ft-buttons-themes"><code>o-ft-buttons-themes</code></a>
+        
+      </li>
+    
+  
+
+
+
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+
+
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#mixin-oFtButtons"><code>oFtButtons</code></a></li>
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="http://registry.origami.ft.com/components/o-ft-buttons">
+        
+          http://registry.origami.ft.com/components/o-ft-buttons
+        
+      </a>
+    </li>
+  
+  </ul>
+
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="mixin-oFtButtons">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-oFtButtons">oFtButtons</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@mixin oFtButtons($(medium), $(standard)) { 
+	display: inline-block;
+	box-sizing: border-box;
+	margin: 0;
+	outline: 0;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 5px;
+	text-align: center;
+	text-decoration: none;
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	cursor: pointer;
+	transition: background-color 0.3s;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	user-select: none;
+
+	@include oFtButtonsSize($size);
+	@include oFtButtonsTheme($theme);
+
+	// Same as aria-disabled:
+	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-disabled
+	// This is a common style for all button themes
+	&amp;[disabled] {
+		opacity: 0.4;
+		cursor: default;
+	}
+ }"
+    data-collapsed="@mixin oFtButtons($(medium), $(standard)) { ... }"><code>@mixin oFtButtons($(medium), $(standard)) { ... }</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Button construct
+Basic button styling and default states for specific theme and size</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$(medium)</code></th>
+          <td data-label="desc"><p>$size</p>
+</td>
+          <td data-label="type">
+          
+            String
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$(standard)</code></th>
+          <td data-label="desc"><p>$theme</p>
+</td>
+          <td data-label="type">
+          
+            String
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+  <div class="item__example  example">
+    
+    <pre class="example__code"><code class="language-scss">.my-button {
+	@include oFtButtons;
+}
+.my-inverse-button {
+	@include oFtButtons($theme: inverse);
+}
+.my-big-standout-button {
+	@include oFtButtons(big, standout);
+}
+.my-big-button {
+	@include oFtButtons(big);
+}</code></pre>
+  </div>
+  
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li>
+        <a href="#mixin-oFtButtonsSize"><code>oFtButtonsSize</code></a>
+        
+      </li>
+    
+  
+
+
+
+  
+    
+
+    
+      <li>
+        <a href="#mixin-oFtButtonsTheme"><code>oFtButtonsTheme</code></a>
+        
+      </li>
+    
+  
+
+
+
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="http://registry.origami.ft.com/components/o-ft-buttons">
+        
+          http://registry.origami.ft.com/components/o-ft-buttons
+        
+      </a>
+    </li>
+  
+  </ul>
+
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="mixin-oFtButtonsPagination">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-oFtButtonsPagination">oFtButtonsPagination</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@mixin oFtButtonsPagination($($o-ft-buttons-class)) { 
+	&gt; .#{$buttonClass} {
+		padding-left: 5px;
+		padding-right: 5px;
+		min-width: 24px;
+
+		&amp;.#{$buttonClass}--big {
+			padding-left: 9px;
+			padding-right: 9px;
+			min-width: 36px;
+		}
+	}
+ }"
+    data-collapsed="@mixin oFtButtonsPagination($($o-ft-buttons-class)) { ... }"><code>@mixin oFtButtonsPagination($($o-ft-buttons-class)) { ... }</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Pagination button wrapper styles
+Applies styles of pagination buttons to direct children</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$($o-ft-buttons-class)</code></th>
+          <td data-label="desc"><p>$buttonClass</p>
+</td>
+          <td data-label="type">
+          
+            String
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+  <div class="item__example  example">
+    
+    <pre class="example__code"><code class="language-scss">.my-buttons-pagination {
+	@include oFtButtonsPagination(my-buttons);
+}</code></pre>
+  </div>
+  
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li>
+        <a href="#variable-o-ft-buttons-class"><code>o-ft-buttons-class</code></a>
+        
+      </li>
+    
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="http://build.origami.ft.com/files/o-ft-buttons/demos/pagination.html">
+        
+          http://build.origami.ft.com/files/o-ft-buttons/demos/pagination.html
+        
+      </a>
+    </li>
+  
+  </ul>
+
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+            </section>
+          
+        
+
+          
+          
+
+          
+          
+            <section class="main__sub-section" id="undefined-variable">
+              <h2 class="main__heading--secondary">variables</h2>
+
+              
+              
+                <section class="main__item  item" id="variable-o-colors-palette">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#variable-o-colors-palette">o-colors-palette</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div class="relative  clear">
+  <pre class="item__code  language-scss"><code>$o-colors-palette: (
+	// Non-colour CSS values
+	transparent:           transparent,
+	inherit:               inherit,
+
+	// Primary Palette
+	pink:                  #fff1e0,
+	black:                 #000000,
+	white:                 #ffffff,
+	blue:                  #2e6e9e,
+	dark-blue:             #275e86,
+	claret:                #9e2f50,
+	orange:                #d66d06,
+
+	grey-tint1:            #b0b0b0,
+	grey-tint2:            #999999,
+	grey-tint3:            #777777,
+	grey-tint4:            #505050,
+	grey-tint5:            #333333,
+
+	pink-tint1:            #f6e9d8,
+	pink-tint2:            #e9decf,
+	pink-tint3:            #cec6b9,
+	pink-tint4:            #a7a59b,
+	pink-tint5:            #74736c,
+
+	// Colours
+	red:                   #cc0000,
+	green:                 #458b00,
+
+	// Highlight tints
+	orange-tint1:          #eda45e,
+	brown-tint1:           #94826b,
+	yellow-tint1:          #eed485,
+	green-tint1:           #a6a471,
+	bluegreen-tint1:       #819e9a,
+	silver-tint1:          #c1b8b4,
+
+	purple-tint1:          #936971,
+	purple-tint2:          #737e7e,
+
+	red-tint1:             #b1493f,
+	red-tint2:             #c36256,
+	red-tint3:             #d17c70,
+	red-tint4:             #df9c92,
+	red-tint5:             #ebbcb3,
+
+	blue-tint1:            #598caf,
+	blue-tint2:            #75a5c2,
+	blue-tint3:            #8ab5cd,
+	blue-tint4:            #a9cadc,
+	blue-tint5:            #bcd7e5,
+
+	// Sections colours
+	section-purple:        #92288f,
+	section-light-purple:  #ebcaec,
+	section-blue:          #0e6dcc,
+	section-light-blue:    #c5d4e8,
+	section-green:         #09a25c,
+	section-light-green:   #a1dbb2,
+	section-red:           #cc0033
+);</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Colour palette</p>
+<p>These are the colours that make up the FT palette.
+We don&#39;t use these colours directly, but instead assign them to &#39;use cases&#39;,
+which are defined in use-cases.scss.</p>
+<p>In the list below, each line contains a colour name and a colour code,
+and is finished with a comma:</p>
+<p> <colour name>:   <colour code>,</p>
+<p>The colour name must be a single word comprising just letters,
+numbers, and dashes.</p>
+<p>You can have as many spaces between the colour name and the colour code
+as you like (so you can line them up neatly), and you <em>MUST</em> finish the
+line with a comma (except the final entry, which should not have a comma)</p>
+</div>
+
+
+  
+    
+    
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="variable-o-colors-usecases">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#variable-o-colors-usecases">o-colors-usecases</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div class="relative  clear">
+  <pre class="item__code  language-scss"><code>$o-colors-usecases: () !default;</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Colour use cases</p>
+<p>These mappings define what we use our colours for.</p>
+<p>Use case:           Must be a single word comprising just letters, numbers, and dashes.
+Properties:         A SASS map of properties (must be &#39;border&#39;, &#39;text&#39;, &#39;background&#39;, or &#39;all&#39;)
+                    against palette colours (must be an exact match for a name of a colour defined
+                    in palette.scss).</p>
+<p>Special properties: You can use the following special properties to mark use cases:</p>
+<pre><code>                _deprecated: &lt;msg&gt;  Emits &lt;msg&gt; as a warning if referenced, but still works
+</code></pre></div>
+
+
+  
+    
+    
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="variable-o-ft-buttons-themes__standard">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#variable-o-ft-buttons-themes__standard">o-ft-buttons-themes__standard</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div class="relative  clear">
+  <pre class="item__code  language-scss"><code>$o-ft-buttons-themes__standard: (
+	normal: (
+		color: oColorsGetColorFor(o-ft-buttons-standard-normal, text),
+		background: oColorsGetColorFor(o-ft-buttons-standard-normal, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-standard-normal, border)
+	),
+	hover: (
+		background: rgba(oColorsGetColorFor(o-ft-buttons-standard-hover, background), 0.15)
+	),
+	focus: (
+		box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-ft-buttons-standard-normal, border)
+	),
+	selected: (
+		color: oColorsGetColorFor(o-ft-buttons-standard-selected, text),
+		background: oColorsGetColorFor(o-ft-buttons-standard-selected, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-standard-selected, border)
+	),
+	pressed: (
+		color: oColorsGetColorFor(o-ft-buttons-standard-pressed, text),
+		background: oColorsGetColorFor(o-ft-buttons-standard-pressed, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-standard-pressed, border)
+	)
+);</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Theme: Standard</p>
+</div>
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Type</h3>
+
+  <p>
+  
+    <code>Map</code>
+  
+  </p>
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="http://registry.origami.ft.com/components/o-ft-buttons">
+        
+          http://registry.origami.ft.com/components/o-ft-buttons
+        
+      </a>
+    </li>
+  
+  </ul>
+
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="variable-o-ft-buttons-themes__standout">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#variable-o-ft-buttons-themes__standout">o-ft-buttons-themes__standout</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div class="relative  clear">
+  <pre class="item__code  language-scss"><code>$o-ft-buttons-themes__standout: (
+	normal: (
+		color: oColorsGetColorFor(o-ft-buttons-standout-normal, text),
+		background: oColorsGetColorFor(o-ft-buttons-standout-normal, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-standout-normal, border)
+	),
+	hover: (
+		background: oColorsGetColorFor(o-ft-buttons-standout-hover, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-standout-hover, border)
+	),
+	focus: (
+		box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-ft-buttons-standout-normal, text)
+	),
+	disabled: (
+		// Looks like a standard disabled button
+		color: oColorsGetColorFor(o-ft-buttons-standard-normal, text),
+		background: oColorsGetColorFor(o-ft-buttons-standard-normal, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-standard-normal, border)
+	)
+);</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Theme: Standout</p>
+</div>
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Type</h3>
+
+  <p>
+  
+    <code>Map</code>
+  
+  </p>
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="http://registry.origami.ft.com/components/o-ft-buttons">
+        
+          http://registry.origami.ft.com/components/o-ft-buttons
+        
+      </a>
+    </li>
+  
+  </ul>
+
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="variable-o-ft-buttons-themes__inverse">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#variable-o-ft-buttons-themes__inverse">o-ft-buttons-themes__inverse</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div class="relative  clear">
+  <pre class="item__code  language-scss"><code>$o-ft-buttons-themes__inverse: (
+	normal: (
+		color: oColorsGetColorFor(o-ft-buttons-inverse-normal, text),
+		background: oColorsGetColorFor(o-ft-buttons-inverse-normal, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-inverse-normal, border)
+	),
+	hover: (
+		background: rgba(oColorsGetColorFor(o-ft-buttons-inverse-hover, background), 0.3)
+	),
+	focus: (
+		box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-ft-buttons-inverse-normal, text)
+	),
+	selected: (
+		color: oColorsGetColorFor(o-ft-buttons-inverse-selected, text),
+		background: oColorsGetColorFor(o-ft-buttons-inverse-selected, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-inverse-selected, border)
+	)
+);</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Theme: Inverse</p>
+</div>
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Type</h3>
+
+  <p>
+  
+    <code>Map</code>
+  
+  </p>
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="http://registry.origami.ft.com/components/o-ft-buttons">
+        
+          http://registry.origami.ft.com/components/o-ft-buttons
+        
+      </a>
+    </li>
+  
+  </ul>
+
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="variable-o-ft-buttons-themes__uncolored">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#variable-o-ft-buttons-themes__uncolored">o-ft-buttons-themes__uncolored</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div class="relative  clear">
+  <pre class="item__code  language-scss"><code>$o-ft-buttons-themes__uncolored: (
+	normal: (
+		color: oColorsGetColorFor(o-ft-buttons-uncolored-normal, text),
+		background: oColorsGetColorFor(o-ft-buttons-uncolored-normal, background),
+		border-color: oColorsGetColorFor(o-ft-buttons-uncolored-normal, border)
+	),
+	focus: (
+		box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-ft-buttons-uncolored-normal, border)
+	)
+);</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Theme: Uncolored</p>
+</div>
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Type</h3>
+
+  <p>
+  
+    <code>Map</code>
+  
+  </p>
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="http://registry.origami.ft.com/components/o-ft-buttons">
+        
+          http://registry.origami.ft.com/components/o-ft-buttons
+        
+      </a>
+    </li>
+  
+  </ul>
+
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="variable-o-ft-buttons-is-silent">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#variable-o-ft-buttons-is-silent">o-ft-buttons-is-silent</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div class="relative  clear">
+  <pre class="item__code  language-scss"><code>$o-ft-buttons-is-silent: true !default;</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Silent mode: on (true) or off (false)
+Set to false to output default button classes</p>
+</div>
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Type</h3>
+
+  <p>
+  
+    <code>Boolean</code>
+  
+  </p>
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="http://registry.origami.ft.com/components/o-ft-buttons">
+        
+          http://registry.origami.ft.com/components/o-ft-buttons
+        
+      </a>
+    </li>
+  
+  </ul>
+
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="variable-o-ft-buttons-class">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#variable-o-ft-buttons-class">o-ft-buttons-class</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div class="relative  clear">
+  <pre class="item__code  language-scss"><code>$o-ft-buttons-class: o-ft-buttons !default;</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Default button class used when $o-ft-buttons-is-silent is true</p>
+</div>
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Type</h3>
+
+  <p>
+  
+    <code>String</code>
+  
+  </p>
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#mixin-oFtButtonsGroup"><code>oFtButtonsGroup</code></a></li>
+  
+
+
+
+  
+
+    
+
+    <li><a href="#mixin-oFtButtonsPagination"><code>oFtButtonsPagination</code></a></li>
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="http://registry.origami.ft.com/components/o-ft-buttons">
+        
+          http://registry.origami.ft.com/components/o-ft-buttons
+        
+      </a>
+    </li>
+  
+  </ul>
+
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="variable-o-ft-buttons-sizes">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#variable-o-ft-buttons-sizes">o-ft-buttons-sizes</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div class="relative  clear">
+  <pre class="item__code  language-scss"><code>$o-ft-buttons-sizes: (
+	medium: (
+		font-size: 14px,
+		height: 24px,
+		padding-left: 14px,
+		padding-right: 14px,
+	),
+	big: (
+		font-size: 16px,
+		height: 36px,
+		padding-left: 18px,
+		padding-right: 18px,
+	)
+);</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Button sizes, with their attached properties</p>
+</div>
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Type</h3>
+
+  <p>
+  
+    <code>Map</code>
+  
+  </p>
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#mixin-oFtButtonsSize"><code>oFtButtonsSize</code></a></li>
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="http://registry.origami.ft.com/components/o-ft-buttons">
+        
+          http://registry.origami.ft.com/components/o-ft-buttons
+        
+      </a>
+    </li>
+  
+  </ul>
+
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="variable-o-ft-buttons-themes">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#variable-o-ft-buttons-themes">o-ft-buttons-themes</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div class="relative  clear">
+  <pre class="item__code  language-scss"><code>$o-ft-buttons-themes: (
+	standard: $o-ft-buttons-themes__standard,
+	standout: $o-ft-buttons-themes__standout,
+	inverse: $o-ft-buttons-themes__inverse,
+	uncolored: $o-ft-buttons-themes__uncolored
+);</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Button themes, with their respective states
+Each state is a Map of CSS properties, find
+all theme definitions in _themes.scss</p>
+</div>
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Type</h3>
+
+  <p>
+  
+    <code>Map</code>
+  
+  </p>
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#mixin-oFtButtonsTheme"><code>oFtButtonsTheme</code></a></li>
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="http://registry.origami.ft.com/components/o-ft-buttons">
+        
+          http://registry.origami.ft.com/components/o-ft-buttons
+        
+      </a>
+    </li>
+  
+  </ul>
+
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+            </section>
+          
+        
+
+      </section>
+    
+
+  
+
+
+    </div>
+
+    
+    
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+        <div class="footer__project-info  project-info">
+          <!-- Name and URL -->
+          
+            <span class="project-info__name">SassDoc</span>
+          
+
+          <!-- Version -->
+          
+
+          <!-- License -->
+          
+        </div>
+      
+
+      
+        <span class="footer__watermark">Built with <a href="https://github.com/SassDoc/sassdoc">SassDoc</a>.</span>
+      
+    </div>
+  </footer>
+
+
+  </article>
+
+
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="assets/js/main.min.js"></script>
+
+</body>
+</html>

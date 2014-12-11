@@ -1,13 +1,8 @@
-/**
- * @group o-ft-buttons
- * @link http://registry.origami.ft.com/components/o-ft-buttons
-**/
+////
+/// @group o-ft-buttons
+/// @link http://registry.origami.ft.com/components/o-ft-buttons
+////
 
-/**
- * Theme: Standard
- *
- * @type Map
- */
 @include oColorsSetUseCase(o-ft-buttons-standard-normal,   text,       blue);
 @include oColorsSetUseCase(o-ft-buttons-standard-normal,   background, transparent);
 @include oColorsSetUseCase(o-ft-buttons-standard-normal,   border,     blue);
@@ -19,6 +14,9 @@
 @include oColorsSetUseCase(o-ft-buttons-standard-pressed,  text,       white);
 @include oColorsSetUseCase(o-ft-buttons-standard-pressed,  border,     green);
 
+/// Theme: Standard
+///
+/// @type Map
 $o-ft-buttons-themes__standard: (
 	normal: (
 		color: oColorsGetColorFor(o-ft-buttons-standard-normal, text),
@@ -43,17 +41,15 @@ $o-ft-buttons-themes__standard: (
 	)
 );
 
-/**
- * Theme: Standout
- *
- * @type Map
- */
 @include oColorsSetUseCase(o-ft-buttons-standout-normal, text,       white);
 @include oColorsSetUseCase(o-ft-buttons-standout-normal, background, blue);
 @include oColorsSetUseCase(o-ft-buttons-standout-normal, border,     blue);
 @include oColorsSetUseCase(o-ft-buttons-standout-hover,  background, dark-blue);
 @include oColorsSetUseCase(o-ft-buttons-standout-hover,  border,     dark-blue);
 
+/// Theme: Standout
+///
+/// @type Map
 $o-ft-buttons-themes__standout: (
 	normal: (
 		color: oColorsGetColorFor(o-ft-buttons-standout-normal, text),
@@ -75,11 +71,6 @@ $o-ft-buttons-themes__standout: (
 	)
 );
 
-/**
- * Theme: Inverse
- *
- * @type Map
- */
 @include oColorsSetUseCase(o-ft-buttons-inverse-normal,   text,       white);
 @include oColorsSetUseCase(o-ft-buttons-inverse-normal,   background, transparent);
 @include oColorsSetUseCase(o-ft-buttons-inverse-normal,   border,     white);
@@ -88,6 +79,9 @@ $o-ft-buttons-themes__standout: (
 @include oColorsSetUseCase(o-ft-buttons-inverse-selected, background, white);
 @include oColorsSetUseCase(o-ft-buttons-inverse-selected, border,     white);
 
+/// Theme: Inverse
+///
+/// @type Map
 $o-ft-buttons-themes__inverse: (
 	normal: (
 		color: oColorsGetColorFor(o-ft-buttons-inverse-normal, text),
@@ -107,15 +101,13 @@ $o-ft-buttons-themes__inverse: (
 	)
 );
 
-/**
- * Theme: Uncolored
- *
- * @type Map
- */
 @include oColorsSetUseCase(o-ft-buttons-uncolored-normal, text, pink-tint5);
 @include oColorsSetUseCase(o-ft-buttons-uncolored-normal, background, transparent);
 @include oColorsSetUseCase(o-ft-buttons-uncolored-normal, border, pink-tint5);
 
+/// Theme: Uncolored
+///
+/// @type Map
 $o-ft-buttons-themes__uncolored: (
 	normal: (
 		color: oColorsGetColorFor(o-ft-buttons-uncolored-normal, text),

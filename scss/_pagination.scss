@@ -1,23 +1,21 @@
-/**
- * @group o-ft-buttons
- * @link http://registry.origami.ft.com/components/o-ft-buttons
-**/
+////
+/// @group o-ft-buttons
+/// @link http://registry.origami.ft.com/components/o-ft-buttons
+////
 
-/**
- * Pagination button wrapper styles
- * Applies styles of pagination buttons to direct children
- *
- * @example
- * .my-buttons-pagination {
- * 	@include oFtButtonsPagination(my-buttons);
- * }
- *
- * @param {String} ($o-ft-buttons-class) $buttonClass
- *
- * @requires {variable} o-ft-buttons-class
- *
- * @link http://build.origami.ft.com/files/o-ft-buttons/demos/pagination.html
- */
+/// Pagination button wrapper styles
+/// Applies styles of pagination buttons to direct children
+///
+/// @example
+/// .my-buttons-pagination {
+/// 	@include oFtButtonsPagination(my-buttons);
+/// }
+///
+/// @param {String} ($o-ft-buttons-class) $buttonClass
+///
+/// @requires {variable} o-ft-buttons-class
+///
+/// @link http://build.origami.ft.com/files/o-ft-buttons/demos/pagination.html
 @mixin oFtButtonsPagination($buttonClass: $o-ft-buttons-class) {
 	> .#{$buttonClass} {
 		padding-left: 5px;
