@@ -23,9 +23,9 @@
 	@if $_o-ft-buttons-deprecation-warnings {
 		@warn "oFtButtonSelectors() is now deprecated and will be removed in next major release";
 	}
-	$selectors: #{'%#{$name}'};
-	@if (not $o-ft-buttons-is-silent) {
-		$selectors: append($selectors, #{'.#{$name}'}, comma);
+	$selectors: unquote('%#{$name}');
+	@if ($o-ft-buttons-is-silent == false) {
+		$selectors: append($selectors, unquote('.#{$name}'), comma);
 	}
 	#{$selectors} {
 		@content;
