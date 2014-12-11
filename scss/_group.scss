@@ -17,7 +17,6 @@
 /// @requires {variable} o-ft-buttons-class
 ///
 /// @link http://build.origami.ft.com/files/o-ft-buttons/demos/grouped.html
-///
 @mixin oFtButtonsGroup($buttonClass: $o-ft-buttons-class) {
 	> .#{$buttonClass} {
 		border-radius: 0;
