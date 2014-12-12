@@ -19,7 +19,7 @@
   cursor: pointer;
   font-weight: normal;
   line-height: $_o-ft-forms-radiocheckbox-default-size;
-  @include oUseragentPrefixer(user-select, none);
+  user-select: none;
 }
 
 // styling for small checkbox and radio button labels

@@ -5,6 +5,7 @@
   border: $_o-ft-forms-fieldborder;
   border-radius: $_o-ft-forms-field-borderradius;
   padding: $_o-ft-form-field-default-padding-top $_o-ft-form-field-default-padding-leftright $_o-ft-form-field-default-padding-bottom;
+  width: 100%;
   background-color: oColorsGetColorFor(o-ft-forms-field-standard, background);
   color: oColorsGetColorFor(o-ft-forms-field-standard, text);
   font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
