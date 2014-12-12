@@ -18,7 +18,7 @@ $_o-ft-buttons-deprecation-warnings: false;
 
 @include oFtButtonsAll($o-ft-buttons-class);
 
-@if (not $o-ft-buttons-is-silent) {
+@if ($o-ft-buttons-is-silent == false) {
 	@include oFontsInclude(BentonSans, normal);
 
 	.#{$o-ft-buttons-class} {
