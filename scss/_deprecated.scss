@@ -20,10 +20,12 @@
 
 // Selectors
 @mixin oFtButtonSelectors($name: $o-ft-buttons-class) {
-	@warn "oFtButtonSelectors() is now deprecated and will be removed in next major release";
-	$selectors: #{'%#{$name}'};
-	@if (not $o-ft-buttons-is-silent) {
-		$selectors: append($selectors, #{'.#{$name}'}, comma);
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonSelectors() is now deprecated and will be removed in next major release";
+	}
+	$selectors: unquote('%#{$name}');
+	@if ($o-ft-buttons-is-silent == false) {
+		$selectors: append($selectors, unquote('.#{$name}'), comma);
 	}
 	#{$selectors} {
 		@content;
@@ -32,24 +34,32 @@
 
 // Icons
 @mixin oFtButtonsIconInclude() {
-	@warn "oFtButtonsIconInclude() is now deprecated and will be removed in next major release";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsIconInclude() is now deprecated and will be removed in next major release";
+	}
 	@include oFtIconsFontFace();
 }
 
 @mixin oFtButtonsBoxSizing($value) {
-	@warn "oFtButtonsBoxSizing() is now deprecated and will be removed in next major release";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsBoxSizing() is now deprecated and will be removed in next major release";
+	}
 	-webkit-box-sizing: $value;
 	-moz-box-sizing: $value;
 	box-sizing: $value;
 }
 
 @mixin oFtButtonsFontInclude() {
-	@warn "oFtButtonsFontInclude() is now deprecated and will be removed in next major release";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsFontInclude() is now deprecated and will be removed in next major release";
+	}
 	@include oFontsInclude(BentonSans, normal);
 }
 
 @mixin oFtButtonsIcons($buttonClass, $iconClass) {
-	@warn "oFtButtonsIcons() is now deprecated and will be removed in next major release";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsIcons() is now deprecated and will be removed in next major release";
+	}
 
 	@include oFtButtonSelectors($iconClass) {
 		@include oFtIconsBaseIconStyles();
@@ -72,7 +82,9 @@
 @include oColorsSetUseCase(o-ft-buttons-faux, border, transparent);
 
 @mixin oFtButtonsButtonFaux($buttonClass) {
-	@warn "oFtButtonsButtonFaux() is now deprecated and will be removed in next major release";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsButtonFaux() is now deprecated and will be removed in next major release";
+	}
 
 	@include oFtButtonSelectors($buttonClass) {
 		&.#{$buttonClass}--faux {
@@ -85,7 +97,9 @@
 }
 
 @mixin oFtButtonsTypography($font-size: 14px, $line-height: 22px) {
-	@warn "oFtButtonsTypography() is deprecated and will be removed in next major release.";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsTypography() is deprecated and will be removed in next major release.";
+	}
 	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 	font-weight: normal;
 	font-size: $font-size;
@@ -95,12 +109,16 @@
 }
 
 @mixin oFtButtonsTypographyBig() {
-	@warn "oFtButtonsTypographyBig() is deprecated and will be removed in next major release.";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsTypographyBig() is deprecated and will be removed in next major release.";
+	}
 	@include oFtButtonsTypography(16px, 32px);
 }
 
 @mixin oFtButtonsColors($borderColor, $backgroundColor, $color) {
-	@warn "oFtButtonsColors() is deprecated and will be removed in next major release.";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsColors() is deprecated and will be removed in next major release.";
+	}
 	border-color: $borderColor;
 	background-color: $backgroundColor;
 	color: $color;
@@ -109,7 +127,9 @@
 
 // Base
 @mixin oFtButtonsButton($buttonClass) {
-	@warn "oFtButtonsButton() is deprecated and will be removed in next major release. Please use oFtButtons() in your custom classes instead.";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsButton() is deprecated and will be removed in next major release. Please use oFtButtons() in your custom classes instead.";
+	}
 	@include oFtButtonSelectors($buttonClass) {
 		@include oFtButtons();
 	}
@@ -117,7 +137,9 @@
 
 // Big
 @mixin oFtButtonsButtonBig($buttonClass) {
-	@warn "oFtButtonsButtonBig() is deprecated and will be removed in next major release. Please use oFtButtonsSize(big) in your custom classes instead.";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsButtonBig() is deprecated and will be removed in next major release. Please use oFtButtonsSize(big) in your custom classes instead.";
+	}
 	@include oFtButtonSelectors(#{$buttonClass}--big) {
 		@include oFtButtonsSize(big);
 	}
@@ -125,7 +147,9 @@
 
 // Group
 @mixin oFtButtonsButtonGroup($buttonClass, $groupClass) {
-	@warn "oFtButtonsButtonGroup() is deprecated and will be removed in next major release. Please use oFtButtonsGroup() in your custom classes instead.";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsButtonGroup() is deprecated and will be removed in next major release. Please use oFtButtonsGroup() in your custom classes instead.";
+	}
 	@include oFtButtonSelectors($groupClass) {
 		@include oFtButtonsGroup($buttonClass);
 	}
@@ -133,7 +157,9 @@
 
 // Inverse
 @mixin oFtButtonsButtonInverse($buttonClass) {
-	@warn "oFtButtonsButtonInverse() is deprecated and will be removed in next major release. Please use oFtButtonsTheme(inverse) in your custom classes instead.";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsButtonInverse() is deprecated and will be removed in next major release. Please use oFtButtonsTheme(inverse) in your custom classes instead.";
+	}
 	@include oFtButtonSelectors(#{$buttonClass}--inverse) {
 		@include oFtButtonsTheme(inverse);
 	}
@@ -141,7 +167,9 @@
 
 // Pagination
 @mixin oFtButtonsButtonPagination($buttonClass, $paginationClass) {
-	@warn "oFtButtonsButtonPagination() is deprecated and will be removed in next major release. Please use oFtButtonsPagination() in your custom classes instead.";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsButtonPagination() is deprecated and will be removed in next major release. Please use oFtButtonsPagination() in your custom classes instead.";
+	}
 	@include oFtButtonSelectors($paginationClass) {
 		@include oFtButtonsPagination($buttonClass);
 	}
@@ -149,7 +177,9 @@
 
 // Standout
 @mixin oFtButtonsButtonStandout($buttonClass) {
-	@warn "oFtButtonsButtonStandout() is deprecated and will be removed in next major release. Please use oFtButtonsTheme(standout) in your custom classes instead.";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsButtonStandout() is deprecated and will be removed in next major release. Please use oFtButtonsTheme(standout) in your custom classes instead.";
+	}
 	@include oFtButtonSelectors(#{$buttonClass}--standout) {
 		@include oFtButtonsTheme(standout);
 	}
@@ -157,7 +187,9 @@
 
 // Uncolored
 @mixin oFtButtonsButtonUncolored($buttonClass) {
-	@warn "oFtButtonsButtonUncolored() is deprecated and will be removed in next major release. Please use oFtButtonsTheme(uncolored) in your custom classes instead.";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsButtonUncolored() is deprecated and will be removed in next major release. Please use oFtButtonsTheme(uncolored) in your custom classes instead.";
+	}
 	@include oFtButtonSelectors(#{$buttonClass}--uncolored) {
 		@include oFtButtonsTheme(uncolored);
 	}
@@ -165,7 +197,9 @@
 
 // Generate placeholder classes
 @mixin oFtButtonsAll($base-class) {
-	@warn "oFtButtonsAll() is deprecated and will be removed in next major release";
+	@if $_o-ft-buttons-deprecation-warnings {
+		@warn "oFtButtonsAll() is deprecated and will be removed in next major release";
+	}
 	@include oFtButtonsButton($base-class);
 	@include oFtButtonsButtonStandout($base-class);
 	@include oFtButtonsButtonGroup($base-class, #{$base-class}__group);
