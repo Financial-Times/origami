@@ -1,10 +1,10 @@
 @if $o-ft-typography-is-silent == false {
-	//badges
+	// badges
 	.o-ft-typography-badge {
 		@include oFtTypographyBadge;
 	}
 
-	//headings
+	// headings
 	.o-ft-typography-heading1 {
 		@include oFtTypographyHeading1;
 	}

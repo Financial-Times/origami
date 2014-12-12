@@ -1,23 +1,21 @@
-/**
- * @group o-ft-typography
- * @link http://registry.origami.ft.com/components/o-ft-typography
-**/
+////
+/// @group o-ft-typography
+/// @link http://registry.origami.ft.com/components/o-ft-typography
+////
 
-/**
- * General typography
- * Apply to a wrapper to style all text inside it
- *
- * @example scss
- * article { @include oFtTypographyBodyWrapper; }
- *
- * @requires {mixin} oFtTypographyHeading5
- * @requires {mixin} oFtTypographyHeading6
- * @requires {mixin} oFtTypographyBodyLink
- * @requires {mixin} oFtTypographyBody
- * @requires {mixin} oFtTypographyBodyBlock
- * @requires {mixin} oFtTypographyBodyList
- * @requires {mixin} oFtTypographyCommonWrappedBodyStyles
- */
+/// General typography
+/// Apply to a wrapper to style all text inside it
+/// 
+/// @example scss
+/// article { @include oFtTypographyBodyWrapper; }
+/// 
+/// @requires {mixin} oFtTypographyHeading5
+/// @requires {mixin} oFtTypographyHeading6
+/// @requires {mixin} oFtTypographyBodyLink
+/// @requires {mixin} oFtTypographyBody
+/// @requires {mixin} oFtTypographyBodyBlock
+/// @requires {mixin} oFtTypographyBodyList
+/// @requires {mixin} oFtTypographyCommonWrappedBodyStyles
 @mixin oFtTypographyBodyWrapper {
 	h2 {
 		@include oFtTypographyHeading5;

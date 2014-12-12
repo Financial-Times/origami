@@ -1,15 +1,15 @@
-/**
- * @group o-ft-typography
- * @link http://registry.origami.ft.com/components/o-ft-typography
-**/
+////
+/// @group o-ft-typography
+/// @link http://registry.origami.ft.com/components/o-ft-typography
+////
 
-/**
- * General leader styles
- * @todo what is the difference between this and the other leader styles?
- * @requires {mixin} _oFtTypographyFont
- * @requires {mixin} oFtTypographyFontSize
- * @requires {mixin} oColorsFor
- */
+/// General leader styles
+///
+/// @todo what is the difference between this and the other leader styles?
+///
+/// @requires {mixin} _oFtTypographyFont
+/// @requires {mixin} oFtTypographyFontSize
+/// @requires {mixin} oColorsFor
 @mixin oFtTypographyBodyLead {
 	@include _oFtTypographyFont(BentonSans, normal);
 	@include oFtTypographyFontSize(18, 24);
@@ -17,31 +17,27 @@
 	-webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
 }
 
-/**
- * General body text (apply to body tag)
- * @requires {mixin} _oFtTypographyFont
- * @requires {mixin} oFtTypographyFontSize
- * @requires {mixin} oColorsFor
- */
+/// General body text (apply to body tag)
+///
+/// @requires {mixin} _oFtTypographyFont
+/// @requires {mixin} oFtTypographyFontSize
+/// @requires {mixin} oColorsFor
 @mixin oFtTypographyBody {
 	@include _oFtTypographyFont(BentonSans, normal);
 	@include oFtTypographyFontSize(14, 20);
 	@include oColorsFor(body, text);
 }
 
-/**
- * Apply to a block of text
- */
+/// Apply to a block of text
 @mixin oFtTypographyBodyBlock {
 	margin-bottom: 21px;
 	margin-top: 21px;
 }
 
-/**
- * Styling for <ul> and <ol>
- * @requires {mixin} oFtTypographyBody
- * @requires {mixin} oFtTypographyBodyBlock
- */
+/// Styling for <ul> and <ol>
+///
+/// @requires {mixin} oFtTypographyBody
+/// @requires {mixin} oFtTypographyBodyBlock
 @mixin oFtTypographyBodyList {
 	list-style-position: outside;
 	padding-left: 20px;
@@ -50,16 +46,12 @@
 	@include oFtTypographyBodyBlock;
 }
 
-/**
- * Styles for <ol> tags
- */
+/// Styles for <ol> tags
 @mixin oFtTypographyBodyListOrdered {
 	list-style-type: decimal;
 }
 
-/**
- * Styles for <ul> tags
- */
+/// Styles for <ul> tags
 @mixin oFtTypographyBodyListUnordered {
 	list-style-type: disc;
 }
