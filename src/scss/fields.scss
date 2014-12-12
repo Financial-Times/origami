@@ -23,7 +23,7 @@
 //=============TEXT INPUTS, SELECTS AND TEXTAREAS=============
 
 @include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field,
+  '%o-ft-forms__field--text,
   %o-ft-forms__label--select,
   %o-ft-forms__label--textarea',
   '.o-ft-forms__field--text,
@@ -57,14 +57,13 @@
   '%o-ft-forms__field--select',
   '.o-ft-forms__field--select'
 ) {
-    padding-top: $_o-ft-form-field-big-padding-topbottom - 1px;
-    padding-bottom: $_o-ft-form-field-big-padding-topbottom - 1px;
     cursor: pointer;
     background-image: url(oAssetsResolve("svg/arrow-up-down.svg", o-ft-icons));
-    background-position: 100% center;
+    background-position: right $_o-ft-form-field-default-padding-leftright center;
     background-repeat: no-repeat;
-    background-origin: content-box;
-    background-size: 19px;
+    background-origin: border-box;
+    background-size: $_o-ft-form-select-iconsize;
+    padding-right: $_o-ft-form-select-iconsize + $_o-ft-form-field-default-padding-leftright;
     //Code below hides default select arrow in FF
     text-indent: 0.01px;
     text-overflow: '';
@@ -75,6 +74,16 @@
   '.o-ft-forms__field--textarea'
 ) {
     vertical-align: top;
+}
+
+@include oFtFormsPlaceholderOptionalSelector(
+  '%o-ft-forms__field--small',
+  '.o-ft-forms__field--small'
+) {
+  font-size: $_o-ft-form-field-small-fontsize;
+  padding-top: $_o-ft-form-field-small-padding-topbottom;
+  padding-bottom: $_o-ft-form-field-small-padding-topbottom;
+  background-size: $_o-ft-form-select-small-iconsize;
 }
 
 // TBC - This is to hide Chrome's style for autocompleted fields
