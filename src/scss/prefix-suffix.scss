@@ -51,6 +51,7 @@
   text-align: center;
   background-color: oColorsGetColorFor(o-ft-forms-prefixsuffix, background);
   color: oColorsGetColorFor(o-ft-forms--prefixsuffix o-ft-forms-field-standard, text);
+  user-select: none;
 }
 
 @include oFtFormsPlaceholderOptionalSelector(
@@ -104,4 +105,5 @@
   cursor: pointer;
   font: inherit;
   color: inherit;
+  user-select: none;
 }
