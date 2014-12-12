@@ -119,7 +119,7 @@ function WidgetUi (widgetContainer) {
 			if (pseudonymContainer.length || noOfTrial === 120) {
 				clearInterval(checkPseudonymInterval);
 
-				if (sizzle('.o-comment-ui-settings', self.widgetContainer).length === 0) {
+				if (sizzle('.o-comment-ui--settings', self.widgetContainer).length === 0) {
 					if (noOfTrial === 120) {
 						// give up
 						return;
@@ -135,7 +135,7 @@ function WidgetUi (widgetContainer) {
 						loginBarContainer[0].appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.commentingSettingsLink.render(commentingSettingsLinkConfig)));
 					}
 
-					var settingsLink = sizzle('.fyre-auth .fyre-login-bar .o-comment-ui-settings-text', self.widgetContainer);
+					var settingsLink = sizzle('.fyre-auth .fyre-login-bar .o-comment-ui--settings-text', self.widgetContainer);
 					if (settingsLink.length) {
 						settingsLink[0].addEventListener('click', function () {
 							if (options && typeof options.onClick === 'function') {
@@ -159,7 +159,7 @@ function WidgetUi (widgetContainer) {
 	 * Removes the settings link from the widget.
 	 */
 	this.removeSettingsLink = function () {
-		var el = sizzle('.o-comment-ui-settings', self.widgetContainer);
+		var el = sizzle('.o-comment-ui--settings', self.widgetContainer);
 		if (el.length) {
 			el[0].parentNode.removeChild(el[0]);
 		}

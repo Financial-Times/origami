@@ -60,11 +60,11 @@ function Widget () {
 	if (this.getWidgetEl().className.indexOf('o-comments') === -1) {
 		this.getWidgetEl().className += ' o-comments';
 	}
-	if (this.getWidgetEl().className.indexOf('o-comments-lf-overrides') === -1) {
-		this.getWidgetEl().className += ' o-comments-lf-overrides';
+	if (this.getWidgetEl().className.indexOf('o-comments--lf-overrides') === -1) {
+		this.getWidgetEl().className += ' o-comments--lf-overrides';
 	}
-	if (this.getWidgetEl().className.indexOf('o-comments-comment-type-' + self.config.stream_type) === -1) {
-		this.getWidgetEl().className += ' o-comments-comment-type-' + self.config.stream_type;
+	if (this.getWidgetEl().className.indexOf('o-comments--comment-type-' + self.config.stream_type) === -1) {
+		this.getWidgetEl().className += ' o-comments--comment-type-' + self.config.stream_type;
 	}
 
 	/**
