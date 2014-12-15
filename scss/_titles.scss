@@ -1,15 +1,13 @@
-/**
- * @group o-ft-typography
- * @link http://registry.origami.ft.com/components/o-ft-typography
-**/
+////
+/// @group o-ft-typography
+/// @link http://registry.origami.ft.com/components/o-ft-typography
+////
 
-/**
- * Large title
- * @requires {mixin} oFtTypographyFontSize
- * @requires {mixin} oColorsFor
- * @requires {mixin} _oFtTypographyLinkStyle
- * @requires {function} oColorsGetColorFor
- */
+/// Large title
+/// @requires {mixin} oFtTypographyFontSize
+/// @requires {mixin} oColorsFor
+/// @requires {mixin} _oFtTypographyLinkStyle
+/// @requires {function} oColorsGetColorFor
 @mixin oFtTypographyTitleLarge {
 	font-family: Georgia, 'Times New Roman', serif;
 	font-weight: normal;
@@ -18,13 +16,11 @@
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }
 
-/**
- * Medium title
- * @requires {mixin} oFtTypographyFontSize
- * @requires {mixin} oColorsFor
- * @requires {mixin} _oFtTypographyLinkStyle
- * @requires {function} oColorsGetColorFor
- */
+/// Medium title
+/// @requires {mixin} oFtTypographyFontSize
+/// @requires {mixin} oColorsFor
+/// @requires {mixin} _oFtTypographyLinkStyle
+/// @requires {function} oColorsGetColorFor
 @mixin oFtTypographyTitleMedium {
 	font-family: Georgia, 'Times New Roman', serif;
 	font-weight: normal;
@@ -33,13 +29,11 @@
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }
 
-/**
- * Small title
- * @requires {mixin} oFtTypographyFontSize
- * @requires {mixin} oColorsFor
- * @requires {mixin} _oFtTypographyLinkStyle
- * @requires {function} oColorsGetColorFor
- */
+/// Small title
+/// @requires {mixin} oFtTypographyFontSize
+/// @requires {mixin} oColorsFor
+/// @requires {mixin} _oFtTypographyLinkStyle
+/// @requires {function} oColorsGetColorFor
 @mixin oFtTypographyTitleSmall {
 	font-family: Georgia, 'Times New Roman', serif;
 	font-weight: bold;

@@ -1,12 +1,11 @@
-/**
- * @group o-ft-typography
- * @link http://registry.origami.ft.com/components/o-ft-typography
-**/
+////
+/// @group o-ft-typography
+/// @link http://registry.origami.ft.com/components/o-ft-typography
+////
 
-/**
- * Layout styles for heading level 1
- * @requires {function} oColorsGetColorFor
- */
+/// Layout styles for heading level 1
+///
+/// @requires {function} oColorsGetColorFor
 @mixin oFtTypographyHeading1Layout {
 	margin: 0 0 16px;
 	padding: 8px 0 7px;
@@ -14,14 +13,13 @@
 	border-bottom: 1px dotted oColorsGetColorFor(o-ft-typography-heading1 o-ft-typography-heading-large body, border);
 }
 
-/**
- * Text styles for heading level 1
- * @requires {mixin} _oFtTypographyFont
- * @requires {mixin} oFtTypographyFontSize
- * @requires {mixin} oColorsFor
- * @requires {function} oColorsGetColorFor
- * @requires {mixin} _oFtTypographyLinkStyle
- */
+/// Text styles for heading level 1
+///
+/// @requires {mixin} _oFtTypographyFont
+/// @requires {mixin} oFtTypographyFontSize
+/// @requires {mixin} oColorsFor
+/// @requires {function} oColorsGetColorFor
+/// @requires {mixin} _oFtTypographyLinkStyle
 @mixin oFtTypographyHeading1Text {
 	@include _oFtTypographyFont(BentonSans, bold);
 	@include oFtTypographyFontSize(16, 20);
@@ -29,10 +27,9 @@
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(o-ft-typography-heading-large body, text), oColorsGetColorFor(link, text));
 }
 
-/**
- * Layout styles for heading 2
- * @requires {function} oColorsGetColorFor
- */
+/// Layout styles for heading 2
+///
+/// @requires {function} oColorsGetColorFor
 @mixin oFtTypographyHeading2Layout {
 	margin: 0 0 16px;
 	padding: 8px 0 7px;
@@ -40,14 +37,13 @@
 	border-bottom: 1px dotted oColorsGetColorFor(o-ft-typography-heading2 o-ft-typography-heading-large body, border);
 }
 
-/**
- * Text styles for heading level 2
- * @requires {mixin} _oFtTypographyFont
- * @requires {mixin} oFtTypographyFontSize
- * @requires {mixin} oColorsFor
- * @requires {function} oColorsGetColorFor
- * @requires {mixin} _oFtTypographyLinkStyle
- */
+/// Text styles for heading level 2
+///
+/// @requires {mixin} _oFtTypographyFont
+/// @requires {mixin} oFtTypographyFontSize
+/// @requires {mixin} oColorsFor
+/// @requires {function} oColorsGetColorFor
+/// @requires {mixin} _oFtTypographyLinkStyle
 @mixin oFtTypographyHeading2Text {
 	@include _oFtTypographyFont(BentonSans, bold);
 	text-transform: uppercase;
@@ -56,22 +52,18 @@
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(o-ft-typography-heading-large body, text), oColorsGetColorFor(link, text));
 }
 
-/**
- * Layout styles for heading level 3 and 4
- */
-
+/// Layout styles for heading level 3 and 4
 @mixin oFtTypographyHeading3And4Layout {
 	margin-bottom: 15px;
 	padding: 5px 0;
 }
 
-/**
- * Text styles for heading level 3 and 4
- * @requires {mixin} oFtTypographyFontSize
- * @requires {mixin} oFtTypographyBodyBlock
- * @requires {mixin} _oFtTypographyFont
- * @requires {mixin} oColorsFor
- */
+/// Text styles for heading level 3 and 4
+///
+/// @requires {mixin} oFtTypographyFontSize
+/// @requires {mixin} oFtTypographyBodyBlock
+/// @requires {mixin} _oFtTypographyFont
+/// @requires {mixin} oColorsFor
 @mixin oFtTypographyHeading3And4Text {
 	@include oFtTypographyFontSize(16, 20);
 	@include oFtTypographyBodyBlock;
@@ -79,11 +71,10 @@
 	@include oColorsFor(o-ft-typography-article-subheading, text);
 }
 
-/**
- * Layout styles for heading level 3
- * @requires {mixin} oFtTypographyHeading3And4Layout
- * @requires {function} oColorsGetColorFor
- */
+/// Layout styles for heading level 3
+///
+/// @requires {mixin} oFtTypographyHeading3And4Layout
+/// @requires {function} oColorsGetColorFor
 @mixin oFtTypographyHeading3Layout {
 	@include oFtTypographyHeading3And4Layout;
 	border-top: 1px dotted oColorsGetColorFor(o-ft-typography-article-subheading, border);
@@ -93,21 +84,19 @@
 	}
 }
 
-/**
- * Text styles for level 3 heading
- * @requires {mixin} oFtTypographyHeading3And4Text
- * @requires {mixin} _oFtTypographyLinkStyle
- * @requires {function} oColorsGetColorFor
- */
+/// Text styles for level 3 heading
+///
+/// @requires {mixin} oFtTypographyHeading3And4Text
+/// @requires {mixin} _oFtTypographyLinkStyle
+/// @requires {function} oColorsGetColorFor
 @mixin oFtTypographyHeading3Text {
 	@include oFtTypographyHeading3And4Text;
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(o-ft-typography-heading3 o-ft-typography-article-subheading, text), oColorsGetColorFor(link, text));
 }
 
-/**
- * Layout styles for level 4 heading
- * @requires {mixin} oFtTypographyHeading3And4Layout
- */
+/// Layout styles for level 4 heading
+///
+/// @requires {mixin} oFtTypographyHeading3And4Layout
 @mixin oFtTypographyHeading4Layout {
 	@include oFtTypographyHeading3And4Layout;
 
@@ -116,20 +105,17 @@
 	}
 }
 
-/**
- * Text styles for level 4 heading
- * @requires {mixin} _oFtTypographyLinkStyle
- * @requires {function} oColorsGetColorFor
- */
+/// Text styles for level 4 heading
+///
+/// @requires {mixin} _oFtTypographyLinkStyle
+/// @requires {function} oColorsGetColorFor
 @mixin oFtTypographyHeading4Text {
 	@include oFtTypographyHeading3And4Text;
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(o-ft-typography-heading4 o-ft-typography-article-subheading body, text), oColorsGetColorFor(link, text));
 }
 
-/**
- * Layout styles for level 5 heading
- * @requires {function} oColorsGetColorFor
- */
+/// Layout styles for level 5 heading
+/// @requires {function} oColorsGetColorFor
 @mixin oFtTypographyHeading5Layout {
 	margin: 0 0 16px;
 	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAAPAQMAAADEaZ8BAAAABlBMVEUAAADs3s8R/6e7AAAAAXRSTlMAQObYZgAAADBJREFUSMdj+D90QcNQdvyDUccPEPgw6njiwKjjh43jh3SGHdKOb2AYBaNgFAwdAACrOE9c1sAQpgAAAABJRU5ErkJggg==') bottom right no-repeat;
@@ -139,14 +125,13 @@
 	*background-image: none;
 }
 
-/**
- * Text styles for level 5 heading
- * @requires {mixin} _oFtTypographyFont
- * @requires {mixin} oFtTypographyFontSize
- * @requires {function} oColorsGetColorFor
- * @requires {mixin} _oFtTypographyLinkStyle
- * @requires {mixin} oFtTypographyFauxTextBackground
- */
+/// Text styles for level 5 heading
+///
+/// @requires {mixin} _oFtTypographyFont
+/// @requires {mixin} oFtTypographyFontSize
+/// @requires {function} oColorsGetColorFor
+/// @requires {mixin} _oFtTypographyLinkStyle
+/// @requires {mixin} oFtTypographyFauxTextBackground
 @mixin oFtTypographyHeading5Text {
 	@include _oFtTypographyFont(BentonSans, bold);
 	@include oFtTypographyFontSize(13, 20);
@@ -156,20 +141,17 @@
 	@include oFtTypographyFauxTextBackground(oColorsGetColorFor(page, background));
 }
 
-/**
- * Layout styles for heading level 6
- */
+/// Layout styles for heading level 6
 @mixin oFtTypographyHeading6Layout {
 	margin: 0 0 8px;
 }
 
-/**
- * Text styles for level 6 heading
- * @requires {mixin} _oFtTypographyFont
- * @requires {mixin} oFtTypographyFontSize
- * @requires {function} oColorsGetColorFor
- * @requires {mixin} _oFtTypographyLinkStyle
- */
+/// Text styles for level 6 heading
+///
+/// @requires {mixin} _oFtTypographyFont
+/// @requires {mixin} oFtTypographyFontSize
+/// @requires {function} oColorsGetColorFor
+/// @requires {mixin} _oFtTypographyLinkStyle
 @mixin oFtTypographyHeading6Text {
 	margin: 0 0 8px;
 	@include _oFtTypographyFont(BentonSans, bold);
@@ -178,61 +160,55 @@
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
-/**
- * h1 styles
- * @requires {mixin} oFtTypographyHeading1Layout
- * @requires {mixin} oFtTypographyHeading1Text
- */
+/// h1 styles
+///
+/// @requires {mixin} oFtTypographyHeading1Layout
+/// @requires {mixin} oFtTypographyHeading1Text
 @mixin oFtTypographyHeading1 {
 	@include oFtTypographyHeading1Layout;
 	@include oFtTypographyHeading1Text;
 }
 
-/**
- * h2 styles
- * @requires {mixin} oFtTypographyHeading2Layout
- * @requires {mixin} oFtTypographyHeading2Text
- */
+/// h2 styles
+///
+/// @requires {mixin} oFtTypographyHeading2Layout
+/// @requires {mixin} oFtTypographyHeading2Text
 @mixin oFtTypographyHeading2 {
 	@include oFtTypographyHeading2Layout;
 	@include oFtTypographyHeading2Text;
 }
 
-/**
- * h3 styles
- * @requires {mixin} oFtTypographyHeading3Layout
- * @requires {mixin} oFtTypographyHeading3Text
- */
+/// h3 styles
+///
+/// @requires {mixin} oFtTypographyHeading3Layout
+/// @requires {mixin} oFtTypographyHeading3Text
 @mixin oFtTypographyHeading3 {
 	@include oFtTypographyHeading3Text;
 	@include oFtTypographyHeading3Layout;
 }
 
-/**
- * h4 styles
- * @requires {mixin} oFtTypographyHeading4Layout
- * @requires {mixin} oFtTypographyHeading4Text
- */
+/// h4 styles
+///
+/// @requires {mixin} oFtTypographyHeading4Layout
+/// @requires {mixin} oFtTypographyHeading4Text
 @mixin oFtTypographyHeading4 {
 	@include oFtTypographyHeading4Layout;
 	@include oFtTypographyHeading4Text;
 }
 
-/**
- * h5 styles
- * @requires {mixin} oFtTypographyHeading5Layout
- * @requires {mixin} oFtTypographyHeading5Text
- */
+/// h5 styles
+///
+/// @requires {mixin} oFtTypographyHeading5Layout
+/// @requires {mixin} oFtTypographyHeading5Text
 @mixin oFtTypographyHeading5 {
 	@include oFtTypographyHeading5Layout;
 	@include oFtTypographyHeading5Text;
 }
 
-/**
- * h6 styles
- * @requires {mixin} oFtTypographyHeading6Layout
- * @requires {mixin} oFtTypographyHeading6Text
- */
+/// h6 styles
+///
+/// @requires {mixin} oFtTypographyHeading6Layout
+/// @requires {mixin} oFtTypographyHeading6Text
 @mixin oFtTypographyHeading6 {
 	@include oFtTypographyHeading6Layout;
 	@include oFtTypographyHeading6Text;

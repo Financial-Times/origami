@@ -11,20 +11,18 @@
 	@extend %o-ft-typography-#{$class} !optional;
 }
 
-/**
- * Wrap styles in module-name prefixed Sass placeholders
- * and CSS classes (if not in silent mode),
- * and optionally CSS selectors (if not in silent mode)
- *
- * @deprecated
- *
- * @param {String} $names - Sass list of placeholder/class names in the format "name1 name2" but without the quotes. Will automatically by prefixed with module name.
- * @param {list} $cssSelectors (()) - CSS selectors which should also receive the same styles. Does not get auto-prefixed, so must be exactly as you want output on the CSS.
- *
- * @requires {function} oFtGetPrefixedPlaceholders
- * @requires {function} oFtGetPrefixedClasses
- * @requires {variable} $o-ft-typography-is-silent
-*/
+/// Wrap styles in module-name prefixed Sass placeholders
+/// and CSS classes (if not in silent mode),
+/// and optionally CSS selectors (if not in silent mode)
+///
+/// @deprecated
+///
+/// @param {String} $names - Sass list of placeholder/class names in the format "name1 name2" but without the quotes. Will automatically by prefixed with module name.
+/// @param {list} $cssSelectors (()) - CSS selectors which should also receive the same styles. Does not get auto-prefixed, so must be exactly as you want output on the CSS.
+///
+/// @requires {function} oFtGetPrefixedPlaceholders
+/// @requires {function} oFtGetPrefixedClasses
+/// @requires {variable} $o-ft-typography-is-silent
 @mixin oFtTypographySelectors($names, $cssSelectors: ()) {
 	@if $_o-ft-typography-deprecation-warnings {
 		@warn 'oFtTypographySelectors is deprecated and will be removed in the next major release';

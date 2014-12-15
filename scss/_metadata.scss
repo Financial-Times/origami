@@ -1,16 +1,15 @@
-/**
- * @group o-ft-typography
- * @link http://registry.origami.ft.com/components/o-ft-typography
-**/
+////
+/// @group o-ft-typography
+/// @link http://registry.origami.ft.com/components/o-ft-typography
+////
 
-/**
- * Styles for a brand
- * @requires {mixin} oFtTypographyFontSize
- * @requires {mixin} _oFtTypographyFont
- * @requires {mixin} _oFtTypographyLinkStyle
- * @requires {mixin} oColorsFor
- * @requires {function} oColorsGetColorFor
- */
+/// Styles for a brand
+///
+/// @requires {mixin} oFtTypographyFontSize
+/// @requires {mixin} _oFtTypographyFont
+/// @requires {mixin} _oFtTypographyLinkStyle
+/// @requires {mixin} oColorsFor
+/// @requires {function} oColorsGetColorFor
 @mixin oFtTypographyBrand {
 	margin: 0;
 	@include oFtTypographyFontSize(12, 14);
@@ -19,12 +18,11 @@
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
-/**
- * Styles for a byline
- * @requires {mixin} oFtTypographyFontSize
- * @requires {mixin} _oFtTypographyFont
- * @requires {mixin} oColorsFor
- */
+/// Styles for a byline
+///
+/// @requires {mixin} oFtTypographyFontSize
+/// @requires {mixin} _oFtTypographyFont
+/// @requires {mixin} oColorsFor
 @mixin oFtTypographyByline {
 	margin: 0;
 	@include oFtTypographyFontSize(14, 24);
@@ -32,12 +30,11 @@
 	@include oColorsFor(o-ft-typography-byline, text);
 }
 
-/**
- * Styles for a timestamp
- * @requires {mixin} oFtTypographyFontSize
- * @requires {mixin} _oFtTypographyFont
- * @requires {mixin} oColorsFor
- */
+/// Styles for a timestamp
+///
+/// @requires {mixin} oFtTypographyFontSize
+/// @requires {mixin} _oFtTypographyFont
+/// @requires {mixin} oColorsFor
 @mixin oFtTypographyTimestamp {
 	margin: 0;
 	@include oFtTypographyFontSize(14, 24);
