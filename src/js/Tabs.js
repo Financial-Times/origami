@@ -20,10 +20,16 @@ function Tabs(rootEl) {
 		for (c = 0, l = tabEls.length; c < l; c++) {
 			var tabTargetId = getTabTargetId(tabEls[c]);
 			targetEl = document.getElementById(tabTargetId);
+
 			if (targetEl) {
 				tabEls[c].setAttribute('aria-controls', tabTargetId);
 				tabEls[c].setAttribute('tabindex', '0');
-				tabEls[c].getElementsByTagName('a')[0].setAttribute('tabindex', '-1');
+				
+				var label = tabEls[c].getElementsByTagName('a')[0];
+				var labelId = tabTargetId + '-label';
+				label.setAttribute('tabindex', '-1');
+				label.id = labelId;
+				targetEl.setAttribute('aria-labelledby', labelId);
 				targetEl.setAttribute('role', 'tabpanel');
 				targetEl.setAttribute('tabindex', '0');
 				els[c] = targetEl;
