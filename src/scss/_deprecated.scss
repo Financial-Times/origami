@@ -5,9 +5,9 @@
 		@warn "oTabsSelectors is now deprecated and will be removed in next major release";
 	}
 
-	$selectors: #{'%#{$name}'};
-	@if (not $o-tabs-is-silent) {
-		$selectors: append($selectors, #{'.#{$name}'}, comma);
+	$selectors: unquote('%#{$name}');
+	@if ($o-tabs-is-silent == false) {
+		$selectors: append($selectors, unquote('.#{$name}'), comma);
 	}
 	#{$selectors} {
 		@content;
