@@ -40,6 +40,18 @@ describe("tabs behaviour", function() {
 		expect(tabsEl.querySelectorAll('li')[0].getAttribute('aria-controls')).toBe('tabContent1');
 		expect(tabsEl.querySelectorAll('li')[1].getAttribute('aria-controls')).toBe('tabContent2');
 		expect(tabsEl.querySelectorAll('li')[2].getAttribute('aria-controls')).toBe('tabContent3');
+
+		// Aria labelledby is set correctly:
+		expect(tabsEl.querySelectorAll('li')[2].querySelector('a').id).toBe('tabContent3-label');
+		expect(tabContentEl3.getAttribute('aria-labelledby')).toBe('tabContent3-label');
+
+		// Focusable elements
+		[].forEach.call(document.querySelectorAll('.should-be-focusable'), function(element) {
+			expect(element.getAttribute('tabindex')).toBe('0');
+		});
+		[].forEach.call(document.querySelectorAll('.should-not-be-focusable'), function(element) {
+			expect(element.getAttribute('tabindex')).toBe('-1');
+		});
 	});
 
 	it("has correct initial state", function() {
@@ -52,12 +64,6 @@ describe("tabs behaviour", function() {
 		expect(tabContentEl2.getAttribute('aria-hidden')).toBe('true');
 		expect(tabContentEl3.getAttribute('aria-expanded')).toBe('false');
 		expect(tabContentEl3.getAttribute('aria-hidden')).toBe('true');
-		[].forEach.call(document.querySelectorAll('.should-be-focusable'), function(element) {
-			expect(element.getAttribute('tabindex')).toBe('0');
-		});
-		[].forEach.call(document.querySelectorAll('.should-not-be-focusable'), function(element) {
-			expect(element.getAttribute('tabindex')).toBe('-1');
-		});
 	});
 
 	it("selectTab(1)", function() {
