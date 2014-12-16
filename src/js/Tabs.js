@@ -25,9 +25,7 @@ function Tabs(rootEl) {
 				tabEls[c].setAttribute('tabindex', '0');
 				tabEls[c].getElementsByTagName('a')[0].setAttribute('tabindex', '-1');
 				targetEl.setAttribute('role', 'tabpanel');
-				if (targetEl.children.length) {
-					targetEl.children[0].setAttribute('tabindex', '0');
-				}
+				targetEl.setAttribute('tabindex', '0');
 				els[c] = targetEl;
 			}
 		}
@@ -55,6 +53,8 @@ function Tabs(rootEl) {
 	function showPanel(panelEl) {
 		panelEl.setAttribute('aria-expanded', 'true');
 		panelEl.setAttribute('aria-hidden', 'false');
+		panelEl.style.outline = 0; // Remove the focus ring for sighted users
+		panelEl.focus(); // Give focus to the panel for screen readers
 	}
 
 	function dispatchCustomEvent(name, data) {
@@ -75,9 +75,6 @@ function Tabs(rootEl) {
 				if (i === c) {
 					tabEls[c].setAttribute('aria-selected', 'true');
 					showPanel(tabpanelEls[c]);
-					if (tabpanelEls[c].children.length) {
-						tabpanelEls[c].children[0].focus();
-					}
 				} else {
 					tabEls[c].setAttribute('aria-selected', 'false');
 					hidePanel(tabpanelEls[c]);
