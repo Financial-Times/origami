@@ -1,14 +1,14 @@
 @function oFtIconsGetSelectors($icon) {
 	$aggregated-selector: ();
-	$aggregated-selector: append($aggregated-selector, #{'%o-ft-icons-#{$icon}'}, comma);
-	@if (not $o-ft-icons-is-silent) {
-		$aggregated-selector: append($aggregated-selector, #{'.o-ft-icons-#{$icon}'}, comma);
+	$aggregated-selector: append($aggregated-selector, unquote('%o-ft-icons-#{$icon}'), comma);
+	@if ($o-ft-icons-is-silent == false) {
+		$aggregated-selector: append($aggregated-selector, unquote('.o-ft-icons-#{$icon}'), comma);
 	}
 	@return $aggregated-selector;
 }
 
 @mixin oFtIconsFontFace() {
-	@if (not $_o-ft-icons-font-face-already-output) {
+	@if ($_o-ft-icons-font-face-already-output == false) {
 		$_o-ft-icons-font-face-already-output: true;
 		@font-face {
 			font-family: $_o-ft-icons-font-name;
@@ -61,7 +61,8 @@
 @mixin _oFtIconsIe7Icon($icon-class, $character-code) {
 	$icon-selectors: oFtIconsGetSelectors($icon-class);
 	#{$icon-selectors} {
-		*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '#{"&#x#{$character-code};&nbsp;"}');
+		// Weird way of writing this so that Libsass can read it…
+		#{unquote('*') + zoom}: unquote("expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = ") + "&#x#{$character-code};&nbsp;" + unquote(")");
 	}
 }
 

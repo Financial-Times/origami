@@ -6,7 +6,7 @@
 @import "scss/ft-icons";
 
 
-@if (not $o-ft-icons-is-silent) {
+@if ($o-ft-icons-is-silent == false) {
 	@include oFtIconsFontFace();
 }
 
