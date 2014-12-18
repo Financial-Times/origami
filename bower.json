@@ -7,6 +7,6 @@
 		"node_modules"
 	],
 	"dependencies": {
-		"o-assets": "^0.4.0"
+		"o-assets": ">= 0.4.0 < 2"
 	}
 }
