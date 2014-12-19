@@ -62,7 +62,7 @@
 	$icon-selectors: oFtIconsGetSelectors($icon-class);
 	#{$icon-selectors} {
 		// Weird way of writing this so that Libsass can read it…
-		#{unquote('*') + zoom}: unquote("expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = ") + "&#x#{$character-code};&nbsp;" + unquote(")");
+		#{unquote('*') + zoom}: unquote("expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = ") + "'&#x#{$character-code};&nbsp;'" + unquote(")");
 	}
 }
 
