@@ -6,10 +6,9 @@ $o-fonts-assets-path: $o-fonts-name !default;
 $o-fonts-is-silent: true !default;
 
 // Variables used by oFontGetFontFamilyWithFallbacks(). Not to be used by modules directly.
-$_o-fonts-serif: Georgia, 'Times New Roman', serif;
 $_o-fonts-sans-serif: BentonSans, Helvetica, Arial, sans-serif;
-$_o-fonts-millerdisplay: MillerDisplay, $_o-fonts-serif;
-$_o-fonts-clarion: Clarion, $_o-fonts-serif;
+$_o-fonts-millerdisplay: MillerDisplay, Georgia, serif;
+$_o-fonts-clarion: Clarion, Georgia, serif;
 $_o-fonts-financierdisplay: FinancierDisplay, serif;
 $_o-fonts-financiertext: FinancierText, serif;
 
