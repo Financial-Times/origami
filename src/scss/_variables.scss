@@ -1,48 +1,90 @@
-$o-fonts-path: '//build.origami.ft.com/files/o-fonts-assets@0.2.2/' !default;
-$o-fonts-name: o-fonts;
-$o-fonts-version: null !default;
-$o-fonts-assets-path: $o-fonts-name !default;
+////
+/// @group o-fonts
+/// @link http://registry.origami.ft.com/components/o-fonts
+////
 
+/// Path to the assets
+///
+/// @type {String}
+$o-fonts-path: '//build.origami.ft.com/files/o-fonts-assets@0.2.3/' !default;
+
+/// Silent mode
+///
+/// @type {Boolean}
 $o-fonts-is-silent: true !default;
 
-// Variables used by oFontGetFontFamilyWithFallbacks(). Not to be used by modules directly.
-$_o-fonts-sans-serif: BentonSans, Helvetica, Arial, sans-serif;
-$_o-fonts-millerdisplay: MillerDisplay, Georgia, serif;
-$_o-fonts-clarion: Clarion, Georgia, serif;
-$_o-fonts-financierdisplay: FinancierDisplay, serif;
-$_o-fonts-financiertext: FinancierText, serif;
-
-$_o-font-families-with-fallbacks: (
-	BentonSans: $_o-fonts-sans-serif,
-	MillerDisplay: $_o-fonts-millerdisplay,
-	Clarion: $_o-fonts-clarion,
-	FinancierDisplay: $_o-fonts-financierdisplay,
-	FinancierText: $_o-fonts-financiertext,
-);
-
-// Map of all families, each with a list of styles for that family.
-// Only families and styles listed here will be allowed to be declared as @font-faces via the oFontsInclude mixin.
+/// Font families
+///
+/// @access private
+///
+/// @type {Map}
 $_o-fonts-families: (
-	BentonSans: (lighter, normal, bold),
-	MillerDisplay: (normal, bold),
-	Clarion: (normal, bold, (normal, italic)),
-	FinancierDisplay: (normal, (normal, italic)),
-	FinancierText: (normal, (normal, italic)),
+	BentonSans: (
+		font-family: 'BentonSans, sans-serif',
+		variants: (
+			(weight: lighter, style: normal),
+			(weight: normal,  style: normal),
+			(weight: bold,    style: normal)
+		)
+	),
+	MillerDisplay: (
+		font-family: 'MillerDisplay, Georgia, serif',
+		variants: (
+			(weight: normal, style: normal),
+			(weight: bold,   style: normal)
+		)
+	),
+	Clarion: (
+		font-family: 'Clarion, Georgia, serif',
+		variants: (
+			(weight: normal, style: normal),
+			(weight: bold,   style: normal),
+			(weight: normal, style: italic)
+		)
+	),
+	FinancierDisplay: (
+		font-family: 'FinancierDisplay, serif',
+		variants: (
+			(weight: normal, style: normal),
+			(weight: normal, style: italic)
+		)
+	),
+	FinancierText: (
+		font-family: 'FinancierText, serif',
+		variants: (
+			(weight: normal, style: normal),
+			(weight: normal, style: italic)
+		)
+	)
 );
 
-// Map of families and styles which have already been included. Exists to avoid multiple @font-face definitions
+/// Human-readable Font-weights
+///
+/// @access private
+///
+/// @type Map
+$_o-fonts-weights: (
+	'lighter':   200,
+	'normal':    400,
+	'bold':      700,
+	'bolder':    800
+) !default;
+
+/// Map of families and styles which have already been included
+/// Used to avoid declarations from being multiple times in the CSS output
+///
+/// @access private
 $_o-fonts-families-included: () !default;
 
-
-// These variables are deprecated. Modules should use the oFontsGetFontFamilyForUseCase function instead.
-$o-fonts-sans-serif: $_o-fonts-sans-serif;
+// These variables are deprecated. Modules should use the oFontsGetFontFamilyWithFallbacks function instead.
+$o-fonts-sans-serif: oFontsGetFontFamilyWithFallbacks(BentonSans);
 $o-fonts-serif: Georgia, 'Times New Roman', serif;
-$o-fonts-bentonsans-lighter: $o-fonts-sans-serif;
-$o-fonts-bentonsans-normal: $o-fonts-sans-serif;
-$o-fonts-bentonsans-bold: $o-fonts-sans-serif;
-$o-fonts-millerdisplay-normal: MillerDisplay, $o-fonts-serif;
-$o-fonts-millerdisplay-bold: MillerDisplay, $o-fonts-serif;
-$o-fonts-millerdisplay-bolder: MillerDisplay, $o-fonts-serif;
-$o-fonts-clarion-normal: Clarion, $o-fonts-serif;
-$o-fonts-clarion-bold: Clarion, $o-fonts-serif;
-$o-fonts-clarion-italic: Clarion, $o-fonts-serif;
+$o-fonts-bentonsans-lighter: oFontsGetFontFamilyWithFallbacks(BentonSans);
+$o-fonts-bentonsans-normal: oFontsGetFontFamilyWithFallbacks(BentonSans);
+$o-fonts-bentonsans-bold: oFontsGetFontFamilyWithFallbacks(BentonSans);
+$o-fonts-millerdisplay-normal: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
+$o-fonts-millerdisplay-bold: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
+$o-fonts-millerdisplay-bolder: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
+$o-fonts-clarion-normal: oFontsGetFontFamilyWithFallbacks(Clarion);
+$o-fonts-clarion-bold: oFontsGetFontFamilyWithFallbacks(Clarion);
+$o-fonts-clarion-italic: oFontsGetFontFamilyWithFallbacks(Clarion);

@@ -1,3 +1,13 @@
+////
+/// @group o-fonts
+/// @link http://registry.origami.ft.com/components/o-fonts
+////
+
+/// Font-face declaration sources
+///
+/// @param {String} fontName - path to the file, without the file extension
+///
+/// @require oFontsUseAsset
 @mixin oFontsSource($fontName) {
 	$fontName: to-lower-case($fontName);
 	src: url(oFontsUseAsset($fontName + '.eot')); // IE9 Compat Modes
@@ -6,50 +16,72 @@
 	url(oFontsUseAsset($fontName + '.ttf')) format('truetype'); // Safari, Android, iOS
 }
 
-@mixin oFontsInclude($family, $weight:normal, $style:normal) {
-	$weight: to-lower-case($weight);
-	$style: to-lower-case($style);
-	$font-is-defined: _oFontsDefined($family, $weight, $style);
-	$font-is-already-included: _oFontsAlreadyIncluded($family, $weight, $style);
+/// Font-face declaration for a given font family
+///
+/// @param {String} $family - one of $_o-fonts-families
+/// @param {String} $weight - one of $_o-fonts-weights
+/// @param {String} $style
+///
+/// @require {mixin} oFontsSource
+/// @require oFontsWeight
+/// @require _oFontsVariantExists
+/// @require $_o-fonts-families
+/// @require $_o-fonts-families-included
+@mixin oFontsInclude($family, $weight: normal, $style: normal) {
+	$font-exists: false;
+	// Check if the font has already been included
+	// If so, no need to output another @font-face declaration
+	$font-is-already-included: map-has-key($_o-fonts-families-included, #{$family}-#{$weight}-#{$style});
 
-	@if (not $font-is-defined) {
-		@warn "Font '" + $family + " " + $weight + " " + $style + "' not in permitted list. @font-face rule will not be output.";
-	} @else if (not $font-is-already-included) {
-		$font-suffix: $weight;
-		@if ($style != normal) {
-			@if ($weight == normal) {
-				$font-suffix:$style;
+	@if $font-is-already-included == false {
+		@if map-has-key($_o-fonts-families, $family) == false {
+			@warn 'Font #{$family} not found. Must be one of $_o-fonts-families.';
+		} @else {
+			@if (_oFontsVariantExists($family, $weight, $style)) {
+				$font-exists: true;
 			} @else {
-				$font-suffix:#{$font-suffix}-$style;
+				@warn 'Variant "weight: #{$weight}, style: #{$style}" not found for "#{$family}". @font-face rule will not be output.';
 			}
 		}
 
-		@font-face {
-			font-family: $family;
-			font-weight: $weight;
-			font-style: $style;
-			@include oFontsSource($family+-$font-suffix);
-		}
-		@if (not _oFontsStyleExistsInFamilyMap($_o-fonts-families-included, $family, $weight, $style)) {
-			$already-included-styles: map-get($_o-fonts-families-included, $family);
-			$new-included-styles: ();
-			@if ($already-included-styles) {
-				$new-included-styles: $already-included-styles;
+		@if ($font-exists) {
+			// Files are named as follows
+			// name-suffix
+			// metric-normal      (normal normal)
+			// metric-italic      (normal italic)
+			// metric-bold        (bold normal)
+			// metric-bold-italic (bold italic)
+
+			// By default, suffix is the weight
+			$font-suffix: $weight;
+
+			@if ($weight == 'normal' and $style != 'normal') {
+				$font-suffix: $style;
 			}
-			$new-included-styles: append($already-included-styles, ($weight $style));
-			$_o-fonts-families-included: map-merge($_o-fonts-families-included, (#{$family}: $new-included-styles));
+			@if ($weight != 'normal' and $style != 'normal') {
+				$font-suffix: #{$weight}-#{$style};
+			}
+
+			@font-face {
+				@include oFontsSource(#{$family}-#{$font-suffix});
+				font-family: $family;
+				font-weight: oFontsWeight($weight);
+				font-style: $style;
+			}
+
+			// Add to the list of already included families / variants
+			$_o-fonts-families-included: map-merge($_o-fonts-families-included, (#{$family}-#{$weight}-#{$style}: true)) !global;
 		}
 	}
 }
 
-@mixin oFontsIncludeAll() {
-	@each $family, $font in $_o-fonts-families {
-		@each $style in $font {
-			@if (length($style) > 1) {
-				@include oFontsInclude($family, nth($style, 1), nth($style, 2));
-			} @else {
-				@include oFontsInclude($family, nth($style, 1));
-			}
+/// Output @font-face declarations for all the font families
+///
+/// @require $_o-fonts-families
+@mixin oFontsIncludeAll {
+	@each $family, $properties in $_o-fonts-families {
+		@each $variant in map-get($properties, variants) {
+			@include oFontsInclude($family, map-get($variant, weight), map-get($variant, style));
 		}
 	}
 }

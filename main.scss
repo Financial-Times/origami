@@ -2,6 +2,6 @@
 @import "src/scss/functions";
 @import "src/scss/mixins";
 
-@if (not $o-fonts-is-silent) {
+@if ($o-fonts-is-silent == false) {
 	@include oFontsIncludeAll();
 }

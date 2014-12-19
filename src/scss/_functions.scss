@@ -1,32 +1,74 @@
-@function _oFontsStyleExistsInFamilyMap($family-map, $family, $weight, $style) {
-	@each $familystyle in map-get($family-map, $family) {
-		@if (length($familystyle) == 1) {
-			$familystyle: ($familystyle normal);
-		}
-		@if (nth($familystyle, 1) == $weight and nth($familystyle, 2) == $style) {
+////
+/// @group o-fonts
+/// @link http://registry.origami.ft.com/components/o-fonts
+////
+
+/// Check if a font variant exists for a family
+///
+/// @param {String} family - one of $_o-fonts-families
+/// @param {String} weight
+/// @param {String} style
+///
+/// @access private
+///
+/// @returns {Boolean}
+///
+/// @require $_o-fonts-families
+@function _oFontsVariantExists($family, $weight, $style) {
+	$font-properties: map-get($_o-fonts-families, $family);
+	$font-variants: map-get($font-properties, variants);
+
+	@each $variant in $font-variants {
+		// Check if this weight and style variant exists for this family
+		// Known issue with LibSass 3.0.2 - https://github.com/sass/libsass/issues/741
+		@if (map-get($variant, weight) == $weight and map-get($variant, style) == $style) {
 			@return true;
 		}
 	}
 	@return false;
 }
 
-@function _oFontsDefined($family, $weight, $style) {
-	@return _oFontsStyleExistsInFamilyMap($_o-fonts-families, $family, $weight, $style);
-}
-
-@function _oFontsAlreadyIncluded($family, $weight, $style) {
-	@return _oFontsStyleExistsInFamilyMap($_o-fonts-families-included, $family, $weight, $style);
-}
-
+/// Get a font-family stack with the appropriate fallbacks
+///
+/// @param {String} family
+///
+/// @return {String} - font-stack
+///
+/// @require $_o-fonts-families
 @function oFontsGetFontFamilyWithFallbacks($family) {
-	$family-with-fallbacks: map-get($_o-font-families-with-fallbacks, $family);
-	@if ($family-with-fallbacks) {
-		@return $family-with-fallbacks;
+	@if map-has-key($_o-fonts-families, $family) {
+		$properties: map-get($_o-fonts-families, $family);
+		@return unquote(map-get($properties, font-family));
 	}
-	@warn "Unknown font-family: " + $family;
+	@warn 'Font #{$family} not found. Must be one of $_o-fonts-families.';
 	@return inherit;
 }
 
+/// Path to a font asset
+///
+/// @param {String} $asset
+///
+/// @requires $o-fonts-path
+///
+/// @return {String} - Path to the font asset, without the file extension
 @function oFontsUseAsset($asset) {
 	@return $o-fonts-path + $asset;
+}
+
+/// Machine-readable CSS font-weight.
+///
+/// @param {String} $keyword - Human-readable keyword, one of $_o-fonts-weights
+///
+/// @require {variable} $_o-fonts-weights
+///
+/// @example scss
+/// font-weight: oFontsWeight(lighter);
+///
+/// @return {Number} - CSS font-weight
+@function oFontsWeight($keyword) {
+	@if map-has-key($_o-fonts-weights, $keyword) {
+		@return map-get($_o-fonts-weights, $keyword);
+	} @else {
+		@warn 'Keyword "#{$keyword}" not found. Must be one of $_o-fonts-weights.';
+	}
 }
