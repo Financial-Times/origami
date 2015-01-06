@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "origami-build-tools": "https://github.com/Financial-Times/origami-build-tools/tarball/master",
+    "origami-build-tools": "*",
     "gulp": "^3.8.10",
     "gulp-watch": "^1.1.0"
   }
