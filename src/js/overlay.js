@@ -258,7 +258,7 @@ Overlay.prototype = {
 		// Close the overlay if it's not modal and the click wasn't made on the actual overlay
 		// or on the trigger, as that's handled in triggerClickHandler. Check if trigger exists
 		// first to not get an error
-		if (this.wrapper.contains(ev.target) && !this.opts.modal) {
+		if (!this.wrapper.contains(ev.target) && !this.opts.modal) {
 			if (this.opts.trigger) {
 				if (!this.opts.trigger.contains(ev.target)) {
 					this.close();
@@ -305,7 +305,7 @@ Overlay.prototype = {
 		this.realign('height', size.height);
 
 		if (this.opts.arrow && !this.fills()) {
-			this.opts.arrow.currentposition = this.getCurrentArrowposition(this.opts.arrow.position);
+			this.opts.arrow.currentposition = this.getCurrentArrowPosition(this.opts.arrow.position);
 			this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.currentposition);
 
 			var offset = 0;
@@ -344,7 +344,7 @@ Overlay.prototype = {
 		}
 	},
 
-	getCurrentArrowposition: function(position) {
+	getCurrentArrowPosition: function(position) {
 		var targetClientRect = this.opts.arrow.target.getBoundingClientRect();
 		// Protrusion distance for the arrow. It's 13 due to the border around it
 		var arrowSize = 13;
