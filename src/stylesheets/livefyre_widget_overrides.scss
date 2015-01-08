@@ -27,6 +27,20 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 	filter: none;
 }
 
+@mixin overlayClose {
+	@include oFtIconsBaseIconStyles();
+	@extend %o-ft-icons-icon--cross;
+	width: 18px;
+	height: 18px;
+	font-size: 10px;
+	line-height: 19px;
+	border: 1px solid oColorsGetPaletteColor(pink-tint5);
+	border-radius: 50%;
+	background: oColorsGetPaletteColor(pink-tint5);
+	color: oColorsGetPaletteColor(white);
+	text-align: center;
+}
+
 .o-comments.o-comments--lf-overrides.o-comments--comment-type-livecomments {
 	clear: both;
 	color: oColorsGetPaletteColor(grey-tint5);
@@ -659,9 +673,8 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 					}
 
 					.fyre-notifier-base-close {
-						background: url(oAssetsResolve('src/images/comment_dialog_close.gif', o-comments)) no-repeat;
-						width: 20px;
-						height: 20px;
+						@include overlayClose;
+
 						top: 6px;
 					}
 				}
@@ -1277,7 +1290,7 @@ body {
 	.fyre-modal-alert {
 		@include gradientClear;
 		background-color: oColorsGetPaletteColor(white);
-		border: 3px solid #d9cdbf;
+		border: 2px solid #74736c;
 		padding: 2px;
 
 		color: oColorsGetPaletteColor(grey-tint3);
@@ -1285,50 +1298,44 @@ body {
 		font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 
 		@include textShadowClear;
-		@include borderRadiusClear;
 		@include boxShadowClear;
 
 		.fyre-modal-alert-title-close,
 		.fyre-modal-alert-title-close:active {
-			background: url(oAssetsResolve('src/images/comment_dialog_close.gif', o-comments)) 0 0 no-repeat;
-			width: 20px;
-			height: 20px;
+			@include overlayClose;
+
 			top: 4px;
 			right: 3px;
 		}
 	}
 
 	.fyre-modal {
-		border: 4px solid #d9cdbf;
+		border: 2px solid #74736c;
 		outline: none;
-		z-index: 2001;
+		background-color: oColorsGetPaletteColor(white);
 
 		@include boxShadowClear;
 
 		.fyre-modal-header,
 		.fyre-modal-title {
 			text-align: left;
-			padding-left: 11px;
+			padding-left: 14px;
 			padding-top: 9px;
 			border-bottom: 0;
-			text-transform: uppercase;
-			color: oColorsGetPaletteColor(grey-tint3);
+			color: oColorsGetPaletteColor(grey-tint5);
 			font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-			font-size: 13px;
+			font-size: 16px;
+			line-height: 20px;
 		}
 
 		.fyre-modal-close,
-		.fyre-modal-title-close {
+		.fyre-modal-close:active,
+		.fyre-modal-title-close,
+		.fyre-modal-title-close:active {
+			@include overlayClose;
+
 			left: auto;
 			right: 10px;
-			background: url(oAssetsResolve('src/images/comment_dialog_close.gif', o-comments));
-			width: 20px;
-			height: 20px;
-		}
-
-		.fyre-modal-close:active,
-		.fyre-modal-title-close:active {
-			background: url(oAssetsResolve('src/images/comment_dialog_close.gif', o-comments));
 		}
 
 		.fyre-modal-subtitle,
