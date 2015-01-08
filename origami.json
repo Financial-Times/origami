@@ -75,18 +75,22 @@
         },
         {
             "path": "/demos/financierdisplay-normal.html",
+            "expanded": true,
             "description": ""
         },
         {
             "path": "/demos/financierdisplay-italic.html",
+            "expanded": true,
             "description": ""
         },
         {
             "path": "/demos/financiertext-normal.html",
+            "expanded": true,
             "description": ""
         },
         {
             "path": "/demos/financiertext-italic.html",
+            "expanded": true,
             "description": ""
         }
     ]
