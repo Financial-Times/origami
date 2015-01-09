@@ -1,3 +1,11 @@
+////
+/// @group o-quote
+/// @link http://registry.origami.ft.com/components/o-quote
+////
+
+/// Silent mode
+///
+/// @type boolean
 $o-quote-is-silent: true !default;
 
 @import "o-colors/main";
