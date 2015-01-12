@@ -7,7 +7,7 @@ var utils = require('./utils');
 var overlays = {};
 
 var checkOptions = function(opts) {
-	if (opts.trigger && !(opts.trigger instanceof HTMLElement)) {
+	if (opts.trigger && !(opts.trigger instanceof Element)) {
 		opts.trigger = document.querySelector(opts.trigger);
 	}
 	// There can't be a heading with an empty title
@@ -51,7 +51,7 @@ var checkOptions = function(opts) {
 			} else {
 				throw new Error('"o-overlay error": For overlays with arrows, if you don\'t set a trigger, you do need to set a target for the overlay.');
 			}
-		} else if (!(opts.arrow.target instanceof HTMLElement)) {
+		} else if (!(opts.arrow.target instanceof Element)) {
 			opts.arrow.target = document.querySelector(opts.arrow.target);
 		}
 	}
@@ -62,7 +62,7 @@ var checkOptions = function(opts) {
 var getOptionsFromTrigger = function(trigger) {
 	var opts = {};
 	// Get config from data attributes set in the trigger if they haven't been passed via JS
-	if (trigger instanceof HTMLElement) {
+	if (trigger instanceof Element) {
 		Array.prototype.forEach.call(trigger.attributes, function(attr) {
 			if (attr.name.indexOf('data-o-overlay') === 0) {
 				// Remove the unnecessary part of the string the first time this is run for each attribute
@@ -231,9 +231,19 @@ Overlay.prototype = {
 		var edge = dimension === 'width' ? 'left' : 'top';
 
 		if (size <= this[dimension]) {
+			if (dimension === 'height') {
+				// Set the exact height that the content of the overlay will have which is the total
+				// height of the overlay minus the heading if there is one. If height = 100%, the
+				// heading is part of that 100%, so some content is truncated.
+				this.content.style.height = this.wrapper.clientHeight - this.wrapper.querySelector('header').offsetHeight + 'px';
+			}
 			this.wrapper.classList.add('o-overlay--full-' + dimension);
 			this.wrapper.style['margin' + utils.capitalise(edge)] = 0;
 		} else {
+			if (dimension === 'height') {
+				// Remove the property and let the overlay extend to its content
+				this.content.style.height = null;
+			}
 			this.wrapper.classList.remove('o-overlay--full-' + dimension);
 			if (!this.opts.arrow) {
 				this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
@@ -409,7 +419,7 @@ Overlay.init = function(el) {
 	if (!el) {
 		el = document.body;
 	}
-	if (!(el instanceof HTMLElement)) {
+	if (!(el instanceof Element)) {
 		el = document.querySelector(el);
 	}
 	var triggers = el.querySelectorAll('.o-overlay-trigger');

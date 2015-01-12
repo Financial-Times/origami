@@ -1,0 +1,89 @@
+%o-overlay {
+	@include oOverlay;
+}
+
+%o-overlay-shadow {
+	@include oOverlayShadow;
+}
+
+%o-overlay__arrow-top {
+	@include oOverlayArrow($direction: top);
+}
+
+%o-overlay__arrow-bottom {
+	@include oOverlayArrow($direction: bottom);
+}
+
+%o-overlay__arrow-left {
+	@include oOverlayArrow($direction: left);
+}
+
+%o-overlay__arrow-right {
+	@include oOverlayArrow($direction: right);
+}
+
+%o-overlay__heading {
+	@include oOverlayHeading;
+}
+
+%o-overlay__title {
+	@include oOverlayTitle;
+}
+
+%o-overlay__close {
+	@include oOverlayClose;
+}
+
+%o-overlay__close-icon {
+	@include oOverlayCloseIcon;
+}
+
+%o-overlay__heading--shaded {
+	@include oOverlayHeadingShaded;
+
+	%o-overlay__close-icon {
+		@include oOverlayHeadingShadedCloseIcon;
+	}
+}
+
+%o-overlay__content {
+	@include oOverlayContent;
+}
+
+%o-overlay--compact {
+	%o-overlay__content {
+		@include oOverlayCompactContent;
+	}
+
+	%o-overlay__heading {
+		@include oOverlayCompactHeading;
+	}
+
+	%o-overlay__title {
+		@include oOverlayCompactTitle;
+	}
+
+	%o-overlay__close {
+		@include oOverlayCompactClose;
+	}
+
+	%o-overlay__close-icon {
+		@include oOverlayCompactCloseIcon;
+	}
+}
+
+%o-overlay--full-width {
+	@include oOverlayFullscreen($fill: 'width');
+
+	%o-overlay__content {
+		@include oOverlayFullscreenContent($fill: 'width');
+	}
+}
+
+%o-overlay--full-height {
+	@include oOverlayFullscreen($fill: 'height');
+
+	%o-overlay__content {
+		@include oOverlayFullscreenContent($fill: 'height');
+	}
+}

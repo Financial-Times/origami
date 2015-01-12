@@ -1,4 +1,14 @@
-// Default arrow styling
+////
+/// @group o-overlay
+/// @link http://registry.origami.ft.com/components/o-overlay
+////
+
+/// Base arrow styling
+///
+/// @access private
+///
+/// @param {Number} size
+///
 @mixin _oOverlayArrow($size: 10px) {
 	// :before for the outer arrow that has the bordered colour, and :after for the inner arrow with the white background colour
 	&:before, &:after {
@@ -9,7 +19,7 @@
 
 	&:before {
 		// 1px offset so it appears properly
-		border-width: $size + $o-overlay-border-width + 1;
+		border-width: $size + $_o-overlay-border-width + 1;
 	}
 
 	&:after {
@@ -17,7 +27,12 @@
 	}
 }
 
-// Default top/bottom arrow styling
+/// Base top/bottom arrow styling
+///
+/// @access private
+///
+/// @param {Number} size
+///
 @mixin _oOverlayVerticalArrow($size: 10px) {
 	@include _oOverlayArrow();
 	&:before, &:after {
@@ -26,7 +41,7 @@
 
 	&:before {
 		// 1px offset so it appears properly
-		margin-left: -$size - $o-overlay-border-width - 1;
+		margin-left: -$size - $_o-overlay-border-width - 1;
 	}
 
 	&:after {
@@ -34,6 +49,10 @@
 	}
 }
 
+/// Top arrow styling
+///
+/// @param {Color} color
+///
 @mixin oOverlayUpArrow($color: #74736c) {
 	@include _oOverlayVerticalArrow();
 	&:before, &:after {
@@ -49,6 +68,10 @@
 	}
 }
 
+/// Bottom arrow styling
+///
+/// @param {Color} color
+///
 @mixin oOverlayDownArrow($color: #74736c) {
 	@include _oOverlayVerticalArrow();
 	&:before, &:after {
@@ -64,7 +87,12 @@
 	}
 }
 
-// Default left/right arrow styling
+/// Base left/right arrow styling
+///
+/// @access private
+///
+/// @param {Number} size
+///
 @mixin _oOverlayHorizontalArrow($size: 10px) {
 	@include _oOverlayArrow();
 	&:before, &:after {
@@ -73,7 +101,7 @@
 
 	&:before {
 		// 1px offset so it appears properly
-		margin-top: -$size - $o-overlay-border-width - 1;
+		margin-top: -$size - $_o-overlay-border-width - 1;
 	}
 
 	&:after {
@@ -81,6 +109,10 @@
 	}
 }
 
+/// Left arrow styling
+///
+/// @param {Color} color
+///
 @mixin oOverlayLeftArrow($color: #74736c) {
 	@include _oOverlayHorizontalArrow();
 	&:before, &:after {
@@ -96,6 +128,10 @@
 	}
 }
 
+/// Right arrow styling
+///
+/// @param {Color} color
+///
 @mixin oOverlayRightArrow($color: #74736c) {
 	@include _oOverlayHorizontalArrow();
 	&:before, &:after {

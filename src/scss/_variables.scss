@@ -1,3 +1,16 @@
+////
+/// @group o-overlay
+/// @link http://registry.origami.ft.com/components/o-overlay
+////
+
+/// Silent mode
+///
+/// @type {Boolean}
 $o-overlay-is-silent: false !default;
 
-$o-overlay-border-width: 2px;
+/// Border width
+///
+/// @access private
+///
+/// @type {Number}
+$_o-overlay-border-width: 2px;
