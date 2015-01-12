@@ -7,7 +7,7 @@ var utils = require('./utils');
 var overlays = {};
 
 var checkOptions = function(opts) {
-	if (opts.trigger && !(opts.trigger instanceof Element)) {
+	if (opts.trigger && !(opts.trigger instanceof HTMLElement)) {
 		opts.trigger = document.querySelector(opts.trigger);
 	}
 	// There can't be a heading with an empty title
@@ -51,7 +51,7 @@ var checkOptions = function(opts) {
 			} else {
 				throw new Error('"o-overlay error": For overlays with arrows, if you don\'t set a trigger, you do need to set a target for the overlay.');
 			}
-		} else if (!(opts.arrow.target instanceof Element)) {
+		} else if (!(opts.arrow.target instanceof HTMLElement)) {
 			opts.arrow.target = document.querySelector(opts.arrow.target);
 		}
 	}
@@ -62,7 +62,7 @@ var checkOptions = function(opts) {
 var getOptionsFromTrigger = function(trigger) {
 	var opts = {};
 	// Get config from data attributes set in the trigger if they haven't been passed via JS
-	if (trigger instanceof Element) {
+	if (trigger instanceof HTMLElement) {
 		Array.prototype.forEach.call(trigger.attributes, function(attr) {
 			if (attr.name.indexOf('data-o-overlay') === 0) {
 				// Remove the unnecessary part of the string the first time this is run for each attribute
@@ -419,7 +419,7 @@ Overlay.init = function(el) {
 	if (!el) {
 		el = document.body;
 	}
-	if (!(el instanceof Element)) {
+	if (!(el instanceof HTMLElement)) {
 		el = document.querySelector(el);
 	}
 	var triggers = el.querySelectorAll('.o-overlay-trigger');
