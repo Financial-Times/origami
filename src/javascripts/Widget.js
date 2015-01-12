@@ -140,9 +140,15 @@ function Widget () {
 					networkConfig.strings = self.config.stringOverrides;
 				}
 
+				var documentCreateElementBackup = document.createElement;
+
 				// Livefyre's native load function
 				fyre.conv.load(networkConfig, [initData], function (widget) {
 					if (widget) {
+						if (document.createElement !== documentCreateElementBackup) {
+							document.createElement = documentCreateElementBackup;
+						}
+
 						callback();
 
 						self.lfWidget = widget;
