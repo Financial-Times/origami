@@ -4,10 +4,18 @@ $o-fonts-is-silent: false;
 
 @import "../../main";
 
+html,
 body {
-	@include oColorsFor(page);
+	background: transparent;
+}
+
+body {
 	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplay);
 	margin: 1em;
+}
+
+.test-page {
+	@include oColorsFor(page);
 }
 
 .demo-block {
