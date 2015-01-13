@@ -10,6 +10,7 @@ var checkOptions = function(opts) {
 	if (opts.trigger && !(opts.trigger instanceof HTMLElement)) {
 		opts.trigger = document.querySelector(opts.trigger);
 	}
+
 	// There can't be a heading with an empty title
 	if (opts.heading && (!opts.heading.title || !opts.heading.title.trim())) {
 		throw new Error('"o-overlay error": To have a heading, a non-empty title needs to be set');
