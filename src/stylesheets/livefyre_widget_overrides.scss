@@ -379,10 +379,27 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 			top: -5px;
 		}
 
+
+		.fyre-comment-action-button {
+			color: $ftLink !important;
+			@include gradientClear;
+			border: 0;
+			font-weight: normal;
+			padding: 0;
+			margin: 0;
+			min-width: 0;
+
+			&:hover {
+				color: $ftLinkHover !important;
+			}
+		}
+
 		.fyre-comment-reply {
 			font-size: 13px;
 			top: 0;
-			padding: 0;
+			padding: 0 0 0 7px;
+			margin: 0 0 0 7px;
+			border-left: 1px solid oColorsGetPaletteColor(pink-tint2);
 
 			@include borderRadiusClear;
 		}
@@ -391,8 +408,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 			font-size: 13px;
 			height: auto;
 			top: 0;
-			border-right: 1px solid #cccccc;
-			margin-right: 7px;
+			padding: 0;
 		}
 
 		.fyre-comment-removal {
@@ -435,20 +451,6 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 				&.fyre-feature-link > span {
 					background-image: none;
 				}
-			}
-		}
-
-		.fyre-comment-action-button {
-			color: $ftLink !important;
-			@include gradientClear;
-			border: 0;
-			font-weight: normal;
-			padding: 0;
-			margin: 0;
-			min-width: 0;
-
-			&:hover {
-				color: $ftLinkHover !important;
 			}
 		}
 
