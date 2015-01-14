@@ -10,7 +10,8 @@
 /// @param {Number} size (10px) - Size of arrow
 @mixin _oOverlayArrow($size: 10px) {
 	// :before for the outer arrow that has the bordered colour, and :after for the inner arrow with the white background colour
-	&:before, &:after {
+	&:before,
+	&:after {
 		content: "";
 		position: absolute;
 		border: solid transparent;
@@ -35,7 +36,8 @@
 /// @requires {mixin} _oOverlayArrow
 @mixin _oOverlayVerticalArrow($size: 10px) {
 	@include _oOverlayArrow();
-	&:before, &:after {
+	&:before,
+	&:after {
 		left: 50%;
 	}
 
@@ -56,7 +58,8 @@
 /// @requires {mixin} _oOverlayVerticalArrow
 @mixin oOverlayUpArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayVerticalArrow();
-	&:before, &:after {
+	&:before,
+	&:after {
 		bottom: 100%;
 		border-top-width: 0;
 	}
@@ -76,7 +79,8 @@
 /// @requires {mixin} _oOverlayVerticalArrow
 @mixin oOverlayDownArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayVerticalArrow();
-	&:before, &:after {
+	&:before,
+	&:after {
 		top: 100%;
 		border-bottom-width: 0;
 	}
@@ -98,7 +102,8 @@
 /// @requires {mixin} _oOverlayArrow
 @mixin _oOverlayHorizontalArrow($size: 10px) {
 	@include _oOverlayArrow();
-	&:before, &:after {
+	&:before,
+	&:after {
 		top: 50%;
 	}
 
@@ -119,7 +124,8 @@
 /// @requires {mixin} _oOverlayHorizontalArrow
 @mixin oOverlayLeftArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayHorizontalArrow();
-	&:before, &:after {
+	&:before,
+	&:after {
 		right: 100%;
 		border-left-width: 0;
 	}
@@ -139,7 +145,8 @@
 /// @requires {mixin} _oOverlayHorizontalArrow
 @mixin oOverlayRightArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayHorizontalArrow();
-	&:before, &:after {
+	&:before,
+	&:after {
 		left: 100%;
 		border-right-width: 0;
 	}
