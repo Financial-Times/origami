@@ -1,83 +1,128 @@
-@import "o-colors/main";
-@import "o-assets/main";
-@import "o-fonts/main";
-@import "o-ft-typography/main";
-@import "o-ft-icons/main";
+////
+/// @group o-overlay
+/// @link http://registry.origami.ft.com/components/o-overlay
+////
 
-@import "src/scss/variables";
-@import "src/scss/color-use-cases";
-@import "src/scss/mixins";
-@import "src/scss/overlay";
+@import 'o-colors/main';
+@import 'o-assets/main';
+@import 'o-fonts/main';
+@import 'o-ft-typography/main';
+@import 'o-ft-icons/main';
 
+@import 'src/scss/variables';
+@import 'src/scss/color-use-cases';
+@import 'src/scss/arrow';
+@import 'src/scss/overlay';
+@import 'src/scss/compact';
+@import 'src/scss/fullscreen';
+@import 'src/scss/shaded';
+@import 'src/scss/deprecated';
+
+/// Outputs all CSS classes
+///
+/// @param {String} base class name
+///
+/// @require {mixin} oOverlay
+/// @require {mixin} oOverlayShadow
+/// @require {mixin} oOverlayArrow
+/// @require {mixin} oOverlayHeading
+/// @require {mixin} oOverlayTitle
+/// @require {mixin} oOverlayClose
+/// @require {mixin} oOverlayCloseIcon
+/// @require {mixin} oOverlayShaded
+/// @require {mixin} oOverlayHeadingShadedCloseIcon
+/// @require {mixin} oOverlayContent
+/// @require {mixin} oOverlayCompactContent
+/// @require {mixin} oOverlayCompactHeading
+/// @require {mixin} oOverlayCompactTitle
+/// @require {mixin} oOverlayCompactClose
+/// @require {mixin} oOverlayCompactCloseIcon
+/// @require {mixin} oOverlayFullscreen
+/// @require {mixin} oOverlayFullscreenContent
 @mixin oOverlayIncludeAll($classname: o-overlay) {
 	.#{$classname} {
-		@extend %o-overlay;
+		@include oOverlay;
 	}
 
 	.#{$classname}-shadow {
-		@extend %o-overlay-shadow;
+		@include oOverlayShadow;
 	}
 
 	.#{$classname}__arrow-top {
-		@extend %o-overlay__arrow-top;
+		@include oOverlayArrow($direction: top);
 	}
 
 	.#{$classname}__arrow-bottom {
-		@extend %o-overlay__arrow-bottom;
+		@include oOverlayArrow($direction: bottom);
 	}
 
 	.#{$classname}__arrow-left {
-		@extend %o-overlay__arrow-left;
+		@include oOverlayArrow($direction: left);
 	}
 
 	.#{$classname}__arrow-right {
-		@extend %o-overlay__arrow-right;
+		@include oOverlayArrow($direction: right);
 	}
 
 	.#{$classname}__heading {
-		@extend %o-overlay__heading;
+		@include oOverlayHeading;
 	}
 
 	.#{$classname}__title {
-		@extend %o-overlay__title;
+		@include oOverlayTitle;
 	}
 
 	.#{$classname}__close {
-		@extend %o-overlay__close;
+		@include oOverlayClose;
 	}
 
 	.#{$classname}__close-icon {
-		@extend %o-overlay__close-icon;
+		@include oOverlayCloseIcon;
 	}
 
 	.#{$classname}__heading--shaded {
-		@extend %o-overlay__heading--shaded;
+		@include oOverlayHeadingShaded;
+
+		.#{$classname}__close-icon {
+			@include oOverlayHeadingShadedCloseIcon;
+		}
 	}
 
 	.#{$classname}__content {
-		@extend %o-overlay__content;
-	}
-
-	.#{$classname}__content--no-gutter {
-		@extend %o-overlay__content--no-gutter;
+		@include oOverlayContent;
 	}
 
 	.#{$classname}--compact {
-		@extend %o-overlay--compact;
+		.#{$classname}__content {
+			@include oOverlayCompactContent;
+		}
+
+		.#{$classname}__heading {
+			@include oOverlayCompactHeading;
+		}
+
+		.#{$classname}__title {
+			@include oOverlayCompactTitle;
+		}
+
+		.#{$classname}__close {
+			@include oOverlayCompactClose;
+		}
+
+		.#{$classname}__close-icon {
+			@include oOverlayCompactCloseIcon;
+		}
 	}
 
 	.#{$classname}--full-width {
-		@extend %o-overlay--full-width;
+		@include oOverlayFullscreen($fill: 'width');
 	}
 
 	.#{$classname}--full-height {
-		@extend %o-overlay--full-height;
+		@include oOverlayFullscreen($fill: 'height');
 	}
 }
 
 @if (not $o-overlay-is-silent) {
-	@include oFontsInclude(BentonSans, normal);
-	@include oFontsInclude(BentonSans, bold);
-	@include oFtIconsFontFace();
 	@include oOverlayIncludeAll();
 }

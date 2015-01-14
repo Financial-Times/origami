@@ -11,14 +11,11 @@
   ],
   "dependencies": {
     "o-colors": "^2.3.16",
-    "o-fonts": ">=0.7.0 <2",
-    "o-assets": "^0.4.2",
-    "o-ft-typography": "^1.12.2",
+    "o-assets": ">=0.4.2 <2",
     "dom-delegate": "^2.0.1",
-    "o-viewport": "^0.1.1",
-    "o-dom": "^0.4.0",
-    "o-layers": "^0.2.0",
-    "o-ft-icons": "^2.2.2",
-    "o-hoverable": "^0.2.0"
+    "o-viewport": ">=0.1.1 <2",
+    "o-dom": ">=0.4.0 <2",
+    "o-layers": ">=0.2.0 <2",
+    "o-hoverable": ">=0.2.0 <2"
   }
 }

@@ -34,7 +34,7 @@ module.exports = {
 	},
 
 	getSpacing: function(el, side) {
-		// IE uses current Style, other browsers getComputedStyle()
+		// IE uses currentStyle, other browsers getComputedStyle()
 		var elStyle = el.currentStyle || window.getComputedStyle(el);
 		return parseInt(elStyle['margin' + this.capitalise(side)], 10) || 0;
 	},

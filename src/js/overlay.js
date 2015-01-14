@@ -10,6 +10,7 @@ var checkOptions = function(opts) {
 	if (opts.trigger && !(opts.trigger instanceof HTMLElement)) {
 		opts.trigger = document.querySelector(opts.trigger);
 	}
+
 	// There can't be a heading with an empty title
 	if (opts.heading && (!opts.heading.title || !opts.heading.title.trim())) {
 		throw new Error('"o-overlay error": To have a heading, a non-empty title needs to be set');
@@ -227,20 +228,6 @@ Overlay.prototype = {
 		this.broadcast('ready');
 	},
 
-	realign: function(dimension, size) {
-		var edge = dimension === 'width' ? 'left' : 'top';
-
-		if (size <= this[dimension]) {
-			this.wrapper.classList.add('o-overlay--full-' + dimension);
-			this.wrapper.style['margin' + utils.capitalise(edge)] = 0;
-		} else {
-			this.wrapper.classList.remove('o-overlay--full-' + dimension);
-			if (!this.opts.arrow) {
-				this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
-			}
-		}
-	},
-
 	close: function() {
 		this.delegates.doc.off();
 		this.delegates.wrap.off();
@@ -258,7 +245,7 @@ Overlay.prototype = {
 		// Close the overlay if it's not modal and the click wasn't made on the actual overlay
 		// or on the trigger, as that's handled in triggerClickHandler. Check if trigger exists
 		// first to not get an error
-		if (this.wrapper.contains(ev.target) && !this.opts.modal) {
+		if (!this.wrapper.contains(ev.target) && !this.opts.modal) {
 			if (this.opts.trigger) {
 				if (!this.opts.trigger.contains(ev.target)) {
 					this.close();
@@ -300,12 +287,36 @@ Overlay.prototype = {
 		}));
 	},
 
+	realign: function(dimension, size) {
+		var edge = dimension === 'width' ? 'left' : 'top';
+
+		if (size <= this[dimension]) {
+			this.wrapper.classList.add('o-overlay--full-' + dimension);
+			this.wrapper.style['margin' + utils.capitalise(edge)] = 0;
+			if (dimension === 'height') {
+				// Set the exact height that the content of the overlay will have which is the total
+				// height of the overlay minus the heading if there is one. If height = 100%, the
+				// heading is part of that 100%, so some content is truncated.
+				this.content.style.height = this.wrapper.clientHeight - this.wrapper.querySelector('header').offsetHeight + 'px';
+			}
+		} else {
+			if (dimension === 'height') {
+				// Remove the property and let the overlay extend to its content
+				this.content.style.height = null;
+			}
+			this.wrapper.classList.remove('o-overlay--full-' + dimension);
+			if (!this.opts.arrow) {
+				this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
+			}
+		}
+	},
+
 	respondToWindow: function(size) {
 		this.realign('width', size.width);
 		this.realign('height', size.height);
 
 		if (this.opts.arrow && !this.fills()) {
-			this.opts.arrow.currentposition = this.getCurrentArrowposition(this.opts.arrow.position);
+			this.opts.arrow.currentposition = this.getCurrentArrowPosition(this.opts.arrow.position);
 			this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.currentposition);
 
 			var offset = 0;
@@ -344,7 +355,7 @@ Overlay.prototype = {
 		}
 	},
 
-	getCurrentArrowposition: function(position) {
+	getCurrentArrowPosition: function(position) {
 		var targetClientRect = this.opts.arrow.target.getBoundingClientRect();
 		// Protrusion distance for the arrow. It's 13 due to the border around it
 		var arrowSize = 13;
