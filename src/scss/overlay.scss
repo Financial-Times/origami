@@ -6,12 +6,9 @@
 ///
 /// Base overlay style
 ///
-/// @requires {function} oFontsGetFontFamilyWithFallbacks
 /// @requires {function} oColorsGetColorFor
-///
 @mixin oOverlay {
 	position: fixed;
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 	top: 50%;
 	left: 50%;
 	z-index: 10;
@@ -25,7 +22,6 @@
 
 ///
 /// Base overlay modal shadow style
-///
 @mixin oOverlayShadow {
 	// IE8 hack to get the opacity working
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#33000000', endColorstr='#33000000'); /* IE */
@@ -43,11 +39,9 @@
 ///
 /// Base overlay heading style
 ///
-/// @requires {mixin} oFtTypographyFontSize
 /// @requires {function} oColorsGetColorFor
-///
 @mixin oOverlayHeading {
-	@include oFtTypographyFontSize(16);
+	font-size: 16px;
 	margin: 0;
 	overflow: auto;
 	background: oColorsGetColorFor(o-overlay-heading, background);
@@ -57,7 +51,6 @@
 
 ///
 /// Base overlay title style
-///
 @mixin oOverlayTitle {
 	margin: 10px 0 10px 20px;
 	display: block;
@@ -67,7 +60,6 @@
 
 ///
 /// Base overlay close style
-///
 @mixin oOverlayClose {
 	cursor: pointer;
 	padding: 10px;
@@ -83,7 +75,6 @@
 ///
 /// @requires {mixin} oColorsFor
 /// @requires {function} oColorsGetColorFor
-///
 @mixin oOverlayCloseIcon {
 	width: 18px;
 	height: 18px;
@@ -94,8 +85,7 @@
 	@include oColorsFor(o-overlay-close);
 
 	&:after {
-		// Hex code for multiplication sign
-		content: "\00D7";
+		content: "×";
 	}
 
 	#{$o-hoverable-if-hover-enabled} &:hover {
@@ -106,7 +96,6 @@
 
 ///
 /// Base overlay content style
-///
 @mixin oOverlayContent {
 	position: relative;
 	box-sizing: border-box;
@@ -130,7 +119,6 @@
 /// @requires {mixin} oOverlayDownArrow
 /// @requires {mixin} oOverlayLeftArrow
 /// @requires {mixin} oOverlayRightArrow
-///
 @mixin oOverlayArrow($direction) {
 	position: absolute;
 

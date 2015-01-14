@@ -7,8 +7,7 @@
 ///
 /// @access private
 ///
-/// @param {Number} size
-///
+/// @param {Number} size (10px) - Size of arrow
 @mixin _oOverlayArrow($size: 10px) {
 	// :before for the outer arrow that has the bordered colour, and :after for the inner arrow with the white background colour
 	&:before, &:after {
@@ -31,8 +30,7 @@
 ///
 /// @access private
 ///
-/// @param {Number} size
-///
+/// @param {Number} size (10px) - Size of arrow
 @mixin _oOverlayVerticalArrow($size: 10px) {
 	@include _oOverlayArrow();
 	&:before, &:after {
@@ -51,9 +49,8 @@
 
 /// Top arrow styling
 ///
-/// @param {Color} color
-///
-@mixin oOverlayUpArrow($color: #74736c) {
+/// @param {Color} color (oColorsGetColorFor(o-overlay, border))
+@mixin oOverlayUpArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayVerticalArrow();
 	&:before, &:after {
 		bottom: 100%;
@@ -70,9 +67,8 @@
 
 /// Bottom arrow styling
 ///
-/// @param {Color} color
-///
-@mixin oOverlayDownArrow($color: #74736c) {
+/// @param {Color} color (oColorsGetColorFor(o-overlay, border))
+@mixin oOverlayDownArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayVerticalArrow();
 	&:before, &:after {
 		top: 100%;
@@ -91,8 +87,7 @@
 ///
 /// @access private
 ///
-/// @param {Number} size
-///
+/// @param {Number} size (10px) - Size of arrow
 @mixin _oOverlayHorizontalArrow($size: 10px) {
 	@include _oOverlayArrow();
 	&:before, &:after {
@@ -111,9 +106,8 @@
 
 /// Left arrow styling
 ///
-/// @param {Color} color
-///
-@mixin oOverlayLeftArrow($color: #74736c) {
+/// @param {Color} color (oColorsGetColorFor(o-overlay, border))
+@mixin oOverlayLeftArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayHorizontalArrow();
 	&:before, &:after {
 		right: 100%;
@@ -130,9 +124,8 @@
 
 /// Right arrow styling
 ///
-/// @param {Color} color
-///
-@mixin oOverlayRightArrow($color: #74736c) {
+/// @param {Color} color (oColorsGetColorFor(o-overlay, border))
+@mixin oOverlayRightArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayHorizontalArrow();
 	&:before, &:after {
 		left: 100%;
