@@ -3,25 +3,21 @@
 /// @link http://registry.origami.ft.com/components/o-overlay
 ////
 
-///
 /// Add to the header for a compact overlay
 @mixin oOverlayCompactHeading {
 	font-size: 12px;
 }
 
-///
 /// Add to the title for a compact overlay
 @mixin oOverlayCompactTitle {
 	margin: 5px 0 5px 10px;
 }
 
-///
 /// Add to the close button for a compact overlay
 @mixin oOverlayCompactClose {
 	padding: 5px 5px 5px 10px;
 }
 
-///
 /// Add to the close icon for a compact overlay
 @mixin oOverlayCompactCloseIcon {
 	width: 14px;
@@ -30,7 +26,6 @@
 	line-height: 14px;
 }
 
-///
 /// Add to the content section for a compact overlay
 @mixin oOverlayCompactContent {
 	padding: 10px;

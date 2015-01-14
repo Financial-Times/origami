@@ -3,7 +3,6 @@
 /// @link http://registry.origami.ft.com/components/o-overlay
 ////
 
-///
 /// Base overlay style
 ///
 /// @requires {function} oColorsGetColorFor
@@ -20,7 +19,6 @@
 	border-radius: 5px;
 }
 
-///
 /// Base overlay modal shadow style
 @mixin oOverlayShadow {
 	// IE8 hack to get the opacity working
@@ -36,7 +34,6 @@
 	transition: opacity 0.3s ease-in-out;
 }
 
-///
 /// Base overlay heading style
 ///
 /// @requires {function} oColorsGetColorFor
@@ -49,7 +46,6 @@
 	font-weight: bold;
 }
 
-///
 /// Base overlay title style
 @mixin oOverlayTitle {
 	margin: 10px 0 10px 20px;
@@ -58,7 +54,6 @@
 	overflow: auto;
 }
 
-///
 /// Base overlay close style
 @mixin oOverlayClose {
 	cursor: pointer;
@@ -70,7 +65,6 @@
 	outline: none;
 }
 
-///
 /// Base overlay close icon style
 ///
 /// @requires {mixin} oColorsFor
@@ -94,7 +88,6 @@
 	}
 }
 
-///
 /// Base overlay content style
 @mixin oOverlayContent {
 	position: relative;
@@ -111,7 +104,6 @@
 	}
 }
 
-///
 /// Base overlay arrow styles
 ///
 /// @param {String} direction - one of 'top', 'bottom', 'left' or 'right'
