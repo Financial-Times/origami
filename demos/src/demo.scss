@@ -1,22 +1,57 @@
 $o-ft-buttons-is-silent: false;
 $o-ft-icons-is-silent: false;
+$o-fonts-is-silent: false;
 
 @import "../../main";
 
+html,
 body {
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	background: transparent;
+}
+
+body {
+	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplay);
 	margin: 1em;
 }
 
-.demo__inverse {
-	background: black;
+.test-page {
+	@include oColorsFor(page);
 }
 
-.demo__faux {
+.demo-block {
+	margin-left: -1rem;
+	margin-right: -1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.white {
+	background: #ffffff;
+}
+
+.inverse {
+	background: oColorsGetPaletteColor(grey-tint5);
+}
+
+.faux-inline-block {
 	display: inline-block;
 }
 
-// So icon buttons align with the rest
-i {
+h2 {
+	border-top: 8px solid oColorsGetPaletteColor(pink-tint2);
+	padding-top: 0.25em;
+	margin-left: -1rem;
+	margin-right: -1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+h3 {
+	margin-bottom: 0.5em;
+}
+
+// Avoid extra vertical space for icons in buttons
+.o-ft-buttons .o-ft-icons-icon {
 	line-height: 1px;
 }

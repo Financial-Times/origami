@@ -19,7 +19,7 @@
 		{
 			"name": "individual-inverse",
 			"template": "demos/src/individual-inverse.mustache",
-			"bodyClasses": "o-hoverable-on demo__inverse"
+			"bodyClasses": "o-hoverable-on inverse"
 		},
 		{
 			"name": "pagination",
@@ -29,6 +29,11 @@
 		{
 			"name": "grouped",
 			"template": "demos/src/grouped.mustache"
+		},
+		{
+			"name": "test",
+			"template": "demos/src/test.mustache",
+			"bodyClasses": "test-page"
 		}
 	]
 }
