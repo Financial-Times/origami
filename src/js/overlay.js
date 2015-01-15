@@ -301,6 +301,7 @@ Overlay.prototype.realign = function(dimension, size) {
 			this.content.style.height = this.wrapper.clientHeight - this.wrapper.querySelector('header').offsetHeight + 'px';
 		}
 		this.wrapper.classList.add('o-overlay--full-' + dimension);
+		this.wrapper.style[edge] = '0';
 		this.wrapper.style['margin' + utils.capitalise(edge)] = 0;
 	} else {
 		if (dimension === 'height') {
@@ -311,6 +312,10 @@ Overlay.prototype.realign = function(dimension, size) {
 		if (!this.opts.arrow) {
 			this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
 		}
+		// Set via JS as it needs the full size when calculating the negative margins
+		// and setting left: 50% for example before, if the overlay doesn't fit, would
+		// shrink the overlay
+		this.wrapper.style[edge] = '50%';
 	}
 };
 

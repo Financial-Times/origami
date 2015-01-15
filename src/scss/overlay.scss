@@ -8,8 +8,6 @@
 /// @requires {function} oColorsGetColorFor
 @mixin oOverlay {
 	position: fixed;
-	top: 50%;
-	left: 50%;
 	z-index: 10;
 	box-sizing: border-box;
 	opacity: 1;
