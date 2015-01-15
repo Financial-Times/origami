@@ -232,16 +232,16 @@ Overlay.prototype.show = function() {
 };
 
 Overlay.prototype.close = function() {
-	    this.delegates.doc.off();
-	    this.delegates.wrap.off();
-	    this.delegates.context.off();
-	    this.context.removeChild(this.wrapper);
-	    if (this.opts.modal) {
-	        this.shadow.parentNode.removeChild(this.shadow);
-	    }
-	    this.visible = false;
-        this.broadcast('close', 'oLayers');
-    	this.broadcast('destroy');
+		this.delegates.doc.off();
+		this.delegates.wrap.off();
+		this.delegates.context.off();
+		this.context.removeChild(this.wrapper);
+		if (this.opts.modal) {
+			this.shadow.parentNode.removeChild(this.shadow);
+		}
+		this.visible = false;
+		this.broadcast('close', 'oLayers');
+		this.broadcast('destroy');
 };
 
 Overlay.prototype.closeOnExternalClick = function(ev) {
