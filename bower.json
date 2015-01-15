@@ -1,0 +1,7 @@
+{
+  "name": "o-timeline",
+  "main": [
+    "main.scss",
+    "main.js"
+  ]
+}
