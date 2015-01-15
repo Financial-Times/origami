@@ -10,6 +10,7 @@ var checkOptions = function(opts) {
 	if (opts.trigger && !(opts.trigger instanceof HTMLElement)) {
 		opts.trigger = document.querySelector(opts.trigger);
 	}
+
 	// There can't be a heading with an empty title
 	if (opts.heading && (!opts.heading.title || !opts.heading.title.trim())) {
 		throw new Error('"o-overlay error": To have a heading, a non-empty title needs to be set');
@@ -230,30 +231,6 @@ Overlay.prototype.show = function() {
 	this.broadcast('ready');
 };
 
-Overlay.prototype.realign = function(dimension, size) {
-	var edge = dimension === 'width' ? 'left' : 'top';
-
-	if (size <= this[dimension]) {
-		if (dimension === 'height') {
-			// Set the exact height that the content of the overlay will have which is the total
-			// height of the overlay minus the heading if there is one. If height = 100%, the
-			// heading is part of that 100%, so some content is truncated.
-			this.content.style.height = this.wrapper.clientHeight - this.wrapper.querySelector('header').offsetHeight + 'px';
-		}
-		this.wrapper.classList.add('o-overlay--full-' + dimension);
-		this.wrapper.style['margin' + utils.capitalise(edge)] = 0;
-	} else {
-		if (dimension === 'height') {
-			// Remove the property and let the overlay extend to its content
-			this.content.style.height = null;
-		}
-		this.wrapper.classList.remove('o-overlay--full-' + dimension);
-		if (!this.opts.arrow) {
-			this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
-		}
-	}
-};
-
 Overlay.prototype.close = function() {
 	    this.delegates.doc.off();
 	    this.delegates.wrap.off();
@@ -311,6 +288,30 @@ Overlay.prototype.broadcast = function(eventType, namespace, data) {
 		// Don't bubble above the overlay's layer context otherwise we risk triggering a listener on a parent context
 		bubbles: namespace !== 'oLayers' ? true : false
 	}));
+};
+
+Overlay.prototype.realign = function(dimension, size) {
+	var edge = dimension === 'width' ? 'left' : 'top';
+
+	if (size <= this[dimension]) {
+		if (dimension === 'height') {
+			// Set the exact height that the content of the overlay will have which is the total
+			// height of the overlay minus the heading if there is one. If height = 100%, the
+			// heading is part of that 100%, so some content is truncated.
+			this.content.style.height = this.wrapper.clientHeight - this.wrapper.querySelector('header').offsetHeight + 'px';
+		}
+		this.wrapper.classList.add('o-overlay--full-' + dimension);
+		this.wrapper.style['margin' + utils.capitalise(edge)] = 0;
+	} else {
+		if (dimension === 'height') {
+			// Remove the property and let the overlay extend to its content
+			this.content.style.height = null;
+		}
+		this.wrapper.classList.remove('o-overlay--full-' + dimension);
+		if (!this.opts.arrow) {
+			this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
+		}
+	}
 };
 
 Overlay.prototype.respondToWindow = function(size) {

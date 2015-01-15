@@ -3,18 +3,19 @@
 /// @link http://registry.origami.ft.com/components/o-overlay
 ////
 
-///
 /// Add to the header for a shaded overlay
 ///
+/// @requires {mixin} oColorsGetColorFor
 @mixin oOverlayHeadingShaded {
 	background: oColorsGetColorFor(o-overlay-heading-shaded, background);
 	color: oColorsGetColorFor(o-overlay-heading-shaded, text);
 	font-weight: normal;
 }
 
-///
 /// Add to the close icon for a shaded overlay
 ///
+/// @requires {mixin} oColorsFor
+/// @requires {mixin} oColorsGetColorFor
 @mixin oOverlayHeadingShadedCloseIcon {
 	@include oColorsFor(o-overlay-close-shaded);
 
