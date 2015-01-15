@@ -6,6 +6,22 @@ Configurable custom overlay box that can be used to show overlay windows. The ov
 
 For installation info please refer to this [module's page](http://registry.origami.ft.com/components/o-overlay#section-usage) in the Origami registry.
 
+## Browser support
+
+Tested and working on:
+
+|  Browsers  | Primary Experience |
+|:----------:|:------------------:|
+|   Chrome   |        35+         |
+|   Firefox  |        30+         |
+|   Safari   |        7+          |
+|   IE       |        8+          |
+
+Known issues:
+
+* IE11-IE8 require the [polyfill service](polyfill.webservices.ft.com).
+* IE8 throws an error when closing the Overlay starting on the second time. It works like expected in spite of the error.
+
 ## Usage
 
 o-overlay can be instantiated in two ways:
