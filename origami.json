@@ -14,10 +14,7 @@
 		"optional": [
 			"csstransforms",
 			"csstransitions",
-			"flexbox",
-			"flexbox-legacy",
-			"rgba",
-			"requestAnimationFrame"
+			"rgba"
 		]
 	},
 	"ci": {

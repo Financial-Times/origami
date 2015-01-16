@@ -14,13 +14,24 @@
 
 /// Add to the close icon for a shaded overlay
 ///
-/// @requires {mixin} oColorsFor
 /// @requires {mixin} oColorsGetColorFor
-@mixin oOverlayHeadingShadedCloseIcon {
-	@include oColorsFor(o-overlay-close-shaded);
+@mixin oOverlayHeadingShadedClose {
+	background: oColorsGetColorFor(o-overlay-close-shaded, background);
+	border-color: oColorsGetColorFor(o-overlay-close-shaded, border);
+
+	div:before,
+	div:after {
+		border-color: oColorsGetColorFor(o-overlay-close-shaded, text);
+		background: oColorsGetColorFor(o-overlay-close-shaded, text);
+	}
 
 	#{$o-hoverable-if-hover-enabled} &:hover {
-		color: oColorsGetColorFor(o-overlay-close, text);
 		background-color: oColorsGetColorFor(o-overlay-close, background);
+
+		div:before,
+		div:after {
+			border-color: oColorsGetColorFor(o-overlay-close, text);
+			background: oColorsGetColorFor(o-overlay-close, text);
+		}
 	}
 }

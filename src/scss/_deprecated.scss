@@ -41,8 +41,8 @@
 %o-overlay__heading--shaded {
 	@include oOverlayHeadingShaded;
 
-	%o-overlay__close-icon {
-		@include oOverlayHeadingShadedCloseIcon;
+	%o-overlay__close {
+		@include oOverlayHeadingShadedClose;
 	}
 }
 

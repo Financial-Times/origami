@@ -1,0 +1,162 @@
+/////
+/// @group o-overlay
+/// @link http://registry.origami.ft.com/components/o-overlay
+////
+
+/// Helper mixin to target IE8
+///
+/// @access private
+@mixin _targetIE8 {
+	@media \0screen {
+		@content;
+	}
+}
+
+/// Base overlay close style
+///
+/// @requires {function} oColorsGetColorFor
+@mixin oOverlayClose {
+	float: right;
+	cursor: pointer;
+	width: 1em;
+	height: 1em;
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 0;
+	border: 1px solid;
+	// Equivalent to `50%`, but avoids a rendering bug in old WebKit
+	border-radius: 9999px;
+	font-size: 20px;
+	line-height: 1em;
+	box-sizing: content-box;
+	user-select: none;
+	background: oColorsGetColorFor(o-overlay-close, background);
+	border-color: oColorsGetColorFor(o-overlay-close, border);
+
+	&:before {
+		position: absolute;
+		padding: 10px;
+		content: '';
+		width: 1em;
+		height: 1em;
+		top: 0;
+		right: 0;
+	}
+
+	#{$o-hoverable-if-hover-enabled} &:hover {
+		background-color: oColorsGetColorFor(o-overlay-close-shaded, background);
+
+		div:before,
+		div:after {
+			border-color: oColorsGetColorFor(o-overlay-close-shaded, text);
+			background: oColorsGetColorFor(o-overlay-close-shaded, text);
+		}
+	}
+}
+
+/// Base overlay close icon style
+@mixin oOverlayCloseIcon {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	transform: rotate(45deg);
+	top: 0.15em;
+
+	@include _targetIE8 {
+		top: -0.1em;
+		left: -0.33em;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865474, M12=-0.7071067811865477, M21=0.7071067811865477, M22=0.7071067811865474, SizingMethod='auto expand')";
+	}
+
+	&:after,
+	&:before {
+		content: '';
+		width: 0;
+		height: 0;
+		display: block;
+		position: absolute;
+		border: 0.05em solid;
+		border-color: oColorsGetColorFor(o-overlay-close, text);
+		background: oColorsGetColorFor(o-overlay-close, text);
+		box-sizing: content-box;
+	}
+	&:before {
+		width: 0.5em;
+		top: 0.35em;
+		left: 0.1em;
+
+		@include _targetIE8 {
+			// Re-center in IE 8
+			top: 0.47em;
+		}
+	}
+	&:after {
+		height: 0.5em;
+		left: 0.35em;
+		top: 0.1em;
+
+		@include _targetIE8 {
+			// Re-center in IE 8
+			left: 0.47em;
+		}
+	}
+}
+
+.cross {
+	display: block;
+	width: 1.5em;
+	height: 1.5em;
+	padding: .25em;
+	border: 2px solid hotpink;
+	// Equivalent to `50%`, but avoids a rendering bug in old WebKit
+	border-radius: 9999px;
+	font-size: 1em;
+	line-height: 1;
+	box-sizing: content-box;
+	background: hotpink;
+	user-select: none;
+
+}
+.cross__icon {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	transform: rotate(45deg);
+	top: 0.175em;
+
+	@include _targetIE8 {
+		top: -0.1em;
+		left: -0.33em;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865474, M12=-0.7071067811865477, M21=0.7071067811865477, M22=0.7071067811865474, SizingMethod='auto expand')";
+	}
+
+	&:after,
+	&:before {
+		content: '';
+		width: 0;
+		height: 0;
+		display: block;
+		position: absolute;
+		border: .13em solid hotpink;
+		background: hotpink;
+		box-sizing: content-box;
+	}
+	&:before {
+		width: 1em;
+		top: 0.5em;
+
+		@include _targetIE8 {
+			// Re-center in IE 8
+			top: 0.47em;
+		}
+	}
+	&:after {
+		height: 1em;
+		left: 0.5em;
+
+		@include _targetIE8 {
+			// Re-center in IE 8
+			left: 0.47em;
+		}
+	}
+}

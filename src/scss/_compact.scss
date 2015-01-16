@@ -15,15 +15,18 @@
 
 /// Add to the close button for a compact overlay
 @mixin oOverlayCompactClose {
-	padding: 5px 5px 5px 10px;
+	font-size: 16px;
+	margin-top: 5px;
+	margin-right: 5px;
+
+	&:before {
+		padding: 5px 5px 5px 10px;
+	}
 }
 
 /// Add to the close icon for a compact overlay
 @mixin oOverlayCompactCloseIcon {
-	width: 14px;
-	height: 14px;
-	font-size: 12px;
-	line-height: 14px;
+	font-size: 10px;
 }
 
 /// Add to the content section for a compact overlay

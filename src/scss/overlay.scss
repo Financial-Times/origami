@@ -54,40 +54,6 @@
 	overflow: auto;
 }
 
-/// Base overlay close style
-@mixin oOverlayClose {
-	cursor: pointer;
-	padding: 10px;
-	margin: 0;
-	border: 0;
-	background: transparent;
-	float: right;
-	outline: none;
-}
-
-/// Base overlay close icon style
-///
-/// @requires {mixin} oColorsFor
-/// @requires {function} oColorsGetColorFor
-@mixin oOverlayCloseIcon {
-	width: 18px;
-	height: 18px;
-	font-size: 15px;
-	line-height: 17px;
-	border: 1px solid;
-	border-radius: 50%;
-	@include oColorsFor(o-overlay-close);
-
-	&:after {
-		content: "×";
-	}
-
-	#{$o-hoverable-if-hover-enabled} &:hover {
-		color: oColorsGetColorFor(o-overlay-close-shaded, text);
-		background-color: oColorsGetColorFor(o-overlay-close-shaded, background);
-	}
-}
-
 /// Base overlay content style
 @mixin oOverlayContent {
 	position: relative;
