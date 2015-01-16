@@ -13,11 +13,9 @@
 		padding-left: 0;
 		padding-right: 0;
 		width: 100%;
-		left: 0;
 	} @else if ($fill == 'height') {
 		padding-top: 0;
 		padding-bottom: 0;
 		height: 100%;
-		top: 0;
 	}
 }
