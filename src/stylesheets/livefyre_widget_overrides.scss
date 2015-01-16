@@ -154,6 +154,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 			width: auto;
 			height: auto;
 			line-height: 25px;
+			white-space: nowrap\9; /* IE8 and below */
 
 			a.fyre-user-loggedout {
 				color: $ftLink;
