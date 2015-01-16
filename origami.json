@@ -45,7 +45,7 @@
         },
         {
             "path": "/demos/test.html",
-            "expanded": true,
+            "expanded": false,
             "description": ""
         }
     ]
