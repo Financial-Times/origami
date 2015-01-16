@@ -173,6 +173,10 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 				display: inline-block;
 				position: relative;
 				overflow: visible;
+
+				.fyre-user-profile-link {
+					white-space: nowrap\9; /* IE8 and below */
+				}
 			}
 
 			.o-comment-ui--settings {
