@@ -11,7 +11,6 @@
   ],
   "dependencies": {
     "o-colors": "^2.3.16",
-    "o-assets": ">=0.4.2 <2",
     "dom-delegate": "^2.0.1",
     "o-viewport": ">=0.1.1 <2",
     "o-dom": ">=0.4.0 <2",

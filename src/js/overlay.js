@@ -346,13 +346,13 @@ Overlay.prototype.respondToWindow = function(size) {
 		var dimension = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'height' : 'width';
 		this.wrapper.style[edge] = offset + 'px';
 		// IE8 doesn't support getBoundingClientRect().height and .weight
-		var dimensionValue = targetClientRect[dimension] || function() {
+		var dimensionValue = targetClientRect[dimension] || (function() {
 			if (dimension === 'height') {
 				return targetClientRect['bottom'] - targetClientRect['top'];
 			} else {
 				return targetClientRect['right'] - targetClientRect['left'];
 			}
-		}();
+		})();
 		// 1. Get where the element is positioned
 		// 2. Add its width or height divided by two to get its center
 		// 3. Substract the width or height divided by two of the overlay so the arrow, which is in the center, points to the center of the side of the target
