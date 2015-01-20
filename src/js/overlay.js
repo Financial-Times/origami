@@ -156,9 +156,11 @@ Overlay.prototype.render = function() {
 			heading.classList.add('o-overlay__heading--shaded');
 		}
 
-		var button = document.createElement('button');
+		var button = document.createElement('a');
 		button.className = 'o-overlay__close';
-		var buttonIcon = document.createElement('div');
+		button.setAttribute('role', 'button');
+		button.setAttribute('href', '#void');
+		var buttonIcon = document.createElement('span');
 		buttonIcon.className = 'o-overlay__close-icon';
 		button.appendChild(buttonIcon);
 
@@ -232,16 +234,17 @@ Overlay.prototype.show = function() {
 };
 
 Overlay.prototype.close = function() {
-		this.delegates.doc.off();
-		this.delegates.wrap.off();
-		this.delegates.context.off();
-		this.context.removeChild(this.wrapper);
-		if (this.opts.modal) {
-			this.shadow.parentNode.removeChild(this.shadow);
-		}
-		this.visible = false;
-		this.broadcast('close', 'oLayers');
-		this.broadcast('destroy');
+	this.delegates.doc.off();
+	this.delegates.wrap.off();
+	this.delegates.context.off();
+	this.context.removeChild(this.wrapper);
+	if (this.opts.modal) {
+		this.shadow.parentNode.removeChild(this.shadow);
+	}
+	this.visible = false;
+	this.broadcast('close', 'oLayers');
+	this.broadcast('destroy');
+	return false;
 };
 
 Overlay.prototype.closeOnExternalClick = function(ev) {
