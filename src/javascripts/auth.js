@@ -166,7 +166,7 @@ function Auth () {
 				self.login();
 			}
 
-			callback();
+			callback(null, authData);
 		});
 	};
 
