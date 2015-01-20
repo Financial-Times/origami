@@ -24,10 +24,6 @@
 	}
 }
 
-/// Add to the close icon for a compact overlay
-@mixin oOverlayCompactCloseIcon {
-	font-size: 10px;
-}
 
 /// Add to the content section for a compact overlay
 @mixin oOverlayCompactContent {

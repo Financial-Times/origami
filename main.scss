@@ -34,7 +34,6 @@
 /// @require {mixin} oOverlayCompactHeading
 /// @require {mixin} oOverlayCompactTitle
 /// @require {mixin} oOverlayCompactClose
-/// @require {mixin} oOverlayCompactCloseIcon
 /// @require {mixin} oOverlayFullscreen
 /// @require {mixin} oOverlayFullscreenContent
 @mixin oOverlayIncludeAll($classname: o-overlay) {
@@ -105,10 +104,6 @@
 
 		.#{$classname}__close {
 			@include oOverlayCompactClose;
-		}
-
-		.#{$classname}__close-icon {
-			@include oOverlayCompactCloseIcon;
 		}
 	}
 

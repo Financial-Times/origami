@@ -66,10 +66,6 @@
 	%o-overlay__close {
 		@include oOverlayCompactClose;
 	}
-
-	%o-overlay__close-icon {
-		@include oOverlayCompactCloseIcon;
-	}
 }
 
 %o-overlay--full-width {
