@@ -1,4 +1,5 @@
 'use strict';
+
 require('../../main');
 
 document.addEventListener("DOMContentLoaded", function() {

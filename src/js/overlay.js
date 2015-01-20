@@ -301,6 +301,7 @@ Overlay.prototype.realign = function(dimension, size) {
 			this.content.style.height = this.wrapper.clientHeight - this.wrapper.querySelector('header').offsetHeight + 'px';
 		}
 		this.wrapper.classList.add('o-overlay--full-' + dimension);
+		this.wrapper.style[edge] = '0';
 		this.wrapper.style['margin' + utils.capitalise(edge)] = 0;
 	} else {
 		if (dimension === 'height') {
@@ -311,6 +312,11 @@ Overlay.prototype.realign = function(dimension, size) {
 		if (!this.opts.arrow) {
 			this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
 		}
+		// Set alignment in JavaScript (not via CSS) after all other styles have been applied
+		// so that browsers compute it properly. If it's applied earlier, when the negative
+		// margin is calculated, the overlay might not fit, so it shrinks and the negative
+		// margin would be incorrect
+		this.wrapper.style[edge] = '50%';
 	}
 };
 
@@ -346,13 +352,13 @@ Overlay.prototype.respondToWindow = function(size) {
 		var dimension = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'height' : 'width';
 		this.wrapper.style[edge] = offset + 'px';
 		// IE8 doesn't support getBoundingClientRect().height and .weight
-		var dimensionValue = targetClientRect[dimension] || function() {
+		var dimensionValue = targetClientRect[dimension] || (function() {
 			if (dimension === 'height') {
 				return targetClientRect['bottom'] - targetClientRect['top'];
 			} else {
 				return targetClientRect['right'] - targetClientRect['left'];
 			}
-		}();
+		})();
 		// 1. Get where the element is positioned
 		// 2. Add its width or height divided by two to get its center
 		// 3. Substract the width or height divided by two of the overlay so the arrow, which is in the center, points to the center of the side of the target
