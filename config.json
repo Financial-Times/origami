@@ -2,10 +2,10 @@
     "livefyre": {
         "network": "ft.fyre.co",
         "domain": "ft.auth.fyre.co",
-        "resourceDomainBase": "http://zor.livefyre.com"
+        "resourceDomainBase": "http://cdn.livefyre.com"
     },
     "resourceUrls": {
-        "livefyreJs": "/wjs/v3.0/javascripts/livefyre.js"
+        "livefyreJs": "/Livefyre.js"
     },
     "emailNotifications": true
 }

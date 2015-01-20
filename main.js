@@ -7,6 +7,7 @@ var config = require('./src/javascripts/config.js'),
 	defaultConfig = require('./config.json'),
 	oCommentUtilities = require('o-comment-utilities');
 var Widget = require('./src/javascripts/Widget.js');
+var resourceLoader = require('./src/javascripts/resourceLoader.js');
 
 /**
  * Default config (prod) is set.
@@ -134,3 +135,6 @@ module.exports = {
 
 module.exports.on = globalEvents.on;
 module.exports.off = globalEvents.off;
+
+
+resourceLoader.loadLivefyreCore();

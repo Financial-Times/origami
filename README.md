@@ -123,16 +123,16 @@ oComments.auth.on('auth.loginRequired', function (evt) {
 
     login();
     if (loggedIn) {
-        evt.detail.success();
+        evt.detail.callback();
     } else if (loginRefused) {
-        evt.detail.failure();
+        evt.detail.callback(new Error("Refused")); // provide an error as parameter
     } else if (loginFailure) {
-        evt.detail.failure();
+        evt.detail.callback(new Error("Failed")); // provide an error as parameter
     }
 });
 ```
 
-**Important: if the log in needs a page reload, don't call the failure function!**
+**Important: if the log in needs a page reload, don't call the callback at all (there's no success/failure, it's still pending)!**
 
 
 
@@ -389,17 +389,17 @@ Triggered when a user is logged out.
 ##### auth.loginRequired
 Triggered on any activity which explicitly requires a logged in status. This could mean from the product perspective that the user is not logged in, or his/her login status expired (e.g. session expire).
 
-The payload data contains two functions: success and failure. Based on the outcome of the login process, one of these should be called by the handler.
-**Important: if the log in needs a page reload, don't call the failure function!**
+The payload data contains an object with a callback function. Based on the outcome of the login process, one of these should be called by the handler.
+**Important: if the log in needs a page reload, don't call the callback at all (there's no success/failure, it's still pending)!**
 
 ```javascript
 oComments.auth.on('auth.loginRequired', function (evt) {
     if (logInSuccess) {
-        evt.detail.success();
+        evt.detail.callback();
     }
 
     if (logInFails || logInRefused) {
-        evt.detail.failure();
+        evt.detail.callback(new Error("Failed or cancelled."));
     }
 });
 ```
@@ -445,14 +445,46 @@ This module is handling the authentication into the Livefyre system.
 
 ##### Methods
 ###### getAuthDelegate
-Creates Livefyre RemoteAuthDelegate, also provides login and logout into Livefyre.
-See http://docs.livefyre.com/developers/user-auth/remote-profiles/#BuildingAuthDelegate
+Creates an object based on the model that Livefyre requires.
+See See http://docs.livefyre.com/developers/identity-integration/#AuthDelegateObject
 
 ###### login
-Logs in a livefyre user.
+This method tries to obtain authentication data about the user, and decides if the user is logged in or not.
+
+Example:
+
+```javascript
+auth.login(function (loginStatus, authData) {
+    if (loginStatus) {
+        // make it visible in the UI
+        ui.login(authData.token, authData.displayName, authData.moderator);
+    } else {
+        if (authData.pseudonym === false) {
+            // the user doesn't have a pseudonym, but basically the user could be logged in.
+            ui.hideSignInLink();
+        }
+    }
+});
+```
+
+The login method should be provided with a callback parameter, which will get two paramters:
+ - loginStatus: true if the user is logged in, false if isn't.
+ - authData: authData 
 
 ###### logout
-Logs the user out.
+This method broadcasts a logout event to every module that are listening to it.
+
+###### loginRequired
+Using this method you can explicitly request an authenticated status. It handles different scenarios:
+
+ - user already has authentication data, so it can be logged in
+ - user has no pseudonym, ask for pseudonym
+ - user has session expired, ask to log in again
+ - user is not authenticated, ask to log in
+
+Parameters:
+ - callback: Optional. A function which will be called if the login succeded or failed. The parameters that it will get: err, authData. If the login process fails or it is refused by the user, the function is called with an error. If the login process ends successfully, callback is called with the authentication data: callback(null, {...}).
+ - force: Optional. If true, the local cache is ignored and the web service is directly asked for the login status.
 
 ### userDialogs
 

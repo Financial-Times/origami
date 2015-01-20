@@ -1,7 +1,6 @@
 "use strict";
 
-var resourceLoader = require('./resourceLoader.js'),
-	auth = require('./auth.js'),
+var auth = require('./auth.js'),
 	envConfig = require('./config.js'),
 	WidgetUi = require('./WidgetUi.js'),
 	utils = require('./utils.js'),
@@ -12,8 +11,9 @@ var resourceLoader = require('./resourceLoader.js'),
 
 	oCommentUi = require('o-comment-ui'),
 	oCommentApi = require('o-comment-api');
+var resourceLoader = require('./resourceLoader.js');
 
-/* global fyre */
+/* global Livefyre */
 
 /**
  * Incorporates the loading of Livefyre core resources, communication with SUDS and caching,
@@ -94,10 +94,6 @@ function Widget () {
 
 			callback();
 		});
-
-		if (envConfig.get().emailNotifications !== true) {
-			self.ui.hideFollowButton();
-		}
 	};
 
 	this.init = function (callback) {
@@ -116,8 +112,6 @@ function Widget () {
 			if (initData.unclassifiedArticle !== true) {
 				self.trigger('widget.ready');
 
-				var authDelegate = auth.getAuthDelegate();
-
 				// extends the init data received from SUDS with some user specified fields.
 				var key;
 				for (key in self.config.initExtension) {
@@ -133,8 +127,7 @@ function Widget () {
 				}
 
 				var networkConfig = {
-					network: envConfig.get().livefyre.network,
-					authDelegate: authDelegate
+					network: envConfig.get().livefyre.network
 				};
 				if (self.config.stringOverrides) {
 					networkConfig.strings = self.config.stringOverrides;
@@ -142,119 +135,111 @@ function Widget () {
 
 				var documentCreateElementBackup = document.createElement;
 
-				// Livefyre's native load function
-				fyre.conv.load(networkConfig, [initData], function (widget) {
-					if (widget) {
-						if (document.createElement !== documentCreateElementBackup) {
-							document.createElement = documentCreateElementBackup;
-						}
 
-						callback();
+				Livefyre.require(['fyre.conv#3', 'auth'], function (Conv, lfAuth) {
+					lfAuth.delegate(auth.getAuthDelegate());
 
-						self.lfWidget = widget;
-						self.trigger('widget.load', {
-							lfWidget: widget
-						});
+					new Conv(networkConfig, [initData], function (widget) {
+						if (widget) {
+							if (envConfig.get().emailNotifications !== true) {
+								self.ui.hideFollowButton();
+							}
 
-						widget.on('initialRenderComplete', function () {
-							self.ui.addTermsAndGuidelineMessage();
+							if (document.createElement !== documentCreateElementBackup) {
+								document.createElement = documentCreateElementBackup;
+							}
 
-							auth.login(function (loggedIn, authData) {
-								if (!authData) {
-									authData = null;
-								}
+							callback();
 
-								self.trigger('data.auth', authData);
-
-								if (loggedIn) {
-									if (self.forceMode === true) {
-										setTimeout(self.ui.scrollToWidget, 2000);
-									}
-								} else {
-									if (authData) {
-										if (authData.pseudonym === false) {
-											if (self.forceMode === true) {
-												auth.loginRequiredPseudonymMissing(null, true);
-											}
-
-											self.ui.hideSignInLink();
-										} else if (authData.serviceUp === false) {
-											self.ui.makeReadOnly();
-											self.ui.hideSignInLink();
-											self.ui.addAuthNotAvailableMessage();
-										}
-									}
-								}
+							self.lfWidget = widget;
+							self.trigger('widget.load', {
+								lfWidget: widget
 							});
 
-							self.trigger('widget.renderComplete');
-						});
+							widget.on('initialRenderComplete', function () {
+								self.ui.addTermsAndGuidelineMessage();
 
-						var siteId = parseInt(initData.siteId, 10);
-						widget.on('commentPosted', function (eventData) {
-							if (!auth.pseudonymWasMissing) {
-								oCommentApi.api.getAuth(function (err, authData) {
-									if (err) {
+								auth.login(function (loggedIn, authData) {
+									if (!authData) {
 										authData = null;
-										return;
 									}
 
-									if (self.config.emailAlert !== false && envConfig.get().emailNotifications === true) {
-										if (authData && typeof authData === 'object') {
-											if (authData.token && !authData.settings) {
-												userDialogs.showEmailAlertDialog();
+									self.trigger('data.auth', authData);
+
+									if (loggedIn) {
+										if (self.forceMode === true) {
+											setTimeout(self.ui.scrollToWidget, 2000);
+										}
+									} else {
+										auth.logout();
+										if (authData) {
+											if (authData.pseudonym === false) {
+												if (self.forceMode === true) {
+													auth.loginRequiredPseudonymMissing(null, true);
+												}
+
+												self.ui.hideSignInLink();
+											} else if (authData.serviceUp === false) {
+												self.ui.makeReadOnly();
+												self.ui.hideSignInLink();
+												self.ui.addAuthNotAvailableMessage();
 											}
 										}
 									}
 								});
-							} else {
-								auth.pseudonymWasMissing = false;
-							}
 
-							self.trigger('tracking.postComment', {
-								siteId: siteId,
-								lfEventData: eventData
+								self.trigger('widget.renderComplete');
 							});
-						});
 
-						widget.on('commentLiked', function (eventData) {
-							self.trigger('tracking.likeComment', {
-								siteId: siteId,
-								lfEventData: eventData
+							var siteId = parseInt(initData.siteId, 10);
+							widget.on('commentPosted', function (eventData) {
+								if (!auth.pseudonymWasMissing) {
+									oCommentApi.api.getAuth(function (err, authData) {
+										if (err) {
+											authData = null;
+											return;
+										}
+
+										if (self.config.emailAlert !== false && envConfig.get().emailNotifications === true) {
+											if (authData && typeof authData === 'object') {
+												if (authData.token && !authData.settings) {
+													userDialogs.showEmailAlertDialog();
+												}
+											}
+										}
+									});
+								} else {
+									auth.pseudonymWasMissing = false;
+								}
+
+								self.trigger('tracking.postComment', {
+									siteId: siteId,
+									lfEventData: eventData
+								});
 							});
-						});
 
-						widget.on('commentShared', function (eventData) {
-							self.trigger('tracking.shareComment', {
-								siteId: siteId,
-								lfEventData: eventData
+							widget.on('commentLiked', function (eventData) {
+								self.trigger('tracking.likeComment', {
+									siteId: siteId,
+									lfEventData: eventData
+								});
 							});
-						});
 
-						widget.on('socialMention', function (eventData) {
-							self.trigger('tracking.socialMention', {
-								siteId: siteId,
-								lfEventData: eventData
+							widget.on('commentShared', function (eventData) {
+								self.trigger('tracking.shareComment', {
+									siteId: siteId,
+									lfEventData: eventData
+								});
 							});
-						});
 
-
-						authDelegate.login = function (delegate) {
-							auth.loginRequired(delegate);
-						};
-
-						authDelegate.logout = function (delegate) {
-							auth.logout();
-						};
-
-						authDelegate.viewProfile = function (delegate, author) {
-
-						};
-
-						authDelegate.editProfile = function (delegate, author) {
-
-						};
-					}
+							widget.on('socialMention', function (eventData) {
+								self.trigger('tracking.socialMention', {
+									siteId: siteId,
+									lfEventData: eventData
+								});
+							});
+						}
+					});
 				});
 			} else {
 				callback({
@@ -281,13 +266,15 @@ function Widget () {
 		var showSettingsDialog = function () {
 			oCommentApi.api.getAuth(function (err, currentAuthData) {
 				if (!err && currentAuthData) {
-					userDialogs.showSettingsDialog(currentAuthData, {
-						success: function (newAuthData) {
-							if (newAuthData && newAuthData.token) {
-								auth.logout();
-								oCommentUtilities.logger.debug('new settings', newAuthData);
-								auth.login();
-							}
+					userDialogs.showSettingsDialog(currentAuthData, function (err, newAuthData) {
+						if (err) {
+							return;
+						}
+
+						if (newAuthData && newAuthData.token) {
+							auth.logout();
+							oCommentUtilities.logger.debug('new settings', newAuthData);
+							auth.login();
 						}
 					});
 				}
@@ -297,13 +284,15 @@ function Widget () {
 		var showChangePseudonymDialog = function () {
 			oCommentApi.api.getAuth(function (err, currentAuthData) {
 				if (!err && currentAuthData) {
-					userDialogs.showChangePseudonymDialog(currentAuthData.displayName, {
-						success: function (newAuthData) {
-							if (newAuthData && newAuthData.token) {
-								auth.logout();
-								oCommentUtilities.logger.debug('new settings', newAuthData);
-								auth.login();
-							}
+					userDialogs.showChangePseudonymDialog(currentAuthData.displayName, function (err, newAuthData) {
+						if (err) {
+							return;
+						}
+
+						if (newAuthData && newAuthData.token) {
+							auth.logout();
+							oCommentUtilities.logger.debug('new settings', newAuthData);
+							auth.login();
 						}
 					});
 				}
@@ -320,10 +309,12 @@ function Widget () {
 
 		self.ui.addSettingsLink({
 			onClick: function () {
-				auth.loginRequired({
-					success: function () {
-						showConfigDialog();
+				auth.loginRequired(function (err) {
+					if (err) {
+						return;
 					}
+
+					showConfigDialog();
 				});
 			}
 		});

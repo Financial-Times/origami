@@ -102,13 +102,8 @@ function getNewSubscribes (newSettings) {
 }
 
 
-exports.showSetPseudonymDialog = function (callbacks) {
-	if (!callbacks || typeof callbacks !== 'object') {
-		callbacks = {};
-	}
-
-	callbacks.success = callbacks.success || function () {};
-	callbacks.failure = callbacks.failure || function () {};
+exports.showSetPseudonymDialog = function (callback) {
+	callback = callback || function () {};
 
 	oCommentUi.userDialogs.showSetPseudonymDialog({
 		submit: function (formData, responseCallback) {
@@ -136,11 +131,11 @@ exports.showSetPseudonymDialog = function (callbacks) {
 					}, function (err, authData) {
 						if (err) {
 							responseCallback(oCommentUi.i18n.texts.changePseudonymError);
-							callbacks.failure();
+							callback(err);
 							return;
 						}
 
-						callbacks.success(authData);
+						callback(null, authData);
 						responseCallback();
 					});
 				});
@@ -149,7 +144,7 @@ exports.showSetPseudonymDialog = function (callbacks) {
 			}
 		},
 		close: function () {
-			callbacks.failure();
+			callback(new Error("Closed or cancelled."));
 			utils.emptyLivefyreActionQueue();
 		}
 	});
@@ -161,13 +156,8 @@ exports.showSetPseudonymDialog = function (callbacks) {
  * @param  {Object} currentPseudonym Required. Current pseudonym of the user.
  * @param  {Function} callbacks Optional. Two possible fields: success and failure. Success will get the new authentication data as parameter.
  */
-exports.showChangePseudonymDialog = function (currentPseudonym, callbacks) {
-	if (!callbacks || typeof callbacks !== 'object') {
-		callbacks = {};
-	}
-
-	callbacks.success = callbacks.success || function () {};
-	callbacks.failure = callbacks.failure || function () {};
+exports.showChangePseudonymDialog = function (currentPseudonym, callback) {
+	callback = callback || function () {};
 
 	oCommentUi.userDialogs.showChangePseudonymDialog(currentPseudonym, {
 		submit: function (formData, responseCallback) {
@@ -191,12 +181,12 @@ exports.showChangePseudonymDialog = function (currentPseudonym, callbacks) {
 						force: true
 					}, function (err, authData) {
 						if (err) {
-							callbacks.failure();
+							callback(err);
 							responseCallback(oCommentUi.i18n.texts.genericError);
 							return;
 						}
 
-						callbacks.success(authData);
+						callback(null, authData);
 						responseCallback();
 					});
 				});
@@ -205,7 +195,7 @@ exports.showChangePseudonymDialog = function (currentPseudonym, callbacks) {
 			}
 		},
 		close: function () {
-			callbacks.failure();
+			callback(new Error("Closed or cancelled."));
 		}
 	});
 };
@@ -257,13 +247,8 @@ exports.showEmailAlertDialog = function () {
 	});
 };
 
-exports.showSettingsDialog = function (currentUserDetails, callbacks) {
-	if (!callbacks || typeof callbacks !== 'object') {
-		callbacks = {};
-	}
-
-	callbacks.success = callbacks.success || function () {};
-	callbacks.failure = callbacks.failure || function () {};
+exports.showSettingsDialog = function (currentUserDetails, callback) {
+	callback = callback || function () {};
 
 	oCommentUi.userDialogs.showSettingsDialog(currentUserDetails, {
 		submit: function (formData, responseCallback) {
@@ -287,12 +272,12 @@ exports.showSettingsDialog = function (currentUserDetails, callbacks) {
 						force: true
 					}, function (err, newUserDetails) {
 						if (err) {
-							callbacks.failure();
+							callback(err);
 							responseCallback(oCommentUi.i18n.texts.genericError);
 							return;
 						}
 
-						callbacks.success(newUserDetails);
+						callback(null, newUserDetails);
 						responseCallback();
 
 						// get subscribes and unsubscribes
@@ -319,7 +304,7 @@ exports.showSettingsDialog = function (currentUserDetails, callbacks) {
 			}
 		},
 		close: function () {
-			callbacks.failure();
+			callback(new Error("Closed or cancelled."));
 		}
 	});
 };

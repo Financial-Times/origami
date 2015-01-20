@@ -15,6 +15,10 @@ exports.loadLivefyreCore = (function () {
 	};
 
 	return function (callback) {
+		if (typeof callback !== 'function') {
+			callback = function () {};
+		}
+
 		if (status.loaded === true) {
 			if (status.status === 'success') {
 				callback();
@@ -48,7 +52,7 @@ exports.loadLivefyreCore = (function () {
 							return;
 						}
 
-						if (typeof fyre === 'undefined') {
+						if (typeof Livefyre === 'undefined') {
 							status.loaded = true;
 							status.status = 'error';
 							status.error = new Error("Script not loaded.");
