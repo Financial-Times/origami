@@ -1,3 +1,7 @@
+@mixin oOverlayCompactCloseIcon() {
+	@warn 'The mixin oOverlayCompactCloseIcon() is deprecated and will be removed in a future version';
+}
+
 %o-overlay {
 	@include oOverlay;
 }
