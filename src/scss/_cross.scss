@@ -46,20 +46,16 @@
 
 	&:focus,
 	#{$o-hoverable-if-hover-enabled} &:hover {
-		// Older browsers shouldn't get an effect on focus/hover
-		@media only screen {
-			background-color: oColorsGetColorFor(o-overlay-close-shaded, background);
-			color: oColorsGetColorFor(o-overlay-close-shaded, text);
+		background-color: oColorsGetColorFor(o-overlay-close-shaded, background);
+		border-color: oColorsGetColorFor(o-overlay-close-shaded, text);
+		color: oColorsGetColorFor(o-overlay-close-shaded, text);
+
+		> span:after,
+		> span:before {
+			// Needed for Safari, as the `currentColor` keyword doesn't seem to work all the time
+			background-color: oColorsGetColorFor(o-overlay-close-shaded, text);
+			border-color: oColorsGetColorFor(o-overlay-close-shaded, text);
 		}
-	}
-
-	// Reset button element completely
-	-webkit-appearance: none;
-	-moz-appearance: none;
-
-	&::-moz-focus-inner {
-		padding: 0;
-		border: 0;
 	}
 }
 
@@ -74,7 +70,7 @@
 
 	@include _targetIE8 {
 		top: -0.1em;
-		left: -0.33em;
+		left: -0.25em;
 		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865474, M12=-0.7071067811865477, M21=0.7071067811865477, M22=0.7071067811865474, SizingMethod='auto expand')";
 	}
 
