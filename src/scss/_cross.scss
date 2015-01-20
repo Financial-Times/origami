@@ -16,113 +16,61 @@
 ///
 /// @requires {function} oColorsGetColorFor
 @mixin oOverlayClose {
+	box-sizing: content-box;
 	float: right;
-	cursor: pointer;
-	width: 1em;
-	height: 1em;
-	margin-top: 10px;
-	margin-right: 10px;
-	padding: 0;
-	border: 1px solid;
+	position: relative;
+	width: 1.5em;
+	height: 1.5em;
+	padding: 0.25em;
 	// Equivalent to `50%`, but avoids a rendering bug in old WebKit
 	border-radius: 9999px;
-	font-size: 20px;
+	cursor: pointer;
+	font-size: 1em;
 	line-height: 1;
-	box-sizing: content-box;
 	user-select: none;
-	background: oColorsGetColorFor(o-overlay-close, background);
-	border-color: oColorsGetColorFor(o-overlay-close, border);
+	color: oColorsGetColorFor(o-overlay-close, text);
+	border: 1px solid oColorsGetColorFor(o-overlay-close, border);
+	background-color: oColorsGetColorFor(o-overlay-close, background);
+	transition: color 0.1s ease-in, background-color 0.1s ease-in;
+	outline: none; // Remove focus ring (focus state is set below)
 
-	&:before {
+	// Increase hit zone of the button around it for better usability
+	&:after {
 		position: absolute;
-		padding: 10px;
 		content: '';
-		width: 1em;
-		height: 1em;
-		top: 0;
-		right: 0;
+		top: -5px;
+		right: -5px;
+		left: -5px;
+		bottom: -5px;
 	}
 
+	&:focus,
 	#{$o-hoverable-if-hover-enabled} &:hover {
-		background-color: oColorsGetColorFor(o-overlay-close-shaded, background);
-
-		div:before,
-		div:after {
-			border-color: oColorsGetColorFor(o-overlay-close-shaded, text);
-			background: oColorsGetColorFor(o-overlay-close-shaded, text);
+		// Older browsers shouldn't get an effect on focus/hover
+		@media only screen {
+			background-color: oColorsGetColorFor(o-overlay-close-shaded, background);
+			color: oColorsGetColorFor(o-overlay-close-shaded, text);
 		}
+	}
+
+	// Reset button element completely
+	-webkit-appearance: none;
+	-moz-appearance: none;
+
+	&::-moz-focus-inner {
+		padding: 0;
+		border: 0;
 	}
 }
 
 /// Base overlay close icon style
 @mixin oOverlayCloseIcon {
-	height: 100%;
-	width: 100%;
-	position: relative;
-	transform: rotate(45deg);
-	top: 0.15em;
-
-	@include _targetIE8 {
-		top: -0.1em;
-		left: -0.33em;
-		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865474, M12=-0.7071067811865477, M21=0.7071067811865477, M22=0.7071067811865474, SizingMethod='auto expand')";
-	}
-
-	&:after,
-	&:before {
-		content: '';
-		width: 0;
-		height: 0;
-		display: block;
-		position: absolute;
-		border: 0.05em solid;
-		border-color: oColorsGetColorFor(o-overlay-close, text);
-		background: oColorsGetColorFor(o-overlay-close, text);
-		box-sizing: content-box;
-	}
-	&:before {
-		width: 0.5em;
-		top: 0.35em;
-		left: 0.1em;
-
-		@include _targetIE8 {
-			// Re-center in IE 8
-			top: 0.47em;
-		}
-	}
-	&:after {
-		height: 0.5em;
-		left: 0.35em;
-		top: 0.1em;
-
-		@include _targetIE8 {
-			// Re-center in IE 8
-			left: 0.47em;
-		}
-	}
-}
-
-.cross {
 	display: block;
-	width: 1.5em;
-	height: 1.5em;
-	padding: .25em;
-	border: 2px solid hotpink;
-	// Equivalent to `50%`, but avoids a rendering bug in old WebKit
-	border-radius: 9999px;
-	font-size: 1em;
-	line-height: 1;
-	box-sizing: content-box;
-	background: hotpink;
-	user-select: none;
-
-}
-.cross__icon {
 	height: 100%;
 	width: 100%;
 	position: relative;
+	// Rotate and center the cross icon in the circle
 	transform: rotate(45deg);
-	top: 0.175em;
 
 	@include _targetIE8 {
 		top: -0.1em;
@@ -130,32 +78,41 @@
 		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865474, M12=-0.7071067811865477, M21=0.7071067811865477, M22=0.7071067811865474, SizingMethod='auto expand')";
 	}
 
+	// Each branch of the cross is a pseudo-element
+	// We use borders to draw them so that the rotation
+	// origins at the center of the blocks
 	&:after,
 	&:before {
 		content: '';
-		width: 0;
-		height: 0;
 		display: block;
 		position: absolute;
-		border: .13em solid hotpink;
-		background: hotpink;
+		overflow: visible;
 		box-sizing: content-box;
+		width: 0;
+		height: 0;
+		// Static colors for older browsers
+		border: 0.13em solid oColorsGetColorFor(o-overlay-close, text);
+		background-color: oColorsGetColorFor(o-overlay-close, text);
+		// Dynamic colors for modern browsers
+		border-color: currentColor;
+		background-color: currentColor;
+		// Center both branches
+		transform: translate(-50%, -50%) translate(0.75em, 0.75em);
 	}
+	// Give dimensions to the branches and center them in the box
 	&:before {
 		width: 1em;
-		top: 0.5em;
 
 		@include _targetIE8 {
-			// Re-center in IE 8
+			// Re-align in IE 8
 			top: 0.47em;
 		}
 	}
 	&:after {
 		height: 1em;
-		left: 0.5em;
 
 		@include _targetIE8 {
-			// Re-center in IE 8
+			// Re-align in IE 8
 			left: 0.47em;
 		}
 	}

@@ -10,20 +10,18 @@
 
 /// Add to the title for a compact overlay
 @mixin oOverlayCompactTitle {
-	margin: 5px 0 5px 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
 }
 
 /// Add to the close button for a compact overlay
 @mixin oOverlayCompactClose {
-	font-size: 16px;
+	font-size: 8px;
 	margin-top: 5px;
 	margin-right: 5px;
-
-	&:before {
-		padding: 5px 5px 5px 10px;
-	}
+	margin-left: 5px;
 }
-
 
 /// Add to the content section for a compact overlay
 @mixin oOverlayCompactContent {
