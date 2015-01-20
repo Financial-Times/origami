@@ -357,9 +357,9 @@ Overlay.prototype.respondToWindow = function(size) {
 		// IE8 doesn't support getBoundingClientRect().height and .weight
 		var dimensionValue = targetClientRect[dimension] || (function() {
 			if (dimension === 'height') {
-				return targetClientRect['bottom'] - targetClientRect['top'];
+				return targetClientRect.bottom - targetClientRect.top;
 			} else {
-				return targetClientRect['right'] - targetClientRect['left'];
+				return targetClientRect.right - targetClientRect.left;
 			}
 		})();
 		// 1. Get where the element is positioned
