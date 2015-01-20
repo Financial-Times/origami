@@ -27,7 +27,7 @@
 	// Equivalent to `50%`, but avoids a rendering bug in old WebKit
 	border-radius: 9999px;
 	font-size: 20px;
-	line-height: 1em;
+	line-height: 1;
 	box-sizing: content-box;
 	user-select: none;
 	background: oColorsGetColorFor(o-overlay-close, background);
