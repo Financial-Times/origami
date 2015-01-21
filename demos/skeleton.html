@@ -3,16 +3,17 @@
 <!--[if IE 8]>         <html class="o-useragent-ie8 o-hoverable-on"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <title>o-ft-header: skeleton demo</title>
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <script src="//polyfill.webservices.ft.com/v1/polyfill.min.js"></script>
-    <style>body { margin: 0; }.demo-js .o--if-nojs { display: none; }</style>
-    <link rel="stylesheet" href="/bundles/css?modules=o-ft-header:/demos/src/scss/demo.scss" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-header: skeleton demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=modernizr:classList,modernizr:customevent,modernizr:unknownelements,modernizr:es5array,modernizr:svg,modernizr:datauri,modernizr:cssgradients,modernizr:mediaqueries,modernizr:csstransitions,default"></script>
+	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
+	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
+	<link rel="stylesheet" href="/bundles/css?modules=o-header:/demos/src/scss/demo.scss" />
 </head>
 <body class="o-hoverable-on">
-    <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
-    <header data-o-component="o-ft-header" class="o-ft-header o-registry-demo-chunk">
+<header data-o-component="o-ft-header" class="o-ft-header o-registry-demo-chunk">
 	<div class="o-ft-header__container">
 		<div class="o-ft-header__primary">
 			<div class="o-ft-header__primary__left demo__primary--placeholder">
@@ -50,7 +51,7 @@
 
 	<p>Nullam semper augue tortor, sit amet malesuada nisl tempus et. Integer viverra sollicitudin aliquet. In eleifend diam volutpat, adipiscing orci at, venenatis odio. Aenean at nisl elementum, cursus tellus vel, lobortis tellus. Vestibulum id massa varius, vehicula neque non, fermentum urna. Vestibulum ac molestie nulla. Maecenas bibendum mauris et elit venenatis laoreet. Integer ac ante velit. Sed non dolor ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin laoreet odio et lectus vulputate, id pellentesque massa lacinia. Curabitur volutpat pharetra elit. Cras quis felis elementum, porta urna imperdiet, molestie neque. Curabitur et malesuada libero. Donec eu sapien arcu. Etiam vulputate sodales dolor vitae feugiat.</p>
 </div>
-    <script src="/bundles/js?modules=o-ft-header:/demos/src/demo.js"></script>
-    <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
+<script src="/bundles/js?modules=o-header:/demos/src/demo.js"></script>
+<script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
 </body>
 </html>
