@@ -19,8 +19,6 @@ function Auth () {
 	 */
 	var authDelegate;
 
-	var loggedIn = false;
-
 	/**
 	 * Pseudonym is still missing.
 	 * @type {Boolean}
@@ -61,7 +59,6 @@ function Auth () {
 				logout: function (callback) {
 					oCommentUtilities.logger.debug('auth delegate logout');
 
-					loggedIn = false;
 					globalEvents.trigger('auth.logout');
 					oCommentApi.cache.clearAuth();
 					callback();
@@ -107,7 +104,6 @@ function Auth () {
 								livefyre: authData.token
 							});
 							globalEvents.trigger('auth.login', authData);
-							loggedIn = true;
 							callback(true, authData);
 						});
 					} else if (authData.pseudonym === false) {
@@ -148,6 +144,10 @@ function Auth () {
 	 * @param  {Function} callback function (err, data)
 	 */
 	this.loginRequiredPseudonymMissing = function (callback, maintainCommentQueue) {
+		if (typeof callback !== 'function') {
+			callback = function () {};
+		}
+
 		oCommentUtilities.logger.log('pseudonymMissing');
 
 		userDialogs.showSetPseudonymDialog(function (err, authData) {
@@ -177,6 +177,10 @@ function Auth () {
 	 * @param  {Function} callback function (err, data)
 	 */
 	function loginRequiredAfterASuccess (callback) {
+		if (typeof callback !== 'function') {
+			callback = function () {};
+		}
+
 		oCommentApi.api.getAuth({
 			force: true
 		}, function (err, authData) {
@@ -196,6 +200,10 @@ function Auth () {
 	 * @param  {Function} callback function (err, data)
 	 */
 	this.loginRequired = function (callback) {
+		if (typeof callback !== 'function') {
+			callback = function () {};
+		}
+
 		oCommentApi.api.getAuth(function (err, authData) {
 			if (authData && authData.pseudonym === false) {
 				self.loginRequiredPseudonymMissing(callback);
@@ -213,9 +221,7 @@ function Auth () {
 					}
 				});
 			} else {
-				if (!loggedIn) {
-					self.login();
-				}
+				self.login();
 
 				callback(null, authData);
 			}
