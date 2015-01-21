@@ -5,10 +5,8 @@
 @import "o-grid/main";
 @import "o-hoverable/main";
 
-/// Silent mode
-/// @type Bool
-$o-footer-is-silent: true !default;
-
+/// Footer spacing unit
+/// @type Number
 $o-footer-spacing-unit: 20px;
 
 // TODO: Remove this when a default shared brand color is defined in o-colors
@@ -20,179 +18,177 @@ $o-footer-spacing-unit: 20px;
 @include oColorsSetUseCase(o-footer__divider, border, white);
 @include oColorsSetUseCase(o-footer-item, text, white);
 
-@if $o-footer-is-silent == false {
-	@include oFontsInclude(BentonSans);
+@include oFontsInclude(BentonSans);
 
-	.o-footer {
-		@include oColorsFor(o-footer, text background);
-		@include oFtTypographyFontSize(14);
-		margin-top: 40px;
-		padding: 0;
-		border-top: 5px solid oColorsGetColorFor(o-footer-brand brand, border);
-		font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-		line-height: $o-footer-spacing-unit;
+.o-footer {
+	@include oColorsFor(o-footer, text background);
+	@include oFtTypographyFontSize(14);
+	margin-top: 40px;
+	padding: 0;
+	border-top: 5px solid oColorsGetColorFor(o-footer-brand brand, border);
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	line-height: $o-footer-spacing-unit;
 
-		> nav {
-			margin-top: $o-footer-spacing-unit;
-			margin-bottom: $o-footer-spacing-unit;
-			padding-bottom: $o-footer-spacing-unit;
-			border-bottom: oColorsGetColorFor(o-footer__divider, border) dotted 1px;
-		}
-
-		ul {
-			list-style-type: none;
-			padding: 0;
-		}
-	}
-
-	.o-footer__title {
-		margin-top: 0;
-		margin-bottom: $o-footer-spacing-unit;
-		font-weight: bold;
-		font-size: 14px;
-		text-transform: uppercase;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		width: 100%;
-		color: oColorsGetColorFor(o-footer-item, text);
-	}
-
-	.o-footer__link {
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		> a {
-			&:visited,
-			&:link {
-				text-decoration: none;
-				color: oColorsGetColorFor(o-footer-item, text);
-			}
-			#{$o-hoverable-if-hover-enabled} &:hover,
-			&:focus {
-				color: oColorsGetColorFor(link-title-hover, text);
-			}
-		}
-	}
-
-	.o-footer__section-link {
-		> a {
-			&:visited,
-			&:link {
-				text-transform: uppercase;
-			}
-		}
-	}
-	.o-footer__link-lists {
+	> nav {
 		margin-top: $o-footer-spacing-unit;
+		margin-bottom: $o-footer-spacing-unit;
+		padding-bottom: $o-footer-spacing-unit;
+		border-bottom: oColorsGetColorFor(o-footer__divider, border) dotted 1px;
+	}
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+	}
+}
+
+.o-footer__title {
+	margin-top: 0;
+	margin-bottom: $o-footer-spacing-unit;
+	font-weight: bold;
+	font-size: 14px;
+	text-transform: uppercase;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 100%;
+	color: oColorsGetColorFor(o-footer-item, text);
+}
+
+.o-footer__link {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	> a {
+		&:visited,
+		&:link {
+			text-decoration: none;
+			color: oColorsGetColorFor(o-footer-item, text);
+		}
+		#{$o-hoverable-if-hover-enabled} &:hover,
+		&:focus {
+			color: oColorsGetColorFor(link-title-hover, text);
+		}
+	}
+}
+
+.o-footer__section-link {
+	> a {
+		&:visited,
+		&:link {
+			text-transform: uppercase;
+		}
+	}
+}
+.o-footer__link-lists {
+	margin-top: $o-footer-spacing-unit;
+}
+.o-footer__link-list {
+	margin-bottom: $o-footer-spacing-unit;
+	padding-top: (2 * $o-footer-spacing-unit);
+	> ul {
+		margin: 0;
+	}
+	> .o-footer__title {
+		margin-top: (-2 * $o-footer-spacing-unit);
+	}
+}
+
+.o-footer__row {
+	@include oGridRow($selector: '.o-footer__row');
+}
+.o-footer__col {
+	@include oGridColumn;
+	width: oGridColumnWidth(12);
+
+	@include oGridRespondTo(S) {
+		width: oGridColumnWidth(6);
+	}
+	@include oGridRespondTo(M) {
+		width: oGridColumnWidth(4);
+	}
+	@include oGridRespondTo(L) {
+		width: oGridColumnWidth(3);
+	}
+	@include oGridRespondTo(XL) {
+		width: oGridColumnWidth(2);
+	}
+}
+.o-footer__col--full-width {
+	width: oGridColumnWidth(12);
+}
+
+.o-footer__copyright {
+	margin-top: $o-footer-spacing-unit/2;
+	margin-bottom: $o-footer-spacing-unit;
+	@include oFtTypographyFontSize(9, 14);
+
+	@include oGridRespondTo(M) {
+		@include oFtTypographyFontSize(11, 16);
+	}
+
+	span {
+		display: inline-block;
+		margin-right: $o-footer-spacing-unit;
+	}
+}
+
+.o-footer__pearson {
+	background-color: oColorsGetColorFor(o-footer__pearson o-footer, background);
+	padding-top: $o-footer-spacing-unit - 5;
+	padding-bottom: $o-footer-spacing-unit - 5;
+	color: oColorsGetColorFor(o-footer__pearson o-footer, text);
+}
+
+.o-footer__pearson-tagline,
+.o-footer__pearson-logo {
+	height: 16px;
+	background-image: url(oAssetsResolve("img/pearson_sprite.gif", o-footer));
+	background-repeat: no-repeat;
+	white-space: nowrap;
+
+	// The weird value for rgba is to prevent sass converting rgba(0,0,0,0) to 'transparent', which would cause the following line of css to be understood by IE7/8 and the svg to be downloaded
+	background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/pearson_sprite.svg", o-footer)) no-repeat;
+}
+
+.o-footer__pearson-tagline {
+	float: left;
+	width: 170px;
+}
+
+.o-footer__pearson-logo {
+	float: right;
+	width: 100px;
+	background-position: right 0;
+}
+
+@include oGridRespondTo($until: S) {
+	.o-footer__link-lists {
+		margin-bottom: $o-footer-spacing-unit;
 	}
 	.o-footer__link-list {
-		margin-bottom: $o-footer-spacing-unit;
-		padding-top: (2 * $o-footer-spacing-unit);
+		margin-bottom: 0;
+		padding-top: 0;
+
 		> ul {
-			margin: 0;
+			margin-top: 0;
 		}
 		> .o-footer__title {
-			margin-top: (-2 * $o-footer-spacing-unit);
-		}
-	}
-
-	.o-footer__row {
-		@include oGridRow($selector: '.o-footer__row');
-	}
-	.o-footer__col {
-		@include oGridColumn;
-		width: oGridColumnWidth(12);
-
-		@include oGridRespondTo(S) {
-			width: oGridColumnWidth(6);
-		}
-		@include oGridRespondTo(M) {
-			width: oGridColumnWidth(4);
-		}
-		@include oGridRespondTo(L) {
-			width: oGridColumnWidth(3);
-		}
-		@include oGridRespondTo(XL) {
-			width: oGridColumnWidth(2);
-		}
-	}
-	.o-footer__col--full-width {
-		width: oGridColumnWidth(12);
-	}
-
-	.o-footer__copyright {
-		margin-top: $o-footer-spacing-unit/2;
-		margin-bottom: $o-footer-spacing-unit;
-		@include oFtTypographyFontSize(9, 14);
-
-		@include oGridRespondTo(M) {
-			@include oFtTypographyFontSize(11, 16);
-		}
-
-		span {
-			display: inline-block;
-			margin-right: $o-footer-spacing-unit;
-		}
-	}
-
-	.o-footer__pearson {
-		background-color: oColorsGetColorFor(o-footer__pearson o-footer, background);
-		padding-top: $o-footer-spacing-unit - 5;
-		padding-bottom: $o-footer-spacing-unit - 5;
-		color: oColorsGetColorFor(o-footer__pearson o-footer, text);
-	}
-
-	.o-footer__pearson-tagline,
-	.o-footer__pearson-logo {
-		height: 16px;
-		background-image: url(oAssetsResolve("img/pearson_sprite.gif", o-footer));
-		background-repeat: no-repeat;
-		white-space: nowrap;
-
-		// The weird value for rgba is to prevent sass converting rgba(0,0,0,0) to 'transparent', which would cause the following line of css to be understood by IE7/8 and the svg to be downloaded
-		background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/pearson_sprite.svg", o-footer)) no-repeat;
-	}
-
-	.o-footer__pearson-tagline {
-		float: left;
-		width: 170px;
-	}
-
-	.o-footer__pearson-logo {
-		float: right;
-		width: 100px;
-		background-position: right 0;
-	}
-
-	@include oGridRespondTo($until: S) {
-		.o-footer__link-lists {
+			position: static;
+			margin-top: $o-footer-spacing-unit;
 			margin-bottom: $o-footer-spacing-unit;
 		}
-		.o-footer__link-list {
-			margin-bottom: 0;
-			padding-top: 0;
+	}
 
-			> ul {
-				margin-top: 0;
-			}
-			> .o-footer__title {
-				position: static;
-				margin-top: $o-footer-spacing-unit;
-				margin-bottom: $o-footer-spacing-unit;
-			}
-		}
-
-		// Inside media query to hide from browsers that don't support MQs and therefore also don't support max-width or background-size
-		.o-footer__pearson-tagline {
-			max-width: 170px;
-			background-size: (2700% / 17); // need to keep 17/28 of the width visible
-			width: (1600% / 27); // need to take up 17/27 of the width available, but we round down to 16 to allow for browser pixel rounding errors
-		}
-		.o-footer__pearson-logo {
-			max-width: 100px;
-			background-size: (2700% / 10);  // need to keep 10/28 of the width visible
-			width: (900% / 27); // need to take up 10/27 of the width available, but we round down to 16 to allow for browser pixel rounding errors
-		}
+	// Inside media query to hide from browsers that don't support MQs and therefore also don't support max-width or background-size
+	.o-footer__pearson-tagline {
+		max-width: 170px;
+		background-size: (2700% / 17); // need to keep 17/28 of the width visible
+		width: (1600% / 27); // need to take up 17/27 of the width available, but we round down to 16 to allow for browser pixel rounding errors
+	}
+	.o-footer__pearson-logo {
+		max-width: 100px;
+		background-size: (2700% / 10);  // need to keep 10/28 of the width visible
+		width: (900% / 27); // need to take up 10/27 of the width available, but we round down to 16 to allow for browser pixel rounding errors
 	}
 }
