@@ -10,17 +10,16 @@
 
 /// Add to the title for a compact overlay
 @mixin oOverlayCompactTitle {
-	margin-top: 5px;
+	margin-top: 8px; // Actually 10px - line-height adds some space too
 	margin-bottom: 5px;
 	margin-left: 10px;
+	line-height: 16px;
 }
 
 /// Add to the close button for a compact overlay
 @mixin oOverlayCompactClose {
 	font-size: 8px;
-	margin-top: 5px;
-	margin-right: 5px;
-	margin-left: 10px;
+	margin: 5px;
 }
 
 /// Add to the content section for a compact overlay
