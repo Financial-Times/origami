@@ -19,13 +19,15 @@
 	box-sizing: content-box;
 	float: right;
 	position: relative;
+	margin-top: 7px; // Align with the text baseline (magic number)
+	margin-right: 7px; // Same right spacing as the top one
 	width: 1.5em;
 	height: 1.5em;
 	padding: 0.25em;
 	// Equivalent to `50%`, but avoids a rendering bug in old WebKit
 	border-radius: 9999px;
 	cursor: pointer;
-	font-size: 1em;
+	font-size: 12px;
 	line-height: 1;
 	user-select: none;
 	color: oColorsGetColorFor(o-overlay-close, text);
