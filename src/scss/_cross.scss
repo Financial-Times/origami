@@ -33,7 +33,6 @@
 	color: oColorsGetColorFor(o-overlay-close, text);
 	border: 1px solid oColorsGetColorFor(o-overlay-close, border);
 	background-color: oColorsGetColorFor(o-overlay-close, background);
-	transition: color 0.1s ease-in, background-color 0.1s ease-in;
 	outline: none; // Remove focus ring (focus state is set below)
 
 	// Increase hit zone of the button around it for better usability
@@ -88,12 +87,8 @@
 		box-sizing: content-box;
 		width: 0;
 		height: 0;
-		// Static colors for older browsers
 		border: 0.13em solid oColorsGetColorFor(o-overlay-close, text);
 		background-color: oColorsGetColorFor(o-overlay-close, text);
-		// Dynamic colors for modern browsers
-		border-color: currentColor;
-		background-color: currentColor;
 		// Center both branches
 		transform: translate(-50%, -50%) translate(0.75em, 0.75em);
 	}
