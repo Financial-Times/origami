@@ -1,6 +1,5 @@
-// scss-lint:disable NestingDepth SelectorDepth
-.o-ft-header__nav--primary-theme {
-	@extend %o-hierarchical-nav--horizontal-theme;
+.o-header__nav--primary-theme {
+	@include oHierarchicalNavHorizontalTheme;
 	height: 80px;
 	text-align: right;
 	// Used in core experience so hidden elements don't continue appearing
@@ -10,7 +9,7 @@
 		text-align: left;
 		&[aria-controls][aria-expanded="true"]:after {
 			// CSS arrow for mega-dropdowns
-			@include oFtHeaderUpArrow($o-ft-header-brand-color);
+			@include oHeaderUpArrow($o-header-brand-color);
 			z-index: $_o-hierarchical-nav-mega-dropdown-zindex+1;
 		}
 	}
@@ -25,7 +24,7 @@
 			// Styling for the a tag in a selected state
 			&[aria-selected="true"] > a,
 			&[aria-controls][aria-expanded="true"] > a {
-				color: oColorsGetColorFor(o-ft-header-item, text);
+				color: oColorsGetColorFor(o-header-item, text);
 				opacity: 0.7;
 			}
 
@@ -48,6 +47,6 @@
 }
 
 // Set extra top positioning so that the secondary container with the brand colour can be seen
-.o-ft-header__mega-dropdown--primary.o-hierarchical-nav__mega-dropdown {
+.o-header__mega-dropdown--primary.o-hierarchical-nav__mega-dropdown {
 	top: 85px;
 }

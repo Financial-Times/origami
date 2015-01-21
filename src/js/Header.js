@@ -9,9 +9,9 @@ function Header(rootEl) {
 	var bodyDelegate,
 		// Gets all nav elements in the header
 		hierarchicalNavEls = [
-			rootEl.querySelector('.o-ft-header__nav--primary-theme'),
-			rootEl.querySelector('.o-ft-header__nav--secondary-theme'),
-			rootEl.querySelector('.o-ft-header__nav--tools-theme')
+			rootEl.querySelector('.o-header__nav--primary-theme'),
+			rootEl.querySelector('.o-header__nav--secondary-theme'),
+			rootEl.querySelector('.o-header__nav--tools-theme')
 		].filter(function(el) {
 			/**
 			 * Overflow is hidden by default on the tools and primary theme for it to resize properly on core experience
@@ -32,7 +32,7 @@ function Header(rootEl) {
 		} else if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
-		rootEl.setAttribute('data-o-ft-header--js', '');
+		rootEl.setAttribute('data-o-header--js', '');
 		bodyDelegate = new DomDelegate(document.body);
 		hierarchicalNavs = hierarchicalNavEls.map(function(el) {
 			return new oHierarchicalNav(el);
@@ -47,7 +47,7 @@ function Header(rootEl) {
 				hierarchicalNavs[c].destroy();
 			}
 		}
-		rootEl.removeAttribute('data-o-ft-header--js');
+		rootEl.removeAttribute('data-o-header--js');
 	}
 
 	init();
@@ -63,7 +63,7 @@ Header.init = function(el) {
 	} else if (!(el instanceof HTMLElement)) {
 		el = document.querySelector(el);
 	}
-	var headerEls = el.querySelectorAll('[data-o-component="o-ft-header"]:not([data-o-ft-header--js])');
+	var headerEls = el.querySelectorAll('[data-o-component="o-header"]:not([data-o-header--js])');
 	var headers = [];
 	for (var c = 0, l = headerEls.length; c < l; c++) {
 		headers.push(new Header(headerEls[c]));

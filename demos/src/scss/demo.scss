@@ -49,15 +49,18 @@ $o-grid-mq-type: width;
 	}
 }
 
-@include oGridRespondTo(S M) {
+@include oGridRespondTo($from: S, $until: L) {
 	.demo__promo {
 		display: none;
 	}
 }
 
+.demo__content-wrapper {
+	@include oGridRow;
+}
 .demo__content {
-	@extend %o-grid-row;
-	@extend %o-grid-colspan-12;
+	@include oGridColumn;
+	width: oGridColumnWidth(12);
 	font-size: 15px;
 	line-height: 20px;
 	color: transparent;

@@ -1,6 +1,5 @@
-// scss-lint:disable NestingDepth SelectorDepth
-.o-ft-header__nav--tools-theme {
-	@extend %o-hierarchical-nav--horizontal-theme;
+.o-header__nav--tools-theme {
+	@include oHierarchicalNavHorizontalTheme;
 	// Min width of the element should fit at least one tool item
 	min-width: 55px;
 	height: 80px;
@@ -27,7 +26,7 @@
 
 			// Selected state for the elements
 			&[aria-selected="true"] > a {
-				color: oColorsGetColorFor(o-ft-header-item, text);
+				color: oColorsGetColorFor(o-header-item, text);
 				opacity: 0.7;
 			}
 
@@ -46,8 +45,8 @@
 	}
 
 	// Default styling for a back to ft button
-	.o-ft-header__back-to-ft {
-		@include oFtHeaderLogo();
+	.o-header__back-to-ft {
+		@include oHeaderLogo();
 		background-size: 100%;
 		overflow: hidden;
 		text-indent: 100%;
@@ -68,31 +67,24 @@
 	}
 }
 
-//IE8 filter
-.o-ft-header__nav--tools-theme .o-ft-header__back-to-ft {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{oFtHeaderAsset('img/ft-logo.png')}',sizingMethod='scale');
+// IE8 filter
+.o-header__nav--tools-theme .o-header__back-to-ft {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{oHeaderAsset('img/ft-logo.png')}',sizingMethod='scale');
 }
 
 // Media queries to make the nav smaller as the screen gets smaller.
 // It can't be fluid because primary-center is the fluid element
 
-// Only show one item
-@include oGridRespondTo(S) {
-	.o-ft-header__nav--tools-theme {
-		width: 56px;
-	}
-}
+.o-header__nav--tools-theme {
+	// Only show one item
+	width: 56px;
 
-// Shows two items
-@include oGridRespondTo(M) {
-	.o-ft-header__nav--tools-theme {
+	@include oGridRespondTo(M) {
+		// Show 2 items
 		width: 112px;
 	}
-}
-
-// Shows all four items
-@include oGridRespondTo(L XL) {
-	.o-ft-header__nav--tools-theme {
+	// Shows all 4 items
+	@include oGridRespondTo(L) {
 		width: 224px;
 	}
 }

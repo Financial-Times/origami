@@ -1,10 +1,10 @@
 // Brand colour for the header
-@if variable_exists(o-ft-header-brand-color) {
-	@warn "Setting the header brand colour via the $o-ft-header-brand-color variable is deprecated. Please set a custom color use case as explained in the README."
+@if variable_exists(o-header-brand-color) {
+	@warn "Setting the header brand colour via the $o-header-brand-color variable is deprecated. Please set a custom color use case as explained in the README."
 }
-$o-ft-header-brand-color: oColorsGetColorFor(o-ft-header-product-brand product-brand, background) !default;
+$o-header-brand-color: oColorsGetColorFor(o-header-product-brand product-brand, background) !default;
 
 // Container widths that products can modify
-$o-ft-header-primary-left-width: 303px !default;
-$o-ft-header-secondary-left-width: 150px !default;
-$o-ft-header-primary-featured-width: 160px !default;
+$o-header-primary-left-width: 303px !default;
+$o-header-secondary-left-width: 150px !default;
+$o-header-primary-featured-width: 160px !default;
