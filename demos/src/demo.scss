@@ -1,6 +1,9 @@
 $o-overlay-is-silent: false;
 @import "../../main";
 
+body {
+	font-family: BentonSans;
+}
 .o-overlay--compact .o-overlay__content {
 	font-size: 12px;
 	line-height: 18px;
