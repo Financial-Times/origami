@@ -6,7 +6,7 @@
 /// Path to the assets
 ///
 /// @type {String}
-$o-fonts-path: '//build.origami.ft.com/files/o-fonts-assets@0.2.3/' !default;
+$o-fonts-path: '//build.origami.ft.com/files/o-fonts-assets@1.0.0/' !default;
 
 /// Silent mode
 ///
@@ -22,38 +22,45 @@ $_o-fonts-families: (
 	BentonSans: (
 		font-family: 'BentonSans, sans-serif',
 		variants: (
-			(weight: lighter, style: normal),
-			(weight: normal,  style: normal),
-			(weight: bold,    style: normal)
+			(weight: light, style: normal),
+			(weight: regular, style: normal),
+			(weight: bold, style: normal)
 		)
 	),
 	MillerDisplay: (
 		font-family: 'MillerDisplay, Georgia, serif',
 		variants: (
-			(weight: normal, style: normal),
-			(weight: bold,   style: normal)
+			(weight: regular, style: normal),
+			(weight: bold, style: normal),
+			(weight: "black", style: normal)
 		)
 	),
-	Clarion: (
-		font-family: 'Clarion, Georgia, serif',
+	MetricWeb: (
+		font-family: 'MetricWeb, Arial, sans-serif',
 		variants: (
-			(weight: normal, style: normal),
-			(weight: bold,   style: normal),
-			(weight: normal, style: italic)
+			(weight: thin, style: normal),
+			(weight: light, style: normal),
+			(weight: regular, style: normal),
+			(weight: regular, style: italic),
+			(weight: medium, style: normal),
+			(weight: bold, style: normal),
+			(weight: bold, style: italic),
+			(weight: semibold, style: normal),
+
 		)
 	),
-	FinancierDisplay: (
-		font-family: 'FinancierDisplay, serif',
+	FinancierDisplayWeb: (
+		font-family: 'FinancierDisplayWeb, serif',
 		variants: (
-			(weight: normal, style: normal),
-			(weight: normal, style: italic)
+			(weight: regular, style: normal),
+			(weight: regular, style: italic)
 		)
 	),
-	FinancierText: (
-		font-family: 'FinancierText, serif',
+	FinancierTextWeb: (
+		font-family: 'FinancierTextWeb, serif',
 		variants: (
-			(weight: normal, style: normal),
-			(weight: normal, style: italic)
+			(weight: regular, style: normal),
+			(weight: regular, style: italic)
 		)
 	)
 );
@@ -64,10 +71,14 @@ $_o-fonts-families: (
 ///
 /// @type Map
 $_o-fonts-weights: (
-	'lighter':   200,
-	'normal':    400,
-	'bold':      700,
-	'bolder':    800
+	'thin':       100,
+    'light':      200,
+    'regular':    400,
+    'normal':     400,
+    'medium':     500,
+    'semibold':   600,
+    'bold':       700,
+    'black':      800,
 ) !default;
 
 /// Map of families and styles which have already been included

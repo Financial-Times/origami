@@ -1,75 +1,28 @@
 {
     "options": {
-        "template": "demos/src/variant.mustache",
+        "template": "demos/src/family.mustache",
         "sass": "demos/src/demo.scss"
     },
     "demos": [
         {
-            "name": "BentonSans",
-            "template": "demos/src/family.mustache",
+            "name": "bentonsans",
             "data": { "font": "bentonsans" }
         },
         {
-            "name": "MillerDisplay",
-            "template": "demos/src/family.mustache",
+            "name": "millerdisplay",
             "data": { "font": "millerdisplay" }
         },
         {
-            "name": "Clarion",
-            "template": "demos/src/family.mustache",
-            "data": { "font": "clarion" }
+            "name": "metricweb",
+            "data": { "font": "metricweb" }
         },
         {
-            "name": "bentonsans-lighter",
-            "data": { "font": "bentonsans-lighter" }
+            "name": "financierdisplayweb",
+            "data": { "font": "financierdisplayweb" }
         },
         {
-            "name": "bentonsans-normal",
-            "data": { "font": "bentonsans-normal" }
-        },
-        {
-            "name": "bentonsans-bold",
-            "data": { "font": "bentonsans-bold" }
-        },
-        {
-            "name": "millerdisplay-normal",
-            "data": { "font": "millerdisplay-normal" }
-        },
-        {
-            "name": "millerdisplay-bold",
-            "data": { "font": "millerdisplay-bold" }
-        },
-        {
-            "name": "millerdisplay-bolder",
-            "data": { "font": "millerdisplay-bolder" }
-        },
-        {
-            "name": "clarion-normal",
-            "data": { "font": "clarion-normal" }
-        },
-        {
-            "name": "clarion-bold",
-            "data": { "font": "clarion-bold" }
-        },
-        {
-            "name": "clarion-italic",
-            "data": { "font": "clarion-italic" }
-        },
-        {
-            "name": "financierdisplay-normal",
-            "data": { "font": "financierdisplay-normal" }
-        },
-        {
-            "name": "financierdisplay-italic",
-            "data": { "font": "financierdisplay-italic" }
-        },
-        {
-            "name": "financiertext-normal",
-            "data": { "font": "financiertext-normal" }
-        },
-        {
-            "name": "financiertext-italic",
-            "data": { "font": "financiertext-italic" }
+            "name": "financiertextweb",
+            "data": { "font": "financiertextweb" }
         }
     ]
 }
