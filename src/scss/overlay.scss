@@ -5,7 +5,8 @@
 
 /// Base overlay style
 ///
-/// @requires {function} oColorsGetColorFor
+/// @require oColorsGetColorFor
+/// @require $_o-overlay-border-width
 @mixin oOverlay {
 	position: fixed;
 	z-index: 10;
@@ -34,7 +35,7 @@
 
 /// Base overlay heading style
 ///
-/// @requires {function} oColorsGetColorFor
+/// @require oColorsGetColorFor
 @mixin oOverlayHeading {
 	font-size: 16px;
 	margin: 0;
@@ -71,10 +72,11 @@
 /// Base overlay arrow styles
 ///
 /// @param {String} direction - one of 'top', 'bottom', 'left' or 'right'
-/// @requires {mixin} oOverlayUpArrow
-/// @requires {mixin} oOverlayDownArrow
-/// @requires {mixin} oOverlayLeftArrow
-/// @requires {mixin} oOverlayRightArrow
+///
+/// @require {mixin} oOverlayUpArrow
+/// @require {mixin} oOverlayDownArrow
+/// @require {mixin} oOverlayLeftArrow
+/// @require {mixin} oOverlayRightArrow
 @mixin oOverlayArrow($direction) {
 	position: absolute;
 
