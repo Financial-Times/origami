@@ -8,8 +8,6 @@
 /// @access private
 ///
 /// @param {Number} size [10px] - Size of arrow
-///
-/// @require $_o-overlay-border-width
 @mixin _oOverlayArrow($size: 10px) {
 	// :before for the outer arrow that has the bordered colour, and :after for the inner arrow with the white background colour
 	&:before,
@@ -32,9 +30,6 @@
 /// @access private
 ///
 /// @param {Number} size [10px] - Size of arrow
-///
-/// @require {mixin} _oOverlayArrow
-/// @require $_o-overlay-border-width
 @mixin _oOverlayVerticalArrow($size: 10px) {
 	@include _oOverlayArrow;
 
@@ -54,9 +49,6 @@
 /// Top arrow styling
 ///
 /// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
-///
-/// @require {mixin} _oOverlayVerticalArrow
-/// @require oColorsGetColorFor
 @mixin oOverlayUpArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayVerticalArrow;
 
@@ -76,9 +68,6 @@
 /// Bottom arrow styling
 ///
 /// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
-///
-/// @require {mixin} _oOverlayVerticalArrow
-/// @require oColorsGetColorFor
 @mixin oOverlayDownArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayVerticalArrow;
 
@@ -100,9 +89,6 @@
 /// @access private
 ///
 /// @param {Number} size [10px] - Size of arrow
-///
-/// @require {mixin} _oOverlayArrow
-/// @require $_o-overlay-border-width
 @mixin _oOverlayHorizontalArrow($size: 10px) {
 	@include _oOverlayArrow;
 
@@ -122,9 +108,6 @@
 /// Left arrow styling
 ///
 /// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
-///
-/// @require {mixin} _oOverlayHorizontalArrow
-/// @require oColorsGetColorFor
 @mixin oOverlayLeftArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayHorizontalArrow;
 
@@ -144,9 +127,6 @@
 /// Right arrow styling
 ///
 /// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
-///
-/// @require {mixin} _oOverlayHorizontalArrow
-/// @require oColorsGetColorFor
 @mixin oOverlayRightArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayHorizontalArrow;
 
