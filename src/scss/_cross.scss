@@ -52,7 +52,6 @@
 
 		> span:after,
 		> span:before {
-			// Needed for Safari, as the `currentColor` keyword doesn't seem to work all the time
 			background-color: oColorsGetColorFor(o-overlay-close-shaded, text);
 			border-color: oColorsGetColorFor(o-overlay-close-shaded, text);
 		}

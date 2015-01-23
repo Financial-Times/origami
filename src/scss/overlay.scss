@@ -71,12 +71,12 @@
 	position: absolute;
 
 	@if ($direction == 'top') {
-		@include oOverlayUpArrow();
+		@include oOverlayUpArrow;
 	} @else if ($direction == 'bottom') {
-		@include oOverlayDownArrow();
+		@include oOverlayDownArrow;
 	} @else if ($direction == 'left') {
-		@include oOverlayLeftArrow();
+		@include oOverlayLeftArrow;
 	} @else if ($direction == 'right') {
-		@include oOverlayRightArrow();
+		@include oOverlayRightArrow;
 	}
 }
