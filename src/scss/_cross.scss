@@ -6,7 +6,7 @@
 /// Helper mixin to target IE8
 ///
 /// @access private
-@mixin _targetIE8 {
+@mixin _oOverlayTargetIE8 {
 	@media \0screen {
 		@content;
 	}
@@ -71,7 +71,7 @@
 	// Rotate and center the cross icon in the circle
 	transform: rotate(45deg);
 
-	@include _targetIE8 {
+	@include _oOverlayTargetIE8 {
 		top: -0.1em;
 		left: -0.25em;
 		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865474, M12=-0.7071067811865477, M21=0.7071067811865477, M22=0.7071067811865474, SizingMethod='auto expand')";
@@ -98,7 +98,7 @@
 	&:before {
 		width: 1em;
 
-		@include _targetIE8 {
+		@include _oOverlayTargetIE8 {
 			// Re-align in IE 8
 			top: 0.47em;
 		}
@@ -106,7 +106,7 @@
 	&:after {
 		height: 1em;
 
-		@include _targetIE8 {
+		@include _oOverlayTargetIE8 {
 			// Re-align in IE 8
 			left: 0.47em;
 		}
