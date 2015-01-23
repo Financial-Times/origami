@@ -4,8 +4,6 @@
 ////
 
 /// Add to the header for a shaded overlay
-///
-/// @requires {mixin} oColorsGetColorFor
 @mixin oOverlayHeadingShaded {
 	background: oColorsGetColorFor(o-overlay-heading-shaded, background);
 	color: oColorsGetColorFor(o-overlay-heading-shaded, text);
@@ -13,8 +11,6 @@
 }
 
 /// Add to the close icon for a shaded overlay
-///
-/// @requires {mixin} oColorsGetColorFor
 @mixin oOverlayHeadingShadedClose {
 	background: oColorsGetColorFor(o-overlay-close-shaded, background);
 	border-color: oColorsGetColorFor(o-overlay-close-shaded, border);
