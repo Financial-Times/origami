@@ -9,6 +9,7 @@
 @import 'src/scss/variables';
 @import 'src/scss/color-use-cases';
 @import 'src/scss/arrow';
+@import 'src/scss/cross';
 @import 'src/scss/overlay';
 @import 'src/scss/compact';
 @import 'src/scss/fullscreen';
@@ -33,7 +34,6 @@
 /// @require {mixin} oOverlayCompactHeading
 /// @require {mixin} oOverlayCompactTitle
 /// @require {mixin} oOverlayCompactClose
-/// @require {mixin} oOverlayCompactCloseIcon
 /// @require {mixin} oOverlayFullscreen
 /// @require {mixin} oOverlayFullscreenContent
 @mixin oOverlayIncludeAll($classname: o-overlay) {
@@ -80,8 +80,8 @@
 	.#{$classname}__heading--shaded {
 		@include oOverlayHeadingShaded;
 
-		.#{$classname}__close-icon {
-			@include oOverlayHeadingShadedCloseIcon;
+		.#{$classname}__close {
+			@include oOverlayHeadingShadedClose;
 		}
 	}
 
@@ -104,10 +104,6 @@
 
 		.#{$classname}__close {
 			@include oOverlayCompactClose;
-		}
-
-		.#{$classname}__close-icon {
-			@include oOverlayCompactCloseIcon;
 		}
 	}
 

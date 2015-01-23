@@ -1,0 +1,114 @@
+/////
+/// @group o-overlay
+/// @link http://registry.origami.ft.com/components/o-overlay
+////
+
+/// Helper mixin to target IE8
+///
+/// @access private
+@mixin _oOverlayTargetIE8 {
+	@media \0screen {
+		@content;
+	}
+}
+
+/// Base overlay close style
+///
+/// @requires {function} oColorsGetColorFor
+@mixin oOverlayClose {
+	box-sizing: content-box;
+	float: right;
+	position: relative;
+	margin-top: 7px; // Align with the text baseline (magic number)
+	margin-right: 7px; // Same right spacing as the top one
+	margin-left: 10px;
+	margin-bottom: 10px;
+	width: 1.5em;
+	height: 1.5em;
+	padding: 0.25em;
+	// Equivalent to `50%`, but avoids a rendering bug in old WebKit
+	border-radius: 9999px;
+	cursor: pointer;
+	font-size: 8px;
+	line-height: 1;
+	user-select: none;
+	color: oColorsGetColorFor(o-overlay-close, text);
+	border: 1px solid oColorsGetColorFor(o-overlay-close, border);
+	background-color: oColorsGetColorFor(o-overlay-close, background);
+	outline: none; // Remove focus ring (focus state is set below)
+
+	// Increase hit zone of the button around it for better usability
+	&:after {
+		position: absolute;
+		content: '';
+		top: -10px;
+		right: -10px;
+		left: -10px;
+		bottom: -10px;
+	}
+
+	&:focus,
+	#{$o-hoverable-if-hover-enabled} &:hover {
+		background-color: oColorsGetColorFor(o-overlay-close-shaded, background);
+		border-color: oColorsGetColorFor(o-overlay-close-shaded, text);
+		color: oColorsGetColorFor(o-overlay-close-shaded, text);
+
+		> span:after,
+		> span:before {
+			// Needed for Safari, as the `currentColor` keyword doesn't seem to work all the time
+			background-color: oColorsGetColorFor(o-overlay-close-shaded, text);
+			border-color: oColorsGetColorFor(o-overlay-close-shaded, text);
+		}
+	}
+}
+
+/// Base overlay close icon style
+@mixin oOverlayCloseIcon {
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: relative;
+	// Rotate and center the cross icon in the circle
+	transform: rotate(45deg);
+
+	@include _oOverlayTargetIE8 {
+		top: -0.1em;
+		left: -0.25em;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865474, M12=-0.7071067811865477, M21=0.7071067811865477, M22=0.7071067811865474, SizingMethod='auto expand')";
+	}
+
+	// Each branch of the cross is a pseudo-element
+	// We use borders to draw them so that the rotation
+	// origins at the center of the blocks
+	&:after,
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		overflow: visible;
+		box-sizing: content-box;
+		width: 0;
+		height: 0;
+		border: 0.13em solid oColorsGetColorFor(o-overlay-close, text);
+		background-color: oColorsGetColorFor(o-overlay-close, text);
+		// Center both branches
+		transform: translate(-50%, -50%) translate(0.75em, 0.75em);
+	}
+	// Give dimensions to the branches and center them in the box
+	&:before {
+		width: 1em;
+
+		@include _oOverlayTargetIE8 {
+			// Re-align in IE 8
+			top: 0.47em;
+		}
+	}
+	&:after {
+		height: 1em;
+
+		@include _oOverlayTargetIE8 {
+			// Re-align in IE 8
+			left: 0.47em;
+		}
+	}
+}

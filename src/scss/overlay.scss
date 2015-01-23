@@ -38,7 +38,7 @@
 @mixin oOverlayHeading {
 	font-size: 16px;
 	margin: 0;
-	overflow: auto;
+	overflow: hidden;
 	background: oColorsGetColorFor(o-overlay-heading, background);
 	color: oColorsGetColorFor(o-overlay-heading, text);
 	font-weight: bold;
@@ -46,44 +46,10 @@
 
 /// Base overlay title style
 @mixin oOverlayTitle {
-	margin: 10px 0 10px 20px;
+	margin: 10px 10px 10px 20px;
 	display: block;
 	line-height: 20px;
 	overflow: auto;
-}
-
-/// Base overlay close style
-@mixin oOverlayClose {
-	cursor: pointer;
-	padding: 10px;
-	margin: 0;
-	border: 0;
-	background: transparent;
-	float: right;
-	outline: none;
-}
-
-/// Base overlay close icon style
-///
-/// @requires {mixin} oColorsFor
-/// @requires {function} oColorsGetColorFor
-@mixin oOverlayCloseIcon {
-	width: 18px;
-	height: 18px;
-	font-size: 15px;
-	line-height: 17px;
-	border: 1px solid;
-	border-radius: 50%;
-	@include oColorsFor(o-overlay-close);
-
-	&:after {
-		content: "×";
-	}
-
-	#{$o-hoverable-if-hover-enabled} &:hover {
-		color: oColorsGetColorFor(o-overlay-close-shaded, text);
-		background-color: oColorsGetColorFor(o-overlay-close-shaded, background);
-	}
 }
 
 /// Base overlay content style
