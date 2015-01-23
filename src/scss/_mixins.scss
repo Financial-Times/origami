@@ -9,11 +9,8 @@
 ///
 /// @require oFontsUseAsset
 @mixin oFontsSource($fontName) {
-	$fontName: to-lower-case($fontName);
-	src: url(oFontsUseAsset($fontName + '.eot')); // IE9 Compat Modes
-	src: url(oFontsUseAsset($fontName + '.eot?#iefix')) format('embedded-opentype'), // IE6-IE8
-	url(oFontsUseAsset($fontName + '.woff')) format('woff'), // Modern Browsers
-	url(oFontsUseAsset($fontName + '.ttf')) format('truetype'); // Safari, Android, iOS
+	$fontName: $fontName;
+	src: url(oFontsUseAsset($fontName + '.woff')) format('woff'), // Modern Browsers
 }
 
 /// Font-face declaration for a given font family
@@ -27,7 +24,10 @@
 /// @require _oFontsVariantExists
 /// @require $_o-fonts-families
 /// @require $_o-fonts-families-included
-@mixin oFontsInclude($family, $weight: normal, $style: normal) {
+@mixin oFontsInclude($family, $weight: regular, $style: normal) {
+	@if $family == 'Clarion' {
+		@warn "Clarion has been removed, no font will be included. Use Georgia instead";
+	}
 	$font-exists: false;
 	// Check if the font has already been included
 	// If so, no need to output another @font-face declaration
@@ -46,20 +46,17 @@
 
 		@if ($font-exists) {
 			// Files are named as follows
-			// name-suffix
-			// metric-normal      (normal normal)
-			// metric-italic      (normal italic)
-			// metric-bold        (bold normal)
-			// metric-bold-italic (bold italic)
+			// Name-WeightType
+			// MetricWeb-Regular              (regular normal)
+			// MetricWeb-RegularItalic        (regular italic)
+			// MetricWeb-Bold                 (bold normal)
+			// MetricWeb-BoldItalic           (bold italic)
 
 			// By default, suffix is the weight
-			$font-suffix: $weight;
+			$font-suffix: _oFontsStringCapitalise($weight);
 
-			@if ($weight == 'normal' and $style != 'normal') {
-				$font-suffix: $style;
-			}
-			@if ($weight != 'normal' and $style != 'normal') {
-				$font-suffix: #{$weight}-#{$style};
+			@if ($style != 'normal') {
+				$font-suffix: #{_oFontsStringCapitalise($weight)}#{_oFontsStringCapitalise($style)};
 			}
 
 			@font-face {

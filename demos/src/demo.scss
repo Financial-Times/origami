@@ -33,71 +33,16 @@ $o-fonts-is-silent: false;
 .demo-family-millerdisplay .demo-example {
 	font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
 }
-
-.demo-family-clarion .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
+.demo-family-financierdisplayweb .demo-example {
+	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
 }
 
-.demo-bentonsans-lighter .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-	font-weight: lighter;
+.demo-family-financiertextweb .demo-example {
+	font-family: oFontsGetFontFamilyWithFallbacks(FinancierTextWeb);
 }
 
-.demo-bentonsans-normal .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-}
-
-.demo-bentonsans-bold .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-	font-weight: bold;
-}
-
-.demo-millerdisplay-normal .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
-}
-
-.demo-millerdisplay-bold .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
-	font-weight: bold;
-}
-
-.demo-millerdisplay-bolder .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
-	font-weight: bolder;
-}
-
-.demo-clarion-normal .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
-}
-
-.demo-clarion-bold .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
-	font-weight: bold;
-}
-
-.demo-clarion-italic .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(Clarion);
-	font-style: italic;
-}
-
-.demo-financierdisplay-normal .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplay);
-	font-style: normal;
-}
-
-.demo-financierdisplay-italic .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplay);
-	font-style: italic;
-}
-
-.demo-financiertext-normal .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(FinancierText);
-	font-style: normal;
-}
-
-.demo-financiertext-italic .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(FinancierText);
-	font-style: italic;
+.demo-family-metricweb .demo-example {
+	font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
 }
 
 .demo-size-small {
@@ -109,9 +54,4 @@ $o-fonts-is-silent: false;
 .demo-size-medium {
 	font-size: 80px;
 	line-height: 110px;
-}
-
-.demo-size-large {
-	font-size: 200px;
-	line-height: 200px;
 }

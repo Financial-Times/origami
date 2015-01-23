@@ -28,6 +28,19 @@
 	@return false;
 }
 
+/// Capitalise first letter of $string
+///
+/// @param {String} $string - string to update
+///
+/// @return {String}
+@function _oFontsStringCapitalise($string) {
+    $string: $string + unquote(''); // Make sure $string has a type of String
+    $first-letter: to-upper-case(str-slice($string, 0, 1));
+    $rest-of-string: str-slice($string, 2);
+
+    @return $first-letter + $rest-of-string;
+}
+
 /// Get a font-family stack with the appropriate fallbacks
 ///
 /// @param {String} family
@@ -36,6 +49,10 @@
 ///
 /// @require $_o-fonts-families
 @function oFontsGetFontFamilyWithFallbacks($family) {
+	@if $family == 'Clarion' {
+		@warn "Clarion has been removed, use Georgia instead";
+		@return 'Georgia';
+	}
 	@if map-has-key($_o-fonts-families, $family) {
 		$properties: map-get($_o-fonts-families, $family);
 		@return unquote(map-get($properties, font-family));

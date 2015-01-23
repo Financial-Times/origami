@@ -7,89 +7,29 @@
     "ci": {
         "travis": "https://api.travis-ci.org/repos/Financial-Times/o-fonts/builds.json"
     },
-    "browserFeatures": {
-        "optional": [
-            "fontface"
-        ]
-    },
     "demos": [
         {
-            "path": "/demos/BentonSans.html",
+            "path": "/demos/bentonsans.html",
             "expanded": true,
             "description": ""
         },
         {
-            "path": "/demos/MillerDisplay.html",
+            "path": "/demos/millerdisplay.html",
             "expanded": true,
             "description": ""
         },
         {
-            "path": "/demos/Clarion.html",
+            "path": "/demos/metricweb.html",
             "expanded": true,
             "description": ""
         },
         {
-            "path": "/demos/bentonsans-lighter.html",
+            "path": "/demos/financierdisplayweb.html",
             "expanded": true,
             "description": ""
         },
         {
-            "path": "/demos/bentonsans-normal.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/bentonsans-bold.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/millerdisplay-normal.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/millerdisplay-bold.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/millerdisplay-bolder.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/clarion-normal.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/clarion-bold.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/clarion-italic.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/financierdisplay-normal.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/financierdisplay-italic.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/financiertext-normal.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/financiertext-italic.html",
+            "path": "/demos/financiertextweb.html",
             "expanded": true,
             "description": ""
         }
