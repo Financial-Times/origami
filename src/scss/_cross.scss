@@ -14,7 +14,8 @@
 
 /// Base overlay close style
 ///
-/// @requires {function} oColorsGetColorFor
+/// @require oColorsGetColorFor
+/// @require $o-hoverable-if-hover-enabled
 @mixin oOverlayClose {
 	box-sizing: content-box;
 	float: right;
@@ -63,6 +64,9 @@
 }
 
 /// Base overlay close icon style
+///
+/// @require {mixin} _oOverlayTargetIE8
+/// @require oColorsGetColorFor
 @mixin oOverlayCloseIcon {
 	display: block;
 	height: 100%;
