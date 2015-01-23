@@ -47,8 +47,7 @@
 
 	&:focus,
 	#{$o-hoverable-if-hover-enabled} &:hover {
-		background-color: oColorsGetColorFor(o-overlay-close-shaded, background);
-		border-color: oColorsGetColorFor(o-overlay-close-shaded, text);
+		background: oColorsGetColorFor(o-overlay-close-shaded, background);
 		color: oColorsGetColorFor(o-overlay-close-shaded, text);
 
 		> span:after,
