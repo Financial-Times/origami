@@ -32,8 +32,6 @@
 /// @access private
 ///
 /// @param {Number} size (10px) - Size of arrow
-///
-/// @requires {mixin} _oOverlayArrow
 @mixin _oOverlayVerticalArrow($size: 10px) {
 	@include _oOverlayArrow();
 	&:before,
@@ -54,8 +52,6 @@
 /// Top arrow styling
 ///
 /// @param {Color} color (oColorsGetColorFor(o-overlay, border))
-///
-/// @requires {mixin} _oOverlayVerticalArrow
 @mixin oOverlayUpArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayVerticalArrow();
 	&:before,
@@ -75,8 +71,6 @@
 /// Bottom arrow styling
 ///
 /// @param {Color} color (oColorsGetColorFor(o-overlay, border))
-///
-/// @requires {mixin} _oOverlayVerticalArrow
 @mixin oOverlayDownArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayVerticalArrow();
 	&:before,
@@ -98,8 +92,6 @@
 /// @access private
 ///
 /// @param {Number} size (10px) - Size of arrow
-///
-/// @requires {mixin} _oOverlayArrow
 @mixin _oOverlayHorizontalArrow($size: 10px) {
 	@include _oOverlayArrow();
 	&:before,
@@ -120,8 +112,6 @@
 /// Left arrow styling
 ///
 /// @param {Color} color (oColorsGetColorFor(o-overlay, border))
-///
-/// @requires {mixin} _oOverlayHorizontalArrow
 @mixin oOverlayLeftArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayHorizontalArrow();
 	&:before,
@@ -141,8 +131,6 @@
 /// Right arrow styling
 ///
 /// @param {Color} color (oColorsGetColorFor(o-overlay, border))
-///
-/// @requires {mixin} _oOverlayHorizontalArrow
 @mixin oOverlayRightArrow($color: oColorsGetColorFor(o-overlay, border)) {
 	@include _oOverlayHorizontalArrow();
 	&:before,

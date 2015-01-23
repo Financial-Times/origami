@@ -4,8 +4,6 @@
 ////
 
 /// Add to the header for a shaded overlay
-///
-/// @requires {mixin} oColorsGetColorFor
 @mixin oOverlayHeadingShaded {
 	background: oColorsGetColorFor(o-overlay-heading-shaded, background);
 	color: oColorsGetColorFor(o-overlay-heading-shaded, text);
@@ -13,25 +11,26 @@
 }
 
 /// Add to the close icon for a shaded overlay
-///
-/// @requires {mixin} oColorsGetColorFor
 @mixin oOverlayHeadingShadedClose {
-	background: oColorsGetColorFor(o-overlay-close-shaded, background);
-	border-color: oColorsGetColorFor(o-overlay-close-shaded, border);
+	@include oColorsFor(o-overlay-close-shaded);
 
-	div:before,
-	div:after {
+	> span:after,
+	> span:before {
+		// Needed for Safari, as the `currentColor` keyword doesn't seem to work all the time
+		background-color: oColorsGetColorFor(o-overlay-close-shaded, text);
 		border-color: oColorsGetColorFor(o-overlay-close-shaded, text);
-		background: oColorsGetColorFor(o-overlay-close-shaded, text);
 	}
 
 	#{$o-hoverable-if-hover-enabled} &:hover {
-		background-color: oColorsGetColorFor(o-overlay-close, background);
+		background: oColorsGetColorFor(o-overlay-close, background);
+		color: oColorsGetColorFor(o-overlay-close, text);
 
-		div:before,
-		div:after {
+		> span:after,
+		> span:before {
+			// Needed for Safari, as the `currentColor` keyword doesn't seem to work all the time
+			background-color: oColorsGetColorFor(o-overlay-close, text);
 			border-color: oColorsGetColorFor(o-overlay-close, text);
-			background: oColorsGetColorFor(o-overlay-close, text);
 		}
 	}
 }
+
