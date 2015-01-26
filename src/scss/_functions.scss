@@ -11,9 +11,7 @@
 ///
 /// @access private
 ///
-/// @returns {Boolean}
-///
-/// @require $_o-fonts-families
+/// @return {Bool}
 @function _oFontsVariantExists($family, $weight, $style) {
 	$font-properties: map-get($_o-fonts-families, $family);
 	$font-variants: map-get($font-properties, variants);
@@ -46,8 +44,6 @@
 /// @param {String} family
 ///
 /// @return {String} - font-stack
-///
-/// @require $_o-fonts-families
 @function oFontsGetFontFamilyWithFallbacks($family) {
 	@if $family == 'Clarion' {
 		@warn "Clarion has been removed, use Georgia instead";
@@ -65,8 +61,6 @@
 ///
 /// @param {String} $asset
 ///
-/// @requires $o-fonts-path
-///
 /// @return {String} - Path to the font asset, without the file extension
 @function oFontsUseAsset($asset) {
 	@return $o-fonts-path + $asset;
@@ -75,8 +69,6 @@
 /// Machine-readable CSS font-weight.
 ///
 /// @param {String} $keyword - Human-readable keyword, one of $_o-fonts-weights
-///
-/// @require {variable} $_o-fonts-weights
 ///
 /// @example scss
 /// font-weight: oFontsWeight(lighter);
