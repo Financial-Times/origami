@@ -139,6 +139,8 @@ function Widget () {
 				Livefyre.require(['fyre.conv#3', 'auth'], function (Conv, lfAuth) {
 					lfAuth.delegate(auth.getAuthDelegate());
 
+					self.ui.clearContainer();
+
 					new Conv(networkConfig, [initData], function (widget) {
 						if (widget) {
 							if (envConfig.get().emailNotifications !== true) {
