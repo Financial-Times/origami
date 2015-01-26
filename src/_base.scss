@@ -1,11 +1,9 @@
-/**
- * @group o-quote
- * @link http://registry.origami.ft.com/components/o-quote
-**/
+////
+/// @group o-quote
+/// @link http://registry.origami.ft.com/components/o-quote
+////
 
-/**
- * Base quote styles
- */
+/// Base quote styles
 @mixin oQuote {
 	display: block;
 	margin: 0;
@@ -26,6 +24,7 @@
 	}
 }
 
+/// Base quote cite styles
 @mixin oQuoteCite {
 	display: block;
 	text-align: right;
