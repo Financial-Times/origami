@@ -11,11 +11,6 @@ $o-quote-is-silent: true !default;
 @import "o-colors/main";
 @import "o-fonts/main";
 
-@if $o-quote-is-silent == false {
-	@include oFontsInclude(MillerDisplay);
-	@include oFontsInclude(BentonSans);
-}
-
 @import "src/color-use-cases";
 @import "src/base";
 @import "src/standard";
