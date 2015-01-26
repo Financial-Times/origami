@@ -6,8 +6,6 @@
 /// Font-face declaration sources
 ///
 /// @param {String} fontName - path to the file, without the file extension
-///
-/// @require oFontsUseAsset
 @mixin oFontsSource($fontName) {
 	$fontName: $fontName;
 	src: url(oFontsUseAsset($fontName + '.woff')) format('woff'), // Modern Browsers
@@ -16,14 +14,8 @@
 /// Font-face declaration for a given font family
 ///
 /// @param {String} $family - one of $_o-fonts-families
-/// @param {String} $weight - one of $_o-fonts-weights
-/// @param {String} $style
-///
-/// @require {mixin} oFontsSource
-/// @require oFontsWeight
-/// @require _oFontsVariantExists
-/// @require $_o-fonts-families
-/// @require $_o-fonts-families-included
+/// @param {String} $weight [regular] - one of $_o-fonts-weights
+/// @param {String} $style [normal]
 @mixin oFontsInclude($family, $weight: regular, $style: normal) {
 	@if $family == 'Clarion' {
 		@warn "Clarion has been removed, no font will be included. Use Georgia instead";
@@ -73,8 +65,6 @@
 }
 
 /// Output @font-face declarations for all the font families
-///
-/// @require $_o-fonts-families
 @mixin oFontsIncludeAll {
 	@each $family, $properties in $_o-fonts-families {
 		@each $variant in map-get($properties, variants) {
