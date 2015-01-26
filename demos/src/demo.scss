@@ -1,2 +1,8 @@
 $o-quote-is-silent: false;
+$o-fonts-is-silent: false;
+
+body {
+	font-family: BentonSans, sans-serif;
+}
+
 @import "./../../main";

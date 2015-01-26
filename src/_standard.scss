@@ -1,14 +1,9 @@
-/**
- * @group o-quote
- * @link http://registry.origami.ft.com/components/o-quote
-**/
+////
+/// @group o-quote
+/// @link http://registry.origami.ft.com/components/o-quote
+////
 
-/**
- * Add to container for a standard quote
- *
- * @requires {function} oColorsGetColorFor
- * @requires {function} oFontsGetFontFamilyWithFallbacks
- */
+/// Add to container for a standard quote
 @mixin oQuoteStandard {
 	background-color: oColorsGetColorFor(o-quote, background);
 	line-height: 21px;
@@ -20,7 +15,6 @@
 	p {
 		color: oColorsGetColorFor(o-quote, text);
 		font-size: 16px;
-		font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 		font-style: italic;
 	}
 
@@ -44,14 +38,9 @@
 	}
 }
 
-/**
- * Apply this to a <cite> within a standard quote block
- *
- * @requires {function} oFontsGetFontFamilyWithFallbacks
- */
+/// Apply this to a <cite> within a standard quote block
 @mixin oQuoteStandardCite {
 	font-size: 16px;
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 	font-weight: normal;
 	font-style: normal;
 
