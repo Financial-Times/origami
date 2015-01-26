@@ -1,96 +1,96 @@
-@include oFtFormsClass(o-ft-forms__field-group) {
+@include oFormsClass(o-forms__field-group) {
     position: relative;
-    padding-right: $_o-ft-forms-fieldgroup-padding;
-    padding-left: $_o-ft-forms-fieldgroup-padding;
+    padding-right: $_o-forms-fieldgroup-padding;
+    padding-left: $_o-forms-fieldgroup-padding;
     margin-bottom: 20px;
 }
 
-@include oFtFormsClass(o-ft-forms__additional-info) {
+@include oFormsClass(o-forms__additional-info) {
   display: block;
   margin-top: -2px;
   margin-bottom: 4px;
-  color: oColorsGetColorFor(o-ft-forms-field-additional-info body, text);
+  color: oColorsGetColorFor(o-forms-field-additional-info body, text);
   @extend %o-ft-typography-label-small;
 }
 
-@include oFtFormsClass(o-ft-forms__label) {
+@include oFormsClass(o-forms__label) {
     display: block;
     @extend %o-ft-typography-label-medium;
-    margin-bottom: $_o-ft-forms-label-marginbottom;
-    color: oColorsGetColorFor(o-ft-forms-field-label body, text);
+    margin-bottom: $_o-forms-label-marginbottom;
+    color: oColorsGetColorFor(o-forms-field-label body, text);
 }
 
 //=============TEXT INPUTS, SELECTS AND TEXTAREAS=============
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field--text,
-  %o-ft-forms__label--select,
-  %o-ft-forms__label--textarea',
-  '.o-ft-forms__field--text,
-  .o-ft-forms__field--select,
-  .o-ft-forms__field--textarea'
+@include oFormsPlaceholderOptionalSelector(
+  '%o-forms__field--text,
+  %o-forms__label--select,
+  %o-forms__label--textarea',
+  '.o-forms__field--text,
+  .o-forms__field--select,
+  .o-forms__field--textarea'
 ) {
     @include commonField();
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field:disabled,
-  %o-ft-forms__label--select:disabled,
-  %o-ft-forms__label--textarea:disabled',
-  '.o-ft-forms__field--text:disabled,
-  .o-ft-forms__field--select:disabled,
-  .o-ft-forms__field--textarea:disabled') {
+@include oFormsPlaceholderOptionalSelector(
+  '%o-forms__field:disabled,
+  %o-forms__label--select:disabled,
+  %o-forms__label--textarea:disabled',
+  '.o-forms__field--text:disabled,
+  .o-forms__field--select:disabled,
+  .o-forms__field--textarea:disabled') {
     @include commonFieldDisabled();
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field:focus,
-  %o-ft-forms__label--select:focus,
-  %o-ft-forms__label--textarea:focus',
-  '.o-ft-forms__field--text:focus,
-  .o-ft-forms__field--select:focus,
-  .o-ft-forms__field--textarea:focus') {
+@include oFormsPlaceholderOptionalSelector(
+  '%o-forms__field:focus,
+  %o-forms__label--select:focus,
+  %o-forms__label--textarea:focus',
+  '.o-forms__field--text:focus,
+  .o-forms__field--select:focus,
+  .o-forms__field--textarea:focus') {
     @include commonFieldFocus();
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field--select',
-  '.o-ft-forms__field--select'
+@include oFormsPlaceholderOptionalSelector(
+  '%o-forms__field--select',
+  '.o-forms__field--select'
 ) {
     cursor: pointer;
     background-image: url(oAssetsResolve("svg/arrow-up-down.svg", o-ft-icons));
-    background-position: right $_o-ft-form-field-default-padding-leftright center;
+    background-position: right $_o-form-field-default-padding-leftright center;
     background-repeat: no-repeat;
     background-origin: border-box;
-    background-size: $_o-ft-form-select-iconsize;
-    padding-right: $_o-ft-form-select-iconsize + $_o-ft-form-field-default-padding-leftright;
+    background-size: $_o-form-select-iconsize;
+    padding-right: $_o-form-select-iconsize + $_o-form-field-default-padding-leftright;
     //Code below hides default select arrow in FF
     text-indent: 0.01px;
     text-overflow: '';
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field--textarea',
-  '.o-ft-forms__field--textarea'
+@include oFormsPlaceholderOptionalSelector(
+  '%o-forms__field--textarea',
+  '.o-forms__field--textarea'
 ) {
     vertical-align: top;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field--small',
-  '.o-ft-forms__field--small'
+@include oFormsPlaceholderOptionalSelector(
+  '%o-forms__field--small',
+  '.o-forms__field--small'
 ) {
-  font-size: $_o-ft-form-field-small-fontsize;
-  padding-top: $_o-ft-form-field-small-padding-topbottom;
-  padding-bottom: $_o-ft-form-field-small-padding-topbottom;
-  background-size: $_o-ft-form-select-small-iconsize;
+  font-size: $_o-form-field-small-fontsize;
+  padding-top: $_o-form-field-small-padding-topbottom;
+  padding-bottom: $_o-form-field-small-padding-topbottom;
+  background-size: $_o-form-select-small-iconsize;
 }
 
 // TBC - This is to hide Chrome's style for autocompleted fields
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field:-webkit-autofill',
-  '.o-ft-forms__field:-webkit-autofill,
-  .o-ft-forms__field--select:-webkit-autofill,
-  .o-ft-forms__field--textarea:-webkit-autofill') {
-    -webkit-box-shadow: 0 0 0px 1000px oColorsGetColorFor(o-ft-forms-field-standard, background) inset;
+@include oFormsPlaceholderOptionalSelector(
+  '%o-forms__field:-webkit-autofill',
+  '.o-forms__field:-webkit-autofill,
+  .o-forms__field--select:-webkit-autofill,
+  .o-forms__field--textarea:-webkit-autofill') {
+    -webkit-box-shadow: 0 0 0px 1000px oColorsGetColorFor(o-forms-field-standard, background) inset;
 }

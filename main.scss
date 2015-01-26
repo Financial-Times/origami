@@ -8,7 +8,7 @@
 @import "src/scss/variables";
 @import "src/scss/mixins";
 
-@if (not $o-ft-forms-is-silent) {
+@if (not $o-forms-is-silent) {
   @include oFtTypographyIncludeFont(label);
   @include oFtIconsFontFace();
 }

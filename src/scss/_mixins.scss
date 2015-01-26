@@ -2,23 +2,23 @@
   @include boxSizing(border-box);
   @include appearance(none);
   margin: 0;
-  border: $_o-ft-forms-fieldborder;
-  border-radius: $_o-ft-forms-field-borderradius;
-  padding: $_o-ft-form-field-default-padding-top $_o-ft-form-field-default-padding-leftright $_o-ft-form-field-default-padding-bottom;
+  border: $_o-forms-fieldborder;
+  border-radius: $_o-forms-field-borderradius;
+  padding: $_o-form-field-default-padding-top $_o-form-field-default-padding-leftright $_o-form-field-default-padding-bottom;
   width: 100%;
-  background-color: oColorsGetColorFor(o-ft-forms-field-standard, background);
-  color: oColorsGetColorFor(o-ft-forms-field-standard, text);
+  background-color: oColorsGetColorFor(o-forms-field-standard, background);
+  color: oColorsGetColorFor(o-forms-field-standard, text);
   font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-  font-size: $_o-ft-form-field-default-fontsize;
+  font-size: $_o-form-field-default-fontsize;
   outline: none;
 }
 
 @mixin commonFieldFocus() {
-    border-color: oColorsGetColorFor(o-ft-forms-field-hover, border);
+    border-color: oColorsGetColorFor(o-forms-field-hover, border);
 }
 
 @mixin commonFieldDisabled() {
-    @include oColorsFor(o-ft-forms-field-disabled);
+    @include oColorsFor(o-forms-field-disabled);
 }
 
 @mixin appearance($value) {
@@ -33,7 +33,7 @@
   box-sizing: $value;
 }
 
-@mixin border-radius($radiusTop: $_o-ft-forms-field-borderradius, $radiusBottom: 0) {
+@mixin border-radius($radiusTop: $_o-forms-field-borderradius, $radiusBottom: 0) {
 
   -webkit-border-top-left-radius: $radiusTop;
   -webkit-border-top-right-radius: $radiusTop;
@@ -51,11 +51,11 @@
   border-bottom-left-radius: $radiusBottom;
 }
 
-@mixin oFtFormsClass($classes...) {
+@mixin oFormsClass($classes...) {
   $aggregatedSelector: ();
   @each $class in $classes {
     $aggregatedSelector: append($aggregatedSelector, #{'%#{$class}'}, comma);
-    @if (not $o-ft-forms-is-silent) {
+    @if (not $o-forms-is-silent) {
       $aggregatedSelector: append($aggregatedSelector, #{'.#{$class}'}, comma);
     }
   }
@@ -70,9 +70,9 @@
  * @param {String} $placeholder One or more placeholders, separated by commas
  * @param {String} $selector Zero or more selectors, separated by commas
  */
-@mixin oFtFormsPlaceholderOptionalSelector($placeholder, $selector) {
+@mixin oFormsPlaceholderOptionalSelector($placeholder, $selector) {
   $aggregatedSelector: (unquote($placeholder));
-  @if (not $o-ft-forms-is-silent) {
+  @if (not $o-forms-is-silent) {
     $aggregatedSelector: append($aggregatedSelector, #{$selector}, comma);
   }
   #{$aggregatedSelector} {

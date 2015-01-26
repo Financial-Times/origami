@@ -1,6 +1,6 @@
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--valid, %o-ft-forms__label--select--valid, %o-ft-forms__label--textarea--valid',
-  '.o-ft-forms--valid .o-ft-forms__field--text, 
-  .o-ft-forms--valid .o-ft-forms__field--select, 
-  .o-ft-forms--valid .o-ft-forms__field--textarea') {
-  border-color: oColorsGetColorFor(o-ft-forms-field-valid, border);
+@include oFormsPlaceholderOptionalSelector('%o-forms__field--valid, %o-forms__label--select--valid, %o-forms__label--textarea--valid',
+  '.o-forms--valid .o-forms__field--text, 
+  .o-forms--valid .o-forms__field--select, 
+  .o-forms--valid .o-forms__field--textarea') {
+  border-color: oColorsGetColorFor(o-forms-field-valid, border);
 }
