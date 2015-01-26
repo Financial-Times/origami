@@ -5,19 +5,19 @@
 
 /// Path to the assets
 ///
-/// @type {String}
+/// @type String
 $o-fonts-path: '//build.origami.ft.com/files/o-fonts-assets@1.0.0/' !default;
 
 /// Silent mode
 ///
-/// @type {Boolean}
+/// @type Bool
 $o-fonts-is-silent: true !default;
 
 /// Font families
 ///
 /// @access private
 ///
-/// @type {Map}
+/// @type Map
 $_o-fonts-families: (
 	BentonSans: (
 		font-family: 'BentonSans, sans-serif',
