@@ -2,14 +2,7 @@
 @import "o-colors/main";
 @import "o-hoverable/main";
 @import "scss/variables";
-@import "scss/deprecated/functions";
 @import "scss/mixins";
-
-@if ($o-ft-typography-is-silent == false) {
-	@each $usecase in $_o-ft-typography-fontface-usecase-mapping {
-		@include oFtTypographyIncludeFont(nth($usecase, 1));
-	}
-}
 
 @import "scss/titles";
 @import "scss/leads";
@@ -31,6 +24,12 @@
 $_o-ft-typography-deprecation-warnings: false;
 
 @import "scss/deprecated/index";
+
+@if ($o-ft-typography-is-silent == false) {
+	@each $usecase in $_o-ft-typography-fontface-usecase-mapping {
+		@include oFtTypographyIncludeFont(nth($usecase, 1));
+	}
+}
 
 // Switch deprecation warnings back on
 $_o-ft-typography-deprecation-warnings: true;
