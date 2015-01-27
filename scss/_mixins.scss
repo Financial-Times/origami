@@ -72,6 +72,8 @@
 /// @requires {mixin} oFontsInclude
 /// @requires {variable} _o-ft-typography-fontface-usecase-mapping
 @mixin oFtTypographyIncludeFont($type, $usecases: $_o-ft-typography-fontface-usecase-mapping) {
+	@warn 'oFtTypographyIncludeFont is being deprecated. In the next major version of o-ft-typography, you’ll need to include font-face declarations yourselves, using o-fonts or your own webfont loader.';
+
 	@each $usecase in $usecases {
 		@if ($type == nth($usecase, 1)) {
 			@include oFontsInclude(nth($usecase, 2), nth($usecase, 3));
