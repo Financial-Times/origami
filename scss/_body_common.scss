@@ -35,9 +35,6 @@
 }
 
 /// Link styles
-///
-/// @requires {mixin} oColorsFor
-/// @requires {variable} o-hoverable-if-hover-enabled
 @mixin oFtTypographyBodyLink {
 	text-decoration: none;
 	@include oColorsFor(link, text);

@@ -7,8 +7,8 @@
 /// Shorthand for font style settings
 ///
 /// @param {string} $family
-/// @param {string} $weight (normal)
-/// @param {string} $style (normal)
+/// @param {string} $weight [normal]
+/// @param {string} $style [normal]
 ///
 /// @access private
 /// @requires oFontsGetFontFamilyWithFallbacks
@@ -34,11 +34,9 @@
 
 /// Shorthand for font size settings
 ///
-/// @param {number} $size - background color, e.g. 16
-/// @param {number} $lineHeight - line height
-/// @param {number} $offset - number of pixels to offset vertically
-///
-/// @requires {mixin} oFtTypographyFontOffset
+/// @param {Number} $size - background color, e.g. 16
+/// @param {Number} $lineHeight [null] - line height
+/// @param {Number} $offset [0] - number of pixels to offset vertically
 @mixin oFtTypographyFontSize($size, $lineHeight: null, $offset: 0) {
 	font-size: $size + 0px;
 	// In some version of webkit there was some bug (unfortunately neglected to document at the time)
@@ -52,7 +50,7 @@
 
 /// Add a background to a text, using text-shadow instead of "background"
 ///
-/// @param {color} $color - Background color
+/// @param {Color} $color - Background color
 @mixin oFtTypographyFauxTextBackground($color) {
 	text-shadow: 4px 0 2px $color, -4px 0 2px $color,
 	0 4px 2px $color, 0 -4px 2px $color,
@@ -67,7 +65,6 @@
 /// @param {color} $hover-color
 ///
 /// @access private
-/// @requires {variable} o-hoverable-if-hover-enabled
 @mixin _oFtTypographyLinkStyle($color, $hover-color) {
 	a {
 		text-decoration: none;

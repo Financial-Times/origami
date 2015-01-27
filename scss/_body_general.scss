@@ -6,10 +6,6 @@
 /// General leader styles
 ///
 /// @todo what is the difference between this and the other leader styles?
-///
-/// @requires {mixin} _oFtTypographyFont
-/// @requires {mixin} oFtTypographyFontSize
-/// @requires {mixin} oColorsFor
 @mixin oFtTypographyBodyLead {
 	@include _oFtTypographyFont(BentonSans, normal);
 	@include oFtTypographyFontSize(18, 24);
@@ -18,10 +14,6 @@
 }
 
 /// General body text (apply to body tag)
-///
-/// @requires {mixin} _oFtTypographyFont
-/// @requires {mixin} oFtTypographyFontSize
-/// @requires {mixin} oColorsFor
 @mixin oFtTypographyBody {
 	@include _oFtTypographyFont(BentonSans, normal);
 	@include oFtTypographyFontSize(14, 20);
@@ -35,9 +27,6 @@
 }
 
 /// Styling for <ul> and <ol>
-///
-/// @requires {mixin} oFtTypographyBody
-/// @requires {mixin} oFtTypographyBodyBlock
 @mixin oFtTypographyBodyList {
 	list-style-position: outside;
 	padding-left: 20px;

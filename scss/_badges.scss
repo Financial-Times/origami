@@ -4,8 +4,6 @@
 ////
 
 /// Style an element like a badge
-/// @requires {mixin} _oFtTypographyFont
-/// @requires {mixin} oColorsFor
 @mixin oFtTypographyBadge {
 	display: inline-block;
 	border-radius: 5px;

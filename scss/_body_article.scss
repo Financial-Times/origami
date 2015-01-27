@@ -4,10 +4,6 @@
 ////
 
 /// Article leader styles
-///
-/// @requires {function} oColorsGetColorFor
-/// @requires {mixin} oFtTypographyFontSize
-/// @requires {mixin} oColorsFor
 @mixin oFtTypographyArticleBodyLead {
 	margin: 0 0 9px;
 	border-bottom: 1px dotted oColorsGetColorFor(o-ft-typography-article-body-lead, border);
