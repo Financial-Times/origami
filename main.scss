@@ -9,8 +9,8 @@
 @import "src/scss/mixins";
 
 @if (not $o-forms-is-silent) {
-  @include oFtTypographyIncludeFont(label);
-  @include oFtIconsFontFace();
+	@include oFtTypographyIncludeFont(label);
+	@include oFtIconsFontFace();
 }
 
 @import "src/scss/fieldsets";

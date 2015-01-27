@@ -1,81 +1,49 @@
 @mixin commonField() {
-  @include boxSizing(border-box);
-  @include appearance(none);
-  margin: 0;
-  border: $_o-forms-fieldborder;
-  border-radius: $_o-forms-field-borderradius;
-  padding: $_o-form-field-default-padding-top $_o-form-field-default-padding-leftright $_o-form-field-default-padding-bottom;
-  width: 100%;
-  background-color: oColorsGetColorFor(o-forms-field-standard, background);
-  color: oColorsGetColorFor(o-forms-field-standard, text);
-  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-  font-size: $_o-form-field-default-fontsize;
-  outline: none;
+	box-sizing: border-box;
+	appearance: none;
+	margin: 0;
+	border: $_o-forms-fieldborder;
+	border-radius: $_o-forms-field-borderradius;
+	padding: $_o-form-field-default-padding-top $_o-form-field-default-padding-leftright $_o-form-field-default-padding-bottom;
+	width: 100%;
+	background-color: oColorsGetColorFor(o-forms-field-standard, background);
+	color: oColorsGetColorFor(o-forms-field-standard, text);
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	font-size: $_o-form-field-default-fontsize;
+	outline: none;
 }
 
 @mixin commonFieldFocus() {
-    border-color: oColorsGetColorFor(o-forms-field-hover, border);
+	border-color: oColorsGetColorFor(o-forms-field-hover, border);
 }
 
 @mixin commonFieldDisabled() {
-    @include oColorsFor(o-forms-field-disabled);
-}
-
-@mixin appearance($value) {
-  -webkit-appearance: $value;
-  -moz-appearance: $value;
-  appearance: $value;
-}
-
-@mixin boxSizing($value) {
-  -webkit-box-sizing: $value;
-  -moz-box-sizing: $value;
-  box-sizing: $value;
-}
-
-@mixin border-radius($radiusTop: $_o-forms-field-borderradius, $radiusBottom: 0) {
-
-  -webkit-border-top-left-radius: $radiusTop;
-  -webkit-border-top-right-radius: $radiusTop;
-  -webkit-border-bottom-right-radius: $radiusBottom;
-  -webkit-border-bottom-left-radius: $radiusBottom;
-
-  -moz-border-radius-topleft: $radiusTop;
-  -moz-border-radius-topright: $radiusTop;
-  -moz-border-radius-bottomright: $radiusBottom;
-  -moz-border-radius-bottomleft: $radiusBottom;
-
-  border-top-left-radius: $radiusTop;
-  border-top-right-radius: $radiusTop;
-  border-bottom-right-radius: $radiusBottom;
-  border-bottom-left-radius: $radiusBottom;
+	@include oColorsFor(o-forms-field-disabled);
 }
 
 @mixin oFormsClass($classes...) {
-  $aggregatedSelector: ();
-  @each $class in $classes {
-    $aggregatedSelector: append($aggregatedSelector, #{'%#{$class}'}, comma);
-    @if (not $o-forms-is-silent) {
-      $aggregatedSelector: append($aggregatedSelector, #{'.#{$class}'}, comma);
-    }
-  }
-  #{$aggregatedSelector} {
-    @content;
-  }
+	$aggregatedSelector: ();
+	@each $class in $classes {
+		$aggregatedSelector: append($aggregatedSelector, #{'%#{$class}'}, comma);
+		@if (not $o-forms-is-silent) {
+			$aggregatedSelector: append($aggregatedSelector, #{'.#{$class}'}, comma);
+		}
+	}
+	#{$aggregatedSelector} {
+		@content;
+	}
 }
 
-/**
- * Creates a ruleset from the content for one or more placeholders
- * And optionally a set of selectors
- * @param {String} $placeholder One or more placeholders, separated by commas
- * @param {String} $selector Zero or more selectors, separated by commas
- */
+/// Creates a ruleset from the content for one or more placeholders
+/// And optionally a set of selectors
+/// @param {String} $placeholder One or more placeholders, separated by commas
+/// @param {String} $selector Zero or more selectors, separated by commas
 @mixin oFormsPlaceholderOptionalSelector($placeholder, $selector) {
-  $aggregatedSelector: (unquote($placeholder));
-  @if (not $o-forms-is-silent) {
-    $aggregatedSelector: append($aggregatedSelector, #{$selector}, comma);
-  }
-  #{$aggregatedSelector} {
-    @content;
-  }
+	$aggregatedSelector: (unquote($placeholder));
+	@if (not $o-forms-is-silent) {
+		$aggregatedSelector: append($aggregatedSelector, #{$selector}, comma);
+	}
+	#{$aggregatedSelector} {
+		@content;
+	}
 }

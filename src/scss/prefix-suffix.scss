@@ -1,109 +1,109 @@
 @include oFormsPlaceholderOptionalSelector(
-  '%o-forms__affix-wrapper',
-  '.o-forms__affix-wrapper'
+	'%o-forms__affix-wrapper',
+	'.o-forms__affix-wrapper'
 ) {
-  display: table;
-  width: 100%;
-  box-sizing: border-box;
+	display: table;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 @include oFormsPlaceholderOptionalSelector(
-  '%o-forms__field--affixed',
-  '.o-forms__affix-wrapper .o-forms__field--text,
-  .o-forms__affix-wrapper .o-forms__field--select'
+	'%o-forms__field--affixed',
+	'.o-forms__affix-wrapper .o-forms__field--text,
+	.o-forms__affix-wrapper .o-forms__field--select'
 ) {
-  display: table-cell;
-  border-radius: 0;
+	display: table-cell;
+	border-radius: 0;
 }
 
 @include oFormsPlaceholderOptionalSelector(
-  '%o-forms__field--prefixed',
-  '.o-forms__affix-wrapper .o-forms__field--text:first-child,
-  .o-forms__affix-wrapper .o-forms__field--select:first-child'
+	'%o-forms__field--prefixed',
+	'.o-forms__affix-wrapper .o-forms__field--text:first-child,
+	.o-forms__affix-wrapper .o-forms__field--select:first-child'
 ) {
-  border-top-left-radius: $_o-forms-field-borderradius;
-  border-bottom-left-radius: $_o-forms-field-borderradius;
+	border-top-left-radius: $_o-forms-field-borderradius;
+	border-bottom-left-radius: $_o-forms-field-borderradius;
 }
 
 @include oFormsPlaceholderOptionalSelector(
-  '%o-forms__field-suffixed',
-  '.o-forms__affix-wrapper .o-forms__field--text:last-child,
-  .o-forms__affix-wrapper .o-forms__field--select:last-child'
+	'%o-forms__field-suffixed',
+	'.o-forms__affix-wrapper .o-forms__field--text:last-child,
+	.o-forms__affix-wrapper .o-forms__field--select:last-child'
 ) {
-  border-top-right-radius: $_o-forms-field-borderradius;
-  border-bottom-right-radius: $_o-forms-field-borderradius;
+	border-top-right-radius: $_o-forms-field-borderradius;
+	border-bottom-right-radius: $_o-forms-field-borderradius;
 }
 
 @include oFormsPlaceholderOptionalSelector(
-  '%o-forms__prefix,
-  %o-forms__suffix',
-  '.o-forms__prefix,
-  .o-forms__suffix'
+	'%o-forms__prefix,
+	%o-forms__suffix',
+	'.o-forms__prefix,
+	.o-forms__suffix'
 ) {
-  display: table-cell;
-  width: 1%;
-  white-space: nowrap;
-  border-top: $_o-forms-fieldborder;
-  border-bottom: $_o-forms-fieldborder;
-  padding: $_o-form-field-default-padding-top $_o-form-field-default-padding-leftright $_o-form-field-default-padding-bottom;
-  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-  font-size: $_o-form-field-default-fontsize;
-  text-align: center;
-  background-color: oColorsGetColorFor(o-forms-prefixsuffix, background);
-  color: oColorsGetColorFor(o-forms--prefixsuffix o-forms-field-standard, text);
-  user-select: none;
+	display: table-cell;
+	width: 1%;
+	white-space: nowrap;
+	border-top: $_o-forms-fieldborder;
+	border-bottom: $_o-forms-fieldborder;
+	padding: $_o-form-field-default-padding-top $_o-form-field-default-padding-leftright $_o-form-field-default-padding-bottom;
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	font-size: $_o-form-field-default-fontsize;
+	text-align: center;
+	background-color: oColorsGetColorFor(o-forms-prefixsuffix, background);
+	color: oColorsGetColorFor(o-forms--prefixsuffix o-forms-field-standard, text);
+	user-select: none;
 }
 
 @include oFormsPlaceholderOptionalSelector(
-  '%o-forms__prefix',
-  '.o-forms__prefix'
+	'%o-forms__prefix',
+	'.o-forms__prefix'
 ) {
-  border-left: $_o-forms-fieldborder;
-  border-right: 0;
-  border-top-left-radius: $_o-forms-field-borderradius;
-  border-bottom-left-radius: $_o-forms-field-borderradius;
+	border-left: $_o-forms-fieldborder;
+	border-right: 0;
+	border-top-left-radius: $_o-forms-field-borderradius;
+	border-bottom-left-radius: $_o-forms-field-borderradius;
 }
 
 @include oFormsPlaceholderOptionalSelector(
-  '%o-forms__suffix',
-  '.o-forms__suffix'
+	'%o-forms__suffix',
+	'.o-forms__suffix'
 ) {
-  border-right: $_o-forms-fieldborder;
-  border-left: 0;
-  border-top-right-radius: $_o-forms-field-borderradius;
-  border-bottom-right-radius: $_o-forms-field-borderradius;
+	border-right: $_o-forms-fieldborder;
+	border-left: 0;
+	border-top-right-radius: $_o-forms-field-borderradius;
+	border-bottom-right-radius: $_o-forms-field-borderradius;
 }
 
 @include oFormsPlaceholderOptionalSelector(
-  '%o-forms__prefix--error,
-  %o-forms__suffix--error',
-  '.o-forms--error .o-forms__prefix,
-  .o-forms--error .o-forms__suffix'
+	'%o-forms__prefix--error,
+	%o-forms__suffix--error',
+	'.o-forms--error .o-forms__prefix,
+	.o-forms--error .o-forms__suffix'
 ) {
-  border-color: oColorsGetColorFor(o-forms-field-invalid, border);
-  color: oColorsGetColorFor(o-forms-field-invalid, text);
+	border-color: oColorsGetColorFor(o-forms-field-invalid, border);
+	color: oColorsGetColorFor(o-forms-field-invalid, text);
 }
 
 @include oFormsPlaceholderOptionalSelector(
-  '%o-forms__prefix--valid,
-  %o-forms__suffix--valid',
-  '.o-forms--valid .o-forms__prefix,
-  .o-forms--valid .o-forms__suffix'
+	'%o-forms__prefix--valid,
+	%o-forms__suffix--valid',
+	'.o-forms--valid .o-forms__prefix,
+	.o-forms--valid .o-forms__suffix'
 ) {
-  @include oColorsFor(o-forms-field-valid, border text);
+	@include oColorsFor(o-forms-field-valid, border text);
 }
 
 @include oFormsPlaceholderOptionalSelector(
-  '%o-forms__affix__button',
-  '.o-forms__prefix button,
-  .o-forms__suffix button'
+	'%o-forms__affix__button',
+	'.o-forms__prefix button,
+	.o-forms__suffix button'
 ) {
-  border-width: 0;
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-  cursor: pointer;
-  font: inherit;
-  color: inherit;
-  user-select: none;
+	border-width: 0;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	cursor: pointer;
+	font: inherit;
+	color: inherit;
+	user-select: none;
 }

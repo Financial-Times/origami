@@ -1,30 +1,31 @@
 //Block style to denote a collection of invalid fields useful in cases where specific field level validation is not appropriate
 @include oFormsClass(o-forms__section--error) {
-   background-color: oColorsGetColorFor(o-forms-error-block-fallback, background);
-   background-color: rgba(oColorsGetColorFor(o-forms-error-block, background), 0.15);
+	background-color: oColorsGetColorFor(o-forms-error-block-fallback, background);
+	background-color: rgba(oColorsGetColorFor(o-forms-error-block, background), 0.15);
 }
 
 //Styling for form global and section error messages to be used in conjuction with o-forms__section--error for for the form as a whole
 @include oFormsClass('o-forms-section__message--error', 'o-forms__global-message--error') {
-    margin: 0 0 16px;
-    background-color: oColorsGetColorFor(o-forms-error-block, background);
-    padding: 0 8px;
+	margin: 0 0 16px;
+	background-color: oColorsGetColorFor(o-forms-error-block, background);
+	padding: 0 8px;
 
-    p {
-        padding: 8px 0;
-        margin: 0;
-        color: oColorsGetColorFor(o-forms-error-block, text);
-        font-size: 14px;
-        font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-    }
+	p {
+		padding: 8px 0;
+		margin: 0;
+		color: oColorsGetColorFor(o-forms-error-block, text);
+		font-size: 14px;
+		font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	}
 }
 
 @include oFormsClass('o-forms-section__message--error') {
-    @include border-radius($_o-forms-field-borderradius);
+	border-top-left-radius: $_o-forms-field-borderradius;
+	border-top-right-radius: $_o-forms-field-borderradius;
 }
 
 @include oFormsClass('o-forms__global-message--error') {
-    margin-left: 6px;
-    margin-right: 6px;
-    @include border-radius($_o-forms-field-borderradius, $_o-forms-field-borderradius);
+	border-radius: $_o-forms-field-borderradius;
+	margin-left: 6px;
+	margin-right: 6px;
 }
