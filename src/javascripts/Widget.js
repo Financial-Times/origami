@@ -52,10 +52,16 @@ function Widget () {
 		this.config.initExtension = {};
 	}
 	this.config.initExtension.editorCss = 'p { margin-bottom: 10px !important; }';
+
 	/**
 	 * Avatar disabled.
 	 */
 	this.config.initExtension.disableAvatars = true;
+
+	/**
+	 * Disable HTML5 shiv by Livefyre
+	 */
+	this.config.initExtension.disableIE8Shim = true;
 
 	if (this.getWidgetEl().className.indexOf('o-comments') === -1) {
 		this.getWidgetEl().className += ' o-comments';
@@ -133,9 +139,6 @@ function Widget () {
 					networkConfig.strings = self.config.stringOverrides;
 				}
 
-				var documentCreateElementBackup = document.createElement;
-
-
 				Livefyre.require(['fyre.conv#3', 'auth'], function (Conv, lfAuth) {
 					lfAuth.delegate(auth.getAuthDelegate());
 
@@ -145,10 +148,6 @@ function Widget () {
 						if (widget) {
 							if (envConfig.get().emailNotifications !== true) {
 								self.ui.hideFollowButton();
-							}
-
-							if (document.createElement !== documentCreateElementBackup) {
-								document.createElement = documentCreateElementBackup;
 							}
 
 							callback();
