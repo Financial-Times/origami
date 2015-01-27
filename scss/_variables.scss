@@ -6,7 +6,7 @@
 @import "o-fonts/main";
 
 /// When silent mode is active, css classes will not be output
-/// @type Boolean (true)
+/// @type Bool
 $o-ft-typography-is-silent: true !default;
 
 @include oColorsSetUseCase(o-ft-typography-heading-medium, border, pink-tint2);

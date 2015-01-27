@@ -6,20 +6,12 @@
 /// Label typography
 ///
 /// @access private
-///
-/// @requires {mixin} oColorsFor
-/// @requires {mixin} _oFtTypographyLinkStyle
-/// @requires {function} oColorsGetColorFor
 @mixin _oFtlabelText {
 	@include oColorsFor(body, text);
 	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
 /// Large label
-///
-/// @requires {mixin} _oFtlabelText
-/// @requires {mixin} _oFtTypographyFont
-/// @requires {mixin} oFtTypographyFontSize
 @mixin oFtTypographyLabelLarge {
 	@include _oFtlabelText;
 	@include _oFtTypographyFont(BentonSans, bold);
@@ -27,10 +19,6 @@
 }
 
 /// Medium label
-///
-/// @requires {mixin} _oFtlabelText
-/// @requires {mixin} _oFtTypographyFont
-/// @requires {mixin} oFtTypographyFontSize
 @mixin oFtTypographyLabelMedium {
 	@include _oFtlabelText;
 	@include _oFtTypographyFont(BentonSans, bold);
@@ -38,10 +26,6 @@
 }
 
 /// Small label
-///
-/// @requires {mixin} _oFtlabelText
-/// @requires {mixin} _oFtTypographyFont
-/// @requires {mixin} oFtTypographyFontSize
 @mixin oFtTypographyLabelSmall {
 	@include _oFtlabelText;
 	@include _oFtTypographyFont(BentonSans, normal);

@@ -5,17 +5,9 @@
 
 /// General typography
 /// Apply to a wrapper to style all text inside it
-/// 
+///
 /// @example scss
 /// article { @include oFtTypographyBodyWrapper; }
-/// 
-/// @requires {mixin} oFtTypographyHeading5
-/// @requires {mixin} oFtTypographyHeading6
-/// @requires {mixin} oFtTypographyBodyLink
-/// @requires {mixin} oFtTypographyBody
-/// @requires {mixin} oFtTypographyBodyBlock
-/// @requires {mixin} oFtTypographyBodyList
-/// @requires {mixin} oFtTypographyCommonWrappedBodyStyles
 @mixin oFtTypographyBodyWrapper {
 	h2 {
 		@include oFtTypographyHeading5;
