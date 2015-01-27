@@ -44,3 +44,20 @@
 	}
 	@include _oFtlabelText;
 }
+
+
+/// Provides a typography focused interface for oFontsInclude()
+///
+/// @param {string} $type - one of $usecases
+/// @param {list} $usecases
+@mixin oFtTypographyIncludeFont($type, $usecases: $_o-ft-typography-fontface-usecase-mapping) {
+	@if $_o-ft-typography-deprecation-warnings {
+		@warn 'oFtTypographyIncludeFont is being deprecated. In the next major version of o-ft-typography, you’ll need to include font-face declarations yourselves, using o-fonts or your own webfont loader.';
+	}
+
+	@each $usecase in $usecases {
+		@if ($type == nth($usecase, 1)) {
+			@include oFontsInclude(nth($usecase, 2), nth($usecase, 3));
+		}
+	}
+}

@@ -18,7 +18,6 @@
 	font-style: $style;
 }
 
-
 /// Offset text vertically
 /// compensates dead space by removing some margin bottom
 ///
@@ -60,23 +59,6 @@
 	2px 0 4px $color, -2px 0 4px $color,
 	0 2px 4px $color, 0 -2px 4px $color,
 	6px 0 1px $color;
-}
-
-
-
-/// Provides a typography focused interface for oFontsInclude()
-///
-/// @param {string} $type - one of $usecases
-/// @param {list} $usecases
-///
-/// @requires {mixin} oFontsInclude
-/// @requires {variable} _o-ft-typography-fontface-usecase-mapping
-@mixin oFtTypographyIncludeFont($type, $usecases: $_o-ft-typography-fontface-usecase-mapping) {
-	@each $usecase in $usecases {
-		@if ($type == nth($usecase, 1)) {
-			@include oFontsInclude(nth($usecase, 2), nth($usecase, 3));
-		}
-	}
 }
 
 /// Links styles
