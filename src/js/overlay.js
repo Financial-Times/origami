@@ -76,7 +76,8 @@ var getOptionsFromTrigger = function(trigger) {
 	return opts;
 };
 
-var triggerClickHandler = function(id) {
+var triggerClickHandler = function(id, ev) {
+	ev.stopPropagation();
 	var overlay = overlays[id];
 	if (overlay) {
 		if (overlay.visible === true) {
@@ -88,7 +89,6 @@ var triggerClickHandler = function(id) {
 };
 
 var Overlay = function(id, opts) {
-
 	viewport.listenTo('resize');
 	this.visible = false;
 	this.id = id;
@@ -250,17 +250,8 @@ Overlay.prototype.close = function() {
 };
 
 Overlay.prototype.closeOnExternalClick = function(ev) {
-	// Close the overlay if it's not modal and the click wasn't made on the actual overlay
-	// or on the trigger, as that's handled in triggerClickHandler. Check if trigger exists
-	// first to not get an error
 	if (!this.wrapper.contains(ev.target) && !this.opts.modal) {
-		if (this.opts.trigger) {
-			if (!this.opts.trigger.contains(ev.target)) {
-				this.close();
-			}
-		} else {
-			this.close();
-		}
+		this.close();
 	}
 };
 
