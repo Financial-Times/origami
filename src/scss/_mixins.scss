@@ -19,6 +19,9 @@
 	@if $family == 'Clarion' {
 		@warn "Clarion has been removed, no font will be included. Use Georgia instead";
 	}
+	@if $weight == normal {
+		$weight: regular;
+	}
 	$font-exists: false;
 	// Check if the font has already been included
 	// If so, no need to output another @font-face declaration
