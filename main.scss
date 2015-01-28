@@ -1,0 +1,111 @@
+@mixin streamListSuggestionsHeading() {
+    font-family: $fontSans;
+    font-weight: normal;
+    color: $next-black;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+.stream-list__search-suggestions__heading {
+    @include streamListSuggestionsHeading();
+}
+
+.stream-list__search-suggestions {
+    position: relative;
+    padding-bottom: 15px;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 5px;
+        max-height: 40px;
+        overflow: hidden;
+    }
+
+    li {
+        margin: 10px 10px 0 0;
+        display: block;
+        float: left;
+    }
+
+    a {
+        @include nextLabelsLink(left);
+    }
+
+    &[aria-expanded="true"] {
+        ul {
+            max-height: none;
+        }
+    }
+}
+
+
+.stream-list__search-suggestions__toggle {
+
+    @include streamListSuggestionsHeading();
+
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 0;
+
+    i {
+        color: $next-grey-light;
+        display: inline-block;
+        padding: 0 6px;
+        box-sizing: border-box;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+
+@include oGridRespondTo(S) {
+    .mypage__nav__stream-links:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .mypage__nav__stream-link {
+        display: none;
+
+        &:first-child,
+        &:first-child + a {
+            display: block;
+        }
+        [aria-expanded="true"] & {
+            display: block;
+        }
+    }
+
+    .js-mypage__nav__stream-links__toggle {
+        display: block;
+        font-family: $fontSans;
+        font-weight: normal;
+        color: $next-black;
+        font-size: 12px;
+        margin: 5px 0 0;
+        padding: 0;
+        background: none;
+        cursor: pointer;
+        float: right;
+        border: 0;
+
+        i {
+            color: $next-grey-light;
+            display: inline-block;
+            padding: 0 6px;
+            box-sizing: border-box;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

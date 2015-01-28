@@ -1,0 +1,26 @@
+{
+  "name": "o-expander",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Financial-Times/next-expander",
+  "authors": [
+    "Rhys Evans <rhys.evans@ft.com>"
+  ],
+  "description": "Simple widget for expanding and hiding extra content",
+  "main": "main.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "o-viewport": "~1.2.0",
+    "o-grid": "~2.4.1"
+  }
+}
