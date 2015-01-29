@@ -1,0 +1,18 @@
+@import "o-colors/main";
+
+.o-big-number {
+	display: block;
+	padding: 20px 10px;
+	text-align: center;
+
+	&.o-big-number--standard {
+		color: oColorsGetPaletteColor(grey-tint4);
+		background-color: oColorsGetPaletteColor(pink-tint2);
+	}
+}
+
+.o-big-number__title {
+	font-size: 34px;
+	font-weight: 100;
+	margin-bottom: 10px;
+}

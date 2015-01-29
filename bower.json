@@ -3,5 +3,8 @@
   "main": [
     "main.scss",
     "main.js"
-  ]
+  ],
+  "dependencies": {
+    "o-colors": "~2.4.4"
+  }
 }

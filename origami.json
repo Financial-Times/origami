@@ -1,0 +1,7 @@
+{
+	"description": "A pull-quote-esque component that highlights large numbers",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-big-number/issues",
+	"supportStatus": "experimental"
+}

@@ -1,6 +1,7 @@
 {
 	"options": {
-		"sass": "demos/src/demo.scss"
+		"sass": "demos/src/demo.scss",
+		"dependencies": "o-fonts@^1.6.3"
 	},
 	"demos": [
 		{
