@@ -324,37 +324,31 @@ Overlay.prototype.respondToWindow = function(size) {
 		this.opts.arrow.currentposition = this.getCurrentArrowPosition(this.opts.arrow.position);
 		this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.currentposition);
 
+		var edge = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'left' : 'top';
+		var oppositeEdge = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'top' : 'left';
+		var dimension = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'height' : 'width';
+
 		var offset = 0;
 		// Protrusion distance for the arrow. It's 13 due to the border around it
 		var arrowSize = 13;
-		var targetClientRect = this.opts.arrow.target.getBoundingClientRect();
+		var targetClientRect = utils.getOffsetRect(this.opts.arrow.target);
+		var dimensionValue = targetClientRect[dimension];
 		switch (this.opts.arrow.currentposition) {
 			case 'left':
-				offset = targetClientRect.right + arrowSize;
+				offset = targetClientRect.left + targetClientRect.width + arrowSize;
 				break;
 			case 'right':
 				offset = targetClientRect.left - this.width - arrowSize;
 				break;
 			case 'top':
-				offset = targetClientRect.bottom + arrowSize;
+				offset = targetClientRect.top + targetClientRect.height + arrowSize;
 				break;
 			case 'bottom':
 				offset = targetClientRect.top - this.height - arrowSize;
 				break;
 		}
 
-		var edge = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'left' : 'top';
-		var oppositeEdge = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'top' : 'left';
-		var dimension = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'height' : 'width';
 		this.wrapper.style[edge] = offset + 'px';
-		// IE8 doesn't support getBoundingClientRect().height and .weight
-		var dimensionValue = targetClientRect[dimension] || (function() {
-			if (dimension === 'height') {
-				return targetClientRect.bottom - targetClientRect.top;
-			} else {
-				return targetClientRect.right - targetClientRect.left;
-			}
-		})();
 		// 1. Get where the element is positioned
 		// 2. Add its width or height divided by two to get its center
 		// 3. Substract the width or height divided by two of the overlay so the arrow, which is in the center, points to the center of the side of the target

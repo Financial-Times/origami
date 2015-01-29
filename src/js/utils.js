@@ -63,5 +63,29 @@ module.exports = {
 		}
 
 		return opts;
+	},
+
+	// Code based on this article to get coordinates independent of scroll: http://javascript.info/tutorial/coordinates
+	getOffsetRect: function(e) {
+		var eClientRect = e.getBoundingClientRect();
+
+		var body = document.body;
+		var docElem = document.documentElement;
+
+		// docElem.scrollTop/Left for IE, use body as a last resort
+		var scrollTop = window.pageYOffset || docElem.scrollTop || body.scrollTop;
+		var scrollLeft = window.pageXOffset || docElem.scrollLeft || body.scrollLeft;
+
+		// IE sometimes shifts the upper left corner
+		var clientTop = docElem.clientTop || body.clientTop || 0;
+		var clientLeft = docElem.clientLeft || body.clientLeft || 0;
+
+		return {
+			// IE8 doesn't support getBoundingClientRect().height and .weight
+			width: eClientRect.width || eClientRect.right - eClientRect.left,
+			height: eClientRect.height || eClientRect.bottom - eClientRect.top,
+			top: eClientRect.top + scrollTop - clientTop,
+			left: eClientRect.left + scrollLeft - clientLeft
+		};
 	}
 };
