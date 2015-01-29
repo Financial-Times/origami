@@ -47,7 +47,7 @@
 @function oFontsGetFontFamilyWithFallbacks($family) {
 	@if $family == 'Clarion' {
 		@warn "Clarion has been removed, use Georgia instead";
-		@return 'Georgia';
+		@return $o-fonts-serif;
 	}
 	@if map-has-key($_o-fonts-families, $family) {
 		$properties: map-get($_o-fonts-families, $family);
