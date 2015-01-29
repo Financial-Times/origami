@@ -1,23 +1,22 @@
-.o-expander {
+@import "o-ft-icons/main";
+
+.o-expander__content {
     overflow: hidden;
 }
 
 .o-expander__toggle {
-    font-family: $fontSans;
+    font-family: arial;//$fontSans;
     font-weight: normal;
-    color: $next-black;
+    color: black;//$next-black;
     font-size: 12px;
     margin: 0;
     padding: 0;
     background: none;
     cursor: pointer;
-    position: absolute;
-    bottom: 0;
-    right: 0;
     border: 0;
 
     i {
-        color: $next-grey-light;
+        color: grey;//$next-grey-light;
         display: inline-block;
         padding: 0 6px;
         box-sizing: border-box;
@@ -29,9 +28,11 @@
 }
 
 .o-expander[aria-expanded="true"] {
-    max-height: none;
+    .o-expander__content {
+        max-height: none;
+    }
     .o-expander__toggle i {
-        @extend %o-ft-icons-icon-arrow-up;
+        @extend %o-ft-icons-icon--arrow-up;
     }
 }
 
@@ -41,6 +42,10 @@
     }
 
     .o-expander__toggle i {
-        @extend %o-ft-icons-icon-arrow-down;
+        @extend %o-ft-icons-icon--arrow-down;
     }
+}
+
+.o-expander--inactive .o-expander__toggle {
+    display: none;
 }

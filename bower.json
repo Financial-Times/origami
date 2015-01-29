@@ -6,7 +6,7 @@
     "Rhys Evans <rhys.evans@ft.com>"
   ],
   "description": "Simple widget for expanding and hiding extra content",
-  "main": "main.js",
+  "main": ["main.js","main.scss"],
   "moduleType": [
     "node"
   ],
@@ -21,6 +21,6 @@
   ],
   "dependencies": {
     "o-viewport": "~1.2.0",
-    "o-grid": "~2.4.1"
+    "o-ft-icons": "~2.3.4"
   }
 }

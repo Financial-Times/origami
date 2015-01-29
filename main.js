@@ -7,15 +7,21 @@ var Expander = function (el, opts) {
     viewport.listenTo('resize');
     viewport.listenTo('orientation');
     opts = opts || {};
-    opts.shrinkTo = el.dataset.shrinkTo || opts.shrinkTo || 'height'; //height or number
-    opts.countSelector = el.dataset.countSelector || opts.countSelector;
-    opts.expandedToggleText = el.dataset.expandedToggleText || opts.expandedToggleText || 'less';
-    opts.collapsedToggleText = el.dataset.collapsedToggleText || opts.collapsedToggleText || 'more';
+    opts.shrinkTo = el.dataset.oExpanderShrinkTo || opts.shrinkTo || 'height'; //height or number
+    opts.countSelector = el.dataset.oExpanderCountSelector || opts.countSelector;
+    opts.contentSelector = el.dataset.oExpanderContentSelector || opts.contentSelector || '.o-expander__content';
+    opts.expandedToggleText = el.dataset.oExpanderExpandedToggleText || opts.expandedToggleText || 'less';
+    opts.collapsedToggleText = el.dataset.oExpanderCollapsedToggleText || opts.collapsedToggleText || 'more';
 
+
+    if (/^\d+$/.test(opts.shrinkTo)) {
+        opts.shrinkTo = +opts.shrinkTo;
+    }
     if (typeof opts.shrinkTo === 'number' && !opts.countSelector) {
         throw('when collapsing to a number of items specify a selector to identify how many items exist');
     }
     this.el = el;
+    this.contentEl = this.el.querySelector(opts.contentSelector);
     this.opts = opts;
     this.toggle = this.el.querySelector(toggleSelector);
     if (!this.toggle) {
@@ -27,16 +33,24 @@ var Expander = function (el, opts) {
         document.body.addEventListener('oViewport.orientation', this.init);
         document.body.addEventListener('oViewport.resize', this.init);
     }
+
+    this.init();
 }
 
 Expander.prototype.init = function () {
     if (!this.isRequired()) {
         this.el.classList.add('o-expander--inactive');
     } else {
+        this.el.classList.remove('o-expander--inactive');
         if (typeof this.opts.shrinkTo === 'number') {
             this.el.querySelectorAll(this.opts.countSelector)[this.opts.shrinkTo - 1].classList.add('o-expander__last-permanent-item');
         }
-        this.displayState();
+        if (this.el.getAttribute('aria-expanded')) {
+            this.displayState();
+        } else {
+            this.collapse();
+        }
+
         this.toggle.addEventListener('click', this.invertState.bind(this));
     }
 }
@@ -78,10 +92,10 @@ Expander.prototype.isRequired = function () {
         }
     } else {
         if (this.isCollapsed()) {
-            overflows = this.el.clientHeight < this.el.scrollHeight;
+            overflows = this.contentEl.clientHeight < this.contentEl.scrollHeight;
         } else {
             this.collapse();
-            overflows = this.el.clientHeight < this.el.scrollHeight;
+            overflows = this.contentEl.clientHeight < this.contentEl.scrollHeight;
             this.expand();
         }
     }
