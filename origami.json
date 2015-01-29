@@ -1,0 +1,30 @@
+{
+    "description": "Experimental expander component",
+    "origamiVersion": 1,
+    "origamiType": "module",
+    "demos": [
+        {
+            "path": "/demos/height.html",
+            "expanded": true,
+            "description": "Expanding and collapsing according to a max-height rule defined in the stylesheet"
+        },
+        {
+            "path": "/demos/count.html",
+            "expanded": true,
+            "description": "Expanding and collapsing according to a maximum number of items allowed"
+        },
+        {
+            "path": "/demos/events.html",
+            "expanded": true,
+            "description": "Listening to expand/collapse events to make other things happen"
+        }
+    ],
+    "browserFeatures": {
+        "required": [
+            "classlist",
+            "customevent"
+        ]
+    },
+    "supportStatus": "experimental",
+    "support": "next.team@ft.com"
+}

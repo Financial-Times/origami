@@ -13,7 +13,8 @@
 	<link rel="stylesheet" href="/bundles/css?modules=o-expander:/demos/src/demo.scss" />
 </head>
 <body class="">
-<div data-o-component="o-expander" class="o-expander height" data-o-expander-shrink-to="height">
+<div style="max-width: 420px">
+<div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="height">
 	<h2>Enough room</h2>
 	<div class="o-expander__content">
 		line<br>
@@ -23,38 +24,34 @@
 	<button class="o-expander__toggle"></button>
 </div>
 
-<div data-o-component="o-expander" class="o-expander height" data-o-expander-shrink-to="height">
+<div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="height">
 	<h2>Not enough room</h2>
 	<div class="o-expander__content">
 		line<br>
 		line<br>
 		line<br>
 		line<br>
-		line<br>
-		line<br>
 		line
 	</div>
 	<button class="o-expander__toggle"></button>
 </div>
 
-<div data-o-component="o-expander" class="o-expander height" data-o-expander-shrink-to="height" aria-expanded="true">
+<div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="height" aria-expanded="true">
 	<h2>Not enough room, expanded on load</h2>
 	<div class="o-expander__content">
 		line<br>
 		line<br>
 		line<br>
 		line<br>
-		line<br>
-		line<br>
 		line
 	</div>
 	<button class="o-expander__toggle"></button>
 </div>
 
-<div data-o-component="o-expander" class="o-expander height" data-o-expander-shrink-to="height">
+<div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="height">
 	<h2>Enough roomness varies with page width</h2>
 	<div class="o-expander__content">
-		word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word
+		word word word word word word word word word word word word word word word word word word word word word word
 	</div>
 	<button class="o-expander__toggle"></button>
 </div>
@@ -62,8 +59,6 @@
 <div data-o-component="o-expander" class="o-expander items"  data-o-expander-shrink-to="2" data-o-expander-count-selector="li" aria-expanded="true">
 	<h2>Not enough room with list, expanded on load</h2>
 	<ul class="o-expander__content">
-		<li>item</li>
-		<li>item</li>
 		<li>item</li>
 		<li>item</li>
 		<li>item</li>
@@ -79,21 +74,18 @@
 		<li>item</li>
 		<li>item</li>
 		<li>item</li>
+	</ul>
+	<button class="o-expander__toggle"></button>
+</div>
+
+<div data-o-component="o-expander" class="o-expander items"  data-o-expander-shrink-to="2" data-o-expander-count-selector="li">
+	<h2>Enough room with list</h2>
+	<ul class="o-expander__content">
 		<li>item</li>
 		<li>item</li>
 	</ul>
 	<button class="o-expander__toggle"></button>
 </div>
-
-<div data-o-component="o-expander" class="o-expander items"  data-o-expander-shrink-to="4" data-o-expander-count-selector="li">
-	<h2>Enough room with list</h2>
-	<ul class="o-expander__content">
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-	</ul>
-	<button class="o-expander__toggle"></button>
 </div>
 <script src="/bundles/js?modules=o-expander:/demos/src/demo.js"></script>
 <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>

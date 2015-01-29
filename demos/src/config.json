@@ -5,9 +5,22 @@
   },
   "demos": [
     {
-      "name": "declarative",
-      "template": "demos/src/declarative.mustache",
+      "name": "height",
+      "description": "Expanding and collapsing according to a max-height rule defined in the stylesheet",
+      "template": "demos/src/height.mustache",
       "js": "demos/src/demo.js"
+    },
+    {
+      "name": "count",
+      "description": "Expanding and collapsing according to a maximum number of items allowed",
+      "template": "demos/src/count.mustache",
+      "js": "demos/src/demo.js"
+    },
+    {
+      "name": "events",
+      "description": "Listening to expand/collapse events to make other things happen",
+      "template": "demos/src/events.mustache",
+      "js": "demos/src/events.js"
     }
   ]
 }

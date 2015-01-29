@@ -1,13 +1,22 @@
 @import "o-ft-icons/main";
+@include oFtIconsFontFace();
+
+@import "o-fonts/main";
+@include oFontsInclude(BentonSans);
+
+@import "o-colors/main";
+
+@include oColorsSetUseCase(expander-text, text, black);
+@include oColorsSetUseCase(expander-icon, text, grey-tint2);
 
 .o-expander__content {
     overflow: hidden;
 }
 
 .o-expander__toggle {
-    font-family: arial;//$fontSans;
+    font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
     font-weight: normal;
-    color: black;//$next-black;
+    @include oColorsFor(expander-text, text);
     font-size: 12px;
     margin: 0;
     padding: 0;
@@ -16,7 +25,8 @@
     border: 0;
 
     i {
-        color: grey;//$next-grey-light;
+        @include oFtIconsBaseIconStyles();
+        @include oColorsFor(expander-icon, text);
         display: inline-block;
         padding: 0 6px;
         box-sizing: border-box;

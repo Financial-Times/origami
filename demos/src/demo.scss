@@ -1,5 +1,13 @@
 @import "./../../main";
 
-.height .o-expander__content {
+.o-expander {
+    max-width: 420px;
+}
+
+[data-o-expander-shrink-to="height"] .o-expander__content {
     max-height: 33px
+}
+
+.alert {
+    color: red;
 }

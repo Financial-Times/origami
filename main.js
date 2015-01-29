@@ -34,10 +34,10 @@ var Expander = function (el, opts) {
         document.body.addEventListener('oViewport.resize', this.init);
     }
 
-    this.init();
+    this.init(true);
 }
 
-Expander.prototype.init = function () {
+Expander.prototype.init = function (isSilent) {
     if (!this.isRequired()) {
         this.el.classList.add('o-expander--inactive');
     } else {
@@ -46,9 +46,9 @@ Expander.prototype.init = function () {
             this.el.querySelectorAll(this.opts.countSelector)[this.opts.shrinkTo - 1].classList.add('o-expander__last-permanent-item');
         }
         if (this.el.getAttribute('aria-expanded')) {
-            this.displayState();
+            this.displayState(isSilent);
         } else {
-            this.collapse();
+            this.collapse(isSilent);
         }
 
         this.toggle.addEventListener('click', this.invertState.bind(this));
@@ -64,24 +64,28 @@ Expander.prototype.invertState = function () {
     this.isCollapsed() ? this.expand() : this.collapse();
 }
 
-Expander.prototype.displayState = function (state) {
-    this.isCollapsed() ? this.collapse() : this.expand();
+Expander.prototype.displayState = function (isSilent) {
+    this.isCollapsed() ? this.collapse(isSilent) : this.expand(isSilent);
 }
 
-Expander.prototype.expand = function () {
+Expander.prototype.expand = function (isSilent) {
     this.el.setAttribute('aria-expanded', true);
     this.toggle.innerHTML = this.opts.expandedToggleText + '<i></i>';
-    this.emit('expand');
+    if (!isSilent) {
+        this.emit('expand');
+    }
 }
 
-Expander.prototype.collapse = function () {
+Expander.prototype.collapse = function (isSilent) {
     this.el.setAttribute('aria-expanded', false);
     this.toggle.innerHTML = this.opts.collapsedToggleText + '<i></i>';
-    this.emit('collapse');
+    if (!isSilent) {
+        this.emit('collapse');
+    }
 }
 
 Expander.prototype.emit = function (name) {
-    this.el.dispatchEvent(new CustomEvent('oExpander.' + name));
+    this.el.dispatchEvent(new CustomEvent('oExpander.' + name, {bubbles: true}));
 }
 
 Expander.prototype.isRequired = function () {
@@ -130,17 +134,3 @@ if (typeof window !== 'undefined') {
 module.exports = {
     init: init
 };
-
-
-    // this can all be event driven, outside the module
-    // if (!card.classList.contains('next-card--expanded')) {
-    //     if (setNaturalHeight) {
-    //         card.style.height = card.offsetHeight + 'px';
-    //     }
-    // }
-
-    // if (card.classList.contains('next-card--expanded')) {
-    //     if (setNaturalHeight) {
-    //         card.style.height = '';
-    //     }
-    // }
