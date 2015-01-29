@@ -1,25 +1,44 @@
 'use strict';
 
-var Expander = function (el, opts) {
-    opts = opts || {};
-    opts.shrinkToHeight = el.dataset.shrinkToHeight || opts.shrinkToHeight;
-    opts.shrinkToCount = el.dataset.shrinkToCount || opts.shrinkToCount;
-    opts.toggleSelector = el.dataset.toggleSelector || opts.toggleSelector;
-    opts.countSelector = el.dataset.countSelector || opts.countSelector;
-    opts.trackNaturalHeight = el.dataset.trackNaturalHeight || opts.trackNaturalHeight;
-    opts.responsive = el.dataset.responsive || opts.responsive;
+var toggleSelector = 'button.o-expander__toggle';
+var viewport = require('o-viewport');
 
-    if (!opts.shrinkToHeight && ! opts.shrinkToCount) {
-        throw('specify whhether you will be shrinking to a number of items or a given height');
+var Expander = function (el, opts) {
+    viewport.listenTo('resize');
+    viewport.listenTo('orientation');
+    opts = opts || {};
+    opts.shrinkTo = el.dataset.shrinkTo || opts.shrinkTo || 'height'; //height or number
+    opts.countSelector = el.dataset.countSelector || opts.countSelector;
+    opts.expandedToggleText = el.dataset.expandedToggleText || opts.expandedToggleText || 'less';
+    opts.collapsedToggleText = el.dataset.collapsedToggleText || opts.collapsedToggleText || 'more';
+
+    if (typeof opts.shrinkTo === 'number' && !opts.countSelector) {
+        throw('when collapsing to a number of items specify a selector to identify how many items exist');
     }
     this.el = el;
     this.opts = opts;
-    this.toggle = this.el.querySelector(this.opts.toggleSelector);
+    this.toggle = this.el.querySelector(toggleSelector);
     if (!this.toggle) {
-        throw('this expander needs a toggle button');
+        throw('this expander needs a toggle button (use a button not a link');
     }
-    this.displayState();
-    this.toggle.addEventListener('click', this.invertState.bind(this));
+
+    if (this.opts.shrinkTo === 'height') {
+        this.init = this.init.bind(this);
+        document.body.addEventListener('oViewport.orientation', this.init);
+        document.body.addEventListener('oViewport.resize', this.init);
+    }
+}
+
+Expander.prototype.init = function () {
+    if (!this.isRequired()) {
+        this.el.classList.add('o-expander--inactive');
+    } else {
+        if (typeof this.opts.shrinkTo === 'number') {
+            this.el.querySelectorAll(this.opts.countSelector)[this.opts.shrinkTo - 1].classList.add('o-expander__last-permanent-item');
+        }
+        this.displayState();
+        this.toggle.addEventListener('click', this.invertState.bind(this));
+    }
 }
 
 Expander.prototype.isCollapsed = function () {
@@ -37,13 +56,13 @@ Expander.prototype.displayState = function (state) {
 
 Expander.prototype.expand = function () {
     this.el.setAttribute('aria-expanded', true);
-    this.toggle.innerHTML = 'view fewer<i class="icon-arrow-up"></i>';
+    this.toggle.innerHTML = this.opts.expandedToggleText + '<i></i>';
     this.emit('expand');
 }
 
 Expander.prototype.collapse = function () {
     this.el.setAttribute('aria-expanded', false);
-    this.toggle.innerHTML = 'view more<i class="icon-arrow-down"></i>';
+    this.toggle.innerHTML = this.opts.collapsedToggleText + '<i></i>';
     this.emit('collapse');
 }
 
@@ -52,8 +71,21 @@ Expander.prototype.emit = function (name) {
 }
 
 Expander.prototype.isRequired = function () {
-    // work out if there's enough content to require an expander
-    // add a js class if there is
+    var overflows = false;
+    if (typeof this.opts.shrinkTo === 'number') {
+        if (this.el.querySelectorAll(this.opts.countSelector).length > this.opts.shrinkTo) {
+            overflows = true;
+        }
+    } else {
+        if (this.isCollapsed()) {
+            overflows = this.el.clientHeight < this.el.scrollHeight;
+        } else {
+            this.collapse();
+            overflows = this.el.clientHeight < this.el.scrollHeight;
+            this.expand();
+        }
+    }
+    return overflows;
 }
 
 var init = function(el, opts) {

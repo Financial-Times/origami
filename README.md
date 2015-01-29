@@ -4,22 +4,22 @@ Simple, fairly unopinionated widget for expanding and collapsing content
 Proposed api
 ``` javascript
 expander(el/selector, {
-  toggle: el/selector // defaults to finding e.g. .next-expander__toggle within the main el
-  shrinkToHeight: 100 // height in pixels to collapse to
-  shrinkToCount: 3 // number of els to show when collapsed
-  countSelector: 'li'
+  shrinkTo: 3 // 'height' in pixels to collapse to, or number of items
+  countSelector: 'li' // selector for identifying items to count
+  opts.expandedToggleText: 'less';
+  opts.collapsedToggleText: 'more'
 }
 ```
 
+All these can be set as data attributes too
+
 JS will
 
-- add/remove `[aria-expanded]` to the container 
-- when in shrinkToHeight mode will do some height measuring and setting
+- add/remove `[aria-expanded]` to the container
 - hide toggle when content fits comfortably in the shrunk mode
+- fires events and listens to viewport changes
 
 SASS will
 
 - provide styles for the toggle button
-- provide mixins for the expanded and collapsed state including maxHeight helper
-- possibly facilitate interacting with o-grid's respondTo
-- Have 'push content down' and 'sit on top of other content' modes
+- Have 'push content down' and 'sit on top of other content' modes (??? think this should be descoped probably )
