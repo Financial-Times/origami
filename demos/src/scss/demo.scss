@@ -70,7 +70,7 @@ $o-grid-mq-type: width;
 
 @include oFtIconsFontFace();
 
-i.demo__icon {
+.demo__icon {
 	@include oFtIconsBaseIconStyles();
 	display: block;
 	font-size: 20px;

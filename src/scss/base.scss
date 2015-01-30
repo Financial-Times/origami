@@ -8,8 +8,6 @@
 	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 	background: oColorsGetColorFor(o-header, background);
 	// Workaround so the brand colour goes to full width in XL screens
-	background-image: -webkit-linear-gradient(top, transparent 80px, $o-header-brand-color 20px);
-	background-image: -moz-linear-gradient(top, transparent 80px, $o-header-brand-color 20px);
 	background-image: linear-gradient(to bottom, transparent 80px, $o-header-brand-color 20px);
 
 	a {

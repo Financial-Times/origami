@@ -9,7 +9,7 @@
 		font-size: 14px;
 	}
 
-	li[aria-controls][aria-expanded="true"]:after {
+	[aria-controls][aria-expanded="true"]:after {
 			// CSS arrow for mega-dropdown
 			@include oHeaderDownArrow($_o-header-secondary-selected);
 			// Position the arrow below the secondary bar
@@ -17,6 +17,7 @@
 			z-index: $_o-hierarchical-nav-mega-dropdown-zindex+1;
 	}
 
+	// scss-lint:disable SelectorDepth
 	[data-o-hierarchical-nav-level='1'] {
 		> li > a {
 			line-height: 25px;
@@ -32,6 +33,7 @@
 			opacity: 1;
 		}
 	}
+	// scss-lint:enable SelectorDepth
 
 	// Padding for all a tags that aren't in the first hierarchical nav level
 	[data-o-hierarchical-nav-level]:not([data-o-hierarchical-nav-level='1']) {
