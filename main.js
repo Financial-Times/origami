@@ -59,7 +59,7 @@ Expander.prototype.apply = function (isSilent) {
         if (typeof this.opts.shrinkTo === 'number') {
             this.el.querySelectorAll(this.opts.countSelector)[this.opts.shrinkTo].classList.add('o-expander__first-collapsible-item');
         }
-        if (this.el.getAttribute('aria-expanded')) {
+        if (this.contentEl.getAttribute('aria-expanded')) {
             this.displayState(isSilent);
         } else {
             this.collapse(isSilent);
