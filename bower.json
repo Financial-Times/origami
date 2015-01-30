@@ -7,9 +7,8 @@
   "dependencies": {
     "o-colors": "^2.3.18",
     "o-ft-typography": "^1.12.1",
-    "o-grid": ">=3.0.0-beta.3 < 4.0.0",
+    "o-grid": ">=3.0.0-beta.5 < 4.0.0",
     "o-assets": "^0.4.0",
-    "o-fonts": "^1.4.1",
     "o-hoverable": ">=0.1.1 <0.3"
   }
 }

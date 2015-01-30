@@ -1,5 +1,4 @@
 @import "o-assets/main";
-@import "o-fonts/main";
 @import "o-ft-typography/main";
 @import "o-colors/main";
 @import "o-grid/main";
@@ -18,15 +17,12 @@ $o-footer-spacing-unit: 20px;
 @include oColorsSetUseCase(o-footer__divider, border, white);
 @include oColorsSetUseCase(o-footer-item, text, white);
 
-@include oFontsInclude(BentonSans);
-
 .o-footer {
 	@include oColorsFor(o-footer, text background);
 	@include oFtTypographyFontSize(14);
 	margin-top: 40px;
 	padding: 0;
 	border-top: 5px solid oColorsGetColorFor(o-footer-brand brand, border);
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 	line-height: $o-footer-spacing-unit;
 
 	> nav {
@@ -98,30 +94,16 @@ $o-footer-spacing-unit: 20px;
 	@include oGridRow($selector: '.o-footer__row');
 }
 .o-footer__col {
-	@include oGridColumn;
-	width: oGridColumnWidth(12);
-
-	@include oGridRespondTo(S) {
-		width: oGridColumnWidth(6);
-	}
-	@include oGridRespondTo(M) {
-		width: oGridColumnWidth(4);
-	}
-	@include oGridRespondTo(L) {
-		width: oGridColumnWidth(3);
-	}
-	@include oGridRespondTo(XL) {
-		width: oGridColumnWidth(2);
-	}
+	@include oGridColumn((default: 12, S: 6, M: 4, L: 3, XL: 2));
 }
 .o-footer__col--full-width {
-	width: oGridColumnWidth(12);
+	width: oGridColumnWidth(full-width);
 }
 
 .o-footer__copyright {
+	@include oFtTypographyFontSize(9, 14);
 	margin-top: $o-footer-spacing-unit/2;
 	margin-bottom: $o-footer-spacing-unit;
-	@include oFtTypographyFontSize(9, 14);
 
 	@include oGridRespondTo(M) {
 		@include oFtTypographyFontSize(11, 16);
