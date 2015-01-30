@@ -1,7 +1,7 @@
-/*global describe, it, expect*/
+/*global describe, it*/
 'use strict';
 
-expect = require('expect.js');
+var expect = require('expect.js');
 
 var oViewport = require('./../main.js');
 
