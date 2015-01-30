@@ -9,7 +9,7 @@
 
 .o-header__logo {
 	margin-right: $o-grid-gutter / 2;
-	
+
 	@include oGridRespondTo(M) {
 		margin-right: $o-grid-gutter;
 	}
