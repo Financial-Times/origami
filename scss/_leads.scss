@@ -5,7 +5,7 @@
 
 /// Large leader
 @mixin oFtTypographyLeadLarge {
-	font-family: Georgia, 'Times New Roman', serif;
+	font-family: Georgia, serif;
 	font-weight: normal;
 	@include oFtTypographyFontSize(21, 26);
 	@include oColorsFor(o-ft-typography-lead-large o-ft-typography-lead body, text);
@@ -14,7 +14,7 @@
 
 /// Medium leader
 @mixin oFtTypographyLeadMedium {
-	font-family: Georgia, 'Times New Roman', serif;
+	font-family: Georgia, serif;
 	font-weight: normal;
 	@include oFtTypographyFontSize(17, 21);
 	@include oColorsFor(o-ft-typography-lead-medium o-ft-typography-lead body, text);

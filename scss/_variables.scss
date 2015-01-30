@@ -9,6 +9,11 @@
 /// @type Bool
 $o-ft-typography-is-silent: true !default;
 
+/// Output @font-face declarations?
+/// nb: @font-face declarations will be removed in the next major version
+/// @type Bool
+$o-ft-typography-output-font-face-declarations: true !default;
+
 @include oColorsSetUseCase(o-ft-typography-heading-medium, border, pink-tint2);
 @include oColorsSetUseCase(o-ft-typography-heading-large, border, pink-tint4);
 @include oColorsSetUseCase(o-ft-typography-heading-large, text, black);

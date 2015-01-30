@@ -8,19 +8,16 @@
 	margin: 0 0 9px;
 	border-bottom: 1px dotted oColorsGetColorFor(o-ft-typography-article-body-lead, border);
 	padding: 0 0 14px;
-	font-family: Georgia, 'Times New Roman', serif;
+	font-family: Georgia, serif;
 	font-weight: normal;
 	@include oFtTypographyFontSize(21, 27);
 	@include oColorsFor(o-ft-typography-article-body-lead body, text);
 }
 
 /// Default article text style
-///
-/// @requires {mixin} oFtTypographyFontSize
-/// @requires {mixin} oColorsFor
 @mixin oFtTypographyArticleBody {
 	@include oFtTypographyFontSize(16, 24);
-	font-family: Georgia, 'Times New Roman', serif;
+	font-family: Georgia, serif;
 	font-weight: normal;
 	@include oColorsFor(o-ft-typography-article-body body, text);
 }
@@ -32,10 +29,6 @@
 }
 
 /// Styles for <ul> and <ol> articles
-///
-/// @requires {mixin} oFtTypographyArticleBody
-/// @requires {mixin} oFtTypographyArticleBody
-/// @requires {mixin} oFtTypographyArticleBodyBlock
 @mixin oFtTypographyArticleBodyList {
 	list-style-position: outside;
 	padding-left: 20px;
