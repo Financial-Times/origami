@@ -1,23 +1,6 @@
-# Header [![Build Status](https://travis-ci.org/Financial-Times/o-header.svg)](https://travis-ci.org/Financial-Times/o-header)
+# Header [![Build Status](https://travis-ci.org/Financial-Times/o-header.png?branch=version2)](https://travis-ci.org/Financial-Times/o-header)
 
 Responsive FT page header.
-
-Note: this module used to be called `o-ft-header` which is why there are references to that name in verions 1 and 2 of the module.
-
-## Quick Start
-
-1. Load the CSS and the JavaScript in the document
-2. Load additional modules such as `o-ft-icons` and `o-fonts` to display FT branded icons and text
-3. Copy the markup from [one of the demos](http://registry.origami.ft.com/components/o-header) in the registry, and paste it in a document
-4. Set a `font-family` and a `overflow-x` on the document root:
-
-```scss
-html {
-	font-family: BentonSans, sans-serif;
-	overflow-x: hidden; // Prevent navigation menus from creating extra space on sides of the page
-}
-```
-
 
 ## Browser Support
 
@@ -28,14 +11,16 @@ Tested and working on:
 |   Chrome   |        35+         |       35+       |
 |   Firefox  |        30+         |       30+       |
 |   Safari   |        7+          |       7+        |
-|   IE       |        8+          |       8+        |
+|   IE       |        9+          |       8+        |
 
 Known issues:
 
-* IE 6 and 7:
+* IE: 
 	* Masthead not displaying properly
 * IE8 and IE9:
 	* Secondary bar doesn't occupy full width of XL screens because they don't support _linear-gradient_.
+* IE8:
+	* It doesn't support the `<nav>` and `<header>` element. Products need to use HTML5Shiv which is bundled in Modernizr. Also, it runs as core experience.
 
 ## Element containers
 
@@ -50,7 +35,7 @@ The header consists of the following content containers:
 
 Each content container can contain one of the following:
 
-* Custom content - brand-specific logo/title etc
+* Custom content (e.g) - brand-specific logo/title etc
 * A title
 * Navigation (_primary_ theme)
 * Navigation (_secondary_ theme)
@@ -74,11 +59,11 @@ As for the Tools theme, it should only be used in a Primary Container, normally 
 ```html
 <nav class="o-header__primary__right o-hierarchical-nav o-header__nav--tools-theme" data-o-component="hierarchical-nav">
 	<ul data-o-hierarchical-nav-level="1"><!--
-	--><li data-priority="1"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--search"></i>Tool 1</a></li><!--
-	--><li data-priority="3"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--settings"></i>Tool 2</a></li><!--
-	--><li data-priority="4"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--share"></i>Tool 3</a></li><!--
-	--><li data-priority="2"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--profile"></i>Tool 4</a></li><!--
-	--><li data-more class="o-hierarchical-nav__parent" aria-hidden="true"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--hamburger"></i>More</a></li><!--
+	--><li data-priority="1"><a><i class="demo__icon demo__icon__search"></i>Tool 1</a></li><!--
+	--><li data-priority="3"><a><i class="demo__icon demo__icon__settings"></i>Tool 2</a></li><!--
+	--><li data-priority="4"><a><i class="demo__icon demo__icon__share"></i>Tool 3</a></li><!--
+	--><li data-priority="2"><a><i class="demo__icon demo__icon__account"></i>Tool 4</a></li><!--
+	--><li data-more class="o-hierarchical-nav__parent" aria-hidden="true"><a><i class="demo__icon demo__icon__more"></i>More</a></li><!--
 	--></ul>
 </nav>
 ```
@@ -119,6 +104,12 @@ If you want to have the FT logo on your website, you just need to have the follo
 </div>
 ```
 
+You can also have a 'Back to FT.com' button on your navigation based on the tools theme using this markup:
+
+```html
+<a href="http://ft.com"><i class="o-header__back-to-ft">Back to FT.com</i></a>
+```
+
 ## Adjusting widths
 
 The primary-left, primary-right, primary-featured and secondary-left need to have a fixed width for primary-centre to adjust appropriately. To change any the default widths, you would need to add the following variables to your stylesheet before importing this module's Sass:
@@ -135,11 +126,11 @@ You may specify specific widths for different layouts, [based on o-grid](https:/
 // always 254px wide
 $o-header-primary-left-width: 254px;
 
-// 254px wide by default, and 303px wide at the medium layout and up
+// 254px wide on the default layout, and 303px wide at the medium layout and up
 $o-header-primary-left-width: (default: 254px, M:  303px);
 ```
 
-## JavaScript instantiation
+## Javascript instantiation
 
 An __o-header__ object must be constructed for every `<header>` you have on your page that uses this module.
 
@@ -157,23 +148,19 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
-
 ## Upgrading from 2.x.x
-
-Note that o-header v3 relies on the [o-grid](https://github.com/Financial-Times/o-grid) v3 which introduces breaking changes.
 
 ### 1. Renaming the module
 
-- Rename all instances of `o-ft-header` into `o-header`.
-- Rename all instances of `oFtHeader` into `oHeader`.
+Rename all instances of `o-ft-header` into `o-header`.
+
+Rename all instances of `oFtHeader` into `oHeader`.
 
 ### 2. Markup changes
 
-#### `.o-header__inner`
-
 Add `<div class="o-header__inner">` in `<div class="o-header__container">`:
 
-```diff
+```html
 <header data-o-component="o-header" class="o-header">
 	<div class="o-header__container">
 +		<div class="o-header__inner">
@@ -188,31 +175,8 @@ Add `<div class="o-header__inner">` in `<div class="o-header__container">`:
 </header>
 ```
 
-#### `.o-header__back-to-ft` icon
-
-```html
-- <i class="o-header__back-to-ft">Back to FT.com</i>
-+ <i class="custom-ft-icon-class"></i>FT.com
-```
-
-See examples of custom FT icon classes in [demos/src/scss/demo.scss](https://github.com/Financial-Times/o-header/blob/master/demos/src/scss/demo.scss).
+Note that o-header v3 relies on the o-grid v3 which introduces breaking changes.
 
 ### 3. Font settings
 
-In the v2.x.x of o-header, the module loaded webfonts itself and was setting its own font-family.
-
-The header now inherits the `font-family` set in your application and doesn't embed web fonts anymore.
-
-Solution: products must load webfonts themselves (tipically, with [o-fonts](https://github.com/Financial-Times/o-fonts)).
-
-```html
-<!-- Load web fonts with @font-face declarations  -->
-<link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-fonts@^1" />
-
-<!-- Set the font family on the whole document -->
-<style>
-	html {
-		font-family: BentonSans, sans-serif;
-	}
-</style>
-```
+The header now inherits the `font-family` set in your application.
