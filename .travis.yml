@@ -6,4 +6,3 @@ before_install:
   - origami-build-tools install
 script:
   - origami-build-tools test
-  - origami-build-tools verify
