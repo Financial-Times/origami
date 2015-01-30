@@ -5,18 +5,17 @@ module.exports = {
 
 	'Step 1: Open page at 800 x 800': function(browser){
 		browser
-			.url("http://build.origami.ft.com/files/o-overlay@1.3.1/demos/modal.html")
+			.url("http://build.origami.ft.com/files/o-overlay@1.3.2/demos/centered-overlay.html")
 			.waitForElementVisible("button.o-overlay-trigger",5000)
 			.windowSize('current',800,800);
 	},
 
-	'Step 2: Test modal overlay loads' : function (browser) {
+	'Step 2: Test non-modal overlay loads' : function (browser) {
 		browser
 			.click("button.o-overlay-trigger")
-			.waitForElementVisible(".o-overlay--modal",5000)
-			.assert.elementPresent(".o-overlay-shadow","Found overlay-shadow; this is a modal overlay")
-			.assert.cssProperty(".o-overlay-shadow","background-color","rgba(0, 0, 0, 0.2)")
-			.assert.cssProperty(".o-overlay__heading","background-color","rgba(116, 115, 108, 1)")
+			.waitForElementVisible(".o-overlay",5000)
+			.assert.elementNotPresent(".o-overlay-shadow","Verified there is no overlay-shadow present")
+			.assert.cssProperty(".o-overlay__heading","background-color","rgba(0, 0, 0, 0)")
 			.assert.containsText(".o-overlay__content","Overlay content.")
 			.isVisible(".o-overlay__content",function(result){
 				this.assert.equal(result.value,true,"Overlay content is visible");
@@ -44,10 +43,10 @@ module.exports = {
 		var overlay_right;
 
 		browser
-			.getLocation(".o-overlay--modal", function(location){
+			.getLocation(".o-overlay", function(location){
 				overlay_left = location.value.x;
 			})
-			.getElementSize(".o-overlay--modal", function(size){
+			.getElementSize(".o-overlay", function(size){
 				overlay_right = overlay_left + size.value.width;
 				browser.assert.ok(overlay_left>window_first_third, "Left side of overlay appears centered on the page");
 				browser.assert.ok(overlay_right<window_second_third, "Right side of overlay appears centered on the page")
@@ -61,12 +60,12 @@ module.exports = {
 			.windowSize('current', 800,400, function(){
 				browser.waitForElementVisible("button.o-overlay-trigger",5000)
 				browser.execute(function(){
-					return document.getElementsByClassName("o-overlay--modal")[0].scrollHeight;
+					return document.getElementsByClassName("o-overlay")[0].scrollHeight;
 				},[],function(result){
 					scrollHeight = result.value;
 				})
 				browser.execute(function(){
-					return document.getElementsByClassName("o-overlay--modal")[0].clientHeight;
+					return document.getElementsByClassName("o-overlay")[0].clientHeight;
 				},[],function(result){
 					clientHeight = result.value;
 					browser.assert.equal(scrollHeight,clientHeight,"The scroll bar appeared when the window became smaller than the overlay");
