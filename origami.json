@@ -14,9 +14,9 @@
             "description": "Expanding and collapsing according to a maximum number of items allowed"
         },
         {
-            "path": "/demos/events.html",
+            "path": "/demos/fancy.html",
             "expanded": true,
-            "description": "Listening to expand/collapse events to make other things happen"
+            "description": "Fancy effects that can be built around the core o-expander experience"
         }
     ],
     "browserFeatures": {
