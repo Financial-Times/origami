@@ -1,62 +1,86 @@
 'use strict';
 
 var toggleSelector = 'button.o-expander__toggle';
+var contentSelector = '.o-expander__content';
 var viewport = require('o-viewport');
+var count = 0;
 
 var Expander = function (el, opts) {
     viewport.listenTo('resize');
     viewport.listenTo('orientation');
-    opts = opts || {};
-    opts.shrinkTo = el.dataset.oExpanderShrinkTo || opts.shrinkTo || 'height'; //height or number
-    opts.countSelector = el.dataset.oExpanderCountSelector || opts.countSelector;
-    opts.contentSelector = el.dataset.oExpanderContentSelector || opts.contentSelector || '.o-expander__content';
-    opts.expandedToggleText = el.dataset.oExpanderExpandedToggleText || opts.expandedToggleText || 'less';
-    opts.collapsedToggleText = el.dataset.oExpanderCollapsedToggleText || opts.collapsedToggleText || 'more';
+    this.opts = opts || {};
+    this.el = el;
+
+    this.configure('shrinkTo', 'height');
+    this.configure('countSelector', 'li');
+    this.configure('expandedToggleText', this.opts.shrinkTo === 'height' ? 'less' : 'fewer');
+    this.configure('collapsedToggleText', 'more');
 
 
-    if (/^\d+$/.test(opts.shrinkTo)) {
-        opts.shrinkTo = +opts.shrinkTo;
+    if (/^\d+$/.test(this.opts.shrinkTo)) {
+        this.opts.shrinkTo = +this.opts.shrinkTo;
     }
-    if (typeof opts.shrinkTo === 'number' && !opts.countSelector) {
+    if (typeof this.opts.shrinkTo === 'number' && !this.opts.countSelector) {
         throw('when collapsing to a number of items specify a selector to identify how many items exist');
     }
-    this.el = el;
-    this.contentEl = this.el.querySelector(opts.contentSelector);
-    this.opts = opts;
+
+    this.contentEl = this.el.querySelector(contentSelector);
+
     this.toggle = this.el.querySelector(toggleSelector);
+
     if (!this.toggle) {
         throw('this expander needs a toggle button (use a button not a link');
     }
+    this.ariaToggle();
 
     if (this.opts.shrinkTo === 'height') {
-        this.init = this.init.bind(this);
-        document.body.addEventListener('oViewport.orientation', this.init);
-        document.body.addEventListener('oViewport.resize', this.init);
+        this.apply = this.apply.bind(this);
+        document.body.addEventListener('oViewport.orientation', this.apply);
+        document.body.addEventListener('oViewport.resize', this.apply);
     }
 
-    this.init(true);
+    this.toggle.addEventListener('click', this.invertState.bind(this));
+
+    this.apply(true);
+    this.emit('init');
 }
 
-Expander.prototype.init = function (isSilent) {
+Expander.prototype.configure = function (setting, defaultVal) {
+    this.opts[setting] = this.el.getAttribute('data-o-expander-' + setting.replace(/[A-Z]/g, function ($0) {
+        return '-' + $0.toLowerCase();
+    })) || this.opts[setting] || defaultVal;
+}
+
+Expander.prototype.apply = function (isSilent) {
     if (!this.isRequired()) {
         this.el.classList.add('o-expander--inactive');
     } else {
         this.el.classList.remove('o-expander--inactive');
         if (typeof this.opts.shrinkTo === 'number') {
-            this.el.querySelectorAll(this.opts.countSelector)[this.opts.shrinkTo - 1].classList.add('o-expander__last-permanent-item');
+            this.el.querySelectorAll(this.opts.countSelector)[this.opts.shrinkTo].classList.add('o-expander__first-collapsible-item');
         }
         if (this.el.getAttribute('aria-expanded')) {
             this.displayState(isSilent);
         } else {
             this.collapse(isSilent);
         }
-
-        this.toggle.addEventListener('click', this.invertState.bind(this));
     }
 }
 
+Expander.prototype.ariaToggle = function () {
+    this.id = this.contentEl.id;
+
+    if (!this.id) {
+        while(document.querySelector('#o-expander-' + count)) {
+            count++;
+        }
+        this.id = this.contentEl.id = 'o-expander-' + count;
+    }
+    this.toggle.setAttribute('aria-controls', this.id);
+}
+
 Expander.prototype.isCollapsed = function () {
-    var attr = this.el.getAttribute('aria-expanded');
+    var attr = this.contentEl.getAttribute('aria-expanded');
     return !attr || attr === 'false';
 }
 
@@ -69,16 +93,20 @@ Expander.prototype.displayState = function (isSilent) {
 }
 
 Expander.prototype.expand = function (isSilent) {
-    this.el.setAttribute('aria-expanded', true);
+    this.contentEl.setAttribute('aria-expanded', true);
     this.toggle.innerHTML = this.opts.expandedToggleText + '<i></i>';
+    this.toggle.classList.add('o-expander__toggle--expanded');
+    this.toggle.classList.remove('o-expander__toggle--collapsed');
     if (!isSilent) {
         this.emit('expand');
     }
 }
 
 Expander.prototype.collapse = function (isSilent) {
-    this.el.setAttribute('aria-expanded', false);
+    this.contentEl.setAttribute('aria-expanded', false);
     this.toggle.innerHTML = this.opts.collapsedToggleText + '<i></i>';
+    this.toggle.classList.remove('o-expander__toggle--expanded');
+    this.toggle.classList.add('o-expander__toggle--collapsed');
     if (!isSilent) {
         this.emit('collapse');
     }

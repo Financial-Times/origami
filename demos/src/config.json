@@ -17,10 +17,10 @@
       "js": "demos/src/demo.js"
     },
     {
-      "name": "events",
-      "description": "Listening to expand/collapse events to make other things happen",
-      "template": "demos/src/events.mustache",
-      "js": "demos/src/events.js"
+      "name": "fancy",
+      "description": "Fancy effects that can be built around the core o-expander experience",
+      "template": "demos/src/fancy.mustache",
+      "js": "demos/src/fancy.js"
     }
   ]
 }

@@ -1,7 +1,9 @@
-@import "./../../main";
-
 .o-expander {
     max-width: 420px;
+}
+
+.o-expander__content {
+    background: white;
 }
 
 [data-o-expander-shrink-to="height"] .o-expander__content {
@@ -10,4 +12,28 @@
 
 .alert {
     color: red;
+}
+
+@import "./../../main";
+
+.o-expander.layout {
+    .static-container {
+        position: relative;
+        margin-bottom: 33px;
+    }
+    .o-expander__content {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.o-expander.animated {
+    .o-expander__content {
+        transition: max-height 0.5s;
+
+        &[aria-expanded="true"] {
+            max-height: 80px;
+        }
+    }
 }

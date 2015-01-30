@@ -13,6 +13,17 @@
     overflow: hidden;
 }
 
+.o-expander__content[aria-expanded="true"] {
+    max-height: none;
+}
+
+.o-expander__content[aria-expanded="false"] {
+    .o-expander__first-collapsible-item,
+    .o-expander__first-collapsible-item ~ * {
+        display: none;
+    }
+}
+
 .o-expander__toggle {
     font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
     font-weight: normal;
@@ -37,23 +48,15 @@
     }
 }
 
-.o-expander[aria-expanded="true"] {
-    .o-expander__content {
-        max-height: none;
-    }
-    .o-expander__toggle i {
-        @extend %o-ft-icons-icon--arrow-up;
-    }
+.o-expander__toggle i,
+.o-expander__toggle--expanded i {
+    @extend %o-ft-icons-icon--arrow-up;
 }
 
-.o-expander[aria-expanded="false"] {
-    .o-expander__last-permanent-item ~ * {
-        display: none;
-    }
-
-    .o-expander__toggle i {
-        @extend %o-ft-icons-icon--arrow-down;
-    }
+// temporary higher specicifity while having to work with the selector order
+// imposed by using extend. Eventually with mixins it won't be needed
+.o-expander__toggle.o-expander__toggle--collapsed i {
+    @extend %o-ft-icons-icon--arrow-down;
 }
 
 .o-expander--inactive .o-expander__toggle {

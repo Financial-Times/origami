@@ -1,6 +1,6 @@
-<div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="2" data-o-expander-count-selector="li" aria-expanded="true">
+<div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="2" data-o-expander-count-selector="li">
 	<h2>Not enough room with list, expanded on load</h2>
-	<ul class="o-expander__content">
+	<ul class="o-expander__content"  aria-expanded="true">
 		<li>item</li>
 		<li>item</li>
 		<li>item</li>
@@ -23,6 +23,17 @@
 <div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="2" data-o-expander-count-selector="li">
 	<h2>Enough room with list</h2>
 	<ul class="o-expander__content">
+		<li>item</li>
+		<li>item</li>
+	</ul>
+	<button class="o-expander__toggle"></button>
+</div>
+
+<div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="0" data-o-expander-count-selector="li">
+	<h2>Collapsing to nothing</h2>
+	<ul class="o-expander__content">
+		<li>item</li>
+		<li>item</li>
 		<li>item</li>
 		<li>item</li>
 	</ul>
