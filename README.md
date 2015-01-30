@@ -1,4 +1,4 @@
-# o-viewport [![Build Status](https://travis-ci.org/Financial-Times/o-dom.svg?branch=master)](https://travis-ci.org/Financial-Times/o-viewport)
+# o-viewport [![Build Status](https://travis-ci.org/Financial-Times/o-viewport.svg?branch=master)](https://travis-ci.org/Financial-Times/o-viewport)
 
 Utility for attaching debounced listeners to resize, scroll and orientation events on `window`.
 
@@ -26,7 +26,6 @@ setThrottleInterval('orientation', 300)
 ```
 
 The default value for each of these is 100ms
-
 
 ### `o-viewport#debug()`
 Turns on debug mode (logging event details to the console). 

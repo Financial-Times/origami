@@ -5,5 +5,5 @@ before_install:
   - npm install -g https://github.com/Financial-Times/origami-build-tools/tarball/node-0.10
   - origami-build-tools install
 script:
-  # - origami-build-tools test # Uncomment when tests are written
+  - origami-build-tools test
   - origami-build-tools verify

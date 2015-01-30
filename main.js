@@ -15,39 +15,34 @@ function broadcast(eventType, data) {
 	if (debug) {
 		console.log('o-viewport', eventType, data);
 	}
+
 	document.body.dispatchEvent(new CustomEvent('oViewport.' + eventType, {
 		detail: data,
 		bubbles: true
 	}));
 }
 
-var getOrientation = (function () {
+function getOrientation() {
 	var orientation = window.screen.orientation || window.screen.mozOrientation || window.screen.msOrientation || undefined;
 	if (orientation) {
-		return function () {
-			return typeof orientation === 'string' ?
-				orientation.split('-')[0] :
-				orientation.type.split('-')[0];
-		};
+		return typeof orientation === 'string' ?
+			orientation.split('-')[0] :
+			orientation.type.split('-')[0];
 	} else if (window.matchMedia) {
-		return function () {
-			return window.matchMedia('(orientation: portrait)').matches ? 'portrait' : 'landscape';
-		};
+		return window.matchMedia('(orientation: portrait)').matches ? 'portrait' : 'landscape';
 	} else {
-		return function () {
-			return window.innerHeight >= window.innerWidth ? 'portrait' : 'landscape';
-		};
+		return window.innerHeight >= window.innerWidth ? 'portrait' : 'landscape';
 	}
-})();
+}
 
-var getSize = function () {
+function getSize() {
 	return {
 		height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
 		width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
 	};
-};
+}
 
-function setThrottleInterval (eventType, interval) {
+function setThrottleInterval(eventType, interval) {
 	if (typeof arguments[0] === 'number') {
 		setThrottleInterval('scroll', arguments[0]);
 		setThrottleInterval('resize', arguments[1]);
@@ -58,16 +53,21 @@ function setThrottleInterval (eventType, interval) {
 }
 
 function init(eventType) {
-	if (initFlags[eventType]) return true;
+	if (initFlags[eventType]) {
+		return true;
+	}
 
 	initFlags[eventType] = true;
+	return false;
 }
 
-function listenToResize () {
+function listenToResize() {
 
-	if (init('resize')) return;
+	if (init('resize')) {
+		return;
+	}
 
-	window.addEventListener('resize', debounce(function (ev) {
+	window.addEventListener('resize', debounce(function(ev) {
 		broadcast('resize', {
 			viewport: getSize(),
 			originalEvent: ev
@@ -75,11 +75,13 @@ function listenToResize () {
 	}, intervals.resize));
 }
 
-function listenToOrientation () {
+function listenToOrientation() {
 
-	if (init('orientation')) return;
+	if (init('orientation')) {
+		return;
+	}
 
-	window.addEventListener('orientationchange', debounce(function (ev) {
+	window.addEventListener('orientationchange', debounce(function(ev) {
 		broadcast('orientation', {
 			viewport: getSize(),
 			orientation: getOrientation(),
@@ -88,11 +90,13 @@ function listenToOrientation () {
 	}, intervals.orientation));
 }
 
-function listenToScroll () {
+function listenToScroll() {
 
-	if (init('scroll')) return;
+	if (init('scroll')) {
+		return;
+	}
 
-	window.addEventListener('scroll', throttle(function (ev) {
+	window.addEventListener('scroll', throttle(function(ev) {
 		broadcast('scroll', {
 			viewport: getSize(),
 			scrollHeight: document.body.scrollHeight,
@@ -104,7 +108,7 @@ function listenToScroll () {
 	}, intervals.scroll));
 }
 
-function listenTo (eventType) {
+function listenTo(eventType) {
 	if (eventType === 'resize') {
 		listenToResize();
 	} else if (eventType === 'scroll') {
@@ -115,7 +119,7 @@ function listenTo (eventType) {
 }
 
 module.exports = {
-	debug: function () {
+	debug: function() {
 		debug = true;
 	},
 	listenTo: listenTo,
