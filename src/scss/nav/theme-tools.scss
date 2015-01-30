@@ -1,3 +1,8 @@
+.o-header nav,
+.o-header a {
+	user-select: none;
+}
+
 .o-header__nav--tools-theme {
 	@include oHierarchicalNavHorizontalTheme;
 	// Min width of the element should fit at least one tool item

@@ -6,7 +6,8 @@ module.exports = {
 		"template": "main.mustache",
 		"data": {
 			"content": require('fs').readFileSync('demos/src/content.html')
-		}
+		},
+		"dependencies": ["o-fonts@^1.4.0"]
 	},
 	"demos": [
 		{

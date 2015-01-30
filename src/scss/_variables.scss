@@ -8,7 +8,7 @@ $o-header-brand-color: oColorsGetColorFor(o-header-product-brand product-brand, 
 
 /// Left primary zone width
 /// @type {Number}
-$o-header-primary-left-width: 303px !default;
+$o-header-primary-left-width: (default: 254px, M:  303px) !default;
 
 /// Left secondary zone width
 /// @type {Number}

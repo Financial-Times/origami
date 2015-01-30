@@ -60,17 +60,17 @@ As for the Tools theme, it should only be used in a Primary Container, normally 
 
 ```html
 <nav class="o-header__primary__right o-hierarchical-nav o-header__nav--tools-theme" data-o-component="hierarchical-nav">
-    <ul data-o-hierarchical-nav-level="1"><!--
-        --><li data-priority="1"><a><i class="demo__icon demo__icon__search"></i>Tool 1</a></li><!--
-        --><li data-priority="3"><a><i class="demo__icon demo__icon__settings"></i>Tool 2</a></li><!--
-        --><li data-priority="4"><a><i class="demo__icon demo__icon__share"></i>Tool 3</a></li><!--
-        --><li data-priority="2"><a><i class="demo__icon demo__icon__account"></i>Tool 4</a></li><!--
-        --><li data-more class="o-hierarchical-nav__parent" aria-hidden="true"><a><i class="demo__icon demo__icon__more"></i>More</a></li><!--
-    --></ul>
+	<ul data-o-hierarchical-nav-level="1"><!--
+	--><li data-priority="1"><a><i class="demo__icon demo__icon__search"></i>Tool 1</a></li><!--
+	--><li data-priority="3"><a><i class="demo__icon demo__icon__settings"></i>Tool 2</a></li><!--
+	--><li data-priority="4"><a><i class="demo__icon demo__icon__share"></i>Tool 3</a></li><!--
+	--><li data-priority="2"><a><i class="demo__icon demo__icon__account"></i>Tool 4</a></li><!--
+	--><li data-more class="o-hierarchical-nav__parent" aria-hidden="true"><a><i class="demo__icon demo__icon__more"></i>More</a></li><!--
+	--></ul>
 </nav>
 ```
 
-### Responsiveness
+### Responsiveness
 
 On primary experience, all navigations use [o-squishy-list](https://github.com/Financial-Times/o-squishy-list) to set priorities to top level items and only show as many items it can to fit the available width.
 
@@ -114,11 +114,23 @@ You can also have a 'Back to FT.com' button on your navigation based on the tool
 
 ## Adjusting widths
 
-The primary-left, primary-right, primary-featured and secondary-left need to have a fixed width for primary-centre to adjust appropriately. To change any the default widths, you would need to add the following variables to your stylesheet before importing this module's sass:
+The primary-left, primary-right, primary-featured and secondary-left need to have a fixed width for primary-centre to adjust appropriately. To change any the default widths, you would need to add the following variables to your stylesheet before importing this module's Sass:
 
+```scss
 $o-header-primary-left-width
 $o-header-secondary-left-width
 $o-header-primary-featured-width
+```
+
+You may specify specific widths for different layouts, [based on o-grid](https://github.com/Financial-Times/o-grid):
+
+```scss
+// always 254px wide
+$o-header-primary-left-width: 254px;
+
+// 254px wide on the default layout, and 303px wide at the medium layout and up
+$o-header-primary-left-width: (default: 254px, M:  303px);
+```
 
 ## Javascript instantiation
 
@@ -146,12 +158,12 @@ Rename all instances of `o-ft-header` into `o-header`.
 
 Rename all instances of `oFtHeader` into `oHeader`.
 
-### 2. Changing the markup
+### 2. Markup changes
 
 Add `<div class="o-header__inner">` in `<div class="o-header__container">`:
 
 ```html
-<header data-o-component="o-header" class="o-header o-registry-demo-chunk">
+<header data-o-component="o-header" class="o-header">
 	<div class="o-header__container">
 +		<div class="o-header__inner">
 			<div class="o-header__primary">
@@ -166,3 +178,7 @@ Add `<div class="o-header__inner">` in `<div class="o-header__container">`:
 ```
 
 Note that o-header v3 relies on the o-grid v3 which introduces breaking changes.
+
+### 3. Font settings
+
+The header now inherits the `font-family` set in your application.

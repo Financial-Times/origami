@@ -8,7 +8,11 @@
 }
 
 .o-header__logo {
-	margin-right: 20px;
+	margin-right: $o-grid-gutter / 2;
+	
+	@include oGridRespondTo(M) {
+		margin-right: $o-grid-gutter;
+	}
 }
 
 // Styling for the FT logo
@@ -18,6 +22,7 @@
 		width: 60px;
 		height: 60px;
 	}
+
 	// The logo itself is a background in this abbr tag
 	abbr {
 		@include oHeaderLogo;
@@ -33,7 +38,12 @@
 .o-header__ft-masthead {
 	margin: 0;
 	padding: 0;
-	width: 218px;
+	width: 155px;
+
+	@include oGridRespondTo(M) {
+		width: 218px;
+		margin-top: -7px;
+	}
 
 	// The actual masthead is a background on the i tag
 	i {

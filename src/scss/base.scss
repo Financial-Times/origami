@@ -1,11 +1,7 @@
-
-@include oFontsInclude(BentonSans, normal);
-
 .o-header {
 	// 80 px for the primary container and 5 for an empty secondary or 25 for a secondary with content
 	min-height: 85px;
 	max-height: 125px;
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 	background: oColorsGetColorFor(o-header, background);
 	// Workaround so the brand colour goes to full width in XL screens
 	background-image: linear-gradient(to bottom, transparent 80px, $o-header-brand-color 20px);
@@ -94,11 +90,43 @@
 	vertical-align: middle;
 }
 .o-header__primary__left {
-	width: $o-header-primary-left-width;
+	@if type-of($o-header-primary-left-width) == map {
+		@each $layout-name, $header-primary-left-width in $o-header-primary-left-width {
+			@if $layout-name == default {
+				width: $header-primary-left-width;
+			} @else {
+				@include oGridRespondTo($layout-name) {
+					width: $header-primary-left-width;
+				}
+			}
+		}
+	}
+	@if type-of($o-header-primary-left-width) == number {
+		width: $o-header-primary-left-width;
+	}
 }
 
 .o-header__primary__featured {
-	width: $o-header-primary-featured-width;
+	display: none;
+
+	@include oGridRespondTo(M) {
+		display: table-cell;
+	}
+
+	@if type-of($o-header-primary-featured-width) == map {
+		@each $layout-name, $header-primary-left-width in $o-header-primary-featured-width {
+			@if $layout-name == default {
+				width: $header-primary-left-width;
+			} @else {
+				@include oGridRespondTo($layout-name) {
+					width: $header-primary-left-width;
+				}
+			}
+		}
+	}
+	@if type-of($o-header-primary-featured-width) == number {
+		width: $o-header-primary-featured-width;
+	}
 }
 
 // Secondary container
@@ -120,5 +148,18 @@
 
 // Inner containers for the secondary container
 .o-header__secondary__left {
-	width: $o-header-secondary-left-width;
+	@if type-of($o-header-secondary-left-width) == map {
+		@each $layout-name, $header-primary-left-width in $o-header-secondary-left-width {
+			@if $layout-name == default {
+				width: $header-primary-left-width;
+			} @else {
+				@include oGridRespondTo($layout-name) {
+					width: $header-primary-left-width;
+				}
+			}
+		}
+	}
+	@if type-of($o-header-secondary-left-width) == number {
+		width: $o-header-secondary-left-width;
+	}
 }
