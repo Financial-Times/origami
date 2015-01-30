@@ -10,3 +10,5 @@ specRunner.html
 karma_html
 demos/local
 docs/
+test/browser/screenshots
+test/browser/reports

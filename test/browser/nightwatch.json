@@ -1,0 +1,129 @@
+
+{
+  "src_folders" : ["tests"],
+  "output_folder" : "./test/browser/reports",
+  
+  "selenium" : {
+    "start_process" : false,
+    "server_path" : "",
+    "log_path" : ""
+  },
+  
+  "test_settings" : {
+    "default" : {
+      "launch_url" : "${TEST_URL}",
+      "selenium_port"  : 4444,
+      "selenium_host"  : "ftsel13-wvln-p.ftroot.com",
+      "silent": true,
+      "screenshots" : {
+        "enabled" : true,
+        "path" : "./test/browser/screenshots"
+      },
+      "username": "${SAUCE_USER}",
+      "access_key": "${SAUCE_KEY}",
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "version": "37",
+        "platform": "WINDOWS"
+      }
+    },
+    "chromeGrid" : {
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "version": "37",
+        "platform": "WINDOWS"
+      }
+    },
+    "chrome35" : {
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "version": "35",
+        "platform": "Windows 7"
+      }
+    },
+    "chrome36" : {
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "version": "36",
+        "platform": "Windows 7"
+      }
+    },
+    "chrome37" : {
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "version": "37",
+        "platform": "Windows 7"
+      }
+    },
+    "firefox30" : {
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "version": "30",
+        "platform": "Windows 7"
+      }
+    },
+    "firefox31" : {
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "version": "31",
+        "platform": "Windows 7"
+      }
+    },
+    "firefox32" : {
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "version": "32",
+        "platform": "Windows 7"
+      }
+    },
+    "firefox33" : {
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "version": "33",
+        "platform": "Windows 7"
+      }
+    },
+    "firefox34" : {
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "version": "34",
+        "platform": "Windows 7"
+      }
+    },
+    "firefox35" : {
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "version": "35",
+        "platform": "Windows 7"
+      }
+    },
+    "ie8" : {
+      "desiredCapabilities": {
+        "browserName": "internet explorer",
+        "version": "8",
+        "platform": "Windows 7"
+      }
+    },
+    "ie9" : {
+      "desiredCapabilities": {
+        "browserName": "internet explorer",
+        "version": "9",
+        "platform": "Windows 7"
+      }
+    },
+    "ie10" : {
+      "desiredCapabilities": {
+        "browserName": "internet explorer",
+        "version": "10.0",
+        "platform": "Windows 7"
+      }
+    },
+    "ie11" : {
+      "desiredCapabilities": {
+        "browserName": "internet explorer",
+        "version": "11",
+        "platform": "Windows 7"
+      }
+    }
+  }
+}
