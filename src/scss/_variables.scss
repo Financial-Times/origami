@@ -5,6 +5,15 @@
 $o-header-brand-color: oColorsGetColorFor(o-header-product-brand product-brand, background) !default;
 
 // Container widths that products can modify
+
+/// Left primary zone width
+/// @type {Number}
 $o-header-primary-left-width: 303px !default;
+
+/// Left secondary zone width
+/// @type {Number}
 $o-header-secondary-left-width: 150px !default;
+
+/// Primary featured zone width
+/// @type {Number}
 $o-header-primary-featured-width: 160px !default;

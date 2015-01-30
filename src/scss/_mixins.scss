@@ -17,8 +17,6 @@
 ///
 /// @param {Color} $color [#333333]
 /// @param {Number} $size [8px]
-///
-/// @require {Mixin} oHeaderArrow
 @mixin oHeaderDownArrow($color: #333333, $size: 8px) {
 	border-top: $size solid $color;
 	left: 50%;
@@ -29,8 +27,6 @@
 ///
 /// @param {Color} $color [#333333]
 /// @param {Number} $size [8px]
-///
-/// @require {Mixin} oHeaderArrow
 @mixin oHeaderUpArrow($color: #333333, $size: 8px) {
 	border-bottom: $size solid $color;
 	top: 80px - $size;

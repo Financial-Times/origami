@@ -43,8 +43,7 @@
 	}
 }
 .o-header__inner {
-	@include oGridColumn;
-	width: oGridColumnWidth(12);
+	@include oGridColumn(12);
 }
 
 // Alternative to the FT masthead
@@ -87,26 +86,20 @@
 }
 
 // Inner containers for the primary container
-
-.o-header__primary__left {
+.o-header__primary__left,
+.o-header__primary__center,
+.o-header__primary__right,
+.o-header__primary__featured,
+.o-header__secondary__left,
+.o-header__secondary__right {
 	display: table-cell;
 	vertical-align: middle;
+}
+.o-header__primary__left {
 	width: $o-header-primary-left-width;
 }
 
-.o-header__primary__center {
-	display: table-cell;
-	vertical-align: middle;
-}
-
-.o-header__primary__right {
-	display: table-cell;
-	vertical-align: middle;
-}
-
 .o-header__primary__featured {
-	display: table-cell;
-	vertical-align: middle;
 	width: $o-header-primary-featured-width;
 }
 
@@ -129,12 +122,5 @@
 
 // Inner containers for the secondary container
 .o-header__secondary__left {
-	display: table-cell;
 	width: $o-header-secondary-left-width;
-	vertical-align: middle;
-}
-
-.o-header__secondary__right {
-	display: table-cell;
-	vertical-align: middle;
 }

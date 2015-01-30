@@ -1,29 +1,28 @@
 // Default styling for logos used in the header and its container
-.o-header__logo {
-	margin-right: 20px;
+.o-header__logo,
+.o-header__logo > img,
+.o-header__logo > a,
+.o-header__ft-masthead {
 	display: inline-block;
 	vertical-align: middle;
-	> img {
-		display: inline-block;
-		vertical-align: middle;
-	}
+}
+
+.o-header__logo {
+	margin-right: 20px;
 }
 
 // Styling for the FT logo
 .o-header__logo--ft {
 	// Outer a tag that will contain the abbr tag
 	> a {
-		display: inline-block;
 		width: 60px;
 		height: 60px;
-
-		vertical-align: middle;
 	}
 	// The logo itself is a background in this abbr tag
 	abbr {
 		width: 100%;
 		height: 100%;
-		@include oHeaderLogo();
+		@include oHeaderLogo;
 		display: block;
 		text-indent: 100%;
 		overflow: hidden;
@@ -35,8 +34,7 @@
 	margin: 0;
 	padding: 0;
 	width: 218px;
-	display: inline-block;
-	vertical-align: middle;
+
 	// The actual masthead is a background on the i tag
 	i {
 		background: url(oHeaderAsset('img/ft-masthead.png')) no-repeat;
