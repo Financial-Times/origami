@@ -7,6 +7,7 @@ Widget for expanding and collapsing content
 <div data-o-component="o-expander" class="o-expander">
     <p>Preamble content (optional)</p>
     <div class="o-expander__content"></div>
+    <p>Midamble content (optional)</p>
     <button class="o-expander__toggle"></button>
     <p>Postamble content (optional)</p>
 </div>
