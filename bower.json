@@ -1,7 +1,6 @@
 {
   "name": "o-expander",
-  "version": "0.0.0",
-  "homepage": "https://github.com/Financial-Times/next-expander",
+  "homepage": "https://github.com/Financial-Times/o-expander",
   "authors": [
     "Rhys Evans <rhys.evans@ft.com>"
   ],
@@ -23,9 +22,9 @@
     "tests"
   ],
   "dependencies": {
-    "o-viewport": "~1.2.0",
-    "o-ft-icons": "~2.3.4",
-    "o-fonts": "~1.6.4",
-    "o-colors": "~2.4.4"
+    "o-viewport": "^1.2.0",
+    "o-ft-icons": "^2.3.4",
+    "o-fonts": "^1.6.4",
+    "o-colors": "^2.4.4"
   }
 }
