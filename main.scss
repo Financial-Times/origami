@@ -13,9 +13,14 @@
 }
 
 @mixin oBigNumberTitle {
+	display: block;
 	font-size: 34px;
 	font-weight: 100;
 	margin-bottom: 10px;
+}
+
+@mixin oBigNumberContent {
+	display: block;
 }
 
 @if $o-big-number-is-silent == false {
@@ -29,5 +34,9 @@
 
 	.o-big-number__title {
 		@include oBigNumberTitle;
+	}
+
+	.o-big-number__content {
+		@include oBigNumberContent;
 	}
 }
