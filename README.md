@@ -1,4 +1,4 @@
-# Header [![Build Status](https://travis-ci.org/Financial-Times/o-header.png?branch=version2)](https://travis-ci.org/Financial-Times/o-header)
+# Header [![Build Status](https://travis-ci.org/Financial-Times/o-ft-header.svg)](https://travis-ci.org/Financial-Times/o-ft-header)
 
 Responsive FT page header.
 
