@@ -1,7 +1,7 @@
 /*global OrigamiRegistry*/
+"use strict";
 
 function loadDemo(showtype) {
-	"use strict";
 	var palette = {},
 			roles = ['border', 'background', 'text', 'all'],
 			el = document.getElementById('results'),
@@ -25,20 +25,19 @@ function loadDemo(showtype) {
 				rule = rule.replace(/\/*[\s\S]*?\*\//g, '').replace(/\/\/.*/, '');
 				rule = rule.replace(/^\s+/, '').replace(/[,\s]+$/, '');
 
-				if (type == 'palette') {
-					var m = rule.split(/\s*:\s*/);
-					if (m && m.length == 2) {
+				if (type === 'palette') {
+					m = rule.split(/\s*:\s*/);
+					if (m && m.length === 2) {
 						palette[m[0]] = m[1];
 						if (showtype === 'palette' && paletteExclusions.indexOf(m[1]) === -1) {
 							el.innerHTML += '<div data-o-grid-colspan="12 M6 L3" class="demo-sample"><div class="demo-swatch o-colors-palette-'+m[0]+'"></div><span class="demo-name">'+m[0]+'</span><span class="demo-descrip">'+m[1]+'</span></div>';
 						}
 					}
 				} else {
-					var m = rule.match(/^([^\:]+)\:\s*\(([^\)]+)\)/);
+					m = rule.match(/^([^\:]+)\:\s*\(([^\)]+)\)/);
 					if (m) {
 						if (m[2].match(/_deprecated\s*:/)) return true;
 						var op = '<div data-o-grid-colspan="12 M6 L3" class="demo-sample"><div class="demo-swatch';
-						var props = {}
 						var tips = [];
 						roles.forEach(function(role) {
 							var rolematch = (new RegExp(role+"\\s*:\\s*([\\w-]+),")).exec(m[2]+',');
@@ -46,7 +45,7 @@ function loadDemo(showtype) {
 								op += ' o-colors-'+m[1]+'-'+role;
 								tips.push(role+': '+rolematch[1]);
 							}
-						})
+						});
 						op += '" title="'+tips.join(', ')+'"></div><span class="demo-name">'+m[1]+'</span></div>';
 						el.innerHTML += op;
 					}
