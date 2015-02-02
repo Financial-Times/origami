@@ -30,14 +30,14 @@ function loadDemo(showtype) {
 					if (m && m.length == 2) {
 						palette[m[0]] = m[1];
 						if (showtype === 'palette' && paletteExclusions.indexOf(m[1]) === -1) {
-							el.innerHTML += '<div data-o-grid-colspan="4 XL3 L3 M6 S12" class="demo-sample"><div class="demo-swatch o-colors-palette-'+m[0]+'"></div><span class="demo-name">'+m[0]+'</span><span class="demo-descrip">'+m[1]+'</span></div>';
+							el.innerHTML += '<div data-o-grid-colspan="12 M6 L3" class="demo-sample"><div class="demo-swatch o-colors-palette-'+m[0]+'"></div><span class="demo-name">'+m[0]+'</span><span class="demo-descrip">'+m[1]+'</span></div>';
 						}
 					}
 				} else {
 					var m = rule.match(/^([^\:]+)\:\s*\(([^\)]+)\)/);
 					if (m) {
 						if (m[2].match(/_deprecated\s*:/)) return true;
-						var op = '<div data-o-grid-colspan="4 XL3 L4 M6 S12" class="demo-sample"><div class="demo-swatch';
+						var op = '<div data-o-grid-colspan="12 M6 L3" class="demo-sample"><div class="demo-swatch';
 						var props = {}
 						var tips = [];
 						roles.forEach(function(role) {

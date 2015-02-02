@@ -1,24 +1,27 @@
-/**
- * Colour palette
- *
- * These are the colours that make up the FT palette.
- * We don't use these colours directly, but instead assign them to 'use cases',
- * which are defined in use-cases.scss.
- *
- * In the list below, each line contains a colour name and a colour code,
- * and is finished with a comma:
- *
- *  <colour name>:   <colour code>,
- *
- * The colour name must be a single word comprising just letters,
- * numbers, and dashes.
- *
- * You can have as many spaces between the colour name and the colour code
- * as you like (so you can line them up neatly), and you *MUST* finish the
- * line with a comma (except the final entry, which should not have a comma)
- */
+////
+/// @group o-colors
+/// @link http://registry.origami.ft.com/components/o-colors
+////
 
-
+/// Colour palette
+///
+/// These are the colours that make up the FT palette.
+/// We don't use these colours directly, but instead assign them to 'use cases',
+/// which are defined in use-cases.scss.
+///
+/// In the list below, each line contains a colour name and a colour code,
+/// and is finished with a comma:
+///
+/// 	<colour name>:   <colour code>,
+///
+/// The colour name must be a single word comprising just letters,
+/// numbers, and dashes.
+///
+/// You can have as many spaces between the colour name and the colour code
+/// as you like (so you can line them up neatly), and you *MUST* finish the
+/// line with a comma (except the final entry, which should not have a comma)
+///
+/// @type map
 $o-colors-palette: (
 	// Non-colour CSS values
 	transparent:           transparent,

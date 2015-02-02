@@ -1,6 +1,6 @@
 # Colours [![Build Status](https://travis-ci.org/Financial-Times/o-colors.png?branch=master)](https://travis-ci.org/Financial-Times/o-colors)
 
-This is an [Origami](http://origami.ft.com/) module that provides variables to define the FT digital colour palette.  For installation instructions, see the [registry page](http://registry.origami.ft.com/components/o-colors).
+This is an [Origami](http://origami.ft.com/) module that provides variables defining the FT digital colour palette, and helpers to use them in your products.  For installation instructions, see the [registry page](http://registry.origami.ft.com/components/o-colors).
 
 ## Usage
 
@@ -25,11 +25,11 @@ In the example above, the background and border colours are set, preferably from
 
 ### Use case function
 
-If you need to use a color value as part of a more complex CSS rule, eg a border color for just one side, or a gradient background, use the `oColorsGetColorFor` function:
+If you need to use a color value as part of a more complex CSS rule, e.g. a border color for just one side, or a gradient background, use the `oColorsGetColorFor` function:
 
 ```scss
 .my-thing {
-    color: oColorsGetColorFor(article-life-arts-body article-body body, text, (default:blue));
+	color: oColorsGetColorFor(article-life-arts-body article-body body, text, (default: blue));
 }
 ```
 
@@ -37,8 +37,8 @@ The `oColorsGetColorFor` function takes three arguments:
 
 * **Use case list**: a list of colour use cases in order of preference.  The first one that is defined for the specified property will be returned
 * **Property**: The property that you want to use the colour for (background, border, or text).  Note that in contrast to the `oColorsFor` mixin, you must specify only one property.   Options are `background`, `border`, `text`, and `all`.
-* **Options**: A SASS *map* of additional options, all of which are optional, and may comprise:
-	* **default**: The name of a palette colour to return as the default if none of the specified use cases are defined for the desited property.  May also be set to null or undefined to return that instead of the built in default (which is transparent)
+* **Options**: A Sass *map* of additional options, all of which are optional, and may comprise:
+	* **default**: The name of a palette colour to return if none of the specified use cases are defined for the desired property.  May also be set to `null` or `undefined` to return that instead of the built in default (which is transparent)
 
 ### Palette colour function
 
@@ -52,16 +52,16 @@ If you have a colour use case not covered by those built into the colors module,
 
 ### Predefined classes
 
-By default, o-colors is **silent**, so it outputs **no classes**.  To use predefined classes, you must disable silent mode before importing the colors module (if you are using the build service, it will do this for you):
+By default, o-colors is **silent**, so it outputs **no classes**.  To use helper classes, you must disable silent mode before importing the colors module (if you are using the build service, it will do this for you):
 
 ```scss
-    $o-colors-is-silent: false;
+$o-colors-is-silent: false;
 ```
 
 You can then use predefined classes in your HTML.  All palette colors are available as `.o-colors-palette-[NAME]` (which style just `background-color`) and use cases are available as `.o-colors-[USECASE]-[PROPERTY]` (which style the appropriate property):
 
 ```html
-    <p class='o-colors-body-text'>Article text</p>
+<p class="o-colors-body-text">Article text</p>
 ```
 
 ## Defining custom use cases
@@ -96,7 +96,7 @@ Instructions for maintaining the color palette for non-developers:
 ### Making a change
 
 1. Open the GitHub app, go into the **o-colors** module and click the 'Branches' tab.
-1. Create a new branch by clicking the `+` icon at the right end of the `master` branch, and name it after your proposed change (using just letters, numbers and underscores) eg `forms_use_cases`.
+1. Create a new branch by clicking the `+` icon at the right end of the `master` branch, and name it after your proposed change (using just letters, numbers and underscores) e.g. `forms_use_cases`.
 1. Make sure your new branch is ticked, if not, double click it.
 1. Open the file you want to edit (created by Github on your computer) in a text editor such as [Sublime Text](http://www.sublimetext.com/) or [Brackets](http://brackets.io/) (don't just double click the file unless you've set up one of these editors to open `.scss` files by default)
 	* If you want to add or remove palette colours, the file you want is `src/scss/_palette.scss`

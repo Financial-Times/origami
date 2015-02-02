@@ -1,19 +1,24 @@
-/**
- * Colour use cases
- *
- * These mappings define what we use our colours for.
- *
- * Use case:           Must be a single word comprising just letters, numbers, and dashes.
- * Properties:         A SASS map of properties (must be 'border', 'text', 'background', or 'all')
- *                     against palette colours (must be an exact match for a name of a colour defined
- *                     in palette.scss).
- *
- * Special properties: You can use the following special properties to mark use cases:
- *
- *                     _deprecated: <msg>  Emits <msg> as a warning if referenced, but still works
- */
+////
+/// @group o-colors
+/// @link http://registry.origami.ft.com/components/o-colors
+////
 
 $o-colors-usecases: () !default;
+
+/// Colour use cases
+///
+/// @type map
+///
+/// These mappings define what we use our colours for.
+///
+/// Use case:           Must be a single word comprising just letters, numbers, and dashes.
+/// Properties:         A Sass map of properties (must be 'border', 'text', 'background', or 'all')
+///                     against palette colours (must be an exact match for a name of a colour defined
+///                     in palette.scss).
+///
+/// Special properties: You can use the following special properties to mark use cases:
+///
+///                     _deprecated: <msg>  Emits <msg> as a warning if referenced, but still works
 $o-colors-usecases: map-merge((
 
 //<use case>                <properties>

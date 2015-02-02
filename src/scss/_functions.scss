@@ -1,5 +1,11 @@
-// Return the CSS color for a palette colour name
+////
+/// @group o-colors
+/// @link http://registry.origami.ft.com/components/o-colors
+////
 
+/// Return the CSS color for a palette colour name
+///
+/// @param {String} $name
 @function oColorsGetPaletteColor($name) {
 	@if (map-has-key($o-colors-palette, $name)) {
 		@return map-get($o-colors-palette, $name);
@@ -14,8 +20,12 @@
 	@return oColorsGetPaletteColor($name);
 }
 
-// Return the defined palette colour name for a use case / property combination
-
+/// Return the defined palette colour name for a use case / property combination
+///
+/// @access private
+///
+/// @param {String} $usecase
+/// @param {String} $property
 @function _oColorsGetUseCase($usecase, $property) {
 	$props: map-get($o-colors-usecases, $usecase);
 	@if ($props) {
@@ -31,8 +41,14 @@
 	@return null;
 }
 
-// Return the CSS colour name of the first defined use case in a prioritised list for a use case / property combination
-
+/// Return the CSS colour name of the first defined use case in a prioritised list for a use case / property combination
+///
+/// @example scss
+/// .el { color: oColorsGetColorFor(); }
+///
+/// @param {list} $namelist
+/// @param {String} $property [all]
+/// @param {map} $options [()] - (default: xxx) name of a palette colour to return if none of the specified use cases are defined for the desired property
 @function oColorsGetColorFor($namelist, $property: all, $options: ()) {
 	$color: null;
 	@each $name in $namelist {
