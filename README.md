@@ -27,6 +27,7 @@ All the following can be passed in an options object in the second parameter of 
 * `countSelector` [`'.o-expander__content > li'`]: Selector for identifying items to count, relative to `.o-expander`
 * `expandedToggleText` [`'less|fewer'`]: Text to show on toggle button when expanded (defaults to fewer when in count mode, or less when in height mode);
 * `collapsedToggleText` [`'more'`]: Text to show on toggle button when collapsed
+* `toggleSelector`[`'button.o-expander__toggle'`]: Selector for expand/collapse toggle button. When using the default styling, with an arrow icon, will come for free
 
 ## Events
 o-expander fires the following events, which always fire before any repainting/layout occurs

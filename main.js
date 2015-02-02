@@ -12,6 +12,7 @@ var Expander = function (el, opts) {
     this.configure('countSelector', '.o-expander__content > li');
     this.configure('expandedToggleText', this.opts.shrinkTo === 'height' ? 'less' : 'fewer');
     this.configure('collapsedToggleText', 'more');
+    this.configure('toggleSelector', 'button.o-expander__toggle');
 
 
     if (/^\d+$/.test(this.opts.shrinkTo)) {
@@ -23,7 +24,7 @@ var Expander = function (el, opts) {
 
     this.contentEl = this.el.querySelector('.o-expander__content');
 
-    this.toggle = this.el.querySelector('button.o-expander__toggle');
+    this.toggle = this.el.querySelector(this.opts.toggleSelector);
 
     if (!this.toggle) {
         throw('this expander needs a toggle button (use a button not a link)');
@@ -39,7 +40,7 @@ var Expander = function (el, opts) {
     }
 
     this.toggle.addEventListener('click', this.invertState.bind(this));
-
+    this.el.setAttribute('data-o-expander-js', '');
     this.apply(true);
     this.emit('init');
 }
@@ -94,8 +95,7 @@ Expander.prototype.displayState = function (isSilent) {
 Expander.prototype.expand = function (isSilent) {
     this.contentEl.setAttribute('aria-expanded', true);
     this.toggle.innerHTML = this.opts.expandedToggleText + '<i></i>';
-    this.toggle.classList.add('o-expander__toggle--expanded');
-    this.toggle.classList.remove('o-expander__toggle--collapsed');
+    this.toggle.setAttribute('aria-pressed', '');
     if (!isSilent) {
         this.emit('expand');
     }
@@ -104,8 +104,7 @@ Expander.prototype.expand = function (isSilent) {
 Expander.prototype.collapse = function (isSilent) {
     this.contentEl.setAttribute('aria-expanded', false);
     this.toggle.innerHTML = this.opts.collapsedToggleText + '<i></i>';
-    this.toggle.classList.remove('o-expander__toggle--expanded');
-    this.toggle.classList.add('o-expander__toggle--collapsed');
+    this.toggle.removeAttribute('aria-pressed', '');
     if (!isSilent) {
         this.emit('collapse');
     }

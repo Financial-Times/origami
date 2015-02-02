@@ -49,13 +49,13 @@
 }
 
 .o-expander__toggle i,
-.o-expander__toggle--expanded i {
+.o-expander__toggle[aria-pressed] i {
     @extend %o-ft-icons-icon--arrow-up;
 }
 
 // temporary higher specicifity while having to work with the selector order
 // imposed by using extend. Eventually with mixins it won't be needed
-.o-expander__toggle.o-expander__toggle--collapsed i {
+[data-o-expander-js] .o-expander__toggle i {
     @extend %o-ft-icons-icon--arrow-down;
 }
 

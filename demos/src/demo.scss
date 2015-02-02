@@ -40,3 +40,21 @@
         }
     }
 }
+// temporary higher specicifity while having to work with the selector order
+// imposed by using extend. Eventually with mixins it won't be needed
+[data-o-expander-js] .custom-toggle {
+    background: green;
+    i:after {
+        content: ' v';
+    }
+}
+
+.custom-toggle,
+.custom-toggle[aria-pressed] {
+    background: red;
+    i:after {
+        content: ' x';
+    }
+}
+
+
