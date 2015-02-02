@@ -1,18 +1,15 @@
 'use strict';
 
-var toggleSelector = 'button.o-expander__toggle';
-var contentSelector = '.o-expander__content';
 var viewport = require('o-viewport');
 var count = 0;
 
 var Expander = function (el, opts) {
-    viewport.listenTo('resize');
-    viewport.listenTo('orientation');
+
     this.opts = opts || {};
     this.el = el;
 
     this.configure('shrinkTo', 'height');
-    this.configure('countSelector', 'li');
+    this.configure('countSelector', '.o-expander__content > li');
     this.configure('expandedToggleText', this.opts.shrinkTo === 'height' ? 'less' : 'fewer');
     this.configure('collapsedToggleText', 'more');
 
@@ -24,16 +21,18 @@ var Expander = function (el, opts) {
         throw('when collapsing to a number of items specify a selector to identify how many items exist');
     }
 
-    this.contentEl = this.el.querySelector(contentSelector);
+    this.contentEl = this.el.querySelector('.o-expander__content');
 
-    this.toggle = this.el.querySelector(toggleSelector);
+    this.toggle = this.el.querySelector('button.o-expander__toggle');
 
     if (!this.toggle) {
-        throw('this expander needs a toggle button (use a button not a link');
+        throw('this expander needs a toggle button (use a button not a link)');
     }
     this.ariaToggle();
 
     if (this.opts.shrinkTo === 'height') {
+        viewport.listenTo('resize');
+        viewport.listenTo('orientation');
         this.apply = this.apply.bind(this);
         document.body.addEventListener('oViewport.orientation', this.apply);
         document.body.addEventListener('oViewport.resize', this.apply);
@@ -71,10 +70,10 @@ Expander.prototype.ariaToggle = function () {
     this.id = this.contentEl.id;
 
     if (!this.id) {
-        while(document.querySelector('#o-expander-' + count)) {
+        while(document.querySelector('#o-expander__toggle--' + count)) {
             count++;
         }
-        this.id = this.contentEl.id = 'o-expander-' + count;
+        this.id = this.contentEl.id = 'o-expander__toggle--' + count;
     }
     this.toggle.setAttribute('aria-controls', this.id);
 }

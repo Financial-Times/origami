@@ -4,10 +4,13 @@
 
 .o-expander__content {
     background: white;
+    line-height: 18px;
+    margin: 0;
+    padding: 0;
 }
 
 [data-o-expander-shrink-to="height"] .o-expander__content {
-    max-height: 33px
+    max-height: 36px
 }
 
 .alert {

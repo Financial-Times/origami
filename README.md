@@ -7,6 +7,7 @@ Widget for expanding and collapsing content
 <div data-o-component="o-expander" class="o-expander">
     <p>Preamble content (optional)</p>
     <div class="o-expander__content"></div>
+    <p>Midamble content (optional)</p>
     <button class="o-expander__toggle"></button>
     <p>Postamble content (optional)</p>
 </div>
@@ -23,7 +24,7 @@ This generally sticks to the [usual origami convention](http://origami.ft.com/do
 All the following can be passed in an options object in the second parameter of `oExpander#init()` or as data-attributes (hyphenated and prefixed by `o-expander` e.g. `data-o-expander-shrink-to="height"`)
 
 * `shrinkTo` [`'height'`]: A non-negative integer, indicating the number of items to show when collapsed, or the string `'height'`, which will collapse to a height defined in the CSS
-* `countSelector` [`'li'`]: Selector for identifying items to count
+* `countSelector` [`'.o-expander__content > li'`]: Selector for identifying items to count, relative to `.o-expander`
 * `expandedToggleText` [`'less|fewer'`]: Text to show on toggle button when expanded (defaults to fewer when in count mode, or less when in height mode);
 * `collapsedToggleText` [`'more'`]: Text to show on toggle button when collapsed
 
