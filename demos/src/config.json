@@ -3,7 +3,7 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"bodyClasses": "o-techdocs-content",
-		"dependencies": ["o-techdocs@^3.3.0"]
+		"dependencies": ["o-techdocs@^4.0.0"]
 	},
 	"demos": [
 		{
