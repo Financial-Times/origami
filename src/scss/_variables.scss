@@ -4,13 +4,13 @@ $_o-forms-fieldborder-width: 1px;
 $_o-forms-fieldborder: $_o-forms-fieldborder-width solid oColorsGetColorFor(o-forms-field-standard, border);
 $_o-forms-field-borderradius: 5px;
 
-$_o-form-field-small-fontsize: 14px;
-$_o-form-field-default-fontsize: 16px;
+$_o-forms-field-small-fontsize: 14px;
+$_o-forms-field-default-fontsize: 16px;
 
-$_o-form-field-small-padding-topbottom: 3px;
-$_o-form-field-default-padding-leftright: 5px;
-$_o-form-field-default-padding-top: 7px;
-$_o-form-field-default-padding-bottom: 8px;
+$_o-forms-field-small-padding-topbottom: 3px;
+$_o-forms-field-default-padding-leftright: 5px;
+$_o-forms-field-default-padding-top: 7px;
+$_o-forms-field-default-padding-bottom: 8px;
 
 $_o-forms-fieldgroup-padding: 6px;
 
@@ -25,5 +25,7 @@ $_o-forms-checkbox-default-ticksize: 24px;
 
 $_o-forms-label-marginbottom: 5px;
 
-$_o-form-select-iconsize: 19px;
-$_o-form-select-small-iconsize: 16px;
+$_o-forms-select-iconsize: 19px;
+$_o-forms-select-small-iconsize: 16px;
+
+$o-forms-font-family: BentonSans, sans-serif !default;

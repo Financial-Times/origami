@@ -45,9 +45,9 @@
 	white-space: nowrap;
 	border-top: $_o-forms-fieldborder;
 	border-bottom: $_o-forms-fieldborder;
-	padding: $_o-form-field-default-padding-top $_o-form-field-default-padding-leftright $_o-form-field-default-padding-bottom;
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-	font-size: $_o-form-field-default-fontsize;
+	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
+	font-family: $o-forms-font-family;
+	font-size: $_o-forms-field-default-fontsize;
 	text-align: center;
 	background-color: oColorsGetColorFor(o-forms-prefixsuffix, background);
 	color: oColorsGetColorFor(o-forms--prefixsuffix o-forms-field-standard, text);

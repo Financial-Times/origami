@@ -59,11 +59,11 @@
 ) {
 	cursor: pointer;
 	background-image: url(oAssetsResolve("svg/arrow-up-down.svg", o-ft-icons));
-	background-position: right $_o-form-field-default-padding-leftright center;
+	background-position: right $_o-forms-field-default-padding-leftright center;
 	background-repeat: no-repeat;
 	background-origin: border-box;
-	background-size: $_o-form-select-iconsize;
-	padding-right: $_o-form-select-iconsize + $_o-form-field-default-padding-leftright;
+	background-size: $_o-forms-select-iconsize;
+	padding-right: $_o-forms-select-iconsize + $_o-forms-field-default-padding-leftright;
 	//Code below hides default select arrow in FF
 	text-indent: 0.01px;
 	text-overflow: '';
@@ -80,10 +80,10 @@
 	'%o-forms__field--small',
 	'.o-forms__field--small'
 ) {
-	font-size: $_o-form-field-small-fontsize;
-	padding-top: $_o-form-field-small-padding-topbottom;
-	padding-bottom: $_o-form-field-small-padding-topbottom;
-	background-size: $_o-form-select-small-iconsize;
+	font-size: $_o-forms-field-small-fontsize;
+	padding-top: $_o-forms-field-small-padding-topbottom;
+	padding-bottom: $_o-forms-field-small-padding-topbottom;
+	background-size: $_o-forms-select-small-iconsize;
 }
 
 // TBC - This is to hide Chrome's style for autocompleted fields

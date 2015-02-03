@@ -8,8 +8,13 @@ This module provides FT-branded styles for commonly used form elements and their
 
 ## Upgrading from 0.x.x
 
+### 1. Module name change
 1. Search `o-ft-form` and replace with `o-form`
 2. Search `oFtForm` and replace with `oForm`
+
+### 2. Web fonts and icons
+
+Webfonts and icons need to be loaded by your app.
 
 ## Browser Support
 

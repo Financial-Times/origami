@@ -4,12 +4,12 @@
 	margin: 0;
 	border: $_o-forms-fieldborder;
 	border-radius: $_o-forms-field-borderradius;
-	padding: $_o-form-field-default-padding-top $_o-form-field-default-padding-leftright $_o-form-field-default-padding-bottom;
+	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
 	width: 100%;
 	background-color: oColorsGetColorFor(o-forms-field-standard, background);
 	color: oColorsGetColorFor(o-forms-field-standard, text);
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-	font-size: $_o-form-field-default-fontsize;
+	font-family: $o-forms-font-family;
+	font-size: $_o-forms-field-default-fontsize;
 	outline: none;
 }
 

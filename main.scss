@@ -1,3 +1,5 @@
+$o-ft-typography-output-font-face-declarations: false;
+
 @import "o-colors/main";
 @import "o-fonts/main";
 @import "o-ft-typography/main";
@@ -7,11 +9,6 @@
 @import "src/scss/color-use-cases";
 @import "src/scss/variables";
 @import "src/scss/mixins";
-
-@if (not $o-forms-is-silent) {
-	@include oFtTypographyIncludeFont(label);
-	@include oFtIconsFontFace();
-}
 
 @import "src/scss/fieldsets";
 @import "src/scss/fields";

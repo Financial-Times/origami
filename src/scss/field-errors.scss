@@ -11,7 +11,7 @@
 	display: block;
 	margin-top: -1px;
 	padding: 3px 5px;
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	font-family: $o-forms-font-family;
 	font-size: 14px;
 	font-style: normal;
 	font-weight: bold;

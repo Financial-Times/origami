@@ -15,7 +15,7 @@
 		margin: 0;
 		color: oColorsGetColorFor(o-forms-error-block, text);
 		font-size: 14px;
-		font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+		font-family: $o-forms-font-family;
 	}
 }
 
