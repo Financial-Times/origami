@@ -1,8 +1,8 @@
 {
-	"description": "Sass variables defining FT brand colours",
+	"description": "FT brand colours: Sass variables and helpers to use and define them",
 	"origamiType": "module",
 	"origamiVersion": 1,
-	"support": "dan.skinner@ft.com",
+	"support": "https://github.com/Financial-Times/o-colors/issues",
 	"supportStatus": "active",
 	"demos": [
 		"/demos/palette.html",
