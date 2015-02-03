@@ -7,8 +7,6 @@ $o-colors-usecases: () !default;
 
 /// Colour use cases
 ///
-/// @type map
-///
 /// These mappings define what we use our colours for.
 ///
 /// Use case:           Must be a single word comprising just letters, numbers, and dashes.
@@ -19,6 +17,8 @@ $o-colors-usecases: () !default;
 /// Special properties: You can use the following special properties to mark use cases:
 ///
 ///                     _deprecated: <msg>  Emits <msg> as a warning if referenced, but still works
+///
+/// @type map
 $o-colors-usecases: map-merge((
 
 //<use case>                <properties>
