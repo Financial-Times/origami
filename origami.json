@@ -1,11 +1,24 @@
 {
-	"description": "FT brand colours: Sass variables and helpers to use and define them",
-	"origamiType": "module",
-	"origamiVersion": 1,
-	"support": "https://github.com/Financial-Times/o-colors/issues",
-	"supportStatus": "active",
-	"demos": [
-		"/demos/palette.html",
-		"/demos/use-cases.html"
-	]
+    "description": "FT brand colours: Sass variables and helpers to use and define them",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "https://github.com/Financial-Times/o-colors/issues",
+    "supportStatus": "active",
+    "demos": [
+        {
+            "path": "/demos/palette.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/use-cases.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/sass-usage.html",
+            "expanded": false,
+            "description": ""
+        }
+    ]
 }
