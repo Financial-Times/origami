@@ -15,7 +15,7 @@ module.exports = {
 			.click("button.o-overlay-trigger")
 			.waitForElementVisible(".o-overlay--compact",5000)
 			.assert.elementNotPresent(".o-overlay-shadow","Verified there is no overlay-shadow present")
-			.assert.cssProperty(".o-overlay__heading","background-color","rgba(0, 0, 0, 0)")
+			.assert.cssPropertyNot(".o-overlay__heading","background-color","rgba(116, 115, 108, 1)")
 			.assert.containsText(".o-overlay__content","Overlay content.")
 			.isVisible(".o-overlay__content",function(result){
 				this.assert.equal(result.value,true,"Overlay content is visible");
