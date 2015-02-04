@@ -1,4 +1,4 @@
-# Header [![Build Status](https://travis-ci.org/Financial-Times/o-ft-header.svg)](https://travis-ci.org/Financial-Times/o-ft-header)
+# Header [![Build Status](https://travis-ci.org/Financial-Times/o-ft-header.svg?branch=update-grid)](https://travis-ci.org/Financial-Times/o-ft-header)
 
 Responsive FT page header.
 
@@ -126,11 +126,11 @@ You may specify specific widths for different layouts, [based on o-grid](https:/
 // always 254px wide
 $o-header-primary-left-width: 254px;
 
-// 254px wide on the default layout, and 303px wide at the medium layout and up
+// 254px wide by default, and 303px wide at the medium layout and up
 $o-header-primary-left-width: (default: 254px, M:  303px);
 ```
 
-## Javascript instantiation
+## JavaScript instantiation
 
 An __o-header__ object must be constructed for every `<header>` you have on your page that uses this module.
 
