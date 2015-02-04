@@ -3,7 +3,6 @@
 Responsive FT page header.
 
 Note: this module used to be called `o-ft-header` which is why there are references to that name in verions 1 and 2 of the module.
-
 ## Browser Support
 
 Tested and working on:
@@ -128,18 +127,18 @@ You may specify specific widths for different layouts, [based on o-grid](https:/
 // always 254px wide
 $o-header-primary-left-width: 254px;
 
-// 254px wide on the default layout, and 303px wide at the medium layout and up
+// 254px wide by default, and 303px wide at the medium layout and up
 $o-header-primary-left-width: (default: 254px, M:  303px);
 ```
 
-## Javascript instantiation
+## JavaScript instantiation
 
 An __o-header__ object must be constructed for every `<header>` you have on your page that uses this module.
 
 ```javascript
 var oHeader = require('o-header');
 var header = document.querySelector('.o-header');
-var myHeader = new oHeader(header);
+var ftHeader = new oHeader(header);
 ```
 
 Alternatively, a `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct an __o-header__ object for each element with a `data-o-component="o-header"` attribute:
