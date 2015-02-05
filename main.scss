@@ -2,8 +2,6 @@ $o-assets-global-path: '//build.origami.ft.com/files/';
 
 @import 'o-ft-typography/main';
 
-@include oFtTypographyIncludeFont(heading);
-
 @import 'o-colors/main';
 @import 'o-assets/main';
 
