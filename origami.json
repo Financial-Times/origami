@@ -6,7 +6,6 @@
     "supportStatus": "active",
     "browserFeatures": {
         "optional": [
-            "fontface",
             "textshadow"
         ]
     },
