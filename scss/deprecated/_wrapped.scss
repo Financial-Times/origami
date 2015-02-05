@@ -1,3 +1,4 @@
+// scss-lint:disable DeclarationOrder
 @mixin oFtTypographyCommonWrappedBodyStyles() {
 	@if $_o-ft-typography-deprecation-warnings {
 		@warn 'oFtTypographyCommonWrappedBodyStyles is deprecated and will be removed in the next major release';
@@ -60,7 +61,6 @@
 }
 
 @include oFtTypographySelectors(body-wrapper) {
-
 	h2 {
 		@include oFtTypographyExtend(heading5);
 	}
@@ -83,6 +83,5 @@
 		@include oFtTypographyExtend(body__list);
 	}
 
-	@include oFtTypographyCommonWrappedBodyStyles();
-
+	@include oFtTypographyCommonWrappedBodyStyles;
 }
