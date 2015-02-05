@@ -84,9 +84,19 @@ This can be turned off by setting a variable before you import the Sass:
 	
 	@import "o-ft-typography/main";
 
-If you're not turning off silent mode, you will need to to load the fonts required by the typography you are using (due to the limitations of sass' mixins, this cannot at present be done automatically):
+If you're not turning off silent mode, you will need to to load the fonts required by the typography you are using (due to the limitations of Sass' mixins, this cannot at present be done automatically):
 
 	@include oFtTypographyIncludeFont(heading); // downloads BentonSans-bold font given the current FT styles
 	@include oFtTypographyIncludeFont(metadata); // downloads BentonSans-normal font given the current FT styles
 
 If a typography use case doesn't require a `@fontface` declaration in current FT branding nothing will be output by `oFtTypographyIncludeFont()`, but it's still a good idea to call it for each use case you use as it will mean your module will cope seamlessly with updates to FT's typography.
+
+### Font-face declarations
+
+By default, this module will output font-face declarations for the required font-families. The next major version will not.
+
+To remove font-face declarations from the output, set:
+
+```scss
+$o-ft-typography-output-font-face-declarations: false;
+```
