@@ -1,27 +1,14 @@
 @if not $o-forms-is-silent {
 .o-forms-group {
-		position: relative;
-		padding-right: $_o-forms-fieldgroup-padding;
-		padding-left: $_o-forms-fieldgroup-padding;
-		margin-bottom: 20px;
+	@include oFormsGroup;
 }
 
 .o-forms-additional-info {
-	display: block;
-	margin-top: -2px;
-	margin-bottom: 4px;
-	color: oColorsGetColorFor(o-forms-field-additional-info body, text);
-	font-size: 12px;
-	line-height: 15px;
+	@include oFormsAdditionalInfo;
 }
 
 .o-forms-label {
-	display: block;
-	margin-bottom: $_o-forms-label-marginbottom;
-	font-size: 14px;
-	line-height: 17px;
-	font-weight: bold;
-	color: oColorsGetColorFor(o-forms-field-label body, text);
+	@include oFormsLabel;
 }
 
 // ============================================================================
@@ -35,29 +22,11 @@
 }
 
 .o-forms-select {
-	cursor: pointer;
-	background-image: url(oAssetsResolve("svg/arrow-up-down.svg", o-ft-icons));
-	background-position: right $_o-forms-field-default-padding-leftright center;
-	background-repeat: no-repeat;
-	background-origin: border-box;
-	background-size: $_o-forms-select-iconsize;
-	padding-right: $_o-forms-select-iconsize + $_o-forms-field-default-padding-leftright;
-
-	// Hide default select arrow in Firefox
-	text-indent: 0.01px;
-	text-overflow: '';
+	@include oFormsSelect;
 }
 
 .o-forms-textarea {
-	vertical-align: top;
+	@include oFormsTextarea;
 }
 
-.o-forms-text--small,
-.o-forms-select--small,
-.o-forms-textarea--small {
-	font-size: $_o-forms-field-small-fontsize;
-	padding-top: $_o-forms-field-small-padding-topbottom;
-	padding-bottom: $_o-forms-field-small-padding-topbottom;
-	background-size: $_o-forms-select-small-iconsize;
-}
 } // /Silent mode

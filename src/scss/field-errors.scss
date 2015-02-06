@@ -2,8 +2,7 @@
 .o-forms--error .o-forms-text,
 .o-forms--error .o-forms-select,
 .o-forms--error .o-forms-textarea {
-	border-color: oColorsGetColorFor(o-forms-field-invalid, border);
-	color: oColorsGetColorFor(o-forms-field-invalid o-forms-field-standard, text);
+	@include oFormsCommonFieldInvalid;
 }
 
 .o-forms-errortext {
@@ -16,5 +15,32 @@
 	font-style: normal;
 	font-weight: bold;
 	color: oColorsGetColorFor(o-forms-field-invalid, text);
+}
+
+// Block style to denote a collection of invalid fields useful in cases where specific field level validation is not appropriate
+.o-forms-error-wrapper {
+	// scss-lint:disable DuplicateProperty
+	background-color: oColorsGetColorFor(o-forms-error-block-fallback, background);
+	background-color: rgba(oColorsGetColorFor(o-forms-error-block, background), 0.15);
+	// scss-lint:enable DuplicateProperty
+
+	// Clearfix
+	zoom: 1;
+
+	&:before,
+	&:after {
+		content: ' ';
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+
+	.o-forms-message {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
 } // /Silent mode

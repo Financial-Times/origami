@@ -1,6 +1,10 @@
-@if not $o-forms-is-silent {
-// Styling for error messages to be used in conjuction with o-forms-error-wrapper for for the form as a whole
-.o-forms-message {
+////
+/// @group o-forms
+/// @link http://registry.origami.ft.com/components/o-forms
+////
+
+/// Messages styles
+@mixin oFormsMessage {
 	margin: 0 $_o-forms-fieldgroup-padding 16px;
 	padding: 0 $_o-forms-fieldgroup-padding;
 	border-radius: $_o-forms-field-borderradius;
@@ -12,37 +16,15 @@
 		line-height: 17px;
 		font-family: $o-forms-font-family;
 	}
+
+	&--error {
+		background-color: oColorsGetColorFor(o-forms-error-block, background);
+		color: oColorsGetColorFor(o-forms-error-block, text);
+	}
 }
 
-.o-forms-message--error {
-	background-color: oColorsGetColorFor(o-forms-error-block, background);
-	color: oColorsGetColorFor(o-forms-error-block, text);
-}
-
-// Block style to denote a collection of invalid fields useful in cases where specific field level validation is not appropriate
-.o-forms-error-wrapper {
-	// scss-lint:disable DuplicateProperty
-	background-color: oColorsGetColorFor(o-forms-error-block-fallback, background);
-	background-color: rgba(oColorsGetColorFor(o-forms-error-block, background), 0.15);
-	// scss-lint:enable DuplicateProperty
-
-	// Clearfix
-	zoom: 1;
-
-	&:before,
-	&:after {
-		content: ' ';
-		display: table;
-	}
-	&:after {
-		clear: both;
-	}
-
+@if not $o-forms-is-silent {
 	.o-forms-message {
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
-		margin-left: 0;
-		margin-right: 0;
+		@include oFormsMessage;
 	}
 }
-} // /Silent mode

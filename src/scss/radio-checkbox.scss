@@ -1,113 +1,130 @@
-@if not $o-forms-is-silent {
-.o-forms-checkbox,
-.o-forms-radio {
-	position: absolute;
-	opacity: 0; // better than display: none as it allows tabbing
+////
+/// @group o-forms
+/// @link http://registry.origami.ft.com/components/o-forms
+////
+
+/// Radio and checkboxes
+///
+/// @param {map} $selectors [(radio: '.o-forms-radio', checkbox: '.o-forms-checkbox', label: '.o-forms-label')]
+@mixin oFormsCheckboxRadio($selectors: (radio: '.o-forms-radio', checkbox: '.o-forms-checkbox', label: '.o-forms-label')) {
+	$checkbox: unquote(map-get($selectors, checkbox));
+	$radio: unquote(map-get($selectors, radio));
+	$label: unquote(map-get($selectors, label));
+
+	#{$checkbox},
+	#{$radio} {
+		position: absolute;
+		opacity: 0; // better than display: none as it allows tabbing
+	}
+
+
+	#{$checkbox} + #{$label},
+	#{$radio} + #{$label} {
+		display: inline-block;
+		margin-right: 15px;
+		padding-left: $_o-forms-radiocheckbox-default-size + 10px;
+		position: relative;
+		cursor: pointer;
+		font-weight: normal;
+		line-height: $_o-forms-radiocheckbox-default-size;
+		user-select: none;
+	}
+
+	// styling for small checkbox and radio button labels
+
+	#{$checkbox}--small + #{$label},
+	#{$radio}--small + #{$label} {
+		padding-left: $_o-forms-radiocheckbox-small-size + 10px;
+		line-height: $_o-forms-radiocheckbox-small-size;
+	}
+
+	// apply different text colour to checkboxes and radio labels on focus
+
+	#{$checkbox}:focus + #{$label},
+	#{$radio}:focus + #{$label} {
+		color: oColorsGetColorFor(o-forms-radiocheckbox-focus, text);
+	}
+
+	// styling for the border of checkboxes
+	#{$checkbox} + #{$label}:before,
+	#{$radio} + #{$label}:before {
+		position: absolute;
+		left: 0;
+		width: $_o-forms-radiocheckbox-default-size;
+		height: $_o-forms-radiocheckbox-default-size;
+		border: 1px solid oColorsGetColorFor(o-forms-field-standard, border);
+		box-sizing: border-box;
+		border-radius: 3px;
+		content: '';
+	}
+
+	// radio button border styles
+	#{$radio} + #{$label}:before {
+		// Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
+		border-radius: 9999px;
+	}
+
+	// styling for the border of small radio buttons and checkboxes
+
+	#{$checkbox}--small + #{$label}:before,
+	#{$radio}--small + #{$label}:before {
+		width: $_o-forms-radiocheckbox-small-size;
+		height: $_o-forms-radiocheckbox-small-size;
+	}
+
+	// apply different border colour to checkboxes and radio labels on focus
+	#{$checkbox}:focus + #{$label}:before,
+	#{$radio}:focus + #{$label}:before {
+		@include oColorsFor(o-forms-field-focus);
+	}
+
+	// styling for checked radio button
+
+	#{$radio}:checked + #{$label}:after {
+		background-color: oColorsGetColorFor(o-forms-radiocheckbox-checked, background);
+		content: '';
+		height: $_o-forms-radio-internal-default-size;
+		width: $_o-forms-radio-internal-default-size;
+		border-radius: 50%;
+		position: absolute;
+		left: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
+		top: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
+	}
+
+	// styling for small checked radio button
+
+	#{$radio}--small:checked + #{$label}:after {
+		height: $_o-forms-radio-internal-small-size;
+		width: $_o-forms-radio-internal-small-size;
+		left: ($_o-forms-radiocheckbox-small-size - $_o-forms-radio-internal-small-size) / 2;
+		top: ($_o-forms-radiocheckbox-small-size - $_o-forms-radio-internal-small-size) / 2;
+	}
+
+	// styling for checked checkbox
+
+	#{$checkbox}:checked + #{$label}:after {
+		content: '';
+		height: $_o-forms-radiocheckbox-default-size;
+		width: $_o-forms-radiocheckbox-default-size;
+		position: absolute;
+		left: 0;
+		background-image: url(oAssetsResolve("svg/tick.svg", o-ft-icons));
+		background-repeat: no-repeat;
+		background-size: $_o-forms-radiocheckbox-default-size * 3/4;
+		background-position: 50% 50%;
+	}
+
+	// styling for small checked checkbox
+	#{$checkbox}--small:checked + #{$label}:after {
+		height: $_o-forms-radiocheckbox-small-size;
+		width: $_o-forms-radiocheckbox-small-size;
+		left: 0;
+		background-size: $_o-forms-radiocheckbox-small-size * 3/4;
+	}
+
 }
 
 // styling for checkbox and radio button labels
-
-.o-forms-checkbox + .o-forms-label,
-.o-forms-radio + .o-forms-label {
-	display: inline-block;
-	margin-right: 15px;
-	padding-left: $_o-forms-radiocheckbox-default-size + 10px;
-	position: relative;
-	cursor: pointer;
-	font-weight: normal;
-	line-height: $_o-forms-radiocheckbox-default-size;
-	user-select: none;
+@if not $o-forms-is-silent {
+	@include oFormsCheckboxRadio;
 }
-
-// styling for small checkbox and radio button labels
-
-.o-forms-checkbox--small + .o-forms-label,
-.o-forms-radio--small + .o-forms-label {
-	padding-left: $_o-forms-radiocheckbox-small-size + 10px;
-	line-height: $_o-forms-radiocheckbox-small-size;
-}
-
-// apply different text colour to checkboxes and radio labels on focus
-
-.o-forms-checkbox:focus + .o-forms-label,
-.o-forms-radio:focus + .o-forms-label {
-	color: oColorsGetColorFor(o-forms-radiocheckbox-focus, text);
-}
-
-// styling for the border of checkboxes
-.o-forms-checkbox + .o-forms-label:before,
-.o-forms-radio + .o-forms-label:before {
-	position: absolute;
-	left: 0;
-	width: $_o-forms-radiocheckbox-default-size;
-	height: $_o-forms-radiocheckbox-default-size;
-	border: 1px solid oColorsGetColorFor(o-forms-field-standard, border);
-	box-sizing: border-box;
-	border-radius: 3px;
-	content: '';
-}
-
-// radio button border styles
-.o-forms-radio + .o-forms-label:before {
-	// Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
-	border-radius: 9999px;
-}
-
-// styling for the border of small radio buttons and checkboxes
-
-.o-forms-checkbox--small + .o-forms-label:before,
-.o-forms-radio--small + .o-forms-label:before {
-	width: $_o-forms-radiocheckbox-small-size;
-	height: $_o-forms-radiocheckbox-small-size;
-}
-
-// apply different border colour to checkboxes and radio labels on focus
-.o-forms-checkbox:focus + .o-forms-label:before,
-.o-forms-radio:focus + .o-forms-label:before {
-	@include oColorsFor(o-forms-field-focus);
-}
-
-// styling for checked radio button
-
-.o-forms-radio:checked + .o-forms-label:after {
-	background-color: oColorsGetColorFor(o-forms-radiocheckbox-checked, background);
-	content: '';
-	height: $_o-forms-radio-internal-default-size;
-	width: $_o-forms-radio-internal-default-size;
-	border-radius: 50%;
-	position: absolute;
-	left: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
-	top: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
-}
-
-// styling for small checked radio button
-
-.o-forms-radio--small:checked + .o-forms-label:after {
-	height: $_o-forms-radio-internal-small-size;
-	width: $_o-forms-radio-internal-small-size;
-	left: ($_o-forms-radiocheckbox-small-size - $_o-forms-radio-internal-small-size) / 2;
-	top: ($_o-forms-radiocheckbox-small-size - $_o-forms-radio-internal-small-size) / 2;
-}
-
-// styling for checked checkbox
-
-.o-forms-checkbox:checked + .o-forms-label:after {
-	content: '';
-	height: $_o-forms-radiocheckbox-default-size;
-	width: $_o-forms-radiocheckbox-default-size;
-	position: absolute;
-	left: 0;
-	background-image: url(oAssetsResolve("svg/tick.svg", o-ft-icons));
-	background-repeat: no-repeat;
-	background-size: $_o-forms-radiocheckbox-default-size * 3/4;
-	background-position: 50% 50%;
-}
-
-// styling for small checked checkbox
-.o-forms-checkbox--small:checked + .o-forms-label:after {
-	height: $_o-forms-radiocheckbox-small-size;
-	width: $_o-forms-radiocheckbox-small-size;
-	left: 0;
-	background-size: $_o-forms-radiocheckbox-small-size * 3/4;
-}
-} // /Silent mode
