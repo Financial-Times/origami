@@ -1,3 +1,4 @@
+@if not $o-forms-is-silent {
 .o-forms-affix-wrapper {
 	display: table;
 	width: 100%;
@@ -77,3 +78,4 @@
 	color: inherit;
 	user-select: none;
 }
+} // /Silent mode

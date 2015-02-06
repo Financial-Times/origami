@@ -41,13 +41,13 @@
 @mixin oFormsUnskin {
 	-moz-appearance: none !important;
 	-webkit-appearance: none !important;
-  border: 0 !important;
+	border: 0 !important;
 	background-color: transparent !important;
-  color: #333333 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+	color: #333333 !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 
-  // for iOS
-  -webkit-text-fill-color: #333333 !important;
-  opacity: 1 !important;
+	// for iOS
+	-webkit-text-fill-color: #333333 !important;
+	opacity: 1 !important;
 }

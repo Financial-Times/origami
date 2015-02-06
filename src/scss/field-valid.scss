@@ -1,5 +1,7 @@
+@if not $o-forms-is-silent {
 .o-forms--valid .o-forms-text,
 .o-forms--valid .o-forms-select,
 .o-forms--valid .o-forms-textarea {
 	border-color: oColorsGetColorFor(o-forms-field-valid, border);
 }
+} // /Silent mode

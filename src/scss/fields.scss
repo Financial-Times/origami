@@ -1,3 +1,4 @@
+@if not $o-forms-is-silent {
 .o-forms-group {
 		position: relative;
 		padding-right: $_o-forms-fieldgroup-padding;
@@ -59,3 +60,4 @@
 	padding-bottom: $_o-forms-field-small-padding-topbottom;
 	background-size: $_o-forms-select-small-iconsize;
 }
+} // /Silent mode

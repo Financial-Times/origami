@@ -1,3 +1,4 @@
+@if not $o-forms-is-silent {
 // Styling for error messages to be used in conjuction with o-forms-error-wrapper for for the form as a whole
 .o-forms-message {
 	margin: 0 $_o-forms-fieldgroup-padding 16px;
@@ -44,3 +45,4 @@
 		margin-right: 0;
 	}
 }
+} // /Silent mode

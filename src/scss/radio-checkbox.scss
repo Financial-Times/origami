@@ -1,3 +1,4 @@
+@if not $o-forms-is-silent {
 .o-forms-checkbox,
 .o-forms-radio {
 	position: absolute;
@@ -110,3 +111,4 @@
 	top: ($_o-forms-radiocheckbox-small-size - $_o-forms-radiocheckbox-small-size) / 2;
 	background-size: $_o-forms-radiocheckbox-small-size;
 }
+} // /Silent mode

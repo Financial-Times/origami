@@ -1,3 +1,4 @@
+@if not $o-forms-is-silent {
 .o-forms--error .o-forms-text,
 .o-forms--error .o-forms-select,
 .o-forms--error .o-forms-textarea {
@@ -16,3 +17,4 @@
 	font-weight: bold;
 	color: oColorsGetColorFor(o-forms-field-invalid, text);
 }
+} // /Silent mode
