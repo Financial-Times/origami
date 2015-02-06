@@ -96,19 +96,18 @@
 	height: $_o-forms-radiocheckbox-default-size;
 	width: $_o-forms-radiocheckbox-default-size;
 	position: absolute;
-	left: ($_o-forms-radiocheckbox-default-size - $_o-forms-radiocheckbox-default-size) / 2;
-	top: ($_o-forms-radiocheckbox-default-size - $_o-forms-radiocheckbox-default-size) / 2;
+	left: 0;
 	background-image: url(oAssetsResolve("svg/tick.svg", o-ft-icons));
 	background-repeat: no-repeat;
-	background-size: $_o-forms-radiocheckbox-default-size;
+	background-size: $_o-forms-radiocheckbox-default-size * 3/4;
+	background-position: 50% 50%;
 }
 
 // styling for small checked checkbox
 .o-forms-checkbox--small:checked + .o-forms-label:after {
 	height: $_o-forms-radiocheckbox-small-size;
 	width: $_o-forms-radiocheckbox-small-size;
-	left: ($_o-forms-radiocheckbox-small-size - $_o-forms-radiocheckbox-small-size) / 2;
-	top: ($_o-forms-radiocheckbox-small-size - $_o-forms-radiocheckbox-small-size) / 2;
-	background-size: $_o-forms-radiocheckbox-small-size;
+	left: 0;
+	background-size: $_o-forms-radiocheckbox-small-size * 3/4;
 }
 } // /Silent mode
