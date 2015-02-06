@@ -59,14 +59,14 @@ Each form field is made up of at least 3 elements:
 
 * A containing element defined by `.o-forms-group`.
 * Its label, defined by `.o-forms-label`.
-* One or more form controls (e.g. `input`, `select`, `textarea` elements), defined by `.o-forms__field`.
+* One or more form controls (e.g. `input`, `select`, `textarea` elements), defined by `.o-forms-text`, `.o-forms-select`, `.o-forms-textarea`.
 
 Example HTML:
 
 ```html
 <div class="o-forms-group">
 	<label class="o-forms-label">Text input disabled</label>
-	<input type="text" placeholder="placeholder" class="o-forms-text">
+	<input type="text" placeholder="placeholder" class="o-forms-text" />
 </div>
 ```
 
@@ -92,15 +92,15 @@ Example HTML:
 
 ###Validation states
 
-Validation styles are applied by adding `.o-forms--error` or `.o-forms--valid` to the field's containing element (typically, `.o-forms-group`). Child `.o-forms-label` and `.o-forms__field` elements will be styled appropriately.
+Validation styles are applied by adding `.o-forms--error` or `.o-forms--valid` to the field's containing element (typically, `.o-forms-group`). Child `.o-forms-label`, `.o-forms-text`, `.o-forms-select`, `.o-forms-checbox`, `.o-forms-radio`, `.o-forms-textarea` elements will be styled appropriately.
 
 An error message, defined with `.o-forms-errortext`, can be appended to the containing element.
 
 Example HTML:
 ```html
-<div class="o-forms-group o-forms--error">
+<div class="o-forms-group o-forms-error">
 	<label class="o-forms-label">Text input disabled</label>
-	<input type="text" placeholder="placeholder" class="o-forms__field" />
+	<input type="text" placeholder="placeholder" class="o-forms-text" />
 	<div class="o-forms-errortext">Please enter a valid url</div>
 </div>
 ```
@@ -109,26 +109,26 @@ Example HTML:
 
 For use-cases where validation rules need to be applied to a group of fields rather than just one field, all relevant fields should be wrapped in a block-level element defined with a class of `.o-forms-section`. Validation styles can then be added to this element with the `.o-forms-section--error` modifier class.
 
-An error message can be prepended to the element, defined by a class of `.o-forms-section__message--error`.
+An error message can be prepended to the element, defined by a class of `.o-forms-error-wrapper`.
 
 Example HTML:
 
 ```html
-<fieldset class="o-forms-section o-forms-section--error">
-	<div class="o-forms-section__message--error">
+<div class="o-error-wrapper">
+	<div class="o-forms-message o-forms-message--error">
  		<p>This is a section error message that highlights a group of fields</p>
 	</div>
 	<div class="o-forms-group"></div>
-</fieldset>
+</div>
 ```
 
 ### Global validation
 
-A global error message element exists for generic validation feedback and is defined with `.o-forms__global-message--error`.
+A global error message element exists for generic validation feedback and is defined with `.o-forms-message.o-forms-message--error`.
 
 ### Prefixes and suffixes
 
-Prefixes and suffixes are used for prepending or appending static text to a form control. The form control should be wrapped in a block-level element with a class of `.o-forms-affix-wrapper`. Prefixes (defined by `.o-forms__prefix`) and suffixes (defined by `.o-forms-suffix`) can then be prepended/appended to this wrapper element.
+Prefixes and suffixes are used for prepending or appending static text to a form control. The form control should be wrapped in a block-level element with a class of `.o-forms-affix-wrapper`. Prefixes (defined by `.o-forms-prefix`) and suffixes (defined by `.o-forms-suffix`) can then be prepended/appended to this wrapper element.
 
 Example HTML:
 
@@ -136,7 +136,7 @@ Example HTML:
 <div class="o-forms-group">
 	<label class="o-forms-label">Text input with suffix label</label>
 	<div class="o-forms-affix-wrapper">
-		<input type="text" class="o-forms__field" value="" />
+		<input type="text" class="o-forms-text" value="" />
 		<span class="o-forms-suffix">.com</span>
 	</div>
 </div>
@@ -144,11 +144,8 @@ Example HTML:
 
 ### Silent mode
 
-All of the above can be used in silent mode by extending your own class using their placeholder equivalents:
+Base form styles are available:
 
 ```scss
-.my-own-form-element {
-	@extend %o-forms-group;
-	// custom styles
-}
+#TODO
 ```
