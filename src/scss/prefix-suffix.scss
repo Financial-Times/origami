@@ -1,45 +1,32 @@
-@include oFormsPlaceholderOptionalSelector(
-	'%o-forms__affix-wrapper',
-	'.o-forms__affix-wrapper'
-) {
+.o-forms-affix-wrapper {
 	display: table;
 	width: 100%;
 	box-sizing: border-box;
 }
 
-@include oFormsPlaceholderOptionalSelector(
-	'%o-forms__field--affixed',
-	'.o-forms__affix-wrapper .o-forms__field--text,
-	.o-forms__affix-wrapper .o-forms__field--select'
-) {
+
+.o-forms-affix-wrapper .o-forms-text,
+.o-forms-affix-wrapper .o-forms-select {
 	display: table-cell;
 	border-radius: 0;
 }
 
-@include oFormsPlaceholderOptionalSelector(
-	'%o-forms__field--prefixed',
-	'.o-forms__affix-wrapper .o-forms__field--text:first-child,
-	.o-forms__affix-wrapper .o-forms__field--select:first-child'
-) {
+
+.o-forms-affix-wrapper .o-forms-text:first-child,
+.o-forms-affix-wrapper .o-forms-select:first-child {
 	border-top-left-radius: $_o-forms-field-borderradius;
 	border-bottom-left-radius: $_o-forms-field-borderradius;
 }
 
-@include oFormsPlaceholderOptionalSelector(
-	'%o-forms__field-suffixed',
-	'.o-forms__affix-wrapper .o-forms__field--text:last-child,
-	.o-forms__affix-wrapper .o-forms__field--select:last-child'
-) {
+
+.o-forms-affix-wrapper .o-forms-text:last-child,
+.o-forms-affix-wrapper .o-forms-select:last-child {
 	border-top-right-radius: $_o-forms-field-borderradius;
 	border-bottom-right-radius: $_o-forms-field-borderradius;
 }
 
-@include oFormsPlaceholderOptionalSelector(
-	'%o-forms__prefix,
-	%o-forms__suffix',
-	'.o-forms__prefix,
-	.o-forms__suffix'
-) {
+.o-forms-prefix,
+.o-forms-suffix {
 	display: table-cell;
 	width: 1%;
 	white-space: nowrap;
@@ -54,50 +41,33 @@
 	user-select: none;
 }
 
-@include oFormsPlaceholderOptionalSelector(
-	'%o-forms__prefix',
-	'.o-forms__prefix'
-) {
+.o-forms-prefix {
 	border-left: $_o-forms-fieldborder;
 	border-right: 0;
 	border-top-left-radius: $_o-forms-field-borderradius;
 	border-bottom-left-radius: $_o-forms-field-borderradius;
 }
 
-@include oFormsPlaceholderOptionalSelector(
-	'%o-forms__suffix',
-	'.o-forms__suffix'
-) {
+.o-forms-suffix {
 	border-right: $_o-forms-fieldborder;
 	border-left: 0;
 	border-top-right-radius: $_o-forms-field-borderradius;
 	border-bottom-right-radius: $_o-forms-field-borderradius;
 }
 
-@include oFormsPlaceholderOptionalSelector(
-	'%o-forms__prefix--error,
-	%o-forms__suffix--error',
-	'.o-forms--error .o-forms__prefix,
-	.o-forms--error .o-forms__suffix'
-) {
+.o-forms--error .o-forms-prefix,
+.o-forms--error .o-forms-suffix {
 	border-color: oColorsGetColorFor(o-forms-field-invalid, border);
 	color: oColorsGetColorFor(o-forms-field-invalid, text);
 }
 
-@include oFormsPlaceholderOptionalSelector(
-	'%o-forms__prefix--valid,
-	%o-forms__suffix--valid',
-	'.o-forms--valid .o-forms__prefix,
-	.o-forms--valid .o-forms__suffix'
-) {
+.o-forms--valid .o-forms-prefix,
+.o-forms--valid .o-forms-suffix {
 	@include oColorsFor(o-forms-field-valid, border text);
 }
 
-@include oFormsPlaceholderOptionalSelector(
-	'%o-forms__affix__button',
-	'.o-forms__prefix button,
-	.o-forms__suffix button'
-) {
+.o-forms-prefix button,
+.o-forms-suffix button {
 	border-width: 0;
 	margin: 0;
 	padding: 0;

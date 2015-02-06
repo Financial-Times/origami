@@ -1,6 +1,13 @@
-@mixin commonField() {
+////
+/// @group o-forms
+/// @link http://registry.origami.ft.com/components/o-forms
+////
+
+/// Common field styles
+@mixin oFormsCommonField {
 	box-sizing: border-box;
-	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
 	margin: 0;
 	border: $_o-forms-fieldborder;
 	border-radius: $_o-forms-field-borderradius;
@@ -11,39 +18,36 @@
 	font-family: $o-forms-font-family;
 	font-size: $_o-forms-field-default-fontsize;
 	outline: none;
+
+	&:focus {
+		@include oFormsCommonFieldFocus;
+	}
+	&:disabled {
+		@include oFormsCommonFieldDisabled;
+	}
 }
 
-@mixin commonFieldFocus() {
-	border-color: oColorsGetColorFor(o-forms-field-hover, border);
+/// Common field styles: focused state only
+@mixin oFormsCommonFieldFocus {
+	@include oColorsFor(o-forms-field-focus);
 }
 
-@mixin commonFieldDisabled() {
+/// Common field styles: disabled state only
+@mixin oFormsCommonFieldDisabled {
 	@include oColorsFor(o-forms-field-disabled);
 }
 
-@mixin oFormsClass($classes...) {
-	$aggregatedSelector: ();
-	@each $class in $classes {
-		$aggregatedSelector: append($aggregatedSelector, #{'%#{$class}'}, comma);
-		@if (not $o-forms-is-silent) {
-			$aggregatedSelector: append($aggregatedSelector, #{'.#{$class}'}, comma);
-		}
-	}
-	#{$aggregatedSelector} {
-		@content;
-	}
-}
+/// Unskin a field entirely, but keep its structure intact
+@mixin oFormsUnskin {
+	-moz-appearance: none !important;
+	-webkit-appearance: none !important;
+  border: 0 !important;
+	background-color: transparent !important;
+  color: #333333 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 
-/// Creates a ruleset from the content for one or more placeholders
-/// And optionally a set of selectors
-/// @param {String} $placeholder One or more placeholders, separated by commas
-/// @param {String} $selector Zero or more selectors, separated by commas
-@mixin oFormsPlaceholderOptionalSelector($placeholder, $selector) {
-	$aggregatedSelector: (unquote($placeholder));
-	@if (not $o-forms-is-silent) {
-		$aggregatedSelector: append($aggregatedSelector, #{$selector}, comma);
-	}
-	#{$aggregatedSelector} {
-		@content;
-	}
+  // for iOS
+  -webkit-text-fill-color: #333333 !important;
+  opacity: 1 !important;
 }

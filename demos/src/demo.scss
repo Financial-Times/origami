@@ -1,6 +1,10 @@
 $o-forms-is-silent: false;
 @import "../../main";
 
+body {
+	font-family: $o-forms-font-family;
+}
+
 .demo-column {
 	width: 50%;
 	float: left;

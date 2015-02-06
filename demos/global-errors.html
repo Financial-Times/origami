@@ -10,19 +10,18 @@
 	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=modernizr:borderradius,default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
 	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
-	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss" />
+	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss,o-fonts@^1.4.0,o-grid@^3.0.0" />
 </head>
 <body class="">
-<div class="o-forms__global-message--error">
+<div class="o-forms-message o-forms-message--error">
 	<p>This is a global error message that relates to the entire form</p>
 </div>
-<fieldset class="o-forms__section">
-	<div class="o-forms__field-group">
-		<label class="o-forms__label">Field label</label>
-		<small class="o-forms__additional-info">Additional field information</small>
-		<input type="text" placeholder="placeholder" class="o-forms__field--text" />
-	</div>
-</fieldset>
+<div class="o-forms-group">
+	<label class="o-forms-label">Field label</label>
+	<small class="o-forms-additional-info">Additional field information</small>
+	<input type="text" placeholder="placeholder" class="o-forms-text" />
+</div>
+
 
 <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
 </body>

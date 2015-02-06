@@ -10,52 +10,52 @@
 	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=modernizr:borderradius,default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
 	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
-	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss" />
+	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss,o-fonts@^1.4.0,o-grid@^3.0.0" />
 </head>
 <body class="">
 <div>
-	<div class="o-forms__field-group">
-		<label class="o-forms__label">Label</label>
-		<input type="checkbox" name="checkbox" value="1" class="o-forms__field" id="checkbox11" checked="checked" />
-		<label for="checkbox11" class="o-forms__label">Checkbox 1</label>
-		<input type="checkbox" name="checkbox" value="2" class="o-forms__field" id="checkbox12" />
-		<label for="checkbox12" class="o-forms__label">Checkbox 2</label>
-		<input type="checkbox" name="checkbox" value="3" class="o-forms__field" id="checkbox13" />
-		<label for="checkbox13" class="o-forms__label">Checkbox 3</label>
+	<div class="o-forms-group">
+		<label class="o-forms-label">Label</label>
+		<input type="checkbox" name="checkbox" value="1" class="o-forms-checkbox" id="checkbox11" checked="checked" />
+		<label for="checkbox11" class="o-forms-label">Checkbox 1</label>
+		<input type="checkbox" name="checkbox" value="2" class="o-forms-checkbox" id="checkbox12" />
+		<label for="checkbox12" class="o-forms-label">Checkbox 2</label>
+		<input type="checkbox" name="checkbox" value="3" class="o-forms-checkbox" id="checkbox13" />
+		<label for="checkbox13" class="o-forms-label">Checkbox 3</label>
 	</div>
 </div>
 <div>
-	<div class="o-forms__field-group">
-		<label class="o-forms__label">Label (valid)</label>
-		<input type="checkbox" name="checkbox2" value="1" class="o-forms__field" id="checkbox21" checked="checked" />
-		<label for="checkbox21" class="o-forms__label">Checkbox 1</label>
-		<input type="checkbox" name="checkbox2" value="2" class="o-forms__field" id="checkbox22" />
-		<label for="checkbox22" class="o-forms__label">Checkbox 2</label>
-		<input type="checkbox" name="checkbox2" value="3" class="o-forms__field" id="checkbox23" />
-		<label for="checkbox23" class="o-forms__label">Checkbox 3</label>
+	<div class="o-forms-group">
+		<label class="o-forms-label">Label (valid)</label>
+		<input type="checkbox" name="checkbox2" value="1" class="o-forms-checkbox" id="checkbox21" checked="checked" />
+		<label for="checkbox21" class="o-forms-label">Checkbox 1</label>
+		<input type="checkbox" name="checkbox2" value="2" class="o-forms-checkbox" id="checkbox22" />
+		<label for="checkbox22" class="o-forms-label">Checkbox 2</label>
+		<input type="checkbox" name="checkbox2" value="3" class="o-forms-checkbox" id="checkbox23" />
+		<label for="checkbox23" class="o-forms-label">Checkbox 3</label>
 	</div>
 </div>
 <div>
-	<div class="o-forms__field-group o-forms--error">
-		<label class="o-forms__label">Label (error)</label>
-		<input type="checkbox" name="checkbox3" value="1" class="o-forms__field" id="checkbox31" checked="checked" />
-		<label for="checkbox31" class="o-forms__label">Checkbox 1</label>
-		<input type="checkbox" name="checkbox3" value="2" class="o-forms__field" id="checkbox32" />
-		<label for="checkbox32" class="o-forms__label">Checkbox 2</label>
-		<input type="checkbox" name="checkbox3" value="3" class="o-forms__field" id="checkbox33" />
-		<label for="checkbox33" class="o-forms__label">Checkbox 3</label>
-		<div class="o-forms__errortext">Invalid entry</div>
+	<div class="o-forms-group o-forms--error">
+		<label class="o-forms-label">Label (error)</label>
+		<input type="checkbox" name="checkbox3" value="1" class="o-forms-checkbox" id="checkbox31" checked="checked" />
+		<label for="checkbox31" class="o-forms-label">Checkbox 1</label>
+		<input type="checkbox" name="checkbox3" value="2" class="o-forms-checkbox" id="checkbox32" />
+		<label for="checkbox32" class="o-forms-label">Checkbox 2</label>
+		<input type="checkbox" name="checkbox3" value="3" class="o-forms-checkbox" id="checkbox33" />
+		<label for="checkbox33" class="o-forms-label">Checkbox 3</label>
+		<div class="o-forms-errortext">Invalid entry</div>
 	</div>
 </div>
 <div>
-	<div class="o-forms__field-group o-forms--error">
-		<label class="o-forms__label">Small checkboxes</label>
-		<input type="checkbox" name="checkbox3" value="1" class="o-forms__field o-forms__field--small" id="checkbox41" checked="checked" />
-		<label for="checkbox41" class="o-forms__label">Checkbox 1</label>
-		<input type="checkbox" name="checkbox3" value="2" class="o-forms__field o-forms__field--small" id="checkbox42" />
-		<label for="checkbox42" class="o-forms__label">Checkbox 2</label>
-		<input type="checkbox" name="checkbox3" value="3" class="o-forms__field o-forms__field--small" id="checkbox43" />
-		<label for="checkbox43" class="o-forms__label">Checkbox 3</label>
+	<div class="o-forms-group o-forms--error">
+		<label class="o-forms-label">Small checkboxes</label>
+		<input type="checkbox" name="checkbox3" value="1" class="o-forms-checkbox o-forms-checkbox--small" id="checkbox41" checked="checked" />
+		<label for="checkbox41" class="o-forms-label">Checkbox 1</label>
+		<input type="checkbox" name="checkbox3" value="2" class="o-forms-checkbox o-forms-checkbox--small" id="checkbox42" />
+		<label for="checkbox42" class="o-forms-label">Checkbox 2</label>
+		<input type="checkbox" name="checkbox3" value="3" class="o-forms-checkbox o-forms-checkbox--small" id="checkbox43" />
+		<label for="checkbox43" class="o-forms-label">Checkbox 3</label>
 	</div>
 </div>
 

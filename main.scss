@@ -1,19 +1,12 @@
-$o-ft-typography-output-font-face-declarations: false;
-
 @import "o-colors/main";
-@import "o-fonts/main";
-@import "o-ft-typography/main";
-@import "o-ft-buttons/main";
-@import "o-hoverable/main";
 
 @import "src/scss/color-use-cases";
 @import "src/scss/variables";
 @import "src/scss/mixins";
 
-@import "src/scss/fieldsets";
 @import "src/scss/fields";
 @import "src/scss/radio-checkbox";
 @import "src/scss/prefix-suffix";
 @import "src/scss/field-errors";
 @import "src/scss/field-valid";
-@import "src/scss/global-and-section-messages";
+@import "src/scss/messages";

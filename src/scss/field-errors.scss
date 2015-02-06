@@ -1,12 +1,11 @@
-@include oFormsPlaceholderOptionalSelector('%o-forms__field--error, %o-forms__label--select--error, %o-forms__label--textarea--error',
-	'.o-forms--error .o-forms__field--text,
-	.o-forms--error .o-forms__field--select,
-	.o-forms--error .o-forms__field--textarea') {
+.o-forms--error .o-forms-text,
+.o-forms--error .o-forms-select,
+.o-forms--error .o-forms-textarea {
 	border-color: oColorsGetColorFor(o-forms-field-invalid, border);
 	color: oColorsGetColorFor(o-forms-field-invalid o-forms-field-standard, text);
 }
 
-@include oFormsPlaceholderOptionalSelector('%o-forms__errortext', '.o-forms__errortext') {
+.o-forms-errortext {
 	clear: both;
 	display: block;
 	margin-top: -1px;

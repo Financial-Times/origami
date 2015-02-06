@@ -10,25 +10,25 @@
 	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=modernizr:borderradius,default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
 	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
-	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss" />
+	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss,o-fonts@^1.4.0,o-grid@^3.0.0" />
 </head>
 <body class="">
-<div class="o-forms__field-group">
-	<label class="o-forms__label">Textarea</label>
-	<textarea placeholder="placeholder" class="o-forms__field--textarea"></textarea>
+<div class="o-forms-group">
+	<label class="o-forms-label">Textarea</label>
+	<textarea placeholder="placeholder" class="o-forms-textarea"></textarea>
 </div>
-<div class="o-forms__field-group">
-	<label class="o-forms__label">Textarea disabled</label>
-	<textarea placeholder="placeholder" class="o-forms__field--textarea" disabled="disabled"></textarea>
+<div class="o-forms-group">
+	<label class="o-forms-label">Textarea disabled</label>
+	<textarea placeholder="placeholder" class="o-forms-textarea" disabled="disabled"></textarea>
 </div>
-<div class="o-forms__field-group o-forms--valid">
-	<label class="o-forms__label">Textarea (valid)</label>
-	<textarea placeholder="placeholder" class="o-forms__field--textarea"></textarea>
+<div class="o-forms-group o-forms--valid">
+	<label class="o-forms-label">Textarea (valid)</label>
+	<textarea placeholder="placeholder" class="o-forms-textarea"></textarea>
 </div>
-<div class="o-forms__field-group o-forms--error">
-	<label class="o-forms__label">Textarea (error)</label>
-	<textarea placeholder="placeholder" class="o-forms__field--textarea"></textarea>
-	<div class="o-forms__errortext">Invalid entry</div>
+<div class="o-forms-group o-forms--error">
+	<label class="o-forms-label">Textarea (error)</label>
+	<textarea placeholder="placeholder" class="o-forms-textarea"></textarea>
+	<div class="o-forms-errortext">Invalid entry</div>
 </div>
 
 

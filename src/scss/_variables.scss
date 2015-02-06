@@ -1,4 +1,15 @@
+////
+/// @group o-forms
+/// @link http://registry.origami.ft.com/components/o-forms
+////
+
+/// Silent mode
+/// @type Bool
 $o-forms-is-silent: true !default;
+
+/// Field font family
+/// @type String
+$o-forms-font-family: BentonSans, sans-serif !default;
 
 $_o-forms-fieldborder-width: 1px;
 $_o-forms-fieldborder: $_o-forms-fieldborder-width solid oColorsGetColorFor(o-forms-field-standard, border);
@@ -14,18 +25,13 @@ $_o-forms-field-default-padding-bottom: 8px;
 
 $_o-forms-fieldgroup-padding: 6px;
 
-$_o-forms-radiocheckbox-small-size: 24px;
-$_o-forms-radiocheckbox-default-size: 36px;
+$_o-forms-radiocheckbox-small-size: 17px;
+$_o-forms-radiocheckbox-default-size: 24px;
 
 $_o-forms-radio-internal-small-size: 12px;
 $_o-forms-radio-internal-default-size: 18px;
-
-$_o-forms-checkbox-small-ticksize: 17px;
-$_o-forms-checkbox-default-ticksize: 24px;
 
 $_o-forms-label-marginbottom: 5px;
 
 $_o-forms-select-iconsize: 19px;
 $_o-forms-select-small-iconsize: 16px;
-
-$o-forms-font-family: BentonSans, sans-serif !default;

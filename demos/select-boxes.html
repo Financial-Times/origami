@@ -10,22 +10,22 @@
 	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=modernizr:borderradius,default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
 	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
-	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss" />
+	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss,o-fonts@^1.4.0,o-grid@^3.0.0" />
 </head>
 <body class="">
 <div class="demo-column">
-	<div class="o-forms__field-group">
-		<label class="o-forms__label">Select box</label>
-		<select class="o-forms__field--select">
+	<div class="o-forms-group">
+		<label class="o-forms-label">Select box</label>
+		<select class="o-forms-select">
 			<option value="option1">Option 1</option>
 			<option value="option2">Option 2</option>
 			<option value="option3">Option 3</option>
 			<option value="option4">Option 4</option>
 		</select>
 	</div>
-	<div class="o-forms__field-group o-forms--valid">
-		<label class="o-forms__label">Select box (valid)</label>
-		<select class="o-forms__field--select">
+	<div class="o-forms-group o-forms--valid">
+		<label class="o-forms-label">Select box (valid)</label>
+		<select class="o-forms-select">
 			<option value="option1">Option 1</option>
 			<option value="option2">Option 2</option>
 			<option value="option3">Option 3</option>
@@ -34,28 +34,28 @@
 	</div>
  </div>
 <div class="demo-column">
-	<div class="o-forms__field-group">
-		<label class="o-forms__label">Select box</label>
-		<select class="o-forms__field--select" disabled="disabled">
+	<div class="o-forms-group">
+		<label class="o-forms-label">Select box</label>
+		<select class="o-forms-select" disabled="disabled">
 			<option value="option1">Option 1</option>
 			<option value="option2">Option 2</option>
 			<option value="option3">Option 3</option>
 			<option value="option4">Option 4</option>
 		</select>
 	</div>
-	<div class="o-forms__field-group o-forms--error">
-		<label class="o-forms__label">Select box (error)</label>
-		<select class="o-forms__field--select">
+	<div class="o-forms-group o-forms--error">
+		<label class="o-forms-label">Select box (error)</label>
+		<select class="o-forms-select">
 			<option value="option1">Option 1</option>
 			<option value="option2">Option 2</option>
 			<option value="option3">Option 3</option>
 			<option value="option4">Option 4</option>
 		</select>
-		<div class="o-forms__errortext">Invalid entry</div>
+		<div class="o-forms-errortext">Invalid entry</div>
 	</div>
-	<div class="o-forms__field-group">
-		<label class="o-forms__label">Small select box</label>
-		<select class="o-forms__field--select o-forms__field--small">
+	<div class="o-forms-group">
+		<label class="o-forms-label">Small select box</label>
+		<select class="o-forms-select o-forms__field--small">
 			<option value="option1">Option 1</option>
 			<option value="option2">Option 2</option>
 			<option value="option3">Option 3</option>
