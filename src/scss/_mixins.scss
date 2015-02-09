@@ -52,6 +52,11 @@
 	@include oColorsFor(o-forms-field-invalid);
 }
 
+/// Common field styles: valid state
+@mixin oFormsCommonFieldValid {
+	border-color: oColorsGetColorFor(o-forms-field-valid, border);
+}
+
 /// Unskin a field entirely, but keep its structure intact
 @mixin oFormsUnskin {
 	-moz-appearance: none !important;
@@ -108,10 +113,10 @@
 
 /// Additional info
 @mixin oFormsAdditionalInfo {
-  display: block;
-  margin-top: -2px;
-  margin-bottom: 4px;
-  color: oColorsGetColorFor(o-forms-field-additional-info body, text);
-  font-size: 12px;
-  line-height: 15px;
+	display: block;
+	margin-top: -2px;
+	margin-bottom: 4px;
+	color: oColorsGetColorFor(o-forms-field-additional-info body, text);
+	font-size: 12px;
+	line-height: 15px;
 }

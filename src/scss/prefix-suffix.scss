@@ -58,8 +58,7 @@
 
 .o-forms--error .o-forms-prefix,
 .o-forms--error .o-forms-suffix {
-	border-color: oColorsGetColorFor(o-forms-field-invalid, border);
-	color: oColorsGetColorFor(o-forms-field-invalid, text);
+	@include oColorsFor(o-forms-field-invalid, border text);
 }
 
 .o-forms--valid .o-forms-prefix,

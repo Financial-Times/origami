@@ -31,7 +31,6 @@
 	}
 
 	// styling for small checkbox and radio button labels
-
 	#{$checkbox}--small + #{$label},
 	#{$radio}--small + #{$label} {
 		padding-left: $_o-forms-radiocheckbox-small-size + 10px;
@@ -39,7 +38,6 @@
 	}
 
 	// apply different text colour to checkboxes and radio labels on focus
-
 	#{$checkbox}:focus + #{$label},
 	#{$radio}:focus + #{$label} {
 		color: oColorsGetColorFor(o-forms-radiocheckbox-focus, text);
@@ -65,7 +63,6 @@
 	}
 
 	// styling for the border of small radio buttons and checkboxes
-
 	#{$checkbox}--small + #{$label}:before,
 	#{$radio}--small + #{$label}:before {
 		width: $_o-forms-radiocheckbox-small-size;
@@ -79,7 +76,6 @@
 	}
 
 	// styling for checked radio button
-
 	#{$radio}:checked + #{$label}:after {
 		background-color: oColorsGetColorFor(o-forms-radiocheckbox-checked, background);
 		content: '';
@@ -92,7 +88,6 @@
 	}
 
 	// styling for small checked radio button
-
 	#{$radio}--small:checked + #{$label}:after {
 		height: $_o-forms-radio-internal-small-size;
 		width: $_o-forms-radio-internal-small-size;
@@ -101,7 +96,6 @@
 	}
 
 	// styling for checked checkbox
-
 	#{$checkbox}:checked + #{$label}:after {
 		content: '';
 		height: $_o-forms-radiocheckbox-default-size;
