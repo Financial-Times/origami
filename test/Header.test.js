@@ -1,4 +1,4 @@
-/*global describe, it, before, afterEach*/
+/*global describe, it*/
 'use strict';
 
 var expect = require('expect.js');
@@ -39,6 +39,7 @@ describe('Header', function() {
 		anotherHeaderEl.appendChild(toolsNav);
 
 		var myHeader = new Header(anotherHeaderEl);
+		expect(myHeader.destroy).to.not.be(undefined);
 		expect(anotherHeaderEl.getAttribute('data-o-header--js')).to.not.be(null);
 		expect(primaryNav.getAttribute('data-o-hierarchical-nav--js')).to.not.be(null);
 		expect(secondaryNav.getAttribute('data-o-hierarchical-nav--js')).to.not.be(null);
