@@ -6,35 +6,12 @@
 }
 
 .o-forms-errortext {
-	clear: both;
-	display: block;
-	margin-top: -1px;
-	padding: 3px 5px;
-	font-family: $o-forms-font-family;
-	font-size: 14px;
-	font-style: normal;
-	font-weight: bold;
-	color: oColorsGetColorFor(o-forms-field-invalid, text);
+	@include oFormsErrorText;
 }
 
 // Block style to denote a collection of invalid fields useful in cases where specific field level validation is not appropriate
 .o-forms-error-wrapper {
-	// scss-lint:disable DuplicateProperty
-	background-color: oColorsGetColorFor(o-forms-error-block-fallback, background);
-	background-color: rgba(oColorsGetColorFor(o-forms-error-block, background), 0.15);
-	// scss-lint:enable DuplicateProperty
-
-	// Clearfix
-	zoom: 1;
-
-	&:before,
-	&:after {
-		content: ' ';
-		display: table;
-	}
-	&:after {
-		clear: both;
-	}
+	@include oFormsErrorWrapper;
 
 	.o-forms-message {
 		border-bottom-left-radius: 0;
