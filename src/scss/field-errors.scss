@@ -2,19 +2,22 @@
 .o-forms--error .o-forms-text,
 .o-forms--error .o-forms-select,
 .o-forms--error .o-forms-textarea {
-	border-color: oColorsGetColorFor(o-forms-field-invalid, border);
-	color: oColorsGetColorFor(o-forms-field-invalid o-forms-field-standard, text);
+	@include oFormsCommonFieldInvalid;
 }
 
 .o-forms-errortext {
-	clear: both;
-	display: block;
-	margin-top: -1px;
-	padding: 3px 5px;
-	font-family: $o-forms-font-family;
-	font-size: 14px;
-	font-style: normal;
-	font-weight: bold;
-	color: oColorsGetColorFor(o-forms-field-invalid, text);
+	@include oFormsErrorText;
+}
+
+// Block style to denote a collection of invalid fields useful in cases where specific field level validation is not appropriate
+.o-forms-error-wrapper {
+	@include oFormsErrorWrapper;
+
+	.o-forms-message {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
 } // /Silent mode

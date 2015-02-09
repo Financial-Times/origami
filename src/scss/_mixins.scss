@@ -25,16 +25,36 @@
 	&:disabled {
 		@include oFormsCommonFieldDisabled;
 	}
+	&--small {
+		@include oFormsCommonSmall;
+	}
 }
 
+/// Common field styles: small
+@mixin oFormsCommonSmall {
+	font-size: $_o-forms-field-small-fontsize;
+	padding-top: $_o-forms-field-small-padding-topbottom;
+	padding-bottom: $_o-forms-field-small-padding-topbottom;
+	background-size: $_o-forms-select-small-iconsize;
+}
 /// Common field styles: focused state only
 @mixin oFormsCommonFieldFocus {
 	@include oColorsFor(o-forms-field-focus);
 }
 
-/// Common field styles: disabled state only
+/// Common field styles: disabled state
 @mixin oFormsCommonFieldDisabled {
 	@include oColorsFor(o-forms-field-disabled);
+}
+
+/// Common field styles: invalid state
+@mixin oFormsCommonFieldInvalid {
+	@include oColorsFor(o-forms-field-invalid);
+}
+
+/// Common field styles: valid state
+@mixin oFormsCommonFieldValid {
+	border-color: oColorsGetColorFor(o-forms-field-valid, border);
 }
 
 /// Unskin a field entirely, but keep its structure intact
@@ -50,4 +70,85 @@
 	// for iOS
 	-webkit-text-fill-color: #333333 !important;
 	opacity: 1 !important;
+}
+
+/// Select styles
+@mixin oFormsSelect {
+	cursor: pointer;
+	background-image: url(oAssetsResolve("svg/arrow-up-down.svg", o-ft-icons));
+	background-position: right $_o-forms-field-default-padding-leftright center;
+	background-repeat: no-repeat;
+	background-origin: border-box;
+	background-size: $_o-forms-select-iconsize;
+	padding-right: $_o-forms-select-iconsize + $_o-forms-field-default-padding-leftright;
+
+	// Hide default select arrow in Firefox
+	text-indent: 0.01px;
+	text-overflow: '';
+}
+
+/// Textarea styles
+@mixin oFormsTextarea {
+	vertical-align: top;
+}
+
+/// Label styles
+@mixin oFormsLabel {
+	display: block;
+	margin-bottom: $_o-forms-label-marginbottom;
+	font-size: 14px;
+	line-height: 17px;
+	font-weight: bold;
+	color: oColorsGetColorFor(o-forms-field-label body, text);
+}
+
+/// Group styles
+@mixin oFormsGroup {
+	position: relative;
+	padding-right: $_o-forms-fieldgroup-padding;
+	padding-left: $_o-forms-fieldgroup-padding;
+	margin-bottom: 20px;
+}
+
+/// Additional info
+@mixin oFormsAdditionalInfo {
+	display: block;
+	margin-top: -2px;
+	margin-bottom: 4px;
+	color: oColorsGetColorFor(o-forms-field-additional-info body, text);
+	font-size: 12px;
+	line-height: 15px;
+}
+
+// Error text
+@mixin oFormsErrorText {
+	clear: both;
+	display: block;
+	margin-top: -1px;
+	padding: 3px 5px;
+	font-family: $o-forms-font-family;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;
+	color: oColorsGetColorFor(o-forms-field-invalid, text);
+}
+
+// Error zone wrapper
+@mixin oFormsErrorWrapper {
+	// scss-lint:disable DuplicateProperty
+	background-color: oColorsGetColorFor(o-forms-error-block-fallback, background);
+	background-color: rgba(oColorsGetColorFor(o-forms-error-block, background), 0.15);
+	// scss-lint:enable DuplicateProperty
+
+	// Clearfix
+	zoom: 1;
+
+	&:before,
+	&:after {
+		content: ' ';
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
 }

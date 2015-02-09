@@ -4,11 +4,6 @@
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-forms/issues",
     "supportStatus": "active",
-    "browserFeatures": {
-        "optional": [
-            "borderradius"
-        ]
-    },
     "ci": {
         "travis": "https://api.travis-ci.org/repos/Financial-Times/o-forms/builds.json"
     },

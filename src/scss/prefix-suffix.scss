@@ -5,20 +5,17 @@
 	box-sizing: border-box;
 }
 
-
 .o-forms-affix-wrapper .o-forms-text,
 .o-forms-affix-wrapper .o-forms-select {
 	display: table-cell;
 	border-radius: 0;
 }
 
-
 .o-forms-affix-wrapper .o-forms-text:first-child,
 .o-forms-affix-wrapper .o-forms-select:first-child {
 	border-top-left-radius: $_o-forms-field-borderradius;
 	border-bottom-left-radius: $_o-forms-field-borderradius;
 }
-
 
 .o-forms-affix-wrapper .o-forms-text:last-child,
 .o-forms-affix-wrapper .o-forms-select:last-child {
@@ -58,8 +55,7 @@
 
 .o-forms--error .o-forms-prefix,
 .o-forms--error .o-forms-suffix {
-	border-color: oColorsGetColorFor(o-forms-field-invalid, border);
-	color: oColorsGetColorFor(o-forms-field-invalid, text);
+	@include oColorsFor(o-forms-field-invalid, border text);
 }
 
 .o-forms--valid .o-forms-prefix,
