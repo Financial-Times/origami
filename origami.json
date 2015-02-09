@@ -6,7 +6,8 @@
 	"supportStatus": "active",
 	"browserFeatures": {
 		"required": [
-				"customevent"
+			"customevent",
+			"matchmedia"
 		]
 	}
 }
