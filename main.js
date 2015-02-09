@@ -15,6 +15,15 @@ var resourceLoader = require('./src/javascripts/resourceLoader.js');
 config.set(defaultConfig);
 
 /**
+ * Set user's session data if it's available.
+ */
+var userSession = oCommentUtilities.ftUser.getSession();
+if (userSession) {
+	config.set('sessionId', userSession);
+	oCommentApi.init('sessionId', userSession);
+}
+
+/**
  * Enable data caching.
  */
 oCommentApi.init('cache', true);
@@ -42,10 +51,6 @@ module.exports = {
 	init: function (keyOrObject, value) {
 		if (typeof keyOrObject === 'string') {
 			config.set(keyOrObject, value);
-
-			if (keyOrObject === 'sessionId') {
-				oCommentApi.init(keyOrObject, value);
-			}
 		} else if (typeof keyOrObject === 'object') {
 			if (keyOrObject.hasOwnProperty('dependencies') && keyOrObject.dependencies.hasOwnProperty('o-comment-api')) {
 				oCommentApi.init(keyOrObject.dependencies['o-comment-api']);
@@ -54,10 +59,6 @@ module.exports = {
 			}
 
 			config.set(keyOrObject, value);
-
-			if (keyOrObject.hasOwnProperty('sessionId')) {
-				oCommentApi.init('sessionId', keyOrObject.sessionId);
-			}
 		}
 	},
 
@@ -135,6 +136,11 @@ module.exports = {
 
 module.exports.on = globalEvents.on;
 module.exports.off = globalEvents.off;
+
+
+document.addEventListener('o.DOMContentLoaded', function () {
+	module.exports.initDomConstruct();
+});
 
 
 resourceLoader.loadLivefyreCore();

@@ -36,13 +36,7 @@ The module should be built using `browserify` (with `debowerify` and `textrequir
 ### init
 This method is responsible for changing the default configuration used by this module. Calling this method with an object will merge the default configuration with the object specified (deep merge, primitive type values of the same key will be overwritten).
 
-In order to use this module with authentication enabled, you should specify the user's session ID:
-
-```javascript
-oComments.init({
-    sessionId: 'sessID'
-});
-```
+Call this function before loading the widgets, preferably right after the loading script (How to use it section).
 
 ##### Default configuration
 
@@ -92,33 +86,36 @@ oComments.init({
 ## Integration
 This integration considers that you have included the script using one of the methods mentioned in the `How to use it` section.
 
-The following functions are used only for purpose of illustration, but they are not available as part of this module:
- - readCookie
- - login
-
 
 **Common steps:**
+First the module needs to be integrated with the page's authentication process. The default behavior when the user is not logged in, but the action the user does requires to be logged in (e.g. posting a comment), is to redirect to the FT's login page (https://registration.ft.com).
 
-Read the user's session:
+If the page has a better login process (e.g. show an overlay) instead of redirecting the page, the default behavior can be overridden. There are 2 ways to do this:
+
+1. Override the auth.loginRequiredDefaultBehavior function
+
+Example:
 
 ```javascript
-var userSession = readCookie('FTSession');
+oComments.auth.loginRequiredDefaultBehavior = function (evt) {
+    // do login in a nicer way
+
+    if (success) {
+        callback();
+    } else {
+        callback(new Error("Failed")); // provide an error as parameter
+    }
+}
 ```
 
+**Important: if the log in needs a page reload, don't call the callback at all (there's no success/failure, it's still pending)!**
 
-Set the user's session if one is available:
+2. Add an event handler and stop executing other handlers
 
-```javascript
-oComments.init({
-    sessionId: userSession
-});
-```
-
-
-Listen on the 'login required' event, and try to log in the user within the page:
+Example:
 
 ```javascript
-oComments.auth.on('auth.loginRequired', function (evt) {
+oComments.on('auth.loginRequired', function (evt) {
     // the user is not logged in, but an action was performed within the comment widget that requires the user to be logged in
 
     login();
@@ -129,19 +126,14 @@ oComments.auth.on('auth.loginRequired', function (evt) {
     } else if (loginFailure) {
         evt.detail.callback(new Error("Failed")); // provide an error as parameter
     }
+
+    evt.stopImmediatePropagation();
 });
 ```
 
 **Important: if the log in needs a page reload, don't call the callback at all (there's no success/failure, it's still pending)!**
 
 
-
-Listen the events the widget triggers (optional):
-
-```javascript
-widgetInstance.on(tracking.postComment, function (evt) {
-    // a comment is posted, do something, track it
-});
 ```
 
 ### Integration - programatically
@@ -218,14 +210,7 @@ document.body.addEventListener('oComments.domConstruct', function (evt) {
 
 where evt.detail.id is the ID of the DOM element (in this example `commentWidget`).
 
-
-When done with the configuration of the widget, adding event listeners, etc., execute the following to initiate the widget generation:
-
-```javascript
-oComments.initDomConstruct();
-```
-
-**You don't have to wait until the document is fully loaded, call it whenever you are done with the configurations.**
+**The widgets are automatically constructed on DOM ready.**
 
 ---
 
@@ -393,7 +378,7 @@ The payload data contains an object with a callback function. Based on the outco
 **Important: if the log in needs a page reload, don't call the callback at all (there's no success/failure, it's still pending)!**
 
 ```javascript
-oComments.auth.on('auth.loginRequired', function (evt) {
+oComments.on('auth.loginRequired', function (evt) {
     if (logInSuccess) {
         evt.detail.callback();
     }

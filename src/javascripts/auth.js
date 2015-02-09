@@ -192,6 +192,17 @@ function Auth () {
 		});
 	}
 
+
+	this.loginRequiredDefaultBehavior = function (evt) {
+		window.location.href = 'https://registration.ft.com/registration/barrier/login?location='+ encodeURIComponent(document.location.href);
+	};
+
+	this.setLoginRequiredDefaultBehavior = function () {
+		// add event handler as lowest priority
+		globalEvents.off('auth.loginRequired', self.loginRequiredDefaultBehavior);
+		globalEvents.on('auth.loginRequired', self.loginRequiredDefaultBehavior);
+	};
+
 	/**
 	 * Login is required.
 	 * If pseudonym is missing, ask for a pseudonym.
@@ -208,18 +219,36 @@ function Auth () {
 			if (authData && authData.pseudonym === false) {
 				self.loginRequiredPseudonymMissing(callback);
 			} else if (!authData || !authData.token) {
-				globalEvents.trigger('auth.loginRequired', {
-					callback: function (errExt) {
-						if (errExt) {
-							utils.emptyLivefyreActionQueue();
+				if (!oCommentUtilities.ftUser.isLoggedIn()) {
+					oCommentUtilities.logger.log('user should log in');
 
-							callback(errExt || new Error("Login failed."));
-							return;
+					self.setLoginRequiredDefaultBehavior();
+
+					globalEvents.trigger('auth.loginRequired', {
+						callback: function (errExt) {
+							if (errExt) {
+								utils.emptyLivefyreActionQueue();
+
+								callback(errExt || new Error("Login failed."));
+								return;
+							}
+
+							loginRequiredAfterASuccess(callback);
 						}
+					});
+				} else {
+					oCommentUtilities.logger.log('session expired, show inactivity message');
 
-						loginRequiredAfterASuccess(callback);
-					}
-				});
+					userDialogs.showInactivityMessage({
+						submit: function () {
+							window.location.href = 'https://registration.ft.com/registration/barrier/login?location='+ encodeURIComponent(document.location.href);
+						},
+						close: function () {
+							utils.emptyLivefyreActionQueue();
+							callback(new Error("Login failed."));
+						}
+					});
+				}
 			} else {
 				self.login();
 
