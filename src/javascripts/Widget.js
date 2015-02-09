@@ -73,6 +73,10 @@ function Widget () {
 		this.getWidgetEl().className += ' o-comments--comment-type-' + self.config.stream_type;
 	}
 
+	this.config.stringOverrides = this.config.stringOverrides || {};
+	this.config.stringOverrides.commentCountLabel = 'COMMENTS (%s)';
+	this.config.stringOverrides.commentCountLabelPlural = 'COMMENTS (%s)';
+
 	/**
 	 * Merge custom string overrides with FT specific string overrides.
 	 * @type {Object}
@@ -159,6 +163,7 @@ function Widget () {
 
 							widget.on('initialRenderComplete', function () {
 								self.ui.addTermsAndGuidelineMessage();
+								self.ui.moveCommentCountOut();
 
 								auth.login(function (loggedIn, authData) {
 									if (!authData) {
