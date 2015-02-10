@@ -7,4 +7,3 @@ before_install:
 script:
   - origami-build-tools test
   - origami-build-tools verify
-  - npm test
