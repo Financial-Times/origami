@@ -5,22 +5,16 @@
   },
   "demos": [
     {
-      "name": "height",
-      "description": "Expanding and collapsing according to a max-height rule defined in the stylesheet",
-      "template": "demos/src/height.mustache",
+      "name": "Simple",
+      "description": "Simple use cases",
+      "template": "demos/src/simple.mustache",
       "js": "demos/src/demo.js"
     },
     {
-      "name": "count",
-      "description": "Expanding and collapsing according to a maximum number of items allowed",
-      "template": "demos/src/count.mustache",
-      "js": "demos/src/demo.js"
-    },
-    {
-      "name": "fancy",
-      "description": "Fancy effects that can be built around the core o-expander experience",
-      "template": "demos/src/fancy.mustache",
-      "js": "demos/src/fancy.js"
+      "name": "Variants",
+      "description": "More advanced configurations of the module",
+      "template": "demos/src/variants.mustache",
+      "js": "demos/src/variants.js"
     }
   ]
 }

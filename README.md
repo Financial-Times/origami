@@ -1,17 +1,15 @@
 # o-expander
-Widget for expanding and collapsing content
+Accessible, content-aware widget for expanding and collapsing content
 
 ## Markup
 
 ```html
 <div data-o-component="o-expander" class="o-expander">
-    <p>Preamble content (optional)</p>
     <div class="o-expander__content"></div>
-    <p>Midamble content (optional)</p>
-    <button class="o-expander__toggle"></button>
-    <p>Postamble content (optional)</p>
+    <button class="o-expander__toggle o--if-js"></button>
 </div>
 ```
+`o-expander__toggle` and `o-expander__content` can be put anywhere within `o-expander` as long as `o-expander__toggle` is not contained within `o-expander__content`. There are no restrictions on sibling markup.
 
 ## API
 
@@ -23,7 +21,7 @@ This generally sticks to the [usual origami convention](http://origami.ft.com/do
 
 All the following can be passed in an options object in the second parameter of `oExpander#init()` or as data-attributes (hyphenated and prefixed by `o-expander` e.g. `data-o-expander-shrink-to="height"`)
 
-* `shrinkTo` [`'height'`]: A non-negative integer, indicating the number of items to show when collapsed, or the string `'height'`, which will collapse to a height defined in the CSS
+* `shrinkTo` [`'height'`]: A non-negative integer, indicating the number of items to show when collapsed, or the string `'height'`, which will collapse to a max-height defined in the CSS
 * `countSelector` [`'.o-expander__content > li'`]: Selector for identifying items to count, relative to `.o-expander`
 * `expandedToggleText` [`'less|fewer'`]: Text to show on toggle button when expanded (defaults to fewer when in count mode, or less when in height mode);
 * `collapsedToggleText` [`'more'`]: Text to show on toggle button when collapsed
@@ -38,7 +36,7 @@ o-expander fires the following events, which always fire before any repainting/l
 
 ## Configuration using markup/CSS
 * By default o-expander will collapse content on initialisation. To prevent this add the attribute `aria-expanded="true"` to `.o-expander__content`
-* Maximum height should be set using css. Be mindful that when js doesn't run you may want to default to showing all the content e.g.
+* Maximum height (when collapsed) should be set using css. Be mindful that when js doesn't run you may want to default to showing all the content e.g.
 
     ```scss
     .o-js .o-expander__content { // ensures all content is shown when js doesn't run
