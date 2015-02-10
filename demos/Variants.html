@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-	<title>o-expander: fancy demo</title>
+	<title>o-expander: Variants demo</title>
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
@@ -13,6 +13,17 @@
 	<link rel="stylesheet" href="/bundles/css?modules=o-expander:/demos/src/demo.scss" />
 </head>
 <body class="">
+<div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="0" data-o-expander-count-selector="li">
+    <h2>Expanded on load, collapsing to nothing</h2>
+    <ul class="o-expander__content" aria-expanded="true">
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ul>
+    <button class="o-expander__toggle o--if-js"></button>
+</div>
+
 <div data-o-component="o-expander" class="o-expander items events" data-o-expander-shrink-to="2" data-o-expander-count-selector="li">
 	<h2>Hooking up to events </h2>
     <span class="alert"></span>
@@ -22,13 +33,13 @@
 		<li>item</li>
 		<li>item</li>
 	</ul>
-	<button class="o-expander__toggle"></button>
+	<button class="o-expander__toggle o--if-js"></button>
 </div>
 
 
 <div data-o-component="o-expander" class="o-expander height layout" data-o-expander-shrink-to="height">
     <h2>Expand without affecting layout of siblings</h2>
-    <button class="o-expander__toggle"></button>
+    <button class="o-expander__toggle o--if-js"></button>
     <div class="static-container">
         <div class="o-expander__content">
             line<br>
@@ -41,7 +52,7 @@
 </div>
 
 
-<div data-o-component="o-expander" class="o-expander items animated" data-o-expander-shrink-to="height" data-o-expander-toggle-selector=".custom-toggle">
+<div data-o-component="o-expander" class="o-expander items animated" data-o-expander-shrink-to="height" data-o-expander-toggle-selector=".custom-toggle" data-o-expander-expanded-toggle-text="now you're boring me" data-o-expander-collapsed-toggle-text="tell me more">
     <h2>Animated with custom button</h2>
     <div class="o-expander__content">
         line<br>
@@ -49,9 +60,9 @@
         line<br>
         line
     </div>
-    <button class="custom-toggle"></button>
+    <button class="custom-toggle o--if-js"></button>
 </div>
-<script src="/bundles/js?modules=o-expander:/demos/src/fancy.js"></script>
+<script src="/bundles/js?modules=o-expander:/demos/src/variants.js"></script>
 <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
 </body>
 </html>

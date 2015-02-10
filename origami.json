@@ -1,22 +1,17 @@
 {
-    "description": "Experimental expander component",
+    "description": "Accessible, content-aware widget for expanding and collapsing content",
     "origamiVersion": 1,
     "origamiType": "module",
     "demos": [
         {
-            "path": "/demos/height.html",
+            "path": "/demos/Simple.html",
             "expanded": true,
-            "description": "Expanding and collapsing according to a max-height rule defined in the stylesheet"
+            "description": "Simple use cases"
         },
         {
-            "path": "/demos/count.html",
-            "expanded": true,
-            "description": "Expanding and collapsing according to a maximum number of items allowed"
-        },
-        {
-            "path": "/demos/fancy.html",
-            "expanded": true,
-            "description": "Fancy effects that can be built around the core o-expander experience"
+            "path": "/demos/Variants.html",
+            "expanded": false,
+            "description": "More advanced configurations of the module"
         }
     ],
     "browserFeatures": {

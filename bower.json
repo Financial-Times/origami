@@ -4,7 +4,7 @@
   "authors": [
     "Rhys Evans <rhys.evans@ft.com>"
   ],
-  "description": "Simple widget for expanding and hiding extra content",
+  "description": "Accessible, content-aware widget for expanding and collapsing content",
   "main": [
     "main.js",
     "main.scss"
