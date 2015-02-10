@@ -10,55 +10,55 @@
 @include oColorsSetUseCase(expander-icon, text, grey-tint2);
 
 .o-expander__content {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .o-expander__content[aria-expanded="true"] {
-    max-height: none;
+	max-height: none;
 }
 
 .o-expander__content[aria-expanded="false"] {
-    .o-expander__first-collapsible-item,
-    .o-expander__first-collapsible-item ~ * {
-        display: none;
-    }
+	.o-expander__first-collapsible-item,
+	.o-expander__first-collapsible-item ~ * {
+		display: none;
+	}
 }
 
 .o-expander__toggle {
-    font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-    font-weight: normal;
-    @include oColorsFor(expander-text, text);
-    font-size: 12px;
-    margin: 0;
-    padding: 0;
-    background: none;
-    cursor: pointer;
-    border: 0;
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	font-weight: normal;
+	@include oColorsFor(expander-text, text);
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+	background: none;
+	cursor: pointer;
+	border: 0;
 
-    i {
-        @include oFtIconsBaseIconStyles();
-        @include oColorsFor(expander-icon, text);
-        display: inline-block;
-        padding: 0 6px;
-        box-sizing: border-box;
-    }
+	i {
+		@include oFtIconsBaseIconStyles();
+		@include oColorsFor(expander-icon, text);
+		display: inline-block;
+		padding: 0 6px;
+		box-sizing: border-box;
+	}
 
-    &:hover {
-        text-decoration: none;
-    }
+	&:hover {
+		text-decoration: none;
+	}
 }
 
 .o-expander__toggle i,
 .o-expander__toggle[aria-pressed] i {
-    @extend %o-ft-icons-icon--arrow-up;
+	@extend %o-ft-icons-icon--arrow-up;
 }
 
 // temporary higher specicifity while having to work with the selector order
 // imposed by using extend. Eventually with mixins it won't be needed
 [data-o-expander-js] .o-expander__toggle i {
-    @extend %o-ft-icons-icon--arrow-down;
+	@extend %o-ft-icons-icon--arrow-down;
 }
 
 .o-expander--inactive .o-expander__toggle {
-    display: none;
+	display: none;
 }
