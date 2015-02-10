@@ -103,6 +103,14 @@
 	line-height: 17px;
 	font-weight: bold;
 	color: oColorsGetColorFor(o-forms-field-label body, text);
+
+	p {
+		margin-top: 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 }
 
 /// Group styles
@@ -142,6 +150,7 @@
 	background-color: oColorsGetColorFor(o-forms-error-block-fallback, background);
 	background-color: rgba(oColorsGetColorFor(o-forms-error-block, background), 0.15);
 	// scss-lint:enable DuplicateProperty
+	margin-bottom: 20px;
 
 	// Clearfix
 	zoom: 1;
