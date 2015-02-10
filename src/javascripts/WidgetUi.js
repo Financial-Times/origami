@@ -2,8 +2,7 @@
 
 var oCommentUtilities = require('o-comment-utilities'),
 	oCommentUi = require('o-comment-ui'),
-	envConfig = require('./config.js'),
-	sizzle = require('sizzle');
+	envConfig = require('./config.js');
 
 /**
  * FT specific UI customizing of the Livefyre widget.
@@ -63,10 +62,10 @@ function WidgetUi (widgetContainer) {
 	 * so can't be signed in into Livefyre).
 	 */
 	this.hideSignInLink = function () {
-		var signInLinkContainer = sizzle('a.fyre-user-loggedout', self.widgetContainer);
+		var signInLinkContainer = self.widgetContainer.querySelector('a.fyre-user-loggedout');
 
-		if (signInLinkContainer.length) {
-			signInLinkContainer[0].style.display = 'none';
+		if (signInLinkContainer) {
+			signInLinkContainer.style.display = 'none';
 		}
 	};
 
@@ -74,10 +73,10 @@ function WidgetUi (widgetContainer) {
 	 * Inserts message when SUDS reports as authentication is not available.
 	 */
 	this.addAuthNotAvailableMessage = function () {
-		var authContainer = sizzle('.fyre-auth', self.widgetContainer);
+		var authContainer = self.widgetContainer.querySelector('.fyre-auth');
 
-		if (authContainer.length) {
-			authContainer[0].appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.unavailableTemplate.render()));
+		if (authContainer) {
+			authContainer.appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.unavailableTemplate.render()));
 		}
 	};
 
@@ -87,7 +86,7 @@ function WidgetUi (widgetContainer) {
 	 * Inserts the terms and guidelines text into the widget.
 	 */
 	this.addTermsAndGuidelineMessage = function () {
-		var editorContainers = sizzle('.fyre-widget > .fyre-editor', self.widgetContainer);
+		var editorContainers = self.widgetContainer.querySelectorAll('.fyre-widget > .fyre-editor');
 
 		if (editorContainers.length) {
 			for (var i = 0; i < editorContainers.length; i++) {
@@ -115,29 +114,29 @@ function WidgetUi (widgetContainer) {
 
 		clearInterval(checkPseudonymInterval);
 		checkPseudonymInterval = setInterval(function () {
-			var pseudonymContainer = sizzle('.fyre-auth .fyre-login-bar .fyre-box-wrapper .fyre-user-loggedin', self.widgetContainer);
-			if (pseudonymContainer.length || noOfTrial === 120) {
+			var pseudonymContainer = self.widgetContainer.querySelector('.fyre-auth .fyre-login-bar .fyre-box-wrapper .fyre-user-loggedin');
+			if (pseudonymContainer || noOfTrial === 120) {
 				clearInterval(checkPseudonymInterval);
 
-				if (sizzle('.o-comment-ui--settings', self.widgetContainer).length === 0) {
+				if (!self.widgetContainer.querySelector('.o-comment-ui--settings')) {
 					if (noOfTrial === 120) {
 						// give up
 						return;
 					}
 
-					var loginBarContainer = sizzle('.fyre-auth .fyre-login-bar', self.widgetContainer);
-					if (loginBarContainer.length) {
+					var loginBarContainer = self.widgetContainer.querySelector('.fyre-auth .fyre-login-bar');
+					if (loginBarContainer) {
 						var commentingSettingsLinkConfig = {};
 						if (envConfig.get().emailNotifications !== true) {
 							commentingSettingsLinkConfig.label = "Edit pseudonym";
 						}
 
-						loginBarContainer[0].appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.commentingSettingsLink.render(commentingSettingsLinkConfig)));
+						loginBarContainer.appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.commentingSettingsLink.render(commentingSettingsLinkConfig)));
 					}
 
-					var settingsLink = sizzle('.fyre-auth .fyre-login-bar .o-comment-ui--settings-text', self.widgetContainer);
-					if (settingsLink.length) {
-						settingsLink[0].addEventListener('click', function () {
+					var settingsLink = self.widgetContainer.querySelector('.fyre-auth .fyre-login-bar .o-comment-ui--settings-text');
+					if (settingsLink) {
+						settingsLink.addEventListener('click', function () {
 							if (options && typeof options.onClick === 'function') {
 								options.onClick();
 							}
@@ -159,9 +158,9 @@ function WidgetUi (widgetContainer) {
 	 * Removes the settings link from the widget.
 	 */
 	this.removeSettingsLink = function () {
-		var el = sizzle('.o-comment-ui--settings', self.widgetContainer);
-		if (el.length) {
-			el[0].parentNode.removeChild(el[0]);
+		var el = self.widgetContainer.querySelector('.o-comment-ui--settings');
+		if (el) {
+			el.parentNode.removeChild(el[0]);
 		}
 	};
 
@@ -170,17 +169,13 @@ function WidgetUi (widgetContainer) {
 	 * element is moved out into the header.
 	 */
 	this.moveCommentCountOut = function () {
-		var fyreEl = sizzle('.fyre', self.widgetContainer);
-		var fyreStreamStatsEl = sizzle('.fyre-stream-stats', self.widgetContainer);
+		var fyreEl = self.widgetContainer.querySelector('.fyre');
+		var fyreStreamStatsEl = self.widgetContainer.querySelector('.fyre-stream-stats');
 
-		if (fyreEl.length && fyreStreamStatsEl.length) {
-			var counterEl = sizzle('.fyre-comment-count', fyreStreamStatsEl[0]);
+		if (fyreEl && fyreStreamStatsEl) {
+			var counterEl = fyreStreamStatsEl.querySelector('.fyre-comment-count');
 
 			if (counterEl.length) {
-				fyreEl = fyreEl[0];
-				fyreStreamStatsEl = fyreStreamStatsEl[0];
-				counterEl = counterEl[0];
-
 				fyreEl.style.paddingTop = '30px';
 				fyreEl.style.position = 'relative';
 
