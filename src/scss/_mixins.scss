@@ -18,6 +18,8 @@
 	font-family: $o-forms-font-family;
 	font-size: $_o-forms-field-default-fontsize;
 	outline: none;
+	transition: 0.15s box-shadow ease-in;
+	background-clip: padding-box;
 
 	&:focus {
 		@include oFormsCommonFieldFocus;
@@ -40,6 +42,7 @@
 /// Common field styles: focused state only
 @mixin oFormsCommonFieldFocus {
 	@include oColorsFor(o-forms-field-focus);
+	box-shadow: inset 0 0 4px 1px oColorsGetColorFor(o-forms-focus-ring, border);
 }
 
 /// Common field styles: disabled state

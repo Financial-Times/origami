@@ -3,8 +3,6 @@
 
 @include oColorsSetUseCase(o-forms-radiocheckbox-checked, background, grey-tint5);
 
-@include oColorsSetUseCase(o-forms-radiocheckbox-focus, text, blue);
-
 @include oColorsSetUseCase(o-forms-error-block-fallback, background, red-tint5);
 
 @include oColorsSetUseCase(o-forms-prefixsuffix, background, pink-tint1);
@@ -18,7 +16,8 @@
 @include oColorsSetUseCase(o-forms-field-standard, border, pink-tint3);
 @include oColorsSetUseCase(o-forms-field-standard, background, white);
 
-@include oColorsSetUseCase(o-forms-field-focus, border, pink-tint5);
+@include oColorsSetUseCase(o-forms-field-focus, border, pink-tint4);
+@include oColorsSetUseCase(o-forms-focus-ring, border, blue-tint5);
 
 @include oColorsSetUseCase(o-forms-field-disabled, text, pink-tint4);
 @include oColorsSetUseCase(o-forms-field-disabled, border, pink-tint2);
