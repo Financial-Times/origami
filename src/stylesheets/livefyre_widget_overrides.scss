@@ -1,4 +1,4 @@
-// scss-lint:disable SelectorDepth
+// scss-lint:disable NestingDepth, QualifyingElement, SelectorDepth
 $ftLink: oColorsGetPaletteColor(blue);
 $ftLinkHover: oColorsGetPaletteColor(black);
 
@@ -197,14 +197,12 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 			&:hover,
 			&.fyre-box-mobile-touch {
-				// commented version for rollover enabled
-				//background: oColorsGetPaletteColor(pink-tint1);
-				background: inherit;
-				//border: 1px solid #CCC;
-				border: 0;
-
 				@include boxShadowClear;
 				@include borderRadiusClear;
+
+				// commented version for rollover enabled
+				background: inherit;
+				border: 0;
 
 				max-width: 100%;
 			}
@@ -379,8 +377,9 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 
 		.fyre-comment-action-button {
-			color: $ftLink !important;
 			@include gradientClear;
+
+			color: $ftLink !important;
 			border: 0;
 			font-weight: normal;
 			padding: 0;
@@ -393,13 +392,13 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 		}
 
 		.fyre-comment-reply {
+			@include borderRadiusClear;
+
 			font-size: 13px;
 			top: 0;
 			padding: 0 0 0 7px;
 			margin: 0 0 0 7px;
 			border-left: 1px solid oColorsGetPaletteColor(pink-tint2);
-
-			@include borderRadiusClear;
 		}
 
 		.fyre-comment-like {
@@ -460,12 +459,12 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 			}
 
 			&:after {
+				@include showMoreCommentsCommon;
+
 				left: 50px;
 				background-position: 0 0;
 				height: 8px;
 				top: -5px;
-
-				@include showMoreCommentsCommon;
 			}
 		}
 
@@ -567,10 +566,10 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 
 		.fyre-notifier-container {
+			@include borderRadiusClear;
+
 			background: rgba(206, 198, 185, 0.8);
 			padding: 8px 8px 0;
-
-			@include borderRadiusClear;
 
 
 			.fyre-notifier {
@@ -583,26 +582,28 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 				.fyre-notification {
 					.fyre-notifier-banner {
-						width: 200px;
-						height: 36px;
 						@include gradientClear;
-						background: oColorsGetPaletteColor(white);
-						border: 1px solid oColorsGetPaletteColor(pink-tint2);
-
 						@include borderRadiusClear;
 						@include boxShadowClear;
+
+						width: 200px;
+						height: 36px;
+
+						background: oColorsGetPaletteColor(white);
+						border: 1px solid oColorsGetPaletteColor(pink-tint2);
 
 						.fyre-notifier-avatar-container {
 							display: none;
 						}
 
 						.fyre-notifier-message-container {
-							width: 200px;
-							background: oColorsGetPaletteColor(white);
-
 							@include textShadowClear;
 							@include borderRadiusClear;
 							@include boxShadowClear;
+
+							width: 200px;
+							background: oColorsGetPaletteColor(white);
+
 
 							.fyre-notifier-message {
 								width: 193px;
@@ -618,14 +619,14 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 			.fyre-notifier-base-shadow {
 				@include gradientClear;
+				@include borderRadiusClear;
+				@include boxShadowClear;
+
 				background: oColorsGetPaletteColor(white);
 				padding: 0;
 				bottom: 0;
 				border: 1px solid oColorsGetPaletteColor(pink-tint2);
 				height: 34px;
-
-				@include borderRadiusClear;
-				@include boxShadowClear;
 
 
 				.fyre-notifier-base {
@@ -635,20 +636,20 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 
 					.fyre-notifier-counter {
+						@include gradientClear;
+						@include textShadowClear;
+						@include borderRadiusClear;
+						@include boxShadowClear;
+
 						font-weight: bold;
 						font-size: 13px;
 						font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 						line-height: 21px;
 						border: 0;
-						@include gradientClear;
 						background: oColorsGetPaletteColor(red);
 						margin: 6px;
 						height: 20px;
 						padding: 0px 7px;
-
-						@include textShadowClear;
-						@include borderRadiusClear;
-						@include boxShadowClear;
 					}
 
 					.fyre-notifier-caption {
@@ -772,6 +773,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 			.fyre-stream-more-container {
 				@include gradientClear;
+
 				border: 0;
 				background: #406e9f;
 				color: oColorsGetPaletteColor(white);
@@ -821,8 +823,9 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 			background: oColorsGetPaletteColor(white);
 
 			.fyre-flag-menu-item {
-				border: 0;
 				@include gradientClear;
+
+				border: 0;
 
 				a {
 					color: $ftLink;
@@ -845,16 +848,14 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 		.fyre-editor-container {
 			.fyre-editor-editable {
-				background-color: oColorsGetPaletteColor(white);
-				border: 1px solid oColorsGetPaletteColor(pink-tint2);
-
 				@include borderRadiusClear;
 				@include boxShadowClear;
 
+				background-color: oColorsGetPaletteColor(white);
+				border: 1px solid oColorsGetPaletteColor(pink-tint2);
 				font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 				font-size: 14px;
 				line-height: 16px;
-
 				padding: 8px;
 			}
 
@@ -881,22 +882,24 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 		.fyre-editor-toolbar {
 			.goog-toolbar {
 				> div {
+					@include gradientClear;
+
 					background-color: oColorsGetPaletteColor(pink-tint1);
 					border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
 					border-right: 1px solid oColorsGetPaletteColor(pink-tint3);
 					font: normal 12px oFontsGetFontFamilyWithFallbacks(BentonSans);
-					@include gradientClear;
 				}
 
 				> div.goog-toolbar-separator {
-					border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
-
 					@include borderRadiusClear;
+
+					border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
 				}
 
 				> div.fyre-button-left .fyre-button-left-outer-box .fyre-button-left-inner-box {
-					color: $ftLink;
 					@include textShadowClear;
+
+					color: $ftLink;
 				}
 
 				> div.fyre-button-left.fyre-format-button {
@@ -904,9 +907,9 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 				}
 
 				> div.fyre-button-left:nth-child(2) {
-					border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
-
 					@include borderRadiusClear;
+
+					border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
 				}
 
 				> div.fyre-button-right {
@@ -929,9 +932,10 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 				}
 
 				> div.fyre-button-right.fyre-post-button .fyre-button-right-outer-box .fyre-button-right-inner-box {
+					@include textShadowClear;
+
 					color: oColorsGetPaletteColor(white);
 					font-weight: normal;
-					@include textShadowClear;
 				}
 
 				> div.fyre-button-right:last-child {
@@ -942,6 +946,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 				> div.fyre-button-left-hover,
 				> div.fyre-button-right-hover {
 					@include gradientClear;
+
 					background-color: oColorsGetPaletteColor(pink-tint2);
 					color: oColorsGetPaletteColor(black);
 				}
@@ -949,6 +954,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 				> div.fyre-button-left-active ,
 				> div.fyre-button-right-active {
 					@include gradientClear;
+
 					background-color: oColorsGetPaletteColor(pink-tint2);
 				}
 
@@ -985,11 +991,10 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 			}
 
 			.fyre-share-container {
-				background-color: oColorsGetPaletteColor(pink-tint1);
-				border: 1px solid oColorsGetPaletteColor(pink-tint3);
-
 				@include borderRadiusClear;
 
+				background-color: oColorsGetPaletteColor(pink-tint1);
+				border: 1px solid oColorsGetPaletteColor(pink-tint3);
 				width: auto;
 			}
 
@@ -1015,6 +1020,8 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 
 		.fyre-editor-disabled {
+			@include borderRadiusClear;
+
 			background: oColorsGetPaletteColor(white);
 			border: 1px solid #b2b2b2;
 			color: oColorsGetPaletteColor(grey-tint4);
@@ -1023,9 +1030,6 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 			margin-top: 20px;
 			float: left;
 			width: 100%;
-
-
-			@include borderRadiusClear;
 
 			.fyre-editor-locked {
 				background-image: url(oAssetsResolve('src/images/comment_locked.png', o-comment-ui));
@@ -1038,14 +1042,13 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 		padding-bottom: 0;
 	}
 	.fyre-mention-menu {
-		display: none;
+		@include borderRadiusClear;
 
+		display: none; // for now, could be enabled later, that's why there are styles for them
 		border: 1px solid oColorsGetPaletteColor(pink-tint1);
 		left: 0;
 		margin-left: 0;
 		color: oColorsGetPaletteColor(grey-tint4);
-
-		@include borderRadiusClear;
 
 		> .fyre-provider-connections {
 			border-color: oColorsGetPaletteColor(pink-tint1);
@@ -1072,14 +1075,14 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 	.fyre-editor-error {
 		@include gradientClear;
+		@include textShadowClear;
+		@include borderRadiusClear;
+		@include boxShadowClear;
+
 		background-color: oColorsGetPaletteColor(red);
 		border: 1px solid oColorsGetPaletteColor(red);
 		padding: 7px 25px 7px 7px;
 		line-height: 14px;
-
-		@include textShadowClear;
-		@include borderRadiusClear;
-		@include boxShadowClear;
 
 		.fyre-editor-error-message {
 			font-size: 12px;
@@ -1089,18 +1092,19 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 
 		.fyre-editor-error-close,
 		.fyre-editor-error-close:hover {
+			@include borderRadiusClear;
+			@include boxShadowClear;
+
 			background: url(oAssetsResolve('src/images/comment_error_close.png', o-comments)) no-repeat;
 			width: 12px;
 			height: 12px;
-
 			border: 0;
-			@include borderRadiusClear;
-			@include boxShadowClear;
 		}
 	}
 
 	.comment-header {
 		@extend %o-ft-typography-heading2;
+
 		padding: 3px 0;
 	}
 
@@ -1236,12 +1240,12 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 body {
 	.fyre-hovercard-body {
 		@include gradientClear;
+		@include borderRadiusClear;
+		@include boxShadowClear;
+
 		background-color: oColorsGetPaletteColor(white);
 		color: oColorsGetPaletteColor(grey-tint3);
 		font: 14px/16px BentonSans, Arial, Helvetica, sans-serif;
-
-		@include borderRadiusClear;
-		@include boxShadowClear;
 	}
 
 	.fyre-hovercard-display-name {
@@ -1250,17 +1254,17 @@ body {
 
 	.fyre-hovercard-button {
 		@include gradientClear;
-		background-color: $ftLink;
-		color: oColorsGetPaletteColor(white);
-
-
 		@include borderRadiusClear;
 		@include boxShadowClear;
 		@include textShadowClear;
+
+		background-color: $ftLink;
+		color: oColorsGetPaletteColor(white);
 	}
 
 	.fyre-hovercard-button:hover {
 		@include gradientClear;
+
 		background-color: #549ccf;
 		color: oColorsGetPaletteColor(white);
 	}
@@ -1268,16 +1272,15 @@ body {
 
 	.fyre-modal-alert {
 		@include gradientClear;
+		@include textShadowClear;
+		@include boxShadowClear;
+
 		background-color: oColorsGetPaletteColor(white);
 		border: 2px solid #74736c;
 		padding: 2px;
-
 		color: oColorsGetPaletteColor(grey-tint3);
 		font-size: 13px;
 		font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-
-		@include textShadowClear;
-		@include boxShadowClear;
 
 		.fyre-modal-alert-title-close,
 		.fyre-modal-alert-title-close:active {
@@ -1289,11 +1292,11 @@ body {
 	}
 
 	.fyre-modal {
+		@include boxShadowClear;
+
 		border: 2px solid #74736c;
 		outline: none;
 		background-color: oColorsGetPaletteColor(white);
-
-		@include boxShadowClear;
 
 		.fyre-modal-header,
 		.fyre-modal-title {
@@ -1332,15 +1335,15 @@ body {
 
 		textarea.fyre-modal-textfield,
 		.fyre-modal-textfield {
+			@include boxShadowClear;
+			@include borderRadiusClear;
+
 			font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 			font-size: 14px;
 			line-height: 16px;
 			color: oColorsGetPaletteColor(grey-tint3);
 			border-color: #b3b0a8;
 			padding: 4px;
-
-			@include boxShadowClear;
-			@include borderRadiusClear;
 		}
 
 		select {
@@ -1359,19 +1362,20 @@ body {
 
 		.fyre-modal-buttons {
 			> button {
-				outline: none;
 				@include gradientClear;
+				@include boxShadowClear;
+
+				outline: none;
 				background: $ftLink;
 				border: 0;
 				color: oColorsGetPaletteColor(white);
 				font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 				font-weight: normal;
-
-				@include boxShadowClear;
 			}
 
 			> button[name="cancel"] {
 				@include gradientClear;
+
 				background: none;
 				border: 0;
 				margin-right: 8px;
@@ -1417,4 +1421,4 @@ body {
 		}
 	}
 }
-// scss-lint:enable SelectorDepth
+// scss-lint:enable NestingDepth, QualifyingElement, SelectorDepth
