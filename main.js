@@ -57,7 +57,9 @@ Expander.prototype.apply = function (isSilent) {
 	} else {
 		this.el.classList.remove('o-expander--inactive');
 		if (typeof this.opts.shrinkTo === 'number') {
-			this.el.querySelectorAll(this.opts.countSelector)[this.opts.shrinkTo].classList.add('o-expander__first-collapsible-item');
+			[].slice.call(this.el.querySelectorAll(this.opts.countSelector), this.opts.shrinkTo).forEach(function (el) {
+				el.classList.add('o-expander__collapsible-item');
+			});
 		}
 		if (this.contentEl.getAttribute('aria-expanded')) {
 			this.displayState(isSilent);
