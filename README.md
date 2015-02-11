@@ -32,7 +32,7 @@ var oComments = require('o-comments');
 SCSS:
 
 ```css
-@import 'o-comments-client/main';
+@import 'o-comments/main';
 ```
 
 ### <div id="decl"></div> Declaratively 
