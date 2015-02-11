@@ -134,7 +134,7 @@ oComments.on('auth.loginRequired', function (evt) {
 **Important: if the log in needs a page reload, don't call the callback at all (there's no success/failure, it's still pending)!**
 
 
-```
+
 
 ### Integration - programatically
 Create an instance of the Widget with the parameters that are available:
