@@ -17,9 +17,8 @@
 	max-height: none;
 }
 
-.o-expander__content[aria-expanded="false"] {
-	.o-expander__first-collapsible-item,
-	.o-expander__first-collapsible-item ~ * {
+[aria-expanded="false"] {
+	.o-expander__collapsible-item {
 		display: none;
 	}
 }
@@ -54,7 +53,7 @@
 }
 
 // temporary higher specicifity while having to work with the selector order
-// imposed by using extend. Eventually with mixins it won't be needed
+// imposed by using @extend. Eventually with mixins it won't be needed
 [data-o-expander-js] .o-expander__toggle i {
 	@extend %o-ft-icons-icon--arrow-down;
 }
