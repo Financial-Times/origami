@@ -1,3 +1,4 @@
+// scss-lint:disable SelectorDepth
 $ftLink: oColorsGetPaletteColor(blue);
 $ftLinkHover: oColorsGetPaletteColor(black);
 
@@ -1416,3 +1417,4 @@ body {
 		}
 	}
 }
+// scss-lint:enable SelectorDepth
