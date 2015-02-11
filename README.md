@@ -19,7 +19,7 @@ A fully featured commenting client integrated with FT's membership systems. If y
 ## <div id="prereq"></div> Prerequisites
 
 * Your content must either be available in the Content API or available on a blogs URL in order for commenting to work. (See Moderation for why) 
-* You must be on an FT.com domain or subdomain for authentication to work
+* You must be on an FT.com domain or sub-domain for authentication to work
 
 ## <div id="product"></div> Adding comments to your product 
 
@@ -84,7 +84,7 @@ oComments.load();
 ```
 
 ## <div id="login"></div> Login integration 
-The default behavior when the user is not logged in, but the action the user does requires to be logged in (e.g. posting a comment), is to redirect to the FT's login page (https://registration.ft.com). However you may wish to integrate with your product's authentication process in which case you can override the default behaviour.
+Users need to have a valid FT session in order to post comments. The default behavior for a user without a valid session is to redirect to the FT's login page (https://registration.ft.com). However you may wish to integrate with your product's authentication process for a slicker UX in which case you can override the default behaviour.
 
 1. Override the `auth.loginRequiredDefaultBehavior` function
 
