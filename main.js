@@ -139,7 +139,13 @@ module.exports.off = globalEvents.off;
 
 
 document.addEventListener('o.DOMContentLoaded', function () {
-	module.exports.initDomConstruct();
+	oCommentUtilities.initDomConstruct({
+		Widget: Widget,
+		baseClass: 'o-comments',
+		namespace: 'oComments',
+		module: self,
+		auto: true
+	});
 });
 
 

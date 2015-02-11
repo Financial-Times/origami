@@ -72,6 +72,7 @@ function Widget () {
 	if (this.getWidgetEl().className.indexOf('o-comments--comment-type-' + self.config.stream_type) === -1) {
 		this.getWidgetEl().className += ' o-comments--comment-type-' + self.config.stream_type;
 	}
+	this.getWidgetEl().setAttribute('data-o-comments-built', 'true');
 
 	this.config.stringOverrides = this.config.stringOverrides || {};
 	this.config.stringOverrides.commentCountLabel = 'COMMENTS (%s)';

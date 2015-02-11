@@ -193,9 +193,9 @@ Include this where you want the widget to load:
 
 In order to build the DOM element, follow the steps:
 
-1. Add class o-comments to the container element
-2. Add attribute `data-o-comments-autoconstruct="true"`
-3. Specify a unique ID
+1. Add class `o-comments` to the container element
+2. Add attribute `data-o-chat-autoconstruct="true"` if you want the widget to be automatically instantiated on document ready, otherwise don't add it.
+3. The ID is optional, if not specified, it will be generated.
 4. Add configuration options that you want to pass to the widget in the following form: data-o-comments-{configName}="{configValue}". Replace `{configName}` and `{configValue}` with the name of the configuration and value you want to pass.
 
 If you need a reference of the JavaScript object created, you can listen the event on the body element the following way:
@@ -211,7 +211,11 @@ document.body.addEventListener('oComments.domConstruct', function (evt) {
 
 where evt.detail.id is the ID of the DOM element (in this example `commentWidget`).
 
-**The widgets are automatically constructed on DOM ready.**
+In order to instantiate widgets that weren't picked up on document ready (without autoconstruct attribute), call the following function:
+
+```javascript
+oChat.initDomConstruct();
+```
 
 ---
 
