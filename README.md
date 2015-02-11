@@ -97,7 +97,7 @@ If the page has a better login process (e.g. show an overlay) instead of redirec
 Example:
 
 ```javascript
-oComments.auth.loginRequiredDefaultBehavior = function (evt) {
+oComments.auth.loginRequiredDefaultBehavior = function (callback) {
     // do login in a nicer way
 
     if (success) {
@@ -127,6 +127,7 @@ oComments.on('auth.loginRequired', function (evt) {
         evt.detail.callback(new Error("Failed")); // provide an error as parameter
     }
 
+    // stop the fallback behavior which redirects the page
     evt.stopImmediatePropagation();
 });
 ```
@@ -386,6 +387,9 @@ oComments.on('auth.loginRequired', function (evt) {
     if (logInFails || logInRefused) {
         evt.detail.callback(new Error("Failed or cancelled."));
     }
+
+    // stop the fallback behavior which redirects the page
+    evt.stopImmediatePropagation();
 });
 ```
 
