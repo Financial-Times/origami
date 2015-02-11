@@ -2,18 +2,26 @@
 
 A fully featured commenting client integrated with FT's membership systems. If you simply wish to add comments to some content this is the component to use.
 
-#####Prerequisites:
+## Contents
 
-* Your content must either be available in the Content API or available on a blogs URL in order for commenting to work. 
+* <a href="#prereq">Prerequisites</a>
+* <a href="#product">Adding comments to your product</a>
+ * <a href="#decl">Declaratively</a>
+ * <a href="#imper">Imperatvely</a>
+* <a href="#login">Login integration</a>
+* <a href="#events">Events</a>
+* <a href="#api">API</a>
+    * <a href="#logging">Logging</a>
+    * <a href="#messages">UI Messages</a>
+* <a href="#messages">Browser support</a>
+* <a href="#core">Core/enhanced experience</a>
+
+## <div id="prereq"></div> Prerequisites
+
+* Your content must either be available in the Content API or available on a blogs URL in order for commenting to work. (See Moderation for why) 
 * You must be on an FT.com domain or subdomain for authentication to work
 
-## Browser support
-Works in IE9+ and all other browers in accordance with our [support policy](https://docs.google.com/a/ft.com/document/d/1dX92MPm9ZNY2jqFidWf_E6V4S6pLkydjcPmk5F989YI/edit)
-
-## Core/Enhanced Experience
-Only the enhanced experience offers any kind of commenting functionality. Core functionality will be added in due course.
-
-## Adding comments to your product
+## <div id="product"></div> Adding comments to your product 
 
 Javascript:
 
@@ -24,34 +32,34 @@ var oComments = require('o-comments');
 SCSS:
 
 ```css
-@import 'o-livefyre-comment-client/main';
+@import 'o-comments-client/main';
 ```
 
-### Declaratively
+### <div id="decl"></div> Declaratively 
 Use the following markup to enable comments:
 
 ```html
 <div class="o-comments" 
-    id="oComments" 
-    data-o-livefyre-comment-client-autoconstruct="true" 
-    data-o-livefyre-comment-client-config-title="{article-title}" 
-    data-o-livefyre-comment-client-config-url="{page-url}" 
-    data-o-livefyre-comment-client-config-articleId="{article-id}">
+    id="{oCommentsInstance}" 
+    data-o-comments-client-autoconstruct="true|false" 
+    data-o-comments-client-config-title="{article-title}" 
+    data-o-comments-client-config-url="{page-url}" 
+    data-o-comments-client-config-articleId="{article-id}">
 </div>
 ```
 
 1. `{article-title}` the title of your article/post/thing
-2. `data-o-livefyre-comment-client-autoconstruct="true"` automatically construct the component when `o.DOMContentLoaded` fires
-3. `data-o-livefyre-comment-client-config-articleId` a unique id for your content, ideally a uuid
-4. `{page-url}` The canonical URL for your thing
+2. `data-o-comments-client-autoconstruct="true"` automatically construct the component when `o.DOMContentLoaded` fires. A `false` value allows you to defer component initialisation
+3. `data-o-comments-client-config-articleId` a unique id for your content, ideally a UUID for FT content
+4. `{page-url}` The canonical URL for your article/page/thing
 
-To initialise:
+If you defer initialising oComments by  using`data-o-comments-client-autoconstruct="false"` then you can initialise the component by calling
 
 ```javascript
 oComments.initDomConstruct();
 ```
 
-### Imperatively
+### <div id="imper"></div> Imperatively 
 Create an instance of the component with the parameters that are available:
 
 ```javascript
@@ -75,7 +83,7 @@ Load the component:
 oComments.load();
 ```
 
-## Login integration
+## <div id="login"></div> Login integration 
 The default behavior when the user is not logged in, but the action the user does requires to be logged in (e.g. posting a comment), is to redirect to the FT's login page (https://registration.ft.com). However you may wish to integrate with your product's authentication process in which case you can override the default behaviour.
 
 1. Override the `auth.loginRequiredDefaultBehavior` function
@@ -115,14 +123,9 @@ oComments.on('auth.loginRequired', function (evt) {
 });
 ```
 
-**Important: if the log in needs a page reload, don't call the callback at all (there's no success/failure, it's still pending)!**
-
-
-```
-
 **Important: if the log in needs a page reload, don't call the failure function!**
 
-## Events
+## <div id="events"></div> Events 
 
 All events have a payload of data to identify the originating component and any event specific data:
 
@@ -242,7 +245,7 @@ Event detail data: siteId, eventData, where eventData has the following structur
 ```
 
 
-### Shared events
+#### Shared events
 These events are triggered on the `body` element and are relevant to all oComments components on a page. They have the same format as the component level events: `oComments.nameOfTheEvent`, where `nameOfTheEvent` is one of the following below.
 
 The payload data consists only of event specific data:
@@ -279,9 +282,9 @@ oComments.on('auth.loginRequired', function (evt) {
 });
 ```
 
-## API
+## <div id="api"></div> API 
 
-### oComments.init(config)
+##### oComments.init(config)
 This method is responsible for changing the default configuration used by oComments. Calling this method with an object will merge the default configuration with the object specified (deep merge, primitive type values of the same key will be overwritten).
 
 ##### Default configuration - PROD
@@ -326,7 +329,7 @@ oComments.init({
 });
 ```
 
-### UI messages
+### <div id="messages"></div> UI messages
 You can override the messages shown to a user in various parts of the UI:
 ##### oComments.i18n.lfStringOverride
 An object with the following messages:
@@ -353,16 +356,22 @@ An object with the following messages:
     topCommentsContentNotFoundMsg: "There aren't any recommendations yet."
     unlikeButton: "Unrecommend"
 
-## Logging
+### Logging
 Logging can be enabled for debugging purposes. It logs using the global 'console' if available (if not, nothing happens and it degrades gracefully).
 By default logging is disabled.
 
-### oComments.enableLogging()
+##### oComments.enableLogging()
 This method enables logging of the module.
 
-### oComments.disableLogging()
+##### oComments.disableLogging()
 This method disables logging of the module.
 
-### oComments.setLoggingLevel(level)
+##### oComments.setLoggingLevel(level)
 This method sets the logging level. This could be a number from 0 to 4 (where 0 is debug, 4 is error), or a string from the available methods of 'console' (debug, log, info, warn, error).
 Default is 3 (warn).
+
+## <div id="browser"></div> Browser support 
+Works in accordance with our [support policy](https://docs.google.com/a/ft.com/document/d/1dX92MPm9ZNY2jqFidWf_E6V4S6pLkydjcPmk5F989YI/edit)
+
+## <div id="core"></div> Core/Enhanced Experience
+Only the enhanced experience offers any kind of commenting functionality. Core functionality will be added in due course.
