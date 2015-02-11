@@ -494,18 +494,22 @@ This is responsible for loading Livefyre's core JS libraries, and it also provid
 It exposes the following objects:
 ##### lfStringOverride
 Contains FT preferred string overrides for the default Livefyre Comments widget.
-##### messages
-Contains several custom messages, e.g. error messages
 
 
 ### utils
 Contains helper functions.
 
 Methods that are available:
+
 ##### emptyLivefyreActionQueue
 Livefyre creates a queue in localStorage when a user posts a comment without being logged in. This method clears the queue.
+
+##### isLivefyreActionQueuePresent
+Check if Livefyre queue is set.
+
 ##### isPermalinkPresent
 Detects if the URL is a Livefyre permalink.
+
 ##### cloneObject
 Deferences a plain Object and returns a deep copy (same content with different references).
 
