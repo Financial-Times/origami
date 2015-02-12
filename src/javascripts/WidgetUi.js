@@ -160,7 +160,7 @@ function WidgetUi (widgetContainer) {
 	this.removeSettingsLink = function () {
 		var el = self.widgetContainer.querySelector('.o-comment-ui--settings');
 		if (el) {
-			el.parentNode.removeChild(el[0]);
+			el.parentNode.removeChild(el);
 		}
 	};
 
