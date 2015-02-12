@@ -1,7 +1,8 @@
 @include oColorsSetUseCase(o-forms-error-block, background, red);
 @include oColorsSetUseCase(o-forms-error-block, text, white);
 
-@include oColorsSetUseCase(o-forms-radiocheckbox-checked, background, grey-tint5);
+@include oColorsSetUseCase(o-forms-radiocheckbox-checked, background, green);
+@include oColorsSetUseCase(o-forms-radiocheckbox-checked, border, green);
 
 @include oColorsSetUseCase(o-forms-error-block-fallback, background, red-tint5);
 

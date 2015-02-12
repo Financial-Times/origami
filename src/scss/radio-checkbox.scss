@@ -17,7 +17,6 @@
 		opacity: 0; // better than display: none as it allows tabbing
 	}
 
-
 	#{$checkbox} + #{$label},
 	#{$radio} + #{$label} {
 		display: inline-block;
@@ -60,6 +59,12 @@
 		@include oFormsCommonFieldFocus;
 	}
 
+	// Apply different border colour to checkboxes and radio labels on hover
+	#{$o-hoverable-if-hover-enabled} #{$checkbox}:not(:checked):hover + #{$label}:before,
+	#{$o-hoverable-if-hover-enabled} #{$radio}:not(:checked):hover + #{$label}:before {
+		border-color: oColorsGetColorFor(o-forms-field-focus, border);
+	}
+
 	// radio button border styles
 	#{$radio} + #{$label}:before {
 		// Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
@@ -70,6 +75,7 @@
 	#{$checkbox}:checked + #{$label}:before,
 	#{$radio}:checked + #{$label}:before {
 		background-color: #ffffff;
+		border-color: oColorsGetColorFor(o-forms-radiocheckbox-checked, border);
 	}
 
 	// styling for the border of small radio buttons and checkboxes
@@ -87,6 +93,7 @@
 		top: 0;
 		left: 0;
 		transition: 0.1s opacity ease-in;
+		color: oColorsGetColorFor(o-forms-radiocheckbox-checked, background);
 	}
 
 	#{$radio}:checked + #{$label}:after,
