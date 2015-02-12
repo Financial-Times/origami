@@ -175,7 +175,7 @@ function WidgetUi (widgetContainer) {
 		if (fyreEl && fyreStreamStatsEl) {
 			var counterEl = fyreStreamStatsEl.querySelector('.fyre-comment-count');
 
-			if (counterEl.length) {
+			if (counterEl) {
 				fyreEl.style.paddingTop = '30px';
 				fyreEl.style.position = 'relative';
 
