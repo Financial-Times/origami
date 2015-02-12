@@ -1,12 +1,12 @@
 {
   "name": "o-comments",
-  "version": "0.8.5",
+  "version": "0.8.7",
   "main": [
     "main.js",
     "main.scss"
   ],
   "dependencies": {
-    "o-comment-api": "^0.7.0",
+    "o-comment-api": "^0.8.0",
     "o-comment-ui": "^0.4.0",
     "o-comment-utilities": "^0.5.0",
     "o-ft-typography": "^1.12.2",

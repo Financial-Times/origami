@@ -2,7 +2,7 @@
     "livefyre": {
         "network": "ft.fyre.co",
         "domain": "ft.auth.fyre.co",
-        "resourceDomainBase": "http://cdn.livefyre.com"
+        "resourceDomainBase": "http://cdn.livefyre.com/"
     },
     "resourceUrls": {
         "livefyreJs": "/Livefyre.js"

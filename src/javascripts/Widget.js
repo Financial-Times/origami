@@ -33,6 +33,8 @@ var resourceLoader = require('./resourceLoader.js');
  *  - initExtension: object which contains key-value pairs which should be added to the init object
  *  - stringOverrides: key-value pairs which override default LF strings
  *  - authPageReload: if authentication needs a page reload. By default it's false.
+ *  - section: Override the default mapping based on URL or CAPI with an explicit mapping. Section parameter should be a valid FT metadata term (Primary section)
+ *  - tags: Tags which will be added to the collection in Livefyre
  *
  * @param {object} config Configuration object. See in the description the fields that are mandatory.
  */
