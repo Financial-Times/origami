@@ -1,0 +1,23 @@
+{
+  "name": "next-messaging",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Financial-Times/next-messaging",
+  "authors": [
+    "Paul I Wilson <paul.i.wilson@ft.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "dom-delegate": "~2.0.3"
+  }
+}

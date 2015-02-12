@@ -1,0 +1,26 @@
+{
+  "name": "next-messaging",
+  "version": "1.0.0",
+  "description": "Component for showing Messages to users",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Financial-Times/next-messaging.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/next-messaging/issues"
+  },
+  "homepage": "https://github.com/Financial-Times/next-messaging",
+  "devDependencies": {
+    "chai": "^2.0.0",
+    "mocha": "^2.1.0",
+    "mocha-phantomjs": "^3.5.3",
+    "origami-build-tools": "^2.9.1",
+    "phantomjs": "^1.9.15"
+  }
+}
