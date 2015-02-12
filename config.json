@@ -5,7 +5,7 @@
         "resourceDomainBase": "http://cdn.livefyre.com/"
     },
     "resourceUrls": {
-        "livefyreJs": "/Livefyre.js"
+        "livefyreJs": "Livefyre.js"
     },
     "emailNotifications": true
 }
