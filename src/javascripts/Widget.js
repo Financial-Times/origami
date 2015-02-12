@@ -63,6 +63,12 @@ function Widget () {
 	 */
 	this.config.initExtension.disableIE8Shim = true;
 
+	/**
+	 * Disable Livefyre internal analytics
+	 */
+	this.config.initExtension.disableThirdPartyAnalytics = true;
+
+
 	if (this.getWidgetEl().className.indexOf('o-comments') === -1) {
 		this.getWidgetEl().className += ' o-comments';
 	}
