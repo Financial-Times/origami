@@ -10,3 +10,13 @@ body {
 	float: left;
 	min-width: 300px;
 }
+.demo-real-life-form-container {
+	float: none;
+	margin: 0 auto;
+
+	h2,
+	h3 {
+		@include oFormsGroup; // Indent
+		margin-bottom: 1em; // Set smaller margin
+	}
+}
