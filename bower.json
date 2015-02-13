@@ -18,6 +18,8 @@
     "tests"
   ],
   "dependencies": {
-    "dom-delegate": "~2.0.3"
+    "dom-delegate": "~2.0.3",
+    "o-fonts": "^1.4.2",
+    "o-ft-buttons" : "^1.7.5"
   }
 }

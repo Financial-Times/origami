@@ -1,0 +1,14 @@
+{
+	"description": "Next FT",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "paul.wilson@ft.com",
+	"supportStatus": "experimental",
+	"demos": [
+		{
+			"path": "/demos/optin.html",
+			"expanded": true,
+			"description": "Optin Message"
+		}
+	]
+}

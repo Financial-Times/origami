@@ -9,9 +9,9 @@ describe("Messaging", function(){
 
 	it("Should be able to show a message with the given content", function(){
 
-		notification({content:message});
-		expect(document.querySelector('.notification')).not.to.be.null;
-		var content = document.querySelector('.notification__content').innerHTML;
+		notification({content:message,type:'message'});
+		expect(document.querySelector('.message')).not.to.be.null;
+		var content = document.querySelector('.message__content').innerHTML;
 		expect(content).to.contain(message);
 	});
 
@@ -19,8 +19,8 @@ describe("Messaging", function(){
 		var event = new CustomEvent('FT.Notification', {detail:{content:message}});
 		document.dispatchEvent(event);
 		setTimeout(function(){
-			expect(document.querySelector('.notification')).not.to.be.null;
-			var content = document.querySelector('.notification__content').innerHTML;
+			expect(document.querySelector('.message')).not.to.be.null;
+			var content = document.querySelector('.message__content').innerHTML;
 			expect(content).to.contain(message);
 			done();
 		}, 0);
@@ -28,9 +28,9 @@ describe("Messaging", function(){
 
 	// todo [PW] Make this test correctly dispatch a click event
 	it.skip('Will hide the message if the user clicks the close button', function(done){
-		notification({content:message});
+		notification({content:message,type:'message'});
 		setTimeout(function(){
-			expect(document.querySelector('.notification')).to.be.null;
+			expect(document.querySelector('.message')).to.be.null;
 			done();
 		}, 1500);
 
@@ -38,11 +38,11 @@ describe("Messaging", function(){
 
 	it('Will hide message after 5 seconds if no other interaction', function(done){
 		this.timeout(8000);
-		notification({content:message});
+		notification({content:message,type:'message'});
 		var clickEvent = new Event('click');
-		document.querySelector('.notification__close').dispatchEvent(clickEvent);
+		document.querySelector('.message__close').dispatchEvent(clickEvent);
 		setTimeout(function(){
-			expect(document.querySelector('.notification')).to.be.null;
+			expect(document.querySelector('.message')).to.be.null;
 			done();
 		}, 7000);
 	});

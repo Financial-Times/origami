@@ -2,17 +2,20 @@
 
 var Delegate = require('dom-delegate');
 
+var optin = require('./js/optin');
+
 var templates = require('./js/templates');
-var currentNotification = null;
+var currentMessage = null;
 var timeout;
 var timeoutDuration = 5000;
+var animDuration = 500;
 
 function listenForCloseButtonClick(){
 	var called = false;
 	var func = function(){
 
 		var delegate = new Delegate(document.body);
-		delegate.on('click', '.notification__close', hideNotification);
+		delegate.on('click', '.message__close-js', hideMessage);
 	};
 
 	if(!called){
@@ -21,38 +24,43 @@ function listenForCloseButtonClick(){
 	}
 }
 
-function showNotification(options){
+function showMessage(options){
 	clearTimeout(timeout);
 	listenForCloseButtonClick();
-	if(currentNotification){
-		currentNotification.firstChild.innerHTML = options.content;
+	if(currentMessage){
+		currentMessage.firstChild.innerHTML = options.content;
 	}else{
-		var html = templates.notification(options.content);
+		var html = templates[options.type](options.content);
 		document.querySelector('header').insertAdjacentHTML('afterend', html);
-		currentNotification = document.querySelector('.notification');
+		currentMessage = document.querySelector('.message');
 	}
 
-	currentNotification.classList.add('visible');
-	timeout = setTimeout(hideNotification, timeoutDuration);
+	currentMessage.classList.add('visible');
+	if(options.duration !== 0){
+		timeout = setTimeout(hideMessage, options.duration || timeoutDuration);
+	}
 }
 
-function hideNotification(){
+function hideMessage(){
 	clearTimeout(timeout);
-	currentNotification.classList.remove('visible');
+	currentMessage.classList.remove('visible');
 	setTimeout(function(){
-		if(currentNotification && currentNotification.parentNode){
-			currentNotification.parentNode.removeChild(currentNotification);
+		if(currentMessage && currentMessage.parentNode){
+			currentMessage.parentNode.removeChild(currentMessage);
 		}
 
-		currentNotification = null;
-	}, 1000);
+		currentMessage = null;
+	}, animDuration);
 }
 
 
-document.addEventListener("FT.Notification", function(e){
-	showNotification(e.detail);
+document.addEventListener("FT.Message", function(e){
+	var data = e.detail;
+	data.type = "message";
+	showMessage(data);
 });
 
+optin();
 
-module.exports = showNotification;
+module.exports = showMessage;
 

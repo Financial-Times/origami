@@ -1,0 +1,23 @@
+@import "o-ft-buttons/main";
+
+.optin-message-actions {
+	overflow: hidden;
+
+	.optin-message-button__left {
+		@extend %o-ft-buttons;
+		@extend %o-ft-buttons--big;
+		display: inline-block;
+		vertical-align: middle;
+		float:left;
+	}
+
+	.optin-message-button__right {
+		display: inline-block;
+		vertical-align: middle;
+		float:right;
+		text-align: right;
+		width:49%;
+		text-decoration: underline;
+		color:inherit;
+	}
+}
