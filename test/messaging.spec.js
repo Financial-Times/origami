@@ -1,3 +1,4 @@
+/* global describe:false, it:false */
 "use strict";
 
 var expect = require('chai').expect;
@@ -16,7 +17,7 @@ describe("Messaging", function(){
 	});
 
 	it('Should show a message when an FT.Notification event is fired', function(done){
-		var event = new CustomEvent('FT.Notification', {detail:{content:message}});
+		var event = new CustomEvent('FT.Message', {detail:{content:message}});
 		document.dispatchEvent(event);
 		setTimeout(function(){
 			expect(document.querySelector('.message')).not.to.be.null;

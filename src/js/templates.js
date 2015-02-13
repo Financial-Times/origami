@@ -1,3 +1,6 @@
+// jshint ignore: start
+// obt jshint doesn't get ES6, so disabling it
+"use strict";
 
 var message = function(content){
 	return `

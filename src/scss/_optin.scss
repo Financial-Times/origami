@@ -8,16 +8,16 @@
 		@extend %o-ft-buttons--big;
 		display: inline-block;
 		vertical-align: middle;
-		float:left;
+		float: left;
 	}
 
 	.optin-message-button__right {
 		display: inline-block;
 		vertical-align: middle;
-		float:right;
+		float: right;
 		text-align: right;
-		width:49%;
+		width: 49%;
 		text-decoration: underline;
-		color:inherit;
+		color: inherit;
 	}
 }

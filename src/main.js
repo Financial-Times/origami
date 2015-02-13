@@ -72,4 +72,3 @@ module.exports = {
 	init : init,
 	showMessage: showMessage
 };
-
