@@ -112,6 +112,14 @@ We also dispatch custom events:
 * `oOverlay.ready`: Dispatched when the overlay is loaded in the DOM
 * `oOverlay.destroy`: Dispatched when the overlay is removed from the DOM
 
+## Sass
+
+`o-overlay` supports silent mode, so there are mixins for the different elements. If you want to get all the classes styled by default, you'll need to turn of silent mode:
+
+```scss
+$o-overlay-is-silent: false;
+```
+
 ## UI Notes
 
 * Having a heading is optional, though you won't have a close button if a heading hasn't been set. If you don't need to have an overlay with a close button, please check with the design team first.
