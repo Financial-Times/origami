@@ -42,19 +42,19 @@ Use the following markup to enable comments:
 ```html
 <div class="o-comments" 
     id="{oCommentsInstance}" 
-    data-o-comments-client-autoconstruct="true|false" 
-    data-o-comments-client-config-title="{article-title}" 
-    data-o-comments-client-config-url="{page-url}" 
-    data-o-comments-client-config-articleId="{article-id}">
+    data-o-comments-autoconstruct="true|false" 
+    data-o-comments-config-title="{article-title}" 
+    data-o-comments-config-url="{page-url}" 
+    data-o-comments-config-articleId="{article-id}">
 </div>
 ```
 
 1. `{article-title}` the title of your article/post/thing
-2. `data-o-comments-client-autoconstruct="true"` automatically construct the component when `o.DOMContentLoaded` fires. A `false` value allows you to defer component initialisation
-3. `data-o-comments-client-config-articleId` a unique id for your content, ideally a UUID for FT content
+2. `data-o-comments-autoconstruct="true"` automatically construct the component when `o.DOMContentLoaded` fires. A `false` value allows you to defer component initialisation
+3. `data-o-comments-config-articleId` a unique id for your content, ideally a UUID for FT content
 4. `{page-url}` The canonical URL for your article/page/thing
 
-If you defer initialising oComments by  using`data-o-comments-client-autoconstruct="false"` then you can initialise the component by calling
+If you defer initialising oComments by  using`data-o-comments-autoconstruct="false"` then you can initialise the component by calling
 
 ```javascript
 oComments.initDomConstruct();
