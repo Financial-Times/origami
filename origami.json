@@ -7,5 +7,12 @@
 	"ci": {},
 	"browserFeatures": {
 		"required": ["createevent", "customevents"]
-	}
+	},
+	"demos": [
+        {
+            "path": "/demos/main.html",
+            "expanded": true,
+            "description": ""
+        }
+    ]
 }
