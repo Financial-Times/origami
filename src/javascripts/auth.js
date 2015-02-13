@@ -19,6 +19,9 @@ function Auth () {
 	 */
 	var authDelegate;
 
+
+	var loggedIn = false;
+
 	/**
 	 * Pseudonym is still missing.
 	 * @type {Boolean}
@@ -103,6 +106,9 @@ function Auth () {
 							auth.authenticate({
 								livefyre: authData.token
 							});
+
+							loggedIn = true;
+
 							globalEvents.trigger('auth.login', authData);
 							callback(true, authData);
 						});
@@ -253,7 +259,9 @@ function Auth () {
 					});
 				}
 			} else {
-				self.login();
+				if (!loggedIn) {
+					self.login();
+				}
 
 				callback(null, authData);
 			}
