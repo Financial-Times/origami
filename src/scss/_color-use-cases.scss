@@ -20,10 +20,6 @@
 @include oColorsSetUseCase(o-forms-field-focus, border, pink-tint4);
 @include oColorsSetUseCase(o-forms-focus-ring, border, blue-tint5);
 
-@include oColorsSetUseCase(o-forms-field-disabled, text, pink-tint4);
-@include oColorsSetUseCase(o-forms-field-disabled, border, pink-tint2);
-@include oColorsSetUseCase(o-forms-field-disabled, background, pink-tint2);
-
 @include oColorsSetUseCase(o-forms-field-valid, text, grey-tint5);
 @include oColorsSetUseCase(o-forms-field-valid, border, green);
 @include oColorsSetUseCase(o-forms-field-valid, background, white);
