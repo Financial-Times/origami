@@ -46,23 +46,21 @@
 		height: $_o-forms-radiocheckbox-default-size;
 		border: 1px solid oColorsGetColorFor(o-forms-field-standard, border);
 		box-sizing: border-box;
-		border-radius: 3px;
 		content: '';
 		background-color: rgba(255, 255, 255, 0.5);
 		background-clip: content-box;
 		transition: all 0.1s ease-in;
 	}
 
+	#{$checkbox} + #{$label}:before,
+	#{$checkbox} + #{$label}:after {
+		border-radius: 3px;
+	}
+
 	// Apply different border colour to checkboxes and radio labels on focus
 	#{$checkbox}:focus + #{$label}:before,
 	#{$radio}:focus + #{$label}:before {
 		@include oFormsCommonFieldFocus;
-	}
-
-	// Apply different border colour to checkboxes and radio labels on hover
-	#{$o-hoverable-if-hover-enabled} #{$checkbox}:not(:checked):hover + #{$label}:before,
-	#{$o-hoverable-if-hover-enabled} #{$radio}:not(:checked):hover + #{$label}:before {
-		border-color: oColorsGetColorFor(o-forms-field-focus, border);
 	}
 
 	// radio button border styles
@@ -72,9 +70,13 @@
 	}
 
 	// Add background contrast to the checked state
-	#{$checkbox}:checked + #{$label}:before,
 	#{$radio}:checked + #{$label}:before {
 		background-color: #ffffff;
+		border-color: oColorsGetColorFor(o-forms-radiocheckbox-checked, border);
+	}
+
+	#{$checkbox}:checked + #{$label}:before {
+		background-color: oColorsGetColorFor(o-forms-radiocheckbox-checked, background);
 		border-color: oColorsGetColorFor(o-forms-radiocheckbox-checked, border);
 	}
 
@@ -121,7 +123,7 @@
 
 	// styling for checked checkbox
 	#{$checkbox} + #{$label}:after {
-		background-image: url(oAssetsResolve("svg/tick.svg", o-ft-icons));
+		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NCIgaGVpZ2h0PSI0NiI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTQzLjM5MSAxLjU1N2wtMjMuMDkyIDIzLjA4OS05Ljc3LTkuNzc0LTkuNjM1IDkuNjQ0IDE5LjM5NSAxOS4zOTcuMDEtLjAyNy4wMzMuMDI3IDMyLjY5My0zMi43Mjl6Ii8+PC9zdmc+');
 		background-repeat: no-repeat;
 		height: $_o-forms-radiocheckbox-default-size;
 		width: $_o-forms-radiocheckbox-default-size;
