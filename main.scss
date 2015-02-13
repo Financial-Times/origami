@@ -116,6 +116,6 @@
 	}
 }
 
-@if (not $o-overlay-is-silent) {
+@if ($o-overlay-is-silent == false) {
 	@include oOverlayIncludeAll();
 }
