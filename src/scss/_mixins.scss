@@ -47,7 +47,10 @@
 
 /// Common field styles: disabled state
 @mixin oFormsCommonFieldDisabled {
-	@include oColorsFor(o-forms-field-disabled);
+	cursor: default;
+	color: mix(oColorsGetColorFor(o-forms-field-standard, background), oColorsGetColorFor(o-forms-field-standard, text), 70%);
+	border-color: mix(oColorsGetColorFor(o-forms-field-standard, background), oColorsGetColorFor(o-forms-field-standard, border), 50%);
+	background-color: mix(oColorsGetColorFor(o-forms-field-standard, background), oColorsGetColorFor(o-forms-field-standard, border), 85%);
 }
 
 /// Common field styles: invalid state
