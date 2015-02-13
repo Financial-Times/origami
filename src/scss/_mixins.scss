@@ -163,3 +163,10 @@
 		clear: both;
 	}
 }
+
+/// Target styles at Internet Explorer 8 only
+@mixin _oFormsTargetIE8 {
+	@media \0screen {
+		@content;
+	}
+}
