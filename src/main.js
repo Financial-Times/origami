@@ -36,7 +36,6 @@ function showNotification(options){
 	timeout = setTimeout(hideNotification, timeoutDuration);
 }
 
-
 function hideNotification(){
 	clearTimeout(timeout);
 	currentNotification.classList.remove('visible');
