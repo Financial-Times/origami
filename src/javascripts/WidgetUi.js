@@ -180,7 +180,7 @@ function WidgetUi (widgetContainer) {
 				fyreEl.style.position = 'relative';
 
 				fyreStreamStatsEl.style.position = 'absolute';
-				fyreStreamStatsEl.style.top = '-10px';
+				fyreStreamStatsEl.style.top = '0';
 				fyreStreamStatsEl.style.float = 'none';
 				fyreStreamStatsEl.style.width = '100%';
 				fyreStreamStatsEl.className = 'comment-header';

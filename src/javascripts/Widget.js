@@ -159,10 +159,6 @@ function Widget () {
 
 					new Conv(networkConfig, [initData], function (widget) {
 						if (widget) {
-							if (envConfig.get().emailNotifications !== true) {
-								self.ui.hideFollowButton();
-							}
-
 							callback();
 
 							self.lfWidget = widget;
@@ -171,6 +167,9 @@ function Widget () {
 							});
 
 							widget.on('initialRenderComplete', function () {
+								if (envConfig.get().emailNotifications !== true) {
+									self.ui.hideFollowButton();
+								}
 								self.ui.addTermsAndGuidelineMessage();
 								self.ui.moveCommentCountOut();
 
