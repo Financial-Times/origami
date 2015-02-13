@@ -2,7 +2,8 @@
 "use strict";
 
 var expect = require('chai').expect;
-var notification = require('../src/main.js');
+var messaging = require('../src/main.js');
+messaging.init();
 
 describe("Messaging", function(){
 
@@ -10,7 +11,7 @@ describe("Messaging", function(){
 
 	it("Should be able to show a message with the given content", function(){
 
-		notification({content:message,type:'message'});
+		messaging.showMessage({content:message,type:'message'});
 		expect(document.querySelector('.message')).not.to.be.null;
 		var content = document.querySelector('.message__content').innerHTML;
 		expect(content).to.contain(message);
@@ -29,7 +30,7 @@ describe("Messaging", function(){
 
 	// todo [PW] Make this test correctly dispatch a click event
 	it.skip('Will hide the message if the user clicks the close button', function(done){
-		notification({content:message,type:'message'});
+		messaging.showMessage({content:message,type:'message'});
 		setTimeout(function(){
 			expect(document.querySelector('.message')).to.be.null;
 			done();
@@ -39,7 +40,7 @@ describe("Messaging", function(){
 
 	it('Will hide message after 5 seconds if no other interaction', function(done){
 		this.timeout(8000);
-		notification({content:message,type:'message'});
+		messaging.showMessage({content:message,type:'message'});
 		var clickEvent = new Event('click');
 		document.querySelector('.message__close').dispatchEvent(clickEvent);
 		setTimeout(function(){
