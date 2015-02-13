@@ -8,6 +8,10 @@
   "moduleType": [
     "amd"
   ],
+  "main" : [
+    "src/main.css",
+    "src/main.js"
+  ],
   "license": "MIT",
   "private": true,
   "ignore": [

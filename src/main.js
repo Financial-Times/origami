@@ -34,6 +34,9 @@ function showMessage(options){
 		document.querySelector('header').insertAdjacentHTML('afterend', html);
 		currentMessage = document.querySelector('.message');
 	}
+	if(options.close !== false) {
+		currentMessage.classList.add('.message--show-close');
+	}
 
 	currentMessage.classList.add('visible');
 	if(options.duration !== 0){
@@ -53,14 +56,20 @@ function hideMessage(){
 	}, animDuration);
 }
 
+function init(){
+	document.addEventListener("FT.Message", function(e){
+		var data = e.detail;
+		data.type = "message";
+		showMessage(data);
+	});
 
-document.addEventListener("FT.Message", function(e){
-	var data = e.detail;
-	data.type = "message";
-	showMessage(data);
-});
+	optin();
+}
 
-optin();
 
-module.exports = showMessage;
+
+module.exports = {
+	init : init,
+	showMessage: showMessage
+};
 

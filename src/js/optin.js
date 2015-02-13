@@ -14,7 +14,7 @@ var optinMessage = `
 
 function optin(){
 	if(location.hash.indexOf('opted-via') > -1){
-		utils.dispatchMessageEvent(optinMessage, 0);
+		utils.dispatchMessageEvent(optinMessage, {duration:0, close:false});
 	}
 }
 

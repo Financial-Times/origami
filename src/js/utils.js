@@ -6,12 +6,10 @@ function dispatchEvent(element , name, data){
 	element.dispatchEvent(event);
 }
 
-function dispatchMessageEvent(message, duration){
-	var data = {content:message};
-	if(typeof duration !== 'undefined'){
-		data.duration = duration;
-	}
-
+function dispatchMessageEvent(message, options){
+	var data = options || {};
+	data.content = message;
+	data.type = 'message';
 	dispatchEvent(document, 'FT.Message', data);
 }
 
