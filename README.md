@@ -1,4 +1,4 @@
-o-ft-forms [![Build Status](https://travis-ci.org/Financial-Times/o-ft-forms.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-forms)
+o-forms [![Build Status](https://travis-ci.org/Financial-Times/o-forms.png?branch=master)](https://travis-ci.org/Financial-Times/o-forms)
 ============
 ## Overview
 
