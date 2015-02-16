@@ -2,7 +2,7 @@
     "description": "Forms module",
     "origamiType": "module",
     "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-ft-forms/issues",
+    "support": "https://github.com/Financial-Times/o-forms/issues",
     "supportStatus": "active",
     "browserFeatures": {
         "optional": [
@@ -10,7 +10,7 @@
         ]
     },
     "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-forms/builds.json"
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-forms/builds.json"
     },
     "demos": [
         {
