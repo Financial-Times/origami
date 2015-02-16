@@ -13,6 +13,11 @@ function dispatchMessageEvent(message, options){
 	dispatchEvent(document, 'FT.Message', data);
 }
 
+function dispatchMessageCloseEvent(){
+	dispatchEvent(document, 'FT.MessageClose', {});
+}
+
 module.exports = {
-	dispatchMessageEvent : dispatchMessageEvent
+	dispatchMessageEvent : dispatchMessageEvent,
+	dispatchMessageCloseEvent : dispatchMessageCloseEvent
 };

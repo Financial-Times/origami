@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "dom-delegate": "~2.0.3",
-    "o-fonts": "^1.4.2",
+    "next-ui-setup" : "https://github.com/Financial-Times/next-ui-setup.git#^3.0.0",
     "o-ft-buttons" : "^1.7.5"
   }
 }
