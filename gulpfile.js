@@ -32,6 +32,3 @@ gulp.task('default', ['verify', 'build', 'demo']);
 gulp.task('watch', function() {
 	gulp.watch(['./src/**', './main.js', './main.scss', './config.json'], ['default']);
 });
-
-
-gulp.task('run-demo-local', ['demo-local']);

@@ -9,10 +9,10 @@
 		"required": ["createevent", "customevents"]
 	},
 	"demos": [
-        {
-            "path": "/demos/main.html",
-            "expanded": true,
-            "description": ""
-        }
-    ]
+		{
+			"path": "/demos/main.html",
+			"expanded": true,
+			"description": ""
+		}
+	]
 }
