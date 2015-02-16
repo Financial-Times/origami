@@ -16,6 +16,10 @@ function optin(){
 	if(location.hash.indexOf('opted-via') > -1){
 		utils.dispatchMessageEvent(optinMessage, {duration:0, close:false});
 	}
+
+	document.addEventListener('FT.MessageClose', function(){
+		location.hash = '';
+	});
 }
 
 module.exports = optin;

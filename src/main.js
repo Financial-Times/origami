@@ -3,6 +3,7 @@
 var Delegate = require('dom-delegate');
 
 var optin = require('./js/optin');
+var utils = require('./js/utils');
 
 var templates = require('./js/templates');
 var currentMessage = null;
@@ -47,6 +48,7 @@ function showMessage(options){
 function hideMessage(){
 	clearTimeout(timeout);
 	currentMessage.classList.remove('visible');
+	utils.dispatchMessageCloseEvent();
 	setTimeout(function(){
 		if(currentMessage && currentMessage.parentNode){
 			currentMessage.parentNode.removeChild(currentMessage);
