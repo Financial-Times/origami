@@ -20,6 +20,9 @@ function Auth () {
 	var authDelegate;
 
 
+	var sessionStorageKey = 'o-comments-auth-last-token';
+
+
 	var loggedIn = false;
 
 	/**
@@ -37,6 +40,27 @@ function Auth () {
 
 	this.authPageReload = false;
 
+
+	function isTokenTheSameOrNew (token) {
+		if (!oCommentUtilities.storageWrapper.sessionStorage.hasItem(sessionStorageKey)) {
+			return true;
+		}
+
+		if (oCommentUtilities.storageWrapper.sessionStorage.getItem(sessionStorageKey) === token) {
+			return true;
+		}
+
+		return false;
+	}
+
+	function cacheLastToken (token) {
+		oCommentUtilities.storageWrapper.sessionStorage.setItem(sessionStorageKey, token);
+	}
+
+	function clearLastToken () {
+		oCommentUtilities.storageWrapper.sessionStorage.removeItem(sessionStorageKey);
+	}
+
 	/**
 	 * See http://docs.livefyre.com/developers/identity-integration/#AuthDelegateObject
 	 */
@@ -51,9 +75,18 @@ function Auth () {
 						}
 
 						if (authData && authData.token) {
-							callback(null, {
-								livefyre: authData.token
-							});
+							if (!isTokenTheSameOrNew(authData.token)) {
+								self.logout(function () {
+									callback(null, {
+										livefyre: authData.token
+									});
+									cacheLastToken(authData.token);
+								});
+							} else {
+								callback(null, {
+									livefyre: authData.token
+								});
+							}
 						} else {
 							callback(err);
 						}
@@ -63,6 +96,7 @@ function Auth () {
 					oCommentUtilities.logger.debug('auth delegate logout');
 
 					globalEvents.trigger('auth.logout');
+					clearLastToken();
 					oCommentApi.cache.clearAuth();
 					callback();
 				},
@@ -103,9 +137,14 @@ function Auth () {
 				if (authData) {
 					if (authData.token) {
 						Livefyre.require(['auth'], function (auth) {
+							if (!isTokenTheSameOrNew(authData.token)) {
+								auth.logout();
+							}
+
 							auth.authenticate({
 								livefyre: authData.token
 							});
+							cacheLastToken(authData.token);
 
 							loggedIn = true;
 
@@ -132,7 +171,7 @@ function Auth () {
 	/**
 	 * Logs out the user in the Livefyre system, and also clears the token from the local cache.
 	 */
-	this.logout = function () {
+	this.logout = function (callback) {
 		resourceLoader.loadLivefyreCore(function (errResource) {
 			if (errResource) {
 				return;
@@ -140,6 +179,10 @@ function Auth () {
 
 			Livefyre.require(['auth'], function (auth) {
 				auth.logout();
+
+				if (typeof callback === 'function') {
+					callback();
+				}
 			});
 		});
 	};
