@@ -1,5 +1,5 @@
 {
-    "name": "o-ft-forms",
+    "name": "o-forms",
     "main": ["main.scss"],
     "dependencies": {
         "o-fonts": "^1.4.1",
