@@ -3,6 +3,7 @@
 Responsive FT page header.
 
 Note: this module used to be called `o-ft-header` which is why there are references to that name in verions 1 and 2 of the module.
+
 ## Browser Support
 
 Tested and working on:
