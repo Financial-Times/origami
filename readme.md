@@ -125,9 +125,9 @@ $o-ft-header-primary-featured-width
 An __o-header__ object must be constructed for every `<header>` you have on your page that uses this module.
 
 ```javascript
-var oFtHeader = require('o-header');
+var oHeader = require('o-header');
 var header = document.querySelector('.o-ft-header');
-var ftHeader = new oFtHeader(header);
+var myHeader = new oHeader(header);
 ```
 
 Alternatively, a `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct an __o-ft-header__ object for each element with a `data-o-component="o-ft-header"` attribute:
