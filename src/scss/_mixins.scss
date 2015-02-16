@@ -34,6 +34,6 @@
 }
 
 // Helper function for assets
-@function oFtHeaderAsset ($asset) {
-	@return oAssetsResolve($asset, o-ft-header);
+@function oFtHeaderAsset($asset) {
+	@return oAssetsResolve($asset, o-header);
 }

@@ -1,6 +1,8 @@
-# Header [![Build Status](https://travis-ci.org/Financial-Times/o-ft-header.png?branch=version2)](https://travis-ci.org/Financial-Times/o-ft-header)
+# Header [![Build Status](https://travis-ci.org/Financial-Times/o-header.png)](https://travis-ci.org/Financial-Times/o-header)
 
 Responsive FT page header.
+
+Note: this module used to be called `o-ft-header` which is why there are references to that name in verions 1 and 2 of the module.
 
 ## Browser Support
 
@@ -120,10 +122,10 @@ $o-ft-header-primary-featured-width
 
 ## Javascript instantiation
 
-An __o-ft-header__ object must be constructed for every `<header>` you have on your page that uses this module.
+An __o-header__ object must be constructed for every `<header>` you have on your page that uses this module.
 
 ```javascript
-var oFtHeader = require('o-ft-header');
+var oFtHeader = require('o-header');
 var header = document.querySelector('.o-ft-header');
 var ftHeader = new oFtHeader(header);
 ```
@@ -131,7 +133,7 @@ var ftHeader = new oFtHeader(header);
 Alternatively, a `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct an __o-ft-header__ object for each element with a `data-o-component="o-ft-header"` attribute:
 
 ```javascript
-require('o-ft-header');
+require('o-header');
 document.addEventListener("DOMContentLoaded", function() {
     document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });

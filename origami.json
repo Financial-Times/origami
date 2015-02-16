@@ -20,7 +20,7 @@
         ]
     },
     "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-header/builds.json"
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-header/builds.json"
     },
     "demos": [
         {
