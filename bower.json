@@ -1,5 +1,5 @@
 {
-  "name": "o-ft-header",
+  "name": "o-header",
   "main": [
     "main.scss",
     "main.js"

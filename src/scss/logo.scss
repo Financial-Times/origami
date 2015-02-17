@@ -21,9 +21,9 @@
 	}
 	// The logo itself is a background in this abbr tag
 	abbr {
+		@include oFtHeaderLogo();
 		width: 100%;
 		height: 100%;
-		@include oFtHeaderLogo();
 		display: block;
 		text-indent: 100%;
 		overflow: hidden;
