@@ -51,17 +51,6 @@
 	}
 	// scss-lint:enable NestingDepth SelectorDepth
 
-	// Default styling for a back to ft button
-	.o-header__back-to-ft {
-		@include oHeaderLogo();
-		background-size: 100%;
-		overflow: hidden;
-		text-indent: 100%;
-		height: 100%;
-		width: 100%;
-		display: inline-block;
-	}
-
 	// Styling for menu navs that appear when o-squishy-list comes into play
 	[data-o-hierarchical-nav-level]:not([data-o-hierarchical-nav-level='1']) {
 		top: 80px;

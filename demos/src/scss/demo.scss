@@ -89,3 +89,7 @@ body {
 .demo__icon__more {
 	@extend %o-ft-icons-icon--hamburger;
 }
+
+.demo__icon--back-to-the-ft {
+	@extend %o-ft-icons-icon--brand-ft-logo-square;
+}

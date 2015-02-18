@@ -105,12 +105,6 @@ If you want to have the FT logo on your website, you just need to have the follo
 </div>
 ```
 
-You can also have a 'Back to FT.com' button on your navigation based on the tools theme using this markup:
-
-```html
-<a href="http://ft.com"><i class="o-header__back-to-ft">Back to FT.com</i></a>
-```
-
 ## Adjusting widths
 
 The primary-left, primary-right, primary-featured and secondary-left need to have a fixed width for primary-centre to adjust appropriately. To change any the default widths, you would need to add the following variables to your stylesheet before importing this module's Sass:
@@ -176,8 +170,16 @@ Add `<div class="o-header__inner">` in `<div class="o-header__container">`:
 </header>
 ```
 
-Note that o-header v3 relies on the o-grid v3 which introduces breaking changes.
+#### `.o-header__back-to-ft` icon
+
+```html
+- <i class="o-header__back-to-ft">Back to FT.com</i>
++ <i class="custom-ft-icon-class"></i>FT.com
+```
+
+See examples of custom FT icon classes in [demos/src/scss/demo.scss](https://github.com/Financial-Times/o-header/blob/master/demos/src/scss/demo.scss).
 
 ### 3. Font settings
 
 The header now inherits the `font-family` set in your application.
+
