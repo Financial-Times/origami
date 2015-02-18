@@ -67,6 +67,9 @@
 	}
 }
 
+// Disabling the declaration order because scss-lint raises a warning
+// for having oGridRespondTo after a child selector
+// scss-lint:disable DeclarationOrder
 .o-header__ft-masthead {
 	margin: 0;
 	padding: 0;
@@ -90,16 +93,14 @@
 
 		i {
 			padding-top: 11px;
+		}
 
-			.o-header--tall & {
+		.o-header--tall & {
+			line-height: 60px;
+
+			i {
 				padding-top: 18px;
 			}
-		}
-	}
-
-	.o-header--tall & {
-		@include oGridRespondTo(M) {
-			line-height: 60px;
 		}
 	}
 }
