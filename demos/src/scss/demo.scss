@@ -4,8 +4,9 @@
 
 @import "../../../main";
 
-body {
+html {
 	font-family: BentonSans, sans-serif;
+	overflow-x: hidden; // Prevent navigation menus from creating extra space on sides of the page
 }
 
 .demo__title {

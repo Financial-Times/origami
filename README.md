@@ -3,6 +3,22 @@
 Responsive FT page header.
 
 Note: this module used to be called `o-ft-header` which is why there are references to that name in verions 1 and 2 of the module.
+
+## Quick Start
+
+1. Load the CSS and the JavaScript in the document
+2. Load additional modules such as `o-ft-icons` and `o-fonts` to display FT branded icons and text
+3. Copy the markup from [one of the demos](http://registry.origami.ft.com/components/o-header) in the registry, and paste it in a document
+4. Set a `font-family` and a `overflow-x` on the document root:
+
+```scss
+html {
+	font-family: BentonSans, sans-serif;
+	overflow-x: hidden; // Prevent navigation menus from creating extra space on sides of the page
+}
+```
+
+
 ## Browser Support
 
 Tested and working on:
