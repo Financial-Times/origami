@@ -71,19 +71,31 @@
 	margin: 0;
 	padding: 0;
 	width: 155px;
-
-	@include oGridRespondTo(M) {
-		width: 218px;
-		margin-top: -7px;
-	}
+	line-height: 40px;
 
 	// The actual masthead is a background on the i tag
 	i {
-		background: url(oHeaderAsset('img/ft-masthead.png')) no-repeat;
+		background: url(oHeaderAsset('img/ft-masthead.png')) left bottom no-repeat;
 		background-image: url(oHeaderAsset('img/ft-masthead.svg')), none;
 		height: 18px;
 		width: 100%;
 		background-size: 100%;
 		display: inline-block;
+		vertical-align: top;
+		padding-top: 8px;
+	}
+
+	@include oGridRespondTo(M) {
+		width: 218px;
+
+		i {
+			padding-top: 11px;
+		}
+	}
+
+	.o-header--tall & {
+		@include oGridRespondTo(M) {
+			line-height: 60px;
+		}
 	}
 }

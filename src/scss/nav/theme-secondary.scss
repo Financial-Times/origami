@@ -2,7 +2,7 @@
 	@include oHierarchicalNavHorizontalTheme;
 
 	// Sass variable that slightly tints the colour to white for selected elements
-	$_o-header-secondary-selected: mix($o-header-brand-color, oColorsGetPaletteColor(white), 75%);
+	$_o-header-secondary-selected: mix(oColorsGetColorFor(o-header-product-brand product-brand, background), oColorsGetPaletteColor(white), 75%);
 
 	a {
 		padding: 0 5px;
@@ -12,9 +12,7 @@
 	[aria-controls][aria-expanded="true"]:after {
 			// CSS arrow for mega-dropdown
 			@include oHeaderDownArrow($_o-header-secondary-selected);
-			// Position the arrow below the secondary bar
-			top: 24px;
-			z-index: $_o-hierarchical-nav-mega-dropdown-zindex+1;
+			z-index: $_o-hierarchical-nav-mega-dropdown-zindex + 1;
 	}
 
 	// scss-lint:disable SelectorDepth
