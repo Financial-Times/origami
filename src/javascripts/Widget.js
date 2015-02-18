@@ -116,7 +116,21 @@ function Widget () {
 	};
 
 	this.init = function (callback) {
-		oCommentApi.api.getLivefyreInitConfig(self.config, function (err, initData) {
+		var config = {
+			title: self.config.title,
+			url: self.config.url,
+			articleId: self.config.articleId,
+			elId: self.config.elId,
+			stream_type: self.config.stream_type
+		};
+		if (typeof self.config.section !== 'undefined') {
+			config.section = self.config.section;
+		}
+		if (typeof self.config.tags !== 'undefined') {
+			config.tags = self.config.tags;
+		}
+
+		oCommentApi.api.getLivefyreInitConfig(config, function (err, initData) {
 			if (err) {
 				callback(err);
 				return;
