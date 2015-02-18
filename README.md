@@ -52,7 +52,7 @@ The header consists of the following content containers:
 
 Each content container can contain one of the following:
 
-* Custom content (e.g) - brand-specific logo/title etc
+* Custom content - brand-specific logo/title etc
 * A title
 * Navigation (_primary_ theme)
 * Navigation (_secondary_ theme)
