@@ -53,6 +53,7 @@ module.exports = {
 			"name": "header-no-secondary",
 			"data": {
 				"o-header": {
+					"extra-classes": "o-header--tall",
 					"primary": require('fs').readFileSync('demos/src/primary/header-no-secondary.html')
 				}
 			}
