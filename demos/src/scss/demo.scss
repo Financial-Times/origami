@@ -70,23 +70,23 @@ body {
 	color: #ffffff;
 }
 
-.demo__icon__search {
+.demo__icon--search {
 	@extend %o-ft-icons-icon--search;
 }
 
-.demo__icon__settings {
+.demo__icon--settings {
 	@extend %o-ft-icons-icon--settings;
 }
 
-.demo__icon__share {
+.demo__icon--share {
 	@extend %o-ft-icons-icon--share;
 }
 
-.demo__icon__account {
+.demo__icon--account {
 	@extend %o-ft-icons-icon--profile;
 }
 
-.demo__icon__more {
+.demo__icon--more {
 	@extend %o-ft-icons-icon--hamburger;
 }
 
