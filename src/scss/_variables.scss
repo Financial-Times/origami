@@ -1,9 +1,3 @@
-// Brand colour for the header
-@if variable_exists(o-header-brand-color) {
-	@warn "Setting the header brand colour via the $o-header-brand-color variable is deprecated. Please set a custom color use case as explained in the README."
-}
-$o-header-brand-color: oColorsGetColorFor(o-header-product-brand product-brand, background) !default;
-
 // Container widths that products can modify
 
 /// Left primary zone width
