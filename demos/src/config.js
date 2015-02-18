@@ -7,7 +7,7 @@ module.exports = {
 		"data": {
 			"content": require('fs').readFileSync('demos/src/content.html')
 		},
-		"dependencies": ["o-fonts@^1.4.0"]
+		"dependencies": ["o-fonts@^1.4.0", "o-ft-icons@^2.1.1"]
 	},
 	"demos": [
 		{

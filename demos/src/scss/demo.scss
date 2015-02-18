@@ -60,8 +60,6 @@ body {
 	text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-@include oFtIconsFontFace();
-
 .demo__icon {
 	@include oFtIconsBaseIconStyles();
 	display: block;
