@@ -90,6 +90,10 @@
 
 		i {
 			padding-top: 11px;
+
+			.o-header--tall & {
+				padding-top: 18px;
+			}
 		}
 	}
 
