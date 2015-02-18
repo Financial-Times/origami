@@ -159,15 +159,19 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
+
 ## Upgrading from 2.x.x
+
+Note that o-header v3 relies on the [o-grid](https://github.com/Financial-Times/o-grid) v3 which introduces breaking changes.
 
 ### 1. Renaming the module
 
-Rename all instances of `o-ft-header` into `o-header`.
-
-Rename all instances of `oFtHeader` into `oHeader`.
+- Rename all instances of `o-ft-header` into `o-header`.
+- Rename all instances of `oFtHeader` into `oHeader`.
 
 ### 2. Markup changes
+
+#### `.o-header__inner`
 
 Add `<div class="o-header__inner">` in `<div class="o-header__container">`:
 
