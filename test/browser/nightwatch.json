@@ -1,6 +1,6 @@
 
 {
-  "src_folders" : ["test"],
+  "src_folders" : ["test"],  // Should it be test/browser?
   "output_folder" : "./test/browser/reports",
   "custom_assertions_path" : "./test/browser/assertions",
   
@@ -12,15 +12,15 @@
   
   "test_settings" : {
     "default" : {
-      "launch_url" : "${TEST_URL}",
+      "launch_url" : "${TEST_URL}",  // How to set this url?
       "selenium_port"  : 4444,
-      "selenium_host"  : "ftsel13-wvln-p.ftroot.com",
+      "selenium_host"  : "ftsel13-wvln-p.ftroot.com",  // This will be the proxy?
       "silent": true,
       "screenshots" : {
         "enabled" : true,
         "path" : "./test/browser/screenshots"
       },
-      "username": "${SAUCE_USER}",
+      "username": "${SAUCE_USER}",  // Why is sauce labs in the default?
       "access_key": "${SAUCE_KEY}",
       "desiredCapabilities": {
         "browserName": "chrome",
