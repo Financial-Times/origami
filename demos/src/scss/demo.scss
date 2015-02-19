@@ -62,33 +62,8 @@ html {
 }
 
 .demo__icon {
-	@include oFtIconsBaseIconStyles();
 	display: block;
 	font-size: 20px;
 	line-height: 24px;
 	color: #ffffff;
-}
-
-.demo__icon--search {
-	@extend %o-ft-icons-icon--search;
-}
-
-.demo__icon--settings {
-	@extend %o-ft-icons-icon--settings;
-}
-
-.demo__icon--share {
-	@extend %o-ft-icons-icon--share;
-}
-
-.demo__icon--account {
-	@extend %o-ft-icons-icon--profile;
-}
-
-.demo__icon--more {
-	@extend %o-ft-icons-icon--hamburger;
-}
-
-.demo__icon--back-to-the-ft {
-	@extend %o-ft-icons-icon--brand-ft-logo-square;
 }
