@@ -73,11 +73,6 @@
 	}
 }
 
-// IE8 filter
-.o-header__nav--tools-theme .o-header__back-to-ft {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{oHeaderAsset('img/ft-logo.png')}',sizingMethod='scale');
-}
-
 // Media queries to make the nav smaller as the screen gets smaller.
 // It can't be fluid because primary-center is the fluid element
 
