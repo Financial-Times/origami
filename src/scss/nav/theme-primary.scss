@@ -21,22 +21,20 @@
 	}
 
 	// scss-lint:disable SelectorDepth
-	[data-o-hierarchical-nav-level='1'] {
-		> li {
-			// Styling for the a tag in a selected state
-			&[aria-selected="true"] > a,
-			&[aria-controls][aria-expanded="true"] > a {
-				color: oColorsGetColorFor(o-header-item, text);
-				opacity: 0.7;
-			}
+	[data-o-hierarchical-nav-level='1'] > li {
+		// Default styling for the a tag
+		> a {
+			text-transform: uppercase;
+			font-weight: normal;
+			line-height: 49px;
+			height: 100%;
+		}
 
-			// Default styling for the a tag
-			> a {
-				text-transform: uppercase;
-				font-weight: normal;
-				line-height: 49px;
-				height: 100%;
-			}
+		// Styling for the a tag in a selected state
+		&[aria-selected="true"] > a,
+		&[aria-controls][aria-expanded="true"] > a {
+			color: oColorsGetColorFor(o-header-item, text);
+			opacity: 0.7;
 		}
 	}
 	// scss-lint:enable SelectorDepth
