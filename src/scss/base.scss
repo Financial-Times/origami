@@ -69,13 +69,16 @@
 	margin: 0;
 	padding: 0;
 	font-weight: normal;
-	font-size: 24px;
+	font-size: 20px;
 	line-height: 40px;
 	white-space: nowrap;
 	vertical-align: top;
 
-	.o-header--tall & {
-		@include oGridRespondTo(M) {
+
+	@include oGridRespondTo(M) {
+		font-size: 24px;
+
+		.o-header--tall & {
 			line-height: 60px;
 		}
 	}
