@@ -69,6 +69,7 @@ var myOverlay = new Overlay('myOverlay', {
 * `src`: String. Either a _url_ from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted. 
 * `html`: String or HTMLElement.  Raw HTML (cannot be set declaratively)
 * `trigger`: String or HTMLElement. querySelector expression or HTMLElement. When there's a trigger set, a click event handler will be added to it that will open or close the overlay accordingly. (cannot be set declaratively)
+* `zindex`: String. Value of the CSS z-index property of the overlay. _Default set via CSS_: '10'
 
 The only option that must be set is either `src` or `html`. The `html` option can't be set as a `data-` attribute, and if you set both, the `html` one will override `src`.
 
@@ -111,6 +112,14 @@ We also dispatch custom events:
 
 * `oOverlay.ready`: Dispatched when the overlay is loaded in the DOM
 * `oOverlay.destroy`: Dispatched when the overlay is removed from the DOM
+
+## Sass
+
+`o-overlay` supports silent mode, so there are mixins for the different elements. If you want to get all the classes styled by default, you'll need to turn of silent mode:
+
+```scss
+$o-overlay-is-silent: false;
+```
 
 ## UI Notes
 
