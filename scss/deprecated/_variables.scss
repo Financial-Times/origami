@@ -1,0 +1,45 @@
+////
+/// @group o-buttons
+/// @link http://registry.origami.ft.com/components/o-buttons
+////
+
+@if $_o-buttons-deprecation-warnings {
+	@if variable-exists($o-ft-buttons-is-silent) {
+		@warn '$o-ft-buttons-is-silent is deprecated and will be removed in the next version of o-buttons. Please use $o-buttons-is-silent instead.';
+	}
+	@if variable-exists($o-ft-buttons-class) {
+		@warn '$o-ft-buttons-class is deprecated and will be removed in the next version of o-buttons. Please use $o-buttons-class instead.';
+	}
+}
+
+/// Silent mode: on (true) or off (false)
+/// Set to false to output default button classes
+///
+/// @type Boolean
+/// @deprecated
+$o-ft-buttons-is-silent: true !default;
+
+/// Default button class used when $o-ft-buttons-is-silent is true
+///
+/// @type String
+/// @deprecated
+$o-ft-buttons-class: o-ft-buttons !default;
+
+/// Button sizes, with their attached properties
+///
+/// @type Map
+/// @deprecated
+$o-ft-buttons-sizes: $o-buttons-sizes !default;
+
+/// Button themes, with their respective states
+/// Each state is a Map of CSS properties, find
+/// all theme definitions in _themes.scss
+///
+/// @type Map
+/// @deprecated
+$o-ft-buttons-themes: (
+	standard: $o-ft-buttons-themes__standard,
+	standout: $o-ft-buttons-themes__standout,
+	inverse: $o-ft-buttons-themes__inverse,
+	uncolored: $o-ft-buttons-themes__uncolored
+) !default;

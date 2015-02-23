@@ -1,0 +1,162 @@
+////
+/// @group o-ft-buttons
+/// @link http://registry.origami.ft.com/components/o-ft-buttons
+////
+
+/// Button theme construct
+/// Ouputs dimensions for a specific button size
+///
+/// @example
+/// .my-button--big {
+/// 	@include oFtButtonsSize(big);
+/// }
+///
+/// @param {String} $size
+///
+/// @requires {variable} $o-ft-buttons-sizes
+/// @deprecated
+@mixin oFtButtonsSize($size) {
+	@if $_o-buttons-deprecation-warnings {
+		@warn "oFtButtonsSize() is now deprecated and will be removed in next major release";
+	}
+	@include oButtonsSize($size);
+}
+
+/// Button theme construct
+/// Ouputs styles for all button states
+///
+/// @example
+/// .my-button--standout {
+/// 	@include oFtButtonsTheme(standout);
+/// }
+///
+/// @param {String} $theme
+///
+/// @requires {variable} $o-ft-buttons-themes
+/// @requires {variable} $o-hoverable-if-hover-enabled
+/// @deprecated
+@mixin oFtButtonsTheme($theme) {
+	@if $_o-buttons-deprecation-warnings {
+		@warn "oFtButtonsTheme() is now deprecated and will be removed in next major release";
+	}
+	$states: map-get($o-ft-buttons-themes, $theme);
+
+	@each $property, $value in map-get($states, normal) {
+		#{$property}: #{$value};
+	}
+
+	&:focus {
+		@each $property, $value in map-get($states, focus) {
+			#{$property}: #{$value};
+		}
+	}
+
+	@if map-get($states, hover) {
+		#{$o-hoverable-if-hover-enabled} & {
+			// Apply :hover state only in these cases:
+			// - Not disabled
+			// - Not selected
+			// - Not pressed
+			&:not([disabled]):not([aria-selected=true]):not([aria-pressed=true]):hover {
+				background: map-get(map-get($states, hover), background);
+			}
+		}
+	}
+
+	@if map-get($states, selected) {
+		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+		&[aria-selected=true] {
+			@each $property, $value in map-get($states, selected) {
+				#{$property}: #{$value};
+			}
+
+			&:focus {
+				@if map-has-key(map-get($states, selected), color) {
+					box-shadow: inset 0 0 4px 1px map-get(map-get($states, selected), color);
+				}
+			}
+		}
+	}
+
+	@if map-get($states, pressed) {
+		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+		&[aria-pressed=true] {
+			@each $property, $value in map-get($states, pressed) {
+				#{$property}: #{$value};
+			}
+
+			&:focus {
+				@if map-has-key(map-get($states, pressed), color) {
+					box-shadow: inset 0 0 4px 1px map-get(map-get($states, pressed), color);
+				}
+			}
+		}
+	}
+
+	@if map-get($states, disabled) {
+		&[disabled] {
+			@each $property, $value in map-get($states, disabled) {
+				#{$property}: #{$value};
+			}
+		}
+	}
+}
+
+/// Button construct
+/// Basic button styling and default states for specific theme and size
+///
+/// @example
+/// .my-button {
+/// 	@include oFtButtons;
+/// }
+/// .my-inverse-button {
+/// 	@include oFtButtons($theme: inverse);
+/// }
+/// .my-big-standout-button {
+/// 	@include oFtButtons(big, standout);
+/// }
+/// .my-big-button {
+/// 	@include oFtButtons(big);
+/// }
+///
+/// @param {String} $size (medium)
+/// @param {String} $theme (standard)
+///
+/// @requires {mixin} oFtButtonsSize
+/// @requires {mixin} oFtButtonsTheme
+/// @requires {mixin} oFontsGetFontFamilyWithFallbacks
+/// @deprecated
+@mixin oFtButtons($size: medium, $theme: standard) {
+	@if $_o-buttons-deprecation-warnings {
+		@warn "oFtButtons() is now deprecated and will be removed in next major release";
+	}
+
+	display: inline-block;
+	box-sizing: border-box;
+	margin: 0;
+	outline: 0;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 5px;
+	text-align: center;
+	text-decoration: none;
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	cursor: pointer;
+	transition: 0.3s background-color, 0.15s box-shadow ease-in;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	user-select: none;
+	background-clip: padding-box;
+
+	@include oFtButtonsSize($size);
+	@include oFtButtonsTheme($theme);
+
+	// Same as aria-disabled:
+	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-disabled
+	// This is a common style for all button themes
+	&[disabled] {
+		pointer-events: none;
+		opacity: 0.4;
+		cursor: default;
+	}
+}
