@@ -23,40 +23,30 @@ Known issues:
 * IE8+ need the polyfill for `CustomEvent`
 * IE8 also needs the polyfill for `addEventListener`
 
+## Supported social networks
+
+* Twitter
+* Facebook
+* Linkedin
+* Google+
+* Reddit
+* Pinterest
+* Url
+
 ## Construction
 
 Products must provide the source HTML, in the following format, with the template `{{tag}}`s replaced with real values (these are all the available social network options and in the recommended order by the design team):
 
 ```html
-<div data-o-component="o-share" class="o-share">
-    <ul>
-        <li class="o-share__action o-share__action--twitter">
-            <a href="https://twitter.com/intent/tweet?url={{url}}&text={{title}}&related={{relatedTwitterAccounts}}&via=FT"><i>Twitter</i></a>
-        </li>
-        <li class="o-share__action o-share__action--facebook">
-            <a href="http://www.facebook.com/sharer.php?u={{url}}&t={{title}}+|+{{titleExtra}}"><i>Facebook</i></a>
-        </li>
-        <li class="o-share__action o-share__action--linkedin">
-            <a href="http://www.linkedin.com/shareArticle?mini=true&url={{url}}&title={{title}}+|+{{titleExtra}}&summary={{summary}}&source=Financial+Times"><i>LinkedIn</i></a>
-        </li>
-        <li class="o-share__action o-share__action--googleplus">
-            <a href="https://plus.google.com/share?url={{url}}"><i>Google+</i></a>
-        </li>
-        <li class="o-share__action o-share__action--reddit">
-            <a href="http://reddit.com/submit?url={{url}}&title={{title}}"><i>Reddit</i></a>
-        </li>
-        <li class="o-share__action o-share__action--pinterest">
-            <a href="http://www.pinterest.com/pin/create/button/?url={{url}}&amp;description={title}}"><i>Pinterest</i></a>
-        </li>
-        <li class="o-share__action o-share__action--url" data-o-share-action="url">
-            <a href="{{{url}}}"><i>URL</i></a>
-        </li>
-    </ul>
-</div>
+<o-share data-o-component="o-share" class="o-share" data-o-share-links="{{links}}" data-o-share-url="{{url}}" data-o-share-title="{{title}}" data-o-share-titleExtra="{{titleExtra}}" data-o-share-summary="{{summary}}" data-o-share-relatedTwitterAccounts="{{relatedTwitterAccounts}}">
+
+</o-share>
+
 ```
 
 Config options:
 
+* `links`: List of social networks to be added separated by a space.
 * `url`: The URL to be shared.
 * `title`: The title of the content to be shared
 * `titleExtra`: Any additional text relating to the title, e.g. site _section_.

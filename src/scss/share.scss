@@ -1,5 +1,5 @@
 @mixin oShareBase($classname: o-share) {
-	.#{$classname} /deep/ {
+	.#{$classname} {
 		display: inline-block;
 		ul {
 			margin: 0;
@@ -7,7 +7,7 @@
 		}
 	}
 
-	::shadow .#{$classname}__action {
+	.#{$classname}__action {
 		float: left;
 		margin: 0 0 0 5px;
 		height: $_o-share-icon-size;
@@ -33,7 +33,7 @@
 }
 
 @mixin oShareActionLink($classname: o-share) {
-	::shadow .#{$classname}__action--url {
+	.#{$classname}__action--url {
 		display: none;
 		i {
 			@include _oShareSprite(link);
@@ -52,11 +52,11 @@
 		}
 	}
 
-	[data-o-share--js]::shadow .#{$classname}__action--url {
+	[data-o-share--js] .#{$classname}__action--url {
 		display: block;
 	}
 
-	::shadow .#{$classname}__action--url[aria-selected=true] {
+	.#{$classname}__action--url[aria-selected=true] {
 		position: relative;
 		a {
 			display: none;
@@ -65,7 +65,7 @@
 }
 
 @mixin oShareActionIcon($name, $classname: o-share) {
-	::shadow .#{$classname}__action--#{$name} i {
+	.#{$classname}__action--#{$name} i {
 		@include _oShareSprite($name);
 	}
 }

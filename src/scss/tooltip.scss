@@ -1,12 +1,12 @@
 @mixin oShareTooltip($classname: o-share) {
-	::shadow .#{$classname}-tooltip {
+	.#{$classname}-tooltip {
 		position: absolute;
 		top: -40px;
 		opacity: 0;
 		cursor: default;
 		-webkit-transition: opacity 0.25s;
 	}
-	::shadow .#{$classname}-tooltip__text {
+	.#{$classname}-tooltip__text {
 		border-radius: 3px;
 		padding: 8px 20px;
 		white-space: nowrap;
@@ -20,7 +20,7 @@
 		background-color: $_o-share-tooltip-bg;
 		text-shadow: 0 0 1px oColorsGetPaletteColor(black);
 	}
-	::shadow .#{$classname}-tooltip__arrow {
+	.#{$classname}-tooltip__arrow {
 		position: relative;
 		left: 50%;
 		margin-left: -16px;

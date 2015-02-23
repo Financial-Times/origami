@@ -45,7 +45,7 @@ function ShareLinks(rootEl, config) {
 			url;
 		if (rootEl.contains(actionEl) && actionEl.querySelector('a[href]')) {
 			url = actionEl.querySelector('a[href]').href;
-			if (actionEl.getAttribute('data-o-share-action') === "url") {
+			if (actionEl.classList.contains('o-share__action--url')) {
 				copyLink(url, actionEl);
 			} else {
 				shareSocial(url);
@@ -100,15 +100,14 @@ function ShareLinks(rootEl, config) {
 		window.lol = templateUrl;
 		console.log(templateUrl);
 		templateUrl = templateUrl.replace('{{url}}', config.url)
-			.replace('{{title}}', config.title)
-			.replace('{{titleExtra}}', config.titleExtra)
-			.replace('{{summary}}', config.summary)
-			.replace('{{relatedTwitterAccounts}}', config.relatedTwitterAccounts);
+			.replace('{{title}}', encodeURIComponent(config.title))
+			.replace('{{titleExtra}}', encodeURIComponent(config.titleExtra))
+			.replace('{{summary}}', encodeURIComponent(config.summary))
+			.replace('{{relatedTwitterAccounts}}', encodeURIComponent(config.relatedTwitterAccounts));
 		return templateUrl;
 	}
 
 	function render() {
-		var root = rootEl.createShadowRoot();
 		var ulElement = document.createElement('ul');
 		for (var i = 0; i < config.links.length; i++) {
 			var liElement = document.createElement('li');
@@ -119,7 +118,9 @@ function ShareLinks(rootEl, config) {
 			liElement.appendChild(aElement);
 			ulElement.appendChild(liElement);
 		}
-		root.appendChild(ulElement);
+		rootEl.appendChild(ulElement);
+		// var root = rootEl.createShadowRoot();
+		// root.innerHTML = '<content></content>';
 	}
 
 	function init() {
