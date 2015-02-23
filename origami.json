@@ -2,7 +2,7 @@
     "description": "FT brand typographic styles",
     "origamiType": "module",
     "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-ft-typography/issues",
+    "support": "https://github.com/Financial-Times/o-typography/issues",
     "supportStatus": "active",
     "browserFeatures": {
         "optional": [
@@ -10,7 +10,7 @@
         ]
     },
     "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-typography/builds.json"
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-typography/builds.json"
     },
     "demos": [
         {
