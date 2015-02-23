@@ -68,7 +68,7 @@
 
 			&:focus {
 				@if map-has-key(map-get($states, selected), color) {
-					box-shadow: inset 0 0 3px 1px map-get(map-get($states, selected), color);
+					box-shadow: inset 0 0 4px 1px map-get(map-get($states, selected), color);
 				}
 			}
 		}
@@ -83,7 +83,7 @@
 
 			&:focus {
 				@if map-has-key(map-get($states, pressed), color) {
-					box-shadow: inset 0 0 3px 1px map-get(map-get($states, pressed), color);
+					box-shadow: inset 0 0 4px 1px map-get(map-get($states, pressed), color);
 				}
 			}
 		}
@@ -133,10 +133,11 @@
 	text-decoration: none;
 	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 	cursor: pointer;
-	transition: background-color 0.3s;
+	transition: 0.3s background-color, 0.15s box-shadow ease-in;
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	user-select: none;
+	background-clip: padding-box;
 
 	@include oFtButtonsSize($size);
 	@include oFtButtonsTheme($theme);
