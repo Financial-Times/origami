@@ -8,13 +8,13 @@
 ///
 /// @example
 /// .my-button--big {
-/// 	@include oFtButtonsSize(big);
+/// 	@include oButtonsSize(big);
 /// }
 ///
 /// @param {String} $size
 ///
 /// @requires {variable} $o-buttons-sizes
-@mixin oFtButtonsSize($size) {
+@mixin oButtonsSize($size) {
 	// Dimensions
 	$button-dimensions: map-get($o-buttons-sizes, $size);
 	padding: 0 map-get($button-dimensions, padding-right) 0 map-get($button-dimensions, padding-left);
@@ -27,14 +27,14 @@
 ///
 /// @example
 /// .my-button--standout {
-/// 	@include oFtButtonsTheme(standout);
+/// 	@include oButtonsTheme(standout);
 /// }
 ///
 /// @param {String} $theme
 ///
 /// @requires {variable} $o-buttons-themes
 /// @requires {variable} $o-hoverable-if-hover-enabled
-@mixin oFtButtonsTheme($theme) {
+@mixin oButtonsTheme($theme) {
 	$states: map-get($o-buttons-themes, $theme);
 
 	@each $property, $value in map-get($states, normal) {
@@ -103,25 +103,25 @@
 ///
 /// @example
 /// .my-button {
-/// 	@include oFtButtons;
+/// 	@include oButtons;
 /// }
 /// .my-inverse-button {
-/// 	@include oFtButtons($theme: inverse);
+/// 	@include oButtons($theme: inverse);
 /// }
 /// .my-big-standout-button {
-/// 	@include oFtButtons(big, standout);
+/// 	@include oButtons(big, standout);
 /// }
 /// .my-big-button {
-/// 	@include oFtButtons(big);
+/// 	@include oButtons(big);
 /// }
 ///
 /// @param {String} $size (medium)
 /// @param {String} $theme (standard)
 ///
-/// @requires {mixin} oFtButtonsSize
-/// @requires {mixin} oFtButtonsTheme
+/// @requires {mixin} oButtonsSize
+/// @requires {mixin} oButtonsTheme
 /// @requires {mixin} oFontsGetFontFamilyWithFallbacks
-@mixin oFtButtons($size: medium, $theme: standard) {
+@mixin oButtons($size: medium, $theme: standard) {
 	display: inline-block;
 	box-sizing: border-box;
 	margin: 0;
@@ -139,8 +139,8 @@
 	user-select: none;
 	background-clip: padding-box;
 
-	@include oFtButtonsSize($size);
-	@include oFtButtonsTheme($theme);
+	@include oButtonsSize($size);
+	@include oButtonsTheme($theme);
 
 	// Same as aria-disabled:
 	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-disabled

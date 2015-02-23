@@ -7,25 +7,12 @@
 /// Set to false to output default button classes
 ///
 /// @type Boolean
-/// @deprecated
-$o-ft-buttons-is-silent: true !default;
-
-/// Silent mode: on (true) or off (false)
-/// Set to false to output default button classes
-///
-/// @type Boolean
-$o-buttons-is-silent: $o-ft-buttons-is-silent !default;
+$o-buttons-is-silent: true !default;
 
 /// Default button class used when $o-ft-buttons-is-silent is true
 ///
 /// @type String
-/// @deprecated
-$o-ft-buttons-class: o-ft-buttons !default;
-
-/// Default button class used when $o-ft-buttons-is-silent is true
-///
-/// @type String
-$o-buttons-class: $o-ft-buttons-class !default;
+$o-buttons-class: o-buttons !default;
 
 /// Button sizes, with their attached properties
 ///
