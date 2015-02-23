@@ -55,13 +55,13 @@ Products must provide the source HTML, in the following format, with the templat
 </div>
 ```
 
-Required values:
+Config options:
 
-* `{{url}}`: The URL to be shared.
-* `{{title}}`: The title of the content to be shared
-* `{{titleExtra}}`: Any additional text relating to the title, e.g. site _section_.
-* `{{summary}}`: Summary text to be shared.
-* `{{relatedTwitterAccounts}}`: Comma-separated list of Twitter accounts to encourage the user to follow. See [Twitter intents](https://dev.twitter.com/docs/intents) for more info.
+* `url`: The URL to be shared.
+* `title`: The title of the content to be shared
+* `titleExtra`: Any additional text relating to the title, e.g. site _section_.
+* `summary`: Summary text to be shared.
+* `relatedTwitterAccounts`: Comma-separated list of Twitter accounts to encourage the user to follow. See [Twitter intents](https://dev.twitter.com/docs/intents) for more info.
 
 On `DOMContentLoaded`, __o-share__ instances are automatically constructed for each element in the `<body>` declaring itself to be an __o-share__ element (via the `data-o-component="o-share"` attribute).
 

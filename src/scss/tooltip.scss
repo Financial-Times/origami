@@ -1,33 +1,33 @@
 @mixin oShareTooltip($classname: o-share) {
-  .#{$classname}-tooltip {
-    position: absolute;
-    top: -40px;
-    opacity: 0;
-    cursor: default;
-    -webkit-transition: opacity 0.25s;
-  }
-  .#{$classname}-tooltip__text {
-    border-radius: 3px;
-    padding: 8px 20px;
-    white-space: nowrap;
-    font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 14px;
-    text-align: center;
-    color: oColorsGetColorFor(tooltip, text);
-    background-color: oColorsGetColorFor(tooltip, background);
-    background-color: $_o-share-tooltip-bg;
-    text-shadow: 0 0 1px oColorsGetPaletteColor(black);
-  }
-  .#{$classname}-tooltip__arrow {
-    position: relative;
-    left: 50%;
-    margin-left: -16px;
-    width: 0;
-    height: 0;
-    border-left: 10px solid rgba(0, 0, 0, 0);
-    border-right: 10px solid rgba(0, 0, 0, 0);
-    border-top: 10px solid $_o-share-tooltip-bg;
-  }
+	::shadow .#{$classname}-tooltip {
+		position: absolute;
+		top: -40px;
+		opacity: 0;
+		cursor: default;
+		-webkit-transition: opacity 0.25s;
+	}
+	::shadow .#{$classname}-tooltip__text {
+		border-radius: 3px;
+		padding: 8px 20px;
+		white-space: nowrap;
+		font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 14px;
+		text-align: center;
+		color: oColorsGetColorFor(tooltip, text);
+		background-color: oColorsGetColorFor(tooltip, background);
+		background-color: $_o-share-tooltip-bg;
+		text-shadow: 0 0 1px oColorsGetPaletteColor(black);
+	}
+	::shadow .#{$classname}-tooltip__arrow {
+		position: relative;
+		left: 50%;
+		margin-left: -16px;
+		width: 0;
+		height: 0;
+		border-left: 10px solid rgba(0, 0, 0, 0);
+		border-right: 10px solid rgba(0, 0, 0, 0);
+		border-top: 10px solid $_o-share-tooltip-bg;
+	}
 }
