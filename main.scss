@@ -9,41 +9,45 @@
 @import "scss/mixins";
 
 // Switch off component deprecation warnings
-$_o-ft-buttons-deprecation-warnings: false;
+$_o-buttons-deprecation-warnings: false;
 
 @import "scss/deprecated";
 
 @import "scss/group";
 @import "scss/pagination";
 
-@include oFtButtonsAll($o-ft-buttons-class);
+@include oFtButtonsAll($o-buttons-class);
 
-@if ($o-ft-buttons-is-silent == false) {
+@if ($o-buttons-is-silent == false or $o-ft-buttons-is-silent == false) {
 	@include oFontsInclude(BentonSans, normal);
 
-	.#{$o-ft-buttons-class} {
+	.#{$o-buttons-class} {
 		@include oFtButtons;
 	}
 
-	@each $size, $properties in $o-ft-buttons-sizes {
-		.#{$o-ft-buttons-class}--#{$size} {
+	@each $size, $properties in $o-buttons-sizes {
+		.#{$o-buttons-class}--#{$size} {
 			@include oFtButtonsSize($size);
 		}
 	}
-	@each $theme, $properties in $o-ft-buttons-themes {
-		.#{$o-ft-buttons-class}--#{$theme} {
+	@each $theme, $properties in $o-buttons-themes {
+		.#{$o-buttons-class}--#{$theme} {
 			@include oFtButtonsTheme($theme);
 		}
 	}
-	.o-ft-buttons__pagination, // Deprecated, invalidates the BEM naming convention
-	.o-ft-buttons-pagination {
+	.#{$o-buttons-class}__pagination, // Deprecated, invalidates the BEM naming convention
+	.#{$o-buttons-class}-pagination {
 		@include oFtButtonsPagination;
 	}
-	.o-ft-buttons__group, // Deprecated, invalidates the BEM naming convention
-	.o-ft-buttons-group {
+	.#{$o-buttons-class}__group, // Deprecated, invalidates the BEM naming convention
+	.#{$o-buttons-class}-group {
 		@include oFtButtonsGroup;
 	}
+
+	// Set module to silent again
+	$o-buttons-is-silent: true !global;
+	$o-ft-buttons-is-silent: true !global;
 }
 
 // Switch deprecation warnings back on
-$_o-ft-buttons-deprecation-warnings: true;
+$_o-buttons-deprecation-warnings: true;

@@ -1,4 +1,4 @@
-# o-ft-buttons [![Build Status](https://travis-ci.org/Financial-Times/o-ft-buttons.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-buttons)
+# o-buttons [![Build Status](https://travis-ci.org/Financial-Times/o-buttons.png?branch=master)](https://travis-ci.org/Financial-Times/o-buttons)
 
 Standard FT-branded buttons.
 
@@ -36,7 +36,7 @@ The following browser features are used but will degrade gracefully:
 
 ## Mixins
 
-Various Sass mixins are provided to obtain styles for buttons in all their states and variants. Also, when `$o-ft-buttons-is-silent: false;`, the module outputs a set of classes that are also documented in each section.
+Various Sass mixins are provided to obtain styles for buttons in all their states and variants. Also, when `$o-buttons-is-silent: false;`, the module outputs a set of classes that are also documented in each section.
 
 ### Default button
 
@@ -191,7 +191,7 @@ Silent mode off: `.o-ft-buttons--inverse`
 ### Deprecated
 
 The `--faux` modifier is now deprecated and will be removed in next major release.
-The `.o-ft-buttons__pagination` wasn't following the BEM convention properly and will be removed in next major release. Use `..o-ft-buttons-pagination` instead.
+The `.o-ft-buttons__pagination` wasn't following the BEM convention properly and will be removed in next major release. Use `.o-ft-buttons-pagination` instead.
 The `.o-ft-buttons__group` wasn't following the BEM convention properly and will be removed in next major release. Use `.o-ft-buttons-group` instead.
 
 ### Icons for use in buttons

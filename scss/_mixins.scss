@@ -1,6 +1,6 @@
 ////
-/// @group o-ft-buttons
-/// @link http://registry.origami.ft.com/components/o-ft-buttons
+/// @group o-buttons
+/// @link http://registry.origami.ft.com/components/o-buttons
 ////
 
 /// Button theme construct
@@ -13,10 +13,10 @@
 ///
 /// @param {String} $size
 ///
-/// @requires {variable} $o-ft-buttons-sizes
+/// @requires {variable} $o-buttons-sizes
 @mixin oFtButtonsSize($size) {
 	// Dimensions
-	$button-dimensions: map-get($o-ft-buttons-sizes, $size);
+	$button-dimensions: map-get($o-buttons-sizes, $size);
 	padding: 0 map-get($button-dimensions, padding-right) 0 map-get($button-dimensions, padding-left);
 	font-size: map-get($button-dimensions, font-size);
 	line-height: map-get($button-dimensions, height) - 2px; // height - border width
@@ -32,10 +32,10 @@
 ///
 /// @param {String} $theme
 ///
-/// @requires {variable} $o-ft-buttons-themes
+/// @requires {variable} $o-buttons-themes
 /// @requires {variable} $o-hoverable-if-hover-enabled
 @mixin oFtButtonsTheme($theme) {
-	$states: map-get($o-ft-buttons-themes, $theme);
+	$states: map-get($o-buttons-themes, $theme);
 
 	@each $property, $value in map-get($states, normal) {
 		#{$property}: #{$value};
