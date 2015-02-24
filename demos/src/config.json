@@ -15,8 +15,8 @@
                 "o-fonts@^1.4.0",
                 "o-grid@^3.0.0",
                 "o-tabs@^1.4.2",
-                "o-ft-buttons@^1.7.5",
-                "o-ft-footer@^3.0.0"
+                "o-buttons@^1.8.0",
+                "o-footer@^3.0.0"
             ]
         },
         {
@@ -41,7 +41,10 @@
         },
         {
             "name": "prefix-suffix",
-            "template": "demos/src/prefix-suffix.mustache"
+            "template": "demos/src/prefix-suffix.mustache",
+            "dependencies": [
+                "o-buttons@^1.8.0"
+            ]
         },
         {
             "name": "global-errors",

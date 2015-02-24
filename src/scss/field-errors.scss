@@ -1,4 +1,5 @@
 @if not $o-forms-is-silent {
+
 .o-forms--error .o-forms-text,
 .o-forms--error .o-forms-select,
 .o-forms--error .o-forms-textarea {
@@ -24,4 +25,5 @@
 		margin-bottom: 16px;
 	}
 }
+
 } // /Silent mode

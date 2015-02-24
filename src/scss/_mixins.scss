@@ -9,6 +9,7 @@
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	margin: 0;
+	height: $_o-forms-field-default-height;
 	border: $_o-forms-fieldborder;
 	border-radius: $_o-forms-field-borderradius;
 	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
@@ -38,6 +39,7 @@
 	padding-top: $_o-forms-field-small-padding-topbottom;
 	padding-bottom: $_o-forms-field-small-padding-topbottom;
 	background-size: $_o-forms-select-small-iconsize;
+	height: $_o-forms-field-small-height;
 }
 /// Common field styles: focused state only
 @mixin oFormsCommonFieldFocus {
@@ -95,6 +97,8 @@
 /// Textarea styles
 @mixin oFormsTextarea {
 	vertical-align: top;
+	height: auto;
+	resize: vertical;
 }
 
 /// Label styles
@@ -118,8 +122,8 @@
 /// Group styles
 @mixin oFormsGroup {
 	position: relative;
-	padding-right: $_o-forms-fieldgroup-padding;
-	padding-left: $_o-forms-fieldgroup-padding;
+	padding-right: $_o-forms-group-padding;
+	padding-left: $_o-forms-group-padding;
 	margin-bottom: 20px;
 }
 

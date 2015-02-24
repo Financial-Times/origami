@@ -5,8 +5,8 @@
 
 /// Messages styles
 @mixin oFormsMessage {
-	margin: 0 $_o-forms-fieldgroup-padding 16px;
-	padding: 0 $_o-forms-fieldgroup-padding;
+	margin: 0 $_o-forms-group-padding 16px;
+	padding: 0 $_o-forms-group-padding;
 	border-radius: $_o-forms-field-borderradius;
 
 	p {

@@ -1,7 +1,9 @@
 @if not $o-forms-is-silent {
+
 .o-forms--valid .o-forms-text,
 .o-forms--valid .o-forms-select,
 .o-forms--valid .o-forms-textarea {
 	@include oFormsCommonFieldInvalid;
 }
+
 } // /Silent mode

@@ -1,4 +1,5 @@
 @if not $o-forms-is-silent {
+
 .o-forms-group {
 	@include oFormsGroup;
 }
@@ -28,4 +29,5 @@
 .o-forms-textarea {
 	@include oFormsTextarea;
 }
+
 } // /Silent mode

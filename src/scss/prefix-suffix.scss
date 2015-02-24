@@ -1,4 +1,5 @@
 @if not $o-forms-is-silent {
+
 .o-forms-affix-wrapper {
 	display: table;
 	width: 100%;
@@ -26,11 +27,12 @@
 .o-forms-prefix,
 .o-forms-suffix {
 	display: table-cell;
+	box-sizing: border-box;
 	width: 1%;
 	white-space: nowrap;
 	border-top: $_o-forms-fieldborder;
 	border-bottom: $_o-forms-fieldborder;
-	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
+	padding: $_o-forms-field-default-padding-top - 2px $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom - 2px;
 	font-family: $o-forms-font-family;
 	font-size: $_o-forms-field-default-fontsize;
 	text-align: center;
@@ -66,12 +68,29 @@
 .o-forms-prefix button,
 .o-forms-suffix button {
 	border-width: 0;
-	margin: 0;
-	padding: 0;
+	margin: $_o-forms-field-default-padding-top * -1 $_o-forms-field-default-padding-leftright * -1 $_o-forms-field-default-padding-bottom * -1;
+	padding: $_o-forms-field-default-padding-top - 2px $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom - 2px;
 	background-color: transparent;
 	cursor: pointer;
 	font: inherit;
 	color: inherit;
 	user-select: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
 }
+
+.o-forms-prefix button {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.o-forms-suffix button {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
 } // /Silent mode
