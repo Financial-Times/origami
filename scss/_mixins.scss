@@ -150,4 +150,10 @@
 		opacity: 0.4;
 		cursor: default;
 	}
+
+	// Remove extra padding in Firefox
+	&::-moz-focus-inner {
+	  border: 0;
+	  padding: 0;
+	}
 }
