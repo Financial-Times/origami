@@ -8,6 +8,10 @@
 $o-forms-is-silent: true !default;
 
 /// Field font family
+///
+/// This is required to override default system form element styling,
+/// since `<input>`, `<textarea>`, `<select>`… don't inherit global font styles
+///
 /// @type String
 $o-forms-font-family: BentonSans, sans-serif !default;
 

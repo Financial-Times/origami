@@ -47,6 +47,11 @@
             "path": "/demos/section-errors.html",
             "expanded": true,
             "description": ""
+        },
+        {
+            "path": "/demos/real-life.html",
+            "expanded": false,
+            "description": "Real life example of forms usage"
         }
     ]
 }
