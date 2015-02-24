@@ -92,6 +92,11 @@
 	// Hide default select arrow in Firefox
 	text-indent: 0.01px;
 	text-overflow: '';
+
+	// Hide the arrow in IE 10
+	&::-ms-expand {
+		display: none;
+	}
 }
 
 /// Textarea styles
