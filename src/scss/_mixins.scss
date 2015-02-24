@@ -97,8 +97,9 @@
 /// Textarea styles
 @mixin oFormsTextarea {
 	vertical-align: top;
-	height: auto;
 	resize: vertical;
+	height: auto;
+	min-height: $_o-forms-field-default-height;
 }
 
 /// Label styles
