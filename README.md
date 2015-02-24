@@ -1,4 +1,4 @@
-# o-ft-buttons [![Build Status](https://travis-ci.org/Financial-Times/o-ft-buttons.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-buttons)
+# o-buttons [![Build Status](https://travis-ci.org/Financial-Times/o-buttons.png?branch=master)](https://travis-ci.org/Financial-Times/o-buttons)
 
 Standard FT-branded buttons.
 
@@ -36,7 +36,7 @@ The following browser features are used but will degrade gracefully:
 
 ## Mixins
 
-Various Sass mixins are provided to obtain styles for buttons in all their states and variants. Also, when `$o-ft-buttons-is-silent: false;`, the module outputs a set of classes that are also documented in each section.
+Various Sass mixins are provided to obtain styles for buttons in all their states and variants. Also, when `$o-buttons-is-silent: false;`, the module outputs a set of classes that are also documented in each section.
 
 ### Default button
 
@@ -46,7 +46,7 @@ Example Sass:
 
 ```scss
 .my-button-class {
-	@include oFtButtons();
+	@include oButtons();
 }
 ```
 
@@ -56,7 +56,7 @@ Example HTML:
 <button class="my-button-class">Standard</button>
 ```
 
-Silent mode off: `.o-ft-buttons`
+Silent mode off: `.o-buttons`
 
 ### Grouped buttons
 
@@ -67,7 +67,7 @@ Example Sass:
 
 ```scss
 .my-button-group-class {
-	@include oFtButtonsGroup(my-button-class);
+	@include oButtonsGroup(my-button-class);
 }
 ```
 
@@ -80,7 +80,7 @@ Example HTML:
 	 --><button class="my-button-class">Ringo</button>
 	</div>
 
-Silent mode off: `.o-ft-buttons-group`
+Silent mode off: `.o-buttons-group`
 
 ### Pagination buttons
 
@@ -91,7 +91,7 @@ Example Sass:
 
 ```scss
 .my-button-pagination-class {
-	@include oFtButtonsPagination(my-button-class);
+	@include oButtonsPagination(my-button-class);
 }
 ```
 
@@ -106,7 +106,7 @@ Example HTML:
 </div>
 ```
 
-Silent mode off: `.o-ft-buttons-pagination`
+Silent mode off: `.o-buttons-pagination`
 
 ### Big button _modifier_
 
@@ -116,7 +116,7 @@ Example Sass:
 
 ```scss
 .my-button-class--big {
-	@include oFtButtonsSize(big);
+	@include oButtonsSize(big);
 }
 ```
 
@@ -126,7 +126,7 @@ Example HTML:
 <button class="my-button-class my-button-class--big">Big button</button>
 ```
 
-Silent mode off: `.o-ft-buttons--big`
+Silent mode off: `.o-buttons--big`
 
 ### 'Standout' button _modifier_
 
@@ -136,7 +136,7 @@ Example Sass:
 
 ```scss
 .my-button-class--standout {
-	@include oFtButtonsTheme(standout);
+	@include oButtonsTheme(standout);
 }
 ```
 
@@ -146,7 +146,7 @@ Example HTML:
 <button class="my-button-class my-button-class--standout">Standout button</button>
 ```
 
-Silent mode off: `.o-ft-buttons--standout`
+Silent mode off: `.o-buttons--standout`
 
 ### 'Inverse' button _modifier_
 
@@ -156,7 +156,7 @@ Example Sass:
 
 ```scss
 .my-button-class--inverse {
-	@include oFtButtonsTheme(inverse);
+	@include oButtonsTheme(inverse);
 }
 ```
 
@@ -166,7 +166,7 @@ Example HTML:
 <button class="my-button-class my-button-class--inverse">Inverse button</button>
 ```
 
-Silent mode off: `.o-ft-buttons--inverse`
+Silent mode off: `.o-buttons--inverse`
 
 ### 'Uncolored' button _modifier_
 
@@ -176,7 +176,7 @@ Example Sass:
 
 ```scss
 .my-button-class--uncolored {
-	@include oFtButtonsTheme(uncolored);
+	@include oButtonsTheme(uncolored);
 }
 ```
 
@@ -186,13 +186,13 @@ Example HTML:
 <button class="my-button-class my-button-class--uncolored">Uncolored button</button>
 ```
 
-Silent mode off: `.o-ft-buttons--inverse`
+Silent mode off: `.o-buttons--inverse`
 
 ### Deprecated
 
 The `--faux` modifier is now deprecated and will be removed in next major release.
-The `.o-ft-buttons__pagination` wasn't following the BEM convention properly and will be removed in next major release. Use `..o-ft-buttons-pagination` instead.
-The `.o-ft-buttons__group` wasn't following the BEM convention properly and will be removed in next major release. Use `.o-ft-buttons-group` instead.
+The `.o-buttons__pagination` wasn't following the BEM convention properly and will be removed in next major release. Use `.o-buttons-pagination` instead.
+The `.o-buttons__group` wasn't following the BEM convention properly and will be removed in next major release. Use `.o-buttons-group` instead.
 
 ### Icons for use in buttons
 

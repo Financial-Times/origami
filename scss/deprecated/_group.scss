@@ -1,0 +1,26 @@
+////
+/// @group o-buttons
+/// @link http://registry.origami.ft.com/components/o-buttons
+////
+
+///
+/// Button group
+/// Applies styles to direct children
+///
+/// @example
+/// .my-button-group {
+/// 	@include oFtButtonsGroup(my-buttons);
+/// }
+///
+/// @param {String} ($o-ft-buttons-class) $buttonClass
+///
+/// @requires {variable} o-ft-buttons-class
+///
+/// @link http://build.origami.ft.com/files/o-buttons/demos/grouped.html
+/// @deprecated
+@mixin oFtButtonsGroup($buttonClass: $o-ft-buttons-class) {
+	@if $_o-buttons-deprecation-warnings {
+		@warn "oFtButtonsGroup() is now deprecated and will be removed in next major release";
+	}
+	@include oButtonsGroup($buttonClass: $o-ft-buttons-class);
+}

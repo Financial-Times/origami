@@ -4,23 +4,54 @@
 
 @import "o-ft-icons/main"; // Deprecated
 
+// Switch off component deprecation warnings
+$_o-buttons-deprecation-warnings: false;
+
 @import "scss/themes";
 @import "scss/variables";
 @import "scss/mixins";
 
-// Switch off component deprecation warnings
-$_o-ft-buttons-deprecation-warnings: false;
+@import "scss/deprecated/themes";
+@import "scss/deprecated/variables";
+@import "scss/deprecated/mixins";
 
-@import "scss/deprecated";
+@import "scss/deprecated/deprecated";
 
 @import "scss/group";
 @import "scss/pagination";
 
-@include oFtButtonsAll($o-ft-buttons-class);
+@import "scss/deprecated/group";
+@import "scss/deprecated/pagination";
 
-@if ($o-ft-buttons-is-silent == false) {
-	@include oFontsInclude(BentonSans, normal);
+@include oFtButtonsAll($o-buttons-class);
 
+@if ($o-buttons-is-silent == false or $o-ft-buttons-is-silent == false) {
+	@include oFontsInclude(BentonSans, normal); // Deprecated, to be removed in next major version
+
+	.#{$o-buttons-class} {
+		@include oButtons;
+	}
+
+	@each $size, $properties in $o-buttons-sizes {
+		.#{$o-buttons-class}--#{$size} {
+			@include oButtonsSize($size);
+		}
+	}
+	@each $theme, $properties in $o-buttons-themes {
+		.#{$o-buttons-class}--#{$theme} {
+			@include oButtonsTheme($theme);
+		}
+	}
+	.#{$o-buttons-class}__pagination, // Deprecated, invalidates the BEM naming convention
+	.#{$o-buttons-class}-pagination {
+		@include oButtonsPagination;
+	}
+	.#{$o-buttons-class}__group, // Deprecated, invalidates the BEM naming convention
+	.#{$o-buttons-class}-group {
+		@include oButtonsGroup;
+	}
+
+	// Deprecated: o-ft-button utility classes
 	.#{$o-ft-buttons-class} {
 		@include oFtButtons;
 	}
@@ -35,15 +66,19 @@ $_o-ft-buttons-deprecation-warnings: false;
 			@include oFtButtonsTheme($theme);
 		}
 	}
-	.o-ft-buttons__pagination, // Deprecated, invalidates the BEM naming convention
-	.o-ft-buttons-pagination {
+	.#{$o-ft-buttons-class}__pagination, // Deprecated, invalidates the BEM naming convention
+	.#{$o-ft-buttons-class}-pagination {
 		@include oFtButtonsPagination;
 	}
-	.o-ft-buttons__group, // Deprecated, invalidates the BEM naming convention
-	.o-ft-buttons-group {
+	.#{$o-ft-buttons-class}__group, // Deprecated, invalidates the BEM naming convention
+	.#{$o-ft-buttons-class}-group {
 		@include oFtButtonsGroup;
 	}
+
+	// Set module to silent again
+	$o-buttons-is-silent: true !global;
+	$o-ft-buttons-is-silent: true !global;
 }
 
 // Switch deprecation warnings back on
-$_o-ft-buttons-deprecation-warnings: true;
+$_o-buttons-deprecation-warnings: true;

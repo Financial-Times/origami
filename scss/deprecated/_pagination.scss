@@ -1,0 +1,22 @@
+////
+/// @group o-buttons
+/// @link http://registry.origami.ft.com/components/o-buttons
+////
+
+/// Pagination button wrapper styles
+/// Applies styles of pagination buttons to direct children
+///
+/// @example
+/// .my-buttons-pagination {
+/// 	@include oFtButtonsPagination(my-buttons);
+/// }
+///
+/// @param {String} $buttonClass ($o-ft-buttons-class) $buttonClass
+///
+/// @requires {variable} o-ft-buttons-class
+///
+/// @link http://build.origami.ft.com/files/o-buttons/demos/pagination.html
+/// @deprecated
+@mixin oFtButtonsPagination($buttonClass: $o-ft-buttons-class) {
+	@include oButtonsPagination($buttonClass);
+}

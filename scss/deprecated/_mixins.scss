@@ -1,6 +1,6 @@
 ////
-/// @group o-buttons
-/// @link http://registry.origami.ft.com/components/o-buttons
+/// @group o-ft-buttons
+/// @link http://registry.origami.ft.com/components/o-ft-buttons
 ////
 
 /// Button theme construct
@@ -8,18 +8,18 @@
 ///
 /// @example
 /// .my-button--big {
-/// 	@include oButtonsSize(big);
+/// 	@include oFtButtonsSize(big);
 /// }
 ///
 /// @param {String} $size
 ///
-/// @requires {variable} $o-buttons-sizes
-@mixin oButtonsSize($size) {
-	// Dimensions
-	$button-dimensions: map-get($o-buttons-sizes, $size);
-	padding: 0 map-get($button-dimensions, padding-right) 0 map-get($button-dimensions, padding-left);
-	font-size: map-get($button-dimensions, font-size);
-	line-height: map-get($button-dimensions, height) - 2px; // height - border width
+/// @requires {variable} $o-ft-buttons-sizes
+/// @deprecated
+@mixin oFtButtonsSize($size) {
+	@if $_o-buttons-deprecation-warnings {
+		@warn "oFtButtonsSize() is now deprecated and will be removed in next major release";
+	}
+	@include oButtonsSize($size);
 }
 
 /// Button theme construct
@@ -27,15 +27,19 @@
 ///
 /// @example
 /// .my-button--standout {
-/// 	@include oButtonsTheme(standout);
+/// 	@include oFtButtonsTheme(standout);
 /// }
 ///
 /// @param {String} $theme
 ///
-/// @requires {variable} $o-buttons-themes
+/// @requires {variable} $o-ft-buttons-themes
 /// @requires {variable} $o-hoverable-if-hover-enabled
-@mixin oButtonsTheme($theme) {
-	$states: map-get($o-buttons-themes, $theme);
+/// @deprecated
+@mixin oFtButtonsTheme($theme) {
+	@if $_o-buttons-deprecation-warnings {
+		@warn "oFtButtonsTheme() is now deprecated and will be removed in next major release";
+	}
+	$states: map-get($o-ft-buttons-themes, $theme);
 
 	@each $property, $value in map-get($states, normal) {
 		#{$property}: #{$value};
@@ -103,25 +107,30 @@
 ///
 /// @example
 /// .my-button {
-/// 	@include oButtons;
+/// 	@include oFtButtons;
 /// }
 /// .my-inverse-button {
-/// 	@include oButtons($theme: inverse);
+/// 	@include oFtButtons($theme: inverse);
 /// }
 /// .my-big-standout-button {
-/// 	@include oButtons(big, standout);
+/// 	@include oFtButtons(big, standout);
 /// }
 /// .my-big-button {
-/// 	@include oButtons(big);
+/// 	@include oFtButtons(big);
 /// }
 ///
 /// @param {String} $size (medium)
 /// @param {String} $theme (standard)
 ///
-/// @requires {mixin} oButtonsSize
-/// @requires {mixin} oButtonsTheme
+/// @requires {mixin} oFtButtonsSize
+/// @requires {mixin} oFtButtonsTheme
 /// @requires {mixin} oFontsGetFontFamilyWithFallbacks
-@mixin oButtons($size: medium, $theme: standard) {
+/// @deprecated
+@mixin oFtButtons($size: medium, $theme: standard) {
+	@if $_o-buttons-deprecation-warnings {
+		@warn "oFtButtons() is now deprecated and will be removed in next major release";
+	}
+
 	display: inline-block;
 	box-sizing: border-box;
 	margin: 0;
@@ -139,8 +148,8 @@
 	user-select: none;
 	background-clip: padding-box;
 
-	@include oButtonsSize($size);
-	@include oButtonsTheme($theme);
+	@include oFtButtonsSize($size);
+	@include oFtButtonsTheme($theme);
 
 	// Same as aria-disabled:
 	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-disabled

@@ -1,6 +1,6 @@
 ////
-/// @group o-ft-buttons
-/// @link http://registry.origami.ft.com/components/o-ft-buttons
+/// @group o-buttons
+/// @link http://registry.origami.ft.com/components/o-buttons
 ////
 
 ///
@@ -9,15 +9,15 @@
 ///
 /// @example
 /// .my-button-group {
-/// 	@include oFtButtonsGroup(my-buttons);
+/// 	@include oButtonsGroup(my-buttons);
 /// }
 ///
-/// @param {String} ($o-ft-buttons-class) $buttonClass
+/// @param {String} ($o-buttons-class) $buttonClass
 ///
-/// @requires {variable} o-ft-buttons-class
+/// @requires {variable} o-buttons-class
 ///
-/// @link http://build.origami.ft.com/files/o-ft-buttons/demos/grouped.html
-@mixin oFtButtonsGroup($buttonClass: $o-ft-buttons-class) {
+/// @link http://build.origami.ft.com/files/o-buttons/demos/grouped.html
+@mixin oButtonsGroup($buttonClass: $o-buttons-class) {
 	> .#{$buttonClass} {
 		border-radius: 0;
 
