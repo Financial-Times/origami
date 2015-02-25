@@ -7,7 +7,7 @@ module.exports = {
 		"data": {
 			"content": require('fs').readFileSync('demos/src/content.html')
 		},
-		"dependencies": ["o-fonts@^1.4.0"]
+		"dependencies": ["o-fonts@^1.4.0", "o-ft-icons@^2.1.1"]
 	},
 	"demos": [
 		{
@@ -53,6 +53,7 @@ module.exports = {
 			"name": "header-no-secondary",
 			"data": {
 				"o-header": {
+					"extra-classes": "o-header--tall",
 					"primary": require('fs').readFileSync('demos/src/primary/header-no-secondary.html')
 				}
 			}

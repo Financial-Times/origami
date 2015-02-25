@@ -7,13 +7,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<title>o-header: skeleton demo</title>
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js"></script>
+	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=modernizr:classList,modernizr:customevent,modernizr:unknownelements,modernizr:es5array,modernizr:svg,modernizr:datauri,modernizr:cssgradients,modernizr:mediaqueries,modernizr:csstransitions,default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
 	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
-	<link rel="stylesheet" href="/bundles/css?modules=o-header:/demos/src/scss/demo.scss,o-fonts@^1.4.0" />
+	<link rel="stylesheet" href="/bundles/css?modules=o-header:/demos/src/scss/demo.scss,o-fonts@^1.4.0,o-ft-icons@^2.1.1" />
 </head>
 <body class="o-hoverable-on">
-<header data-o-component="o-header" class="o-header o-registry-demo-chunk">
+<header data-o-component="o-header" class="o-header o-registry-demo-chunk ">
 	<div class="o-header__container">
 		<div class="o-header__inner">
 			<div class="o-header__primary">
@@ -54,7 +54,7 @@
 	</div>
 </div>
 
-<script src="/bundles/js?modules=o-header:/demos/src/demo.js,o-fonts@^1.4.0"></script>
+<script src="/bundles/js?modules=o-header:/demos/src/demo.js,o-fonts@^1.4.0,o-ft-icons@^2.1.1"></script>
 <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
 </body>
 </html>

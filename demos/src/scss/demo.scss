@@ -4,8 +4,9 @@
 
 @import "../../../main";
 
-body {
+html {
 	font-family: BentonSans, sans-serif;
+	overflow-x: hidden; // Prevent navigation menus from creating extra space on sides of the page
 }
 
 .demo__title {
@@ -60,32 +61,9 @@ body {
 	text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-@include oFtIconsFontFace();
-
 .demo__icon {
-	@include oFtIconsBaseIconStyles();
 	display: block;
 	font-size: 20px;
-	line-height: 30px;
+	line-height: 24px;
 	color: #ffffff;
-}
-
-.demo__icon__search {
-	@extend %o-ft-icons-icon--search;
-}
-
-.demo__icon__settings {
-	@extend %o-ft-icons-icon--settings;
-}
-
-.demo__icon__share {
-	@extend %o-ft-icons-icon--share;
-}
-
-.demo__icon__account {
-	@extend %o-ft-icons-icon--profile;
-}
-
-.demo__icon__more {
-	@extend %o-ft-icons-icon--hamburger;
 }
