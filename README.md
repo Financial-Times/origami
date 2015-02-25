@@ -81,7 +81,7 @@ Using the basic structure defined above, selects are styled by applying `.o-form
 
 Textareas are styled by applying `.o-forms-textarea` to the `textarea` element itself.
     
-###Checkboxes and radio buttons
+### Checkboxes and radio buttons
 
 In order for checkboxes and radio buttons to be styled correctly, their `type` attribute must be set.
 
@@ -91,7 +91,7 @@ Example HTML:
  <input type="radio"  class="o-forms-radio" />
  ```
 
-###Validation states
+### Validation states
 
 Validation styles are applied by adding `.o-forms--error` or `.o-forms--valid` to the field's containing element (typically, `.o-forms-group`). Child `.o-forms-label`, `.o-forms-text`, `.o-forms-select`, `.o-forms-checbox`, `.o-forms-radio`, `.o-forms-textarea` elements will be styled appropriately.
 

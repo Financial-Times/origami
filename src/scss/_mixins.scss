@@ -39,6 +39,7 @@
 	height: $_o-forms-field-small-height;
 	line-height: $_o-forms-field-small-height - ($_o-forms-fieldborder-width * 2);
 }
+
 /// Common field styles: focused state only
 @mixin oFormsCommonFieldFocus {
 	@include oColorsFor(o-forms-field-focus);
