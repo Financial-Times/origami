@@ -12,8 +12,9 @@ This module provides FT-branded styles for commonly used form elements and their
 
 `o-ft-forms` becomes `o-forms` in v1.
 
-1. Search `o-ft-form` and replace with `o-form`
-2. Search `oFtForm` and replace with `oForm`
+1. Search `o-ft-forms` and replace with `o-forms`
+2. Search `oFtForms` and replace with `oForms`
+3. Sections `<fieldset class="o-ft-forms__section">` have to be styled at a product level. See [these styles](https://github.com/Financial-Times/o-forms/blob/e62a11f5947140f2fabccf1046e54e463adbd6ea/src/scss/fieldsets.scss) to re-implement them in your application.
 
 ### 2. Web fonts and icons
 
@@ -144,8 +145,4 @@ Example HTML:
 
 ### Silent mode
 
-Base form styles are available:
-
-```scss
-#TODO
-```
+Base form styles are available. [See the SassDoc documentation of the module](sassdoc.webservices.ft.com/v1/sassdoc/o-forms)
