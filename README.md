@@ -79,7 +79,7 @@ As for the Tools theme, it should only be used in a Primary Container, normally 
 	--><li data-priority="1"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--search"></i>Tool 1</a></li><!--
 	--><li data-priority="3"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--settings"></i>Tool 2</a></li><!--
 	--><li data-priority="4"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--share"></i>Tool 3</a></li><!--
-	--><li data-priority="2"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--account"></i>Tool 4</a></li><!--
+	--><li data-priority="2"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--profile"></i>Tool 4</a></li><!--
 	--><li data-more class="o-hierarchical-nav__parent" aria-hidden="true"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--hamburger"></i>More</a></li><!--
 	--></ul>
 </nav>
