@@ -13,10 +13,10 @@
     "o-assets": ">=0.4.1 <2",
     "o-hoverable": ">=0.1.1 <2",
     "o-viewport": "1.0.0",
-    "o-dom": "^0.4.0",
+    "o-dom": ">=0.4.0 <2",
     "ftdomdelegate": ">=1.0.0 <3",
     "o-squishy-list": "^1.0.0",
-    "o-layers": "^0.1.0",
+    "o-layers": ">=0.1.0 <2",
     "o-hierarchical-nav": ">=0.3.0 <2"
   }
 }
