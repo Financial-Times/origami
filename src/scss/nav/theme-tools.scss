@@ -1,6 +1,9 @@
 .o-header nav,
 .o-header a {
-	user-select: none;
+	// scss-lint:disable VendorPrefixes
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 }
 
 .o-header__nav--tools-theme {
