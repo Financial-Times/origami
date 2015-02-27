@@ -31,7 +31,10 @@
 		cursor: pointer;
 		font-weight: normal;
 		line-height: $_o-forms-radiocheckbox-default-size;
-		user-select: none;
+		// scss-lint:disable VendorPrefixes
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
 	}
 
 	#{$checkbox}--small + #{$label},
@@ -138,7 +141,6 @@
 	#{$radio}:disabled + #{$label} {
 		opacity: 0.4;
 		cursor: default;
-		user-select: none;
 	}
 
 	// Positioning fixes for IE 8

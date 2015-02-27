@@ -38,7 +38,10 @@
 	text-align: center;
 	background-color: oColorsGetColorFor(o-forms-prefixsuffix, background);
 	color: oColorsGetColorFor(o-forms--prefixsuffix o-forms-field-standard, text);
-	user-select: none;
+	// scss-lint:disable VendorPrefixes
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 }
 
 .o-forms-prefix {
@@ -74,9 +77,12 @@
 	cursor: pointer;
 	font: inherit;
 	color: inherit;
-	user-select: none;
+	// scss-lint:disable VendorPrefixes
 	-moz-appearance: none;
 	-webkit-appearance: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 
 	&::-moz-focus-inner {
 		border: 0;
