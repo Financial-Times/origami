@@ -13,7 +13,7 @@ Attaches a debounced/throttled (as appropriate) listener to events on window [`r
 Provides a reasonably reliable way (more so than `window.orientation`) of obtaining the current orientation of the viewport.
 
 ### `o-viewport#getSize()`
-Provides a reliable way of obtaining the current dimensions of the viewport. returns and object with the properties `width` and `height`
+Provides a reliable way of obtaining the current dimensions of the viewport. returns an object with the properties `width` and `height`
 
 ### `o-viewport#setThrottleInterval(eventType, interval)` *Product use only*
 Sets the debounce/throttle interval for a given event [`scroll`, `resize` or `orientation`]. 
