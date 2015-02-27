@@ -5,7 +5,7 @@ module.exports = {
 
 	'Step 1: Open page at 800 x 800': function(browser){
 		browser
-			.url("http://build.origami.ft.com/files/o-overlay@1.3.1/demos/modal.html")
+			.url(browser.launch_url + "/modal.html")
 			.waitForElementVisible("button.o-overlay-trigger",5000)
 			.windowSize('current',800,800);
 	},
@@ -24,7 +24,7 @@ module.exports = {
 			.isVisible(".o-overlay__close",function(result){
 				this.assert.equal(result.value,true,"Overlay close button is visble");
 			});
-			
+
 	},
 
 	'Step 3: Test text can be entered into input fields': function(browser){
@@ -34,7 +34,7 @@ module.exports = {
 	},
 
 	// Module should render in the middle of the page.  Since we know this browser is set
-	// to 800 px wide, we're only testing that it appears within the boundaries of the 
+	// to 800 px wide, we're only testing that it appears within the boundaries of the
 	// middle third of the page.
 	'Step 4: Check overlay placement' : function (browser) {
 		var window_width = 800;
@@ -51,7 +51,7 @@ module.exports = {
 				overlay_right = overlay_left + size.value.width;
 				browser.assert.ok(overlay_left>window_first_third, "Left side of overlay appears centered on the page");
 				browser.assert.ok(overlay_right<window_second_third, "Right side of overlay appears centered on the page")
-			});	
+			});
 	},
 
 	'Step 5: Verify scrollbars appear when page is shortened' : function (browser) {
@@ -70,8 +70,8 @@ module.exports = {
 				},[],function(result){
 					clientHeight = result.value;
 					browser.assert.equal(scrollHeight,clientHeight,"The scroll bar appeared when the window became smaller than the overlay");
-				})	
-			})	
+				})
+			})
 	},
 
 	'Step 6: Close the overlay': function(browser){

@@ -5,7 +5,7 @@ module.exports = {
 
 	'Step 1: Open page at 800 x 800': function(browser){
 		browser
-			.url("http://build.origami.ft.com/files/o-overlay@1.3.2/demos/overlay-with-arrow.html")
+			.url(browser.launch_url + "/overlay-with-arrow.html")
 			.waitForElementVisible("button.o-overlay-trigger",5000)
 			.windowSize('current',800,800);
 	},
@@ -23,7 +23,7 @@ module.exports = {
 			.isVisible(".o-overlay__close",function(result){
 				this.assert.equal(result.value,true,"Overlay close button is visble");
 			});
-			
+
 	},
 
 	'Step 3: Test that the arrow is in the correct place': function(browser){
@@ -31,7 +31,7 @@ module.exports = {
 		var button_bottom;
 		var arrow_top;
 		var arrow_bottom;
-		var overlay_top;		
+		var overlay_top;
 
 		browser
 			.isVisible(".o-overlay__arrow-top", function(result){
@@ -52,7 +52,7 @@ module.exports = {
 	},
 
 	// Module should render in the middle of the page.  Since we know this browser is set
-	// to 800 px wide, we're only testing that it appears within the boundaries of the 
+	// to 800 px wide, we're only testing that it appears within the boundaries of the
 	// middle third of the page.
 	'Step 4: Check overlay placement' : function (browser) {
 		var window_width = 800;
