@@ -80,7 +80,7 @@ When you're not consuming this module via the build service, by default this mod
 
 This can be turned off by setting a variable before you import the Sass:
 
-	@o-ft-typography-is-silent: false;
+	$o-ft-typography-is-silent: false;
 	
 	@import "o-ft-typography/main";
 
