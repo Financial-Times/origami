@@ -293,15 +293,15 @@ Overlay.prototype.realign = function(dimension, size) {
 	var edge = dimension === 'width' ? 'left' : 'top';
 
 	if (size <= this[dimension]) {
+		this.wrapper.classList.add('o-overlay--full-' + dimension);
+		this.wrapper.style[edge] = '0';
+		this.wrapper.style['margin' + utils.capitalise(edge)] = 0;
 		if (dimension === 'height') {
 			// Set the exact height that the content of the overlay will have which is the total
 			// height of the overlay minus the heading if there is one. If height = 100%, the
 			// heading is part of that 100%, so some content is truncated.
-			this.content.style.height = this.wrapper.clientHeight - this.wrapper.querySelector('header').offsetHeight + 'px';
+			this.content.style.height = this.wrapper.clientHeight - (this.opts.heading ? this.wrapper.querySelector('header').offsetHeight : 0) + 'px';
 		}
-		this.wrapper.classList.add('o-overlay--full-' + dimension);
-		this.wrapper.style[edge] = '0';
-		this.wrapper.style['margin' + utils.capitalise(edge)] = 0;
 	} else {
 		if (dimension === 'height') {
 			// Remove the property and let the overlay extend to its content
