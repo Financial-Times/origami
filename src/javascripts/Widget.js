@@ -1,7 +1,7 @@
 "use strict";
 
-var auth = require('./auth.js'),
-	envConfig = require('./config.js'),
+var auth = require('./auth.js');
+var envConfig = require('./config.js'),
 	WidgetUi = require('./WidgetUi.js'),
 	utils = require('./utils.js'),
 	oCommentUtilities = require('o-comment-utilities'),
@@ -300,9 +300,7 @@ function Widget () {
 						}
 
 						if (newAuthData && newAuthData.token) {
-							auth.logout();
 							oCommentUtilities.logger.debug('new settings', newAuthData);
-							auth.login();
 						}
 					});
 				}
@@ -318,9 +316,7 @@ function Widget () {
 						}
 
 						if (newAuthData && newAuthData.token) {
-							auth.logout();
 							oCommentUtilities.logger.debug('new settings', newAuthData);
-							auth.login();
 						}
 					});
 				}

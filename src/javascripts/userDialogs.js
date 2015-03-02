@@ -3,6 +3,7 @@
 var oCommentUi = require('o-comment-ui');
 var oCommentApi = require('o-comment-api');
 var utils = require('./utils.js');
+var auth = require('./auth.js');
 
 
 var emailSubscribeOptions = ['immediately', 'hourly', 'on'];
@@ -177,6 +178,8 @@ exports.showChangePseudonymDialog = function (currentPseudonym, callback) {
 						return;
 					}
 
+					auth.logout();
+
 					oCommentApi.api.getAuth({
 						force: true
 					}, function (err, authData) {
@@ -185,6 +188,8 @@ exports.showChangePseudonymDialog = function (currentPseudonym, callback) {
 							responseCallback(oCommentUi.i18n.texts.genericError);
 							return;
 						}
+
+						auth.login();
 
 						callback(null, authData);
 						responseCallback();
@@ -219,6 +224,8 @@ exports.showEmailAlertDialog = function () {
 						return;
 					}
 
+					auth.logout();
+
 					oCommentApi.api.getAuth({
 						force: true
 					}, function (err, newUserDetails) {
@@ -226,6 +233,8 @@ exports.showEmailAlertDialog = function () {
 							responseCallback(oCommentUi.i18n.texts.genericError);
 							return;
 						}
+
+						auth.login();
 
 						// success
 						responseCallback();
@@ -268,6 +277,8 @@ exports.showSettingsDialog = function (currentUserDetails, callback) {
 						return;
 					}
 
+					auth.logout();
+
 					oCommentApi.api.getAuth({
 						force: true
 					}, function (err, newUserDetails) {
@@ -276,6 +287,8 @@ exports.showSettingsDialog = function (currentUserDetails, callback) {
 							responseCallback(oCommentUi.i18n.texts.genericError);
 							return;
 						}
+
+						auth.login();
 
 						callback(null, newUserDetails);
 						responseCallback();
