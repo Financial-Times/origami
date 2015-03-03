@@ -185,6 +185,7 @@
 	background-color: oColorsGetColorFor(o-forms-error-block-fallback, background);
 	background-color: rgba(oColorsGetColorFor(o-forms-error-block, background), 0.15);
 	// scss-lint:enable DuplicateProperty
+	border-radius: $_o-forms-field-borderradius;
 	margin-bottom: 20px;
 
 	// Clearfix
