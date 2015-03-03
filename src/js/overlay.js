@@ -225,6 +225,7 @@ Overlay.prototype.show = function() {
 
 	this.closeOnExternalClick = this.closeOnExternalClick.bind(this);
 	this.delegates.doc.on('click', 'body', this.closeOnExternalClick);
+	this.delegates.doc.on('touchstart', 'body', this.closeOnExternalClick);
 
 	this.closeOnEscapePress = this.closeOnEscapePress.bind(this);
 	this.delegates.doc.on('keyup', this.closeOnEscapePress);
