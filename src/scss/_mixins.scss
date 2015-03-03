@@ -134,8 +134,8 @@
 @mixin oFormsLabel {
 	display: block;
 	margin-bottom: $_o-forms-label-marginbottom;
-	font-size: 14px;
-	line-height: 17px;
+	font-size: 16px;
+	line-height: 19px;
 	font-weight: bold;
 	color: oColorsGetColorFor(o-forms-field-label body, text);
 

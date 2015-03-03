@@ -30,7 +30,7 @@
 		position: relative;
 		cursor: pointer;
 		font-weight: normal;
-		line-height: $_o-forms-radiocheckbox-default-size;
+		line-height: $_o-forms-radiocheckbox-default-size + 1px;
 		// scss-lint:disable VendorPrefixes
 		-moz-user-select: none;
 		-webkit-user-select: none;
@@ -39,8 +39,9 @@
 
 	#{$checkbox}--small + #{$label},
 	#{$radio}--small + #{$label} {
-		padding-left: $_o-forms-radiocheckbox-small-size + 10px;
-		line-height: $_o-forms-radiocheckbox-small-size;
+		padding-left: $_o-forms-radiocheckbox-small-size + 5px;
+		line-height: $_o-forms-radiocheckbox-small-size + 2px;
+		font-size: $_o-forms-field-small-fontsize;
 	}
 
 	#{$checkbox} + #{$label}::before,
