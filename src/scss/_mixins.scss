@@ -57,6 +57,10 @@
 /// Common field styles: invalid state
 @mixin oFormsCommonFieldInvalid {
 	@include oColorsFor(o-forms-field-invalid);
+
+	&:focus {
+		box-shadow: inset 0 0 4px 1px rgba(oColorsGetColorFor(o-forms-field-invalid, border), .3);
+	}
 }
 
 /// Common field styles: valid state
