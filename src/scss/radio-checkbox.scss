@@ -53,7 +53,7 @@
 		border: 1px solid oColorsGetColorFor(o-forms-field-standard, border);
 		box-sizing: border-box;
 		content: '';
-		background-color: rgba(255, 255, 255, 0.5);
+		background-color: oColorsGetColorFor(o-forms-field-standard, background);
 		transition: all 0.1s ease-in;
 	}
 
