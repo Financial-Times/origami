@@ -5,9 +5,14 @@
 
 /// Messages styles
 @mixin oFormsMessage {
-	margin: 0 $_o-forms-group-padding 16px;
+	margin-bottom: 16px;
 	padding: 0 $_o-forms-group-padding;
-	border-radius: $_o-forms-field-borderradius;
+
+	@include oGridRespondTo(S) {
+		border-radius: $_o-forms-field-borderradius;
+		margin-right: $_o-forms-group-padding;
+		margin-left: $_o-forms-group-padding;
+	}
 
 	p {
 		padding: 8px 0;

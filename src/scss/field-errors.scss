@@ -17,8 +17,13 @@
 	.o-forms-message {
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
-		margin-left: 0;
-		margin-right: 0;
+		margin-left: $_o-forms-group-padding * -1;
+		margin-right: $_o-forms-group-padding * -1;
+
+		@include oGridRespondTo(S) {
+			margin-right: 0;
+			margin-left: 0;
+		}
 	}
 	.o-forms-group:last-child {
 		margin-top: 16px;

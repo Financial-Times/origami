@@ -151,9 +151,12 @@
 /// Group styles
 @mixin oFormsGroup {
 	position: relative;
-	padding-right: $_o-forms-group-padding;
-	padding-left: $_o-forms-group-padding;
 	margin-bottom: 20px;
+
+	@include oGridRespondTo(S) {
+		padding-right: $_o-forms-group-padding;
+		padding-left: $_o-forms-group-padding;
+	}
 }
 
 /// Additional info
@@ -185,8 +188,20 @@
 	background-color: oColorsGetColorFor(o-forms-error-block-fallback, background);
 	background-color: rgba(oColorsGetColorFor(o-forms-error-block, background), 0.15);
 	// scss-lint:enable DuplicateProperty
-	border-radius: $_o-forms-field-borderradius;
 	margin-bottom: 20px;
+	margin-right: $_o-forms-group-padding * -1;
+	margin-left: $_o-forms-group-padding * -1;
+	padding-right: $_o-forms-group-padding;
+	padding-left: $_o-forms-group-padding;
+
+
+	@include oGridRespondTo(S) {
+		border-radius: $_o-forms-field-borderradius;
+		margin-right: 0;
+		margin-left: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
 
 	// Clearfix
 	zoom: 1;
