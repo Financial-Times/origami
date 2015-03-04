@@ -7,9 +7,6 @@
 /// @type Number
 $o-footer-spacing-unit: 20px;
 
-// TODO: Remove this when a default shared brand color is defined in o-colors
-@include oColorsSetUseCase(o-footer-brand, border, claret);
-
 @include oColorsSetUseCase(o-footer, background, grey-tint5);
 @include oColorsSetUseCase(o-footer, text, white);
 @include oColorsSetUseCase(o-footer__pearson, background, grey-tint4);
@@ -21,7 +18,7 @@ $o-footer-spacing-unit: 20px;
 	font-size: 14px;
 	margin-top: 40px;
 	padding: 0;
-	border-top: 5px solid oColorsGetColorFor(o-footer-brand brand, border);
+	border-top: 5px solid oColorsGetColorFor(o-footer-brand product-brand, background);
 	line-height: $o-footer-spacing-unit;
 
 	> nav {
