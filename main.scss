@@ -1,5 +1,4 @@
 @import "o-assets/main";
-@import "o-ft-typography/main";
 @import "o-colors/main";
 @import "o-grid/main";
 @import "o-hoverable/main";
@@ -19,7 +18,7 @@ $o-footer-spacing-unit: 20px;
 
 .o-footer {
 	@include oColorsFor(o-footer, text background);
-	@include oFtTypographyFontSize(14);
+	font-size: 14px;
 	margin-top: 40px;
 	padding: 0;
 	border-top: 5px solid oColorsGetColorFor(o-footer-brand brand, border);
@@ -101,12 +100,14 @@ $o-footer-spacing-unit: 20px;
 }
 
 .o-footer__copyright {
-	@include oFtTypographyFontSize(9, 14);
+	font-size: 9px;
+	line-height: 14px;
 	margin-top: $o-footer-spacing-unit/2;
 	margin-bottom: $o-footer-spacing-unit;
 
 	@include oGridRespondTo(M) {
-		@include oFtTypographyFontSize(11, 16);
+		font-size: 11px;
+		line-height: 16;
 	}
 
 	span {
