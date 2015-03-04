@@ -31,6 +31,8 @@ $o-footer-spacing-unit: 20px;
 	ul {
 		list-style-type: none;
 		padding: 0;
+		margin-top: 0;
+		margin-bottom: 0;
 	}
 }
 
@@ -51,12 +53,11 @@ $o-footer-spacing-unit: 20px;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
+
 	> a {
-		&:visited,
-		&:link {
-			text-decoration: none;
-			color: oColorsGetColorFor(o-footer-item, text);
-		}
+		text-decoration: none;
+		color: oColorsGetColorFor(o-footer-item, text);
+
 		#{$o-hoverable-if-hover-enabled} &:hover,
 		&:focus {
 			color: oColorsGetColorFor(link-title-hover, text);
@@ -64,13 +65,8 @@ $o-footer-spacing-unit: 20px;
 	}
 }
 
-.o-footer__section-link {
-	> a {
-		&:visited,
-		&:link {
-			text-transform: uppercase;
-		}
-	}
+.o-footer__section-link > a {
+	text-transform: uppercase;
 }
 .o-footer__link-lists {
 	margin-top: $o-footer-spacing-unit;
@@ -78,6 +74,7 @@ $o-footer-spacing-unit: 20px;
 .o-footer__link-list {
 	margin-bottom: $o-footer-spacing-unit;
 	padding-top: (2 * $o-footer-spacing-unit);
+
 	> ul {
 		margin: 0;
 	}
@@ -87,13 +84,13 @@ $o-footer-spacing-unit: 20px;
 }
 
 .o-footer__row {
-	@include oGridRow($selector: '.o-footer__row');
+	@include oGridRow;
 }
 .o-footer__col {
 	@include oGridColumn((default: 12, S: 6, M: 4, L: 3, XL: 2));
 }
 .o-footer__col--full-width {
-	width: oGridColumnWidth(full-width);
+	width: oGridColspan(full-width);
 }
 
 .o-footer__copyright {
