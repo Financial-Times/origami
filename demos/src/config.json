@@ -13,7 +13,7 @@
             "dependencies": [
                 "o-colors@^2.4.7",
                 "o-fonts@^1.4.0",
-                "o-grid@^3.0.0",
+                "o-grid@^3.0.2",
                 "o-tabs@^1.4.2",
                 "o-buttons@^1.8.0",
                 "o-footer@^3.0.0"

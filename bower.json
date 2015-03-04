@@ -5,6 +5,6 @@
   ],
   "dependencies": {
     "o-colors": "^2.3.16",
-    "o-grid": "^3.0.1"
+    "o-grid": "^3.0.2"
   }
 }
