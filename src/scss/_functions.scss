@@ -44,6 +44,9 @@
 /// @param {String} family
 ///
 /// @return {String} - font-stack
+///
+/// @example scss
+/// font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
 @function oFontsGetFontFamilyWithFallbacks($family) {
 	@if $family == 'Clarion' {
 		@warn "Clarion has been removed, use Georgia instead";
