@@ -12,6 +12,10 @@ It does not contain the web font files, which are contained in a separate, priva
 # Browser support
 This module has been verified in Internet Explorer 7+, modern desktop browsers (Chrome, Safari, Firefox, ...) and mobile browsers (Android browser, iOS safari, Chrome mobile).
 
+## Supported fonts and variants
+
+To see the complete list of all supported fonts and their variants, please take a look at this [Sass map](https://github.com/Financial-Times/o-fonts/blob/master/src/scss/_variables.scss#L21)
+
 ## Adding families or variants
 
 Open `src/scss/_variables.scss` in a text editor. Add the font family name (if it's an entirely new family) and the variant styles to the `$_o-fonts-families` map:
