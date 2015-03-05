@@ -14,21 +14,21 @@ This module has been verified in Internet Explorer 9+, modern desktop browsers (
 
 # Supported fonts and variants
 
-|           BentonSans           |          MillerDisplay         |              MetricWeb          |
-|:------------------------------:|:------------------------------:|:-------------------------------:|
-|  weight: light, style: normal  | weight: regular, style: normal |   weight: thin, style: normal   |
-| weight: regular, style: normal |   weight: bold, style: normal  |  weight: light, style: normal   |
-|  weight: bold, style: normal   |  weight: black, style: normal  | weight: regular, style: normal  |
-|                                |                                | weight: regular, style: italic  |
-|                                |                                |  weight: medium, style: normal  |
-|                                |                                |   weight: bold, style: normal   |
-|                                |                                |   weight: bold, style: italic   |
-|                                |                                | weight: semibold, style: normal |
+| BentonSans | MillerDisplay |     MetricWeb     |
+|:----------:|:-------------:|:-----------------:|
+|   Light    |    Regular    |        Thin       |
+|  Regular   |      Bold     |       Light       |
+|    Bold    |     Black     |      Regular      |
+|            |               | Regular (italic)  |
+|            |               |       Medium      |
+|            |               |        Bold       |
+|            |               |   Bold (italic)   |
+|            |               |      Semibold     |
 
-|       FinancierDisplayWeb      |       FinancierTextWeb         |
-|:------------------------------:|:------------------------------:|
-| weight: regular, style: normal | weight: regular, style: normal |
-| weight: regular, style: italic | weight: regular, style: italic |
+| FinancierDisplayWeb | FinancierTextWeb |
+|:-------------------:|:----------------:|
+|        Regular      |      Regular     |
+|   Regular (italic)  | Regular (italic) |
 
 # How to
 
