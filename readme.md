@@ -62,6 +62,15 @@ Compiles to:
 }
 ```
 
+You can also set it to a variable if you need to declare a font multiple times:
+
+```scss
+$serif: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+.myClass {
+    font-family: $serif;
+}
+```
+
 `oFontsGetFontFamilyWithFallbacks()` has the added benefit of warning you if the font specified doesn't exist, and as a result won't be loaded.
 
 Note that you still need to use `oFontsInclude()` to actually include the `@font-face`.
@@ -103,7 +112,8 @@ And a new entry in `demos/src/demo.scss`:
 
 Different browsers use different font formats. Different browsers use different font formats. We only support `.woff` which is supported on all major browsers (>=IE9). You should make sure the demos for the new font family load properly on:
 
-* Chrome
-* IE >9
-* Firefox
-* Safari
+* Chrome 5+
+* IE 9+
+* Firefox 3.6+
+* Safari 5.1+
+* Opera 11.5+
