@@ -1,0 +1,18 @@
+@if not $o-forms-is-silent {
+
+// Block style with a different background
+.o-forms-wrapper {
+	@include oFormsWrapper;
+
+	.o-forms-message {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		margin-bottom: 12px;
+	}
+	.o-forms-group {
+		margin-top: 12px;
+		margin-bottom: 12px;
+	}
+}
+
+} // /Silent mode

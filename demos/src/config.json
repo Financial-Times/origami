@@ -9,14 +9,14 @@
         {
             "name": "real-life",
             "template": "demos/src/real-life.mustache",
-            "bodyClasses": "o-colors-page-background",
+            "bodyClasses": "o-colors-page-background demo-real-life",
             "dependencies": [
                 "o-colors@^2.4.7",
                 "o-fonts@^1.4.0",
-                "o-grid@^3.0.2",
                 "o-tabs@^1.4.2",
                 "o-buttons@^1.8.0",
-                "o-footer@^3.0.0"
+                "o-footer@^3.0.0",
+                "o-grid@^3.0.3"
             ]
         },
         {
@@ -51,8 +51,8 @@
             "template": "demos/src/global-errors.mustache"
         },
         {
-            "name": "section-errors",
-            "template": "demos/src/section-errors.mustache"
+            "name": "wrappers",
+            "template": "demos/src/wrappers.mustache"
         }
     ]
 }

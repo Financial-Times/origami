@@ -10,25 +10,4 @@
 	@include oFormsErrorText;
 }
 
-// Block style to denote a collection of invalid fields useful in cases where specific field level validation is not appropriate
-.o-forms-error-wrapper {
-	@include oFormsErrorWrapper;
-
-	.o-forms-message {
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
-		margin-left: $_o-forms-group-padding * -1;
-		margin-right: $_o-forms-group-padding * -1;
-
-		@include oGridRespondTo(S) {
-			margin-right: 0;
-			margin-left: 0;
-		}
-	}
-	.o-forms-group:last-child {
-		margin-top: 16px;
-		margin-bottom: 16px;
-	}
-}
-
 } // /Silent mode

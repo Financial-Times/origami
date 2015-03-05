@@ -14,6 +14,7 @@ This module provides FT-branded styles for commonly used form elements and their
 
 1. Search `o-ft-forms` and replace with `o-forms`
 2. Search `oFtForms` and replace with `oForms`
+2. Search templates `o-forms-error-wrapper` and replace with `o-forms-wrapper o-forms-wrapper--error`
 3. Sections `<fieldset class="o-ft-forms__section">` have to be styled at a product level. See [these styles](https://github.com/Financial-Times/o-forms/blob/e62a11f5947140f2fabccf1046e54e463adbd6ea/src/scss/fieldsets.scss) to re-implement them in your application.
 
 ### 2. Web fonts and icons
@@ -106,20 +107,19 @@ Example HTML:
 </div>
 ```
 
-### Section/group validation
+### Wrappers
 
-For use-cases where validation rules need to be applied to a group of fields rather than just one field, all relevant fields should be wrapped in a block-level element defined with a class of `.o-forms-section`. Validation styles can then be added to this element with the `.o-forms-section--error` modifier class.
-
-An error message can be prepended to the element, defined by a class of `.o-forms-error-wrapper`.
-
-Example HTML:
+You can wrap a group of fields to highlight it or show it is not valid:
 
 ```html
-<div class="o-error-wrapper">
+<div class="o-forms-wrapper o-forms-wrapper--error">
 	<div class="o-forms-message o-forms-message--error">
- 		<p>This is a section error message that highlights a group of fields</p>
+ 		<p>This is an error message</p>
 	</div>
-	<div class="o-forms-group"></div>
+	<div class="o-forms-group">All these fields are invalid</div>
+</div>
+<div class="o-forms-wrapper o-forms-wrapper--highlight">
+	<div class="o-forms-group">This group of fields is highlighted</div>
 </div>
 ```
 

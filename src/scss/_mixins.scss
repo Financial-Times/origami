@@ -169,7 +169,7 @@
 	line-height: 15px;
 }
 
-// Error text
+/// Error text
 @mixin oFormsErrorText {
 	clear: both;
 	display: block;
@@ -180,18 +180,13 @@
 	color: oColorsGetColorFor(o-forms-field-invalid, text);
 }
 
-// Error zone wrapper
-@mixin oFormsErrorWrapper {
-	// scss-lint:disable DuplicateProperty
-	background-color: oColorsGetColorFor(o-forms-error-block-fallback, background);
-	background-color: rgba(oColorsGetColorFor(o-forms-error-block, background), 0.15);
-	// scss-lint:enable DuplicateProperty
+/// Zone wrapper
+@mixin oFormsWrapper {
 	margin-bottom: 20px;
 	margin-right: $_o-forms-group-padding * -1;
 	margin-left: $_o-forms-group-padding * -1;
 	padding-right: $_o-forms-group-padding;
 	padding-left: $_o-forms-group-padding;
-
 
 	@include oGridRespondTo(S) {
 		border-radius: $_o-forms-field-borderradius;
@@ -211,6 +206,15 @@
 	}
 	&:after {
 		clear: both;
+	}
+
+	&--highlight {
+		background-color: oColorsGetColorFor(o-forms-wrapper-highlight, background);
+	}
+	&--error {
+		// scss-lint:disable DuplicateProperty
+		background-color: oColorsGetColorFor(o-forms-message-error-fallback, background);
+		background-color: rgba(oColorsGetColorFor(o-forms-message-error, background), 0.15);
 	}
 }
 

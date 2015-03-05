@@ -1,10 +1,12 @@
-@include oColorsSetUseCase(o-forms-error-block, background, red);
-@include oColorsSetUseCase(o-forms-error-block, text, white);
+@include oColorsSetUseCase(o-forms-message-error, background, red);
+@include oColorsSetUseCase(o-forms-message-error, text, white);
+@include oColorsSetUseCase(o-forms-message-error-fallback, background, red-tint5);
+
+@include oColorsSetUseCase(o-forms-wrapper-highlight, background, pink-tint1);
 
 @include oColorsSetUseCase(o-forms-radiocheckbox-checked, background, green);
 @include oColorsSetUseCase(o-forms-radiocheckbox-checked, border, green);
 
-@include oColorsSetUseCase(o-forms-error-block-fallback, background, red-tint5);
 
 @include oColorsSetUseCase(o-forms-prefixsuffix, background, pink-tint1);
 @include oColorsSetUseCase(o-forms-prefixsuffix, text, pink-tint5);

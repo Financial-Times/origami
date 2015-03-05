@@ -128,14 +128,14 @@
 		background-repeat: no-repeat;
 		height: $_o-forms-radiocheckbox-default-size;
 		width: $_o-forms-radiocheckbox-default-size;
-		background-size: $_o-forms-radiocheckbox-default-size * 3/4;
+		background-size: ceil($_o-forms-radiocheckbox-default-size * 3/4);
 		background-position: 50% 50%;
 	}
 
 	#{$checkbox}--small + #{$label}::after {
 		height: $_o-forms-radiocheckbox-small-size;
 		width: $_o-forms-radiocheckbox-small-size;
-		background-size: $_o-forms-radiocheckbox-small-size * 3/4;
+		background-size: ceil($_o-forms-radiocheckbox-small-size * 3/4);
 	}
 
 	#{$checkbox}:disabled + #{$label},

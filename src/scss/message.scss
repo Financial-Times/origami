@@ -7,11 +7,13 @@
 @mixin oFormsMessage {
 	margin-bottom: 16px;
 	padding: 0 $_o-forms-group-padding;
+	margin-left: $_o-forms-group-padding * -1;
+	margin-right: $_o-forms-group-padding * -1;
 
 	@include oGridRespondTo(S) {
 		border-radius: $_o-forms-field-borderradius;
-		margin-right: $_o-forms-group-padding;
-		margin-left: $_o-forms-group-padding;
+		margin-right: 0;
+		margin-left: 0;
 	}
 
 	p {
@@ -20,9 +22,12 @@
 		font-family: $o-forms-font-family;
 	}
 
+	&--highlight {
+		background-color: oColorsGetColorFor(o-forms-wrapper-highlight, background);
+	}
 	&--error {
-		background-color: oColorsGetColorFor(o-forms-error-block, background);
-		color: oColorsGetColorFor(o-forms-error-block, text);
+		background-color: oColorsGetColorFor(o-forms-message-error, background);
+		color: oColorsGetColorFor(o-forms-message-error, text);
 	}
 }
 

@@ -4,14 +4,14 @@ $o-forms-is-silent: false;
 
 body {
 	font-family: $o-forms-font-family;
+	padding: 10px; // Simulate the grid outer margins
+	max-width: 500px;
+	margin: 0 auto;
 }
 
-.demo-column {
-	width: 50%;
-	float: left;
-	min-width: 300px;
-}
-.demo-real-life-form-container {
+.demo-real-life {
+	max-width: none;
+
 	h2,
 	h3 {
 		@include oFormsGroup; // Indent
