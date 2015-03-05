@@ -14,21 +14,17 @@ This module has been verified in Internet Explorer 9+, modern desktop browsers (
 
 # Supported fonts and variants
 
-| BentonSans | MillerDisplay |     MetricWeb     |
-|:----------:|:-------------:|:-----------------:|
-|   Light    |    Regular    |        Thin       |
-|  Regular   |      Bold     |       Light       |
-|    Bold    |     Black     |      Regular      |
-|            |               | Regular (italic)  |
-|            |               |       Medium      |
-|            |               |        Bold       |
-|            |               |   Bold (italic)   |
-|            |               |      Semibold     |
-
-| FinancierDisplayWeb | FinancierTextWeb |
-|:-------------------:|:----------------:|
-|        Regular      |      Regular     |
-|   Regular (italic)  | Regular (italic) |
+| BentonSans | MillerDisplay | MetricWeb | FinancierDisplayWeb | FinancierTextWeb |
+|:-:|:-:|:-:|:-:|:-:|
+| | | thin |
+| light | | light |
+| regular | regular | regular | regular | regular |
+| | | regular (italic) | regular (italic) | regular (italic) |
+| | | medium |
+| | | semibold |
+| bold | bold | bold |
+| | | bold (italic) |
+| | black |
 
 # How to
 
