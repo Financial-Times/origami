@@ -4,23 +4,24 @@
 
 @import "../../../main";
 
+// Default font and styles
 html {
 	font-family: BentonSans, sans-serif;
-	overflow-x: hidden; // Prevent navigation menus from creating extra space on sides of the page
+
+	// Prevent navigation menus from creating
+	// extra space on sides of the page
+	overflow-x: hidden;
 }
 
-.demo__title {
-	margin: 40px 0 10px;
-	border-top: 1px solid #dddddd;
-	padding: 5px 0;
-	font-family: sans-serif;
-	font-size: 14px;
+// Place icons on top of their labels
+.demo__icon {
+	display: block;
+	font-size: 20px;
+	line-height: 24px;
+	color: #ffffff;
 }
 
-.demo__header {
-	position: relative;
-}
-
+// Outline header zones
 .demo__logo--placeholder > span {
 	display: inline-block;
 	width: 60px;
@@ -38,10 +39,12 @@ html {
 	height: 25px;
 }
 
+// State
 .demo__mega-dropdown[aria-hidden=true] {
 	display: none;
 }
 
+// Promo
 .demo__promo {
 	vertical-align: bottom;
 
@@ -50,6 +53,7 @@ html {
 	}
 }
 
+// Placeholder content (blurry text below demos)
 .demo__content-wrapper {
 	@include oGridRow;
 }
@@ -59,11 +63,4 @@ html {
 	line-height: 20px;
 	color: transparent;
 	text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.demo__icon {
-	display: block;
-	font-size: 20px;
-	line-height: 24px;
-	color: #ffffff;
 }
