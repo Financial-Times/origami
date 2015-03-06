@@ -23,8 +23,8 @@ All the following can be passed in an options object in the second parameter of 
 
 * `shrinkTo` [`'height'`]: A non-negative integer, indicating the number of items to show when collapsed, or the string `'height'`, which will collapse to a max-height defined in the CSS
 * `countSelector` [`'.o-expander__content > li'`]: Selector for identifying items to count, relative to `.o-expander`
-* `expandedToggleText` [`'less|fewer'`]: Text to show on toggle button when expanded (defaults to fewer when in count mode, or less when in height mode);
-* `collapsedToggleText` [`'more'`]: Text to show on toggle button when collapsed
+* `expandedToggleText` [`'less|fewer'`]: Text to show on toggle button when expanded (defaults to fewer when in count mode, or less when in height mode). Accepts empty strings
+* `collapsedToggleText` [`'more'`]: Text to show on toggle button when collapsed. Accepts empty strings
 * `toggleSelector`[`'button.o-expander__toggle'`]: Selector for expand/collapse toggle button. When using the default styling, with an arrow icon, will come for free
 
 ## Events

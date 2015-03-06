@@ -46,9 +46,13 @@ var Expander = function (el, opts) {
 };
 
 Expander.prototype.configure = function (setting, defaultVal) {
-	this.opts[setting] = this.el.getAttribute('data-o-expander-' + setting.replace(/[A-Z]/g, function ($0) {
+	var candidate = this.el.getAttribute('data-o-expander-' + setting.replace(/[A-Z]/g, function ($0) {
 		return '-' + $0.toLowerCase();
-	})) || this.opts[setting] || defaultVal;
+	}));
+	if (typeof candidate === 'undefined' || candidate === null) {
+		candidate = this.opts[setting];
+	}
+	this.opts[setting] = !(typeof candidate === 'undefined' || candidate === null) ? candidate : defaultVal;
 };
 
 Expander.prototype.apply = function (isSilent) {
@@ -106,7 +110,7 @@ Expander.prototype.expand = function (isSilent) {
 Expander.prototype.collapse = function (isSilent) {
 	this.contentEl.setAttribute('aria-expanded', false);
 	this.toggle.innerHTML = this.opts.collapsedToggleText + '<i></i>';
-	this.toggle.removeAttribute('aria-pressed', '');
+	this.toggle.removeAttribute('aria-pressed');
 	if (!isSilent) {
 		this.emit('collapse');
 	}
