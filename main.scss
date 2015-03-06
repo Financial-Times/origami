@@ -101,7 +101,7 @@ $o-footer-spacing-unit: 20px;
 
 	@include oGridRespondTo(M) {
 		font-size: 11px;
-		line-height: 16;
+		line-height: 16px;
 	}
 
 	span {
