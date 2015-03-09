@@ -1,18 +1,34 @@
 
 # o-fonts [![Build Status](https://travis-ci.org/Financial-Times/o-fonts.svg)](https://travis-ci.org/Financial-Times/o-fonts)
 
-This module provides:
+Easily include FT web fonts in products.
 
-* a means of including web fonts (by writing `@font-face` declarations)
-* a means of defining use cases for those fonts
-* a means of getting the `font-family` for a specific usecase
+## Quick start
 
-It does not contain the web font files, which are contained in a separate, private repository ([o-fonts-assets](http://git.svc.ft.com/projects/ORIG/repos/o-fonts-assets/)). The documentation below assumes the font assets have already been added to that.
+```html
+<!-- Load web fonts with @font-face declarations  -->
+<link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-fonts@^1" />
 
-# Browser support
-This module has been verified in Internet Explorer 9+, modern desktop browsers (Chrome, Safari, Firefox, ...) and mobile browsers (Android browser, iOS safari, Chrome mobile).
+<!-- Set font families -->
+<style>
+    html {
+        font-family: BentonSans, sans-serif;
+    }
+    h1 {
+        font-family: MillerDisplay, serif;
+    }
+</style>
+```
 
-# Supported fonts and variants
+[Looking for more advanced usage options (Sass…)?](#advanced)
+
+## Browser support
+
+`o-fonts` loads web fonts in the [WOFF format](http://en.wikipedia.org/wiki/Web_Open_Font_Format).
+
+WOFF is supported in IE 9+, Chrome, Firefox, iOS 5+, Android 4.4+. [Full support table on caniuse.com](http://caniuse.com/#feat=woff).
+
+## Font families and variants
 
 | BentonSans | MillerDisplay | MetricWeb | FinancierDisplayWeb | FinancierTextWeb |
 |:-:|:-:|:-:|:-:|:-:|
@@ -26,26 +42,32 @@ This module has been verified in Internet Explorer 9+, modern desktop browsers (
 | | | bold (italic) |
 | | black |
 
-# How to
+## Advanced usage<a name="advanced"></a>
 
-You can include fonts in two different ways:
-
-* Loading `o-fonts` via the build service or with silent mode off (`$o-fonts-is-silent: false;`), so all fonts will be included for you.
-* Call the `oFontsInclude()` mixin e.g.
+### Loading web fonts
 
 ```scss
-	@include oFontsInclude(BentonSans, bold);
-	@include oFontsInclude(MillerDisplay, $weight: normal, $style: italic);
+// @font-face declarations for all available families
+$o-fonts-is-silent: false;
+
+// OR, using the mixin instead:
+@include oFontsIncludeAll();
+
+// @font-face declarations for all Benton Sans weights
+@include oFontsInclude(BentonSans, light);
+@include oFontsInclude(BentonSans, regular);
+@include oFontsInclude(BentonSans, bold);
+
+// @font-face declarations for Metric regular / italic
+@include oFontsInclude(MetricWeb, $weight: regular, $style: italic);
 ```
 
-## Specifying fonts
+### Specifying font families
 
-Use this module's `oFontsGetFontFamilyWithFallbacks()` function to return the passed `font-family` name with web safe fallbacks.
-
-For example:
+`oFontsGetFontFamilyWithFallbacks()` is a function that returns the correct `font-family` with web safe fallbacks.
 
 ```scss
-.myClass {
+.my-class {
 	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 }
 ```
@@ -53,25 +75,33 @@ For example:
 Compiles to:
 
 ```css
-.myClass {
+.my-class {
 	font-family: BentonSans, sans-serif;
 }
 ```
 
-You can also set it to a variable if you need to declare a font multiple times:
+====
+
+Product tip: store the family in a variable for brevety.
 
 ```scss
 $serif: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
-.myClass {
+
+.my-class {
+    font-family: $serif; // much shorter than the function…
+}
+.my-other-class {
     font-family: $serif;
 }
 ```
 
-`oFontsGetFontFamilyWithFallbacks()` has the added benefit of warning you if the font specified doesn't exist, and as a result won't be loaded.
+`oFontsGetFontFamilyWithFallbacks()` has the added benefit of warning you if the family specified doesn't exist in the list of supported families (which as a result wouldn't show the text as intended).
 
-Note that you still need to use `oFontsInclude()` to actually include the `@font-face`.
+====
 
-# Adding families or variants
+## Adding families or variants
+
+Note: font files are contained in a separate, private repository ([o-fonts-assets](http://git.svc.ft.com/projects/ORIG/repos/o-fonts-assets/)).
 
 Open `src/scss/_variables.scss` in a text editor. Add the font family name (if it's an entirely new family) and the variant styles to the `$_o-fonts-families` map:
 
@@ -103,13 +133,3 @@ And a new entry in `demos/src/demo.scss`:
     font-family: oFontsGetFontFamilyWithFallback(BentonSans);
 }
 ```
-
-## Checking font rendering
-
-Different browsers use different font formats. Different browsers use different font formats. We only support `.woff` which is supported on all major browsers (>=IE9). You should make sure the demos for the new font family load properly on:
-
-* Chrome 5+
-* IE 9+
-* Firefox 3.6+
-* Safari 5.1+
-* Opera 11.5+
