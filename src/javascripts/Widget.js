@@ -50,6 +50,7 @@ function Widget () {
 
 
 	this.config.stream_type = this.config.stream_type || "livecomments";
+	this.config.layout = this.config.layout || 'main';
 	if (!this.config.initExtension || typeof this.config.initExtension !== 'object') {
 		this.config.initExtension = {};
 	}
@@ -79,6 +80,9 @@ function Widget () {
 	}
 	if (this.getWidgetEl().className.indexOf('o-comments--comment-type-' + self.config.stream_type) === -1) {
 		this.getWidgetEl().className += ' o-comments--comment-type-' + self.config.stream_type;
+	}
+	if (this.config.layout) {
+		this.getWidgetEl().className += ' o-comments--comment-layout-' + this.config.layout;
 	}
 	this.getWidgetEl().setAttribute('data-o-comments-built', 'true');
 

@@ -1109,10 +1109,15 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 	}
 
 
+	&.o-comments--comment-layout-main {
+		.fyre .fyre-comment-actions {
+			opacity: 1;
+		}
+	}
 
 
 	// sidebar layout (in the rail list)
-	&.comment-layout-side {
+	&.o-comments--comment-layout-side {
 		.fyre {
 			.fyre-comment {
 				a.fyre-comment-edit {
