@@ -1,14 +1,14 @@
 /*global require,module*/
 "use strict";
 
-var DomDelegate = require('ftdomdelegate'),
-	oHierarchicalNav = require('o-hierarchical-nav');
+var DomDelegate = require('ftdomdelegate');
+var oHierarchicalNav = require('o-hierarchical-nav');
 
 function Header(rootEl) {
 
-	var bodyDelegate,
-		// Gets all nav elements in the header
-		hierarchicalNavEls = [
+	var bodyDelegate;
+	// Gets all nav elements in the header
+	var hierarchicalNavEls = [
 			rootEl.querySelector('.o-header__nav--primary-theme'),
 			rootEl.querySelector('.o-header__nav--secondary-theme'),
 			rootEl.querySelector('.o-header__nav--tools-theme')
@@ -23,8 +23,8 @@ function Header(rootEl) {
 				el.style.overflow = 'visible';
 			}
 			return el && el.nodeType === 1 && !el.hasAttribute('data-o-hierarchical-nav--js');
-		}),
-		hierarchicalNavs = [];
+		});
+	var hierarchicalNavs = [];
 
 	function init() {
 		if (!rootEl) {
