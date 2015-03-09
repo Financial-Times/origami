@@ -87,12 +87,18 @@ Compiles to:
 Product tip: store the family in a variable for brevety.
 
 ```scss
+// _my-variables.scss
 $serif: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
 
-.my-class {
-    font-family: $serif; // much shorter than the function…
+// foo.scss
+@import 'my-variables';
+.foo {
+    font-family: $serif;
 }
-.my-other-class {
+
+// bar.scss
+@import 'my-variables';
+.bar {
     font-family: $serif;
 }
 ```
@@ -101,7 +107,7 @@ $serif: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
 
 ----
 
-## Adding families or variants
+## Contribute (*adding new variants*)
 
 Note: font files are contained in a separate, private repository ([o-fonts-assets](http://git.svc.ft.com/projects/ORIG/repos/o-fonts-assets/)).
 
