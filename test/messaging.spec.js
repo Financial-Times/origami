@@ -1,8 +1,10 @@
-/* global describe:false, it:false */
+/* jshint browser:true */
+/* global describe:false, it:false, require:false */
 "use strict";
 
 var expect = require('chai').expect;
 var messaging = require('../src/main.js');
+var helpers = require('../test/phantomjs-helpers.js');
 messaging.init();
 
 describe("Messaging", function(){
@@ -28,9 +30,10 @@ describe("Messaging", function(){
 		}, 0);
 	});
 
-	// todo [PW] Make this test correctly dispatch a click event
-	it.skip('Will hide the message if the user clicks the close button', function(done){
+	it('Will hide the message if the user clicks the close button', function(done){
 		messaging.showMessage({content:message,type:'message'});
+		helpers.click(document.querySelector('.message__close-js'));
+
 		setTimeout(function(){
 			expect(document.querySelector('.message')).to.be.null;
 			done();
