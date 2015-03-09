@@ -11,12 +11,12 @@ Easily include FT web fonts in products.
 
 <!-- Set font families -->
 <style>
-    html {
-        font-family: BentonSans, sans-serif;
-    }
-    h1 {
-        font-family: MillerDisplay, serif;
-    }
+	html {
+		font-family: BentonSans, sans-serif;
+	}
+	h1 {
+		font-family: MillerDisplay, serif;
+	}
 </style>
 ```
 
@@ -97,13 +97,13 @@ $serif: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
 // foo.scss
 @import 'my-variables';
 .foo {
-    font-family: $serif;
+	font-family: $serif;
 }
 
 // bar.scss
 @import 'my-variables';
 .bar {
-    font-family: $serif;
+	font-family: $serif;
 }
 ```
 
@@ -119,29 +119,29 @@ Open `src/scss/_variables.scss` in a text editor. Add the font family name (if i
 
 ```scss
 $_o-fonts-families: (
-    BentonSans: (
-        font-family: 'BentonSans, sans-serif',
-        variants: (
-            (weight: lighter, style: normal),
-            (weight: normal,  style: normal),
-            (weight: bold,    style: normal)
-        )
-    ),
-    // …
+	BentonSans: (
+		font-family: 'BentonSans, sans-serif',
+		variants: (
+			(weight: lighter, style: normal),
+			(weight: normal,  style: normal),
+			(weight: bold,    style: normal)
+		)
+	),
+	// …
 );
 ```
 
 And then, if it's a new family, add a new entry in `demos/src/config.json`, like so:
 
     "demos": {
-        "bentonsans": {
-            "data": { "font": "bentonsans" }
-        },
+	  "bentonsans": {
+	    "data": { "font": "bentonsans" }
+	  },
 
 And a new entry in `demos/src/demo.scss`:
 
 ```css
 .demo-family-bentonsans .demo-example {
-    font-family: oFontsGetFontFamilyWithFallback(BentonSans);
+	font-family: oFontsGetFontFamilyWithFallback(BentonSans);
 }
 ```
