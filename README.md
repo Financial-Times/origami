@@ -52,7 +52,10 @@ WOFF is supported in IE 9+, Chrome, Firefox, iOS 5+, Android 4.4+. [Full support
 // @font-face declarations for all available families
 $o-fonts-is-silent: false;
 
-// OR, using the mixin instead:
+@import 'o-fonts/main';
+
+// OR, output @font-face declarations for all available families
+// using the mixin instead of turning off silent mode:
 @include oFontsIncludeAll();
 
 // @font-face declarations for all Benton Sans weights
