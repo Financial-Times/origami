@@ -87,7 +87,7 @@ Compiles to:
 
 ====
 
-Product tip: store the family in a variable for brevety.
+Product tip: store the family in a variable for brevity.
 
 ```scss
 // _my-variables.scss
