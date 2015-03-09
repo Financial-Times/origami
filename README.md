@@ -201,5 +201,20 @@ See examples of custom FT icon classes in [demos/src/scss/demo.scss](https://git
 
 ### 3. Font settings
 
-The header now inherits the `font-family` set in your application.
+In the v2.x.x of o-header, the module loaded webfonts itself and was setting its own font-family.
 
+The header now inherits the `font-family` set in your application and doesn't embed web fonts anymore.
+
+Solution: products must load webfonts themselves (tipically, with [o-fonts](https://github.com/Financial-Times/o-fonts)).
+
+```html
+<!-- Load web fonts with @font-face declarations  -->
+<link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-fonts@^1" />
+
+<!-- Set the font family on the whole document -->
+<style>
+	html {
+		font-family: BentonSans, sans-serif;
+	}
+</style>
+```
