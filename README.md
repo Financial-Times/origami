@@ -22,6 +22,8 @@ Easily include FT web fonts in products.
 
 [Looking for more advanced usage options (Sass…)?](#advanced)
 
+----
+
 ## Browser support
 
 `o-fonts` loads web fonts in the [WOFF format](http://en.wikipedia.org/wiki/Web_Open_Font_Format).
@@ -97,7 +99,7 @@ $serif: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
 
 `oFontsGetFontFamilyWithFallbacks()` has the added benefit of warning you if the family specified doesn't exist in the list of supported families (which as a result wouldn't show the text as intended).
 
-====
+----
 
 ## Adding families or variants
 
