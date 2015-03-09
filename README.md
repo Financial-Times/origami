@@ -28,7 +28,8 @@ Easily include FT web fonts in products.
 
 `o-fonts` loads web fonts in the [WOFF format](http://en.wikipedia.org/wiki/Web_Open_Font_Format).
 
-WOFF is supported in IE 9+, Chrome, Firefox, iOS 5+, Android 4.4+. [Full support table on caniuse.com](http://caniuse.com/#feat=woff).
+WOFF is supported in IE 9+, Chrome, Firefox, iOS 5+, Android 4.4+.
+[View full support table on caniuse.com](http://caniuse.com/#feat=woff).
 
 ## Font families, weights and styles
 
