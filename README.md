@@ -32,15 +32,15 @@ WOFF is supported in IE 9+, Chrome, Firefox, iOS 5+, Android 4.4+. [Full support
 
 ## Font families, weights and styles
 
-| Weight | BentonSans | MillerDisplay | MetricWeb | FinancierDisplayWeb | FinancierTextWeb |
-|-|:-:|:-:|:-:|:-:|:-:|
-| thin |  |  | ✓ |  |  |
-| light | ✓ |  | ✓ |  |  |
-| regular | ✓ | ✓ | ✓ *i* | ✓*i* | ✓*i* |
-| medium |  |  | ✓ |  |  |
-| semibold |  |  | ✓ |  |  |
-| bold | ✓ | ✓ | ✓ *i* |  |  |
-| black |  | ✓ |  |  |  |
+| Weight   | BentonSans | MillerDisplay | MetricWeb | FinancierDisplayWeb | FinancierTextWeb |
+|----------|:----------:|:-------------:|:---------:|:-------------------:|:----------------:|
+| thin     |            |               |     ✓     |                     |                  |
+| light    |      ✓     |               |     ✓     |                     |                  |
+| regular  |      ✓     |       ✓       |   ✓ *i*   |        ✓ *i*        |       ✓ *i*      |
+| medium   |            |               |     ✓     |                     |                  |
+| semibold |            |               |     ✓     |                     |                  |
+| bold     |      ✓     |       ✓       |   ✓ *i*   |                     |                  |
+| black    |            |       ✓       |           |                     |                  |
 
 *i*: italic available (if not, faux-italic will be displayed)
 
