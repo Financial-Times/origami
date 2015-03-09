@@ -12,6 +12,22 @@ For convenience a JSON file with an example of footer links has been provided (`
 Rename all instances of `o-ft-footer` into `o-footer`.
 
 
-### 2. Font settings
+### 3. Font settings
 
-The footer now inherits the `font-family` set in your application.
+In the v2.x.x of o-footer, the module loaded webfonts itself and was setting its own font-family.
+
+The footer now inherits the `font-family` set in your application and doesn't embed web fonts anymore.
+
+Solution: products must load webfonts themselves (tipically, with [o-fonts](https://github.com/Financial-Times/o-fonts)).
+
+```html
+<!-- Load web fonts with @font-face declarations  -->
+<link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-fonts@^1" />
+
+<!-- Set the font family on the whole document -->
+<style>
+	html {
+		font-family: BentonSans, sans-serif;
+	}
+</style>
+```
