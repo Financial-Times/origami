@@ -30,19 +30,19 @@ Easily include FT web fonts in products.
 
 WOFF is supported in IE 9+, Chrome, Firefox, iOS 5+, Android 4.4+. [Full support table on caniuse.com](http://caniuse.com/#feat=woff).
 
-## Font families and variants
+## Font families, weights and styles
 
-| BentonSans | MillerDisplay | MetricWeb | FinancierDisplayWeb | FinancierTextWeb |
-|:-:|:-:|:-:|:-:|:-:|
-| | | thin |
-| light | | light |
-| regular | regular | regular | regular | regular |
-| | | regular (italic) | regular (italic) | regular (italic) |
-| | | medium |
-| | | semibold |
-| bold | bold | bold |
-| | | bold (italic) |
-| | black |
+| Weight | BentonSans | MillerDisplay | MetricWeb | FinancierDisplayWeb | FinancierTextWeb |
+|-|:-:|:-:|:-:|:-:|:-:|
+| thin |  |  | ✓ |  |  |
+| light | ✓ |  | ✓ |  |  |
+| regular | ✓ | ✓ | ✓ *i* | ✓*i* | ✓*i* |
+| medium |  |  | ✓ |  |  |
+| semibold |  |  | ✓ |  |  |
+| bold | ✓ | ✓ | ✓ *i* |  |  |
+| black |  | ✓ |  |  |  |
+
+*i*: italic available (if not, faux-italic will be displayed)
 
 ## Advanced usage<a name="advanced"></a>
 
