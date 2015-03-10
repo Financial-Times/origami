@@ -13,6 +13,7 @@ html {
 	overflow-x: hidden;
 }
 
+
 // Place icons on top of their labels
 .demo__icon {
 	display: block;
@@ -63,4 +64,25 @@ html {
 	line-height: 20px;
 	color: transparent;
 	text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+// Hide / Show on mobile
+// scss-lint:disable ImportantRule
+.demo__mobile-only {
+	@include oGridRespondTo(M) {
+		display: none !important;
+	}
+}
+.demo__hide-on-mobile {
+	@include oGridRespondTo($until: M) {
+		display: none !important;
+	}
+}
+// scss-lint:enable ImportantRule
+
+// Fix SVG logo position
+.demo__fix-svg-logo-position i {
+	// The SVG Logo background is declared as the first of multiple backgrounds
+	// So we align both backgrounds to not interfere with the png fallback
+	background-position: -6px bottom, 0 0;
 }
