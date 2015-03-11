@@ -1,42 +1,26 @@
 @import "o-colors/main";
 @import "src/scss/variables";
+@import "src/scss/color-use-cases";
 
 @mixin oBigNumber {
-	display: block;
-	padding: 20px 10px;
-	text-align: center;
-}
-
-@mixin oBigNumberStandard {
-	color: oColorsGetPaletteColor(grey-tint4);
-	background-color: oColorsGetPaletteColor(pink-tint2);
+	font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+	@include oColorsFor(o-big-number, text);
+	border-left: 2px solid oColorsGetColorFor(o-quote, border);
+	padding-left: 10px;
 }
 
 @mixin oBigNumberTitle {
 	display: block;
-	font-size: 34px;
-	font-weight: 100;
-	margin-bottom: 10px;
-}
-
-@mixin oBigNumberContent {
-	display: block;
+	font-size: 4em;
+	font-weight: bold;
+	line-height: 1em;
 }
 
 @if $o-big-number-is-silent == false {
 	.o-big-number {
 		@include oBigNumber;
 	}
-
-	.o-big-number--standard {
-		@include oBigNumberStandard;
-	}
-
 	.o-big-number__title {
 		@include oBigNumberTitle;
-	}
-
-	.o-big-number__content {
-		@include oBigNumberContent;
 	}
 }
