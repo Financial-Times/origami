@@ -262,6 +262,7 @@ Overlay.prototype.close = function() {
 };
 
 Overlay.prototype.closeOnExternalClick = function(ev) {
+	ev.preventDefault();
 	if (!this.wrapper.contains(ev.target) && !this.opts.modal) {
 		this.close();
 	}
