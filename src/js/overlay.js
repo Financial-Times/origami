@@ -215,11 +215,12 @@ Overlay.prototype.show = function() {
 
 	if (this.opts.heading) {
 		this.delegates.wrap.on('click', '.o-overlay__close', this.close);
+		this.delegates.wrap.on('touchend', '.o-overlay__close', this.close);
 	}
 
 	this.closeOnExternalClick = this.closeOnExternalClick.bind(this);
 	this.delegates.doc.on('click', 'body', this.closeOnExternalClick);
-	this.delegates.doc.on('touchstart', 'body', this.closeOnExternalClick);
+	this.delegates.doc.on('touchend', 'body', this.closeOnExternalClick);
 
 	this.closeOnEscapePress = this.closeOnEscapePress.bind(this);
 	this.delegates.doc.on('keyup', this.closeOnEscapePress);
@@ -264,6 +265,7 @@ Overlay.prototype.close = function() {
 };
 
 Overlay.prototype.closeOnExternalClick = function(ev) {
+	ev.preventDefault();
 	if (!this.wrapper.contains(ev.target) && !this.opts.modal) {
 		this.close();
 	}
