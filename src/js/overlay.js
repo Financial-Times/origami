@@ -241,11 +241,11 @@ Overlay.prototype.show = function() {
 				overlay.content.appendChild(overlay.opts.html);
 			}
 		}
+		overlay.width = overlay.getWidth();
+		overlay.height = overlay.getHeight();
 		overlay.respondToWindow(viewport.getSize());
 	});
 
-	overlay.width = overlay.getWidth();
-	overlay.height = overlay.getHeight();
 	this.visible = true;
 	this.broadcast('ready');
 };
