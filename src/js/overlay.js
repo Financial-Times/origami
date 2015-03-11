@@ -228,13 +228,13 @@ Overlay.prototype.show = function() {
 	this.broadcast('new', 'oLayers');
 	this.context.appendChild(this.wrapper);
 
-	this.respondToWindow(viewport.getSize());
 	// Renders content after overlay has been added so css is applied before that
 	// Thay way if an element has autofocus, the window won't scroll to the bottom
 	// in Safari as the overlay is already in position
 	var overlay = this;
 	window.requestAnimationFrame(function() {
 		if (!overlay.content.innerHTML) {
+			overlay.respondToWindow(viewport.getSize());
 			if (typeof overlay.opts.html === 'string') {
 				overlay.content.innerHTML = overlay.opts.html;
 			} else {
