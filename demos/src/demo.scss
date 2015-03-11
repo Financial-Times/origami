@@ -2,15 +2,18 @@ $o-forms-is-silent: false;
 
 @import "../../main";
 
-body {
+html {
 	font-family: $o-forms-font-family;
-	padding: 10px; // Simulate the grid outer margins
-	max-width: 500px;
-	margin: 0 auto;
+}
+
+body {
+	// Simulate the grid outer margin space
+	// since the forms rely on this space to expand on each side on small screens
+	padding: 10px;
 }
 
 .demo-real-life {
-	max-width: none;
+	padding: 0;
 
 	h2,
 	h3 {
