@@ -1,5 +1,5 @@
 # next-messaging
-Component for showing Messages to users.  Currently used to show the "welcome to Next" message.
+Component for showing Messages to users. Currently unused.
 
 # Using it
 

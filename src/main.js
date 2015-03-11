@@ -2,7 +2,6 @@
 
 var Delegate = require('dom-delegate');
 
-var optin = require('./js/optin');
 var utils = require('./js/utils');
 
 var templates = require('./js/templates');
@@ -64,8 +63,6 @@ function init(){
 		data.type = "message";
 		showMessage(data);
 	});
-
-	optin();
 }
 
 
