@@ -1,10 +1,6 @@
 {
 	"name": "o-overlay",
 	"private": true,
-	"engines": {
-		"node": "0.10.x",
-		"npm": "1.2.x"
-	},
 	"scripts": {
 		"test": "grunt test"
 	},
