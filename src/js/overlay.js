@@ -313,7 +313,7 @@ Overlay.prototype.realign = function(dimension, size) {
 			// Set the exact height that the content of the overlay will have which is the total
 			// height of the overlay minus the heading if there is one. If height = 100%, the
 			// heading is part of that 100%, so some content is truncated.
-			this.content.style.height = this.wrapper.clientHeight - (this.opts.heading ? this.wrapper.querySelector('header').offsetHeight : 0) + 'px';
+			this.content.style.height = this.wrapper.offsetHeight - (this.opts.heading ? this.wrapper.querySelector('header').offsetHeight : 0) + 'px';
 		}
 	} else {
 		if (dimension === 'height') {
@@ -419,14 +419,6 @@ Overlay.prototype.getCurrentArrowPosition = function(position) {
 	return position;
 };
 
-Overlay.prototype.getWidth = function() {
-	return this.wrapper.offsetWidth + utils.getSpacing(this.wrapper, 'left') + utils.getSpacing(this.wrapper, 'right');
-};
-
-Overlay.prototype.getHeight = function() {
-	return this.wrapper.offsetHeight + utils.getSpacing(this.wrapper, 'top') + utils.getSpacing(this.wrapper, 'bottom');
-};
-
 Overlay.prototype.fills = function(dimension) {
 	return this.wrapper.classList.contains('o-overlay--full-' + dimension);
 };
@@ -436,6 +428,16 @@ Overlay.prototype.destroy = function() {
 			this.opts.trigger.removeEventListener('click', triggerClickHandler);
 		}
 		delete overlays[this.id];
+};
+
+Overlay.prototype.getHeight = function() {
+	var borderHeight = this.wrapper.offsetHeight - this.wrapper.clientHeight;
+	return this.content.scrollHeight + (this.opts.heading ? this.wrapper.querySelector('header').offsetHeight : 0) + borderHeight;
+};
+
+Overlay.prototype.getWidth = function() {
+	var borderWidth = this.wrapper.offsetWidth - this.wrapper.clientWidth;
+	return this.content.scrollWidth + (this.opts.heading ? this.wrapper.querySelector('header').offsetWidth : 0) + borderWidth;
 };
 
 Overlay.init = function(el) {

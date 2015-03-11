@@ -33,12 +33,6 @@ module.exports = {
 		xhr.send(null);
 	},
 
-	getSpacing: function(el, side) {
-		// IE uses currentStyle, other browsers getComputedStyle()
-		var elStyle = el.currentStyle || window.getComputedStyle(el);
-		return parseInt(elStyle['margin' + this.capitalise(side)], 10) || 0;
-	},
-
 	optionsFromKey: function(key, value, opts) {
 		var dashIndex = key.indexOf('-');
 		if (dashIndex === -1) {
