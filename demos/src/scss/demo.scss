@@ -1,31 +1,36 @@
-// scss-lint:disable QualifyingElement
-$o-grid-mq-type: width;
 @import "o-colors/main";
 
 @include oColorsSetUseCase(product-brand, background, claret);
 
 @import "../../../main";
 
-.demo__title {
-	margin: 40px 0 10px;
-	border-top: 1px solid #dddddd;
-	padding: 5px 0;
-	font-family: sans-serif;
-	font-size: 14px;
+// Default font and styles
+html {
+	font-family: BentonSans, sans-serif;
+
+	// Prevent navigation menus from creating
+	// extra space on sides of the page
+	overflow-x: hidden;
 }
 
-.demo__header {
-	position: relative;
+
+// Place icons on top of their labels
+.demo__icon {
+	display: block;
+	font-size: 20px;
+	line-height: 24px;
+	color: #ffffff;
 }
 
-.demo__logo--placeholder {
-	> span {
-		display: inline-block;
-		width: 60px;
-		height: 60px;
-		outline: 2px dotted red;
-		background-color: rgba(255, 100, 100, 0.2);
-	}
+// Outline header zones in the skeleton
+.demo__logo--placeholder > span {
+	vertical-align: top;
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	outline: 2px dotted red;
+	background-color: rgba(255, 100, 100, 0.2);
+	font-size: 13px;
 }
 
 .demo__primary--placeholder {
@@ -37,10 +42,12 @@ $o-grid-mq-type: width;
 	height: 25px;
 }
 
+// State
 .demo__mega-dropdown[aria-hidden=true] {
 	display: none;
 }
 
+// Promo
 .demo__promo {
 	vertical-align: bottom;
 
@@ -49,48 +56,38 @@ $o-grid-mq-type: width;
 	}
 }
 
-@include oGridRespondTo(S M) {
-	.demo__promo {
-		display: none;
-	}
+// Placeholder content (blurry text below demos)
+.demo__content-wrapper {
+	@include oGridRow;
 }
-
 .demo__content {
-	@extend %o-grid-row;
-	@extend %o-grid-colspan-12;
+	@include oGridColumn(12);
 	font-size: 15px;
 	line-height: 20px;
 	color: transparent;
 	text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-
-@include oFtIconsFontFace();
-
-i.demo__icon {
-	@include oFtIconsBaseIconStyles();
-	display: block;
-	font-size: 20px;
-	line-height: 30px;
-	color: #ffffff;
+// Hide / Show on mobile
+// scss-lint:disable ImportantRule
+.demo__mobile-only {
+	@include oGridRespondTo(M) {
+		display: none !important;
+	}
+	@include oGridTargetIE8 {
+		display: none !important;
+	}
 }
-
-.demo__icon__search {
-	@extend %o-ft-icons-icon--search;
+.demo__hide-on-mobile {
+	@include oGridRespondTo($until: M) {
+		display: none !important;
+	}
 }
+// scss-lint:enable ImportantRule
 
-.demo__icon__settings {
-	@extend %o-ft-icons-icon--settings;
-}
-
-.demo__icon__share {
-	@extend %o-ft-icons-icon--share;
-}
-
-.demo__icon__account {
-	@extend %o-ft-icons-icon--profile;
-}
-
-.demo__icon__more {
-	@extend %o-ft-icons-icon--hamburger;
+// Fix SVG logo position
+.demo__fix-svg-logo-position i {
+	// The SVG Logo background is declared as the first of multiple backgrounds
+	// So we align both backgrounds to not interfere with the png fallback
+	background-position: -6px bottom, 0 0;
 }

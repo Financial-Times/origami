@@ -1,17 +1,17 @@
 /*global require,module*/
 "use strict";
 
-var DomDelegate = require('ftdomdelegate'),
-	oHierarchicalNav = require('o-hierarchical-nav');
+var DomDelegate = require('ftdomdelegate');
+var oHierarchicalNav = require('o-hierarchical-nav');
 
 function Header(rootEl) {
 
-	var bodyDelegate,
-		// Gets all nav elements in the header
-		hierarchicalNavEls = [
-			rootEl.querySelector('.o-ft-header__nav--primary-theme'),
-			rootEl.querySelector('.o-ft-header__nav--secondary-theme'),
-			rootEl.querySelector('.o-ft-header__nav--tools-theme')
+	var bodyDelegate;
+	// Gets all nav elements in the header
+	var hierarchicalNavEls = [
+			rootEl.querySelector('.o-header__nav--primary-theme'),
+			rootEl.querySelector('.o-header__nav--secondary-theme'),
+			rootEl.querySelector('.o-header__nav--tools-theme')
 		].filter(function(el) {
 			/**
 			 * Overflow is hidden by default on the tools and primary theme for it to resize properly on core experience
@@ -23,8 +23,8 @@ function Header(rootEl) {
 				el.style.overflow = 'visible';
 			}
 			return el && el.nodeType === 1 && !el.hasAttribute('data-o-hierarchical-nav--js');
-		}),
-		hierarchicalNavs = [];
+		});
+	var hierarchicalNavs = [];
 
 	function init() {
 		if (!rootEl) {
@@ -32,7 +32,7 @@ function Header(rootEl) {
 		} else if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
-		rootEl.setAttribute('data-o-ft-header--js', '');
+		rootEl.setAttribute('data-o-header--js', '');
 		bodyDelegate = new DomDelegate(document.body);
 		hierarchicalNavs = hierarchicalNavEls.map(function(el) {
 			return new oHierarchicalNav(el);
@@ -47,7 +47,7 @@ function Header(rootEl) {
 				hierarchicalNavs[c].destroy();
 			}
 		}
-		rootEl.removeAttribute('data-o-ft-header--js');
+		rootEl.removeAttribute('data-o-header--js');
 	}
 
 	init();
@@ -63,10 +63,12 @@ Header.init = function(el) {
 	} else if (!(el instanceof HTMLElement)) {
 		el = document.querySelector(el);
 	}
-	var headerEls = el.querySelectorAll('[data-o-component="o-ft-header"]:not([data-o-ft-header--js])');
+	var headerEls = el.querySelectorAll('[data-o-component="o-header"]');
 	var headers = [];
 	for (var c = 0, l = headerEls.length; c < l; c++) {
-		headers.push(new Header(headerEls[c]));
+		if (!headerEls[c].hasAttribute('data-o-header--js')) {
+			headers.push(new Header(headerEls[c]));
+		}
 	}
 	return headers;
 };

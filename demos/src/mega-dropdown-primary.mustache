@@ -1,39 +1,43 @@
-<header data-o-component="o-ft-header" class="o-ft-header o-registry-demo-chunk">
-	<div class="o-ft-header__container">
-		<div class="o-ft-header__primary">
-			<div class="o-ft-header__primary__left">
-				<div class="o-ft-header__logo o-ft-header__logo--ft">
-					<a href="http://www.ft.com"><abbr title="Financial Times">FT</abbr></a>
+<header data-o-component="o-header" class="o-header o-registry-demo-chunk">
+	<div class="o-header__container">
+		<div class="o-header__inner">
+			<div class="o-header__primary">
+				<div class="o-header__primary__left">
+					<a href="http://www.ft.com" class="o-header__logo o-header__logo--ft">
+						<abbr title="Financial Times">FT</abbr>
+						<h1 class="o-header__title">Mega-dropdown</h1>
+					</a>
 				</div>
-				<h1 class="o-ft-header__title">Mega-dropdown</h1>
+				<nav class="o-header__primary__right o-hierarchical-nav o-header__nav--primary-theme" data-o-component="hierarchical-nav">
+					<ul data-o-hierarchical-nav-level="1">
+						<li data-priority="2" aria-controls="megadropdown-p1"><a href="#void">Mega 1 p2 <i class="o-hierarchical-nav__parent__down-arrow"></i></a></li>
+						<li data-priority="3" aria-controls="megadropdown-p2"><a href="#void">Mega 2 p3 <i class="o-hierarchical-nav__parent__down-arrow"></i></a></li>
+						<li data-priority="1" aria-controls="megadropdown-p3"><a href="#void">Mega 3 p1 <i class="o-hierarchical-nav__parent__down-arrow"></i></a></li>
+						<li data-priority="2" aria-controls="megadropdown-p4"><a href="#void">Mega 4 p2 <i class="o-hierarchical-nav__parent__down-arrow"></i></a></li>
+						<li data-priority="1" aria-controls="megadropdown-p5"><a href="#void">Mega 5 p1 <i class="o-hierarchical-nav__parent__down-arrow"></i></a></li>
+						<li data-priority="2" aria-controls="megadropdown-p6"><a href="#void">Mega 6 p2 <i class="o-hierarchical-nav__parent__down-arrow"></i></a></li>
+						<li data-more aria-controls="megadropdown-pmore" aria-hidden="true"><a href="#void">More <i class="o-hierarchical-nav__parent__down-arrow"></i></a></li>
+					</ul>
+				</nav>
 			</div>
-			<nav class="o-ft-header__primary__right o-hierarchical-nav o-ft-header__nav--primary-theme" data-o-component="hierarchical-nav" data-o-version="{{o-hierarchical-nav.module-version}}">
-				<ul data-o-hierarchical-nav-level="1">
-					<li data-priority="2" aria-controls="megadropdown-p1"><a>Mega 1 p2 <i class="o-hierarchical-nav__parent__down-arrow"></i></a></li>
-					<li data-priority="3" aria-controls="megadropdown-p2"><a>Mega 2 p3 <i class="o-hierarchical-nav__parent__down-arrow"></i></a></li>
-					<li data-priority="1" aria-controls="megadropdown-p3"><a>Mega 3 p1 <i class="o-hierarchical-nav__parent__down-arrow"></i></a></li>
-					<li data-priority="2" aria-controls="megadropdown-p4"><a>Mega 4 p2 <i class="o-hierarchical-nav__parent__down-arrow"></i></a></li>
-					<li data-priority="1" aria-controls="megadropdown-p5"><a>Mega 5 p1 <i class="o-hierarchical-nav__parent__down-arrow"></i></a></li>
-					<li data-priority="2" aria-controls="megadropdown-p6"><a>Mega 6 p2 <i class="o-hierarchical-nav__parent__down-arrow"></i></a></li>
-					<li data-more aria-controls="megadropdown-pmore" aria-hidden="true"><a>More <i class="o-hierarchical-nav__parent__down-arrow"></i></a></li>
-				</ul>
-			</nav>
-		</div>
-		<div class="o-ft-header__mega-dropdown--primary o-hierarchical-nav__mega-dropdown" id="megadropdown-p1" aria-hidden="true">Mega-dropdown for Mega 1</div>
-		<div class="o-ft-header__mega-dropdown--primary o-hierarchical-nav__mega-dropdown" id="megadropdown-p2" aria-hidden="true">Mega-dropdown for Mega 2</div>
-		<div class="o-ft-header__mega-dropdown--primary o-hierarchical-nav__mega-dropdown" id="megadropdown-p3" aria-hidden="true">Mega-dropdown for Mega 3</div>
-		<div class="o-ft-header__mega-dropdown--primary o-hierarchical-nav__mega-dropdown" id="megadropdown-p4" aria-hidden="true">Mega-dropdown for Mega 4</div>
-		<div class="o-ft-header__mega-dropdown--primary o-hierarchical-nav__mega-dropdown" id="megadropdown-p5" aria-hidden="true">Mega-dropdown for Mega 5</div>
-		<div class="o-hierarchical-nav__mega-dropdown o-ft-header__mega-dropdown--primary" id="megadropdown-p6" aria-hidden="true">Mega-dropdown for Mega 6</div>
-		<div class="o-ft-header__mega-dropdown--primary o-hierarchical-nav__mega-dropdown" id="megadropdown-pmore" aria-hidden="true">Mega-dropdown for More</div>
+			<div class="o-header__mega-dropdown--primary o-hierarchical-nav__mega-dropdown" id="megadropdown-p1" aria-hidden="true">Mega-dropdown for Mega 1</div>
+			<div class="o-header__mega-dropdown--primary o-hierarchical-nav__mega-dropdown" id="megadropdown-p2" aria-hidden="true">Mega-dropdown for Mega 2</div>
+			<div class="o-header__mega-dropdown--primary o-hierarchical-nav__mega-dropdown" id="megadropdown-p3" aria-hidden="true">Mega-dropdown for Mega 3</div>
+			<div class="o-header__mega-dropdown--primary o-hierarchical-nav__mega-dropdown" id="megadropdown-p4" aria-hidden="true">Mega-dropdown for Mega 4</div>
+			<div class="o-header__mega-dropdown--primary o-hierarchical-nav__mega-dropdown" id="megadropdown-p5" aria-hidden="true">Mega-dropdown for Mega 5</div>
+			<div class="o-hierarchical-nav__mega-dropdown o-header__mega-dropdown--primary" id="megadropdown-p6" aria-hidden="true">Mega-dropdown for Mega 6</div>
+			<div class="o-header__mega-dropdown--primary o-hierarchical-nav__mega-dropdown" id="megadropdown-pmore" aria-hidden="true">Mega-dropdown for More</div>
 		
-		<div class="o-ft-header__secondary">
+			<div class="o-header__secondary">
+			</div>
 		</div>
 	</div>
 </header>
 
-<div class="demo__content">
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae justo ligula. Nam vel dolor non mi pharetra suscipit. Sed eget feugiat sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dictum, orci eget vestibulum tristique, justo enim fringilla augue, sed elementum massa augue congue justo. Etiam sed placerat metus. Duis vel ligula ullamcorper, elementum dui in, aliquet mi. Donec ac velit varius, mattis dolor nec, ullamcorper augue. Nam tempor accumsan sapien vel commodo. Morbi malesuada facilisis massa et rutrum. Sed porta mi vitae lacus pulvinar, non lobortis ante fermentum. Aliquam eget fermentum ligula. Duis et ornare diam.</p>
+<div class="demo__content-wrapper">
+	<div class="demo__content">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae justo ligula. Nam vel dolor non mi pharetra suscipit. Sed eget feugiat sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dictum, orci eget vestibulum tristique, justo enim fringilla augue, sed elementum massa augue congue justo. Etiam sed placerat metus. Duis vel ligula ullamcorper, elementum dui in, aliquet mi. Donec ac velit varius, mattis dolor nec, ullamcorper augue. Nam tempor accumsan sapien vel commodo. Morbi malesuada facilisis massa et rutrum. Sed porta mi vitae lacus pulvinar, non lobortis ante fermentum. Aliquam eget fermentum ligula. Duis et ornare diam.</p>
 
-	<p>Nullam semper augue tortor, sit amet malesuada nisl tempus et. Integer viverra sollicitudin aliquet. In eleifend diam volutpat, adipiscing orci at, venenatis odio. Aenean at nisl elementum, cursus tellus vel, lobortis tellus. Vestibulum id massa varius, vehicula neque non, fermentum urna. Vestibulum ac molestie nulla. Maecenas bibendum mauris et elit venenatis laoreet. Integer ac ante velit. Sed non dolor ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin laoreet odio et lectus vulputate, id pellentesque massa lacinia. Curabitur volutpat pharetra elit. Cras quis felis elementum, porta urna imperdiet, molestie neque. Curabitur et malesuada libero. Donec eu sapien arcu. Etiam vulputate sodales dolor vitae feugiat.</p>
+		<p>Nullam semper augue tortor, sit amet malesuada nisl tempus et. Integer viverra sollicitudin aliquet. In eleifend diam volutpat, adipiscing orci at, venenatis odio. Aenean at nisl elementum, cursus tellus vel, lobortis tellus. Vestibulum id massa varius, vehicula neque non, fermentum urna. Vestibulum ac molestie nulla. Maecenas bibendum mauris et elit venenatis laoreet. Integer ac ante velit. Sed non dolor ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin laoreet odio et lectus vulputate, id pellentesque massa lacinia. Curabitur volutpat pharetra elit. Cras quis felis elementum, porta urna imperdiet, molestie neque. Curabitur et malesuada libero. Donec eu sapien arcu. Etiam vulputate sodales dolor vitae feugiat.</p>
+	</div>
 </div>

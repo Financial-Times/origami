@@ -1,5 +1,7 @@
-// Default arrow styling
-@mixin oFtHeaderArrow($size: 8px) {
+/// Default arrow styling
+///
+/// @param {Number} $size [8px]
+@mixin oHeaderArrow($size: 8px) {
 	border-left: $size solid transparent;
 	border-right: $size solid transparent;
 	width: 0;
@@ -7,33 +9,44 @@
 	content: ".";
 	text-indent: $size;
 	overflow: hidden;
-
 	position: absolute;
-	margin-left: -4px;
+	margin-left: $size * -1; // in this case, half the width of the arrow
 }
 
-// Styles for arrow pointing down
-@mixin oFtHeaderDownArrow($color: #333333, $size: 8px) {
+/// Styles for arrow pointing down
+///
+/// @param {Color} $color [#333333]
+/// @param {Number} $size [8px]
+@mixin oHeaderDownArrow($color: #333333, $size: 8px) {
+	@include oHeaderArrow($size);
 	border-top: $size solid $color;
+	top: 100%;
+	margin-top: -1px; // Extra pixel ensures background and arrow have no space between them
 	left: 50%;
-	@include oFtHeaderArrow($size);
 }
 
-// Styles for arrow pointing up
-@mixin oFtHeaderUpArrow($color: #333333, $size: 8px) {
+/// Styles for arrow pointing up
+///
+/// @param {Color} $color [#333333]
+/// @param {Number} $size [8px]
+@mixin oHeaderUpArrow($color: #333333, $size: 8px) {
+	@include oHeaderArrow($size);
 	border-bottom: $size solid $color;
-	top: 80px - $size;
-	right: 50%;
-	@include oFtHeaderArrow($size);
+	bottom: -1px; // Extra pixel ensures background and arrow have no space between them
+	left: 50%;
 }
 
-// Header svg with png fallback for IE8
-@mixin oFtHeaderLogo() {
-	background: url(oFtHeaderAsset('img/ft-logo.png')) no-repeat;
-	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxsaW5lYXJHcmFkaWVudCBpZD0iYSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxMjcuOTk5IiB4Mj0iMTI3Ljk5OSIgeTI9IjI1NiI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkZFOENGIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRkZEREI5Ii8+PC9saW5lYXJHcmFkaWVudD48cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNMCAwaDI1NnYyNTZoLTI1NnoiLz48cGF0aCBmaWxsPSIjMzMzIiBkPSJNNjUuNDcxIDEzMy42MDNjMCAxMi4wODEgMy4yMjUgMTMuNDM5IDE3LjAwMSAxMy45NTJ2NC40MjFoLTU0Ljc1NHYtNC40MjFjMTEuMzkzLS41MTMgMTQuNjIxLTEuODcxIDE0LjYyMS0xMy45NTJ2LTc4Ljg4OGMwLTEyLjA5Mi0zLjIyOS0xMy40NDktMTQuMjgxLTEzLjk1NHYtNC40MjJoOTYuNThsLjY4OCAyNS41MDVoLTQuNzYyYy00LjA4My0xMi45MjQtOC41MDctMTctMzEuMTIzLTE3aC0xNy41MTljLTUuMjYyIDAtNi40NTEgMS4xODMtNi40NTEgNS45NXYzNi41NjVoOC42MjhjMTguMDI5IDAgMjEuOTQyLTMuMjQgMjQuMTUtMTUuMzE1aDQuNDJ2NDAuODE0aC00LjQyYy0yLjM3OC0xMy42MDQtOS4xODQtMTcuMDAyLTI0LjE1LTE3LjAwMmgtOC42Mjh2MzcuNzQ3ek0yMzQuMDA3IDM2LjMzOWgtMTAxLjM0OGwtMi4zNTQgMjUuNTE0aDUuODFjMy43MTMtMTIuNDk3IDkuMTctMTcuMDA4IDIxLjM2OS0xNy4wMDhoMTQuMjg0djg4Ljc1OGMwIDEyLjA4MS0zLjIzIDEzLjQzOS0xNi4zMjMgMTMuOTUydjQuNDIxaDU1Ljc3OXYtNC40MjFjLTEzLjA5Ni0uNTEzLTE2LjMyNy0xLjg3MS0xNi4zMjctMTMuOTUydi04OC43NTloMTQuMjc4YzEyLjIwNiAwIDE3LjY2OSA0LjUxMiAyMS4zNzMgMTcuMDA4aDUuODFsLTIuMzUxLTI1LjUxM3oiLz48L3N2Zz4='), none;
-}
-
-// Helper function for assets
-@function oFtHeaderAsset($asset) {
+/// Helper function for assets
+@function oHeaderAsset($asset) {
 	@return oAssetsResolve($asset, o-header);
+}
+
+/// Target both IE8 and modern browsers at the breakpoint
+@mixin oHeaderBreakpoint {
+	@include oGridRespondTo(M) {
+		@content;
+	}
+	@include oGridTargetIE8 {
+		@content;
+	}
 }

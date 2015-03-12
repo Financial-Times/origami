@@ -1,53 +1,51 @@
-// scss-lint:disable NestingDepth SelectorDepth
-.o-ft-header__nav--primary-theme {
-	@extend %o-hierarchical-nav--horizontal-theme;
-	height: 80px;
+.o-header__nav--primary-theme {
+	@include oHierarchicalNavHorizontalTheme;
 	text-align: right;
 	// Used in core experience so hidden elements don't continue appearing
 	overflow: hidden;
 
 	li {
 		text-align: left;
+
 		&[aria-controls][aria-expanded="true"]:after {
 			// CSS arrow for mega-dropdowns
-			@include oFtHeaderUpArrow($o-ft-header-brand-color);
+			@include oHeaderUpArrow(oColorsGetColorFor(o-header-product-brand product-brand, background));
 			z-index: $_o-hierarchical-nav-mega-dropdown-zindex+1;
 		}
 	}
 
 	a {
-		padding-right: 20px;
+		padding-right: $o-grid-gutter;
+		padding-left: $o-grid-gutter;
 		font-size: 14px;
 	}
 
-	[data-o-hierarchical-nav-level='1'] {
-		> li {
-			// Styling for the a tag in a selected state
-			&[aria-selected="true"] > a,
-			&[aria-controls][aria-expanded="true"] > a {
-				color: oColorsGetColorFor(o-ft-header-item, text);
-				opacity: 0.7;
-			}
+	// scss-lint:disable SelectorDepth
+	[data-o-hierarchical-nav-level='1'] > li {
+		// Default styling for the a tag
+		> a {
+			text-transform: uppercase;
+			font-weight: normal;
+			line-height: 50px;
+			height: 100%;
+		}
 
-			// Default styling for the a tag
-			> a {
-				text-transform: uppercase;
-				font-weight: normal;
-				line-height: 80px;
-				max-height: 80px;
-			}
+		// Styling for the a tag in a selected state
+		&[aria-selected="true"] > a,
+		&[aria-controls][aria-expanded="true"] > a {
+			color: oColorsGetColorFor(o-header-item, text);
+			opacity: 0.7;
 		}
 	}
+	// scss-lint:enable SelectorDepth
 
 	// Padding for all a tags that aren't in the first hierarchical nav level
-	[data-o-hierarchical-nav-level]:not([data-o-hierarchical-nav-level='1']) {
-		a {
-			padding: 10px 20px;
-		}
+	[data-o-hierarchical-nav-level] [data-o-hierarchical-nav-level] a {
+		padding: 10px 20px;
 	}
 }
 
 // Set extra top positioning so that the secondary container with the brand colour can be seen
-.o-ft-header__mega-dropdown--primary.o-hierarchical-nav__mega-dropdown {
-	top: 85px;
+.o-header__mega-dropdown--primary.o-hierarchical-nav__mega-dropdown {
+	top: 100%;
 }

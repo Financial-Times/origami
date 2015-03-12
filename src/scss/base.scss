@@ -1,13 +1,9 @@
-@include oFontsInclude(BentonSans, normal);
-
-.o-ft-header {
-	// 80 px for the primary container and 5 for an empty secondary or 25 for a secondary with content
-	min-height: 85px;
+.o-header {
+	min-height: 55px;
 	max-height: 125px;
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-	background: oColorsGetColorFor(o-ft-header, background);
+	background: oColorsGetColorFor(o-header, background);
 	// Workaround so the brand colour goes to full width in XL screens
-	background-image: linear-gradient(to bottom, transparent 80px, $o-ft-header-brand-color 20px);
+	background-image: linear-gradient(to bottom, transparent 50px, oColorsGetColorFor(o-header-product-brand product-brand, background) 20px);
 
 	a {
 		text-decoration: none;
@@ -17,42 +13,79 @@
 	}
 }
 
-// Container for primary and secondary that sets the width of these using o-grid
-.o-ft-header__container {
-	@extend %o-grid-row;
-	@extend %o-grid-col;
-	@extend %o-grid-colspan-12;
-	position: relative;
+.o-header--tall {
+	@include oHeaderBreakpoint {
+		min-height: 85px;
+		background-image: linear-gradient(to bottom, transparent 80px, oColorsGetColorFor(o-header-product-brand product-brand, background) 20px);
+	}
+}
 
-	color: oColorsGetColorFor(o-ft-header-item, text);
+// Container for primary and secondary that sets the width of these using o-grid
+.o-header__container {
+	@include oGridRow;
+	position: relative;
+	color: oColorsGetColorFor(o-header-item, text);
+
 	a {
-		color: oColorsGetColorFor(o-ft-header-item, text);
+		color: oColorsGetColorFor(o-header-item, text);
+
+		&:focus,
 		#{$o-hoverable-if-hover-enabled} &:hover {
-			color: oColorsGetColorFor(o-ft-header-item, text);
+			color: oColorsGetColorFor(o-header-item, text);
 			opacity: 0.7;
 		}
 	}
 
 	// We need mega-dropdowns to also have the same gutters as the container
 	.o-hierarchical-nav__mega-dropdown {
-		right: 10px;
-		left: 10px;
+		right: $o-grid-gutter / 2;
+		left: $o-grid-gutter / 2;
+		width: auto;
 	}
+
+	// Give a minimum width to submenus
+	[data-o-hierarchical-nav-level] {
+		min-width: 100%;
+		box-sizing: border-box;
+	}
+
+	// Ensure passing from normal to expanded state
+	// doesn't change the width of the menu
+	.o-hierarchical-nav__parent__right-arrow,
+	.o-hierarchical-nav__parent__down-arrow {
+		box-sizing: border-box;
+		width: 16px;
+		text-align: right;
+		padding-right: 6px;
+		line-height: 16px;
+	}
+}
+.o-header__inner {
+	@include oGridColumn(12);
 }
 
 // Alternative to the FT masthead
-.o-ft-header__title {
+.o-header__title {
 	display: inline-block;
 	margin: 0;
 	padding: 0;
 	font-weight: normal;
-	font-size: 24px;
-	vertical-align: middle;
+	font-size: 20px;
+	line-height: 40px;
 	white-space: nowrap;
+	vertical-align: top;
+
+	@include oHeaderBreakpoint {
+		font-size: 24px;
+
+		.o-header--tall & {
+			line-height: 60px;
+		}
+	}
 }
 
 // Default tagline styling
-.o-ft-header__tagline {
+.o-header__tagline {
 	font-weight: normal;
 	margin: 0;
 	white-space: nowrap;
@@ -63,49 +96,99 @@
 }
 
 // Primary container
-.o-ft-header__primary {
+.o-header__primary {
 	display: table;
 	table-layout: fixed;
 	width: 100%;
-	height: 80px;
+	height: 50px;
 
 	// Adapted tagline style for primary container
-	.o-ft-header__tagline {
+	.o-header__tagline {
 		font-size: 16px;
-		line-height: 80px;
+		line-height: 50px;
 		margin-left: 10px;
 		margin-right: 20px;
 		text-align: right;
 	}
+
+	.o-header--tall & {
+		@include oHeaderBreakpoint {
+			height: 80px;
+
+			.o-header__tagline {
+				line-height: 80px;
+			}
+		}
+	}
 }
 
 // Inner containers for the primary container
-
-.o-ft-header__primary__left {
-	display: table-cell;
-	vertical-align: middle;
-	width: $o-ft-header-primary-left-width;
-}
-
-.o-ft-header__primary__center {
-	display: table-cell;
-	vertical-align: middle;
-}
-
-.o-ft-header__primary__right {
+.o-header__primary__left,
+.o-header__primary__center,
+.o-header__primary__right,
+.o-header__primary__featured,
+.o-header__secondary__left,
+.o-header__secondary__right {
 	display: table-cell;
 	vertical-align: middle;
 }
+.o-header__primary__left {
+	@if type-of($o-header-primary-left-width) == map {
+		@each $layout-name, $header-primary-left-width in $o-header-primary-left-width {
+			@if $layout-name == default {
+				width: $header-primary-left-width;
+			} @else {
+				@include oGridRespondTo($layout-name) {
+					width: $header-primary-left-width;
+				}
+			}
+			@if $layout-name == $o-grid-fixed-layout {
+				@include oGridTargetIE8 {
+					width: $header-primary-left-width;
+				}
+			}
+		}
+	}
+	@if type-of($o-header-primary-left-width) == number {
+		width: $o-header-primary-left-width;
+	}
+}
 
-.o-ft-header__primary__featured {
-	display: table-cell;
-	vertical-align: middle;
-	width: $o-ft-header-primary-featured-width;
+.o-header__primary__featured {
+	display: none;
+
+	img {
+		border: 0;
+	}
+
+	@include oHeaderBreakpoint {
+		display: table-cell;
+	}
+
+	@if type-of($o-header-primary-featured-width) == map {
+		@each $layout-name, $header-primary-featured-width in $o-header-primary-featured-width {
+			@if $layout-name == default {
+				width: $header-primary-featured-width;
+			} @else {
+				@include oGridRespondTo($layout-name) {
+					width: $header-primary-featured-width;
+				}
+			}
+			@if $layout-name == $o-grid-fixed-layout {
+				@include oGridTargetIE8 {
+					width: $header-primary-featured-width;
+				}
+			}
+		}
+	}
+	@if type-of($o-header-primary-featured-width) == number {
+		width: $o-header-primary-featured-width;
+	}
 }
 
 // Secondary container
-.o-ft-header__secondary {
-	background-color: $o-ft-header-brand-color;
+.o-header__secondary {
+	background-color: oColorsGetColorFor(o-header-product-brand product-brand, background);
 	display: table;
 	table-layout: fixed;
 	width: 100%;
@@ -114,21 +197,31 @@
 	max-height: 25px;
 
 	// Adapted tagline for secondary container
-	.o-ft-header__tagline {
+	.o-header__tagline {
 		font-size: 14px;
 		line-height: 25px;
 	}
 }
 
 // Inner containers for the secondary container
-
-.o-ft-header__secondary__left {
-	display: table-cell;
-	width: $o-ft-header-secondary-left-width;
-	vertical-align: middle;
-}
-
-.o-ft-header__secondary__right {
-	display: table-cell;
-	vertical-align: middle;
+.o-header__secondary__left {
+	@if type-of($o-header-secondary-left-width) == map {
+		@each $layout-name, $header-secondary-left-width in $o-header-secondary-left-width {
+			@if $layout-name == default {
+				width: $header-secondary-left-width;
+			} @else {
+				@include oGridRespondTo($layout-name) {
+					width: $header-secondary-left-width;
+				}
+			}
+			@if $layout-name == $o-grid-fixed-layout {
+				@include oGridTargetIE8 {
+					width: $header-secondary-left-width;
+				}
+			}
+		}
+	}
+	@if type-of($o-header-secondary-left-width) == number {
+		width: $o-header-secondary-left-width;
+	}
 }
