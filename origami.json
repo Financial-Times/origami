@@ -9,12 +9,8 @@
 			"es5object",
 			"es5string",
 			"classlist",
-			"customevent"
-		],
-		"optional": [
-			"csstransforms",
-			"csstransitions",
-			"rgba"
+			"customevent",
+			"requestanimationframe"
 		]
 	},
 	"ci": {

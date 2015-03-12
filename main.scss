@@ -23,19 +23,16 @@
 /// @require {mixin} oOverlay
 /// @require {mixin} oOverlayShadow
 /// @require {mixin} oOverlayArrow
-/// @require {mixin} oOverlayHeading
 /// @require {mixin} oOverlayTitle
 /// @require {mixin} oOverlayClose
 /// @require {mixin} oOverlayCloseIcon
-/// @require {mixin} oOverlayShaded
-/// @require {mixin} oOverlayHeadingShadedCloseIcon
+/// @require {mixin} oOverlayHeading
 /// @require {mixin} oOverlayContent
 /// @require {mixin} oOverlayCompactContent
 /// @require {mixin} oOverlayCompactHeading
 /// @require {mixin} oOverlayCompactTitle
 /// @require {mixin} oOverlayCompactClose
 /// @require {mixin} oOverlayFullscreen
-/// @require {mixin} oOverlayFullscreenContent
 @mixin oOverlayIncludeAll($classname: o-overlay) {
 	.#{$classname} {
 		@include oOverlay;
