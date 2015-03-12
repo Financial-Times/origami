@@ -60,15 +60,15 @@
 				{
 					"text": "Conferences",
 					"href": "//ft.com"
+				},
+				{
+					"text": "Corporate subscriptions",
+					"href": "//ft.com"
 				}
 			]
 		},
 		{
 			"items": [
-				{
-					"text": "Corporate subscriptions",
-					"href": "//ft.com"
-				},
 				{
 					"text": "Syndication",
 					"href": "//ft.com"
@@ -76,21 +76,13 @@
 				{
 					"text": "Conferences",
 					"href": "//ft.com"
-				}
-			]
-		},
-		{
-			"items": [
+				},
 				{
 					"text": "FT Collection",
 					"href": "//ft.com"
 				},
 				{
 					"text": "Jobs",
-					"href": "//ft.com"
-				},
-				{
-					"text": "Non-exec directors' club",
 					"href": "//ft.com"
 				}
 			]
@@ -109,11 +101,7 @@
 				{
 					"text": "Site tour",
 					"href": "//ft.com"
-				}
-			]
-		},
-		{
-			"items": [
+				},
 				{
 					"text": "Contact us",
 					"href": "//ft.com"

@@ -2,7 +2,7 @@
     "description": "Responsive Financial Times page footer",
     "origamiType": "module",
     "origamiVersion": 1,
-    "support": "rhys.evans@ft.com",
+    "support": "https://github.com/Financial-Times/o-footer/issues",
     "supportStatus": "active",
     "browserFeatures": {
         "required": [
@@ -14,11 +14,11 @@
         ]
     },
     "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-ft-footer/builds.json"
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-footer/builds.json"
     },
     "demos": [
         {
-            "path": "/demos/ft-footer.html",
+            "path": "/demos/footer.html",
             "expanded": true,
             "description": ""
         }

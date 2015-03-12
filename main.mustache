@@ -1,32 +1,38 @@
-<footer class="o-ft-footer" data-o-component="ft-footer">
-	<nav class='o-ft-footer__row o-ft-footer__col--wide'>
-		<h3 class='o-ft-footer__title'>Sections</h3>
-		<ul class="o-ft-footer__row o-ft-footer__section-list">
-		{{#o-ft-footer.sections}}
-			<li class="o-ft-footer__link o-ft-footer__section-link o-ft-footer__col"><a href="{{href}}">{{{text}}}</a></li>
-		{{/o-ft-footer.sections}}
-		</ul>
+<footer class="o-footer" data-o-component="o-footer">
+	<nav class="o-footer__row">
+		<div class="o-footer__col o-footer__col--full-width">
+			<h3 class="o-footer__title">Sections</h3>
+			<ul class="o-footer__row o-footer__section-list">
+			{{#o-footer.sections}}
+				<li class="o-footer__link o-footer__section-link o-footer__col"><a href="{{href}}">{{{text}}}</a></li>
+			{{/o-footer.sections}}
+			</ul>
+		</div>
 	</nav>
-	<div class="o-ft-footer__row o-ft-footer__link-lists">
-		{{#o-ft-footer.link_sections}}
-		<nav class='o-ft-footer__col o-ft-footer__link-list'>
-			{{#title}}<h3 class='o-ft-footer__title'>{{{title}}}</h3>{{/title}}
+	<div class="o-footer__row o-footer__link-lists">
+		{{#o-footer.link_sections}}
+		<nav class="o-footer__col o-footer__link-list">
+			{{#title}}<h3 class="o-footer__title">{{{title}}}</h3>{{/title}}
 			<ul>
 				{{#items}}
-					<li class="o-ft-footer__link"><a href="{{href}}">{{{text}}}</a></li>
+					<li class="o-footer__link"><a href="{{href}}">{{{text}}}</a></li>
 				{{/items}}
 			</ul>
 		</nav>
-		{{/o-ft-footer.link_sections}}
+		{{/o-footer.link_sections}}
 	</div>
-	<div class="o-ft-footer__row o-ft-footer__copyright o-ft-footer__col--wide">
-		<p>&#169; THE FINANCIAL TIMES LTD {{o-ft-footer.copyrightYear}}.</p>
-		<p><abbr title="Financial Times">FT</abbr> and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	<div class="o-footer__row o-footer__copyright">
+		<div class="o-footer__col o-footer__col--full-width">
+			<span>&#169; THE FINANCIAL TIMES LTD {{o-footer.copyrightYear}}.</span>
+			<span><abbr title="Financial Times">FT</abbr> and ‘Financial Times’ are trademarks of The Financial Times Ltd.</span>
+		</div>
 	</div>
-	<div class="o-ft-footer__pearson">
-		<div class="o-ft-footer__row o-ft-footer__col--wide">
-			<div class="o-ft-footer__pearson-tagline" aria-label='Always Learning'></div>
-			<div class="o-ft-footer__pearson-logo" aria-label='Pearson'></div>
+	<div class="o-footer__pearson">
+		<div class="o-footer__row">
+			<div class="o-footer__col o-footer__col--full-width">
+				<div class="o-footer__pearson-tagline" aria-label="Always Learning"></div>
+				<div class="o-footer__pearson-logo" aria-label="Pearson"></div>
+			</div>
 		</div>
 	</div>
 </footer>

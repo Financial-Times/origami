@@ -1,13 +1,15 @@
+/*jslint node: true */
 module.exports = {
 	options: {
-		sass: 'main.scss',
+		sass: "demos/src/demo.scss",
 		data: {
-			'o-ft-footer': JSON.parse(require('fs').readFileSync(process.cwd() + '/footer.json', {encoding: 'utf8'}))
-		}
+			'o-footer': JSON.parse(require('fs').readFileSync(process.cwd() + '/footer.json', {encoding: 'utf8'}))
+		},
+		"dependencies": ["o-fonts@^1.4.0"]
 	},
 	demos: [
 		{
-			name: 'ft-footer',
+			name: 'footer',
 			template: 'main.mustache'
 		}
 	]
