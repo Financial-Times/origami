@@ -22,7 +22,12 @@ Tested and working on:
 
 Rename all instances of `o-ft-footer` into `o-footer`.
 
-### 2. Font settings
+### 2. Markup changes
+
+1. Replace `o-ft-footer__col--wide` with `o-footer__col--full-width`
+2. Make sure `o-footer__col--full-width` classes are applied with `o-footer__col` (in v2 it was tied to `o-ft-footer__row`)
+
+### 3. Font settings
 
 In the v2.x.x of o-footer, the module loaded webfonts itself and was setting its own font-family.
 
