@@ -39,7 +39,7 @@ $o-footer-spacing-unit: 20px;
 .o-footer__title {
 	margin-top: 0;
 	margin-bottom: $o-footer-spacing-unit;
-	font-weight: bold;
+	font-weight: normal;
 	font-size: 14px;
 	text-transform: uppercase;
 	white-space: nowrap;
@@ -55,8 +55,10 @@ $o-footer-spacing-unit: 20px;
 	overflow: hidden;
 
 	> a {
+		display: block; // Make links easier to tap by increasing their hitzone
 		text-decoration: none;
 		color: oColorsGetColorFor(o-footer-item, text);
+		padding: 2px 0;
 
 		#{$o-hoverable-if-hover-enabled} &:hover,
 		&:focus {
@@ -141,6 +143,7 @@ $o-footer-spacing-unit: 20px;
 
 @include oGridRespondTo($until: S) {
 	.o-footer__link-lists {
+		margin-top: 0;
 		margin-bottom: $o-footer-spacing-unit;
 	}
 	.o-footer__link-list {
@@ -152,8 +155,13 @@ $o-footer-spacing-unit: 20px;
 		}
 		> .o-footer__title {
 			position: static;
-			margin-top: $o-footer-spacing-unit;
+			margin-top: 0;
 			margin-bottom: $o-footer-spacing-unit;
+		}
+		+ .o-footer__link-list {
+			> .o-footer__title {
+				margin-top: $o-footer-spacing-unit * 1.75;
+			}
 		}
 	}
 
