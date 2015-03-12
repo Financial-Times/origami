@@ -336,6 +336,12 @@ Overlay.prototype.respondToWindow = function(size) {
 	this.realign('width', size.width);
 	this.realign('height', size.height);
 
+	this.wrapper.classList.remove('o-overlay__arrow-top',
+		'o-overlay__arrow-bottom',
+		'o-overlay__arrow-left',
+		'o-overlay__arrow-right'
+	);
+
 	if (this.opts.arrow && !this.fills()) {
 		this.opts.arrow.currentposition = this.getCurrentArrowPosition(this.opts.arrow.position);
 		this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.currentposition);
@@ -369,12 +375,6 @@ Overlay.prototype.respondToWindow = function(size) {
 		// 2. Add its width or height divided by two to get its center
 		// 3. Substract the width or height divided by two of the overlay so the arrow, which is in the center, points to the center of the side of the target
 		this.wrapper.style[oppositeEdge] = targetClientRect[oppositeEdge] + (dimensionValue / 2) - (this[dimension] / 2) + 'px';
-	} else {
-		this.wrapper.classList.remove('o-overlay__arrow-top',
-			'o-overlay__arrow-bottom',
-			'o-overlay__arrow-left',
-			'o-overlay__arrow-right'
-		);
 	}
 };
 
@@ -437,7 +437,7 @@ Overlay.prototype.getHeight = function() {
 
 Overlay.prototype.getWidth = function() {
 	var borderWidth = this.wrapper.offsetWidth - this.wrapper.clientWidth;
-	return this.content.scrollWidth + (this.opts.heading ? this.wrapper.querySelector('header').offsetWidth : 0) + borderWidth;
+	return this.content.scrollWidth + borderWidth;
 };
 
 Overlay.init = function(el) {
