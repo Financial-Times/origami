@@ -24,7 +24,7 @@ function Tabs(rootEl) {
 			if (targetEl) {
 				tabEls[c].setAttribute('aria-controls', tabTargetId);
 				tabEls[c].setAttribute('tabindex', '0');
-				
+
 				var label = tabEls[c].getElementsByTagName('a')[0];
 				var labelId = tabTargetId + '-label';
 				label.setAttribute('tabindex', '-1');
