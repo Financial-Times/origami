@@ -11,10 +11,10 @@
 	[aria-hidden=true] {
 		display: none;
 	}
-
 }
+
 .o-header--tall {
-	@include oGridRespondTo(M) {
+	@include oHeaderBreakpoint {
 		min-height: 85px;
 		background-image: linear-gradient(to bottom, transparent 80px, oColorsGetColorFor(o-header-product-brand product-brand, background) 20px);
 	}
@@ -75,8 +75,7 @@
 	white-space: nowrap;
 	vertical-align: top;
 
-
-	@include oGridRespondTo(M) {
+	@include oHeaderBreakpoint {
 		font-size: 24px;
 
 		.o-header--tall & {
@@ -113,7 +112,7 @@
 	}
 
 	.o-header--tall & {
-		@include oGridRespondTo(M) {
+		@include oHeaderBreakpoint {
 			height: 80px;
 
 			.o-header__tagline {
@@ -143,6 +142,11 @@
 					width: $header-primary-left-width;
 				}
 			}
+			@if $layout-name == $o-grid-fixed-layout {
+				@include oGridTargetIE8 {
+					width: $header-primary-left-width;
+				}
+			}
 		}
 	}
 	@if type-of($o-header-primary-left-width) == number {
@@ -153,17 +157,26 @@
 .o-header__primary__featured {
 	display: none;
 
-	@include oGridRespondTo(M) {
+	img {
+		border: 0;
+	}
+
+	@include oHeaderBreakpoint {
 		display: table-cell;
 	}
 
 	@if type-of($o-header-primary-featured-width) == map {
-		@each $layout-name, $header-primary-left-width in $o-header-primary-featured-width {
+		@each $layout-name, $header-primary-featured-width in $o-header-primary-featured-width {
 			@if $layout-name == default {
-				width: $header-primary-left-width;
+				width: $header-primary-featured-width;
 			} @else {
 				@include oGridRespondTo($layout-name) {
-					width: $header-primary-left-width;
+					width: $header-primary-featured-width;
+				}
+			}
+			@if $layout-name == $o-grid-fixed-layout {
+				@include oGridTargetIE8 {
+					width: $header-primary-featured-width;
 				}
 			}
 		}
@@ -193,12 +206,17 @@
 // Inner containers for the secondary container
 .o-header__secondary__left {
 	@if type-of($o-header-secondary-left-width) == map {
-		@each $layout-name, $header-primary-left-width in $o-header-secondary-left-width {
+		@each $layout-name, $header-secondary-left-width in $o-header-secondary-left-width {
 			@if $layout-name == default {
-				width: $header-primary-left-width;
+				width: $header-secondary-left-width;
 			} @else {
 				@include oGridRespondTo($layout-name) {
-					width: $header-primary-left-width;
+					width: $header-secondary-left-width;
+				}
+			}
+			@if $layout-name == $o-grid-fixed-layout {
+				@include oGridTargetIE8 {
+					width: $header-secondary-left-width;
 				}
 			}
 		}

@@ -36,7 +36,17 @@
 	left: 50%;
 }
 
-// Helper function for assets
+/// Helper function for assets
 @function oHeaderAsset($asset) {
 	@return oAssetsResolve($asset, o-header);
+}
+
+/// Target both IE8 and modern browsers at the breakpoint
+@mixin oHeaderBreakpoint {
+	@include oGridRespondTo(M) {
+		@content;
+	}
+	@include oGridTargetIE8 {
+		@content;
+	}
 }

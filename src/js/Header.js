@@ -63,10 +63,12 @@ Header.init = function(el) {
 	} else if (!(el instanceof HTMLElement)) {
 		el = document.querySelector(el);
 	}
-	var headerEls = el.querySelectorAll('[data-o-component="o-header"]:not([data-o-header--js])');
+	var headerEls = el.querySelectorAll('[data-o-component="o-header"]');
 	var headers = [];
 	for (var c = 0, l = headerEls.length; c < l; c++) {
-		headers.push(new Header(headerEls[c]));
+		if (!headerEls[c].hasAttribute('data-o-header--js')) {
+			headers.push(new Header(headerEls[c]));
+		}
 	}
 	return headers;
 };

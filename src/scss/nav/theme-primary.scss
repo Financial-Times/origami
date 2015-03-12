@@ -40,7 +40,7 @@
 	// scss-lint:enable SelectorDepth
 
 	// Padding for all a tags that aren't in the first hierarchical nav level
-	[data-o-hierarchical-nav-level]:not([data-o-hierarchical-nav-level='1']) a {
+	[data-o-hierarchical-nav-level] [data-o-hierarchical-nav-level] a {
 		padding: 10px 20px;
 	}
 }

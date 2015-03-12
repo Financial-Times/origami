@@ -74,6 +74,9 @@ html {
 	@include oGridRespondTo(M) {
 		display: none !important;
 	}
+	@include oGridTargetIE8 {
+		display: none !important;
+	}
 }
 .demo__hide-on-mobile {
 	@include oGridRespondTo($until: M) {
