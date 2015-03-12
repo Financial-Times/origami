@@ -3,7 +3,7 @@
 	"origamiType": "module",
 	"origamiVersion": 1,
 	"support": "hyperion@ft.com",
-	"supportStatus": "experimental",
+	"supportStatus": "active",
 	"ci": {},
 	"browserFeatures": {
 		"required": ["createevent", "customevents"]
