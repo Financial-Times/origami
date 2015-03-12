@@ -11,6 +11,6 @@
     "o-assets": ">=0.4.1 <2",
     "o-hoverable": ">=0.1.1 <2",
     "ftdomdelegate": ">=1.0.0 <3",
-    "o-hierarchical-nav": "^1.1.0"
+    "o-hierarchical-nav": "^2.0.0"
   }
 }

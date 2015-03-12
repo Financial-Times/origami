@@ -28,16 +28,14 @@ Tested and working on:
 |   Chrome   |        35+         |       35+       |
 |   Firefox  |        30+         |       30+       |
 |   Safari   |        7+          |       7+        |
-|   IE       |        9+          |       8+        |
+|   IE       |        8+          |       8+        |
 
 Known issues:
 
-* IE: 
+* IE 6 and 7:
 	* Masthead not displaying properly
 * IE8 and IE9:
 	* Secondary bar doesn't occupy full width of XL screens because they don't support _linear-gradient_.
-* IE8:
-	* It doesn't support the `<nav>` and `<header>` element. Products need to use HTML5Shiv which is bundled in Modernizr. Also, it runs as core experience.
 
 ## Element containers
 
