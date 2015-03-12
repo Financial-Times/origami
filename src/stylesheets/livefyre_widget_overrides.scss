@@ -1112,6 +1112,7 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 	&.o-comments--comment-layout-main {
 		.fyre .fyre-comment-actions {
 			opacity: 1;
+			filter: alpha(opacity=100);
 		}
 	}
 
