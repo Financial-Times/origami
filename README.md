@@ -6,13 +6,23 @@ Origami module for the responsive FT page footer.
 
 For convenience a JSON file with an example of footer links has been provided (`footer.json`).  It's anticipated that in a future version of the footer, this data will be the canonical footer content that should appear in most uses of the footer.  For the moment, it is just sample data.
 
+## Browser support
+
+Tested and working on:
+
+|  Browsers  |           |
+|:----------:|:---------:|
+|   Chrome   |    35+    |
+|   Firefox  |    20+    |
+|   Safari   |    7+     |
+|   IE       |    8+     |
+
 ## Upgrading from 2.x.x
 ### 1. Renaming the module
 
 Rename all instances of `o-ft-footer` into `o-footer`.
 
-
-### 3. Font settings
+### 2. Font settings
 
 In the v2.x.x of o-footer, the module loaded webfonts itself and was setting its own font-family.
 
