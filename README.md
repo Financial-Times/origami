@@ -173,7 +173,7 @@ Note that o-header v3 relies on the [o-grid](https://github.com/Financial-Times/
 
 Add `<div class="o-header__inner">` in `<div class="o-header__container">`:
 
-```html
+```diff
 <header data-o-component="o-header" class="o-header">
 	<div class="o-header__container">
 +		<div class="o-header__inner">
