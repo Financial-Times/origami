@@ -70,10 +70,11 @@ element {
 	height: 100px;
 
 	// Older browsers: PNG fallback (resized to 100px wide)
-	background-image: url(//image.webservices.ft.com/v1/images/raw/fticon:tick?width=100&format=png&source=my-product);
+	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:tick?width=100&format=png&source=my-product');
 
 	// Modern browsers: SVG covering the whole size of the element
-	background-image: url(//image.webservices.ft.com/v1/images/raw/fticon:tick?format=svg&source=my-product), none;
+	// we declare mutliple backgrounds so that only modern browsers read this property
+	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:tick?format=svg&source=my-product'), none;
 	background-size: cover;
 }
 ```
@@ -106,10 +107,10 @@ Finally, run:
 
 	origami-build-tools demo --local
 
-###SVG version
+### SVG version
 The icons module uses SVG version 1.1. Files can be created in any vector graphics software. In Adobe Illustrator use the "save as" function and set to version 1.1
 
-###SVG file naming rules
+### SVG file naming rules
 
 The file must be named according to the following rules:
 
