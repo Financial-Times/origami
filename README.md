@@ -161,4 +161,8 @@ Example HTML:
 
 ### Silent mode
 
-Base form styles are available. [See the SassDoc documentation of the module](sassdoc.webservices.ft.com/v1/sassdoc/o-forms)
+Base form styles are available in silent mode. [See the SassDoc documentation of the module](sassdoc.webservices.ft.com/v1/sassdoc/o-forms)
+
+### Browser quirks
+
+There are a number of inconsistencies in how browsers handle form events, validation and auto-fill. The Membership team has [documented the quirks](https://sites.google.com/a/ft.com/membership-subscriptions/sign-up-registration/technical-documentation/front-end-development-notes/browser-inconsistencies) it ran into during the development of the Sign Up app.
