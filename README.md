@@ -4,7 +4,7 @@
 
 This module provides FT-branded styles for commonly used form elements and their corresponding validation states.
 
----
+----
 
 ## Upgrading from 0.x.x
 
@@ -15,11 +15,27 @@ This module provides FT-branded styles for commonly used form elements and their
 1. Search `o-ft-forms` and replace with `o-forms`
 2. Search `oFtForms` and replace with `oForms`
 2. Search templates `o-forms-error-wrapper` and replace with `o-forms-wrapper o-forms-wrapper--error`
-3. Sections `<fieldset class="o-ft-forms__section">` have to be styled at a product level. See [these styles](https://github.com/Financial-Times/o-forms/blob/e62a11f5947140f2fabccf1046e54e463adbd6ea/src/scss/fieldsets.scss) to re-implement them in your application.
+3. Sections (previously `<fieldset class="o-ft-forms__section">`) have to be styled at a product level. See [these styles](https://github.com/Financial-Times/o-forms/blob/e62a11f5947140f2fabccf1046e54e463adbd6ea/src/scss/fieldsets.scss) to re-implement them in your application.
 
 ### 2. Web fonts and icons
 
-Webfonts and icons need to be loaded by your app.
+In the v0.x.x of o-forms, the module loaded webfonts itself and was setting its own font-family.
+
+The module now inherits the `font-family` set in your application and doesn't embed web fonts anymore.
+
+Solution: products must load webfonts themselves (tipically, with [o-fonts](https://github.com/Financial-Times/o-fonts) and [o-ft-icons](https://github.com/Financial-Times/o-ft-icons)).
+
+```html
+<!-- Load web fonts and icons with @font-face declarations  -->
+<link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-fonts@^1,o-ft-icons@^2.3.4" />
+
+<!-- Set the font family on the whole document -->
+<style>
+	html {
+		font-family: BentonSans, sans-serif;
+	}
+</style>
+```
 
 ### 3. Helper classes name changes
 
