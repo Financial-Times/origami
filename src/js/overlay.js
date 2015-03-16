@@ -201,8 +201,6 @@ Overlay.prototype.show = function() {
 		document.body.appendChild(shadow);
 	}
 
-	this.content.focus();
-
 	this.delegates.doc.root(document.body);
 	this.delegates.wrap.root(this.wrapper);
 	this.delegates.context.root(this.context);
@@ -244,10 +242,9 @@ Overlay.prototype.show = function() {
 		overlay.width = overlay.getWidth();
 		overlay.height = overlay.getHeight();
 		overlay.respondToWindow(viewport.getSize());
+		overlay.visible = true;
+		overlay.broadcast('ready');
 	});
-
-	this.visible = true;
-	this.broadcast('ready');
 };
 
 Overlay.prototype.close = function() {
