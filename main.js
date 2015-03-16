@@ -39,7 +39,8 @@ var Expander = function (el, opts) {
 		document.body.addEventListener('oViewport.resize', this.apply);
 	}
 
-	this.toggle.addEventListener('click', this.invertState.bind(this));
+	this.invertState = this.invertState.bind(this);
+	this.toggle.addEventListener('click', this.invertState);
 	this.el.setAttribute('data-o-expander-js', '');
 	this.apply(true);
 	this.emit('init');
@@ -71,6 +72,18 @@ Expander.prototype.apply = function (isSilent) {
 			this.collapse(isSilent);
 		}
 	}
+};
+
+Expander.prototype.destroy = function () {
+	if (this.opts.shrinkTo === 'height') {
+		document.body.removeEventListener('oViewport.orientation', this.apply);
+		document.body.removeEventListener('oViewport.resize', this.apply);
+	}
+	this.toggle.removeEventListener('click', this.invertState);
+	this.toggle.removeAttribute('aria-controls');
+	this.toggle.removeAttribute('aria-pressed');
+	this.el.removeAttribute('data-o-expander-js');
+	this.el.classList.remove('o-expander');
 };
 
 Expander.prototype.ariaToggle = function () {
