@@ -13,8 +13,16 @@ Accessible, content-aware widget for expanding and collapsing content
 
 ## API
 
-### `o-expander#init(el, opts)`
+### Static methods
+
+#### `init(el, opts)`
 This generally sticks to the [usual origami convention](http://origami.ft.com/docs/syntax/js/#initialisation). If el is an HTMLElement with the attribute `data-o-component="o-expander"` a single instance will be created for that element and returned, otherwise an expander will be created for each `o-expander` element found within `el`, and an array of instances returned.
+
+### Instance methods
+
+#### `destroy()`
+Destroys an o-expander instance and removes all event listeners
+
 
 
 ## Options
