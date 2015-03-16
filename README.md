@@ -36,7 +36,7 @@ Set options as `data-` attributes on any element that has a `o-overlay-trigger` 
 ```html
 <button class="o-overlay-trigger" data-o-overlay-src="#overlay1-content" data-o-overlay-id="overlay1">Open!</button>
 <script type="text/template" id="overlay1-content">
-	<p>Content of overlay</p>
+    <p>Content of overlay</p>
 </script>
 ```
 
