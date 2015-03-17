@@ -41,8 +41,8 @@
 	@return oAssetsResolve($asset, o-header);
 }
 
-/// Target both IE8 and modern browsers at the breakpoint
-@mixin oHeaderBreakpoint {
+/// Target both IE8 and modern browsers at the M layout
+@mixin _oHeaderBreakpoint {
 	@include oGridRespondTo(M) {
 		@content;
 	}
