@@ -13,8 +13,9 @@
 	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss,o-colors@^2.4.7,o-fonts@^1.4.0,o-tabs@^1.4.2,o-buttons@^1.8.0,o-footer@^3.0.0,o-grid@^3.0.3" />
 </head>
 <body class="o-colors-page-background demo-real-life">
-<div class="o-grid-row">
-	<div class="demo-real-life-form-container" data-o-grid-colspan="12 S10 M8 L6 center">
+<!-- This was mostly copied and pasted from the sign up app -->
+<div class="o-grid-row o-grid-row--snappy">
+	<div class="demo-real-life-form-container" data-o-grid-colspan="12 S8 M7 L4 center">
 		<div class="o-grid-row">
 			<div data-o-grid-colspan>
 				<form id="signUp-form" novalidate="" method="POST">
@@ -760,21 +761,23 @@
 									<p>Your subscription lasts for <span rv-show="offer.trialOffer" style="display: none;"></span><span rv-hide="offer.trialOffer">a year</span>. To give you uninterrupted access we will automatically renew it using the payment method you provided, unless you cancel before your renewal date. <span rv-show="offer.selectedOption.annual">We will send you a reminder of this date in advance.</span></p>
 									<p>Find out more on our cancellation policy in our <a href="http://m.ft.com/servicestools/help/terms" target="_blank">terms &amp; conditions</a></p>
 								</label>
-							<div class="o-forms-errortext"></div></div>
+								<div class="o-forms-errortext"></div>
+							</div>
 						</div>
 						<div class="o-forms-wrapper o-forms-wrapper--highlight o-forms-wrapper--error">
 							<div class="o-forms-message o-forms-message--error"><p>Please accept our terms &amp; conditions</p></div>
 							<div class="o-forms-group">
-								<input type="checkbox" class="o-forms-checkbox" id="acceptTermsAndConditions" data-bind="acceptTermsAndConditions" value="true" checked="checked">
-								<label for="acceptTermsAndConditions" class="o-forms-label" id="terms-text">
+								<input type="checkbox" class="o-forms-checkbox o-forms-checkbox--highlight" id="acceptTermsAndConditions2" data-bind="acceptTermsAndConditions" value="true" checked="checked">
+								<label for="acceptTermsAndConditions2" class="o-forms-label" id="terms-text2">
 									<p>I confirm I have read and agree to the <a href="http://m.ft.com/servicestools/help/terms" target="_blank">terms &amp; conditions</a>, <a href="http://m.ft.com/servicestools/help/privacy" target="_blank">privacy policy</a> and <a href="http://m.ft.com/cookiepolicy" target="_blank">cookie policy</a>*.</p>
 									<p>Your subscription lasts for <span rv-show="offer.trialOffer" style="display: none;"></span><span rv-hide="offer.trialOffer">a year</span>. To give you uninterrupted access we will automatically renew it using the payment method you provided, unless you cancel before your renewal date. <span rv-show="offer.selectedOption.annual">We will send you a reminder of this date in advance.</span></p>
 									<p>Find out more on our cancellation policy in our <a href="http://m.ft.com/servicestools/help/terms" target="_blank">terms &amp; conditions</a></p>
 								</label>
-							<div class="o-forms-errortext"></div></div>
+								<div class="o-forms-errortext"></div>
+							</div>
 						</div>
 						<div class="o-forms-group mp-marketing-group">
-							<input type="checkbox" class="o-forms-checkbox" id="acceptMarketingOptIn" data-bind="acceptMarketingOptIn" value="true">
+							<input type="checkbox" class="o-forms-checkbox o-forms-checkbox--highlight" id="acceptMarketingOptIn" data-bind="acceptMarketingOptIn" value="true">
 							<label for="acceptMarketingOptIn" class="o-forms-label">I would like to receive occasional FT updates about new features and special offers</label>
 						</div>
 					</div>

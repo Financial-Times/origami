@@ -10,7 +10,7 @@
 	margin-left: $_o-forms-group-padding * -1;
 	margin-right: $_o-forms-group-padding * -1;
 
-	@include oGridRespondTo(S) {
+	@include _oFormsBreakpoint {
 		border-radius: $_o-forms-field-borderradius;
 		margin-right: 0;
 		margin-left: 0;

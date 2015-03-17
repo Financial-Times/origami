@@ -47,8 +47,8 @@
             ]
         },
         {
-            "name": "global-errors",
-            "template": "demos/src/global-errors.mustache"
+            "name": "messages",
+            "template": "demos/src/messages.mustache"
         },
         {
             "name": "wrappers",

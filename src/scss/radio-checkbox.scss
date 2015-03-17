@@ -11,7 +11,7 @@
 /// so that IE 8 doesn't get enhanced checkboxes (which it wouldn't render correctly anyway)
 ///
 /// @param {map} $selectors [(radio: '.o-forms-radio', checkbox: '.o-forms-checkbox', label: '.o-forms-label')]
-@mixin oFormsCheckboxRadio($selectors: (radio: '.o-forms-radio', checkbox: '.o-forms-checkbox', label: '.o-forms-label')) {
+@mixin oFormsRadioCheckbox($selectors: (radio: '.o-forms-radio', checkbox: '.o-forms-checkbox', label: '.o-forms-label')) {
 	$checkbox: unquote(map-get($selectors, checkbox));
 	$radio: unquote(map-get($selectors, radio));
 	$label: unquote(map-get($selectors, label));
@@ -74,15 +74,10 @@
 		border-radius: 9999px;
 	}
 
-	// Add background contrast to the checked state
-	#{$radio}:checked + #{$label}::before {
-		background-color: #ffffff;
-		border-color: oColorsGetColorFor(o-forms-radiocheckbox-checked, border);
-	}
 
-	#{$checkbox}:checked + #{$label}::before {
-		background-color: oColorsGetColorFor(o-forms-radiocheckbox-checked, background);
-		border-color: oColorsGetColorFor(o-forms-radiocheckbox-checked, border);
+	#{$checkbox}--highlight:checked + #{$label}::before {
+		background-color: oColorsGetColorFor(o-forms-radiocheckbox-highlight-checked, background);
+		border-color: oColorsGetColorFor(o-forms-radiocheckbox-highlight-checked, border);
 	}
 
 	#{$checkbox}--small + #{$label}::before,
@@ -91,15 +86,14 @@
 		height: $_o-forms-radiocheckbox-small-size;
 	}
 
-	#{$radio} + #{$label}:after,
-	#{$checkbox} + #{$label}:after {
+	#{$radio} + #{$label}::after,
+	#{$checkbox} + #{$label}::after {
 		content: '';
 		opacity: 0;
 		position: absolute;
 		top: 0;
 		left: 0;
 		transition: 0.1s opacity ease-in;
-		color: oColorsGetColorFor(o-forms-radiocheckbox-checked, background);
 	}
 
 	#{$radio}:checked + #{$label}::after,
@@ -108,12 +102,15 @@
 	}
 
 	#{$radio} + #{$label}::after {
-		background-color: oColorsGetColorFor(o-forms-radiocheckbox-checked, background);
+		background-color: oColorsGetPaletteColor(grey-tint4);
 		border-radius: 50%;
 		height: $_o-forms-radio-internal-default-size;
 		width: $_o-forms-radio-internal-default-size;
 		left: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
 		top: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
+	}
+	#{$radio}--highlight + #{$label}::after {
+		background-color: oColorsGetColorFor(o-forms-radiocheckbox-highlight-checked, background);
 	}
 
 	#{$radio}--small + #{$label}::after {
@@ -124,14 +121,16 @@
 	}
 
 	#{$checkbox} + #{$label}::after {
-		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NCIgaGVpZ2h0PSI0NiI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTQzLjM5MSAxLjU1N2wtMjMuMDkyIDIzLjA4OS05Ljc3LTkuNzc0LTkuNjM1IDkuNjQ0IDE5LjM5NSAxOS4zOTcuMDEtLjAyNy4wMzMuMDI3IDMyLjY5My0zMi43Mjl6Ii8+PC9zdmc+');
+		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NCIgaGVpZ2h0PSI0NiI+PHBhdGggZmlsbD0iIzUwNTA1MCIgZD0iTTQzLjM5MSAxLjU1N2wtMjMuMDkyIDIzLjA4OS05Ljc3LTkuNzc0LTkuNjM1IDkuNjQ0IDE5LjM5NSAxOS4zOTcuMDEtLjAyNy4wMzMuMDI3IDMyLjY5My0zMi43Mjl6Ii8+PC9zdmc+');
 		background-repeat: no-repeat;
 		height: $_o-forms-radiocheckbox-default-size;
 		width: $_o-forms-radiocheckbox-default-size;
 		background-size: ceil($_o-forms-radiocheckbox-default-size * 3/4);
 		background-position: 50% 50%;
 	}
-
+	#{$checkbox}--highlight + #{$label}::after {
+		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NCIgaGVpZ2h0PSI0NiI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTQzLjM5MSAxLjU1N2wtMjMuMDkyIDIzLjA4OS05Ljc3LTkuNzc0LTkuNjM1IDkuNjQ0IDE5LjM5NSAxOS4zOTcuMDEtLjAyNy4wMzMuMDI3IDMyLjY5My0zMi43Mjl6Ii8+PC9zdmc+');
+	}
 	#{$checkbox}--small + #{$label}::after {
 		height: $_o-forms-radiocheckbox-small-size;
 		width: $_o-forms-radiocheckbox-small-size;
@@ -149,7 +148,13 @@
 		#{$checkbox},
 		#{$radio} {
 			display: inline-block;
-			position: static;
+			position: relative;
+			top: 2px;
+			vertical-align: top;
+		}
+		#{$checkbox}--small,
+		#{$radio}--small {
+			top: 0;
 		}
 		#{$checkbox} + #{$label},
 		#{$checkbox}--small + #{$label},
@@ -161,5 +166,5 @@
 }
 
 @if not $o-forms-is-silent {
-	@include oFormsCheckboxRadio;
+	@include oFormsRadioCheckbox;
 }

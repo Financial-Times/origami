@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-	<title>o-forms: global-errors demo</title>
+	<title>o-forms: messages demo</title>
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
@@ -13,6 +13,15 @@
 	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss,o-fonts@^1.4.0" />
 </head>
 <body class="">
+<div class="o-forms-message o-forms-message--highlight">
+	<p>This is a global message that highlights some text</p>
+</div>
+<div class="o-forms-group">
+	<label class="o-forms-label">Field label</label>
+	<small class="o-forms-additional-info">Additional field information</small>
+	<input type="text" placeholder="placeholder" class="o-forms-text" />
+</div>
+
 <div class="o-forms-message o-forms-message--error">
 	<p>This is a global error message that relates to the entire form</p>
 </div>
