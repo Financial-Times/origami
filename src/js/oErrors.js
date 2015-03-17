@@ -9,7 +9,7 @@ Errors.prototype.init = function(options) {
 	options = options || {};
 
 	if (!options.sentryEndpoint) {
-		throw new Error('Could not initialise o-errors: Sentry endpoint configuration missing. Configure using <link rel="o-errors" content="https://<your-api-key>@app.getsentry.com/<your-app-number>">');
+		throw new Error('Could not initialise o-errors: Sentry endpoint configuration missing.');
 	}
 
 	var sentryEndpoint = options.sentryEndpoint;
