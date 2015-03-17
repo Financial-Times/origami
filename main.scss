@@ -105,6 +105,10 @@ $o-footer-spacing-unit: 20px;
 		font-size: 11px;
 		line-height: 16px;
 	}
+	@include oGridTargetIE8 {
+		font-size: 11px;
+		line-height: 16px;
+	}
 
 	span {
 		display: inline-block;
