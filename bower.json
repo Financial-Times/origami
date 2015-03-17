@@ -1,0 +1,10 @@
+{
+  "name": "o-errors",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Financial-Times/o-errors",
+  "authors": [
+    "origami.support@ft.com"
+  ],
+  "description": "Origami Client Side tracking library",
+  "main": "main.js"
+}
