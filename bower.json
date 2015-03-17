@@ -8,7 +8,7 @@
   "moduleType": [
     "amd"
   ],
-  "main" : [
+  "main": [
     "src/main.css",
     "src/main.js"
   ],
@@ -23,7 +23,10 @@
   ],
   "dependencies": {
     "dom-delegate": "~2.0.3",
-    "next-sass-setup" : "https://github.com/Financial-Times/next-sass-setup.git#^5.0.0",
-    "o-ft-buttons" : "^1.7.5"
+    "next-sass-setup": "https://github.com/Financial-Times/next-sass-setup.git#^5.0.0",
+    "o-ft-buttons": "^1.7.5"
+  },
+  "resolutions": {
+    "o-ft-icons": "next"
   }
 }
