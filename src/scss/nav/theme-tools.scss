@@ -63,7 +63,6 @@
 			}
 		}
 	}
-	// scss-lint:enable NestingDepth SelectorDepth
 
 	// Styling for menu navs that appear when o-squishy-list comes into play
 	[data-o-hierarchical-nav-level] [data-o-hierarchical-nav-level] {
@@ -74,6 +73,7 @@
 			font-size: 14px;
 		}
 	}
+	// scss-lint:enable NestingDepth SelectorDepth
 }
 
 // Media queries to make the nav smaller as the screen gets smaller.
@@ -83,7 +83,7 @@
 	// Only show one item
 	width: 56px;
 
-	@include oHeaderBreakpoint {
+	@include _oHeaderBreakpoint {
 		// Show 2 items
 		width: 112px;
 	}

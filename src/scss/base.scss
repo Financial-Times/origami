@@ -14,7 +14,7 @@
 }
 
 .o-header--tall {
-	@include oHeaderBreakpoint {
+	@include _oHeaderBreakpoint {
 		min-height: 85px;
 		background-image: linear-gradient(to bottom, transparent 80px, oColorsGetColorFor(o-header-product-brand product-brand, background) 20px);
 	}
@@ -75,7 +75,7 @@
 	white-space: nowrap;
 	vertical-align: top;
 
-	@include oHeaderBreakpoint {
+	@include _oHeaderBreakpoint {
 		font-size: 24px;
 
 		.o-header--tall & {
@@ -112,7 +112,7 @@
 	}
 
 	.o-header--tall & {
-		@include oHeaderBreakpoint {
+		@include _oHeaderBreakpoint {
 			height: 80px;
 
 			.o-header__tagline {
@@ -155,13 +155,14 @@
 }
 
 .o-header__primary__featured {
+	// scss-lint:disable DeclarationOrder
 	display: none;
 
 	img {
 		border: 0;
 	}
 
-	@include oHeaderBreakpoint {
+	@include _oHeaderBreakpoint {
 		display: table-cell;
 	}
 

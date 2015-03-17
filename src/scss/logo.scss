@@ -30,13 +30,13 @@
 		vertical-align: top;
 		margin-right: $o-grid-gutter / 2;
 
-		@include oHeaderBreakpoint {
+		@include _oHeaderBreakpoint {
 			margin-right: $o-grid-gutter;
 		}
 	}
 
 	.o-header--tall & {
-		@include oHeaderBreakpoint {
+		@include _oHeaderBreakpoint {
 			> a {
 				height: 60px;
 			}
@@ -62,7 +62,7 @@
 	margin-right: $o-grid-gutter;
 
 	.o-header--tall & {
-		@include oHeaderBreakpoint {
+		@include _oHeaderBreakpoint {
 			max-height: 60px;
 		}
 	}
@@ -89,7 +89,7 @@
 		padding-top: 8px;
 	}
 
-	@include oHeaderBreakpoint {
+	@include _oHeaderBreakpoint {
 		width: 218px;
 
 		i {
