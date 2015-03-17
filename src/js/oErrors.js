@@ -2,8 +2,19 @@
 var initialisedOErrors = false;
 
 function Errors(raven) {
-	this.ravenClient = raven;
+	// Because Raven is a third party client, we can't be sure what it is doing when
+	// we include it.  To control the initialisation of the third party code
+	// we only include once 'init' has been called
+	if (!raven) {
+		this.ravenClient = require('raven-js');
+	} else {
+		this.ravenClient = raven;
+	}
 }
+
+Errors.prototype.report = function(exception, options) {
+	this.ravenClient.captureMessage(exception, options);
+};
 
 Errors.prototype.init = function(options) {
 	options = options || {};
@@ -32,12 +43,7 @@ Errors.init = function(options) {
 		return false;
 	}
 
-	// Because Raven is a third party client, we can't be sure what it is doing when
-	// we include it.  To control the initialisation of the third party code
-	// we only include once 'init' has been called
-	var Raven = require('raven-js');
-
-	var oErrors = new Errors(Raven);
+	var oErrors = new Errors();
 	oErrors.init(options);
 	initialisedOErrors = oErrors;
 
