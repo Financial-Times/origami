@@ -1,7 +1,7 @@
 var oErrors = require('../main');
 var expect = require('expect.js');
 
-// Create a global 'window' object
+// Create a global 'window' object (allows testing in node and browsers)
 if (!global.window) {
 	global.window = {};
 }
