@@ -7,6 +7,12 @@ if (!global.window) {
 }
 
 describe("oErrors", function() {
+
+	afterEach(function() {
+		oErrors.destroy();
+		window.onerror = false;
+	});
+
 	describe("#init(options)", function() {
 		it("should throw an exception when not initialised with options.sentryEndpoint", function() {
 			expect(function() {
@@ -21,6 +27,16 @@ describe("oErrors", function() {
 			});
 
 			expect(window.onerror).to.be.a('function');
+		});
+	});
+
+	describe("#destroy()", function() {
+		it("should remove the window.onerror function", function() {
+			oErrors.init({
+				sentryEndpoint: "https://a@getsentry.com/b"
+			});
+			oErrors.destroy();
+			expect(window.onerror).to.be(false);
 		});
 	});
 });
