@@ -1,4 +1,4 @@
-/*global require,describe,beforeEach,afterEach,it,expect*/
+/*global describe,beforeEach,afterEach,it,expect*/
 "use strict";
 
 import * as sandbox from './helpers/sandbox';
