@@ -25,7 +25,7 @@ $_o-ft-typography-deprecation-warnings: false;
 
 @import "scss/deprecated/index";
 
-@if ($o-ft-typography-is-silent == false and $o-ft-typography-output-font-face-declarations) {
+@if (($o-ft-typography-is-silent == false or $o-typography-is-silent == false) and $o-ft-typography-output-font-face-declarations) {
 	@each $usecase in $_o-ft-typography-fontface-usecase-mapping {
 		@include oFtTypographyIncludeFont(nth($usecase, 1));
 	}
