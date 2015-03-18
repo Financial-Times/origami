@@ -24,12 +24,12 @@ var Expander = function (el, opts) {
 
 	this.contentEl = this.el.querySelector('.o-expander__content');
 
-	this.toggle = this.el.querySelector(this.opts.toggleSelector);
+	this.toggles = [].slice.apply(this.el.querySelectorAll(this.opts.toggleSelector));
 
-	if (!this.toggle) {
+	if (!this.toggles.length) {
 		throw('this expander needs a toggle button (use a button not a link)');
 	}
-	this.ariaToggle();
+	this.ariaToggles();
 
 	if (this.opts.shrinkTo === 'height') {
 		viewport.listenTo('resize');
@@ -39,8 +39,10 @@ var Expander = function (el, opts) {
 		document.body.addEventListener('oViewport.resize', this.apply);
 	}
 
-	this.invertState = this.invertState.bind(this);
-	this.toggle.addEventListener('click', this.invertState);
+	var invertState = this.invertState = this.invertState.bind(this);
+	this.toggles.forEach(function (toggle) {
+		toggle.addEventListener('click', invertState);
+	});
 	this.el.setAttribute('data-o-expander-js', '');
 	this.apply(true);
 	this.emit('init');
@@ -75,18 +77,21 @@ Expander.prototype.apply = function (isSilent) {
 };
 
 Expander.prototype.destroy = function () {
+
 	if (this.opts.shrinkTo === 'height') {
 		document.body.removeEventListener('oViewport.orientation', this.apply);
 		document.body.removeEventListener('oViewport.resize', this.apply);
 	}
-	this.toggle.removeEventListener('click', this.invertState);
-	this.toggle.removeAttribute('aria-controls');
-	this.toggle.removeAttribute('aria-pressed');
+	this.toggles.forEach(function (toggle) {
+		toggle.removeEventListener('click', this.invertState);
+		toggle.removeAttribute('aria-controls');
+		toggle.removeAttribute('aria-pressed');
+	}.bind(this));
 	this.el.removeAttribute('data-o-expander-js');
 	this.el.classList.remove('o-expander');
 };
 
-Expander.prototype.ariaToggle = function () {
+Expander.prototype.ariaToggles = function () {
 	this.id = this.contentEl.id;
 
 	if (!this.id) {
@@ -95,7 +100,11 @@ Expander.prototype.ariaToggle = function () {
 		}
 		this.id = this.contentEl.id = 'o-expander__toggle--' + count;
 	}
-	this.toggle.setAttribute('aria-controls', this.id);
+
+	var id = this.id;
+	this.toggles.forEach(function (toggle) {
+		toggle.setAttribute('aria-controls', id);
+	});
 };
 
 Expander.prototype.isCollapsed = function () {
@@ -113,8 +122,10 @@ Expander.prototype.displayState = function (isSilent) {
 
 Expander.prototype.expand = function (isSilent) {
 	this.contentEl.setAttribute('aria-expanded', true);
-	this.toggle.innerHTML = this.opts.expandedToggleText + '<i></i>';
-	this.toggle.setAttribute('aria-pressed', '');
+	this.toggles.forEach(function (toggle) {
+		toggle.innerHTML = this.opts.expandedToggleText + '<i></i>';
+		toggle.setAttribute('aria-pressed', '');
+	}.bind(this));
 	if (!isSilent) {
 		this.emit('expand');
 	}
@@ -122,8 +133,10 @@ Expander.prototype.expand = function (isSilent) {
 
 Expander.prototype.collapse = function (isSilent) {
 	this.contentEl.setAttribute('aria-expanded', false);
-	this.toggle.innerHTML = this.opts.collapsedToggleText + '<i></i>';
-	this.toggle.removeAttribute('aria-pressed');
+	this.toggles.forEach(function (toggle) {
+		toggle.innerHTML = this.opts.collapsedToggleText + '<i></i>';
+		toggle.removeAttribute('aria-pressed');
+	}.bind(this));
 	if (!isSilent) {
 		this.emit('collapse');
 	}
