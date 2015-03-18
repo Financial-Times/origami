@@ -8,7 +8,7 @@
 @import "src/scss/variables";
 @import "src/scss/mixins";
 
-@if (not $o-ft-forms-is-silent) {
+@if (not $o-ft-forms-is-silent) or (not $o-forms-is-silent) {
   @include oFtTypographyIncludeFont(label);
   @include oFtIconsFontFace();
 }
@@ -20,3 +20,7 @@
 @import "src/scss/field-errors";
 @import "src/scss/field-valid";
 @import "src/scss/global-and-section-messages";
+
+// Set silent mode back on again to avoid it being output twice
+$o-forms-is-silent: true;
+$o-ft-forms-is-silent: true;
