@@ -9,6 +9,10 @@
 /// @type Bool
 $o-ft-typography-is-silent: true !default;
 
+/// When silent mode is active, css classes will not be output
+/// @type Bool
+$o-typography-is-silent: true !default;
+
 /// Output @font-face declarations?
 /// nb: @font-face declarations will be removed in the next major version
 /// @type Bool
