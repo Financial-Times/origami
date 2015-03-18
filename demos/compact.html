@@ -4,12 +4,13 @@
 <!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<title>o-table: compact demo</title>
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js"></script>
+	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=modernizr:Element.prototype.matches,default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
 	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
-	<link rel="stylesheet" href="/bundles/css?modules=o-table:/demos/src/demo.scss" />
+	<link rel="stylesheet" href="/bundles/css?modules=o-table:/demos/src/demo.scss,o-fonts@^1.4.0" />
 </head>
 <body class="">
 <table class="o-table o-table--compact">
@@ -70,7 +71,7 @@
 	</tr>
 </table>
 
-<script src="/bundles/js?modules=o-table:/demos/src/demo.js"></script>
+<script src="/bundles/js?modules=o-table:/demos/src/demo.js,o-fonts@^1.4.0"></script>
 <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
 </body>
 </html>
