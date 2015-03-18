@@ -13,15 +13,15 @@
   "test_settings" : {
     "default" : {
       "launch_url" : "${TEST_URL}",
-      "selenium_port"  : 4444,
-      "selenium_host"  : "ftsel13-wvln-p.ftroot.com",
+      "selenium_port"  : 80,
+      "selenium_host"  : "52.16.211.159",
       "silent": true,
       "screenshots" : {
         "enabled" : true,
         "path" : "./test/browser/screenshots"
       },
-      "username": "${SAUCE_USER}",
-      "access_key": "${SAUCE_KEY}",
+      "username": "selenium-proxy",
+      "access_key": "${SELENIUM_PROXY_KEY}",
       "desiredCapabilities": {
         "browserName": "chrome",
         "version": "37",

@@ -1,8 +1,8 @@
+sudo: false
 language: node_js
 node_js:
   - "0.10"
 before_install:
-  - npm install -g https://github.com/Financial-Times/origami-build-tools/tarball/browser-tests
-  - origami-build-tools install
+  - npm install -g Financial-Times/origami-build-tools#browser-tests
 script:
-  - origami-build-tools test
+  - obt test
