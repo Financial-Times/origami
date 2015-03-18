@@ -1,8 +1,7 @@
-/*global exports*/
 "use strict";
 var sandboxEl;
 
-function init() {
+export function init() {
 	if (document.querySelector('.sandbox')) {
 		sandboxEl = document.querySelector('.sandbox');
 	} else {
@@ -12,16 +11,12 @@ function init() {
 	}
 }
 
-function reset() {
+export function reset() {
 	while (sandboxEl.firstChild) {
 		sandboxEl.removeChild(sandboxEl.firstChild);
 	}
 }
 
-function setContents(html) {
+export function setContents(html) {
 	sandboxEl.innerHTML = html;
 }
-
-exports.init = init;
-exports.reset = reset;
-exports.setContents = setContents;

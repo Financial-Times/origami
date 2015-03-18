@@ -1,8 +1,8 @@
 /*global require,describe,beforeEach,afterEach,it,expect*/
 "use strict";
 
-import sandbox from './helpers/sandbox.js';
-import oTable from './../main.js';
+import * as sandbox from './helpers/sandbox';
+import oTable from './../main';
 
 describe("wrap()", () => {
 
