@@ -189,7 +189,10 @@ function Widget () {
 									self.ui.hideFollowButton();
 								}
 								self.ui.addTermsAndGuidelineMessage();
-								self.ui.moveCommentCountOut();
+
+								if (self.config.layout !== 'side') {
+									self.ui.moveCommentCountOut();
+								}
 
 								auth.login(function (loggedIn, authData) {
 									if (!authData) {
