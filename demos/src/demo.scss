@@ -1,6 +1,11 @@
 $o-table-is-silent: false;
 @import "./../../main";
 
+// Default font and styles
+html {
+	font-family: BentonSans, sans-serif;
+}
+
 .o-table {
 	min-width: 500px;
 }

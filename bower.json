@@ -2,9 +2,12 @@
     "name": "o-table",
     "dependencies": {
         "o-colors": "^2.4.3",
-        "o-ft-typography": "^1.15.3"
+        "o-typography": "^1.15.3"
     },
-    "main": [ "main.scss", "main.js"],
+    "main": [
+        "main.scss",
+        "main.js"
+    ],
     "ignore": [
         ".gitignore",
         "build",
