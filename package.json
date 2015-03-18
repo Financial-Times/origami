@@ -1,6 +1,5 @@
 {
     "name": "o-table",
-    "version": "0.0.0",
     "description": "FT-branded tables",
     "devDependencies": {
         "babelify": "^5.0.4",
