@@ -1,26 +1,12 @@
-/**
- * @group o-table
- * @link http://registry.origami.ft.com/components/o-table
-**/
+////
+/// @group o-table
+/// @link http://registry.origami.ft.com/components/o-table
+////
 
-/**
- * Table styles boilerplate
- * Generates all styles available, with a set of modifiers for alternative styles
- *
- * @param {string} $classname
- *
- * @requires {mixin} oTableWrapper
- * @requires {mixin} oTableBase
- * @requires {mixin} oTableCaption
- * @requires {mixin} oTableCaptionTop
- * @requires {mixin} oTableCaptionBottom
- * @requires {mixin} oTableRowStripes
- * @requires {mixin} oTableHorizontalLines
- * @requires {mixin} oTableVerticalLines
- * @requires {mixin} oTableHorizontalBorders
- * @requires {mixin} oTableVerticalBorders
- * @requires {mixin} oTableCompact
-*/
+/// Table styles boilerplate
+/// Generates all styles available, with a set of modifiers for alternative styles
+///
+/// @param {string} $classname
 @mixin oTableAll($classname: o-table) {
 	.#{$classname}-wrapper {
 		@include oTableWrapper;
