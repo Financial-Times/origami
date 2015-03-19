@@ -215,7 +215,7 @@ Solution: products must load webfonts themselves (tipically, with [o-fonts](http
 The most important change is with input elements, that now have their own classes:
 
 ```diff
--<input type="rasdio" class="o-ft-forms__field" />
+-<input type="radio" class="o-ft-forms__field" />
 +<input type="radio" class="o-forms-radio" />
  
 -<input type="checkbox" class="o-ft-forms__field" />
