@@ -40,7 +40,7 @@ Each form field is made up of at least 3 elements:
 </div>
 ```
 
-[Text input examples](http://build.origami.ft.com/files/o-forms@%5E1/demos/select-boxes.html)  
+[Select boxes examples](http://build.origami.ft.com/files/o-forms@%5E1/demos/select-boxes.html)  
     
 ### Textareas
 
