@@ -1,8 +1,8 @@
 /* globals console */
 'use strict';
 
-var throttle = require('lodash-node/modern/functions/throttle');
-var debounce = require('lodash-node/modern/functions/debounce');
+var throttle = require('lodash/function/throttle');
+var debounce = require('lodash/function/debounce');
 var debug;
 var initFlags = {};
 var intervals = {
