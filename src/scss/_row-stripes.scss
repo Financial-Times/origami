@@ -1,12 +1,9 @@
-/**
- * @group o-table
- * @link http://registry.origami.ft.com/components/o-table
-**/
+////
+/// @group o-table
+/// @link http://registry.origami.ft.com/components/o-table
+////
 
-/**
- * Add this to the table element to get row stripes
- * @requires {function} oColorsGetColorFor
- */
+/// Add this to the table element to get row stripes
 @mixin oTableRowStripes {
 	background-color: oColorsGetColorFor(o-table-striped o-table page, background);
 

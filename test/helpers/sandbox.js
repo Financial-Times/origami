@@ -1,27 +1,22 @@
-/*global exports*/
 "use strict";
 var sandboxEl;
 
-function init() {
-if (document.querySelector('.sandbox')) {
-	sandboxEl = document.querySelector('.sandbox');
-} else {
-	sandboxEl = document.createElement('div');
-	sandboxEl.classList.add('sandbox');
-	document.body.appendChild(sandboxEl);
-}
-}
-
-function reset() {
-while (sandboxEl.firstChild) {
-	sandboxEl.removeChild(sandboxEl.firstChild);
-}
+export function init() {
+	if (document.querySelector('.sandbox')) {
+		sandboxEl = document.querySelector('.sandbox');
+	} else {
+		sandboxEl = document.createElement('div');
+		sandboxEl.classList.add('sandbox');
+		document.body.appendChild(sandboxEl);
+	}
 }
 
-function setContents(html) {
-sandboxEl.innerHTML = html;
+export function reset() {
+	while (sandboxEl.firstChild) {
+		sandboxEl.removeChild(sandboxEl.firstChild);
+	}
 }
 
-exports.init = init;
-exports.reset = reset;
-exports.setContents = setContents;
+export function setContents(html) {
+	sandboxEl.innerHTML = html;
+}

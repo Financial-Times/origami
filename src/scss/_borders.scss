@@ -1,27 +1,25 @@
-/**
- * @group o-table
- * @link http://registry.origami.ft.com/components/o-table
-**/
+////
+/// @group o-table
+/// @link http://registry.origami.ft.com/components/o-table
+////
 
-/**
- * Use this mixin to get horizontal borders
- * @requires {function} oColorsGetColorFor
- */
+// scss-lint:disable QualifyingElement
+
+/// Horizontal borders
 @mixin oTableHorizontalBorders {
 	border-top: 1px solid oColorsGetColorFor(o-table-row, border);
 	border-bottom: 1px solid oColorsGetColorFor(o-table-row, border);
+
 	th:not([scope=row]) {
 		border-top: 2px solid oColorsGetColorFor(o-table-header-row, border);
 	}
 }
 
-/**
- * Use this mixin to get vertical borders
- * @requires {function} oColorsGetColorFor
- */
+/// Vertical borders
 @mixin oTableVerticalBorders {
 	border-left: 1px solid oColorsGetColorFor(o-table-row, border);
 	border-right: 1px solid oColorsGetColorFor(o-table-row, border);
+
 	th[scope=row] {
 		border-left: 2px solid oColorsGetColorFor(o-table-header-row, border);
 	}

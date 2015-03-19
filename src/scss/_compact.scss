@@ -1,11 +1,9 @@
-/**
- * @group o-table
- * @link http://registry.origami.ft.com/components/o-table
-**/
+////
+/// @group o-table
+/// @link http://registry.origami.ft.com/components/o-table
+////
 
-/**
- * Make a table 'compact'
- */
+/// Make a table 'compact'
 @mixin oTableCompact {
 	th {
 		font-size: 12px;

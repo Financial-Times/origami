@@ -1,14 +1,11 @@
-/**
- * @group o-table
- * @link http://registry.origami.ft.com/components/o-table
-**/
+////
+/// @group o-table
+/// @link http://registry.origami.ft.com/components/o-table
+////
 
-/**
- * Base tables styles - add to <table>
- * @requires {mixin} oFtTypographyBody
- * @requires {function} oColorsGetColorFor
- */
+/// Base tables styles - add to <table>
 @mixin oTableBase {
+	// scss-lint:disable QualifyingElement
 	@include oFtTypographyBody;
 	margin: 0 0 20px;
 	border-spacing: 0;
@@ -44,9 +41,7 @@
 	}
 }
 
-/**
- * Add to table's wrapper element (if there is one)
- */
+/// Add to table's wrapper element (if there is one)
 @mixin oTableWrapper {
 	width: 100%;
 	overflow: auto;
