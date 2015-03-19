@@ -4,63 +4,62 @@
 <!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>o-ft-forms: select-boxes demo</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-forms: select-boxes demo</title>
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js"></script>
+	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
 	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
-	<link rel="stylesheet" href="/bundles/css?modules=o-ft-forms:/demos/src/demo.scss" />
+	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss,o-fonts@^1.4.0" />
 </head>
 <body class="">
-<div class="demo-column">
-    <div class="o-ft-forms__field-group">
-        <label class="o-ft-forms__label">Select box</label>
-        <select class="o-ft-forms__field--select">
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-            <option value="option4">Option 4</option>
-        </select>
-    </div>
-    <div class="o-ft-forms__field-group o-ft-forms--valid">
-        <label class="o-ft-forms__label">Select box (valid)</label>
-        <select class="o-ft-forms__field--select">
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-            <option value="option4">Option 4</option>
-        </select>
-    </div>
- </div>
-<div class="demo-column">
-    <div class="o-ft-forms__field-group">
-        <label class="o-ft-forms__label">Select box</label>
-        <select class="o-ft-forms__field--select" disabled="disabled">
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-            <option value="option4">Option 4</option>
-        </select>
-    </div>
-    <div class="o-ft-forms__field-group o-ft-forms--error">
-        <label class="o-ft-forms__label">Select box (error)</label>
-        <select class="o-ft-forms__field--select">
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-            <option value="option4">Option 4</option>
-        </select>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
-    </div>
-    <div class="o-ft-forms__field-group">
-        <label class="o-ft-forms__label">Small select box</label>
-        <select class="o-ft-forms__field--select o-ft-forms__field--small">
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-            <option value="option4">Option 4</option>
-        </select>
-    </div>
+<div class="o-forms-group">
+	<label class="o-forms-label">Select box</label>
+	<select class="o-forms-select">
+		<option value="option1">Option 1</option>
+		<option value="option2">Option 2</option>
+		<option value="option3">Option 3</option>
+		<option value="option4">Option 4</option>
+	</select>
+</div>
+<div class="o-forms-group o-forms--valid">
+	<label class="o-forms-label">Select box (valid)</label>
+	<select class="o-forms-select">
+		<option value="option1">Option 1 (low chars: jpqy)</option>
+		<option value="option2">Option 2</option>
+		<option value="option3">Option 3</option>
+		<option value="option4">Option 4</option>
+	</select>
+</div>
+</div>
+<div data-o-grid-colspan="12 M6">
+<div class="o-forms-group">
+	<label class="o-forms-label">Select box</label>
+	<select class="o-forms-select" disabled="disabled">
+		<option value="option1">Option 1</option>
+		<option value="option2">Option 2</option>
+		<option value="option3">Option 3</option>
+		<option value="option4">Option 4</option>
+	</select>
+</div>
+<div class="o-forms-group o-forms--error">
+	<label class="o-forms-label">Select box (error)</label>
+	<select class="o-forms-select">
+		<option value="option1">Option 1</option>
+		<option value="option2">Option 2</option>
+		<option value="option3">Option 3</option>
+		<option value="option4">Option 4</option>
+	</select>
+	<div class="o-forms-errortext">Invalid entry</div>
+</div>
+<div class="o-forms-group">
+	<label class="o-forms-label">Small select box</label>
+	<select class="o-forms-select o-forms-select--small">
+		<option value="option1">Option 1 (low chars: jpqy)</option>
+		<option value="option2">Option 2</option>
+		<option value="option3">Option 3</option>
+		<option value="option4">Option 4</option>
+	</select>
 </div>
 
 

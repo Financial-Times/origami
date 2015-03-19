@@ -1,8 +1,23 @@
-$o-ft-forms-is-silent: false;
+$o-forms-is-silent: false;
+
 @import "../../main";
 
-.demo-column {
-    width: 50%;
-    float: left;
-    min-width: 300px;
+html {
+	font-family: $o-forms-font-family;
+}
+
+body {
+	// Simulate the grid outer margin space
+	// since the forms rely on this space to expand on each side on small screens
+	padding: 10px;
+}
+
+.demo-real-life {
+	padding: 0;
+
+	h2,
+	h3 {
+		@include oFormsGroup; // Indent
+		margin-bottom: 1em; // Set smaller margin
+	}
 }

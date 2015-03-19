@@ -1,81 +1,242 @@
-@mixin commonField() {
-  @include boxSizing(border-box);
-  @include appearance(none);
-  margin: 0;
-  border: $_o-ft-forms-fieldborder;
-  border-radius: $_o-ft-forms-field-borderradius;
-  padding: $_o-ft-form-field-default-padding-top $_o-ft-form-field-default-padding-leftright $_o-ft-form-field-default-padding-bottom;
-  width: 100%;
-  background-color: oColorsGetColorFor(o-ft-forms-field-standard, background);
-  color: oColorsGetColorFor(o-ft-forms-field-standard, text);
-  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-  font-size: $_o-ft-form-field-default-fontsize;
-  outline: none;
+////
+/// @group o-forms
+/// @link http://registry.origami.ft.com/components/o-forms
+////
+
+/// Common field styles
+@mixin oFormsCommonField {
+	box-sizing: border-box;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	margin: 0;
+	height: $_o-forms-field-default-height;
+	border: $_o-forms-fieldborder;
+	border-radius: $_o-forms-field-borderradius;
+	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
+	width: 100%;
+	background-color: oColorsGetColorFor(o-forms-field-standard, background);
+	color: oColorsGetColorFor(o-forms-field-standard, text);
+	font-family: $o-forms-font-family;
+	font-size: $_o-forms-field-default-fontsize;
+	outline: none;
+	transition: 0.15s box-shadow ease-in;
+	background-clip: padding-box;
+
+	&:focus {
+		@include oFormsCommonFieldFocus;
+	}
+	&:disabled {
+		@include oFormsCommonFieldDisabled;
+	}
 }
 
-@mixin commonFieldFocus() {
-    border-color: oColorsGetColorFor(o-ft-forms-field-hover, border);
+/// Common field styles: small
+@mixin oFormsCommonSmall {
+	font-size: $_o-forms-field-small-fontsize;
+	padding-top: 0;
+	padding-bottom: 0;
+	background-size: $_o-forms-select-small-iconsize;
+	height: $_o-forms-field-small-height;
+	line-height: $_o-forms-field-small-height - ($_o-forms-fieldborder-width * 2);
 }
 
-@mixin commonFieldDisabled() {
-    @include oColorsFor(o-ft-forms-field-disabled);
+/// Common field styles: focused state only
+@mixin oFormsCommonFieldFocus {
+	@include oColorsFor(o-forms-field-focus);
+	box-shadow: inset 0 0 4px 1px oColorsGetColorFor(o-forms-focus-ring, border);
 }
 
-@mixin appearance($value) {
-  -webkit-appearance: $value;
-  -moz-appearance: $value;
-  appearance: $value;
+/// Common field styles: disabled state
+@mixin oFormsCommonFieldDisabled {
+	cursor: default;
+	color: mix(oColorsGetColorFor(o-forms-field-standard, background), oColorsGetColorFor(o-forms-field-standard, text), 70%);
+	border-color: mix(oColorsGetColorFor(o-forms-field-standard, background), oColorsGetColorFor(o-forms-field-standard, border), 50%);
+	background-color: mix(oColorsGetColorFor(o-forms-field-standard, background), oColorsGetColorFor(o-forms-field-standard, border), 85%);
 }
 
-@mixin boxSizing($value) {
-  -webkit-box-sizing: $value;
-  -moz-box-sizing: $value;
-  box-sizing: $value;
+/// Common field styles: invalid state
+@mixin oFormsCommonFieldInvalid {
+	@include oColorsFor(o-forms-field-invalid);
+
+	&:focus {
+		box-shadow: inset 0 0 4px 1px rgba(oColorsGetColorFor(o-forms-field-invalid, border), 0.3);
+	}
 }
 
-@mixin border-radius($radiusTop: $_o-ft-forms-field-borderradius, $radiusBottom: 0) {
-
-  -webkit-border-top-left-radius: $radiusTop;
-  -webkit-border-top-right-radius: $radiusTop;
-  -webkit-border-bottom-right-radius: $radiusBottom;
-  -webkit-border-bottom-left-radius: $radiusBottom;
-
-  -moz-border-radius-topleft: $radiusTop;
-  -moz-border-radius-topright: $radiusTop;
-  -moz-border-radius-bottomright: $radiusBottom;
-  -moz-border-radius-bottomleft: $radiusBottom;
-
-  border-top-left-radius: $radiusTop;
-  border-top-right-radius: $radiusTop;
-  border-bottom-right-radius: $radiusBottom;
-  border-bottom-left-radius: $radiusBottom;
+/// Common field styles: valid state
+@mixin oFormsCommonFieldValid {
+	border-color: oColorsGetColorFor(o-forms-field-valid, border);
 }
 
-@mixin oFtFormsClass($classes...) {
-  $aggregatedSelector: ();
-  @each $class in $classes {
-    $aggregatedSelector: append($aggregatedSelector, #{'%#{$class}'}, comma);
-    @if (not $o-ft-forms-is-silent) {
-      $aggregatedSelector: append($aggregatedSelector, #{'.#{$class}'}, comma);
-    }
-  }
-  #{$aggregatedSelector} {
-    @content;
-  }
+/// Unskin a field entirely, but keep its structure intact
+@mixin oFormsUnskin {
+	// scss-lint:disable ImportantRule
+	-moz-appearance: none !important;
+	-webkit-appearance: none !important;
+	border: 0 !important;
+	background-color: transparent !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+
+	// for iOS
+	-webkit-text-fill-color: #333333 !important;
+	opacity: 1 !important;
+	// scss-lint:enable ImportantRule
 }
 
-/**
- * Creates a ruleset from the content for one or more placeholders
- * And optionally a set of selectors
- * @param {String} $placeholder One or more placeholders, separated by commas
- * @param {String} $selector Zero or more selectors, separated by commas
- */
-@mixin oFtFormsPlaceholderOptionalSelector($placeholder, $selector) {
-  $aggregatedSelector: (unquote($placeholder));
-  @if (not $o-ft-forms-is-silent) {
-    $aggregatedSelector: append($aggregatedSelector, #{$selector}, comma);
-  }
-  #{$aggregatedSelector} {
-    @content;
-  }
+/// Select styles
+///
+/// To be used in combination with oFormsCommonField
+@mixin oFormsSelect {
+	cursor: pointer;
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+PHBhdGggZD0iTTQxLjk0NSAzMi4yMDlsLTIuNTMzLTMuNTg0Yy0uNDEyLS41NzktMS4yMDktLjcyLTEuNzg5LS4zMTZsLTEyLjYwMSA4Ljc1My0xMi42LTguNzUzYy0uNTc5LS40MDMtMS4zODItLjI2My0xLjc5MS4zMTZsLTIuNTI3IDMuNTg0Yy0uNDEyLjU4LS4yNzIgMS4zNzMuMzEyIDEuNzc3bDE1Ljg2NCAxMC45MTJjLjE2NC4xMS4zNC4xMDIuNTE1LjEwMmguNDQ5OTk5OTk5OTk5OTk5OTZjLjE4IDAgLjM1Ni4wMDguNTE4LS4xMDJsMTUuODYxLTEwLjk2N2MuNTg5LS40MDQuNzI5LTEuMTQyLjMyMS0xLjcyMnpNMTAuNjMyIDIwLjM3OWMuNDEzLjU4IDEuMjEyLjcyIDEuNzkxLjMxNmwxMi42LTguNzUyIDEyLjYwMSA4Ljc1MmMuNTguNDA0IDEuMzc3LjI2NCAxLjc4OS0uMzE2bDIuNTI3LTMuNTg0Yy40MTMtLjU4LjI3My0xLjM2OS0uMzE0LTEuNzczbC0xNS44NjItMTAuOTE2Yy0uMTYxLS4xMTQtLjMzOC0uMTA2LS41MTgtLjEwNmgtLjQ0Njk5OTk5OTk5OTk5OTk1Yy0uMTc5IDAtLjM1NS0uMDA4LS41MTcuMTA2bC0xNS44NiAxMC45NjljLS41ODkuNDA0LS43MjkgMS4xNjktLjMyNiAxLjc0OGwyLjUzNiAzLjU1NnoiIGZpbGw9IiM1MDUwNTAiLz48L3N2Zz4=');
+	// scss-lint:disable DuplicateProperty
+	background-position: right center; // For iOS 6 that doesn't support 4-value background-position
+	background-position: right $_o-forms-field-default-padding-leftright center;
+	// scss-lint:enable DuplicateProperty
+	background-repeat: no-repeat;
+	background-origin: border-box;
+	background-size: $_o-forms-select-iconsize;
+	padding-right: $_o-forms-select-iconsize + $_o-forms-field-default-padding-leftright;
+	padding-top: $_o-forms-field-default-padding-bottom - 2px;
+
+	// Normalise line-height across browsers,
+	// which makes sure bottom of glyps are visible in Firefox in particular
+	line-height: 110%;
+
+	// Improve readability of descending glpys in old IE
+	padding-bottom: #{$_o-forms-field-default-padding-bottom - 2px}\9;
+
+	// In old IE, since we can't hide the stock browser arrow, we'll just keep it:
+	// 1. Remove additional padding
+	// 2. Remove the custom arrow
+	// scss-lint:disable DuplicateProperty
+	padding-right: #{$_o-forms-field-default-padding-leftright}\9; // [1]
+	background-image: none\9; // [2]
+	// scss-lint:enable DuplicateProperty
+
+	// Hide stock browser select arrow in Firefox
+	text-indent: 0.01px;
+	text-overflow: '';
+
+	// Hide stock browser arrow in IE 10+
+	&::-ms-expand {
+		display: none;
+		color: #ffffff;
+
+	}
+}
+
+/// Textarea styles
+@mixin oFormsTextarea {
+	vertical-align: top;
+	resize: vertical;
+	height: auto;
+	min-height: $_o-forms-field-default-height;
+}
+
+/// Label styles
+@mixin oFormsLabel {
+	display: block;
+	margin-bottom: $_o-forms-label-marginbottom;
+	font-size: 16px;
+	line-height: 19px;
+	font-weight: bold;
+	color: oColorsGetColorFor(o-forms-field-label body, text);
+
+	p {
+		margin-top: 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+/// Group styles
+@mixin oFormsGroup {
+	position: relative;
+	margin-bottom: 20px;
+
+	@include _oFormsBreakpoint {
+		padding-right: $_o-forms-group-padding;
+		padding-left: $_o-forms-group-padding;
+	}
+}
+
+/// Additional info
+@mixin oFormsAdditionalInfo {
+	display: block;
+	margin-top: -2px;
+	margin-bottom: 4px;
+	color: oColorsGetColorFor(o-forms-field-additional-info body, text);
+	font-size: 12px;
+	line-height: 15px;
+}
+
+/// Error text
+@mixin oFormsErrorText {
+	clear: both;
+	display: block;
+	margin-top: -1px;
+	padding: 3px 5px;
+	font-family: $o-forms-font-family;
+	font-size: 14px;
+	color: oColorsGetColorFor(o-forms-field-invalid, text);
+}
+
+/// Zone wrapper
+@mixin oFormsWrapper {
+	margin-bottom: 20px;
+	margin-right: $_o-forms-group-padding * -1;
+	margin-left: $_o-forms-group-padding * -1;
+	padding-right: $_o-forms-group-padding;
+	padding-left: $_o-forms-group-padding;
+
+	@include _oFormsBreakpoint {
+		border-radius: $_o-forms-field-borderradius;
+		margin-right: 0;
+		margin-left: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	// Clearfix
+	zoom: 1;
+
+	&:before,
+	&:after {
+		content: ' ';
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+
+	&--highlight {
+		background-color: oColorsGetColorFor(o-forms-wrapper-highlight, background);
+	}
+	&--error {
+		// scss-lint:disable DuplicateProperty
+		background-color: oColorsGetColorFor(o-forms-message-error-fallback, background);
+		background-color: rgba(oColorsGetColorFor(o-forms-message-error, background), 0.15);
+	}
+}
+
+/// Target styles at Internet Explorer 8 only
+@mixin _oFormsTargetIE8 {
+	@media \0screen {
+		@content;
+	}
+}
+
+/// Target both IE8 and modern browsers at the breakpoint
+/// Useful for layout changes at the Small breakpoint
+@mixin _oFormsBreakpoint {
+	@include oGridRespondTo(S) {
+		@content;
+	}
+	@include oGridTargetIE8 {
+		@content;
+	}
 }

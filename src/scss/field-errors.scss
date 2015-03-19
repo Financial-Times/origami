@@ -1,19 +1,13 @@
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--error, %o-ft-forms__label--select--error, %o-ft-forms__label--textarea--error',
-  '.o-ft-forms--error .o-ft-forms__field--text, 
-  .o-ft-forms--error .o-ft-forms__field--select, 
-  .o-ft-forms--error .o-ft-forms__field--textarea') {
-    border-color: oColorsGetColorFor(o-ft-forms-field-invalid, border);
-    color: oColorsGetColorFor(o-ft-forms-field-invalid o-ft-forms-field-standard, text);
+@if not $o-forms-is-silent {
+
+.o-forms--error .o-forms-text,
+.o-forms--error .o-forms-select,
+.o-forms--error .o-forms-textarea {
+	@include oFormsCommonFieldInvalid;
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__errortext', '.o-ft-forms__errortext') {
-  clear: both;
-  display: block;
-  margin-top: -1px;
-  padding: 3px 5px;
-  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: bold;
-  color: oColorsGetColorFor(o-ft-forms-field-invalid, text);
+.o-forms-errortext {
+	@include oFormsErrorText;
 }
+
+} // /Silent mode

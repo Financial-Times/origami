@@ -4,58 +4,61 @@
 <!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>o-ft-forms: checkboxes demo</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-forms: checkboxes demo</title>
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js"></script>
+	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
 	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
-	<link rel="stylesheet" href="/bundles/css?modules=o-ft-forms:/demos/src/demo.scss" />
+	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss,o-fonts@^1.4.0" />
 </head>
 <body class="">
-<div>
-    <div class="o-ft-forms__field-group">
-        <label class="o-ft-forms__label">Label</label>
-        <input type="checkbox" name="checkbox" value="1" class="o-ft-forms__field" id="checkbox11" checked="checked">
-        <label for="checkbox11" class="o-ft-forms__label">Checkbox 1</label>
-        <input type="checkbox" name="checkbox" value="2" class="o-ft-forms__field" id="checkbox12">
-        <label for="checkbox12" class="o-ft-forms__label">Checkbox 2</label>
-        <input type="checkbox" name="checkbox" value="3" class="o-ft-forms__field" id="checkbox13">
-        <label for="checkbox13" class="o-ft-forms__label">Checkbox 3</label>
-    </div>
+<div class="o-forms-group">
+	<label class="o-forms-label">Default checkboxes</label>
+	<input type="checkbox" name="checkbox" value="1" class="o-forms-checkbox" id="checkbox11" checked="checked" />
+	<label for="checkbox11" class="o-forms-label">Checkbox 1</label>
+	<input type="checkbox" name="checkbox" value="2" class="o-forms-checkbox" id="checkbox12" />
+	<label for="checkbox12" class="o-forms-label">Checkbox 2</label>
+	<input type="checkbox" name="checkbox" value="3" class="o-forms-checkbox o-forms-checkbox--highlight" id="checkbox13" checked="checked" />
+	<label for="checkbox13" class="o-forms-label">Highlighted</label>
 </div>
-<div>
-    <div class="o-ft-forms__field-group">
-        <label class="o-ft-forms__label">Label (valid)</label>
-        <input type="checkbox" name="checkbox2" value="1" class="o-ft-forms__field" id="checkbox21" checked="checked">
-        <label for="checkbox21" class="o-ft-forms__label">Checkbox 1</label>
-        <input type="checkbox" name="checkbox2" value="2" class="o-ft-forms__field" id="checkbox22">
-        <label for="checkbox22" class="o-ft-forms__label">Checkbox 2</label>
-        <input type="checkbox" name="checkbox2" value="3" class="o-ft-forms__field" id="checkbox23">
-        <label for="checkbox23" class="o-ft-forms__label">Checkbox 3</label>
-    </div>
+<div class="o-forms-group">
+	<label class="o-forms-label">Disabled</label>
+	<input type="checkbox" name="checkbox2" value="1" class="o-forms-checkbox" id="checkbox21" checked="checked" disabled="disabled" />
+	<label for="checkbox21" class="o-forms-label">Checkbox 1</label>
+	<input type="checkbox" name="checkbox2" value="2" class="o-forms-checkbox" id="checkbox22" disabled="disabled" />
+	<label for="checkbox22" class="o-forms-label">Checkbox 2</label>
+	<input type="checkbox" name="checkbox2" value="3" class="o-forms-checkbox o-forms-checkbox--highlight" id="checkbox23" disabled="disabled" checked="checked" />
+	<label for="checkbox23" class="o-forms-label">Highlighted</label>
 </div>
-<div>
-    <div class="o-ft-forms__field-group o-ft-forms--error">
-        <label class="o-ft-forms__label">Label (error)</label>
-        <input type="checkbox" name="checkbox3" value="1" class="o-ft-forms__field" id="checkbox31" checked="checked">
-        <label for="checkbox31" class="o-ft-forms__label">Checkbox 1</label>
-        <input type="checkbox" name="checkbox3" value="2" class="o-ft-forms__field" id="checkbox32">
-        <label for="checkbox32" class="o-ft-forms__label">Checkbox 2</label>
-        <input type="checkbox" name="checkbox3" value="3" class="o-ft-forms__field" id="checkbox33">
-        <label for="checkbox33" class="o-ft-forms__label">Checkbox 3</label>
-        <div class="o-ft-forms__errortext">Invalid entry</div>
-    </div>
+<div class="o-forms-group o-forms--error">
+	<label class="o-forms-label">Error</label>
+	<input type="checkbox" name="checkbox3" value="1" class="o-forms-checkbox" id="checkbox31" checked="checked" />
+	<label for="checkbox31" class="o-forms-label">Checkbox 1</label>
+	<input type="checkbox" name="checkbox3" value="2" class="o-forms-checkbox" id="checkbox32" />
+	<label for="checkbox32" class="o-forms-label">Checkbox 2</label>
+	<input type="checkbox" name="checkbox3" value="3" class="o-forms-checkbox o-forms-checkbox--highlight" id="checkbox33" checked="checked" />
+	<label for="checkbox33" class="o-forms-label">Highlighted</label>
+	<div class="o-forms-errortext">Invalid entry</div>
 </div>
-<div>
-    <div class="o-ft-forms__field-group o-ft-forms--error">
-        <label class="o-ft-forms__label">Small checkboxes</label>
-        <input type="checkbox" name="checkbox3" value="1" class="o-ft-forms__field o-ft-forms__field--small" id="checkbox41" checked="checked">
-        <label for="checkbox41" class="o-ft-forms__label">Checkbox 1</label>
-        <input type="checkbox" name="checkbox3" value="2" class="o-ft-forms__field o-ft-forms__field--small" id="checkbox42">
-        <label for="checkbox42" class="o-ft-forms__label">Checkbox 2</label>
-        <input type="checkbox" name="checkbox3" value="3" class="o-ft-forms__field o-ft-forms__field--small" id="checkbox43">
-        <label for="checkbox43" class="o-ft-forms__label">Checkbox 3</label>
-    </div>
+<div class="o-forms-group o-forms--error">
+	<label class="o-forms-label">Small checkboxes</label>
+	<input type="checkbox" name="checkbox4" value="1" class="o-forms-checkbox o-forms-checkbox--small" id="checkbox41" checked="checked" />
+	<label for="checkbox41" class="o-forms-label">Checkbox 1</label>
+	<input type="checkbox" name="checkbox4" value="2" class="o-forms-checkbox o-forms-checkbox--small" id="checkbox42" />
+	<label for="checkbox42" class="o-forms-label">Checkbox 2</label>
+	<input type="checkbox" name="checkbox4" value="3" class="o-forms-checkbox o-forms-checkbox--highlight o-forms-checkbox--small" id="checkbox43" checked="checked" />
+	<label for="checkbox43" class="o-forms-label">Highlighted</label>
+</div>
+<div class="o-forms-group">
+	<label class="o-forms-label">Longer labels</label>
+	<input type="checkbox" name="checkbox51" value="1" class="o-forms-checkbox" id="checkbox51" checked="checked" />
+	<label for="checkbox51" class="o-forms-label"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam laudantium, unde dolorum! Dolorem asperiores cum architecto sit mollitia laboriosam perspiciatis.</p></label>
+
+	<br />
+
+	<input type="checkbox" name="checkbox52" value="1" class="o-forms-checkbox o-forms-checkbox--small" id="checkbox52" checked="checked" />
+	<label for="checkbox52" class="o-forms-label"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam laudantium, unde dolorum! Dolorem asperiores cum architecto sit mollitia laboriosam perspiciatis.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam laudantium, unde dolorum! Dolorem asperiores cum architecto sit mollitia laboriosam perspiciatis.</p></label>
 </div>
 
 

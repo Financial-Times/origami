@@ -1,109 +1,103 @@
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__affix-wrapper',
-  '.o-ft-forms__affix-wrapper'
-) {
-  display: table;
-  width: 100%;
-  box-sizing: border-box;
+@if not $o-forms-is-silent {
+
+.o-forms-affix-wrapper {
+	display: table;
+	width: 100%;
+	box-sizing: border-box;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field--affixed',
-  '.o-ft-forms__affix-wrapper .o-ft-forms__field--text,
-  .o-ft-forms__affix-wrapper .o-ft-forms__field--select'
-) {
-  display: table-cell;
-  border-radius: 0;
+.o-forms-affix-wrapper .o-forms-text,
+.o-forms-affix-wrapper .o-forms-select {
+	display: table-cell;
+	border-radius: 0;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field--prefixed',
-  '.o-ft-forms__affix-wrapper .o-ft-forms__field--text:first-child,
-  .o-ft-forms__affix-wrapper .o-ft-forms__field--select:first-child'
-) {
-  border-top-left-radius: $_o-ft-forms-field-borderradius;
-  border-bottom-left-radius: $_o-ft-forms-field-borderradius;
+.o-forms-affix-wrapper .o-forms-text:first-child,
+.o-forms-affix-wrapper .o-forms-select:first-child {
+	border-top-left-radius: $_o-forms-field-borderradius;
+	border-bottom-left-radius: $_o-forms-field-borderradius;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field-suffixed',
-  '.o-ft-forms__affix-wrapper .o-ft-forms__field--text:last-child,
-  .o-ft-forms__affix-wrapper .o-ft-forms__field--select:last-child'
-) {
-  border-top-right-radius: $_o-ft-forms-field-borderradius;
-  border-bottom-right-radius: $_o-ft-forms-field-borderradius;
+.o-forms-affix-wrapper .o-forms-text:last-child,
+.o-forms-affix-wrapper .o-forms-select:last-child {
+	border-top-right-radius: $_o-forms-field-borderradius;
+	border-bottom-right-radius: $_o-forms-field-borderradius;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__prefix,
-  %o-ft-forms__suffix',
-  '.o-ft-forms__prefix,
-  .o-ft-forms__suffix'
-) {
-  display: table-cell;
-  width: 1%;
-  white-space: nowrap;
-  border-top: $_o-ft-forms-fieldborder;
-  border-bottom: $_o-ft-forms-fieldborder;
-  padding: $_o-ft-form-field-default-padding-top $_o-ft-form-field-default-padding-leftright $_o-ft-form-field-default-padding-bottom;
-  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-  font-size: $_o-ft-form-field-default-fontsize;
-  text-align: center;
-  background-color: oColorsGetColorFor(o-ft-forms-prefixsuffix, background);
-  color: oColorsGetColorFor(o-ft-forms--prefixsuffix o-ft-forms-field-standard, text);
-  user-select: none;
+.o-forms-prefix,
+.o-forms-suffix {
+	display: table-cell;
+	vertical-align: top;
+	box-sizing: border-box;
+	width: 1%;
+	white-space: nowrap;
+	border-top: $_o-forms-fieldborder;
+	border-bottom: $_o-forms-fieldborder;
+	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom - 2px;
+	font-family: $o-forms-font-family;
+	font-size: $_o-forms-field-default-fontsize;
+	text-align: center;
+	background-color: oColorsGetColorFor(o-forms-prefixsuffix, background);
+	color: oColorsGetColorFor(o-forms--prefixsuffix o-forms-field-standard, text);
+	// scss-lint:disable VendorPrefixes
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__prefix',
-  '.o-ft-forms__prefix'
-) {
-  border-left: $_o-ft-forms-fieldborder;
-  border-right: 0;
-  border-top-left-radius: $_o-ft-forms-field-borderradius;
-  border-bottom-left-radius: $_o-ft-forms-field-borderradius;
+.o-forms-prefix {
+	border-left: $_o-forms-fieldborder;
+	border-right: 0;
+	border-top-left-radius: $_o-forms-field-borderradius;
+	border-bottom-left-radius: $_o-forms-field-borderradius;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__suffix',
-  '.o-ft-forms__suffix'
-) {
-  border-right: $_o-ft-forms-fieldborder;
-  border-left: 0;
-  border-top-right-radius: $_o-ft-forms-field-borderradius;
-  border-bottom-right-radius: $_o-ft-forms-field-borderradius;
+.o-forms-suffix {
+	border-right: $_o-forms-fieldborder;
+	border-left: 0;
+	border-top-right-radius: $_o-forms-field-borderradius;
+	border-bottom-right-radius: $_o-forms-field-borderradius;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__prefix--error,
-  %o-ft-forms__suffix--error',
-  '.o-ft-forms--error .o-ft-forms__prefix,
-  .o-ft-forms--error .o-ft-forms__suffix'
-) {
-  border-color: oColorsGetColorFor(o-ft-forms-field-invalid, border);
-  color: oColorsGetColorFor(o-ft-forms-field-invalid, text);
+.o-forms--error .o-forms-prefix,
+.o-forms--error .o-forms-suffix {
+	@include oColorsFor(o-forms-field-invalid, border text);
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__prefix--valid,
-  %o-ft-forms__suffix--valid',
-  '.o-ft-forms--valid .o-ft-forms__prefix,
-  .o-ft-forms--valid .o-ft-forms__suffix'
-) {
-  @include oColorsFor(o-ft-forms-field-valid, border text);
+.o-forms--valid .o-forms-prefix,
+.o-forms--valid .o-forms-suffix {
+	@include oColorsFor(o-forms-field-valid, border text);
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__affix__button',
-  '.o-ft-forms__prefix button,
-  .o-ft-forms__suffix button'
-) {
-  border-width: 0;
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-  cursor: pointer;
-  font: inherit;
-  color: inherit;
-  user-select: none;
+.o-forms-prefix button,
+.o-forms-suffix button {
+	border-width: 0;
+	margin: $_o-forms-field-default-padding-top * -1 $_o-forms-field-default-padding-leftright * -1 $_o-forms-field-default-padding-bottom * -1;
+	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
+	background-color: transparent;
+	cursor: pointer;
+	font: inherit;
+	color: inherit;
+	// scss-lint:disable VendorPrefixes
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
 }
+
+.o-forms-prefix button {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.o-forms-suffix button {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+} // /Silent mode

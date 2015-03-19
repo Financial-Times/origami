@@ -1,0 +1,38 @@
+////
+/// @group o-forms
+/// @link http://registry.origami.ft.com/components/o-forms
+////
+
+/// Messages styles
+@mixin oFormsMessage {
+	margin-bottom: 16px;
+	padding: 0 $_o-forms-group-padding;
+	margin-left: $_o-forms-group-padding * -1;
+	margin-right: $_o-forms-group-padding * -1;
+
+	@include _oFormsBreakpoint {
+		border-radius: $_o-forms-field-borderradius;
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	p {
+		padding: 8px 0;
+		margin: 0;
+		font-family: $o-forms-font-family;
+	}
+
+	&--highlight {
+		background-color: oColorsGetColorFor(o-forms-wrapper-highlight, background);
+	}
+	&--error {
+		background-color: oColorsGetColorFor(o-forms-message-error, background);
+		color: oColorsGetColorFor(o-forms-message-error, text);
+	}
+}
+
+@if not $o-forms-is-silent {
+	.o-forms-message {
+		@include oFormsMessage;
+	}
+}

@@ -1,14 +1,9 @@
 {
-    "description": "Forms module",
+    "description": "FT branded form elements: text inputs, checkboxes, radio controls, select boxes, error and warning messages…",
     "origamiType": "module",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-forms/issues",
     "supportStatus": "active",
-    "browserFeatures": {
-        "optional": [
-            "borderradius"
-        ]
-    },
     "ci": {
         "travis": "https://api.travis-ci.org/repos/Financial-Times/o-forms/builds.json"
     },
@@ -44,14 +39,19 @@
             "description": ""
         },
         {
-            "path": "/demos/global-errors.html",
+            "path": "/demos/messages.html",
             "expanded": true,
             "description": ""
         },
         {
-            "path": "/demos/section-errors.html",
+            "path": "/demos/wrappers.html",
             "expanded": true,
             "description": ""
+        },
+        {
+            "path": "/demos/real-life.html",
+            "expanded": false,
+            "description": "Real life example of forms usage"
         }
     ]
 }

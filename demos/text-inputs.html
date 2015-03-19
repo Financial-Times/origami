@@ -4,46 +4,41 @@
 <!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>o-ft-forms: text-inputs demo</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-forms: text-inputs demo</title>
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js"></script>
+	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
 	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
-	<link rel="stylesheet" href="/bundles/css?modules=o-ft-forms:/demos/src/demo.scss" />
+	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss,o-fonts@^1.4.0" />
 </head>
 <body class="">
-<div class="demo-column">
-    <div class="o-ft-forms__field-group">
-        <label class="o-ft-forms__label">Text input</label>
-        <small class="o-ft-forms__additional-info">prompt text ie password needs 6 characters</small>
-        <input type="text" placeholder="placeholder" class="o-ft-forms__field--text" />
-    </div>
-    <div class="o-ft-forms__field-group o-ft-forms--valid">
-        <label class="o-ft-forms__label">Text input with valid entry</label>
-        <input type="text" placeholder="placeholder" class="o-ft-forms__field--text o-ft-forms__field--valid" value="Field value" />
-    </div>
-    <div class="o-ft-forms__field-group o-ft-forms--error">
-        <label class="o-ft-forms__label">URL input :invalid</label>
-        <input type="url" placeholder="placeholder" class="o-ft-forms__field--text" value="hp://invalid.com" />
-        <div class="o-ft-forms__errortext">Please enter a valid url</div>
-    </div>
+<div class="o-forms-group">
+	<label class="o-forms-label">Text input</label>
+	<small class="o-forms-additional-info">Prompt text (e.g.: Must contain at least 6 characters. Please use letters and numbers only.)</small>
+	<input type="text" placeholder="placeholder" class="o-forms-text" />
 </div>
-<div class="demo-column">
-    <div class="o-ft-forms__field-group">
-        <label class="o-ft-forms__label">Text input disabled</label>
-        <input type="text" placeholder="placeholder" class="o-ft-forms__field--text o-ft-forms__field--valid" value="Field value" disabled="disabled" />
-    </div>
-    <div class="o-ft-forms__field-group o-ft-forms--error">
-        <label class="o-ft-forms__label">Text input (error)</label>
-        <input type="text" placeholder="placeholder" class="o-ft-forms__field--text" value="Field value" />
-        <div class="o-ft-forms__errortext">Invalid entry</div>
-    </div>
+<div class="o-forms-group o-forms--valid">
+	<label class="o-forms-label">Text input with valid entry</label>
+	<input type="text" placeholder="placeholder" class="o-forms-text o-forms-text--valid" value="Field value" />
 </div>
-<div class="demo-column">
-    <div class="o-ft-forms__field-group">
-        <label class="o-ft-forms__label">Small text field</label>
-        <input type="text" placeholder="placeholder" class="o-ft-forms__field--text o-ft-forms__field--small" value="Field value" />
-    </div>
+<div class="o-forms-group o-forms--error">
+	<label class="o-forms-label">URL input :invalid</label>
+	<input type="url" placeholder="placeholder" class="o-forms-text" value="hp://invalid.com" />
+	<div class="o-forms-errortext">Please enter a valid url</div>
+</div>
+<div class="o-forms-group">
+	<label class="o-forms-label">Text input disabled</label>
+	<input type="text" placeholder="placeholder" class="o-forms-text o-forms-text--valid" value="Field value" disabled="disabled" />
+</div>
+<div class="o-forms-group o-forms--error">
+	<label class="o-forms-label">Text input (error)</label>
+	<input type="text" placeholder="placeholder" class="o-forms-text" value="Field value" />
+	<div class="o-forms-errortext">Invalid entry</div>
+</div>
+<div class="o-forms-group">
+	<label class="o-forms-label">Small text field</label>
+	<input type="text" placeholder="placeholder" class="o-forms-text o-forms-text--small" value="Low chars: jpqy (should be visible)" />
 </div>
 
 
