@@ -172,10 +172,10 @@ var init = function(el, opts) {
 		el = document.querySelector(el);
 	}
 	if (/\bo-expander\b/.test(el.getAttribute('data-o-component'))) {
-		return el.getAttribute('data-o-expander-js') ? undefined : new Expander(el, opts);
+		return el.hasAttribute('data-o-expander-js') ? undefined : new Expander(el, opts);
 	}
 	return [].map.call(el.querySelectorAll('[data-o-component~="o-expander"]'), function (el) {
-		return el.getAttribute('data-o-expander-js') ? undefined : new Expander(el, opts);
+		return el.hasAttribute('data-o-expander-js') ? undefined : new Expander(el, opts);
 	});
 };
 
