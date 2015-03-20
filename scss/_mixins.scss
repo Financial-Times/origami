@@ -118,6 +118,7 @@
 @mixin oButtons($size: medium, $theme: standard) {
 	display: inline-block;
 	box-sizing: border-box;
+	vertical-align: middle;
 	margin: 0;
 	outline: 0;
 	border-style: solid;
