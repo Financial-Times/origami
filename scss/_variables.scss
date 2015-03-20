@@ -31,12 +31,14 @@ $o-buttons-sizes: (
 		height: 24px,
 		padding-left: 14px,
 		padding-right: 14px,
+		border-width: 1px,
 	),
 	big: (
 		font-size: 16px,
 		height: 36px,
 		padding-left: 18px,
 		padding-right: 18px,
+		border-width: 1px,
 	)
 ) !default;
 
