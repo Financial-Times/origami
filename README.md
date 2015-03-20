@@ -32,11 +32,12 @@ The following browser features are used but will degrade gracefully:
 * __CSS negation pseudo-class__: (`not()`) is used for the hover states. Buttons will not have hover states in IE8 and earlier.
 * __sibling CSS selectors__: spacing between tabs or button groups may be incorrect on very old browsers
 * __border-radius__: older browsers will show square corners
-* __web fonts__: older browsers will use websafe alternative fonts
 
-## Mixins
+## Mixins & silent mode
 
 Various Sass mixins are provided to obtain styles for buttons in all their states and variants. Also, when `$o-buttons-is-silent: false;`, the module outputs a set of classes that are also documented in each section.
+
+[Full documentation of mixins and variables](sassdoc.webservices.ft.com/v1/sassdoc/o-buttons)
 
 ### Default button
 
@@ -188,12 +189,8 @@ Example HTML:
 
 Silent mode off: `.o-buttons--inverse`
 
-### Deprecated
+====
 
-The `--faux` modifier is now deprecated and will be removed in next major release.
-The `.o-buttons__pagination` wasn't following the BEM convention properly and will be removed in next major release. Use `.o-buttons-pagination` instead.
-The `.o-buttons__group` wasn't following the BEM convention properly and will be removed in next major release. Use `.o-buttons-group` instead.
+## Licence
 
-### Icons for use in buttons
-
-This is now deprecated and will be removed in next major release
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
