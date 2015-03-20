@@ -1,6 +1,5 @@
 $o-buttons-is-silent: false;
 $o-ft-icons-is-silent: false;
-$o-fonts-is-silent: false;
 
 @import "../../main";
 
@@ -10,7 +9,7 @@ body {
 }
 
 body {
-	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+	font-family: FinancierDisplayWeb, serif;
 	margin: 1em;
 }
 
@@ -52,7 +51,6 @@ h3 {
 }
 
 // Avoid extra vertical space for icons in buttons
-.o-buttons .o-ft-icons-icon,
-.o-ft-buttons .o-ft-icons-icon {
+.o-buttons .o-ft-icons-icon {
 	line-height: 1px;
 }

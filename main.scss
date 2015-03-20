@@ -1,8 +1,5 @@
-@import "o-fonts/main";
 @import "o-colors/main";
 @import "o-hoverable/main";
-
-@import "o-ft-icons/main"; // Deprecated
 
 // Switch off component deprecation warnings
 $_o-buttons-deprecation-warnings: false;
@@ -11,23 +8,10 @@ $_o-buttons-deprecation-warnings: false;
 @import "scss/variables";
 @import "scss/mixins";
 
-@import "scss/deprecated/themes";
-@import "scss/deprecated/variables";
-@import "scss/deprecated/mixins";
-
-@import "scss/deprecated/deprecated";
-
 @import "scss/group";
 @import "scss/pagination";
 
-@import "scss/deprecated/group";
-@import "scss/deprecated/pagination";
-
-@include oFtButtonsAll($o-buttons-class);
-
-@if ($o-buttons-is-silent == false or $o-ft-buttons-is-silent == false) {
-	@include oFontsInclude(BentonSans, normal); // Deprecated, to be removed in next major version
-
+@if ($o-buttons-is-silent == false) {
 	.#{$o-buttons-class} {
 		@include oButtons;
 	}
@@ -51,33 +35,8 @@ $_o-buttons-deprecation-warnings: false;
 		@include oButtonsGroup;
 	}
 
-	// Deprecated: o-ft-button utility classes
-	.#{$o-ft-buttons-class} {
-		@include oFtButtons;
-	}
-
-	@each $size, $properties in $o-ft-buttons-sizes {
-		.#{$o-ft-buttons-class}--#{$size} {
-			@include oFtButtonsSize($size);
-		}
-	}
-	@each $theme, $properties in $o-ft-buttons-themes {
-		.#{$o-ft-buttons-class}--#{$theme} {
-			@include oFtButtonsTheme($theme);
-		}
-	}
-	.#{$o-ft-buttons-class}__pagination, // Deprecated, invalidates the BEM naming convention
-	.#{$o-ft-buttons-class}-pagination {
-		@include oFtButtonsPagination;
-	}
-	.#{$o-ft-buttons-class}__group, // Deprecated, invalidates the BEM naming convention
-	.#{$o-ft-buttons-class}-group {
-		@include oFtButtonsGroup;
-	}
-
 	// Set module to silent again
 	$o-buttons-is-silent: true !global;
-	$o-ft-buttons-is-silent: true !global;
 }
 
 // Switch deprecation warnings back on

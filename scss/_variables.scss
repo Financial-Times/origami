@@ -9,10 +9,18 @@
 /// @type Boolean
 $o-buttons-is-silent: true !default;
 
-/// Default button class used when $o-ft-buttons-is-silent is true
+/// Default button class used when $o-buttons-is-silent is true
 ///
 /// @type String
 $o-buttons-class: o-buttons !default;
+
+/// Button font family
+///
+/// This is required to override default system form element styling,
+/// since `<input>`, `<button>`… don't inherit global font styles
+///
+/// @type String
+$o-buttons-font-family: BentonSans, sans-serif !default;
 
 /// Button sizes, with their attached properties
 ///
@@ -23,12 +31,14 @@ $o-buttons-sizes: (
 		height: 24px,
 		padding-left: 14px,
 		padding-right: 14px,
+		border-width: 1px,
 	),
 	big: (
 		font-size: 16px,
 		height: 36px,
 		padding-left: 18px,
 		padding-right: 18px,
+		border-width: 1px,
 	)
 ) !default;
 
