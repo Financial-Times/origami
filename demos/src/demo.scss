@@ -4,6 +4,11 @@ $o-overlay-is-silent: false;
 body {
 	font-family: BentonSans;
 }
+
+.demo-overlay-container {
+	height: 220px;
+}
+
 .o-overlay--compact .o-overlay__content {
 	font-size: 12px;
 	line-height: 18px;
