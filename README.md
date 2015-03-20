@@ -189,7 +189,7 @@ Example HTML:
 
 Silent mode off: `.o-buttons--inverse`
 
-====
+----
 
 ## Licence
 
