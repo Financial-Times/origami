@@ -1,11 +1,10 @@
 @import "o-colors/main";
 @import "src/scss/variables";
-@import "src/scss/color-use-cases";
 
 @mixin oBigNumber {
 	font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-	@include oColorsFor(o-big-number, text);
-	border-left: 2px solid oColorsGetColorFor(o-quote, border);
+	color: #000000;
+	border-left: 2px solid #000000;
 	padding-left: 10px;
 }
 
