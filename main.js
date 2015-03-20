@@ -5,6 +5,10 @@ var count = 0;
 
 var Expander = function (el, opts) {
 
+	if (el.getAttribute('data-o-expander-js')) {
+		return;
+	}
+
 	this.opts = opts || {};
 	this.el = el;
 
