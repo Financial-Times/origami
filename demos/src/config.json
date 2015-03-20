@@ -1,7 +1,11 @@
 {
 	"options": {
 		"sass": "demos/src/demo.scss",
-		"bodyClasses": "o-hoverable-on"
+		"bodyClasses": "o-hoverable-on",
+        "dependencies": [
+            "o-fonts@^1.4.0",
+            "o-ft-icons@^2.3.2"
+        ]
 	},
 	"demos": [
 		{
@@ -23,8 +27,7 @@
 		},
 		{
 			"name": "pagination",
-			"template": "demos/src/pagination.mustache",
-			"dependencies": ["o-ft-icons@2.3.1"]
+			"template": "demos/src/pagination.mustache"
 		},
 		{
 			"name": "grouped",

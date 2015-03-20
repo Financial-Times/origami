@@ -12,8 +12,6 @@
 /// }
 ///
 /// @param {String} $size
-///
-/// @requires {variable} $o-buttons-sizes
 @mixin oButtonsSize($size) {
 	// Dimensions
 	$button-dimensions: map-get($o-buttons-sizes, $size);
@@ -31,9 +29,6 @@
 /// }
 ///
 /// @param {String} $theme
-///
-/// @requires {variable} $o-buttons-themes
-/// @requires {variable} $o-hoverable-if-hover-enabled
 @mixin oButtonsTheme($theme) {
 	$states: map-get($o-buttons-themes, $theme);
 
@@ -117,10 +112,6 @@
 ///
 /// @param {String} $size (medium)
 /// @param {String} $theme (standard)
-///
-/// @requires {mixin} oButtonsSize
-/// @requires {mixin} oButtonsTheme
-/// @requires {mixin} oFontsGetFontFamilyWithFallbacks
 @mixin oButtons($size: medium, $theme: standard) {
 	display: inline-block;
 	box-sizing: border-box;
@@ -131,7 +122,7 @@
 	border-radius: 5px;
 	text-align: center;
 	text-decoration: none;
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	font-family: $o-buttons-font-family;
 	cursor: pointer;
 	transition: 0.3s background-color, 0.15s box-shadow ease-in;
 	-moz-appearance: none;

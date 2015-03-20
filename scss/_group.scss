@@ -14,8 +14,6 @@
 ///
 /// @param {String} ($o-buttons-class) $buttonClass
 ///
-/// @requires {variable} o-buttons-class
-///
 /// @link http://build.origami.ft.com/files/o-buttons/demos/grouped.html
 @mixin oButtonsGroup($buttonClass: $o-buttons-class) {
 	> .#{$buttonClass} {
