@@ -2,10 +2,10 @@
 	"options": {
 		"sass": "demos/src/demo.scss",
 		"bodyClasses": "o-hoverable-on",
-        "dependencies": [
-            "o-fonts@^1.4.0",
-            "o-ft-icons@^2.3.2"
-        ]
+		"dependencies": [
+			"o-fonts@^1.4.0",
+			"o-ft-icons@^2.3.2"
+		]
 	},
 	"demos": [
 		{
