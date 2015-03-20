@@ -13,11 +13,14 @@
 ///
 /// @param {String} $size
 @mixin oButtonsSize($size) {
-	// Dimensions
 	$button-dimensions: map-get($o-buttons-sizes, $size);
-	padding: 0 map-get($button-dimensions, padding-right) 0 map-get($button-dimensions, padding-left);
+	$border-width: map-get($button-dimensions, border-width);
+	$vertical-padding: 1/2 * (map-get($button-dimensions, height) - map-get($button-dimensions, font-size)) - $border-width * 2;
+
+	padding: $vertical-padding map-get($button-dimensions, padding-right) $vertical-padding map-get($button-dimensions, padding-left);
 	font-size: map-get($button-dimensions, font-size);
-	line-height: map-get($button-dimensions, height) - 2px; // height - border width
+	line-height: map-get($button-dimensions, height) - $border-width * 2 - $vertical-padding * 2;
+	border-width: $border-width;
 }
 
 /// Button theme construct
@@ -115,9 +118,9 @@
 @mixin oButtons($size: medium, $theme: standard) {
 	display: inline-block;
 	box-sizing: border-box;
+	vertical-align: middle;
 	margin: 0;
 	outline: 0;
-	border-width: 1px;
 	border-style: solid;
 	border-radius: 5px;
 	text-align: center;
