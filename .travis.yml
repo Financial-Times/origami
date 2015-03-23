@@ -1,0 +1,10 @@
+sudo: false
+language: node_js
+node_js:
+  - "0.10"
+before_install:
+  - npm install -g origami-build-tools
+  - obt install
+script:
+  - obt test
+  - obt verify
