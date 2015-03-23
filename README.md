@@ -79,7 +79,30 @@ argument.
 `oErrors.wrap(fn)` - Wrap a function so that any uncaught errors thrown while
 executing the function are caught and reported.
 
+#### Log data and associating logs with errors
 
+`o-errors` allows you to log arbitrary strings using a `console.log`, and
+`console.warn` like API.
+
+Instead of logging to the console however, the last few log lines are kept in
+memory.  Then, when an uncaught error is logged to the error aggregator, the
+log lines are included as additional context.
+
+In this example, a message is logged before calling `exampleSyncData`.  If
+`exampleSyncData` errors, then `"Syncing data to APIs"` would be attached to
+the error context and sent to the error aggregator.
+
+```JS
+oErrors.log("Syncing data to APIs")'
+exampleSyncData();
+```
+
+This is not always desirable and extensive logging could affect performance.
+It can be turned on and off using the `enableLogging` configuration variable
+when initialising the module.
+
+`oErrors.log(message)`  - Creates a 'log' level message, semantically equivalent to `console.log`
+`oErrors.warn(message)` - Creates a 'warn' level message, semantically equivalent to `console.warn`
 
 ## Events
 
