@@ -1,7 +1,7 @@
 {
-  "description": "Library for reporting front end errors",
-  "origamiType": "module",
-  "origamiVersion": 1,
-  "support": "https://github.com/Financial-Times/o-errors/issues",
-  "supportStatus": "experimental"
+    "description": "Library for reporting front end errors",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "https://github.com/Financial-Times/o-errors/issues",
+    "supportStatus": "experimental"
 }

@@ -1,15 +1,11 @@
 'use strict';
-var initialisedOErrors = false;
 
-function Errors(raven) {
+function Errors() {
 	// Because Raven is a third party client, we can't be sure what it is doing when
 	// we include it.  To control the initialisation of the third party code
-	// we only include once 'init' has been called
-	if (!raven) {
-		this.ravenClient = require('raven-js');
-	} else {
-		this.ravenClient = raven;
-	}
+	// we inlcude it only at construction time
+	this.ravenClient = require('raven-js');
+	this.initialised = false;
 }
 
 Errors.prototype.report = function(exception, options) {
@@ -17,6 +13,10 @@ Errors.prototype.report = function(exception, options) {
 };
 
 Errors.prototype.init = function(options) {
+	if (this.initialised) {
+		throw new Error('Unable to reconfigure error tracking.  This can only be configured once');
+	}
+
 	options = options || {};
 
 	if (!options.sentryEndpoint) {
@@ -30,31 +30,20 @@ Errors.prototype.init = function(options) {
 		ravenOptions.release = options.siteVersion;
 	}
 
-	this.ravenClient.config(sentryEndpoint, ravenOptions).install();
+	this.ravenClient.config(sentryEndpoint, ravenOptions);
+	this.ravenClient.install();
+
+	document.addEventListener('oErrors.log', this.handleLogEvent.bind(this));
+	this.initialised = true;
 };
 
 Errors.prototype.destroy = function() {
+	document.removeEventListener('oErrors.log', this.handleLogEvent.bind(this));
 	this.ravenClient.uninstall();
 };
 
-Errors.init = function(options) {
-
-	if (initialisedOErrors) {
-		return false;
-	}
-
-	var oErrors = new Errors();
-	oErrors.init(options);
-	initialisedOErrors = oErrors;
-
-	return oErrors;
+Errors.prototype.handleLogEvent = function(ev) {
+	this.report(ev.detail.error, ev.detail.info);
 };
 
-Errors.destroy = function() {
-	if (initialisedOErrors) {
-		initialisedOErrors.destroy();
-		initialisedOErrors = false;
-	}
-};
-
-module.exports = Errors;
+module.exports = new Errors();

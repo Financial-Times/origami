@@ -7,36 +7,32 @@ if (!global.window) {
 }
 
 describe("oErrors", function() {
+	before(function() {
+		oErrors.init({
+			sentryEndpoint: "https://a@getsentry.com/b"
+		});
 
-	afterEach(function() {
-		oErrors.destroy();
-		window.onerror = false;
+		expect(window.onerror).to.be.a('function');
 	});
 
-	describe("#init(options)", function() {
-		it("should throw an exception when not initialised with options.sentryEndpoint", function() {
-			expect(function() {
-				oErrors.init({});
-			}).to.throwError();
-		});
+	it("should report errors on oErrors.log event", function(done) {
+		expect(oErrors.initialised).to.equal(true);
 
-		it("should update the window.onerror method", function() {
-			window.onerror = false;
-			oErrors.init({
-				sentryEndpoint: "https://a@getsentry.com/b"
-			});
+		var oldReport = oErrors.report;
 
-			expect(window.onerror).to.be.a('function');
-		});
-	});
+		oErrors.report = function(e, info) {
+			expect(e).to.be.an(Error);
+			expect(info).to.be.an('object');
+			expect(info.additional).to.equal('info');
+			oErrors.report = oldReport;
+			done();
+		};
 
-	describe("#destroy()", function() {
-		it("should remove the window.onerror function", function() {
-			oErrors.init({
-				sentryEndpoint: "https://a@getsentry.com/b"
-			});
-			oErrors.destroy();
-			expect(window.onerror).to.be(false);
-		});
+		document.dispatchEvent(new CustomEvent("oErrors.log", {
+			"detail": {
+				error: new Error("My custom error"),
+				info: { "additional": "info" }
+			}
+		}));
 	});
 });
