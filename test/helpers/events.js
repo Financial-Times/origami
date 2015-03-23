@@ -1,11 +1,8 @@
-/* global o */
 'use strict';
-if (!window.o) {
-	window.o = {};
-}
+
 var nativeNonBubblers = ['error', 'blur', 'focus', 'scroll', 'resize'];
 
-o.fireEvent = function (el, event, data) {
+var fireEvent = function (el, event, data) {
 	var evt = document.createEvent('HTMLEvents');
 	evt.initEvent(event, !(nativeNonBubblers.indexOf(event) > -1), true); // jshint ignore:line
 	data && Object.keys(data).forEach(function (key) {
@@ -14,9 +11,14 @@ o.fireEvent = function (el, event, data) {
 	el.dispatchEvent(evt);
 };
 
-o.fireCustomEvent = function (el, event, data) {
+var fireCustomEvent = function (el, event, data) {
 	el.dispatchEvent(new CustomEvent(event, {
 		detail: data,
 		bubbles: true
 	}));
 };
+
+module.exports = {
+	fireEvent: fireEvent,
+	fireCustomEvent: fireCustomEvent
+}

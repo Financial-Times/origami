@@ -1,6 +1,7 @@
-/* global afterEach, beforeEach, describe, it, o, expect, spyOn */
+/* global require, afterEach, beforeEach, describe, it, expect, spyOn */
 'use strict';
 
+var o = require('../helpers/events');
 var Overlay;
 var testContent = '<div class="test-overlay"><span class="test-overlay__text">Hello Overlay</span></div>';
 
@@ -37,7 +38,7 @@ describe('smoke-tests (./overlay.js)', function() {
 			triggerEl.parentNode.removeChild(triggerEl);
 		});
 
-		it('should open with correct content when trigger is clicked', function() {
+		it('should open with correct content when trigger is clicked', function(done) {
 			var trigger = document.querySelector('.o-overlay-trigger');
 			o.fireEvent(trigger, 'click');
 			var overlays = document.querySelectorAll('.o-overlay');
@@ -45,23 +46,30 @@ describe('smoke-tests (./overlay.js)', function() {
 
 			Overlay.init();
 
+			function overlayReadyHandler() {
+				var wrapper = document.querySelectorAll('.o-overlay');
+				var content = wrapper[0].querySelectorAll('.o-overlay__content');
+				var heading = wrapper[0].querySelectorAll('.o-overlay__heading');
+				var shadow = document.querySelectorAll('.o-overlay-shadow');
+				var close = heading[0].querySelectorAll('.o-overlay__close');
+				var testBody = content[0].querySelectorAll('.test-overlay');
+
+				expect(wrapper.length).toBe(1);
+				expect(content.length).toBe(1);
+				expect(shadow.length).toBe(1);
+				expect(heading.length).toBe(1);
+				expect(close.length).toBe(1);
+				expect(testBody.length).toBe(1);
+
+				Overlay.getOverlays()['testOverlay'].close();
+				document.body.removeEventListener('oOverlay.ready', overlayReadyHandler);
+
+				done();
+			}
+
+			document.body.addEventListener('oOverlay.ready', overlayReadyHandler);
+
 			o.fireEvent(trigger, 'click');
-
-			var wrapper = document.querySelectorAll('.o-overlay'),
-			content = wrapper[0].querySelectorAll('.o-overlay__content'),
-			heading = wrapper[0].querySelectorAll('.o-overlay__heading'),
-			shadow = document.querySelectorAll('.o-overlay-shadow'),
-			close = heading[0].querySelectorAll('.o-overlay__close'),
-			testBody = content[0].querySelectorAll('.test-overlay');
-
-			expect(wrapper.length).toBe(1);
-			expect(content.length).toBe(1);
-			expect(shadow.length).toBe(1);
-			expect(heading.length).toBe(1);
-			expect(close.length).toBe(1);
-			expect(testBody.length).toBe(1);
-
-			o.fireEvent(close[0], 'click');
 
 		});
 		it('modal should be closable with esc key, close button and with new layer', function() {
@@ -140,8 +148,6 @@ describe('smoke-tests (./overlay.js)', function() {
 			expect(Overlay.prototype.closeOnEscapePress).not.toHaveBeenCalled();
 
 		});
-
-
 
 		it('should be possible to open and close imperatively', function() {
 			var mod = new Overlay('testOverlay', {
