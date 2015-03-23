@@ -1,23 +1,16 @@
 {
-	"name": "o-overlay",
-	"private": true,
-	"scripts": {
-		"test": "grunt test"
-	},
-	"devDependencies": {
-		"grunt": "0.4.x",
-		"debowerify": "~0.5.2",
-		"load-grunt-config": "~0.7.0",
-		"grunt-istanbul": "~0.2.4",
-		"grunt-contrib-jshint": "~0.8.0",
-		"karma-chrome-launcher": "0.1.2",
-		"karma-jasmine": "0.2.1",
-		"karma-html-reporter": "0.1.3",
-		"karma-browserify": "0.1.0",
-		"karma-phantomjs-launcher": "0.1.2",
-		"grunt-karma": "0.8.0",
-		"browserify": "3.29.1",
-		"karma": "0.12.0",
-		"nightwatch": "^0.5.36"
-	}
+  "name": "o-overlay",
+  "private": true,
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start karma.conf.js"
+  },
+  "devDependencies": {
+    "debowerify": "Financial-Times/debowerify",
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-browserify": "^3.0.0",
+    "karma-jasmine": "^0.2.2",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "nightwatch": "^0.5.36"
+  }
 }
