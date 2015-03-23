@@ -13,7 +13,7 @@ provided by the error aggregator, Sentry.
 This will automatically configure `o-errors` and will begin reporting any
 uncaught errors using `window.onerror`.
 
-```
+```HTML
 <link rel="oErrors:sentryEndpoint" href="https://dsn@app.getsentry.com/appid" />
 ```
 
@@ -27,7 +27,7 @@ configuration options section.
 For example, to tag each error with the current version of your application
 include:
 
-```
+```HTML
 <meta name="oErrors:siteVersion" content="v1.0.0">
 ```
 
@@ -38,7 +38,7 @@ This means when you `require` it you'll get the same instance.
 
 #### Initialisation
 
-```
+```JS
 var oErrors = require('o-errors');
 oErrors.init({
 	sentryEndpoint: "https://dsn@app.getsentry.com/appid",
@@ -61,7 +61,7 @@ context to it:
 errors thrown while executing the function are caught and reported to the
 error aggregator, along with the additional context data.
 
-```
+```JS
 function renderAll(components) {
   components.forEach(render);
 }
@@ -72,6 +72,12 @@ var wrappedFunction = oErrors.wrapWithContext({ componentsToRender: components }
 
 wrappedFunction(components);
 ```
+
+Similar to `wrapWithContext` is `wrap` which does not accept a context
+argument.
+
+`oErrors.wrap(fn)` - Wrap a function so that any uncaught errors thrown while
+executing the function are caught and reported.
 
 
 
