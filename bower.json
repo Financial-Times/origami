@@ -23,7 +23,6 @@
   ],
   "private": true,
   "devDependencies": {
-    "o-techdocs": "https://github.com/Financial-Times/o-techdocs.git#1.0.0",
     "jquery": "2.0.x"
   }
 }
