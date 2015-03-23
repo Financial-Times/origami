@@ -1,3 +1,4 @@
+'use strict';
 var oErrors = require('../main');
 var expect = require('expect.js');
 
