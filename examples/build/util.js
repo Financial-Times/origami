@@ -2,7 +2,7 @@ require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof requ
 /*global require*/
 /*jshint -W098 */
 var util = require('util');
-},{"util":"p2BnaY"}],2:[function(require,module,exports){
+},{"util":"5heWU0"}],2:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -89,7 +89,7 @@ module.exports = function isBuffer(arg) {
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],"p2BnaY":[function(require,module,exports){
+},{}],"5heWU0":[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -678,7 +678,7 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-}).call(this,require("/Users/mark.stephens/Sites/origami-tracking/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":4,"/Users/mark.stephens/Sites/origami-tracking/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":3,"inherits":2}],"util":[function(require,module,exports){
-module.exports=require('p2BnaY');
+}).call(this,require("/Users/mark.stephens/Sites/frontend/origami-tracking/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./support/isBuffer":4,"/Users/mark.stephens/Sites/frontend/origami-tracking/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":3,"inherits":2}],"util":[function(require,module,exports){
+module.exports=require('5heWU0');
 },{}]},{},[1])

@@ -51,6 +51,8 @@
             
                 <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
             
+                <li><a href="../classes/Track._Core.Session.html">Track._Core.Session</a></li>
+            
                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
             
                 <li><a href="../classes/Track._Core.User.html">Track._Core.User</a></li>
@@ -136,13 +138,14 @@
  * @static
  */
 
-/*global module, require, window*/
-module.exports = (function (window) {
+/*global module, require */
+module.exports = (function () {
     &quot;use strict&quot;;
 
     var
         Send = require(&quot;./core/send&quot;),
         User = require(&quot;./core/user&quot;),
+        Session = require(&quot;./core/session&quot;),
 
         /**
          * Shared &quot;internal&quot; scope.
@@ -177,9 +180,7 @@ module.exports = (function (window) {
      * @return {String|*} The ClickID.
      */
     function clickID(click_id) {
-        if (utils.isUndefined(click_id)) {
-            click_id = &quot;t&quot; + (new Date()).valueOf() + &quot;h&quot; + window.history.length;
-        }
+        click_id = requestID(click_id);
         defaultConfig.clickID = click_id;
         return click_id;
     }
@@ -229,6 +230,7 @@ module.exports = (function (window) {
             userID: User.userID(),
             clickID: request.clickID,
             requestID: requestID(), // Used for the queue
+            session: Session.session(),
             counter: internalCounter()
         }, request);
 
@@ -242,7 +244,7 @@ module.exports = (function (window) {
         getClickID: function () { return defaultConfig.clickID; },
         track: track
     };
-}(window));
+}());
 
     </pre>
 </div>

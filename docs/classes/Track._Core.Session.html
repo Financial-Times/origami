@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Track._Core.User - Origami Tracking module</title>
+    <title>Track._Core.Session - Origami Tracking module</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -126,7 +126,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Track._Core.User Class</h1>
+                        <h1>Track._Core.Session Class</h1>
 <div class="box meta">
     
 
@@ -134,7 +134,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/build_docs_core_user.js.html#l1"><code>build&#x2F;docs&#x2F;core&#x2F;user.js:1</code></a>
+            Defined in: <a href="../files/build_docs_core_session.js.html#l1"><code>build&#x2F;docs&#x2F;core&#x2F;session.js:1</code></a>
         </div>
     
 
@@ -151,8 +151,8 @@
 
 
 <div class="box intro">
-    <p>Class for user.
-Handling the user identifier.</p>
+    <p>Class for our session.
+Generate a session for tracking use only - note this is only an approximation of a session for the realtime feed, a &#39;real&#39; session will be calculated later.</p>
 
 </div>
 
@@ -181,7 +181,21 @@ Handling the user identifier.</p>
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
+                                <a href="#method_getSession">getSession</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
                                 <a href="#method_init">init</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_setSession">setSession</a>
 
                                 
                                 
@@ -201,6 +215,79 @@ Handling the user identifier.</p>
         
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method_getSession" class="method item">
+    <h3 class="name"><code>getSession</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">String</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/build_docs_core_session.js.html#l42"><code>build&#x2F;docs&#x2F;core&#x2F;session.js:42</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Get the session from the store. Expiry and gen of a new session are handled here.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">String</span>:
+                    
+                    <p>the current session</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
 
                 
                     <div id="method_init" class="method item">
@@ -245,7 +332,7 @@ Handling the user identifier.</p>
             
         
         
-        <a href="../files/build_docs_core_user.js.html#l26"><code>build&#x2F;docs&#x2F;core&#x2F;user.js:26</code></a>
+        <a href="../files/build_docs_core_session.js.html#l72"><code>build&#x2F;docs&#x2F;core&#x2F;session.js:72</code></a>
         
         </p>
 
@@ -275,7 +362,7 @@ Handling the user identifier.</p>
                     
 
                     <div class="param-description">
-                        <p>The value of a userID to use or configuration object.</p>
+                        <p>The name used to store the session or configuration object.</p>
 
                     </div>
 
@@ -286,6 +373,111 @@ Handling the user identifier.</p>
         </div>
     
 
+    
+
+    
+</div>
+
+                
+                    <div id="method_setSession" class="method item">
+    <h3 class="name"><code>setSession</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>str</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/build_docs_core_session.js.html#l26"><code>build&#x2F;docs&#x2F;core&#x2F;session.js:26</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Set the session in the store.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">str</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The session to be stored.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                    <p>None</p>
+
+                
+            </div>
+        </div>
     
 
     

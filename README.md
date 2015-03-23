@@ -179,15 +179,30 @@ Both JS and non-JS versions take the same parameters.
 * `error`: `4xx` / `5xx` / `5nn` - Is this an error page? What type?
 * `searchQuery`: `` Internal (meaning onsite) search query.
 
+### Session
+* `session`: `` - Name to use to store the tracking session.
+
+    Alternatively, pass an object to force use of a cookie or change the expiry. e.g.
+
+        {
+            storage: 'cookie',
+            name: 'mysession',
+            expires: (10 * 60 * 1000) // 10 minutes
+        }
 ### User
 * `userID`: `` - A unique, persistent identifier for the user.  VERY OPTIONAL.
-        Values can be a string or object. A good strategy is to pass the product's old value - used before oTracking. Then oTracking can store it as necessary.
-        If passing an object - example:
-        ```{
-              storage: 'cookie',
-              name: 'SIVISITOR',
-              value: getValueFromCookie(/SIVISITOR=([\w\*]+);?/)
-          }```
+    Value can be a string or object.
+
+    Use a string to carry on a previous value - then oTracking can store it it's own way.
+
+    Use an object to set the name of the storage.
+    Example - if passing an object:
+
+        {
+            storage: 'cookie',
+            name: 'SIVISITOR',
+            value: getValueFromCookie(/SIVISITOR=([\w\*]+);?/)
+        }
 * `cohort`: `3` / `1` / `2` - The user's subscription level.
 * `passportID`: `4009049153` - The user's passport ID.
 * `country`: `GBR` - The user's country.
@@ -196,7 +211,9 @@ Both JS and non-JS versions take the same parameters.
 
 ### Marketing
 * `ftcamp`: `` - FT Camp parameter.
+* `segid`: `` - Segment parameter used for attribution.
 * `campaign`: `` - Campaign parameter.
+* `segmentid`: `` - Segment parameter used for attribution.
 
 
 
@@ -206,6 +223,7 @@ Both JS and non-JS versions take the same parameters.
 The following will get you setup:
 * Check out the code
 * `npm install`
+* `bower install`
 * `grunt`
 
 The following grunt tasks are available:

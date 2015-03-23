@@ -23,6 +23,7 @@
         'searchQuery',
         // User
         'userID',
+        'session',
         'cohort',
         'passportID',
         'country',
@@ -31,6 +32,8 @@
         // Marketing
         'ftcamp',
         'campaign',
+        'segid',
+        'segmentID',
         // Implementation
         'offlineLag',
         'queueTime'

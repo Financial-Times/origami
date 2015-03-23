@@ -51,6 +51,8 @@
             
                 <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
             
+                <li><a href="../classes/Track._Core.Session.html">Track._Core.Session</a></li>
+            
                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
             
                 <li><a href="../classes/Track._Core.User.html">Track._Core.User</a></li>
@@ -159,11 +161,11 @@ module.exports = (function () {
      * @param config {String|Object} The value of a userID to use or configuration object.
      */
     function init(config) {
-        if (typeof config === &#x27;string&#x27;) {
+        if (utils.is(config, &#x27;string&#x27;)) {
             config = { value: config };
         }
 
-        if (typeof config === &#x27;undefined&#x27;) {
+        if (utils.is(&#x27;undefined&#x27;)) {
             config = {};
         }
 

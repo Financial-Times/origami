@@ -28,6 +28,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "build/docs/core/session.js": {
+            "name": "build/docs/core/session.js",
+            "modules": {
+                "Store": 1
+            },
+            "classes": {
+                "Track._Core.Session": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "build/docs/core/settings.js": {
             "name": "build/docs/core/settings.js",
             "modules": {},
@@ -39,9 +50,7 @@
         },
         "build/docs/core/store.js": {
             "name": "build/docs/core/store.js",
-            "modules": {
-                "Store": 1
-            },
+            "modules": {},
             "classes": {
                 "Track._Core.Store": 1
             },
@@ -146,6 +155,7 @@
             "classes": {
                 "Queue": 1,
                 "Track._Core.Send": 1,
+                "Track._Core.Session": 1,
                 "Track._Core.Store": 1,
                 "Track._Core.User": 1,
                 "Track._Core": 1
@@ -197,6 +207,38 @@
             "description": "Queuing and sending tags\nKeep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request.",
             "static": 1
         },
+        "Store": {
+            "name": "Store",
+            "submodules": {},
+            "classes": {
+                "Track._Core.Session": 1,
+                "Track._Core.Store": 1,
+                "Track._Core.User": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "_Core",
+            "namespace": "",
+            "file": "build/docs/core/user.js",
+            "line": 1,
+            "description": "Class for our session.\nGenerate a session for tracking use only - note this is only an approximation of a session for the realtime feed, a 'real' session will be calculated later.",
+            "static": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the store.",
+                    "type": "String"
+                },
+                {
+                    "name": "config",
+                    "description": "Optional config object for extra configuration.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "is_constructor": 1
+        },
         "Track": {
             "name": "Track",
             "submodules": {
@@ -225,37 +267,6 @@
             "itemtype": "main",
             "static": 1,
             "type": "{*}"
-        },
-        "Store": {
-            "name": "Store",
-            "submodules": {},
-            "classes": {
-                "Track._Core.Store": 1,
-                "Track._Core.User": 1
-            },
-            "fors": {},
-            "is_submodule": 1,
-            "namespaces": {},
-            "module": "_Core",
-            "namespace": "",
-            "file": "build/docs/core/user.js",
-            "line": 1,
-            "description": "Class for storing data\nWill choose the \"best\" storage method available. Can also specify a type of storage.",
-            "params": [
-                {
-                    "name": "name",
-                    "description": "The name of the store.",
-                    "type": "String"
-                },
-                {
-                    "name": "config",
-                    "description": "Optional config object for extra configuration.",
-                    "type": "Object",
-                    "optional": true
-                }
-            ],
-            "is_constructor": 1,
-            "static": 1
         },
         "data": {
             "name": "data",
@@ -319,7 +330,7 @@
             "file": "build/docs/page.js",
             "line": 1,
             "description": "Page functionality. For tracking a page.",
-            "static": "Params:\n       // Site\n       'channel',\n       // Page\n       'url',\n       'uuid',\n       'pageSubsLevel',\n       'siteMap',\n       'title',\n       'assetType',\n       'edition',\n       'brand',\n       'theme',\n       'hurdle',\n       'error',\n       'searchQuery',\n       // User\n       'userID',\n       'cohort',\n       'passportID',\n       'country',\n       'region',\n       'metroArea',\n       // Marketing\n       'ftcamp',\n       'campaign',\n       // Implementation\n       'offlineLag',\n       'queueTime'"
+            "static": "Params:\n       // Site\n       'channel',\n       // Page\n       'url',\n       'uuid',\n       'pageSubsLevel',\n       'siteMap',\n       'title',\n       'assetType',\n       'edition',\n       'brand',\n       'theme',\n       'hurdle',\n       'error',\n       'searchQuery',\n       // User\n       'userID',\n       'session',\n       'cohort',\n       'passportID',\n       'country',\n       'region',\n       'metroArea',\n       // Marketing\n       'ftcamp',\n       'campaign',\n       'segid',\n       'segmentID',\n       // Implementation\n       'offlineLag',\n       'queueTime'"
         },
         "_Utils": {
             "name": "_Utils",
@@ -368,6 +379,21 @@
             "file": "build/docs/core/send.js",
             "line": 1,
             "description": "Queuing and sending tags\nKeep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request."
+        },
+        "Track._Core.Session": {
+            "name": "Track._Core.Session",
+            "shortname": "Track._Core.Session",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "_Core",
+            "submodule": "Store",
+            "namespace": "",
+            "file": "build/docs/core/session.js",
+            "line": 1,
+            "description": "Class for our session.\nGenerate a session for tracking use only - note this is only an approximation of a session for the realtime feed, a 'real' session will be calculated later."
         },
         "Settings": {
             "name": "Settings",
@@ -856,6 +882,57 @@
             "submodule": "Send"
         },
         {
+            "file": "build/docs/core/session.js",
+            "line": 26,
+            "description": "Set the session in the store.",
+            "itemtype": "method",
+            "name": "setSession",
+            "params": [
+                {
+                    "name": "str",
+                    "description": "The session to be stored.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "None"
+            },
+            "class": "Track._Core.Session",
+            "module": "_Core",
+            "submodule": "Store"
+        },
+        {
+            "file": "build/docs/core/session.js",
+            "line": 42,
+            "description": "Get the session from the store. Expiry and gen of a new session are handled here.",
+            "itemtype": "method",
+            "name": "getSession",
+            "return": {
+                "description": "the current session",
+                "type": "String"
+            },
+            "class": "Track._Core.Session",
+            "module": "_Core",
+            "submodule": "Store"
+        },
+        {
+            "file": "build/docs/core/session.js",
+            "line": 72,
+            "description": "Init",
+            "itemtype": "method",
+            "name": "init",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "The name used to store the session or configuration object.",
+                    "type": "String|Object"
+                }
+            ],
+            "class": "Track._Core.Session",
+            "module": "_Core",
+            "submodule": "Store"
+        },
+        {
             "file": "build/docs/core/store.js",
             "line": 18,
             "description": "Internal Storage key prefix.",
@@ -980,7 +1057,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 17,
+            "line": 18,
             "description": "Shared \"internal\" scope.",
             "itemtype": "property",
             "name": "_self",
@@ -993,7 +1070,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 26,
+            "line": 27,
             "description": "Default properties for sending a tracking request.",
             "itemtype": "property",
             "name": "defaultConfig",
@@ -1009,7 +1086,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 43,
+            "line": 44,
             "description": "Generate and store a new ClickID.",
             "itemtype": "method",
             "name": "clickID",
@@ -1030,7 +1107,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 57,
+            "line": 56,
             "description": "Create a requestID (unique identifier) for the page impression.",
             "itemtype": "method",
             "name": "requestID",
@@ -1053,7 +1130,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 72,
+            "line": 71,
             "description": "Count of the number of tracking requests made.",
             "itemtype": "method",
             "name": "internalCounter",
@@ -1069,7 +1146,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 83,
+            "line": 82,
             "description": "Make a tracking request.",
             "itemtype": "method",
             "name": "track",
@@ -1449,7 +1526,7 @@
         },
         {
             "file": "build/docs/main.js",
-            "line": 110,
+            "line": 113,
             "description": "Overload toString method to show the version.",
             "itemtype": "method",
             "name": "toString",
@@ -1462,7 +1539,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 46,
+            "line": 49,
             "description": "Shared \"internal\" scope.",
             "itemtype": "property",
             "name": "_self",
@@ -1475,7 +1552,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 55,
+            "line": 58,
             "description": "Default properties for page tracking requests.",
             "example": [
                 "\n        {\n        url: document.URL,\n        referrer: document.referrer,\n\n        co: window.screen.colorDepth,\n        sr: window.screen.width + 'x' + window.screen.height,\n        lt: utils.toISOString(new Date()),\n        jv: (window.navigator.javaEnabled() ? '1' : '0'),\n\n        async: false // Send this tag syncronously\n        }"
@@ -1491,7 +1568,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 87,
+            "line": 90,
             "description": "Constructs a URL in the format required by iJento, allowing different inputs.",
             "itemtype": "method",
             "name": "url",
@@ -1514,7 +1591,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 117,
+            "line": 120,
             "description": "Make the page tracking request.",
             "itemtype": "method",
             "name": "page",

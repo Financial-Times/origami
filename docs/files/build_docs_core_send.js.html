@@ -51,6 +51,8 @@
             
                 <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
             
+                <li><a href="../classes/Track._Core.Session.html">Track._Core.Session</a></li>
+            
                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
             
                 <li><a href="../classes/Track._Core.User.html">Track._Core.User</a></li>
@@ -177,7 +179,7 @@ module.exports = (function (window) {
 
             // Check if the XMLHttpRequest object has a &quot;withCredentials&quot; property.
             // &quot;withCredentials&quot; only exists on XMLHTTPRequest2 objects.
-            if (typeof xmlHttp.withCredentials !== &quot;undefined&quot;) {
+            if (!utils.is(xmlHttp.withCredentials)) {
                 return {
                     xmlHttp: xmlHttp,
                     XDomainRequest: false
@@ -186,7 +188,7 @@ module.exports = (function (window) {
 
             // Otherwise, check if XDomainRequest.
             // XDomainRequest only exists in IE, and is IE&#x27;s way of making CORS requests.
-            if (typeof window.XDomainRequest !== &quot;undefined&quot;) {
+            if (!utils.is(window.XDomainRequest)) {
                 return {
                     xmlHttp: new window.XDomainRequest(),
                     XDomainRequest: true

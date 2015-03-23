@@ -219,7 +219,7 @@ module.exports = (function (window) {
         // Listen for page requests. If this is a single page app, we can send link requests now.
         utils.onPage(runQueue);
 
-        if (typeof config === "undefined") {
+        if (utils.is(config)) {
             config = {};
         }
         config = utils.merge({
@@ -233,7 +233,7 @@ module.exports = (function (window) {
             callback = config.callback;
         }
 
-        if (config.links && typeof config.links === "object" && config.links.constructor.toString().match(/array/i)) {
+        if (config.links && utils.is(config.links, "object") && config.links.constructor.toString().match(/array/i)) {
             links = config.links;
 
             for (i = 0; i < links.length; i = i + 1) {

@@ -29,11 +29,11 @@ module.exports = (function () {
      * @param config {String|Object} The value of a userID to use or configuration object.
      */
     function init(config) {
-        if (typeof config === 'string') {
+        if (utils.is(config, 'string')) {
             config = { value: config };
         }
 
-        if (typeof config === 'undefined') {
+        if (utils.is('undefined')) {
             config = {};
         }
 

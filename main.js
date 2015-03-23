@@ -99,6 +99,9 @@ module.exports = (function () {
         // User identifier
         require("./src/javascript/core/user").init(config.userID);
 
+        // Session
+        require("./src/javascript/core/session").init(config.session);
+
         // Initialize the sending queue.
         require("./src/javascript/core/send").init();
 

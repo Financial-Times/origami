@@ -6,6 +6,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Track",
         "Track._Core",
         "Track._Core.Send",
+        "Track._Core.Session",
         "Track._Core.Store",
         "Track._Core.User",
         "Track._Utils",
@@ -70,7 +71,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Store",
             "name": "Store",
-            "description": "Class for storing data\nWill choose the \"best\" storage method available. Can also specify a type of storage."
+            "description": "Class for our session.\nGenerate a session for tracking use only - note this is only an approximation of a session for the realtime feed, a 'real' session will be calculated later."
         },
         {
             "displayName": "Track",

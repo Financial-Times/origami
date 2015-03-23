@@ -6,13 +6,14 @@
  * @static
  */
 
-/*global module, require, window*/
-module.exports = (function (window) {
+/*global module, require */
+module.exports = (function () {
     "use strict";
 
     var
         Send = require("./core/send"),
         User = require("./core/user"),
+        Session = require("./core/session"),
 
         /**
          * Shared "internal" scope.
@@ -47,9 +48,7 @@ module.exports = (function (window) {
      * @return {String|*} The ClickID.
      */
     function clickID(click_id) {
-        if (utils.isUndefined(click_id)) {
-            click_id = "t" + (new Date()).valueOf() + "h" + window.history.length;
-        }
+        click_id = requestID(click_id);
         defaultConfig.clickID = click_id;
         return click_id;
     }
@@ -99,6 +98,7 @@ module.exports = (function (window) {
             userID: User.userID(),
             clickID: request.clickID,
             requestID: requestID(), // Used for the queue
+            session: Session.session(),
             counter: internalCounter()
         }, request);
 
@@ -112,4 +112,4 @@ module.exports = (function (window) {
         getClickID: function () { return defaultConfig.clickID; },
         track: track
     };
-}(window));
+}());

@@ -34,8 +34,8 @@ describe('page', function () {
         server.respond();
         sent_data = callback.getCall(0).thisValue;
 
-        assert.deepEqual(Object.keys(sent_data), ["userID", "clickID", "requestID", "counter", "type", "url", "referrer", "color", "screenRes", "localTime", "java", "js", "queueTime"]);
-        assert.ok(/t\d+h\d/.test(sent_data.clickID), "ClickID is invalid. " + sent_data.clickID);
+        assert.deepEqual(Object.keys(sent_data), ["userID", "clickID", "requestID", "session", "counter", "type", "url", "referrer", "color", "screenRes", "localTime", "java", "js", "queueTime"]);
+        assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.clickID), "ClickID is invalid. " + sent_data.clickID);
         assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.requestID), "RequestID is invalid. " + sent_data.requestID);
         assert.equal(sent_data.userID, "userID");
         assert.equal(sent_data.counter, 1);

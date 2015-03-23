@@ -51,6 +51,8 @@
             
                 <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
             
+                <li><a href="../classes/Track._Core.Session.html">Track._Core.Session</a></li>
+            
                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
             
                 <li><a href="../classes/Track._Core.User.html">Track._Core.User</a></li>
@@ -228,6 +230,9 @@ module.exports = (function () {
 
         // User identifier
         require(&quot;./src/javascript/core/user&quot;).init(config.userID);
+
+        // Session
+        require(&quot;./src/javascript/core/session&quot;).init(config.session);
 
         // Initialize the sending queue.
         require(&quot;./src/javascript/core/send&quot;).init();

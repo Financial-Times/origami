@@ -51,6 +51,8 @@
             
                 <li><a href="../classes/Track._Core.Send.html">Track._Core.Send</a></li>
             
+                <li><a href="../classes/Track._Core.Session.html">Track._Core.Session</a></li>
+            
                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
             
                 <li><a href="../classes/Track._Core.User.html">Track._Core.User</a></li>
@@ -166,7 +168,7 @@ module.exports = (function () {
             throw new Error(&#x27;You must specify a name for the store.&#x27;);
         }
 
-        this.config = utils.merge({ storage: &#x27;best&#x27;, expires: (10 * 365) }, config);
+        this.config = utils.merge({ storage: &#x27;best&#x27;, expires: (10 * 365 * 24 * 60 * 60 * 1000) }, config);
 
         /**
          * Store data.
@@ -234,7 +236,7 @@ module.exports = (function () {
 
                 if (utils.is(expiry, &#x27;number&#x27;)) {
                     d = new Date();
-                    d.setTime(d.getTime() + (expiry * 24 * 60 * 60 * 1000));
+                    d.setTime(d.getTime() + expiry);
                     expires = &quot;expires=&quot; + d.toGMTString() + &#x27;;&#x27;;
                 }
 

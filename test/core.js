@@ -9,7 +9,7 @@ describe('Core', function () {
     describe('clickID', function () {
         it('should generate a clickID', function () {
             var clickID = Core.setClickID(),
-                re = /t\d{13}h\d/;
+                re = /\d+\.\d+\.\d+\.\d+\.[\-\w]+/;
             assert.ok(clickID.match(re), "'" + clickID + "'.match(" + re + ")");
         });
 
@@ -24,6 +24,7 @@ describe('Core', function () {
         before(function () {
             require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
             (new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
+            require("../src/javascript/core/session").init(); // Session
             require("../src/javascript/core/send").init(); // Init the sender.
 
             server = sinon.fakeServer.create(); // Catch AJAX requests
@@ -50,7 +51,7 @@ describe('Core', function () {
 
             sent_data = callback.getCall(0).thisValue;
 
-            assert.deepEqual(Object.keys(sent_data), ["userID", "clickID", "requestID", "counter", "type", "url", "queueTime"]);
+            assert.deepEqual(Object.keys(sent_data), ["userID", "clickID", "requestID", "session", "counter", "type", "url", "queueTime"]);
             assert.equal(sent_data.clickID, "clickID");
             assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.requestID), "RequestID is invalid. " + sent_data.requestID);
             assert.equal(sent_data.userID, "userID");

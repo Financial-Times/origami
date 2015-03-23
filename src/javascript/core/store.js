@@ -36,7 +36,7 @@ module.exports = (function () {
             throw new Error('You must specify a name for the store.');
         }
 
-        this.config = utils.merge({ storage: 'best', expires: (10 * 365) }, config);
+        this.config = utils.merge({ storage: 'best', expires: (10 * 365 * 24 * 60 * 60 * 1000) }, config);
 
         /**
          * Store data.
@@ -104,7 +104,7 @@ module.exports = (function () {
 
                 if (utils.is(expiry, 'number')) {
                     d = new Date();
-                    d.setTime(d.getTime() + (expiry * 24 * 60 * 60 * 1000));
+                    d.setTime(d.getTime() + expiry);
                     expires = "expires=" + d.toGMTString() + ';';
                 }
 

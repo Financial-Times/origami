@@ -47,7 +47,7 @@ module.exports = (function (window) {
 
             // Check if the XMLHttpRequest object has a "withCredentials" property.
             // "withCredentials" only exists on XMLHTTPRequest2 objects.
-            if (typeof xmlHttp.withCredentials !== "undefined") {
+            if (!utils.is(xmlHttp.withCredentials)) {
                 return {
                     xmlHttp: xmlHttp,
                     XDomainRequest: false
@@ -56,7 +56,7 @@ module.exports = (function (window) {
 
             // Otherwise, check if XDomainRequest.
             // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-            if (typeof window.XDomainRequest !== "undefined") {
+            if (!utils.is(window.XDomainRequest)) {
                 return {
                     xmlHttp: new window.XDomainRequest(),
                     XDomainRequest: true
