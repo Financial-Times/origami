@@ -209,7 +209,7 @@ Errors.prototype._initialiseDeclaratively = function() {
 	}
 
 	if (enableLogging) {
-		options.enableLogging = siteVersionMeta === "true";
+		options.enableLogging = siteVersionMeta.content === "true";
 	}
 
 	return options;
