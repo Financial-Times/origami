@@ -125,7 +125,7 @@ Errors.prototype.init = function(options) {
 		throw new Error('Unable to reconfigure error tracking.  This can only be configured once');
 	}
 
-	options = options || {};
+	options = options || this._initialiseDeclaratively();
 
 	if (!options.sentryEndpoint) {
 		throw new Error('Could not initialise o-errors: Sentry endpoint configuration missing.');
@@ -192,6 +192,27 @@ Errors.prototype._appendToLogList = function(logMessage) {
 	if (this._nextLogIndex === this._logList.length) {
 		this._nextLogIndex = 0;
 	}
+};
+
+Errors.prototype._initialiseDeclaratively = function() {
+	var sentryEndpointLink = document.querySelector('link[rel="oErrors:sentryEndpoint"]');
+	var siteVersionMeta    = document.querySelector('meta[name="oErrors:siteVersion"]');
+	var enableLogging      = document.querySelector('meta[name="oErrors:enableLogging"]');
+
+	var options = {};
+	if (sentryEndpointLink) {
+		options.sentryEndpoint = sentryEndpointLink.href;
+	}
+
+	if (siteVersionMeta) {
+		options.siteVersion = siteVersionMeta.content;
+	}
+
+	if (enableLogging) {
+		options.enableLogging = siteVersionMeta === "true";
+	}
+
+	return options;
 };
 
 // Given the simple circular buffer, roll up all of the previously logged
