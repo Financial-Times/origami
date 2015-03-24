@@ -3,6 +3,6 @@
 	"description": "Utility for moderating listeners for browser events on window",
 	"main": "main.js",
 	"dependencies": {
-		"lodash": "^3.5.0"
+		"lodash": "https://github.com/lodash/lodash.git#3.5.0-npm"
 	}
 }

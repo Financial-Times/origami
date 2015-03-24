@@ -1,6 +1,6 @@
 'use strict';
-var throttle = require('lodash/functions/throttle');
-var debounce = require('lodash/functions/debounce');
+var throttle = require('lodash/function/throttle');
+var debounce = require('lodash/function/debounce');
 var utils = require('./utils');
 
 var listeners = {};
