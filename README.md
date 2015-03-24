@@ -50,11 +50,12 @@ Use the following markup to enable comments:
 ```
 
 1. `{article-title}` the title of your article/post/thing
-2. `data-o-comments-autoconstruct="true"` automatically construct the component when `o.DOMContentLoaded` fires. A `false` value allows you to defer component initialisation
+2. `data-o-comments-autoconstruct="true"` automatically construct the component when `o.DOMContentLoaded` fires. A `false` value (or omitting this attribute) allows you to defer component initialisation
 3. `data-o-comments-config-articleId` a unique id for your content, ideally a UUID for FT content
 4. `{page-url}` The canonical URL for your article/page/thing
+5. `id` preferable to be set, but if missing it will be generated
 
-If you defer initialising oComments by  using`data-o-comments-autoconstruct="false"` then you can initialise the component by calling
+If you defer initialising oComments by  using `data-o-comments-autoconstruct="false"` then you can initialise the component by calling
 
 ```javascript
 oComments.initDomConstruct();
@@ -83,6 +84,22 @@ Load the component:
 ```javascript
 oComments.load();
 ```
+
+#### More about the constructor of Widget
+The configuration object which is passed to the contructor can/should have the following fields:
+
+###### Mandatory fields:
+ - elId: ID of the HTML element in which the widget should be loaded
+ - articleId: ID of the article, any string
+ - url: canonical URL of the page
+ - title: Title of the page
+    
+###### Optional fields:
+ - stream_type: livecomments, livechat, liveblog
+ - initExtension: object which contains key-value pairs which will be added to the Livefyre init object. For more information visit http://docs.livefyre.com/developers/app-integrations/comments/#convConfigObject
+ - stringOverrides: key-value pairs which override default LF strings. For more information visit http://docs.livefyre.com/developers/reference/customization/string-customizations/
+ - authPageReload: if authentication needs a page reload. By default it's false.
+ - tags: Tags which will be added to the collection in Livefyre
 
 ## <div id="login"></div> Login integration 
 Users need to have a valid FT session in order to post comments. The default behavior for a user without a valid session is to redirect to the FT's login page (https://registration.ft.com). However you may wish to integrate with your product's authentication process for a slicker UX in which case you can override the default behaviour.
@@ -140,22 +157,22 @@ All events have a payload of data to identify the originating component and any 
 }
 ```
 
-##### oComment.widget.timeout
+##### oComments.widget.timeout
 Triggered when loading the widget exceeded a given time.
 
-##### oComment.error.resources
+##### oComments.error.resources
 Triggered when the necessary resource files (e.g. Livefyre's core JS library) couldn't be loaded.
 Event detail data: error object/message.
 
-##### oComment.error.init
+##### oComments.error.init
 Error while loading the initialization data and the comments.
 Event detail data: error object/message.
 
-##### oComment.error.widget
+##### oComments.error.widget
 Triggered when any error appear (triggered together with the above mentioned error events).
 Event detail data: error object/message.
 
-##### oComment.data.init
+##### oComments.data.init
 Loaded when the initialization is finished and the necessary data is obtained.
 Event detail data: initialization data in the following form:
 
@@ -169,7 +186,7 @@ Event detail data: initialization data in the following form:
 }
 ```
 
-##### oComment.data.auth
+##### oComments.data.auth
 The first time the auth object is loaded, it is broadcasted using this event. Event detail data: authentication and user detail data in the following form:
 
 ```javascript
@@ -186,62 +203,74 @@ The first time the auth object is loaded, it is broadcasted using this event. Ev
 }
 ```
 
-##### oComment.widget.ready
+##### oComments.widget.ready
 The widget is ready to be rendered, the initialization process has finished.
 
-##### oComment.widget.load
+##### oComments.widget.load
 The Livefyre widget has loaded the necessary data and created a `Livefyre widget` instance, but not yet rendered it. The handler receives the Livefyre widget object as a parameter, access it using `detail.data.lfWidget`.
 
-##### oComment.widget.renderComplete
+##### oComments.widget.renderComplete
 The UI is fully rendered.
 
-##### oComment.tracking.postComment
+##### oComments.tracking.postComment
 A comment is posted.
-Event detail data: siteId, eventData, where eventData has the following structure:
+Event detail data: (evt.detail.data)
 
 ```javascript
 {
-  authorId: "_u2012@livefyre.com" // The ID of the Author of the comment 
-  parent: "893549" // The ID of the comment that this new comment is in reply to, else null
-  bodyHtml: "<p>42</p>" // The HTML of the submitted Content
-  sharedToFacebook: true // Whether the comment was also posted to Facebook
-  sharedToTwitter: false // Whether the comment was also posted to Twitter
+    lfEventData: {
+        authorId: "89488565@ft-1.fyre.co",
+        bodyHtml: "<p>test123</p>",
+        parent: "",
+        sharedToFacebook: false,
+        sharedToTwitter: false
+    },
+    siteId: 359898
 }
 ```
 
-##### oComment.tracking.likeComment
+##### oComments.tracking.likeComment
 A comment is recommended.
-Event detail data: siteId, lfEventData, where lfEventData has the following structure:
+Event detail data: (evt.detail.data)
 
 ```javascript
 {
-  targetId: "245625" // The ID of the comment that was liked
-  targetAuthorId: "i_am_author@livefyre.com" // The ID of the author of the comment that was liked
+    lfEventData: {
+        targetId: "245625" // The ID of the comment that was liked
+        targetAuthorId: "i_am_author@livefyre.com" // The ID of the author of the comment that was liked
+    },
+    siteId: 359898
 }
 ```
 
-##### oComment.tracking.shareComment
+##### oComments.tracking.shareComment
 A comment is shared.
-Event detail data: siteId, eventData, where eventData has the following structure:
+Event detail data: (evt.detail.data)
 
 ```javascript
 {
-  targetId: "256255" // The ID of the comment that was shared
-  sharedToFacebook: false // Whether the comment was shared to Facebook
-  sharedToTwitter: true // Whether the comment was shared to Twitter
+    lfEventData: {
+        targetId: "256255" // The ID of the comment that was shared
+        sharedToFacebook: false // Whether the comment was shared to Facebook
+        sharedToTwitter: true // Whether the comment was shared to Twitter
+    },
+    siteId: 359898
 }
 ```
 
-##### oComment.tracking.socialMention
+##### oComments.tracking.socialMention
 A user sent a social mention through a comment.
-Event detail data: siteId, eventData, where eventData has the following structure:
+Event detail data: (evt.detail.data)
 
 ```javascript
 {
-  id: '111111@fb.gw.livefyre.com' // ID of the mentioned user
-  displayName: 'testUser' // Display name of mentioned user
-  message: "@testUser Wow, I can't believe it either!" // Message that was sent to the particular user
-  provider: 'twitter' // Provider to which the mention was shared
+    lfEventData: {
+        id: '111111@fb.gw.livefyre.com' // ID of the mentioned user
+        displayName: 'testUser' // Display name of mentioned user
+        message: "@testUser Wow, I can't believe it either!" // Message that was sent to the particular user
+        provider: 'twitter' // Provider to which the mention was shared
+    },
+    siteId: 359898
 }
 ```
 
