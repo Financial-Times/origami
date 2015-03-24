@@ -1,0 +1,14 @@
+{
+	"options": {
+		"sass": "demos/src/demo.scss",
+		"dependencies": [
+			"o-fonts@^1.4.0"
+		]
+	},
+	"demos": [
+		{
+			"name": "individual",
+			"template": "demos/src/individual.mustache"
+		}
+	]
+}
