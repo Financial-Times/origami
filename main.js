@@ -1,129 +1,69 @@
-/* globals console */
 'use strict';
 
-var throttle = require('lodash-node/modern/functions/throttle');
-var debounce = require('lodash-node/modern/functions/debounce');
 var debug;
-var initFlags = {};
-var intervals = {
-	resize: 100,
-	orientation: 100,
-	scroll: 100
-};
-
-function broadcast(eventType, data) {
-	if (debug) {
-		console.log('o-viewport', eventType, data);
-	}
-
-	document.body.dispatchEvent(new CustomEvent('oViewport.' + eventType, {
-		detail: data,
-		bubbles: true
-	}));
-}
-
-function getOrientation() {
-	var orientation = window.screen.orientation || window.screen.mozOrientation || window.screen.msOrientation || undefined;
-	if (orientation) {
-		return typeof orientation === 'string' ?
-			orientation.split('-')[0] :
-			orientation.type.split('-')[0];
-	} else if (window.matchMedia) {
-		return window.matchMedia('(orientation: portrait)').matches ? 'portrait' : 'landscape';
-	} else {
-		return window.innerHeight >= window.innerWidth ? 'portrait' : 'landscape';
-	}
-}
-
-function getSize() {
-	return {
-		height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
-		width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-	};
-}
-
-function setThrottleInterval(eventType, interval) {
-	if (typeof arguments[0] === 'number') {
-		setThrottleInterval('scroll', arguments[0]);
-		setThrottleInterval('resize', arguments[1]);
-		setThrottleInterval('orientation', arguments[2]);
-	} else if (interval) {
-		intervals[eventType] = interval;
-	}
-}
-
-function init(eventType) {
-	if (initFlags[eventType]) {
-		return true;
-	}
-
-	initFlags[eventType] = true;
-	return false;
-}
-
-function listenToResize() {
-
-	if (init('resize')) {
-		return;
-	}
-
-	window.addEventListener('resize', debounce(function(ev) {
-		broadcast('resize', {
-			viewport: getSize(),
-			originalEvent: ev
-		});
-	}, intervals.resize));
-}
-
-function listenToOrientation() {
-
-	if (init('orientation')) {
-		return;
-	}
-
-	window.addEventListener('orientationchange', debounce(function(ev) {
-		broadcast('orientation', {
-			viewport: getSize(),
-			orientation: getOrientation(),
-			originalEvent: ev
-		});
-	}, intervals.orientation));
-}
-
-function listenToScroll() {
-
-	if (init('scroll')) {
-		return;
-	}
-
-	window.addEventListener('scroll', throttle(function(ev) {
-		broadcast('scroll', {
-			viewport: getSize(),
-			scrollHeight: document.body.scrollHeight,
-			scrollLeft: (document.documentElement && document.documentElement.scrollLeft) || document.body.scrollLeft,
-			scrollTop: (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop,
-			scrollWidth: document.body.scrollWidth,
-			originalEvent: ev
-		});
-	}, intervals.scroll));
-}
+var utils = require('./src/utils');
+var viewport = require('./src/viewport.js');
+var tracking = require('./src/tracking.js');
 
 function listenTo(eventType) {
 	if (eventType === 'resize') {
-		listenToResize();
+		viewport.listenToResize();
 	} else if (eventType === 'scroll') {
-		listenToScroll();
+		viewport.listenToScroll();
 	} else if (eventType === 'orientation') {
-		listenToOrientation();
+		viewport.listenToOrientation();
+	} else if (eventType === 'visibility') {
+		viewport.listenToVisibility();
 	}
 }
+
+function trackElements(selector){
+	var elements;
+	selector = typeof selector === 'string' ? selector : '[data-o-viewport-track]';
+	try{
+		elements = document.querySelectorAll(selector);
+	} catch(err){
+		if (debug) {
+			/*jshint devel: true */
+			console.error(err);
+		}
+		return;
+	}
+
+	if (elements.length) {
+		[].slice.call(elements).forEach(function(element){
+			tracking.track(element);
+		});
+		tracking.update();
+		viewport.listenToAll();
+		document.body.addEventListener('oViewport.orientation', tracking.updatePosition);
+		document.body.addEventListener('oViewport.resize', tracking.updatePosition);
+		document.body.addEventListener('oViewport.scroll', tracking.update);
+		document.body.addEventListener('oViewport.visibility', tracking.update);
+	}
+}
+
+function init() {
+	trackElements();
+	document.removeEventListener('o.DOMContentLoaded', init);
+}
+
+document.addEventListener('o.DOMContentLoaded', init);
 
 module.exports = {
 	debug: function() {
 		debug = true;
 	},
 	listenTo: listenTo,
-	setThrottleInterval: setThrottleInterval,
-	getOrientation: getOrientation,
-	getSize: getSize
+	listenToAll: viewport.listenToAll,
+	stopListeningTo: viewport.stopListeningTo,
+	stopListeningAll: viewport.stopListeningAll,
+	setThrottleInterval: viewport.setThrottleInterval,
+	getOrientation: viewport.getOrientation,
+	getSize: utils.getSize,
+	getViewportSize: utils.getViewportSize,
+	getScrollPosition: utils.getScrollPosition,
+	trackElements: trackElements,
+	updateTracked: tracking.updatePosition,
+	tracked: tracking.tracked
 };
