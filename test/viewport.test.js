@@ -88,12 +88,10 @@ describe('o-viewport', function() {
 	it('should stop listening to scroll event', function(done) {
 		oViewport.stopListeningTo('scroll');
 		document.body.addEventListener('oViewport.scroll', function(ev) {
-			expect(false).to.be.true;
-			done();
-		});
+			done(new Error('scroll event still ran!'));
+		}.bind(this));
 
 		setTimeout(function () {
-			expect(true).to.be.true;
 			done();
 		}, 1000);
 
