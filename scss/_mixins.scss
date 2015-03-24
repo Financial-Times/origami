@@ -54,7 +54,8 @@
 /// }
 ///
 /// @param {String} $size (medium)
-@mixin oLabels($size: medium) {
+/// @param {String} $state (normal)
+@mixin oLabels($size: medium, $state: normal) {
 	display: inline-block;
 	box-sizing: border-box;
 	vertical-align: middle;
@@ -64,7 +65,7 @@
 	text-decoration: none;
 
 	@include oLabelsSize($size);
-	@include oLabelsState(normal);
+	@include oLabelsState($state);
 }
 
 /// Badge construct
@@ -85,7 +86,8 @@
 /// }
 ///
 /// @param {String} $size (medium)
-@mixin oLabelsBadge($size: medium) {
-	@include oLabels($size);
+/// @param {String} $state (normal)
+@mixin oLabelsBadge($size: medium, $state: normal) {
+	@include oLabels($size, $state);
 	@include oLabelsBadgeRadius($size);
 }
