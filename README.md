@@ -115,7 +115,7 @@ A component can fire an `oErrors.log` event on its owned DOM to send an error re
 
 `details`:
 
-```
+```JS
 {
    error: e,  // the Error object that's been caught
    info:  i   // an object with further useful debug info
@@ -127,7 +127,7 @@ Example:
 `o-mycomponent` uses Promises to handle async events, it lives inside the DOM
 element, `myComponentElement`:
 
-```
+```JS
 doThis().then(that).catch(function(e) {
 	// Send error to oErrors
 	var event = new CustomEvent('oErrors.log', {
