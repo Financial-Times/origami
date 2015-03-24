@@ -1,0 +1,44 @@
+body {
+	position: relative;
+}
+
+.info {
+	opacity: 0.7;
+	background: white;
+	padding: 1em;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 300px;
+	border: 1px solid black;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	dl {
+		width: 200px;
+	}
+
+	dt {
+		width: 80%;
+		display: inline-block;
+	}
+
+	dd {
+		width: 15%;
+		display: inline-block;
+		text-align: right;
+	}
+}
+
+[data-o-viewport-track] {
+	width: 100px;
+	height: 100px;
+	background: steelblue;
+	position: absolute;
+}
+
+.inview {
+	background-color: darkgoldenrod;
+}
