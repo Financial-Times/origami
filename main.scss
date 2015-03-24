@@ -1,0 +1,25 @@
+@import "o-colors/main";
+
+@import "scss/themes";
+@import "scss/variables";
+@import "scss/mixins";
+
+@if ($o-labels-is-silent == false) {
+	.#{$o-labels-class} {
+		@include oLabels;
+	}
+
+	@each $size, $properties in $o-labels-sizes {
+		.#{$o-labels-class}--#{$size} {
+			@include oLabelsSize($size);
+		}
+	}
+	@each $theme, $properties in $o-labels-themes {
+		.#{$o-labels-class}--#{$theme} {
+			@include oLabelsTheme($theme);
+		}
+	}
+
+	// Set module to silent again
+	$o-labels-is-silent: true !global;
+}

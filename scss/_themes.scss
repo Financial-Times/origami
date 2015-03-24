@@ -1,0 +1,7 @@
+@include oColorsSetUseCase(o-labels-standard, text,       white);
+@include oColorsSetUseCase(o-labels-standard, background, blue);
+
+$o-labels-themes__standard: (
+	color: oColorsGetColorFor(o-labels-standard, text),
+	background: oColorsGetColorFor(o-labels-standard, background)
+);

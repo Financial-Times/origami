@@ -1,0 +1,32 @@
+////
+/// @group o-labels
+/// @link http://registry.origami.ft.com/components/o-labels
+////
+
+@mixin oLabelsSize($size) {
+	$label-dimensions: map-get($o-labels-sizes, $size);
+	$vertical-padding: 1/2 * (map-get($label-dimensions, height) - map-get($label-dimensions, font-size));
+
+	padding: $vertical-padding map-get($label-dimensions, padding-right) $vertical-padding map-get($label-dimensions, padding-left);
+	font-size: map-get($label-dimensions, font-size);
+	line-height: map-get($label-dimensions, height) - $vertical-padding * 2;
+}
+
+@mixin oLabelsTheme($theme) {
+	@each $property, $value in map-get($o-labels-themes, $theme) {
+		#{$property}: #{$value};
+	}
+}
+
+@mixin oLabels($size: medium, $theme: standard) {
+	display: inline-block;
+	box-sizing: border-box;
+	vertical-align: middle;
+	margin: 0;
+	border-radius: 3px;
+	text-align: center;
+	text-decoration: none;
+
+	@include oLabelsSize($size);
+	@include oLabelsTheme($theme);
+}
