@@ -1,21 +1,21 @@
 # o-errors
 
-This module provides a decoupled events-based mechanism for modules and products to report client-side errors.
+This module provides a decoupled events-based mechanism for modules and an API
+for products to report client-side errors.
 
 ## Usage
 
 ### Declarative Instantiation
 
-Include `o-errors` via the build service and include a `<link>` tag configured
-to point towards the [DSN specific to your application](https://app.getsentry.com/docs/platforms/)
-provided by the error aggregator, Sentry.
-
-This will automatically configure `o-errors` and will begin reporting any
-uncaught errors using `window.onerror`.
+Include `o-errors` via the [build service](https://registry.origami.ft.com/components/o-errors#section-usage) and include a `<link>` tag configured
+to point towards the [DSN specific to your application](https://app.getsentry.com/docs/platforms/) provided by the error aggregator, Sentry.
 
 ```HTML
 <link rel="oErrors:sentryEndpoint" href="https://dsn@app.getsentry.com/appid" />
 ```
+
+This will automatically configure `o-errors` and will begin reporting any
+uncaught errors using `window.onerror`.
 
 #### Additional configuration options
 
@@ -47,6 +47,21 @@ oErrors.init({
 });
 ```
 
+#### Configuration
+
+##### sentryEndpoint - required
+
+The [DSN specific to your application](https://app.getsentry.com/docs/platforms/).
+
+```JS
+{
+	sentryEndpoint: "https:/dsn@app.getsentry.com/appid"
+}
+```
+
+##### siteVersion   - optional
+
+##### enableLogging - optional
 
 #### Wrapping functions in an error handler
 
