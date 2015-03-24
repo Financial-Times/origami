@@ -89,7 +89,7 @@ describe('o-viewport', function() {
 		oViewport.stopListeningTo('scroll');
 		document.body.addEventListener('oViewport.scroll', function(ev) {
 			done(new Error('scroll event still ran!'));
-		}.bind(this));
+		});
 
 		setTimeout(function () {
 			done();
