@@ -1,0 +1,9 @@
+{
+  "name": "o-labels",
+  "main": [
+    "main.scss"
+  ],
+  "dependencies": {
+    "o-colors": "~2.4.7"
+  }
+}

@@ -1,0 +1,11 @@
+{
+	"description": "Label and badge styling",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-labels/issues",
+	"supportStatus": "experimental",
+	"browserFeatures": {
+		"required": [],
+		"optional": ["borderradius"]
+	}
+}
