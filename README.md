@@ -75,16 +75,31 @@ is useful for associating errors with releases in the Sentry interface.
 }
 ```
 
-##### enableLogging - optional
+##### logLevel     - optional
 
-SAMS Note: Probably going to change this to `logLevel` with options (off, debug, contextonly)
+Control the operation of the `oErrors.log` and `oErrors.warn` API.
 
-If `true` verbose logging mode is enabled.  This enables the `oErrors.log` and
-`oErrors.warn` APIs for verbose logging.
+Could be one of the following options:
+
+`off` - Turns off all logging by turning `oErrors.log` and `oErrors.warn` into
+a no-operation. This is the default and is reccommended for most production
+scenarios.
+
+`contextonly` - Turns on context tracking, `oErrors.log` and `oErrors.warn`
+will store the last 10 log messages in a fast circular buffer, when an error
+is reported, these log lines are attached to the error as additional context
+in the `context:log` field.  This can be particularly useful when
+understanding what the state of the application was before an error occurs.
+While this has a very low overhead it can increase the size of the error
+payload so is not the default.
+
+`debug` - Turns on context tracking and outputs the messages through
+`console.warn` and `console.log` for `oErrors.warn` and `oErrors.log`
+respectively.  This should definitely not be used in production.
 
 ```JS
 {
-	logLevel: "contextonly"
+	logLevel: "off"
 }
 ```
 

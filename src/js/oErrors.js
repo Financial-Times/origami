@@ -1,5 +1,11 @@
 'use strict';
 
+var LogLevel = {
+	off:         0,
+	contextonly: 1,
+	debug:       2
+};
+
 function Errors() {
 	// Because Raven is a third party client, we can't be sure what it is doing when
 	// we include it.  To control the initialisation of the third party code
@@ -13,7 +19,7 @@ function Errors() {
 	this._nextLogIndex = 0;
 	this._logList = new Array(logLength);
 
-	this._isLoggingEnabled = false;
+	this._logLevel = LogLevel.off;
 }
 
 /**
@@ -50,6 +56,10 @@ Errors.prototype.error = function(error, context) {
  * @return undefined
  */
 Errors.prototype.warn = function(warnMessage) {
+	if (this._logLevel === LogLeve.debug) {
+		console.warn(warnMessage);
+	}
+
 	this._appendToLogList("WARN: " + warnMessage);
 };
 
@@ -62,6 +72,10 @@ Errors.prototype.warn = function(warnMessage) {
  * @return undefined
  */
 Errors.prototype.log = function(logMessage) {
+	if (this._logLevel === LogLeve.debug) {
+		console.log(logMessage);
+	}
+
 	this._appendToLogList("LOG: " + logMessage);
 };
 
@@ -148,12 +162,12 @@ Errors.prototype.init = function(options) {
 		ravenOptions.release = options.siteVersion;
 	}
 
-	if (!options.enableLogging) {
+	this._logLevel = options.logLevel || LogLevel.off;
+
+	if (this._logLevel !== LogLevel.off) {
 		this.log = function() {};
 		this.warn = function() {};
 	}
-
-	this._isLoggingEnabled = options.enableLogging;
 
 	this.ravenClient.config(sentryEndpoint, ravenOptions);
 	this.ravenClient.install();
