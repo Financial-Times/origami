@@ -12,7 +12,12 @@
     },
     "demos": [
         {
-            "path": "/demos/individual.html",
+            "path": "/demos/label.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/badge.html",
             "expanded": true,
             "description": ""
         }
