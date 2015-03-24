@@ -3,7 +3,7 @@
 /// @link http://registry.origami.ft.com/components/o-labels
 ////
 
-/// Label theme construct
+/// Label size construct
 /// Ouputs dimensions for a specific label size
 ///
 /// @example
@@ -14,11 +14,11 @@
 /// @param {String} $size
 @mixin oLabelsSize($size) {
 	$label-dimensions: map-get($o-labels-sizes, $size);
-	$vertical-padding: 1/2 * (map-get($label-dimensions, height) - map-get($label-dimensions, font-size));
 
-	padding: $vertical-padding map-get($label-dimensions, padding-right) $vertical-padding map-get($label-dimensions, padding-left);
+	padding-left: map-get($label-dimensions, padding-left);
+	padding-right: map-get($label-dimensions, padding-right);
 	font-size: map-get($label-dimensions, font-size);
-	line-height: map-get($label-dimensions, height) - $vertical-padding * 2;
+	line-height: map-get($label-dimensions, height);
 }
 
 /// Label theme construct
@@ -66,28 +66,4 @@
 
 	@include oLabelsSize($size);
 	@include oLabelsState($state);
-}
-
-/// Badge construct
-/// Output border radius based on badge size
-///
-/// @param {String} $size
-@mixin oLabelsBadgeRadius($size) {
-	$label-dimensions: map-get($o-labels-sizes, $size);
-	border-radius: 1/2 * map-get($label-dimensions, height);
-}
-
-/// Badge construct
-/// Basic label styling with badge overrides
-///
-/// @example
-/// .my-big-badge {
-/// 	@include oLabelsBadge(big);
-/// }
-///
-/// @param {String} $size (medium)
-/// @param {String} $state (normal)
-@mixin oLabelsBadge($size: medium, $state: normal) {
-	@include oLabels($size, $state);
-	@include oLabelsBadgeRadius($size);
 }

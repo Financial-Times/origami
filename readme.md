@@ -1,7 +1,7 @@
 o-labels [![build status](https://travis-ci.org/Financial-Times/o-labels.svg)](https://travis-ci.org/Financial-Times/o-labels)
 ===
 
-Standard labels and badges
+Standard labels
 
 <img alt="screenshot" src="screenshot.png" width="120">
 
@@ -21,7 +21,7 @@ Browser support
 
 The following browser feature is used but will degrade gracefully:
 
- - `border-radius`: older browsers will show square corners. Note that this will make labels and badges appear identical.
+ - `border-radius`: older browsers will show square corners
 
 Licence
 ---

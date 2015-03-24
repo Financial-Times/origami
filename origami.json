@@ -1,5 +1,5 @@
 {
-    "description": "Label and badge styling",
+    "description": "Label styling",
     "origamiType": "module",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-labels/issues",
@@ -13,11 +13,6 @@
     "demos": [
         {
             "path": "/demos/label.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/badge.html",
             "expanded": true,
             "description": ""
         }

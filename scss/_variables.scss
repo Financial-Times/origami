@@ -14,11 +14,6 @@ $o-labels-is-silent: true !default;
 /// @type String
 $o-labels-class: o-labels !default;
 
-/// Default badge class used when $o-labels-is-silent is true
-///
-/// @type String
-$o-labels-badge-class: o-labels-badge !default;
-
 /// Label sizes, with their attached properties
 ///
 /// @type Map
