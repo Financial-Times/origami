@@ -1,0 +1,11 @@
+{
+  "name": "next-video",
+  "description": "Video player for next",
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "main": "main.js",
+  "dependencies": {}
+}
