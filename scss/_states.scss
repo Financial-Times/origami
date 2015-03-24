@@ -1,4 +1,9 @@
 /// scss-lint:disable SpaceAfterComma
+////
+/// @group o-labels
+/// @link http://registry.origami.ft.com/components/o-labels
+////
+
 @include oColorsSetUseCase(o-labels-normal, text,       white);
 @include oColorsSetUseCase(o-labels-normal, background, blue);
 @include oColorsSetUseCase(o-labels-active, text,       white);
@@ -6,6 +11,10 @@
 @include oColorsSetUseCase(o-labels-error,  text,       white);
 @include oColorsSetUseCase(o-labels-error,  background, red);
 
+/// States for normal/active/error and associated styles.
+/// Add to this map for more states.
+///
+/// @type Map
 $o-labels-states: (
 	normal: (
 		color: oColorsGetColorFor(o-labels-normal, text),

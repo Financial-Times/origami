@@ -1,10 +1,27 @@
+////
+/// @group o-labels
+/// @link http://registry.origami.ft.com/components/o-labels
+////
 
+/// Silent mode: on (true) or off (false)
+/// Set to false to output default label classes
+///
+/// @type Boolean
 $o-labels-is-silent: true !default;
 
+/// Default label class used when $o-labels-is-silent is true
+///
+/// @type String
 $o-labels-class: o-labels !default;
 
+/// Default badge class used when $o-labels-is-silent is true
+///
+/// @type String
 $o-labels-badge-class: o-labels-badge !default;
 
+/// Label sizes, with their attached properties
+///
+/// @type Map
 $o-labels-sizes: (
 	medium: (
 		font-size: 10px,
