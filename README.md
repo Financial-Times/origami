@@ -106,33 +106,43 @@ when initialising the module.
 
 ## Events
 
+Events are primarily useful for components.
+
 ### `oErrors.log`
 
-To be fired on a module's owned DOM or `document.body`
+A component can fire an `oErrors.log` event on its owned DOM to send an error report if
+`oErrors` has been configured on the page.
 
 `details`:
 
 ```
 {
-   error: // the error that's been caught
-   stack: // [] array of modules through which the error has passed. e.g. the module catching the error will
-            set this to [o-modulename#method]. Parent modules *may* listen for `oErrors.log` within their
-            owned DOM and use array.shift() to add their module name to this stack... or come to think of it,
-            o-errors could construct this stack by traversing the DOM upwards from the el the event was fired on
-   info: // an object or string with further useful debug info e.g. params originally passed in to the method
-            that caught the error
+   error: e,  // the Error object that's been caught
+   info:  i   // an object with further useful debug info
 }
 ```
 
-## API (product use only)
+Example:
 
-### `oErrors#report(appName, url, filter)`
+`o-mycomponent` uses Promises to handle async events, it lives inside the DOM
+element, `myComponentElement`:
 
-Each error will be reported with name `appName + ': ' + detail.stack.join(': ') or similar
+```
+doThis().then(that).catch(function(e) {
+	// Send error to oErrors
+	var event = new CustomEvent('oErrors.log', {
+		bubbles: true,
+		details: {
+			error: e,
+			info: { additional: "context" }
+		}
+	});
 
-If url is set will post each error back to the given url. If not set will log to a default service e.g. one that jsut forwards everything to splunk. If set to 'console' will simply log to console
+	// Dispatch on owned DOM
+	myComponentElement.dispatchEvent(event);
 
-Filter is a function that gets passed the detail object from the custom event to determine whether the error should be reported
+	// re-throw event
+	throw e;
+});
 
-
-
+```

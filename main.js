@@ -1,4 +1,2 @@
 'use strict';
-var oErrors = require('./src/js/oErrors');
-
-module.exports = oErrors;
+module.exports = require('./src/js/oErrors');
