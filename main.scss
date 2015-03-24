@@ -9,8 +9,16 @@
 		@include oLabels;
 	}
 
+	.#{$o-labels-class}-badge {
+		@include oLabelsBadge;
+	}
+
 	@each $size, $properties in $o-labels-sizes {
 		.#{$o-labels-class}--#{$size} {
+			&.#{$o-labels-class}-badge {
+					@include oLabelsBadgeRadius($size);
+			}
+
 			@include oLabelsSize($size);
 		}
 	}

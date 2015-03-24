@@ -30,3 +30,13 @@
 	@include oLabelsSize($size);
 	@include oLabelsState(normal);
 }
+
+@mixin oLabelsBadgeRadius($size) {
+	$label-dimensions: map-get($o-labels-sizes, $size);
+	border-radius: 1/2 * map-get($label-dimensions, height);
+}
+
+@mixin oLabelsBadge($size: medium) {
+	@include oLabels($size);
+	@include oLabelsBadgeRadius($size);
+}
