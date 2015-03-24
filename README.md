@@ -33,9 +33,15 @@ include:
 ### Imperative usage
 
 Due to the nature of the `Raven` Sentry client, `o-errors` is a singleton.
-This means when you `require` it you'll get the same instance.
+This means when you `require` it using browserify you'll get the same instance.
 
 #### Initialisation
+
+`oErrors.init` must be called before using the library.  It can be called
+without arguments, in which case it is configured using the declarative
+`<link>` and `<meta>` tags, or you can pass a config object.
+
+Example:
 
 ```JS
 var oErrors = require('o-errors');
@@ -60,7 +66,27 @@ The [DSN specific to your application](https://app.getsentry.com/docs/platforms/
 
 ##### siteVersion   - optional
 
+The version of the product or site on which `o-errors` is configured.  This
+is useful for associating errors with releases in the Sentry interface.
+
+```JS
+{
+	siteVersion: "v1.0.0"
+}
+```
+
 ##### enableLogging - optional
+
+SAMS Note: Probably going to change this to `logLevel` with options (off, debug, contextonly)
+
+If `true` verbose logging mode is enabled.  This enables the `oErrors.log` and
+`oErrors.warn` APIs for verbose logging.
+
+```JS
+{
+	logLevel: "contextonly"
+}
+```
 
 #### Wrapping functions in an error handler
 
