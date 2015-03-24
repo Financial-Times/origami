@@ -7,8 +7,12 @@
 	},
 	"demos": [
 		{
-			"name": "individual",
-			"template": "demos/src/individual.mustache"
+			"name": "label",
+			"template": "demos/src/label.mustache"
+		},
+		{
+			"name": "badge",
+			"template": "demos/src/badge.mustache"
 		}
 	]
 }
