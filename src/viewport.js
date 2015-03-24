@@ -161,8 +161,10 @@ function listenToAll() {
 }
 
 function stopListeningTo(eventType) {
-	window.removeEventListener(listeners[eventType].eventType, listeners[eventType].handler);
-	delete listeners[eventType];
+	if (listeners[eventType]){
+		window.removeEventListener(listeners[eventType].eventType, listeners[eventType].handler);
+		delete listeners[eventType];
+	}
 }
 
 function stopListeningAll(eventType) {
