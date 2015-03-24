@@ -97,4 +97,27 @@ describe('o-viewport', function() {
 
 		window.dispatchEvent(new Event('scroll'));
 	});
+
+	it('should stop listening to all events', function(done) {
+		oViewport.stopListeningAll();
+		document.body.addEventListener('oViewport.resize', function(ev) {
+			done(new Error('resize event still ran!'));
+		});
+
+		document.body.addEventListener('oViewport.orientationchange', function(ev) {
+			done(new Error('orientationchange event still ran!'));
+		});
+
+		document.body.addEventListener('oViewport.visibilitychange', function(ev) {
+			done(new Error('visibilitychange event still ran!'));
+		});
+
+		setTimeout(function () {
+			done();
+		}, 1500);
+
+		window.dispatchEvent(new Event('resize'));
+		window.dispatchEvent(new Event('orientationchange'));
+		window.dispatchEvent(new Event('visibilitychange'));
+	});
 });
