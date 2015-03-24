@@ -1,7 +1,7 @@
 'use strict';
 
 var getDomPath = function (el, path) {
-
+	path = path || [];
 	if (!el.parentNode) {
 		return path;
 	}
@@ -19,9 +19,9 @@ var getDomPath = function (el, path) {
 	return getDomPath(el.parentNode, path);
 };
 
-function emitBeacon = function (data) {
+function emitBeacon (data) {
 	var event = document.createEvent('Event');
-	event.initEvent('beacon:cta', true, true);
+	event.initEvent('beacon:media', true, true);
 	event.detail = data;
 	document.body.dispatchEvent(event);
 }
@@ -30,22 +30,36 @@ var Video = function (el, opts) {
 	el.addEventListener('play', function (ev) {
 		var domPath = getDomPath(el);
 		emitBeacon({
-			nodeName: 'video',
+			mediaType: 'video',
+			contentId: el.getAttribute('data-content-id'),
 			domPath: domPath.reverse().join(" | "),
 			domPathTokens: domPath,
-			target: e.target.getAttribute('data-trackable') + '| play',
-			position: el.currentTime
+			event: 'play',
+			progress: parseInt(100 * el.currentTime / el.duration, 10)
 		});
 	});
 
 	el.addEventListener('pause', function (ev) {
 		var domPath = getDomPath(el);
 		emitBeacon({
-			nodeName: 'video',
+			mediaType: 'video',
+			contentId: el.getAttribute('data-content-id'),
 			domPath: domPath.reverse().join(" | "),
 			domPathTokens: domPath,
-			target: e.target.getAttribute('data-trackable') + '| pause',
-			position: el.currentTime
+			event: 'pause',
+			progress: parseInt(100 * el.currentTime / el.duration, 10)
+		});
+	});
+
+	el.addEventListener('ended', function (ev) {
+		var domPath = getDomPath(el);
+		emitBeacon({
+			mediaType: 'video',
+			contentId: el.getAttribute('data-content-id'),
+			domPath: domPath.reverse().join(" | "),
+			domPathTokens: domPath,
+			event: 'ended',
+			progress: parseInt(100 * el.currentTime / el.duration, 10)
 		});
 	});
 }
