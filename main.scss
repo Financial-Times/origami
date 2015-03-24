@@ -15,11 +15,11 @@
 
 	@each $size, $properties in $o-labels-sizes {
 		.#{$o-labels-class}--#{$size} {
+			@include oLabelsSize($size);
+
 			&.#{$o-labels-class}-badge {
 					@include oLabelsBadgeRadius($size);
 			}
-
-			@include oLabelsSize($size);
 		}
 	}
 
