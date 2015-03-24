@@ -19,5 +19,7 @@ $o-labels-sizes: (
 ) !default;
 
 $o-labels-themes: (
-	standard: $o-labels-themes__standard
+	standard: $o-labels-themes__standard,
+	active: $o-labels-themes__active,
+	error: $o-labels-themes__error
 ) !default;
