@@ -3,6 +3,8 @@ $o-labels-is-silent: true !default;
 
 $o-labels-class: o-labels !default;
 
+$o-labels-badge-class: o-labels-badge !default;
+
 $o-labels-sizes: (
 	medium: (
 		font-size: 10px,
@@ -16,10 +18,4 @@ $o-labels-sizes: (
 		padding-left: 8px,
 		padding-right: 8px
 	)
-) !default;
-
-$o-labels-themes: (
-	standard: $o-labels-themes__standard,
-	active: $o-labels-themes__active,
-	error: $o-labels-themes__error
 ) !default;

@@ -1,6 +1,6 @@
 @import "o-colors/main";
 
-@import "scss/themes";
+@import "scss/states";
 @import "scss/variables";
 @import "scss/mixins";
 
@@ -14,9 +14,10 @@
 			@include oLabelsSize($size);
 		}
 	}
-	@each $theme, $properties in $o-labels-themes {
-		.#{$o-labels-class}--#{$theme} {
-			@include oLabelsTheme($theme);
+
+	@each $state, $properties in map-remove($o-labels-states, normal) {
+		.#{$o-labels-class}--#{$state} {
+			@include oLabelsState($state);
 		}
 	}
 

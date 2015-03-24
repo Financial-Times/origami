@@ -12,13 +12,13 @@
 	line-height: map-get($label-dimensions, height) - $vertical-padding * 2;
 }
 
-@mixin oLabelsTheme($theme) {
-	@each $property, $value in map-get($o-labels-themes, $theme) {
+@mixin oLabelsState($state) {
+	@each $property, $value in map-get($o-labels-states, $state) {
 		#{$property}: #{$value};
 	}
 }
 
-@mixin oLabels($size: medium, $theme: standard) {
+@mixin oLabels($size: medium) {
 	display: inline-block;
 	box-sizing: border-box;
 	vertical-align: middle;
@@ -28,5 +28,5 @@
 	text-decoration: none;
 
 	@include oLabelsSize($size);
-	@include oLabelsTheme($theme);
+	@include oLabelsState(normal);
 }

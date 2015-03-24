@@ -1,0 +1,21 @@
+@include oColorsSetUseCase(o-labels-normal, text,       white);
+@include oColorsSetUseCase(o-labels-normal, background, blue);
+@include oColorsSetUseCase(o-labels-active, text,       white);
+@include oColorsSetUseCase(o-labels-active, background, green);
+@include oColorsSetUseCase(o-labels-error,  text,       white);
+@include oColorsSetUseCase(o-labels-error,  background, red);
+
+$o-labels-states: (
+	normal: (
+		color: oColorsGetColorFor(o-labels-normal, text),
+		background: oColorsGetColorFor(o-labels-normal, background)
+	),
+	active: (
+		color: oColorsGetColorFor(o-labels-active, text),
+		background: oColorsGetColorFor(o-labels-active, background)
+	),
+	error: (
+		color: oColorsGetColorFor(o-labels-error, text),
+		background: oColorsGetColorFor(o-labels-error, background)
+	)
+) !default;
