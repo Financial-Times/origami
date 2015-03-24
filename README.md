@@ -48,7 +48,7 @@ var oErrors = require('o-errors');
 oErrors.init({
 	sentryEndpoint: "https://dsn@app.getsentry.com/appid",
 	siteVersion:    "v1.0.0",                              // Optional
-	enableLogging:  true                                   // Optional
+	logLevel:       "off"                                  // Optional
 });
 ```
 
@@ -153,7 +153,7 @@ exampleSyncData();
 ```
 
 This is not always desirable and extensive logging could affect performance.
-It can be turned on and off using the `enableLogging` configuration variable
+It can be turned on and off using the `logLevel` configuration variable
 when initialising the module.
 
 `oErrors.log(message)`  - Creates a 'log' level message, semantically equivalent to `console.log`
