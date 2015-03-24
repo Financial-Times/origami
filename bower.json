@@ -6,5 +6,8 @@
     "origami.support@ft.com"
   ],
   "description": "Origami Client Side tracking library",
-  "main": "main.js"
+  "main": "main.js",
+  "dependencies": {
+    "raven-js": "https://github.com/getsentry/raven-js.git#^1.1.8"
+  }
 }
