@@ -21,8 +21,7 @@ uncaught errors using `window.onerror`.
 
 Include a `<meta>` tag to define the additional configuration options.  The
 meta tag names follow a standard convention where the name is
-`oErrors:configVarName`, where `configVarName` is as defined in the (TODO)
-configuration options section.
+`oErrors:configVarName`, where `configVarName` is as defined in the [configuration options](#configuration) section.
 
 For example, to tag each error with the current version of your application
 include:
