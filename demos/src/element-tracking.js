@@ -1,5 +1,5 @@
 'use strict';
-var debounce = require('lodash-node/modern/functions/debounce');
+var debounce = require('lodash/function/debounce');
 var oViewport = window.oViewport = require('../../main.js');
 
 // cover the page in randomly positioned divs
