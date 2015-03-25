@@ -76,9 +76,8 @@
 	// scss-lint:enable NestingDepth SelectorDepth
 }
 
-// Media queries to make the nav smaller as the screen gets smaller.
+// Media queries to make the nav larger as the screen gets bigger
 // It can't be fluid because primary-center is the fluid element
-
 .o-header__nav--tools-theme {
 	// Only show one item
 	width: 56px;
