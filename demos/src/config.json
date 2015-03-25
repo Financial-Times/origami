@@ -1,0 +1,16 @@
+{
+	"options": {
+		"js": "demos/src/demo.js",
+		"bodyClasses": "",
+		"dependencies": []
+	},
+	"demos": [
+		{
+			"name": "declarative",
+			"path": "demos/declarative.html",
+			"description": "Declarative error tracking",
+			"template": "demos/src/declarative.mustache",
+			"expanded": true
+		}
+	]
+}
