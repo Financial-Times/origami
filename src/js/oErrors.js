@@ -1,25 +1,40 @@
 'use strict';
 
-var LogLevel = {
-	off:         0,
-	contextonly: 1,
-	debug:       2
-};
+var Logger = require('./logger');
 
-function Errors() {
-	// Because Raven is a third party client, we can't be sure what it is doing when
-	// we include it.  To control the initialisation of the third party code
-	// we inlcude it only at construction time
-	this.ravenClient = require('raven-js');
+function Errors(raven, options) {
+	this.ravenClient = raven;
 	this.initialised = false;
 
-	// Keep an internal buffer of log messages, this can then be used as
-	// additional context when reporting error message
-	var logLength = 10;
-	this._nextLogIndex = 0;
-	this._logList = new Array(logLength);
 
-	this._logLevel = LogLevel.off;
+	options = options || this._initialiseDeclaratively();
+
+	if (!options.sentryEndpoint) {
+		throw new Error('Could not initialise o-errors: Sentry endpoint configuration missing.');
+	}
+
+	this.logger = new Logger(10, options.logLevel);
+
+	var sentryEndpoint = options.sentryEndpoint;
+	var shouldSendError = this._shouldSendError.bind(this);
+	var updatePayloadBeforeSend = this._updatePayloadBeforeSend.bind(this);
+
+	var ravenOptions = {
+		shouldSendCallback: shouldSendError,
+		dataCallback: updatePayloadBeforeSend
+	};
+
+	if (options.siteVersion) {
+		ravenOptions.release = options.siteVersion;
+	}
+
+
+	this.ravenClient.config(sentryEndpoint, ravenOptions);
+	this.ravenClient.install();
+
+	this._logEventHandler = this.handleLogEvent.bind(this);
+
+	document.addEventListener('oErrors.log', this._logEventHandler);
 }
 
 /**
@@ -56,11 +71,7 @@ Errors.prototype.error = function(error, context) {
  * @return undefined
  */
 Errors.prototype.warn = function(warnMessage) {
-	if (this._logLevel === LogLeve.debug) {
-		console.warn(warnMessage);
-	}
-
-	this._appendToLogList("WARN: " + warnMessage);
+	this.logger.warn(warnMessage);
 };
 
 /**
@@ -72,11 +83,7 @@ Errors.prototype.warn = function(warnMessage) {
  * @return undefined
  */
 Errors.prototype.log = function(logMessage) {
-	if (this._logLevel === LogLeve.debug) {
-		console.log(logMessage);
-	}
-
-	this._appendToLogList("LOG: " + logMessage);
+	this.logger.log(logMessage);
 };
 
 
@@ -125,60 +132,9 @@ Errors.prototype.report = function(error, options) {
 	this.ravenClient.captureMessage(error, options);
 };
 
-/**
- * Initialise oErrors.
- *
- * @param options {Object}
- * @param options.sentryEndpoint        {String}  - The DSN (see the Sentry documentation) for the application configured in Sentry.
- * @param [options.siteVersion]         {String}  - Optional parameter, tag every error with a version representing the version of the application reporting errors.
- * @param [options.enableLogging=false] {Boolean} - Optional parameter, if this is false, the log methods are converted to no-operations and oErrors logging is disabled.
- * @return undefined
- */
-Errors.prototype.init = function(options) {
-	if (this.initialised) {
-		throw new Error('Unable to reconfigure error tracking.  This can only be configured once');
-	}
-
-	options = options || this._initialiseDeclaratively();
-
-	if (!options.sentryEndpoint) {
-		throw new Error('Could not initialise o-errors: Sentry endpoint configuration missing.');
-	}
-
-	if (options.enableLogging === undefined) {
-		options.enableLogging = false;
-	}
-
-	var sentryEndpoint = options.sentryEndpoint;
-	var shouldSendError = this._shouldSendError.bind(this);
-	var updatePayloadBeforeSend = this._updatePayloadBeforeSend.bind(this);
-
-	var ravenOptions = {
-		shouldSendCallback: shouldSendError,
-		dataCallback: updatePayloadBeforeSend
-	};
-
-	if (options.siteVersion) {
-		ravenOptions.release = options.siteVersion;
-	}
-
-	this._logLevel = options.logLevel || LogLevel.off;
-
-	if (this._logLevel !== LogLevel.off) {
-		this.log = function() {};
-		this.warn = function() {};
-	}
-
-	this.ravenClient.config(sentryEndpoint, ravenOptions);
-	this.ravenClient.install();
-
-	document.addEventListener('oErrors.log', this.handleLogEvent.bind(this));
-	this.initialised = true;
-};
-
 
 Errors.prototype.destroy = function() {
-	document.removeEventListener('oErrors.log', this.handleLogEvent.bind(this));
+	document.removeEventListener('oErrors.log', this._logEventHandler);
 	this.ravenClient.uninstall();
 };
 
@@ -191,21 +147,10 @@ Errors.prototype._shouldSendError = function(data) {
 };
 
 Errors.prototype._updatePayloadBeforeSend = function(data) {
-	if (this._isLoggingEnabled) {
-		data.extra["context:log"] = rollUpLogs(this._logList, this._nextLogIndex);
+	if (this.logger.enabled) {
+		data.extra["context:log"] = this.logger.rollUp();
 	}
 	return data;
-};
-
-Errors.prototype._appendToLogList = function(logMessage) {
-	this._logList[this._nextLogIndex] = logMessage;
-
-	// Really simple Ring buffer implementation (keep track of next insertion
-	// location)
-	this._nextLogIndex++;
-	if (this._nextLogIndex === this._logList.length) {
-		this._nextLogIndex = 0;
-	}
 };
 
 Errors.prototype._initialiseDeclaratively = function() {
@@ -231,24 +176,18 @@ Errors.prototype._initialiseDeclaratively = function() {
 
 // Given the simple circular buffer, roll up all of the previously logged
 // events into a string, ready to be attached to an error's context
-function rollUpLogs(logs, nextInsertionIndex) {
-	var index = nextInsertionIndex;
-	var rolledUpLogs = [];
 
-	do {
-		if (index >= logs.length) {
-			index = 0;
-		}
+module.exports = {
+	Errors: Errors,
+	init: function(options) {
 
-		var logEntry = logs[index];
-		if (logEntry !== undefined) {
-			rolledUpLogs.push(logs[index]);
-		}
-		index++;
-
-	} while (index != nextInsertionIndex);
-
-	return rolledUpLogs.join("\n");
-}
-
-module.exports = new Errors();
+		// Because Raven is a third party client, we can't be sure what it is doing when
+		// we include it.  To control the initialisation of the third party code
+		// we inlcude it only at init time
+		// NOTE: It is not initialised in the constructor so that we can
+		// inject a mock for testing.  Raven JS is very stateful and sets up a
+		// Singleton
+		var raven = require('raven-js');
+		return new Errors(raven, options);
+	}
+};
