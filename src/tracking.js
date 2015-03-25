@@ -61,7 +61,7 @@ function update(){
 				element: element.node,
 				inView: !!inView,
 				inViewPercentage: inView
-			});
+			}, element.node);
 		}
 	});
 }

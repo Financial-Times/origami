@@ -2,7 +2,8 @@
 
 "use strict";
 
-function broadcast(eventType, data) {
+function broadcast(eventType, data, target) {
+	target = target || document.body;
 	document.body.dispatchEvent(new CustomEvent('oViewport.' + eventType, {
 		detail: data,
 		bubbles: true
