@@ -183,9 +183,6 @@ Errors.prototype._getOptionDeclaratively = function(optionName) {
 	return undefined;
 };
 
-// Given the simple circular buffer, roll up all of the previously logged
-// events into a string, ready to be attached to an error's context
-
 module.exports = {
 	Errors: Errors,
 	init: function(options) {
