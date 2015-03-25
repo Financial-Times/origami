@@ -29,7 +29,7 @@ module.exports = {
 	'Step 3: Test text can be entered into input fields': function(browser){
 		browser
 			.setValue(".o-overlay__content>input#username","username")
-			.setValue(".o-overlay__content>input#password","password")
+			.setValue(".o-overlay__content>input#password","password");
 	},
 
 	// Module should render in the middle of the page.  Since we know this browser is set
@@ -49,7 +49,7 @@ module.exports = {
 			.getElementSize(".o-overlay", function(size){
 				overlay_right = overlay_left + size.value.width;
 				browser.assert.ok(overlay_left>window_first_third, "Left side of overlay appears centered on the page");
-				browser.assert.ok(overlay_right<window_second_third, "Right side of overlay appears centered on the page")
+				browser.assert.ok(overlay_right<window_second_third, "Right side of overlay appears centered on the page");
 			});
 	},
 
@@ -58,19 +58,19 @@ module.exports = {
 		var clientHeight;
 		browser
 			.windowSize('current', 800,400, function(){
-				browser.waitForElementVisible("button.o-overlay-trigger",5000)
+				browser.waitForElementVisible("button.o-overlay-trigger",5000);
 				browser.execute(function(){
 					return document.getElementsByClassName("o-overlay")[0].scrollHeight;
 				},[],function(result){
 					scrollHeight = result.value;
-				})
+				});
 				browser.execute(function(){
 					return document.getElementsByClassName("o-overlay")[0].clientHeight;
 				},[],function(result){
 					clientHeight = result.value;
 					browser.assert.equal(scrollHeight,clientHeight,"The scroll bar appeared when the window became smaller than the overlay");
-				})
-			})
+				});
+			});
 	},
 
 	'Step 6: Close the overlay': function(browser){

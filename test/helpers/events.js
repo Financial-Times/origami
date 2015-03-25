@@ -21,4 +21,4 @@ var fireCustomEvent = function (el, event, data) {
 module.exports = {
 	fireEvent: fireEvent,
 	fireCustomEvent: fireCustomEvent
-}
+};

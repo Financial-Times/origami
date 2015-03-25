@@ -14,34 +14,34 @@
  * @param {string} [message] Optional log message to display in the output. If missing, one is displayed by default.
  * @api assertions
  */
+'use strict';
 
 var util = require('util');
 exports.assertion = function(selector, cssProperty, expected, msg) {
 
-  var MSG_ELEMENT_NOT_FOUND = 'Testing if element <%s> has css property %s. ' +
-    'Element or attribute could not be located.';
+	var MSG_ELEMENT_NOT_FOUND = 'Testing if element <%s> has css property %s. ' +
+		'Element or attribute could not be located.';
 
-  this.message = msg || util.format('Testing if element <%s> has css property "%s: %s".', selector, cssProperty, expected);
-  this.expected = expected;
+	this.message = msg || util.format('Testing if element <%s> has css property "%s: %s".', selector, cssProperty, expected);
+	this.expected = expected;
 
-  this.pass = function(value) {
-    return value != expected;
-  };
+	this.pass = function(value) {
+		return value !== expected;
+	};
 
-  this.failure = function(result) {
-    var failed = result === false || result && result.status === -1;
-    if (failed) {
-      this.message = msg || util.format(MSG_ELEMENT_NOT_FOUND, selector, cssProperty);
-    }
-    return failed;
-  };
+	this.failure = function(result) {
+		var failed = result === false || result && result.status === -1;
+		if (failed) {
+			this.message = msg || util.format(MSG_ELEMENT_NOT_FOUND, selector, cssProperty);
+		}
+		return failed;
+	};
 
-  this.value = function(result) {
-    return result.value;
-  };
+	this.value = function(result) {
+		return result.value;
+	};
 
-  this.command = function(callback) {
-    return this.api.getCssProperty(selector, cssProperty, callback);
-  };
-
+	this.command = function(callback) {
+		return this.api.getCssProperty(selector, cssProperty, callback);
+	};
 };
