@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="o-useragent-ie7 o-hoverable-on"> <![endif]-->
+<!--[if IE 8]>         <html class="o-useragent-ie8 o-hoverable-on"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-viewport: element-tracking demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=modernizr:customevent,modernizr:matchmedia,default"></script>
+	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
+	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
+	<link rel="stylesheet" href="/bundles/css?modules=o-viewport:/demos/src/element-tracking.scss" />
+</head>
+<body class="">
+<div class="info">
+	<dl>
+		<dt>Total Elements</dt>
+		<dd id="total"></dd>
+		<dt>In View Elements</dt>
+		<dd id="inView"></dd>
+		<dt>On Screen Elements</dt>
+		<dd id="onScreen"></dd>
+	</dl>
+	<label for="listen">Track Elements</label>
+	<input type="checkbox" name="listen" value="on" checked />
+	<label for="threshold">In View Threshold <span id="threshold">100</span>%</label>
+	<input type="range" name="threshold" min="10" value="100" max="100" step="10" />
+</div>
+<div data-o-viewport-track=""></div>
+
+<script src="/bundles/js?modules=o-viewport:/demos/src/element-tracking.js"></script>
+<script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>
