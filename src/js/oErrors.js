@@ -6,7 +6,7 @@ function Errors(raven, options) {
 	this.ravenClient = raven;
 	this.initialised = false;
 
-
+	options = options || {};
 	options = this._initialiseDeclaratively(options);
 
 	if (!options.sentryEndpoint) {

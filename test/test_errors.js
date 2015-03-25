@@ -55,6 +55,27 @@ describe("oErrors", function() {
 
 			expect(errors.logger._logLevel).to.be(1);
 		});
+
+		it("should configure itself from the DOM if no options are present", function() {
+			var sentryEndpointLink = document.createElement("link");
+			sentryEndpointLink.rel = 'oErrors:sentryEndpoint';
+			sentryEndpointLink.href = 'http://dsn@app.getsentry.com/appid';
+
+			var logLevel = document.createElement("meta");
+			logLevel.name = "oErrors:logLevel";
+			logLevel.content = "contextonly";
+
+			document.head.appendChild(sentryEndpointLink);
+			document.head.appendChild(logLevel);
+
+			var errors = new Errors(mockRavenClient);
+
+			expect(mockRavenClient.configuredEndpoint).to.eql("http://dsn@app.getsentry.com/appid");
+			expect(errors.logger._logLevel).to.eql(1);
+
+			document.head.removeChild(sentryEndpointLink);
+			document.head.removeChild(logLevel);
+		});
 	});
 
 	describe("#wrapWithContext(context, function)", function() {
