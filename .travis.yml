@@ -7,3 +7,4 @@ before_install:
   - obt install
 script:
   - obt test --browserTest
+  - obt verify
