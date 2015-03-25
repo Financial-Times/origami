@@ -153,10 +153,14 @@
 		width: $o-header-primary-left-width;
 	}
 }
-
+.o-header__primary__right {
+	position: relative;
+	right: $o-grid-gutter * -1;
+}
 .o-header__primary__featured {
 	// scss-lint:disable DeclarationOrder
 	display: none;
+	padding-left: $o-grid-gutter;
 
 	img {
 		border: 0;
