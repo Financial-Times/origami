@@ -7,7 +7,7 @@ function Errors(raven, options) {
 	this.initialised = false;
 
 
-	options = options || this._initialiseDeclaratively();
+	options = this._initialiseDeclaratively(options);
 
 	if (!options.sentryEndpoint) {
 		throw new Error('Could not initialise o-errors: Sentry endpoint configuration missing.');
@@ -153,25 +153,34 @@ Errors.prototype._updatePayloadBeforeSend = function(data) {
 	return data;
 };
 
-Errors.prototype._initialiseDeclaratively = function() {
-	var sentryEndpointLink = document.querySelector('link[rel="oErrors:sentryEndpoint"]');
-	var siteVersionMeta    = document.querySelector('meta[name="oErrors:siteVersion"]');
-	var enableLogging      = document.querySelector('meta[name="oErrors:enableLogging"]');
-
-	var options = {};
-	if (sentryEndpointLink) {
-		options.sentryEndpoint = sentryEndpointLink.href;
-	}
-
-	if (siteVersionMeta) {
-		options.siteVersion = siteVersionMeta.content;
-	}
-
-	if (enableLogging) {
-		options.enableLogging = siteVersionMeta.content === "true";
-	}
+Errors.prototype._initialiseDeclaratively = function(options) {
+	options.sentryEndpoint = options.sentryEndpoint || this._getOptionDeclaratively("sentryEndpoint");
+	options.siteVersion    = options.siteVersion    || this._getOptionDeclaratively("siteVersion");
+	options.logLevel       = options.logLevel       || this._getOptionDeclaratively("logLevel");
 
 	return options;
+};
+
+Errors.prototype._getOptionDeclaratively = function(optionName) {
+
+	// Special one off case for the sentry endpoint as it's in a link tag
+	if (optionName === "sentryEndpoint") {
+		var sentryEndpointLink = document.querySelector('link[rel="oErrors:sentryEndpoint"]');
+		if (sentryEndpointLink) {
+			return sentryEndpointLink.href;
+		}
+
+		return undefined;
+	}
+
+	var querySelector = 'meta[name="oErrors:' + optionName + '"]';
+	var metaElement = document.querySelector(querySelector);
+
+	if (metaElement) {
+		return metaElement.content;
+	}
+
+	return undefined;
 };
 
 // Given the simple circular buffer, roll up all of the previously logged
