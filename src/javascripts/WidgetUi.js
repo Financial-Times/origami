@@ -8,8 +8,22 @@ var oCommentUtilities = require('o-comment-utilities'),
  * FT specific UI customizing of the Livefyre widget.
  * @param {DOMElement} widgetContainer Container of the widget instance.
  */
-function WidgetUi (widgetContainer) {
+function WidgetUi (widgetContainer, config) {
 	oCommentUi.WidgetUi.apply(this, arguments);
+
+	if (!this.config) {
+		this.config = config;
+	}
+
+	if (typeof this.config !== 'object') {
+		this.config = {};
+	}
+	if (!this.config.layout) {
+		this.config.layout = 'normal';
+	}
+	if (!this.config.stream_type) {
+		this.config.stream_type = 'livecomments';
+	}
 
 	var self = this;
 
@@ -186,6 +200,24 @@ function WidgetUi (widgetContainer) {
 				fyreStreamStatsEl.className = 'comment-header';
 
 				counterEl.className = '';
+			}
+		}
+	};
+
+	this.showOwnCommentBanned = function (commentId) {
+		var commentElement = self.widgetContainer.querySelector('.fyre-comment-article[data-message-id="'+ commentId +'"]');
+
+		if (commentElement) {
+			var blockedElement = document.createElement('div');
+			blockedElement.innerHTML = "Blocked";
+			blockedElement.className = "o-comments--blocked";
+
+			if (self.config.layout === 'side') {
+				var commentHead = commentElement.querySelector('.fyre-comment-head');
+				commentHead.insertBefore(blockedElement, commentHead.firstChild);
+			} else {
+				commentElement.querySelector('.fyre-comment-date').style.display = 'none';
+				commentElement.appendChild(blockedElement);
 			}
 		}
 	};

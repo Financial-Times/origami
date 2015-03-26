@@ -43,8 +43,6 @@ function Widget () {
 
 	var self = this;
 
-	this.ui = new WidgetUi(this.getWidgetEl());
-
 	this.forceMode = false;
 
 
@@ -90,12 +88,22 @@ function Widget () {
 	this.config.stringOverrides.commentCountLabel = 'COMMENTS (%s)';
 	this.config.stringOverrides.commentCountLabelPlural = 'COMMENTS (%s)';
 
+
+	this.ui = new WidgetUi(this.getWidgetEl(), {
+		layout: this.config.layout,
+		stream_type: this.config.stream_type
+	});
+
 	/**
 	 * Merge custom string overrides with FT specific string overrides.
 	 * @type {Object}
 	 */
 	var stringOverrides = self.config.stringOverrides ? oCommentUtilities.merge({}, i18n.lfStringOverride, self.config.stringOverrides) : i18n.lfStringOverride;
 	self.config.stringOverrides = stringOverrides;
+
+	var lastBannedCommentId = null;
+	var lastBannedCommentDate = null;
+	var lastOwnCommentDate = null;
 
 
 	if (utils.isLivefyreActionQueuePresent()) {
@@ -185,6 +193,10 @@ function Widget () {
 							});
 
 							widget.on('initialRenderComplete', function () {
+								var collectionAttributes = self.lfWidget.getCollection().attributes;
+								// init stream to monitor banned comments
+								initStreamForBannedComments(collectionAttributes.id, collectionAttributes.event);
+
 								if (envConfig.get().emailNotifications !== true) {
 									self.ui.hideFollowButton();
 								}
@@ -246,6 +258,8 @@ function Widget () {
 								} else {
 									auth.pseudonymWasMissing = false;
 								}
+
+								handleNewCommentForBannedComments();
 
 								self.trigger('tracking.postComment', {
 									siteId: siteId,
@@ -359,6 +373,39 @@ function Widget () {
 		self.ui.removeSettingsLink();
 	}
 	globalEvents.on('auth.logout', logout);
+
+
+	function initStreamForBannedComments (collectionId, lastEventId) {
+		oCommentApi.api.createStream(collectionId, {
+			lastEventId: lastEventId,
+			callback: handleStreamEventForBannedComments
+		});
+	}
+
+	function handleStreamEventForBannedComments (eventData) {
+		if (eventData.comment && eventData.comment.visibility === 2) {
+			lastBannedCommentDate = new Date();
+			lastBannedCommentId = eventData.comment.commentId;
+			checkIfOwnCommentIsBanned();
+		}
+	}
+
+	function handleNewCommentForBannedComments () {
+		lastOwnCommentDate = new Date();
+		checkIfOwnCommentIsBanned();
+	}
+
+	function checkIfOwnCommentIsBanned () {
+		if (lastBannedCommentDate && lastOwnCommentDate) {
+			if (lastBannedCommentDate.getTime() - lastOwnCommentDate.getTime() <= 1000) {
+				self.ui.showOwnCommentBanned(lastBannedCommentId);
+
+				lastOwnCommentDate = null;
+				lastBannedCommentDate = null;
+				lastBannedCommentId = null;
+			}
+		}
+	}
 
 
 

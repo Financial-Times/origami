@@ -125,6 +125,19 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 		.fyre-comment-article {
 			font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
 			margin: 10px 0 0;
+			position: relative;
+
+			.o-comments--blocked {
+				position: absolute;
+				top: 0;
+				right: 0;
+
+				background-color: oColorsGetPaletteColor(red);
+				border-radius: 15px;
+				color: white;
+				font-size: 12px;
+				padding: 1px 7px;
+			}
 
 			.fyre-comment-wrapper.fyre-comment-highlight {
 				display: block;
@@ -1175,6 +1188,13 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 			.fyre-comment-article {
 				font-size: 13px;
 				line-height: 16px;
+
+				.o-comments--blocked {
+					position: static;
+					float: left;
+					margin-right: 10px;
+					font-size: 11px;
+				}
 			}
 
 			.fyre-comment-head {
