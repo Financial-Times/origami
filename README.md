@@ -1,85 +1,87 @@
-#o-ft-icons [![Build Status](https://travis-ci.org/Financial-Times/o-ft-icons.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-icons)
+# o-ft-icons [![Build Status](https://travis-ci.org/Financial-Times/o-ft-icons.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-icons)
 
-This module has 2 purposes:
+Icon font with helper classes, and resolution-independant SVG icons to load via the image service.
 
-1. Provide standard FT-brand icons to Origami-consuming products via a web font and associated CSS classes.
-2. Contain SVG icon source files and a means of building an icon web font from these sources.
-
-
-##To use this module's icons in your product
-
-If not using the [Origami build service](http://financial-times.github.io/ft-origami/docs/developer-guide/build-service/), then add this module as a dependency in your `bower.json`:
-
-```json
-"dependencies": {
-	"o-ft-icons": "https://github.com/Financial-Times/o-ft-icons.git"
-}
-```
-
-It is strongly recommended to specify a version tag.
-
-There are two ways to use the icons:
-
-1. Using the predefined CSS classes
-2. Extending the predefined Sass placeholders into your own CSS classes
-
-### 1. Using the predefined CSS classes
-
-If you are using the Origami build service to include this module, then this is the only way to use the icons.
-
-If you're not using the build service, then silent mode must be turned off, with the following SASS variable:
-
-```scss
-$o-ft-icons-is-silent: false;
-```
-
-In this mode, the o-ft-icons SASS will output a base icon CSS class (`o-ft-icons-icon`), and a CSS class for _every_ icon in the module (in the format `o-ft-icons-icon--[name]`).
-
-Both the base class and the individual icon class must be applied to the HTML element, for example:
-
-    <i class="o-ft-icons-icon o-ft-icons-icon--columnists"><i>
-    
-### 2. Extending the predefined SASS placeholders into your own CSS classes
-
-Import the `o-ft-icons` SASS and include the font-face like so:
-
-```scss
-@import "o-ft-icons/main";
-
-@include oFtIconsFontFace();
-```
-
-Then either include the base styles and extend a specific icon's styles into one class...
-
-```scss
-.icon-columnists {
-	@include oFtIconsBaseIconStyles();
-	@extend %o-ft-icons-icon--columnists;
-}
-```
-
-…or have separate classes for the base styles and the specific icon: 
-
-```scss
-.icon {
-	@include oFtIconsBaseIconStyles();
-}
-
-.icon--columnists {
-	@extend %o-ft-icons-icon--columnists;
-}
-```
-
-Then apply both the base icon and individual icon classes in the HTML:
+## Quick start
 
 ```html
-<i class="icon icon--columnists"><i>
+<!-- Load web fonts with @font-face declarations  -->
+<link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-ft-icons@^2.0.0" />
+
+<!-- In your markup, use the helper classes, such as: -->
+<i class="o-ft-icons-icon o-ft-icons-icon--arrow-down"></i>
 ```
 
-The latter way is more efficient if you are using more than one icon, as the base styles will not be duplicated for each icon.
+[Complete list of available icons](http://build.origami.ft.com/files/o-ft-icons@latest/demos/main.html)
 
+## Advanced usage
 
-##To add or edit icons and build the web font and demo page
+There are multiple ways to use the icons:
+
+1. Using the CSS helper classes
+2. Extending the predefined Sass placeholders into your own CSS classes
+3. Resolution independant SVGs, using the [image service](http://image.webservices.ft.com/v1/)
+
+### 1. Using the CSS helper classes
+
+```scss
+// public/bundle.scss
+
+$o-ft-icons-is-silent: false;
+@import "o-ft-icons/main";
+```
+
+```html
+<!-- In your markup, use the helper classes, such as: -->
+<i class="o-ft-icons-icon o-ft-icons-icon--columnists"><i>
+```
+    
+### 2. Extending the predefined Sass placeholders into your own CSS classes
+
+```scss
+// public/bundle.scss
+
+@import "o-ft-icons/main";
+
+// Load the webfont that contains all icons as glyphs
+@include oFtIconsFontFace();
+
+.icon-columnists {
+	// Base icon styles
+	@include oFtIconsBaseIconStyles();
+
+	// Extend icon styles
+	@extend %o-ft-icons-icon--columnists;
+}
+```
+
+```html
+<i class="icon-columnists"></i>
+```
+
+### 3. Resolution independant SVGs, using the image service
+
+The [image service](http://image.webservices.ft.com/v1/) helps serving resolution independant icons in SVG with a resized PNG fallback:
+
+```scss
+element {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+
+	// Older browsers: PNG fallback (resized to 100px wide)
+	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:tick?width=100&format=png&source=my-product');
+
+	// Modern browsers: SVG covering the whole size of the element
+	// we declare mutliple backgrounds so that only modern browsers read this property
+	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:tick?format=svg&source=my-product'), none;
+	background-size: cover;
+}
+```
+
+----
+
+## To add or edit icons and build the web font and demo page
 
 Install the following:
 
@@ -105,10 +107,10 @@ Finally, run:
 
 	origami-build-tools demo --local
 
-###SVG version
+### SVG version
 The icons module uses SVG version 1.1. Files can be created in any vector graphics software. In Adobe Illustrator use the "save as" function and set to version 1.1
 
-###SVG file naming rules
+### SVG file naming rules
 
 The file must be named according to the following rules:
 
