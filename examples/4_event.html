@@ -4,14 +4,14 @@
     <title>Example 4: event</title>
     <link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-techdocs@^3.2.2" />
     <link rel="stylesheet" href="./build/example.css" />
-    <script src="./build/track.latest.min.js"></script>
+    <script src="./build/o-tracking.latest.min.js"></script>
 </head>
 <body class="o-techdocs">
 <header class="o-techdocs-page-header">
     <h1>Example 4: <code>event</code></h1>
 </header>
 <header class="o-techdocs-page-header__lead">
-    <h2>Call <code>Track.event</code> with the following arguments.</h2>
+    <h2>Call <code>oTracking.event</code> with the following arguments.</h2>
 </header>
 
 <section class="o-techdocs-content">
@@ -76,7 +76,7 @@
         $('#config .fields').append(renderConfig(config));
         $('#params .fields').append(renderParams(params));
 
-        Track.init(config);
+        oTracking.init(config);
 
         $('#example').on('submit', function (event) {
             event.preventDefault();
@@ -85,9 +85,9 @@
                     eventType = $('#params_eventType', this),
                     eventData = $('#params_eventType', this);
 
-            $('#javascript').text('Track.event(' + util.inspect(eventModel) + ', ' + util.inspect(eventType) + ', ' + util.inspect(eventData) + ');');
+            $('#javascript').text('oTracking.event(' + util.inspect(eventModel) + ', ' + util.inspect(eventType) + ', ' + util.inspect(eventData) + ');');
 
-            Track.event(eventModel, eventType, eventData);
+            oTracking.event(eventModel, eventType, eventData);
         });
     }(jQuery));
 </script>

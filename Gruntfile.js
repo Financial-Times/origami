@@ -27,12 +27,12 @@ module.exports = function (grunt) {
                     regex: /("tracking-module": "http:\/\/git\.svc\.ft\.com:8080\/scm\/track\/o-tracking\.git#>=)(\d+\.\d+\.\d+)( < 1")/
                 },
                 {
-                    location: "tracking.mustache",
+                    location: "o-tracking.mustache",
                     regex: /(data-o-version=")(\d+\.\d+\.\d+)(")/
                 },
                 {
                     location: "main.js",
-                    regex: /(version = "Track version )(\d+\.\d+\.\d+)(";)/
+                    regex: /(version = "oTracking version )(\d+\.\d+\.\d+)(";)/
                 }
             ]
         },
@@ -83,11 +83,11 @@ module.exports = function (grunt) {
             },
             'track': {
                 files: {
-                    '<%=versioned_build_folder %>/track.<%=pkg.version %>.js': ['./main.js']
+                    '<%=versioned_build_folder %>/o-tracking.<%=pkg.version %>.js': ['./main.js']
                 },
                 options: {
                     //alias: './main.js:track',
-                    standalone: "Track"
+                    standalone: "oTracking"
                 }
             }
         },
@@ -95,8 +95,8 @@ module.exports = function (grunt) {
         uglify: {
             track: {
                 files: {
-                    '<%=versioned_build_folder %>/track.<%=pkg.version %>.min.js': '<%=versioned_build_folder %>/track.<%=pkg.version %>.js',
-                    //'<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.min.js': '<%=versioned_build_folder %>/track.<%=pkg.version %>.umd.js'
+                    '<%=versioned_build_folder %>/o-tracking.<%=pkg.version %>.min.js': '<%=versioned_build_folder %>/o-tracking.<%=pkg.version %>.js',
+                    //'<%=versioned_build_folder %>/o-tracking.<%=pkg.version %>.umd.min.js': '<%=versioned_build_folder %>/o-tracking.<%=pkg.version %>.umd.js'
                 }
             }
         },
@@ -104,9 +104,11 @@ module.exports = function (grunt) {
         copy: {
             track: {
                 files: [
-                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.js', dest: '<%=build_folder %>/track.latest.js' },
-                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.min.js', dest: '<%=build_folder %>/track.latest.min.js' },
-                    { src: '<%=versioned_build_folder %>/track.<%=pkg.version %>.min.js', dest: '<%=examples_build %>/track.latest.min.js' }
+                    // Track
+                    { src: '<%=versioned_build_folder %>/o-tracking.<%=pkg.version %>.js', dest: '<%=build_folder %>/o-tracking.latest.js' },
+                    { src: '<%=versioned_build_folder %>/o-tracking.<%=pkg.version %>.min.js', dest: '<%=build_folder %>/o-tracking.latest.min.js' },
+                    // Examples
+                    { src: '<%=versioned_build_folder %>/o-tracking.<%=pkg.version %>.min.js', dest: '<%=examples_build %>/o-tracking.latest.min.js' }
                 ]
             },
             docs: {

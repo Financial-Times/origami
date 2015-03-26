@@ -4,14 +4,14 @@
     <title>Example 2: page</title>
     <link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-techdocs@^3.2.2" />
     <link rel="stylesheet" href="./build/example.css" />
-    <script src="./build/track.latest.min.js"></script>
+    <script src="./build/o-tracking.latest.min.js"></script>
 </head>
 <body class="o-techdocs">
 <header class="o-techdocs-page-header">
     <h1>Example 2: <code>page</code></h1>
 </header>
 <header class="o-techdocs-page-header__lead">
-    <h2>Call <code>Track.page</code> with the following arguments.</h2>
+    <h2>Call <code>oTracking.page</code> with the following arguments.</h2>
 </header>
 
 <section class="o-techdocs-content">
@@ -87,16 +87,16 @@
         $('#config .fields').append(renderConfig(config));
         $('#params .fields').append(renderParams(params));
 
-        Track.init(config);
+        oTracking.init(config);
 
         $('#example').on('submit', function (event) {
             event.preventDefault();
 
             var data = $(this).serializeObject();
 
-            $('#javascript').text('Track.page(' + util.inspect(data) + ');');
+            $('#javascript').text('oTracking.page(' + util.inspect(data) + ');');
 
-            Track.page(data);
+            oTracking.page(data);
         });
     }(jQuery));
 </script>

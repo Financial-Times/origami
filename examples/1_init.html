@@ -4,14 +4,14 @@
     <title>Example 1: init</title>
     <link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-techdocs@^3.2.2" />
     <link rel="stylesheet" href="./build/example.css" />
-    <script src="./build/track.latest.min.js"></script>
+    <script src="./build/o-tracking.latest.min.js"></script>
 </head>
 <body class="o-techdocs">
 <header class="o-techdocs-page-header">
     <h1>Example 1: <code>init</code></h1>
 </header>
 <header class="o-techdocs-page-header__lead">
-    <h2>Call <code>Track.init</code> with the following arguments.</h2>
+    <h2>Call <code>oTracking.init</code> with the following arguments.</h2>
 </header>
 
 <section class="o-techdocs-content">
@@ -93,9 +93,9 @@
 
             var data = $(this).serializeObject();
 
-            $('#javascript').text('Track.init(' + util.inspect(data) + ');');
+            $('#javascript').text('oTracking.init(' + util.inspect(data) + ');');
 
-            Track.init(data);
+            oTracking.init(data);
         });
     }(jQuery));
 </script>

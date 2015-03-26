@@ -46,30 +46,30 @@ It's strongly advised to specify at least the major and minor version as a tag.
 **The template also relies on a Cut the Mustard check which MUST be adhered to if you are using both JS and non-JS versions.**
 **Please avoid sending duplicate requests per page.**
 
-`tracking.mustache` expects a `tracking` object, containing the following properties:
-* tracking.domain - the domain of the tracking server
-* tracking.queryString - the parameters and values below compiled into a query string format.
+`o-tracking.mustache` expects a `o-tracking` object, containing the following properties:
+* o-tracking.domain - the domain of the tracking server
+* o-tracking.queryString - the parameters and values below compiled into a query string format.
 
 ### JavaScript
 ```
-var track = require('o-tracking');
+var oTracking = require('o-tracking');
 ```
 Then call the init function with the parameters below.
 ```
-track.init({ ...params... });
+oTracking.init({ ...params... });
 ```
 ## Methods
 ### `init`
 Setup the component with some setup values.
 ```
-track.init({ ...params... });
+oTracking.init({ ...params... });
 ```
 See the parameters list below.
 
 ### `page`
 Track a page
 ```
-track.page({ ...params... }, callback);
+oTracking.page({ ...params... }, callback);
 ```
 See the parameters list below.
 Optional callback, called when request has completed.
@@ -78,7 +78,7 @@ Optional callback, called when request has completed.
 ### `link`
 For tracking links.
 ```
-track.link.init(params);
+oTracking.link.init(params);
 ```
 The params object can take a couple of configuration options:
 - `root` - The root element the module will listen for clicks, defaults to `window.document`. Useful if you have some iFrames.
@@ -88,14 +88,14 @@ The params object can take a couple of configuration options:
 - `callback` - Optional callback, called on every tracking event.
 
 ```
-track.link.onClick(callback);
+oTracking.link.onClick(callback);
 ```
 - `callback` - Set the callback to be called on every tracking event.
 
 ### `event`
 For tracking events on a page.
 ```
-track.event(model, type, value, callback)
+oTracking.event(model, type, value, callback)
 ```
 - model - The model, for example: comment, video, slideshow
 - type - The type of event, for example: play, share
@@ -121,8 +121,8 @@ Example: ```var event = new CustomEvent('oTracking.Link', DOMElement);```
 
 ## Example
 ```
-var track = require('o-tracking');
-track.init({
+var oTracking = require('o-tracking');
+oTracking.init({
     // Setup
     server: FT.config.tracking.domain,
     channel: FT.config.tracking.params.channel,
@@ -135,7 +135,7 @@ track.init({
     metroArea: getValueFromCookie(/AYSC=[^;]*_18([a-zA-Z0-9%]+)/)
 });
 
-track.page({
+oTracking.page({
     // Page
     //url: FT.config.tracking.params.url,
     //referrer: document.referrer,
@@ -151,7 +151,7 @@ track.page({
     campaign: ''
 });
 
-track.link.init();
+oTracking.link.init();
 ```
 
 ## Parameters
