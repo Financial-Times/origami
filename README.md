@@ -6,7 +6,7 @@ Icon font with helper classes, and resolution-independant SVG icons to load via 
 
 ```html
 <!-- Load web fonts with @font-face declarations  -->
-<link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-ft-icons@^2" />
+<link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-ft-icons@^2.0.0" />
 
 <!-- In your markup, use the helper classes, such as: -->
 <i class="o-ft-icons-icon o-ft-icons-icon--arrow-down"></i>
