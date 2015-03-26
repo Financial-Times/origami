@@ -4,6 +4,6 @@
     "main.scss"
   ],
   "dependencies": {
-    "o-colors": "~2.4.7"
+    "o-colors": "^2.3.17"
   }
 }
