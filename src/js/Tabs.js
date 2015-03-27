@@ -57,10 +57,13 @@ function Tabs(rootEl) {
 	}
 
 	function showPanel(panelEl) {
+		var x = window.scrollX, y = window.scrollY;
 		panelEl.setAttribute('aria-expanded', 'true');
 		panelEl.setAttribute('aria-hidden', 'false');
 		panelEl.style.outline = 0; // Remove the focus ring for sighted users
 		panelEl.focus(); // Give focus to the panel for screen readers
+		window.scrollTo(x, y);
+
 	}
 
 	function dispatchCustomEvent(name, data) {
