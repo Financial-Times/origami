@@ -1,4 +1,4 @@
-@if $o-ft-typography-is-silent == false {
+@if $o-ft-typography-is-silent == false or $o-typography-is-silent == false {
 	// badges
 	.o-ft-typography-badge {
 		@include oFtTypographyBadge;
