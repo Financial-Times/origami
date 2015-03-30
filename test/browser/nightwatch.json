@@ -14,14 +14,14 @@
     "default" : {
       "launch_url" : "${TEST_URL}",
       "selenium_port"  : 80,
-      "selenium_host"  : "52.16.211.159",
+      "selenium_host"  : "${SELENIUM_HOST}",
       "silent": true,
       "screenshots" : {
         "enabled" : true,
         "path" : "./test/browser/screenshots"
       },
-      "username": "selenium-proxy",
-      "access_key": "${SELENIUM_PROXY_KEY}",
+      "username": "${SELENIUM_USER}",
+      "access_key": "${SELENIUM_KEY}",
       "desiredCapabilities": {
         "browserName": "chrome",
         "version": "37",
