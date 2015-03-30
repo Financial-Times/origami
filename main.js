@@ -31,14 +31,22 @@ function getOrientation() {
 	} else if (window.matchMedia) {
 		return window.matchMedia('(orientation: portrait)').matches ? 'portrait' : 'landscape';
 	} else {
-		return window.innerHeight >= window.innerWidth ? 'portrait' : 'landscape';
+		return getHeight() >= getWidth() ? 'portrait' : 'landscape';
 	}
+}
+
+function getHeight() {
+	return Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+}
+
+function getWidth () {
+	return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 }
 
 function getSize() {
 	return {
-		height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
-		width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+		height: getHeight(),
+		width: getWidth()
 	};
 }
 
