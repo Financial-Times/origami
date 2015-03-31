@@ -93,6 +93,10 @@ Errors.prototype.init = function(options, raven) {
 	return this;
 };
 
+/**
+ * Flush any errors that are buffered in `this._errorBuffer`.
+ * @private
+ */
 Errors.prototype._flushBufferedErrors = function() {
 	if (!this.initialised) {
 		return;
@@ -141,7 +145,7 @@ Errors.prototype.report = function(error, context) {
  *
  * @param {Error}  error     - The error to report
  * @param {Object} context   - Additional contextual information for the error.
- * @returns {Error} Return the original 'error' argument
+ * @returns {Error} - The original 'error' argument
  */
 Errors.prototype.error = function() {
 	this.logger.error.apply(this.logger, arguments);
@@ -221,6 +225,15 @@ Errors.prototype.wrapWithContext = function(context, fn) {
 	};
 };
 
+/**
+ * Remove the `oErrors.log` event listener and clean up as much of the Raven
+ * client as possible.
+ *
+ * Errors is unusable after a call to destroy and calling `init` subsequently
+ * will fail.
+ *
+ * @returns undefined
+ */
 Errors.prototype.destroy = function() {
 	if (!this.initialised) { return; }
 	document.removeEventListener('oErrors.log', this._logEventHandler);
@@ -232,10 +245,24 @@ Errors.prototype.handleLogEvent = function(ev) {
 	this.report(ev.detail.error, ev.detail.info);
 };
 
+/**
+ * A hook to decide whether to send the data.
+ *
+ * @private
+ * @param {Object} data - The data object from Raven
+ * @returns {bool}
+ */
 Errors.prototype._shouldSendError = function(data) {
 	return true;
 };
 
+/**
+ * A hook to add additional data to the payload before sending.
+ *
+ * @private
+ * @param {Object} data - The data object from Raven
+ * @returns {Object}
+ */
 Errors.prototype._updatePayloadBeforeSend = function(data) {
 	if (this.logger.enabled) {
 		data.extra["context:log"] = this.logger.rollUp();
@@ -243,6 +270,16 @@ Errors.prototype._updatePayloadBeforeSend = function(data) {
 	return data;
 };
 
+/**
+ * Initialises additional data using <meta> and <link> elements in the DOM.
+ *
+ * @private
+ * @param {Object} options - A partially, or fully filled options object.  If
+ *                           an option is missing, this method will attempt to
+ *                           initialise it from the DOM.
+ * @returns {Object} - The options modified to include the options gathered
+ *                     from the DOM
+ */
 Errors.prototype._initialiseDeclaratively = function(options) {
 	options.sentryEndpoint = options.sentryEndpoint || this._getOptionDeclaratively("sentryEndpoint");
 	options.siteVersion    = options.siteVersion    || this._getOptionDeclaratively("siteVersion");
@@ -251,6 +288,17 @@ Errors.prototype._initialiseDeclaratively = function(options) {
 	return options;
 };
 
+/**
+ * Retrieves an option from the markup.
+ *
+ * There exists a special case for the 'sentryEndpoint' option.  It will
+ * inspect a link tag rather than a <meta> tag.
+ *
+ * @private
+ * @param {String} optionName  - The name of the option.
+ * @returns {String|undefined} - The value of the option, or undefined if it is
+ *                               not configured in the DOM.
+ */
 Errors.prototype._getOptionDeclaratively = function(optionName) {
 
 	// Special one off case for the sentry endpoint as it's in a link tag
