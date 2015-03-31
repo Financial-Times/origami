@@ -68,7 +68,7 @@ module.exports = function(config) {
 		singleRun: true,
 
 		browserify: {
-			transform: ['debowerify']
+			transform: ['debowerify', 'babelify']
 		}
 
 	});

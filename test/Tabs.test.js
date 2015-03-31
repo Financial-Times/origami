@@ -1,17 +1,17 @@
 /*global require,describe,beforeEach,afterEach,it,expect,spyOn*/
 'use strict';
 
-var fixtures = require('./helpers/fixtures');
-var Tabs = require('./../main');
+import fixtures from './helpers/fixtures';
+import Tabs from '../main';
 var testTabs;
 var tabsEl;
 var tabContentEl1;
 var tabContentEl2;
 var tabContentEl3;
 
-describe("tabs behaviour", function() {
+describe("tabs behaviour", () => {
 
-	beforeEach(function(){
+	beforeEach(() => {
 		fixtures.insertSimple();
 		tabsEl = document.querySelector('[data-o-component=o-tabs]');
 		tabContentEl1 = document.getElementById('tabContent1');
@@ -20,7 +20,7 @@ describe("tabs behaviour", function() {
 		testTabs = new Tabs(tabsEl);
 	});
 
-	afterEach(function() {
+	afterEach(() => {
 		testTabs.destroy();
 		testTabs = null;
 		tabsEl = null;
@@ -30,12 +30,12 @@ describe("tabs behaviour", function() {
 		fixtures.reset();
 	});
 
-	it("is defined", function() {
+	it("is defined", () => {
 		expect(Tabs).toBeDefined();
 		expect(Tabs.init).toBeDefined();
 	});
 
-	it("is has correct initial dom changes", function() {
+	it("is has correct initial dom changes", () => {
 		expect(tabsEl.hasAttribute('data-o-tabs--js')).toBe(true);
 		expect(tabsEl.querySelectorAll('li')[0].getAttribute('aria-controls')).toBe('tabContent1');
 		expect(tabsEl.querySelectorAll('li')[1].getAttribute('aria-controls')).toBe('tabContent2');
@@ -54,7 +54,7 @@ describe("tabs behaviour", function() {
 		});
 	});
 
-	it("has correct initial state", function() {
+	it("has correct initial state", () => {
 		expect(tabsEl.querySelectorAll('li')[0].getAttribute('aria-selected')).toBe('true');
 		expect(tabsEl.querySelectorAll('li')[1].getAttribute('aria-selected')).toBe('false');
 		expect(tabsEl.querySelectorAll('li')[2].getAttribute('aria-selected')).toBe('false');
@@ -66,7 +66,7 @@ describe("tabs behaviour", function() {
 		expect(tabContentEl3.getAttribute('aria-hidden')).toBe('true');
 	});
 
-	it("selectTab(1)", function() {
+	it("selectTab(1)", () => {
 		testTabs.selectTab(1);
 		expect(tabsEl.querySelectorAll('li')[0].getAttribute('aria-selected')).toBe('false');
 		expect(tabsEl.querySelectorAll('li')[1].getAttribute('aria-selected')).toBe('true');
@@ -79,7 +79,7 @@ describe("tabs behaviour", function() {
 		expect(tabContentEl3.getAttribute('aria-hidden')).toBe('true');
 	});
 
-	it("click tab", function() {
+	it("click tab", () => {
 		spyOn(testTabs, 'selectTab');
 		var clickEvent = document.createEvent('Event');
 		clickEvent.initEvent('click', true, true);
@@ -95,7 +95,7 @@ describe("tabs behaviour", function() {
 
 	});
 
-	it("destroy()", function() {
+	it("destroy()", () => {
 		testTabs.destroy();
 
 		expect(tabsEl.classList.contains('o-tabs--js')).toBe(false);
