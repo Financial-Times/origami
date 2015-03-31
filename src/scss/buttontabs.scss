@@ -1,12 +1,12 @@
 @include oTabsSelectors(o-tabs--buttontabs) {
 	&[data-o-tabs--js] {
 		&[role=tablist] {
-			border-bottom: 1px solid oColorsGetColorFor(o-ft-buttons-standard-normal, border);
+			border-bottom: 1px solid oColorsGetColorFor(o-buttons-standard-normal, border);
 			font-size: 0;
 		}
 
 		[role=tab] {
-			@include oFtButtons();
+			@include oButtons;
 			border-radius: 0;
 			border-bottom-width: 0;
 
