@@ -222,3 +222,8 @@ doThis().then(that).catch(function(e) {
 });
 
 ```
+# License
+
+Copyright (c) 2015 Financial Times Ltd. All rights reserved.
+
+This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
