@@ -117,15 +117,16 @@ Errors.prototype._flushBufferedErrors = function() {
  * @param {Error}  error    - The error object to report.
  * @param {Object} context  - Optional context to attach to the Error in the
  *                            aggregator
- * @return undefined
+ * @return {Error} - The passed in error
  */
 Errors.prototype.report = function(error, context) {
 	if (!this.initialised) {
 		this._errorBuffer.push({ error: error, context: context });
-		return;
+		return error;
 	}
 
 	this.ravenClient.captureMessage(error, context);
+	return error;
 };
 
 /**

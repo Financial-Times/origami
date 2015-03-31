@@ -127,6 +127,13 @@ describe("oErrors", function() {
 		});
 	});
 
+	describe("#report(e, context)", function() {
+		it("should return the original error", function() {
+			var error = errors.report(new Error("Test"));
+			expect(error.message).to.eql("Test");
+		});
+	});
+
 	describe("#_updatePayloadBeforeSend(data)", function() {
 		it("should add extra log data to the argument if logging is enabled", function() {
 			var errors = new Errors().init({
