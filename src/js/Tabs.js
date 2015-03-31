@@ -63,7 +63,7 @@ function Tabs(rootEl) {
 		// Remove the focus ring for sighted users
 		panelEl.style.outline = 0;
 
-		if(focusReq === false || focusReq =='undefined'){
+		if(focusReq === false || focusReq === 'undefined'){
 			// Get current scroll position
 			var x = window.scrollX;
 			var y = window.scrollY;
