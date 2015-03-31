@@ -1,6 +1,8 @@
+.DS_Store
 .idea/
 .sass-cache/
 bower_components/
 build/
 demos/local/
 node_modules/
+docs/sass
