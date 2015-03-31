@@ -59,8 +59,20 @@ function Tabs(rootEl) {
 	function showPanel(panelEl) {
 		panelEl.setAttribute('aria-expanded', 'true');
 		panelEl.setAttribute('aria-hidden', 'false');
-		panelEl.style.outline = 0; // Remove the focus ring for sighted users
-		panelEl.focus(); // Give focus to the panel for screen readers
+
+		// Remove the focus ring for sighted users
+		panelEl.style.outline = 0;
+
+		// Get current scroll position
+		var x = window.scrollX;
+		var y = window.scrollY;
+
+		// Give focus to the panel for screen readers
+		// This might cause the browser to scroll up or down
+		panelEl.focus();
+
+		// Scroll back to the original position
+		window.scrollTo(x, y);
 	}
 
 	function dispatchCustomEvent(name, data) {
