@@ -1,8 +1,16 @@
+////
+/// @group o-share
+/// @link http://registry.origami.ft.com/components/o-share
+////
+
+/// Generate background properties to display the image sprite
+/// @param {String} $name - name of the icon
 @mixin _oShareSprite($name) {
-  $num: _oShareGetSpriteIndex($name);
-  @if ($num == -1) {
-    background-image: none;
-  } @else {
-    background-position: 0 _oShareStripUnitIfZero($_o-share-icon-size * $num * -1);
-  }
+	$num: _oShareGetSpriteIndex($name);
+
+	@if ($num == -1) {
+		background-image: none;
+	} @else {
+		background-position: 0 _oShareStripUnitIfZero($_o-share-icon-size * $num * -1);
+	}
 }

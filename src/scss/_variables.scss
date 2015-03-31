@@ -1,7 +1,20 @@
+////
+/// @group o-share
+/// @link http://registry.origami.ft.com/components/o-share
+////
+
+/// Silent mode
+/// @type Bool
 $o-share-is-silent: true !default;
+
+/// Icon size
+/// @type Number
 $_o-share-icon-size: 24px;
 
-// Used to request and show the sprite. Order doesn't affect class names or markup.
+/// Used to request and show the sprite. Order doesn't affect class names or markup
+/// @type map
 $_o-share-sprite-elements: (twitter, facebook, googleplus, linkedin, reddit, link, pinterest);
 
+/// Tooltip background
+/// @type color
 $_o-share-tooltip-bg: rgba(0, 0, 0, 0.6);
