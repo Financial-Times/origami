@@ -87,7 +87,41 @@ Errors.prototype.init = function(options, raven) {
 	document.addEventListener('oErrors.log', this._logEventHandler);
 
 	this.initialised = true;
+
+
+	this._flushBufferedErrors();
 	return this;
+};
+
+Errors.prototype._flushBufferedErrors = function() {
+	if (!this.initialised) {
+		return;
+	}
+
+	var errors = this;
+	this._errorBuffer.forEach(function(bufferedError) {
+		errors.report(bufferedError.error, bufferedError.context);
+	});
+
+	// Clear the buffer, deleting references we hold to any buffered errors
+	this._errorBuffer = [];
+};
+
+/**
+ * Report an Error object to the error aggregator.
+ *
+ * @param {Error}  error    - The error object to report.
+ * @param {Object} context  - Optional context to attach to the Error in the
+ *                            aggregator
+ * @return undefined
+ */
+Errors.prototype.report = function(error, context) {
+	if (!this.initialised) {
+		this._errorBuffer.push({ error: error, context: context });
+		return;
+	}
+
+	this.ravenClient.captureMessage(error, context);
 };
 
 /**
@@ -109,12 +143,8 @@ Errors.prototype.init = function(options, raven) {
  * @param {Object} context   - Additional contextual information for the error.
  * @returns {Error} Return the original 'error' argument
  */
-Errors.prototype.error = function(error, context) {
-	if (!this.initialised) {
-		return error;
-	}
-	this.report(error, context);
-	return error;
+Errors.prototype.error = function() {
+	this.logger.error.apply(this.logger, arguments);
 };
 
 /**
@@ -126,8 +156,8 @@ Errors.prototype.error = function(error, context) {
  * @param {String} warnMessage  - The message to log.
  * @returns undefined
  */
-Errors.prototype.warn = function(warnMessage) {
-	this.logger.warn(warnMessage);
+Errors.prototype.warn = function() {
+	this.logger.warn.apply(this.logger, arguments);
 };
 
 /**
@@ -138,8 +168,8 @@ Errors.prototype.warn = function(warnMessage) {
  * @param {String} logMessage - The message to log.
  * @return undefined
  */
-Errors.prototype.log = function(logMessage) {
-	this.logger.log(logMessage);
+Errors.prototype.log = function() {
+	this.logger.log.apply(this.logger, arguments);
 };
 
 
@@ -147,22 +177,20 @@ Errors.prototype.log = function(logMessage) {
  * Wrap a function so that any uncaught errors are caught and reported to the
  * error aggregator.
  *
+ * @example
+ * // Wraps function, any errors occurring within the function are caught, logged, and rethrown.
+ * var wrappedFunction = oErrors.wrap(function() {
+ *   throw new Error("My Error");
+ * });
+ *
  * If you want to attach additional contextual information to the error, see
  * {@link Errors#wrapWithContext}.
- *
- * @param {Function} fn - The function to wrap.
+ -
+ * @param {Function} fn     - The function to wrap.
  * @return {Function}
  */
-Errors.prototype.wrap = function(fn, thisArg) {
-	var errors = this;
-	return function() {
-		try {
-			return fn.apply(thisArg || this, arguments);
-		} catch(e) {
-			errors.report(e);
-			throw e;
-		}
-	};
+Errors.prototype.wrap = function(fn) {
+	return this.wrapWithContext({}, fn);
 };
 
 /**
@@ -172,7 +200,7 @@ Errors.prototype.wrap = function(fn, thisArg) {
  * occurs.
  *
  * @example
- * // Wrap a function with some additional context to be reported in the even
+ * // Wrap a function with some additional context to be reported in the event
  * // `doSomethingCallback` throws an error.
  * setTimeout(oErrors.wrapWithContext({ "context:url": "example.com" }, doSomethingCallback), 1000);
  *
@@ -182,21 +210,15 @@ Errors.prototype.wrap = function(fn, thisArg) {
  * @return {Function}
  */
 Errors.prototype.wrapWithContext = function(context, fn) {
-	if (!this.initialised) { return fn; }
-	return this.ravenClient.wrap(context, fn);
-};
-
-/**
- * Report an Error object to the error aggregator.
- *
- * @param {Error}  error    - The error object to report.
- * @param {Object} context  - Optional context to attach to the Error in the
- *                            aggregator
- * @return undefined
- */
-Errors.prototype.report = function(error, options) {
-	if (!this.initialised) { return; }
-	this.ravenClient.captureMessage(error, options);
+	var errors = this;
+	return function() {
+		try {
+			return fn.apply(undefined, arguments);
+		} catch(e) {
+			errors.report(e, context);
+			throw e;
+		}
+	};
 };
 
 

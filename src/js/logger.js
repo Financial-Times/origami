@@ -18,6 +18,10 @@ function Logger(logSize, logLevel) {
 	}
 }
 
+Logger.prototype.error = function() {
+	this._consoleLog("ERROR", console.error, arguments);
+};
+
 Logger.prototype.log = function() {
 	this._consoleLog("LOG", console.log, arguments);
 };

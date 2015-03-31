@@ -6,12 +6,12 @@ describe("oErrors", function() {
 	var mockRavenClient = null;
 	var errors = null;
 
-	before(function() {
+	beforeEach(function() {
 		mockRavenClient = mockRaven();
 		errors = new Errors().init({ sentryEndpoint: "testendpoint" }, mockRavenClient);
 	});
 
-	after(function() {
+	afterEach(function() {
 		errors.destroy();
 		errors = null;
 	});
@@ -72,12 +72,25 @@ describe("oErrors", function() {
 	});
 
 	describe("#wrapWithContext(context, function)", function() {
-		it("should call Raven.wrap with context and function arguments", function() {
-			var fn = function() {};
-			errors.wrapWithContext({ context: "object" }, fn);
+		it("should call Raven.captureMessage with context when given function throws an exception", function() {
+			var fn = function() {
+				throw new Error("Test");
+			};
 
-			expect(mockRavenClient.lastWrapArgs[0]).to.eql({ context: "object" });
-			expect(mockRavenClient.lastWrapArgs[1]).to.eql(fn);
+			mockRavenClient.captureMessage = function(error, context) {
+				expect(error).to.be.an(Error);
+				expect(error.message).to.be("Test");
+				expect(context).to.be.an('object');
+				expect(context.context).to.equal('object');
+				done();
+			};
+
+			try {
+				var wrappedFunction = errors.wrapWithContext({ context: "object" }, fn);
+				wrappedFunction();
+			} catch(e) {
+				// Ignore in this test
+			}
 		});
 
 		it("should return a function", function() {
@@ -88,10 +101,22 @@ describe("oErrors", function() {
 	});
 
 	describe("#wrap(function)", function() {
-		it("should call Raven.wrap with only a function argument", function() {
-			var fn = function() {};
-			errors.wrap(fn);
-			expect(mockRavenClient.lastWrapArgs[0]).to.eql(fn);
+		it("should call Raven.captureMessage with only a function argument", function(done) {
+			var fn = function() {
+				throw new Error("Test");
+			};
+
+			var wrappedFunction = errors.wrap(fn);
+
+			mockRavenClient.captureMessage = function(error, context) {
+				expect(error).to.be.an(Error);
+				expect(error.message).to.be("Test");
+				expect(context).to.eql({});
+				done();
+			};
+
+			wrappedFunction()
+
 		});
 
 		it("should return a function", function() {
@@ -130,6 +155,26 @@ describe("oErrors", function() {
 			var data = { extra: {} };
 			var modifiedData = errors._updatePayloadBeforeSend(data);
 			expect(modifiedData.extra["context:log"]).to.equal(undefined);
+		});
+	});
+
+	describe("#report(error, context)", function() {
+		it("should buffer any errors reported before the module has been initialised", function(done) {
+			var errors = new Errors();
+
+			errors.report(new Error("My test error"), { additional: "info" });
+
+			mockRavenClient.captureMessage = function(error, context) {
+				expect(error).to.be.an(Error);
+				expect(error.message).to.be("My test error");
+				expect(context).to.be.an('object');
+				expect(context.additional).to.equal('info');
+				done();
+			};
+
+			errors.init({
+				sentryEndpoint: "test"
+			}, mockRavenClient);
 		});
 	});
 
