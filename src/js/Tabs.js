@@ -61,7 +61,7 @@ function Tabs(rootEl) {
 		panelEl.setAttribute('aria-hidden', 'false');
 
 		// Remove the focus ring for sighted users
-		panelEl.style.outline = 0; 
+		panelEl.style.outline = 0;
 
 		// Get current scroll position
 		var x = window.scrollX;
