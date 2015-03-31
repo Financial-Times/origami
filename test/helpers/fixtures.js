@@ -1,4 +1,3 @@
-/*global exports*/
 'use strict';
 var sandboxEl;
 

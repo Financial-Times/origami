@@ -1,8 +1,9 @@
-/*global require,describe,beforeEach,afterEach,it,expect,spyOn*/
+/*global describe,beforeEach,afterEach,it,expect,spyOn*/
 'use strict';
 
-import fixtures from './helpers/fixtures';
+import * as fixtures from './helpers/fixtures';
 import Tabs from '../main';
+
 var testTabs;
 var tabsEl;
 var tabContentEl1;
