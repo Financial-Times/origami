@@ -221,7 +221,6 @@ Errors.prototype.wrapWithContext = function(context, fn) {
 	};
 };
 
-
 Errors.prototype.destroy = function() {
 	if (!this.initialised) { return; }
 	document.removeEventListener('oErrors.log', this._logEventHandler);

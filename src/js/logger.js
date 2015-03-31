@@ -1,3 +1,5 @@
+/* global console */
+'use strict';
 /**
  * Create a new Logger class. Used internally by {@link Errors}.
  *
@@ -14,20 +16,23 @@ function Logger(logSize, logLevel) {
 
 	this.enabled = this._logLevel !== Logger.level.off;
 	if (!this.enabled) {
-		this._consoleLog = function() {};
+		this._consoleLog = noop;
 	}
+
+	var out = console || { log: noop, warn: noop, error: noop };
+	this.out = out;
 }
 
 Logger.prototype.error = function() {
-	this._consoleLog("ERROR", console.error, arguments);
+	this._consoleLog("ERROR", this.out.error, arguments);
 };
 
 Logger.prototype.log = function() {
-	this._consoleLog("LOG", console.log, arguments);
+	this._consoleLog("LOG", this.out.log, arguments);
 };
 
 Logger.prototype.warn = function() {
-	this._consoleLog("WARN", console.warn, arguments);
+	this._consoleLog("WARN", this.out.warn, arguments);
 };
 
 Logger.prototype._consoleLog = function(name, consoleMethod, args) {
@@ -39,8 +44,8 @@ Logger.prototype._consoleLog = function(name, consoleMethod, args) {
 	var message = argsAsLogString(name, args);
 	this.append(message);
 
-	if (debug) {
-		consoleMethod.apply(console, args);
+	if (debug && consoleMethod) {
+		consoleMethod.apply(this.out, args);
 	}
 };
 
@@ -80,8 +85,6 @@ Logger.prototype.rollUp = function() {
 	var index = this._nextLogIndex;
 	var nextLogIndex = this._nextLogIndex;
 	var rolledUpLogs = [];
-
-	var failsafe = 0;
 
 	do {
 		var logEntry = this._logBuffer[index];
@@ -123,5 +126,7 @@ Logger.level = {
 	 */
 	debug:       2 // contextonly & debug
 };
+
+function noop() {}
 
 module.exports = Logger;

@@ -1,3 +1,4 @@
+/* global afterEach, beforeEach, describe, it */
 'use strict';
 var Errors  = require('../src/js/oErrors');
 var expect = require('expect.js');
@@ -24,7 +25,7 @@ describe("oErrors", function() {
 		});
 
 		it("should configure the raven client with the sentryEndpoint configuration option", function() {
-			var errors = new Errors().init({
+			new Errors().init({
 				sentryEndpoint: "sentryendpoint"
 			}, mockRavenClient);
 
@@ -32,7 +33,7 @@ describe("oErrors", function() {
 		});
 
 		it("should configure the raven client with the release version if the siteVersion option is configured", function() {
-			var errors = new Errors().init({
+			new Errors().init({
 				siteVersion: "v1.0.0",
 				sentryEndpoint: "test"
 			}, mockRavenClient);
@@ -72,7 +73,7 @@ describe("oErrors", function() {
 	});
 
 	describe("#wrapWithContext(context, function)", function() {
-		it("should call Raven.captureMessage with context when given function throws an exception", function() {
+		it("should call Raven.captureMessage with context when given function throws an exception", function(done) {
 			var fn = function() {
 				throw new Error("Test");
 			};
@@ -115,7 +116,7 @@ describe("oErrors", function() {
 				done();
 			};
 
-			wrappedFunction()
+			wrappedFunction();
 
 		});
 
