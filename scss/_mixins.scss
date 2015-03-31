@@ -1,3 +1,11 @@
+////
+/// @group o-ft-icons
+/// @link http://registry.origami.ft.com/components/o-ft-icons
+////
+
+/// Generate an aggregated list of selectors for an icon
+///
+/// @param {String} icon
 @function oFtIconsGetSelectors($icon) {
 	$aggregated-selector: ();
 	$aggregated-selector: append($aggregated-selector, unquote('%o-ft-icons-#{$icon}'), comma);
@@ -9,7 +17,8 @@
 
 @mixin oFtIconsFontFace() {
 	@if ($_o-ft-icons-font-face-already-output == false) {
-		$_o-ft-icons-font-face-already-output: true;
+		$_o-ft-icons-font-face-already-output: true !global;
+
 		@font-face {
 			font-family: $_o-ft-icons-font-name;
 			src: url(oAssetsResolve($_o-ft-icons-font-file-name + ".eot", o-ft-icons));
@@ -22,24 +31,32 @@
 	}
 }
 
-// Base styles for all icons
+/// Base styles for all icons
 @mixin oFtIconsBaseIconStyles() {
 	font-family: $_o-ft-icons-font-name;
 	display: inline-block;
 	vertical-align: middle;
 	// These are marked as !important as the icon font is not designed to be used with faux bold or faux italic styles
 	// If bolder versions of an icon are required a new SVG should be designed and added to the icon font
+	// scss-lint:disable ImportantRule
 	font-weight: normal !important;
 	font-style: normal !important;
 	speak: none;
 	text-decoration: inherit;
 	text-transform: none;
 	text-rendering: optimizeLegibility;
+	// scss-lint:disable VendorPrefix VendorPrefixes
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-// Placeholder (and optionally concrete class) for individual icon (modern browsers)
+/// Placeholder (and optionally concrete class) for individual icon (modern browsers)
+///
+/// @access private
+///
+/// @param {String} $icon-class
+/// @param {String} $character-code - Unicode character code (e.g. f101)
+/// @param {String} $placement [before] - before|after
 @mixin _oFtIconsStandardsIcon($icon-class, $character-code, $placement: 'before') {
 	$icon-selectors: oFtIconsGetSelectors("#{$icon-class}:#{$placement}");
 	#{$icon-selectors} {
@@ -57,7 +74,12 @@
 	}
 }
 
-// Placeholder (and optionally concrete class) for individual icon (IE7 hack)
+/// Placeholder (and optionally concrete class) for individual icon (IE7 hack)
+///
+/// @access private
+///
+/// @param {String} icon-class
+/// @param {String} character-code - Unicode character code (e.g. f101)
 @mixin _oFtIconsIe7Icon($icon-class, $character-code) {
 	$icon-selectors: oFtIconsGetSelectors($icon-class);
 	#{$icon-selectors} {
@@ -66,6 +88,10 @@
 	}
 }
 
+/// Icon styles for $icon-name
+///
+/// @param {String} icon-name
+/// @param {String} character-code - Unicode character code (e.g. f101)
 @mixin oFtIconsIcon($icon-name, $character-code) {
 	@include _oFtIconsIe7Icon(icon--#{$icon-name}, $character-code);
 	@include _oFtIconsStandardsIcon(icon--#{$icon-name}, $character-code);

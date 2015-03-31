@@ -1,4 +1,20 @@
+////
+/// @group o-ft-icons
+/// @link http://registry.origami.ft.com/components/o-ft-icons
+////
+
+/// Silent mode
+/// @type Bool
 $o-ft-icons-is-silent: true !default;
 
+/// Font-family
+///
+/// @access private
+/// @type String
 $_o-ft-icons-font-name: 'ft-icons';
+
+/// Has the font-face declaration already been output?
+///
+/// @access private
+/// @type Bool
 $_o-ft-icons-font-face-already-output: false;
