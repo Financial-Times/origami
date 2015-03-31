@@ -100,14 +100,12 @@ Logger.prototype.rollUp = function() {
 	return rolledUpLogs.join("\n");
 };
 
-module.exports = Logger;
-
 /**
  * Describes the logging levels available
  * @enum {Number}
  * @public
  */
-Logger.level ={
+Logger.level = {
 	/**
 	 * No logging at all occurs, each call to errors.log or errors.log are no-ops
 	 */
@@ -125,3 +123,5 @@ Logger.level ={
 	 */
 	debug:       2 // contextonly & debug
 };
+
+module.exports = Logger;
