@@ -1,5 +1,7 @@
 # o-errors
 
+[![Build Status](https://travis-ci.org/Financial-Times/o-errors.svg?branch=master)](https://travis-ci.org/Financial-Times/o-errors)
+
 This module provides a decoupled events-based mechanism for modules and an API
 for products to report client-side errors.
 
