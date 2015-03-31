@@ -47,6 +47,9 @@ Logger.prototype._consoleLog = function(name, consoleMethod, args) {
 function argsAsLogString(logName, args) {
 	var string = logName + ":";
 
+	// TODO: Improve the logging of objects.  We could 'require('util')' and
+	// use util.format (provided by browserify), but it adds 8K to the
+	// minified output, it doesn't seem worth it.
 	for(var index = 0; index < args.length; index++) {
 		string += " " + args[index];
 	}
