@@ -2,22 +2,34 @@
 
 [![Build Status](https://travis-ci.org/Financial-Times/o-errors.svg?branch=master)](https://travis-ci.org/Financial-Times/o-errors)
 
-This module provides a decoupled events-based mechanism for modules and an API
-for products to report client-side errors.
+This module provides a decoupled events-based mechanism for modules to report errors and an API for products to report client-side errors.
 
-## Usage
+## Requirements
 
-### Declarative Instantiation
+Error tracking in a product requires a project to be set up in
+[Sentry](//getsentry.com) as `o-errors` uses the Sentry error aggregator to
+report errors centrally.
 
-Include `o-errors` via the [build service](https://registry.origami.ft.com/components/o-errors#section-usage) and include a `<link>` tag configured
-to point towards the [DSN specific to your application](https://app.getsentry.com/docs/platforms/) provided by the error aggregator, Sentry.
+See the [Sentry documentation](https://app.getsentry.com/docs/platforms/) for
+setup specifics.
+
+----
+
+## Quick Start
+
+Include `o-errors` in your build and include a `<link>` tag configured
+to point towards the [DSN specific to your
+application](https://app.getsentry.com/docs/platforms/) provided by the error
+aggregator, Sentry (see [Requirements](#Requirements)).
 
 ```HTML
 <link rel="oErrors:sentryEndpoint" href="https://dsn@app.getsentry.com/appid" />
 ```
 
 This will automatically configure `o-errors` and will begin reporting any
-uncaught errors using `window.onerror`.
+uncaught errors by setting the `window.onerror` event handler.
+
+## Usage
 
 #### Additional configuration options
 
