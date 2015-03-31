@@ -6,9 +6,8 @@ This module provides a decoupled events-based mechanism for modules to report er
 
 ## Requirements
 
-Error tracking in a product requires a project to be set up in
-[Sentry](//getsentry.com) as `o-errors` uses the Sentry error aggregator to
-report errors centrally.
+Error tracking in a product requires a project to be set up with
+[Sentry](//getsentry.com) as `o-errors` reports errors to Sentry.
 
 See the [Sentry documentation](https://app.getsentry.com/docs/platforms/) for
 setup specifics.
