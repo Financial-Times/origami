@@ -1,5 +1,12 @@
-function Logger(logsize, logLevel) {
-	this._logBuffer = new Array(logsize);
+/**
+ * Create a new Logger class. Used internally by {@link Errors}.
+ *
+ * @param {Number} logSize - The default, fixed size of the log buffer.
+ * @param {String} logLevel - The default log level, see the enumeration {@link Logger.level} for valid values, expects a String corresponding to a log level name.
+ * @class Logger
+ */
+function Logger(logSize, logLevel) {
+	this._logBuffer = new Array(logSize);
 	this._nextLogIndex = 0;
 
 	// const
@@ -10,12 +17,6 @@ function Logger(logsize, logLevel) {
 		this._consoleLog = function() {};
 	}
 }
-
-Logger.level = {
-	off:         0,
-	contextonly: 1,
-	debug:       2 // contextonly & debug
-};
 
 Logger.prototype.log = function() {
 	this._consoleLog("LOG", console.log, arguments);
@@ -60,6 +61,14 @@ Logger.prototype.append = function(logLine) {
 	}
 };
 
+/**
+ * Roll the log buffer into a new line delimited string starting.
+ * It, creates a chronological log based on the contents of the current
+ * buffer. Any log entries that are undefined are dropped.
+ *
+ * @private
+ * @returns {String}
+ */
 Logger.prototype.rollUp = function() {
 	var index = this._nextLogIndex;
 	var nextLogIndex = this._nextLogIndex;
@@ -85,3 +94,27 @@ Logger.prototype.rollUp = function() {
 };
 
 module.exports = Logger;
+
+/**
+ * Describes the logging levels available
+ * @enum {Number}
+ * @public
+ */
+Logger.level ={
+	/**
+	 * No logging at all occurs, each call to errors.log or errors.log are no-ops
+	 */
+	off:         0,
+
+	/**
+	 * Logs are stored in a buffer, by default the last 10 lines.  When an
+	 *  error occurs, these log lines are attached to the error object.
+	 */
+	contextonly: 1,
+
+	/**
+	 * Logs are stored in the buffer as with `contextonly` however, they are
+	 * also passed through to the relevant `console.*` API.
+	 */
+	debug:       2 // contextonly & debug
+};

@@ -1,6 +1,5 @@
 'use strict';
-var oErrors  = require('../main');
-var Errors = oErrors.Errors;
+var Errors  = require('../src/js/oErrors');
 var expect = require('expect.js');
 
 describe("oErrors", function() {
@@ -9,7 +8,7 @@ describe("oErrors", function() {
 
 	before(function() {
 		mockRavenClient = mockRaven();
-		errors = new Errors(mockRavenClient, { sentryEndpoint: "testendpoint" });
+		errors = new Errors().init({ sentryEndpoint: "testendpoint" }, mockRavenClient);
 	});
 
 	after(function() {
@@ -17,35 +16,35 @@ describe("oErrors", function() {
 		errors = null;
 	});
 
-	describe("constructor(raven, options)", function() {
+	describe("#init(raven, options)", function() {
 		it("should throw an exception if the sentryEndpoint option is missing", function() {
 			expect(function() {
-				new Errors(mockRavenClient, {});
+				new Errors().init({}, mockRavenClient);
 			}).to.throwException();
 		});
 
 		it("should configure the raven client with the sentryEndpoint configuration option", function() {
-			var errors = new Errors(mockRavenClient, {
+			var errors = new Errors().init({
 				sentryEndpoint: "sentryendpoint"
-			});
+			}, mockRavenClient);
 
 			expect(mockRavenClient.configuredEndpoint).to.equal("sentryendpoint");
 		});
 
 		it("should configure the raven client with the release version if the siteVersion option is configured", function() {
-			var errors = new Errors(mockRavenClient, {
+			var errors = new Errors().init({
 				siteVersion: "v1.0.0",
 				sentryEndpoint: "test"
-			});
+			}, mockRavenClient);
 
 			expect(mockRavenClient.configOptions.release).to.equal("v1.0.0");
 		});
 
 		it("should configure the log level according the the logLevel option", function() {
-			var errors = new Errors(mockRavenClient, {
+			var errors = new Errors().init({
 				sentryEndpoint: "test",
 				logLevel: "contextonly"
-			});
+			}, mockRavenClient);
 
 			expect(errors.logger._logLevel).to.be(1);
 		});
@@ -62,7 +61,7 @@ describe("oErrors", function() {
 			document.head.appendChild(sentryEndpointLink);
 			document.head.appendChild(logLevel);
 
-			var errors = new Errors(mockRavenClient);
+			var errors = new Errors().init(null, mockRavenClient);
 
 			expect(mockRavenClient.configuredEndpoint).to.eql("http://dsn@app.getsentry.com/appid");
 			expect(errors.logger._logLevel).to.eql(1);
@@ -104,10 +103,10 @@ describe("oErrors", function() {
 
 	describe("#_updatePayloadBeforeSend(data)", function() {
 		it("should add extra log data to the argument if logging is enabled", function() {
-			var errors = new Errors(mockRavenClient, {
+			var errors = new Errors().init({
 				sentryEndpoint: "test",
 				logLevel: "contextonly"
-			});
+			}, mockRavenClient);
 
 			errors.log("This is a LOG line");
 			errors.warn("This is a WARN line");
@@ -120,10 +119,10 @@ describe("oErrors", function() {
 		});
 
 		it("should not add extra log data to the argument if logging is disabled", function() {
-			var errors = new Errors(mockRavenClient, {
+			var errors = new Errors().init({
 				sentryEndpoint: "test",
 				logLevel: "off"
-			});
+			}, mockRavenClient);
 
 			errors.log("This is a LOG line");
 			errors.warn("This is a WARN line");

@@ -52,6 +52,9 @@ oErrors.init({
 });
 ```
 
+If a config option is missing, `o-errors` will look for the configuration in
+the DOM, config options passed to the `init` method take precedence.
+
 #### Configuration
 
 ##### sentryEndpoint - required
@@ -85,7 +88,7 @@ Could be one of the following options:
 a no-operation. This is the default and is reccommended for most production
 scenarios.
 
-`contextonly` - Turns on context tracking, `oErrors.log` and `oErrors.warn`
+`contextonly` - Turns on log context tracking, `oErrors.log` and `oErrors.warn`
 will store the last 10 log messages in a fast circular buffer, when an error
 is reported, these log lines are attached to the error as additional context
 in the `context:log` field.  This can be particularly useful when
@@ -154,7 +157,9 @@ exampleSyncData();
 
 This is not always desirable and extensive logging could affect performance.
 It can be turned on and off using the `logLevel` configuration variable
-when initialising the module.
+when initialising the module.  When `logLevel` is `"off"` the operations
+become 'noops' which are compiled out of your code by modern javascript
+engines.
 
 `oErrors.log(message)`  - Creates a 'log' level message, semantically equivalent to `console.log`
 `oErrors.warn(message)` - Creates a 'warn' level message, semantically equivalent to `console.warn`
@@ -176,6 +181,8 @@ A component can fire an `oErrors.log` event on its owned DOM to send an error re
    info:  i   // an object with further useful debug info
 }
 ```
+
+Because `o-errors` listens on `document`, the event must bubble.
 
 Example:
 
