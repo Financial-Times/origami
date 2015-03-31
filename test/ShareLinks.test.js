@@ -3,11 +3,11 @@
 
 require('./helpers/polyfill');
 
-var fixtures = require('./helpers/fixtures'),
-	triggerEvent = require('./helpers/triggerEvent'),
-	ShareLinks = require('./../main'),
-	testShareLinks,
-	shareLinksEl;
+var fixtures = require('./helpers/fixtures');
+var triggerEvent = require('./helpers/triggerEvent');
+var ShareLinks = require('./../main');
+var testShareLinks;
+var shareLinksEl;
 
 describe("general behaviour", function() {
 
