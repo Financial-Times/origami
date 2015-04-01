@@ -56,25 +56,27 @@ function Tabs(rootEl) {
 		panelEl.setAttribute('aria-hidden', 'true');
 	}
 
-	function showPanel(panelEl, focusReq) {
+	function showPanel(panelEl, disableFocus) {
 		panelEl.setAttribute('aria-expanded', 'true');
 		panelEl.setAttribute('aria-hidden', 'false');
 
 		// Remove the focus ring for sighted users
 		panelEl.style.outline = 0;
 
-		if(focusReq === false || focusReq === 'undefined'){
-			// Get current scroll position
-			var x = window.scrollX;
-			var y = window.scrollY;
-
-			// Give focus to the panel for screen readers
-			// This might cause the browser to scroll up or down
-			panelEl.focus();
-
-			// Scroll back to the original position
-			window.scrollTo(x, y);
+		if(disableFocus){
+			return;
 		}
+		// Get current scroll position
+		var x = window.scrollX;
+		var y = window.scrollY;
+
+		// Give focus to the panel for screen readers
+		// This might cause the browser to scroll up or down
+		panelEl.focus();
+
+		// Scroll back to the original position
+		window.scrollTo(x, y);
+
 
 	}
 
@@ -89,13 +91,13 @@ function Tabs(rootEl) {
 		}
 	}
 
-	function selectTab(i, focusReq) {
+	function selectTab(i, disableFocus) {
 		var c, l;
 		if (isValidTab(i) && i !== selectedTabIndex) {
 			for (c = 0, l = tabEls.length; c < l; c++) {
 				if (i === c) {
 					tabEls[c].setAttribute('aria-selected', 'true');
-					showPanel(tabpanelEls[c], focusReq);
+					showPanel(tabpanelEls[c], disableFocus);
 				} else {
 					tabEls[c].setAttribute('aria-selected', 'false');
 					hidePanel(tabpanelEls[c]);
