@@ -76,8 +76,6 @@ function Tabs(rootEl) {
 
 		// Scroll back to the original position
 		window.scrollTo(x, y);
-
-
 	}
 
 	function dispatchCustomEvent(name, data) {
