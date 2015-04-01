@@ -209,7 +209,7 @@ function WidgetUi (widgetContainer, config) {
 
 		if (commentElement) {
 			var blockedElement = document.createElement('div');
-			blockedElement.innerHTML = "Blocked";
+			blockedElement.innerHTML = "blocked";
 			blockedElement.className = "o-comments--blocked";
 
 			if (self.config.layout === 'side') {
