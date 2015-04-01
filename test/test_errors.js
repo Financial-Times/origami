@@ -134,6 +134,30 @@ describe("oErrors", function() {
 		});
 	});
 
+	describe("#_getEventPath(ev)", function() {
+		it("should return an array containing the elements the event propagated through", function(done) {
+			var topLevelDiv = document.createElement("div");
+			var firstLevelDiv = document.createElement("div");
+
+			function onClick(ev) {
+				var path = errors._getEventPath(ev);
+				expect(path[0]).to.be(firstLevelDiv);
+				expect(path[1]).to.be(topLevelDiv);
+
+				done();
+			}
+
+			topLevelDiv.appendChild(firstLevelDiv);
+			topLevelDiv.addEventListener('click', onClick);
+
+			document.body.appendChild(topLevelDiv);
+
+			var ev = document.createEvent("MouseEvents");
+			ev.initMouseEvent("click", true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
+			firstLevelDiv.dispatchEvent(ev);
+		});
+	});
+
 	describe("#_updatePayloadBeforeSend(data)", function() {
 		it("should add extra log data to the argument if logging is enabled", function() {
 			var errors = new Errors().init({

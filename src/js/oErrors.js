@@ -242,8 +242,35 @@ Errors.prototype.destroy = function() {
 };
 
 Errors.prototype.handleLogEvent = function(ev) {
-	if (!this.initialised) { return; }
 	this.report(ev.detail.error, ev.detail.info);
+};
+
+/**
+ * Given a DOM event, return an array of Elements that the event propagated
+ * through.
+ *
+ * @private
+ * @param {Event} event - The event to get the path for.
+ * @returns {Array} - An array of Elements.
+ */
+Errors.prototype._getEventPath = function(event) {
+
+	// event.path is available in some browsers, most notable Chrome
+	if (event.path) {
+		// Array.prototype.slice.call coerces a NodeList to an array. Could
+		// use Array.from but it is not in the Polyfill service default set.
+		return Array.prototype.slice.call(event.path);
+	}
+
+	var path = [];
+	var element = event.srcElement;
+
+	while (element) {
+		path.push(element);
+		element = element.parentElement;
+	}
+
+	return path;
 };
 
 /**
