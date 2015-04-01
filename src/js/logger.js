@@ -54,7 +54,8 @@ function argsAsLogString(logName, args) {
 
 	// TODO: Improve the logging of objects.  We could 'require('util')' and
 	// use util.format (provided by browserify), but it adds 8K to the
-	// minified output, it doesn't seem worth it.
+	// minified output, it doesn't seem worth it. Kornel suggests
+	// git.svc.ft.com/projects/LOG/repos/js-abbreviate/browse
 	for(var index = 0; index < args.length; index++) {
 		string += " " + args[index];
 	}
@@ -81,7 +82,7 @@ Logger.prototype.append = function(logLine) {
  * @private
  * @returns {String}
  */
-Logger.prototype.rollUp = function() {
+Logger.prototype.logLines = function() {
 	var index = this._nextLogIndex;
 	var nextLogIndex = this._nextLogIndex;
 	var rolledUpLogs = [];

@@ -266,7 +266,7 @@ Errors.prototype._shouldSendError = function(data) {
  */
 Errors.prototype._updatePayloadBeforeSend = function(data) {
 	if (this.logger.enabled) {
-		data.extra["context:log"] = this.logger.rollUp();
+		data.extra["context:log"] = this.logger.logLines();
 	}
 	return data;
 };
