@@ -16,7 +16,10 @@ function Tabs(rootEl) {
 	}
 
 	function getTabPanelEls(tabEls) {
-		var els = [], targetEl, c, l;
+		var els = [];
+		var targetEl;
+		var c;
+		var l;
 		for (c = 0, l = tabEls.length; c < l; c++) {
 			var tabTargetId = getTabTargetId(tabEls[c]);
 			targetEl = document.getElementById(tabTargetId);
@@ -56,13 +59,16 @@ function Tabs(rootEl) {
 		panelEl.setAttribute('aria-hidden', 'true');
 	}
 
-	function showPanel(panelEl) {
+	function showPanel(panelEl, disableFocus) {
 		panelEl.setAttribute('aria-expanded', 'true');
 		panelEl.setAttribute('aria-hidden', 'false');
 
 		// Remove the focus ring for sighted users
 		panelEl.style.outline = 0;
 
+		if(disableFocus){
+			return;
+		}
 		// Get current scroll position
 		var x = window.scrollX;
 		var y = window.scrollY;
@@ -86,13 +92,14 @@ function Tabs(rootEl) {
 		}
 	}
 
-	function selectTab(i) {
-		var c, l;
+	function selectTab(i, disableFocus) {
+		var c;
+		var l;
 		if (isValidTab(i) && i !== selectedTabIndex) {
 			for (c = 0, l = tabEls.length; c < l; c++) {
 				if (i === c) {
 					tabEls[c].setAttribute('aria-selected', 'true');
-					showPanel(tabpanelEls[c]);
+					showPanel(tabpanelEls[c], disableFocus);
 				} else {
 					tabEls[c].setAttribute('aria-selected', 'false');
 					hidePanel(tabpanelEls[c]);
@@ -147,7 +154,10 @@ function Tabs(rootEl) {
 }
 
 Tabs.init = function(el) {
-	var tabs = [], tEls, c, l;
+	var tabs = [];
+	var tEls;
+	var c;
+	var l;
 	if (!el) {
 		el = document.body;
 	} else if (!(el instanceof HTMLElement)) {
