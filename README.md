@@ -18,7 +18,7 @@ setup specifics.
 
 Include `o-errors` in your build and include a `<link>` tag configured
 to point towards the [DSN specific to your application](https://app.getsentry.com/docs/platforms/)
-provided by the Sentry (see [Requirements](#Requirements)).
+provided by Sentry (see [Requirements](#Requirements)).
 
 ```HTML
 <link rel="oErrors:sentryEndpoint" href="https://dsn@app.getsentry.com/appid" />
