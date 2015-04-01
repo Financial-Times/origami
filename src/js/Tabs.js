@@ -16,7 +16,10 @@ function Tabs(rootEl) {
 	}
 
 	function getTabPanelEls(tabEls) {
-		var els = [], targetEl, c, l;
+		var els = [];
+		var targetEl;
+		var c;
+		var l;
 		for (c = 0, l = tabEls.length; c < l; c++) {
 			var tabTargetId = getTabTargetId(tabEls[c]);
 			targetEl = document.getElementById(tabTargetId);
@@ -90,7 +93,8 @@ function Tabs(rootEl) {
 	}
 
 	function selectTab(i, disableFocus) {
-		var c, l;
+		var c;
+		var l;
 		if (isValidTab(i) && i !== selectedTabIndex) {
 			for (c = 0, l = tabEls.length; c < l; c++) {
 				if (i === c) {
@@ -150,7 +154,10 @@ function Tabs(rootEl) {
 }
 
 Tabs.init = function(el) {
-	var tabs = [], tEls, c, l;
+	var tabs = [];
+	var tEls;
+	var c;
+	var l;
 	if (!el) {
 		el = document.body;
 	} else if (!(el instanceof HTMLElement)) {
