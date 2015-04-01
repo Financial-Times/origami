@@ -1,16 +1,16 @@
 {
-	"name": "o-tabs",
-	"description": "UI tabs",
-	"scripts": {
-		"test": "./node_modules/karma/bin/karma start karma.conf.js"
-	},
-	"devDependencies": {
-		"phantomjs": "^1.9.7-3",
-		"browserify": "^3.41.0",
-		"karma": "^0.12.6",
-		"karma-jasmine": "^0.1.5",
-		"karma-phantomjs-launcher": "^0.1.4",
-		"karma-browserify": "^0.2.0",
-		"debowerify": "^0.7.0"
-	}
+  "name": "o-tabs",
+  "private": true,
+  "description": "UI tabs",
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start karma.conf.js"
+  },
+  "devDependencies": {
+    "babelify": "^5.0.4",
+    "debowerify": "^1.2.0",
+    "karma": "^0.12.32",
+    "karma-browserify": "^4.1.2",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4"
+  }
 }

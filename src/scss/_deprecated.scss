@@ -1,14 +1,22 @@
-// Wrap styles in Sass placeholder and CSS class (if not in silent mode)
-// $name:             name of placeholder/class.
+////
+/// @group o-tabs
+/// @link http://registry.origami.ft.com/components/o-tabs
+////
+
+/// Wrap styles in Sass placeholder and CSS class (if not in silent mode)
+/// @param {String} $name - name of placeholder/class
+/// @deprecated
 @mixin oTabsSelectors($name) {
 	@if $_o-tabs-deprecation-warnings {
 		@warn "oTabsSelectors is now deprecated and will be removed in next major release";
 	}
 
 	$selectors: unquote('%#{$name}');
+
 	@if ($o-tabs-is-silent == false) {
 		$selectors: append($selectors, unquote('.#{$name}'), comma);
 	}
+
 	#{$selectors} {
 		@content;
 	}
