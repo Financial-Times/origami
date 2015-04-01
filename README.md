@@ -24,13 +24,13 @@ provided by Sentry (see [Requirements](#Requirements)).
 <link rel="oErrors:sentryEndpoint" href="https://dsn@app.getsentry.com/appid" />
 ```
 
-This will automatically configure `o-errors` and will begin reporting any
-uncaught errors by setting the `window.onerror` event handler.
+This will automatically configure `o-errors` and any
+uncaught errors will be reported by setting the `window.onerror` event handler.
 
 ## Usage
 
 `o-errors` can be used and configured in a declarative style, using `<meta>`
-and `<link>` tags for configuration, or it can be constructed as a library to
+and `<link>` tags, or it can be initialised as a library to
 better integrate error tracking into a product.
 
 Components that are included on the page might throw uncaught exceptions or
