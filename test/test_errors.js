@@ -10,8 +10,7 @@ describe("oErrors", function() {
 	beforeEach(function() {
 		mockRavenClient = mockRaven();
 		errors = new Errors().init({
-			sentryEndpoint: "//app.getsentry.com/123",
-			sentryAuth: "abc"
+			sentryEndpoint: "//123@app.getsentry.com/123"
 		}, mockRavenClient);
 	});
 
@@ -24,59 +23,15 @@ describe("oErrors", function() {
 		it("should throw an exception if the sentryEndpoint option is missing", function() {
 			expect(function() {
 				new Errors().init({
-					sentryAuth: "abc"
 				}, mockRavenClient);
 			}).to.throwException();
-		});
-
-		it("should throw an exception if the sentryAuth option is missing", function() {
-			expect(function() {
-				new Errors().init({
-					sentryEndpoint: "http://app.getsentry.com/123"
-				}, mockRavenClient);
-			}).to.throwException();
-		});
-
-		it("should throw an exception if the sentryAuth and sentryEndpoint options are missing", function() {
-			expect(function() {
-				new Errors().init({
-				}, mockRavenClient);
-			}).to.throwException();
-		});
-
-		it("should configure the raven client with the sentryEndpoint configuration option using a protocol relative URL", function() {
-			new Errors().init({
-				sentryEndpoint: "//app.getsentry.com/123",
-				sentryAuth: "abc"
-			}, mockRavenClient);
-
-			expect(mockRavenClient.configuredEndpoint).to.equal("//abc@app.getsentry.com/123");
-		});
-
-		it("should configure the raven client with the sentryEndpoint configuration option using a https URL", function() {
-			new Errors().init({
-				sentryEndpoint: "https://app.getsentry.com/123",
-				sentryAuth: "abc"
-			}, mockRavenClient);
-
-			expect(mockRavenClient.configuredEndpoint).to.equal("https://abc@app.getsentry.com/123");
-		});
-
-		it("should configure the raven client with the sentryEndpoint configuration option using a http URL", function() {
-			new Errors().init({
-				sentryEndpoint: "http://app.getsentry.com/123",
-				sentryAuth: "abc"
-			}, mockRavenClient);
-
-			expect(mockRavenClient.configuredEndpoint).to.equal("http://abc@app.getsentry.com/123");
 		});
 
 
 		it("should configure the raven client with the release version if the siteVersion option is configured", function() {
 			new Errors().init({
 				siteVersion: "v1.0.0",
-				sentryEndpoint: "//app.getsentry.com/123",
-				sentryAuth: "abc"
+				sentryEndpoint: "//app.getsentry.com/123"
 			}, mockRavenClient);
 
 			expect(mockRavenClient.configOptions.release).to.equal("v1.0.0");
@@ -85,7 +40,6 @@ describe("oErrors", function() {
 		it("should configure the log level according the the logLevel option", function() {
 			var errors = new Errors().init({
 				sentryEndpoint: "//app.getsentry.com/123",
-				sentryAuth: "abc",
 				logLevel: "contextonly"
 			}, mockRavenClient);
 
@@ -93,30 +47,22 @@ describe("oErrors", function() {
 		});
 
 		it("should configure itself from the DOM if no options are present", function() {
-			var sentryEndpointLink = document.createElement("link");
-			sentryEndpointLink.rel = 'oErrors:sentryEndpoint';
-			sentryEndpointLink.href = 'http://app.getsentry.com/appid';
+			var sentryConfiguration = document.createElement("script");
+			sentryConfiguration.type = "application/json";
+			sentryConfiguration.dataset.oErrorsConfig = "true";
+			sentryConfiguration.innerText = JSON.stringify({
+				logLevel: "contextonly",
+				sentryEndpoint: "http://abc@app.getsentry.com/appid"
+			});
 
-			var sentryAuthLink = document.createElement("meta");
-			sentryAuthLink.name = 'oErrors:sentryAuth';
-			sentryAuthLink.content = 'abc';
-
-			var logLevel = document.createElement("meta");
-			logLevel.name = "oErrors:logLevel";
-			logLevel.content = "contextonly";
-
-			document.head.appendChild(sentryEndpointLink);
-			document.head.appendChild(logLevel);
-			document.head.appendChild(sentryAuthLink);
+			document.head.appendChild(sentryConfiguration);
 
 			var errors = new Errors().init(null, mockRavenClient);
 
 			expect(mockRavenClient.configuredEndpoint).to.eql("http://abc@app.getsentry.com/appid");
 			expect(errors.logger._logLevel).to.eql(1);
 
-			document.head.removeChild(sentryEndpointLink);
-			document.head.removeChild(logLevel);
-			document.head.removeChild(sentryAuthLink);
+			document.head.removeChild(sentryConfiguration);
 		});
 	});
 
@@ -210,7 +156,6 @@ describe("oErrors", function() {
 		it("should add extra log data to the argument if logging is enabled", function() {
 			var errors = new Errors().init({
 				sentryEndpoint: "http://app.getsentry.com/123",
-				sentryAuth: "abc",
 				logLevel: "contextonly"
 			}, mockRavenClient);
 
@@ -227,7 +172,6 @@ describe("oErrors", function() {
 		it("should not add extra log data to the argument if logging is disabled", function() {
 			var errors = new Errors().init({
 				sentryEndpoint: "http://app.getsentry.com/123",
-				sentryAuth: "abc",
 				logLevel: "off"
 			}, mockRavenClient);
 
@@ -256,7 +200,6 @@ describe("oErrors", function() {
 
 			errors.init({
 				sentryEndpoint: "http://app.getsentry.com/123",
-				sentryAuth: "abc"
 			}, mockRavenClient);
 		});
 	});

@@ -16,38 +16,42 @@ setup specifics.
 
 ## Quick Start
 
-Include `o-errors` in your build and include a `<link>` tag configured
-to point towards the [DSN specific to your application](https://app.getsentry.com/docs/platforms/)
-provided by Sentry (see [Requirements](#Requirements)).
+Include `o-errors` in the build and include a configuration `<script>` tag on your page
+configuring the Sentry [DSN specific to your application](https://app.getsentry.com/docs/platforms/)
+(see [Requirements](#Requirements)).
 
 ```HTML
-<link rel="oErrors:sentryEndpoint" href="https://dsn@app.getsentry.com/appid" />
+<script type="application/json" data-o-errors-config>
+{
+	"sentryEndpoint": "https://dsn@app.getsentry.com/appid"
+}
+</script>
 ```
 
-This will automatically configure `o-errors` and any
-uncaught errors will be reported by setting the `window.onerror` event handler.
+This will automatically configure `o-errors` and any uncaught errors will be
+reported.
 
 ## Usage
 
-`o-errors` can be used and configured in a declarative style, using `<meta>`
-and `<link>` tags, or it can be initialised as a library to
-better integrate error tracking into a product.
+`o-errors` can be configured declaratively by including a `<script>`
+tag with the data attribute `data-o-errors-config` and some 'JSON', or
+it can be initialised as a library to better integrate error tracking into a product.
 
 Components that are included on the page might throw uncaught exceptions or
 emit an `oErrors.log` `CustomEvent`.  `o-errors` listens on the `document`
 root for this event and logs errors appropriately.
 
 Component developers should ensure that `{ bubbles: true }` is used when
-constructing the `CustomEvent`.
+constructing the `CustomEvent` and should dispatch it on the component's owned DOM.
 
-Any uncaught errors are handled by a `window.onerror` function that `o-errors`
-installs when it is initialised. *Note* uncaught errors will not be reported
-if they occur _before_ initialisation.
+Uncaught errors are handled by a `window.onerror` function
+installed on initialisation. *Note* uncaught errors will not be reported
+if they occur _before_ initialisation, although any errors reported using the
+`o-errors` API _will_ be buffered and reported once initialised.
 
 ### Configuration
 
-Configure `o-errors` using the `oErrors.init` method, or using `<meta>` and
-`<link>` tags.
+Configure `o-errors` using the `oErrors.init` method, or using a `<script>`.
 
 #### Available options
 
@@ -104,29 +108,22 @@ respectively.  This should not be used in production.
 
 #### Using markup to configure oErrors
 
-Include `<meta>` or `<link>` tags to define the additional configuration options.  The
-meta tag names follow a standard convention where the name is
-`oErrors:configVarName`, where `configVarName` is as defined in the
-[configuration options](#available-options) section.
-
-The `sentryEndpoint` is an example of a `<link>` configuration.  Because the
-value should be an http endpoint, it is configured using a `<link>` tag where
-the `rel` attribute is `oErrors:sentryEndpoint`, following the same convention
-as the `name` attribute for the `<meta>` tags.
-
-For example, to tag each error with the current version of your application
-using the `siteVersion` configuration option include:
+Include a `<script>` tag containing 'JSON' describing the configuration
+object.
 
 ```HTML
-<meta name="oErrors:siteVersion" content="v1.0.0">
+<script type="application/json" data-o-errors-config>
+{
+	sentryEndpoint: "https:/dsn@app.getsentry.com/appid"
+}
+</script>
 ```
 
 #### Using `oErrors.init`
 
-Pass an object literal to `oErrors.init` with the appropriate configuration.
-If a configuration option is missing, `o-errors` will fall back to the markup
-before giving up.  If `sentryEndpoint` is not configured in the DOM or
-through the `init` method, an `Error` is thrown.
+Pass an object to `oErrors.init` with the appropriate configuration.
+If `sentryEndpoint` is not configured in the options,
+an `Error` is thrown.
 
 ```JS
 var oErrors = require('o-errors');

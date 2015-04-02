@@ -26,12 +26,15 @@ function Errors() {
  *
  * All options are optional, if a configuration option is missing, the module
  * will try to initialise using any configuration found in the DOM using the
- * meta and link tags.
+ * script config tag.
  *
  * @example
  * <!-- DOM configuration settings -->
- * <link rel="oErrors:sentryEndpoint" href="//sentry@app.getsentry.com/appid">
- * <meta name="oErrors:siteVersion" content="v1.0.0">
+ * <script type="application/json" data-o-errors-config>
+ * {
+ *   "sentryEndpoint": "https://dsn@app.getsentry.com/123"
+ * }
+ * </script>
  *
  * @param options {Object}
  * @param options.sentryEndpoint {String} - Optional if configued via the DOM, Required if not, must be a valid {@link https://app.getsentry.com/docs/platforms/|Sentry DSN}.
@@ -60,15 +63,9 @@ Errors.prototype.init = function(options, raven) {
 	options = options || {};
 	options = this._initialiseDeclaratively(options);
 
-	if (!(options.sentryEndpoint && options.sentryAuth)) {
+	if (!options.sentryEndpoint) {
 		throw new Error('Could not initialise o-errors: Sentry endpoint and auth configuration missing.');
 	}
-
-	function buildSentryUrl(auth, endpoint) {
-		return endpoint.replace(/((http(s)?:)?\/\/)/, "$1" + auth + "@");
-	}
-
-	options.sentryEndpoint = buildSentryUrl(options.sentryAuth, options.sentryEndpoint);
 
 	var defaultLogLength = 10;
 	this.logger = new Logger(defaultLogLength, options.logLevel);
@@ -294,7 +291,9 @@ Errors.prototype._getEventPath = function(event) {
 	}
 
 	var path = [];
-	var element = event.target;
+
+	// IE backwards compatibility (get the actual target)
+	var element = window.event ? window.event.srcElement : event.target;
 
 	while (element) {
 		path.push(element);
@@ -330,7 +329,7 @@ Errors.prototype._updatePayloadBeforeSend = function(data) {
 };
 
 /**
- * Initialises additional data using <meta> and <link> elements in the DOM.
+ * Initialises additional data using the <script type="application/json" data-o-errors-config> element in the DOM.
  *
  * @private
  * @param {Object} options - A partially, or fully filled options object.  If
@@ -340,45 +339,27 @@ Errors.prototype._updatePayloadBeforeSend = function(data) {
  *                     from the DOM
  */
 Errors.prototype._initialiseDeclaratively = function(options) {
-	options.sentryEndpoint = options.sentryEndpoint || this._getOptionDeclaratively("sentryEndpoint");
-	options.sentryAuth     = options.sentryAuth     || this._getOptionDeclaratively("sentryAuth");
-	options.siteVersion    = options.siteVersion    || this._getOptionDeclaratively("siteVersion");
-	options.logLevel       = options.logLevel       || this._getOptionDeclaratively("logLevel");
+	var config = document.querySelector('script[data-o-errors-config]');
+	if (!config) {
+		return options;
+	}
+
+	var configurationString = config.textContent || config.innerText || config.innerHTML;
+	var declarativeOptions;
+
+	try {
+		var declarativeOptions = JSON.parse(configurationString);
+	} catch(e) {
+		throw new Error("Invalid JSON configuration syntax, check validity for o-errors configuration: '" + e.message + "'");
+	}
+
+	for (var property in declarativeOptions) {
+		if (declarativeOptions.hasOwnProperty(property)) {
+			options[property] = options[property] || declarativeOptions[property];
+		}
+	}
 
 	return options;
-};
-
-/**
- * Retrieves an option from the markup.
- *
- * There exists a special case for the 'sentryEndpoint' option.  It will
- * inspect a link tag rather than a <meta> tag.
- *
- * @private
- * @param {String} optionName  - The name of the option.
- * @returns {String|undefined} - The value of the option, or undefined if it is
- *                               not configured in the DOM.
- */
-Errors.prototype._getOptionDeclaratively = function(optionName) {
-
-	// Special one off case for the sentry endpoint as it's in a link tag
-	if (optionName === "sentryEndpoint") {
-		var sentryEndpointLink = document.querySelector('link[rel="oErrors:sentryEndpoint"]');
-		if (sentryEndpointLink) {
-			return sentryEndpointLink.href;
-		}
-
-		return undefined;
-	}
-
-	var querySelector = 'meta[name="oErrors:' + optionName + '"]';
-	var metaElement = document.querySelector(querySelector);
-
-	if (metaElement) {
-		return metaElement.content;
-	}
-
-	return undefined;
 };
 
 module.exports = Errors;
