@@ -10,7 +10,7 @@
 			"path": "demos/declarative.html",
 			"description": "Declarative error tracking",
 			"template": "demos/src/declarative.mustache",
-			"expanded": true
+			"expanded": false
 		}
 	]
 }

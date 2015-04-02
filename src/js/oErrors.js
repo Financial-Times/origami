@@ -294,7 +294,7 @@ Errors.prototype._getEventPath = function(event) {
 	}
 
 	var path = [];
-	var element = event.srcElement;
+	var element = event.target;
 
 	while (element) {
 		path.push(element);

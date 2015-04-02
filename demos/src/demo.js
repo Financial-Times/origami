@@ -8,4 +8,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("o.DOMContentLoaded", function() {
 	oErrors.init();
+	var trigger = document.getElementById("o-errors__demo-trigger-error");
+
+	if (trigger) {
+		trigger.addEventListener('click', function(ev) {
+			try {
+				var x = window.failBecauseU.ndefined;
+			} catch(e) {
+				trigger.dispatchEvent(new CustomEvent("oErrors.log", {
+					bubbles: true,
+					detail: {
+						error: e
+					}
+				}));
+			}
+		});
+	}
 });
