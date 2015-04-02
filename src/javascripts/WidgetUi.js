@@ -207,7 +207,7 @@ function WidgetUi (widgetContainer, config) {
 	this.showOwnCommentBanned = function (commentId) {
 		var commentElement = self.widgetContainer.querySelector('.fyre-comment-article[data-message-id="'+ commentId +'"]');
 
-		if (commentElement) {
+		if (commentElement && !commentElement.querySelector('.o-comments--blocked')) {
 			var blockedElement = document.createElement('div');
 			blockedElement.innerHTML = "blocked";
 			blockedElement.className = "o-comments--blocked";

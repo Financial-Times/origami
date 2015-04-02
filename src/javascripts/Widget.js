@@ -383,7 +383,7 @@ function Widget () {
 	}
 
 	function handleStreamEventForBannedComments (eventData) {
-		if (eventData.comment && eventData.comment.visibility === 2) {
+		if (eventData.comment && eventData.comment.visibility === 2 && !eventData.comment.updated) {
 			lastBannedCommentDate = new Date();
 			lastBannedCommentId = eventData.comment.commentId;
 			checkIfOwnCommentIsBanned();
