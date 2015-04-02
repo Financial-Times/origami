@@ -24,28 +24,33 @@ var socialUrls = {
 
 function ShareLinks(rootEl, config) {
 
-	var rootDomDelegate,
-		shareObj = this,
-		openWindows = {};
+	var rootDomDelegate;
+	var shareObj = this;
+	var openWindows = {};
 
 	function dispatchCustomEvent(name, data) {
 		if (document.createEvent && rootEl.dispatchEvent) {
 			var event = document.createEvent('Event');
 			event.initEvent(name, true, true);
+
 			if (data) {
 				event.detail = data;
 			}
+
 			rootEl.dispatchEvent(event);
 		}
 	}
 
 	function handleClick(ev) {
 		ev.preventDefault();
-		var actionEl = oDom.getClosestMatch(ev.target, 'li'),
-			url;
+
+		var actionEl = oDom.getClosestMatch(ev.target, 'li');
+		var url;
+
 		if (rootEl.contains(actionEl) && actionEl.querySelector('a[href]')) {
 			url = actionEl.querySelector('a[href]').href;
-			if (actionEl.classList.contains('o-share__action--url')) {
+
+			if (actionEl.getAttribute('data-o-share-action') === "url") {
 				copyLink(url, actionEl);
 			} else {
 				shareSocial(url);
@@ -58,6 +63,7 @@ function ShareLinks(rootEl, config) {
 			return;
 		}
 		parentEl.setAttribute('aria-selected', 'true');
+
 		new TextCopyHelper({
 			message: "Copy this link for sharing",
 			text: url,
@@ -73,6 +79,7 @@ function ShareLinks(rootEl, config) {
 				parentEl.removeAttribute('aria-selected');
 			}
 		});
+
 		dispatchCustomEvent('oTabs.open', {
 			share: shareObj,
 			action: "url",
@@ -87,6 +94,7 @@ function ShareLinks(rootEl, config) {
 			} else {
 				openWindows[url] = window.open(url, url, 'width=646,height=436');
 			}
+
 			dispatchCustomEvent('oTabs.open', {
 				share: shareObj,
 				action: "social",
@@ -129,6 +137,7 @@ function ShareLinks(rootEl, config) {
 		} else if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
+
 		if (!config) {
 			config = {};
 			config.links = rootEl.getAttribute('data-o-share-links').split(' ');
@@ -163,18 +172,25 @@ function ShareLinks(rootEl, config) {
 }
 
 ShareLinks.init = function(el) {
-	var shareLinks = [], sEls, c, l;
+	var shareLinks = [];
+	var sEls;
+	var c;
+	var l;
+
 	if (!el) {
 		el = document.body;
 	} else if (!(el instanceof HTMLElement)) {
 		el = document.querySelector(el);
 	}
+
 	if (el.querySelectorAll) {
 		sEls = el.querySelectorAll('[data-o-component=o-share]:not([data-o-share--js])');
+
 		for (c = 0, l = sEls.length; c < l; c++) {
 			shareLinks.push(new ShareLinks(sEls[c]));
 		}
 	}
+
 	return shareLinks;
 };
 

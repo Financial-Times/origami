@@ -1,6 +1,14 @@
+////
+/// @group o-share
+/// @link http://registry.origami.ft.com/components/o-share
+////
+
+/// Generate base share styles
+/// @param {String} $classname [o-share] - base class name
 @mixin oShareBase($classname: o-share) {
 	.#{$classname} {
 		display: inline-block;
+
 		ul {
 			margin: 0;
 			padding: 0;
@@ -14,6 +22,7 @@
 		list-style-type: none;
 		line-height: $_o-share-icon-size;
 		cursor: pointer;
+
 		i {
 			float: left;
 			border-radius: 2px;
@@ -25,6 +34,7 @@
 		}
 		a {
 			text-decoration: none;
+
 			&:focus i {
 				box-shadow: 0 0 2px #000000;
 			}
@@ -32,9 +42,12 @@
 	}
 }
 
+/// Action link styles
+/// @param {String} $classname [o-share] - base class name
 @mixin oShareActionLink($classname: o-share) {
 	.#{$classname}__action--url {
 		display: none;
+
 		i {
 			@include _oShareSprite(link);
 		}
@@ -58,12 +71,17 @@
 
 	.#{$classname}__action--url[aria-selected=true] {
 		position: relative;
+
 		a {
 			display: none;
 		}
 	}
 }
 
+/// Icon
+///
+/// @param {String} $name - Name of the icon
+/// @param {String} $classname [o-share] - base class name
 @mixin oShareActionIcon($name, $classname: o-share) {
 	.#{$classname}__action--#{$name} i {
 		@include _oShareSprite($name);

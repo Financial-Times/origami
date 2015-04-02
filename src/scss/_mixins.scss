@@ -1,5 +1,13 @@
+////
+/// @group o-share
+/// @link http://registry.origami.ft.com/components/o-share
+////
+
+/// Generate background properties to display the image sprite
+/// @param {String} $name - name of the icon
 @mixin _oShareSprite($name) {
 	$num: _oShareGetSpriteIndex($name);
+
 	@if ($num == -1) {
 		background-image: none;
 	} @else {
