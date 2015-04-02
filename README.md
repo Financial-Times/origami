@@ -18,7 +18,7 @@ setup specifics.
 
 Include `o-errors` in the build and include a configuration `<script>` tag on your page
 configuring the Sentry [DSN specific to your application](https://app.getsentry.com/docs/platforms/)
-(see [Requirements](#Requirements)).
+(see [Requirements](#requirements)).
 
 ```HTML
 <script type="application/json" data-o-errors-config>
