@@ -1,21 +1,20 @@
-@import "o-colors/main";
-@import "o-fonts/main";
+@import 'o-colors/main';
 
-@import "src/scss/_color-use-cases";
-@import "src/scss/variables";
-@import "src/scss/functions";
-@import "src/scss/mixins";
-@import "src/scss/share";
-@import "src/scss/tooltip";
+@import 'src/scss/color-use-cases';
+@import 'src/scss/variables';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
+@import 'src/scss/share';
+@import 'src/scss/tooltip';
 
 @if (not $o-share-is-silent) {
-  @include oShareBase();
-  @include oShareActionLink();
-  @include oShareActionIcon(twitter);
-  @include oShareActionIcon(facebook);
-  @include oShareActionIcon(linkedin);
-  @include oShareActionIcon(googleplus);
-  @include oShareActionIcon(reddit);
-  @include oShareActionIcon(pinterest);
-  @include oShareTooltip();
+	@include oShareBase();
+	@include oShareActionLink();
+	@include oShareActionIcon(twitter);
+	@include oShareActionIcon(facebook);
+	@include oShareActionIcon(linkedin);
+	@include oShareActionIcon(googleplus);
+	@include oShareActionIcon(reddit);
+	@include oShareActionIcon(pinterest);
+	@include oShareTooltip();
 }

@@ -1,28 +1,45 @@
-@function _oShareStripUnits($n) {
-  @return $n / ($n * 0 + 1);
+////
+/// @group o-share
+/// @link http://registry.origami.ft.com/components/o-share
+////
+
+/// Strip units from a number
+/// @param {Number} $number
+@function _oShareStripUnits($number) {
+	@return $number / ($number * 0 + 1);
 }
 
-@function _oShareStripUnitIfZero($n) {
-  @if (_oShareStripUnits($n) == 0) {
-    @return 0;
-  }
-  @return $n;
+/// Return 0 instead of 0px or 0em…
+/// @param {Number} $number
+@function _oShareStripUnitIfZero($number) {
+	@if (_oShareStripUnits($number) == 0) {
+		@return 0;
+	}
+
+	@return $number;
 }
 
+/// Generate the URL of the image sprite
 @function _oShareGetSpriteUrl() {
-  $url: "//image.webservices.ft.com/v1/images/raw/";
-  @each $social, $num in $_o-share-sprite-elements {
-    $url: $url + "ftsocial:" + $social + ",";
-  }
-  $url: str-slice($url, 1, -2) + "?width=" + _oShareStripUnits($_o-share-icon-size) + "&source=o-share";
-  @return $url;
+	$url: "//image.webservices.ft.com/v1/images/raw/";
+
+	@each $social, $number in $_o-share-sprite-elements {
+		$url: $url + "ftsocial:" + $social + ",";
+	}
+
+	$url: str-slice($url, 1, -2) + "?width=" + _oShareStripUnits($_o-share-icon-size) + "&source=o-share";
+
+	@return $url;
 }
 
+/// Get the index of icon $name in the image sprite
+/// @param {String} $name
 @function _oShareGetSpriteIndex($name) {
-  @for $i from 1 through length($_o-share-sprite-elements) {
-    @if (nth($_o-share-sprite-elements, $i) == $name) {
-      @return $i - 1;
-    }
-  }
-  @return -1;
+	@for $index from 1 through length($_o-share-sprite-elements) {
+		@if (nth($_o-share-sprite-elements, $index) == $name) {
+			@return $index - 1;
+		}
+	}
+
+	@return -1;
 }
