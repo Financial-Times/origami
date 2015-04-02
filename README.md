@@ -51,7 +51,8 @@ if they occur _before_ initialisation, although any errors reported using the
 
 ### Configuration
 
-Configure `o-errors` using the `oErrors.init` method, or using a `<script>`.
+Configure `o-errors` using the `oErrors.init` method, or using a `<script>`
+tag (see [Using markup to configure `o-errors`](#using-markup-to-configure-oerrors)).
 
 #### Available options
 
