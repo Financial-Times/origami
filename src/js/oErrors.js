@@ -60,9 +60,15 @@ Errors.prototype.init = function(options, raven) {
 	options = options || {};
 	options = this._initialiseDeclaratively(options);
 
-	if (!options.sentryEndpoint) {
-		throw new Error('Could not initialise o-errors: Sentry endpoint configuration missing.');
+	if (!(options.sentryEndpoint && options.sentryAuth)) {
+		throw new Error('Could not initialise o-errors: Sentry endpoint and auth configuration missing.');
 	}
+
+	function buildSentryUrl(auth, endpoint) {
+		return endpoint.replace(/((http(s)?:)?\/\/)/, "$1" + auth + "@");
+	}
+
+	options.sentryEndpoint = buildSentryUrl(options.sentryAuth, options.sentryEndpoint);
 
 	var defaultLogLength = 10;
 	this.logger = new Logger(defaultLogLength, options.logLevel);
@@ -125,7 +131,16 @@ Errors.prototype.report = function(error, context) {
 		return error;
 	}
 
-	this.ravenClient.captureMessage(error, context);
+	context = context || {};
+
+	// Raven, for some reason completely ignores the contents of
+	// error.message... to get around this, we attach the error message to the
+	// context object.
+	if (error.message) {
+		context.errormessage = error.message;
+	}
+
+	this.ravenClient.captureException(error, context);
 	return error;
 };
 
@@ -242,11 +257,27 @@ Errors.prototype.destroy = function() {
 };
 
 Errors.prototype.handleLogEvent = function(ev) {
-	this.report(ev.detail.error, ev.detail.info);
+	// Tag the context with additional information about the DOM.
+	var context = {
+		info: ev.detail.info || {},
+		extra: {
+			"context:dom": this._getEventPath(ev).reduceRight(function(builder, el) {
+				var classList = Array.prototype.slice.call(el.classList || []);
+				var nodeName = el.nodeName.toLowerCase();
+
+				if (nodeName.indexOf('#') === 0) {
+					return builder + "<" + nodeName + ">\n";
+				}
+
+				return builder + "<" + el.nodeName.toLowerCase() + " class='" + classList.join(' ') + "' id='" + (el.id || '') + "'>\n";
+			}, "")
+		}
+	};
+	this.report(ev.detail.error, context);
 };
 
 /**
- * Given a DOM event, return an array of Elements that the event propagated
+ * Given a DOM event, return an array of Elements that the event will propagate
  * through.
  *
  * @private
@@ -310,6 +341,7 @@ Errors.prototype._updatePayloadBeforeSend = function(data) {
  */
 Errors.prototype._initialiseDeclaratively = function(options) {
 	options.sentryEndpoint = options.sentryEndpoint || this._getOptionDeclaratively("sentryEndpoint");
+	options.sentryAuth     = options.sentryAuth     || this._getOptionDeclaratively("sentryAuth");
 	options.siteVersion    = options.siteVersion    || this._getOptionDeclaratively("siteVersion");
 	options.logLevel       = options.logLevel       || this._getOptionDeclaratively("logLevel");
 
