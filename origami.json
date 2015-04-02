@@ -7,7 +7,7 @@
     "demos": [
         {
             "path": "/demos/declarative.html",
-            "expanded": true,
+            "expanded": false,
             "description": "Declarative error tracking"
         }
     ]
