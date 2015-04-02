@@ -13,7 +13,7 @@ document.addEventListener("o.DOMContentLoaded", function() {
 	if (trigger) {
 		trigger.addEventListener('click', function(ev) {
 			try {
-				var x = window.failBecauseU.ndefined;
+				window.failBecauseU.ndefined;
 			} catch(e) {
 				trigger.dispatchEvent(new CustomEvent("oErrors.log", {
 					bubbles: true,
