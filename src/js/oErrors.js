@@ -348,7 +348,7 @@ Errors.prototype._initialiseDeclaratively = function(options) {
 	var declarativeOptions;
 
 	try {
-		var declarativeOptions = JSON.parse(configurationString);
+		declarativeOptions = JSON.parse(configurationString);
 	} catch(e) {
 		throw new Error("Invalid JSON configuration syntax, check validity for o-errors configuration: '" + e.message + "'");
 	}
