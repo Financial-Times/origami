@@ -10,14 +10,7 @@ var errors = new Errors();
 
 
 function initialise() {
-	if (!errors.initialised) {
-		try {
-			errors.init();
-		} catch(e) {
-			// Do nothing
-		}
-	}
-
+	errors.init();
 	document.removeEventListener('o.DOMContentLoaded', initialise);
 }
 

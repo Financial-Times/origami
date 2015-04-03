@@ -19,6 +19,10 @@ function Errors() {
 
 	// While not initialised, any caught errors are buffered.
 	this._errorBuffer = [];
+
+	// Cache the declarative config String to avoid reading the DOM more than
+	// once, once initialised, the reference to the string is released for GC.
+	this._declarativeConfigString = false;
 }
 
 /**
@@ -48,20 +52,23 @@ Errors.prototype.init = function(options, raven) {
 		return this;
 	}
 
-	// Because we can't be sure what Raven tries to do when
-	// we include it only at iniy.  To control the initialisation of the third party code
-	// we include it only at init time see "http://origami.ft.com/docs/syntax/js/#initialisation"
-	//
-	// It is optional so that it can be mocked in tests
-	if (!raven) {
-		raven = require('raven-js');
+	var hasDeclarativeConfig = this._hasDeclarativeConfig();
+	var configMissing = !(hasDeclarativeConfig || options);
+
+	// In main.js an event listener is bound to 'o.DOMContentLoaded', this
+	// calls 'init' without arguments with the intention of configuring from
+	// the declarative config if it exists.  If the declarative markup doesn't
+	// exist, we do nothing so that the consumer has the option of
+	// configuring imperatively by calling `init` with options themselves.
+	if (configMissing) {
+		return this;
 	}
 
-
-	this.ravenClient = raven;
-
 	options = options || {};
-	options = this._initialiseDeclaratively(options);
+
+	if (hasDeclarativeConfig) {
+		options = this._initialiseDeclaratively(options);
+	}
 
 	if (!options.sentryEndpoint) {
 		throw new Error('Could not initialise o-errors: Sentry endpoint and auth configuration missing.');
@@ -69,6 +76,28 @@ Errors.prototype.init = function(options, raven) {
 
 	var defaultLogLength = 10;
 	this.logger = new Logger(defaultLogLength, options.logLevel);
+
+	this._configureAndInstallRaven(options, raven);
+
+	document.addEventListener('oErrors.log', this._logEventHandler);
+
+	this.initialised = true;
+
+	this._flushBufferedErrors();
+	return this;
+};
+
+Errors.prototype._configureAndInstallRaven = function(options, raven) {
+
+	// To control the initialisation of the third party code (Raven)
+	// we include it only at init time see "http://origami.ft.com/docs/syntax/js/#initialisation"
+	//
+	// It is optional so that it can be mocked in tests
+	if (!(raven || this.ravenClient)) {
+		raven = require('raven-js');
+	}
+
+	this.ravenClient = raven;
 
 	var sentryEndpoint = options.sentryEndpoint;
 	var shouldSendError = this._shouldSendError.bind(this);
@@ -86,14 +115,6 @@ Errors.prototype.init = function(options, raven) {
 
 	this.ravenClient.config(sentryEndpoint, ravenOptions);
 	this.ravenClient.install();
-
-	document.addEventListener('oErrors.log', this._logEventHandler);
-
-	this.initialised = true;
-
-
-	this._flushBufferedErrors();
-	return this;
 };
 
 /**
@@ -328,6 +349,23 @@ Errors.prototype._updatePayloadBeforeSend = function(data) {
 	return data;
 };
 
+Errors.prototype._hasDeclarativeConfig = function() {
+	return !!this._getDeclarativeConfig();
+};
+
+Errors.prototype._getDeclarativeConfig = function() {
+	if (!this._declarativeConfigString) {
+		var config = document.querySelector('script[data-o-errors-config]');
+		if (config) {
+			this._declarativeConfigString = config.textContent || config.innerText || config.innerHTML;
+		} else {
+			return false;
+		}
+	}
+
+	return this._declarativeConfigString;
+};
+
 /**
  * Initialises additional data using the <script type="application/json" data-o-errors-config> element in the DOM.
  *
@@ -339,16 +377,15 @@ Errors.prototype._updatePayloadBeforeSend = function(data) {
  *                     from the DOM
  */
 Errors.prototype._initialiseDeclaratively = function(options) {
-	var config = document.querySelector('script[data-o-errors-config]');
-	if (!config) {
-		return options;
+
+	if (!this._hasDeclarativeConfig()) {
+		return false;
 	}
 
-	var configurationString = config.textContent || config.innerText || config.innerHTML;
 	var declarativeOptions;
 
 	try {
-		declarativeOptions = JSON.parse(configurationString);
+		declarativeOptions = JSON.parse(this._getDeclarativeConfig());
 	} catch(e) {
 		throw new Error("Invalid JSON configuration syntax, check validity for o-errors configuration: '" + e.message + "'");
 	}
@@ -359,6 +396,8 @@ Errors.prototype._initialiseDeclaratively = function(options) {
 		}
 	}
 
+	// Release the reference to the config string
+	this._declarativeConfigString = false;
 	return options;
 };
 
