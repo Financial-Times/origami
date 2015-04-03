@@ -295,7 +295,7 @@ Errors.prototype.handleLogEvent = function(ev) {
 };
 
 /**
- * Given a DOM event, return an array of Elements that the event will propagate
+ * Given a DOM event, return an ordered array of Elements that the event will propagate
  * through.
  *
  * @private
@@ -313,7 +313,8 @@ Errors.prototype._getEventPath = function(event) {
 
 	var path = [];
 
-	// IE backwards compatibility (get the actual target)
+	// IE backwards compatibility (get the actual target). If not IE, uses
+	// `event.target`
 	var element = window.event ? window.event.srcElement : event.target;
 
 	while (element) {
@@ -349,10 +350,22 @@ Errors.prototype._updatePayloadBeforeSend = function(data) {
 	return data;
 };
 
+/**
+ * Get whether declarative configuration exists in the DOM.
+ *
+ * @private
+ * @returns {bool}
+ */
 Errors.prototype._hasDeclarativeConfig = function() {
 	return !!this._getDeclarativeConfig();
 };
 
+/**
+ * Get the configuration as a String.
+ *
+ * @private
+ * @returns {String}
+ */
 Errors.prototype._getDeclarativeConfig = function() {
 	if (!this._declarativeConfigString) {
 		var config = document.querySelector('script[data-o-errors-config]');
