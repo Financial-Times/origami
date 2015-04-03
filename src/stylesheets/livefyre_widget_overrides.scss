@@ -1145,7 +1145,20 @@ $ftLinkHover: oColorsGetPaletteColor(black);
 			}
 
 			.fyre-stream-sort {
-				display: none;
+				margin: 0;
+				padding: 0;
+				border: 0;
+
+				.fyre-stream-sort-options {
+					display: none !important;
+				}
+
+				.fyre-stream-sort-back {
+					padding: 5px 0;
+					margin: 10px 0 5px;
+					border-bottom: 1px solid #e9decf;
+					font-size: 12px;
+				}
 			}
 
 			.fyre-comment-stream {
