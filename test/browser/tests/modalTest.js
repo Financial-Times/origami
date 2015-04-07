@@ -61,16 +61,16 @@ module.exports = {
 			.windowSize('current', 800,400, function(){
 				browser.waitForElementVisible("button.o-overlay-trigger", 5000);
 				browser.execute(function(){
-					return document.getElementsByClassName("o-overlay--modal")[0].scrollHeight;
+					return document.getElementsByClassName("o-overlay__content")[0].scrollHeight;
 				},[],function(result){
 					scrollHeight = result.value;
 				});
 				browser.execute(function(){
-					return document.getElementsByClassName("o-overlay--modal")[0].clientHeight;
+					return document.getElementsByClassName("o-overlay__content")[0].clientHeight;
 				},[],function(result){
 					clientHeight = result.value;
-					browser.assert.equal(scrollHeight,clientHeight,"The scroll bar appeared when the window became smaller than the overlay");
-				});
+				    browser.assert.ok(scrollHeight>clientHeight,"When the windows became smaller than the overlay content, the overlay did not appear scrollable");
+                });
 			});
 	},
 
