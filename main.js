@@ -1,3 +1,5 @@
+/* global Livefyre */
+
 "use strict";
 
 var self = module;
@@ -149,4 +151,9 @@ document.addEventListener('o.DOMContentLoaded', function () {
 });
 
 
-resourceLoader.loadLivefyreCore();
+resourceLoader.loadLivefyreCore(function () {
+	Livefyre.on('beforeLoadPermalinks', function (e) {
+		// Disable the Permalink Modal
+		e.disableModal();
+	});
+});
