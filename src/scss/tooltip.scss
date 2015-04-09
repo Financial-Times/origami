@@ -13,6 +13,7 @@
 		cursor: default;
 		transition: opacity 0.25s;
 	}
+
 	.#{$classname}-tooltip__text {
 		border-radius: 3px;
 		padding: 8px 20px;
@@ -28,6 +29,7 @@
 		background-color: $_o-share-tooltip-bg;
 		text-shadow: 0 0 1px oColorsGetPaletteColor(black);
 	}
+
 	.#{$classname}-tooltip__arrow {
 		position: relative;
 		left: 50%;

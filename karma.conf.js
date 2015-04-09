@@ -1,8 +1,5 @@
 /*global module*/
 
-// Karma configuration
-// Generated on Mon Apr 14 2014 12:27:18 GMT+0100 (BST)
-
 module.exports = function(config) {
 		"use strict";
 		config.set({
@@ -13,11 +10,12 @@ module.exports = function(config) {
 
 				// frameworks to use
 				// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-				frameworks: ['jasmine', 'browserify'],
+				frameworks: ['mocha', 'browserify'],
 
 
 				// list of files / patterns to load in the browser
 				files: [
+						'http://polyfill.webservices.ft.com/v1/polyfill.js?ua=safari/4',
 						'test/*.test.js'
 				],
 
@@ -67,7 +65,7 @@ module.exports = function(config) {
 				singleRun: true,
 
 				browserify: {
-						transform: ['debowerify']
+						transform: ['babelify', 'debowerify']
 				}
 
 		});
