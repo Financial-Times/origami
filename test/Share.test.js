@@ -42,7 +42,7 @@ describe('links', () => {
 		window.open = spy.func;
 		twitterLinkEl = document.querySelector('.o-share__action--twitter a');
 		var ev = document.createEvent('Event');
-		ev.initEvent('click', true, true)
+		ev.initEvent('click', true, true);
 		twitterLinkEl.dispatchEvent(ev);
 	});
 
@@ -63,7 +63,7 @@ describe('links', () => {
 		expect(spy.calledWith[1]).to.be(twitterLinkEl.getAttribute('href'));
 		expect(spy.calledWith[2]).to.be('width=646,height=436');
 		var ev = document.createEvent('Event');
-		ev.initEvent('click', true, true)
+		ev.initEvent('click', true, true);
 		twitterLinkEl.dispatchEvent(ev);
 		expect(spy.callCount).to.be(1);
 	});

@@ -33,7 +33,7 @@ function Tooltip(text, refEl) {
 		refEl.insertBefore(tipEl, refEl.childNodes[0]);
 		tipEl.style.width = tipEl.clientWidth + "px"; // Set width based on initial text
 		tipEl.style.left = (refEl.offsetWidth - tipEl.offsetWidth) / 2 + "px";
-		tipEl.style.opacity = 1
+		tipEl.style.opacity = 1;
 	}
 
 	this.tooltipEl = createTooltip(this.cssClass);
@@ -47,7 +47,7 @@ function Tooltip(text, refEl) {
  */
 Tooltip.prototype.setText = function(text) {
 	this.tooltipEl.querySelector('.' + this.cssClass + '__text').innerText = text;
-}
+};
 
 /*
  * Destroys the tooltip, removing it from the DOM
@@ -55,6 +55,6 @@ Tooltip.prototype.setText = function(text) {
 Tooltip.prototype.destroy = function() {
 	this.tooltipEl.parentElement.removeChild(this.tooltipEl);
 	this.tooltipEl = undefined;
-}
+};
 
 module.exports = Tooltip;

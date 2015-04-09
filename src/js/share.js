@@ -209,7 +209,7 @@ Share.prototype.destroy = function() {
 
 	this.rootEl.removeAttribute('data-o-share--js');
 	this.rootEl = undefined;
-}
+};
 
 /*
  * Initialises all o-share components inside the element passed as the first parameter

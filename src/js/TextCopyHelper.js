@@ -115,7 +115,7 @@ TextCopyHelper.prototype.destroy = function() {
 	if (typeof this.config.onDestroy === "function") {
 		this.config.onDestroy();
 	}
-}
+};
 
 
 module.exports = TextCopyHelper;
