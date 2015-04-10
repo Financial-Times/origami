@@ -18,6 +18,7 @@
   "ignore": [
     "node_modules",
     "tests",
+    "gulpfile.js",
     "demos",
     "docs"
   ]
