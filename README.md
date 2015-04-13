@@ -27,15 +27,20 @@ Known issues:
 The simplest markup you might need looks like this:
 
 ```html
-<div data-o-component="o-share" class="o-share" data-o-share-links="{{links}}" data-o-share-url="{{url}}" data-o-share-title="{{title}}" data-o-share-titleExtra="{{titleExtra}}" data-o-share-summary="{{summary}}" data-o-share-relatedTwitterAccounts="{{relatedTwitterAccounts}}">
-
+<div data-o-component="o-share" 
+    class="o-share" 
+    data-o-share-links="{{links}}" 
+    data-o-share-url="{{url}}" 
+    data-o-share-title="{{title}}" 
+    data-o-share-titleExtra="{{titleExtra}}" 
+    data-o-share-summary="{{summary}}" 
+    data-o-share-relatedTwitterAccounts="{{relatedTwitterAccounts}}">
 </div>
-
 ```
 
 The different options are:
 
-* `links`: List of social networks to be added separated by a space.
+* `links`: List of lower case social networks to be added separated by a space.
 * `url`: The URL to be shared.
 * `title`: The title of the content to be shared
 * `titleExtra`: Any additional text relating to the title, e.g. site _section_.
@@ -47,7 +52,7 @@ The different social networks are (in the order suggested by the design team):
 * Twitter
 * Facebook
 * Linkedin
-* Google+
+* Google+ (written as 'googleplus' in the `links` config option)
 * Reddit
 * Pinterest
 * Url
@@ -76,6 +81,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 ```
 
+Check out the [API docs](http://registry.origami.ft.com/components/o-share#docs-js)
+
 #### Sass
 
 ```scss
@@ -89,6 +96,8 @@ $o-share-is-silent: false;
 ```
 
 If not, you can just use our mixins to set you custom class.
+
+Check out the [API docs](http://registry.origami.ft.com/components/o-share#docs-css)
 
 ## Core experience
 

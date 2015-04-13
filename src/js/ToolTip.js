@@ -1,7 +1,7 @@
-/*global module*/
+/**global module*/
 'use strict';
 
-/*
+/**
  * @class Tooltip
  *
  * @param {string} text
@@ -10,7 +10,7 @@
 function Tooltip(text, refEl) {
 	this.cssClass = 'o-share-tooltip';
 
-	/*
+	/**
 	 * Creates a tooltip element
 	 *
 	 * @private
@@ -23,7 +23,7 @@ function Tooltip(text, refEl) {
 		return tipEl;
 	}
 
-	/*
+	/**
 	 * Renders a tooltip element
 	 *
 	 * @private
@@ -40,7 +40,7 @@ function Tooltip(text, refEl) {
 	renderTooltip(this.tooltipEl);
 }
 
-/*
+/**
  * Set the text on the tooltip
  *
  * @param {string} text
@@ -49,7 +49,7 @@ Tooltip.prototype.setText = function(text) {
 	this.tooltipEl.querySelector('.' + this.cssClass + '__text').innerText = text;
 };
 
-/*
+/**
  * Destroys the tooltip, removing it from the DOM
  */
 Tooltip.prototype.destroy = function() {

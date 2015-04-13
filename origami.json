@@ -6,12 +6,13 @@
     "supportStatus": "active",
     "browserFeatures": {
         "required": [
-            "queryselector"
+            "document.queryselector",
+            "Element.prototype.closest"
         ],
         "optional": [
             "getComputedStyle",
             "canvas",
-            "customevent"
+            "CustomEvent"
         ]
     },
     "ci": {

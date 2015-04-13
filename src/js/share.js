@@ -1,8 +1,7 @@
-/*global require,module*/
+/**global require,module*/
 'use strict';
 
 var DomDelegate = require('ftdomdelegate');
-var oDom = require('o-dom');
 var TextCopyHelper = require('./TextCopyHelper');
 
 var socialUrls = {
@@ -15,7 +14,7 @@ var socialUrls = {
 	url: "{{url}}"
 };
 
-/*
+/**
  * @class Share
  *
  * @param {(HTMLElement|string)} [el=document.body] - Element where to search for an o-share component. You can pass an HTMLElement or a selector string
@@ -31,7 +30,7 @@ function Share(rootEl, config) {
 	var oShare = this;
 	var openWindows = {};
 
-	/*
+	/**
 	 * Helper function to dispatch oShare namespaced events
 	 *
 	 * @private
@@ -43,13 +42,13 @@ function Share(rootEl, config) {
 		}));
 	}
 
-	/*
+	/**
 	 * Click event handler that checks the event target is an o-share action, and acts depending on if it's a social network or a link
 	 *
 	 * @private
 	 */
 	function handleClick(ev) {
-		var actionEl = oDom.getClosestMatch(ev.target, 'li.o-share__action');
+		var actionEl = ev.target.closest('li.o-share__action');
 
 		if (oShare.rootEl.contains(actionEl) && actionEl.querySelector('a[href]')) {
 			ev.preventDefault();
@@ -63,7 +62,7 @@ function Share(rootEl, config) {
 		}
 	}
 
-	/*
+	/**
 	 * Event handler for the link element. Sets up a {@link TextCopyHelper} and dispatches the 'oShare.open' event
 	 *
 	 * @private
@@ -99,7 +98,7 @@ function Share(rootEl, config) {
 		});
 	}
 
-	/*
+	/**
 	 * Event handler for social network actions. Opens up a new window for that social network and dispatched the 'oShare.open' event
 	 *
 	 * @private
@@ -121,7 +120,7 @@ function Share(rootEl, config) {
 		}
 	}
 
-	/*
+	/**
 	 * Transforms the default social urls
 	 *
 	 * @private
@@ -137,7 +136,7 @@ function Share(rootEl, config) {
 		return templateUrl;
 	}
 
-	/*
+	/**
 	 * Renders the list of social networks in {@link config.links}
 	 *
 	 * @private
@@ -156,7 +155,7 @@ function Share(rootEl, config) {
 		oShare.rootEl.appendChild(ulElement);
 	}
 
-	/*
+	/**
 	 * Initialises the Share class, rendering the o-share element if it's empty with {@link config} options,
 	 * or from corresponding data attributes and sets up dom-delegates.
 	 * Dispatches 'oShare.ready' at the end
@@ -197,7 +196,7 @@ function Share(rootEl, config) {
 	init();
 }
 
-/*
+/**
  * Destroys the Share instance, disables dom-delegates
  */
 Share.prototype.destroy = function() {
@@ -211,7 +210,7 @@ Share.prototype.destroy = function() {
 	this.rootEl = undefined;
 };
 
-/*
+/**
  * Initialises all o-share components inside the element passed as the first parameter
  *
  * @param {(HTMLElement|string)} [el=document.body] - Element where to search for o-share components. You can pass an HTMLElement or a selector string
@@ -240,7 +239,7 @@ Share.init = function(el) {
 
 var OSharePrototype = Object.create(HTMLElement.prototype);
 
-/*
+/**
  * If it supports custom elements, it will return an instance of the <o-share> HTMLElement
  *
  * @returns {(HTMLElement|undefined)}

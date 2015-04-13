@@ -1,7 +1,7 @@
-/*global require,describe,beforeEach,afterEach,it*/
+/*global describe,beforeEach,afterEach,it*/
 'use strict';
 
-var expect = require('expect.js');
+import expect from 'expect.js';
 
 import * as fixtures from './helpers/fixtures';
 import Share from './../main';

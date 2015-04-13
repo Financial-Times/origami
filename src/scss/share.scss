@@ -8,11 +8,11 @@
 @mixin oShareBase($classname: o-share) {
 	.#{$classname} {
 		display: inline-block;
-	}
 
-	ul {
-		margin: 0;
-		padding: 0;
+		ul {
+			margin: 0;
+			padding: 0;
+		}
 	}
 
 	.#{$classname}__action {

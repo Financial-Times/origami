@@ -1,10 +1,10 @@
-/*global require, module*/
+/**global require, module*/
 'use strict';
 
 var DomDelegate = require('ftdomdelegate');
 var Tooltip = require('./Tooltip');
 
-/*
+/**
  * Gets the width of a text by using a <canvas> element
  *
  * @param {string} text - The text to measure
@@ -26,7 +26,7 @@ function getPixelWidthOfText(text, refEl) {
 	return -1;
 }
 
-/*
+/**
  * @class TextCopyHelper
  *
  * @param {Object} config
@@ -39,7 +39,7 @@ function getPixelWidthOfText(text, refEl) {
 function TextCopyHelper(config) {
 
 	var textCopyHelper = this;
-	/*
+	/**
 	 * Creates an input element for the URL setting it's correct width corresponding to said URL
 	 *
 	 * @private
@@ -53,7 +53,7 @@ function TextCopyHelper(config) {
 		return inputEl;
 	}
 
-	/*
+	/**
 	 * Initializes document.body and input dom-delegates and creates tooltip and input element
 	 *
 	 * @private
@@ -101,7 +101,7 @@ function TextCopyHelper(config) {
 	});
 }
 
-/*
+/**
  * Destroys the TextCopyHelper, disabling event listeners, and removing the input and tooltip from DOM. Also runs optional {@link config.onDestroy}
  */
 TextCopyHelper.prototype.destroy = function() {

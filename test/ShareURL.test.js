@@ -1,7 +1,7 @@
-/*global require,describe,beforeEach,afterEach,it*/
+/*global describe,beforeEach,afterEach,it*/
 'use strict';
 
-var expect = require('expect.js');
+import expect from 'expect.js';
 
 import * as fixtures from './helpers/fixtures';
 import Share from './../main';
@@ -47,7 +47,7 @@ describe('share url behaviour', function() {
 		expect(shareEl.querySelectorAll('.o-share__action--url .o-share-tooltip').length).to.be(0);
 	});
 
-	it('share URL tool - closes on pressing tav', function() {
+	it('share URL tool - closes on pressing tab', function() {
 		var ev = document.createEvent('Event');
 		ev.initEvent('keyup', true, true);
 		ev.keyCode = 9;
