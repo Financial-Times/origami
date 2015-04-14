@@ -4,3 +4,6 @@ dist
 tmp
 node_modules
 demos/local
+.bowerrc
+.jshintrc
+.editorconfig
