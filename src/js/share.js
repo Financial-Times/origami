@@ -15,26 +15,26 @@ var socialUrls = {
 };
 
 /**
- * @class Share
- *
- * @param {(HTMLElement|string)} [el=document.body] - Element where to search for an o-share component. You can pass an HTMLElement or a selector string
- * @param {Object} config - Optional
- * @param {string} config.url - Optional, url to share
- * @param {string} config.title - Optional, title to be used in social network sharing
- * @param {string} config.titleExtra - Optional, extra bit to add to the title for some social networks
- * @param {string} config.summary - Optional, summary of the page that's being shared
- * @param {string} config.relatedTwitterAccounts - Optional, extra information for sharing on Twitter
- * @param {Object[]} config.links - Optional, array of strings of supported social network names that you want rendered
- */
+  * @class Share
+  *
+  * @param {(HTMLElement|string)} [el=document.body] - Element where to search for an o-share component. You can pass an HTMLElement or a selector string
+  * @param {Object} config - Optional
+  * @param {string} config.url - Optional, url to share
+  * @param {string} config.title - Optional, title to be used in social network sharing
+  * @param {string} config.titleExtra - Optional, extra bit to add to the title for some social networks
+  * @param {string} config.summary - Optional, summary of the page that's being shared
+  * @param {string} config.relatedTwitterAccounts - Optional, extra information for sharing on Twitter
+  * @param {Object[]} config.links - Optional, array of strings of supported social network names that you want rendered
+  */
 function Share(rootEl, config) {
 	var oShare = this;
 	var openWindows = {};
 
 	/**
-	 * Helper function to dispatch oShare namespaced events
-	 *
-	 * @private
-	 */
+	  * Helper function to dispatch oShare namespaced events
+	  *
+	  * @private
+	  */
 	function dispatchCustomEvent(name, data) {
 		oShare.rootEl.dispatchEvent(new CustomEvent('oShare.' + name, {
 			detail: data || {},
@@ -43,10 +43,10 @@ function Share(rootEl, config) {
 	}
 
 	/**
-	 * Click event handler that checks the event target is an o-share action, and acts depending on if it's a social network or a link
-	 *
-	 * @private
-	 */
+	  * Click event handler that checks the event target is an o-share action, and acts depending on if it's a social network or a link
+	  *
+	  * @private
+	  */
 	function handleClick(ev) {
 		var actionEl = ev.target.closest('li.o-share__action');
 
@@ -63,12 +63,12 @@ function Share(rootEl, config) {
 	}
 
 	/**
-	 * Event handler for the link element. Sets up a {@link TextCopyHelper} and dispatches the 'oShare.open' event
-	 *
-	 * @private
-	 * @param {string} url - URL to be copied
-	 * @param {HTMLElement} parentEl - List element that will contain the {@link TextCopyHelper}
-	 */
+	  * Event handler for the link element. Sets up a {@link TextCopyHelper} and dispatches the 'oShare.open' event
+	  *
+	  * @private
+	  * @param {string} url - URL to be copied
+	  * @param {HTMLElement} parentEl - List element that will contain the {@link TextCopyHelper}
+	  */
 	function copyLink(url, parentEl) {
 		if (!url || !parentEl || parentEl.hasAttribute("aria-selected")) {
 			return;
@@ -99,17 +99,17 @@ function Share(rootEl, config) {
 	}
 
 	/**
-	 * Event handler for social network actions. Opens up a new window for that social network and dispatched the 'oShare.open' event
-	 *
-	 * @private
-	 * @param {string} url - URL to be loaded in the new window
-	 */
+	  * Event handler for social network actions. Opens up a new window for that social network and dispatched the 'oShare.open' event
+	  *
+	  * @private
+	  * @param {string} url - URL to be loaded in the new window
+	  */
 	function shareSocial(url) {
 		if (url) {
 			if (openWindows[url] && !openWindows[url].closed) {
 				openWindows[url].focus();
 			} else {
-				openWindows[url] = window.open(url, url, 'width=646,height=436');
+				openWindows[url] = window.open(url, '', 'width=646,height=436');
 			}
 
 			dispatchCustomEvent('open', {
@@ -121,11 +121,11 @@ function Share(rootEl, config) {
 	}
 
 	/**
-	 * Transforms the default social urls
-	 *
-	 * @private
-	 * @param {string} socialNetwork - Name of the social network that we support (twitter, facebook, linkedin, googleplus, reddit, pinterest, url)
-	 */
+	  * Transforms the default social urls
+	  *
+	  * @private
+	  * @param {string} socialNetwork - Name of the social network that we support (twitter, facebook, linkedin, googleplus, reddit, pinterest, url)
+	  */
 	function generateSocialUrl(socialNetwork) {
 		var templateUrl = socialUrls[socialNetwork];
 		templateUrl = templateUrl.replace('{{url}}', config.url)
@@ -137,10 +137,10 @@ function Share(rootEl, config) {
 	}
 
 	/**
-	 * Renders the list of social networks in {@link config.links}
-	 *
-	 * @private
-	 */
+	  * Renders the list of social networks in {@link config.links}
+	  *
+	  * @private
+	  */
 	function render() {
 		var ulElement = document.createElement('ul');
 		for (var i = 0; i < config.links.length; i++) {
@@ -156,10 +156,10 @@ function Share(rootEl, config) {
 	}
 
 	/**
-	 * Initialises the Share class, rendering the o-share element if it's empty with {@link config} options,
-	 * or from corresponding data attributes and sets up dom-delegates.
-	 * Dispatches 'oShare.ready' at the end
-	 */
+	  * Initialises the Share class, rendering the o-share element if it's empty with {@link config} options,
+	  * or from corresponding data attributes and sets up dom-delegates.
+	  * Dispatches 'oShare.ready' at the end
+	  */
 	function init() {
 		if (!rootEl) {
 			rootEl = document.body;
@@ -197,8 +197,8 @@ function Share(rootEl, config) {
 }
 
 /**
- * Destroys the Share instance, disables dom-delegates
- */
+  * Destroys the Share instance, disables dom-delegates
+  */
 Share.prototype.destroy = function() {
 	this.rootDomDelegate.destroy();
 	// Should destroy remove its children? Maybe setting .innerHTML to '' is faster
@@ -211,14 +211,13 @@ Share.prototype.destroy = function() {
 };
 
 /**
- * Initialises all o-share components inside the element passed as the first parameter
- *
- * @param {(HTMLElement|string)} [el=document.body] - Element where to search for o-share components. You can pass an HTMLElement or a selector string
- * @returns {Array} - An array of Share instances
- */
+  * Initialises all o-share components inside the element passed as the first parameter
+  *
+  * @param {(HTMLElement|string)} [el=document.body] - Element where to search for o-share components. You can pass an HTMLElement or a selector string
+  * @returns {Array} - An array of Share instances
+  */
 Share.init = function(el) {
 	var shareInstances = [];
-	var shareElements;
 
 	if (!el) {
 		el = document.body;
@@ -226,10 +225,10 @@ Share.init = function(el) {
 		el = document.querySelector(el);
 	}
 
-	if (el.querySelectorAll) {
-		shareElements = el.querySelectorAll('[data-o-component=o-share]:not([data-o-share--js])');
+	var shareElements = el.querySelectorAll('[data-o-component=o-share]');
 
-		for (var i = 0; i < shareElements.length; i++) {
+	for (var i = 0; i < shareElements.length; i++) {
+		if (!shareElements[i].hasAttribute('data-o-header--js')) {
 			shareInstances.push(new Share(shareElements[i]));
 		}
 	}
@@ -240,10 +239,10 @@ Share.init = function(el) {
 var OSharePrototype = Object.create(HTMLElement.prototype);
 
 /**
- * If it supports custom elements, it will return an instance of the <o-share> HTMLElement
- *
- * @returns {(HTMLElement|undefined)}
- */
+  * If it supports custom elements, it will return an instance of the <o-share> HTMLElement
+  *
+  * @returns {(HTMLElement|undefined)}
+  */
 Share.Element = document.registerElement ? document.registerElement('o-share', {
 	prototype: OSharePrototype
 }) : undefined;
