@@ -89,7 +89,16 @@ oComments.load();
 The configuration object which is passed to the contructor can/should have the following fields:
 
 ###### Mandatory fields:
+Set one of these:
+
  - elId: ID of the HTML element in which the widget should be loaded
+ - container: selector string or DOM instance. An ID will be generated on the specified element if it doesn't have one.
+
+If both are missing, comments will be loaded in document.body (which will be cleared).
+
+
+Mandatory:
+
  - articleId: ID of the article, any string
  - url: canonical URL of the page
  - title: Title of the page
