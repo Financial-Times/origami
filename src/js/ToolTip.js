@@ -1,21 +1,21 @@
-/**global module*/
+/*global module*/
 'use strict';
 
 /**
-  * @class Tooltip
-  *
-  * @param {string} text
-  * @param {HTMLElement} refEl
-  */
+ * @class Tooltip
+ *
+ * @param {string} text
+ * @param {HTMLElement} refEl
+ */
 function Tooltip(text, refEl) {
 	this.cssClass = 'o-share-tooltip';
 
 	/**
-	  * Creates a tooltip element
-	  *
-	  * @private
-	  * @returns {HTMLElement}
-	  */
+	 * Creates a tooltip element
+	 *
+	 * @private
+	 * @returns {HTMLElement}
+	 */
 	function createTooltip(cssClass) {
 		var tipEl = document.createElement('div');
 		tipEl.className = cssClass;
@@ -24,11 +24,11 @@ function Tooltip(text, refEl) {
 	}
 
 	/**
-	  * Renders a tooltip element
-	  *
-	  * @private
-	  * @param {HTMLElement} tipEl - a tooltip element returned by {@link createTooltip}
-	*/
+	 * Renders a tooltip element
+	 *
+	 * @private
+	 * @param {HTMLElement} tipEl - a tooltip element returned by {@link createTooltip}
+	 */
 	function renderTooltip(tipEl) {
 		refEl.insertBefore(tipEl, refEl.childNodes[0]);
 		tipEl.style.width = tipEl.clientWidth + "px"; // Set width based on initial text
@@ -41,17 +41,17 @@ function Tooltip(text, refEl) {
 }
 
 /**
-  * Set the text on the tooltip
-  *
-  * @param {string} text
-  */
+ * Set the text on the tooltip
+ *
+ * @param {string} text
+ */
 Tooltip.prototype.setText = function(text) {
 	this.tooltipEl.querySelector('.' + this.cssClass + '__text').innerText = text;
 };
 
 /**
-  * Destroys the tooltip, removing it from the DOM
-  */
+ * Destroys the tooltip, removing it from the DOM
+ */
 Tooltip.prototype.destroy = function() {
 	this.tooltipEl.parentElement.removeChild(this.tooltipEl);
 	this.tooltipEl = undefined;
