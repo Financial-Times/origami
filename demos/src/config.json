@@ -2,12 +2,17 @@
     "options": {
         "sass": "demos/src/demo.scss",
         "js": "demos/src/demo.js",
-        "data": "demos/src/data.json"
+        "dependencies": ["o-fonts@^1.5.0"]
     },
     "demos": [
         {
             "name": "horizontal",
-            "template": "main.mustache"
+            "template": "main.mustache",
+            "data": "demos/src/data.json"
+        },
+        {
+            "name": "web-component",
+            "template": "demos/src/webcomponent.mustache"
         }
     ]
 }

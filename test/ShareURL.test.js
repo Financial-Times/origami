@@ -1,52 +1,60 @@
-/*global require,describe,beforeEach,afterEach,it,expect*/
-"use strict";
+/*global describe,beforeEach,afterEach,it*/
+'use strict';
 
-require('./helpers/polyfill');
+import expect from 'expect.js';
 
-var fixtures = require('./helpers/fixtures');
-var triggerEvent = require('./helpers/triggerEvent');
-var ShareLinks = require('./../main');
-var testShareLinks;
-var shareLinksEl;
+import * as fixtures from './helpers/fixtures';
+import Share from './../main';
+var testShare;
+var shareEl;
 
-describe("share url behaviour", function() {
+describe('share url behaviour', function() {
 
-	beforeEach(function(){
+	beforeEach(function() {
 		fixtures.insertShareLinks();
-		shareLinksEl = document.querySelector('[data-o-component=o-share]');
-		testShareLinks = new ShareLinks(shareLinksEl);
-		triggerEvent(shareLinksEl.querySelector('.o-share__action--url a'), 'click');
+		shareEl = document.querySelector('[data-o-component=o-share]');
+		testShare = new Share(shareEl);
+		// new MouseEvent() not working, it's not being caught by the handler
+		var ev = document.createEvent('Event');
+		ev.initEvent('click', true, true);
+		shareEl.querySelector('.o-share__action--url a').dispatchEvent(ev);
 	});
 
 	afterEach(function() {
-		testShareLinks.destroy();
+		testShare.destroy();
 		fixtures.reset();
 	});
 
-	it("share URL tool - opens", function() {
-		expect(shareLinksEl.querySelector('.o-share__action--url').getAttribute('aria-selected')).toBe('true');
-		expect(shareLinksEl.querySelectorAll('.o-share__action--url input').length).toBe(1);
-		expect(shareLinksEl.querySelector('.o-share__action--url input').value).toBe(shareLinksEl.querySelector('.o-share__action--url a').href);
-		expect(shareLinksEl.querySelectorAll('.o-share__action--url .o-share-tooltip').length).toBe(1);
+	it('share URL tool - opens', function() {
+		expect(shareEl.querySelector('.o-share__action--url').getAttribute('aria-selected')).to.be('true');
+		expect(shareEl.querySelectorAll('.o-share__action--url input').length).to.be(1);
+		expect(shareEl.querySelector('.o-share__action--url input').value).to.be(shareEl.querySelector('.o-share__action--url a').href);
+		expect(shareEl.querySelectorAll('.o-share__action--url .o-share-tooltip').length).to.be(1);
 	});
 
-	it("share URL tool - 'copied' notification", function() {
-		triggerEvent(shareLinksEl.querySelector('.o-share__action--url input'), 'copy');
-		expect(shareLinksEl.querySelector('.o-share__action--url .o-share-tooltip__text').innerText).toBe('Copied!');
+	it('share URL tool - copied notification', function() {
+		shareEl.querySelector('.o-share__action--url input').dispatchEvent(new Event('copy'));
+		expect(shareEl.querySelector('.o-share__action--url .o-share-tooltip__text').innerText).to.be('Copied!');
 	});
 
-	it("share URL tool - closes on pressing escape", function() {
-		triggerEvent(shareLinksEl.querySelector('.o-share__action--url input'), 'keyup', { keyCode: 27 });
-		expect(shareLinksEl.querySelector('.o-share__action--url').hasAttribute('aria-selected')).toBe(false);
-		expect(shareLinksEl.querySelectorAll('.o-share__action--url input').length).toBe(0);
-		expect(shareLinksEl.querySelectorAll('.o-share__action--url .o-share-tooltip').length).toBe(0);
+	it('share URL tool - closes on pressing escape', function() {
+		var ev = document.createEvent('Event');
+		ev.initEvent('keyup', true, true);
+		ev.keyCode = 27;
+		shareEl.querySelector('.o-share__action--url input').dispatchEvent(ev);
+		expect(shareEl.querySelector('.o-share__action--url').hasAttribute('aria-selected')).to.be(false);
+		expect(shareEl.querySelectorAll('.o-share__action--url input').length).to.be(0);
+		expect(shareEl.querySelectorAll('.o-share__action--url .o-share-tooltip').length).to.be(0);
 	});
 
-	it("share URL tool - closes on pressing tav", function() {
-		triggerEvent(shareLinksEl.querySelector('.o-share__action--url input'), 'keyup', { keyCode: 9 });
-		expect(shareLinksEl.querySelector('.o-share__action--url').hasAttribute('aria-selected')).toBe(false);
-		expect(shareLinksEl.querySelectorAll('.o-share__action--url input').length).toBe(0);
-		expect(shareLinksEl.querySelectorAll('.o-share__action--url .o-share-tooltip').length).toBe(0);
+	it('share URL tool - closes on pressing tab', function() {
+		var ev = document.createEvent('Event');
+		ev.initEvent('keyup', true, true);
+		ev.keyCode = 9;
+		shareEl.querySelector('.o-share__action--url input').dispatchEvent(ev);
+		expect(shareEl.querySelector('.o-share__action--url').hasAttribute('aria-selected')).to.be(false);
+		expect(shareEl.querySelectorAll('.o-share__action--url input').length).to.be(0);
+		expect(shareEl.querySelectorAll('.o-share__action--url .o-share-tooltip').length).to.be(0);
 	});
 
 });

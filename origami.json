@@ -3,15 +3,16 @@
     "origamiType": "module",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-share/issues",
-    "supportStatus": "experimental",
+    "supportStatus": "active",
     "browserFeatures": {
         "required": [
-            "queryselector"
+            "document.queryselector",
+            "Element.prototype.closest"
         ],
         "optional": [
             "getComputedStyle",
             "canvas",
-            "customevent"
+            "CustomEvent"
         ]
     },
     "ci": {

@@ -1,13 +1,13 @@
 /*global require, module*/
 'use strict';
 
-var ShareLinks = require('./src/js/ShareLinks');
+var oShare = require('./src/js/share');
 
 var constructAll = function() {
-	ShareLinks.init();
+	oShare.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-module.exports = ShareLinks;
+module.exports = oShare;

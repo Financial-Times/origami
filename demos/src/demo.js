@@ -1,5 +1,5 @@
 /*global require*/
-require('../../main.js');
+window.oShare = require('../../main.js');
 
 document.addEventListener("DOMContentLoaded", function() {
 	"use strict";

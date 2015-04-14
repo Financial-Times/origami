@@ -32,6 +32,7 @@
 			background-image: url(_oShareGetSpriteUrl());
 			overflow: hidden;
 		}
+
 		a {
 			text-decoration: none;
 
@@ -51,6 +52,7 @@
 		i {
 			@include _oShareSprite(link);
 		}
+
 		input {
 			display: block;
 			margin: 0;
@@ -58,10 +60,14 @@
 			border-radius: 2px;
 			padding: 5px 8px;
 			width: 140px;
-			font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 			font-size: 12px;
 			line-height: 14px;
 			box-shadow: 0 0 3px #333333;
+
+			// Removes the cross the clears the input in IE 10+
+			&::-ms-clear {
+				display: none;
+			}
 		}
 	}
 

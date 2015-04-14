@@ -20,61 +20,60 @@ Tested and working on:
 
 Known issues:
 
-* IE8+ need the polyfill for `CustomEvent`
-* IE8 also needs the polyfill for `addEventListener`
+* IE8+ need the [polyfill service](https://github.com/Financial-Times/polyfill/service)
 
-## Construction
+## Getting started
 
-Products must provide the source HTML, in the following format, with the template `{{tag}}`s replaced with real values (these are all the available social network options and in the recommended order by the design team):
+The simplest markup you might need looks like this:
 
 ```html
-<div data-o-component="o-share" class="o-share">
-    <ul>
-        <li class="o-share__action o-share__action--twitter">
-            <a href="https://twitter.com/intent/tweet?url={{url}}&text={{title}}&related={{relatedTwitterAccounts}}&via=FT"><i>Twitter</i></a>
-        </li>
-        <li class="o-share__action o-share__action--facebook">
-            <a href="http://www.facebook.com/sharer.php?u={{url}}&t={{title}}+|+{{titleExtra}}"><i>Facebook</i></a>
-        </li>
-        <li class="o-share__action o-share__action--linkedin">
-            <a href="http://www.linkedin.com/shareArticle?mini=true&url={{url}}&title={{title}}+|+{{titleExtra}}&summary={{summary}}&source=Financial+Times"><i>LinkedIn</i></a>
-        </li>
-        <li class="o-share__action o-share__action--googleplus">
-            <a href="https://plus.google.com/share?url={{url}}"><i>Google+</i></a>
-        </li>
-        <li class="o-share__action o-share__action--reddit">
-            <a href="http://reddit.com/submit?url={{url}}&title={{title}}"><i>Reddit</i></a>
-        </li>
-        <li class="o-share__action o-share__action--pinterest">
-            <a href="http://www.pinterest.com/pin/create/button/?url={{url}}&amp;description={title}}"><i>Pinterest</i></a>
-        </li>
-        <li class="o-share__action o-share__action--url" data-o-share-action="url">
-            <a href="{{{url}}}"><i>URL</i></a>
-        </li>
-    </ul>
+<div data-o-component="o-share" 
+    class="o-share" 
+    data-o-share-links="{{links}}" 
+    data-o-share-url="{{url}}" 
+    data-o-share-title="{{title}}" 
+    data-o-share-titleExtra="{{titleExtra}}" 
+    data-o-share-summary="{{summary}}" 
+    data-o-share-relatedTwitterAccounts="{{relatedTwitterAccounts}}">
 </div>
 ```
 
-Required values:
+The different options are:
 
-* `{{url}}`: The URL to be shared.
-* `{{title}}`: The title of the content to be shared
-* `{{titleExtra}}`: Any additional text relating to the title, e.g. site _section_.
-* `{{summary}}`: Summary text to be shared.
-* `{{relatedTwitterAccounts}}`: Comma-separated list of Twitter accounts to encourage the user to follow. See [Twitter intents](https://dev.twitter.com/docs/intents) for more info.
+* `links`: List of lower case social networks to be added separated by a space.
+* `url`: The URL to be shared.
+* `title`: The title of the content to be shared
+* `titleExtra`: Any additional text relating to the title, e.g. site _section_.
+* `summary`: Summary text to be shared.
+* `relatedTwitterAccounts`: Comma-separated list of Twitter accounts to encourage the user to follow. See [Twitter intents](https://dev.twitter.com/docs/intents) for more info.
 
-On `DOMContentLoaded`, __o-share__ instances are automatically constructed for each element in the `<body>` declaring itself to be an __o-share__ element (via the `data-o-component="o-share"` attribute).
+The different social networks are (in the order suggested by the design team):
 
-Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), the event could be polyfilled, or construction can be manually invoked:
+* Twitter
+* Facebook
+* Linkedin
+* Google+ (written as 'googleplus' in the `links` config option)
+* Reddit
+* Pinterest
+* Url
+
+You can take a look at an example [here](https://github.com/Financial-Times/o-share/blob/master/demos/src/webcomponent.mustache).
+
+### Instantiation
+
+#### Javascript
+To instantiate the JavaScript:
 
 ```javascript
 var oShare = require('o-share');
-var oShareObjects = oShare.init();
+var oShareInstance = new oShare(document.querySelector('[data-o-component=o-share]'));
 ```
 
-An array of any constructed __o-share__ objects will be returned.
+The markup will be generated for that instance of `o-share`.
 
-Alternatively, a `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct a __o-share__ object for each element with a `data-o-component="o-share"` attribute:
+You can also instantiate all instances in your page by running `oShare.init` which returns an array with all of them.
+
+Alternatively, an `o.DOMContentLoaded` event can be dispatched on the `document` to run `#init()`:
 
 ```javascript
 document.addEventListener("DOMContentLoaded", function() {
@@ -82,39 +81,43 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 ```
 
-`oShare.init()` will not create __o-share__ objects for elements that already have __o-share__ objects constructed on them, therefore it's safe to call more than once on the same page region.
+Check out the [API docs](http://registry.origami.ft.com/components/o-share#docs-js)
 
-## Presentation
+#### Sass
 
-Share buttons are shown horizontally. In future, other display options will be provided.
+```scss
+@import 'o-share/main';
+```
 
-Products choose which share buttons will be shown, and in what order, by only including the markup for the buttons they want. It is best to put the share URL action first when right-aligning the __o-share__ element, or last when left-aligning it.
+We also support silent mode. So if you want to use all the default `o-share` classes, you need to set it to false:
 
-## Sharing a URL (link button)
+```scss
+$o-share-is-silent: false;
+```
 
-Does not include the actual copying to the clipboard (users must do that manually), but will indicate to users when the URL has been copied.
+If not, you can just use our mixins to set you custom class.
 
-In future may provide an additional button to copy to the clipboard, possibly using [zeroclipboard](https://github.com/zeroclipboard/zeroclipboard)
+Check out the [API docs](http://registry.origami.ft.com/components/o-share#docs-css)
 
-## Share counts
+## Core experience
 
-Does not yet show share count.
+To support core experience, you need to include the [complete markup](https://github.com/Financial-Times/o-share/blob/master/main.mustache) directly.
 
-In future will show a total share count (using an Origami share count aggregator service). There will be a minimum share count, below which share counts will not be shown.
-
-## Behaviour
-
-### Primary experience
-
-When clicked, social media share buttons will open the social media intent links in popup windows. Only one popup will be shown for each social media network, but if a user clicks multiple social media buttons, then one popup for each will be opened.
-
-When clicked, the URL share button will show the URL (see image above) in place of the envelope icon, in an `<input>` element. When the element loses focus, it will close.
-
-### Core experience
-
-Social media share buttons will function as plain `<a>` elements (and can be set to `target="_blank"` if the product wishes..
+Social media share buttons will function as plain `<a>` elements (and can be set to `target="_blank"` if the product wishes.
 
 URL share button will not display at all. User can of course still copy the browser URL.
+
+## Custom element
+
+It also registers the custom `<o-share>` element which you can use. And you can use it via JavaScript by using the `#element` attribute like this:
+
+```
+var oShare = require('o-share');
+var oShareElement = new oShare.Element();
+// Set all the data attributes
+document.body.appendChild(oShareElement);
+var oShareInstance = new oShare(oShareElement);
+```
 
 ## Events
 
@@ -123,5 +126,3 @@ This module will trigger the following events on its root element:
 * `oShare.ready` - when a share links behaviour has been initialised
 * `oShare.open` - when a share link has been opened (popup/flyout opened as a result of button click)
 * `oShare.copy` - when the URL has been copied
-
-In future it may also trigger events for __o-tracking__ when the above events occur.
