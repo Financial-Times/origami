@@ -352,7 +352,7 @@ oComments.init({
         "resourceDomainBase": "http://zor.livefyre.com"
     },
     dependencies: {
-        "o-comment-data": {
+        "o-comment-api": {
             "suds": {
                 "baseUrl": "http://test.session-user-data.webservices.ft.com"
             },
