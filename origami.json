@@ -2,7 +2,7 @@
 	"description": "Commenting for FT content. Integrated with FT authentication and user data services.",
 	"origamiType": "module",
 	"origamiVersion": 1,
-	"support": "hyperion@ft.com",
+	"support": "https://jira.ft.com/secure/RapidBoard.jspa?rapidView=57&view=detail",
 	"supportStatus": "active",
 	"ci": {},
 	"browserFeatures": {
