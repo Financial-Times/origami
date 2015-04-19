@@ -1,9 +1,0 @@
-{
-   "demos": [
-      {
-         "name": "element-tracking",
-         "template": "demos/src/element-tracking.mustache",
-         "js": "demos/src/element-tracking.js",
-         "sass": "demos/src/element-tracking.scss"
-      }]
-}

@@ -4,7 +4,8 @@
 
 function broadcast(eventType, data, target) {
 	target = target || document.body;
-	document.body.dispatchEvent(new CustomEvent('oViewport.' + eventType, {
+
+	target.dispatchEvent(new CustomEvent('oViewport.' + eventType, {
 		detail: data,
 		bubbles: true
 	}));
@@ -40,9 +41,52 @@ function getScrollPosition() {
 	};
 }
 
+function getOrientation() {
+	var orientation = window.screen.orientation || window.screen.mozOrientation || window.screen.msOrientation || undefined;
+	if (orientation) {
+		return typeof orientation === 'string' ?
+			orientation.split('-')[0] :
+			orientation.type.split('-')[0];
+	} else if (window.matchMedia) {
+		return window.matchMedia('(orientation: portrait)').matches ? 'portrait' : 'landscape';
+	} else {
+		return window.innerHeight >= window.innerWidth ? 'portrait' : 'landscape';
+	}
+}
+
+function detectVisiblityAPI() {
+	var hiddenName, eventType;
+	if (typeof document.hidden !== "undefined") {
+		hiddenName = "hidden";
+		eventType = "visibilitychange";
+	} else if (typeof document.mozHidden !== "undefined") {
+		hiddenName = "mozHidden";
+		eventType = "mozvisibilitychange";
+	} else if (typeof document.msHidden !== "undefined") {
+		hiddenName = "msHidden";
+		eventType = "msvisibilitychange";
+	} else if (typeof document.webkitHidden !== "undefined") {
+		hiddenName = "webkitHidden";
+		eventType = "webkitvisibilitychange";
+	}
+
+	return {
+		hiddenName: hiddenName,
+		eventType: eventType
+	};
+}
+
+function getVisibility() {
+	var hiddenName = detectVisiblityAPI().hiddenName;
+	return document[hiddenName];
+}
+
 module.exports = {
 	broadcast: broadcast,
 	getSize: getSize,
 	getViewportSize: getViewportSize,
-	getScrollPosition: getScrollPosition
+	getScrollPosition: getScrollPosition,
+	getVisibility: getVisibility,
+	getOrientation: getOrientation,
+	detectVisiblityAPI: detectVisiblityAPI
 };
