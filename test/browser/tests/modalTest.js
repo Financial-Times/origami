@@ -69,8 +69,8 @@ module.exports = {
 					return document.getElementsByClassName("o-overlay__content")[0].clientHeight;
 				},[],function(result){
 					clientHeight = result.value;
-				    browser.assert.ok(scrollHeight>clientHeight,"When the windows became smaller than the overlay content, the overlay did not appear scrollable");
-                });
+					browser.assert.ok(scrollHeight>clientHeight,"When the windows became smaller than the overlay content, the overlay did not appear scrollable");
+				});
 			});
 	},
 
