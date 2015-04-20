@@ -3,6 +3,6 @@
 	"main": ["main.scss"],
 	"dependencies": {
 		"o-colors": "^2.3.17",
-		"o-hoverable": ">0.1.1 <2"
+		"o-hoverable": ">=0.1.1 <2"
 	}
 }
