@@ -58,7 +58,7 @@ Use the following markup to enable comments:
 If you defer initialising oComments by  using `data-o-comments-autoconstruct="false"` then you can initialise the component by calling
 
 ```javascript
-oComments.initDomConstruct();
+oComments.init();
 ```
 
 ### <div id="imper"></div> Imperatively 
@@ -82,7 +82,7 @@ var oCommentComponent = new oComments.Widget({
 Load the component:
 
 ```javascript
-oComments.load();
+oCommentsComponent.load();
 ```
 
 #### More about the constructor of Widget
@@ -323,7 +323,7 @@ oComments.on('auth.loginRequired', function (evt) {
 
 ## <div id="api"></div> API 
 
-##### oComments.init(config)
+##### oComments.setConfig(config)
 This method is responsible for changing the default configuration used by oComments. Calling this method with an object will merge the default configuration with the object specified (deep merge, primitive type values of the same key will be overwritten).
 
 ##### Default configuration - PROD
@@ -345,7 +345,7 @@ This method is responsible for changing the default configuration used by oComme
 In order to change to the TEST environment, use the following code:
 
 ```javascript
-oComments.init({
+oComments.setConfig({
     "livefyre": {
         "network": "ft-1.fyre.co",
         "domain": "ft-1.auth.fyre.co",
