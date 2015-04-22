@@ -362,6 +362,9 @@ oComments.init({
             "cacheConfig": {
                 "authBaseName": "comments-test-auth-",
                 "initBaseName": "comments-test-init-"
+            },
+            "livefyre": {
+                "networkName": "ft-1"
             }
         }
     }
