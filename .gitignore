@@ -7,3 +7,4 @@ demos/local
 .bowerrc
 .jshintrc
 .editorconfig
+.sass-cache
