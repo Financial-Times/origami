@@ -40,22 +40,23 @@ SCSS:
 Use the following markup to enable comments:
 
 ```html
-<div class="o-comments" 
-    id="{oCommentsInstance}" 
-    data-o-comments-autoconstruct="true|false" 
+<div data-o-component="o-comments"
+    id="{idOfTheElement}" 
+    data-o-comments-auto-init="true|false" 
     data-o-comments-config-title="{article-title}" 
     data-o-comments-config-url="{page-url}" 
     data-o-comments-config-articleId="{article-id}">
 </div>
 ```
 
-1. `{article-title}` the title of your article/post/thing
-2. `data-o-comments-autoconstruct="true"` automatically construct the component when `o.DOMContentLoaded` fires. A `false` value (or omitting this attribute) allows you to defer component initialisation
-3. `data-o-comments-config-articleId` a unique id for your content, ideally a UUID for FT content
-4. `{page-url}` The canonical URL for your article/page/thing
-5. `id` preferable to be set, but if missing it will be generated
+1. `data-o-comments-config-title` the title of your article/post/thing
+2. `data-o-comments-config-articleId` a unique id for your content, ideally a UUID for FT content
+3. `data-o-comments-config-url` The canonical URL for your article/page/thing
+4. `data-o-comments-config-{key}` for any other configuration
+5. `data-o-comments-auto-init="false"` a module which has this attribute with a `false` value will not be initialized on the `o.DOMContentLoaded` event. This allows you to defer component initialisation.
+6. `id` preferable to be set, but if missing it will be generated
 
-If you defer initialising oComments by  using `data-o-comments-autoconstruct="false"` then you can initialise the component by calling
+If you defer initialising oComments by using `data-o-comments-auto-init="false"` then you can initialise the component by calling
 
 ```javascript
 oComments.init();
@@ -65,8 +66,7 @@ oComments.init();
 Create an instance of the component with the parameters that are available:
 
 ```javascript
-var oCommentComponent = new oComments.Widget({
-    elId: 'container-id',
+var oCommentComponent = new oComments.Widget(el, {
     title: document.title,
     url: document.location.href,
     articleId: 'article-id',
@@ -82,7 +82,7 @@ var oCommentComponent = new oComments.Widget({
 Load the component:
 
 ```javascript
-oCommentsComponent.load();
+oCommentsComponent.init();
 ```
 
 #### More about the constructor of Widget

@@ -64,8 +64,9 @@ module.exports = {
 		}
 	},
 
-	init: function () {
-		oCommentUtilities.initDomConstruct({
+	init: function (el) {
+		return oCommentUtilities.initDomConstruct({
+			context: el,
 			Widget: Widget,
 			baseClass: 'o-comments',
 			namespace: 'oComments',

@@ -127,7 +127,7 @@ function Widget () {
 		});
 	};
 
-	this.init = function (callback) {
+	this.loadInitData = function (callback) {
 		var config = {
 			title: self.config.title,
 			url: self.config.url,
@@ -422,9 +422,9 @@ function Widget () {
 		self = null;
 	};
 }
-oCommentUi.Widget.__extend(Widget, 'oComments');
+oCommentUi.Widget.__extend(Widget, 'oComments', 'o-comments');
 
-Widget.__extend = function(child, eventNamespace) {
+Widget.__extend = function(child, eventNamespace, classNamespace) {
 	if (typeof Object.create === 'function') {
 		child.prototype = Object.create(Widget.prototype);
 	} else {
@@ -436,6 +436,7 @@ Widget.__extend = function(child, eventNamespace) {
 
 	if (eventNamespace) {
 		child.prototype.eventNamespace = eventNamespace;
+		child.prototype.classNamespace = classNamespace;
 	}
 };
 
