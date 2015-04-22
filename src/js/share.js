@@ -188,7 +188,7 @@ function Share(rootEl, config) {
 			render();
 		}
 
-		dispatchCustomEvent('oShare.ready', {
+		dispatchCustomEvent('ready', {
 			share: oShare
 		});
 	}
