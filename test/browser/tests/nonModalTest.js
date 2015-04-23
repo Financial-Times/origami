@@ -56,22 +56,24 @@ module.exports = {
 	'Step 5: Verify scrollbars appear when page is shortened' : function (browser) {
 		var scrollHeight;
 		var clientHeight;
-		browser
-			.windowSize('current', 800,400, function(){
-				browser.waitForElementVisible("button.o-overlay-trigger",5000);
-				browser.execute(function(){
-					return document.getElementsByClassName("o-overlay__content")[0].scrollHeight;
-				},[],function(result){
-					scrollHeight = result.value;
-				});
-				browser.execute(function(){
-					return document.getElementsByClassName("o-overlay__content")[0].clientHeight;
-				},[],function(result){
-					clientHeight = result.value;
-                    browser.assert.ok(scrollHeight>clientHeight,"When the windows became smaller than the overlay content, the overlay did not appear scrollable");
+        if(!(browser.capabilities.browserName == "internet explorer" && browser.capabilities.version == 8)) {
+            browser
+                .windowSize('current', 800, 400, function () {
+                    browser.waitForElementVisible("button.o-overlay-trigger", 5000);
+                    browser.execute(function () {
+                        return document.getElementsByClassName("o-overlay__content")[0].scrollHeight;
+                    }, [], function (result) {
+                        scrollHeight = result.value;
+                    });
+                    browser.execute(function () {
+                        return document.getElementsByClassName("o-overlay__content")[0].clientHeight;
+                    }, [], function (result) {
+                        clientHeight = result.value;
+                        browser.assert.ok(scrollHeight > clientHeight, "When the windows became smaller than the overlay content, the overlay did not appear scrollable");
 
+                    });
                 });
-			});
+        }
 	},
 
 	'Step 6: Close the overlay': function(browser){
