@@ -15,7 +15,7 @@ module.exports = {
 			.click("button.o-overlay-trigger")
 			.waitForElementVisible(".o-overlay--modal",5000)
 			.assert.elementPresent(".o-overlay-shadow","Found overlay-shadow; this is a modal overlay")
-			.assert.cssProperty(".o-overlay-shadow","background-color","rgba(0, 0, 0, 0.2)")
+			.assert.cssPropertyEither(".o-overlay-shadow","background-color","rgba(0, 0, 0, 0.2)", "transparent")
 			.assert.cssProperty(".o-overlay__heading","background-color","rgba(116, 115, 108, 1)")
 			.assert.containsText(".o-overlay__content","Overlay content.")
 			.isVisible(".o-overlay__content",function(result){
