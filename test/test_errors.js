@@ -64,6 +64,19 @@ describe("oErrors", function() {
 
 			document.head.removeChild(sentryConfiguration);
 		});
+
+		it("should create no-operation methods if options.disabled is `true`", function() {
+			var errors = new Errors().init({
+				sentryEndpoint: "//app.getsentry.com/123",
+				logLevel: "contextonly",
+				disabled: true
+			});
+
+			// This is a horrible hacky way to check the function is a noop
+			expect(errors.report.toString()).to.be("function () {}");
+			expect(errors.wrapWithContext.toString()).to.be("function () {}");
+
+		});
 	});
 
 	describe("#wrapWithContext(context, function)", function() {
@@ -253,4 +266,4 @@ function mockRaven() {
 			this.lastCaptureMessageArgs = arguments;
 		}
 	};
-}
+i

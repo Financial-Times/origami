@@ -41,9 +41,10 @@ function Errors() {
  * </script>
  *
  * @param options {Object}
- * @param options.sentryEndpoint {String} - Optional if configued via the DOM, Required if not, must be a valid {@link https://app.getsentry.com/docs/platforms/|Sentry DSN}.
- * @param options.siteVersion    {String} - Optional, optionally the version of the code the page is running. This tags each error with the code version
- * @param options.logLevel       {String} - Optional, see {@link Logger.level} for valid names
+ * @param options.sentryEndpoint {String}  - Optional if configued via the DOM, Required if not, must be a valid {@link https://app.getsentry.com/docs/platforms/|Sentry DSN}.
+ * @param options.siteVersion    {String}  - Optional, optionally the version of the code the page is running. This tags each error with the code version
+ * @param options.logLevel       {String}  - Optional, see {@link Logger.level} for valid names
+ * @param options.disabled       {Boolean} - Optional, If `true`, disable o-errors reporting.
  * @param raven   {Object}   - The Raven JS client object.
  * @returns {Errors}
  */
@@ -70,12 +71,26 @@ Errors.prototype.init = function(options, raven) {
 		options = this._initialiseDeclaratively(options);
 	}
 
+	// If errors is configured to be disabled, (options.disabled = true),
+	// then stub this.report, turn off logging (which turns them into noops),
+	// and return 'initialised' before installing raven.
+	var isErrorsDisabled = options.disabled;
+
+	var logLevel = isErrorsDisabled ? Logger.off : options.logLevel;
+	var defaultLogLength = 10;
+	this.logger = new Logger(defaultLogLength, logLevel);
+
+	if (isErrorsDisabled) {
+		this.report = function() {};
+		this.wrapWithContext = function() {};
+		this.initialised = true;
+		return this;
+	}
+
 	if (!options.sentryEndpoint) {
 		throw new Error('Could not initialise o-errors: Sentry endpoint and auth configuration missing.');
 	}
 
-	var defaultLogLength = 10;
-	this.logger = new Logger(defaultLogLength, options.logLevel);
 
 	this._configureAndInstallRaven(options, raven);
 
