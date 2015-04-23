@@ -419,7 +419,7 @@ Works in accordance with our [support policy](https://docs.google.com/a/ft.com/d
 Only the enhanced experience offers any kind of commenting functionality. Core functionality will be added in due course.
 
 ## <div id="moderation"></div> Moderation
-All comments made on FT products are moderated. Moderation is important but expensive: So all comments are categorised so that different moderation teams can effectively manage the comments they have responsibility for.
+Moderators review certain comments posted by users on FT platforms. Moderation is important but expensive: so various comments are categorised so that different moderation teams can effectively manage the comments they have responsibility for.
 
 This does add some complexity though, and it places some constraints on where comments can be used. There are 2 ways in which the categorisation happens: Using the URL of the page where the comments appear (used for blogs) or by looking up the Content API using the passed in UUID and using the returned metatdata. 
 
