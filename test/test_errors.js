@@ -266,4 +266,4 @@ function mockRaven() {
 			this.lastCaptureMessageArgs = arguments;
 		}
 	};
-i
+}
