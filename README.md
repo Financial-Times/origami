@@ -52,25 +52,32 @@ Use the following markup to enable comments:
 1. `data-o-comments-config-title` the title of your article/post/thing
 2. `data-o-comments-config-articleId` a unique id for your content, ideally a UUID for FT content
 3. `data-o-comments-config-url` The canonical URL for your article/page/thing
-4. `data-o-comments-config-{key}` for any other configuration
-5. `data-o-comments-auto-init="false"` a module which has this attribute with a `false` value will not be initialized on the `o.DOMContentLoaded` event. This allows you to defer component initialisation.
-6. `id` preferable to be set, but if missing it will be generated
+4. `data-o-comments-config-livefyre-{key}` for Livefyre specific `Conv` configuration mentioned here: http://answers.livefyre.com/developers/app-integrations/comments/#convConfigObject
+*Note that due to the fact that data attributes are case-insensitive, it would be impossible to set a property like 'disableAvatars'. There livefyre configuration objects with camelCase should be set in the following way: e.g. data-o-comments-config-livefyre-disable-avatars. This is automatically transformed to the right format.*
+5. `data-o-comments-config-{key}` for any other configuration
+6. `data-o-comments-auto-init="false"` a module which has this attribute with a `false` value will not be initialized on the `o.DOMContentLoaded` event. This allows you to defer component initialisation.
+7. `id` preferable to be set, but if missing it will be generated
 
-If you defer initialising oComments by using `data-o-comments-auto-init="false"` then you can initialise the component by calling
+
+Those elements which don't have the `data-o-comments-auto-init="false"` attribute will be automatically initialized on the `o.DOMContentReady` event.
+
+If you defer initialising oComments by using `data-o-comments-auto-init="false"` then you can initialise the component whenever you want by calling
 
 ```javascript
 oComments.init();
 ```
 
+The init function may take an optional parameter: a context (this could be DOM element or a valid selector). The search would be performed only inside of this context element. If none is specified, it defaults to document.body.
+
 ### <div id="imper"></div> Imperatively 
 Create an instance of the component with the parameters that are available:
 
 ```javascript
-var oCommentComponent = new oComments.Widget(el, {
+var oCommentComponent = new oComments.Widget(document.querySelector('.comments'), {
     title: document.title,
     url: document.location.href,
     articleId: 'article-id',
-    initExtension: {
+    livefyre: {
         datetimeFormat: {
             minutesUntilAbsoluteTime: -1,
             absoluteFormat: 'MMM dd hh:mm a'
@@ -88,27 +95,20 @@ oCommentsComponent.init();
 #### More about the constructor of Widget
 The configuration object which is passed to the contructor can/should have the following fields:
 
+- el: selector string or DOM instance. An ID will be generated on the specified element if it doesn't have one. If not specified, it falls back to document.body
+- configuration: this is described below
+
 ###### Mandatory fields:
-Set one of these:
-
- - elId: ID of the HTML element in which the widget should be loaded
- - container: selector string or DOM instance. An ID will be generated on the specified element if it doesn't have one.
-
-If both are missing, comments will be loaded in document.body (which will be cleared).
-
-
-Mandatory:
-
  - articleId: ID of the article, any string
  - url: canonical URL of the page
  - title: Title of the page
     
 ###### Optional fields:
  - stream_type: livecomments, livechat, liveblog
- - initExtension: object which contains key-value pairs which will be added to the Livefyre init object. For more information visit http://docs.livefyre.com/developers/app-integrations/comments/#convConfigObject
+ - livefyre: object which contains key-value pairs which will be added to the Livefyre init object. For more information visit http://docs.livefyre.com/developers/app-integrations/comments/#convConfigObject
  - stringOverrides: key-value pairs which override default LF strings. For more information visit http://docs.livefyre.com/developers/reference/customization/string-customizations/
- - authPageReload: if authentication needs a page reload. By default it's false.
- - tags: Tags which will be added to the collection in Livefyre
+ - authPageReload: if authentication needs a page reload. By default this is false.
+ - tags: Tags which will be added to the collection (term used by Livefyre to articles) in Livefyre
 
 ## <div id="login"></div> Login integration 
 Users need to have a valid FT session in order to post comments. The default behavior for a user without a valid session is to redirect to the FT's login page (https://registration.ft.com). However you may wish to integrate with your product's authentication process for a slicker UX in which case you can override the default behaviour.
@@ -285,7 +285,7 @@ Event detail data: (evt.detail.data)
 
 
 #### Shared events
-These events are triggered on the `body` element and are relevant to all oComments components on a page. They have the same format as the component level events: `oComments.nameOfTheEvent`, where `nameOfTheEvent` is one of the following below.
+These events are triggered on the `body` element and are relevant to all oComments components on a page. They have the same format as the component level events: `oComments.nameOfTheEvent`.
 
 The payload data consists only of event specific data:
 
