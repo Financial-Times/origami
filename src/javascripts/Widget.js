@@ -20,7 +20,6 @@ var resourceLoader = require('./resourceLoader.js');
  * Livefyre authentication, Livefyre's widget loading mechanism with the possibility to extend and modify
  * the process.
  *
- *
  * #### Configuration:
  * ##### Mandatory fields:
  *  - elId: ID of the HTML element in which the widget should be loaded
@@ -36,16 +35,19 @@ var resourceLoader = require('./resourceLoader.js');
  *  - section: Override the default mapping based on URL or CAPI with an explicit mapping. Section parameter should be a valid FT metadata term (Primary section)
  *  - tags: Tags which will be added to the collection in Livefyre
  *
- * @param {object} config Configuration object. See in the description the fields that are mandatory.
+ * @param {object|string} rootEl Root element in which the widget should be loaded.
+ * @param {object}        config Configuration object. See in the description the fields that are mandatory.
  */
 function Widget () {
 	oCommentUi.Widget.apply(this, arguments);
 
 	var self = this;
 
+	if (!this.config) {
+		return;
+	}
+
 	this.forceMode = false;
-
-
 
 	this.config.stream_type = this.config.stream_type || "livecomments";
 	this.config.layout = this.config.layout || 'main';
@@ -178,6 +180,8 @@ function Widget () {
 					lfAuth.delegate(auth.getAuthDelegate());
 
 					self.ui.clearContainer();
+
+					oCommentUtilities.logger.debug('initData passed to Livefyre', initData);
 
 					new Conv(networkConfig, [initData], function (widget) {
 						if (widget) {
