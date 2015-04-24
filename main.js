@@ -142,6 +142,17 @@ module.exports.off = globalEvents.off;
 
 
 document.addEventListener('o.DOMContentLoaded', function () {
+	try {
+		var configInDomEl = document.querySelector('script[type="application/json"][data-o-comments-config]');
+		if (configInDomEl) {
+			var configInDom = JSON.parse(configInDomEl.innerHTML);
+
+			config.set(configInDom);
+		}
+	} catch (e) {
+		// do nothing
+	}
+
 	oCommentUtilities.initDomConstruct({
 		Widget: Widget,
 		baseClass: 'o-comments',
