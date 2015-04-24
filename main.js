@@ -147,10 +147,10 @@ document.addEventListener('o.DOMContentLoaded', function () {
 		if (configInDomEl) {
 			var configInDom = JSON.parse(configInDomEl.innerHTML);
 
-			config.set(configInDom);
+			module.exports.setConfig(configInDom);
 		}
 	} catch (e) {
-		// do nothing
+		oCommentUtilities.logger.log('Invalid config in the DOM.', e);
 	}
 
 	oCommentUtilities.initDomConstruct({
