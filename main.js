@@ -22,7 +22,7 @@ config.set(defaultConfig);
 var userSession = oCommentUtilities.ftUser.getSession();
 if (userSession) {
 	config.set('sessionId', userSession);
-	oCommentApi.init('sessionId', userSession);
+	oCommentApi.setConfig('sessionId', userSession);
 }
 
 /**

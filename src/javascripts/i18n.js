@@ -26,5 +26,7 @@ exports.lfStringOverride = {
 	flagConfirmationMessage: "Report %s's comment as %s?",
 	flagSubtitle: "Report as",
 	flagSuccessMsg: "Comment has been reported.",
-	flagTitle: "Report %s's comment"
+	flagTitle: "Report %s's comment",
+	commentCountLabel: 'COMMENTS (%s)',
+	commentCountLabelPlural: 'COMMENTS (%s)'
 };

@@ -1,4 +1,8 @@
 // scss-lint:disable NestingDepth, QualifyingElement, SelectorDepth, ImportantRule
+
+$o-comments-link-color: oColorsGetPaletteColor(blue);
+$o-comments-link-color-hover: oColorsGetPaletteColor(black);
+
 @mixin borderRadiusClear {
 	border-radius: 0;
 }

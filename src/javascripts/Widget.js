@@ -30,7 +30,7 @@ var resourceLoader = require('./resourceLoader.js');
  *
  * ##### Optional fields:
  *  - stream_type: livecomments, livechat, liveblog
- *  - initExtension: object which contains key-value pairs which should be added to the init object
+ *  - livefyre: object which contains key-value pairs which should be added to the init object
  *  - stringOverrides: key-value pairs which override default LF strings
  *  - authPageReload: if authentication needs a page reload. By default it's false.
  *  - section: Override the default mapping based on URL or CAPI with an explicit mapping. Section parameter should be a valid FT metadata term (Primary section)
@@ -49,25 +49,25 @@ function Widget () {
 
 	this.config.stream_type = this.config.stream_type || "livecomments";
 	this.config.layout = this.config.layout || 'main';
-	if (!this.config.initExtension || typeof this.config.initExtension !== 'object') {
-		this.config.initExtension = {};
+	if (!this.config.livefyre || typeof this.config.livefyre !== 'object') {
+		this.config.livefyre = {};
 	}
-	this.config.initExtension.editorCss = 'p { margin-bottom: 10px !important; }';
+	this.config.livefyre.editorCss = this.config.livefyre.editorCss || 'p { margin-bottom: 10px !important; }';
 
 	/**
 	 * Avatar disabled.
 	 */
-	this.config.initExtension.disableAvatars = true;
+	this.config.livefyre.disableAvatars = typeof this.config.livefyre.disableAvatars === 'boolean' ? this.config.livefyre.disableAvatars : true;
 
 	/**
 	 * Disable HTML5 shiv by Livefyre
 	 */
-	this.config.initExtension.disableIE8Shim = true;
+	this.config.livefyre.disableIE8Shim = typeof this.config.livefyre.disableIE8Shim === 'boolean' ? this.config.livefyre.disableIE8Shim : true;
 
 	/**
 	 * Disable Livefyre internal analytics
 	 */
-	this.config.initExtension.disableThirdPartyAnalytics = true;
+	this.config.livefyre.disableThirdPartyAnalytics = typeof this.config.livefyre.disableThirdPartyAnalytics === 'boolean' ? this.config.livefyre.disableThirdPartyAnalytics : true;
 
 
 	if (this.getWidgetEl().className.indexOf('o-comments') === -1) {
@@ -85,9 +85,6 @@ function Widget () {
 	this.getWidgetEl().setAttribute('data-o-comments-built', 'true');
 
 	this.config.stringOverrides = this.config.stringOverrides || {};
-	this.config.stringOverrides.commentCountLabel = 'COMMENTS (%s)';
-	this.config.stringOverrides.commentCountLabelPlural = 'COMMENTS (%s)';
-
 
 	this.ui = new WidgetUi(this.getWidgetEl(), {
 		layout: this.config.layout,
@@ -159,15 +156,14 @@ function Widget () {
 
 				// extends the init data received from SUDS with some user specified fields.
 				var key;
-				for (key in self.config.initExtension) {
-					if (self.config.initExtension.hasOwnProperty(key)) {
-						initData[key] = self.config.initExtension[key];
+				for (key in self.config.livefyre) {
+					if (self.config.livefyre.hasOwnProperty(key)) {
+						initData[key] = self.config.livefyre[key];
 					}
 				}
 
-				if (self.config.authPageReload === true) {
+				if (self.config.authPageReload === true || self.config.livefyre.authPageReload) {
 					initData.authPageReload = true;
-
 					auth.authPageReload = true;
 				}
 
