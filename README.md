@@ -52,9 +52,20 @@ Use the following markup to enable comments:
 1. `data-o-comments-config-title` the title of your article/post/thing
 2. `data-o-comments-config-articleId` a unique id for your content, ideally a UUID for FT content
 3. `data-o-comments-config-url` The canonical URL for your article/page/thing
-4. `data-o-comments-config-livefyre-{key}` for Livefyre specific `Conv` configuration mentioned here: http://answers.livefyre.com/developers/app-integrations/comments/#convConfigObject
-*Note that due to the fact that data attributes are case-insensitive, it would be impossible to set a property like 'disableAvatars'. There livefyre configuration objects with camelCase should be set in the following way: e.g. data-o-comments-config-livefyre-disable-avatars. This is automatically transformed to the right format.*
-5. `data-o-comments-config-{key}` for any other configuration
+4. `data-o-comments-config-livefyre--{key}` for Livefyre specific `Conv` configuration mentioned here: http://answers.livefyre.com/developers/app-integrations/comments/#convConfigObject
+*Note that due to the fact that data attributes are case-insensitive, it would be impossible to set a property like 'disableAvatars'. There livefyre configuration objects with camelCase should be set in the following way: e.g. data-o-comments-config-livefyre--disable-avatars. This is automatically transformed to the right format.*
+5. `data-o-comments-config-{key}` for any other configuration. `{key}` has the following rule: `--` means new object level, `-` means camel case. Example: `data-o-comments-config-livefyre--data-format--absolute="value"` is transformed to:
+
+```javascript
+{
+    "livefyre": {
+        "dataFormat": {
+            "absolute": "value"
+        }
+    }
+}
+```
+
 6. `data-o-comments-auto-init="false"` a module which has this attribute with a `false` value will not be initialized on the `o.DOMContentLoaded` event. This allows you to defer component initialisation.
 7. `id` preferable to be set, but if missing it will be generated
 
