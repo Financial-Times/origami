@@ -32,36 +32,13 @@ oCommentApi.setConfig('cache', true);
 
 module.exports = {
 	/**
-	 * Adds or overrides configuration options. It also supports overriding or adding configs to dependencies.
-	 * For this you have to write the following:
-	 * ```
-	 * "dependencies": {
-	 *       "o-comment-api": {
-	 *           "suds": {
-	 *               "baseUrl": "http://test.session-user-data.webservices.ft.com"
-	 *           },
-	 *           "ccs": {
-	 *               "baseUrl": "http://test.comment-creation-service.webservices.ft.com"
-	 *           }
-	 *       }
-	 *   }
-	 * ```
+	 * Adds or overrides configuration options.
 	 *
 	 * @param  {string|object} keyOrObject Key or actually an object with key-value pairs.
 	 * @param  {anything} value Optional. Should be specified only if keyOrObject is actually a key (string).
 	 */
 	setConfig: function (keyOrObject, value) {
-		if (typeof keyOrObject === 'string') {
-			config.set(keyOrObject, value);
-		} else if (typeof keyOrObject === 'object') {
-			if (keyOrObject.hasOwnProperty('dependencies') && keyOrObject.dependencies.hasOwnProperty('o-comment-api')) {
-				oCommentApi.setConfig(keyOrObject.dependencies['o-comment-api']);
-
-				delete keyOrObject.dependencies;
-			}
-
-			config.set(keyOrObject, value);
-		}
+		config.set.apply(this, arguments);
 	},
 
 	init: function (el) {
@@ -134,11 +111,11 @@ module.exports = {
 	 */
 	setLoggingLevel: function () {
 		oCommentUtilities.logger.setLevel.apply(this, arguments);
-	}
-};
+	},
 
-module.exports.on = globalEvents.on;
-module.exports.off = globalEvents.off;
+	on: globalEvents.on,
+	off: globalEvents.off
+};
 
 
 document.addEventListener('o.DOMContentLoaded', function () {

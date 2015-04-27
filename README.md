@@ -7,9 +7,12 @@ A fully featured commenting client integrated with FT's membership systems. If y
 * <a href="#prereq">Prerequisites</a>
 * <a href="#product">Adding comments to your product</a>
  * <a href="#decl">Declaratively</a>
- * <a href="#imper">Imperatvely</a>
+ * <a href="#imper">Imperatively</a>
 * <a href="#login">Login integration</a>
 * <a href="#events">Events</a>
+* <a href="#configuration">Global configuration</a>
+ * <a href="#confdecl">Declaratively</a>
+ * <a href="#confimper">Imperatively</a>
 * <a href="#api">API</a>
     * <a href="#logging">Logging</a>
     * <a href="#messages">UI Messages</a>
@@ -321,55 +324,78 @@ oComments.on('auth.loginRequired', function (evt) {
 });
 ```
 
-## <div id="api"></div> API 
+## <div id="configuration"></div> Global configuration
+This module uses global configuration. These are related configurations for Livefyre.
 
-##### oComments.setConfig(config)
-This method is responsible for changing the default configuration used by oComments. Calling this method with an object will merge the default configuration with the object specified (deep merge, primitive type values of the same key will be overwritten).
+The default configuration is the production one:
 
-##### Default configuration - PROD
-
-```javascript
+```json
 {
     "livefyre": {
         "network": "ft.fyre.co",
         "domain": "ft.auth.fyre.co",
-        "resourceDomainBase": "http://zor.livefyre.com"
-    },
-    "resourceUrls": {
-        "livefyreJs": "/wjs/v3.0/javascripts/livefyre.js"
+        "resourceDomainBase": "http://zor.livefyre.com",
+        "resourceUrls": {
+            "livefyreJs": "/wjs/v3.0/javascripts/livefyre.js"
+        }
     }
 }
 ```
 
-##### Using the TEST environment
-In order to change to the TEST environment, use the following code:
+In order to change to the settings of the TEST environment, then this configuration should be used:
+
+```json
+{
+    "livefyre": {
+        "network": "ft-1.fyre.co",
+        "domain": "ft-1.auth.fyre.co"
+    }
+}
+```
+
+
+There are two ways for changing the environment:
+
+### <div id="confdecl"></div> Declaratively
+In order to change the configuration, you can add a script tag in your page source with the format in the example below:
+
+```javascript
+<script data-o-comments-config type="application/json">
+    {
+        "livefyre": {
+            "network": "ft-1.fyre.co",
+            "domain": "ft-1.auth.fyre.co"
+        }
+    }
+</script>
+```
+
+This configuration will be loaded on the `o.DOMContentLoaded` event.
+
+**Also, don't forget to also add the configuration for `o-comment-api` (http://registry.origami.ft.com/components/o-comment-api#configuration).**
+
+
+
+### <div id="confimper"></div> Imperatively
+##### oComments.setConfig(config)
+The configuration can be changed be using the `setConfig` static method. Calling this method with an object will merge the current configuration with the object specified (deep merge, primitive type values of the same key will be overwritten).
+
+Example:
 
 ```javascript
 oComments.setConfig({
     "livefyre": {
         "network": "ft-1.fyre.co",
-        "domain": "ft-1.auth.fyre.co",
-        "resourceDomainBase": "http://zor.livefyre.com"
-    },
-    dependencies: {
-        "o-comment-api": {
-            "suds": {
-                "baseUrl": "http://test.session-user-data.webservices.ft.com"
-            },
-            "ccs": {
-                "baseUrl": "http://test.comment-creation-service.webservices.ft.com"
-            },
-            "cacheConfig": {
-                "authBaseName": "comments-test-auth-",
-                "initBaseName": "comments-test-init-"
-            },
-            "livefyre": {
-                "networkName": "ft-1"
-            }
-        }
+        "domain": "ft-1.auth.fyre.co"
     }
 });
 ```
+
+*As on the event `o.DOMContentLoaded` the widgets declared in the DOM are automatically initialized, it is preferred to call this function **before** the `o.DOMContentLoaded` event is triggered.*
+
+
+**Also, don't forget to also add the configuration for `o-comment-api` (http://registry.origami.ft.com/components/o-comment-api#configuration).**
+The API of o-comment-api is available by using `oComments.dataService`.
 
 ### <div id="messages"></div> UI messages
 You can override the messages shown to a user in various parts of the UI:
@@ -398,6 +424,7 @@ An object with the following messages:
     topCommentsContentNotFoundMsg: "There aren't any recommendations yet."
     unlikeButton: "Unrecommend"
 
+## <div id="api"></div> API
 ### Logging
 Logging can be enabled for debugging purposes. It logs using the global 'console' if available (if not, nothing happens and it degrades gracefully).
 By default logging is disabled.
