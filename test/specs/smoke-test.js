@@ -39,7 +39,7 @@ describe('smoke-tests (./overlay.js)', function() {
 
 		it('should open with correct content when trigger is clicked', function(done) {
 			var trigger = document.querySelector('.o-overlay-trigger');
-			// Distinguish it for the rest for the oOverlay.ready event
+			// Distinguish it from the rest for the oOverlay.ready event
 			trigger.setAttribute('data-o-overlay-id', 'testOverlay1');
 			o.fireEvent(trigger, 'click');
 			var overlays = document.querySelectorAll('.o-overlay');
