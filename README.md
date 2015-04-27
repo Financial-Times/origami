@@ -6,16 +6,16 @@ A fully featured commenting client integrated with FT's membership systems. If y
 
 * <a href="#prereq">Prerequisites</a>
 * <a href="#product">Adding comments to your product</a>
- * <a href="#decl">Declaratively</a>
- * <a href="#imper">Imperatively</a>
+    - <a href="#decl">Declaratively</a>
+    - <a href="#imper">Imperatively</a>
 * <a href="#login">Login integration</a>
 * <a href="#events">Events</a>
 * <a href="#configuration">Global configuration</a>
- * <a href="#confdecl">Declaratively</a>
- * <a href="#confimper">Imperatively</a>
+    - <a href="#confdecl">Declaratively</a>
+    - <a href="#confimper">Imperatively</a>
 * <a href="#api">API</a>
-    * <a href="#logging">Logging</a>
-    * <a href="#messages">UI Messages</a>
+    - <a href="#logging">Logging</a>
+    - <a href="#messages">UI Messages</a>
 * <a href="#messages">Browser support</a>
 * <a href="#core">Core/enhanced experience</a>
 * <a href="#moderation">Moderation</a>
