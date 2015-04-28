@@ -70,8 +70,6 @@ describe('smoke-tests (./overlay.js)', function() {
 			document.body.addEventListener('oOverlay.ready', overlayReadyHandler);
 
 			o.fireEvent(trigger, 'click');
-
-			o.fireEvent(trigger, 'click');
 		});
 
 		it('modal should be closable with esc key, close button and with new layer', function() {
