@@ -421,6 +421,13 @@ function Widget () {
 
 		self = null;
 	};
+
+
+
+	// init
+	if (this.config.autoInit !== false) {
+		this.init.call(this);
+	}
 }
 oCommentUi.Widget.__extend(Widget, 'oComments', 'o-comments');
 
