@@ -7,8 +7,6 @@
 ///
 /// @param {String} fill - 'width' or 'height'
 @mixin oOverlayFullscreen($fill) {
-	overflow: hidden;
-
 	@if ($fill == 'width') {
 		padding-left: 0;
 		padding-right: 0;

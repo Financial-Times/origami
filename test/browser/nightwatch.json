@@ -34,6 +34,34 @@
         "platform": "WINDOWS"
       }
     },
+    "chrome_latest" : {
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "version": "latest",
+        "platform": "WINDOWS"
+      }
+    },
+    "chrome_latest-1" : {
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "version": "latest-1",
+        "platform": "WINDOWS"
+      }
+    },
+    "firefox_latest" : {
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "version": "latest",
+        "platform": "WINDOWS"
+      }
+    },
+    "firefox_latest-1" : {
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "version": "latest-1",
+        "platform": "WINDOWS"
+      }
+    },
     "chrome38_Grid" : {
       "desiredCapabilities": {
         "browserName": "chrome",
@@ -129,6 +157,13 @@
       "desiredCapabilities": {
         "browserName": "safari",
         "version": "7",
+        "platform": "MAC"
+      }
+    },
+    "safari8_Grid" : {
+      "desiredCapabilities": {
+        "browserName": "safari",
+        "version": "8",
         "platform": "MAC"
       }
     },

@@ -1,21 +1,22 @@
 "use strict";
 
+var timeout = 20000;
+
 module.exports = {
 
 
 	'Step 1: Open page at 800 x 800': function(browser){
 		browser
-            .url(browser.launch_url + "/overlay-with-arrow.html")
-			.waitForElementVisible("button.o-overlay-trigger",5000)
+			.url(browser.launch_url + "/overlay-with-arrow.html")
+			.waitForElementVisible("button.o-overlay-trigger",timeout)
 			.windowSize('current',800,800);
 	},
 
 	'Step 2: Test compact overlay with arrow loads' : function (browser) {
 		browser
 			.click("button.o-overlay-trigger")
-			.waitForElementVisible(".o-overlay--compact",5000)
+			.waitForElementVisible(".o-overlay--compact",timeout)
 			.assert.elementNotPresent(".o-overlay-shadow","Verified there is no overlay-shadow present")
-			.assert.cssPropertyNot(".o-overlay__heading","background-color","rgba(116, 115, 108, 1)")
 			.assert.containsText(".o-overlay__content","Overlay content.")
 			.isVisible(".o-overlay__content",function(result){
 				this.assert.equal(result.value,true,"Overlay content is visible");
@@ -37,13 +38,13 @@ module.exports = {
 			})
 			.getLocation(".o-overlay-trigger", function(location){
 				button_top = location.value.y;
-				browser.getElementSize(".o-overlay-trigger", function(size){
+				this.getElementSize(".o-overlay-trigger", function(size){
 					button_bottom = button_top + size.value.height;
 				});
 			})
 			.getLocation(".o-overlay__arrow-top", function(location){
 				arrow_top = location.value.y;
-				browser.assert.ok(arrow_top >= button_bottom, "Overlay with arrow appears below the trigger button");
+				this.assert.ok(arrow_top >= button_bottom, "Overlay with arrow appears below the trigger button");
 			});
 	},
 
@@ -63,8 +64,8 @@ module.exports = {
 			})
 			.getElementSize(".o-overlay--compact", function(size){
 				overlay_right = overlay_left + size.value.width;
-				browser.assert.ok(overlay_left>window_first_third, "Left side of overlay appears centered on the page");
-				browser.assert.ok(overlay_right<window_second_third, "Right side of overlay appears centered on the page");
+				this.assert.ok(overlay_left>window_first_third, "Left side of overlay appears centered on the page");
+				this.assert.ok(overlay_right<window_second_third, "Right side of overlay appears centered on the page");
 			});
 	},
 

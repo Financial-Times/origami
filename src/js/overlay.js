@@ -146,6 +146,7 @@ Overlay.prototype.loadContent = function(callback) {
 Overlay.prototype.render = function() {
 	var wrapperEl = document.createElement('div');
 	wrapperEl.className = 'o-overlay';
+	wrapperEl.classList.add('o-overlay--' + this.id.replace(' ', '-'));
 	if (this.opts.zindex) {
 		wrapperEl.style.zIndex = this.opts.zindex;
 	}
@@ -332,11 +333,10 @@ Overlay.prototype.respondToWindow = function(size) {
 	this.realign('width', size.width);
 	this.realign('height', size.height);
 
-	this.wrapper.classList.remove('o-overlay__arrow-top',
-		'o-overlay__arrow-bottom',
-		'o-overlay__arrow-left',
-		'o-overlay__arrow-right'
-	);
+	this.wrapper.classList.remove('o-overlay__arrow-top');
+	this.wrapper.classList.remove('o-overlay__arrow-bottom');
+	this.wrapper.classList.remove('o-overlay__arrow-left');
+	this.wrapper.classList.remove('o-overlay__arrow-right');
 
 	if (this.opts.arrow && !this.fills()) {
 		this.opts.arrow.currentposition = this.getCurrentArrowPosition(this.opts.arrow.position);

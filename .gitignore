@@ -11,4 +11,5 @@ test/browser/reports
 Procfile
 .haikro-cache/
 node-linux-x64/
+node-linux-x64
 node-v0.1*/
