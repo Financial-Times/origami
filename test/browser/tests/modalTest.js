@@ -57,7 +57,7 @@ module.exports = {
 	'Step 5: Verify scrollbars appear when page is shortened' : function(browser) {
 		var scrollHeight;
 		var clientHeight;
-		if (!browser.capabilities.browserName === "internet explorer" && !browser.capabilities.version === 8) {
+		if (browser.capabilities.browserName !== "internet explorer" && browser.capabilities.version !== 8) {
 			browser
 				.windowSize('current', 800, 400, function () {
 					browser.waitForElementVisible("button.o-overlay-trigger", 5000);
