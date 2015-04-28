@@ -71,7 +71,9 @@ describe('smoke-tests (./overlay.js)', function() {
 
 			o.fireEvent(trigger, 'click');
 
+			o.fireEvent(trigger, 'click');
 		});
+
 		it('modal should be closable with esc key, close button and with new layer', function() {
 			var trigger = document.querySelector('.o-overlay-trigger');
 			var originalOverlayClose = Overlay.prototype.close;
@@ -194,8 +196,7 @@ describe('smoke-tests (./overlay.js)', function() {
 		});
 		mod.open();
 
-		// Wait a bit until the content has been loaded
-		setTimeout(function() {
+		mod.context.addEventListener('oOverlay.ready', function() {
 			var overlays = document.querySelectorAll('.o-overlay');
 			expect(overlays.length).toBe(1);
 
@@ -205,6 +206,6 @@ describe('smoke-tests (./overlay.js)', function() {
 			overlays = document.querySelectorAll('.o-overlay');
 			expect(overlays.length).toBe(0);
 			done();
-		}, 500);
+		});
 	});
 });
