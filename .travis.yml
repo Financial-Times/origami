@@ -3,7 +3,7 @@ language: node_js
 node_js:
   - "0.10"
 before_install:
-  - npm install -g npm@^2.7.0
+  - npm install -g npm@2.7.5
   - npm install -g Financial-Times/origami-build-tools#master
   - obt install
 script:
