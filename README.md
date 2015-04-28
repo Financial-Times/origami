@@ -4,21 +4,23 @@ A fully featured commenting client integrated with FT's membership systems. If y
 
 ## Contents
 
-* <a href="#prereq">Prerequisites</a>
-* <a href="#product">Adding comments to your product</a>
-    * <a href="#decl">Declaratively</a>
-    * <a href="#imper">Imperatively</a>
-* <a href="#login">Login integration</a>
-* <a href="#events">Events</a>
-* <a href="#configuration">Global configuration</a>
-    * <a href="#confdecl">Declaratively</a>
-    * <a href="#confimper">Imperatively</a>
-* <a href="#api">API</a>
-    * <a href="#logging">Logging</a>
-    * <a href="#messages">UI Messages</a>
-* <a href="#messages">Browser support</a>
-* <a href="#core">Core/enhanced experience</a>
-* <a href="#moderation">Moderation</a>
+ * <a href="#prereq">Prerequisites</a>
+ * <a href="#product">Adding comments to your product</a>
+     * <a href="#decl">Declaratively</a>
+     * <a href="#imper">Imperatively</a>
+ * <a href="#login">Login integration</a>
+ * <a href="#events">Events</a>
+ * <a href="#configuration">Global configuration</a>
+     * <a href="#confdecl">Declaratively</a>
+     * <a href="#confimper">Imperatively</a>
+ * <a href="#jsapi">JavaScript API</a>
+     * <a href="#logging">Logging</a>
+     * <a href="#messages">UI Messages</a>
+ * <a href="#sassapi"> Sass API
+     * <a href="#fontfamily">Font family</a>
+ * <a href="#browser">Browser support</a>
+ * <a href="#core">Core/enhanced experience</a>
+ * <a href="#moderation">Moderation</a>
 
 ## <div id="prereq"></div> Prerequisites
 
@@ -425,8 +427,8 @@ An object with the following messages:
     topCommentsContentNotFoundMsg: "There aren't any recommendations yet."
     unlikeButton: "Unrecommend"
 
-## <div id="api"></div> API
-### Logging
+## <div id="jsapi"></div> JavaScript API
+### <div id="logging"></div> Logging
 Logging can be enabled for debugging purposes. It logs using the global 'console' if available (if not, nothing happens and it degrades gracefully).
 By default logging is disabled.
 
@@ -439,6 +441,17 @@ This method disables logging of the module.
 ##### oComments.setLoggingLevel(level)
 This method sets the logging level. This could be a number from 0 to 4 (where 0 is debug, 4 is error), or a string from the available methods of 'console' (debug, log, info, warn, error).
 Default is 3 (warn).
+
+## <div id="sassapi"> Sass API
+### <div id="fontfamily"></div> Font-family
+There is a default font-family set for o-comments: `BentonSans, sans-serif`
+*Please note that the font itself is not loaded by this module, this should be done by the product.*
+
+In order to override the default font, set a value for the following variable:
+
+```scss
+$o-comments-font-family: 'Your font-family here';
+```
 
 ## <div id="browser"></div> Browser support 
 Works in accordance with our [support policy](https://docs.google.com/a/ft.com/document/d/1dX92MPm9ZNY2jqFidWf_E6V4S6pLkydjcPmk5F989YI/edit)
