@@ -1,4 +1,3 @@
-
 {
   "src_folders" : ["test/browser/tests"],
   "output_folder" : "./test/browser/reports",
