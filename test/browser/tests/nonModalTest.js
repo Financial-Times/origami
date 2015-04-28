@@ -5,7 +5,7 @@ module.exports = {
 
 	'Step 1: Open page at 800 x 800': function(browser){
 		browser
-			.url("http://10.116.132.78:8080/demos/local/centered-overlay.html")
+            .url(browser.launch_url + "/centered-overlay.html")
 			.waitForElementVisible("button.o-overlay-trigger",5000)
 			.windowSize('current',800,800);
 	},
