@@ -262,7 +262,7 @@ Overlay.prototype.close = function() {
 };
 
 Overlay.prototype.closeOnExternalClick = function(ev) {
-	if (!this.wrapper.contains(ev.target) && !this.opts.modal && (this.trigger && !this.trigger.contains(ev.target))) {
+	if (!this.wrapper.contains(ev.target) && !this.opts.modal && (this.opts.trigger && !this.opts.trigger.contains(ev.target))) {
 		this.close();
 	}
 };
