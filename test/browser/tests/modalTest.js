@@ -5,7 +5,7 @@ module.exports = {
 
 	'Step 1: Open page at 800 x 800': function(browser){
 		browser
-			.url(browser.launch_url + "/modal.html")
+			.url("http://10.116.132.78:8080/demos/local/modal.html")
 			.waitForElementVisible("button.o-overlay-trigger",5000)
 			.windowSize('current',800,800);
 	},
@@ -57,7 +57,7 @@ module.exports = {
 	'Step 5: Verify scrollbars appear when page is shortened' : function(browser) {
 		var scrollHeight;
 		var clientHeight;
-		if (!(browser.capabilities.browserName === "internet explorer" && browser.capabilities.version === 8)) {
+		if (!browser.capabilities.browserName === "internet explorer" && !browser.capabilities.version === 8) {
 			browser
 				.windowSize('current', 800, 400, function () {
 					browser.waitForElementVisible("button.o-overlay-trigger", 5000);
