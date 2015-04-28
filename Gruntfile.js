@@ -12,9 +12,6 @@ module.exports = function(grunt) {
 			pkg: grunt.file.readJSON('package.json'),
 			bwr: grunt.file.readJSON('bower.json'),
 			o: grunt.file.readJSON('origami.json')
-		},
-		loadGruntTasks: {
-			pattern: ['grunt-*', '!grunt-template-jasmine-istanbul']
 		}
 	});
 
