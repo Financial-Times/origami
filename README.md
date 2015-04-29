@@ -68,7 +68,7 @@ The init function may take an optional parameter: a context (this could be DOM e
 Create an instance of the component with the parameters that are available:
 
 ```javascript
-var oCommentComponent = new oComments.Widget(document.querySelector('.comments'), {
+var oCommentComponent = new oComments(document.querySelector('.comments'), {
     title: document.title,
     url: document.location.href,
     articleId: 'article-id',
@@ -87,24 +87,31 @@ var oCommentComponent = new oComments.Widget(document.querySelector('.comments')
 oCommentsComponent.init();
 ```
 
-#### More about the constructor of Widget
+#### More about the constructor config object
 The configuration object which is passed to the contructor can/should have the following fields:
 
-- el: selector string or DOM instance. An ID will be generated on the specified element if it doesn't have one. If not specified, it falls back to document.body
-- configuration: this is described below
-
 ###### Mandatory fields:
- - articleId: ID of the article, any string
- - url: canonical URL of the page
- - title: Title of the page
+
+```javascript
+{
+    articleId: ID of the article, any string,
+    url: canonical URL of the page,
+    title: Title of the page
+}
+```
     
 ###### Optional fields:
- - stream_type: livecomments, livechat, liveblog
- - livefyre: object which contains key-value pairs which will be added to the Livefyre init object. For more information visit http://docs.livefyre.com/developers/app-integrations/comments/#convConfigObject
- - stringOverrides: key-value pairs which override default LF strings. For more information visit http://docs.livefyre.com/developers/reference/customization/string-customizations/
- - authPageReload: if authentication needs a page reload. By default this is false.
- - tags: Tags which will be added to the collection (term used by Livefyre to articles) in Livefyre
- - autoInit: if this is set to false, the object will be created, but it will not be initialized automatically (the DOM will not be populated, call to backend services will not be made). In this case you should call the `init` method on the instance when you want to initialize it.
+
+```javascript
+{
+    stream_type: livecomments, livechat, liveblog,
+    livefyre: object which contains key-value pairs which will be added to the Livefyre init object. For more information visit http://docs.livefyre.com/developers/app-integrations/comments/#convConfigObject,
+    stringOverrides: key-value pairs which override default LF strings. For more information visit http://docs.livefyre.com/developers/reference/customization/string-customizations/,
+    authPageReload: if authentication needs a page reload. By default this is false,
+    tags: Tags which will be added to the collection (term used by Livefyre to articles) in Livefyre,
+    autoInit: if this is set to false, the object will be created, but it will not be initialized automatically (the DOM will not be populated, call to backend services will not be made). In this case you should call the `init` method on the instance when you want to initialize it.
+}
+```
 
 ## <div id="login"></div> Login integration 
 Users need to have a valid FT session in order to post comments. The default behavior for a user without a valid session is to redirect to the FT's login page (https://registration.ft.com). However you may wish to integrate with your product's authentication process for a slicker UX in which case you can override the default behaviour.
