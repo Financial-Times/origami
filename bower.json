@@ -5,6 +5,6 @@
     "main.js"
   ],
   "dependencies": {
-    "o-colors": ">2.4.4 <4"
+    "o-colors": ">=2.4.4 <4"
   }
 }
