@@ -147,15 +147,16 @@ oComments.on('auth.loginRequired', function (evt) {
 
 **Important: if the log in needs a page reload, don't call the failure function!**
 
-## <div id="events"></div> Events 
-
-All events have a payload of data to identify the originating component and any event specific data:
+## <div id="events"></div> Events
+### Local events
+These events are triggered on the instance's DOM element. 
+All events have a payload of data which helps getting the ID of the instance and the instance object itself:
 
 ```javascript
 {
     detail: {
         id: "idOfTheComponent",
-        widget: componentInstance,
+        instance: componentInstance,
         data: {...} //data specific to the event
     }
 }
@@ -279,7 +280,7 @@ Event detail data: (evt.detail.data)
 ```
 
 
-#### Shared events
+### Global events
 These events are triggered on the `body` element and are relevant to all oComments components on a page. They have the same format as the component level events: `oComments.nameOfTheEvent`.
 
 The payload data consists only of event specific data:
