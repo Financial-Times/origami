@@ -16,7 +16,7 @@ A fully featured commenting client integrated with FT's membership systems. If y
  * <a href="#jsapi">JavaScript API</a>
      * <a href="#logging">Logging</a>
      * <a href="#messages">UI Messages</a>
- * <a href="#sassapi"> Sass API
+ * <a href="#sassapi">Sass API</a>
      * <a href="#fontfamily">Font family</a>
  * <a href="#browser">Browser support</a>
  * <a href="#core">Core/enhanced experience</a>
@@ -442,7 +442,7 @@ This method disables logging of the module.
 This method sets the logging level. This could be a number from 0 to 4 (where 0 is debug, 4 is error), or a string from the available methods of 'console' (debug, log, info, warn, error).
 Default is 3 (warn).
 
-## <div id="sassapi"> Sass API
+## <div id="sassapi"></div> Sass API
 ### <div id="fontfamily"></div> Font-family
 There is a default font-family set for o-comments: `BentonSans, sans-serif`
 *Please note that the font itself is not loaded by this module, this should be done by the product.*
