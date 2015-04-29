@@ -28,19 +28,6 @@ A fully featured commenting client integrated with FT's membership systems. If y
 * You must be on an FT.com domain or sub-domain for authentication to work
 
 ## <div id="product"></div> Adding comments to your product 
-
-Javascript:
-
-```javascript
-var oComments = require('o-comments');
-```
-
-SCSS:
-
-```css
-@import 'o-comments/main';
-```
-
 ### <div id="decl"></div> Declaratively 
 Use the following markup to enable comments:
 
