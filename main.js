@@ -56,6 +56,10 @@ module.exports.init = function (el) {
 };
 module.exports.utilities = oCommentUtilities;
 module.exports.dataService = oCommentApi;
+module.exports.utils = require('./src/javascripts/utils.js');
+module.exports.i18n = require('./src/javascripts/i18n.js');
+module.exports.userDialogs = require('./src/javascripts/userDialogs.js');
+module.exports.auth = require('./src/javascripts/auth.js');
 
 /**
  * Enables logging.
