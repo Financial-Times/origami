@@ -3,6 +3,8 @@
 /// @link http://registry.origami.ft.com/components/o-colors
 ////
 
+$o-colors-palette: () !default;
+
 /// Colour palette
 ///
 /// These are the colours that make up the FT palette.
@@ -22,25 +24,19 @@
 /// line with a comma.
 ///
 /// @type map
-$o-colors-palette: (
+$o-colors-palette: map-merge((
 	// Non-colour CSS values
-	transparent:             transparent,
 	'transparent':           transparent,
 	'inherit':               inherit,
 
 	// Primary Palette
-	pink:                    #fff1e0, // v2
-	'pink':                  #fff1e0, // v3
-	black:                   #000000, // v2
-	'black':                 #000000, // v3
-	white:                   #ffffff, // v2
-	'white':                 #ffffff, // v3
-	blue:                    #2e6e9e, // v2
+	'pink':                  #fff1e0,
+	'black':                 #000000,
+	'white':                 #ffffff,
 	'blue':                  #2e6e9e, // v3
 	'dark-blue':             #275e86,
 	'claret':                #9e2f50,
-	orange:                  #d66d06, // v2
-	'orange':                #d66d06, // v3
+	'orange':                #d66d06,
 
 	// Colours
 
@@ -57,10 +53,8 @@ $o-colors-palette: (
 	'pink-tint5':            #74736c,
 
 	// Colours
-	red:                     #cc0000, // v2
-	'red':                   #cc0000, // v3
-	green:                   #458b00, // v2
-	'green':                 #458b00, // v3
+	'red':                   #cc0000,
+	'green':                 #458b00,
 
 	// Highlight tints
 	'orange-tint1':          #eda45e,
@@ -93,4 +87,4 @@ $o-colors-palette: (
 	'section-green':         #09a25c,
 	'section-light-green':   #a1dbb2,
 	'section-red':           #cc0033,
-);
+), $o-colors-palette);
