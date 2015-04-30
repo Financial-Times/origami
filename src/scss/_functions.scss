@@ -10,14 +10,13 @@
 	@if (map-has-key($o-colors-palette, $name)) {
 		@return map-get($o-colors-palette, $name);
 	} @else {
-		;
 		@warn "Color name '#{inspect($name)}' is not defined in the palette";
 		@return null;
 	}
 }
 
 @function _oColorsGetPaletteColor($name) {
-	@warn "_oColorsGetPaletteColor (with underscore prefix) is deprecated and will be removed in o-colors 3.x. Use oColorsGetPaletteColor() instead.";
+	@warn '_oColorsGetPaletteColor (with underscore prefix) is deprecated and will be removed in o-colors 4.x. Use oColorsGetPaletteColor() instead.';
 	@return oColorsGetPaletteColor($name);
 }
 
@@ -57,11 +56,12 @@
 /// .money-wrapper { background-color: oColorsGetColorFor(section-money); }
 /// .money-headline { color: oColorsGetColorFor(section-money); }
 ///
-/// // Assign to a
+/// // Assign a different fallback if the use case doesn't exist
+/// .foo { background-color: oColorsGetColorFor(foo, background, $default: pink-tint-1); }
 ///
 /// @param {list} $namelist
 /// @param {String} $property [all]
-/// @param {map} $options [false] - name of a palette colour to return if none of the specified use cases are defined for the desired property
+/// @param {Bool | String} $default [false] - name of a palette colour to return if none of the specified use cases are defined for the desired property
 @function oColorsGetColorFor($namelist, $property: all, $default: false) {
 	$color: null;
 
