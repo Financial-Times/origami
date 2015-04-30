@@ -8,7 +8,7 @@
     ".travis.yml"
   ],
   "dependencies": {
-    "o-colors": "^2.3.16",
+    "o-colors": ">=2.3.16 <4",
     "o-fonts": "^1.4.1"
   }
 }
