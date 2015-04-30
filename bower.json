@@ -5,11 +5,11 @@
     "main.scss"
   ],
   "dependencies": {
-    "o-comment-api": "#4465808f75423ab991fa6383247dbcd8481050f6",
-    "o-comment-ui": "#0859997732816009385033cd21b5714cfdf9c467",
-    "o-comment-utilities": "#eb632acf44ae1c5a8994d1cb477daf4210bc7944",
+    "o-comment-api": "^2.0.0-beta",
+    "o-comment-ui": "^2.0.0-beta",
+    "o-comment-utilities": "^2.0.0-beta",
     "o-typography": "^1.16.2",
-    "o-colors": ">2.4.7 <4",
+    "o-colors": ">=2.4.7 <4",
     "o-assets": "^2.0.0",
     "hogan": "git+https://github.com/twitter/hogan.js.git#3.0.0"
   },
