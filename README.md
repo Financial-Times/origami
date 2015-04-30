@@ -440,7 +440,7 @@ There is a default font-family set for o-comments: `BentonSans, sans-serif`
 In order to override the default font, set a value for the following variable:
 
 ```scss
-$o-comments-font-family: 'Your font-family here';
+$o-comments-font-family: font1, font2;
 ```
 
 ## <div id="browser"></div> Browser support 
