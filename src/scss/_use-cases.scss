@@ -155,4 +155,4 @@ quote:                    (background: 'pink-tint2', text: 'grey-tint4', _deprec
 // Panels
 panel-heading:            (background: 'pink-tint2', border: 'pink-tint4', _deprecated: 'Moved into o-aside-panel'),
 panel-body:               (background: 'pink-tint1', _deprecated: 'Moved into o-aside-panel')
-), $o-colors-usecases) !global;
+), $o-colors-usecases);
