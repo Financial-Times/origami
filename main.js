@@ -137,11 +137,11 @@ var toggleExpander = function (state, isSilent) {
 };
 
 Expander.prototype.expand = function (isSilent) {
-	toggleExpander('expand', isSilent);
+	toggleExpander.call(this, 'expand', isSilent);
 };
 
 Expander.prototype.collapse = function (isSilent) {
-	toggleExpander('collapse', isSilent);
+	toggleExpander.call(this, 'collapse', isSilent);
 };
 
 Expander.prototype.emit = function (name) {

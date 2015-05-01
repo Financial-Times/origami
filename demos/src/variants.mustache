@@ -48,3 +48,25 @@
     </div>
     <button class="custom-toggle o--if-js"></button>
 </div>
+
+<div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="0" data-o-expander-count-selector="li" data-o-expander-toggle-state="none">
+    <h2>Don't change my button data</h2>
+    <ul class="o-expander__content" aria-expanded="true">
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ul>
+    <button class="o-expander__toggle o--if-js">This text ain't budging</button>
+</div>
+
+<div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="0" data-o-expander-count-selector="li" data-o-expander-toggle-state="aria">
+    <h2>Oh, OK. You can update the aria-pressed attribute</h2>
+    <ul class="o-expander__content" aria-expanded="true">
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ul>
+    <button class="o-expander__toggle o--if-js">But I still ain't budging<i></i></button>
+</div>
