@@ -13,6 +13,7 @@ var Expander = function (el, opts) {
 	this.configure('expandedToggleText', this.opts.shrinkTo === 'height' ? 'less' : 'fewer');
 	this.configure('collapsedToggleText', 'more');
 	this.configure('toggleSelector', 'button.o-expander__toggle');
+	this.configure('changeToggleText', true);
 
 
 	if (/^\d+$/.test(this.opts.shrinkTo)) {
@@ -123,7 +124,9 @@ Expander.prototype.displayState = function (isSilent) {
 Expander.prototype.expand = function (isSilent) {
 	this.contentEl.setAttribute('aria-expanded', true);
 	this.toggles.forEach(function (toggle) {
-		toggle.innerHTML = this.opts.expandedToggleText + '<i></i>';
+		if (this.opts.changeToggleText) {
+			toggle.innerHTML = this.opts.expandedToggleText + '<i></i>';
+		}
 		toggle.setAttribute('aria-pressed', '');
 	}.bind(this));
 	if (!isSilent) {
@@ -134,7 +137,9 @@ Expander.prototype.expand = function (isSilent) {
 Expander.prototype.collapse = function (isSilent) {
 	this.contentEl.setAttribute('aria-expanded', false);
 	this.toggles.forEach(function (toggle) {
-		toggle.innerHTML = this.opts.collapsedToggleText + '<i></i>';
+		if (this.opts.changeToggleText) {
+			toggle.innerHTML = this.opts.collapsedToggleText + '<i></i>';
+		}
 		toggle.removeAttribute('aria-pressed');
 	}.bind(this));
 	if (!isSilent) {
