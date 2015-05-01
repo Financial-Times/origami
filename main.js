@@ -13,7 +13,7 @@ var Expander = function (el, opts) {
 	this.configure('expandedToggleText', this.opts.shrinkTo === 'height' ? 'less' : 'fewer');
 	this.configure('collapsedToggleText', 'more');
 	this.configure('toggleSelector', 'button.o-expander__toggle');
-	this.configure('changeToggleText', true);
+	this.configure('toggleState', 'all');
 
 
 	if (/^\d+$/.test(this.opts.shrinkTo)) {
@@ -121,30 +121,27 @@ Expander.prototype.displayState = function (isSilent) {
 	this.isCollapsed() ? this.collapse(isSilent) : this.expand(isSilent);
 };
 
-Expander.prototype.expand = function (isSilent) {
-	this.contentEl.setAttribute('aria-expanded', true);
-	this.toggles.forEach(function (toggle) {
-		if (this.opts.changeToggleText) {
-			toggle.innerHTML = this.opts.expandedToggleText + '<i></i>';
-		}
-		toggle.setAttribute('aria-pressed', '');
-	}.bind(this));
+var toggleExpander = function (state, isSilent) {
+	this.contentEl.setAttribute('aria-expanded', state === 'expand');
+	if (this.opts.toggleState !== 'none') {
+		this.toggles.forEach(function (toggle) {
+			if (this.opts.toggleState !== 'aria') {
+				toggle.innerHTML = this.opts[state === 'expand' ? 'expandedToggleText' : 'collapsedToggleText'] + '<i></i>';
+			}
+			toggle[state === 'expand' ? 'setAttribute' : 'removeAttribute']('aria-pressed', '');
+		}.bind(this));
+	}
 	if (!isSilent) {
-		this.emit('expand');
+		this.emit(state);
 	}
 };
 
+Expander.prototype.expand = function (isSilent) {
+	toggleExpander('expand', isSilent);
+};
+
 Expander.prototype.collapse = function (isSilent) {
-	this.contentEl.setAttribute('aria-expanded', false);
-	this.toggles.forEach(function (toggle) {
-		if (this.opts.changeToggleText) {
-			toggle.innerHTML = this.opts.collapsedToggleText + '<i></i>';
-		}
-		toggle.removeAttribute('aria-pressed');
-	}.bind(this));
-	if (!isSilent) {
-		this.emit('collapse');
-	}
+	toggleExpander('collapse', isSilent);
 };
 
 Expander.prototype.emit = function (name) {
