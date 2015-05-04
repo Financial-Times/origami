@@ -31,7 +31,7 @@ body {
 }
 
 .inverse {
-	background: oColorsGetPaletteColor(grey-tint5);
+	background: oColorsGetPaletteColor('grey-tint5');
 }
 
 .faux-inline-block {
@@ -39,7 +39,7 @@ body {
 }
 
 h2 {
-	border-top: 8px solid oColorsGetPaletteColor(pink-tint2);
+	border-top: 8px solid oColorsGetPaletteColor('pink-tint2');
 	padding-top: 0.25em;
 	margin-left: -1rem;
 	margin-right: -1rem;
