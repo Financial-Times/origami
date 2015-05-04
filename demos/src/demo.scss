@@ -51,7 +51,7 @@ $o-colors-usecases: (
 );
 
 // Import colors module
-@import "../../main";
+@import '../../main';
 
 // Adding custom colours after importing the colours module requires calling the oColorsSetUseCase mixin
 @include oColorsSetUseCase(custom-page, border, 'green');
