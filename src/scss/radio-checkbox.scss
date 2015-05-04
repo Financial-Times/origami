@@ -102,7 +102,7 @@
 	}
 
 	#{$radio} + #{$label}::after {
-		background-color: oColorsGetPaletteColor(grey-tint4);
+		background-color: oColorsGetPaletteColor('grey-tint4');
 		border-radius: 50%;
 		height: $_o-forms-radio-internal-default-size;
 		width: $_o-forms-radio-internal-default-size;
