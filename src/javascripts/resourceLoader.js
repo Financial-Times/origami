@@ -1,7 +1,8 @@
 "use strict";
 
 var oCommentUtilities = require('o-comment-utilities'),
-	envConfig = require('./config.js');
+	envConfig = require('./config.js'),
+	globalEvents = require('./globalEvents');
 
 /**
  * Load Livefyre's core Javascript library
@@ -49,6 +50,8 @@ exports.loadLivefyreCore = (function () {
 							status.error = err;
 							status.event.trigger('done');
 
+							globalEvents.trigger('error.livefyreJs', status.error);
+
 							return;
 						}
 
@@ -57,6 +60,8 @@ exports.loadLivefyreCore = (function () {
 							status.status = 'error';
 							status.error = new Error("Script not loaded.");
 							status.event.trigger('done');
+
+							globalEvents.trigger('error.livefyreJs', status.error);
 
 							return;
 						}
@@ -67,27 +72,6 @@ exports.loadLivefyreCore = (function () {
 					}
 				);
 			}
-		}
-	};
-})();
-
-
-/**
- * Load a CSS override file
- */
-exports.loadCssOverrides = (function () {
-	var loaded = [];
-	var head = document.head || document.getElementsByTagName('head')[0];
-
-	return function (url) {
-		if (loaded.indexOf(url) === -1) {
-			loaded.push(url);
-
-			var link = document.createElement("link");
-			link.type = "text/css";
-			link.rel = "stylesheet";
-			link.href = url;
-			head.appendChild(link);
 		}
 	};
 })();

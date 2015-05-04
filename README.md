@@ -165,10 +165,6 @@ All events have a payload of data which helps getting the ID of the instance and
 ##### oComments.widget.timeout
 Triggered when loading the widget exceeded a given time.
 
-##### oComments.error.resources
-Triggered when the necessary resource files (e.g. Livefyre's core JS library) couldn't be loaded.
-Event detail data: error object/message.
-
 ##### oComments.error.init
 Error while loading the initialization data and the comments.
 Event detail data: error object/message.
@@ -316,6 +312,10 @@ oComments.on('auth.loginRequired', function (evt) {
     }
 });
 ```
+
+##### oComments.error.livefyreJs
+Triggered when the core Livefyre resource file (e.g. Livefyre's core JS library) couldn't be loaded.
+Event detail data: error object/message.
 
 ## <div id="configuration"></div> Global configuration
 This module uses global configuration. These are related configurations for Livefyre.

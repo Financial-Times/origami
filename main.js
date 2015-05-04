@@ -110,7 +110,11 @@ document.addEventListener('o.DOMContentLoaded', function () {
 });
 
 
-resourceLoader.loadLivefyreCore(function () {
+resourceLoader.loadLivefyreCore(function (err) {
+	if (err) {
+		return;
+	}
+
 	Livefyre.on('beforeLoadPermalinks', function (e) {
 		// Disable the Permalink Modal
 		e.disableModal();
