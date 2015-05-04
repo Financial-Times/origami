@@ -68,7 +68,7 @@
 
 	@if ($color == null) {
 		@if ($default or $default == null) {
-			@return null;
+			@return $default;
 		} @else {
 			$warn: "Undefined use-case: can't resolve use case list '#{inspect($namelist)}'";
 
