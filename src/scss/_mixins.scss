@@ -6,7 +6,7 @@
 /// Add a custom use case property
 ///
 /// @example scss
-///  @include oColorsSetUseCase(email, text, grey-tint5);
+///  @include oColorsSetUseCase(email, text, 'grey-tint5');
 ///
 /// @param {String} $usecase - Name of the use case
 /// @param {String} $property - Property it applies to
