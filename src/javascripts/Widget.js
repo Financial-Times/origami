@@ -103,6 +103,7 @@ function Widget () {
 	var lastBannedCommentId = null;
 	var lastBannedCommentDate = null;
 	var lastOwnCommentDate = null;
+	var destroyed = false;
 
 
 	if (utils.isLivefyreActionQueuePresent()) {
@@ -110,6 +111,15 @@ function Widget () {
 
 		this.forceMode = true;
 	}
+
+
+	var executeWhenNotDestroyed = function (func) {
+		return function () {
+			if (!destroyed) {
+				func.apply(this, arguments);
+			}
+		};
+	};
 
 	/**
 	 * Loads init data from the SUDS service.
@@ -129,23 +139,26 @@ function Widget () {
 			config.tags = self.config.tags;
 		}
 
-		oCommentApi.api.getLivefyreInitConfig(config, function (err, initData) {
+		oCommentApi.api.getLivefyreInitConfig(config, executeWhenNotDestroyed(function (err, initData) {
 			if (err) {
 				callback(err);
 				return;
 			}
 
 			callback(null, initData);
-		});
+		}));
 	};
 
 	this.render = function (initData, callback) {
-		if (initData) {
+		if (initData && !destroyed) {
 			if (initData.unclassifiedArticle !== true) {
-				resourceLoader.loadLivefyreCore(function (err) {
+				resourceLoader.loadLivefyreCore(executeWhenNotDestroyed(function (err) {
 					if (err) {
 						self.trigger('error.widget', err);
 						self.onError(err);
+
+
+
 						return;
 					}
 
@@ -171,14 +184,14 @@ function Widget () {
 						networkConfig.strings = self.config.stringOverrides;
 					}
 
-					Livefyre.require(['fyre.conv#3', 'auth'], function (Conv, lfAuth) {
+					Livefyre.require(['fyre.conv#3', 'auth'], executeWhenNotDestroyed(function (Conv, lfAuth) {
 						lfAuth.delegate(auth.getAuthDelegate());
 
 						self.ui.clearContainer();
 
 						oCommentUtilities.logger.debug('initData passed to Livefyre', initData);
 
-						new Conv(networkConfig, [initData], function (widget) {
+						new Conv(networkConfig, [initData], executeWhenNotDestroyed(function (widget) {
 							if (widget) {
 								callback();
 
@@ -187,7 +200,7 @@ function Widget () {
 									lfWidget: widget
 								});
 
-								widget.on('initialRenderComplete', function () {
+								widget.on('initialRenderComplete', executeWhenNotDestroyed(function () {
 									var collectionAttributes = self.lfWidget.getCollection().attributes;
 									// init stream to monitor banned comments
 									initStreamForBannedComments(collectionAttributes.id, collectionAttributes.event);
@@ -231,10 +244,10 @@ function Widget () {
 									});
 
 									self.trigger('widget.renderComplete');
-								});
+								}));
 
 								var siteId = parseInt(initData.siteId, 10);
-								widget.on('commentPosted', function (eventData) {
+								widget.on('commentPosted', executeWhenNotDestroyed(function (eventData) {
 									if (!auth.pseudonymWasMissing) {
 										oCommentApi.api.getAuth(function (err, authData) {
 											if (err) {
@@ -260,32 +273,32 @@ function Widget () {
 										siteId: siteId,
 										lfEventData: eventData
 									});
-								});
+								}));
 
-								widget.on('commentLiked', function (eventData) {
+								widget.on('commentLiked', executeWhenNotDestroyed(function (eventData) {
 									self.trigger('tracking.likeComment', {
 										siteId: siteId,
 										lfEventData: eventData
 									});
-								});
+								}));
 
-								widget.on('commentShared', function (eventData) {
+								widget.on('commentShared', executeWhenNotDestroyed(function (eventData) {
 									self.trigger('tracking.shareComment', {
 										siteId: siteId,
 										lfEventData: eventData
 									});
-								});
+								}));
 
-								widget.on('socialMention', function (eventData) {
+								widget.on('socialMention', executeWhenNotDestroyed(function (eventData) {
 									self.trigger('tracking.socialMention', {
 										siteId: siteId,
 										lfEventData: eventData
 									});
-								});
+								}));
 							}
-						});
-					});
-				});
+						}));
+					}));
+				}));
 			} else {
 				callback({
 					unclassifiedArticle: true
@@ -340,13 +353,13 @@ function Widget () {
 			});
 		};
 
-		var showConfigDialog = function () {
+		var showConfigDialog = executeWhenNotDestroyed(function () {
 			if (envConfig.get().emailNotifications !== true) {
 				showChangePseudonymDialog();
 			} else {
 				showSettingsDialog();
 			}
-		};
+		});
 
 		self.ui.addSettingsLink({
 			onClick: function () {
@@ -372,7 +385,7 @@ function Widget () {
 
 
 	function initStreamForBannedComments (collectionId, lastEventId) {
-		oCommentApi.api.createStream(collectionId, {
+		oCommentApi.api.stream.create(collectionId, {
 			lastEventId: lastEventId,
 			callback: handleStreamEventForBannedComments
 		});
@@ -407,7 +420,20 @@ function Widget () {
 
 	var __superDestroy = this.destroy;
 	this.destroy = function () {
+		destroyed = true;
 		self.forceMode = null;
+
+		if (self.lfWidget && self.lfWidget.getCollection().attributes) {
+			oCommentApi.api.stream.destroy(self.lfWidget.getCollection().attributes.id, {
+				callback: handleStreamEventForBannedComments
+			});
+		}
+
+		self.lfWidget = null;
+
+		lastOwnCommentDate = null;
+		lastBannedCommentDate = null;
+		lastBannedCommentId = null;
 
 		globalEvents.off('auth.login', login);
 		globalEvents.off('auth.logout', logout);
