@@ -13,10 +13,16 @@
 /// @param {String} $color - One of $o-colors-palette
 @mixin oColorsSetUseCase($usecase, $property, $color) {
 	$propmap: ($property: $color);
+
+	// The use-case already exists,
+	// combine its existing properties with the new one
 	@if (map-has-key($o-colors-usecases, $usecase)) {
 		$propmap: map-merge(map-get($o-colors-usecases, $usecase), $propmap);
 	}
+
 	$newmap: ($usecase: $propmap);
+
+	// Add the use-case and its properties to the global use-case map
 	$o-colors-usecases: map-merge($o-colors-usecases, $newmap) !global;
 }
 
