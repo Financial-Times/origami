@@ -22,7 +22,6 @@ function loadDemo(showtype) {
 
 			// Split into lines
 			m[1].split('\n').forEach(function(rule) {
-
 				// Remove comments, quotes, leading and trailing whitespace (and trailing commas)
 				rule = rule.replace(/\/*[\s\S]*?\*\//g, '').replace(/\/\/.*/, '');
 				rule = rule.replace(/^\s+/, '').replace(/[,\s]+$/, '');
@@ -38,7 +37,7 @@ function loadDemo(showtype) {
 
 						if (showtype === 'palette' && paletteExclusions.indexOf(m[1]) === -1) {
 							el.innerHTML += '<div data-o-grid-colspan="12 M6 L3" class="demo-sample">' +
-								'<div class="demo-swatch o-colors-palette-'+m[0]+'"></div>' +
+								'<div class="demo-swatch o-colors-palette-'+m[0]+'" title="' + rule + '"></div>' +
 									'<span class="demo-name">'+m[0]+'</span>' +
 									'<span class="demo-descrip">'+m[1]+'</span>' +
 								'</div>';
