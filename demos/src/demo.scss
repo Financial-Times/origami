@@ -54,8 +54,10 @@ $o-colors-usecases: (
 @import "../../main";
 
 // Adding custom colours after importing the colours module requires calling the oColorsSetUseCase mixin
-@include oColorsSetUseCase(custom-page, border, green);
-@include oColorsSetUseCase(custom-page, text, orange);
+@include oColorsSetUseCase(custom-page, border, green); // v2
+@include oColorsSetUseCase(custom-page, border, 'green'); // v3
+@include oColorsSetUseCase(custom-page, text, orange); // v2
+@include oColorsSetUseCase(custom-page, text, 'orange'); // v3
 
 .assign-palette-color-to-custom-class {
 	background-color: oColorsGetPaletteColor(blue);

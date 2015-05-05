@@ -29,7 +29,7 @@ If you need to use a color value as part of a more complex CSS rule, e.g. a bord
 
 ```scss
 .my-thing {
-	color: oColorsGetColorFor(article-life-arts-body article-body body, text, (default: blue));
+	color: oColorsGetColorFor(article-life-arts-body article-body body, text, (default: 'blue'));
 }
 ```
 
@@ -46,7 +46,7 @@ If you have a colour use case not covered by those built into the colors module,
 
 ```scss
 .my-thing {
-	color: oColorsGetPaletteColor(pink-tint4);
+	color: oColorsGetPaletteColor('pink-tint4');
 }
 ```
 
@@ -69,7 +69,7 @@ You can then use predefined classes in your HTML.  All palette colors are availa
 You can add use cases for your particular component or product. This is done using the `oColorsSetUseCase` mixin:
 
 ```scss
-@include oColorsSetUseCase(email, text, grey-tint5);
+@include oColorsSetUseCase(email, text, 'grey-tint5');
 ```
 
 It takes three arguments:

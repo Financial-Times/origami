@@ -2,16 +2,18 @@
 "use strict";
 
 function loadDemo(showtype) {
-	var palette = {},
-			roles = ['border', 'background', 'text', 'all'],
-			el = document.getElementById('results'),
-			paletteExclusions = ['transparent', 'inherit'];
+	var palette = {};
+	var roles = ['border', 'background', 'text', 'all'];
+	var el = document.getElementById('results');
+	var paletteExclusions = ['transparent', 'inherit'];
 
 	getData('palette');
 
 	function getData(type) {
 		var oReq = new XMLHttpRequest();
-		oReq.open("GET", ((location.pathname.indexOf('/local') !== -1) ? "../" : "") + "../src/scss/_"+type+".scss", true);
+
+		oReq.open("GET", ((location.pathname.indexOf('/local') !== -1) ? "../" : "") + "../src/scss/_" + type + ".scss", true);
+
 		oReq.onload = function() {
 			var src = this.responseText;
 
@@ -21,16 +23,25 @@ function loadDemo(showtype) {
 			// Split into lines
 			m[1].split('\n').forEach(function(rule) {
 
-				// Remove comments, leading and trailing whitespace (and trailing commas)
+				// Remove comments, quotes, leading and trailing whitespace (and trailing commas)
 				rule = rule.replace(/\/*[\s\S]*?\*\//g, '').replace(/\/\/.*/, '');
 				rule = rule.replace(/^\s+/, '').replace(/[,\s]+$/, '');
+				rule = rule.replace(/"/g, '').replace(/'/g, '');
 
 				if (type === 'palette') {
 					m = rule.split(/\s*:\s*/);
+
 					if (m && m.length === 2) {
+						if (m[0] in palette) { return true; } // Don't output the color if it already has been
+
 						palette[m[0]] = m[1];
+
 						if (showtype === 'palette' && paletteExclusions.indexOf(m[1]) === -1) {
-							el.innerHTML += '<div data-o-grid-colspan="12 M6 L3" class="demo-sample"><div class="demo-swatch o-colors-palette-'+m[0]+'"></div><span class="demo-name">'+m[0]+'</span><span class="demo-descrip">'+m[1]+'</span></div>';
+							el.innerHTML += '<div data-o-grid-colspan="12 M6 L3" class="demo-sample">' +
+								'<div class="demo-swatch o-colors-palette-'+m[0]+'"></div>' +
+									'<span class="demo-name">'+m[0]+'</span>' +
+									'<span class="demo-descrip">'+m[1]+'</span>' +
+								'</div>';
 						}
 					}
 				} else {
