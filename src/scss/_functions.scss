@@ -52,12 +52,13 @@
 /// .money-headline { color: oColorsGetColorFor(section-money); }
 ///
 /// // Assign a different fallback if the use case doesn't exist
-/// .foo { background-color: oColorsGetColorFor(foo, background, $default: pink-tint-1); }
+/// .foo { background-color: oColorsGetColorFor(foo, background, $options: ('default': 'pink-tint-1')); }
 ///
 /// @param {list} $namelist
 /// @param {String} $property [all]
-/// @param {Bool | String} $default [false] - name of a palette colour to return if none of the specified use cases are defined for the desired property
-@function oColorsGetColorFor($namelist, $property: all, $default: false) {
+/// @param {map} $options [('default': false)] - default: fallback value (false, null, or one of $o-colors-palette)
+@function oColorsGetColorFor($namelist, $property: all, $options: ('default': false)) {
+	$default: map-get($options, 'default');
 	$color: null;
 
 	@each $name in $namelist {

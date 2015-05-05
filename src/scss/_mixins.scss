@@ -39,13 +39,20 @@
 /// @param {String|list} $useCaseList
 /// @param {String|list} $propertyList [all]
 @mixin oColorsFor($useCaseList, $propertyList: all) {
+	// Fail silently when a use case doesn't exist,
+	// taking advantage of how Sass treats the `null` keyword:
+	//
+	// 		$foo: null;
+	// 		el { color: $foo; } // outputs nothing
+	$args: (default: null);
+
 	@if ($propertyList == 'all' or index($propertyList, 'background')) {
-		background-color: oColorsGetColorFor($useCaseList, background, null);
+		background-color: oColorsGetColorFor($useCaseList, background, $options: $args);
 	}
 	@if ($propertyList == 'all' or index($propertyList, 'text')) {
-		color: oColorsGetColorFor($useCaseList, text, null);
+		color: oColorsGetColorFor($useCaseList, text, $options: $args);
 	}
 	@if ($propertyList == 'all' or index($propertyList, 'border')) {
-		border-color: oColorsGetColorFor($useCaseList, border, null);
+		border-color: oColorsGetColorFor($useCaseList, border, $options: $args);
 	}
 }
