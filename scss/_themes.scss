@@ -4,16 +4,16 @@
 /// @link http://registry.origami.ft.com/components/o-buttons
 ////
 
-@include oColorsSetUseCase(o-buttons-standard-normal,   text,       blue);
-@include oColorsSetUseCase(o-buttons-standard-normal,   background, transparent);
-@include oColorsSetUseCase(o-buttons-standard-normal,   border,     blue);
-@include oColorsSetUseCase(o-buttons-standard-hover,    background, pink-tint5);
-@include oColorsSetUseCase(o-buttons-standard-selected, background, pink-tint5);
-@include oColorsSetUseCase(o-buttons-standard-selected, text,       white);
-@include oColorsSetUseCase(o-buttons-standard-selected, border,     pink-tint5);
-@include oColorsSetUseCase(o-buttons-standard-pressed,  background, green);
-@include oColorsSetUseCase(o-buttons-standard-pressed,  text,       white);
-@include oColorsSetUseCase(o-buttons-standard-pressed,  border,     green);
+@include oColorsSetUseCase(o-buttons-standard-normal,   text,       'blue');
+@include oColorsSetUseCase(o-buttons-standard-normal,   background, 'transparent');
+@include oColorsSetUseCase(o-buttons-standard-normal,   border,     'blue');
+@include oColorsSetUseCase(o-buttons-standard-hover,    background, 'pink-tint5');
+@include oColorsSetUseCase(o-buttons-standard-selected, background, 'pink-tint5');
+@include oColorsSetUseCase(o-buttons-standard-selected, text,       'white');
+@include oColorsSetUseCase(o-buttons-standard-selected, border,     'pink-tint5');
+@include oColorsSetUseCase(o-buttons-standard-pressed,  background, 'green');
+@include oColorsSetUseCase(o-buttons-standard-pressed,  text,       'white');
+@include oColorsSetUseCase(o-buttons-standard-pressed,  border,     'green');
 
 /// Theme: Standard
 ///
@@ -42,11 +42,11 @@ $o-buttons-themes__standard: (
 	)
 ) !default;
 
-@include oColorsSetUseCase(o-buttons-standout-normal, text,       white);
-@include oColorsSetUseCase(o-buttons-standout-normal, background, blue);
-@include oColorsSetUseCase(o-buttons-standout-normal, border,     blue);
-@include oColorsSetUseCase(o-buttons-standout-hover,  background, dark-blue);
-@include oColorsSetUseCase(o-buttons-standout-hover,  border,     dark-blue);
+@include oColorsSetUseCase(o-buttons-standout-normal, text,       'white');
+@include oColorsSetUseCase(o-buttons-standout-normal, background, 'blue');
+@include oColorsSetUseCase(o-buttons-standout-normal, border,     'blue');
+@include oColorsSetUseCase(o-buttons-standout-hover,  background, 'dark-blue');
+@include oColorsSetUseCase(o-buttons-standout-hover,  border,     'dark-blue');
 
 /// Theme: Standout
 ///
@@ -72,13 +72,13 @@ $o-buttons-themes__standout: (
 	)
 ) !default;
 
-@include oColorsSetUseCase(o-buttons-inverse-normal,   text,       white);
-@include oColorsSetUseCase(o-buttons-inverse-normal,   background, transparent);
-@include oColorsSetUseCase(o-buttons-inverse-normal,   border,     white);
-@include oColorsSetUseCase(o-buttons-inverse-hover,    background, white);
-@include oColorsSetUseCase(o-buttons-inverse-selected, text,       grey-tint4);
-@include oColorsSetUseCase(o-buttons-inverse-selected, background, white);
-@include oColorsSetUseCase(o-buttons-inverse-selected, border,     white);
+@include oColorsSetUseCase(o-buttons-inverse-normal,   text,       'white');
+@include oColorsSetUseCase(o-buttons-inverse-normal,   background, 'transparent');
+@include oColorsSetUseCase(o-buttons-inverse-normal,   border,     'white');
+@include oColorsSetUseCase(o-buttons-inverse-hover,    background, 'white');
+@include oColorsSetUseCase(o-buttons-inverse-selected, text,       'grey-tint4');
+@include oColorsSetUseCase(o-buttons-inverse-selected, background, 'white');
+@include oColorsSetUseCase(o-buttons-inverse-selected, border,     'white');
 
 /// Theme: Inverse
 ///
@@ -102,9 +102,9 @@ $o-buttons-themes__inverse: (
 	)
 ) !default;
 
-@include oColorsSetUseCase(o-buttons-uncolored-normal, text, pink-tint5);
-@include oColorsSetUseCase(o-buttons-uncolored-normal, background, transparent);
-@include oColorsSetUseCase(o-buttons-uncolored-normal, border, pink-tint5);
+@include oColorsSetUseCase(o-buttons-uncolored-normal, text,       'pink-tint5');
+@include oColorsSetUseCase(o-buttons-uncolored-normal, background, 'transparent');
+@include oColorsSetUseCase(o-buttons-uncolored-normal, border,     'pink-tint5');
 
 /// Theme: Uncolored
 ///
