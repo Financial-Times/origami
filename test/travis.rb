@@ -14,10 +14,14 @@ FileUtils.mkdir_p "test/output"
 
 # Attempting to use an undefined color generates a warning
 stdout, stderr, status = Open3.capture3 "sass --scss test/undefined-colors-warn.scss test/output/undefined-colors-warn.css --style compressed --sourcemap=none"
+puts "Test: using undefined colors don't throw fatal errors…"
 raise "Using an undefined color shouldn't fail build" unless status.success?
-raise "Using an undefined color should throw a warning" unless stderr.squish.match /Undefined use\-case/
-raise "Using an undefined color should not affect output" unless File.open("test/output/undefined-colors-warn.css").read.squish == ""
-puts "Checked non-fatal warnings thrown when undefined color used"
-File.delete('test/output/undefined-colors-warn.css')
+raise "Using an undefined color should throw warnings" unless (stderr.squish.include? "Undefined use-case" and stderr.squish.include? "Color name 'null' is not defined in the palette")
+puts "\e[32mPassed\e[0m"
+puts "Test: custom colors and use cases are registered correctly…"
+raise "Using an undefined color should not affect output" if File.open("test/output/undefined-colors-warn.css").read.squish.include? "test-undefined-use-case-name"
+raise "Using a custom use case compiles correctly" unless File.open("test/output/undefined-colors-warn.css").read.squish.include? "test-custom-use-case{color:#ccc"
+puts "\e[32mPassed\e[0m"
+# File.delete('test/output/undefined-colors-warn.css')
 
 FileUtils.rmdir "test/output"

@@ -3,6 +3,18 @@
 /// @link http://registry.origami.ft.com/components/o-colors
 ////
 
+/// Add a custom palette color
+///
+/// @example scss
+///  @include oColorsSetColor('grey-tint20': #cccccc);
+///
+/// @param {String} $name - Name in the palette
+/// @param {color} $color - Color (rgb, hex, hsl…)
+@mixin oColorsSetColor($name, $color) {
+	$newcolor: ($name: $color);
+	$o-colors-palette: map-merge($o-colors-palette, $newcolor) !global;
+}
+
 /// Add a custom use case property
 ///
 /// @example scss
