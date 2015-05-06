@@ -115,10 +115,10 @@ $serif: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
 
 Note: font files are contained in a separate, private repository ([o-fonts-assets](http://git.svc.ft.com/projects/ORIG/repos/o-fonts-assets/)).
 
-Open `src/scss/_variables.scss` in a text editor. Add the font family name (if it's an entirely new family) and the variant styles to the `$_o-fonts-families` map:
+Open `src/scss/_variables.scss` in a text editor. Add the font family name (if it's an entirely new family) and the variant styles to the `$o-fonts-families` map:
 
 ```scss
-$_o-fonts-families: (
+$o-fonts-families: (
 	BentonSans: (
 		font-family: 'BentonSans, sans-serif',
 		variants: (

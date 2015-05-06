@@ -15,10 +15,8 @@ $o-fonts-is-silent: true !default;
 
 /// Font families
 ///
-/// @access private
-///
 /// @type Map
-$_o-fonts-families: (
+$o-fonts-families: (
 	BentonSans: (
 		font-family: 'BentonSans, sans-serif',
 		variants: (
