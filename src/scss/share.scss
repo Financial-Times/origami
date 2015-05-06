@@ -37,7 +37,7 @@
 			text-decoration: none;
 
 			&:focus i {
-				box-shadow: 0 0 2px #000000;
+				box-shadow: 0 0 2px oColorsGetPaletteColor('black');
 			}
 		}
 	}
@@ -62,7 +62,7 @@
 			width: 140px;
 			font-size: 12px;
 			line-height: 14px;
-			box-shadow: 0 0 3px #333333;
+			box-shadow: 0 0 3px oColorsGetPaletteColor('grey-tint5');
 
 			// Removes the cross the clears the input in IE 10+
 			&::-ms-clear {
