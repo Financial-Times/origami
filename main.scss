@@ -6,8 +6,8 @@
 
 @import "o-colors/main";
 
-@include oColorsSetUseCase(expander-text, text, black);
-@include oColorsSetUseCase(expander-icon, text, grey-tint2);
+@include oColorsSetUseCase(expander-text, text, 'black');
+@include oColorsSetUseCase(expander-icon, text, 'grey-tint2');
 
 .o-expander__content {
 	overflow: hidden;
