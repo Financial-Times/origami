@@ -22,19 +22,23 @@
 /// @param {String} $usecase
 /// @param {String} $property - 'text', 'background', 'border' or 'all'
 @function _oColorsGetUseCase($usecase, $property) {
+	@if (not map-has-key($o-colors-usecases, $usecase)) {
+		@return null;
+	}
+
 	$props: map-get($o-colors-usecases, $usecase);
 
-	@if ($props) {
-		$color: map-get($props, $property);
-		@if ($color == null and $property != 'all') {
-			$color: map-get($props, all);
-		}
-		@if (map-has-key($props, '_deprecated')) {
-			@warn "Color use case '#{inspect($usecase)}' is deprecated (property '#{inspect($property)}' was requested): #{inspect(map-get($props, '_deprecated'))}";
-		}
-		@return $color;
+	$color: map-get($props, $property);
+
+	@if ($color == null and $property != 'all') {
+		$color: map-get($props, all);
 	}
-	@return null;
+
+	@if (map-has-key($props, '_deprecated')) {
+		@warn "Color use case '#{inspect($usecase)}' is deprecated (property '#{inspect($property)}' was requested): #{inspect(map-get($props, '_deprecated'))}";
+	}
+
+	@return $color;
 }
 
 /// Return the CSS colour name of the first defined use case in a prioritised list for a use case / property combination
