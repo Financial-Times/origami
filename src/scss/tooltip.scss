@@ -26,7 +26,7 @@
 		// scss-lint:disable DuplicateProperty
 		background-color: oColorsGetColorFor(tooltip, background);
 		background-color: $_o-share-tooltip-bg;
-		text-shadow: 0 0 1px oColorsGetPaletteColor(black);
+		text-shadow: 0 0 1px oColorsGetPaletteColor('black');
 	}
 
 	.#{$classname}-tooltip__arrow {
