@@ -36,10 +36,10 @@ WOFF is supported in IE 9+, Chrome, Firefox, iOS 5+, Android 4.4+.
 | Weight   | BentonSans | MillerDisplay | FinancierDisplayWeb | FinancierTextWeb | MetricWeb |
 |----------|:----------:|:-------------:|:-------------------:|:----------------:|:---------:|
 | thin     |            |               |                     |                  |     ✓     |
-| light    |      ✓     |               |                     |                  |     ✓     |
+| light    |      ✓     |               |         *i*         |                  |   ✓ *i*   |
 | regular  |      ✓     |       ✓       |        ✓ *i*        |       ✓ *i*      |   ✓ *i*   |
 | medium   |            |               |                     |                  |     ✓     |
-| semibold |            |               |                     |                  |     ✓     |
+| semibold |            |               |         *i*         |                  |     ✓     |
 | bold     |      ✓     |       ✓       |                     |                  |   ✓ *i*   |
 | black    |            |       ✓       |                     |                  |           |
 
