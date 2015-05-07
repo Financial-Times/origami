@@ -22,7 +22,6 @@ var resourceLoader = require('./resourceLoader.js');
  *
  * #### Configuration:
  * ##### Mandatory fields:
- *  - elId: ID of the HTML element in which the widget should be loaded
  *  - articleId: ID of the article, any string
  *  - url: canonical URL of the page
  *  - title: Title of the page
@@ -465,6 +464,9 @@ Widget.__extend = function(child, eventNamespace, classNamespace) {
 
 	if (eventNamespace) {
 		child.prototype.eventNamespace = eventNamespace;
+	}
+
+	if (classNamespace) {
 		child.prototype.classNamespace = classNamespace;
 	}
 };
