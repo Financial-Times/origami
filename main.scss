@@ -27,4 +27,7 @@ $o-colors-is-silent: true !default;
 			background-color: $csscolor;
 		}
 	}
+
+	// Set silent mode back on to avoid multiple outputs of helper classes
+	$o-colors-is-silent: true;
 }
