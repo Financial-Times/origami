@@ -1,7 +1,7 @@
 // scss-lint:disable NestingDepth, QualifyingElement, SelectorDepth, ImportantRule
 
-$o-comments-link-color: oColorsGetPaletteColor(blue);
-$o-comments-link-color-hover: oColorsGetPaletteColor(black);
+$o-comments-link-color: oColorsGetPaletteColor("blue");
+$o-comments-link-color-hover: oColorsGetPaletteColor("black");
 
 @mixin borderRadiusClear {
 	border-radius: 0;
@@ -27,16 +27,16 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 	height: 18px;
 	font-size: 10px;
 	line-height: 19px;
-	border: 1px solid oColorsGetPaletteColor(pink-tint5);
+	border: 1px solid oColorsGetPaletteColor("pink-tint5");
 	border-radius: 50%;
-	background: oColorsGetPaletteColor(pink-tint5);
-	color: oColorsGetPaletteColor(white);
+	background: oColorsGetPaletteColor("pink-tint5");
+	color: oColorsGetPaletteColor("white");
 	text-align: center;
 }
 
 .o-comments.o-comments--lf-overrides.o-comments--comment-type-livecomments {
 	clear: both;
-	color: oColorsGetPaletteColor(grey-tint5);
+	color: oColorsGetPaletteColor("grey-tint5");
 	font-family: $o-comments-font-family;
 
 	.fyre {
@@ -46,7 +46,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			color: $o-comments-link-color;
 
 			&:hover {
-				color: oColorsGetPaletteColor(black);
+				color: oColorsGetPaletteColor("black");
 			}
 		}
 
@@ -66,7 +66,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 		}
 
 		.fyre-stream-stats {
-			color: oColorsGetPaletteColor(grey-tint5);
+			color: oColorsGetPaletteColor("grey-tint5");
 			float: right;
 			margin: 0;
 
@@ -87,9 +87,9 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 
 		.fyre-stream-sort {
 			font: 14px/24px $o-comments-font-family;
-			border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
+			border-bottom: 1px solid oColorsGetPaletteColor("pink-tint2");
 			padding: 10px 0;
-			color: oColorsGetPaletteColor(black) !important;
+			color: oColorsGetPaletteColor("black") !important;
 			margin: 20px 0 10px;
 
 			a {
@@ -117,7 +117,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 		}
 
 		.fyre-comment-stream {
-			color: oColorsGetPaletteColor(grey-tint5);
+			color: oColorsGetPaletteColor("grey-tint5");
 			font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
 			margin: 0;
 		}
@@ -132,7 +132,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 				top: 0;
 				right: 0;
 
-				background-color: oColorsGetPaletteColor(red);
+				background-color: oColorsGetPaletteColor("red");
 				border-radius: 15px;
 				color: white;
 				font-size: 12px;
@@ -147,18 +147,18 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			.fyre-comment-deleted {
 				font-family: $o-comments-font-family;
 				font-size: 13px;
-				color: oColorsGetPaletteColor(grey-tint4);
+				color: oColorsGetPaletteColor("grey-tint4");
 
 				p {
 					font-style: italic;
-					color: oColorsGetPaletteColor(grey-tint4);
+					color: oColorsGetPaletteColor("grey-tint4");
 					padding-bottom: 10px;
 				}
 			}
 		}
 
 		.fyre-comment-date {
-			color: oColorsGetPaletteColor(grey-tint3);
+			color: oColorsGetPaletteColor("grey-tint3");
 		}
 
 		.fyre-login-bar {
@@ -229,7 +229,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			}
 
 			a.fyre-user-profile-link {
-				color: oColorsGetPaletteColor(black);
+				color: oColorsGetPaletteColor("black");
 				font-size: 14px;
 				padding: 0;
 				cursor: default;
@@ -237,7 +237,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			}
 
 			a:hover {
-				color: oColorsGetPaletteColor(black);
+				color: oColorsGetPaletteColor("black");
 			}
 
 			.fyre-user-drop {
@@ -256,15 +256,15 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 				left: 0;
 				z-index: 1000;
 				border: 0;
-				border-top: 1px solid oColorsGetPaletteColor(pink-tint4);
-				border-bottom: 1px solid oColorsGetPaletteColor(pink-tint4);
+				border-top: 1px solid oColorsGetPaletteColor("pink-tint4");
+				border-bottom: 1px solid oColorsGetPaletteColor("pink-tint4");
 
 				li {
-					background: oColorsGetPaletteColor(white);
+					background: oColorsGetPaletteColor("white");
 					white-space: nowrap;
 
-					border-left: 1px solid oColorsGetPaletteColor(pink-tint4);
-					border-right: 1px solid oColorsGetPaletteColor(pink-tint4);
+					border-left: 1px solid oColorsGetPaletteColor("pink-tint4");
+					border-right: 1px solid oColorsGetPaletteColor("pink-tint4");
 				}
 			}
 
@@ -319,7 +319,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 		}
 
 		a.fyre-comment-username {
-			color: oColorsGetPaletteColor(grey-tint5);
+			color: oColorsGetPaletteColor("grey-tint5");
 			font-weight: bold;
 
 			&:hover {
@@ -342,7 +342,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			}
 
 			> div.fyre-comment-divider {
-				background: oColorsGetPaletteColor(pink-tint2);
+				background: oColorsGetPaletteColor("pink-tint2");
 				margin: 0;
 			}
 		}
@@ -411,7 +411,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			top: 0;
 			padding: 0 0 0 7px;
 			margin: 0 0 0 7px;
-			border-left: 1px solid oColorsGetPaletteColor(pink-tint2);
+			border-left: 1px solid oColorsGetPaletteColor("pink-tint2");
 		}
 
 		.fyre-comment-like {
@@ -428,7 +428,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 		.fyre-comment-like-count {
 			font-size: 13px;
 			padding: 0 5px;
-			color: oColorsGetPaletteColor(grey-tint5);
+			color: oColorsGetPaletteColor("grey-tint5");
 		}
 
 		.fyre-comment-like-btn {
@@ -487,7 +487,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 		.fyre-comment-source,
 		.fyre-twitter-footer a,
 		.fyre-comment-edit {
-			color: oColorsGetPaletteColor(grey-tint3);
+			color: oColorsGetPaletteColor("grey-tint3");
 		}
 
 		.fyre-mod-deny {
@@ -512,8 +512,8 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			height: auto;
 			width: auto;
 
-			background: oColorsGetPaletteColor(pink-tint4);
-			color: oColorsGetPaletteColor(pink);
+			background: oColorsGetPaletteColor("pink-tint4");
+			color: oColorsGetPaletteColor("pink");
 			padding: 3px 10px;
 			font-size: 13px;
 			line-height: 15px;
@@ -525,10 +525,10 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			display: none;
 		}
 		.fyre-comment-author-tag[data-fyre-author-tag="FT"] {
-			background: oColorsGetPaletteColor(claret);
+			background: oColorsGetPaletteColor("claret");
 		}
 		.fyre-pending {
-			background: oColorsGetPaletteColor(orange);
+			background: oColorsGetPaletteColor("orange");
 		}
 		.fyre-comment-article:hover .fyre-pending {
 			display: none;
@@ -545,7 +545,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 				font-size: 12px;
 				line-height: 15px;
 				font-weight: bold;
-				color: oColorsGetPaletteColor(grey-tint4);
+				color: oColorsGetPaletteColor("grey-tint4");
 				display: block;
 			}
 
@@ -560,7 +560,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			.fyre-featured-text {
 				display: none;
 
-				color: oColorsGetPaletteColor(pink);
+				color: oColorsGetPaletteColor("pink");
 				font-size: 13px;
 				line-height: 16px;
 				font-family: $o-comments-font-family;
@@ -602,8 +602,8 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 						width: 200px;
 						height: 36px;
 
-						background: oColorsGetPaletteColor(white);
-						border: 1px solid oColorsGetPaletteColor(pink-tint2);
+						background: oColorsGetPaletteColor("white");
+						border: 1px solid oColorsGetPaletteColor("pink-tint2");
 
 						.fyre-notifier-avatar-container {
 							display: none;
@@ -615,7 +615,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 							@include boxShadowClear;
 
 							width: 200px;
-							background: oColorsGetPaletteColor(white);
+							background: oColorsGetPaletteColor("white");
 
 
 							.fyre-notifier-message {
@@ -623,7 +623,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 								font-family: BentonSans, Helvetica,  Arial,  sans-serif;
 								font-size: 13px;
 								line-height: 26px;
-								color: oColorsGetPaletteColor(grey-tint4);
+								color: oColorsGetPaletteColor("grey-tint4");
 							}
 						}
 					}
@@ -635,10 +635,10 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 				@include borderRadiusClear;
 				@include boxShadowClear;
 
-				background: oColorsGetPaletteColor(white);
+				background: oColorsGetPaletteColor("white");
 				padding: 0;
 				bottom: 0;
-				border: 1px solid oColorsGetPaletteColor(pink-tint2);
+				border: 1px solid oColorsGetPaletteColor("pink-tint2");
 				height: 34px;
 
 
@@ -659,7 +659,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 						font-family: $o-comments-font-family;
 						line-height: 21px;
 						border: 0;
-						background: oColorsGetPaletteColor(red);
+						background: oColorsGetPaletteColor("red");
 						margin: 6px;
 						height: 20px;
 						padding: 0px 7px;
@@ -682,10 +682,10 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 
 
 		.fyre-featured-content-wrapper {
-			color: oColorsGetPaletteColor(grey-tint4);
+			color: oColorsGetPaletteColor("grey-tint4");
 			font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
 			margin: 0 0 20px;
-			background: oColorsGetPaletteColor(pink-tint1);
+			background: oColorsGetPaletteColor("pink-tint1");
 
 			.fyre-featured-body {
 				margin-bottom: 23px;
@@ -718,7 +718,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			}
 
 			.fyre-featured-authored-by {
-				color: oColorsGetPaletteColor(grey-tint4);
+				color: oColorsGetPaletteColor("grey-tint4");
 				font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
 				margin: 0;
 				font-weight: bold;
@@ -741,7 +741,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 				background: #e7dece;
 
 				.fyre-featured-title {
-					color: oColorsGetPaletteColor(grey-tint4);
+					color: oColorsGetPaletteColor("grey-tint4");
 					padding: 0;
 					text-transform: uppercase;
 					font-size: 12px;
@@ -773,7 +773,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			}
 
 			.fyre-comment-divider {
-				background: oColorsGetPaletteColor(pink-tint3);
+				background: oColorsGetPaletteColor("pink-tint3");
 				margin: 23px 0;
 			}
 		}
@@ -789,11 +789,11 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 
 				border: 0;
 				background: #406e9f;
-				color: oColorsGetPaletteColor(white);
+				color: oColorsGetPaletteColor("white");
 				height: 22px;
 
 				.fyre-text {
-					color: oColorsGetPaletteColor(white);
+					color: oColorsGetPaletteColor("white");
 					line-height: 22px;
 				}
 
@@ -806,7 +806,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 		.fyre-stream-content-not-found {
 			font-family: $o-comments-font-family;
 			font-size: 16px;
-			color: oColorsGetPaletteColor(grey-tint4) !important;
+			color: oColorsGetPaletteColor("grey-tint4") !important;
 
 			a.fyre-stream-refresh {
 				font-family: $o-comments-font-family;
@@ -833,7 +833,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 
 		.fyre-mobile-menu {
 			border: 4px solid #d9cdbf;
-			background: oColorsGetPaletteColor(white);
+			background: oColorsGetPaletteColor("white");
 
 			.fyre-flag-menu-item {
 				@include gradientClear;
@@ -864,8 +864,8 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 				@include borderRadiusClear;
 				@include boxShadowClear;
 
-				background-color: oColorsGetPaletteColor(white);
-				border: 1px solid oColorsGetPaletteColor(pink-tint2);
+				background-color: oColorsGetPaletteColor("white");
+				border: 1px solid oColorsGetPaletteColor("pink-tint2");
 				font-family: $o-comments-font-family;
 				font-size: 14px;
 				line-height: 16px;
@@ -873,7 +873,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			}
 
 			.fyre-editor-editable.editable {
-				color: oColorsGetPaletteColor(grey-tint5);
+				color: oColorsGetPaletteColor("grey-tint5");
 			}
 
 			.fyre-editor-editable p {
@@ -882,7 +882,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			}
 
 			.fyre-editor-editable p * {
-				color: oColorsGetPaletteColor(grey-tint5);
+				color: oColorsGetPaletteColor("grey-tint5");
 				font-family: $o-comments-font-family;
 				font-size: 14px;
 			}
@@ -897,16 +897,16 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 				> div {
 					@include gradientClear;
 
-					background-color: oColorsGetPaletteColor(pink-tint1);
-					border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
-					border-right: 1px solid oColorsGetPaletteColor(pink-tint3);
+					background-color: oColorsGetPaletteColor("pink-tint1");
+					border-bottom: 1px solid oColorsGetPaletteColor("pink-tint2");
+					border-right: 1px solid oColorsGetPaletteColor("pink-tint3");
 					font: normal 12px $o-comments-font-family;
 				}
 
 				> div.goog-toolbar-separator {
 					@include borderRadiusClear;
 
-					border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
+					border-bottom: 1px solid oColorsGetPaletteColor("pink-tint2");
 				}
 
 				> div.fyre-button-left .fyre-button-left-outer-box .fyre-button-left-inner-box {
@@ -916,17 +916,17 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 				}
 
 				> div.fyre-button-left.fyre-format-button {
-					border-left: 1px solid oColorsGetPaletteColor(pink-tint2);
+					border-left: 1px solid oColorsGetPaletteColor("pink-tint2");
 				}
 
 				> div.fyre-button-left:nth-child(2) {
 					@include borderRadiusClear;
 
-					border-bottom: 1px solid oColorsGetPaletteColor(pink-tint2);
+					border-bottom: 1px solid oColorsGetPaletteColor("pink-tint2");
 				}
 
 				> div.fyre-button-right {
-					border-left: 1px solid oColorsGetPaletteColor(pink-tint3);
+					border-left: 1px solid oColorsGetPaletteColor("pink-tint3");
 					border-right: 0;
 				}
 
@@ -947,32 +947,32 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 				> div.fyre-button-right.fyre-post-button .fyre-button-right-outer-box .fyre-button-right-inner-box {
 					@include textShadowClear;
 
-					color: oColorsGetPaletteColor(white);
+					color: oColorsGetPaletteColor("white");
 					font-weight: normal;
 				}
 
 				> div.fyre-button-right:last-child {
-					border-right: 1px solid oColorsGetPaletteColor(pink-tint3);
-					border-bottom: 1px solid oColorsGetPaletteColor(pink-tint3);
+					border-right: 1px solid oColorsGetPaletteColor("pink-tint3");
+					border-bottom: 1px solid oColorsGetPaletteColor("pink-tint3");
 				}
 
 				> div.fyre-button-left-hover,
 				> div.fyre-button-right-hover {
 					@include gradientClear;
 
-					background-color: oColorsGetPaletteColor(pink-tint2);
-					color: oColorsGetPaletteColor(black);
+					background-color: oColorsGetPaletteColor("pink-tint2");
+					color: oColorsGetPaletteColor("black");
 				}
 
 				> div.fyre-button-left-active ,
 				> div.fyre-button-right-active {
 					@include gradientClear;
 
-					background-color: oColorsGetPaletteColor(pink-tint2);
+					background-color: oColorsGetPaletteColor("pink-tint2");
 				}
 
 				> div.fyre-button-left .fyre-button-left-outer-box .fyre-button-left-inner-box:hover {
-					color: oColorsGetPaletteColor(black);
+					color: oColorsGetPaletteColor("black");
 				}
 
 				.fyre-raw-button {
@@ -981,7 +981,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 
 				.fyre-mention-button {
 					display: none;
-					border-left: 1px solid oColorsGetPaletteColor(pink-tint2);
+					border-left: 1px solid oColorsGetPaletteColor("pink-tint2");
 				}
 			}
 
@@ -994,20 +994,20 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			.fyre-share-button.fyre-button-left-open ,
 			.fyre-share-button.fyre-button-right-open ,
 			.fyre-share-button.fyre-button-right-active {
-				background: oColorsGetPaletteColor(pink-tint1);
+				background: oColorsGetPaletteColor("pink-tint1");
 			}
 
 			.fyre-share-button.fyre-button-left-open:hover ,
 			.fyre-share-button.fyre-button-right-open:hover ,
 			.fyre-share-button.fyre-button-right-active:hover {
-				background: oColorsGetPaletteColor(pink-tint2);
+				background: oColorsGetPaletteColor("pink-tint2");
 			}
 
 			.fyre-share-container {
 				@include borderRadiusClear;
 
-				background-color: oColorsGetPaletteColor(pink-tint1);
-				border: 1px solid oColorsGetPaletteColor(pink-tint3);
+				background-color: oColorsGetPaletteColor("pink-tint1");
+				border: 1px solid oColorsGetPaletteColor("pink-tint3");
 				width: auto;
 			}
 
@@ -1016,7 +1016,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 			}
 
 			.fyre-share-container > span>a {
-				color: oColorsGetPaletteColor(grey-tint5);
+				color: oColorsGetPaletteColor("grey-tint5");
 				font-family: BentonSans, Helvetica, Arial, sans-serif;
 				padding: 8px 15px;
 			}
@@ -1027,7 +1027,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 
 			.fyre-share-container > span > a:hover {
 				color: $o-comments-link-color;
-				background-color: oColorsGetPaletteColor(pink-tint2);
+				background-color: oColorsGetPaletteColor("pink-tint2");
 			}
 		}
 
@@ -1035,9 +1035,9 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 		.fyre-editor-disabled {
 			@include borderRadiusClear;
 
-			background: oColorsGetPaletteColor(white);
+			background: oColorsGetPaletteColor("white");
 			border: 1px solid #b2b2b2;
-			color: oColorsGetPaletteColor(grey-tint4);
+			color: oColorsGetPaletteColor("grey-tint4");
 			font-family: $o-comments-font-family;
 			font-size: 13px;
 			margin-top: 20px;
@@ -1058,18 +1058,18 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 		@include borderRadiusClear;
 
 		display: none; // for now, could be enabled later, that's why there are styles for them
-		border: 1px solid oColorsGetPaletteColor(pink-tint1);
+		border: 1px solid oColorsGetPaletteColor("pink-tint1");
 		left: 0;
 		margin-left: 0;
-		color: oColorsGetPaletteColor(grey-tint4);
+		color: oColorsGetPaletteColor("grey-tint4");
 
 		> .fyre-provider-connections {
-			border-color: oColorsGetPaletteColor(pink-tint1);
+			border-color: oColorsGetPaletteColor("pink-tint1");
 			display: none;
 		}
 
 		.fyre-mention-item-display-name {
-			color: oColorsGetPaletteColor(grey-tint4);
+			color: oColorsGetPaletteColor("grey-tint4");
 		}
 
 		> .fyre-provider-connections > a.fyre-provider-facebook_connect_url,
@@ -1092,8 +1092,8 @@ $o-comments-link-color-hover: oColorsGetPaletteColor(black);
 		@include borderRadiusClear;
 		@include boxShadowClear;
 
-		background-color: oColorsGetPaletteColor(red);
-		border: 1px solid oColorsGetPaletteColor(red);
+		background-color: oColorsGetPaletteColor("red");
+		border: 1px solid oColorsGetPaletteColor("red");
 		padding: 7px 25px 7px 7px;
 		line-height: 14px;
 
@@ -1282,8 +1282,8 @@ body {
 		@include borderRadiusClear;
 		@include boxShadowClear;
 
-		background-color: oColorsGetPaletteColor(white);
-		color: oColorsGetPaletteColor(grey-tint3);
+		background-color: oColorsGetPaletteColor("white");
+		color: oColorsGetPaletteColor("grey-tint3");
 		font: 14px/16px BentonSans, Arial, Helvetica, sans-serif;
 	}
 
@@ -1298,14 +1298,14 @@ body {
 		@include textShadowClear;
 
 		background-color: $o-comments-link-color;
-		color: oColorsGetPaletteColor(white);
+		color: oColorsGetPaletteColor("white");
 	}
 
 	.fyre-hovercard-button:hover {
 		@include gradientClear;
 
 		background-color: #549ccf;
-		color: oColorsGetPaletteColor(white);
+		color: oColorsGetPaletteColor("white");
 	}
 
 
@@ -1314,10 +1314,10 @@ body {
 		@include textShadowClear;
 		@include boxShadowClear;
 
-		background-color: oColorsGetPaletteColor(white);
+		background-color: oColorsGetPaletteColor("white");
 		border: 2px solid #74736c;
 		padding: 2px;
-		color: oColorsGetPaletteColor(grey-tint3);
+		color: oColorsGetPaletteColor("grey-tint3");
 		font-size: 13px;
 		font-family: $o-comments-font-family;
 
@@ -1335,7 +1335,7 @@ body {
 
 		border: 2px solid #74736c;
 		outline: none;
-		background-color: oColorsGetPaletteColor(white);
+		background-color: oColorsGetPaletteColor("white");
 
 		.fyre-modal-header,
 		.fyre-modal-title {
@@ -1343,7 +1343,7 @@ body {
 			padding-left: 14px;
 			padding-top: 9px;
 			border-bottom: 0;
-			color: oColorsGetPaletteColor(grey-tint5);
+			color: oColorsGetPaletteColor("grey-tint5");
 			font-family: $o-comments-font-family;
 			font-size: 16px;
 			line-height: 20px;
@@ -1361,7 +1361,7 @@ body {
 
 		.fyre-modal-subtitle,
 		.fyre-modal-subtitle-u {
-			color: oColorsGetPaletteColor(black);
+			color: oColorsGetPaletteColor("black");
 			font-size: 13px;
 			font-family: $o-comments-font-family;
 			font-weight: normal;
@@ -1380,7 +1380,7 @@ body {
 			font-family: $o-comments-font-family;
 			font-size: 14px;
 			line-height: 16px;
-			color: oColorsGetPaletteColor(grey-tint3);
+			color: oColorsGetPaletteColor("grey-tint3");
 			border-color: #b3b0a8;
 			padding: 4px;
 		}
@@ -1407,7 +1407,7 @@ body {
 				outline: none;
 				background: $o-comments-link-color;
 				border: 0;
-				color: oColorsGetPaletteColor(white);
+				color: oColorsGetPaletteColor("white");
 				font-family: $o-comments-font-family;
 				font-weight: normal;
 			}
