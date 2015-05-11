@@ -2,7 +2,7 @@
 	@include oHierarchicalNavHorizontalTheme;
 
 	// Sass variable that slightly tints the colour to white for selected elements
-	$_o-header-secondary-selected: mix(oColorsGetColorFor(o-header-product-brand product-brand, background), oColorsGetPaletteColor('white'), 75%);
+	$_o-header-secondary-selected: mix(oColorsGetColorFor(o-header-product-brand product-brand, background, $options: ('default': 'transparent')), oColorsGetPaletteColor('white'), 75%);
 
 	a {
 		padding: 0 5px;

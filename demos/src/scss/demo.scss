@@ -1,6 +1,6 @@
 @import "o-colors/main";
 
-@include oColorsSetUseCase(product-brand, background, claret);
+@include oColorsSetUseCase(product-brand, background, 'claret');
 
 @import "../../../main";
 
