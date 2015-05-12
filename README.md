@@ -106,14 +106,14 @@ respectively.  This should not be used in production.
 }
 ```
 
-##### disabled     - optional
+##### enabled - optional
 
-If `true` `oErrors` will be configure with no operation functions and errors
-will not be reported.
+If `false` `oErrors` will be configure with no operation functions and errors
+will not be reported. Defaults to `true`.
 
 ```JS
 {
-	disabled: true
+	enabled: false
 }
 ```
 

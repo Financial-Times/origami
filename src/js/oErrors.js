@@ -74,7 +74,7 @@ Errors.prototype.init = function(options, raven) {
 	// If errors is configured to be disabled, (options.disabled = true),
 	// then stub this.report, turn off logging (which turns them into noops),
 	// and return 'initialised' before installing raven.
-	var isErrorsDisabled = options.disabled;
+	var isErrorsDisabled = options.enabled === undefined ? false : options.enabled === false;
 
 	var logLevel = isErrorsDisabled ? Logger.off : options.logLevel;
 	var defaultLogLength = 10;
