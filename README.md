@@ -106,6 +106,16 @@ respectively.  This should not be used in production.
 }
 ```
 
+##### enabled - optional
+
+If `false` `oErrors` will be configured with no-operation methods, and errors
+will not be reported. Defaults to `true`.
+
+```JS
+{
+	enabled: false
+}
+```
 
 #### Using markup to configure oErrors
 

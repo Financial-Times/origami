@@ -64,6 +64,44 @@ describe("oErrors", function() {
 
 			document.head.removeChild(sentryConfiguration);
 		});
+
+		it("should create no-operation methods if options.enabled is `false`", function() {
+			var errors = new Errors().init({
+				sentryEndpoint: "//123@app.getsentry.com/123",
+				logLevel: "contextonly",
+				enabled: false
+			}, mockRavenClient);
+
+			// This is a horrible hacky way to check the function is a noop
+			expect(errors.report.toString()).to.be("function () {}");
+			expect(errors.wrapWithContext.toString()).to.be("function () {}");
+
+		});
+
+		it("should be enabled by default if options.enabled is undefined", function() {
+			var errors = new Errors().init({
+				sentryEndpoint: "//123@app.getsentry.com/123",
+				logLevel: "contextonly"
+			}, mockRavenClient);
+
+
+			// This is a horrible hacky way to check the function is a noop
+			expect(errors.report.toString()).to.not.be("function () {}");
+			expect(errors.wrapWithContext.toString()).to.not.be("function () {}");
+		});
+
+		it("should be enabled if options.enabled is `true`", function() {
+			var errors = new Errors().init({
+				sentryEndpoint: "//123@app.getsentry.com/123",
+				logLevel: "contextonly",
+				enabled: true
+			}, mockRavenClient);
+
+
+			// This is a horrible hacky way to check the function is a noop
+			expect(errors.report.toString()).to.not.be("function () {}");
+			expect(errors.wrapWithContext.toString()).to.not.be("function () {}");
+		});
 	});
 
 	describe("#wrapWithContext(context, function)", function() {
