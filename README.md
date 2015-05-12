@@ -108,7 +108,7 @@ respectively.  This should not be used in production.
 
 ##### enabled - optional
 
-If `false` `oErrors` will be configure with no operation functions and errors
+If `false` `oErrors` will be configured with no-operation methods, and errors
 will not be reported. Defaults to `true`.
 
 ```JS
