@@ -6,7 +6,7 @@
 /// Path to the assets
 ///
 /// @type String
-$o-fonts-path: '//build.origami.ft.com/files/o-fonts-assets@1.0.0/' !default;
+$o-fonts-path: '//build.origami.ft.com/files/o-fonts-assets@1.1.0/' !default;
 
 /// Silent mode
 ///
@@ -15,10 +15,8 @@ $o-fonts-is-silent: true !default;
 
 /// Font families
 ///
-/// @access private
-///
 /// @type Map
-$_o-fonts-families: (
+$o-fonts-families: (
 	BentonSans: (
 		font-family: 'BentonSans, sans-serif',
 		variants: (
@@ -40,6 +38,7 @@ $_o-fonts-families: (
 		variants: (
 			(weight: thin, style: normal),
 			(weight: light, style: normal),
+			(weight: light, style: italic),
 			(weight: regular, style: normal),
 			(weight: regular, style: italic),
 			(weight: medium, style: normal),
@@ -52,7 +51,8 @@ $_o-fonts-families: (
 		font-family: 'FinancierDisplayWeb, serif',
 		variants: (
 			(weight: regular, style: normal),
-			(weight: regular, style: italic)
+			(weight: semibold, style: italic),
+			(weight: light, style: italic)
 		)
 	),
 	FinancierTextWeb: (

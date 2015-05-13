@@ -5,7 +5,7 @@
 
 /// Check if a font variant exists for a family
 ///
-/// @param {String} family - one of $_o-fonts-families
+/// @param {String} family - one of $o-fonts-families
 /// @param {String} weight
 /// @param {String} style
 ///
@@ -13,7 +13,7 @@
 ///
 /// @return {Bool}
 @function _oFontsVariantExists($family, $weight, $style) {
-	$font-properties: map-get($_o-fonts-families, $family);
+	$font-properties: map-get($o-fonts-families, $family);
 	$font-variants: map-get($font-properties, variants);
 
 	@each $variant in $font-variants {
@@ -52,11 +52,11 @@
 		@warn "Clarion has been removed, use Georgia instead";
 		@return $o-fonts-serif;
 	}
-	@if map-has-key($_o-fonts-families, $family) {
-		$properties: map-get($_o-fonts-families, $family);
+	@if map-has-key($o-fonts-families, $family) {
+		$properties: map-get($o-fonts-families, $family);
 		@return unquote(map-get($properties, font-family));
 	}
-	@warn 'Font #{$family} not found. Must be one of $_o-fonts-families.';
+	@warn 'Font #{$family} not found. Must be one of $o-fonts-families.';
 	@return inherit;
 }
 

@@ -12,7 +12,7 @@
 
 /// Font-face declaration for a given font family
 ///
-/// @param {String} $family - one of $_o-fonts-families
+/// @param {String} $family - one of $o-fonts-families
 /// @param {String} $weight [regular] - one of $_o-fonts-weights
 /// @param {String} $style [normal]
 @mixin oFontsInclude($family, $weight: regular, $style: normal) {
@@ -28,8 +28,8 @@
 	$font-is-already-included: map-has-key($_o-fonts-families-included, #{$family}-#{$weight}-#{$style});
 
 	@if $font-is-already-included == false {
-		@if map-has-key($_o-fonts-families, $family) == false {
-			@warn 'Font #{$family} not found. Must be one of $_o-fonts-families.';
+		@if map-has-key($o-fonts-families, $family) == false {
+			@warn 'Font #{$family} not found. Must be one of $o-fonts-families.';
 		} @else {
 			@if (_oFontsVariantExists($family, $weight, $style)) {
 				$font-exists: true;
@@ -68,7 +68,7 @@
 
 /// Output @font-face declarations for all the font families
 @mixin oFontsIncludeAll {
-	@each $family, $properties in $_o-fonts-families {
+	@each $family, $properties in $o-fonts-families {
 		@each $variant in map-get($properties, variants) {
 			@include oFontsInclude($family, map-get($variant, weight), map-get($variant, style));
 		}
