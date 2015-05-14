@@ -32,11 +32,11 @@
 ///
 /// @return {String}
 @function _oFontsStringCapitalise($string) {
-    $string: $string + unquote(''); // Make sure $string has a type of String
-    $first-letter: to-upper-case(str-slice($string, 0, 1));
-    $rest-of-string: str-slice($string, 2);
+	$string: $string + unquote(''); // Make sure $string has a type of String
+	$first-letter: to-upper-case(str-slice($string, 0, 1));
+	$rest-of-string: str-slice($string, 2);
 
-    @return $first-letter + $rest-of-string;
+	@return $first-letter + $rest-of-string;
 }
 
 /// Get a font-family stack with the appropriate fallbacks
