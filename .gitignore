@@ -4,7 +4,8 @@
 .sass-cache
 bower_components/
 node_modules/
-./main.js
+/main.js
+/main.css
 demo/main.js
 
 
