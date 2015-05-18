@@ -3,9 +3,6 @@
 install:
 	obt install --verbose
 
-verify:
-	obt verify
-
 build: clean
 	obt build --js=./src/main.js --sass=./src/main.scss --buildFolder=./
 
@@ -20,3 +17,4 @@ clean:
 
 test: build-test
 	mocha-phantomjs test/testrunner.html
+	obt verify
