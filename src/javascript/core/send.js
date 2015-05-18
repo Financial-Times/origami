@@ -180,7 +180,7 @@ module.exports = (function (window) {
         started(payload.tag.id);
         window.console.log('started(payload.tag.id)', payload.tag.id);
 
-        path = utils.serialize(request);
+        path = JSON.stringify(payload);
 
         if (!xmlHttpObj.XDomainRequest) {
             xmlHttp.onreadystatechange = function () {
