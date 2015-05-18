@@ -78,12 +78,6 @@ module.exports = (function (window, document) {
             url: document.URL,
             referrer: document.referrer,
 
-            color: window.screen.colorDepth,
-            screenRes: window.screen.width + 'x' + window.screen.height,
-            localTime: utils.toISOString(new Date()),
-            java: (window.navigator.javaEnabled() ? '1' : '0'),
-            js: '1',
-
             async: true // Send this tag asyncronously - as sync doesn't work in FF, as it doesn't send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
         };
 

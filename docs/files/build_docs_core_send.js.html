@@ -132,6 +132,12 @@
                                 domain = &quot;http://test.tracking.ft.com&quot;,
                         
                                 /**
+                                 * Version string.
+                                 * @property version
+                                 * @private
+                                 */
+                                version,
+                                /**
                                  * Queue queue.
                                  * @property queue
                                  * @private
@@ -227,32 +233,22 @@
                              * @async
                              */
                             function sendRequest(request, callback) {
-                                /* Example request:
-                                 *  {
-                                 *      environment: &#x27;test&#x27;,
-                                 *      clickID: &#x27;t1388678300273&#x27;,
-                                 *      async: false,
-                                 *      callback: [Function],
-                                 *      format: &#x27;pcrtgyuo&#x27;,
-                                 *      values: {
-                                 *          c: &#x27;&#x27;,
-                                 *          t: &#x27;t1388678300273&#x27;,
-                                 *          u: &#x27;8.289.8675019387156.1388678301549.-fdc94dd&#x27;,
-                                 *          o: 1,
-                                 *          p: &#x27;http://www.ft.com/home/uk&#x27;,
-                                 *          r: &#x27;&#x27;,
-                                 *          g: &#x27;co=24&amp;sr=1920x1080&lt;=2014-01-02T15%3A58%3A20.273Z&amp;jv=&#x27;,
-                                 *          y: &#x27;page&#x27;
-                                 *      },
-                                 *      requestID: &#x27;8.289.8675019387156.1388678301549.-fdc94dd&#x27;,
-                                 *      queueTime: 1234
-                                 *  }
-                                 */
                                 var offlineLag = (new Date()).getTime() - request.queueTime,
                                     path,
                                     xmlHttpObj = createXMLHttp(),
                                     xmlHttp,
-                                    user_callback = request.callback;
+                                    user_callback = request.callback,
+                                    payload = {
+                                        tag: {
+                                            api_key: &quot;&quot;, // String - API key - Make sure the request is from a valid client (idea nicked from Keen.io) useful if a page gets copied onto a Russian website and creates noise
+                                            version: version, // Version of the tracking client e.g. &quot;JS v1.2&quot;
+                                            type: request.type, // Type of request (page or event)
+                                            id: request.requestID, // ID of this request
+                                            offset: 0 // Delay of this tag between event happening and being sent to server - milliseconds
+                                        },
+                        
+                                        request: request
+                                    };
                         
                                 if (!xmlHttpObj) {
                                     return;
@@ -260,30 +256,34 @@
                         
                                 xmlHttp = xmlHttpObj.xmlHttp;
                         
-                                delete request.callback;
-                                delete request.async;
+                                delete payload.request.callback;
+                                delete payload.request.async;
+                                delete payload.request.type;
                         
                                 // Only bothered about offlineLag if it&#x27;s longer than a second, but less than a month. (Especially as Date can be dodgy)
                                 if (offlineLag &gt; 1000 &amp;&amp; offlineLag &lt; (31 * 24 * 60 * 60 * 1000)) {
-                                    request.offlineLag = offlineLag;
+                                    payload.tag.offset = offlineLag;
                                 }
                         
                                 function requestFinished(xmlHttp) {
                                     if (utils.is(user_callback, &#x27;function&#x27;)) {
-                                        user_callback.call(request, xmlHttp);
+                                        user_callback.call(payload, xmlHttp);
                                     }
                                     if (xmlHttp.status &gt;= 200 &amp;&amp; xmlHttp.status &lt; 300) {
-                                        success(request.requestID);
+                                        success(payload.tag.id);
+                                        window.console.log(&#x27;success(payload.tag.id)&#x27;, payload.tag.id);
                                         callback();
                                     } else {
-                                        finished(request.requestID);
+                                        finished(payload.tag.id);
+                                        window.console.log(&#x27;finished(payload.tag.id)&#x27;, payload.tag.id);
                                         // TODO Wait a bit, then try again?
                                     }
                                 }
                         
-                                started(request.requestID);
+                                started(payload.tag.id);
+                                window.console.log(&#x27;started(payload.tag.id)&#x27;, payload.tag.id);
                         
-                                path = utils.serialize(request);
+                                path = &#x27;d=&#x27; + JSON.stringify(payload);
                         
                                 if (!xmlHttpObj.XDomainRequest) {
                                     xmlHttp.onreadystatechange = function () {
@@ -372,7 +372,8 @@
                              * @method init
                              * @private
                              */
-                            function init() {
+                            function init(v) {
+                                version = v;
                                 queue = new Queue(&#x27;requests&#x27;);
                                 if (settings.get(&#x27;config&#x27;) &amp;&amp; settings.get(&#x27;config&#x27;).server) {
                                     domain = settings.get(&#x27;config&#x27;).server;

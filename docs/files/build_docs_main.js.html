@@ -129,8 +129,8 @@
                          * @type {*}
                          */
                         
-                        /*global require, module */
-                        module.exports = (function () {
+                        /*global require, module, window */
+                        module.exports = (function (window) {
                             &quot;use strict&quot;;
                         
                             /**
@@ -147,7 +147,7 @@
                                  * @property version
                                  * @type {String}
                                  */
-                                version = &quot;Track version 0.0.18&quot;;
+                                version = &quot;0.0.18&quot;;
                         
                             /**
                              * Turn on/off developer mode. (Can also be activated on init.)
@@ -206,7 +206,7 @@
                                 require(&quot;./src/javascript/core/session&quot;).init(config.session);
                         
                                 // Initialize the sending queue.
-                                require(&quot;./src/javascript/core/send&quot;).init();
+                                require(&quot;./src/javascript/core/send&quot;).init(version);
                         
                                 // Track the page.
                                 // Commented out, as it&#x27;s safer in-case oTracking is included within another module, and they call init...
@@ -219,10 +219,10 @@
                              * @return {String} The module&#x27;s version.
                              */
                             function toString() {
-                                return version;
+                                return &quot;oTracking version &quot; + version;
                             }
                         
-                            return {
+                            window.oTracking = {
                                 init: init,
                                 developer: developer,
                                 destroy: destroy,
@@ -233,7 +233,9 @@
                                 event: require(&#x27;./src/javascript/event&#x27;),
                                 link: require(&#x27;./src/javascript/link&#x27;)
                             };
-                        }());
+                        
+                            return window.oTracking;
+                        }(window));
                         
                             </pre>
                         </div>

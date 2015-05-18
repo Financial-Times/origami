@@ -49,14 +49,14 @@ describe('Core', function () {
 
             server.respond();
 
-            sent_data = callback.getCall(0).thisValue;
+            sent_data = callback.getCall(0).thisValue.request;
 
-            assert.deepEqual(Object.keys(sent_data), ["userID", "clickID", "requestID", "session", "counter", "type", "url", "queueTime"]);
+            assert.deepEqual(Object.keys(sent_data), ["userID", "clickID", "requestID", "session", "counter", "url", "queueTime"]);
             assert.equal(sent_data.clickID, "clickID");
             assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.requestID), "RequestID is invalid. " + sent_data.requestID);
             assert.equal(sent_data.userID, "userID");
             assert.equal(sent_data.counter, 1);
-            assert.equal(sent_data.type, "page");
+            //assert.equal(sent_data.type, "page");
             assert.equal(sent_data.url, "http://www.ft.com/home/uk");
             assert.ok(/\d+/.test(sent_data.queueTime), "queueTime is invalid. " + sent_data.queueTime);
         });

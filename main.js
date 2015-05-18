@@ -26,8 +26,8 @@
  * @type {*}
  */
 
-/*global require, module */
-module.exports = (function () {
+/*global require, module, window */
+module.exports = (function (window) {
     "use strict";
 
     /**
@@ -44,7 +44,7 @@ module.exports = (function () {
          * @property version
          * @type {String}
          */
-        version = "Track version 0.0.18";
+        version = "0.0.18";
 
     /**
      * Turn on/off developer mode. (Can also be activated on init.)
@@ -103,7 +103,7 @@ module.exports = (function () {
         require("./src/javascript/core/session").init(config.session);
 
         // Initialize the sending queue.
-        require("./src/javascript/core/send").init();
+        require("./src/javascript/core/send").init(version);
 
         // Track the page.
         // Commented out, as it's safer in-case oTracking is included within another module, and they call init...
@@ -116,10 +116,10 @@ module.exports = (function () {
      * @return {String} The module's version.
      */
     function toString() {
-        return version;
+        return "oTracking version " + version;
     }
 
-    return {
+    window.oTracking = {
         init: init,
         developer: developer,
         destroy: destroy,
@@ -130,4 +130,6 @@ module.exports = (function () {
         event: require('./src/javascript/event'),
         link: require('./src/javascript/link')
     };
-}());
+
+    return window.oTracking;
+}(window));

@@ -29,6 +29,12 @@ module.exports = (function (window) {
         domain = "http://test.tracking.ft.com",
 
         /**
+         * Version string.
+         * @property version
+         * @private
+         */
+        version,
+        /**
          * Queue queue.
          * @property queue
          * @private
@@ -124,32 +130,22 @@ module.exports = (function (window) {
      * @async
      */
     function sendRequest(request, callback) {
-        /* Example request:
-         *  {
-         *      environment: 'test',
-         *      clickID: 't1388678300273',
-         *      async: false,
-         *      callback: [Function],
-         *      format: 'pcrtgyuo',
-         *      values: {
-         *          c: '',
-         *          t: 't1388678300273',
-         *          u: '8.289.8675019387156.1388678301549.-fdc94dd',
-         *          o: 1,
-         *          p: 'http://www.ft.com/home/uk',
-         *          r: '',
-         *          g: 'co=24&sr=1920x1080<=2014-01-02T15%3A58%3A20.273Z&jv=',
-         *          y: 'page'
-         *      },
-         *      requestID: '8.289.8675019387156.1388678301549.-fdc94dd',
-         *      queueTime: 1234
-         *  }
-         */
         var offlineLag = (new Date()).getTime() - request.queueTime,
             path,
             xmlHttpObj = createXMLHttp(),
             xmlHttp,
-            user_callback = request.callback;
+            user_callback = request.callback,
+            payload = {
+                tag: {
+                    api_key: "", // String - API key - Make sure the request is from a valid client (idea nicked from Keen.io) useful if a page gets copied onto a Russian website and creates noise
+                    version: version, // Version of the tracking client e.g. "JS v1.2"
+                    type: request.type, // Type of request (page or event)
+                    id: request.requestID, // ID of this request
+                    offset: 0 // Delay of this tag between event happening and being sent to server - milliseconds
+                },
+
+                request: request
+            };
 
         if (!xmlHttpObj) {
             return;
@@ -157,28 +153,32 @@ module.exports = (function (window) {
 
         xmlHttp = xmlHttpObj.xmlHttp;
 
-        delete request.callback;
-        delete request.async;
+        delete payload.request.callback;
+        delete payload.request.async;
+        delete payload.request.type;
 
         // Only bothered about offlineLag if it's longer than a second, but less than a month. (Especially as Date can be dodgy)
         if (offlineLag > 1000 && offlineLag < (31 * 24 * 60 * 60 * 1000)) {
-            request.offlineLag = offlineLag;
+            payload.tag.offset = offlineLag;
         }
 
         function requestFinished(xmlHttp) {
             if (utils.is(user_callback, 'function')) {
-                user_callback.call(request, xmlHttp);
+                user_callback.call(payload, xmlHttp);
             }
             if (xmlHttp.status >= 200 && xmlHttp.status < 300) {
-                success(request.requestID);
+                success(payload.tag.id);
+                window.console.log('success(payload.tag.id)', payload.tag.id);
                 callback();
             } else {
-                finished(request.requestID);
+                finished(payload.tag.id);
+                window.console.log('finished(payload.tag.id)', payload.tag.id);
                 // TODO Wait a bit, then try again?
             }
         }
 
-        started(request.requestID);
+        started(payload.tag.id);
+        window.console.log('started(payload.tag.id)', payload.tag.id);
 
         path = utils.serialize(request);
 
@@ -269,7 +269,8 @@ module.exports = (function (window) {
      * @method init
      * @private
      */
-    function init() {
+    function init(v) {
+        version = v;
         queue = new Queue('requests');
         if (settings.get('config') && settings.get('config').server) {
             domain = settings.get('config').server;

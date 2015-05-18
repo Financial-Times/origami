@@ -32,7 +32,7 @@ module.exports = function (grunt) {
                 },
                 {
                     location: "main.js",
-                    regex: /(version = "oTracking version )(\d+\.\d+\.\d+)(";)/
+                    regex: /(version = ")(\d+\.\d+\.\d+)(";)/
                 }
             ]
         },
@@ -86,8 +86,8 @@ module.exports = function (grunt) {
                     '<%=versioned_build_folder %>/o-tracking.<%=pkg.version %>.js': ['./main.js']
                 },
                 options: {
-                    //alias: './main.js:track',
-                    standalone: "oTracking"
+                    //alias: './main.js:oTracking',
+                    standalone: "oTracking",
                 }
             }
         },

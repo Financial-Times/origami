@@ -99,6 +99,6 @@ function renderParams(params) {
     }
 
     console.log = function () {
-        $('#messages').append(util.format('<li><span class="date">%s</span><pre>%s</pre></li>', timestamp(), util.inspect(arguments)));
+        $('#messages').append(util.format('<li><span class="date">%s</span><pre>%s</pre></li>', timestamp(), util.inspect(arguments, false, 4)));
     };
 }(jQuery, console));

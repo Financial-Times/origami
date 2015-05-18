@@ -714,6 +714,18 @@
         {
             "file": "build/docs/core/send.js",
             "line": 31,
+            "description": "Version string.",
+            "itemtype": "property",
+            "name": "version",
+            "access": "private",
+            "tagname": "",
+            "class": "Track._Core.Send",
+            "module": "_Core",
+            "submodule": "Send"
+        },
+        {
+            "file": "build/docs/core/send.js",
+            "line": 37,
             "description": "Queue queue.",
             "itemtype": "property",
             "name": "queue",
@@ -725,7 +737,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 37,
+            "line": 43,
             "description": "Requests being sent right now.",
             "itemtype": "property",
             "name": "currentRequests",
@@ -737,7 +749,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 77,
+            "line": 83,
             "description": "Marks a request as current.",
             "itemtype": "method",
             "name": "started",
@@ -756,7 +768,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 87,
+            "line": 93,
             "description": "Marks a request as no longer current.",
             "itemtype": "method",
             "name": "finished",
@@ -775,7 +787,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 97,
+            "line": 103,
             "description": "Marks a request as no longer current and removes it from the queue.",
             "itemtype": "method",
             "name": "success",
@@ -794,7 +806,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 118,
+            "line": 124,
             "description": "Attempts to send a tracking request.",
             "itemtype": "method",
             "name": "sendRequest",
@@ -1568,7 +1580,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 90,
+            "line": 84,
             "description": "Constructs a URL in the format required by iJento, allowing different inputs.",
             "itemtype": "method",
             "name": "url",
@@ -1591,7 +1603,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 120,
+            "line": 114,
             "description": "Make the page tracking request.",
             "itemtype": "method",
             "name": "page",

@@ -181,12 +181,6 @@
                                     url: document.URL,
                                     referrer: document.referrer,
                         
-                                    color: window.screen.colorDepth,
-                                    screenRes: window.screen.width + &#x27;x&#x27; + window.screen.height,
-                                    localTime: utils.toISOString(new Date()),
-                                    java: (window.navigator.javaEnabled() ? &#x27;1&#x27; : &#x27;0&#x27;),
-                                    js: &#x27;1&#x27;,
-                        
                                     async: true // Send this tag asyncronously - as sync doesn&#x27;t work in FF, as it doesn&#x27;t send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
                                 };
                         

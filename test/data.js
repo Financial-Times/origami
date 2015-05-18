@@ -34,14 +34,14 @@ describe('data', function () {
 
         server.respond();
 
-        sent_data = callback.getCall(0).thisValue;
+        sent_data = callback.getCall(0).thisValue.request;
 
-        assert.deepEqual(Object.keys(sent_data), ["userID", "clickID", "requestID", "session", "counter", "type", "hurdle", "queueTime"]);
+        assert.deepEqual(Object.keys(sent_data), ["userID", "clickID", "requestID", "session", "counter", "hurdle", "queueTime"]);
         assert.equal(sent_data.clickID, "clickID");
         assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.requestID), "RequestID is invalid. " + sent_data.requestID);
         assert.equal(sent_data.userID, userID);
         assert.equal(sent_data.counter, 1);
-        assert.equal(sent_data.type, "data");
+        //assert.equal(sent_data.type, "data");
         assert.equal(sent_data.hurdle, "h1");
         assert.ok(/\d+/.test(sent_data.queueTime), "queueTime is invalid. " + sent_data.queueTime);
     });
