@@ -113,7 +113,7 @@ module.exports = (function (window) {
             i;
 
         for (i = 0; i < replacement.length; i = i + 1) {
-            if (id === replacement[i].requestID) {
+            if (id === replacement[i].id) {
                 replacement.splice(i, 1);
                 queue.replace(replacement).save();
                 break;
@@ -134,51 +134,57 @@ module.exports = (function (window) {
             path,
             xmlHttpObj = createXMLHttp(),
             xmlHttp,
-            user_callback = request.callback,
-            payload = {
-                tag: {
-                    api_key: "", // String - API key - Make sure the request is from a valid client (idea nicked from Keen.io) useful if a page gets copied onto a Russian website and creates noise
-                    version: version, // Version of the tracking client e.g. "JS v1.2"
-                    type: request.type, // Type of request (page or event)
-                    id: request.requestID, // ID of this request
-                    offset: 0 // Delay of this tag between event happening and being sent to server - milliseconds
-                },
-
-                request: request
-            };
+            user_callback = request.callback;
 
         if (!xmlHttpObj) {
             return;
         }
 
-        xmlHttp = xmlHttpObj.xmlHttp;
-
-        delete payload.request.callback;
-        delete payload.request.async;
-        delete payload.request.type;
+        request = utils.merge({
+            tag: {
+                apiKey: "", // String - API key - Make sure the request is from a valid client (idea nicked from Keen.io) useful if a page gets copied onto a Russian website and creates noise
+                version: version, // Version of the tracking client e.g. "JS v1.2"
+                id: request.id, // ID of this request
+                counter: request.counter,
+                offset: 0 // Delay of this tag between event happening and being sent to server - milliseconds
+            }
+        }, request);
 
         // Only bothered about offlineLag if it's longer than a second, but less than a month. (Especially as Date can be dodgy)
         if (offlineLag > 1000 && offlineLag < (31 * 24 * 60 * 60 * 1000)) {
-            payload.tag.offset = offlineLag;
+            request.tag.offset = offlineLag;
         }
+
+        xmlHttp = xmlHttpObj.xmlHttp;
+
+        delete request.counter;
+        delete request.callback;
+        delete request.async;
+        delete request.type;
+        delete request.queueTime;
+
+        utils.log('user_callback', user_callback);
+        utils.log('PreSend', request);
 
         function requestFinished(xmlHttp) {
             if (utils.is(user_callback, 'function')) {
-                user_callback.call(payload, xmlHttp);
+                user_callback.call(request, xmlHttp);
+                utils.log('calling user_callback');
             }
             if (xmlHttp.status >= 200 && xmlHttp.status < 300) {
-                success(payload.tag.id);
+                success(request.id);
                 callback();
             } else {
-                finished(payload.tag.id);
+                finished(request.id);
                 // TODO Wait a bit, then try again?
             }
         }
 
-        started(payload.tag.id);
-        window.console.log('started(payload.tag.id)', payload.tag.id);
+        started(request.id);
 
-        path = JSON.stringify(payload);
+        path = JSON.stringify(request);
+
+        utils.log('path', path);
 
         if (!xmlHttpObj.XDomainRequest) {
             xmlHttp.onreadystatechange = function () {
@@ -191,7 +197,6 @@ module.exports = (function (window) {
                 requestFinished(xmlHttp);
             };
         }
-
 
         // Only works with XMLHttpRequest
         xmlHttp.onerror = function () { requestFinished(xmlHttp); };
@@ -218,9 +223,7 @@ module.exports = (function (window) {
 
         queue.add(request).save();
 
-        if (settings.get('developer')) {
-            utils.log('Queue', queue);
-        }
+        utils.log('AddedToQueue', queue);
     }
 
     /**
@@ -244,7 +247,7 @@ module.exports = (function (window) {
         }
 
         // Cancel if the request is already started.
-        if (currentRequests[nextRequest.requestID]) {
+        if (currentRequests[nextRequest.id]) {
             return callback();
         }
 
@@ -270,6 +273,7 @@ module.exports = (function (window) {
     function init(v) {
         version = v;
         queue = new Queue('requests');
+
         if (settings.get('config') && settings.get('config').server) {
             domain = settings.get('config').server;
         }

@@ -38,19 +38,20 @@ module.exports = (function () {
          */
         defaultConfig = {
             async: true,
-            callback: function () {}
+            callback: function () {},
+            tag: {}
         };
 
     /**
-     * Generate and store a new ClickID.
-     * @method clickID
-     * @param [click_id] Optional ClickID, if you want to use your own. Otherwise will create one for you.
-     * @return {String|*} The ClickID.
+     * Generate and store a new RootID.
+     * @method rootID
+     * @param [page_id] Optional RootID, if you want to use your own. Otherwise will create one for you.
+     * @return {String|*} The RootID.
      */
-    function clickID(click_id) {
-        click_id = requestID(click_id);
-        defaultConfig.clickID = click_id;
-        return click_id;
+    function rootID(root_id) {
+        root_id = requestID(root_id);
+        defaultConfig.tag.rootID = root_id;
+        return root_id;
     }
 
     /**
@@ -91,25 +92,40 @@ module.exports = (function () {
             callback = function () {};
         }
 
+        // In-case we're sending events without a page.
+        if (!defaultConfig.tag.rootID) {
+            rootID();
+        }
+
         var request = utils.merge(utils.merge(defaultConfig), utils.merge(config, { callback: callback }));
 
         /* Values here are kinda the mandatory ones, so we want to make sure they're possible. */
         request = utils.merge({
-            userID: User.userID(),
-            clickID: request.clickID,
-            requestID: requestID(), // Used for the queue
-            session: Session.session(),
-            counter: internalCounter()
+            id: requestID(),
+
+            tag: {
+                counter: internalCounter()
+            },
+
+            user: {
+                sessionID: Session.session(),
+                userID: User.userID()
+            },
+
+            device: {
+                userAgent: window.navigator.userAgent
+            }
         }, request);
 
-        utils.log(request);
+        utils.log('Core.Track', request);
 
+        // Formatting of the request and send it.
         Send.addAndRun(request);
     }
 
     return {
-        setClickID: clickID,
-        getClickID: function () { return defaultConfig.clickID; },
+        setRootID: rootID,
+        getRootID: function () { return defaultConfig.tag.rootID; },
         track: track
     };
 }());

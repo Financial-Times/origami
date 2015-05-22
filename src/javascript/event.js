@@ -21,28 +21,34 @@ module.exports = (function (window) {
          * @private
          */
         defaultEventConfig = {
-            type: 'event'
+            tag: { type: 'event' },
+            event: {}
         };
 
     /**
      * Track an event.
      * @method event
      * @param model The model, for example: comment, video, slideshow
-     * @param type The type of event, for example: play, share
-     * @param [value] Optional, the value, defaults to true. Examples include the video play amount - 50%, or slideshow slide number.
+     * @param category The category of event, for example: video
+     * @param action The action performed, for example: play
+     * @param [key] Optional, a key for naming an arbitrary value. Examples include the video play amount - 50%, or slideshow slide number.
+     * @param [value] Optional, the value. Examples include the video play amount - 50%, or slideshow slide number.
      * @param [callback] {Function} Callback function. Called when request completed.
      * @async
      */
-    function event(model, type, value, callback) {
+    function event(category, action, key, value, callback) {
         var config = utils.merge(utils.merge(defaultEventConfig), {
-            eventModel: model,
-            eventType: type,
-            eventData: value
+            event: {
+                category: category,
+                action: action,
+                key: key,
+                value: value
+            }
         });
         Core.track(config, callback);
     }
 
-    utils.addEvent(window, 'oTracking.Event', function (e) { event(e.model, e.type, e.value); });
+    utils.addEvent(window, 'oTracking.event', function (e) { event(e.category, e.action, e.key, e.value); });
 
     return event;
 

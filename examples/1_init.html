@@ -4,7 +4,6 @@
     <title>Example 1: init</title>
     <link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-techdocs@^3.2.2" />
     <link rel="stylesheet" href="./build/example.css" />
-    <script src="./build/o-tracking.latest.min.js"></script>
 </head>
 <body class="o-techdocs">
 <header class="o-techdocs-page-header">
@@ -41,10 +40,12 @@
 
 <script src="./build/jquery.min.js"></script>
 <script src="./build/util.js"></script>
+<script src="./build/o-tracking.latest.min.js"></script>
 <script src="./helper.js"></script>
 <script>
     (function ($) {
         var util = require('util');
+        var oTracking = require('oTracking');
 
         var
                 config = {

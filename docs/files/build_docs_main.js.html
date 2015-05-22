@@ -47,7 +47,6 @@
                                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
                                 <li><a href="../classes/Track._Core.User.html">Track._Core.User</a></li>
                                 <li><a href="../classes/Track._Utils.html">Track._Utils</a></li>
-                                <li><a href="../classes/Track.data.html">Track.data</a></li>
                                 <li><a href="../classes/Track.event.html">Track.event</a></li>
                                 <li><a href="../classes/Track.link.html">Track.link</a></li>
                                 <li><a href="../classes/Track.page.html">Track.page</a></li>
@@ -56,7 +55,6 @@
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/_Core.html">_Core</a></li>
                                 <li><a href="../modules/_Utils.html">_Utils</a></li>
-                                <li><a href="../modules/data.html">data</a></li>
                                 <li><a href="../modules/event.html">event</a></li>
                                 <li><a href="../modules/link.html">link</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
@@ -129,8 +127,8 @@
                          * @type {*}
                          */
                         
-                        /*global require, module, window */
-                        module.exports = (function (window) {
+                        /*global require, module */
+                        module.exports = (function () {
                             &quot;use strict&quot;;
                         
                             /**
@@ -185,6 +183,7 @@
                              */
                             function init(config) {
                                 settings.set(&#x27;config&#x27;, config);
+                                settings.set(&#x27;version&#x27;, version);
                         
                                 destroy();
                         
@@ -222,20 +221,17 @@
                                 return &quot;oTracking version &quot; + version;
                             }
                         
-                            window.oTracking = {
+                            return {
                                 init: init,
                                 developer: developer,
                                 destroy: destroy,
                                 toString: toString,
                         
                                 page:  require(&#x27;./src/javascript/page&#x27;),
-                                data:  require(&#x27;./src/javascript/data&#x27;),
                                 event: require(&#x27;./src/javascript/event&#x27;),
                                 link: require(&#x27;./src/javascript/link&#x27;)
                             };
-                        
-                            return window.oTracking;
-                        }(window));
+                        }());
                         
                             </pre>
                         </div>

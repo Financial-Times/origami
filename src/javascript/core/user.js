@@ -33,10 +33,6 @@ module.exports = (function () {
             config = { value: config };
         }
 
-        if (utils.is('undefined')) {
-            config = {};
-        }
-
         var c = utils.merge(defaultUserConfig, config),
             store;
 

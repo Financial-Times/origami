@@ -13,7 +13,7 @@ describe('event', function () {
         require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
         (new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
         require("../src/javascript/core/send").init(); // Init the sender.
-        require("../src/javascript/core").setClickID('clickID'); // Fix the click ID to stop it generating one.
+        //require("../src/javascript/core").setRootID('rootID'); // Fix the click ID to stop it generating one.
         userID = require("../src/javascript/core/user").init(); // Init the user identifier.
 
         server = sinon.fakeServer.create(); // Catch AJAX requests
@@ -29,21 +29,27 @@ describe('event', function () {
         var callback = sinon.spy(),
             sent_data;
 
-        track_event('slideshow', 'slide', '5', callback);
+        track_event('slideshow', 'slide_viewed', 'slide_number', '5', callback);
 
         server.respond();
-        sent_data = callback.getCall(0).thisValue.request;
 
-        assert.deepEqual(Object.keys(sent_data), ["userID", "clickID", "requestID", "session", "counter", "eventModel", "eventType", "eventData", "queueTime"]);
-        assert.equal(sent_data.clickID, "clickID");
-        assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.requestID), "RequestID is invalid. " + sent_data.requestID);
-        assert.equal(sent_data.userID, userID);
-        assert.equal(sent_data.counter, 1);
-        //assert.equal(sent_data.type, "event");
-        assert.equal(sent_data.eventModel, "slideshow");
-        assert.equal(sent_data.eventType, "slide");
-        assert.equal(sent_data.eventData, "5");
-        assert.ok(/\d+/.test(sent_data.queueTime), "queueTime is invalid. " + sent_data.queueTime);
+        assert.ok(callback.called, 'Callback not called.');
+
+        sent_data = callback.getCall(0).thisValue;
+
+        // Basics
+        assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "event"]);
+
+        // Type
+        assert.equal(sent_data.tag.type, "event");
+
+        // Event
+        assert.equal(sent_data.event.category, "slideshow");
+        assert.equal(sent_data.event.action, "slide_viewed");
+        assert.equal(sent_data.event.key, "slide_number");
+        assert.equal(sent_data.event.value, "5");
     });
+
+
 });
 

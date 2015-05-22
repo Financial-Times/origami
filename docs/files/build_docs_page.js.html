@@ -47,7 +47,6 @@
                                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
                                 <li><a href="../classes/Track._Core.User.html">Track._Core.User</a></li>
                                 <li><a href="../classes/Track._Utils.html">Track._Utils</a></li>
-                                <li><a href="../classes/Track.data.html">Track.data</a></li>
                                 <li><a href="../classes/Track.event.html">Track.event</a></li>
                                 <li><a href="../classes/Track.link.html">Track.link</a></li>
                                 <li><a href="../classes/Track.page.html">Track.page</a></li>
@@ -56,7 +55,6 @@
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/_Core.html">_Core</a></li>
                                 <li><a href="../modules/_Utils.html">_Utils</a></li>
-                                <li><a href="../modules/data.html">data</a></li>
                                 <li><a href="../modules/event.html">event</a></li>
                                 <li><a href="../modules/link.html">link</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
@@ -148,14 +146,6 @@
                         
                             var
                                 Core = require(&quot;./core&quot;),
-                        
-                                /**
-                                 * Shared &quot;internal&quot; scope.
-                                 * @property _self
-                                 * @type {Object}
-                                 * @private
-                                 */
-                                settings = require(&quot;./core/settings&quot;),
                                 utils = require(&quot;./utils&quot;),
                         
                                 /**
@@ -165,11 +155,6 @@
                                  url: document.URL,
                                  referrer: document.referrer,
                         
-                                 co: window.screen.colorDepth,
-                                 sr: window.screen.width + &#x27;x&#x27; + window.screen.height,
-                                 lt: utils.toISOString(new Date()),
-                                 jv: (window.navigator.javaEnabled() ? &#x27;1&#x27; : &#x27;0&#x27;),
-                        
                                  async: false // Send this tag syncronously
                                  }
                                  * @property defaultPageConfig
@@ -177,9 +162,14 @@
                                  * @private
                                  */
                                 defaultPageConfig = {
-                                    type: &#x27;page&#x27;,
-                                    url: document.URL,
-                                    referrer: document.referrer,
+                                    tag: {
+                                        type: &#x27;page&#x27;
+                                    },
+                        
+                                    page: {
+                                        url: document.URL,
+                                        referrer: document.referrer
+                                    },
                         
                                     async: true // Send this tag asyncronously - as sync doesn&#x27;t work in FF, as it doesn&#x27;t send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
                                 };
@@ -223,16 +213,14 @@
                              */
                             return function (config, callback) {
                                 config = utils.merge(utils.merge(defaultPageConfig), config);
-                                config.url = url(config.url);
+                                config.page.url = url(config.page.url);
                         
-                                // New ClickID for a new Page.
-                                Core.setClickID();
+                                // New RootID for a new Page.
+                                Core.setRootID();
                                 Core.track(config, callback);
                         
                                 // Alert internally that a new page has been tracked - for single page apps for example.
                                 utils.triggerPage();
-                        
-                                settings.page_sent = true;
                             };
                         
                         }(window, document));

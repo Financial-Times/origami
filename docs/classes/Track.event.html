@@ -47,7 +47,6 @@
                                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
                                 <li><a href="../classes/Track._Core.User.html">Track._Core.User</a></li>
                                 <li><a href="../classes/Track._Utils.html">Track._Utils</a></li>
-                                <li><a href="../classes/Track.data.html">Track.data</a></li>
                                 <li><a href="../classes/Track.event.html">Track.event</a></li>
                                 <li><a href="../classes/Track.link.html">Track.link</a></li>
                                 <li><a href="../classes/Track.page.html">Track.page</a></li>
@@ -56,7 +55,6 @@
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/_Core.html">_Core</a></li>
                                 <li><a href="../modules/_Utils.html">_Utils</a></li>
-                                <li><a href="../modules/data.html">data</a></li>
                                 <li><a href="../modules/event.html">event</a></li>
                                 <li><a href="../modules/link.html">link</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
@@ -166,7 +164,13 @@
                                                 <code>model</code>
                                         </li>
                                         <li class="arg">
-                                                <code>type</code>
+                                                <code>category</code>
+                                        </li>
+                                        <li class="arg">
+                                                <code>action</code>
+                                        </li>
+                                        <li class="arg">
+                                                <code class="optional">[key]</code>
                                         </li>
                                         <li class="arg">
                                                 <code class="optional">[value]</code>
@@ -188,7 +192,7 @@
                             <div class="meta">
                                         <p>
                                         Defined in
-                                <a href="../files/build_docs_event.js.html#l27"><code>build&#x2F;docs&#x2F;event.js:27</code></a>
+                                <a href="../files/build_docs_event.js.html#l28"><code>build&#x2F;docs&#x2F;event.js:28</code></a>
                                 </p>
                         
                         
@@ -216,12 +220,35 @@
                         
                                         </li>
                                         <li class="param">
-                                                <code class="param-name">type</code>
+                                                <code class="param-name">category</code>
                                                 <span class="type">Object</span>
                         
                         
                                             <div class="param-description">
-                                                <p>The type of event, for example: play, share</p>
+                                                <p>The category of event, for example: video</p>
+                        
+                                            </div>
+                        
+                                        </li>
+                                        <li class="param">
+                                                <code class="param-name">action</code>
+                                                <span class="type">Object</span>
+                        
+                        
+                                            <div class="param-description">
+                                                <p>The action performed, for example: play</p>
+                        
+                                            </div>
+                        
+                                        </li>
+                                        <li class="param">
+                                                <code class="param-name optional">[key]</code>
+                                                <span class="type">Object</span>
+                                                <span class="flag optional" title="This parameter is optional.">optional</span>
+                        
+                        
+                                            <div class="param-description">
+                                                <p>Optional, a key for naming an arbitrary value. Examples include the video play amount - 50%, or slideshow slide number.</p>
                         
                                             </div>
                         
@@ -233,7 +260,7 @@
                         
                         
                                             <div class="param-description">
-                                                <p>Optional, the value, defaults to true. Examples include the video play amount - 50%, or slideshow slide number.</p>
+                                                <p>Optional, the value. Examples include the video play amount - 50%, or slideshow slide number.</p>
                         
                                             </div>
                         

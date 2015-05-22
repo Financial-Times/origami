@@ -77,17 +77,6 @@
             "fors": {},
             "namespaces": {}
         },
-        "build/docs/data.js": {
-            "name": "build/docs/data.js",
-            "modules": {
-                "data": 1
-            },
-            "classes": {
-                "Track.data": 1
-            },
-            "fors": {},
-            "namespaces": {}
-        },
         "build/docs/event.js": {
             "name": "build/docs/event.js",
             "modules": {
@@ -242,7 +231,6 @@
         "Track": {
             "name": "Track",
             "submodules": {
-                "data": 1,
                 "event": 1,
                 "link": 1,
                 "page": 1,
@@ -251,7 +239,6 @@
             "classes": {
                 "Settings": 1,
                 "Track._Core": 1,
-                "Track.data": 1,
                 "Track.event": 1,
                 "Track.link": 1,
                 "Track": 1,
@@ -267,22 +254,6 @@
             "itemtype": "main",
             "static": 1,
             "type": "{*}"
-        },
-        "data": {
-            "name": "data",
-            "submodules": {},
-            "classes": {
-                "Track.data": 1
-            },
-            "fors": {},
-            "is_submodule": 1,
-            "namespaces": {},
-            "module": "Track",
-            "namespace": "",
-            "file": "build/docs/data.js",
-            "line": 1,
-            "description": "For tracking additional page-level data.",
-            "static": "Params:\n// Page level\n'uuid',\n'pageSubsLevel',\n'siteMap',\n'title',\n'assetType',\n'edition',\n'brand',\n'theme',\n'hurdle',\n'error',\n'searchQuery'"
         },
         "event": {
             "name": "event",
@@ -453,21 +424,6 @@
             "file": "build/docs/core.js",
             "line": 1,
             "description": "Core functionality. Queuing and sending tags"
-        },
-        "Track.data": {
-            "name": "Track.data",
-            "shortname": "Track.data",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "Track",
-            "submodule": "data",
-            "namespace": "",
-            "file": "build/docs/data.js",
-            "line": 1,
-            "description": "For tracking additional page-level data."
         },
         "Track.event": {
             "name": "Track.event",
@@ -831,7 +787,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 213,
+            "line": 216,
             "description": "Adds a new request to the list of pending requests",
             "itemtype": "method",
             "name": "add",
@@ -847,7 +803,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 228,
+            "line": 229,
             "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
             "itemtype": "method",
             "name": "run",
@@ -866,7 +822,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 257,
+            "line": 258,
             "description": "Convenience function to add and run a request all in one go.",
             "itemtype": "method",
             "name": "addAndRun",
@@ -883,7 +839,7 @@
         },
         {
             "file": "build/docs/core/send.js",
-            "line": 267,
+            "line": 268,
             "description": "Init the queue and send any leftover tags.",
             "itemtype": "method",
             "name": "init",
@@ -1098,19 +1054,19 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 44,
-            "description": "Generate and store a new ClickID.",
+            "line": 45,
+            "description": "Generate and store a new RootID.",
             "itemtype": "method",
-            "name": "clickID",
+            "name": "rootID",
             "params": [
                 {
-                    "name": "click_id",
-                    "description": "Optional ClickID, if you want to use your own. Otherwise will create one for you.",
+                    "name": "page_id",
+                    "description": "Optional RootID, if you want to use your own. Otherwise will create one for you.",
                     "optional": true
                 }
             ],
             "return": {
-                "description": "The ClickID.",
+                "description": "The RootID.",
                 "type": "String|*"
             },
             "class": "Track._Core",
@@ -1119,7 +1075,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 56,
+            "line": 57,
             "description": "Create a requestID (unique identifier) for the page impression.",
             "itemtype": "method",
             "name": "requestID",
@@ -1142,7 +1098,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 71,
+            "line": 72,
             "description": "Count of the number of tracking requests made.",
             "itemtype": "method",
             "name": "internalCounter",
@@ -1158,7 +1114,7 @@
         },
         {
             "file": "build/docs/core.js",
-            "line": 82,
+            "line": 83,
             "description": "Make a tracking request.",
             "itemtype": "method",
             "name": "track",
@@ -1179,44 +1135,6 @@
             "submodule": "_Core"
         },
         {
-            "file": "build/docs/data.js",
-            "line": 31,
-            "description": "Default properties for data tracking requests.",
-            "itemtype": "property",
-            "name": "defaultDataConfig",
-            "type": "{Object}",
-            "access": "private",
-            "tagname": "",
-            "class": "Track.data",
-            "module": "Track",
-            "submodule": "data"
-        },
-        {
-            "file": "build/docs/data.js",
-            "line": 41,
-            "description": "Make the page tracking request.",
-            "itemtype": "method",
-            "name": "data",
-            "params": [
-                {
-                    "name": "config",
-                    "description": "Configuration object. If omitted, will use the defaults.",
-                    "type": "Object",
-                    "optional": true
-                },
-                {
-                    "name": "callback",
-                    "description": "Callback function. Called when request completed.",
-                    "type": "Function",
-                    "optional": true
-                }
-            ],
-            "async": 1,
-            "class": "Track.data",
-            "module": "Track",
-            "submodule": "data"
-        },
-        {
             "file": "build/docs/event.js",
             "line": 17,
             "description": "Default properties for events.",
@@ -1231,7 +1149,7 @@
         },
         {
             "file": "build/docs/event.js",
-            "line": 27,
+            "line": 28,
             "description": "Track an event.",
             "itemtype": "method",
             "name": "event",
@@ -1241,12 +1159,21 @@
                     "description": "The model, for example: comment, video, slideshow"
                 },
                 {
-                    "name": "type",
-                    "description": "The type of event, for example: play, share"
+                    "name": "category",
+                    "description": "The category of event, for example: video"
+                },
+                {
+                    "name": "action",
+                    "description": "The action performed, for example: play"
+                },
+                {
+                    "name": "key",
+                    "description": "Optional, a key for naming an arbitrary value. Examples include the video play amount - 50%, or slideshow slide number.",
+                    "optional": true
                 },
                 {
                     "name": "value",
-                    "description": "Optional, the value, defaults to true. Examples include the video play amount - 50%, or slideshow slide number.",
+                    "description": "Optional, the value. Examples include the video play amount - 50%, or slideshow slide number.",
                     "optional": true
                 },
                 {
@@ -1276,7 +1203,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 33,
+            "line": 34,
             "description": "Check if a URL is going to the same site (internal)",
             "itemtype": "method",
             "name": "isInternal",
@@ -1297,7 +1224,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 43,
+            "line": 44,
             "description": "Check if a URL is going to an external site.",
             "itemtype": "method",
             "name": "isExternal",
@@ -1318,7 +1245,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 53,
+            "line": 54,
             "description": "Checks if a URL is pointing at a file.\nNOTE: Don't want to maintain a list of file extensions, so try best guess.",
             "itemtype": "method",
             "name": "isFile",
@@ -1339,7 +1266,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 81,
+            "line": 82,
             "description": "Calculates the parents of a HTML element.",
             "itemtype": "method",
             "name": "parentTree",
@@ -1362,7 +1289,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 102,
+            "line": 103,
             "description": "Create the identifier of the link. TODO: https://rally1.rallydev.com/#/16966478977d/detail/defect/17919485944",
             "itemtype": "method",
             "name": "createLinkID",
@@ -1382,7 +1309,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 137,
+            "line": 138,
             "description": "Track the link.",
             "itemtype": "method",
             "name": "track",
@@ -1402,7 +1329,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 165,
+            "line": 168,
             "description": "Handle a click event.",
             "itemtype": "method",
             "name": "clickEvent",
@@ -1425,7 +1352,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 176,
+            "line": 179,
             "description": "Set the callback called on every link tracking event.",
             "itemtype": "method",
             "name": "onClick",
@@ -1442,7 +1369,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 185,
+            "line": 188,
             "description": "If there are any requests queued, attempts to send the next one\nOtherwise, does nothing",
             "itemtype": "method",
             "name": "run",
@@ -1453,7 +1380,7 @@
         },
         {
             "file": "build/docs/link.js",
-            "line": 200,
+            "line": 203,
             "description": "Setup and initialise link tracking.\n\nThe config object can have three key/values - all are optional.\n* root: The root element to search for links. Defaults to window.document - useful if trying to track links from an iframe.\n* selector: The selector to use to search for links. Defaults to 'a'.\n* event: The event to listen on. Defaults to 'click'.\n* links: If you've already worked out the links to track, then this is used to pass them over. Must be an array with elements that accept events.",
             "itemtype": "method",
             "name": "init",
@@ -1538,7 +1465,7 @@
         },
         {
             "file": "build/docs/main.js",
-            "line": 113,
+            "line": 114,
             "description": "Overload toString method to show the version.",
             "itemtype": "method",
             "name": "toString",
@@ -1551,23 +1478,10 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 49,
-            "description": "Shared \"internal\" scope.",
-            "itemtype": "property",
-            "name": "_self",
-            "type": "{Object}",
-            "access": "private",
-            "tagname": "",
-            "class": "Track.page",
-            "module": "Track",
-            "submodule": "page"
-        },
-        {
-            "file": "build/docs/page.js",
-            "line": 58,
+            "line": 50,
             "description": "Default properties for page tracking requests.",
             "example": [
-                "\n        {\n        url: document.URL,\n        referrer: document.referrer,\n\n        co: window.screen.colorDepth,\n        sr: window.screen.width + 'x' + window.screen.height,\n        lt: utils.toISOString(new Date()),\n        jv: (window.navigator.javaEnabled() ? '1' : '0'),\n\n        async: false // Send this tag syncronously\n        }"
+                "\n        {\n        url: document.URL,\n        referrer: document.referrer,\n\n        async: false // Send this tag syncronously\n        }"
             ],
             "itemtype": "property",
             "name": "defaultPageConfig",
@@ -1580,7 +1494,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 84,
+            "line": 76,
             "description": "Constructs a URL in the format required by iJento, allowing different inputs.",
             "itemtype": "method",
             "name": "url",
@@ -1603,7 +1517,7 @@
         },
         {
             "file": "build/docs/page.js",
-            "line": 114,
+            "line": 106,
             "description": "Make the page tracking request.",
             "itemtype": "method",
             "name": "page",
@@ -1993,7 +1907,7 @@
     "warnings": [
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " build/docs/link.js:200"
+            "line": " build/docs/link.js:203"
         }
     ]
 }

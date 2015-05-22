@@ -157,7 +157,7 @@ module.exports = (function () {
         }
 
         for (i = 0; i < replacement.length; i = i + 1) {
-            if (nextItem.requestID === replacement[i].requestID) {
+            if (nextItem.id === replacement[i].id) {
                 replacement.splice(i, 1);
                 this.replace(replacement).save();
                 break;

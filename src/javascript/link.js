@@ -25,7 +25,8 @@ module.exports = (function (window) {
          * @private
          */
             defaultLinkConfig = {
-            type: 'link'
+            tag: { type: 'link' },
+            link: {}
         },
 
         callback = function () {};
@@ -143,9 +144,11 @@ module.exports = (function (window) {
     function track(element) {
         var linkID = createLinkID(element),
             config = utils.merge(utils.merge(defaultLinkConfig), {
-                'requestPage': '', // TODO
-                'link': linkID,
-                'referrerClickID': Core.getClickID()
+                link: {
+                    'destinationID': '', // TODO
+                    'link': linkID,
+                    'sourceID': Core.getRootID()
+                }
             });
 
         if (isExternal(element.href) || isFile(element.href)) {
@@ -252,7 +255,7 @@ module.exports = (function (window) {
         }
     }
 
-    utils.addEvent(window, 'oTracking.Link', track);
+    utils.addEvent(window, 'oTracking.link', track);
 
     return {
         init: init,

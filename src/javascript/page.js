@@ -45,14 +45,6 @@ module.exports = (function (window, document) {
 
     var
         Core = require("./core"),
-
-        /**
-         * Shared "internal" scope.
-         * @property _self
-         * @type {Object}
-         * @private
-         */
-        settings = require("./core/settings"),
         utils = require("./utils"),
 
         /**
@@ -62,11 +54,6 @@ module.exports = (function (window, document) {
          url: document.URL,
          referrer: document.referrer,
 
-         co: window.screen.colorDepth,
-         sr: window.screen.width + 'x' + window.screen.height,
-         lt: utils.toISOString(new Date()),
-         jv: (window.navigator.javaEnabled() ? '1' : '0'),
-
          async: false // Send this tag syncronously
          }
          * @property defaultPageConfig
@@ -74,9 +61,14 @@ module.exports = (function (window, document) {
          * @private
          */
         defaultPageConfig = {
-            type: 'page',
-            url: document.URL,
-            referrer: document.referrer,
+            tag: {
+                type: 'page'
+            },
+
+            page: {
+                url: document.URL,
+                referrer: document.referrer
+            },
 
             async: true // Send this tag asyncronously - as sync doesn't work in FF, as it doesn't send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
         };
@@ -120,16 +112,14 @@ module.exports = (function (window, document) {
      */
     return function (config, callback) {
         config = utils.merge(utils.merge(defaultPageConfig), config);
-        config.url = url(config.url);
+        config.page.url = url(config.page.url);
 
-        // New ClickID for a new Page.
-        Core.setClickID();
+        // New RootID for a new Page.
+        Core.setRootID();
         Core.track(config, callback);
 
         // Alert internally that a new page has been tracked - for single page apps for example.
         utils.triggerPage();
-
-        settings.page_sent = true;
     };
 
 }(window, document));

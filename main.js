@@ -26,8 +26,8 @@
  * @type {*}
  */
 
-/*global require, module, window */
-module.exports = (function (window) {
+/*global require, module */
+module.exports = (function () {
     "use strict";
 
     /**
@@ -82,6 +82,7 @@ module.exports = (function (window) {
      */
     function init(config) {
         settings.set('config', config);
+        settings.set('version', version);
 
         destroy();
 
@@ -126,8 +127,7 @@ module.exports = (function (window) {
         toString: toString,
 
         page:  require('./src/javascript/page'),
-        data:  require('./src/javascript/data'),
         event: require('./src/javascript/event'),
         link: require('./src/javascript/link')
     };
-}(window));
+}());

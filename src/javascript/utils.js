@@ -85,7 +85,7 @@ module.exports = (function (window) {
 
             // Gets rid of missing values too
             if (typeof copy !== "undefined" && copy !== null && copy !== '') {
-                target[name] = copy;
+                target[name] = (src === Object(src) && !is(src, 'function') ? merge(src, copy) : copy);
             }
         }
         /* jshint +W089 */

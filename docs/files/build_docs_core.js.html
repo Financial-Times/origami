@@ -47,7 +47,6 @@
                                 <li><a href="../classes/Track._Core.Store.html">Track._Core.Store</a></li>
                                 <li><a href="../classes/Track._Core.User.html">Track._Core.User</a></li>
                                 <li><a href="../classes/Track._Utils.html">Track._Utils</a></li>
-                                <li><a href="../classes/Track.data.html">Track.data</a></li>
                                 <li><a href="../classes/Track.event.html">Track.event</a></li>
                                 <li><a href="../classes/Track.link.html">Track.link</a></li>
                                 <li><a href="../classes/Track.page.html">Track.page</a></li>
@@ -56,7 +55,6 @@
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/_Core.html">_Core</a></li>
                                 <li><a href="../modules/_Utils.html">_Utils</a></li>
-                                <li><a href="../modules/data.html">data</a></li>
                                 <li><a href="../modules/event.html">event</a></li>
                                 <li><a href="../modules/link.html">link</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
@@ -141,19 +139,20 @@
                                  */
                                 defaultConfig = {
                                     async: true,
-                                    callback: function () {}
+                                    callback: function () {},
+                                    tag: {}
                                 };
                         
                             /**
-                             * Generate and store a new ClickID.
-                             * @method clickID
-                             * @param [click_id] Optional ClickID, if you want to use your own. Otherwise will create one for you.
-                             * @return {String|*} The ClickID.
+                             * Generate and store a new RootID.
+                             * @method rootID
+                             * @param [page_id] Optional RootID, if you want to use your own. Otherwise will create one for you.
+                             * @return {String|*} The RootID.
                              */
-                            function clickID(click_id) {
-                                click_id = requestID(click_id);
-                                defaultConfig.clickID = click_id;
-                                return click_id;
+                            function rootID(root_id) {
+                                root_id = requestID(root_id);
+                                defaultConfig.tag.rootID = root_id;
+                                return root_id;
                             }
                         
                             /**
@@ -194,25 +193,40 @@
                                     callback = function () {};
                                 }
                         
+                                // In-case we&#x27;re sending events without a page.
+                                if (!defaultConfig.tag.rootID) {
+                                    rootID();
+                                }
+                        
                                 var request = utils.merge(utils.merge(defaultConfig), utils.merge(config, { callback: callback }));
                         
                                 /* Values here are kinda the mandatory ones, so we want to make sure they&#x27;re possible. */
                                 request = utils.merge({
-                                    userID: User.userID(),
-                                    clickID: request.clickID,
-                                    requestID: requestID(), // Used for the queue
-                                    session: Session.session(),
-                                    counter: internalCounter()
+                                    id: requestID(),
+                        
+                                    tag: {
+                                        counter: internalCounter()
+                                    },
+                        
+                                    user: {
+                                        sessionID: Session.session(),
+                                        userID: User.userID()
+                                    },
+                        
+                                    device: {
+                                        userAgent: window.navigator.userAgent
+                                    }
                                 }, request);
                         
-                                utils.log(request);
+                                utils.log(&#x27;Core.Track&#x27;, request);
                         
+                                // Formatting of the request and send it.
                                 Send.addAndRun(request);
                             }
                         
                             return {
-                                setClickID: clickID,
-                                getClickID: function () { return defaultConfig.clickID; },
+                                setRootID: rootID,
+                                getRootID: function () { return defaultConfig.tag.rootID; },
                                 track: track
                             };
                         }());

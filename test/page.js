@@ -27,22 +27,25 @@ describe('page', function () {
             sent_data;
 
         page({
-            url: "http://www.ft.com/home/uk",
-            'userID': 'userID'
+            page: {
+                url: "http://www.ft.com/home/uk"
+            }
         }, callback);
 
         server.respond();
-        sent_data = callback.getCall(0).thisValue.request;
+        assert.ok(callback.called, 'Callback not called.');
 
-        assert.deepEqual(Object.keys(sent_data), ["userID", "clickID", "requestID", "session", "counter", "url", "referrer", "queueTime"]);
-        assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.clickID), "ClickID is invalid. " + sent_data.clickID);
-        assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.requestID), "RequestID is invalid. " + sent_data.requestID);
-        assert.equal(sent_data.userID, "userID");
-        assert.equal(sent_data.counter, 1);
-        //assert.equal(sent_data.type, "page");
-        assert.equal(sent_data.url, "http://www.ft.com/home/uk");
-        assert.ok(!!sent_data.referrer, "referrer is invalid. " + sent_data.referrer);
-        assert.ok(/\d+/.test(sent_data.queueTime), "queueTime is invalid. " + sent_data.queueTime);
+        sent_data = callback.getCall(0).thisValue;
+
+        // Basics
+        assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "page"]);
+
+        // Type
+        assert.equal(sent_data.tag.type, "page");
+
+        // Page
+        assert.equal(sent_data.page.url, "http://www.ft.com/home/uk");
+        assert.ok(!!sent_data.page.referrer, "referrer is invalid. " + sent_data.page.referrer);
     });
 });
 
