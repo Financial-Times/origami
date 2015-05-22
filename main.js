@@ -119,7 +119,7 @@ module.exports = (function (window) {
         return "oTracking version " + version;
     }
 
-    window.oTracking = {
+    return {
         init: init,
         developer: developer,
         destroy: destroy,
@@ -130,6 +130,4 @@ module.exports = (function (window) {
         event: require('./src/javascript/event'),
         link: require('./src/javascript/link')
     };
-
-    return window.oTracking;
 }(window));

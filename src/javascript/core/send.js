@@ -168,11 +168,9 @@ module.exports = (function (window) {
             }
             if (xmlHttp.status >= 200 && xmlHttp.status < 300) {
                 success(payload.tag.id);
-                window.console.log('success(payload.tag.id)', payload.tag.id);
                 callback();
             } else {
                 finished(payload.tag.id);
-                window.console.log('finished(payload.tag.id)', payload.tag.id);
                 // TODO Wait a bit, then try again?
             }
         }
