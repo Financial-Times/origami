@@ -215,8 +215,8 @@
                                 config = utils.merge(utils.merge(defaultPageConfig), config);
                                 config.page.url = url(config.page.url);
                         
-                                // New RootID for a new Page.
-                                Core.setRootID();
+                                // New PageID for a new Page.
+                                Core.setPageID();
                                 Core.track(config, callback);
                         
                                 // Alert internally that a new page has been tracked - for single page apps for example.

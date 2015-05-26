@@ -43,15 +43,15 @@ module.exports = (function () {
         };
 
     /**
-     * Generate and store a new RootID.
-     * @method rootID
-     * @param [page_id] Optional RootID, if you want to use your own. Otherwise will create one for you.
-     * @return {String|*} The RootID.
+     * Generate and store a new PageID.
+     * @method pageID
+     * @param [page_id] Optional PageID, if you want to use your own. Otherwise will create one for you.
+     * @return {String|*} The PageID.
      */
-    function rootID(root_id) {
-        root_id = requestID(root_id);
-        defaultConfig.tag.rootID = root_id;
-        return root_id;
+    function pageID(page_id) {
+        page_id = requestID(page_id);
+        defaultConfig.tag.pageID = page_id;
+        return page_id;
     }
 
     /**
@@ -93,8 +93,8 @@ module.exports = (function () {
         }
 
         // In-case we're sending events without a page.
-        if (!defaultConfig.tag.rootID) {
-            rootID();
+        if (!defaultConfig.tag.pageID) {
+            pageID();
         }
 
         var request = utils.merge(utils.merge(defaultConfig), utils.merge(config, { callback: callback }));
@@ -124,8 +124,8 @@ module.exports = (function () {
     }
 
     return {
-        setRootID: rootID,
-        getRootID: function () { return defaultConfig.tag.rootID; },
+        setPageID: pageID,
+        getPageID: function () { return defaultConfig.tag.pageID; },
         track: track
     };
 }());

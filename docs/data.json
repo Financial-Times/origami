@@ -1055,18 +1055,18 @@
         {
             "file": "build/docs/core.js",
             "line": 45,
-            "description": "Generate and store a new RootID.",
+            "description": "Generate and store a new PageID.",
             "itemtype": "method",
-            "name": "rootID",
+            "name": "pageID",
             "params": [
                 {
                     "name": "page_id",
-                    "description": "Optional RootID, if you want to use your own. Otherwise will create one for you.",
+                    "description": "Optional PageID, if you want to use your own. Otherwise will create one for you.",
                     "optional": true
                 }
             ],
             "return": {
-                "description": "The RootID.",
+                "description": "The PageID.",
                 "type": "String|*"
             },
             "class": "Track._Core",

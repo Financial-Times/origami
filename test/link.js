@@ -13,7 +13,7 @@ describe('link', function () {
         require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
         (new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
         require("../src/javascript/core/send").init(); // Init the sender.
-        require("../src/javascript/core").setRootID('rootID'); // Fix the click ID to stop it generating one.
+        require("../src/javascript/core").setPageID('pageID'); // Fix the click ID to stop it generating one.
         userID = require("../src/javascript/core/user").init(); // Init the user identifier.
 
         server = sinon.fakeServer.create(); // Catch AJAX requests
@@ -56,7 +56,7 @@ describe('link', function () {
 
         // Link
         assert.equal(sent_data.link.link, "a/www.google.com");
-        assert.equal(sent_data.link.sourceID, "rootID");
+        assert.equal(sent_data.link.sourceID, "pageID");
         assert.equal(sent_data.link.destinationID, undefined);
     });
 });

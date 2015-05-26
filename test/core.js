@@ -6,15 +6,15 @@ var assert = require('assert'),
 describe('Core', function () {
     "use strict";
 
-    describe('rootID', function () {
-        it('should generate a rootID', function () {
-            var rootID = Core.setRootID(),
+    describe('pageID', function () {
+        it('should generate a pageID', function () {
+            var pageID = Core.setPageID(),
                 re = /\d+\.\d+\.\d+\.\d+\.[\-\w]+/;
-            assert.ok(rootID.match(re), "'" + rootID + "'.match(" + re + ")");
+            assert.ok(pageID.match(re), "'" + pageID + "'.match(" + re + ")");
         });
 
-        it('should use the rootID given it', function () {
-            assert.equal(Core.setRootID("myRootID"), "myRootID");
+        it('should use the pageID given it', function () {
+            assert.equal(Core.setPageID("myPageID"), "myPageID");
         });
     });
 
@@ -41,7 +41,7 @@ describe('Core', function () {
             var callback = sinon.spy(),
                 sent_data;
 
-            Core.setRootID('rootID');
+            Core.setPageID('pageID');
             Core.track({
                 tag: { type: 'page'  },
                 page: { url: "http://www.ft.com/home/uk" },
@@ -56,13 +56,13 @@ describe('Core', function () {
 
             assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "page"]);
             // Tag
-            assert.deepEqual(Object.keys(sent_data.tag), ["apiKey","version","id","counter","offset","rootID","type"]);
+            assert.deepEqual(Object.keys(sent_data.tag), ["apiKey","version","id","counter","offset","pageID","type"]);
             assert.equal(sent_data.tag.apiKey, "");
             assert.equal(sent_data.tag.version, "v1");
             assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.tag.id), "Request ID is invalid. " + sent_data.tag.id);
             assert.equal(sent_data.tag.counter, 1);
             assert.ok(/\d+/.test(sent_data.tag.offset), "offset is invalid. " + sent_data.tag.offset);
-            assert.equal(sent_data.tag.rootID, "rootID");
+            assert.equal(sent_data.tag.pageID, "pageID");
             assert.equal(sent_data.tag.type, "page");
 
             // User

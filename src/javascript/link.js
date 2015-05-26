@@ -147,7 +147,7 @@ module.exports = (function (window) {
                 link: {
                     'destinationID': '', // TODO
                     'link': linkID,
-                    'sourceID': Core.getRootID()
+                    'sourceID': Core.getPageID()
                 }
             });
 
