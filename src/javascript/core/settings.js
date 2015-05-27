@@ -5,29 +5,30 @@
  */
 
 /*global module */
+"use strict";
+
 var settings = {
-    'internalCounter': 0
+	'internalCounter': 0
 };
 
 module.exports = (function () {
-    "use strict";
 
-    function setValue(name, value) {
-        settings[name] = value;
-    }
+	function setValue(name, value) {
+		settings[name] = value;
+	}
 
-    function getValue(name) {
-        return settings[name];
-    }
+	function getValue(name) {
+		return settings[name];
+	}
 
-    function deleteValue(name) {
-        delete settings[name];
-    }
+	function deleteValue(name) {
+		delete settings[name];
+	}
 
-    return {
-        'set': setValue,
-        'get': getValue,
-        'delete': deleteValue
-    };
+	return {
+		'set': setValue,
+		'get': getValue,
+		'delete': deleteValue
+	};
 
 }());

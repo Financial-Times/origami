@@ -28,106 +28,106 @@
 
 /*global require, module */
 module.exports = (function () {
-    "use strict";
+	"use strict";
 
-    /**
-     * Shared "internal" scope.
-     * @property _self
-     * @type {Object}
-     * @private
-     */
-    var settings = require("./src/javascript/core/settings"),
-        utils = require("./src/javascript/utils"),
+	/**
+	 * Shared "internal" scope.
+	 * @property _self
+	 * @type {Object}
+	 * @private
+	 */
+	var settings = require("./src/javascript/core/settings"),
+		utils = require("./src/javascript/utils"),
 
-        /**
-         * The version of the tracking module.
-         * @property version
-         * @type {String}
-         */
-        version = "0.0.19";
+		/**
+		 * The version of the tracking module.
+		 * @property version
+		 * @type {String}
+		 */
+		version = "0.0.20";
 
-    /**
-     * Turn on/off developer mode. (Can also be activated on init.)
-     * @method developer
-     * @param [level] {Boolean} Turn on or off, defaults to on if omitted.
-     */
-    function developer(level) {
-        if (utils.isUndefined(level)) {
-            level = true;
-        }
+	/**
+	 * Turn on/off developer mode. (Can also be activated on init.)
+	 * @method developer
+	 * @param [level] {Boolean} Turn on or off, defaults to on if omitted.
+	 */
+	function developer(level) {
+		if (utils.isUndefined(level)) {
+			level = true;
+		}
 
-        // Extra brackets on purpose, in case a non-boolean argument is used.
-        if ((level)) {
-            settings.set('developer', true);
-        } else {
-            settings.set('developer', null);
-            settings.set('noSend', null);
-        }
-    }
+		// Extra brackets on purpose, in case a non-boolean argument is used.
+		if ((level)) {
+			settings.set('developer', true);
+		} else {
+			settings.set('developer', null);
+			settings.set('noSend', null);
+		}
+	}
 
-    /**
-     * Clean up the tracking module.
-     * @method destroy
-     */
-    function destroy() {
-        developer(false);
-        settings.set('internalCounter', 0);
-        settings.set('page_sent', false);
-    }
+	/**
+	 * Clean up the tracking module.
+	 * @method destroy
+	 */
+	function destroy() {
+		developer(false);
+		settings.set('internalCounter', 0);
+		settings.set('page_sent', false);
+	}
 
-    /**
-     * Initialise the Track module.
-     * @method init
-     * @param config Configuration object
-     */
-    function init(config) {
-        settings.set('config', config);
-        settings.set('version', version);
+	/**
+	 * Initialise the Track module.
+	 * @method init
+	 * @param config Configuration object
+	 */
+	function init(config) {
+		settings.set('config', config);
+		settings.set('version', version);
 
-        destroy();
+		destroy();
 
-        // Developer mode
-        if (config.hasOwnProperty('developer')) {
-            delete config.developer;
-            developer();
+		// Developer mode
+		if (config.hasOwnProperty('developer')) {
+			delete config.developer;
+			developer();
 
-            if (config.hasOwnProperty('noSend')) {
-                delete config.noSend;
-                settings.set('noSend', true);
-            }
-        }
+			if (config.hasOwnProperty('noSend')) {
+				delete config.noSend;
+				settings.set('noSend', true);
+			}
+		}
 
-        // User identifier
-        require("./src/javascript/core/user").init(config.userID);
+		// User identifier
+		require("./src/javascript/core/user").init(config.userID);
 
-        // Session
-        require("./src/javascript/core/session").init(config.session);
+		// Session
+		require("./src/javascript/core/session").init(config.session);
 
-        // Initialize the sending queue.
-        require("./src/javascript/core/send").init(version);
+		// Initialize the sending queue.
+		require("./src/javascript/core/send").init(version);
 
-        // Track the page.
-        // Commented out, as it's safer in-case oTracking is included within another module, and they call init...
-        //require('./src/javascript/page')(config);
-    }
+		// Track the page.
+		// Commented out, as it's safer in-case oTracking is included within another module, and they call init...
+		//require('./src/javascript/page')(config);
+	}
 
-    /**
-     * Overload toString method to show the version.
-     * @method toString
-     * @return {String} The module's version.
-     */
-    function toString() {
-        return "oTracking version " + version;
-    }
+	/**
+	 * Overload toString method to show the version.
+	 * @method toString
+	 * @return {String} The module's version.
+	 */
+	function toString() {
+		return "oTracking version " + version;
+	}
 
-    return {
-        init: init,
-        developer: developer,
-        destroy: destroy,
-        toString: toString,
+	return {
+		init: init,
+		developer: developer,
+		destroy: destroy,
+		toString: toString,
 
-        page:  require('./src/javascript/page'),
-        event: require('./src/javascript/event'),
-        link: require('./src/javascript/link')
-    };
+		page:  require('./src/javascript/page'),
+		event: require('./src/javascript/event'),
+		link: require('./src/javascript/link')
+	};
 }());
