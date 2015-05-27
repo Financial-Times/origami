@@ -73,6 +73,31 @@ describe('Core', function () {
             // Device
             assert.equal(sent_data.device.userAgent, "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34");
         });
+
+        it('should defer a tracking request', function () {
+            server.respondWith([404, { "Content-Type": "plain/text", "Content-Length": 6 }, "NOT OK"]);
+
+            var callback = sinon.spy();
+
+            Core.track({
+                tag: { type: 'page'  },
+                page: { url: "http://www.google.co.uk" },
+                user: { "userID": "userID" }
+            }, callback);
+
+            server.respond();
+
+            assert.equal(callback.called, 1, 'Callback not called.');
+
+            server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+
+            // Try again
+            require("../src/javascript/core/send").run();
+
+            server.respond();
+
+            assert.ok(callback.calledTwice, 'Callback not called.');
+        });
     });
 
 

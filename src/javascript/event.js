@@ -28,27 +28,36 @@ module.exports = (function (window) {
     /**
      * Track an event.
      * @method event
-     * @param model The model, for example: comment, video, slideshow
-     * @param category The category of event, for example: video
-     * @param action The action performed, for example: play
-     * @param [key] Optional, a key for naming an arbitrary value. Examples include the video play amount - 50%, or slideshow slide number.
-     * @param [value] Optional, the value. Examples include the video play amount - 50%, or slideshow slide number.
-     * @param [callback] {Function} Callback function. Called when request completed.
+     * @param obj The event, for example: {
+     *   [parent_id] The ID from a parent event if one exists.
+     *   category The category, for example: video
+     *   action The action performed, for example: play
+     *   [key] Optional, a key for naming an arbitrary value. Examples include the video play amount - 50%, or slideshow slide number.
+     *   [value] Optional, the value. Examples include the video play amount - 50%, or slideshow slide number.
+     *   [data] Optional, other data related to the event.
+     * }
+     * @param [callback] {Function} Optional, Callback function. Called when request completed.
      * @async
      */
-    function event(category, action, key, value, callback) {
-        var config = utils.merge(utils.merge(defaultEventConfig), {
-            event: {
-                category: category,
-                action: action,
-                key: key,
-                value: value
+    function event(obj, callback) {
+        if (utils.is(obj.category) || utils.is(obj.action)) {
+            throw 'Missing category or action values';
+        }
+
+        if (!utils.is(obj.callback)) {
+            if (utils.is(callback)) {
+                callback = obj.callback;
             }
+            delete obj.callback;
+        }
+
+        var config = utils.merge(utils.merge(defaultEventConfig), {
+            event: obj
         });
         Core.track(config, callback);
     }
 
-    utils.addEvent(window, 'oTracking.event', function (e) { event(e.category, e.action, e.key, e.value); });
+    utils.addEvent(window, 'oTracking.event', function (e) { event(e, e.callback); });
 
     return event;
 

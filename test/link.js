@@ -49,15 +49,16 @@ describe('link', function () {
         sent_data = callback.getCall(0).thisValue;
 
         // Basics
-        assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "link"]);
+        assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "event", "other"]);
 
         // Type
-        assert.equal(sent_data.tag.type, "link");
+        assert.equal(sent_data.tag.type, "event");
 
         // Link
-        assert.equal(sent_data.link.link, "a/www.google.com");
-        assert.equal(sent_data.link.sourceID, "pageID");
-        assert.equal(sent_data.link.destinationID, undefined);
+        assert.equal(sent_data.event.key, "link_id");
+        assert.equal(sent_data.event.value, "a/www.google.com");
+        assert.equal(sent_data.other.sourceID, "pageID");
+        assert.equal(sent_data.other.destinationID, '');
     });
 });
 
