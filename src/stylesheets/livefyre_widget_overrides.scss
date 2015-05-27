@@ -830,6 +830,12 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 			}
 		}
 
+		&.fyre-mobile {
+			.fyre-editor .fyre-editor-container .fyre-editor-editable textarea {
+				font-size: 16px;
+			}
+		}
+
 
 		.fyre-mobile-menu {
 			border: 4px solid #d9cdbf;
