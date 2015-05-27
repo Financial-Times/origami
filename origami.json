@@ -1,14 +1,14 @@
 {
-    "description": "Module for tracking FT.",
-    "origamiType": "module",
-    "origamiVersion": 1,
-    "support": "arjun.gadhia@ft.com",
-    "supportStatus": "experimental",
-    "demos": [
-        "examples/1_init.html",
-        "examples/2_page.html",
-        "examples/3_data.html",
-        "examples/4_event.html",
-        "docs/index.html"
-    ]
+	"description": "Module for tracking FT.",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "mark.stephens@ft.com",
+	"supportStatus": "experimental",
+	"demos": [
+		"examples/1_init.html",
+		"examples/2_page.html",
+		"examples/3_data.html",
+		"examples/4_event.html",
+		"docs/index.html"
+	]
 }

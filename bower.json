@@ -1,28 +1,28 @@
 {
   "name": "o-tracking",
   "main": [
-    "main.js"
+	"main.js"
   ],
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "resources",
-    "test",
-    "tests",
-    "Gruntfile.js",
-    ".idea"
+	"**/.*",
+	"node_modules",
+	"resources",
+	"test",
+	"tests",
+	"Gruntfile.js",
+	".idea"
   ],
   "authors": [
-    "Mark Stephens <mark.stephens@ft.com>",
-    "Web Team <web.team@ft.com>"
+	"Mark Stephens <mark.stephens@ft.com>",
+	"Web Team <web.team@ft.com>"
   ],
   "description": "Origami module for FT tracking.",
   "keywords": [
-    "ft",
-    "tracking"
+	"ft",
+	"tracking"
   ],
   "private": true,
   "devDependencies": {
-    "jquery": "2.0.x"
+	"jquery": "2.0.x"
   }
 }

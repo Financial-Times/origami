@@ -6,121 +6,121 @@
  * @static
  *
  * Params:
-        // Site
-        'channel',
-        // Page
-        'url',
-        'uuid',
-        'pageSubsLevel',
-        'siteMap',
-        'title',
-        'assetType',
-        'edition',
-        'brand',
-        'theme',
-        'hurdle',
-        'error',
-        'searchQuery',
-        // User
-        'userID',
-        'session',
-        'cohort',
-        'passportID',
-        'country',
-        'region',
-        'metroArea',
-        // Marketing
-        'ftcamp',
-        'campaign',
-        'segid',
-        'segmentID',
-        // Implementation
-        'offlineLag',
-        'queueTime'
+		// Site
+		'channel',
+		// Page
+		'url',
+		'uuid',
+		'pageSubsLevel',
+		'siteMap',
+		'title',
+		'assetType',
+		'edition',
+		'brand',
+		'theme',
+		'hurdle',
+		'error',
+		'searchQuery',
+		// User
+		'userID',
+		'session',
+		'cohort',
+		'passportID',
+		'country',
+		'region',
+		'metroArea',
+		// Marketing
+		'ftcamp',
+		'campaign',
+		'segid',
+		'segmentID',
+		// Implementation
+		'offlineLag',
+		'queueTime'
  */
 
 /*global module, require, window, document */
+"use strict";
+
 module.exports = (function (window, document) {
-    "use strict";
 
-    var
-        Core = require("./core"),
-        utils = require("./utils"),
+	var
+		Core = require("./core"),
+		utils = require("./utils"),
 
-        /**
-         * Default properties for page tracking requests.
-         * @example
-         {
-         url: document.URL,
-         referrer: document.referrer,
+		/**
+		 * Default properties for page tracking requests.
+		 * @example
+		 {
+		 url: document.URL,
+		 referrer: document.referrer,
 
-         async: false // Send this tag syncronously
-         }
-         * @property defaultPageConfig
-         * @type {Object}
-         * @private
-         */
-        defaultPageConfig = {
-            tag: {
-                type: 'page'
-            },
+		 async: false // Send this tag syncronously
+		 }
+		 * @property defaultPageConfig
+		 * @type {Object}
+		 * @private
+		 */
+		defaultPageConfig = {
+			tag: {
+				type: 'page'
+			},
 
-            page: {
-                url: document.URL,
-                referrer: document.referrer
-            },
+			page: {
+				url: document.URL,
+				referrer: document.referrer
+			},
 
-            async: true // Send this tag asyncronously - as sync doesn't work in FF, as it doesn't send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
-        };
+			async: true // Send this tag asyncronously - as sync doesn't work in FF, as it doesn't send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
+		};
 
-    /**
-     * Constructs a URL in the format required by iJento, allowing different inputs.
-     * @method url
-     * @param u {String} A URL or path. e.g. http://www.ft.com/markets or /markets
-     * @return {String} The full URL in the correct format.
-     * @private
-     */
-    function url(u) {
-        if (utils.isUndefined(u)) {
-            throw new Error('URL must be specified');
-        }
+	/**
+	 * Constructs a URL in the format required by iJento, allowing different inputs.
+	 * @method url
+	 * @param u {String} A URL or path. e.g. http://www.ft.com/markets or /markets
+	 * @return {String} The full URL in the correct format.
+	 * @private
+	 */
+	function url(u) {
+		if (utils.isUndefined(u)) {
+			throw new Error('URL must be specified');
+		}
 
-        if (u.indexOf('://') === -1) {
-            if (u.substring(0, 1) !== '/') {
-                u = '/' + u;
-            }
+		if (u.indexOf('://') === -1) {
+			if (u.substring(0, 1) !== '/') {
+				u = '/' + u;
+			}
 
-            u = document.location.protocol + "//" + document.location.hostname + u;
-        }
+			u = document.location.protocol + "//" + document.location.hostname + u;
+		}
 
-        if (u.indexOf('?') === -1) {
-            u = u + window.location.search;
-        } else {
-            // Merge query string params to avoid duplicates.
-            u = u.substr(0, u.indexOf('?')) + "?" + utils.serialize(utils.merge(utils.unserialize(window.location.search.substring(1)), utils.unserialize(u.substr(u.indexOf('?') + 1))));
-        }
+		if (u.indexOf('?') === -1) {
+			u = u + window.location.search;
+		} else {
+			// Merge query string params to avoid duplicates.
+			u = u.substr(0, u.indexOf('?')) + "?" + utils.serialize(utils.merge(utils.unserialize(window.location.search.substring(1)), utils.unserialize(u.substr(u.indexOf('?') + 1))));
+		}
 
-        return u;
-    }
+		return u;
+	}
 
-    /**
-     * Make the page tracking request.
-     * @method page
-     * @param [config] {Object} Configuration object. If omitted, will use the defaults.
-     * @param [callback] {Function} Callback function. Called when request completed.
-     * @async
-     */
-    return function (config, callback) {
-        config = utils.merge(utils.merge(defaultPageConfig), config);
-        config.page.url = url(config.page.url);
+	/**
+	 * Make the page tracking request.
+	 * @method page
+	 * @param [config] {Object} Configuration object. If omitted, will use the defaults.
+	 * @param [callback] {Function} Callback function. Called when request completed.
+	 * @async
+	 */
+	return function (config, callback) {
+		config = utils.merge(utils.merge(defaultPageConfig), config);
+		config.page.url = url(config.page.url);
 
-        // New PageID for a new Page.
-        Core.setPageID();
-        Core.track(config, callback);
+		// New PageID for a new Page.
+		Core.setPageID();
+		Core.track(config, callback);
 
-        // Alert internally that a new page has been tracked - for single page apps for example.
-        utils.triggerPage();
-    };
+		// Alert internally that a new page has been tracked - for single page apps for example.
+		utils.triggerPage();
+	};
 
 }(window, document));
-
