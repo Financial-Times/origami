@@ -1,0 +1,12 @@
+{
+  "name": "next-video",
+  "private": true,
+  "devDependencies": {
+    "karma": "^0.12.33",
+    "karma-browserify": "^4.2.1",
+    "karma-chai": "^0.1.0",
+    "karma-cli": "0.0.4",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-mocha": "^0.1.10"
+  }
+}

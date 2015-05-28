@@ -3,6 +3,11 @@
     "origamiVersion": 1,
     "origamiType": "module",
     "demos": [
+        {
+            "path": "/demos/brightcove.html",
+            "expanded": true,
+            "description": "Brightcove"
+        }
     ],
     "supportStatus": "experimental",
     "support": "next.team@ft.com"

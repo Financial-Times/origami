@@ -3,8 +3,7 @@
   "description": "Video player for next",
   "license": "MIT",
   "ignore": [
-    "node_modules",
-    "bower_components"
+    "node_modules"
   ],
   "main": "main.js",
   "dependencies": {}

@@ -1,3 +1,5 @@
+/* global console */
+
 'use strict';
 
 var video = require('../../main');
