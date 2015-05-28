@@ -33,7 +33,7 @@ function eventListener(video, ev) {
 		mediaType: 'video',
 		contentId: video.id,
 		domPath: video.domPath,
-		domPathTokens: video.domTokens,
+		domPathTokens: video.domPathTokens,
 		event: ev.type,
 		progress: video.getProgress()
 	};

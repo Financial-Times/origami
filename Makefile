@@ -8,8 +8,8 @@ test:
 	obt verify
 
 demo:
-	obt demo --local --watch
+	obt demo --local --watch --runServer
 
 pre-commit:
-	obt demo --updateorigami
+	obt demo
 

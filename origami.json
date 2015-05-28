@@ -1,0 +1,9 @@
+{
+    "description": "Experimental Financial Times video component",
+    "origamiVersion": 1,
+    "origamiType": "module",
+    "demos": [
+    ],
+    "supportStatus": "experimental",
+    "support": "next.team@ft.com"
+}
