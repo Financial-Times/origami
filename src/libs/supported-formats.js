@@ -28,7 +28,9 @@ function testType(typeString) {
 
 if (testEl.canPlayType) {
 	for (var format in formats) {
-		formats[format].some(testType);
+		if (formats.hasOwnProperty(format)) {
+			formats[format].some(testType);
+		}
 	}
 }
 

@@ -1,3 +1,5 @@
+/* global fetch */
+
 'use strict';
 
 var Video = require('./video');
