@@ -1,16 +1,18 @@
 /*global require, describe, it, before, after, sinon, document */
 "use strict";
 
-var assert = require("assert"),
-	link = require("../src/javascript/link.js");
+var assert = require("assert");
 
 describe('link', function () {
 
-	var server, userID;
+	var server,
+		userID,
+		link = require("../src/javascript/link.js");
 
 	before(function () {
 		require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
 		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
+		require("../src/javascript/core/settings").delete('config');  // Empty settings.
 		require("../src/javascript/core/send").init(); // Init the sender.
 		require("../src/javascript/core").setPageID('pageID'); // Fix the click ID to stop it generating one.
 		userID = require("../src/javascript/core/user").init(); // Init the user identifier.

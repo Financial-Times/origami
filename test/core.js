@@ -1,10 +1,11 @@
 /*global require, describe, it, before, after, sinon */
 "use strict";
 
-var assert = require('assert'),
-	Core = require("../src/javascript/core.js");
+var assert = require('assert');
 
 describe('Core', function () {
+
+	var Core = require("../src/javascript/core.js");
 
 	describe('pageID', function () {
 		it('should generate a pageID', function () {
@@ -25,6 +26,7 @@ describe('Core', function () {
 			require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
 			//require("../src/javascript/core/settings").set('developer', true);
 			(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
+			require("../src/javascript/core/settings").delete('config');  // Empty settings.
 			require("../src/javascript/core/session").init(); // Session
 			require("../src/javascript/core/send").init("v1"); // Init the sender.
 

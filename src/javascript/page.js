@@ -47,6 +47,7 @@ module.exports = (function (window, document) {
 	var
 		Core = require("./core"),
 		utils = require("./utils"),
+		settings = require("./core/settings"),
 
 		/**
 		 * Default properties for page tracking requests.
@@ -112,7 +113,9 @@ module.exports = (function (window, document) {
 	 * @async
 	 */
 	return function (config, callback) {
-		config = utils.merge(utils.merge(defaultPageConfig), config);
+		config = utils.merge(utils.merge(utils.merge(defaultPageConfig), { page: { channel: settings.get('config') ? settings.get('config').channel || null : null }}), {
+			page: config
+		});
 		config.page.url = url(config.page.url);
 
 		// New PageID for a new Page.

@@ -3,17 +3,14 @@
 
 var assert = require("assert");
 
-describe('page', function () {
+describe('main', function () {
 
 	var server,
-		page = require("../src/javascript/page.js");
+		oTracking = require("../main.js");
 
 	before(function () {
-		require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
 		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
 		require("../src/javascript/core/settings").delete('config');  // Empty settings.
-		require("../src/javascript/core/send").init(); // Init the sender.
-
 		server = sinon.fakeServer.create(); // Catch AJAX requests
 	});
 
@@ -22,14 +19,17 @@ describe('page', function () {
 	});
 
 	it('should track a page', function () {
+		oTracking.init({
+			channel: 'desktop'
+		});
+
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
 		var callback = sinon.spy(),
 			sent_data;
 
-		page({
-			url: "http://www.ft.com/home/uk",
-			channel: 'mobile'
+		oTracking.page({
+			url: 'http://www.ft.com/cms/s/0/576f5f1c-0509-11e5-9627-00144feabdc0.html'
 		}, callback);
 
 		server.respond();
@@ -39,14 +39,12 @@ describe('page', function () {
 
 		// Basics
 		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "page"]);
-		assert.deepEqual(Object.keys(sent_data.page), ["url", "referrer", "channel"]);
 
 		// Type
 		assert.equal(sent_data.tag.type, "page");
 
 		// Page
-		assert.equal(sent_data.page.url, "http://www.ft.com/home/uk");
-		assert.equal(sent_data.page.channel, "mobile");
-		assert.ok(!!sent_data.page.referrer, "referrer is invalid. " + sent_data.page.referrer);
+		assert.equal(sent_data.page.url, "http://www.ft.com/cms/s/0/576f5f1c-0509-11e5-9627-00144feabdc0.html");
+		assert.equal(sent_data.page.channel, "desktop");
 	});
 });
