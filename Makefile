@@ -1,20 +1,18 @@
 PHONY: build
 
 install:
-	bower install
+	npm install origami-build-tools@beta
+	obt install --verbose
 
-build: install
-	origami-build-tools build
+build:
+	obt build
 
 test:
-	origami-build-tools verify
-	origami-build-tools build
+	obt verify
 
 watch:
-	origami-build-tools build --watch
+	obt build --watch
 
 demo:
-	origami-build-tools demo --local
+	obt demo --local
 
-run: build
-	static
