@@ -9,21 +9,29 @@ var supportedFormats = require('../libs/supported-formats');
 // get the rendition closest to the supplied width
 function getAppropriateRendition(renditions, width) {
 	var appropriateRendition;
-	renditions
-		.filter(function (rendition, index) {
-			return supportedFormats[rendition.videoCodec.toLowerCase()];
+	// order smallest to largest
+	var orderedRenditions = renditions
+		.filter(function (rendition) {
+			return supportedFormats.indexOf(rendition.videoCodec.toLowerCase()) > -1;
 		})
 		.sort(function (renditionOne, renditionTwo) {
-			return renditionTwo.frameWidth - renditionOne.frameWidth;
-		})
-		.some(function (rendition, index) {
-			if (rendition.frameWidth < width) {
-				appropriateRendition = (index === 0) ? rendition : renditions[index - 1];
-				return true;
-			}
-			return false;
+			return renditionOne.frameWidth - renditionTwo.frameWidth;
 		});
-	return appropriateRendition || renditions.pop();
+
+	// if no width supplied, get largest
+	if (!width) {
+		return orderedRenditions.pop();
+	}
+	// NOTE: rather use find...
+	orderedRenditions.some(function (rendition) {
+		if (rendition.frameWidth >= width) {
+			appropriateRendition = rendition;
+			return true;
+		}
+		return false;
+	});
+
+	return appropriateRendition || orderedRenditions.shift();
 }
 
 // PRIVATE
@@ -68,7 +76,7 @@ Brightcove.prototype.init = function () {
 			}
 		}.bind(this))
 		.then(function (data) {
-			var rendition = getAppropriateRendition(data.renditions, 710);
+			var rendition = getAppropriateRendition(data.renditions, this.opts.optimumWidth);
 			if (rendition) {
 				this.el = document.createElement('video');
 				this.el.setAttribute('controls', true);
