@@ -1,4 +1,4 @@
-/*global require, describe, it, document */
+/*global require, describe, it */
 "use strict";
 
 var assert = require('assert'),
