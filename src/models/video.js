@@ -9,7 +9,7 @@ function Video(el, opts) {
 	this.domPathTokens = getDomPathTokens(this.containerEl);
 	this.domPath = this.domPathTokens.reverse().join(' | ');
 
-	this.containerEl.setAttribute('data-n-video-js', '')
+	this.containerEl.setAttribute('data-n-video-js', '');
 }
 
 Video.prototype.init = function () {
