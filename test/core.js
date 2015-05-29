@@ -46,8 +46,8 @@ describe('Core', function () {
 			Core.setPageID('pageID');
 			Core.track({
 				tag: { type: 'page'  },
-				page: { url: "http://www.ft.com/home/uk" },
-				user: { "userID": "userID" }
+				data: { url: "http://www.ft.com/home/uk" },
+				user: { "user_id": "userID" }
 			}, callback);
 
 			server.respond();
@@ -56,7 +56,7 @@ describe('Core', function () {
 
 			sent_data = callback.getCall(0).thisValue;
 
-			assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "page"]);
+			assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
 			// Tag
 			assert.deepEqual(Object.keys(sent_data.tag), ["apiKey","version","id","counter","offset","pageID","type"]);
 			assert.equal(sent_data.tag.apiKey, "");
@@ -68,12 +68,12 @@ describe('Core', function () {
 			assert.equal(sent_data.tag.type, "page");
 
 			// User
-			assert.deepEqual(Object.keys(sent_data.user), ["sessionID","userID"]);
-			assert.equal(sent_data.user.userID, "userID");
-			assert.equal(sent_data.user.sessionID, require("../src/javascript/core/session").session());
+			assert.deepEqual(Object.keys(sent_data.user), ["spoor_session","spoor_id","user_id"]);
+			assert.equal(sent_data.user.user_id, "userID");
+			assert.equal(sent_data.user.spoor_session, require("../src/javascript/core/session").session());
 
 			// Device
-			assert.equal(sent_data.device.userAgent, "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34");
+			assert.equal(sent_data.device.user_agent, "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34");
 		});
 
 		it('should defer a tracking request', function () {
@@ -83,7 +83,7 @@ describe('Core', function () {
 
 			Core.track({
 				tag: { type: 'page'  },
-				page: { url: "http://www.google.co.uk" },
+				data: { url: "http://www.google.co.uk" },
 				user: { "userID": "userID" }
 			}, callback);
 

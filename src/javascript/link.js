@@ -27,7 +27,7 @@ module.exports = (function (window) {
 		 */
 			defaultLinkConfig = {
 			tag: { type: 'event' },
-			event: { category: 'link', action: 'click'}
+			data: { category: 'link', action: 'click'}
 		},
 
 		callback = function () {};
@@ -145,15 +145,12 @@ module.exports = (function (window) {
 	function track(element) {
 		var linkID = createLinkID(element),
 			config = utils.merge(utils.merge(defaultLinkConfig), {
-				event: {
+				data: {
 					key: 'link_id',
-					value: linkID
-				},
-
-				other: {
-					sourceID: Core.getPageID(),
+					value: linkID,
+					source_id: Core.getPageID(),
 					href: element.href,
-					destinationID: '' // TODO
+					destination_id: '' // TODO
 				}
 			});
 

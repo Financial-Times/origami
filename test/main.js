@@ -20,7 +20,9 @@ describe('main', function () {
 
 	it('should track a page', function () {
 		oTracking.init({
-			channel: 'desktop'
+			page: {
+				product: 'desktop'
+			}
 		});
 
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
@@ -38,13 +40,13 @@ describe('main', function () {
 		sent_data = callback.getCall(0).thisValue;
 
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "page"]);
+		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
 
 		// Type
 		assert.equal(sent_data.tag.type, "page");
 
 		// Page
-		assert.equal(sent_data.page.url, "http://www.ft.com/cms/s/0/576f5f1c-0509-11e5-9627-00144feabdc0.html");
-		assert.equal(sent_data.page.channel, "desktop");
+		assert.equal(sent_data.data.url, "http://www.ft.com/cms/s/0/576f5f1c-0509-11e5-9627-00144feabdc0.html");
+		assert.equal(sent_data.data.product, "desktop");
 	});
 });

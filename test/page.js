@@ -29,7 +29,7 @@ describe('page', function () {
 
 		page({
 			url: "http://www.ft.com/home/uk",
-			channel: 'mobile'
+			product: 'mobile'
 		}, callback);
 
 		server.respond();
@@ -38,15 +38,15 @@ describe('page', function () {
 		sent_data = callback.getCall(0).thisValue;
 
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "page"]);
-		assert.deepEqual(Object.keys(sent_data.page), ["url", "referrer", "channel"]);
+		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
+		assert.deepEqual(Object.keys(sent_data.data), ["url", "referrer", "product"]);
 
 		// Type
 		assert.equal(sent_data.tag.type, "page");
 
 		// Page
-		assert.equal(sent_data.page.url, "http://www.ft.com/home/uk");
-		assert.equal(sent_data.page.channel, "mobile");
-		assert.ok(!!sent_data.page.referrer, "referrer is invalid. " + sent_data.page.referrer);
+		assert.equal(sent_data.data.url, "http://www.ft.com/home/uk");
+		assert.equal(sent_data.data.product, "mobile");
+		assert.ok(!!sent_data.data.referrer, "referrer is invalid. " + sent_data.data.referrer);
 	});
 });

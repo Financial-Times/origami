@@ -4,39 +4,6 @@
  * @submodule page
  * @class Track.page
  * @static
- *
- * Params:
-		// Site
-		'channel',
-		// Page
-		'url',
-		'uuid',
-		'pageSubsLevel',
-		'siteMap',
-		'title',
-		'assetType',
-		'edition',
-		'brand',
-		'theme',
-		'hurdle',
-		'error',
-		'searchQuery',
-		// User
-		'userID',
-		'session',
-		'cohort',
-		'passportID',
-		'country',
-		'region',
-		'metroArea',
-		// Marketing
-		'ftcamp',
-		'campaign',
-		'segid',
-		'segmentID',
-		// Implementation
-		'offlineLag',
-		'queueTime'
  */
 
 /*global module, require, window, document */
@@ -67,43 +34,13 @@ module.exports = (function (window, document) {
 				type: 'page'
 			},
 
-			page: {
+			data: {
 				url: document.URL,
 				referrer: document.referrer
 			},
 
 			async: true // Send this tag asyncronously - as sync doesn't work in FF, as it doesn't send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
 		};
-
-	/**
-	 * Constructs a URL in the format required by iJento, allowing different inputs.
-	 * @method url
-	 * @param u {String} A URL or path. e.g. http://www.ft.com/markets or /markets
-	 * @return {String} The full URL in the correct format.
-	 * @private
-	 */
-	function url(u) {
-		if (utils.isUndefined(u)) {
-			throw new Error('URL must be specified');
-		}
-
-		if (u.indexOf('://') === -1) {
-			if (u.substring(0, 1) !== '/') {
-				u = '/' + u;
-			}
-
-			u = document.location.protocol + "//" + document.location.hostname + u;
-		}
-
-		if (u.indexOf('?') === -1) {
-			u = u + window.location.search;
-		} else {
-			// Merge query string params to avoid duplicates.
-			u = u.substr(0, u.indexOf('?')) + "?" + utils.serialize(utils.merge(utils.unserialize(window.location.search.substring(1)), utils.unserialize(u.substr(u.indexOf('?') + 1))));
-		}
-
-		return u;
-	}
 
 	/**
 	 * Make the page tracking request.
@@ -113,10 +50,9 @@ module.exports = (function (window, document) {
 	 * @async
 	 */
 	return function (config, callback) {
-		config = utils.merge(utils.merge(utils.merge(defaultPageConfig), { page: { channel: settings.get('config') ? settings.get('config').channel || null : null }}), {
-			page: config
+		config = utils.merge(utils.merge(defaultPageConfig), {
+			data: utils.merge(settings.get('config') ? settings.get('config').page || {}: {}, config)
 		});
-		config.page.url = url(config.page.url);
 
 		// New PageID for a new Page.
 		Core.setPageID();
