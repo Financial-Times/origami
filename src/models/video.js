@@ -4,7 +4,7 @@ var getDomPathTokens = require('../libs/get-dom-path-tokens');
 
 function Video(el, opts) {
 	this.containerEl = el;
-	this.opts = opts;
+	this.opts = opts || {};
 	this.id = el.getAttribute('data-n-video-id');
 	this.el;
 	this.domPathTokens = getDomPathTokens(this.containerEl);
