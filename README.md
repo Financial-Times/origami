@@ -106,32 +106,18 @@ Example: ```var event = new CustomEvent('oTracking.Link', DOMElement);```
 ```
 var oTracking = require('o-tracking');
 oTracking.init({
-    // Setup
-    server: FT.config.tracking.domain,
-    channel: FT.config.tracking.params.channel,
-    // User
-    userID: getValueFromCookie(/SIVISITOR=([\w\*]+);?/),
-    cohort: findSubType(getValueFromCookie(/FT_P=[A-Za-z0-9=&|]*prod=([A-Za-z0-9=|]*);?/)),
-    passportID: getValueFromCookie(/USERID=([0-9]*):/),
-    country: getValueFromCookie(/AYSC=[^;]*_14([a-zA-Z0-9%]+)/),
-    region: getValueFromCookie(/AYSC=[^;]*_17([a-zA-Z0-9%]+)/),
-    metroArea: getValueFromCookie(/AYSC=[^;]*_18([a-zA-Z0-9%]+)/)
+    server: 'http://spoor-api.ft.com',
+    page: {
+        product: 'desktop'
+    },
+    user: {
+        ...
+    }
 });
 
 oTracking.page({
-    // Page
-    //url: FT.config.tracking.params.url,
-    //referrer: document.referrer,
-    uuid: FT.config.tracking.params.uuid,
-    pageSubsLevel: FT.config.tracking.params.pageSubsLevel,
-    siteMap: FT.config.tracking.params.siteMap,
-    title: FT.config.tracking.params.title,
-    assetType: FT.config.tracking.params.assetType,
-    edition: FT.config.tracking.params.edition,
-    brand: FT.config.tracking.params.brand,
-    theme: FT.config.tracking.params.theme,
-    searchQuery: '',
-    campaign: ''
+    url: FT.config.tracking.params.url,
+    uuid: FT.config.tracking.params.uuid
 });
 
 oTracking.link.init();
@@ -151,16 +137,6 @@ Both JS and non-JS versions take the same parameters.
 * `url`: `http://www.ft.com/home/uk` - The URL of the page, defaults to document.location
 * `referrer`: `http://www.ft.com/home/uk` - The referrer, defaults to document.referrer
 * `uuid`: `` - The UUID for the page.
-* `pageSubsLevel`: `0` / `1` / `2` / `3`] - Subscription level of the page
-* `siteMap`: `Sections.Front page` / `Sections.World` - The falcon sitemap term.
-* `title`: `World business, finance, and political news from the Financial Times - FT.com` - Page title.
-* `assetType`: `front` / `story` / `blog` / `video` / `section` / `page` - Asset type of the page.
-* `edition`: `UK` / `USA` - Edition being looked at.
-* `brand`: `` - The FT brand.
-* `theme`: `` - The FT Theme
-* `hurdle`: `hx` / `h1` / `h2` - The Barrier served.
-* `error`: `4xx` / `5xx` / `5nn` - Is this an error page? What type?
-* `searchQuery`: `` Internal (meaning onsite) search query.
 
 ### Session
 * `session`: `` - Name to use to store the tracking session.
@@ -173,7 +149,7 @@ Both JS and non-JS versions take the same parameters.
             expires: (10 * 60 * 1000) // 10 minutes
         }
 ### User
-* `userID`: `` - A unique, persistent identifier for the user.  VERY OPTIONAL.
+* `userID`: `` - A unique, persistent identifier for the user.
     Value can be a string or object.
 
     Use a string to carry on a previous value - then oTracking can store it it's own way.
@@ -186,11 +162,6 @@ Both JS and non-JS versions take the same parameters.
             name: 'SIVISITOR',
             value: getValueFromCookie(/SIVISITOR=([\w\*]+);?/)
         }
-* `cohort`: `3` / `1` / `2` - The user's subscription level.
-* `passportID`: `4009049153` - The user's passport ID.
-* `country`: `GBR` - The user's country.
-* `region`: `london` - The user's region.
-* `metroArea`: `islington` - The user's area.
 
 ### Marketing
 * `ftcamp`: `` - FT Camp parameter.
@@ -212,4 +183,3 @@ The following will get you setup:
 The following grunt tasks are available:
 * `grunt version` - bump a version number in all the files that need a version number changing.
 * `grunt test` - Test the code against the test suite.
-

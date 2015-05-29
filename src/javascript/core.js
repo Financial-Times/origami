@@ -93,34 +93,29 @@ module.exports = (function () {
 			callback = function () {};
 		}
 
-		// In-case we're sending events without a page.
-		if (!defaultConfig.tag.pageID) {
-			pageID();
-		}
-
 		var request = utils.merge(utils.merge(defaultConfig), utils.merge(config, { callback: callback }));
 
 		/* Values here are kinda the mandatory ones, so we want to make sure they're possible. */
 		request = utils.merge({
-			id: requestID(),
+			id: requestID(request.id), // Keep an ID if it's been set elsewhere.
 
 			tag: {
 				counter: internalCounter()
 			},
 
 			user: {
-				sessionID: Session.session(),
-				userID: User.userID()
+				spoor_session: Session.session(),
+				spoor_id: User.userID()
 			},
 
 			device: {
-				userAgent: window.navigator.userAgent
+				user_agent: window.navigator.userAgent
 			}
 		}, request);
 
 		utils.log('Core.Track', request);
 
-		// Formatting of the request and send it.
+		// Send it.
 		Send.addAndRun(request);
 	}
 
