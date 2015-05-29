@@ -10,7 +10,9 @@ var init = function(el, opts) {
 		el = document.querySelector(el);
 	}
 	var videoPromises = [].map.call(el.querySelectorAll('*:not([data-n-video-js])[data-n-component~="n-video"]'), function (el) {
-		return videoFactory(el, opts).init();
+		return videoFactory(el, opts).init()
+			// don't fail all if a video errors
+			.catch(function (err) { });
 	});
 	return Promise.all(videoPromises);
 };
