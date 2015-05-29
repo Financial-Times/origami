@@ -1,20 +1,16 @@
 PHONY: build
 
 install:
-	bower install
-
-build: install
-	origami-build-tools build
+	npm install origami-build-tools@beta
+	obt install --verbose
 
 test:
-	origami-build-tools verify
-	origami-build-tools build
-
-watch:
-	origami-build-tools build --watch
+	obt verify
+	karma start tests/karma.conf.js
 
 demo:
-	origami-build-tools demo --local
+	obt demo --local --watch --runServer
 
-run: build
-	static
+pre-commit:
+	obt demo --updateorigami
+

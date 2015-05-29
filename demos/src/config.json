@@ -1,0 +1,10 @@
+{
+  "demos": [
+    {
+      "name": "brightcove",
+      "template": "demos/src/brightcove.html",
+      "description": "Brightcove",
+      "js": "demos/src/demo.js"
+    }
+  ]
+}
