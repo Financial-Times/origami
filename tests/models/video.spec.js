@@ -9,7 +9,7 @@ describe('Video', function () {
 
 	beforeEach(function () {
 		videoEl = document.createElement('div');
-		videoEl.setAttribute('data-next-video-id', '1234567890');
+		videoEl.setAttribute('data-n-video-id', '1234567890');
 		videoEl.setAttribute('data-trackable', 'video');
 		document.body.appendChild(videoEl);
 	});

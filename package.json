@@ -1,5 +1,5 @@
 {
-  "name": "next-video",
+  "name": "n-video",
   "private": true,
   "devDependencies": {
     "karma": "^0.12.33",

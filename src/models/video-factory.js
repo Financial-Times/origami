@@ -4,7 +4,7 @@ var Video = require('./video');
 var Brightcove = require('./brightcove');
 
 module.exports = function (el, opts) {
-	var source = el.getAttribute('data-next-video-source').toLowerCase();
+	var source = el.getAttribute('data-n-video-source').toLowerCase();
 
 	if (source === 'brightcove') {
 		return new Brightcove(el, opts);

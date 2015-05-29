@@ -2,8 +2,8 @@
 
 'use strict';
 
-var video = require('../../main');
-video.init();
+var nVideo = require('../../main');
+nVideo.init();
 
 document.body.addEventListener('beacon:media', function (ev) {
 	console.log(ev.detail);

@@ -4,26 +4,26 @@ Creates a video player and attaches analytics
 
 ## Installation
 
-    $ bower install next-video --save
+    $ bower install n-video --save
 
 ## Usage
 
 Create an element of the format e.g.
 
-    <div data-next-component="next-video"
-        data-next-video-source="Brightcove"
-        data-next-video-id="4165329773001"></div>
+    <div data-n-component="n-video"
+        data-n-video-source="Brightcove"
+        data-n-video-id="4165329773001"></div>
 
 Where
 
- * `data-next-video-source['brightcove']` Source of the video (currently only accepts `Brightcove`)
- * `data-next-video-id` Source's ID of the video
+ * `data-n-video-source['brightcove']` Source of the video (currently only accepts `Brightcove`)
+ * `data-n-video-id` Source's ID of the video
 
 In JS
 
-    var nextVideo = require('next-video');
-    nextVideo.init();
+    var nVideo = require('n-video');
+    nVideo.init();
 
 ## TODO
 
- * Add support for YouTube/Vimeo
+ * Add support for Vimeo
