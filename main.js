@@ -44,7 +44,7 @@ module.exports = (function () {
 		 * @property version
 		 * @type {String}
 		 */
-		version = "0.0.20";
+		version = "0.0.21";
 
 	/**
 	 * Turn on/off developer mode. (Can also be activated on init.)
