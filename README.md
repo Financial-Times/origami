@@ -2,7 +2,7 @@
 
 Origami module for the FT tracking.
 
-![ScreenShot](https://rawgit.com/Financial-Times/o-tracking/master/docs/tracking_forwarder.svg)
+![ScreenShot](https://rawgit.com/Financial-Times/o-tracking/master/resources/images/tracking_forwarder.svg)
 
 **NOTE: This module is not yet functional. Please continue to use legacy tracking code (iJento in most cases)**
 
@@ -23,26 +23,9 @@ For example:
 - Does the thing you want to track happen many times on a page (or could it) - such as moving to the next slide of a slideshow - use an `event`.
 - Is it describing the page or the user, include it in the `init` or `page` function.
 
+# Including in a product
 
-
-
-# Developers
-
-## Installation
-
-Add this to your dependencies in bower.json:
-```
-"dependencies": {
-    "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.20 < 1"
-}
-```
-
-It's strongly advised to specify at least the major and minor version as a tag.
-
-
-## Including in a product
-
-### Template
+## Template
 **The template also relies on a Cut the Mustard check which MUST be adhered to if you are using both JS and non-JS versions.**
 **Please avoid sending duplicate requests per page.**
 
@@ -50,7 +33,7 @@ It's strongly advised to specify at least the major and minor version as a tag.
 * o-tracking.domain - the domain of the tracking server
 * o-tracking.queryString - the parameters and values below compiled into a query string format.
 
-### JavaScript
+## JavaScript
 ```
 var oTracking = require('o-tracking');
 ```
