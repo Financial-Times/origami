@@ -1,55 +1,122 @@
 /*global require, describe, it, before, after, sinon */
+"use strict";
 
 var assert = require("assert"),
-
-    track_event = require("../src/javascript/event.js");
+	track_event = require("../src/javascript/event.js");
 
 describe('event', function () {
-    "use strict";
 
-    var server, userID;
+	var server, userID;
 
-    before(function () {
-        require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
-        (new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
-        require("../src/javascript/core/send").init(); // Init the sender.
-        //require("../src/javascript/core").setRootID('rootID'); // Fix the click ID to stop it generating one.
-        userID = require("../src/javascript/core/user").init(); // Init the user identifier.
+	before(function () {
+		require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
+		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
+		require("../src/javascript/core/send").init(); // Init the sender.
+		//require("../src/javascript/core").setRootID('rootID'); // Fix the click ID to stop it generating one.
+		userID = require("../src/javascript/core/user").init(); // Init the user identifier.
 
-        server = sinon.fakeServer.create(); // Catch AJAX requests
-    });
+		server = sinon.fakeServer.create(); // Catch AJAX requests
+	});
 
-    after(function () {
-        server.restore();
-    });
+	after(function () {
+		server.restore();
+	});
 
-    it('should track an event', function () {
-        server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+	it('should track an event', function () {
+		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
-        var callback = sinon.spy(),
-            sent_data;
+		var callback = sinon.spy(),
+			sent_data;
 
-        track_event('slideshow', 'slide_viewed', 'slide_number', '5', callback);
+		track_event({
+			category: 'slideshow',
+			action: 'slide_viewed',
+			key: 'slide_number',
+			value: '5'
+		}, callback);
 
-        server.respond();
+		server.respond();
 
-        assert.ok(callback.called, 'Callback not called.');
+		assert.ok(callback.called, 'Callback not called.');
 
-        sent_data = callback.getCall(0).thisValue;
+		sent_data = callback.getCall(0).thisValue;
 
-        // Basics
-        assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "event"]);
+		// Basics
+		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "event"]);
 
-        // Type
-        assert.equal(sent_data.tag.type, "event");
+		// Type
+		assert.equal(sent_data.tag.type, "event");
 
-        // Event
-        assert.equal(sent_data.event.category, "slideshow");
-        assert.equal(sent_data.event.action, "slide_viewed");
-        assert.equal(sent_data.event.key, "slide_number");
-        assert.equal(sent_data.event.value, "5");
-    });
+		// Event
+		assert.equal(sent_data.event.category, "slideshow");
+		assert.equal(sent_data.event.action, "slide_viewed");
+		assert.equal(sent_data.event.key, "slide_number");
+		assert.equal(sent_data.event.value, "5");
+	});
 
+	/* TODO PhantomJS doesn't like CustomEvent
+	it('should listen to a dom event', function () {
+		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+
+		var callback = sinon.spy(),
+			sent_data;
+
+		var event = new CustomEvent('oTracking.event', { category: 'video', action: 'play', key: 'id', value: '512346789', callback: callback });
+		window.dispatchEvent(event);
+
+		server.respond();
+
+		assert.ok(callback.called, 'Callback not called.');
+
+		console.log(callback.getCall(0));
+
+		sent_data = callback.getCall(0).thisValue;
+
+		console.log(sent_data);
+	});
+	*/
+
+	it('should track a child/sub event', function () {
+		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+
+		var callback = sinon.spy(),
+			sent_data,
+			parent_id;
+
+		// parent request
+		track_event({
+			category: 'video',
+			action: 'play',
+			key: 'id',
+			value: '12345678'
+		}, callback);
+		server.respond();
+		assert.ok(callback.called, 'Callback not called.');
+
+		assert.equal(callback.getCall(0).thisValue.id, callback.getCall(0).thisValue.tag.id);
+
+		parent_id = callback.getCall(0).thisValue.id;
+
+		// child request
+		track_event({
+			parent_id: parent_id,
+			category: 'video',
+			action: 'seek',
+			key: 'pos',
+			value: '10',
+			callback: callback
+		});
+		server.respond();
+		assert.ok(callback.calledTwice, 'Callback not called.');
+
+		sent_data = callback.getCall(1).thisValue;
+
+		// Event
+		assert.equal(sent_data.event.parent_id, parent_id);
+		assert.equal(sent_data.event.category, "video");
+		assert.equal(sent_data.event.action, "seek");
+		assert.equal(sent_data.event.key, "pos");
+		assert.equal(sent_data.event.value, "10");
+	});
 
 });
-

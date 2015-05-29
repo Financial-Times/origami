@@ -1,8 +1,6 @@
 {
   "name": "o-tracking",
-  "main": [
-    "main.js"
-  ],
+  "main": ["main.js"],
   "ignore": [
     "node_modules",
     "resources",
