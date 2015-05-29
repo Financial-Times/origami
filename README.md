@@ -2,7 +2,7 @@
 
 Origami module for the FT tracking.
 
-![ScreenShot](https://rawgit.com/Financial-Times/o-tracking/master/docs/tracking_forwarder.svg)
+![ScreenShot](https://rawgit.com/Financial-Times/o-tracking/master/resources/images/tracking_forwarder.svg)
 
 **NOTE: This module is not yet functional. Please continue to use legacy tracking code (iJento in most cases)**
 
@@ -22,9 +22,6 @@ Therefore, when you're thinking about when to use the below functions - and whic
 For example:
 - Does the thing you want to track happen many times on a page (or could it) - such as moving to the next slide of a slideshow - use an `event`.
 - Is it describing the page or the user, include it in the `init` or `page` function.
-
-
-
 
 # Developers
 
