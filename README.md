@@ -22,7 +22,14 @@ Where
 In JS
 
     var nVideo = require('n-video');
-    nVideo.init();
+    var opts = {
+        optimumWidth: 710
+    };
+    nVideo.init(opts);
+
+Where `opts` is an optional object with properties
+
+ * `optimumWidth` The optimum width of the video, used when there are multiple video renditions available to decide which to display (the smallest one that's at least as large as this width, if it exists)
 
 ## TODO
 
