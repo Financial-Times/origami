@@ -5,17 +5,15 @@ var getDomPathTokens = require('../libs/get-dom-path-tokens');
 function Video(el, opts) {
 	this.containerEl = el;
 	this.id = el.getAttribute('data-n-video-id');
-	this.videoEl;
+	this.el;
 	this.domPathTokens = getDomPathTokens(this.containerEl);
 	this.domPath = this.domPathTokens.reverse().join(' | ');
+
+	this.containerEl.setAttribute('data-n-video-js', '')
 }
 
 Video.prototype.init = function () {
 	return Promise.resolve(this);
-};
-
-Video.prototype.getProgress = function () {
-	return parseInt(100 * this.el.currentTime / this.el.duration, 10);
 };
 
 module.exports = Video;

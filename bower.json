@@ -3,8 +3,12 @@
   "description": "Video player for next",
   "license": "MIT",
   "ignore": [
+    "bower_components",
     "node_modules"
   ],
   "main": "main.js",
-  "dependencies": {}
+  "dependencies": {
+    "isomorphic-fetch": "~2.1.0",
+    "es6-promise": "~2.1.0"
+  }
 }

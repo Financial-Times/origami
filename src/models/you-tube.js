@@ -30,6 +30,7 @@ YouTube.prototype.init = function () {
 		}
 	}
 	this.containerEl.appendChild(this.el);
+	return Promise.resolve(this);
 };
 
 module.exports = YouTube;

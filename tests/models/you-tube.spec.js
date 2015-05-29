@@ -5,16 +5,16 @@ var YouTube = require('../../src/models/you-tube');
 
 describe('YouTube', function () {
 
-	var videoEl;
+	var containerEl;
 
 	beforeEach(function () {
-		videoEl = document.createElement('div');
-		videoEl.setAttribute('data-n-video-id', '1234567890');
-		document.body.appendChild(videoEl);
+		containerEl = document.createElement('div');
+		containerEl.setAttribute('data-n-video-id', '1234567890');
+		document.body.appendChild(containerEl);
 	});
 
 	afterEach(function () {
-		document.body.removeChild(videoEl);
+		document.body.removeChild(containerEl);
 	});
 
 	it('should exist', function () {
@@ -22,8 +22,25 @@ describe('YouTube', function () {
 	});
 
 	it('should be able to instantiate', function () {
-		var video = new YouTube(videoEl);
-		video.should.exist;
+		var youTube = new YouTube(containerEl);
+		youTube.should.exist;
+	});
+
+	it('should return a Promise on `init`', function () {
+		var youTube = new YouTube(containerEl);
+		youTube.init().should.be.an.instanceOf(Promise);
+	});
+
+	it('should return the Brightcove instance on `init`', function () {
+		var youTube = new YouTube(containerEl);
+		youTube.init().should.eventually.equal(youTube);
+	});
+
+	it('should create an iframe on `init`', function () {
+		var youTube = new YouTube(containerEl);
+		youTube.init();
+		var iframeEl = containerEl.querySelector('iframe');
+		iframeEl.getAttribute('src').should.equal('https://youtube.com/embed/1234567890');
 	});
 
 });

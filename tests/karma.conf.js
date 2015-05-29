@@ -12,7 +12,7 @@ module.exports = function(config) {
 
 		// frameworks to use
 		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-		frameworks: ['browserify', 'mocha', 'chai'],
+		frameworks: ['browserify', 'mocha', 'sinon', 'chai-as-promised', 'chai'],
 
 
 		// list of files / patterns to load in the browser
@@ -32,6 +32,9 @@ module.exports = function(config) {
 			'**/*.spec.js': [ 'browserify' ]
 		},
 
+		browserify: {
+			transform: [ 'debowerify' ]
+		},
 
 		// test results reporter to use
 		// possible values: 'dots', 'progress'
@@ -53,7 +56,7 @@ module.exports = function(config) {
 
 
 		// enable / disable watching file and executing tests whenever any file changes
-		autoWatch: false,
+		autoWatch: true,
 
 
 		// start these browsers
@@ -63,6 +66,6 @@ module.exports = function(config) {
 
 		// Continuous Integration mode
 		// if true, Karma captures browsers, runs the tests and exits
-		singleRun: true
+		singleRun: false
 	});
 };

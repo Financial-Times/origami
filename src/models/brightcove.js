@@ -1,7 +1,8 @@
 /* global fetch */
-
 'use strict';
 
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 var Video = require('./video');
 var supportedFormats = require('../libs/supported-formats');
 
@@ -60,8 +61,12 @@ Brightcove.prototype = Object.create(Video.prototype, {
 Brightcove.prototype.init = function () {
 	return fetch('//next-brightcove-proxy.ft.com/' + this.id)
 		.then(function (response) {
-			return response.json();
-		})
+			if (response.ok) {
+				return response.json();
+			} else {
+				throw Error('Brightcove responded with a ' + response.status + ' (' + response.statusText + ') for id ' + this.id);
+			}
+		}.bind(this))
 		.then(function (data) {
 			var rendition = getAppropriateRendition(data.renditions, 710);
 			if (rendition) {
@@ -74,6 +79,10 @@ Brightcove.prototype.init = function () {
 			}
 			return this;
 		}.bind(this));
+};
+
+Video.prototype.getProgress = function () {
+	return this.el.duration ? parseInt(100 * this.el.currentTime / this.el.duration, 10) : 0;
 };
 
 module.exports = Brightcove;

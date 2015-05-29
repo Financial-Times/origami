@@ -5,17 +5,17 @@ var Video = require('../../src/models/video');
 
 describe('Video', function () {
 
-	var videoEl;
+	var containerEl;
 
 	beforeEach(function () {
-		videoEl = document.createElement('div');
-		videoEl.setAttribute('data-n-video-id', '1234567890');
-		videoEl.setAttribute('data-trackable', 'video');
-		document.body.appendChild(videoEl);
+		containerEl = document.createElement('div');
+		containerEl.setAttribute('data-n-video-id', '1234567890');
+		containerEl.setAttribute('data-trackable', 'video');
+		document.body.appendChild(containerEl);
 	});
 
 	afterEach(function () {
-		document.body.removeChild(videoEl);
+		document.body.removeChild(containerEl);
 	});
 
 	it('should exist', function () {
@@ -23,10 +23,20 @@ describe('Video', function () {
 	});
 
 	it('should be able to instantiate', function () {
-		var video = new Video(videoEl);
+		var video = new Video(containerEl);
 		video.should.exist;
 		video.domPathTokens.should.eql(['video']);
 		video.domPath.should.equal('video');
+	});
+
+	it('should an a `data-n-video-js` attribtue', function () {
+		new Video(containerEl);
+		containerEl.getAttribute('data-n-video-js').should.exists;
+	});
+
+	it('should return a Promise on init', function () {
+		var video = new Video(containerEl);
+		video.init().should.be.an.instanceOf(Promise);
 	});
 
 });
