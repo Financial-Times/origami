@@ -19,7 +19,7 @@ function Logger(logSize, logLevel) {
 		this._consoleLog = noop;
 	}
 
-	var out = console || { log: noop, warn: noop, error: noop };
+	var out = console || window.console || { log: noop, warn: noop, error: noop };
 	this.out = out;
 }
 
