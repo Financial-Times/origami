@@ -138,6 +138,24 @@
          "videoCodec":"H264",
          "videoContainer":"MP4",
          "videoDuration":298934
+      },
+      {
+         "audioOnly":false,
+         "controllerType":"DEFAULT",
+         "displayName":"A hated rally.mp4",
+         "encodingRate":108527,
+         "frameHeight":224,
+         "frameWidth":400,
+         "id":4085577901001,
+         "referenceId":null,
+         "remoteStreamName":null,
+         "remoteUrl":null,
+         "size":4175690,
+         "uploadTimestampMillis":1425114511978,
+         "url":"http://brightcove.vo.llnwd.net/v1/uds/pd/47628783001/201502/3842/47628783001_4085577922001_A-hated-rally.mp4",
+         "videoCodec":"WEBM",
+         "videoContainer":"MP4",
+         "videoDuration":298934
       }
    ],
    "geoFiltered":false,
