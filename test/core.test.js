@@ -41,7 +41,8 @@ describe('Core', function () {
 			server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
 			var callback = sinon.spy(),
-				sent_data;
+				sent_data,
+				ua = window.navigator.userAgent;
 
 			Core.setPageID('pageID');
 			Core.track({
@@ -73,7 +74,7 @@ describe('Core', function () {
 			assert.equal(sent_data.user.spoor_session, require("../src/javascript/core/session").session());
 
 			// Device
-			assert.equal(sent_data.device.user_agent, "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34");
+			assert.equal(sent_data.device.user_agent, ua);
 		});
 
 		it('should defer a tracking request', function () {

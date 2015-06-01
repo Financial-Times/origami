@@ -40,7 +40,7 @@ module.exports = (function (window) {
 	 */
 	function log() {
 		if (settings.get('developer') && window.console) {
-			window.console.log.apply(null, arguments);
+			window.console.log(arguments);
 		}
 	}
 

@@ -2,7 +2,7 @@
 
 Origami module for the FT tracking.
 
-![ScreenShot](https://rawgit.com/Financial-Times/o-tracking/master/resources/images/tracking_forwarder.svg)
+![ScreenShot](https://rawgit.com/Financial-Times/o-tracking/master/resources/images/ngda-system-design.svg)
 
 **NOTE: This module is not yet functional. Please continue to use legacy tracking code (iJento in most cases)**
 
