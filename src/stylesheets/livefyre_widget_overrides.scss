@@ -303,6 +303,16 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 			margin: 0 0 10px;
 			padding-top: 0;
 			clear: both;
+			display: block;
+
+			&:after {
+				/* clearfix */
+				visibility: hidden;
+				display: block;
+				clear: both;
+				height: 0;
+				content: "";
+			}
 		}
 
 		.fyre-comment {
