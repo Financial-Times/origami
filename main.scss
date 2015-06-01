@@ -92,18 +92,10 @@
 
 	.#{$classname}--full-width {
 		@include oOverlayFullscreen($fill: 'width');
-
-		.#{$classname}__content {
-			@include oOverlayFullscreenContent();
-		}
 	}
 
 	.#{$classname}--full-height {
 		@include oOverlayFullscreen($fill: 'height');
-
-		.#{$classname}__content {
-			@include oOverlayFullscreenContent();
-		}
 	}
 }
 
