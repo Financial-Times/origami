@@ -1,5 +1,4 @@
 /* global console */
-
 'use strict';
 
 var nVideo = require('../../main');
