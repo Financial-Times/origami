@@ -103,10 +103,10 @@ module.exports = (function () {
 				counter: internalCounter()
 			},
 
-			user: {
+			user: utils.merge({
 				spoor_session: Session.session(),
 				spoor_id: User.userID()
-			},
+			}, settings.get('config') ? settings.get('config').user || {}: {}),
 
 			device: {
 				user_agent: window.navigator.userAgent
