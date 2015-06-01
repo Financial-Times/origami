@@ -11,7 +11,7 @@ var init = function(opts) {
 		if (defaultOpts.hasOwnProperty(defaultOpt) && !options.hasOwnProperty(defaultOpt)) {
 			options[defaultOpt] = defaultOpts[defaultOpt];
 		}
- 	}
+	}
 	var context = options.context instanceof HTMLElement ? options.context : document.querySelector(opts.context);
 	var videoPromises = [].map.call(context.querySelectorAll('*:not([data-n-video-js])[data-n-component~="n-video"]'), function (videoEl) {
 		return videoFactory(videoEl, options).init()
