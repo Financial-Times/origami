@@ -55,7 +55,7 @@ Brightcove.prototype.init = function () {
 				this.el.setAttribute('poster', data.videoStillURL);
 				this.el.setAttribute('src', rendition.url);
 				this.containerEl.appendChild(this.el);
-				addEvents(this, ['play', 'pause', 'events']);
+				addEvents(this, ['play', 'pause', 'ended']);
 			}
 			return this;
 		}.bind(this));
