@@ -3,7 +3,7 @@ sudo: false
 node_js:
   - "0.12"
 before_install:
-  - npm install -g obt@beta
+  - npm install -g origami-build-tools@beta
   - obt install
 script:
   - obt test
