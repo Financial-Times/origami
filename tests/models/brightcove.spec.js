@@ -52,7 +52,7 @@ describe('Brightcove', function () {
 					'https://bcsecure01-a.akamaihd.net/13/47628783001/201502/2470/47628783001_4085962850001_MAS-VIDEO-AuthersNote-stock-market.jpg?pubId=47628783001'
 				);
 				videoEl.getAttribute('src').should.equal(
-					'http://brightcove.vo.llnwd.net/v1/uds/pd/47628783001/201502/3842/47628783001_4085577901001_A-hated-rally.mp4'
+					'http://brightcove.vo.llnwd.net/v1/uds/pd/47628783001/201502/3842/47628783001_4085577922001_A-hated-rally.mp4'
 				);
 			});
 	});

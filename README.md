@@ -11,7 +11,7 @@ Creates a video player and attaches analytics
 Create an element of the format e.g.
 
     <div data-n-component="n-video"
-        data-n-video-source="Brightcove"
+        data-n-video-source="brightcove"
         data-n-video-id="4165329773001"></div>
 
 Where
@@ -22,8 +22,33 @@ Where
 In JS
 
     var nVideo = require('n-video');
-    nVideo.init();
+    var opts = {
+        optimumWidth: 710
+    };
+    nVideo.init(opts);
+
+Where `opts` is an optional object with properties
+
+ * `optimumWidth` The optimum width of the video, used when there are multiple video renditions available to decide which to display (the smallest one that's at least as large as this width, if it exists)
+
+## Development
+
+    $ npm install origami-build-tools
+    $ make install
+    $ make demo
+
+And then visit [http://localhost:8080/demos/local/brightcove.html]()
+
+Before committing, run
+
+    $ make pre-commit
+
+## Testing
+
+    $ make test
+
+(Requires Firefox)
 
 ## TODO
 
- * Add support for Vimeo
+ * Add support for Vimeo(?)

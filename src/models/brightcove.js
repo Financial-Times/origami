@@ -4,27 +4,7 @@
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 var Video = require('./video');
-var supportedFormats = require('../libs/supported-formats');
-
-// get the rendition closest to the supplied width
-function getAppropriateRendition(renditions, width) {
-	var appropriateRendition;
-	renditions
-		.filter(function (rendition, index) {
-			return supportedFormats[rendition.videoCodec.toLowerCase()];
-		})
-		.sort(function (renditionOne, renditionTwo) {
-			return renditionTwo.frameWidth - renditionOne.frameWidth;
-		})
-		.some(function (rendition, index) {
-			if (rendition.frameWidth < width) {
-				appropriateRendition = (index === 0) ? rendition : renditions[index - 1];
-				return true;
-			}
-			return false;
-		});
-	return appropriateRendition || renditions.pop();
-}
+var getAppropriateRendition = require('../libs/get-appropriate-rendition');
 
 // PRIVATE
 function eventListener(video, ev) {
@@ -68,7 +48,7 @@ Brightcove.prototype.init = function () {
 			}
 		}.bind(this))
 		.then(function (data) {
-			var rendition = getAppropriateRendition(data.renditions, 710);
+			var rendition = getAppropriateRendition(data.renditions, { width: this.opts.optimumWidth });
 			if (rendition) {
 				this.el = document.createElement('video');
 				this.el.setAttribute('controls', true);

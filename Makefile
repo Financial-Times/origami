@@ -1,7 +1,6 @@
 PHONY: build
 
 install:
-	npm install origami-build-tools@beta
 	obt install --verbose
 
 test:
