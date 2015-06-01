@@ -48,7 +48,7 @@ Brightcove.prototype.init = function () {
 			}
 		}.bind(this))
 		.then(function (data) {
-			var rendition = getAppropriateRendition(data.renditions, this.opts.optimumWidth);
+			var rendition = getAppropriateRendition(data.renditions, { width: this.opts.optimumWidth });
 			if (rendition) {
 				this.el = document.createElement('video');
 				this.el.setAttribute('controls', true);
