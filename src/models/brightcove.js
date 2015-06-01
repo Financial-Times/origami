@@ -4,35 +4,7 @@
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 var Video = require('./video');
-var supportedFormats = require('../libs/supported-formats');
-
-// get the rendition closest to the supplied width
-function getAppropriateRendition(renditions, width) {
-	var appropriateRendition;
-	// order smallest to largest
-	var orderedRenditions = renditions
-		.filter(function (rendition) {
-			return supportedFormats.indexOf(rendition.videoCodec.toLowerCase()) > -1;
-		})
-		.sort(function (renditionOne, renditionTwo) {
-			return renditionOne.frameWidth - renditionTwo.frameWidth;
-		});
-
-	// if no width supplied, get largest
-	if (!width) {
-		return orderedRenditions.pop();
-	}
-	// NOTE: rather use find...
-	orderedRenditions.some(function (rendition) {
-		if (rendition.frameWidth >= width) {
-			appropriateRendition = rendition;
-			return true;
-		}
-		return false;
-	});
-
-	return appropriateRendition || orderedRenditions.shift();
-}
+var getAppropriateRendition = require('../libs/get-appropriate-rendition');
 
 // PRIVATE
 function eventListener(video, ev) {
