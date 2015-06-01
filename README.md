@@ -45,6 +45,19 @@ installed on initialisation. *Note* uncaught errors will not be reported
 automatically if they occur _before_ initialisation, although any errors reported using the
 `o-errors` API _will_ be buffered and reported once initialised.
 
+### Reporting errors
+
+Report errors using the [`oErrors.report`](http://codedocs.webservices.ft.com/v1/jsdoc/o-errors/Errors.html#report) method.
+
+```JS
+var oErrors = require('o-errors');
+
+oErrors.report(new Error("My error"));
+```
+
+If the module has not been initialised, these errors are buffered and sent
+once initialised.  Following initialisation uncaught errors are automatically recorded.
+
 ### Configuration
 
 Configure `o-errors` using the `oErrors.init` method, or using a `<script>`
