@@ -22,6 +22,9 @@ describe('main', function () {
 		oTracking.init({
 			page: {
 				product: 'desktop'
+			},
+			user: {
+				user_id: '023ur9jfokwenvcklwnfiwhfoi324'
 			}
 		});
 
@@ -44,6 +47,9 @@ describe('main', function () {
 
 		// Type
 		assert.equal(sent_data.tag.type, "page");
+
+		// User
+		assert.equal(sent_data.user.user_id, '023ur9jfokwenvcklwnfiwhfoi324');
 
 		// Page
 		assert.equal(sent_data.data.url, "http://www.ft.com/cms/s/0/576f5f1c-0509-11e5-9627-00144feabdc0.html");
