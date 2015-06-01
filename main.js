@@ -2,7 +2,7 @@
 
 var videoFactory = require('./src/models/video-factory');
 
-var init = function(opts) {
+function init (opts) {
 	var options = opts || {};
 	var defaultOpts = {
 		context: document.body
@@ -19,7 +19,7 @@ var init = function(opts) {
 			.catch(function (err) { });
 	});
 	return Promise.all(videoPromises);
-};
+}
 
 module.exports = {
 	init: init
