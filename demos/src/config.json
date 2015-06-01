@@ -1,10 +1,19 @@
 {
+  "options": {
+    "sass": "demos/src/main.scss"
+  },
   "demos": [
     {
       "name": "brightcove",
       "template": "demos/src/brightcove.html",
       "description": "Brightcove",
-      "js": "demos/src/demo.js"
+      "js": "demos/src/brightcove.js"
+    },
+    {
+      "name": "placeholder",
+      "template": "demos/src/brightcove.html",
+      "description": "Placeholder",
+      "js": "demos/src/placeholder.js"
     }
   ]
 }
