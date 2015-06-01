@@ -1,9 +1,14 @@
 /* jshint devel: true */
 
-"use strict";
+'use strict';
+var debug;
 
 function broadcast(eventType, data, target) {
 	target = target || document.body;
+
+	if (debug) {
+		console.log('o-viewport', eventType, data);
+	}
 
 	target.dispatchEvent(new CustomEvent('oViewport.' + eventType, {
 		detail: data,
@@ -11,33 +16,35 @@ function broadcast(eventType, data, target) {
 	}));
 }
 
+function getHeight() {
+	return Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+}
+
+function getWidth() {
+	return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+}
+
 function getSize() {
 	return {
-		height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
-		width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+		height: getHeight(),
+		width: getWidth()
 	};
 }
-
-function getViewportSize() {
-	var documentElement = document.documentElement || document.body;
-	var winWidth = window.innerWidth || Infinity;
-	var winHeight = window.innerHeight || Infinity;
-	return {
-		width: Math.min(documentElement.clientWidth, winWidth),
-		height: Math.min(documentElement.clientHeight, winHeight)
-	};
-}
-
 
 function getScrollPosition() {
-	// adapted from https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY
-	var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+	var de = document.documentElement;
+	var db = document.body;
 
-	var ieX = isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft;
-	var ieY = isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
+	// adapted from https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY
+	var isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
+
+	var ieX = isCSS1Compat ? de.scrollLeft : db.scrollLeft;
+	var ieY = isCSS1Compat ? de.scrollTop : db.scrollTop;
 	return {
-		x: window.pageXOffset || window.scrollX || ieX,
-		y: window.pageYOffset || window.scrollY || ieY
+		height: db.scrollHeight,
+		width: db.scrollWidth,
+		left: window.pageXOffset || window.scrollX || ieX,
+		top: window.pageYOffset || window.scrollY || ieY
 	};
 }
 
@@ -50,24 +57,25 @@ function getOrientation() {
 	} else if (window.matchMedia) {
 		return window.matchMedia('(orientation: portrait)').matches ? 'portrait' : 'landscape';
 	} else {
-		return window.innerHeight >= window.innerWidth ? 'portrait' : 'landscape';
+		return getHeight() >= getWidth() ? 'portrait' : 'landscape';
 	}
 }
 
 function detectVisiblityAPI() {
-	var hiddenName, eventType;
-	if (typeof document.hidden !== "undefined") {
-		hiddenName = "hidden";
-		eventType = "visibilitychange";
-	} else if (typeof document.mozHidden !== "undefined") {
-		hiddenName = "mozHidden";
-		eventType = "mozvisibilitychange";
-	} else if (typeof document.msHidden !== "undefined") {
-		hiddenName = "msHidden";
-		eventType = "msvisibilitychange";
-	} else if (typeof document.webkitHidden !== "undefined") {
-		hiddenName = "webkitHidden";
-		eventType = "webkitvisibilitychange";
+	var hiddenName;
+	var eventType;
+	if (typeof document.hidden !== 'undefined') {
+		hiddenName = 'hidden';
+		eventType = 'visibilitychange';
+	} else if (typeof document.mozHidden !== 'undefined') {
+		hiddenName = 'mozHidden';
+		eventType = 'mozvisibilitychange';
+	} else if (typeof document.msHidden !== 'undefined') {
+		hiddenName = 'msHidden';
+		eventType = 'msvisibilitychange';
+	} else if (typeof document.webkitHidden !== 'undefined') {
+		hiddenName = 'webkitHidden';
+		eventType = 'webkitvisibilitychange';
 	}
 
 	return {
@@ -82,9 +90,11 @@ function getVisibility() {
 }
 
 module.exports = {
+	debug: function() {
+		debug = true;
+	},
 	broadcast: broadcast,
 	getSize: getSize,
-	getViewportSize: getViewportSize,
 	getScrollPosition: getScrollPosition,
 	getVisibility: getVisibility,
 	getOrientation: getOrientation,

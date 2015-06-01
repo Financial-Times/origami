@@ -75,7 +75,7 @@ function listenToVisibility() {
 	var eventType = utils.detectVisiblityAPI().eventType;
 	var handler = debounce(function(ev) {
 		utils.broadcast('visibility', {
-			visible: utils.getVisibility(),
+			hidden: utils.getVisibility(),
 			originalEvent: ev
 		});
 	}, intervals.visibility);
@@ -93,15 +93,16 @@ function listenToScroll() {
 	if (listeners.scroll) {
 		return;
 	}
+
 	var eventType = 'scroll';
 	var handler = throttle(function(ev) {
-		var scroll = utils.getScrollPosition();
+		var scrollPos = utils.getScrollPosition();
 		utils.broadcast('scroll', {
 			viewport: utils.getSize(),
-			scrollHeight: document.body.scrollHeight,
-			scrollLeft: scroll.y,
-			scrollTop: scroll.x,
-			scrollWidth: document.body.scrollWidth,
+			scrollHeight: scrollPos.height,
+			scrollLeft: scrollPos.left,
+			scrollTop: scrollPos.top,
+			scrollWidth: scrollPos.width,
 			originalEvent: ev
 		});
 	}, intervals.scroll);
@@ -113,48 +114,42 @@ function listenToScroll() {
 	};
 }
 
-
 function listenTo(eventType) {
-	if (eventType === 'resize') {
+	if (eventType === 'resize' || eventType === 'all') {
 		listenToResize();
-	} else if (eventType === 'scroll') {
+	}
+
+	if (eventType === 'scroll' || eventType === 'all') {
 		listenToScroll();
-	} else if (eventType === 'orientation') {
+	}
+
+	if (eventType === 'orientation' || eventType === 'all') {
 		listenToOrientation();
-	} else if (eventType === 'visibility') {
+	}
+
+	if (eventType === 'visibility' || eventType === 'all') {
 		listenToVisibility();
 	}
 }
 
-function listenToAll() {
-	listenToResize();
-	listenToOrientation();
-	listenToVisibility();
-	listenToScroll();
-}
-
 function stopListeningTo(eventType) {
-	if (listeners[eventType]){
+	if (eventType === 'all') {
+		Object.keys(listeners).forEach(stopListeningTo);
+	} else if (listeners[eventType]) {
 		window.removeEventListener(listeners[eventType].eventType, listeners[eventType].handler);
 		delete listeners[eventType];
 	}
 }
 
-function stopListeningAll(eventType) {
-	Object.keys(listeners).forEach(stopListeningTo);
-}
-
 module.exports = {
 	debug: function() {
 		debug = true;
+		utils.debug();
 	},
 	listenTo: listenTo,
-	listenToAll: listenToAll,
 	stopListeningTo: stopListeningTo,
-	stopListeningAll: stopListeningAll,
 	setThrottleInterval: setThrottleInterval,
 	getOrientation: utils.getOrientation,
 	getSize: utils.getSize,
-	getViewportSize: utils.getViewportSize,
 	getScrollPosition: utils.getScrollPosition
 };

@@ -5,21 +5,21 @@ var expect = require('expect.js');
 
 var oViewport = require('./../main.js');
 
-function isPhantom(){
+function isPhantom() {
 	return /PhantomJS/.test(navigator.userAgent);
 }
 
 describe('o-viewport', function() {
-	before(function(){
-		if(isPhantom()) {
+	before(function() {
+		if (isPhantom()) {
 			// hack to make test run in PhantomJS
 			// it doesn't support visibilitychange
 			document.hidden = false;
 		}
 	});
 
-	after(function(){
-		if(isPhantom()) {
+	after(function() {
+		if (isPhantom()) {
 			// hack to make test run in PhantomJS
 			// it doesn't support visibilitychange
 			delete document.hidden;
@@ -42,7 +42,7 @@ describe('o-viewport', function() {
 		oViewport.listenTo('visibility');
 		document.body.addEventListener('oViewport.visibility', function(ev) {
 			expect(ev.type).to.be('oViewport.visibility');
-			expect(ev.detail.visible).to.not.be(undefined);
+			expect(ev.detail.hidden).to.not.be(undefined);
 			expect(ev.detail.originalEvent).to.not.be(undefined);
 			done();
 		});
@@ -99,7 +99,7 @@ describe('o-viewport', function() {
 	});
 
 	it('should stop listening to all events', function(done) {
-		oViewport.stopListeningAll();
+		oViewport.stopListeningTo('all');
 		document.body.addEventListener('oViewport.resize', function(ev) {
 			done(new Error('resize event still ran!'));
 		});
@@ -112,7 +112,7 @@ describe('o-viewport', function() {
 			done(new Error('visibilitychange event still ran!'));
 		});
 
-		setTimeout(function () {
+		setTimeout(function() {
 			done();
 		}, 1500);
 

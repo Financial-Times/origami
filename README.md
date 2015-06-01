@@ -7,26 +7,27 @@ Utility for attaching debounced listeners to resize, scroll, orientation and vis
 ## Methods
 
 ### `o-viewport#listenTo(eventType)`
-Attaches a debounced/throttled (as appropriate) listener to events on window [`resize`, `scroll`, `orientation` or `visibility`] which in turn fires events within the `oViewport` namespace (see **Events** below).
+Attaches a debounced/throttled (as appropriate) listener to events on window [`resize`, `scroll`, `orientation`, `visibility` or `all`] which in turn fires events within the `oViewport` namespace (see **Events** below).
 
-### `o-viewport#trackElements(selector)`
-Tracks the selected elements and report the percentage of the element currently on the screen, changes to the percentage in view fires events within the `oViewport` namespace (see **Events** below).
+*Note: all will enable all o-viewport events.*
 
-If the selector argument is omitted `[data-o-viewport-track]` is used.
+### `o-viewport#stopListeningTo(eventType)`
+Remove the attached listener from the window for the named event [`resize`, `scroll`, `orientation`, `visibility` or `all`].
 
-*Note: Enabling element tracking will also attach all other o-viewport events.*
+*Note: all will disable all o-viewport events.*
 
 ### `o-viewport#getOrientation()`
 Provides a reasonably reliable way (more so than `window.orientation`) of obtaining the current orientation of the viewport.
 
 ### `o-viewport#getVisibility()`
-Provides a reasonably reliable way of obtaining the current visibilty of the viewport.
+Provides a reasonably reliable way of obtaining the current visibility of the viewport.
 
 ### `o-viewport#getSize()`
 Provides a reliable way of obtaining the current dimensions of the browser window. returns an object with the properties `width` and `height`
 
-### `o-viewport#getViewportSize()`
-Provides a reliable way to get the dimensions of the viewport currently displayed. Returns an object with `width` and `height` properties.
+
+### `o-viewport#getScrollPosition()`
+Provides a reliable way of obtaining the current scroll position of the viewport. returns an object with the properties `width`, `height`, `left` and `right`
 
 ### `o-viewport#setThrottleInterval(eventType, interval)` *Product use only*
 Sets the debounce/throttle interval for a given event [`scroll`, `resize` or `orientation`].
@@ -54,6 +55,10 @@ No additional properties
 
 	orientation: 'portrait' or 'landscape'
 
+### `oViewport.visibility`
+
+	hidden: true or false
+
 ### `oViewport.scroll`
 
 ```js
@@ -63,14 +68,7 @@ scrollHeight: body.scrollHeight
 scrollWidth: body.scrollWidth
 ```
 
-### `oViewport.inView`
-```js
-element: HTMLElement // or Node in < ie10
-inView: Boolean
-percentInView: Number //  the percentage of the element that is visible
-```
-
 ## Throttling
 
-* `oViewport.resize` and `oViewport.orientation` are debounced i.e. if the native event fires several times in quick succession the custom event will fire only once `n` milliseconds after the last event, where `n` is the throttle interval
+* `oViewport.resize`, `oViewport.orientation` and  `oViewport.visibility` are debounced i.e. if the native event fires several times in quick succession the custom event will fire only once `n` milliseconds after the last event, where `n` is the throttle interval
 * `oViewport.scroll` is throttled i.e. if the native `scroll` event fires several times in quick succession the custom event will fire at most once every `n` milliseconds, where `n` is the throttle interval

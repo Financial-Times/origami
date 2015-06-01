@@ -1,20 +1,15 @@
 {
-    "description": "Utility for moderating listeners for browser events on window",
-    "origamiType": "module",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-viewport/issues",
-    "supportStatus": "active",
-    "browserFeatures": {
-        "required": [
-            "customevent",
-            "matchmedia"
-        ]
-    },
-    "demos": [
-        {
-            "path": "/demos/element-tracking.html",
-            "expanded": true,
-            "description": ""
-        }
-    ]
+	"description": "Utility for moderating listeners for browser events on window",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-viewport/issues",
+	"supportStatus": "active",
+	"browserFeatures": {
+		"required": [
+			"customevent"
+		],
+		"optional": [
+			"matchmedia"
+		]
+	}
 }
