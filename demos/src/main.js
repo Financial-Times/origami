@@ -1,3 +1,5 @@
+'use strict';
+
 var nNotification = require('../../main');
 nNotification.init();
 
