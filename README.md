@@ -38,7 +38,7 @@ WOFF is supported in IE 9+, Chrome, Firefox, iOS 5+, Android 4.4+.
 | thin     |            |               |                     |                  |     ✓     |
 | light    |      ✓     |               |         *i*         |                  |   ✓ *i*   |
 | regular  |      ✓     |       ✓       |        ✓ *i*        |       ✓ *i*      |   ✓ *i*   |
-| medium   |            |               |                     |                  |     ✓     |
+| medium   |            |               |         *i*         |                  |     ✓     |
 | semibold |            |               |         *i*         |                  |     ✓     |
 | bold     |      ✓     |       ✓       |                     |                  |   ✓ *i*   |
 | black    |            |       ✓       |                     |                  |           |
