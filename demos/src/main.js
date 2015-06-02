@@ -3,7 +3,8 @@ nNotification.init();
 
 document.querySelector('.demo-notification--event').addEventListener('click', function() {
 	var event = new CustomEvent('nNotification.show', {detail:{
-			content:'Notification generated via event'
+			content:'Notification generated via event',
+			trackable:'event-notification'
 		}
 	});
 	document.dispatchEvent(event);
@@ -21,5 +22,13 @@ document.querySelector('.demo-notification--always-open').addEventListener('clic
 		title: 'Super important',
 		content: 'This Notification will not close',
 		duration: 0
+	});
+});
+
+document.querySelector('.demo-notification--custom').addEventListener('click', function() {
+	nNotification.show({
+		title: 'Custom',
+		content: 'This Notification has custom styles',
+		type: 'custom'
 	});
 });
