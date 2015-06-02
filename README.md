@@ -1,24 +1,28 @@
-# next-messaging [![Build Status](https://travis-ci.org/Financial-Times/next-messaging.svg?branch=master)](https://travis-ci.org/Financial-Times/next-messaging)
-Component for showing Messages to users. Currently unused.
+# n-notification [![Build Status](https://travis-ci.org/Financial-Times/next-messaging.svg?branch=master)](https://travis-ci.org/Financial-Times/next-messaging)
+Component for showing onsite notification bars to users. Currently unused.
 
 # Using it
 
 ## Programatically
 
-	var messaging = require('next-messaging');
-	messaging.showMessage({content:'<p>Here is a message</p>',type:'message'});
+	var nNotification = require('n-notification');
+	nNotification.show({
+		title: 'Optional title',
+		content:'<p>Here is a message</p>',
+		type:'myft',
+		duration: 7000 //
+	});
 
 ## Via Events
 
-	require('next-messaging').init();
+	require('n-notification').init();
 
-	var event = new CustomEvent('FT.Message', {detail:{content:message}});
+	var event = new CustomEvent('nNotification.show', {detail:{ content:message }});
     document.dispatchEvent(event);
 
 
 # Ideas for the future
 
-* A 'notification' message type for general, short notifcations
 * Using the Notifications and PageVisibility APIS to show people notifications with the FT open in the background.
 * Firing messages and notifcations from Server Sent Events
 

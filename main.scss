@@ -1,0 +1,80 @@
+@import "next-sass-setup/main";
+
+$anim-duration : 200ms;
+.n-notification {
+
+	background-color: oColorsGetPaletteColor('cold-2');
+	margin: 0;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0px;
+	max-height: 0px;
+	transition: all $anim-duration ease-in-out;
+	overflow: hidden;
+
+	&.n-notification--js {
+		position: fixed;
+		z-index: 21;
+		top: 0;
+		left: 0;
+	}
+
+	&.visible {
+		max-height: 200px;
+		padding: 10px;
+
+		.n-notification__content-wrapper {
+			opacity: 1;
+		}
+	}
+}
+
+
+.n-notification__content-wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 600px;
+	position: relative;
+	opacity: 0;
+	text-align: center;
+	transition: all $anim-duration linear;
+	padding-right: 20px;
+	box-sizing: border-box;
+}
+
+.n-notification__title {
+	@include nTypeBeta(4);
+	display: inline-block;
+	color: oColorsGetPaletteColor('white');
+	margin: 0;
+}
+
+.n-notification__content {
+	@include nTypeAlpha(4);
+	display: inline-block;
+	color: oColorsGetPaletteColor('white');
+	margin: 0;
+}
+
+
+.n-notification__close {
+	display: none;
+}
+
+.n-notification--show-close .n-notification__close {
+	position: absolute;
+	right: 0;
+	top: 0;
+	border: 0;
+	cursor: pointer;
+	@include nextIcon(
+		$icon-name: cross_disk,
+		$size: 15,
+		$color: oColorsGetPaletteColor('white')
+	);
+	background-size: 15px;
+	background-position: 50%;
+	width: 40px;
+	height: 40px;
+	text-indent: -999em;
+}

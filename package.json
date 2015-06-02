@@ -1,26 +1,33 @@
 {
-  "name": "next-messaging",
-  "version": "1.0.0",
-  "description": "Component for showing Messages to users",
+  "name": "n-notification",
+  "version": "0.0.0",
+  "description": "Component for showing notifications to users",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Financial-Times/next-messaging.git"
+    "url": "https://github.com/Financial-Times/n-notification.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Financial-Times/next-messaging/issues"
+    "url": "https://github.com/Financial-Times/n-notification/issues"
   },
-  "homepage": "https://github.com/Financial-Times/next-messaging",
+  "homepage": "https://github.com/Financial-Times/n-notification",
   "devDependencies": {
+    "babelify": "^6.1.2",
     "chai": "^2.0.0",
+    "debowerify": "^1.2.0",
+    "karma": "^0.12.24",
+    "karma-browserify": "^2.0.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-mocha": "^0.1.10",
+    "karma-phantomjs-launcher": "0.1.2",
     "mocha": "^2.1.0",
-    "mocha-phantomjs": "^3.5.3",
     "origami-build-tools": "^2.9.1",
-    "phantomjs": "^1.9.15"
+    "textrequireify": "^2.1.0"
   }
 }

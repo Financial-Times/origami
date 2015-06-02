@@ -1,18 +1,11 @@
 {
-  "name": "next-messaging",
-  "version": "1.0.0",
-  "homepage": "https://github.com/Financial-Times/next-messaging",
-  "authors": [
-    "Paul I Wilson <paul.i.wilson@ft.com>"
-  ],
-  "moduleType": [
-    "amd"
-  ],
+  "name": "n-notification",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Financial-Times/n-notification",
   "main": [
-    "src/main.css",
-    "src/main.js"
+    "main.css",
+    "main.js"
   ],
-  "license": "MIT",
   "private": true,
   "ignore": [
     "**/.*",
@@ -23,10 +16,6 @@
   ],
   "dependencies": {
     "dom-delegate": "~2.0.3",
-    "next-sass-setup": "https://github.com/Financial-Times/next-sass-setup.git#^5.0.0",
-    "o-ft-buttons": "^1.7.5"
-  },
-  "resolutions": {
-    "o-ft-icons": "next"
+    "next-sass-setup": "^6.0.0"
   }
 }
