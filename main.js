@@ -1,137 +1,155 @@
-/* globals console */
 'use strict';
 
+var debug;
+var utils = require('./src/utils');
 var throttle = require('lodash/function/throttle');
 var debounce = require('lodash/function/debounce');
-var debug;
-var initFlags = {};
+
+var listeners = {};
 var intervals = {
 	resize: 100,
 	orientation: 100,
+	visibility: 100,
 	scroll: 100
 };
-
-function broadcast(eventType, data) {
-	if (debug) {
-		console.log('o-viewport', eventType, data);
-	}
-
-	document.body.dispatchEvent(new CustomEvent('oViewport.' + eventType, {
-		detail: data,
-		bubbles: true
-	}));
-}
-
-function getOrientation() {
-	var orientation = window.screen.orientation || window.screen.mozOrientation || window.screen.msOrientation || undefined;
-	if (orientation) {
-		return typeof orientation === 'string' ?
-			orientation.split('-')[0] :
-			orientation.type.split('-')[0];
-	} else if (window.matchMedia) {
-		return window.matchMedia('(orientation: portrait)').matches ? 'portrait' : 'landscape';
-	} else {
-		return getHeight() >= getWidth() ? 'portrait' : 'landscape';
-	}
-}
-
-function getHeight() {
-	return Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-}
-
-function getWidth () {
-	return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-}
-
-function getSize() {
-	return {
-		height: getHeight(),
-		width: getWidth()
-	};
-}
 
 function setThrottleInterval(eventType, interval) {
 	if (typeof arguments[0] === 'number') {
 		setThrottleInterval('scroll', arguments[0]);
 		setThrottleInterval('resize', arguments[1]);
 		setThrottleInterval('orientation', arguments[2]);
+		setThrottleInterval('visibility', arguments[3]);
 	} else if (interval) {
 		intervals[eventType] = interval;
 	}
 }
 
-function init(eventType) {
-	if (initFlags[eventType]) {
-		return true;
-	}
-
-	initFlags[eventType] = true;
-	return false;
-}
-
 function listenToResize() {
-
-	if (init('resize')) {
+	if (listeners.resize) {
 		return;
 	}
-
-	window.addEventListener('resize', debounce(function(ev) {
-		broadcast('resize', {
-			viewport: getSize(),
+	var eventType = 'resize';
+	var handler = debounce(function(ev) {
+		utils.broadcast('resize', {
+			viewport: utils.getSize(),
 			originalEvent: ev
 		});
-	}, intervals.resize));
+	}, intervals.resize);
+
+
+	window.addEventListener(eventType, handler);
+	listeners.resize = {
+		eventType: eventType,
+		handler: handler
+	};
 }
 
 function listenToOrientation() {
 
-	if (init('orientation')) {
+	if (listeners.orientation) {
 		return;
 	}
 
-	window.addEventListener('orientationchange', debounce(function(ev) {
-		broadcast('orientation', {
-			viewport: getSize(),
-			orientation: getOrientation(),
+	var eventType = 'orientationchange';
+	var handler = debounce(function(ev) {
+		utils.broadcast('orientation', {
+			viewport: utils.getSize(),
+			orientation: utils.getOrientation(),
 			originalEvent: ev
 		});
-	}, intervals.orientation));
+	}, intervals.orientation);
+
+	window.addEventListener(eventType, handler);
+	listeners.orientation = {
+		eventType: eventType,
+		handler: handler
+	};
+}
+
+function listenToVisibility() {
+
+	if (listeners.visibility) {
+		return;
+	}
+
+	var eventType = utils.detectVisiblityAPI().eventType;
+	var handler = debounce(function(ev) {
+		utils.broadcast('visibility', {
+			hidden: utils.getVisibility(),
+			originalEvent: ev
+		});
+	}, intervals.visibility);
+
+	window.addEventListener(eventType, handler);
+
+	listeners.visibility = {
+		eventType: eventType,
+		handler: handler
+	};
 }
 
 function listenToScroll() {
 
-	if (init('scroll')) {
+	if (listeners.scroll) {
 		return;
 	}
 
-	window.addEventListener('scroll', throttle(function(ev) {
-		broadcast('scroll', {
-			viewport: getSize(),
-			scrollHeight: document.body.scrollHeight,
-			scrollLeft: (document.documentElement && document.documentElement.scrollLeft) || document.body.scrollLeft,
-			scrollTop: (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop,
-			scrollWidth: document.body.scrollWidth,
+	var eventType = 'scroll';
+	var handler = throttle(function(ev) {
+		var scrollPos = utils.getScrollPosition();
+		utils.broadcast('scroll', {
+			viewport: utils.getSize(),
+			scrollHeight: scrollPos.height,
+			scrollLeft: scrollPos.left,
+			scrollTop: scrollPos.top,
+			scrollWidth: scrollPos.width,
 			originalEvent: ev
 		});
-	}, intervals.scroll));
+	}, intervals.scroll);
+
+	window.addEventListener(eventType, handler);
+	listeners.scroll = {
+		eventType: eventType,
+		handler: handler
+	};
 }
 
 function listenTo(eventType) {
-	if (eventType === 'resize') {
+	if (eventType === 'resize' || eventType === 'all') {
 		listenToResize();
-	} else if (eventType === 'scroll') {
+	}
+
+	if (eventType === 'scroll' || eventType === 'all') {
 		listenToScroll();
-	} else if (eventType === 'orientation') {
+	}
+
+	if (eventType === 'orientation' || eventType === 'all') {
 		listenToOrientation();
+	}
+
+	if (eventType === 'visibility' || eventType === 'all') {
+		listenToVisibility();
+	}
+}
+
+function stopListeningTo(eventType) {
+	if (eventType === 'all') {
+		Object.keys(listeners).forEach(stopListeningTo);
+	} else if (listeners[eventType]) {
+		window.removeEventListener(listeners[eventType].eventType, listeners[eventType].handler);
+		delete listeners[eventType];
 	}
 }
 
 module.exports = {
 	debug: function() {
 		debug = true;
+		utils.debug();
 	},
 	listenTo: listenTo,
+	stopListeningTo: stopListeningTo,
 	setThrottleInterval: setThrottleInterval,
-	getOrientation: getOrientation,
-	getSize: getSize
+	getOrientation: utils.getOrientation,
+	getSize: utils.getSize,
+	getScrollPosition: utils.getScrollPosition
 };

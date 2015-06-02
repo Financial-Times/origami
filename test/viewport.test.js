@@ -1,11 +1,30 @@
-/*global describe, it*/
+/*global describe, it, before, after*/
 'use strict';
 
 var expect = require('expect.js');
 
 var oViewport = require('./../main.js');
 
+function isPhantom() {
+	return /PhantomJS/.test(navigator.userAgent);
+}
+
 describe('o-viewport', function() {
+	before(function() {
+		if (isPhantom()) {
+			// hack to make test run in PhantomJS
+			// it doesn't support visibilitychange
+			document.hidden = false;
+		}
+	});
+
+	after(function() {
+		if (isPhantom()) {
+			// hack to make test run in PhantomJS
+			// it doesn't support visibilitychange
+			delete document.hidden;
+		}
+	});
 
 	it('should listen to orientationchange event', function(done) {
 		oViewport.listenTo('orientation');
@@ -17,6 +36,17 @@ describe('o-viewport', function() {
 			done();
 		});
 		window.dispatchEvent(new Event('orientationchange'));
+	});
+
+	it('should listen to visibilitychange event', function(done) {
+		oViewport.listenTo('visibility');
+		document.body.addEventListener('oViewport.visibility', function(ev) {
+			expect(ev.type).to.be('oViewport.visibility');
+			expect(ev.detail.hidden).to.not.be(undefined);
+			expect(ev.detail.originalEvent).to.not.be(undefined);
+			done();
+		});
+		window.dispatchEvent(new Event('visibilitychange'));
 	});
 
 	it('should listen to resize event', function(done) {
@@ -53,5 +83,41 @@ describe('o-viewport', function() {
 
 	it('should get the orientation of the viewport', function() {
 		expect(oViewport.getOrientation() === 'portrait' || oViewport.getOrientation() === 'landscape').to.be(true);
+	});
+
+	it('should stop listening to scroll event', function(done) {
+		oViewport.stopListeningTo('scroll');
+		document.body.addEventListener('oViewport.scroll', function(ev) {
+			done(new Error('scroll event still ran!'));
+		});
+
+		setTimeout(function () {
+			done();
+		}, 1000);
+
+		window.dispatchEvent(new Event('scroll'));
+	});
+
+	it('should stop listening to all events', function(done) {
+		oViewport.stopListeningTo('all');
+		document.body.addEventListener('oViewport.resize', function(ev) {
+			done(new Error('resize event still ran!'));
+		});
+
+		document.body.addEventListener('oViewport.orientationchange', function(ev) {
+			done(new Error('orientationchange event still ran!'));
+		});
+
+		document.body.addEventListener('oViewport.visibilitychange', function(ev) {
+			done(new Error('visibilitychange event still ran!'));
+		});
+
+		setTimeout(function() {
+			done();
+		}, 1500);
+
+		window.dispatchEvent(new Event('resize'));
+		window.dispatchEvent(new Event('orientationchange'));
+		window.dispatchEvent(new Event('visibilitychange'));
 	});
 });

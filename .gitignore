@@ -2,5 +2,6 @@
 .sass-cache/
 bower_components/
 node_modules/
+demos/local
 public/
 build/
