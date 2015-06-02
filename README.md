@@ -6,7 +6,6 @@ Origami module for the FT tracking.
 
 **NOTE: This module is not yet functional. Please continue to use legacy tracking code (iJento in most cases)**
 
-
 # Usage
 
 Tracking at the FT relies on the following concept:
@@ -23,9 +22,6 @@ For example:
 - Does the thing you want to track happen many times on a page (or could it) - such as moving to the next slide of a slideshow - use an `event`.
 - Is it describing the page or the user, include it in the `init` or `page` function.
 
-
-
-
 # Developers
 
 ## Installation
@@ -38,7 +34,6 @@ Add this to your dependencies in bower.json:
 ```
 
 It's strongly advised to specify at least the major and minor version as a tag.
-
 
 ## Including in a product
 

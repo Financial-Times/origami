@@ -11,181 +11,177 @@
 /*global module, require, window */
 "use strict";
 
-module.exports = (function () {
+var Store = function (name, config) {
 
-	var Store = function (name, config) {
+	/**
+	 * Internal Storage key prefix.
+	 * @property keyPrefix
+	 * @final
+	 * @private
+	 */
+	var keyPrefix = "o-tracking";
 
-		var
-			/**
-			 * Internal Storage key prefix.
-			 * @property keyPrefix
-			 * @final
-			 * @private
-			 */
-			keyPrefix = "o-tracking",
+	/**
+	 * Temporary var containing data from a previously saved store.
+	 * @property loadStore
+	 * @private
+	 */
+	var loadStore;
 
-			/**
-			 * Temporary var containing data from a previously saved store.
-			 * @property loadStore
-			 * @private
-			 */
-			loadStore,
+	var utils = require("../utils");
 
-			utils = require("../utils");
+	if (utils.isUndefined(name)) {
+		throw new Error('You must specify a name for the store.');
+	}
 
-		if (utils.isUndefined(name)) {
-			throw new Error('You must specify a name for the store.');
+	this.config = utils.merge({ storage: 'best', expires: (10 * 365 * 24 * 60 * 60 * 1000) }, config);
+
+	/**
+	 * Store data.
+	 * @property store
+	 * @private
+	 */
+	this.data = null;
+
+	/**
+	 * The key/name of this store.
+	 * @property storageKey
+	 */
+	this.storageKey = (this.config.hasOwnProperty('nameOverride') ? this.config.nameOverride : [keyPrefix, name].join('_'));
+
+	/**
+	 * The storage method to use. Determines best storage method.
+	 * @property storage
+	 * @type {Object}
+	 */
+	this.storage = (function (config, window) {
+		var test_key = keyPrefix + '_InternalTest';
+
+		// If cookie has been manually specified, don't bother with local storage.
+		if (config.storage !== 'cookie') {
+			try {
+				if (window.localStorage) {
+					window.localStorage.setItem(test_key, 'TEST');
+
+					if (window.localStorage.getItem(test_key) === 'TEST') {
+						window.localStorage.removeItem(test_key);
+
+						return {
+							_type: 'localStorage',
+							load: function (name) { return window.localStorage.getItem.call(window.localStorage, name); },
+							save: function (name, value) { return window.localStorage.setItem.call(window.localStorage, name, value); },
+							remove: function (name) { return window.localStorage.removeItem.call(window.localStorage, name); }
+						};
+					}
+				}
+			} catch (error) {
+			}
 		}
 
-		this.config = utils.merge({ storage: 'best', expires: (10 * 365 * 24 * 60 * 60 * 1000) }, config);
+		function cookieLoad(name) {
+			name = name + "=";
 
-		/**
-		 * Store data.
-		 * @property store
-		 * @private
-		 */
-		this.data = null;
+			var cookies = window.document.cookie.split(';'),
+				i,
+				cookie;
 
-		/**
-		 * The key/name of this store.
-		 * @property storageKey
-		 */
-		this.storageKey = (this.config.hasOwnProperty('nameOverride') ? this.config.nameOverride : [keyPrefix, name].join('_'));
-
-		/**
-		 * The storage method to use. Determines best storage method.
-		 * @property storage
-		 * @type {Object}
-		 */
-		this.storage = (function (config, window) {
-			var test_key = keyPrefix + '_InternalTest';
-
-			// If cookie has been manually specified, don't bother with local storage.
-			if (config.storage !== 'cookie') {
-				try {
-					if (window.localStorage) {
-						window.localStorage.setItem(test_key, 'TEST');
-
-						if (window.localStorage.getItem(test_key) === 'TEST') {
-							window.localStorage.removeItem(test_key);
-
-							return {
-								_type: 'localStorage',
-								load: function (name) { return window.localStorage.getItem.call(window.localStorage, name); },
-								save: function (name, value) { return window.localStorage.setItem.call(window.localStorage, name, value); },
-								remove: function (name) { return window.localStorage.removeItem.call(window.localStorage, name); }
-							};
-						}
-					}
-				} catch (error) {
+			for (i = 0; i < cookies.length; i = i + 1) {
+				cookie = cookies[i].replace(/^\s+|\s+$/g, '');
+				if (cookie.indexOf(name) === 0) {
+					return cookie.substring(name.length, cookie.length);
 				}
 			}
 
-			function cookieLoad(name) {
-				name = name + "=";
+			return null;
+		}
 
-				var cookies = window.document.cookie.split(';'),
-					i,
-					cookie;
+		function cookieSave(name, value, expiry) {
+			var d,
+				expires = '',
+				cookie;
 
-				for (i = 0; i < cookies.length; i = i + 1) {
-					cookie = cookies[i].replace(/^\s+|\s+$/g, '');
-					if (cookie.indexOf(name) === 0) {
-						return cookie.substring(name.length, cookie.length);
-					}
-				}
-
-				return null;
+			if (utils.is(expiry, 'number')) {
+				d = new Date();
+				d.setTime(d.getTime() + expiry);
+				expires = "expires=" + d.toGMTString() + ';';
 			}
 
-			function cookieSave(name, value, expiry) {
-				var d,
-					expires = '',
-					cookie;
+			cookie = utils.encode(name) + '=' + utils.encode(value) + ";" + expires + 'path=/;';
+			window.document.cookie = cookie;
+		}
 
-				if (utils.is(expiry, 'number')) {
-					d = new Date();
-					d.setTime(d.getTime() + expiry);
-					expires = "expires=" + d.toGMTString() + ';';
-				}
+		function cookieRemove(name) {
+			cookieSave(name, '', -1);
+		}
 
-				cookie = utils.encode(name) + '=' + utils.encode(value) + ";" + expires + 'path=/;';
-				window.document.cookie = cookie;
-			}
+		cookieSave(test_key, "TEST");
 
-			function cookieRemove(name) {
-				cookieSave(name, '', -1);
-			}
-
-			cookieSave(test_key, "TEST");
-
-			if (cookieLoad(test_key) === 'TEST') {
-				cookieRemove(test_key);
-
-				return {
-					_type: 'cookie',
-					load: cookieLoad,
-					save: cookieSave,
-					remove: cookieRemove
-				};
-			}
+		if (cookieLoad(test_key) === 'TEST') {
+			cookieRemove(test_key);
 
 			return {
-				_type: 'none',
-				load: function () {},
-				save: function () {},
-				remove: function () {}
+				_type: 'cookie',
+				load: cookieLoad,
+				save: cookieSave,
+				remove: cookieRemove
 			};
-		}(this.config, window));
-
-		// Retrieve any previous store with the same name.
-		loadStore = this.storage.load(this.storageKey);
-		if (loadStore) {
-			try {
-				this.data = JSON.parse(loadStore);
-			} catch (error) {
-				this.data = loadStore;
-			}
 		}
 
-		return this;
-	};
+		return {
+			_type: 'none',
+			load: function () {},
+			save: function () {},
+			remove: function () {}
+		};
+	}(this.config, window));
 
-	/**
-	 * Get/Read the current data.
-	 * @method read
-	 * @return Returns the data from the store.
-	 */
-	Store.prototype.read = function () {
-		return this.data;
-	};
+	// Retrieve any previous store with the same name.
+	loadStore = this.storage.load(this.storageKey);
+	if (loadStore) {
+		try {
+			this.data = JSON.parse(loadStore);
+		} catch (error) {
+			this.data = loadStore;
+		}
+	}
 
-	/**
-	 * Write the supplied data to the store.
-	 * @method write
-	 * @param data {String} The data to write.
-	 * @return Returns this.
-	 * @chainable
-	 */
-	Store.prototype.write = function (data) {
-		// Set this.data, in-case we're on a file:// domain and can't set cookies.
-		this.data = data;
-		this.storage.save(this.storageKey, (typeof this.data === 'string' ? this.data : JSON.stringify(this.data)), this.config.expires);
+	return this;
+};
 
-		return this;
-	};
+/**
+ * Get/Read the current data.
+ * @method read
+ * @return Returns the data from the store.
+ */
+Store.prototype.read = function () {
+	return this.data;
+};
 
-	/**
-	 * Delete the current data.
-	 * @method destroy
-	 * @return Returns this.
-	 * @chainable
-	 */
-	Store.prototype.destroy = function () {
-		this.data = null;
-		this.storage.remove(this.storageKey);
-		return this;
-	};
+/**
+ * Write the supplied data to the store.
+ * @method write
+ * @param data {String} The data to write.
+ * @return Returns this.
+ * @chainable
+ */
+Store.prototype.write = function (data) {
+	// Set this.data, in-case we're on a file:// domain and can't set cookies.
+	this.data = data;
+	this.storage.save(this.storageKey, (typeof this.data === 'string' ? this.data : JSON.stringify(this.data)), this.config.expires);
 
-	return Store;
-}());
+	return this;
+};
+
+/**
+ * Delete the current data.
+ * @method destroy
+ * @return Returns this.
+ * @chainable
+ */
+Store.prototype.destroy = function () {
+	this.data = null;
+	this.storage.remove(this.storageKey);
+	return this;
+};
+
+module.exports = Store;

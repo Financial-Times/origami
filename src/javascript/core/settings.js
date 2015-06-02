@@ -11,24 +11,20 @@ var settings = {
 	'internalCounter': 0
 };
 
-module.exports = (function () {
+function setValue(name, value) {
+	settings[name] = value;
+}
 
-	function setValue(name, value) {
-		settings[name] = value;
-	}
+function getValue(name) {
+	return settings[name];
+}
 
-	function getValue(name) {
-		return settings[name];
-	}
+function deleteValue(name) {
+	delete settings[name];
+}
 
-	function deleteValue(name) {
-		delete settings[name];
-	}
-
-	return {
-		'set': setValue,
-		'get': getValue,
-		'delete': deleteValue
-	};
-
-}());
+module.exports = {
+	'set': setValue,
+	'get': getValue,
+	'delete': deleteValue
+};

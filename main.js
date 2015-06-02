@@ -1,133 +1,170 @@
-/**
- * Origami tracking module.
- * ========================
- * From this specification: https://docs.google.com/a/ft.com/document/d/1F5P3Ip3mIax6kWytYM7Kf6g7LaPS3Njdw7jLXAH1OWI/edit?usp=sharing
- *
- * Features
- * --------
- * * Use AJAX instead of image requests
- * * Bundle requests TODO
- * * Handle offline
- * * Use storage methods other than cookies
- * * Make the API cleaner and easier to use
- * * Origami module
- * * Use a single configuration object
- *
- * Example
- * -------
- * <pre>Track.init({ environment: 'test', server: 'http://ftweb03299-lvpr-uk-d/' });</pre>
- *
- * @module Track
- * @main
- *
- * The Track object.
- * @class Track
- * @static
- * @type {*}
- */
-
 /*global require, module */
-module.exports = (function () {
-	"use strict";
+"use strict";
+
+var settings = require("./src/javascript/core/settings");
+
+/**
+ * The version of the tracking module.
+ * @property version
+ * @type {String}
+ */
+var version = '0.0.20';
+
+/**
+ * @class Tracking
+ */
+function Tracking() {
+	this.version = version;
 
 	/**
-	 * Shared "internal" scope.
-	 * @property _self
-	 * @type {Object}
-	 * @private
+	 * The initialised state of the object.
+	 * @type {bool}
 	 */
-	var settings = require("./src/javascript/core/settings"),
-		utils = require("./src/javascript/utils"),
+	this.initialised = false;
+}
 
-		/**
-		 * The version of the tracking module.
-		 * @property version
-		 * @type {String}
-		 */
-		version = "0.0.20";
+/**
+ * Turn on/off developer mode. (Can also be activated on init.)
+ * @method developer
+ * @param [level] {Boolean} Turn on or off, defaults to false if omitted.
+ */
+Tracking.prototype.developer = function(level) {
+	if (level) {
+		settings.set('developer', true);
+	} else {
+		settings.delete('developer', null);
+		settings.delete('noSend', null);
+	}
+};
 
-	/**
-	 * Turn on/off developer mode. (Can also be activated on init.)
-	 * @method developer
-	 * @param [level] {Boolean} Turn on or off, defaults to on if omitted.
-	 */
-	function developer(level) {
-		if (utils.isUndefined(level)) {
-			level = true;
+/**
+ * Clean up the tracking module.
+ * @method destroy
+ */
+Tracking.prototype.destroy = function() {
+	this.developer(false);
+	settings.delete('internalCounter', 0);
+	settings.delete('page_sent', false);
+};
+
+/**
+ * Overload toString method to show the version.
+ * @method toString
+ * @return {String} The module's version.
+ */
+Tracking.prototype.toString = function() {
+	return "oTracking version " + version;
+};
+
+Tracking.prototype.page = require('./src/javascript/page');
+
+Tracking.prototype.event = require('./src/javascript/event');
+
+Tracking.prototype.link = require('./src/javascript/link');
+
+/**
+ * Initialise the Track module.
+ * @method init
+ * @param config Configuration object
+ */
+Tracking.prototype.init = function(config) {
+	if (this.initialised) {
+		return this;
+	}
+
+	var hasDeclarativeConfig = !!this._getDeclarativeConfigElement();
+
+	if (!(hasDeclarativeConfig || config)) {
+		return this;
+	}
+
+	config = config || {};
+
+	if (hasDeclarativeConfig) {
+		config = this._initialiseDeclaratively(config);
+	}
+
+	settings.set('config', config);
+	settings.set('version', this.version);
+
+	settings.set('internalCounter', 0);
+	settings.set('page_sent', false);
+
+	// Developer mode
+	if (config.developer) {
+		this.developer(config.developer);
+
+		if (config.noSend) {
+			settings.set('noSend', true);
 		}
+	}
 
-		// Extra brackets on purpose, in case a non-boolean argument is used.
-		if ((level)) {
-			settings.set('developer', true);
-		} else {
-			settings.set('developer', null);
-			settings.set('noSend', null);
+	// User identifier
+	require("./src/javascript/core/user").init(config.userID);
+
+	// Session
+	require("./src/javascript/core/session").init(config.session);
+
+	// Initialize the sending queue.
+	require("./src/javascript/core/send").init(this.version);
+
+	this.initialised = true;
+	return this;
+};
+
+/**
+ * Checks if the <script type="application/json" data-o-tracking-config> element is in the DOM
+ *
+ * @returns {HTMLElement} - Returns the <script> element if found
+ */
+Errors.prototype._getDeclarativeConfigElement = function() {
+	return document.querySelector('script[data-o-tracking-config]');
+};
+
+/**
+ * Initialises additional data using the <script type="application/json" data-o-tracking-config> element in the DOM.
+ *
+ * @private
+ * @param {Object} options - A partially, or fully filled options object.  If
+ *                           an option is missing, this method will attempt to
+ *                           initialise it from the DOM.
+ * @returns {Object} - The options modified to include the options gathered
+ *                     from the DOM
+ */
+Errors.prototype._getDeclarativeConfig = function(options) {
+	var configEl = this._getDeclarativeConfigElement();
+	if (configEl) {
+		declarativeConfigString = configEl.textContent || configEl.innerText || configEl.innerHTML;
+	} else {
+		return false;
+	}
+
+	var declarativeOptions;
+
+	try {
+		declarativeOptions = JSON.parse(getDeclarativeConfig);
+	} catch(e) {
+		throw new Error("Invalid JSON configuration syntax, check validity for o-tracking configuration: '" + e.message + "'");
+	}
+
+	for (var property in declarativeOptions) {
+		if (declarativeOptions.hasOwnProperty(property)) {
+			options[property] = options[property] || declarativeOptions[property];
 		}
 	}
 
-	/**
-	 * Clean up the tracking module.
-	 * @method destroy
-	 */
-	function destroy() {
-		developer(false);
-		settings.set('internalCounter', 0);
-		settings.set('page_sent', false);
-	}
+	return options;
+};
 
-	/**
-	 * Initialise the Track module.
-	 * @method init
-	 * @param config Configuration object
-	 */
-	function init(config) {
-		settings.set('config', config);
-		settings.set('version', version);
+var tracking = new Tracking();
 
-		destroy();
+function initialise() {
+	tracking.init();
+	document.removeEventListener('o.DOMContentLoaded', initialise);
+}
 
-		// Developer mode
-		if (config.hasOwnProperty('developer')) {
-			delete config.developer;
-			developer();
+// Try and initialise on o.DOMContentLoaded. If it fails, defer to the
+// consumer of the library.
+document.addEventListener('o.DOMContentLoaded', initialise);
 
-			if (config.hasOwnProperty('noSend')) {
-				delete config.noSend;
-				settings.set('noSend', true);
-			}
-		}
-
-		// User identifier
-		require("./src/javascript/core/user").init(config.userID);
-
-		// Session
-		require("./src/javascript/core/session").init(config.session);
-
-		// Initialize the sending queue.
-		require("./src/javascript/core/send").init(version);
-
-		// Track the page.
-		// Commented out, as it's safer in-case oTracking is included within another module, and they call init...
-		//require('./src/javascript/page')(config);
-	}
-
-	/**
-	 * Overload toString method to show the version.
-	 * @method toString
-	 * @return {String} The module's version.
-	 */
-	function toString() {
-		return "oTracking version " + version;
-	}
-
-	return {
-		init: init,
-		developer: developer,
-		destroy: destroy,
-		toString: toString,
-
-		page:  require('./src/javascript/page'),
-		event: require('./src/javascript/event'),
-		link: require('./src/javascript/link')
-	};
-}());
+module.exports = tracking;
