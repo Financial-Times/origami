@@ -17,10 +17,17 @@
   },
   "homepage": "https://github.com/Financial-Times/n-notification",
   "devDependencies": {
+    "babelify": "^6.1.2",
     "chai": "^2.0.0",
+    "debowerify": "^1.2.0",
+    "karma": "^0.12.24",
+    "karma-browserify": "^2.0.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-mocha": "^0.1.10",
+    "karma-phantomjs-launcher": "0.1.2",
     "mocha": "^2.1.0",
-    "mocha-phantomjs": "^3.5.3",
     "origami-build-tools": "^2.9.1",
-    "phantomjs": "^1.9.15"
+    "textrequireify": "^2.1.0"
   }
 }

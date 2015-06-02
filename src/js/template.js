@@ -2,7 +2,7 @@
 // obt jshint doesn't get ES6, so disabling it
 "use strict";
 
-var message = function(options){
+module.exports = function(options){
 	return `
 	<section class="n-notification n-notification--js n-notification--${options.type}">
 		<div class="n-notification__content-wrapper">
@@ -17,8 +17,4 @@ var message = function(options){
 
 	</section>
 `;
-};
-
-module.exports = {
-	message : message
 };

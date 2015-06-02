@@ -3,8 +3,8 @@
 "use strict";
 
 var expect = require('chai').expect;
-var nNotification = require('../src/main.js');
-var helpers = require('../test/phantomjs-helpers.js');
+var nNotification = require('../main.js');
+var helpers = require('./phantomjs-helpers.js');
 nNotification.init();
 
 describe("nNotification", function(){
