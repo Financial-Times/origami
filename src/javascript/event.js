@@ -18,9 +18,11 @@ var utils = require("./utils");
  * @type {Object}
  * @private
  */
-var defaultEventConfig = {
-	tag: { type: 'event' },
-	event: {}
+var defaultEventConfig = function () {
+	return {
+		tag: { type: 'event' },
+		data: {}
+	};
 };
 
 /**
@@ -42,19 +44,18 @@ function event(obj, callback) {
 		throw 'Missing category or action values';
 	}
 
-	if (!utils.is(obj.callback)) {
-		if (utils.is(callback)) {
-			callback = obj.callback;
-		}
-		delete obj.callback;
+	var config = utils.merge(defaultEventConfig(), {
+		data: obj
+	});
+
+	if (!utils.is(config.data.id)) {
+		config.id = config.data.id;
+		delete config.data.id;
 	}
 
-	var config = utils.merge(utils.merge(defaultEventConfig), {
-		event: obj
-	});
 	Core.track(config, callback);
 }
 
-utils.addEvent(window, 'oTracking.event', function (e) { event(e, e.callback); });
+utils.addEvent(window, 'oTracking.event', event);
 
 module.exports = event;

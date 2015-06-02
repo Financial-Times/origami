@@ -33,10 +33,12 @@ var utils = require("./utils");
  }
  @private
  */
-var defaultConfig = {
-	async: true,
-	callback: function () {},
-	tag: {}
+var defaultConfig = function () {
+	return {
+		async: true,
+		callback: function () {},
+		tag: {}
+	};
 };
 
 /**
@@ -46,9 +48,8 @@ var defaultConfig = {
  * @return {String|*} The PageID.
  */
 function pageID(page_id) {
-	page_id = requestID(page_id);
-	defaultConfig.tag.pageID = page_id;
-	return page_id;
+	settings.set('page_id', requestID(new_id));
+	return settings.get('page_id');
 }
 
 /**
@@ -89,39 +90,35 @@ function track(config, callback) {
 		callback = function () {};
 	}
 
-	// In-case we're sending events without a page.
-	if (!defaultConfig.tag.pageID) {
-		pageID();
-	}
-
-	var request = utils.merge(utils.merge(defaultConfig), utils.merge(config, { callback: callback }));
+	var request = utils.merge(defaultConfig(), utils.merge(config, { callback: callback }));
 
 	/* Values here are kinda the mandatory ones, so we want to make sure they're possible. */
 	request = utils.merge({
-		id: requestID(),
+		id: requestID(request.id), // Keep an ID if it's been set elsewhere.
 
 		tag: {
+			page_id: settings.get('page_id'),
 			counter: internalCounter()
 		},
 
-		user: {
-			sessionID: Session.session(),
-			userID: User.userID()
-		},
+		user: utils.merge({
+			spoor_session: Session.session(),
+			spoor_id: User.userID()
+		}, settings.get('config') ? settings.get('config').user || {}: {}),
 
 		device: {
-			userAgent: window.navigator.userAgent
+			user_agent: window.navigator.userAgent
 		}
 	}, request);
 
 	utils.log('Core.Track', request);
 
-	// Formatting of the request and send it.
+	// Send it.
 	Send.addAndRun(request);
 }
 
 module.exports = {
 	setPageID: pageID,
-	getPageID: function () { return defaultConfig.tag.pageID; },
+	getPageID: function () { return settings.get('page_id'); },
 	track: track
 };

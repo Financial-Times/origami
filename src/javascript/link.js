@@ -22,9 +22,11 @@ var internalQueue;
  * @type {Object}
  * @private
  */
-var defaultLinkConfig = {
-	tag: { type: 'event' },
-	event: { category: 'link', action: 'click'}
+var defaultLinkConfig = function () {
+	return {
+		tag: { type: 'event' },
+		data: { category: 'link', action: 'click'}
+	};
 };
 
 var callback = function () {};
@@ -140,19 +142,16 @@ function createLinkID(link) {
  * @return {*}
  */
 function track(element) {
-	var linkID = createLinkID(element),
-		config = utils.merge(utils.merge(defaultLinkConfig), {
-			event: {
-				key: 'link_id',
-				value: linkID
-			},
-
-			other: {
-				sourceID: Core.getPageID(),
-				href: element.href,
-				destinationID: '' // TODO
-			}
-		});
+	var linkID = createLinkID(element);
+	var config = utils.merge(defaultLinkConfig(), {
+					data: {
+						key: 'link_id',
+						value: linkID,
+						source_id: Core.getPageID(),
+						href: element.href,
+						destination_id: '' // TODO
+					}
+				});
 
 	if (isExternal(element.href) || isFile(element.href)) {
 		// Send now

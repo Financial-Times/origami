@@ -1,19 +1,20 @@
 /*global require, describe, it, before, after, sinon */
 "use strict";
 
-var assert = require('assert'),
-	Core = require("../src/javascript/core.js");
+var assert = require('assert');
 
 describe('Core', function () {
 
-	describe('pageID', function () {
-		it('should generate a pageID', function () {
-			var pageID = Core.setPageID(),
+	var Core = require("../src/javascript/core.js");
+
+	describe('page_id', function () {
+		it('should generate a page_id', function () {
+			var page_id = Core.setPageID(),
 				re = /\d+\.\d+\.\d+\.\d+\.[\-\w]+/;
-			assert.ok(pageID.match(re), "'" + pageID + "'.match(" + re + ")");
+			assert.ok(page_id.match(re), "'" + page_id + "'.match(" + re + ")");
 		});
 
-		it('should use the pageID given it', function () {
+		it('should use the page_id given it', function () {
 			assert.equal(Core.setPageID("myPageID"), "myPageID");
 		});
 	});
@@ -23,8 +24,8 @@ describe('Core', function () {
 
 		before(function () {
 			require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
-			//require("../src/javascript/core/settings").set('developer', true);
 			(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
+			require("../src/javascript/core/settings").delete('config');  // Empty settings.
 			require("../src/javascript/core/session").init(); // Session
 			require("../src/javascript/core/send").init("v1"); // Init the sender.
 
@@ -39,13 +40,14 @@ describe('Core', function () {
 			server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
 			var callback = sinon.spy(),
-				sent_data;
+				sent_data,
+				ua = window.navigator.userAgent;
 
-			Core.setPageID('pageID');
+			Core.setPageID('page_id');
 			Core.track({
 				tag: { type: 'page'  },
-				page: { url: "http://www.ft.com/home/uk" },
-				user: { "userID": "userID" }
+				data: { url: "http://www.ft.com/home/uk" },
+				user: { "user_id": "userID" }
 			}, callback);
 
 			server.respond();
@@ -54,24 +56,24 @@ describe('Core', function () {
 
 			sent_data = callback.getCall(0).thisValue;
 
-			assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "page"]);
+			assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
 			// Tag
-			assert.deepEqual(Object.keys(sent_data.tag), ["apiKey","version","id","counter","offset","pageID","type"]);
+			assert.deepEqual(Object.keys(sent_data.tag), ["apiKey","version","id","counter","offset","page_id","type"]);
 			assert.equal(sent_data.tag.apiKey, "");
 			assert.equal(sent_data.tag.version, "v1");
 			assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.tag.id), "Request ID is invalid. " + sent_data.tag.id);
 			assert.equal(sent_data.tag.counter, 1);
 			assert.ok(/\d+/.test(sent_data.tag.offset), "offset is invalid. " + sent_data.tag.offset);
-			assert.equal(sent_data.tag.pageID, "pageID");
+			assert.equal(sent_data.tag.page_id, "page_id");
 			assert.equal(sent_data.tag.type, "page");
 
 			// User
-			assert.deepEqual(Object.keys(sent_data.user), ["sessionID","userID"]);
-			assert.equal(sent_data.user.userID, "userID");
-			assert.equal(sent_data.user.sessionID, require("../src/javascript/core/session").session());
+			assert.deepEqual(Object.keys(sent_data.user), ["spoor_session","spoor_id","user_id"]);
+			assert.equal(sent_data.user.user_id, "userID");
+			assert.equal(sent_data.user.spoor_session, require("../src/javascript/core/session").session());
 
 			// Device
-			assert.equal(sent_data.device.userAgent, "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34");
+			assert.equal(sent_data.device.user_agent, ua);
 		});
 
 		it('should defer a tracking request', function () {
@@ -81,7 +83,7 @@ describe('Core', function () {
 
 			Core.track({
 				tag: { type: 'page'  },
-				page: { url: "http://www.google.co.uk" },
+				data: { url: "http://www.google.co.uk" },
 				user: { "userID": "userID" }
 			}, callback);
 

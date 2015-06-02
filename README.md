@@ -2,7 +2,7 @@
 
 Origami module for the FT tracking.
 
-![ScreenShot](https://rawgit.com/Financial-Times/o-tracking/master/docs/tracking_forwarder.svg)
+![ScreenShot](https://rawgit.com/Financial-Times/o-tracking/master/resources/images/ngda-system-design.svg)
 
 **NOTE: This module is not yet functional. Please continue to use legacy tracking code (iJento in most cases)**
 
@@ -22,22 +22,10 @@ For example:
 - Does the thing you want to track happen many times on a page (or could it) - such as moving to the next slide of a slideshow - use an `event`.
 - Is it describing the page or the user, include it in the `init` or `page` function.
 
-# Developers
 
-## Installation
+# Including in a product
 
-Add this to your dependencies in bower.json:
-```
-"dependencies": {
-    "tracking-module": "http://git.svc.ft.com:8080/scm/track/o-tracking.git#>=0.0.20 < 1"
-}
-```
-
-It's strongly advised to specify at least the major and minor version as a tag.
-
-## Including in a product
-
-### Template
+## Template
 **The template also relies on a Cut the Mustard check which MUST be adhered to if you are using both JS and non-JS versions.**
 **Please avoid sending duplicate requests per page.**
 
@@ -45,7 +33,7 @@ It's strongly advised to specify at least the major and minor version as a tag.
 * o-tracking.domain - the domain of the tracking server
 * o-tracking.queryString - the parameters and values below compiled into a query string format.
 
-### JavaScript
+## JavaScript
 ```
 var oTracking = require('o-tracking');
 ```
@@ -118,32 +106,18 @@ Example: ```var event = new CustomEvent('oTracking.Link', DOMElement);```
 ```
 var oTracking = require('o-tracking');
 oTracking.init({
-    // Setup
-    server: FT.config.tracking.domain,
-    channel: FT.config.tracking.params.channel,
-    // User
-    userID: getValueFromCookie(/SIVISITOR=([\w\*]+);?/),
-    cohort: findSubType(getValueFromCookie(/FT_P=[A-Za-z0-9=&|]*prod=([A-Za-z0-9=|]*);?/)),
-    passportID: getValueFromCookie(/USERID=([0-9]*):/),
-    country: getValueFromCookie(/AYSC=[^;]*_14([a-zA-Z0-9%]+)/),
-    region: getValueFromCookie(/AYSC=[^;]*_17([a-zA-Z0-9%]+)/),
-    metroArea: getValueFromCookie(/AYSC=[^;]*_18([a-zA-Z0-9%]+)/)
+    server: 'http://spoor-api.ft.com',
+    page: {
+        product: 'desktop'
+    },
+    user: {
+        ...
+    }
 });
 
 oTracking.page({
-    // Page
-    //url: FT.config.tracking.params.url,
-    //referrer: document.referrer,
-    uuid: FT.config.tracking.params.uuid,
-    pageSubsLevel: FT.config.tracking.params.pageSubsLevel,
-    siteMap: FT.config.tracking.params.siteMap,
-    title: FT.config.tracking.params.title,
-    assetType: FT.config.tracking.params.assetType,
-    edition: FT.config.tracking.params.edition,
-    brand: FT.config.tracking.params.brand,
-    theme: FT.config.tracking.params.theme,
-    searchQuery: '',
-    campaign: ''
+    url: FT.config.tracking.params.url,
+    uuid: FT.config.tracking.params.uuid
 });
 
 oTracking.link.init();
@@ -163,16 +137,6 @@ Both JS and non-JS versions take the same parameters.
 * `url`: `http://www.ft.com/home/uk` - The URL of the page, defaults to document.location
 * `referrer`: `http://www.ft.com/home/uk` - The referrer, defaults to document.referrer
 * `uuid`: `` - The UUID for the page.
-* `pageSubsLevel`: `0` / `1` / `2` / `3`] - Subscription level of the page
-* `siteMap`: `Sections.Front page` / `Sections.World` - The falcon sitemap term.
-* `title`: `World business, finance, and political news from the Financial Times - FT.com` - Page title.
-* `assetType`: `front` / `story` / `blog` / `video` / `section` / `page` - Asset type of the page.
-* `edition`: `UK` / `USA` - Edition being looked at.
-* `brand`: `` - The FT brand.
-* `theme`: `` - The FT Theme
-* `hurdle`: `hx` / `h1` / `h2` - The Barrier served.
-* `error`: `4xx` / `5xx` / `5nn` - Is this an error page? What type?
-* `searchQuery`: `` Internal (meaning onsite) search query.
 
 ### Session
 * `session`: `` - Name to use to store the tracking session.
@@ -185,7 +149,7 @@ Both JS and non-JS versions take the same parameters.
             expires: (10 * 60 * 1000) // 10 minutes
         }
 ### User
-* `userID`: `` - A unique, persistent identifier for the user.  VERY OPTIONAL.
+* `userID`: `` - A unique, persistent identifier for the user.
     Value can be a string or object.
 
     Use a string to carry on a previous value - then oTracking can store it it's own way.
@@ -198,30 +162,9 @@ Both JS and non-JS versions take the same parameters.
             name: 'SIVISITOR',
             value: getValueFromCookie(/SIVISITOR=([\w\*]+);?/)
         }
-* `cohort`: `3` / `1` / `2` - The user's subscription level.
-* `passportID`: `4009049153` - The user's passport ID.
-* `country`: `GBR` - The user's country.
-* `region`: `london` - The user's region.
-* `metroArea`: `islington` - The user's area.
 
 ### Marketing
 * `ftcamp`: `` - FT Camp parameter.
 * `segid`: `` - Segment parameter used for attribution.
 * `campaign`: `` - Campaign parameter.
 * `segmentid`: `` - Segment parameter used for attribution.
-
-
-
-
-# Contributing
-
-The following will get you setup:
-* Check out the code
-* `npm install`
-* `bower install`
-* `grunt`
-
-The following grunt tasks are available:
-* `grunt version` - bump a version number in all the files that need a version number changing.
-* `grunt test` - Test the code against the test suite.
-

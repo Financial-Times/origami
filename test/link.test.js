@@ -1,18 +1,20 @@
 /*global require, describe, it, before, after, sinon, document */
 "use strict";
 
-var assert = require("assert"),
-	link = require("../src/javascript/link.js");
+var assert = require("assert");
 
 describe('link', function () {
 
-	var server, userID;
+	var server,
+		userID,
+		link = require("../src/javascript/link.js");
 
 	before(function () {
 		require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
 		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
+		require("../src/javascript/core/settings").delete('config');  // Empty settings.
 		require("../src/javascript/core/send").init(); // Init the sender.
-		require("../src/javascript/core").setPageID('pageID'); // Fix the click ID to stop it generating one.
+		require("../src/javascript/core").setPageID('page_id'); // Fix the click ID to stop it generating one.
 		userID = require("../src/javascript/core/user").init(); // Init the user identifier.
 
 		server = sinon.fakeServer.create(); // Catch AJAX requests
@@ -48,15 +50,15 @@ describe('link', function () {
 		sent_data = callback.getCall(0).thisValue;
 
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "event", "other"]);
+		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
 
 		// Type
 		assert.equal(sent_data.tag.type, "event");
 
 		// Link
-		assert.equal(sent_data.event.key, "link_id");
-		assert.equal(sent_data.event.value, "a/www.google.com");
-		assert.equal(sent_data.other.sourceID, "pageID");
-		assert.equal(sent_data.other.destinationID, '');
+		assert.equal(sent_data.data.key, "link_id");
+		assert.equal(sent_data.data.value, "a/www.google.com");
+		assert.equal(sent_data.data.source_id, "page_id");
+		assert.equal(sent_data.data.destination_id, undefined);
 	});
 });

@@ -1,16 +1,18 @@
 /*global require, describe, it, before, after, sinon */
 "use strict";
 
-var assert = require("assert"),
-	track_event = require("../src/javascript/event.js");
+var assert = require("assert");
 
 describe('event', function () {
 
-	var server, userID;
+	var server,
+		userID,
+		track_event = require("../src/javascript/event.js");
 
 	before(function () {
 		require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
 		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
+		require("../src/javascript/core/settings").delete('config');  // Empty settings.
 		require("../src/javascript/core/send").init(); // Init the sender.
 		//require("../src/javascript/core").setRootID('rootID'); // Fix the click ID to stop it generating one.
 		userID = require("../src/javascript/core/user").init(); // Init the user identifier.
@@ -42,16 +44,16 @@ describe('event', function () {
 		sent_data = callback.getCall(0).thisValue;
 
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "event"]);
+		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
 
 		// Type
 		assert.equal(sent_data.tag.type, "event");
 
 		// Event
-		assert.equal(sent_data.event.category, "slideshow");
-		assert.equal(sent_data.event.action, "slide_viewed");
-		assert.equal(sent_data.event.key, "slide_number");
-		assert.equal(sent_data.event.value, "5");
+		assert.equal(sent_data.data.category, "slideshow");
+		assert.equal(sent_data.data.action, "slide_viewed");
+		assert.equal(sent_data.data.key, "slide_number");
+		assert.equal(sent_data.data.value, "5");
 	});
 
 	/* TODO PhantomJS doesn't like CustomEvent
@@ -103,20 +105,19 @@ describe('event', function () {
 			category: 'video',
 			action: 'seek',
 			key: 'pos',
-			value: '10',
-			callback: callback
-		});
+			value: '10'
+		}, callback);
 		server.respond();
 		assert.ok(callback.calledTwice, 'Callback not called.');
 
 		sent_data = callback.getCall(1).thisValue;
 
 		// Event
-		assert.equal(sent_data.event.parent_id, parent_id);
-		assert.equal(sent_data.event.category, "video");
-		assert.equal(sent_data.event.action, "seek");
-		assert.equal(sent_data.event.key, "pos");
-		assert.equal(sent_data.event.value, "10");
+		assert.equal(sent_data.data.parent_id, parent_id);
+		assert.equal(sent_data.data.category, "video");
+		assert.equal(sent_data.data.action, "seek");
+		assert.equal(sent_data.data.key, "pos");
+		assert.equal(sent_data.data.value, "10");
 	});
 
 });

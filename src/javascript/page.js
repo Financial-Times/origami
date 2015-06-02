@@ -4,39 +4,6 @@
  * @submodule page
  * @class Track.page
  * @static
- *
- * Params:
-		// Site
-		'channel',
-		// Page
-		'url',
-		'uuid',
-		'pageSubsLevel',
-		'siteMap',
-		'title',
-		'assetType',
-		'edition',
-		'brand',
-		'theme',
-		'hurdle',
-		'error',
-		'searchQuery',
-		// User
-		'userID',
-		'session',
-		'cohort',
-		'passportID',
-		'country',
-		'region',
-		'metroArea',
-		// Marketing
-		'ftcamp',
-		'campaign',
-		'segid',
-		'segmentID',
-		// Implementation
-		'offlineLag',
-		'queueTime'
  */
 
 /*global module, require, window, document */
@@ -44,62 +11,7 @@
 
 var Core = require("./core");
 var utils = require("./utils");
-
-/**
- * Default properties for page tracking requests.
- * @example
- {
- url: document.URL,
- referrer: document.referrer,
-
- async: false // Send this tag syncronously
- }
- * @property defaultPageConfig
- * @type {Object}
- * @private
- */
-var defaultPageConfig = {
-	tag: {
-		type: 'page'
-	},
-
-	page: {
-		url: document.URL,
-		referrer: document.referrer
-	},
-
-	async: true // Send this tag asyncronously - as sync doesn't work in FF, as it doesn't send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
-};
-
-/**
- * Constructs a URL in the format required by iJento, allowing different inputs.
- * @method url
- * @param u {String} A URL or path. e.g. http://www.ft.com/markets or /markets
- * @return {String} The full URL in the correct format.
- * @private
- */
-function url(u) {
-	if (utils.isUndefined(u)) {
-		throw new Error('URL must be specified');
-	}
-
-	if (u.indexOf('://') === -1) {
-		if (u.substring(0, 1) !== '/') {
-			u = '/' + u;
-		}
-
-		u = document.location.protocol + "//" + document.location.hostname + u;
-	}
-
-	if (u.indexOf('?') === -1) {
-		u = u + window.location.search;
-	} else {
-		// Merge query string params to avoid duplicates.
-		u = u.substr(0, u.indexOf('?')) + "?" + utils.serialize(utils.merge(utils.unserialize(window.location.search.substring(1)), utils.unserialize(u.substr(u.indexOf('?') + 1))));
-	}
-
-	return u;
-}
+var settings = require('./core/settings');
 
 /**
  * Make the page tracking request.
@@ -109,8 +21,10 @@ function url(u) {
  * @async
  */
 module.exports = function (config, callback) {
-	config = utils.merge(utils.merge(defaultPageConfig), config);
-	config.page.url = url(config.page.url);
+	var pageConfig = settings.get('config') ? settings.get('config').page || {} : {}
+	config = utils.merge(defaultPageConfig(), {
+			data: utils.merge(pageConfig, config)
+		});
 
 	// New PageID for a new Page.
 	Core.setPageID();

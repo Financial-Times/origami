@@ -8,7 +8,7 @@ var settings = require("./src/javascript/core/settings");
  * @property version
  * @type {String}
  */
-var version = '0.0.20';
+var version = '0.0.23';
 
 /**
  * @class Tracking

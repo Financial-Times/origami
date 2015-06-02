@@ -1,52 +1,17 @@
 {
-  "name": "o-tracking",
-  "version": "0.0.20",
   "private": true,
-  "description": "Origami module for FT tracking.",
-  "main": "main.js",
-  "directories": {
-    "doc": "docs",
-    "example": "examples",
-    "test": "tests"
-  },
   "scripts": {
-    "test": "grunt test"
+    "test": "./node_modules/karma/bin/karma start karma.conf.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "http://git.svc.ft.com:8080/scm/track/o-tracking.git"
-  },
-  "author": "Mark Stephens <mark.stephens@ft.com>",
-  "keywords": [
-    "ft",
-    "tracking"
-  ],
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "browserify": "~9.0.3",
-    "grunt-browserify": "~3.5.1",
-    "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-compass": "~1.0.1",
-    "grunt-contrib-copy": "~0.8.0",
-    "grunt-contrib-uglify": "~0.8.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-jshint": "~0.11.1",
-    "grunt-contrib-yuidoc": "~0.7.0",
-    "grunt-mocha": "~0.4.12",
-    "karma-browserify": "~4.0.0",
-    "mocha": "~2.2.1",
-    "grunt-karma": "~0.10.1",
-    "karma-script-launcher": "~0.1.0",
-    "karma-chrome-launcher": "~0.1.7",
-    "karma-firefox-launcher": "~0.1.4",
-    "karma-html2js-preprocessor": "~0.1.0",
-    "karma-phantomjs-launcher": "~0.1.4",
-    "karma": "~0.12.31",
-    "karma-mocha": "~0.1.10",
-    "nock": "~1.2.1",
-    "karma-coverage": "~0.2.7",
-    "karma-html-reporter": "~0.2.6",
-    "sinon": "~1.14.1",
-    "karma-sinon": "~1.0.4"
+    "debowerify": "Financial-Times/debowerify",
+    "karma-browserify": "^4.0.0",
+    "mocha": "^2.2.1",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma": "^0.12.31",
+    "karma-mocha": "^0.1.10",
+    "nock": "^1.2.1",
+    "sinon": "^1.14.1",
+    "karma-sinon": "^1.0.4"
   }
 }

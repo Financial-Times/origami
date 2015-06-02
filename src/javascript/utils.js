@@ -37,7 +37,9 @@ var page_callbacks = [];
  */
 function log() {
 	if (settings.get('developer') && window.console) {
-		window.console.log.apply(null, arguments);
+		for (var i=0;i<arguments.length;i++) {
+			window.console.log(arguments[i]);
+		}
 	}
 }
 
