@@ -6,7 +6,7 @@
 /// Path to the assets
 ///
 /// @type String
-$o-fonts-path: '//build.origami.ft.com/files/o-fonts-assets@1.1.0/' !default;
+$o-fonts-path: '//build.origami.ft.com/files/o-fonts-assets@1.2.0/' !default;
 
 /// Silent mode
 ///
@@ -51,6 +51,7 @@ $o-fonts-families: (
 		font-family: 'FinancierDisplayWeb, serif',
 		variants: (
 			(weight: regular, style: normal),
+			(weight: medium, style: italic),
 			(weight: semibold, style: italic),
 			(weight: light, style: italic)
 		)
