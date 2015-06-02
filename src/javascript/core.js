@@ -37,10 +37,12 @@ module.exports = (function () {
 		 }
 		 @private
 		 */
-		defaultConfig = {
-			async: true,
-			callback: function () {},
-			tag: {}
+		defaultConfig = function () {
+			return {
+				async: true,
+				callback: function () {},
+				tag: {}
+			};
 		};
 
 	/**
@@ -49,10 +51,9 @@ module.exports = (function () {
 	 * @param [page_id] Optional PageID, if you want to use your own. Otherwise will create one for you.
 	 * @return {String|*} The PageID.
 	 */
-	function pageID(page_id) {
-		page_id = requestID(page_id);
-		defaultConfig.tag.pageID = page_id;
-		return page_id;
+	function pageID(new_id) {
+		settings.set('page_id', requestID(new_id));
+		return settings.get('page_id');
 	}
 
 	/**
@@ -93,13 +94,14 @@ module.exports = (function () {
 			callback = function () {};
 		}
 
-		var request = utils.merge(utils.merge(defaultConfig), utils.merge(config, { callback: callback }));
+		var request = utils.merge(defaultConfig(), utils.merge(config, { callback: callback }));
 
 		/* Values here are kinda the mandatory ones, so we want to make sure they're possible. */
 		request = utils.merge({
 			id: requestID(request.id), // Keep an ID if it's been set elsewhere.
 
 			tag: {
+				page_id: settings.get('page_id'),
 				counter: internalCounter()
 			},
 
@@ -121,7 +123,7 @@ module.exports = (function () {
 
 	return {
 		setPageID: pageID,
-		getPageID: function () { return defaultConfig.tag.pageID; },
+		getPageID: function () { return settings.get('page_id'); },
 		track: track
 	};
 }());

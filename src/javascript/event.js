@@ -21,9 +21,11 @@ module.exports = (function (window) {
 		 * @type {Object}
 		 * @private
 		 */
-		defaultEventConfig = {
-			tag: { type: 'event' },
-			data: {}
+		defaultEventConfig = function () {
+			return {
+				tag: { type: 'event' },
+				data: {}
+			};
 		};
 
 	/**
@@ -45,7 +47,7 @@ module.exports = (function (window) {
 			throw 'Missing category or action values';
 		}
 
-		var config = utils.merge(utils.merge(defaultEventConfig), {
+		var config = utils.merge(defaultEventConfig(), {
 			data: obj
 		});
 

@@ -7,7 +7,7 @@ var assert = require('assert'),
 		id: '1.199.83760034665465.1432907605043.-56cf00f',
 		tag: {
 			counter: 3,
-			pageID: 'pageID',
+			page_id: 'page_id',
 			type: 'event'
 		},
 		user: {
