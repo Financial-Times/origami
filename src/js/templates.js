@@ -2,15 +2,19 @@
 // obt jshint doesn't get ES6, so disabling it
 "use strict";
 
-var message = function(content){
+var message = function(options){
 	return `
-	<section class="message">
-		<div class="message__content-wrapper">
-			<a href="#" class="message__close message__close-js">Close</a>
-			<div class="message__content">
-				${content}
+	<section class="n-notification n-notification--js n-notification--${options.type}">
+		<div class="n-notification__content-wrapper">
+			<h3 class="n-notification__title">
+				${options.title}
+			</h3>
+			<div class="n-notification__content">
+				${options.content}
 			</div>
 		</div>
+		<button class="n-notification__close n-notification__close-js">Close</button>
+
 	</section>
 `;
 };

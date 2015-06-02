@@ -2,20 +2,23 @@
 
 var Delegate = require('dom-delegate');
 
-var utils = require('./js/utils');
-
 var templates = require('./js/templates');
-var currentMessage = null;
+var currentNotification = null;
 var timeout;
 var timeoutDuration = 5000;
 var animDuration = 500;
+
+function dispatchNotificationCloseEvent(){
+	var event = new CustomEvent('nNotification.close');
+	document.dispatchEvent(event);
+}
 
 function listenForCloseButtonClick(){
 	var called = false;
 	var func = function(){
 
 		var delegate = new Delegate(document.body);
-		delegate.on('click', '.message__close-js', hideMessage);
+		delegate.on('click', '.n-notification__close-js', hide);
 	};
 
 	if(!called){
@@ -24,44 +27,47 @@ function listenForCloseButtonClick(){
 	}
 }
 
-function showMessage(options){
+function show(options){
 	clearTimeout(timeout);
+	options.title = options.title || '';
+	options.content = options.content || '';
 	listenForCloseButtonClick();
-	if(currentMessage){
-		currentMessage.firstChild.innerHTML = options.content;
+	if(currentNotification){
+		currentNotification.querySelector('.n-notification__title').innerHTML = options.title;
+		currentNotification.querySelector('.n-notification__content').innerHTML = options.content;
 	}else{
-		var html = templates[options.type](options.content);
+		var html = templates[options.type](options);
 		document.querySelector('header').insertAdjacentHTML('afterend', html);
-		currentMessage = document.querySelector('.message');
+		currentNotification = document.querySelector('.n-notification');
 	}
 	if(options.close !== false) {
-		currentMessage.classList.add('.message--show-close');
+		currentNotification.classList.add('n-notification--show-close');
 	}
 
-	currentMessage.classList.add('visible');
+	currentNotification.classList.add('visible');
 	if(options.duration !== 0){
-		timeout = setTimeout(hideMessage, options.duration || timeoutDuration);
+		timeout = setTimeout(hide, options.duration || timeoutDuration);
 	}
 }
 
-function hideMessage(){
+function hide(){
 	clearTimeout(timeout);
-	currentMessage.classList.remove('visible');
-	utils.dispatchMessageCloseEvent();
+	currentNotification.classList.remove('visible');
+	dispatchNotificationCloseEvent();
 	setTimeout(function(){
-		if(currentMessage && currentMessage.parentNode){
-			currentMessage.parentNode.removeChild(currentMessage);
+		if(currentNotification && currentNotification.parentNode){
+			currentNotification.parentNode.removeChild(currentNotification);
 		}
 
-		currentMessage = null;
+		currentNotification = null;
 	}, animDuration);
 }
 
 function init(){
-	document.addEventListener("FT.Message", function(e){
+	document.addEventListener("nNotification.show", function(e){
 		var data = e.detail;
-		data.type = "message";
-		showMessage(data);
+		data.type = data.type || "message";
+		show(data);
 	});
 }
 
@@ -69,5 +75,6 @@ function init(){
 
 module.exports = {
 	init : init,
-	showMessage: showMessage
+	show: show,
+	hide: hide
 };
