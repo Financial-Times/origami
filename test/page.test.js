@@ -28,8 +28,7 @@ describe('page', function () {
 			sent_data;
 
 		page({
-			url: "http://www.ft.com/home/uk",
-			product: 'mobile'
+			url: "http://www.ft.com/home/uk"
 		}, callback);
 
 		server.respond();
@@ -39,14 +38,13 @@ describe('page', function () {
 
 		// Basics
 		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
-		assert.deepEqual(Object.keys(sent_data.data), ["url", "referrer", "product"]);
+		assert.deepEqual(Object.keys(sent_data.data), ["url", "referrer"]);
 
 		// Type
 		assert.equal(sent_data.tag.type, "page");
 
 		// Page
 		assert.equal(sent_data.data.url, "http://www.ft.com/home/uk");
-		assert.equal(sent_data.data.product, "mobile");
 		assert.ok(!!sent_data.data.referrer, "referrer is invalid. " + sent_data.data.referrer);
 	});
 });

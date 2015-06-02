@@ -29,17 +29,20 @@ module.exports = (function (window, document) {
 		 * @type {Object}
 		 * @private
 		 */
-		defaultPageConfig = {
-			tag: {
-				type: 'page'
-			},
+		defaultPageConfig = function () {
+			return {
 
-			data: {
-				url: document.URL,
-				referrer: document.referrer
-			},
+				tag: {
+					type: 'page'
+				},
 
-			async: true // Send this tag asyncronously - as sync doesn't work in FF, as it doesn't send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
+				data: {
+					url: document.URL,
+					referrer: document.referrer
+				},
+
+				async: true // Send this tag asyncronously - as sync doesn't work in FF, as it doesn't send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
+			};
 		};
 
 	/**
@@ -50,7 +53,7 @@ module.exports = (function (window, document) {
 	 * @async
 	 */
 	return function (config, callback) {
-		config = utils.merge(utils.merge(defaultPageConfig), {
+		config = utils.merge(defaultPageConfig(), {
 			data: utils.merge(settings.get('config') ? settings.get('config').page || {}: {}, config)
 		});
 

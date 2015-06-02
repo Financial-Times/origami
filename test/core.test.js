@@ -7,14 +7,14 @@ describe('Core', function () {
 
 	var Core = require("../src/javascript/core.js");
 
-	describe('pageID', function () {
-		it('should generate a pageID', function () {
-			var pageID = Core.setPageID(),
+	describe('page_id', function () {
+		it('should generate a page_id', function () {
+			var page_id = Core.setPageID(),
 				re = /\d+\.\d+\.\d+\.\d+\.[\-\w]+/;
-			assert.ok(pageID.match(re), "'" + pageID + "'.match(" + re + ")");
+			assert.ok(page_id.match(re), "'" + page_id + "'.match(" + re + ")");
 		});
 
-		it('should use the pageID given it', function () {
+		it('should use the page_id given it', function () {
 			assert.equal(Core.setPageID("myPageID"), "myPageID");
 		});
 	});
@@ -24,7 +24,6 @@ describe('Core', function () {
 
 		before(function () {
 			require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
-			//require("../src/javascript/core/settings").set('developer', true);
 			(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
 			require("../src/javascript/core/settings").delete('config');  // Empty settings.
 			require("../src/javascript/core/session").init(); // Session
@@ -44,7 +43,7 @@ describe('Core', function () {
 				sent_data,
 				ua = window.navigator.userAgent;
 
-			Core.setPageID('pageID');
+			Core.setPageID('page_id');
 			Core.track({
 				tag: { type: 'page'  },
 				data: { url: "http://www.ft.com/home/uk" },
@@ -59,13 +58,13 @@ describe('Core', function () {
 
 			assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
 			// Tag
-			assert.deepEqual(Object.keys(sent_data.tag), ["apiKey","version","id","counter","offset","pageID","type"]);
+			assert.deepEqual(Object.keys(sent_data.tag), ["apiKey","version","id","counter","offset","page_id","type"]);
 			assert.equal(sent_data.tag.apiKey, "");
 			assert.equal(sent_data.tag.version, "v1");
 			assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.tag.id), "Request ID is invalid. " + sent_data.tag.id);
 			assert.equal(sent_data.tag.counter, 1);
 			assert.ok(/\d+/.test(sent_data.tag.offset), "offset is invalid. " + sent_data.tag.offset);
-			assert.equal(sent_data.tag.pageID, "pageID");
+			assert.equal(sent_data.tag.page_id, "page_id");
 			assert.equal(sent_data.tag.type, "page");
 
 			// User
