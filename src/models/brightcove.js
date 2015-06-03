@@ -48,7 +48,7 @@ function addVideo() {
 	this.el.setAttribute('controls', true);
 	this.el.setAttribute('poster', this.posterImage);
 	this.el.setAttribute('src', this.rendition.url);
-	this.el.className = this.classes.join(' ');
+	this.el.className = this.classes.join(' ') + ' n-video__player';
 	removePlaceholder.call(this);
 	this.containerEl.appendChild(this.el);
 	addEvents(this, ['play', 'pause', 'ended']);
@@ -61,8 +61,19 @@ function addPlaceholder() {
 	}
 	this.placeholderEl = document.createElement('img');
 	this.placeholderEl.setAttribute('src', this.posterImage);
-	this.placeholderEl.className = this.classes.join(' ');
+	this.placeholderEl.className = this.classes.join(' ') + ' n-video__placeholder';
 	this.containerEl.appendChild(this.placeholderEl);
+	this.placeholderEl.addEventListener('click', function (ev) {
+		// turn into video
+		addVideo.call(this);
+		this.el.play();
+		this.containerEl.dispatchEvent(
+			new CustomEvent('nVideo.placeholder.click', {
+				detail: this,
+				bubbles: true
+			})
+		);
+	}.bind(this));
 }
 
 function removePlaceholder() {
@@ -99,11 +110,6 @@ Brightcove.prototype.init = function () {
 			if (this.rendition) {
 				if (this.opts.placeholder) {
 					addPlaceholder.call(this);
-					this.placeholderEl.addEventListener('click', function (ev) {
-						// turn into video
-						addVideo.call(this);
-						this.el.play();
-					}.bind(this));
 				} else {
 					addVideo.call(this);
 				}
