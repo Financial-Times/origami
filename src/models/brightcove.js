@@ -28,14 +28,11 @@ function addEvents(video, events) {
 
 // use the image resizing service, if width supplied
 function updatePosterUrl(posterImage, width) {
+	var url = 'https://next-geebee.ft.com/image/v1/images/raw/' + encodeURIComponent(posterImage) + '?source=next';
 	if (width) {
-		return 'https://next-geebee.ft.com/image/v1/images/raw/' +
-			encodeURIComponent(posterImage) +
-			'?source=next&fit=scale-down&width=' +
-			width;
-	} else {
-		return posterImage;
+		url += '&fit=scale-down&width=' + width;
 	}
+	return url;
 }
 
 // PRIVATE
@@ -67,12 +64,6 @@ function addPlaceholder() {
 		// turn into video
 		addVideo.call(this);
 		this.el.play();
-		this.containerEl.dispatchEvent(
-			new CustomEvent('nVideo.placeholder.click', {
-				detail: this,
-				bubbles: true
-			})
-		);
 	}.bind(this));
 }
 
