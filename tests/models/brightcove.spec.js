@@ -98,4 +98,13 @@ describe('Brightcove', function () {
 			});
 	});
 
+	it('should add supplied classes to element', function () {
+		var brightcove = new Brightcove(containerEl, { classes: ['class-one', 'class-two'] });
+		return brightcove
+			.init()
+			.then(function () {
+				containerEl.querySelector('video').className.should.equal('class-one class-two');
+			});
+	});
+
 });

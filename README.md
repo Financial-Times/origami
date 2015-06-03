@@ -30,8 +30,9 @@ In JS
 
 Where `opts` is an optional object with properties
 
- * `optimumWidth` The optimum width of the video, used when there are multiple video renditions available to decide which to display (the smallest one that's at least as large as this width, if it exists)
- * `palceholder` Show just the poster image, load (and play) video on click
+ * `optimumWidth` [Number] The optimum width of the video, used when there are multiple video renditions available to decide which to display (the smallest one that's at least as large as this width, if it exists)
+ * `palceholder` [Boolean] Show just the poster image, load (and play) video on click
+ * `classes` [Array] Classes to add to the video (and placeholder) element
 
 ## Development
 
