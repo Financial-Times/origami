@@ -48,6 +48,7 @@ function addVideo() {
 	this.el.setAttribute('controls', true);
 	this.el.setAttribute('poster', this.posterImage);
 	this.el.setAttribute('src', this.rendition.url);
+	this.el.className = this.classes.join(' ');
 	removePlaceholder.call(this);
 	this.containerEl.appendChild(this.el);
 	addEvents(this, ['play', 'pause', 'ended']);
@@ -60,6 +61,7 @@ function addPlaceholder() {
 	}
 	this.placeholderEl = document.createElement('img');
 	this.placeholderEl.setAttribute('src', this.posterImage);
+	this.placeholderEl.className = this.classes.join(' ');
 	this.containerEl.appendChild(this.placeholderEl);
 }
 

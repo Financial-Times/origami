@@ -5,7 +5,8 @@ var videoFactory = require('./src/models/video-factory');
 function init (opts) {
 	var options = opts || {};
 	var defaultOpts = {
-		context: document.body
+		context: document.body,
+		classes: []
 	};
 	for (var defaultOpt in defaultOpts) {
 		if (defaultOpts.hasOwnProperty(defaultOpt) && !options.hasOwnProperty(defaultOpt)) {
