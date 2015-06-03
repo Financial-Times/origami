@@ -6,7 +6,6 @@ Origami module for the FT tracking.
 
 **NOTE: This module is not yet functional. Please continue to use legacy tracking code (iJento in most cases)**
 
-
 # Usage
 
 Tracking at the FT relies on the following concept:
@@ -22,6 +21,7 @@ Therefore, when you're thinking about when to use the below functions - and whic
 For example:
 - Does the thing you want to track happen many times on a page (or could it) - such as moving to the next slide of a slideshow - use an `event`.
 - Is it describing the page or the user, include it in the `init` or `page` function.
+
 
 # Including in a product
 
@@ -168,18 +168,3 @@ Both JS and non-JS versions take the same parameters.
 * `segid`: `` - Segment parameter used for attribution.
 * `campaign`: `` - Campaign parameter.
 * `segmentid`: `` - Segment parameter used for attribution.
-
-
-
-
-# Contributing
-
-The following will get you setup:
-* Check out the code
-* `npm install`
-* `bower install`
-* `grunt`
-
-The following grunt tasks are available:
-* `grunt version` - bump a version number in all the files that need a version number changing.
-* `grunt test` - Test the code against the test suite.

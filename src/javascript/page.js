@@ -6,63 +6,58 @@
  * @static
  */
 
-/*global module, require, window, document */
+/*global module, require */
 "use strict";
 
-module.exports = (function (window, document) {
+var Core = require("./core");
+var utils = require("./utils");
+var settings = require('./core/settings');
 
-	var
-		Core = require("./core"),
-		utils = require("./utils"),
-		settings = require("./core/settings"),
+/**
+ * Default properties for page tracking requests.
+ * @example
+ {
+ url: document.URL,
+ referrer: document.referrer,
+ async: false // Send this tag syncronously
+ }
+ * @property defaultPageConfig
+ * @type {Object}
+ * @private
+ */
+var defaultPageConfig = function () {
+	return {
 
-		/**
-		 * Default properties for page tracking requests.
-		 * @example
-		 {
-		 url: document.URL,
-		 referrer: document.referrer,
+		tag: {
+			type: 'page'
+		},
 
-		 async: false // Send this tag syncronously
-		 }
-		 * @property defaultPageConfig
-		 * @type {Object}
-		 * @private
-		 */
-		defaultPageConfig = function () {
-			return {
+		data: {
+			url: document.URL,
+			referrer: document.referrer
+		},
 
-				tag: {
-					type: 'page'
-				},
+		async: true // Send this tag asyncronously - as sync doesn't work in FF, as it doesn't send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
+	};
+};
 
-				data: {
-					url: document.URL,
-					referrer: document.referrer
-				},
-
-				async: true // Send this tag asyncronously - as sync doesn't work in FF, as it doesn't send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
-			};
-		};
-
-	/**
-	 * Make the page tracking request.
-	 * @method page
-	 * @param [config] {Object} Configuration object. If omitted, will use the defaults.
-	 * @param [callback] {Function} Callback function. Called when request completed.
-	 * @async
-	 */
-	return function (config, callback) {
-		config = utils.merge(defaultPageConfig(), {
-			data: utils.merge(settings.get('config') ? settings.get('config').page || {}: {}, config)
+/**
+ * Make the page tracking request.
+ * @method page
+ * @param [config] {Object} Configuration object. If omitted, will use the defaults.
+ * @param [callback] {Function} Callback function. Called when request completed.
+ * @async
+ */
+module.exports = function (config, callback) {
+	var pageConfig = settings.get('config') ? settings.get('config').page || {} : {};
+	config = utils.merge(defaultPageConfig(), {
+			data: utils.merge(pageConfig, config)
 		});
 
-		// New PageID for a new Page.
-		Core.setPageID();
-		Core.track(config, callback);
+	// New PageID for a new Page.
+	Core.setPageID();
+	Core.track(config, callback);
 
-		// Alert internally that a new page has been tracked - for single page apps for example.
-		utils.triggerPage();
-	};
-
-}(window, document));
+	// Alert internally that a new page has been tracked - for single page apps for example.
+	utils.triggerPage();
+};
