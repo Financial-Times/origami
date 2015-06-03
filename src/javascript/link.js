@@ -9,7 +9,7 @@
 /*global module, require, window */
 "use strict";
 
-var Queue = require("./core/queue"),
+var Queue = require("./core/queue");
 var Core = require("./core");
 
 var utils = require("./utils");

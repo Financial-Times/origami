@@ -117,7 +117,7 @@ Tracking.prototype.init = function(config) {
  *
  * @returns {HTMLElement} - Returns the <script> element if found
  */
-Errors.prototype._getDeclarativeConfigElement = function() {
+Tracking.prototype._getDeclarativeConfigElement = function() {
 	return document.querySelector('script[data-o-tracking-config]');
 };
 
@@ -131,8 +131,9 @@ Errors.prototype._getDeclarativeConfigElement = function() {
  * @returns {Object} - The options modified to include the options gathered
  *                     from the DOM
  */
-Errors.prototype._getDeclarativeConfig = function(options) {
+Tracking.prototype._getDeclarativeConfig = function(options) {
 	var configEl = this._getDeclarativeConfigElement();
+	var declarativeConfigString;
 	if (configEl) {
 		declarativeConfigString = configEl.textContent || configEl.innerText || configEl.innerHTML;
 	} else {
@@ -142,7 +143,7 @@ Errors.prototype._getDeclarativeConfig = function(options) {
 	var declarativeOptions;
 
 	try {
-		declarativeOptions = JSON.parse(getDeclarativeConfig);
+		declarativeOptions = JSON.parse(declarativeConfigString);
 	} catch(e) {
 		throw new Error("Invalid JSON configuration syntax, check validity for o-tracking configuration: '" + e.message + "'");
 	}

@@ -47,7 +47,7 @@ var defaultConfig = function () {
  * @param [page_id] Optional PageID, if you want to use your own. Otherwise will create one for you.
  * @return {String|*} The PageID.
  */
-function pageID(page_id) {
+function pageID(new_id) {
 	settings.set('page_id', requestID(new_id));
 	return settings.get('page_id');
 }
