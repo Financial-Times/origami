@@ -6,7 +6,6 @@ require('isomorphic-fetch');
 var Video = require('./video');
 var getAppropriateRendition = require('../libs/get-appropriate-rendition');
 
-// PRIVATE
 function eventListener(video, ev) {
 	var event = document.createEvent('Event');
 	event.initEvent('beacon:media', true, true);
@@ -25,6 +24,51 @@ function addEvents(video, events) {
 	events.forEach(function (event) {
 		video.el.addEventListener(event, eventListener.bind(this, video));
 	});
+}
+
+// use the image resizing service, if width supplied
+function updatePosterUrl(posterImage, width) {
+	if (width) {
+		return 'https://next-geebee.ft.com/image/v1/images/raw/' +
+			encodeURIComponent(posterImage) +
+			'?source=next&fit=scale-down&width=' +
+			width;
+	} else {
+		return posterImage;
+	}
+}
+
+// PRIVATE
+function addVideo() {
+	/* jshint validthis: true */
+	if (this.el) {
+		return;
+	}
+	this.el = document.createElement('video');
+	this.el.setAttribute('controls', true);
+	this.el.setAttribute('poster', this.posterImage);
+	this.el.setAttribute('src', this.rendition.url);
+	removePlaceholder.call(this);
+	this.containerEl.appendChild(this.el);
+	addEvents(this, ['play', 'pause', 'ended']);
+}
+
+function addPlaceholder() {
+	/* jshint validthis: true */
+	if (this.el || this.placeholderEl) {
+		return;
+	}
+	this.placeholderEl = document.createElement('img');
+	this.placeholderEl.setAttribute('src', this.posterImage);
+	this.containerEl.appendChild(this.placeholderEl);
+}
+
+function removePlaceholder() {
+	/* jshint validthis: true */
+	if (this.placeholderEl) {
+		this.containerEl.removeChild(this.placeholderEl);
+		this.placeholderEl = undefined;
+	}
 }
 
 function Brightcove () {
@@ -48,20 +92,25 @@ Brightcove.prototype.init = function () {
 			}
 		}.bind(this))
 		.then(function (data) {
-			var rendition = getAppropriateRendition(data.renditions, { width: this.opts.optimumWidth });
-			if (rendition) {
-				this.el = document.createElement('video');
-				this.el.setAttribute('controls', true);
-				this.el.setAttribute('poster', data.videoStillURL);
-				this.el.setAttribute('src', rendition.url);
-				this.containerEl.appendChild(this.el);
-				addEvents(this, ['play', 'pause', 'ended']);
+			this.posterImage = updatePosterUrl(data.videoStillURL, this.opts.optimumWidth);
+			this.rendition = getAppropriateRendition(data.renditions, { width: this.opts.optimumWidth });
+			if (this.rendition) {
+				if (this.opts.placeholder) {
+					addPlaceholder.call(this);
+					this.placeholderEl.addEventListener('click', function (ev) {
+						// turn into video
+						addVideo.call(this);
+						this.el.play();
+					}.bind(this));
+				} else {
+					addVideo.call(this);
+				}
 			}
 			return this;
 		}.bind(this));
 };
 
-Video.prototype.getProgress = function () {
+Brightcove.prototype.getProgress = function () {
 	return this.el.duration ? parseInt(100 * this.el.currentTime / this.el.duration, 10) : 0;
 };
 

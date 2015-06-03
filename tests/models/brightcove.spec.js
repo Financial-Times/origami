@@ -73,4 +73,29 @@ describe('Brightcove', function () {
 			});
 	});
 
+	it('should be able to create as a placeholder', function () {
+		var brightcove = new Brightcove(containerEl, { placeholder: true });
+		return brightcove
+			.init()
+			.then(function () {
+				var placholderEl = containerEl.querySelector('img');
+				placholderEl.getAttribute('src').should.equal(
+					'https://bcsecure01-a.akamaihd.net/13/47628783001/201502/2470/47628783001_4085962850001_MAS-VIDEO-AuthersNote-stock-market.jpg?pubId=47628783001'
+				);
+			});
+	});
+
+	it('should send poster through image service if optimumWidth defined', function () {
+		var brightcove = new Brightcove(containerEl, { optimumWidth: 300 });
+		return brightcove
+			.init()
+			.then(function () {
+				containerEl.querySelector('video').getAttribute('poster').should.equal(
+					'https://next-geebee.ft.com/image/v1/images/raw/' +
+					'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201502%2F2470%2F47628783001_4085962850001_MAS-VIDEO-AuthersNote-stock-market.jpg%3FpubId%3D47628783001' +
+					'?source=next&fit=scale-down&width=300'
+				);
+			});
+	});
+
 });
