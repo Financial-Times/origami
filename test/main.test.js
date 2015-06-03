@@ -2,21 +2,46 @@
 "use strict";
 
 var assert = require("assert");
+var settings = require("../src/javascript/core/settings");
 
 describe('main', function () {
 
-	var server,
-		oTracking = require("../main.js"),
-		page_id;
+	var server;
+	var oTracking = require("../main.js");
+	var page_id;
 
 	before(function () {
 		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
-		require("../src/javascript/core/settings").delete('config');  // Empty settings.
+		settings.delete('config');  // Empty settings.
 		server = sinon.fakeServer.create(); // Catch AJAX requests
 	});
 
 	after(function () {
 		server.restore();
+	});
+
+	it('should configure itself from the DOM if no options are present', function() {
+		var confEl = document.createElement('script');
+		confEl.type = 'application/json';
+		confEl.dataset.oTrackingConfig = 'true';
+		var config = {
+			page: {
+				product: 'desktop'
+			},
+			user: {
+				user_id: '023ur9jfokwenvcklwnfiwhfoi324'
+			}
+		};
+		confEl.innerText = JSON.stringify(config);
+
+		document.head.appendChild(confEl);
+		var tracking = oTracking.init();
+
+		assert.deepEqual(settings.get('config'), config);
+		assert.equal(tracking.initialised, true);
+
+		document.head.removeChild(confEl);
+		oTracking.destroy();
 	});
 
 	it('should track a page', function () {

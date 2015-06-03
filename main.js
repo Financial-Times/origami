@@ -43,8 +43,11 @@ Tracking.prototype.developer = function(level) {
  */
 Tracking.prototype.destroy = function() {
 	this.developer(false);
-	settings.delete('internalCounter', 0);
-	settings.delete('page_sent', false);
+	this.initialised = false;
+
+	settings.delete('config');
+	settings.delete('internalCounter');
+	settings.delete('page_sent');
 };
 
 /**
@@ -53,7 +56,7 @@ Tracking.prototype.destroy = function() {
  * @return {String} The module's version.
  */
 Tracking.prototype.toString = function() {
-	return "oTracking version " + version;
+	return 'oTracking version ' + version;
 };
 
 Tracking.prototype.page = require('./src/javascript/page');
@@ -71,7 +74,6 @@ Tracking.prototype.init = function(config) {
 	if (this.initialised) {
 		return this;
 	}
-
 	var hasDeclarativeConfig = !!this._getDeclarativeConfigElement();
 
 	if (!(hasDeclarativeConfig || config)) {
@@ -79,9 +81,8 @@ Tracking.prototype.init = function(config) {
 	}
 
 	config = config || {};
-
 	if (hasDeclarativeConfig) {
-		config = this._initialiseDeclaratively(config);
+		config = this._getDeclarativeConfig(config);
 	}
 
 	settings.set('config', config);
@@ -100,13 +101,13 @@ Tracking.prototype.init = function(config) {
 	}
 
 	// User identifier
-	require("./src/javascript/core/user").init(config.userID);
+	require('./src/javascript/core/user').init(config.userID);
 
 	// Session
-	require("./src/javascript/core/session").init(config.session);
+	require('./src/javascript/core/session').init(config.session);
 
 	// Initialize the sending queue.
-	require("./src/javascript/core/send").init(this.version);
+	require('./src/javascript/core/send').init(this.version);
 
 	this.initialised = true;
 	return this;

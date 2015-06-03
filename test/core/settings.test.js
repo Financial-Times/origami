@@ -1,8 +1,8 @@
 /*global require, describe, it */
 "use strict";
 
-var assert = require('assert'),
-	Settings = require("../../src/javascript/core/settings");
+var assert = require('assert');
+var Settings = require("../../src/javascript/core/settings");
 
 describe('Core.Settings', function () {
 
