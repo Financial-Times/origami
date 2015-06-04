@@ -8,6 +8,7 @@ function Video(el, opts) {
 	this.classes = this.opts.classes || [];
 	this.id = el.getAttribute('data-n-video-id');
 	this.el;
+	this.placeholderEl;
 	this.domPathTokens = getDomPathTokens(this.containerEl);
 	this.domPath = this.domPathTokens.reverse().join(' | ');
 
