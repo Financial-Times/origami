@@ -55,8 +55,8 @@ module.exports = function (config, callback) {
 		});
 
 	// New PageID for a new Page.
-	Core.setPageID();
-	Core.track(config, callback);
+	var r = Core.track(config, callback);
+	Core.setPageID(r.id);
 
 	// Alert internally that a new page has been tracked - for single page apps for example.
 	utils.triggerPage();

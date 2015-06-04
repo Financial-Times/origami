@@ -68,7 +68,7 @@ describe('main', function () {
 
 		sent_data = callback.getCall(0).thisValue;
 
-		page_id = sent_data.tag.page_id;
+		page_id = sent_data.tag.id;
 
 		// Basics
 		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
