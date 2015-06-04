@@ -38,41 +38,23 @@ function updatePosterUrl(posterImage, width) {
 // PRIVATE
 function addVideo() {
 	/* jshint validthis: true */
-	if (this.el) {
-		return;
-	}
 	this.el = document.createElement('video');
 	this.el.setAttribute('controls', true);
 	this.el.setAttribute('poster', this.posterImage);
 	this.el.setAttribute('src', this.rendition.url);
-	this.el.className = this.classes.join(' ') + ' n-video__player';
-	removePlaceholder.call(this);
+	this.el.className = this.classes.join(' ');
+	this.containerEl.classList.add('n-video--player');
 	this.containerEl.appendChild(this.el);
 	addEvents(this, ['play', 'pause', 'ended']);
 }
 
 function addPlaceholder() {
 	/* jshint validthis: true */
-	if (this.el || this.placeholderEl) {
-		return;
-	}
 	this.placeholderEl = document.createElement('img');
 	this.placeholderEl.setAttribute('src', this.posterImage);
-	this.placeholderEl.className = this.classes.join(' ') + ' n-video__placeholder';
+	this.placeholderEl.className = this.classes.join(' ');
+	this.containerEl.classList.add('n-video--placeholder');
 	this.containerEl.appendChild(this.placeholderEl);
-	this.placeholderEl.addEventListener('click', function (ev) {
-		// turn into video
-		addVideo.call(this);
-		this.el.play();
-	}.bind(this));
-}
-
-function removePlaceholder() {
-	/* jshint validthis: true */
-	if (this.placeholderEl) {
-		this.containerEl.removeChild(this.placeholderEl);
-		this.placeholderEl = undefined;
-	}
 }
 
 function Brightcove () {
