@@ -100,6 +100,8 @@ function track(config, callback) {
 
 	// Send it.
 	Send.addAndRun(request);
+
+	return request;
 }
 
 module.exports = {
