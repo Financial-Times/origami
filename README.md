@@ -1,5 +1,5 @@
 # n-notification [![Build Status](https://travis-ci.org/Financial-Times/n-notification.svg?branch=master)](https://travis-ci.org/Financial-Times/n-notification)
-Component for showing onsite notification bars to users. Currently unused.
+Component for showing onsite notification bars to users.
 
 # Using it
 
