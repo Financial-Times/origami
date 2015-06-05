@@ -25,15 +25,19 @@ In JS
     var opts = {
         optimumWidth: 710,
         placeholder: true,
-        classes: ['video']
+        classes: ['video'],
+        selector: '.js-video'
     };
     nVideo.init(opts);
 
 Where `opts` is an optional object with properties
 
- * `optimumWidth` [Number] The optimum width of the video, used when there are multiple video renditions available to decide which to display (the smallest one that's at least as large as this width, if it exists)
- * `palceholder` [Boolean] Show just the poster image, load (and play) video on click
- * `classes` [Array] Classes to add to the video (and placeholder) element
+ * `optimumWidth` [`Number`] The optimum width of the video, used when there are multiple video renditions available to
+ decide which to display (the smallest one that's at least as large as this width, if it exists)
+ * `palceholder` [`Boolean`] Show just the poster image, load (and play) video on click
+ * `classes` [`Array`] Classes to add to the video (and placeholder) element
+ * `selector` [`String`] Selector to use to find the `n-video` elements. Appended with
+ `:not([data-n-video-js])[data-n-component~="n-video"]`. Defaults to `*`.
 
 ## Development
 

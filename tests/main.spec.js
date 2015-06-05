@@ -50,4 +50,15 @@ describe('Main', function () {
 		});
 	});
 
+	it('should allow setting the selector Video objects only once', function () {
+		var className = 'js-video';
+
+		return main.init({ selector: '.' + className }).then(function (videos) {
+			containerEl.className = className;
+			return main.init({ selector: '.' + className }).then(function (videos) {
+				videos.should.have.length(1);
+			});
+		});
+	});
+
 });
