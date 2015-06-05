@@ -24,7 +24,8 @@ In JS
     var nVideo = require('n-video');
     var opts = {
         optimumWidth: 710,
-        placeholder: true
+        placeholder: true,
+        classes: ['video']
     };
     nVideo.init(opts);
 
