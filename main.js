@@ -6,7 +6,8 @@ function init (opts) {
 	var options = opts || {};
 	var defaultOpts = {
 		context: document.body,
-		classes: []
+		classes: [],
+		selector: '*'
 	};
 	for (var defaultOpt in defaultOpts) {
 		if (defaultOpts.hasOwnProperty(defaultOpt) && !options.hasOwnProperty(defaultOpt)) {
@@ -14,7 +15,7 @@ function init (opts) {
 		}
 	}
 	var context = options.context instanceof HTMLElement ? options.context : document.querySelector(opts.context);
-	var videoPromises = [].map.call(context.querySelectorAll('*:not([data-n-video-js])[data-n-component~="n-video"]'), function (videoEl) {
+	var videoPromises = [].map.call(context.querySelectorAll(options.selector + ':not([data-n-video-js])[data-n-component~="n-video"]'), function (videoEl) {
 		return videoFactory(videoEl, options).init()
 			// don't fail all if a video errors
 			.catch(function (err) { });
