@@ -54,6 +54,9 @@ $anim-duration : 200ms;
 	display: inline-block;
 	color: oColorsGetPaletteColor('white');
 	margin: 0;
+	> a {
+		color: oColorsGetPaletteColor('white');
+	}
 }
 
 
