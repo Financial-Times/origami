@@ -1,12 +1,3 @@
-/**
- * Class for our session.
- * Generate a session for tracking use only - note this is only an approximation of a session for the realtime feed, a 'real' session will be calculated later.
- * @module _Core
- * @submodule Store
- * @class Track._Core.Session
- * @static
- */
-
 /*global module, require */
 "use strict";
 
@@ -22,9 +13,8 @@ var Store = require("./store");
 
 /**
  * Set the session in the store.
- * @method setSession
- * @param str {String} The session to be stored.
- * @return None
+ *
+ * @param {String} The session to be stored.
  */
 function setSession(session) {
 	var d = new Date();
@@ -38,7 +28,7 @@ function setSession(session) {
 
 /**
  * Get the session from the store. Expiry and gen of a new session are handled here.
- * @method getSession
+ *
  * @return {String} the current session
  */
 function getSession() {
@@ -68,7 +58,7 @@ function getSession() {
 
 /**
  * Init
- * @method init
+ *
  * @param config {String|Object} The name used to store the session or configuration object.
  */
 function init(config) {

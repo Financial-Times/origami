@@ -46,10 +46,6 @@ describe('Utils', function () {
 		assert.equal(Utils.hash("test string"), '-30ec5bc');
 	});
 
-	it('should provide objectKeys functionality', function () {
-		assert.deepEqual(Utils.objectKeys({ 'one' : 'one', 'two': 'two' }), ['one', 'two']);
-	});
-
 	it('should provide serialize functionality', function () {
 		assert.equal(Utils.serialize({ 'one' : 'one', 'two': 'two' }, ['one']), "one=one");
 	});

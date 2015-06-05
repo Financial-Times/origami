@@ -1,12 +1,3 @@
-/**
- * Class for user.
- * Handling the user identifier.
- * @module _Core
- * @submodule Store
- * @class Track._Core.User
- * @static
- */
-
 /*global module, require */
 "use strict";
 
@@ -22,7 +13,7 @@ var Store = require("./store");
 
 /**
  * Init
- * @method init
+ *
  * @param config {String|Object} The value of a userID to use or configuration object.
  */
 function init(config) {
