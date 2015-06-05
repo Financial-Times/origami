@@ -36,13 +36,13 @@ function show(options){
 
 	listenForCloseButtonClick();
 	if(currentNotification){
-		currentNotification.querySelector('.n-notification__title').innerHTML = options.title;
-		currentNotification.querySelector('.n-notification__content').innerHTML = options.content;
-	} else {
-		var html = template(options);
-		document.body.insertAdjacentHTML('afterbegin', html);
-		currentNotification = document.querySelector('.n-notification');
+		currentNotification.parentNode.removeChild(currentNotification);
 	}
+
+	var html = template(options);
+	document.body.insertAdjacentHTML('afterbegin', html);
+	currentNotification = document.querySelector('.n-notification');
+
 	if(options.close !== false) {
 		currentNotification.classList.add('n-notification--show-close');
 	}
