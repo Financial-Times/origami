@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "homepage": "https://github.com/Financial-Times/n-notification",
   "main": [
-    "main.css",
+    "main.scss",
     "main.js"
   ],
   "private": true,
