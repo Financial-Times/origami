@@ -93,6 +93,63 @@ function encode(str) {
 }
 
 /**
+ * Generate a unique ID.
+ *
+ * @return {string}
+ */
+function createUniqueID() {
+	return window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + hash(window.document.location.href + window.document.referrer);
+}
+
+/**
+ * Encodes a given input string in base64.
+ *
+ * @param {string} input - the string to encode
+ *
+ * @return {string} The base64-encoded value of the input string.
+ */
+function b64encode(input) {
+	if (!input) {
+		return '';
+	}
+
+	input = encode(input);
+
+	if (window.btoa) {
+		return window.btoa(input);
+	}
+
+	return input;
+}
+
+/**
+ * Function to create a unique-ish hash of a string.
+ *
+ * @param {string} txt
+ *
+ * @return {string}
+ */
+function hash(txt) {
+	if (!txt) {
+		return "";
+	}
+
+	var seed = 0x811c9dc5;
+	var i;
+
+	/* jshint -W016 */
+	/* jslint bitwise:false */
+	for (i = 0; i < txt.length; i++) {
+		seed += (seed << 1) + (seed << 4) + (seed << 7) + (seed << 8) + (seed << 24);
+		seed ^= txt.charCodeAt(i);
+	}
+
+	return Number(seed & 0x00000000ffffffff).toString(16);
+	/* jshint -W016 */
+	/* jslint bitwise:true */
+}
+
+/*
  * Utility to add event listeners.
  *
  * @param {Element} element
@@ -135,6 +192,9 @@ module.exports = {
 	isUndefined: is,
 	merge: merge,
 	encode: encode,
+	hash: hash,
+	b64encode: b64encode,
+	createUniqueID: createUniqueID,
 	addEvent: addEvent,
 	onPage: onPage,
 	triggerPage: triggerPage

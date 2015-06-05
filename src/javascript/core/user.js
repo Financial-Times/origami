@@ -8,7 +8,6 @@ var defaultUserConfig = {
 	value: null
 };
 
-var uuid = require('node-uuid');
 var utils = require("../utils");
 var Store = require("./store");
 
@@ -39,7 +38,7 @@ function init(config) {
 	}
 
 	if (!userID) {
-		userID = uuid.v4();
+		userID = utils.b64encode(utils.createUniqueID());
 	}
 
 	store.write(userID); // Refreshes the cookie...

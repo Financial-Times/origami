@@ -1,7 +1,6 @@
 /*global module, require */
 "use strict";
 
-var uuid = require('node-uuid');
 var Send = require("./core/send");
 var User = require("./core/user");
 var Session = require("./core/session");
@@ -47,7 +46,7 @@ function pageID(new_id) {
  */
 function requestID(request_id) {
 	if (utils.isUndefined(request_id)) {
-		request_id = uuid.v1();
+		request_id = utils.createUniqueID();
 	}
 
 	return request_id;

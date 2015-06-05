@@ -8,7 +8,6 @@ var defaultSessionConfig = {
 	expires: (30 * 60 * 1000) // 30 minutes
 };
 
-var uuid = require('node-uuid');
 var utils = require("../utils");
 var Store = require("./store");
 
@@ -48,7 +47,7 @@ function getSession() {
 
 	// No active session, gen a new one.
 	if (!session) {
-		session = uuid.v4();
+		session = utils.b64encode(utils.createUniqueID());
 	}
 
 	// Refreshes the cookie...
