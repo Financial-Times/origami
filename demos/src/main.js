@@ -21,8 +21,7 @@ document.querySelector('.demo-notification--method').addEventListener('click', f
 
 document.querySelector('.demo-notification--always-open').addEventListener('click', function() {
 	nNotification.show({
-		title: 'Super important',
-		content: 'This Notification will not close',
+		content: '<abbr title="myFT" class="myft-ui__icon"></abbr> This Notification will not close. Read and manage your alerts.',
 		duration: 0
 	});
 });
