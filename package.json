@@ -3,6 +3,9 @@
   "scripts": {
     "test": "./node_modules/karma/bin/karma start karma.conf.js"
   },
+  "dependencies": {
+    "node-uuid": "^1.4.3"
+  },
   "devDependencies": {
     "debowerify": "Financial-Times/debowerify",
     "karma-browserify": "^4.0.0",

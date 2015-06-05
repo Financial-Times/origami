@@ -2,12 +2,6 @@
 "use strict";
 
 /**
- * An array of characters used by the base-64 encoding methods.
- * @private
- */
-var TRANS_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-
-/**
  * Shared "internal" scope.
  * @private
  */
@@ -267,15 +261,6 @@ function toISOString(date) {
 }
 
 /**
- * Generate a unique ID.
- *
- * @return {string}
- */
-function createUniqueID() {
-	return window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + hash(window.document.location.href + window.document.referrer);
-}
-
-/**
  * Utility to add event listeners.
  *
  * @param {Element} element
@@ -324,7 +309,6 @@ module.exports = {
 	unserialize: unserialize,
 	b64encode: b64encode,
 	toISOString: toISOString,
-	createUniqueID: createUniqueID,
 	addEvent: addEvent,
 	onPage: onPage,
 	triggerPage: triggerPage
