@@ -1,39 +1,27 @@
-/**
- * Common utilities for the tracking module.
- * @module Track
- * @submodule _Utils
- * @class Track._Utils
- * @static
- */
-
 /*global module, require, window */
 "use strict";
 
 /**
  * An array of characters used by the base-64 encoding methods.
- * @property TRANS_CHARS
  * @private
- * @final
  */
 var TRANS_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 /**
  * Shared "internal" scope.
- * @property settings
  * @private
  */
 var settings = require("./core/settings");
 
 /**
  * Record of callbacks to call when a page is tracked.
- * @property page_callbacks
  */
 var page_callbacks = [];
 
 /**
  * Log messages to the browser console. Requires "log" to be set on init.
- * @method log
- * @param arguments* {Mixed}
+ *
+ * @param {*} List of objects to log
  */
 function log() {
 	if (settings.get('developer') && window.console) {
@@ -45,10 +33,11 @@ function log() {
 
 /**
  * Tests if variable is a certain type. Defaults to check for undefined if no type specified.
- * @method is
- * @param variable {Mixed} The variable to check.
- * @param [type] {String} The type to test for. Defaults to undefined.
- * @return {Boolean}
+ *
+ * @param {*} variable - The variable to check.
+ * @param {string} type - The type to test for. Defaults to undefined.
+ *
+ * @return {boolean}
  */
 function is(variable, type) {
 	if (!type) {
@@ -59,9 +48,10 @@ function is(variable, type) {
 
 /**
  * Merge objects together. Will remove "falsy" values.
- * @method merge
- * @param target {Object} The original object to merge in to.
- * @param [options] {Object} The object to merge into the target. If omitted, will merge target into a new empty Object.
+ *
+ * @param {Object} target - The original object to merge in to.
+ * @param {Object} options - The object to merge into the target. If omitted, will merge target into a new empty Object.
+ *
  * @return {Object} The merged object.
  */
 function merge(target, options) {
@@ -96,9 +86,9 @@ function merge(target, options) {
 
 /**
  * URL encode a string.
- * @method encode
- * @param str {String} The string to be encoded.
- * @return {String} The encoded string.
+ * @param {string} str - The string to be encoded.
+ *
+ * @return {string} The encoded string.
  */
 function encode(str) {
 	try {
@@ -110,9 +100,10 @@ function encode(str) {
 
 /**
  * URL unencode a string.
- * @method unencode
- * @param str {String} The string to be unencoded.
- * @return {String} The unencoded string.
+ *
+ * @param {string} str - The string to be unencoded.
+ *
+ * @return {string} The unencoded string.
  */
 function unencode(str) {
 	try {
@@ -124,9 +115,10 @@ function unencode(str) {
 
 /**
  * Encodes a given input string in base64.
- * @method b64encode
- * @param {String} input the string to encode
- * @return {String} The base64-encoded value of the input string.
+ *
+ * @param {string} input - the string to encode
+ *
+ * @return {string} The base64-encoded value of the input string.
  */
 function b64encode(input) {
 	if (!input) {
@@ -161,17 +153,18 @@ function b64encode(input) {
 
 /**
  * Function to create a unique-ish hash of a string.
- * @method hash
- * @param txt
- * @return {String}
+ *
+ * @param {string} txt
+ *
+ * @return {string}
  */
 function hash(txt) {
 	if (!txt) {
 		return "";
 	}
 
-	var seed = 0x811c9dc5,
-		i;
+	var seed = 0x811c9dc5;
+	var i;
 
 	/* jshint -W016 */
 	/* jslint bitwise:false */
@@ -181,41 +174,17 @@ function hash(txt) {
 	}
 
 	return Number(seed & 0x00000000ffffffff).toString(16);
-	/* jshint +W016 */
+	/* jshint -W016 */
 	/* jslint bitwise:true */
 }
 
 /**
- * Polyfill for Object.keys as it doesn't exist in older browsers.
- * @method objectKeys
- * @param o {Object} The object to fond the keys from.
- * @return {Array} The keys.
- */
-function objectKeys(o) {
-	if (o !== Object(o)) {
-		throw new TypeError('Object.keys called on a non-object');
-	}
-
-	if (Object.hasOwnProperty("keys")) {
-		return Object.keys(o);
-	}
-
-	var k = [], p;
-
-	for (p in o) {
-		if (Object.prototype.hasOwnProperty.call(o, p)) {
-			k.push(p);
-		}
-	}
-	return k;
-}
-
-/**
  * For the chosen keys, turns an object into a query string.
- * @method serialize
- * @param object The object containing the values.
- * @param [keys] The keys you want to use in the query string.
- * @return {String} The query string.
+ *
+ * @param {Object} object - The object containing the values.
+ * @param {array} keys - The keys you want to use in the query string.
+ *
+ * @return {string} The query string.
  */
 function serialize(object, keys) {
 	var i,
@@ -226,7 +195,7 @@ function serialize(object, keys) {
 	}
 
 	if (keys.length === 0) {
-		keys = objectKeys(object);
+		keys = Object.keys(object);
 	}
 
 	for (i = 0; i < keys.length; i = i + 1) {
@@ -240,8 +209,9 @@ function serialize(object, keys) {
 
 /**
  * Unserialize a query string into an object. Opposite of serialize.
- * @method unserialize
- * @param qs {String} The query string to turn into an Object.
+ *
+ * @param {string} qs - The query string to turn into an Object.
+ *
  * @return {Object}
  */
 function unserialize(qs) {
@@ -261,9 +231,10 @@ function unserialize(qs) {
 
 /**
  * Pad a number below 10.
- * @method pad
- * @param number {Number}
- * @return {String}
+ *
+ * @param {number} number
+ *
+ * @return {string}
  */
 function pad(number) {
 	var r = String(number);
@@ -275,9 +246,10 @@ function pad(number) {
 
 /**
  * IE friendly Date toISOString
- * @method toISOString
+ *
  * @param date {Date}
- * @return {String}
+ *
+ * @return {string}
  */
 function toISOString(date) {
 	if (Date.prototype.hasOwnProperty("toISOString")) {
@@ -296,8 +268,8 @@ function toISOString(date) {
 
 /**
  * Generate a unique ID.
- * @method createUniqueID
- * @return {String}
+ *
+ * @return {string}
  */
 function createUniqueID() {
 	return window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + hash(window.document.location.href + window.document.referrer);
@@ -305,10 +277,10 @@ function createUniqueID() {
 
 /**
  * Utility to add event listeners.
- * @method addEvent
- * @param element
- * @param event
- * @param listener
+ *
+ * @param {Element} element
+ * @param {string} event
+ * @param {Function} listener
  */
 function addEvent(element, event, listener) {
 	try {
@@ -322,8 +294,8 @@ function addEvent(element, event, listener) {
 
 /**
  * Listen for page tracking requests.
- * @method onPage
- * @param cb
+ *
+ * @param {Function} cb
  */
 function onPage(cb) {
 	if (is(cb, 'function')) {
@@ -333,7 +305,6 @@ function onPage(cb) {
 
 /**
  * Trigger the "page" listeners.
- * @method triggerPage
  */
 function triggerPage() {
 	for (var i = 0; i < page_callbacks.length; i++) {
@@ -349,7 +320,6 @@ module.exports = {
 	encode: encode,
 	unencode: unencode,
 	hash: hash,
-	objectKeys: objectKeys,
 	serialize: serialize,
 	unserialize: unserialize,
 	b64encode: b64encode,

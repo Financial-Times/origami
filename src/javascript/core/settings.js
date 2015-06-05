@@ -1,9 +1,3 @@
-/**
- * Settings store.
- * @module Track
- * @class Settings
- */
-
 /*global module */
 "use strict";
 
@@ -11,16 +5,34 @@ var settings = {
 	'internalCounter': 0
 };
 
-function setValue(name, value) {
-	settings[name] = value;
+/**
+ * Saves a value
+ *
+ * @param {string} Key
+ * @param {*} value
+ */
+function setValue(key, value) {
+	settings[key] = value;
 }
 
-function getValue(name) {
-	return settings[name];
+/**
+ * Retrieves a value from the settings object
+ *
+ * @param {string} key
+ *
+ * @return {*}
+ */
+function getValue(key) {
+	return settings[key];
 }
 
-function deleteValue(name) {
-	delete settings[name];
+/**
+ * Deletes a value
+ *
+ * @param  {string} key [description]
+ */
+function deleteValue(key) {
+	delete settings[key];
 }
 
 module.exports = {

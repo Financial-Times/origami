@@ -1,48 +1,27 @@
-/**
- * Queuing and sending tags
- * Keep track of individual requests in case any fail due to network errors / being offline / browser being closed mid-request.
- * @module _Core
- * @submodule Send
- * @class Track._Core.Send
- * @static
- */
-
 /*global module, require, window */
 "use strict";
 
-/**
- * Shared "internal" scope.
- * @property _settings
- * @type {Object}
- * @private
- */
 var settings = require("./settings");
 var utils = require("../utils");
 var Queue = require("./queue");
 
 /**
  * Tracking collection server.
- * @property domain
- * @private
  */
 var domain = "http://test.tracking.ft.com";
 
 /**
  * Version string.
- * @property version
- * @private
  */
 var version;
 /**
  * Queue queue.
- * @property queue
- * @private
+ *
+ * @type {Queue}
  */
 var queue;
 /**
  * Requests being sent right now.
- * @property currentRequests
- * @private
  */
 var currentRequests = {};
 
@@ -81,9 +60,8 @@ function createXMLHttp() {
 
 /**
  * Marks a request as current.
- * @method started
+ *
  * @param id {String} The ID of the request.
- * @private
  */
 function started(id) {
 	currentRequests[id] = true;
@@ -91,9 +69,8 @@ function started(id) {
 
 /**
  * Marks a request as no longer current.
- * @method finished
+ *
  * @param id {String} The ID of the request.
- * @private
  */
 function finished(id) {
 	delete currentRequests[id];
@@ -101,9 +78,8 @@ function finished(id) {
 
 /**
  * Marks a request as no longer current and removes it from the queue.
- * @method success
+ *
  * @param id {String} The ID of the request.
- * @private
  */
 function success(id) {
 	finished(id);
@@ -122,11 +98,9 @@ function success(id) {
 
 /**
  * Attempts to send a tracking request.
- * @method sendRequest
+ *
  * @param request {Object} The request to be sent.
  * @param callback {Function} Callback to fire the next item in the queue.
- * @private
- * @async
  */
 function sendRequest(request, callback) {
 	var offlineLag = (new Date()).getTime() - request.queueTime,
@@ -214,7 +188,7 @@ function sendRequest(request, callback) {
 
 /**
  * Adds a new request to the list of pending requests
- * @method add
+ *
  * @param request The request to queue
  */
 function add(request) {
@@ -228,9 +202,7 @@ function add(request) {
 /**
  * If there are any requests queued, attempts to send the next one
  * Otherwise, does nothing
- * @method run
- * @param [callback] {Function} The callback function. Optional.
- * @async
+ * @param {Function} Callback, optional
  */
 function run(callback) {
 	if (utils.isUndefined(callback)) {
@@ -256,7 +228,7 @@ function run(callback) {
 
 /**
  * Convenience function to add and run a request all in one go.
- * @method addAndRun
+ *
  * @param request {Object} The request to queue and run.
  */
 function addAndRun(request) {
@@ -266,8 +238,8 @@ function addAndRun(request) {
 
 /**
  * Init the queue and send any leftover tags.
- * @method init
- * @private
+ *
+ * @param {String} version
  */
 function init(v) {
 	version = v;

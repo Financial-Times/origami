@@ -1,30 +1,24 @@
-/**
- * Class for storing data
- * Will choose the "best" storage method available. Can also specify a type of storage.
- * @module _Core
- * @submodule Store
- * @class Track._Core.Store
- * @param name {String} The name of the store.
- * @param [config] {Object} Optional config object for extra configuration.
- * @constructor
- */
 /*global module, require, window */
 "use strict";
 
+/**
+ * @class  Store
+ * Class for storing data
+ * Will choose the "best" storage method available. Can also specify a type of storage.
+ *
+ * @param {string} name   The name of the store
+ * @param {Object} config Optional, config object for extra configuration
+ */
 var Store = function (name, config) {
 
 	/**
 	 * Internal Storage key prefix.
-	 * @property keyPrefix
-	 * @final
-	 * @private
 	 */
 	var keyPrefix = "o-tracking";
 
 	/**
 	 * Temporary var containing data from a previously saved store.
 	 * @property loadStore
-	 * @private
 	 */
 	var loadStore;
 
@@ -38,20 +32,17 @@ var Store = function (name, config) {
 
 	/**
 	 * Store data.
-	 * @property store
-	 * @private
 	 */
 	this.data = null;
 
 	/**
 	 * The key/name of this store.
-	 * @property storageKey
 	 */
 	this.storageKey = (this.config.hasOwnProperty('nameOverride') ? this.config.nameOverride : [keyPrefix, name].join('_'));
 
 	/**
 	 * The storage method to use. Determines best storage method.
-	 * @property storage
+	 *
 	 * @type {Object}
 	 */
 	this.storage = (function (config, window) {
@@ -150,8 +141,8 @@ var Store = function (name, config) {
 
 /**
  * Get/Read the current data.
- * @method read
- * @return Returns the data from the store.
+ *
+ * @return {Object} Returns the data from the store.
  */
 Store.prototype.read = function () {
 	return this.data;
@@ -159,10 +150,10 @@ Store.prototype.read = function () {
 
 /**
  * Write the supplied data to the store.
- * @method write
+ *
  * @param data {String} The data to write.
- * @return Returns this.
- * @chainable
+ *
+ * @return {Store}
  */
 Store.prototype.write = function (data) {
 	// Set this.data, in-case we're on a file:// domain and can't set cookies.
@@ -174,9 +165,7 @@ Store.prototype.write = function (data) {
 
 /**
  * Delete the current data.
- * @method destroy
- * @return Returns this.
- * @chainable
+ * @return {Store}
  */
 Store.prototype.destroy = function () {
 	this.data = null;

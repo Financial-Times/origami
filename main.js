@@ -5,8 +5,7 @@ var settings = require("./src/javascript/core/settings");
 
 /**
  * The version of the tracking module.
- * @property version
- * @type {String}
+ * @type {string}
  */
 var version = '0.0.24';
 
@@ -18,15 +17,17 @@ function Tracking() {
 
 	/**
 	 * The initialised state of the object.
-	 * @type {bool}
+	 * @type {boolean}
 	 */
 	this.initialised = false;
 }
 
 /**
  * Turn on/off developer mode. (Can also be activated on init.)
- * @method developer
- * @param [level] {Boolean} Turn on or off, defaults to false if omitted.
+ *
+ * @param {boolean} Turn on or off, defaults to false if omitted.
+ *
+ * @return undefined
  */
 Tracking.prototype.developer = function(level) {
 	if (level) {
@@ -39,7 +40,8 @@ Tracking.prototype.developer = function(level) {
 
 /**
  * Clean up the tracking module.
- * @method destroy
+ *
+ * @return undefined
  */
 Tracking.prototype.destroy = function() {
 	this.developer(false);
@@ -52,8 +54,8 @@ Tracking.prototype.destroy = function() {
 
 /**
  * Overload toString method to show the version.
- * @method toString
- * @return {String} The module's version.
+ *
+ * @return {string} The module's version.
  */
 Tracking.prototype.toString = function() {
 	return 'oTracking version ' + version;
@@ -66,9 +68,30 @@ Tracking.prototype.event = require('./src/javascript/event');
 Tracking.prototype.link = require('./src/javascript/link');
 
 /**
- * Initialise the Track module.
- * @method init
- * @param config Configuration object
+ * Initialises the Tracking object.
+ *
+ * All options are optional, if a configuration option is missing, the module
+ * will try to initialise using any configuration found in the DOM using the
+ * script config tag.
+ *
+ * @example
+ * <!-- DOM configuration settings -->
+ * <script type="application/json" data-o-tracking-config>
+ * page: {
+ * 	 product: 'desktop'
+ * },
+ * user: {
+ *   user_id: '023ur9jfokwenvcklwnfiwhfoi324'
+ * }
+ * </script>
+ *
+ * @param config                 {Object}
+ * @param config.developer       {boolean} - Optional, if `true`, logs certain actions.
+ * @param config.noSend          {boolean} - Optional, if `true`, won't send events.
+ * @param config.configId        {string}  - Optional
+ * @param config.session         {string}  - Optional
+ *
+ * @return {Tracking}
  */
 Tracking.prototype.init = function(config) {
 	if (this.initialised) {
@@ -116,7 +139,9 @@ Tracking.prototype.init = function(config) {
 /**
  * Checks if the <script type="application/json" data-o-tracking-config> element is in the DOM
  *
- * @returns {HTMLElement} - Returns the <script> element if found
+ * @private
+ *
+ * @return {HTMLElement} - Returns the <script> element if found
  */
 Tracking.prototype._getDeclarativeConfigElement = function() {
 	return document.querySelector('script[data-o-tracking-config]');
@@ -129,8 +154,7 @@ Tracking.prototype._getDeclarativeConfigElement = function() {
  * @param {Object} options - A partially, or fully filled options object.  If
  *                           an option is missing, this method will attempt to
  *                           initialise it from the DOM.
- * @returns {Object} - The options modified to include the options gathered
- *                     from the DOM
+ * @return {Object} - The options modified to include the options gathered from the DOM
  */
 Tracking.prototype._getDeclarativeConfig = function(options) {
 	var configEl = this._getDeclarativeConfigElement();
@@ -169,4 +193,11 @@ function initialise() {
 // consumer of the library.
 document.addEventListener('o.DOMContentLoaded', initialise);
 
+/**
+ * A constructed object, this module is a Singleton as we only want one
+ * instance sending events. See {@link Tracking} for the publicly available
+ * interface.
+ *
+ * @type {Tracking}
+ */
 module.exports = tracking;

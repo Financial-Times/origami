@@ -1,11 +1,3 @@
-/**
- * Core functionality. Queuing and sending tags
- * @module Track
- * @submodule _Core
- * @class Track._Core
- * @static
- */
-
 /*global module, require */
 "use strict";
 
@@ -14,24 +6,16 @@ var User = require("./core/user");
 var Session = require("./core/session");
 /**
  * Shared "internal" scope.
- * @property _self
+ *
  * @type {Object}
- * @private
  */
 var settings = require("./core/settings");
 var utils = require("./utils");
 
 /**
  * Default properties for sending a tracking request.
- * @property defaultConfig
+ *
  * @type {Object}
- * @example
- {
- environment: 'test',
- async: true,
- callback: function () {}
- }
- @private
  */
 var defaultConfig = function () {
 	return {
@@ -43,9 +27,10 @@ var defaultConfig = function () {
 
 /**
  * Generate and store a new PageID.
- * @method pageID
- * @param [page_id] Optional PageID, if you want to use your own. Otherwise will create one for you.
- * @return {String|*} The PageID.
+ *
+ * @param {string} new_id - Optional PageID, if you want to use your own. Otherwise we'll create one for you.
+ *
+ * @return {string|*} The PageID.
  */
 function pageID(new_id) {
 	settings.set('page_id', requestID(new_id));
@@ -54,10 +39,10 @@ function pageID(new_id) {
 
 /**
  * Create a requestID (unique identifier) for the page impression.
- * @method requestID
- * @param [request_id] Optional RequestID, if you want to use your own. Otherwise will create one for you.
- * @return {String|*} The RequestID.
- * @private
+ *
+ * @param {string} request_id - Optional RequestID, if you want to use your own. Otherwise will create one for you.
+ *
+ * @return {string|*} The RequestID.
  */
 function requestID(request_id) {
 	if (utils.isUndefined(request_id)) {
@@ -69,9 +54,8 @@ function requestID(request_id) {
 
 /**
  * Count of the number of tracking requests made.
- * @method internalCounter
- * @return {Number}
- * @private
+ *
+ * @return {number}
  */
 function internalCounter() {
 	settings.set('internalCounter', settings.get('internalCounter') + 1);
@@ -80,10 +64,11 @@ function internalCounter() {
 
 /**
  * Make a tracking request.
- * @method track
- * @param config Should be passed an object containing a format and the values for that format
- * @param [callback] Fired when the request has been made.
- * @async
+ *
+ * @param {Object} config - Should be passed an object containing a format and the values for that format
+ * @param {function} callback - Fired when the request has been made.
+ *
+ * @return {Object} request
  */
 function track(config, callback) {
 	if (utils.isUndefined(callback)) {

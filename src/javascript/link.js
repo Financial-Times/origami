@@ -1,11 +1,3 @@
-/**
- * For tracking links.
- * @module Track
- * @submodule link
- * @class Track.link
- * @static
- */
-
 /*global module, require, window */
 "use strict";
 
@@ -18,9 +10,8 @@ var internalQueue;
 
 /**
  * Default properties for events.
- * @property defaultEventConfig
+ *
  * @type {Object}
- * @private
  */
 var defaultLinkConfig = function () {
 	return {
@@ -33,9 +24,11 @@ var callback = function () {};
 
 /**
  * Check if a URL is going to the same site (internal)
- * @method isInternal
- * @param url {String} The url to check.
- * @return {Boolean}
+ *
+ * @param {string} url - The url to check.
+ *
+ * @return {boolean}
+ * @private
  */
 function isInternal(url) {
 	return url.indexOf(window.document.location.hostname) > -1;
@@ -43,9 +36,11 @@ function isInternal(url) {
 
 /**
  * Check if a URL is going to an external site.
- * @method isExternal
- * @param url {String} The url to check.
- * @return {Boolean}
+ *
+ * @param {string} url - The url to check.
+ *
+ * @return {boolean}
+ * @private
  */
 function isExternal(url) {
 	return !isInternal(url);
@@ -54,9 +49,11 @@ function isExternal(url) {
 /**
  * Checks if a URL is pointing at a file.
  * NOTE: Don't want to maintain a list of file extensions, so try best guess.
- * @method isFile
- * @param url {String} The url to check.
- * @return {Boolean}
+ *
+ * @param {string} url - The url to check.
+ *
+ * @return {boolean}
+ * @private
  */
 function isFile(url) {
 	var path = url.replace(/^\w+:\/\//, '').replace(/(#|\?).+/g, '').replace(/\/$/, '');
@@ -81,9 +78,10 @@ function isFile(url) {
 
 /**
  * Calculates the parents of a HTML element.
- * @method parentTree
- * @param element {Element} The starting element.
- * @return {Array} The tree of parent elements.
+ *
+ * @param {Element} element - The starting element.
+ *
+ * @return {array} The tree of parent elements.
  * @private
  */
 function parentTree(element) {
@@ -102,9 +100,11 @@ function parentTree(element) {
 
 /**
  * Create the identifier of the link. TODO: https://rally1.rallydev.com/#/16966478977d/detail/defect/17919485944
- * @method createLinkID
- * @param link
- * @return {String} The ID for the link.
+ *
+ * @param {Element} link
+ *
+ * @return {string} The ID for the link.
+ * @private
  */
 function createLinkID(link) {
 	var parents = parentTree(link),
@@ -137,9 +137,10 @@ function createLinkID(link) {
 
 /**
  * Track the link.
- * @method track
- * @param element
- * @return {*}
+ *
+ * @param {Element} element
+ *
+ * @return {Object|boolean}
  */
 function track(element) {
 	var linkID = createLinkID(element);
@@ -169,9 +170,10 @@ function track(element) {
 
 /**
  * Handle a click event.
- * @method clickEvent
+ *
  * @param event {Event} The event.
- * @return {Boolean}
+ *
+ * @return {boolean}
  * @private
  */
 function clickEvent(event) {
@@ -180,8 +182,8 @@ function clickEvent(event) {
 
 /**
  * Set the callback called on every link tracking event.
- * @method onClick
- * @param cb {Function} The callback.
+ *
+ * @param {Function} cb - The callback.
  */
 function onClick(cb) {
 	callback = cb;
@@ -190,8 +192,6 @@ function onClick(cb) {
 /**
  * If there are any requests queued, attempts to send the next one
  * Otherwise, does nothing
- * @method run
- * @async
  */
 function runQueue() {
 	var next = function () { runQueue(); callback(); },
@@ -205,14 +205,13 @@ function runQueue() {
 /**
  * Setup and initialise link tracking.
  *
- * The config object can have three key/values - all are optional.
- * * root: The root element to search for links. Defaults to window.document - useful if trying to track links from an iframe.
- * * selector: The selector to use to search for links. Defaults to 'a'.
- * * event: The event to listen on. Defaults to 'click'.
- * * links: If you've already worked out the links to track, then this is used to pass them over. Must be an array with elements that accept events.
- * @method init
- * @param [config] {Object} Initial configuration
- * @returns {Array} The links setup in this init.
+ * @param {Object}  config - Initial configuration
+ * @param {Element} config.root - Optional. The root element to search for links. Defaults to window.document - useful if trying to track links from an iframe.
+ * @param {string}  config.selector - Optional. The selector to use to search for links. Defaults to 'a'.
+ * @param {string}  config.event - Optional. The event to listen on. Defaults to 'click'.
+ * @param {array}   config.links - Optional. If you've already worked out the links to track, then this is used to pass them over. Must be an array with elements that accept events.
+ *
+ * @return {array} The links setup in this init.
  */
 function init(config) {
 	var links, i;

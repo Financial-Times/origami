@@ -1,18 +1,15 @@
-/**
- * Class for handling a queue backed up by a store.
- * @module _Core
- * @submodule Queue
- * @class Queue
- * @param name {String} The name of the queue.
- * @constructor
- */
-
 /*global module, require */
 "use strict";
 
 var utils = require("../utils");
 var Store = require("./store");
 
+/**
+ * Class for handling a queue backed up by a store.
+ * @class Queue
+ *
+ * @param name {String} The name of the queue.
+ */
 var Queue = function (name) {
 	if (utils.isUndefined(name)) {
 		throw new Error('You must specify a name for the queue.');
@@ -20,16 +17,13 @@ var Queue = function (name) {
 
 	/**
 	 * Queue data.
-	 * @property queue
-	 * @private
+	 * @type {Array}
 	 */
 	this.queue = [];
 
 	/**
 	 * The storage method to use. Determines best storage method.
-	 * @property storage
 	 * @type {Object}
-	 * @private
 	 */
 	this.storage = new Store(name);
 
@@ -43,7 +37,7 @@ var Queue = function (name) {
 
 /**
  * Gets the contents of the store.
- * @method all
+ *
  * @return {Array} The array of items.
  */
 Queue.prototype.all = function () {
@@ -63,8 +57,8 @@ Queue.prototype.all = function () {
 
 /**
  * Gets the first item in the store.
- * @method first
- * @return {*} Returns the item.
+ *
+ * @return {Object} Returns the item.
  */
 Queue.prototype.first = function () {
 	if (this.queue.length === 0) {
@@ -76,8 +70,8 @@ Queue.prototype.first = function () {
 
 /**
  * Gets the last item in the store.
- * @method last
- * @return {*} Returns the item.
+ *
+ * @return {Object} Returns the item.
  */
 Queue.prototype.last = function () {
 	if (this.queue.length === 0) {
@@ -93,10 +87,10 @@ Queue.prototype.id = function () {
 
 /**
  * Add data to the store.
- * @method add
- * @param item {*} An item or an array of items.
- * @return Returns this.
- * @chainable
+ *
+ * @param item {Object} An item or an array of items.
+ *
+ * @return {Queue}
  */
 Queue.prototype.add = function (item) {
 	// I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn't work out how to get to "this" from within the module.
@@ -125,10 +119,10 @@ Queue.prototype.add = function (item) {
 
 /**
  * Overwrite the store with something completely new.
- * @method replace
+ *
  * @param items {Array} The new array of data.
- * @return Returns this.
- * @chainable
+ *
+ * @return {Queue}
  */
 Queue.prototype.replace = function (items) {
 	if (utils.is(items, 'object') && items.constructor.toString().match(/array/i)) {
@@ -143,8 +137,8 @@ Queue.prototype.replace = function (items) {
 
 /**
  * Pop the first item from the queue.
- * @method shift
- * @return {*} The item.
+ *
+ * @return {Object} The item.
  */
 Queue.prototype.shift = function () {
 	var replacement = this.all(),
@@ -168,9 +162,8 @@ Queue.prototype.shift = function () {
 
 /**
  * Save the current store to localStorage so that old requests can still be sent after a page refresh.
- * @method save
- * @return Returns this.
- * @chainable
+ *
+ * @return {Queue}
  */
 Queue.prototype.save = function () {
 	this.storage.write(this.queue);

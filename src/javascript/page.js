@@ -1,11 +1,3 @@
-/**
- * Page functionality. For tracking a page.
- * @module Track
- * @submodule page
- * @class Track.page
- * @static
- */
-
 /*global module, require */
 "use strict";
 
@@ -15,19 +7,11 @@ var settings = require('./core/settings');
 
 /**
  * Default properties for page tracking requests.
- * @example
- {
- url: document.URL,
- referrer: document.referrer,
- async: false // Send this tag syncronously
- }
- * @property defaultPageConfig
+ *
  * @type {Object}
- * @private
  */
 var defaultPageConfig = function () {
 	return {
-
 		tag: {
 			type: 'page'
 		},
@@ -43,10 +27,9 @@ var defaultPageConfig = function () {
 
 /**
  * Make the page tracking request.
- * @method page
- * @param [config] {Object} Configuration object. If omitted, will use the defaults.
- * @param [callback] {Function} Callback function. Called when request completed.
- * @async
+ *
+ * @param {Object} config - Configuration object. If omitted, will use the defaults.
+ * @param {Function} callback - Callback function. Called when request completed.
  */
 module.exports = function (config, callback) {
 	var pageConfig = settings.get('config') ? settings.get('config').page || {} : {};
