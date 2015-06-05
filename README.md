@@ -45,7 +45,7 @@ Where `opts` is an optional object with properties
     $ make install
     $ make demo
 
-And then visit [http://localhost:8080/demos/local/brightcove.html]()
+And then visit [http://localhost:8080/demos/local]()
 
 Before committing, run
 

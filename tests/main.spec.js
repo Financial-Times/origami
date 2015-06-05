@@ -55,6 +55,7 @@ describe('Main', function () {
 
 		return main.init({ selector: '.' + className }).then(function (videos) {
 			containerEl.className = className;
+			videos.should.be.empty;
 			return main.init({ selector: '.' + className }).then(function (videos) {
 				videos.should.have.length(1);
 			});
