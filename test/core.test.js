@@ -5,13 +5,13 @@ var assert = require('assert');
 
 describe('Core', function () {
 
-	var Core = require("../src/javascript/core.js");
+	var Core = require("../src/javascript/core.js"),
+		guid_re = /\w{8}-\w{4}-4\w{3}-\w{4}-\w{8}/; // 7d26a201-cbdf-434f-880d-f658b424e9df
 
 	describe('page_id', function () {
 		it('should generate a page_id', function () {
-			var page_id = Core.setPageID(),
-				re = /\d+\.\d+\.\d+\.\d+\.[\-\w]+/;
-			assert.ok(page_id.match(re), "'" + page_id + "'.match(" + re + ")");
+			var page_id = Core.setPageID();
+			assert.ok(page_id.match(guid_re), "'" + page_id + "'.match(" + guid_re + ")");
 		});
 
 		it('should use the page_id given it', function () {
@@ -61,7 +61,7 @@ describe('Core', function () {
 			assert.deepEqual(Object.keys(sent_data.tag), ["apiKey","version","id","counter","offset","page_id","type"]);
 			assert.equal(sent_data.tag.apiKey, "");
 			assert.equal(sent_data.tag.version, "v1");
-			assert.ok(/\d+\.\d+\.\d+\.\d+\.[\-\w]+/.test(sent_data.tag.id), "Request ID is invalid. " + sent_data.tag.id);
+			assert.ok(guid_re.test(sent_data.tag.id), "Request ID is invalid. " + sent_data.tag.id);
 			assert.equal(sent_data.tag.counter, 1);
 			assert.ok(/\d+/.test(sent_data.tag.offset), "offset is invalid. " + sent_data.tag.offset);
 			assert.equal(sent_data.tag.page_id, "page_id");

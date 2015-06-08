@@ -93,60 +93,20 @@ function encode(str) {
 }
 
 /**
- * Generate a unique ID.
- *
+ * Generate a GUID.
+ * Based on http://stackoverflow.com/a/21963136
  * @return {string}
  */
-function createUniqueID() {
-	return window.history.length + "." + (Math.random() * 1000) + "." + (new Date()).getTime() + "." + hash(window.document.location.href + window.document.referrer);
-}
-
-/**
- * Encodes a given input string in base64.
- *
- * @param {string} input - the string to encode
- *
- * @return {string} The base64-encoded value of the input string.
- */
-function b64encode(input) {
-	if (!input) {
-		return '';
-	}
-
-	input = encode(input);
-
-	if (window.btoa) {
-		return window.btoa(input);
-	}
-
-	return input;
-}
-
-/**
- * Function to create a unique-ish hash of a string.
- *
- * @param {string} txt
- *
- * @return {string}
- */
-function hash(txt) {
-	if (!txt) {
-		return "";
-	}
-
-	var seed = 0x811c9dc5;
-	var i;
-
-	/* jshint -W016 */
-	/* jslint bitwise:false */
-	for (i = 0; i < txt.length; i++) {
-		seed += (seed << 1) + (seed << 4) + (seed << 7) + (seed << 8) + (seed << 24);
-		seed ^= txt.charCodeAt(i);
-	}
-
-	return Number(seed & 0x00000000ffffffff).toString(16);
-	/* jshint -W016 */
-	/* jslint bitwise:true */
+var lut = []; for (var i=0; i<256; i++) { lut[i] = (i<16?'0':'')+(i).toString(16); }
+function guid() {
+	var d0 = Math.random()*0xffffffff|0;
+	var d1 = Math.random()*0xffffffff|0;
+	var d2 = Math.random()*0xffffffff|0;
+	var d3 = Math.random()*0xffffffff|0;
+	return lut[d0&0xff]+lut[d0>>8&0xff]+lut[d0>>16&0xff]+lut[d0>>24&0xff]+'-'+
+		lut[d1&0xff]+lut[d1>>8&0xff]+'-'+lut[d1>>16&0x0f|0x40]+lut[d1>>24&0xff]+'-'+
+		lut[d2&0x3f|0x80]+lut[d2>>8&0xff]+'-'+lut[d2>>16&0xff]+lut[d2>>24&0xff]+
+		lut[d3&0xff]+lut[d3>>8&0xff]+lut[d3>>16&0xff]+lut[d3>>24&0xff];
 }
 
 /*
@@ -192,9 +152,7 @@ module.exports = {
 	isUndefined: is,
 	merge: merge,
 	encode: encode,
-	hash: hash,
-	b64encode: b64encode,
-	createUniqueID: createUniqueID,
+	guid: guid,
 	addEvent: addEvent,
 	onPage: onPage,
 	triggerPage: triggerPage
