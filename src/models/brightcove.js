@@ -69,7 +69,7 @@ Brightcove.prototype = Object.create(Video.prototype, {
 });
 
 Brightcove.prototype.init = function () {
-	return fetch('//next-brightcove-proxy.ft.com/' + this.id)
+	return fetch('//next-video.ft.com/api/' + this.id)
 		.then(function (response) {
 			if (response.ok) {
 				return response.json();
