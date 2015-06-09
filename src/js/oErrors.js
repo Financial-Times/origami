@@ -127,6 +127,9 @@ Errors.prototype._configureAndInstallRaven = function(options, raven) {
 		ravenOptions.release = options.siteVersion;
 	}
 
+	if (options.tags) {
+		ravenOptions.tags = options.tags;
+	}
 
 	this.ravenClient.config(sentryEndpoint, ravenOptions);
 	this.ravenClient.install();

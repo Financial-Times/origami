@@ -37,6 +37,18 @@ describe("oErrors", function() {
 			expect(mockRavenClient.configOptions.release).to.equal("v1.0.0");
 		});
 
+		it("should configure the raven client with tags if the tags option is configured", function() {
+			new Errors().init({
+				tags: {
+					appName: "o-errors"
+				},
+				sentryEndpoint: "//app.getsentry.com/123"
+			}, mockRavenClient);
+
+			expect(mockRavenClient.configOptions.tags).to.be.an('object');
+			expect(mockRavenClient.configOptions.tags).to.include.keys('appName');
+		});
+
 		it("should configure the log level according the the logLevel option", function() {
 			var errors = new Errors().init({
 				sentryEndpoint: "//app.getsentry.com/123",
