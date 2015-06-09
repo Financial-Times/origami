@@ -77,6 +77,20 @@ is useful for associating errors with releases in the Sentry interface.
 }
 ```
 
+##### tags   - optional
+
+A hash of tags to apply to each error event. This is useful for associating
+errors to specfic parts of your application and the ability to filter within
+the Sentry interface.
+
+```JS
+{
+	tags: {
+		appName: "o-errors"
+	}
+}
+```
+
 ##### logLevel     - optional
 
 Control the operation of the `oErrors.log`, `oErrors.warn` and `oErrors.error` API.
