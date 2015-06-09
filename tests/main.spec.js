@@ -62,4 +62,17 @@ describe('Main', function () {
 		});
 	});
 
+	it('should allow setting options through attribute', function () {
+		containerEl.setAttribute('data-n-video-opts-optimumWidth', 300);
+		containerEl.setAttribute('data-n-video-opts-palceholder', true);
+		containerEl.setAttribute('data-n-video-opts-classes', 'a-class another-class');
+
+		return main.init().then(function (videos) {
+			videos.should.have.length(1);
+			var placeholderEl = containerEl.querySelector('img');
+			placeholderEl.className.should.equal('a-class another-class');
+			placeholderEl.getAttribute('src').should.equal('?widt=300');
+		});
+	});
+
 });
