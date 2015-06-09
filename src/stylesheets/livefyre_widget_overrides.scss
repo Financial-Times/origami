@@ -331,6 +331,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 		a.fyre-comment-username {
 			color: oColorsGetPaletteColor("grey-tint5");
 			font-weight: bold;
+			margin-left: 0;
 
 			&:hover {
 				color: inherit;
@@ -371,6 +372,15 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 		.fyre-comment-source-13 > .fyre-comment-divider.fyre-comment-expand > div.fyre-comment-divider,
 		.fyre-comment-divider.fyre-comment-expand > div.fyre-comment-divider {
 			margin: 0 0 0 150px;
+		}
+
+		.fyre-comment-source-18 > .fyre-comment-divider.fyre-divider-active > div.fyre-comment-divider,
+		.fyre-comment-source-18 > .fyre-comment-divider.fyre-comment-collapse > div.fyre-comment-divider {
+			margin: 0 0 0 80px !important;
+		}
+
+		.fyre-comment-source-18 > .fyre-comment-divider.fyre-comment-expand > div.fyre-comment-divider {
+			margin: 0 0 0 150px !important;
 		}
 
 
