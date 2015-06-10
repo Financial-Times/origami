@@ -8,6 +8,7 @@
 - It's for use by server and client-side systems sending events to Spoor.
 - It doesn't assume users of the data will need to join the data across tables to find the information they want (a downside of the parent-child relationship). Though consumers may wish to split this data in to their own tables for query optimisation etc.
 
+
 ## Spec 
 
 `event.source` and `event.api-key` are MANDATORY, everything else is OPTIONAL
@@ -85,7 +86,7 @@ To date we've discussed :-
 [4]  Content will typically be a page, but could be a uuid for something else like a video. Will be expanded in to a CAPI v2 object -> capi: { "headline", "...", "published": "...", ... }
 [5]  Expanded in to a URL object -> http://nodejs.org/api/url.html
 [6]  I think I might also allow this in a `authorization` header.
-[7]  This is intentionally vague.
+[7]  This is intentionally vague. Allow anyone to store anything. Consumers own responsibility for filtering what they need.
 [8]  Where the event happened. If not provided this is expanded by a call to Maxmind.
 [9]  An enrichment
 [10] Possibly not that useful?
