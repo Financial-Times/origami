@@ -2,11 +2,11 @@
 
 - It's JSON.
 - In this model there is no hierarchy (cf. o-tracking proposal), and only a couple of mandated fields.
-- If certain fields are present in the payload they will enriched by Spoor and appended to the payload.
-- I've tried to keep terminology human understable - Eg, the removal of 'categoy', 'page', 'key', 'value', 'data' should all be inherent in the data structure etc. Anything bespoke goes in 'meta'.
+- If certain properties are present in the payload they will enriched by Spoor and appended to the payload.
+- I've tried to keep terminology human understable - Eg, the removal of 'categoy', 'page', 'key', 'value', 'data' - as these should all be inherent in the data structure etc. Anything bespoke goes in 'meta'.
 - It is intentionally abstract and assumes the consumers of the event stream can manipulate the data in to their desired storage format.
 - It's for use by server and client-side systems sending events to Spoor.
-- It doesn't assume users of the data will need to join the data across tables to find the information they want. Though consumers may wish to split this data in to their own tables for query optimisation etc.
+- It doesn't assume users of the data will need to join the data across tables to find the information they want (a downside of the parent-child relationship). Though consumers may wish to split this data in to their own tables for query optimisation etc.
 
 ## Spec 
 
