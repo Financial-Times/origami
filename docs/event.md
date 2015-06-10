@@ -70,6 +70,7 @@ Each payload will be scanned for the presence of these properties. If present th
 }
 ```
 
+```
 [1]  The general convention might be something like `product.sub-system.environment` - Eg, 'webapp.render.uat'
 [2]  Or in absence appended by Spoor. 
 [3]  So, the token becomes -> { session: { token: '...', uuid: '...', valid: true }
@@ -81,3 +82,4 @@ Each payload will be scanned for the presence of these properties. If present th
 [8]  Where the event happened. If not provided this is expanded by a call to Maxmind.
 [9]  An enrichment
 [10] Possibly not that useful?
+```
