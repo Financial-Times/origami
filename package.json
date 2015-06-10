@@ -12,6 +12,6 @@
     "karma-firefox-launcher": "^0.1.6",
     "karma-mocha": "^0.1.10",
     "karma-sinon": "^1.0.4",
-    "sinon": "^1.14.1"
+    "sinon": "1.14.1"
   }
 }
