@@ -9,20 +9,21 @@
 
 ## Spec 
 
-- `event.source` and `event.api-key` are MANDATORY, everything else is OPTIONAL
+`event.source` and `event.api-key` are MANDATORY, everything else is OPTIONAL
 
 This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 
 ## Enrichments 
 
-There's a whole series of enrichments that we could do.
+Each payload will be scanned for the presence of these properties.
 
-Each payload will be scanned for the presence of these properties. If present the properties will be decorated and/or tokenised. 
+If present the properties will be decorated and/or tokenised. 
 
 To date we've discussed :-
 
 - If `user.session.token` is included it will be validated against the session api and expanded in to a membership uuid.
 - If `content.uuid` is included it will be expanded in to a set of content api meta-data.
+- ...
 
 ## Format
 
