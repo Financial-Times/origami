@@ -6,6 +6,7 @@
 - I've tried to keep terminology human understable - Eg, the removal of 'categoy', 'page', 'key', 'value', 'data' should all be inherent in the data structure etc. Anything bespoke goes in 'meta'.
 - It is intentionally abstract and assumes the consumers of the event stream can manipulate the data in to their desired storage format.
 - It's for use by server and client-side systems sending events to Spoor.
+- It doesn't assume users of the data will need to join the data across tables to find the information they want. Though consumers may wish to split this data in to their own tables for query optimisation etc.
 
 ## Spec 
 
