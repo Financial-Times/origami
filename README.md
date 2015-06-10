@@ -39,6 +39,9 @@ Where `opts` is an optional object with properties
  * `selector` [`String`] Selector to use to find the `n-video` elements. Appended with
  `:not([data-n-video-js])[data-n-component~="n-video"]`. Defaults to `*`.
 
+ `optimumWidth`, `palceholder` and `classes` can also be set in the markup with an attribute of the form `data-n-video-opts-*`, e.g.
+ `data-n-video-opts-optimumWidth="300"`. These trump options supplied to the `init` method.
+
 ## Development
 
     $ npm install origami-build-tools
