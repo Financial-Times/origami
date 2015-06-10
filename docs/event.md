@@ -3,8 +3,9 @@
 - It's JSON.
 - In this model there is no hierarchy (cf. o-tracking proposal), and only a couple of mandated fields.
 - If certain fields are present in the payload they will enriched by Spoor and appended to the payload.
-- I've tried to keep terminology human understable - Eg, the removal of 'categoy', 'page', 'key', 'value', 'data' should all be inherent in the data structure etc.
-- It is intentionally abstract and assumes the consumers of the event stream can manipulate the data in to their desired format.
+- I've tried to keep terminology human understable - Eg, the removal of 'categoy', 'page', 'key', 'value', 'data' should all be inherent in the data structure etc. Anything bespoke goes in 'meta'.
+- It is intentionally abstract and assumes the consumers of the event stream can manipulate the data in to their desired storage format.
+- It's for use by server and client-side systems sending events to Spoor.
 
 ## Spec 
 
@@ -12,14 +13,18 @@
 
 This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 
-## Enchrichment 
+## Enrichments 
 
 There's a whole series of enrichments that we could do.
 
 Each payload will be scanned for the presence of these properties. If present the properties will be decorated and/or tokenised. 
 
+To date we've discussed :-
+
 - If `user.session.token` is included it will be validated against the session api and expanded in to a membership uuid.
 - If `content.uuid` is included it will be expanded in to a set of content api meta-data.
+
+## Format
 
 ```
 {
