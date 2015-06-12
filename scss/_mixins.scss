@@ -60,16 +60,19 @@
 @mixin _oFtIconsStandardsIcon($icon-class, $character-code, $placement: 'before') {
 	$icon-selectors: oFtIconsGetSelectors("#{$icon-class}:#{$placement}");
 	#{$icon-selectors} {
-		// a hack to enable outputting of a single backslash;
-		// escaping in Sass is a bit of a mess!
+		// Escaping in Sass is a bit of a mess…
 		// https://github.com/sass/sass/issues/659
-		// http://sassmeister.com/gist/04f5be11c5a6b26b8ff9
 		@if function-exists(random) {
 			@if function-exists(selector-nest) {
 				// Sass 3.4
 				content: #{'\"\\' + $character-code + "\""};
 			} @else {
 				// LibSass
+				// Escaping:
+				// https://github.com/sass/libsass/issues/1271
+				//
+				// Outputs a unicode entity instead of a code such as "\f102":
+				// https://github.com/sass/libsass/issues/1231
 				content: "#{'\"\\' + $character-code + "\""}";
 			}
 		} @else {
