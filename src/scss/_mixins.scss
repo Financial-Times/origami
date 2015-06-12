@@ -7,7 +7,7 @@
 ///
 /// @param {String} fontName - path to the file, without the file extension
 @mixin oFontsSource($fontName) {
-	src: url(oFontsUseAsset($fontName + '.woff')) format('woff');
+	src: url(oFontsUseAsset($fontName + '.woff#iefix')) format('woff');
 }
 
 /// Font-face declaration for a given font family
