@@ -122,10 +122,10 @@
 	margin: 0;
 	outline: 0;
 	border-style: solid;
-	border-radius: 5px;
 	text-align: center;
 	text-decoration: none;
 	font-family: $o-buttons-font-family;
+	text-transform: uppercase;
 	cursor: pointer;
 	transition: 0.3s background-color, 0.15s box-shadow ease-in;
 	-moz-appearance: none;

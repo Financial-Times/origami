@@ -2,7 +2,7 @@
 	"name": "o-buttons",
 	"main": ["main.scss"],
 	"dependencies": {
-		"o-colors": ">=2.5.0 <4",
+		"o-colors": "^3.0.0",
 		"o-hoverable": ">=0.1.1 <2"
 	}
 }
