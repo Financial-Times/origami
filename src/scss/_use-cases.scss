@@ -42,5 +42,6 @@ $o-colors-usecases: map-merge((
 	section-house-home:       (all: 'section-green'),
 	section-house-home-alt:   (all: 'section-light-green'),
 	section-money:            (all: 'section-red'),
-	section-money-alt:        (all: 'white')
+	section-money-alt:        (all: 'white'),
+
 ), $o-colors-usecases);
