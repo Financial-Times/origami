@@ -5,6 +5,7 @@ node_js:
 before_install:
   - npm install -g Financial-Times/origami-build-tools#node-0.10
   - obt install
+  - npm install node-sass -g
 script:
   - obt test
   - obt verify
