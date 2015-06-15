@@ -99,19 +99,22 @@
 /// Button construct
 /// Basic button styling and default states for specific theme and size
 ///
-/// @example
-/// .my-button {
-/// 	@include oButtons;
-/// }
-/// .my-inverse-button {
-/// 	@include oButtons($theme: inverse);
-/// }
-/// .my-big-standout-button {
-/// 	@include oButtons(big, standout);
-/// }
-/// .my-big-button {
-/// 	@include oButtons(big);
-/// }
+/// @example Base styles
+///  .my-button {
+///  	@include oButtons;
+///  }
+/// @example Custom theme
+///  .my-inverse-button {
+///  	@include oButtons($theme: inverse);
+///  }
+/// @example Custom size
+///  .my-big-button {
+///  	@include oButtons(big);
+///  }
+/// @example Custom size and theme
+///  .my-big-standout-button {
+///  	@include oButtons(big, standout);
+///  }
 ///
 /// @param {String} $size (medium)
 /// @param {String} $theme (standard)

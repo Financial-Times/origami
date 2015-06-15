@@ -1,8 +1,9 @@
-/// scss-lint:disable SpaceAfterComma
 ////
 /// @group o-buttons
 /// @link http://registry.origami.ft.com/components/o-buttons
 ////
+
+/// scss-lint:disable SpaceAfterComma
 
 @include oColorsSetUseCase(o-buttons-standard-normal,   text,       'blue');
 @include oColorsSetUseCase(o-buttons-standard-normal,   background, 'transparent');
