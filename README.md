@@ -327,7 +327,7 @@ The default configuration is the production one:
     "livefyre": {
         "network": "ft.fyre.co",
         "domain": "ft.auth.fyre.co",
-        "resourceDomainBase": "http://zor.livefyre.com",
+        "resourceDomainBase": "//zor.livefyre.com",
         "resourceUrls": {
             "livefyreJs": "/wjs/v3.0/javascripts/livefyre.js"
         }
