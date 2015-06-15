@@ -2,14 +2,14 @@
 
 Standard FT-branded buttons.
 
-Buttons come in four themes:
+Buttons come in four themes ([documentation](#theme-modifiers)):
 
 * __default__: blue outline
 * __uncolored__: monochrome
 * __inverse__: white
 * __standout__: solid blue
 
-and two sizes:
+and two sizes ([documentation](#size-modifiers)):
 
 * __default__: 24px high
 * __big__: 36px high
@@ -37,13 +37,15 @@ The following browser features are used but will degrade gracefully:
 
 Various Sass mixins are provided to obtain styles for buttons in all their states and variants. Also, when `$o-buttons-is-silent: false;`, the module outputs a set of classes that are also documented in each section.
 
-[Full documentation of mixins and variables](sassdoc.webservices.ft.com/v1/sassdoc/o-buttons)
+[Full documentation of mixins and variables](http://sassdoc.webservices.ft.com/v1/sassdoc/o-buttons)
 
 ### Default button
 
-These are the base styles that must be called in addition to any of the other mixins listed below.
+[View demo](http://build.origami.ft.com/files/o-buttons@2.0.3/demos/individual.html)
 
-Example Sass:
+```html
+<button class="o-buttons">Standard</button>
+```
 
 ```scss
 .my-button-class {
@@ -51,52 +53,66 @@ Example Sass:
 }
 ```
 
-Example HTML:
+### States
 
 ```html
-<button class="my-button-class">Standard</button>
+<button class="o-buttons">Standard</button>
+<button class="o-buttons" aria-selected="true">Selected</button>
+<button class="o-buttons" aria-pressed="true">Pressed</button>
+<button class="o-buttons" disabled>Disabled</button>
 ```
-
-Silent mode off: `.o-buttons`
 
 ### Grouped buttons
 
-Include grouped button styles. It accepts one argument:
-	- Base buttons class
+[View demo](http://build.origami.ft.com/files/o-buttons/demos/grouped.html)
 
-Example Sass:
+```html
+<div class="o-buttons-group">
+    <button class="o-buttons">John</button><!--
+ --><button class="o-buttons">Paul</button><!--
+ --><button class="o-buttons">George</button><!--
+ --><button class="o-buttons">Ringo</button>
+</div>
+```
+
+#### Or, using Sass:
 
 ```scss
 .my-button-group-class {
-	@include oButtonsGroup(my-button-class);
+	@include oButtonsGroup('my-button-class');
 }
 ```
 
-Example HTML:
+```html
+<div class="my-button-group-class">
+    <button class="my-button-class">John</button><!--
+ --><button class="my-button-class">Paul</button><!--
+ --><button class="my-button-class">George</button><!--
+ --><button class="my-button-class">Ringo</button>
+</div>
+```
 
-	<div class="my-button-group-class">
-	    <button class="my-button-class">John</button><!--
-	 --><button class="my-button-class">Paul</button><!--
-	 --><button class="my-button-class">George</button><!--
-	 --><button class="my-button-class">Ringo</button>
-	</div>
-
-Silent mode off: `.o-buttons-group`
 
 ### Pagination buttons
 
-Include pagination buttons styles. It accepts one argument:
-	- Base buttons class
+[View demo](http://build.origami.ft.com/files/o-buttons/demos/pagination.html)
 
-Example Sass:
+```html
+<div class="o-buttons-pagination">
+    <button class="o-buttons">1</button><!--
+ --><button class="o-buttons">2</button><!--
+ --><button class="o-buttons">3</button><!--
+ --><button class="o-buttons">4</button>
+</div>
+```
+
+#### Or, using Sass:
 
 ```scss
 .my-button-pagination-class {
 	@include oButtonsPagination(my-button-class);
 }
 ```
-
-Example HTML:
 
 ```html
 <div class="my-button-pagination-class">
@@ -107,87 +123,70 @@ Example HTML:
 </div>
 ```
 
-Silent mode off: `.o-buttons-pagination`
+### Size modifiers
 
-### Big button _modifier_
+```html
+<button class="o-buttons o-buttons--medium">Medium button (default)</button>
+<button class="o-buttons o-buttons--big">Big button</button>
+```
 
-Include the _big_ button styles.
-
-Example Sass:
+#### Or, using Sass:
 
 ```scss
+.my-button-class {
+	@include oButtons();
+}
 .my-button-class--big {
 	@include oButtonsSize(big);
 }
-```
 
-Example HTML:
+// Or…
+.my-big-button {
+	@include oButtons(big);
+}
+```
 
 ```html
 <button class="my-button-class my-button-class--big">Big button</button>
+
+<button class="my-big-button-class">Big button</button>
 ```
 
-Silent mode off: `.o-buttons--big`
+### Theme modifiers
 
-### 'Standout' button _modifier_
+View demos:
 
-Include the _standout_ button styles.
+- [standout](http://build.origami.ft.com/files/o-buttons/demos/individual-standout.html)
+- [uncolored](http://build.origami.ft.com/files/o-buttons/demos/individual-uncolored.html)
+- [inverse](http://build.origami.ft.com/files/o-buttons/demos/individual-inverse.html)
 
-Example Sass:
+```html
+<button class="o-buttons o-buttons--standout">Standout button</button>
+<button class="o-buttons o-buttons--uncolored">Uncolored button</button>
+<button class="o-buttons o-buttons--inverse">Inverse button</button>
+```
+
+#### Or, using Sass:
 
 ```scss
+.my-button-class {
+	@include oButtons();
+}
 .my-button-class--standout {
 	@include oButtonsTheme(standout);
 }
-```
 
-Example HTML:
+// Or…
+.my-standout-button {
+	@include oButtons($theme: standout);
+}
+```
 
 ```html
 <button class="my-button-class my-button-class--standout">Standout button</button>
+
+<button class="my-standout-button">Standout button</button>
 ```
-
-Silent mode off: `.o-buttons--standout`
-
-### 'Inverse' button _modifier_
-
-Include the _inverse_ button styles.
-
-Example Sass:
-
-```scss
-.my-button-class--inverse {
-	@include oButtonsTheme(inverse);
-}
-```
-
-Example HTML:
-
-```html
-<button class="my-button-class my-button-class--inverse">Inverse button</button>
-```
-
-Silent mode off: `.o-buttons--inverse`
-
-### 'Uncolored' button _modifier_
-
-Include the _uncolored_ button styles.
-
-Example Sass:
-
-```scss
-.my-button-class--uncolored {
-	@include oButtonsTheme(uncolored);
-}
-```
-
-Example HTML:
-
-```html
-<button class="my-button-class my-button-class--uncolored">Uncolored button</button>
-```
-
-Silent mode off: `.o-buttons--inverse`
 
 ----
 
