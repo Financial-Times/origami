@@ -6,7 +6,7 @@ function init (opts) {
 	var options = opts || {};
 	var defaultOpts = {
 		context: document.body,
-		classes: [],
+		classes: ['n-video__video'],
 		selector: '*'
 	};
 	for (var defaultOpt in defaultOpts) {

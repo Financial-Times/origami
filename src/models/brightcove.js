@@ -86,6 +86,21 @@ Brightcove.prototype.addPlaceholder = function () {
 	this.placeholderEl.className = Array.isArray(this.opts.classes) ? this.opts.classes.join(' ') : this.opts.classes;
 	this.containerEl.classList.add('n-video--placeholder');
 	this.containerEl.appendChild(this.placeholderEl);
+
+	if (this.opts.playButton) {
+		var playButtonEl = this.containerEl.querySelector('.n-video__play-button');
+		if (!playButtonEl) {
+			throw '.n-video__play-button element required';
+		}
+
+		playButtonEl.addEventListener('click', function () {
+			this.containerEl.removeChild(playButtonEl);
+			this.removePlaceholder();
+			this.addVideo();
+			this.el.play();
+			this.el.focus();
+		}.bind(this));
+	}
 };
 
 Brightcove.prototype.removePlaceholder = function () {
