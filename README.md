@@ -48,7 +48,7 @@ Where `opts` is an optional object with properties
     $ make install
     $ make demo
 
-And then visit [http://localhost:8080/demos/local]()
+And then visit [http://localhost:8080/demos/local](http://localhost:8080/demos/local)
 
 Before committing, run
 
