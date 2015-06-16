@@ -86,6 +86,16 @@ describe('Brightcove', function () {
 					'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201502%2F2470%2F47628783001_4085962850001_MAS-VIDEO-AuthersNote-stock-market.jpg%3FpubId%3D47628783001' +
 					'?source=next'
 				);
+				containerEl.querySelector('.n-video__play-button').should.exist;
+			});
+	});
+
+	it('should be able to suppress placeholder play button', function () {
+		var brightcove = new Brightcove(containerEl, { placeholder: true, playButton:false });
+		return brightcove
+			.init()
+			.then(function () {
+				expect(containerEl.querySelector('.n-video__play-button')).to.be.null;
 			});
 	});
 
@@ -107,7 +117,7 @@ describe('Brightcove', function () {
 		return brightcove
 			.init()
 			.then(function () {
-				containerEl.querySelector('video').className.should.equal('class-one class-two');
+				containerEl.querySelector('video').className.should.equal('class-one class-two n-video__video');
 			});
 	});
 

@@ -15,7 +15,7 @@ function Video(el, opts) {
 		var optionAttribute = this.containerEl.getAttribute('data-n-video-opts-' + optionName);
 		if (optionAttribute) {
 			this.opts[optionName] = optionAttribute;
-		} else if (opts && opts[optionName]) {
+		} else if (opts && typeof opts[optionName] !== 'undefined') {
 			this.opts[optionName] = opts[optionName];
 		} else {
 			this.opts[optionName] = defaultOpts[optionName];
