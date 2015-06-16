@@ -4,6 +4,7 @@ node_js:
   - "0.12.2"
 before_install:
   - npm install -g Financial-Times/origami-build-tools#node12
+  - npm install -g node-sass # required for the tests
   - obt install
 script:
   - obt test
