@@ -62,22 +62,17 @@
 	#{$icon-selectors} {
 		// Escaping in Sass is a bit of a mess…
 		// https://github.com/sass/sass/issues/659
-		@if function-exists(random) {
-			@if function-exists(selector-nest) {
-				// Sass 3.4
-				content: #{'\"\\' + $character-code + "\""};
-			} @else {
-				// LibSass
-				// Escaping:
-				// https://github.com/sass/libsass/issues/1271
-				//
-				// Outputs a unicode entity instead of a code such as "\f102":
-				// https://github.com/sass/libsass/issues/1231
-				content: "#{'\"\\' + $character-code + "\""}";
-			}
+		@if function-exists(selector-nest) {
+			// Sass 3.4
+			content: #{'\"\\' + $character-code + "\""};
 		} @else {
-			// Sass 3.3
-			content: str-slice("\x", 1, 1) + $character-code;
+			// LibSass
+			// Escaping:
+			// https://github.com/sass/libsass/issues/1271
+			//
+			// Outputs a unicode entity instead of a code such as "\f102":
+			// https://github.com/sass/libsass/issues/1231
+			content: "#{'\"\\' + $character-code + "\""}";
 		}
 	}
 }
