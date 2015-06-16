@@ -122,3 +122,11 @@ The file must be named according to the following rules:
 ### IE7 support
 
 IE7 support is handled by an IE7 CSS expression hack, which is bundled into the main icons mixin.
+
+----
+
+## License
+
+Copyright (c) 2015 Financial Times Ltd. All rights reserved.
+
+This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
