@@ -1,6 +1,6 @@
 # o-ft-icons [![Build Status](https://travis-ci.org/Financial-Times/o-ft-icons.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-icons)
 
-Icon font with helper classes, and resolution-independant SVG icons to load via the image service.
+Icon font with helper classes, and resolution-independant SVG icons to load via the [responsive image service](http://image.webservices.ft.com).
 
 ## Quick start
 
@@ -20,7 +20,7 @@ There are multiple ways to use the icons:
 
 1. Using the CSS helper classes
 2. Extending the predefined Sass placeholders into your own CSS classes
-3. Resolution independant SVGs, using the [image service](http://image.webservices.ft.com/v1/)
+3. Resolution independant SVGs, using the [responsive image service](http://image.webservices.ft.com/)
 
 ### 1. Using the CSS helper classes
 
@@ -61,7 +61,7 @@ $o-ft-icons-is-silent: false;
 
 ### 3. Resolution independant SVGs, using the image service
 
-The [image service](http://image.webservices.ft.com/v1/) helps serving resolution independant icons in SVG with a resized PNG fallback:
+The [responsive image service](http://image.webservices.ft.com/) helps serving resolution-independant SVG icons with a resized PNG fallback:
 
 ```scss
 element {
@@ -81,31 +81,32 @@ element {
 
 ----
 
-## To add or edit icons and build the web font and demo page
+## Add / edit icons, build the web font and demo page
 
-Install the following:
+1. Install the following:
 
-* [fontforge](http://fontforge.org/)
-* [ttfautohint](http://www.freetype.org/ttfautohint/#download)
+	* [fontforge](http://fontforge.org/)
+	* [ttfautohint](http://www.freetype.org/ttfautohint/#download)
+	* [X11](http://support.apple.com/kb/ht5293) (Mac only)
 
-On a Mac <ahref="http://brew.sh/">Homebrew</a> is a popular package manager to install these programs. You'll also need <a href="http://support.apple.com/kb/ht5293">X11</a> on your Mac.
+2. Clone the repository and install dependencies:
 
+		git clone https://github.com/Financial-Times/o-ft-icons.git
+		cd o-ft-icons
+		npm install
 
-Clone this repo and at the command line, `cd` to the repo's directory and run:
+3. Add or edit an SVG file to the `svg` folder (see [SVG file naming rules](#svg-file-naming-rules)).
+4. Generate the web font from the SVG sources:
 
-	npm install
+		grunt
 
-Add or edit an SVG file to the `svg` folder (see SVG file naming rules).
+5. Check the rendering locally (on http://localhost:8080/demos/local):
 
-Next, run:
+		obt demo --runServer
 
-	grunt
+6. Before publishing your work, generate the component's demos:
 
-This will generate the web font from the SVG sources.
-
-Finally, run:
-
-	origami-build-tools demo --local
+		obt demo
 
 ### SVG version
 The icons module uses SVG version 1.1. Files can be created in any vector graphics software. In Adobe Illustrator use the "save as" function and set to version 1.1
@@ -119,10 +120,17 @@ The file must be named according to the following rules:
 3. No spaces
 4. End in `.svg`
 
-Good examples: columnists.svg, back-arrow.svg
-
-Bad examples: RightArrow.svg, linked_in.svg, yahoo!.svg
+- Good: columnists.svg, back-arrow.svg
+- Bad: RightArrow.svg, linked_in.svg, yahoo!.svg
 
 ### IE7 support
 
 IE7 support is handled by an IE7 CSS expression hack, which is bundled into the main icons mixin.
+
+----
+
+## License
+
+Copyright (c) 2015 Financial Times Ltd. All rights reserved.
+
+This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
