@@ -5,7 +5,7 @@ var assert = require('assert'),
 	Send = require("../../src/javascript/core/send"),
 	request = {
 		id: '1.199.83760034665465.1432907605043.-56cf00f',
-		tag: {
+		meta: {
 			counter: 3,
 			page_id: 'page_id',
 			type: 'event'

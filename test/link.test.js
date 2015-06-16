@@ -50,10 +50,10 @@ describe('link', function () {
 		sent_data = callback.getCall(0).thisValue;
 
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
+		assert.deepEqual(Object.keys(sent_data), ["meta", "id", "user", "device", "data"]);
 
 		// Type
-		assert.equal(sent_data.tag.type, "event");
+		assert.equal(sent_data.meta.type, "event");
 
 		// Link
 		assert.equal(sent_data.data.key, "link_id");

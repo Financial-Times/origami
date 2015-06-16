@@ -44,10 +44,10 @@ describe('event', function () {
 		sent_data = callback.getCall(0).thisValue;
 
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
+		assert.deepEqual(Object.keys(sent_data), ["meta", "id", "user", "device", "data"]);
 
 		// Type
-		assert.equal(sent_data.tag.type, "event");
+		assert.equal(sent_data.meta.type, "event");
 
 		// Event
 		assert.equal(sent_data.data.category, "slideshow");
@@ -95,7 +95,7 @@ describe('event', function () {
 		server.respond();
 		assert.ok(callback.called, 'Callback not called.');
 
-		assert.equal(callback.getCall(0).thisValue.id, callback.getCall(0).thisValue.tag.id);
+		assert.equal(callback.getCall(0).thisValue.id, callback.getCall(0).thisValue.meta.id);
 
 		parent_id = callback.getCall(0).thisValue.id;
 

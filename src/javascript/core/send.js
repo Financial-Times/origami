@@ -6,14 +6,10 @@ var utils = require("../utils");
 var Queue = require("./queue");
 
 /**
- * Tracking collection server.
+ * Default collection server.
  */
-var domain = "http://test.tracking.ft.com";
+var domain = "http://test.spoor-api.ft.com";
 
-/**
- * Version string.
- */
-var version;
 /**
  * Queue queue.
  *
@@ -114,18 +110,19 @@ function sendRequest(request, callback) {
 	}
 
 	request = utils.merge({
-		tag: {
-			apiKey: "", // String - API key - Make sure the request is from a valid client (idea nicked from Keen.io) useful if a page gets copied onto a Russian website and creates noise
-			version: version, // Version of the tracking client e.g. "JS v1.2"
+		meta: {
+			api_key: settings.get('api_key'), // String - API key - Make sure the request is from a valid client (idea nicked from Keen.io) useful if a page gets copied onto a Russian website and creates noise
+			version: settings.get('version'), // Version of the tracking client e.g. "1.2"
+			source: settings.get('source'), // Source of the tracking client e.g. "o-tracking"
 			id: request.id, // ID of this request
 			counter: request.counter,
-			offset: 0 // Delay of this tag between event happening and being sent to server - milliseconds
+			offset: 0 // Delay of this event between event happening and being sent to server - milliseconds
 		}
 	}, request);
 
 	// Only bothered about offlineLag if it's longer than a second, but less than a month. (Especially as Date can be dodgy)
 	if (offlineLag > 1000 && offlineLag < (31 * 24 * 60 * 60 * 1000)) {
-		request.tag.offset = offlineLag;
+		request.meta.offset = offlineLag;
 	}
 
 	xmlHttp = xmlHttpObj.xmlHttp;
@@ -237,12 +234,9 @@ function addAndRun(request) {
 }
 
 /**
- * Init the queue and send any leftover tags.
- *
- * @param {String} version
+ * Init the queue and send any leftover events.
  */
-function init(v) {
-	version = v;
+function init() {
 	queue = new Queue('requests');
 
 	if (settings.get('config') && settings.get('config').server) {

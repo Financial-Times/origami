@@ -15,7 +15,7 @@ var internalQueue;
  */
 var defaultLinkConfig = function () {
 	return {
-		tag: { type: 'event' },
+		meta: { type: 'event' },
 		data: { category: 'link', action: 'click'}
 	};
 };

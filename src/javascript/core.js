@@ -21,7 +21,7 @@ var defaultConfig = function () {
 	return {
 		async: true,
 		callback: function () {},
-		tag: {}
+		meta: {}
 	};
 };
 
@@ -81,7 +81,7 @@ function track(config, callback) {
 	request = utils.merge({
 		id: requestID(request.id), // Keep an ID if it's been set elsewhere.
 
-		tag: {
+		meta: {
 			page_id: settings.get('page_id'),
 			counter: internalCounter()
 		},

@@ -11,7 +11,7 @@ var utils = require("./utils");
  */
 var defaultEventConfig = function () {
 	return {
-		tag: { type: 'event' },
+		meta: { type: 'event' },
 		data: {}
 	};
 };
