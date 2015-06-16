@@ -100,9 +100,13 @@ element {
 
 		grunt
 
-5. Generate the component's demos:
+5. Check the rendering locally (on http://localhost:8080/demos/local):
 
-		origami-build-tools demo --local
+		obt demo --runServer
+
+6. Before publishing your work, generate the component's demos:
+
+		obt demo
 
 ### SVG version
 The icons module uses SVG version 1.1. Files can be created in any vector graphics software. In Adobe Illustrator use the "save as" function and set to version 1.1
