@@ -10,7 +10,6 @@
 		padding: 56.25% 0 0;
 	}
 
-
 	.n-video__video {
 		position: absolute;
 		top: 0;
@@ -45,33 +44,4 @@
 			opacity: 0.5;
 		}
 	}
-	.n-video__content {
-		padding: 8px;
-		background-color: oColorsGetPaletteColor('cold-2');
-
-		@include oGridRespondTo(L) {
-			padding: 4px 8px;
-		}
-	}
-	.n-video__published,
-	.n-video__title {
-		margin: 0;
-		color: #ffffff;
-
-		.n-video--secondary &, {
-			margin-left: 164px;
-
-			@include oGridRespondTo(XL) {
-				margin-left: 223px;
-			}
-		}
-	}
-	.n-video__published {
-		@include nTypeAlpha(5);
-		text-transform: uppercase;
-	}
-	.n-video__title {
-		@include nTypeAlpha(4);
-	}
 }
-

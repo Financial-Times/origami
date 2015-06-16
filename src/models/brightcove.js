@@ -74,7 +74,7 @@ Brightcove.prototype.addVideo = function () {
 	this.el.setAttribute('controls', true);
 	this.el.setAttribute('poster', this.posterImage);
 	this.el.setAttribute('src', this.rendition.url);
-	this.el.className = Array.isArray(this.opts.classes) ? this.opts.classes.join(' ') : this.opts.classes;
+	this.el.className = Array.isArray(this.classes) ? this.classes.join(' ') : this.classes;
 	this.containerEl.classList.add('n-video--player');
 	this.containerEl.appendChild(this.el);
 	addEvents(this, ['play', 'pause', 'ended']);
@@ -83,15 +83,18 @@ Brightcove.prototype.addVideo = function () {
 Brightcove.prototype.addPlaceholder = function () {
 	this.placeholderEl = document.createElement('img');
 	this.placeholderEl.setAttribute('src', this.posterImage);
-	this.placeholderEl.className = Array.isArray(this.opts.classes) ? this.opts.classes.join(' ') : this.opts.classes;
+	this.placeholderEl.className = Array.isArray(this.classes) ? this.classes.join(' ') : this.classes;
 	this.containerEl.classList.add('n-video--placeholder');
 	this.containerEl.appendChild(this.placeholderEl);
 
 	if (this.opts.playButton) {
-		var playButtonEl = this.containerEl.querySelector('.n-video__play-button');
-		if (!playButtonEl) {
-			throw '.n-video__play-button element required';
-		}
+
+		var playButtonEl = document.createElement('button');
+		playButtonEl.className = 'n-video__play-button';
+		playButtonEl.setAttribute('data-trackable', 'play button');
+		playButtonEl.textContent = 'Play video';
+
+		this.containerEl.appendChild(playButtonEl);
 
 		playButtonEl.addEventListener('click', function () {
 			this.containerEl.removeChild(playButtonEl);

@@ -8,7 +8,7 @@ function Video(el, opts) {
 		classes: [],
 		optimumWidth: null,
 		placeholder: false,
-		playButton: false
+		playButton: true
 	};
 	this.opts = {};
 	Object.keys(defaultOpts).forEach(function (optionName) {
@@ -21,7 +21,8 @@ function Video(el, opts) {
 			this.opts[optionName] = defaultOpts[optionName];
 		}
 	}.bind(this));
-	this.classes = this.opts.classes || [];
+	this.classes = typeof this.opts.classes === 'string' ? this.opts.classes.split(' ') : this.opts.classes.slice();
+	this.classes.push('n-video__video');
 	this.id = el.getAttribute('data-n-video-id');
 	this.el;
 	this.placeholderEl;
