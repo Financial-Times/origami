@@ -1,9 +1,9 @@
 $o-colors-is-silent: true !default;
 
-@import 'src/scss/functions';
-@import 'src/scss/mixins';
 @import 'src/scss/palette';
 @import 'src/scss/use-cases';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
 
 // If noisy, output helper classes for use cases and palette colours
 @if ($o-colors-is-silent == false) {
@@ -27,4 +27,7 @@ $o-colors-is-silent: true !default;
 			background-color: $csscolor;
 		}
 	}
+
+	// Set silent mode back on to avoid multiple outputs of helper classes
+	$o-colors-is-silent: true;
 }

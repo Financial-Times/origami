@@ -29,7 +29,7 @@ If you need to use a color value as part of a more complex CSS rule, e.g. a bord
 
 ```scss
 .my-thing {
-	color: oColorsGetColorFor(article-life-arts-body article-body body, text, (default: 'blue'));
+	color: oColorsGetColorFor(article-life-arts-body article-body body, text, (default: blue));
 }
 ```
 

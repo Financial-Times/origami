@@ -23,136 +23,25 @@ $o-colors-usecases: map-merge((
 
 //<use case>                <properties>
 
-page:                     (background: 'pink', text: 'grey-tint5'),
-box:                      (background: 'pink-tint1'),
-link:                     (text: 'blue'),
-link-hover:               (text: 'black'),
-link-title:               (text: 'grey-tint5'),
-link-title-hover:         (text: 'blue'),
-title:                    (text: 'black'),
-body:                     (text: 'grey-tint5'),
-muted:                    (text: 'pink-tint3'),
-product-brand:            (background: 'claret'),
+	page:                     (background: 'pink', text: 'grey-tint5'),
+	box:                      (background: 'pink-tint1'),
+	link:                     (text: 'blue'),
+	link-hover:               (text: 'black'),
+	link-title:               (text: 'grey-tint5'),
+	link-title-hover:         (text: 'blue'),
+	title:                    (text: 'black'),
+	body:                     (text: 'grey-tint5'),
+	muted:                    (text: 'pink-tint3'),
+	product-brand:            (background: 'claret'),
 
-// Section colours
-section-life-arts:        (all: 'section-purple'),
-section-life-arts-alt:    (all: 'section-light-purple'),
-section-magazine:         (all: 'section-blue'),
-section-magazine-alt:     (all: 'section-light-blue'),
-section-house-home:       (all: 'section-green'),
-section-house-home-alt:   (all: 'section-light-green'),
-section-money:            (all: 'section-red'),
-section-money-alt:        (all: 'white'),
+	// Section colours
+	section-life-arts:        (all: 'section-purple'),
+	section-life-arts-alt:    (all: 'section-light-purple'),
+	section-magazine:         (all: 'section-blue'),
+	section-magazine-alt:     (all: 'section-light-blue'),
+	section-house-home:       (all: 'section-green'),
+	section-house-home-alt:   (all: 'section-light-green'),
+	section-money:            (all: 'section-red'),
+	section-money-alt:        (all: 'white'),
 
-
-// Deprecated
-
-badge:                    (text: 'white', background: 'red', _deprecated: 'Moved into o-typography'),
-error:                    (text: 'red', border: 'red', background: 'white', _deprecated: 'Moved into component'),
-heading:                  (text: 'grey-tint5', _deprecated: 'Use `body` instead'),
-lead:                     (text: 'grey-tint4', _deprecated: 'Moved into o-typography'),
-label:                    (text: 'grey-tint5', _deprecated: 'Use `body` instead'),
-link-alt:                 (text: 'grey-tint5', _deprecated: 'Use `link-title`'),
-link-alt-hover:           (text: 'blue', _deprecated: 'Use `link-title-hover`'),
-control:                  (text: 'white', background: 'grey-tint5', _deprecated: 'Moved into component'),
-control-hover:            (text: 'grey-tint1', _deprecated: 'Moved into component'),
-
-table:                    (background: 'transparent', _deprecated: 'Moved into o-table component'),
-table-striped:            (background: 'pink', _deprecated: 'Moved into o-table component'),
-table-header-row:         (border: 'pink-tint4', _deprecated: 'Moved into o-table component'),
-table-row:                (border: 'pink-tint3', _deprecated: 'Moved into o-table component'),
-table-row-alt:            (background: 'pink-tint1', _deprecated: 'Moved into o-table component'),
-
-footer:                   (background: 'pink-tint1', _deprecated: 'Moved into o-footer'),
-footer-underline:         (border: 'pink-tint2', _deprecated: 'Moved into o-footer'),
-footer-item:              (border: 'pink-tint2', _deprecated: 'Moved into o-footer'),
-pearson:                  (background: 'pink-tint2', text: 'pink-tint5', _deprecated: 'Moved into o-footer'),
-
-// Forms
-forms-label:              (text: 'black', _deprecated: 'Redundant'),
-forms-label-error:        (text: 'black', background: 'white', border: 'red', _deprecated: 'Redundant'),
-forms-field:              (text: 'pink-tint5', background: 'white', border: 'pink-tint3', _deprecated: 'Redundant'),
-forms-field-error:        (text: 'pink-tint5', background: 'white', border: 'red', _deprecated: 'Redundant'),
-forms-error:              (text: 'red', background: 'white', _deprecated: 'Redundant'),
-forms-label-valid:        (text: 'black', background: 'white', _deprecated: 'Redundant'),
-forms-field-valid:        (text: 'pink-tint5', background: 'white', border: 'green', _deprecated: 'Redundant'),
-forms-valid:              (text: 'green', background: 'white', _deprecated: 'Redundant'),
-forms-prefixsuffix:       (text: 'pink-tint5', background: 'pink-tint1', _deprecated: 'Moved into o-forms'),
-forms-button:             (text: 'white', _deprecated: 'Redundant'),
-forms-button-hover:       (text: 'grey-tint1', _deprecated: 'Redundant'),
-forms-button-negative:    (text: 'blue', _deprecated: 'Redundant'),
-forms-button-negative-hover: (text: 'blue', _deprecated: 'Redundant'),
-forms-section:            (border: 'claret', _deprecated: 'Redundant'),
-form-field-label:         (text: 'grey-tint5', _deprecated: 'Moved into o-forms'),
-form-field-additional-info: (text: 'grey-tint4', _deprecated: 'Moved into o-forms'),
-form-field-standard:      (border: 'pink-tint3', background: 'white', text: 'grey-tint5', _deprecated: 'Moved into o-forms'),
-form-field-hover:         (border: 'pink-tint5', background: 'white', text: 'grey-tint5', _deprecated: 'Moved into o-forms'),
-form-field-selected:      (border: 'pink-tint5', background: 'white', text: 'grey-tint5', _deprecated: 'Redundant'),
-form-field-disabled:      (border: 'pink-tint2', background: 'pink-tint2', text: 'pink-tint4', _deprecated: 'Moved into o-forms'),
-form-field-valid:         (border: 'green', background: 'white', text: 'grey-tint5', _deprecated: 'Moved into o-forms'),
-form-field-invalid:       (border: 'red', background: 'white', text: 'red', _deprecated: 'Moved into o-forms'),
-form-error:               (border: 'red', background: 'red', text: 'white', _deprecated: 'Redundant'),
-
-// Tech docs
-block-code-sample:        (background: 'pink-tint1', border: 'pink-tint2', text: 'grey-tint5', _deprecated: 'Moved into o-techdocs'),
-inline-code-sample:       (background: 'pink-tint1', text: 'claret', _deprecated: 'Redundant'),
-docs-aside:               (background: 'pink-tint1', border: 'pink-tint2', _deprecated: 'Redundant'),
-docs-nav:                 (background: 'pink-tint1', _deprecated: 'Redundant'),
-docs-nav-active:          (background: 'pink-tint2', _deprecated: 'Redundant'),
-docs-inpagenav-link:      (text: 'claret', _deprecated: 'Redundant'),
-// Healthchecks
-status-ok:                (background: 'green', text: 'white', _deprecated: 'Moved into o-techdocs'),
-status-error:             (background: 'red', text: 'white', _deprecated: 'Moved into o-techdocs'),
-severity-1:               (background: 'blue-tint1', text: 'white', _deprecated: 'Moved into o-techdocs'),
-severity-2:               (background: 'orange-tint1', text: 'white', _deprecated: 'Moved into o-techdocs'),
-severity-3:               (background: 'yellow-tint1', text: 'white', _deprecated: 'Moved into o-techdocs'),
-
-// Overlays
-dialog:                   (border: 'pink-tint4', background: 'white', text: 'grey-tint5', _deprecated: 'Moved into o-overlays'),
-dialog-heading:           (background: 'pink-tint4', text: 'white', _deprecated: 'Moved into o-overlays'),
-dialog-close:             (border: 'white', background: 'blue', text: 'white', _deprecated: 'Moved into o-overlays'),
-modal:                    (border: 'pink-tint4', background: 'white', text: 'grey-tint5', _deprecated: 'Moved into o-overlays'),
-modal-heading:            (background: 'pink-tint4', text: 'white', _deprecated: 'Moved into o-overlays'),
-modal-close:              (border: 'white', background: 'blue', text: 'white', _deprecated: 'Moved into o-overlays'),
-
-// Overlay but not really (required by gallery)
-overlay:                  (text: 'white', background: 'grey-tint5', _deprecated: 'Moved into o-gallery'),
-
-// Typography
-heading-medium:           (border: 'pink-tint2', _deprecated: 'Moved into o-typography'),
-heading-large:            (border: 'pink-tint4', text: 'black', _deprecated: 'Moved into o-typography'),
-lead-medium:              (text: 'grey-tint3', _deprecated: 'Moved into o-typography'),
-brand:                    (text: 'black', _deprecated: 'Moved into o-typography'),
-byline:                   (text: 'pink-tint5', _deprecated: 'Moved into o-typography'),
-timestamp:                (text: 'pink-tint5', _deprecated: 'Moved into o-typography'),
-body-lead:                (text: 'grey-tint4', _deprecated: 'Moved into o-typography'),
-article-body-lead:        (text: 'grey-tint5', border: 'pink-tint5', _deprecated: 'Moved into o-typography'),
-article-body:             (text: 'grey-tint5', _deprecated: 'Moved into o-typography'),
-article-title:            (text: 'black', _deprecated: 'Redundant'),
-article-subheading:       (text: 'grey-tint5', border: 'pink-tint5', _deprecated: 'Moved into o-typography'),
-article-byline:           (text: 'pink-tint5', _deprecated: 'Redundant'),
-article-divider:          (border: 'pink-tint5', _deprecated: 'Redundant'),
-
-// Buttons
-button-standard:          (border: 'pink-tint5', background: 'pink', text: 'grey-tint4', _deprecated: 'Moved into o-buttons'),
-button-hover:             (border: 'pink-tint5', background: 'pink-tint2', text: 'grey-tint4', _deprecated: 'Moved into o-buttons'),
-button-selected:          (border: 'pink-tint5', background: 'pink-tint5', text: 'pink', _deprecated: 'Moved into o-buttons'),
-button-disabled:          (border: 'pink-tint5', background: 'pink-tint5', text: 'pink-tint5', _deprecated: 'Moved into o-buttons'),
-button-negative:          (text: 'blue', _deprecated: 'Redundant'),
-button-negative-hover:    (text: 'blue', _deprecated: 'Redundant'),
-button-standout-standard: (border: 'blue', background: 'blue', text: 'white', _deprecated: 'Moved into o-buttons'),
-button-standout-hover:    (border: 'dark-blue', background: 'dark-blue', text: 'white', _deprecated: 'Moved into o-buttons'),
-
-// Header
-header:                   (background: 'grey-tint5', _deprecated: 'Moved into o-header'),
-header-item:              (border: 'grey-tint4', background: 'grey-tint5', text: 'white', _deprecated: 'Moved into o-header'),
-header-item-active:       (background: 'pink-tint2', text: 'blue', _deprecated: 'Moved into o-header'),
-ft-initials:              (text: 'grey-tint5', _deprecated: 'Redundant'),
-
-// Quotes
-quote:                    (background: 'pink-tint2', text: 'grey-tint4', _deprecated: 'Moved into o-quote'),
-
-// Panels
-panel-heading:            (background: 'pink-tint2', border: 'pink-tint4', _deprecated: 'Moved into o-aside-panel'),
-panel-body:               (background: 'pink-tint1', _deprecated: 'Moved into o-aside-panel')
-), $o-colors-usecases) !global;
+), $o-colors-usecases);

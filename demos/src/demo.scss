@@ -47,20 +47,18 @@ $o-colors-is-silent: false;
 
 // You can add custom use cases before importing colors module by defining the use-cases map yourself
 $o-colors-usecases: (
-	foo: (background:green)
+	foo: (background: 'green')
 );
 
 // Import colors module
-@import "../../main";
+@import '../../main';
 
 // Adding custom colours after importing the colours module requires calling the oColorsSetUseCase mixin
-@include oColorsSetUseCase(custom-page, border, green); // v2
-@include oColorsSetUseCase(custom-page, border, 'green'); // v3
-@include oColorsSetUseCase(custom-page, text, orange); // v2
-@include oColorsSetUseCase(custom-page, text, 'orange'); // v3
+@include oColorsSetUseCase(custom-page, border, 'green');
+@include oColorsSetUseCase(custom-page, text, 'orange');
 
 .assign-palette-color-to-custom-class {
-	background-color: oColorsGetPaletteColor(blue);
+	background-color: oColorsGetPaletteColor('blue');
 }
 .use-case-property-class {
 	background-color: oColorsGetColorFor(section-life-arts page, background);
@@ -69,11 +67,14 @@ $o-colors-usecases: (
 	@include oColorsFor(page);
 }
 .mixin-selected-properties {
-	@include oColorsFor(page, background border); // There is no border on the page use case
+	// There is no border on the page use case,
+	// this should throw a warning
+	@include oColorsFor(page, background border);
 }
 .mixin-custom-usecase {
 	@include oColorsFor(custom-page page, text background border);
 }
 .mixin-custom-usecase-map {
+	// This should throw a warning
 	@include oColorsFor(foo);
 }

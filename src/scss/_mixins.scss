@@ -3,6 +3,18 @@
 /// @link http://registry.origami.ft.com/components/o-colors
 ////
 
+/// Add a custom palette color
+///
+/// @example scss
+///  @include oColorsSetColor('grey-tint20': #cccccc);
+///
+/// @param {String} $name - Name in the palette
+/// @param {color} $color - Color (rgb, hex, hsl…)
+@mixin oColorsSetColor($name, $color) {
+	$newcolor: ($name: $color);
+	$o-colors-palette: map-merge($o-colors-palette, $newcolor) !global;
+}
+
 /// Add a custom use case property
 ///
 /// @example scss
@@ -13,10 +25,16 @@
 /// @param {String} $color - One of $o-colors-palette
 @mixin oColorsSetUseCase($usecase, $property, $color) {
 	$propmap: ($property: $color);
+
+	// The use-case already exists,
+	// combine its existing properties with the new one
 	@if (map-has-key($o-colors-usecases, $usecase)) {
 		$propmap: map-merge(map-get($o-colors-usecases, $usecase), $propmap);
 	}
+
 	$newmap: ($usecase: $propmap);
+
+	// Add the use-case and its properties to the global use-case map
 	$o-colors-usecases: map-merge($o-colors-usecases, $newmap) !global;
 }
 
@@ -33,22 +51,20 @@
 /// @param {String|list} $useCaseList
 /// @param {String|list} $propertyList [all]
 @mixin oColorsFor($useCaseList, $propertyList: all) {
+	// Fail silently when a use case doesn't exist,
+	// taking advantage of how Sass treats the `null` keyword:
+	//
+	// 		$foo: null;
+	// 		el { color: $foo; } // outputs nothing
+	$args: (default: null);
+
 	@if ($propertyList == 'all' or index($propertyList, 'background')) {
-		$col: oColorsGetColorFor($useCaseList, background, (default:undefined));
-		@if ($col != undefined) {
-			background-color: $col;
-		}
+		background-color: oColorsGetColorFor($useCaseList, background, $options: $args);
 	}
 	@if ($propertyList == 'all' or index($propertyList, 'text')) {
-		$col: oColorsGetColorFor($useCaseList, text, (default:undefined));
-		@if ($col != undefined) {
-			color: $col;
-		}
+		color: oColorsGetColorFor($useCaseList, text, $options: $args);
 	}
 	@if ($propertyList == 'all' or index($propertyList, 'border')) {
-		$col: oColorsGetColorFor($useCaseList, border, (default:undefined));
-		@if ($col != undefined) {
-			border-color: oColorsGetColorFor($useCaseList, border);
-		}
+		border-color: oColorsGetColorFor($useCaseList, border, $options: $args);
 	}
 }
