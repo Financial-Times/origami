@@ -126,3 +126,9 @@ This module will trigger the following events on its root element:
 * `oShare.ready` - when a share links behaviour has been initialised
 * `oShare.open` - when a share link has been opened (popup/flyout opened as a result of button click)
 * `oShare.copy` - when the URL has been copied
+
+----
+
+## Licence
+
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
