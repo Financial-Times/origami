@@ -119,10 +119,8 @@ The file must be named according to the following rules:
 2. Contains only letters, numbers and hyphens (no spaces)
 3. Ends with `.svg`
 
- 
-
-- Good: columnists.svg, back-arrow.svg
-- Bad: RightArrow.svg, linked_in.svg, yahoo!.svg
+Good: `columnists.svg`, `back-arrow.svg`  
+Bad: `RightArrow.svg`, `linked_in.svg`, `yahoo!.svg`
 
 ### IE7 support
 
