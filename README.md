@@ -59,4 +59,8 @@ o-expander fires the following events, which always fire before any repainting/l
 
 * Animation and other fancy behaviour can be added using css and by listening to events. See the demos for examples
 
+----
 
+## Licence
+
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
