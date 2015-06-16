@@ -31,7 +31,7 @@ function createXMLHttp() {
 
 		// Check if the XMLHttpRequest object has a "withCredentials" property.
 		// "withCredentials" only exists on XMLHTTPRequest2 objects.
-		if (!utils.is(xmlHttp.withCredentials)) {
+		if (!utils.isUndefined(xmlHttp.withCredentials)) {
 			return {
 				xmlHttp: xmlHttp,
 				XDomainRequest: false
@@ -40,7 +40,7 @@ function createXMLHttp() {
 
 		// Otherwise, check if XDomainRequest.
 		// XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-		if (!utils.is(window.XDomainRequest)) {
+		if (!utils.isUndefined(window.XDomainRequest)) {
 			return {
 				xmlHttp: new window.XDomainRequest(),
 				XDomainRequest: true

@@ -46,7 +46,7 @@ function pageID(new_id) {
  */
 function requestID(request_id) {
 	if (utils.isUndefined(request_id)) {
-		request_id = utils.createUniqueID();
+		request_id = utils.guid();
 	}
 
 	return request_id;

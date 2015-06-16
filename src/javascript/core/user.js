@@ -38,7 +38,7 @@ function init(config) {
 	}
 
 	if (!userID) {
-		userID = utils.b64encode(utils.createUniqueID());
+		userID = utils.guid();
 	}
 
 	store.write(userID); // Refreshes the cookie...
