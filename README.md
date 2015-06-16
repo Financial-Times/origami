@@ -116,9 +116,8 @@ The icons module uses SVG version 1.1. Files can be created in any vector graphi
 The file must be named according to the following rules:
 
 1. All lower case
-2. Contain only letters, numbers and hyphens.
-3. No spaces
-4. End in `.svg`
+2. Contains only letters, numbers and hyphens (no spaces)
+3. Ends with .svg
 
 - Good: columnists.svg, back-arrow.svg
 - Bad: RightArrow.svg, linked_in.svg, yahoo!.svg
@@ -129,8 +128,6 @@ IE7 support is handled by an IE7 CSS expression hack, which is bundled into the 
 
 ----
 
-## License
+## Licence
 
-Copyright (c) 2015 Financial Times Ltd. All rights reserved.
-
-This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
