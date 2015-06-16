@@ -117,7 +117,9 @@ The file must be named according to the following rules:
 
 1. All lower case
 2. Contains only letters, numbers and hyphens (no spaces)
-3. Ends with .svg
+3. Ends with `.svg`
+
+ 
 
 - Good: columnists.svg, back-arrow.svg
 - Bad: RightArrow.svg, linked_in.svg, yahoo!.svg
