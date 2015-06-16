@@ -70,7 +70,7 @@ describe('Main', function () {
 		return main.init().then(function (videos) {
 			videos.should.have.length(1);
 			var placeholderEl = videos[0].containerEl.querySelector('img');
-			placeholderEl.className.should.equal('a-class another-class');
+			placeholderEl.className.should.equal('a-class another-class n-video__video');
 			placeholderEl.getAttribute('src').should.contain('width=300');
 		});
 	});

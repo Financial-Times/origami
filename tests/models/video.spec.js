@@ -29,7 +29,7 @@ describe('Video', function () {
 		video.domPath.should.equal('video');
 	});
 
-	it('should an a `data-n-video-js` attribtue', function () {
+	it('should an a `data-n-video-js` attribute', function () {
 		new Video(containerEl);
 		containerEl.getAttribute('data-n-video-js').should.exists;
 	});

@@ -1,0 +1,47 @@
+.n-video--card {
+	position: relative;
+	cursor: pointer;
+	width: 100%;
+
+	&:before {
+		content: '';
+		display: block;
+		width: 100%;
+		padding: 56.25% 0 0;
+	}
+
+	.n-video__video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.n-video__play-button {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		padding: 0;
+		background-color: transparent;
+		text-indent: -9999px;
+		cursor: pointer;
+		border: 0;
+		z-index: 1;
+
+		&:after {
+			@include nextIcon(play, #fcfcfc, 40);
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -20px;
+			margin-left: -20px;
+			transition: opacity 0.1s;
+		}
+		&:hover:after {
+			opacity: 0.5;
+		}
+	}
+}

@@ -6,7 +6,6 @@ function init (opts) {
 	var options = opts || {};
 	var defaultOpts = {
 		context: document.body,
-		classes: [],
 		selector: '*'
 	};
 	for (var defaultOpt in defaultOpts) {
