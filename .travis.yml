@@ -1,11 +1,10 @@
 language: node_js
 sudo: false
 node_js:
-  - "0.10"
+  - "0.12"
 before_install:
-  - npm install -g Financial-Times/origami-build-tools#node-0.10
+  - npm install -g Financial-Times/origami-build-tools#node12
   - obt install
-  - npm install node-sass -g
 script:
   - obt test
   - obt verify
