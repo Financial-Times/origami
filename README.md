@@ -145,3 +145,11 @@ And a new entry in `demos/src/demo.scss`:
 	font-family: oFontsGetFontFamilyWithFallback(BentonSans);
 }
 ```
+
+----
+
+## License
+
+Copyright (c) 2015 Financial Times Ltd. All rights reserved.
+
+This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
