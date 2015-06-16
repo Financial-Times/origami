@@ -1,4 +1,4 @@
-/* global describe, it, beforeEach, afterEach, sinon */
+/* global describe, it, beforeEach, afterEach, sinon, expect */
 'use strict';
 
 var Brightcove = require('../../src/models/brightcove');
