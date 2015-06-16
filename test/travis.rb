@@ -24,7 +24,7 @@ raise "Using an undefined color should not affect output" if File.open("test/out
 raise "Using a custom use case compiles correctly" unless File.open("test/output/test.css").read.squish.include? "test-custom-use-case{color:#ccc"
 puts "\e[32mPassed\e[0m"
 puts "Test: overriding existing use cases…"
-raise "Overriding an existing use case compiles correctly" unless File.open("test/output/test.css").read.squish.include? ".test-override-existing-use-case{color:#27757b"
+raise "Overriding an existing use case compiles correctly" unless File.open("test/output/test.css").read.squish.include? ".test-override-existing-use-case{color:#ccc"
 puts "\e[32mPassed\e[0m"
 File.delete('test/output/test.css')
 

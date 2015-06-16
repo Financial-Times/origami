@@ -20,7 +20,7 @@ $o-colors-is-silent: true;
 }
 
 // Override an existing use case
-@include oColorsSetUseCase(link, text, 'link-1');
+@include oColorsSetUseCase(link, text, 'grey-tint20');
 .test-override-existing-use-case {
 	color: oColorsGetColorFor(link, text);
 }
