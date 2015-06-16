@@ -72,3 +72,11 @@ scrollWidth: body.scrollWidth
 
 * `oViewport.resize`, `oViewport.orientation` and  `oViewport.visibility` are debounced i.e. if the native event fires several times in quick succession the custom event will fire only once `n` milliseconds after the last event, where `n` is the throttle interval
 * `oViewport.scroll` is throttled i.e. if the native `scroll` event fires several times in quick succession the custom event will fire at most once every `n` milliseconds, where `n` is the throttle interval
+
+----
+
+## License
+
+Copyright (c) 2015 Financial Times Ltd. All rights reserved.
+
+This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
