@@ -237,3 +237,11 @@ The most important change is with input elements, that now have their own classe
 ### 4. Mixins and placeholder classes
 
 If using placeholder classes or extending styles using `oFormsClass` and `oFormsPlaceholderOptionalSelector`, use normal selectors, and include the matching mixins, documented in the [SassDoc documentation of the module](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms).
+
+----
+
+## License
+
+Copyright (c) 2015 Financial Times Ltd. All rights reserved.
+
+This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
