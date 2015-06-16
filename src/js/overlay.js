@@ -146,6 +146,7 @@ Overlay.prototype.loadContent = function(callback) {
 Overlay.prototype.render = function() {
 	var wrapperEl = document.createElement('div');
 	wrapperEl.className = 'o-overlay';
+	wrapperEl.classList.add('o-overlay--' + this.id.replace(' ', '-'));
 	if (this.opts.zindex) {
 		wrapperEl.style.zIndex = this.opts.zindex;
 	}

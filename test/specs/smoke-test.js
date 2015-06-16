@@ -208,4 +208,15 @@ describe('smoke-tests (./overlay.js)', function() {
 			done();
 		});
 	});
+
+	it('should add the unique id as a CSS styling hook', function(done) {
+		var mod = new Overlay('test overlay', {
+			html: testContent
+		});
+		mod.open();
+
+		var overlays = document.querySelectorAll('.o-overlay--test-overlay');
+		expect(overlays.length).toBe(1);
+		done();
+	});
 });
