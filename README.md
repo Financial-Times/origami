@@ -159,3 +159,9 @@ The following API methods are provided:
 * `init()`: Set attributes/classes, bind events. Called automatically on construction. Does nothing if already been called.
 * `selectTab(idx)`: Select tab `idx`. Does nothing if tab `idx` does not exist or is already selected.
 * `destroy()`: Unbind events, remove `o-tabs--js` class. After calling this, `init()` can be called again to re-initialise the tabs.
+
+----
+
+## Licence
+
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
