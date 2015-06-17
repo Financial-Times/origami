@@ -9,9 +9,10 @@ module.exports = function (el, opts) {
 	var source = el.getAttribute('data-n-video-source').toLowerCase();
 
 	if (source === 'brightcove') {
+		if (el.getAttribute('data-n-video-player').toLowerCase() === 'brightcove') {
+			return new BrightcovePlayer(el, opts);
+		}
 		return new Brightcove(el, opts);
-	} else if (source === 'brightcoveplayer') {
-		return new BrightcovePlayer(el, opts);
 	} else if (source === 'youtube') {
 		return new YouTube(el, opts);
 	} else {
