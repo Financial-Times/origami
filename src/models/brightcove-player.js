@@ -13,7 +13,7 @@ function ensureBrightcoveLibraryLoaded() {
 	}
 	var script = document.createElement('script');
 	script.setAttribute('type', 'text/javascript');
-	script.setAttribute('src', 'http://admin.brightcove.com/js/BrightcoveExperiences.js');
+	script.setAttribute('src', 'https://sadmin.brightcove.com/js/BrightcoveExperiences.js');
 	script.setAttribute('async', true);
 	script.setAttribute('defer', true);
 	document.getElementsByTagName("head")[0].appendChild(script);
@@ -41,6 +41,8 @@ BrightcovePlayer.prototype.init = function() {
 		<param name="isUI" value="true" />
 		<param name="dynamicStreaming" value="true" />
 		<param name="htmlFallback" value="true" />
+		<param name="secureConnections" value="true" />
+		<param name="secureHTMLConnections" value="true" />
 	</object>`;
 	this.el.innerHTML = output;
 	return ensureBrightcoveLibraryLoaded()
