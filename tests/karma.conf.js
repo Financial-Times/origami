@@ -33,7 +33,7 @@ module.exports = function(config) {
 		},
 
 		browserify: {
-			transform: [ 'debowerify' ]
+			transform: [ 'debowerify', 'babelify' ]
 		},
 
 		// test results reporter to use
