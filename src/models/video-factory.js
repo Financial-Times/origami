@@ -2,6 +2,7 @@
 
 var Video = require('./video');
 var Brightcove = require('./brightcove');
+var BrightcovePlayer = require('./brightcove-player');
 var YouTube = require('./you-tube');
 
 module.exports = function (el, opts) {
@@ -9,6 +10,8 @@ module.exports = function (el, opts) {
 
 	if (source === 'brightcove') {
 		return new Brightcove(el, opts);
+	} else if (source === 'brightcoveplayer') {
+		return new BrightcovePlayer(el, opts);
 	} else if (source === 'youtube') {
 		return new YouTube(el, opts);
 	} else {

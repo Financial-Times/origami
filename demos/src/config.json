@@ -10,6 +10,12 @@
       "js": "demos/src/brightcove.js"
     },
     {
+      "name": "brightcove-player",
+      "template": "demos/src/brightcove-player.html",
+      "description": "Brightcove Player",
+      "js": "demos/src/brightcove-player.js"
+    },
+    {
       "name": "placeholder",
       "template": "demos/src/brightcove.html",
       "description": "Placeholder",
