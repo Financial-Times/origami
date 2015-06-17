@@ -1,9 +1,6 @@
-/* global fetch */
+/*global brightcove*/
 'use strict';
 
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
-var getAppropriateRendition = require('../libs/get-appropriate-rendition');
 var brightcoveLibraryLoadPromise;
 
 function BrightcovePlayer(el, opts) {
@@ -19,7 +16,7 @@ function ensureBrightcoveLibraryLoaded() {
 	script.setAttribute('src', 'http://admin.brightcove.com/js/BrightcoveExperiences.js');
 	script.setAttribute('async', true);
 	script.setAttribute('defer', true);
-	document.getElementsByTagName("head")[0].appendChild(script)
+	document.getElementsByTagName("head")[0].appendChild(script);
 	brightcoveLibraryLoadPromise = new Promise(function(resolve, reject) {
 		script.addEventListener('load', function() {
 			resolve();
