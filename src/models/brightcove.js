@@ -3,6 +3,7 @@
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
+var nJsonpFetch = require('n-jsonp-fetch');
 var Video = require('./video');
 var getAppropriateRendition = require('../libs/get-appropriate-rendition');
 
@@ -47,7 +48,8 @@ Brightcove.prototype = Object.create(Video.prototype, {
 });
 
 Brightcove.prototype.init = function () {
-	return fetch('//next-video.ft.com/api/' + this.id)
+	var fetchFn = ('XDomainRequest' in window) ? nJsonpFetch : fetch;
+	return fetchFn('//next-video.ft.com/api/' + this.id)
 		.then(function (response) {
 			if (response.ok) {
 				return response.json();
