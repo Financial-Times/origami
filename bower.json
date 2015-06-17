@@ -8,7 +8,8 @@
   ],
   "main": "main.js",
   "dependencies": {
-    "isomorphic-fetch": "~2.1.0",
-    "es6-promise": "~2.1.0"
+    "isomorphic-fetch": "^2.1.0",
+    "es6-promise": "^2.1.0",
+    "n-jsonp-fetch": "^0.1.0"
   }
 }
