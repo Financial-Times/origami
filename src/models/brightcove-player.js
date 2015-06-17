@@ -40,6 +40,7 @@ BrightcovePlayer.prototype.init = function() {
 		<param name="isVid" value="true" />
 		<param name="isUI" value="true" />
 		<param name="dynamicStreaming" value="true" />
+		<param name="htmlFallback" value="true" />
 	</object>`;
 	this.el.innerHTML = output;
 	return ensureBrightcoveLibraryLoaded()
