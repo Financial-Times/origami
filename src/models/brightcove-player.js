@@ -1,8 +1,6 @@
 /*global brightcove*/
 'use strict';
 
-var brightcoveLibraryLoadPromise;
-
 function BrightcovePlayer(el, opts) {
 	this.el = el;
 }
