@@ -1,4 +1,3 @@
-/*global brightcove*/
 'use strict';
 
 function BrightcovePlayer(el, opts) {
