@@ -24,6 +24,9 @@ describe('Core', function () {
 
 		before(function () {
 			require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
+			require("../src/javascript/core/settings").set('version', 'v1'); // Fix the internal counter incase other tests have just run.
+			require("../src/javascript/core/settings").set('api_key', 'qUb9maKfKbtpRsdp0p2J7uWxRPGJEP'); // Fix the internal counter incase other tests have just run.
+			require("../src/javascript/core/settings").set('source', 'o-tracking'); // Fix the internal counter incase other tests have just run.
 			(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
 			require("../src/javascript/core/settings").delete('config');  // Empty settings.
 			require("../src/javascript/core/session").init(); // Session
@@ -45,7 +48,7 @@ describe('Core', function () {
 
 			Core.setPageID('page_id');
 			Core.track({
-				tag: { type: 'page'  },
+				meta: { type: 'page'  },
 				data: { url: "http://www.ft.com/home/uk" },
 				user: { "user_id": "userID" }
 			}, callback);
@@ -56,16 +59,17 @@ describe('Core', function () {
 
 			sent_data = callback.getCall(0).thisValue;
 
-			assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
-			// Tag
-			assert.deepEqual(Object.keys(sent_data.tag), ["apiKey","version","id","counter","offset","page_id","type"]);
-			assert.equal(sent_data.tag.apiKey, "");
-			assert.equal(sent_data.tag.version, "v1");
-			assert.ok(guid_re.test(sent_data.tag.id), "Request ID is invalid. " + sent_data.tag.id);
-			assert.equal(sent_data.tag.counter, 1);
-			assert.ok(/\d+/.test(sent_data.tag.offset), "offset is invalid. " + sent_data.tag.offset);
-			assert.equal(sent_data.tag.page_id, "page_id");
-			assert.equal(sent_data.tag.type, "page");
+			assert.deepEqual(Object.keys(sent_data), ["meta", "id", "user", "device", "data"]);
+			// Event
+			assert.deepEqual(Object.keys(sent_data.meta), ["api_key","version","source","id","counter","offset","page_id","type"]);
+			assert.equal(sent_data.meta.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
+			assert.equal(sent_data.meta.version, "v1");
+			assert.equal(sent_data.meta.source, "o-tracking");
+			assert.ok(guid_re.test(sent_data.meta.id), "Request ID is invalid. " + sent_data.meta.id);
+			assert.equal(sent_data.meta.counter, 1);
+			assert.ok(/\d+/.test(sent_data.meta.offset), "offset is invalid. " + sent_data.meta.offset);
+			assert.equal(sent_data.meta.page_id, "page_id");
+			assert.equal(sent_data.meta.type, "page");
 
 			// User
 			assert.deepEqual(Object.keys(sent_data.user), ["spoor_session","spoor_id","user_id"]);

@@ -68,13 +68,18 @@ describe('main', function () {
 
 		sent_data = callback.getCall(0).thisValue;
 
-		page_id = sent_data.tag.id;
+		page_id = sent_data.meta.id;
 
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
+		assert.deepEqual(Object.keys(sent_data), ["meta", "id", "user", "device", "data"]);
+
+		// Meta
+		assert.equal(sent_data.meta.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
+		assert.equal(sent_data.meta.version, "0.0.24");
+		assert.equal(sent_data.meta.source, "o-tracking");
 
 		// Type
-		assert.equal(sent_data.tag.type, "page");
+		assert.equal(sent_data.meta.type, "page");
 
 		// User
 		assert.equal(sent_data.user.user_id, '023ur9jfokwenvcklwnfiwhfoi324');
@@ -101,16 +106,16 @@ describe('main', function () {
 		sent_data = callback.getCall(0).thisValue;
 
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
+		assert.deepEqual(Object.keys(sent_data), ["meta", "id", "user", "device", "data"]);
 
 		// Type
-		assert.equal(sent_data.tag.type, "event");
+		assert.equal(sent_data.meta.type, "event");
 
 		// User
 		assert.equal(sent_data.user.user_id, '023ur9jfokwenvcklwnfiwhfoi324');
 
 		// Page
-		assert.equal(sent_data.tag.page_id, page_id);
+		assert.equal(sent_data.meta.page_id, page_id);
 
 		// Event
 		assert.equal(sent_data.data.category, "video");
