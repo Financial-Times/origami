@@ -8,7 +8,8 @@ function Video(el, opts) {
 		classes: [],
 		optimumWidth: null,
 		placeholder: false,
-		playButton: true
+		playButton: true,
+		data: null
 	};
 	this.opts = {};
 	Object.keys(defaultOpts).forEach(function (optionName) {

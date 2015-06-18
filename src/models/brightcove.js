@@ -50,7 +50,7 @@ Brightcove.prototype = Object.create(Video.prototype, {
 Brightcove.prototype.getData = function () {
 	var fetchFn = ('XDomainRequest' in window) ? nJsonpFetch : fetch;
 
-	var dataPromise = this.opts.data ? Promise.resolve(this.opts.ata) : fetchFn('//next-video.ft.com/api/' + this.id)
+	var dataPromise = this.opts.data ? Promise.resolve(this.opts.data) : fetchFn('//next-video.ft.com/api/' + this.id)
 		.then(response => {
 			if (response.ok) {
 				return response.json();
@@ -75,7 +75,7 @@ Brightcove.prototype.render = function () {
 		}
 	}
 	return this;
-}
+};
 
 Brightcove.prototype.init = function () {
 	return this.getData()
