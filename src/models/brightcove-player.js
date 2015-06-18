@@ -16,8 +16,7 @@ function eventListener(video, ev) {
 		contentId: video.id,
 		domPath: video.domPath,
 		domPathTokens: video.domPathTokens,
-		event: ev.type,
-		progress: video.getProgress()
+		event: ev.type
 	};
 	document.body.dispatchEvent(event);
 }
