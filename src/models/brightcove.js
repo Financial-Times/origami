@@ -47,28 +47,56 @@ Brightcove.prototype = Object.create(Video.prototype, {
 	}
 });
 
-Brightcove.prototype.init = function () {
+Brightcove.prototype.getData = function () {
 	var fetchFn = ('XDomainRequest' in window) ? nJsonpFetch : fetch;
-	return fetchFn('//next-video.ft.com/api/' + this.id)
-		.then(function (response) {
+
+	var dataPromise = this.opts.data ? Promise.resolve(this.opts.ata) : fetchFn('//next-video.ft.com/api/' + this.id)
+		.then(response => {
 			if (response.ok) {
 				return response.json();
 			} else {
 				throw Error('Brightcove responded with a ' + response.status + ' (' + response.statusText + ') for id ' + this.id);
 			}
-		}.bind(this))
-		.then(function (data) {
-			this.posterImage = updatePosterUrl(data.videoStillURL, this.opts.optimumWidth);
-			this.rendition = getAppropriateRendition(data.renditions, { width: this.opts.optimumWidth });
-			if (this.rendition) {
-				if (this.opts.placeholder) {
-					this.addPlaceholder();
-				} else {
-					this.addVideo();
-				}
-			}
-			return this;
-		}.bind(this));
+		});
+
+	return dataPromise.then(data => {
+		this.brightcoveData = data;
+		this.posterImage = updatePosterUrl(data.videoStillURL, this.opts.optimumWidth);
+		this.rendition = getAppropriateRendition(data.renditions, { width: this.opts.optimumWidth });
+	});
+};
+
+Brightcove.prototype.render = function () {
+	if (this.rendition) {
+		if (this.opts.placeholder) {
+			this.addPlaceholder();
+		} else {
+			this.addVideo();
+		}
+	}
+	return this;
+}
+
+Brightcove.prototype.init = function () {
+	return this.getData()
+		.then(() => this.render());
+};
+
+Brightcove.prototype.info = function () {
+
+	var date = new Date(+this.brightcoveData.publishedDate);
+
+	return {
+		posterImage: this.posterImage,
+		id: this.brightcoveData.id,
+		length: this.brightcoveData.length,
+		longDescription: this.brightcoveData.longDescription,
+		name: this.brightcoveData.name,
+		publishedDate: date.toISOString(),
+		publishedDateReadable: date.toUTCString(),
+		shortDescription: this.brightcoveData.shortDescription,
+		tags: this.brightcoveData.tags,
+	};
 };
 
 Brightcove.prototype.addVideo = function () {
@@ -98,13 +126,13 @@ Brightcove.prototype.addPlaceholder = function () {
 
 		this.containerEl.appendChild(playButtonEl);
 
-		playButtonEl.addEventListener('click', function () {
+		playButtonEl.addEventListener('click', () => {
 			this.containerEl.removeChild(playButtonEl);
 			this.removePlaceholder();
 			this.addVideo();
 			this.el.play();
 			this.el.focus();
-		}.bind(this));
+		});
 	}
 };
 
