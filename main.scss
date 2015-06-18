@@ -60,6 +60,7 @@
 	right: 0;
 }
 
+// HACK: Liberal use of `!important` to override videojs styling.
 .n-video__brightcove-player .vjs-big-play-button {
 	position: absolute !important;
 	width: 100% !important;
