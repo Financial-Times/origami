@@ -1,3 +1,4 @@
+/*global videojs*/
 'use strict';
 
 var Video = require('./video');
