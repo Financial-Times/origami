@@ -75,7 +75,7 @@ describe('main', function () {
 
 		// Meta
 		assert.equal(sent_data.meta.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
-		assert.equal(sent_data.meta.version, "0.0.24");
+		assert.ok(sent_data.meta.version.match(/\d+\.\d+.\d+/));
 		assert.equal(sent_data.meta.source, "o-tracking");
 
 		// Type
