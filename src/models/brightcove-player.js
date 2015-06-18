@@ -5,6 +5,9 @@ var Video = require('./video');
 
 var playerInstanceId = 0;
 
+var ACCOUNT_ID = '47628783001';
+var PLAYER_ID = '0e517ef5-7b18-4307-9244-4d7a31591a9e';
+
 function eventListener(video, ev) {
 	var event = document.createEvent('Event');
 	event.initEvent('beacon:media', true, true);
@@ -31,7 +34,7 @@ function ensureBrightcoveLibraryLoaded() {
 	}
 	var script = document.createElement('script');
 	script.setAttribute('type', 'text/javascript');
-	script.setAttribute('src', '//players.brightcove.net/47628783001/fb14d319-ef92-49ac-92f7-3b565a32cdd7_default/index.min.js');
+	script.setAttribute('src', `//players.brightcove.net/${ACCOUNT_ID}/${PLAYER_ID}_default/index.min.js`);
 	script.setAttribute('async', true);
 	script.setAttribute('defer', true);
 	document.getElementsByTagName("head")[0].appendChild(script);
@@ -50,8 +53,8 @@ BrightcovePlayer.prototype.init = function() {
 	var brightcovePlayerInstance = this;
 	this.containerEl.innerHTML = `<div class="n-video__brightcove-player"><video
 			id="brightcove-player-${playerInstanceId}"
-			data-account="47628783001"
-			data-player="0e517ef5-7b18-4307-9244-4d7a31591a9e"
+			data-account="${ACCOUNT_ID}"
+			data-player="${PLAYER_ID}"
 			data-embed="default"
 			data-video-id="${videoId}"
 			class="video-js"
