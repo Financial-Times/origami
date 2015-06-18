@@ -1,5 +1,10 @@
+@import "next-sass-setup/main";
+@import "../../main";
+
 .video-container {
-	width: 500px;
+	width: 512px;
+	height: 228px;
+	position: relative;
 }
 video,
 img {
