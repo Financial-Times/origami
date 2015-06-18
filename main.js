@@ -22,7 +22,7 @@ function init (opts) {
 	return Promise.all(videoPromises);
 }
 
-
-videoFactory.init = init;
-
-module.exports = videoFactory;
+module.exports = {
+	init: init,
+	factory: videoFactory
+};
