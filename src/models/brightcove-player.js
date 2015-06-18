@@ -47,8 +47,7 @@ BrightcovePlayer.prototype.init = function() {
 	playerInstanceId++;
 	var videoId = this.containerEl.getAttribute('data-n-video-id');
 	var brightcovePlayerInstance = this;
-	this.containerEl.innerHTML = `
-		<div class="n-video__brightcove-player"><video
+	this.containerEl.innerHTML = `<div class="n-video__brightcove-player"><video
 			id="brightcove-player-${playerInstanceId}"
 			data-account="47628783001"
 			data-player="fb14d319-ef92-49ac-92f7-3b565a32cdd7"
