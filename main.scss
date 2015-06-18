@@ -17,32 +17,33 @@
 		width: 100%;
 		height: 100%;
 	}
-	.n-video__play-button {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		padding: 0;
-		background-color: transparent;
-		text-indent: -9999px;
-		cursor: pointer;
-		border: 0;
-		z-index: 1;
+}
 
-		&:after {
-			@include nextIcon(play, #fcfcfc, 40);
-			content: '';
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			margin-top: -20px;
-			margin-left: -20px;
-			transition: opacity 0.1s;
-		}
-		&:hover:after {
-			opacity: 0.5;
-		}
+.n-video__play-button {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	padding: 0;
+	background-color: transparent;
+	text-indent: -9999px;
+	cursor: pointer;
+	border: 0;
+	z-index: 1;
+
+	&:after {
+		@include nextIcon(play, #fcfcfc, 40);
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -20px;
+		margin-left: -20px;
+		transition: opacity 0.1s;
+	}
+	&:hover:after {
+		opacity: 0.5;
 	}
 }
 
@@ -57,4 +58,34 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
+}
+
+// HACK: Liberal use of `!important` to override videojs styling.
+.n-video__brightcove-player .vjs-big-play-button {
+	position: absolute !important;
+	width: 100% !important;
+	height: 100% !important;
+	top: 0 !important;
+	left: 0 !important;
+	padding: 0;
+	background: transparent !important;
+	border-radius: 0;
+	text-indent: -9999px;
+	cursor: pointer;
+	border: 0;
+	z-index: 1;
+
+	&:after {
+		@include nextIcon(play, #fcfcfc, 40);
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -20px;
+		margin-left: -20px;
+		transition: opacity 0.1s;
+	}
+	&:hover:after {
+		opacity: 0.5;
+	}
 }
