@@ -21,7 +21,7 @@ var queue;
  */
 var currentRequests = {};
 
-function createXMLHttp() {
+function createTransport() {
 	try {
 		var xmlHttp = new window.XMLHttpRequest();
 
@@ -29,29 +29,51 @@ function createXMLHttp() {
 		// "withCredentials" only exists on XMLHTTPRequest2 objects.
 		if (!utils.isUndefined(xmlHttp.withCredentials)) {
 			return {
-				xmlHttp: xmlHttp,
-				XDomainRequest: false
+				send: function (domain, path) {
+					xmlHttp.open('POST', domain, true);
+					xmlHttp.setRequestHeader("Content-type", "application/json");
+					xmlHttp.send(path);
+				},
+				complete: function (callback) {
+					xmlHttp.onerror = function () {
+						callback(this, xmlHttp);
+					};
+					xmlHttp.onload = function () {
+						if (xmlHttp.status >= 200 && xmlHttp.status < 300) {
+							callback(null, xmlHttp);
+						} else {
+							callback('Incorrect response: ' + xmlHttp.status, xmlHttp);
+						}
+					};
+				}
 			};
 		}
+	} catch (error) {}
 
-		// Otherwise, check if XDomainRequest.
-		// XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-		if (!utils.isUndefined(window.XDomainRequest)) {
-			return {
-				xmlHttp: new window.XDomainRequest(),
-				XDomainRequest: true
-			};
+	var image = new Image(1,1);
+
+	return {
+		send: function (domain, path) {
+			image.src = domain + '?data=' + utils.encode(path);
+		},
+		complete: function (callback) {
+			if (image.addEventListener) {
+				image.addEventListener('error', function () {
+					callback(this, image);
+				});
+				image.addEventListener('load', function () {
+					callback(null, image);
+				});
+			} else { // it's IE!
+				image.attachEvent('onerror', function () {
+					callback(this, image);
+				});
+				image.attachEvent('onload', function () {
+					callback(null, image);
+				});
+			}
 		}
-	} catch (error) {
-		try {
-			return {
-				xmlHttp: new window.ActiveXObject("Microsoft.XMLHTTP"),
-				XDomainRequest: false
-			};
-		} catch (err) {}
-	}
-
-	return null;
+	};
 }
 
 /**
@@ -101,13 +123,8 @@ function success(id) {
 function sendRequest(request, callback) {
 	var offlineLag = (new Date()).getTime() - request.queueTime,
 		path,
-		xmlHttpObj = createXMLHttp(),
-		xmlHttp,
+		transport = createTransport(),
 		user_callback = request.callback;
-
-	if (!xmlHttpObj) {
-		return;
-	}
 
 	request = utils.merge({
 		meta: {
@@ -125,8 +142,6 @@ function sendRequest(request, callback) {
 		request.meta.offset = offlineLag;
 	}
 
-	xmlHttp = xmlHttpObj.xmlHttp;
-
 	delete request.counter;
 	delete request.callback;
 	delete request.async;
@@ -136,50 +151,29 @@ function sendRequest(request, callback) {
 	utils.log('user_callback', user_callback);
 	utils.log('PreSend', request);
 
-	function requestFinished(xmlHttp) {
-		if (utils.is(user_callback, 'function')) {
-			user_callback.call(request, xmlHttp);
-			utils.log('calling user_callback');
-		}
-		if (xmlHttp.status >= 200 && xmlHttp.status < 300) {
-			success(request.id);
-			callback();
-		} else {
-			finished(request.id);
-			// TODO Wait a bit, then try again?
-		}
-	}
-
 	started(request.id);
 
 	path = JSON.stringify(request);
 
 	utils.log('path', path);
 
-	if (!xmlHttpObj.XDomainRequest) {
-		xmlHttp.onreadystatechange = function () {
-			if (xmlHttp.readyState === 4) {
-				requestFinished(xmlHttp);
-			}
-		};
-	} else {
-		xmlHttp.onload = function () {
-			requestFinished(xmlHttp);
-		};
-	}
+	transport.complete(function (error, t) {
+		if (utils.is(user_callback, 'function')) {
+			user_callback.call(request, t);
+			utils.log('calling user_callback');
+		}
 
-	// Only works with XMLHttpRequest
-	xmlHttp.onerror = function () { requestFinished(xmlHttp); };
+		if (error) {
+			finished(request.id);
+		} else {
+			success(request.id);
+			callback();
+		}
+	});
 
 	// Both developer and noSend flags have to be set to stop the request sending.
 	if (!(settings.get('developer') && settings.get('noSend'))) {
-		xmlHttp.open('POST', domain, true);
-		// XDomainRequest doesn't like this header
-		if (!xmlHttpObj.XDomainRequest) {
-			xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		}
-
-		xmlHttp.send(path);
+		transport.send(domain, path);
 	}
 }
 
