@@ -51,7 +51,7 @@ BrightcovePlayer.prototype.init = function() {
 	this.containerEl.innerHTML = `<div class="n-video__brightcove-player"><video
 			id="brightcove-player-${playerInstanceId}"
 			data-account="47628783001"
-			data-player="fb14d319-ef92-49ac-92f7-3b565a32cdd7"
+			data-player="0e517ef5-7b18-4307-9244-4d7a31591a9e"
 			data-embed="default"
 			data-video-id="${videoId}"
 			class="video-js"
