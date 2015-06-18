@@ -121,4 +121,18 @@ describe('Brightcove', function () {
 			});
 	});
 
+	it('should not fetch from brightcove if full data provided in opts', function () {
+		var brightcove = new Brightcove(containerEl, { data: {
+			prop: 'val',
+			videoStillURL: 'abc',
+			renditions: []
+		}});
+		return brightcove
+			.getData()
+			.then(function () {
+
+				brightcove.brightcoveData.prop.should.equal('val');
+			});
+	});
+
 });

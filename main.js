@@ -23,5 +23,6 @@ function init (opts) {
 }
 
 module.exports = {
-	init: init
+	init: init,
+	factory: videoFactory
 };
