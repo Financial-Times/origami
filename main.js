@@ -7,13 +7,25 @@ var settings = require("./src/javascript/core/settings");
  * The version of the tracking module.
  * @type {string}
  */
-var version = '0.0.24';
+var version = '0.0.26';
+/**
+ * The source of this event.
+ * @type {string}
+ */
+var source = 'o-tracking';
+/**
+ * The API key.
+ * @type {string}
+ */
+var api_key = 'qUb9maKfKbtpRsdp0p2J7uWxRPGJEP';
 
 /**
  * @class Tracking
  */
 function Tracking() {
 	this.version = version;
+	this.source = source;
+	this.api_key = api_key;
 
 	/**
 	 * The initialised state of the object.
@@ -110,6 +122,8 @@ Tracking.prototype.init = function(config) {
 
 	settings.set('config', config);
 	settings.set('version', this.version);
+	settings.set('source', this.source);
+	settings.set('api_key', this.api_key);
 
 	settings.set('internalCounter', 0);
 	settings.set('page_sent', false);
@@ -130,7 +144,7 @@ Tracking.prototype.init = function(config) {
 	require('./src/javascript/core/session').init(config.session);
 
 	// Initialize the sending queue.
-	require('./src/javascript/core/send').init(this.version);
+	require('./src/javascript/core/send').init();
 
 	this.initialised = true;
 	return this;

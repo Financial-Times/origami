@@ -11,7 +11,7 @@ var utils = require("./utils");
  */
 var defaultEventConfig = function () {
 	return {
-		tag: { type: 'event' },
+		meta: { type: 'event' },
 		data: {}
 	};
 };
@@ -47,6 +47,15 @@ function event(obj, callback) {
 	Core.track(config, callback);
 }
 
-utils.addEvent(window, 'oTracking.event', event);
+/**
+ * Listener for custom events.
+ *
+ * @param CustomEvent The CustomEvent
+ * @private
+ */
+function listener(e) {
+	event(e.detail);
+}
+utils.addEvent(window, 'oTracking.event', listener);
 
 module.exports = event;

@@ -12,7 +12,7 @@ var settings = require('./core/settings');
  */
 var defaultPageConfig = function () {
 	return {
-		tag: {
+		meta: {
 			type: 'page'
 		},
 
@@ -21,7 +21,7 @@ var defaultPageConfig = function () {
 			referrer: document.referrer
 		},
 
-		async: true // Send this tag asyncronously - as sync doesn't work in FF, as it doesn't send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
+		async: true // Send this event asyncronously - as sync doesn't work in FF, as it doesn't send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
 	};
 };
 

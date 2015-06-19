@@ -47,7 +47,7 @@ function getSession() {
 
 	// No active session, gen a new one.
 	if (!session) {
-		session = utils.b64encode(utils.createUniqueID());
+		session = utils.guid();
 	}
 
 	// Refreshes the cookie...
@@ -66,7 +66,7 @@ function init(config) {
 		config = { name: config };
 	}
 
-	if (utils.is(config)) {
+	if (utils.isUndefined(config)) {
 		config = {};
 	}
 

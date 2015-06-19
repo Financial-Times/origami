@@ -15,7 +15,7 @@ var internalQueue;
  */
 var defaultLinkConfig = function () {
 	return {
-		tag: { type: 'event' },
+		meta: { type: 'event' },
 		data: { category: 'link', action: 'click'}
 	};
 };
@@ -223,7 +223,7 @@ function init(config) {
 	// Listen for page requests. If this is a single page app, we can send link requests now.
 	utils.onPage(runQueue);
 
-	if (utils.is(config)) {
+	if (utils.isUndefined(config)) {
 		config = {};
 	}
 	config = utils.merge({

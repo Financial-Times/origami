@@ -37,11 +37,11 @@ describe('page', function () {
 		sent_data = callback.getCall(0).thisValue;
 
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["tag", "id", "user", "device", "data"]);
+		assert.deepEqual(Object.keys(sent_data), ["meta", "id", "user", "device", "data"]);
 		assert.deepEqual(Object.keys(sent_data.data), ["url", "referrer"]);
 
 		// Type
-		assert.equal(sent_data.tag.type, "page");
+		assert.equal(sent_data.meta.type, "page");
 
 		// Page
 		assert.equal(sent_data.data.url, "http://www.ft.com/home/uk");
