@@ -37,14 +37,15 @@ describe('page', function () {
 		sent_data = callback.getCall(0).thisValue;
 
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["meta", "id", "user", "device", "data"]);
-		assert.deepEqual(Object.keys(sent_data.data), ["url", "referrer"]);
+		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+		assert.deepEqual(Object.keys(sent_data.context), ["id","counter","offset","root_id","url","referrer"]);
 
 		// Type
-		assert.equal(sent_data.meta.type, "page");
+		assert.equal(sent_data.category, "page");
+		assert.equal(sent_data.action, "view");
 
 		// Page
-		assert.equal(sent_data.data.url, "http://www.ft.com/home/uk");
-		assert.ok(!!sent_data.data.referrer, "referrer is invalid. " + sent_data.data.referrer);
+		assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
+		assert.ok(!!sent_data.context.referrer, "referrer is invalid. " + sent_data.context.referrer);
 	});
 });

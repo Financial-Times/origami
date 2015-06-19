@@ -46,7 +46,7 @@ Tracking.prototype.developer = function(level) {
 		settings.set('developer', true);
 	} else {
 		settings.delete('developer', null);
-		settings.delete('noSend', null);
+		settings.delete('no_send', null);
 	}
 };
 
@@ -60,7 +60,7 @@ Tracking.prototype.destroy = function() {
 	this.initialised = false;
 
 	settings.delete('config');
-	settings.delete('internalCounter');
+	settings.delete('internal_counter');
 	settings.delete('page_sent');
 };
 
@@ -125,7 +125,7 @@ Tracking.prototype.init = function(config) {
 	settings.set('source', this.source);
 	settings.set('api_key', this.api_key);
 
-	settings.set('internalCounter', 0);
+	settings.set('internal_counter', 0);
 	settings.set('page_sent', false);
 
 	// Developer mode
@@ -133,7 +133,7 @@ Tracking.prototype.init = function(config) {
 		this.developer(config.developer);
 
 		if (config.noSend) {
-			settings.set('noSend', true);
+			settings.set('no_send', true);
 		}
 	}
 

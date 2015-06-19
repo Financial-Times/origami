@@ -8,7 +8,7 @@ describe('main', function () {
 
 	var server;
 	var oTracking = require("../main.js");
-	var page_id;
+	var root_id;
 
 	before(function () {
 		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
@@ -25,7 +25,7 @@ describe('main', function () {
 		confEl.type = 'application/json';
 		confEl.dataset.oTrackingConfig = 'true';
 		var config = {
-			page: {
+			context: {
 				product: 'desktop'
 			},
 			user: {
@@ -46,7 +46,7 @@ describe('main', function () {
 
 	it('should track a page', function () {
 		oTracking.init({
-			page: {
+			context: {
 				product: 'desktop'
 			},
 			user: {
@@ -68,25 +68,26 @@ describe('main', function () {
 
 		sent_data = callback.getCall(0).thisValue;
 
-		page_id = sent_data.meta.id;
+		root_id = sent_data.context.id;
 
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["meta", "id", "user", "device", "data"]);
+		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 
 		// Meta
-		assert.equal(sent_data.meta.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
-		assert.ok(sent_data.meta.version.match(/\d+\.\d+.\d+/));
-		assert.equal(sent_data.meta.source, "o-tracking");
+		assert.equal(sent_data.system.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
+		assert.ok(sent_data.system.version.match(/\d+\.\d+.\d+/));
+		assert.equal(sent_data.system.source, "o-tracking");
 
 		// Type
-		assert.equal(sent_data.meta.type, "page");
+		assert.equal(sent_data.category, "page");
+		assert.equal(sent_data.action, "view");
 
 		// User
 		assert.equal(sent_data.user.user_id, '023ur9jfokwenvcklwnfiwhfoi324');
 
 		// Page
-		assert.equal(sent_data.data.url, "http://www.ft.com/cms/s/0/576f5f1c-0509-11e5-9627-00144feabdc0.html");
-		assert.equal(sent_data.data.product, "desktop");
+		assert.equal(sent_data.context.url, "http://www.ft.com/cms/s/0/576f5f1c-0509-11e5-9627-00144feabdc0.html");
+		assert.equal(sent_data.context.product, "desktop");
 	});
 
 	it('should track an event', function () {
@@ -96,8 +97,8 @@ describe('main', function () {
 			sent_data;
 
 		oTracking.event({
-			'category': 'video',
-			'action': 'play'
+			category: 'video',
+			action: 'play'
 		}, callback);
 
 		server.respond();
@@ -106,19 +107,16 @@ describe('main', function () {
 		sent_data = callback.getCall(0).thisValue;
 
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["meta", "id", "user", "device", "data"]);
+		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 
 		// Type
-		assert.equal(sent_data.meta.type, "event");
+		assert.equal(sent_data.category, "video");
+		assert.equal(sent_data.action, "play");
 
 		// User
 		assert.equal(sent_data.user.user_id, '023ur9jfokwenvcklwnfiwhfoi324');
 
 		// Page
-		assert.equal(sent_data.meta.page_id, page_id);
-
-		// Event
-		assert.equal(sent_data.data.category, "video");
-		assert.equal(sent_data.data.action, "play");
+		assert.equal(sent_data.context.root_id, root_id);
 	});
 });

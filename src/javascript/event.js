@@ -11,8 +11,9 @@ var utils = require("./utils");
  */
 var defaultEventConfig = function () {
 	return {
-		meta: { type: 'event' },
-		data: {}
+		category: 'event',
+		action: 'generic',
+		context: {}
 	};
 };
 
@@ -36,13 +37,13 @@ function event(obj, callback) {
 	}
 
 	var config = utils.merge(defaultEventConfig(), {
-		data: obj
+		category: obj.category,
+		action: obj.action,
+		context: obj
 	});
 
-	if (!utils.is(config.data.id)) {
-		config.id = config.data.id;
-		delete config.data.id;
-	}
+	delete config.context.category;
+	delete config.context.action;
 
 	Core.track(config, callback);
 }

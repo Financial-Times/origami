@@ -127,10 +127,13 @@ function sendRequest(request, callback) {
 		user_callback = request.callback;
 
 	request = utils.merge({
-		meta: {
+		system: {
 			api_key: settings.get('api_key'), // String - API key - Make sure the request is from a valid client (idea nicked from Keen.io) useful if a page gets copied onto a Russian website and creates noise
 			version: settings.get('version'), // Version of the tracking client e.g. "1.2"
 			source: settings.get('source'), // Source of the tracking client e.g. "o-tracking"
+		},
+
+		context: {
 			id: request.id, // ID of this request
 			counter: request.counter,
 			offset: 0 // Delay of this event between event happening and being sent to server - milliseconds
@@ -139,7 +142,8 @@ function sendRequest(request, callback) {
 
 	// Only bothered about offlineLag if it's longer than a second, but less than a month. (Especially as Date can be dodgy)
 	if (offlineLag > 1000 && offlineLag < (31 * 24 * 60 * 60 * 1000)) {
-		request.meta.offset = offlineLag;
+		request.time = request.time || {};
+		request.time.offset = offlineLag;
 	}
 
 	delete request.counter;
@@ -172,7 +176,7 @@ function sendRequest(request, callback) {
 	});
 
 	// Both developer and noSend flags have to be set to stop the request sending.
-	if (!(settings.get('developer') && settings.get('noSend'))) {
+	if (!(settings.get('developer') && settings.get('no_send'))) {
 		transport.send(domain, path);
 	}
 }

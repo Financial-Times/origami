@@ -12,11 +12,9 @@ var settings = require('./core/settings');
  */
 var defaultPageConfig = function () {
 	return {
-		meta: {
-			type: 'page'
-		},
-
-		data: {
+		category: 'page',
+		action: 'view',
+		context: {
 			url: document.URL,
 			referrer: document.referrer
 		},
@@ -32,14 +30,14 @@ var defaultPageConfig = function () {
  * @param {Function} callback - Callback function. Called when request completed.
  */
 module.exports = function (config, callback) {
-	var pageConfig = settings.get('config') ? settings.get('config').page || {} : {};
+	var pageConfig = settings.get('config') ? settings.get('config').context || {} : {};
 	config = utils.merge(defaultPageConfig(), {
-			data: utils.merge(pageConfig, config)
-		});
+		context: utils.merge(pageConfig, config)
+	});
 
 	// New PageID for a new Page.
 	var r = Core.track(config, callback);
-	Core.setPageID(r.id);
+	Core.setRootID(r.context.id);
 
 	// Alert internally that a new page has been tracked - for single page apps for example.
 	utils.triggerPage();

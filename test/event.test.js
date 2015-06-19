@@ -33,8 +33,7 @@ describe('event', function () {
 		track_event({
 			category: 'slideshow',
 			action: 'slide_viewed',
-			key: 'slide_number',
-			value: '5'
+			slide_number: 5
 		}, callback);
 
 		server.respond();
@@ -44,16 +43,12 @@ describe('event', function () {
 		sent_data = callback.getCall(0).thisValue;
 
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["meta", "id", "user", "device", "data"]);
-
-		// Type
-		assert.equal(sent_data.meta.type, "event");
+		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 
 		// Event
-		assert.equal(sent_data.data.category, "slideshow");
-		assert.equal(sent_data.data.action, "slide_viewed");
-		assert.equal(sent_data.data.key, "slide_number");
-		assert.equal(sent_data.data.value, "5");
+		assert.equal(sent_data.category, "slideshow");
+		assert.equal(sent_data.action, "slide_viewed");
+		assert.equal(sent_data.context.slide_number, 5);
 	});
 
 	/* TODO PhantomJS doesn't like CustomEvent
@@ -78,6 +73,8 @@ describe('event', function () {
 	});
 	*/
 
+	/* TODO Use grouping ID instead.
+
 	it('should track a child/sub event', function () {
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
@@ -89,8 +86,8 @@ describe('event', function () {
 		track_event({
 			category: 'video',
 			action: 'play',
-			key: 'id',
-			value: '12345678'
+			player_id: '23456789'
+			video_id: '12345678'
 		}, callback);
 		server.respond();
 		assert.ok(callback.called, 'Callback not called.');
@@ -118,6 +115,6 @@ describe('event', function () {
 		assert.equal(sent_data.data.action, "seek");
 		assert.equal(sent_data.data.key, "pos");
 		assert.equal(sent_data.data.value, "10");
-	});
+	});   */
 
 });

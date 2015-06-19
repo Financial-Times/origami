@@ -15,8 +15,9 @@ var internalQueue;
  */
 var defaultLinkConfig = function () {
 	return {
-		meta: { type: 'event' },
-		data: { category: 'link', action: 'click'}
+		category: 'link',
+		action: 'click',
+		context: {}
 	};
 };
 
@@ -145,12 +146,11 @@ function createLinkID(link) {
 function track(element) {
 	var linkID = createLinkID(element);
 	var config = utils.merge(defaultLinkConfig(), {
-					data: {
-						key: 'link_id',
-						value: linkID,
-						source_id: Core.getPageID(),
-						href: element.href,
-						destination_id: '' // TODO
+					context: {
+						link_id: linkID,
+						source_id: Core.getRootID(),
+						destination_id: '', // TODO
+						href: element.href
 					}
 				});
 

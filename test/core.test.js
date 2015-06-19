@@ -8,14 +8,14 @@ describe('Core', function () {
 	var Core = require("../src/javascript/core.js"),
 		guid_re = /\w{8}-\w{4}-4\w{3}-\w{4}-\w{8}/; // 7d26a201-cbdf-434f-880d-f658b424e9df
 
-	describe('page_id', function () {
-		it('should generate a page_id', function () {
-			var page_id = Core.setPageID();
-			assert.ok(page_id.match(guid_re), "'" + page_id + "'.match(" + guid_re + ")");
+	describe('root_id', function () {
+		it('should generate a root_id', function () {
+			var root_id = Core.setRootID();
+			assert.ok(root_id.match(guid_re), "'" + root_id + "'.match(" + guid_re + ")");
 		});
 
-		it('should use the page_id given it', function () {
-			assert.equal(Core.setPageID("myPageID"), "myPageID");
+		it('should use the root_id given it', function () {
+			assert.equal(Core.setRootID("myroot_id"), "myroot_id");
 		});
 	});
 
@@ -23,14 +23,14 @@ describe('Core', function () {
 		var server;
 
 		before(function () {
-			require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
-			require("../src/javascript/core/settings").set('version', 'v1'); // Fix the internal counter incase other tests have just run.
+			require("../src/javascript/core/settings").set('internal_counter', 0); // Fix the internal counter incase other tests have just run.
+			require("../src/javascript/core/settings").set('version', '1.0.0'); // Fix the internal counter incase other tests have just run.
 			require("../src/javascript/core/settings").set('api_key', 'qUb9maKfKbtpRsdp0p2J7uWxRPGJEP'); // Fix the internal counter incase other tests have just run.
 			require("../src/javascript/core/settings").set('source', 'o-tracking'); // Fix the internal counter incase other tests have just run.
 			(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
 			require("../src/javascript/core/settings").delete('config');  // Empty settings.
 			require("../src/javascript/core/session").init(); // Session
-			require("../src/javascript/core/send").init("v1"); // Init the sender.
+			require("../src/javascript/core/send").init(); // Init the sender.
 
 			server = sinon.fakeServer.create(); // Catch AJAX requests
 		});
@@ -46,10 +46,11 @@ describe('Core', function () {
 				sent_data,
 				ua = window.navigator.userAgent;
 
-			Core.setPageID('page_id');
+			Core.setRootID('root_id');
 			Core.track({
-				meta: { type: 'page'  },
-				data: { url: "http://www.ft.com/home/uk" },
+				category: 'page',
+				action: 'view',
+				context: { url: "http://www.ft.com/home/uk" },
 				user: { "user_id": "userID" }
 			}, callback);
 
@@ -59,24 +60,28 @@ describe('Core', function () {
 
 			sent_data = callback.getCall(0).thisValue;
 
-			assert.deepEqual(Object.keys(sent_data), ["meta", "id", "user", "device", "data"]);
-			// Event
-			assert.deepEqual(Object.keys(sent_data.meta), ["api_key","version","source","id","counter","offset","page_id","type"]);
-			assert.equal(sent_data.meta.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
-			assert.equal(sent_data.meta.version, "v1");
-			assert.equal(sent_data.meta.source, "o-tracking");
-			assert.ok(guid_re.test(sent_data.meta.id), "Request ID is invalid. " + sent_data.meta.id);
-			assert.equal(sent_data.meta.counter, 1);
-			assert.ok(/\d+/.test(sent_data.meta.offset), "offset is invalid. " + sent_data.meta.offset);
-			assert.equal(sent_data.meta.page_id, "page_id");
-			assert.equal(sent_data.meta.type, "page");
+			assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+			// System
+			assert.deepEqual(Object.keys(sent_data.system), ["api_key","version","source"]);
+			assert.equal(sent_data.system.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
+			assert.equal(sent_data.system.version, "1.0.0");
+			assert.equal(sent_data.system.source, "o-tracking");
+
+			// Context
+			assert.deepEqual(Object.keys(sent_data.context), ["id","counter","offset","root_id","url"]);
+			assert.ok(guid_re.test(sent_data.context.id), "Request ID is invalid. " + sent_data.context.id);
+			assert.equal(sent_data.context.counter, 1);
+			//assert.ok(/\d+/.test(sent_data.time.offset), "offset is invalid. " + sent_data.time.offset);
+			assert.equal(sent_data.context.root_id, "root_id");
+			assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
 
 			// User
-			assert.deepEqual(Object.keys(sent_data.user), ["spoor_session","spoor_id","user_id"]);
+			assert.deepEqual(Object.keys(sent_data.user), ["user_id"]);
 			assert.equal(sent_data.user.user_id, "userID");
-			assert.equal(sent_data.user.spoor_session, require("../src/javascript/core/session").session());
 
 			// Device
+			assert.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_id","user_agent"]);
+			assert.equal(sent_data.device.spoor_session, require("../src/javascript/core/session").session());
 			assert.equal(sent_data.device.user_agent, ua);
 		});
 
@@ -86,8 +91,9 @@ describe('Core', function () {
 			var callback = sinon.spy();
 
 			Core.track({
-				tag: { type: 'page'  },
-				data: { url: "http://www.google.co.uk" },
+				category: 'page',
+				action: 'view',
+				context: { url: "http://www.google.co.uk" },
 				user: { "userID": "userID" }
 			}, callback);
 
