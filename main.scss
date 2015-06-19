@@ -40,7 +40,11 @@
 		left: 50%;
 		margin-top: -20px;
 		margin-left: -20px;
+		opacity: 1;
 		transition: opacity 0.1s;
+		background-color: #000000;
+		background-color: rgba(0, 0, 0, 0.5);
+		border-radius: 20px;
 	}
 	&:hover:after {
 		opacity: 0.5;
@@ -83,7 +87,11 @@
 		left: 50%;
 		margin-top: -20px;
 		margin-left: -20px;
+		opacity: 1;
 		transition: opacity 0.1s;
+		background-color: #000000;
+		background-color: rgba(0, 0, 0, 0.5);
+		border-radius: 20px;
 	}
 	&:hover:after {
 		opacity: 0.5;
