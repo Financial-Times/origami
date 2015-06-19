@@ -21,20 +21,21 @@ var defaultConfig = function () {
 	return {
 		async: true,
 		callback: function () {},
-		meta: {}
+		system: {},
+		context: {}
 	};
 };
 
 /**
- * Generate and store a new PageID.
+ * Generate and store a new rootID.
  *
- * @param {string} new_id - Optional PageID, if you want to use your own. Otherwise we'll create one for you.
+ * @param {string} new_id - Optional rootID, if you want to use your own. Otherwise we'll create one for you.
  *
- * @return {string|*} The PageID.
+ * @return {string|*} The rootID.
  */
-function pageID(new_id) {
-	settings.set('page_id', requestID(new_id));
-	return settings.get('page_id');
+function rootID(new_id) {
+	settings.set('root_id', requestID(new_id));
+	return settings.get('root_id');
 }
 
 /**
@@ -58,8 +59,8 @@ function requestID(request_id) {
  * @return {number}
  */
 function internalCounter() {
-	settings.set('internalCounter', settings.get('internalCounter') + 1);
-	return settings.get('internalCounter');
+	settings.set('internal_counter', settings.get('internal_counter') + 1);
+	return settings.get('internal_counter');
 }
 
 /**
@@ -79,19 +80,17 @@ function track(config, callback) {
 
 	/* Values here are kinda the mandatory ones, so we want to make sure they're possible. */
 	request = utils.merge({
-		id: requestID(request.id), // Keep an ID if it's been set elsewhere.
-
-		meta: {
-			page_id: settings.get('page_id'),
+		context: {
+			id: requestID(request.id), // Keep an ID if it's been set elsewhere.
+			root_id: settings.get('root_id'),
 			counter: internalCounter()
 		},
 
-		user: utils.merge({
-			spoor_session: Session.session(),
-			spoor_id: User.userID()
-		}, settings.get('config') ? settings.get('config').user || {}: {}),
+		user: settings.get('config') ? settings.get('config').user : {},
 
 		device: {
+			spoor_session: Session.session(),
+			spoor_id: User.userID(),
 			user_agent: window.navigator.userAgent
 		}
 	}, request);
@@ -105,7 +104,7 @@ function track(config, callback) {
 }
 
 module.exports = {
-	setPageID: pageID,
-	getPageID: function () { return settings.get('page_id'); },
+	setRootID: rootID,
+	getRootID: function () { return settings.get('root_id'); },
 	track: track
 };
