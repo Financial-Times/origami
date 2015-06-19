@@ -23,6 +23,8 @@ function eventListener(video, ev) {
 
 function BrightcovePlayer() {
 	Video.apply(this, arguments);
+	playerInstanceId++;
+	this.instanceId = playerInstanceId;
 }
 
 var brightcoveLibraryLoadPromise;
@@ -47,11 +49,10 @@ function ensureBrightcoveLibraryLoaded() {
 
 
 BrightcovePlayer.prototype.init = function() {
-	playerInstanceId++;
 	var videoId = this.containerEl.getAttribute('data-n-video-id');
 	var brightcovePlayerInstance = this;
 	this.containerEl.innerHTML = `<div class="n-video__brightcove-player"><video
-			id="brightcove-player-${playerInstanceId}"
+			id="brightcove-player-${this.instanceId}"
 			data-account="${ACCOUNT_ID}"
 			data-player="${PLAYER_ID}"
 			data-embed="default"
@@ -60,7 +61,7 @@ BrightcovePlayer.prototype.init = function() {
 			controls></video></div>`;
 	return ensureBrightcoveLibraryLoaded()
 		.then(function() {
-			videojs(`brightcove-player-${playerInstanceId}`)
+			videojs(`brightcove-player-${brightcovePlayerInstance.instanceId}`)
 				.ready(function() {
 					['play', 'pause', 'ended'].forEach(function(eventName) {
 						this.on(eventName, eventListener.bind(this, brightcovePlayerInstance));
