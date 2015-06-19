@@ -15,21 +15,21 @@ This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 	"system": {
 		"source": "o-tracking",									// Name of the sender's system [1]
 		"version": "1.0.0",										// Source semver  
-		"api-key":	"0f7464b4-3f4d-11e4-984b-00144feabdc0"		// Sender-specific key [6]
+		"api_key":	"0f7464b4-3f4d-11e4-984b-00144feabdc0"		// Sender-specific key [6]
 	},
 	"device": {													
-		"spoor-id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",		// Unique ID for this device
-		"spoor-session": "0f7464b4-3f4d-11e4-984b-00144feabdc0",// Attempt to recreate a visit in the client, basic but could be useful to group events.
-		"user-agent": "Mozilla ...",
+		"spoor_id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",		// Unique ID for this device
+		"spoor_session": "0f7464b4-3f4d-11e4-984b-00144feabdc0",// Attempt to recreate a visit in the client, basic but could be useful to group events.
+		"user_agent": "Mozilla ...",
 		"ip": "123.123.123.123",
 		"layout": "S",											// require('o-grid').getCurrentLayout 
 		"orientation": "portrait"								// require('o-viewport').getOrientation
 	},
 	"user": {    		 	
-		"ft-session": "asdf324dfag1ds%asdf1A-1sadsadf",			// FT Session token
-		"ft-guid": "0f7464b4-3f4d-11e4-984b-00144feabdc0",		// FT User GUID
-		"passport-id": "1234556789",							// Passport ID - soon to be deprecated
-		"erights-id": "12345567"								// eRights ID - soon to be deprecated
+		"ft_session": "asdf324dfag1ds%asdf1A-1sadsadf",			// FT Session token
+		"ft_guid": "0f7464b4-3f4d-11e4-984b-00144feabdc0",		// FT User GUID
+		"passport_id": "1234556789",							// Passport ID - soon to be deprecated
+		"erights_id": "12345567"								// eRights ID - soon to be deprecated
 	},
 	"time": {
 		 "offset": 234											// Lag between event being created and sent e.g. if offline.
