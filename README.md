@@ -111,7 +111,7 @@ Users need to have a valid FT session in order to post comments. The default beh
  1. Override the `auth.loginRequiredDefaultBehavior` function
 
 ```javascript
-oComments.auth.loginRequiredDefaultBehavior = function (evt) {
+oComments.auth.loginRequiredDefaultBehavior = function (callback) {
     // do login in a nicer way
 
     if (success) {
