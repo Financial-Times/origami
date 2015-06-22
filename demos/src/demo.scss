@@ -3,9 +3,8 @@ $o-ft-icons-is-silent: false;
 
 @import "../../main";
 
-html,
-body {
-	background: transparent;
+html {
+	@include oColorsFor(page);
 }
 
 body {

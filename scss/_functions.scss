@@ -1,0 +1,38 @@
+/// Check if a theme has a certain state
+///
+/// @param {String} $theme - One of $o-buttons-themes
+/// @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
+@function _oButtonsThemeHasState($theme, $state) {
+	$states: map-get($o-buttons-themes, $theme);
+	@return map-has-key($states, $state);
+}
+
+/// Check if a state has a property
+///
+/// @example
+///  @if _oButtonsStateHasProperty(standout, focus, color) {}
+///
+/// @param {String} $theme - One of $o-buttons-themes
+/// @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
+/// @param {String} $property - CSS property name
+@function _oButtonsStateHasProperty($theme, $state, $property) {
+	$states: map-get($o-buttons-themes, $theme);
+	$properties: map-get($states, $state);
+	@return map-has-key($properties, $property);
+}
+
+/// Get the value of a property in a given state
+///
+/// @example
+///  div {
+///  	background-color: _oButtonsStateHasProperty(standout, selected, background);
+///  }
+///
+/// @param {String} $theme - One of $o-buttons-themes
+/// @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
+/// @param {String} $property - CSS property name
+@function _oButtonsStateGetProperty($theme, $state, $property) {
+	$states: map-get($o-buttons-themes, $theme);
+	$properties: map-get($states, $state);
+	@return map-get($properties, $property);
+}

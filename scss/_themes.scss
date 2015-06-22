@@ -5,13 +5,14 @@
 
 /// scss-lint:disable SpaceAfterComma
 
-@include oColorsSetUseCase(o-buttons-standard-normal,   text,       'blue');
-@include oColorsSetUseCase(o-buttons-standard-normal,   background, 'transparent');
-@include oColorsSetUseCase(o-buttons-standard-normal,   border,     'blue');
-@include oColorsSetUseCase(o-buttons-standard-hover,    background, 'pink-tint5');
-@include oColorsSetUseCase(o-buttons-standard-selected, background, 'pink-tint5');
-@include oColorsSetUseCase(o-buttons-standard-selected, text,       'white');
-@include oColorsSetUseCase(o-buttons-standard-selected, border,     'pink-tint5');
+@include oColorsSetUseCase(o-buttons-standard-normal,   text,       'link-1');
+@include oColorsSetUseCase(o-buttons-standard-normal,   background, 'warm-2');
+@include oColorsSetUseCase(o-buttons-standard-normal,   border,     'warm-3');
+@include oColorsSetUseCase(o-buttons-standard-hover,    background, 'link-1');
+@include oColorsSetUseCase(o-buttons-standard-hover,    border,     'link-1');
+@include oColorsSetUseCase(o-buttons-standard-selected, background, 'link-1');
+@include oColorsSetUseCase(o-buttons-standard-selected, text,       'link-1');
+@include oColorsSetUseCase(o-buttons-standard-selected, border,     'transparent');
 @include oColorsSetUseCase(o-buttons-standard-pressed,  background, 'green');
 @include oColorsSetUseCase(o-buttons-standard-pressed,  text,       'white');
 @include oColorsSetUseCase(o-buttons-standard-pressed,  border,     'green');
@@ -21,55 +22,63 @@
 /// @type Map
 $o-buttons-themes__standard: (
 	normal: (
+		text-transform: lowercase,
 		color: oColorsGetColorFor(o-buttons-standard-normal, text),
 		background: oColorsGetColorFor(o-buttons-standard-normal, background),
 		border-color: oColorsGetColorFor(o-buttons-standard-normal, border)
 	),
-	hover: (
-		background: rgba(oColorsGetColorFor(o-buttons-standard-hover, background), 0.15)
-	),
 	focus: (
-		box-shadow: inset 0 0 4px 1px oColorsGetColorFor(o-buttons-standard-normal, border)
+		box-shadow: inset 0 0 4px currentColor,
+	),
+	hover: (
+		border-color: rgba(oColorsGetColorFor(o-buttons-standard-hover, border), 0.5),
+		background: rgba(oColorsGetColorFor(o-buttons-standard-hover, background), 0.15),
 	),
 	selected: (
 		color: oColorsGetColorFor(o-buttons-standard-selected, text),
-		background: oColorsGetColorFor(o-buttons-standard-selected, background),
-		border-color: oColorsGetColorFor(o-buttons-standard-selected, border)
+		background: rgba(oColorsGetColorFor(o-buttons-standard-selected, background), 0.15),
+		border-color: oColorsGetColorFor(o-buttons-standard-selected, border),
 	),
 	pressed: (
 		color: oColorsGetColorFor(o-buttons-standard-pressed, text),
 		background: oColorsGetColorFor(o-buttons-standard-pressed, background),
-		border-color: oColorsGetColorFor(o-buttons-standard-pressed, border)
+		border-color: oColorsGetColorFor(o-buttons-standard-pressed, border),
 	)
 ) !default;
 
-@include oColorsSetUseCase(o-buttons-standout-normal, text,       'white');
-@include oColorsSetUseCase(o-buttons-standout-normal, background, 'blue');
-@include oColorsSetUseCase(o-buttons-standout-normal, border,     'blue');
-@include oColorsSetUseCase(o-buttons-standout-hover,  background, 'dark-blue');
-@include oColorsSetUseCase(o-buttons-standout-hover,  border,     'dark-blue');
+@include oColorsSetUseCase(o-buttons-standout-normal,   text,       'white');
+@include oColorsSetUseCase(o-buttons-standout-normal,   background, 'link-1');
+@include oColorsSetUseCase(o-buttons-standout-normal,   border,     'link-1');
+@include oColorsSetUseCase(o-buttons-standout-hover,    background, 'link-2');
+@include oColorsSetUseCase(o-buttons-standout-selected, background, 'link-2');
+@include oColorsSetUseCase(o-buttons-standout-selected, text,       'white');
 
 /// Theme: Standout
 ///
 /// @type Map
 $o-buttons-themes__standout: (
 	normal: (
+		text-transform: uppercase,
 		color: oColorsGetColorFor(o-buttons-standout-normal, text),
 		background: oColorsGetColorFor(o-buttons-standout-normal, background),
-		border-color: oColorsGetColorFor(o-buttons-standout-normal, border)
+		border-color: oColorsGetColorFor(o-buttons-standout-normal, border),
+		// Prevent fat white type on a dark background
+		"-webkit-font-smoothing": antialiased,
+		"-moz-osx-font-smoothing": grayscale,
 	),
 	hover: (
 		background: oColorsGetColorFor(o-buttons-standout-hover, background),
-		border-color: oColorsGetColorFor(o-buttons-standout-hover, border)
 	),
-	focus: (
-		box-shadow: inset 0 0 4px 1px oColorsGetColorFor(o-buttons-standout-normal, text)
+	selected: (
+		color: oColorsGetColorFor(o-buttons-standout-selected, text),
+		background: oColorsGetColorFor(o-buttons-standout-selected, background),
+		border-color: oColorsGetColorFor(o-buttons-standout-selected, background),
 	),
 	disabled: (
 		// Looks like a standard disabled button
 		color: oColorsGetColorFor(o-buttons-standard-normal, text),
 		background: oColorsGetColorFor(o-buttons-standard-normal, background),
-		border-color: oColorsGetColorFor(o-buttons-standard-normal, border)
+		border-color: oColorsGetColorFor(o-buttons-standard-normal, border),
 	)
 ) !default;
 
@@ -88,18 +97,15 @@ $o-buttons-themes__inverse: (
 	normal: (
 		color: oColorsGetColorFor(o-buttons-inverse-normal, text),
 		background: oColorsGetColorFor(o-buttons-inverse-normal, background),
-		border-color: oColorsGetColorFor(o-buttons-inverse-normal, border)
+		border-color: oColorsGetColorFor(o-buttons-inverse-normal, border),
 	),
 	hover: (
-		background: rgba(oColorsGetColorFor(o-buttons-inverse-hover, background), 0.3)
-	),
-	focus: (
-		box-shadow: inset 0 0 4px 1px oColorsGetColorFor(o-buttons-inverse-normal, text)
+		background: rgba(oColorsGetColorFor(o-buttons-inverse-hover, background), 0.3),
 	),
 	selected: (
 		color: oColorsGetColorFor(o-buttons-inverse-selected, text),
 		background: oColorsGetColorFor(o-buttons-inverse-selected, background),
-		border-color: oColorsGetColorFor(o-buttons-inverse-selected, border)
+		border-color: oColorsGetColorFor(o-buttons-inverse-selected, border),
 	)
 ) !default;
 
@@ -114,9 +120,6 @@ $o-buttons-themes__uncolored: (
 	normal: (
 		color: oColorsGetColorFor(o-buttons-uncolored-normal, text),
 		background: oColorsGetColorFor(o-buttons-uncolored-normal, background),
-		border-color: oColorsGetColorFor(o-buttons-uncolored-normal, border)
-	),
-	focus: (
-		box-shadow: inset 0 0 4px 1px oColorsGetColorFor(o-buttons-uncolored-normal, border)
+		border-color: oColorsGetColorFor(o-buttons-uncolored-normal, border),
 	)
 ) !default;
