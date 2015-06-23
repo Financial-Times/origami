@@ -27,29 +27,16 @@
 //
 // @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
 @mixin _oButtonsPropertiesForState($theme, $state) {
-	$states: map-get($o-buttons-themes, $theme);
+	@if _oButtonsThemeHasState($theme, $state) {
+		$states: map-get($o-buttons-themes, $theme);
 
-	@each $property, $value in map-get($states, $state) {
-		#{$property}: #{$value};
+		@each $property, $value in map-get($states, $state) {
+			#{$property}: #{$value};
+		}
 	}
 }
 
-@function _oButtonsThemeHasState($theme, $state) {
-	$states: map-get($o-buttons-themes, $theme);
-	@return map-has-key($states, $state);
-}
 
-@function _oButtonsStateHasProperty($theme, $state, $property) {
-	$states: map-get($o-buttons-themes, $theme);
-	$properties: map-get($states, $state);
-	@return map-has-key($properties, $property);
-}
-
-@function _oButtonsStateGetProperty($theme, $state, $property) {
-	$states: map-get($o-buttons-themes, $theme);
-	$properties: map-get($states, $state);
-	@return map-get($properties, $property);
-}
 
 /// Button theme construct
 /// Ouputs styles for all button states
@@ -63,41 +50,28 @@
 @mixin oButtonsTheme($theme) {
 	@include _oButtonsPropertiesForState($theme, normal);
 
-	&:focus {
+	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+	&[aria-selected=true], // e.g. A selected tab or page number in pagination
+	&[aria-pressed=true] { // e.g. A "follow" button that is pressed
+		@include _oButtonsPropertiesForState($theme, pressedselected);
+	}
+
+	&[disabled] {
+		@include _oButtonsPropertiesForState($theme, disabled);
+	}
+
+	&:not([disabled]) {
+		&:focus,
+		#{$o-hoverable-if-hover-enabled} &:hover {
+			@include _oButtonsPropertiesForState($theme, hover);
+		}
+	}
+	&:active {
+		@include _oButtonsPropertiesForState($theme, active);
+	}
+	&:focus:not(:active) {
 		@include _oButtonsPropertiesForState($theme, focus);
-	}
-
-	@if _oButtonsThemeHasState($theme, hover) {
-		// Apply :hover state only in these cases:
-		// - Not disabled
-		// - Not selected
-		// - Not pressed
-		&:not([disabled]):not([aria-selected=true]):not([aria-pressed=true]) {
-			&:focus,
-			#{$o-hoverable-if-hover-enabled} &:hover {
-				@include _oButtonsPropertiesForState($theme, hover);
-			}
-		}
-	}
-
-	@if _oButtonsThemeHasState($theme, selected) {
-		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
-		&[aria-selected=true] {
-			@include _oButtonsPropertiesForState($theme, selected);
-		}
-	}
-
-	@if _oButtonsThemeHasState($theme, pressed) {
-		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
-		&[aria-pressed=true] {
-			@include _oButtonsPropertiesForState($theme, pressed);
-		}
-	}
-
-	@if _oButtonsThemeHasState($theme, disabled) {
-		&[disabled] {
-			@include _oButtonsPropertiesForState($theme, disabled);
-		}
 	}
 }
 
@@ -136,7 +110,7 @@
 	font-weight: $o-buttons-font-weight;
 	border-radius: 2px;
 	cursor: pointer;
-	transition: 0.3s background-color, 0.15s box-shadow ease-in;
+	transition: 0.3s background-color, 0.15s color ease-in-out;
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	user-select: none;
