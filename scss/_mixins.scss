@@ -15,12 +15,20 @@
 @mixin oButtonsSize($size) {
 	$button-dimensions: map-get($o-buttons-sizes, $size);
 	$border-width: map-get($button-dimensions, border-width);
-	$vertical-padding: 1/2 * (map-get($button-dimensions, height) - map-get($button-dimensions, font-size)) - $border-width * 2;
+	$bevel-width: map-get($button-dimensions, bevel-width);
+	$vertical-padding: 1/2 * (map-get($button-dimensions, height) - map-get($button-dimensions, font-size)) - $border-width - $bevel-width;
 
 	padding: $vertical-padding map-get($button-dimensions, padding-right) $vertical-padding map-get($button-dimensions, padding-left);
 	font-size: map-get($button-dimensions, font-size);
 	line-height: map-get($button-dimensions, height) - $border-width * 2 - $vertical-padding * 2;
 	border-width: $border-width;
+	border-bottom-width: $bevel-width;
+
+	&[aria-pressed=true][aria-pressed=true],
+	&:active {
+		border-bottom-width: $border-width;
+		border-top-width: $bevel-width;
+	}
 }
 
 // Properties for a state of a given theme
@@ -35,8 +43,6 @@
 		}
 	}
 }
-
-
 
 /// Button theme construct
 /// Ouputs styles for all button states
@@ -62,7 +68,7 @@
 	}
 
 	&:not([disabled]) {
-		&:focus,
+		&:focus:not(:hover),
 		#{$o-hoverable-if-hover-enabled} &:hover {
 			@include _oButtonsPropertiesForState($theme, hover);
 		}
@@ -70,7 +76,7 @@
 	&:active {
 		@include _oButtonsPropertiesForState($theme, active);
 	}
-	&:focus:not(:active) {
+	&:focus:not(:active):not(:hover) {
 		@include _oButtonsPropertiesForState($theme, focus);
 	}
 }
@@ -110,11 +116,14 @@
 	font-weight: $o-buttons-font-weight;
 	border-radius: 2px;
 	cursor: pointer;
-	transition: 0.3s background-color, 0.15s color ease-in-out;
+	transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	user-select: none;
 	background-clip: padding-box;
+	// Prevent fat white type on a dark background
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
 	@include oButtonsSize($size);
 	@include oButtonsTheme($theme);
