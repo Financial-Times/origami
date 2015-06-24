@@ -114,7 +114,7 @@
 	text-decoration: none;
 	font-family: $o-buttons-font-family;
 	font-weight: $o-buttons-font-weight;
-	border-radius: 2px;
+	border-radius: $_o-buttons-border-radius;
 	cursor: pointer;
 	transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
 	-moz-appearance: none;

@@ -57,6 +57,11 @@ $o-buttons-sizes: (
 	)
 ) !default;
 
+/// Border-radius
+///
+/// @type Number
+$_o-buttons-border-radius: 2px;
+
 /// Button themes, with their respective states
 /// Each state is a Map of CSS properties, find
 /// all theme definitions in _themes.scss
