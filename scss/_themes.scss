@@ -10,6 +10,8 @@
 @include oColorsSetUseCase(o-buttons-standard-normal,   border,     'warm-3');
 @include oColorsSetUseCase(o-buttons-standard-hover,    background, 'link-1');
 @include oColorsSetUseCase(o-buttons-standard-hover,    border,     'link-1');
+@include oColorsSetUseCase(o-buttons-standard-active,   text,       'cold-3');
+@include oColorsSetUseCase(o-buttons-standard-active,   border,       'cold-3');
 @include oColorsSetUseCase(o-buttons-standard-pressedselected, background, 'link-1');
 @include oColorsSetUseCase(o-buttons-standard-pressedselected, text,       'link-1');
 @include oColorsSetUseCase(o-buttons-standard-pressedselected, border,     'link-1');
@@ -19,13 +21,16 @@
 /// @type Map
 $o-buttons-themes__standard: (
 	normal: (
-		text-transform: lowercase,
 		color: oColorsGetColorFor(o-buttons-standard-normal, text),
 		background: oColorsGetColorFor(o-buttons-standard-normal, background),
 		border-color: oColorsGetColorFor(o-buttons-standard-normal, border),
 	),
 	focus: (
 		box-shadow: inset 0 0 0 1px rgba(oColorsGetColorFor(o-buttons-standard-hover, border), 0.5),
+	),
+	active: (
+		color: oColorsGetColorFor(o-buttons-standard-active, text),
+		border-color: oColorsGetColorFor(o-buttons-standard-active, border),
 	),
 	hover: (
 		border-color: rgba(oColorsGetColorFor(o-buttons-standard-hover, border), 0.5),
@@ -35,7 +40,7 @@ $o-buttons-themes__standard: (
 		color: oColorsGetColorFor(o-buttons-standard-pressedselected, text),
 		background: rgba(oColorsGetColorFor(o-buttons-standard-pressedselected, background), 0.15),
 		border-color: rgba(oColorsGetColorFor(o-buttons-standard-pressedselected, border), 0.5),
-	),
+	)
 ) !default;
 
 @include oColorsSetUseCase(o-buttons-standout-normal,   text,              'white');
@@ -50,7 +55,6 @@ $o-buttons-themes__standard: (
 /// @type Map
 $o-buttons-themes__standout: (
 	normal: (
-		text-transform: uppercase,
 		color: oColorsGetColorFor(o-buttons-standout-normal, text),
 		background: oColorsGetColorFor(o-buttons-standout-normal, background),
 		border-color: oColorsGetColorFor(o-buttons-standout-normal, border),

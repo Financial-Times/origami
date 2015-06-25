@@ -15,20 +15,12 @@
 @mixin oButtonsSize($size) {
 	$button-dimensions: map-get($o-buttons-sizes, $size);
 	$border-width: map-get($button-dimensions, border-width);
-	$bevel-width: map-get($button-dimensions, bevel-width);
-	$vertical-padding: 1/2 * (map-get($button-dimensions, height) - map-get($button-dimensions, font-size)) - $border-width - $bevel-width;
+	$vertical-padding: 1/2 * (map-get($button-dimensions, height) - map-get($button-dimensions, font-size)) - $border-width;
 
 	padding: $vertical-padding map-get($button-dimensions, padding-right) $vertical-padding map-get($button-dimensions, padding-left);
 	font-size: map-get($button-dimensions, font-size);
 	line-height: map-get($button-dimensions, height) - $border-width * 2 - $vertical-padding * 2;
 	border-width: $border-width;
-	border-bottom-width: $bevel-width;
-
-	&[aria-pressed=true][aria-pressed=true],
-	&:active {
-		border-bottom-width: $border-width;
-		border-top-width: $bevel-width;
-	}
 }
 
 // Properties for a state of a given theme
@@ -72,9 +64,9 @@
 		#{$o-hoverable-if-hover-enabled} &:hover {
 			@include _oButtonsPropertiesForState($theme, hover);
 		}
-	}
-	&:active {
-		@include _oButtonsPropertiesForState($theme, active);
+		&:active {
+			@include _oButtonsPropertiesForState($theme, active);
+		}
 	}
 	&:focus:not(:active):not(:hover) {
 		@include _oButtonsPropertiesForState($theme, focus);

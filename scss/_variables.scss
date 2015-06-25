@@ -37,7 +37,6 @@ $o-buttons-sizes: (
 		padding-left: 7px,
 		padding-right: 7px,
 		border-width: 1px,
-		bevel-width: 2px,
 	),
 	medium: (
 		font-size: 16px,
@@ -45,7 +44,6 @@ $o-buttons-sizes: (
 		padding-left: 14px,
 		padding-right: 14px,
 		border-width: 1px,
-		bevel-width: 3px,
 	),
 	big: (
 		font-size: 18px,
@@ -53,14 +51,13 @@ $o-buttons-sizes: (
 		padding-left: 18px,
 		padding-right: 18px,
 		border-width: 1px,
-		bevel-width: 3px,
 	)
 ) !default;
 
 /// Border-radius
 ///
 /// @type Number
-$_o-buttons-border-radius: 2px;
+$_o-buttons-border-radius: 3px;
 
 /// Button themes, with their respective states
 /// Each state is a Map of CSS properties, find
