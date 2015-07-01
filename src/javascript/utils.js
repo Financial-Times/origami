@@ -146,6 +146,44 @@ function triggerPage() {
 	}
 }
 
+/**
+ * Get a value from document.cookie matching the first match of the regexp you supply
+ */
+function getValueFromCookie(matcher) {
+	return document.cookie.match(matcher) && RegExp.$1 !== "" && RegExp.$1 !== "null" ? RegExp.$1 : null;
+}
+
+/**
+ * Get a value from the url, used for uuid or querystring parameters
+ */
+function getValueFromUrl(matcher) {
+	return document.location.href.match(matcher) && RegExp.$1 !== "" ? RegExp.$1 : null;
+}
+
+/**
+ * Get a value from a specified JavaScript variable.
+ */
+function getValueFromJsVariable(str) {
+	if (typeof str !== "string") {
+		return null;
+
+	}
+
+	var i,
+		namespaces = str.split('.'),
+		test = window;
+
+	for (i = 0; i < namespaces.length; i = i + 1) {
+		if (typeof test[namespaces[i]] === "undefined") {
+			return null;
+		}
+
+		test = test[namespaces[i]];
+	}
+
+	return test !== "" ? test : null;
+}
+
 module.exports = {
 	log: log,
 	is: is,
@@ -155,5 +193,8 @@ module.exports = {
 	guid: guid,
 	addEvent: addEvent,
 	onPage: onPage,
-	triggerPage: triggerPage
+	triggerPage: triggerPage,
+	getValueFromCookie: getValueFromCookie,
+	getValueFromUrl: getValueFromUrl,
+	getValueFromJsVariable: getValueFromJsVariable
 };
