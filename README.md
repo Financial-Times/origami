@@ -14,15 +14,15 @@ Use the build service to load o-tracking and add a json config.
 ```
 <script type="application/json" data-o-tracking-config>
 {
-    server: 'https://test.spoor-api.ft.com/px.gif',
-    context: {
-        product: 'ft.com' // e.g. webapp, next - This is a defined list, send the correct value!
-    }
+	"server": "https://test.spoor-api.ft.com/px.gif",
+	"context": {
+		"product": "ft.com" // e.g. webapp, next - This is a defined list, send the correct value!
+	}
 }
 </script>
 ```
 
-o-tracking will listen on the window for 2 events:
+o-tracking will listen for 2 events:
 
 - `oTracking.page`
     
