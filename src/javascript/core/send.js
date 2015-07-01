@@ -28,6 +28,8 @@ function createTransport() {
 		// Check if the XMLHttpRequest object has a "withCredentials" property.
 		// "withCredentials" only exists on XMLHTTPRequest2 objects.
 		if (!utils.isUndefined(xmlHttp.withCredentials)) {
+			xmlHttp.withCredentials = true;
+
 			return {
 				send: function (domain, path) {
 					xmlHttp.open('POST', domain, true);
