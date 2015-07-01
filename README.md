@@ -8,7 +8,9 @@ This module should be included on your product to make sending tracking requests
 # Usage
 
 ## Quickstart example 1 - JSON config
+
 Use the build service to load o-tracking and add a json config.
+
 ```
 <script type="application/json" data-o-tracking-config>
 {
@@ -19,20 +21,30 @@ Use the build service to load o-tracking and add a json config.
 }
 </script>
 ```
+
 o-tracking will listen on the window for 2 events:
-- 'oTracking.page' - Send a page view event
+
+- `oTracking.page`
+    
+    Send a page view event
+
     ```
     var event = new CustomEvent('oTracking.page', { content: { uuid: 'abc-123', barrier: 'PREMIUM' }});
     window.dispatchEvent(event);
     ```
-- 'oTracking.event' - Send a normal event  
+- `oTracking.event`
+    
+    Send a normal event  
+
     ```
     var event = new CustomEvent('oTracking.event', { category: 'video', action: 'play', id: '512346789', pos: '10' });
     window.dispatchEvent(event);
     ```
 
 ## Quickstart example 2 - JS init
+
 Use the build service to load o-tracking and init manually.
+
 ```
 if (cutsTheMustard) {
     var oTracking = Origami['o-tracking'];
@@ -82,8 +94,7 @@ if (cutsTheMustard) {
         uuid: "...",
         hurdle: "..."
     }
-    
-    ... anything other key-values ...
+    ... any other key-values ...
 }
 ```
 
@@ -92,8 +103,7 @@ if (cutsTheMustard) {
 {
     category: 'video',
     action: 'play',
-    
-    ... anything other key-values ...  
+    ... any other key-values ...  
     id: '512346789',
     pos: '10'
 }
