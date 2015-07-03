@@ -38,6 +38,12 @@ describe('Utils', function () {
 		assert.equal(Utils.encode('http://www.ft.com?foo=bar&testing=yay!'), "http%3A%2F%2Fwww.ft.com%3Ffoo%3Dbar%26testing%3Dyay!");
 	});
 
+	it('should provide guid generation', function () {
+		var guid = Utils.guid();
+		var re = /^\w{8}-\w{4}-4\w{3}-\w{4}-\w{12}$/;
+		assert.ok(re.test(guid), 'Guid ' + guid + 'should match ' + /^\w{8}-\w{4}-4\w{3}-\w{4}-\w{8}$/);
+	});
+
 	describe('internal page event', function () {
 		var callback = sinon.spy();
 
@@ -51,6 +57,18 @@ describe('Utils', function () {
 			Utils.triggerPage();
 			assert.ok(callback.called, 'callback was triggered.');
 		});
+	});
+
+	it('should provide getValueFromCookie functionality', function () {
+		assert.ok(Utils.getValueFromCookie);
+	});
+
+	it('should provide getValueFromUrl functionality', function () {
+		assert.ok(Utils.getValueFromUrl);
+	});
+
+	it('should provide getValueFromJsVariable functionality', function () {
+		assert.ok(Utils.getValueFromJsVariable);
 	});
 
 });

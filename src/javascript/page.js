@@ -29,7 +29,7 @@ var defaultPageConfig = function () {
  * @param {Object} config - Configuration object. If omitted, will use the defaults.
  * @param {Function} callback - Callback function. Called when request completed.
  */
-module.exports = function (config, callback) {
+function page(config, callback) {
 	var pageConfig = settings.get('config') ? settings.get('config').context || {} : {};
 	config = utils.merge(defaultPageConfig(), {
 		context: utils.merge(pageConfig, config)
@@ -41,4 +41,17 @@ module.exports = function (config, callback) {
 
 	// Alert internally that a new page has been tracked - for single page apps for example.
 	utils.triggerPage();
-};
+}
+
+/**
+ * Listener for pages.
+ *
+ * @param CustomEvent The CustomEvent
+ * @private
+ */
+function listener(e) {
+	page(e.detail);
+}
+utils.addEvent(window, 'oTracking.page', listener);
+
+module.exports = page;

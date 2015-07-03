@@ -22,7 +22,11 @@ var defaultConfig = function () {
 		async: true,
 		callback: function () {},
 		system: {},
-		context: {}
+		context: {},
+		user: {
+			passport_id: utils.getValueFromCookie(/USERID=([0-9]+):/) || utils.getValueFromCookie(/PID=([0-9]+)\_/),
+			ft_session: utils.getValueFromCookie(/FTSession=([^;]+)/)
+		}
 	};
 };
 
