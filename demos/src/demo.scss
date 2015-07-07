@@ -44,7 +44,7 @@
 [data-o-expander-js] .custom-toggle {
 	background: green;
 	i:after {
-		content: ' v';
+		content: ' (open)';
 	}
 }
 
@@ -52,6 +52,6 @@
 .custom-toggle[aria-expanded="true"] {
 	background: red;
 	i:after {
-		content: ' x';
+		content: ' (close)';
 	}
 }
