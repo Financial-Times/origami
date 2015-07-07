@@ -3,6 +3,67 @@
 var viewport = require('o-viewport');
 var count = 0;
 
+var expandMethods = {
+	toggleContent: function (state) {
+		if (state === 'expand') {
+			this.contentEl.classList.add('o-expander__content--expanded');
+			this.contentEl.classList.remove('o-expander__content--collapsed');
+		} else {
+			this.contentEl.classList.remove('o-expander__content--expanded');
+			this.contentEl.classList.add('o-expander__content--collapsed');
+		}
+	},
+	hasStateDefined: function () {
+		return this.contentEl.classList.contains('o-expander__content--expanded') || this.contentEl.classList.contains('o-expander__content--collapsed');
+	},
+	isRequired: function () {
+		var overflows = false;
+		if (typeof this.opts.shrinkTo === 'number') {
+			if (this.el.querySelectorAll(this.opts.countSelector).length > this.opts.shrinkTo) {
+				overflows = true;
+			}
+		} else {
+			if (this.isCollapsed()) {
+				overflows = this.contentEl.clientHeight < this.contentEl.scrollHeight;
+			} else {
+				this.collapse();
+				overflows = this.contentEl.clientHeight < this.contentEl.scrollHeight;
+				this.expand();
+			}
+		}
+		return overflows;
+	},
+	isCollapsed: function () {
+		return !this.contentEl.classList.contains('o-expander__content--expanded');
+	}
+};
+
+var hiderMethods = {
+	toggleContent: function (state) {
+		if (state === 'expand') {
+			this.contentEl.setAttribute('aria-hidden', 'false');
+		} else {
+			this.contentEl.setAttribute('aria-hidden', 'true');
+		}
+	},
+	hasStateDefined: function () {
+		return this.contentEl.hasAttribute('aria-hidden');
+	},
+	isRequired: function () {
+		return true;
+	},
+	isCollapsed: function () {
+		return this.contentEl.getAttribute('aria-hidden') === 'true';
+	}
+};
+
+
+function mixin(target, methods) {
+	Object.keys(methods).forEach(function (key) {
+		target[key] = methods[key];
+	});
+}
+
 var Expander = function (el, opts) {
 
 	this.opts = opts || {};
@@ -10,8 +71,8 @@ var Expander = function (el, opts) {
 
 	this.configure('shrinkTo', 'height');
 	this.configure('countSelector', '.o-expander__content > li');
-	this.configure('expandedToggleText', this.opts.shrinkTo === 'height' ? 'less' : 'fewer');
-	this.configure('collapsedToggleText', 'more');
+	this.configure('expandedToggleText', this.opts.shrinkTo === 'hidden' ? 'hide' : this.opts.shrinkTo === 'height' ? 'less' : 'fewer');
+	this.configure('collapsedToggleText', this.opts.shrinkTo === 'hidden' ? 'show' : 'more');
 	this.configure('toggleSelector', 'button.o-expander__toggle');
 	this.configure('toggleState', 'all');
 
@@ -19,6 +80,13 @@ var Expander = function (el, opts) {
 	if (/^\d+$/.test(this.opts.shrinkTo)) {
 		this.opts.shrinkTo = +this.opts.shrinkTo;
 	}
+
+	if (this.opts.shrinkTo === 'hidden') {
+		mixin(this, hiderMethods);
+	} else {
+		mixin(this, expandMethods);
+	}
+
 	if (typeof this.opts.shrinkTo === 'number' && !this.opts.countSelector) {
 		throw('when collapsing to a number of items specify a selector to identify how many items exist');
 	}
@@ -69,7 +137,7 @@ Expander.prototype.apply = function (isSilent) {
 				el.classList.add('o-expander__collapsible-item');
 			});
 		}
-		if (this.contentEl.classList.contains('o-expander__content--expanded') || this.contentEl.classList.contains('o-expander__content--collapsed')) {
+		if (this.hasStateDefined()) {
 			this.displayState(isSilent);
 		} else {
 			this.collapse(isSilent);
@@ -88,6 +156,9 @@ Expander.prototype.destroy = function () {
 		toggle.removeAttribute('aria-controls');
 		toggle.removeAttribute('aria-expanded');
 	}.bind(this));
+	this.contentEl.removeAttribute('aria-hidden');
+	this.contentEl.classList.remove('o-expander__content--expanded');
+	this.contentEl.classList.remove('o-expander__content--collapsed');
 	this.el.removeAttribute('data-o-expander-js');
 	this.el.classList.remove('o-expander');
 };
@@ -108,10 +179,6 @@ Expander.prototype.ariaToggles = function () {
 	});
 };
 
-Expander.prototype.isCollapsed = function () {
-	return !this.contentEl.classList.contains('o-expander__content--expanded');
-};
-
 Expander.prototype.invertState = function () {
 	this.isCollapsed() ? this.expand() : this.collapse();
 };
@@ -120,14 +187,21 @@ Expander.prototype.displayState = function (isSilent) {
 	this.isCollapsed() ? this.collapse(isSilent) : this.expand(isSilent);
 };
 
-var toggleExpander = function (state, isSilent) {
-	if (state === 'expand') {
-		this.contentEl.classList.add('o-expander__content--expanded');
-		this.contentEl.classList.remove('o-expander__content--collapsed');
-	} else {
-		this.contentEl.classList.remove('o-expander__content--expanded');
-		this.contentEl.classList.add('o-expander__content--collapsed');
-	}
+
+Expander.prototype.expand = function (isSilent) {
+	this.toggleExpander('expand', isSilent);
+};
+
+Expander.prototype.collapse = function (isSilent) {
+	this.toggleExpander('collapse', isSilent);
+};
+
+Expander.prototype.emit = function (name) {
+	this.el.dispatchEvent(new CustomEvent('oExpander.' + name, {bubbles: true}));
+};
+
+Expander.prototype.toggleExpander = function (state, isSilent) {
+	this.toggleContent(state);
 	if (this.opts.toggleState !== 'none') {
 		this.toggles.forEach(function (toggle) {
 			if (this.opts.toggleState !== 'aria') {
@@ -139,36 +213,6 @@ var toggleExpander = function (state, isSilent) {
 	if (!isSilent) {
 		this.emit(state);
 	}
-};
-
-Expander.prototype.expand = function (isSilent) {
-	toggleExpander.call(this, 'expand', isSilent);
-};
-
-Expander.prototype.collapse = function (isSilent) {
-	toggleExpander.call(this, 'collapse', isSilent);
-};
-
-Expander.prototype.emit = function (name) {
-	this.el.dispatchEvent(new CustomEvent('oExpander.' + name, {bubbles: true}));
-};
-
-Expander.prototype.isRequired = function () {
-	var overflows = false;
-	if (typeof this.opts.shrinkTo === 'number') {
-		if (this.el.querySelectorAll(this.opts.countSelector).length > this.opts.shrinkTo) {
-			overflows = true;
-		}
-	} else {
-		if (this.isCollapsed()) {
-			overflows = this.contentEl.clientHeight < this.contentEl.scrollHeight;
-		} else {
-			this.collapse();
-			overflows = this.contentEl.clientHeight < this.contentEl.scrollHeight;
-			this.expand();
-		}
-	}
-	return overflows;
 };
 
 var init = function(el, opts) {

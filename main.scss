@@ -22,6 +22,10 @@
 	}
 }
 
+.o-expander__content[aria-hidden="true"] {
+	display: none;
+}
+
 .o-expander__toggle {
 	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 	font-weight: normal;
