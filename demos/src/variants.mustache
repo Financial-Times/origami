@@ -1,7 +1,7 @@
 <div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="0" data-o-expander-count-selector="li">
     <h2>Expanded on load, collapsing to nothing, with multiple buttons</h2>
     <button class="o-expander__toggle o--if-js"></button>
-    <ul class="o-expander__content" aria-expanded="true">
+    <ul class="o-expander__content o-expander__content--expanded">
         <li>item</li>
         <li>item</li>
         <li>item</li>
@@ -11,15 +11,15 @@
 </div>
 
 <div data-o-component="o-expander" class="o-expander items events" data-o-expander-shrink-to="2" data-o-expander-count-selector="li">
-	<h2>Hooking up to events </h2>
+    <h2>Hooking up to events </h2>
     <span class="alert"></span>
-	<ul class="o-expander__content">
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-	</ul>
-	<button class="o-expander__toggle o--if-js"></button>
+    <ul class="o-expander__content">
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ul>
+    <button class="o-expander__toggle o--if-js"></button>
 </div>
 
 
@@ -51,7 +51,7 @@
 
 <div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="0" data-o-expander-count-selector="li" data-o-expander-toggle-state="none">
     <h2>Don't change my button data</h2>
-    <ul class="o-expander__content" aria-expanded="true">
+    <ul class="o-expander__content o-expander__content--expanded">
         <li>item</li>
         <li>item</li>
         <li>item</li>
@@ -61,8 +61,8 @@
 </div>
 
 <div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="0" data-o-expander-count-selector="li" data-o-expander-toggle-state="aria">
-    <h2>Oh, OK. You can update the aria-pressed attribute</h2>
-    <ul class="o-expander__content" aria-expanded="true">
+    <h2>Oh, OK. You can update the aria-expanded attribute</h2>
+    <ul class="o-expander__content o-expander__content--expanded">
         <li>item</li>
         <li>item</li>
         <li>item</li>

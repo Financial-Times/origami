@@ -1,22 +1,20 @@
 <!DOCTYPE html>
-<!--[if IE 7]>         <html class="o-useragent-ie7 o-hoverable-on"> <![endif]-->
-<!--[if IE 8]>         <html class="o-useragent-ie8 o-hoverable-on"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
+<html class="o-hoverable-on ">
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<title>o-expander: Variants demo</title>
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=modernizr:classlist,modernizr:customevent,default"></script>
+	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=classlist,customevent,default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
 	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
 	<link rel="stylesheet" href="/bundles/css?modules=o-expander:/demos/src/demo.scss" />
 </head>
-<body class="">
+<body>
 <div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="0" data-o-expander-count-selector="li">
     <h2>Expanded on load, collapsing to nothing, with multiple buttons</h2>
     <button class="o-expander__toggle o--if-js"></button>
-    <ul class="o-expander__content" aria-expanded="true">
+    <ul class="o-expander__content o-expander__content--expanded">
         <li>item</li>
         <li>item</li>
         <li>item</li>
@@ -26,15 +24,15 @@
 </div>
 
 <div data-o-component="o-expander" class="o-expander items events" data-o-expander-shrink-to="2" data-o-expander-count-selector="li">
-	<h2>Hooking up to events </h2>
+    <h2>Hooking up to events </h2>
     <span class="alert"></span>
-	<ul class="o-expander__content">
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-	</ul>
-	<button class="o-expander__toggle o--if-js"></button>
+    <ul class="o-expander__content">
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ul>
+    <button class="o-expander__toggle o--if-js"></button>
 </div>
 
 
@@ -66,7 +64,7 @@
 
 <div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="0" data-o-expander-count-selector="li" data-o-expander-toggle-state="none">
     <h2>Don't change my button data</h2>
-    <ul class="o-expander__content" aria-expanded="true">
+    <ul class="o-expander__content o-expander__content--expanded">
         <li>item</li>
         <li>item</li>
         <li>item</li>
@@ -76,8 +74,8 @@
 </div>
 
 <div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="0" data-o-expander-count-selector="li" data-o-expander-toggle-state="aria">
-    <h2>Oh, OK. You can update the aria-pressed attribute</h2>
-    <ul class="o-expander__content" aria-expanded="true">
+    <h2>Oh, OK. You can update the aria-expanded attribute</h2>
+    <ul class="o-expander__content o-expander__content--expanded">
         <li>item</li>
         <li>item</li>
         <li>item</li>

@@ -34,8 +34,7 @@
 .o-expander.animated {
 	.o-expander__content {
 		transition: max-height 0.5s;
-
-		&[aria-expanded="true"] {
+		&.o-expander__content--expanded {
 			max-height: 80px;
 		}
 	}
@@ -50,7 +49,7 @@
 }
 
 .custom-toggle,
-.custom-toggle[aria-pressed] {
+.custom-toggle[aria-expanded="true"] {
 	background: red;
 	i:after {
 		content: ' x';

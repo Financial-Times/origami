@@ -11,13 +11,12 @@
 
 .o-expander__content {
 	overflow: hidden;
+	&.o-expander__content--expanded {
+		max-height: none;
+	}
 }
 
-.o-expander__content[aria-expanded="true"] {
-	max-height: none;
-}
-
-[aria-expanded="false"] {
+.o-expander__content--collapsed {
 	.o-expander__collapsible-item {
 		display: none;
 	}
@@ -48,7 +47,7 @@
 }
 
 .o-expander__toggle i,
-.o-expander__toggle[aria-pressed] i {
+.o-expander__toggle[aria-expanded="true"] i {
 	@extend %o-ft-icons-icon--arrow-up;
 }
 
