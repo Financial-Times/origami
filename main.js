@@ -36,6 +36,35 @@ var formatReplacementsMap = {
 	a: '(date.getHours() >= 12 ? "pm" : "am")' // pm
 };
 
+function FtTime(el) {
+	this.el = el;
+	this.update(true);
+}
+
+FtTime.prototype.update = function (noExec) {
+	if (!noExec) {
+		var el = this.el;
+		var date = el.getAttribute('datetime');
+		var printer = el.querySelector('.o-date__printer') || el;
+
+		if (date) {
+			date = toDate(date);
+		} else if (printer.innerHTML.length === 0) {
+			// Only define new date if printer is empty
+			date = new Date();
+		}
+
+		if (!date) return;
+
+		var interval = Math.round(((new Date()) - date) / 1000);
+		printer.innerHTML = interval < (365 * 60 * 60 * 24) ? timeAgo(date, interval) : format(date, 'date');
+		el.title = format(date, 'datetime');
+		el.setAttribute('data-o-date-js', '');
+	}
+
+	timer = setTimeout(this.update.bind(this), 60000);
+};
+
 function compile (format) {
 	var tpl = formats[format] || format;
 
@@ -65,37 +94,6 @@ function format (date, dateFormat) {
 	var tpl = compiledTemplates[dateFormat] || compile(dateFormat);
 	date = toDate(date);
 	return date && tpl(date);
-}
-
-function update (noExec) {
-	noExec || Array.prototype.forEach.call(document.querySelectorAll('[data-o-component="o-date"]'), function (el) {
-		ftTime(el);
-	});
-	timer = setTimeout(update, 60000);
-}
-
-function autoUpdate () {
-	timer || update(true);
-}
-
-
-function ftTime(el) {
-	var date = el.getAttribute('datetime');
-	var printer = el.querySelector('.o-date__printer') || el;
-
-	if (date) {
-		date = toDate(date);
-	} else if (printer.innerHTML.length === 0) {
-		// Only define new date if printer is empty
-		date = new Date();
-	}
-
-	if (!date) return;
-
-	var interval = Math.round(((new Date()) - date) / 1000);
-	printer.innerHTML = interval < (365 * 60 * 60 * 24) ? timeAgo(date, interval) : format(date, 'date');
-	el.title = format(date, 'datetime');
-	el.setAttribute('data-o-date-js', '');
 }
 
 function timeAgo (date, interval) {
@@ -137,14 +135,12 @@ var init = function(el) {
 		el = document.querySelector(el);
 	}
 	if (/\bo-date\b/.test(el.getAttribute('data-o-component'))) {
-		ftTime(el);
-		return;
+		return new FtTime(el);
 	}
 	var dateEls = el.querySelectorAll('[data-o-component~="o-date"]');
-	for (var i = 0; i < dateEls.length; i++) {
-		ftTime(dateEls[i]);
-	}
-	autoUpdate();
+	return [].map.call(dateEls, function(el) {
+		return new FtTime(el);
+	});
 };
 
 var constructAll = function() {
