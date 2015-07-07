@@ -69,7 +69,7 @@ Expander.prototype.apply = function (isSilent) {
 				el.classList.add('o-expander__collapsible-item');
 			});
 		}
-		if (this.contentEl.getAttribute('aria-expanded')) {
+		if (this.contentEl.classList.contains('o-expander__content--expanded') || this.contentEl.classList.contains('o-expander__content--collapsed')) {
 			this.displayState(isSilent);
 		} else {
 			this.collapse(isSilent);
@@ -86,7 +86,7 @@ Expander.prototype.destroy = function () {
 	this.toggles.forEach(function (toggle) {
 		toggle.removeEventListener('click', this.invertState);
 		toggle.removeAttribute('aria-controls');
-		toggle.removeAttribute('aria-pressed');
+		toggle.removeAttribute('aria-expanded');
 	}.bind(this));
 	this.el.removeAttribute('data-o-expander-js');
 	this.el.classList.remove('o-expander');
@@ -109,8 +109,7 @@ Expander.prototype.ariaToggles = function () {
 };
 
 Expander.prototype.isCollapsed = function () {
-	var attr = this.contentEl.getAttribute('aria-expanded');
-	return !attr || attr === 'false';
+	return !this.contentEl.classList.contains('o-expander__content--expanded');
 };
 
 Expander.prototype.invertState = function () {
@@ -122,13 +121,19 @@ Expander.prototype.displayState = function (isSilent) {
 };
 
 var toggleExpander = function (state, isSilent) {
-	this.contentEl.setAttribute('aria-expanded', state === 'expand');
+	if (state === 'expand') {
+		this.contentEl.classList.add('o-expander__content--expanded');
+		this.contentEl.classList.remove('o-expander__content--collapsed');
+	} else {
+		this.contentEl.classList.remove('o-expander__content--expanded');
+		this.contentEl.classList.add('o-expander__content--collapsed');
+	}
 	if (this.opts.toggleState !== 'none') {
 		this.toggles.forEach(function (toggle) {
 			if (this.opts.toggleState !== 'aria') {
 				toggle.innerHTML = this.opts[state === 'expand' ? 'expandedToggleText' : 'collapsedToggleText'] + '<i></i>';
 			}
-			toggle[state === 'expand' ? 'setAttribute' : 'removeAttribute']('aria-pressed', '');
+			toggle.setAttribute('aria-expanded', state === 'expand' ? 'true' : 'false');
 		}.bind(this));
 	}
 	if (!isSilent) {

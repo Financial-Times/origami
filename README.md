@@ -44,7 +44,7 @@ o-expander fires the following events, which always fire before any repainting/l
 * `oExpander.collapse` - fires when the expander collapses
 
 ## Configuration using markup/CSS
-* By default o-expander will collapse content on initialisation. To prevent this add the attribute `aria-expanded="true"` to `.o-expander__content`
+* By default o-expander will collapse content on initialisation. To prevent this add the class `.o-expander__content--expanded`
 * Maximum height (when collapsed) should be set using css. Be mindful that when js doesn't run you may want to default to showing all the content e.g.
 
     ```scss
