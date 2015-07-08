@@ -157,7 +157,7 @@ ODate.init = function(el) {
 };
 
 var constructAll = function() {
-	init();
+	ODate.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
