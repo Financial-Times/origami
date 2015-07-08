@@ -36,9 +36,22 @@ var formatReplacementsMap = {
 	a: '(date.getHours() >= 12 ? "pm" : "am")' // pm
 };
 
-function ODate(el) {
-	this.el = el;
-	this.update(true);
+function ODate(rootEl) {
+  if (!rootEl) {
+    rootEl = document.body;
+  } else if (!(rootEl instanceof HTMLElement)) {
+    rootEl = document.querySelector(rootEl);
+  }
+
+  if (rootEl.getAttribute('data-o-component') === "o-date") {
+    this.el = rootEl;
+  } else {
+    this.el = rootEl.querySelector('[data-o-component~="o-date"]');
+  }
+
+  if (el !== undefined) {
+    this.update(true);
+  }
 }
 
 ODate.prototype.update = function (noExec) {
