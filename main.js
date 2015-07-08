@@ -36,12 +36,12 @@ var formatReplacementsMap = {
 	a: '(date.getHours() >= 12 ? "pm" : "am")' // pm
 };
 
-function FtTime(el) {
+function ODate(el) {
 	this.el = el;
 	this.update(true);
 }
 
-FtTime.prototype.update = function (noExec) {
+ODate.prototype.update = function (noExec) {
 	if (!noExec) {
 		var el = this.el;
 		var date = el.getAttribute('datetime');
@@ -135,11 +135,11 @@ var init = function(el) {
 		el = document.querySelector(el);
 	}
 	if (/\bo-date\b/.test(el.getAttribute('data-o-component'))) {
-		return new FtTime(el);
+		return new ODate(el);
 	}
 	var dateEls = el.querySelectorAll('[data-o-component~="o-date"]');
 	return [].map.call(dateEls, function(el) {
-		return new FtTime(el);
+		return new ODate(el);
 	});
 };
 
