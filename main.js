@@ -96,21 +96,19 @@ var Expander = function (el, opts) {
 	this.toggles = [].slice.apply(this.el.querySelectorAll(this.opts.toggleSelector));
 
 	if (!this.toggles.length) {
-		throw('this expander needs a toggle button (use a button not a link)');
+		throw new Error('o-expander needs a toggle button (use a button not a link)');
 	}
 	this.ariaToggles();
 
 	if (this.opts.shrinkTo === 'height') {
 		viewport.listenTo('resize');
 		viewport.listenTo('orientation');
-		this.apply = this.apply.bind(this);
-		document.body.addEventListener('oViewport.orientation', this.apply);
-		document.body.addEventListener('oViewport.resize', this.apply);
+		document.body.addEventListener('oViewport.orientation', () => this.apply());
+		document.body.addEventListener('oViewport.resize', () => this.apply());
 	}
 
-	var invertState = this.invertState = this.invertState.bind(this);
-	this.toggles.forEach(function (toggle) {
-		toggle.addEventListener('click', invertState);
+	this.toggles.forEach(toggle => {
+		toggle.addEventListener('click', () => this.invertState());
 	});
 	this.el.setAttribute('data-o-expander-js', '');
 	this.apply(true);
@@ -133,9 +131,8 @@ Expander.prototype.apply = function (isSilent) {
 	} else {
 		this.el.classList.remove('o-expander--inactive');
 		if (typeof this.opts.shrinkTo === 'number') {
-			[].slice.call(this.el.querySelectorAll(this.opts.countSelector), this.opts.shrinkTo).forEach(function (el) {
-				el.classList.add('o-expander__collapsible-item');
-			});
+			[].slice.call(this.el.querySelectorAll(this.opts.countSelector), this.opts.shrinkTo)
+				.forEach(el => el.classList.add('o-expander__collapsible-item'));
 		}
 		if (this.hasStateDefined()) {
 			this.displayState(isSilent);
@@ -148,14 +145,14 @@ Expander.prototype.apply = function (isSilent) {
 Expander.prototype.destroy = function () {
 
 	if (this.opts.shrinkTo === 'height') {
-		document.body.removeEventListener('oViewport.orientation', this.apply);
-		document.body.removeEventListener('oViewport.resize', this.apply);
+		document.body.removeEventListener('oViewport.orientation', () => this.apply());
+		document.body.removeEventListener('oViewport.resize', () => this.apply());
 	}
-	this.toggles.forEach(function (toggle) {
+	this.toggles.forEach(toggle => {
 		toggle.removeEventListener('click', this.invertState);
 		toggle.removeAttribute('aria-controls');
 		toggle.removeAttribute('aria-expanded');
-	}.bind(this));
+	});
 	this.contentEl.removeAttribute('aria-hidden');
 	this.contentEl.classList.remove('o-expander__content--expanded');
 	this.contentEl.classList.remove('o-expander__content--collapsed');
@@ -174,9 +171,7 @@ Expander.prototype.ariaToggles = function () {
 	}
 
 	var id = this.id;
-	this.toggles.forEach(function (toggle) {
-		toggle.setAttribute('aria-controls', id);
-	});
+	this.toggles.forEach(toggle => toggle.setAttribute('aria-controls', id));
 };
 
 Expander.prototype.invertState = function () {
@@ -203,16 +198,20 @@ Expander.prototype.emit = function (name) {
 Expander.prototype.toggleExpander = function (state, isSilent) {
 	this.toggleContent(state);
 	if (this.opts.toggleState !== 'none') {
-		this.toggles.forEach(function (toggle) {
+		this.toggles.forEach(toggle => {
 			if (this.opts.toggleState !== 'aria') {
 				toggle.innerHTML = this.opts[state === 'expand' ? 'expandedToggleText' : 'collapsedToggleText'] + '<i></i>';
 			}
 			toggle.setAttribute('aria-expanded', state === 'expand' ? 'true' : 'false');
-		}.bind(this));
+		});
 	}
 	if (!isSilent) {
 		this.emit(state);
 	}
+};
+
+var construct = function (el, opts) {
+	return el.hasAttribute('data-o-expander-js') ? undefined : new Expander(el, opts);
 };
 
 var init = function(el, opts) {
@@ -223,11 +222,9 @@ var init = function(el, opts) {
 		el = document.querySelector(el);
 	}
 	if (/\bo-expander\b/.test(el.getAttribute('data-o-component'))) {
-		return el.hasAttribute('data-o-expander-js') ? undefined : new Expander(el, opts);
+		return construct(el, opts)
 	}
-	return [].map.call(el.querySelectorAll('[data-o-component~="o-expander"]'), function (el) {
-		return el.hasAttribute('data-o-expander-js') ? undefined : new Expander(el, opts);
-	});
+	return [].map.call(el.querySelectorAll('[data-o-component~="o-expander"]'), el => construct(el, opts));
 };
 
 var constructAll = function() {
