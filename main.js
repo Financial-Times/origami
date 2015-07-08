@@ -140,7 +140,7 @@ function timeAgo (date, interval) {
 	}
 }
 
-var init = function(el) {
+ODate.init = function(el) {
 	if (!el) {
 		el = document.body;
 	}
