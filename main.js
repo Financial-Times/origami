@@ -37,21 +37,21 @@ var formatReplacementsMap = {
 };
 
 function ODate(rootEl) {
-  if (!rootEl) {
-    rootEl = document.body;
-  } else if (!(rootEl instanceof HTMLElement)) {
-    rootEl = document.querySelector(rootEl);
-  }
+	if (!rootEl) {
+		rootEl = document.body;
+	} else if (!(rootEl instanceof HTMLElement)) {
+		rootEl = document.querySelector(rootEl);
+	}
 
-  if (rootEl.getAttribute('data-o-component') === "o-date") {
-    this.el = rootEl;
-  } else {
-    this.el = rootEl.querySelector('[data-o-component~="o-date"]');
-  }
+	if (rootEl.getAttribute('data-o-component') === "o-date") {
+		this.el = rootEl;
+	} else {
+		this.el = rootEl.querySelector('[data-o-component~="o-date"]');
+	}
 
-  if (this.el !== undefined) {
-    this.update(true);
-  }
+	if (this.el !== undefined) {
+		this.update(true);
+	}
 }
 
 ODate.prototype.update = function (noExec) {
