@@ -49,7 +49,7 @@ function ODate(rootEl) {
     this.el = rootEl.querySelector('[data-o-component~="o-date"]');
   }
 
-  if (el !== undefined) {
+  if (this.el !== undefined) {
     this.update(true);
   }
 }
