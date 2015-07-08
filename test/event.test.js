@@ -24,17 +24,20 @@ describe('event', function () {
 		server.restore();
 	});
 
-	it('should track an event', function () {
+	it('should track an event, adds custom component_id', function () {
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
 		var callback = sinon.spy(),
 			sent_data;
 
-		track_event({
-			category: 'slideshow',
-			action: 'slide_viewed',
-			slide_number: 5
-		}, callback);
+		track_event(new CustomEvent('oTracking.event', {
+			detail: {
+				category: 'slideshow',
+				action: 'slide_viewed',
+				slide_number: 5,
+				component_id: '123456'
+			}
+		}), callback);
 
 		server.respond();
 
@@ -42,79 +45,51 @@ describe('event', function () {
 
 		sent_data = callback.getCall(0).thisValue;
 
-		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action","component_id"]);
 
 		// Event
 		assert.equal(sent_data.category, "slideshow");
 		assert.equal(sent_data.action, "slide_viewed");
 		assert.equal(sent_data.context.slide_number, 5);
+		assert.equal(sent_data.component_id, "123456");
 	});
 
-	/* TODO PhantomJS doesn't like CustomEvent
-	it('should listen to a dom event', function () {
+	it('should listen to a dom event and generate a component_id', function (done) {
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+		server.respondImmediately = true;
 
-		var callback = sinon.spy(),
-			sent_data;
+		var event = new CustomEvent('oTracking.event', {
+			detail: {
+				category: 'video',
+				action: 'play',
+				key: 'id',
+				value: 51234
+			}
+		});
 
-		var event = new CustomEvent('oTracking.event', { category: 'video', action: 'play', key: 'id', value: '512346789', callback: callback });
-		window.dispatchEvent(event);
+		document.body.setAttribute('data-o-component', 'o-tracking');
+		document.body.addEventListener('oTracking.event', function(e) {
 
-		server.respond();
+			var callback = sinon.spy();
 
-		assert.ok(callback.called, 'Callback not called.');
+			track_event(e, callback);
 
-		console.log(callback.getCall(0));
+			assert.ok(callback.called, 'Callback not called.');
 
-		sent_data = callback.getCall(0).thisValue;
+			var sent_data = callback.getCall(0).thisValue;
 
-		console.log(sent_data);
+			assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action","component_id"]);
+
+			// Event
+			assert.equal(sent_data.category, "video");
+			assert.equal(sent_data.action, "play");
+			assert.equal(sent_data.context.key, 'id');
+			assert.equal(sent_data.context.value, 51234);
+			assert.equal(sent_data.component_id, "1903289348");
+
+			done();
+		});
+
+		document.body.dispatchEvent(event);
 	});
-	*/
-
-	/* TODO Use grouping ID instead.
-
-	it('should track a child/sub event', function () {
-		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
-
-		var callback = sinon.spy(),
-			sent_data,
-			parent_id;
-
-		// parent request
-		track_event({
-			category: 'video',
-			action: 'play',
-			player_id: '23456789'
-			video_id: '12345678'
-		}, callback);
-		server.respond();
-		assert.ok(callback.called, 'Callback not called.');
-
-		assert.equal(callback.getCall(0).thisValue.id, callback.getCall(0).thisValue.meta.id);
-
-		parent_id = callback.getCall(0).thisValue.id;
-
-		// child request
-		track_event({
-			parent_id: parent_id,
-			category: 'video',
-			action: 'seek',
-			key: 'pos',
-			value: '10'
-		}, callback);
-		server.respond();
-		assert.ok(callback.calledTwice, 'Callback not called.');
-
-		sent_data = callback.getCall(1).thisValue;
-
-		// Event
-		assert.equal(sent_data.data.parent_id, parent_id);
-		assert.equal(sent_data.data.category, "video");
-		assert.equal(sent_data.data.action, "seek");
-		assert.equal(sent_data.data.key, "pos");
-		assert.equal(sent_data.data.value, "10");
-	});   */
-
 });

@@ -96,10 +96,13 @@ describe('main', function () {
 		var callback = sinon.spy(),
 			sent_data;
 
-		oTracking.event({
-			category: 'video',
-			action: 'play'
-		}, callback);
+		oTracking.event(new CustomEvent('oTracking.event', {
+			detail: {
+				category: 'video',
+				action: 'play',
+				component_id: '123456'
+			}
+		}), callback);
 
 		server.respond();
 		assert.ok(callback.called, 'Callback not called.');
@@ -107,11 +110,12 @@ describe('main', function () {
 		sent_data = callback.getCall(0).thisValue;
 
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action","component_id"]);
 
 		// Type
 		assert.equal(sent_data.category, "video");
 		assert.equal(sent_data.action, "play");
+		assert.equal(sent_data.component_id, "123456");
 
 		// User
 		assert.equal(sent_data.user.user_id, '023ur9jfokwenvcklwnfiwhfoi324');
