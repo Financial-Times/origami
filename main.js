@@ -168,5 +168,5 @@ if (typeof window !== 'undefined') {
 module.exports = {
 	format: format,
 	timeAgo: timeAgo,
-	init: init
+	ODate: ODate
 };
