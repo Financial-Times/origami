@@ -1,4 +1,4 @@
-/*global module, require, window */
+/*global module, require */
 'use strict';
 
 var Core = require('./core');
@@ -20,23 +20,23 @@ var defaultEventConfig = function () {
 /**
  * Track an event.
  *
- * @param {Event} event - The event, which could the following propeties in its 'detail' key:
+ * @param {Event} trackingEvent - The event, which could the following properties in its 'detail' key:
  *   [category] - The category, for example: video
  *   [action] - The action performed, for example: play
  *   [component_id] - Optional. The ID for the component instance.
  *
  * @param {Function} callback - Optional, Callback function. Called when request completed.
  */
-function event(event, callback) {
-	if (utils.is(event.detail.category) || utils.is(event.detail.action)) {
+function event(trackingEvent, callback) {
+	if (utils.is(trackingEvent.detail.category) || utils.is(trackingEvent.detail.action)) {
 		throw 'Missing category or action values';
 	}
 
 	var config = utils.merge(defaultEventConfig(), {
-		category: event.detail.category,
-		action: event.detail.action,
-		component_id: event.detail.component_id || getComponentId(event),
-		context: event.detail
+		category: trackingEvent.detail.category,
+		action: trackingEvent.detail.action,
+		component_id: trackingEvent.detail.component_id || getComponentId(trackingEvent),
+		context: trackingEvent.detail
 	});
 
 	delete config.context.category;
@@ -172,10 +172,15 @@ function _generateHash(str) {
 	}
 
 	switch (l) {
-		case 3: h ^= (str.charCodeAt(i + 2) & 0xff) << 16;
-		case 2: h ^= (str.charCodeAt(i + 1) & 0xff) << 8;
-		case 1: h ^= (str.charCodeAt(i) & 0xff);
-				h = (((h & 0xffff) * 0x5bd1e995) + ((((h >>> 16) * 0x5bd1e995) & 0xffff) << 16));
+		case 3:
+			h ^= (str.charCodeAt(i + 2) & 0xff) << 16;
+			break;
+		case 2:
+			h ^= (str.charCodeAt(i + 1) & 0xff) << 8;
+			break;
+		case 1:
+			h ^= (str.charCodeAt(i) & 0xff);
+			h = (((h & 0xffff) * 0x5bd1e995) + ((((h >>> 16) * 0x5bd1e995) & 0xffff) << 16));
 	}
 
 	h ^= h >>> 13;
