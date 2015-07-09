@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-	<title>o-tracking: init demo</title>
+	<title>o-tracking: json-config demo</title>
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
@@ -12,17 +12,16 @@
 </head>
 <body>
 
-<script src="/bundles/js?modules=o-tracking:/demos/src/demo.js"></script>
-<script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
-
 <script type="application/json" data-o-tracking-config>
-	{
-		"server": "https://test.spoor-api.ft.com/px.gif",
-		"context": {
-			"product": "ft.com" // e.g. webapp, next - This is a defined list, send the correct value!
-		}
-	}
+    {
+        "server": "https://test.spoor-api.ft.com/px.gif",
+        "context": {
+            "product": "ft.com" // e.g. webapp, next - This is a defined list, send the correct value!
+        }
+    }
 </script>
 
+<script src="/bundles/js?modules=o-tracking:/demos/src/demo.js"></script>
+<script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
 </body>
 </html>

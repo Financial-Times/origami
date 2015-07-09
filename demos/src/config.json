@@ -1,32 +1,13 @@
 {
 	"options": {
-		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js"
 	},
 	"demos": [
 		{
-			"name": "init",
-			"description": "",
-			"template": "demos/src/init.mustache",
+			"name": "json-config",
+			"description": "Sample configuration for a product.",
+			"template": "demos/src/json-config.mustache",
 			"expanded": true
-		},
-		{
-			"name": "page",
-			"description": "",
-			"template": "demos/src/page.mustache",
-			"expanded": false
-		},
-		{
-			"name": "data",
-			"description": "",
-			"template": "demos/src/data.mustache",
-			"expanded": false
-		},
-		{
-			"name": "event",
-			"description": "",
-			"template": "demos/src/event.mustache",
-			"expanded": false
 		}
 	]
 }

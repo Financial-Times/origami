@@ -1,0 +1,13 @@
+
+<script type="application/json" data-o-tracking-config>
+    {
+        "server": "https://test.spoor-api.ft.com/px.gif",
+        "context": {
+            "product": "origami" // e.g. webapp, next - This is a defined list, send the correct value!
+        }
+    }
+</script>
+
+<button onclick="var event = new CustomEvent('oTracking.page', { url: document.URL }); window.dispatchEvent(event);">Track a page</button>
+<button onclick="var event = new CustomEvent('oTracking.event', { category: 'element', action: 'click' }); window.dispatchEvent(event);">Track an event</button>
+
