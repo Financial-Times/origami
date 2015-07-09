@@ -10,15 +10,15 @@
 	"action": "play",											// Action for this event e.g. view
 	"system": {
 		"source": "o-tracking",								// Name of the sender's system [1]
-		"version": "1.0.0",									// Source semver  
+		"version": "1.0.0",									// Source semver
 		"api_key":	"0f7464b4-3f4d-11e4-984b-00144feabdc0"		// Sender-specific key [6]
 	},
-	"device": {													
+	"device": {
 		"spoor_id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",	// Unique ID for this device
 		"spoor_session": "0f7464b4-3f4d-11e4-984b-00144feabdc0",// Attempt to recreate a visit in the client, basic but could be useful to group events.
 		"user_agent": "Mozilla ...",
 		"ip": "123.123.123.123",
-		"layout": "S",										// require('o-grid').getCurrentLayout 
+		"layout": "S",										// require('o-grid').getCurrentLayout
 		"orientation": "portrait",							// require('o-viewport').getOrientation
 		"geo": {												// [8]
             "country": "MA",
@@ -29,7 +29,7 @@
             "continent": "AF"
         },
 	},
-	"user": {    		 	
+	"user": {
 		"ft_session": "asdf324dfag1ds%asdf1A-1sadsadf",		// FT Session token
 		"ft_guid": "0f7464b4-3f4d-11e4-984b-00144feabdc0",	// FT User GUID
 		"passport_id": "1234556789",							// Passport ID - soon to be deprecated
@@ -41,7 +41,7 @@
         "flags": []												// Flags/Toggles the user has set [10]
 	},
 	"time": {
-		 "offset": 234,										// Lag between event being created and sent e.g. if offline.
+		 "offset": 234,										// Lag between event being created and sent (milliseconds) e.g. if offline.
 		 "utc": "2015-06-19T12:06:35.000Z",                     // Time of event after offset applied.
 		 "date": "2015-06-19",
 		 "year": 2015,
@@ -55,9 +55,9 @@
 	"context": {
 		"id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",			// Unique ID for this event.
 		"component_id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",// Grouping for all events from the same component.
-		"root_id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",	// Grouping for all events on the same view of a product, usually akin to a page.                    
+		"root_id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",	// Grouping for all events on the same view of a product, usually akin to a page.
 		"product": "ft.com",									// Readable name for this product - controlled list.
-		"uuid": "",											// Content uuid [4] 
+		"uuid": "",											// Content uuid [4]
 		"url": {												// [5]
             "protocol": "http:",
             "slashes": true,
@@ -70,8 +70,8 @@
             "query": { "query": "string" },
             "pathname": "/path",
             "path": "/path?query=string",
-            "href": "http://www.ft.com/path?query=string"   
-		},										 
+            "href": "http://www.ft.com/path?query=string"
+		},
 		"referrer": {										// See also [5]
             "protocol": "https:",
             "slashes": true,
@@ -90,11 +90,11 @@
 }
 ```
 
-## Enrichments 
+## Enrichments
 
 Each [event](./event.md) will be scanned for the presence of these properties.
 
-If present the properties will be decorated and/or tokenised. 
+If present the properties will be decorated and/or tokenised.
 
 - If `user.session.token` is included it will be validated against the session api and expanded in to a membership uuid.
 - If `content.uuid` is included it will be expanded in to a set of content api meta-data.
