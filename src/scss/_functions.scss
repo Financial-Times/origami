@@ -23,7 +23,7 @@
 @function _oShareGetSpriteUrl() {
 	$url: "//image.webservices.ft.com/v1/images/raw/";
 
-	@each $social, $number in $_o-share-sprite-elements {
+	@each $social in $_o-share-sprite-elements {
 		$url: $url + "ftsocial:" + $social + ",";
 	}
 
