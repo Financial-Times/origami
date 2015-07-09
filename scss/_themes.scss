@@ -41,11 +41,10 @@ $o-buttons-themes__standard: (
 ) !default;
 
 @include oColorsSetUseCase(o-buttons-standout-normal,   text,              'white');
-@include oColorsSetUseCase(o-buttons-standout-normal,   background,        'link-2');
-@include oColorsSetUseCase(o-buttons-standout-normal,   border,            'link-2');
-@include oColorsSetUseCase(o-buttons-standout-hover,    background,        'link-1');
-@include oColorsSetUseCase(o-buttons-standout-pressedselected, background, 'link-1');
-@include oColorsSetUseCase(o-buttons-standout-pressedselected, text,       'white');
+@include oColorsSetUseCase(o-buttons-standout-normal,   background,        'link-1');
+@include oColorsSetUseCase(o-buttons-standout-hover,    border,            'link-2');
+@include oColorsSetUseCase(o-buttons-standout-pressedselected, background, 'link-2');
+@include oColorsSetUseCase(o-buttons-standout-pressedselected, text,       'cold-3');
 
 /// Theme: Standout
 ///
@@ -54,14 +53,16 @@ $o-buttons-themes__standout: (
 	normal: (
 		color: oColorsGetColorFor(o-buttons-standout-normal, text),
 		background: oColorsGetColorFor(o-buttons-standout-normal, background),
-		border-color: oColorsGetColorFor(o-buttons-standout-normal, border),
+		border-color: oColorsGetColorFor(o-buttons-standout-normal, background),
 		text-transform: uppercase,
 	),
 	active: (
-		color: mix(oColorsGetColorFor(o-buttons-standout-normal, text), oColorsGetColorFor(o-buttons-standout-hover, background), 80),
+		color: darken(oColorsGetColorFor(o-buttons-standout-normal, text), 20%),
 	),
 	hover: (
-		background: oColorsGetColorFor(o-buttons-standout-hover, background),
+		color: oColorsGetColorFor(o-buttons-standout-normal, text),
+		background: lighten(oColorsGetColorFor(o-buttons-standout-normal, background), 3.7%),
+		border-color: oColorsGetColorFor(o-buttons-standout-hover, border),
 	),
 	pressedselected: (
 		color: oColorsGetColorFor(o-buttons-standout-pressedselected, text),
