@@ -92,7 +92,7 @@ $o-footer-spacing-unit: 20px;
 	@include oGridColumn((default: 12, S: 6, M: 4, L: 3, XL: 2));
 }
 .o-footer__col--full-width {
-	@include oGridColumn(full-width);
+	@include oGridColspan(full-width);
 }
 
 .o-footer__copyright {
