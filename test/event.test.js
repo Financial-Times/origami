@@ -85,7 +85,7 @@ describe('event', function () {
 			assert.equal(sent_data.action, "play");
 			assert.equal(sent_data.context.key, 'id');
 			assert.equal(sent_data.context.value, 51234);
-			assert.equal(sent_data.component_id, "1903289348");
+			assert.equal(typeof sent_data.component_id, "number");
 
 			done();
 		});
