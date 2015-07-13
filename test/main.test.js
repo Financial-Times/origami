@@ -68,7 +68,7 @@ describe('main', function () {
 
 		sent_data = callback.getCall(0).thisValue;
 
-		root_id = sent_data.context.id;
+		root_id = sent_data.context.root_id;
 
 		// Basics
 		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
