@@ -3,7 +3,6 @@
 
 var Core = require("./core");
 var utils = require("./utils");
-var settings = require('./core/settings');
 
 /**
  * Default properties for page tracking requests.
