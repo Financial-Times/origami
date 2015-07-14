@@ -137,7 +137,6 @@ function sendRequest(request, callback) {
 
 		context: {
 			id: request.id, // ID of this request
-			counter: request.counter,
 			offset: 0 // Delay of this event between event happening and being sent to server - milliseconds
 		}
 	}, request);
@@ -148,7 +147,6 @@ function sendRequest(request, callback) {
 		request.time.offset = offlineLag;
 	}
 
-	delete request.counter;
 	delete request.callback;
 	delete request.async;
 	delete request.type;

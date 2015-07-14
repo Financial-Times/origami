@@ -23,10 +23,9 @@ describe('Core', function () {
 		var server;
 
 		before(function () {
-			require("../src/javascript/core/settings").set('internal_counter', 0); // Fix the internal counter incase other tests have just run.
-			require("../src/javascript/core/settings").set('version', '1.0.0'); // Fix the internal counter incase other tests have just run.
-			require("../src/javascript/core/settings").set('api_key', 'qUb9maKfKbtpRsdp0p2J7uWxRPGJEP'); // Fix the internal counter incase other tests have just run.
-			require("../src/javascript/core/settings").set('source', 'o-tracking'); // Fix the internal counter incase other tests have just run.
+			require("../src/javascript/core/settings").set('version', '1.0.0');
+			require("../src/javascript/core/settings").set('api_key', 'qUb9maKfKbtpRsdp0p2J7uWxRPGJEP');
+			require("../src/javascript/core/settings").set('source', 'o-tracking');
 			(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
 			require("../src/javascript/core/settings").delete('config');  // Empty settings.
 			require("../src/javascript/core/session").init(); // Session
@@ -68,9 +67,8 @@ describe('Core', function () {
 			assert.equal(sent_data.system.source, "o-tracking");
 
 			// Context
-			assert.deepEqual(Object.keys(sent_data.context), ["id","counter","offset","root_id","url"]);
+			assert.deepEqual(Object.keys(sent_data.context), ["id","offset","root_id","url"]);
 			assert.ok(guid_re.test(sent_data.context.id), "Request ID is invalid. " + sent_data.context.id);
-			assert.equal(sent_data.context.counter, 1);
 			//assert.ok(/\d+/.test(sent_data.time.offset), "offset is invalid. " + sent_data.time.offset);
 			assert.equal(sent_data.context.root_id, "root_id");
 			assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");

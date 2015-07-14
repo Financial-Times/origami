@@ -36,8 +36,8 @@ function page(config, callback) {
 	});
 
 	// New PageID for a new Page.
-	var r = Core.track(config, callback);
-	Core.setRootID(r.context.id);
+	Core.setRootID();
+	Core.track(config, callback);
 
 	// Alert internally that a new page has been tracked - for single page apps for example.
 	utils.triggerPage();

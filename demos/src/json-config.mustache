@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html class="o-hoverable-on ">
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-	<title>o-tracking: json-config demo</title>
-	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=default"></script>
-	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
-	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
-	
-</head>
-<body>
 
 <script type="application/json" data-o-tracking-config>
     {
@@ -50,8 +37,3 @@ this.dispatchEvent(event);
         <button onclick="var event = new CustomEvent('oTracking.event', { detail: { category: 'element', action: 'click', form: 'submit' }, bubbles: true}); this.dispatchEvent(event);">Track an event</button>
     </p>
 </div>
-
-<script src="/bundles/js?modules=o-tracking:/demos/src/demo.js"></script>
-<script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
-</body>
-</html>
