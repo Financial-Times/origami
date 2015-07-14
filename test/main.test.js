@@ -118,6 +118,7 @@ describe('main', function () {
 
 		// Page
 		assert.equal(sent_data.context.root_id, root_id);
+		assert.equal(sent_data.context.product, "desktop");
 	});
 
 	it('should not mutate init config', function () {

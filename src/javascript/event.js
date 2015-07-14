@@ -3,6 +3,7 @@
 
 var Core = require("./core");
 var utils = require("./utils");
+var settings = require('./core/settings');
 
 /**
  * Default properties for events.
@@ -36,10 +37,11 @@ function event(obj, callback) {
 		throw 'Missing category or action values';
 	}
 
+	var coreContext = utils.merge({}, settings.get('config') && settings.get('config').context);
 	var config = utils.merge(defaultEventConfig(), {
 		category: obj.category,
 		action: obj.action,
-		context: obj
+		context: utils.merge(coreContext, obj)
 	});
 
 	delete config.context.category;
