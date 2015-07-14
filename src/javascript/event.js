@@ -35,12 +35,12 @@ function event(trackingEvent, callback) {
 	var config = utils.merge(defaultEventConfig(), {
 		category: trackingEvent.detail.category,
 		action: trackingEvent.detail.action,
-		component_id: trackingEvent.detail.component_id || getComponentId(trackingEvent),
 		context: trackingEvent.detail
 	});
 
 	delete config.context.category;
 	delete config.context.action;
+	config.context.component_id = config.context.component_id || getComponentId(trackingEvent);
 
 	Core.track(config, callback);
 }

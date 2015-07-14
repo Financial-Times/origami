@@ -44,13 +44,13 @@ describe('event', function () {
 
 		sent_data = callback.getCall(0).thisValue;
 
-		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action","component_id"]);
+		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 
 		// Event
 		assert.equal(sent_data.category, "slideshow");
 		assert.equal(sent_data.action, "slide_viewed");
 		assert.equal(sent_data.context.slide_number, 5);
-		assert.equal(sent_data.component_id, "123456");
+		assert.equal(sent_data.context.component_id, "123456");
 	});
 
 	it('should listen to a dom event and generate a component_id', function (done) {
@@ -77,14 +77,14 @@ describe('event', function () {
 
 			var sent_data = callback.getCall(0).thisValue;
 
-			assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action","component_id"]);
+			assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 
 			// Event
 			assert.equal(sent_data.category, "video");
 			assert.equal(sent_data.action, "play");
 			assert.equal(sent_data.context.key, 'id');
 			assert.equal(sent_data.context.value, 51234);
-			assert.equal(typeof sent_data.component_id, "number");
+			assert.equal(typeof sent_data.context.component_id, "number");
 
 			done();
 		});
