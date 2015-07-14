@@ -58,16 +58,6 @@ function requestID(request_id) {
 }
 
 /**
- * Count of the number of tracking requests made.
- *
- * @return {number}
- */
-function internalCounter() {
-	settings.set('internal_counter', settings.get('internal_counter') + 1);
-	return settings.get('internal_counter');
-}
-
-/**
  * Make a tracking request.
  *
  * @param {Object} config - Should be passed an object containing a format and the values for that format
@@ -86,8 +76,7 @@ function track(config, callback) {
 	request = utils.merge({
 		context: {
 			id: requestID(request.id), // Keep an ID if it's been set elsewhere.
-			root_id: settings.get('root_id'),
-			counter: internalCounter()
+			root_id: settings.get('root_id')
 		},
 
 		user: settings.get('config') ? settings.get('config').user : {},

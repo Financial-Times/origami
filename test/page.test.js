@@ -9,7 +9,6 @@ describe('page', function () {
 		page = require("../src/javascript/page.js");
 
 	before(function () {
-		require("../src/javascript/core/settings").set('internalCounter', 0); // Fix the internal counter incase other tests have just run.
 		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
 		require("../src/javascript/core/settings").delete('config');  // Empty settings.
 		require("../src/javascript/core/send").init(); // Init the sender.
@@ -38,7 +37,7 @@ describe('page', function () {
 
 		// Basics
 		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
-		assert.deepEqual(Object.keys(sent_data.context), ["id","counter","offset","root_id","url","referrer"]);
+		assert.deepEqual(Object.keys(sent_data.context), ["id","offset","root_id","url","referrer"]);
 
 		// Type
 		assert.equal(sent_data.category, "page");
