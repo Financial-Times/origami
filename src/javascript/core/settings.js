@@ -1,9 +1,7 @@
 /*global module */
 "use strict";
 
-var settings = {
-	'internalCounter': 0
-};
+var settings = {};
 
 /**
  * Saves a value

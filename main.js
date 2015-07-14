@@ -60,7 +60,6 @@ Tracking.prototype.destroy = function() {
 	this.initialised = false;
 
 	settings.delete('config');
-	settings.delete('internal_counter');
 	settings.delete('page_sent');
 };
 
@@ -125,7 +124,6 @@ Tracking.prototype.init = function(config) {
 	settings.set('source', this.source);
 	settings.set('api_key', this.api_key);
 
-	settings.set('internal_counter', 0);
 	settings.set('page_sent', false);
 
 	// Developer mode
