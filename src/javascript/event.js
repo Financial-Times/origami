@@ -37,11 +37,10 @@ function event(obj, callback) {
 		throw 'Missing category or action values';
 	}
 
-	var coreContext = utils.merge({}, settings.get('config') && settings.get('config').context);
 	var config = utils.merge(defaultEventConfig(), {
 		category: obj.category,
 		action: obj.action,
-		context: utils.merge(coreContext, obj)
+		context: obj
 	});
 
 	delete config.context.category;
