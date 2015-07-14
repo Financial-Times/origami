@@ -30,7 +30,7 @@ var defaultPageConfig = function () {
  * @param {Function} callback - Callback function. Called when request completed.
  */
 function page(config, callback) {
-	var pageConfig = settings.get('config') ? settings.get('config').context || {} : {};
+	var pageConfig = utils.merge({}, settings.get('config') && settings.get('config').context);
 	config = utils.merge(defaultPageConfig(), {
 		context: utils.merge(pageConfig, config)
 	});

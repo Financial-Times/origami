@@ -119,4 +119,33 @@ describe('main', function () {
 		// Page
 		assert.equal(sent_data.context.root_id, root_id);
 	});
+
+	it('should not mutate init config', function () {
+		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+
+		var callback1 = sinon.spy(),
+			callback2 = sinon.spy(),
+			sent_data1,
+			sent_data2;
+
+		oTracking.page({
+			my_key: "my_val"
+		}, callback1);
+
+		server.respond();
+		assert.ok(callback1.called, 'Callback not called.');
+
+		sent_data1 = callback1.getCall(0).thisValue;
+		assert.equal(sent_data1.context.my_key, "my_val");
+
+		// Track another page
+		oTracking.page({}, callback2);
+
+		server.respond();
+		assert.ok(callback2.called, 'Callback not called.');
+
+		// Ensure vars from the first track don't leak into the second
+		sent_data2 = callback2.getCall(0).thisValue;
+		assert.equal(sent_data2.context.my_key, undefined);
+	});
 });
