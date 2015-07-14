@@ -5,9 +5,9 @@ This module should be included on your product to make sending tracking requests
 ## The Spoor ecosystem
 ![ScreenShot](https://rawgit.com/Financial-Times/o-tracking/master/resources/images/ngda-system-design.svg)
 
-# Usage
+## Usage
 
-## Quickstart example 1 - JSON config
+### Quickstart example 1 - JSON config
 
 Use the build service to load o-tracking and add a json config.
 
@@ -41,7 +41,7 @@ o-tracking will listen for 2 events:
     window.dispatchEvent(event);
     ```
 
-## Quickstart example 2 - JS init
+### Quickstart example 2 - JS init
 
 Use the build service to load o-tracking and init manually.
 
@@ -69,9 +69,9 @@ if (cutsTheMustard) {
 }
 ```
 
-# Parameters
+## Parameters
 
-## Init
+### Init
 ```
 {
     server: "...",
@@ -85,7 +85,7 @@ if (cutsTheMustard) {
 }
 ```
 
-## Page
+### Page
 ```
 {
     url: "...",
@@ -98,7 +98,7 @@ if (cutsTheMustard) {
 }
 ```
 
-## Event
+### Event
 ```
 {
     category: 'video',
