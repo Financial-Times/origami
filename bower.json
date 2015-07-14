@@ -10,9 +10,7 @@
   "dependencies": {
     "isomorphic-fetch": "^2.1.0",
     "es6-promise": "^2.1.0",
-    "n-jsonp-fetch": "^1.0.0"
-  },
-  "devDependencies": {
-    "next-sass-setup": "~6.2.1"
+    "n-jsonp-fetch": "^1.0.0",
+    "next-sass-setup": "^6.2.1"
   }
 }
