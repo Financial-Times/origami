@@ -3,11 +3,37 @@
     {
         "server": "https://test.spoor-api.ft.com/px.gif",
         "context": {
-            "product": "origami" // e.g. webapp, next - This is a defined list, send the correct value!
+            "product": "origami"
         }
     }
 </script>
 
-<button onclick="var event = new CustomEvent('oTracking.page', { url: document.URL }); window.dispatchEvent(event);">Track a page</button>
-<button onclick="var event = new CustomEvent('oTracking.event', { category: 'element', action: 'click' }); window.dispatchEvent(event);">Track an event</button>
+<div style="margin:1em">
+    <h1>JSON config</h1>
+    <pre>
+{
+    "server": "https://test.spoor-api.ft.com/px.gif",
+    "context": {
+        "product": "origami"    // e.g. webapp, next - This is a defined list, send the correct value!
+    }
+}
+    </pre>
 
+    <h1>Page</h1>
+    <p>
+        <pre>
+var event = new CustomEvent('oTracking.page', { detail: { url: document.URL }, bubbles: true});
+document.body.dispatchEvent(event);
+        </pre>
+        <button onclick="var event = new CustomEvent('oTracking.page', { detail: { url: document.URL }, bubbles: true}); document.body.dispatchEvent(event);">Track a page</button>
+    </p>
+
+    <h1>Event</h1>
+    <p>
+        <pre>
+var event = new CustomEvent('oTracking.event', { detail: { category: 'element', action: 'click', form: 'submit' }, bubbles: true});
+this.dispatchEvent(event);
+        </pre>
+        <button onclick="var event = new CustomEvent('oTracking.event', { detail: { category: 'element', action: 'click', form: 'submit' }, bubbles: true}); this.dispatchEvent(event);">Track an event</button>
+    </p>
+</div>
