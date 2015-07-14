@@ -47,4 +47,32 @@ describe('page', function () {
 		assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
 		assert.ok(!!sent_data.context.referrer, "referrer is invalid. " + sent_data.context.referrer);
 	});
+
+	it('should assign a unique root_id for each page', function () {
+		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+
+		var callback = sinon.spy(),
+			callback2 = sinon.spy(),
+			page1_root_id,
+			page2_root_id;
+
+		page({
+			url: "http://www.ft.com/home/uk"
+		}, callback);
+
+		server.respond();
+		assert.ok(callback.called, 'Callback not called.');
+
+		page1_root_id = callback.getCall(0).thisValue.context.root_id;
+
+		page({
+			url: "http://www.ft.com/home/uk"
+		}, callback2);
+
+		server.respond();
+		assert.ok(callback2.called, 'Callback not called.');
+
+		page2_root_id = callback2.getCall(0).thisValue.context.root_id;
+		assert.notEqual(page1_root_id, page2_root_id, 'root_id is not unique');
+	});
 });
