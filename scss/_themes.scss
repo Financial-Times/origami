@@ -78,8 +78,8 @@ $o-buttons-themes__standout: (
 ) !default;
 
 @include oColorsSetUseCase(o-buttons-inverse-normal,   text,       'link-2');
-@include oColorsSetUseCase(o-buttons-inverse-normal,   background, 'cold-3');
-@include oColorsSetUseCase(o-buttons-inverse-normal,   border,     'cold-2');
+@include oColorsSetUseCase(o-buttons-inverse-normal,   background, 'cold-2');
+@include oColorsSetUseCase(o-buttons-inverse-normal,   border,     'link-1');
 @include oColorsSetUseCase(o-buttons-inverse-active,   text,       'pink');
 @include oColorsSetUseCase(o-buttons-inverse-hover,    border,     'link-2');
 @include oColorsSetUseCase(o-buttons-inverse-pressedselected, background, 'cold-3');
@@ -90,7 +90,7 @@ $o-buttons-themes__standout: (
 $o-buttons-themes__inverse: (
 	normal: (
 		color: oColorsGetColorFor(o-buttons-inverse-normal, text),
-		background: rgba(oColorsGetColorFor(o-buttons-inverse-normal, background), 0.7),
+		background: oColorsGetColorFor(o-buttons-inverse-normal, background),
 		border-color: rgba(oColorsGetColorFor(o-buttons-inverse-normal, border), 0.5),
 	),
 	active: (
@@ -100,7 +100,7 @@ $o-buttons-themes__inverse: (
 		border-color: oColorsGetColorFor(o-buttons-inverse-hover, border),
 	),
 	pressedselected: (
-		background: rgba(oColorsGetColorFor(o-buttons-inverse-pressedselected, background), 0.9),
+		background: oColorsGetColorFor(o-buttons-inverse-pressedselected, background),
 	)
 ) !default;
 
