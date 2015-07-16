@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<!--[if IE 7]>         <html class="o-useragent-ie7 o-hoverable-on"> <![endif]-->
-<!--[if IE 8]>         <html class="o-useragent-ie8 o-hoverable-on"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
+<html class="o-hoverable-on ">
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<title>o-expander: Simple demo</title>
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=modernizr:classlist,modernizr:customevent,default"></script>
+	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=classlist,customevent,default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
 	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
 	<link rel="stylesheet" href="/bundles/css?modules=o-expander:/demos/src/demo.scss" />
 </head>
-<body class="">
+<body>
 <div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="2" data-o-expander-count-selector="li">
 	<h2>Collapsing to number of items in a list</h2>
 	<ul class="o-expander__content">
@@ -26,6 +24,15 @@
 
 <div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="height">
 	<h2>Collapsing to height of content (resize window to see toggle appear and disappear in a content-aware manner)</h2>
+	<div class="o-expander__content">
+		word word word word word word word word word word word word word word word word word word word word word word
+	</div>
+	<button class="o-expander__toggle o--if-js"></button>
+</div>
+
+
+<div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="hidden">
+	<h2>Hiding content</h2>
 	<div class="o-expander__content">
 		word word word word word word word word word word word word word word word word word word word word word word
 	</div>
