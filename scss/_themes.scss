@@ -92,7 +92,7 @@ $o-buttons-themes__standout: (
 $o-buttons-themes__inverse: (
 	normal: (
 		color: oColorsGetColorFor(o-buttons-inverse-normal, text),
-		background: oColorsGetColorFor(o-buttons-inverse-normal, background),
+		background: rgba(oColorsGetColorFor(o-buttons-inverse-normal, background), 0.5),
 		border-color: oColorsGetColorFor(o-buttons-inverse-normal, border),
 	),
 	active: (
