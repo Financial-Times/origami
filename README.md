@@ -29,7 +29,7 @@ Destroys an o-expander instance and removes all event listeners
 
 All the following can be passed in an options object in the second parameter of `oExpander#init()` or as data-attributes (hyphenated and prefixed by `o-expander` e.g. `data-o-expander-shrink-to="height"`)
 
-* `shrinkTo` [`'height'`]: A non-negative integer, indicating the number of items to show when collapsed, or the string `'height'`, which will collapse to a max-height defined in the CSS
+* `shrinkTo` [`'height'`]: A non-negative integer, indicating the number of items to show when collapsed, or the string `'height'`, which will collapse to a max-height defined in the CSS, or `'hidden'` which will use `aria-hidden` (rather than `aria-expanded`) to completely hide the content when collapsed
 * `countSelector` [`'.o-expander__content > li'`]: Selector for identifying items to count, relative to `.o-expander`
 * `expandedToggleText` [`'less|fewer'`]: Text to show on toggle button when expanded (defaults to fewer when in count mode, or less when in height mode). Accepts empty strings
 * `collapsedToggleText` [`'more'`]: Text to show on toggle button when collapsed. Accepts empty strings
