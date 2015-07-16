@@ -136,7 +136,7 @@ Tracking.prototype.init = function(config) {
 	}
 
 	// User identifier
-	require('./src/javascript/core/user').init(config.userID);
+	require('./src/javascript/core/user').init(config.user ? config.user.user_id : null);
 
 	// Session
 	require('./src/javascript/core/session').init(config.session);

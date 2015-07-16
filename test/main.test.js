@@ -54,6 +54,8 @@ describe('main', function () {
 			}
 		});
 
+		//console.log('cookies', document.cookie);
+
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
 		var callback = sinon.spy(),
