@@ -43,7 +43,7 @@ function init(value) {
 }
 
 function destroy() {
-    store.destroy();
+	store.destroy();
 }
 
 module.exports = {
