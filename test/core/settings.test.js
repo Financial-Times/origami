@@ -28,4 +28,23 @@ describe('Core.Settings', function () {
 		assert.equal(require("../../src/javascript/core/settings").get('key2'), "value2");
 	});
 
+	it("should return a copy of an object to prevent mutating the store.", function () {
+		var obj = {
+			key: 'value1'
+		};
+
+		Settings.set('obj', obj);
+		obj.key = 'value2';
+		assert.equal(Settings.get('obj').key, 'value1');
+	});
+
+	it("should return a copy of an array to prevent mutating the store.", function () {
+		var arr = ['value1'];
+
+		Settings.set('arr', arr);
+		arr[0] = 'value2';
+		assert.equal(Settings.get('arr')[0], 'value1');
+		assert.equal(Object.prototype.toString.call(Settings.get('arr')), '[object Array]');
+	});
+
 });

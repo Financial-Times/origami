@@ -3,7 +3,6 @@
 
 var Core = require("./core");
 var utils = require("./utils");
-var settings = require('./core/settings');
 
 /**
  * Default properties for page tracking requests.
@@ -30,9 +29,8 @@ var defaultPageConfig = function () {
  * @param {Function} callback - Callback function. Called when request completed.
  */
 function page(config, callback) {
-	var pageConfig = settings.get('config') ? settings.get('config').context || {} : {};
 	config = utils.merge(defaultPageConfig(), {
-		context: utils.merge(pageConfig, config)
+		context: config
 	});
 
 	// New PageID for a new Page.

@@ -70,6 +70,9 @@ function track(config, callback) {
 		callback = function () {};
 	}
 
+	var coreContext = settings.get('config') && settings.get('config').context || {};
+	config.context = utils.merge(coreContext, config.context);
+
 	var request = utils.merge(defaultConfig(), utils.merge(config, { callback: callback }));
 
 	/* Values here are kinda the mandatory ones, so we want to make sure they're possible. */
