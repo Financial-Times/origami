@@ -2,9 +2,10 @@
 "use strict";
 
 var userID;
+var store;
 var defaultUserConfig = {
-	storage: 'best',
-	name: 'userID',
+	storage: 'cookie',
+	name: 'spoor-id',
 	value: null
 };
 
@@ -16,25 +17,20 @@ var Store = require("./store");
  *
  * @param config {String|Object} The value of a userID to use or configuration object.
  */
-function init(config) {
-	if (utils.is(config, 'string')) {
-		config = { value: config };
-	}
-
-	var c = utils.merge(defaultUserConfig, config),
-		store;
+function init(value) {
+	var config = utils.merge(defaultUserConfig, { value: value });
 
 	// config.name is important here, means the user has specifically asked for a cookie name.
-	if (c.storage === 'cookie' && config.name) {
-		c.nameOverride = c.name;
+	if (config.storage === 'cookie' && config.name) {
+		config.nameOverride = config.name;
 	}
 
-	store = new Store(c.name, c);
+	store = new Store(config.name, config);
 
 	userID = store.read();
 
 	if (!userID) {
-		userID = c.value;
+		userID = config.value;
 	}
 
 	if (!userID) {
@@ -46,7 +42,12 @@ function init(config) {
 	return userID;
 }
 
+function destroy() {
+	store.destroy();
+}
+
 module.exports = {
 	init: init,
-	userID: function () { return userID; }
+	userID: function () { return userID; },
+	destroy: destroy
 };

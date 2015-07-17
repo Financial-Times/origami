@@ -1,19 +1,15 @@
-/*global require, describe, it, beforeEach, afterEach */
+/*global require, describe, it, afterEach */
 "use strict";
 
 var assert = require('assert'),
-	Store = require("../../src/javascript/core/store"),
 	User = require("../../src/javascript/core/user");
 
 describe('Core.User', function () {
 
 	var userID;
 
-	beforeEach(function () {
-		(new Store('userID')).destroy();
-	});
 	afterEach(function () {
-		(new Store('userID')).destroy();
+		User.destroy();
 	});
 
 	describe('no preset value', function () {
@@ -30,9 +26,7 @@ describe('Core.User', function () {
 
 	describe('use init with an existing value', function () {
 		it('should use an object', function () {
-			User.init({
-				value: 'value1'
-			});
+			User.init('value1');
 		});
 
 		it('should retrieve the userID ', function () {
