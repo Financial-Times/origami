@@ -1,0 +1,7 @@
+{
+  "description": "Auto-initalisation event emitter",
+  "origamiType": "module",
+  "origamiVersion": 1,
+  "support": "https://github.com/Financial-Times/o-autoinit/issues",
+  "supportStatus": "experimental"
+}
