@@ -7,7 +7,7 @@ This module should be included on your product to make sending tracking requests
 
 ## Usage
 
-### Requirement: Polyfils & Doesn't cut the mustard
+### Requirement: Polyfills & Doesn't cut the mustard
 _Applies to both quickstart examples below_
 
 
