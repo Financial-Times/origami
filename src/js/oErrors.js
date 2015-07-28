@@ -81,8 +81,8 @@ Errors.prototype.init = function(options, raven) {
 	this.logger = new Logger(defaultLogLength, logLevel);
 
 	if (isErrorsDisabled) {
-		this.report = function() {};
-		this.wrapWithContext = function() {};
+		this.report = function(error) { return error; };
+		this.wrapWithContext = function(fn) { return fn; };
 		this.initialised = true;
 		return this;
 	}
