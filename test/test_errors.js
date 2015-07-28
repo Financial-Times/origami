@@ -85,8 +85,8 @@ describe("oErrors", function() {
 			}, mockRavenClient);
 
 			// This is a horrible hacky way to check the function is a noop
-			expect(errors.report.toString()).to.be("function () {}");
-			expect(errors.wrapWithContext.toString()).to.be("function () {}");
+			expect(errors.report.toString()).to.be("function (error) { return error; }");
+			expect(errors.wrapWithContext.toString()).to.be("function (fn) { return fn; }");
 
 		});
 
