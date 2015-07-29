@@ -145,7 +145,10 @@ The function should return a boolean inidicating whether the error should be
 sent or not, if `true` or coerced to a truthy value, the error will be sent,
 if `false` the error will be filtered.
 
-This function should not mutate the data object or its fields.
+This function should not mutate the data object or its fields. See
+`transformError` if you wish to mutate the data.
+
+`filterError` is run after `transformError`.
 
 Note: this may only be configured through the `init` method, it will report an
 `Error` and continue without filtering enabled if this is configured
@@ -154,6 +157,34 @@ declaratively.
 ```JS
 {
 	filterError: function(data) { return true; }
+}
+```
+
+##### transformError - optional
+
+A `function` that can be used to transform errors before they are reported -
+this may be to add/remove data, or alter its format.  The function should
+accept one argument, an `object` with two fields: an `error` field which
+contains the reported `error`, and a `context` field, which contains any
+additional reported context.
+
+The function may return an object with at least an `error` field, if
+`context` is missing it will be filled in with an empty object.  If no return
+type is given, the input value is used.  Because the input value is an object,
+any fields or references that are mutated in the transform function are
+preserved.
+
+This function may mutate the data object.
+
+`transformError` is run before `filterError`.
+
+Note: this may onky be configured through the `init` method, it will report an
+`Error` and continue without transforms enabled if this is configured
+declaratively.
+
+```JS
+{
+	transformError: function(data) { return data; }
 }
 ```
 

@@ -224,6 +224,10 @@ Errors.prototype.report = function(error, context) {
 		reportObject = transformedError;
 	}
 
+	if (!reportObject.context) {
+		reportObject.context = {};
+	}
+
 	if (!this._filterError(reportObject)) {
 		return error;
 	}
