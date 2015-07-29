@@ -130,6 +130,24 @@ describe("oErrors", function() {
 			errors.report({ shouldSend: true });
 			expect(mockRavenClient.lastCaptureMessageArgs[0].shouldSend).to.be(true);
 		});
+
+		it("should accept a function that can be used to transform error data and add additional contextual information", function() {
+			var errors = new Errors().init({
+				sentryEndpoint: "//123@app.getsentry.com/123",
+				logLevel: "contextonly",
+				enabled: true,
+				transformError: function(data) {
+					data.error.test = "hello";
+					data.context.test = "world";
+					return data;
+				}
+			}, mockRavenClient);
+
+			errors.report({ message: "Something failed" });
+			expect(mockRavenClient.lastCaptureMessageArgs[0].test).to.be("hello");
+			expect(mockRavenClient.lastCaptureMessageArgs[1].test).to.be("world");
+
+		});
 	});
 
 	describe("#wrapWithContext(context, function)", function() {
@@ -316,10 +334,13 @@ function mockRaven() {
 			return func;
 		},
 		captureException: function() {
-			var data = { error: arguments[0]  };
+			var data = { error: arguments[0], context: arguments[1]  };
 
 			if (this.configOptions.updatePayloadBeforeSend) {
-				data = this.configOptions.updatePayoadBeforeSend(data);
+				var transformedData = this.configOptions.updatePayoadBeforeSend(data);
+				if (transformedData) {
+					data = transformedData;
+				}
 			}
 
 			if (this.configOptions.shouldSendCallback && !this.configOptions.shouldSendCallback(data)) {
