@@ -13,6 +13,12 @@ $o-footer-spacing-unit: 20px;
 @include oColorsSetUseCase(o-footer__divider, border, 'white');
 @include oColorsSetUseCase(o-footer-item, text, 'white');
 
+@include oColorsSetUseCase(o-footer--theme-light, background, 'pink-tint1');
+@include oColorsSetUseCase(o-footer--theme-light, text, 'grey-tint5');
+@include oColorsSetUseCase(o-footer--theme-light__pearson, background, 'pink-tint4');
+@include oColorsSetUseCase(o-footer--theme-light__divider, border, 'pink-tint3');
+@include oColorsSetUseCase(o-footer--theme-light-item, text, 'grey-tint5');
+
 .o-footer {
 	@include oColorsFor(o-footer, text background);
 	font-size: 14px;
@@ -36,6 +42,15 @@ $o-footer-spacing-unit: 20px;
 	}
 }
 
+.o-footer--theme-light {
+	border-top-width: 5px;
+	@include oColorsFor(o-footer--theme-light, text background);
+
+	> nav {
+		border-bottom-color: oColorsGetColorFor(o-footer--theme-light__divider, border);
+	}
+}
+
 .o-footer__title {
 	margin-top: 0;
 	margin-bottom: $o-footer-spacing-unit;
@@ -47,6 +62,10 @@ $o-footer-spacing-unit: 20px;
 	text-overflow: ellipsis;
 	width: 100%;
 	color: oColorsGetColorFor(o-footer-item, text);
+
+	.o-footer--theme-light & {
+		color: oColorsGetColorFor(o-footer--theme-light-item, text);
+	}
 }
 
 .o-footer__link {
@@ -57,8 +76,12 @@ $o-footer-spacing-unit: 20px;
 	> a {
 		display: block; // Make links easier to tap by increasing their hitzone
 		text-decoration: none;
-		color: oColorsGetColorFor(o-footer-item, text);
 		padding: 2px 0;
+		color: oColorsGetColorFor(o-footer-item, text);
+
+		.o-footer--theme-light & {
+			color: oColorsGetColorFor(o-footer--theme-light-item, text);
+		}
 
 		#{$o-hoverable-if-hover-enabled} &:hover,
 		&:focus {
@@ -121,6 +144,11 @@ $o-footer-spacing-unit: 20px;
 	padding-top: $o-footer-spacing-unit - 5;
 	padding-bottom: $o-footer-spacing-unit - 5;
 	color: oColorsGetColorFor(o-footer__pearson o-footer, text);
+
+	.o-footer--theme-light & {
+		background-color: oColorsGetColorFor(o-footer--theme-light__pearson o-footer, background);
+		color: oColorsGetColorFor(o-footer--theme-light__pearson o-footer, text);
+	}
 }
 
 .o-footer__pearson-tagline,
