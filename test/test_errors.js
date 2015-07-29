@@ -114,6 +114,22 @@ describe("oErrors", function() {
 			expect(errors.report.toString()).to.not.be("function () {}");
 			expect(errors.wrapWithContext.toString()).to.not.be("function () {}");
 		});
+
+		it("should accept a function that can be used to return a boolean which is used to decide whether an error should be reported", function() {
+			var errors = new Errors().init({
+				sentryEndpoint: "//123@app.getsentry.com/123",
+				logLevel: "contextonly",
+				enabled: true,
+				filterError: function(data) {
+					return data.error.shouldSend === true;
+				}
+			}, mockRavenClient);
+
+			errors.report({ shouldSend: false });
+			expect(mockRavenClient.lastCaptureMessageArgs[0]).to.be(undefined);
+			errors.report({ shouldSend: true });
+			expect(mockRavenClient.lastCaptureMessageArgs[0].shouldSend).to.be(true);
+		});
 	});
 
 	describe("#wrapWithContext(context, function)", function() {
@@ -300,6 +316,16 @@ function mockRaven() {
 			return func;
 		},
 		captureException: function() {
+			var data = { error: arguments[0]  };
+
+			if (this.configOptions.updatePayloadBeforeSend) {
+				data = this.configOptions.updatePayoadBeforeSend(data);
+			}
+
+			if (this.configOptions.shouldSendCallback && !this.configOptions.shouldSendCallback(data)) {
+				return;
+			}
+
 			this.lastCaptureMessageArgs = arguments;
 		}
 	};
