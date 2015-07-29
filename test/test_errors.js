@@ -146,7 +146,22 @@ describe("oErrors", function() {
 			errors.report({ message: "Something failed" });
 			expect(mockRavenClient.lastCaptureMessageArgs[0].test).to.be("hello");
 			expect(mockRavenClient.lastCaptureMessageArgs[1].test).to.be("world");
+		});
 
+		it("should still report the error and context if the tranformError function does not return a value", function() {
+			var errors = new Errors().init({
+				sentryEndpoint: "//123@app.getsentry.com/123",
+				logLevel: "contextonly",
+				enabled: true,
+				transformError: function(data) {
+					data.error.test = "hello";
+					data.context.test = "world";
+				}
+			}, mockRavenClient);
+
+			errors.report({ message: "Something failed" });
+			expect(mockRavenClient.lastCaptureMessageArgs[0].test).to.be("hello");
+			expect(mockRavenClient.lastCaptureMessageArgs[1].test).to.be("world");
 		});
 	});
 
