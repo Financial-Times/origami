@@ -371,17 +371,6 @@ Errors.prototype._getEventPath = function(event) {
 };
 
 /**
- * A hook to decide whether to send the data.
- *
- * @private
- * @param {Object} data - The data object from Raven
- * @returns {bool}
- */
-Errors.prototype._shouldSendError = function(data) {
-	return true;
-};
-
-/**
  * A hook to add additional data to the payload before sending.
  *
  * @private
