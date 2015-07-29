@@ -75,10 +75,11 @@ Errors.prototype.init = function(options, raven) {
 		if (options.filterError) {
 			options.filterError = undefined;
 
-			// So the error is surfaced, but only once the current context has
-			// completed so that oErrors can finish initialisation, trigger an error on the main event loop.
-			// This will also report it into Sentry as it Raven will have been
-			// installed and configured by the time the Error is thrown.
+			// Throw the error on the main event loop rather than in this
+			// context so that the error can be surfaced to the developer
+			// without halting the current context.  The effect being that
+			// oErrors will continue to initialise and the error can still be
+			// triggered in the console and reported to the aggregator.
 			setTimeout(function oErrorsInitError() {
 				throw new Error("Can not configure 'oErrors' with `filterError` using declarative markup - error filtering will not be enabled");
 			}, 0);
