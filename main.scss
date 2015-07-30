@@ -45,8 +45,9 @@ $o-footer-spacing-unit: 20px;
 }
 
 .o-footer--theme-light {
-	border-top-width: 5px;
 	@include oColorsFor(o-footer--theme-light, text background);
+	// Same colour as the divider
+	border-top-color: oColorsGetColorFor(o-footer--theme-light__divider, border);
 
 	> nav {
 		border-bottom-color: oColorsGetColorFor(o-footer--theme-light__divider, border);
