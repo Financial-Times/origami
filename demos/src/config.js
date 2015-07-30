@@ -16,6 +16,11 @@ module.exports = {
 			name: 'footer-theme-light',
 			data: { 'modifier': 'o-footer--theme-light' },
 			template: 'main.mustache'
+		},
+		{
+			name: 'simple-footer',
+			data: { 'modifier': 'o-footer--theme-light' },
+			template: 'demos/src/simple-footer.mustache'
 		}
 	]
 };
