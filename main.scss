@@ -158,7 +158,7 @@ $o-footer-spacing-unit: 20px;
 	background-repeat: no-repeat;
 	white-space: nowrap;
 
-	// The weird value for rgba is to prevent sass converting rgba(0,0,0,0) to 'transparent', which would cause the following line of css to be understood by IE7/8 and the svg to be downloaded
+	// The weird value for rgba is to prevent Sass converting rgba(0,0,0,0) to 'transparent', which would cause the following line of css to be understood by IE7/8 and the svg to be downloaded
 	background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/pearson_sprite.svg", o-footer)) no-repeat;
 }
 
@@ -200,12 +200,20 @@ $o-footer-spacing-unit: 20px;
 	// Inside media query to hide from browsers that don't support MQs and therefore also don't support max-width or background-size
 	.o-footer__pearson-tagline {
 		max-width: 170px;
-		background-size: (2700% / 17); // need to keep 17/28 of the width visible
-		width: (1600% / 27); // need to take up 17/27 of the width available, but we round down to 16 to allow for browser pixel rounding errors
+		// need to keep 17/28 of the width visible
+		// but we round down to 27 to allow for browser pixel rounding errors
+		background-size: (2700% / 17);
+		// need to take up 17/27 of the width available,
+		// but we round down to 16 to allow for browser pixel rounding errors
+		width: (1600% / 27);
 	}
 	.o-footer__pearson-logo {
 		max-width: 100px;
-		background-size: (2700% / 10);  // need to keep 10/28 of the width visible
-		width: (900% / 27); // need to take up 10/27 of the width available, but we round down to 16 to allow for browser pixel rounding errors
+		// need to keep 10/28 of the width visible
+		// but we round down to 27 to allow for browser pixel rounding errors
+		background-size: (2700% / 10);
+		// need to take up 10/27 of the width available,
+		// but we round down to 9 to allow for browser pixel rounding errors
+		width: (900% / 27);
 	}
 }
