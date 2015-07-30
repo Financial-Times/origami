@@ -23,6 +23,8 @@ function Errors() {
 	// Cache the declarative config String to avoid reading the DOM more than
 	// once, once initialised, the reference to the string is released for GC.
 	this._declarativeConfigString = false;
+
+	this._filterError = function(error) { return true; };
 }
 
 /**
@@ -69,6 +71,23 @@ Errors.prototype.init = function(options, raven) {
 
 	if (hasDeclarativeConfig) {
 		options = this._initialiseDeclaratively(options);
+
+		if (options.filterError) {
+			options.filterError = undefined;
+
+			// Throw the error on the main event loop rather than in this
+			// context so that the error can be surfaced to the developer
+			// without halting the current context.  The effect being that
+			// oErrors will continue to initialise and the error can still be
+			// triggered in the console and reported to the aggregator.
+			setTimeout(function oErrorsInitError() {
+				throw new Error("Can not configure 'oErrors' with `filterError` using declarative markup - error filtering will not be enabled");
+			}, 0);
+		}
+	}
+
+	if (typeof options.filterError === 'function') {
+		this._filterError = options.filterError;
 	}
 
 	// If errors is configured to be disabled, (options.disabled = true),
@@ -115,11 +134,9 @@ Errors.prototype._configureAndInstallRaven = function(options, raven) {
 	this.ravenClient = raven;
 
 	var sentryEndpoint = options.sentryEndpoint;
-	var shouldSendError = this._shouldSendError.bind(this);
 	var updatePayloadBeforeSend = this._updatePayloadBeforeSend.bind(this);
 
 	var ravenOptions = {
-		shouldSendCallback: shouldSendError,
 		dataCallback: updatePayloadBeforeSend
 	};
 
@@ -174,21 +191,26 @@ Errors.prototype._flushBufferedErrors = function() {
  * @return {Error} - The passed in error
  */
 Errors.prototype.report = function(error, context) {
+	var _context = context || {};
+	var reportObject = { error: error, context: _context };
+
 	if (!this.initialised) {
-		this._errorBuffer.push({ error: error, context: context });
+		this._errorBuffer.push(reportObject);
 		return error;
 	}
 
-	context = context || {};
+	if (!this._filterError(reportObject)) {
+		return error;
+	}
 
 	// Raven, for some reason completely ignores the contents of
 	// error.message... to get around this, we attach the error message to the
 	// context object.
 	if (error.message) {
-		context.errormessage = error.message;
+		_context.errormessage = error.message;
 	}
 
-	this.ravenClient.captureException(error, context);
+	this.ravenClient.captureException(error, _context);
 	return error;
 };
 
@@ -346,17 +368,6 @@ Errors.prototype._getEventPath = function(event) {
 	}
 
 	return path;
-};
-
-/**
- * A hook to decide whether to send the data.
- *
- * @private
- * @param {Object} data - The data object from Raven
- * @returns {bool}
- */
-Errors.prototype._shouldSendError = function(data) {
-	return true;
 };
 
 /**

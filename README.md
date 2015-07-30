@@ -54,6 +54,9 @@ if they occur _before_ initialisation, although any errors reported using the
 Configure `o-errors` using the `oErrors.init` method, or using a `<script>`
 tag (see [Using markup to configure `o-errors`](#using-markup-to-configure-oerrors)).
 
+Some options are only configurable when using the `init` method as they must accept
+a function.
+
 #### Available options
 
 ##### sentryEndpoint - required
@@ -128,6 +131,29 @@ will not be reported. Defaults to `true`.
 ```JS
 {
 	enabled: false
+}
+```
+
+##### filterError - optional
+
+A `function` that can be used to filter errors before they are reported.  The function
+should accept one argument, an `object` with two fields,
+an `error` field which contains the reported `error` and a `context` field,
+which contains any additional context.
+
+The function should return a boolean inidicating whether the error should be
+sent or not, if `true` or coerced to a truthy value, the error will be sent,
+if `false` the error will be filtered.
+
+This function should not mutate the data object or its fields.
+
+Note: this may only be configured through the `init` method, it will report an
+`Error` and continue without filtering enabled if this is configured
+declaratively.
+
+```JS
+{
+	filterError: function(data) { return true; }
 }
 ```
 
