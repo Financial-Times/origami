@@ -1,5 +1,6 @@
 @import "../../main";
 
 body {
+	@include oColorsFor(page);
 	font-family: BentonSans, sans-serif;
 }

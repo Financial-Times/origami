@@ -12,11 +12,19 @@ $o-footer-spacing-unit: 20px;
 @include oColorsSetUseCase(o-footer__pearson, background, 'grey-tint4');
 @include oColorsSetUseCase(o-footer__divider, border, 'white');
 @include oColorsSetUseCase(o-footer-item, text, 'white');
+@include oColorsSetUseCase(o-footer__copyright, text, 'grey-tint2');
+
+@include oColorsSetUseCase(o-footer--theme-light, background, 'pink-tint1');
+@include oColorsSetUseCase(o-footer--theme-light, text, 'grey-tint5');
+@include oColorsSetUseCase(o-footer--theme-light__pearson, background, 'pink-tint4');
+@include oColorsSetUseCase(o-footer--theme-light__divider, border, 'pink-tint3');
+@include oColorsSetUseCase(o-footer--theme-light-item, text, 'grey-tint5');
+@include oColorsSetUseCase(o-footer--theme-light__copyright, text, 'grey-tint3');
 
 .o-footer {
 	@include oColorsFor(o-footer, text background);
 	font-size: 14px;
-	margin-top: 40px;
+	margin-top: (2 * $o-footer-spacing-unit);
 	padding: 0;
 	border-top: 5px solid oColorsGetColorFor(o-footer-brand product-brand, background);
 	line-height: $o-footer-spacing-unit;
@@ -24,7 +32,8 @@ $o-footer-spacing-unit: 20px;
 	> nav {
 		margin-top: $o-footer-spacing-unit;
 		margin-bottom: $o-footer-spacing-unit;
-		padding-bottom: $o-footer-spacing-unit;
+		$_o-footer-compensate-line-height: 3px;
+		padding-bottom: $o-footer-spacing-unit - $_o-footer-compensate-line-height;
 		border-bottom: oColorsGetColorFor(o-footer__divider, border) dotted 1px;
 	}
 
@@ -36,17 +45,35 @@ $o-footer-spacing-unit: 20px;
 	}
 }
 
+.o-footer--theme-light {
+	@include oColorsFor(o-footer--theme-light, text background);
+	// Same colour as the divider
+	border-top-color: oColorsGetColorFor(o-footer--theme-light__divider, border);
+
+	> nav {
+		border-bottom-color: oColorsGetColorFor(o-footer--theme-light__divider, border);
+	}
+}
+
 .o-footer__title {
+	overflow: hidden;
+	width: 100%;
 	margin-top: 0;
-	margin-bottom: $o-footer-spacing-unit;
-	font-weight: normal;
-	font-size: 14px;
+	margin-bottom: $o-footer-spacing-unit / 2;
 	text-transform: uppercase;
 	white-space: nowrap;
-	overflow: hidden;
 	text-overflow: ellipsis;
-	width: 100%;
+	font-weight: bold;
+	font-size: 1em;
 	color: oColorsGetColorFor(o-footer-item, text);
+
+	// Make the white text look crisper and less bold on dark backgrounds
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	.o-footer--theme-light & {
+		color: oColorsGetColorFor(o-footer--theme-light-item, text);
+	}
 }
 
 .o-footer__link {
@@ -57,8 +84,12 @@ $o-footer-spacing-unit: 20px;
 	> a {
 		display: block; // Make links easier to tap by increasing their hitzone
 		text-decoration: none;
-		color: oColorsGetColorFor(o-footer-item, text);
 		padding: 2px 0;
+		color: oColorsGetColorFor(o-footer-item, text);
+
+		.o-footer--theme-light & {
+			color: oColorsGetColorFor(o-footer--theme-light-item, text);
+		}
 
 		#{$o-hoverable-if-hover-enabled} &:hover,
 		&:focus {
@@ -74,8 +105,8 @@ $o-footer-spacing-unit: 20px;
 	margin-top: $o-footer-spacing-unit;
 }
 .o-footer__link-list {
-	margin-bottom: $o-footer-spacing-unit;
 	padding-top: (2 * $o-footer-spacing-unit);
+	margin-bottom: (1 * $o-footer-spacing-unit);
 
 	> ul {
 		margin: 0;
@@ -96,23 +127,17 @@ $o-footer-spacing-unit: 20px;
 }
 
 .o-footer__copyright {
-	font-size: 9px;
-	line-height: 14px;
-	margin-top: $o-footer-spacing-unit/2;
+	margin-top: $o-footer-spacing-unit;
 	margin-bottom: $o-footer-spacing-unit;
-
-	@include oGridRespondTo(M) {
-		font-size: 11px;
-		line-height: 16px;
-	}
-	@include oGridTargetIE8 {
-		font-size: 11px;
-		line-height: 16px;
-	}
+	line-height: 1.3;
+	color: oColorsGetColorFor(o-footer__copyright, text);
 
 	span {
 		display: inline-block;
-		margin-right: $o-footer-spacing-unit;
+	}
+
+	.o-footer--theme-light & {
+		color: oColorsGetColorFor(o-footer--theme-light__copyright, text);
 	}
 }
 
@@ -121,6 +146,11 @@ $o-footer-spacing-unit: 20px;
 	padding-top: $o-footer-spacing-unit - 5;
 	padding-bottom: $o-footer-spacing-unit - 5;
 	color: oColorsGetColorFor(o-footer__pearson o-footer, text);
+
+	.o-footer--theme-light & {
+		background-color: oColorsGetColorFor(o-footer--theme-light__pearson o-footer, background);
+		color: oColorsGetColorFor(o-footer--theme-light__pearson o-footer, text);
+	}
 }
 
 .o-footer__pearson-tagline,
@@ -130,7 +160,7 @@ $o-footer-spacing-unit: 20px;
 	background-repeat: no-repeat;
 	white-space: nowrap;
 
-	// The weird value for rgba is to prevent sass converting rgba(0,0,0,0) to 'transparent', which would cause the following line of css to be understood by IE7/8 and the svg to be downloaded
+	// The weird value for rgba is to prevent Sass converting rgba(0,0,0,0) to 'transparent', which would cause the following line of css to be understood by IE7/8 and the svg to be downloaded
 	background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/pearson_sprite.svg", o-footer)) no-repeat;
 }
 
@@ -148,7 +178,7 @@ $o-footer-spacing-unit: 20px;
 @include oGridRespondTo($until: S) {
 	.o-footer__link-lists {
 		margin-top: 0;
-		margin-bottom: $o-footer-spacing-unit;
+		margin-bottom: 2 * $o-footer-spacing-unit;
 	}
 	.o-footer__link-list {
 		margin-bottom: 0;
@@ -160,11 +190,11 @@ $o-footer-spacing-unit: 20px;
 		> .o-footer__title {
 			position: static;
 			margin-top: 0;
-			margin-bottom: $o-footer-spacing-unit;
+			margin-bottom: $o-footer-spacing-unit / 2;
 		}
 		+ .o-footer__link-list {
 			> .o-footer__title {
-				margin-top: $o-footer-spacing-unit * 1.75;
+				margin-top: $o-footer-spacing-unit;
 			}
 		}
 	}
@@ -172,12 +202,20 @@ $o-footer-spacing-unit: 20px;
 	// Inside media query to hide from browsers that don't support MQs and therefore also don't support max-width or background-size
 	.o-footer__pearson-tagline {
 		max-width: 170px;
-		background-size: (2700% / 17); // need to keep 17/28 of the width visible
-		width: (1600% / 27); // need to take up 17/27 of the width available, but we round down to 16 to allow for browser pixel rounding errors
+		// need to keep 17/28 of the width visible
+		// but we round down to 27 to allow for browser pixel rounding errors
+		background-size: (2700% / 17);
+		// need to take up 17/27 of the width available,
+		// but we round down to 16 to allow for browser pixel rounding errors
+		width: (1600% / 27);
 	}
 	.o-footer__pearson-logo {
 		max-width: 100px;
-		background-size: (2700% / 10);  // need to keep 10/28 of the width visible
-		width: (900% / 27); // need to take up 10/27 of the width available, but we round down to 16 to allow for browser pixel rounding errors
+		// need to keep 10/28 of the width visible
+		// but we round down to 27 to allow for browser pixel rounding errors
+		background-size: (2700% / 10);
+		// need to take up 10/27 of the width available,
+		// but we round down to 9 to allow for browser pixel rounding errors
+		width: (900% / 27);
 	}
 }
