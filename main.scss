@@ -56,15 +56,18 @@ $o-footer-spacing-unit: 20px;
 
 .o-footer__title {
 	margin-top: 0;
-	margin-bottom: $o-footer-spacing-unit;
-	font-weight: normal;
-	font-size: 14px;
+	margin-bottom: $o-footer-spacing-unit / 2;
 	text-transform: uppercase;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	width: 100%;
+	font-weight: bold;
+	font-size: 1em;
 	color: oColorsGetColorFor(o-footer-item, text);
+
+	// Make the white text look crisper and less bold on dark backgrounds
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
 	.o-footer--theme-light & {
 		color: oColorsGetColorFor(o-footer--theme-light-item, text);
