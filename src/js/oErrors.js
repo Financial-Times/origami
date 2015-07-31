@@ -2,6 +2,19 @@
 
 var Logger = require('./logger');
 
+function isFunction(fn) {
+	return typeof fn === 'function';
+}
+
+function throwLater(error) {
+	// Throw the error on the main event loop rather than in this
+	// context so that the error can be surfaced to the developer
+	// without halting the current context.
+	setTimeout(function oErrorsError() {
+		throw error;
+	}, 0);
+}
+
 /**
  * @class Errors
  */
@@ -24,7 +37,9 @@ function Errors() {
 	// once, once initialised, the reference to the string is released for GC.
 	this._declarativeConfigString = false;
 
-	this._filterError = function(error) { return true; };
+	// noop operations
+	this._filterError = function(data) { return true; };
+	this._transformError = function(data) { return data; };
 }
 
 /**
@@ -74,19 +89,20 @@ Errors.prototype.init = function(options, raven) {
 
 		if (options.filterError) {
 			options.filterError = undefined;
+			throwLater(new Error("Can not configure 'oErrors' with `filterError` using declarative markup - error filtering will not be enabled"));
+		}
 
-			// Throw the error on the main event loop rather than in this
-			// context so that the error can be surfaced to the developer
-			// without halting the current context.  The effect being that
-			// oErrors will continue to initialise and the error can still be
-			// triggered in the console and reported to the aggregator.
-			setTimeout(function oErrorsInitError() {
-				throw new Error("Can not configure 'oErrors' with `filterError` using declarative markup - error filtering will not be enabled");
-			}, 0);
+		if (options.transformError) {
+			options.transformError = undefined;
+			throwLater(new Error("Can not configure 'oErrors' with `transformError` using declarative markup - error filtering will not be enabled"));
 		}
 	}
 
-	if (typeof options.filterError === 'function') {
+	if (isFunction(options.transformError)) {
+		this._transformError = options.transformError;
+	}
+
+	if (isFunction(options.filterError)) {
 		this._filterError = options.filterError;
 	}
 
@@ -197,6 +213,19 @@ Errors.prototype.report = function(error, context) {
 	if (!this.initialised) {
 		this._errorBuffer.push(reportObject);
 		return error;
+	}
+
+	var transformedError = this._transformError(reportObject);
+
+	// The _transformError may return a bad value, in order to protect against
+	// this mistake and still report a valid object we test the return value
+	// before continuing to use it
+	if (transformedError && transformedError.error) {
+		reportObject = transformedError;
+	}
+
+	if (!reportObject.context) {
+		reportObject.context = {};
 	}
 
 	if (!this._filterError(reportObject)) {
