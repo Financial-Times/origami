@@ -24,7 +24,7 @@ $o-footer-spacing-unit: 20px;
 .o-footer {
 	@include oColorsFor(o-footer, text background);
 	font-size: 14px;
-	margin-top: 40px;
+	margin-top: (2 * $o-footer-spacing-unit);
 	padding: 0;
 	border-top: 5px solid oColorsGetColorFor(o-footer-brand product-brand, background);
 	line-height: $o-footer-spacing-unit;
@@ -32,7 +32,8 @@ $o-footer-spacing-unit: 20px;
 	> nav {
 		margin-top: $o-footer-spacing-unit;
 		margin-bottom: $o-footer-spacing-unit;
-		padding-bottom: $o-footer-spacing-unit;
+		$_o-footer-compensate-line-height: 3px;
+		padding-bottom: $o-footer-spacing-unit - $_o-footer-compensate-line-height;
 		border-bottom: oColorsGetColorFor(o-footer__divider, border) dotted 1px;
 	}
 
@@ -55,11 +56,12 @@ $o-footer-spacing-unit: 20px;
 }
 
 .o-footer__title {
+	overflow: hidden;
+	width: 100%;
 	margin-top: 0;
 	margin-bottom: $o-footer-spacing-unit / 2;
 	text-transform: uppercase;
 	white-space: nowrap;
-	overflow: hidden;
 	text-overflow: ellipsis;
 	font-weight: bold;
 	font-size: 1em;
@@ -103,8 +105,8 @@ $o-footer-spacing-unit: 20px;
 	margin-top: $o-footer-spacing-unit;
 }
 .o-footer__link-list {
-	margin-bottom: $o-footer-spacing-unit;
 	padding-top: (2 * $o-footer-spacing-unit);
+	margin-bottom: (1 * $o-footer-spacing-unit);
 
 	> ul {
 		margin: 0;
@@ -127,7 +129,6 @@ $o-footer-spacing-unit: 20px;
 .o-footer__copyright {
 	margin-top: $o-footer-spacing-unit;
 	margin-bottom: $o-footer-spacing-unit;
-	font-style: 14px;
 	line-height: 1.3;
 	color: oColorsGetColorFor(o-footer__copyright, text);
 
@@ -177,7 +178,7 @@ $o-footer-spacing-unit: 20px;
 @include oGridRespondTo($until: S) {
 	.o-footer__link-lists {
 		margin-top: 0;
-		margin-bottom: $o-footer-spacing-unit;
+		margin-bottom: 2 * $o-footer-spacing-unit;
 	}
 	.o-footer__link-list {
 		margin-bottom: 0;
@@ -189,11 +190,11 @@ $o-footer-spacing-unit: 20px;
 		> .o-footer__title {
 			position: static;
 			margin-top: 0;
-			margin-bottom: $o-footer-spacing-unit;
+			margin-bottom: $o-footer-spacing-unit / 2;
 		}
 		+ .o-footer__link-list {
 			> .o-footer__title {
-				margin-top: $o-footer-spacing-unit * 1.75;
+				margin-top: $o-footer-spacing-unit;
 			}
 		}
 	}
