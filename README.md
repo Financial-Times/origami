@@ -178,7 +178,7 @@ This function may mutate the data object.
 
 `transformError` is run before `filterError`.
 
-Note: this may onky be configured through the `init` method, it will report an
+Note: this may only be configured through the `init` method, it will report an
 `Error` and continue without transforms enabled if this is configured
 declaratively.
 
