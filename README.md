@@ -11,7 +11,7 @@ This module should be included on your product to make sending tracking requests
 _Applies to both quickstart examples below_
 
 
-Add the [polyfill](https://cdn.polyfill.io/) service to your site to make sure o-tracking runs in as many brwosers as possible.
+Add the [polyfill](https://cdn.polyfill.io/) service to your site to make sure o-tracking runs in as many browsers as possible.
 
 Require the noscript version of o-tracking incase the browser doesn't cut the mustard.
 
