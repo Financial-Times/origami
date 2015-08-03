@@ -23,11 +23,12 @@ This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 		"user_agent": "Mozilla ...",
 		"ip": "123.123.123.123",
 		"layout": "S",											// require('o-grid').getCurrentLayout
-		"orientation": "portrait"								// require('o-viewport').getOrientation
+		"orientation": "portrait",								// require('o-viewport').getOrientation
 		"dimensions": {
 			"width": 1024,
 			"height": 768
-		}
+		},
+		"is-offline": true
 	},
 	"user": {
 		"ft_session": "asdf324dfag1ds%asdf1A-1sadsadf",			// FT Session token
@@ -45,8 +46,8 @@ This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 		...
 		"product": "ft.com",									// Readable name for this product - controlled list.
 		"content": {
-			"uuid": "...",												// Content uuid [4] 
-		},											// [5] 
+			"uuid": "...",												// Content uuid [4]
+		},											// [5]
 		"url": "...",											// [5]
 		"referrer": "...",										// See also [5]
 		...
