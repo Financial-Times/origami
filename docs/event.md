@@ -28,7 +28,7 @@ This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 			"width": 1024,
 			"height": 768
 		},
-		"is-offline": true
+		"is_offline": true
 	},
 	"user": {
 		"ft_session": "asdf324dfag1ds%asdf1A-1sadsadf",			// FT Session token
