@@ -2,19 +2,15 @@
 	"name": "o-overlay",
 	"private": true,
 	"scripts": {
-		"test": "grunt test"
+		"test": "./node_modules/karma/bin/karma start karma.conf.js"
 	},
 	"devDependencies": {
-		"grunt": "^0.4.0",
-		"debowerify": "^1.2.1",
-		"load-grunt-config": "^0.17.1",
-		"karma-chrome-launcher": "^0.1.2",
-		"karma-jasmine": "^0.3.5",
-		"karma-html-reporter": "^0.2.6",
+		"debowerify": "Financial-Times/debowerify",
+		"jasmine-core": "^2.2.0",
+		"karma": "^0.12.31",
 		"karma-browserify": "^4.1.2",
-		"karma-phantomjs-launcher": "^0.1.2",
-		"grunt-karma": "^0.10.1",
-		"browserify": "^9.0.8",
-		"karma": "^0.12.0"
+		"karma-jasmine": "^0.3.5",
+		"karma-phantomjs-launcher": "^0.1.4",
+		"nightwatch": "^0.7.5"
 	}
 }

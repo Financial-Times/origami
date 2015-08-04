@@ -233,7 +233,7 @@ Overlay.prototype.show = function() {
 	var overlay = this;
 	window.requestAnimationFrame(function() {
 		if (!overlay.content.innerHTML) {
-			overlay.respondToWindow(viewport.getSize());
+			// overlay.respondToWindow(viewport.getSize());
 			if (typeof overlay.opts.html === 'string') {
 				overlay.content.innerHTML = overlay.opts.html;
 			} else {
@@ -263,7 +263,7 @@ Overlay.prototype.close = function() {
 };
 
 Overlay.prototype.closeOnExternalClick = function(ev) {
-	if (!this.wrapper.contains(ev.target) && !this.opts.modal) {
+	if (!this.wrapper.contains(ev.target) && !this.opts.modal && (this.opts.trigger && !this.opts.trigger.contains(ev.target))) {
 		this.close();
 	}
 };
