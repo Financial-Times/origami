@@ -43,7 +43,7 @@ $anim-duration : 200ms;
 }
 
 .n-notification__title {
-	@include nTypeBeta(4);
+	@include nTypeBravo(4);
 	display: inline-block;
 	color: oColorsGetPaletteColor('white');
 	margin: 0;
