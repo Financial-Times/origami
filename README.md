@@ -57,7 +57,6 @@ if (cutsTheMustard) {
             product: 'ft.com'
         },
         user: {
-            passport_id: passport_id,
             ft_session: ft_session
         }
     });
@@ -106,7 +105,6 @@ o-tracking will
         product: "..."
     },
     user: {
-        passport_id: "...",
         ft_session: "..."
     }
 }
