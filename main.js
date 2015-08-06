@@ -69,7 +69,7 @@ function format (date, dateFormat) {
 
 function update (noExec) {
 	noExec || Array.prototype.forEach.call(document.querySelectorAll('[data-o-component="o-date"]'), function (el) {
-		ftTime(el);
+		applyFtTimeToEl(el);
 	});
 	timer = setTimeout(update, 60000);
 }
@@ -79,7 +79,22 @@ function autoUpdate () {
 }
 
 
-function ftTime(el) {
+function ftTime(dateObj) {
+	var now = new Date();
+	var interval = Math.round((now - dateObj) / 1000);
+	var dateString;
+
+	if (interval < 24 * 60 * 60 && now.getDay() === dateObj.getDay()) {
+		dateString = timeAgo(dateObj, interval);
+	} else if (interval < 48 * 60 * 60 && (now.getDay() === dateObj.getDay() + 1)) {
+		dateString = 'yesterday';
+	} else {
+		dateString = format(dateObj, 'date');
+	}
+	return dateString;
+}
+
+function applyFtTimeToEl(el) {
 	var date = el.getAttribute('datetime');
 	var printer = el.querySelector('.o-date__printer') || el;
 
@@ -92,11 +107,12 @@ function ftTime(el) {
 
 	if (!date) return;
 
-	var interval = Math.round(((new Date()) - date) / 1000);
-	printer.innerHTML = interval < (365 * 60 * 60 * 24) ? timeAgo(date, interval) : format(date, 'date');
+	printer.innerHTML = ftTime(date);
+
 	el.title = format(date, 'datetime');
 	el.setAttribute('data-o-date-js', '');
 }
+
 
 function timeAgo (date, interval) {
 
@@ -137,12 +153,12 @@ var init = function(el) {
 		el = document.querySelector(el);
 	}
 	if (/\bo-date\b/.test(el.getAttribute('data-o-component'))) {
-		ftTime(el);
+		applyFtTimeToEl(el);
 		return;
 	}
 	var dateEls = el.querySelectorAll('[data-o-component~="o-date"]');
 	for (var i = 0; i < dateEls.length; i++) {
-		ftTime(dateEls[i]);
+		applyFtTimeToEl(dateEls[i]);
 	}
 	autoUpdate();
 };
@@ -159,5 +175,6 @@ if (typeof window !== 'undefined') {
 module.exports = {
 	format: format,
 	timeAgo: timeAgo,
+	ftTime: ftTime,
 	init: init
 };
