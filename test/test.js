@@ -79,6 +79,19 @@ test('getting time ago', function (t) {
 	});
 });
 
+
+test('getting standard FT timeformat', function (t) {
+
+	var today = new Date(new Date().getTime() - 10000);
+	var yesterday = new Date(new Date().getTime() - (1000 * 60 * 60 * 24));
+	var dayBeforeYesterday = new Date(new Date().getTime() - (1000 * 60 * 60 * 48));
+
+	t.plan(3);
+	t.ok(/ago/.test(oDate.ftTime(today)), 'today\'s dates are relative');
+	t.equal(oDate.ftTime(yesterday), 'yesterday');
+	t.ok(/^January|February|March|April|May|June|July|August|September|October|November|December/.test(oDate.ftTime(dayBeforeYesterday)), 'older dates are printed in full');
+});
+
 test('formatting hours', function (t) {
 	t.plan(24);
 
