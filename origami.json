@@ -21,6 +21,16 @@
             "path": "/demos/footer.html",
             "expanded": true,
             "description": ""
+        },
+        {
+            "path": "/demos/footer-theme-light.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/simple-footer.html",
+            "expanded": true,
+            "description": ""
         }
     ]
 }
