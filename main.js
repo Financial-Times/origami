@@ -78,6 +78,8 @@ Tracking.prototype.event = require('./src/javascript/event');
 
 Tracking.prototype.link = require('./src/javascript/link');
 
+Tracking.prototype.utils = require('./src/javascript/utils');
+
 /**
  * Initialises the Tracking object.
  *
