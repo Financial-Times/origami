@@ -78,16 +78,18 @@ function autoUpdate () {
 	timer || update(true);
 }
 
-
 function ftTime(dateObj) {
 	var now = new Date();
 	var interval = Math.round((now - dateObj) / 1000);
 	var dateString;
 
+	// Within 24 hours, and if not crossing in to yesterday, show relative time
 	if (interval < 24 * 60 * 60 && now.getDay() === dateObj.getDay()) {
 		dateString = timeAgo(dateObj, interval);
+	// Within 48 hours, if the day is yesterday show 'yesterday'
 	} else if (interval < 48 * 60 * 60 && (now.getDay() === dateObj.getDay() + 1)) {
 		dateString = 'yesterday';
+	// Otherwise print the date
 	} else {
 		dateString = format(dateObj, 'date');
 	}
