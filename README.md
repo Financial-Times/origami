@@ -152,6 +152,24 @@ Prefixes and suffixes are used for prepending or appending static text to a form
 
 [Prefixes and suffixes examples](http://build.origami.ft.com/files/o-forms@%5E1/demos/prefix-suffix.html)
 
+### "unskin" a form element
+
+Add the class `o-forms-unskin` to a text field to reset its appearance while keeping its vertical structure and other field properties (editable, focusable).
+
+```html
+<input type="text" class="o-forms-unskin" value="foo" />
+```
+
+Properties of the `o-forms-unskin` class:
+
+- removes borders and rounded corners
+- removes the background color
+- removes the inner shadow added by some browsers
+- removes left-right spacing / padding
+- removes the "form field" appearance in supported browsers
+- editable
+- focusable
+
 ### Silent mode
 
 Base form styles are available in silent mode. [Browse the SassDoc documentation of the module](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms).

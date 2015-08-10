@@ -77,11 +77,12 @@
 	background-color: transparent !important;
 	padding-left: 0 !important;
 	padding-right: 0 !important;
+	box-shadow: none !important;
 
 	// for iOS
 	-webkit-text-fill-color: #333333 !important;
 	opacity: 1 !important;
-	// scss-lint:enable ImportantRule
+	border-radius: 0 !important;
 }
 
 /// Select styles
