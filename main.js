@@ -38,7 +38,7 @@ const formatReplacementsMap = {
 function compile (format) {
 	const tpl = formats[format] || format;
 
-	let funcString = 'let months= ' + months + ', days= ' + days + ';';
+	let funcString = 'var months= ' + months + ', days= ' + days + ';';
 	funcString +='function pad2 (number) {return ("0" + number).slice(-2)}';
 	funcString += 'return "' + tpl.replace(/\\?[a-z]+/ig, function (match) {
 		if (match.charAt(0) === '\\') {
