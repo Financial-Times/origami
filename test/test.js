@@ -1,7 +1,5 @@
-'use strict';
-
-var test = require("tape").test;
-var oDate = require('../main');
+const test = require("tape").test;
+const oDate = require('../main');
 
 test('error handling', function (t) {
 	t.plan(2);
@@ -10,9 +8,9 @@ test('error handling', function (t) {
 });
 
 test('formatting dates using standard formats', function (t) {
-	var date = new Date(2000, 5, 15, 6, 37, 22, 499);
-	var expected = 'June 15, 2000 6:37 am';
-	var isoDate = date.toISOString();
+	const date = new Date(2000, 5, 15, 6, 37, 22, 499);
+	const expected = 'June 15, 2000 6:37 am';
+	const isoDate = date.toISOString();
 
 	t.plan(5);
 	t.equal(oDate.format(date), expected);
@@ -24,7 +22,7 @@ test('formatting dates using standard formats', function (t) {
 });
 
 test('formatting dates using custom formats', function (t) {
-	var date = new Date(2000, 1, 5, 6, 7, 22, 499);
+	const date = new Date(2000, 1, 5, 6, 7, 22, 499);
 
 	t.plan(8);
 
@@ -39,7 +37,7 @@ test('formatting dates using custom formats', function (t) {
 });
 
 test('getting time ago', function (t) {
-	var formatsLow = {
+	const formatsLow = {
 		'2 seconds ago': 2,
 		'a minute ago': 45,
 		'2 minutes ago': 90,
@@ -52,7 +50,7 @@ test('getting time ago', function (t) {
 		'a year ago': 345 * 60 * 60 * 24,
 		'2 years ago': 547 * 60 * 60 * 24,
 	};
-	var formatsHigh = {
+	const formatsHigh = {
 		'44 seconds ago': (45) - 1,
 		'a minute ago': (90) - 1,
 		'45 minutes ago': (45 * 60) - 1,
@@ -67,13 +65,13 @@ test('getting time ago', function (t) {
 	t.plan(Object.keys(formatsLow).length + Object.keys(formatsHigh).length);
 
 	Object.keys(formatsLow).forEach(function (format) {
-		var date = new Date();
+		let date = new Date();
 		date = date - (formatsLow[format] * 1000);
 		t.equal(oDate.timeAgo(date), format);
 	});
 
 	Object.keys(formatsHigh).forEach(function (format) {
-		var date = new Date();
+		let date = new Date();
 		date = date - (formatsHigh[format] * 1000);
 		t.equal(oDate.timeAgo(date), format);
 	});
@@ -82,9 +80,9 @@ test('getting time ago', function (t) {
 
 test('getting standard FT timeformat', function (t) {
 
-	var today = new Date(new Date().getTime() - 10000);
-	var yesterday = new Date(new Date().getTime() - (1000 * 60 * 60 * 24));
-	var dayBeforeYesterday = new Date(new Date().getTime() - (1000 * 60 * 60 * 48));
+	const today = new Date(new Date().getTime() - 10000);
+	const yesterday = new Date(new Date().getTime() - (1000 * 60 * 60 * 24));
+	const dayBeforeYesterday = new Date(new Date().getTime() - (1000 * 60 * 60 * 48));
 
 	t.plan(3);
 	t.ok(/ago/.test(oDate.ftTime(today)), 'today\'s dates are relative');
@@ -95,7 +93,7 @@ test('getting standard FT timeformat', function (t) {
 test('formatting hours', function (t) {
 	t.plan(24);
 
-	var date;
+	let date;
 
 	date = new Date(2000, 1, 5, 0, 7, 22, 499);
 	t.equal(oDate.format(date, 'h'), '12');

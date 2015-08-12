@@ -1,22 +1,21 @@
 /*global module*/
-'use strict';
 
-var months = '["' + 'January,February,March,April,May,June,July,August,September,October,November,December'.split(',').join('","') + '"]';
-var days = '["' + 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'.split(',').join('","') + '"]';
-var formats = {
+const months = '["' + 'January,February,March,April,May,June,July,August,September,October,November,December'.split(',').join('","') + '"]';
+const days = '["' + 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'.split(',').join('","') + '"]';
+const formats = {
 	datetime: 'MMMM d, yyyy h:mm a',
 	date: 'MMMM d, yyyy'
 };
 
-var compiledTemplates = {};
-var timer;
+const compiledTemplates = {};
+let timer;
 
 /**
  * See http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html for formatting conventions used
  *
  *Comments indicate the value returned for 3.05 pm on Tuesday 4th February 2014
 */
-var formatReplacementsMap = {
+const formatReplacementsMap = {
 	MMMM: 'months[date.getMonth()]',  // e.g. February
 	MMM: 'months[date.getMonth()].substr(0,3)', // Feb
 	MM: 'pad2(date.getMonth() + 1, 2)', // 02
@@ -37,15 +36,15 @@ var formatReplacementsMap = {
 };
 
 function compile (format) {
-	var tpl = formats[format] || format;
+	const tpl = formats[format] || format;
 
-	var funcString = 'var months= ' + months + ', days= ' + days + ';';
+	let funcString = 'let months= ' + months + ', days= ' + days + ';';
 	funcString +='function pad2 (number) {return ("0" + number).slice(-2)}';
 	funcString += 'return "' + tpl.replace(/\\?[a-z]+/ig, function (match) {
 		if (match.charAt(0) === '\\') {
 			return match.substr(1);
 		}
-		var replacer = formatReplacementsMap[match];
+		const replacer = formatReplacementsMap[match];
 
 		return replacer ? '" + ' + replacer + ' + "' : match;
 	}) + '"';
@@ -62,7 +61,7 @@ function toDate (date) {
 
 function format (date, dateFormat) {
 	dateFormat = dateFormat || 'datetime';
-	var tpl = compiledTemplates[dateFormat] || compile(dateFormat);
+	const tpl = compiledTemplates[dateFormat] || compile(dateFormat);
 	date = toDate(date);
 	return date && tpl(date);
 }
@@ -79,9 +78,9 @@ function autoUpdate () {
 }
 
 function ftTime(dateObj) {
-	var now = new Date();
-	var interval = Math.round((now - dateObj) / 1000);
-	var dateString;
+	const now = new Date();
+	const interval = Math.round((now - dateObj) / 1000);
+	let dateString;
 
 	// Within 24 hours, and if not crossing in to yesterday, show relative time
 	if (interval < 24 * 60 * 60 && now.getDay() === dateObj.getDay()) {
@@ -97,8 +96,8 @@ function ftTime(dateObj) {
 }
 
 function applyFtTimeToEl(el) {
-	var date = el.getAttribute('datetime');
-	var printer = el.querySelector('.o-date__printer') || el;
+	let date = el.getAttribute('datetime');
+	const printer = el.querySelector('.o-date__printer') || el;
 
 	if (date) {
 		date = toDate(date);
@@ -131,7 +130,7 @@ function timeAgo (date, interval) {
 	} else if (interval < 90 * 60) {
 		return 'an hour ago';
 	} else if (interval < 22 * 60 * 60) {
-		return  Math.round(interval / (60 * 60)) + ' hours ago';
+		return Math.round(interval / (60 * 60)) + ' hours ago';
 	} else if (interval < 36 * 60 * 60) {
 		return 'a day ago';
 	} else if (interval < 25 * 60 * 60 * 24) {
@@ -147,7 +146,7 @@ function timeAgo (date, interval) {
 	}
 }
 
-var init = function(el) {
+const init = function(el) {
 	if (!el) {
 		el = document.body;
 	}
@@ -158,14 +157,14 @@ var init = function(el) {
 		applyFtTimeToEl(el);
 		return;
 	}
-	var dateEls = el.querySelectorAll('[data-o-component~="o-date"]');
-	for (var i = 0; i < dateEls.length; i++) {
+	const dateEls = el.querySelectorAll('[data-o-component~="o-date"]');
+	for (let i = 0; i < dateEls.length; i++) {
 		applyFtTimeToEl(dateEls[i]);
 	}
 	autoUpdate();
 };
 
-var constructAll = function() {
+const constructAll = function() {
 	init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
