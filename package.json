@@ -23,6 +23,7 @@
     "karma-browserify": "^4.0.0",
     "karma-mocha": "^0.1.10",
     "karma-phantomjs-launcher": "^0.1.4",
-    "mocha": "^2.1.0"
+    "mocha": "^2.1.0",
+    "debowerify": "^1.2.0"
   }
 }
