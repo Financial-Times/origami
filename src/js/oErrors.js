@@ -355,6 +355,11 @@ Errors.prototype.handleLogEvent = function(ev) {
 		extra: {
 			"context:dom": this._getEventPath(ev).reduceRight(function(builder, el) {
 				var classList = Array.prototype.slice.call(el.classList || []);
+
+				if (!el.nodeName) {
+					return builder + " - " + el.constructor.name + "\n";
+				}
+
 				var nodeName = el.nodeName.toLowerCase();
 
 				if (nodeName.indexOf('#') === 0) {
@@ -377,19 +382,11 @@ Errors.prototype.handleLogEvent = function(ev) {
  * @returns {Array} - An array of Elements.
  */
 Errors.prototype._getEventPath = function(event) {
-
-	// event.path is available in some browsers, most notable Chrome
-	if (event.path) {
-		// Array.prototype.slice.call coerces a NodeList to an array. Could
-		// use Array.from but it is not in the Polyfill service default set.
-		return Array.prototype.slice.call(event.path);
-	}
-
 	var path = [];
 
 	// IE backwards compatibility (get the actual target). If not IE, uses
 	// `event.target`
-	var element = window.event ? window.event.srcElement : event.target;
+	var element = event.target || window.event.srcElement;
 
 	while (element) {
 		path.push(element);
