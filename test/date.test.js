@@ -1,4 +1,3 @@
-// const test = require("tape").test;
 const oDate = require('../main');
 const expect = require('expect.js');
 
@@ -62,7 +61,6 @@ describe('date', function() {
 			'11 months ago': (345 * 60 * 60 * 24) - 1,
 			'a year ago': (547 * 60 * 60 * 24) - 1,
 		};
-		// t.plan(Object.keys(formatsLow).length + Object.keys(formatsHigh).length);
 
 		Object.keys(formatsLow).forEach(function (format) {
 			let date = new Date();
