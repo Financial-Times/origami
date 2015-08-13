@@ -1,3 +1,5 @@
+/*global describe, it*/
+
 const oDate = require('../main');
 const expect = require('expect.js');
 
