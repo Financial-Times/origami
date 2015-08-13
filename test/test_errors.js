@@ -1,11 +1,11 @@
 /* global afterEach, beforeEach, describe, it */
-'use strict';
-var Errors  = require('../src/js/oErrors');
-var expect = require('expect.js');
+
+const Errors = require('../src/js/oErrors');
+const expect = require('expect.js');
 
 describe("oErrors", function() {
-	var mockRavenClient = null;
-	var errors = null;
+	let mockRavenClient = null;
+	let errors = null;
 
 	beforeEach(function() {
 		mockRavenClient = mockRaven();
@@ -50,7 +50,7 @@ describe("oErrors", function() {
 		});
 
 		it("should configure the log level according the the logLevel option", function() {
-			var errors = new Errors().init({
+			const errors = new Errors().init({
 				sentryEndpoint: "//app.getsentry.com/123",
 				logLevel: "contextonly"
 			}, mockRavenClient);
@@ -59,7 +59,7 @@ describe("oErrors", function() {
 		});
 
 		it("should configure itself from the DOM if no options are present", function() {
-			var sentryConfiguration = document.createElement("script");
+			const sentryConfiguration = document.createElement("script");
 			sentryConfiguration.type = "application/json";
 			sentryConfiguration.dataset.oErrorsConfig = "true";
 			sentryConfiguration.innerText = JSON.stringify({
@@ -69,7 +69,7 @@ describe("oErrors", function() {
 
 			document.head.appendChild(sentryConfiguration);
 
-			var errors = new Errors().init(null, mockRavenClient);
+			const errors = new Errors().init(null, mockRavenClient);
 
 			expect(mockRavenClient.configuredEndpoint).to.eql("http://abc@app.getsentry.com/appid");
 			expect(errors.logger._logLevel).to.eql(1);
@@ -78,20 +78,20 @@ describe("oErrors", function() {
 		});
 
 		it("should create no-operation methods if options.enabled is `false`", function() {
-			var errors = new Errors().init({
+			const errors = new Errors().init({
 				sentryEndpoint: "//123@app.getsentry.com/123",
 				logLevel: "contextonly",
 				enabled: false
 			}, mockRavenClient);
 
 			// This is a horrible hacky way to check the function is a noop
-			expect(errors.report.toString()).to.be("function (error) { return error; }");
-			expect(errors.wrapWithContext.toString()).to.be("function (fn) { return fn; }");
+			expect(errors.report(10)).to.be(10);
+			expect(errors.wrapWithContext(10)).to.be(10);
 
 		});
 
 		it("should be enabled by default if options.enabled is undefined", function() {
-			var errors = new Errors().init({
+			const errors = new Errors().init({
 				sentryEndpoint: "//123@app.getsentry.com/123",
 				logLevel: "contextonly"
 			}, mockRavenClient);
@@ -103,7 +103,7 @@ describe("oErrors", function() {
 		});
 
 		it("should be enabled if options.enabled is `true`", function() {
-			var errors = new Errors().init({
+			const errors = new Errors().init({
 				sentryEndpoint: "//123@app.getsentry.com/123",
 				logLevel: "contextonly",
 				enabled: true
@@ -116,7 +116,7 @@ describe("oErrors", function() {
 		});
 
 		it("should accept a function that can be used to return a boolean which is used to decide whether an error should be reported", function() {
-			var errors = new Errors().init({
+			const errors = new Errors().init({
 				sentryEndpoint: "//123@app.getsentry.com/123",
 				logLevel: "contextonly",
 				enabled: true,
@@ -132,7 +132,7 @@ describe("oErrors", function() {
 		});
 
 		it("should accept a function that can be used to transform error data and add additional contextual information", function() {
-			var errors = new Errors().init({
+			const errors = new Errors().init({
 				sentryEndpoint: "//123@app.getsentry.com/123",
 				logLevel: "contextonly",
 				enabled: true,
@@ -149,7 +149,7 @@ describe("oErrors", function() {
 		});
 
 		it("should still report the error and context if the tranformError function does not return a value", function() {
-			var errors = new Errors().init({
+			const errors = new Errors().init({
 				sentryEndpoint: "//123@app.getsentry.com/123",
 				logLevel: "contextonly",
 				enabled: true,
@@ -167,7 +167,7 @@ describe("oErrors", function() {
 
 	describe("#wrapWithContext(context, function)", function() {
 		it("should call Raven.captureException with context when given function throws an exception", function(done) {
-			var fn = function() {
+			const fn = function() {
 				throw new Error("Test");
 			};
 
@@ -180,7 +180,7 @@ describe("oErrors", function() {
 			};
 
 			try {
-				var wrappedFunction = errors.wrapWithContext({ context: "object" }, fn);
+				const wrappedFunction = errors.wrapWithContext({ context: "object" }, fn);
 				wrappedFunction();
 			} catch(e) {
 				// Ignore in this test
@@ -188,19 +188,19 @@ describe("oErrors", function() {
 		});
 
 		it("should return a function", function() {
-			var fn = function() {};
-			var wrappedFunction = errors.wrapWithContext({ context: "object" }, fn);
+			const fn = function() {};
+			const wrappedFunction = errors.wrapWithContext({ context: "object" }, fn);
 			expect(wrappedFunction).to.be.a('function');
 		});
 	});
 
 	describe("#wrap(function)", function() {
 		it("should call Raven.captureException with a context argument containing the error message", function(done) {
-			var fn = function() {
+			const fn = function() {
 				throw new Error("Test");
 			};
 
-			var wrappedFunction = errors.wrap(fn);
+			const wrappedFunction = errors.wrap(fn);
 
 			mockRavenClient.captureException = function(error, context) {
 				expect(error).to.be.an(Error);
@@ -214,26 +214,26 @@ describe("oErrors", function() {
 		});
 
 		it("should return a function", function() {
-			var fn = function() {};
-			var wrappedFunction = errors.wrap(fn);
+			const fn = function() {};
+			const wrappedFunction = errors.wrap(fn);
 			expect(wrappedFunction).to.be.a('function');
 		});
 	});
 
 	describe("#report(e, context)", function() {
 		it("should return the original error", function() {
-			var error = errors.report(new Error("Test"));
+			const error = errors.report(new Error("Test"));
 			expect(error.message).to.eql("Test");
 		});
 	});
 
 	describe("#_getEventPath(ev)", function() {
 		it("should return an array containing the elements the event propagated through", function(done) {
-			var topLevelDiv = document.createElement("div");
-			var firstLevelDiv = document.createElement("div");
+			const topLevelDiv = document.createElement("div");
+			const firstLevelDiv = document.createElement("div");
 
 			function onClick(ev) {
-				var path = errors._getEventPath(ev);
+				const path = errors._getEventPath(ev);
 				expect(path[0]).to.be(firstLevelDiv);
 				expect(path[1]).to.be(topLevelDiv);
 
@@ -245,7 +245,7 @@ describe("oErrors", function() {
 
 			document.body.appendChild(topLevelDiv);
 
-			var ev = document.createEvent("MouseEvents");
+			const ev = document.createEvent("MouseEvents");
 			ev.initMouseEvent("click", true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
 			firstLevelDiv.dispatchEvent(ev);
 		});
@@ -253,7 +253,7 @@ describe("oErrors", function() {
 
 	describe("#_updatePayloadBeforeSend(data)", function() {
 		it("should add extra log data to the argument if logging is enabled", function() {
-			var errors = new Errors().init({
+			const errors = new Errors().init({
 				sentryEndpoint: "http://app.getsentry.com/123",
 				logLevel: "contextonly"
 			}, mockRavenClient);
@@ -261,15 +261,15 @@ describe("oErrors", function() {
 			errors.log("This is a LOG line");
 			errors.warn("This is a WARN line");
 
-			var data = { extra: {} };
+			const data = { extra: {} };
 
-			var modifiedData = errors._updatePayloadBeforeSend(data);
+			const modifiedData = errors._updatePayloadBeforeSend(data);
 
 			expect(modifiedData.extra["context:log"]).to.eql("LOG: This is a LOG line\nWARN: This is a WARN line");
 		});
 
 		it("should not add extra log data to the argument if logging is disabled", function() {
-			var errors = new Errors().init({
+			const errors = new Errors().init({
 				sentryEndpoint: "http://app.getsentry.com/123",
 				logLevel: "off"
 			}, mockRavenClient);
@@ -277,15 +277,15 @@ describe("oErrors", function() {
 			errors.log("This is a LOG line");
 			errors.warn("This is a WARN line");
 
-			var data = { extra: {} };
-			var modifiedData = errors._updatePayloadBeforeSend(data);
+			const data = { extra: {} };
+			const modifiedData = errors._updatePayloadBeforeSend(data);
 			expect(modifiedData.extra["context:log"]).to.equal(undefined);
 		});
 	});
 
 	describe("#report(error, context)", function() {
 		it("should buffer any errors reported before the module has been initialised", function(done) {
-			var errors = new Errors();
+			const errors = new Errors();
 
 			errors.report(new Error("My test error"), { additional: "info" });
 
@@ -339,8 +339,8 @@ function mockRaven() {
 		uninstall: function() {},
 		wrap: function() {
 			this.lastWrapArgs = arguments;
-			var context = arguments[0];
-			var func = arguments[1];
+			let context = arguments[0];
+			let func = arguments[1];
 
 			if (func === undefined) {
 				func = context;
@@ -349,10 +349,10 @@ function mockRaven() {
 			return func;
 		},
 		captureException: function() {
-			var data = { error: arguments[0], context: arguments[1]  };
+			let data = { error: arguments[0], context: arguments[1] };
 
 			if (this.configOptions.updatePayloadBeforeSend) {
-				var transformedData = this.configOptions.updatePayoadBeforeSend(data);
+				const transformedData = this.configOptions.updatePayoadBeforeSend(data);
 				if (transformedData) {
 					data = transformedData;
 				}
