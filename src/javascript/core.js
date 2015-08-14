@@ -1,16 +1,16 @@
 /*global module, require */
-"use strict";
+'use strict';
 
-var Send = require("./core/send");
-var User = require("./core/user");
-var Session = require("./core/session");
+var Send = require('./core/send');
+var User = require('./core/user');
+var Session = require('./core/session');
 /**
- * Shared "internal" scope.
+ * Shared 'internal' scope.
  *
  * @type {Object}
  */
-var settings = require("./core/settings");
-var utils = require("./utils");
+var settings = require('./core/settings');
+var utils = require('./utils');
 
 /**
  * Default properties for sending a tracking request.

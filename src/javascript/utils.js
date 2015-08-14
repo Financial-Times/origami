@@ -1,11 +1,11 @@
 /*global module, require, window */
-"use strict";
+'use strict';
 
 /**
- * Shared "internal" scope.
+ * Shared 'internal' scope.
  * @private
  */
-var settings = require("./core/settings");
+var settings = require('./core/settings');
 
 /**
  * Record of callbacks to call when a page is tracked.
@@ -13,7 +13,7 @@ var settings = require("./core/settings");
 var page_callbacks = [];
 
 /**
- * Log messages to the browser console. Requires "log" to be set on init.
+ * Log messages to the browser console. Requires 'log' to be set on init.
  *
  * @param {*} List of objects to log
  */
@@ -35,13 +35,13 @@ function log() {
  */
 function is(variable, type) {
 	if (!type) {
-		type = "undefined";
+		type = 'undefined';
 	}
 	return typeof variable === type;
 }
 
 /**
- * Merge objects together. Will remove "falsy" values.
+ * Merge objects together. Will remove 'falsy' values.
  *
  * @param {Object} target - The original object to merge in to.
  * @param {Object} options - The object to merge into the target. If omitted, will merge target into a new empty Object.
@@ -68,7 +68,7 @@ function merge(target, options) {
 		}
 
 		// Gets rid of missing values too
-		if (typeof copy !== "undefined" && copy !== null && copy !== '') {
+		if (typeof copy !== 'undefined' && copy !== null && copy !== '') {
 			target[name] = (src === Object(src) && !is(src, 'function') ? merge(src, copy) : copy);
 		}
 	}
@@ -121,7 +121,7 @@ function addEvent(element, event, listener) {
 		element.addEventListener(event, listener, false);
 	} catch (error) {
 		try {
-			element.attachEvent("on" + event, listener);
+			element.attachEvent('on' + event, listener);
 		} catch (err) {}
 	}
 }
@@ -138,7 +138,7 @@ function onPage(cb) {
 }
 
 /**
- * Trigger the "page" listeners.
+ * Trigger the 'page' listeners.
  */
 function triggerPage() {
 	for (var i = 0; i < page_callbacks.length; i++) {
@@ -150,21 +150,21 @@ function triggerPage() {
  * Get a value from document.cookie matching the first match of the regexp you supply
  */
 function getValueFromCookie(matcher) {
-	return document.cookie.match(matcher) && RegExp.$1 !== "" && RegExp.$1 !== "null" ? RegExp.$1 : null;
+	return document.cookie.match(matcher) && RegExp.$1 !== '' && RegExp.$1 !== 'null' ? RegExp.$1 : null;
 }
 
 /**
  * Get a value from the url, used for uuid or querystring parameters
  */
 function getValueFromUrl(matcher) {
-	return document.location.href.match(matcher) && RegExp.$1 !== "" ? RegExp.$1 : null;
+	return document.location.href.match(matcher) && RegExp.$1 !== '' ? RegExp.$1 : null;
 }
 
 /**
  * Get a value from a specified JavaScript variable.
  */
 function getValueFromJsVariable(str) {
-	if (typeof str !== "string") {
+	if (typeof str !== 'string') {
 		return null;
 
 	}
@@ -174,14 +174,14 @@ function getValueFromJsVariable(str) {
 		test = window;
 
 	for (i = 0; i < namespaces.length; i = i + 1) {
-		if (typeof test[namespaces[i]] === "undefined") {
+		if (typeof test[namespaces[i]] === 'undefined') {
 			return null;
 		}
 
 		test = test[namespaces[i]];
 	}
 
-	return test !== "" ? test : null;
+	return test !== '' ? test : null;
 }
 
 module.exports = {

@@ -1,8 +1,8 @@
 /*global module, require */
-"use strict";
+'use strict';
 
-var utils = require("../utils");
-var Store = require("./store");
+var utils = require('../utils');
+var Store = require('./store');
 
 /**
  * Class for handling a queue backed up by a store.
@@ -82,7 +82,7 @@ Queue.prototype.last = function () {
 };
 
 Queue.prototype.id = function () {
-	return (Math.random() * 10000) + "." + (new Date()).getTime();
+	return (Math.random() * 10000) + '.' + (new Date()).getTime();
 };
 
 /**
@@ -93,7 +93,7 @@ Queue.prototype.id = function () {
  * @return {Queue}
  */
 Queue.prototype.add = function (item) {
-	// I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn't work out how to get to "this" from within the module.
+	// I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn't work out how to get to 'this' from within the module.
 
 	var self = this,
 		i;
