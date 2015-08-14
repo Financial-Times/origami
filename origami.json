@@ -3,5 +3,12 @@
     "origamiType": "module",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-tracking/issues",
-    "supportStatus": "active"
+    "supportStatus": "active",
+    "demos": [
+        {
+            "path": "/demos/json-config.html",
+            "expanded": true,
+            "description": "Sample configuration for a product."
+        }
+    ]
 }
