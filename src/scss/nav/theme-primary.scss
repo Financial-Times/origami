@@ -15,9 +15,14 @@
 	}
 
 	a {
-		padding-right: $o-grid-gutter;
-		padding-left: $o-grid-gutter;
+		padding-right: oGridGutter();
+		padding-left: oGridGutter();
 		font-size: 14px;
+
+		@include _oHeaderBreakpoint {
+			padding-right: oGridGutter($o-header-breakpoint);
+			padding-left: oGridGutter($o-header-breakpoint);
+		}
 	}
 
 	// scss-lint:disable SelectorDepth
