@@ -1,9 +1,7 @@
-'use strict';
+const viewport = require('o-viewport');
+let count = 0;
 
-var viewport = require('o-viewport');
-var count = 0;
-
-var expandMethods = {
+const expandMethods = {
 	toggleContent: function (state) {
 		if (state === 'expand') {
 			this.contentEl.classList.add('o-expander__content--expanded');
@@ -17,7 +15,7 @@ var expandMethods = {
 		return this.contentEl.classList.contains('o-expander__content--expanded') || this.contentEl.classList.contains('o-expander__content--collapsed');
 	},
 	isRequired: function () {
-		var overflows = false;
+		let overflows = false;
 		if (typeof this.opts.shrinkTo === 'number') {
 			if (this.el.querySelectorAll(this.opts.countSelector).length > this.opts.shrinkTo) {
 				overflows = true;
@@ -38,7 +36,7 @@ var expandMethods = {
 	}
 };
 
-var hiderMethods = {
+const hiderMethods = {
 	toggleContent: function (state) {
 		if (state === 'expand') {
 			this.contentEl.setAttribute('aria-hidden', 'false');
@@ -64,7 +62,7 @@ function mixin(target, methods) {
 	});
 }
 
-var Expander = function (el, opts) {
+const Expander = function (el, opts) {
 
 	this.opts = opts || {};
 	this.el = el;
@@ -116,7 +114,7 @@ var Expander = function (el, opts) {
 };
 
 Expander.prototype.configure = function (setting, defaultVal) {
-	var candidate = this.el.getAttribute('data-o-expander-' + setting.replace(/[A-Z]/g, function ($0) {
+	let candidate = this.el.getAttribute('data-o-expander-' + setting.replace(/[A-Z]/g, function ($0) {
 		return '-' + $0.toLowerCase();
 	}));
 	if (typeof candidate === 'undefined' || candidate === null) {
@@ -170,7 +168,7 @@ Expander.prototype.ariaToggles = function () {
 		this.id = this.contentEl.id = 'o-expander__toggle--' + count;
 	}
 
-	var id = this.id;
+	const id = this.id;
 	this.toggles.forEach(toggle => toggle.setAttribute('aria-controls', id));
 };
 
@@ -210,11 +208,11 @@ Expander.prototype.toggleExpander = function (state, isSilent) {
 	}
 };
 
-var construct = function (el, opts) {
+const construct = function (el, opts) {
 	return el.hasAttribute('data-o-expander-js') ? undefined : new Expander(el, opts);
 };
 
-var init = function(el, opts) {
+const init = function(el, opts) {
 	if (!el) {
 		el = document.body;
 	}
@@ -227,7 +225,7 @@ var init = function(el, opts) {
 	return [].map.call(el.querySelectorAll('[data-o-component~="o-expander"]'), el => construct(el, opts));
 };
 
-var constructAll = function() {
+const constructAll = function() {
 	init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
