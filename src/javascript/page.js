@@ -1,8 +1,8 @@
 /*global module, require */
-"use strict";
+'use strict';
 
-var Core = require("./core");
-var utils = require("./utils");
+var Core = require('./core');
+var utils = require('./utils');
 
 /**
  * Default properties for page tracking requests.

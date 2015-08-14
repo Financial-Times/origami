@@ -1,5 +1,5 @@
 /*global module, require */
-"use strict";
+'use strict';
 
 var store;
 var defaultSessionConfig = {
@@ -8,8 +8,8 @@ var defaultSessionConfig = {
 	expires: (30 * 60 * 1000) // 30 minutes
 };
 
-var utils = require("../utils");
-var Store = require("./store");
+var utils = require('../utils');
+var Store = require('./store');
 
 /**
  * Set the session in the store.
