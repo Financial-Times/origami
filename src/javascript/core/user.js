@@ -24,10 +24,16 @@ var Store = require('./store');
  */
 function migrate_across_domains(store, user_id) {
 	var ls_name = 'o-tracking-proper-id';
-	var proper_id = window.localStorage.getItem(ls_name);
+	var proper_id;
 
-	if (!proper_id) {
-		window.localStorage.setItem(ls_name, user_id);
+	try {
+		proper_id = window.localStorage.getItem(ls_name);
+
+		if (!proper_id) {
+			window.localStorage.setItem(ls_name, user_id);
+			proper_id = user_id;
+		}
+	} catch (error) {
 		proper_id = user_id;
 	}
 
