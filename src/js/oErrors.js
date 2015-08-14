@@ -349,6 +349,11 @@ Errors.prototype.destroy = function() {
 };
 
 Errors.prototype.handleLogEvent = function(ev) {
+	// If no event is passed here, return early
+	if (!ev) {
+		return;
+	}
+
 	// Tag the context with additional information about the DOM.
 	var context = {
 		info: ev.detail.info || {},
@@ -384,8 +389,8 @@ Errors.prototype.handleLogEvent = function(ev) {
 Errors.prototype._getEventPath = function(event) {
 	var path = [];
 
-	// IE backwards compatibility (get the actual target). If not IE, uses
-	// `event.target`
+	// IE backwards compatibility (get the actual target). If IE, uses
+	// `window.event.srcElement`
 	var element = event.target || window.event.srcElement;
 
 	while (element) {
