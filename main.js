@@ -1,13 +1,13 @@
 /*global require, module*/
-'use strict';
+import * as oShare from './src/js/share';
+// const oShare = require('./src/js/share');
 
-var oShare = require('./src/js/share');
-
-var constructAll = function() {
+const constructAll = function() {
 	oShare.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-module.exports = oShare;
+// module.exports = oShare;
+export let oShare;

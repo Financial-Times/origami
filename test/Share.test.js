@@ -1,12 +1,11 @@
 /*global describe,beforeEach,afterEach,it*/
-'use strict';
 
 import expect from 'expect.js';
 
 import * as fixtures from './helpers/fixtures';
 import Share from './../main';
-var testShare;
-var shareEl;
+let testShare;
+let shareEl;
 
 describe('general behaviour', () => {
 
@@ -31,8 +30,8 @@ describe('general behaviour', () => {
 });
 
 describe('links', () => {
-	var twitterLinkEl;
-	var spy;
+	let twitterLinkEl;
+	let spy;
 
 	beforeEach(() => {
 		fixtures.insertShareLinks();
@@ -41,7 +40,7 @@ describe('links', () => {
 		spy = newWindowSpy();
 		window.open = spy.func;
 		twitterLinkEl = document.querySelector('.o-share__action--twitter a');
-		var ev = document.createEvent('Event');
+		const ev = document.createEvent('Event');
 		ev.initEvent('click', true, true);
 		twitterLinkEl.dispatchEvent(ev);
 	});
@@ -62,7 +61,7 @@ describe('links', () => {
 		expect(spy.calledWith[0]).to.be(twitterLinkEl.getAttribute('href'));
 		expect(spy.calledWith[1]).to.be(twitterLinkEl.getAttribute('href'));
 		expect(spy.calledWith[2]).to.be('width=646,height=436');
-		var ev = document.createEvent('Event');
+		const ev = document.createEvent('Event');
 		ev.initEvent('click', true, true);
 		twitterLinkEl.dispatchEvent(ev);
 		expect(spy.callCount).to.be(1);
@@ -70,7 +69,7 @@ describe('links', () => {
 });
 
 function newWindowSpy() {
-	var self = {
+	const self = {
 		callCount: 0,
 		calledWith: [],
 		func: function() {

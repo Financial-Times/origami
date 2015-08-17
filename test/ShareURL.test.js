@@ -1,12 +1,11 @@
 /*global describe,beforeEach,afterEach,it*/
-'use strict';
 
 import expect from 'expect.js';
 
 import * as fixtures from './helpers/fixtures';
 import Share from './../main';
-var testShare;
-var shareEl;
+let testShare;
+let shareEl;
 
 describe('share url behaviour', function() {
 
@@ -15,7 +14,7 @@ describe('share url behaviour', function() {
 		shareEl = document.querySelector('[data-o-component=o-share]');
 		testShare = new Share(shareEl);
 		// new MouseEvent() not working, it's not being caught by the handler
-		var ev = document.createEvent('Event');
+		const ev = document.createEvent('Event');
 		ev.initEvent('click', true, true);
 		shareEl.querySelector('.o-share__action--url a').dispatchEvent(ev);
 	});
@@ -38,7 +37,7 @@ describe('share url behaviour', function() {
 	});
 
 	it('share URL tool - closes on pressing escape', function() {
-		var ev = document.createEvent('Event');
+		const ev = document.createEvent('Event');
 		ev.initEvent('keyup', true, true);
 		ev.keyCode = 27;
 		shareEl.querySelector('.o-share__action--url input').dispatchEvent(ev);
@@ -48,7 +47,7 @@ describe('share url behaviour', function() {
 	});
 
 	it('share URL tool - closes on pressing tab', function() {
-		var ev = document.createEvent('Event');
+		const ev = document.createEvent('Event');
 		ev.initEvent('keyup', true, true);
 		ev.keyCode = 9;
 		shareEl.querySelector('.o-share__action--url input').dispatchEvent(ev);

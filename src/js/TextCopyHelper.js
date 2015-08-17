@@ -1,8 +1,7 @@
 /*global require, module*/
-'use strict';
 
-var DomDelegate = require('ftdomdelegate');
-var Tooltip = require('./Tooltip');
+const DomDelegate = require('ftdomdelegate');
+const Tooltip = require('./Tooltip');
 
 /**
  * Gets the width of a text by using a <canvas> element
@@ -13,11 +12,11 @@ var Tooltip = require('./Tooltip');
  * @returns {number}
  */
 function getPixelWidthOfText(text, refEl) {
-	var c = document.createElement("canvas");
+	const c = document.createElement("canvas");
 
 	if (c.getContext && window.getComputedStyle) {
-		var ctx = c.getContext("2d");
-		var refElStyle = window.getComputedStyle(refEl);
+		const ctx = c.getContext("2d");
+		const refElStyle = window.getComputedStyle(refEl);
 		ctx.font = refElStyle.getPropertyValue('font-style') + " " + refElStyle.getPropertyValue('font-size') + " " + refElStyle.getPropertyValue('font-family');
 		ctx.fillText(text, 10, 100);
 		return ctx.measureText(text).width;
@@ -38,7 +37,7 @@ function getPixelWidthOfText(text, refEl) {
  */
 function TextCopyHelper(config) {
 
-	var textCopyHelper = this;
+	const textCopyHelper = this;
 	/**
 	 * Creates an input element for the URL setting it's correct width corresponding to said URL
 	 *
@@ -46,7 +45,7 @@ function TextCopyHelper(config) {
 	 * @returns {HTMLElement} inputEl
 	 */
 	function createInputElement(text) {
-		var inputEl = document.createElement('input');
+		const inputEl = document.createElement('input');
 		inputEl.setAttribute('type', 'text');
 		inputEl.setAttribute('value', text);
 
@@ -61,7 +60,7 @@ function TextCopyHelper(config) {
 	function init() {
 		textCopyHelper.inputEl = createInputElement(config.text);
 		config.parentEl.insertBefore(textCopyHelper.inputEl, config.parentEl.childNodes[0]);
-		var inputWidth = getPixelWidthOfText(config.text, textCopyHelper.inputEl);
+		const inputWidth = getPixelWidthOfText(config.text, textCopyHelper.inputEl);
 
 		if (inputWidth !== -1) {
 			textCopyHelper.inputEl.style.width = inputWidth + 'px';
