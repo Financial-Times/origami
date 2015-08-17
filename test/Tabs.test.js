@@ -1,14 +1,13 @@
 /*global describe,beforeEach,afterEach,it,expect,spyOn*/
-'use strict';
 
 import * as fixtures from './helpers/fixtures';
 import Tabs from '../main';
 
-var testTabs;
-var tabsEl;
-var tabContentEl1;
-var tabContentEl2;
-var tabContentEl3;
+let testTabs;
+let tabsEl;
+let tabContentEl1;
+let tabContentEl2;
+let tabContentEl3;
 
 describe("tabs behaviour", () => {
 
@@ -82,7 +81,7 @@ describe("tabs behaviour", () => {
 
 	it("click tab", () => {
 		spyOn(testTabs, 'selectTab');
-		var clickEvent = document.createEvent('Event');
+		const clickEvent = document.createEvent('Event');
 		clickEvent.initEvent('click', true, true);
 
 		tabsEl.querySelectorAll('li a')[2].dispatchEvent(clickEvent);
@@ -102,7 +101,7 @@ describe("tabs behaviour", () => {
 		expect(tabsEl.classList.contains('o-tabs--js')).toBe(false);
 
 		spyOn(testTabs, 'selectTab');
-		var clickEvent = document.createEvent('Event');
+		const clickEvent = document.createEvent('Event');
 		clickEvent.initEvent('click', true, true);
 
 		tabsEl.querySelectorAll('li a')[2].dispatchEvent(clickEvent);
