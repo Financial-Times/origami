@@ -1,13 +1,12 @@
 /*global require, describe, it, beforeEach, afterEach */
-"use strict";
 
-var assert = require('assert'),
-	Store = require("../../src/javascript/core/store"),
-	Session = require("../../src/javascript/core/session");
+const assert = require('assert');
+const Store = require("../../src/javascript/core/store");
+const Session = require("../../src/javascript/core/session");
 
 describe('Core.Session', function () {
 
-	var session;
+	let session;
 
 	beforeEach(function () {
 		(new Store('session')).destroy();

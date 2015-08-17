@@ -1,14 +1,13 @@
 /*global require, describe, it, before, after, sinon */
-"use strict";
 
-var assert = require("assert");
-var settings = require("../src/javascript/core/settings");
+const assert = require("assert");
+const settings = require("../src/javascript/core/settings");
 
 describe('main', function () {
 
-	var server;
-	var oTracking = require("../main.js");
-	var root_id;
+	let server;
+	const oTracking = require("../main.js");
+	let root_id;
 
 	before(function () {
 		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
@@ -21,10 +20,10 @@ describe('main', function () {
 	});
 
 	it('should configure itself from the DOM if no options are present', function() {
-		var confEl = document.createElement('script');
+		const confEl = document.createElement('script');
 		confEl.type = 'application/json';
 		confEl.dataset.oTrackingConfig = 'true';
-		var config = {
+		const config = {
 			context: {
 				product: 'desktop'
 			},
@@ -35,7 +34,7 @@ describe('main', function () {
 		confEl.innerText = JSON.stringify(config);
 
 		document.head.appendChild(confEl);
-		var tracking = oTracking.init();
+		const tracking = oTracking.init();
 
 		assert.deepEqual(settings.get('config'), config);
 		assert.equal(tracking.initialised, true);
@@ -58,8 +57,8 @@ describe('main', function () {
 
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
-		var callback = sinon.spy(),
-			sent_data;
+		const callback = sinon.spy();
+		let sent_data;
 
 		oTracking.page({
 			url: 'http://www.ft.com/cms/s/0/576f5f1c-0509-11e5-9627-00144feabdc0.html'
@@ -95,8 +94,8 @@ describe('main', function () {
 	it('should track an event', function () {
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
-		var callback = sinon.spy(),
-			sent_data;
+		const callback = sinon.spy();
+		let sent_data;
 
 		oTracking.event(new CustomEvent('oTracking.event', {
 			detail: {
@@ -130,10 +129,10 @@ describe('main', function () {
 	it('should not mutate init config', function () {
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
-		var callback1 = sinon.spy(),
-			callback2 = sinon.spy(),
-			sent_data1,
-			sent_data2;
+		const callback1 = sinon.spy();
+		const callback2 = sinon.spy();
+		let sent_data1;
+		let sent_data2;
 
 		oTracking.page({
 			my_key: "my_val"

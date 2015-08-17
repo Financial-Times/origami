@@ -1,20 +1,17 @@
 /*global require, describe, it, before, after, sinon */
-"use strict";
 
-var assert = require("assert");
+const assert = require("assert");
 
 describe('event', function () {
 
-	var server,
-		userID,
-		track_event = require("../src/javascript/event.js");
+	let server;
+	const track_event = require("../src/javascript/event.js");
 
 	before(function () {
 		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
 		require("../src/javascript/core/settings").delete('config');  // Empty settings.
 		require("../src/javascript/core/send").init(); // Init the sender.
 		//require("../src/javascript/core").setRootID('rootID'); // Fix the click ID to stop it generating one.
-		userID = require("../src/javascript/core/user").init(); // Init the user identifier.
 
 		server = sinon.fakeServer.create(); // Catch AJAX requests
 	});
@@ -26,8 +23,8 @@ describe('event', function () {
 	it('should track an event, adds custom component_id', function () {
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
-		var callback = sinon.spy(),
-			sent_data;
+		const callback = sinon.spy();
+		let sent_data;
 
 		track_event(new CustomEvent('oTracking.event', {
 			detail: {
@@ -57,7 +54,7 @@ describe('event', function () {
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 		server.respondImmediately = true;
 
-		var event = new CustomEvent('oTracking.event', {
+		const event = new CustomEvent('oTracking.event', {
 			detail: {
 				category: 'video',
 				action: 'play',
@@ -69,13 +66,13 @@ describe('event', function () {
 		document.body.setAttribute('data-o-component', 'o-tracking');
 		document.body.addEventListener('oTracking.event', function(e) {
 
-			var callback = sinon.spy();
+			const callback = sinon.spy();
 
 			track_event(e, callback);
 
 			assert.ok(callback.called, 'Callback not called.');
 
-			var sent_data = callback.getCall(0).thisValue;
+			const sent_data = callback.getCall(0).thisValue;
 
 			assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 

@@ -1,16 +1,15 @@
 /*global module, require */
-"use strict";
 
-var userID;
-var store;
-var defaultUserConfig = {
+let userID;
+let store;
+const defaultUserConfig = {
 	storage: 'cookie',
 	name: 'spoor-id',
 	value: null
 };
 
-var utils = require("../utils");
-var Store = require("./store");
+const utils = require("../utils");
+const Store = require("./store");
 
 /**
  * Init
@@ -18,7 +17,7 @@ var Store = require("./store");
  * @param config {String|Object} The value of a userID to use or configuration object.
  */
 function init(value) {
-	var config = utils.merge(defaultUserConfig, { value: value });
+	const config = utils.merge(defaultUserConfig, { value: value });
 
 	// config.name is important here, means the user has specifically asked for a cookie name.
 	if (config.storage === 'cookie' && config.name) {

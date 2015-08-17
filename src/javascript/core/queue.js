@@ -1,8 +1,7 @@
 /*global module, require */
-"use strict";
 
-var utils = require("../utils");
-var Store = require("./store");
+const utils = require("../utils");
+const Store = require("./store");
 
 /**
  * Class for handling a queue backed up by a store.
@@ -10,7 +9,7 @@ var Store = require("./store");
  *
  * @param name {String} The name of the queue.
  */
-var Queue = function (name) {
+const Queue = function (name) {
 	if (utils.isUndefined(name)) {
 		throw new Error('You must specify a name for the queue.');
 	}
@@ -45,10 +44,9 @@ Queue.prototype.all = function () {
 		return null;
 	}
 
-	var items = [],
-		i;
+	const items = [];
 
-	for (i = 0; i < this.queue.length; i = i + 1) {
+	for (let i = 0; i < this.queue.length; i = i + 1) {
 		items.push(this.queue[i].item);
 	}
 
@@ -95,8 +93,8 @@ Queue.prototype.id = function () {
 Queue.prototype.add = function (item) {
 	// I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn't work out how to get to "this" from within the module.
 
-	var self = this,
-		i;
+	const self = this;
+	let i;
 
 	function doAdd(item) {
 		self.queue.push({
@@ -141,9 +139,9 @@ Queue.prototype.replace = function (items) {
  * @return {Object} The item.
  */
 Queue.prototype.shift = function () {
-	var replacement = this.all(),
-		nextItem = this.first(),
-		i;
+	const replacement = this.all();
+	const nextItem = this.first();
+	let i;
 
 	if (!nextItem) {
 		return null;

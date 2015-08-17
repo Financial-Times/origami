@@ -1,16 +1,15 @@
 /*global module, require, window */
-"use strict";
 
 /**
  * Shared "internal" scope.
  * @private
  */
-var settings = require("./core/settings");
+const settings = require("./core/settings");
 
 /**
  * Record of callbacks to call when a page is tracked.
  */
-var page_callbacks = [];
+const page_callbacks = [];
 
 /**
  * Log messages to the browser console. Requires "log" to be set on init.
@@ -19,7 +18,7 @@ var page_callbacks = [];
  */
 function log() {
 	if (settings.get('developer') && window.console) {
-		for (var i=0;i<arguments.length;i++) {
+		for (let i=0;i<arguments.length;i++) {
 			window.console.log(arguments[i]);
 		}
 	}
@@ -54,10 +53,12 @@ function merge(target, options) {
 		target = {};
 	}
 
-	var name, src, copy;
+	let name;
+	let src;
+	let copy;
 
 	/* jshint -W089 */
-	/* jslint forin:false */
+	/* eslint guard-for-in: 0 */
 	for (name in options) {
 		src = target[name];
 		copy = options[name];
@@ -97,12 +98,12 @@ function encode(str) {
  * Based on http://stackoverflow.com/a/21963136
  * @return {string}
  */
-var lut = []; for (var i=0; i<256; i++) { lut[i] = (i<16?'0':'')+(i).toString(16); }
+const lut = []; for (let i=0; i<256; i++) { lut[i] = (i<16?'0':'')+(i).toString(16); }
 function guid() {
-	var d0 = Math.random()*0xffffffff|0;
-	var d1 = Math.random()*0xffffffff|0;
-	var d2 = Math.random()*0xffffffff|0;
-	var d3 = Math.random()*0xffffffff|0;
+	const d0 = Math.random()*0xffffffff|0;
+	const d1 = Math.random()*0xffffffff|0;
+	const d2 = Math.random()*0xffffffff|0;
+	const d3 = Math.random()*0xffffffff|0;
 	return lut[d0&0xff]+lut[d0>>8&0xff]+lut[d0>>16&0xff]+lut[d0>>24&0xff]+'-'+
 		lut[d1&0xff]+lut[d1>>8&0xff]+'-'+lut[d1>>16&0x0f|0x40]+lut[d1>>24&0xff]+'-'+
 		lut[d2&0x3f|0x80]+lut[d2>>8&0xff]+'-'+lut[d2>>16&0xff]+lut[d2>>24&0xff]+
@@ -141,7 +142,7 @@ function onPage(cb) {
  * Trigger the "page" listeners.
  */
 function triggerPage() {
-	for (var i = 0; i < page_callbacks.length; i++) {
+	for (let i = 0; i < page_callbacks.length; i++) {
 		page_callbacks[i]();
 	}
 }
@@ -169,9 +170,9 @@ function getValueFromJsVariable(str) {
 
 	}
 
-	var i,
-		namespaces = str.split('.'),
-		test = window;
+	let i;
+	const namespaces = str.split('.');
+	let test = window;
 
 	for (i = 0; i < namespaces.length; i = i + 1) {
 		if (typeof test[namespaces[i]] === "undefined") {

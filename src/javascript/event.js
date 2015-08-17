@@ -1,15 +1,14 @@
 /*global module, require */
-'use strict';
 
-var Core = require('./core');
-var utils = require('./utils');
+const Core = require('./core');
+const utils = require('./utils');
 
 /**
  * Default properties for events.
  *
  * @type {Object}
  */
-var defaultEventConfig = function () {
+const defaultEventConfig = function () {
 	return {
 		category: 'event',
 		action: 'generic',
@@ -32,7 +31,7 @@ function event(trackingEvent, callback) {
 		throw 'Missing category or action values';
 	}
 
-	var config = utils.merge(defaultEventConfig(), {
+	const config = utils.merge(defaultEventConfig(), {
 		category: trackingEvent.detail.category,
 		action: trackingEvent.detail.action,
 		context: trackingEvent.detail
@@ -54,23 +53,23 @@ function event(trackingEvent, callback) {
  */
 function getComponentId(event) {
 	// Get the path from the event source to the event listener
-	var path = _getEventPath(event);
+	const path = _getEventPath(event);
 
 	if (typeof path === 'undefined') {
 		return;
 	}
 
 	// Select the source element (first item in the ordered sequence `path`)
-	var srcElement = path[0];
+	const srcElement = path[0];
 
 	// Because, you could have two identical elements in the DOM as siblings,
 	// we need to determine the 'sibling index': the order they're sitting within a DOM node.
 	// Although in reality this is unlikely to always be the same, it's just a
 	// best guess - unless child elements are always appended to an element rather than added as the first child.
-	var siblingIndex = (function getSiblingIndex(element) {
-		var srcParent = element.parentElement;
+	const siblingIndex = (function getSiblingIndex(element) {
+		const srcParent = element.parentElement;
 		if (srcParent) {
-			for (var i = 0; i < srcParent.childNodes.length; i++) {
+			for (let i = 0; i < srcParent.childNodes.length; i++) {
 				if (srcParent.childNodes[i] === srcElement) {
 					return i;
 				}
@@ -82,8 +81,8 @@ function getComponentId(event) {
 	}(srcElement));
 
 	// Generate a normalised string (normalising browser quirks) from the sequence of elements
-	var normalisedStringPath = path.reduceRight(function(builder, el) {
-		var nodeName = el.nodeName.toLowerCase();
+	const normalisedStringPath = path.reduceRight(function(builder, el) {
+		const nodeName = el.nodeName.toLowerCase();
 
 		// In some browsers, document is prepended with a '#'
 		if (nodeName.indexOf('#') === 0) {
@@ -111,7 +110,7 @@ function getComponentId(event) {
 function _getEventPath(event) {
 	// IE backwards compatibility (get the actual target). If not IE, uses
 	// `event.target`
-	var element = event.target || event.srcElement;
+	let element = event.target || event.srcElement;
 
 	if (!element || !element.getAttribute('data-o-component')) {
 		return;
@@ -124,7 +123,7 @@ function _getEventPath(event) {
 		return Array.prototype.slice.call(event.path);
 	}
 
-	var path = [];
+	const path = [];
 
 	while (element) {
 		path.push(element);
@@ -157,10 +156,10 @@ function _getEventPath(event) {
  * @private
  */
 function _generateHash(str) {
-	var l = str.length;
-	var h = 1 ^ l;
-	var i = 0;
-	var k;
+	let l = str.length;
+	let h = 1 ^ l;
+	let i = 0;
+	let k;
 
 	while (l >= 4) {
 		k = ((str.charCodeAt(i) & 0xff)) |

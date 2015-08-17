@@ -1,7 +1,6 @@
 /*global module */
-"use strict";
 
-var settings = {};
+const settings = {};
 
 /**
  * Very basic implementation of deep clone, and only supports simple POJO objects and

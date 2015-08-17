@@ -1,5 +1,4 @@
 /*global module, require, window */
-"use strict";
 
 /**
  * @class  Store
@@ -9,20 +8,20 @@
  * @param {string} name   The name of the store
  * @param {Object} config Optional, config object for extra configuration
  */
-var Store = function (name, config) {
+const Store = function (name, config) {
 
 	/**
 	 * Internal Storage key prefix.
 	 */
-	var keyPrefix = "o-tracking";
+	const keyPrefix = "o-tracking";
 
 	/**
-	 * Temporary var containing data from a previously saved store.
+	 * Temporary let containing data from a previously saved store.
 	 * @property loadStore
 	 */
-	var loadStore;
+	let loadStore;
 
-	var utils = require("../utils");
+	const utils = require("../utils");
 
 	if (utils.isUndefined(name)) {
 		throw new Error('You must specify a name for the store.');
@@ -46,7 +45,7 @@ var Store = function (name, config) {
 	 * @type {Object}
 	 */
 	this.storage = (function (config, window) {
-		var test_key = keyPrefix + '_InternalTest';
+		const test_key = keyPrefix + '_InternalTest';
 
 		// If cookie has been manually specified, don't bother with local storage.
 		if (config.storage !== 'cookie') {
@@ -72,9 +71,9 @@ var Store = function (name, config) {
 		function cookieLoad(name) {
 			name = name + "=";
 
-			var cookies = window.document.cookie.split(';'),
-				i,
-				cookie;
+			const cookies = window.document.cookie.split(';');
+			let i;
+			let cookie;
 
 			for (i = 0; i < cookies.length; i = i + 1) {
 				cookie = cookies[i].replace(/^\s+|\s+$/g, '');
@@ -87,9 +86,9 @@ var Store = function (name, config) {
 		}
 
 		function cookieSave(name, value, expiry) {
-			var d,
-				expires = '',
-				cookie;
+			let d;
+			let expires = '';
+			let cookie;
 
 			if (utils.is(expiry, 'number')) {
 				d = new Date();

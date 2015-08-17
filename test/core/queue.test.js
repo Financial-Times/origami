@@ -1,9 +1,8 @@
 /*global require, describe, it */
-"use strict";
 
-var assert = require('assert'),
-	Queue = require("../../src/javascript/core/queue"),
-	queue_name = 'queue_test';
+const assert = require('assert');
+const Queue = require("../../src/javascript/core/queue");
+const queue_name = 'queue_test';
 
 // PhantomJS doesn't always create a "fresh" environment...
 (new Queue(queue_name)).replace([]);
@@ -18,8 +17,8 @@ describe('Core.Queue', function () {
 		});
 	});
 
-	var a_function = function () {},
-		queue = new Queue(queue_name);
+	const a_function = function () {};
+	const queue = new Queue(queue_name);
 
 	describe('add', function () {
 		it('should add a string to the queue', function () {
@@ -69,8 +68,8 @@ describe('Core.Queue', function () {
 
 	describe('shift', function () {
 		it('should shift an item off the front of the queue', function () {
-			var pre_shift = queue.all(),
-				item = queue.shift();
+			const pre_shift = queue.all();
+			const item = queue.shift();
 			assert.deepEqual(pre_shift, [item].concat(queue.all()));
 		});
 
@@ -86,7 +85,7 @@ describe('Core.Queue', function () {
 			});
 		});
 
-		var queue2;
+		let queue2;
 
 		it('should get the saved queue', function () {
 			assert.doesNotThrow(function () {

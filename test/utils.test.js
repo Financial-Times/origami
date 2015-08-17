@@ -1,8 +1,7 @@
 /*global require, describe, it, sinon */
-"use strict";
 
-var assert = require('assert'),
-	Utils = require("../src/javascript/utils");
+const assert = require('assert');
+const Utils = require("../src/javascript/utils");
 
 describe('Utils', function () {
 
@@ -39,13 +38,13 @@ describe('Utils', function () {
 	});
 
 	it('should provide guid generation', function () {
-		var guid = Utils.guid();
-		var re = /^\w{8}-\w{4}-4\w{3}-\w{4}-\w{12}$/;
+		const guid = Utils.guid();
+		const re = /^\w{8}-\w{4}-4\w{3}-\w{4}-\w{12}$/;
 		assert.ok(re.test(guid), 'Guid ' + guid + 'should match ' + /^\w{8}-\w{4}-4\w{3}-\w{4}-\w{8}$/);
 	});
 
 	describe('internal page event', function () {
-		var callback = sinon.spy();
+		const callback = sinon.spy();
 
 		it('should provide onPage functionality', function () {
 			assert.doesNotThrow(function () {

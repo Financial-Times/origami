@@ -1,8 +1,7 @@
 /*global require, describe, it */
-"use strict";
 
-var assert = require('assert');
-var Settings = require("../../src/javascript/core/settings");
+const assert = require('assert');
+const Settings = require("../../src/javascript/core/settings");
 
 describe('Core.Settings', function () {
 
@@ -29,7 +28,7 @@ describe('Core.Settings', function () {
 	});
 
 	it("should return a copy of an object to prevent mutating the store.", function () {
-		var obj = {
+		const obj = {
 			key: 'value1'
 		};
 
@@ -39,7 +38,7 @@ describe('Core.Settings', function () {
 	});
 
 	it("should return a copy of an array to prevent mutating the store.", function () {
-		var arr = ['value1'];
+		const arr = ['value1'];
 
 		Settings.set('arr', arr);
 		arr[0] = 'value2';
