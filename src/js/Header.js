@@ -1,14 +1,13 @@
 /*global require,module*/
-"use strict";
 
-var DomDelegate = require('ftdomdelegate');
-var oHierarchicalNav = require('o-hierarchical-nav');
+const DomDelegate = require('ftdomdelegate');
+const HierarchicalNav = require('o-hierarchical-nav');
 
 function Header(rootEl) {
 
-	var bodyDelegate;
+	let bodyDelegate;
 	// Gets all nav elements in the header
-	var hierarchicalNavEls = [
+	const hierarchicalNavEls = [
 			rootEl.querySelector('.o-header__nav--primary-theme'),
 			rootEl.querySelector('.o-header__nav--secondary-theme'),
 			rootEl.querySelector('.o-header__nav--tools-theme')
@@ -24,7 +23,7 @@ function Header(rootEl) {
 			}
 			return el && el.nodeType === 1 && !el.hasAttribute('data-o-hierarchical-nav--js');
 		});
-	var hierarchicalNavs = [];
+	let hierarchicalNavs = [];
 
 	function init() {
 		if (!rootEl) {
@@ -35,14 +34,14 @@ function Header(rootEl) {
 		rootEl.setAttribute('data-o-header--js', '');
 		bodyDelegate = new DomDelegate(document.body);
 		hierarchicalNavs = hierarchicalNavEls.map(function(el) {
-			return new oHierarchicalNav(el);
+			return new HierarchicalNav(el);
 		});
 	}
 
 	// Release header and all its navs from memory
 	function destroy() {
 		bodyDelegate.destroy();
-		for (var c = 0, l = hierarchicalNavs.length; c < l; c++) {
+		for (let c = 0, l = hierarchicalNavs.length; c < l; c++) {
 			if (hierarchicalNavs[c]) {
 				hierarchicalNavs[c].destroy();
 			}
@@ -63,9 +62,9 @@ Header.init = function(el) {
 	} else if (!(el instanceof HTMLElement)) {
 		el = document.querySelector(el);
 	}
-	var headerEls = el.querySelectorAll('[data-o-component="o-header"]');
-	var headers = [];
-	for (var c = 0, l = headerEls.length; c < l; c++) {
+	const headerEls = el.querySelectorAll('[data-o-component="o-header"]');
+	const headers = [];
+	for (let c = 0, l = headerEls.length; c < l; c++) {
 		if (!headerEls[c].hasAttribute('data-o-header--js')) {
 			headers.push(new Header(headerEls[c]));
 		}
