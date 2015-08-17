@@ -1,7 +1,6 @@
 /* jshint devel: true */
 
-'use strict';
-var debug;
+let debug;
 
 function broadcast(eventType, data, target) {
 	target = target || document.body;
@@ -32,14 +31,14 @@ function getSize() {
 }
 
 function getScrollPosition() {
-	var de = document.documentElement;
-	var db = document.body;
+	const de = document.documentElement;
+	const db = document.body;
 
 	// adapted from https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY
-	var isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
+	const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
 
-	var ieX = isCSS1Compat ? de.scrollLeft : db.scrollLeft;
-	var ieY = isCSS1Compat ? de.scrollTop : db.scrollTop;
+	const ieX = isCSS1Compat ? de.scrollLeft : db.scrollLeft;
+	const ieY = isCSS1Compat ? de.scrollTop : db.scrollTop;
 	return {
 		height: db.scrollHeight,
 		width: db.scrollWidth,
@@ -49,7 +48,7 @@ function getScrollPosition() {
 }
 
 function getOrientation() {
-	var orientation = window.screen.orientation || window.screen.mozOrientation || window.screen.msOrientation || undefined;
+	const orientation = window.screen.orientation || window.screen.mozOrientation || window.screen.msOrientation || undefined;
 	if (orientation) {
 		return typeof orientation === 'string' ?
 			orientation.split('-')[0] :
@@ -62,8 +61,8 @@ function getOrientation() {
 }
 
 function detectVisiblityAPI() {
-	var hiddenName;
-	var eventType;
+	let hiddenName;
+	let eventType;
 	if (typeof document.hidden !== 'undefined') {
 		hiddenName = 'hidden';
 		eventType = 'visibilitychange';
@@ -85,7 +84,7 @@ function detectVisiblityAPI() {
 }
 
 function getVisibility() {
-	var hiddenName = detectVisiblityAPI().hiddenName;
+	const hiddenName = detectVisiblityAPI().hiddenName;
 	return document[hiddenName];
 }
 

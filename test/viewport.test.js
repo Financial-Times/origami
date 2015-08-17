@@ -1,9 +1,8 @@
 /*global describe, it, before, after*/
-'use strict';
 
-var expect = require('expect.js');
+const expect = require('expect.js');
 
-var oViewport = require('./../main.js');
+const oViewport = require('./../main.js');
 
 function isPhantom() {
 	return /PhantomJS/.test(navigator.userAgent);
@@ -76,7 +75,7 @@ describe('o-viewport', function() {
 	});
 
 	it('should get size the size of the viewport', function() {
-		var viewportSize = oViewport.getSize();
+		const viewportSize = oViewport.getSize();
 		expect(typeof viewportSize.width).to.be('number');
 		expect(typeof viewportSize.height).to.be('number');
 	});
@@ -87,7 +86,7 @@ describe('o-viewport', function() {
 
 	it('should stop listening to scroll event', function(done) {
 		oViewport.stopListeningTo('scroll');
-		document.body.addEventListener('oViewport.scroll', function(ev) {
+		document.body.addEventListener('oViewport.scroll', function() {
 			done(new Error('scroll event still ran!'));
 		});
 
@@ -100,15 +99,15 @@ describe('o-viewport', function() {
 
 	it('should stop listening to all events', function(done) {
 		oViewport.stopListeningTo('all');
-		document.body.addEventListener('oViewport.resize', function(ev) {
+		document.body.addEventListener('oViewport.resize', function() {
 			done(new Error('resize event still ran!'));
 		});
 
-		document.body.addEventListener('oViewport.orientationchange', function(ev) {
+		document.body.addEventListener('oViewport.orientationchange', function() {
 			done(new Error('orientationchange event still ran!'));
 		});
 
-		document.body.addEventListener('oViewport.visibilitychange', function(ev) {
+		document.body.addEventListener('oViewport.visibilitychange', function() {
 			done(new Error('visibilitychange event still ran!'));
 		});
 
