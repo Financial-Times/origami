@@ -1,5 +1,4 @@
 /*global describe,beforeEach,afterEach,it,expect*/
-"use strict";
 
 import * as sandbox from './helpers/sandbox';
 import oTable from './../main';
