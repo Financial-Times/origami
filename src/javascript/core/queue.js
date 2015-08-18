@@ -80,7 +80,7 @@ Queue.prototype.last = function () {
 };
 
 Queue.prototype.id = function () {
-	return (Math.random() * 10000) + "." + (new Date()).getTime();
+	return (Math.random() * 10000) + '.' + (new Date()).getTime();
 };
 
 /**
@@ -91,7 +91,7 @@ Queue.prototype.id = function () {
  * @return {Queue}
  */
 Queue.prototype.add = function (item) {
-	// I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn't work out how to get to "this" from within the module.
+	// I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn't work out how to get to 'this' from within the module.
 
 	const self = this;
 	let i;

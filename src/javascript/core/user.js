@@ -5,11 +5,44 @@ let store;
 const defaultUserConfig = {
 	storage: 'cookie',
 	name: 'spoor-id',
-	value: null
+	value: null,
+	domain: (document.URL.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i)[1].indexOf('ft.com') > -1 ? 'ft.com' : null)
 };
 
 const utils = require("../utils");
 const Store = require("./store");
+
+/**
+ * migrate_across_domains
+ * Clean up after forgetting to write cookies to the 'root' ft.com domain.
+ * - Check local storage for the 'proper' value.
+ * - If it exists, use it.
+ * - If not, set current user id as the 'proper' value.
+ * - If this value and the cookie match, then we've already fixed it.
+ * - If not, drop the cookie and it will be reset it on the root domain.
+ */
+function migrate_across_domains(store, user_id) {
+	var ls_name = 'o-tracking-proper-id';
+	var proper_id;
+
+	try {
+		proper_id = window.localStorage.getItem(ls_name);
+
+		if (!proper_id) {
+			window.localStorage.setItem(ls_name, user_id);
+			proper_id = user_id;
+		}
+	} catch (error) {
+		proper_id = user_id;
+	}
+
+	// Expire the cookie on the (sub)domain
+	window.document.cookie = 'spoor-id=0;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;';
+	// Re-set the cookie on the  root domain
+	store.write(proper_id);
+
+	return proper_id;
+}
 
 /**
  * Init
@@ -27,6 +60,10 @@ function init(value) {
 	store = new Store(config.name, config);
 
 	userID = store.read();
+
+	if (userID) {
+		userID = migrate_across_domains(store, userID);
+	}
 
 	if (!userID) {
 		userID = config.value;

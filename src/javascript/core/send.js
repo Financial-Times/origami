@@ -24,15 +24,15 @@ function createTransport() {
 	try {
 		const xmlHttp = new window.XMLHttpRequest();
 
-		// Check if the XMLHttpRequest object has a "withCredentials" property.
-		// "withCredentials" only exists on XMLHTTPRequest2 objects.
+		// Check if the XMLHttpRequest object has a 'withCredentials' property.
+		// 'withCredentials' only exists on XMLHTTPRequest2 objects.
 		if (!utils.isUndefined(xmlHttp.withCredentials)) {
 			xmlHttp.withCredentials = true;
 
 			return {
 				send: function (domain, path) {
 					xmlHttp.open('POST', domain, true);
-					xmlHttp.setRequestHeader("Content-type", "application/json");
+					xmlHttp.setRequestHeader('Content-type', 'application/json');
 					xmlHttp.send(path);
 				},
 				complete: function (callback) {
@@ -130,8 +130,8 @@ function sendRequest(request, callback) {
 	request = utils.merge({
 		system: {
 			api_key: settings.get('api_key'), // String - API key - Make sure the request is from a valid client (idea nicked from Keen.io) useful if a page gets copied onto a Russian website and creates noise
-			version: settings.get('version'), // Version of the tracking client e.g. "1.2"
-			source: settings.get('source'), // Source of the tracking client e.g. "o-tracking"
+			version: settings.get('version'), // Version of the tracking client e.g. '1.2'
+			source: settings.get('source'), // Source of the tracking client e.g. 'o-tracking'
 		},
 
 		context: {

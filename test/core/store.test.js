@@ -11,7 +11,7 @@ describe('Core.Store', function () {
 			assert.equal((new Store('test')).storage._type, 'localStorage');
 		});
 
-		if (document.location.toString().match('^file://') && navigator.userAgent.indexOf('PhantomJS') < 0) {
+		if (document.location.toString().match('^file://') && navigator.userAgent.indexOf('PhantomJS') > -1) {
 			it('should still work if there is no storage mechanism available', function () {
 				assert.equal((new Store('test', { storage: 'cookie' })).storage._type, 'none');
 			});

@@ -3,7 +3,7 @@
 /**
  * @class  Store
  * Class for storing data
- * Will choose the "best" storage method available. Can also specify a type of storage.
+ * Will choose the 'best' storage method available. Can also specify a type of storage.
  *
  * @param {string} name   The name of the store
  * @param {Object} config Optional, config object for extra configuration
@@ -20,7 +20,6 @@ const Store = function (name, config) {
 	 * @property loadStore
 	 */
 	let loadStore;
-
 	const utils = require("../utils");
 
 	if (utils.isUndefined(name)) {
@@ -69,7 +68,7 @@ const Store = function (name, config) {
 		}
 
 		function cookieLoad(name) {
-			name = name + "=";
+			name = name + '=';
 
 			const cookies = window.document.cookie.split(';');
 			let i;
@@ -93,10 +92,10 @@ const Store = function (name, config) {
 			if (utils.is(expiry, 'number')) {
 				d = new Date();
 				d.setTime(d.getTime() + expiry);
-				expires = "expires=" + d.toGMTString() + ';';
+				expires = 'expires=' + d.toGMTString() + ';';
 			}
 
-			cookie = utils.encode(name) + '=' + utils.encode(value) + ";" + expires + 'path=/;';
+			cookie = utils.encode(name) + '=' + utils.encode(value) + ';' + expires + 'path=/;' + (config.domain ? 'domain=.' + config.domain + ';' : '');
 			window.document.cookie = cookie;
 		}
 
@@ -104,7 +103,7 @@ const Store = function (name, config) {
 			cookieSave(name, '', -1);
 		}
 
-		cookieSave(test_key, "TEST");
+		cookieSave(test_key, 'TEST');
 
 		if (cookieLoad(test_key) === 'TEST') {
 			cookieRemove(test_key);

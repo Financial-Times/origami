@@ -1,12 +1,22 @@
 /*global require, module */
+<<<<<<< HEAD
 
 const settings = require("./src/javascript/core/settings");
+=======
+'use strict';
+
+var settings = require('./src/javascript/core/settings');
+>>>>>>> 867d409c87b682a155f3d8a085a607f26fca925b
 
 /**
  * The version of the tracking module.
  * @type {string}
  */
+<<<<<<< HEAD
 const version = '1.0.2';
+=======
+var version = '1.0.3';
+>>>>>>> 867d409c87b682a155f3d8a085a607f26fca925b
 /**
  * The source of this event.
  * @type {string}
@@ -88,7 +98,7 @@ Tracking.prototype.utils = require('./src/javascript/utils');
  *
  * @example
  * <!-- DOM configuration settings -->
- * <script type="application/json" data-o-tracking-config>
+ * <script type='application/json' data-o-tracking-config>
  * page: {
  * 	 product: 'desktop'
  * },
@@ -150,7 +160,7 @@ Tracking.prototype.init = function(config) {
 };
 
 /**
- * Checks if the <script type="application/json" data-o-tracking-config> element is in the DOM
+ * Checks if the <script type='application/json' data-o-tracking-config> element is in the DOM
  *
  * @private
  *
@@ -161,7 +171,7 @@ Tracking.prototype._getDeclarativeConfigElement = function() {
 };
 
 /**
- * Initialises additional data using the <script type="application/json" data-o-tracking-config> element in the DOM.
+ * Initialises additional data using the <script type='application/json' data-o-tracking-config> element in the DOM.
  *
  * @private
  * @param {Object} options - A partially, or fully filled options object.  If
@@ -183,7 +193,7 @@ Tracking.prototype._getDeclarativeConfig = function(options) {
 	try {
 		declarativeOptions = JSON.parse(declarativeConfigString);
 	} catch(e) {
-		throw new Error("Invalid JSON configuration syntax, check validity for o-tracking configuration: '" + e.message + "'");
+		throw new Error('Invalid JSON configuration syntax, check validity for o-tracking configuration: "' + e.message + '"');
 	}
 
 	for (const property in declarativeOptions) {

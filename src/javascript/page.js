@@ -1,7 +1,7 @@
 /*global module, require */
-
 const Core = require("./core");
 const utils = require("./utils");
+
 
 /**
  * Default properties for page tracking requests.

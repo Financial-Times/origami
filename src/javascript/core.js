@@ -3,8 +3,9 @@
 const Send = require("./core/send");
 const User = require("./core/user");
 const Session = require("./core/session");
+
 /**
- * Shared "internal" scope.
+ * Shared 'internal' scope.
  *
  * @type {Object}
  */
