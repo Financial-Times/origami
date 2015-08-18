@@ -1,22 +1,13 @@
 /*global require, module */
-<<<<<<< HEAD
-
 const settings = require("./src/javascript/core/settings");
-=======
-'use strict';
 
-var settings = require('./src/javascript/core/settings');
->>>>>>> 867d409c87b682a155f3d8a085a607f26fca925b
 
 /**
  * The version of the tracking module.
  * @type {string}
  */
-<<<<<<< HEAD
-const version = '1.0.2';
-=======
-var version = '1.0.3';
->>>>>>> 867d409c87b682a155f3d8a085a607f26fca925b
+const version = '1.0.3';
+
 /**
  * The source of this event.
  * @type {string}
