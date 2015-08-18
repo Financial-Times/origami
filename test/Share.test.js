@@ -53,14 +53,14 @@ describe('links', () => {
 
 	it('clicking link opens new window', () => {
 		expect(spy.calledWith[0]).to.be(twitterLinkEl.getAttribute('href'));
-		expect(spy.calledWith[1]).to.be(twitterLinkEl.getAttribute('href'));
+		expect(spy.calledWith[1]).to.be('');
 		expect(spy.calledWith[2]).to.be('width=646,height=436');
 	});
 
 	it('clicking link opens new window only once', () => {
 		expect(spy.callCount).to.be(1);
 		expect(spy.calledWith[0]).to.be(twitterLinkEl.getAttribute('href'));
-		expect(spy.calledWith[1]).to.be(twitterLinkEl.getAttribute('href'));
+		expect(spy.calledWith[1]).to.be('');
 		expect(spy.calledWith[2]).to.be('width=646,height=436');
 		var ev = document.createEvent('Event');
 		ev.initEvent('click', true, true);
