@@ -105,6 +105,7 @@ function TextCopyHelper(config) {
 			config.onCopy();
 		}
 	});
+
 }
 
 /**

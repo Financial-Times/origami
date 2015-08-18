@@ -38,7 +38,7 @@ describe('share url behaviour', function() {
 
 	it('share URL tool - closes on pressing escape', function() {
 		const ev = document.createEvent('Event');
-		ev.initEvent('keyup', true, true);
+		ev.initEvent('keydown', true, true);
 		ev.keyCode = 27;
 		shareEl.querySelector('.o-share__action--url input').dispatchEvent(ev);
 		expect(shareEl.querySelector('.o-share__action--url').hasAttribute('aria-selected')).to.be(false);
@@ -48,7 +48,7 @@ describe('share url behaviour', function() {
 
 	it('share URL tool - closes on pressing tab', function() {
 		const ev = document.createEvent('Event');
-		ev.initEvent('keyup', true, true);
+		ev.initEvent('keydown', true, true);
 		ev.keyCode = 9;
 		shareEl.querySelector('.o-share__action--url input').dispatchEvent(ev);
 		expect(shareEl.querySelector('.o-share__action--url').hasAttribute('aria-selected')).to.be(false);
