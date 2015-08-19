@@ -4,7 +4,7 @@
  * Shared 'internal' scope.
  * @private
  */
-const settings = require("./core/settings");
+const settings = require('./core/settings');
 
 /**
  * Record of callbacks to call when a page is tracked.

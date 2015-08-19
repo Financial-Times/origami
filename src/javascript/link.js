@@ -1,9 +1,9 @@
 /*global module, require, window */
 
-const Queue = require("./core/queue");
-const Core = require("./core");
+const Queue = require('./core/queue');
+const Core = require('./core');
 
-const utils = require("./utils");
+const utils = require('./utils');
 
 
 let internalQueue;

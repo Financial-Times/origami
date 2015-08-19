@@ -1,13 +1,13 @@
 /*global module, require, window */
 
-const settings = require("./settings");
-const utils = require("../utils");
-const Queue = require("./queue");
+const settings = require('./settings');
+const utils = require('../utils');
+const Queue = require('./queue');
 
 /**
  * Default collection server.
  */
-let domain = "http://test.spoor-api.ft.com";
+let domain = 'http://test.spoor-api.ft.com';
 
 /**
  * Queue queue.

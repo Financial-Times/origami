@@ -7,8 +7,8 @@ const defaultSessionConfig = {
 	expires: (30 * 60 * 1000) // 30 minutes
 };
 
-const utils = require("../utils");
-const Store = require("./store");
+const utils = require('../utils');
+const Store = require('./store');
 
 /**
  * Set the session in the store.

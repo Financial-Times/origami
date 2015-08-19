@@ -1,7 +1,7 @@
 /*global module, require */
 
-const utils = require("../utils");
-const Store = require("./store");
+const utils = require('../utils');
+const Store = require('./store');
 
 /**
  * Class for handling a queue backed up by a store.

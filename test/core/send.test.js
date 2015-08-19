@@ -1,7 +1,7 @@
 /*global require, describe, it */
 
 const assert = require('assert');
-const Send = require("../../src/javascript/core/send");
+const Send = require('../../src/javascript/core/send');
 const request = {
 	id: '1.199.83760034665465.1432907605043.-56cf00f',
 	meta: {

@@ -1,7 +1,7 @@
 /*global require, describe, it */
 
 const assert = require('assert');
-const Settings = require("../../src/javascript/core/settings");
+const Settings = require('../../src/javascript/core/settings');
 
 describe('Core.Settings', function () {
 

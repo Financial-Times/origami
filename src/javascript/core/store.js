@@ -13,14 +13,14 @@ const Store = function (name, config) {
 	/**
 	 * Internal Storage key prefix.
 	 */
-	const keyPrefix = "o-tracking";
+	const keyPrefix = 'o-tracking';
 
 	/**
-	 * Temporary let containing data from a previously saved store.
+	 * Temporary var containing data from a previously saved store.
 	 * @property loadStore
 	 */
 	let loadStore;
-	const utils = require("../utils");
+	const utils = require('../utils');
 
 	if (utils.isUndefined(name)) {
 		throw new Error('You must specify a name for the store.');

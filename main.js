@@ -1,5 +1,5 @@
 /*global require, module */
-const settings = require("./src/javascript/core/settings");
+const settings = require('./src/javascript/core/settings');
 
 
 /**

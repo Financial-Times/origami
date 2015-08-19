@@ -1,6 +1,6 @@
 /*global module, require */
-const Core = require("./core");
-const utils = require("./utils");
+const Core = require('./core');
+const utils = require('./utils');
 
 
 /**

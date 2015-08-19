@@ -1,7 +1,7 @@
 /*global require, describe, it, document, navigator */
 
 const assert = require('assert');
-const Store = require("../../src/javascript/core/store");
+const Store = require('../../src/javascript/core/store');
 
 describe('Core.Store', function () {
 

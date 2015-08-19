@@ -1,16 +1,16 @@
 /*global module, require */
 
-const Send = require("./core/send");
-const User = require("./core/user");
-const Session = require("./core/session");
+const Send = require('./core/send');
+const User = require('./core/user');
+const Session = require('./core/session');
 
 /**
  * Shared 'internal' scope.
  *
  * @type {Object}
  */
-const settings = require("./core/settings");
-const utils = require("./utils");
+const settings = require('./core/settings');
+const utils = require('./utils');
 
 /**
  * Default properties for sending a tracking request.
