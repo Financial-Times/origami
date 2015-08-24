@@ -94,6 +94,7 @@ $o-colors-palette: map-merge((
 	'warm-2':                #f6e9d8,
 	'warm-3':                #cec6b9,
 	'warm-4':                #1d1d1d,
+	'warm-5':                #fdf8f2,
 
 	'cold-1':                #505050,
 	'cold-2':                #333333,
@@ -110,5 +111,8 @@ $o-colors-palette: map-merge((
 
 	'link-1':                #27757b,
 	'link-2':                #2bbbbf,
+
+	'claret-inverse':        #ff7f8a
+
 
 ), $o-colors-palette);
