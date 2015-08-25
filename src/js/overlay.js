@@ -98,10 +98,10 @@ var Overlay = function(id, opts) {
 	} catch(e) {
 		this.broadcast('log', 'oErrors', {
 			error: e
-		});	
+		});
 		throw e;
 	}
-	
+
 	if (!this.opts) {
 		var noOptError = new Error('"o-overlay error": Required options have not been set');
 		this.broadcast('log', 'oErrors', {
