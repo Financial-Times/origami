@@ -93,14 +93,28 @@ var Overlay = function(id, opts) {
 	this.visible = false;
 	this.id = id;
 
-	this.opts = checkOptions(opts);
+	try {
+		this.opts = checkOptions(opts);
+	} catch(e) {
+		this.broadcast('log', 'oErrors', {
+			error: e
+		});
+		throw e;
+	}
+
 	if (!this.opts) {
-		throw new Error('"o-overlay error": Required options have not been set');
+		var noOptError = new Error('"o-overlay error": Required options have not been set');
+		this.broadcast('log', 'oErrors', {
+			error: noOptError
+		});
+		throw noOptError;
 	}
 	if (this.opts.trigger) {
 		this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id), false);
+		this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : oLayers.getLayerContext(this.opts.trigger);
+	} else {
+		this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : document.body;
 	}
-	this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : oLayers.getLayerContext(this.opts.trigger);
 
 	this.delegates = {
 		doc: new Delegate(),
@@ -286,14 +300,15 @@ Overlay.prototype.resizeListener = function(ev) {
 	}
 };
 
-Overlay.prototype.broadcast = function(eventType, namespace, data) {
+Overlay.prototype.broadcast = function(eventType, namespace, detail) {
 	namespace = namespace || 'oOverlay';
-	var target = namespace === 'oLayers' ? this.context : this.wrapper;
+	var target = namespace === 'oLayers' ? this.context : this.wrapper || document.body;
+
+	detail = detail || {};
+	detail.el = this;
+
 	target.dispatchEvent(new CustomEvent(namespace + '.' + eventType, {
-		detail: {
-			el: this,
-			data: data || {}
-		},
+		detail: detail,
 		// Don't bubble above the overlay's layer context otherwise we risk triggering a listener on a parent context
 		bubbles: namespace !== 'oLayers' ? true : false
 	}));
