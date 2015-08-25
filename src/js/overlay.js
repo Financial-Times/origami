@@ -6,73 +6,7 @@ var oLayers = require('o-layers');
 var utils = require('./utils');
 var overlays = {};
 
-var getOptionsFromTrigger = function(trigger) {
-	var opts = {};
-	// Get config from data attributes set in the trigger if they haven't been passed via JS
-	if (trigger instanceof HTMLElement) {
-		Array.prototype.forEach.call(trigger.attributes, function(attr) {
-			if (attr.name.indexOf('data-o-overlay') === 0) {
-				// Remove the unnecessary part of the string the first time this is run for each attribute
-				var key = attr.name.replace('data-o-overlay-', '');
-				opts = utils.optionsFromKey(key, attr.value, opts);
-			}
-		});
-		opts.trigger = trigger;
-	}
-	return opts;
-};
-
-var triggerClickHandler = function(id, ev) {
-	ev.stopPropagation();
-	var overlay = overlays[id];
-	if (overlay) {
-		if (overlay.visible === true) {
-			overlay.close();
-		} else {
-			overlay.open();
-		}
-	}
-};
-
-var Overlay = function(id, opts) {
-	viewport.listenTo('resize');
-	this.visible = false;
-	this.id = id;
-
-	try {
-		this.opts = this._checkOptions(opts);	
-	} catch(e) {
-		this.broadcast('log', 'oErrors', {
-			error: e
-		});	
-		throw e;
-	}
-	
-	if (!this.opts) {
-		var noOptError = new Error('"o-overlay error": Required options have not been set');
-		this.broadcast('log', 'oErrors', {
-			error: noOptError
-		});
-		throw noOptError;
-	}
-	if (this.opts.trigger) {
-		this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id), false);
-		this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : oLayers.getLayerContext(this.opts.trigger);
-	} else {
-		this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : document.body;
-	}
-
-	this.delegates = {
-		doc: new Delegate(),
-		wrap: new Delegate(),
-		context: new Delegate()
-	};
-
-	// Add this overlay to the overlays hashmap
-	overlays[id] = this;
-};
-
-Overlay.prototype._checkOptions = function(opts) {
+var checkOptions = function(opts) {
 	if (opts.trigger && !(opts.trigger instanceof HTMLElement)) {
 		opts.trigger = document.querySelector(opts.trigger);
 	}
@@ -124,6 +58,72 @@ Overlay.prototype._checkOptions = function(opts) {
 	}
 
 	return opts;
+};
+
+var getOptionsFromTrigger = function(trigger) {
+	var opts = {};
+	// Get config from data attributes set in the trigger if they haven't been passed via JS
+	if (trigger instanceof HTMLElement) {
+		Array.prototype.forEach.call(trigger.attributes, function(attr) {
+			if (attr.name.indexOf('data-o-overlay') === 0) {
+				// Remove the unnecessary part of the string the first time this is run for each attribute
+				var key = attr.name.replace('data-o-overlay-', '');
+				opts = utils.optionsFromKey(key, attr.value, opts);
+			}
+		});
+		opts.trigger = trigger;
+	}
+	return opts;
+};
+
+var triggerClickHandler = function(id, ev) {
+	ev.stopPropagation();
+	var overlay = overlays[id];
+	if (overlay) {
+		if (overlay.visible === true) {
+			overlay.close();
+		} else {
+			overlay.open();
+		}
+	}
+};
+
+var Overlay = function(id, opts) {
+	viewport.listenTo('resize');
+	this.visible = false;
+	this.id = id;
+
+	try {
+		this.opts = checkOptions(opts);
+	} catch(e) {
+		this.broadcast('log', 'oErrors', {
+			error: e
+		});	
+		throw e;
+	}
+	
+	if (!this.opts) {
+		var noOptError = new Error('"o-overlay error": Required options have not been set');
+		this.broadcast('log', 'oErrors', {
+			error: noOptError
+		});
+		throw noOptError;
+	}
+	if (this.opts.trigger) {
+		this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id), false);
+		this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : oLayers.getLayerContext(this.opts.trigger);
+	} else {
+		this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : document.body;
+	}
+
+	this.delegates = {
+		doc: new Delegate(),
+		wrap: new Delegate(),
+		context: new Delegate()
+	};
+
+	// Add this overlay to the overlays hashmap
+	overlays[id] = this;
 };
 
 Overlay.prototype.open = function() {
