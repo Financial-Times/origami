@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="o-hoverable-on inverse">
+<html class="o-hoverable-on o-hoverable-on inverse">
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
@@ -11,6 +11,14 @@
 	<link rel="stylesheet" href="/bundles/css?modules=o-buttons:/demos/src/demo.scss,o-fonts@^1.4.0,o-ft-icons@^2.3.2" />
 </head>
 <body>
+<button class="o-buttons o-buttons--small o-buttons--inverse">Standard</button>
+<button class="o-buttons o-buttons--small o-buttons--inverse" aria-selected="true">Selected</button>
+<button class="o-buttons o-buttons--small o-buttons--inverse" aria-pressed="true">Pressed</button>
+<button class="o-buttons o-buttons--small o-buttons--inverse" disabled="disabled">Disabled</button>
+
+<br />
+<br />
+
 <button class="o-buttons o-buttons--inverse">Standard</button>
 <button class="o-buttons o-buttons--inverse" aria-selected="true">Selected</button>
 <button class="o-buttons o-buttons--inverse" aria-pressed="true">Pressed</button>
@@ -24,7 +32,7 @@
 <button class="o-buttons o-buttons--inverse o-buttons--big" aria-pressed="true">Pressed</button>
 <button class="o-buttons o-buttons--inverse o-buttons--big" disabled="disabled">Disabled</button>
 
-
+<script src="/bundles/js?modules=o-buttons:/demos/src/demo.js,o-fonts@^1.4.0,o-ft-icons@^2.3.2"></script>
 <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
 </body>
 </html>
