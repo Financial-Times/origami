@@ -20,27 +20,44 @@ $o-buttons-class: o-buttons !default;
 /// since `<input>`, `<button>`… don't inherit global font styles
 ///
 /// @type String
-$o-buttons-font-family: BentonSans, sans-serif !default;
+$o-buttons-font-family: MetricWeb, sans-serif !default;
+
+/// Button font weight
+///
+/// @type String
+$o-buttons-font-weight: 600 !default; // Semibold
 
 /// Button sizes, with their attached properties
 ///
 /// @type Map
 $o-buttons-sizes: (
+	small: (
+		font-size: 12px,
+		height: 22px,
+		padding-left: 7px,
+		padding-right: 7px,
+		border-width: 1px,
+	),
 	medium: (
-		font-size: 14px,
-		height: 24px,
-		padding-left: 14px,
-		padding-right: 14px,
+		font-size: 16px,
+		height: 26px,
+		padding-left: 8px,
+		padding-right: 8px,
 		border-width: 1px,
 	),
 	big: (
-		font-size: 16px,
+		font-size: 18px,
 		height: 36px,
 		padding-left: 18px,
 		padding-right: 18px,
 		border-width: 1px,
 	)
 ) !default;
+
+/// Border-radius
+///
+/// @type Number
+$_o-buttons-border-radius: 3px;
 
 /// Button themes, with their respective states
 /// Each state is a Map of CSS properties, find

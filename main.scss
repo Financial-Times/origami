@@ -1,15 +1,16 @@
-@import "o-colors/main";
-@import "o-hoverable/main";
+@import 'o-colors/main';
+@import 'o-hoverable/main';
 
 // Switch off component deprecation warnings
 $_o-buttons-deprecation-warnings: false;
 
-@import "scss/themes";
-@import "scss/variables";
-@import "scss/mixins";
+@import 'scss/themes';
+@import 'scss/variables';
+@import 'scss/functions';
+@import 'scss/mixins';
 
-@import "scss/group";
-@import "scss/pagination";
+@import 'scss/group';
+@import 'scss/pagination';
 
 @if ($o-buttons-is-silent == false) {
 	.#{$o-buttons-class} {

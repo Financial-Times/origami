@@ -15,12 +15,25 @@
 @mixin oButtonsSize($size) {
 	$button-dimensions: map-get($o-buttons-sizes, $size);
 	$border-width: map-get($button-dimensions, border-width);
-	$vertical-padding: 1/2 * (map-get($button-dimensions, height) - map-get($button-dimensions, font-size)) - $border-width * 2;
+	$vertical-padding: 1/2 * (map-get($button-dimensions, height) - map-get($button-dimensions, font-size)) - $border-width;
 
 	padding: $vertical-padding map-get($button-dimensions, padding-right) $vertical-padding map-get($button-dimensions, padding-left);
 	font-size: map-get($button-dimensions, font-size);
 	line-height: map-get($button-dimensions, height) - $border-width * 2 - $vertical-padding * 2;
 	border-width: $border-width;
+}
+
+// Properties for a state of a given theme
+//
+// @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
+@mixin _oButtonsPropertiesForState($theme, $state) {
+	@if _oButtonsThemeHasState($theme, $state) {
+		$states: map-get($o-buttons-themes, $theme);
+
+		@each $property, $value in map-get($states, $state) {
+			#{$property}: #{$value};
+		}
+	}
 }
 
 /// Button theme construct
@@ -33,66 +46,30 @@
 ///
 /// @param {String} $theme
 @mixin oButtonsTheme($theme) {
-	$states: map-get($o-buttons-themes, $theme);
+	@include _oButtonsPropertiesForState($theme, normal);
 
-	@each $property, $value in map-get($states, normal) {
-		#{$property}: #{$value};
+	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+	&[aria-selected=true], // e.g. A selected tab or page number in pagination
+	&[aria-pressed=true] { // e.g. A "follow" button that is pressed
+		@include _oButtonsPropertiesForState($theme, pressedselected);
 	}
 
-	&:focus {
-		@each $property, $value in map-get($states, focus) {
-			#{$property}: #{$value};
-		}
+	&[disabled] {
+		@include _oButtonsPropertiesForState($theme, disabled);
 	}
 
-	@if map-get($states, hover) {
-		#{$o-hoverable-if-hover-enabled} & {
-			// Apply :hover state only in these cases:
-			// - Not disabled
-			// - Not selected
-			// - Not pressed
-			&:not([disabled]):not([aria-selected=true]):not([aria-pressed=true]):hover {
-				background: map-get(map-get($states, hover), background);
-			}
+	&:not([disabled]) {
+		&:focus:not(:hover),
+		#{$o-hoverable-if-hover-enabled} &:hover {
+			@include _oButtonsPropertiesForState($theme, hover);
+		}
+		&:active {
+			@include _oButtonsPropertiesForState($theme, active);
 		}
 	}
-
-	@if map-get($states, selected) {
-		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
-		&[aria-selected=true] {
-			@each $property, $value in map-get($states, selected) {
-				#{$property}: #{$value};
-			}
-
-			&:focus {
-				@if map-has-key(map-get($states, selected), color) {
-					box-shadow: inset 0 0 4px 1px map-get(map-get($states, selected), color);
-				}
-			}
-		}
-	}
-
-	@if map-get($states, pressed) {
-		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
-		&[aria-pressed=true] {
-			@each $property, $value in map-get($states, pressed) {
-				#{$property}: #{$value};
-			}
-
-			&:focus {
-				@if map-has-key(map-get($states, pressed), color) {
-					box-shadow: inset 0 0 4px 1px map-get(map-get($states, pressed), color);
-				}
-			}
-		}
-	}
-
-	@if map-get($states, disabled) {
-		&[disabled] {
-			@each $property, $value in map-get($states, disabled) {
-				#{$property}: #{$value};
-			}
-		}
+	&:focus:not(:active):not(:hover) {
+		@include _oButtonsPropertiesForState($theme, focus);
 	}
 }
 
@@ -125,16 +102,20 @@
 	margin: 0;
 	outline: 0;
 	border-style: solid;
-	border-radius: 5px;
 	text-align: center;
 	text-decoration: none;
 	font-family: $o-buttons-font-family;
+	font-weight: $o-buttons-font-weight;
+	border-radius: $_o-buttons-border-radius;
 	cursor: pointer;
-	transition: 0.3s background-color, 0.15s box-shadow ease-in;
+	transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	user-select: none;
 	background-clip: padding-box;
+	// Prevent fat white type on a dark background
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
 	@include oButtonsSize($size);
 	@include oButtonsTheme($theme);
