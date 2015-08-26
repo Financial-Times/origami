@@ -17,10 +17,16 @@
 /// @link http://build.origami.ft.com/files/o-buttons/demos/grouped.html
 @mixin oButtonsGroup($buttonClass: $o-buttons-class) {
 	> .#{$buttonClass} {
+		position: relative;
 		border-radius: 0;
 
 		+ .#{$buttonClass} {
-			border-left-width: 0;
+			margin-left: -1px;
+		}
+
+		&:hover,
+		&:focus {
+			z-index: 1;
 		}
 	}
 
