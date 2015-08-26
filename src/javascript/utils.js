@@ -126,6 +126,21 @@ function addEvent(element, event, listener) {
 	}
 }
 
+/*
+ * Utility for dispatching custom events from window
+ *
+ * @param {string} namespace
+ * @param {string} eventType
+ * @param {Object} detail
+ */
+function broadcast(namespace, eventType, detail) {
+	detail = detail || {};
+	window.dispatchEvent(new CustomEvent(namespace + '.' + eventType, {
+		detail: detail,
+		bubbles: true
+	}));
+}
+
 /**
  * Listen for page tracking requests.
  *
@@ -192,6 +207,7 @@ module.exports = {
 	encode: encode,
 	guid: guid,
 	addEvent: addEvent,
+	broadcast: broadcast,
 	onPage: onPage,
 	triggerPage: triggerPage,
 	getValueFromCookie: getValueFromCookie,

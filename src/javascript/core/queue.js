@@ -12,7 +12,12 @@ var Store = require('./store');
  */
 var Queue = function (name) {
 	if (utils.isUndefined(name)) {
-		throw new Error('You must specify a name for the queue.');
+		var undefinedName = new Error('You must specify a name for the queue.');
+		utils.broadcast('oErrors', 'log', {
+			error: undefinedName,
+			info: { module: 'o-tracking' }
+		});
+		throw undefinedName;
 	}
 
 	/**
@@ -132,7 +137,12 @@ Queue.prototype.replace = function (items) {
 		return this;
 	}
 
-	throw new Error('Argument invalid, must be an array.');
+	var invalidArg = new Error('Argument invalid, must be an array.');
+	utils.broadcast('oErrors', 'log', {
+		error: invalidArg,
+		info: { module: 'o-tracking' }
+	});
+	throw invalidArg;
 };
 
 /**
