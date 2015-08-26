@@ -185,7 +185,7 @@ Tracking.prototype._getDeclarativeConfig = function(options) {
 		declarativeOptions = JSON.parse(declarativeConfigString);
 	} catch(e) {
 		var configError = new Error('Invalid JSON configuration syntax, check validity for o-tracking configuration: "' + e.message + '"');
-		this.utils.broadcast(document.body, 'oErrors', 'log', {
+		this.utils.broadcast('oErrors', 'log', {
 			error: configError,
 			info: { module: 'o-tracking' }
 		});
