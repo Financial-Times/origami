@@ -85,9 +85,9 @@ function merge(target, options) {
  * @return {string} The encoded string.
  */
 function encode(str) {
-	try {
+	if (window.encodeURIComponent) {
 		return window.encodeURIComponent(str);
-	} catch (error) {
+	} else {
 		return window.escape(str);
 	}
 }
@@ -117,12 +117,10 @@ function guid() {
  * @param {Function} listener
  */
 function addEvent(element, event, listener) {
-	try {
+	if (element.addEventListener) {
 		element.addEventListener(event, listener, false);
-	} catch (error) {
-		try {
-			element.attachEvent('on' + event, listener);
-		} catch (err) {}
+	} else {
+		element.attachEvent('on' + event, listener);
 	}
 }
 
