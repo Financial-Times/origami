@@ -20,6 +20,8 @@
 @import "scss/badges";
 @import "scss/classes";
 
+@warn 'Please update o-typography to version 2, then rename oFtTypography* mixins to oTypography* and o-ft-typography-* classes to o-typography-*.';
+
 // Switch off component deprecation warnings
 $_o-ft-typography-deprecation-warnings: false;
 
