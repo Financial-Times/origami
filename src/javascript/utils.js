@@ -85,9 +85,9 @@ function merge(target, options) {
  * @return {string} The encoded string.
  */
 function encode(str) {
-	try {
+	if (window.encodeURIComponent) {
 		return window.encodeURIComponent(str);
-	} catch (error) {
+	} else {
 		return window.escape(str);
 	}
 }
@@ -117,13 +117,26 @@ function guid() {
  * @param {Function} listener
  */
 function addEvent(element, event, listener) {
-	try {
+	if (element.addEventListener) {
 		element.addEventListener(event, listener, false);
-	} catch (error) {
-		try {
-			element.attachEvent('on' + event, listener);
-		} catch (err) {}
+	} else {
+		element.attachEvent('on' + event, listener);
 	}
+}
+
+/*
+ * Utility for dispatching custom events from window
+ *
+ * @param {string} namespace
+ * @param {string} eventType
+ * @param {Object} detail
+ */
+function broadcast(namespace, eventType, detail) {
+	detail = detail || {};
+	window.dispatchEvent(new CustomEvent(namespace + '.' + eventType, {
+		detail: detail,
+		bubbles: true
+	}));
 }
 
 /**
@@ -192,6 +205,7 @@ module.exports = {
 	encode: encode,
 	guid: guid,
 	addEvent: addEvent,
+	broadcast: broadcast,
 	onPage: onPage,
 	triggerPage: triggerPage,
 	getValueFromCookie: getValueFromCookie,
