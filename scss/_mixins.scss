@@ -1,6 +1,6 @@
 ////
-/// @group o-ft-typography
-/// @link http://registry.origami.ft.com/components/o-ft-typography
+/// @group o-typography
+/// @link http://registry.origami.ft.com/components/o-typography
 ////
 
 
@@ -11,7 +11,7 @@
 /// @param {string} $style [normal]
 ///
 /// @access private
-@mixin _oFtTypographyFont($family, $weight: normal, $style: normal) {
+@mixin _oTypographyFont($family, $weight: normal, $style: normal) {
 	font-family: oFontsGetFontFamilyWithFallbacks($family);
 	font-weight: $weight;
 	font-style: $style;
@@ -21,7 +21,7 @@
 /// compensates dead space by removing some margin bottom
 ///
 /// @param {number} $offset - number of pixels to add (e.g. 3) or remove (e.g. -5)
-@mixin oFtTypographyFontOffset($offset) {
+@mixin oTypographyFontOffset($offset) {
 	@if ($offset > 0) {
 		padding-top: $offset + 0px;
 		margin-bottom: -$offset + 0px;
@@ -36,7 +36,7 @@
 /// @param {Number} $size - background color, e.g. 16
 /// @param {Number} $lineHeight [null] - line height
 /// @param {Number} $offset [0] - number of pixels to offset vertically
-@mixin oFtTypographyFontSize($size, $lineHeight: null, $offset: 0) {
+@mixin oTypographyFontSize($size, $lineHeight: null, $offset: 0) {
 	font-size: $size + 0px;
 	// In some version of webkit there was some bug (unfortunately neglected to document at the time)
 	// with using unitless line-height, hence removal of this line
@@ -44,13 +44,13 @@
 	@if ($lineHeight) {
 		line-height: $lineHeight + 0px;
 	}
-	@include oFtTypographyFontOffset($offset);
+	@include oTypographyFontOffset($offset);
 }
 
 /// Add a background to a text, using text-shadow instead of "background"
 ///
 /// @param {Color} $color - Background color
-@mixin oFtTypographyFauxTextBackground($color) {
+@mixin oTypographyFauxTextBackground($color) {
 	text-shadow: 4px 0 2px $color, -4px 0 2px $color,
 	0 4px 2px $color, 0 -4px 2px $color,
 	2px 0 4px $color, -2px 0 4px $color,
@@ -64,7 +64,7 @@
 /// @param {color} $hover-color
 ///
 /// @access private
-@mixin _oFtTypographyLinkStyle($color, $hover-color) {
+@mixin _oTypographyLinkStyle($color, $hover-color) {
 	a {
 		text-decoration: none;
 		color: $color;

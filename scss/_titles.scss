@@ -1,31 +1,31 @@
 ////
-/// @group o-ft-typography
-/// @link http://registry.origami.ft.com/components/o-ft-typography
+/// @group o-typography
+/// @link http://registry.origami.ft.com/components/o-typography
 ////
 
 /// Large title
-@mixin oFtTypographyTitleLarge {
+@mixin oTypographyTitleLarge {
 	font-family: Georgia, serif;
 	font-weight: normal;
-	@include oFtTypographyFontSize(30, 36, -5);
-	@include oColorsFor(o-ft-typography-title-large o-ft-typography-title title, text);
-	@include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
+	@include oTypographyFontSize(30, 36, -5);
+	@include oColorsFor(o-typography-title-large o-typography-title title, text);
+	@include _oTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }
 
 /// Medium title
-@mixin oFtTypographyTitleMedium {
+@mixin oTypographyTitleMedium {
 	font-family: Georgia, serif;
 	font-weight: normal;
-	@include oFtTypographyFontSize(21, 26);
-	@include oColorsFor(o-ft-typography-title-medium o-ft-typography-title title, text);
-	@include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
+	@include oTypographyFontSize(21, 26);
+	@include oColorsFor(o-typography-title-medium o-typography-title title, text);
+	@include _oTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }
 
 /// Small title
-@mixin oFtTypographyTitleSmall {
+@mixin oTypographyTitleSmall {
 	font-family: Georgia, serif;
 	font-weight: bold;
-	@include oFtTypographyFontSize(15, 17);
-	@include oColorsFor(o-ft-typography-title-small o-ft-typography-title title, text);
-	@include _oFtTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
+	@include oTypographyFontSize(15, 17);
+	@include oColorsFor(o-typography-title-small o-typography-title title, text);
+	@include _oTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }

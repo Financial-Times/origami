@@ -18,18 +18,192 @@
 @import "scss/wrapped_article";
 @import "scss/labels";
 @import "scss/badges";
-@import "scss/classes";
 
-// Switch off component deprecation warnings
-$_o-ft-typography-deprecation-warnings: false;
+@if $o-typography-is-silent == false or $o-typography-is-silent == false {
+	// badges
+	.o-typography-badge {
+		@include oTypographyBadge;
+	}
 
-@import "scss/deprecated/index";
+	// headings
+	.o-typography-heading1 {
+		@include oTypographyHeading1;
+	}
+	.o-typography-heading2 {
+		@include oTypographyHeading2;
+	}
+	.o-typography-heading3 {
+		@include oTypographyHeading3;
+	}
+	.o-typography-heading4 {
+		@include oTypographyHeading4;
+	}
+	.o-typography-heading5 {
+		@include oTypographyHeading5;
+	}
+	.o-typography-heading6 {
+		@include oTypographyHeading6;
+	}
 
-@if (($o-ft-typography-is-silent == false or $o-typography-is-silent == false) and $o-ft-typography-output-font-face-declarations) {
-	@each $usecase in $_o-ft-typography-fontface-usecase-mapping {
-		@include oFtTypographyIncludeFont(nth($usecase, 1));
+	.o-typography-heading1-layout {
+		@include oTypographyHeading1Layout;
+	}
+
+	.o-typography-heading1-text {
+		@include oTypographyHeading1Text;
+	}
+
+	.o-typography-heading2-layout {
+		@include oTypographyHeading2Layout;
+	}
+
+	.o-typography-heading2-text {
+		@include oTypographyHeading2Text;
+	}
+
+	.o-typography-heading3-layout {
+		@include oTypographyHeading3Layout;
+	}
+
+	.o-typography-heading3-text {
+		@include oTypographyHeading3Text;
+	}
+
+	.o-typography-heading4-layout {
+		@include oTypographyHeading4Layout;
+	}
+
+	.o-typography-heading4-text {
+		@include oTypographyHeading4Text;
+	}
+
+	.o-typography-heading5-layout {
+		@include oTypographyHeading5Layout;
+	}
+
+	.o-typography-heading5-text {
+		@include oTypographyHeading5Text;
+	}
+
+	.o-typography-heading6-layout {
+		@include oTypographyHeading6Layout;
+	}
+
+	.o-typography-heading6-text {
+		@include oTypographyHeading6Text;
+	}
+
+	// titles
+	.o-typography-title-large {
+		@include oTypographyTitleLarge;
+	}
+	.o-typography-title-medium {
+		@include oTypographyTitleMedium;
+	}
+	.o-typography-title-small {
+		@include oTypographyTitleSmall;
+	}
+
+	// leads
+	.o-typography-lead-large {
+		@include oTypographyLeadLarge;
+	}
+
+	.o-typography-lead-medium {
+		@include oTypographyLeadMedium;
+	}
+
+	.o-typography-lead-small {
+		@include oTypographyLeadSmall;
+	}
+
+	// labels
+	.o-typography-label-large {
+		@include oTypographyLabelLarge;
+	}
+	.o-typography-label-small {
+		@include oTypographyLabelSmall;
+	}
+	.o-typography-label-medium {
+		@include oTypographyLabelMedium;
+	}
+
+	// metadata
+	.o-typography-brand {
+		@include oTypographyBrand;
+	}
+	.o-typography-byline {
+		@include oTypographyByline;
+	}
+	.o-typography-timestamp {
+		@include oTypographyTimestamp;
+	}
+
+	// body - common
+	.o-typography-body--bold {
+		@include oTypographyBold;
+	}
+	.o-typography-body--italic {
+		@include oTypographyItalic;
+	}
+	.o-typography-boldy--small {
+		@include oTypographySmall;
+	}
+	.o-typography-body--sup {
+		@include oTypographySuper;
+	}
+	.o-typography-body--sub {
+		@include oTypographySub;
+	}
+	.o-typography-body--link {
+		@include oTypographyBodyLink;
+	}
+
+	// body - general
+	.o-typography-body {
+		@include oTypographyBody;
+	}
+	.o-typography-body--lead {
+		@include oTypographyBodyLead;
+	}
+
+	.o-typography-body__block {
+		@include oTypographyBodyBlock;
+	}
+
+	.o-typography-body__list {
+		@include oTypographyBodyList;
+	}
+
+	.o-typography-body__list--ordered {
+		@include oTypographyBodyListOrdered;
+	}
+
+	.o-typography-body__list--unordered {
+		@include oTypographyBodyListUnordered;
+	}
+
+	// body wrapper
+	.o-typography-body-wrapper {
+		@include oTypographyBodyWrapper;
+	}
+
+	// body article styles
+	.o-typography-article-body {
+		@include oTypographyArticleBody;
+	}
+	.o-typography-article-body__block {
+		@include oTypographyArticleBodyBlock;
+	}
+	.o-typography-article-body--lead {
+		@include oTypographyArticleBodyLead;
+	}
+	.o-typography-article-body__list {
+		@include oTypographyArticleBodyList;
+	}
+
+	// article wrapper
+	.o-typography-article-body-wrapper {
+		@include oTypographyArticleBodyWrapper;
 	}
 }
-
-// Switch deprecation warnings back on
-$_o-ft-typography-deprecation-warnings: true;
