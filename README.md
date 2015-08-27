@@ -4,21 +4,23 @@ Standard FT-branded buttons.
 
 Buttons come in four themes ([documentation](#theme-modifiers)):
 
-* __default__: blue outline
+* __default__: teal outline
+* __standout__: solid teal
 * __uncolored__: monochrome
-* __inverse__: white
-* __standout__: solid blue
+* __inverse__: for use on dark backgrounds
 
 and two sizes ([documentation](#size-modifiers)):
 
-* __default__: 24px high
+* __small__: 22px high
+* __default__: 26px high
 * __big__: 36px high
 
-and have 6 different states:
+and have 7 different states:
 
 * __standard__: without any interaction
 * __hover__: when the mouse pointer is over 
 * __focus__: it's the current target of keyboard input
+* __active__: the pointer is pushing / tapping / clicking the button
 * __selected__: marked as chosen
 * __disabled__: when clicking it will have no effect
 * __pressed__: for toggable buttons that are currently activated
