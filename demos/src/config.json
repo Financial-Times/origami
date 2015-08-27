@@ -2,7 +2,7 @@
 	"options": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
-		"bodyClasses": "o-techdocs-content",
+		"documentClasses": "o-techdocs-content",
 		"dependencies": ["o-techdocs@^4.0.0"]
 	},
 	"demos": [
