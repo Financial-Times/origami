@@ -1,4 +1,4 @@
-#FT Typography [![Build Status](https://travis-ci.org/Financial-Times/o-typography.png?branch=master)](https://travis-ci.org/Financial-Times/o-typography)
+# FT Typography [![Build Status](https://travis-ci.org/Financial-Times/o-typography.png?branch=master)](https://travis-ci.org/Financial-Times/o-typography)
 
 Typographical styles for FT branded sites - font families, weight, colors, sizes and vertical rhythm.
 
@@ -15,9 +15,9 @@ Body content styles come in two categories:
 
 ### Web fonts
 
-This module doesn't load web fonts. Products can load web fonts separately.
+o-typography **does not load web fonts**, products should load web fonts themselves.
 
-Load FT's custom web fonts using [o-fonts](https://github.com/financial-times/o-fonts).
+**Load FT's custom web fonts using [o-fonts](https://github.com/financial-times/o-fonts).**
 
 ## Usage
 
@@ -36,7 +36,9 @@ Pre-defined CSS classes are provided and can be used directly in your HTML. All 
 
 The classes do not depend on any specific HTML element, but appropriate semantic elements should be chosen.
 
-	<h2 class="o-typography-heading-medium">Heading medium</h2>
+```html
+<h2 class="o-typography-heading-medium">Heading medium</h2>
+```
 
 See docs/demo.html for a full list of the classes provided and their effects. 
 
@@ -44,21 +46,25 @@ In addition to applying classes individual to elements, body styles can be appli
 
 **General** body styles:
 
-	<div class="o-typography-body-wrapper">
-		<h2>Heading medium</h2>
-		<p>Body block with <strong>styled inline text</strong>.</p>
-		<h3>Heading small</h2>
-		<p>Body block with <em>styled inline text</em>.</p>
-	</div>
+```html
+<div class="o-typography-body-wrapper">
+	<h2>Heading medium</h2>
+	<p>Body block with <strong>styled inline text</strong>.</p>
+	<h3>Heading small</h3>
+	<p>Body block with <em>styled inline text</em>.</p>
+</div>
+```
 
 **Article** body styles:
 
-	<div class="o-typography-article-body-wrapper">
-		<h2>Article subheading 1</h2>
-		<p>Article body block with <strong>styled inline text</strong>.</p>
-		<h3>Article subheading 2</h2>
-		<p>Article body block with <em>styled inline text</em>.</p>
-	</div>
+```html
+<div class="o-typography-article-body-wrapper">
+	<h2>Article subheading 1</h2>
+	<p>Article body block with <strong>styled inline text</strong>.</p>
+	<h3>Article subheading 2</h3>
+	<p>Article body block with <em>styled inline text</em>.</p>
+</div>
+```
 
 Pre-defined classes are not available to module developers. Module developers are required to use the mixins.
 
@@ -66,18 +72,22 @@ Pre-defined classes are not available to module developers. Module developers ar
 
 If you don't want to include the pre-defined classes in your HTML (or are a module developer) you may instead use the mixins provided:
 
-	.article {
-		p,
-		blockquote {
-			@include oTypographyBodyBlock;
-		}
+```scss
+.article {
+	p,
+	blockquote {
+		@include oTypographyBodyBlock;
 	}
+}
+```
 
 For wrappers:
 
-	.article {
-		@include oTypographyArticleBodyWrapper;
-	}
+```scss
+.article {
+	@include oTypographyArticleBodyWrapper;
+}
+```
 
 Mixins exist for all the same styles as pre-defined classes, named with a camelCased version of the class name.
 
@@ -88,9 +98,11 @@ When you're not consuming this module via the build service, by default this mod
 
 This can be turned off by setting a variable before you import the Sass:
 
-	$o-typography-is-silent: false;
-	
-	@import "o-typography/main";
+```scss
+$o-typography-is-silent: false;
+
+@import 'o-typography/main';
+```
 
 ----
 
