@@ -6,8 +6,10 @@
 /// Styles for a brand
 @mixin oTypographyBrand {
 	margin: 0;
-	@include oTypographyFontSize(12, 14);
-	@include _oTypographyFont(BentonSans, bold);
+	font-size: 12px;
+	line-height: 14px;
+	font-family: BentonSans, sans-serif;
+	font-weight: bold;
 	@include oColorsFor(o-typography-brand body, text);
 	@include _oTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
@@ -15,15 +17,17 @@
 /// Styles for a byline
 @mixin oTypographyByline {
 	margin: 0;
-	@include oTypographyFontSize(14, 24);
-	@include _oTypographyFont(BentonSans);
+	font-size: 14px;
+	line-height: 24px;
+	font-family: BentonSans, sans-serif;
 	@include oColorsFor(o-typography-byline, text);
 }
 
 /// Styles for a timestamp
 @mixin oTypographyTimestamp {
 	margin: 0;
-	@include oTypographyFontSize(14, 24);
-	@include _oTypographyFont(BentonSans);
+	font-size: 14px;
+	line-height: 24px;
+	font-family: BentonSans, sans-serif;
 	@include oColorsFor(o-typography-timestamp, text);
 }

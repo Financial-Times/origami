@@ -8,7 +8,8 @@
 	display: inline-block;
 	border-radius: 5px;
 	padding: 0 4px;
-	@include _oTypographyFont(BentonSans, bold);
+	font-family: BentonSans, sans-serif;
+	font-style: normal;
 	@include oColorsFor(o-typography-badge box, background text);
 	font-size: 10px;
 	font-weight: normal;

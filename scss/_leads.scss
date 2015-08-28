@@ -7,7 +7,8 @@
 @mixin oTypographyLeadLarge {
 	font-family: Georgia, serif;
 	font-weight: normal;
-	@include oTypographyFontSize(21, 26);
+	font-size: 21px;
+	line-height: 26px;
 	@include oColorsFor(o-typography-lead-large o-typography-lead body, text);
 	@include _oTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
@@ -16,15 +17,18 @@
 @mixin oTypographyLeadMedium {
 	font-family: Georgia, serif;
 	font-weight: normal;
-	@include oTypographyFontSize(17, 21);
+	font-size: 17px;
+	line-height: 21px;
 	@include oColorsFor(o-typography-lead-medium o-typography-lead body, text);
 	@include _oTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
 /// Small leader
 @mixin oTypographyLeadSmall {
-	@include _oTypographyFont(BentonSans, normal);
-	@include oTypographyFontSize(13, 17);
+	font-family: BentonSans, sans-serif;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 17px;
 	@include oColorsFor(o-typography-lead-small o-typography-lead body, text);
 	@include _oTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }

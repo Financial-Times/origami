@@ -7,7 +7,14 @@
 @mixin oTypographyTitleLarge {
 	font-family: Georgia, serif;
 	font-weight: normal;
-	@include oTypographyFontSize(30, 36, -5);
+	font-size: 30px;
+	line-height: 36px;
+
+	/// Offset text vertically
+	/// (compensates dead space)
+	margin-top: -5px;
+	padding-bottom: 5px;
+
 	@include oColorsFor(o-typography-title-large o-typography-title title, text);
 	@include _oTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }
@@ -16,7 +23,8 @@
 @mixin oTypographyTitleMedium {
 	font-family: Georgia, serif;
 	font-weight: normal;
-	@include oTypographyFontSize(21, 26);
+	font-size: 21px;
+	line-height: 26px;
 	@include oColorsFor(o-typography-title-medium o-typography-title title, text);
 	@include _oTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }
@@ -25,7 +33,8 @@
 @mixin oTypographyTitleSmall {
 	font-family: Georgia, serif;
 	font-weight: bold;
-	@include oTypographyFontSize(15, 17);
+	font-size: 15px;
+	line-height: 17px;
 	@include oColorsFor(o-typography-title-small o-typography-title title, text);
 	@include _oTypographyLinkStyle(oColorsGetColorFor(title, text), oColorsGetColorFor(link, text));
 }

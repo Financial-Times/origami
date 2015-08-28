@@ -10,13 +10,15 @@
 	padding: 0 0 14px;
 	font-family: Georgia, serif;
 	font-weight: normal;
-	@include oTypographyFontSize(21, 27);
+	font-size: 21px;
+	line-height: 27px;
 	@include oColorsFor(o-typography-article-body-lead body, text);
 }
 
 /// Default article text style
 @mixin oTypographyArticleBody {
-	@include oTypographyFontSize(16, 24);
+	font-size: 16px;
+	line-height: 24px;
 	font-family: Georgia, serif;
 	font-weight: normal;
 	@include oColorsFor(o-typography-article-body body, text);

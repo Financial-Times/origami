@@ -1,23 +1,22 @@
-@import "o-fonts/main";
-@import "o-colors/main";
-@import "o-hoverable/main";
-@import "scss/variables";
-@import "scss/mixins";
+@import 'o-colors/main';
+@import 'o-hoverable/main';
+@import 'scss/variables';
+@import 'scss/mixins';
 
-@import "scss/titles";
-@import "scss/leads";
-@import "scss/metadata";
+@import 'scss/titles';
+@import 'scss/leads';
+@import 'scss/metadata';
 
-@import "scss/body_common";
-@import "scss/body_general";
-@import "scss/headings";
-@import "scss/body_article";
+@import 'scss/body_common';
+@import 'scss/body_general';
+@import 'scss/headings';
+@import 'scss/body_article';
 
-@import "scss/wrapped_common";
-@import "scss/wrapped_general";
-@import "scss/wrapped_article";
-@import "scss/labels";
-@import "scss/badges";
+@import 'scss/wrapped_common';
+@import 'scss/wrapped_general';
+@import 'scss/wrapped_article';
+@import 'scss/labels';
+@import 'scss/badges';
 
 @if $o-typography-is-silent == false {
 	// Badges

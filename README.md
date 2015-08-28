@@ -1,6 +1,8 @@
 #FT Typography [![Build Status](https://travis-ci.org/Financial-Times/o-typography.png?branch=master)](https://travis-ci.org/Financial-Times/o-typography)
 
-Typographical styles for FT branded sites - fonts, weight, colors, sizes and vertical rhythm.
+Typographical styles for FT branded sites - font families, weight, colors, sizes and vertical rhythm.
+
+----
 
 ## Overview
 
@@ -9,16 +11,22 @@ This module provides styles for Headings, Titles, Leads, Metadata, and body cont
 Body content styles come in two categories:
 
 * **general**, used for informational pages, forms, application user interfaces etc.
-* **article**, used for editorial content. 
+* **article**, used for editorial content.
+
+### Web fonts
+
+This module doesn't load web fonts. Products can load web fonts separately.
+
+Load FT's custom web fonts using [o-fonts](https://github.com/financial-times/o-fonts).
 
 ## Usage
 
 There are two main ways to use these typographic styles:
 
 1. Using the predefined CSS classes
-2. Extending Sass placeholders to your own CSS classes
+2. Using Sass mixins in your own CSS classes
 
-If you are using the [Origami Build Service](http://financial-times.github.io/ft-origami/docs/developer-guide/build-service/) to add this module's CSS to your page, then only option 1 is available to you.
+If you are using the [Origami Build Service](http://origami.ft.com/docs/developer-guide/build-service/) to add this module's CSS to your page, then only option 1 is available to you.
 
 ### 1. Using the predefined CSS classes
 
@@ -83,23 +91,6 @@ This can be turned off by setting a variable before you import the Sass:
 	$o-typography-is-silent: false;
 	
 	@import "o-typography/main";
-
-If you're not turning off silent mode, you will need to to load the fonts required by the typography you are using (due to the limitations of Sass' mixins, this cannot at present be done automatically):
-
-	@include oTypographyIncludeFont(heading); // downloads BentonSans-bold font given the current FT styles
-	@include oTypographyIncludeFont(metadata); // downloads BentonSans-normal font given the current FT styles
-
-If a typography use case doesn't require a `@fontface` declaration in current FT branding nothing will be output by `oTypographyIncludeFont()`, but it's still a good idea to call it for each use case you use as it will mean your module will cope seamlessly with updates to FT's typography.
-
-### Font-face declarations
-
-By default, this module will output font-face declarations for the required font-families. The next major version will not.
-
-To remove font-face declarations from the output, set:
-
-```scss
-$o-typography-output-font-face-declarations: false;
-```
 
 ----
 

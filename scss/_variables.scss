@@ -3,20 +3,9 @@
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
-@import "o-fonts/main";
-
 /// When silent mode is active, css classes will not be output
 /// @type Bool
 $o-typography-is-silent: true !default;
-
-/// When silent mode is active, css classes will not be output
-/// @type Bool
-$o-typography-is-silent: true !default;
-
-/// Output @font-face declarations?
-/// nb: @font-face declarations will be removed in the next major version
-/// @type Bool
-$o-typography-output-font-face-declarations: true !default;
 
 @include oColorsSetUseCase(o-typography-heading-medium, border, 'pink-tint2');
 @include oColorsSetUseCase(o-typography-heading-large, border, 'pink-tint4');

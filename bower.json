@@ -5,8 +5,7 @@
     ".travis.yml"
   ],
   "dependencies": {
-    "o-fonts": "^1.3.0",
     "o-colors": ">=2.5.0 <4",
-    "o-hoverable": ">=0.1.1 <2"
+    "o-hoverable": ">=0.1.1 <3"
   }
 }

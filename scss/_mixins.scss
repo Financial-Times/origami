@@ -3,50 +3,6 @@
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
-
-/// Shorthand for font style settings
-///
-/// @param {string} $family
-/// @param {string} $weight [normal]
-/// @param {string} $style [normal]
-///
-/// @access private
-@mixin _oTypographyFont($family, $weight: normal, $style: normal) {
-	font-family: oFontsGetFontFamilyWithFallbacks($family);
-	font-weight: $weight;
-	font-style: $style;
-}
-
-/// Offset text vertically
-/// compensates dead space by removing some margin bottom
-///
-/// @param {number} $offset - number of pixels to add (e.g. 3) or remove (e.g. -5)
-@mixin oTypographyFontOffset($offset) {
-	@if ($offset > 0) {
-		padding-top: $offset + 0px;
-		margin-bottom: -$offset + 0px;
-	} @else if ($offset < 0) {
-		margin-top: $offset + 0px;
-		padding-bottom: -$offset + 0px;
-	}
-}
-
-/// Shorthand for font size settings
-///
-/// @param {Number} $size - background color, e.g. 16
-/// @param {Number} $lineHeight [null] - line height
-/// @param {Number} $offset [0] - number of pixels to offset vertically
-@mixin oTypographyFontSize($size, $lineHeight: null, $offset: 0) {
-	font-size: $size + 0px;
-	// In some version of webkit there was some bug (unfortunately neglected to document at the time)
-	// with using unitless line-height, hence removal of this line
-	// line-height: $originalLineHeight / $originalHeight;
-	@if ($lineHeight) {
-		line-height: $lineHeight + 0px;
-	}
-	@include oTypographyFontOffset($offset);
-}
-
 /// Add a background to a text, using text-shadow instead of "background"
 ///
 /// @param {Color} $color - Background color

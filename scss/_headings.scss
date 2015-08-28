@@ -13,8 +13,10 @@
 
 /// Text styles for heading level 1
 @mixin oTypographyHeading1Text {
-	@include _oTypographyFont(BentonSans, bold);
-	@include oTypographyFontSize(16, 20);
+	font-family: BentonSans, sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 20px;
 	@include oColorsFor(o-typography-heading1 o-typography-heading-large body, text);
 	@include _oTypographyLinkStyle(oColorsGetColorFor(o-typography-heading-large body, text), oColorsGetColorFor(link, text));
 }
@@ -29,9 +31,11 @@
 
 /// Text styles for heading level 2
 @mixin oTypographyHeading2Text {
-	@include _oTypographyFont(BentonSans, bold);
+	font-family: BentonSans, sans-serif;
+	font-weight: bold;
 	text-transform: uppercase;
-	@include oTypographyFontSize(13, 20);
+	font-size: 13px;
+	line-height: 20px;
 	@include oColorsFor(o-typography-heading-large body, text);
 	@include _oTypographyLinkStyle(oColorsGetColorFor(o-typography-heading-large body, text), oColorsGetColorFor(link, text));
 }
@@ -44,9 +48,11 @@
 
 /// Text styles for heading level 3 and 4
 @mixin oTypographyHeading3And4Text {
-	@include oTypographyFontSize(16, 20);
+	font-size: 16px;
+	line-height: 20px;
 	@include oTypographyBodyBlock;
-	@include _oTypographyFont(BentonSans, bold);
+	font-family: BentonSans, sans-serif;
+	font-weight: bold;
 	@include oColorsFor(o-typography-article-subheading, text);
 }
 
@@ -96,8 +102,10 @@
 
 /// Text styles for level 5 heading
 @mixin oTypographyHeading5Text {
-	@include _oTypographyFont(BentonSans, bold);
-	@include oTypographyFontSize(13, 20);
+	font-family: BentonSans, sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 20px;
 	color: oColorsGetColorFor(o-typography-heading5 o-typography-article-subheading body, text);
 	text-transform: uppercase;
 	@include _oTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
@@ -112,8 +120,10 @@
 /// Text styles for level 6 heading
 @mixin oTypographyHeading6Text {
 	margin: 0 0 8px;
-	@include _oTypographyFont(BentonSans, bold);
-	@include oTypographyFontSize(14, 20);
+	font-family: BentonSans, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 20px;
 	color: oColorsGetColorFor(o-typography-heading6 body, text);
 	@include _oTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
