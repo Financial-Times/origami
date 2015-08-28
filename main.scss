@@ -19,13 +19,13 @@
 @import "scss/labels";
 @import "scss/badges";
 
-@if $o-typography-is-silent == false or $o-typography-is-silent == false {
-	// badges
+@if $o-typography-is-silent == false {
+	// Badges
 	.o-typography-badge {
 		@include oTypographyBadge;
 	}
 
-	// headings
+	// Headings
 	.o-typography-heading1 {
 		@include oTypographyHeading1;
 	}
@@ -45,55 +45,45 @@
 		@include oTypographyHeading6;
 	}
 
+	// Headings structure (-layout) and text styles (-text)
 	.o-typography-heading1-layout {
 		@include oTypographyHeading1Layout;
 	}
-
 	.o-typography-heading1-text {
 		@include oTypographyHeading1Text;
 	}
-
 	.o-typography-heading2-layout {
 		@include oTypographyHeading2Layout;
 	}
-
 	.o-typography-heading2-text {
 		@include oTypographyHeading2Text;
 	}
-
 	.o-typography-heading3-layout {
 		@include oTypographyHeading3Layout;
 	}
-
 	.o-typography-heading3-text {
 		@include oTypographyHeading3Text;
 	}
-
 	.o-typography-heading4-layout {
 		@include oTypographyHeading4Layout;
 	}
-
 	.o-typography-heading4-text {
 		@include oTypographyHeading4Text;
 	}
-
 	.o-typography-heading5-layout {
 		@include oTypographyHeading5Layout;
 	}
-
 	.o-typography-heading5-text {
 		@include oTypographyHeading5Text;
 	}
-
 	.o-typography-heading6-layout {
 		@include oTypographyHeading6Layout;
 	}
-
 	.o-typography-heading6-text {
 		@include oTypographyHeading6Text;
 	}
 
-	// titles
+	// Title
 	.o-typography-title-large {
 		@include oTypographyTitleLarge;
 	}
@@ -104,31 +94,29 @@
 		@include oTypographyTitleSmall;
 	}
 
-	// leads
+	// Lead
+	.o-typography-lead-small {
+		@include oTypographyLeadSmall;
+	}
+	.o-typography-lead-medium {
+		@include oTypographyLeadMedium;
+	}
 	.o-typography-lead-large {
 		@include oTypographyLeadLarge;
 	}
 
-	.o-typography-lead-medium {
-		@include oTypographyLeadMedium;
-	}
-
-	.o-typography-lead-small {
-		@include oTypographyLeadSmall;
-	}
-
-	// labels
-	.o-typography-label-large {
-		@include oTypographyLabelLarge;
-	}
+	// Labels
 	.o-typography-label-small {
 		@include oTypographyLabelSmall;
 	}
 	.o-typography-label-medium {
 		@include oTypographyLabelMedium;
 	}
+	.o-typography-label-large {
+		@include oTypographyLabelLarge;
+	}
 
-	// metadata
+	// Metadata
 	.o-typography-brand {
 		@include oTypographyBrand;
 	}
@@ -139,7 +127,7 @@
 		@include oTypographyTimestamp;
 	}
 
-	// body - common
+	// Body copy - common
 	.o-typography-body--bold {
 		@include oTypographyBold;
 	}
@@ -159,36 +147,32 @@
 		@include oTypographyBodyLink;
 	}
 
-	// body - general
+	// Body copy - general
 	.o-typography-body {
 		@include oTypographyBody;
 	}
 	.o-typography-body--lead {
 		@include oTypographyBodyLead;
 	}
-
 	.o-typography-body__block {
 		@include oTypographyBodyBlock;
 	}
-
 	.o-typography-body__list {
 		@include oTypographyBodyList;
 	}
-
 	.o-typography-body__list--ordered {
 		@include oTypographyBodyListOrdered;
 	}
-
 	.o-typography-body__list--unordered {
 		@include oTypographyBodyListUnordered;
 	}
 
-	// body wrapper
+	// Body wrapper
 	.o-typography-body-wrapper {
 		@include oTypographyBodyWrapper;
 	}
 
-	// body article styles
+	// Article styles
 	.o-typography-article-body {
 		@include oTypographyArticleBody;
 	}
@@ -202,7 +186,7 @@
 		@include oTypographyArticleBodyList;
 	}
 
-	// article wrapper
+	// Article wrapper
 	.o-typography-article-body-wrapper {
 		@include oTypographyArticleBodyWrapper;
 	}
