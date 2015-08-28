@@ -1,30 +1,30 @@
 ////
-/// @group o-ft-typography
-/// @link http://registry.origami.ft.com/components/o-ft-typography
+/// @group o-typography
+/// @link http://registry.origami.ft.com/components/o-typography
 ////
 
 /// Large leader
-@mixin oFtTypographyLeadLarge {
+@mixin oTypographyLeadLarge {
 	font-family: Georgia, serif;
 	font-weight: normal;
-	@include oFtTypographyFontSize(21, 26);
-	@include oColorsFor(o-ft-typography-lead-large o-ft-typography-lead body, text);
-	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
+	@include oTypographyFontSize(21, 26);
+	@include oColorsFor(o-typography-lead-large o-typography-lead body, text);
+	@include _oTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
 /// Medium leader
-@mixin oFtTypographyLeadMedium {
+@mixin oTypographyLeadMedium {
 	font-family: Georgia, serif;
 	font-weight: normal;
-	@include oFtTypographyFontSize(17, 21);
-	@include oColorsFor(o-ft-typography-lead-medium o-ft-typography-lead body, text);
-	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
+	@include oTypographyFontSize(17, 21);
+	@include oColorsFor(o-typography-lead-medium o-typography-lead body, text);
+	@include _oTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
 
 /// Small leader
-@mixin oFtTypographyLeadSmall {
-	@include _oFtTypographyFont(BentonSans, normal);
-	@include oFtTypographyFontSize(13, 17);
-	@include oColorsFor(o-ft-typography-lead-small o-ft-typography-lead body, text);
-	@include _oFtTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
+@mixin oTypographyLeadSmall {
+	@include _oTypographyFont(BentonSans, normal);
+	@include oTypographyFontSize(13, 17);
+	@include oColorsFor(o-typography-lead-small o-typography-lead body, text);
+	@include _oTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
