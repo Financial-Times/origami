@@ -3,7 +3,7 @@ o-labels [![build status](https://travis-ci.org/Financial-Times/o-labels.svg)](h
 
 Standard labels
 
-<img alt="screenshot" src="screenshot.png" width="120">
+![ ](https://github.com/Financial-Times/o-labels/blob/master/screenshot.png)
 
 Labels have 3 states:
 
