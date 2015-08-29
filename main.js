@@ -9,9 +9,12 @@ function trigger(type) {
 }
 
 window.addEventListener('load', trigger.bind(null, 'load'));
+window.addEventListener('load', trigger.bind(null, 'DOMContentLoaded'));
 document.addEventListener('DOMContentLoaded', trigger.bind(null, 'DOMContentLoaded'));
 
 if (document.readyState === 'complete') {
 	trigger('load');
+	trigger('DOMContentLoaded');
+} else if (document.readyState === 'interactive') {
 	trigger('DOMContentLoaded');
 }
