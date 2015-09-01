@@ -109,11 +109,13 @@ function guid() {
 			randomVals = new Uint8Array(32);
 			window.crypto.getRandomValues(randomVals);
 		}
-	} catch (e) {
+	} finally {
 		// Fall back to Math.random on error or if window.crypto not available
-		randomVals = new Array(32);
-		for (i = 0; i < 32; i++) {
-			randomVals[i] = Math.random() * 256 | 0;
+		if(typeof randomVals === 'undefined') {
+			randomVals = new Array(32);
+			for (i = 0; i < 32; i++) {
+				randomVals[i] = Math.random() * 256 | 0;
+			}
 		}
 	}
 
