@@ -100,22 +100,26 @@ function encode(str) {
 function guid() {
 	var unique = '';
 	var randomVals;
+	var hasWindowCtypto = false;
 	var i;
 
-	// HACK:JC:20130313: The FIrefox OS simulator throws an error on trying to access the window.crypto property.
 	try {
+		
+		// HACK:JC:20130313: The Firefox OS simulator throws an error on trying to access the window.crypto property.
+		hasWindowCtypto = !!(window.crypto && window.crypto.getRandomValues);
+	} catch (e) {}
+
+	if (hasWindowCtypto) {
+		
 		// If available, use numbers which are more random
-		if (window.crypto && window.crypto.getRandomValues) {
-			randomVals = new Uint8Array(32);
-			window.crypto.getRandomValues(randomVals);
-		}
-	} finally {
+		randomVals = new Uint8Array(32);
+		window.crypto.getRandomValues(randomVals);
+	} else {
+
 		// Fall back to Math.random on error or if window.crypto not available
-		if(typeof randomVals === 'undefined') {
-			randomVals = new Array(32);
-			for (i = 0; i < 32; i++) {
-				randomVals[i] = Math.random() * 256 | 0;
-			}
+		randomVals = new Array(32);
+		for (i = 0; i < 32; i++) {
+			randomVals[i] = Math.random() * 256 | 0;
 		}
 	}
 
