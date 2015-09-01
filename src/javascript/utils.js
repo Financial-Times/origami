@@ -97,16 +97,46 @@ function encode(str) {
  * Based on http://stackoverflow.com/a/21963136
  * @return {string}
  */
-var lut = []; for (var i=0; i<256; i++) { lut[i] = (i<16?'0':'')+(i).toString(16); }
 function guid() {
-	var d0 = Math.random()*0xffffffff|0;
-	var d1 = Math.random()*0xffffffff|0;
-	var d2 = Math.random()*0xffffffff|0;
-	var d3 = Math.random()*0xffffffff|0;
-	return lut[d0&0xff]+lut[d0>>8&0xff]+lut[d0>>16&0xff]+lut[d0>>24&0xff]+'-'+
-		lut[d1&0xff]+lut[d1>>8&0xff]+'-'+lut[d1>>16&0x0f|0x40]+lut[d1>>24&0xff]+'-'+
-		lut[d2&0x3f|0x80]+lut[d2>>8&0xff]+'-'+lut[d2>>16&0xff]+lut[d2>>24&0xff]+
-		lut[d3&0xff]+lut[d3>>8&0xff]+lut[d3>>16&0xff]+lut[d3>>24&0xff];
+	var unique = '';
+	var randomVals;
+
+	// HACK:JC:20130313: The FIrefox OS simulator throws an error on trying to access the window.crypto property.
+	try {
+		// If available, use numbers which are more random
+		if (window.crypto && window.crypto.getRandomValues) {
+			randomVals = new Uint8Array(32);
+			window.crypto.getRandomValues(randomVals);
+		}
+	} catch (e) {
+		// Fall back to Math.random on error or if window.crypto not available
+		randomVals = new Array(32);
+		for (i = 0; i < 32; i++) {
+			randomVals[i] = Math.random() * 256 | 0;
+		}
+	}
+
+	// Construct a UUID based on rfc4122 version 4
+	for (i = 0; i < 32; i++) {
+
+		// The following characters are preceded by a hyphen
+		if (i === 8 || i === 12 || i === 16 || i === 20) {
+			unique += "-";
+		}
+
+		// 12th character must be a 4
+		if (i === 12) {
+			unique += "4";
+		} else if (i === 16) {
+			// 16th character must be an 8, 9, A or B
+			unique += ((randomVals[i] / 16) & 0x3 | 0x8).toString(16);
+		} else {
+			// Other characters must be hexadecimal
+			unique += (randomVals[i] / 16 | 0).toString(16);
+		}
+	}
+
+	return unique;
 }
 
 /*
