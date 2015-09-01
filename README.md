@@ -21,7 +21,7 @@ Checkout the [Origami spec](http://origami.ft.com/docs/developer-guide/using-mod
 
 o-tracking should have the following piece of html added, with the correct server and data filled in.
 ```html
-<div class="o-tracking o--if-nojs" data-o-component="o-tracking" style="height:0;line-height:0;overflow:hidden;">
+<div class="o-tracking o--if-no-js" data-o-component="o-tracking">
 	<div style="background:url('http://server?data={}');"></div>
 </div>
 ```
