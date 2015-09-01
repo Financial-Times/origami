@@ -100,6 +100,7 @@ function encode(str) {
 function guid() {
 	var unique = '';
 	var randomVals;
+	var i;
 
 	// HACK:JC:20130313: The FIrefox OS simulator throws an error on trying to access the window.crypto property.
 	try {
