@@ -1,8 +1,6 @@
 /* global fetch */
 'use strict';
 
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
 var nJsonpFetch = require('n-jsonp-fetch');
 var Video = require('./video');
 var getAppropriateRendition = require('../libs/get-appropriate-rendition');
