@@ -49,6 +49,12 @@ This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 		},											// [5] 
 		"url": "...",											// [5]
 		"referrer": "...",										// See also [5]
+		funnel: {
+			funnel_name: "",   									// An overall name for the funnel - fixed name
+			funnel_steps: 3,   									// Total number of steps in this funnel - fixed number
+			step_name: "",     									// Name for this step
+			step_number: 1     									// Number for this step
+        }
 		...
 		"anything": "goes here",
 		"could": [ "be", "an", "array" ],
