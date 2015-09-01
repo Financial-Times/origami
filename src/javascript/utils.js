@@ -104,13 +104,13 @@ function guid() {
 	var i;
 
 	try {
-		
+
 		// HACK:JC:20130313: The Firefox OS simulator throws an error on trying to access the window.crypto property.
 		hasWindowCtypto = !!(window.crypto && window.crypto.getRandomValues);
 	} catch (e) {}
 
 	if (hasWindowCtypto) {
-		
+
 		// If available, use numbers which are more random
 		randomVals = new Uint8Array(32);
 		window.crypto.getRandomValues(randomVals);
