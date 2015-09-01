@@ -11,7 +11,7 @@ This module should be included on your product to make sending tracking requests
 _Applies to both quickstart examples below_
 
 
-Add the [polyfill](https://cdn.polyfill.io/) service to your site to make sure o-tracking runs in as many brwosers as possible.
+Add the [polyfill](https://cdn.polyfill.io/) service to your site to make sure o-tracking runs in as many browsers as possible.
 
 Require the noscript version of o-tracking incase the browser doesn't cut the mustard.
 
@@ -26,22 +26,43 @@ o-tracking should have the following piece of html added, with the correct serve
 </div>
 ```
 
-### Quickstart example 1 - JSON config
+### Recommended implementation using the build service
 
-Use the build service to load o-tracking and add a json config.
+Use an onload handler to check when o-tracking has loaded and then init.
 
-```html
-<script type="application/json" data-o-tracking-config>
-{
-	"server": "https://test.spoor-api.ft.com/px.gif",
-	"context": {
-		"product": "ft.com" // e.g. webapp, next - This is a defined list, send the correct value!
-	}
+```js
+// CTM
+if (cutsTheMustard) {
+    var o = document.createElement('script');
+    o.async = o.defer = true;
+    o.src = 'https://build.origami.ft.com/bundles/js?modules=o-tracking';
+    var s = document.getElementsByTagName('script')[0];
+    if (o.hasOwnProperty('onreadystatechange')) {
+        o.onreadystatechange = function() {
+            if (o.readyState === "loaded") {
+                otrackinginit();
+            }
+        };
+    } else {
+        o.onload = otrackinginit;
+    }
+    s.parentNode.insertBefore(o, s);
 }
-</script>
 ```
 
-### Quickstart example 2 - JS init
+The `otrackinginit` function, used above, would have function calls to setup o-tracking and likely send a page view event. e.g.
+
+```js
+function otrackinginit() {
+    var oTracking = Origami['o-tracking'];
+    // Setup
+    oTracking.init({...config...});
+    // Page
+    oTracking.page({...config...});
+}
+```
+
+### Alternative implementation using require
 
 Use the build service or require locally to load o-tracking and init manually.
 ```js
@@ -51,25 +72,16 @@ var oTracking = require('o-tracking');
 ```js
 if (cutsTheMustard) {
     // Setup
-    oTracking.init({
-        server: '...',
-        context: {
-            product: 'ft.com'
-        },
-        user: {
-            passport_id: passport_id,
-            ft_session: ft_session
-        }
-    });
-    // Track page
-    oTracking.page({
-        content: {
-            uuid: uuid,
-            hurdle: hurdle
-        }
-    });
+    oTracking.init({...config...});
+    // Page
+    oTracking.page({...config...});
 }
 ```
+
+### Example implementations
+
+- [ft.com](docs/ftcom_example.md)
+- [membership](docs/membership_example.md) 
 
 ## Events
 
@@ -106,7 +118,6 @@ o-tracking will
         product: "..."
     },
     user: {
-        passport_id: "...",
         ft_session: "..."
     }
 }
@@ -149,3 +160,5 @@ For example:
     pos: '10'
 }
 ```
+
+[Look at all the properties](docs/event.md) available for an event.

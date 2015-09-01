@@ -1,13 +1,13 @@
 /*global require, module */
-"use strict";
+'use strict';
 
-var settings = require("./src/javascript/core/settings");
+var settings = require('./src/javascript/core/settings');
 
 /**
  * The version of the tracking module.
  * @type {string}
  */
-var version = '1.0.0';
+var version = '1.0.3';
 /**
  * The source of this event.
  * @type {string}
@@ -78,6 +78,8 @@ Tracking.prototype.event = require('./src/javascript/event');
 
 Tracking.prototype.link = require('./src/javascript/link');
 
+Tracking.prototype.utils = require('./src/javascript/utils');
+
 /**
  * Initialises the Tracking object.
  *
@@ -87,7 +89,7 @@ Tracking.prototype.link = require('./src/javascript/link');
  *
  * @example
  * <!-- DOM configuration settings -->
- * <script type="application/json" data-o-tracking-config>
+ * <script type='application/json' data-o-tracking-config>
  * page: {
  * 	 product: 'desktop'
  * },
@@ -149,7 +151,7 @@ Tracking.prototype.init = function(config) {
 };
 
 /**
- * Checks if the <script type="application/json" data-o-tracking-config> element is in the DOM
+ * Checks if the <script type='application/json' data-o-tracking-config> element is in the DOM
  *
  * @private
  *
@@ -160,7 +162,7 @@ Tracking.prototype._getDeclarativeConfigElement = function() {
 };
 
 /**
- * Initialises additional data using the <script type="application/json" data-o-tracking-config> element in the DOM.
+ * Initialises additional data using the <script type='application/json' data-o-tracking-config> element in the DOM.
  *
  * @private
  * @param {Object} options - A partially, or fully filled options object.  If
@@ -182,7 +184,12 @@ Tracking.prototype._getDeclarativeConfig = function(options) {
 	try {
 		declarativeOptions = JSON.parse(declarativeConfigString);
 	} catch(e) {
-		throw new Error("Invalid JSON configuration syntax, check validity for o-tracking configuration: '" + e.message + "'");
+		var configError = new Error('Invalid JSON configuration syntax, check validity for o-tracking configuration: "' + e.message + '"');
+		this.utils.broadcast('oErrors', 'log', {
+			error: configError,
+			info: { module: 'o-tracking' }
+		});
+		throw configError;
 	}
 
 	for (var property in declarativeOptions) {

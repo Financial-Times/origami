@@ -29,7 +29,12 @@ var defaultEventConfig = function () {
  */
 function event(trackingEvent, callback) {
 	if (utils.is(trackingEvent.detail.category) || utils.is(trackingEvent.detail.action)) {
-		throw 'Missing category or action values';
+		var noCategoryActionVals = 'Missing category or action values';
+		utils.broadcast('oErrors', 'log', {
+			error: noCategoryActionVals,
+			info: { module: 'o-tracking' }
+		});
+		throw noCategoryActionVals;
 	}
 
 	var config = utils.merge(defaultEventConfig(), {

@@ -1,10 +1,10 @@
 /*global module, require, window */
-"use strict";
+'use strict';
 
-var Queue = require("./core/queue");
-var Core = require("./core");
+var Queue = require('./core/queue');
+var Core = require('./core');
 
-var utils = require("./utils");
+var utils = require('./utils');
 
 var internalQueue;
 
@@ -115,7 +115,7 @@ function createLinkID(link) {
 		.replace(/^\//, '') // Remove slash at beginning
 		.replace(/(\?|#).*$/, '') // Remove query string and page anchor (#)
 		.replace(/\/$/, '') // Remove trailing slash
-		.replace(/\.[a-z]{3,4}$/, ''); // Remove final ".com" or similar
+		.replace(/\.[a-z]{3,4}$/, ''); // Remove final '.com' or similar
 
 	// If it's an external URL
 	if (name === '') {
@@ -237,15 +237,20 @@ function init(config) {
 		callback = config.callback;
 	}
 
-	if (config.links && utils.is(config.links, "object") && config.links.constructor.toString().match(/array/i)) {
+	if (config.links && utils.is(config.links, 'object') && config.links.constructor.toString().match(/array/i)) {
 		links = config.links;
 
 		for (i = 0; i < links.length; i = i + 1) {
 			utils.addEvent(links[i], config.event, clickEvent);
 		}
 	} else {
-		if (typeof config.root !== "object" || typeof config.selector !== "string") {
-			throw "If supplying a config it must have a valid root element and a selector string";
+		if (typeof config.root !== 'object' || typeof config.selector !== 'string') {
+			var configException = 'If supplying a config it must have a valid root element and a selector string';
+			utils.broadcast('oErrors', 'log', {
+				error: configException,
+				info: { module: 'o-tracking' }
+			});
+			throw configException;
 		}
 
 		utils.addEvent(config.root, config.event, function (event) {
