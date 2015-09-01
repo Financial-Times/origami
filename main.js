@@ -7,7 +7,7 @@ var settings = require('./src/javascript/core/settings');
  * The version of the tracking module.
  * @type {string}
  */
-var version = '1.0.4';
+var version = '1.0.5';
 /**
  * The source of this event.
  * @type {string}
