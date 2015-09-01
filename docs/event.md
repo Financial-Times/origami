@@ -23,11 +23,12 @@ This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 		"user_agent": "Mozilla ...",
 		"ip": "123.123.123.123",
 		"layout": "S",											// require('o-grid').getCurrentLayout
-		"orientation": "portrait"								// require('o-viewport').getOrientation
+		"orientation": "portrait",								// require('o-viewport').getOrientation
 		"dimensions": {
 			"width": 1024,
 			"height": 768
-		}
+		},
+		"is_offline": true
 	},
 	"user": {
 		"ft_session": "asdf324dfag1ds%asdf1A-1sadsadf",			// FT Session token
@@ -45,10 +46,17 @@ This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 		...
 		"product": "ft.com",									// Readable name for this product - controlled list.
 		"content": {
-			"uuid": "...",												// Content uuid [4] 
-		},											// [5] 
+			"uuid": "...",										// Content uuid [4]
+			"asset_type": "...", 								// Asset Type [7]
+		},														// [5] 
 		"url": "...",											// [5]
 		"referrer": "...",										// See also [5]
+		funnel: {
+			funnel_name: "",   									// An overall name for the funnel - fixed name
+			funnel_steps: 3,   									// Total number of steps in this funnel - fixed number
+			step_name: "",     									// Name for this step
+			step_number: 1     									// Number for this step
+        }
 		...
 		"anything": "goes here",
 		"could": [ "be", "an", "array" ],
@@ -72,3 +80,4 @@ This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 4.  Content will typically be a page, but could be a uuid for something else like a video. Will be expanded in to a CAPI v2 object -> capi: { "headline", "...", "published": "...", ... }
 5.  Expanded in to a URL object -> http://nodejs.org/api/url.html
 6.  Spoor will also allow this in a `authorization` header.
+7.  Enum of `account, ad, blog, front, image, page, report, search, section, story, topic, video` (see https://github.com/Financial-Times/spoor-enrichment/issues/94).

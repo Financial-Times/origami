@@ -92,16 +92,14 @@ o-tracking will listen for 2 events as well as the funcations available above.
     Send a page view event
 
     ```js
-    var event = new CustomEvent('oTracking.page', { content: { uuid: 'abc-123', barrier: 'PREMIUM' }});
-    window.dispatchEvent(event);
+    document.body.dispatchEvent(new CustomEvent('oTracking.page', { detail: { content: { uuid: 'abc-123', barrier: 'PREMIUM' }}, bubbles: true}));
     ```
 - `oTracking.event`
     
     Send a normal event  
 
     ```js
-    var event = new CustomEvent('oTracking.event', { category: 'video', action: 'play', id: '512346789', pos: '10' });
-    window.dispatchEvent(event);
+    document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: { category: 'video', action: 'play', id: '512346789', pos: '10' }, bubbles: true}));
     ```
 
 ## Parameters
@@ -162,3 +160,5 @@ For example:
 ```
 
 [Look at all the properties](docs/event.md) available for an event.
+
+[Code Doc](http://codedocs.webservices.ft.com/v1/jsdoc/o-tracking/Tracking.html)
