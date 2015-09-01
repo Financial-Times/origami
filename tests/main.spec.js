@@ -1,6 +1,7 @@
 /* global describe, it, beforeEach, afterEach, sinon */
 'use strict';
-
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 var main = require('../main.js');
 var Brightcove = require('../src/models/brightcove');
 var brightcoveResponse = require('./fixtures/brightcove.json');
