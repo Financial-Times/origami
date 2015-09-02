@@ -6,7 +6,7 @@
 /// Base tables styles - add to <table>
 @mixin oTableBase {
 	// scss-lint:disable QualifyingElement
-	@include oFtTypographyBody;
+	@include oTypographyBody;
 	margin: 0 0 20px;
 	border-spacing: 0;
 	border-collapse: collapse;
