@@ -4,6 +4,8 @@
 	background: oColorsGetColorFor(o-header, background);
 	// Workaround so the brand colour goes to full width in XL screens
 	background-image: linear-gradient(to bottom, transparent 50px, oColorsGetColorFor(o-header-product-brand product-brand, background) 20px);
+	// Prevents flashes of text in Safari when items are hovered and opacity varies
+	-webkit-font-smoothing: antialiased;
 
 	a {
 		text-decoration: none;

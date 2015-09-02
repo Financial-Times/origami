@@ -18,11 +18,6 @@
 		padding-right: oGridGutter();
 		padding-left: oGridGutter();
 		font-size: 14px;
-
-		@include _oHeaderBreakpoint {
-			padding-right: oGridGutter($o-header-breakpoint);
-			padding-left: oGridGutter($o-header-breakpoint);
-		}
 	}
 
 	// scss-lint:disable SelectorDepth
@@ -46,7 +41,7 @@
 
 	// Padding for all a tags that aren't in the first hierarchical nav level
 	[data-o-hierarchical-nav-level] [data-o-hierarchical-nav-level] a {
-		padding: 14px 20px;
+		padding: 14px oGridGutter();
 	}
 }
 
