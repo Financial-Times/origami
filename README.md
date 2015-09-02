@@ -158,7 +158,33 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 ```
 
-## Upgrading from 2.x.x
+## Upgrading from 3.x.x to 4.x.x
+
+Note that o-header v4 relies on the [o-grid](https://github.com/Financial-Times/o-grid) v4 which introduces breaking changes.
+
+### 1. Markup changes
+
+#### `.o-header__inner`
+
+Remove `<div class="o-header__inner">` in `<div class="o-header__container">`:
+
+```diff
+<header data-o-component="o-header" class="o-header">
+	<div class="o-header__container">
+-		<div class="o-header__inner">
+			<div class="o-header__primary">
+				{{{o-header.primary}}}
+			</div>
+			<div class="o-header__secondary">
+				{{{o-header.secondary}}}
+			</div>
+-		</div>
+	</div>
+</header>
+```
+
+
+## Upgrading from 2.x.x to 3.x.x
 
 Note that o-header v3 relies on the [o-grid](https://github.com/Financial-Times/o-grid) v3 which introduces breaking changes.
 
