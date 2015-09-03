@@ -17,7 +17,23 @@ Tested and working on:
 |   Safari   |    7+     |
 |   IE       |    8+     |
 
-## Upgrading from 2.x.x
+## Upgrading from 3.x.x to 4.x.x
+
+Note that o-footer v4 relies on o-grid v4.
+
+### Markup changes
+
+```diff
+ <nav class="o-footer__row o-footer__nav">
+ 	<div class="o-footer__col o-footer__col--full-width">
+ 		…
++ 		<div class="o-footer__divider"></div>
+ 	</div>
+ </nav>
+```
+
+## Upgrading from 2.x.x to 3.x.x
+
 ### 1. Renaming the module
 
 Rename all instances of `o-ft-footer` into `o-footer`.
