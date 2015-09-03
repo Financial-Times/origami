@@ -162,9 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 Note that o-header v4 relies on the [o-grid](https://github.com/Financial-Times/o-grid) v4 which introduces breaking changes.
 
-### 1. Markup changes
-
-#### `.o-header__inner`
+### Markup changes
 
 (optional) Remove `<div class="o-header__inner">` in `<div class="o-header__container">`:
 
@@ -181,66 +179,6 @@ Note that o-header v4 relies on the [o-grid](https://github.com/Financial-Times/
 -		</div>
 	</div>
 </header>
-```
-
-
-## Upgrading from 2.x.x to 3.x.x
-
-Note that o-header v3 relies on the [o-grid](https://github.com/Financial-Times/o-grid) v3 which introduces breaking changes.
-
-### 1. Renaming the module
-
-- Rename all instances of `o-ft-header` into `o-header`.
-- Rename all instances of `oFtHeader` into `oHeader`.
-
-### 2. Markup changes
-
-#### `.o-header__inner`
-
-Add `<div class="o-header__inner">` in `<div class="o-header__container">`:
-
-```diff
-<header data-o-component="o-header" class="o-header">
-	<div class="o-header__container">
-+		<div class="o-header__inner">
-			<div class="o-header__primary">
-				{{{o-header.primary}}}
-			</div>
-			<div class="o-header__secondary">
-				{{{o-header.secondary}}}
-			</div>
-+		</div>
-	</div>
-</header>
-```
-
-#### `.o-header__back-to-ft` icon
-
-```html
-- <i class="o-header__back-to-ft">Back to FT.com</i>
-+ <i class="custom-ft-icon-class"></i>FT.com
-```
-
-See examples of custom FT icon classes in [demos/src/scss/demo.scss](https://github.com/Financial-Times/o-header/blob/master/demos/src/scss/demo.scss).
-
-### 3. Font settings
-
-In the v2.x.x of o-header, the module loaded webfonts itself and was setting its own font-family.
-
-The header now inherits the `font-family` set in your application and doesn't embed web fonts anymore.
-
-Solution: products must load webfonts themselves (tipically, with [o-fonts](https://github.com/Financial-Times/o-fonts)).
-
-```html
-<!-- Load web fonts with @font-face declarations  -->
-<link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-fonts@^1" />
-
-<!-- Set the font family on the whole document -->
-<style>
-	html {
-		font-family: BentonSans, sans-serif;
-	}
-</style>
 ```
 
 ----
