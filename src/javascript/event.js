@@ -45,21 +45,45 @@ function event(trackingEvent, callback) {
 
 	delete config.context.category;
 	delete config.context.action;
-	config.context.component_id = config.context.component_id || getComponentId(trackingEvent);
+
+	var origamiElement = getOrigamiEventTarget(trackingEvent);
+	if (origamiElement) {
+		config.context.component_name = origamiElement.getAttribute('data-o-component');
+		config.context.component_id = config.context.component_id || getComponentId(origamiElement);
+	} else {
+		config.context.component_name = config.context.component_name;
+		config.context.component_id = config.context.component_id;
+	}
 
 	Core.track(config, callback);
 }
 
 /**
+ * Helper function that gets the target of an event if it's an Origami component
+ * @param  {Event} event
+ * @return {HTMLElement}
+ */
+function getOrigamiEventTarget(event) {
+	// IE backwards compatibility (get the actual target). If not IE, uses
+	// `event.target`
+	var element = event.target || event.srcElement;
+
+	if (element && element.getAttribute('data-o-component')) {
+		return element;
+	} else {
+		return;
+	}
+}
+
+/**
  * Helper function that generates a component id based on its xpath
  *
- * @param {Event} event
+ * @param {HTMLElement} element
  *
  * @return {string} hash
  */
-function getComponentId(event) {
-	// Get the path from the event source to the event listener
-	var path = _getEventPath(event);
+function getComponentId(element) {
+	var path = _getElementPath(element);
 
 	if (typeof path === 'undefined') {
 		return;
@@ -88,6 +112,10 @@ function getComponentId(event) {
 
 	// Generate a normalised string (normalising browser quirks) from the sequence of elements
 	var normalisedStringPath = path.reduceRight(function(builder, el) {
+		if (!el.nodeName) {
+			return builder + ' - ' + el.constructor.name + '\n';
+		}
+
 		var nodeName = el.nodeName.toLowerCase();
 
 		// In some browsers, document is prepended with a '#'
@@ -105,30 +133,15 @@ function getComponentId(event) {
 }
 
 /**
- * Gets the xpath for an event
+ * Gets the xpath for an elemenet
  *
- * @param  {Event} event
+ * @param  {HTMLElement} element
  *
  * @private
  *
  * @return {array} The xpath
  */
-function _getEventPath(event) {
-	// IE backwards compatibility (get the actual target). If not IE, uses
-	// `event.target`
-	var element = event.target || event.srcElement;
-
-	if (!element || !element.getAttribute('data-o-component')) {
-		return;
-	}
-
-	// event.path is available in some browsers, most notable Chrome
-	if (event.path) {
-		// Array.prototype.slice.call coerces a NodeList to an array. Could
-		// use Array.from but it is not in the Polyfill service default set.
-		return Array.prototype.slice.call(event.path);
-	}
-
+function _getElementPath(element) {
 	var path = [];
 
 	while (element) {
