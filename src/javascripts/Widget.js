@@ -1,17 +1,14 @@
-"use strict";
-
-var auth = require('./auth.js');
-var envConfig = require('./config.js'),
-	WidgetUi = require('./WidgetUi.js'),
-	utils = require('./utils.js'),
-	oCommentUtilities = require('o-comment-utilities'),
-	userDialogs = require('./userDialogs.js'),
-	i18n = require('./i18n.js'),
-	globalEvents = require('./globalEvents.js'),
-
-	oCommentUi = require('o-comment-ui'),
-	oCommentApi = require('o-comment-api');
-var resourceLoader = require('./resourceLoader.js');
+const auth = require('./auth.js');
+const envConfig = require('./config.js');
+const WidgetUi = require('./WidgetUi.js');
+const utils = require('./utils.js');
+const oCommentUtilities = require('o-comment-utilities');
+const userDialogs = require('./userDialogs.js');
+const i18n = require('./i18n.js');
+const globalEvents = require('./globalEvents.js');
+const oCommentUi = require('o-comment-ui');
+const oCommentApi = require('o-comment-api');
+const resourceLoader = require('./resourceLoader.js');
 
 /* global Livefyre */
 
@@ -36,11 +33,12 @@ var resourceLoader = require('./resourceLoader.js');
  *
  * @param {object|string} rootEl Root element in which the widget should be loaded.
  * @param {object}        config Configuration object. See in the description the fields that are mandatory.
+ * @return {undefined}
  */
 function Widget () {
 	oCommentUi.Widget.apply(this, arguments);
 
-	var self = this;
+	let self = this;
 
 	if (!this.config) {
 		return;
@@ -48,7 +46,7 @@ function Widget () {
 
 	this.forceMode = false;
 
-	this.config.stream_type = this.config.stream_type || "livecomments";
+	this.config.stream_type = this.config.stream_type || 'livecomments';
 	this.config.layout = this.config.layout || 'main';
 	if (!this.config.livefyre || typeof this.config.livefyre !== 'object') {
 		this.config.livefyre = {};
@@ -96,23 +94,23 @@ function Widget () {
 	 * Merge custom string overrides with FT specific string overrides.
 	 * @type {Object}
 	 */
-	var stringOverrides = self.config.stringOverrides ? oCommentUtilities.merge({}, i18n.lfStringOverride, self.config.stringOverrides) : i18n.lfStringOverride;
+	const stringOverrides = self.config.stringOverrides ? oCommentUtilities.merge({}, i18n.lfStringOverride, self.config.stringOverrides) : i18n.lfStringOverride;
 	self.config.stringOverrides = stringOverrides;
 
-	var lastBannedCommentId = null;
-	var lastBannedCommentDate = null;
-	var lastOwnCommentDate = null;
-	var destroyed = false;
+	let lastBannedCommentId = null;
+	let lastBannedCommentDate = null;
+	let lastOwnCommentDate = null;
+	let destroyed = false;
 
 
 	if (utils.isLivefyreActionQueuePresent()) {
-		oCommentUtilities.logger.log("Force flag set.");
+		oCommentUtilities.logger.log('Force flag set.');
 
 		this.forceMode = true;
 	}
 
 
-	var executeWhenNotDestroyed = function (func) {
+	const executeWhenNotDestroyed = function (func) {
 		return function () {
 			if (!destroyed) {
 				func.apply(this, arguments);
@@ -122,9 +120,11 @@ function Widget () {
 
 	/**
 	 * Loads init data from the SUDS service.
+	 * @param {Function} callback function (err, data), where data is the init object
+	 * @returns {undefined}
 	 */
 	this.loadInitData = function (callback) {
-		var config = {
+		const config = {
 			title: self.config.title,
 			url: self.config.url,
 			articleId: self.config.articleId,
@@ -164,7 +164,7 @@ function Widget () {
 					self.trigger('widget.ready');
 
 					// extends the init data received from SUDS with some user specified fields.
-					var key;
+					let key;
 					for (key in self.config.livefyre) {
 						if (self.config.livefyre.hasOwnProperty(key)) {
 							initData[key] = self.config.livefyre[key];
@@ -176,7 +176,7 @@ function Widget () {
 						auth.authPageReload = true;
 					}
 
-					var networkConfig = {
+					const networkConfig = {
 						network: envConfig.get().livefyre.network
 					};
 					if (self.config.stringOverrides) {
@@ -200,7 +200,7 @@ function Widget () {
 								});
 
 								widget.on('initialRenderComplete', executeWhenNotDestroyed(function () {
-									var collectionAttributes = self.lfWidget.getCollection().attributes;
+									const collectionAttributes = self.lfWidget.getCollection().attributes;
 									// init stream to monitor banned comments
 									initStreamForBannedComments(collectionAttributes.id, collectionAttributes.event);
 
@@ -245,7 +245,7 @@ function Widget () {
 									self.trigger('widget.renderComplete');
 								}));
 
-								var siteId = parseInt(initData.siteId, 10);
+								const siteId = parseInt(initData.siteId, 10);
 								widget.on('commentPosted', executeWhenNotDestroyed(function (eventData) {
 									if (!auth.pseudonymWasMissing) {
 										oCommentApi.api.getAuth(function (err, authData) {
@@ -318,9 +318,10 @@ function Widget () {
 
 	/**
 	 * Adds the "Commenting settings" link when login occurs.
+	 * @returns {undefined}
 	 */
 	function login () {
-		var showSettingsDialog = function () {
+		const showSettingsDialog = function () {
 			oCommentApi.api.getAuth(function (err, currentAuthData) {
 				if (!err && currentAuthData) {
 					userDialogs.showSettingsDialog(currentAuthData, function (err, newAuthData) {
@@ -336,7 +337,7 @@ function Widget () {
 			});
 		};
 
-		var showChangePseudonymDialog = function () {
+		const showChangePseudonymDialog = function () {
 			oCommentApi.api.getAuth(function (err, currentAuthData) {
 				if (!err && currentAuthData) {
 					userDialogs.showChangePseudonymDialog(currentAuthData.displayName, function (err, newAuthData) {
@@ -352,7 +353,7 @@ function Widget () {
 			});
 		};
 
-		var showConfigDialog = executeWhenNotDestroyed(function () {
+		const showConfigDialog = executeWhenNotDestroyed(function () {
 			if (envConfig.get().emailNotifications !== true) {
 				showChangePseudonymDialog();
 			} else {
@@ -376,6 +377,7 @@ function Widget () {
 
 	/**
 	 * Removes the "Commenting settings" link when logout occurs.
+	 * @returns {undefined}
 	 */
 	function logout () {
 		self.ui.removeSettingsLink();
@@ -417,7 +419,7 @@ function Widget () {
 
 
 
-	var __superDestroy = this.destroy;
+	let __superDestroy = this.destroy;
 	this.destroy = function () {
 		destroyed = true;
 		self.forceMode = null;
@@ -456,7 +458,7 @@ Widget.__extend = function(child, eventNamespace, classNamespace) {
 	if (typeof Object.create === 'function') {
 		child.prototype = Object.create(Widget.prototype);
 	} else {
-		var Tmp = function () {};
+		const Tmp = function () {};
 		Tmp.prototype = Widget.prototype;
 		child.prototype = new Tmp();
 		child.prototype.constructor = child;
