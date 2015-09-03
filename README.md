@@ -166,7 +166,7 @@ Note that o-header v4 relies on the [o-grid](https://github.com/Financial-Times/
 
 #### `.o-header__inner`
 
-Remove `<div class="o-header__inner">` in `<div class="o-header__container">`:
+(optional) Remove `<div class="o-header__inner">` in `<div class="o-header__container">`:
 
 ```diff
 <header data-o-component="o-header" class="o-header">
