@@ -29,7 +29,7 @@ $_o-forms-field-default-padding-bottom: 8px;
 $_o-forms-field-default-height: 36px;
 $_o-forms-field-small-height: 24px;
 
-$_o-forms-group-padding: 10px;
+$_o-forms-group-padding: oGridGutter();
 
 // Outer circle / box sizes
 $_o-forms-radiocheckbox-small-size: 17px;
