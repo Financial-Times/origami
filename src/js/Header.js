@@ -2,7 +2,7 @@
 "use strict";
 
 var DomDelegate = require('ftdomdelegate');
-var oHierarchicalNav = require('o-hierarchical-nav');
+var OHierarchicalNav = require('o-hierarchical-nav');
 
 function Header(rootEl) {
 
@@ -35,7 +35,7 @@ function Header(rootEl) {
 		rootEl.setAttribute('data-o-header--js', '');
 		bodyDelegate = new DomDelegate(document.body);
 		hierarchicalNavs = hierarchicalNavEls.map(function(el) {
-			return new oHierarchicalNav(el);
+			return new OHierarchicalNav(el);
 		});
 	}
 
