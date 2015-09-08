@@ -94,7 +94,6 @@ function encode(str) {
 
 /**
  * Generate a GUID.
- * Based on http://stackoverflow.com/a/21963136
  * @return {string}
  */
 function guid() {
