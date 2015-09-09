@@ -10,12 +10,18 @@
 }
 
 // Output base styles, either as just a placeholder class, or optionally a concrete class too.
-$o-ft-icons-base-icon-selectors: oFtIconsGetSelectors(icon);
-#{$o-ft-icons-base-icon-selectors} {
-	@include oFtIconsBaseIconStyles();
-}
 
-// Call mixins for each icon
-@each $icon-name, $character-code in $_o-ft-icons-icon-map {
-	@include oFtIconsIcon($icon-name, $character-code);
+@if ($_o-ft-icons-base-styles-already-output == false) {
+
+	$o-ft-icons-base-icon-selectors: oFtIconsGetSelectors(icon);
+	#{$o-ft-icons-base-icon-selectors} {
+		@include oFtIconsBaseIconStyles();
+	}
+
+	// Call mixins for each icon
+	@each $icon-name, $character-code in $_o-ft-icons-icon-map {
+		@include oFtIconsIcon($icon-name, $character-code);
+	}
+
+	$_o-ft-icons-base-styles-already-output: true !global;
 }
