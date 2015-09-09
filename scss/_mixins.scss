@@ -33,21 +33,25 @@
 
 /// Base styles for all icons
 @mixin oFtIconsBaseIconStyles() {
-	font-family: $_o-ft-icons-font-name;
-	display: inline-block;
-	vertical-align: middle;
-	// These are marked as !important as the icon font is not designed to be used with faux bold or faux italic styles
-	// If bolder versions of an icon are required a new SVG should be designed and added to the icon font
-	// scss-lint:disable ImportantRule
-	font-weight: normal !important;
-	font-style: normal !important;
-	speak: none;
-	text-decoration: inherit;
-	text-transform: none;
-	text-rendering: optimizeLegibility;
-	// scss-lint:disable VendorPrefix VendorPrefixes
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	@if ($_o-ft-icons-base-icons-already-output == false) {
+		$_o-ft-icons-base-icons-already-output: true !global;
+
+		font-family: $_o-ft-icons-font-name;
+		display: inline-block;
+		vertical-align: middle;
+		// These are marked as !important as the icon font is not designed to be used with faux bold or faux italic styles
+		// If bolder versions of an icon are required a new SVG should be designed and added to the icon font
+		// scss-lint:disable ImportantRule
+		font-weight: normal !important;
+		font-style: normal !important;
+		speak: none;
+		text-decoration: inherit;
+		text-transform: none;
+		text-rendering: optimizeLegibility;
+		// scss-lint:disable VendorPrefix VendorPrefixes
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
 }
 
 /// Placeholder (and optionally concrete class) for individual icon (modern browsers)
@@ -96,7 +100,11 @@
 /// @param {String} icon-name
 /// @param {String} character-code - Unicode character code (e.g. f101)
 @mixin oFtIconsIcon($icon-name, $character-code) {
-	@include _oFtIconsIe7Icon(icon--#{$icon-name}, $character-code);
-	@include _oFtIconsStandardsIcon(icon--#{$icon-name}, $character-code);
-	@include _oFtIconsStandardsIcon(icon--#{$icon-name}--after, $character-code, after);
+	@if index($_o-ft-icons-icon-already-output, $icon-name) == null  {
+		@include _oFtIconsIe7Icon(icon--#{$icon-name}, $character-code);
+		@include _oFtIconsStandardsIcon(icon--#{$icon-name}, $character-code);
+		@include _oFtIconsStandardsIcon(icon--#{$icon-name}--after, $character-code, after);
+
+		$_o-ft-icons-icon-already-output: append($_o-ft-icons-icon-already-output, $icon-name) !global;
+	}
 }
