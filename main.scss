@@ -14,6 +14,7 @@
 @if ($_o-ft-icons-base-styles-already-output == false) {
 
 	$o-ft-icons-base-icon-selectors: oFtIconsGetSelectors(icon);
+
 	#{$o-ft-icons-base-icon-selectors} {
 		@include oFtIconsBaseIconStyles();
 	}
@@ -23,5 +24,8 @@
 		@include oFtIconsIcon($icon-name, $character-code);
 	}
 
-	$_o-ft-icons-base-styles-already-output: true !global;
+	// Only output base classes once in non-silent mode
+	@if ($o-ft-icons-is-silent == false) {
+		$_o-ft-icons-base-styles-already-output: true !global;
+	}
 }
