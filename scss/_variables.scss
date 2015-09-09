@@ -18,3 +18,9 @@ $_o-ft-icons-font-name: 'ft-icons';
 /// @access private
 /// @type Bool
 $_o-ft-icons-font-face-already-output: false;
+
+/// Have the base styles already been output?
+///
+/// @access private
+/// @type Bool
+$_o-ft-icons-base-styles-already-output: false !default;
