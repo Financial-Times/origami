@@ -8,7 +8,7 @@ var assert = require('assert'),
 describe('Core.Session', function () {
 
 	before(function () {
-		// clean up previous any tests
+		// clean up previous tests' pollution
 		(new Store('session')).destroy();
 	});
 
