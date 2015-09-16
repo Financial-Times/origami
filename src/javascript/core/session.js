@@ -32,7 +32,8 @@ function setSession(session) {
  * @return {String} the current session
  */
 function getSession() {
-	var s = store.read(),
+	var isNew = false,
+		s = store.read(),
 		session;
 
 	if (s) {
@@ -48,12 +49,16 @@ function getSession() {
 	// No active session, gen a new one.
 	if (!session) {
 		session = utils.guid();
+		isNew = true;
 	}
 
 	// Refreshes the cookie...
 	setSession(session);
 
-	return session;
+	return {
+		id: session,
+		isNew: isNew
+	};
 }
 
 /**
