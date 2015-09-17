@@ -15,6 +15,4 @@ document.addEventListener('DOMContentLoaded', trigger.bind(null, 'DOMContentLoad
 if (document.readyState === 'complete') {
 	trigger('load');
 	trigger('DOMContentLoaded');
-} else if (document.readyState === 'interactive') {
-	trigger('DOMContentLoaded');
 }
