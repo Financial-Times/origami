@@ -1,4 +1,6 @@
-const on = function (eventName, eventHandler) {
+"use strict";
+
+var on = function (eventName, eventHandler) {
 	document.body.addEventListener('oComments.' + eventName, eventHandler);
 };
 exports.on = function (eventName, eventHandler) {
@@ -11,7 +13,7 @@ exports.on = function (eventName, eventHandler) {
 	}
 };
 
-const off = function (eventName, eventHandler) {
+var off = function (eventName, eventHandler) {
 	document.body.removeEventListener('oComments.' + eventName, eventHandler);
 };
 exports.off = function (eventName, eventHandler) {
@@ -25,7 +27,7 @@ exports.off = function (eventName, eventHandler) {
 };
 
 
-const trigger = function (eventName, data) {
+var trigger = function (eventName, data) {
 	document.body.dispatchEvent(new CustomEvent('oComments.' + eventName, {
 		detail: data,
 		bubbles: true

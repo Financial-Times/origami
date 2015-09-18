@@ -1,12 +1,14 @@
-const oCommentUtilities = require('o-comment-utilities');
-const envConfig = require('./config.js');
-const globalEvents = require('./globalEvents');
+"use strict";
+
+var oCommentUtilities = require('o-comment-utilities'),
+	envConfig = require('./config.js'),
+	globalEvents = require('./globalEvents');
 
 /**
  * Load Livefyre's core Javascript library
  */
 exports.loadLivefyreCore = (function () {
-	const status = {
+	var status = {
 		loaded: false,
 		status: '',
 		inProgress: false,
@@ -56,7 +58,7 @@ exports.loadLivefyreCore = (function () {
 						if (typeof Livefyre === 'undefined') {
 							status.loaded = true;
 							status.status = 'error';
-							status.error = new Error('Script not loaded.');
+							status.error = new Error("Script not loaded.");
 							status.event.trigger('done');
 
 							globalEvents.trigger('error.livefyreJs', status.error);
@@ -72,4 +74,4 @@ exports.loadLivefyreCore = (function () {
 			}
 		}
 	};
-}());
+})();

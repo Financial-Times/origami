@@ -1,12 +1,12 @@
-const oCommentUtilities = require('o-comment-utilities');
-const oCommentUi = require('o-comment-ui');
-const envConfig = require('./config.js');
+"use strict";
+
+var oCommentUtilities = require('o-comment-utilities'),
+	oCommentUi = require('o-comment-ui'),
+	envConfig = require('./config.js');
 
 /**
  * FT specific UI customizing of the Livefyre widget.
  * @param {DOMElement} widgetContainer Container of the widget instance.
- * @param {Object} config Config object of the Widget instance
- * @returns {undefined}
  */
 function WidgetUi (widgetContainer, config) {
 	oCommentUi.WidgetUi.apply(this, arguments);
@@ -25,19 +25,19 @@ function WidgetUi (widgetContainer, config) {
 		this.config.stream_type = 'livecomments';
 	}
 
-	const self = this;
+	var self = this;
 
 	/**
 	 * Makes the Livefyre comments widget read-only by hiding the editors and action buttons.
 	 * @return {[type]} [description]
 	 */
 	this.makeReadOnly = function () {
-		const head = document.head || document.getElementsByTagName('head')[0];
-		const style = document.createElement('style');
+		var head = document.head || document.getElementsByTagName('head')[0];
+		var style = document.createElement('style');
 
 		style.type = 'text/css';
 
-		const css = '#' + self.widgetContainer.id + ' .fyre-editor, '+
+		var css = '#' + self.widgetContainer.id + ' .fyre-editor, '+
 					'#' + self.widgetContainer.id + ' .fyre-comment-like, '+
 					'#' + self.widgetContainer.id + ' .fyre-comment-action-button {'+
 						'display: none;'+
@@ -53,12 +53,12 @@ function WidgetUi (widgetContainer, config) {
 	};
 
 	this.hideFollowButton = function () {
-		const head = document.head || document.getElementsByTagName('head')[0];
-		const style = document.createElement('style');
+		var head = document.head || document.getElementsByTagName('head')[0];
+		var style = document.createElement('style');
 
 		style.type = 'text/css';
 
-		const css = '#' + self.widgetContainer.id + ' .fyre-follow-button {'+
+		var css = '#' + self.widgetContainer.id + ' .fyre-follow-button {'+
 						'display: none;'+
 					'}';
 
@@ -74,10 +74,9 @@ function WidgetUi (widgetContainer, config) {
 	/**
 	 * Hide the sign in link (used when the user is signed in in FT, but doesn't have a pseudonym yet
 	 * so can't be signed in into Livefyre).
-	 * @return {undefined}
 	 */
 	this.hideSignInLink = function () {
-		const signInLinkContainer = self.widgetContainer.querySelector('a.fyre-user-loggedout');
+		var signInLinkContainer = self.widgetContainer.querySelector('a.fyre-user-loggedout');
 
 		if (signInLinkContainer) {
 			signInLinkContainer.style.display = 'none';
@@ -86,10 +85,9 @@ function WidgetUi (widgetContainer, config) {
 
 	/**
 	 * Inserts message when SUDS reports as authentication is not available.
-	 * @return {undefined}
 	 */
 	this.addAuthNotAvailableMessage = function () {
-		const authContainer = self.widgetContainer.querySelector('.fyre-auth');
+		var authContainer = self.widgetContainer.querySelector('.fyre-auth');
 
 		if (authContainer) {
 			authContainer.appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.unavailableTemplate.render()));
@@ -100,13 +98,12 @@ function WidgetUi (widgetContainer, config) {
 
 	/**
 	 * Inserts the terms and guidelines text into the widget.
-	 * @return {undefined}
 	 */
 	this.addTermsAndGuidelineMessage = function () {
-		const editorContainers = self.widgetContainer.querySelectorAll('.fyre-widget > .fyre-editor');
+		var editorContainers = self.widgetContainer.querySelectorAll('.fyre-widget > .fyre-editor');
 
 		if (editorContainers.length) {
-			for (let i = 0; i < editorContainers.length; i++) {
+			for (var i = 0; i < editorContainers.length; i++) {
 				editorContainers[i]
 					.parentNode
 					.insertBefore(
@@ -123,16 +120,15 @@ function WidgetUi (widgetContainer, config) {
 	 * @param {Object} options Object which can have the following fields:
 	 *                             onClick (callback function, required),
 	 *                             onAdded (callback function)
-	 * @return {undefined}
 	 */
 	this.addSettingsLink = function (options) {
-		oCommentUtilities.logger.log('Commenting settings link adding triggered.');
+		oCommentUtilities.logger.log("Commenting settings link adding triggered.");
 
-		let noOfTrial = 0;
+		var noOfTrial = 0;
 
 		clearInterval(checkPseudonymInterval);
 		checkPseudonymInterval = setInterval(function () {
-			const pseudonymContainer = self.widgetContainer.querySelector('.fyre-auth .fyre-login-bar .fyre-box-wrapper .fyre-user-loggedin');
+			var pseudonymContainer = self.widgetContainer.querySelector('.fyre-auth .fyre-login-bar .fyre-box-wrapper .fyre-user-loggedin');
 			if (pseudonymContainer || noOfTrial === 120) {
 				clearInterval(checkPseudonymInterval);
 
@@ -142,17 +138,17 @@ function WidgetUi (widgetContainer, config) {
 						return;
 					}
 
-					const loginBarContainer = self.widgetContainer.querySelector('.fyre-auth .fyre-login-bar');
+					var loginBarContainer = self.widgetContainer.querySelector('.fyre-auth .fyre-login-bar');
 					if (loginBarContainer) {
-						const commentingSettingsLinkConfig = {};
+						var commentingSettingsLinkConfig = {};
 						if (envConfig.get().emailNotifications !== true) {
-							commentingSettingsLinkConfig.label = 'Edit pseudonym';
+							commentingSettingsLinkConfig.label = "Edit pseudonym";
 						}
 
 						loginBarContainer.appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.commentingSettingsLink.render(commentingSettingsLinkConfig)));
 					}
 
-					const settingsLink = self.widgetContainer.querySelector('.fyre-auth .fyre-login-bar .o-comment-ui--settings-text');
+					var settingsLink = self.widgetContainer.querySelector('.fyre-auth .fyre-login-bar .o-comment-ui--settings-text');
 					if (settingsLink) {
 						settingsLink.addEventListener('click', function () {
 							if (options && typeof options.onClick === 'function') {
@@ -170,14 +166,13 @@ function WidgetUi (widgetContainer, config) {
 			}
 		}, 500);
 	};
-	let checkPseudonymInterval;
+	var checkPseudonymInterval;
 
 	/**
 	 * Removes the settings link from the widget.
-	 * @return {undefined}
 	 */
 	this.removeSettingsLink = function () {
-		const el = self.widgetContainer.querySelector('.o-comment-ui--settings');
+		var el = self.widgetContainer.querySelector('.o-comment-ui--settings');
 		if (el) {
 			el.parentNode.removeChild(el);
 		}
@@ -186,14 +181,13 @@ function WidgetUi (widgetContainer, config) {
 	/**
 	 * Comment counter is part of the Livefyre widget, but on FT.com this
 	 * element is moved out into the header.
-	 * @return {undefined}
 	 */
 	this.moveCommentCountOut = function () {
-		const fyreEl = self.widgetContainer.querySelector('.fyre');
-		const fyreStreamStatsEl = self.widgetContainer.querySelector('.fyre-stream-stats');
+		var fyreEl = self.widgetContainer.querySelector('.fyre');
+		var fyreStreamStatsEl = self.widgetContainer.querySelector('.fyre-stream-stats');
 
 		if (fyreEl && fyreStreamStatsEl) {
-			const counterEl = fyreStreamStatsEl.querySelector('.fyre-comment-count');
+			var counterEl = fyreStreamStatsEl.querySelector('.fyre-comment-count');
 
 			if (counterEl) {
 				fyreEl.style.paddingTop = '30px';
@@ -211,15 +205,15 @@ function WidgetUi (widgetContainer, config) {
 	};
 
 	this.showOwnCommentBanned = function (commentId) {
-		const commentElement = self.widgetContainer.querySelector('.fyre-comment-article[data-message-id="'+ commentId +'"]');
+		var commentElement = self.widgetContainer.querySelector('.fyre-comment-article[data-message-id="'+ commentId +'"]');
 
 		if (commentElement && !commentElement.querySelector('.o-comments--blocked')) {
-			const blockedElement = document.createElement('div');
-			blockedElement.innerHTML = 'blocked';
-			blockedElement.className = 'o-comments--blocked';
+			var blockedElement = document.createElement('div');
+			blockedElement.innerHTML = "blocked";
+			blockedElement.className = "o-comments--blocked";
 
 			if (self.config.layout === 'side') {
-				const commentHead = commentElement.querySelector('.fyre-comment-head');
+				var commentHead = commentElement.querySelector('.fyre-comment-head');
 				commentHead.insertBefore(blockedElement, commentHead.firstChild);
 			} else {
 				commentElement.querySelector('.fyre-comment-date').style.display = 'none';
@@ -232,7 +226,7 @@ WidgetUi.__extend = function(child) {
 	if (typeof Object.create === 'function') {
 		child.prototype = Object.create(WidgetUi.prototype);
 	} else {
-		const Tmp = function () {};
+		var Tmp = function () {};
 		Tmp.prototype = WidgetUi.prototype;
 		child.prototype = new Tmp();
 		child.prototype.constructor = child;

@@ -1,12 +1,14 @@
 /* global Livefyre */
 
-const globalEvents = require('./src/javascripts/globalEvents');
-const config = require('./src/javascripts/config.js');
-const oCommentApi = require('o-comment-api');
-const defaultConfig = require('./config.json');
-const oCommentUtilities = require('o-comment-utilities');
-const Widget = require('./src/javascripts/Widget.js');
-const resourceLoader = require('./src/javascripts/resourceLoader.js');
+"use strict";
+
+var globalEvents = require('./src/javascripts/globalEvents');
+var config = require('./src/javascripts/config.js'),
+	oCommentApi = require('o-comment-api'),
+	defaultConfig = require('./config.json'),
+	oCommentUtilities = require('o-comment-utilities');
+var Widget = require('./src/javascripts/Widget.js');
+var resourceLoader = require('./src/javascripts/resourceLoader.js');
 
 /**
  * Default config (prod) is set.
@@ -16,7 +18,7 @@ config.set(defaultConfig);
 /**
  * Set user's session data if it's available.
  */
-const userSession = oCommentUtilities.ftUser.getSession();
+var userSession = oCommentUtilities.ftUser.getSession();
 if (userSession) {
 	config.set('sessionId', userSession);
 	oCommentApi.setConfig('sessionId', userSession);
@@ -39,11 +41,10 @@ module.exports = Widget;
  *
  * @param  {string|object} keyOrObject Key or actually an object with key-value pairs.
  * @param  {anything} value Optional. Should be specified only if keyOrObject is actually a key (string).
- * @return {undefined}
  */
-module.exports.setConfig = function () {
+module.exports.setConfig = function (keyOrObject, value) {
 	config.set.apply(this, arguments);
-}
+};
 
 module.exports.init = function (el) {
 	return oCommentUtilities.initDomConstruct({
@@ -62,7 +63,7 @@ module.exports.auth = require('./src/javascripts/auth.js');
 
 /**
  * Enables logging.
- * @return {undefined}
+ * @type {function}
  */
 module.exports.enableLogging = function () {
 	oCommentUtilities.logger.enable.apply(this, arguments);
@@ -70,7 +71,7 @@ module.exports.enableLogging = function () {
 
 /**
  * Disables logging.
- * @return {undefined}
+ * @type {function}
  */
 module.exports.disableLogging = function () {
 	oCommentUtilities.logger.disable.apply(this, arguments);
@@ -78,7 +79,7 @@ module.exports.disableLogging = function () {
 
 /**
  * Sets logging level.
- * @return {undefined}
+ * @type {number|string}
  */
 module.exports.setLoggingLevel = function () {
 	oCommentUtilities.logger.setLevel.apply(this, arguments);
@@ -90,9 +91,9 @@ module.exports.off = globalEvents.off;
 
 document.addEventListener('o.DOMContentLoaded', function () {
 	try {
-		const configInDomEl = document.querySelector('script[type="application/json"][data-o-comments-config]');
+		var configInDomEl = document.querySelector('script[type="application/json"][data-o-comments-config]');
 		if (configInDomEl) {
-			const configInDom = JSON.parse(configInDomEl.innerHTML);
+			var configInDom = JSON.parse(configInDomEl.innerHTML);
 
 			module.exports.setConfig(configInDom);
 		}

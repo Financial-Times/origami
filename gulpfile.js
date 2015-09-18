@@ -1,10 +1,12 @@
-const standaloneName = 'oComments';
+"use strict";
 
-const gulp = require('gulp');
-const obt = require('origami-build-tools');
-const del = require('del');
-const runSequence = require('run-sequence');
-const run = require('gulp-run');
+var standaloneName = 'oComments';
+
+var gulp = require('gulp');
+var obt = require('origami-build-tools');
+var del = require('del');
+var runSequence = require('run-sequence');
+var run = require('gulp-run');
 
 
 

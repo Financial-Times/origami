@@ -1,3 +1,5 @@
-const EnvConfig = require('o-comment-utilities').EnvConfig;
+"use strict";
+
+var EnvConfig = require('o-comment-utilities').EnvConfig;
 
 module.exports = new EnvConfig();
