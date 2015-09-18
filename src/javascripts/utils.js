@@ -1,10 +1,9 @@
-"use strict";
-
-var oCommentUtilities = require('o-comment-utilities');
+const oCommentUtilities = require('o-comment-utilities');
 
 /**
  * Livefyre creates a queue in localStorage when a user posts a comment without being logged in.
  * This method clears the queue.
+ * @return {undefined}
  */
 exports.emptyLivefyreActionQueue = function () {
 	if (typeof Storage !== 'undefined') {
@@ -24,7 +23,7 @@ exports.isLivefyreActionQueuePresent = function () {
 
 /**
  * Detects if the URL is a Livefyre permalink. This can be used to override the lazy loading of the widget.
- * @return {Boolean}
+ * @return {Boolean} Returns if permalink is present or not
  */
 exports.isPermalinkPresent = function () {
 	if (document.location.hash) {
@@ -45,7 +44,7 @@ exports.isPermalinkPresent = function () {
 /**
  * Clones a plain object by serializing and deserializing an object to JSON.
  * @param  {object} obj Object to be cloned.
- * @return {object}
+ * @return {object} Cloned object
  */
 exports.cloneObject = function (obj) {
 	return JSON.parse(JSON.stringify(obj));

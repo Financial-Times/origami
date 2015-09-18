@@ -1,21 +1,17 @@
-"use strict";
+const oCommentUi = require('o-comment-ui');
+const oCommentApi = require('o-comment-api');
+const utils = require('./utils.js');
+const auth = require('./auth.js');
+const globalEvents = require('./globalEvents.js');
 
-var oCommentUi = require('o-comment-ui');
-var oCommentApi = require('o-comment-api');
-var utils = require('./utils.js');
-var auth = require('./auth.js');
-
-
-var emailSubscribeOptions = ['immediately', 'hourly', 'on'];
-var emailUnsubscribeOptions = ['never', 'off'];
-
-var globalEvents = require('./globalEvents.js');
+const emailSubscribeOptions = ['immediately', 'hourly', 'on'];
+const emailUnsubscribeOptions = ['never', 'off'];
 
 function inArray (array, item) {
 	if (Array.prototype.indexOf) {
 		return array.indexOf(item) !== -1 ? true : false;
 	} else {
-		for (var i = 0; i < array.length; i++) {
+		for (let i = 0; i < array.length; i++) {
 			if (array[i] === item) {
 				return true;
 			}
@@ -34,8 +30,8 @@ function isUnsubscribed (option) {
 
 
 function getModifiedSubscribesUnsubscribes (currentSettings, newSettings) {
-	var subscribes = [];
-	var unsubscribes = [];
+	const subscribes = [];
+	const unsubscribes = [];
 
 	if (currentSettings.emailcomments !== newSettings.emailcomments) {
 		if ((isUnsubscribed(currentSettings.emailcomments) || !currentSettings.emailcomments) && isSubscribed(newSettings.emailcomments)) {
@@ -81,7 +77,7 @@ function getModifiedSubscribesUnsubscribes (currentSettings, newSettings) {
 }
 
 function getNewSubscribes (newSettings) {
-	var subscribes = [];
+	const subscribes = [];
 
 	if (isSubscribed(newSettings.emailcomments)) {
 		subscribes.push('emailcomments');
@@ -145,7 +141,7 @@ exports.showSetPseudonymDialog = function (callback) {
 			}
 		},
 		close: function () {
-			callback(new Error("Closed or cancelled."));
+			callback(new Error('Closed or cancelled.'));
 			utils.emptyLivefyreActionQueue();
 		}
 	});
@@ -155,7 +151,8 @@ exports.showSetPseudonymDialog = function (callback) {
 /**
  * Settings dialog where the user can change its pseudonym or email preferences.
  * @param  {Object} currentPseudonym Required. Current pseudonym of the user.
- * @param  {Function} callbacks Optional. Two possible fields: success and failure. Success will get the new authentication data as parameter.
+ * @param  {Function} callback Optional. function (err, data), where data is the new authentication data.
+ * @returns {undefined}
  */
 exports.showChangePseudonymDialog = function (currentPseudonym, callback) {
 	callback = callback || function () {};
@@ -200,7 +197,7 @@ exports.showChangePseudonymDialog = function (currentPseudonym, callback) {
 			}
 		},
 		close: function () {
-			callback(new Error("Closed or cancelled."));
+			callback(new Error('Closed or cancelled.'));
 		}
 	});
 };
@@ -241,7 +238,7 @@ exports.showEmailAlertDialog = function () {
 
 						// get new subscribes
 						// as this is the initial setup, there cannot be considered any unsubscribe
-						var result;
+						let result;
 						result = getNewSubscribes(newUserDetails.settings);
 
 						if (result.subscribes.length) {
@@ -294,7 +291,7 @@ exports.showSettingsDialog = function (currentUserDetails, callback) {
 						responseCallback();
 
 						// get subscribes and unsubscribes
-						var result;
+						let result;
 						if (currentUserDetails.settings) {
 							result = getModifiedSubscribesUnsubscribes(currentUserDetails.settings, newUserDetails.settings);
 						} else {
@@ -317,7 +314,7 @@ exports.showSettingsDialog = function (currentUserDetails, callback) {
 			}
 		},
 		close: function () {
-			callback(new Error("Closed or cancelled."));
+			callback(new Error('Closed or cancelled.'));
 		}
 	});
 };
