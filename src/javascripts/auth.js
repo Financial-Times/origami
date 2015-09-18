@@ -7,7 +7,7 @@ var oCommentApi = require('o-comment-api');
 var utils = require('./utils.js');
 var globalEvents = require('./globalEvents.js');
 var resourceLoader = require('./resourceLoader.js');
-var config = require('./config.js');
+var envConfig = require('./config.js');
 
 
 /**
@@ -239,7 +239,7 @@ function loginRequiredAfterASuccess (callback) {
 
 
 exports.loginRequiredDefaultBehavior = function (evt) {
-	window.location.href = config.get('loginUrl') + '?location=' + encodeURIComponent(document.location.href);
+	window.location.href = envConfig.get('loginUrl') + '?location=' + encodeURIComponent(document.location.href);
 };
 
 var loginRequiredDefaultBehaviorWrapper = function (evt) {
@@ -289,7 +289,7 @@ exports.loginRequired = function (callback) {
 
 				userDialogs.showInactivityMessage({
 					submit: function () {
-						window.location.href = config.get('loginUrl') + '?location=' + encodeURIComponent(document.location.href);
+						window.location.href = envConfig.get('loginUrl') + '?location=' + encodeURIComponent(document.location.href);
 					},
 					close: function () {
 						utils.emptyLivefyreActionQueue();
