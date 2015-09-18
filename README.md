@@ -324,14 +324,16 @@ The default configuration is the production one:
 
 ```json
 {
+    "loginUrl": "https://accounts.ft.com/login",
     "livefyre": {
         "network": "ft.fyre.co",
         "domain": "ft.auth.fyre.co",
-        "resourceDomainBase": "//zor.livefyre.com",
-        "resourceUrls": {
-            "livefyreJs": "/wjs/v3.0/javascripts/livefyre.js"
-        }
-    }
+        "resourceDomainBase": "//cdn.livefyre.com/",
+    },
+    "resourceUrls": {
+        "livefyreJs": "Livefyre.js"
+    },
+    "emailNotifications": true
 }
 ```
 
@@ -339,6 +341,7 @@ In order to change to the settings of the TEST environment, then this configurat
 
 ```json
 {
+    "loginUrl": "https://accounts-test.ft.com/login",
     "livefyre": {
         "network": "ft-1.fyre.co",
         "domain": "ft-1.auth.fyre.co"
