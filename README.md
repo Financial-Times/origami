@@ -358,6 +358,7 @@ In order to change the configuration, you can add a script tag in your page sour
 ```javascript
 <script data-o-comments-config type="application/json">
     {
+        "loginUrl": "https://accounts-test.ft.com/login",
         "livefyre": {
             "network": "ft-1.fyre.co",
             "domain": "ft-1.auth.fyre.co"
@@ -380,6 +381,7 @@ Example:
 
 ```javascript
 oComments.setConfig({
+    "loginUrl": "https://accounts-test.ft.com/login",
     "livefyre": {
         "network": "ft-1.fyre.co",
         "domain": "ft-1.auth.fyre.co"
