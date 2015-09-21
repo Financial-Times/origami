@@ -99,22 +99,28 @@ function ftTime(dateObj) {
 function applyFtTimeToEl(el) {
 	var date = el.getAttribute('datetime');
 	var printer = el.querySelector('.o-date__printer') || el;
+	var hasTextNode = printer.firstChild && printer.firstChild.nodeType === 3;
 
 	if (date) {
 		date = toDate(date);
-	} else if (printer.innerHTML.length === 0) {
+	} else if (hasTextNode) {
 		// Only define new date if printer is empty
 		date = new Date();
 	}
 
 	if (!date) return;
 
-	printer.innerHTML = ftTime(date);
+	// To avoid triggering a parent live region unnecessarily
+	// <https://github.com/Financial-Times/o-date/pull/43>
+	if (hasTextNode) {
+		printer.firstChild.nodeValue = ftTime(date);
+	} else {
+		printer.innerHTML = ftTime(date);
+	}
 
 	el.title = format(date, 'datetime');
 	el.setAttribute('data-o-date-js', '');
 }
-
 
 function timeAgo (date, interval) {
 
