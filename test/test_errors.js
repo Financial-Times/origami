@@ -236,6 +236,9 @@ describe("oErrors", function() {
 				const path = errors._getEventPath(ev);
 				expect(path[0]).to.be(firstLevelDiv);
 				expect(path[1]).to.be(topLevelDiv);
+				expect(path[2]).to.be(document.body);
+				expect(path[3]).to.be(document.documentElement);
+				expect(path[4]).to.be(undefined);
 
 				done();
 			}

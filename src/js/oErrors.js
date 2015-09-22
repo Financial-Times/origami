@@ -347,12 +347,22 @@ Errors.prototype.destroy = function() {
 };
 
 Errors.prototype.handleLogEvent = function(ev) {
+	// If no event is passed here, return early
+	if (!ev) {
+		return;
+	}
+
 	// Tag the context with additional information about the DOM.
 	const context = {
 		info: ev.detail.info || {},
 		extra: {
 			"context:dom": this._getEventPath(ev).reduceRight(function(builder, el) {
 				const classList = Array.prototype.slice.call(el.classList || []);
+
+				if (!el.nodeName) {
+					return builder + " - " + el.constructor.name + "\n";
+				}
+
 				const nodeName = el.nodeName.toLowerCase();
 
 				if (nodeName.indexOf('#') === 0) {
@@ -375,19 +385,11 @@ Errors.prototype.handleLogEvent = function(ev) {
  * @returns {Array} - An array of Elements.
  */
 Errors.prototype._getEventPath = function(event) {
-
-	// event.path is available in some browsers, most notable Chrome
-	if (event.path) {
-		// Array.prototype.slice.call coerces a NodeList to an array. Could
-		// use Array.from but it is not in the Polyfill service default set.
-		return Array.prototype.slice.call(event.path);
-	}
-
 	const path = [];
 
-	// IE backwards compatibility (get the actual target). If not IE, uses
-	// `event.target`
-	let element = window.event ? window.event.srcElement : event.target;
+	// IE backwards compatibility (get the actual target). If IE, uses
+	// `window.event.srcElement`
+	const element = event.target || window.event.srcElement;
 
 	while (element) {
 		path.push(element);
