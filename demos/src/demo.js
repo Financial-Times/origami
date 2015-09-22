@@ -1,24 +1,22 @@
 /*global OrigamiRegistry*/
-"use strict";
-
 function loadDemo(showtype) {
-	var palette = {};
-	var roles = ['border', 'background', 'text', 'all'];
-	var el = document.getElementById('results');
-	var paletteExclusions = ['transparent', 'inherit'];
+	const palette = {};
+	const roles = ['border', 'background', 'text', 'all'];
+	const el = document.getElementById('results');
+	const paletteExclusions = ['transparent', 'inherit'];
 
 	getData('palette');
 
 	function getData(type) {
-		var oReq = new XMLHttpRequest();
+		const oReq = new XMLHttpRequest();
 
-		oReq.open("GET", ((location.pathname.indexOf('/local') !== -1) ? "../" : "") + "../src/scss/_" + type + ".scss", true);
+		oReq.open('GET', ((location.pathname.indexOf('/local') !== -1) ? '../' : '') + '../src/scss/_' + type + '.scss', true);
 
 		oReq.onload = function() {
-			var src = this.responseText;
+			const src = this.responseText;
 
 			// Extract the data
-			var m = src.match(/\$[\w\-]+\:\s*(?:map\-merge\()?\(\s*\n([^;]+);/);
+			let m = src.match(/\$[\w\-]+\:\s*(?:map\-merge\()?\(\s*\n([^;]+);/);
 
 			// Split into lines
 			m[1].split('\n').forEach(function(rule) {
@@ -47,10 +45,10 @@ function loadDemo(showtype) {
 					m = rule.match(/^([^\:]+)\:\s*\(([^\)]+)\)/);
 					if (m) {
 						if (m[2].match(/_deprecated\s*:/)) return true;
-						var op = '<div data-o-grid-colspan="12 M6 L3" class="demo-sample"><div class="demo-swatch';
-						var tips = [];
+						let op = '<div data-o-grid-colspan="12 M6 L3" class="demo-sample"><div class="demo-swatch';
+						const tips = [];
 						roles.forEach(function(role) {
-							var rolematch = (new RegExp(role+"\\s*:\\s*([\\w-]+),")).exec(m[2]+',');
+							const rolematch = (new RegExp(role+'\\s*:\\s*([\\w-]+),')).exec(m[2]+',');
 							if (rolematch) {
 								op += ' o-colors-'+m[1]+'-'+role;
 								tips.push(role+': '+rolematch[1]);
