@@ -10,7 +10,7 @@ describe('page', function () {
 
 	before(function () {
 		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
-		require("../src/javascript/core/settings").delete('config');  // Empty settings.
+		require("../src/javascript/core/settings").destroy('config');  // Empty settings.
 		require("../src/javascript/core/send").init(); // Init the sender.
 
 		server = sinon.fakeServer.create(); // Catch AJAX requests

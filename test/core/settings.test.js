@@ -19,7 +19,7 @@ describe('Core.Settings', function () {
 
 	it('should delete a value', function () {
 		assert.doesNotThrow(function () {
-			Settings.delete('key');
+			Settings.destroy('key');
 		});
 		assert.ok(typeof Settings.get('key') === "undefined");
 	});

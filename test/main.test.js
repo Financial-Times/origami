@@ -12,7 +12,7 @@ describe('main', function () {
 
 	before(function () {
 		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
-		settings.delete('config');  // Empty settings.
+		settings.destroy('config');  // Empty settings.
 		server = sinon.fakeServer.create(); // Catch AJAX requests
 	});
 

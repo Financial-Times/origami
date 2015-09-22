@@ -28,7 +28,7 @@ var assert = require('assert'),
 
 // PhantomJS doesn't always create a "fresh" environment...
 (new (require("../../src/javascript/core/queue"))('requests')).replace([]);
-require("../../src/javascript/core/settings").delete('config');  // Empty settings.
+require("../../src/javascript/core/settings").destroy('config');  // Empty settings.
 
 describe('Core.Send', function () {
 
