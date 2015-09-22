@@ -16,12 +16,16 @@ document.onreadystatechange = function () {
 	if (document.readyState === 'complete') {
 		trigger('DOMContentLoaded');
 		trigger('load');
+	} else if (document.readyState === 'interactive' && !document.attachEvent) {
+		trigger('DOMContentLoaded');
 	}
 };
 
 if (document.readyState === 'complete') {
 	trigger('DOMContentLoaded');
 	trigger('load');
+} else if (document.readyState === 'interactive' && !document.attachEvent) {
+	trigger('DOMContentLoaded');
 }
 
 
