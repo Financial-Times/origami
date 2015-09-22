@@ -34,7 +34,8 @@ describe('event', function () {
 				category: 'slideshow',
 				action: 'slide_viewed',
 				slide_number: 5,
-				component_id: '123456'
+				component_id: '123456',
+				component_name: 'custom-o-tracking'
 			}
 		}), callback);
 
@@ -51,6 +52,7 @@ describe('event', function () {
 		assert.equal(sent_data.action, "slide_viewed");
 		assert.equal(sent_data.context.slide_number, 5);
 		assert.equal(sent_data.context.component_id, "123456");
+		assert.equal(sent_data.context.component_name, 'custom-o-tracking');
 	});
 
 	it('should listen to a dom event and generate a component_id', function (done) {
@@ -85,6 +87,7 @@ describe('event', function () {
 			assert.equal(sent_data.context.key, 'id');
 			assert.equal(sent_data.context.value, 51234);
 			assert.equal(typeof sent_data.context.component_id, "number");
+			assert.equal(sent_data.context.component_name, "o-tracking");
 
 			done();
 		});
