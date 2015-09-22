@@ -33,6 +33,7 @@ if (document.attachEvent) {
 	// If IE and not a frame
 	// continually check to see if the document is ready
 	var top = false;
+	var delay = 50;
 
 	try {
 		top = window.frameElement == null && document.documentElement;
@@ -47,7 +48,7 @@ if (document.attachEvent) {
 					// http://javascript.nwbox.com/IEContentLoaded/
 					top.doScroll("left");
 				} catch(e) {
-					return setTimeout( doScrollCheck, 50 );
+					return delay < 5000 ? setTimeout( doScrollCheck, (delay*=1.2)) : undefined;
 				}
 
 				trigger('DOMContentLoaded');
