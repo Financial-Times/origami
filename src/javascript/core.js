@@ -75,6 +75,8 @@ function track(config, callback) {
 
 	var request = utils.merge(defaultConfig(), utils.merge(config, { callback: callback }));
 
+	var session = Session.session();
+
 	/* Values here are kinda the mandatory ones, so we want to make sure they're possible. */
 	request = utils.merge({
 		context: {
@@ -85,7 +87,8 @@ function track(config, callback) {
 		user: settings.get('config') ? settings.get('config').user : {},
 
 		device: {
-			spoor_session: Session.session(),
+			spoor_session: session.id,
+			spoor_session_is_new: session.isNew,
 			spoor_id: User.userID(),
 			user_agent: window.navigator.userAgent
 		}
