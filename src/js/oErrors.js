@@ -389,7 +389,7 @@ Errors.prototype._getEventPath = function(event) {
 
 	// IE backwards compatibility (get the actual target). If IE, uses
 	// `window.event.srcElement`
-	const element = event.target || window.event.srcElement;
+	let element = event.target || window.event.srcElement;
 
 	while (element) {
 		path.push(element);
