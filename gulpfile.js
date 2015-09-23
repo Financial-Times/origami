@@ -26,7 +26,7 @@ gulp.task('verify', function() {
 
 gulp.task('obt-build', function () {
 	obt.build(gulp, {
-		buildDir: 'build',
+		buildFolder: 'build',
 		standalone: standaloneName
 	});
 });
