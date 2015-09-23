@@ -1,5 +1,3 @@
-'use strict';
-
 function initDemos() {
 	require('../../main');
 
