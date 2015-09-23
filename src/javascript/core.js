@@ -75,7 +75,7 @@ function track(config, callback) {
 
 	let request = utils.merge(defaultConfig(), utils.merge(config, { callback: callback }));
 
-	var session = Session.session();
+	const session = Session.session();
 
 	/* Values here are kinda the mandatory ones, so we want to make sure they're possible. */
 	request = utils.merge({

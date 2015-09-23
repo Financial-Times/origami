@@ -33,7 +33,7 @@ function setSession(session) {
 function getSession() {
 	const s = store.read();
 	let session;
-	let isNew = false,
+	let isNew = false;
 
 	if (s) {
 		const d = (new Date()).valueOf();

@@ -23,7 +23,7 @@ const Store = function (name, config) {
 	const utils = require('../utils');
 
 	if (utils.isUndefined(name)) {
-		var undefinedName = new Error('You must specify a name for the store.');
+		const undefinedName = new Error('You must specify a name for the store.');
 		utils.broadcast('oErrors', 'log', {
 			error: undefinedName,
 			info: { module: 'o-tracking' }

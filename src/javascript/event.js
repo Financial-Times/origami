@@ -28,7 +28,7 @@ const defaultEventConfig = function () {
  */
 function event(trackingEvent, callback) {
 	if (utils.is(trackingEvent.detail.category) || utils.is(trackingEvent.detail.action)) {
-		var noCategoryActionVals = 'Missing category or action values';
+		const noCategoryActionVals = 'Missing category or action values';
 		utils.broadcast('oErrors', 'log', {
 			error: noCategoryActionVals,
 			info: { module: 'o-tracking' }
@@ -45,7 +45,7 @@ function event(trackingEvent, callback) {
 	delete config.context.category;
 	delete config.context.action;
 
-	var origamiElement = getOrigamiEventTarget(trackingEvent);
+	let origamiElement = getOrigamiEventTarget(trackingEvent);
 	if (origamiElement) {
 		config.context.component_name = origamiElement.getAttribute('data-o-component');
 		config.context.component_id = config.context.component_id || getComponentId(origamiElement);
@@ -65,7 +65,7 @@ function event(trackingEvent, callback) {
 function getOrigamiEventTarget(event) {
 	// IE backwards compatibility (get the actual target). If not IE, uses
 	// `event.target`
-	var element = event.target || event.srcElement;
+	const element = event.target || event.srcElement;
 
 	if (element && element.getAttribute('data-o-component')) {
 		return element;
@@ -115,7 +115,7 @@ function getComponentId(element) {
 			return builder + ' - ' + el.constructor.name + '\n';
 		}
 
-		var nodeName = el.nodeName.toLowerCase();
+		const nodeName = el.nodeName.toLowerCase();
 
 		// In some browsers, document is prepended with a '#'
 		if (nodeName.indexOf('#') === 0) {

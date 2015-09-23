@@ -11,7 +11,7 @@ const Store = require('./store');
  */
 const Queue = function (name) {
 	if (utils.isUndefined(name)) {
-		var undefinedName = new Error('You must specify a name for the queue.');
+		const undefinedName = new Error('You must specify a name for the queue.');
 		utils.broadcast('oErrors', 'log', {
 			error: undefinedName,
 			info: { module: 'o-tracking' }
@@ -135,7 +135,7 @@ Queue.prototype.replace = function (items) {
 		return this;
 	}
 
-	var invalidArg = new Error('Argument invalid, must be an array.');
+	const invalidArg = new Error('Argument invalid, must be an array.');
 	utils.broadcast('oErrors', 'log', {
 		error: invalidArg,
 		info: { module: 'o-tracking' }
