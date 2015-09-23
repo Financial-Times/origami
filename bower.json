@@ -5,9 +5,9 @@
     "main.scss"
   ],
   "dependencies": {
-    "o-comment-api": "^2.0.0",
-    "o-comment-ui": "^2.0.0",
-    "o-comment-utilities": "^2.0.0",
+    "o-comment-api": "^2.1.0-beta.1",
+    "o-comment-ui": "^2.1.0-beta.1",
+    "o-comment-utilities": "^2.1.0-beta.1",
     "o-typography": "^1.16.2",
     "o-colors": ">=2.4.7 <4",
     "o-assets": "^2.0.0",
