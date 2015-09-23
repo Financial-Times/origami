@@ -49,7 +49,12 @@ function createTransport() {
 				}
 			};
 		}
-	} catch (error) {}
+	} catch (error) {
+		utils.broadcast('oErrors', 'log', {
+			error: error,
+			info: { module: 'o-tracking' }
+		});
+	}
 
 	const image = new Image(1,1);
 
@@ -167,6 +172,10 @@ function sendRequest(request, callback) {
 		}
 
 		if (error) {
+			utils.broadcast('oErrors', 'log', {
+				error: error,
+				info: { module: 'o-tracking' }
+			});
 			finished(request.id);
 		} else {
 			success(request.id);

@@ -23,7 +23,12 @@ const Store = function (name, config) {
 	const utils = require('../utils');
 
 	if (utils.isUndefined(name)) {
-		throw new Error('You must specify a name for the store.');
+		var undefinedName = new Error('You must specify a name for the store.');
+		utils.broadcast('oErrors', 'log', {
+			error: undefinedName,
+			info: { module: 'o-tracking' }
+		});
+		throw undefinedName;
 	}
 
 	this.config = utils.merge({ storage: 'best', expires: (10 * 365 * 24 * 60 * 60 * 1000) }, config);
@@ -64,6 +69,10 @@ const Store = function (name, config) {
 					}
 				}
 			} catch (error) {
+				utils.broadcast('oErrors', 'log', {
+					error: error,
+					info: { module: 'o-tracking' }
+				});
 			}
 		}
 
@@ -130,6 +139,10 @@ const Store = function (name, config) {
 		try {
 			this.data = JSON.parse(loadStore);
 		} catch (error) {
+			utils.broadcast('oErrors', 'log', {
+				error: error,
+				module: 'o-tracking'
+			});
 			this.data = loadStore;
 		}
 	}

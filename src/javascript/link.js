@@ -246,7 +246,12 @@ function init(config) {
 		}
 	} else {
 		if (typeof config.root !== 'object' || typeof config.selector !== 'string') {
-			throw 'If supplying a config it must have a valid root element and a selector string';
+			var configException = 'If supplying a config it must have a valid root element and a selector string';
+			utils.broadcast('oErrors', 'log', {
+				error: configException,
+				info: { module: 'o-tracking' }
+			});
+			throw configException;
 		}
 
 		utils.addEvent(config.root, config.event, function (event) {

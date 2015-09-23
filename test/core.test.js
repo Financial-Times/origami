@@ -77,8 +77,9 @@ describe('Core', function () {
 			assert.equal(sent_data.user.user_id, "userID");
 
 			// Device
-			assert.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_id","user_agent"]);
-			assert.equal(sent_data.device.spoor_session, require("../src/javascript/core/session").session());
+			assert.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_session_is_new","spoor_id","user_agent"]);
+			assert.equal(sent_data.device.spoor_session, require("../src/javascript/core/session").session().id);
+			assert.equal(sent_data.device.spoor_session_is_new, require("../src/javascript/core/session").session().isNew);
 			assert.equal(sent_data.device.user_agent, ua);
 		});
 
