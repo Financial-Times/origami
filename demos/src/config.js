@@ -1,4 +1,4 @@
-/*jslint node: true */
+/*eslint-env node */
 module.exports = {
 	options: {
 		sass: "demos/src/demo.scss",
