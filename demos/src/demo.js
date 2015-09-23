@@ -1,6 +1,4 @@
-'use strict';
-
-var oErrors = require('../../main');
+const oErrors = require('../../main');
 
 document.addEventListener("DOMContentLoaded", function() {
 	document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
@@ -8,10 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("o.DOMContentLoaded", function() {
 	oErrors.init();
-	var trigger = document.getElementById("o-errors__demo-trigger-error");
+	const trigger = document.getElementById("o-errors__demo-trigger-error");
 
 	if (trigger) {
-		trigger.addEventListener('click', function(ev) {
+		trigger.addEventListener('click', function() {
 			try {
 				window.failBecauseU.ndefined;
 			} catch(e) {
