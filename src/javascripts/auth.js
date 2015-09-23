@@ -1,25 +1,25 @@
 /* global Livefyre */
-"use strict";
 
-var oCommentUtilities = require('o-comment-utilities');
-var userDialogs = require('./userDialogs');
-var oCommentApi = require('o-comment-api');
-var utils = require('./utils.js');
-var globalEvents = require('./globalEvents.js');
-var resourceLoader = require('./resourceLoader.js');
-var envConfig = require('./config.js');
+
+const oCommentUtilities = require('o-comment-utilities');
+const userDialogs = require('./userDialogs');
+const oCommentApi = require('o-comment-api');
+const utils = require('./utils.js');
+const globalEvents = require('./globalEvents.js');
+const resourceLoader = require('./resourceLoader.js');
+const envConfig = require('./config.js');
 
 
 /**
  * See http://docs.livefyre.com/developers/identity-integration/#AuthDelegateObject
  */
-var authDelegate;
+let authDelegate;
 
 
-var sessionStorageKey = 'o-comments-auth-last-token';
+const sessionStorageKey = 'o-comments-auth-last-token';
 
 
-var loggedIn = false;
+let loggedIn = false;
 
 /**
  * Pseudonym is still missing.
@@ -59,6 +59,8 @@ function clearLastToken () {
 
 /**
  * See http://docs.livefyre.com/developers/identity-integration/#AuthDelegateObject
+ *
+ * @returns {undefined}
  */
 exports.getAuthDelegate = function () {
 	if (!authDelegate) {
@@ -96,10 +98,10 @@ exports.getAuthDelegate = function () {
 				oCommentApi.cache.clearAuth();
 				callback();
 			},
-			viewProfile: function (user) {
+			viewProfile: function () {
 				// not implemented
 			},
-			editProfile: function (user) {
+			editProfile: function () {
 				// not implemented
 			}
 		};
@@ -112,6 +114,7 @@ exports.getAuthDelegate = function () {
  * Tries to obtain the user's login data. Calls a callback with the resulted status,
  * and also fires an event if the user can be logged in.
  * @param  {Function} callback Called with two parameters: loginStatus, authData.
+ * @returns {undefined}
  */
 exports.login = function (callback) {
 	if (typeof callback !== 'function') {
@@ -166,6 +169,8 @@ exports.login = function (callback) {
 
 /**
  * Logs out the user in the Livefyre system, and also clears the token from the local cache.
+ * @param {function} callback Called when logout is successful.
+ * @returns {undefined}
  */
 exports.logout = function (callback) {
 	resourceLoader.loadLivefyreCore(function (errResource) {
@@ -187,6 +192,8 @@ exports.logout = function (callback) {
 /**
  * Login required and pseudonym is missing
  * @param  {Function} callback function (err, data)
+ * @param {Boolean} maintainCommentQueue Should the comment queue be maintaied or deleted if page reload is required for authentication
+ * @returns {undefined}
  */
 exports.loginRequiredPseudonymMissing = function (callback, maintainCommentQueue) {
 	if (typeof callback !== 'function') {
@@ -220,6 +227,7 @@ exports.loginRequiredPseudonymMissing = function (callback, maintainCommentQueue
  * If the user is still not logged in, then fail.
  * If the user has no pseudonym, ask for a pseudonym.
  * @param  {Function} callback function (err, data)
+ * @returns {undefined}
  */
 function loginRequiredAfterASuccess (callback) {
 	if (typeof callback !== 'function') {
@@ -232,17 +240,17 @@ function loginRequiredAfterASuccess (callback) {
 		if (authData && authData.pseudonym === false) {
 			exports.loginRequiredPseudonymMissing(callback);
 		} else {
-			callback(err || new Error("Login failed."));
+			callback(err || new Error('Login failed.'));
 		}
 	});
 }
 
 
-exports.loginRequiredDefaultBehavior = function (evt) {
+exports.loginRequiredDefaultBehavior = function () {
 	window.location.href = envConfig.get('loginUrl') + '?location=' + encodeURIComponent(document.location.href);
 };
 
-var loginRequiredDefaultBehaviorWrapper = function (evt) {
+const loginRequiredDefaultBehaviorWrapper = function (evt) {
 	exports.loginRequiredDefaultBehavior(evt.detail.callback);
 };
 exports.setLoginRequiredDefaultBehavior = function () {
@@ -257,6 +265,7 @@ exports.setLoginRequiredDefaultBehavior = function () {
  * If there is no known method to login the user, generate a `loginRequired.authAction` event that can be handled at the integration level.
  * If successful, check if the user is logged in.
  * @param  {Function} callback function (err, data)
+ * @returns {undefined}
  */
 exports.loginRequired = function (callback) {
 	if (typeof callback !== 'function') {
@@ -277,7 +286,7 @@ exports.loginRequired = function (callback) {
 						if (errExt) {
 							utils.emptyLivefyreActionQueue();
 
-							callback(errExt || new Error("Login failed."));
+							callback(errExt || new Error('Login failed.'));
 							return;
 						}
 
@@ -293,7 +302,7 @@ exports.loginRequired = function (callback) {
 					},
 					close: function () {
 						utils.emptyLivefyreActionQueue();
-						callback(new Error("Login failed."));
+						callback(new Error('Login failed.'));
 					}
 				});
 			}
