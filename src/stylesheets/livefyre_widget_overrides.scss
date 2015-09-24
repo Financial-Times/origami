@@ -745,7 +745,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 			}
 
 			.fyre-featured-quote {
-				background-image: url(oAssetsResolve('src/images/comment_featured_quote.png', o-comments));
+				background: url(oAssetsResolve('src/images/comment_featured_quote.png', o-comments));
 				width: 32px;
 				height: 25px;
 				margin: 5px 15px 10px 2px;
