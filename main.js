@@ -1,8 +1,7 @@
 /*global require,module*/
-'use strict';
 
-var oHeader = require('./src/js/Header');
-var	constructAll = function() {
+const oHeader = require('./src/js/Header');
+const constructAll = function() {
 	oHeader.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };

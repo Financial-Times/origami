@@ -1,5 +1,4 @@
 /*global module*/
-'use strict';
 
 module.exports = function(config) {
 	config.set({
@@ -66,7 +65,7 @@ module.exports = function(config) {
 
 		browserify: {
 			debug: true,
-			transform: [ 'debowerify' ]
+			transform: [ 'babelify', 'debowerify' ]
 		}
 
 	});
