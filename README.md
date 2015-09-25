@@ -1,7 +1,5 @@
 # o-comments [![Build Status](https://travis-ci.org/Financial-Times/o-comments.svg?branch=master)](https://travis-ci.org/Financial-Times/o-comments)
 
-## Introduction
-
 A fully featured commenting client integrated with FT's membership systems. If you simply wish to add comments to some content this is the component to use.
 
 ## Contents
