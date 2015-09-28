@@ -912,7 +912,8 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 				margin-bottom: 10px !important;
 			}
 
-			.fyre-editor-editable p * {
+			.fyre-editor-editable p *,
+			.fyre-editor-editable p .fyre-mention {
 				color: oColorsGetPaletteColor("grey-tint5");
 				font-family: $o-comments-font-family;
 				font-size: 14px;
