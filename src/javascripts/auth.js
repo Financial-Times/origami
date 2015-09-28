@@ -156,6 +156,8 @@ exports.login = function (callback) {
 					exports.pseudonymMissing = true;
 					exports.pseudonymWasMissing = true;
 
+					clearLastToken();
+
 					callback(false, authData);
 				} else {
 					callback(false, authData);
