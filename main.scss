@@ -16,4 +16,7 @@
 	@include oShareActionIcon(reddit);
 	@include oShareActionIcon(pinterest);
 	@include oShareTooltip();
+	.o-share--vertical {
+		@include oShareVertical();
+	}
 }

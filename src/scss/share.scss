@@ -18,17 +18,17 @@
 	.#{$classname}__action {
 		float: left;
 		margin: 0 0 0 5px;
-		height: $_o-share-icon-size;
+		height: $o-share-icon-size;
 		list-style-type: none;
-		line-height: $_o-share-icon-size;
+		line-height: $o-share-icon-size;
 		cursor: pointer;
 
 		i {
 			float: left;
 			border-radius: 2px;
-			width: $_o-share-icon-size;
-			height: $_o-share-icon-size;
-			text-indent: -100000px;
+			width: $o-share-icon-size;
+			height: $o-share-icon-size;
+			text-indent: $o-share-icon-size;
 			overflow: hidden;
 			background-repeat: no-repeat;
 			background-size: 100% 100%;
@@ -44,11 +44,6 @@
 			&:hover i {
 				opacity: 0.8;
 			}
-		}
-
-		.#{$classname}--vertical & {
-			float: none;
-			margin: 0 0 5px 0;
 		}
 	}
 }
@@ -101,5 +96,12 @@
 @mixin oShareActionIcon($name, $classname: o-share) {
 	.#{$classname}__action--#{$name} i {
 		background-image: url(_oShareGetIconUrl($name));
+	}
+}
+
+@mixin oShareVertical($classname: o-share) {
+	.#{$classname}__action {
+		float: none;
+		margin: 0 0 5px 0;
 	}
 }
