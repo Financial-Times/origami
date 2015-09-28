@@ -85,6 +85,11 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 			margin: 0;
 		}
 
+		.fyre-mention {
+			color: oColorsGetPaletteColor("black");
+			cursor: default;
+		}
+
 		.fyre-stream-sort {
 			font: 14px/24px $o-comments-font-family;
 			border-bottom: 1px solid oColorsGetPaletteColor("pink-tint2");
