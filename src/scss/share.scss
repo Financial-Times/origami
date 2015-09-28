@@ -25,13 +25,11 @@
 
 		i {
 			float: left;
-			border-radius: 2px;
+			background-size: 100% 100%;
 			width: $o-share-icon-size;
 			height: $o-share-icon-size;
 			text-indent: $o-share-icon-size;
-			overflow: hidden;
-			background-repeat: no-repeat;
-			background-size: 100% 100%;
+			overflow: hidden
 		}
 
 		a {
@@ -95,7 +93,10 @@
 /// @param {String} $classname [o-share] - base class name
 @mixin oShareActionIcon($name, $classname: o-share) {
 	.#{$classname}__action--#{$name} i {
-		background-image: url(_oShareGetIconUrl($name));
+		background-image: url(_oShareGetIconUrl($name, $format: png) + "&width=" + _oShareStripUnits($o-share-icon-size));
+		// The weird value for rgba is to prevent Sass converting rgba(0,0,0,0) to 'transparent',
+		// which would cause the following line of css to be understood by ie7/8 and the svg to be downloaded
+		background: rgba(0, 0, 0, 0.0001) url(_oShareGetIconUrl($name)) center/100% no-repeat;
 	}
 }
 
