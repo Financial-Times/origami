@@ -18,7 +18,6 @@
 	.#{$classname}__action {
 		float: left;
 		margin: 0 0 0 5px;
-		height: $o-share-icon-size;
 		list-style-type: none;
 		line-height: $o-share-icon-size;
 		cursor: pointer;
@@ -29,11 +28,15 @@
 			width: $o-share-icon-size;
 			height: $o-share-icon-size;
 			text-indent: $o-share-icon-size;
-			overflow: hidden
+			overflow: hidden;
+			border-radius: 100%; //TODO: remove this when we have all the new round SVGs
 		}
 
 		a {
 			text-decoration: none;
+			padding: 6px;
+			display: block;
+			overflow: hidden;
 
 			&:focus i {
 				box-shadow: 0 0 2px oColorsGetPaletteColor('black');
@@ -80,7 +83,6 @@
 
 	.#{$classname}__action--url[aria-selected=true] {
 		position: relative;
-
 		a {
 			display: none;
 		}

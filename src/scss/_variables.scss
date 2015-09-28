@@ -9,16 +9,13 @@ $o-share-is-silent: true !default;
 
 /// Icon size
 /// @type Number
-$o-share-icon-size: 36px;
+$o-share-icon-size: 28px;
 
 /// List of accepted social network icons, and the version
 /// @type map
 $_o-share-icons: (
 	twitter: null,
 	facebook: null,
-	googleplus: null,
-	linkedin: null,
-	reddit: null,
 	link: null,
 	pinterest: null,
 	whatsapp: null
