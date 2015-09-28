@@ -1400,7 +1400,23 @@ body {
 
 		.fyre-modal-twitter-icon,
 		.fyre-modal-facebook-icon {
-			background-image: url(oAssetsResolve('src/images/comment_social_sprite.png', o-comments));
+			background: url(oAssetsResolve('src/images/comment_social_sprite.png', o-comments));
+		}
+
+		.fyre-modal-twitter-icon {
+			background-position: 0 0;
+
+			&.fyre-modal-twitter-icon-active {
+				background-position: 0 -21px;
+			}
+		}
+
+		.fyre-modal-facebook-icon {
+			background-position: -20px 0;
+
+			&.fyre-modal-facebook-icon-active {
+				background-position: -20px -21px;
+			}
 		}
 
 		textarea.fyre-modal-textfield,
