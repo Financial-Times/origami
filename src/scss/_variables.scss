@@ -11,9 +11,9 @@ $o-share-is-silent: true !default;
 /// @type Number
 $_o-share-icon-size: 24px;
 
-/// Used to request and show the sprite. Order doesn't affect class names or markup
+/// List of accepted social network icons
 /// @type map
-$_o-share-sprite-elements: (twitter, facebook, googleplus, linkedin, reddit, link, pinterest);
+$_o-share-icons: (twitter, facebook, googleplus, linkedin, reddit, link, pinterest, whatsapp);
 
 /// Tooltip background
 /// @type color

@@ -28,9 +28,10 @@
 			border-radius: 2px;
 			width: $_o-share-icon-size;
 			height: $_o-share-icon-size;
-			text-indent: $_o-share-icon-size;
-			background-image: url(_oShareGetSpriteUrl());
+			text-indent: -100000px;
 			overflow: hidden;
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
 		}
 
 		a {
@@ -39,6 +40,15 @@
 			&:focus i {
 				box-shadow: 0 0 2px oColorsGetPaletteColor('black');
 			}
+
+			&:hover i {
+				opacity: 0.8;
+			}
+		}
+
+		.#{$classname}--vertical & {
+			float: none;
+			margin: 0 0 5px 0;
 		}
 	}
 }
@@ -50,7 +60,7 @@
 		display: none;
 
 		i {
-			@include _oShareSprite(link);
+			background-image: url(_oShareGetIconUrl(link));
 		}
 
 		input {
@@ -90,6 +100,6 @@
 /// @param {String} $classname [o-share] - base class name
 @mixin oShareActionIcon($name, $classname: o-share) {
 	.#{$classname}__action--#{$name} i {
-		@include _oShareSprite($name);
+		background-image: url(_oShareGetIconUrl($name));
 	}
 }
