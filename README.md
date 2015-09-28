@@ -27,13 +27,13 @@ Known issues:
 The simplest markup you might need looks like this:
 
 ```html
-<div data-o-component="o-share" 
-    class="o-share" 
-    data-o-share-links="{{links}}" 
-    data-o-share-url="{{url}}" 
-    data-o-share-title="{{title}}" 
-    data-o-share-titleExtra="{{titleExtra}}" 
-    data-o-share-summary="{{summary}}" 
+<div data-o-component="o-share"
+    class="o-share"
+    data-o-share-links="{{links}}"
+    data-o-share-url="{{url}}"
+    data-o-share-title="{{title}}"
+    data-o-share-titleExtra="{{titleExtra}}"
+    data-o-share-summary="{{summary}}"
     data-o-share-relatedTwitterAccounts="{{relatedTwitterAccounts}}">
 </div>
 ```
@@ -51,6 +51,7 @@ The different social networks are (in the order suggested by the design team):
 
 * Twitter
 * Facebook
+* Whatsapp
 * Linkedin
 * Google+ (written as 'googleplus' in the `links` config option)
 * Reddit

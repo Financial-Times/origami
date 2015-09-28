@@ -102,6 +102,6 @@
 @mixin oShareVertical($classname: o-share) {
 	.#{$classname}__action {
 		float: none;
-		margin: 0 0 5px 0;
+		margin: 0 0 5px;
 	}
 }

@@ -12,8 +12,8 @@
         },
         {
             "name": "vertical",
-            "template": "demos/src/vertical.mustache",
-            "data": "demos/src/data.json"
+            "template": "main.mustache",
+            "data": "demos/src/data-vertical.json"
         },
         {
             "name": "web-component",
