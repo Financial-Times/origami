@@ -1,12 +1,10 @@
-'use strict';
+// let debug;
+const utils = require('./src/utils');
+const throttle = require('lodash/function/throttle');
+const debounce = require('lodash/function/debounce');
 
-var debug;
-var utils = require('./src/utils');
-var throttle = require('lodash/function/throttle');
-var debounce = require('lodash/function/debounce');
-
-var listeners = {};
-var intervals = {
+const listeners = {};
+const intervals = {
 	resize: 100,
 	orientation: 100,
 	visibility: 100,
@@ -28,8 +26,8 @@ function listenToResize() {
 	if (listeners.resize) {
 		return;
 	}
-	var eventType = 'resize';
-	var handler = debounce(function(ev) {
+	const eventType = 'resize';
+	const handler = debounce(function(ev) {
 		utils.broadcast('resize', {
 			viewport: utils.getSize(),
 			originalEvent: ev
@@ -50,8 +48,8 @@ function listenToOrientation() {
 		return;
 	}
 
-	var eventType = 'orientationchange';
-	var handler = debounce(function(ev) {
+	const eventType = 'orientationchange';
+	const handler = debounce(function(ev) {
 		utils.broadcast('orientation', {
 			viewport: utils.getSize(),
 			orientation: utils.getOrientation(),
@@ -72,8 +70,8 @@ function listenToVisibility() {
 		return;
 	}
 
-	var eventType = utils.detectVisiblityAPI().eventType;
-	var handler = debounce(function(ev) {
+	const eventType = utils.detectVisiblityAPI().eventType;
+	const handler = debounce(function(ev) {
 		utils.broadcast('visibility', {
 			hidden: utils.getVisibility(),
 			originalEvent: ev
@@ -94,9 +92,9 @@ function listenToScroll() {
 		return;
 	}
 
-	var eventType = 'scroll';
-	var handler = throttle(function(ev) {
-		var scrollPos = utils.getScrollPosition();
+	const eventType = 'scroll';
+	const handler = throttle(function(ev) {
+		const scrollPos = utils.getScrollPosition();
 		utils.broadcast('scroll', {
 			viewport: utils.getSize(),
 			scrollHeight: scrollPos.height,
@@ -143,7 +141,7 @@ function stopListeningTo(eventType) {
 
 module.exports = {
 	debug: function() {
-		debug = true;
+		// debug = true;
 		utils.debug();
 	},
 	listenTo: listenTo,
