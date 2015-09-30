@@ -1,12 +1,11 @@
-'use strict';
 /**
  * The oErrors error tracking and reporting module.
  *
  * @module oErrors
  * @see Errors
  */
-var Errors = require('./src/js/oErrors');
-var errors = new Errors();
+const Errors = require('./src/js/oErrors');
+const errors = new Errors();
 
 
 function initialise() {

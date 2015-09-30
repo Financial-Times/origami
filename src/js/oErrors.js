@@ -1,6 +1,4 @@
-'use strict';
-
-var Logger = require('./logger');
+const Logger = require('./logger');
 
 function isFunction(fn) {
 	return typeof fn === 'function';
@@ -38,7 +36,7 @@ function Errors() {
 	this._declarativeConfigString = false;
 
 	// noop operations
-	this._filterError = function(data) { return true; };
+	this._filterError = function() { return true; };
 	this._transformError = function(data) { return data; };
 }
 
@@ -70,8 +68,8 @@ Errors.prototype.init = function(options, raven) {
 		return this;
 	}
 
-	var hasDeclarativeConfig = this._hasDeclarativeConfig();
-	var configMissing = !(hasDeclarativeConfig || options);
+	const hasDeclarativeConfig = this._hasDeclarativeConfig();
+	const configMissing = !(hasDeclarativeConfig || options);
 
 	// In main.js an event listener is bound to 'o.DOMContentLoaded', this
 	// calls 'init' without arguments with the intention of configuring from
@@ -109,10 +107,10 @@ Errors.prototype.init = function(options, raven) {
 	// If errors is configured to be disabled, (options.disabled = true),
 	// then stub this.report, turn off logging (which turns them into noops),
 	// and return 'initialised' before installing raven.
-	var isErrorsDisabled = options.enabled === undefined ? false : options.enabled === false;
+	const isErrorsDisabled = options.enabled === undefined ? false : options.enabled === false;
 
-	var logLevel = isErrorsDisabled ? Logger.off : options.logLevel;
-	var defaultLogLength = 10;
+	const logLevel = isErrorsDisabled ? Logger.off : options.logLevel;
+	const defaultLogLength = 10;
 	this.logger = new Logger(defaultLogLength, logLevel);
 
 	if (isErrorsDisabled) {
@@ -149,10 +147,10 @@ Errors.prototype._configureAndInstallRaven = function(options, raven) {
 
 	this.ravenClient = raven;
 
-	var sentryEndpoint = options.sentryEndpoint;
-	var updatePayloadBeforeSend = this._updatePayloadBeforeSend.bind(this);
+	const sentryEndpoint = options.sentryEndpoint;
+	const updatePayloadBeforeSend = this._updatePayloadBeforeSend.bind(this);
 
-	var ravenOptions = {
+	const ravenOptions = {
 		dataCallback: updatePayloadBeforeSend
 	};
 
@@ -177,7 +175,7 @@ Errors.prototype._flushBufferedErrors = function() {
 		return;
 	}
 
-	var errors = this;
+	const errors = this;
 	this._errorBuffer.forEach(function(bufferedError) {
 		errors.report(bufferedError.error, bufferedError.context);
 	});
@@ -207,15 +205,15 @@ Errors.prototype._flushBufferedErrors = function() {
  * @return {Error} - The passed in error
  */
 Errors.prototype.report = function(error, context) {
-	var _context = context || {};
-	var reportObject = { error: error, context: _context };
+	const _context = context || {};
+	let reportObject = { error: error, context: _context };
 
-	if (!this.initialised) {
+		if (!this.initialised) {
 		this._errorBuffer.push(reportObject);
 		return error;
 	}
 
-	var transformedError = this._transformError(reportObject);
+	const transformedError = this._transformError(reportObject);
 
 	// The _transformError may return a bad value, in order to protect against
 	// this mistake and still report a valid object we test the return value
@@ -291,7 +289,7 @@ Errors.prototype.log = function() {
  *
  * @example
  * // Wraps function, any errors occurring within the function are caught, logged, and rethrown.
- * var wrappedFunction = oErrors.wrap(function() {
+ * let wrappedFunction = oErrors.wrap(function() {
  *   throw new Error("My Error");
  * });
  *
@@ -322,7 +320,7 @@ Errors.prototype.wrap = function(fn) {
  * @return {Function}
  */
 Errors.prototype.wrapWithContext = function(context, fn) {
-	var errors = this;
+	const errors = this;
 	return function() {
 		try {
 			return fn.apply(undefined, arguments);
@@ -355,17 +353,17 @@ Errors.prototype.handleLogEvent = function(ev) {
 	}
 
 	// Tag the context with additional information about the DOM.
-	var context = {
+	const context = {
 		info: ev.detail.info || {},
 		extra: {
 			"context:dom": this._getEventPath(ev).reduceRight(function(builder, el) {
-				var classList = Array.prototype.slice.call(el.classList || []);
+				const classList = Array.prototype.slice.call(el.classList || []);
 
 				if (!el.nodeName) {
 					return builder + " - " + el.constructor.name + "\n";
 				}
 
-				var nodeName = el.nodeName.toLowerCase();
+				const nodeName = el.nodeName.toLowerCase();
 
 				if (nodeName.indexOf('#') === 0) {
 					return builder + "<" + nodeName + ">\n";
@@ -387,11 +385,11 @@ Errors.prototype.handleLogEvent = function(ev) {
  * @returns {Array} - An array of Elements.
  */
 Errors.prototype._getEventPath = function(event) {
-	var path = [];
+	const path = [];
 
 	// IE backwards compatibility (get the actual target). If IE, uses
 	// `window.event.srcElement`
-	var element = event.target || window.event.srcElement;
+	let element = event.target || window.event.srcElement;
 
 	while (element) {
 		path.push(element);
@@ -433,7 +431,7 @@ Errors.prototype._hasDeclarativeConfig = function() {
  */
 Errors.prototype._getDeclarativeConfig = function() {
 	if (!this._declarativeConfigString) {
-		var config = document.querySelector('script[data-o-errors-config]');
+		const config = document.querySelector('script[data-o-errors-config]');
 		if (config) {
 			this._declarativeConfigString = config.textContent || config.innerText || config.innerHTML;
 		} else {
@@ -460,7 +458,7 @@ Errors.prototype._initialiseDeclaratively = function(options) {
 		return false;
 	}
 
-	var declarativeOptions;
+	let declarativeOptions;
 
 	try {
 		declarativeOptions = JSON.parse(this._getDeclarativeConfig());
@@ -468,7 +466,7 @@ Errors.prototype._initialiseDeclaratively = function(options) {
 		throw new Error("Invalid JSON configuration syntax, check validity for o-errors configuration: '" + e.message + "'");
 	}
 
-	for (var property in declarativeOptions) {
+	for (const property in declarativeOptions) {
 		if (declarativeOptions.hasOwnProperty(property)) {
 			options[property] = options[property] || declarativeOptions[property];
 		}

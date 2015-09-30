@@ -1,5 +1,5 @@
 /* global console */
-'use strict';
+
 /**
  * Create a new Logger class. Used internally by {@link Errors}.
  *
@@ -19,7 +19,7 @@ function Logger(logSize, logLevel) {
 		this._consoleLog = noop;
 	}
 
-	var out = console || window.console || { log: noop, warn: noop, error: noop };
+	const out = console || window.console || { log: noop, warn: noop, error: noop };
 	this.out = out;
 }
 
@@ -36,12 +36,12 @@ Logger.prototype.warn = function() {
 };
 
 Logger.prototype._consoleLog = function(name, consoleMethod, args) {
-	var debug = this._logLevel === Logger.level.debug;
+	const debug = this._logLevel === Logger.level.debug;
 
 	// Because 'arguments' is not a true array we call out to argsAsLogString
 	// to efficiently concatenate the arguments as string types to create the
 	// message.
-	var message = argsAsLogString(name, args);
+	const message = argsAsLogString(name, args);
 	this.append(message);
 
 	if (debug && consoleMethod) {
@@ -50,13 +50,13 @@ Logger.prototype._consoleLog = function(name, consoleMethod, args) {
 };
 
 function argsAsLogString(logName, args) {
-	var string = logName + ":";
+	let string = logName + ":";
 
 	// TODO: Improve the logging of objects.  We could 'require('util')' and
 	// use util.format (provided by browserify), but it adds 8K to the
 	// minified output, it doesn't seem worth it. Kornel suggests
 	// git.svc.ft.com/projects/LOG/repos/js-abbreviate/browse
-	for(var index = 0; index < args.length; index++) {
+	for(let index = 0; index < args.length; index++) {
 		string += " " + args[index];
 	}
 
@@ -83,12 +83,12 @@ Logger.prototype.append = function(logLine) {
  * @returns {String}
  */
 Logger.prototype.logLines = function() {
-	var index = this._nextLogIndex;
-	var nextLogIndex = this._nextLogIndex;
-	var rolledUpLogs = [];
+	let index = this._nextLogIndex;
+	const nextLogIndex = this._nextLogIndex;
+	const rolledUpLogs = [];
 
 	do {
-		var logEntry = this._logBuffer[index];
+		const logEntry = this._logBuffer[index];
 
 		if (logEntry !== undefined) {
 			rolledUpLogs.push(this._logBuffer[index]);
