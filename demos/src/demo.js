@@ -1,17 +1,16 @@
 /*global require*/
 
 (function() {
-	"use strict";
 
 	require('./../../main').wrap();
 
-	var tableEls;
-	var checkboxEls;
+	let tableEls;
+	let checkboxEls;
 
 	function checkboxChangeHandler(ev) {
-		var cssClass = ev.target.getAttribute('data-switch-class');
-		var c;
-		var l;
+		const cssClass = ev.target.getAttribute('data-switch-class');
+		let c;
+		let l;
 
 		for (c = 0, l = tableEls.length; c < l; c++) {
 			if (ev.target.checked) {
@@ -25,7 +24,7 @@
 	tableEls = document.querySelectorAll('.o-table');
 	checkboxEls = document.querySelectorAll('input[type=checkbox]');
 
-	for (var c = 0, l = checkboxEls.length; c < l; c++) {
+	for (let c = 0, l = checkboxEls.length; c < l; c++) {
 		checkboxEls[c].addEventListener('change', checkboxChangeHandler, false);
 	}
-})();
+}());

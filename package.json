@@ -2,10 +2,12 @@
     "name": "o-table",
     "description": "FT-branded tables",
     "devDependencies": {
-        "babelify": "^5.0.4",
-        "browserify": "^9.0.3",
-        "karma": "^0.12.31",
-        "karma-browserify": "^4.0.0",
+        "webpack": "^1.12.2",
+        "babel-runtime": "5.8.25",
+        "babel-loader": "^5.3.2",
+        "imports-loader": "^0.6.4",
+        "karma": "^0.13.0",
+        "karma-webpack": "^1.7.0",
         "karma-jasmine": "^0.3.5",
         "karma-phantomjs-launcher": "^0.1.4",
         "phantomjs": "^1.9.16"

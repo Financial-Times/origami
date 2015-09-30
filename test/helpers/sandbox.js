@@ -1,5 +1,4 @@
-"use strict";
-var sandboxEl;
+let sandboxEl;
 
 export function init() {
 	if (document.querySelector('.sandbox')) {
