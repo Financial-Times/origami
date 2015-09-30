@@ -1,5 +1,4 @@
-'use strict';
-var sandboxEl;
+let sandboxEl;
 
 function createSandbox() {
 	if (document.querySelector('.sandbox')) {
@@ -21,7 +20,7 @@ function insert(html) {
 }
 
 function insertSimple() {
-	let html = `
+	const html = `
 		<ul data-o-component="o-tabs" class="o-tabs" role="tablist">
 			<li role="tab" class="should-be-focusable"><a href="#tabContent1" class="should-not-be-focusable">Tab 1</a></li>
 			<li role="tab" class="should-be-focusable"><a href="#tabContent2" class="should-not-be-focusable">Tab 2</a></li>

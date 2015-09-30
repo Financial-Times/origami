@@ -1,35 +1,34 @@
 /*global module, require*/
-'use strict';
-var oDom = require('o-dom');
+const oDom = require('o-dom');
 
 function Tabs(rootEl) {
 
-	var tabsObj = this;
-	var tabEls;
-	var tabpanelEls;
-	var selectedTabIndex = -1;
-	var myself = this;
+	const tabsObj = this;
+	let tabEls;
+	let tabpanelEls;
+	let selectedTabIndex = -1;
+	const myself = this;
 
 	function getTabTargetId(tabEl) {
-		var aEls = tabEl.getElementsByTagName('a');
+		const aEls = tabEl.getElementsByTagName('a');
 		return (aEls && aEls[0]) ? aEls[0].getAttribute('href').replace('#','') : '';
 	}
 
 	function getTabPanelEls(tabEls) {
-		var els = [];
-		var targetEl;
-		var c;
-		var l;
+		const els = [];
+		let targetEl;
+		let c;
+		let l;
 		for (c = 0, l = tabEls.length; c < l; c++) {
-			var tabTargetId = getTabTargetId(tabEls[c]);
+			const tabTargetId = getTabTargetId(tabEls[c]);
 			targetEl = document.getElementById(tabTargetId);
 
 			if (targetEl) {
 				tabEls[c].setAttribute('aria-controls', tabTargetId);
 				tabEls[c].setAttribute('tabindex', '0');
 
-				var label = tabEls[c].getElementsByTagName('a')[0];
-				var labelId = tabTargetId + '-label';
+				const label = tabEls[c].getElementsByTagName('a')[0];
+				const labelId = tabTargetId + '-label';
 				label.setAttribute('tabindex', '-1');
 				label.id = labelId;
 				targetEl.setAttribute('aria-labelledby', labelId);
@@ -46,7 +45,7 @@ function Tabs(rootEl) {
 	}
 
 	function getSelectedTabElement() {
-		var selectedTabEl = rootEl.querySelector('[aria-selected=true]');
+		const selectedTabEl = rootEl.querySelector('[aria-selected=true]');
 		return (selectedTabEl) ? getTabIndexFromElement(selectedTabEl) : 0;
 	}
 
@@ -70,8 +69,8 @@ function Tabs(rootEl) {
 			return;
 		}
 		// Get current scroll position
-		var x = window.scrollX;
-		var y = window.scrollY;
+		const x = window.scrollX;
+		const y = window.scrollY;
 
 		// Give focus to the panel for screen readers
 		// This might cause the browser to scroll up or down
@@ -83,7 +82,7 @@ function Tabs(rootEl) {
 
 	function dispatchCustomEvent(name, data) {
 		if (document.createEvent && rootEl.dispatchEvent) {
-			var event = document.createEvent('Event');
+			const event = document.createEvent('Event');
 			event.initEvent(name, true, true);
 			if (data) {
 				event.detail = data;
@@ -93,8 +92,8 @@ function Tabs(rootEl) {
 	}
 
 	function selectTab(i, disableFocus) {
-		var c;
-		var l;
+		let c;
+		let l;
 		if (isValidTab(i) && i !== selectedTabIndex) {
 			for (c = 0, l = tabEls.length; c < l; c++) {
 				if (i === c) {
@@ -116,9 +115,9 @@ function Tabs(rootEl) {
 
 	function clickHandler(ev) {
 		ev.preventDefault();
-		var tabEl = oDom.getClosestMatch(ev.target, '[role=tab]');
+		const tabEl = oDom.getClosestMatch(ev.target, '[role=tab]');
 		if (tabEl) {
-			var i = getTabIndexFromElement(tabEl);
+			const i = getTabIndexFromElement(tabEl);
 			myself.selectTab(i);
 		}
 	}
@@ -142,7 +141,7 @@ function Tabs(rootEl) {
 	function destroy() {
 		rootEl.removeEventListener("click", clickHandler, false);
 		rootEl.removeAttribute('data-o-tabs--js');
-		for (var c = 0, l = tabpanelEls.length; c < l; c++) {
+		for (let c = 0, l = tabpanelEls.length; c < l; c++) {
 			showPanel(tabpanelEls[c]);
 		}
 	}
@@ -154,10 +153,10 @@ function Tabs(rootEl) {
 }
 
 Tabs.init = function(el) {
-	var tabs = [];
-	var tEls;
-	var c;
-	var l;
+	const tabs = [];
+	let tEls;
+	let c;
+	let l;
 	if (!el) {
 		el = document.body;
 	} else if (!(el instanceof HTMLElement)) {
