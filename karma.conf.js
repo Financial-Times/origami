@@ -9,7 +9,14 @@ module.exports = function(config) {
 
 		// frameworks to use
 		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-		frameworks: ['jasmine', 'browserify'],
+		frameworks: ['jasmine'],
+
+
+		plugins: [
+			'karma-jasmine',
+			'karma-phantomjs-launcher',
+			'karma-webpack'
+		],
 
 
 		// list of files / patterns to load in the browser
@@ -27,7 +34,7 @@ module.exports = function(config) {
 		// preprocess matching files before serving them to the browser
 		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 		preprocessors: {
-			'test/*.test.js': ['browserify']
+			'test/*.test.js': ['webpack']
 		},
 
 
@@ -63,8 +70,25 @@ module.exports = function(config) {
 		// if true, Karma captures browsers, runs the tests and exits
 		singleRun: true,
 
-		browserify: {
-			transform: ['babelify']
+		webpack: {
+			quiet: true,
+			module: {
+				loaders: [
+					{
+						test: /\.js$/,
+						exclude: /node_modules/,
+						loaders: [
+							'babel?optional[]=runtime',
+							'imports?define=>false'
+						]
+					}
+				]
+			}
+		},
+
+		// Hide webpack output logging
+		webpackMiddleware: {
+			noInfo: true
 		}
 	});
 };
