@@ -51,8 +51,10 @@ The different social networks are (in the order suggested by the design team):
 
 * Twitter
 * Facebook
-* Whatsapp
 * Linkedin
+* Whatsapp (note: this link does nothing if Whatsapp is not installed)
+
+The following icons are available, but are considered superfluous for most FT products.
 * Google+ (written as 'googleplus' in the `links` config option)
 * Reddit
 * Pinterest
