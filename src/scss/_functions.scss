@@ -19,27 +19,11 @@
 	@return $number;
 }
 
-/// Generate the URL of the image sprite
-@function _oShareGetSpriteUrl() {
-	$url: "//image.webservices.ft.com/v1/images/raw/";
-
-	@each $social in $_o-share-sprite-elements {
-		$url: $url + "ftsocial:" + $social + ",";
+/// Generate the URL of the  icon
+@function _oShareGetIconUrl($name, $format: svg) {
+	@if(index($_o-share-icons, $name) != false) {
+		@return "//image.webservices.ft.com/v1/images/raw/ftsocial:" + $name + "?source=o-share&format=" + $format;
+	} @else {
+		@return "none";
 	}
-
-	$url: str-slice($url, 1, -2) + "?width=" + _oShareStripUnits($_o-share-icon-size) + "&source=o-share";
-
-	@return $url;
-}
-
-/// Get the index of icon $name in the image sprite
-/// @param {String} $name
-@function _oShareGetSpriteIndex($name) {
-	@for $index from 1 through length($_o-share-sprite-elements) {
-		@if (nth($_o-share-sprite-elements, $index) == $name) {
-			@return $index - 1;
-		}
-	}
-
-	@return -1;
 }
