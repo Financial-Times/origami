@@ -60,6 +60,7 @@ function Errors() {
  * @param options.siteVersion    {String}  - Optional, optionally the version of the code the page is running. This tags each error with the code version
  * @param options.logLevel       {String}  - Optional, see {@link Logger.level} for valid names
  * @param options.disabled       {Boolean} - Optional, If `true`, disable o-errors reporting.
+ * @param options.buffer         {Array}   - Optional, pre-existing buffer of error events to flush.
  * @param raven   {Object}   - The Raven JS client object.
  * @returns {Errors}
  */
@@ -102,6 +103,10 @@ Errors.prototype.init = function(options, raven) {
 
 	if (isFunction(options.filterError)) {
 		this._filterError = options.filterError;
+	}
+
+	if (Array.isArray(options.errorBuffer) && options.errorBuffer.length > 0) {
+		this._errorBuffer = this._errorBuffer.concat(options.errorBuffer);
 	}
 
 	// If errors is configured to be disabled, (options.disabled = true),
