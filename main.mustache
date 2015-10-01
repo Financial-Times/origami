@@ -10,16 +10,16 @@
 			<a href="http://www.facebook.com/sharer.php?u={{o-share.url}}&amp;t={{o-share.title}}+|+{{o-share.titleExtra}}"><i>Facebook</i></a>
 		</li>
 		{{/o-share.withFacebook}}
-		{{#o-share.withWhatsapp}}
-		<li class="o-share__action o-share__action--whatsapp">
-			<a target="_blank" href="whatsapp://send?text={{o-share.title}}%20-%20{{o-share.url}}" data-trackable="whatsapp"><i>Whatsapp</i></a>
-		</li>
-		{{/o-share.withWhatsapp}}
 		{{#o-share.withLinkedin}}
 		<li class="o-share__action o-share__action--linkedin">
 			<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{o-share.url}}&amp;title={{o-share.title}}+|+{{o-share.titleExtra}}&amp;summary={{o-share.summary}}&amp;source=Financial+Times"><i>LinkedIn</i></a>
 		</li>
 		{{/o-share.withLinkedin}}
+		{{#o-share.withWhatsapp}}
+		<li class="o-share__action o-share__action--whatsapp">
+			<a target="_blank" href="whatsapp://send?text={{o-share.title}}%20-%20{{o-share.url}}" data-trackable="whatsapp"><i>Whatsapp</i></a>
+		</li>
+		{{/o-share.withWhatsapp}}
 		{{#o-share.withGoogleplus}}
 		<li class="o-share__action o-share__action--googleplus">
 			<a href="https://plus.google.com/share?url={{o-share.url}}"><i>Google+</i></a>
