@@ -27,13 +27,13 @@ Known issues:
 The simplest markup you might need looks like this:
 
 ```html
-<div data-o-component="o-share" 
-    class="o-share" 
-    data-o-share-links="{{links}}" 
-    data-o-share-url="{{url}}" 
-    data-o-share-title="{{title}}" 
-    data-o-share-titleExtra="{{titleExtra}}" 
-    data-o-share-summary="{{summary}}" 
+<div data-o-component="o-share"
+    class="o-share"
+    data-o-share-links="{{links}}"
+    data-o-share-url="{{url}}"
+    data-o-share-title="{{title}}"
+    data-o-share-titleExtra="{{titleExtra}}"
+    data-o-share-summary="{{summary}}"
     data-o-share-relatedTwitterAccounts="{{relatedTwitterAccounts}}">
 </div>
 ```
@@ -52,6 +52,9 @@ The different social networks are (in the order suggested by the design team):
 * Twitter
 * Facebook
 * Linkedin
+* Whatsapp (note: this link does nothing if Whatsapp is not installed)
+
+The following icons are available, but are considered superfluous for most FT products.
 * Google+ (written as 'googleplus' in the `links` config option)
 * Reddit
 * Pinterest

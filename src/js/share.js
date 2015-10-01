@@ -1,10 +1,9 @@
 /**global require,module*/
-'use strict';
 
-var DomDelegate = require('ftdomdelegate');
-var TextCopyHelper = require('./TextCopyHelper');
+const DomDelegate = require('ftdomdelegate');
+const TextCopyHelper = require('./TextCopyHelper');
 
-var socialUrls = {
+const socialUrls = {
 	twitter: "https://twitter.com/intent/tweet?url={{url}}&amp;text={{title}}&amp;related={{relatedTwitterAccounts}}&amp;via=FT",
 	facebook: "http://www.facebook.com/sharer.php?u={{url}}&amp;t={{title}}+|+{{titleExtra}}",
 	linkedin: "http://www.linkedin.com/shareArticle?mini=true&amp;url={{url}}&amp;title={{title}}+|+{{titleExtra}}&amp;summary={{summary}}&amp;source=Financial+Times",
@@ -27,8 +26,8 @@ var socialUrls = {
   * @param {Object[]} config.links - Optional, array of strings of supported social network names that you want rendered
   */
 function Share(rootEl, config) {
-	var oShare = this;
-	var openWindows = {};
+	const oShare = this;
+	const openWindows = {};
 
 	/**
 	  * Helper function to dispatch oShare namespaced events
@@ -48,11 +47,11 @@ function Share(rootEl, config) {
 	  * @private
 	  */
 	function handleClick(ev) {
-		var actionEl = ev.target.closest('li.o-share__action');
+		const actionEl = ev.target.closest('li.o-share__action');
 
 		if (oShare.rootEl.contains(actionEl) && actionEl.querySelector('a[href]')) {
 			ev.preventDefault();
-			var url = actionEl.querySelector('a[href]').href;
+			const url = actionEl.querySelector('a[href]').href;
 
 			if (actionEl.classList.contains('o-share__action--url')) {
 				copyLink(url, actionEl);
@@ -127,7 +126,7 @@ function Share(rootEl, config) {
 	  * @param {string} socialNetwork - Name of the social network that we support (twitter, facebook, linkedin, googleplus, reddit, pinterest, url)
 	  */
 	function generateSocialUrl(socialNetwork) {
-		var templateUrl = socialUrls[socialNetwork];
+		let templateUrl = socialUrls[socialNetwork];
 		templateUrl = templateUrl.replace('{{url}}', config.url)
 			.replace('{{title}}', encodeURIComponent(config.title))
 			.replace('{{titleExtra}}', encodeURIComponent(config.titleExtra))
@@ -142,11 +141,11 @@ function Share(rootEl, config) {
 	  * @private
 	  */
 	function render() {
-		var ulElement = document.createElement('ul');
-		for (var i = 0; i < config.links.length; i++) {
-			var liElement = document.createElement('li');
+		const ulElement = document.createElement('ul');
+		for (let i = 0; i < config.links.length; i++) {
+			const liElement = document.createElement('li');
 			liElement.classList.add('o-share__action', 'o-share__action--'+config.links[i]);
-			var aElement = document.createElement('a');
+			const aElement = document.createElement('a');
 			aElement.href = generateSocialUrl(config.links[i]);
 			aElement.appendChild(document.createElement('i'));
 			liElement.appendChild(aElement);
@@ -167,7 +166,7 @@ function Share(rootEl, config) {
 			rootEl = document.querySelector(rootEl);
 		}
 
-		var rootDelegate = new DomDelegate(rootEl);
+		const rootDelegate = new DomDelegate(rootEl);
 		rootDelegate.on('click', handleClick);
 		rootEl.setAttribute('data-o-share--js', '');
 
@@ -202,7 +201,7 @@ function Share(rootEl, config) {
 Share.prototype.destroy = function() {
 	this.rootDomDelegate.destroy();
 	// Should destroy remove its children? Maybe setting .innerHTML to '' is faster
-	for (var i = 0; i < this.rootEl.children; i++) {
+	for (let i = 0; i < this.rootEl.children; i++) {
 		this.rootEl.removeChild(this.rootEl.children[i]);
 	}
 
@@ -217,7 +216,7 @@ Share.prototype.destroy = function() {
   * @returns {Array} - An array of Share instances
   */
 Share.init = function(el) {
-	var shareInstances = [];
+	const shareInstances = [];
 
 	if (!el) {
 		el = document.body;
@@ -225,9 +224,9 @@ Share.init = function(el) {
 		el = document.querySelector(el);
 	}
 
-	var shareElements = el.querySelectorAll('[data-o-component=o-share]');
+	const shareElements = el.querySelectorAll('[data-o-component=o-share]');
 
-	for (var i = 0; i < shareElements.length; i++) {
+	for (let i = 0; i < shareElements.length; i++) {
 		if (!shareElements[i].hasAttribute('data-o-header--js')) {
 			shareInstances.push(new Share(shareElements[i]));
 		}
@@ -236,7 +235,7 @@ Share.init = function(el) {
 	return shareInstances;
 };
 
-var OSharePrototype = Object.create(HTMLElement.prototype);
+const OSharePrototype = Object.create(HTMLElement.prototype);
 
 /**
   * If it supports custom elements, it will return an instance of the <o-share> HTMLElement

@@ -1,9 +1,7 @@
 /*global require, module*/
-'use strict';
+const oShare = require('./src/js/share');
 
-var oShare = require('./src/js/share');
-
-var constructAll = function() {
+const constructAll = function() {
 	oShare.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };

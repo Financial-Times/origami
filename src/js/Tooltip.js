@@ -1,5 +1,4 @@
 /*global module*/
-'use strict';
 
 /**
  * @class Tooltip
@@ -17,7 +16,7 @@ function Tooltip(text, refEl) {
 	 * @returns {HTMLElement}
 	 */
 	function createTooltip(cssClass) {
-		var tipEl = document.createElement('div');
+		const tipEl = document.createElement('div');
 		tipEl.className = cssClass;
 		tipEl.innerHTML = '<div class="' + cssClass + '__text">' + text + '</div><div class="' + cssClass + '__arrow"></div>';
 		return tipEl;

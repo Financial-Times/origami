@@ -1,5 +1,4 @@
-'use strict';
-var sandboxEl;
+let sandboxEl;
 
 function createSandbox() {
 	if (document.querySelector('.sandbox')) {
@@ -21,7 +20,7 @@ function insert(html) {
 }
 
 function insertShareLinks() {
-	let html = `
+	const html = `
 		<div data-o-component="o-share" class="o-share">
 			<ul>
 				<li class="o-share__action o-share__action--url">

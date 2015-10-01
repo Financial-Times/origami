@@ -11,6 +11,11 @@
             "data": "demos/src/data.json"
         },
         {
+            "name": "vertical",
+            "template": "main.mustache",
+            "data": "demos/src/data-vertical.json"
+        },
+        {
             "name": "web-component",
             "template": "demos/src/webcomponent.mustache"
         }

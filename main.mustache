@@ -1,4 +1,4 @@
-<div data-o-component="o-share" class="o-share">
+<div data-o-component="o-share" class="o-share{{#o-share.isVertical}} o-share--vertical{{/o-share.isVertical}}">
 	<ul>
 		{{#o-share.withTwitter}}
 		<li class="o-share__action o-share__action--twitter">
@@ -15,6 +15,11 @@
 			<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{o-share.url}}&amp;title={{o-share.title}}+|+{{o-share.titleExtra}}&amp;summary={{o-share.summary}}&amp;source=Financial+Times"><i>LinkedIn</i></a>
 		</li>
 		{{/o-share.withLinkedin}}
+		{{#o-share.withWhatsapp}}
+		<li class="o-share__action o-share__action--whatsapp">
+			<a target="_blank" href="whatsapp://send?text={{o-share.title}}%20-%20{{o-share.url}}" data-trackable="whatsapp"><i>Whatsapp</i></a>
+		</li>
+		{{/o-share.withWhatsapp}}
 		{{#o-share.withGoogleplus}}
 		<li class="o-share__action o-share__action--googleplus">
 			<a href="https://plus.google.com/share?url={{o-share.url}}"><i>Google+</i></a>
@@ -35,5 +40,6 @@
 			<a href="{{{o-share.url}}}"><i>URL</i></a>
 		</li>
 		{{/o-share.withLink}}
+
 	</ul>
 </div>

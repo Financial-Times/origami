@@ -17,28 +17,36 @@
 
 	.#{$classname}__action {
 		float: left;
-		margin: 0 0 0 5px;
-		height: $_o-share-icon-size;
+		margin: 0 5px 0 0;
 		list-style-type: none;
-		line-height: $_o-share-icon-size;
+		line-height: $o-share-icon-size;
 		cursor: pointer;
 
 		i {
 			float: left;
-			border-radius: 2px;
-			width: $_o-share-icon-size;
-			height: $_o-share-icon-size;
-			text-indent: $_o-share-icon-size;
-			background-image: url(_oShareGetSpriteUrl());
+			background-size: 100% 100%;
+			width: $o-share-icon-size;
+			height: $o-share-icon-size;
+			text-indent: $o-share-icon-size;
 			overflow: hidden;
 		}
 
 		a {
 			text-decoration: none;
+			padding: 6px;
+			display: block;
+			overflow: hidden;
 
 			&:focus i {
 				box-shadow: 0 0 2px oColorsGetPaletteColor('black');
 			}
+
+			&:hover i {
+				opacity: 0.8;
+			}
+		}
+		&:first-child a {
+			padding-left: 0;
 		}
 	}
 }
@@ -50,12 +58,12 @@
 		display: none;
 
 		i {
-			@include _oShareSprite(link);
+			background-image: url(_oShareGetIconUrl(link));
 		}
 
 		input {
 			display: block;
-			margin: 0;
+			margin: 6px;
 			border: 0;
 			border-radius: 2px;
 			padding: 5px 8px;
@@ -77,7 +85,6 @@
 
 	.#{$classname}__action--url[aria-selected=true] {
 		position: relative;
-
 		a {
 			display: none;
 		}
@@ -90,6 +97,20 @@
 /// @param {String} $classname [o-share] - base class name
 @mixin oShareActionIcon($name, $classname: o-share) {
 	.#{$classname}__action--#{$name} i {
-		@include _oShareSprite($name);
+		background-image: url(_oShareGetIconUrl($name, $format: png) + "&width=" + _oShareStripUnits($o-share-icon-size));
+		// The weird value for rgba is to prevent Sass converting rgba(0,0,0,0) to 'transparent',
+		// which would cause the following line of css to be understood by ie7/8 and the svg to be downloaded
+		background: rgba(0, 0, 0, 0.0001) url(_oShareGetIconUrl($name)) center/100% no-repeat;
+	}
+}
+
+@mixin oShareVertical($classname: o-share) {
+	.#{$classname}__action {
+		float: none;
+		margin: 0 0 5px;
+		&:first-child a {
+			padding-left: 6px;
+			padding-top: 0;
+		}
 	}
 }
