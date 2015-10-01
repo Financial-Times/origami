@@ -148,7 +148,7 @@ describe("oErrors", function() {
 			expect(mockRavenClient.lastCaptureMessageArgs[1].test).to.be("world");
 		});
 
-		it("should accept an Array of existing error events that can be used add to the internal error buffer", function(done) {
+		it("should accept an Array of existing error events that will be added to the internal error buffer", function(done) {
 			mockRavenClient.captureException = function(error, context) {
 				expect(error).to.be.an(Error);
 				expect(error.message).to.be("My test error");
