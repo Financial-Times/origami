@@ -5,10 +5,13 @@
 	    "titleExtra": "FT%2Ecom+%7C+Pharmaceuticals",
 	    "summary": "US+drugs+group+vows+to+maintain+big+British+presence",
 	    "relatedTwitterAccounts": "ftcompanies",
-    	"withTwitter": true,
-    	"withFacebook": true,
-    	"withLinkedin": true,
-    	"withLink": true,
+        "withTwitter": true,
+        "withFacebook": true,
+        "withLinkedin": true,
+        "withGoogleplus": true,
+        "withReddit": true,
+        "withPinterest": true,
+        "withLink": true,
         "withWhatsapp": true,
         "isVertical": true
     }

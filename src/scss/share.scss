@@ -63,7 +63,7 @@
 
 		input {
 			display: block;
-			margin: 0;
+			margin: 6px;
 			border: 0;
 			border-radius: 2px;
 			padding: 5px 8px;
@@ -108,5 +108,9 @@
 	.#{$classname}__action {
 		float: none;
 		margin: 0 0 5px;
+		&:first-child a {
+			padding-left: 6px;
+			padding-top: 0;
+		}
 	}
 }

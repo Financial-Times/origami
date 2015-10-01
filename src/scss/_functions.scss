@@ -22,14 +22,7 @@
 /// Generate the URL of the  icon
 @function _oShareGetIconUrl($name, $format: svg) {
 	@if(index($_o-share-icons, $name) != false) {
-		$url: "//image.webservices.ft.com/v1/images/raw/";
-		$version: map-get($_o-share-icons, $name);
-		@if ($version) {
-			$url: $url + "ftsocial:" + $name + "-" + $version;
-		} @else {
-			$url: $url + "ftsocial:" + $name;
-		}
-		@return $url + "?source=o-share&format=" + $format;
+		@return "//image.webservices.ft.com/v1/images/raw/ftsocial:" + $name + "?source=o-share&format=" + $format;
 	} @else {
 		@return "none";
 	}

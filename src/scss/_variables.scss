@@ -9,17 +9,11 @@ $o-share-is-silent: true !default;
 
 /// Icon size
 /// @type Number
-$o-share-icon-size: 28px;
+$o-share-icon-size: 24px;
 
 /// List of accepted social network icons, and the version
 /// @type map
-$_o-share-icons: (
-	twitter: null,
-	facebook: null,
-	link: null,
-	pinterest: null,
-	whatsapp: null
-);
+$_o-share-icons: (twitter, facebook, googleplus, linkedin, reddit, link, pinterest, whatsapp);
 
 /// Tooltip background
 /// @type color
