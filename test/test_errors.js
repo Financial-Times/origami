@@ -148,6 +148,22 @@ describe("oErrors", function() {
 			expect(mockRavenClient.lastCaptureMessageArgs[1].test).to.be("world");
 		});
 
+		it("should accept an Array of existing error events that can be used add to the internal error buffer", function(done) {
+			mockRavenClient.captureException = function(error, context) {
+				expect(error).to.be.an(Error);
+				expect(error.message).to.be("My test error");
+				expect(context).to.be.an('object');
+				done();
+			};
+
+			new Errors().init({
+				sentryEndpoint: "//123@app.getsentry.com/123",
+				logLevel: "contextonly",
+				enabled: true,
+				errorBuffer: [{ error: new Error("My test error")}]
+			}, mockRavenClient);
+		});
+
 		it("should still report the error and context if the tranformError function does not return a value", function() {
 			const errors = new Errors().init({
 				sentryEndpoint: "//123@app.getsentry.com/123",

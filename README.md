@@ -188,6 +188,30 @@ declaratively.
 }
 ```
 
+##### errorBuffer - optional
+
+An additional `array` of error objects which will be pushed into the internal
+buffer queue to be sent on initialisation. This can be useful if you have 
+caught errors inline on your page before oErrors.init() has been ran.  
+Each error in the array should be an `object` with two fields: an `error` field 
+which contains the reported `Error`, and a `context` field, which contains any
+additional reported context.
+
+Note: this may only be configured through the `init` method.
+
+```JS
+{
+	errorBuffer: [
+		{
+			error: new Error(),
+			context: {
+				additional: "info"
+			}
+		}
+	]
+}
+```
+
 #### Using markup to configure oErrors
 
 Include a `<script>` tag containing 'JSON' describing the configuration
