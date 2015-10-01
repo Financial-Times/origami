@@ -22,7 +22,7 @@
     "tests"
   ],
   "dependencies": {
-    "o-viewport": "^1.2.0",
+    "o-viewport": ">=1.2.0 <3",
     "o-ft-icons": "^2.3.4",
     "o-fonts": "^1.6.4",
     "o-colors": ">=2.5.0 <4"
