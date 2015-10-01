@@ -6,11 +6,11 @@
   ],
   "ignore": [],
   "dependencies": {
-    "o-grid": "^3.0.3",
+    "o-grid": "^4.0.0",
     "o-colors": ">=2.5.0 <4",
-    "o-assets": ">=0.4.1 <3",
-    "o-hoverable": ">=0.1.1 <2",
+    "o-assets": ">=0.4.1 <4",
+    "o-hoverable": ">=0.1.1 <4",
     "ftdomdelegate": ">=1.0.0 <3",
-    "o-hierarchical-nav": "^2.0.0"
+    "o-hierarchical-nav": ">=2.0.0 <4"
   }
 }
