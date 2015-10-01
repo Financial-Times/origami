@@ -4,10 +4,6 @@ function isFunction(fn) {
 	return typeof fn === 'function';
 }
 
-function isArray(arr) {
-	return Object.prototype.toString.call(arr) === '[object Array]';
-}
-
 function throwLater(error) {
 	// Throw the error on the main event loop rather than in this
 	// context so that the error can be surfaced to the developer
@@ -109,7 +105,7 @@ Errors.prototype.init = function(options, raven) {
 		this._filterError = options.filterError;
 	}
 
-	if (isArray(options.errorBuffer) && options.errorBuffer.length > 0) {
+	if (Array.isArray(options.errorBuffer) && options.errorBuffer.length > 0) {
 		this._errorBuffer = this._errorBuffer.concat(options.errorBuffer);
 	}
 

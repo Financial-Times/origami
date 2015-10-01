@@ -10,5 +10,8 @@
             "expanded": false,
             "description": "Declarative error tracking"
         }
-    ]
+    ],
+	"browserFeatures": {
+		"required": ["Array.isArray"]
+	}
 }
