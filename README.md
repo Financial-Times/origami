@@ -17,44 +17,19 @@ Tested and working on:
 |   Safari   |    7+     |
 |   IE       |    8+     |
 
-## Upgrading from 2.x.x
-### 1. Renaming the module
+## Upgrading from 3.x.x to 4.x.x
 
-Rename all instances of `o-ft-footer` into `o-footer`.
+Note that o-footer v4 relies on o-grid v4.
 
-### 2. Markup changes
+### Markup changes
 
-1. Replace `o-ft-footer__col--wide` with `o-footer__col--full-width`
-2. Columns:
-
-	```diff
-		<div class="o-footer__row">
-	+		<div class="o-footer__col">
-				…
-	+		</div>
-		</div>
-	```
-
-3. Make sure `o-footer__col--full-width` classes are applied with `o-footer__col` (since in v2 it was tied to `o-ft-footer__row` instead)
-
-### 3. Font settings
-
-In the v2.x.x of o-footer, the module loaded webfonts itself and was setting its own font-family.
-
-The footer now inherits the `font-family` set in your application and doesn't embed web fonts anymore.
-
-Solution: products must load webfonts themselves (tipically, with [o-fonts](https://github.com/Financial-Times/o-fonts)).
-
-```html
-<!-- Load web fonts with @font-face declarations  -->
-<link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-fonts@^1" />
-
-<!-- Set the font family on the whole document -->
-<style>
-	html {
-		font-family: BentonSans, sans-serif;
-	}
-</style>
+```diff
+ <nav class="o-footer__row o-footer__nav">
+ 	<div class="o-footer__col o-footer__col--full-width">
+ 		…
++ 		<div class="o-footer__divider"></div>
+ 	</div>
+ </nav>
 ```
 
 ----
