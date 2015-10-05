@@ -8,28 +8,91 @@
 ///
 /// @example scss
 /// article { @include oTypographyBodyWrapper; }
-@mixin oTypographyBodyWrapper {
-	h2 {
-		@include oTypographyHeading5;
-	}
+@mixin oTypographyBodyWrapper($sets: (default, extended)) {
+	@if index($sets, default) {
+		a img {
+			border: 0;
+		}
 
-	h3 {
-		@include oTypographyHeading6;
-	}
+		// 1. Turn on auto-kerning and ligatures
+		// 2. Make the text look crisper
+		// 3. Prevent long links and words from breaking the content
+		//    Note: this may create awkward situations where long words
+		//    spread over two lines, with no hypenation.
+		//    e.g:
+		//    thisisaver
+		//    ylongword
+		> h2,
+		> h3,
+		> p,
+		> ul,
+		> ol,
+		> figure {
+			line-height: 1.2;
+			text-rendering: optimizeLegibility; // 1
+			-moz-font-feature-settings: "liga" on; // 1
+			-webkit-font-smoothing: antialiased; // 2
+			-moz-osx-font-smoothing: grayscale; // 2
+			word-break: break-word; // 3
+			word-wrap: break-word; // 3
 
-	a {
-		@include oTypographyBodyLink;
-	}
+			a {
+				text-decoration: none;
+			}
+		}
+		> p,
+		> ul,
+		> ol,
+		> figure {
+			margin-top: 0.3em;
+			margin-bottom: 0.8em;
+		}
+		> p,
+		> ul,
+		> ol,
+		> figure figcaption {
+			font-size: 20px;
+			font-weight: 400;
 
-	p {
-		@include oTypographyBody;
-		@include oTypographyBodyBlock;
-	}
+			a {
+				border-bottom: 1px dotted oColorsGetColorFor(link, text);
+				color: oColorsGetColorFor(link, text);
 
-	ol,
-	ul {
-		@include oTypographyBodyList;
+				&:hover,
+				&:focus {
+					border-bottom: 0;
+					color: oColorsGetColorFor(page, text);
+				}
+			}
+		}
+		> hr {
+			background: none;
+			border: 0;
+			border-top: 1px solid oColorsGetPaletteColor(pink-tint3);
+		}
+		> figure {
+			margin-right: 0;
+			margin-left: 0;
+		}
+		> img,
+		> svg,
+		> video,
+		> object,
+		> iframe,
+		> figure,
+		> figure img,
+		> figure svg {
+			max-width: 100%;
+			height: auto;
+			display: block;
+		}
+		> figure figcaption {
+			font-size: 16px;
+		}
 	}
+	// @if index($sets, extended) {
+	// 	> blockquote {
 
-	@include oTypographyCommonWrappedBodyStyles;
+	// 	}
+	// }
 }

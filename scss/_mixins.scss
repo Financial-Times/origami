@@ -3,17 +3,6 @@
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
-/// Add a background to a text, using text-shadow instead of "background"
-///
-/// @param {Color} $color - Background color
-@mixin oTypographyFauxTextBackground($color) {
-	text-shadow: 4px 0 2px $color, -4px 0 2px $color,
-	0 4px 2px $color, 0 -4px 2px $color,
-	2px 0 4px $color, -2px 0 4px $color,
-	0 2px 4px $color, 0 -2px 4px $color,
-	6px 0 1px $color;
-}
-
 /// Links styles
 ///
 /// @param {color} $color
@@ -32,7 +21,6 @@
 	}
 }
 
-
 // Next FT Typographic matrix
 
 // Alpha
@@ -41,7 +29,7 @@
 }
 @mixin oTypographyAlpha($level) {
 	@include oTypographyAlphaSize($level);
-	font-family: $n-type-sans-serif;
+	font-family: $o-typography-sans-serif;
 	font-weight: oFontsWeight(light);
 }
 
@@ -51,7 +39,7 @@
 }
 @mixin oTypographyBravo($level) {
 	@include oTypographyBravoSize($level);
-	font-family: $n-type-sans-serif;
+	font-family: $o-typography-sans-serif;
 	font-weight: oFontsWeight(semibold);
 }
 
@@ -61,7 +49,7 @@
 }
 @mixin oTypographyCharlie($level) {
 	@include oTypographyCharlieSize($level);
-	font-family: $n-type-serif;
+	font-family: $o-typography-serif;
 	font-style: italic;
 	font-weight: oFontsWeight(medium);
 }
@@ -72,7 +60,7 @@
 }
 @mixin oTypographyDelta($level) {
 	@include oTypographyDeltaSize($level);
-	font-family: $n-type-serif;
+	font-family: $o-typography-serif;
 	font-style: italic;
 	font-weight: oFontsWeight(light);
 }
@@ -83,7 +71,7 @@
 }
 @mixin oTypographyEcho($level) {
 	@include oTypographyEchoSize($level);
-	font-family: $n-type-sans-serif;
+	font-family: $o-typography-sans-serif;
 	font-style: italic;
 	font-weight: oFontsWeight(light);
 }
@@ -94,7 +82,7 @@
 }
 @mixin oTypographyFoxtrot($level) {
 	@include oTypographyFoxtrotSize($level);
-	font-family: $n-type-serif;
+	font-family: $o-typography-serif;
 	font-weight: oFontsWeight(regular);
 }
 

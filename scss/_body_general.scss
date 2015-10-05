@@ -7,8 +7,8 @@
 ///
 /// @todo what is the difference between this and the other leader styles?
 @mixin oTypographyBodyLead {
-	@include oTypographyAlpha(2);
-	@include oColorsFor(o-typography-body-lead body, text);
+	@include oTypographyDelta(2);
+	// @include oColorsFor(o-typography-body-lead body, text);
 	-webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
 }
 

@@ -23,10 +23,6 @@ $o-typography-is-silent: true !default;
 @include oColorsSetUseCase(o-typography-badge, text, 'white');
 @include oColorsSetUseCase(o-typography-badge, background, 'red');
 
-
-// @TODO REMOVE THIS
-$o-type-font-family: MetricWeb, sans-serif;
-
 $o-fonts-families: (
 	MetricWeb: (
 		font-family: 'MetricWeb, sans-serif',
@@ -97,5 +93,5 @@ $font-scale: (
 	)
 );
 
-$n-type-serif: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default;
-$n-type-sans-serif: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;
+$o-typography-serif: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default;
+$o-typography-sans-serif: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;
