@@ -1,6 +1,0 @@
-sudo: false
-script:
-- make install && make test
-language: node_js
-node_js:
-- '0.12.2'
