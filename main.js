@@ -1,22 +1,19 @@
-"use strict";
+const Delegate = require('dom-delegate');
+const template = require('./src/js/template');
+const timeoutDuration = 5000;
+const animDuration = 500;
 
-var Delegate = require('dom-delegate');
-
-var template = require('./src/js/template');
-var currentNotification = null;
-var timeout;
-var timeoutDuration = 5000;
-var animDuration = 500;
+let timeout;
+let currentNotification = null;
 
 function dispatchNotificationCloseEvent(){
-	var event = new CustomEvent('nNotification.close');
-	document.dispatchEvent(event);
+	document.dispatchEvent(new CustomEvent('nNotification.close'));
 }
 
 function listenForCloseButtonClick(){
-	var called = false;
-	var func = function(){
-		var delegate = new Delegate(document.body);
+	let called = false;
+	const func = function(){
+		const delegate = new Delegate(document.body);
 		delegate.on('click', '.n-notification__close-js', hide);
 	};
 
@@ -39,7 +36,7 @@ function show(options){
 		currentNotification.parentNode.removeChild(currentNotification);
 	}
 
-	var html = template(options);
+	const html = template(options);
 	document.body.insertAdjacentHTML('afterbegin', html);
 	currentNotification = document.querySelector('.n-notification');
 

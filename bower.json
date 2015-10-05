@@ -1,6 +1,5 @@
 {
   "name": "n-notification",
-  "version": "0.0.0",
   "homepage": "https://github.com/Financial-Times/n-notification",
   "main": [
     "main.scss",
@@ -16,6 +15,9 @@
   ],
   "dependencies": {
     "dom-delegate": "^2.0.3",
-    "next-sass-setup": "^6.0.0"
+    "next-sass-setup": "^7.0.0"
+  },
+  "resolutions": {
+    "o-grid": "^4.0.0"
   }
 }

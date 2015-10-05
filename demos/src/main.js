@@ -1,16 +1,14 @@
-'use strict';
-
-var nNotification = require('../../main');
-var demoEvent = document.querySelector('.demo-notification--event');
-var demoMethod = document.querySelector('.demo-notification--method');
-var demoAlwaysOpen = document.querySelector('.demo-notification--always-open');
-var demoCustom = document.querySelector('.demo-notification--custom');
+const nNotification = require('../../main');
+const demoEvent = document.querySelector('.demo-notification--event');
+const demoMethod = document.querySelector('.demo-notification--method');
+const demoAlwaysOpen = document.querySelector('.demo-notification--always-open');
+const demoCustom = document.querySelector('.demo-notification--custom');
 
 nNotification.init();
 
 if (demoEvent) {
 	demoEvent.addEventListener('click', function() {
-		var event = new CustomEvent('nNotification.show', {detail:{
+		const event = new CustomEvent('nNotification.show', {detail:{
 				content:'Notification generated via event',
 				trackable:'event-notification'
 			}

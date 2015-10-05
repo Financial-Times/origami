@@ -1,9 +1,5 @@
-/* jshint browser:true */
-/* global module:true */
-'use strict';
-
 function click(el) {
-	var evt = document.createEvent('MouseEvent');
+	const evt = document.createEvent('MouseEvent');
 	evt.initMouseEvent(
 		'click',
 		true, // bubble,
