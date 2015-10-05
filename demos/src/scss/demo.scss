@@ -58,10 +58,9 @@ html {
 
 // Placeholder content (blurry text below demos)
 .demo__content-wrapper {
-	@include oGridRow;
+	@include oGridContainer;
 }
 .demo__content {
-	@include oGridColumn(12);
 	font-size: 15px;
 	line-height: 20px;
 	color: transparent;
@@ -71,15 +70,12 @@ html {
 // Hide / Show on mobile
 // scss-lint:disable ImportantRule
 .demo__mobile-only {
-	@include oGridRespondTo(M) {
-		display: none !important;
-	}
-	@include oGridTargetIE8 {
+	@include _oHeaderBreakpoint {
 		display: none !important;
 	}
 }
 .demo__hide-on-mobile {
-	@include oGridRespondTo($until: M) {
+	@include oGridRespondTo($until: $o-header-breakpoint) {
 		display: none !important;
 	}
 }

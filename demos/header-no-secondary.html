@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<title>o-header: header-no-secondary demo</title>
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=modernizr:classList,modernizr:customevent,modernizr:unknownelements,modernizr:es5array,modernizr:svg,modernizr:datauri,modernizr:cssgradients,modernizr:mediaqueries,modernizr:csstransitions,default"></script>
+	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=classList,customevent,unknownelements,es5array,svg,datauri,cssgradients,mediaqueries,csstransitions,default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
 	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
 	<link rel="stylesheet" href="/bundles/css?modules=o-header:/demos/src/scss/demo.scss,o-fonts@^1.4.0,o-ft-icons@^2.1.1" />
@@ -13,9 +13,8 @@
 <body>
 <header data-o-component="o-header" class="o-header o-registry-demo-chunk o-header--tall">
 	<div class="o-header__container">
-		<div class="o-header__inner">
-			<div class="o-header__primary">
-				<div class="o-header__primary__left">
+		<div class="o-header__primary">
+			<div class="o-header__primary__left">
 	<a href="http://www.ft.com" class="o-header__logo o-header__logo--ft">
 		<abbr title="Financial Times">FT</abbr>
 		<h1 class="o-header__title">FastFT</h1>
@@ -37,10 +36,9 @@
 	</a>
 </div>
 
-			</div>
-			<div class="o-header__secondary">
-				
-			</div>
+		</div>
+		<div class="o-header__secondary">
+			
 		</div>
 	</div>
 </header>

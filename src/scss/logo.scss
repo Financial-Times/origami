@@ -28,11 +28,7 @@
 		overflow: hidden;
 		border-bottom: 0;
 		vertical-align: top;
-		margin-right: $o-grid-gutter / 2;
-
-		@include _oHeaderBreakpoint {
-			margin-right: $o-grid-gutter;
-		}
+		margin-right: oGridGutter();
 	}
 
 	.o-header--tall & {
@@ -59,7 +55,7 @@
 .o-header__logo img {
 	display: inline-block;
 	max-height: 40px;
-	margin-right: $o-grid-gutter;
+	margin-right: oGridGutter();
 
 	.o-header--tall & {
 		@include _oHeaderBreakpoint {

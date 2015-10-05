@@ -4,6 +4,8 @@
 	background: oColorsGetColorFor(o-header, background);
 	// Workaround so the brand colour goes to full width in XL screens
 	background-image: linear-gradient(to bottom, transparent 50px, oColorsGetColorFor(o-header-product-brand product-brand, background) 20px);
+	// Prevents flashes of text in Safari when items are hovered and opacity varies
+	-webkit-font-smoothing: antialiased;
 
 	a {
 		text-decoration: none;
@@ -22,7 +24,7 @@
 
 // Container for primary and secondary that sets the width of these using o-grid
 .o-header__container {
-	@include oGridRow;
+	@include oGridContainer;
 	position: relative;
 	color: oColorsGetColorFor(o-header-item, text);
 
@@ -38,9 +40,14 @@
 
 	// We need mega-dropdowns to also have the same gutters as the container
 	.o-hierarchical-nav__mega-dropdown {
-		right: $o-grid-gutter / 2;
-		left: $o-grid-gutter / 2;
+		right: oGridGutter();
+		left: oGridGutter();
 		width: auto;
+
+		@include _oHeaderBreakpoint {
+			right: oGridGutter($o-header-breakpoint);
+			left: oGridGutter($o-header-breakpoint);
+		}
 	}
 
 	// Give a minimum width to submenus
@@ -59,9 +66,6 @@
 		padding-right: 6px;
 		line-height: 16px;
 	}
-}
-.o-header__inner {
-	@include oGridColumn(12);
 }
 
 // Alternative to the FT masthead
@@ -106,8 +110,8 @@
 	.o-header__tagline {
 		font-size: 16px;
 		line-height: 50px;
-		margin-left: 10px;
-		margin-right: 20px;
+		margin-left: oGridGutter();
+		margin-right: oGridGutter() * 2;
 		text-align: right;
 	}
 
@@ -155,12 +159,16 @@
 }
 .o-header__primary__right {
 	position: relative;
-	right: $o-grid-gutter * -1;
+	right: oGridGutter() * -1;
+
+	@include _oHeaderBreakpoint {
+		right: 0;
+	}
 }
 .o-header__primary__featured {
 	// scss-lint:disable DeclarationOrder
 	display: none;
-	padding-left: $o-grid-gutter;
+	padding-left: oGridGutter();
 
 	img {
 		border: 0;
@@ -168,6 +176,7 @@
 
 	@include _oHeaderBreakpoint {
 		display: table-cell;
+		padding-left: oGridGutter($o-header-breakpoint);
 	}
 
 	@if type-of($o-header-primary-featured-width) == map {

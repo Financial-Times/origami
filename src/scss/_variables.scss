@@ -11,3 +11,6 @@ $o-header-secondary-left-width: 150px !default;
 /// Primary featured zone width
 /// @type {Number}
 $o-header-primary-featured-width: 160px !default;
+
+/// Breakpoint at which the header layout changes significantly
+$o-header-breakpoint: M !default;

@@ -44,7 +44,7 @@
 
 /// Target both IE8 and modern browsers at the M layout
 @mixin _oHeaderBreakpoint {
-	@include oGridRespondTo(M) {
+	@include oGridRespondTo($o-header-breakpoint) {
 		@content;
 	}
 	@include oGridTargetIE8 {

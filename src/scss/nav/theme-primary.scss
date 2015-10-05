@@ -15,8 +15,8 @@
 	}
 
 	a {
-		padding-right: $o-grid-gutter;
-		padding-left: $o-grid-gutter;
+		padding-right: oGridGutter();
+		padding-left: oGridGutter();
 		font-size: 14px;
 	}
 
@@ -41,7 +41,7 @@
 
 	// Padding for all a tags that aren't in the first hierarchical nav level
 	[data-o-hierarchical-nav-level] [data-o-hierarchical-nav-level] a {
-		padding: 14px 20px;
+		padding: 14px oGridGutter();
 	}
 }
 
