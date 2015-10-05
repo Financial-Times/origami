@@ -1,5 +1,8 @@
 @import 'o-colors/main';
 @import 'o-hoverable/main';
+@import "o-fonts/main";
+@import "guss-typography/typography";
+
 @import 'scss/variables';
 @import 'scss/mixins';
 
@@ -25,6 +28,9 @@
 	}
 
 	// Headings
+	.o-typography-hero {
+		@include oTypographyHero;
+	}
 	.o-typography-heading1 {
 		@include oTypographyHeading1;
 	}

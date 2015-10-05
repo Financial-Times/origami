@@ -136,14 +136,12 @@
 
 /// h2 styles
 @mixin oTypographyHeading2 {
-	@include oTypographyHeading2Layout;
-	@include oTypographyHeading2Text;
+	@include oTypographyBravo(2);
 }
 
 /// h3 styles
 @mixin oTypographyHeading3 {
-	@include oTypographyHeading3Text;
-	@include oTypographyHeading3Layout;
+	@include oTypographyBravo(3);
 }
 
 /// h4 styles

@@ -31,3 +31,73 @@
 		}
 	}
 }
+
+
+// Next FT Typographic matrix
+
+// Alpha
+@mixin oTypographyAlphaSize($level) {
+	@include font-size(get-font-size(alpha, $level), get-line-height(alpha, $level));
+}
+@mixin oTypographyAlpha($level) {
+	@include oTypographyAlphaSize($level);
+	font-family: $n-type-sans-serif;
+	font-weight: oFontsWeight(light);
+}
+
+// Bravo
+@mixin oTypographyBravoSize($level) {
+	@include font-size(get-font-size(bravo, $level), get-line-height(bravo, $level));
+}
+@mixin oTypographyBravo($level) {
+	@include oTypographyBravoSize($level);
+	font-family: $n-type-sans-serif;
+	font-weight: oFontsWeight(semibold);
+}
+
+// Charlie
+@mixin oTypographyCharlieSize($level) {
+	@include font-size(get-font-size(charlie, $level), get-line-height(charlie, $level));
+}
+@mixin oTypographyCharlie($level) {
+	@include oTypographyCharlieSize($level);
+	font-family: $n-type-serif;
+	font-style: italic;
+	font-weight: oFontsWeight(medium);
+}
+
+// Delta
+@mixin oTypographyDeltaSize($level) {
+	@include font-size(get-font-size(delta, $level), get-line-height(delta, $level));
+}
+@mixin oTypographyDelta($level) {
+	@include oTypographyDeltaSize($level);
+	font-family: $n-type-serif;
+	font-style: italic;
+	font-weight: oFontsWeight(light);
+}
+
+// Echo
+@mixin oTypographyEchoSize($level) {
+	@include font-size(get-font-size(echo, $level), get-line-height(echo, $level));
+}
+@mixin oTypographyEcho($level) {
+	@include oTypographyEchoSize($level);
+	font-family: $n-type-sans-serif;
+	font-style: italic;
+	font-weight: oFontsWeight(light);
+}
+
+// Foxtrot
+@mixin oTypographyFoxtrotSize($level) {
+	@include font-size(get-font-size(foxtrot, $level), get-line-height(foxtrot, $level));
+}
+@mixin oTypographyFoxtrot($level) {
+	@include oTypographyFoxtrotSize($level);
+	font-family: $n-type-serif;
+	font-weight: oFontsWeight(regular);
+}
+
+@mixin oTypographyHeadingSeparator() {
+	border-bottom: 1px solid #333333;
+}

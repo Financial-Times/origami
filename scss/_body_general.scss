@@ -7,20 +7,14 @@
 ///
 /// @todo what is the difference between this and the other leader styles?
 @mixin oTypographyBodyLead {
-	font-family: BentonSans, sans-serif;
-	font-weight: normal;
-	font-size: 18px;
-	line-height: 24px;
+	@include oTypographyAlpha(2);
 	@include oColorsFor(o-typography-body-lead body, text);
 	-webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
 }
 
 /// General body text (apply to body tag)
 @mixin oTypographyBody {
-	font-family: BentonSans, sans-serif;
-	font-weight: normal;
-	font-size: 14px;
-	line-height: 20px;
+	@include oTypographyAlpha(3);
 	@include oColorsFor(body, text);
 }
 

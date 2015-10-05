@@ -22,3 +22,80 @@ $o-typography-is-silent: true !default;
 @include oColorsSetUseCase(o-typography-article-subheading, border, 'pink-tint5');
 @include oColorsSetUseCase(o-typography-badge, text, 'white');
 @include oColorsSetUseCase(o-typography-badge, background, 'red');
+
+
+// @TODO REMOVE THIS
+$o-type-font-family: MetricWeb, sans-serif;
+
+$o-fonts-families: (
+	MetricWeb: (
+		font-family: 'MetricWeb, sans-serif',
+		variants: (
+			(weight: light, style: normal),
+			(weight: light, style: italic),
+			(weight: semibold, style: normal),
+		)
+	),
+	FinancierDisplayWeb: (
+		font-family: 'FinancierDisplayWeb, Georgia, serif',
+		variants: (
+			(weight: regular, style: normal),
+			(weight: medium, style: italic),
+			(weight: light, style: italic),
+		)
+	),
+	FinancierTextWeb: (
+		font-family: 'FinancierTextWeb, Georgia, serif',
+		variants: (
+			(weight: regular, style: normal),
+		)
+	)
+);
+
+$font-scale: (
+	alpha: (
+		1: (font-size: 40, line-height: 40),
+		2: (font-size: 26, line-height: 27),
+		3: (font-size: 20, line-height: 24),
+		4: (font-size: 15, line-height: 17),
+		5: (font-size: 12, line-height: 12)
+	),
+	bravo: (
+		1: (font-size: 40, line-height: 40),
+		2: (font-size: 26, line-height: 27),
+		3: (font-size: 20, line-height: 22),
+		4: (font-size: 15, line-height: 17),
+		5: (font-size: 12, line-height: 12)
+	),
+	charlie: (
+		1: (font-size: 40, line-height: 40),
+		2: (font-size: 26, line-height: 27),
+		3: (font-size: 22, line-height: 24),
+		4: (font-size: 15, line-height: 17),
+		5: (font-size: 12, line-height: 12)
+	),
+	delta: (
+		1: (font-size: 40, line-height: 40),
+		2: (font-size: 26, line-height: 27),
+		3: (font-size: 20, line-height: 22),
+		4: (font-size: 15, line-height: 17),
+		5: (font-size: 12, line-height: 12)
+	),
+	echo: (
+		1: (font-size: 40, line-height: 40),
+		2: (font-size: 26, line-height: 27),
+		3: (font-size: 20, line-height: 22),
+		4: (font-size: 15, line-height: 17),
+		5: (font-size: 12, line-height: 12)
+	),
+	foxtrot: (
+		1: (font-size: 40, line-height: 40),
+		2: (font-size: 26, line-height: 31),
+		3: (font-size: 20, line-height: 24),
+		4: (font-size: 16, line-height: 19),
+		5: (font-size: 12, line-height: 12)
+	)
+);
+
+$n-type-serif: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default;
+$n-type-sans-serif: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;

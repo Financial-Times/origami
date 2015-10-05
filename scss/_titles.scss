@@ -3,6 +3,24 @@
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
+//
+// @TODO: Add docs to oTypeHero!
+//
+@mixin oTypographyHero() {
+	@include oTypographyFoxtrot(1);
+	text-align: center;
+
+	@media (min-width: 490px) {
+		font-size: 34px;
+	}
+	@media (min-width: 730px) {
+		font-size: 38px;
+	}
+	@media (min-width: 970px) {
+		font-size: 42px;
+	}
+}
+
 /// Large title
 @mixin oTypographyTitleLarge {
 	font-family: Georgia, serif;

@@ -5,6 +5,10 @@
     },
     "demos": [
         {
+            "name": "example",
+            "template": "demos/src/example.mustache"
+        },
+        {
             "name": "headings",
             "template": "demos/src/headings.mustache"
         },
