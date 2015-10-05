@@ -1,4 +1,4 @@
-# n-notification [![Build Status](https://travis-ci.org/Financial-Times/n-notification.svg?branch=master)](https://travis-ci.org/Financial-Times/n-notification)
+# n-notification [![Circle CI](https://circleci.com/gh/Financial-Times/n-notification/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/n-notification/tree/master)
 Component for showing onsite notification bars to users.
 
 # Using it
