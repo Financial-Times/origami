@@ -20,8 +20,8 @@
 
 /// Apply to a block of text
 @mixin oTypographyBodyBlock {
-	margin-bottom: 21px;
-	margin-top: 21px;
+	margin-top: 0.3em;
+	margin-bottom: 0.8em;
 }
 
 /// Styling for <ul> and <ol>

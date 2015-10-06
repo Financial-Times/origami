@@ -21,6 +21,20 @@ o-typography **does not load web fonts**, products should load web fonts themsel
 
 ## Usage
 
+### Recommended setup
+
+```
+html {
+	font-family: $o-typography-sans-serif;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	-moz-font-feature-settings: "liga" on;
+}
+```
+
 There are two main ways to use these typographic styles:
 
 1. Using the predefined CSS classes

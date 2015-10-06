@@ -7,7 +7,7 @@ html {
 	@include oColorsFor(page);
 
 	// type defaults
-	font-family: $o-type-font-family;
+	font-family: $o-typography-sans-serif;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 	text-rendering: optimizeSpeed;
@@ -17,4 +17,24 @@ html {
 
 body {
 	margin: 0;
+}
+
+
+.o-typography-demo {
+	img,
+	svg,
+	video,
+	object,
+	iframe,
+	figure,
+	figure img,
+	figure svg {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+	figure {
+		margin-right: 0;
+		margin-left: 0;
+	}
 }

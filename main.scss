@@ -9,11 +9,11 @@
 @import 'scss/body_common';
 @import 'scss/body_general';
 @import 'scss/headings';
-@import 'scss/body_article';
 
 @import 'scss/wrapped_common';
 @import 'scss/wrapped_general';
-@import 'scss/wrapped_article';
+// @import 'scss/wrapped_article';
+// @import 'scss/body_article';
 
 // @import 'scss/titles';
 // @import 'scss/leads';
@@ -61,6 +61,9 @@
 	.o-typography-body--link {
 		@include oTypographyBodyLink;
 	}
+	.o-typography-caption {
+		@include oTypographyCaption;
+	}
 
 	// Body copy - general
 	.o-typography-body {
@@ -88,21 +91,21 @@
 	}
 
 	// Article styles
-	.o-typography-article-body {
-		@include oTypographyArticleBody;
-	}
-	.o-typography-article-body__block {
-		@include oTypographyArticleBodyBlock;
-	}
-	.o-typography-article-body--lead {
-		@include oTypographyArticleBodyLead;
-	}
-	.o-typography-article-body__list {
-		@include oTypographyArticleBodyList;
-	}
+	// .o-typography-article-body {
+	// 	@include oTypographyArticleBody;
+	// }
+	// .o-typography-article-body__block {
+	// 	@include oTypographyArticleBodyBlock;
+	// }
+	// .o-typography-article-body--lead {
+	// 	@include oTypographyArticleBodyLead;
+	// }
+	// .o-typography-article-body__list {
+	// 	@include oTypographyArticleBodyList;
+	// }
 
 	// Article wrapper
-	.o-typography-article-body-wrapper {
-		@include oTypographyArticleBodyWrapper;
-	}
+	// .o-typography-article-body-wrapper {
+	// 	@include oTypographyArticleBodyWrapper;
+	// }
 }

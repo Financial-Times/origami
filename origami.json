@@ -3,7 +3,7 @@
     "origamiType": "module",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-typography/issues",
-    "supportStatus": "active",
+    "supportStatus": "experimental",
     "browserFeatures": {
         "optional": [
             "textshadow"

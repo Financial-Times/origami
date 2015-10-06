@@ -44,3 +44,9 @@
 		@include oColorsFor(link-hover, text);
 	}
 }
+
+// Caption
+@mixin oTypographyCaption {
+	@include oTypographyAlpha(4);
+	@include oTypographyBodyBlock;
+}

@@ -9,15 +9,15 @@
 @mixin oTypographyHero() {
 	@include oTypographyFoxtrot(1);
 
-	@media (min-width: 490px) {
-		font-size: 34px;
-	}
-	@media (min-width: 730px) {
-		font-size: 38px;
-	}
-	@media (min-width: 970px) {
-		font-size: 42px;
-	}
+	// @media (min-width: 490px) {
+	// 	font-size: 34px;
+	// }
+	// @media (min-width: 730px) {
+	// 	font-size: 38px;
+	// }
+	// @media (min-width: 970px) {
+	// 	font-size: 42px;
+	// }
 }
 
 /// h1 styles
@@ -32,15 +32,15 @@
 
 /// h3 styles
 @mixin oTypographyHeading3 {
-	@include oTypographyFoxtrot(2);
+	@include oTypographyFoxtrot(3);
 }
 
 /// h4 styles
 @mixin oTypographyHeading4 {
-	@include oTypographyFoxtrot(2);
+	@include oTypographyFoxtrot(4);
 }
 
 /// h5 styles
 @mixin oTypographyHeading5 {
-	@include oTypographyFoxtrot(3);
+	@include oTypographyFoxtrot(4);
 }
