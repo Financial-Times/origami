@@ -1,20 +1,22 @@
 @import "next-sass-setup/main";
 
 $anim-duration : 200ms;
-.n-notification {
 
-	background-color: oColorsGetPaletteColor('cold-2');
-	margin: 0;
+.n-notification {
+	background-color: rgba(white, 0.95);
+	border-bottom: 2px solid getColor('cold-2');
 	box-sizing: border-box;
-	width: 100%;
-	padding: 0px;
+	color: getColor('cold-2');
+	margin: 0;
 	max-height: 0px;
-	transition: all $anim-duration ease-in-out;
 	overflow: hidden;
+	padding: 0px;
+	transition: all $anim-duration ease-in-out;
+	width: 100%;
 
 	&.n-notification--js {
 		position: fixed;
-		z-index: 21;
+		z-index: 22;
 		top: 0;
 		left: 0;
 	}
@@ -45,18 +47,13 @@ $anim-duration : 200ms;
 .n-notification__title {
 	@include nTypeBravo(4);
 	display: inline-block;
-	color: oColorsGetPaletteColor('white');
 	margin: 0;
 }
 
 .n-notification__content {
 	@include nTypeAlpha(4);
 	display: inline-block;
-	color: oColorsGetPaletteColor('white');
 	margin: 0;
-	> a {
-		color: oColorsGetPaletteColor('white');
-	}
 }
 
 
@@ -73,11 +70,17 @@ $anim-duration : 200ms;
 	@include nextIcon(
 		$icon-name: cross_disk,
 		$size: 15,
-		$color: oColorsGetPaletteColor('white')
+		$color: getColor('cold-2')
 	);
 	background-size: 15px;
 	background-position: 50%;
 	width: 40px;
 	height: 40px;
 	text-indent: -999em;
+}
+
+.n-notification .myft-ui__icon {
+	@include nextIcon(myft-bolder, black, 16);
+	margin: 0 3px -4px;
+	width: 34px;
 }
