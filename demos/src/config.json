@@ -14,9 +14,9 @@
                 "o-colors@^2.4.7",
                 "o-fonts@^1.4.0",
                 "o-tabs@^1.4.2",
-                "o-buttons@^1.8.0",
-                "o-footer@^3.0.0",
-                "o-grid@^3.0.3"
+                "o-buttons@^2.0.4",
+                "o-footer@^4.0.0",
+                "o-grid@^4.0.0"
             ]
         },
         {
@@ -43,7 +43,7 @@
             "name": "prefix-suffix",
             "template": "demos/src/prefix-suffix.mustache",
             "dependencies": [
-                "o-buttons@^1.8.0"
+                "o-buttons@^2.0.4"
             ]
         },
         {

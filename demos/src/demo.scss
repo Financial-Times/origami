@@ -7,13 +7,15 @@ html {
 }
 
 body {
-	// Simulate the grid outer margin space
-	// since the forms rely on this space to expand on each side on small screens
-	padding: 10px;
+	margin: oGridGutter();
 }
 
 .demo-real-life {
 	padding: 0;
+
+	body {
+		margin: 0;
+	}
 
 	h2,
 	h3 {

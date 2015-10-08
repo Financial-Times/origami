@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 7]>         <html class="o-useragent-ie7 o-hoverable-on"> <![endif]-->
-<!--[if IE 8]>         <html class="o-useragent-ie8 o-hoverable-on"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="o-hoverable-on"> <!--<![endif]-->
+<html class="o-hoverable-on o-colors-page-background demo-real-life">
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
@@ -10,799 +8,803 @@
 	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
 	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
-	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss,o-colors@^2.4.7,o-fonts@^1.4.0,o-tabs@^1.4.2,o-buttons@^1.8.0,o-footer@^3.0.0,o-grid@^3.0.3" />
+	<link rel="stylesheet" href="/bundles/css?modules=o-forms:/demos/src/demo.scss,o-colors@^2.4.7,o-fonts@^1.4.0,o-tabs@^1.4.2,o-buttons@^2.0.4,o-footer@^4.0.0,o-grid@^4.0.0" />
 </head>
-<body class="o-colors-page-background demo-real-life">
+<body>
 <!-- This was mostly copied and pasted from the sign up app -->
-<div class="o-grid-row o-grid-row--snappy">
-	<div class="demo-real-life-form-container" data-o-grid-colspan="12 S8 M7 L4 center">
-		<div class="o-grid-row">
-			<div data-o-grid-colspan>
-				<form id="signUp-form" novalidate="" method="POST">
-					<h2>Create your account</h2>
-					<div class="o-forms__section mp-section--delineated mp-section--inset mp-section--account">
-						<div class="o-forms-group o-forms--error">
-							<label class="o-forms-label" for="email">Email address *</label>
-							<input class="o-forms-text" type="email" id="email" name="email" maxlength="64" data-bind="email">
-						<div class="o-forms-errortext">Please enter your email address</div></div>
-						<div class="o-forms-group o-forms--error">
-							<label class="o-forms-label" for="email2">Confirm email address *</label>
-							<input class="o-forms-text" type="email" id="email2" name="email2" maxlength="64" autocomplete="off" data-bind="emailConfirmation">
-						<div class="o-forms-errortext">Please confirm your email address</div></div>
-						<div class="o-forms-group">
-							<label class="o-forms-label" for="password">Password *</label>
-							<small class="o-forms-additional-info">At least 6 characters (numbers &amp; letters only)</small>
-							<input class="o-forms-text" type="password" id="password" name="password" maxlength="50" data-bind="password" autocomplete="off">
-						</div>
+<div class="o-grid-container o-grid-container--snappy">
+	<div class="o-grid-row">
+		<div data-o-grid-colspan="12 S10 M7 L6 center">
+			<form id="signUp-form" novalidate="" method="POST">
+				<h2>Create your account</h2>
+				<div class="o-forms__section mp-section--delineated mp-section--inset mp-section--account">
+					<div class="o-forms-group o-forms--error">
+						<label class="o-forms-label" for="email">Email address *</label>
+						<input class="o-forms-text" type="email" id="email" name="email" maxlength="64" data-bind="email">
+					<div class="o-forms-errortext">Please enter your email address</div></div>
+					<div class="o-forms-group o-forms--error">
+						<label class="o-forms-label" for="email2">Confirm email address *</label>
+						<input class="o-forms-text" type="email" id="email2" name="email2" maxlength="64" autocomplete="off" data-bind="emailConfirmation">
+					<div class="o-forms-errortext">Please confirm your email address</div></div>
+					<div class="o-forms-group">
+						<label class="o-forms-label" for="password">Password *</label>
+						<small class="o-forms-additional-info">At least 6 characters (numbers &amp; letters only)</small>
+						<input class="o-forms-text" type="password" id="password" name="password" maxlength="50" data-bind="password" autocomplete="off">
 					</div>
-					<h2>Personal details</h2>
-					<div class="o-forms__section mp-section--inset mp-section--personal-details">
-						 <div class="o-forms-group">
-							<label class="o-forms-label" for="firstName">First name *</label>
-							<input class="o-forms-text" type="text" id="firstName" name="firstName" maxlength="40" data-bind="firstName">
-						</div>
-						 <div class="o-forms-group">
-							<label class="o-forms-label" for="lastName">Last name *</label>
-							<input class="o-forms-text" type="text" id="lastName" name="lastName" maxlength="80" data-bind="lastName">
-						</div>
-						<div class="o-forms-group">
-							<label class="o-forms-label" for="phoneNumber">Phone number *</label>
-							<input class="o-forms-text" type="text" id="phoneNumber" name="phoneNumber" maxlength="40" data-bind="phoneNumber">
-						</div>
-					</div>
-					<div class="o-forms__section mp-section--delineated mp-section--inset mp-section--demographics">
-						 <div class="o-forms-group">
-							<label class="o-forms-label" for="position">Your position *</label>
-							<select class="o-forms-select" id="position" name="position" data-bind="position">
-								<option selected="" disabled="">Please select a position</option>
-								<option value="AN">Analyst</option>
-								<option value="AS">Associate</option>
-								<option value="BU">Business School Academic</option>
-								<option value="CP">CEO/president/Chairman</option>
-								<option value="CS">Consultant</option>
-								<option value="OE">Exec Mgmt (EVP/SVP/MD)</option>
-								<option value="MB">MBA Student</option>
-								<option value="MA">Manager/Supervisor</option>
-								<option value="MD">Other C Level (CFO/COO/CIO/CMO)</option>
-								<option value="OP">Owner/Partner/Proprietor</option>
-								<option value="PR">Professional</option>
-								<option value="PM">Programme/Project Manager</option>
-								<option value="SE">Secretary/Treasurer</option>
-								<option value="SM">Senior Manager/Dept Head</option>
-								<option value="TS">Technical/Business Specialist</option>
-								<option value="DH">VP/Director</option>
-							</select>
-						</div>
-						 <div class="o-forms-group">
-							<label class="o-forms-label" for="responsibility">Job responsibility *</label>
-							<select class="o-forms-select" id="responsibility" name="responsibility" data-bind="responsibility">
-								<option selected="" disabled="">Please select a job responsibility</option>
-								<option value="FIN">Accounting/finance</option>
-								<option value="ADL">Administration</option>
-								<option value="RES">Broker/trader</option>
-								<option value="BUY">Buying/procurement</option>
-								<option value="CON">General management</option>
-								<option value="PAT">HR/Training</option>
-								<option value="IFA">IFA/financial adviser</option>
-								<option value="TEC">Information technology</option>
-								<option value="KNO">Knowledge management</option>
-								<option value="LEG">Legal/company secretarial</option>
-								<option value="MKT">Marketing/communications/PR</option>
-								<option value="MON">Money/portfolio management</option>
-								<option value="OPS">Operations</option>
-								<option value="PRI">Private Investor</option>
-								<option value="PRO">Product mgmt/development</option>
-								<option value="RAD">Research/analysis</option>
-								<option value="RET">Retired</option>
-								<option value="RSK">Risk management/compliance</option>
-								<option value="SAL">Sales/business development</option>
-								<option value="CPL">Strategy/planning</option>
-								<option value="STU">Student</option>
-							</select>
-						</div>
-						 <div class="o-forms-group">
-							<label class="o-forms-label" for="industry">Company industry *</label>
-							<select class="o-forms-select" id="industry" name="industry" data-bind="industry">
-								<option selected="" disabled="">Please select an industry</option>
-								<option value="ACC">Accountancy &amp; tax advisory</option>
-								<option value="DEF">Aerospace &amp; defence</option>
-								<option value="CAR">Automobiles</option>
-								<option value="BKG">Banking</option>
-								<option value="RES">Basic resources/mining</option>
-								<option value="PHC">Chemicals</option>
-								<option value="MAP">Comms/Publishing/Media</option>
-								<option value="BSE">Consulting/business services</option>
-								<option value="EDU">Education/Academia</option>
-								<option value="ENU">Energy/utilities</option>
-								<option value="ENC">Engineering/construction</option>
-								<option value="FSE">Financial services</option>
-								<option value="FOO">Food &amp; beverages</option>
-								<option value="FAM">Fund/asset management</option>
-								<option value="GPV">Govt/public service/NGO</option>
-								<option value="HEA">Health &amp; pharmaceuticals</option>
-								<option value="IT">IT/computing</option>
-								<option value="MAN">Industrial goods &amp; services</option>
-								<option value="INS">Insurance</option>
-								<option value="LAW">Legal services</option>
-								<option value="RET">Personal &amp; household goods</option>
-								<option value="REA">Property</option>
-								<option value="RTL">Retail</option>
-								<option value="TEL">Telecommunications</option>
-								<option value="TRL">Transport/logistics</option>
-								<option value="TRV">Travel &amp; leisure</option>
-							</select>
-						</div>
-					</div>
-					<h2>Product summary</h2>
-					<div class="mp-section--delineated mp-section--inset" id="order-summary"><div class="mp-order-summary--multi-term mp-section--highlight">
-				<h3 class="mp-h3 txt-centred mp-order-summary__product-name">Premium FT.com</h3>
-				<!-- rivets: each-option --><div class="o-forms-group mp-sub-term">
-				<input type="radio" name="productTerm" rv-value=":option.subscriptionTerm" rv-checked="selectedTerm" class="o-forms-radio" rv-id=":option.subscriptionTerm" value="P1Y" id="P1Y">
-				<!-- rivets: each-charge --><label class="o-forms-label o-forms-label--block" rv-for=":option.subscriptionTerm" for="P1Y">
-				<span class="mp-sub-term__label">Annual option</span>
-				<span rv-show=":option.annual" class="mvt-price-weekly">
-				<span class="mp-sub-term__weekly-price">£7.35  per week </span>
-				<span class="mp-sub-term__full-price">single £382.20 payment </span>
-				</span>
-				<span rv-hide=":option.annual" class="mp-sub-term__price mvt-price-annual" style="display: none;">£382.20 </span>
-				</label>
-				<input type="radio" name="productTerm" rv-value=":option.subscriptionTerm" rv-checked="selectedTerm" class="o-forms-radio" rv-id=":option.subscriptionTerm" value="P1M" id="P1M">
-				<!-- rivets: each-charge --><label class="o-forms-label o-forms-label--block" rv-for=":option.subscriptionTerm" for="P1M">
-				<span class="mp-sub-term__label">Monthly option</span>
-				<span rv-show=":option.annual" class="mvt-price-weekly" style="display: none;">
-				<span class="mp-sub-term__weekly-price">£9.70  per week </span>
-				<span class="mp-sub-term__full-price">single £42.00 payment </span>
-				</span>
-				<span rv-hide=":option.annual" class="mp-sub-term__price mvt-price-annual">£42.00 </span>
-				</label>
 				</div>
-				</div></div>
-					<h2>Payment details</h2>
-					<ul id="payment-methods" data-o-component="tabs" data-o-version="1.0.0" class="o-tabs o-tabs--buttontabs o-tabs--big" role="tablist" data-o-tabs--js="">
-						<li role="tab" rv-aria-selected="user.creditCardSelected < paymentMethod" aria-controls="credit-card" aria-selected="true"><a data-payment-method="credit-card" href="#credit-card" rv-on-click="select">Credit card</a></li>
-						<li role="tab" rv-aria-selected="user.payPalSelected < paymentMethod" aria-controls="paypal" aria-selected="false"><a data-payment-method="paypal" href="#paypal" rv-on-click="select">PayPal</a></li>
-					</ul>
-					<div id="credit-card" class="o-tabs__tabpanel" role="tabpanel" aria-expanded="true" aria-hidden="false">
-						<div class="o-forms__section mp-section--payment mp-section--inset" data-validation-section="credit-card">
-							<div class="o-forms-group">
-								<label class="o-forms-label">Payment option *</label>
-								<input type="radio" name="creditCardType" value="AmericanExpress" class="o-forms-radio" id="paymentMethod1" data-bind="creditCardType"><label for="paymentMethod1" class="o-forms-label"><i class="mp-icons-icon mp-icons-icon--paymentMethod mp-icons-icon--amex"></i><span>American Express</span></label>
-								<input type="radio" name="creditCardType" value="Visa" class="o-forms-radio" id="paymentMethod2" data-bind="creditCardType"><label for="paymentMethod2" class="o-forms-label"><i class="mp-icons-icon mp-icons-icon--paymentMethod mp-icons-icon--visa"></i><span>VISA</span></label>
-								<input type="radio" name="creditCardType" value="MasterCard" class="o-forms-radio" id="paymentMethod3" data-bind="creditCardType"><label for="paymentMethod3" class="o-forms-label"><i class="mp-icons-icon mp-icons-icon--paymentMethod mp-icons-icon--mastercard"></i><span>Mastercard</span></label>
-							</div>
-							<div class="o-forms-group">
-								<label class="o-forms-label" for="cardNumber">Card number *</label>
-								<small class="o-forms-additional-info">The long number across your card</small>
-								<input class="o-forms-text" type="text" id="cardNumber" name="cardNumber" maxlength="20" data-bind="cardNumber" autocomplete="off" inputmode="numeric">
-							</div>
-							<div class="o-forms-group">
-								<label class="o-forms-label" for="cardName">Name as it appears on card *</label>
-								<input class="o-forms-text" type="text" id="cardName" name="cardName" maxlength="50" autocomplete="off" data-bind="cardName">
-							</div>
-							<div class="o-forms-group" id="ccExpiration">
-								<div class="o-grid-row">
-									<div data-o-grid-colspan="full-width">
-										<label for="expirationMonth" class="o-forms-label">Expiration date *</label>
-									</div>
-									<div data-o-grid-colspan="one-half">
-										<select class="o-forms-select" id="expirationMonth" name="expirationMonth" data-bind="expirationMonth">
-											<option selected="" disabled="">MM</option>
-											<option value="0">01</option>
-											<option value="1">02</option>
-											<option value="2">03</option>
-											<option value="3">04</option>
-											<option value="4">05</option>
-											<option value="5">06</option>
-											<option value="6">07</option>
-											<option value="7">08</option>
-											<option value="8">09</option>
-											<option value="9">10</option>
-											<option value="10">11</option>
-											<option value="11">12</option>
-										</select>
-									</div>
-									<div data-o-grid-colspan="one-half">
-										<select class="o-forms-select" id="expirationYear" name="expirationYear" data-bind="expirationYear">
-											<option selected="" disabled="">YY</option>
-											<option>15</option>
-											<option>16</option>
-											<option>17</option>
-											<option>18</option>
-											<option>19</option>
-											<option>20</option>
-											<option>21</option>
-											<option>22</option>
-											<option>23</option>
-											<option>24</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="o-forms-group" id="ccSecurity">
-								<div class="o-grid-row">
-									<div data-o-grid-colspan="full-width">
-										<label class="o-forms-label" for="securityCode">Security code *</label>
-									</div>
-									<div data-o-grid-colspan="one-half">
-										<input class="o-forms-text" type="text" id="securityCode" name="securityCode" maxlength="4" data-bind="securityCode" autocomplete="off" inputmode="numeric">
-									</div>
-									<div data-o-grid-colspan="one-half">
-										<small class="o-forms-additional-info o-forms-additional-info--inline mp-typography--small mp-pullout--small">3 digits on the back of your card or 4 digits on the front (American Express)</small>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="o-forms__section mp-section--billing mp-section--delineated mp-section--inset">
-							<div class="o-forms-group">
-								<label for="billingAddress1" class="o-forms-label">Billing address line 1 *</label>
-								<input type="text" class="o-forms-text" id="billingAddress1" name="billingAddress1" maxlength="40" data-bind="billingAddress1">
-							</div>
-							<div class="o-forms-group">
-								<label for="billingAddress2" class="o-forms-label">Billing address line 2</label>
-								<input type="text" class="o-forms-text" id="billingAddress2" name="billingAddress2" maxlength="40" data-bind="billingAddress2">
-							</div>
-							<div class="o-forms-group">
-								<label for="creditCardBillingCity" class="o-forms-label">City/Town *</label>
-								<input type="text" class="o-forms-text" id="creditCardBillingCity" name="creditCardBillingCity" data-bind="billingCity" maxlength="40">
-							</div>
-							<div class="o-forms-group">
-								<label for="creditCardBillingPostalCode" class="o-forms-label">Postal code</label>
-								<input type="text" class="o-forms-text" id="creditCardBillingPostalCode" name="creditCardBillingPostalcode" data-bind="billingPostalCode" maxlength="10">
-							</div>
-							<div rv-show="user.stateRequired < billingCountry" class="o-forms-group" style="display: none;">
-								<label for="state" class="o-forms-label">State</label>
-								<select class="o-forms-select" id="state" name="state" data-bind="billingState">
-									<option selected="" disabled="">Please select your state</option>
-									<!-- rivets: each-subdivision -->
-								</select>
-							</div>
-							<div class="o-forms-group o-forms--valid">
-								<label class="o-forms-label" for="credit-card-billing-country">Country *</label>
-								<select class="o-forms-select" id="credit-card-billing-country" name="billingCountry" data-bind="billingCountry">
-									<option selected="" disabled="">Please select a country</option>
-									<option value="AFG">Afghanistan</option>
-									<option value="ALB">Albania</option>
-									<option value="DZA">Algeria</option>
-									<option value="ASM">American Samoa</option>
-									<option value="AND">Andorra</option>
-									<option value="AGO">Angola</option>
-									<option value="AIA">Anguilla</option>
-									<option value="ATG">Antigua and Barbuda</option>
-									<option value="ARG">Argentina</option>
-									<option value="ARM">Armenia</option>
-									<option value="ABW">Aruba</option>
-									<option value="AUS">Australia</option>
-									<option value="AUT">Austria</option>
-									<option value="AZE">Azerbaijan</option>
-									<option value="BHS">Bahamas</option>
-									<option value="BHR">Bahrain</option>
-									<option value="BGD">Bangladesh</option>
-									<option value="BRB">Barbados</option>
-									<option value="BLR">Belarus</option>
-									<option value="BEL">Belgium</option>
-									<option value="BLZ">Belize</option>
-									<option value="BEN">Benin</option>
-									<option value="BMU">Bermuda</option>
-									<option value="BTN">Bhutan</option>
-									<option value="BOL">Bolivia</option>
-									<option value="BIH">Bosnia and Herzegovina</option>
-									<option value="BWA">Botswana</option>
-									<option value="BRA">Brazil</option>
-									<option value="BRN">Brunei Darussalam</option>
-									<option value="BGR">Bulgaria</option>
-									<option value="BFA">Burkina Faso</option>
-									<option value="BDI">Burundi</option>
-									<option value="KHM">Cambodia</option>
-									<option value="CMR">Cameroon</option>
-									<option value="CAN">Canada</option>
-									<option value="CPV">Cape Verde</option>
-									<option value="CYM">Cayman Islands</option>
-									<option value="CAF">Central African Republic</option>
-									<option value="TCD">Chad</option>
-									<option value="CHL">Chile</option>
-									<option value="CHN">China</option>
-									<option value="COL">Colombia</option>
-									<option value="COM">Comoros</option>
-									<option value="COG">Congo</option>
-									<option value="CRI">Costa Rica</option>
-									<option value="CIV">Cote d'Ivoire</option>
-									<option value="HRV">Croatia</option>
-									<option value="CUB">Cuba</option>
-									<option value="CYP">Cyprus</option>
-									<option value="CZE">Czech Republic</option>
-									<option value="DNK">Denmark</option>
-									<option value="DJI">Djibouti</option>
-									<option value="DMA">Dominica</option>
-									<option value="DOM">Dominican Republic</option>
-									<option value="ECU">Ecuador</option>
-									<option value="EGY">Egypt</option>
-									<option value="SLV">El Salvador</option>
-									<option value="GNQ">Equatorial Guinea</option>
-									<option value="ERI">Eritrea</option>
-									<option value="EST">Estonia</option>
-									<option value="ETH">Ethiopia</option>
-									<option value="FLK">Falkland Islands (Malvinas)</option>
-									<option value="FRO">Faroe Islands</option>
-									<option value="FJI">Fiji</option>
-									<option value="FIN">Finland</option>
-									<option value="FRA">France</option>
-									<option value="GUF">French Guiana</option>
-									<option value="PYF">French Polynesia</option>
-									<option value="GAB">Gabon</option>
-									<option value="GMB">Gambia</option>
-									<option value="GEO">Georgia</option>
-									<option value="DEU">Germany</option>
-									<option value="GHA">Ghana</option>
-									<option value="GIB">Gibraltar</option>
-									<option value="GRC">Greece</option>
-									<option value="GRL">Greenland</option>
-									<option value="GRD">Grenada</option>
-									<option value="GLP">Guadeloupe</option>
-									<option value="GUM">Guam</option>
-									<option value="GTM">Guatemala</option>
-									<option value="GGY">Guernsey</option>
-									<option value="GIN">Guinea</option>
-									<option value="GNB">Guinea-Bissau</option>
-									<option value="GUY">Guyana</option>
-									<option value="HTI">Haiti</option>
-									<option value="VAT">Holy See (Vatican City State)</option>
-									<option value="HND">Honduras</option>
-									<option value="HKG">Hong Kong</option>
-									<option value="HUN">Hungary</option>
-									<option value="ISL">Iceland</option>
-									<option value="IND">India</option>
-									<option value="IDN">Indonesia</option>
-									<option value="IRN">Iran, Islamic Republic of</option>
-									<option value="IRQ">Iraq</option>
-									<option value="IRL">Ireland</option>
-									<option value="IMN">Isle of Man</option>
-									<option value="ISR">Israel</option>
-									<option value="ITA">Italy</option>
-									<option value="JAM">Jamaica</option>
-									<option value="JPN">Japan</option>
-									<option value="JEY">Jersey</option>
-									<option value="JOR">Jordan</option>
-									<option value="KAZ">Kazakhstan</option>
-									<option value="KEN">Kenya</option>
-									<option value="KIR">Kiribati</option>
-									<option value="PRK">Korea, Democratic People's Republic of</option>
-									<option value="KOR">Korea, Republic of</option>
-									<option value="KWT">Kuwait</option>
-									<option value="KGZ">Kyrgyzstan</option>
-									<option value="LAO">Lao People's Democratic Republic</option>
-									<option value="LVA">Latvia</option>
-									<option value="LBN">Lebanon</option>
-									<option value="LSO">Lesotho</option>
-									<option value="LBR">Liberia</option>
-									<option value="LIE">Liechtenstein</option>
-									<option value="LTU">Lithuania</option>
-									<option value="LUX">Luxembourg</option>
-									<option value="MAC">Macao</option>
-									<option value="MKD">Macedonia, the former Yugoslav Republic of</option>
-									<option value="MDG">Madagascar</option>
-									<option value="MWI">Malawi</option>
-									<option value="MYS">Malaysia</option>
-									<option value="MDV">Maldives</option>
-									<option value="MLI">Mali</option>
-									<option value="MLT">Malta</option>
-									<option value="MHL">Marshall Islands</option>
-									<option value="MTQ">Martinique</option>
-									<option value="MRT">Mauritania</option>
-									<option value="MUS">Mauritius</option>
-									<option value="MYT">Mayotte</option>
-									<option value="MEX">Mexico</option>
-									<option value="FSM">Micronesia, Federated States of</option>
-									<option value="MDA">Moldova, Republic of</option>
-									<option value="MCO">Monaco</option>
-									<option value="MNG">Mongolia</option>
-									<option value="MNE">Montenegro</option>
-									<option value="MAR">Morocco</option>
-									<option value="MOZ">Mozambique</option>
-									<option value="MMR">Myanmar</option>
-									<option value="NAM">Namibia</option>
-									<option value="NPL">Nepal</option>
-									<option value="NLD">Netherlands</option>
-									<option value="NCL">New Caledonia</option>
-									<option value="NZL">New Zealand</option>
-									<option value="NIC">Nicaragua</option>
-									<option value="NER">Niger</option>
-									<option value="NGA">Nigeria</option>
-									<option value="MNP">Northern Mariana Islands</option>
-									<option value="NOR">Norway</option>
-									<option value="OMN">Oman</option>
-									<option value="PAK">Pakistan</option>
-									<option value="PSE">Palestinian Territory, Occupied</option>
-									<option value="PAN">Panama</option>
-									<option value="PNG">Papua New Guinea</option>
-									<option value="PRY">Paraguay</option>
-									<option value="PER">Peru</option>
-									<option value="PHL">Philippines</option>
-									<option value="POL">Poland</option>
-									<option value="PRT">Portugal</option>
-									<option value="PRI">Puerto Rico</option>
-									<option value="QAT">Qatar</option>
-									<option value="REU">Reunion</option>
-									<option value="ROU">Romania</option>
-									<option value="RUS">Russian Federation</option>
-									<option value="RWA">Rwanda</option>
-									<option value="SHN">Saint Helena</option>
-									<option value="KNA">Saint Kitts and Nevis</option>
-									<option value="LCA">Saint Lucia</option>
-									<option value="VCT">Saint Vincent and the Grenadines</option>
-									<option value="WSM">Samoa</option>
-									<option value="SMR">San Marino</option>
-									<option value="STP">Sao Tome and Principe</option>
-									<option value="SAU">Saudi Arabia</option>
-									<option value="SEN">Senegal</option>
-									<option value="SRB">Serbia</option>
-									<option value="SYC">Seychelles</option>
-									<option value="SLE">Sierra Leone</option>
-									<option value="SGP">Singapore</option>
-									<option value="SVK">Slovakia</option>
-									<option value="SVN">Slovenia</option>
-									<option value="SLB">Solomon Islands</option>
-									<option value="SOM">Somalia</option>
-									<option value="ZAF">South Africa</option>
-									<option value="ESP">Spain</option>
-									<option value="LKA">Sri Lanka</option>
-									<option value="LBY">State of Libya</option>
-									<option value="SDN">Sudan</option>
-									<option value="SUR">Suriname</option>
-									<option value="SWZ">Swaziland</option>
-									<option value="SWE">Sweden</option>
-									<option value="CHE">Switzerland</option>
-									<option value="SYR">Syrian Arab Republic</option>
-									<option value="TWN">Taiwan</option>
-									<option value="TJK">Tajikistan</option>
-									<option value="TZA">Tanzania, United Republic of</option>
-									<option value="THA">Thailand</option>
-									<option value="TLS">Timor-Leste</option>
-									<option value="TGO">Togo</option>
-									<option value="TON">Tonga</option>
-									<option value="TTO">Trinidad and Tobago</option>
-									<option value="TUN">Tunisia</option>
-									<option value="TUR">Turkey</option>
-									<option value="TKM">Turkmenistan</option>
-									<option value="TCA">Turks and Caicos Islands</option>
-									<option value="UGA">Uganda</option>
-									<option value="UKR">Ukraine</option>
-									<option value="ARE">United Arab Emirates</option>
-									<option value="GBR" selected="">United Kingdom</option>
-									<option value="USA">United States</option>
-									<option value="UMI">United States Minor Outlying Islands</option>
-									<option value="URY">Uruguay</option>
-									<option value="UZB">Uzbekistan</option>
-									<option value="VUT">Vanuatu</option>
-									<option value="VEN">Venezuela</option>
-									<option value="VNM">Viet Nam</option>
-									<option value="VGB">Virgin Islands, British</option>
-									<option value="VIR">Virgin Islands, U.S.</option>
-									<option value="ESH">Western Sahara</option>
-									<option value="YEM">Yemen</option>
-									<option value="ZMB">Zambia</option>
-									<option value="ZWE">Zimbabwe</option>
-								</select>
-								<div class="mp-message--payment-update mp-message" rv-show="offer.updated < subscriptionOptions isValid" style="display: none;">
-									<h1 class="mp-message__title">Payment update</h1>
-									<div class="mp-message__content mp-typography-wrapper">
-										<!-- rivets: unless trialOffer --><p>You've just updated your country. The cost of your subscription is now
-											<!-- Weekly and annual price -->
-											<span rv-show="offer.selectedOption.annual" class="mvt-price-weekly">£7.35 GBP a week (£382.20 a year)</span>
-											<!-- Annual price -->
-											<span rv-show="offer.selectedOption.annual" class="mvt-price-annual hidden">£7.35 GBP a year</span>
-											<!-- Monthly price -->
-											<span rv-hide="offer.selectedOption.annual" style="display: none;">£382.20 GBP a year</span>
-										</p>
-										<!-- rivets: if offer.trialOffer -->
-									</div>
-								</div>
-							</div>
-						</div>
+				<h2>Personal details</h2>
+				<div class="o-forms__section mp-section--inset mp-section--personal-details">
+					 <div class="o-forms-group">
+						<label class="o-forms-label" for="firstName">First name *</label>
+						<input class="o-forms-text" type="text" id="firstName" name="firstName" maxlength="40" data-bind="firstName">
 					</div>
-					<div id="paypal" class="o-tabs__tabpanel" role="tabpanel" aria-expanded="false" aria-hidden="true">
-						<div class="o-forms__section mp-section--billing mp-section--delineated mp-section--inset">
-							<div rv-show="user.stateRequired < billingCountry" class="o-forms-group" style="display: none;">
-								<label for="state" class="o-forms-label">State</label>
-								<select class="o-forms-select" id="state" name="state" data-bind="billingState">
-									<option selected="" disabled="">Please select your state</option>
-									<!-- rivets: each-subdivision -->
-								</select>
-							</div>
-							<div class="o-forms-group o-forms--valid">
-								<label class="o-forms-label" for="paypal-billing-country">Country *</label>
-								<select class="o-forms-select" id="paypal-billing-country" name="billingCountry" data-bind="billingCountry">
-									<option selected="" disabled="">Please select a country</option>
-									<option value="AFG">Afghanistan</option>
-									<option value="ALB">Albania</option>
-									<option value="DZA">Algeria</option>
-									<option value="ASM">American Samoa</option>
-									<option value="AND">Andorra</option>
-									<option value="AGO">Angola</option>
-									<option value="AIA">Anguilla</option>
-									<option value="ATG">Antigua and Barbuda</option>
-									<option value="ARG">Argentina</option>
-									<option value="ARM">Armenia</option>
-									<option value="ABW">Aruba</option>
-									<option value="AUS">Australia</option>
-									<option value="AUT">Austria</option>
-									<option value="AZE">Azerbaijan</option>
-									<option value="BHS">Bahamas</option>
-									<option value="BHR">Bahrain</option>
-									<option value="BGD">Bangladesh</option>
-									<option value="BRB">Barbados</option>
-									<option value="BLR">Belarus</option>
-									<option value="BEL">Belgium</option>
-									<option value="BLZ">Belize</option>
-									<option value="BEN">Benin</option>
-									<option value="BMU">Bermuda</option>
-									<option value="BTN">Bhutan</option>
-									<option value="BOL">Bolivia</option>
-									<option value="BIH">Bosnia and Herzegovina</option>
-									<option value="BWA">Botswana</option>
-									<option value="BRA">Brazil</option>
-									<option value="BRN">Brunei Darussalam</option>
-									<option value="BGR">Bulgaria</option>
-									<option value="BFA">Burkina Faso</option>
-									<option value="BDI">Burundi</option>
-									<option value="KHM">Cambodia</option>
-									<option value="CMR">Cameroon</option>
-									<option value="CAN">Canada</option>
-									<option value="CPV">Cape Verde</option>
-									<option value="CYM">Cayman Islands</option>
-									<option value="CAF">Central African Republic</option>
-									<option value="TCD">Chad</option>
-									<option value="CHL">Chile</option>
-									<option value="CHN">China</option>
-									<option value="COL">Colombia</option>
-									<option value="COM">Comoros</option>
-									<option value="COG">Congo</option>
-									<option value="CRI">Costa Rica</option>
-									<option value="CIV">Cote d'Ivoire</option>
-									<option value="HRV">Croatia</option>
-									<option value="CUB">Cuba</option>
-									<option value="CYP">Cyprus</option>
-									<option value="CZE">Czech Republic</option>
-									<option value="DNK">Denmark</option>
-									<option value="DJI">Djibouti</option>
-									<option value="DMA">Dominica</option>
-									<option value="DOM">Dominican Republic</option>
-									<option value="ECU">Ecuador</option>
-									<option value="EGY">Egypt</option>
-									<option value="SLV">El Salvador</option>
-									<option value="GNQ">Equatorial Guinea</option>
-									<option value="ERI">Eritrea</option>
-									<option value="EST">Estonia</option>
-									<option value="ETH">Ethiopia</option>
-									<option value="FLK">Falkland Islands (Malvinas)</option>
-									<option value="FRO">Faroe Islands</option>
-									<option value="FJI">Fiji</option>
-									<option value="FIN">Finland</option>
-									<option value="FRA">France</option>
-									<option value="GUF">French Guiana</option>
-									<option value="PYF">French Polynesia</option>
-									<option value="GAB">Gabon</option>
-									<option value="GMB">Gambia</option>
-									<option value="GEO">Georgia</option>
-									<option value="DEU">Germany</option>
-									<option value="GHA">Ghana</option>
-									<option value="GIB">Gibraltar</option>
-									<option value="GRC">Greece</option>
-									<option value="GRL">Greenland</option>
-									<option value="GRD">Grenada</option>
-									<option value="GLP">Guadeloupe</option>
-									<option value="GUM">Guam</option>
-									<option value="GTM">Guatemala</option>
-									<option value="GGY">Guernsey</option>
-									<option value="GIN">Guinea</option>
-									<option value="GNB">Guinea-Bissau</option>
-									<option value="GUY">Guyana</option>
-									<option value="HTI">Haiti</option>
-									<option value="VAT">Holy See (Vatican City State)</option>
-									<option value="HND">Honduras</option>
-									<option value="HKG">Hong Kong</option>
-									<option value="HUN">Hungary</option>
-									<option value="ISL">Iceland</option>
-									<option value="IND">India</option>
-									<option value="IDN">Indonesia</option>
-									<option value="IRN">Iran, Islamic Republic of</option>
-									<option value="IRQ">Iraq</option>
-									<option value="IRL">Ireland</option>
-									<option value="IMN">Isle of Man</option>
-									<option value="ISR">Israel</option>
-									<option value="ITA">Italy</option>
-									<option value="JAM">Jamaica</option>
-									<option value="JPN">Japan</option>
-									<option value="JEY">Jersey</option>
-									<option value="JOR">Jordan</option>
-									<option value="KAZ">Kazakhstan</option>
-									<option value="KEN">Kenya</option>
-									<option value="KIR">Kiribati</option>
-									<option value="PRK">Korea, Democratic People's Republic of</option>
-									<option value="KOR">Korea, Republic of</option>
-									<option value="KWT">Kuwait</option>
-									<option value="KGZ">Kyrgyzstan</option>
-									<option value="LAO">Lao People's Democratic Republic</option>
-									<option value="LVA">Latvia</option>
-									<option value="LBN">Lebanon</option>
-									<option value="LSO">Lesotho</option>
-									<option value="LBR">Liberia</option>
-									<option value="LIE">Liechtenstein</option>
-									<option value="LTU">Lithuania</option>
-									<option value="LUX">Luxembourg</option>
-									<option value="MAC">Macao</option>
-									<option value="MKD">Macedonia, the former Yugoslav Republic of</option>
-									<option value="MDG">Madagascar</option>
-									<option value="MWI">Malawi</option>
-									<option value="MYS">Malaysia</option>
-									<option value="MDV">Maldives</option>
-									<option value="MLI">Mali</option>
-									<option value="MLT">Malta</option>
-									<option value="MHL">Marshall Islands</option>
-									<option value="MTQ">Martinique</option>
-									<option value="MRT">Mauritania</option>
-									<option value="MUS">Mauritius</option>
-									<option value="MYT">Mayotte</option>
-									<option value="MEX">Mexico</option>
-									<option value="FSM">Micronesia, Federated States of</option>
-									<option value="MDA">Moldova, Republic of</option>
-									<option value="MCO">Monaco</option>
-									<option value="MNG">Mongolia</option>
-									<option value="MNE">Montenegro</option>
-									<option value="MAR">Morocco</option>
-									<option value="MOZ">Mozambique</option>
-									<option value="MMR">Myanmar</option>
-									<option value="NAM">Namibia</option>
-									<option value="NPL">Nepal</option>
-									<option value="NLD">Netherlands</option>
-									<option value="NCL">New Caledonia</option>
-									<option value="NZL">New Zealand</option>
-									<option value="NIC">Nicaragua</option>
-									<option value="NER">Niger</option>
-									<option value="NGA">Nigeria</option>
-									<option value="MNP">Northern Mariana Islands</option>
-									<option value="NOR">Norway</option>
-									<option value="OMN">Oman</option>
-									<option value="PAK">Pakistan</option>
-									<option value="PSE">Palestinian Territory, Occupied</option>
-									<option value="PAN">Panama</option>
-									<option value="PNG">Papua New Guinea</option>
-									<option value="PRY">Paraguay</option>
-									<option value="PER">Peru</option>
-									<option value="PHL">Philippines</option>
-									<option value="POL">Poland</option>
-									<option value="PRT">Portugal</option>
-									<option value="PRI">Puerto Rico</option>
-									<option value="QAT">Qatar</option>
-									<option value="REU">Reunion</option>
-									<option value="ROU">Romania</option>
-									<option value="RUS">Russian Federation</option>
-									<option value="RWA">Rwanda</option>
-									<option value="SHN">Saint Helena</option>
-									<option value="KNA">Saint Kitts and Nevis</option>
-									<option value="LCA">Saint Lucia</option>
-									<option value="VCT">Saint Vincent and the Grenadines</option>
-									<option value="WSM">Samoa</option>
-									<option value="SMR">San Marino</option>
-									<option value="STP">Sao Tome and Principe</option>
-									<option value="SAU">Saudi Arabia</option>
-									<option value="SEN">Senegal</option>
-									<option value="SRB">Serbia</option>
-									<option value="SYC">Seychelles</option>
-									<option value="SLE">Sierra Leone</option>
-									<option value="SGP">Singapore</option>
-									<option value="SVK">Slovakia</option>
-									<option value="SVN">Slovenia</option>
-									<option value="SLB">Solomon Islands</option>
-									<option value="SOM">Somalia</option>
-									<option value="ZAF">South Africa</option>
-									<option value="ESP">Spain</option>
-									<option value="LKA">Sri Lanka</option>
-									<option value="LBY">State of Libya</option>
-									<option value="SDN">Sudan</option>
-									<option value="SUR">Suriname</option>
-									<option value="SWZ">Swaziland</option>
-									<option value="SWE">Sweden</option>
-									<option value="CHE">Switzerland</option>
-									<option value="SYR">Syrian Arab Republic</option>
-									<option value="TWN">Taiwan</option>
-									<option value="TJK">Tajikistan</option>
-									<option value="TZA">Tanzania, United Republic of</option>
-									<option value="THA">Thailand</option>
-									<option value="TLS">Timor-Leste</option>
-									<option value="TGO">Togo</option>
-									<option value="TON">Tonga</option>
-									<option value="TTO">Trinidad and Tobago</option>
-									<option value="TUN">Tunisia</option>
-									<option value="TUR">Turkey</option>
-									<option value="TKM">Turkmenistan</option>
-									<option value="TCA">Turks and Caicos Islands</option>
-									<option value="UGA">Uganda</option>
-									<option value="UKR">Ukraine</option>
-									<option value="ARE">United Arab Emirates</option>
-									<option value="GBR" selected="">United Kingdom</option>
-									<option value="USA">United States</option>
-									<option value="UMI">United States Minor Outlying Islands</option>
-									<option value="URY">Uruguay</option>
-									<option value="UZB">Uzbekistan</option>
-									<option value="VUT">Vanuatu</option>
-									<option value="VEN">Venezuela</option>
-									<option value="VNM">Viet Nam</option>
-									<option value="VGB">Virgin Islands, British</option>
-									<option value="VIR">Virgin Islands, U.S.</option>
-									<option value="ESH">Western Sahara</option>
-									<option value="YEM">Yemen</option>
-									<option value="ZMB">Zambia</option>
-									<option value="ZWE">Zimbabwe</option>
-								</select>
-								<div class="mp-message--payment-update mp-message" rv-show="offer.updated < subscriptionOptions isValid" style="display: none;">
-									<h1 class="mp-message__title">Payment update</h1>
-									<div class="mp-message__content mp-typography-wrapper">
-										<!-- rivets: unless trialOffer --><p>You've just updated your country. The cost of your subscription is now
-											<!-- Weekly and annual price -->
-											<span rv-show="offer.selectedOption.annual" class="mvt-price-weekly">£7.35 GBP a week (£382.20 a year)</span>
-											<!-- Annual price -->
-											<span rv-show="offer.selectedOption.annual" class="mvt-price-annual hidden">£7.35 GBP a year</span>
-											<!-- Monthly price -->
-											<span rv-hide="offer.selectedOption.annual" style="display: none;">£382.20 GBP a year</span>
-										</p>
-										<!-- rivets: if offer.trialOffer -->
-									</div>
-								</div>
-							</div>
-						</div>
+					 <div class="o-forms-group">
+						<label class="o-forms-label" for="lastName">Last name *</label>
+						<input class="o-forms-text" type="text" id="lastName" name="lastName" maxlength="80" data-bind="lastName">
 					</div>
-					<div id="terms-conditions" rv-show="user.canSubmit < paymentMethod directDebitComplete">
-						<h2>Terms &amp; Conditions</h2>
-						<div class="o-forms-wrapper o-forms-wrapper--highlight">
-							<div class="o-forms-group">
-								<input type="checkbox" class="o-forms-checkbox o-forms-checkbox--highlight" id="acceptTermsAndConditions" data-bind="acceptTermsAndConditions" value="true" checked="checked">
-								<label for="acceptTermsAndConditions" class="o-forms-label" id="terms-text">
-									<p>I confirm I have read and agree to the <a href="http://m.ft.com/servicestools/help/terms" target="_blank">terms &amp; conditions</a>, <a href="http://m.ft.com/servicestools/help/privacy" target="_blank">privacy policy</a> and <a href="http://m.ft.com/cookiepolicy" target="_blank">cookie policy</a>*.</p>
-									<p>Your subscription lasts for <span rv-show="offer.trialOffer" style="display: none;"></span><span rv-hide="offer.trialOffer">a year</span>. To give you uninterrupted access we will automatically renew it using the payment method you provided, unless you cancel before your renewal date. <span rv-show="offer.selectedOption.annual">We will send you a reminder of this date in advance.</span></p>
-									<p>Find out more on our cancellation policy in our <a href="http://m.ft.com/servicestools/help/terms" target="_blank">terms &amp; conditions</a></p>
-								</label>
-								<div class="o-forms-errortext"></div>
-							</div>
-						</div>
-						<div class="o-forms-wrapper o-forms-wrapper--highlight o-forms-wrapper--error">
-							<div class="o-forms-message o-forms-message--error"><p>Please accept our terms &amp; conditions</p></div>
-							<div class="o-forms-group">
-								<input type="checkbox" class="o-forms-checkbox o-forms-checkbox--highlight" id="acceptTermsAndConditions2" data-bind="acceptTermsAndConditions" value="true" checked="checked">
-								<label for="acceptTermsAndConditions2" class="o-forms-label" id="terms-text2">
-									<p>I confirm I have read and agree to the <a href="http://m.ft.com/servicestools/help/terms" target="_blank">terms &amp; conditions</a>, <a href="http://m.ft.com/servicestools/help/privacy" target="_blank">privacy policy</a> and <a href="http://m.ft.com/cookiepolicy" target="_blank">cookie policy</a>*.</p>
-									<p>Your subscription lasts for <span rv-show="offer.trialOffer" style="display: none;"></span><span rv-hide="offer.trialOffer">a year</span>. To give you uninterrupted access we will automatically renew it using the payment method you provided, unless you cancel before your renewal date. <span rv-show="offer.selectedOption.annual">We will send you a reminder of this date in advance.</span></p>
-									<p>Find out more on our cancellation policy in our <a href="http://m.ft.com/servicestools/help/terms" target="_blank">terms &amp; conditions</a></p>
-								</label>
-								<div class="o-forms-errortext"></div>
-							</div>
-						</div>
-						<div class="o-forms-group mp-marketing-group">
-							<input type="checkbox" class="o-forms-checkbox o-forms-checkbox--highlight" id="acceptMarketingOptIn" data-bind="acceptMarketingOptIn" value="true">
-							<label for="acceptMarketingOptIn" class="o-forms-label">I would like to receive occasional FT updates about new features and special offers</label>
-						</div>
+					<div class="o-forms-group">
+						<label class="o-forms-label" for="phoneNumber">Phone number *</label>
+						<input class="o-forms-text" type="text" id="phoneNumber" name="phoneNumber" maxlength="40" data-bind="phoneNumber">
 					</div>
-					<div class="o-grid-row">
-						<div data-o-grid-colspan="full-width">
-							<button class="o-buttons o-buttons--standout o-buttons--big" data-o-grid-colspan="full-width" type="submit" id="submit-btn">Complete purchase &amp; buy</button>
-						</div>
+				</div>
+				<div class="o-forms__section mp-section--delineated mp-section--inset mp-section--demographics">
+					 <div class="o-forms-group">
+						<label class="o-forms-label" for="position">Your position *</label>
+						<select class="o-forms-select" id="position" name="position" data-bind="position">
+							<option selected="" disabled="">Please select a position</option>
+							<option value="AN">Analyst</option>
+							<option value="AS">Associate</option>
+							<option value="BU">Business School Academic</option>
+							<option value="CP">CEO/president/Chairman</option>
+							<option value="CS">Consultant</option>
+							<option value="OE">Exec Mgmt (EVP/SVP/MD)</option>
+							<option value="MB">MBA Student</option>
+							<option value="MA">Manager/Supervisor</option>
+							<option value="MD">Other C Level (CFO/COO/CIO/CMO)</option>
+							<option value="OP">Owner/Partner/Proprietor</option>
+							<option value="PR">Professional</option>
+							<option value="PM">Programme/Project Manager</option>
+							<option value="SE">Secretary/Treasurer</option>
+							<option value="SM">Senior Manager/Dept Head</option>
+							<option value="TS">Technical/Business Specialist</option>
+							<option value="DH">VP/Director</option>
+						</select>
 					</div>
-				</form>
+					 <div class="o-forms-group">
+						<label class="o-forms-label" for="responsibility">Job responsibility *</label>
+						<select class="o-forms-select" id="responsibility" name="responsibility" data-bind="responsibility">
+							<option selected="" disabled="">Please select a job responsibility</option>
+							<option value="FIN">Accounting/finance</option>
+							<option value="ADL">Administration</option>
+							<option value="RES">Broker/trader</option>
+							<option value="BUY">Buying/procurement</option>
+							<option value="CON">General management</option>
+							<option value="PAT">HR/Training</option>
+							<option value="IFA">IFA/financial adviser</option>
+							<option value="TEC">Information technology</option>
+							<option value="KNO">Knowledge management</option>
+							<option value="LEG">Legal/company secretarial</option>
+							<option value="MKT">Marketing/communications/PR</option>
+							<option value="MON">Money/portfolio management</option>
+							<option value="OPS">Operations</option>
+							<option value="PRI">Private Investor</option>
+							<option value="PRO">Product mgmt/development</option>
+							<option value="RAD">Research/analysis</option>
+							<option value="RET">Retired</option>
+							<option value="RSK">Risk management/compliance</option>
+							<option value="SAL">Sales/business development</option>
+							<option value="CPL">Strategy/planning</option>
+							<option value="STU">Student</option>
+						</select>
+					</div>
+					 <div class="o-forms-group">
+						<label class="o-forms-label" for="industry">Company industry *</label>
+						<select class="o-forms-select" id="industry" name="industry" data-bind="industry">
+							<option selected="" disabled="">Please select an industry</option>
+							<option value="ACC">Accountancy &amp; tax advisory</option>
+							<option value="DEF">Aerospace &amp; defence</option>
+							<option value="CAR">Automobiles</option>
+							<option value="BKG">Banking</option>
+							<option value="RES">Basic resources/mining</option>
+							<option value="PHC">Chemicals</option>
+							<option value="MAP">Comms/Publishing/Media</option>
+							<option value="BSE">Consulting/business services</option>
+							<option value="EDU">Education/Academia</option>
+							<option value="ENU">Energy/utilities</option>
+							<option value="ENC">Engineering/construction</option>
+							<option value="FSE">Financial services</option>
+							<option value="FOO">Food &amp; beverages</option>
+							<option value="FAM">Fund/asset management</option>
+							<option value="GPV">Govt/public service/NGO</option>
+							<option value="HEA">Health &amp; pharmaceuticals</option>
+							<option value="IT">IT/computing</option>
+							<option value="MAN">Industrial goods &amp; services</option>
+							<option value="INS">Insurance</option>
+							<option value="LAW">Legal services</option>
+							<option value="RET">Personal &amp; household goods</option>
+							<option value="REA">Property</option>
+							<option value="RTL">Retail</option>
+							<option value="TEL">Telecommunications</option>
+							<option value="TRL">Transport/logistics</option>
+							<option value="TRV">Travel &amp; leisure</option>
+						</select>
+					</div>
+				</div>
+				<h2>Product summary</h2>
+				<div class="mp-section--delineated mp-section--inset" id="order-summary"><div class="mp-order-summary--multi-term mp-section--highlight">
+			<h3 class="mp-h3 txt-centred mp-order-summary__product-name">Premium FT.com</h3>
+			<!-- rivets: each-option --><div class="o-forms-group mp-sub-term">
+			<input type="radio" name="productTerm" rv-value=":option.subscriptionTerm" rv-checked="selectedTerm" class="o-forms-radio" rv-id=":option.subscriptionTerm" value="P1Y" id="P1Y">
+			<!-- rivets: each-charge --><label class="o-forms-label o-forms-label--block" rv-for=":option.subscriptionTerm" for="P1Y">
+			<span class="mp-sub-term__label">Annual option</span>
+			<span rv-show=":option.annual" class="mvt-price-weekly">
+			<span class="mp-sub-term__weekly-price">£7.35  per week </span>
+			<span class="mp-sub-term__full-price">single £382.20 payment </span>
+			</span>
+			<span rv-hide=":option.annual" class="mp-sub-term__price mvt-price-annual" style="display: none;">£382.20 </span>
+			</label>
+			<input type="radio" name="productTerm" rv-value=":option.subscriptionTerm" rv-checked="selectedTerm" class="o-forms-radio" rv-id=":option.subscriptionTerm" value="P1M" id="P1M">
+			<!-- rivets: each-charge --><label class="o-forms-label o-forms-label--block" rv-for=":option.subscriptionTerm" for="P1M">
+			<span class="mp-sub-term__label">Monthly option</span>
+			<span rv-show=":option.annual" class="mvt-price-weekly" style="display: none;">
+			<span class="mp-sub-term__weekly-price">£9.70  per week </span>
+			<span class="mp-sub-term__full-price">single £42.00 payment </span>
+			</span>
+			<span rv-hide=":option.annual" class="mp-sub-term__price mvt-price-annual">£42.00 </span>
+			</label>
 			</div>
+			</div></div>
+				<h2>Payment details</h2>
+				<ul id="payment-methods" data-o-component="tabs" data-o-version="1.0.0" class="o-tabs o-tabs--buttontabs o-tabs--big" role="tablist" data-o-tabs--js="">
+					<li role="tab" rv-aria-selected="user.creditCardSelected < paymentMethod" aria-controls="credit-card" aria-selected="true"><a data-payment-method="credit-card" href="#credit-card" rv-on-click="select">Credit card</a></li>
+					<li role="tab" rv-aria-selected="user.payPalSelected < paymentMethod" aria-controls="paypal" aria-selected="false"><a data-payment-method="paypal" href="#paypal" rv-on-click="select">PayPal</a></li>
+				</ul>
+				<div id="credit-card" class="o-tabs__tabpanel" role="tabpanel" aria-expanded="true" aria-hidden="false">
+					<div class="o-forms__section mp-section--payment mp-section--inset" data-validation-section="credit-card">
+						<div class="o-forms-group">
+							<label class="o-forms-label">Payment option *</label>
+							<input type="radio" name="creditCardType" value="AmericanExpress" class="o-forms-radio" id="paymentMethod1" data-bind="creditCardType"><label for="paymentMethod1" class="o-forms-label"><i class="mp-icons-icon mp-icons-icon--paymentMethod mp-icons-icon--amex"></i><span>American Express</span></label>
+							<input type="radio" name="creditCardType" value="Visa" class="o-forms-radio" id="paymentMethod2" data-bind="creditCardType"><label for="paymentMethod2" class="o-forms-label"><i class="mp-icons-icon mp-icons-icon--paymentMethod mp-icons-icon--visa"></i><span>VISA</span></label>
+							<input type="radio" name="creditCardType" value="MasterCard" class="o-forms-radio" id="paymentMethod3" data-bind="creditCardType"><label for="paymentMethod3" class="o-forms-label"><i class="mp-icons-icon mp-icons-icon--paymentMethod mp-icons-icon--mastercard"></i><span>Mastercard</span></label>
+						</div>
+						<div class="o-forms-group">
+							<label class="o-forms-label" for="cardNumber">Card number *</label>
+							<small class="o-forms-additional-info">The long number across your card</small>
+							<input class="o-forms-text" type="text" id="cardNumber" name="cardNumber" maxlength="20" data-bind="cardNumber" autocomplete="off" inputmode="numeric">
+						</div>
+						<div class="o-forms-group">
+							<label class="o-forms-label" for="cardName">Name as it appears on card *</label>
+							<input class="o-forms-text" type="text" id="cardName" name="cardName" maxlength="50" autocomplete="off" data-bind="cardName">
+						</div>
+						<div class="o-forms-group" id="ccExpiration">
+							<div class="o-grid-row">
+								<div data-o-grid-colspan="full-width">
+									<label for="expirationMonth" class="o-forms-label">Expiration date *</label>
+								</div>
+								<div data-o-grid-colspan="one-half">
+									<select class="o-forms-select" id="expirationMonth" name="expirationMonth" data-bind="expirationMonth">
+										<option selected="" disabled="">MM</option>
+										<option value="0">01</option>
+										<option value="1">02</option>
+										<option value="2">03</option>
+										<option value="3">04</option>
+										<option value="4">05</option>
+										<option value="5">06</option>
+										<option value="6">07</option>
+										<option value="7">08</option>
+										<option value="8">09</option>
+										<option value="9">10</option>
+										<option value="10">11</option>
+										<option value="11">12</option>
+									</select>
+								</div>
+								<div data-o-grid-colspan="one-half">
+									<select class="o-forms-select" id="expirationYear" name="expirationYear" data-bind="expirationYear">
+										<option selected="" disabled="">YY</option>
+										<option>15</option>
+										<option>16</option>
+										<option>17</option>
+										<option>18</option>
+										<option>19</option>
+										<option>20</option>
+										<option>21</option>
+										<option>22</option>
+										<option>23</option>
+										<option>24</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="o-forms-group" id="ccSecurity">
+							<div class="o-grid-row">
+								<div data-o-grid-colspan="full-width">
+									<label class="o-forms-label" for="securityCode">Security code *</label>
+								</div>
+								<div data-o-grid-colspan="one-half">
+									<input class="o-forms-text" type="text" id="securityCode" name="securityCode" maxlength="4" data-bind="securityCode" autocomplete="off" inputmode="numeric">
+								</div>
+								<div data-o-grid-colspan="one-half">
+									<small class="o-forms-additional-info o-forms-additional-info--inline mp-typography--small mp-pullout--small">3 digits on the back of your card or 4 digits on the front (American Express)</small>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="o-forms__section mp-section--billing mp-section--delineated mp-section--inset">
+						<div class="o-forms-group">
+							<label for="billingAddress1" class="o-forms-label">Billing address line 1 *</label>
+							<input type="text" class="o-forms-text" id="billingAddress1" name="billingAddress1" maxlength="40" data-bind="billingAddress1">
+						</div>
+						<div class="o-forms-group">
+							<label for="billingAddress2" class="o-forms-label">Billing address line 2</label>
+							<input type="text" class="o-forms-text" id="billingAddress2" name="billingAddress2" maxlength="40" data-bind="billingAddress2">
+						</div>
+						<div class="o-forms-group">
+							<label for="creditCardBillingCity" class="o-forms-label">City/Town *</label>
+							<input type="text" class="o-forms-text" id="creditCardBillingCity" name="creditCardBillingCity" data-bind="billingCity" maxlength="40">
+						</div>
+						<div class="o-forms-group">
+							<label for="creditCardBillingPostalCode" class="o-forms-label">Postal code</label>
+							<input type="text" class="o-forms-text" id="creditCardBillingPostalCode" name="creditCardBillingPostalcode" data-bind="billingPostalCode" maxlength="10">
+						</div>
+						<div rv-show="user.stateRequired < billingCountry" class="o-forms-group" style="display: none;">
+							<label for="state" class="o-forms-label">State</label>
+							<select class="o-forms-select" id="state" name="state" data-bind="billingState">
+								<option selected="" disabled="">Please select your state</option>
+								<!-- rivets: each-subdivision -->
+							</select>
+						</div>
+						<div class="o-forms-group o-forms--valid">
+							<label class="o-forms-label" for="credit-card-billing-country">Country *</label>
+							<select class="o-forms-select" id="credit-card-billing-country" name="billingCountry" data-bind="billingCountry">
+								<option selected="" disabled="">Please select a country</option>
+								<option value="AFG">Afghanistan</option>
+								<option value="ALB">Albania</option>
+								<option value="DZA">Algeria</option>
+								<option value="ASM">American Samoa</option>
+								<option value="AND">Andorra</option>
+								<option value="AGO">Angola</option>
+								<option value="AIA">Anguilla</option>
+								<option value="ATG">Antigua and Barbuda</option>
+								<option value="ARG">Argentina</option>
+								<option value="ARM">Armenia</option>
+								<option value="ABW">Aruba</option>
+								<option value="AUS">Australia</option>
+								<option value="AUT">Austria</option>
+								<option value="AZE">Azerbaijan</option>
+								<option value="BHS">Bahamas</option>
+								<option value="BHR">Bahrain</option>
+								<option value="BGD">Bangladesh</option>
+								<option value="BRB">Barbados</option>
+								<option value="BLR">Belarus</option>
+								<option value="BEL">Belgium</option>
+								<option value="BLZ">Belize</option>
+								<option value="BEN">Benin</option>
+								<option value="BMU">Bermuda</option>
+								<option value="BTN">Bhutan</option>
+								<option value="BOL">Bolivia</option>
+								<option value="BIH">Bosnia and Herzegovina</option>
+								<option value="BWA">Botswana</option>
+								<option value="BRA">Brazil</option>
+								<option value="BRN">Brunei Darussalam</option>
+								<option value="BGR">Bulgaria</option>
+								<option value="BFA">Burkina Faso</option>
+								<option value="BDI">Burundi</option>
+								<option value="KHM">Cambodia</option>
+								<option value="CMR">Cameroon</option>
+								<option value="CAN">Canada</option>
+								<option value="CPV">Cape Verde</option>
+								<option value="CYM">Cayman Islands</option>
+								<option value="CAF">Central African Republic</option>
+								<option value="TCD">Chad</option>
+								<option value="CHL">Chile</option>
+								<option value="CHN">China</option>
+								<option value="COL">Colombia</option>
+								<option value="COM">Comoros</option>
+								<option value="COG">Congo</option>
+								<option value="CRI">Costa Rica</option>
+								<option value="CIV">Cote d'Ivoire</option>
+								<option value="HRV">Croatia</option>
+								<option value="CUB">Cuba</option>
+								<option value="CYP">Cyprus</option>
+								<option value="CZE">Czech Republic</option>
+								<option value="DNK">Denmark</option>
+								<option value="DJI">Djibouti</option>
+								<option value="DMA">Dominica</option>
+								<option value="DOM">Dominican Republic</option>
+								<option value="ECU">Ecuador</option>
+								<option value="EGY">Egypt</option>
+								<option value="SLV">El Salvador</option>
+								<option value="GNQ">Equatorial Guinea</option>
+								<option value="ERI">Eritrea</option>
+								<option value="EST">Estonia</option>
+								<option value="ETH">Ethiopia</option>
+								<option value="FLK">Falkland Islands (Malvinas)</option>
+								<option value="FRO">Faroe Islands</option>
+								<option value="FJI">Fiji</option>
+								<option value="FIN">Finland</option>
+								<option value="FRA">France</option>
+								<option value="GUF">French Guiana</option>
+								<option value="PYF">French Polynesia</option>
+								<option value="GAB">Gabon</option>
+								<option value="GMB">Gambia</option>
+								<option value="GEO">Georgia</option>
+								<option value="DEU">Germany</option>
+								<option value="GHA">Ghana</option>
+								<option value="GIB">Gibraltar</option>
+								<option value="GRC">Greece</option>
+								<option value="GRL">Greenland</option>
+								<option value="GRD">Grenada</option>
+								<option value="GLP">Guadeloupe</option>
+								<option value="GUM">Guam</option>
+								<option value="GTM">Guatemala</option>
+								<option value="GGY">Guernsey</option>
+								<option value="GIN">Guinea</option>
+								<option value="GNB">Guinea-Bissau</option>
+								<option value="GUY">Guyana</option>
+								<option value="HTI">Haiti</option>
+								<option value="VAT">Holy See (Vatican City State)</option>
+								<option value="HND">Honduras</option>
+								<option value="HKG">Hong Kong</option>
+								<option value="HUN">Hungary</option>
+								<option value="ISL">Iceland</option>
+								<option value="IND">India</option>
+								<option value="IDN">Indonesia</option>
+								<option value="IRN">Iran, Islamic Republic of</option>
+								<option value="IRQ">Iraq</option>
+								<option value="IRL">Ireland</option>
+								<option value="IMN">Isle of Man</option>
+								<option value="ISR">Israel</option>
+								<option value="ITA">Italy</option>
+								<option value="JAM">Jamaica</option>
+								<option value="JPN">Japan</option>
+								<option value="JEY">Jersey</option>
+								<option value="JOR">Jordan</option>
+								<option value="KAZ">Kazakhstan</option>
+								<option value="KEN">Kenya</option>
+								<option value="KIR">Kiribati</option>
+								<option value="PRK">Korea, Democratic People's Republic of</option>
+								<option value="KOR">Korea, Republic of</option>
+								<option value="KWT">Kuwait</option>
+								<option value="KGZ">Kyrgyzstan</option>
+								<option value="LAO">Lao People's Democratic Republic</option>
+								<option value="LVA">Latvia</option>
+								<option value="LBN">Lebanon</option>
+								<option value="LSO">Lesotho</option>
+								<option value="LBR">Liberia</option>
+								<option value="LIE">Liechtenstein</option>
+								<option value="LTU">Lithuania</option>
+								<option value="LUX">Luxembourg</option>
+								<option value="MAC">Macao</option>
+								<option value="MKD">Macedonia, the former Yugoslav Republic of</option>
+								<option value="MDG">Madagascar</option>
+								<option value="MWI">Malawi</option>
+								<option value="MYS">Malaysia</option>
+								<option value="MDV">Maldives</option>
+								<option value="MLI">Mali</option>
+								<option value="MLT">Malta</option>
+								<option value="MHL">Marshall Islands</option>
+								<option value="MTQ">Martinique</option>
+								<option value="MRT">Mauritania</option>
+								<option value="MUS">Mauritius</option>
+								<option value="MYT">Mayotte</option>
+								<option value="MEX">Mexico</option>
+								<option value="FSM">Micronesia, Federated States of</option>
+								<option value="MDA">Moldova, Republic of</option>
+								<option value="MCO">Monaco</option>
+								<option value="MNG">Mongolia</option>
+								<option value="MNE">Montenegro</option>
+								<option value="MAR">Morocco</option>
+								<option value="MOZ">Mozambique</option>
+								<option value="MMR">Myanmar</option>
+								<option value="NAM">Namibia</option>
+								<option value="NPL">Nepal</option>
+								<option value="NLD">Netherlands</option>
+								<option value="NCL">New Caledonia</option>
+								<option value="NZL">New Zealand</option>
+								<option value="NIC">Nicaragua</option>
+								<option value="NER">Niger</option>
+								<option value="NGA">Nigeria</option>
+								<option value="MNP">Northern Mariana Islands</option>
+								<option value="NOR">Norway</option>
+								<option value="OMN">Oman</option>
+								<option value="PAK">Pakistan</option>
+								<option value="PSE">Palestinian Territory, Occupied</option>
+								<option value="PAN">Panama</option>
+								<option value="PNG">Papua New Guinea</option>
+								<option value="PRY">Paraguay</option>
+								<option value="PER">Peru</option>
+								<option value="PHL">Philippines</option>
+								<option value="POL">Poland</option>
+								<option value="PRT">Portugal</option>
+								<option value="PRI">Puerto Rico</option>
+								<option value="QAT">Qatar</option>
+								<option value="REU">Reunion</option>
+								<option value="ROU">Romania</option>
+								<option value="RUS">Russian Federation</option>
+								<option value="RWA">Rwanda</option>
+								<option value="SHN">Saint Helena</option>
+								<option value="KNA">Saint Kitts and Nevis</option>
+								<option value="LCA">Saint Lucia</option>
+								<option value="VCT">Saint Vincent and the Grenadines</option>
+								<option value="WSM">Samoa</option>
+								<option value="SMR">San Marino</option>
+								<option value="STP">Sao Tome and Principe</option>
+								<option value="SAU">Saudi Arabia</option>
+								<option value="SEN">Senegal</option>
+								<option value="SRB">Serbia</option>
+								<option value="SYC">Seychelles</option>
+								<option value="SLE">Sierra Leone</option>
+								<option value="SGP">Singapore</option>
+								<option value="SVK">Slovakia</option>
+								<option value="SVN">Slovenia</option>
+								<option value="SLB">Solomon Islands</option>
+								<option value="SOM">Somalia</option>
+								<option value="ZAF">South Africa</option>
+								<option value="ESP">Spain</option>
+								<option value="LKA">Sri Lanka</option>
+								<option value="LBY">State of Libya</option>
+								<option value="SDN">Sudan</option>
+								<option value="SUR">Suriname</option>
+								<option value="SWZ">Swaziland</option>
+								<option value="SWE">Sweden</option>
+								<option value="CHE">Switzerland</option>
+								<option value="SYR">Syrian Arab Republic</option>
+								<option value="TWN">Taiwan</option>
+								<option value="TJK">Tajikistan</option>
+								<option value="TZA">Tanzania, United Republic of</option>
+								<option value="THA">Thailand</option>
+								<option value="TLS">Timor-Leste</option>
+								<option value="TGO">Togo</option>
+								<option value="TON">Tonga</option>
+								<option value="TTO">Trinidad and Tobago</option>
+								<option value="TUN">Tunisia</option>
+								<option value="TUR">Turkey</option>
+								<option value="TKM">Turkmenistan</option>
+								<option value="TCA">Turks and Caicos Islands</option>
+								<option value="UGA">Uganda</option>
+								<option value="UKR">Ukraine</option>
+								<option value="ARE">United Arab Emirates</option>
+								<option value="GBR" selected="">United Kingdom</option>
+								<option value="USA">United States</option>
+								<option value="UMI">United States Minor Outlying Islands</option>
+								<option value="URY">Uruguay</option>
+								<option value="UZB">Uzbekistan</option>
+								<option value="VUT">Vanuatu</option>
+								<option value="VEN">Venezuela</option>
+								<option value="VNM">Viet Nam</option>
+								<option value="VGB">Virgin Islands, British</option>
+								<option value="VIR">Virgin Islands, U.S.</option>
+								<option value="ESH">Western Sahara</option>
+								<option value="YEM">Yemen</option>
+								<option value="ZMB">Zambia</option>
+								<option value="ZWE">Zimbabwe</option>
+							</select>
+							<div class="mp-message--payment-update mp-message" rv-show="offer.updated < subscriptionOptions isValid" style="display: none;">
+								<h1 class="mp-message__title">Payment update</h1>
+								<div class="mp-message__content mp-typography-wrapper">
+									<!-- rivets: unless trialOffer --><p>You've just updated your country. The cost of your subscription is now
+										<!-- Weekly and annual price -->
+										<span rv-show="offer.selectedOption.annual" class="mvt-price-weekly">£7.35 GBP a week (£382.20 a year)</span>
+										<!-- Annual price -->
+										<span rv-show="offer.selectedOption.annual" class="mvt-price-annual hidden">£7.35 GBP a year</span>
+										<!-- Monthly price -->
+										<span rv-hide="offer.selectedOption.annual" style="display: none;">£382.20 GBP a year</span>
+									</p>
+									<!-- rivets: if offer.trialOffer -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="paypal" class="o-tabs__tabpanel" role="tabpanel" aria-expanded="false" aria-hidden="true">
+					<div class="o-forms__section mp-section--billing mp-section--delineated mp-section--inset">
+						<div rv-show="user.stateRequired < billingCountry" class="o-forms-group" style="display: none;">
+							<label for="state" class="o-forms-label">State</label>
+							<select class="o-forms-select" id="state" name="state" data-bind="billingState">
+								<option selected="" disabled="">Please select your state</option>
+								<!-- rivets: each-subdivision -->
+							</select>
+						</div>
+						<div class="o-forms-group o-forms--valid">
+							<label class="o-forms-label" for="paypal-billing-country">Country *</label>
+							<select class="o-forms-select" id="paypal-billing-country" name="billingCountry" data-bind="billingCountry">
+								<option selected="" disabled="">Please select a country</option>
+								<option value="AFG">Afghanistan</option>
+								<option value="ALB">Albania</option>
+								<option value="DZA">Algeria</option>
+								<option value="ASM">American Samoa</option>
+								<option value="AND">Andorra</option>
+								<option value="AGO">Angola</option>
+								<option value="AIA">Anguilla</option>
+								<option value="ATG">Antigua and Barbuda</option>
+								<option value="ARG">Argentina</option>
+								<option value="ARM">Armenia</option>
+								<option value="ABW">Aruba</option>
+								<option value="AUS">Australia</option>
+								<option value="AUT">Austria</option>
+								<option value="AZE">Azerbaijan</option>
+								<option value="BHS">Bahamas</option>
+								<option value="BHR">Bahrain</option>
+								<option value="BGD">Bangladesh</option>
+								<option value="BRB">Barbados</option>
+								<option value="BLR">Belarus</option>
+								<option value="BEL">Belgium</option>
+								<option value="BLZ">Belize</option>
+								<option value="BEN">Benin</option>
+								<option value="BMU">Bermuda</option>
+								<option value="BTN">Bhutan</option>
+								<option value="BOL">Bolivia</option>
+								<option value="BIH">Bosnia and Herzegovina</option>
+								<option value="BWA">Botswana</option>
+								<option value="BRA">Brazil</option>
+								<option value="BRN">Brunei Darussalam</option>
+								<option value="BGR">Bulgaria</option>
+								<option value="BFA">Burkina Faso</option>
+								<option value="BDI">Burundi</option>
+								<option value="KHM">Cambodia</option>
+								<option value="CMR">Cameroon</option>
+								<option value="CAN">Canada</option>
+								<option value="CPV">Cape Verde</option>
+								<option value="CYM">Cayman Islands</option>
+								<option value="CAF">Central African Republic</option>
+								<option value="TCD">Chad</option>
+								<option value="CHL">Chile</option>
+								<option value="CHN">China</option>
+								<option value="COL">Colombia</option>
+								<option value="COM">Comoros</option>
+								<option value="COG">Congo</option>
+								<option value="CRI">Costa Rica</option>
+								<option value="CIV">Cote d'Ivoire</option>
+								<option value="HRV">Croatia</option>
+								<option value="CUB">Cuba</option>
+								<option value="CYP">Cyprus</option>
+								<option value="CZE">Czech Republic</option>
+								<option value="DNK">Denmark</option>
+								<option value="DJI">Djibouti</option>
+								<option value="DMA">Dominica</option>
+								<option value="DOM">Dominican Republic</option>
+								<option value="ECU">Ecuador</option>
+								<option value="EGY">Egypt</option>
+								<option value="SLV">El Salvador</option>
+								<option value="GNQ">Equatorial Guinea</option>
+								<option value="ERI">Eritrea</option>
+								<option value="EST">Estonia</option>
+								<option value="ETH">Ethiopia</option>
+								<option value="FLK">Falkland Islands (Malvinas)</option>
+								<option value="FRO">Faroe Islands</option>
+								<option value="FJI">Fiji</option>
+								<option value="FIN">Finland</option>
+								<option value="FRA">France</option>
+								<option value="GUF">French Guiana</option>
+								<option value="PYF">French Polynesia</option>
+								<option value="GAB">Gabon</option>
+								<option value="GMB">Gambia</option>
+								<option value="GEO">Georgia</option>
+								<option value="DEU">Germany</option>
+								<option value="GHA">Ghana</option>
+								<option value="GIB">Gibraltar</option>
+								<option value="GRC">Greece</option>
+								<option value="GRL">Greenland</option>
+								<option value="GRD">Grenada</option>
+								<option value="GLP">Guadeloupe</option>
+								<option value="GUM">Guam</option>
+								<option value="GTM">Guatemala</option>
+								<option value="GGY">Guernsey</option>
+								<option value="GIN">Guinea</option>
+								<option value="GNB">Guinea-Bissau</option>
+								<option value="GUY">Guyana</option>
+								<option value="HTI">Haiti</option>
+								<option value="VAT">Holy See (Vatican City State)</option>
+								<option value="HND">Honduras</option>
+								<option value="HKG">Hong Kong</option>
+								<option value="HUN">Hungary</option>
+								<option value="ISL">Iceland</option>
+								<option value="IND">India</option>
+								<option value="IDN">Indonesia</option>
+								<option value="IRN">Iran, Islamic Republic of</option>
+								<option value="IRQ">Iraq</option>
+								<option value="IRL">Ireland</option>
+								<option value="IMN">Isle of Man</option>
+								<option value="ISR">Israel</option>
+								<option value="ITA">Italy</option>
+								<option value="JAM">Jamaica</option>
+								<option value="JPN">Japan</option>
+								<option value="JEY">Jersey</option>
+								<option value="JOR">Jordan</option>
+								<option value="KAZ">Kazakhstan</option>
+								<option value="KEN">Kenya</option>
+								<option value="KIR">Kiribati</option>
+								<option value="PRK">Korea, Democratic People's Republic of</option>
+								<option value="KOR">Korea, Republic of</option>
+								<option value="KWT">Kuwait</option>
+								<option value="KGZ">Kyrgyzstan</option>
+								<option value="LAO">Lao People's Democratic Republic</option>
+								<option value="LVA">Latvia</option>
+								<option value="LBN">Lebanon</option>
+								<option value="LSO">Lesotho</option>
+								<option value="LBR">Liberia</option>
+								<option value="LIE">Liechtenstein</option>
+								<option value="LTU">Lithuania</option>
+								<option value="LUX">Luxembourg</option>
+								<option value="MAC">Macao</option>
+								<option value="MKD">Macedonia, the former Yugoslav Republic of</option>
+								<option value="MDG">Madagascar</option>
+								<option value="MWI">Malawi</option>
+								<option value="MYS">Malaysia</option>
+								<option value="MDV">Maldives</option>
+								<option value="MLI">Mali</option>
+								<option value="MLT">Malta</option>
+								<option value="MHL">Marshall Islands</option>
+								<option value="MTQ">Martinique</option>
+								<option value="MRT">Mauritania</option>
+								<option value="MUS">Mauritius</option>
+								<option value="MYT">Mayotte</option>
+								<option value="MEX">Mexico</option>
+								<option value="FSM">Micronesia, Federated States of</option>
+								<option value="MDA">Moldova, Republic of</option>
+								<option value="MCO">Monaco</option>
+								<option value="MNG">Mongolia</option>
+								<option value="MNE">Montenegro</option>
+								<option value="MAR">Morocco</option>
+								<option value="MOZ">Mozambique</option>
+								<option value="MMR">Myanmar</option>
+								<option value="NAM">Namibia</option>
+								<option value="NPL">Nepal</option>
+								<option value="NLD">Netherlands</option>
+								<option value="NCL">New Caledonia</option>
+								<option value="NZL">New Zealand</option>
+								<option value="NIC">Nicaragua</option>
+								<option value="NER">Niger</option>
+								<option value="NGA">Nigeria</option>
+								<option value="MNP">Northern Mariana Islands</option>
+								<option value="NOR">Norway</option>
+								<option value="OMN">Oman</option>
+								<option value="PAK">Pakistan</option>
+								<option value="PSE">Palestinian Territory, Occupied</option>
+								<option value="PAN">Panama</option>
+								<option value="PNG">Papua New Guinea</option>
+								<option value="PRY">Paraguay</option>
+								<option value="PER">Peru</option>
+								<option value="PHL">Philippines</option>
+								<option value="POL">Poland</option>
+								<option value="PRT">Portugal</option>
+								<option value="PRI">Puerto Rico</option>
+								<option value="QAT">Qatar</option>
+								<option value="REU">Reunion</option>
+								<option value="ROU">Romania</option>
+								<option value="RUS">Russian Federation</option>
+								<option value="RWA">Rwanda</option>
+								<option value="SHN">Saint Helena</option>
+								<option value="KNA">Saint Kitts and Nevis</option>
+								<option value="LCA">Saint Lucia</option>
+								<option value="VCT">Saint Vincent and the Grenadines</option>
+								<option value="WSM">Samoa</option>
+								<option value="SMR">San Marino</option>
+								<option value="STP">Sao Tome and Principe</option>
+								<option value="SAU">Saudi Arabia</option>
+								<option value="SEN">Senegal</option>
+								<option value="SRB">Serbia</option>
+								<option value="SYC">Seychelles</option>
+								<option value="SLE">Sierra Leone</option>
+								<option value="SGP">Singapore</option>
+								<option value="SVK">Slovakia</option>
+								<option value="SVN">Slovenia</option>
+								<option value="SLB">Solomon Islands</option>
+								<option value="SOM">Somalia</option>
+								<option value="ZAF">South Africa</option>
+								<option value="ESP">Spain</option>
+								<option value="LKA">Sri Lanka</option>
+								<option value="LBY">State of Libya</option>
+								<option value="SDN">Sudan</option>
+								<option value="SUR">Suriname</option>
+								<option value="SWZ">Swaziland</option>
+								<option value="SWE">Sweden</option>
+								<option value="CHE">Switzerland</option>
+								<option value="SYR">Syrian Arab Republic</option>
+								<option value="TWN">Taiwan</option>
+								<option value="TJK">Tajikistan</option>
+								<option value="TZA">Tanzania, United Republic of</option>
+								<option value="THA">Thailand</option>
+								<option value="TLS">Timor-Leste</option>
+								<option value="TGO">Togo</option>
+								<option value="TON">Tonga</option>
+								<option value="TTO">Trinidad and Tobago</option>
+								<option value="TUN">Tunisia</option>
+								<option value="TUR">Turkey</option>
+								<option value="TKM">Turkmenistan</option>
+								<option value="TCA">Turks and Caicos Islands</option>
+								<option value="UGA">Uganda</option>
+								<option value="UKR">Ukraine</option>
+								<option value="ARE">United Arab Emirates</option>
+								<option value="GBR" selected="">United Kingdom</option>
+								<option value="USA">United States</option>
+								<option value="UMI">United States Minor Outlying Islands</option>
+								<option value="URY">Uruguay</option>
+								<option value="UZB">Uzbekistan</option>
+								<option value="VUT">Vanuatu</option>
+								<option value="VEN">Venezuela</option>
+								<option value="VNM">Viet Nam</option>
+								<option value="VGB">Virgin Islands, British</option>
+								<option value="VIR">Virgin Islands, U.S.</option>
+								<option value="ESH">Western Sahara</option>
+								<option value="YEM">Yemen</option>
+								<option value="ZMB">Zambia</option>
+								<option value="ZWE">Zimbabwe</option>
+							</select>
+							<div class="mp-message--payment-update mp-message" rv-show="offer.updated < subscriptionOptions isValid" style="display: none;">
+								<h1 class="mp-message__title">Payment update</h1>
+								<div class="mp-message__content mp-typography-wrapper">
+									<!-- rivets: unless trialOffer --><p>You've just updated your country. The cost of your subscription is now
+										<!-- Weekly and annual price -->
+										<span rv-show="offer.selectedOption.annual" class="mvt-price-weekly">£7.35 GBP a week (£382.20 a year)</span>
+										<!-- Annual price -->
+										<span rv-show="offer.selectedOption.annual" class="mvt-price-annual hidden">£7.35 GBP a year</span>
+										<!-- Monthly price -->
+										<span rv-hide="offer.selectedOption.annual" style="display: none;">£382.20 GBP a year</span>
+									</p>
+									<!-- rivets: if offer.trialOffer -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="terms-conditions" rv-show="user.canSubmit < paymentMethod directDebitComplete">
+					<h2>Terms &amp; Conditions</h2>
+					<div class="o-forms-wrapper o-forms-wrapper--highlight">
+						<div class="o-forms-group">
+							<input type="checkbox" class="o-forms-checkbox o-forms-checkbox--highlight" id="acceptTermsAndConditions" data-bind="acceptTermsAndConditions" value="true" checked="checked">
+							<label for="acceptTermsAndConditions" class="o-forms-label" id="terms-text">
+								<p>I confirm I have read and agree to the <a href="http://m.ft.com/servicestools/help/terms" target="_blank">terms &amp; conditions</a>, <a href="http://m.ft.com/servicestools/help/privacy" target="_blank">privacy policy</a> and <a href="http://m.ft.com/cookiepolicy" target="_blank">cookie policy</a>*.</p>
+								<p>Your subscription lasts for <span rv-show="offer.trialOffer" style="display: none;"></span><span rv-hide="offer.trialOffer">a year</span>. To give you uninterrupted access we will automatically renew it using the payment method you provided, unless you cancel before your renewal date. <span rv-show="offer.selectedOption.annual">We will send you a reminder of this date in advance.</span></p>
+								<p>Find out more on our cancellation policy in our <a href="http://m.ft.com/servicestools/help/terms" target="_blank">terms &amp; conditions</a></p>
+							</label>
+							<div class="o-forms-errortext"></div>
+						</div>
+					</div>
+					<div class="o-forms-wrapper o-forms-wrapper--highlight o-forms-wrapper--error">
+						<div class="o-forms-message o-forms-message--error"><p>Please accept our terms &amp; conditions</p></div>
+						<div class="o-forms-group">
+							<input type="checkbox" class="o-forms-checkbox o-forms-checkbox--highlight" id="acceptTermsAndConditions2" data-bind="acceptTermsAndConditions" value="true" checked="checked">
+							<label for="acceptTermsAndConditions2" class="o-forms-label" id="terms-text2">
+								<p>I confirm I have read and agree to the <a href="http://m.ft.com/servicestools/help/terms" target="_blank">terms &amp; conditions</a>, <a href="http://m.ft.com/servicestools/help/privacy" target="_blank">privacy policy</a> and <a href="http://m.ft.com/cookiepolicy" target="_blank">cookie policy</a>*.</p>
+								<p>Your subscription lasts for <span rv-show="offer.trialOffer" style="display: none;"></span><span rv-hide="offer.trialOffer">a year</span>. To give you uninterrupted access we will automatically renew it using the payment method you provided, unless you cancel before your renewal date. <span rv-show="offer.selectedOption.annual">We will send you a reminder of this date in advance.</span></p>
+								<p>Find out more on our cancellation policy in our <a href="http://m.ft.com/servicestools/help/terms" target="_blank">terms &amp; conditions</a></p>
+							</label>
+							<div class="o-forms-errortext"></div>
+						</div>
+					</div>
+					<div class="o-forms-group mp-marketing-group">
+						<input type="checkbox" class="o-forms-checkbox o-forms-checkbox--highlight" id="acceptMarketingOptIn" data-bind="acceptMarketingOptIn" value="true">
+						<label for="acceptMarketingOptIn" class="o-forms-label">I would like to receive occasional FT updates about new features and special offers</label>
+					</div>
+				</div>
+				<div class="o-grid-row">
+					<div data-o-grid-colspan="full-width">
+						<button class="o-buttons o-buttons--standout o-buttons--big" data-o-grid-colspan="full-width" type="submit" id="submit-btn">Complete purchase &amp; buy</button>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
-<footer class="o-footer" data-o-component="o-footer">
-	<div class="o-footer__row o-footer__copyright">
-		<div class="o-footer__col o-footer__col--full-width">
-			<span>&#169; THE FINANCIAL TIMES LTD 2015.</span>
-			<span><abbr title="Financial Times">FT</abbr> and ‘Financial Times’ are trademarks of The Financial Times Ltd.</span>
+
+<footer class="o-footer o-footer--theme-light" data-o-component="o-footer">
+	<div class="o-footer__container">
+		<div class="o-footer__row o-footer__copyright">
+			<div class="o-footer__col o-footer__col--full-width">
+				<span>&#xA9; THE FINANCIAL TIMES LTD 2015.</span>
+				<span><abbr title="Financial Times">FT</abbr> and &#x2018;Financial Times&#x2019; are trademarks of The Financial Times Ltd.</span>
+			</div>
 		</div>
 	</div>
+
 	<div class="o-footer__pearson">
-		<div class="o-footer__row">
-			<div class="o-footer__col o-footer__col--full-width">
-				<div class="o-footer__pearson-tagline" aria-label="Always Learning"></div>
-				<div class="o-footer__pearson-logo" aria-label="Pearson"></div>
+		<div class="o-footer__container">
+			<div class="o-footer__row">
+				<div class="o-footer__col o-footer__col--full-width">
+					<div class="o-footer__pearson-tagline"></div>
+					<div class="o-footer__pearson-logo"></div>
+				</div>
 			</div>
 		</div>
 	</div>
