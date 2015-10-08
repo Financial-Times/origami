@@ -19,8 +19,60 @@ body {
 	margin: 0;
 }
 
+a {
+	@include oColorsFor(link);
+}
 
-.o-typography-demo {
+.demo-section-heading {
+	@include oTypographyAlpha(2);
+	@include oTypographyHeadingSeparator;
+	margin: 0 0 0.5em;
+}
+
+.demo-section-sub-heading {
+	@include oTypographyBravo(3);
+	color: oColorsGetPaletteColor('claret');
+	margin: 0;
+}
+
+.demo-description-list {
+	overflow: hidden;
+	@include oTypographyBodyBlock;
+}
+
+.demo-description-list__term {
+	@include oTypographyBravo(4);
+	@media (min-width: 600px) {
+		float: left;
+		clear: both;
+		text-align: right;
+		margin-bottom: 5px;
+	}
+	
+}
+
+.demo-description-list__description {
+	@include oTypographyAlpha(4);
+	@media (min-width: 600px) {
+		float: right;
+		text-align: right;
+	}
+}
+
+.demo {
+	table {
+		// Overriding o-techdocs ∞ (iframes coming at some point)
+		h1,
+		h2,
+		h3,
+		h4,
+		p {
+			border: 0;
+			margin: 0;
+			padding: 0;
+		}
+	}
+
 	img,
 	svg,
 	video,
@@ -36,5 +88,93 @@ body {
 	figure {
 		margin-right: 0;
 		margin-left: 0;
+	}
+
+	&__multi-col {
+		text-align: center !important;
+	}
+
+	&__group {
+		background: #fff1e0;
+		margin: 0;
+		padding: 30px;
+
+		p {
+			margin-top: 0;
+		}
+
+		&--force-sans-serif p {
+			font-family: sans-serif !important;
+		}
+
+		&--force-serif p {
+			font-family: serif !important;
+		}
+	}
+
+	&__size {
+		font-size: 18px !important;
+	}
+
+	&__alpha {
+		font: oFontsWeight(light) 24px/1 $o-typography-sans-serif !important;
+	}
+
+	&__bravo {
+		font: oFontsWeight(semibold) 24px/1 $o-typography-sans-serif !important;
+	}
+
+	&__charlie {
+		font: italic oFontsWeight(medium) 24px/1 $o-typography-serif !important;
+	}
+
+	&__delta {
+		font: italic oFontsWeight(light) 24px/1 $o-typography-serif !important;
+	}
+
+	&__echo {
+		font: italic oFontsWeight(light) 24px/1 $o-typography-sans-serif !important;
+	}
+
+	&__foxtrot {
+		font: normal oFontsWeight(regular) 24px/1 $o-typography-serif !important;
+	}
+
+	@mixin demo-stack($stack) {
+		@for $level from 1 through length(map-get($font-scale, $stack)) {
+			.demo__#{$stack}-#{$level} {
+				@if $stack == alpha {
+					@include oTypographyAlpha($level);
+				} @else if $stack == bravo {
+					@include oTypographyBravo($level);
+				} @else if $stack == charlie {
+					@include oTypographyCharlie($level);
+				} @else if $stack == delta {
+					@include oTypographyDelta($level);
+				} @else if $stack == echo {
+					@include oTypographyEcho($level);
+				} @else if $stack == foxtrot {
+					@include oTypographyFoxtrot($level);
+				}
+			}
+		}
+	}
+
+	@each $name in map-keys($font-scale) {
+		@include demo-stack($name);
+	}
+}
+
+
+
+.n-type-demo--rendering {
+	background: #fff1e0;
+
+	p {
+		margin: 0;
+	}
+
+	.n-type-demo__group {
+		padding-left: 20px;
 	}
 }

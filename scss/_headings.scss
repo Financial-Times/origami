@@ -23,16 +23,19 @@
 /// h1 styles
 @mixin oTypographyHeading1 {
 	@include oTypographyFoxtrot(1);
+	margin: 0;
 }
 
 /// h2 styles
 @mixin oTypographyHeading2 {
 	@include oTypographyFoxtrot(2);
+	margin: 0;
 }
 
 /// h3 styles
 @mixin oTypographyHeading3 {
 	@include oTypographyFoxtrot(3);
+	margin: 0;
 }
 
 /// h4 styles

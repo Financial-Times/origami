@@ -15,7 +15,8 @@
 
 /// Small text
 @mixin oTypographySmall {
-	font-size: 0.75em;
+	@include oTypographyBodyBlock;
+	@include oTypographyAlpha(4);
 }
 
 /// Superscript text

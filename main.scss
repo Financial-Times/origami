@@ -1,7 +1,7 @@
 @import 'o-colors/main';
 @import 'o-hoverable/main';
-@import "o-fonts/main";
-@import "guss-typography/typography";
+@import 'o-fonts/main';
+@import 'guss-typography/typography';
 
 @import 'scss/variables';
 @import 'scss/mixins';
@@ -49,7 +49,7 @@
 	.o-typography-body--italic {
 		@include oTypographyItalic;
 	}
-	.o-typography-boldy--small {
+	.o-typography-body--small {
 		@include oTypographySmall;
 	}
 	.o-typography-body--sup {

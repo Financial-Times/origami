@@ -21,7 +21,7 @@
 	}
 }
 
-// Next FT Typographic matrix
+// Typographic matrix
 
 // Alpha
 @mixin oTypographyAlphaSize($level) {
@@ -87,5 +87,6 @@
 }
 
 @mixin oTypographyHeadingSeparator() {
-	border-bottom: 1px solid #333333;
+	border-bottom: 1px solid oColorsGetPaletteColor('warm-3');
+	padding: 10px 0;
 }
