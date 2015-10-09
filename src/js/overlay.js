@@ -259,6 +259,13 @@ Overlay.prototype.show = function() {
 		overlay.respondToWindow(viewport.getSize());
 		overlay.visible = true;
 		overlay.broadcast('ready');
+
+		// Add o-tracking integration
+		overlay.broadcast('event', 'oTracking', {
+			category: 'overlay',
+			action: 'show overlay',
+			overlay_id: overlay.id
+		});
 	});
 };
 
