@@ -3,21 +3,10 @@
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
-//
-// @TODO: Add docs to oTypeHero!
-//
-@mixin oTypographyHero() {
-	@include oTypographyFoxtrot(1);
-
-	// @media (min-width: 490px) {
-	// 	font-size: 34px;
-	// }
-	// @media (min-width: 730px) {
-	// 	font-size: 38px;
-	// }
-	// @media (min-width: 970px) {
-	// 	font-size: 42px;
-	// }
+// A border at the bottom
+@mixin oTypographyHeadingSeparator() {
+	border-bottom: 1px solid oColorsGetPaletteColor('warm-3');
+	padding: 10px 0;
 }
 
 /// h1 styles
@@ -41,9 +30,15 @@
 /// h4 styles
 @mixin oTypographyHeading4 {
 	@include oTypographyFoxtrot(4);
+	margin: 0;
 }
 
 /// h5 styles
 @mixin oTypographyHeading5 {
 	@include oTypographyFoxtrot(4);
+}
+
+@mixin oTypographyFlyline {
+	@include oTypographyBravo(4);
+	text-transform: uppercase;
 }

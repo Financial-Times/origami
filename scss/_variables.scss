@@ -7,22 +7,6 @@
 /// @type Bool
 $o-typography-is-silent: true !default;
 
-@include oColorsSetUseCase(o-typography-heading-medium, border, 'pink-tint2');
-@include oColorsSetUseCase(o-typography-heading-large, border, 'pink-tint4');
-@include oColorsSetUseCase(o-typography-heading-large, text, 'black');
-@include oColorsSetUseCase(o-typography-lead-medium, text, 'grey-tint3');
-@include oColorsSetUseCase(o-typography-brand, text, 'black');
-@include oColorsSetUseCase(o-typography-byline, text, 'pink-tint5');
-@include oColorsSetUseCase(o-typography-timestamp, text, 'pink-tint5');
-@include oColorsSetUseCase(o-typography-body-lead, text, 'grey-tint4');
-@include oColorsSetUseCase(o-typography-article-body-lead, text, 'grey-tint5');
-@include oColorsSetUseCase(o-typography-article-body-lead, border, 'pink-tint5');
-@include oColorsSetUseCase(o-typography-article-body, text, 'grey-tint5');
-@include oColorsSetUseCase(o-typography-article-subheading, text, 'grey-tint5');
-@include oColorsSetUseCase(o-typography-article-subheading, border, 'pink-tint5');
-@include oColorsSetUseCase(o-typography-badge, text, 'white');
-@include oColorsSetUseCase(o-typography-badge, background, 'red');
-
 $o-fonts-families: (
 	MetricWeb: (
 		font-family: 'MetricWeb, sans-serif',

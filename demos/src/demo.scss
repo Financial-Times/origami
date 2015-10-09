@@ -48,7 +48,6 @@ a {
 		text-align: right;
 		margin-bottom: 5px;
 	}
-	
 }
 
 .demo-description-list__description {
@@ -57,6 +56,33 @@ a {
 		float: right;
 		text-align: right;
 	}
+}
+
+.demo-key-value-list {
+	display: table;
+	list-style: none;
+	padding: 0;
+}
+
+.demo-key-value-list__item {
+	display: table-row;
+}
+
+.demo-key-value-list__label, .demo-key-value-list__value {
+	display: table-cell;
+}
+
+.demo-key-value-list__label {
+	@include oTypographyBravo(3);
+	padding-right: 20px;
+
+	&:after {
+		content: ':';
+	}
+}
+
+.demo-key-value-list__value {
+	@include oTypographyAlpha(3);
 }
 
 .demo {
@@ -162,19 +188,5 @@ a {
 
 	@each $name in map-keys($font-scale) {
 		@include demo-stack($name);
-	}
-}
-
-
-
-.n-type-demo--rendering {
-	background: #fff1e0;
-
-	p {
-		margin: 0;
-	}
-
-	.n-type-demo__group {
-		padding-left: 20px;
 	}
 }

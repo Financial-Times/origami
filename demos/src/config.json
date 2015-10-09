@@ -9,14 +9,6 @@
             "template": "demos/src/example.mustache"
         },
         {
-            "name": "headings",
-            "template": "demos/src/headings.mustache"
-        },
-        {
-            "name": "body",
-            "template": "demos/src/body.mustache"
-        },
-        {
             "name": "manage account",
             "template": "demos/src/manage-account.mustache"
         }
