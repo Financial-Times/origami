@@ -5,7 +5,7 @@ const assert = require('assert');
 describe('Core', function () {
 
 	const Core = require("../src/javascript/core.js");
-	const guid_re = /\w{8}-\w{4}-4\w{3}-\w{4}-\w{8}/; // 7d26a201-cbdf-434f-880d-f658b424e9df
+	const guid_re = /\w{25}/; // cifnulwv2000030ds4avpbm9f
 
 	describe('root_id', function () {
 		it('should generate a root_id', function () {
