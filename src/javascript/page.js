@@ -1,15 +1,14 @@
 /*global module, require */
-'use strict';
+const Core = require('./core');
+const utils = require('./utils');
 
-var Core = require('./core');
-var utils = require('./utils');
 
 /**
  * Default properties for page tracking requests.
  *
  * @type {Object}
  */
-var defaultPageConfig = function () {
+const defaultPageConfig = function () {
 	return {
 		category: 'page',
 		action: 'view',

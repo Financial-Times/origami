@@ -1,20 +1,17 @@
 /*global require, describe, it, before, after, sinon, document */
-"use strict";
 
-var assert = require("assert");
+const assert = require("assert");
 
 describe('link', function () {
 
-	var server,
-		userID,
-		link = require("../src/javascript/link.js");
+	let server;
+	const link = require("../src/javascript/link.js");
 
 	before(function () {
 		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
 		require("../src/javascript/core/settings").destroy('config');  // Empty settings.
 		require("../src/javascript/core/send").init(); // Init the sender.
 		require("../src/javascript/core").setRootID('page_id'); // Fix the click ID to stop it generating one.
-		userID = require("../src/javascript/core/user").init(); // Init the user identifier.
 
 		server = sinon.fakeServer.create(); // Catch AJAX requests
 	});
@@ -26,11 +23,11 @@ describe('link', function () {
 	it('should track an external link', function () {
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
-		var callback = sinon.spy(),
-			sent_data,
+		const callback = sinon.spy();
+		let sent_data;
 
-			aLink = document.createElement('a'),
-			event = document.createEvent('HTMLEvents');
+		const aLink = document.createElement('a');
+		const event = document.createEvent('HTMLEvents');
 
 		aLink.href = "http://www.google.com";
 

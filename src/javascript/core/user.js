@@ -1,17 +1,16 @@
-/*global module, require, window */
-'use strict';
+/*global module, require */
 
-var userID;
-var store;
-var defaultUserConfig = {
+let userID;
+let store;
+const defaultUserConfig = {
 	storage: 'cookie',
 	name: 'spoor-id',
 	value: null,
 	domain: (document.URL.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i)[1].indexOf('ft.com') > -1 ? 'ft.com' : null)
 };
 
-var utils = require('../utils');
-var Store = require('./store');
+const utils = require('../utils');
+const Store = require('./store');
 
 /**
  * migrate_across_domains
@@ -23,8 +22,8 @@ var Store = require('./store');
  * - If not, drop the cookie and it will be reset it on the root domain.
  */
 function migrate_across_domains(store, user_id) {
-	var ls_name = 'o-tracking-proper-id';
-	var proper_id;
+	const ls_name = 'o-tracking-proper-id';
+	let proper_id;
 
 	try {
 		proper_id = window.localStorage.getItem(ls_name);
@@ -55,7 +54,7 @@ function migrate_across_domains(store, user_id) {
  * @param config {String|Object} The value of a userID to use or configuration object.
  */
 function init(value) {
-	var config = utils.merge(defaultUserConfig, { value: value });
+	const config = utils.merge(defaultUserConfig, { value: value });
 
 	// config.name is important here, means the user has specifically asked for a cookie name.
 	if (config.storage === 'cookie' && config.name) {

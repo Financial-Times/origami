@@ -1,16 +1,15 @@
 /*global require, describe, it, before, after, sinon */
-"use strict";
 
-var assert = require('assert');
+const assert = require('assert');
 
 describe('Core', function () {
 
-	var Core = require("../src/javascript/core.js"),
-		guid_re = /\w{8}-\w{4}-4\w{3}-\w{4}-\w{8}/; // 7d26a201-cbdf-434f-880d-f658b424e9df
+	const Core = require("../src/javascript/core.js");
+	const guid_re = /\w{8}-\w{4}-4\w{3}-\w{4}-\w{8}/; // 7d26a201-cbdf-434f-880d-f658b424e9df
 
 	describe('root_id', function () {
 		it('should generate a root_id', function () {
-			var root_id = Core.setRootID();
+			const root_id = Core.setRootID();
 			assert.ok(root_id.match(guid_re), "'" + root_id + "'.match(" + guid_re + ")");
 		});
 
@@ -20,7 +19,7 @@ describe('Core', function () {
 	});
 
 	describe('track', function () {
-		var server;
+		let server;
 
 		before(function () {
 			require("../src/javascript/core/settings").set('version', '1.0.0');
@@ -41,9 +40,9 @@ describe('Core', function () {
 		it('should send a tracking request', function () {
 			server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
-			var callback = sinon.spy(),
-				sent_data,
-				ua = window.navigator.userAgent;
+			const callback = sinon.spy();
+			let sent_data;
+			const ua = window.navigator.userAgent;
 
 			Core.setRootID('root_id');
 			Core.track({
@@ -78,15 +77,16 @@ describe('Core', function () {
 			assert.equal(sent_data.user.user_id, "userID");
 
 			// Device
-			assert.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_id","user_agent"]);
-			assert.equal(sent_data.device.spoor_session, require("../src/javascript/core/session").session());
+			assert.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_session_is_new","spoor_id","user_agent"]);
+			assert.equal(sent_data.device.spoor_session, require("../src/javascript/core/session").session().id);
+			assert.equal(sent_data.device.spoor_session_is_new, require("../src/javascript/core/session").session().isNew);
 			assert.equal(sent_data.device.user_agent, ua);
 		});
 
 		it('should defer a tracking request', function () {
 			server.respondWith([404, { "Content-Type": "plain/text", "Content-Length": 6 }, "NOT OK"]);
 
-			var callback = sinon.spy();
+			const callback = sinon.spy();
 
 			Core.track({
 				category: 'page',

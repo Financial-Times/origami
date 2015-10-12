@@ -1,12 +1,11 @@
 /*global require, describe, it, afterEach */
-"use strict";
 
-var assert = require('assert'),
-	User = require("../../src/javascript/core/user");
+const assert = require('assert');
+const User = require('../../src/javascript/core/user');
 
 describe('Core.User', function () {
 
-	var userID;
+	let userID;
 
 	afterEach(function () {
 		User.destroy();

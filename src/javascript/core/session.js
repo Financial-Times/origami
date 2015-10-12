@@ -1,15 +1,14 @@
 /*global module, require */
-'use strict';
 
-var store;
-var defaultSessionConfig = {
+let store;
+const defaultSessionConfig = {
 	storage: 'best',
 	name: 'session',
 	expires: (30 * 60 * 1000) // 30 minutes
 };
 
-var utils = require('../utils');
-var Store = require('./store');
+const utils = require('../utils');
+const Store = require('./store');
 
 /**
  * Set the session in the store.
@@ -17,7 +16,7 @@ var Store = require('./store');
  * @param {String} The session to be stored.
  */
 function setSession(session) {
-	var d = new Date();
+	const d = new Date();
 	d.setTime(d.getTime() + store.config.expires);
 
 	store.write({
@@ -32,12 +31,13 @@ function setSession(session) {
  * @return {String} the current session
  */
 function getSession() {
-	var s = store.read(),
-		session;
+	const s = store.read();
+	let session;
+	let isNew = false;
 
 	if (s) {
-		var d = (new Date()).valueOf(),
-			exp = parseInt(s.expiry);
+		const d = (new Date()).valueOf();
+		const exp = parseInt(s.expiry);
 
 		// If current session is active.
 		if (exp >= d) {
@@ -48,12 +48,16 @@ function getSession() {
 	// No active session, gen a new one.
 	if (!session) {
 		session = utils.guid();
+		isNew = true;
 	}
 
 	// Refreshes the cookie...
 	setSession(session);
 
-	return session;
+	return {
+		id: session,
+		isNew: isNew
+	};
 }
 
 /**
@@ -70,7 +74,7 @@ function init(config) {
 		config = {};
 	}
 
-	var c = utils.merge(defaultSessionConfig, config);
+	const c = utils.merge(defaultSessionConfig, config);
 
 	// config.name is important here, means the user has specifically asked for a cookie name.
 	if (c.storage === 'cookie' && config.name) {

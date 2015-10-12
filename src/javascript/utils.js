@@ -1,16 +1,15 @@
 /*global module, require, window */
-'use strict';
 
 /**
  * Shared 'internal' scope.
  * @private
  */
-var settings = require('./core/settings');
+const settings = require('./core/settings');
 
 /**
  * Record of callbacks to call when a page is tracked.
  */
-var page_callbacks = [];
+const page_callbacks = [];
 
 /**
  * Log messages to the browser console. Requires 'log' to be set on init.
@@ -19,7 +18,7 @@ var page_callbacks = [];
  */
 function log() {
 	if (settings.get('developer') && window.console) {
-		for (var i=0;i<arguments.length;i++) {
+		for (let i=0;i<arguments.length;i++) {
 			window.console.log(arguments[i]);
 		}
 	}
@@ -54,10 +53,12 @@ function merge(target, options) {
 		target = {};
 	}
 
-	var name, src, copy;
+	let name;
+	let src;
+	let copy;
 
 	/* jshint -W089 */
-	/* jslint forin:false */
+	/* eslint guard-for-in: 0 */
 	for (name in options) {
 		src = target[name];
 		copy = options[name];
@@ -97,10 +98,10 @@ function encode(str) {
  * @return {string}
  */
 function guid() {
-	var unique = '';
-	var randomVals;
-	var hasWindowCtypto = false;
-	var i;
+	let unique = '';
+	let randomVals;
+	let hasWindowCtypto = false;
+	let i;
 
 	try {
 
@@ -190,7 +191,7 @@ function onPage(cb) {
  * Trigger the 'page' listeners.
  */
 function triggerPage() {
-	for (var i = 0; i < page_callbacks.length; i++) {
+	for (let i = 0; i < page_callbacks.length; i++) {
 		page_callbacks[i]();
 	}
 }
@@ -218,9 +219,9 @@ function getValueFromJsVariable(str) {
 
 	}
 
-	var i,
-		namespaces = str.split('.'),
-		test = window;
+	let i;
+	const namespaces = str.split('.');
+	let test = window;
 
 	for (i = 0; i < namespaces.length; i = i + 1) {
 		if (typeof test[namespaces[i]] === 'undefined') {

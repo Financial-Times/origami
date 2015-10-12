@@ -42,6 +42,7 @@ This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 	"context": {
 		"id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",			// Unique ID for this event.
 		"component_id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",	// Grouping for all events from the same component.
+		"component_name": "o-video",                            // Name of the Origami component dispatching the event (it that's the case)
 		"root_id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",		// Grouping for all events on the same view of a product, usually akin to a page.
 		...
 		"product": "ft.com",									// Readable name for this product - controlled list.
