@@ -6,13 +6,13 @@
 // A border at the bottom
 @mixin oTypographyHeadingSeparator() {
 	border-bottom: 1px solid oColorsGetPaletteColor('warm-3');
-	padding: 10px 0;
+	padding: 0 0 10px;
 }
 
 /// h1 styles
 @mixin oTypographyHeading1 {
 	@include oTypographyFoxtrot(1);
-	margin: 0;
+	margin: 0 0 8px;
 }
 
 /// h2 styles
@@ -41,4 +41,13 @@
 @mixin oTypographyFlyline {
 	@include oTypographyBravo(4);
 	text-transform: uppercase;
+	margin-bottom: 5px;
+	letter-spacing: 1px;
+
+	&__link {
+		text-decoration: none;
+	}
+	&__link:hover {
+		border-bottom: 1px dotted;
+	}
 }

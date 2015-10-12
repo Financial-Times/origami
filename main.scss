@@ -69,8 +69,11 @@
 	.o-typography-body {
 		@include oTypographyBody;
 	}
-	.o-typography-body--lead {
+	.o-typography-body__lead {
 		@include oTypographyBodyLead;
+	}
+	.o-typography-body__lead--small {
+		@include oTypographyBodyLeadSmall;	
 	}
 	.o-typography-body__block {
 		@include oTypographyBodyBlock;

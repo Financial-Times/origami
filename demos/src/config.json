@@ -5,8 +5,8 @@
     },
     "demos": [
         {
-            "name": "example",
-            "template": "demos/src/example.mustache"
+            "name": "article",
+            "template": "demos/src/article.mustache"
         },
         {
             "name": "manage account",

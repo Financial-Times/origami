@@ -9,13 +9,19 @@
 @mixin oTypographyBodyLead {
 	@include oTypographyDelta(2);
 	// @include oColorsFor(o-typography-body-lead body, text);
-	-webkit-font-smoothing: antialiased; // This stops the light font looking thicker/fuzzier
+	margin: 0;
+}
+
+@mixin oTypographyBodyLeadSmall {
+	@include oTypographyDelta(3);
+	margin: 0;
 }
 
 /// General body text (apply to body tag)
 @mixin oTypographyBody {
 	@include oTypographyAlpha(3);
 	@include oColorsFor(body, text);
+	margin: 0.3em 0 0.8em;
 }
 
 /// Apply to a block of text
