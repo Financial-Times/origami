@@ -85,7 +85,8 @@ function createTransport() {
 /**
  * Marks a request as current.
  *
- * @param id {String} The ID of the request.
+ * @param {String} id The ID of the request.
+ * @return {undefined}
  */
 function started(id) {
 	currentRequests[id] = true;
@@ -94,7 +95,8 @@ function started(id) {
 /**
  * Marks a request as no longer current.
  *
- * @param id {String} The ID of the request.
+ * @param {String} id The ID of the request.
+ * @return {undefined}
  */
 function finished(id) {
 	delete currentRequests[id];
@@ -103,7 +105,8 @@ function finished(id) {
 /**
  * Marks a request as no longer current and removes it from the queue.
  *
- * @param id {String} The ID of the request.
+ * @param {String} id The ID of the request.
+ * @return {undefined}
  */
 function success(id) {
 	finished(id);
@@ -123,8 +126,9 @@ function success(id) {
 /**
  * Attempts to send a tracking request.
  *
- * @param request {Object} The request to be sent.
- * @param callback {Function} Callback to fire the next item in the queue.
+ * @param {Object} request The request to be sent.
+ * @param {Function} callback Callback to fire the next item in the queue.
+ * @return {undefined}
  */
 function sendRequest(request, callback) {
 	const offlineLag = (new Date()).getTime() - request.queueTime;
@@ -192,7 +196,8 @@ function sendRequest(request, callback) {
 /**
  * Adds a new request to the list of pending requests
  *
- * @param request The request to queue
+ * @param {Tracking} request The request to queue
+ * @return {undefined}
  */
 function add(request) {
 	request.queueTime = (new Date()).getTime();
@@ -205,7 +210,8 @@ function add(request) {
 /**
  * If there are any requests queued, attempts to send the next one
  * Otherwise, does nothing
- * @param {Function} Callback, optional
+ * @param {Function} callback - Optional callback
+ * @return {undefined}
  */
 function run(callback) {
 	if (utils.isUndefined(callback)) {
@@ -232,7 +238,8 @@ function run(callback) {
 /**
  * Convenience function to add and run a request all in one go.
  *
- * @param request {Object} The request to queue and run.
+ * @param {Object} request The request to queue and run.
+ * @return {undefined}
  */
 function addAndRun(request) {
 	add(request);
@@ -241,6 +248,7 @@ function addAndRun(request) {
 
 /**
  * Init the queue and send any leftover events.
+ * @return {undefined}
  */
 function init() {
 	queue = new Queue('requests');

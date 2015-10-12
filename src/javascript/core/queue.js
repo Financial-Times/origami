@@ -7,7 +7,8 @@ const Store = require('./store');
  * Class for handling a queue backed up by a store.
  * @class Queue
  *
- * @param name {String} The name of the queue.
+ * @param {String} name - The name of the queue.
+ * @return {Queue} - Returns the instance of the queue.
  */
 const Queue = function (name) {
 	if (utils.isUndefined(name)) {
@@ -84,16 +85,12 @@ Queue.prototype.last = function () {
 	return this.queue.slice(-1)[0].item;
 };
 
-Queue.prototype.id = function () {
-	return (Math.random() * 10000) + '.' + (new Date()).getTime();
-};
-
 /**
  * Add data to the store.
  *
- * @param item {Object} An item or an array of items.
+ * @param {Object} item - An item or an array of items.
  *
- * @return {Queue}
+ * @return {Queue} - Returns the instance of the queue.
  */
 Queue.prototype.add = function (item) {
 	// I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn't work out how to get to 'this' from within the module.
@@ -104,7 +101,7 @@ Queue.prototype.add = function (item) {
 	function doAdd(item) {
 		self.queue.push({
 			created_at: (new Date()).valueOf(),
-			id: self.id(),
+			id: utils.guid(),
 			item: item
 		});
 	}
@@ -123,9 +120,9 @@ Queue.prototype.add = function (item) {
 /**
  * Overwrite the store with something completely new.
  *
- * @param items {Array} The new array of data.
+ * @param {Array} items The new array of data.
  *
- * @return {Queue}
+ * @return {Queue} - Returns the instance of the queue.
  */
 Queue.prototype.replace = function (items) {
 	if (utils.is(items, 'object') && items.constructor.toString().match(/array/i)) {
@@ -171,7 +168,7 @@ Queue.prototype.shift = function () {
 /**
  * Save the current store to localStorage so that old requests can still be sent after a page refresh.
  *
- * @return {Queue}
+ * @return {Queue} - Returns the instance of the queue.
  */
 Queue.prototype.save = function () {
 	this.storage.write(this.queue);
