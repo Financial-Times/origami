@@ -14,85 +14,6 @@ We’re using a matrix of font variants in order to standardize typography acros
 
 [![Font system](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/font-matrix.png)](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/font-matrix.png)
 
-### Usage
-
-#### Alpha
-
-Sass mixin
-
-`@include oTypographyAlpha([1–5])`
-
-Sass example
-```scss
-.component__alpha {
-	@include oTypographyAlpha(3);
-}
-```
-
-#### Bravo
-Sass mixin
-
-`@include oTypographyBravo([1–5])`
-
-Sass example
-```scss
-.component__alpha {
-	@include oTypographyBravo(3);
-}
-```
-
-#### Charlie
-
-Sass mixin
-
-`@include oTypographyCharlie([1–5])`
-
-Sass example
-```scss
-.component__alpha {
-	@include oTypographyCharlie(3);
-}
-```
-
-#### Delta
-
-Sass mixin
-
-`@include oTypographyDelta([1–5])`
-
-Sass example
-```scss
-.component__alpha {
-	@include oTypographyDelta(3);
-}
-```
-
-#### Echo
-
-Sass mixin
-
-`@include oTypographyEcho([1–5])`
-
-Sass example
-```scss
-.component__alpha {
-	@include oTypographyEcho(3);
-}
-```
-
-#### Foxtrot
-
-Sass mixin
-
-`@include oTypographyFoxtrot([1–5])`
-
-Sass example
-```scss
-.component__alpha {
-	@include oTypographyFoxtrot(3);
-}
-```
-
 
 ### Web fonts
 
@@ -165,6 +86,32 @@ Pre-defined classes are not available to module developers. Module developers ar
 ### 2. Using the mixins
 
 If you don't want to include the pre-defined classes in your HTML (or are a module developer) you may instead use the mixins provided:
+
+#### Using the font system
+
+The font system is a matrix which defines small building blocks that can used as a base for typographic elements. Having a small subset of sizes and styles allows for greater consistency.
+
+Type name |         Standard mixin         |    Size/Line-height only mixin
+----------| ------------------------------ | -----------------------------------
+Alpha     | `@include oTypographyAlpha([1-5])`   | `@include oTypographyAlphaSize([1-5])`
+Bravo     | `@include oTypographyBravo([1-5])`   | `@include oTypographyBravoSize([1-5])`
+Charlie   | `@include oTypographyCharlie([1-5])` | `@include oTypographyCharlieSize([1-5])`
+Delta     | `@include oTypographyDelta([1-5])`   | `@include oTypographyDeltaSize([1-5])`
+Echo      | `@include oTypographyEcho([1-5])`    | `@include oTypographyEchoSize([1-5])`
+Foxtrot   | `@include oTypographyFoxtrot([1-5])` | `@include oTypographyFoxtrotSize([1-5])`
+
+Example, using the font system in Sass
+
+```
+.component__text {
+	@include oTypographyAlpha(3);
+	color: #505050;
+}
+```
+
+#### Using default styles
+
+The module defines a small number of common typographic use cases that can be included as mixins.
 
 ```scss
 .article {
