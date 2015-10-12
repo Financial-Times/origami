@@ -1,12 +1,12 @@
 /*global module, require, window */
 
 /**
- * @class  Store
  * Class for storing data
  * Will choose the 'best' storage method available. Can also specify a type of storage.
  *
- * @param {string} name   The name of the store
- * @param {Object} config Optional, config object for extra configuration
+ * @class  Store
+ * @param {string} name - The name of the store
+ * @param {Object} config - Optional, config object for extra configuration
  */
 const Store = function (name, config) {
 
@@ -162,9 +162,8 @@ Store.prototype.read = function () {
 /**
  * Write the supplied data to the store.
  *
- * @param data {String} The data to write.
- *
- * @return {Store}
+ * @param {String} data - The data to write.
+ * @return {Store} - The instance of the store
  */
 Store.prototype.write = function (data) {
 	// Set this.data, in-case we're on a file:// domain and can't set cookies.
@@ -176,7 +175,7 @@ Store.prototype.write = function (data) {
 
 /**
  * Delete the current data.
- * @return {Store}
+ * @return {Store} - The instance of the store
  */
 Store.prototype.destroy = function () {
 	this.data = null;

@@ -6,7 +6,7 @@ const utils = require('./utils');
 /**
  * Default properties for page tracking requests.
  *
- * @type {Object}
+ * @return {Object} - The default properties for pages.
  */
 const defaultPageConfig = function () {
 	return {
@@ -26,6 +26,7 @@ const defaultPageConfig = function () {
  *
  * @param {Object} config - Configuration object. If omitted, will use the defaults.
  * @param {Function} callback - Callback function. Called when request completed.
+ * @return {undefined}
  */
 function page(config, callback) {
 	config = utils.merge(defaultPageConfig(), {
@@ -43,8 +44,9 @@ function page(config, callback) {
 /**
  * Listener for pages.
  *
- * @param CustomEvent The CustomEvent
+ * @param {CustomEvent} e - The CustomEvent
  * @private
+ * @return {undefined}
  */
 function listener(e) {
 	page(e.detail);

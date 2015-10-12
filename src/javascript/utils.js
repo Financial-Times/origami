@@ -15,6 +15,7 @@ const page_callbacks = [];
  * Log messages to the browser console. Requires 'log' to be set on init.
  *
  * @param {*} List of objects to log
+ * @return {undefined}
  */
 function log() {
 	if (settings.get('developer') && window.console) {
@@ -30,7 +31,7 @@ function log() {
  * @param {*} variable - The variable to check.
  * @param {string} type - The type to test for. Defaults to undefined.
  *
- * @return {boolean}
+ * @return {boolean} - The answer for if the variable is of type.
  */
 function is(variable, type) {
 	if (!type) {
@@ -95,7 +96,7 @@ function encode(str) {
 
 /**
  * Generate a GUID.
- * @return {string}
+ * @return {string} - The GUID
  */
 function guid() {
 	let unique = '';
@@ -179,7 +180,8 @@ function broadcast(namespace, eventType, detail) {
 /**
  * Listen for page tracking requests.
  *
- * @param {Function} cb
+ * @param {Function} cb - The callback to be called whenever a page is tracked.
+ * @return {undefined}
  */
 function onPage(cb) {
 	if (is(cb, 'function')) {
@@ -189,6 +191,7 @@ function onPage(cb) {
 
 /**
  * Trigger the 'page' listeners.
+ * @return {undefined}
  */
 function triggerPage() {
 	for (let i = 0; i < page_callbacks.length; i++) {
@@ -198,6 +201,8 @@ function triggerPage() {
 
 /**
  * Get a value from document.cookie matching the first match of the regexp you supply
+ * @param {RegExp} matcher - The Regex to match with
+ * @return {String} - The vale from the cookie
  */
 function getValueFromCookie(matcher) {
 	return document.cookie.match(matcher) && RegExp.$1 !== '' && RegExp.$1 !== 'null' ? RegExp.$1 : null;
@@ -205,6 +210,8 @@ function getValueFromCookie(matcher) {
 
 /**
  * Get a value from the url, used for uuid or querystring parameters
+ * @param {RegExp} matcher - The Regex to match with
+ * @return {String} - The value from the URL
  */
 function getValueFromUrl(matcher) {
 	return document.location.href.match(matcher) && RegExp.$1 !== '' ? RegExp.$1 : null;
@@ -212,6 +219,8 @@ function getValueFromUrl(matcher) {
 
 /**
  * Get a value from a specified JavaScript variable.
+ * @param {String} str - The name of variable, in dot syntax.
+ * @return {String} The value from the JS variable.
  */
 function getValueFromJsVariable(str) {
 	if (typeof str !== 'string') {

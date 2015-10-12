@@ -20,6 +20,10 @@ const Store = require('./store');
  * - If not, set current user id as the 'proper' value.
  * - If this value and the cookie match, then we've already fixed it.
  * - If not, drop the cookie and it will be reset it on the root domain.
+ *
+ * @param {Store} store - The storage instance used for storing the ID.
+ * @param {String} user_id - The user ID to check against storage.
+ * @return {String} - The real user ID.
  */
 function migrate_across_domains(store, user_id) {
 	const ls_name = 'o-tracking-proper-id';
@@ -51,7 +55,8 @@ function migrate_across_domains(store, user_id) {
 /**
  * Init
  *
- * @param config {String|Object} The value of a userID to use or configuration object.
+ * @param {String|Object} value The value of a userID to use or configuration object.
+ * @return {String} - The user ID.
  */
 function init(value) {
 	const config = utils.merge(defaultUserConfig, { value: value });

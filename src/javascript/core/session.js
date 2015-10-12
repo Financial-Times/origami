@@ -13,7 +13,8 @@ const Store = require('./store');
 /**
  * Set the session in the store.
  *
- * @param {String} The session to be stored.
+ * @param {String} session - The session to be stored.
+ * @return {undefined}
  */
 function setSession(session) {
 	const d = new Date();
@@ -28,7 +29,7 @@ function setSession(session) {
 /**
  * Get the session from the store. Expiry and gen of a new session are handled here.
  *
- * @return {String} the current session
+ * @return {Object} the current session
  */
 function getSession() {
 	const s = store.read();
@@ -63,7 +64,8 @@ function getSession() {
 /**
  * Init
  *
- * @param config {String|Object} The name used to store the session or configuration object.
+ * @param {String|Object} config The name used to store the session or configuration object.
+ * @return {Session} - The session
  */
 function init(config) {
 	if (utils.is(config, 'string')) {

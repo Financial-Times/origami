@@ -12,6 +12,7 @@ let internalQueue;
  * Default properties for events.
  *
  * @type {Object}
+ * @return {Object} The default link configuration.
  */
 const defaultLinkConfig = function () {
 	return {
@@ -28,7 +29,7 @@ let callback = function () {};
  *
  * @param {string} url - The url to check.
  *
- * @return {boolean}
+ * @return {boolean} - Result of internal url.
  * @private
  */
 function isInternal(url) {
@@ -40,7 +41,7 @@ function isInternal(url) {
  *
  * @param {string} url - The url to check.
  *
- * @return {boolean}
+ * @return {boolean} - The result of external url.
  * @private
  */
 function isExternal(url) {
@@ -53,7 +54,7 @@ function isExternal(url) {
  *
  * @param {string} url - The url to check.
  *
- * @return {boolean}
+ * @return {boolean} - The result if a url is a file location.
  * @private
  */
 function isFile(url) {
@@ -102,7 +103,7 @@ function parentTree(element) {
 /**
  * Create the identifier of the link. TODO: https://rally1.rallydev.com/#/16966478977d/detail/defect/17919485944
  *
- * @param {Element} link
+ * @param {Element} link - The link element.
  *
  * @return {string} The ID for the link.
  * @private
@@ -139,9 +140,9 @@ function createLinkID(link) {
 /**
  * Track the link.
  *
- * @param {Element} element
+ * @param {Element} element - The element being tracked.
  *
- * @return {Object|boolean}
+ * @return {Object|boolean} - If synscronous, returns when the tracking event is sent, if async, returns true immediately.
  */
 function track(element) {
 	const linkID = createLinkID(element);
@@ -171,9 +172,9 @@ function track(element) {
 /**
  * Handle a click event.
  *
- * @param event {Event} The event.
+ * @param {Event} event - The event.
  *
- * @return {boolean}
+ * @return {boolean} - Returns the result of the tracking request
  * @private
  */
 function clickEvent(event) {
@@ -184,6 +185,7 @@ function clickEvent(event) {
  * Set the callback called on every link tracking event.
  *
  * @param {Function} cb - The callback.
+ * @return {undefined}
  */
 function onClick(cb) {
 	callback = cb;
@@ -192,6 +194,7 @@ function onClick(cb) {
 /**
  * If there are any requests queued, attempts to send the next one
  * Otherwise, does nothing
+ * @return {undefined}
  */
 function runQueue() {
 	const next = function () { runQueue(); callback(); };
