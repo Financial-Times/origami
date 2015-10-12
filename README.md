@@ -6,12 +6,93 @@ Typographical styles for FT branded sites - font families, weight, colors, sizes
 
 ## Overview
 
-This module provides styles for Headings, Titles, Leads, Metadata, and body content.
+This module provides styles for Headings, Titles, Leads and body content.
 
-Body content styles come in two categories:
+### Font system
 
-* **general**, used for informational pages, forms, application user interfaces etc.
-* **article**, used for editorial content.
+We’re using a matrix of font variants in order to standardize typography across the site. This provides a common language within the team and helps to avoid inconsistencies.
+
+[![Font system](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/font-matrix.png)](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/font-matrix.png)
+
+### Usage
+
+#### Alpha
+
+Sass mixin
+
+`@include oTypographyAlpha([1–5])`
+
+Sass example
+```scss
+.component__alpha {
+	@include oTypographyAlpha(3);
+}
+```
+
+#### Bravo
+Sass mixin
+
+`@include oTypographyBravo([1–5])`
+
+Sass example
+```scss
+.component__alpha {
+	@include oTypographyBravo(3);
+}
+```
+
+#### Charlie
+
+Sass mixin
+
+`@include oTypographyCharlie([1–5])`
+
+Sass example
+```scss
+.component__alpha {
+	@include oTypographyCharlie(3);
+}
+```
+
+#### Delta
+
+Sass mixin
+
+`@include oTypographyDelta([1–5])`
+
+Sass example
+```scss
+.component__alpha {
+	@include oTypographyDelta(3);
+}
+```
+
+#### Echo
+
+Sass mixin
+
+`@include oTypographyEcho([1–5])`
+
+Sass example
+```scss
+.component__alpha {
+	@include oTypographyEcho(3);
+}
+```
+
+#### Foxtrot
+
+Sass mixin
+
+`@include oTypographyFoxtrot([1–5])`
+
+Sass example
+```scss
+.component__alpha {
+	@include oTypographyFoxtrot(3);
+}
+```
+
 
 ### Web fonts
 
@@ -19,7 +100,6 @@ o-typography **does not load web fonts**, products should load web fonts themsel
 
 **Load FT's custom web fonts using [o-fonts](https://github.com/financial-times/o-fonts).**
 
-## Usage
 
 ### Recommended setup
 

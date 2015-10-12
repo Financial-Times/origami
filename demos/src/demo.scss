@@ -3,8 +3,8 @@ $o-typography-is-silent: false;
 @import '../../main';
 
 html {
-	overflow-y: scroll;
 	@include oColorsFor(page);
+	overflow-y: scroll;
 
 	// type defaults
 	font-family: $o-typography-sans-serif;
@@ -61,8 +61,8 @@ html {
 }
 
 .demo-description-list {
-	overflow: hidden;
 	@include oTypographyBodyBlock;
+	overflow: hidden;
 }
 
 .demo-description-list__term {
@@ -95,7 +95,8 @@ html {
 	display: table-row;
 }
 
-.demo-key-value-list__label, .demo-key-value-list__value {
+.demo-key-value-list__label,
+.demo-key-value-list__value {
 	display: table-cell;
 }
 
