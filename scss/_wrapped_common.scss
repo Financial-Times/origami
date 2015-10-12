@@ -36,4 +36,8 @@
 	ul {
 		@include oTypographyBodyListUnordered;
 	}
+
+	figcaption {
+		@include oTypographyCaption;
+	}
 }

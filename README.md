@@ -10,7 +10,7 @@ This module provides styles for Headings, Titles, Leads and body content.
 
 ### Font system
 
-We’re using a matrix of font variants in order to standardize typography across the site. This provides a common language within the team and helps to avoid inconsistencies.
+We’re using a matrix of font variants in order to standardize typography across the site. This provides a common language and helps to avoid inconsistencies.
 
 [![Font system](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/font-matrix.png)](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/font-matrix.png)
 
@@ -47,19 +47,19 @@ If you are using the [Origami Build Service](http://origami.ft.com/docs/develope
 
 If you're not using the build service, [turn off 'silent mode'](#silentmode).
 
-Pre-defined CSS classes are provided and can be used directly in your HTML. All classes are prefixed with 'o-typography-', for example `o-typography-heading-large`.
+Pre-defined CSS classes are provided and can be used directly in your HTML. All classes are prefixed with 'o-typography-', for example `o-typography-heading1`.
 
 The classes do not depend on any specific HTML element, but appropriate semantic elements should be chosen.
 
 ```html
-<h2 class="o-typography-heading-medium">Heading medium</h2>
+<h2 class="o-typography-heading2">Heading medium</h2>
 ```
 
-See docs/demo.html for a full list of the classes provided and their effects. 
+See docs/demo.html for a full list of the classes provided and their effects.
 
 In addition to applying classes individual to elements, body styles can be applied to an HTML element and descendent `h2, h3, p, a, strong, em, small, sup, sub, ul, ol, li` elements will have styling applied.
 
-**General** body styles:
+body styles:
 
 ```html
 <div class="o-typography-body-wrapper">
@@ -67,17 +67,6 @@ In addition to applying classes individual to elements, body styles can be appli
 	<p>Body block with <strong>styled inline text</strong>.</p>
 	<h3>Heading small</h3>
 	<p>Body block with <em>styled inline text</em>.</p>
-</div>
-```
-
-**Article** body styles:
-
-```html
-<div class="o-typography-article-body-wrapper">
-	<h2>Article subheading 1</h2>
-	<p>Article body block with <strong>styled inline text</strong>.</p>
-	<h3>Article subheading 2</h3>
-	<p>Article body block with <em>styled inline text</em>.</p>
 </div>
 ```
 
