@@ -7,6 +7,7 @@ const utils = require('./utils');
  * Default properties for events.
  *
  * @type {Object}
+ * @return {Object} - Default configuration for events
  */
 const defaultEventConfig = function () {
 	return {
@@ -25,6 +26,7 @@ const defaultEventConfig = function () {
  *   [component_id] - Optional. The ID for the component instance.
  *
  * @param {Function} callback - Optional, Callback function. Called when request completed.
+ * @return {undefined}
  */
 function event(trackingEvent, callback) {
 	if (utils.is(trackingEvent.detail.category) || utils.is(trackingEvent.detail.action)) {
@@ -45,7 +47,7 @@ function event(trackingEvent, callback) {
 	delete config.context.category;
 	delete config.context.action;
 
-	let origamiElement = getOrigamiEventTarget(trackingEvent);
+	const origamiElement = getOrigamiEventTarget(trackingEvent);
 	if (origamiElement) {
 		config.context.component_name = origamiElement.getAttribute('data-o-component');
 		config.context.component_id = config.context.component_id || getComponentId(origamiElement);
@@ -59,8 +61,8 @@ function event(trackingEvent, callback) {
 
 /**
  * Helper function that gets the target of an event if it's an Origami component
- * @param  {Event} event
- * @return {HTMLElement}
+ * @param  {Event} event - The event triggered.
+ * @return {HTMLElement|undefined} - Returns the HTML element if an Origami component, else undefined.
  */
 function getOrigamiEventTarget(event) {
 	// IE backwards compatibility (get the actual target). If not IE, uses
@@ -77,7 +79,7 @@ function getOrigamiEventTarget(event) {
 /**
  * Helper function that generates a component id based on its xpath
  *
- * @param {HTMLElement} element
+ * @param {HTMLElement} element - The HTML Element to gen an ID for.
  *
  * @return {string} hash
  */
@@ -132,16 +134,16 @@ function getComponentId(element) {
 }
 
 /**
- * Gets the xpath for an elemenet
+ * Gets the xpath for an element
  *
- * @param  {HTMLElement} element
+ * @param  {HTMLElement} element - The element to get a path for.
  *
  * @private
  *
  * @return {array} The xpath
  */
 function _getElementPath(element) {
-	let path = [];
+	const path = [];
 
 	while (element) {
 		path.push(element);
@@ -166,8 +168,7 @@ function _getElementPath(element) {
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
- * @param {string} key ASCII only
- * @param {number} seed Positive integer only
+ * @param {string} str  - The string to hash, ASCII only.
  *
  * @return {number} 32-bit positive integer hash
  *

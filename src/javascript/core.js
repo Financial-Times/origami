@@ -6,7 +6,6 @@ const Session = require('./core/session');
 
 /**
  * Shared 'internal' scope.
- *
  * @type {Object}
  */
 const settings = require('./core/settings');
@@ -14,8 +13,8 @@ const utils = require('./utils');
 
 /**
  * Default properties for sending a tracking request.
- *
  * @type {Object}
+ * @return {Object} - The default settings for the component.
  */
 const defaultConfig = function () {
 	return {
@@ -32,9 +31,7 @@ const defaultConfig = function () {
 
 /**
  * Generate and store a new rootID.
- *
  * @param {string} new_id - Optional rootID, if you want to use your own. Otherwise we'll create one for you.
- *
  * @return {string|*} The rootID.
  */
 function rootID(new_id) {
