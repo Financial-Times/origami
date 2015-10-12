@@ -12,6 +12,7 @@
     "karma-mocha": "^0.1.10",
     "nock": "^1.2.1",
     "sinon": "^1.14.1",
-    "karma-sinon": "^1.0.4"
+    "karma-sinon": "^1.0.4",
+    "babelify": "^6.1.3"
   }
 }

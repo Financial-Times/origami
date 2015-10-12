@@ -1,15 +1,14 @@
 /*global module, require */
-'use strict';
 
-var Core = require('./core');
-var utils = require('./utils');
+const Core = require('./core');
+const utils = require('./utils');
 
 /**
  * Default properties for events.
  *
  * @type {Object}
  */
-var defaultEventConfig = function () {
+const defaultEventConfig = function () {
 	return {
 		category: 'event',
 		action: 'generic',
@@ -29,7 +28,7 @@ var defaultEventConfig = function () {
  */
 function event(trackingEvent, callback) {
 	if (utils.is(trackingEvent.detail.category) || utils.is(trackingEvent.detail.action)) {
-		var noCategoryActionVals = 'Missing category or action values';
+		const noCategoryActionVals = 'Missing category or action values';
 		utils.broadcast('oErrors', 'log', {
 			error: noCategoryActionVals,
 			info: { module: 'o-tracking' }
@@ -37,7 +36,7 @@ function event(trackingEvent, callback) {
 		throw noCategoryActionVals;
 	}
 
-	var config = utils.merge(defaultEventConfig(), {
+	const config = utils.merge(defaultEventConfig(), {
 		category: trackingEvent.detail.category,
 		action: trackingEvent.detail.action,
 		context: trackingEvent.detail
@@ -46,7 +45,7 @@ function event(trackingEvent, callback) {
 	delete config.context.category;
 	delete config.context.action;
 
-	var origamiElement = getOrigamiEventTarget(trackingEvent);
+	let origamiElement = getOrigamiEventTarget(trackingEvent);
 	if (origamiElement) {
 		config.context.component_name = origamiElement.getAttribute('data-o-component');
 		config.context.component_id = config.context.component_id || getComponentId(origamiElement);
@@ -66,7 +65,7 @@ function event(trackingEvent, callback) {
 function getOrigamiEventTarget(event) {
 	// IE backwards compatibility (get the actual target). If not IE, uses
 	// `event.target`
-	var element = event.target || event.srcElement;
+	const element = event.target || event.srcElement;
 
 	if (element && element.getAttribute('data-o-component')) {
 		return element;
@@ -83,23 +82,23 @@ function getOrigamiEventTarget(event) {
  * @return {string} hash
  */
 function getComponentId(element) {
-	var path = _getElementPath(element);
+	const path = _getElementPath(element);
 
 	if (typeof path === 'undefined') {
 		return;
 	}
 
 	// Select the source element (first item in the ordered sequence `path`)
-	var srcElement = path[0];
+	const srcElement = path[0];
 
 	// Because, you could have two identical elements in the DOM as siblings,
 	// we need to determine the 'sibling index': the order they're sitting within a DOM node.
 	// Although in reality this is unlikely to always be the same, it's just a
 	// best guess - unless child elements are always appended to an element rather than added as the first child.
-	var siblingIndex = (function getSiblingIndex(element) {
-		var srcParent = element.parentElement;
+	const siblingIndex = (function getSiblingIndex(element) {
+		const srcParent = element.parentElement;
 		if (srcParent) {
-			for (var i = 0; i < srcParent.childNodes.length; i++) {
+			for (let i = 0; i < srcParent.childNodes.length; i++) {
 				if (srcParent.childNodes[i] === srcElement) {
 					return i;
 				}
@@ -111,12 +110,12 @@ function getComponentId(element) {
 	}(srcElement));
 
 	// Generate a normalised string (normalising browser quirks) from the sequence of elements
-	var normalisedStringPath = path.reduceRight(function(builder, el) {
+	const normalisedStringPath = path.reduceRight(function(builder, el) {
 		if (!el.nodeName) {
 			return builder + ' - ' + el.constructor.name + '\n';
 		}
 
-		var nodeName = el.nodeName.toLowerCase();
+		const nodeName = el.nodeName.toLowerCase();
 
 		// In some browsers, document is prepended with a '#'
 		if (nodeName.indexOf('#') === 0) {
@@ -142,7 +141,7 @@ function getComponentId(element) {
  * @return {array} The xpath
  */
 function _getElementPath(element) {
-	var path = [];
+	let path = [];
 
 	while (element) {
 		path.push(element);
@@ -175,10 +174,10 @@ function _getElementPath(element) {
  * @private
  */
 function _generateHash(str) {
-	var l = str.length;
-	var h = 1 ^ l;
-	var i = 0;
-	var k;
+	let l = str.length;
+	let h = 1 ^ l;
+	let i = 0;
+	let k;
 
 	while (l >= 4) {
 		k = ((str.charCodeAt(i) & 0xff)) |

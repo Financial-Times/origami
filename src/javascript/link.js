@@ -1,19 +1,19 @@
 /*global module, require, window */
-'use strict';
 
-var Queue = require('./core/queue');
-var Core = require('./core');
+const Queue = require('./core/queue');
+const Core = require('./core');
 
-var utils = require('./utils');
+const utils = require('./utils');
 
-var internalQueue;
+
+let internalQueue;
 
 /**
  * Default properties for events.
  *
  * @type {Object}
  */
-var defaultLinkConfig = function () {
+const defaultLinkConfig = function () {
 	return {
 		category: 'link',
 		action: 'click',
@@ -21,7 +21,7 @@ var defaultLinkConfig = function () {
 	};
 };
 
-var callback = function () {};
+let callback = function () {};
 
 /**
  * Check if a URL is going to the same site (internal)
@@ -57,7 +57,7 @@ function isExternal(url) {
  * @private
  */
 function isFile(url) {
-	var path = url.replace(/^\w+:\/\//, '').replace(/(#|\?).+/g, '').replace(/\/$/, '');
+	const path = url.replace(/^\w+:\/\//, '').replace(/(#|\?).+/g, '').replace(/\/$/, '');
 
 	// It must have a slash to have a file path
 	if (path.indexOf('/') === -1) {
@@ -90,7 +90,7 @@ function parentTree(element) {
 		return [];
 	}
 
-	var tree = [element];
+	const tree = [element];
 
 	if (element.nodeName === 'BODY') {
 		return tree;
@@ -108,8 +108,8 @@ function parentTree(element) {
  * @private
  */
 function createLinkID(link) {
-	var parents = parentTree(link),
-		name = link.href;
+	const parents = parentTree(link);
+	let name = link.href;
 
 	name = name.replace(/^http:\/\/[\w\.]+/, '') // Remove http://[something].
 		.replace(/^\//, '') // Remove slash at beginning
@@ -144,8 +144,8 @@ function createLinkID(link) {
  * @return {Object|boolean}
  */
 function track(element) {
-	var linkID = createLinkID(element);
-	var config = utils.merge(defaultLinkConfig(), {
+	const linkID = createLinkID(element);
+	const config = utils.merge(defaultLinkConfig(), {
 					context: {
 						link_id: linkID,
 						source_id: Core.getRootID(),
@@ -194,8 +194,8 @@ function onClick(cb) {
  * Otherwise, does nothing
  */
 function runQueue() {
-	var next = function () { runQueue(); callback(); },
-		nextLink = internalQueue.shift();
+	const next = function () { runQueue(); callback(); };
+	const nextLink = internalQueue.shift();
 
 	if (nextLink) {
 		Core.track(nextLink, next);
@@ -214,7 +214,8 @@ function runQueue() {
  * @return {array} The links setup in this init.
  */
 function init(config) {
-	var links, i;
+	let links;
+	let i;
 
 	internalQueue = new Queue('links');
 
@@ -245,7 +246,7 @@ function init(config) {
 		}
 	} else {
 		if (typeof config.root !== 'object' || typeof config.selector !== 'string') {
-			var configException = 'If supplying a config it must have a valid root element and a selector string';
+			const configException = 'If supplying a config it must have a valid root element and a selector string';
 			utils.broadcast('oErrors', 'log', {
 				error: configException,
 				info: { module: 'o-tracking' }

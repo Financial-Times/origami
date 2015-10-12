@@ -1,13 +1,12 @@
-/*global require, describe, it, before, afterEach */
-"use strict";
+/*global require, describe, it, beforeEach, afterEach */
 
-var assert = require('assert'),
-	Store = require("../../src/javascript/core/store"),
-	Session = require("../../src/javascript/core/session");
+const assert = require('assert');
+const Store = require('../../src/javascript/core/store');
+const Session = require('../../src/javascript/core/session');
 
 describe('Core.Session', function () {
 
-	before(function () {
+	beforeEach(function () {
 		// clean up previous tests' pollution
 		(new Store('session')).destroy();
 	});
@@ -24,7 +23,7 @@ describe('Core.Session', function () {
 		});
 
 		it('should use generate an ID if one does not exist', function () {
-			var session = Session.init();
+			let session = Session.init();
 			assert.notEqual(session.id, null);
 			assert.equal(session.isNew, true);
 		});
@@ -32,8 +31,8 @@ describe('Core.Session', function () {
 
 	describe('retrieving values.', function () {
 		it('should use the existing value until it expires.', function () {
-			var session = Session.init();
-			var newSession = Session.session();
+			let session = Session.init();
+			let newSession = Session.session();
 			assert.equal(newSession.id, session.id);
 			assert.equal(newSession.isNew, false);
 		});

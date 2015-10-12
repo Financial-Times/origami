@@ -1,23 +1,23 @@
 /*global module, require */
-'use strict';
 
-var Send = require('./core/send');
-var User = require('./core/user');
-var Session = require('./core/session');
+const Send = require('./core/send');
+const User = require('./core/user');
+const Session = require('./core/session');
+
 /**
  * Shared 'internal' scope.
  *
  * @type {Object}
  */
-var settings = require('./core/settings');
-var utils = require('./utils');
+const settings = require('./core/settings');
+const utils = require('./utils');
 
 /**
  * Default properties for sending a tracking request.
  *
  * @type {Object}
  */
-var defaultConfig = function () {
+const defaultConfig = function () {
 	return {
 		async: true,
 		callback: function () {},
@@ -70,12 +70,12 @@ function track(config, callback) {
 		callback = function () {};
 	}
 
-	var coreContext = settings.get('config') && settings.get('config').context || {};
+	const coreContext = settings.get('config') && settings.get('config').context || {};
 	config.context = utils.merge(coreContext, config.context);
 
-	var request = utils.merge(defaultConfig(), utils.merge(config, { callback: callback }));
+	let request = utils.merge(defaultConfig(), utils.merge(config, { callback: callback }));
 
-	var session = Session.session();
+	const session = Session.session();
 
 	/* Values here are kinda the mandatory ones, so we want to make sure they're possible. */
 	request = utils.merge({

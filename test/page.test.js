@@ -1,12 +1,11 @@
 /*global require, describe, it, before, after, sinon */
-"use strict";
 
-var assert = require("assert");
+const assert = require("assert");
 
 describe('page', function () {
 
-	var server,
-		page = require("../src/javascript/page.js");
+	let server;
+	const page = require("../src/javascript/page.js");
 
 	before(function () {
 		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
@@ -23,8 +22,8 @@ describe('page', function () {
 	it('should track a page', function () {
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
-		var callback = sinon.spy(),
-			sent_data;
+		const callback = sinon.spy();
+		let sent_data;
 
 		page({
 			url: "http://www.ft.com/home/uk"
@@ -51,10 +50,10 @@ describe('page', function () {
 	it('should assign a unique root_id for each page', function () {
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
-		var callback = sinon.spy(),
-			callback2 = sinon.spy(),
-			page1_root_id,
-			page2_root_id;
+		const callback = sinon.spy();
+		const callback2 = sinon.spy();
+		let page1_root_id;
+		let page2_root_id;
 
 		page({
 			url: "http://www.ft.com/home/uk"

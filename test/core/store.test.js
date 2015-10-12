@@ -1,8 +1,7 @@
 /*global require, describe, it, document, navigator */
-"use strict";
 
-var assert = require('assert'),
-	Store = require("../../src/javascript/core/store");
+const assert = require('assert');
+const Store = require('../../src/javascript/core/store');
 
 describe('Core.Store', function () {
 
@@ -23,7 +22,7 @@ describe('Core.Store', function () {
 		}
 	});
 
-	var store = new Store('test');
+	const store = new Store('test');
 
 	describe('write()', function () {
 		it('should save a value', function () {

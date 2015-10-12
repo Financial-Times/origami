@@ -1,23 +1,22 @@
 /*global require, module */
-'use strict';
+const settings = require('./src/javascript/core/settings');
 
-var settings = require('./src/javascript/core/settings');
 
 /**
  * The version of the tracking module.
  * @type {string}
  */
-var version = '1.0.5';
+const version = '1.0.5';
 /**
  * The source of this event.
  * @type {string}
  */
-var source = 'o-tracking';
+const source = 'o-tracking';
 /**
  * The API key.
  * @type {string}
  */
-var api_key = 'qUb9maKfKbtpRsdp0p2J7uWxRPGJEP';
+const api_key = 'qUb9maKfKbtpRsdp0p2J7uWxRPGJEP';
 
 /**
  * @class Tracking
@@ -110,7 +109,7 @@ Tracking.prototype.init = function(config) {
 	if (this.initialised) {
 		return this;
 	}
-	var hasDeclarativeConfig = !!this._getDeclarativeConfigElement();
+	const hasDeclarativeConfig = !!this._getDeclarativeConfigElement();
 
 	if (!(hasDeclarativeConfig || config)) {
 		return this;
@@ -171,20 +170,20 @@ Tracking.prototype._getDeclarativeConfigElement = function() {
  * @return {Object} - The options modified to include the options gathered from the DOM
  */
 Tracking.prototype._getDeclarativeConfig = function(options) {
-	var configEl = this._getDeclarativeConfigElement();
-	var declarativeConfigString;
+	const configEl = this._getDeclarativeConfigElement();
+	let declarativeConfigString;
 	if (configEl) {
 		declarativeConfigString = configEl.textContent || configEl.innerText || configEl.innerHTML;
 	} else {
 		return false;
 	}
 
-	var declarativeOptions;
+	let declarativeOptions;
 
 	try {
 		declarativeOptions = JSON.parse(declarativeConfigString);
 	} catch(e) {
-		var configError = new Error('Invalid JSON configuration syntax, check validity for o-tracking configuration: "' + e.message + '"');
+		const configError = new Error('Invalid JSON configuration syntax, check validity for o-tracking configuration: "' + e.message + '"');
 		this.utils.broadcast('oErrors', 'log', {
 			error: configError,
 			info: { module: 'o-tracking' }
@@ -192,7 +191,7 @@ Tracking.prototype._getDeclarativeConfig = function(options) {
 		throw configError;
 	}
 
-	for (var property in declarativeOptions) {
+	for (const property in declarativeOptions) {
 		if (declarativeOptions.hasOwnProperty(property)) {
 			options[property] = options[property] || declarativeOptions[property];
 		}
@@ -201,7 +200,7 @@ Tracking.prototype._getDeclarativeConfig = function(options) {
 	return options;
 };
 
-var tracking = new Tracking();
+const tracking = new Tracking();
 
 function initialise() {
 	tracking.init();

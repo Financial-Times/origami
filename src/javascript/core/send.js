@@ -1,29 +1,28 @@
 /*global module, require, window */
-'use strict';
 
-var settings = require('./settings');
-var utils = require('../utils');
-var Queue = require('./queue');
+const settings = require('./settings');
+const utils = require('../utils');
+const Queue = require('./queue');
 
 /**
  * Default collection server.
  */
-var domain = 'http://test.spoor-api.ft.com';
+let domain = 'http://test.spoor-api.ft.com';
 
 /**
  * Queue queue.
  *
  * @type {Queue}
  */
-var queue;
+let queue;
 /**
  * Requests being sent right now.
  */
-var currentRequests = {};
+const currentRequests = {};
 
 function createTransport() {
 	try {
-		var xmlHttp = new window.XMLHttpRequest();
+		const xmlHttp = new window.XMLHttpRequest();
 
 		// Check if the XMLHttpRequest object has a 'withCredentials' property.
 		// 'withCredentials' only exists on XMLHTTPRequest2 objects.
@@ -57,7 +56,7 @@ function createTransport() {
 		});
 	}
 
-	var image = new Image(1,1);
+	const image = new Image(1,1);
 
 	return {
 		send: function (domain, path) {
@@ -109,8 +108,8 @@ function finished(id) {
 function success(id) {
 	finished(id);
 
-	var replacement = queue.all(),
-		i;
+	const replacement = queue.all();
+	let i;
 
 	for (i = 0; i < replacement.length; i = i + 1) {
 		if (id === replacement[i].id) {
@@ -128,10 +127,10 @@ function success(id) {
  * @param callback {Function} Callback to fire the next item in the queue.
  */
 function sendRequest(request, callback) {
-	var offlineLag = (new Date()).getTime() - request.queueTime,
-		path,
-		transport = createTransport(),
-		user_callback = request.callback;
+	const offlineLag = (new Date()).getTime() - request.queueTime;
+	let path;
+	const transport = createTransport();
+	const user_callback = request.callback;
 
 	request = utils.merge({
 		system: {
@@ -213,8 +212,8 @@ function run(callback) {
 		callback = function () {};
 	}
 
-	var next = function () { run(); callback(); },
-		nextRequest = queue.first();
+	const next = function () { run(); callback(); };
+	const nextRequest = queue.first();
 
 	// Cancel if we've run out of requests.
 	if (!nextRequest) {
