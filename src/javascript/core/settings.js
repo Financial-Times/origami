@@ -7,6 +7,7 @@ const settings = {};
  * native arrays.
  * @param  {*} value Any value
  * @return {*}       Copy of value
+ * @private
  */
 function clone(value) {
 	switch (Object.prototype.toString.call(value)) {
@@ -22,8 +23,9 @@ function clone(value) {
 /**
  * Saves a value. Stores a copy rather than a reference, to avoid mutations leaking.
  *
- * @param {string} Key
- * @param {*} value
+ * @param {string} key - The key to use to store the object
+ * @param {*} value - The value
+ * @return {undefined}
  */
 function setValue(key, value) {
 	settings[key] = clone(value);
@@ -33,9 +35,8 @@ function setValue(key, value) {
  * Retrieves a value from the settings object. Returns a copy rather than reference, to
  * avoid mutations leaking.
  *
- * @param {string} key
- *
- * @return {*}
+ * @param {string} key - The key to get
+ * @return {*} - The setting.
  */
 function getValue(key) {
 	return clone(settings[key]);
@@ -44,7 +45,8 @@ function getValue(key) {
 /**
  * Deletes a value
  *
- * @param  {string} key [description]
+ * @param  {string} key - The key to delete
+ * @return {undefined}
  */
 function destroy(key) {
 	delete settings[key];

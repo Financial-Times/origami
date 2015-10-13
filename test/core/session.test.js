@@ -23,7 +23,7 @@ describe('Core.Session', function () {
 		});
 
 		it('should use generate an ID if one does not exist', function () {
-			let session = Session.init();
+			const session = Session.init();
 			assert.notEqual(session.id, null);
 			assert.equal(session.isNew, true);
 		});
@@ -31,8 +31,8 @@ describe('Core.Session', function () {
 
 	describe('retrieving values.', function () {
 		it('should use the existing value until it expires.', function () {
-			let session = Session.init();
-			let newSession = Session.session();
+			const session = Session.init();
+			const newSession = Session.session();
 			assert.equal(newSession.id, session.id);
 			assert.equal(newSession.isNew, false);
 		});
