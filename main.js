@@ -1,4 +1,4 @@
-const Delegate = require('dom-delegate');
+const Delegate = require('ftdomdelegate');
 const template = require('./src/js/template');
 const timeoutDuration = 5000;
 const animDuration = 500;
