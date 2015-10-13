@@ -1,6 +1,4 @@
-"use strict";
-
-var hasFired = {};
+const hasFired = {};
 
 function trigger(type) {
 	if (type in hasFired) return;
@@ -32,11 +30,11 @@ if (document.readyState === 'complete') {
 if (document.attachEvent) {
 	// If IE and not a frame
 	// continually check to see if the document is ready
-	var top = false;
-	var delay = 50;
+	let top = false;
+	let delay = 50;
 
 	try {
-		top = window.frameElement == null && document.documentElement;
+		top = window.frameElement === null && document.documentElement;
 	} catch(e) {}
 
 	if (top && top.doScroll) {
@@ -53,6 +51,6 @@ if (document.attachEvent) {
 
 				trigger('DOMContentLoaded');
 			}
-		})();
+		}());
 	}
 }
