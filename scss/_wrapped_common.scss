@@ -29,6 +29,11 @@
 		@include oTypographySub;
 	}
 
+	ol,
+	ul {
+		@include oTypographyBodyList;
+	}
+
 	ol {
 		@include oTypographyBodyListOrdered;
 	}

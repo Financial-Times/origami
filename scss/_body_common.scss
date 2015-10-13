@@ -5,7 +5,7 @@
 
 /// Make something bold
 @mixin oTypographyBold {
-	font-weight: bold;
+	font-weight: 600;
 }
 
 /// Make something italic
@@ -21,24 +21,24 @@
 
 /// Superscript text
 @mixin oTypographySuper {
+	@include oTypographyAlpha(4);
 	display: inline-block;
 	margin-top: -3px;
-	font-size: 0.75em;
 	vertical-align: super;
 }
 
 /// Subscript text
 @mixin oTypographySub {
+	@include oTypographyAlpha(4);
 	display: inline-block;
 	margin-bottom: -5px;
-	font-size: 0.75em;
 	vertical-align: sub;
 }
 
 /// Link styles
 @mixin oTypographyBodyLink {
-	text-decoration: none;
 	@include oColorsFor(link, text);
+	text-decoration: none;
 	cursor: pointer;
 
 	#{$o-hoverable-if-hover-enabled} &:hover {

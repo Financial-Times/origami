@@ -9,6 +9,10 @@
             "template": "demos/src/article.mustache"
         },
         {
+            "name": "body wrapper",
+            "template": "demos/src/body-wrapper.mustache"
+        },
+        {
             "name": "manage account",
             "template": "demos/src/manage-account.mustache"
         }
