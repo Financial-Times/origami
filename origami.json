@@ -14,37 +14,12 @@
     },
     "demos": [
         {
-            "path": "/demos/headings.html",
+            "path": "/demos/article.html",
             "expanded": true,
             "description": ""
         },
         {
-            "path": "/demos/titles.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/leads.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/metadata.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/body.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/labels.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/badges.html",
+            "path": "/demos/manage account.html",
             "expanded": true,
             "description": ""
         }
