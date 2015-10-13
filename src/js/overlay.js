@@ -1,6 +1,6 @@
 'use strict';
 
-var Delegate = require('dom-delegate');
+var Delegate = require('ftdomdelegate');
 var viewport = require('o-viewport');
 var oLayers = require('o-layers');
 var utils = require('./utils');
