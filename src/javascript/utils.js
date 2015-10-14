@@ -9,7 +9,7 @@ const settings = require('./core/settings');
 /**
  * CUID Generator
  */
-const cuid = require('cuid');
+const cuid = require('../libs/browser-cuid');
 
 /**
  * Record of callbacks to call when a page is tracked.
