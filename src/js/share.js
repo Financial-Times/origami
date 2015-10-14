@@ -34,10 +34,9 @@ function Share(rootEl, config) {
 	  *
 	  * @private
 	  */
-	function dispatchCustomEvent(event, data, namespace) {
-		namespace = namespace || 'oShare';
+	function dispatchCustomEvent(event, data = {}, namespace = 'oShare') {
 		oShare.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
-			detail: data || {},
+			detail: data,
 			bubbles: true
 		}));
 	}
@@ -50,15 +49,15 @@ function Share(rootEl, config) {
 	function handleClick(ev) {
 		const actionEl = ev.target.closest('li.o-share__action');
 
-		dispatchCustomEvent('event', {
-			category: 'share',
-			action: 'click',
-			button: actionEl.textContent.trim().toLowerCase()
-		}, 'oTracking');
-
 		if (oShare.rootEl.contains(actionEl) && actionEl.querySelector('a[href]')) {
 			ev.preventDefault();
 			const url = actionEl.querySelector('a[href]').href;
+
+			dispatchCustomEvent('event', {
+				category: 'share',
+				action: 'click',
+				button: actionEl.textContent.trim().toLowerCase()
+			}, 'oTracking');
 
 			if (actionEl.classList.contains('o-share__action--url')) {
 				copyLink(url, actionEl);
