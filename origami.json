@@ -4,6 +4,11 @@
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-tracking/issues",
     "supportStatus": "active",
+    "browserFeatures": {
+        "required": [
+            "CustomEvent"    
+        ]  
+    },
     "demos": [
         {
             "path": "/demos/json-config.html",
