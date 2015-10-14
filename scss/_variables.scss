@@ -19,14 +19,8 @@ $_o-ft-icons-font-name: 'ft-icons';
 /// @type Bool
 $_o-ft-icons-font-face-already-output: false;
 
-/// Have the base icon styles already been output?
+/// Have the base styles already been output?
 ///
 /// @access private
 /// @type Bool
-$_o-ft-icons-base-icons-already-output: false;
-
-/// Have the base icon styles already been output?
-///
-/// @access private
-/// @type List
-$_o-ft-icons-icon-already-output: ();
+$_o-ft-icons-base-styles-already-output: false !default;
