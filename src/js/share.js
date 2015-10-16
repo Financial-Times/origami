@@ -30,13 +30,13 @@ function Share(rootEl, config) {
 	const openWindows = {};
 
 	/**
-	  * Helper function to dispatch oShare namespaced events
+	  * Helper function to dispatch namespaced events, namespace defaults to oShare
 	  *
 	  * @private
 	  */
-	function dispatchCustomEvent(name, data) {
-		oShare.rootEl.dispatchEvent(new CustomEvent('oShare.' + name, {
-			detail: data || {},
+	function dispatchCustomEvent(event, data = {}, namespace = 'oShare') {
+		oShare.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
+			detail: data,
 			bubbles: true
 		}));
 	}
@@ -52,6 +52,12 @@ function Share(rootEl, config) {
 		if (oShare.rootEl.contains(actionEl) && actionEl.querySelector('a[href]')) {
 			ev.preventDefault();
 			const url = actionEl.querySelector('a[href]').href;
+
+			dispatchCustomEvent('event', {
+				category: 'share',
+				action: 'click',
+				button: actionEl.textContent.trim().toLowerCase()
+			}, 'oTracking');
 
 			if (actionEl.classList.contains('o-share__action--url')) {
 				copyLink(url, actionEl);
