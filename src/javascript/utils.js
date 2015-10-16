@@ -7,6 +7,11 @@
 const settings = require('./core/settings');
 
 /**
+ * CUID Generator
+ */
+const cuid = require('../libs/browser-cuid');
+
+/**
  * Record of callbacks to call when a page is tracked.
  */
 const page_callbacks = [];
@@ -92,59 +97,6 @@ function encode(str) {
 	} else {
 		return window.escape(str);
 	}
-}
-
-/**
- * Generate a GUID.
- * @return {string} - The GUID
- */
-function guid() {
-	let unique = '';
-	let randomVals;
-	let hasWindowCtypto = false;
-	let i;
-
-	try {
-
-		// HACK:JC:20130313: The Firefox OS simulator throws an error on trying to access the window.crypto property.
-		hasWindowCtypto = !!(window.crypto && window.crypto.getRandomValues);
-	} catch (e) {}
-
-	if (hasWindowCtypto) {
-
-		// If available, use numbers which are more random
-		randomVals = new Uint8Array(32);
-		window.crypto.getRandomValues(randomVals);
-	} else {
-
-		// Fall back to Math.random on error or if window.crypto not available
-		randomVals = new Array(32);
-		for (i = 0; i < 32; i++) {
-			randomVals[i] = Math.random() * 256 | 0;
-		}
-	}
-
-	// Construct a UUID based on rfc4122 version 4
-	for (i = 0; i < 32; i++) {
-
-		// The following characters are preceded by a hyphen
-		if (i === 8 || i === 12 || i === 16 || i === 20) {
-			unique += "-";
-		}
-
-		// 12th character must be a 4
-		if (i === 12) {
-			unique += "4";
-		} else if (i === 16) {
-			// 16th character must be an 8, 9, A or B
-			unique += ((randomVals[i] / 16) & 0x3 | 0x8).toString(16);
-		} else {
-			// Other characters must be hexadecimal
-			unique += (randomVals[i] / 16 | 0).toString(16);
-		}
-	}
-
-	return unique;
 }
 
 /*
@@ -249,7 +201,7 @@ module.exports = {
 	isUndefined: is,
 	merge: merge,
 	encode: encode,
-	guid: guid,
+	guid: cuid,
 	addEvent: addEvent,
 	broadcast: broadcast,
 	onPage: onPage,

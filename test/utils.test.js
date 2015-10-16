@@ -39,8 +39,8 @@ describe('Utils', function () {
 
 	it('should provide guid generation', function () {
 		const guid = Utils.guid();
-		const re = /^\w{8}-\w{4}-4\w{3}-\w{4}-\w{12}$/;
-		assert.ok(re.test(guid), 'Guid ' + guid + 'should match ' + /^\w{8}-\w{4}-4\w{3}-\w{4}-\w{8}$/);
+		const re = /^\w{25}$/; // cifnulwv2000030ds4avpbm9f
+		assert.ok(re.test(guid), 'Guid ' + guid + 'should match ' + /^\w{25}$/);
 	});
 
 	describe('internal page event', function () {
