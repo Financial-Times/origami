@@ -5,6 +5,18 @@
     },
     "demos": [
         {
+            "name": "headings",
+            "template": "demos/src/headings.mustache"
+        },
+        {
+            "name": "leads",
+            "template": "demos/src/leads.mustache"
+        },
+        {
+            "name": "body",
+            "template": "demos/src/body.mustache"
+        },
+        {
             "name": "article",
             "template": "demos/src/article.mustache"
         },

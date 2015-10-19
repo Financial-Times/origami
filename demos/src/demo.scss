@@ -47,25 +47,24 @@ html {
 	}
 }
 
-
-.demo-section-heading {
+.section-heading {
 	@include oTypographyAlpha(2);
 	@include oTypographyHeadingSeparator;
 	margin: 0 0 0.5em;
 }
 
-.demo-section-sub-heading {
+.section-sub-heading {
 	@include oTypographyBravo(3);
 	color: oColorsGetPaletteColor('claret');
 	margin: 0;
 }
 
-.demo-description-list {
+.left-right-list {
 	@include oTypographyBodyBlock;
 	overflow: hidden;
 }
 
-.demo-description-list__term {
+.left-right-list__term {
 	@include oTypographyBravo(4);
 
 	//Ideally this would be using oGridRespondTo to get the layout size, but for demo purposes we'll use a normal media query
@@ -77,7 +76,7 @@ html {
 	}
 }
 
-.demo-description-list__description {
+.left-right-list__description {
 	@include oTypographyAlpha(4);
 	@media (min-width: 600px) {
 		float: right;
@@ -85,22 +84,22 @@ html {
 	}
 }
 
-.demo-key-value-list {
+.key-value-list {
 	display: table;
 	list-style: none;
 	padding: 0;
 }
 
-.demo-key-value-list__item {
+.key-value-list__item {
 	display: table-row;
 }
 
-.demo-key-value-list__label,
-.demo-key-value-list__value {
+.key-value-list__label,
+.key-value-list__value {
 	display: table-cell;
 }
 
-.demo-key-value-list__label {
+.key-value-list__label {
 	@include oTypographyBravo(3);
 	padding-right: 20px;
 
@@ -109,6 +108,6 @@ html {
 	}
 }
 
-.demo-key-value-list__value {
+.key-value-list__value {
 	@include oTypographyAlpha(3);
 }

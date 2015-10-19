@@ -14,14 +14,6 @@ We’re using a matrix of font variants in order to standardize typography acros
 
 [![Font system](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/font-matrix.png)](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/font-matrix.png)
 
-
-### Web fonts
-
-o-typography **does not load web fonts**, products should load web fonts themselves.
-
-**Load FT's custom web fonts using [o-fonts](https://github.com/financial-times/o-fonts).**
-
-
 ### Recommended setup
 
 ```
@@ -91,7 +83,7 @@ Foxtrot   | `@include oTypographyFoxtrot([1-5])` | `@include oTypographyFoxtrotS
 
 Example, using the font system in Sass
 
-```
+```scss
 .component__text {
 	@include oTypographyAlpha(3);
 	color: #505050;
@@ -114,8 +106,8 @@ The module defines a small number of common typographic use cases that can be in
 For wrappers:
 
 ```scss
-.article {
-	@include oTypographyArticleBodyWrapper;
+.article__body {
+	@include oTypographyBodyWrapper;
 }
 ```
 
@@ -133,6 +125,12 @@ $o-typography-is-silent: false;
 
 @import 'o-typography/main';
 ```
+
+### Web fonts
+
+When running in silent mode, o-typography will only load fonts which are required by the mixins you include.
+
+When running in non-silent mode, o-typography loads all web fonts required by the module.
 
 ----
 
