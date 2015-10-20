@@ -33,49 +33,85 @@ $o-fonts-families: (
 );
 
 $font-scale: (
-	alpha: (
-		1: (font-size: 40, line-height: 40),
-		2: (font-size: 26, line-height: 27),
-		3: (font-size: 20, line-height: 24),
-		4: (font-size: 15, line-height: 17),
-		5: (font-size: 12, line-height: 12)
+	sans: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 27),
+		m: (font-size: 20, line-height: 24),
+		s: (font-size: 15, line-height: 17),
+		xs: (font-size: 12, line-height: 12)
 	),
-	bravo: (
-		1: (font-size: 40, line-height: 40),
-		2: (font-size: 26, line-height: 27),
-		3: (font-size: 20, line-height: 22),
-		4: (font-size: 15, line-height: 17),
-		5: (font-size: 12, line-height: 12)
+	sansBold: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 27),
+		m: (font-size: 20, line-height: 22),
+		s: (font-size: 15, line-height: 17),
+		xs: (font-size: 12, line-height: 12)
 	),
-	charlie: (
-		1: (font-size: 40, line-height: 40),
-		2: (font-size: 26, line-height: 27),
-		3: (font-size: 22, line-height: 24),
-		4: (font-size: 15, line-height: 17),
-		5: (font-size: 12, line-height: 12)
+	serif: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 31),
+		m: (font-size: 20, line-height: 24),
+		s: (font-size: 16, line-height: 19),
+		xs: (font-size: 12, line-height: 12)
 	),
-	delta: (
-		1: (font-size: 40, line-height: 40),
-		2: (font-size: 26, line-height: 27),
-		3: (font-size: 20, line-height: 22),
-		4: (font-size: 15, line-height: 17),
-		5: (font-size: 12, line-height: 12)
+	serifBold: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 31),
+		m: (font-size: 20, line-height: 24),
+		s: (font-size: 16, line-height: 19),
+		xs: (font-size: 12, line-height: 12)
 	),
-	echo: (
-		1: (font-size: 40, line-height: 40),
-		2: (font-size: 26, line-height: 27),
-		3: (font-size: 20, line-height: 22),
-		4: (font-size: 15, line-height: 17),
-		5: (font-size: 12, line-height: 12)
+	serifItalic: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 27),
+		m: (font-size: 22, line-height: 22),
+		s: (font-size: 15, line-height: 17),
+		xs: (font-size: 12, line-height: 12)
 	),
-	foxtrot: (
-		1: (font-size: 40, line-height: 40),
-		2: (font-size: 26, line-height: 31),
-		3: (font-size: 20, line-height: 24),
-		4: (font-size: 16, line-height: 19),
-		5: (font-size: 12, line-height: 12)
+	serifDisplay: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 31),
+		m: (font-size: 20, line-height: 24),
+		s: (font-size: 16, line-height: 19),
+		xs: (font-size: 12, line-height: 12)
+	),
+	serifDisplayBold: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 31),
+		m: (font-size: 20, line-height: 24),
+		s: (font-size: 16, line-height: 19),
+		xs: (font-size: 12, line-height: 12)
+	),
+	serifDisplayItalic: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 27),
+		m: (font-size: 22, line-height: 22),
+		s: (font-size: 15, line-height: 17),
+		xs: (font-size: 12, line-height: 12)
+	),
+	sansData: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 27),
+		m: (font-size: 20, line-height: 24),
+		s: (font-size: 15, line-height: 17),
+		xs: (font-size: 12, line-height: 12)
+	),
+	sansDataBold: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 27),
+		m: (font-size: 20, line-height: 22),
+		s: (font-size: 15, line-height: 17),
+		xs: (font-size: 12, line-height: 12)
+	),
+	sansDataItalic: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 27),
+		m: (font-size: 20, line-height: 24),
+		s: (font-size: 15, line-height: 17),
+		xs: (font-size: 12, line-height: 12)
 	)
 );
 
-$o-typography-serif: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default;
-$o-typography-sans-serif: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;
+$o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;
+$o-typography-serif: oFontsGetFontFamilyWithFallbacks(FinancierTextWeb) !default;
+$o-typography-serif-display: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default;

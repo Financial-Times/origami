@@ -11,35 +11,35 @@
 
 /// h1 styles
 @mixin oTypographyHeading1 {
-	@include oTypographyFoxtrot(1);
+	@include oTypographySerifDisplay(xl);
 	margin: 0 0 8px;
 }
 
 /// h2 styles
 @mixin oTypographyHeading2 {
-	@include oTypographyFoxtrot(2);
+	@include oTypographySerifDisplay(l);
 	margin: 0;
 }
 
 /// h3 styles
 @mixin oTypographyHeading3 {
-	@include oTypographyFoxtrot(3);
+	@include oTypographySerifDisplay(m);
 	margin: 0;
 }
 
 /// h4 styles
 @mixin oTypographyHeading4 {
-	@include oTypographyFoxtrot(4);
+	@include oTypographySerifDisplay(s);
 	margin: 0;
 }
 
 /// h5 styles
 @mixin oTypographyHeading5 {
-	@include oTypographyFoxtrot(4);
+	@include oTypographySerifDisplay(xs);
 }
 
 @mixin oTypographyFlyline {
-	@include oTypographyBravo(4);
+	@include oTypographySansBold(s);
 	text-transform: uppercase;
 	margin-bottom: 5px;
 	letter-spacing: 1px;

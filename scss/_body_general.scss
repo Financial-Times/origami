@@ -7,19 +7,18 @@
 ///
 /// @todo what is the difference between this and the other leader styles?
 @mixin oTypographyBodyLead {
-	@include oTypographyDelta(2);
-	// @include oColorsFor(o-typography-body-lead body, text);
+	@include oTypographySerifDisplayItalic(l);
 	margin: 0;
 }
 
 @mixin oTypographyBodyLeadSmall {
-	@include oTypographyDelta(3);
+	@include oTypographySerifDisplayItalic(m);
 	margin: 0;
 }
 
 /// General body text (apply to body tag)
 @mixin oTypographyBody {
-	@include oTypographyAlpha(3);
+	@include oTypographySans(m);
 	@include oColorsFor(body, text);
 	margin: 0.3em 0 0.8em;
 }

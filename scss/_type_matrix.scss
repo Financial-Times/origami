@@ -5,65 +5,116 @@
 
 // Typographic matrix
 
-// Alpha
-@mixin oTypographyAlphaSize($level) {
-	@include font-size(get-font-size(alpha, $level), get-line-height(alpha, $level));
+// Sans
+@mixin oTypographySansSize($level) {
+	@include font-size(get-font-size(sans, $level), get-line-height(sans, $level));
 }
-@mixin oTypographyAlpha($level) {
-	@include oTypographyAlphaSize($level);
-	font-family: $o-typography-sans-serif;
+@mixin oTypographySans($level) {
+	@include oTypographySansSize($level);
+	font-family: $o-typography-sans;
 	font-weight: oFontsWeight(light);
 }
 
-// Bravo
-@mixin oTypographyBravoSize($level) {
-	@include font-size(get-font-size(bravo, $level), get-line-height(bravo, $level));
+// Sans bold
+@mixin oTypographySansBoldSize($level) {
+	@include font-size(get-font-size(sansBold, $level), get-line-height(sansBold, $level));
 }
-@mixin oTypographyBravo($level) {
-	@include oTypographyBravoSize($level);
-	font-family: $o-typography-sans-serif;
+@mixin oTypographySansBold($level) {
+	@include oTypographySansBoldSize($level);
+	font-family: $o-typography-sans;
 	font-weight: oFontsWeight(semibold);
 }
 
-// Charlie
-@mixin oTypographyCharlieSize($level) {
-	@include font-size(get-font-size(charlie, $level), get-line-height(charlie, $level));
+//Sans data
+@mixin oTypographySansDataSize($level) {
+	@include font-size(get-font-size(sansData, $level), get-line-height(sansData, $level));
 }
-@mixin oTypographyCharlie($level) {
-	@include oTypographyCharlieSize($level);
-	font-family: $o-typography-serif;
-	font-style: italic;
-	font-weight: oFontsWeight(medium);
-}
-
-// Delta
-@mixin oTypographyDeltaSize($level) {
-	@include font-size(get-font-size(delta, $level), get-line-height(delta, $level));
-}
-@mixin oTypographyDelta($level) {
-	@include oTypographyDeltaSize($level);
-	font-family: $o-typography-serif;
-	font-style: italic;
-	font-weight: oFontsWeight(light);
+@mixin oTypographySansData($level) {
+	@include oTypographySansDataSize($level);
+	font-family: $o-typography-sans; //@todo Change this to data font
+	font-weight: oFontsWeight(regular);
 }
 
-// Echo
-@mixin oTypographyEchoSize($level) {
-	@include font-size(get-font-size(echo, $level), get-line-height(echo, $level));
+//Sans data bold
+@mixin oTypographySansDataBoldSize($level) {
+	@include font-size(get-font-size(sansDataBold, $level), get-line-height(sansDataBold, $level));
 }
-@mixin oTypographyEcho($level) {
-	@include oTypographyEchoSize($level);
-	font-family: $o-typography-sans-serif;
-	font-style: italic;
-	font-weight: oFontsWeight(light);
+@mixin oTypographySansDataBold($level) {
+	@include oTypographySansDataBoldSize($level);
+	font-family: $o-typography-sans;
+	font-weight: oFontsWeight(semibold);
 }
 
-// Foxtrot
-@mixin oTypographyFoxtrotSize($level) {
-	@include font-size(get-font-size(foxtrot, $level), get-line-height(foxtrot, $level));
+//Sans data italic
+@mixin oTypographySansDataItalicSize($level) {
+	@include font-size(get-font-size(sansDataItalic, $level), get-line-height(sansDataItalic, $level));
 }
-@mixin oTypographyFoxtrot($level) {
-	@include oTypographyFoxtrotSize($level);
+@mixin oTypographySansDataItalic($level) {
+	@include oTypographySansDataItalicSize($level);
+	font-family: $o-typography-sans;
+	font-weight: oFontsWeight(regular);
+}
+
+
+// Serif
+@mixin oTypographySerifSize($level) {
+	@include font-size(get-font-size(serif, $level), get-line-height(serif, $level));
+}
+@mixin oTypographySerif($level) {
+	@include oTypographySerifSize($level);
 	font-family: $o-typography-serif;
 	font-weight: oFontsWeight(regular);
 }
+
+// Serif bold
+@mixin oTypographySerifBoldSize($level) {
+	@include font-size(get-font-size(serifBold, $level), get-line-height(serifBold, $level));
+}
+@mixin oTypographySerifBold($level) {
+	@include oTypographySerifBoldSize($level);
+	font-family: $o-typography-serif;
+	font-weight: oFontsWeight(bold);
+}
+
+// Serif italic
+@mixin oTypographySerifItalicSize($level) {
+	@include font-size(get-font-size(serifItalic, $level), get-line-height(serifItalic, $level));
+}
+@mixin oTypographySerifItalic($level) {
+	@include oTypographySerifItalicSize($level);
+	font-family: $o-typography-serif;
+	font-style: italic;
+	font-weight: oFontsWeight(light);
+}
+
+// Serif display
+@mixin oTypographySerifDisplaySize($level) {
+	@include font-size(get-font-size(serifDisplay, $level), get-line-height(serifDisplay, $level));
+}
+@mixin oTypographySerifDisplay($level) {
+	@include oTypographySerifDisplaySize($level);
+	font-family: $o-typography-serif-display;
+	font-weight: oFontsWeight(regular);
+}
+
+//serif display bold
+@mixin oTypographySerifDisplayBoldSize($level) {
+	@include font-size(get-font-size(serifDisplayBold, $level), get-line-height(serifDisplayBold, $level));
+}
+@mixin oTypographySerifDisplayBold($level) {
+	@include oTypographySerifDisplayBoldSize($level);
+	font-family: $o-typography-serif-display;
+	font-weight: oFontsWeight(bold);
+}
+
+// Serif display italic
+@mixin oTypographySerifDisplayItalicSize($level) {
+	@include font-size(get-font-size(serifDisplayItalic, $level), get-line-height(serifDisplayItalic, $level));
+}
+@mixin oTypographySerifDisplayItalic($level) {
+	@include oTypographySerifDisplayItalicSize($level);
+	font-family: $o-typography-serif-display;
+	font-style: italic;
+	font-weight: oFontsWeight(light);
+}
+

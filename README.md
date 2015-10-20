@@ -18,7 +18,7 @@ We’re using a matrix of font variants in order to standardize typography acros
 
 ```
 html {
-	font-family: $o-typography-sans-serif;
+	font-family: $o-typography-sans;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%
 	-webkit-font-smoothing: antialiased;
@@ -72,20 +72,25 @@ If you don't want to include the pre-defined classes in your HTML (or are a modu
 
 The font system is a matrix which defines small building blocks that can used as a base for typographic elements. Having a small subset of sizes and styles allows for greater consistency.
 
-Type name |         Standard mixin         |    Size/Line-height only mixin
-----------| ------------------------------ | -----------------------------------
-Alpha     | `@include oTypographyAlpha([1-5])`   | `@include oTypographyAlphaSize([1-5])`
-Bravo     | `@include oTypographyBravo([1-5])`   | `@include oTypographyBravoSize([1-5])`
-Charlie   | `@include oTypographyCharlie([1-5])` | `@include oTypographyCharlieSize([1-5])`
-Delta     | `@include oTypographyDelta([1-5])`   | `@include oTypographyDeltaSize([1-5])`
-Echo      | `@include oTypographyEcho([1-5])`    | `@include oTypographyEchoSize([1-5])`
-Foxtrot   | `@include oTypographyFoxtrot([1-5])` | `@include oTypographyFoxtrotSize([1-5])`
+Type name          | Standard mixin                                  | Size/Line-height only mixin
+-------------------| ----------------------------------------------- | -----------------------------------
+Sans               | `@include oTypographySans([1-5])`               | `@include oTypographySans([1-5])`
+SansBold           | `@include oTypographySansBold([1-5])`           | `@include oTypographySansBold([1-5])`
+SansData           | `@include oTypographySansData([1-5])`           | `@include oTypographySansData([1-5])`
+SansDataBold       | `@include oTypographySansDataBold([1-5])`       | `@include oTypographySansDataBold([1-5])`
+SansDataItalic     | `@include oTypographySansDataItalic([1-5])`     | `@include oTypographySansDataItalic([1-5])`
+Serif              | `@include oTypographySerif([1-5])`              | `@include oTypographySerif([1-5])`
+SerifBold          | `@include oTypographySerifBold([1-5])`          | `@include oTypographySerifBold([1-5])`
+SerifItalic        | `@include oTypographySerifItalic([1-5])`        | `@include oTypographySerifItalic([1-5])`
+SerifDisplay       | `@include oTypographySerifDisplay([1-5])`       | `@include oTypographySerifDisplay([1-5])`
+SerifDisplayBold   | `@include oTypographySerifDisplayBold([1-5])`   | `@include oTypographySerifDisplayBold([1-5])`
+SerifDisplayItalic | `@include oTypographySerifDisplayItalic([1-5])` | `@include oTypographySerifDisplayItalic([1-5])`
 
 Example, using the font system in Sass
 
 ```scss
 .component__text {
-	@include oTypographyAlpha(3);
+	@include oTypographySans(3);
 	color: #505050;
 }
 ```

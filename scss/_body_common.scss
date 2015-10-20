@@ -16,12 +16,12 @@
 /// Small text
 @mixin oTypographySmall {
 	@include oTypographyBodyBlock;
-	@include oTypographyAlpha(4);
+	@include oTypographySans(s);
 }
 
 /// Superscript text
 @mixin oTypographySuper {
-	@include oTypographyAlpha(4);
+	@include oTypographySans(s);
 	display: inline-block;
 	margin-top: -3px;
 	vertical-align: super;
@@ -29,7 +29,7 @@
 
 /// Subscript text
 @mixin oTypographySub {
-	@include oTypographyAlpha(4);
+	@include oTypographySans(s);
 	display: inline-block;
 	margin-bottom: -5px;
 	vertical-align: sub;
@@ -48,6 +48,6 @@
 
 // Caption
 @mixin oTypographyCaption {
-	@include oTypographyAlpha(4);
+	@include oTypographySans(s);
 	@include oTypographyBodyBlock;
 }
