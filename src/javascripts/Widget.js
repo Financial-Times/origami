@@ -213,6 +213,10 @@ function Widget () {
 										self.ui.moveCommentCountOut();
 									}
 
+									if (envConfig.get().showEnvironment === true) {
+										self.ui.showEnvironment(envConfig.get().livefyre.network);
+									}
+
 									auth.login(function (loggedIn, authData) {
 										if (!authData) {
 											authData = null;
