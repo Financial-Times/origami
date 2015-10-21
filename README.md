@@ -13,10 +13,10 @@ This module provides styles for Headings, Titles, Leads and body content.
 We’re using a matrix of font variants in order to standardize typography across the site. This provides a common language and helps to avoid inconsistencies.
 
 #### Sans
-[![Font system sans](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/font-matrix.png)](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/matrix-sans.png)
+[![Font system sans](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/matrix-sans.png)](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/matrix-sans.png)
 
 #### Serif
-[![Font system serif](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/font-matrix.png)](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/matrix-serif.png)
+[![Font system serif](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/matrix-serif.png)](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/matrix-serif.png)
 
 ### Recommended setup
 
