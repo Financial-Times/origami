@@ -47,6 +47,27 @@ $font-scale: (
 		s: (font-size: 15, line-height: 17),
 		xs: (font-size: 12, line-height: 12)
 	),
+	sansData: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 27),
+		m: (font-size: 20, line-height: 24),
+		s: (font-size: 15, line-height: 17),
+		xs: (font-size: 12, line-height: 12)
+	),
+	sansDataBold: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 27),
+		m: (font-size: 20, line-height: 22),
+		s: (font-size: 15, line-height: 17),
+		xs: (font-size: 12, line-height: 12)
+	),
+	sansDataItalic: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 27),
+		m: (font-size: 20, line-height: 24),
+		s: (font-size: 15, line-height: 17),
+		xs: (font-size: 12, line-height: 12)
+	),
 	serif: (
 		xl: (font-size: 40, line-height: 40),
 		l: (font-size: 26, line-height: 31),
@@ -86,27 +107,6 @@ $font-scale: (
 		xl: (font-size: 40, line-height: 40),
 		l: (font-size: 26, line-height: 27),
 		m: (font-size: 22, line-height: 22),
-		s: (font-size: 15, line-height: 17),
-		xs: (font-size: 12, line-height: 12)
-	),
-	sansData: (
-		xl: (font-size: 40, line-height: 40),
-		l: (font-size: 26, line-height: 27),
-		m: (font-size: 20, line-height: 24),
-		s: (font-size: 15, line-height: 17),
-		xs: (font-size: 12, line-height: 12)
-	),
-	sansDataBold: (
-		xl: (font-size: 40, line-height: 40),
-		l: (font-size: 26, line-height: 27),
-		m: (font-size: 20, line-height: 22),
-		s: (font-size: 15, line-height: 17),
-		xs: (font-size: 12, line-height: 12)
-	),
-	sansDataItalic: (
-		xl: (font-size: 40, line-height: 40),
-		l: (font-size: 26, line-height: 27),
-		m: (font-size: 20, line-height: 24),
 		s: (font-size: 15, line-height: 17),
 		xs: (font-size: 12, line-height: 12)
 	)
