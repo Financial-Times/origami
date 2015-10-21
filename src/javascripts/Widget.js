@@ -319,7 +319,7 @@ function Widget () {
 	this.onError = function (err) {
 		self.ui.clearContainer();
 
-		if (typeof err !== 'object' || !err || err.unclassifiedArticle !== true || err.notAllowedToCreateCollection !== true) {
+		if (typeof err === 'object'&& err.unclassifiedArticle !== true && err.notAllowedToCreateCollection !== true) {
 			self.ui.addNotAvailableMessage();
 		}
 	};
