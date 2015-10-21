@@ -150,7 +150,7 @@ function Widget () {
 
 	this.render = function (initData, callback) {
 		if (initData && !destroyed) {
-			if (initData.unclassifiedArticle !== true) {
+			if (initData.unclassifiedArticle !== true && initData.metadataToken) {
 				resourceLoader.loadLivefyreCore(executeWhenNotDestroyed(function (err) {
 					if (err) {
 						self.trigger('error.widget', err);
@@ -303,9 +303,15 @@ function Widget () {
 					}));
 				}));
 			} else {
-				callback({
-					unclassifiedArticle: true
-				});
+				if (initData.unclassifiedArticle !== true) {
+					callback({
+						unclassifiedArticle: true
+					});
+				} else if (!initData.metadataToken) {
+					callback({
+						notAllowedToCreateCollection: true
+					});
+				}
 			}
 		}
 	};
