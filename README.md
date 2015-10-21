@@ -133,9 +133,9 @@ $o-typography-is-silent: false;
 
 ### Web fonts
 
-When running in silent mode, o-typography will only load fonts which are required by the mixins you include.
+When running in silent mode, o-typography does not load web fonts, products should load web fonts themselves. **Load FT's custom web fonts using [o-fonts](https://github.com/financial-times/o-fonts).**
 
-When running in non-silent mode, o-typography loads all web fonts required by the module.
+When running in non-silent mode, o-typography loads all web fonts which are used.
 
 ----
 

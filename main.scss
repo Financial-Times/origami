@@ -4,7 +4,9 @@
 @import 'guss-typography/typography';
 
 @import 'o-fonts/main';
-@include oFontsIncludeAll();
+@if $o-typography-is-silent == false {
+	@include oFontsIncludeAll();
+}
 
 @import 'scss/variables';
 @import 'scss/type_matrix';
