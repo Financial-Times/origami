@@ -78,23 +78,23 @@ The font system is a matrix which defines small building blocks that can used as
 
 Type name          | Standard mixin                                  | Size/Line-height only mixin
 -------------------| ----------------------------------------------- | -----------------------------------
-Sans               | `@include oTypographySans([1-5])`               | `@include oTypographySans([1-5])`
-SansBold           | `@include oTypographySansBold([1-5])`           | `@include oTypographySansBold([1-5])`
-SansData           | `@include oTypographySansData([1-5])`           | `@include oTypographySansData([1-5])`
-SansDataBold       | `@include oTypographySansDataBold([1-5])`       | `@include oTypographySansDataBold([1-5])`
-SansDataItalic     | `@include oTypographySansDataItalic([1-5])`     | `@include oTypographySansDataItalic([1-5])`
-Serif              | `@include oTypographySerif([1-5])`              | `@include oTypographySerif([1-5])`
-SerifBold          | `@include oTypographySerifBold([1-5])`          | `@include oTypographySerifBold([1-5])`
-SerifItalic        | `@include oTypographySerifItalic([1-5])`        | `@include oTypographySerifItalic([1-5])`
-SerifDisplay       | `@include oTypographySerifDisplay([1-5])`       | `@include oTypographySerifDisplay([1-5])`
-SerifDisplayBold   | `@include oTypographySerifDisplayBold([1-5])`   | `@include oTypographySerifDisplayBold([1-5])`
-SerifDisplayItalic | `@include oTypographySerifDisplayItalic([1-5])` | `@include oTypographySerifDisplayItalic([1-5])`
+Sans               | `@include oTypographySans([xl-xs])`               | `@include oTypographySans([xl-xs])`
+SansBold           | `@include oTypographySansBold([xl-xs])`           | `@include oTypographySansBold([xl-xs])`
+SansData           | `@include oTypographySansData([xl-xs])`           | `@include oTypographySansData([xl-xs])`
+SansDataBold       | `@include oTypographySansDataBold([xl-xs])`       | `@include oTypographySansDataBold([xl-xs])`
+SansDataItalic     | `@include oTypographySansDataItalic([xl-xs])`     | `@include oTypographySansDataItalic([xl-xs])`
+Serif              | `@include oTypographySerif([xl-xs])`              | `@include oTypographySerif([xl-xs])`
+SerifBold          | `@include oTypographySerifBold([xl-xs])`          | `@include oTypographySerifBold([xl-xs])`
+SerifItalic        | `@include oTypographySerifItalic([xl-xs])`        | `@include oTypographySerifItalic([xl-xs])`
+SerifDisplay       | `@include oTypographySerifDisplay([xl-xs])`       | `@include oTypographySerifDisplay([xl-xs])`
+SerifDisplayBold   | `@include oTypographySerifDisplayBold([xl-xs])`   | `@include oTypographySerifDisplayBold([xl-xs])`
+SerifDisplayItalic | `@include oTypographySerifDisplayItalic([xl-xs])` | `@include oTypographySerifDisplayItalic([xl-xs])`
 
 Example, using the font system in Sass
 
 ```scss
 .component__text {
-	@include oTypographySans(3);
+	@include oTypographySans(m);
 	color: #505050;
 }
 ```
