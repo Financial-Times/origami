@@ -69,8 +69,8 @@ function Tabs(rootEl) {
 			return;
 		}
 		// Get current scroll position
-		const x = window.scrollX;
-		const y = window.scrollY;
+		const x = window.scrollX || window.pageXOffset;
+		const y = window.scrollY || window.pageYOffset;
 
 		// Give focus to the panel for screen readers
 		// This might cause the browser to scroll up or down
