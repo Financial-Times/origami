@@ -93,7 +93,7 @@ element {
 
 		git clone https://github.com/Financial-Times/o-ft-icons.git
 		cd o-ft-icons
-		npm install
+		obt install
 
 3. Add or edit an SVG file to the `svg` folder (see [SVG file naming rules](#svg-file-naming-rules)).
 4. Generate the web font from the SVG sources:
