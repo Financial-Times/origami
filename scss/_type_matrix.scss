@@ -31,7 +31,7 @@
 }
 @mixin oTypographySansData($level) {
 	@include oTypographySansDataSize($level);
-	font-family: $o-typography-sans; //@todo Change this to data font
+	font-family: $o-typography-sans;
 	font-weight: oFontsWeight(regular);
 }
 
