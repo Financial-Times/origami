@@ -32,6 +32,7 @@ $o-fonts-families: (
 	)
 );
 
+// serifDisplayBoldItalic is deprecated and will be removed
 $font-scale: (
 	sans: (
 		xl: (font-size: 40, line-height: 40),
@@ -107,6 +108,13 @@ $font-scale: (
 		xl: (font-size: 40, line-height: 40),
 		l: (font-size: 26, line-height: 27),
 		m: (font-size: 22, line-height: 22),
+		s: (font-size: 15, line-height: 17),
+		xs: (font-size: 12, line-height: 12)
+	),
+	serifDisplayBoldItalic: (
+		xl: (font-size: 40, line-height: 40),
+		l: (font-size: 26, line-height: 27),
+		m: (font-size: 22, line-height: 24),
 		s: (font-size: 15, line-height: 17),
 		xs: (font-size: 12, line-height: 12)
 	)

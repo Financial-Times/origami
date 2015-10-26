@@ -24,7 +24,7 @@ We’re using a matrix of font variants in order to standardize typography acros
 html {
 	font-family: $o-typography-sans;
 	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%
+	-webkit-text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
