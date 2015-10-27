@@ -53,6 +53,7 @@
 	@include oTypographySansDataItalicSize($level);
 	font-family: $o-typography-sans;
 	font-weight: oFontsWeight(regular);
+	font-style: italic;
 }
 
 
