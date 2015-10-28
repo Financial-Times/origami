@@ -4,9 +4,6 @@
 @import 'guss-typography/typography';
 
 @import 'o-fonts/main';
-@if $o-typography-is-silent == false {
-	@include oFontsIncludeAll();
-}
 
 @import 'scss/variables';
 @import 'scss/type_matrix';
@@ -19,6 +16,8 @@
 @import 'scss/wrapped_general';
 
 @if $o-typography-is-silent == false {
+	@include oFontsIncludeAll();
+
 	// Headings
 	.o-typography-heading1 {
 		@include oTypographyHeading1;
@@ -37,23 +36,20 @@
 	}
 
 	// Body copy - common
-	.o-typography-body--bold {
+	.o-typography-bold {
 		@include oTypographyBold;
 	}
-	.o-typography-body--italic {
+	.o-typography-italic {
 		@include oTypographyItalic;
 	}
-	.o-typography-body--small {
-		@include oTypographySmall;
-	}
-	.o-typography-body--sup {
+	.o-typography-sup {
 		@include oTypographySuper;
 	}
-	.o-typography-body--sub {
+	.o-typography-sub {
 		@include oTypographySub;
 	}
-	.o-typography-body--link {
-		@include oTypographyBodyLink;
+	.o-typography-link {
+		@include oTypographyLink;
 	}
 	.o-typography-caption {
 		@include oTypographyCaption;
@@ -66,23 +62,23 @@
 	.o-typography-body {
 		@include oTypographyBody;
 	}
-	.o-typography-body__lead {
-		@include oTypographyBodyLead;
+	.o-typography-lead {
+		@include oTypographyLead;
 	}
-	.o-typography-body__lead--small {
-		@include oTypographyBodyLeadSmall;	
+	.o-typography-lead--small {
+		@include oTypographyLeadSmall;	
 	}
-	.o-typography-body__block {
+	.o-typography-block {
 		@include oTypographyBodyBlock;
 	}
-	.o-typography-body__list {
-		@include oTypographyBodyList;
+	.o-typography-list {
+		@include oTypographyList;
 	}
-	.o-typography-body__list--ordered {
-		@include oTypographyBodyListOrdered;
+	.o-typography-list--ordered {
+		@include oTypographyListOrdered;
 	}
-	.o-typography-body__list--unordered {
-		@include oTypographyBodyListUnordered;
+	.o-typography-list--unordered {
+		@include oTypographyListUnordered;
 	}
 
 	// Body wrapper

@@ -6,25 +6,16 @@ html {
 	@include oColorsFor(page);
 	overflow-y: scroll;
 
-	// type defaults
 	font-family: $o-typography-sans;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 	text-rendering: optimizeSpeed;
 	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
 .demo {
 	// prevent images and media from expanding its container
-	img,
-	svg,
-	video,
-	object,
-	iframe,
-	figure,
-	figure img,
-	figure svg {
+	img {
 		max-width: 100%;
 		height: auto;
 		display: block;
@@ -40,16 +31,17 @@ html {
 }
 
 .demo-article {
-	margin: 10px 0;
+	margin: 10px 0;	
+}
 
-	&__body {
-		margin: 20px 0;
-	}
+.demo-article__body {
+	margin: 20px 0;
 }
 
 .section-heading {
 	@include oTypographySans(l);
-	@include oTypographyHeadingSeparator;
+	border-bottom: 1px solid oColorsGetPaletteColor('pink-tint3');
+	padding: 0 0 10px;
 	margin: 0 0 0.5em;
 }
 

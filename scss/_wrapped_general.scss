@@ -26,7 +26,7 @@
 	}
 
 	a {
-		@include oTypographyBodyLink;
+		@include oTypographyLink;
 	}
 
 	p {
@@ -36,7 +36,7 @@
 
 	ol,
 	ul {
-		@include oTypographyBodyList;
+		@include oTypographyList;
 	}
 
 	@include oTypographyCommonWrappedBodyStyles;

@@ -10,7 +10,7 @@ This module provides styles for Headings, Titles, Leads and body content.
 
 ### Font system
 
-We’re using a matrix of font variants in order to standardize typography across the site. This provides a common language and helps to avoid inconsistencies.
+We’re using a matrix of font variants in order to standardize typography across the site. This provides a common language and helps to avoid inconsistencies across sites.
 
 #### Sans
 [![Font system sans](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/matrix-sans.png)](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/matrix-sans.png)
@@ -18,19 +18,7 @@ We’re using a matrix of font variants in order to standardize typography acros
 #### Serif
 [![Font system serif](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/matrix-serif.png)](https://raw.githubusercontent.com/Financial-Times/o-typography/next-type/img/matrix-serif.png)
 
-### Recommended setup
-
-```
-html {
-	font-family: $o-typography-sans;
-	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-rendering: optimizeLegibility;
-	-moz-font-feature-settings: "liga" on;
-}
-```
+## Usage
 
 There are two main ways to use these typographic styles:
 
@@ -51,11 +39,10 @@ The classes do not depend on any specific HTML element, but appropriate semantic
 <h2 class="o-typography-heading2">Heading medium</h2>
 ```
 
-See docs/demo.html for a full list of the classes provided and their effects.
+See the [demos](http://registry.origami.ft.com/components/o-typography) for a full list of the classes provided and their effects.
 
+#### Wrapper
 In addition to applying classes individual to elements, body styles can be applied to an HTML element and descendent `h2, h3, p, a, strong, em, small, sup, sub, ul, ol, li` elements will have styling applied.
-
-body styles:
 
 ```html
 <div class="o-typography-body-wrapper">
@@ -78,17 +65,17 @@ The font system is a matrix which defines small building blocks that can used as
 
 Type name          | Standard mixin                                  | Size/Line-height only mixin
 -------------------| ----------------------------------------------- | -----------------------------------
-Sans               | `@include oTypographySans([xl-xs])`               | `@include oTypographySans([xl-xs])`
-SansBold           | `@include oTypographySansBold([xl-xs])`           | `@include oTypographySansBold([xl-xs])`
-SansData           | `@include oTypographySansData([xl-xs])`           | `@include oTypographySansData([xl-xs])`
-SansDataBold       | `@include oTypographySansDataBold([xl-xs])`       | `@include oTypographySansDataBold([xl-xs])`
-SansDataItalic     | `@include oTypographySansDataItalic([xl-xs])`     | `@include oTypographySansDataItalic([xl-xs])`
-Serif              | `@include oTypographySerif([xl-xs])`              | `@include oTypographySerif([xl-xs])`
-SerifBold          | `@include oTypographySerifBold([xl-xs])`          | `@include oTypographySerifBold([xl-xs])`
-SerifItalic        | `@include oTypographySerifItalic([xl-xs])`        | `@include oTypographySerifItalic([xl-xs])`
-SerifDisplay       | `@include oTypographySerifDisplay([xl-xs])`       | `@include oTypographySerifDisplay([xl-xs])`
-SerifDisplayBold   | `@include oTypographySerifDisplayBold([xl-xs])`   | `@include oTypographySerifDisplayBold([xl-xs])`
-SerifDisplayItalic | `@include oTypographySerifDisplayItalic([xl-xs])` | `@include oTypographySerifDisplayItalic([xl-xs])`
+Sans               | `@include oTypographySans([xl-xs])`               | `@include oTypographySansSize([xl-xs])`
+SansBold           | `@include oTypographySansBold([xl-xs])`           | `@include oTypographySansBoldSize([xl-xs])`
+SansData           | `@include oTypographySansData([xl-xs])`           | `@include oTypographySansDataSize([xl-xs])`
+SansDataBold       | `@include oTypographySansDataBold([xl-xs])`       | `@include oTypographySansDataBoldSize([xl-xs])`
+SansDataItalic     | `@include oTypographySansDataItalic([xl-xs])`     | `@include oTypographySansDataItalicSize([xl-xs])`
+Serif              | `@include oTypographySerif([xl-xs])`              | `@include oTypographySerifSize([xl-xs])`
+SerifBold          | `@include oTypographySerifBold([xl-xs])`          | `@include oTypographySerifBoldSize([xl-xs])`
+SerifItalic        | `@include oTypographySerifItalic([xl-xs])`        | `@include oTypographySerifItalicSize([xl-xs])`
+SerifDisplay       | `@include oTypographySerifDisplay([xl-xs])`       | `@include oTypographySerifDisplaySize([xl-xs])`
+SerifDisplayBold   | `@include oTypographySerifDisplayBold([xl-xs])`   | `@include oTypographySerifDisplayBoldSize([xl-xs])`
+SerifDisplayItalic | `@include oTypographySerifDisplayItalic([xl-xs])` | `@include oTypographySerifDisplayItalicSize([xl-xs])`
 
 Example, using the font system in Sass
 
@@ -107,12 +94,12 @@ The module defines a small number of common typographic use cases that can be in
 .article {
 	p,
 	blockquote {
-		@include oTypographyBodyBlock;
+		@include oTypographyBody;
 	}
 }
 ```
 
-For wrappers:
+For wrappers ([see wrapper section](#wrapper)):
 
 ```scss
 .article__body {

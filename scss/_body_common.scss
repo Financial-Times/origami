@@ -13,12 +13,6 @@
 	font-style: italic;
 }
 
-/// Small text
-@mixin oTypographySmall {
-	@include oTypographyBodyBlock;
-	@include oTypographySans(s);
-}
-
 /// Superscript text
 @mixin oTypographySuper {
 	@include oTypographySans(s);
@@ -36,7 +30,7 @@
 }
 
 /// Link styles
-@mixin oTypographyBodyLink {
+@mixin oTypographyLink {
 	@include oColorsFor(link, text);
 	text-decoration: none;
 	cursor: pointer;

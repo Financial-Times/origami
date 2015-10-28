@@ -17,10 +17,6 @@
 		@include oTypographyItalic;
 	}
 
-	small {
-		@include oTypographySmall;
-	}
-
 	sup {
 		@include oTypographySuper;
 	}
@@ -31,15 +27,15 @@
 
 	ol,
 	ul {
-		@include oTypographyBodyList;
+		@include oTypographyList;
 	}
 
 	ol {
-		@include oTypographyBodyListOrdered;
+		@include oTypographyListOrdered;
 	}
 
 	ul {
-		@include oTypographyBodyListUnordered;
+		@include oTypographyListUnordered;
 	}
 
 	figcaption {

@@ -3,12 +3,6 @@
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
-// A border at the bottom
-@mixin oTypographyHeadingSeparator() {
-	border-bottom: 1px solid oColorsGetPaletteColor('warm-3');
-	padding: 0 0 10px;
-}
-
 /// h1 styles
 @mixin oTypographyHeading1 {
 	@include oTypographySerifDisplay(xl);

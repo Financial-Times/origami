@@ -4,14 +4,12 @@
 ////
 
 /// General leader styles
-///
-/// @todo what is the difference between this and the other leader styles?
-@mixin oTypographyBodyLead {
+@mixin oTypographyLead {
 	@include oTypographySerifDisplayItalic(l);
 	margin: 0;
 }
 
-@mixin oTypographyBodyLeadSmall {
+@mixin oTypographyLeadSmall {
 	@include oTypographySerifDisplayItalic(m);
 	margin: 0;
 }
@@ -30,7 +28,7 @@
 }
 
 /// Styling for <ul> and <ol>
-@mixin oTypographyBodyList {
+@mixin oTypographyList {
 	list-style-position: outside;
 	padding-left: 20px;
 	font-weight: normal;
@@ -39,11 +37,11 @@
 }
 
 /// Styles for <ol> tags
-@mixin oTypographyBodyListOrdered {
+@mixin oTypographyListOrdered {
 	list-style-type: decimal;
 }
 
 /// Styles for <ul> tags
-@mixin oTypographyBodyListUnordered {
+@mixin oTypographyListUnordered {
 	list-style-type: disc;
 }
