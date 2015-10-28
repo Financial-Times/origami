@@ -116,4 +116,14 @@ describe("tabs behaviour", () => {
 
 	});
 
+	it("does not auto initialise when 'data-o-tabs-autoconstruct=false' is set", () => {
+		fixtures.reset();
+
+		fixtures.insertSimple();
+		tabsEl = document.querySelector('[data-o-component=o-tabs]');
+		tabsEl.setAttribute('data-o-tabs-autoconstruct', 'false');
+		Tabs.init();
+		expect(tabsEl.hasAttribute('data-o-tabs--js')).toBe(false);
+	});
+
 });
