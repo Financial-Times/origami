@@ -273,18 +273,21 @@ Overlay.prototype.close = function() {
 	this.delegates.doc.off();
 	this.delegates.wrap.off();
 	this.delegates.context.off();
-	this.context.removeChild(this.wrapper);
-	if (this.opts.modal) {
-		this.shadow.parentNode.removeChild(this.shadow);
-	}
-	this.visible = false;
-	this.broadcast('close', 'oLayers');
+
 	this.broadcast('destroy');
 	this.broadcast('event', 'oTracking', {
 		category: 'overlay',
 		action: 'close',
 		overlay_id: this.id
 	});
+
+	this.context.removeChild(this.wrapper);
+	if (this.opts.modal) {
+		this.shadow.parentNode.removeChild(this.shadow);
+	}
+
+	this.visible = false;
+	this.broadcast('close', 'oLayers');
 	return false;
 };
 
