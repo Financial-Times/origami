@@ -47,17 +47,24 @@ WOFF is supported in IE 9+, Chrome, Firefox, iOS 5+, Android 4.4+.
 
 ## Advanced usage<a name="advanced"></a>
 
-### Loading web fonts
+### Loading all the web fonts
 
 ```scss
-// @font-face declarations for all available families
 $o-fonts-is-silent: false;
-
 @import 'o-fonts/main';
+```
 
-// OR, output @font-face declarations for all available families
-// using the mixin instead of turning off silent mode:
+or
+
+```scss
+@import 'o-fonts/main';
 @include oFontsIncludeAll();
+```
+
+### Loading specific web fonts
+
+```scss
+@import 'o-fonts/main';
 
 // @font-face declarations for all Benton Sans weights
 @include oFontsInclude(BentonSans, light);
@@ -145,3 +152,11 @@ And a new entry in `demos/src/demo.scss`:
 	font-family: oFontsGetFontFamilyWithFallback(BentonSans);
 }
 ```
+
+----
+
+## License
+
+Copyright (c) 2015 Financial Times Ltd. All rights reserved.
+
+This software is published under the [MIT licence](http://opensource.org/licenses/MIT).

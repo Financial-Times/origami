@@ -50,7 +50,9 @@
 			$font-suffix: _oFontsStringCapitalise($weight);
 
 			@if ($style != 'normal') {
-				$font-suffix: #{_oFontsStringCapitalise($weight)}#{_oFontsStringCapitalise($style)};
+				$capitalised-weight: _oFontsStringCapitalise($weight);
+				$capitalised-style: _oFontsStringCapitalise($style);
+				$font-suffix: #{$capitalised-weight}#{$capitalised-style};
 			}
 
 			@font-face {
