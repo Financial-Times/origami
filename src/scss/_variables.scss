@@ -86,16 +86,3 @@ $_o-fonts-weights: (
 ///
 /// @access private
 $_o-fonts-families-included: () !default;
-
-// These variables are deprecated. Modules should use the oFontsGetFontFamilyWithFallbacks function instead.
-$o-fonts-sans-serif: oFontsGetFontFamilyWithFallbacks(BentonSans);
-$o-fonts-serif: Georgia, serif;
-$o-fonts-bentonsans-lighter: oFontsGetFontFamilyWithFallbacks(BentonSans);
-$o-fonts-bentonsans-normal: oFontsGetFontFamilyWithFallbacks(BentonSans);
-$o-fonts-bentonsans-bold: oFontsGetFontFamilyWithFallbacks(BentonSans);
-$o-fonts-millerdisplay-normal: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
-$o-fonts-millerdisplay-bold: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
-$o-fonts-millerdisplay-bolder: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
-$o-fonts-clarion-normal: $o-fonts-serif;
-$o-fonts-clarion-bold: $o-fonts-serif;
-$o-fonts-clarion-italic: $o-fonts-serif;
