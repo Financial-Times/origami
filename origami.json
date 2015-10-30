@@ -1,0 +1,14 @@
+{
+	"description": "Standard video player and controls",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-video/issues",
+	"supportStatus": "experimental",
+	"demos": [
+		{
+			"path": "/demos/demo.html",
+			"expanded": true,
+			"description": ""
+		}
+	]
+}
