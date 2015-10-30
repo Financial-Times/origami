@@ -1,11 +1,11 @@
 ////
-/// @group o-typography
+/// @group Use cases
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
 /// Make something bold
 @mixin oTypographyBold {
-	font-weight: bold;
+	font-weight: 600;
 }
 
 /// Make something italic
@@ -13,34 +13,35 @@
 	font-style: italic;
 }
 
-/// Small text
-@mixin oTypographySmall {
-	font-size: 0.75em;
-}
-
 /// Superscript text
 @mixin oTypographySuper {
+	@include oTypographySans(s);
 	display: inline-block;
 	margin-top: -3px;
-	font-size: 0.75em;
 	vertical-align: super;
 }
 
 /// Subscript text
 @mixin oTypographySub {
+	@include oTypographySans(s);
 	display: inline-block;
 	margin-bottom: -5px;
-	font-size: 0.75em;
 	vertical-align: sub;
 }
 
 /// Link styles
-@mixin oTypographyBodyLink {
-	text-decoration: none;
+@mixin oTypographyLink {
 	@include oColorsFor(link, text);
+	text-decoration: none;
 	cursor: pointer;
 
 	#{$o-hoverable-if-hover-enabled} &:hover {
 		@include oColorsFor(link-hover, text);
 	}
+}
+
+// Caption
+@mixin oTypographyCaption {
+	@include oTypographySans(s);
+	@include oTypographyBodyBlock;
 }

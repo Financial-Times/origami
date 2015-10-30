@@ -1,5 +1,5 @@
 ////
-/// @group o-typography
+/// @group Use cases
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
@@ -17,10 +17,6 @@
 		@include oTypographyItalic;
 	}
 
-	small {
-		@include oTypographySmall;
-	}
-
 	sup {
 		@include oTypographySuper;
 	}
@@ -29,11 +25,20 @@
 		@include oTypographySub;
 	}
 
+	ol,
+	ul {
+		@include oTypographyList;
+	}
+
 	ol {
-		@include oTypographyBodyListOrdered;
+		@include oTypographyListOrdered;
 	}
 
 	ul {
-		@include oTypographyBodyListUnordered;
+		@include oTypographyListUnordered;
+	}
+
+	figcaption {
+		@include oTypographyCaption;
 	}
 }

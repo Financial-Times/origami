@@ -1,0 +1,362 @@
+////
+/// @group Font system
+/// @link http://registry.origami.ft.com/components/o-typography
+////
+
+// Typographic matrix
+
+///
+/// Adjust size of sans
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySansSize(xl);
+///
+/// @requires {mixin} font-size
+/// @requires {function} get-font-size
+/// @requires {function} get-line-height 
+///
+@mixin oTypographySansSize($level) {
+	@include font-size(get-font-size(sans, $level), get-line-height(sans, $level));
+}
+
+///
+/// Adjust the font to sans and set the size / line-height
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySans(xl);
+///
+/// @requires {mixin} oTypographySansSize
+///
+@mixin oTypographySans($level) {
+	@include oTypographySansSize($level);
+	font-family: $o-typography-sans;
+	font-weight: oFontsWeight(light);
+}
+
+///
+/// Adjust size of sansBold
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySansBoldSize(xl);
+///
+/// @requires {mixin} font-size
+/// @requires {function} get-font-size
+/// @requires {function} get-line-height 
+///
+@mixin oTypographySansBoldSize($level) {
+	@include font-size(get-font-size(sansBold, $level), get-line-height(sansBold, $level));
+}
+
+///
+/// Adjust the font to sansBold and set the size / line-height
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySansBold(xl);
+///
+/// @requires {mixin} oTypographySansBoldSize
+///
+@mixin oTypographySansBold($level) {
+	@include oTypographySansBoldSize($level);
+	font-family: $o-typography-sans;
+	font-weight: oFontsWeight(semibold);
+}
+
+///
+/// Adjust size of sansData
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySansDataSize(xl);
+///
+/// @requires {mixin} font-size
+/// @requires {function} get-font-size
+/// @requires {function} get-line-height 
+///
+@mixin oTypographySansDataSize($level) {
+	@include font-size(get-font-size(sansData, $level), get-line-height(sansData, $level));
+}
+
+///
+/// Adjust the font to sansData and set the size / line-height
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySansData(xl);
+///
+/// @requires {mixin} oTypographySansDataSize
+///
+@mixin oTypographySansData($level) {
+	@include oTypographySansDataSize($level);
+	font-family: $o-typography-sans;
+	font-weight: oFontsWeight(regular);
+}
+
+///
+/// Adjust size of sansDataBold
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySansDataBoldSize(xl);
+///
+/// @requires {mixin} font-size
+/// @requires {function} get-font-size
+/// @requires {function} get-line-height 
+///
+@mixin oTypographySansDataBoldSize($level) {
+	@include font-size(get-font-size(sansDataBold, $level), get-line-height(sansDataBold, $level));
+}
+
+///
+/// Adjust the font to sansDataBold and set the size / line-height
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySansDataBold(xl);
+///
+/// @requires {mixin} oTypographySansDataBoldSize
+///
+@mixin oTypographySansDataBold($level) {
+	@include oTypographySansDataBoldSize($level);
+	font-family: $o-typography-sans;
+	font-weight: oFontsWeight(semibold);
+}
+
+///
+/// Adjust size of sansDataItalic
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySansDataItalicSize(xl);
+///
+/// @requires {mixin} font-size
+/// @requires {function} get-font-size
+/// @requires {function} get-line-height 
+///
+@mixin oTypographySansDataItalicSize($level) {
+	@include font-size(get-font-size(sansDataItalic, $level), get-line-height(sansDataItalic, $level));
+}
+
+///
+/// Adjust the font to sansDataItalic and set the size / line-height
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySansDataItalic(xl);
+///
+/// @requires {mixin} oTypographySansDataItalicSize
+///
+@mixin oTypographySansDataItalic($level) {
+	@include oTypographySansDataItalicSize($level);
+	font-family: $o-typography-sans;
+	font-weight: oFontsWeight(regular);
+	font-style: italic;
+}
+
+
+///
+/// Adjust size of serif
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySerifSize(xl);
+///
+/// @requires {mixin} font-size
+/// @requires {function} get-font-size
+/// @requires {function} get-line-height 
+///
+@mixin oTypographySerifSize($level) {
+	@include font-size(get-font-size(serif, $level), get-line-height(serif, $level));
+}
+
+///
+/// Adjust the font to serif and set the size / line-height
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySerif(xl);
+///
+/// @requires {mixin} oTypographySerifSize
+///
+@mixin oTypographySerif($level) {
+	@include oTypographySerifSize($level);
+	font-family: $o-typography-serif;
+	font-weight: oFontsWeight(regular);
+}
+
+///
+/// Adjust size of serifBold
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySerifBoldSize(xl);
+///
+/// @requires {mixin} font-size
+/// @requires {function} get-font-size
+/// @requires {function} get-line-height 
+///
+@mixin oTypographySerifBoldSize($level) {
+	@include font-size(get-font-size(serifBold, $level), get-line-height(serifBold, $level));
+}
+
+///
+/// Adjust the font to serifBold and set the size / line-height
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySerifBold(xl);
+///
+/// @requires {mixin} oTypographySerifBoldSize
+///
+@mixin oTypographySerifBold($level) {
+	@include oTypographySerifBoldSize($level);
+	font-family: $o-typography-serif;
+	font-weight: oFontsWeight(bold);
+}
+
+///
+/// Adjust size of serifItalic
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySerifItalicSize(xl);
+///
+/// @requires {mixin} font-size
+/// @requires {function} get-font-size
+/// @requires {function} get-line-height 
+///
+@mixin oTypographySerifItalicSize($level) {
+	@include font-size(get-font-size(serifItalic, $level), get-line-height(serifItalic, $level));
+}
+
+///
+/// Adjust the font to serifItalic and set the size / line-height
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySerifItalic(xl);
+///
+/// @requires {mixin} oTypographySerifItalicSize
+///
+@mixin oTypographySerifItalic($level) {
+	@include oTypographySerifItalicSize($level);
+	font-family: $o-typography-serif;
+	font-style: italic;
+	font-weight: oFontsWeight(light);
+}
+
+///
+/// Adjust size of serifDisplay
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySerifDisplaySize(xl);
+///
+/// @requires {mixin} font-size
+/// @requires {function} get-font-size
+/// @requires {function} get-line-height 
+///
+@mixin oTypographySerifDisplaySize($level) {
+	@include font-size(get-font-size(serifDisplay, $level), get-line-height(serifDisplay, $level));
+}
+
+///
+/// Adjust the font to serifDisplay and set the size / line-height
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySerifDisplay(xl);
+///
+/// @requires {mixin} oTypographySerifDisplaySize
+///
+@mixin oTypographySerifDisplay($level) {
+	@include oTypographySerifDisplaySize($level);
+	font-family: $o-typography-serif-display;
+	font-weight: oFontsWeight(regular);
+}
+
+///
+/// Adjust size of serifDisplayBold
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySerifDisplayBoldSize(xl);
+///
+/// @requires {mixin} font-size
+/// @requires {function} get-font-size
+/// @requires {function} get-line-height 
+///
+@mixin oTypographySerifDisplayBoldSize($level) {
+	@include font-size(get-font-size(serifDisplayBold, $level), get-line-height(serifDisplayBold, $level));
+}
+
+///
+/// Adjust the font to serifDisplayBold and set the size / line-height
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySerifDisplayBold(xl);
+///
+/// @requires {mixin} oTypographySerifDisplayBoldSize
+///
+@mixin oTypographySerifDisplayBold($level) {
+	@include oTypographySerifDisplayBoldSize($level);
+	font-family: $o-typography-serif-display;
+	font-weight: oFontsWeight(bold);
+}
+
+///
+/// Adjust size of serifDisplayItalic
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySerifDisplayItalicSize(xl);
+///
+/// @requires {mixin} font-size
+/// @requires {function} get-font-size
+/// @requires {function} get-line-height 
+///
+@mixin oTypographySerifDisplayItalicSize($level) {
+	@include font-size(get-font-size(serifDisplayItalic, $level), get-line-height(serifDisplayItalic, $level));
+}
+
+///
+/// Adjust the font to serifDisplayItalic and set the size / line-height
+///
+/// @param {String} $level - Accepts xl, l, m, s, xs
+///
+/// @example
+///  @include oTypographySerifDisplayItalic(xl);
+///
+/// @requires {mixin} oTypographySerifDisplayItalicSize
+///
+@mixin oTypographySerifDisplayItalic($level) {
+	@include oTypographySerifDisplayItalicSize($level);
+	font-family: $o-typography-serif-display;
+	font-style: italic;
+	font-weight: oFontsWeight(light);
+}

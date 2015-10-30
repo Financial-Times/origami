@@ -1,5 +1,5 @@
 ////
-/// @group o-typography
+/// @group Use cases
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
@@ -9,16 +9,24 @@
 /// @example scss
 /// article { @include oTypographyBodyWrapper; }
 @mixin oTypographyBodyWrapper {
+	h1 {
+		@include oTypographyHeading1;
+	}
+
 	h2 {
-		@include oTypographyHeading5;
+		@include oTypographyHeading2;
 	}
 
 	h3 {
-		@include oTypographyHeading6;
+		@include oTypographyHeading3;
+	}
+
+	h4 {
+		@include oTypographyHeading4;
 	}
 
 	a {
-		@include oTypographyBodyLink;
+		@include oTypographyLink;
 	}
 
 	p {
@@ -28,7 +36,7 @@
 
 	ol,
 	ul {
-		@include oTypographyBodyList;
+		@include oTypographyList;
 	}
 
 	@include oTypographyCommonWrappedBodyStyles;

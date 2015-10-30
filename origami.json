@@ -19,17 +19,7 @@
             "description": ""
         },
         {
-            "path": "/demos/titles.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
             "path": "/demos/leads.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/metadata.html",
             "expanded": true,
             "description": ""
         },
@@ -39,12 +29,17 @@
             "description": ""
         },
         {
-            "path": "/demos/labels.html",
+            "path": "/demos/article.html",
             "expanded": true,
             "description": ""
         },
         {
-            "path": "/demos/badges.html",
+            "path": "/demos/body-wrapper.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/manage-account.html",
             "expanded": true,
             "description": ""
         }

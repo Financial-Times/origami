@@ -2,21 +2,104 @@ $o-typography-is-silent: false;
 
 @import '../../main';
 
-.demo-row {
-	clear: both;
+html {
+	@include oColorsFor(page);
+	overflow-y: scroll;
+
+	font-family: $o-typography-sans;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	text-rendering: optimizeSpeed;
+	-webkit-font-smoothing: antialiased;
+}
+
+.demo {
+	// prevent images and media from expanding its container
+	img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+	figure {
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	a {
+		@include oColorsFor(link);
+	}
+}
+
+.demo-article {
+	margin: 10px 0;	
+}
+
+.demo-article__body {
+	margin: 20px 0;
+}
+
+.section-heading {
+	@include oTypographySans(l);
+	border-bottom: 1px solid oColorsGetPaletteColor('pink-tint3');
+	padding: 0 0 10px;
+	margin: 0 0 0.5em;
+}
+
+.section-sub-heading {
+	@include oTypographySansBold(m);
+	color: oColorsGetPaletteColor('claret');
+	margin: 0;
+}
+
+.left-right-list {
+	@include oTypographyBodyBlock;
 	overflow: hidden;
 }
 
-.demo-col {
-	float: left;
-	box-sizing: border-box;
-	width: 50%;
+.left-right-list__term {
+	@include oTypographySansBold(s);
+
+	//Ideally this would be using oGridRespondTo to get the layout size, but for demo purposes we'll use a normal media query
+	@media (min-width: 600px) {
+		float: left;
+		clear: both;
+		text-align: right;
+		margin-bottom: 5px;
+	}
 }
 
-.demo-col:first-child {
+.left-right-list__description {
+	@include oTypographySans(s);
+	@media (min-width: 600px) {
+		float: right;
+		text-align: right;
+	}
+}
+
+.key-value-list {
+	display: table;
+	list-style: none;
+	padding: 0;
+}
+
+.key-value-list__item {
+	display: table-row;
+}
+
+.key-value-list__label,
+.key-value-list__value {
+	display: table-cell;
+}
+
+.key-value-list__label {
+	@include oTypographySansBold(m);
 	padding-right: 20px;
+
+	&:after {
+		content: ':';
+	}
 }
 
-.demo-col:last-child {
-	padding-left: 20px;
+.key-value-list__value {
+	@include oTypographySans(m);
 }

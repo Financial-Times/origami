@@ -1,165 +1,47 @@
 ////
-/// @group o-typography
+/// @group Use cases
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
-/// Layout styles for heading level 1
-@mixin oTypographyHeading1Layout {
-	margin: 0 0 16px;
-	padding: 8px 0 7px;
-	border-top: 4px solid oColorsGetColorFor(o-typography-heading1 o-typography-heading-large body, border);
-	border-bottom: 1px dotted oColorsGetColorFor(o-typography-heading1 o-typography-heading-large body, border);
-}
-
-/// Text styles for heading level 1
-@mixin oTypographyHeading1Text {
-	font-family: BentonSans, sans-serif;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 20px;
-	@include oColorsFor(o-typography-heading1 o-typography-heading-large body, text);
-	@include _oTypographyLinkStyle(oColorsGetColorFor(o-typography-heading-large body, text), oColorsGetColorFor(link, text));
-}
-
-/// Layout styles for heading 2
-@mixin oTypographyHeading2Layout {
-	margin: 0 0 16px;
-	padding: 8px 0 7px;
-	border-top: 4px solid oColorsGetColorFor(o-typography-heading2 o-typography-heading-large body, border);
-	border-bottom: 1px dotted oColorsGetColorFor(o-typography-heading2 o-typography-heading-large body, border);
-}
-
-/// Text styles for heading level 2
-@mixin oTypographyHeading2Text {
-	font-family: BentonSans, sans-serif;
-	font-weight: bold;
-	text-transform: uppercase;
-	font-size: 13px;
-	line-height: 20px;
-	@include oColorsFor(o-typography-heading-large body, text);
-	@include _oTypographyLinkStyle(oColorsGetColorFor(o-typography-heading-large body, text), oColorsGetColorFor(link, text));
-}
-
-/// Layout styles for heading level 3 and 4
-@mixin oTypographyHeading3And4Layout {
-	margin-bottom: 15px;
-	padding: 5px 0;
-}
-
-/// Text styles for heading level 3 and 4
-@mixin oTypographyHeading3And4Text {
-	font-size: 16px;
-	line-height: 20px;
-	@include oTypographyBodyBlock;
-	font-family: BentonSans, sans-serif;
-	font-weight: bold;
-	@include oColorsFor(o-typography-article-subheading, text);
-}
-
-/// Layout styles for heading level 3
-@mixin oTypographyHeading3Layout {
-	@include oTypographyHeading3And4Layout;
-	border-top: 1px dotted oColorsGetColorFor(o-typography-article-subheading, border);
-	border-bottom: 1px dotted oColorsGetColorFor(o-typography-article-subheading, border);
-
-	+ * {
-		margin-top: 0;
-	}
-}
-
-/// Text styles for level 3 heading
-@mixin oTypographyHeading3Text {
-	@include oTypographyHeading3And4Text;
-	@include _oTypographyLinkStyle(oColorsGetColorFor(o-typography-heading3 o-typography-article-subheading, text), oColorsGetColorFor(link, text));
-}
-
-/// Layout styles for level 4 heading
-@mixin oTypographyHeading4Layout {
-	@include oTypographyHeading3And4Layout;
-
-	+ * {
-		margin-top: 0;
-	}
-}
-
-/// Text styles for level 4 heading
-@mixin oTypographyHeading4Text {
-	@include oTypographyHeading3And4Text;
-	@include _oTypographyLinkStyle(oColorsGetColorFor(o-typography-heading4 o-typography-article-subheading body, text), oColorsGetColorFor(link, text));
-}
-
-/// Layout styles for level 5 heading
-@mixin oTypographyHeading5Layout {
-	margin: 0 0 16px;
-	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAAPAQMAAADEaZ8BAAAABlBMVEUAAADs3s8R/6e7AAAAAXRSTlMAQObYZgAAADBJREFUSMdj+D90QcNQdvyDUccPEPgw6njiwKjjh43jh3SGHdKOb2AYBaNgFAwdAACrOE9c1sAQpgAAAABJRU5ErkJggg==') bottom right no-repeat;
-
-	// IE < 8 don't support datauri, so we do this...
-	// scss-lint:disable PropertySpelling
-	*border-bottom: 1px solid oColorsGetColorFor(o-typography-heading5 o-typography-heading-medium body, border);
-	*background-image: none;
-	// scss-lint:enable PropertySpelling
-}
-
-/// Text styles for level 5 heading
-@mixin oTypographyHeading5Text {
-	font-family: BentonSans, sans-serif;
-	font-weight: bold;
-	font-size: 13px;
-	line-height: 20px;
-	color: oColorsGetColorFor(o-typography-heading5 o-typography-article-subheading body, text);
-	text-transform: uppercase;
-	@include _oTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
-	@include oTypographyFauxTextBackground(oColorsGetColorFor(page, background));
-}
-
-/// Layout styles for heading level 6
-@mixin oTypographyHeading6Layout {
-	margin: 0 0 8px;
-}
-
-/// Text styles for level 6 heading
-@mixin oTypographyHeading6Text {
-	margin: 0 0 8px;
-	font-family: BentonSans, sans-serif;
-	font-weight: bold;
-	font-size: 14px;
-	line-height: 20px;
-	color: oColorsGetColorFor(o-typography-heading6 body, text);
-	@include _oTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
-}
-
 /// h1 styles
 @mixin oTypographyHeading1 {
-	@include oTypographyHeading1Layout;
-	@include oTypographyHeading1Text;
+	@include oTypographySerifDisplay(xl);
+	margin: 0 0 8px;
 }
 
 /// h2 styles
 @mixin oTypographyHeading2 {
-	@include oTypographyHeading2Layout;
-	@include oTypographyHeading2Text;
+	@include oTypographySerifDisplay(l);
+	margin: 0;
 }
 
 /// h3 styles
 @mixin oTypographyHeading3 {
-	@include oTypographyHeading3Text;
-	@include oTypographyHeading3Layout;
+	@include oTypographySerifDisplay(m);
+	margin: 0;
 }
 
 /// h4 styles
 @mixin oTypographyHeading4 {
-	@include oTypographyHeading4Layout;
-	@include oTypographyHeading4Text;
+	@include oTypographySerifDisplay(s);
+	margin: 0;
 }
 
 /// h5 styles
 @mixin oTypographyHeading5 {
-	@include oTypographyHeading5Layout;
-	@include oTypographyHeading5Text;
+	@include oTypographySerifDisplay(xs);
 }
 
-/// h6 styles
-@mixin oTypographyHeading6 {
-	@include oTypographyHeading6Layout;
-	@include oTypographyHeading6Text;
+@mixin oTypographyFlyline {
+	@include oTypographySansBold(s);
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	letter-spacing: 1px;
+
+	&__link {
+		text-decoration: none;
+	}
+	&__link:hover {
+		border-bottom: 1px dotted;
+	}
 }
