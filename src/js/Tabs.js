@@ -82,7 +82,7 @@ function Tabs(rootEl) {
 
 	function dispatchCustomEvent(event, data = {}, namespace = 'oTabs') {
 		rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
-			detail: data || {},
+			detail: data,
 			bubbles: true
 		}));
 	}
