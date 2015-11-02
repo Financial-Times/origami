@@ -80,15 +80,11 @@ function Tabs(rootEl) {
 		window.scrollTo(x, y);
 	}
 
-	function dispatchCustomEvent(name, data) {
-		if (document.createEvent && rootEl.dispatchEvent) {
-			const event = document.createEvent('Event');
-			event.initEvent(name, true, true);
-			if (data) {
-				event.detail = data;
-			}
-			rootEl.dispatchEvent(event);
-		}
+	function dispatchCustomEvent(event, data = {}, namespace = 'oTabs') {
+		rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
+			detail: data,
+			bubbles: true
+		}));
 	}
 
 	function selectTab(i, disableFocus) {
@@ -104,7 +100,7 @@ function Tabs(rootEl) {
 					hidePanel(tabpanelEls[c]);
 				}
 			}
-			dispatchCustomEvent('oTabs.tabSelect', {
+			dispatchCustomEvent('tabSelect', {
 				tabs: tabsObj,
 				selected: i,
 				lastSelected: selectedTabIndex
@@ -119,6 +115,11 @@ function Tabs(rootEl) {
 		if (tabEl) {
 			const i = getTabIndexFromElement(tabEl);
 			myself.selectTab(i);
+			dispatchCustomEvent('event', {
+				category: 'tabs',
+				action: 'click',
+				tab: tabEl.textContent
+			}, 'oTracking');
 		}
 	}
 
@@ -132,7 +133,7 @@ function Tabs(rootEl) {
 		tabpanelEls = getTabPanelEls(tabEls);
 		rootEl.setAttribute('data-o-tabs--js', '');
 		rootEl.addEventListener("click", clickHandler, false);
-		dispatchCustomEvent('oTabs.ready', {
+		dispatchCustomEvent('ready', {
 			tabs: tabsObj
 		});
 		myself.selectTab(getSelectedTabElement());
