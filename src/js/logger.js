@@ -36,7 +36,7 @@ Logger.prototype.warn = function() {
 };
 
 Logger.prototype._consoleLog = function(name, consoleMethod, args) {
-	const debug = this._logLevel === Logger.level.debug;
+	const debug = this._logLevel === Logger.level.debug || this._logLevel === Logger.level.consoleonly;
 
 	// Because 'arguments' is not a true array we call out to argsAsLogString
 	// to efficiently concatenate the arguments as string types to create the
@@ -125,7 +125,12 @@ Logger.level = {
 	 * Logs are stored in the buffer as with `contextonly` however, they are
 	 * also passed through to the relevant `console.*` API.
 	 */
-	debug:       2 // contextonly & debug
+	debug:       2, // contextonly & debug
+
+	/**
+	 * Logging only occurs in the console. Raven client is not initialised.
+	 */
+	consoleonly: 3
 };
 
 function noop() {}

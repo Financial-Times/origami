@@ -117,6 +117,12 @@ payload so is not the default.
 `oErrors.log`, and `oErrors.error`
 respectively.  This should not be used in production.
 
+`consoleonly` - Turns on console only logging. This will stop the Raven client from
+being initialised and reporting errors to sentry. Messages will be output through
+`console.warn`, `console.log`, and `console.error` for `oErrors.warn`,
+`oErrors.log`, and `oErrors.error`
+respectively.  This should not be used in production.
+
 ```JS
 {
 	logLevel: "off"

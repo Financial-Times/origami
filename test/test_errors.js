@@ -58,6 +58,28 @@ describe("oErrors", function() {
 			expect(errors.logger._logLevel).to.be(1);
 		});
 
+		it("should not configure the raven client if the log level is consoleonly", function() {
+			mockRavenClient.configuredEndpoint = "";
+			mockRavenClient.installed = false;
+			new Errors().init({
+				sentryEndpoint: "//app.getsentry.com/123",
+				logLevel: "consoleonly"
+			}, mockRavenClient);
+
+			expect(mockRavenClient.configuredEndpoint).to.equal("");
+			expect(mockRavenClient.installed).to.eql("");
+		});
+
+		it("should not call raven client methods if configured to the consoleonly log level", function() {
+			const errors = new Errors().init({
+				sentryEndpoint: "//app.getsentry.com/123",
+				logLevel: "consoleonly"
+			}, mockRavenClient);
+
+			errors.report({ message: "Something failed" });
+			expect(mockRavenClient.lastCaptureMessageArgs[0]).to.be(undefined);
+		});
+
 		it("should configure itself from the DOM if no options are present", function() {
 			const sentryConfiguration = document.createElement("script");
 			sentryConfiguration.type = "application/json";
