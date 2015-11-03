@@ -17,7 +17,11 @@ function throwLater(error) {
  * @class Errors
  */
 function Errors() {
-	this.ravenClient = null;
+	// Initialises raven client with noops for consoleonly logging level
+	this.ravenClient = {
+		captureException: function(){},
+		uninstall: function(){}
+	};
 
 	/**
 	 * The initialised state of the object.
@@ -129,8 +133,10 @@ Errors.prototype.init = function(options, raven) {
 		throw new Error('Could not initialise o-errors: Sentry endpoint and auth configuration missing.');
 	}
 
-
-	this._configureAndInstallRaven(options, raven);
+	// Only install Raven if not using console only logging level
+	if(Logger.level[logLevel] !== Logger.level.consoleonly) {
+		this._configureAndInstallRaven(options, raven);
+	}
 
 	document.addEventListener('oErrors.log', this._logEventHandler);
 
