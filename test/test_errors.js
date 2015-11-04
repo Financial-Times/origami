@@ -170,6 +170,21 @@ describe("oErrors", function() {
 			expect(mockRavenClient.lastCaptureMessageArgs[1].test).to.be("world");
 		});
 
+		it("should return the orignal error when transform error does not return an error object", function() {
+			const errors = new Errors().init({
+				sentryEndpoint: "//123@app.getsentry.com/123",
+				logLevel: "contextonly",
+				enabled: true,
+				transformError: function() {
+					// Return malformed error object
+					return {};
+				}
+			}, mockRavenClient);
+
+			errors.report({ message: "Something failed" });
+			expect(mockRavenClient.lastCaptureMessageArgs[0].message).to.equal('Something failed');
+		});
+
 		it("should accept an Array of existing error events that will be added to the internal error buffer", function(done) {
 			mockRavenClient.captureException = function(error, context) {
 				expect(error).to.be.an(Error);
