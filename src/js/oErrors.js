@@ -219,7 +219,7 @@ Errors.prototype.report = function(error, context) {
 	const _context = context || {};
 	let reportObject = { error: error, context: _context };
 
-		if (!this.initialised) {
+	if (!this.initialised) {
 		this._errorBuffer.push(reportObject);
 		return error;
 	}
@@ -244,11 +244,11 @@ Errors.prototype.report = function(error, context) {
 	// Raven, for some reason completely ignores the contents of
 	// error.message... to get around this, we attach the error message to the
 	// context object.
-	if (error.message) {
-		_context.errormessage = error.message;
+	if (reportObject.error.message) {
+		reportObject.context.errormessage = reportObject.error.message;
 	}
 
-	this.ravenClient.captureException(error, _context);
+	this.ravenClient.captureException(reportObject.error, reportObject.context);
 	return error;
 };
 
