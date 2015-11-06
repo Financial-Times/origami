@@ -149,8 +149,8 @@ function sendRequest(request, callback) {
 		}
 	}, request);
 
-	// Only bothered about offlineLag if it's longer than a second, but less than a month. (Especially as Date can be dodgy)
-	if (offlineLag > 1000 && offlineLag < (31 * 24 * 60 * 60 * 1000)) {
+	// Only bothered about offlineLag if it's longer than a second, but less than 12 months. (Especially as Date can be dodgy)
+   	if (offlineLag > 1000 && offlineLag < (12 * 30 * 24 * 60 * 60 * 1000)) {
 		request.time = request.time || {};
 		request.time.offset = offlineLag;
 	}
