@@ -18,10 +18,7 @@ function throwLater(error) {
  */
 function Errors() {
 	// Initialises raven client with noops for consoleonly logging level
-	this.ravenClient = {
-		captureException: function(){},
-		uninstall: function(){}
-	};
+	this.ravenClient = null;
 
 	/**
 	 * The initialised state of the object.
@@ -136,6 +133,11 @@ Errors.prototype.init = function(options, raven) {
 	// Only install Raven if not using console only logging level
 	if(Logger.level[logLevel] !== Logger.level.consoleonly) {
 		this._configureAndInstallRaven(options, raven);
+	} else {
+		this.ravenClient = {
+			captureException: function(){},
+			uninstall: function(){}
+		};
 	}
 
 	document.addEventListener('oErrors.log', this._logEventHandler);
