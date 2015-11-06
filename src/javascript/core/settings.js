@@ -48,12 +48,12 @@ function getValue(key) {
  * @param  {string} key - The key to delete
  * @return {undefined}
  */
-function deleteValue(key) {
+function destroy(key) {
 	delete settings[key];
 }
 
 module.exports = {
 	'set': setValue,
 	'get': getValue,
-	'delete': deleteValue
+	'destroy': destroy
 };

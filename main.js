@@ -42,8 +42,8 @@ Tracking.prototype.developer = function(level) {
 	if (level) {
 		settings.set('developer', true);
 	} else {
-		settings.delete('developer', null);
-		settings.delete('no_send', null);
+		settings.destroy('developer', null);
+		settings.destroy('no_send', null);
 	}
 };
 
@@ -55,8 +55,8 @@ Tracking.prototype.destroy = function() {
 	this.developer(false);
 	this.initialised = false;
 
-	settings.delete('config');
-	settings.delete('page_sent');
+	settings.destroy('config');
+	settings.destroy('page_sent');
 };
 
 /**

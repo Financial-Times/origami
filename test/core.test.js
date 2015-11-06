@@ -26,7 +26,7 @@ describe('Core', function () {
 			require("../src/javascript/core/settings").set('api_key', 'qUb9maKfKbtpRsdp0p2J7uWxRPGJEP');
 			require("../src/javascript/core/settings").set('source', 'o-tracking');
 			(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
-			require("../src/javascript/core/settings").delete('config');  // Empty settings.
+			require("../src/javascript/core/settings").destroy('config');  // Empty settings.
 			require("../src/javascript/core/session").init(); // Session
 			require("../src/javascript/core/send").init(); // Init the sender.
 
