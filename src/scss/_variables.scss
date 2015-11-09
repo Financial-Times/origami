@@ -50,10 +50,11 @@ $o-fonts-families: (
 	FinancierDisplayWeb: (
 		font-family: 'FinancierDisplayWeb, serif',
 		variants: (
+			(weight: light, style: italic),
 			(weight: regular, style: normal),
 			(weight: medium, style: italic),
 			(weight: semibold, style: italic),
-			(weight: light, style: italic)
+			(weight: bold, style: normal)
 		)
 	),
 	FinancierTextWeb: (
