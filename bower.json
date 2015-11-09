@@ -16,8 +16,5 @@
   "dependencies": {
     "ftdomdelegate": "^2.0.3",
     "next-sass-setup": "^7.0.0"
-  },
-  "resolutions": {
-    "o-grid": "^4.0.0"
   }
 }
