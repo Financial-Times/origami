@@ -1,6 +1,6 @@
 # o-ft-icons [![Build Status](https://travis-ci.org/Financial-Times/o-ft-icons.png?branch=master)](https://travis-ci.org/Financial-Times/o-ft-icons)
 
-Icon font with helper classes, and resolution-independant SVG icons to load via the [responsive image service](http://image.webservices.ft.com).
+Icon font with helper classes, and resolution-independent SVG icons to load via the [responsive image service](http://image.webservices.ft.com).
 
 ## Quick start
 
@@ -20,7 +20,7 @@ There are multiple ways to use the icons:
 
 1. Using the CSS helper classes
 2. Extending the predefined Sass placeholders into your own CSS classes
-3. Resolution independant SVGs, using the [responsive image service](http://image.webservices.ft.com/)
+3. Resolution independent SVGs, using the [responsive image service](http://image.webservices.ft.com/)
 
 ### 1. Using the CSS helper classes
 
@@ -35,7 +35,7 @@ $o-ft-icons-is-silent: false;
 <!-- In your markup, use the helper classes, such as: -->
 <i class="o-ft-icons-icon o-ft-icons-icon--columnists"><i>
 ```
-    
+
 ### 2. Extending the predefined Sass placeholders into your own CSS classes
 
 ```scss
@@ -59,9 +59,9 @@ $o-ft-icons-is-silent: false;
 <i class="icon-columnists"></i>
 ```
 
-### 3. Resolution independant SVGs, using the image service
+### 3. Resolution independent SVGs, using the image service
 
-The [responsive image service](http://image.webservices.ft.com/) helps serving resolution-independant SVG icons with a resized PNG fallback:
+The [responsive image service](http://image.webservices.ft.com/) helps serving resolution-independent SVG icons with a resized PNG fallback:
 
 ```scss
 element {
@@ -93,7 +93,7 @@ element {
 
 		git clone https://github.com/Financial-Times/o-ft-icons.git
 		cd o-ft-icons
-		npm install
+		obt install
 
 3. Add or edit an SVG file to the `svg` folder (see [SVG file naming rules](#svg-file-naming-rules)).
 4. Generate the web font from the SVG sources:

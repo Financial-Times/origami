@@ -1,4 +1,4 @@
-"use strict";
+"use strict"; //eslint-disable-line
 
 module.exports = function(grunt) {
 
@@ -33,14 +33,14 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('demo', function() {
 		// Read svg directory for list of icons to pass to demo template
-		var fs = require('fs');
-		var files = fs.readdirSync('svg').filter(function(file) {
+		const fs = require('fs');
+		const files = fs.readdirSync('svg').filter(function(file) {
 			return file.indexOf(".svg") > -1;
 		});
-		var icons = files.map(function(file) {
+		const icons = files.map(function(file) {
 			return { name: file.slice(0, -4) };
 		});
-		var done = this.async();
+		const done = this.async();
 			fs.writeFileSync('demos/src/data.json', JSON.stringify({ icons: icons }), { encoding: 'utf-8' });
 
 		grunt.task.run(['webfont']);
