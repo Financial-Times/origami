@@ -30,6 +30,7 @@ describe('link', function () {
 		const event = document.createEvent('HTMLEvents');
 
 		aLink.href = "http://www.google.com";
+		aLink.text = "A link to Google's website";
 
 		link.init({
 			links: [aLink],
@@ -53,8 +54,9 @@ describe('link', function () {
 		assert.equal(sent_data.action, "click");
 
 		// Link
-		assert.equal(sent_data.context.link_id, "a/www.google.com");
-		assert.equal(sent_data.context.source_id, "page_id");
-		assert.equal(sent_data.context.destination_id, undefined);
+		assert.equal(sent_data.context.link.id, "a/www.google.com");
+		assert.equal(sent_data.context.link.source_id, "page_id");
+		assert.equal(sent_data.context.link.href, aLink.href);
+		assert.equal(sent_data.context.link.title, aLink.text);
 	});
 });
