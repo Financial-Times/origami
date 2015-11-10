@@ -34,9 +34,23 @@ const defaultConfig = function () {
  * @param {string} new_id - Optional rootID, if you want to use your own. Otherwise we'll create one for you.
  * @return {string|*} The rootID.
  */
-function rootID(new_id) {
+function setRootID(new_id) {
 	settings.set('root_id', requestID(new_id));
 	return settings.get('root_id');
+}
+
+/**
+ * Get rootID.
+ * @return {string|*} The rootID.
+ */
+function getRootID() {
+	let root_id = settings.get('root_id');
+
+	if (utils.isUndefined(root_id)) {
+		root_id = setRootID();
+	}
+
+	return root_id;
 }
 
 /**
@@ -78,7 +92,7 @@ function track(config, callback) {
 	request = utils.merge({
 		context: {
 			id: requestID(request.id), // Keep an ID if it's been set elsewhere.
-			root_id: settings.get('root_id')
+			root_id: getRootID()
 		},
 
 		user: settings.get('config') ? settings.get('config').user : {},
@@ -100,7 +114,7 @@ function track(config, callback) {
 }
 
 module.exports = {
-	setRootID: rootID,
-	getRootID: function () { return settings.get('root_id'); },
+	setRootID: setRootID,
+	getRootID: getRootID,
 	track: track
 };

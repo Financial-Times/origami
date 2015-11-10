@@ -52,6 +52,7 @@ describe('link', function () {
 		// Type
 		assert.equal(sent_data.category, "link");
 		assert.equal(sent_data.action, "click");
+		assert.equal(sent_data.context.root_id, "page_id");
 
 		// Link
 		assert.equal(sent_data.context.link.id, "a/www.google.com");
