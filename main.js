@@ -6,7 +6,7 @@ const settings = require('./src/javascript/core/settings');
  * The version of the tracking module.
  * @type {string}
  */
-const version = '1.0.8';
+const version = '1.0.9';
 /**
  * The source of this event.
  * @type {string}
