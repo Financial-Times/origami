@@ -110,7 +110,7 @@ function parentTree(element) {
  */
 function createLinkID(link) {
 	const parents = parentTree(link);
-	let name = link.href;
+	let name = link.href || link.text || link.name || link.id;
 
 	name = name.replace(/^http:\/\/[\w\.]+/, '') // Remove http://[something].
 		.replace(/^\//, '') // Remove slash at beginning
@@ -148,10 +148,12 @@ function track(element) {
 	const linkID = createLinkID(element);
 	const config = utils.merge(defaultLinkConfig(), {
 					context: {
-						link_id: linkID,
-						source_id: Core.getRootID(),
-						destination_id: '', // TODO
-						href: element.href
+					    link: {
+					        link_id: linkID,
+                            source_id: Core.getRootID(),
+                            href: element.href,
+                            title: element.text
+					    }
 					}
 				});
 
