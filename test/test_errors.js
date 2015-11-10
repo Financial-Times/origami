@@ -216,6 +216,16 @@ describe("oErrors", function() {
 			expect(mockRavenClient.lastCaptureMessageArgs[0].test).to.be("hello");
 			expect(mockRavenClient.lastCaptureMessageArgs[1].test).to.be("world");
 		});
+
+		it("should accept a function that overrides Sentry's data transport handler", function() {
+			const errors = new Errors().init({
+				sentryEndpoint: "//123@app.getsentry.com/123",
+				logLevel: "contextonly",
+				transportFunction: function({}) {}
+			}, mockRavenClient);
+
+			expect(typeof mockRavenClient.configOptions.transport).to.be("function");
+		});
 	});
 
 	describe("#wrapWithContext(context, function)", function() {

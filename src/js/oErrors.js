@@ -97,7 +97,12 @@ Errors.prototype.init = function(options, raven) {
 
 		if (options.transformError) {
 			options.transformError = undefined;
-			throwLater(new Error("Can not configure 'oErrors' with `transformError` using declarative markup - error filtering will not be enabled"));
+			throwLater(new Error("Can not configure 'oErrors' with `transformError` using declarative markup - error transforming will not be enabled"));
+		}
+
+		if (options.transportFunction) {
+			options.transportFunction = undefined;
+			throwLater(new Error("Can not configure 'oErrors' with `transportFunction` using declarative markup - overriding Sentry's transport function will not be enabled"));
 		}
 	}
 
@@ -134,7 +139,7 @@ Errors.prototype.init = function(options, raven) {
 	}
 
 	// Only install Raven if not using console only logging level
-	if(Logger.level[logLevel] !== Logger.level.consoleonly) {
+	if (Logger.level[logLevel] !== Logger.level.consoleonly) {
 		this._configureAndInstallRaven(options, raven);
 	}
 
@@ -171,6 +176,10 @@ Errors.prototype._configureAndInstallRaven = function(options, raven) {
 
 	if (options.tags) {
 		ravenOptions.tags = options.tags;
+	}
+
+	if (isFunction(options.transportFunction)) {
+		ravenOptions.transport = options.transportFunction;
 	}
 
 	this.ravenClient.config(sentryEndpoint, ravenOptions);
