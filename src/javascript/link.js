@@ -149,7 +149,7 @@ function track(element) {
 	const config = utils.merge(defaultLinkConfig(), {
 					context: {
 					    link: {
-					        link_id: linkID,
+					        id: linkID,
                             source_id: Core.getRootID(),
                             href: element.href,
                             title: element.text
