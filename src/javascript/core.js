@@ -47,7 +47,7 @@ function getRootID() {
 	let root_id = settings.get('root_id');
 
 	if (utils.isUndefined(root_id)) {
-	    root_id = setRootID();
+		root_id = setRootID();
 	}
 
 	return root_id;

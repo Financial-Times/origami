@@ -148,12 +148,12 @@ function track(element) {
 	const linkID = createLinkID(element);
 	const config = utils.merge(defaultLinkConfig(), {
 					context: {
-					    link: {
-					        id: linkID,
-                            source_id: Core.getRootID(),
-                            href: element.href,
-                            title: element.text
-					    }
+						link: {
+							id: linkID,
+							source_id: Core.getRootID(),
+							href: element.href,
+							title: element.text
+						}
 					}
 				});
 
