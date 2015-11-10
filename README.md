@@ -83,6 +83,8 @@ element {
 
 ## Add / edit icons, build the web font and demo page
 
+**warning** Fontforge is notoriously flaky at the moment. We are planning to deprecate its use shortly so if you need to make a minor amendment and these steps don't work for you first time, it might be worth getting someone who has fontforge working on their machine already to make the change. If you really want to try and get this running on your machine and it's giving you trouble, a gist of the steps I tried is here: https://gist.github.com/alicebartlett/1e785aa6a9baa8876d3f
+
 1. Install the following:
 
 	* [fontforge](http://fontforge.org/)
