@@ -5,6 +5,7 @@ const assert = require("assert");
 describe('link', function () {
 
 	let server;
+	const guid_re = /\w{25}/; // cifnulwv2000030ds4avpbm9f
 	const link = require("../src/javascript/link.js");
 
 	before(function () {
@@ -52,6 +53,7 @@ describe('link', function () {
 		// Type
 		assert.equal(sent_data.category, "link");
 		assert.equal(sent_data.action, "click");
+		assert.equal(sent_data.context.root_id, "page_id");
 
 		// Link
 		assert.equal(sent_data.context.link.id, "a/www.google.com");
