@@ -218,10 +218,10 @@ describe("oErrors", function() {
 		});
 
 		it("should accept a function that overrides Sentry's data transport handler", function() {
-			const errors = new Errors().init({
+			new Errors().init({
 				sentryEndpoint: "//123@app.getsentry.com/123",
 				logLevel: "contextonly",
-				transportFunction: function({}) {}
+				transportFunction: function() {}
 			}, mockRavenClient);
 
 			expect(typeof mockRavenClient.configOptions.transport).to.be("function");

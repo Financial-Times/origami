@@ -80,7 +80,7 @@ Logger.prototype.append = function(logLine) {
  * buffer. Any log entries that are undefined are dropped.
  *
  * @private
- * @returns {String}
+ * @returns {String} - Rolled up string
  */
 Logger.prototype.logLines = function() {
 	let index = this._nextLogIndex;
