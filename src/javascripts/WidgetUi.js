@@ -92,7 +92,7 @@ function WidgetUi (widgetContainer, config) {
 		const authContainer = self.widgetContainer.querySelector('.fyre-auth');
 
 		if (authContainer) {
-			authContainer.appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.unavailableTemplate.render()));
+			authContainer.appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.authUnavailableTemplate.render()));
 		}
 	};
 

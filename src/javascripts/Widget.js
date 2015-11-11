@@ -207,7 +207,6 @@ function Widget () {
 									if (envConfig.get().emailNotifications !== true) {
 										self.ui.hideFollowButton();
 									}
-									self.ui.addTermsAndGuidelineMessage();
 
 									if (self.config.layout !== 'side') {
 										self.ui.moveCommentCountOut();
@@ -228,6 +227,8 @@ function Widget () {
 											if (self.forceMode === true) {
 												setTimeout(self.ui.scrollToWidget, 2000);
 											}
+
+											self.ui.addTermsAndGuidelineMessage();
 										} else {
 											auth.logout();
 											if (authData) {
