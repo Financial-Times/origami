@@ -56,14 +56,14 @@ function Errors() {
  * }
  * </script>
  *
- * @param options {Object}
- * @param options.sentryEndpoint {String}  - Optional if configued via the DOM, Required if not, must be a valid {@link https://app.getsentry.com/docs/platforms/|Sentry DSN}.
- * @param options.siteVersion    {String}  - Optional, optionally the version of the code the page is running. This tags each error with the code version
- * @param options.logLevel       {String}  - Optional, see {@link Logger.level} for valid names
- * @param options.disabled       {Boolean} - Optional, If `true`, disable o-errors reporting.
- * @param options.buffer         {Array}   - Optional, pre-existing buffer of error events to flush.
- * @param raven   {Object}   - The Raven JS client object.
- * @returns {Errors}
+ * @param {Object} options                 - Optional, configuration options object
+ * @param {string} options.sentryEndpoint  - Optional if configued via the DOM, Required if not, must be a valid {@link https://app.getsentry.com/docs/platforms/|Sentry DSN}.
+ * @param {string} options.siteVersion     - Optional, optionally the version of the code the page is running. This tags each error with the code version
+ * @param {string} options.logLevel        - Optional, see {@link Logger.level} for valid names
+ * @param {boolean} options.disabled       - Optional, If `true`, disable o-errors reporting.
+ * @param {Array} options.buffer           - Optional, pre-existing buffer of error events to flush.
+ * @param {Object} raven                   - The Raven JS client object.
+ * @returns {Errors}  - The Errors instance
  */
 Errors.prototype.init = function(options, raven) {
 	if (this.initialised) {
@@ -94,7 +94,12 @@ Errors.prototype.init = function(options, raven) {
 
 		if (options.transformError) {
 			options.transformError = undefined;
-			throwLater(new Error("Can not configure 'oErrors' with `transformError` using declarative markup - error filtering will not be enabled"));
+			throwLater(new Error("Can not configure 'oErrors' with `transformError` using declarative markup - error transforming will not be enabled"));
+		}
+
+		if (options.transportFunction) {
+			options.transportFunction = undefined;
+			throwLater(new Error("Can not configure 'oErrors' with `transportFunction` using declarative markup - overriding Sentry's transport function will not be enabled"));
 		}
 	}
 
@@ -131,7 +136,7 @@ Errors.prototype.init = function(options, raven) {
 	}
 
 	// Only install Raven if not using console only logging level
-	if(Logger.level[logLevel] !== Logger.level.consoleonly) {
+	if (Logger.level[logLevel] !== Logger.level.consoleonly) {
 		this._configureAndInstallRaven(options, raven);
 	} else {
 		this.ravenClient = {
@@ -175,6 +180,10 @@ Errors.prototype._configureAndInstallRaven = function(options, raven) {
 		ravenOptions.tags = options.tags;
 	}
 
+	if (isFunction(options.transportFunction)) {
+		ravenOptions.transport = options.transportFunction;
+	}
+
 	this.ravenClient.config(sentryEndpoint, ravenOptions);
 	this.ravenClient.install();
 };
@@ -182,6 +191,8 @@ Errors.prototype._configureAndInstallRaven = function(options, raven) {
 /**
  * Flush any errors that are buffered in `this._errorBuffer`.
  * @private
+ *
+ * @returns {undefined} - undefined
  */
 Errors.prototype._flushBufferedErrors = function() {
 	if (!this.initialised) {
@@ -264,7 +275,7 @@ Errors.prototype.report = function(error, context) {
  *
  *
  * @param {String}  message - The message to log
- * @returns undefined
+ * @returns {undefined} - undefined
  */
 Errors.prototype.error = function() {
 	this.logger.error.apply(this.logger, arguments);
@@ -277,7 +288,7 @@ Errors.prototype.error = function() {
  * context of the error. See {@link Errors#log} to log a log message.
  *
  * @param {String} warnMessage  - The message to log.
- * @returns undefined
+ * @returns {undefined} - undefined
  */
 Errors.prototype.warn = function() {
 	this.logger.warn.apply(this.logger, arguments);
@@ -289,7 +300,7 @@ Errors.prototype.warn = function() {
  * context of the error.  See {@link Errors#warn} to log a warn message.
  *
  * @param {String} logMessage - The message to log.
- * @return undefined
+ * @returns {undefined} - undefined
  */
 Errors.prototype.log = function() {
 	this.logger.log.apply(this.logger, arguments);
@@ -310,7 +321,7 @@ Errors.prototype.log = function() {
  * {@link Errors#wrapWithContext}.
  -
  * @param {Function} fn     - The function to wrap.
- * @return {Function}
+ * @return {Function} - Wrapped function
  */
 Errors.prototype.wrap = function(fn) {
 	return this.wrapWithContext({}, fn);
@@ -330,7 +341,7 @@ Errors.prototype.wrap = function(fn) {
  * @param {Object}   context     - Additional context to report along with the error
  *                                 if the function `fn` throws an Error.
  * @param {Function} fn          - The function to wrap
- * @return {Function}
+ * @return {Function} - Wrapped function with context
  */
 Errors.prototype.wrapWithContext = function(context, fn) {
 	const errors = this;
@@ -351,7 +362,7 @@ Errors.prototype.wrapWithContext = function(context, fn) {
  * Errors is unusable after a call to destroy and calling `init` subsequently
  * will fail.
  *
- * @returns undefined
+ * @returns {undefined} - undefined
  */
 Errors.prototype.destroy = function() {
 	if (!this.initialised) { return; }
@@ -417,7 +428,7 @@ Errors.prototype._getEventPath = function(event) {
  *
  * @private
  * @param {Object} data - The data object from Raven
- * @returns {Object}
+ * @returns {Object} - Updated data
  */
 Errors.prototype._updatePayloadBeforeSend = function(data) {
 	if (this.logger.enabled) {
@@ -430,7 +441,7 @@ Errors.prototype._updatePayloadBeforeSend = function(data) {
  * Get whether declarative configuration exists in the DOM.
  *
  * @private
- * @returns {bool}
+ * @returns {boolean} - Boolean value indicating if there's declarative config
  */
 Errors.prototype._hasDeclarativeConfig = function() {
 	return !!this._getDeclarativeConfig();
@@ -440,7 +451,7 @@ Errors.prototype._hasDeclarativeConfig = function() {
  * Get the configuration as a String.
  *
  * @private
- * @returns {String}
+ * @returns {string} - Stringified configuration
  */
 Errors.prototype._getDeclarativeConfig = function() {
 	if (!this._declarativeConfigString) {

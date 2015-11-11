@@ -54,8 +54,7 @@ if they occur _before_ initialisation, although any errors reported using the
 Configure `o-errors` using the `oErrors.init` method, or using a `<script>`
 tag (see [Using markup to configure `o-errors`](#using-markup-to-configure-oerrors)).
 
-Some options are only configurable when using the `init` method as they must accept
-a function.
+Some options are only configurable when using the `init` method as they must accept a function.
 
 #### Available options
 
@@ -217,6 +216,12 @@ Note: this may only be configured through the `init` method.
 	]
 }
 ```
+
+##### transportFunction - optional
+
+Function to override Sentry's HTTP transport handler. It accepts one `options` argument which is an `object`. 
+
+This function is passed on directly to Sentry to its `transport` configuration option and you can find the documentation for it [here](https://docs.getsentry.com/hosted/clients/javascript/config/).
 
 #### Using markup to configure oErrors
 
