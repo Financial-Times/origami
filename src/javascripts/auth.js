@@ -86,7 +86,8 @@ exports.getAuthDelegate = function () {
 							});
 						}
 					} else {
-						callback(err);
+						exports.logout();
+						callback(new Error("Not authenticated."));
 					}
 				});
 			},
@@ -123,12 +124,14 @@ exports.login = function (callback) {
 
 	resourceLoader.loadLivefyreCore(function (errResource) {
 		if (errResource) {
+			loggedIn = false;
 			callback(false);
 			return;
 		}
 
 		oCommentApi.api.getAuth(function (err, authData) {
 			if (err) {
+				loggedIn = false;
 				callback(false);
 				return;
 			}
@@ -158,11 +161,14 @@ exports.login = function (callback) {
 
 					clearLastToken();
 
+					loggedIn = false;
 					callback(false, authData);
 				} else {
+					loggedIn = false;
 					callback(false, authData);
 				}
 			} else {
+				loggedIn = false;
 				callback(false);
 			}
 		});
@@ -182,6 +188,7 @@ exports.logout = function (callback) {
 
 		Livefyre.require(['auth'], function (auth) {
 			auth.logout();
+			loggedIn = false;
 
 			if (typeof callback === 'function') {
 				callback();
@@ -239,7 +246,9 @@ function loginRequiredAfterASuccess (callback) {
 	oCommentApi.api.getAuth({
 		force: true
 	}, function (err, authData) {
-		if (authData && authData.pseudonym === false) {
+		if (authData && authData.token) {
+			exports.login();
+		} else if (authData && authData.pseudonym === false) {
 			exports.loginRequiredPseudonymMissing(callback);
 		} else {
 			callback(err || new Error('Login failed.'));
