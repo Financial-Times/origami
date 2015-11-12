@@ -13,6 +13,7 @@
     "karma-firefox-launcher": "^0.1.6",
     "karma-mocha": "^0.1.10",
     "karma-sinon": "^1.0.4",
+    "origami-build-tools": "^4.2.0",
     "sinon": "1.14.1"
   }
 }
