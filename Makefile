@@ -12,6 +12,9 @@ unit-test:
 unit-test-watch:
 	karma start test/karma.conf.js --no-single-run
 
+unit-test-watch:
+	karma start tests/karma.conf.js --no-single-run
+
 test: verify unit-test
 
 test-watch: verify unit-test-watch

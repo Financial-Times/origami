@@ -1,45 +1,43 @@
 /* global describe, it, beforeEach, afterEach */
-'use strict';
+const YouTube = require('../../src/models/you-tube');
 
-var YouTube = require('../../src/models/you-tube');
+describe('YouTube', () => {
 
-describe('YouTube', function () {
+	let containerEl;
 
-	var containerEl;
-
-	beforeEach(function () {
+	beforeEach(() => {
 		containerEl = document.createElement('div');
 		containerEl.setAttribute('data-n-video-id', '1234567890');
 		document.body.appendChild(containerEl);
 	});
 
-	afterEach(function () {
+	afterEach(() => {
 		document.body.removeChild(containerEl);
 	});
 
-	it('should exist', function () {
+	it('should exist', () => {
 		YouTube.should.exist;
 	});
 
-	it('should be able to instantiate', function () {
-		var youTube = new YouTube(containerEl);
+	it('should be able to instantiate', () => {
+		const youTube = new YouTube(containerEl);
 		youTube.should.exist;
 	});
 
-	it('should return a Promise on `init`', function () {
-		var youTube = new YouTube(containerEl);
+	it('should return a Promise on `init`', () => {
+		const youTube = new YouTube(containerEl);
 		youTube.init().should.be.an.instanceOf(Promise);
 	});
 
-	it('should return the Brightcove instance on `init`', function () {
-		var youTube = new YouTube(containerEl);
+	it('should return the Brightcove instance on `init`', () => {
+		const youTube = new YouTube(containerEl);
 		youTube.init().should.eventually.equal(youTube);
 	});
 
-	it('should create an iframe on `init`', function () {
-		var youTube = new YouTube(containerEl);
+	it('should create an iframe on `init`', () => {
+		const youTube = new YouTube(containerEl);
 		youTube.init();
-		var iframeEl = containerEl.querySelector('iframe');
+		const iframeEl = containerEl.querySelector('iframe');
 		iframeEl.getAttribute('src').should.equal('https://youtube.com/embed/1234567890');
 	});
 

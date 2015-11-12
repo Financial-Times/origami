@@ -1,17 +1,15 @@
-'use strict';
-
-module.exports = function (renditions, options) {
+module.exports = (renditions, options) => {
 	// allow mocking of supported formats module
-	var opts = options || {};
-	var width = opts.width;
-	var supportedFormats = opts.supportedFormats || require('../libs/supported-formats');
-	var appropriateRendition;
+	const opts = options || {};
+	const width = opts.width;
+	const supportedFormats = opts.supportedFormats || require('../libs/supported-formats');
+	let appropriateRendition;
 	// order smallest to largest
-	var orderedRenditions = renditions
-		.filter(function (rendition) {
+	const orderedRenditions = renditions
+		.filter(rendition => {
 			return supportedFormats.indexOf(rendition.videoCodec.toLowerCase()) > -1;
 		})
-		.sort(function (renditionOne, renditionTwo) {
+		.sort((renditionOne, renditionTwo) => {
 			return renditionOne.frameWidth - renditionTwo.frameWidth;
 		});
 
@@ -20,7 +18,7 @@ module.exports = function (renditions, options) {
 		return orderedRenditions.pop();
 	}
 	// NOTE: rather use find...
-	orderedRenditions.some(function (rendition) {
+	orderedRenditions.some(rendition => {
 		if (rendition.frameWidth >= width) {
 			appropriateRendition = rendition;
 			return true;

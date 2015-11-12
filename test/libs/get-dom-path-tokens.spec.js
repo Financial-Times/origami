@@ -1,32 +1,30 @@
 /* global describe, it, beforeEach, afterEach */
-'use strict';
+const getDomPathTokens = require('../../src/libs/get-dom-path-tokens');
 
-var getDomPathTokens = require('../../src/libs/get-dom-path-tokens');
+describe('Get DOM Path Tokens', () => {
 
-describe('Get DOM Path Tokens', function () {
+	let el;
 
-	var el;
-
-	beforeEach(function () {
+	beforeEach(() => {
 		el = document.createElement('div');
 		el.setAttribute('data-trackable', 'parent');
 		document.body.appendChild(el);
 	});
 
-	afterEach(function () {
+	afterEach(() => {
 		document.body.removeChild(el);
 	});
 
-	it('should exist', function () {
+	it('should exist', () => {
 		getDomPathTokens.should.exist;
 	});
 
-	it('should get correct token', function () {
+	it('should get correct token', () => {
 		getDomPathTokens(el).should.eql(['parent']);
 	});
 
-	it('should get correct tokens', function () {
-		var childEl = document.createElement('div');
+	it('should get correct tokens', () => {
+		const childEl = document.createElement('div');
 		childEl.setAttribute('data-trackable', 'child');
 		el.appendChild(childEl);
 

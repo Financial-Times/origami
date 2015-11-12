@@ -1,7 +1,5 @@
-'use strict';
-
-var testEl = document.createElement('video');
-var formats = {
+const testEl = document.createElement('video');
+const formats = {
 	mpeg4: [
 		'video/mp4; codecs="mp4v.20.8"'
 	],
@@ -16,22 +14,17 @@ var formats = {
 		'video/webm; codecs="vp8, vorbis"'
 	]
 };
-var supportedFormats = [];
-function testType(typeString) {
+const testType = typeString => {
 	if (testEl.canPlayType(typeString))	{
-		supportedFormats.push(format);
 		return true;
 	} else {
 		return false;
 	}
 }
 
+let supportedFormats = [];
 if (testEl.canPlayType) {
-	for (var format in formats) {
-		if (formats.hasOwnProperty(format)) {
-			formats[format].some(testType);
-		}
-	}
+	supportedFormats = Object.keys(formats).filter(format => formats[format].some(testType))
 }
 
 module.exports = supportedFormats;

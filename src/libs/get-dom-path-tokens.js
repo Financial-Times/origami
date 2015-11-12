@@ -1,12 +1,10 @@
-'use strict';
-
-module.exports = function getDomPath(el, path) {
+const getDomPath = (el, path) => {
 	path = path || [];
 	if (!el.parentNode) {
 		return path;
 	}
 
-	var trackable = el.getAttribute('data-trackable');
+	const trackable = el.getAttribute('data-trackable');
 
 	if (trackable) {
 		path.push(trackable);
@@ -18,3 +16,5 @@ module.exports = function getDomPath(el, path) {
 
 	return getDomPath(el.parentNode, path);
 };
+
+module.exports = getDomPath

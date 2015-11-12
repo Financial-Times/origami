@@ -1,36 +1,29 @@
-'use strict';
+const Video = require('./video');
 
-var Video = require('./video');
-
-function YouTube () {
-	Video.apply(this, arguments);
-}
-
-YouTube.prototype = Object.create(Video.prototype, {
-	constructor: {
-		value: YouTube,
-		configurable: true
+class YouTube extends Video {
+	constructor(el, opts) {
+		super(el, opts);
 	}
-});
 
-YouTube.prototype.init = function () {
-	this.el = document.createElement('iframe');
-	var attrs = {
-		src: 'https://youtube.com/embed/' + this.id,
-		height: '315',
-		width: '560',
-		frameborder: '0',
-		webkitallowfullscreen: 'true',
-		mozallowfullscreen: 'true',
-		allowfullscreen: 'true'
-	};
-	for (var attr in attrs) {
-		if (attrs.hasOwnProperty(attr)) {
-			this.el.setAttribute(attr, attrs[attr]);
+	init() {
+		this.el = document.createElement('iframe');
+		const attrs = {
+			src: 'https://youtube.com/embed/' + this.id,
+			height: '315',
+			width: '560',
+			frameborder: '0',
+			webkitallowfullscreen: 'true',
+			mozallowfullscreen: 'true',
+			allowfullscreen: 'true'
+		};
+		for (let attr in attrs) {
+			if (attrs.hasOwnProperty(attr)) {
+				this.el.setAttribute(attr, attrs[attr]);
+			}
 		}
+		this.containerEl.appendChild(this.el);
+		return Promise.resolve(this);
 	}
-	this.containerEl.appendChild(this.el);
-	return Promise.resolve(this);
-};
+}
 
 module.exports = YouTube;
