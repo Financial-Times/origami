@@ -42,6 +42,9 @@ Where `opts` is an optional object with properties
  `optimumWidth`, `palceholder` and `classes` can also be set in the markup with an attribute of the form `data-n-video-opts-*`, e.g.
  `data-n-video-opts-optimumWidth="300"`. These trump options supplied to the `init` method.
 
+ If the data is available, it can also be passed through in an attribute (e.g. `data-n-video-opts-data="{ videoStillURL: ... }"`)
+ to save the browser an HTTP request
+
 ## Development
 
     $ npm install origami-build-tools
