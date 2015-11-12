@@ -100,8 +100,7 @@ function track(config, callback) {
 		device: {
 			spoor_session: session.id,
 			spoor_session_is_new: session.isNew,
-			spoor_id: User.userID(),
-			user_agent: window.navigator.userAgent
+			spoor_id: User.userID()
 		}
 	}, request);
 
