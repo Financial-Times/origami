@@ -3,12 +3,15 @@ PHONY: build
 install:
 	obt install --verbose
 
-test:
+verify:
 	obt verify
+
+unit-test:
 	karma start tests/karma.conf.js
 
-test-watch:
-	obt verify
+test: verify unit-test
+
+test-watch: verify
 	karma start tests/karma.conf.js --no-single-run
 
 demo:
