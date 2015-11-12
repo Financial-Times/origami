@@ -340,7 +340,8 @@ Overlay.prototype.realign = function(dimension, size) {
 			// Set the exact height that the content of the overlay will have which is the total
 			// height of the overlay minus the heading if there is one. If height = 100%, the
 			// heading is part of that 100%, so some content is truncated.
-			this.content.style.height = this.wrapper.offsetHeight - (this.opts.heading ? this.wrapper.querySelector('header').offsetHeight : 0) + 'px';
+			var borderHeight = this.wrapper.offsetHeight - this.wrapper.clientHeight;
+			this.content.style.height = this.wrapper.offsetHeight - (this.opts.heading ? this.wrapper.querySelector('header').offsetHeight : 0) - borderHeight + 'px';
 		}
 	} else {
 		if (dimension === 'height') {
