@@ -8,7 +8,7 @@ const brightcoveResponse = require('./fixtures/brightcove.json');
 describe('Main', () => {
 
 	let containerEl;
-	let server;
+	let fetchStub;
 
 	beforeEach(() => {
 		containerEl = document.createElement('div');
@@ -16,14 +16,19 @@ describe('Main', () => {
 		containerEl.setAttribute('data-n-video-id', '4084879507001');
 		containerEl.setAttribute('data-n-video-source', 'Brightcove');
 		document.body.appendChild(containerEl);
-		server = sinon.fakeServer.create();
-		server.autoRespond = true;
-		server.respondWith(JSON.stringify(brightcoveResponse));
+		fetchStub = sinon.stub(window, 'fetch');
+		const res = new window.Response(JSON.stringify(brightcoveResponse), {
+			status: 200,
+			headers: {
+				'Content-type': 'application/json'
+			}
+		});
+		fetchStub.returns(Promise.resolve(res));
 	});
 
 	afterEach(() => {
 		document.body.removeChild(containerEl);
-		server.restore();
+		fetchStub.restore();
 	});
 
 	it('should exits', () => {
