@@ -13,10 +13,10 @@ describe('Brightcove', () => {
 		document.body.appendChild(containerEl);
 		fetchStub = sinon.stub(window, 'fetch');
 		const res = new window.Response(JSON.stringify(brightcoveResponse), {
-		    status: 200,
-		    headers: {
-		    	'Content-type': 'application/json'
-		    }
+			status: 200,
+			headers: {
+				'Content-type': 'application/json'
+			}
 		});
 		fetchStub.returns(Promise.resolve(res));
 	});
@@ -46,7 +46,6 @@ describe('Brightcove', () => {
 	});
 
 	it('should create a video element on `init`', () => {
-		const xhr = sinon.useFakeXMLHttpRequest();
 		const brightcove = new Brightcove(containerEl);
 		return brightcove
 			.init()
@@ -66,8 +65,8 @@ describe('Brightcove', () => {
 	it('should throw error if can\'t init', () => {
 		// bad response instead
 		const badRes = new window.Response(null, {
-		    status: 404,
-		    statusText: 'Not Found'
+			status: 404,
+			statusText: 'Not Found'
 		});
 		fetchStub.returns(Promise.resolve(badRes));
 		const brightcove = new Brightcove(containerEl);
