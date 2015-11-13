@@ -9,6 +9,11 @@
             "description": "Brightcove"
         },
         {
+            "path": "/demos/brightcove-player.html",
+            "expanded": true,
+            "description": "Brightcove Player"
+        },
+        {
             "path": "/demos/placeholder.html",
             "expanded": true,
             "description": "Placeholder"

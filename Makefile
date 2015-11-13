@@ -4,7 +4,7 @@ install:
 	obt install --verbose
 
 verify:
-	obt verify
+	nbt verify --skip-layout-checks --skip-dotenv-check
 
 unit-test:
 	karma start tests/karma.conf.js

@@ -7,20 +7,25 @@ var brightcoveResponse = require('../fixtures/brightcove.json');
 describe('Brightcove', function () {
 
 	var containerEl;
-	var server;
+	var fetchStub;
 
 	beforeEach(function () {
 		containerEl = document.createElement('div');
 		containerEl.setAttribute('data-n-video-id', '4084879507001');
 		document.body.appendChild(containerEl);
-		server = sinon.fakeServer.create();
-		server.autoRespond = true;
-		server.respondWith(JSON.stringify(brightcoveResponse));
+		fetchStub = sinon.stub(window, 'fetch');
+		const res = new window.Response(JSON.stringify(brightcoveResponse), {
+			status: 200,
+			headers: {
+				'Content-type': 'application/json'
+			}
+		});
+		fetchStub.returns(Promise.resolve(res));
 	});
 
 	afterEach(function () {
 		document.body.removeChild(containerEl);
-		server.restore();
+		fetchStub.restore();
 	});
 
 	it('should exist', function () {
@@ -60,8 +65,13 @@ describe('Brightcove', function () {
 	});
 
 	it('should throw error if can\'t init', function () {
+		// set up a bad response
+		const badRes = new window.Response('', {
+			status: 404,
+			statusText: 'Not Found'
+		});
+		fetchStub.returns(Promise.resolve(badRes));
 		var brightcove = new Brightcove(containerEl);
-		server.respondWith([404, {}, '']);
 		return brightcove.init().should.be.rejectedWith('Brightcove responded with a 404 (Not Found) for id 4084879507001');
 	});
 

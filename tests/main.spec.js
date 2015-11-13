@@ -44,7 +44,7 @@ describe('Main', function () {
 	});
 
 	it('should create Video objects only once', function () {
-		return main.init().then(function (videos) {
+		return main.init().then(function () {
 			main.init().then(function (videos) {
 				videos.should.be.empty;
 			});

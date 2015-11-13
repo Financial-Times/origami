@@ -1,6 +1,5 @@
 {
   "name": "n-video",
-  "private": true,
   "devDependencies": {
     "babelify": "^6.1.2",
     "chai-as-promised": "^5.0.0",
@@ -13,7 +12,8 @@
     "karma-firefox-launcher": "^0.1.6",
     "karma-mocha": "^0.1.10",
     "karma-sinon": "^1.0.4",
-    "origami-build-tools": "^4.2.0",
+    "next-build-tools": "^5.10.4",
+    "origami-build-tools": "^4.3.0",
     "sinon": "1.14.1"
   }
 }

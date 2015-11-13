@@ -17,7 +17,7 @@ function init (opts) {
 	var videoPromises = [].map.call(context.querySelectorAll(options.selector + ':not([data-n-video-js])[data-n-component~="n-video"]'), function (videoEl) {
 		return videoFactory(videoEl, options).init()
 			// don't fail all if a video errors
-			.catch(function (err) { });
+			.catch(function () { });
 	});
 	return Promise.all(videoPromises);
 }
