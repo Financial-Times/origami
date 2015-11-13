@@ -39,7 +39,7 @@ function ensureBrightcoveLibraryLoaded() {
 	script.setAttribute('async', true);
 	script.setAttribute('defer', true);
 	document.getElementsByTagName("head")[0].appendChild(script);
-	brightcoveLibraryLoadPromise = new Promise(function(resolve, reject) {
+	brightcoveLibraryLoadPromise = new Promise(function(resolve) {
 		script.addEventListener('load', function() {
 			resolve();
 		});

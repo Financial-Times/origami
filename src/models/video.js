@@ -15,7 +15,8 @@ function Video(el, opts) {
 	Object.keys(defaultOpts).forEach(function (optionName) {
 		var optionAttribute = this.containerEl.getAttribute('data-n-video-opts-' + optionName);
 		if (optionAttribute) {
-			this.opts[optionName] = optionAttribute;
+			// parse as JSON, if 'data' attribute
+			this.opts[optionName] = optionName === 'data' ? JSON.parse(optionAttribute) : optionAttribute;
 		} else if (opts && typeof opts[optionName] !== 'undefined') {
 			this.opts[optionName] = opts[optionName];
 		} else {
