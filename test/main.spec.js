@@ -64,7 +64,7 @@ describe('Main', function () {
 	});
 
 	it('should allow setting options through attribute', function () {
-		containerEl.setAttribute('data-n-video-opts-optimumWidth', 300);
+		containerEl.setAttribute('data-n-video-opts-optimum-width', 300);
 		containerEl.setAttribute('data-n-video-opts-placeholder', true);
 		containerEl.setAttribute('data-n-video-opts-classes', 'a-class another-class');
 

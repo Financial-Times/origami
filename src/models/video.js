@@ -13,7 +13,10 @@ function Video(el, opts) {
 	};
 	this.opts = {};
 	Object.keys(defaultOpts).forEach(function (optionName) {
-		var optionAttribute = this.containerEl.getAttribute('data-n-video-opts-' + optionName);
+		var attributeName = optionName.replace(/[A-Z]/g, function (match) {
+			return '-' + match.toLowerCase();
+		});
+		var optionAttribute = this.containerEl.getAttribute('data-n-video-opts-' + attributeName);
 		if (optionAttribute) {
 			// parse as JSON, if 'data' attribute
 			this.opts[optionName] = optionName === 'data' ? JSON.parse(optionAttribute) : optionAttribute;
