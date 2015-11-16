@@ -40,7 +40,7 @@ Where `opts` is an optional object with properties
  `:not([data-n-video-js])[data-n-component~="n-video"]`. Defaults to `*`.
 
  `optimumWidth`, `palceholder` and `classes` can also be set in the markup with an attribute of the form `data-n-video-opts-*`, e.g.
- `data-n-video-opts-optimumWidth="300"`. These trump options supplied to the `init` method.
+ `data-n-video-opts-optimum-width="300"`. These trump options supplied to the `init` method.
 
  If the data is available, it can also be passed through in an attribute (e.g. `data-n-video-opts-data="{ videoStillURL: ... }"`)
  to save the browser an HTTP request
