@@ -56,7 +56,7 @@ class Brightcove extends Video {
 		});
 	}
 
-	render() {
+	renderVideo() {
 		if (this.rendition) {
 			if (this.opts.placeholder) {
 				this.addPlaceholder();
@@ -68,7 +68,7 @@ class Brightcove extends Video {
 	}
 
 	init() {
-		return this.getData().then(() => this.render());
+		return this.getData().then(() => this.renderVideo());
 	}
 
 	info() {
