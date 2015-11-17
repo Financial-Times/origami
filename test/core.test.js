@@ -95,7 +95,7 @@ describe('Core', function () {
 
 			server.respond();
 
-			assert.equal(callback.called, 1, 'Callback not called.');
+			assert.equal(callback.called, 1, 'Callback called once.');
 
 			server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
@@ -104,7 +104,7 @@ describe('Core', function () {
 
 			server.respond();
 
-			assert.ok(callback.calledTwice, 'Callback not called.');
+			assert.ok(callback.calledOnce, 'Callback should only be called once as next send could be on a different page.');
 		});
 	});
 

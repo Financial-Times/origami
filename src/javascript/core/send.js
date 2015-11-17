@@ -15,11 +15,13 @@ let domain = 'http://test.spoor-api.ft.com';
  * @type {Queue}
  */
 let queue;
-/**
- * Requests being sent right now.
- */
-const currentRequests = {};
 
+/**
+ * Create the transport mechanism.
+ * - Works out the best transprot mechanism for the browser and returns it. One of:
+ *   - Cross domain Ajax POST with json content type
+ *   - GET url
+ */
 function createTransport() {
 	try {
 		const xmlHttp = new window.XMLHttpRequest();
@@ -83,47 +85,6 @@ function createTransport() {
 }
 
 /**
- * Marks a request as current.
- *
- * @param {String} id The ID of the request.
- * @return {undefined}
- */
-function started(id) {
-	currentRequests[id] = true;
-}
-
-/**
- * Marks a request as no longer current.
- *
- * @param {String} id The ID of the request.
- * @return {undefined}
- */
-function finished(id) {
-	delete currentRequests[id];
-}
-
-/**
- * Marks a request as no longer current and removes it from the queue.
- *
- * @param {String} id The ID of the request.
- * @return {undefined}
- */
-function success(id) {
-	finished(id);
-
-	const replacement = queue.all();
-	let i;
-
-	for (i = 0; i < replacement.length; i = i + 1) {
-		if (id === replacement[i].id) {
-			replacement.splice(i, 1);
-			queue.replace(replacement).save();
-			break;
-		}
-	}
-}
-
-/**
  * Attempts to send a tracking request.
  *
  * @param {Object} request The request to be sent.
@@ -163,8 +124,6 @@ function sendRequest(request, callback) {
 	utils.log('user_callback', user_callback);
 	utils.log('PreSend', request);
 
-	started(request.id);
-
 	path = JSON.stringify(request);
 
 	utils.log('path', path);
@@ -176,13 +135,14 @@ function sendRequest(request, callback) {
 		}
 
 		if (error) {
+			// Re-add to the queue if it failed.
+			queue.add(request).save();
+
 			utils.broadcast('oErrors', 'log', {
 				error: error,
 				info: { module: 'o-tracking' }
 			});
-			finished(request.id);
 		} else {
-			success(request.id);
 			callback();
 		}
 	});
@@ -219,15 +179,10 @@ function run(callback) {
 	}
 
 	const next = function () { run(); callback(); };
-	const nextRequest = queue.first();
+	const nextRequest = queue.shift();
 
 	// Cancel if we've run out of requests.
 	if (!nextRequest) {
-		return callback();
-	}
-
-	// Cancel if the request is already started.
-	if (currentRequests[nextRequest.id]) {
 		return callback();
 	}
 
