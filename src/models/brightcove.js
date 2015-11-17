@@ -6,16 +6,17 @@ var Video = require('./video');
 var getAppropriateRendition = require('../libs/get-appropriate-rendition');
 
 function eventListener(video, ev) {
-	var event = document.createEvent('Event');
-	event.initEvent('beacon:media', true, true);
-	event.detail = {
-		mediaType: 'video',
-		contentId: video.id,
-		domPath: video.domPath,
-		domPathTokens: video.domPathTokens,
-		event: ev.type,
-		progress: video.getProgress()
-	};
+	var event = new CustomEvent('oTracking.event', {
+		detail: {
+			action: 'media',
+			category: 'video',
+			event: ev.type,
+			mediaType: 'video',
+			contentId: video.id,
+			progress: video.getProgress(),
+		},
+		bubbles: true
+	});
 	document.body.dispatchEvent(event);
 }
 
