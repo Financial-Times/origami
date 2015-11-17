@@ -4,24 +4,25 @@ const Video = require('./video');
 const getAppropriateRendition = require('../libs/get-appropriate-rendition');
 
 const eventListener = (video, ev) => {
-	const event = document.createEvent('Event');
-	event.initEvent('beacon:media', true, true);
-	event.detail = {
-		mediaType: 'video',
-		contentId: video.id,
-		domPath: video.domPath,
-		domPathTokens: video.domPathTokens,
-		event: ev.type,
-		progress: video.getProgress()
-	};
+	var event = new CustomEvent('oTracking.event', {
+		detail: {
+			action: 'media',
+			category: 'video',
+			event: ev.type,
+			mediaType: 'video',
+			contentId: video.id,
+			progress: video.getProgress(),
+		},
+		bubbles: true
+	});
 	document.body.dispatchEvent(event);
-}
+};
 
 const addEvents = (video, events) => {
 	events.forEach(event => {
 		video.el.addEventListener(event, eventListener.bind(this, video));
 	});
-}
+};
 
 // use the image resizing service, if width supplied
 const updatePosterUrl = (posterImage, width) => {
@@ -30,7 +31,7 @@ const updatePosterUrl = (posterImage, width) => {
 		url += `&fit=scale-down&width=${width}`;
 	}
 	return url;
-}
+};
 
 class Brightcove extends Video {
 	constructor(el, opts) {

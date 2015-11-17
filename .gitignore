@@ -2,6 +2,7 @@
 
 /npm-debug.log*
 
+/.idea/
+/demos/local/
 /bower_components/
 /node_modules/
-/demos/local
