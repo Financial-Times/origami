@@ -148,7 +148,7 @@ $o-footer-spacing-unit: 20px;
 	}
 }
 
-.o-footer__pearson,
+.o-footer__pearson, // deprecated
 .o-footer__brand {
 	background-color: oColorsGetColorFor(o-footer__brand o-footer, background);
 	padding-top: $o-footer-spacing-unit - 5;
@@ -161,8 +161,8 @@ $o-footer-spacing-unit: 20px;
 	}
 }
 
-.o-footer__pearson-tagline,
-.o-footer__pearson-logo,
+.o-footer__pearson-tagline, // deprecated
+.o-footer__pearson-logo, // deprecated
 .o-footer__brand-logo {
 	height: 19px;
 	background-image: url(oAssetsResolve("img/nikkei_logo.png", o-footer));
@@ -173,11 +173,11 @@ $o-footer-spacing-unit: 20px;
 	background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/nikkei_logo.svg", o-footer)) no-repeat;
 }
 
-.o-footer__pearson-tagline {
+.o-footer__pearson-tagline { // deprecated
 	display: none;
 }
 
-.o-footer__pearson-logo,
+.o-footer__pearson-logo, // deprecated
 .o-footer__brand-logo {
 	float: right;
 	width: 162px;
