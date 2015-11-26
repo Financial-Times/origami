@@ -8,7 +8,7 @@
 $o-typography-is-silent: true !default;
 
 // serifDisplayBoldItalic is deprecated and will be removed
-$font-scale: (
+$o-typography-font-scale: (
 	sans: (
 		xl: (font-size: 40, line-height: 40),
 		l: (font-size: 26, line-height: 27),
@@ -94,6 +94,20 @@ $font-scale: (
 		xs: (font-size: 12, line-height: 12)
 	)
 );
+
+// Previously, $o-typography-font-scale was called $font-scale. In order to not
+// make this rename a breaking change, check if anything is overriding
+// $font-scale and if it is, set $o-typography-font-scale to that value.
+// If it isn't, set $font-scale to $o-typography-font-scale in case anything is
+// reading it
+
+@if variable-exists(font-scale) {
+	$o-typography-font-scale: $font-scale;
+} @else {
+ 	$font-scale: $o-typography-font-scale;
+}
+
+
 
 $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;
 $o-typography-serif: oFontsGetFontFamilyWithFallbacks(FinancierTextWeb) !default;
