@@ -105,6 +105,7 @@ Tracking.prototype.init = function(config) {
 	if (this.initialised) {
 		return this;
 	}
+
 	const hasDeclarativeConfig = !!this._getDeclarativeConfigElement();
 
 	if (!(hasDeclarativeConfig || config)) {

@@ -65,9 +65,8 @@ describe('Core', function () {
 			assert.equal(sent_data.system.source, "o-tracking");
 
 			// Context
-			assert.deepEqual(Object.keys(sent_data.context), ["id","offset","root_id","url"]);
+			assert.deepEqual(Object.keys(sent_data.context), ["id","root_id","url"]);
 			assert.ok(guid_re.test(sent_data.context.id), "Request ID is invalid. " + sent_data.context.id);
-			//assert.ok(/\d+/.test(sent_data.time.offset), "offset is invalid. " + sent_data.time.offset);
 			assert.equal(sent_data.context.root_id, "root_id");
 			assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
 
