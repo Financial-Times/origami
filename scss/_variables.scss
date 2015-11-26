@@ -7,31 +7,6 @@
 /// @type Bool
 $o-typography-is-silent: true !default;
 
-$o-fonts-families: (
-	MetricWeb: (
-		font-family: 'MetricWeb, sans-serif',
-		variants: (
-			(weight: light, style: normal),
-			(weight: light, style: italic),
-			(weight: semibold, style: normal),
-		)
-	),
-	FinancierDisplayWeb: (
-		font-family: 'FinancierDisplayWeb, Georgia, serif',
-		variants: (
-			(weight: regular, style: normal),
-			(weight: medium, style: italic),
-			(weight: light, style: italic),
-		)
-	),
-	FinancierTextWeb: (
-		font-family: 'FinancierTextWeb, Georgia, serif',
-		variants: (
-			(weight: regular, style: normal),
-		)
-	)
-);
-
 // serifDisplayBoldItalic is deprecated and will be removed
 $font-scale: (
 	sans: (
