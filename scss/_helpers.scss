@@ -18,7 +18,7 @@
 ///
 /// @return {Map}
 ///
-@function get-scale($name, $font-scale: $font-scale) {
+@function get-scale($name, $font-scale: $o-typography-font-scale) {
     @return map-get($font-scale, $name);
 }
 
@@ -37,7 +37,7 @@
 ///
 /// @return {Map}
 ///
-@function get-scale-level($name, $level, $font-scale: $font-scale) {
+@function get-scale-level($name, $level, $font-scale: $o-typography-font-scale) {
     @return map-get(get-scale($name, $font-scale), $level);
 }
 
@@ -73,7 +73,7 @@
 ///
 /// @return {Number}
 ///
-@function get-font-size($name, $level, $font-scale: $font-scale) {
+@function get-font-size($name, $level, $font-scale: $o-typography-font-scale) {
     @return convert-to-px(map-get(get-scale-level($name, $level, $font-scale), font-size));
 }
 
@@ -93,7 +93,7 @@
 ///
 /// @return {Number}
 ///
-@function get-line-height($name, $level, $font-scale: $font-scale) {
+@function get-line-height($name, $level, $font-scale: $o-typography-font-scale) {
     @return convert-to-px(map-get(get-scale-level($name, $level, $font-scale), line-height));
 }
 
