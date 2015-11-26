@@ -36,7 +36,7 @@ describe('page', function () {
 
 		// Basics
 		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
-		assert.deepEqual(Object.keys(sent_data.context), ["id","offset","root_id","url","referrer"]);
+		assert.deepEqual(Object.keys(sent_data.context), ["id","root_id","url","referrer"]);
 
 		// Type
 		assert.equal(sent_data.category, "page");

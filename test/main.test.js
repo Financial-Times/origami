@@ -154,4 +154,30 @@ describe('main', function () {
 		sent_data2 = callback2.getCall(0).thisValue;
 		assert.equal(sent_data2.context.my_key, undefined);
 	});
+
+	it('should allow system properties to be set on init', function () {
+		oTracking.destroy();
+
+		oTracking.init({
+			system: {
+				environment: 'prod',
+				is_live: true
+			}
+		});
+
+		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+
+		const callback = sinon.spy();
+		let sent_data;
+
+		oTracking.page({}, callback);
+
+		server.respond();
+		assert.ok(callback.called, 'Callback not called.');
+
+		sent_data = callback.getCall(0).thisValue;
+
+		assert.equal(sent_data.system.environment, "prod");
+		assert.equal(sent_data.system.is_live, true);
+	});
 });

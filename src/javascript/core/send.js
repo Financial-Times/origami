@@ -97,18 +97,14 @@ function sendRequest(request, callback) {
 	const transport = createTransport();
 	const user_callback = request.callback;
 
-	request = utils.merge({
-		system: {
-			api_key: settings.get('api_key'), // String - API key - Make sure the request is from a valid client (idea nicked from Keen.io) useful if a page gets copied onto a Russian website and creates noise
-			version: settings.get('version'), // Version of the tracking client e.g. '1.2'
-			source: settings.get('source'), // Source of the tracking client e.g. 'o-tracking'
-		},
+    const core_system = settings.get('config') && settings.get('config').system || {};
+	const system = utils.merge(core_system, {
+		api_key: settings.get('api_key'), // String - API key - Make sure the request is from a valid client (idea nicked from Keen.io) useful if a page gets copied onto a Russian website and creates noise
+		version: settings.get('version'), // Version of the tracking client e.g. '1.2'
+		source: settings.get('source'), // Source of the tracking client e.g. 'o-tracking'
+	});
 
-		context: {
-			id: request.id, // ID of this request
-			offset: 0 // Delay of this event between event happening and being sent to server - milliseconds
-		}
-	}, request);
+	request = utils.merge({ system: system }, request);
 
 	// Only bothered about offlineLag if it's longer than a second, but less than 12 months. (Especially as Date can be dodgy)
 	if (offlineLag > 1000 && offlineLag < (12 * 30 * 24 * 60 * 60 * 1000)) {
