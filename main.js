@@ -82,8 +82,17 @@ function ftTime(dateObj) {
 	const interval = Math.round((now - dateObj) / 1000);
 	let dateString;
 
+	// if date has not yet passed
+	if (interval < 0) {
+		// if date will occur within the next 5 minutes allow for reasonable difference in machine clocks
+		if (interval > -300) {
+			dateString = 'just now';
+		// if beyond the next 5 minutes fall back to printing the full date - the machine clock could be way out
+		} else {
+			dateString = format(dateObj, 'date');
+		}
 	// Within 24 hours, and if not crossing in to yesterday, show relative time
-	if (interval < 24 * 60 * 60 && now.getDay() === dateObj.getDay()) {
+	} else if (interval < 24 * 60 * 60 && now.getDay() === dateObj.getDay()) {
 		dateString = timeAgo(dateObj, interval);
 	// Within 48 hours, if the day is yesterday show 'yesterday'
 	} else if (interval < 48 * 60 * 60 && (now.getDay() === dateObj.getDay() + 1)) {

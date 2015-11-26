@@ -80,11 +80,15 @@ describe('date', function() {
 
 	it('getting standard FT timeformat', function() {
 		const today = new Date(new Date().getTime() - 10000);
+		const aboutToHappen = new Date(new Date().getTime() + 60000);
+		const future = new Date(new Date().getTime() + (60000 * 10));
 		const yesterday = new Date(new Date().getTime() - (1000 * 60 * 60 * 24));
 		const dayBeforeYesterday = new Date(new Date().getTime() - (1000 * 60 * 60 * 48));
 
 		expect(/ago/.test(oDate.ftTime(today))).to.be.ok('today\'s dates are relative');
 		expect(oDate.ftTime(yesterday)).to.be.ok('yesterday');
+		expect(oDate.ftTime(aboutToHappen)).to.be.ok('just now');
+		expect(/^January|February|March|April|May|June|July|August|September|October|November|December/.test(oDate.ftTime(future))).to.be.ok('future dates are printed in full');
 		expect(/^January|February|March|April|May|June|July|August|September|October|November|December/.test(oDate.ftTime(dayBeforeYesterday))).to.be.ok('older dates are printed in full');
 	});
 
