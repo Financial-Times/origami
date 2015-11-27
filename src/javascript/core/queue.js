@@ -146,23 +146,15 @@ Queue.prototype.replace = function (items) {
  * @return {Object} The item.
  */
 Queue.prototype.shift = function () {
-	const replacement = this.all();
-	const nextItem = this.first();
-	let i;
-
-	if (!nextItem) {
+	if (this.queue.length === 0) {
 		return null;
 	}
 
-	for (i = 0; i < replacement.length; i = i + 1) {
-		if (nextItem.id === replacement[i].id) {
-			replacement.splice(i, 1);
-			this.replace(replacement).save();
-			break;
-		}
-	}
+	const item = this.queue.shift().item;
 
-	return nextItem;
+	this.save();
+
+	return item;
 };
 
 /**
