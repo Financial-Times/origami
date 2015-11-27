@@ -101,7 +101,6 @@ Queue.prototype.add = function (item) {
 	function doAdd(item) {
 		self.queue.push({
 			created_at: (new Date()).valueOf(),
-			id: utils.guid(),
 			item: item
 		});
 	}
