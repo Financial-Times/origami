@@ -204,6 +204,8 @@ function Widget () {
 									// init stream to monitor banned comments
 									initStreamForBannedComments(collectionAttributes.id, collectionAttributes.event);
 
+									self.ui.addTermsAndGuidelineMessage();
+
 									if (envConfig.get().emailNotifications !== true) {
 										self.ui.hideFollowButton();
 									}
@@ -227,8 +229,6 @@ function Widget () {
 											if (self.forceMode === true) {
 												setTimeout(self.ui.scrollToWidget, 2000);
 											}
-
-											self.ui.addTermsAndGuidelineMessage();
 										} else {
 											auth.logout();
 											if (authData) {
@@ -242,6 +242,7 @@ function Widget () {
 													self.ui.makeReadOnly();
 													self.ui.hideSignInLink();
 													self.ui.addAuthNotAvailableMessage();
+													self.ui.hideTermsAndGuidelinesMessage();
 												}
 											}
 										}

@@ -6,7 +6,7 @@
   ],
   "dependencies": {
     "o-comment-api": "^2.2.0-beta.7",
-    "o-comment-ui": "^2.2.0-beta.5",
+    "o-comment-ui": "^2.2.0-beta.9",
     "o-comment-utilities": "^2.2.0-beta.2",
     "o-typography": "^1.16.2",
     "o-colors": ">=2.4.7 <4",
