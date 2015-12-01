@@ -228,7 +228,7 @@ function WidgetUi (widgetContainer, config) {
 		}
 	};
 	
-	var __superDestroy = this.destroy;
+	let __superDestroy = this.destroy;
 	this.destroy = function () {
 		clearInterval(checkPseudonymInterval);
 		__superDestroy();
