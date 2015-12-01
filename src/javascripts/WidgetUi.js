@@ -227,6 +227,13 @@ function WidgetUi (widgetContainer, config) {
 			}
 		}
 	};
+	
+	var __superDestroy = this.destroy;
+	this.destroy = function () {
+		clearInterval(checkPseudonymInterval);
+		__superDestroy();
+		__superDestroy = null;
+	};
 }
 WidgetUi.__extend = function(child) {
 	if (typeof Object.create === 'function') {
