@@ -8,7 +8,6 @@ const formats = {
 };
 
 const compiledTemplates = {};
-let timer;
 
 /**
  * See http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html for formatting conventions used
@@ -49,39 +48,37 @@ function ODate(rootEl) {
 	}
 
 	if (this.el !== undefined) {
-		this.update(true);
+		this.update();
 	}
 }
 
-ODate.prototype.update = function(noExec) {
-	if (!noExec) {
-		let el = this.el;
-		let date = el.getAttribute('datetime');
-		const printer = el.querySelector('.o-date__printer') || el;
-		const hasTextNode = printer.firstChild && printer.firstChild.nodeType === 3;
+ODate.prototype.update = function() {
+	let el = this.el;
+	let date = el.getAttribute('datetime');
+	const printer = el.querySelector('.o-date__printer') || el;
+	const hasTextNode = printer.firstChild && printer.firstChild.nodeType === 3;
 
-		if (date) {
-			date = toDate(date);
-		} else if (hasTextNode) {
-			// Only define new date if printer is empty
-			date = new Date();
-		}
-
-		if (!date) return;
-
-		// To avoid triggering a parent live region unnecessarily
-		// <https://github.com/Financial-Times/o-date/pull/43>
-		if (hasTextNode) {
-			printer.firstChild.nodeValue = ftTime(date);
-		} else {
-			printer.innerHTML = ftTime(date);
-		}
-
-		el.title = format(date, 'datetime');
-		el.setAttribute('data-o-date-js', '');
+	if (date) {
+		date = toDate(date);
+	} else if (hasTextNode) {
+		// Only define new date if printer is empty
+		date = new Date();
 	}
 
-	timer = setTimeout(this.update.bind(this), 60000);
+	if (!date) return;
+
+	// To avoid triggering a parent live region unnecessarily
+	// <https://github.com/Financial-Times/o-date/pull/43>
+	if (hasTextNode) {
+		printer.firstChild.nodeValue = ftTime(date);
+	} else {
+		printer.innerHTML = ftTime(date);
+	}
+
+	el.title = format(date, 'datetime');
+	el.setAttribute('data-o-date-js', '');
+
+	setTimeout(this.update.bind(this), 60000);
 };
 
 function compile (format) {
