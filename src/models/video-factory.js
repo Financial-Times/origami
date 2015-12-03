@@ -1,14 +1,11 @@
-'use strict';
+const Video = require('./video');
+const Brightcove = require('./brightcove');
+const BrightcovePlayer = require('./brightcove-player');
+const YouTube = require('./you-tube');
 
-var Video = require('./video');
-var Brightcove = require('./brightcove');
-var BrightcovePlayer = require('./brightcove-player');
-var YouTube = require('./you-tube');
-
-module.exports = function (el, opts) {
-	var source = el.getAttribute('data-n-video-source').toLowerCase();
-	var player = (el.getAttribute('data-n-video-player') || 'html5').toLowerCase();
-
+module.exports = (el, opts) => {
+	const source = el.getAttribute('data-n-video-source').toLowerCase();
+	const player = (el.getAttribute('data-n-video-player') || 'html5').toLowerCase();
 	if (source === 'brightcove') {
 		if (player === 'brightcove') {
 			return new BrightcovePlayer(el, opts);

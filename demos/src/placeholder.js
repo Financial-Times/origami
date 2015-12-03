@@ -1,4 +1,2 @@
-'use strict';
-
-var nVideo = require('../../main');
+const nVideo = require('../../main');
 nVideo.init({ placeholder: true });

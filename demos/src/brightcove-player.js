@@ -1,9 +1,7 @@
 /* global console */
-'use strict';
-
-var nVideo = require('../../main');
+const nVideo = require('../../main');
 nVideo.init();
 
-document.body.addEventListener('beacon:media', function (ev) {
+document.body.addEventListener('beacon:media', ev => {
 	console.log(ev.detail);
 });

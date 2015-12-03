@@ -1,76 +1,80 @@
 /* global describe, it, beforeEach, afterEach, sinon */
-'use strict';
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
-var main = require('../main.js');
-var Brightcove = require('../src/models/brightcove');
-var brightcoveResponse = require('./fixtures/brightcove.json');
+const main = require('../main.js');
+const Brightcove = require('../src/models/brightcove');
+const brightcoveResponse = require('./fixtures/brightcove.json');
 
-describe('Main', function () {
+describe('Main', () => {
 
-	var containerEl;
-	var server;
+	let containerEl;
+	let fetchStub;
 
-	beforeEach(function () {
+	beforeEach(() => {
 		containerEl = document.createElement('div');
 		containerEl.setAttribute('data-n-component', 'n-video');
 		containerEl.setAttribute('data-n-video-id', '4084879507001');
 		containerEl.setAttribute('data-n-video-source', 'Brightcove');
 		document.body.appendChild(containerEl);
-		server = sinon.fakeServer.create();
-		server.autoRespond = true;
-		server.respondWith(JSON.stringify(brightcoveResponse));
+		fetchStub = sinon.stub(window, 'fetch');
+		const res = new window.Response(JSON.stringify(brightcoveResponse), {
+			status: 200,
+			headers: {
+				'Content-type': 'application/json'
+			}
+		});
+		fetchStub.returns(Promise.resolve(res));
 	});
 
-	afterEach(function () {
+	afterEach(() => {
 		document.body.removeChild(containerEl);
-		server.restore();
+		fetchStub.restore();
 	});
 
-	it('should exits', function () {
+	it('should exits', () => {
 		main.should.exist;
 	});
 
-	it('should have an init property', function () {
+	it('should have an init property', () => {
 		main.should.have.property('init');
 	});
 
-	it('should create a Video object and element', function () {
-		return main.init().then(function (videos) {
+	it('should create a Video object and element', () => {
+		return main.init().then(videos => {
 			videos.should.have.length(1);
 			videos[0].should.be.an.instanceOf(Brightcove);
 			containerEl.children[0].should.eql(videos[0].el);
 		});
 	});
 
-	it('should create Video objects only once', function () {
-		return main.init().then(function () {
-			main.init().then(function (videos) {
+	it('should create Video objects only once', () => {
+		return main.init().then(() => {
+			main.init().then(videos => {
 				videos.should.be.empty;
 			});
 		});
 	});
 
-	it('should allow setting the selector Video objects only once', function () {
-		var className = 'js-video';
+	it('should allow setting the selector Video objects only once', () => {
+		const className = 'js-video';
 
-		return main.init({ selector: '.' + className }).then(function (videos) {
+		return main.init({ selector: '.' + className }).then(videos => {
 			containerEl.className = className;
 			videos.should.be.empty;
-			return main.init({ selector: '.' + className }).then(function (videos) {
+			return main.init({ selector: '.' + className }).then(videos => {
 				videos.should.have.length(1);
 			});
 		});
 	});
 
-	it('should allow setting options through attribute', function () {
+	it('should allow setting options through attribute', () => {
 		containerEl.setAttribute('data-n-video-opts-optimum-width', 300);
 		containerEl.setAttribute('data-n-video-opts-placeholder', true);
 		containerEl.setAttribute('data-n-video-opts-classes', 'a-class another-class');
 
-		return main.init().then(function (videos) {
+		return main.init().then(videos => {
 			videos.should.have.length(1);
-			var placeholderEl = videos[0].containerEl.querySelector('img');
+			const placeholderEl = videos[0].containerEl.querySelector('img');
 			placeholderEl.className.should.equal('a-class another-class n-video__video');
 			placeholderEl.getAttribute('src').should.contain('width=300');
 		});

@@ -2,11 +2,10 @@
   "name": "n-video",
   "description": "Video player for next",
   "license": "MIT",
-  "ignore": [
-    "bower_components",
-    "node_modules"
+  "main": [
+    "main.js",
+    "main.scss"
   ],
-  "main": "main.js",
   "dependencies": {
     "n-jsonp-fetch": "^1.0.0",
     "next-sass-setup": "^7.0.0"
