@@ -1,22 +1,21 @@
 /*global module*/
-'use strict';
 
-var months = '["' + 'January,February,March,April,May,June,July,August,September,October,November,December'.split(',').join('","') + '"]';
-var days = '["' + 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'.split(',').join('","') + '"]';
-var formats = {
+const months = '["' + 'January,February,March,April,May,June,July,August,September,October,November,December'.split(',').join('","') + '"]';
+const days = '["' + 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'.split(',').join('","') + '"]';
+const formats = {
 	datetime: 'MMMM d, yyyy h:mm a',
 	date: 'MMMM d, yyyy'
 };
 
-var compiledTemplates = {};
-var timer;
+const compiledTemplates = {};
+let timer;
 
 /**
  * See http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html for formatting conventions used
  *
  *Comments indicate the value returned for 3.05 pm on Tuesday 4th February 2014
 */
-var formatReplacementsMap = {
+const formatReplacementsMap = {
 	MMMM: 'months[date.getMonth()]',  // e.g. February
 	MMM: 'months[date.getMonth()].substr(0,3)', // Feb
 	MM: 'pad2(date.getMonth() + 1, 2)', // 02
@@ -54,23 +53,30 @@ function ODate(rootEl) {
 	}
 }
 
-ODate.prototype.update = function (noExec) {
+ODate.prototype.update = function(noExec) {
 	if (!noExec) {
-		var el = this.el;
-		var date = el.getAttribute('datetime');
-		var printer = el.querySelector('.o-date__printer') || el;
+		let el = this.el;
+		let date = el.getAttribute('datetime');
+		const printer = el.querySelector('.o-date__printer') || el;
+		const hasTextNode = printer.firstChild && printer.firstChild.nodeType === 3;
 
 		if (date) {
 			date = toDate(date);
-		} else if (printer.innerHTML.length === 0) {
+		} else if (hasTextNode) {
 			// Only define new date if printer is empty
 			date = new Date();
 		}
 
 		if (!date) return;
 
-		var interval = Math.round(((new Date()) - date) / 1000);
-		printer.innerHTML = interval < (365 * 60 * 60 * 24) ? timeAgo(date, interval) : format(date, 'date');
+		// To avoid triggering a parent live region unnecessarily
+		// <https://github.com/Financial-Times/o-date/pull/43>
+		if (hasTextNode) {
+			printer.firstChild.nodeValue = ftTime(date);
+		} else {
+			printer.innerHTML = ftTime(date);
+		}
+
 		el.title = format(date, 'datetime');
 		el.setAttribute('data-o-date-js', '');
 	}
@@ -79,15 +85,15 @@ ODate.prototype.update = function (noExec) {
 };
 
 function compile (format) {
-	var tpl = formats[format] || format;
+	const tpl = formats[format] || format;
 
-	var funcString = 'var months= ' + months + ', days= ' + days + ';';
+	let funcString = 'var months= ' + months + ', days= ' + days + ';';
 	funcString +='function pad2 (number) {return ("0" + number).slice(-2)}';
 	funcString += 'return "' + tpl.replace(/\\?[a-z]+/ig, function (match) {
 		if (match.charAt(0) === '\\') {
 			return match.substr(1);
 		}
-		var replacer = formatReplacementsMap[match];
+		const replacer = formatReplacementsMap[match];
 
 		return replacer ? '" + ' + replacer + ' + "' : match;
 	}) + '"';
@@ -104,9 +110,36 @@ function toDate (date) {
 
 function format (date, dateFormat) {
 	dateFormat = dateFormat || 'datetime';
-	var tpl = compiledTemplates[dateFormat] || compile(dateFormat);
+	const tpl = compiledTemplates[dateFormat] || compile(dateFormat);
 	date = toDate(date);
 	return date && tpl(date);
+}
+
+function ftTime(dateObj) {
+	const now = new Date();
+	const interval = Math.round((now - dateObj) / 1000);
+	let dateString;
+
+	// if date has not yet passed
+	if (interval < 0) {
+		// if date will occur within the next 5 minutes allow for reasonable difference in machine clocks
+		if (interval > -300) {
+			dateString = 'just now';
+		// if beyond the next 5 minutes fall back to printing the full date - the machine clock could be way out
+		} else {
+			dateString = format(dateObj, 'date');
+		}
+	// Within 24 hours, and if not crossing in to yesterday, show relative time
+	} else if (interval < 24 * 60 * 60 && now.getDay() === dateObj.getDay()) {
+		dateString = timeAgo(dateObj, interval);
+	// Within 48 hours, if the day is yesterday show 'yesterday'
+	} else if (interval < 48 * 60 * 60 && (now.getDay() === dateObj.getDay() + 1)) {
+		dateString = 'yesterday';
+	// Otherwise print the date
+	} else {
+		dateString = format(dateObj, 'date');
+	}
+	return dateString;
 }
 
 function timeAgo (date, interval) {
@@ -124,7 +157,7 @@ function timeAgo (date, interval) {
 	} else if (interval < 90 * 60) {
 		return 'an hour ago';
 	} else if (interval < 22 * 60 * 60) {
-		return  Math.round(interval / (60 * 60)) + ' hours ago';
+		return Math.round(interval / (60 * 60)) + ' hours ago';
 	} else if (interval < 36 * 60 * 60) {
 		return 'a day ago';
 	} else if (interval < 25 * 60 * 60 * 24) {
@@ -150,13 +183,13 @@ ODate.init = function(el) {
 	if (/\bo-date\b/.test(el.getAttribute('data-o-component'))) {
 		return new ODate(el);
 	}
-	var dateEls = el.querySelectorAll('[data-o-component~="o-date"]');
+	const dateEls = el.querySelectorAll('[data-o-component~="o-date"]');
 	return [].map.call(dateEls, function(el) {
 		return new ODate(el);
 	});
 };
 
-var constructAll = function() {
+const constructAll = function() {
 	ODate.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
@@ -168,5 +201,6 @@ if (typeof window !== 'undefined') {
 module.exports = {
 	format: format,
 	timeAgo: timeAgo,
-	ODate: ODate
+	ODate: ODate,
+	ftTime: ftTime
 };
