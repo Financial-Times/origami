@@ -70,18 +70,18 @@ ODate.prototype.update = function() {
 	// To avoid triggering a parent live region unnecessarily
 	// <https://github.com/Financial-Times/o-date/pull/43>
 	if (hasTextNode) {
-		printer.firstChild.nodeValue = ftTime(date);
+		printer.firstChild.nodeValue = ODate.ftTime(date);
 	} else {
-		printer.innerHTML = ftTime(date);
+		printer.innerHTML = ODate.ftTime(date);
 	}
 
-	el.title = format(date, 'datetime');
+	el.title = ODate.format(date, 'datetime');
 	el.setAttribute('data-o-date-js', '');
 
 	setTimeout(this.update.bind(this), 60000);
 };
 
-function compile (format) {
+function compile(format) {
 	const tpl = formats[format] || format;
 
 	let funcString = 'var months= ' + months + ', days= ' + days + ';';
@@ -98,21 +98,21 @@ function compile (format) {
 	return (compiledTemplates[format] = new Function('date', funcString));  // jshint ignore:line
 }
 
-function toDate (date) {
+function toDate(date) {
 	date = date instanceof Date ? date : new Date(date);
 	if (date.toString() !== 'Invalid Date') {
 		return date;
 	}
 }
 
-function format (date, dateFormat) {
+ODate.format = function(date, dateFormat) {
 	dateFormat = dateFormat || 'datetime';
 	const tpl = compiledTemplates[dateFormat] || compile(dateFormat);
 	date = toDate(date);
 	return date && tpl(date);
 }
 
-function ftTime(dateObj) {
+ODate.ftTime = function(dateObj) {
 	const now = new Date();
 	const interval = Math.round((now - dateObj) / 1000);
 	let dateString;
@@ -124,22 +124,22 @@ function ftTime(dateObj) {
 			dateString = 'just now';
 		// if beyond the next 5 minutes fall back to printing the full date - the machine clock could be way out
 		} else {
-			dateString = format(dateObj, 'date');
+			dateString = ODate.format(dateObj, 'date');
 		}
 	// Within 24 hours, and if not crossing in to yesterday, show relative time
 	} else if (interval < 24 * 60 * 60 && now.getDay() === dateObj.getDay()) {
-		dateString = timeAgo(dateObj, interval);
+		dateString = ODate.timeAgo(dateObj, interval);
 	// Within 48 hours, if the day is yesterday show 'yesterday'
 	} else if (interval < 48 * 60 * 60 && (now.getDay() === dateObj.getDay() + 1)) {
 		dateString = 'yesterday';
 	// Otherwise print the date
 	} else {
-		dateString = format(dateObj, 'date');
+		dateString = ODate.format(dateObj, 'date');
 	}
 	return dateString;
 }
 
-function timeAgo (date, interval) {
+ODate.timeAgo = function(date, interval) {
 
 	date = toDate(date);
 	if (!date) return;
@@ -195,9 +195,4 @@ if (typeof window !== 'undefined') {
 	document.addEventListener('o.DOMContentLoaded', constructAll);
 }
 
-module.exports = {
-	format: format,
-	timeAgo: timeAgo,
-	ODate: ODate,
-	ftTime: ftTime
-};
+module.exports = ODate;
