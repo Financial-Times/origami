@@ -34,6 +34,8 @@ const formatReplacementsMap = {
 	a: '(date.getHours() >= 12 ? "pm" : "am")' // pm
 };
 
+let interval;
+
 function ODate(rootEl) {
 	if (!rootEl) {
 		rootEl = document.body;
@@ -48,7 +50,17 @@ function ODate(rootEl) {
 	}
 
 	if (this.el !== undefined) {
+		document.body.addEventListener('oDate.update', () => {
+			this.update();
+		});
+
 		this.update();
+	}
+
+	if (!interval) {
+		interval = setInterval(function() {
+			document.body.dispatchEvent(new CustomEvent('oDate.update'));
+		}, 60000);
 	}
 }
 
@@ -77,8 +89,6 @@ ODate.prototype.update = function() {
 
 	el.title = ODate.format(date, 'datetime');
 	el.setAttribute('data-o-date-js', '');
-
-	setTimeout(this.update.bind(this), 60000);
 };
 
 function compile(format) {
