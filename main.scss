@@ -3,7 +3,7 @@
 $anim-duration : 200ms;
 
 .n-notification {
-	background-color: rgba(white, 0.95);
+	background-color: rgba(getColor('pink'), 0.95);
 	border-bottom: 2px solid getColor('cold-2');
 	box-sizing: border-box;
 	color: getColor('cold-2');
@@ -31,27 +31,25 @@ $anim-duration : 200ms;
 	}
 }
 
-
 .n-notification__content-wrapper {
 	margin: 0 auto;
 	width: 100%;
-	max-width: 600px;
 	position: relative;
 	opacity: 0;
 	text-align: center;
 	transition: all $anim-duration linear;
-	padding-right: 20px;
+	padding: 0 30px;
 	box-sizing: border-box;
 }
 
 .n-notification__title {
-	@include nTypeBravo(4);
+	@include oTypographySansBold(m);
 	display: inline-block;
 	margin: 0;
 }
 
 .n-notification__content {
-	@include nTypeAlpha(4);
+	@include oTypographySans(m);
 	display: inline-block;
 	margin: 0;
 }
@@ -69,18 +67,19 @@ $anim-duration : 200ms;
 	cursor: pointer;
 	@include nextIcon(
 		$icon-name: cross_disk,
-		$size: 15,
+		$size: 20,
 		$color: getColor('cold-2')
 	);
-	background-size: 15px;
+	background-size: 20px;
 	background-position: 50%;
+	margin-top: 5px;
 	width: 40px;
 	height: 40px;
 	text-indent: -999em;
 }
 
 .n-notification .myft-ui__icon {
-	@include nextIcon(myft-bolder, black, 16);
+	@include nextIcon(myft-bolder, black, 20);
 	margin: 0 3px -4px;
 	width: 34px;
 }
