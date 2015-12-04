@@ -43,13 +43,13 @@ $anim-duration : 200ms;
 }
 
 .n-notification__title {
-	@include nTypeBravo(4);
+	@include oTypographySansBold(s);
 	display: inline-block;
 	margin: 0;
 }
 
 .n-notification__content {
-	@include nTypeAlpha(4);
+	@include oTypographySans(s);
 	display: inline-block;
 	margin: 0;
 }
