@@ -3,7 +3,7 @@
 $anim-duration : 200ms;
 
 .n-notification {
-	background-color: rgba(white, 0.95);
+	background-color: rgba(getColor('pink'), 0.95);
 	border-bottom: 2px solid getColor('cold-2');
 	box-sizing: border-box;
 	color: getColor('cold-2');
