@@ -31,16 +31,14 @@ $anim-duration : 200ms;
 	}
 }
 
-
 .n-notification__content-wrapper {
 	margin: 0 auto;
 	width: 100%;
-	max-width: 600px;
 	position: relative;
 	opacity: 0;
 	text-align: center;
 	transition: all $anim-duration linear;
-	padding-right: 20px;
+	padding: 0 30px;
 	box-sizing: border-box;
 }
 
@@ -69,18 +67,19 @@ $anim-duration : 200ms;
 	cursor: pointer;
 	@include nextIcon(
 		$icon-name: cross_disk,
-		$size: 15,
+		$size: 20,
 		$color: getColor('cold-2')
 	);
-	background-size: 15px;
+	background-size: 20px;
 	background-position: 50%;
+	margin-top: 5px;
 	width: 40px;
 	height: 40px;
 	text-indent: -999em;
 }
 
 .n-notification .myft-ui__icon {
-	@include nextIcon(myft-bolder, black, 16);
+	@include nextIcon(myft-bolder, black, 20);
 	margin: 0 3px -4px;
 	width: 34px;
 }
