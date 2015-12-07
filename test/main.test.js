@@ -2,6 +2,7 @@
 
 const assert = require("assert");
 const settings = require("../src/javascript/core/settings");
+const Queue = require("../src/javascript/core/queue");
 
 describe('main', function () {
 
@@ -10,7 +11,7 @@ describe('main', function () {
 	let root_id;
 
 	before(function () {
-		(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
+		new Queue('requests').replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
 		settings.destroy('config');  // Empty settings.
 		server = sinon.fakeServer.create(); // Catch AJAX requests
 	});

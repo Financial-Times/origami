@@ -1,6 +1,8 @@
 /*global require, module */
 const settings = require('./src/javascript/core/settings');
-
+const user = require('./src/javascript/core/user');
+const session = require('./src/javascript/core/session');
+const send = require('./src/javascript/core/send');
 
 /**
  * The version of the tracking module.
@@ -67,11 +69,11 @@ Tracking.prototype.toString = function() {
 	return 'oTracking version ' + version;
 };
 
-Tracking.prototype.page = require('./src/javascript/page');
+Tracking.prototype.page = require('./src/javascript/events/page-view');
 
-Tracking.prototype.event = require('./src/javascript/event');
+Tracking.prototype.event = require('./src/javascript/events/custom');
 
-Tracking.prototype.link = require('./src/javascript/link');
+Tracking.prototype.link = require('./src/javascript/events/link-click');
 
 Tracking.prototype.utils = require('./src/javascript/utils');
 
@@ -134,13 +136,13 @@ Tracking.prototype.init = function(config) {
 	}
 
 	// User identifier
-	require('./src/javascript/core/user').init(config.user ? config.user.user_id : null);
+	user.init(config.user ? config.user.user_id : null);
 
 	// Session
-	require('./src/javascript/core/session').init(config.session);
+	session.init(config.session);
 
 	// Initialize the sending queue.
-	require('./src/javascript/core/send').init();
+	send.init();
 
 	this.initialised = true;
 	return this;
