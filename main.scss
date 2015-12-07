@@ -15,8 +15,8 @@ $anim-duration : 200ms;
 	width: 100%;
 
 	&.n-notification--js {
+		@include zIndexFor(notification);
 		position: fixed;
-		z-index: 22;
 		top: 0;
 		left: 0;
 	}
