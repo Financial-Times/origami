@@ -19,7 +19,7 @@ function Logger(logSize, logLevel) {
 		this._consoleLog = noop;
 	}
 
-	const out = console || window.console || { log: noop, warn: noop, error: noop };
+	const out = 'undefined' !== typeof console ? console : { log: noop, warn: noop, error: noop };
 	this.out = out;
 }
 
