@@ -16,6 +16,7 @@ let domain = 'http://test.spoor-api.ft.com';
  */
 let queue;
 
+
 /**
  * Create the transport mechanism.
  * - Works out the best transprot mechanism for the browser and returns it. One of:
@@ -23,6 +24,7 @@ let queue;
  *   - GET url
  */
 function createTransport() {
+
 	try {
 		const xmlHttp = new window.XMLHttpRequest();
 

@@ -1,3 +1,4 @@
+/*eslint-disable*/
 /**
  * cuid.js
  * Collision-resistant UID generator for browsers and node.
@@ -106,3 +107,4 @@
   }
 
 }(this));
+/*eslint-enable */

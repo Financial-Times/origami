@@ -1,10 +1,14 @@
 /*global require, describe, it, before, after, sinon */
 
 const assert = require('assert');
+const settings = require("../src/javascript/core/settings");
+const Queue = require("../src/javascript/core/queue");
+const session = require("../src/javascript/core/session");
+const send = require("../src/javascript/core/send");
+const Core = require("../src/javascript/core.js");
 
 describe('Core', function () {
 
-	const Core = require("../src/javascript/core.js");
 	const guid_re = /\w{25}/; // cifnulwv2000030ds4avpbm9f
 
 	describe('root_id', function () {
@@ -22,18 +26,18 @@ describe('Core', function () {
 		let server;
 
 		before(function () {
-			require("../src/javascript/core/settings").set('version', '1.0.0');
-			require("../src/javascript/core/settings").set('api_key', 'qUb9maKfKbtpRsdp0p2J7uWxRPGJEP');
-			require("../src/javascript/core/settings").set('source', 'o-tracking');
-			(new (require("../src/javascript/core/queue"))('requests')).replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
-			require("../src/javascript/core/settings").destroy('config');  // Empty settings.
-			require("../src/javascript/core/session").init(); // Session
-			require("../src/javascript/core/send").init(); // Init the sender.
+			settings.set('version', '1.0.0');
+			settings.set('api_key', 'qUb9maKfKbtpRsdp0p2J7uWxRPGJEP');
+			settings.set('source', 'o-tracking');
+			session.init(); // Session
+			send.init(); // Init the sender.
 
 			server = sinon.fakeServer.create(); // Catch AJAX requests
 		});
 
 		after(function () {
+			new Queue('requests').replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
+			settings.destroy('config');  // Empty settings.
 			server.restore();
 		});
 
