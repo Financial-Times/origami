@@ -8,7 +8,7 @@ const send = require('./src/javascript/core/send');
  * The version of the tracking module.
  * @type {string}
  */
-const version = '1.0.14';
+const version = '1.0.15';
 /**
  * The source of this event.
  * @type {string}
