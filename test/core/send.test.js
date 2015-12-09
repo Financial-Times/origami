@@ -43,13 +43,4 @@ describe('Core.Send', function () {
 		});
 	});
 
-	/*let test_request = nock('http://trace.ft.com')
-	 .post('/')
-	 .reply(200, 'ok');
-
-	 it('should send the request', function () {
-	 Send.run(function () {
-	 assert.ok(test_request.isDone());
-	 });
-	 });*/
 });

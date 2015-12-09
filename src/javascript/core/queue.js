@@ -47,7 +47,7 @@ const Queue = function (name) {
  */
 Queue.prototype.all = function () {
 	if (this.queue.length === 0) {
-		return null;
+		return [];
 	}
 
 	const items = [];

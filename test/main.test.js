@@ -181,4 +181,26 @@ describe('main', function () {
 		assert.equal(sent_data.system.environment, "prod");
 		assert.equal(sent_data.system.is_live, true);
 	});
+
+	it('should cope with a huge queue as a bug from a previous version', function () {
+		oTracking.destroy();
+
+		let server = sinon.fakeServer.create(); // Catch AJAX requests
+		let queue = new Queue('requests');
+
+		for (let i=0; i<1000; i++) {
+			queue.add({});
+		}
+
+		queue.save();
+
+		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+		oTracking.init({ system: { environment: 'prod', is_live: true } });
+		server.respond();
+
+		// Refresh our queue as it's kept in memory
+		queue = new Queue('requests');
+
+		assert.equal(queue.all().length, 0);
+	});
 });

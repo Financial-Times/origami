@@ -142,7 +142,25 @@ Tracking.prototype.init = function(config) {
 	session.init(config.session);
 
 	// Initialize the sending queue.
-	send.init();
+	const queue = send.init();
+
+	// If queue length is very large, could be due to a bug in a previous version
+	// This was fixed in 1.0.14 https://github.com/Financial-Times/o-tracking/compare/1.0.13...1.0.14
+	// But, still seeing big queues coming through in the data for historical reasons.
+	// This tries to catch those big queues and forcibly empty them.
+	const queue_length = queue.all().length;
+
+	if (queue_length > 200) {
+		queue.replace([]);
+
+		this.event({ detail: {
+			category: 'o-tracking',
+			action: 'queue-bug',
+			context: {
+				queue_length: queue_length
+			}
+		}});
+	}
 
 	this.initialised = true;
 	return this;

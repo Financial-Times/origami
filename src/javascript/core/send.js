@@ -99,7 +99,7 @@ function sendRequest(request, callback) {
 	const transport = createTransport();
 	const user_callback = request.callback;
 
-    const core_system = settings.get('config') && settings.get('config').system || {};
+	const core_system = settings.get('config') && settings.get('config').system || {};
 	const system = utils.merge(core_system, {
 		api_key: settings.get('api_key'), // String - API key - Make sure the request is from a valid client (idea nicked from Keen.io) useful if a page gets copied onto a Russian website and creates noise
 		version: settings.get('version'), // Version of the tracking client e.g. '1.2'
@@ -215,6 +215,8 @@ function init() {
 
 	// On startup, try sending any requests queued from a previous session.
 	run();
+
+	return queue;
 }
 
 module.exports = {
