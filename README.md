@@ -6,7 +6,7 @@ Typographical styles for FT branded sites - font families, weight, colors, sizes
 
 ## Overview
 
-This module provides styles for Headings, Titles, Leads and body content.
+This module provides styles for headings, titles, leads and body content.
 
 ### Font system
 
