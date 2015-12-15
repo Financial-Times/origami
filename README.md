@@ -13,14 +13,168 @@ This module provides styles for headings, titles, leads and body content.
 We’re using a matrix of font variants in order to standardize typography across the site. This provides a common language and helps to avoid inconsistencies across sites.
 
 #### Sans
-[![Font system sans](https://raw.githubusercontent.com/Financial-Times/o-typography/master/img/matrix-sans.png)](https://raw.githubusercontent.com/Financial-Times/o-typography/master/img/matrix-sans.png)
+
+Sans or SansBold are the common fonts for the site. SansData, SansDataBold and SansDataItalic are included for use in charts and graphics where a heavier weight is needed at smaller sizes.
+
+<table><thead>
+<tr>
+<th>Font label</th>
+<th>Sans</th>
+<th>SansBold</th>
+<th>SansData</th>
+<th>SansDataBlod</th>
+<th>SansDataItalic</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Font name</strong></td>
+<td>Metric light</td>
+<td>Metric semibold</td>
+<td>Metric regular</td>
+<td>Metric semibold</td>
+<td>Metric regular italic</td>
+</tr>
+<tr>
+<td><strong>CSS font-family (weight)</strong></td>
+<td>MetricWeb (200)</td>
+<td>MetricWeb (600)</td>
+<td>MetricWeb (400)</td>
+<td>MetricWeb (600)</td>
+<td>MetricWeb (400)</td>
+</tr>
+<tr>
+<th><strong>Variant</strong></th>
+<th colspan='5'>Size/Line-height (px)</th>
+</tr>
+<tr>
+<td><strong>xl</strong></td>
+<td>40/40</td>
+<td>40/40</td>
+<td>28/32</td>
+<td>28/32</td>
+<td>28/32</td>
+</tr>
+<tr>
+<td><strong>l</strong></td>
+<td>26/27</td>
+<td>26/27</td>
+<td>21/24</td>
+<td>21/24</td>
+<td>21/24</td>
+</tr>
+<tr>
+<td><strong>m</strong></td>
+<td>20/24</td>
+<td>20/24</td>
+<td>14/16</td>
+<td>14/16</td>
+<td>14/16</td>
+</tr>
+<tr>
+<td><strong>s</strong></td>
+<td>15/17</td>
+<td>15/17</td>
+<td>12/14</td>
+<td>12/14</td>
+<td>12/14</td>
+</tr>
+<tr>
+<td><strong>xs</strong></td>
+<td>12/12</td>
+<td>12/12</td>
+<td>11/13</td>
+<td>11/13</td>
+<td>11/13</td>
+</tr>
+</tbody></table>
+
 
 #### Serif
-[![Font system serif](https://raw.githubusercontent.com/Financial-Times/o-typography/master/img/matrix-serif.png)](https://raw.githubusercontent.com/Financial-Times/o-typography/master/img/matrix-serif.png)
+o-typography contains two variants of Financier; Financier Display and Financier Text. Display fonts are designed to be used at larger sizes whereas text fonts are designed to be legible at smaller sizes. fonts.com has a more detailed run down of the [differences between display and text fonts](http://www.fonts.com/content/learning/fontology/level-1/type-anatomy/text-v-display).
+
+<table><thead>
+<tr>
+<th>Font label</th>
+<th>Serif</th>
+<th>SerifBold</th>
+<th>SerifItalic</th>
+<th>SerifDisplay</th>
+<th>SerifDisplayBold</th>
+<th>SerifDisplayItalic</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Font name</strong></td>
+<td>Financier text regular</td>
+<td>Financier text regular</td>
+<td>Financier text regular italic</td>
+<td>Financier display</td>
+<td>Financier display semibold</td>
+<td>Financier display italic</td>
+</tr>
+<tr>
+<td><strong>CSS font-family (weight)</strong></td>
+<td>FinancierTextWeb (400)</td>
+<td>FinancierTextWeb (500)</td>
+<td>FinancierTextWeb (400)</td>
+<td>FinancierDisplayWeb (400)</td>
+<td>FinancierDisplayWeb (600)</td>
+<td>FinancierDisplayWeb (200)</td>
+</tr>
+<tr>
+<th><strong>Variant</strong></th>
+<th colspan='6'>Size/Line-height (px)</th>
+</tr>
+<tr>
+<td><strong>xl</strong></td>
+<td>40/40</td>
+<td>40/40</td>
+<td>40/40</td>
+<td>40/40</td>
+<td>40/40</td>
+<td>40/40</td>
+</tr>
+<tr>
+<td><strong>l</strong></td>
+<td>26/31</td>
+<td>26/31</td>
+<td>26/27</td>
+<td>26/31</td>
+<td>26/31</td>
+<td>26/27</td>
+</tr>
+<tr>
+<td><strong>m</strong></td>
+<td>20/24</td>
+<td>20/24</td>
+<td>22/22</td>
+<td>20/24</td>
+<td>20/24</td>
+<td>22/22</td>
+</tr>
+<tr>
+<td><strong>s</strong></td>
+<td>16/19</td>
+<td>16/19</td>
+<td>15/17</td>
+<td>16/19</td>
+<td>16/19</td>
+<td>15/17</td>
+</tr>
+<tr>
+<td><strong>xs</strong></td>
+<td>12/12</td>
+<td>12/12</td>
+<td>11/12</td>
+<td>11/12</td>
+<td>11/12</td>
+<td>11/12</td>
+</tr>
+</tbody></table>
 
 ## Usage
 
-There are two main ways to use these typographic styles:
+There are two ways to use o-typography:
 
 1. Using the predefined CSS classes
 2. Using Sass mixins in your own CSS classes
