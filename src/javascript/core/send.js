@@ -3,7 +3,9 @@
 const settings = require('./settings');
 const utils = require('../utils');
 const Queue = require('./queue');
-
+const xhr = require('./transports/xhr');
+const sendBeacon = require('./transports/send-beacon');
+const image = require('./transports/image');
 /**
  * Default collection server.
  */
@@ -16,76 +18,6 @@ let domain = 'http://test.spoor-api.ft.com';
  */
 let queue;
 
-
-/**
- * Create the transport mechanism.
- * - Works out the best transprot mechanism for the browser and returns it. One of:
- *   - Cross domain Ajax POST with json content type
- *   - GET url
- */
-function createTransport() {
-
-	try {
-		const xmlHttp = new window.XMLHttpRequest();
-
-		// Check if the XMLHttpRequest object has a 'withCredentials' property.
-		// 'withCredentials' only exists on XMLHTTPRequest2 objects.
-		if (!utils.isUndefined(xmlHttp.withCredentials)) {
-			xmlHttp.withCredentials = true;
-
-			return {
-				send: function (domain, path) {
-					xmlHttp.open('POST', domain, true);
-					xmlHttp.setRequestHeader('Content-type', 'application/json');
-					xmlHttp.send(path);
-				},
-				complete: function (callback) {
-					xmlHttp.onerror = function () {
-						callback(this, xmlHttp);
-					};
-					xmlHttp.onload = function () {
-						if (xmlHttp.status >= 200 && xmlHttp.status < 300) {
-							callback(null, xmlHttp);
-						} else {
-							callback('Incorrect response: ' + xmlHttp.status, xmlHttp);
-						}
-					};
-				}
-			};
-		}
-	} catch (error) {
-		utils.broadcast('oErrors', 'log', {
-			error: error,
-			info: { module: 'o-tracking' }
-		});
-	}
-
-	const image = new Image(1,1);
-
-	return {
-		send: function (domain, path) {
-			image.src = domain + '?data=' + utils.encode(path);
-		},
-		complete: function (callback) {
-			if (image.addEventListener) {
-				image.addEventListener('error', function () {
-					callback(this, image);
-				});
-				image.addEventListener('load', function () {
-					callback(null, image);
-				});
-			} else { // it's IE!
-				image.attachEvent('onerror', function () {
-					callback(this, image);
-				});
-				image.attachEvent('onload', function () {
-					callback(null, image);
-				});
-			}
-		}
-	};
-}
-
 /**
  * Attempts to send a tracking request.
  *
@@ -96,7 +28,7 @@ function createTransport() {
 function sendRequest(request, callback) {
 	const offlineLag = (new Date()).getTime() - request.queueTime;
 	let path;
-	const transport = createTransport();
+	const transport = navigator.sendBeacon ? sendBeacon() : window.XMLHttpRequest && 'withCredentials' in window.XMLHttpRequest.prototype ? xhr() : image();
 	const user_callback = request.callback;
 
 	const core_system = settings.get('config') && settings.get('config').system || {};

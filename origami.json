@@ -6,8 +6,9 @@
     "supportStatus": "active",
     "browserFeatures": {
         "required": [
-            "CustomEvent"    
-        ]  
+            "CustomEvent",
+            "Promise"
+        ]
     },
     "demos": [
         {
