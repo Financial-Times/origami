@@ -28,7 +28,7 @@ let queue;
 function sendRequest(request, callback) {
 	const offlineLag = (new Date()).getTime() - request.queueTime;
 	let path;
-	const transport = navigator.sendBeacon ? sendBeacon() : window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? xhr() : image();
+	const transport = (navigator.sendBeacon && Promise) ? sendBeacon() : window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? xhr() : image();
 	const user_callback = request.callback;
 
 	const core_system = settings.get('config') && settings.get('config').system || {};
