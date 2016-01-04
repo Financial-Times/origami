@@ -91,9 +91,11 @@ function sendRequest(request, callback) {
  */
 function add(request) {
 	request.queueTime = (new Date()).getTime();
-
-	queue.add(request).save();
-
+	if (navigator.sendBeacon && Promise) {
+		sendRequest(request);
+	} else {
+		queue.add(request).save();
+	}
 	utils.log('AddedToQueue', queue);
 }
 
