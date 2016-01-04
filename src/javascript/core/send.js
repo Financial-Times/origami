@@ -28,7 +28,7 @@ let queue;
 function sendRequest(request, callback) {
 	const offlineLag = (new Date()).getTime() - request.queueTime;
 	let path;
-	const transport = navigator.sendBeacon ? sendBeacon() : window.XMLHttpRequest && 'withCredentials' in window.XMLHttpRequest.prototype ? xhr() : image();
+	const transport = navigator.sendBeacon ? sendBeacon() : window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? xhr() : image();
 	const user_callback = request.callback;
 
 	const core_system = settings.get('config') && settings.get('config').system || {};
@@ -58,9 +58,9 @@ function sendRequest(request, callback) {
 
 	utils.log('path', path);
 
-	transport.complete(function (error, t) {
+	transport.complete(function (error) {
 		if (utils.is(user_callback, 'function')) {
-			user_callback.call(request, t);
+			user_callback.call(request);
 			utils.log('calling user_callback');
 		}
 
@@ -108,7 +108,10 @@ function run(callback) {
 		callback = function () {};
 	}
 
-	const next = function () { run(); callback(); };
+	const next = function () {
+		run();
+		callback();
+	};
 	const nextRequest = queue.shift();
 
 	// Cancel if we've run out of requests.

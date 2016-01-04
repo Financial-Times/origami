@@ -1,3 +1,7 @@
+'use strict';
+
+const utils = require('../../utils');
+
 module.exports = function () {
 	const image = new Image(1,1);
 

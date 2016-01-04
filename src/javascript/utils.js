@@ -75,7 +75,7 @@ function merge(target, options) {
 		}
 
 		// Gets rid of missing values too
-		if (typeof copy !== 'undefined' && copy !== null && copy !== '') {
+		if (typeof copy !== 'undefined' && copy !== null) {
 			target[name] = (src === Object(src) && !is(src, 'function') ? merge(src, copy) : copy);
 		}
 	}

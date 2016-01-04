@@ -31,19 +31,16 @@ describe('Core', function () {
 			settings.set('source', 'o-tracking');
 			session.init(); // Session
 			send.init(); // Init the sender.
-
-			server = sinon.fakeServer.create(); // Catch AJAX requests
 		});
 
 		after(function () {
 			new Queue('requests').replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
 			settings.destroy('config');  // Empty settings.
-			server.restore();
 		});
 
-		it('should send a tracking request', function () {
-			server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
-
+		it('should send a tracking request', function (done) {
+			const b = navigator.sendBeacon;
+			navigator.sendBeacon = sinon.stub().returns(true);
 			const callback = sinon.spy();
 			let sent_data;
 
@@ -55,37 +52,42 @@ describe('Core', function () {
 				user: { "user_id": "userID" }
 			}, callback);
 
-			server.respond();
+			setTimeout(() => {
+				assert.ok(callback.called, 'Callback not called.');
 
-			assert.ok(callback.called, 'Callback not called.');
+				sent_data = callback.getCall(0).thisValue;
+				assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+				// System
+				assert.deepEqual(Object.keys(sent_data.system), ["api_key","version","source"]);
+				assert.equal(sent_data.system.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
+				assert.equal(sent_data.system.version, "1.0.0");
+				assert.equal(sent_data.system.source, "o-tracking");
 
-			sent_data = callback.getCall(0).thisValue;
+				// Context
+				assert.deepEqual(Object.keys(sent_data.context), ["id","root_id","url"]);
+				assert.ok(guid_re.test(sent_data.context.id), "Request ID is invalid. " + sent_data.context.id);
+				assert.equal(sent_data.context.root_id, "root_id");
+				assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
 
-			assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
-			// System
-			assert.deepEqual(Object.keys(sent_data.system), ["api_key","version","source"]);
-			assert.equal(sent_data.system.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
-			assert.equal(sent_data.system.version, "1.0.0");
-			assert.equal(sent_data.system.source, "o-tracking");
+				// User
+				assert.deepEqual(Object.keys(sent_data.user), ["user_id"]);
+				assert.equal(sent_data.user.user_id, "userID");
 
-			// Context
-			assert.deepEqual(Object.keys(sent_data.context), ["id","root_id","url"]);
-			assert.ok(guid_re.test(sent_data.context.id), "Request ID is invalid. " + sent_data.context.id);
-			assert.equal(sent_data.context.root_id, "root_id");
-			assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
+				// Device
+				assert.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_session_is_new","spoor_id"]);
+				assert.equal(sent_data.device.spoor_session, require("../src/javascript/core/session").session().id);
+				assert.equal(sent_data.device.spoor_session_is_new, require("../src/javascript/core/session").session().isNew);
+				navigator.sendBeacon = b;
+				done();
+			}, 10);
 
-			// User
-			assert.deepEqual(Object.keys(sent_data.user), ["user_id"]);
-			assert.equal(sent_data.user.user_id, "userID");
-
-			// Device
-			assert.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_session_is_new","spoor_id"]);
-			assert.equal(sent_data.device.spoor_session, require("../src/javascript/core/session").session().id);
-			assert.equal(sent_data.device.spoor_session_is_new, require("../src/javascript/core/session").session().isNew);
 		});
 
-		it('should defer a tracking request', function () {
-			server.respondWith([404, { "Content-Type": "plain/text", "Content-Length": 6 }, "NOT OK"]);
+		it('should defer a tracking request', function (done) {
+			// server.respondWith([404, { "Content-Type": "plain/text", "Content-Length": 6 }, "NOT OK"]);
+
+			const b = navigator.sendBeacon;
+			navigator.sendBeacon = sinon.stub().returns(false);
 
 			const callback = sinon.spy();
 
@@ -96,18 +98,20 @@ describe('Core', function () {
 				user: { "userID": "userID" }
 			}, callback);
 
-			server.respond();
+			setTimeout(() => {
 
-			assert.equal(callback.called, 1, 'Callback called once.');
+				assert.equal(callback.called, 1, 'Callback called once.');
 
-			server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+				navigator.sendBeacon = sinon.stub().returns(true);
+				// Try again
+				require("../src/javascript/core/send").run();
+				setTimeout(() => {
 
-			// Try again
-			require("../src/javascript/core/send").run();
-
-			server.respond();
-
-			assert.ok(callback.calledOnce, 'Callback should only be called once as next send could be on a different page.');
+					assert.ok(callback.calledOnce, 'Callback should only be called once as next send could be on a different page.');
+					navigator.sendBeacon = b;
+					done();
+				}, 10);
+			}, 10);
 		});
 	});
 

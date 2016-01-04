@@ -1,7 +1,7 @@
 /*global module*/
 
-module.exports = function(config) {
-	config.set({
+module.exports = function(karma) {
+	var config = {
 
 		// base path that will be used to resolve all patterns (eg. files, exclude)
 		basePath: '',
@@ -47,7 +47,7 @@ module.exports = function(config) {
 
 		// level of logging
 		// possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-		logLevel: config.LOG_INFO,
+		logLevel: karma.LOG_INFO,
 
 
 		// enable / disable watching file and executing tests whenever any file changes
@@ -56,7 +56,7 @@ module.exports = function(config) {
 
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: ['PhantomJS'],
+		browsers: ['Chrome'],
 
 
 		// Continuous Integration mode
@@ -66,7 +66,19 @@ module.exports = function(config) {
 		browserify: {
 			debug: true,
 			transform: [ 'babelify', 'debowerify' ]
-		}
+		},
 
-	});
+		customLaunchers: {
+			Chrome_travis_ci: {
+				base: 'Chrome',
+				flags: ['--no-sandbox']
+			}
+		}
+	};
+
+	if(process.env.TRAVIS){
+		config.browsers = ['Chrome_travis_ci'];
+	}
+
+	karma.set(config);
 };

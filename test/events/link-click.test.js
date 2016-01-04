@@ -24,8 +24,7 @@ describe('click', function () {
 		server.restore();
 	});
 
-	it('should track an external link', function () {
-		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+	it('should track an external link', function (done) {
 
 		const callback = sinon.spy();
 		let sent_data;
@@ -44,24 +43,26 @@ describe('click', function () {
 
 		event.initEvent('testClick', true, true);
 		aLink.dispatchEvent(event, true);
+		setTimeout(() => {
+			assert.ok(callback.called, 'Callback not called.');
 
-		server.respond();
-		assert.ok(callback.called, 'Callback not called.');
+			sent_data = callback.getCall(0).thisValue;
 
-		sent_data = callback.getCall(0).thisValue;
+			// Basics
+			assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 
-		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+			// Type
+			assert.equal(sent_data.category, "link");
+			assert.equal(sent_data.action, "click");
+			assert.equal(sent_data.context.root_id, "page_id");
 
-		// Type
-		assert.equal(sent_data.category, "link");
-		assert.equal(sent_data.action, "click");
-		assert.equal(sent_data.context.root_id, "page_id");
+			// Link
+			assert.equal(sent_data.context.link.id, "a/www.google.com");
+			assert.equal(sent_data.context.link.source_id, "page_id");
+			assert.equal(sent_data.context.link.href, aLink.href);
+			assert.equal(sent_data.context.link.title, aLink.text);
+			done();
+		}, 10)
 
-		// Link
-		assert.equal(sent_data.context.link.id, "a/www.google.com");
-		assert.equal(sent_data.context.link.source_id, "page_id");
-		assert.equal(sent_data.context.link.href, aLink.href);
-		assert.equal(sent_data.context.link.title, aLink.text);
 	});
 });
