@@ -185,6 +185,6 @@ Note that o-header v4 relies on the [o-grid](https://github.com/Financial-Times/
 
 ## License
 
-Copyright (c) 2015 Financial Times Ltd. All rights reserved.
+Copyright (c) 2016 Financial Times Ltd. All rights reserved.
 
 This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
