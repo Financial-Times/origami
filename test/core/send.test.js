@@ -1,4 +1,4 @@
-/*global require, describe, it */
+/*global require, describe, it, sinon */
 
 const assert = require('assert');
 const Send = require('../../src/javascript/core/send');

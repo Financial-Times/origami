@@ -43,7 +43,9 @@ describe('page', function () {
 
 			// Page
 			assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
+			/*eslint-disable*/
 			assert.ok((sent_data.context.referrer != null), "referrer is invalid. " + sent_data.context.referrer);
+			/*eslint-enable*/
 			done();
 		}, 10)
 

@@ -4,14 +4,16 @@ const assert = require("assert");
 const Queue = require("../../src/javascript/core/queue");
 const settings = require("../../src/javascript/core/settings");
 const send = require("../../src/javascript/core/send");
+const session = require("../../src/javascript/core/session");
 
 describe('event', function () {
 
-	let server;
 	const track_event = require("../../src/javascript/events/custom.js");
 
 	before(function () {
+		session.init();
 		send.init(); // Init the sender.
+
 		//require("../../src/javascript/core").setRootID('rootID'); // Fix the click ID to stop it generating one.
 	});
 

@@ -23,7 +23,6 @@ describe('Core', function () {
 	});
 
 	describe('track', function () {
-		let server;
 
 		before(function () {
 			settings.set('version', '1.0.0');

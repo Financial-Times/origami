@@ -1,7 +1,7 @@
-/*global module*/
+/*global module, process*/
 
 module.exports = function(karma) {
-	var config = {
+	const config = {
 
 		// base path that will be used to resolve all patterns (eg. files, exclude)
 		basePath: '',
