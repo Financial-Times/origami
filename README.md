@@ -260,6 +260,6 @@ If using placeholder classes or extending styles using `oFormsClass` and `oForms
 
 ## License
 
-Copyright (c) 2015 Financial Times Ltd. All rights reserved.
+Copyright (c) 2016 Financial Times Ltd. All rights reserved.
 
 This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
