@@ -1,4 +1,7 @@
 /*global module, require */
+/*eslint-disable*/
+'use strict';
+/*eslint-enable*/
 
 const utils = require('../utils');
 const Store = require('./store');

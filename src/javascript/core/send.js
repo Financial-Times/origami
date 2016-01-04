@@ -1,4 +1,7 @@
 /*global module, require, window */
+/*eslint-disable*/
+'use strict';
+/*eslint-enable*/
 
 const settings = require('./settings');
 const utils = require('../utils');

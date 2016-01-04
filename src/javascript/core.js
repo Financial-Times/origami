@@ -1,4 +1,7 @@
 /*global module, require */
+/*eslint-disable*/
+'use strict';
+/*eslint-enable*/
 
 const Send = require('./core/send');
 const User = require('./core/user');
