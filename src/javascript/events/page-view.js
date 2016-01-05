@@ -1,7 +1,10 @@
 /*global module, require */
+/*eslint-disable*/
+'use strict';
+/*eslint-enable*/
+
 const Core = require('../core');
 const utils = require('../utils');
-
 
 /**
  * Default properties for page tracking requests.

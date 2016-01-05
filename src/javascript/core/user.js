@@ -1,4 +1,7 @@
 /*global module, require */
+/*eslint-disable*/
+'use strict';
+/*eslint-enable*/
 
 let userID;
 let store;

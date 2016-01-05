@@ -1,4 +1,8 @@
 /*global require, module */
+/*eslint-disable*/
+'use strict';
+/*eslint-enable*/
+
 const settings = require('./src/javascript/core/settings');
 const user = require('./src/javascript/core/user');
 const session = require('./src/javascript/core/session');
