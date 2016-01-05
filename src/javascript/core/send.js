@@ -45,7 +45,7 @@ function sendRequest(request, callback) {
 		request.time = request.time || {};
 		request.time.offset = offlineLag;
 	}
-
+	console.log(request.callback)
 	delete request.callback;
 	delete request.async;
 	delete request.type;

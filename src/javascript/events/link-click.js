@@ -112,7 +112,7 @@ function createLinkID(link) {
 	const parents = parentTree(link);
 	let name = link.href || link.text || link.name || link.id;
 
-	name = name.replace(/^http:\/\/[\w\.]+/, '') // Remove http://[something].
+	name = name.replace(/^http:\/\/[\w\.\:]+/, '') // Remove http://[something].
 		.replace(/^\//, '') // Remove slash at beginning
 		.replace(/(\?|#).*$/, '') // Remove query string and page anchor (#)
 		.replace(/\/$/, '') // Remove trailing slash
@@ -201,7 +201,6 @@ function onClick(cb) {
 function runQueue() {
 	const next = function () { runQueue(); callback(); };
 	const nextLink = internalQueue.shift();
-
 	if (nextLink) {
 		Core.track(nextLink, next);
 	}
