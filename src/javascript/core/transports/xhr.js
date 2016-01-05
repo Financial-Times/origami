@@ -10,8 +10,16 @@ module.exports = function () {
 			xhr.send(path);
 		},
 		complete: function (callback) {
-			xhr.onerror = callback;
-			xhr.onload = () => callback();
+			xhr.onerror = function () {
+				callback(this);
+			}
+			xhr.onload = function () {
+				if (xhr.status >= 200 && xhr.status < 300) {
+					callback();
+				} else {
+					callback('Incorrect response: ' + xhr.status);
+				}
+			}
 		}
 	};
 }

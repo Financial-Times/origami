@@ -1,4 +1,7 @@
 /*global module, require, window */
+/*eslint-disable*/
+'use strict';
+/*eslint-enable*/
 
 const settings = require('./settings');
 const utils = require('../utils');
@@ -26,7 +29,8 @@ let queue;
  * @return {undefined}
  */
 function sendRequest(request, callback) {
-	const offlineLag = (new Date()).getTime() - request.queueTime;
+	const queueTime = request.queueTime;
+	const offlineLag = new Date().getTime() - queueTime;
 	let path;
 	const transport = (navigator.sendBeacon && Promise) ? sendBeacon() : window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? xhr() : image();
 	const user_callback = request.callback;
@@ -45,7 +49,6 @@ function sendRequest(request, callback) {
 		request.time = request.time || {};
 		request.time.offset = offlineLag;
 	}
-	console.log(request.callback)
 	delete request.callback;
 	delete request.async;
 	delete request.type;
@@ -66,6 +69,8 @@ function sendRequest(request, callback) {
 
 		if (error) {
 			// Re-add to the queue if it failed.
+			// Re-apply queueTime here
+			request.queueTime = queueTime;
 			queue.add(request).save();
 
 			utils.broadcast('oErrors', 'log', {
@@ -73,7 +78,7 @@ function sendRequest(request, callback) {
 				info: { module: 'o-tracking' }
 			});
 		} else {
-			callback();
+			callback && callback();
 		}
 	});
 

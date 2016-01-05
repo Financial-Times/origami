@@ -1,4 +1,7 @@
 /*global module, require, window */
+/*eslint-disable*/
+'use strict';
+/*eslint-enable*/
 
 /**
  * Class for storing data

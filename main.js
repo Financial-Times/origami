@@ -1,4 +1,8 @@
 /*global require, module */
+/*eslint-disable*/
+'use strict';
+/*eslint-enable*/
+
 const settings = require('./src/javascript/core/settings');
 const user = require('./src/javascript/core/user');
 const session = require('./src/javascript/core/session');
@@ -8,7 +12,7 @@ const send = require('./src/javascript/core/send');
  * The version of the tracking module.
  * @type {string}
  */
-const version = '1.0.15';
+const version = '1.0.16';
 /**
  * The source of this event.
  * @type {string}

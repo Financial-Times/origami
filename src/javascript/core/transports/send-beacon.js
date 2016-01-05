@@ -15,7 +15,7 @@ module.exports = function () {
 
         },
         complete: function (callback) {
-            p.then(callback, callback);
+            callback && p.then(callback, callback);
         }
     };
 };

@@ -1,11 +1,11 @@
 /*global module, require, window */
+/*eslint-disable*/
+'use strict';
+/*eslint-enable*/
 
 const Queue = require('../core/queue');
 const Core = require('../core');
-
 const utils = require('../utils');
-
-
 let internalQueue;
 
 /**
