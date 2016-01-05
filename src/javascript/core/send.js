@@ -97,7 +97,8 @@ function createTransport() {
  * @return {undefined}
  */
 function sendRequest(request, callback) {
-	const offlineLag = (new Date()).getTime() - request.queueTime;
+	const queueTime = request.queueTime;
+	const offlineLag = (new Date()).getTime() - queueTime;
 	let path;
 	const transport = createTransport();
 	const user_callback = request.callback;
@@ -137,6 +138,8 @@ function sendRequest(request, callback) {
 
 		if (error) {
 			// Re-add to the queue if it failed.
+			// Re-apply queueTime here
+			request.queueTime = queueTime;
 			queue.add(request).save();
 
 			utils.broadcast('oErrors', 'log', {

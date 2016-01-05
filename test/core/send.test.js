@@ -1,7 +1,8 @@
-/*global require, describe, it */
+/*global require, describe, it, before, after, sinon */
 
 const assert = require('assert');
 const Send = require('../../src/javascript/core/send');
+const Queue = require("../../src/javascript/core/queue");
 const request = {
 	id: '1.199.83760034665465.1432907605043.-56cf00f',
 	meta: {
@@ -26,10 +27,20 @@ const request = {
 };
 
 // PhantomJS doesn't always create a "fresh" environment...
-(new (require("../../src/javascript/core/queue"))('requests')).replace([]);
-require("../../src/javascript/core/settings").destroy('config');  // Empty settings.
 
 describe('Core.Send', function () {
+
+	let server;
+
+	before(function () {
+		server = sinon.fakeServer.create(); // Catch AJAX requests
+	});
+
+	after(function () {
+		(new Queue('requests')).replace([]);
+		require("../../src/javascript/core/settings").destroy('config');  // Empty settings.
+		server.restore();
+	});
 
 	it('should init first', function () {
 		assert.doesNotThrow(function () {
@@ -41,6 +52,18 @@ describe('Core.Send', function () {
 		assert.doesNotThrow(function () {
 			Send.add(request);
 		});
+	});
+
+	it('should remember offline lag if a request fails.', function () {
+		(new Queue('requests')).replace([]);
+		Send.init();
+
+		server.respondWith([500, { "Content-Type": "plain/text", "Content-Length": 5 }, "NOT OK"]);
+
+		Send.addAndRun(request);
+		server.respond();
+
+		assert.ok((new Queue('requests')).last().queueTime);
 	});
 
 });
