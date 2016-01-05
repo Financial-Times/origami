@@ -28,32 +28,33 @@ const Store = require('./store');
  * @param {String} user_id - The user ID to check against storage.
  * @return {String} - The real user ID.
  */
-function migrate_across_domains(store, user_id) {
-	const ls_name = 'o-tracking-proper-id';
-	let proper_id;
-
-	try {
-		proper_id = window.localStorage.getItem(ls_name);
-
-		if (!proper_id) {
-			window.localStorage.setItem(ls_name, user_id);
-			proper_id = user_id;
-		}
-	} catch (error) {
-		utils.broadcast('oErrors', 'log', {
-			error: error,
-			info: { module: 'o-tracking' }
-		});
-		proper_id = user_id;
-	}
-
-	// Expire the cookie on the (sub)domain
-	window.document.cookie = 'spoor-id=0;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;';
-	// Re-set the cookie on the  root domain
-	store.write(proper_id);
-
-	return proper_id;
-}
+//function migrate_across_domains(store, user_id) {
+//	const ls_name = 'o-tracking-proper-id';
+//	let proper_id;
+//
+//	try {
+//	    // This isn't consistent in at least Firefox, maybe more, localstorage seems secured at subdomian level.
+//		proper_id = window.localStorage.getItem(ls_name);
+//
+//		if (!proper_id) {
+//			window.localStorage.setItem(ls_name, user_id);
+//			proper_id = user_id;
+//		}
+//	} catch (error) {
+//		utils.broadcast('oErrors', 'log', {
+//			error: error,
+//			info: { module: 'o-tracking' }
+//		});
+//		proper_id = user_id;
+//	}
+//
+//	// Expire the cookie on the (sub)domain
+//	window.document.cookie = 'spoor-id=0;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;';
+//	// Re-set the cookie on the  root domain
+//	store.write(proper_id);
+//
+//	return proper_id;
+//}
 
 /**
  * Init
@@ -73,9 +74,9 @@ function init(value) {
 
 	userID = store.read();
 
-	if (userID) {
-		userID = migrate_across_domains(store, userID);
-	}
+//	if (userID) {
+//		userID = migrate_across_domains(store, userID);
+//	}
 
 	if (!userID) {
 		userID = config.value;
