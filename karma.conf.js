@@ -1,4 +1,4 @@
-/*global module, process*/
+/*global module*/
 
 module.exports = function(karma) {
 	const config = {
@@ -56,7 +56,7 @@ module.exports = function(karma) {
 
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: ['Chrome'],
+		browsers: ['Firefox'],
 
 
 		// Continuous Integration mode
@@ -66,19 +66,10 @@ module.exports = function(karma) {
 		browserify: {
 			debug: true,
 			transform: [ 'babelify', 'debowerify' ]
-		},
-
-		customLaunchers: {
-			Chrome_travis_ci: {
-				base: 'Chrome',
-				flags: ['--no-sandbox']
-			}
 		}
+
 	};
 
-	if(process.env.TRAVIS){
-		config.browsers = ['Chrome_travis_ci'];
-	}
 
 	karma.set(config);
 };

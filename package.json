@@ -9,6 +9,7 @@
     "karma": "^0.12.31",
     "karma-browserify": "^4.0.0",
     "karma-chrome-launcher": "^0.2.2",
+    "karma-firefox-launcher": "^0.1.7",
     "karma-mocha": "^0.1.10",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-sinon": "^1.0.4",
