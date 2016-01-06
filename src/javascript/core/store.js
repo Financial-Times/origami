@@ -89,7 +89,7 @@ const Store = function (name, config) {
 			for (i = 0; i < cookies.length; i = i + 1) {
 				cookie = cookies[i].replace(/^\s+|\s+$/g, '');
 				if (cookie.indexOf(name) === 0) {
-					return cookie.substring(name.length, cookie.length);
+					return utils.decode(cookie.substring(name.length, cookie.length));
 				}
 			}
 
