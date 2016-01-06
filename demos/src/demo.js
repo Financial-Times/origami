@@ -10,7 +10,10 @@ function loadDemo(showtype) {
 	function getData(type) {
 		const oReq = new XMLHttpRequest();
 
-		oReq.open('GET', ((location.pathname.indexOf('/local') !== -1) ? '../' : '') + '../src/scss/_' + type + '.scss', true);
+		// Gets the module and version from the url
+		const module = location.pathname.match(/o-colors(.*?)(?=\/)/g);
+		const reqUrl = 'https://build.origami.ft.com/v2/files/';
+		oReq.open('GET', ((location.pathname.indexOf('/local') !== -1) ? '../..' : reqUrl + module[0]) + '/src/scss/_' + type + '.scss', true);
 
 		oReq.onload = function() {
 			const src = this.responseText;
