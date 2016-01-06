@@ -36,4 +36,15 @@ describe('Core.Store', function () {
 		});
 	});
 
+    describe('cookies', function () {
+        it('should store an array of values', function () {
+            let cookie_store = new Store('test-cookies', { storage: 'cookie' });
+
+            cookie_store.write(['one', 'two']);
+
+            cookie_store = new Store('test-cookies', { storage: 'cookie' });
+            assert.deepEqual(cookie_store.read(), ['one', 'two']);
+        });
+    });
+
 });
