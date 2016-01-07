@@ -15,6 +15,7 @@ module.exports = function(karma) {
 		// list of files / patterns to load in the browser
 		files: [
 			'http://polyfill.webservices.ft.com/v1/polyfill.js?ua=safari/4',
+			'test/setup.js',
 			'test/**/*.test.js'
 		],
 
@@ -27,7 +28,7 @@ module.exports = function(karma) {
 		// preprocess matching files before serving them to the browser
 		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 		preprocessors: {
-			'test/**/*.test.js': ['browserify']
+			'test/**/*.js': ['browserify']
 		},
 
 

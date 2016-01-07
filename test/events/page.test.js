@@ -21,7 +21,7 @@ describe('page', function () {
 		settings.destroy('config');  // Empty settings.
 	});
 
-	it('should track a page', function (done) {
+	it('should track a page', function () {
 		const callback = sinon.spy();
 		let sent_data;
 
@@ -29,29 +29,26 @@ describe('page', function () {
 			url: "http://www.ft.com/home/uk"
 		}, callback);
 
-		setTimeout(() => {
-			assert.ok(callback.called, 'Callback not called.');
+		assert.ok(callback.called, 'Callback not called.');
 
-			sent_data = callback.getCall(0).thisValue;
-			// Basics
-			assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
-			assert.deepEqual(Object.keys(sent_data.context), ["id","root_id","url","referrer"]);
+		sent_data = callback.getCall(0).thisValue;
+		// Basics
+		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+		assert.deepEqual(Object.keys(sent_data.context), ["id","root_id","url","referrer"]);
 
-			// Type
-			assert.equal(sent_data.category, "page");
-			assert.equal(sent_data.action, "view");
+		// Type
+		assert.equal(sent_data.category, "page");
+		assert.equal(sent_data.action, "view");
 
-			// Page
-			assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
-			/*eslint-disable*/
-			assert.ok((sent_data.context.referrer != null), "referrer is invalid. " + sent_data.context.referrer);
-			/*eslint-enable*/
-			done();
-		}, 10)
+		// Page
+		assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
+		/*eslint-disable*/
+		assert.ok((sent_data.context.referrer != null), "referrer is invalid. " + sent_data.context.referrer);
+		/*eslint-enable*/
 
 	});
 
-	it('should assign a unique root_id for each page', function (done) {
+	it('should assign a unique root_id for each page', function () {
 
 		const callback = sinon.spy();
 		const callback2 = sinon.spy();
@@ -61,21 +58,16 @@ describe('page', function () {
 		page({
 			url: "http://www.ft.com/home/uk"
 		}, callback);
-		setTimeout(() => {
-			assert.ok(callback.called, 'Callback not called.');
+		assert.ok(callback.called, 'Callback not called.');
 
-			page1_root_id = callback.getCall(0).thisValue.context.root_id;
+		page1_root_id = callback.getCall(0).thisValue.context.root_id;
 
-			page({
-				url: "http://www.ft.com/home/uk"
-			}, callback2);
-			setTimeout(() => {
-				assert.ok(callback2.called, 'Callback not called.');
+		page({
+			url: "http://www.ft.com/home/uk"
+		}, callback2);
+		assert.ok(callback2.called, 'Callback not called.');
 
-				page2_root_id = callback2.getCall(0).thisValue.context.root_id;
-				assert.notEqual(page1_root_id, page2_root_id, 'root_id is not unique');
-				done();
-			}, 10);
-		}, 10);
+		page2_root_id = callback2.getCall(0).thisValue.context.root_id;
+		assert.notEqual(page1_root_id, page2_root_id, 'root_id is not unique');
 	});
 });

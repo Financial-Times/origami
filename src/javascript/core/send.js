@@ -6,9 +6,7 @@
 const settings = require('./settings');
 const utils = require('../utils');
 const Queue = require('./queue');
-const xhr = require('./transports/xhr');
-const sendBeacon = require('./transports/send-beacon');
-const image = require('./transports/image');
+const transports = require('./transports');
 /**
  * Default collection server.
  */
@@ -32,7 +30,9 @@ function sendRequest(request, callback) {
 	const queueTime = request.queueTime;
 	const offlineLag = new Date().getTime() - queueTime;
 	let path;
-	const transport = (navigator.sendBeacon && Promise) ? sendBeacon() : window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? xhr() : image();
+	const transport = (navigator.sendBeacon && Promise) ? transports.get('sendBeacon')() :
+										window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? transports.get('xhr')() :
+										transports.get('image')();
 	const user_callback = request.callback;
 
 	const core_system = settings.get('config') && settings.get('config').system || {};

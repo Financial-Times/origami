@@ -22,7 +22,7 @@ describe('event', function () {
 		settings.destroy('config');  // Empty settings.
 	});
 
-	it('should track an event, adds custom component_id', function (done) {
+	it('should track an event, adds custom component_id', function () {
 
 		const callback = sinon.spy();
 		let sent_data;
@@ -37,25 +37,21 @@ describe('event', function () {
 			}
 		}), callback);
 
-		setTimeout(() => {
-			assert.ok(callback.called, 'Callback not called.');
+		assert.ok(callback.called, 'Callback not called.');
 
-			sent_data = callback.getCall(0).thisValue;
+		sent_data = callback.getCall(0).thisValue;
 
-			assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 
-			// Event
-			assert.equal(sent_data.category, "slideshow");
-			assert.equal(sent_data.action, "slide_viewed");
-			assert.equal(sent_data.context.slide_number, 5);
-			assert.equal(sent_data.context.component_id, "123456");
-			assert.equal(sent_data.context.component_name, 'custom-o-tracking');
-			done();
-		}, 10)
-
+		// Event
+		assert.equal(sent_data.category, "slideshow");
+		assert.equal(sent_data.action, "slide_viewed");
+		assert.equal(sent_data.context.slide_number, 5);
+		assert.equal(sent_data.context.component_id, "123456");
+		assert.equal(sent_data.context.component_name, 'custom-o-tracking');
 	});
 
-	it('should listen to a dom event and generate a component_id', function (done) {
+	it('should listen to a dom event and generate a component_id', function () {
 
 		const event = new CustomEvent('oTracking.event', {
 			detail: {
@@ -72,23 +68,20 @@ describe('event', function () {
 			const callback = sinon.spy();
 
 			track_event(e, callback);
-			setTimeout(() => {
-				assert.ok(callback.called, 'Callback not called.');
+			assert.ok(callback.called, 'Callback not called.');
 
-				const sent_data = callback.getCall(0).thisValue;
+			const sent_data = callback.getCall(0).thisValue;
 
-				assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+			assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 
-				// Event
-				assert.equal(sent_data.category, "video");
-				assert.equal(sent_data.action, "play");
-				assert.equal(sent_data.context.key, 'id');
-				assert.equal(sent_data.context.value, 51234);
-				assert.equal(typeof sent_data.context.component_id, "number");
-				assert.equal(sent_data.context.component_name, "o-tracking");
+			// Event
+			assert.equal(sent_data.category, "video");
+			assert.equal(sent_data.action, "play");
+			assert.equal(sent_data.context.key, 'id');
+			assert.equal(sent_data.context.value, 51234);
+			assert.equal(typeof sent_data.context.component_id, "number");
+			assert.equal(sent_data.context.component_name, "o-tracking");
 
-				done();
-			});
 		});
 
 		document.body.dispatchEvent(event);

@@ -26,13 +26,18 @@ const request = {
 	}
 };
 
+const setup = require('../setup');
+
 // PhantomJS doesn't always create a "fresh" environment...
 
 describe('Core.Send', function () {
-
+	before(function () {
+		setup.unmockTransport();
+	})
 	after(function () {
 		(new Queue('requests')).replace([]);
 		require("../../src/javascript/core/settings").destroy('config');  // Empty settings.
+		setup.mockTransport();
 	});
 
 	it('should init first', function () {

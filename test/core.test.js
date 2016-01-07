@@ -6,7 +6,7 @@ const Queue = require("../src/javascript/core/queue");
 const session = require("../src/javascript/core/session");
 const send = require("../src/javascript/core/send");
 const Core = require("../src/javascript/core.js");
-
+const setup = require('./setup');
 describe('Core', function () {
 
 	const guid_re = /\w{25}/; // cifnulwv2000030ds4avpbm9f
@@ -37,9 +37,7 @@ describe('Core', function () {
 			settings.destroy('config');  // Empty settings.
 		});
 
-		it('should send a tracking request', function (done) {
-			const b = navigator.sendBeacon;
-			navigator.sendBeacon = sinon.stub().returns(true);
+		it('should send a tracking request', function () {
 			const callback = sinon.spy();
 			let sent_data;
 
@@ -51,43 +49,36 @@ describe('Core', function () {
 				user: { "user_id": "userID" }
 			}, callback);
 
-			setTimeout(() => {
-				assert.ok(callback.called, 'Callback not called.');
+			assert.ok(callback.called, 'Callback not called.');
 
-				sent_data = callback.getCall(0).thisValue;
-				assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
-				// System
-				assert.deepEqual(Object.keys(sent_data.system), ["api_key","version","source"]);
-				assert.equal(sent_data.system.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
-				assert.equal(sent_data.system.version, "1.0.0");
-				assert.equal(sent_data.system.source, "o-tracking");
+			sent_data = callback.getCall(0).thisValue;
+			assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+			// System
+			assert.deepEqual(Object.keys(sent_data.system), ["api_key","version","source"]);
+			assert.equal(sent_data.system.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
+			assert.equal(sent_data.system.version, "1.0.0");
+			assert.equal(sent_data.system.source, "o-tracking");
 
-				// Context
-				assert.deepEqual(Object.keys(sent_data.context), ["id","root_id","url"]);
-				assert.ok(guid_re.test(sent_data.context.id), "Request ID is invalid. " + sent_data.context.id);
-				assert.equal(sent_data.context.root_id, "root_id");
-				assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
+			// Context
+			assert.deepEqual(Object.keys(sent_data.context), ["id","root_id","url"]);
+			assert.ok(guid_re.test(sent_data.context.id), "Request ID is invalid. " + sent_data.context.id);
+			assert.equal(sent_data.context.root_id, "root_id");
+			assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
 
-				// User
-				assert.deepEqual(Object.keys(sent_data.user), ["user_id"]);
-				assert.equal(sent_data.user.user_id, "userID");
+			// User
+			assert.deepEqual(Object.keys(sent_data.user), ["user_id"]);
+			assert.equal(sent_data.user.user_id, "userID");
 
-				// Device
-				assert.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_session_is_new","spoor_id"]);
-				assert.equal(sent_data.device.spoor_session, require("../src/javascript/core/session").session().id);
-				assert.equal(sent_data.device.spoor_session_is_new, require("../src/javascript/core/session").session().isNew);
-				navigator.sendBeacon = b;
-				done();
-			}, 10);
+			// Device
+			assert.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_session_is_new","spoor_id"]);
+			assert.equal(sent_data.device.spoor_session, require("../src/javascript/core/session").session().id);
+			assert.equal(sent_data.device.spoor_session_is_new, require("../src/javascript/core/session").session().isNew);
 
 		});
 
-		it('should defer a tracking request', function (done) {
-			// server.respondWith([404, { "Content-Type": "plain/text", "Content-Length": 6 }, "NOT OK"]);
+		it('should defer a tracking request', function () {
 
-			const b = navigator.sendBeacon;
-			navigator.sendBeacon = sinon.stub().returns(false);
-
+			setup.errorNextSend();
 			const callback = sinon.spy();
 
 			Core.track({
@@ -97,20 +88,12 @@ describe('Core', function () {
 				user: { "userID": "userID" }
 			}, callback);
 
-			setTimeout(() => {
+			assert.equal(callback.called, 1, 'Callback called once.');
 
-				assert.equal(callback.called, 1, 'Callback called once.');
+			// Try again
+			require("../src/javascript/core/send").run();
 
-				navigator.sendBeacon = sinon.stub().returns(true);
-				// Try again
-				require("../src/javascript/core/send").run();
-				setTimeout(() => {
-
-					assert.ok(callback.calledOnce, 'Callback should only be called once as next send could be on a different page.');
-					navigator.sendBeacon = b;
-					done();
-				}, 10);
-			}, 10);
+			assert.ok(callback.calledOnce, 'Callback should only be called once as next send could be on a different page.');
 		});
 	});
 
