@@ -1,5 +1,4 @@
-'use strict';
-
+/* global sinon*/
 const transports = require('../src/javascript/core/transports')
 let willError = false;
 

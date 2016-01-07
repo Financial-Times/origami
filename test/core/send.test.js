@@ -1,4 +1,4 @@
-/*global require, describe, it, after, sinon */
+/*global require, describe, it, after, sinon, before */
 
 const assert = require('assert');
 const Send = require('../../src/javascript/core/send');
@@ -27,17 +27,15 @@ const request = {
 };
 
 const setup = require('../setup');
+const settings = require('../../src/javascript/core/settings');
 
 // PhantomJS doesn't always create a "fresh" environment...
 
 describe('Core.Send', function () {
-	before(function () {
-		setup.unmockTransport();
-	})
+
 	after(function () {
 		(new Queue('requests')).replace([]);
-		require("../../src/javascript/core/settings").destroy('config');  // Empty settings.
-		setup.mockTransport();
+		settings.destroy('config');  // Empty settings.
 	});
 
 	it('should init first', function () {
@@ -54,7 +52,63 @@ describe('Core.Send', function () {
 
 
 	describe('fallback transports', function () {
+		before(function () {
+			setup.unmockTransport();
+		});
+
+		after(function () {
+			setup.mockTransport();
+		});
+
+		it('use xhr by default', function (done) {
+			Send.init();
+			navigator.sendBeacon = navigator.sendBeacon || true;
+			const xhr = window.XMLHttpRequest;
+			const dummyXHR = {
+				withCredentials: false,
+				open: sinon.stub(),
+				setRequestHeader: sinon.stub(),
+				send: sinon.stub()
+			};
+			window.XMLHttpRequest = function () {
+				return dummyXHR;
+			}
+			Send.addAndRun(request);
+			setTimeout(() => {
+				assert.equal(typeof dummyXHR.onerror, 'function');
+				assert.equal(typeof dummyXHR.onload, 'function');
+				// assert.equal(dummyXHR.onerror.length, 1) // it will get passed the error
+				// assert.equal(dummyXHR.onload.length, 0) // it will not get passed an error
+				assert.ok(dummyXHR.withCredentials);
+				assert.ok(dummyXHR.open.calledWith("POST", "http://test.spoor-api.ft.com", true));
+				assert.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'));
+				assert.ok(dummyXHR.send.calledOnce);
+				window.XMLHttpRequest = xhr;
+				if (typeof navigator.sendBeacon === 'boolean') {
+					delete navigator.sendBeacon;
+				}
+				done();
+			}, 100)
+		});
+
+		if (navigator.sendBeacon) {
+			it('use sendBeacon when configured', function (done) {
+				settings.set('useSendBeacon', true);
+				sinon.stub(navigator, 'sendBeacon');
+				Send.init();
+				Send.addAndRun(request);
+				setTimeout(() => {
+					assert.ok(navigator.sendBeacon.called);
+					navigator.sendBeacon.restore();
+					settings.destroy('useSendBeacon');
+					done();
+				}, 100)
+			});
+		}
+
+
 		it('fallback to xhr when sendBeacon not supported', function (done) {
+			settings.set('useSendBeacon', true);
 			Send.init();
 			const b = navigator.sendBeacon;
 			navigator.sendBeacon = null;
@@ -80,6 +134,7 @@ describe('Core.Send', function () {
 				assert.ok(dummyXHR.send.calledOnce);
 				window.XMLHttpRequest = xhr;
 				navigator.sendBeacon = b;
+				settings.destroy('useSendBeacon');
 				done();
 			}, 100)
 		});
