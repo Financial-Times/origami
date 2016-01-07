@@ -4,19 +4,28 @@
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-colors/issues",
     "supportStatus": "active",
+    "demosDefaults": {
+        "sass": "demos/src/demo.scss",
+        "js": "demos/src/demo.js",
+        "documentClasses": "o-techdocs-content",
+        "dependencies": ["o-techdocs@^4.0.0"]
+    },
     "demos": [
         {
-            "path": "/demos/palette.html",
+            "name": "palette",
+            "template": "demos/src/palette.mustache",
             "expanded": true,
             "description": ""
         },
         {
-            "path": "/demos/use-cases.html",
+            "name": "use-cases",
+            "template": "demos/src/use-cases.mustache",
             "expanded": true,
             "description": ""
         },
         {
-            "path": "/demos/sass-usage.html",
+            "name": "sass-usage",
+            "template": "demos/src/sass-usage.mustache",
             "expanded": false,
             "description": ""
         }
