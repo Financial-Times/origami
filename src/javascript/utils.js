@@ -102,6 +102,20 @@ function encode(str) {
 	}
 }
 
+/**
+ * URL decode a string.
+ * @param {string} str - The string to be decoded.
+ *
+ * @return {string} The decoded string.
+ */
+function decode(str) {
+	if (window.decodeURIComponent) {
+		return window.decodeURIComponent(str);
+	} else {
+		return window.unescape(str);
+	}
+}
+
 /*
  * Utility to add event listeners.
  *
@@ -204,6 +218,7 @@ module.exports = {
 	isUndefined: is,
 	merge: merge,
 	encode: encode,
+	decode: decode,
 	guid: cuid,
 	addEvent: addEvent,
 	broadcast: broadcast,
