@@ -13,6 +13,9 @@ const settings = {};
  * @private
  */
 function clone(value) {
+	if (value === undefined) {
+		return value;
+	}
 	switch (Object.prototype.toString.call(value)) {
 		case '[object Object]':
 			return JSON.parse(JSON.stringify(value));
