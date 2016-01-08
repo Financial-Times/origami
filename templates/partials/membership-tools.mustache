@@ -1,0 +1,31 @@
+{{#if navigationModel.signIn}}
+	<li class="o-header__primary-tools__item o-header__primary-tools__item--account o-header__primary-tools__item--logged-out" data-tour-stage="myFt">
+		<a class="o-header__primary-tools__link" href="/login" data-trackable="login">
+			<span class="o-header__primary-tools__link--inner">Sign In</span>
+		</a>
+	</li>
+{{/if}}
+
+{{#if navigationModel.signOut}}
+<li class="o-header__primary-tools__item o-header__primary-tools__item--account o-header__primary-tools__item--logged-in">
+	<a class="o-header__primary-tools__link" href="/logout" data-trackable="logout">
+		<span class="o-header__primary-tools__link--inner">Sign Out</span>
+	</a>
+</li>
+{{/if}}
+
+{{#if navigationModel.myAccount}}
+	<li class="o-header__primary-tools__item o-header__primary-tools__item--account o-header__primary-tools__item--my-account o-header__primary-tools__item--logged-in">
+		<a class="o-header__primary-tools__link" href="http://registration.ft.com/registration/selfcare/" data-trackable="my-account">
+			<span class="o-header__primary-tools__link--inner">My Account</span>
+		</a>
+	</li>
+{{/if}}
+
+{{#if navigationModel.subscribe}}
+	<li class="o-header__primary-tools__item o-header__primary-tools__item--account o-header__primary-tools__item--logged-out">
+		<a class="o-header__primary-tools__link" href="/product-selector?segID=400863&amp;segmentID=190b4443-dc03-bd53-e79b-b4b6fbd04e64" data-trackable="subscribe">
+			<span class="o-header__primary-tools__link--inner">Subscribe</span>
+		</a>
+	</li>
+{{/if}}

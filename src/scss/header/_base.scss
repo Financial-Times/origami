@@ -1,0 +1,73 @@
+.o-header {
+	position: relative;
+	z-index: 21;
+	padding-bottom: 46px;
+
+	@include oGridRespondTo(M) {
+		padding-bottom: 0;
+	}
+	.o-header-before + & {
+		padding-bottom: 0;
+		position: -webkit-sticky;
+		position: -moz-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+
+		@include oGridRespondTo(M) {
+			position: relative;
+		}
+	}
+	.o-header__row--primary {
+		position: fixed;
+		left: 0;
+		right: 0;
+		transition: transform 150ms;
+		@include oGridRespondTo(M) {
+			position: relative;
+		}
+
+		&[data-o-grid-colspan] {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		.o-header-before + & {
+			position: relative;
+		}
+	}
+
+	a {
+		border-bottom: 0;
+	}
+
+	a:hover,
+	a:focus {
+		color: inherit;
+	}
+}
+
+.o-header__row--inner {
+	position: relative;
+	min-height: 45px;
+	min-width: 280px; // can't fit below that.
+	padding-left: 0;
+	padding-right: 0;
+
+	& > [data-o-grid-colspan] {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.o-header__row--primary {
+	background: $o-header-primary-bg;
+	&::after {
+		visibility: hidden;
+		display: block;
+		font-size: 0;
+		content: " ";
+		clear: both;
+		height: 0;
+	}
+}

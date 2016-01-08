@@ -1,0 +1,9 @@
+<nav class="o-header__primary-tools js-primary-tools" role="navigation" aria-label="Useful tools">
+	<ul class="o-header__primary-tools__items">
+		{{#if @root.flags.search}}
+			<li class="o-header__primary-tools__item o-header__primary-tools__search">
+				{{>o-header/templates/partials/search-form}}
+			</li>
+		{{/if}}
+	</ul>
+</nav>

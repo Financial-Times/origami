@@ -1,16 +1,18 @@
 {
   "name": "o-header",
+  "dependencies": {
+    "o-forms": "^2.0.0",
+    "ftdomdelegate": "^2.0.3",
+    "next-sass-setup": "^7.0.0",
+    "o-expander": "^2.0.0"
+  },
   "main": [
     "main.scss",
     "main.js"
   ],
-  "ignore": [],
-  "dependencies": {
+  "resolutions": {
+    "o-ft-icons": "^2.3.4",
     "o-grid": "^4.0.0",
-    "o-colors": ">=2.5.0 <4",
-    "o-assets": ">=0.4.1 <4",
-    "o-hoverable": ">=0.1.1 <4",
-    "ftdomdelegate": ">=1.0.0 <3",
-    "o-hierarchical-nav": ">=2.0.0 <4"
+    "lodash": "3.10.1-npm"
   }
 }

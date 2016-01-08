@@ -1,14 +1,17 @@
-@import "o-assets/main";
+@import "next-sass-setup/main";
+$o-forms-is-silent: false;
+@import "o-forms/main";
 @import "o-grid/main";
-@import "o-colors/main";
-@import "o-hoverable/main";
-@import "o-hierarchical-nav/main";
 
-@import "src/scss/color-use-cases";
-@import "src/scss/variables";
-@import "src/scss/mixins";
-@import "src/scss/base";
-@import "src/scss/logo";
-@import "src/scss/nav/theme-primary";
-@import "src/scss/nav/theme-secondary";
-@import "src/scss/nav/theme-tools";
+@import "src/scss/vars_mixins";
+
+@import "src/scss/header/helpers";
+@import "src/scss/header/base";
+@import "src/scss/header/ads";
+@import "src/scss/header/logo";
+@import "src/scss/header/masthead";
+@import "src/scss/header/navigation";
+@import "src/scss/header/primary-tools";
+@import "src/scss/header/print";
+@import "src/scss/header/search";
+@import "src/scss/header/edition-switcher";

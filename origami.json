@@ -7,16 +7,7 @@
     "browserFeatures": {
         "required": [
             "classList",
-            "customevent",
-            "unknownelements",
-            "es5array"
-        ],
-        "optional": [
-            "svg",
-            "datauri",
-            "cssgradients",
-            "mediaqueries",
-            "csstransitions"
+            "customevent"
         ]
     },
     "ci": {
@@ -24,34 +15,14 @@
     },
     "demos": [
         {
-            "path": "/demos/skeleton.html",
+            "name": "header",
+            "template": "templates/header.mustache",
+            "js": "demos/src/main.js",
+            "sass": "demos/src/main.scss",
+            "data": "demos/src/data.js",
             "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/header.html",
-            "expanded": false,
-            "description": ""
-        },
-        {
-            "path": "/demos/branded.html",
-            "expanded": false,
-            "description": ""
-        },
-        {
-            "path": "/demos/mega-dropdown-primary.html",
-            "expanded": false,
-            "description": ""
-        },
-        {
-            "path": "/demos/mega-dropdown-secondary.html",
-            "expanded": false,
-            "description": ""
-        },
-        {
-            "path": "/demos/header-no-secondary.html",
-            "expanded": false,
-            "description": ""
+            "description": "",
+            "path": "/demos/header.html"
         }
     ]
 }

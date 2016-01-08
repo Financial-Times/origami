@@ -1,0 +1,5 @@
+{{#each nav}}
+<li class="o-navigation__group o-navigation__group--sections" data-trackable="group--sections">
+	<a class="o-navigation__link o-navigation__link--top-level{{#unless children}} o-navigation__link--promotion{{/unless}}{{#if selected}} o-navigation__link--active{{/if}}" href="{{href}}" data-trackable="{{name}}">{{name}}</a>
+</li>
+{{/each}}
