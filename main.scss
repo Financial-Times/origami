@@ -52,8 +52,12 @@ $anim-duration : 200ms;
 	@include oTypographySans(m);
 	display: inline-block;
 	margin: 0;
-}
 
+	b,
+	strong {
+		@include oTypographySansBold(m);
+	}
+}
 
 .n-notification__close {
 	display: none;

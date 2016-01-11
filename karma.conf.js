@@ -3,7 +3,6 @@ module.exports = function(karma) {
 
 		frameworks: [ 'mocha', 'chai','browserify' ],
 		files: [
-			'http://polyfill.webservices.ft.com/v1/polyfill.min.js?callback=ftNextInit&libVersion=v1.3.0&features=default,CustomEvent|always,modernizr:promises,matchMedia,_enqueueMicrotask|always',
 			'tests/**/*.js'
 		],
 		preprocessors: {
@@ -13,6 +12,6 @@ module.exports = function(karma) {
 				transform: ['babelify', 'debowerify', 'textrequireify'],
 				debug: true
 		},
-		browsers: ['PhantomJS'],
+		browsers: ['Chrome'],
 	});
 };
