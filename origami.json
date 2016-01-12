@@ -10,14 +10,22 @@
       "customevent"
     ]
   },
+  "demosDefaults": {
+      "js": "demos/src/demo.js",
+      "sass": "demos/src/demo.scss"
+  },
   "demos": [
     {
-      "path": "/demos/declarative.html",
+      "name": "declarative",
+      "template": "demos/src/declarative.mustache",
+      "js": "demos/src/declarative.js",
       "expanded": true,
       "description": "Date will be set using the string in the datetime attribute and rendered as an absolute date as it was over a year ago."
     },
     {
-      "path": "/demos/imperative.html",
+      "name": "imperative",
+      "template": "demos/src/imperative.mustache",
+      "js": "demos/src/imperative.js",
       "expanded": false,
       "description": "We're setting the datetime attribute on both date elements imperatively and these are then rendered as relative dates"
     }
