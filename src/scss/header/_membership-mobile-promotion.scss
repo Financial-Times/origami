@@ -1,4 +1,4 @@
-.next-header__membership-promo-container {
+.o-header__membership-promo-container {
 	background-color: getColor('black');
 	display: block;
 	z-index: 18;
@@ -7,7 +7,7 @@
 	}
 }
 
-.next-header__membership-promo__items {
+.o-header__membership-promo__items {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
@@ -15,12 +15,12 @@
 	min-height: 32px;
 }
 
-.next-header__membership-promo__item--subscribe,
-.next-header__membership-promo__item--sign-in {
+.o-header__membership-promo__item--subscribe,
+.o-header__membership-promo__item--sign-in {
 	float: right;
 }
 
-.next-header__membership-promo__link {
+.o-header__membership-promo__link {
 	border-bottom-width: 0;
 	text-decoration: none;
 	line-height: 32px;
@@ -28,7 +28,7 @@
 	padding: 0 6px;
 }
 
-.next-header__membership-promo__item {
+.o-header__membership-promo__item {
 	display: inline-block;
 	position: relative;
 
@@ -48,7 +48,7 @@
 	}
 }
 
-.next-header__membership-promo__link {
+.o-header__membership-promo__link {
 
 	color: getColor('white');
 	text-decoration: none;

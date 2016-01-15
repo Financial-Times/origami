@@ -3,8 +3,8 @@ const init = () => {
 
 	if (subNavToggle) {
 		subNavToggle.addEventListener('click', () => {
-			document.documentElement.classList.toggle('next-navigation-is-open');
-			document.querySelector('body').classList.toggle('next-navigation-is-open');
+			document.documentElement.classList.toggle('navigation-is-open');
+			document.querySelector('body').classList.toggle('navigation-is-open');
 		});
 	}
 };

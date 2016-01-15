@@ -16,7 +16,7 @@
     "demos": [
         {
             "name": "header",
-            "template": "templates/header.mustache",
+            "template": "demos/src/header.mustache",
             "js": "demos/src/main.js",
             "sass": "demos/src/main.scss",
             "data": "demos/src/data.js",
