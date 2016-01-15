@@ -16,10 +16,11 @@
     "demos": [
         {
             "name": "header",
-            "template": "demos/src/header.mustache",
+            "template": "demos/src/main.mustache",
             "js": "demos/src/main.js",
             "sass": "demos/src/main.scss",
             "data": "demos/src/data.js",
+            "documentClasses": "js",
             "expanded": true,
             "description": "",
             "path": "/demos/header.html"
