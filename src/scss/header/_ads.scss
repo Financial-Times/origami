@@ -1,0 +1,16 @@
+.o-header__ad-container {
+	display: none;
+	background-color: white;
+
+	@include oGridRespondTo(M) {
+		display: block;
+	}
+
+	.o-ads {
+		padding: 10px;
+	}
+
+	.ad-placeholder {
+		margin: 0;
+	}
+}

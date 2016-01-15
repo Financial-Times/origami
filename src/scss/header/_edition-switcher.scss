@@ -1,0 +1,76 @@
+.edition-switcher {
+	@include oTypographySansData(s);
+	font-size: 13px;
+	line-height: 1em;
+	position: absolute;
+	top: oGridGutter(M) - 10;
+	left: oGridGutter(M);
+	color: getColor('white');
+	z-index: 1;
+	padding: 10px;
+	display: none;
+
+	@include oGridRespondTo(M) {
+		display: block;
+	}
+
+	@include oGridRespondTo(L) {
+		font-size: 16px;
+	}
+}
+.edition-switcher--open {
+	background-color: getColor('cold-1');
+}
+
+.edition-switcher__button {
+	text-align: left;
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	border-bottom: 1px solid transparent;
+
+	&:after {
+		content: '';
+		display: inline-block;
+		margin-left: 10px;
+		border-top: 8px solid getColor('white');
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+
+		.edition-switcher--open & {
+			border-top: 0;
+			border-bottom: 8px solid getColor('white');
+		}
+	}
+
+	&:hover,
+	&:focus {
+		border-bottom-color: getColor('white');
+	}
+}
+
+.edition-switcher__editions {
+	margin: 10px 0 0;
+	padding: 0;
+	list-style: none;
+	display: none;
+	border-top: 1px solid #808080;
+
+	.edition-switcher--open & {
+		display: block;
+	}
+}
+
+.edition-switcher__edition {
+	margin-top: 10px;
+}
+
+.edition-switcher__edition__link {
+	color: inherit;
+
+	&:hover {
+		color: inherit;
+		border-bottom: 1px solid getColor('white');
+	}
+}

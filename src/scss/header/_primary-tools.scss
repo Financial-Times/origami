@@ -1,0 +1,104 @@
+.o-header__primary-tools {
+	float: right;
+}
+
+.o-header__primary-tools__items {
+	margin: 0;
+	padding: 0;
+}
+
+.o-header__primary-tools__item {
+	display: inline-block;
+
+	.o-header__primary-tools--masthead & {
+		position: relative;
+
+		&:before {
+			content: ' ';
+			position: absolute;
+			width: 2px;
+			height: 14px;
+			top: 50%;
+			left: -3px;
+			margin-top: -7px;
+			background-color: getColor('warm-5');
+		}
+		&:first-child:before {
+			display: none;
+		}
+	}
+}
+
+.o-header__primary-tools__item--logged-in {
+	position: relative;
+	display: none;
+
+	[data-o-is-logged-in=true] & {
+		display: inline-block;
+
+		@include oGridRespondTo($until: L) {
+			&.o-header__primary-tools__item--my-account {
+				display: none;
+			}
+		}
+	}
+}
+
+.o-header__primary-tools__item--logged-out {
+	display: none;
+
+	[data-o-is-logged-in=false] & {
+		display: inline-block;
+	}
+}
+
+.o-header__primary-tools__link {
+	@include oHeaderNavItem;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+}
+
+.o-header__primary-tools__search {
+	@include oGridRespondTo(M) {
+		margin-left: 0;
+		margin-top: 8px;
+		margin-right: 8px;
+	}
+}
+
+// FIXME cleanup when removing mastheadV2 toggle
+
+.o-header {
+	.o-header__primary-tools__item--account {
+		display: none;
+
+		@include oGridRespondTo(M) {
+			display: inline-block;
+		}
+	}
+
+	.o-header__primary-tools--masthead {
+		float: none;
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		@include oGridRespondTo($until: M) {
+			display: none;
+		}
+
+		.o-header__primary-tools__item {
+			display: inline-block;
+		}
+	}
+}
+
+.o-header--light-on-dark .o-header__primary-tools--masthead {
+
+	.o-header__primary-tools__link {
+		color: getColor('white');
+	}
+}

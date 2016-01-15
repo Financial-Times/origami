@@ -1,0 +1,12 @@
+@media print {
+	.o-header__row {
+		display: none;
+	}
+	.o-header:after {
+		content: 'Financial Times';
+		display: block;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 30px;
+	}
+}
