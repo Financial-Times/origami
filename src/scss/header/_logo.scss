@@ -4,16 +4,4 @@
 	background-color: #fff1e0;
 	background-image: linear-gradient(#ffe8cf, #ffddb9);
 	position: relative;
-
-	&:after {
-		@include nTypeBravo(5);
-		content: 'ALPHA';
-		position: absolute;
-		bottom: 2px;
-		right: 0;
-		left: 0;
-		text-align: center;
-		font-size: 10px;
-		color: getColor('black');
-	}
 }

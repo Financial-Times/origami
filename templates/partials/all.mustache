@@ -1,50 +1,62 @@
-  <li class="o-navigation__menu__group__item o-navigation__menu__group__item--desktop">
+  <li class="next-navigation__menu__group__item next-navigation__menu__group__item--desktop">
     {{#each all}}
       {{#unless children}}
-        <span class="o-navigation__menu__link--sub-level-header">
-          <a class="o-navigation__menu__link o-navigation__menu__link--sub-level o-navigation__link--outbound {{#if selected}}o-navigation__link--active{{/if}}" href={{href}} data-trackable="{{name}}" >{{name}}</a>
+        <span class="next-navigation__menu__link--sub-level-header">
+          <a class="next-navigation__menu__link next-navigation__menu__link--sub-level next-navigation__link--outbound {{#if selected}}next-navigation__link--active{{/if}}" href={{href}} data-trackable="{{name}}" >{{name}}</a>
         </span>
       {{/unless}}
     {{/each}}
   </li>
 
+  {{#ifAll flags.editionSwitcher editions}}
+    <li class="next-navigation__menu__group__item next-navigation__menu__group__item--mobile">
+      <div class="next-navigation__menu__group__container">
+        <button class="next-navigation__menu__link--sub-level-header button-style-reset js-select selected" data-trackable="edition-switcher">
+          <span class="next-navigation__menu__link next-navigation__menu__link--sub-level">Edition</span>
+        </button>
+        <ol class="next-navigation__menu__group__sub-items">
+          {{#with editions.current}}
+            <li class="next-navigation__menu__group__sub-item">
+              <p class=" next-navigation__menu__link next-navigation__menu__link--sub-level next-navigation__menu__link--selected">{{name}} Edition</p>
+            </li>
+          {{/with}}
+          {{#each editions.others}}
+            <li class="next-navigation__menu__group__sub-item">
+              <a class=" next-navigation__menu__link next-navigation__menu__link--sub-level" href="/{{id}}?edition={{id}}" data-trackable="id">{{name}} Edition</a>
+            </li>
+          {{/each}}
+        </ol>
+      </div>
+    </li>
+  {{/ifAll}}
+
   {{#each all}}
     {{#if children}}
-      <li class="o-navigation__menu__group__item">
-        <div class="o-navigation__menu__group__container">
-          <button class="o-navigation__menu__link--sub-level-header button-style-reset js-select {{#ifEquals @index 1}}selected{{/ifEquals}}" data-navigation-href="{{href}}" data-trackable="{{name}}">
-            <span class="o-navigation__menu__link o-navigation__menu__link--sub-level">{{name}}</span>
+      <li class="next-navigation__menu__group__item">
+        <div class="next-navigation__menu__group__container">
+          <button class="next-navigation__menu__link--sub-level-header button-style-reset js-select {{#unless @root.flags.editionSwitcher}}{{#ifEquals @index 1}}selected{{/ifEquals}}{{/unless}}" data-navigation-href="{{href}}" data-trackable="{{name}}">
+            <span class="next-navigation__menu__link next-navigation__menu__link--sub-level">{{name}}</span>
           </button>
-          <ol class="o-navigation__menu__group__sub-items">
-            <li class="o-navigation__menu__group__sub-item">
-              <a class=" o-navigation__menu__link o-navigation__menu__link--sub-level {{#if selected}}o-navigation__link--active{{/if}}" href="{{href}}" data-trackable="{{name}}">All {{name}}</a>
+          <ol class="next-navigation__menu__group__sub-items">
+            <li class="next-navigation__menu__group__sub-item">
+              <a class=" next-navigation__menu__link next-navigation__menu__link--sub-level {{#if selected}}next-navigation__link--active{{/if}}" href="{{href}}" data-trackable="{{name}}">All {{name}}</a>
             </li>
             {{#each children}}
-              <li class="o-navigation__menu__group__sub-item">
-                  <a class="o-navigation__menu__link o-navigation__menu__link--sub-level {{#if selected}}o-navigation__link--active{{/if}}" href="{{href}}" data-trackable="{{name}}">{{name}}</a>
+              <li class="next-navigation__menu__group__sub-item">
+                  <a class="next-navigation__menu__link next-navigation__menu__link--sub-level {{#if selected}}next-navigation__link--active{{/if}}" href="{{href}}" data-trackable="{{name}}">{{name}}</a>
               </li>
             {{/each}}
           </ol>
         </div>
       </li>
     {{else}}
-      <li class="o-navigation__menu__group__item o-navigation__menu__group__item--mobile">
-        <span class="o-navigation__menu__link--sub-level-header">
-          <a class="o-navigation__menu__link o-navigation__menu__link--sub-level o-navigation__link--outbound {{#if selected}}o-navigation__link--active{{/if}}" href={{href}} data-trackable="{{name}}" >{{name}}</a>
+      <li class="next-navigation__menu__group__item next-navigation__menu__group__item--mobile">
+        <span class="next-navigation__menu__link--sub-level-header">
+          <a class="next-navigation__menu__link next-navigation__menu__link--sub-level next-navigation__link--outbound {{#if selected}}next-navigation__link--active{{/if}}" href={{href}} data-trackable="{{name}}">{{name}}</a>
         </span>
       </li>
     {{/if}}
   {{/each}}
-
-  {{#ifAll flags.editionSwitcher editions}}
-    {{#each editions.others}}
-      <li class="o-navigation__menu__group__item o-navigation__menu__group__item--mobile">
-        <span class="o-navigation__menu__link--sub-level-header">
-          <a class="o-navigation__menu__link o-navigation__menu__link--sub-level" href="/{{id}}?edition={{id}}" data-trackable="{{id}}-edition">{{name}} Edition</a>
-        </span>
-      </li>
-    {{/each}}
-  {{/ifAll}}
 
   {{> o-header/templates/partials/myft-tools }}
   {{> o-header/templates/partials/membership-tools }}

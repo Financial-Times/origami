@@ -19,7 +19,7 @@
 	text-align: center;
 
 	.o-header__logo__link {
-		@include oIcon(brand-ft-masthead, getColor('white'), 336);
+		@include nextIcon(brand-ft-masthead, getColor('white'), 336);
 		display: block;
 		margin: 17px auto;
 		height: 27px;
@@ -47,24 +47,21 @@
 	}
 
 	.o-header__logo__link {
-		@include oIcon(brand-ft-masthead, getColor('white'), 138);
+		@include nextIcon(brand-ft-masthead, getColor('white'), 138);
 		display: block;
 		height: 11px;
 		margin: 0 auto;
 
 		@include oGridRespondTo(XS) {
-			@include oIcon(brand-ft-masthead, getColor('white'), 177);
+			@include nextIcon(brand-ft-masthead, getColor('white'), 177);
 			display: block;
 			height: 14px;
 		}
 
 		@include oGridRespondTo(S) {
-			@include oIcon(brand-ft-masthead, getColor('white'), 265);
+			@include nextIcon(brand-ft-masthead, getColor('white'), 265);
 			display: block;
 			height: 21px;
-		}
-		&:after {
-			content: normal;
 		}
 	}
 }

@@ -12,7 +12,6 @@
   ],
   "resolutions": {
     "o-ft-icons": "^2.3.4",
-    "o-grid": "^4.0.0",
-    "lodash": "3.10.1-npm"
+    "o-grid": "^4.0.0"
   }
 }

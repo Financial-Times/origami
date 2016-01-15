@@ -1,8 +1,12 @@
 const init = () => {
-	document.querySelector('.js-sub-nav-toggle').addEventListener('click', () => {
-		document.documentElement.classList.toggle('o-navigation-is-open');
-		document.getElementsByTagName('body')[0].classList.toggle('o-navigation-is-open');
-	});	
+	const subNavToggle = document.querySelector('.js-sub-nav-toggle');
+
+	if (subNavToggle) {
+		subNavToggle.addEventListener('click', () => {
+			document.documentElement.classList.toggle('next-navigation-is-open');
+			document.querySelector('body').classList.toggle('next-navigation-is-open');
+		});
+	}
 };
 
-export default { init: init };
+export default { init };

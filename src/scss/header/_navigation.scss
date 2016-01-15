@@ -106,6 +106,7 @@ label > * {
 	text-decoration: none;
 	font-size: 18px;
 	padding-right: 4px;
+	margin: 0;
 	@include oGridRespondTo(M) {
 		padding-right: 7px;
 		font-size: 16px;
@@ -114,14 +115,15 @@ label > * {
 		}
 	}
 
+	&.next-navigation__menu__link--selected {
+		text-decoration: underline;
+	}
+
 	&:hover,
 	&:focus {
 		text-decoration: underline;
 
-		.o-navigation__menu__toggle--no-js & {
-			text-decoration: none;
-		}
-
+		.o-navigation__menu__toggle--no-js &,
 		.button-style-reset & {
 			text-decoration: none;
 		}
@@ -203,7 +205,7 @@ label > * {
 		cursor: pointer;
 
 		span:after {
-			@include oIcon(arrow-right, oColorsGetColorFor(nav, text), 10);
+			@include nextIcon(arrow-right, oColorsGetColorFor(nav, text), 10);
 			content: '';
 			padding-left: 1.3em;
 			margin-bottom: -0.05em;
@@ -220,7 +222,7 @@ label > * {
 		color: oColorsGetPaletteColor('grey-tint5');
 
 		span:after {
-			@include oIcon(arrow-right, oColorsGetPaletteColor('grey-tint5'), 10);
+			@include nextIcon(arrow-right, oColorsGetPaletteColor('grey-tint5'), 10);
 		}
 	}
 
@@ -239,7 +241,7 @@ label > * {
 	display: block;
 
 	&:before {
-		@include oIcon(hamburger, #ffffff, 20);
+		@include nextIcon(hamburger, #ffffff, 20);
 		content: '';
 		position: relative;
 		top: 5px;
@@ -356,7 +358,7 @@ label > * {
 		display: none;
 	}
 	.o-navigation__menu__link__text--mobile:before {
-		@include oIcon(cross, #ffffff, 20);
+		@include nextIcon(cross, #ffffff, 20);
 		content: '';
 		position: relative;
 		top: 5px;
