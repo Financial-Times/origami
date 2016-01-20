@@ -2,18 +2,6 @@
     "description": "Accessible, content-aware widget for expanding and collapsing content",
     "origamiVersion": 1,
     "origamiType": "module",
-    "demos": [
-        {
-            "path": "/demos/Simple.html",
-            "expanded": true,
-            "description": "Simple use cases"
-        },
-        {
-            "path": "/demos/Variants.html",
-            "expanded": false,
-            "description": "More advanced configurations of the module"
-        }
-    ],
     "browserFeatures": {
         "required": [
             "classlist",
@@ -21,5 +9,28 @@
         ]
     },
     "supportStatus": "active",
-    "support": "next.team@ft.com"
+    "support": "https://github.com/Financial-Times/o-expander/issues",
+    "demosDefaults": {
+        "js": "demos/src/demo.js",
+        "sass": "demos/src/demo.scss",
+        "dependencies": ["o-fonts@^2.0.0"]
+    },
+    "demos": [
+        {
+            "name": "Simple",
+            "description": "Simple use cases",
+            "template": "demos/src/simple.mustache",
+            "js": "demos/src/demo.js",
+            "expanded": true,
+            "description": "Simple use cases"
+        },
+        {
+            "name": "Variants",
+            "description": "More advanced configurations of the module",
+            "template": "demos/src/variants.mustache",
+            "js": "demos/src/variants.js",
+            "expanded": false,
+            "description": "More advanced configurations of the module"
+        }
+    ]
 }
