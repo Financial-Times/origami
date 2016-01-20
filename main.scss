@@ -1,9 +1,6 @@
 @import "o-ft-icons/main";
 @include oFtIconsFontFace();
 
-@import "o-fonts/main";
-@include oFontsInclude(BentonSans);
-
 @import "o-colors/main";
 
 @include oColorsSetUseCase(expander-text, text, 'black');
@@ -27,8 +24,7 @@
 }
 
 .o-expander__toggle {
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-	font-weight: normal;
+ 	font-weight: normal;
 	@include oColorsFor(expander-text, text);
 	font-size: 12px;
 	margin: 0;
