@@ -14,7 +14,6 @@
     "tests"
   ],
   "dependencies": {
-    "ftdomdelegate": "^2.0.3",
     "next-sass-setup": "^7.0.0"
   }
 }

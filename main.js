@@ -1,78 +1,54 @@
-const Delegate = require('ftdomdelegate');
 const template = require('./src/js/template');
 const timeoutDuration = 5000;
-const animDuration = 500;
 
-let timeout;
-let currentNotification = null;
+let isInstantiated = false;
 
-function dispatchNotificationCloseEvent(){
-	document.dispatchEvent(new CustomEvent('nNotification.close'));
-}
+class Notice {
 
-function listenForCloseButtonClick(){
-	let called = false;
-	const func = function(){
-		const delegate = new Delegate(document.body);
-		delegate.on('click', '.n-notification__close-js', hide);
-	};
+	constructor (options) {
 
-	if(!called){
-		func();
-		called = true;
+		options.trackable = options.trackable || `notification-${options.type}`;
+
+		this.notice = document.createElement('div');
+		this.notice.innerHTML = template(options);
+		this.notice.querySelector('button').onclick = this.hide.bind(this)
+
+		const notificationContainer = document.querySelector('.n-notification');
+		const firstChild = notificationContainer.firstChild;
+		notificationContainer.insertBefore(this.notice, firstChild);
+
+		if(options.duration !== 0){
+			this.timeout = setTimeout(this.hide.bind(this), options.duration || timeoutDuration);
+		}
+	}
+
+	hide() {
+		clearTimeout(this.timeout);
+		this.notice.dispatchEvent(new CustomEvent('nNotification.close'));
+		this.notice.parentNode.removeChild(this.notice);
 	}
 }
 
 function show(options){
-	clearTimeout(timeout);
-
-	options.title = options.title || '';
-	options.content = options.content || '';
-	options.type = options.type || 'default';
-	options.trackable = options.trackable || 'notification-'+options.type;
-
-	listenForCloseButtonClick();
-	if(currentNotification){
-		currentNotification.parentNode.removeChild(currentNotification);
-	}
-
-	const html = template(options);
-	document.body.insertAdjacentHTML('afterbegin', html);
-	currentNotification = document.querySelector('.n-notification');
-
-	if(options.close !== false) {
-		currentNotification.classList.add('n-notification--show-close');
-	}
-	setTimeout(function() {
-		currentNotification.classList.add('visible');
-	}, 10); // delay so it animates in
-
-	if(options.duration !== 0){
-		timeout = setTimeout(hide, options.duration || timeoutDuration);
-	}
-}
-
-function hide(){
-	clearTimeout(timeout);
-	currentNotification.classList.remove('visible');
-	dispatchNotificationCloseEvent();
-	setTimeout(function(){
-		if(currentNotification && currentNotification.parentNode){
-			currentNotification.parentNode.removeChild(currentNotification);
-		}
-
-		currentNotification = null;
-	}, animDuration);
+	if (!isInstantiated) {init();}
+	new Notice(options);
 }
 
 function init(){
+	if (isInstantiated) return;
+
+	let container = document.createElement('div');
+	container.classList.add('n-notification');
+	document.body.appendChild(container);
+
 	document.addEventListener("nNotification.show", function(e){
 		show(e.detail);
 	});
+
+	isInstantiated = true;
 }
 
 module.exports = {
 	init : init,
-	show: show,
-	hide: hide
+	show: show
 };

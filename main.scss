@@ -1,43 +1,33 @@
 @import "next-sass-setup/main";
 
-$anim-duration : 200ms;
-
 .n-notification {
-	background-color: rgba(getColor('pink'), 0.95);
-	border-bottom: 2px solid getColor('cold-2');
-	box-sizing: border-box;
-	color: getColor('cold-2');
-	margin: 0;
-	max-height: 0px;
-	overflow: hidden;
-	padding: 0px;
-	transition: all $anim-duration ease-in-out;
+	@include zIndexFor(notification);
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
+}
 
-	&.n-notification--js {
-		@include zIndexFor(notification);
-		position: fixed;
-		top: 0;
-		left: 0;
-	}
+.n-notification__item {
+	position: relative;
+	background-color: rgba(getColor('green'), 0.95);
+	border-bottom: 3px solid white;
+	color: white;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 14px 0;
+	overflow: hidden;
+}
 
-	&.visible {
-		max-height: 200px;
-		padding: 13px 0 14px;
-
-		.n-notification__content-wrapper {
-			opacity: 1;
-		}
-	}
+.n-notification--error {
+	background-color: rgba(getColor('red'), 0.95);
 }
 
 .n-notification__content-wrapper {
 	margin: 0 auto;
 	width: 100%;
 	position: relative;
-	opacity: 0;
 	text-align: center;
-	transition: all $anim-duration linear;
 	padding: 0 30px;
 	box-sizing: border-box;
 }
@@ -45,6 +35,7 @@ $anim-duration : 200ms;
 .n-notification__title {
 	@include oTypographySansBold(m);
 	display: inline-block;
+	padding-right: 10px;
 	margin: 0;
 }
 
@@ -57,13 +48,14 @@ $anim-duration : 200ms;
 	strong {
 		@include oTypographySansBold(m);
 	}
+
+	a {
+		color: white;
+		border-bottom-color: white;
+	}
 }
 
 .n-notification__close {
-	display: none;
-}
-
-.n-notification--show-close .n-notification__close {
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -72,7 +64,7 @@ $anim-duration : 200ms;
 	@include nextIcon(
 		$icon-name: cross_disk,
 		$size: 20,
-		$color: getColor('cold-2')
+		$color: white
 	);
 	background-size: 20px;
 	background-position: 50%;
@@ -83,7 +75,7 @@ $anim-duration : 200ms;
 }
 
 .n-notification .myft-ui__icon {
-	@include nextIcon(myft-bolder, black, 20);
+	@include nextIcon(myft-bolder, white, 20);
 	margin: 0 3px -4px;
 	width: 34px;
 }
