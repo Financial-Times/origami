@@ -2,11 +2,15 @@ import isOutside from './is-outside';
 
 class EditionSwitcher {
 	constructor(editionSwitcherEl) {
+		const btnEl = (editionSwitcherEl) ? editionSwitcherEl.querySelector('.js-edition-switcher-button') : null;
+
+		if (!btnEl) { return; }
+
 		this.editionSwitcherEl = editionSwitcherEl;
 		this.openClass = 'edition-switcher--open';
 		this.isOpen = false;
-		editionSwitcherEl.querySelector('.js-edition-switcher-button')
-			.addEventListener('click', this.toggle.bind(this));
+
+		btnEl.addEventListener('click', this.toggle.bind(this));
 		document.body.addEventListener('click', this.click.bind(this));
 	}
 
