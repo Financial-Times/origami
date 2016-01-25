@@ -1,5 +1,6 @@
 /* global sinon*/
-const transports = require('../src/javascript/core/transports')
+const transports = require('../src/javascript/core/transports');
+
 let willError = false;
 
 module.exports.mockTransport = function () {

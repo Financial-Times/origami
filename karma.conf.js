@@ -14,9 +14,11 @@ module.exports = function(karma) {
 
 		// list of files / patterns to load in the browser
 		files: [
-			'http://polyfill.webservices.ft.com/v1/polyfill.js?ua=safari/4',
+			'http://polyfill.webservices.ft.com/v1/polyfill.js',
 			'test/setup.js',
-			'test/**/*.test.js'
+			// 'test/core.test.js',
+			'test/main.test.js',
+			// 'test/utils.test.js'
 		],
 
 
