@@ -16,9 +16,7 @@ module.exports = function(karma) {
 		files: [
 			'http://polyfill.webservices.ft.com/v1/polyfill.js',
 			'test/setup.js',
-			// 'test/core.test.js',
-			'test/main.test.js',
-			// 'test/utils.test.js'
+			'test/**/*.test.js'
 		],
 
 
@@ -37,7 +35,7 @@ module.exports = function(karma) {
 		// test results reporter to use
 		// possible values: 'dots', 'progress'
 		// available reporters: https://npmjs.org/browse/keyword/karma-reporter
-		reporters: ['progress'],
+		reporters: ['dots'],
 
 
 		// web server port

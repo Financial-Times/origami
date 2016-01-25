@@ -172,7 +172,7 @@ describe('main', function () {
 
 		let queue = new Queue('requests');
 
-		for (let i=0; i<1000; i++) {
+		for (let i=0; i<201; i++) {
 			queue.add({});
 		}
 
