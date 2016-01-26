@@ -6,7 +6,7 @@
 const settings = require('./settings');
 const utils = require('../utils');
 const Queue = require('./queue');
-
+const transports = require('./transports');
 /**
  * Default collection server.
  */
@@ -19,76 +19,6 @@ let domain = 'http://test.spoor-api.ft.com';
  */
 let queue;
 
-
-/**
- * Create the transport mechanism.
- * - Works out the best transprot mechanism for the browser and returns it. One of:
- *   - Cross domain Ajax POST with json content type
- *   - GET url
- */
-function createTransport() {
-
-	try {
-		const xmlHttp = new window.XMLHttpRequest();
-
-		// Check if the XMLHttpRequest object has a 'withCredentials' property.
-		// 'withCredentials' only exists on XMLHTTPRequest2 objects.
-		if (!utils.isUndefined(xmlHttp.withCredentials)) {
-			xmlHttp.withCredentials = true;
-
-			return {
-				send: function (domain, path) {
-					xmlHttp.open('POST', domain, true);
-					xmlHttp.setRequestHeader('Content-type', 'application/json');
-					xmlHttp.send(path);
-				},
-				complete: function (callback) {
-					xmlHttp.onerror = function () {
-						callback(this, xmlHttp);
-					};
-					xmlHttp.onload = function () {
-						if (xmlHttp.status >= 200 && xmlHttp.status < 300) {
-							callback(null, xmlHttp);
-						} else {
-							callback('Incorrect response: ' + xmlHttp.status, xmlHttp);
-						}
-					};
-				}
-			};
-		}
-	} catch (error) {
-		utils.broadcast('oErrors', 'log', {
-			error: error,
-			info: { module: 'o-tracking' }
-		});
-	}
-
-	const image = new Image(1,1);
-
-	return {
-		send: function (domain, path) {
-			image.src = domain + '?data=' + utils.encode(path);
-		},
-		complete: function (callback) {
-			if (image.addEventListener) {
-				image.addEventListener('error', function () {
-					callback(this, image);
-				});
-				image.addEventListener('load', function () {
-					callback(null, image);
-				});
-			} else { // it's IE!
-				image.attachEvent('onerror', function () {
-					callback(this, image);
-				});
-				image.attachEvent('onload', function () {
-					callback(null, image);
-				});
-			}
-		}
-	};
-}
-
 /**
  * Attempts to send a tracking request.
  *
@@ -98,9 +28,11 @@ function createTransport() {
  */
 function sendRequest(request, callback) {
 	const queueTime = request.queueTime;
-	const offlineLag = (new Date()).getTime() - queueTime;
+	const offlineLag = new Date().getTime() - queueTime;
 	let path;
-	const transport = createTransport();
+	const transport = (navigator.sendBeacon && Promise && settings.get('useSendBeacon')) ? transports.get('sendBeacon')() :
+										window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? transports.get('xhr')() :
+										transports.get('image')();
 	const user_callback = request.callback;
 
 	const core_system = settings.get('config') && settings.get('config').system || {};
@@ -117,7 +49,6 @@ function sendRequest(request, callback) {
 		request.time = request.time || {};
 		request.time.offset = offlineLag;
 	}
-
 	delete request.callback;
 	delete request.async;
 	delete request.type;
@@ -130,9 +61,9 @@ function sendRequest(request, callback) {
 
 	utils.log('path', path);
 
-	transport.complete(function (error, t) {
+	transport.complete(function (error) {
 		if (utils.is(user_callback, 'function')) {
-			user_callback.call(request, t);
+			user_callback.call(request);
 			utils.log('calling user_callback');
 		}
 
@@ -147,7 +78,7 @@ function sendRequest(request, callback) {
 				info: { module: 'o-tracking' }
 			});
 		} else {
-			callback();
+			callback && callback();
 		}
 	});
 
@@ -165,9 +96,11 @@ function sendRequest(request, callback) {
  */
 function add(request) {
 	request.queueTime = (new Date()).getTime();
-
-	queue.add(request).save();
-
+	if (navigator.sendBeacon && Promise) {
+		sendRequest(request);
+	} else {
+		queue.add(request).save();
+	}
 	utils.log('AddedToQueue', queue);
 }
 
@@ -182,7 +115,10 @@ function run(callback) {
 		callback = function () {};
 	}
 
-	const next = function () { run(); callback(); };
+	const next = function () {
+		run();
+		callback();
+	};
 	const nextRequest = queue.shift();
 
 	// Cancel if we've run out of requests.

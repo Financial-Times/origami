@@ -6,7 +6,7 @@ const Queue = require("../src/javascript/core/queue");
 const session = require("../src/javascript/core/session");
 const send = require("../src/javascript/core/send");
 const Core = require("../src/javascript/core.js");
-
+const setup = require('./setup');
 describe('Core', function () {
 
 	const guid_re = /\w{25}/; // cifnulwv2000030ds4avpbm9f
@@ -23,7 +23,6 @@ describe('Core', function () {
 	});
 
 	describe('track', function () {
-		let server;
 
 		before(function () {
 			settings.set('version', '1.0.0');
@@ -31,19 +30,14 @@ describe('Core', function () {
 			settings.set('source', 'o-tracking');
 			session.init(); // Session
 			send.init(); // Init the sender.
-
-			server = sinon.fakeServer.create(); // Catch AJAX requests
 		});
 
 		after(function () {
 			new Queue('requests').replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
 			settings.destroy('config');  // Empty settings.
-			server.restore();
 		});
 
 		it('should send a tracking request', function () {
-			server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
-
 			const callback = sinon.spy();
 			let sent_data;
 
@@ -55,12 +49,9 @@ describe('Core', function () {
 				user: { "user_id": "userID" }
 			}, callback);
 
-			server.respond();
-
 			assert.ok(callback.called, 'Callback not called.');
 
 			sent_data = callback.getCall(0).thisValue;
-
 			assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 			// System
 			assert.deepEqual(Object.keys(sent_data.system), ["api_key","version","source"]);
@@ -82,11 +73,12 @@ describe('Core', function () {
 			assert.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_session_is_new","spoor_id"]);
 			assert.equal(sent_data.device.spoor_session, require("../src/javascript/core/session").session().id);
 			assert.equal(sent_data.device.spoor_session_is_new, require("../src/javascript/core/session").session().isNew);
+
 		});
 
 		it('should defer a tracking request', function () {
-			server.respondWith([404, { "Content-Type": "plain/text", "Content-Length": 6 }, "NOT OK"]);
 
+			setup.errorNextSend();
 			const callback = sinon.spy();
 
 			Core.track({
@@ -96,16 +88,10 @@ describe('Core', function () {
 				user: { "userID": "userID" }
 			}, callback);
 
-			server.respond();
-
 			assert.equal(callback.called, 1, 'Callback called once.');
-
-			server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
 			// Try again
 			require("../src/javascript/core/send").run();
-
-			server.respond();
 
 			assert.ok(callback.calledOnce, 'Callback should only be called once as next send could be on a different page.');
 		});

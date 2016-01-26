@@ -108,7 +108,6 @@ function track(config, callback) {
 	}, request);
 
 	utils.log('Core.Track', request);
-
 	// Send it.
 	Send.addAndRun(request);
 

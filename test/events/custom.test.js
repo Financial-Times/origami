@@ -4,26 +4,25 @@ const assert = require("assert");
 const Queue = require("../../src/javascript/core/queue");
 const settings = require("../../src/javascript/core/settings");
 const send = require("../../src/javascript/core/send");
+const session = require("../../src/javascript/core/session");
 
 describe('event', function () {
 
-	let server;
 	const track_event = require("../../src/javascript/events/custom.js");
 
 	before(function () {
+		session.init();
 		send.init(); // Init the sender.
+
 		//require("../../src/javascript/core").setRootID('rootID'); // Fix the click ID to stop it generating one.
-		server = sinon.fakeServer.create(); // Catch AJAX requests
 	});
 
 	after(function () {
 		new Queue('requests').replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
 		settings.destroy('config');  // Empty settings.
-		server.restore();
 	});
 
 	it('should track an event, adds custom component_id', function () {
-		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
 		const callback = sinon.spy();
 		let sent_data;
@@ -37,8 +36,6 @@ describe('event', function () {
 				component_name: 'custom-o-tracking'
 			}
 		}), callback);
-
-		server.respond();
 
 		assert.ok(callback.called, 'Callback not called.');
 
@@ -54,9 +51,7 @@ describe('event', function () {
 		assert.equal(sent_data.context.component_name, 'custom-o-tracking');
 	});
 
-	it('should listen to a dom event and generate a component_id', function (done) {
-		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
-		server.respondImmediately = true;
+	it('should listen to a dom event and generate a component_id', function () {
 
 		const event = new CustomEvent('oTracking.event', {
 			detail: {
@@ -73,7 +68,6 @@ describe('event', function () {
 			const callback = sinon.spy();
 
 			track_event(e, callback);
-
 			assert.ok(callback.called, 'Callback not called.');
 
 			const sent_data = callback.getCall(0).thisValue;
@@ -88,7 +82,6 @@ describe('event', function () {
 			assert.equal(typeof sent_data.context.component_id, "number");
 			assert.equal(sent_data.context.component_name, "o-tracking");
 
-			done();
 		});
 
 		document.body.dispatchEvent(event);

@@ -6,8 +6,12 @@
     "supportStatus": "active",
     "browserFeatures": {
         "required": [
-            "CustomEvent"    
-        ]  
+            "CustomEvent"
+        ],
+        "optional": [
+            "Promise",
+            "sendBeacon"
+        ]
     },
     "demos": [
         {

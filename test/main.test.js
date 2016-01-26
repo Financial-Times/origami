@@ -6,18 +6,15 @@ const Queue = require("../src/javascript/core/queue");
 
 describe('main', function () {
 
-	let server;
 	const oTracking = require("../main.js");
 	let root_id;
 
 	before(function () {
 		new Queue('requests').replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
 		settings.destroy('config');  // Empty settings.
-		server = sinon.fakeServer.create(); // Catch AJAX requests
 	});
 
 	after(function () {
-		server.restore();
 	});
 
 	it('should configure itself from the DOM if no options are present', function() {
@@ -54,10 +51,6 @@ describe('main', function () {
 			}
 		});
 
-		//console.log('cookies', document.cookie);
-
-		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
-
 		const callback = sinon.spy();
 		let sent_data;
 
@@ -65,7 +58,6 @@ describe('main', function () {
 			url: 'http://www.ft.com/cms/s/0/576f5f1c-0509-11e5-9627-00144feabdc0.html'
 		}, callback);
 
-		server.respond();
 		assert.ok(callback.called, 'Callback not called.');
 
 		sent_data = callback.getCall(0).thisValue;
@@ -93,7 +85,6 @@ describe('main', function () {
 	});
 
 	it('should track an event', function () {
-		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
 		const callback = sinon.spy();
 		let sent_data;
@@ -106,8 +97,8 @@ describe('main', function () {
 			}
 		}), callback);
 
-		server.respond();
 		assert.ok(callback.called, 'Callback not called.');
+
 
 		sent_data = callback.getCall(0).thisValue;
 
@@ -128,7 +119,6 @@ describe('main', function () {
 	});
 
 	it('should not mutate init config', function () {
-		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
 		const callback1 = sinon.spy();
 		const callback2 = sinon.spy();
@@ -139,7 +129,6 @@ describe('main', function () {
 			my_key: "my_val"
 		}, callback1);
 
-		server.respond();
 		assert.ok(callback1.called, 'Callback not called.');
 
 		sent_data1 = callback1.getCall(0).thisValue;
@@ -147,8 +136,6 @@ describe('main', function () {
 
 		// Track another page
 		oTracking.page({}, callback2);
-
-		server.respond();
 		assert.ok(callback2.called, 'Callback not called.');
 
 		// Ensure vars from the first track don't leak into the second
@@ -166,14 +153,12 @@ describe('main', function () {
 			}
 		});
 
-		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
 		const callback = sinon.spy();
 		let sent_data;
 
 		oTracking.page({}, callback);
 
-		server.respond();
 		assert.ok(callback.called, 'Callback not called.');
 
 		sent_data = callback.getCall(0).thisValue;
@@ -185,18 +170,15 @@ describe('main', function () {
 	it('should cope with a huge queue as a bug from a previous version', function () {
 		oTracking.destroy();
 
-		let server = sinon.fakeServer.create(); // Catch AJAX requests
 		let queue = new Queue('requests');
 
-		for (let i=0; i<1000; i++) {
+		for (let i=0; i<201; i++) {
 			queue.add({});
 		}
 
 		queue.save();
 
-		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 		oTracking.init({ system: { environment: 'prod', is_live: true } });
-		server.respond();
 
 		// Refresh our queue as it's kept in memory
 		queue = new Queue('requests');

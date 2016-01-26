@@ -62,7 +62,6 @@ const Store = function (name, config) {
 
 					if (window.localStorage.getItem(test_key) === 'TEST') {
 						window.localStorage.removeItem(test_key);
-
 						return {
 							_type: 'localStorage',
 							load: function (name) { return window.localStorage.getItem.call(window.localStorage, name); },

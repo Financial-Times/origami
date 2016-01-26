@@ -1,7 +1,7 @@
 /*global module*/
 
-module.exports = function(config) {
-	config.set({
+module.exports = function(karma) {
+	const config = {
 
 		// base path that will be used to resolve all patterns (eg. files, exclude)
 		basePath: '',
@@ -14,7 +14,8 @@ module.exports = function(config) {
 
 		// list of files / patterns to load in the browser
 		files: [
-			'http://polyfill.webservices.ft.com/v1/polyfill.js?ua=safari/4',
+			'http://polyfill.webservices.ft.com/v1/polyfill.js',
+			'test/setup.js',
 			'test/**/*.test.js'
 		],
 
@@ -27,14 +28,14 @@ module.exports = function(config) {
 		// preprocess matching files before serving them to the browser
 		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 		preprocessors: {
-			'test/**/*.test.js': ['browserify']
+			'test/**/*.js': ['browserify']
 		},
 
 
 		// test results reporter to use
 		// possible values: 'dots', 'progress'
 		// available reporters: https://npmjs.org/browse/keyword/karma-reporter
-		reporters: ['progress'],
+		reporters: ['dots'],
 
 
 		// web server port
@@ -47,7 +48,7 @@ module.exports = function(config) {
 
 		// level of logging
 		// possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-		logLevel: config.LOG_INFO,
+		logLevel: karma.LOG_INFO,
 
 
 		// enable / disable watching file and executing tests whenever any file changes
@@ -56,7 +57,7 @@ module.exports = function(config) {
 
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: ['PhantomJS'],
+		browsers: ['Firefox'],
 
 
 		// Continuous Integration mode
@@ -68,5 +69,8 @@ module.exports = function(config) {
 			transform: [ 'babelify', 'debowerify' ]
 		}
 
-	});
+	};
+
+
+	karma.set(config);
 };
