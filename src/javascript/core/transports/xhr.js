@@ -4,10 +4,10 @@ module.exports = function () {
 	xhr.withCredentials = true;
 
 	return {
-		send: function (domain, path) {
-			xhr.open('POST', domain, true);
+		send: function (url, data) {
+			xhr.open('POST', url, true);
 			xhr.setRequestHeader('Content-type', 'application/json');
-			xhr.send(path);
+			xhr.send(data);
 		},
 		complete: function (callback) {
 			xhr.onerror = function () {
