@@ -93,7 +93,7 @@ describe('Core.Send', function () {
 
 		if (navigator.sendBeacon) {
 			it('use sendBeacon when configured', function (done) {
-				settings.set('useSendBeacon', true);
+				settings.set('config', {useSendBeacon: true});
 				sinon.stub(navigator, 'sendBeacon');
 				Send.init();
 				Send.addAndRun(request);

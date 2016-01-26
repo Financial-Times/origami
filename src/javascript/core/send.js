@@ -30,7 +30,7 @@ function sendRequest(request, callback) {
 	const queueTime = request.queueTime;
 	const offlineLag = new Date().getTime() - queueTime;
 	let path;
-	const transport = (navigator.sendBeacon && Promise && settings.get('useSendBeacon')) ? transports.get('sendBeacon')() :
+	const transport = (navigator.sendBeacon && Promise && (settings.get('config') || {}).useSendBeacon) ? transports.get('sendBeacon')() :
 										window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? transports.get('xhr')() :
 										transports.get('image')();
 	const user_callback = request.callback;
