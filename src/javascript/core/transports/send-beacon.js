@@ -6,11 +6,11 @@ module.exports = function () {
         rejecter = reject;
     });
     return {
-        send: function (domain, path) {
-            if (navigator.sendBeacon(path, domain)) {
+        send: function (url, data) {
+            if (navigator.sendBeacon(url, data)) {
                 resolver();
             } else {
-                rejecter(new Error('Failed to send beacon event: ' + domain.toString()));
+                rejecter(new Error('Failed to send beacon event: ' + data.toString()));
             }
 
         },

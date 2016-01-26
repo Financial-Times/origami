@@ -4,8 +4,8 @@ module.exports = function () {
 	const image = new Image(1,1);
 
 	return {
-		send: function (domain, path) {
-			image.src = domain + '?data=' + utils.encode(path);
+		send: function (url, data) {
+			image.src = url + '?data=' + utils.encode(data);
 		},
 		complete: function (callback) {
 			if (image.addEventListener) {
