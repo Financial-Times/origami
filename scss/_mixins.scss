@@ -15,6 +15,36 @@
 	@return $aggregated-selector;
 }
 
+/// Sets SVG background retrieved from the image service
+@mixin oFtIconsGetSvg($icon-name, $color: null, $size: 20, $icon-only: false) {
+	@if ($icon-only == false) {
+		display: inline-block;
+		width: $size + 0px;
+		height: $size + 0px;
+	}
+
+	$service-url: 'https://next-geebee.ft.com/image/v1/images/raw/';
+	$icon-url: 'http%3A%2F%2Fnext-geebee.ft.com%2Fassets%2Ficons%2F#{$icon-name}.svg';
+	$query: '?source=ofticons';
+
+	@if $color != null {
+		$color: str-slice(ie-hex-str($color), 4);
+		$query: $query + '&tint=%23#{$color},%23#{$color}';
+	}
+
+	background-image: url($service-url + $icon-url + $query + '&format=svg');
+	// ie7/8 fallback
+	background-image: url($service-url + $icon-url + $query + '&format=png&width=#{$size}')\9;
+
+	@if ($icon-only == false) {
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: 50%;
+		background-color: transparent;
+	}
+}
+
+/// Outputs font family and source
 @mixin oFtIconsFontFace() {
 	@if ($_o-ft-icons-font-face-already-output == false) {
 		$_o-ft-icons-font-face-already-output: true !global;
