@@ -2,6 +2,8 @@ const template = require('./src/js/template');
 const timeoutDuration = 5000;
 
 let isInstantiated = false;
+let stack = [];
+let container;
 
 class Notice {
 
@@ -13,9 +15,8 @@ class Notice {
 		this.notice.innerHTML = template(options);
 		this.notice.querySelector('button').onclick = this.hide.bind(this)
 
-		const notificationContainer = document.querySelector('.n-notification');
-		const firstChild = notificationContainer.firstChild;
-		notificationContainer.insertBefore(this.notice, firstChild);
+		const firstChild = container.firstChild;
+		container.insertBefore(this.notice, firstChild);
 
 		if(options.duration !== 0){
 			this.timeout = setTimeout(this.hide.bind(this), options.duration || timeoutDuration);
@@ -24,31 +25,37 @@ class Notice {
 
 	hide() {
 		clearTimeout(this.timeout);
-		this.notice.dispatchEvent(new CustomEvent('nNotification.close'));
 		this.notice.parentNode.removeChild(this.notice);
+		const index = stack.indexOf(this);
+		if (index > -1) {
+			stack.splice(index, 1);	
+		}
 	}
 }
 
-function show(options){
+function show (options){
 	if (!isInstantiated) {init();}
-	new Notice(options);
+	stack.push(new Notice(options));
 }
 
-function init(){
+function init (){
 	if (isInstantiated) return;
 
-	let container = document.createElement('div');
+	container = document.createElement('div');
 	container.classList.add('n-notification');
 	document.body.appendChild(container);
-
-	document.addEventListener("nNotification.show", function(e){
-		show(e.detail);
-	});
 
 	isInstantiated = true;
 }
 
+function teardown() {
+	stack.forEach(item => item.hide());
+	stack.length = 0;
+	container.parentNode.removeChild(container);
+	isInstantiated = false;
+}
+
 module.exports = {
-	init : init,
-	show: show
+	show: show,
+	teardown: teardown
 };

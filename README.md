@@ -13,21 +13,11 @@ Component for showing onsite notification bars to users.
 		duration: 7000 //
 	});
 
-## Via Events
+	type: 'error', produces an error styled notification.
 
-	require('n-notification').init();
-
-	const event = new CustomEvent('nNotification.show', {detail:{ content:message }});
-    document.dispatchEvent(event);
-
+	Concurrent notifications are stacked, most recent at the top.
 
 # Ideas for the future
 
 * Using the Notifications and PageVisibility APIS to show people notifications with the FT open in the background.
 * Firing messages and notifcations from Server Sent Events
-
-
-
-
-
-
