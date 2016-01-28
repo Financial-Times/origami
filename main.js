@@ -13,7 +13,7 @@ class Notice {
 		options.trackable = options.trackable || `notification-${options.type}`;
 
 		this.notice = document.createElement('div');
-		this.notice.innerHTML = template(options);
+		this.notice.appendChild(template(options));
 		this.notice.querySelector('button').onclick = this.hide.bind(this)
 
 		const firstChild = container.firstChild;

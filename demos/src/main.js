@@ -1,6 +1,21 @@
 const nNotification = require('../../main');
+const demoEvent = document.querySelector('.demo-notification--event');
 const demoMethod = document.querySelector('.demo-notification--method');
-const demoCustom = document.querySelector('.demo-notification--error');
+const demoError = document.querySelector('.demo-notification--error');
+const demoSuccess = document.querySelector('.demo-notification--success');
+
+if (demoEvent) {
+	demoEvent.addEventListener('click', function() {
+		nNotification.init();
+		const event = new CustomEvent('nNotification.show', {
+			detail: {
+				title: 'Title',
+				content: 'Notification generated via Custom Event'
+			}
+		});
+		document.dispatchEvent(event);
+	});
+}
 
 if (demoMethod) {
 	demoMethod.addEventListener('click', function() {
@@ -11,12 +26,22 @@ if (demoMethod) {
 	});
 }
 
-if (demoCustom) {
-	demoCustom.addEventListener('click', function() {
+if (demoError) {
+	demoError.addEventListener('click', function() {
 		nNotification.show({
 			title: 'Error',
 			content: 'This Notification is styled as an error',
 			type: 'error'
+		});
+	});
+}
+
+if (demoSuccess) {
+	demoSuccess.addEventListener('click', function() {
+		nNotification.show({
+			title: 'Success',
+			content: 'This Notification is styled as a success',
+			type: 'success'
 		});
 	});
 }
