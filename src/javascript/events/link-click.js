@@ -264,9 +264,8 @@ function init(config) {
 			}
 		});
 	}
+	utils.addEvent(window, 'oTracking.link', track);
 }
-
-utils.addEvent(window, 'oTracking.link', track);
 
 module.exports = {
 	init: init,

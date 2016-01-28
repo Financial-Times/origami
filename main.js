@@ -165,7 +165,8 @@ Tracking.prototype.init = function(config) {
 			}
 		}});
 	}
-
+	this.event.init();
+	this.page.init();
 	this.initialised = true;
 	return this;
 };

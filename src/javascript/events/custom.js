@@ -218,6 +218,9 @@ function _generateHash(str) {
 	return h >>> 0;
 }
 
-utils.addEvent(window, 'oTracking.event', event);
+
 
 module.exports = event;
+module.exports.init = function () {
+	utils.addEvent(window, 'oTracking.event', event);
+};
