@@ -95,6 +95,7 @@ describe('Brightcove', () => {
 					'?source=next'
 				);
 				containerEl.querySelector('.n-video__play-button').should.exist;
+				containerEl.querySelector('.n-video__title').textContent.should.equal('A hated rally');
 			});
 	});
 
