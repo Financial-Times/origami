@@ -1,5 +1,16 @@
 @import "next-sass-setup/main";
 
+@keyframes load-notice {
+	0% {
+		opacity: 0;
+		max-height: 0;
+	}
+	100% {
+		opacity: 1;
+		max-height: 200px;
+	}
+}
+
 .n-notification {
 	@include zIndexFor(notification);
 	position: fixed;
@@ -17,6 +28,7 @@
 	margin: 0;
 	padding: 14px 0;
 	overflow: hidden;
+	animation: load-notice 200ms forwards;
 }
 
 .n-notification__content-wrapper {
