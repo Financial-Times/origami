@@ -1,8 +1,9 @@
 const template = require('./src/js/template');
 const timeoutDuration = 5000;
 
+const stack = [];
+const eventShow = (e) => show(e.detail);
 let isInstantiated = false;
-let stack = [];
 let container;
 
 class Notice {
@@ -28,12 +29,17 @@ class Notice {
 		this.notice.parentNode.removeChild(this.notice);
 		const index = stack.indexOf(this);
 		if (index > -1) {
-			stack.splice(index, 1);	
+			stack.splice(index, 1);
 		}
+		this.dispatchNotificationCloseEvent();
+	}
+
+	dispatchNotificationCloseEvent () {
+		document.dispatchEvent(new CustomEvent('nNotification.close'));
 	}
 }
 
-function show (options){
+function show (options) {
 	if (!isInstantiated) {init();}
 	stack.push(new Notice(options));
 }
@@ -42,9 +48,9 @@ function init (){
 	if (isInstantiated) return;
 
 	container = document.createElement('div');
-	container.classList.add('n-notification');
+	container.className = ('n-notification');
 	document.body.appendChild(container);
-
+	document.addEventListener("nNotification.show", eventShow, false);
 	isInstantiated = true;
 }
 
@@ -52,10 +58,12 @@ function teardown() {
 	stack.forEach(item => item.hide());
 	stack.length = 0;
 	container.parentNode.removeChild(container);
+	document.removeEventListener("nNotification.show", eventShow, false);
 	isInstantiated = false;
 }
 
 module.exports = {
+	init: init,
 	show: show,
 	teardown: teardown
 };

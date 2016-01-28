@@ -76,8 +76,8 @@
 	width: 34px;
 }
 
-.n-notification--error {
-	background-color: rgba(getColor('red-tint2'), 0.95);
+.n-notification--error,
+.n-notification--success {
 	color: getColor('white');
 	.n-notification__content {
 		a {
@@ -106,4 +106,12 @@
 	.myft-ui__icon {
 		@include nextIcon(myft-bolder, getColor('white'), 20);
 	}
+}
+
+.n-notification--error {
+	background-color: rgba(getColor('red-tint2'), 0.95);
+}
+
+.n-notification--success {
+	background-color: rgba(getColor('green-tint1'), 0.95);
 }
