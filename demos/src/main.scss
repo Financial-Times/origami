@@ -1,1 +1,12 @@
+$o-header-is-silent: false;
+
 @import "../../main";
+
+body {
+	margin: 0;
+}
+
+.core .o--if-js,
+.enhanced .o--if-no-js {
+	display: none !important;
+}

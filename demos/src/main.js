@@ -1,5 +1,5 @@
-require('../../main').init({
-	get: function() {
-		return true;
-	}
+require('../../main.js');
+
+document.addEventListener("DOMContentLoaded", function() {
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });

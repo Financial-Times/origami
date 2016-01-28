@@ -1,17 +1,10 @@
-import search from './src/js/search';
-import preventScroll from './src/js/prevent-scroll';
-import toggle from './src/js/toggle';
-import selected from './src/js/selected';
-import editionSwitcher from './src/js/edition-switcher';
+import oHeader from './src/js/Header';
 
-const init = flags => {
-	search.init(flags);
-	preventScroll.init();
-	toggle.init(flags);
-	selected.init(flags);
-	editionSwitcher.init(document.querySelector('.edition-switcher'), flags);
+const constructAll = () => {
+	oHeader.init();
+	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
-export default {
-	init
-};
+document.addEventListener('o.DOMContentLoaded', constructAll);
+
+export default oHeader;

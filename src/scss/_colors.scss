@@ -1,0 +1,7 @@
+@include oColorsSetUseCase(o-header, border, 'grey-tint3');
+@include oColorsSetUseCase(o-header-nav, text, 'white');
+@include oColorsSetUseCase(o-header-nav, background, 'grey-tint5');
+@include oColorsSetUseCase(o-header-nav-separator, border, 'cold-1');
+@include oColorsSetUseCase(o-header-nav-separator, background, 'black');
+@include oColorsSetUseCase(o-header-nav-search, text, 'warm-5');
+@include oColorsSetUseCase(o-header-sub-nav-hover, background, 'warm-2');

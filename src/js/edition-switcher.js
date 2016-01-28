@@ -1,11 +1,13 @@
-import isOutside from './is-outside';
+import utils from './_utils';
 
+const defaultClassName = 'o-header__edition-switch';
 class EditionSwitcher {
-	constructor(editionSwitcherEl) {
-		this.editionSwitcherEl = editionSwitcherEl;
-		this.openClass = 'edition-switcher--open';
+	constructor(headerEl, config = {editionswitchClassName: defaultClassName}) {
+		console.log(config);
+		this.editionSwitcherEl = headerEl.querySelector(`.${config.editionswitchClassName}`);
+		this.openClass = `${config.editionswitchClassName}--open`;
 		this.isOpen = false;
-		editionSwitcherEl.querySelector('.js-edition-switcher-button')
+		this.editionSwitcherEl.querySelector('[data-o-header-edition-switch-button]')
 			.addEventListener('click', this.toggle.bind(this));
 		document.body.addEventListener('click', this.click.bind(this));
 	}
@@ -16,16 +18,14 @@ class EditionSwitcher {
 	}
 
 	click(ev) {
-		if (this.isOpen && isOutside(ev.target, this.editionSwitcherEl)) {
+		if (this.isOpen && utils.isOutside(ev.target, this.editionSwitcherEl)) {
 			this.toggle();
 		}
 	}
-}
 
-export default {
-	init: (editionSwitcherEl, flags) => {
-		if (flags.get('editionSwitcher')) {
-			new EditionSwitcher(editionSwitcherEl);
-		}
+	static init(headerEl, config = {editionswitchClassName: defaultClassName}) {
+		new EditionSwitcher(headerEl, config);
 	}
 }
+
+export default EditionSwitcher;

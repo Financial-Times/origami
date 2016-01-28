@@ -7,11 +7,16 @@
     "browserFeatures": {
         "required": [
             "classList",
-            "customevent"
+            "customevent",
+            "fetch"
         ]
     },
     "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-header/builds.json"
+        "circle": "https://api.travis-ci.org/repos/Financial-Times/o-header/builds.json"
+    },
+    "demosDefaults": {
+        "dependencies": ["o-fonts@^2.0.0"],
+        "documentClasses": "enhanced"
     },
     "demos": [
         {
@@ -20,10 +25,8 @@
             "js": "demos/src/main.js",
             "sass": "demos/src/main.scss",
             "data": "demos/src/data.js",
-            "documentClasses": "js",
             "expanded": true,
-            "description": "",
-            "path": "/demos/header.html"
+            "description": ""
         }
     ]
 }

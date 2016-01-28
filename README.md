@@ -1,52 +1,39 @@
-# n-header-footer [![Circle CI](https://circleci.com/gh/Financial-Times/n-header-footer/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/n-header-footer/tree/master)
+# o-header [![Circle CI](https://circleci.com/gh/Financial-Times/o-header/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-header/tree/master)
 
-Header and footer for next.ft.com sites
+Header for FT branded sites
 
 ## Installation
 
 ```
-bower install --S Financial-Times/n-header-footer
+bower install --S o-header
 ```
 
 ```js
-var headerFooter = require('n-header-footer');
+var oHeader = require('o-header');
 
-headerFooter.init();
+oHeader.init();
 ```
 
 ```scss
-@import 'n-header-footer/main';
+@import 'o-header/main';
 ```
 
-## Build
+## API
 
-To build the n-header-footer run
+config:
 
-```
-make build
-```
+* editionswitchClassName:
+* headerClassName:
 
-This will also rebuild the navigation templates using data from `next-navigation`.
+## Data attributes
 
-## Feature flags
-
-To use feature flags pass in an instance of the next-feature-flags-client (which should already have been initialised) like so:
-
-```js
-headerFooter.init(flags)`;
-```
-
-## Custom data
-
-When rendering templates the following can optionally be defined on the viewData
-
-```javascript
-headerData: {
-	isStream: Boolean,
-	section: {
-		url: '/blah/blah',
-		title: 'Blah Blah',
-		conceptId: 'taxonomy:&quot;name&quot;'
-	}
-}
-```
+* data-o-header-search
+* data-o-header--js
+* data-o-header-form-search
+    - input
+    - label
+* data-o-header-togglable-search
+* data-o-header-edition-switch-button
+* data-o-header-selectable
+* data-o-header-togglable
+* data-o-header-togglable-nav

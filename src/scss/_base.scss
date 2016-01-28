@@ -1,0 +1,69 @@
+.o-header {
+	position: relative;
+	z-index: 21;
+	padding-bottom: 46px;
+
+	@include oGridRespondTo(M) {
+		padding-bottom: 0;
+	}
+
+	a {
+		border-bottom: 0;
+	}
+
+	a:hover,
+	a:focus {
+		color: inherit;
+	}
+}
+
+.o-header--light-on-dark {
+	background-color: oColorsGetPaletteColor('grey-tint5');
+}
+
+.o-header__container {
+	@include oGridContainer;
+}
+
+.o-header__inner {
+	@include oGridRow;
+}
+
+.o-header__top,
+.o-header__bottom {
+	@include oGridColspan(12);
+}
+
+.o-header__bottom {
+	position: fixed;
+	left: 0;
+	right: 0;
+	transition: transform 150ms;
+	background: $o-header-primary-background;
+
+	@include oGridRespondTo(M) {
+		position: relative;
+	}
+
+	&:before {
+		top: 0;
+	}
+	
+	&:after {
+		bottom: 0;
+		visibility: hidden;
+		display: block;
+		font-size: 0;
+		content: "";
+		clear: both;
+		height: 0;
+	}
+}
+
+.o-header__bottom-inner {
+	position: relative;
+	min-height: 45px;
+	min-width: 280px; // can't fit below that.
+	padding-left: 0;
+	padding-right: 0;
+}
