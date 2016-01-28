@@ -54,6 +54,10 @@ function page(config, callback) {
 function listener(e) {
 	page(e.detail);
 }
-utils.addEvent(window, 'oTracking.page', listener);
+
+
 
 module.exports = page;
+module.exports.init = function () {
+	utils.addEvent(window, 'oTracking.page', listener);
+};
