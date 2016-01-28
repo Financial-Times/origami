@@ -15,6 +15,7 @@ oHeader.init();
 ```
 
 ```scss
+$o-header-is-silent: false;
 @import 'o-header/main';
 ```
 
