@@ -27,7 +27,6 @@ class Search {
 		const input = form.querySelector('input');
 		const placeholder = headerEl.querySelector('label');
 
-		console.log(form);
 		const typeahead = new Typeahead(
 			suggestionsContainer,
 			input,
