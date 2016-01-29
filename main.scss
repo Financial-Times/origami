@@ -23,6 +23,16 @@ $_n-video_applied: false !default;
 		}
 	}
 
+	.n-video__title {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 8px;
+		background-color: rgba(getColor('grey-tint4'), 0.9);
+		color: white;
+		z-index: 2;
+	}
+
 	.n-video__play-button {
 		position: absolute;
 		width: 100%;
