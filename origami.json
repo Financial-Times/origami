@@ -16,17 +16,23 @@
     },
     "demosDefaults": {
         "dependencies": ["o-fonts@^2.0.0"],
-        "documentClasses": "enhanced"
+        "template": "demos/src/main.mustache",
+        "js": "demos/src/main.js",
+        "sass": "demos/src/main.scss",
+        "data": "demos/src/data.js"
     },
     "demos": [
         {
             "name": "header",
-            "template": "demos/src/main.mustache",
-            "js": "demos/src/main.js",
-            "sass": "demos/src/main.scss",
-            "data": "demos/src/data.js",
             "expanded": true,
-            "description": ""
+            "description": "",
+            "documentClasses": "enhanced"
+        },
+        {
+            "name": "header-core",
+            "expanded": false,
+            "description": "",
+            "documentClasses": "core"
         }
     ]
 }
