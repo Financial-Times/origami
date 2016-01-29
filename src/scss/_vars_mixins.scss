@@ -1,9 +1,10 @@
+$o-header-is-silent: true !default;
 $o-header-primary-height: 45px;
-$o-header-primary-bg: #333333;
-$o-header-secondary-bg: getColor('grey-tint5');
+$o-header-primary-background: #333333;
+$o-header-secondary-background: oColorsGetPaletteColor('grey-tint5');
 
-@mixin oHeaderNavItem() {
-	color: getColor('white');
+@mixin oHeaderNavItem {
+	color: oColorsGetPaletteColor('white');
 	text-decoration: none;
 	display: block;
 	line-height: $o-header-primary-height;
@@ -16,7 +17,7 @@ $o-header-secondary-bg: getColor('grey-tint5');
 	&:hover,
 	&:focus,
 	&[aria-pressed] {
-		background: $o-header-secondary-bg;
+		background: $o-header-secondary-background;
 	}
 
 	@include oGridRespondTo(M) {
@@ -28,7 +29,26 @@ $o-header-secondary-bg: getColor('grey-tint5');
 		padding: 0 7px;
 		font-size: 16px;
 	}
+	
 	*:last-child > & {
 		padding-right: 0;
 	}
+}
+
+@mixin _oHeaderButtonReset {
+	color: inherit;
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+}
+
+@mixin _oHeaderHideVisually {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	margin: -1px;
+	border: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 1px;
+	height: 1px;
 }

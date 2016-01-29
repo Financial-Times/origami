@@ -1,0 +1,72 @@
+.o-header__tools {
+	float: right;
+}
+
+.o-header__tools-items {
+	margin: 0;
+	padding: 0;
+}
+
+.o-header__tools-item {
+	display: inline-block;
+
+	.o-header__tools--masthead & {
+		position: relative;
+		display: inline-block;
+
+		&:before {
+			content: ' ';
+			position: absolute;
+			width: 2px;
+			height: 14px;
+			top: 50%;
+			left: -3px;
+			margin-top: -7px;
+			background-color: oColorsGetPaletteColor('warm-5');
+		}
+		&:first-child:before {
+			display: none;
+		}
+	}
+}
+
+.o-header__tools-item--logged-in {
+	position: relative;
+	display: none;
+}
+
+.o-header__tools-item--logged-out {
+	display: none;
+}
+
+.o-header__tools-link {
+	@include oHeaderNavItem;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+
+	.o-header--light-on-dark .o-header__tools--masthead & {
+		color: oColorsGetPaletteColor('white');
+	}
+}
+
+.o-header__tools-item--account {
+	display: none;
+
+	@include oGridRespondTo(M) {
+		display: inline-block;
+	}
+}
+
+.o-header__tools--masthead {
+	float: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	@include oGridRespondTo($until: M) {
+		display: none;
+	}
+}

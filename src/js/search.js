@@ -1,5 +1,3 @@
-/*jshint node:true,browser:true,-W030*/
-
 const Typeahead = require('./typeahead');
 
 // Source: https://gist.github.com/davidcalhoun/702826
@@ -19,30 +17,38 @@ const transitionEventName = function(el) {
 	return transition;
 };
 
-module.exports = {
+class Search {
+	static init(headerEl, config = {}) {
+		if (!headerEl) return;
 
-	init: function(flags) {
-		const header = document.querySelector('.o-header');
+		const suggestionsContainer = headerEl.querySelector('[data-o-header-suggestions]');
+		const form = suggestionsContainer.querySelector('[data-o-header-form-search]');
+		const toggle = suggestionsContainer.querySelector('[data-o-header-togglable-search]');
+		const input = form.querySelector('input');
+		const placeholder = headerEl.querySelector('label');
 
-		const form = document.querySelector('.js-search');
-		const toggle = document.querySelector('.js-search-toggle');
-		const input = document.querySelector('.js-search-input');
-		const placeholder = document.querySelector('.js-search-placeholder');
+		const typeahead = new Typeahead(
+			suggestionsContainer,
+			input,
+			`//${window.location.host}${config.typeaheadPath}`,
+			function() { form.submit(); }
+		);
 
 		const transition = transitionEventName(form);
 		const transitionHandler = function() {
 			const visibility = getComputedStyle(form, null).getPropertyValue('visibility');
 
-			if(visibility === 'visible')
+			if (visibility === 'visible') {
 				input.focus();
+			}
 
 			form.removeEventListener(transition, transitionHandler);
 		};
 
-		if(placeholder) {
+		if (placeholder) {
 			placeholder.style.display = 'block';
 			input.addEventListener('keyup', function() {
-				if(input.value.length > 0) {
+				if (input.value.length > 0) {
 					placeholder.style.display = 'none';
 				} else {
 					placeholder.style.display = 'block';
@@ -50,41 +56,22 @@ module.exports = {
 			});
 		}
 
-		if(toggle) {
+		if (toggle) {
 			const clickHandler = function() {
-				if(transition) {
+				if (transition) {
 					form.addEventListener(transition, transitionHandler);
 				} else {
 					setTimeout(transitionHandler, 300);
 				}
 
+				typeahead.hide();
 				return true;
 			};
 
 			toggle.addEventListener('touchend', clickHandler);
 			toggle.addEventListener('click', clickHandler);
 		}
-
-		if(header && flags.get('typeahead')) {
-			const container = header.querySelector('.js-suggestions-container');
-
-			const typeahead = new Typeahead(
-				container,
-				input,
-				'//' + window.location.host + '/search-suggestions?flatten=true&limit=5&q=',
-				function() { form.submit(); },
-				flags
-			);
-
-			if(toggle) {
-				const handler = function() {
-					typeahead.hide();
-				};
-
-				toggle.addEventListener('touchend', handler);
-				toggle.addEventListener('click', handler);
-			}
-		}
 	}
+}
 
-};
+export default Search;
