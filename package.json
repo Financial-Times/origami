@@ -23,6 +23,7 @@
     "karma-phantomjs-launcher": "0.1.2",
     "lolex": "^1.4.0",
     "mocha": "^2.1.0",
+    "next-build-tools": "^5.16.0",
     "origami-build-tools": "^4.0.0",
     "textrequireify": "^2.1.0"
   }
