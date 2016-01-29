@@ -1,16 +1,16 @@
 const nNotification = require('../../main');
 const demoEvent = document.querySelector('.demo-notification--event');
 const demoMethod = document.querySelector('.demo-notification--method');
-const demoAlwaysOpen = document.querySelector('.demo-notification--always-open');
-const demoCustom = document.querySelector('.demo-notification--custom');
-
-nNotification.init();
+const demoError = document.querySelector('.demo-notification--error');
+const demoSuccess = document.querySelector('.demo-notification--success');
 
 if (demoEvent) {
 	demoEvent.addEventListener('click', function() {
-		const event = new CustomEvent('nNotification.show', {detail:{
-				content:'Notification generated via event',
-				trackable:'event-notification'
+		nNotification.init();
+		const event = new CustomEvent('nNotification.show', {
+			detail: {
+				title: 'Title',
+				content: 'Notification generated via Custom Event'
 			}
 		});
 		document.dispatchEvent(event);
@@ -26,21 +26,22 @@ if (demoMethod) {
 	});
 }
 
-if (demoAlwaysOpen) {
-	demoAlwaysOpen.addEventListener('click', function() {
+if (demoError) {
+	demoError.addEventListener('click', function() {
 		nNotification.show({
-			content: '<abbr title="myFT" class="myft-ui__icon"></abbr> This Notification will not close. Read and manage your alerts.',
-			duration: 0
+			title: 'Error',
+			content: 'This Notification is styled as an error',
+			type: 'error'
 		});
 	});
 }
 
-if (demoCustom) {
-	demoCustom.addEventListener('click', function() {
+if (demoSuccess) {
+	demoSuccess.addEventListener('click', function() {
 		nNotification.show({
-			title: 'Custom',
-			content: 'This Notification has custom styles',
-			type: 'custom'
+			title: 'Success',
+			content: 'This Notification is styled as a success',
+			type: 'success'
 		});
 	});
 }
