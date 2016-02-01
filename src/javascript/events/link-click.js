@@ -207,6 +207,17 @@ function runQueue() {
 }
 
 /**
+ * Listener for links.
+ *
+ * @param {CustomEvent} e - The CustomEvent
+ * @private
+ * @return {undefined}
+ */
+function listener(e) {
+	track(e.detail);
+}
+
+/**
  * Setup and initialise link tracking.
  *
  * @param {Object}  config - Initial configuration
@@ -264,7 +275,8 @@ function init(config) {
 			}
 		});
 	}
-	utils.addEvent(window, 'oTracking.link', track);
+
+	utils.addEvent(window, 'oTracking.link', listener);
 }
 
 module.exports = {
