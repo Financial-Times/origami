@@ -95,6 +95,21 @@ describe('Brightcove', () => {
 					'?source=next'
 				);
 				containerEl.querySelector('.n-video__play-button').should.exist;
+			});
+	});
+
+	it('should be able to create a placeholder with a title', () => {
+		const brightcove = new Brightcove(containerEl, { placeholder: true, placeholderTitle: true });
+		return brightcove
+			.init()
+			.then(() => {
+				const placholderEl = containerEl.querySelector('img');
+				placholderEl.getAttribute('src').should.equal(
+					'https://next-geebee.ft.com/image/v1/images/raw/' +
+					'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201502%2F2470%2F47628783001_4085962850001_MAS-VIDEO-AuthersNote-stock-market.jpg%3FpubId%3D47628783001' +
+					'?source=next'
+				);
+				containerEl.querySelector('.n-video__play-button').should.exist;
 				containerEl.querySelector('.n-video__title').textContent.should.equal('A hated rally');
 			});
 	});

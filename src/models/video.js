@@ -7,6 +7,7 @@ class Video {
 			classes: [],
 			optimumWidth: null,
 			placeholder: false,
+			placeholderTitle: false,
 			playButton: true,
 			data: null
 		};
