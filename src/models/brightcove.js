@@ -105,10 +105,13 @@ class Brightcove extends Video {
 		this.containerEl.classList.add('n-video--placeholder');
 		this.containerEl.appendChild(this.placeholderEl);
 
-		const titleEl = document.createElement('div');
-		titleEl.className = 'n-video__title';
-		titleEl.textContent = this.brightcoveData.name;
-		this.containerEl.appendChild(titleEl);
+		let titleEl;
+		if (this.opts.placeholderTitle) {
+			titleEl = document.createElement('div');
+			titleEl.className = 'n-video__title';
+			titleEl.textContent = this.brightcoveData.name;
+			this.containerEl.appendChild(titleEl);
+		}
 
 		if (this.opts.playButton) {
 
@@ -121,7 +124,9 @@ class Brightcove extends Video {
 
 			playButtonEl.addEventListener('click', () => {
 				this.containerEl.removeChild(playButtonEl);
-				this.containerEl.removeChild(titleEl);
+				if (titleEl) {
+					this.containerEl.removeChild(titleEl);
+				}
 				this.removePlaceholder();
 				this.addVideo();
 				this.el.play();
