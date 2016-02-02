@@ -52,7 +52,7 @@ class Utils {
 		}
 	}
 
-	toggle(headerEl) {
+	toggle() {
 		const toggleAttribute = '[data-o-header-togglable]';
 		this.delegate.on('click', toggleAttribute, (ev, togglerEl) => {
 			const togglerElState = togglerEl.getAttribute('aria-pressed');
