@@ -53,7 +53,7 @@ class Brightcove extends Video {
 		return dataPromise.then(data => {
 			this.brightcoveData = data;
 			this.posterImage = updatePosterUrl(data.videoStillURL, this.opts.optimumWidth);
-			this.rendition = getAppropriateRendition(data.renditions, { width: this.opts.optimumWidth });
+			this.rendition = getAppropriateRendition(data.renditions);
 		});
 	}
 
