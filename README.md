@@ -23,8 +23,6 @@ This generally sticks to the [usual origami convention](http://origami.ft.com/do
 #### `destroy()`
 Destroys an o-expander instance and removes all event listeners
 
-
-
 ## Options
 
 All the following can be passed in an options object in the second parameter of `oExpander#init()` or as data-attributes (hyphenated and prefixed by `o-expander` e.g. `data-o-expander-shrink-to="height"`)
@@ -35,6 +33,9 @@ All the following can be passed in an options object in the second parameter of 
 * `collapsedToggleText` [`'more'`]: Text to show on toggle button when collapsed. Accepts empty strings
 * `toggleSelector`[`'button.o-expander__toggle'`]: Selector for expand/collapse toggle button. When using the default selector some styling, with an arrow icon, will come for free. If the selector matches more than one element they will all have the ability to expand/collapse the expander
 * `toggleState`[`'all|aria|none'`]: Do you want the epxander to update the button's text and `aria-pressed` attribute, just the aria attribute or neither (defaults to `all`)
+* `rootClassName` [`'o-expander'`]: Class name used in the root element of the component
+* `contentClassName` [`'o-expander__content'`]: Class name used in the content element of the component
+* `toggleClassName` [`'o-expander__toggle'`]: Class name used in the toggle element of the component
 
 ## Events
 o-expander fires the following events, which always fire before any repainting/layout occurs
@@ -44,11 +45,12 @@ o-expander fires the following events, which always fire before any repainting/l
 * `oExpander.collapse` - fires when the expander collapses
 
 ## Configuration using markup/CSS
+* If you want to use the default classes, turn silent mode off before importing it: `$o-expander-is-silent: false;`
 * By default o-expander will collapse content on initialisation. To prevent this add the class `.o-expander__content--expanded`
 * Maximum height (when collapsed) should be set using css. Be mindful that when js doesn't run you may want to default to showing all the content e.g.
 
     ```scss
-    .o-js .o-expander__content { // ensures all content is shown when js doesn't run
+    .o--if-js .o-expander__content { // ensures all content is shown when js doesn't run
         max-height: 50px;
     }
 

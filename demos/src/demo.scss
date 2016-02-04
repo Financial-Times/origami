@@ -1,6 +1,6 @@
-html {
-	font-family: BentonSans, sans-serif;
-}
+@import "../../main";
+
+$o-expander-is-silent: false;
 
 .o-expander {
 	max-width: 420px;
@@ -13,7 +13,7 @@ html {
 	padding: 0;
 }
 
-[data-o-expander-shrink-to="height"] .o-expander__content {
+.height .o-expander__content {
 	max-height: 36px;
 }
 

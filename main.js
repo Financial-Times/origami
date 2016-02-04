@@ -1,18 +1,21 @@
 const viewport = require('o-viewport');
+
+const rootClassName = 'o-expander';
 let count = 0;
+
 
 const expandMethods = {
 	toggleContent: function (state) {
 		if (state === 'expand') {
-			this.contentEl.classList.add('o-expander__content--expanded');
-			this.contentEl.classList.remove('o-expander__content--collapsed');
+			this.contentEl.classList.add(this.contentClassName + '--expanded');
+			this.contentEl.classList.remove(this.contentClassName + '--collapsed');
 		} else {
-			this.contentEl.classList.remove('o-expander__content--expanded');
-			this.contentEl.classList.add('o-expander__content--collapsed');
+			this.contentEl.classList.remove(this.contentClassName + '--expanded');
+			this.contentEl.classList.add(this.contentClassName + '--collapsed');
 		}
 	},
 	hasStateDefined: function () {
-		return this.contentEl.classList.contains('o-expander__content--expanded') || this.contentEl.classList.contains('o-expander__content--collapsed');
+		return this.contentEl.classList.contains(this.contentClassName + '--expanded') || this.contentEl.classList.contains(this.contentClassName + '--collapsed');
 	},
 	isRequired: function () {
 		let overflows = false;
@@ -32,7 +35,7 @@ const expandMethods = {
 		return overflows;
 	},
 	isCollapsed: function () {
-		return !this.contentEl.classList.contains('o-expander__content--expanded');
+		return !this.contentEl.classList.contains(this.contentClassName + '--expanded');
 	}
 };
 
@@ -63,15 +66,18 @@ function mixin(target, methods) {
 }
 
 const Expander = function (el, opts) {
-
 	this.opts = opts || {};
 	this.el = el;
 
+	this.className = this.opts.className || rootClassName;
+	this.contentClassName = this.opts.contentClassName || rootClassName + '__content';
+	this.toggleClassName = this.opts.toggleClassName || rootClassName + '__toggle';
+
 	this.configure('shrinkTo', 'height');
-	this.configure('countSelector', '.o-expander__content > li');
+	this.configure('countSelector', '.' + this.contentClassName + ' > li');
 	this.configure('expandedToggleText', this.opts.shrinkTo === 'hidden' ? 'hide' : this.opts.shrinkTo === 'height' ? 'less' : 'fewer');
 	this.configure('collapsedToggleText', this.opts.shrinkTo === 'hidden' ? 'show' : 'more');
-	this.configure('toggleSelector', 'button.o-expander__toggle');
+	this.configure('toggleSelector', 'button.' + this.toggleClassName);
 	this.configure('toggleState', 'all');
 
 
@@ -89,7 +95,7 @@ const Expander = function (el, opts) {
 		throw('when collapsing to a number of items specify a selector to identify how many items exist');
 	}
 
-	this.contentEl = this.el.querySelector('.o-expander__content');
+	this.contentEl = this.el.querySelector('.' + this.contentClassName);
 
 	this.toggles = [].slice.apply(this.el.querySelectorAll(this.opts.toggleSelector));
 
@@ -125,11 +131,12 @@ Expander.prototype.configure = function (setting, defaultVal) {
 
 Expander.prototype.apply = function (isSilent) {
 	if (!this.isRequired()) {
-		this.el.classList.add('o-expander--inactive');
+		this.el.classList.add(this.className + '--inactive');
 	} else {
-		this.el.classList.remove('o-expander--inactive');
+		this.el.classList.remove(this.className + '--inactive');
 		if (typeof this.opts.shrinkTo === 'number') {
 			[].slice.call(this.el.querySelectorAll(this.opts.countSelector), this.opts.shrinkTo)
+				// The class is added via JS, so it can use the default name
 				.forEach(el => el.classList.add('o-expander__collapsible-item'));
 		}
 		if (this.hasStateDefined()) {
@@ -141,7 +148,6 @@ Expander.prototype.apply = function (isSilent) {
 };
 
 Expander.prototype.destroy = function () {
-
 	if (this.opts.shrinkTo === 'height') {
 		document.body.removeEventListener('oViewport.orientation', () => this.apply());
 		document.body.removeEventListener('oViewport.resize', () => this.apply());
@@ -152,10 +158,9 @@ Expander.prototype.destroy = function () {
 		toggle.removeAttribute('aria-expanded');
 	});
 	this.contentEl.removeAttribute('aria-hidden');
-	this.contentEl.classList.remove('o-expander__content--expanded');
-	this.contentEl.classList.remove('o-expander__content--collapsed');
+	this.contentEl.classList.remove(this.contentClassName + '--expanded');
+	this.contentEl.classList.remove(this.contentClassName + '--collapsed');
 	this.el.removeAttribute('data-o-expander-js');
-	this.el.classList.remove('o-expander');
 };
 
 Expander.prototype.ariaToggles = function () {

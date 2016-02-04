@@ -12,8 +12,7 @@
     "support": "https://github.com/Financial-Times/o-expander/issues",
     "demosDefaults": {
         "js": "demos/src/demo.js",
-        "sass": "demos/src/demo.scss",
-        "dependencies": ["o-fonts@^2.0.0"]
+        "sass": "demos/src/demo.scss"
     },
     "demos": [
         {
