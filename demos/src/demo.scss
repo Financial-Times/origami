@@ -1,6 +1,7 @@
+$o-expander-is-silent: false;
 @import "../../main";
 
-$o-expander-is-silent: false;
+@include oFtIconsFontFace();
 
 .o-expander {
 	max-width: 420px;
