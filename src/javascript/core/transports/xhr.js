@@ -1,11 +1,10 @@
 module.exports = function () {
 	const xhr = new window.XMLHttpRequest();
 
-	xhr.withCredentials = true;
-
 	return {
 		send: function (url, data) {
 			xhr.open('POST', url, true);
+			xhr.withCredentials = true;
 			xhr.setRequestHeader('Content-type', 'application/json');
 			xhr.send(data);
 		},
