@@ -14,15 +14,6 @@ const resourceLoader = require('./src/javascripts/resourceLoader.js');
 config.set(defaultConfig);
 
 /**
- * Set user's session data if it's available.
- */
-const userSession = oCommentUtilities.ftUser.getSession();
-if (userSession) {
-	config.set('sessionId', userSession);
-	oCommentApi.setConfig('sessionId', userSession);
-}
-
-/**
  * Enable data caching.
  */
 oCommentApi.setConfig('cache', true);

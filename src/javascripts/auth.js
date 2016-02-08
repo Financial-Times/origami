@@ -224,7 +224,13 @@ exports.loginRequiredPseudonymMissing = function (callback, maintainCommentQueue
 		}
 
 		if (authData && authData.token) {
-			exports.login();
+			exports.login(function (loginStatus, authData) {
+				if (loginStatus) {
+					callback(null, authData);
+				} else {
+					callback(new Error("Not logged in."));
+				}
+			});
 		}
 
 		callback(null, authData);
@@ -247,7 +253,13 @@ function loginRequiredAfterASuccess (callback) {
 		force: true
 	}, function (err, authData) {
 		if (authData && authData.token) {
-			exports.login();
+			exports.login(function (loginStatus, authData) {
+				if (loginStatus) {
+					callback(null, authData);
+				} else {
+					callback(new Error("Not logged in."));
+				}
+			});
 		} else if (authData && authData.pseudonym === false) {
 			exports.loginRequiredPseudonymMissing(callback);
 		} else {
@@ -319,10 +331,14 @@ exports.loginRequired = function (callback) {
 			}
 		} else {
 			if (!loggedIn) {
-				exports.login();
+				exports.login(function (loginStatus, authData) {
+					if (loginStatus) {
+						callback(null, authData);
+					} else {
+						callback(new Error("Not logged in."));
+					}
+				});
 			}
-
-			callback(null, authData);
 		}
 	});
 };
