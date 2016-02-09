@@ -1,42 +1,69 @@
-const on = function (eventName, eventHandler) {
-	document.body.addEventListener('oComments.' + eventName, eventHandler);
+const on = function (eventName, eventNamespace, eventHandler) {
+	document.body.addEventListener(eventNamespace + '.' + eventName, eventHandler);
 };
-exports.on = function (eventName, eventHandler) {
+exports.on = function (eventName, eventNamespace, eventHandler) {
+	if (typeof eventNamespace === 'function') {
+		eventHandler = eventNamespace;
+		eventNamespace = 'oComments';
+	}
+
+	if (!eventNamespace) {
+		eventNamespace = 'oComments';
+	}
+
 	if (document.body) {
-		on(eventName, eventHandler);
+		on(eventName, eventNamespace, eventHandler);
 	} else {
 		document.addEventListener('o.DOMContentLoaded', function () {
-			on(eventName, eventHandler);
+			on(eventName, eventNamespace, eventHandler);
 		});
 	}
 };
 
-const off = function (eventName, eventHandler) {
-	document.body.removeEventListener('oComments.' + eventName, eventHandler);
+const off = function (eventName, eventNamespace, eventHandler) {
+	document.body.removeEventListener(eventNamespace + '.' + eventName, eventHandler);
 };
-exports.off = function (eventName, eventHandler) {
+exports.off = function (eventName, eventNamespace, eventHandler) {
+	if (typeof eventNamespace === 'function') {
+		eventHandler = eventNamespace;
+		eventNamespace = 'oComments';
+	}
+
+	if (!eventNamespace) {
+		eventNamespace = 'oComments';
+	}
+
 	if (document.body) {
-		off(eventName, eventHandler);
+		off(eventName, eventNamespace, eventHandler);
 	} else {
 		document.addEventListener('o.DOMContentLoaded', function () {
-			off(eventName, eventHandler);
+			off(eventName, eventNamespace, eventHandler);
 		});
 	}
 };
 
 
-const trigger = function (eventName, data) {
-	document.body.dispatchEvent(new CustomEvent('oComments.' + eventName, {
+const trigger = function (eventName, eventNamespace, data) {
+	document.body.dispatchEvent(new CustomEvent(eventNamespace + '.' + eventName, {
 		detail: data,
 		bubbles: true
 	}));
 };
-exports.trigger = function (eventName, data) {
+exports.trigger = function (eventName, eventNamespace, data) {
+	if (typeof data === 'undefined') {
+		data = eventNamespace;
+		eventNamespace = 'oComments';
+	}
+
+	if (!eventNamespace) {
+		eventNamespace = 'oComments';
+	}
+
 	if (document.body) {
-		trigger(eventName, data);
+		trigger(eventName, eventNamespace, data);
 	} else {
 		document.addEventListener('o.DOMContentLoaded', function () {
-			trigger(eventName, data);
+			trigger(eventName, eventNamespace, data);
 		});
 	}
 };

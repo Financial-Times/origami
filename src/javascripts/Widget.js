@@ -9,6 +9,7 @@ const globalEvents = require('./globalEvents.js');
 const oCommentUi = require('o-comment-ui');
 const oCommentApi = require('o-comment-api');
 const resourceLoader = require('./resourceLoader.js');
+const oTrackingIntegration = require('./oTrackingIntegration');
 
 /* global Livefyre */
 
@@ -156,8 +157,6 @@ function Widget () {
 						self.trigger('error.widget', err);
 						self.onError(err);
 
-
-
 						return;
 					}
 
@@ -198,6 +197,7 @@ function Widget () {
 								self.trigger('widget.load', {
 									lfWidget: widget
 								});
+								oTrackingIntegration.trackSuccessLoad();
 
 								widget.on('initialRenderComplete', executeWhenNotDestroyed(function () {
 									const collectionAttributes = self.lfWidget.getCollection().attributes;
@@ -278,6 +278,13 @@ function Widget () {
 										siteId: siteId,
 										lfEventData: eventData
 									});
+									oTrackingIntegration.trackPost(siteId, eventData.parent);
+
+									if (eventData.sharedToFacebook === true) {
+										oTrackingIntegration.trackShare(siteId, 'facebook');
+									} else if (eventData.sharedToTwitter === true) {
+										oTrackingIntegration.trackShare(siteId, 'twitter');
+									}
 								}));
 
 								widget.on('commentLiked', executeWhenNotDestroyed(function (eventData) {
@@ -285,6 +292,7 @@ function Widget () {
 										siteId: siteId,
 										lfEventData: eventData
 									});
+									oTrackingIntegration.trackLike(siteId);
 								}));
 
 								widget.on('commentShared', executeWhenNotDestroyed(function (eventData) {
@@ -292,6 +300,12 @@ function Widget () {
 										siteId: siteId,
 										lfEventData: eventData
 									});
+
+									if (eventData.sharedToFacebook === true) {
+										oTrackingIntegration.trackShare(siteId, 'facebook');
+									} else if (eventData.sharedToTwitter === true) {
+										oTrackingIntegration.trackShare(siteId, 'twitter');
+									}
 								}));
 
 								widget.on('socialMention', executeWhenNotDestroyed(function (eventData) {
@@ -299,6 +313,7 @@ function Widget () {
 										siteId: siteId,
 										lfEventData: eventData
 									});
+									oTrackingIntegration.trackLike(siteId, eventData.provider);
 								}));
 							}
 						}));
@@ -325,6 +340,30 @@ function Widget () {
 			self.ui.addNotAvailableMessage();
 		}
 	};
+
+	let errorTrackSent = false;
+	this.on('error.widget', function (evt) {
+		const err = evt.detail.data;
+
+		if ((err && !err.unclassifiedArticle &&!err.notAllowedToCreateCollection) || !err) {
+			if (!errorTrackSent) {
+				errorTrackSent = true;
+
+				if (typeof Livefyre === 'undefined') {
+					oTrackingIntegration.trackLivefyreDown();
+				} else {
+					oTrackingIntegration.trackSudsDown();
+				}
+			}
+		}
+	});
+
+	this.on('error.init', function () {
+		if (!errorTrackSent) {
+			errorTrackSent = true;
+			oTrackingIntegration.trackSudsDown();
+		}
+	});
 
 
 
