@@ -8,7 +8,7 @@
     "o-comment-api": "^2.2.1-beta.1",
     "o-comment-ui": "^2.3.0-beta.1",
     "o-comment-utilities": "^2.2.0",
-    "o-typography": "^1.16.2",
+    "o-typography": ">=2.0.0 <4",
     "o-colors": ">=2.4.7 <4",
     "o-assets": "^2.0.0",
     "hogan": "git+https://github.com/twitter/hogan.js.git#3.0.0"
