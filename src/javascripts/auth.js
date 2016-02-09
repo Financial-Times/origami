@@ -338,6 +338,8 @@ exports.loginRequired = function (callback) {
 						callback(new Error("Not logged in."));
 					}
 				});
+			} else {
+				callback(null);
 			}
 		}
 	});
