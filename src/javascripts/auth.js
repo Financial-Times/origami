@@ -231,9 +231,9 @@ exports.loginRequiredPseudonymMissing = function (callback, maintainCommentQueue
 					callback(new Error("Not logged in."));
 				}
 			});
+		} else {
+			callback(new Error("Login failed."));
 		}
-
-		callback(null, authData);
 	});
 };
 
