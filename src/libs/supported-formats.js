@@ -16,8 +16,11 @@ const formats = {
 	]
 };
 
-const supportedFormats = testEl.canPlayType ?
-	Object.keys(formats).filter(format => formats[format].some(type => testEl.canPlayType(type))) :
-	[];
+let supportedFormats = [];
+if (testEl.canPlayType) {
+	try {
+		supportedFormats = Object.keys(formats).filter(format => formats[format].some(type => testEl.canPlayType(type)));
+	} catch(e) { }
+}
 
 module.exports = supportedFormats;
