@@ -7,7 +7,7 @@
     "main.scss"
   ],
   "dependencies": {
-    "n-jsonp-fetch": "^1.0.0",
+    "n-jsonp": "^2.0.0",
     "next-sass-setup": "^7.0.0"
   },
   "devDependencies": {
