@@ -27,12 +27,6 @@
             "expanded": true,
             "description": "",
             "documentClasses": "enhanced"
-        },
-        {
-            "name": "header-core",
-            "expanded": false,
-            "description": "",
-            "documentClasses": "core"
         }
     ]
 }

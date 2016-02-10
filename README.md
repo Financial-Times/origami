@@ -25,6 +25,7 @@ config:
 
 * editionswitchClassName:
 * headerClassName:
+* dataSrc
 
 ## Data attributes
 
@@ -38,3 +39,6 @@ config:
 * data-o-header-selectable
 * data-o-header-togglable
 * data-o-header-togglable-nav
+
+There is intentionally no class to switch between logged in and out as we don't want to do that in the client side
+search and menu point outside of header in core
