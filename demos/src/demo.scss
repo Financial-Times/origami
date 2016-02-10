@@ -1,3 +1,8 @@
+$o-expander-is-silent: false;
+@import "../../main";
+
+@include oFtIconsFontFace();
+
 .o-expander {
 	max-width: 420px;
 }
@@ -9,7 +14,7 @@
 	padding: 0;
 }
 
-[data-o-expander-shrink-to="height"] .o-expander__content {
+.height .o-expander__content {
 	max-height: 36px;
 }
 
