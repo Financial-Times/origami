@@ -1,4 +1,5 @@
 const testEl = document.createElement('video');
+
 const formats = {
 	mpeg4: [
 		'video/mp4; codecs="mp4v.20.8"'
@@ -14,17 +15,9 @@ const formats = {
 		'video/webm; codecs="vp8, vorbis"'
 	]
 };
-const testType = typeString => {
-	if (testEl.canPlayType(typeString))	{
-		return true;
-	} else {
-		return false;
-	}
-}
 
-let supportedFormats = [];
-if (testEl.canPlayType) {
-	supportedFormats = Object.keys(formats).filter(format => formats[format].some(testType))
-}
+const supportedFormats = testEl.canPlayType ?
+	Object.keys(formats).filter(format => formats[format].some(type => testEl.canPlayType(type))) :
+	[];
 
 module.exports = supportedFormats;
