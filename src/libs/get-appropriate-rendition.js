@@ -1,13 +1,15 @@
+const supportedFormats = require('../libs/supported-formats');
+
 module.exports = (renditions, options) => {
 	// allow mocking of supported formats module
 	const opts = options || {};
 	const width = opts.width;
-	const supportedFormats = opts.supportedFormats || require('../libs/supported-formats');
+	const formats = opts.supportedFormats || supportedFormats;
 	let appropriateRendition;
 	// order smallest to largest
 	const orderedRenditions = renditions
 		.filter(rendition => {
-			return supportedFormats.indexOf(rendition.videoCodec.toLowerCase()) > -1;
+			return formats.indexOf(rendition.videoCodec.toLowerCase()) > -1;
 		})
 		.sort((renditionOne, renditionTwo) => {
 			return renditionOne.frameWidth - renditionTwo.frameWidth;
