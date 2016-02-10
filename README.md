@@ -1,4 +1,4 @@
-# Next Video
+# Next Video [![Circle CI](https://circleci.com/gh/Financial-Times/n-video.svg?style=svg)](https://circleci.com/gh/Financial-Times/n-video)
 
 Creates a video player and attaches analytics
 

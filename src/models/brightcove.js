@@ -1,5 +1,5 @@
 /* global fetch */
-const nJsonpFetch = require('n-jsonp-fetch');
+const crossDomainFetch = require('n-jsonp').crossDomainFetch;
 const Video = require('./video');
 const getAppropriateRendition = require('../libs/get-appropriate-rendition');
 
@@ -39,9 +39,7 @@ class Brightcove extends Video {
 	}
 
 	getData() {
-		const fetchFn = ('XDomainRequest' in window) ? nJsonpFetch : fetch;
-
-		const dataPromise = this.opts.data ? Promise.resolve(this.opts.data) : fetchFn(`//next-video.ft.com/api/${this.id}`)
+		const dataPromise = this.opts.data ? Promise.resolve(this.opts.data) : crossDomainFetch(`//next-video.ft.com/api/${this.id}`)
 			.then(response => {
 				if (response.ok) {
 					return response.json();

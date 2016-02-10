@@ -31,7 +31,7 @@ module.exports = function(config) {
 		},
 
 		browserify: {
-			transform: [ 'debowerify', 'babelify' ]
+			transform: [ 'babelify', 'debowerify' ]
 		},
 
 		// test results reporter to use
