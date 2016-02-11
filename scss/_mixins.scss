@@ -15,10 +15,17 @@
 	@return $aggregated-selector;
 }
 
-/// Sets SVG background retrieved from the image service
-@mixin oFtIconsGetSvg($icon-name, $color: null, $size: 20, $icon-only: false, $use-local-assets: true) {
-	$service-url: "https://image.webservices.ft.com/v1/images/raw/fticon:";
-	$icon-url: "#{$icon-name}";
+/// Get an SVG icon with PNG fallback for ie6-8
+///
+/// @param {String} $icon-name - this should be a reference to an icon included in o-ft-icons eg arrow-down
+/// @param {String} $color - this should be a hex colour value. Used to color the icon. We suggest using an o-colors an o-colors function.
+/// @param {String} $container-width - this is the width to set the icon containing element to. Defaults to 20px. This value is also used to request a PNG fallback of the right size from the image service.
+/// @param {String} $container-height - this is the height to set the icon containing element to.
+/// @param {Bool} $apply-base-styles - defaults to true. If true, will output style rules for the container. If false will only output the background-image property
+/// @param {Bool} $use-local-assets - defaults to true, if true will look for the SVGs to use locally rather than via the image service. Doesn't apply to the fallback which will always be requested from the image service.
+
+@mixin oFtIconsGetSvg($icon-name, $color: null, $container-width: 20, $container-height: 20, $apply-base-styles: true, $use-local-assets: true) {
+	$service-url: "https://image.webservices.ft.com/v1/images/raw/fticon:#{$icon-name}";
 	$query: "?source=ofticons";
 
 	@if $color != null {
@@ -27,20 +34,24 @@
 	}
 
 	@if ($use-local-assets == true and $color == null) {
-		background-image: url(oAssetsResolve("svg/#{$icon-name}.svg", o-ft-icons)); 
+		background-image: url(oAssetsResolve("svg/#{$icon-name}.svg", o-ft-icons));
 	} @else {
-		background-image: url($service-url + $icon-url + $query + "&format=svg");
+		background-image: url($service-url + $query + "&format=svg");
 	}
 
-	// ie7/8 fallback
-	// It still needs to use the build service
-	background-image: url($service-url + $icon-url + $query + "&format=png&width=#{$size}")\9;
+	// ie7/8 fallback. Uses the `\9` selector hack to target ie6-8.
+	// Hack is documented here: http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
+	// It still needs to use the build service  <-- what does this comment mean?
+	background-image: url($service-url + $query + "&format=png&width=#{$container-width}")\9;
 
-	@if ($icon-only == false) {
+	@if ($apply-base-styles == true) {
 		display: inline-block;
-		width: $size + 0px;
-		height: $size + 0px;
+		width: $container-width + 0px;
+		height: $container-height + 0px;
 		background-repeat: no-repeat;
+
+		// Doesn't work in ie8/7/6 in these cases the icon will fill the available space,
+		// which is fine if the containing box is the same shape as the icon (which they mostly will be)
 		background-size: contain;
 		background-position: 50%;
 		background-color: transparent;

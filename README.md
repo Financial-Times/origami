@@ -19,8 +19,8 @@ Icon font with helper classes, and resolution-independent SVG icons to load via 
 There are multiple ways to use the icons:
 
 1. Using the CSS helper classes
-2. Extending the predefined Sass placeholders into your own CSS classes
-3. Resolution independent SVGs, using the [responsive image service](http://image.webservices.ft.com/)
+1. Extending the predefined Sass placeholders into your own CSS classes
+1. Resolution independent SVGs, using the [responsive image service](http://image.webservices.ft.com/)
 
 ### 1. Using the CSS helper classes
 
@@ -73,11 +73,13 @@ element {
 	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:tick?width=100&format=png&source=my-product');
 
 	// Modern browsers: SVG covering the whole size of the element
-	// we declare mutliple backgrounds so that only modern browsers read this property
+	// we declare multiple backgrounds so that only modern browsers read this property
 	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:tick?format=svg&source=my-product'), none;
 	background-size: cover;
 }
 ```
+
+We provide a mixin to make this easier which is documented in Sassdoc [http://registry.origami.ft.com/components/o-ft-icons#docs-css](http://registry.origami.ft.com/components/o-ft-icons#docs-css).
 
 ----
 
