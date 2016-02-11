@@ -70,3 +70,12 @@ $o-buttons-themes: (
 	inverse: $o-buttons-themes__inverse,
 	uncolored: $o-buttons-themes__uncolored
 ) !default;
+
+/// List of icons to generate classes for icon buttons.
+/// Build service users will only be able to use these icons, but there is
+/// a mixin for people using this via Sass, meaning any icon in 'o-ft-icons' is
+/// available to those users.
+/// Icon names as used in o-ft-icons
+///
+/// @type List
+$o-buttons-icons: "arrow-left", "arrow-right" !default;
