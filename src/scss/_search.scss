@@ -1,16 +1,11 @@
-@import 'colors';
-
-.o-header__tools-search {
+.o-header__search {
 	line-height: 24px;
-	margin: 0;
+	width: 45px;
+	float: right;
 
 	a {
 		text-decoration: none;
 	}
-}
-
-.o-header__search {
-	width: 45px;
 }
 
 .o-header__search-toggle {
@@ -120,23 +115,6 @@
 		color: transparent;
 		overflow: hidden;
 	}
-}
-
-.o-header__search-label {
-		@include oColorsFor(o-header-nav-search, text);
-		position: absolute;
-		display: none;
-		bottom: -8px;
-		left: 110px;
-		opacity: 0.8;
-		height: 100%;
-		overflow: hidden;
-		font-size: 70%;
-		z-index: -1;
-
-		@include oGridRespondTo(S) {
-			font-size: 100%;
-		}
 }
 
 .o-header__typeahead {

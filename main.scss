@@ -15,6 +15,6 @@
 	@import "src/scss/search";
 	@import "src/scss/tools";
 
-	// Turn silent mode back on to avoid outputting the grid twice
+	// Turn silent mode back on to avoid outputting the header twice
 	$o-header-is-silent: true;
 }

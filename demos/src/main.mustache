@@ -3,40 +3,28 @@
 		<div class="o-header__inner">
 			<div class="o-header__top">
 				<div class="o-header__edition-switch o--if-js">
-					<button class="o-header__edition-switch-button" data-o-header-edition-switch-button>UK Edition</button>
-					<ul class="o-header__edition-switch-list" aria-hidden>
-						<li class="o-header__edition-switch-item">
-								<a href="/international?edition=international" class="o-header__edition-switch-link">International Edition</a>
-						</li>
+					<button class="o-header__edition-switch-button" aria-controls="o-header__edition-switch-container" aria-expanded="false" data-o-header-edition-switch-button>UK Edition</button>
+					<ul class="o-header__edition-switch-container" id="o-header__edition-switch-container" aria-hidden="true">
+						<li><a href="/international?edition=international" class="o-header__edition-switch-link">International Edition</a></li>
 					</ul>
 				</div>
 
 				<div class="o-header__masthead">
-					<a href="/" title="Go to Financial Times homepage">
-						<span>
-							Financial Times
-						</span>
-					</a>
+					<a href="/" title="Go to Financial Times homepage"><span>Financial Times</span></a>
 				</div>
 
-				<nav class="o-header__tools o-header__tools--masthead" role="navigation" aria-label="Useful tools">
+				<nav class="o-header__tools" role="navigation" aria-label="Useful tools">
 					<ul class="o-header__tools-items">
-						<li class="o-header__tools-item o-header__tools-item--account o-header__tools-item--logged-in">
-							<a class="o-header__tools-link" href="/myft">
-								<span><i>my</i>FT</span>
-							</a>
+						<li class="o-header__tools-item o-header__tools-item--logged-in">
+							<a class="o-header__tools-link" href="/myft" aria-label="my F T"><i>my</i>FT</a>
 						</li>
 						
-						<li class="o-header__tools-item o-header__tools-item--account o-header__tools-item--logged-in">
-							<a class="o-header__tools-link" href="/logout">
-								<span>Sign Out</span>
-							</a>
+						<li class="o-header__tools-item o-header__tools-item--logged-in">
+							<a class="o-header__tools-link" href="/logout">Sign Out</a>
 						</li>
 						
-						<li class="o-header__tools-item o-header__tools-item--account o-header__tools-item--logged-in">
-							<a class="o-header__tools-link" href="http://registration.ft.com/registration/selfcare/">
-								<span>My Account</span>
-							</a>
+						<li class="o-header__tools-item o-header__tools-item--logged-in">
+							<a class="o-header__tools-link" href="http://registration.ft.com/registration/selfcare/">My Account</a>
 						</li>
 					</ul>
 				</nav>
@@ -44,62 +32,45 @@
 
 			<div class="o-header__bottom">
 				<div class="o-header__bottom-inner" data-o-header-suggestions>
-					<nav class="o-header__tools" role="navigation" aria-label="Useful tools">
-						<ul class="o-header__tools-items">
-							<li class="o-header__tools-item o-header__tools-search">
-								<div class="o-header__search">
-									<a class="o-header__search-toggle o--if-no-js" href="#header-search">
-										<span class="o-header__search-toggle-text o-header__search-toggle-text--open">Search</span>
-									</a>
+					<div class="o-header__search">
+						<!-- Links to a core experience nav outside of the header -->
+						<a class="o-header__search-toggle o--if-no-js" href="#header-search">
+							<span class="o-header__search-toggle-text o-header__search-toggle-text--open">Search</span>
+						</a>
 
-									<div class="o--if-js">
-										<button class="o-header__search-toggle" data-o-header-togglable data-o-header-togglable-search aria-hidden="true">
-											<span class="o-header__search-toggle-text o-header__search-toggle-text--open">Search</span>
-											<span class="o-header__search-toggle-text o-header__search-toggle-text--close">Close</span>
-										</button>
+						<div class="o--if-js">
+							<button class="o-header__search-toggle" data-o-header-togglable data-o-header-togglable-search aria-hidden="true">
+								<span class="o-header__search-toggle-text o-header__search-toggle-text--open">Search</span>
+								<span class="o-header__search-toggle-text o-header__search-toggle-text--close">Close</span>
+							</button>
 
-										<form action="/search" id="search-form" class="o-header__search-form" data-o-header-form-search role="search">
-											<input id="search-term" type="search" name="q" class="o-header__search-input"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-											<label for="search-term" class="o-header__search-label">Type to search the Financial Times</label>
-											<button class="o-header__search-button" for="search">
-												<span>Search</span>
-											</button>
-										</form>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</nav>
+							<form action="/search" id="o-header__search-form" class="o-header__search-form" data-o-header-form-search role="search">
+								<input id="o-header__search-term" type="search" name="q" class="o-header__search-input"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Type to search the Financial Times" />
+								<button class="o-header__search-button" for="o-header__search-form"><span>Search</span></button>
+							</form>
+						</div>
+					</div>
 
 					<div class="o-header__masthead-mobile">
-						<a href="/" title="Go to Financial Times homepage">
-							<span>
-								Financial Times
-							</span>
-						</a>
+						<a href="/" title="Go to Financial Times homepage"><span>Financial Times</span></a>
 					</div>	
 
-					<!-- Accessibility concerns --> 
 					<nav class="o-header__nav-container" role="navigation" aria-label="Primary navigation">
 						<ol class="o-header__nav">
-							<li class="o-header__nav-item o-header__meganav-container" data-on-expanded="noscroll-body">
+							<li class="o-header__nav-item o-header__meganav-container">
 								<!-- Links to a core experience nav outside of the header -->
-								<a class="o-header__meganav-toggle o-header__meganav-toggle--no-js o--if-no-js" href="#header-nav">
-									<span class="o-header__nav-link o-header__nav-link--toggle">
-										<span class="o-header__nav-link--open">Menu</span>
-									</span>
+								<a class="o-header__nav-link o-header__nav-link--toggle o--if-no-js" href="#header-nav">
+									<span class="o-header__meganav-toggle o-header__meganav-toggle--open">Menu</span>
 								</a>
 
 								<div class="o--if-js">
 									<div class="o-header__nav-container">
-										<button class="o-header__meganav-toggle" data-o-header-togglable data-o-header-togglable-nav>
-											<span class="o-header__nav-link o-header__nav-link--toggle">
-												<span class="o-header__nav-link--open">Menu</span>
-												<span class="o-header__nav-link--close">Close</span>
-											</span>
+										<button class="o-header__nav-link o-header__nav-link--toggle" data-o-header-togglable data-o-header-togglable-nav>
+											<span class="o-header__meganav-toggle o-header__meganav-toggle--open">Menu</span>
+											<span class="o-header__meganav-toggle o-header__meganav-toggle--close">Close</span>
 										</button>
 
-										<ol class="o-header__meganav o-expander__content">
+										<ol class="o-header__meganav">
 											<li class="o-header__meganav-section o-header__meganav-section--desktop">
 												<ol class="o-header__meganav-items">
 													<li class="o-header__meganav-item o-header__meganav-section-head">
@@ -133,9 +104,7 @@
 											</li>
 
 											<li class="o-header__meganav-section o-header__meganav-section--collapsible o-header__meganav-section--mobile">
-												<button class="o-header__meganav-section-head" data-o-header-selectable aria-selected="true">
-													<span class="o-header__meganav-link">Edition</span>
-												</button>
+												<button class="o-header__meganav-section-head" data-o-header-selectable aria-selected="true"><span>Edition</span></button>
 												<ol class="o-header__meganav-items">
 													<li class="o-header__meganav-item">
 														<a class=" o-header__meganav-link o-header__meganav-link--selected">UK Edition</a>
@@ -146,312 +115,278 @@
 												</ol>
 											</li>
 
-											<li class="o-header__meganav-section o-header__meganav-section--mobile">
-												<span class="o-header__meganav-item o-header__meganav-section-head">
-													<a class="o-header__meganav-link" href=/uk>Home</a>
-												</span>
+											<li class="o-header__meganav-item o-header__meganav-section--mobile">
+												<a class="o-header__meganav-link" href=/uk>Home</a>
 											</li>
 
 											<li class="o-header__meganav-section o-header__meganav-section--collapsible">
-												<button class="o-header__meganav-section-head" data-o-header-selectable data-o-header-nav-href="/stream/sectionsId/MQ&#x3D;&#x3D;-U2VjdGlvbnM&#x3D;">
-													<span class="o-header__meganav-link">World</span>
-												</button>
+												<button class="o-header__meganav-section-head o-header__meganav-section-head--mobile" data-o-header-selectable><span>World</span></button>
+												<p class="o-header__meganav-section-head o-header__meganav-section-head--desktop">World</p>
 												<ol class="o-header__meganav-items">
 													<li class="o-header__meganav-item">
-														<a class=" o-header__meganav-link " href="/stream/sectionsId/MQ&#x3D;&#x3D;-U2VjdGlvbnM&#x3D;">All World</a>
+														<a class=" o-header__meganav-link" href="/stream/sectionsId/MQ&#x3D;&#x3D;-U2VjdGlvbnM&#x3D;">All World</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTA3-U2VjdGlvbnM&#x3D;">World Economy</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTA3-U2VjdGlvbnM&#x3D;">World Economy</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/Mg&#x3D;&#x3D;-U2VjdGlvbnM&#x3D;">US</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/Mg&#x3D;&#x3D;-U2VjdGlvbnM&#x3D;">US</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/OQ&#x3D;&#x3D;-U2VjdGlvbnM&#x3D;">Europe</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/OQ&#x3D;&#x3D;-U2VjdGlvbnM&#x3D;">Europe</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MjM&#x3D;-U2VjdGlvbnM&#x3D;">Latin America</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MjM&#x3D;-U2VjdGlvbnM&#x3D;">Latin America</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTE&#x3D;-U2VjdGlvbnM&#x3D;">Asia Pacific</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTE&#x3D;-U2VjdGlvbnM&#x3D;">Asia Pacific</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MjI&#x3D;-U2VjdGlvbnM&#x3D;">Africa</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MjI&#x3D;-U2VjdGlvbnM&#x3D;">Africa</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTY&#x3D;-U2VjdGlvbnM&#x3D;">Middle East and Africa</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTY&#x3D;-U2VjdGlvbnM&#x3D;">Middle East and Africa</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTA2-U2VjdGlvbnM&#x3D;">Emerging Markets</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTA2-U2VjdGlvbnM&#x3D;">Emerging Markets</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/NTQ&#x3D;-U2VjdGlvbnM&#x3D;">Science &amp; Environment</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/NTQ&#x3D;-U2VjdGlvbnM&#x3D;">Science &amp; Environment</a>
 													</li>
 												</ol>
 											</li>
 
 											<li class="o-header__meganav-section o-header__meganav-section--collapsible">
-												<button class="o-header__meganav-section-head" data-o-header-selectable data-o-header-nav-href="/stream/sectionsId/Ng&#x3D;&#x3D;-U2VjdGlvbnM&#x3D;">
-													<span class="o-header__meganav-link">UK</span>
-												</button>
+												<button class="o-header__meganav-section-head o-header__meganav-section-head--mobile" data-o-header-selectable><span>UK</span></button>
+												<p class="o-header__meganav-section-head o-header__meganav-section-head--desktop">UK</p>
 												<ol class="o-header__meganav-items">
 													<li class="o-header__meganav-item">
-														<a class=" o-header__meganav-link " href="/stream/sectionsId/Ng&#x3D;&#x3D;-U2VjdGlvbnM&#x3D;">All UK</a>
+														<a class=" o-header__meganav-link" href="/stream/sectionsId/Ng&#x3D;&#x3D;-U2VjdGlvbnM&#x3D;">All UK</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/OA&#x3D;&#x3D;-U2VjdGlvbnM&#x3D;">UK Politics &amp; Policy</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/OA&#x3D;&#x3D;-U2VjdGlvbnM&#x3D;">UK Politics &amp; Policy</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTA5-U2VjdGlvbnM&#x3D;">UK Economy</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTA5-U2VjdGlvbnM&#x3D;">UK Economy</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/regionsId/TnN0ZWluX0dMX0dCX0VuZ2xhbmQ&#x3D;-R0w&#x3D;">England</a>
+														<a class="o-header__meganav-link" href="/stream/regionsId/TnN0ZWluX0dMX0dCX0VuZ2xhbmQ&#x3D;-R0w&#x3D;">England</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/regionsId/TnN0ZWluX0dMX0dCX1Njb3RsYW5k-R0w&#x3D;">Scotland</a>
+														<a class="o-header__meganav-link" href="/stream/regionsId/TnN0ZWluX0dMX0dCX1Njb3RsYW5k-R0w&#x3D;">Scotland</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/regionsId/TnN0ZWluX0dMX0dCX1dhbGVz-R0w&#x3D;">Wales</a>
+														<a class="o-header__meganav-link" href="/stream/regionsId/TnN0ZWluX0dMX0dCX1dhbGVz-R0w&#x3D;">Wales</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/regionsId/TnN0ZWluX0dMX0dCX05vcnRoZXJuSXJlbGFuZA&#x3D;&#x3D;-R0w&#x3D;">N. Ireland</a>
+														<a class="o-header__meganav-link" href="/stream/regionsId/TnN0ZWluX0dMX0dCX05vcnRoZXJuSXJlbGFuZA&#x3D;&#x3D;-R0w&#x3D;">N. Ireland</a>
 													</li>
 												</ol>
 											</li>
 
 											<li class="o-header__meganav-section o-header__meganav-section--collapsible">
-												<button class="o-header__meganav-section-head" data-o-header-selectable data-o-header-nav-href="/stream/sectionsId/Mjk&#x3D;-U2VjdGlvbnM&#x3D;">
-													<span class="o-header__meganav-link">Companies</span>
-												</button>
+												<button class="o-header__meganav-section-head o-header__meganav-section-head--mobile" data-o-header-selectable><span>Companies</span></button>
+												<p class="o-header__meganav-section-head o-header__meganav-section-head--desktop">Companies</p>
 												<ol class="o-header__meganav-items">
 													<li class="o-header__meganav-item">
-														<a class=" o-header__meganav-link " href="/stream/sectionsId/Mjk&#x3D;-U2VjdGlvbnM&#x3D;">All Companies</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/Mjk&#x3D;-U2VjdGlvbnM&#x3D;">All Companies</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/NTM&#x3D;-U2VjdGlvbnM&#x3D;">Technology</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/NTM&#x3D;-U2VjdGlvbnM&#x3D;">Technology</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/NTc&#x3D;-U2VjdGlvbnM&#x3D;">Financials</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/NTc&#x3D;-U2VjdGlvbnM&#x3D;">Financials</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MzA&#x3D;-U2VjdGlvbnM&#x3D;">Energy</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MzA&#x3D;-U2VjdGlvbnM&#x3D;">Energy</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/NDU&#x3D;-U2VjdGlvbnM&#x3D;">Retail &amp; Consumer</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/NDU&#x3D;-U2VjdGlvbnM&#x3D;">Retail &amp; Consumer</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MzQ&#x3D;-U2VjdGlvbnM&#x3D;">Industrials</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MzQ&#x3D;-U2VjdGlvbnM&#x3D;">Industrials</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/NTY&#x3D;-U2VjdGlvbnM&#x3D;">Telecoms</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/NTY&#x3D;-U2VjdGlvbnM&#x3D;">Telecoms</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/NTA&#x3D;-U2VjdGlvbnM&#x3D;">Health</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/NTA&#x3D;-U2VjdGlvbnM&#x3D;">Health</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/NTU&#x3D;-U2VjdGlvbnM&#x3D;">Media</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/NTU&#x3D;-U2VjdGlvbnM&#x3D;">Media</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/NDE&#x3D;-U2VjdGlvbnM&#x3D;">Transport</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/NDE&#x3D;-U2VjdGlvbnM&#x3D;">Transport</a>
 													</li>
 												</ol>
 											</li>
 
 											<li class="o-header__meganav-section o-header__meganav-section--collapsible">
-												<button class="o-header__meganav-section-head" data-o-header-selectable data-o-header-nav-href="/stream/sectionsId/NzE&#x3D;-U2VjdGlvbnM&#x3D;">
-													<span class="o-header__meganav-link">Markets</span>
-												</button>
+												<button class="o-header__meganav-section-head o-header__meganav-section-head--mobile" data-o-header-selectable><span>Markets</span></button>
+												<p class="o-header__meganav-section-head o-header__meganav-section-head--desktop">Markets</p>
 												<ol class="o-header__meganav-items">
 													<li class="o-header__meganav-item">
-														<a class=" o-header__meganav-link " href="/stream/sectionsId/NzE&#x3D;-U2VjdGlvbnM&#x3D;">All Markets</a>
+														<a class=" o-header__meganav-link" href="/stream/sectionsId/NzE&#x3D;-U2VjdGlvbnM&#x3D;">All Markets</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="http://markets.ft.com/data">Markets Data</a>
+														<a class="o-header__meganav-link" href="http://markets.ft.com/data">Markets Data</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTA1-U2VjdGlvbnM&#x3D;">Commodities</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTA1-U2VjdGlvbnM&#x3D;">Commodities</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTAz-U2VjdGlvbnM&#x3D;">Currencies</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTAz-U2VjdGlvbnM&#x3D;">Currencies</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/OTg&#x3D;-U2VjdGlvbnM&#x3D;">Equities</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/OTg&#x3D;-U2VjdGlvbnM&#x3D;">Equities</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTA0-U2VjdGlvbnM&#x3D;">Capital Markets</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTA0-U2VjdGlvbnM&#x3D;">Capital Markets</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/OTM&#x3D;-U2VjdGlvbnM&#x3D;">Trading</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/OTM&#x3D;-U2VjdGlvbnM&#x3D;">Trading</a>
 													</li>
 												</ol>
 											</li>
 
 											<li class="o-header__meganav-section o-header__meganav-section--collapsible">
-												<button class="o-header__meganav-section-head" data-o-header-selectable data-o-header-nav-href="/stream/sectionsId/MTE2-U2VjdGlvbnM&#x3D;">
-													<span class="o-header__meganav-link">Opinion</span>
-												</button>
+												<button class="o-header__meganav-section-head o-header__meganav-section-head--mobile" data-o-header-selectable><span>Opinion</span></button>
+												<p class="o-header__meganav-section-head o-header__meganav-section-head--desktop">Opinion</p>
 												<ol class="o-header__meganav-items">
 													<li class="o-header__meganav-item">
-														<a class=" o-header__meganav-link " href="/stream/sectionsId/MTE2-U2VjdGlvbnM&#x3D;">All Opinion</a>
+														<a class=" o-header__meganav-link" href="/stream/sectionsId/MTE2-U2VjdGlvbnM&#x3D;">All Opinion</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/brandId/MDRkMzU4YjktMjA0OS00MWEzLWJiY2ItYmJkZWNhMmVmMzQ0-QnJhbmRz">FT View</a>
+														<a class="o-header__meganav-link" href="/stream/brandId/MDRkMzU4YjktMjA0OS00MWEzLWJiY2ItYmJkZWNhMmVmMzQ0-QnJhbmRz">FT View</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTE4-U2VjdGlvbnM&#x3D;">The Big Read</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTE4-U2VjdGlvbnM&#x3D;">The Big Read</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/brandId/YzhlNzZkYTctMDJiNy00NTViLTk3NmYtNmJjYTE5NDEyM2Yw-QnJhbmRz">Lex</a>
+														<a class="o-header__meganav-link" href="/stream/brandId/YzhlNzZkYTctMDJiNy00NTViLTk3NmYtNmJjYTE5NDEyM2Yw-QnJhbmRz">Lex</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTE3-U2VjdGlvbnM&#x3D;">Columnists</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTE3-U2VjdGlvbnM&#x3D;">Columnists</a>
 													</li>
 												</ol>
 											</li>
 
 											<li class="o-header__meganav-section o-header__meganav-section--collapsible">
-												<button class="o-header__meganav-section-head" data-o-header-selectable data-o-header-nav-href="/stream/sectionsId/MTQ4-U2VjdGlvbnM&#x3D;">
-													<span class="o-header__meganav-link">Life &amp; Arts</span>
-												</button>
+												<button class="o-header__meganav-section-head o-header__meganav-section-head--mobile" data-o-header-selectable><span>Life &amp; Arts</span></button>
+												<p class="o-header__meganav-section-head o-header__meganav-section-head--desktop">Life &amp; Arts</p>
 												<ol class="o-header__meganav-items">
 													<li class="o-header__meganav-item">
-														<a class=" o-header__meganav-link " href="/stream/sectionsId/MTQ4-U2VjdGlvbnM&#x3D;">All Life &amp; Arts</a>
+														<a class=" o-header__meganav-link" href="/stream/sectionsId/MTQ4-U2VjdGlvbnM&#x3D;">All Life &amp; Arts</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/OTYxNmI3YWMtY2M1OS00N2RkLWJlNWEtOGZjOGQ3ODE5YmQx-U2VjdGlvbnM&#x3D;">Magazine</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/OTYxNmI3YWMtY2M1OS00N2RkLWJlNWEtOGZjOGQ3ODE5YmQx-U2VjdGlvbnM&#x3D;">Magazine</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTU3-U2VjdGlvbnM&#x3D;">House &amp; Home</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTU3-U2VjdGlvbnM&#x3D;">House &amp; Home</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTU5-U2VjdGlvbnM&#x3D;">Books</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTU5-U2VjdGlvbnM&#x3D;">Books</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTU2-U2VjdGlvbnM&#x3D;">Food &amp; Drink</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTU2-U2VjdGlvbnM&#x3D;">Food &amp; Drink</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTY1-U2VjdGlvbnM&#x3D;">Travel</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTY1-U2VjdGlvbnM&#x3D;">Travel</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTU4-U2VjdGlvbnM&#x3D;">Style</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTU4-U2VjdGlvbnM&#x3D;">Style</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTQ5-U2VjdGlvbnM&#x3D;">Arts</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTQ5-U2VjdGlvbnM&#x3D;">Arts</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/subjectsId/MTM4-U3ViamVjdHM&#x3D;">Sports</a>
+														<a class="o-header__meganav-link" href="/stream/subjectsId/MTM4-U3ViamVjdHM&#x3D;">Sports</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTUz-U2VjdGlvbnM&#x3D;">Music</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTUz-U2VjdGlvbnM&#x3D;">Music</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTUy-U2VjdGlvbnM&#x3D;">Film, TV &amp; Radio</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTUy-U2VjdGlvbnM&#x3D;">Film, TV &amp; Radio</a>
 													</li>
 												</ol>
 											</li>
 
 											<li class="o-header__meganav-section o-header__meganav-section--collapsible">
-												<button class="o-header__meganav-section-head" data-o-header-selectable data-o-header-nav-href="/stream/sectionsId/MTI1-U2VjdGlvbnM&#x3D;">
-													<span class="o-header__meganav-link">Work &amp; Career</span>
-												</button>
+												<button class="o-header__meganav-section-head o-header__meganav-section-head--mobile" data-o-header-selectable><span>Work &amp; Career</span></button>
+												<p class="o-header__meganav-section-head o-header__meganav-section-head--desktop">Work &amp; Career</p>
 												<ol class="o-header__meganav-items">
 													<li class="o-header__meganav-item">
-														<a class=" o-header__meganav-link " href="/stream/sectionsId/MTI1-U2VjdGlvbnM&#x3D;">All Work &amp; Career</a>
+														<a class=" o-header__meganav-link" href="/stream/sectionsId/MTI1-U2VjdGlvbnM&#x3D;">All Work &amp; Career</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTI2-U2VjdGlvbnM&#x3D;">Business Education</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTI2-U2VjdGlvbnM&#x3D;">Business Education</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTI1-U2VjdGlvbnM&#x3D;">Management</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTI1-U2VjdGlvbnM&#x3D;">Management</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTM1-U2VjdGlvbnM&#x3D;">Entrepreneurship</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTM1-U2VjdGlvbnM&#x3D;">Entrepreneurship</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/ZjU2ZGIyNDMtNWYwOS00YzcwLWJmN2MtYjE1OGNiN2Y1OTVl-U2VjdGlvbnM&#x3D;">Recruitment</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/ZjU2ZGIyNDMtNWYwOS00YzcwLWJmN2MtYjE1OGNiN2Y1OTVl-U2VjdGlvbnM&#x3D;">Recruitment</a>
 													</li>
 													<li class="o-header__meganav-item">
-														<a class="o-header__meganav-link " href="/stream/sectionsId/MTM4-U2VjdGlvbnM&#x3D;">Business Books</a>
+														<a class="o-header__meganav-link" href="/stream/sectionsId/MTM4-U2VjdGlvbnM&#x3D;">Business Books</a>
 													</li>
 												</ol>
 											</li>
 
-											<li class="o-header__meganav-section o-header__meganav-section--mobile">
-												<span class="o-header__meganav-item o-header__meganav-section-head">
-													<a class="o-header__meganav-link" href=/stream/brandId/YzhlNzZkYTctMDJiNy00NTViLTk3NmYtNmJjYTE5NDEyM2Yw-QnJhbmRz>Lex</a>
-												</span>
+											<li class="o-header__section o-header__meganav-section--mobile">
+												<a class="o-header__section-head" href=/stream/brandId/YzhlNzZkYTctMDJiNy00NTViLTk3NmYtNmJjYTE5NDEyM2Yw-QnJhbmRz>Lex</a>
 											</li>
 
-											<li class="o-header__meganav-section o-header__meganav-section--mobile">
-												<span class="o-header__meganav-item o-header__meganav-section-head">
-													<a class="o-header__meganav-link" href=http://ftalphaville.ft.com>Alphaville</a>
-												</span>
+											<li class="o-header__section o-header__meganav-section--mobile">
+												<a class="o-header__section-head" href=http://ftalphaville.ft.com>Alphaville</a>
 											</li>
 
-											<li class="o-header__meganav-section o-header__meganav-section--mobile">
-												<span class="o-header__meganav-item o-header__meganav-section-head">
-													<a class="o-header__meganav-link" href=/stream/sectionsId/NTM&#x3D;-U2VjdGlvbnM&#x3D;>Technology</a>
-												</span>
+											<li class="o-header__meganav-item o-header__meganav-section--mobile">
+												<a class="o-header__meganav-link" href=/stream/sectionsId/NTM&#x3D;-U2VjdGlvbnM&#x3D;>Technology</a>
 											</li>
 
-											<li class="o-header__meganav-section o-header__meganav-section--mobile">
-												<span class="o-header__meganav-item o-header__meganav-section-head">
-													<a class="o-header__meganav-link" href=/stream/sectionsId/NTc&#x3D;-U2VjdGlvbnM&#x3D;>Financials</a>
-												</span>
+											<li class="o-header__meganav-item o-header__meganav-section--mobile">
+												<a class="o-header__meganav-link" href=/stream/sectionsId/NTc&#x3D;-U2VjdGlvbnM&#x3D;>Financials</a>
 											</li>
 
-											<li class="o-header__meganav-section o-header__meganav-section--mobile">
-												<span class="o-header__meganav-item o-header__meganav-section-head">
-													<a class="o-header__meganav-link" href=/special-reports>Special Reports</a>
-												</span>
+											<li class="o-header__meganav-item o-header__meganav-section--mobile">
+												<a class="o-header__meganav-link" href=/special-reports>Special Reports</a>
 											</li>
 
-											<li class="o-header__meganav-section o-header__meganav-section--mobile">
-												<span class="o-header__meganav-item o-header__meganav-section-head">
-													<a class="o-header__meganav-link" href=http://portfolio.ft.com/dashboard/?ft_site&#x3D;falcon>Portfolio</a>
-												</span>
+											<li class="o-header__meganav-item o-header__meganav-section--mobile">
+												<a class="o-header__meganav-link" href=http://portfolio.ft.com/dashboard/?ft_site&#x3D;falcon>Portfolio</a>
 											</li>
 
-											<li class="o-header__meganav-section o-header__meganav-section--mobile">
-												<span class="o-header__meganav-item o-header__meganav-section-head">
-													<a class="o-header__meganav-link" href=/stream/sectionsId/MTQw-U2VjdGlvbnM&#x3D;>Personal Finance</a>
-												</span>
+											<li class="o-header__meganav-item o-header__meganav-section--mobile">
+												<a class="o-header__meganav-link" href=/stream/sectionsId/MTQw-U2VjdGlvbnM&#x3D;>Personal Finance</a>
 											</li>
 
-											<li class="o-header__meganav-section o-header__meganav-section--mobile">
-												<span class="o-header__meganav-item o-header__meganav-section-head">
-													<a class="o-header__meganav-link" href=https://ftepaper.ft.com>Today&#x27;s Editions / ePaper</a>
-												</span>
+											<li class="o-header__meganav-item o-header__meganav-section--mobile">
+												<a class="o-header__meganav-link" href=https://ftepaper.ft.com>Today&#x27;s Editions / ePaper</a>
 											</li>
 											
-											<li class="o-header__tools-item o-header__tools-item--account o-header__tools-item--logged-in">
-												<a class="o-header__tools-link" href="/myft">
-													<span class="o-header__tools-link--inner"><i>my</i>FT</span>
-												</a>
+											<!-- TODO: Move from meganav-section to meganav-item and meganav-section-head to meganav-link and apply that to these tools -->
+											<li class="o-header__meganav-item o-header__meganav-section--mobile">
+												<a class="o-header__meganav-link" href="/myft" aria-label="my F T"><i>my</i>FT</a>
 											</li>
 
-											<li class="o-header__tools-item o-header__tools-item--account o-header__tools-item--logged-out">
-												<a class="o-header__tools-link" href="/login">
-													<span class="o-header__tools-link--inner">Sign In</span>
-												</a>
+											<li class="o-header__meganav-item o-header__meganav-section--mobile">
+												<a class="o-header__meganav-link" href="/login">Sign In</a>
 											</li>
 										  
-											<li class="o-header__tools-item o-header__tools-item--account o-header__tools-item--logged-in">
-												<a class="o-header__tools-link" href="/logout">
-													<span class="o-header__tools-link--inner">Sign Out</span>
-												</a>
+											<li class="o-header__meganav-item o-header__meganav-section--mobile">
+												<a class="o-header__meganav-link" href="/logout">Sign Out</a>
 											</li>
 										  
-											<li class="o-header__tools-item o-header__tools-item--account o-header__tools-item--logged-in">
-												<a class="o-header__tools-link" href="http://registration.ft.com/registration/selfcare/">
-													<span class="o-header__tools-link--inner">My Account</span>
-												</a>
+											<li class="o-header__meganav-item o-header__meganav-section--mobile">
+												<a class="o-header__meganav-link" href="http://registration.ft.com/registration/selfcare/">My Account</a>
 											</li>
 
-											<li class="o-header__tools-item o-header__tools-item--account o-header__tools-item--logged-out">
-												<a class="o-header__tools-link" href="/products?segID=400863&amp;segmentID=190b4443-dc03-bd53-e79b-b4b6fbd04e64">
-													<span class="o-header__tools-link--inner">Subscribe</span>
-												</a>
+											<li class="o-header__meganav-item o-header__meganav-section--mobile">
+												<a class="o-header__meganav-link" href="/products?segD=400863&amp;segmentID=190b4443-dc03-bd53-e79b-b4b6fbd04e64">Subscribe</a>
 											</li>
 										</ol>
 									</div>

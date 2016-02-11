@@ -4,6 +4,7 @@ const defaultClassName = 'o-header__edition-switch';
 class EditionSwitcher {
 	constructor(headerEl, config = {editionswitchClassName: defaultClassName}) {
 		this.editionSwitcherEl = headerEl.querySelector(`.${config.editionswitchClassName}`);
+		this.editionSwitchContainerEl = this.editionSwitcherEl.querySelector('#o-header__edition-switch-container');
 		const btnEl = (this.editionSwitcherEl) ? this.editionSwitcherEl.querySelector('[data-o-header-edition-switch-button]') : null;
 		if (!btnEl) { return; }
 
@@ -16,6 +17,14 @@ class EditionSwitcher {
 	toggle() {
 		this.isOpen = !this.isOpen;
 		this.editionSwitcherEl.classList.toggle(this.openClass);
+
+		if (this.isOpen) {
+			this.editionSwitcherEl.setAttribute('aria-expanded', 'true');
+			this.editionSwitchContainerEl.setAttribute('aria-hidden', 'false');
+		} else {
+			this.editionSwitcherEl.setAttribute('aria-expanded', 'false');
+			this.editionSwitchContainerEl.setAttribute('aria-hidden', 'true');
+		}
 	}
 
 	click(ev) {
