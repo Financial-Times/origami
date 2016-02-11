@@ -37,9 +37,9 @@ exports.pseudonymWasMissing = false;
 exports.authPageReload = false;
 
 
-function isTokenTheSameOrNew (token) {
+function isTokenTheSame (token) {
 	if (!oCommentUtilities.storageWrapper.sessionStorage.hasItem(sessionStorageKey)) {
-		return true;
+		return false;
 	}
 
 	if (oCommentUtilities.storageWrapper.sessionStorage.getItem(sessionStorageKey) === token) {
@@ -73,7 +73,7 @@ exports.getAuthDelegate = function () {
 					}
 
 					if (authData && authData.token) {
-						if (!isTokenTheSameOrNew(authData.token)) {
+						if (!isTokenTheSame(authData.token)) {
 							exports.logout(function () {
 								callback(null, {
 									livefyre: authData.token
@@ -139,7 +139,7 @@ exports.login = function (callback) {
 			if (authData) {
 				if (authData.token) {
 					Livefyre.require(['auth'], function (auth) {
-						if (!isTokenTheSameOrNew(authData.token)) {
+						if (!isTokenTheSame(authData.token)) {
 							auth.logout();
 						}
 
