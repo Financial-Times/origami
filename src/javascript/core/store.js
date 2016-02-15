@@ -28,7 +28,7 @@ const Store = function (name, config) {
 	if (utils.isUndefined(name)) {
 		const undefinedName = new Error('You must specify a name for the store.');
 		utils.broadcast('oErrors', 'log', {
-			error: undefinedName,
+			error: undefinedName.message,
 			info: { module: 'o-tracking' }
 		});
 		throw undefinedName;
@@ -72,7 +72,7 @@ const Store = function (name, config) {
 				}
 			} catch (error) {
 				utils.broadcast('oErrors', 'log', {
-					error: error,
+					error: error.message,
 					info: { module: 'o-tracking' }
 				});
 			}
@@ -142,7 +142,7 @@ const Store = function (name, config) {
 			this.data = JSON.parse(loadStore);
 		} catch (error) {
 			utils.broadcast('oErrors', 'log', {
-				error: error,
+				error: error.message,
 				module: 'o-tracking'
 			});
 			this.data = loadStore;

@@ -74,7 +74,7 @@ function sendRequest(request, callback) {
 			queue.add(request).save();
 
 			utils.broadcast('oErrors', 'log', {
-				error: error,
+				error: error.message,
 				info: { module: 'o-tracking' }
 			});
 		} else {
