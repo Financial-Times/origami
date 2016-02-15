@@ -560,6 +560,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 				position: absolute;
 				top: 0;
 				right: 0;
+				width: 100%;
 			}
 
 			.fyre-pending {
@@ -567,14 +568,17 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 				background: oColorsGetPaletteColor("orange");
 			}
 
-			.fyre-mod-deny {
-				padding: 1px 1px 3px;
+			.fyre-mod-deny,
+			.fyre-mod-approve {
+				padding: 1px 0 3px;
 				border-radius: 10px 0 0 10px;
+				width: 48%;
 			}
 
 			.fyre-mod-approve {
-				padding: 1px 1px 3px 0;
+				padding: 1px 0 3px;
 				border-radius: 0 10px 10px 0;
+				width: 48%;
 			}
 		}
 
@@ -1094,6 +1098,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 			margin-top: 20px;
 			float: left;
 			width: 100%;
+			height: auto;
 
 			.fyre-editor-locked {
 				background-image: url(oAssetsResolve('src/images/comment_locked.png', o-comment-ui));
@@ -1246,6 +1251,11 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 			.fyre-pending {
 				font-size: 11px;
 				padding: 1px 8px;
+			}
+
+			.fyre-moderator,
+			.fyre-comment-author-tag,
+			.fyre-comment-tag.fyre-featured {
 				margin: 0 5px;
 			}
 
