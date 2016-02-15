@@ -46,7 +46,7 @@ function migrate_across_domains(store, user_id) {
 		}
 	} catch (error) {
 		utils.broadcast('oErrors', 'log', {
-			error: error,
+			error: error.message,
 			info: { module: 'o-tracking' }
 		});
 		proper_id = user_id;
