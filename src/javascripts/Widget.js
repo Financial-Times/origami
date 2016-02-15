@@ -303,7 +303,9 @@ function Widget () {
 
 									if (eventData.sharedToFacebook === true) {
 										oTrackingIntegration.trackShare(siteId, 'facebook');
-									} else if (eventData.sharedToTwitter === true) {
+									}
+
+									if (eventData.sharedToTwitter === true) {
 										oTrackingIntegration.trackShare(siteId, 'twitter');
 									}
 								}));
