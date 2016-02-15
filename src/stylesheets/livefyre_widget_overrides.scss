@@ -554,7 +554,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 		}
 
 		.fyre-comment-premod {
-			margin-top: -23px;
+			margin-top: -22px;
 
 			.fyre-mod-actions {
 				position: absolute;
@@ -1243,10 +1243,19 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 			.fyre-moderator,
 			.fyre-comment-author-tag,
 			.fyre-comment-tag.fyre-featured,
-			.fyre .fyre-pending {
-				font-size: 10px;
-				padding: 2px 8px;
+			.fyre-pending {
+				font-size: 11px;
+				padding: 1px 8px;
 				margin: 0 5px;
+			}
+
+			.fyre-comment-premod {
+				margin-top: -16px;
+
+				.fyre-mod-deny,
+				.fyre-mod-approve {
+					padding: 0;
+				}
 			}
 
 			.fyre-comment-article {
@@ -1258,6 +1267,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 					float: left;
 					margin-right: 10px;
 					font-size: 11px;
+					padding-bottom: 1px;
 				}
 			}
 
