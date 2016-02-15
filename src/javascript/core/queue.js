@@ -17,7 +17,7 @@ const Queue = function (name) {
 	if (utils.isUndefined(name)) {
 		const undefinedName = new Error('You must specify a name for the queue.');
 		utils.broadcast('oErrors', 'log', {
-			error: undefinedName,
+			error: undefinedName.message,
 			info: { module: 'o-tracking' }
 		});
 		throw undefinedName;
