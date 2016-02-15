@@ -136,7 +136,7 @@ Queue.prototype.replace = function (items) {
 
 	const invalidArg = new Error('Argument invalid, must be an array.');
 	utils.broadcast('oErrors', 'log', {
-		error: invalidArg,
+		error: invalidArg.message,
 		info: { module: 'o-tracking' }
 	});
 	throw invalidArg;
