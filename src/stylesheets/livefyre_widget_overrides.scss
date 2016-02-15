@@ -34,6 +34,21 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 	text-align: center;
 }
 
+@mixin tag {
+	display: inline-block;
+	border: 0;
+	font-weight: normal;
+	height: auto;
+	width: auto;
+
+	color: oColorsGetPaletteColor("pink");
+	padding: 3px 10px;
+	font-size: 13px;
+	line-height: 15px;
+	font-family: $o-comments-font-family;
+	border-radius: 10px;
+}
+
 .o-comments.o-comments--lf-overrides.o-comments--comment-type-livecomments {
 	clear: both;
 	color: oColorsGetPaletteColor("grey-tint5");
@@ -141,7 +156,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 				border-radius: 15px;
 				color: white;
 				font-size: 12px;
-				padding: 1px 7px;
+				padding: 0 7px;
 			}
 
 			.fyre-comment-wrapper.fyre-comment-highlight {
@@ -515,48 +530,52 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 			color: oColorsGetPaletteColor("grey-tint3");
 		}
 
-		.fyre-mod-deny {
-			margin: 2px 0 0;
-			padding: 1px 1px 2px 2px;
-			border-radius: 10px 0 0 10px;
-		}
-
-		.fyre-mod-approve {
-			margin: 2px 10px 0;
-			padding: 1px 1px 2px 2px;
-			border-radius: 0 10px 10px 0;
-		}
 
 		.fyre-moderator,
 		.fyre-comment-author-tag,
 		.fyre-comment-tag.fyre-featured,
 		.fyre-pending {
-			display: inline-block;
-			border: 0;
-			font-weight: normal;
-			height: auto;
-			width: auto;
+			@include tag;
+			padding-bottom: 4px;
+		}
 
-			background: oColorsGetPaletteColor("pink-tint4");
-			color: oColorsGetPaletteColor("pink");
-			padding: 3px 10px;
-			font-size: 13px;
-			line-height: 15px;
+		.fyre-moderator,
+		.fyre-comment-author-tag,
+		.fyre-comment-tag.fyre-featured {
 			margin: 0 10px;
-			font-family: $o-comments-font-family;
-			border-radius: 10px;
+			background: oColorsGetPaletteColor("pink-tint4");
 		}
 		.fyre-moderator {
 			display: none;
 		}
+
 		.fyre-comment-author-tag[data-fyre-author-tag="FT"] {
 			background: oColorsGetPaletteColor("claret");
 		}
-		.fyre-pending {
-			background: oColorsGetPaletteColor("orange");
-		}
-		.fyre-comment-article:hover .fyre-pending {
-			display: none;
+
+		.fyre-comment-premod {
+			margin-top: -23px;
+
+			.fyre-mod-actions {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+
+			.fyre-pending {
+				display: block;
+				background: oColorsGetPaletteColor("orange");
+			}
+
+			.fyre-mod-deny {
+				padding: 1px 1px 3px;
+				border-radius: 10px 0 0 10px;
+			}
+
+			.fyre-mod-approve {
+				padding: 1px 1px 3px 0;
+				border-radius: 0 10px 10px 0;
+			}
 		}
 
 		.fyre-comment-tag.fyre-featured {
