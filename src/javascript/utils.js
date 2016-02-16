@@ -140,10 +140,12 @@ function addEvent(element, event, listener) {
  */
 function broadcast(namespace, eventType, detail) {
 	detail = detail || {};
-	window.dispatchEvent(new CustomEvent(namespace + '.' + eventType, {
-		detail: detail,
-		bubbles: true
-	}));
+	try {
+        window.dispatchEvent(new CustomEvent(namespace + '.' + eventType, {
+            detail: detail,
+            bubbles: true
+        }));
+    } catch (error) {}
 }
 
 /**
