@@ -210,24 +210,47 @@ function WidgetUi (widgetContainer, config) {
 		}
 	};
 
-	this.showOwnCommentBanned = function (commentId) {
+	function pollForCommentElement (commentId, i, callback) {
 		const commentElement = self.widgetContainer.querySelector('.fyre-comment-article[data-message-id="'+ commentId +'"]');
-
-		if (commentElement && !commentElement.querySelector('.o-comments--blocked')) {
-			const blockedElement = document.createElement('div');
-			blockedElement.innerHTML = 'blocked';
-			blockedElement.className = 'o-comments--blocked';
-
-			if (self.config.layout === 'side') {
-				const commentHead = commentElement.querySelector('.fyre-comment-head');
-				commentHead.insertBefore(blockedElement, commentHead.firstChild);
+		if (commentElement) {
+			callback(commentElement);
+		} else {
+			if (i < 1000) {
+				setTimeout(function () {
+					pollForCommentElement(commentId, i * 2, callback);
+				}, i);
 			} else {
-				commentElement.querySelector('.fyre-comment-date').style.display = 'none';
-				commentElement.appendChild(blockedElement);
+				callback();
 			}
 		}
+	}
+
+	this.showCommentBanned = function (commentId) {
+		pollForCommentElement(commentId, 50, function (commentElement) {
+			if (commentElement && !commentElement.querySelector('.o-comments--blocked')) {
+				const blockedElement = document.createElement('div');
+				blockedElement.innerHTML = 'blocked';
+				blockedElement.className = 'o-comments--blocked';
+
+				if (self.config.layout === 'side') {
+					const commentHead = commentElement.querySelector('.fyre-comment-head');
+					commentHead.insertBefore(blockedElement, commentHead.firstChild);
+				} else {
+					commentElement.querySelector('.fyre-comment-date').style.display = 'none';
+					commentElement.appendChild(blockedElement);
+				}
+			}
+		});
 	};
-	
+
+	this.removeCommentBanned = function (commentId) {
+		pollForCommentElement(commentId, 50, function (commentElement) {
+			if (commentElement && commentElement.querySelector('.o-comments--blocked')) {
+				commentElement.removeChild(commentElement.querySelector('.o-comments--blocked'));
+			}
+		});
+	}
+
 	let __superDestroy = this.destroy;
 	this.destroy = function () {
 		clearInterval(checkPseudonymInterval);
