@@ -20,6 +20,16 @@ let domain = 'http://test.spoor-api.ft.com';
 let queue;
 
 /**
+ * Consistent check to see if we should use sendBeacon or not.
+ *
+ * @return {boolean}
+ */
+function should_use_sendBeacon() {
+	return (navigator.sendBeacon && Promise && (settings.get('config') || {}).useSendBeacon);
+	console.log(!!navigator.sendBeacon, !!Promise, !!(settings.get('config') || {}).useSendBeacon);
+}
+
+/**
  * Attempts to send a tracking request.
  *
  * @param {Object} request The request to be sent.
@@ -30,7 +40,7 @@ function sendRequest(request, callback) {
 	const queueTime = request.queueTime;
 	const offlineLag = new Date().getTime() - queueTime;
 	let path;
-	const transport = (navigator.sendBeacon && Promise && (settings.get('config') || {}).useSendBeacon) ? transports.get('sendBeacon')() :
+	const transport = should_use_sendBeacon() ? transports.get('sendBeacon')() :
 										window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? transports.get('xhr')() :
 										transports.get('image')();
 	const user_callback = request.callback;
@@ -96,7 +106,7 @@ function sendRequest(request, callback) {
  */
 function add(request) {
 	request.queueTime = (new Date()).getTime();
-	if (navigator.sendBeacon && Promise) {
+	if (should_use_sendBeacon()) {
 		sendRequest(request);
 	} else {
 		queue.add(request).save();
