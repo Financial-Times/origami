@@ -11,6 +11,11 @@
     background-size: 18px;
   }
 
+  &.#{$buttonClass}--small.#{$buttonClass}-icon {
+    height: 22px;
+    background-size: 12px;
+  }
+
   @each $icon-name in $o-buttons-icons {
 
   &.#{$buttonClass}-icon--#{$icon-name} {
