@@ -6,6 +6,13 @@
   background-repeat: no-repeat;
   background-position: 50%;
 
+  .#{$buttonClass}-icon__label {
+    font-size: 0;
+    height: 1px;
+    overflow: hidden;
+    display: block;
+  }
+
   &.#{$buttonClass}--big.#{$buttonClass}-icon {
     height: 36px;
     background-size: 18px;
