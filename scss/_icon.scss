@@ -1,75 +1,79 @@
 @mixin oButtonsIcon($buttonClass: $o-buttons-class) {
 
-  height: 26px;
-  background-size: 16px;
-  display:inline-block;
-  background-repeat: no-repeat;
-  background-position: 50%;
+// Browserhack to only apply these styles for IE7 and up. IE6 will get the
+// text fallback. Hack documented here: http://browserhacks.com/#hack-da690292d4fddd94dc7bdd50e38b5713
+  html > body & {
+    height: 26px;
+    background-size: 16px;
+    display:inline-block;
+    background-repeat: no-repeat;
+    background-position: 50%;
 
-  .#{$buttonClass}-icon__label {
-    font-size: 0;
-    height: 1px;
-    overflow: hidden;
-    display: block;
-  }
+    .#{$buttonClass}-icon__label {
+      font-size: 0;
+      height: 1px;
+      overflow: hidden;
+      display: block;
+    }
 
-  &.#{$buttonClass}--big.#{$buttonClass}-icon {
-    height: 36px;
-    background-size: 18px;
-  }
+    &.#{$buttonClass}--big.#{$buttonClass}-icon {
+      height: 36px;
+      background-size: 18px;
+    }
 
-  &.#{$buttonClass}--small.#{$buttonClass}-icon {
-    height: 22px;
-    background-size: 12px;
-  }
+    &.#{$buttonClass}--small.#{$buttonClass}-icon {
+      height: 22px;
+      background-size: 12px;
+    }
 
-  @each $icon-name in $o-buttons-icons {
+    @each $icon-name in $o-buttons-icons {
 
-  &.#{$buttonClass}-icon--#{$icon-name} {
-    $standard-color: _oButtonsStateGetProperty(standard, normal, color);
-    @include oFtIconsGetSvg($icon-name: $icon-name, $apply-base-styles: false, $color: $standard-color);
+    &.#{$buttonClass}-icon--#{$icon-name} {
+      $standard-color: _oButtonsStateGetProperty(standard, normal, color);
+      @include oFtIconsGetSvg($icon-name: $icon-name, $apply-base-styles: false, $color: $standard-color);
 
-    @each $theme, $themename in $o-buttons-themes {
-      &.#{$buttonClass}--#{$theme} { // .standard, standout, etc
+      @each $theme, $themename in $o-buttons-themes {
+        &.#{$buttonClass}--#{$theme} { // .standard, standout, etc
 
-        $states: map-get($o-buttons-themes, $theme); // normal, active, hover, focus, pressedselected, disabled
+          $states: map-get($o-buttons-themes, $theme); // normal, active, hover, focus, pressedselected, disabled
 
-        @if map-has-key($states, normal) {
-          @include _oButtonsGetIconForThemeAndState($icon-name, $states, normal);
-        }
-
-        @if map-has-key($states, pressedselected) {
-          // http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
-          // http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
-    	    &[aria-selected=true], // e.g. A selected tab or page number in pagination
-    	    &[aria-pressed=true] { // e.g. A "follow" button that is pressed
-            @include _oButtonsGetIconForThemeAndState($icon-name, $states, pressedselected);
+          @if map-has-key($states, normal) {
+            @include _oButtonsGetIconForThemeAndState($icon-name, $states, normal);
           }
-        }
 
-        @if map-has-key($states, disabled) {
-          &[disabled] {
-              @include _oButtonsGetIconForThemeAndState($icon-name, $states, disabled);
+          @if map-has-key($states, pressedselected) {
+            // http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+            // http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+      	    &[aria-selected=true], // e.g. A selected tab or page number in pagination
+      	    &[aria-pressed=true] { // e.g. A "follow" button that is pressed
+              @include _oButtonsGetIconForThemeAndState($icon-name, $states, pressedselected);
             }
-        }
+          }
 
-
-        &:not([disabled]) {
-          @if map-has-key($states, hover) {
-      	   &:focus:not(:hover),
-      	      #{$o-hoverable-if-hover-enabled} &:hover {
-                @include _oButtonsGetIconForThemeAndState($icon-name, $states, hover);
+          @if map-has-key($states, disabled) {
+            &[disabled] {
+                @include _oButtonsGetIconForThemeAndState($icon-name, $states, disabled);
               }
-            }
-            @if map-has-key($states, active) {
-  	           &:active {
-                 @include _oButtonsGetIconForThemeAndState($icon-name, $states, active);
-               }
-             }
+          }
 
-             @if map-has-key($states, focus) {
-               &:focus:not(:active):not(:hover) {
-                 @include _oButtonsGetIconForThemeAndState($icon-name, $states, focus);
+
+          &:not([disabled]) {
+            @if map-has-key($states, hover) {
+        	   &:focus:not(:hover),
+        	      #{$o-hoverable-if-hover-enabled} &:hover {
+                  @include _oButtonsGetIconForThemeAndState($icon-name, $states, hover);
+                }
+              }
+              @if map-has-key($states, active) {
+    	           &:active {
+                   @include _oButtonsGetIconForThemeAndState($icon-name, $states, active);
+                 }
+               }
+
+               @if map-has-key($states, focus) {
+                 &:focus:not(:active):not(:hover) {
+                   @include _oButtonsGetIconForThemeAndState($icon-name, $states, focus);
+                 }
                }
              }
            }
