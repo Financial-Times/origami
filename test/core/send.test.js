@@ -100,7 +100,7 @@ describe('Core.Send', function () {
 				setTimeout(() => {
 					assert.ok(navigator.sendBeacon.called);
 					navigator.sendBeacon.restore();
-					settings.destroy('useSendBeacon');
+					settings.destroy('config');
 					done();
 				}, 100)
 			});
@@ -108,7 +108,8 @@ describe('Core.Send', function () {
 
 
 		it('fallback to xhr when sendBeacon not supported', function (done) {
-			settings.set('useSendBeacon', true);
+			(new Queue('requests')).replace([]);
+			settings.set('config', {useSendBeacon: true});
 			Send.init();
 			const b = navigator.sendBeacon;
 			navigator.sendBeacon = null;
@@ -128,18 +129,19 @@ describe('Core.Send', function () {
 				assert.equal(typeof dummyXHR.onload, 'function');
 				// assert.equal(dummyXHR.onerror.length, 1) // it will get passed the error
 				// assert.equal(dummyXHR.onload.length, 0) // it will not get passed an error
-				assert.ok(dummyXHR.withCredentials);
-				assert.ok(dummyXHR.open.calledWith("POST", "http://test.spoor-api.ft.com", true));
-				assert.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'));
-				assert.ok(dummyXHR.send.calledOnce);
+				assert.ok(dummyXHR.withCredentials, 'withCredentials');
+				assert.ok(dummyXHR.open.calledWith("POST", "http://test.spoor-api.ft.com", true), 'is POST');
+				assert.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'), 'is application/json');
+				assert.ok(dummyXHR.send.calledOnce, 'calledOnce');
 				window.XMLHttpRequest = xhr;
 				navigator.sendBeacon = b;
-				settings.destroy('useSendBeacon');
+				settings.destroy('config');
 				done();
 			}, 100)
 		});
 
 		it('fallback to image when xhr withCredentials and sendBeacon not supported', function (done) {
+			(new Queue('requests')).replace([]);
 			Send.init();
 			const b = navigator.sendBeacon;
 			navigator.sendBeacon = null;
