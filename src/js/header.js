@@ -4,9 +4,16 @@ import editionSwitcher from './edition-switcher';
 
 class Header {
 	constructor(headerEl, config) {
+		if (!headerEl) {
+			headerEl = document.body;
+		} else if (!(headerEl instanceof HTMLElement)) {
+			headerEl = document.querySelector(headerEl);
+		}
+		
 		utils.init(headerEl, config);
 		search.init(headerEl, config);
 		editionSwitcher.init(headerEl, config);
+		headerEl.setAttribute('data-o-header--js', '');
 	}
 
 	static init(el, config) {

@@ -22,15 +22,14 @@ class Search {
 		if (!headerEl) return;
 
 		const suggestionsContainer = headerEl.querySelector('[data-o-header-suggestions]');
-		const form = suggestionsContainer.querySelector('[data-o-header-form-search]');
+		const form = suggestionsContainer.querySelector('[data-o-header-search]');
 		const toggle = suggestionsContainer.querySelector('[data-o-header-togglable-search]');
 		const input = form.querySelector('input');
-		const placeholder = headerEl.querySelector('label');
 
 		const typeahead = new Typeahead(
 			suggestionsContainer,
 			input,
-			`//${window.location.host}${config.typeaheadPath}`,
+			`//${window.location.host}${config.searchDataSrc}`,
 			function() { form.submit(); }
 		);
 
@@ -44,17 +43,6 @@ class Search {
 
 			form.removeEventListener(transition, transitionHandler);
 		};
-
-		if (placeholder) {
-			placeholder.style.display = 'block';
-			input.addEventListener('keyup', function() {
-				if (input.value.length > 0) {
-					placeholder.style.display = 'none';
-				} else {
-					placeholder.style.display = 'block';
-				}
-			});
-		}
 
 		if (toggle) {
 			const clickHandler = function() {

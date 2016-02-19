@@ -6,7 +6,6 @@
 @import "src/scss/vars_mixins";
 
 @if $o-header-is-silent == false {
-	@import "src/scss/ads";
 	@import "src/scss/base";
 	@import "src/scss/edition-switcher";
 	@import "src/scss/masthead";

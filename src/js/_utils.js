@@ -1,5 +1,7 @@
 import Delegate from 'ftdomdelegate';
 
+const defaultHeaderClassName = 'o-header';
+
 function getNonMatcher(container) {
 	if (typeof container === 'string') {
 		return function (el) {
@@ -13,7 +15,7 @@ function getNonMatcher(container) {
 }
 
 class Utils {
-	constructor(headerEl, config = {headerClassName: 'o-header'}) {
+	constructor(headerEl, config = {headerClassName: defaultHeaderClassName}) {
 		this.delegate = new Delegate(headerEl);
 		this.selected(headerEl);
 		this.preventScroll(headerEl, config);
@@ -40,12 +42,12 @@ class Utils {
 		});
 	}
 
-	preventScroll(headerEl, config = {headerClassName: 'o-header'}) {
+	preventScroll(headerEl, config = {headerClassName: defaultHeaderClassName}) {
 		const subNavToggle = headerEl.querySelector('[data-o-header-togglable-nav]');
 
 		if (subNavToggle) {
 			subNavToggle.addEventListener('click', () => {
-				const navOpenClass = `${config.headerClassName}--open`;
+				const navOpenClass = `${config.headerClassName}--mega-nav-open`;
 				document.documentElement.classList.toggle(navOpenClass);
 				document.querySelector('body').classList.toggle(navOpenClass);
 			});
@@ -64,7 +66,7 @@ class Utils {
 		});
 	}
 
-	static init(headerEl, config = {headerClassName: 'o-header'}) {
+	static init(headerEl, config = {headerClassName: defaultHeaderClassName}) {
 		new Utils(headerEl, config);
 	}
 }
