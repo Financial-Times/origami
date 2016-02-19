@@ -26,7 +26,6 @@ let queue;
  */
 function should_use_sendBeacon() {
 	return (navigator.sendBeacon && Promise && (settings.get('config') || {}).useSendBeacon);
-	console.log(!!navigator.sendBeacon, !!Promise, !!(settings.get('config') || {}).useSendBeacon);
 }
 
 /**
