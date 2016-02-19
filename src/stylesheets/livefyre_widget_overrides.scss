@@ -1102,6 +1102,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 
 			.fyre-editor-locked {
 				background-image: url(oAssetsResolve('src/images/comment_locked.png', o-comment-ui));
+				margin-right: 0;
 			}
 		}
 	}
