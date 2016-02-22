@@ -2,7 +2,7 @@
 
 const expect = require('expect.js');
 
-const Header = require('./../src/js/Header');
+const Header = require('./../src/js/header');
 
 describe('Header', function() {
 
