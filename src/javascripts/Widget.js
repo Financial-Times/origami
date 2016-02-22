@@ -442,7 +442,7 @@ function Widget () {
 		if (eventData.comment) {
 			if (eventData.comment.visibility === 2) {
 				self.ui.showCommentBanned(eventData.comment.commentId);
-			} else if (eventData.comment.lastVisibility === 2) {
+			} else if (eventData.comment.lastVisibility === 2 || eventData.comment.deleted === true) {
 				self.ui.removeCommentBanned(eventData.comment.commentId);
 			}
 		}

@@ -210,14 +210,14 @@ function WidgetUi (widgetContainer, config) {
 		}
 	};
 
-	function pollForCommentElement (commentId, i, callback) {
+	function pollForCommentElement (commentId, visible, i, callback) {
 		const commentElement = self.widgetContainer.querySelector('.fyre-comment-article[data-message-id="'+ commentId +'"]');
-		if (commentElement) {
+		if (commentElement && (visible ? commentElement.querySelector('.fyre-comment-date') : true)) {
 			callback(commentElement);
 		} else {
 			if (i < 1000) {
 				setTimeout(function () {
-					pollForCommentElement(commentId, i * 2, callback);
+					pollForCommentElement(commentId, visible, i * 2, callback);
 				}, i);
 			} else {
 				callback();
@@ -226,7 +226,7 @@ function WidgetUi (widgetContainer, config) {
 	}
 
 	this.showCommentBanned = function (commentId) {
-		pollForCommentElement(commentId, 50, function (commentElement) {
+		pollForCommentElement(commentId, true, 50, function (commentElement) {
 			if (commentElement && !commentElement.querySelector('.o-comments--blocked')) {
 				const blockedElement = document.createElement('div');
 				blockedElement.innerHTML = 'blocked';
@@ -244,9 +244,13 @@ function WidgetUi (widgetContainer, config) {
 	};
 
 	this.removeCommentBanned = function (commentId) {
-		pollForCommentElement(commentId, 50, function (commentElement) {
+		pollForCommentElement(commentId, false, 50, function (commentElement) {
 			if (commentElement && commentElement.querySelector('.o-comments--blocked')) {
 				commentElement.removeChild(commentElement.querySelector('.o-comments--blocked'));
+
+				if (commentElement.querySelector('.fyre-comment-date')) {
+					commentElement.querySelector('.fyre-comment-date').style.display = '';
+				}
 			}
 		});
 	}
