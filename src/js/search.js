@@ -21,9 +21,11 @@ class Search {
 	static init(headerEl, config = {}) {
 		if (!headerEl) return;
 
+		const form = headerEl.querySelector('[data-o-header-search]');
+		if (!form) return;
+		
 		const suggestionsContainer = headerEl.querySelector('[data-o-header-suggestions]');
-		const form = suggestionsContainer.querySelector('[data-o-header-search]');
-		const toggle = suggestionsContainer.querySelector('[data-o-header-togglable-search]');
+		const toggle = headerEl.querySelector('[data-o-header-togglable-search]');
 		const input = form.querySelector('input');
 
 		const typeahead = new Typeahead(

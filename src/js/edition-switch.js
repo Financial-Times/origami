@@ -4,6 +4,8 @@ const defaultClassName = 'o-header__edition-switch';
 class EditionSwitcher {
 	constructor(headerEl, config = {editionswitchClassName: defaultClassName}) {
 		this.editionSwitcherEl = headerEl.querySelector(`.${config.editionswitchClassName}`);
+		if (!this.editionSwitcherEl) return;
+
 		this.editionSwitchContainerEl = this.editionSwitcherEl.querySelector('#o-header__edition-switch-container');
 		const btnEl = (this.editionSwitcherEl) ? this.editionSwitcherEl.querySelector('[data-o-header-edition-switch-button]') : null;
 		if (!btnEl) { return; }
