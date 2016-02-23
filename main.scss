@@ -38,7 +38,6 @@ $o-expander-is-silent: true !default;
 	i {
 		@include oFtIconsGetSvg('arrow-down', oColorsGetColorFor(expander-icon, text), 12, 12);
 		display: inline-block;
-		vertical-align: middle;
 		padding: 0 6px;
 	}
 
