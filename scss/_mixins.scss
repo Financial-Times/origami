@@ -24,7 +24,7 @@
 /// @param {Bool} $apply-base-styles - defaults to true. If true, will output style rules for the container. If false will only output the background-image property
 /// @param {Bool} $use-local-assets - defaults to true, if true will look for the SVGs to use locally rather than via the image service. Doesn't apply to the fallback which will always be requested from the image service.
 
-@mixin oFtIconsGetSvg($icon-name, $color: null, $container-width: 20, $container-height: 20, $apply-base-styles: true, $use-local-assets: true) {
+@mixin oFtIconsGetSvg($icon-name, $color: null, $container-width: 20, $container-height: 20, $apply-base-styles: true, $use-local-assets: false) {
 	$service-url: "https://image.webservices.ft.com/v1/images/raw/fticon:#{$icon-name}";
 	$query: "?source=ofticons";
 
@@ -55,6 +55,7 @@
 		background-size: contain;
 		background-position: 50%;
 		background-color: transparent;
+		vertical-align: middle;
 	}
 }
 
