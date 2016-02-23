@@ -1,4 +1,4 @@
-# o-header [![Circle CI](https://circleci.com/gh/Financial-Times/o-header/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-header/tree/master)
+# o-header [![Circle CI](https://circleci.com/gh/Financial-Times/o-header.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-header)
 
 Responsive header for FT branded sites
 
@@ -68,7 +68,7 @@ Currently, only non silent mode is supported.
 
 ### Markup
 
-_There are intentionally no class esto switch between logged in and out as we don't want to do that in the client side. This is left up to the product._
+_There are intentionally no classes to switch between logged in and out as we don't want to do that in the client side. This is left up to the product._
 
 Some elements inside the header require specific data attributes so the JavaScript can add some behaviour correctly. These are:
 
@@ -82,6 +82,6 @@ Some elements inside the header require specific data attributes so the JavaScri
 
 ## Enhanced/Core expeirence
 
-We use the [standerd](http://origami.ft.com/docs/developer-guide/using-modules/#styles-for-fallbacks-and-enhancements) `o--if-js` and `o--if-no-js` classes to hide elements in enhanced and core experience respectively
+We use the [standard](http://origami.ft.com/docs/developer-guide/using-modules/#styles-for-fallbacks-and-enhancements) `o--if-js` and `o--if-no-js` classes to hide elements in enhanced and core experience respectively
 
 Search and Menu `<a>` tags link to elements outside the header in core experience. We recommend having them in the footer.
