@@ -36,14 +36,14 @@ $o-expander-is-silent: true !default;
 	border: 0;
 
 	i {
-		@include oFtIconsBaseIconStyles();
 		@include oFtIconsGetSvg('arrow-down', oColorsGetColorFor(expander-icon, text), 12, 12);
 		display: inline-block;
+		vertical-align: middle;
 		padding: 0 6px;
 	}
 
 	&[aria-expanded="true"] i {
-		@include oFtIconsGetSvg('arrow-up', oColorsGetColorFor(expander-icon, text), 12, 12);
+		@include oFtIconsGetSvg('arrow-up', oColorsGetColorFor(expander-icon, text), 12, $apply-base-styles:false);
 	}
 
 	&:hover {
