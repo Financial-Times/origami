@@ -21,7 +21,7 @@ describe('Header', function() {
 		const anotherHeaderEl = document.createElement('header');
 		anotherHeaderEl.setAttribute('data-o-component', 'o-header');
 		anotherHeaderEl.classList.add('o-header');
-		const myHeader = new Header(anotherHeaderEl);
+		new Header(anotherHeaderEl);
 		expect(anotherHeaderEl.getAttribute('data-o-header--js')).to.not.be(null);
 	});
 });

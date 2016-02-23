@@ -35,12 +35,12 @@ $o-header-mobile-width: 5;
 	position: absolute;
 	display: none;
 
-	.o-header__nav-link--toggle[aria-pressed=true] + & {
-		display: block;
-	}
-
 	@include oGridRespondTo($until: M) {
 		@include oColorsFor(o-header-mega-nav, background);
+	}
+
+	.o-header__nav-link--toggle[aria-pressed=true] + & {
+		display: block;
 	}
 }
 
@@ -150,7 +150,7 @@ $o-header-mobile-width: 5;
 .o-header__meganav-section-head {
 	@include oGridColspan($o-header-mobile-width);
 	@include _oHeaderButtonReset;
-	@include oColorsFor(o-header-nav, background)
+	@include oColorsFor(o-header-nav, background);
 	padding: 0 15px;
 	margin: 0;
 	font-family: inherit;
@@ -217,8 +217,8 @@ $o-header-mobile-width: 5;
 	min-height: 32px;
 
 	@include oGridRespondTo($until: M) {
-		text-align: right;
 		@include oGridColspan($o-header-mobile-width);
+		text-align: right;
 	}
 
 	@include oGridRespondTo(M) {
@@ -268,14 +268,6 @@ $o-header-mobile-width: 5;
 }
 
 .o-header__nav-link--toggle[aria-pressed=true] {
-	&:before {
-		@include oFtIconsGetSvg(cross, oColorsGetColorFor(o-header-nav, text), 20);
-		content: '';
-		position: relative;
-		top: 5px;
-		margin-right: 9px;
-	}
-
 	@include oGridRespondTo($until: M) {
 		.o-header__meganav-link--top-level {
 			z-index: 3;
@@ -296,6 +288,14 @@ $o-header-mobile-width: 5;
 		.o-header__meganav-toggle--close {
 			display: inline;
 		}
+	}
+
+	&:before {
+		@include oFtIconsGetSvg(cross, oColorsGetColorFor(o-header-nav, text), 20);
+		content: '';
+		position: relative;
+		top: 5px;
+		margin-right: 9px;
 	}
 
 	.o-header__meganav-toggle--open {

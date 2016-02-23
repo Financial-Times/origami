@@ -4,13 +4,13 @@
 	padding-bottom: 0;
 	top: 0;
 
-	label > * {
-		pointer-events: none;
-	}
-
 	@include oGridRespondTo(M) {
 		position: relative;
 		padding-bottom: 0;
+	}
+	
+	label > * {
+		pointer-events: none;
 	}
 }
 
