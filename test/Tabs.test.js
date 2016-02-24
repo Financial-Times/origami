@@ -126,4 +126,16 @@ describe("tabs behaviour", () => {
 		expect(tabsEl.hasAttribute('data-o-tabs--js')).toBe(false);
 	});
 
+	it('Should update the hash part of the url to the id of the active tab', () => {
+		testTabs.selectTab(0);
+		let expectedHash = document.querySelector('.o-tabs li:first-child a').hash;
+		expect(location.hash).toEqual(expectedHash);
+	});
+
+	it('Should not update the url if the user asks it not to', () => {
+		fixtures.reset();
+		fixtures.insertSimple();
+		document.querySelector('.o-tabs').setAttribute('data-o-tabs-updateUrl', 'false');
+	});
+
 });

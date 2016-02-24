@@ -1,11 +1,12 @@
 /*global module, require*/
 const oDom = require('o-dom');
 
-function Tabs(rootEl) {
+function Tabs(rootEl, options) {
 
 	const tabsObj = this;
 	let tabEls;
 	let tabpanelEls;
+	let updateUrl = (typeof options === 'object' && 'updateUrl' in options) ? options.updateUrl : true;
 	let selectedTabIndex = -1;
 	const myself = this;
 
@@ -59,6 +60,11 @@ function Tabs(rootEl) {
 	}
 
 	function showPanel(panelEl, disableFocus) {
+		// update the url to match the selected tab
+		if(panelEl.id && updateUrl){
+			location.href = '#' + panelEl.id;
+		}
+
 		panelEl.setAttribute('aria-expanded', 'true');
 		panelEl.setAttribute('aria-hidden', 'false');
 
@@ -167,7 +173,8 @@ Tabs.init = function(el) {
 		tEls = el.querySelectorAll('[data-o-component=o-tabs]');
 		for (c = 0, l = tEls.length; c < l; c++) {
 			if (!tEls[c].matches('[data-o-tabs-autoconstruct=false]') && !tEls[c].hasAttribute('data-o-tabs--js')) {
-				tabs.push(new Tabs(tEls[c]));
+				let updateUrl = tEls[c].getAttribute('data-o-tabs-updateUrl') === 'false' ? false : true;
+				tabs.push(new Tabs(tEls[c], {updateUrl:updateUrl}));
 			}
 		}
 	}
