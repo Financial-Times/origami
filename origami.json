@@ -12,25 +12,37 @@
             "Element.prototype.matches"
         ]
     },
+    "demosDefaults": {
+        "sass": "demos/src/demo.scss",
+        "js": "demos/src/demo.js",
+        "dependencies": ["o-fonts@^2.0.0"]
+    },
     "demos": [
         {
-            "path": "/demos/basic.html",
+            "name": "basic",
+            "template": "demos/src/basic.mustache",
             "expanded": true,
             "description": ""
         },
         {
-            "path": "/demos/compact.html",
-            "expanded": true,
+            "name": "compact",
+            "template": "demos/src/basic.mustache",
+            "data": {
+                "modifierClass": "o-table--compact"
+            },
+            "expanded": false,
             "description": ""
         },
         {
-            "path": "/demos/captions.html",
-            "expanded": true,
+            "name": "captions",
+            "template": "demos/src/captions.mustache",
+            "expanded": false,
             "description": ""
         },
         {
-            "path": "/demos/modifiers.html",
-            "expanded": true,
+            "name": "modifiers",
+            "template": "demos/src/modifiers.mustache",
+            "expanded": false,
             "description": ""
         }
     ]
