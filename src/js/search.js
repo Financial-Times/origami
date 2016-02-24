@@ -19,10 +19,14 @@ const transitionEventName = function(el) {
 
 class Search {
 	static init(headerEl, config = {}) {
-		if (!headerEl) return;
+		if (!headerEl) {
+			return;
+		}
 
 		const form = headerEl.querySelector('[data-o-header-search]');
-		if (!form) return;
+		if (!form) {
+			return;
+		}
 		
 		const suggestionsContainer = headerEl.querySelector('[data-o-header-suggestions]');
 		const toggle = headerEl.querySelector('[data-o-header-togglable-search]');
