@@ -7,6 +7,12 @@
 /// @type Bool
 $o-ft-icons-is-silent: true !default;
 
+/// Whether SVG icon mixin should use the image service or serve
+/// local assets
+///
+/// @type Bool
+$o-ft-icons-use-local-assets: false !default;
+
 /// Font-family
 ///
 /// @access private
