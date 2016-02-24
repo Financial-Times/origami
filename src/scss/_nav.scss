@@ -18,7 +18,7 @@ $o-header-mobile-width: 5;
 	top: 0;
 
 	@include oGridRespondTo(M) {
-		position: static;
+		position: relative;
 	}
 }
 
@@ -34,6 +34,7 @@ $o-header-mobile-width: 5;
 .o-header__meganav {
 	position: absolute;
 	display: none;
+	width: 100%;
 
 	@include oGridRespondTo($until: M) {
 		@include oColorsFor(o-header-mega-nav, background);
@@ -56,6 +57,12 @@ $o-header-mobile-width: 5;
 	display: inline-block;
 	// Because <button> elements sit on high baseline in FF
 	vertical-align: bottom;
+
+	.o-header__nav-container {
+		@include oGridRespondTo(M) {
+			position: static;
+		}
+	}
 }
 
 .o-header__nav-link {
@@ -226,7 +233,7 @@ $o-header-mobile-width: 5;
 		font-size: 14px;
 		min-height: 0;
 		line-height: 1.5;
-	}	
+	}
 
 	&[aria-selected=true] {
 		text-decoration: underline;
@@ -240,7 +247,6 @@ $o-header-mobile-width: 5;
 		@include oFtIconsGetSvg(hamburger, oColorsGetColorFor(o-header-nav, text), 20);
 		content: '';
 		position: relative;
-		top: 5px;
 		margin-right: 9px;
 	}
 
@@ -292,10 +298,6 @@ $o-header-mobile-width: 5;
 
 	&:before {
 		@include oFtIconsGetSvg(cross, oColorsGetColorFor(o-header-nav, text), 20);
-		content: '';
-		position: relative;
-		top: 5px;
-		margin-right: 9px;
 	}
 
 	.o-header__meganav-toggle--open {
