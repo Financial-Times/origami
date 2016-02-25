@@ -126,16 +126,54 @@ describe("tabs behaviour", () => {
 		expect(tabsEl.hasAttribute('data-o-tabs--js')).toBe(false);
 	});
 
-	it('Should update the hash part of the url to the id of the active tab', () => {
-		testTabs.selectTab(0);
-		let expectedHash = document.querySelector('.o-tabs li:first-child a').hash;
-		expect(location.hash).toEqual(expectedHash);
-	});
+	describe('hash updating', () => {
 
-	it('Should not update the url if the user asks it not to', () => {
-		fixtures.reset();
-		fixtures.insertSimple();
-		document.querySelector('.o-tabs').setAttribute('data-o-tabs-updateUrl', 'false');
-	});
+		const rebuildTabs = (withUpdateUrl = true) => {
+			fixtures.reset();
+			fixtures.insertSimple();
+			withUpdateUrl && tabsEl.setAttribute('data-o-tabs-update-url', '');
+			testTabs.destroy();
+			testTabs = new Tabs(tabsEl);
+		};
 
+		beforeEach(() => {
+			location.hash = '';
+		});
+
+		afterEach(() => {
+			tabsEl.removeAttribute('data-o-tabs-update-url');
+		});
+
+		it('Should update the hash part of the url to the id of the active tab', () => {
+			rebuildTabs();
+			testTabs.selectTab(0);
+			let expectedHash = document.querySelector('.o-tabs li:first-child a').hash;
+			expect(location.hash).toEqual(expectedHash);
+		});
+
+		it('Should not update the url if the data attribute is not present', () => {
+			rebuildTabs(false);
+			testTabs.selectTab(0);
+			expect(location.hash).toEqual('');
+		});
+
+		it('Should open the correct tab onload if the hash is present', (done) => {
+			location.hash = '#tabContent3';
+			tabsEl.addEventListener('oTabs.tabSelect', (ev) => {
+				expect(ev.detail.selected).toBe(2);
+				done();
+			});
+			rebuildTabs();
+		});
+
+		it('Should respond to the hashchange event', (done) => {
+			rebuildTabs();
+			testTabs.selectTab(0);
+			location.hash = '#tabContent3';
+			tabsEl.addEventListener('oTabs.tabSelect', (ev) => {
+				expect(ev.detail.selected).toBe(2);
+				done();
+			});
+		});
+	});
 });

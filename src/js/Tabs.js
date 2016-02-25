@@ -1,12 +1,12 @@
 /*global module, require*/
 const oDom = require('o-dom');
 
-function Tabs(rootEl, options) {
+function Tabs(rootEl) {
 
 	const tabsObj = this;
 	let tabEls;
 	let tabpanelEls;
-	let updateUrl = (typeof options === 'object' && 'updateUrl' in options) ? options.updateUrl : true;
+	let updateUrl = (rootEl.getAttribute('data-o-tabs-update-url') !== null);
 	let selectedTabIndex = -1;
 	const myself = this;
 
@@ -41,13 +41,22 @@ function Tabs(rootEl, options) {
 		return els;
 	}
 
+	function getTabElementFromHash(){
+		const tabLink = rootEl.querySelector(`[href="${location.hash}"]`);
+		return tabLink && tabLink.parentNode ? tabLink.parentNode : null;
+	}
+
 	function getTabIndexFromElement(el) {
 		return oDom.getIndex(el);
 	}
 
-	function getSelectedTabElement() {
-		const selectedTabEl = rootEl.querySelector('[aria-selected=true]');
-		return (selectedTabEl) ? getTabIndexFromElement(selectedTabEl) : 0;
+	function getSelectedTabElement(){
+		return rootEl.querySelector('[aria-selected=true]');
+	}
+
+	function getSelectedTabIndex() {
+		const selectedTabElement = updateUrl && location.hash ? getTabElementFromHash() : getSelectedTabElement();
+		return selectedTabElement ? getTabIndexFromElement(selectedTabElement) : 0;
 	}
 
 	function isValidTab(i) {
@@ -119,14 +128,29 @@ function Tabs(rootEl, options) {
 		ev.preventDefault();
 		const tabEl = oDom.getClosestMatch(ev.target, '[role=tab]');
 		if (tabEl) {
-			const i = getTabIndexFromElement(tabEl);
-			myself.selectTab(i);
-			dispatchCustomEvent('event', {
-				category: 'tabs',
-				action: 'click',
-				tab: tabEl.textContent
-			}, 'oTracking');
+			updateCurrentTab(tabEl);
 		}
+	}
+
+	function hashChangeHandler() {
+		if(!updateUrl){
+			return;
+		}
+
+		const tabEl = getTabElementFromHash();
+		if(tabEl){
+			updateCurrentTab(tabEl);
+		}
+	}
+
+	function updateCurrentTab(tabEl){
+		const i = getTabIndexFromElement(tabEl);
+		myself.selectTab(i);
+		dispatchCustomEvent('event', {
+			category: 'tabs',
+			action: 'click',
+			tab: tabEl.textContent
+		}, 'oTracking');
 	}
 
 	function init() {
@@ -139,14 +163,17 @@ function Tabs(rootEl, options) {
 		tabpanelEls = getTabPanelEls(tabEls);
 		rootEl.setAttribute('data-o-tabs--js', '');
 		rootEl.addEventListener("click", clickHandler, false);
+		window.addEventListener('hashchange', hashChangeHandler, false);
 		dispatchCustomEvent('ready', {
 			tabs: tabsObj
 		});
-		myself.selectTab(getSelectedTabElement());
+
+		myself.selectTab(getSelectedTabIndex());
 	}
 
 	function destroy() {
 		rootEl.removeEventListener("click", clickHandler, false);
+		window.removeEventListener("hashchange", hashChangeHandler, false);
 		rootEl.removeAttribute('data-o-tabs--js');
 		for (let c = 0, l = tabpanelEls.length; c < l; c++) {
 			showPanel(tabpanelEls[c]);
@@ -173,8 +200,7 @@ Tabs.init = function(el) {
 		tEls = el.querySelectorAll('[data-o-component=o-tabs]');
 		for (c = 0, l = tEls.length; c < l; c++) {
 			if (!tEls[c].matches('[data-o-tabs-autoconstruct=false]') && !tEls[c].hasAttribute('data-o-tabs--js')) {
-				let updateUrl = tEls[c].getAttribute('data-o-tabs-updateUrl') === 'false' ? false : true;
-				tabs.push(new Tabs(tEls[c], {updateUrl:updateUrl}));
+				tabs.push(new Tabs(tEls[c]));
 			}
 		}
 	}
