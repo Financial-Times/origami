@@ -16,11 +16,11 @@ const debounce = function(fn, delay) {
 };
 
 class Suggest {
-	constructor(containerEl, input, dataSrc, showAllHandler) {
+	constructor(containerEl, input, searchDataSrc, showAllHandler) {
 		this.container = containerEl;
 		this.searchEl = input;
 		this.showAllHandler = showAllHandler;
-		this.dataSrc = dataSrc;
+		this.searchDataSrc = searchDataSrc;
 		this.minLength = 2;
 		this.showAllItem = true;
 		this.init();
@@ -138,7 +138,7 @@ class Suggest {
 	getSuggestions(value) {
 		value = value.trim();
 		if (value.length >= this.minLength) {
-			fetch(this.dataSrc + encodeURIComponent(value))
+			fetch(this.searchDataSrc + encodeURIComponent(value))
 				.then((response) => {
 					if (!response.ok) {
 						throw new Error(response.statusText);

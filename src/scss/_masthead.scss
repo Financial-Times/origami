@@ -1,26 +1,10 @@
 @mixin oHeaderLogoLink {
 	display: block;
 	height: 100%;
-	background-color: #fff1e0;
-	background-image: linear-gradient(#ffe8cf, #ffddb9);
 	position: relative;
 
 	* {
 		@include _oHeaderHideVisually;
-	}
-}
-
-.o-header__top {
-	display: none;
-	position: relative;
-
-	@include oGridRespondTo(M) {
-		display: block;
-	}
-
-	&:before {
-		content: ' ';
-		display: table;
 	}
 }
 
@@ -33,10 +17,6 @@
 		display: block;
 		margin: 17px auto;
 		height: 27px;
-
-		&:after {
-			content: none;
-		}
 	}
 }
 

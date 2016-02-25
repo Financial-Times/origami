@@ -2,11 +2,11 @@
 // i.e. the headers of nav sections
 $o-header-mobile-width: 5;
 
-label > * {
-	pointer-events: none;
-}
-
-.o-header--nav-open {
+// This is applied to the <body> via JS, this does not comply
+// with the Origami spec, and issue #129 has been raised
+// It's used to avoid scrolling when the meganav
+// is open in a mobile view
+.o-header--mega-nav-open {
 	@include oGridRespondTo($until: M) {
 		overflow-y: hidden;
 		height: 100%;
@@ -14,57 +14,39 @@ label > * {
 }
 
 .o-header__nav-container {
-	float: left;
 	position: absolute;
 	top: 0;
-	left: 0;
 
 	@include oGridRespondTo(M) {
-		position: static;
+		position: relative;
 	}
 }
 
 .o-header__nav,
 .o-header__meganav {
+	@include oColorsFor(o-header-nav, text background);
+
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	background: oColorsGetPaletteColor('cold-2');
-}
-
-.o-header__nav {
-	@include oColorsFor(o-header-nav, text background);
 }
 
 .o-header__meganav {
-	width: 100%;
-	padding: 0 0 20px;
 	position: absolute;
-	left: 0;
+	display: none;
+	width: 100%;
 
 	@include oGridRespondTo($until: M) {
-		background: center url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAAFCAYAAAC9+YhwAAAAAXNSR0IArs4c6QAAAIFJREFUaAXt16ENACAMBEBgpU6MZgG2gwVogqi8yk/z4tz3iDjNESBAgMCXwF7z688TAQIECBAg8BYY71hKgAABAgQIECBAgACBegEDpN5UIwECBAgQIECAAAECiYABksCICRAgQIAAAQIECBCoFzBA6k01EiBAgAABAgQIECCQCFyl4wOmY4gKVQAAAABJRU5ErkJggg==');
-		background-position: percentage($o-header-mobile-width / 12);
+		@include oColorsFor(o-header-mega-nav, background);
 	}
 
-	.o-header__nav & {
-		display: none;
-	}
-
-	.o-header__meganav--sections:hover &,
 	.o-header__nav-link--toggle[aria-pressed=true] + & {
 		display: block;
-	}
-
-	.o-header__meganav & {
-		padding-bottom: 0;
 	}
 }
 
 .o-header__nav-item {
 	display: none;
-	// Because <button> elements sit on high baseline in FF
-	vertical-align: bottom;
 
 	@include oGridRespondTo(L) {
 		display: inline-block;
@@ -75,16 +57,20 @@ label > * {
 	display: inline-block;
 	// Because <button> elements sit on high baseline in FF
 	vertical-align: bottom;
-	line-height: 43px;
+
+	.o-header__nav-container {
+		@include oGridRespondTo(M) {
+			position: static;
+		}
+	}
 }
 
 .o-header__nav-link {
-	position: relative;
 	color: oColorsGetPaletteColor('white');
 	font-family: inherit;
 	text-decoration: none;
-	font-size: 14px;
-	padding: 0 4px;
+	font-size: 16px;
+	padding: 0 7px;
 	display: inline-block;
 	background: none;
 	border: 0;
@@ -106,11 +92,6 @@ label > * {
 		border: 0;
 		padding: 0;
 	}
-
-	@include oGridRespondTo(M) {
-		padding: 0 7px;
-		font-size: 16px;
-	}
 }
 
 .o-header__meganav-section {
@@ -119,7 +100,6 @@ label > * {
 	@include oGridRespondTo(M) {
 		@include oGridColspan(3);
 		margin-top: 20px;
-		clear: none;
 	}
 
 	&--desktop {
@@ -138,13 +118,35 @@ label > * {
 
 	.o-header__meganav-link {
 		@include oGridResetColumn;
-		display: block;
 		text-align: left;
+		background-color: transparent;
 
 		&:hover,
 		&:focus {
 			text-decoration: underline;
 		}
+	}
+}
+
+.o-header__meganav-section--collapsible {
+	.o-header__meganav-items {
+		padding: 10px 0 10px 15px;
+
+		@include oGridRespondTo($until: M) {
+			@include oGridColspan(12 - $o-header-mobile-width);
+			display: none;
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			padding: 0 0 0 15px;
+			min-height: 340px;
+			color: oColorsGetPaletteColor('grey-tint5');
+		}
+	}
+
+	[aria-selected=true] ~ .o-header__meganav-items {
+		display: block;
 	}
 }
 
@@ -155,17 +157,30 @@ label > * {
 .o-header__meganav-section-head {
 	@include oGridColspan($o-header-mobile-width);
 	@include _oHeaderButtonReset;
+	@include oColorsFor(o-header-nav, background);
 	padding: 0 15px;
 	margin: 0;
 	font-family: inherit;
 	font-size: 14px;
 	line-height: 32px;
 	text-decoration: none;
+	overflow: hidden;
 
 	@include oGridRespondTo($until: M) {
 		color: oColorsGetPaletteColor('white');
 		text-align: right;
 		cursor: pointer;
+
+		&[aria-selected=true] {
+			@include oColorsFor(o-header-mega-nav, background);
+			text-decoration: none;
+			font-weight: bold;
+			color: oColorsGetPaletteColor('grey-tint5');
+
+			span:after {
+				@include oFtIconsGetSvg(arrow-right, oColorsGetPaletteColor('grey-tint5'), 10);
+			}
+		}
 
 		span:after {
 			@include oFtIconsGetSvg(arrow-right, oColorsGetColorFor(o-header-nav, text), 10);
@@ -178,10 +193,9 @@ label > * {
 
 	@include oGridRespondTo(M) {
 		@include oGridResetColumn;
-		padding-left: 15px;
 		display: block;
 		font-weight: bold;
-		padding-right: 7px;
+		padding-left: 15px;
 		font-size: 16px;
 		line-height: 1.5;
 	}
@@ -198,36 +212,8 @@ label > * {
 	}
 }
 
-.o-header__meganav-section--collapsible {
-	.o-header__meganav-items {
-		padding: 10px 0 10px 15px;
-		list-style: none;
-		text-transform: none;
-
-		@include oGridRespondTo($until: M) {
-			@include oGridColspan(12 - $o-header-mobile-width);
-			@include oColorsFor(o-header-sub-nav-hover, background);
-			color: oColorsGetPaletteColor('grey-tint5');
-			display: none;
-			min-height: 340px;
-			position: absolute;
-			right: 0;
-			top: 0;
-			bottom: 0;
-			padding: 0 0 0 15px;
-			overflow-x: scroll;
-		}
-	}
-
-	[aria-selected=true] ~ .o-header__meganav-items {
-		display: block;
-	}
-}
-
 .o-header__meganav-link {
-	@include oColorsFor(header, border);
-	display: block;
-	position: relative;
+	@include oColorsFor(o-header-nav, background);
 	color: inherit;
 	font-family: inherit;
 	text-decoration: none;
@@ -238,68 +224,29 @@ label > * {
 	min-height: 32px;
 
 	@include oGridRespondTo($until: M) {
-		text-align: right;
 		@include oGridColspan($o-header-mobile-width);
+		text-align: right;
 	}
 
 	@include oGridRespondTo(M) {
 		padding-right: 7px;
-		font-size: 16px;
+		font-size: 14px;
 		min-height: 0;
 		line-height: 1.5;
-
-		&.o-header__nav-link--active {
-			background: oColorsGetPaletteColor('cold-1');
-		}
 	}
 
-	&.o-header__meganav-link--selected {
+	&[aria-selected=true] {
 		text-decoration: underline;
 	}
 }
 
-@include oGridRespondTo($until: M) {
-	[aria-selected=true].o-header__meganav-section-head {
-		@include oColorsFor(o-header-sub-nav-hover, background);
-		text-decoration: none;
-		font-weight: bold;
-		color: oColorsGetPaletteColor('grey-tint5');
-
-		span:after {
-			@include oFtIconsGetSvg(arrow-right, oColorsGetPaletteColor('grey-tint5'), 10);
-		}
-	}
-
-	[aria-selected=true].o-header__meganav-section-head:after {
-		background-color: oColorsGetColorFor(o-header-sub-nav-hover, background);
-		border-color: oColorsGetColorFor(o-header-sub-nav-hover, background);
-	}
-}
-
-.o-header__meganav-toggle {
-	display: block;
-	cursor: pointer;
-	@include  _oHeaderButtonReset;
-
-	@include oGridRespondTo(M) {
-		width: 97px;
-		padding-right: 1px;
-		position: relative;
-
-		&:before { left: 0; }
-		&:after { right: 0; }
-	}
-}
-
 .o-header__nav-link--toggle {
-	display: block;
 	text-transform: none;
 
 	&:before {
-		@include oFtIconsGetSvg(hamburger, #ffffff, 20);
+		@include oFtIconsGetSvg(hamburger, oColorsGetColorFor(o-header-nav, text), 20);
 		content: '';
 		position: relative;
-		top: 5px;
 		margin-right: 9px;
 	}
 
@@ -308,9 +255,15 @@ label > * {
 	}
 }
 
+.o-header__meganav-toggle {
+	@include  _oHeaderButtonReset;
+	cursor: pointer;
+}
+
 .o-header__meganav-toggle--open {
+	@include oColorsFor(o-header-nav, text);
 	display: none;
-	color: oColorsGetPaletteColor('white');
+
 	@include oGridRespondTo(M) {
 		display: inline;
 	}
@@ -321,24 +274,6 @@ label > * {
 }
 
 .o-header__nav-link--toggle[aria-pressed=true] {
-	@include oGridRespondTo(M) {
-		.o-header__meganav-toggle--close {
-			display: inline;
-		}
-	}
-
-	.o-header__meganav-toggle--open {
-		display: none;
-	}
-
-	&:before {
-		@include oFtIconsGetSvg(cross, #ffffff, 20);
-		content: '';
-		position: relative;
-		top: 5px;
-		margin-right: 9px;
-	}
-
 	@include oGridRespondTo($until: M) {
 		.o-header__meganav-link--top-level {
 			z-index: 3;
@@ -354,27 +289,18 @@ label > * {
 			overflow-y: scroll;
 		}
 	}
-}
 
-.o-header__nav .o-header__tools-item {
-	display: none;
-
-	@include oGridRespondTo($until: M) {
-		display: block;
-
-		.o-header__tools-link {
-			@include oGridColspan($o-header-mobile-width);
-			text-align: right;
-			padding: 0;
-			line-height: 34px;
-			clear: both;
-			padding-right: 15px;
-
-			&:hover,
-			&:focus {
-				background: none;
-				text-decoration: underline;
-			}
+	@include oGridRespondTo(M) {
+		.o-header__meganav-toggle--close {
+			display: inline;
 		}
+	}
+
+	&:before {
+		@include oFtIconsGetSvg(cross, oColorsGetColorFor(o-header-nav, text), 20);
+	}
+
+	.o-header__meganav-toggle--open {
+		display: none;
 	}
 }

@@ -41,10 +41,4 @@
 	&:focus {
 		text-decoration: underline;
 	}
-
-	.o-header--light-on-dark &,
-	.o-header--light-on-dark &:hover,
-	.o-header--light-on-dark &:focus {
-		color: oColorsGetPaletteColor('white');
-	}
 }

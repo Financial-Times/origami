@@ -1,7 +1,7 @@
 .o-header__edition-switch {
+	position: absolute;
 	font-size: 13px;
 	line-height: 1em;
-	position: absolute;
 	top: oGridGutter(M) - 10;
 	left: oGridGutter(M);
 	color: oColorsGetPaletteColor('white');
@@ -17,19 +17,15 @@
 		font-size: 16px;
 	}
 }
+
 .o-header__edition-switch--open {
 	background-color: oColorsGetPaletteColor('cold-1');
 }
 
 .o-header__edition-switch-button {
-	text-align: left;
-	background-color: transparent;
-	color: inherit;
+	@include _oHeaderButtonReset;
 	font: inherit;
-	border: 0;
-	padding: 0;
 	cursor: pointer;
-	border-bottom: 1px solid transparent;
 
 	&:after {
 		content: '';
@@ -47,7 +43,7 @@
 
 	&:hover,
 	&:focus {
-		border-bottom-color: oColorsGetPaletteColor('white');
+		border-bottom: 1px solid oColorsGetPaletteColor('white');
 	}
 }
 
@@ -64,6 +60,7 @@
 }
 
 .o-header__edition-switch-link {
+	display: block;
 	margin-top: 10px;
 	color: inherit;
 	text-decoration: none;

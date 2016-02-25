@@ -1,24 +1,25 @@
 .o-header {
-	position: relative;
-	z-index: 21;
-	padding-bottom: 46px;
+	position: sticky;
+	z-index: 1;
+	padding-bottom: 0;
+	top: 0;
 
 	@include oGridRespondTo(M) {
+		position: relative;
 		padding-bottom: 0;
 	}
-
-	a {
-		border-bottom: 0;
-	}
-
-	a:hover,
-	a:focus {
-		color: inherit;
+	
+	label > * {
+		pointer-events: none;
 	}
 }
 
 .o-header--light-on-dark {
 	background-color: oColorsGetPaletteColor('grey-tint5');
+}
+
+.o-header--dark-on-light {
+	background-color: oColorsGetColorFor(page, background);
 }
 
 .o-header__container {
@@ -34,36 +35,11 @@
 	@include oGridColspan(12);
 }
 
-.o-header__bottom {
-	position: fixed;
-	left: 0;
-	right: 0;
-	transition: transform 150ms;
-	background: $o-header-primary-background;
+.o-header__top {
+	display: none;
+	position: relative;
 
 	@include oGridRespondTo(M) {
-		position: relative;
-	}
-
-	&:before {
-		top: 0;
-	}
-	
-	&:after {
-		bottom: 0;
-		visibility: hidden;
 		display: block;
-		font-size: 0;
-		content: "";
-		clear: both;
-		height: 0;
 	}
-}
-
-.o-header__bottom-inner {
-	position: relative;
-	min-height: 45px;
-	min-width: 280px; // can't fit below that.
-	padding-left: 0;
-	padding-right: 0;
 }

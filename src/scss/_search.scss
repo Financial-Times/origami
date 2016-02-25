@@ -16,6 +16,7 @@
 	height: 45px;
 	padding: 8px 0;
 	box-sizing: border-box;
+	z-index: 5;
 
 	&:after {
 		@include oFtIconsGetSvg(search, oColorsGetPaletteColor('white'), 20);
