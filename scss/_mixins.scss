@@ -20,11 +20,11 @@
 /// @param {String} $icon-name - this should be a reference to an icon included in o-ft-icons eg arrow-down
 /// @param {String} $color - this should be a hex colour value. Used to color the icon. We suggest using an o-colors an o-colors function.
 /// @param {String} $container-width - this is the width to set the icon containing element to. Defaults to 20px. This value is also used to request a PNG fallback of the right size from the image service.
-/// @param {String} $container-height - this is the height to set the icon containing element to.
+/// @param {String} $container-height - this is the height to set the icon containing element to. Defaults to null, and will use the value of $container-width
 /// @param {Bool} $apply-base-styles - defaults to true. If true, will output style rules for the container. If false will only output the background-image property
 /// @param {Bool} $use-local-assets - defaults to true, if true will look for the SVGs to use locally rather than via the image service. Doesn't apply to the fallback which will always be requested from the image service.
 
-@mixin oFtIconsGetSvg($icon-name, $color: null, $container-width: 20, $container-height: 20, $apply-base-styles: true) {
+@mixin oFtIconsGetSvg($icon-name, $color: null, $container-width: 20, $container-height: null, $apply-base-styles: true) {
 	$service-url: "https://image.webservices.ft.com/v1/images/raw/fticon:#{$icon-name}";
 	$query: "?source=ofticons";
 
@@ -47,6 +47,9 @@
 	@if ($apply-base-styles == true) {
 		display: inline-block;
 		width: $container-width + 0px;
+		@if ($container-height == null) {
+			$container-height: $container-width;
+		}
 		height: $container-height + 0px;
 		background-repeat: no-repeat;
 
