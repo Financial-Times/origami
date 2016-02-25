@@ -13,7 +13,7 @@
 ///
 /// @param {String} $buttonClass ($o-buttons-class) $buttonClass
 ///
-/// @link http://build.origami.ft.com/files/o-buttons/demos/pagination.html
+/// @link http://build.origami.ft.com/v2/files/o-buttons/demos/pagination.html
 @mixin oButtonsPagination($buttonClass: $o-buttons-class) {
 	> .#{$buttonClass} {
 		padding-left: 5px;
