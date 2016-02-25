@@ -36,22 +36,13 @@ $o-expander-is-silent: true !default;
 	border: 0;
 
 	i {
-		@include oFtIconsBaseIconStyles();
-		@include oColorsFor(expander-icon, text);
+		@include oFtIconsGetSvg('arrow-down', oColorsGetColorFor(expander-icon, text), 12, 12);
 		display: inline-block;
 		padding: 0 6px;
-		box-sizing: border-box;
 	}
 
-	i,
 	&[aria-expanded="true"] i {
-		@extend %o-ft-icons-icon--arrow-up;
-	}
-
-	// temporary higher specicifity while having to work with the selector order
-	// imposed by using @extend. Eventually with mixins it won't be needed
-	[data-o-expander-js] & i {
-		@extend %o-ft-icons-icon--arrow-down;
+		@include oFtIconsGetSvg('arrow-up', oColorsGetColorFor(expander-icon, text), 12, $apply-base-styles:false);
 	}
 
 	&:hover {
