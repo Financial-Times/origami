@@ -18,7 +18,7 @@ and two sizes ([documentation](#size-modifiers)):
 and have 7 different states:
 
 * __standard__: without any interaction
-* __hover__: when the mouse pointer is over 
+* __hover__: when the mouse pointer is over
 * __focus__: it's the current target of keyboard input
 * __active__: the pointer is pushing / tapping / clicking the button
 * __selected__: marked as chosen
@@ -43,7 +43,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 
 ### Default button
 
-[View demo](http://build.origami.ft.com/files/o-buttons@2.0.3/demos/individual.html)
+[View demo](http://build.origami.ft.com/v2/files/o-buttons@2.0.3/demos/individual.html)
 
 ```html
 <button class="o-buttons">Standard</button>
@@ -66,7 +66,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 
 ### Grouped buttons
 
-[View demo](http://build.origami.ft.com/files/o-buttons/demos/grouped.html)
+[View demo](http://build.origami.ft.com/v2/files/o-buttons/demos/grouped.html)
 
 ```html
 <div class="o-buttons-group">
@@ -97,7 +97,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 
 ### Pagination buttons
 
-[View demo](http://build.origami.ft.com/files/o-buttons/demos/pagination.html)
+[View demo](http://build.origami.ft.com/v2/files/o-buttons/demos/pagination.html)
 
 ```html
 <div class="o-buttons-pagination">
@@ -158,9 +158,9 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 
 View demos:
 
-- [standout](http://build.origami.ft.com/files/o-buttons/demos/individual-standout.html)
-- [uncolored](http://build.origami.ft.com/files/o-buttons/demos/individual-uncolored.html)
-- [inverse](http://build.origami.ft.com/files/o-buttons/demos/individual-inverse.html)
+- [standout](http://build.origami.ft.com/v2/files/o-buttons/demos/individual-standout.html)
+- [uncolored](http://build.origami.ft.com/v2/files/o-buttons/demos/individual-uncolored.html)
+- [inverse](http://build.origami.ft.com/v2/files/o-buttons/demos/individual-inverse.html)
 
 ```html
 <button class="o-buttons o-buttons--standout">Standout button</button>
