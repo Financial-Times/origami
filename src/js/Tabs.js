@@ -1,7 +1,7 @@
 /*global module, require*/
 const oDom = require('o-dom');
 
-function Tabs(rootEl, options) {
+function Tabs(rootEl) {
 
 	const tabsObj = this;
 	let tabEls;
@@ -55,7 +55,7 @@ function Tabs(rootEl, options) {
 	}
 
 	function getSelectedTabIndex() {
-		const selectedTabElement = updateUrl && location.hash ? getTabElementFromHash() : getSelectedTabElement()
+		const selectedTabElement = updateUrl && location.hash ? getTabElementFromHash() : getSelectedTabElement();
 		return selectedTabElement ? getTabIndexFromElement(selectedTabElement) : 0;
 	}
 
