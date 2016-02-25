@@ -3,6 +3,25 @@ const crossDomainFetch = require('n-jsonp').crossDomainFetch;
 const Video = require('./video');
 const getAppropriateRendition = require('../libs/get-appropriate-rendition');
 
+let currentlyPlayingVideo = null;
+let requestedVideo = null;
+
+const pauseOtherVideos = (video) => {
+	requestedVideo = video;
+	if(currentlyPlayingVideo && currentlyPlayingVideo !== requestedVideo){
+		currentlyPlayingVideo.pause();
+	}
+
+	currentlyPlayingVideo = video;
+};
+
+const clearCurrentlyPlaying = () => {
+	if(currentlyPlayingVideo !== requestedVideo){
+		currentlyPlayingVideo = null;
+	}
+};
+
+
 const eventListener = (video, ev) => {
 	var event = new CustomEvent('oTracking.event', {
 		detail: {
@@ -94,6 +113,9 @@ class Brightcove extends Video {
 		this.containerEl.classList.add('n-video--player');
 		this.containerEl.appendChild(this.el);
 		addEvents(this, ['play', 'pause', 'ended']);
+		this.el.addEventListener('playing', () => pauseOtherVideos(this.el));
+		this.el.addEventListener('suspend', clearCurrentlyPlaying);
+		this.el.addEventListener('ended', clearCurrentlyPlaying);
 	}
 
 	addPlaceholder() {
