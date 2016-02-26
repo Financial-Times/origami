@@ -6,13 +6,13 @@ Icon font with helper classes, and resolution-independent SVG icons to load via 
 
 ```html
 <!-- Load web fonts with @font-face declarations  -->
-<link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-ft-icons@^2.0.0" />
+<link rel="stylesheet" href="//build.origami.ft.com/v2/bundles/css?modules=o-ft-icons@^2.0.0" />
 
 <!-- In your markup, use the helper classes, such as: -->
 <i class="o-ft-icons-icon o-ft-icons-icon--arrow-down"></i>
 ```
 
-[Complete list of available icons](http://build.origami.ft.com/files/o-ft-icons@latest/demos/main.html)
+[Complete list of available icons](http://build.origami.ft.com/v2/files/o-ft-icons@latest/demos/main.html)
 
 ## Advanced usage
 
@@ -123,7 +123,7 @@ The file must be named according to the following rules:
 2. Contains only letters, numbers and hyphens (no spaces)
 3. Ends with `.svg`
 
-Good: `columnists.svg`, `back-arrow.svg`  
+Good: `columnists.svg`, `back-arrow.svg`
 Bad: `RightArrow.svg`, `linked_in.svg`, `yahoo!.svg`
 
 ### IE7 support
