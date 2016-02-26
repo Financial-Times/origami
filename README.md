@@ -35,7 +35,7 @@ Use an onload handler to check when o-tracking has loaded and then init.
 if (cutsTheMustard) {
     var o = document.createElement('script');
     o.async = o.defer = true;
-    o.src = 'https://build.origami.ft.com/bundles/js?modules=o-tracking';
+    o.src = 'https://build.origami.ft.com/v2/bundles/js?modules=o-tracking';
     var s = document.getElementsByTagName('script')[0];
     if (o.hasOwnProperty('onreadystatechange')) {
         o.onreadystatechange = function() {
@@ -81,7 +81,7 @@ if (cutsTheMustard) {
 ### Example implementations
 
 - [ft.com](docs/ftcom_example.md)
-- [membership](docs/membership_example.md) 
+- [membership](docs/membership_example.md)
 
 #### Full example
 ```html
@@ -133,7 +133,7 @@ if (cutsTheMustard) {
         if (cutsTheMustard) {
             var o = document.createElement('script');
             o.async = o.defer = true;
-            o.src = 'https://build.origami.ft.com/bundles/js?modules=o-tracking%401.0.5';
+            o.src = 'https://build.origami.ft.com/v2/bundles/js?modules=o-tracking%401.0.5';
             var s = document.getElementsByTagName('script')[0];
             if (o.hasOwnProperty('onreadystatechange')) {
                 o.onreadystatechange = function() {
@@ -164,15 +164,15 @@ if (cutsTheMustard) {
 o-tracking will listen for 2 events as well as the funcations available above.
 
 - `oTracking.page`
-    
+
     Send a page view event
 
     ```js
     document.body.dispatchEvent(new CustomEvent('oTracking.page', { detail: { content: { uuid: 'abc-123', barrier: 'PREMIUM' }}, bubbles: true}));
     ```
 - `oTracking.event`
-    
-    Send a normal event  
+
+    Send a normal event
 
     ```js
     document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: { category: 'video', action: 'play', id: '512346789', pos: '10' }, bubbles: true}));
@@ -229,7 +229,7 @@ For example:
 {
     category: 'video',
     action: 'play',
-    ... any other key-values ...  
+    ... any other key-values ...
     id: '512346789',
     pos: '10'
 }
