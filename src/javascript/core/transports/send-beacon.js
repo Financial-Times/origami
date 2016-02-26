@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function () {
     let resolver;
     let rejecter;

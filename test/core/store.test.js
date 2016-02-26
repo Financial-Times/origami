@@ -1,4 +1,5 @@
 /*global require, describe, it, document, navigator */
+'use strict';
 
 const assert = require('assert');
 const Store = require('../../src/javascript/core/store');

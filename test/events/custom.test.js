@@ -1,4 +1,5 @@
 /*global require, describe, it, before, after, sinon */
+'use strict';
 
 const assert = require("assert");
 const Queue = require("../../src/javascript/core/queue");

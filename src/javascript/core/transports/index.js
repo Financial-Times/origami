@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
 	xhr: require('./xhr'),
 	sendBeacon: require('./send-beacon'),
@@ -5,4 +7,4 @@ module.exports = {
 	get: function (name) {
 		return this.mock || this[name];
 	}
-}
+};

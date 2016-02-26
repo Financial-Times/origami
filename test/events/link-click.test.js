@@ -1,5 +1,5 @@
 /*global require, describe, it, before, after, sinon, document */
-
+'use strict';
 
 const assert = require("assert");
 const Queue = require("../../src/javascript/core/queue");
@@ -60,7 +60,7 @@ describe('click', function () {
 			assert.equal(sent_data.context.link.href, aLink.href);
 			assert.equal(sent_data.context.link.title, aLink.text);
 			done();
-		}, 10)
+		}, 10);
 
 	});
 	describe('internal links', function () {
@@ -87,7 +87,7 @@ describe('click', function () {
 				assert.ok(!callback.called, 'Callback called.');
 				const storedEvent = JSON.parse(localStorage.getItem('o-tracking_links'))[0];
 
-				assert.equal(typeof storedEvent.created_at, 'number')
+				assert.equal(typeof storedEvent.created_at, 'number');
 				assert.equal(storedEvent.item.category, "link");
 				assert.equal(storedEvent.item.action, "click");
 
@@ -97,13 +97,13 @@ describe('click', function () {
 				assert.equal(storedEvent.item.context.link.href, aLink.href);
 				assert.equal(storedEvent.item.context.link.title, aLink.text);
 				done();
-			}, 10)
+			}, 10);
 
 		});
 
 		it('should send event for an internal link on new page load', function (done) {
 
-			sinon.stub(core, 'track')
+			sinon.stub(core, 'track');
 			// simulates loading of a new page
 			link.init({});
 
@@ -124,9 +124,9 @@ describe('click', function () {
 				assert.equal(sent_data.context.link.title, aLink.text);
 				core.track.restore();
 				done();
-			}, 10)
+			}, 10);
 
 		});
-	})
+	});
 
 });

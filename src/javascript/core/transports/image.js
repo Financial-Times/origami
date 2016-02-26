@@ -1,3 +1,5 @@
+'use strict';
+
 const utils = require('../../utils');
 
 module.exports = function () {
@@ -17,4 +19,4 @@ module.exports = function () {
 			}
 		}
 	};
-}
+};

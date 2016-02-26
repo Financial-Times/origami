@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function () {
 	const xhr = new window.XMLHttpRequest();
 
@@ -11,14 +13,14 @@ module.exports = function () {
 		complete: function (callback) {
 			xhr.onerror = function () {
 				callback(this);
-			}
+			};
 			xhr.onload = function () {
 				if (xhr.status >= 200 && xhr.status < 300) {
 					callback();
 				} else {
 					callback('Incorrect response: ' + xhr.status);
 				}
-			}
+			};
 		}
 	};
-}
+};
