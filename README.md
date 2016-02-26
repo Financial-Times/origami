@@ -24,7 +24,7 @@ Each form field is made up of at least 3 elements:
 </div>
 ```
 
-[Text input examples](http://build.origami.ft.com/files/o-forms@%5E1/demos/text-inputs.html)  
+[Text input examples](http://build.origami.ft.com/v2/files/o-forms@%5E1/demos/text-inputs.html)
 
 ### Select boxes
 
@@ -40,8 +40,8 @@ Each form field is made up of at least 3 elements:
 </div>
 ```
 
-[Select boxes examples](http://build.origami.ft.com/files/o-forms@%5E1/demos/select-boxes.html)  
-    
+[Select boxes examples](http://build.origami.ft.com/v2/files/o-forms@%5E1/demos/select-boxes.html)
+
 ### Textareas
 
 ```html
@@ -51,7 +51,7 @@ Each form field is made up of at least 3 elements:
 </div>
 ```
 
-[Textarea examples](http://build.origami.ft.com/files/o-forms@%5E1/demos/textareas.html)
+[Textarea examples](http://build.origami.ft.com/v2/files/o-forms@%5E1/demos/textareas.html)
 
 ### Checkboxes and radio controls
 
@@ -83,8 +83,8 @@ Couple the checkboxes and radio controls with a label to obtain the desired styl
 <input type="checkbox" class="o-forms-checkbox o-forms-checkbox--highlight" />
 ```
 
-[Radio control examples](http://build.origami.ft.com/files/o-forms@%5E1/demos/radios.html)  
-[Checkbox examples](http://build.origami.ft.com/files/o-forms@%5E1/demos/checkboxes.html)
+[Radio control examples](http://build.origami.ft.com/v2/files/o-forms@%5E1/demos/radios.html)
+[Checkbox examples](http://build.origami.ft.com/v2/files/o-forms@%5E1/demos/checkboxes.html)
 
 ### Validation states
 
@@ -118,7 +118,7 @@ You can wrap a group of fields to highlight it or show it is not valid:
 </div>
 ```
 
-[Wrapper examples](http://build.origami.ft.com/files/o-forms@%5E1/demos/wrappers.html)
+[Wrapper examples](http://build.origami.ft.com/v2/files/o-forms@%5E1/demos/wrappers.html)
 
 ### Messages
 
@@ -132,7 +132,7 @@ You can wrap a group of fields to highlight it or show it is not valid:
 </div>
 ```
 
-[Messages examples](http://build.origami.ft.com/files/o-forms@%5E1/demos/messages.html)
+[Messages examples](http://build.origami.ft.com/v2/files/o-forms@%5E1/demos/messages.html)
 
 ### Prefixes and suffixes
 
@@ -150,7 +150,7 @@ Prefixes and suffixes are used for prepending or appending static text to a form
 </div>
 ```
 
-[Prefixes and suffixes examples](http://build.origami.ft.com/files/o-forms@%5E1/demos/prefix-suffix.html)
+[Prefixes and suffixes examples](http://build.origami.ft.com/v2/files/o-forms@%5E1/demos/prefix-suffix.html)
 
 ### "unskin" a form element
 
@@ -218,7 +218,7 @@ Solution: products must load webfonts themselves (tipically, with [o-fonts](http
 
 ```html
 <!-- Load web fonts and icons with @font-face declarations  -->
-<link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-fonts@^1,o-ft-icons@^2.3.4" />
+<link rel="stylesheet" href="//build.origami.ft.com/v2/bundles/css?modules=o-fonts@^1,o-ft-icons@^2.3.4" />
 
 <!-- Set the font family on the whole document -->
 <style>
@@ -235,10 +235,10 @@ The most important change is with input elements, that now have their own classe
 ```diff
 -<input type="radio" class="o-ft-forms__field" />
 +<input type="radio" class="o-forms-radio" />
- 
+
 -<input type="checkbox" class="o-ft-forms__field" />
 +<input type="checkbox" class="o-forms-checkbox" />
- 
+
 -<input type="text" class="o-ft-forms__field" />
 +<input type="text" class="o-forms-text" />
 ```
