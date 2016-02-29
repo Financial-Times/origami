@@ -26,5 +26,6 @@ exports.lfStringOverride = {
 	flagSuccessMsg: 'Comment has been reported.',
 	flagTitle: 'Report %s\'s comment',
 	commentCountLabel: 'COMMENTS (%s)',
-	commentCountLabelPlural: 'COMMENTS (%s)'
+	commentCountLabelPlural: 'COMMENTS (%s)',
+	editorDisabled: 'This conversation is closed to new comments.'
 };

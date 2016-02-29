@@ -20,11 +20,9 @@ A fully featured commenting client integrated with FT's membership systems. If y
      * <a href="#fontfamily">Font family</a>
  * <a href="#browser">Browser support</a>
  * <a href="#core">Core/enhanced experience</a>
- * <a href="#moderation">Moderation</a>
 
 ## <div id="prereq"></div> Prerequisites
 
-* Your content must either be available in the Content API or available on a blogs URL in order for commenting to work. (See Moderation for why) 
 * You must be on an FT.com domain or sub-domain for authentication to work
 
 ## <div id="product"></div> Adding comments to your product 
@@ -37,7 +35,7 @@ Use the following markup to enable comments:
     data-o-comments-auto-init="true|false" 
     data-o-comments-config-title="{article-title}" 
     data-o-comments-config-url="{page-url}" 
-    data-o-comments-config-articleId="{article-id}">
+    data-o-comments-config-article-id="{article-id}">
 
         <div class="o--if-no-js">To participate in this chat, you need to upgrade to a newer web browser. <a href="http://help.ft.com/tools-services/browser-compatibility/">Learn more.</a></div>
 </div>
@@ -45,7 +43,7 @@ Use the following markup to enable comments:
 
  
  * `data-o-comments-config-title` the title of your article/post/thing
- * `data-o-comments-config-articleId` a unique id for your content, ideally a UUID for FT content
+ * `data-o-comments-config-article-id` a unique id for your content, ideally a UUID for FT content
  * `data-o-comments-config-url` The canonical URL for your article/page/thing
  * `data-o-comments-config-livefyre--{key}` for Livefyre specific `Conv` configuration mentioned here: http://answers.livefyre.com/developers/app-integrations/comments/#convConfigObject.
  *Note that due to the fact that data attributes are case-insensitive, it would be impossible to set a property like 'disableAvatars'. There livefyre configuration objects with camelCase should be set in the following way: e.g. data-o-comments-config-livefyre--disable-avatars. This is automatically transformed to the right format.*
@@ -453,10 +451,3 @@ Works in accordance with our [support policy](https://docs.google.com/a/ft.com/d
 
 ## <div id="core"></div> Core/Enhanced Experience
 Only the enhanced experience offers any kind of commenting functionality. Core functionality will be added in due course.
-
-## <div id="moderation"></div> Moderation
-Moderators review certain comments posted by users on FT platforms. Moderation is important but expensive: so various comments are categorised so that different moderation teams can effectively manage the comments they have responsibility for.
-
-This does add some complexity though, and it places some constraints on where comments can be used. There are 2 ways in which the categorisation happens: Using the URL of the page where the comments appear (used for blogs) or by looking up the Content API using the passed in UUID and using the returned metatdata. 
-
-If you cannot meet either of these criteria commenting will simply not work. This is going to change though and in the future you will be able to explicitly define which team should moderate the comments generated on your page/article/story/thing.

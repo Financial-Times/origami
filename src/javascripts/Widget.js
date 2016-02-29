@@ -98,9 +98,6 @@ function Widget () {
 	const stringOverrides = self.config.stringOverrides ? oCommentUtilities.merge({}, i18n.lfStringOverride, self.config.stringOverrides) : i18n.lfStringOverride;
 	self.config.stringOverrides = stringOverrides;
 
-	let lastBannedCommentId = null;
-	let lastBannedCommentDate = null;
-	let lastOwnCommentDate = null;
 	let destroyed = false;
 
 
@@ -271,8 +268,6 @@ function Widget () {
 									} else {
 										auth.pseudonymWasMissing = false;
 									}
-
-									handleNewCommentForBannedComments();
 
 									self.trigger('tracking.postComment', {
 										siteId: siteId,
@@ -446,26 +441,11 @@ function Widget () {
 	}
 
 	function handleStreamEventForBannedComments (eventData) {
-		if (eventData.comment && eventData.comment.visibility === 2 && !eventData.comment.updated) {
-			lastBannedCommentDate = new Date();
-			lastBannedCommentId = eventData.comment.commentId;
-			checkIfOwnCommentIsBanned();
-		}
-	}
-
-	function handleNewCommentForBannedComments () {
-		lastOwnCommentDate = new Date();
-		checkIfOwnCommentIsBanned();
-	}
-
-	function checkIfOwnCommentIsBanned () {
-		if (lastBannedCommentDate && lastOwnCommentDate) {
-			if (lastBannedCommentDate.getTime() - lastOwnCommentDate.getTime() <= 1000) {
-				self.ui.showOwnCommentBanned(lastBannedCommentId);
-
-				lastOwnCommentDate = null;
-				lastBannedCommentDate = null;
-				lastBannedCommentId = null;
+		if (eventData.comment) {
+			if (eventData.comment.visibility === 2) {
+				self.ui.showCommentBanned(eventData.comment.commentId);
+			} else if (eventData.comment.lastVisibility === 2 || eventData.comment.deleted === true) {
+				self.ui.removeCommentBanned(eventData.comment.commentId);
 			}
 		}
 	}
@@ -484,10 +464,6 @@ function Widget () {
 		}
 
 		self.lfWidget = null;
-
-		lastOwnCommentDate = null;
-		lastBannedCommentDate = null;
-		lastBannedCommentId = null;
 
 		globalEvents.off('auth.login', login);
 		globalEvents.off('auth.logout', logout);
