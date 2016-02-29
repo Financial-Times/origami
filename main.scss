@@ -23,7 +23,7 @@ $o-footer-spacing-unit: 20px;
 
 .o-footer {
 	@include oColorsFor(o-footer, text background);
-	font-size: 14px;
+	font-size: 16px;
 	margin-top: (2 * $o-footer-spacing-unit);
 	padding: 0;
 	border-top: 5px solid oColorsGetColorFor(o-footer-brand product-brand, background);
@@ -72,7 +72,7 @@ $o-footer-spacing-unit: 20px;
 	> a {
 		display: block; // Make links easier to tap by increasing their hitzone
 		text-decoration: none;
-		padding: 2px 0;
+		padding: 5px 0;
 		color: oColorsGetColorFor(o-footer-item, text);
 
 		.o-footer--theme-light & {
