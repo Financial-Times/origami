@@ -335,7 +335,7 @@ can be reported.
 A component can fire an `oErrors.log` event on its owned DOM to send an error report if
 `oErrors` has been configured on the page.
 
-`details`:
+`detail`:
 
 ```JS
 {
@@ -356,7 +356,7 @@ doThis().then(that).catch(function(e) {
 	// Send error to oErrors
 	var event = new CustomEvent('oErrors.log', {
 		bubbles: true,
-		details: {
+		detail: {
 			error: e,
 			info: { additional: "context" }
 		}
