@@ -1,10 +1,10 @@
 .o-header__edition-switch {
+	@include oColorsFor(o-header-edition-switch, text);
 	position: absolute;
 	font-size: 13px;
 	line-height: 1em;
 	top: oGridGutter(M) - 10;
 	left: oGridGutter(M);
-	color: oColorsGetPaletteColor('white');
 	z-index: 10;
 	padding: 10px;
 	display: none;
@@ -19,7 +19,7 @@
 }
 
 .o-header__edition-switch--open {
-	background-color: oColorsGetPaletteColor('cold-1');
+	@include oColorsFor(o-header-edition-switch, background);
 }
 
 .o-header__edition-switch-button {
@@ -31,19 +31,19 @@
 		content: '';
 		display: inline-block;
 		margin-left: 10px;
-		border-top: 8px solid oColorsGetPaletteColor('white');
+		border-top: 8px solid oColorsGetColorFor(o-header-edition-switch, border);
 		border-left: 6px solid transparent;
 		border-right: 6px solid transparent;
 
 		.o-header__edition-switch--open & {
 			border-top: 0;
-			border-bottom: 8px solid oColorsGetPaletteColor('white');
+			border-bottom: 8px solid oColorsGetColorFor(o-header-edition-switch, border);
 		}
 	}
 
 	&:hover,
 	&:focus {
-		border-bottom: 1px solid oColorsGetPaletteColor('white');
+		border-bottom: 1px solid oColorsGetColorFor(o-header-edition-switch, border);
 	}
 }
 
@@ -52,7 +52,7 @@
 	padding: 0;
 	list-style: none;
 	display: none;
-	border-top: 1px solid #808080;
+	border-top: 1px solid oColorsGetColorFor(o-header-edition-switch, border);
 
 	.o-header__edition-switch--open & {
 		display: block;
@@ -67,6 +67,6 @@
 
 	&:hover,
 	&:focus {
-		border-bottom: 1px solid oColorsGetPaletteColor('white');
+		border-bottom: 1px solid oColorsGetColorFor(o-header-edition-switch, border);
 	}
 }

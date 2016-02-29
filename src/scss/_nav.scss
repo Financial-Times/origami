@@ -1,7 +1,3 @@
-// width of the left column in mobile view of the menu
-// i.e. the headers of nav sections
-$o-header-mobile-width: 5;
-
 // This is applied to the <body> via JS, this does not comply
 // with the Origami spec, and issue #129 has been raised
 // It's used to avoid scrolling when the meganav
@@ -24,8 +20,7 @@ $o-header-mobile-width: 5;
 
 .o-header__nav,
 .o-header__meganav {
-	@include oColorsFor(o-header-nav, text background);
-
+	@include oColorsFor(o-header, background);
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -66,7 +61,7 @@ $o-header-mobile-width: 5;
 }
 
 .o-header__nav-link {
-	color: oColorsGetPaletteColor('white');
+	@include oColorsFor(o-header, text);
 	font-family: inherit;
 	text-decoration: none;
 	font-size: 16px;
@@ -84,7 +79,7 @@ $o-header-mobile-width: 5;
 	}
 
 	&[aria-selected="true"] {
-		background: oColorsGetPaletteColor('cold-1');
+		@include oColorsFor(o-header-nav-item-selected, background);
 	}
 
 	// Just in case a <button> is used
@@ -120,6 +115,7 @@ $o-header-mobile-width: 5;
 		@include oGridResetColumn;
 		text-align: left;
 		background-color: transparent;
+		color: inherit;
 
 		&:hover,
 		&:focus {
@@ -133,6 +129,7 @@ $o-header-mobile-width: 5;
 		padding: 10px 0 10px 15px;
 
 		@include oGridRespondTo($until: M) {
+			@include oColorsFor(o-header-mega-nav, text);
 			@include oGridColspan(12 - $o-header-mobile-width);
 			display: none;
 			position: absolute;
@@ -141,7 +138,6 @@ $o-header-mobile-width: 5;
 			bottom: 0;
 			padding: 0 0 0 15px;
 			min-height: 340px;
-			color: oColorsGetPaletteColor('grey-tint5');
 		}
 	}
 
@@ -157,7 +153,6 @@ $o-header-mobile-width: 5;
 .o-header__meganav-section-head {
 	@include oGridColspan($o-header-mobile-width);
 	@include _oHeaderButtonReset;
-	@include oColorsFor(o-header-nav, background);
 	padding: 0 15px;
 	margin: 0;
 	font-family: inherit;
@@ -167,23 +162,22 @@ $o-header-mobile-width: 5;
 	overflow: hidden;
 
 	@include oGridRespondTo($until: M) {
-		color: oColorsGetPaletteColor('white');
+		@include oColorsFor(o-header, background text);
 		text-align: right;
 		cursor: pointer;
 
 		&[aria-selected=true] {
-			@include oColorsFor(o-header-mega-nav, background);
+			@include oColorsFor(o-header-mega-nav, background text);
 			text-decoration: none;
 			font-weight: bold;
-			color: oColorsGetPaletteColor('grey-tint5');
 
 			span:after {
-				@include oFtIconsGetSvg(arrow-right, oColorsGetPaletteColor('grey-tint5'), 10);
+				@include oFtIconsGetSvg(arrow-right, oColorsGetColorFor(o-header-mega-nav, text), 10);
 			}
 		}
 
 		span:after {
-			@include oFtIconsGetSvg(arrow-right, oColorsGetColorFor(o-header-nav, text), 10);
+			@include oFtIconsGetSvg(arrow-right, oColorsGetColorFor(o-header, text), 10);
 			content: '';
 			padding-left: 1.3em;
 			margin-bottom: -0.05em;
@@ -213,7 +207,7 @@ $o-header-mobile-width: 5;
 }
 
 .o-header__meganav-link {
-	@include oColorsFor(o-header-nav, background);
+	@include oColorsFor(o-header, background);
 	color: inherit;
 	font-family: inherit;
 	text-decoration: none;
@@ -224,6 +218,7 @@ $o-header-mobile-width: 5;
 	min-height: 32px;
 
 	@include oGridRespondTo($until: M) {
+		@include oColorsFor(o-header, text);
 		@include oGridColspan($o-header-mobile-width);
 		text-align: right;
 	}
@@ -244,7 +239,7 @@ $o-header-mobile-width: 5;
 	text-transform: none;
 
 	&:before {
-		@include oFtIconsGetSvg(hamburger, oColorsGetColorFor(o-header-nav, text), 20);
+		@include oFtIconsGetSvg(hamburger, oColorsGetColorFor(o-header, text), 20);
 		content: '';
 		position: relative;
 		margin-right: 9px;
@@ -261,7 +256,7 @@ $o-header-mobile-width: 5;
 }
 
 .o-header__meganav-toggle--open {
-	@include oColorsFor(o-header-nav, text);
+	@include oColorsFor(o-header, text);
 	display: none;
 
 	@include oGridRespondTo(M) {
@@ -290,14 +285,12 @@ $o-header-mobile-width: 5;
 		}
 	}
 
-	@include oGridRespondTo(M) {
-		.o-header__meganav-toggle--close {
-			display: inline;
-		}
+	.o-header__meganav-toggle--close {
+		display: inline;
 	}
 
 	&:before {
-		@include oFtIconsGetSvg(cross, oColorsGetColorFor(o-header-nav, text), 20);
+		@include oFtIconsGetSvg(cross, oColorsGetColorFor(o-header, text), 20);
 	}
 
 	.o-header__meganav-toggle--open {

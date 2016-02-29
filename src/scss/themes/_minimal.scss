@@ -1,0 +1,25 @@
+.o-header--minimal {
+	.o-header__masthead-mobile {
+		display: block;
+	}
+
+	.o-header__nav-item {
+		display: none;
+	}
+
+	.o-header__meganav-container {
+		position: absolute;
+		width: 100%;
+		display: inline-block;
+		top: -#{$o-header-bottom-height};
+	}
+
+	.o-header__meganav-toggle {
+		display: none;
+	}
+
+	.o-header__nav-link--toggle[aria-pressed=true] .o-header__meganav-toggle {
+		display: none;
+	}
+}
+
