@@ -12,6 +12,7 @@
 .o-header__nav-container {
 	position: absolute;
 	top: 0;
+	height: $o-header-bottom-height;
 
 	@include oGridRespondTo(M) {
 		position: relative;

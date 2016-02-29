@@ -87,6 +87,10 @@
 		}
 	}
 
+	.o-header__search-input {
+		@include oColorsFor(o-header--light, text);
+	}
+
 	.o-header__typeahead-view-all button {
 		@include oColorsFor(o-header--light, background text);
 
