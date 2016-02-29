@@ -1,5 +1,4 @@
 /*global require, describe, it, afterEach */
-'use strict';
 
 const assert = require('assert');
 const User = require('../../src/javascript/core/user');

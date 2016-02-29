@@ -1,5 +1,4 @@
 /* global sinon*/
-'use strict';
 
 const transports = require('../src/javascript/core/transports');
 

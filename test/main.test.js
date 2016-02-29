@@ -1,5 +1,4 @@
 /*global require, describe, it, before, after, sinon */
-'use strict';
 
 const assert = require("assert");
 const settings = require("../src/javascript/core/settings");

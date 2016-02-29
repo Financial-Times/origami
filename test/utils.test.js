@@ -1,5 +1,4 @@
 /*global require, describe, it, sinon */
-'use strict';
 
 const assert = require('assert');
 const Utils = require('../src/javascript/utils');

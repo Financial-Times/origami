@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
 	xhr: require('./xhr'),
 	sendBeacon: require('./send-beacon'),
