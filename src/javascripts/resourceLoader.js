@@ -56,7 +56,7 @@ exports.loadLivefyreCore = (function () {
 						if (typeof Livefyre === 'undefined') {
 							status.loaded = true;
 							status.status = 'error';
-							status.error = new Error('Script not loaded.');
+							status.error = new Error('Livefyre core JS Script not loaded.');
 							status.event.trigger('done');
 
 							globalEvents.trigger('error.livefyreJs', status.error);
