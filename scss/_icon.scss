@@ -7,12 +7,12 @@
 /// }
 ///
 /// @param {String} $icon-name, any icon name found in o-ft-icons
-/// @param {String} $theme, any theme name as defined in $o-buttons-themes
-/// @param {String} $size, any size as defined in $o-buttons-sizes
+/// @param {String} $theme, any theme name as defined in $o-buttons-themes (standard, standout, etc). Defaults to null, which will output for the 'standard' theme
+/// @param {String} $button-class, defaults to o-buttons ($o-buttons-class' default value)
 ///
 
 
-@mixin oButtonsIcon($icon-name, $theme, $buttonClass: $o-buttons-class) {
+@mixin oButtonsIcon($icon-name, $theme: standard, $buttonClass: $o-buttons-class) {
 // Browserhack to only apply these styles for IE7 and up. IE6 will get the
 // text fallback. Hack documented here: http://browserhacks.com/#hack-da690292d4fddd94dc7bdd50e38b5713
   html > body .#{$buttonClass}-icon {
@@ -25,10 +25,13 @@
     }
 
     &.#{$buttonClass}-icon--#{$icon-name} {
-      $standard-color: _oButtonsStateGetProperty(standard, normal, color);
-      @include oFtIconsGetSvg($icon-name: $icon-name, $apply-base-styles: false, $color: $standard-color);
 
-      &.#{$buttonClass}--#{$theme} { // .standard, standout, etc
+      @if $theme == 'standard' {
+        $theme-selector: '&';
+      } @else {
+        $theme-selector: '&.#{$buttonClass}--#{$theme}';
+      }
+      #{$theme-selector} {
 
         $states: map-get($o-buttons-themes, $theme); // normal, active, hover, focus, pressedselected, disabled
 
