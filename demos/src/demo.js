@@ -2,29 +2,25 @@
 
 (function() {
 
-	require('./../../main').wrap();
+	const oTable = require('./../../main');
+    oTable.wrap();
 
-	let tableEls;
-	let checkboxEls;
+	const tableEls = Array.from(document.querySelectorAll('.o-table'));
+	const checkboxEls = Array.from(document.querySelectorAll('input[type=checkbox]'));
 
 	function checkboxChangeHandler(ev) {
 		const cssClass = ev.target.getAttribute('data-switch-class');
-		let c;
-		let l;
 
-		for (c = 0, l = tableEls.length; c < l; c++) {
+		tableEls.forEach(tableEl => {
 			if (ev.target.checked) {
-				tableEls[c].classList.add(cssClass);
+				tableEl.classList.add(cssClass);
 			} else {
-				tableEls[c].classList.remove(cssClass);
+				tableEl.classList.remove(cssClass);
 			}
-		}
+		})
 	}
 
-	tableEls = document.querySelectorAll('.o-table');
-	checkboxEls = document.querySelectorAll('input[type=checkbox]');
-
-	for (let c = 0, l = checkboxEls.length; c < l; c++) {
-		checkboxEls[c].addEventListener('change', checkboxChangeHandler, false);
-	}
+	checkboxEls.forEach(checkboxEl => {
+		checkboxEl.addEventListener('change', checkboxChangeHandler, false);
+	})
 }());
