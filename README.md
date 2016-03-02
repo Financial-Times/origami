@@ -9,7 +9,7 @@ Buttons come in four themes ([documentation](#theme-modifiers)):
 * __uncolored__: monochrome
 * __inverse__: for use on dark backgrounds
 
-and two sizes ([documentation](#size-modifiers)):
+and the following sizes ([documentation](#size-modifiers)):
 
 * __small__: 22px high
 * __default__: 26px high
