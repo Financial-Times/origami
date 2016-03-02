@@ -7,7 +7,7 @@
 /// }
 ///
 /// @param {String} $icon-name, any icon name found in o-ft-icons
-/// @param {String} $theme, any theme name as defined in $o-buttons-themes (standard, standout, etc). Defaults to null, which will output for the 'standard' theme
+/// @param {String} $theme, any theme name as defined in $o-buttons-themes (standard, standout, etc). Defaults to standard.
 /// @param {String} $button-class, defaults to o-buttons ($o-buttons-class' default value)
 ///
 
@@ -32,7 +32,6 @@
         $theme-selector: '&.#{$buttonClass}--#{$theme}';
       }
       #{$theme-selector} {
-
         $states: map-get($o-buttons-themes, $theme); // normal, active, hover, focus, pressedselected, disabled
 
         @if map-has-key($states, normal) {
@@ -50,36 +49,33 @@
 
         @if map-has-key($states, disabled) {
           &[disabled] {
-              @include _oButtonsGetIconForThemeAndState($icon-name, $states, disabled);
-            }
+            @include _oButtonsGetIconForThemeAndState($icon-name, $states, disabled);
+          }
         }
-
 
         &:not([disabled]) {
           @if map-has-key($states, hover) {
-      	   &:focus:not(:hover),
-      	      #{$o-hoverable-if-hover-enabled} &:hover {
-                @include _oButtonsGetIconForThemeAndState($icon-name, $states, hover);
-              }
+            &:focus:not(:hover),
+            #{$o-hoverable-if-hover-enabled} &:hover {
+              @include _oButtonsGetIconForThemeAndState($icon-name, $states, hover);
             }
-            @if map-has-key($states, active) {
-  	           &:active {
-                 @include _oButtonsGetIconForThemeAndState($icon-name, $states, active);
-               }
-             }
+          }
+          @if map-has-key($states, active) {
+            &:active {
+              @include _oButtonsGetIconForThemeAndState($icon-name, $states, active);
+            }
+          }
 
-             @if map-has-key($states, focus) {
-               &:focus:not(:active):not(:hover) {
-                 @include _oButtonsGetIconForThemeAndState($icon-name, $states, focus);
-               }
-             }
-           }
-
-
-       }
-     }
-   }
- }
+          @if map-has-key($states, focus) {
+            &:focus:not(:active):not(:hover) {
+              @include _oButtonsGetIconForThemeAndState($icon-name, $states, focus);
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 @mixin _oButtonsGetIconForThemeAndState($icon-name, $state-list, $state) {
   $properties: map-get($state-list, $state);
