@@ -32,6 +32,7 @@ $o-buttons-font-weight: 600 !default; // Semibold
 /// @type Map
 $o-buttons-sizes: (
 	small: (
+		background-size: 12px,
 		font-size: 12px,
 		height: 22px,
 		padding-left: 7px,
@@ -39,6 +40,7 @@ $o-buttons-sizes: (
 		border-width: 1px,
 	),
 	medium: (
+		background-size: 16px,
 		font-size: 16px,
 		height: 26px,
 		padding-left: 8px,
@@ -46,6 +48,7 @@ $o-buttons-sizes: (
 		border-width: 1px,
 	),
 	big: (
+		background-size: 18px,
 		font-size: 18px,
 		height: 36px,
 		padding-left: 18px,
