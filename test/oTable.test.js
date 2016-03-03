@@ -148,9 +148,9 @@ describe('An oTable instance', () => {
         oTableEl = undefined;
 	});
 
-	it('is defined', () => {
+	xit('is defined', () => {
         testOTable = new OTable(oTableEl);
-		expect(typeof testOTable).not.to.be.undefined;
+		expect(testOTable).not.to.be.undefined;
 	});
     
     it('has the correct prototype', () => {
