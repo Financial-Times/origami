@@ -1,5 +1,4 @@
-/* global exports, document, HTMLElement, CustomEvent */
-'use strict';
+/* global exports, document, HTMLElement, CustomEvent, setImmediate */
 
 // TODO: Use Dom-Deletgate -- https://www.npmjs.com/package/dom-delegate
 

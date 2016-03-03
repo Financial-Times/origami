@@ -1,7 +1,7 @@
-/*global describe,beforeEach,afterEach,it*/
+/*global describe,beforeEach,afterEach,it,xit*/
 
 const sandbox = require('./helpers/sandbox');
-const oTable = require('./../main');
+const OTable = require('./../main');
 
 const chai = require('chai')
 chai.use(require('chai-dom'))
@@ -149,30 +149,30 @@ describe('An oTable instance', () => {
 	});
 
 	it('is defined', () => {
-        testOTable = new oTable(oTableEl);
+        testOTable = new OTable(oTableEl);
 		expect(typeof testOTable).not.to.be.undefined;
 	});
     
     it('has the correct prototype', () => {
-        testOTable = new oTable(oTableEl);
+        testOTable = new OTable(oTableEl);
         expect(Object.getPrototypeOf(testOTable)).to.equal(oTable.prototype); 
     });
 
     it('sets a data attribute on the root element of the component to indicate the JS has executed', (done) => {
-        testOTable = new oTable(oTableEl);
+        testOTable = new OTable(oTableEl);
         expect(oTableEl.hasAttribute('data-o-table--js')).to.be.true;
         setTimeout(done,500)
     });
     
     it('fires an "oTable.ready" event when the JS for the component has executed', done => {
-        testOTable = new oTable(oTableEl);
+        testOTable = new OTable(oTableEl);
         oTableEl.addEventListener('oTable.ready', function() {
             done();
         });
     });
     
     it('sorts by ascending order first if not told otherwise', done => {
-        testOTable = new oTable(oTableEl);
+        testOTable = new OTable(oTableEl);
         // TODO - Add a click polyfill to polyfill-service
         const click = document.createEvent("MouseEvent");
         click.initMouseEvent("click", true, true, window,
@@ -187,7 +187,7 @@ describe('An oTable instance', () => {
     });
     
     it('adds a sort order data attribute to the root element of the component', done => {
-        testOTable = new oTable(oTableEl);
+        testOTable = new OTable(oTableEl);
         // TODO - Add a click polyfill to polyfill-service
         const click = document.createEvent("MouseEvent");
         click.initMouseEvent("click", true, true, window,
@@ -200,7 +200,7 @@ describe('An oTable instance', () => {
     });
     
     xit('alternates sorting between ascending and descending', done => {
-        testOTable = new oTable(oTableEl);
+        testOTable = new OTable(oTableEl);
         // TODO - Add a click polyfill to polyfill-service
         const click = document.createEvent("MouseEvent");
         click.initMouseEvent("click", true, true, window,
@@ -217,7 +217,7 @@ describe('An oTable instance', () => {
     });
     
     it('sorts strings alphabetically', done => {
-        testOTable = new oTable(oTableEl);
+        testOTable = new OTable(oTableEl);
         // TODO - Add a click polyfill to polyfill-service
         const click = document.createEvent("MouseEvent");
         click.initMouseEvent("click", true, true, window,
@@ -254,7 +254,7 @@ describe('An oTable instance', () => {
             </table>
         `);
         oTableEl = document.querySelector('[data-o-component=o-table]');
-        testOTable = new oTable(oTableEl);
+        testOTable = new OTable(oTableEl);
         // TODO - Add a click polyfill to polyfill-service
         const click = document.createEvent("MouseEvent");
         click.initMouseEvent("click", true, true, window,
@@ -291,7 +291,7 @@ describe('An oTable instance', () => {
             </table>
         `);
         oTableEl = document.querySelector('[data-o-component=o-table]');
-        testOTable = new oTable(oTableEl);
+        testOTable = new OTable(oTableEl);
         // TODO - Add a click polyfill to polyfill-service
         const click = document.createEvent("MouseEvent");
         click.initMouseEvent("click", true, true, window,
