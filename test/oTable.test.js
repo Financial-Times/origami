@@ -1,4 +1,4 @@
-/*global describe,beforeEach,afterEach,it,xit*/
+/*global describe,beforeEach,afterEach,it,xit, document, window*/
 
 const sandbox = require('./helpers/sandbox');
 const OTable = require('./../main');
@@ -19,7 +19,7 @@ describe("wrap()", () => {
 	});
 
 	it("is defined", () => {
-		expect(oTable.wrap).not.to.be.undefined;
+		expect(OTable.wrap).not.to.be.undefined;
 	});
 
 });
@@ -29,7 +29,7 @@ describe("wrap() - default classes", () => {
     beforeEach(() => {
         sandbox.init();
         sandbox.setContents('<p>Content before</p><table id="initiallyUnwrappedTable" class="o-table"></table><p>Content middle</p><div class="o-table-wrapper"><table id="initiallyWrappedTable" class="o-table"></table></div><p>Content after</p>');
-        oTable.wrap();
+        OTable.wrap();
     });
 
     afterEach(() => {
@@ -50,7 +50,7 @@ describe("wrap() - default classes", () => {
     });
 
     it("doesn't re-wrap tables", () => {
-        oTable.wrap();
+        OTable.wrap();
         expect(document.getElementById("initiallyUnwrappedTable").parentNode.parentNode.classList.contains("o-table-wrapper")).to.be.false;
     });
 
@@ -61,7 +61,7 @@ describe("wrap() - custom classes", () => {
 	beforeEach(() => {
 		sandbox.init();
 		sandbox.setContents('<p>Content before</p><table id="tableNotToWrap" class="o-table"></table><p>Content middle</p><div class="test-container"><table id="initiallyUnwrappedTable" class="o-table"></table><div class="test-wrapper"><table id="initiallyWrappedTable" class="o-table"></table></div><p>Content after</p></div>');
-		oTable.wrap(".test-container table", "test-wrapper");
+		OTable.wrap(".test-container table", "test-wrapper");
 	});
 
 	afterEach(() => {
@@ -81,7 +81,7 @@ describe("wrap() - custom classes", () => {
 	});
 
 	it("doesn't re-wrap tables", () => {
-		oTable.wrap(".test-container table", "test-wrapper");
+		OTable.wrap(".test-container table", "test-wrapper");
 		expect(document.getElementById("initiallyUnwrappedTable").parentNode.parentNode.classList.contains("test-wrapper")).to.be.false;
 	});
 
@@ -90,27 +90,27 @@ describe("wrap() - custom classes", () => {
 describe("oTable API", () => {
 
 	it("is defined", () => {
-		expect(oTable).to.be.a('function');
+		expect(OTable).to.be.a('function');
 	});
     
     it('has a static init method', () => {
-		expect(oTable.init).to.be.a('function');
+		expect(OTable.init).to.be.a('function');
 	});
     
     it('has a destroy instance method', () => {
-		expect(oTable.prototype.destroy).to.be.a('function');
+		expect(OTable.prototype.destroy).to.be.a('function');
 	});
     
     it('has a removeEventListeners instance method', () => {
-		expect(oTable.prototype.removeEventListeners).to.be.a('function');
+		expect(OTable.prototype.removeEventListeners).to.be.a('function');
 	});
     
     it('has a sortRowsByColumn instance method', () => {
-		expect(oTable.prototype.sortRowsByColumn).to.be.a('function');
+		expect(OTable.prototype.sortRowsByColumn).to.be.a('function');
 	});
     
     it('has a dispatch instance method', () => {
-		expect(oTable.prototype.dispatch).to.be.a('function');
+		expect(OTable.prototype.dispatch).to.be.a('function');
 	});
 
 });
@@ -155,7 +155,7 @@ describe('An oTable instance', () => {
     
     it('has the correct prototype', () => {
         testOTable = new OTable(oTableEl);
-        expect(Object.getPrototypeOf(testOTable)).to.equal(oTable.prototype); 
+        expect(Object.getPrototypeOf(testOTable)).to.equal(OTable.prototype); 
     });
 
     it('sets a data attribute on the root element of the component to indicate the JS has executed', (done) => {
