@@ -10,9 +10,9 @@ function OTable(rootEl) {
             } else {
                 this.rootEl.setAttribute('data-o-table-order', 'DES');
             }
-            this.sortRowsByColumn(columnIndex, this.rootEl.getAttribute('data-o-table-order') === "ASC", event.currentTarget.getAttribute('data-o-table-data-type') === 'numeric')
-        }
-    }
+            this.sortRowsByColumn(columnIndex, this.rootEl.getAttribute('data-o-table-order') === "ASC", event.currentTarget.getAttribute('data-o-table-data-type') === 'numeric');
+        };
+    };
     
 	if (!rootEl) {
 		rootEl = document.body;
@@ -58,7 +58,7 @@ OTable.prototype.dispatch = function (event, data = {}, namespace = 'oTable') {
             bubbles: true
         }));
     });
-}
+};
 
 OTable.prototype.removeEventListeners = function () {
     const tableHeaders = Array.from(this.rootEl.querySelectorAll('thead th'));
@@ -66,7 +66,7 @@ OTable.prototype.removeEventListeners = function () {
     tableHeaders.forEach((th, columnIndex) => {
         th.removeEventListener('click', this.listeners[columnIndex]);
     });
-}
+};
 
 function ascendingSort (a, b) {
     if (a < b) {
@@ -122,7 +122,7 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
     });
     
     this.dispatch('sorted');
-}
+};
 
 /**
  * Destroys the instance, removing any event listeners that were added
@@ -171,7 +171,7 @@ OTable.wrap = function wrap(tableSelector, wrapClass) {
 			}
 		}
 	}
-}
+};
 
 function wrapElement(targetEl, wrapEl) {
 	const parentEl = targetEl.parentNode;

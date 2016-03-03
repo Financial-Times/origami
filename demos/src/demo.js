@@ -17,10 +17,10 @@
 			} else {
 				tableEl.classList.remove(cssClass);
 			}
-		})
+		});
 	}
 
 	checkboxEls.forEach(checkboxEl => {
 		checkboxEl.addEventListener('change', checkboxChangeHandler, false);
-	})
+	});
 }());

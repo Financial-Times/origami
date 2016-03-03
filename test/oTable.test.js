@@ -3,8 +3,8 @@
 const sandbox = require('./helpers/sandbox');
 const OTable = require('./../main');
 
-const chai = require('chai')
-chai.use(require('chai-dom'))
+const chai = require('chai');
+chai.use(require('chai-dom'));
 const expect = chai.expect;
 
 
@@ -158,10 +158,9 @@ describe('An oTable instance', () => {
         expect(Object.getPrototypeOf(testOTable)).to.equal(OTable.prototype); 
     });
 
-    it('sets a data attribute on the root element of the component to indicate the JS has executed', (done) => {
+    it('sets a data attribute on the root element of the component to indicate the JS has executed', () => {
         testOTable = new OTable(oTableEl);
         expect(oTableEl.hasAttribute('data-o-table--js')).to.be.true;
-        setTimeout(done,500)
     });
     
     it('fires an "oTable.ready" event when the JS for the component has executed', done => {
