@@ -4,7 +4,7 @@
 // TODO: Use Dom-Deletgate -- https://www.npmjs.com/package/dom-delegate
 
 function OTable(rootEl) {
-    const sortByColumn = columnIndex => {
+    const sortByColumn = function(columnIndex) {
         return function (event) {
             if (this.rootEl.getAttribute('data-o-table-order') === null || this.rootEl.getAttribute('data-o-table-order') === "DES") {
                 this.rootEl.setAttribute('data-o-table-order', 'ASC');
@@ -20,7 +20,6 @@ function OTable(rootEl) {
 	} else if (!(rootEl instanceof HTMLElement)) {
 		rootEl = document.querySelector(rootEl);
 	}
-
 	if (rootEl.getAttribute('data-o-component') === "o-table") {
 		this.rootEl = rootEl;
 	} else {
@@ -35,11 +34,12 @@ function OTable(rootEl) {
         const tableHeaders = Array.from(this.rootEl.querySelectorAll('thead th'));
         
         tableHeaders.forEach((th, columnIndex) => {
-            const listener = sortByColumn(columnIndex);
+            const listener = sortByColumn(columnIndex).bind(this);
             this.listeners.push(listener);
             th.addEventListener('click', listener);
 		});
 	}
+    
     
     this.dispatch('ready', {
         oTable: this
@@ -53,10 +53,12 @@ function OTable(rootEl) {
  * @param  {String} namespace='oTable'
  */
 OTable.prototype.dispatch = function (event, data = {}, namespace = 'oTable') {
-    this.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
-        detail: data,
-        bubbles: true
-    }));
+    setImmediate(() => {
+        this.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
+            detail: data,
+            bubbles: true
+        }));
+    });
 }
 
 OTable.prototype.removeEventListeners = function () {
@@ -93,7 +95,6 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
     rows.sort(function (a, b) {
         let aCol = a.children[index];
         let bCol = b.children[index];
-        
         if (!isNaN(parseInt(aCol.getAttribute('data-o-table-order')))) {
             aCol = parseInt(aCol.getAttribute('data-o-table-order'));
             bCol = parseInt(bCol.getAttribute('data-o-table-order'));
@@ -120,6 +121,8 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
     rows.forEach(function(row) {
         tbody.appendChild(row);
     });
+    
+    this.dispatch('sorted');
 }
 
 /**

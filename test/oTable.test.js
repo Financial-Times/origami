@@ -1,7 +1,12 @@
-/*global describe,beforeEach,afterEach,it,expect*/
+/*global describe,beforeEach,afterEach,it*/
 
-import * as sandbox from './helpers/sandbox';
-import oTable from './../main';
+const sandbox = require('./helpers/sandbox');
+const oTable = require('./../main');
+
+const chai = require('chai')
+chai.use(require('chai-dom'))
+const expect = chai.expect;
+
 
 describe("wrap()", () => {
 
@@ -14,7 +19,7 @@ describe("wrap()", () => {
 	});
 
 	it("is defined", () => {
-		expect(oTable.wrap).toBeDefined();
+		expect(oTable.wrap).not.to.be.undefined;
 	});
 
 });
@@ -32,21 +37,21 @@ describe("wrap() - default classes", () => {
     });
 
     it("wraps table matching selector", () => {
-        expect(document.getElementById("initiallyUnwrappedTable").parentNode.classList.contains("o-table-wrapper")).toBe(true);
+        expect(document.getElementById("initiallyUnwrappedTable").parentNode.classList.contains("o-table-wrapper")).to.be.true;
     });
 
     it("preserves position in DOM", () => {
-        expect(document.querySelector(".sandbox").childNodes[1].classList.contains("o-table-wrapper")).toBe(true);
-        expect(document.querySelector(".sandbox").childNodes[1].querySelector('.o-table')).toEqual(document.getElementById("initiallyUnwrappedTable"));
+        expect(document.querySelector(".sandbox").childNodes[1].classList.contains("o-table-wrapper")).to.be.true;
+        expect(document.querySelector(".sandbox").childNodes[1].querySelector('.o-table')).to.equal(document.getElementById("initiallyUnwrappedTable"));
     });
 
     it("doesn't wrap already-wrapped tables", () => {
-        expect(document.getElementById("initiallyWrappedTable").parentNode.parentNode.classList.contains("o-table-wrapper")).toBe(false);
+        expect(document.getElementById("initiallyWrappedTable").parentNode.parentNode.classList.contains("o-table-wrapper")).to.be.false;
     });
 
     it("doesn't re-wrap tables", () => {
         oTable.wrap();
-        expect(document.getElementById("initiallyUnwrappedTable").parentNode.parentNode.classList.contains("o-table-wrapper")).toBe(false);
+        expect(document.getElementById("initiallyUnwrappedTable").parentNode.parentNode.classList.contains("o-table-wrapper")).to.be.false;
     });
 
 });
@@ -64,20 +69,20 @@ describe("wrap() - custom classes", () => {
 	});
 
 	it("wraps table matching selector", () => {
-		expect(document.getElementById("initiallyUnwrappedTable").parentNode.classList.contains("test-wrapper")).toBe(true);
+		expect(document.getElementById("initiallyUnwrappedTable").parentNode.classList.contains("test-wrapper")).to.be.true;
 	});
 
 	it("doesn't wrap tables that don't match selector", () => {
-		expect(document.getElementById("tableNotToWrap").parentNode.classList.contains("test-wrapper")).toBe(false);
+		expect(document.getElementById("tableNotToWrap").parentNode.classList.contains("test-wrapper")).to.be.false;
 	});
 
 	it("doesn't wrap already-wrapped tables", () => {
-		expect(document.getElementById("initiallyWrappedTable").parentNode.parentNode.classList.contains("test-wrapper")).toBe(false);
+		expect(document.getElementById("initiallyWrappedTable").parentNode.parentNode.classList.contains("test-wrapper")).to.be.false;
 	});
 
 	it("doesn't re-wrap tables", () => {
 		oTable.wrap(".test-container table", "test-wrapper");
-		expect(document.getElementById("initiallyUnwrappedTable").parentNode.parentNode.classList.contains("test-wrapper")).toBe(false);
+		expect(document.getElementById("initiallyUnwrappedTable").parentNode.parentNode.classList.contains("test-wrapper")).to.be.false;
 	});
 
 });
@@ -85,27 +90,27 @@ describe("wrap() - custom classes", () => {
 describe("oTable API", () => {
 
 	it("is defined", () => {
-		expect(typeof oTable).toBe('function');
+		expect(oTable).to.be.a('function');
 	});
     
     it('has a static init method', () => {
-		expect(typeof oTable.init).toBe('function');
+		expect(oTable.init).to.be.a('function');
 	});
     
     it('has a destroy instance method', () => {
-		expect(typeof oTable.prototype.destroy).toBe('function');
+		expect(oTable.prototype.destroy).to.be.a('function');
 	});
     
     it('has a removeEventListeners instance method', () => {
-		expect(typeof oTable.prototype.removeEventListeners).toBe('function');
+		expect(oTable.prototype.removeEventListeners).to.be.a('function');
 	});
     
     it('has a sortRowsByColumn instance method', () => {
-		expect(typeof oTable.prototype.sortRowsByColumn).toBe('function');
+		expect(oTable.prototype.sortRowsByColumn).to.be.a('function');
 	});
     
     it('has a dispatch instance method', () => {
-		expect(typeof oTable.prototype.dispatch).toBe('function');
+		expect(oTable.prototype.dispatch).to.be.a('function');
 	});
 
 });
@@ -113,6 +118,7 @@ describe("oTable API", () => {
 describe('An oTable instance', () => {
     let oTableEl;
     let testOTable;
+
 	beforeEach(() => {
 		sandbox.init();
         sandbox.setContents(`
@@ -137,95 +143,172 @@ describe('An oTable instance', () => {
 	});
 
 	afterEach(() => {
-		testOTable.destroy();
+		testOTable = undefined;
 		sandbox.reset();
+        oTableEl = undefined;
 	});
 
 	it('is defined', () => {
         testOTable = new oTable(oTableEl);
-		expect(typeof testOTable).toBeDefined();
+		expect(typeof testOTable).not.to.be.undefined;
 	});
     
     it('has the correct prototype', () => {
         testOTable = new oTable(oTableEl);
-       expect(Object.getPrototypeOf(testOTable)).toBe(oTable.prototype); 
+        expect(Object.getPrototypeOf(testOTable)).to.equal(oTable.prototype); 
     });
 
-    it('sets a data attribute on the root element of the component to indicate the JS has executed', () => {
+    it('sets a data attribute on the root element of the component to indicate the JS has executed', (done) => {
         testOTable = new oTable(oTableEl);
-        expect(oTableEl.hasAttribute('data-o-table--js')).toBe(true);
+        expect(oTableEl.hasAttribute('data-o-table--js')).to.be.true;
+        setTimeout(done,500)
     });
     
-    xit('fires an "oTable.ready" event when the JS for the component has executed', done => {
+    it('fires an "oTable.ready" event when the JS for the component has executed', done => {
+        testOTable = new oTable(oTableEl);
         oTableEl.addEventListener('oTable.ready', function() {
             done();
         });
+    });
+    
+    it('sorts by ascending order first if not told otherwise', done => {
         testOTable = new oTable(oTableEl);
+        // TODO - Add a click polyfill to polyfill-service
+        const click = document.createEvent("MouseEvent");
+        click.initMouseEvent("click", true, true, window,
+            0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        oTableEl.querySelector('thead th').dispatchEvent(click);
+        oTableEl.addEventListener('oTable.sorted', () => {
+            expect(oTableEl.querySelectorAll('tbody tr td')[0]).to.have.text('cheddar');
+            expect(oTableEl.querySelectorAll('tbody tr td')[1]).to.have.text('red leicester');
+            expect(oTableEl.querySelectorAll('tbody tr td')[2]).to.have.text('stilton');
+            done();
+        });
     });
     
-    describe('sorting', () => {
-        xit('sorts by ascending order first if not told otherwise', done => {
-            testOTable = new oTable(oTableEl);
-            // TODO - Add a click polyfill to polyfill-service
-            const click = document.createEvent("MouseEvent");
-            click.initMouseEvent("click", true, true, window,
-                0, 0, 0, 0, 0, false, false, false, false, 0, null);
-            oTableEl.querySelector('thead th').dispatchEvent(click);
-            setTimeout(() => {
-                expect(oTableEl.querySelectorAll('tbody tr')[0].textContent).toBe('cheddar');
-                expect(oTableEl.querySelectorAll('tbody tr')[1].textContent).toBe('red leicester');
-                expect(oTableEl.querySelectorAll('tbody tr')[2].textContent).toBe('stilton');
-                done();
-            }, 500);
+    it('adds a sort order data attribute to the root element of the component', done => {
+        testOTable = new oTable(oTableEl);
+        // TODO - Add a click polyfill to polyfill-service
+        const click = document.createEvent("MouseEvent");
+        click.initMouseEvent("click", true, true, window,
+            0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        oTableEl.querySelector('thead th').dispatchEvent(click);
+        oTableEl.addEventListener('oTable.sorted', () => {
+            expect(oTableEl).to.have.attribute('data-o-table-order', 'ASC');
+            done();
         });
-        
-        xit('adds a sort order data attribute to the root element of the component', done => {
-            testOTable = new oTable(oTableEl);
-            // TODO - Add a click polyfill to polyfill-service
-            const click = document.createEvent("MouseEvent");
-            click.initMouseEvent("click", true, true, window,
-                0, 0, 0, 0, 0, false, false, false, false, 0, null);
-            oTableEl.querySelector('thead th').dispatchEvent(click);
-            setTimeout(() => {
-                expect(oTableEl.getAttribute('data-o-table-order')).toBe('ASC');
-                done();
-            }, 500);
-        });
-        
-        xit('alternates sorting between ascending and descending', done => {
-            testOTable = new oTable(oTableEl);
-            // TODO - Add a click polyfill to polyfill-service
-            const click = document.createEvent("MouseEvent");
-            click.initMouseEvent("click", true, true, window,
-                0, 0, 0, 0, 0, false, false, false, false, 0, null);
-            oTableEl.querySelector('thead th').dispatchEvent(click);
-            setTimeout(() => {
-                expect(oTableEl.querySelectorAll('tbody tr')[0].textContent).toBe('cheddar');
-                expect(oTableEl.querySelectorAll('tbody tr')[1].textContent).toBe('red leicester');
-                expect(oTableEl.querySelectorAll('tbody tr')[2].textContent).toBe('stilton');
-                expect(oTableEl.getAttribute('data-o-table-order')).toBe('ASC');
-            }, 500);
-            oTableEl.querySelector('thead th').dispatchEvent(click);
-            setTimeout(() => {
-                expect(oTableEl.getAttribute('data-o-table-order')).toBe('DES');
-                expect(oTableEl.querySelectorAll('tbody tr')[2].textContent).toBe('stilton');
-                expect(oTableEl.querySelectorAll('tbody tr')[1].textContent).toBe('red leicester');
-                expect(oTableEl.querySelectorAll('tbody tr')[0].textContent).toBe('cheddar');
-            }, 500);
-        });
-        
-        xit('sorts strings alphabetically')
-        xit('sorts columns marked as numeric, numerically')
-        xit('sorts via data-o-table-order if it is set')
     });
     
-    describe('destroying', () => {
-        xit('removes all event listeners which were added by the component')
-        xit('removes the rootEl property from the object')
-        xit('removes the data attribute which was added during JS initialisation')
-    })
+    xit('alternates sorting between ascending and descending', done => {
+        testOTable = new oTable(oTableEl);
+        // TODO - Add a click polyfill to polyfill-service
+        const click = document.createEvent("MouseEvent");
+        click.initMouseEvent("click", true, true, window,
+            0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        oTableEl.querySelector('thead th').dispatchEvent(click);
+        oTableEl.querySelector('thead th').dispatchEvent(click);
+        oTableEl.addEventListener('oTable.sorted', () => {
+            expect(oTableEl).to.have.attribute('data-o-table-order', 'DES');
+            expect(oTableEl.querySelectorAll('tbody tr td')[2]).to.have.text('stilton');
+            expect(oTableEl.querySelectorAll('tbody tr td')[1]).to.have.text('red leicester');
+            expect(oTableEl.querySelectorAll('tbody tr td')[0]).to.have.text('cheddar');
+            done();
+        });
+    });
     
-    describe('init', () =>{
-      xit('instantiates every o-table piece of markup within the element given')  
-    })
+    it('sorts strings alphabetically', done => {
+        testOTable = new oTable(oTableEl);
+        // TODO - Add a click polyfill to polyfill-service
+        const click = document.createEvent("MouseEvent");
+        click.initMouseEvent("click", true, true, window,
+            0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        oTableEl.querySelector('thead th').dispatchEvent(click);
+        oTableEl.addEventListener('oTable.sorted', () => {
+            expect(oTableEl.querySelectorAll('tbody tr td')[0]).to.have.text('cheddar');
+            expect(oTableEl.querySelectorAll('tbody tr td')[1]).to.have.text('red leicester');
+            expect(oTableEl.querySelectorAll('tbody tr td')[2]).to.have.text('stilton');
+            expect(oTableEl).to.have.attribute('data-o-table-order', 'ASC');
+            done();
+        });
+    });
+
+    it('sorts columns marked as numeric, numerically', done => {
+        sandbox.reset();
+        sandbox.init();
+        sandbox.setContents(`
+            <table class="o-table" data-o-component="o-table">
+                <thead>
+                    <th data-o-table-data-type="numeric">Price</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-o-table-data-type="numeric">12.03</td>
+                    </tr>
+                    <tr>
+                        <td data-o-table-data-type="numeric">1.2</td>
+                    </tr>
+                    <tr>
+                        <td data-o-table-data-type="numeric">3</td>
+                    </tr>
+                </tbody>
+            </table>
+        `);
+        oTableEl = document.querySelector('[data-o-component=o-table]');
+        testOTable = new oTable(oTableEl);
+        // TODO - Add a click polyfill to polyfill-service
+        const click = document.createEvent("MouseEvent");
+        click.initMouseEvent("click", true, true, window,
+            0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        oTableEl.querySelector('thead th').dispatchEvent(click);
+        oTableEl.addEventListener('oTable.sorted', () => {
+            expect(oTableEl.querySelectorAll('tbody tr td')[0]).to.have.text('1.2');
+            expect(oTableEl.querySelectorAll('tbody tr td')[1]).to.have.text('3');
+            expect(oTableEl.querySelectorAll('tbody tr td')[2]).to.have.text('12.03');
+            expect(oTableEl).to.have.attribute('data-o-table-order', 'ASC');
+            done();
+        });
+    });
+
+    it('sorts via data-o-table-order if it is set', done => {
+        sandbox.reset();
+        sandbox.init();
+        sandbox.setContents(`
+            <table class="o-table" data-o-component="o-table">
+                <thead>
+                    <th>Things</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-o-table-order=2>snowman</td>
+                    </tr>
+                    <tr>
+                        <td data-o-table-order=3>42</td>
+                    </tr>
+                    <tr>
+                        <td data-o-table-order=1>pangea</td>
+                    </tr>
+                </tbody>
+            </table>
+        `);
+        oTableEl = document.querySelector('[data-o-component=o-table]');
+        testOTable = new oTable(oTableEl);
+        // TODO - Add a click polyfill to polyfill-service
+        const click = document.createEvent("MouseEvent");
+        click.initMouseEvent("click", true, true, window,
+            0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        oTableEl.querySelector('thead th').dispatchEvent(click);
+        oTableEl.addEventListener('oTable.sorted', () => {
+            expect(oTableEl.querySelectorAll('tbody tr td')[0]).to.have.text('pangea');
+            expect(oTableEl.querySelectorAll('tbody tr td')[1]).to.have.text('snowman');
+            expect(oTableEl.querySelectorAll('tbody tr td')[2]).to.have.text('42');
+            expect(oTableEl).to.have.attribute('data-o-table-order', 'ASC');
+            done();
+        });
+    });
+    
+    
+    it('removes all event listeners which were added by the component');
+    it('removes the rootEl property from the object');
+    it('removes the data attribute which was added during JS initialisation');
+    it('instantiates every o-table piece of markup within the element given');  
 });
