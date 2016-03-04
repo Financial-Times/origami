@@ -303,11 +303,126 @@ describe('An oTable instance', () => {
             expect(oTableEl).to.have.attribute('data-o-table-order', 'ASC');
             done();
         });
+    });  
+});
+
+describe('Destroying an oTable instance', () => {
+    let oTableEl;
+    let testOTable;
+
+	beforeEach(() => {
+		sandbox.init();
+        sandbox.setContents(`
+            <table class="o-table" data-o-component="o-table">
+                <thead>
+                    <th>Cheese</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>cheddar</td>
+                    </tr>
+                    <tr>
+                        <td>stilton</td>
+                    </tr>
+                    <tr>
+                        <td>red leicester</td>
+                    </tr>
+                </tbody>
+            </table>
+        `);
+		oTableEl = document.querySelector('[data-o-component=o-table]');
+	});
+
+	afterEach(() => {
+		testOTable = undefined;
+		sandbox.reset();
+        oTableEl = undefined;
+	});
+
+    xit('when destroyed, removes all event listeners which were added by the component', () => {
+        testOTable = new OTable(oTableEl);
     });
     
-    
-    it('removes all event listeners which were added by the component');
-    it('removes the rootEl property from the object');
-    it('removes the data attribute which was added during JS initialisation');
-    it('instantiates every o-table piece of markup within the element given');  
+    it('when destroyed, removes the rootEl property from the object', () => {
+        testOTable = new OTable(oTableEl);
+        testOTable.destroy();
+        expect(testOTable.rootEl).to.be.undefined;
+    });
+
+    it('when destroyed, removes the data attribute which was added during JS initialisation', () => {
+        testOTable = new OTable(oTableEl);
+        testOTable.destroy();
+        expect(oTableEl.hasAttribute('data-o-table--js')).to.be.false;
+    });
+});
+
+describe('Init', () => {
+
+	beforeEach(() => {
+		sandbox.init();
+        sandbox.setContents(`
+            <table class="o-table" data-o-component="o-table">
+                <thead>
+                    <th>Cheese</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>cheddar</td>
+                    </tr>
+                    <tr>
+                        <td>stilton</td>
+                    </tr>
+                    <tr>
+                        <td>red leicester</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <table class="o-table" data-o-component="o-table">
+                <thead>
+                    <th>Cheese</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>cheddar</td>
+                    </tr>
+                    <tr>
+                        <td>stilton</td>
+                    </tr>
+                    <tr>
+                        <td>red leicester</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <table class="o-table" data-o-component="o-table">
+                <thead>
+                    <th>Cheese</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>cheddar</td>
+                    </tr>
+                    <tr>
+                        <td>stilton</td>
+                    </tr>
+                    <tr>
+                        <td>red leicester</td>
+                    </tr>
+                </tbody>
+            </table>
+        `);
+	});
+
+	afterEach(() => {
+		sandbox.reset();
+	});
+
+    it('instantiates every o-table piece of markup within the element given', () => {
+        OTable.init();
+        const tables = Array.from(document.body.querySelectorAll('[data-o-component=o-table]'));
+        tables.forEach(table => {
+            expect(table.hasAttribute('data-o-table--js')).to.be.true;
+        });
+    });
 });
