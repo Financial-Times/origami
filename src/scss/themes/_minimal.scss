@@ -3,6 +3,10 @@
 		display: block;
 	}
 
+	.o-header__nav-container {
+		height: 0;
+	}
+
 	.o-header__nav-item {
 		display: none;
 	}
@@ -11,15 +15,13 @@
 		position: absolute;
 		width: 100%;
 		display: inline-block;
-		top: -#{$o-header-bottom-height};
 	}
 
-	.o-header__meganav-toggle {
-		display: none;
-	}
-
-	.o-header__nav-link--toggle[aria-pressed=true] .o-header__meganav-toggle {
-		display: none;
+	@include oGridRespondTo(M) {
+		.o-header__nav-link--toggle {
+			position: absolute;
+			top: -#{$o-header-bottom-height};
+		}
 	}
 }
 
