@@ -1,4 +1,4 @@
-'use strict';
+/*global setImmediate, clearImmediate */
 
 /**
  * Initialises an o-table components inside the element passed as the first parameter

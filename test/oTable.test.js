@@ -1,4 +1,4 @@
-/*global describe,beforeEach,afterEach,it,xit*/
+/*global describe,beforeEach,afterEach,it*/
 
 const sandbox = require('./helpers/sandbox');
 const OTable = require('./../main');
