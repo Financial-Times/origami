@@ -16,9 +16,17 @@
 // Browserhack to only apply these styles for IE7 and up. IE6 will get the
 // text fallback. Hack documented here: http://browserhacks.com/#hack-da690292d4fddd94dc7bdd50e38b5713
   html > body .#{$buttonClass}-icon {
+
     display:inline-block;
     background-repeat: no-repeat;
-    background-position: 50%;
+    background-position: 3px;
+    padding-left: 22px;
+
+
+    &.o-buttons-icon--icon-only {
+      padding-left: 0px;
+      background-position: 50%;
+    }
 
     .#{$buttonClass}-icon__label {
       @include _oButtonsIconButtonLabel();
