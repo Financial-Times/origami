@@ -178,9 +178,10 @@ describe('An oTable instance', () => {
 			0, 0, 0, 0, 0, false, false, false, false, 0, null);
 		oTableEl.querySelector('thead th').dispatchEvent(click);
 		oTableEl.addEventListener('oTable.sorted', () => {
-			expect(oTableEl.querySelectorAll('tbody tr td')[0]).to.have.text('cheddar');
-			expect(oTableEl.querySelectorAll('tbody tr td')[1]).to.have.text('red leicester');
-			expect(oTableEl.querySelectorAll('tbody tr td')[2]).to.have.text('stilton');
+			const rows = oTableEl.querySelectorAll('tbody tr td');
+			expect(rows[0]).to.have.text('cheddar');
+			expect(rows[1]).to.have.text('red leicester');
+			expect(rows[2]).to.have.text('stilton');
 			done();
 		});
 	});
@@ -208,9 +209,10 @@ describe('An oTable instance', () => {
 		oTableEl.querySelector('thead th').dispatchEvent(click);
 		oTableEl.addEventListener('oTable.sorted', () => {
 			expect(oTableEl).to.have.attribute('data-o-table-order', 'DES');
-			expect(oTableEl.querySelectorAll('tbody tr td')[2]).to.have.text('stilton');
-			expect(oTableEl.querySelectorAll('tbody tr td')[1]).to.have.text('red leicester');
-			expect(oTableEl.querySelectorAll('tbody tr td')[0]).to.have.text('cheddar');
+			const rows = oTableEl.querySelectorAll('tbody tr td');
+			expect(rows[2]).to.have.text('stilton');
+			expect(rows[1]).to.have.text('red leicester');
+			expect(rows[0]).to.have.text('cheddar');
 			done();
 		});
 	});
@@ -223,9 +225,10 @@ describe('An oTable instance', () => {
 			0, 0, 0, 0, 0, false, false, false, false, 0, null);
 		oTableEl.querySelector('thead th').dispatchEvent(click);
 		oTableEl.addEventListener('oTable.sorted', () => {
-			expect(oTableEl.querySelectorAll('tbody tr td')[0]).to.have.text('cheddar');
-			expect(oTableEl.querySelectorAll('tbody tr td')[1]).to.have.text('red leicester');
-			expect(oTableEl.querySelectorAll('tbody tr td')[2]).to.have.text('stilton');
+			const rows = oTableEl.querySelectorAll('tbody tr td');
+			expect(rows[0]).to.have.text('cheddar');
+			expect(rows[1]).to.have.text('red leicester');
+			expect(rows[2]).to.have.text('stilton');
 			expect(oTableEl).to.have.attribute('data-o-table-order', 'ASC');
 			done();
 		});
@@ -260,9 +263,10 @@ describe('An oTable instance', () => {
 			0, 0, 0, 0, 0, false, false, false, false, 0, null);
 		oTableEl.querySelector('thead th').dispatchEvent(click);
 		oTableEl.addEventListener('oTable.sorted', () => {
-			expect(oTableEl.querySelectorAll('tbody tr td')[0]).to.have.text('1.2');
-			expect(oTableEl.querySelectorAll('tbody tr td')[1]).to.have.text('3');
-			expect(oTableEl.querySelectorAll('tbody tr td')[2]).to.have.text('12.03');
+			const rows = oTableEl.querySelectorAll('tbody tr td'); 
+			expect(rows[0]).to.have.text('1.2');
+			expect(rows[1]).to.have.text('3');
+			expect(rows[2]).to.have.text('12.03');
 			expect(oTableEl).to.have.attribute('data-o-table-order', 'ASC');
 			done();
 		});
@@ -297,9 +301,10 @@ describe('An oTable instance', () => {
 			0, 0, 0, 0, 0, false, false, false, false, 0, null);
 		oTableEl.querySelector('thead th').dispatchEvent(click);
 		oTableEl.addEventListener('oTable.sorted', () => {
-			expect(oTableEl.querySelectorAll('tbody tr td')[0]).to.have.text('pangea');
-			expect(oTableEl.querySelectorAll('tbody tr td')[1]).to.have.text('snowman');
-			expect(oTableEl.querySelectorAll('tbody tr td')[2]).to.have.text('42');
+			const rows = oTableEl.querySelectorAll('tbody tr td');
+			expect(rows[0]).to.have.text('pangea');
+			expect(rows[1]).to.have.text('snowman');
+			expect(rows[2]).to.have.text('42');
 			expect(oTableEl).to.have.attribute('data-o-table-order', 'ASC');
 			done();
 		});
