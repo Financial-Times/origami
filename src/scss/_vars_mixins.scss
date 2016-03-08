@@ -1,24 +1,19 @@
 $o-header-is-silent: true !default;
-$o-header-primary-height: 45px;
-$o-header-primary-background: #333333;
-$o-header-secondary-background: oColorsGetPaletteColor('grey-tint5');
+$o-header-bottom-height: 45px;
+// width of the left column in mobile view of the menu
+// i.e. the headers of nav sections
+$o-header-mobile-width: 5;
 
 @mixin oHeaderNavItem {
-	color: oColorsGetPaletteColor('white');
-	text-decoration: none;
 	display: block;
-	line-height: $o-header-primary-height;
 	padding: 0 4px;
-	font-size: 14px;
-	background: none;
 	border: 0;
+	background: none;
+	color: inherit;
+	font-size: 14px;
+	line-height: $o-header-bottom-height;
+	text-decoration: none;
 	cursor: pointer;
-
-	&:hover,
-	&:focus,
-	&[aria-pressed] {
-		background: $o-header-secondary-background;
-	}
 
 	@include oGridRespondTo(M) {
 		padding: 0 6px;
@@ -29,7 +24,7 @@ $o-header-secondary-background: oColorsGetPaletteColor('grey-tint5');
 		padding: 0 7px;
 		font-size: 16px;
 	}
-	
+
 	*:last-child > & {
 		padding-right: 0;
 	}
