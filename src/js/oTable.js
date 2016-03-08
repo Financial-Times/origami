@@ -1,4 +1,3 @@
-/* global exports, document, HTMLElement, CustomEvent, setImmediate */
 
 function OTable(rootEl) {    
 	if (!rootEl) {
