@@ -20,7 +20,7 @@ function OTable(rootEl) {
         const tableHeaders = Array.from(this.rootEl.querySelectorAll('thead th'));
         
         tableHeaders.forEach((th, columnIndex) => {
-            const listener = _sortByColumn(columnIndex).bind(this);
+            const listener = this._sortByColumn(columnIndex);
             this.listeners.push(listener);
             th.addEventListener('click', listener);
 		});
