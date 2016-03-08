@@ -6,7 +6,7 @@ const OTable = require('./../main');
 const chai = require('chai');
 chai.use(require('chai-dom'));
 const expect = chai.expect;
-
+const sinon = require('sinon/pkg/sinon');
 
 describe("wrap()", () => {
 
@@ -311,57 +311,6 @@ describe('An oTable instance', () => {
 	});
 });
 
-describe('Destroying an oTable instance', () => {
-	let oTableEl;
-	let testOTable;
-
-	beforeEach(() => {
-		sandbox.init();
-		sandbox.setContents(`
-			<table class="o-table" data-o-component="o-table">
-				<thead>
-					<th>Cheese</th>
-				</thead>
-				<tbody>
-					<tr>
-						<td>cheddar</td>
-					</tr>
-					<tr>
-						<td>stilton</td>
-					</tr>
-					<tr>
-						<td>red leicester</td>
-					</tr>
-				</tbody>
-			</table>
-		`);
-		oTableEl = document.querySelector('[data-o-component=o-table]');
-	});
-
-	afterEach(() => {
-		testOTable = undefined;
-		sandbox.reset();
-		oTableEl = undefined;
-	});
-
-	xit('when destroyed, removes all event listeners which were added by the component', () => {
-		testOTable = new OTable(oTableEl);
-		// spy on addeventlistener and remove event listener, checking the function being passed to both is the same
-	});
-
-	it('when destroyed, removes the rootEl property from the object', () => {
-		testOTable = new OTable(oTableEl);
-		testOTable.destroy();
-		expect(testOTable.rootEl).to.be.undefined;
-	});
-
-	it('when destroyed, removes the data attribute which was added during JS initialisation', () => {
-		testOTable = new OTable(oTableEl);
-		testOTable.destroy();
-		expect(oTableEl.hasAttribute('data-o-table--js')).to.be.false;
-	});
-});
-
 describe('Init', () => {
 
 	beforeEach(() => {
@@ -425,10 +374,84 @@ describe('Init', () => {
 	});
 
 	it('instantiates every o-table piece of markup within the element given', () => {
-		OTable.init();
-		const tables = Array.from(document.body.querySelectorAll('[data-o-component=o-table]'));
+		const oTables = OTable.init();
+		const tables = oTables.map(oTable => oTable.rootEl);
 		tables.forEach(table => {
 			expect(table.hasAttribute('data-o-table--js')).to.be.true;
 		});
+	});
+});
+
+describe('Destroying an oTable instance', () => {
+	let oTableEl;
+	let testOTable;
+
+	beforeEach(() => {
+		sandbox.init();
+		sandbox.setContents(`
+			<table class="o-table" data-o-component="o-table">
+				<thead>
+					<th>Cheese</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>cheddar</td>
+					</tr>
+					<tr>
+						<td>stilton</td>
+					</tr>
+					<tr>
+						<td>red leicester</td>
+					</tr>
+				</tbody>
+			</table>
+		`);
+		oTableEl = document.querySelector('[data-o-component=o-table]');
+	});
+
+	afterEach(() => {
+		testOTable = undefined;
+		sandbox.reset();
+		oTableEl = undefined;
+	});
+
+	it('when destroyed, removes all event listeners which were added by the component', () => {
+		const realAddEventListener = Element.prototype.addEventListener;
+		const addEventListenerSpy = sinon.spy();
+		Element.prototype.addEventListener = addEventListenerSpy;
+		
+		testOTable = new OTable(oTableEl);
+		
+		const columnHead = document.querySelector('th');
+		expect(addEventListenerSpy.calledOn(columnHead)).to.be.true;
+		expect(addEventListenerSpy.calledOnce).to.be.true;
+		
+		const columnHeadEventAndHandler = addEventListenerSpy.args[0];
+		
+		const realRemoveEventListener = Element.prototype.removeEventListener;
+		const removeEventListenerSpy = sinon.spy();
+		Element.prototype.removeEventListener = removeEventListenerSpy;
+		
+		testOTable.destroy();
+		
+		expect(removeEventListenerSpy.calledOn(columnHead)).to.be.true;
+		expect(removeEventListenerSpy.calledOnce).to.be.true;
+		
+		expect(removeEventListenerSpy.calledWith(...columnHeadEventAndHandler)).to.be.true;
+		
+		Element.prototype.addEventListener = realAddEventListener;
+		Element.prototype.removeEventListener = realRemoveEventListener;
+	});
+
+	it('when destroyed, removes the rootEl property from the object', () => {
+		testOTable = new OTable(oTableEl);
+		testOTable.destroy();
+		expect(testOTable.rootEl).to.be.undefined;
+	});
+
+	it('when destroyed, removes the data attribute which was added during JS initialisation', () => {
+		testOTable = new OTable(oTableEl);
+		testOTable.destroy();
+		expect(oTableEl.hasAttribute('data-o-table--js')).to.be.false;
 	});
 });

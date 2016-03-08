@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * Initialises an o-table components inside the element passed as the first parameter
+ *
+ * @param {(HTMLElement|string)} [el=document.body] - Element where to search for the o-table component. You can pass an HTMLElement or a selector string
+ * @returns {OTable} - A single OTable instance
+ */
 function OTable(rootEl) {
 	if (!rootEl) {
 		rootEl = document.body;
@@ -30,6 +36,7 @@ function OTable(rootEl) {
 		});
 	}
 }
+
 /**
  *
  * @private
@@ -46,6 +53,8 @@ OTable.prototype._sortByColumn = function _sortByColumn (columnIndex) {
 	}.bind(this);
 };
 
+let immediateID;
+
 /**
  * Helper function to dispatch namespaced events, namespace defaults to oTable
  * @param  {String} event
@@ -53,7 +62,7 @@ OTable.prototype._sortByColumn = function _sortByColumn (columnIndex) {
  * @param  {String} namespace='oTable'
  */
 OTable.prototype.dispatch = function (event, data = {}, namespace = 'oTable') {
-	setImmediate(() => {
+	immediateID = setImmediate(() => {
 		this.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
 			detail: data,
 			bubbles: true
@@ -61,6 +70,10 @@ OTable.prototype.dispatch = function (event, data = {}, namespace = 'oTable') {
 	});
 };
 
+/**
+ * Helper function to remove all event handlers which were added during instantiation of the component
+ * @returns {undefined}
+ */
 OTable.prototype.removeEventListeners = function () {
 	const tableHeaders = Array.from(this.rootEl.querySelectorAll('thead th'));
 
@@ -89,6 +102,13 @@ function descendingSort (a, b) {
 	}
 }
 
+/**
+ * Sorts the table by a specific column
+ * @param  {number} The index of the column to sort the table by
+ * @param  {bool} Which direction to sort in, ascending or descending
+ * @param  {bool} Whether the values in this column are numeric, if they are numeric we convert the contents into numbers
+ * @returns undefined
+ */
 OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericValue) {
 	const rows = Array.from(this.rootEl.querySelectorAll('tbody tr'));
 	const tbody = this.rootEl.querySelector('tbody');
@@ -126,9 +146,14 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
 };
 
 /**
- * Destroys the instance, removing any event listeners that were added
+ * Destroys the instance, removing any event listeners that were added during instatiation of the component
+ * @returns undefined
  */
 OTable.prototype.destroy = function() {
+	if (immediateID !== undefined) {
+		clearImmediate(immediateID);
+		immediateID = undefined;
+	}
 	this.rootEl.removeAttribute('data-o-table--js');
 	this.removeEventListeners();
 	delete this.rootEl;
