@@ -16,7 +16,7 @@ const transitionEventName = function(el) {
 };
 
 class Search {
-	static init(headerEl, config = {}) {
+	static init(headerEl) {
 		if (!headerEl) {
 			return;
 		}
