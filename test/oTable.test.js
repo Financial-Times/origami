@@ -1,4 +1,4 @@
-/*global describe,beforeEach,afterEach,it,xit, document, window*/
+/*global describe,beforeEach,afterEach,it,xit*/
 
 const sandbox = require('./helpers/sandbox');
 const OTable = require('./../main');
@@ -148,9 +148,9 @@ describe('An oTable instance', () => {
 		oTableEl = undefined;
 	});
 
-	xit('is defined', () => {
+	it('is defined', () => {
 		testOTable = new OTable(oTableEl);
-		expect(testOTable).not.to.be.undefined;
+		expect(testOTable).to.be.a('object');
 	});
 
 	it('has the correct prototype', () => {
@@ -199,7 +199,7 @@ describe('An oTable instance', () => {
 		});
 	});
 
-	xit('alternates sorting between ascending and descending', done => {
+	it('alternates sorting between ascending and descending', done => {
 		testOTable = new OTable(oTableEl);
 		// TODO - Add a click polyfill to polyfill-service
 		const click = document.createEvent("MouseEvent");
@@ -210,9 +210,9 @@ describe('An oTable instance', () => {
 		oTableEl.addEventListener('oTable.sorted', () => {
 			expect(oTableEl).to.have.attribute('data-o-table-order', 'DES');
 			const rows = oTableEl.querySelectorAll('tbody tr td');
-			expect(rows[2]).to.have.text('stilton');
+			expect(rows[0]).to.have.text('stilton');
 			expect(rows[1]).to.have.text('red leicester');
-			expect(rows[0]).to.have.text('cheddar');
+			expect(rows[2]).to.have.text('cheddar');
 			done();
 		});
 	});
@@ -346,6 +346,7 @@ describe('Destroying an oTable instance', () => {
 
 	xit('when destroyed, removes all event listeners which were added by the component', () => {
 		testOTable = new OTable(oTableEl);
+		// spy on addeventlistener and remove event listener, checking the function being passed to both is the same
 	});
 
 	it('when destroyed, removes the rootEl property from the object', () => {
