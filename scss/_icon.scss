@@ -34,43 +34,29 @@
       #{$theme-selector} {
         $states: map-get($o-buttons-themes, $theme); // normal, active, hover, focus, pressedselected, disabled
 
-        @if map-has-key($states, normal) {
-          @include _oButtonsGetIconForThemeAndState($icon-name, $states, normal);
+        @include _oButtonsGetIconForThemeAndState($icon-name, $states, normal);
+
+        // http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+        // http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+  	    &[aria-selected=true], // e.g. A selected tab or page number in pagination
+  	    &[aria-pressed=true] { // e.g. A "follow" button that is pressed
+          @include _oButtonsGetIconForThemeAndState($icon-name, $states, pressedselected);
         }
 
-        @if map-has-key($states, pressedselected) {
-          // http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
-          // http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
-    	    &[aria-selected=true], // e.g. A selected tab or page number in pagination
-    	    &[aria-pressed=true] { // e.g. A "follow" button that is pressed
-            @include _oButtonsGetIconForThemeAndState($icon-name, $states, pressedselected);
-          }
-        }
-
-        @if map-has-key($states, disabled) {
-          &[disabled] {
-            @include _oButtonsGetIconForThemeAndState($icon-name, $states, disabled);
-          }
+        &[disabled] {
+          @include _oButtonsGetIconForThemeAndState($icon-name, $states, disabled);
         }
 
         &:not([disabled]) {
-          @if map-has-key($states, hover) {
-            &:focus:not(:hover),
-            #{$o-hoverable-if-hover-enabled} &:hover {
-              @include _oButtonsGetIconForThemeAndState($icon-name, $states, hover);
-            }
+          &:active {
+            @include _oButtonsGetIconForThemeAndState($icon-name, $states, active);
           }
-          @if map-has-key($states, active) {
-            &:active {
-              @include _oButtonsGetIconForThemeAndState($icon-name, $states, active);
-            }
-          }
+        }
 
-          @if map-has-key($states, focus) {
-            &:focus:not(:active):not(:hover) {
-              @include _oButtonsGetIconForThemeAndState($icon-name, $states, focus);
-            }
-          }
+        // Hack to get the active state colour svg to download to prevent FOIC
+        &:after {
+          @include _oButtonsGetIconForThemeAndState($icon-name, $states, active);
+          content: '';
         }
       }
     }
@@ -78,10 +64,12 @@
 }
 
 @mixin _oButtonsGetIconForThemeAndState($icon-name, $state-list, $state) {
-  $properties: map-get($state-list, $state);
-  $icon-color: map-get($properties, color);
-  @if $icon-color != null {
-    @include oFtIconsGetSvg($icon-name: $icon-name, $apply-base-styles: false, $color: $icon-color);
+  @if map-has-key($state-list, $state) {
+    $properties: map-get($state-list, $state);
+    $icon-color: map-get($properties, color);
+    @if $icon-color != null {
+      @include oFtIconsGetSvg($icon-name: $icon-name, $apply-base-styles: false, $color: $icon-color);
+    }
   }
 }
 
