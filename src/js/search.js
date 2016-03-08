@@ -28,7 +28,6 @@ class Search {
 
 		const toggle = headerEl.querySelector('[data-o-header-togglable-search]');
 		const input = form.querySelector('input');
-		const placeholder = headerEl.querySelector('label');
 
 		const transition = transitionEventName(form);
 		const transitionHandler = function() {

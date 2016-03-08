@@ -1,0 +1,27 @@
+.o-header--minimal {
+	.o-header__masthead-mobile {
+		display: block;
+	}
+
+	.o-header__nav-container {
+		height: 0;
+	}
+
+	.o-header__nav-item {
+		display: none;
+	}
+
+	.o-header__meganav-container {
+		position: absolute;
+		width: 100%;
+		display: inline-block;
+	}
+
+	@include oGridRespondTo(M) {
+		.o-header__nav-link--toggle {
+			position: absolute;
+			top: -#{$o-header-bottom-height};
+		}
+	}
+}
+

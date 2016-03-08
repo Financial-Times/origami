@@ -13,18 +13,19 @@
 	cursor: pointer;
 	position: relative;
 	display: block;
-	height: 45px;
+	height: $o-header-bottom-height;
 	padding: 8px 0;
 	box-sizing: border-box;
+	z-index: 1;
 
 	&:after {
-		@include oFtIconsGetSvg(search, oColorsGetPaletteColor('white'), 20);
+		@include oFtIconsGetSvg(search, oColorsGetColorFor(o-header, text), 20);
 		content: '';
 		margin-left: 10px;
 	}
 
 	&[aria-pressed=true]:after {
-		@include oFtIconsGetSvg(cross, oColorsGetPaletteColor('white'), 20);
+		@include oFtIconsGetSvg(cross, oColorsGetColorFor(o-header, text), 20);
 	}
 }
 
@@ -50,14 +51,14 @@
 }
 
 .o-header__search-form {
-	@include oColorsFor(o-header-nav, background);
+	@include oColorsFor(o-header, background);
 	visibility: hidden;
 	overflow: hidden;
 	position: absolute;
 	box-sizing: border-box;
 	padding: 0 50px;
-	top: 3px;
-	bottom: 3px;
+	top: 0;
+	bottom: 0;
 	right: -10px;
 	width: 0;
 	z-index: 5;
@@ -72,6 +73,7 @@
 
 .o-header__search-input {
 	@include oFormsCommonField;
+	@include oColorsFor(o-header, text);
 	background-color: transparent;
 	width: 100%;
 	height: 100%;
@@ -81,18 +83,17 @@
 	border-radius: 0;
 	font-family: inherit;
 	font-size: inherit;
-	color: white;
 
 	&:focus,
 	&:active {
 		outline: none;
 		border: 0;
-		box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-header-nav-separator, border);
+		box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-header-search, border);
 	}
 }
 
 .o-header__search-button {
-	@include oColorsFor(o-header-nav, background);
+	@include oColorsFor(o-header, background);
 	margin-left: 40px;
 	position: absolute;
 	display: block;
@@ -108,7 +109,7 @@
 	}
 
 	span {
-		@include oFtIconsGetSvg(search, oColorsGetPaletteColor('white'), 20);
+		@include oFtIconsGetSvg(search, oColorsGetColorFor(o-header, text), 20);
 		display: block;
 		margin: 8px 8px 8px 14px;
 		background-position: center;
