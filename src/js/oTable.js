@@ -3,16 +3,6 @@
 // TODO: Use Dom-Deletgate -- https://www.npmjs.com/package/dom-delegate
 
 function OTable(rootEl) {
-    const sortByColumn = function(columnIndex) {
-        return function (event) {
-            if (this.rootEl.getAttribute('data-o-table-order') === null || this.rootEl.getAttribute('data-o-table-order') === "DES") {
-                this.rootEl.setAttribute('data-o-table-order', 'ASC');
-            } else {
-                this.rootEl.setAttribute('data-o-table-order', 'DES');
-            }
-            this.sortRowsByColumn(columnIndex, this.rootEl.getAttribute('data-o-table-order') === "ASC", event.currentTarget.getAttribute('data-o-table-data-type') === 'numeric');
-        };
-    };
     
 	if (!rootEl) {
 		rootEl = document.body;
@@ -33,7 +23,7 @@ function OTable(rootEl) {
         const tableHeaders = Array.from(this.rootEl.querySelectorAll('thead th'));
         
         tableHeaders.forEach((th, columnIndex) => {
-            const listener = sortByColumn(columnIndex).bind(this);
+            const listener = _sortByColumn(columnIndex).bind(this);
             this.listeners.push(listener);
             th.addEventListener('click', listener);
 		});
@@ -44,6 +34,21 @@ function OTable(rootEl) {
         oTable: this
     });
 }
+/**
+ * 
+ * @private
+ * @param  {Number} columnIndex
+ */
+OTable.prototype._sortByColumn = function _sortByColumn (columnIndex) {
+    return function (event) {
+        if (this.rootEl.getAttribute('data-o-table-order') === null || this.rootEl.getAttribute('data-o-table-order') === "DES") {
+            this.rootEl.setAttribute('data-o-table-order', 'ASC');
+        } else {
+            this.rootEl.setAttribute('data-o-table-order', 'DES');
+        }
+        this.sortRowsByColumn(columnIndex, this.rootEl.getAttribute('data-o-table-order') === "ASC", event.currentTarget.getAttribute('data-o-table-data-type') === 'numeric');
+    };
+};
 
 /**
  * Helper function to dispatch namespaced events, namespace defaults to oTable
