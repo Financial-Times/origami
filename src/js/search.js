@@ -1,5 +1,3 @@
-const Typeahead = require('./typeahead');
-
 // Source: https://gist.github.com/davidcalhoun/702826
 const transitionEventName = function(el) {
 	let transition;
@@ -27,17 +25,10 @@ class Search {
 		if (!form) {
 			return;
 		}
-		
-		const suggestionsContainer = headerEl.querySelector('[data-o-header-suggestions]');
+
 		const toggle = headerEl.querySelector('[data-o-header-togglable-search]');
 		const input = form.querySelector('input');
-
-		const typeahead = new Typeahead(
-			suggestionsContainer,
-			input,
-			`//${window.location.host}${config.searchDataSrc}`,
-			function() { form.submit(); }
-		);
+		const placeholder = headerEl.querySelector('label');
 
 		const transition = transitionEventName(form);
 		const transitionHandler = function() {
@@ -51,19 +42,24 @@ class Search {
 		};
 
 		if (toggle) {
-			const clickHandler = function() {
+			const searchToggleClickHandler = function() {
 				if (transition) {
 					form.addEventListener(transition, transitionHandler);
 				} else {
 					setTimeout(transitionHandler, 300);
 				}
 
-				typeahead.hide();
+				headerEl.dispatchEvent(new CustomEvent('oHeader.searchToggle', {
+					bubbles: true,
+					detail: {
+						isOpen: getComputedStyle(form, null).getPropertyValue('visibility') === 'visible'
+					}
+				}))
 				return true;
 			};
 
-			toggle.addEventListener('touchend', clickHandler);
-			toggle.addEventListener('click', clickHandler);
+			toggle.addEventListener('touchend', searchToggleClickHandler);
+			toggle.addEventListener('click', searchToggleClickHandler);
 		}
 	}
 }

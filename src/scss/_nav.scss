@@ -19,6 +19,7 @@ $o-header-mobile-width: 5;
 
 	@include oGridRespondTo(M) {
 		position: relative;
+		float: left;
 	}
 }
 

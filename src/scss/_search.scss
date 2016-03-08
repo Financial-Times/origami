@@ -16,7 +16,6 @@
 	height: 45px;
 	padding: 8px 0;
 	box-sizing: border-box;
-	z-index: 5;
 
 	&:after {
 		@include oFtIconsGetSvg(search, oColorsGetPaletteColor('white'), 20);
@@ -115,66 +114,5 @@
 		background-position: center;
 		color: transparent;
 		overflow: hidden;
-	}
-}
-
-.o-header__typeahead {
-	list-style: none;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 45px;
-	border: 0;
-	background-color: #fcfcfc;
-	color: oColorsGetPaletteColor('grey-tint5');
-	z-index: 11;
-	text-align: left;
-	margin: 0px;
-	padding: 0;
-	display: none;
-}
-
-.o-header__typeahead--active {
-	display: block;
-}
-
-.o-header__typeahead-item {
-	padding: 7px 5px 7px 60px;
-}
-
-.o-header__typeahead-link {
-	color: oColorsGetPaletteColor('grey-tint5');
-	display: inline-block;
-	width: 100%;
-	text-decoration: none;
-
-	&:hover,
-	&:focus {
-		color: oColorsGetPaletteColor('blue');
-		text-decoration-style: dotted;
-	}
-}
-
-.o-header__typeahead-view-all button {
-	@include oColorsFor(o-header-nav, background);
-	@include oColorsFor(o-header-nav, text);
-	width: 100%;
-	height: 100%;
-	font-family: inherit;
-	font-size: inherit;
-	padding: 0.5em 0;
-	cursor: pointer;
-	border: 0;
-
-	&:after {
-		@include oFtIconsGetSvg(arrow-right, oColorsGetColorFor(o-header-nav, text), 14);
-		content: '';
-		padding-left: 0.5em;
-		margin-bottom: -0.1em;
-	}
-
-	&:focus,
-	&:active {
-		outline: none;
 	}
 }
