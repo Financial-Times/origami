@@ -43,7 +43,7 @@ OTable.prototype._sortByColumn = function _sortByColumn (columnIndex) {
 			this.rootEl.setAttribute('data-o-table-order', 'DES');
 		}
 		this.sortRowsByColumn(columnIndex, this.rootEl.getAttribute('data-o-table-order') === "ASC", event.currentTarget.getAttribute('data-o-table-data-type') === 'numeric');
-	};
+	}.bind(this);
 };
 
 /**
