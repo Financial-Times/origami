@@ -2,7 +2,7 @@
     "description": "Financial Times icons",
     "origamiType": "module",
     "origamiVersion": 1,
-    "support": "dan.skinner@ft.com",
+    "support": "https://github.com/Financial-Times/o-ft-icons/issues",
     "supportStatus": "active",
     "browserFeatures": {
         "required": [
