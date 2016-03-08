@@ -13,7 +13,7 @@ module.exports = function(config) {
 
 
 		plugins: [
-            'karma-mocha',
+			'karma-mocha',
 			'karma-phantomjs-launcher',
 			'karma-webpack'
 		],

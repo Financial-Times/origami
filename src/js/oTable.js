@@ -1,6 +1,6 @@
 'use strict';
 
-function OTable(rootEl) {    
+function OTable(rootEl) {
 	if (!rootEl) {
 		rootEl = document.body;
 	} else if (!(rootEl instanceof HTMLElement)) {
@@ -13,38 +13,37 @@ function OTable(rootEl) {
 	}
 
 	if (this.rootEl !== undefined) {
-        this.listeners = [];
-        // Adding a class to the component to indicate that the JS has been loaded 
-        this.rootEl.setAttribute('data-o-table--js', '');
+		this.listeners = [];
+		// Adding a class to the component to indicate that the JS has been loaded
+		this.rootEl.setAttribute('data-o-table--js', '');
 
-        const tableHeaders = Array.from(this.rootEl.querySelectorAll('thead th'));
-        
-        tableHeaders.forEach((th, columnIndex) => {
-            const listener = this._sortByColumn(columnIndex);
-            this.listeners.push(listener);
-            th.addEventListener('click', listener);
+		const tableHeaders = Array.from(this.rootEl.querySelectorAll('thead th'));
+
+		tableHeaders.forEach((th, columnIndex) => {
+			const listener = this._sortByColumn(columnIndex);
+			this.listeners.push(listener);
+			th.addEventListener('click', listener);
+		});
+
+		this.dispatch('ready', {
+			oTable: this
 		});
 	}
-    
-    
-    this.dispatch('ready', {
-        oTable: this
-    });
 }
 /**
- * 
+ *
  * @private
  * @param  {Number} columnIndex
  */
 OTable.prototype._sortByColumn = function _sortByColumn (columnIndex) {
-    return function (event) {
-        if (this.rootEl.getAttribute('data-o-table-order') === null || this.rootEl.getAttribute('data-o-table-order') === "DES") {
-            this.rootEl.setAttribute('data-o-table-order', 'ASC');
-        } else {
-            this.rootEl.setAttribute('data-o-table-order', 'DES');
-        }
-        this.sortRowsByColumn(columnIndex, this.rootEl.getAttribute('data-o-table-order') === "ASC", event.currentTarget.getAttribute('data-o-table-data-type') === 'numeric');
-    };
+	return function (event) {
+		if (this.rootEl.getAttribute('data-o-table-order') === null || this.rootEl.getAttribute('data-o-table-order') === "DES") {
+			this.rootEl.setAttribute('data-o-table-order', 'ASC');
+		} else {
+			this.rootEl.setAttribute('data-o-table-order', 'DES');
+		}
+		this.sortRowsByColumn(columnIndex, this.rootEl.getAttribute('data-o-table-order') === "ASC", event.currentTarget.getAttribute('data-o-table-data-type') === 'numeric');
+	};
 };
 
 /**
@@ -54,76 +53,76 @@ OTable.prototype._sortByColumn = function _sortByColumn (columnIndex) {
  * @param  {String} namespace='oTable'
  */
 OTable.prototype.dispatch = function (event, data = {}, namespace = 'oTable') {
-    setImmediate(() => {
-        this.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
-            detail: data,
-            bubbles: true
-        }));
-    });
+	setImmediate(() => {
+		this.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
+			detail: data,
+			bubbles: true
+		}));
+	});
 };
 
 OTable.prototype.removeEventListeners = function () {
-    const tableHeaders = Array.from(this.rootEl.querySelectorAll('thead th'));
-        
-    tableHeaders.forEach((th, columnIndex) => {
-        th.removeEventListener('click', this.listeners[columnIndex]);
-    });
+	const tableHeaders = Array.from(this.rootEl.querySelectorAll('thead th'));
+
+	tableHeaders.forEach((th, columnIndex) => {
+		th.removeEventListener('click', this.listeners[columnIndex]);
+	});
 };
 
 function ascendingSort (a, b) {
-    if (a < b) {
-        return -1;
-    } else if (b < a) {
-        return 1;
-    } else {
-        return 0;
-    }
+	if (a < b) {
+		return -1;
+	} else if (b < a) {
+		return 1;
+	} else {
+		return 0;
+	}
 }
 
 function descendingSort (a, b) {
-    if (a < b) {
-        return 1;
-    } else if (b < a) {
-        return -1;
-    } else {
-        return 0;
-    }
+	if (a < b) {
+		return 1;
+	} else if (b < a) {
+		return -1;
+	} else {
+		return 0;
+	}
 }
 
 OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericValue) {
-    const rows = Array.from(this.rootEl.querySelectorAll('tbody tr'));
-    const tbody = this.rootEl.querySelector('tbody');
-    rows.sort(function (a, b) {
-        let aCol = a.children[index];
-        let bCol = b.children[index];
-        if (!isNaN(parseInt(aCol.getAttribute('data-o-table-order')))) {
-            aCol = parseInt(aCol.getAttribute('data-o-table-order'));
-            bCol = parseInt(bCol.getAttribute('data-o-table-order'));
-        } else {
-            aCol = aCol.textContent;
-            bCol = bCol.textContent;
-        }
+	const rows = Array.from(this.rootEl.querySelectorAll('tbody tr'));
+	const tbody = this.rootEl.querySelector('tbody');
+	rows.sort(function (a, b) {
+		let aCol = a.children[index];
+		let bCol = b.children[index];
+		if (!isNaN(parseInt(aCol.getAttribute('data-o-table-order')))) {
+			aCol = parseInt(aCol.getAttribute('data-o-table-order'));
+			bCol = parseInt(bCol.getAttribute('data-o-table-order'));
+		} else {
+			aCol = aCol.textContent;
+			bCol = bCol.textContent;
+		}
 
-        if (isNumericValue) {
-            aCol = parseFloat(aCol);
-            bCol = parseFloat(bCol);
-        }
+		if (isNumericValue) {
+			aCol = parseFloat(aCol);
+			bCol = parseFloat(bCol);
+		}
 
-        if (sortAscending) {
-            return ascendingSort(aCol, bCol);
-        } else {
-            return descendingSort(aCol, bCol);
-        }
-    
-    });
+		if (sortAscending) {
+			return ascendingSort(aCol, bCol);
+		} else {
+			return descendingSort(aCol, bCol);
+		}
 
-    tbody.innerHTML = '';
+	});
 
-    rows.forEach(function(row) {
-        tbody.appendChild(row);
-    });
-    
-    this.dispatch('sorted');
+	tbody.innerHTML = '';
+
+	rows.forEach(function(row) {
+		tbody.appendChild(row);
+	});
+
+	this.dispatch('sorted');
 };
 
 /**
@@ -131,7 +130,7 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
  */
 OTable.prototype.destroy = function() {
 	this.rootEl.removeAttribute('data-o-table--js');
-    this.removeEventListeners();
+	this.removeEventListeners();
 	delete this.rootEl;
 };
 
