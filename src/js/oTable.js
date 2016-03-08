@@ -1,9 +1,6 @@
 /* global exports, document, HTMLElement, CustomEvent, setImmediate */
 
-// TODO: Use Dom-Deletgate -- https://www.npmjs.com/package/dom-delegate
-
-function OTable(rootEl) {
-    
+function OTable(rootEl) {    
 	if (!rootEl) {
 		rootEl = document.body;
 	} else if (!(rootEl instanceof HTMLElement)) {
