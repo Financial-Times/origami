@@ -17,7 +17,7 @@
     }
 
     .#{$buttonClass}-icon__label {
-      @include _oButtonsIconButtonLabel();
+      @include oButtonsIconButtonLabel;
     }
 
     @each $theme, $properties in $o-buttons-themes {
@@ -92,7 +92,15 @@
   }
 }
 
-@mixin _oButtonsIconButtonLabel() {
+/// Icon Button Label
+///
+/// Where an icon button is used, a span with an informative text label in should
+/// be included so that if the styles don't load, the button will fallback to a text
+/// label. This solution also works well for screen readers.
+/// This mixin otputs the styles for visually hiding the label
+///
+///
+@mixin oButtonsIconButtonLabel() {
   font-size: 0;
   height: 1px;
   overflow: hidden;
