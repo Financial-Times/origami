@@ -51,8 +51,6 @@ OTable.prototype._sortByColumn = function _sortByColumn (columnIndex) {
 	}.bind(this);
 };
 
-let timeoutID;
-
 /**
  * Helper function to dispatch namespaced events, namespace defaults to oTable
  * @param  {String} event
@@ -60,7 +58,7 @@ let timeoutID;
  * @param  {String} namespace='oTable'
  */
 OTable.prototype.dispatch = function (event, data = {}, namespace = 'oTable') {
-	timeoutID = setTimeout(() => {
+	this._timeoutID = setTimeout(() => {
 		this.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
 			detail: data,
 			bubbles: true
@@ -148,9 +146,9 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
  * @returns undefined
  */
 OTable.prototype.destroy = function() {
-	if (timeoutID !== undefined) {
-		clearTimeout(timeoutID);
-		timeoutID = undefined;
+	if (this._timeoutID !== undefined) {
+		clearTimeout(this._timeoutID);
+		this._timeoutID = undefined;
 	}
 	this.rootEl.removeAttribute('data-o-table--js');
 	this.removeEventListeners();
