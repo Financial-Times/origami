@@ -1,5 +1,3 @@
-/*global setImmediate, clearImmediate */
-
 /**
  * Initialises an o-table components inside the element passed as the first parameter
  *
@@ -53,7 +51,7 @@ OTable.prototype._sortByColumn = function _sortByColumn (columnIndex) {
 	}.bind(this);
 };
 
-let immediateID;
+let timeoutID;
 
 /**
  * Helper function to dispatch namespaced events, namespace defaults to oTable
@@ -62,12 +60,12 @@ let immediateID;
  * @param  {String} namespace='oTable'
  */
 OTable.prototype.dispatch = function (event, data = {}, namespace = 'oTable') {
-	immediateID = setImmediate(() => {
+	timeoutID = setTimeout(() => {
 		this.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
 			detail: data,
 			bubbles: true
 		}));
-	});
+	}, 0);
 };
 
 /**
@@ -150,9 +148,9 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
  * @returns undefined
  */
 OTable.prototype.destroy = function() {
-	if (immediateID !== undefined) {
-		clearImmediate(immediateID);
-		immediateID = undefined;
+	if (timeoutID !== undefined) {
+		clearTimeout(timeoutID);
+		timeoutID = undefined;
 	}
 	this.rootEl.removeAttribute('data-o-table--js');
 	this.removeEventListeners();
