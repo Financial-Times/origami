@@ -2,11 +2,11 @@
 ///
 /// Outputs styles for every icon in o-buttons-icons at every theme in o-buttons-themes
 
-@mixin oButtonsIcon($buttonClass: $o-buttons-class){
+@mixin oButtonsIcon($buttonClass: $o-buttons-class) {
   // Browserhack to only apply these styles for IE7 and up. IE6 will get the
   // text fallback. Hack documented here: http://browserhacks.com/#hack-da690292d4fddd94dc7bdd50e38b5713
   html > body .#{$buttonClass}-icon {
-    display:inline-block;
+    display: inline-block;
     background-repeat: no-repeat;
     background-position: 3px;
     padding-left: 22px;
@@ -68,10 +68,8 @@
         @include _oButtonsGetIconForThemeAndState($icon-name, $state-list, disabled);
       }
 
-      &:not([disabled]) {
-        &:active {
-          @include _oButtonsGetIconForThemeAndState($icon-name, $state-list, active);
-        }
+      &:not([disabled]):active {
+        @include _oButtonsGetIconForThemeAndState($icon-name, $state-list, active);
       }
 
       // Hack to get the active state colour svg to download to prevent FOIC
@@ -94,7 +92,7 @@
   }
 }
 
-@mixin _oButtonsIconButtonLabel(){
+@mixin _oButtonsIconButtonLabel() {
   font-size: 0;
   height: 1px;
   overflow: hidden;
