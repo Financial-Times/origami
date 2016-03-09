@@ -53,40 +53,41 @@
     }
 
     #{$theme-selector} {
-      $states: map-get($o-buttons-themes, $theme); // normal, active, hover, focus, pressedselected, disabled
+      $state-list: map-get($o-buttons-themes, $theme); // normal, active, hover, focus, pressedselected, disabled
 
-      @include _oButtonsGetIconForThemeAndState($icon-name, $states, normal);
+      @include _oButtonsGetIconForThemeAndState($icon-name, $state-list, normal);
 
       // http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
       // http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
 	    &[aria-selected=true], // e.g. A selected tab or page number in pagination
 	    &[aria-pressed=true] { // e.g. A "follow" button that is pressed
-        @include _oButtonsGetIconForThemeAndState($icon-name, $states, pressedselected);
+        @include _oButtonsGetIconForThemeAndState($icon-name, $state-list, pressedselected);
       }
 
       &[disabled] {
-        @include _oButtonsGetIconForThemeAndState($icon-name, $states, disabled);
+        @include _oButtonsGetIconForThemeAndState($icon-name, $state-list, disabled);
       }
 
       &:not([disabled]) {
         &:active {
-          @include _oButtonsGetIconForThemeAndState($icon-name, $states, active);
+          @include _oButtonsGetIconForThemeAndState($icon-name, $state-list, active);
         }
       }
 
       // Hack to get the active state colour svg to download to prevent FOIC
       &:after {
-        @include _oButtonsGetIconForThemeAndState($icon-name, $states, active);
+        @include _oButtonsGetIconForThemeAndState($icon-name, $state-list, active);
         content: '';
       }
     }
   }
 }
 
+
 @mixin _oButtonsGetIconForThemeAndState($icon-name, $state-list, $state) {
   @if map-has-key($state-list, $state) {
     $properties: map-get($state-list, $state);
-    $icon-color: map-get($properties, color);
+    $icon-color: map-get($properties, color); // Icon color-should match the text color
     @if $icon-color != null {
       @include oFtIconsGetSvg($icon-name: $icon-name, $apply-base-styles: false, $color: $icon-color);
     }
