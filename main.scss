@@ -33,11 +33,9 @@ $_o-buttons-deprecation-warnings: false;
 		@include oButtonsPagination;
 	}
 
-	@each $theme, $properties in $o-buttons-themes {
-		@each $icon in $o-buttons-icons {
-			@include oButtonsIcon($icon, $theme);
-		}
-	}
+
+	@include oButtonsIcon;
+
 
 	.#{$o-buttons-class}__group, // Deprecated, invalidates the BEM naming convention
 	.#{$o-buttons-class}-group {

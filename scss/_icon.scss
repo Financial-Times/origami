@@ -1,27 +1,15 @@
-/// Icon Button
+/// Icon Buttons
 ///
-/// Outputs styles for an icon button, for a given theme at a given size.
-/// example:
-/// .my-button--left-arrow {
-///   @include oButtonsIcon(left-arrow, standout, medium);
-/// }
-///
-/// @param {String} $icon-name, any icon name found in o-ft-icons
-/// @param {String} $theme, any theme name as defined in $o-buttons-themes (standard, standout, etc). Defaults to standard.
-/// @param {String} $button-class, defaults to o-buttons ($o-buttons-class' default value)
-///
+/// Outputs styles for every icon in o-buttons-icons at every theme in o-buttons-themes
 
-
-@mixin oButtonsIcon($icon-name, $theme: standard, $buttonClass: $o-buttons-class) {
-// Browserhack to only apply these styles for IE7 and up. IE6 will get the
-// text fallback. Hack documented here: http://browserhacks.com/#hack-da690292d4fddd94dc7bdd50e38b5713
+@mixin oButtonsIcon($buttonClass: $o-buttons-class){
+  // Browserhack to only apply these styles for IE7 and up. IE6 will get the
+  // text fallback. Hack documented here: http://browserhacks.com/#hack-da690292d4fddd94dc7bdd50e38b5713
   html > body .#{$buttonClass}-icon {
-
     display:inline-block;
     background-repeat: no-repeat;
     background-position: 3px;
     padding-left: 22px;
-
 
     &.o-buttons-icon--icon-only {
       padding-left: 0px;
@@ -32,40 +20,64 @@
       @include _oButtonsIconButtonLabel();
     }
 
-    &.#{$buttonClass}-icon--#{$icon-name} {
-
-      @if $theme == 'standard' {
-        $theme-selector: '&';
-      } @else {
-        $theme-selector: '&.#{$buttonClass}--#{$theme}';
+    @each $theme, $properties in $o-buttons-themes {
+      @each $icon in $o-buttons-icons {
+        @include oButtonsGetButtonForIconAndTheme($icon, $theme);
       }
-      #{$theme-selector} {
-        $states: map-get($o-buttons-themes, $theme); // normal, active, hover, focus, pressedselected, disabled
+    }
+  }
+}
 
-        @include _oButtonsGetIconForThemeAndState($icon-name, $states, normal);
+/// Get Button For Icon and Theme
+///
+/// Outputs background-image property for a given icon/theme at all states set
+/// in that theme's state list
+/// example:
+/// .my-button--left-arrow {
+///   @include oButtonsGetButtonForIconAndTheme(left-arrow, standout);
+/// }
+///
+/// @param {String} $icon-name, any icon name found in o-ft-icons
+/// @param {String} $theme, any theme name as defined in $o-buttons-themes (standard, standout, etc). Defaults to standard.
+/// @param {String} $button-class, defaults to o-buttons ($o-buttons-class' default value)
+///
 
-        // http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
-        // http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
-  	    &[aria-selected=true], // e.g. A selected tab or page number in pagination
-  	    &[aria-pressed=true] { // e.g. A "follow" button that is pressed
-          @include _oButtonsGetIconForThemeAndState($icon-name, $states, pressedselected);
-        }
+@mixin oButtonsGetButtonForIconAndTheme($icon-name, $theme: standard, $buttonClass: $o-buttons-class) {
 
-        &[disabled] {
-          @include _oButtonsGetIconForThemeAndState($icon-name, $states, disabled);
-        }
+  &.#{$buttonClass}-icon--#{$icon-name} {
 
-        &:not([disabled]) {
-          &:active {
-            @include _oButtonsGetIconForThemeAndState($icon-name, $states, active);
-          }
-        }
+    @if $theme == 'standard' {
+      $theme-selector: '&';
+    } @else {
+      $theme-selector: '&.#{$buttonClass}--#{$theme}';
+    }
 
-        // Hack to get the active state colour svg to download to prevent FOIC
-        &:after {
+    #{$theme-selector} {
+      $states: map-get($o-buttons-themes, $theme); // normal, active, hover, focus, pressedselected, disabled
+
+      @include _oButtonsGetIconForThemeAndState($icon-name, $states, normal);
+
+      // http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+      // http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+	    &[aria-selected=true], // e.g. A selected tab or page number in pagination
+	    &[aria-pressed=true] { // e.g. A "follow" button that is pressed
+        @include _oButtonsGetIconForThemeAndState($icon-name, $states, pressedselected);
+      }
+
+      &[disabled] {
+        @include _oButtonsGetIconForThemeAndState($icon-name, $states, disabled);
+      }
+
+      &:not([disabled]) {
+        &:active {
           @include _oButtonsGetIconForThemeAndState($icon-name, $states, active);
-          content: '';
         }
+      }
+
+      // Hack to get the active state colour svg to download to prevent FOIC
+      &:after {
+        @include _oButtonsGetIconForThemeAndState($icon-name, $states, active);
+        content: '';
       }
     }
   }
