@@ -61,7 +61,7 @@ $o-ft-icons-is-silent: false;
 
 ### 3. Resolution independent SVGs, using the image service
 
-The [responsive image service](http://image.webservices.ft.com/) helps serving resolution-independent SVG icons with a resized PNG fallback:
+The [responsive image service](https://image.webservices.ft.com/) helps serving resolution-independent SVG icons with a resized PNG fallback:
 
 ```scss
 element {
