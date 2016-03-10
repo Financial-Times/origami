@@ -34,7 +34,7 @@ $o-buttons-sizes: (
 	small: (
 		background-size: 12px,
 		font-size: 12px,
-		height: 22px,
+		min-height: 22px,
 		min-width: 12px,
 		padding-left: 7px,
 		padding-right: 7px,
@@ -43,7 +43,7 @@ $o-buttons-sizes: (
 	medium: (
 		background-size: 16px,
 		font-size: 16px,
-		height: 26px,
+		min-height: 26px,
 		min-width: 26px,
 		padding-left: 8px,
 		padding-right: 8px,
@@ -52,7 +52,7 @@ $o-buttons-sizes: (
 	big: (
 		background-size: 18px,
 		font-size: 18px,
-		height: 36px,
+		min-height: 36px,
 		min-width: 36px,
 		padding-left: 18px,
 		padding-right: 18px,

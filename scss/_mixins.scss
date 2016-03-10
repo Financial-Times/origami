@@ -15,14 +15,14 @@
 @mixin oButtonsSize($size) {
 	$button-dimensions: map-get($o-buttons-sizes, $size);
 	$border-width: map-get($button-dimensions, border-width);
-	$vertical-padding: 1/2 * (map-get($button-dimensions, height) - map-get($button-dimensions, font-size)) - $border-width;
+	$vertical-padding: 1/2 * (map-get($button-dimensions, min-height) - map-get($button-dimensions, font-size)) - $border-width;
 
 	background-size: map-get($button-dimensions, background-size);
-	height: map-get($button-dimensions, height);
+	min-height: map-get($button-dimensions, min-height);
 	min-width: map-get($button-dimensions, min-width);
 	padding: $vertical-padding map-get($button-dimensions, padding-right) $vertical-padding map-get($button-dimensions, padding-left);
 	font-size: map-get($button-dimensions, font-size);
-	line-height: map-get($button-dimensions, height) - $border-width * 2 - $vertical-padding * 2;
+	line-height: map-get($button-dimensions, min-height) - $border-width * 2 - $vertical-padding * 2;
 	border-width: $border-width;
 }
 
