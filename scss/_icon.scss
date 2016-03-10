@@ -97,7 +97,7 @@
 /// Where an icon button is used, a span with an informative text label in should
 /// be included so that if the styles don't load, the button will fallback to a text
 /// label. This solution also works well for screen readers.
-/// This mixin otputs the styles for visually hiding the label
+/// This mixin outputs the styles for visually hiding the label
 ///
 ///
 @mixin oButtonsIconButtonLabel() {
