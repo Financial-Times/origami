@@ -1,2 +1,2 @@
-/*global exports, require*/
-exports.wrap = require('./src/js/wrap').wrap;
+/*global require, module*/
+module.exports = require('./src/js/oTable');

@@ -1,49 +1,49 @@
 {
-    "description": "FT-branded tables",
-    "origamiType": "module",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-table/issues",
-    "supportStatus": "active",
-    "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-table/builds.json"
-    },
-    "browserFeatures": {
-        "required": [
-            "Element.prototype.matches"
-        ]
-    },
-    "demosDefaults": {
-        "sass": "demos/src/demo.scss",
-        "js": "demos/src/demo.js",
-        "dependencies": ["o-fonts@^2.0.0"]
-    },
-    "demos": [
-        {
-            "name": "basic",
-            "template": "demos/src/basic.mustache",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "name": "compact",
-            "template": "demos/src/basic.mustache",
-            "data": {
-                "modifierClass": "o-table--compact"
-            },
-            "expanded": false,
-            "description": ""
-        },
-        {
-            "name": "captions",
-            "template": "demos/src/captions.mustache",
-            "expanded": false,
-            "description": ""
-        },
-        {
-            "name": "modifiers",
-            "template": "demos/src/modifiers.mustache",
-            "expanded": false,
-            "description": ""
-        }
-    ]
+	"description": "FT-branded tables",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-table/issues",
+	"supportStatus": "active",
+	"ci": {
+		"travis": "https://api.travis-ci.org/repos/Financial-Times/o-table/builds.json"
+	},
+	"browserFeatures": {
+		"required": [
+			"Element.prototype.matches"
+		]
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"dependencies": ["o-fonts@^2.0.0"]
+	},
+	"demos": [
+		{
+			"name": "basic",
+			"template": "demos/src/basic.mustache",
+			"expanded": true,
+			"description": ""
+		},
+		{
+			"name": "compact",
+			"template": "demos/src/basic.mustache",
+			"data": {
+				"modifierClass": "o-table--compact"
+			},
+			"expanded": false,
+			"description": ""
+		},
+		{
+			"name": "captions",
+			"template": "demos/src/captions.mustache",
+			"expanded": false,
+			"description": ""
+		},
+		{
+			"name": "modifiers",
+			"template": "demos/src/modifiers.mustache",
+			"expanded": false,
+			"description": ""
+		}
+	]
 }
