@@ -84,4 +84,6 @@ Some elements inside the header require specific data attributes so the JavaScri
 
 We use the [standard](http://origami.ft.com/docs/developer-guide/using-modules/#styles-for-fallbacks-and-enhancements) `o--if-js` and `o--if-no-js` classes to hide elements in enhanced and core experience respectively
 
+Copyright (c) 2016 Financial Times Ltd. All rights reserved.
+
 Search and Menu `<a>` tags link to elements outside the header in core experience. We recommend having them in the footer.

@@ -22,6 +22,7 @@
 .o-header__nav,
 .o-header__meganav {
 	@include oColorsFor(o-header, background);
+
 	list-style: none;
 	margin: 0;
 	padding: 0;

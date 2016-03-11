@@ -20,7 +20,9 @@
 
 .o-header__inner {
 	@include oGridRow;
+	@include oGridRowCompact(".o-header__top, .o-header__bottom");
 }
+
 
 .o-header__top,
 .o-header__bottom {
