@@ -26,7 +26,7 @@
             "template": "demos/src/header.mustache",
             "expanded": true,
             "description": "",
-            "documentClasses": "enhanced"
+            "documentClasses": "core"
         },
         {
             "name": "header-minimal",
