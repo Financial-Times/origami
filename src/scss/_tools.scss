@@ -15,10 +15,13 @@
 }
 
 .o-header__tools-item {
-	display: inline-block;
-	*zoom: 1;
-	*display: inline;
 	position: relative;
+	display: inline-block;
+
+	@include oGridTargetIE8 {
+		float: left;
+		padding: 0 6px;
+	}
 
 	&:before {
 		@include oColorsFor(o-header-tools-separator, background);
