@@ -225,7 +225,7 @@ const init = function(el, opts) {
 		el = document.querySelector(el);
 	}
 	if (/\bo-expander\b/.test(el.getAttribute('data-o-component'))) {
-		return construct(el, opts)
+		return construct(el, opts);
 	}
 	return [].map.call(el.querySelectorAll('[data-o-component~="o-expander"]'), el => construct(el, opts));
 };
