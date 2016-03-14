@@ -138,6 +138,48 @@ Class: `o-table--vertical-lines`, Mixin : `oTableVerticalLines`
 
 Thin lines will be rendered to the left and right of each `td` element giving the appearance of lines between columns.
 
+### Sorting
+Sorting table rows requires the JS part of this component, you can grab this via OBT or the Build Service.
+
+Instantiating an o-table JS component will add click events on the columns to trigger sorting.
+
+If using OBT:
+
+``` js
+const OTable = require('o-table');
+OTable.init();
+```
+or
+``` js
+const OTable = require('o-table');
+oTable = new OTable(document.body);
+```
+
+Sorting numbers works if the column has been declared as a numeric column via `data-o-table-data-type="numeric"`. 
+
+#### Sorting declaratively
+If you are wanting to sort by a custom pattern, you can apply the sorting values to each row as a data attribute:
+`data-o-table-order=${sort-position}`
+
+``` html
+<table class="o-table" data-o-component="o-table">
+	<thead>
+		<th>Things</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td data-o-table-order=2>snowman</td>
+		</tr>
+		<tr>
+			<td data-o-table-order=3>42</td>
+		</tr>
+		<tr>
+			<td data-o-table-order=1>pangea</td>
+		</tr>
+	</tbody>
+</table>
+```
+
 ## How to upgrade from v3.x.x to v4.x.x?
 
 ### Important Changes
