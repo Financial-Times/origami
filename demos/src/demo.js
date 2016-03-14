@@ -4,6 +4,7 @@
 
 	const oTable = require('./../../main');
 	oTable.wrap();
+	oTable.init();
 
 	const tableEls = Array.from(document.querySelectorAll('.o-table'));
 	const checkboxEls = Array.from(document.querySelectorAll('input[type=checkbox]'));
