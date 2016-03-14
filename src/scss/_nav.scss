@@ -17,6 +17,10 @@
 	@include oGridRespondTo(M) {
 		position: relative;
 	}
+
+	@include oGridTargetIE8 {
+		position: relative;
+	}
 }
 
 .o-header__nav,
@@ -46,6 +50,10 @@
 	display: none;
 
 	@include oGridRespondTo(L) {
+		display: inline-block;
+	}
+
+	@include oGridTargetIE8 {
 		display: inline-block;
 	}
 }

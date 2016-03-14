@@ -32,6 +32,10 @@
 		display: none;
 	}
 
+	@include oGridTargetIE8 {
+		display: none;
+	}
+
 	> a {
 		@include oHeaderLogoLink;
 		@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header, text), 138);

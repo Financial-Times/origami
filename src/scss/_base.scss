@@ -9,6 +9,10 @@
 		position: relative;
 	}
 
+	@include oGridTargetIE8 {
+		position: relative;
+	}
+
 	label > * {
 		pointer-events: none;
 	}
@@ -34,6 +38,10 @@
 	position: relative;
 
 	@include oGridRespondTo(M) {
+		display: block;
+	}
+
+	@include oGridTargetIE8 {
 		display: block;
 	}
 }
