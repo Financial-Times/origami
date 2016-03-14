@@ -138,6 +138,18 @@ Class: `o-table--vertical-lines`, Mixin : `oTableVerticalLines`
 
 Thin lines will be rendered to the left and right of each `td` element giving the appearance of lines between columns.
 
+## How to upgrade from v3.x.x to v4.x.x?
+
+### Important Changes
+
+- In order to have sorting work correctly, tables need `thead` and `tbody` elements
+- The Javascript module now returns an o-table constructor
+
+### Markup changes
+
+- Wrap the headings in `thead`	
+- Add `data-o-component="o-table"` to the `table` element of any o-table components which require JS.
+
 ----
 
 ## Licence
