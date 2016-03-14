@@ -36,6 +36,10 @@
 			"name": "test",
 			"template": "demos/src/test.mustache",
 			"bodyClasses": "test-page"
+		},
+		{
+			"name": "icons",
+			"template": "demos/src/icons.mustache"
 		}
 	]
 }
