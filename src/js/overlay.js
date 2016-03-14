@@ -265,7 +265,7 @@ Overlay.prototype.show = function() {
 			category: 'overlay',
 			action: 'show',
 			overlay_id: overlay.id
-		}, true);
+		});
 	});
 };
 
@@ -279,7 +279,7 @@ Overlay.prototype.close = function() {
 		category: 'overlay',
 		action: 'close',
 		overlay_id: this.id
-	}, true);
+	});
 
 	this.context.removeChild(this.wrapper);
 	if (this.opts.modal) {
@@ -315,13 +315,13 @@ Overlay.prototype.resizeListener = function(ev) {
 	}
 };
 
-Overlay.prototype.broadcast = function(eventType, namespace, detail, isTrackingEvent) {
+Overlay.prototype.broadcast = function(eventType, namespace, detail) {
 	namespace = namespace || 'oOverlay';
 	var target = namespace === 'oLayers' ? this.context : this.wrapper || document.body;
 
 	detail = detail || {};
 
-	if (!isTrackingEvent) {
+	if (namespace !== 'oTracking') {
 		detail.el = this;
 	}
 
