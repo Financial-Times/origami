@@ -9,6 +9,16 @@
 	}
 }
 
+.o-header__tools--mobile {
+	@include oGridRespondTo($until: M) {
+		display: block;
+	}
+
+	.o-header__tools-link {
+		line-height: $o-header-mobile-row-height;
+	}
+}
+
 .o-header__tools-items {
 	margin: 0;
 	padding: 0;

@@ -20,12 +20,13 @@
 
 .o-header__inner {
 	@include oGridRow;
-	@include oGridRowCompact(".o-header__top, .o-header__bottom");
+	@include oGridRowCompact(".o-header__top, .o-header__bottom, .o-header__mobile-row");
 }
 
 
 .o-header__top,
-.o-header__bottom {
+.o-header__bottom,
+.o-header__mobile-row {
 	@include oGridColspan(12);
 }
 
@@ -35,5 +36,14 @@
 
 	@include oGridRespondTo(M) {
 		display: block;
+	}
+}
+
+.o-header__mobile-row {
+	height: $o-header-mobile-row-height;
+	display: block;
+
+	@include oGridRespondTo(M) {
+		display: none;
 	}
 }
