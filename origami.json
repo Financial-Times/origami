@@ -16,13 +16,33 @@
         ]
     },
     "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-share/builds.json"
+        "circle": "https://api.travis-ci.org/repos/Financial-Times/o-share/builds.json"
+    },
+    "options": {
+        "sass": "demos/src/demo.scss",
+        "js": "demos/src/demo.js",
+        "dependencies": ["o-fonts@^1.5.0"]
     },
     "demos": [
-        {
-            "path": "/demos/horizontal.html",
-            "expanded": true,
-            "description": ""
-        }
+      {
+          "name": "horizontal",
+          "template": "main.mustache",
+          "data": "demos/src/data.json",
+          "expanded": true,
+          "description": "horizontal"
+      },
+      {
+          "name": "vertical",
+          "template": "main.mustache",
+          "data": "demos/src/data-vertical.json",
+          "expanded": true,
+          "description": "vertical"
+      },
+      {
+          "name": "web-component",
+          "template": "demos/src/webcomponent.mustache",
+          "expanded": true,
+          "description": "web component"
+      }
     ]
 }
