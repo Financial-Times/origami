@@ -138,7 +138,7 @@ Class: `o-table--vertical-lines`, Mixin : `oTableVerticalLines`
 
 Thin lines will be rendered to the left and right of each `td` element giving the appearance of lines between columns.
 
-### Sorting
+## Sorting
 Sorting table rows requires the JS part of this component, you can grab this via OBT or the Build Service.
 
 Instantiating an o-table JS component will add click events on the columns to trigger sorting.
