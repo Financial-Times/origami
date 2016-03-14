@@ -4,10 +4,17 @@
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-errors/issues",
     "supportStatus": "active",
+    "options": {
+      "js": "demos/src/demo.js",
+      "bodyClasses": "",
+      "dependencies": []
+    },
     "demos": [
         {
+            "name": "declarative",
             "path": "/demos/declarative.html",
             "expanded": false,
+            "template": "demos/src/declarative.mustache",
             "description": "Declarative error tracking"
         }
     ],
