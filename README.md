@@ -2,7 +2,7 @@
 
 Standard FT-branded buttons.
 
-Buttons come in four themes ([documentation](#theme-modifiers)):
+Buttons come in the following themes ([documentation](#theme-modifiers)):
 
 * __default__: teal outline
 * __standout__: solid teal
@@ -15,7 +15,7 @@ and the following sizes ([documentation](#size-modifiers)):
 * __default__: 26px high
 * __big__: 36px high
 
-and have 7 different states:
+and have the following states:
 
 * __standard__: without any interaction
 * __hover__: when the mouse pointer is over
