@@ -18,7 +18,6 @@
             "template": "demos/src/demo.mustache",
             "sass": "demos/src/demo.scss",
             "data": "demos/src/data.json",
-            "path": "/demos/main.html",
             "expanded": true,
             "description": ""
         }
