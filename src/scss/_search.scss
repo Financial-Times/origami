@@ -1,6 +1,5 @@
 .o-header__search {
 	line-height: 24px;
-	width: 45px;
 	float: right;
 
 	a {
@@ -14,14 +13,12 @@
 	position: relative;
 	display: block;
 	height: $o-header-bottom-height;
-	padding: 8px 0;
 	box-sizing: border-box;
 	z-index: 1;
 
 	&:after {
 		@include oFtIconsGetSvg(search, oColorsGetColorFor(o-header, text), 20);
 		content: '';
-		margin-left: 10px;
 	}
 
 	&[aria-pressed=true]:after {
@@ -66,7 +63,7 @@
 
 	.o-header__search-toggle[aria-pressed=true] + & {
 		visibility: visible;
-		right: 45px;
+		right: 40px;
 		width: 100%;
 	}
 }
