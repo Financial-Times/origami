@@ -13,7 +13,7 @@
 					<a href="#" title="Go to Financial Times homepage"><span>Financial Times</span></a>
 				</div>
 
-				<nav class="o-header__tools" role="navigation" aria-label="Useful tools">
+				<nav class="o-header__tools" role="navigation" aria-label="Use appropriate label: https://http://bit.ly/aria-label">
 					<ul class="o-header__tools-items">
 						{{ #toolsItems }}
 						<li class="o-header__tools-item">
@@ -120,6 +120,18 @@
 						</li>
 						{{ /navItems }}
 					</ol>
+				</nav>
+			</div>
+
+			<div class="o-header__mobile-row">
+				<nav class="o-header__tools o-header__tools--mobile" role="navigation" aria-label="Use appropriate label: https://http://bit.ly/aria-label">
+					<ul class="o-header__tools-items">
+						{{ #toolsItems }}
+						<li class="o-header__tools-item">
+							<a class="o-header__tools-link" href="{{url}}" {{attributes}}>{{{name}}}</a>
+						</li>
+						{{ /toolsItems }}
+					</ul>
 				</nav>
 			</div>
 		</div>
