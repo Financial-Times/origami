@@ -1,6 +1,25 @@
 # o-buttons [![Build Status](https://travis-ci.org/Financial-Times/o-buttons.png?branch=master)](https://travis-ci.org/Financial-Times/o-buttons)
 
-Standard FT-branded buttons.
+o-buttons is a collection of Sass files to allow you to create FT branded buttons.
+
+## Table of contents
+
+* [Requirements](#requirements)
+* [Usage](#usage)
+* [Browser support](#browser-support)
+* [Licence](#licence)
+
+## Requirements
+
+Origami module code can be used in projects either via a `<link>` tag to the [build service](http://build.origami.ft.com/v2/), or, if you use bower, by adding the component as a dependency.
+
+For the quick start guide to getting o-buttons into your project, see the [o-buttons registry page](http://registry.origami.ft.com/components/o-buttons#section-usage).
+
+For more information about using Origami modules in a project, see the [Origami developer guide](http://origami.ft.com/docs/developer-guide/)
+
+----
+
+## Usage
 
 Buttons come in the following themes ([documentation](#theme-modifiers)):
 
@@ -23,27 +42,21 @@ and have the following states:
 * __active__: the pointer is pushing / tapping / clicking the button
 * __selected__: marked as chosen
 * __disabled__: when clicking it will have no effect
-* __pressed__: for toggable buttons that are currently activated
+* __pressed__: for toggleable buttons that are currently activated
 
 Button width is determined by its content.
 
-## Browser support
+### Mixins, silent mode and classes
 
-The following browser features are used but will degrade gracefully:
+> Mixins and silent mode are only available if you're including o-buttons in your project using bower. If you're using o-buttons via the build service, you must use the o-buttons classes instead. Both are documented below.
 
-* __CSS negation pseudo-class__: (`not()`) is used for the hover states. Buttons will not have hover states in IE8 and earlier.
-* __sibling CSS selectors__: spacing between tabs or button groups may be incorrect on very old browsers
-* __border-radius__: older browsers will show square corners
-
-## Mixins & silent mode
-
-Various Sass mixins are provided to obtain styles for buttons in all their states and variants. Also, when `$o-buttons-is-silent: false;`, the module outputs a set of classes that are also documented in each section.
+Various Sass mixins are provided to obtain styles for buttons in all their states and variants. When `$o-buttons-is-silent: false;`, all classes for every combinatorial variation of theme and size will be generated.
 
 [Full documentation of mixins and variables](http://sassdoc.webservices.ft.com/v1/sassdoc/o-buttons)
 
-### Default button
+#### Default button
 
-[View demo](http://build.origami.ft.com/v2/files/o-buttons@2.0.3/demos/individual.html)
+[View demo](http://build.origami.ft.com/files/o-buttons/demos/individual.html)
 
 ```html
 <button class="o-buttons">Standard</button>
@@ -55,7 +68,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 }
 ```
 
-### States
+#### States
 
 ```html
 <button class="o-buttons">Standard</button>
@@ -64,7 +77,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 <button class="o-buttons" disabled>Disabled</button>
 ```
 
-### Grouped buttons
+#### Grouped buttons
 
 [View demo](http://build.origami.ft.com/v2/files/o-buttons/demos/grouped.html)
 
@@ -77,7 +90,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 </div>
 ```
 
-#### Or, using Sass:
+ Or, using Sass:
 
 ```scss
 .my-button-group-class {
@@ -95,7 +108,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 ```
 
 
-### Pagination buttons
+#### Pagination buttons
 
 [View demo](http://build.origami.ft.com/v2/files/o-buttons/demos/pagination.html)
 
@@ -108,7 +121,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 </div>
 ```
 
-#### Or, using Sass:
+Or, using Sass:
 
 ```scss
 .my-button-pagination-class {
@@ -125,14 +138,14 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 </div>
 ```
 
-### Size modifiers
+#### Size modifiers
 
 ```html
 <button class="o-buttons o-buttons--medium">Medium button (default)</button>
 <button class="o-buttons o-buttons--big">Big button</button>
 ```
 
-#### Or, using Sass:
+Or, using Sass:
 
 ```scss
 .my-button-class {
@@ -154,7 +167,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 <button class="my-big-button-class">Big button</button>
 ```
 
-### Theme modifiers
+#### Theme modifiers
 
 View demos:
 
@@ -168,7 +181,7 @@ View demos:
 <button class="o-buttons o-buttons--inverse">Inverse button</button>
 ```
 
-#### Or, using Sass:
+Or, using Sass:
 
 ```scss
 .my-button-class {
@@ -189,6 +202,61 @@ View demos:
 
 <button class="my-standout-button">Standout button</button>
 ```
+
+#### Icons
+[View demo](http://build.origami.ft.com/files/o-buttons/demos/icons.html)
+
+o-buttons uses [o-ft-icons](https://github.com/Financial-Times/o-ft-icons/) for its icon-buttons.
+
+```html
+// Icon and text button.
+<button class="o-buttons o-buttons-icon o-buttons-icon--arrow-left">Go left</button>
+
+
+// Icon only button
+<button class="o-buttons o-buttons-icon o-buttons-icon--icon-only o-buttons-icon--arrow-left">
+	// accessible text fallback for the button. Not visible, only required for icon only buttons.
+	<span class="o-buttons-icon__label">Go left</span>
+</button>
+```
+
+Or, using Sass:
+
+```scss
+.my-button-class {
+	@include oButtons();
+}
+
+.my-button-class--icon {
+	// Generic sizing / padding for icon-buttons
+	@include oButtonsBaseStyles;
+}
+
+.my-button-class--icon-star {
+	// icon here can be *any* icon tag (eg arrow-left) in o-ft-icons
+	@include oButtonsGetButtonForIconAndTheme(star, standout);
+}
+
+.my-button-class--icon {
+	// Generic sizing / padding for icon-buttons
+	@include oButtonsBaseStyles;
+}
+
+.my-button-class--icon-star {
+	// icon here can be *any* icon tag (eg arrow-left) in o-ft-icons
+	@include oButtonsGetButtonForIconAndTheme(star, standout);
+}
+```
+----
+
+## Browser support
+
+The following browser features are used but will degrade gracefully:
+
+* __CSS negation pseudo-class__: (`not()`) is used for the hover states. Buttons will not have hover states in IE8 and earlier.
+* __sibling CSS selectors__: spacing between tabs or button groups may be incorrect on very old browsers
+* __border-radius__: older browsers will show square corners
+* __SVG__: for icon buttons, the background-image property is used with an SVG for ie9+ with a PNG fallback for browsers that do not support SVG. For IE6, a text fallback is used because of the IE6 [multiple class bug](http://www.paulirish.com/2008/the-two-css-selector-bugs-in-ie6/).
 
 ----
 
