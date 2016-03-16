@@ -89,6 +89,7 @@ ODate.prototype.update = function() {
 
 	el.title = ODate.format(date, 'datetime');
 	el.setAttribute('data-o-date-js', '');
+	el.setAttribute('aria-label', ODate.ftTime(date));
 };
 
 function compile(format) {
