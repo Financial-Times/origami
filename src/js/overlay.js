@@ -161,6 +161,8 @@ Overlay.prototype.render = function() {
 	const wrapperEl = document.createElement('div');
 	wrapperEl.className = 'o-overlay';
 	wrapperEl.classList.add('o-overlay--' + this.id.replace(' ', '-'));
+	wrapperEl.setAttribute('role', 'dialog');
+	wrapperEl.setAttribute('aria-labelledby', this.opts.heading.title);
 	if (this.opts.zindex) {
 		wrapperEl.style.zIndex = this.opts.zindex;
 	}
