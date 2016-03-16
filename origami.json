@@ -4,16 +4,23 @@
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-quote/issues",
     "supportStatus": "active",
+    "options": {
+  		"sass": "demos/src/demo.scss",
+  		"dependencies": ["o-fonts@^1.4.0"]
+  	},
+    "ci": {
+      "circle": "https://api.travis-ci.org/repos/Financial-Times/o-overlay/builds.json"
+    },
     "demos": [
         {
-            "path": "/demos/base.html",
-            "expanded": true,
-            "description": ""
+          "name": "base",
+          "template": "demos/src/base.mustache",
+          "expanded": true
         },
         {
-            "path": "/demos/standard.html",
-            "expanded": true,
-            "description": ""
+          "name": "standard",
+          "template": "demos/src/standard.mustache",
+          "expanded": true
         }
     ]
 }
