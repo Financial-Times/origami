@@ -14,7 +14,7 @@ class Notice {
 
 		this.notice = document.createElement('div');
 		this.notice.appendChild(template(options));
-		this.notice.querySelector('button').onclick = this.hide.bind(this)
+		this.notice.querySelector('button').onclick = this.hide.bind(this);
 
 		const firstChild = container.firstChild;
 		container.insertBefore(this.notice, firstChild);
