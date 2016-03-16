@@ -8,6 +8,9 @@
 			"sass": "demos/src/demo.scss",
 			"dependencies": "o-fonts@^1.6.3"
 		},
+		"ci": {
+			"circle": "https://api.travis-ci.org/repos/Financial-Times/o-overlay/builds.json"
+		},
 		"demos": [
 			{
 				"name": "simple",
