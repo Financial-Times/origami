@@ -244,6 +244,11 @@ Overlay.prototype.show = function() {
 	this.broadcast('new', 'oLayers');
 	this.context.appendChild(this.wrapper);
 
+	// Give the overlay focus
+	this.wrapper.setAttribute('tabindex', '0');
+	this.wrapper.style.outline = 0;
+	this.wrapper.focus();
+
 	// Renders content after overlay has been added so css is applied before that
 	// Thay way if an element has autofocus, the window won't scroll to the bottom
 	// in Safari as the overlay is already in position
