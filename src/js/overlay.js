@@ -125,6 +125,8 @@ const Overlay = function(id, opts) {
 };
 
 Overlay.prototype.open = function() {
+	this.opts.trigger.setAttribute('aria-pressed', 'true');
+
 	if (!this.content) {
 		const overlay = this;
 		this.loadContent(function(html) {
@@ -175,6 +177,7 @@ Overlay.prototype.render = function() {
 		const button = document.createElement('a');
 		button.className = 'o-overlay__close';
 		button.setAttribute('role', 'button');
+		button.setAttribute('tabindex', '0');
 		button.setAttribute('href', '#void');
 		button.setAttribute('aria-label', 'Close');
 		button.setAttribute('title', 'Close');
@@ -288,6 +291,7 @@ Overlay.prototype.close = function() {
 
 	// Put focus back on the triggering element
 	this.opts.trigger.focus();
+	this.opts.trigger.setAttribute('aria-pressed', 'false');
 	this.visible = false;
 	this.broadcast('close', 'oLayers');
 	return false;
