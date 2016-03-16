@@ -1,5 +1,9 @@
 /*global module*/
 
+const BowerPlugin = require('bower-webpack-plugin');
+const path = require('path');
+const cwd = process.cwd();
+
 module.exports = function(config) {
 	config.set({
 
@@ -9,13 +13,20 @@ module.exports = function(config) {
 
 		// frameworks to use
 		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-		frameworks: ['jasmine', 'browserify'],
+		frameworks: ['mocha'],
+
+
+		plugins: [
+			'karma-mocha',
+			'karma-phantomjs-launcher',
+			'karma-webpack'
+		],
 
 
 		// list of files / patterns to load in the browser
 		files: [
 			'http://polyfill.webservices.ft.com/v1/polyfill.js?ua=safari/4',
-			'test/**/*.test.js'
+			'test/specs/*.test.js'
 		],
 
 
@@ -27,7 +38,7 @@ module.exports = function(config) {
 		// preprocess matching files before serving them to the browser
 		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 		preprocessors: {
-			'test/**/*.test.js': ['browserify']
+			'test/specs/*.test.js': ['webpack']
 		},
 
 
@@ -51,7 +62,7 @@ module.exports = function(config) {
 
 
 		// enable / disable watching file and executing tests whenever any file changes
-		autoWatch: false,
+		autoWatch: true,
 
 
 		// start these browsers
@@ -63,10 +74,36 @@ module.exports = function(config) {
 		// if true, Karma captures browsers, runs the tests and exits
 		singleRun: true,
 
-		browserify: {
-			debug: true,
-			transform: [ 'debowerify' ]
-		}
+		webpack: {
+			quiet: true,
+			module: {
+				loaders: [
+					{
+						test: /\.js$/,
+						exclude: /node_modules/,
+						loaders: [
+							'babel?optional[]=runtime',
+							'imports?define=>false'
+						]
+					}
+				],
+  				noParse: [
+					/\/sinon\.js/,
+				]
+			},
+			resolve: {
+				root: [path.join(cwd, 'bower_components')]
+			},
+			plugins: [
+				new BowerPlugin({
+					includes:  /\.js$/
+				})
+			]
+		},
 
+		// Hide webpack output logging
+		webpackMiddleware: {
+			noInfo: true
+		}
 	});
 };
