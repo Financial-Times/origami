@@ -26,9 +26,9 @@ module.exports = {
 	},
 
 	'Step 3: Test that the arrow is in the correct place': function(browser){
-		const button_top;
-		const button_bottom;
-		const arrow_top;
+		let button_top;
+		let button_bottom;
+		let arrow_top;
 
 		browser
 			.isVisible(".o-overlay__arrow-top", function(result){
@@ -53,8 +53,8 @@ module.exports = {
 		const window_width = 800;
 		const window_first_third = window_width/3;
 		const window_second_third = window_first_third*2;
-		const overlay_left;
-		const overlay_right;
+		let overlay_left;
+		let overlay_right;
 
 		browser
 			.getLocation(".o-overlay--compact", function(location){

@@ -46,8 +46,8 @@ module.exports = {
 		const window_width = 800;
 		const window_first_third = window_width / 3;
 		const window_second_third = window_first_third * 2;
-		const overlay_left;
-		const overlay_right;
+		let overlay_left;
+		let overlay_right;
 
 		browser
 			.getLocation(".o-overlay--modal", function (location) {
@@ -61,8 +61,8 @@ module.exports = {
 	},
 
 	'Step 5: Verify scrollbars appear when page is shortened': function (browser) {
-		const scrollHeight = 0;
-		const clientHeight = 0;
+		let scrollHeight = 0;
+		let clientHeight = 0;
 
 		browser
 			.resizeWindow(800, 400)
