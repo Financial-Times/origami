@@ -1,10 +1,9 @@
-'use strict';
-var util = require('util');
+const util = require('util');
 
 exports.assertion = function(selector, cssProperty, expected1, expected2, msg) {
 
 
-	var MSG_ELEMENT_NOT_FOUND = 'Testing if element <%s> has css property %s or %s. ' +
+	const MSG_ELEMENT_NOT_FOUND = 'Testing if element <%s> has css property %s or %s. ' +
 			'Element or attributes %s or %s could not be located.';
 	/**
 	 * The message which will be used in the test output and
@@ -31,7 +30,7 @@ exports.assertion = function(selector, cssProperty, expected1, expected2, msg) {
 
 
 	this.failure = function(result) {
-		var failed = result === false || result && result.status === -1;
+		const failed = result === false || result && result.status === -1;
 		if (failed) {
 			this.message = msg || util.format(MSG_ELEMENT_NOT_FOUND, selector, cssProperty, expected1, expected2);
 		}

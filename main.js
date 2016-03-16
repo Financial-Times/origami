@@ -1,6 +1,5 @@
-'use strict';
-var oOverlay = require('./src/js/overlay');
-var constructAll = function() {
+const oOverlay = require('./src/js/overlay');
+const constructAll = function() {
 	oOverlay.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };

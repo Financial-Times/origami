@@ -1,7 +1,5 @@
-'use strict';
-
-var timeout = 20000;
-var wait = 1000;
+const timeout = 20000;
+const wait = 1000;
 
 module.exports = {
 
@@ -45,11 +43,11 @@ module.exports = {
 	// to 800 px wide, we're only testing that it appears within the boundaries of the
 	// middle third of the page.
 	'Step 4: Check overlay placement': function (browser) {
-		var window_width = 800;
-		var window_first_third = window_width / 3;
-		var window_second_third = window_first_third * 2;
-		var overlay_left;
-		var overlay_right;
+		const window_width = 800;
+		const window_first_third = window_width / 3;
+		const window_second_third = window_first_third * 2;
+		const overlay_left;
+		const overlay_right;
 
 		browser
 			.getLocation(".o-overlay--modal", function (location) {
@@ -63,8 +61,8 @@ module.exports = {
 	},
 
 	'Step 5: Verify scrollbars appear when page is shortened': function (browser) {
-		var scrollHeight = 0;
-		var clientHeight = 0;
+		const scrollHeight = 0;
+		const clientHeight = 0;
 
 		browser
 			.resizeWindow(800, 400)

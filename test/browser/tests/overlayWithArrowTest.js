@@ -1,6 +1,4 @@
-"use strict";
-
-var timeout = 20000;
+const timeout = 20000;
 
 module.exports = {
 
@@ -28,9 +26,9 @@ module.exports = {
 	},
 
 	'Step 3: Test that the arrow is in the correct place': function(browser){
-		var button_top;
-		var button_bottom;
-		var arrow_top;
+		const button_top;
+		const button_bottom;
+		const arrow_top;
 
 		browser
 			.isVisible(".o-overlay__arrow-top", function(result){
@@ -52,11 +50,11 @@ module.exports = {
 	// to 800 px wide, we're only testing that it appears within the boundaries of the
 	// middle third of the page.
 	'Step 4: Check overlay placement' : function (browser) {
-		var window_width = 800;
-		var window_first_third = window_width/3;
-		var window_second_third = window_first_third*2;
-		var overlay_left;
-		var overlay_right;
+		const window_width = 800;
+		const window_first_third = window_width/3;
+		const window_second_third = window_first_third*2;
+		const overlay_left;
+		const overlay_right;
 
 		browser
 			.getLocation(".o-overlay--compact", function(location){
