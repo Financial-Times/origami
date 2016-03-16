@@ -286,6 +286,8 @@ Overlay.prototype.close = function() {
 		this.shadow.parentNode.removeChild(this.shadow);
 	}
 
+	// Put focus back on the triggering element
+	this.opts.trigger.focus();
 	this.visible = false;
 	this.broadcast('close', 'oLayers');
 	return false;
