@@ -56,7 +56,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 
 #### Default button
 
-[View demo](http://build.origami.ft.com/files/o-buttons/demos/individual.html)
+[View demo](http://build.origami.ft.com/v2/demos/o-buttons/individual)
 
 ```html
 <button class="o-buttons">Standard</button>
@@ -79,7 +79,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 
 #### Grouped buttons
 
-[View demo](http://build.origami.ft.com/v2/files/o-buttons/demos/grouped.html)
+[View demo](http://build.origami.ft.com/v2/demos/o-buttons/grouped)
 
 ```html
 <div class="o-buttons-group">
@@ -110,7 +110,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 
 #### Pagination buttons
 
-[View demo](http://build.origami.ft.com/v2/files/o-buttons/demos/pagination.html)
+[View demo](http://build.origami.ft.com/v2/demos/o-buttons/pagination)
 
 ```html
 <div class="o-buttons-pagination">
@@ -171,9 +171,9 @@ Or, using Sass:
 
 View demos:
 
-- [standout](http://build.origami.ft.com/v2/files/o-buttons/demos/individual-standout.html)
-- [uncolored](http://build.origami.ft.com/v2/files/o-buttons/demos/individual-uncolored.html)
-- [inverse](http://build.origami.ft.com/v2/files/o-buttons/demos/individual-inverse.html)
+- [standout](http://build.origami.ft.com/v2/demos/o-buttons/individual-standout)
+- [uncolored](http://build.origami.ft.com/v2/demos/o-buttons/individual-uncolored)
+- [inverse](http://build.origami.ft.com/v2/demos/o-buttons/individual-inverse)
 
 ```html
 <button class="o-buttons o-buttons--standout">Standout button</button>
@@ -204,7 +204,7 @@ Or, using Sass:
 ```
 
 #### Icons
-[View demo](http://build.origami.ft.com/files/o-buttons/demos/icons.html)
+[View demo](http://build.origami.ft.com/demos/o-buttons/icons)
 
 o-buttons uses [o-ft-icons](https://github.com/Financial-Times/o-ft-icons/) for its icon-buttons.
 
