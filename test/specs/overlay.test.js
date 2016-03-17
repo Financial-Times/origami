@@ -148,7 +148,7 @@ describe("smoke-tests (./overlay.js)", () => {
 			sinon.spy(Overlay.prototype, 'closeOnExternalClick');
 			sinon.spy(Overlay.prototype, 'closeOnEscapePress');
 
-			// TODO: Custom event is throwing an error, unsure why, second one is fine
+			// TODO: Custom event is throwing an error, unsure why, second one is fine (works ok without .resize)
 			// o.fireCustomEvent(document.body, 'oViewport.resize');
 			o.fireCustomEvent(document.body, 'oLayers.new');
 			o.fireEvent(document.body, 'click');
