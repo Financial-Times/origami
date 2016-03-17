@@ -236,16 +236,6 @@ Or, using Sass:
 	// icon here can be *any* icon tag (eg arrow-left) in o-ft-icons
 	@include oButtonsGetButtonForIconAndTheme(star, standout);
 }
-
-.my-button-class--icon {
-	// Generic sizing / padding for icon-buttons
-	@include oButtonsBaseStyles;
-}
-
-.my-button-class--icon-star {
-	// icon here can be *any* icon tag (eg arrow-left) in o-ft-icons
-	@include oButtonsGetButtonForIconAndTheme(star, standout);
-}
 ```
 ----
 
