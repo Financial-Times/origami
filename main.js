@@ -79,16 +79,19 @@ ODate.prototype.update = function() {
 
 	if (!date) return;
 
+	const dateString = ODate.ftTime(date);
+
 	// To avoid triggering a parent live region unnecessarily
 	// <https://github.com/Financial-Times/o-date/pull/43>
 	if (hasTextNode) {
-		printer.firstChild.nodeValue = ODate.ftTime(date);
+		printer.firstChild.nodeValue = dateString;
 	} else {
-		printer.innerHTML = ODate.ftTime(date);
+		printer.innerHTML = dateString;
 	}
 
 	el.title = ODate.format(date, 'datetime');
 	el.setAttribute('data-o-date-js', '');
+	el.setAttribute('aria-label', dateString);
 };
 
 function compile(format) {
