@@ -1,48 +1,48 @@
 {
-    "description": "Share module",
-    "origamiType": "module",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-share/issues",
-    "supportStatus": "active",
-    "browserFeatures": {
-        "required": [
-            "document.queryselector",
-            "Element.prototype.closest"
-        ],
-        "optional": [
-            "getComputedStyle",
-            "canvas",
-            "CustomEvent"
-        ]
-    },
-    "ci": {
-        "circle": "https://api.travis-ci.org/repos/Financial-Times/o-share/builds.json"
-    },
-    "options": {
-        "sass": "demos/src/demo.scss",
-        "js": "demos/src/demo.js",
-        "dependencies": ["o-fonts@^1.5.0"]
-    },
-    "demos": [
-      {
-          "name": "horizontal",
-          "template": "main.mustache",
-          "data": "demos/src/data.json",
-          "expanded": true,
-          "description": "horizontal"
-      },
-      {
-          "name": "vertical",
-          "template": "main.mustache",
-          "data": "demos/src/data-vertical.json",
-          "expanded": true,
-          "description": "vertical"
-      },
-      {
-          "name": "web-component",
-          "template": "demos/src/webcomponent.mustache",
-          "expanded": true,
-          "description": "web component"
-      }
-    ]
+	"description": "Share module",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-share/issues",
+	"supportStatus": "active",
+	"browserFeatures": {
+		"required": [
+			"document.queryselector",
+			"Element.prototype.closest"
+		],
+		"optional": [
+			"getComputedStyle",
+			"canvas",
+			"CustomEvent"
+			]
+		},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-share"
+	},
+		"options": {
+			"sass": "demos/src/demo.scss",
+			"js": "demos/src/demo.js",
+			"dependencies": ["o-fonts@^1.5.0"]
+	},
+	"demos": [
+		{
+			"name": "horizontal",
+			"template": "main.mustache",
+			"data": "demos/src/data.json",
+			"expanded": true,
+			"description": "horizontal"
+		},
+		{
+			"name": "vertical",
+			"template": "main.mustache",
+			"data": "demos/src/data-vertical.json",
+			"expanded": true,
+			"description": "vertical"
+		},
+		{
+			"name": "web-component",
+			"template": "demos/src/webcomponent.mustache",
+			"expanded": true,
+			"description": "web component"
+		}
+	]
 }

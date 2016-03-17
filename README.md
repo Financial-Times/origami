@@ -1,4 +1,4 @@
-o-share [![Build Status](https://travis-ci.org/Financial-Times/o-share.png?branch=master)](https://travis-ci.org/Financial-Times/o-share)
+o-share [![Build Status](https://circleci.com/gh/Financial-Times/o-share.png?style=shield&circle-token=38faae5e0f0b4e39810a511b4004f396aff8718a)](https://circleci.com/gh/Financial-Times/o-share)
 =======
 
 Social media and URL sharing buttons.
