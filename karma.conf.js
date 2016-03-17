@@ -1,4 +1,4 @@
-/*global module*/
+/*global module, process */
 
 const BowerPlugin = require('bower-webpack-plugin');
 const path = require('path');
