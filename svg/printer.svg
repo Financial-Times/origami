@@ -1,1 +1,20 @@
-<svg version="1" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="#000100" d="M79.932 29.284h-1.36v-16.757h-57.576v16.757h-9.09v35.786h9.09v23.278h38.295l19.28-17.452v-5.826h9.084v-35.786h-7.723zm-21.881 51.366v-10.384h12.095l-12.095 10.384zm14.159-15.587h-19.357v16.925h-25.498v-35.061h44.855v18.136zm-44.855-46.174h44.855v10.396h-44.855v-10.396z"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>print</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="button-states" sketch:type="MSArtboardGroup" transform="translate(-270.000000, -147.000000)" fill="#333333">
+            <g id="Group-+-1_il-+-2_oil" sketch:type="MSLayerGroup" transform="translate(-229.000000, -2.000000)">
+                <g id="Group" sketch:type="MSShapeGroup">
+                    <g id="Oval-1-Copy-5-Copy-2-+-bookmark-icon">
+                        <g>
+                            <path d="M510.885376,151.973267 L510.885376,149 L499.966064,149 L499.966064,151.973267 L499,151.973267 L499,158.75 L501.166667,158.75 L501.166667,162 L506.323333,162 C507.919083,162 509.5885,160.062458 509.807875,158.75 L512,158.75 L512,151.973267 L510.885376,151.973267 Z M505.9025,161.333333 L502,161.333333 L502,157 L509,157 L509,158.434333 C509,160.381083 507.069167,159.517667 507.069167,159.517667 C506.250728,159.517667 507.926667,161.333333 505.9025,161.333333 Z M510.645833,153.333333 C510.496256,153.333333 510.375,153.212077 510.375,153.0625 C510.375,152.912923 510.496256,152.791667 510.645833,152.791667 C510.79541,152.791667 510.916667,152.912923 510.916667,153.0625 C510.916667,153.212077 510.79541,153.333333 510.645833,153.333333 L510.645833,153.333333 Z M507.93042,158.541667 L503,158.541667 L503,158 L507.93042,158 L507.93042,158.541667 L507.93042,158.541667 Z M503,159 L503,159.541667 L506.081512,159.541667 L506.081512,159 L503,159 Z M502,150 L509,150 L509,152 L502,152 L502,150 Z" id="print"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
