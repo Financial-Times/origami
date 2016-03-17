@@ -1,6 +1,4 @@
-# o-errors
-
-[![Build Status](https://travis-ci.org/Financial-Times/o-errors.svg?branch=master)](https://travis-ci.org/Financial-Times/o-errors)
+# o-errors [![Build Status](https://circleci.com/gh/Financial-Times/o-errors.png?style=shield&circle-token=81872b7aa8adef0547cc51f8b0642f4f877c7f43)](https://circleci.com/gh/Financial-Times/o-errors)
 
 This module provides a decoupled events-based mechanism for modules to report errors and an API for products to report client-side errors.
 
@@ -196,9 +194,9 @@ declaratively.
 ##### errorBuffer - optional
 
 An additional `array` of error objects which will be pushed into the internal
-buffer queue to be sent on initialisation. This can be useful if you have 
+buffer queue to be sent on initialisation. This can be useful if you have
 caught errors inline on your page before oErrors.init() has been ran.  
-Each error in the array should be an `object` with two fields: an `error` field 
+Each error in the array should be an `object` with two fields: an `error` field
 which contains the reported `Error`, and a `context` field, which contains any
 additional reported context.
 
@@ -219,7 +217,7 @@ Note: this may only be configured through the `init` method.
 
 ##### transportFunction - optional
 
-Function to override Sentry's HTTP transport handler. It accepts one `options` argument which is an `object`. 
+Function to override Sentry's HTTP transport handler. It accepts one `options` argument which is an `object`.
 
 This function is passed on directly to Sentry to its `transport` configuration option and you can find the documentation for it [here](https://docs.getsentry.com/hosted/clients/javascript/config/).
 
