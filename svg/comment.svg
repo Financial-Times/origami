@@ -1,1 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M1.859 62.304v-48.451c0-3.167 1.108-5.851 3.325-8.051 2.216-2.201 4.908-3.302 8.075-3.302h74.529c3.166 0 5.852 1.101 8.051 3.302 2.202 2.201 3.302 4.884 3.302 8.051v48.451c0 3.167-1.1 5.859-3.302 8.075-2.199 2.217-4.885 3.324-8.051 3.324h-43.415l-23.704 24.797v-24.797h-7.41c-3.167 0-5.859-1.107-8.075-3.324-2.217-2.216-3.325-4.908-3.325-8.075zm15.532-40.946h66.217v-4.655h-66.217v4.655zm0 12.635h66.217v-4.655h-66.217v4.655zm0 12.636h66.217v-4.655h-66.217v4.655zm0 12.588h66.217v-4.608h-66.217v4.608z"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>comments</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="button-states" sketch:type="MSArtboardGroup" transform="translate(-222.000000, -147.000000)" fill="#333333">
+            <g id="Group-+-1_il-+-2_oil" sketch:type="MSLayerGroup" transform="translate(-229.000000, -2.000000)">
+                <g id="Group" sketch:type="MSShapeGroup">
+                    <g id="Oval-1-Copy-5-Copy-2-+-bookmark-icon">
+                        <g>
+                            <path d="M451,149.94365 L451,158.929688 L453.035226,158.929688 L453.035226,162 L457.200195,158.727661 L464,158.727661 L464,149 L451,149 L451,149.94365 Z M453,155 L462,155 L462,156 L453,156 L453,155 Z M453,153 L462,153 L462,154 L453,154 L453,153 Z M453,151 L462,151 L462,152 L453,152 L453,151 Z" id="comments"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
