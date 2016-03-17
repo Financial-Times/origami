@@ -1,4 +1,4 @@
-import utils from './_utils';
+import utils from './utils';
 
 const defaultClassName = 'o-header__edition-switch';
 class EditionSwitcher {
@@ -9,15 +9,18 @@ class EditionSwitcher {
 		}
 
 		this.editionSwitchContainerEl = this.editionSwitcherEl.querySelector('#o-header__edition-switch-container');
-		const btnEl = (this.editionSwitcherEl) ? this.editionSwitcherEl.querySelector('[data-o-header-edition-switch-button]') : null;
-		if (!btnEl) {
+		this.btnEl = (this.editionSwitcherEl) ? this.editionSwitcherEl.querySelector('[data-o-header-edition-switch-button]') : null;
+		if (!this.btnEl) {
 			return;
 		}
 
 		this.openClass = `${config.editionswitchClassName}--open`;
 		this.isOpen = false;
-		btnEl.addEventListener('click', this.toggle.bind(this));
-		document.body.addEventListener('click', this.click.bind(this));
+		this.toggleHandler = this.toggle.bind(this);
+		this.clickHandler = this.click.bind(this);
+
+		this.btnEl.addEventListener('click', this.toggleHandler);
+		document.body.addEventListener('click', this.clickHandler);
 	}
 
 	toggle() {
@@ -39,8 +42,16 @@ class EditionSwitcher {
 		}
 	}
 
-	static init(headerEl, config = {editionswitchClassName: defaultClassName}) {
-		new EditionSwitcher(headerEl, config);
+	destroy() {
+		this.btnEl.removeEventListener('click', this.toggleHandler);
+		document.body.removeEventListener('click', this.clickHandler);
+		delete this.isOpen;
+		delete this.openClss;
+		delete this.toggleHandler;
+		delete this.clickHandler;
+		delete this.btnEl;
+		delete this.editionSwitchContainerEl;
+		delete this.editionSwitcherEl;
 	}
 }
 

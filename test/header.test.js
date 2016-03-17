@@ -1,12 +1,35 @@
-/*global describe, it*/
+/*global describe, it, beforeEach, afterEach*/
 
 const expect = require('expect.js');
 
 const Header = require('./../src/js/header');
 
-describe('Header', function() {
+describe('Header API', () => {
 
-	it('should initialise', function() {
+	it("is defined", () => {
+		expect(Header).to.be.a('function');
+	});
+
+	it('has a static init method', () => {
+		expect(Header.init).to.be.a('function');
+	});
+
+	it('has a destroy instance method', () => {
+		expect(Header.prototype.destroy).to.be.a('function');
+	});
+});
+
+describe('Header instance', () => {
+	let headerEl;
+
+	beforeEach(() => {
+		headerEl = document.createElement('header');
+		headerEl.outerHTML = `
+			<header class="o-header" data-o-component="o-header"></header>
+		`;
+	});
+
+	it('should initialise', () => {
 		const container = document.createElement('div');
 
 		const headerEl = document.createElement('header');

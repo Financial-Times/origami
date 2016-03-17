@@ -1,65 +1,47 @@
-// Source: https://gist.github.com/davidcalhoun/702826
-const transitionEventName = function(el) {
-	let transition;
+class Search {
+	constructor(headerEl) {
+		this.headerEl = headerEl;
+		if (!this.headerEl) {
+			return;
+		}
 
-	if('ontransitionend' in window) {
-		transition = 'transitionend';
-	} else if('onwebkittransitionend' in window) {
-		transition = 'webkitTransitionEnd';
-	} else if('onotransitionend' in el || navigator.appName === 'Opera') {
-		transition = 'oTransitionEnd';
-	} else {
-		transition = false;
+		this.form = headerEl.querySelector('[data-o-header-search]');
+		if (!this.form) {
+			return;
+		}
+
+		this.toggle = headerEl.querySelector('[data-o-header-togglable-search]');
+
+		if (this.toggle) {
+			this.toggle.addEventListener('touchend', this.searchToggleClickHandler);
+			this.toggle.addEventListener('click', this.searchToggleClickHandler);
+		}
 	}
 
-	return transition;
-};
+	searchToggleClickHandler() {
+		const isOpen = getComputedStyle(this.form, null).getPropertyValue('visibility') === 'visible';
 
-class Search {
-	static init(headerEl) {
-		if (!headerEl) {
-			return;
+		if (isOpen) {
+			this.input.focus();
 		}
 
-		const form = headerEl.querySelector('[data-o-header-search]');
-		if (!form) {
-			return;
-		}
-
-		const toggle = headerEl.querySelector('[data-o-header-togglable-search]');
-		const input = form.querySelector('input');
-
-		const transition = transitionEventName(form);
-		const transitionHandler = function() {
-			const visibility = getComputedStyle(form, null).getPropertyValue('visibility');
-
-			if (visibility === 'visible') {
-				input.focus();
+		this.headerEl.dispatchEvent(new CustomEvent('oHeader.searchToggle', {
+			bubbles: true,
+			detail: {
+				isOpen: isOpen
 			}
+		}));
+	}
 
-			form.removeEventListener(transition, transitionHandler);
-		};
-
-		if (toggle) {
-			const searchToggleClickHandler = function() {
-				if (transition) {
-					form.addEventListener(transition, transitionHandler);
-				} else {
-					setTimeout(transitionHandler, 300);
-				}
-
-				headerEl.dispatchEvent(new CustomEvent('oHeader.searchToggle', {
-					bubbles: true,
-					detail: {
-						isOpen: getComputedStyle(form, null).getPropertyValue('visibility') === 'visible'
-					}
-				}))
-				return true;
-			};
-
-			toggle.addEventListener('touchend', searchToggleClickHandler);
-			toggle.addEventListener('click', searchToggleClickHandler);
+	destroy() {
+		if (this.toggle) {
+			this.toggle.removeEventListener('touchend', this.searchToggleClickHandler);
+			this.toggle.removeEventListener('click', this.searchToggleClickHandler);
+			delete this.toggle;
 		}
+		delete this.headerEl;
+		delete this.form;
+		delete this.input;
 	}
 }
 

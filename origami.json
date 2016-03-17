@@ -7,12 +7,10 @@
     "browserFeatures": {
         "required": [
             "classList",
-            "customevent",
-            "fetch"
-        ]
+            "customevent"        ]
     },
     "ci": {
-        "circle": "https://api.travis-ci.org/repos/Financial-Times/o-header/builds.json"
+        "circle": "https://circleci.com/api/v1/project/Financial-Times/o-header"
     },
     "demosDefaults": {
         "dependencies": ["o-fonts@^2.0.0"],
