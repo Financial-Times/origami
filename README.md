@@ -1,4 +1,4 @@
-# o-overlay [![Build Status](https://travis-ci.org/Financial-Times/o-overlay.png?branch=master)](https://travis-ci.org/Financial-Times/o-overlay)
+# o-overlay [![Build Status](https://circleci.com/gh/Financial-Times/o-overlay.png?style=shield&circle-token=c4f56f04215e38c04bec85cd382cd41c863dd8e8)](https://circleci.com/gh/Financial-Times/o-overlay)
 
 Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens.
 
@@ -69,7 +69,7 @@ var myOverlay = new Overlay('myOverlay', {
 	* `.target`: String or HTMLElement. What should the arrow point at. It may be different from the trigger, and if the target isn't set, the trigger will be used by default. May be either an element or a querySelector string.
 * `modal`: Boolean. Whether the overlay should have modal behaviour or not. Setting this as true will add a translucent shadow between the page and the overlay
 * `compact`: Boolean. If true, the `.o-overlay--compact` class will be added to the overlay that reduces heading font-size and paddings in the content.
-* `src`: String. Either a _url_ from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted. 
+* `src`: String. Either a _url_ from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted.
 * `html`: String or HTMLElement.  Raw HTML (cannot be set declaratively)
 * `trigger`: String or HTMLElement. querySelector expression or HTMLElement. When there's a trigger set, a click event handler will be added to it that will open or close the overlay accordingly. (cannot be set declaratively)
 * `zindex`: String. Value of the CSS z-index property of the overlay. _Default set via CSS_: '10'

@@ -14,7 +14,7 @@
 		]
 	},
 	"ci": {
-		"circle": "https://api.travis-ci.org/repos/Financial-Times/o-overlay/builds.json"
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-overlay"
 	},
 	"options": {
 		"sass": "demos/src/demo.scss",
