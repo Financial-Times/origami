@@ -15,7 +15,7 @@
 		"sass": "demos/src/demo.scss"
 	},
 	"ci": {
-		"circle": "https://api.travis-ci.org/repos/Financial-Times/o-expander/builds.json"
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-expander"
 	},
 	"demos": [
 		{
