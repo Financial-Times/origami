@@ -11,6 +11,7 @@ $_o-buttons-deprecation-warnings: false;
 
 @import 'scss/group';
 @import 'scss/pagination';
+@import 'scss/icon';
 
 @if ($o-buttons-is-silent == false) {
 	.#{$o-buttons-class} {
@@ -31,6 +32,11 @@ $_o-buttons-deprecation-warnings: false;
 	.#{$o-buttons-class}-pagination {
 		@include oButtonsPagination;
 	}
+
+
+	@include oButtonsIcon;
+
+
 	.#{$o-buttons-class}__group, // Deprecated, invalidates the BEM naming convention
 	.#{$o-buttons-class}-group {
 		@include oButtonsGroup;

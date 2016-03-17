@@ -1,6 +1,4 @@
-'use strict';
-
-var switchState = function(element, state) {
+const switchState = function(element, state) {
 	element.setAttribute(state, (!element.getAttribute(state) || element.getAttribute(state) === 'false' ? true : false));
 };
 

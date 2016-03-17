@@ -1,5 +1,4 @@
 $o-buttons-is-silent: false;
-$o-ft-icons-is-silent: false;
 
 @import "../../main";
 
@@ -47,9 +46,4 @@ h2 {
 }
 h3 {
 	margin-bottom: 0.5em;
-}
-
-// Avoid extra vertical space for icons in buttons
-.o-buttons .o-ft-icons-icon {
-	line-height: 1px;
 }

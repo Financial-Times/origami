@@ -3,8 +3,7 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"dependencies": [
-			"o-fonts@^1.4.0",
-			"o-ft-icons@^2.3.2"
+			"o-fonts@^1.4.0"
 		]
 	},
 	"demos": [
@@ -37,6 +36,10 @@
 			"name": "test",
 			"template": "demos/src/test.mustache",
 			"bodyClasses": "test-page"
+		},
+		{
+			"name": "icons",
+			"template": "demos/src/icons.mustache"
 		}
 	]
 }

@@ -32,22 +32,28 @@ $o-buttons-font-weight: 600 !default; // Semibold
 /// @type Map
 $o-buttons-sizes: (
 	small: (
+		background-size: 12px,
 		font-size: 12px,
-		height: 22px,
+		min-height: 22px,
+		min-width: 12px,
 		padding-left: 7px,
 		padding-right: 7px,
 		border-width: 1px,
 	),
 	medium: (
+		background-size: 16px,
 		font-size: 16px,
-		height: 26px,
+		min-height: 26px,
+		min-width: 26px,
 		padding-left: 8px,
 		padding-right: 8px,
 		border-width: 1px,
 	),
 	big: (
+		background-size: 18px,
 		font-size: 18px,
-		height: 36px,
+		min-height: 36px,
+		min-width: 36px,
 		padding-left: 18px,
 		padding-right: 18px,
 		border-width: 1px,
@@ -70,3 +76,12 @@ $o-buttons-themes: (
 	inverse: $o-buttons-themes__inverse,
 	uncolored: $o-buttons-themes__uncolored
 ) !default;
+
+/// List of icons to generate classes for icon buttons.
+/// Build service users will only be able to use these icons, but there is
+/// a mixin for people using this via Sass, meaning any icon in 'o-ft-icons' is
+/// available to those users.
+/// Icon names as used in o-ft-icons
+///
+/// @type List
+$o-buttons-icons: "arrow-left", "arrow-right" !default;
