@@ -18,15 +18,15 @@
 		"circle": "https://api.travis-ci.org/repos/Financial-Times/o-expander/builds.json"
 	},
 	"demos": [
-	{
+		{
 		"name": "Simple",
 		"description": "Simple use cases",
 		"template": "demos/src/simple.mustache",
 		"js": "demos/src/demo.js",
 		"expanded": true,
 		"description": "Simple use cases"
-	},
-	{
+		},
+		{
 		"name": "Variants",
 		"description": "More advanced configurations of the module",
 		"template": "demos/src/variants.mustache",
