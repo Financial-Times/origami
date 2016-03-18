@@ -1,4 +1,4 @@
-/*global describe, it, beforeEach, afterEach*/
+/*global describe, it, beforeEach, afterEach, before, after*/
 
 const expect = require('expect.js');
 const sinon = require('sinon/pkg/sinon');
