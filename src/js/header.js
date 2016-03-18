@@ -1,6 +1,6 @@
 import Search from './search';
 import Utils from './utils';
-import EditionSwitch from './edition-switch';
+import EditionSwitch from './editionSwitch';
 
 class Header {
 	constructor(headerEl, config) {

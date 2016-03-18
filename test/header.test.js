@@ -21,30 +21,43 @@ describe('Header API', () => {
 
 describe('Header instance', () => {
 	let headerEl;
+	let containerEl;
 
 	beforeEach(() => {
-		headerEl = document.createElement('header');
-		headerEl.outerHTML = `
+		containerEl = document.createElement('div');
+		document.body.appendChild(containerEl);
+		containerEl.innerHTML = `
 			<header class="o-header" data-o-component="o-header"></header>
 		`;
+		headerEl = containerEl.querySelector('.o-header');
 	});
 
-	it('should initialise', () => {
-		const container = document.createElement('div');
+	afterEach(() => {
+		containerEl.removeChild(headerEl);
+		headerEl = null;
+		containerEl = null;
+	});
 
-		const headerEl = document.createElement('header');
-		headerEl.setAttribute('data-o-component', 'o-header');
-		headerEl.classList.add('o-header');
-		container.appendChild(headerEl);
-
-		const headers = Header.init(container);
-		expect(headers.length).to.be(1);
+	it('constructor', () => {
+		const header = new Header(headerEl);
+		expect(header).to.be.a('object');
+		expect(Object.getPrototypeOf(header)).to.equal(Header.prototype);
+		expect(header.headerEl).to.be(headerEl);
 		expect(headerEl.getAttribute('data-o-header--js')).to.not.be(null);
+	});
 
-		const anotherHeaderEl = document.createElement('header');
-		anotherHeaderEl.setAttribute('data-o-component', 'o-header');
-		anotherHeaderEl.classList.add('o-header');
-		new Header(anotherHeaderEl);
-		expect(anotherHeaderEl.getAttribute('data-o-header--js')).to.not.be(null);
+	it('#destroy', () => {
+		const header = new Header(headerEl);
+		expect(headerEl.getAttribute('data-o-header--js')).to.not.be(null);
+		header.destroy();
+		expect(headerEl.getAttribute('data-o-header--js')).to.be(null);
+		expect(header.headerEl).to.be(undefined);
+	});
+
+	it('#init()', () => {
+		const headers = Header.init();
+		expect(headers.length).to.be(1);
+		expect(Object.getPrototypeOf(headers[0])).to.equal(Header.prototype);
+		expect(headerEl.getAttribute('data-o-header--js')).to.not.be(null);
 	});
 });

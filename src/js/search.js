@@ -5,24 +5,26 @@ class Search {
 			return;
 		}
 
-		this.form = headerEl.querySelector('[data-o-header-search]');
-		if (!this.form) {
+		this.formEl = this.headerEl.querySelector('[data-o-header-search]');
+		if (!this.formEl) {
 			return;
 		}
 
-		this.toggle = headerEl.querySelector('[data-o-header-togglable-search]');
+		this.toggleEl = this.headerEl.querySelector('[data-o-header-togglable-search]');
 
-		if (this.toggle) {
-			this.toggle.addEventListener('touchend', this.searchToggleClickHandler);
-			this.toggle.addEventListener('click', this.searchToggleClickHandler);
+		if (this.toggleEl) {
+			this.inputEl = this.formEl.querySelector('input');
+			this.toggleHandler = this.searchToggleClickHandler.bind(this);
+			this.toggleEl.addEventListener('touchend', this.toggleHandler);
+			this.toggleEl.addEventListener('click', this.toggleHandler);
 		}
 	}
 
 	searchToggleClickHandler() {
-		const isOpen = getComputedStyle(this.form, null).getPropertyValue('visibility') === 'visible';
+		const isOpen = getComputedStyle(this.formEl).getPropertyValue('visibility') === 'visible';
 
 		if (isOpen) {
-			this.input.focus();
+			this.inputEl.focus();
 		}
 
 		this.headerEl.dispatchEvent(new CustomEvent('oHeader.searchToggle', {
@@ -34,14 +36,15 @@ class Search {
 	}
 
 	destroy() {
-		if (this.toggle) {
-			this.toggle.removeEventListener('touchend', this.searchToggleClickHandler);
-			this.toggle.removeEventListener('click', this.searchToggleClickHandler);
-			delete this.toggle;
+		if (this.toggleEl) {
+			this.toggleEl.removeEventListener('touchend', this.toggleHandler);
+			this.toggleEl.removeEventListener('click', this.toggleHandler);
+			delete this.toggleEl;
+			delete this.inputEl;
+			delete this.toggleHandler;
 		}
 		delete this.headerEl;
-		delete this.form;
-		delete this.input;
+		delete this.formEl;
 	}
 }
 

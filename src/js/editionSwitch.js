@@ -3,13 +3,13 @@ import utils from './utils';
 const defaultClassName = 'o-header__edition-switch';
 class EditionSwitcher {
 	constructor(headerEl, config = {editionswitchClassName: defaultClassName}) {
-		this.editionSwitcherEl = headerEl.querySelector(`.${config.editionswitchClassName}`);
-		if (!this.editionSwitcherEl) {
+		this.editionSwitchEl = headerEl.querySelector(`.${config.editionswitchClassName}`);
+		if (!this.editionSwitchEl) {
 			return;
 		}
 
-		this.editionSwitchContainerEl = this.editionSwitcherEl.querySelector('#o-header__edition-switch-container');
-		this.btnEl = (this.editionSwitcherEl) ? this.editionSwitcherEl.querySelector('[data-o-header-edition-switch-button]') : null;
+		this.editionSwitchContainerEl = this.editionSwitchEl.querySelector('#o-header__edition-switch-container');
+		this.btnEl = (this.editionSwitchEl) ? this.editionSwitchEl.querySelector('[data-o-header-edition-switch-button]') : null;
 		if (!this.btnEl) {
 			return;
 		}
@@ -25,33 +25,36 @@ class EditionSwitcher {
 
 	toggle() {
 		this.isOpen = !this.isOpen;
-		this.editionSwitcherEl.classList.toggle(this.openClass);
+		this.editionSwitchEl.classList.toggle(this.openClass);
 
 		if (this.isOpen) {
-			this.editionSwitcherEl.setAttribute('aria-expanded', 'true');
+			this.btnEl.setAttribute('aria-expanded', 'true');
 			this.editionSwitchContainerEl.setAttribute('aria-hidden', 'false');
 		} else {
-			this.editionSwitcherEl.setAttribute('aria-expanded', 'false');
+			this.btnEl.setAttribute('aria-expanded', 'false');
 			this.editionSwitchContainerEl.setAttribute('aria-hidden', 'true');
 		}
 	}
 
 	click(ev) {
-		if (this.isOpen && utils.isOutside(ev.target, this.editionSwitcherEl)) {
+		if (this.isOpen && utils.isOutside(ev.target, this.editionSwitchEl)) {
 			this.toggle();
 		}
 	}
 
 	destroy() {
-		this.btnEl.removeEventListener('click', this.toggleHandler);
-		document.body.removeEventListener('click', this.clickHandler);
+		if (this.btnEl) {
+			this.btnEl.removeEventListener('click', this.toggleHandler);
+			document.body.removeEventListener('click', this.clickHandler);
+		}
+
 		delete this.isOpen;
-		delete this.openClss;
+		delete this.openClass;
 		delete this.toggleHandler;
 		delete this.clickHandler;
 		delete this.btnEl;
 		delete this.editionSwitchContainerEl;
-		delete this.editionSwitcherEl;
+		delete this.editionSwitchEl;
 	}
 }
 
