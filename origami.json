@@ -9,7 +9,7 @@
 			"dependencies": "o-fonts@^1.6.3"
 		},
 		"ci": {
-			"circle": "https://api.travis-ci.org/repos/Financial-Times/o-big-number/builds.json"
+			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-big-number"
 		},
 		"demos": [
 			{
