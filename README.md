@@ -42,9 +42,9 @@ Copy the markup from [one of the demos](http://registry.origami.ft.com/component
 An o-header object must be constructed for every `<header>` you have on your page that uses this module.
 
 ```js
-var oHeader = require('o-header');
-var header = document.querySelector('.o-header');
-var ftHeader = new oHeader(header);
+var Header = require('o-header');
+var headerEl = document.querySelector('.o-header');
+var header = new oHeader(headerEl);
 ```
 
 Alternatively, a `o.DOMContentLoaded` event can be dispatched on the document to auto-construct an o-header object for each element with a `data-o-component="o-header"` attribute:
@@ -58,9 +58,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 Additionally, a second paramater can be passed to the header constructor or to the `.init()` function with a config object that has the following options:
 
-* *editionswitchClassName*: Class name set to the root element of the edition switch. (Default: `o-header__edition-switch`)
 * *headerClassName*: Class name set to the root element of your head. (Default: `o-header`)
-* *searchDataSrc*: Data source from where to get the information for the typeahead search feature. The whole path is constructed like this: `//${window.location.host}${config.searchDataSrc}`
+* *editionswitchClassName*: Class name set to the root element of the edition switch. (Default: `o-header__edition-switch`)
 
 ### Sass
 
@@ -80,10 +79,19 @@ Some elements inside the header require specific data attributes so the JavaScri
 * data-o-header-edition-switch-button: Applied to the `<button>` or other kind of element that will toggle the edition switch
 * data-o-header-selectable: Applied to the `<button>` or other kind of element in the meganav section in the mobile view that will select it
 
+Also, if using an _Edition Switch_, for accessibility reasons, the `<ul>` element requires `id="o-header__edition-switch-container"`.
+
+Search and Menu `<a>` tags link to elements outside the header in core experience. We recommend having them in the footer.
+
+### Events
+
+o-header fires the following event:
+
+* `oHeader.searchToggle`: When the search toggle is triggered with this property:
+    - `isOpen`: Whether the search form is visible or not
+
 ## Enhanced/Core expeirence
 
 We use the [standard](http://origami.ft.com/docs/developer-guide/using-modules/#styles-for-fallbacks-and-enhancements) `o--if-js` and `o--if-no-js` classes to hide elements in enhanced and core experience respectively
 
 Copyright (c) 2016 Financial Times Ltd. All rights reserved.
-
-Search and Menu `<a>` tags link to elements outside the header in core experience. We recommend having them in the footer.

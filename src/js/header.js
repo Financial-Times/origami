@@ -1,6 +1,6 @@
-import search from './search';
-import utils from './_utils';
-import editionSwitcher from './edition-switch';
+import Search from './search';
+import Utils from './utils';
+import EditionSwitch from './editionSwitch';
 
 class Header {
 	constructor(headerEl, config) {
@@ -9,11 +9,20 @@ class Header {
 		} else if (!(headerEl instanceof HTMLElement)) {
 			headerEl = document.querySelector(headerEl);
 		}
-		
-		utils.init(headerEl, config);
-		search.init(headerEl, config);
-		editionSwitcher.init(headerEl, config);
-		headerEl.setAttribute('data-o-header--js', '');
+
+		this.headerEl = headerEl;
+		this.utils = new Utils(this.headerEl, config);
+		this.search = new Search(this.headerEl, config);
+		this.editionSwitch = new EditionSwitch(this.headerEl, config);
+		this.headerEl.setAttribute('data-o-header--js', '');
+	}
+
+	destroy() {
+		this.utils.destroy();
+		this.search.destroy();
+		this.editionSwitch.destroy();
+		this.headerEl.removeAttribute('data-o-header--js');
+		delete this.headerEl;
 	}
 
 	static init(el, config) {
