@@ -1,7 +1,7 @@
 import utils from './utils';
 
 const defaultClassName = 'o-header__edition-switch';
-class EditionSwitcher {
+class EditionSwitch {
 	constructor(headerEl, config = {editionswitchClassName: defaultClassName}) {
 		this.editionSwitchEl = headerEl.querySelector(`.${config.editionswitchClassName}`);
 		if (!this.editionSwitchEl) {
@@ -58,4 +58,4 @@ class EditionSwitcher {
 	}
 }
 
-export default EditionSwitcher;
+export default EditionSwitch;
