@@ -1,19 +1,26 @@
 {
-    "description": "Styling for blockquotes, pull-quotes and any other types of quote",
-    "origamiType": "module",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-quote/issues",
-    "supportStatus": "active",
-    "demos": [
-        {
-            "path": "/demos/base.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/standard.html",
-            "expanded": true,
-            "description": ""
-        }
-    ]
+	"description": "Styling for blockquotes, pull-quotes and any other types of quote",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-quote/issues",
+	"supportStatus": "active",
+	"options": {
+		"sass": "demos/src/demo.scss",
+		"dependencies": ["o-fonts@^1.4.0"]
+	},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-overlay"
+	},
+	"demos": [
+		{
+			"name": "base",
+			"template": "demos/src/base.mustache",
+			"expanded": true
+		},
+		{
+			"name": "standard",
+			"template": "demos/src/standard.mustache",
+			"expanded": true
+		}
+	]
 }
