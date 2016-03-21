@@ -7,6 +7,13 @@
     "ci": {
         "travis": "https://api.travis-ci.org/repos/Financial-Times/o-buttons/builds.json"
     },
+    "demosDefaults": {
+      "sass": "demos/src/demo.scss",
+      "js": "demos/src/demo.js",
+      "dependencies": [
+        "o-fonts@^1.4.0"
+      ]
+    },
     "demos": [
         {
             "name": "individual",
@@ -15,19 +22,19 @@
             "description": ""
         },
         {
-            "name": "individual standout",
+            "name": "individual-standout",
             "template": "/demos/src/individual-standout.mustache",
             "expanded": true,
             "description": ""
         },
         {
-            "name": "individual uncolored",
+            "name": "individual-uncolored",
             "template": "/demos/src/individual-uncolored.mustache",
             "expanded": true,
             "description": ""
         },
         {
-            "name": "individual inverse",
+            "name": "individual-inverse",
             "template": "/demos/src/individual-inverse.mustache",
             "expanded": true,
             "description": ""
