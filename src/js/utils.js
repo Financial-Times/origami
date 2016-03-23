@@ -19,6 +19,7 @@ class Utils {
 		this.headerEl = headerEl;
 
 		const selectableEls = this.headerEl.querySelectorAll('[data-o-header-selectable]');
+		this.selectableHandler = this.selectableHandler.bind(this);
 		for (let selectableEl of selectableEls) {
 			this.listeners.push([selectableEl, this.selectableHandler]);
 			selectableEl.addEventListener('click', this.selectableHandler);

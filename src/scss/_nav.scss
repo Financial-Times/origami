@@ -16,7 +16,6 @@
 
 	@include oGridRespondTo(M) {
 		position: relative;
-		left: 20px;
 	}
 
 	@include oGridTargetIE8 {
@@ -282,7 +281,7 @@
 .o-header__nav-link--toggle[aria-pressed=true] {
 	@include oGridRespondTo($until: M) {
 		.o-header__meganav-link--top-level {
-			z-index: 3;
+			z-index: $o-header-z-index * 3;
 		}
 
 		& + .o-header__meganav {
@@ -291,7 +290,7 @@
 			bottom: 0;
 			right: 0;
 			left: 0;
-			z-index: 1;
+			z-index: $o-header-z-index;
 			overflow-y: scroll;
 		}
 	}

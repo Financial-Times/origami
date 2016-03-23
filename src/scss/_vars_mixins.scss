@@ -1,9 +1,10 @@
 $o-header-is-silent: true !default;
-$o-header-bottom-height: 45px;
-$o-header-mobile-row-height: 32px;
+$o-header-bottom-height: 45px !default;
+$o-header-mobile-row-height: 32px !default;
 // width of the left column in mobile view of the menu
 // i.e. the headers of nav sections
-$o-header-mobile-width: 5;
+$o-header-mobile-width: 5 !default;
+$o-header-z-index: 1 !default;
 
 @mixin oHeaderNavItem {
 	display: block;
