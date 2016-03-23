@@ -26,6 +26,7 @@ class Utils {
 		}
 
 		const subNavToggle = this.headerEl.querySelector('[data-o-header-togglable-nav]');
+		this.subNavToggleHandler = this.subNavToggleHandler.bind(this);
 		if (subNavToggle) {
 			this.listeners.push([subNavToggle, this.subNavToggleHandler]);
 			subNavToggle.addEventListener('click', this.subNavToggleHandler);
