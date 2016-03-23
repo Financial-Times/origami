@@ -1,47 +1,57 @@
 {
-    "description": "FT brand typographic styles",
-    "origamiType": "module",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-typography/issues",
-    "supportStatus": "active",
-    "browserFeatures": {
-        "optional": [
-            "textshadow"
-        ]
-    },
-    "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-typography/builds.json"
-    },
-    "demos": [
-        {
-            "path": "/demos/headings.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/leads.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/body.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/article.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/body-wrapper.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/manage-account.html",
-            "expanded": true,
-            "description": ""
-        }
-    ]
+		"description": "FT brand typographic styles",
+		"origamiType": "module",
+		"origamiVersion": 1,
+		"support": "https://github.com/Financial-Times/o-typography/issues",
+		"supportStatus": "active",
+		"browserFeatures": {
+				"optional": [
+						"textshadow"
+				]
+		},
+		"options": {
+			"sass": "demos/src/demo.scss",
+			"dependencies": ["o-grid@^4.0.0"]
+		},
+		"ci": {
+				"travis": "https://circleci.com/api/v1/project/Financial-Times/o-typography"
+		},
+		"demos": [
+			{
+				"name": "headings",
+				"template": "/demos/src/headings.mustache",
+				"expanded": true,
+				"description": ""
+			},
+			{
+				"name": "leads",
+				"template": "/demos/src/leads.mustache",
+				"expanded": true,
+				"description": ""
+			},
+			{
+				"name": "body",
+				"template": "/demos/src/body.mustache",
+				"expanded": true,
+				"description": ""
+			},
+			{
+				"name": "article",
+				"template": "/demos/src/article.mustache",
+				"expanded": true,
+				"description": ""
+			},
+			{
+					"name": "body-wrapper",
+				"template": "/demos/src/body-wrapper.mustache",
+				"expanded": true,
+				"description": ""
+			},
+			{
+				"name": "manage-account",
+				"template": "/demos/src/manage-account.mustache",
+				"expanded": true,
+				"description": ""
+			}
+		]
 }
