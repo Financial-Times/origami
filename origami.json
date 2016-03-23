@@ -11,7 +11,7 @@
 		"dependencies": ["o-techdocs@^4.0.0"]
 	},
 	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/<REPO-NAME>"
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-colors"
 	},
 	"demos": [
 		{
