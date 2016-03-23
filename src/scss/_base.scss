@@ -48,9 +48,9 @@
 
 .o-header__mobile-row {
 	height: $o-header-mobile-row-height;
-	display: block;
+	display: none;
 
-	@include oGridRespondTo(M) {
-		display: none;
+	@include oGridRespondTo($until: M) {
+		display: block;
 	}
 }
