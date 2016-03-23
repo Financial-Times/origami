@@ -1,7 +1,7 @@
 .o-header {
 	@include oColorsFor(o-header);
 	position: sticky;
-	z-index: 1;
+	z-index: $o-header-z-index;
 	padding-bottom: 0;
 	top: 0;
 
@@ -24,7 +24,6 @@
 
 .o-header__inner {
 	@include oGridRow;
-	@include oGridRowCompact(".o-header__top, .o-header__bottom, .o-header__mobile-row");
 }
 
 
@@ -49,9 +48,9 @@
 
 .o-header__mobile-row {
 	height: $o-header-mobile-row-height;
-	display: block;
+	display: none;
 
-	@include oGridRespondTo(M) {
-		display: none;
+	@include oGridRespondTo($until: M) {
+		display: block;
 	}
 }

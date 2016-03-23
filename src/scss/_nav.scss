@@ -16,7 +16,6 @@
 
 	@include oGridRespondTo(M) {
 		position: relative;
-		left: 20px;
 	}
 
 	@include oGridTargetIE8 {
@@ -167,7 +166,7 @@
 	padding: 0 15px;
 	margin: 0;
 	font-family: inherit;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 32px;
 	text-decoration: none;
 	overflow: hidden;
@@ -201,7 +200,6 @@
 		display: block;
 		font-weight: bold;
 		padding-left: 15px;
-		font-size: 16px;
 		line-height: 1.5;
 	}
 
@@ -222,7 +220,7 @@
 	color: inherit;
 	font-family: inherit;
 	text-decoration: none;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 32px;
 	padding-right: 15px;
 	margin: 0;
@@ -236,7 +234,6 @@
 
 	@include oGridRespondTo(M) {
 		padding-right: 7px;
-		font-size: 14px;
 		min-height: 0;
 		line-height: 1.5;
 	}
@@ -248,6 +245,14 @@
 
 .o-header__nav-link--toggle {
 	text-transform: none;
+
+	// Makes the underline only appear under the span and not slightly to its left
+	&:hover {
+		text-decoration: none;
+		& > .o-header__meganav-toggle {
+			text-decoration: underline;
+		}
+	}
 
 	&:before {
 		@include oFtIconsGetSvg(hamburger, oColorsGetColorFor(o-header, text), 20);
@@ -263,6 +268,7 @@
 
 .o-header__meganav-toggle {
 	@include  _oHeaderButtonReset;
+	width: 34px;
 	cursor: pointer;
 }
 
@@ -271,7 +277,7 @@
 	display: none;
 
 	@include oGridRespondTo(M) {
-		display: inline;
+		display: inline-block;
 	}
 }
 
@@ -282,7 +288,7 @@
 .o-header__nav-link--toggle[aria-pressed=true] {
 	@include oGridRespondTo($until: M) {
 		.o-header__meganav-link--top-level {
-			z-index: 3;
+			z-index: $o-header-z-index * 3;
 		}
 
 		& + .o-header__meganav {
@@ -291,13 +297,13 @@
 			bottom: 0;
 			right: 0;
 			left: 0;
-			z-index: 1;
+			z-index: $o-header-z-index;
 			overflow-y: scroll;
 		}
 	}
 
 	.o-header__meganav-toggle--close {
-		display: inline;
+		display: inline-block;
 	}
 
 	&:before {
