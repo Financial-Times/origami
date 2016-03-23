@@ -51,9 +51,14 @@
 
 .o-header__tools-link {
 	@include oHeaderNavItem;
+	font-size: 13px;
 
 	&:hover,
 	&:focus {
 		text-decoration: underline;
+	}
+
+	@include oGridRespondTo(L) {
+		font-size: 15px;
 	}
 }

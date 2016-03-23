@@ -7,7 +7,7 @@
 
 @if $o-header-is-silent == false {
 	@import "src/scss/base";
-	@import "src/scss/edition-switcher";
+	@import "src/scss/edition-switch";
 	@import "src/scss/masthead";
 	@import "src/scss/nav";
 	@import "src/scss/print";
