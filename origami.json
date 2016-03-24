@@ -14,8 +14,8 @@
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-date"
 	},
 	"demosDefaults": {
-			"js": "demos/src/demo.js",
-			"sass": "demos/src/demo.scss"
+		"js": "demos/src/demo.js",
+		"sass": "demos/src/demo.scss"
 	},
 	"demos": [
 		{
