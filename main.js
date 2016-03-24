@@ -123,7 +123,7 @@ ODate.format = function(date, dateFormat) {
 	const tpl = compiledTemplates[dateFormat] || compile(dateFormat);
 	date = toDate(date);
 	return date && tpl(date);
-}
+};
 
 ODate.ftTime = function(dateObj) {
 	const now = new Date();
@@ -150,7 +150,7 @@ ODate.ftTime = function(dateObj) {
 		dateString = ODate.format(dateObj, 'date');
 	}
 	return dateString;
-}
+};
 
 ODate.timeAgo = function(date, interval) {
 
@@ -181,7 +181,7 @@ ODate.timeAgo = function(date, interval) {
 	} else {
 		return Math.max(2, Math.round(interval / (60 * 60 * 24 * 365))) + ' years ago';
 	}
-}
+};
 
 ODate.init = function(el) {
 	if (!el) {
