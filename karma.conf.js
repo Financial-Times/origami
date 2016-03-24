@@ -18,14 +18,14 @@ module.exports = function(config) {
 
 		plugins: [
 			'karma-mocha',
-			'karma-chrome-launcher',
+			'karma-phantomjs-launcher',
 			'karma-webpack'
 		],
 
 
 		// list of files / patterns to load in the browser
 		files: [
-			'http://polyfill.webservices.ft.com/v2/polyfill.js',
+			'http://polyfill.webservices.ft.com/v2/polyfill.js?ua=safari/4',
 			'test/specs/*.test.js'
 		],
 
@@ -67,12 +67,12 @@ module.exports = function(config) {
 
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: ['Chrome'],
+		browsers: ['PhantomJS'],
 
 
 		// Continuous Integration mode
 		// if true, Karma captures browsers, runs the tests and exits
-		singleRun: false,
+		singleRun: true,
 
 		webpack: {
 			quiet: true,

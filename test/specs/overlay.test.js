@@ -37,7 +37,7 @@ describe("smoke-tests (./overlay.js)", () => {
 			triggerEl.parentNode.removeChild(triggerEl);
 		});
 
-		xit('should open with correct content when trigger is clicked', done => {
+		it('should open with correct content when trigger is clicked', done => {
 			const trigger = document.querySelector('.o-overlay-trigger');
 			o.fireEvent(trigger, 'click');
 			const overlays = document.querySelectorAll('.o-overlay');
@@ -71,10 +71,14 @@ describe("smoke-tests (./overlay.js)", () => {
 			o.fireEvent(trigger, 'click');
 		});
 
-		xit('modal should be closable with esc key, close button and with new layer', done => {
+		it('modal should be closable with esc key, close button and with new layer', done => {
+			const realCloseFunction = Overlay.prototype.close;
+			const stubbedCloseFunction = sinon.stub();
+			Overlay.prototype.close = stubbedCloseFunction;
+
 			const trigger = document.querySelector('.o-overlay-trigger');
-			sinon.stub(Overlay.prototype, 'close');
-			Overlay.init();
+			const overlays = Overlay.init();
+			const currentOverlay = overlays[0];
 
 			o.fireEvent(trigger, 'click');
 
@@ -88,8 +92,7 @@ describe("smoke-tests (./overlay.js)", () => {
 
 				expect(Overlay.prototype.close.callCount).to.be(3);
 
-				const currentOverlay = Overlay.getOverlays()['testOverlay'];
-				Overlay.prototype.close.restore();
+				Overlay.prototype.close = realCloseFunction;
 				currentOverlay.close();
 
 				document.body.removeEventListener('oOverlay.ready', overlayReadyHandler);
@@ -100,6 +103,10 @@ describe("smoke-tests (./overlay.js)", () => {
 		});
 
 		it('non-modal should be closable in different ways', function() {
+			const realCloseFunction = Overlay.prototype.close;
+			const stubbedCloseFunction = sinon.stub();
+			Overlay.prototype.close = stubbedCloseFunction;
+
 			const trigger = document.querySelector('.o-overlay-trigger');
 			trigger.setAttribute('data-o-overlay-modal', 'false');
 
@@ -108,10 +115,6 @@ describe("smoke-tests (./overlay.js)", () => {
 
 			o.fireEvent(trigger, 'click');
 
-			const realCloseFunction = currentOverlay.close;
-			const stubbedCloseFunction = sinon.stub();
-			currentOverlay.close = stubbedCloseFunction;
-
 			o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
 			o.fireEvent(document.body, 'click');
 			o.fireEvent(document.body, 'keyup', {
@@ -119,9 +122,9 @@ describe("smoke-tests (./overlay.js)", () => {
 			});
 			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
 
-			expect(currentOverlay.close.callCount).to.be(4);
+			expect(Overlay.prototype.close.callCount).to.be(4);
 
-			currentOverlay.close = realCloseFunction;
+			Overlay.prototype.close = realCloseFunction;
 			currentOverlay.close();
 		});
 
@@ -166,7 +169,7 @@ describe("smoke-tests (./overlay.js)", () => {
 			Overlay.prototype.closeOnEscapePress.restore();
 		});
 
-		xit('should be possible to open and close imperatively', function() {
+		it('should be possible to open and close imperatively', function() {
 			const mod = new Overlay('testOverlay', {
 				html: testContent,
 				trigger: document.querySelector('.o-overlay-trigger')
@@ -182,7 +185,7 @@ describe("smoke-tests (./overlay.js)", () => {
 		});
 	});
 
-	xit('should be able to inject content from template', () => {
+	it('should be able to inject content from template', () => {
 		const scriptEl = document.createElement('script');
 		scriptEl.id = 'test-overlay-content';
 		scriptEl.setAttribute('type', 'text/template');
@@ -204,7 +207,7 @@ describe("smoke-tests (./overlay.js)", () => {
 		document.body.removeChild(scriptEl);
 	});
 
-	xit('should be able to inject content from a url', done => {
+	it('should be able to inject content from a url', done => {
 		const mod = new Overlay('testOverlay', {
 			src: 'http://build.origami.ft.com/files/o-tweet@0.2.5/demos/demo.html',
 			trigger: document.querySelector('.o-overlay-trigger')
@@ -229,7 +232,7 @@ describe("smoke-tests (./overlay.js)", () => {
 		mod.open();
 	});
 
-	xit('should add the unique id as a CSS styling hook', () => {
+	it('should add the unique id as a CSS styling hook', () => {
 		const mod = new Overlay('test overlay', {
 			html: testContent
 		});

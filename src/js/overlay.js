@@ -218,23 +218,23 @@ Overlay.prototype.show = function() {
 	this.delegates.wrap.root(this.wrapper);
 	this.delegates.context.root(this.context);
 
-	this.close = this.close.bind(this);
-	this.resizeListener = this.resizeListener.bind(this);
-	this.delegates.doc.on('oViewport.resize', 'body', this.resizeListener);
-	this.closeOnNewLayer = this.closeOnNewLayer.bind(this);
-	this.delegates.context.on('oLayers.new', this.closeOnNewLayer);
+	this.closeHandler = this.close.bind(this);
+	this.resizeListenerHandler = this.resizeListener.bind(this);
+	this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
+	this.closeOnNewLayerHandler = this.closeOnNewLayer.bind(this);
+	this.delegates.context.on('oLayers.new', this.closeOnNewLayerHandler);
 
 	if (this.opts.heading) {
-		this.delegates.wrap.on('click', '.o-overlay__close', this.close);
-		this.delegates.wrap.on('touchend', '.o-overlay__close', this.close);
+		this.delegates.wrap.on('click', '.o-overlay__close', this.closeHandler);
+		this.delegates.wrap.on('touchend', '.o-overlay__close', this.closeHandler);
 	}
 
-	this.closeOnExternalClick = this.closeOnExternalClick.bind(this);
-	this.delegates.doc.on('click', 'body', this.closeOnExternalClick);
-	this.delegates.doc.on('touchend', 'body', this.closeOnExternalClick);
+	this.closeOnExternalClickHandler = this.closeOnExternalClick.bind(this);
+	this.delegates.doc.on('click', 'body', this.closeOnExternalClickHandler);
+	this.delegates.doc.on('touchend', 'body', this.closeOnExternalClickHandler);
 
-	this.closeOnEscapePress = this.closeOnEscapePress.bind(this);
-	this.delegates.doc.on('keyup', this.closeOnEscapePress);
+	this.closeOnEscapePressHandler = this.closeOnEscapePress.bind(this);
+	this.delegates.doc.on('keyup', this.closeOnEscapePressHandler);
 
 	this.broadcast('new', 'oLayers');
 	this.context.appendChild(this.wrapper);
@@ -451,10 +451,13 @@ Overlay.prototype.fills = function(dimension) {
 };
 
 Overlay.prototype.destroy = function() {
-		if (this.opts.trigger) {
-			this.opts.trigger.removeEventListener('click', triggerClickHandler);
-		}
-		delete overlays[this.id];
+	if (this.visible === true) {
+		this.close();
+	}
+	if (this.opts.trigger) {
+		this.opts.trigger.removeEventListener('click', triggerClickHandler);
+	}
+	delete overlays[this.id];
 };
 
 Overlay.prototype.getHeight = function() {
