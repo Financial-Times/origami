@@ -1,4 +1,4 @@
-# Colours [![Build Status](https://travis-ci.org/Financial-Times/o-colors.png?branch=master)](https://travis-ci.org/Financial-Times/o-colors)
+# Colours [![Build Status](https://circleci.com/gh/Financial-Times/o-colors.png?style=shield&circle-token=0d3884dacba2fdd8aec8afbd2eaa84c79040ddd5)](https://circleci.com/gh/Financial-Times/o-colors)
 
 This is an [Origami](http://origami.ft.com/) module that provides variables defining the FT digital colour palette, and helpers to use them in your products.  For installation instructions, see the [registry page](http://registry.origami.ft.com/components/o-colors).
 
