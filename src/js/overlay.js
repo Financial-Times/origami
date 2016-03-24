@@ -268,9 +268,11 @@ Overlay.prototype.show = function() {
 };
 
 Overlay.prototype.close = function() {
-	this.delegates.doc.off();
-	this.delegates.wrap.off();
-	this.delegates.context.off();
+	this.delegates.doc.destroy();
+	this.delegates.wrap.destroy();
+	this.delegates.context.destroy();
+
+	viewport.stopListeningTo('resize');
 
 	this.broadcast('destroy');
 	this.broadcast('event', 'oTracking', {
@@ -473,12 +475,15 @@ Overlay.init = function(el) {
 		el = document.querySelector(el);
 	}
 	const triggers = el.querySelectorAll('.o-overlay-trigger');
+	const overlaysArray = [];
 	for (let t = 0; t < triggers.length; t++) {
 		// There can only be one overlay per trigger when set declaratively, so the first trigger found for a given overlay will be the one used to create the overlay
 		if (!overlays[triggers[t].getAttribute('data-o-overlay-id')]) {
-			new Overlay(triggers[t].getAttribute('data-o-overlay-id'), getOptionsFromTrigger(triggers[t]));
+			overlaysArray.push(new Overlay(triggers[t].getAttribute('data-o-overlay-id'), getOptionsFromTrigger(triggers[t])));
 		}
 	}
+
+	return overlaysArray;
 };
 
 Overlay.destroy = function() {
