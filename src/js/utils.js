@@ -68,6 +68,8 @@ class Utils {
 		delete this.listeners;
 		delete this.navOpenClass;
 		delete this.headerEl;
+		delete this.subNavToggleHandler;
+		delete this.selectableHandler;
 	}
 
 	static isOutside(el, container) {

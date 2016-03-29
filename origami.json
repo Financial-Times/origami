@@ -29,14 +29,14 @@
         {
             "name": "header-minimal",
             "template": "demos/src/header-minimal.mustache",
-            "expanded": true,
+            "expanded": false,
             "description": "",
             "documentClasses": "enhanced"
         },
         {
             "name": "header-light",
             "template": "demos/src/header-light.mustache",
-            "expanded": true,
+            "expanded": false,
             "description": "",
             "documentClasses": "enhanced"
         }

@@ -65,6 +65,11 @@ Additionally, a second paramater can be passed to the header constructor or to t
 
 Currently, only non silent mode is supported.
 
+We do support several themes:
+
+* Light: Use the `o-header--light` class on the root element. Applies a _pink_ background
+* Minimal: Use the `o-header--minimal` class on the root element and don't add the `o-header__top` container markup. Displays a smaller header
+
 ### Markup
 
 _There are intentionally no classes to switch between logged in and out as we don't want to do that in the client side. This is left up to the product._
@@ -93,5 +98,9 @@ o-header fires the following event:
 ## Enhanced/Core expeirence
 
 We use the [standard](http://origami.ft.com/docs/developer-guide/using-modules/#styles-for-fallbacks-and-enhancements) `o--if-js` and `o--if-no-js` classes to hide elements in enhanced and core experience respectively
+
+## Upgrading from 4.x.x to 5.x.x
+
+This is a complete change in the markup and usage of the module, so we advise to look at the markup in the demos and go over the readme. If any issues come up, please let us know.
 
 Copyright (c) 2016 Financial Times Ltd. All rights reserved.
