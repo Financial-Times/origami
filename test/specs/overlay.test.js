@@ -188,8 +188,6 @@ describe("smoke-tests (./overlay.js)", () => {
 		it('should open and close with correct aria attributes', done => {
 			const trigger = document.querySelector('.o-overlay-trigger');
 			o.fireEvent(trigger, 'click');
-			const overlays = document.querySelectorAll('.o-overlay');
-			expect(overlays.length).to.equal(0);
 
 			Overlay.init();
 
@@ -197,6 +195,10 @@ describe("smoke-tests (./overlay.js)", () => {
 				const wrapper = document.querySelectorAll('.o-overlay');
 				const wrapperRole = wrapper[0].getAttribute('role');
 				expect(wrapperRole).to.contain('dialog');
+
+				const wrapperLabel = wrapper[0].getAttribute('aria-labelledby');
+				expect(wrapperLabel).to.be.ok();
+				expect(wrapperLabel).to.not.contain(' ');
 
 				let triggerPressed = trigger.getAttribute('aria-pressed');
 				expect(triggerPressed).to.contain('true');
