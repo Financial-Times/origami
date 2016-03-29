@@ -125,6 +125,10 @@ const Overlay = function(id, opts) {
 };
 
 Overlay.prototype.open = function() {
+	if (this.opts.trigger) {
+		this.opts.trigger.setAttribute('aria-pressed', 'true');
+	}
+
 	if (!this.content) {
 		const overlay = this;
 		this.loadContent(function(html) {
@@ -159,6 +163,7 @@ Overlay.prototype.render = function() {
 	const wrapperEl = document.createElement('div');
 	wrapperEl.className = 'o-overlay';
 	wrapperEl.classList.add('o-overlay--' + this.id.replace(' ', '-'));
+	wrapperEl.setAttribute('role', 'dialog');
 	if (this.opts.zindex) {
 		wrapperEl.style.zIndex = this.opts.zindex;
 	}
@@ -166,7 +171,10 @@ Overlay.prototype.render = function() {
 
 	if (this.opts.heading) {
 		const heading = document.createElement('header');
+		const headingId = this.opts.heading.title.replace(' ', '-').toLowerCase();
 		heading.classList.add('o-overlay__heading');
+		heading.setAttribute('id', headingId);
+		wrapperEl.setAttribute('aria-labelledby', headingId);
 
 		if (this.opts.heading.shaded) {
 			heading.classList.add('o-overlay__heading--shaded');
@@ -175,6 +183,7 @@ Overlay.prototype.render = function() {
 		const button = document.createElement('a');
 		button.className = 'o-overlay__close';
 		button.setAttribute('role', 'button');
+		button.setAttribute('tabindex', '0');
 		button.setAttribute('href', '#void');
 		button.setAttribute('aria-label', 'Close');
 		button.setAttribute('title', 'Close');
@@ -239,6 +248,11 @@ Overlay.prototype.show = function() {
 	this.broadcast('new', 'oLayers');
 	this.context.appendChild(this.wrapper);
 
+	// Give the overlay focus
+	this.wrapper.setAttribute('tabindex', '0');
+	this.wrapper.style.outline = 0;
+	this.wrapper.focus();
+
 	// Renders content after overlay has been added so css is applied before that
 	// Thay way if an element has autofocus, the window won't scroll to the bottom
 	// in Safari as the overlay is already in position
@@ -286,6 +300,11 @@ Overlay.prototype.close = function() {
 		this.shadow.parentNode.removeChild(this.shadow);
 	}
 
+	// Put focus back on the triggering element
+	if (this.opts.trigger) {
+		this.opts.trigger.focus();
+		this.opts.trigger.setAttribute('aria-pressed', 'false');
+	}
 	this.visible = false;
 	this.broadcast('close', 'oLayers');
 	return false;
