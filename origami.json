@@ -4,7 +4,7 @@
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-quote/issues",
 	"supportStatus": "active",
-	"options": {
+	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"dependencies": ["o-fonts@^1.4.0"]
 	},
