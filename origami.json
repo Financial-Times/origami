@@ -4,7 +4,7 @@
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-errors/issues",
 	"supportStatus": "active",
-	"options": {
+	"demoDefaults": {
 		"js": "demos/src/demo.js",
 		"bodyClasses": "",
 		"dependencies": []
