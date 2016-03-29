@@ -125,7 +125,7 @@ const Overlay = function(id, opts) {
 };
 
 Overlay.prototype.open = function() {
-	if(this.opts.trigger) {
+	if (this.opts.trigger) {
 		this.opts.trigger.setAttribute('aria-pressed', 'true');
 	}
 
@@ -164,7 +164,7 @@ Overlay.prototype.render = function() {
 	wrapperEl.className = 'o-overlay';
 	wrapperEl.classList.add('o-overlay--' + this.id.replace(' ', '-'));
 	wrapperEl.setAttribute('role', 'dialog');
-	if(this.opts.heading) {
+	if (this.opts.heading) {
 		wrapperEl.setAttribute('aria-labelledby', this.opts.heading.title);
 	}
 	if (this.opts.zindex) {
@@ -301,7 +301,7 @@ Overlay.prototype.close = function() {
 	}
 
 	// Put focus back on the triggering element
-	if(this.opts.trigger) {
+	if (this.opts.trigger) {
 		this.opts.trigger.focus();
 		this.opts.trigger.setAttribute('aria-pressed', 'false');
 	}
