@@ -1,12 +1,10 @@
-'use strict';
+const Delegate = require('ftdomdelegate');
+const viewport = require('o-viewport');
+const oLayers = require('o-layers');
+const utils = require('./utils');
+const overlays = {};
 
-var Delegate = require('ftdomdelegate');
-var viewport = require('o-viewport');
-var oLayers = require('o-layers');
-var utils = require('./utils');
-var overlays = {};
-
-var checkOptions = function(opts) {
+const checkOptions = function(opts) {
 	if (opts.trigger && !(opts.trigger instanceof HTMLElement)) {
 		opts.trigger = document.querySelector(opts.trigger);
 	}
@@ -60,14 +58,14 @@ var checkOptions = function(opts) {
 	return opts;
 };
 
-var getOptionsFromTrigger = function(trigger) {
-	var opts = {};
+const getOptionsFromTrigger = function(trigger) {
+	let opts = {};
 	// Get config from data attributes set in the trigger if they haven't been passed via JS
 	if (trigger instanceof HTMLElement) {
 		Array.prototype.forEach.call(trigger.attributes, function(attr) {
 			if (attr.name.indexOf('data-o-overlay') === 0) {
 				// Remove the unnecessary part of the string the first time this is run for each attribute
-				var key = attr.name.replace('data-o-overlay-', '');
+				const key = attr.name.replace('data-o-overlay-', '');
 				opts = utils.optionsFromKey(key, attr.value, opts);
 			}
 		});
@@ -76,9 +74,9 @@ var getOptionsFromTrigger = function(trigger) {
 	return opts;
 };
 
-var triggerClickHandler = function(id, ev) {
+const triggerClickHandler = function(id, ev) {
 	ev.stopPropagation();
-	var overlay = overlays[id];
+	const overlay = overlays[id];
 	if (overlay) {
 		if (overlay.visible === true) {
 			overlay.close();
@@ -88,7 +86,7 @@ var triggerClickHandler = function(id, ev) {
 	}
 };
 
-var Overlay = function(id, opts) {
+const Overlay = function(id, opts) {
 	viewport.listenTo('resize');
 	this.visible = false;
 	this.id = id;
@@ -103,7 +101,7 @@ var Overlay = function(id, opts) {
 	}
 
 	if (!this.opts) {
-		var noOptError = new Error('"o-overlay error": Required options have not been set');
+		const noOptError = new Error('"o-overlay error": Required options have not been set');
 		this.broadcast('log', 'oErrors', {
 			error: noOptError
 		});
@@ -128,7 +126,7 @@ var Overlay = function(id, opts) {
 
 Overlay.prototype.open = function() {
 	if (!this.content) {
-		var overlay = this;
+		const overlay = this;
 		this.loadContent(function(html) {
 			overlay.opts.html = html;
 			if (!overlay.opts.html) {
@@ -158,7 +156,7 @@ Overlay.prototype.loadContent = function(callback) {
 };
 
 Overlay.prototype.render = function() {
-	var wrapperEl = document.createElement('div');
+	const wrapperEl = document.createElement('div');
 	wrapperEl.className = 'o-overlay';
 	wrapperEl.classList.add('o-overlay--' + this.id.replace(' ', '-'));
 	if (this.opts.zindex) {
@@ -167,24 +165,24 @@ Overlay.prototype.render = function() {
 	this.wrapper = wrapperEl;
 
 	if (this.opts.heading) {
-		var heading = document.createElement('header');
+		const heading = document.createElement('header');
 		heading.classList.add('o-overlay__heading');
 
 		if (this.opts.heading.shaded) {
 			heading.classList.add('o-overlay__heading--shaded');
 		}
 
-		var button = document.createElement('a');
+		const button = document.createElement('a');
 		button.className = 'o-overlay__close';
 		button.setAttribute('role', 'button');
 		button.setAttribute('href', '#void');
 		button.setAttribute('aria-label', 'Close');
 		button.setAttribute('title', 'Close');
-		var buttonIcon = document.createElement('span');
+		const buttonIcon = document.createElement('span');
 		buttonIcon.className = 'o-overlay__close-icon';
 		button.appendChild(buttonIcon);
 
-		var title = document.createElement('span');
+		const title = document.createElement('span');
 		title.setAttribute('role', 'heading');
 		title.className = 'o-overlay__title';
 		title.innerHTML = this.opts.heading.title;
@@ -194,7 +192,7 @@ Overlay.prototype.render = function() {
 		wrapperEl.appendChild(heading);
 	}
 
-	var content = document.createElement('section');
+	const content = document.createElement('section');
 	content.className = 'o-overlay__content';
 	wrapperEl.appendChild(content);
 
@@ -210,7 +208,7 @@ Overlay.prototype.render = function() {
 Overlay.prototype.show = function() {
 	if (this.opts.modal) {
 		this.wrapper.classList.add('o-overlay--modal');
-		var shadow = document.createElement('div');
+		const shadow = document.createElement('div');
 		shadow.className = 'o-overlay-shadow';
 		this.shadow = shadow;
 		document.body.appendChild(shadow);
@@ -220,23 +218,23 @@ Overlay.prototype.show = function() {
 	this.delegates.wrap.root(this.wrapper);
 	this.delegates.context.root(this.context);
 
-	this.close = this.close.bind(this);
-	this.resizeListener = this.resizeListener.bind(this);
-	this.delegates.doc.on('oViewport.resize', 'body', this.resizeListener);
-	this.closeOnNewLayer = this.closeOnNewLayer.bind(this);
-	this.delegates.context.on('oLayers.new', this.closeOnNewLayer);
+	this.closeHandler = this.close.bind(this);
+	this.resizeListenerHandler = this.resizeListener.bind(this);
+	this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
+	this.closeOnNewLayerHandler = this.closeOnNewLayer.bind(this);
+	this.delegates.context.on('oLayers.new', this.closeOnNewLayerHandler);
 
 	if (this.opts.heading) {
-		this.delegates.wrap.on('click', '.o-overlay__close', this.close);
-		this.delegates.wrap.on('touchend', '.o-overlay__close', this.close);
+		this.delegates.wrap.on('click', '.o-overlay__close', this.closeHandler);
+		this.delegates.wrap.on('touchend', '.o-overlay__close', this.closeHandler);
 	}
 
-	this.closeOnExternalClick = this.closeOnExternalClick.bind(this);
-	this.delegates.doc.on('click', 'body', this.closeOnExternalClick);
-	this.delegates.doc.on('touchend', 'body', this.closeOnExternalClick);
+	this.closeOnExternalClickHandler = this.closeOnExternalClick.bind(this);
+	this.delegates.doc.on('click', 'body', this.closeOnExternalClickHandler);
+	this.delegates.doc.on('touchend', 'body', this.closeOnExternalClickHandler);
 
-	this.closeOnEscapePress = this.closeOnEscapePress.bind(this);
-	this.delegates.doc.on('keyup', this.closeOnEscapePress);
+	this.closeOnEscapePressHandler = this.closeOnEscapePress.bind(this);
+	this.delegates.doc.on('keyup', this.closeOnEscapePressHandler);
 
 	this.broadcast('new', 'oLayers');
 	this.context.appendChild(this.wrapper);
@@ -244,7 +242,7 @@ Overlay.prototype.show = function() {
 	// Renders content after overlay has been added so css is applied before that
 	// Thay way if an element has autofocus, the window won't scroll to the bottom
 	// in Safari as the overlay is already in position
-	var overlay = this;
+	const overlay = this;
 	window.requestAnimationFrame(function() {
 		if (!overlay.content.innerHTML) {
 			// overlay.respondToWindow(viewport.getSize());
@@ -270,9 +268,11 @@ Overlay.prototype.show = function() {
 };
 
 Overlay.prototype.close = function() {
-	this.delegates.doc.off();
-	this.delegates.wrap.off();
-	this.delegates.context.off();
+	this.delegates.doc.destroy();
+	this.delegates.wrap.destroy();
+	this.delegates.context.destroy();
+
+	viewport.stopListeningTo('resize');
 
 	this.broadcast('destroy');
 	this.broadcast('event', 'oTracking', {
@@ -317,7 +317,7 @@ Overlay.prototype.resizeListener = function(ev) {
 
 Overlay.prototype.broadcast = function(eventType, namespace, detail) {
 	namespace = namespace || 'oOverlay';
-	var target = namespace === 'oLayers' ? this.context : this.wrapper || document.body;
+	const target = namespace === 'oLayers' ? this.context : this.wrapper || document.body;
 
 	detail = detail || {};
 
@@ -333,7 +333,7 @@ Overlay.prototype.broadcast = function(eventType, namespace, detail) {
 };
 
 Overlay.prototype.realign = function(dimension, size) {
-	var edge = dimension === 'width' ? 'left' : 'top';
+	const edge = dimension === 'width' ? 'left' : 'top';
 
 	if (size <= this[dimension]) {
 		this.wrapper.classList.add('o-overlay--full-' + dimension);
@@ -343,7 +343,7 @@ Overlay.prototype.realign = function(dimension, size) {
 			// Set the exact height that the content of the overlay will have which is the total
 			// height of the overlay minus the heading if there is one. If height = 100%, the
 			// heading is part of that 100%, so some content is truncated.
-			var borderHeight = this.wrapper.offsetHeight - this.wrapper.clientHeight;
+			const borderHeight = this.wrapper.offsetHeight - this.wrapper.clientHeight;
 			this.content.style.height = this.wrapper.offsetHeight - (this.opts.heading ? this.wrapper.querySelector('header').offsetHeight : 0) - borderHeight + 'px';
 		}
 	} else {
@@ -376,15 +376,15 @@ Overlay.prototype.respondToWindow = function(size) {
 		this.opts.arrow.currentposition = this.getCurrentArrowPosition(this.opts.arrow.position);
 		this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.currentposition);
 
-		var edge = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'left' : 'top';
-		var oppositeEdge = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'top' : 'left';
-		var dimension = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'height' : 'width';
+		const edge = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'left' : 'top';
+		const oppositeEdge = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'top' : 'left';
+		const dimension = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'height' : 'width';
 
-		var offset = 0;
+		let offset = 0;
 		// Protrusion distance for the arrow. It's 13 due to the border around it
-		var arrowSize = 13;
-		var targetClientRect = utils.getOffsetRect(this.opts.arrow.target);
-		var dimensionValue = targetClientRect[dimension];
+		const arrowSize = 13;
+		const targetClientRect = utils.getOffsetRect(this.opts.arrow.target);
+		const dimensionValue = targetClientRect[dimension];
 		switch (this.opts.arrow.currentposition) {
 			case 'left':
 				offset = targetClientRect.left + targetClientRect.width + arrowSize;
@@ -409,11 +409,11 @@ Overlay.prototype.respondToWindow = function(size) {
 };
 
 Overlay.prototype.getCurrentArrowPosition = function(position) {
-	var targetClientRect = this.opts.arrow.target.getBoundingClientRect();
+	const targetClientRect = this.opts.arrow.target.getBoundingClientRect();
 	// Protrusion distance for the arrow. It's 13 due to the border around it
-	var arrowSize = 13;
-	var wrapperWidth = this.wrapper.getBoundingClientRect().width + arrowSize;
-	var wrapperHeight = this.wrapper.getBoundingClientRect().height + arrowSize;
+	const arrowSize = 13;
+	const wrapperWidth = this.wrapper.getBoundingClientRect().width + arrowSize;
+	const wrapperHeight = this.wrapper.getBoundingClientRect().height + arrowSize;
 	// Check if the overlay won't fit on the side set in the options and that it will on the opposite side.
 	// In that case, use the opposite side
 	switch (this.opts.arrow.position) {
@@ -454,19 +454,22 @@ Overlay.prototype.fills = function(dimension) {
 };
 
 Overlay.prototype.destroy = function() {
-		if (this.opts.trigger) {
-			this.opts.trigger.removeEventListener('click', triggerClickHandler);
-		}
-		delete overlays[this.id];
+	if (this.visible === true) {
+		this.close();
+	}
+	if (this.opts.trigger) {
+		this.opts.trigger.removeEventListener('click', triggerClickHandler);
+	}
+	delete overlays[this.id];
 };
 
 Overlay.prototype.getHeight = function() {
-	var borderHeight = this.wrapper.offsetHeight - this.wrapper.clientHeight;
+	const borderHeight = this.wrapper.offsetHeight - this.wrapper.clientHeight;
 	return this.content.scrollHeight + (this.opts.heading ? this.wrapper.querySelector('header').offsetHeight : 0) + borderHeight;
 };
 
 Overlay.prototype.getWidth = function() {
-	var borderWidth = this.wrapper.offsetWidth - this.wrapper.clientWidth;
+	const borderWidth = this.wrapper.offsetWidth - this.wrapper.clientWidth;
 	return this.content.scrollWidth + borderWidth;
 };
 
@@ -477,17 +480,20 @@ Overlay.init = function(el) {
 	if (!(el instanceof HTMLElement)) {
 		el = document.querySelector(el);
 	}
-	var triggers = el.querySelectorAll('.o-overlay-trigger');
-	for (var t = 0; t < triggers.length; t++) {
+	const triggers = el.querySelectorAll('.o-overlay-trigger');
+	const overlaysArray = [];
+	for (let t = 0; t < triggers.length; t++) {
 		// There can only be one overlay per trigger when set declaratively, so the first trigger found for a given overlay will be the one used to create the overlay
 		if (!overlays[triggers[t].getAttribute('data-o-overlay-id')]) {
-			new Overlay(triggers[t].getAttribute('data-o-overlay-id'), getOptionsFromTrigger(triggers[t]));
+			overlaysArray.push(new Overlay(triggers[t].getAttribute('data-o-overlay-id'), getOptionsFromTrigger(triggers[t])));
 		}
 	}
+
+	return overlaysArray;
 };
 
 Overlay.destroy = function() {
-	var overlayIds = Object.keys(overlays);
+	const overlayIds = Object.keys(overlays);
 	overlayIds.forEach(function(id) {
 		overlays[id].destroy();
 	});

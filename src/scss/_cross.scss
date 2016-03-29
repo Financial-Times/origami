@@ -17,8 +17,8 @@
 	box-sizing: content-box;
 	float: right;
 	position: relative;
-	margin-top: 7px; // Align with the text baseline (magic number)
-	margin-right: 7px; // Same right spacing as the top one
+	margin-top: 10px; // Align with the text baseline (magic number)
+	margin-right: 10px; // Same right spacing as the top one
 	margin-left: 10px;
 	margin-bottom: 10px;
 	width: 1.5em;
@@ -70,7 +70,7 @@
 	@include _oOverlayTargetIE8 {
 		top: -0.1em;
 		left: -0.25em;
-		// scss-lint:disable VendorPrefixes
+		// scss-lint:disable VendorPrefix
 		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865474, M12=-0.7071067811865477, M21=0.7071067811865477, M22=0.7071067811865474, SizingMethod='auto expand')";
 	}
 

@@ -1,16 +1,25 @@
 {
-	"name": "o-overlay",
-	"private": true,
-	"scripts": {
-		"test": "./node_modules/karma/bin/karma start karma.conf.js"
-	},
-	"devDependencies": {
-		"debowerify": "Financial-Times/debowerify",
-		"jasmine-core": "^2.2.0",
-		"karma": "^0.12.31",
-		"karma-browserify": "^4.1.2",
-		"karma-jasmine": "^0.3.5",
-		"karma-phantomjs-launcher": "^0.1.4",
-		"nightwatch": "^0.7.5"
-	}
+  "name": "o-overlay",
+  "private": true,
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start karma.conf.js"
+  },
+  "devDependencies": {
+    "babel-loader": "^5.3.2",
+    "babel-runtime": "5.8.25",
+    "bower-webpack-plugin": "^0.1.8",
+    "imports-loader": "^0.6.4",
+    "karma": "^0.13.0",
+    "karma-mocha": "^0.2.2",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.4.5",
+    "nightwatch": "^0.7.5",
+    "phantomjs": "^1.9.16",
+    "sinon": "^1.17.3",
+    "webpack": "^1.12.2"
+  },
+  "dependencies": {
+    "expect.js": "^0.3.1"
+  }
 }

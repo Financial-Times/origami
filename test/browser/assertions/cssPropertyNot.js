@@ -14,12 +14,11 @@
  * @param {string} [message] Optional log message to display in the output. If missing, one is displayed by default.
  * @api assertions
  */
-'use strict';
 
-var util = require('util');
+const util = require('util');
 exports.assertion = function(selector, cssProperty, expected, msg) {
 
-	var MSG_ELEMENT_NOT_FOUND = 'Testing if element <%s> has css property %s. ' +
+	const MSG_ELEMENT_NOT_FOUND = 'Testing if element <%s> has css property %s. ' +
 		'Element or attribute could not be located.';
 
 	this.message = msg || util.format('Testing if element <%s> has css property "%s: %s".', selector, cssProperty, expected);
@@ -30,7 +29,7 @@ exports.assertion = function(selector, cssProperty, expected, msg) {
 	};
 
 	this.failure = function(result) {
-		var failed = result === false || result && result.status === -1;
+		const failed = result === false || result && result.status === -1;
 		if (failed) {
 			this.message = msg || util.format(MSG_ELEMENT_NOT_FOUND, selector, cssProperty);
 		}
