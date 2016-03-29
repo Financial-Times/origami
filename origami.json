@@ -1,16 +1,25 @@
 {
-    "description": "Library for reporting front end errors",
-    "origamiType": "module",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-errors/issues",
-    "supportStatus": "active",
-    "demos": [
-        {
-            "path": "/demos/declarative.html",
-            "expanded": false,
-            "description": "Declarative error tracking"
-        }
-    ],
+	"description": "Library for reporting front end errors",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-errors/issues",
+	"supportStatus": "active",
+	"demosDefaults": {
+		"js": "demos/src/demo.js",
+		"bodyClasses": "",
+		"dependencies": []
+	},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-errors"
+	},
+	"demos": [
+		{
+			"name": "declarative",
+			"expanded": false,
+			"template": "demos/src/declarative.mustache",
+			"description": "Declarative error tracking"
+			}
+		],
 	"browserFeatures": {
 		"required": ["Array.isArray"]
 	}
