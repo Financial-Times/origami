@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
 	unCapitalise: function(str) {
 		return str.charAt(0).toLowerCase() + str.substr(1);
@@ -10,14 +8,14 @@ module.exports = {
 	},
 
 	copyContentFromElement: function(content, callback) {
-		var html = content.nodeName === 'SCRIPT' ? content.innerHTML : content.outerHTML;
+		const html = content.nodeName === 'SCRIPT' ? content.innerHTML : content.outerHTML;
 		callback(html);
 	},
 
 	copyContentFromUrl: function(url, callback) {
-		var xhr = new XMLHttpRequest();
+		const xhr = new XMLHttpRequest();
 		xhr.open('GET', url, true);
-		xhr.onload = function(e) {
+		xhr.onload = function() { // eslint complains of e not being used
 			if (xhr.readyState === 4) {
 				if (xhr.status === 200) {
 					callback(xhr.responseText);
@@ -34,7 +32,7 @@ module.exports = {
 	},
 
 	optionsFromKey: function(key, value, opts) {
-		var dashIndex = key.indexOf('-');
+		const dashIndex = key.indexOf('-');
 		if (dashIndex === -1) {
 			try {
 				// If it's a JSON, a boolean or a number, we want it stored like that, and not as a string
@@ -45,7 +43,7 @@ module.exports = {
 			}
 		} else {
 			// Key that holds an object instead of a value
-			var subKey = key.substr(0, dashIndex);
+			const subKey = key.substr(0, dashIndex);
 
 			// If sub-object doesn't exist already, create it
 			if (!opts[subKey]){
@@ -61,18 +59,18 @@ module.exports = {
 
 	// Code based on this article to get coordinates independent of scroll: http://javascript.info/tutorial/coordinates
 	getOffsetRect: function(e) {
-		var eClientRect = e.getBoundingClientRect();
+		const eClientRect = e.getBoundingClientRect();
 
-		var body = document.body;
-		var docElem = document.documentElement;
+		const body = document.body;
+		const docElem = document.documentElement;
 
 		// docElem.scrollTop/Left for IE, use body as a last resort
-		var scrollTop = window.pageYOffset || docElem.scrollTop || body.scrollTop;
-		var scrollLeft = window.pageXOffset || docElem.scrollLeft || body.scrollLeft;
+		const scrollTop = window.pageYOffset || docElem.scrollTop || body.scrollTop;
+		const scrollLeft = window.pageXOffset || docElem.scrollLeft || body.scrollLeft;
 
 		// IE sometimes shifts the upper left corner
-		var clientTop = docElem.clientTop || body.clientTop || 0;
-		var clientLeft = docElem.clientLeft || body.clientLeft || 0;
+		const clientTop = docElem.clientTop || body.clientTop || 0;
+		const clientLeft = docElem.clientLeft || body.clientLeft || 0;
 
 		return {
 			// IE8 doesn't support getBoundingClientRect().height and .weight

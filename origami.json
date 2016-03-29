@@ -14,22 +14,32 @@
 		]
 	},
 	"ci": {
-		"travis": "https://api.travis-ci.org/repos/Financial-Times/o-overlay/builds.json"
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-overlay"
+	},
+	"options": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"bodyClasses": "o-hoverable-on",
+		"dependencies": ["o-fonts@^1.5.0"]
 	},
 	"demos": [
 		{
-			"path": "/demos/modal.html",
+			"name": "modal",
 			"description": "Modal shaded overlay",
+			"template": "/demos/src/modal.mustache",
 			"expanded": true
 		},
 		{
-			"path": "/demos/centered-overlay.html",
+			"name": "centered-overlay",
+			"template": "/demos/src/centered-overlay.mustache",
 			"description": "Non-modal non-shaded centered overlay",
 			"expanded": false
 		},
 		{
-			"path": "/demos/overlay-with-arrow.html",
+			"name": "overlay-with-arrow",
+			"template": "/demos/src/overlay-with-arrow.mustache",
 			"description": "Non-modal overlay with an arrow that points to a target",
+			"sass": "demos/src/overlay-with-arrow.scss",
 			"expanded": false
 		}
 	]
