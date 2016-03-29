@@ -164,9 +164,6 @@ Overlay.prototype.render = function() {
 	wrapperEl.className = 'o-overlay';
 	wrapperEl.classList.add('o-overlay--' + this.id.replace(' ', '-'));
 	wrapperEl.setAttribute('role', 'dialog');
-	if (this.opts.heading) {
-		wrapperEl.setAttribute('aria-labelledby', this.opts.heading.title);
-	}
 	if (this.opts.zindex) {
 		wrapperEl.style.zIndex = this.opts.zindex;
 	}
@@ -174,7 +171,10 @@ Overlay.prototype.render = function() {
 
 	if (this.opts.heading) {
 		const heading = document.createElement('header');
+		const headingId = this.opts.heading.title.replace(' ', '-').toLowerCase();
 		heading.classList.add('o-overlay__heading');
+		heading.setAttribute('id', headingId);
+		wrapperEl.setAttribute('aria-labelledby', headingId);
 
 		if (this.opts.heading.shaded) {
 			heading.classList.add('o-overlay__heading--shaded');
