@@ -1,37 +1,56 @@
 {
-    "description": "Web font loader",
-    "origamiType": "module",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-fonts/issues",
-    "supportStatus": "active",
-    "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-fonts/builds.json"
-    },
-    "demos": [
-        {
-            "path": "/demos/bentonsans.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/millerdisplay.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/metricweb.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/financierdisplayweb.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/financiertextweb.html",
-            "expanded": true,
-            "description": ""
-        }
-    ]
+	"description": "Web font loader",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-fonts/issues",
+	"supportStatus": "active",
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-fonts"
+	},
+	"options": {
+		"template": "demos/src/family.mustache",
+		"sass": "demos/src/demo.scss"
+	},
+	"demos": [
+		{
+			"name": "bentonsans",
+			"data": {
+				"font": "bentonsans"
+			},
+			"expanded": true,
+			"description": ""
+		},
+		{
+			"name": "millerdisplay",
+			"data": {
+				"font": "millerdisplay"
+			},
+			"expanded": true,
+			"description": ""
+		},
+		{
+			"name": "metricweb",
+			"data": {
+				"font": "metricweb"
+			},
+			"expanded": true,
+			"description": ""
+		},
+		{
+			"name": "financierdisplayweb",
+			"data": {
+				"font": "financierdisplayweb"
+			},
+			"expanded": true,
+			"description": ""
+		},
+		{
+			"name": "financiertextweb",
+			"data": {
+				"font": "financiertextweb"
+			},
+			"expanded": true,
+			"description": ""
+		}
+	]
 }
