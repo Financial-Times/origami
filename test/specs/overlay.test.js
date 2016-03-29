@@ -5,6 +5,7 @@ const Overlay = require('../../src/js/overlay');
 const testContent = '<div class="test-overlay"><span class="test-overlay__text">Hello Overlay</span></div>';
 
 const expect = require('expect.js');
+
 const sinon = require('sinon/pkg/sinon');
 
 describe("smoke-tests (./overlay.js)", () => {
@@ -182,6 +183,36 @@ describe("smoke-tests (./overlay.js)", () => {
 			mod.close();
 			overlays = document.querySelectorAll('.o-overlay');
 			expect(overlays.length).to.be(0);
+		});
+
+		it('should open and close with correct aria attributes', done => {
+			const trigger = document.querySelector('.o-overlay-trigger');
+			o.fireEvent(trigger, 'click');
+			const overlays = document.querySelectorAll('.o-overlay');
+			expect(overlays.length).to.equal(0);
+
+			Overlay.init();
+
+			function overlayReadyHandler() {
+				const wrapper = document.querySelectorAll('.o-overlay');
+				const wrapperRole = wrapper[0].getAttribute('role');
+				expect(wrapperRole).to.contain('dialog');
+
+				let triggerPressed = trigger.getAttribute('aria-pressed');
+				expect(triggerPressed).to.contain('true');
+
+				Overlay.getOverlays()['testOverlay'].close();
+				document.body.removeEventListener('oOverlay.ready', overlayReadyHandler);
+
+				triggerPressed = trigger.getAttribute('aria-pressed');
+				expect(triggerPressed).to.contain('false');
+
+				done();
+			}
+
+			document.body.addEventListener('oOverlay.ready', overlayReadyHandler);
+
+			o.fireEvent(trigger, 'click');
 		});
 	});
 
