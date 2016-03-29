@@ -125,7 +125,9 @@ const Overlay = function(id, opts) {
 };
 
 Overlay.prototype.open = function() {
-	this.opts.trigger.setAttribute('aria-pressed', 'true');
+	if(this.opts.trigger) {
+		this.opts.trigger.setAttribute('aria-pressed', 'true');
+	}
 
 	if (!this.content) {
 		const overlay = this;
@@ -162,7 +164,9 @@ Overlay.prototype.render = function() {
 	wrapperEl.className = 'o-overlay';
 	wrapperEl.classList.add('o-overlay--' + this.id.replace(' ', '-'));
 	wrapperEl.setAttribute('role', 'dialog');
-	wrapperEl.setAttribute('aria-labelledby', this.opts.heading.title);
+	if(this.opts.heading) {
+		wrapperEl.setAttribute('aria-labelledby', this.opts.heading.title);
+	}
 	if (this.opts.zindex) {
 		wrapperEl.style.zIndex = this.opts.zindex;
 	}
@@ -297,8 +301,10 @@ Overlay.prototype.close = function() {
 	}
 
 	// Put focus back on the triggering element
-	this.opts.trigger.focus();
-	this.opts.trigger.setAttribute('aria-pressed', 'false');
+	if(this.opts.trigger) {
+		this.opts.trigger.focus();
+		this.opts.trigger.setAttribute('aria-pressed', 'false');
+	}
 	this.visible = false;
 	this.broadcast('close', 'oLayers');
 	return false;
