@@ -1,0 +1,18 @@
+$o-header-is-silent: false;
+
+@import "../../main";
+
+body {
+	font-family: "MetricWeb";
+}
+
+// Placeholder content (blurry text below demos)
+.demo__content-wrapper {
+	@include oGridContainer;
+}
+.demo__content {
+	font-size: 15px;
+	line-height: 20px;
+	color: transparent;
+	text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}

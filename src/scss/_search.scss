@@ -1,0 +1,115 @@
+.o-header__search {
+	line-height: 20px;
+	float: right;
+
+	a {
+		text-decoration: none;
+	}
+}
+
+.o-header__search-toggle {
+	@include _oHeaderButtonReset;
+	cursor: pointer;
+	position: relative;
+	display: block;
+	height: $o-header-bottom-height;
+	box-sizing: border-box;
+	z-index: $o-header-z-index;
+
+	&:after {
+		@include oFtIconsGetSvg(search, oColorsGetColorFor(o-header, text), 20);
+		content: '';
+	}
+
+	&[aria-pressed=true]:after {
+		@include oFtIconsGetSvg(cross, oColorsGetColorFor(o-header, text), 20);
+	}
+}
+
+.o-header__search-toggle-text {
+	width: 0;
+	overflow: hidden;
+}
+
+.o-header__search-toggle-text--open {
+	display: inline-block;
+
+	.o-header__search-toggle[aria-pressed=true] & {
+		display: none;
+	}
+}
+
+.o-header__search-toggle-text--close {
+	display: none;
+
+	.o-header__search-toggle[aria-pressed=true] & {
+		display: inline-block;
+	}
+}
+
+.o-header__search-form {
+	@include oColorsFor(o-header, background);
+	visibility: hidden;
+	overflow: hidden;
+	position: absolute;
+	box-sizing: border-box;
+	padding: 0 50px;
+	top: 0;
+	bottom: 0;
+	right: -10px;
+	width: 0;
+	z-index: $o-header-z-index * 5;
+
+	.o-header__search-toggle[aria-pressed=true] + & {
+		visibility: visible;
+		right: 40px;
+		width: 100%;
+	}
+}
+
+.o-header__search-input {
+	@include oFormsCommonField;
+	@include oColorsFor(o-header, text);
+	background-color: transparent;
+	width: 100%;
+	height: 100%;
+	margin-left: 45px;
+	padding: 2px 26px 1px 12px;
+	border: 0;
+	border-radius: 0;
+	font-family: inherit;
+	font-size: inherit;
+
+	&:focus,
+	&:active {
+		outline: none;
+		border: 0;
+		box-shadow: inset 0 0 3px 1px oColorsGetColorFor(o-header-search, border);
+	}
+}
+
+.o-header__search-button {
+	@include oColorsFor(o-header, background);
+	margin-left: 40px;
+	position: absolute;
+	display: block;
+	padding: 2px 6px;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	border: 0;
+	cursor: pointer;
+
+	&:after {
+		right: 0;
+	}
+
+	span {
+		@include oFtIconsGetSvg(search, oColorsGetColorFor(o-header, text), 20);
+		display: block;
+		margin: 8px 8px 8px 14px;
+		background-position: center;
+		color: transparent;
+		overflow: hidden;
+	}
+}

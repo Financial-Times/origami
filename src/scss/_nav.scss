@@ -1,0 +1,316 @@
+// This is applied to the <body> via JS, this does not comply
+// with the Origami spec, and issue #129 has been raised
+// It's used to avoid scrolling when the meganav
+// is open in a mobile view
+.o-header--mega-nav-open {
+	@include oGridRespondTo($until: M) {
+		overflow-y: hidden;
+		height: 100%;
+	}
+}
+
+.o-header__nav-container {
+	position: absolute;
+	top: 0;
+	height: $o-header-bottom-height;
+
+	@include oGridRespondTo(M) {
+		position: relative;
+	}
+
+	@include oGridTargetIE8 {
+		position: relative;
+	}
+}
+
+.o-header__nav,
+.o-header__meganav {
+	@include oColorsFor(o-header, background);
+
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.o-header__meganav {
+	position: absolute;
+	display: none;
+	width: 100%;
+
+	@include oGridRespondTo($until: M) {
+		@include oColorsFor(o-header-mega-nav, background);
+	}
+
+	.o-header__nav-link--toggle[aria-pressed=true] + & {
+		display: block;
+	}
+}
+
+.o-header__nav-item {
+	display: none;
+
+	@include oGridRespondTo(L) {
+		display: inline-block;
+	}
+
+	@include oGridTargetIE8 {
+		display: inline-block;
+	}
+}
+
+.o-header__meganav-container {
+	display: inline-block;
+	// Because <button> elements sit on high baseline in FF
+	vertical-align: bottom;
+
+	.o-header__nav-container {
+		@include oGridRespondTo(M) {
+			position: static;
+		}
+	}
+}
+
+.o-header__nav-link {
+	@include oColorsFor(o-header, text);
+	font-family: inherit;
+	text-decoration: none;
+	font-size: 16px;
+	padding: 0 7px;
+	display: inline-block;
+	background: none;
+	border: 0;
+	cursor: pointer;
+	line-height: 43px;
+	text-transform: uppercase;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+
+	&[aria-selected="true"] {
+		@include oColorsFor(o-header-nav-item-selected, background);
+	}
+
+	// Just in case a <button> is used
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+}
+
+.o-header__meganav-section {
+	overflow: hidden;
+
+	@include oGridRespondTo(M) {
+		@include oGridColspan(3);
+		margin-top: 20px;
+	}
+
+	&--desktop {
+		display: none;
+		@include oGridRespondTo(M) { display: block; }
+	}
+
+	&--mobile {
+		display: block;
+		@include oGridRespondTo(M) { display: none; }
+	}
+}
+
+.o-header__meganav-items {
+	padding: 0;
+
+	.o-header__meganav-link {
+		@include oGridResetColumn;
+		text-align: left;
+		background-color: transparent;
+		color: inherit;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+}
+
+.o-header__meganav-section--collapsible {
+	.o-header__meganav-items {
+		padding: 10px 0 10px 15px;
+
+		@include oGridRespondTo($until: M) {
+			@include oColorsFor(o-header-mega-nav, text);
+			@include oGridColspan(12 - $o-header-mobile-width);
+			display: none;
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			padding: 0 0 0 15px;
+			min-height: 340px;
+		}
+	}
+
+	[aria-selected=true] ~ .o-header__meganav-items {
+		display: block;
+	}
+}
+
+.o-header__meganav-item {
+	overflow: hidden;
+}
+
+.o-header__meganav-section-head {
+	@include oGridColspan($o-header-mobile-width);
+	@include _oHeaderButtonReset;
+	padding: 0 15px;
+	margin: 0;
+	font-family: inherit;
+	font-size: 16px;
+	line-height: 32px;
+	text-decoration: none;
+	overflow: hidden;
+
+	@include oGridRespondTo($until: M) {
+		@include oColorsFor(o-header, background text);
+		text-align: right;
+		cursor: pointer;
+
+		&[aria-selected=true] {
+			@include oColorsFor(o-header-mega-nav, background text);
+			text-decoration: none;
+			font-weight: bold;
+
+			span:after {
+				@include oFtIconsGetSvg(arrow-right, oColorsGetColorFor(o-header-mega-nav, text), 10);
+			}
+		}
+
+		span:after {
+			@include oFtIconsGetSvg(arrow-right, oColorsGetColorFor(o-header, text), 10);
+			content: '';
+			padding-left: 1.3em;
+			margin-bottom: -0.05em;
+			margin-right: -1em;
+		}
+	}
+
+	@include oGridRespondTo(M) {
+		@include oGridResetColumn;
+		display: block;
+		font-weight: bold;
+		padding-left: 15px;
+		line-height: 1.5;
+	}
+
+	&--desktop {
+		display: none;
+		@include oGridRespondTo(M) { display: block; }
+	}
+
+	&--mobile {
+		display: block;
+		padding-right: 15px;
+		@include oGridRespondTo(M) { display: none; }
+	}
+}
+
+.o-header__meganav-link {
+	@include oColorsFor(o-header, background);
+	color: inherit;
+	font-family: inherit;
+	text-decoration: none;
+	font-size: 16px;
+	line-height: 32px;
+	padding-right: 15px;
+	margin: 0;
+	min-height: 32px;
+
+	@include oGridRespondTo($until: M) {
+		@include oColorsFor(o-header, text);
+		@include oGridColspan($o-header-mobile-width);
+		text-align: right;
+	}
+
+	@include oGridRespondTo(M) {
+		padding-right: 7px;
+		min-height: 0;
+		line-height: 1.5;
+	}
+
+	&[aria-selected=true] {
+		text-decoration: underline;
+	}
+}
+
+.o-header__nav-link--toggle {
+	text-transform: none;
+
+	// Makes the underline only appear under the span and not slightly to its left
+	&:hover {
+		text-decoration: none;
+		& > .o-header__meganav-toggle {
+			text-decoration: underline;
+		}
+	}
+
+	&:before {
+		@include oFtIconsGetSvg(hamburger, oColorsGetColorFor(o-header, text), 20);
+		content: '';
+		position: relative;
+		margin-right: 9px;
+	}
+
+	&.o--if-no-js {
+		text-decoration: none;
+	}
+}
+
+.o-header__meganav-toggle {
+	@include  _oHeaderButtonReset;
+	width: 34px;
+	cursor: pointer;
+}
+
+.o-header__meganav-toggle--open {
+	@include oColorsFor(o-header, text);
+	display: none;
+
+	@include oGridRespondTo(M) {
+		display: inline-block;
+	}
+}
+
+.o-header__meganav-toggle--close {
+	display: none;
+}
+
+.o-header__nav-link--toggle[aria-pressed=true] {
+	@include oGridRespondTo($until: M) {
+		.o-header__meganav-link--top-level {
+			z-index: $o-header-z-index * 3;
+		}
+
+		& + .o-header__meganav {
+			position: fixed;
+			top: 44px;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			z-index: $o-header-z-index;
+			overflow-y: scroll;
+		}
+	}
+
+	.o-header__meganav-toggle--close {
+		display: inline-block;
+	}
+
+	&:before {
+		@include oFtIconsGetSvg(cross, oColorsGetColorFor(o-header, text), 20);
+	}
+
+	.o-header__meganav-toggle--open {
+		display: none;
+	}
+}

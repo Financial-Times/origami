@@ -1,0 +1,51 @@
+$o-header-is-silent: true !default;
+$o-header-bottom-height: 45px !default;
+$o-header-mobile-row-height: 32px !default;
+// width of the left column in mobile view of the menu
+// i.e. the headers of nav sections
+$o-header-mobile-width: 5 !default;
+$o-header-z-index: 1 !default;
+
+@mixin oHeaderNavItem {
+	display: block;
+	padding: 0 4px;
+	border: 0;
+	background: none;
+	color: inherit;
+	font-size: 14px;
+	line-height: $o-header-bottom-height;
+	text-decoration: none;
+	cursor: pointer;
+
+	@include oGridRespondTo(M) {
+		padding: 0 6px;
+		font-size: 13px;
+	}
+
+	@include oGridRespondTo(L) {
+		padding: 0 7px;
+		font-size: 16px;
+	}
+
+	*:last-child > & {
+		padding-right: 0;
+	}
+}
+
+@mixin _oHeaderButtonReset {
+	color: inherit;
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+}
+
+@mixin _oHeaderHideVisually {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	margin: -1px;
+	border: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+}

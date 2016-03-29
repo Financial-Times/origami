@@ -1,0 +1,52 @@
+@mixin oHeaderLogoLink {
+	display: block;
+	height: 100%;
+	position: relative;
+
+	* {
+		@include _oHeaderHideVisually;
+	}
+}
+
+.o-header__masthead {
+	text-align: center;
+
+	> a {
+		@include oHeaderLogoLink;
+		@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header, text), 336);
+		display: block;
+		margin: 17px auto;
+		height: 27px;
+	}
+}
+
+.o-header__masthead-mobile {
+	display: block;
+	padding: 18px 0;
+
+	@include oGridRespondTo(S) {
+		padding: 12px 0;
+	}
+
+	@include oGridRespondTo(M) {
+		display: none;
+	}
+
+	@include oGridTargetIE8 {
+		display: none;
+	}
+
+	> a {
+		@include oHeaderLogoLink;
+		@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header, text), 138);
+		display: block;
+		height: 11px;
+		margin: 0 auto;
+
+		@include oGridRespondTo(S) {
+			@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header, text), 265);
+			display: block;
+			height: 21px;
+		}
+	}
+}

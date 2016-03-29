@@ -1,190 +1,106 @@
-# Header [![Build Status](https://travis-ci.org/Financial-Times/o-header.svg)](https://travis-ci.org/Financial-Times/o-header)
+# o-header [![Circle CI](https://circleci.com/gh/Financial-Times/o-header.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-header)
 
-Responsive FT page header.
+Responsive header for FT branded sites
 
-Note: this module used to be called `o-ft-header` which is why there are references to that name in verions 1 and 2 of the module.
+## Getting started guide
 
-## Quick Start
+Install the module:
 
-1. Load the CSS and the JavaScript in the document
-2. Load additional modules such as `o-ft-icons` and `o-fonts` to display FT branded icons and text
-3. Copy the markup from [one of the demos](http://registry.origami.ft.com/components/o-header) in the registry, and paste it in a document
-4. Set a `font-family` and a `overflow-x` on the document root:
+```
+bower install --S o-header
+```
+
+Load the JS:
+
+```js
+var oHeader = require('o-header');
+
+oHeader.init();
+```
+
+Load the CSS:
+
+```scss
+$o-header-is-silent: false;
+@import 'o-header/main';
+```
+
+Load [o-fonts](https://github.com/Financial-Times/o-fonts) and set some default CSS properties to the document root:
 
 ```scss
 html {
-	font-family: BentonSans, sans-serif;
-	overflow-x: hidden; // Prevent navigation menus from creating extra space on sides of the page
+    font-family: "MetricWeb";
 }
 ```
 
+Copy the markup from [one of the demos](http://registry.origami.ft.com/components/o-header) in the registry, and paste it in a document
 
-## Browser Support
+## API
 
-Tested and working on:
+### JavaScript
 
-|  Browsers  | Primary Experience | Core Experience |
-|:----------:|:------------------:|:---------------:|
-|   Chrome   |        35+         |       35+       |
-|   Firefox  |        30+         |       30+       |
-|   Safari   |        7+          |       7+        |
-|   IE       |        8+          |       8+        |
+An o-header object must be constructed for every `<header>` you have on your page that uses this module.
 
-Known issues:
-
-* IE 6 and 7:
-	* Masthead not displaying properly
-* IE8 and IE9:
-	* Secondary bar doesn't occupy full width of XL screens because they don't support _linear-gradient_.
-
-## Element containers
-
-The header consists of the following content containers:
-
-* Primary: Left
-* Primary: Centre
-* Primary: Right
-* Primary: Featured
-* Secondary: Left
-* Secondary: Right
-
-Each content container can contain one of the following:
-
-* Custom content - brand-specific logo/title etc
-* A title
-* Navigation (_primary_ theme)
-* Navigation (_secondary_ theme)
-* Navigation (_tools_ theme)
-* Breadcrumb
-
-## Navigation
-
-For navigation, this module uses [o-hierarchical-nav](https://github.com/Financial-Times/o-hierarchical-nav), so please check out its documentation to add it in your header.
-
-There are three horizontal Navigation styles depending on the class you add to the `<nav>`:
-
-* __Primary__: `o-header__nav--primary-theme`
-* __Secondary__: `o-header__nav--secondary-theme`
-* __Tools__: `o-header__nav--tools-theme`
-
-Primary and Secondary navigations work identically except for the fact the one goes in a Primary container, and the other in the Secondary Container. They can both hold Standalone Items, [Sub-Levels](https://github.com/Financial-Times/o-hierarchical-nav#parent-of-sub-level) and [Controllers for a DOM element](https://github.com/Financial-Times/o-hierarchical-nav#controller-for-dom-element).
-
-As for the Tools theme, it should only be used in a Primary Container, normally in Primary Right. It's intended to be used to contain an icon and text in each element of the navigation. An example of the markup:
-
-```html
-<nav class="o-header__primary__right o-hierarchical-nav o-header__nav--tools-theme" data-o-component="hierarchical-nav">
-	<ul data-o-hierarchical-nav-level="1"><!--
-	--><li data-priority="1"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--search"></i>Tool 1</a></li><!--
-	--><li data-priority="3"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--settings"></i>Tool 2</a></li><!--
-	--><li data-priority="4"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--share"></i>Tool 3</a></li><!--
-	--><li data-priority="2"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--profile"></i>Tool 4</a></li><!--
-	--><li data-more class="o-hierarchical-nav__parent" aria-hidden="true"><a href="#void"><i class="demo__icon o-ft-icons-icon o-ft-icons-icon--hamburger"></i>More</a></li><!--
-	--></ul>
-</nav>
+```js
+var Header = require('o-header');
+var headerEl = document.querySelector('.o-header');
+var header = new oHeader(headerEl);
 ```
 
-### Responsiveness
+Alternatively, a `o.DOMContentLoaded` event can be dispatched on the document to auto-construct an o-header object for each element with a `data-o-component="o-header"` attribute:
 
-On primary experience, all navigations use [o-squishy-list](https://github.com/Financial-Times/o-squishy-list) to set priorities to top level items and only show as many items it can to fit the available width.
-
-### Hover events
-
-Like it's explained [here](https://github.com/Financial-Times/o-hierarchical-nav#hover-events), you need to implement [o-hoverable](https://github.com/Financial-Times/o-hoverable#using-in-a-product).
-
-### Arrow icons
-
-So that your nav elements have arrows telling the user in which direction the sub-level menu is going to appear, you can add an `<i>` tag with the class `.o-hierarchical-nav__parent_down-arrow` like explained [here](https://github.com/Financial-Times/o-hierarchical-nav#arrows).
-
-## Brands
-
-To add your brand color, you need to set the `brand` colour custom use case like this:
-
-```scss
-@include oColorsSetUseCase(product-brand, background, claret);
-```
-
-This brand colour will be used in both this module and in [o-ft-footer](http://github.com/Financial-Times/o-ft-footer). If you want a different brand colour for the header than is used in the footer, set the `o-header-product-brand` use case instead.
-
-_The `$o-header-brand-color` variable is now deprecated and will be removed in next major release._
-
-If you want mega-dropdowns to appear showing part of your branded secondary container, you would also need to add the class `.o-header__mega-dropdown--primary` on your DOM element.
-
-## Logos
-
-If you want to have the FT logo on your website, you just need to have the following markup:
-
-```html
-<div class="o-header__logo o-header__logo--ft">
-	<a href="http://www.ft.com"><abbr title="Financial Times">FT</abbr></a>
-</div>
-```
-
-## Adjusting widths
-
-The primary-left, primary-right, primary-featured and secondary-left need to have a fixed width for primary-centre to adjust appropriately. To change any the default widths, you would need to add the following variables to your stylesheet before importing this module's Sass:
-
-```scss
-$o-header-primary-left-width
-$o-header-secondary-left-width
-$o-header-primary-featured-width
-```
-
-You may specify specific widths for different layouts, [based on o-grid](https://github.com/Financial-Times/o-grid):
-
-```scss
-// always 254px wide
-$o-header-primary-left-width: 254px;
-
-// 254px wide by default, and 303px wide at the medium layout and up
-$o-header-primary-left-width: (default: 254px, M:  303px);
-```
-
-## JavaScript instantiation
-
-An __o-header__ object must be constructed for every `<header>` you have on your page that uses this module.
-
-```javascript
-var oHeader = require('o-header');
-var header = document.querySelector('.o-header');
-var ftHeader = new oHeader(header);
-```
-
-Alternatively, a `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct an __o-header__ object for each element with a `data-o-component="o-header"` attribute:
-
-```javascript
+```js
 require('o-header');
 document.addEventListener("DOMContentLoaded", function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
 
-## Upgrading from 3.x.x to 4.x.x
+Additionally, a second paramater can be passed to the header constructor or to the `.init()` function with a config object that has the following options:
 
-Note that o-header v4 relies on the [o-grid](https://github.com/Financial-Times/o-grid) v4 which introduces breaking changes.
+* *headerClassName*: Class name set to the root element of your head. (Default: `o-header`)
+* *editionswitchClassName*: Class name set to the root element of the edition switch. (Default: `o-header__edition-switch`)
 
-### Markup changes
+### Sass
 
-(optional) Remove `<div class="o-header__inner">` in `<div class="o-header__container">`:
+Currently, only non silent mode is supported.
 
-```diff
-<header data-o-component="o-header" class="o-header">
-	<div class="o-header__container">
--		<div class="o-header__inner">
-			<div class="o-header__primary">
-				{{{o-header.primary}}}
-			</div>
-			<div class="o-header__secondary">
-				{{{o-header.secondary}}}
-			</div>
--		</div>
-	</div>
-</header>
-```
+We do support several themes:
 
-----
+* Light: Use the `o-header--light` class on the root element. Applies a _pink_ background
+* Minimal: Use the `o-header--minimal` class on the root element and don't add the `o-header__top` container markup. Displays a smaller header
 
-## License
+### Markup
+
+_There are intentionally no classes to switch between logged in and out as we don't want to do that in the client side. This is left up to the product._
+
+Some elements inside the header require specific data attributes so the JavaScript can add some behaviour correctly. These are:
+
+* data-o-header-search: Applied to the search `<form>`. Inside, it also requires an `<input>` element
+* data-o-header-togglable: Applied to any toggle in the header
+* data-o-header-togglable-nav: Applied to the `<button>` or other kind of element that will toggle the meganav
+* data-o-header-togglable-search: Applied to the `<button>` or other kind of element that will toggle the search input
+* data-o-header-suggestions: Applied to the root div of the bottom row of the header, as that's the container of the suggestions that are added via JS
+* data-o-header-edition-switch-button: Applied to the `<button>` or other kind of element that will toggle the edition switch
+* data-o-header-selectable: Applied to the `<button>` or other kind of element in the meganav section in the mobile view that will select it
+
+Also, if using an _Edition Switch_, for accessibility reasons, the `<ul>` element requires `id="o-header__edition-switch-container"`.
+
+Search and Menu `<a>` tags link to elements outside the header in core experience. We recommend having them in the footer.
+
+### Events
+
+o-header fires the following event:
+
+* `oHeader.searchToggle`: When the search toggle is triggered with this property:
+    - `isOpen`: Whether the search form is visible or not
+
+## Enhanced/Core expeirence
+
+We use the [standard](http://origami.ft.com/docs/developer-guide/using-modules/#styles-for-fallbacks-and-enhancements) `o--if-js` and `o--if-no-js` classes to hide elements in enhanced and core experience respectively
+
+## Upgrading from 4.x.x to 5.x.x
+
+This is a complete change in the markup and usage of the module, so we advise to look at the markup in the demos and go over the readme. If any issues come up, please let us know.
 
 Copyright (c) 2016 Financial Times Ltd. All rights reserved.
-
-This software is published under the [MIT licence](http://opensource.org/licenses/MIT).

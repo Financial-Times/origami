@@ -1,0 +1,56 @@
+.o-header {
+	@include oColorsFor(o-header);
+	position: sticky;
+	z-index: $o-header-z-index;
+	padding-bottom: 0;
+	top: 0;
+
+	@include oGridRespondTo(M) {
+		position: relative;
+	}
+
+	@include oGridTargetIE8 {
+		position: relative;
+	}
+
+	label > * {
+		pointer-events: none;
+	}
+}
+
+.o-header__container {
+	@include oGridContainer;
+}
+
+.o-header__inner {
+	@include oGridRow;
+}
+
+
+.o-header__top,
+.o-header__bottom,
+.o-header__mobile-row {
+	@include oGridColspan(12);
+}
+
+.o-header__top {
+	display: none;
+	position: relative;
+
+	@include oGridRespondTo(M) {
+		display: block;
+	}
+
+	@include oGridTargetIE8 {
+		display: block;
+	}
+}
+
+.o-header__mobile-row {
+	height: $o-header-mobile-row-height;
+	display: none;
+
+	@include oGridRespondTo($until: M) {
+		display: block;
+	}
+}

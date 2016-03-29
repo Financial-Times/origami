@@ -1,0 +1,64 @@
+// One level nav with elements separated by a pipe, and no icons
+.o-header__tools {
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	@include oGridRespondTo($until: M) {
+		display: none;
+	}
+}
+
+.o-header__tools--mobile {
+	@include oGridRespondTo($until: M) {
+		display: block;
+	}
+
+	.o-header__tools-link {
+		line-height: $o-header-mobile-row-height;
+	}
+}
+
+.o-header__tools-items {
+	margin: 0;
+	padding: 0;
+}
+
+.o-header__tools-item {
+	position: relative;
+	display: inline-block;
+
+	@include oGridTargetIE8 {
+		float: left;
+		padding: 0 6px;
+	}
+
+	&:before {
+		@include oColorsFor(o-header-tools-separator, background);
+		content: '';
+		position: absolute;
+		width: 2px;
+		height: 14px;
+		top: 50%;
+		left: -3px;
+		margin-top: -7px;
+	}
+
+	&:first-child:before {
+		display: none;
+	}
+}
+
+.o-header__tools-link {
+	@include oHeaderNavItem;
+	font-size: 13px;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+
+	@include oGridRespondTo(L) {
+		font-size: 15px;
+	}
+}

@@ -1,16 +1,13 @@
 {
   "name": "o-header",
+  "dependencies": {
+    "o-forms": "^2.0.0",
+    "o-colors": "^3.3.1",
+    "o-grid": "^4.0.6",
+    "o-ft-icons": ">=3.2.0 <5.0.0"
+  },
   "main": [
     "main.scss",
     "main.js"
-  ],
-  "ignore": [],
-  "dependencies": {
-    "o-grid": "^4.0.0",
-    "o-colors": ">=2.5.0 <4",
-    "o-assets": ">=0.4.1 <4",
-    "o-hoverable": ">=0.1.1 <4",
-    "ftdomdelegate": ">=1.0.0 <3",
-    "o-hierarchical-nav": ">=2.0.0 <4"
-  }
+  ]
 }

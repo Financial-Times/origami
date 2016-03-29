@@ -1,14 +1,21 @@
-@import "o-assets/main";
+@import "o-forms/main";
 @import "o-grid/main";
-@import "o-colors/main";
-@import "o-hoverable/main";
-@import "o-hierarchical-nav/main";
+@import "o-ft-icons/main";
 
-@import "src/scss/color-use-cases";
-@import "src/scss/variables";
-@import "src/scss/mixins";
-@import "src/scss/base";
-@import "src/scss/logo";
-@import "src/scss/nav/theme-primary";
-@import "src/scss/nav/theme-secondary";
-@import "src/scss/nav/theme-tools";
+@import "src/scss/colors";
+@import "src/scss/vars_mixins";
+
+@if $o-header-is-silent == false {
+	@import "src/scss/base";
+	@import "src/scss/edition-switch";
+	@import "src/scss/masthead";
+	@import "src/scss/nav";
+	@import "src/scss/print";
+	@import "src/scss/search";
+	@import "src/scss/tools";
+	@import "src/scss/themes/light";
+	@import "src/scss/themes/minimal";
+
+	// Turn silent mode back on to avoid outputting the header twice
+	$o-header-is-silent: true;
+}

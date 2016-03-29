@@ -7,51 +7,38 @@
     "browserFeatures": {
         "required": [
             "classList",
-            "customevent",
-            "unknownelements",
-            "es5array"
-        ],
-        "optional": [
-            "svg",
-            "datauri",
-            "cssgradients",
-            "mediaqueries",
-            "csstransitions"
-        ]
+            "customevent"        ]
     },
     "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-header/builds.json"
+        "circle": "https://circleci.com/api/v1/project/Financial-Times/o-header"
+    },
+    "demosDefaults": {
+        "dependencies": ["o-fonts@^2.0.0"],
+        "js": "demos/src/main.js",
+        "sass": "demos/src/main.scss",
+        "data": "demos/src/data.js"
     },
     "demos": [
         {
-            "path": "/demos/skeleton.html",
+            "name": "header",
+            "template": "demos/src/header.mustache",
             "expanded": true,
-            "description": ""
+            "description": "",
+            "documentClasses": "enhanced"
         },
         {
-            "path": "/demos/header.html",
+            "name": "header-minimal",
+            "template": "demos/src/header-minimal.mustache",
             "expanded": false,
-            "description": ""
+            "description": "",
+            "documentClasses": "enhanced"
         },
         {
-            "path": "/demos/branded.html",
+            "name": "header-light",
+            "template": "demos/src/header-light.mustache",
             "expanded": false,
-            "description": ""
-        },
-        {
-            "path": "/demos/mega-dropdown-primary.html",
-            "expanded": false,
-            "description": ""
-        },
-        {
-            "path": "/demos/mega-dropdown-secondary.html",
-            "expanded": false,
-            "description": ""
-        },
-        {
-            "path": "/demos/header-no-secondary.html",
-            "expanded": false,
-            "description": ""
+            "description": "",
+            "documentClasses": "enhanced"
         }
     ]
 }

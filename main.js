@@ -1,11 +1,10 @@
-/*global require,module*/
+import oHeader from './src/js/header';
 
-const oHeader = require('./src/js/Header');
-const constructAll = function() {
+const constructAll = () => {
 	oHeader.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-module.exports = oHeader;
+export default oHeader;

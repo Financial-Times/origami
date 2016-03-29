@@ -14,6 +14,10 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.1.0",
+    "origami-build-tools": "^5.0.0",
     "webpack": "^1.12.2"
+  },
+  "dependencies": {
+    "sinon": "^1.17.3"
   }
 }

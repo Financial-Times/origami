@@ -1,0 +1,71 @@
+.o-header__edition-switch {
+	@include oColorsFor(o-header-edition-switch, text);
+	position: absolute;
+	font-size: 13px;
+	line-height: 1em;
+	top: oGridGutter(M) - 10;
+	z-index: $o-header-z-index * 10;
+	padding: 10px;
+	display: none;
+
+	@include oGridRespondTo(M) {
+		display: block;
+	}
+
+	@include oGridRespondTo(L) {
+		font-size: 15px;
+	}
+}
+
+.o-header__edition-switch--open {
+	@include oColorsFor(o-header-edition-switch, background);
+}
+
+.o-header__edition-switch-button {
+	@include _oHeaderButtonReset;
+	font: inherit;
+	cursor: pointer;
+
+	&:after {
+		content: '';
+		display: inline-block;
+		margin-left: 10px;
+		border-top: 8px solid oColorsGetColorFor(o-header-edition-switch, border);
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+
+		.o-header__edition-switch--open & {
+			border-top: 0;
+			border-bottom: 8px solid oColorsGetColorFor(o-header-edition-switch, border);
+		}
+	}
+
+	&:hover,
+	&:focus {
+		border-bottom: 1px solid oColorsGetColorFor(o-header-edition-switch, border);
+	}
+}
+
+.o-header__edition-switch-container {
+	margin: 10px 0 0;
+	padding: 0;
+	list-style: none;
+	display: none;
+	border-top: 1px solid oColorsGetColorFor(o-header-edition-switch, border);
+
+	.o-header__edition-switch--open & {
+		display: block;
+	}
+}
+
+.o-header__edition-switch-link {
+	display: block;
+	margin-top: 10px;
+	color: inherit;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		border-bottom: 1px solid oColorsGetColorFor(o-header-edition-switch, border);
+	}
+}
