@@ -9,12 +9,12 @@
 						"textshadow"
 				]
 		},
-		"options": {
+		"demosDefaults": {
 			"sass": "demos/src/demo.scss",
 			"dependencies": ["o-grid@^4.0.0"]
 		},
 		"ci": {
-				"travis": "https://circleci.com/api/v1/project/Financial-Times/o-typography"
+				"circle": "https://circleci.com/api/v1/project/Financial-Times/o-typography"
 		},
 		"demos": [
 			{
