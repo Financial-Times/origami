@@ -1,57 +1,57 @@
 {
-		"description": "FT brand typographic styles",
-		"origamiType": "module",
-		"origamiVersion": 1,
-		"support": "https://github.com/Financial-Times/o-typography/issues",
-		"supportStatus": "active",
-		"browserFeatures": {
-				"optional": [
-						"textshadow"
-				]
+	"description": "FT brand typographic styles",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-typography/issues",
+	"supportStatus": "active",
+	"browserFeatures": {
+		"optional": [
+			"textshadow"
+			]
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"dependencies": ["o-grid@^4.0.0"]
+	},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-typography"
+	},
+	"demos": [
+		{
+			"name": "headings",
+			"template": "demos/src/headings.mustache",
+			"expanded": true,
+			"description": ""
 		},
-		"demosDefaults": {
-			"sass": "demos/src/demo.scss",
-			"dependencies": ["o-grid@^4.0.0"]
+		{
+			"name": "leads",
+			"template": "demos/src/leads.mustache",
+			"expanded": true,
+			"description": ""
 		},
-		"ci": {
-				"circle": "https://circleci.com/api/v1/project/Financial-Times/o-typography"
+		{
+			"name": "body",
+			"template": "demos/src/body.mustache",
+			"expanded": true,
+			"description": ""
 		},
-		"demos": [
-			{
-				"name": "headings",
-				"template": "/demos/src/headings.mustache",
-				"expanded": true,
-				"description": ""
-			},
-			{
-				"name": "leads",
-				"template": "/demos/src/leads.mustache",
-				"expanded": true,
-				"description": ""
-			},
-			{
-				"name": "body",
-				"template": "/demos/src/body.mustache",
-				"expanded": true,
-				"description": ""
-			},
-			{
-				"name": "article",
-				"template": "/demos/src/article.mustache",
-				"expanded": true,
-				"description": ""
-			},
-			{
-					"name": "body-wrapper",
-				"template": "/demos/src/body-wrapper.mustache",
-				"expanded": true,
-				"description": ""
-			},
-			{
-				"name": "manage-account",
-				"template": "/demos/src/manage-account.mustache",
-				"expanded": true,
-				"description": ""
-			}
-		]
+		{
+			"name": "article",
+			"template": "demos/src/article.mustache",
+			"expanded": true,
+			"description": ""
+		},
+		{
+			"name": "body-wrapper",
+			"template": "demos/src/body-wrapper.mustache",
+			"expanded": true,
+			"description": ""
+		},
+		{
+			"name": "manage-account",
+			"template": "demos/src/manage-account.mustache",
+			"expanded": true,
+			"description": ""
+		}
+	]
 }
