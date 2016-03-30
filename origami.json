@@ -1,36 +1,49 @@
 {
-    "description": "Responsive Financial Times page footer",
-    "origamiType": "module",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-footer/issues",
-    "supportStatus": "active",
-    "browserFeatures": {
-        "required": [
-            "html5"
-        ],
-        "optional": [
-            "svg",
-            "datauri"
-        ]
-    },
-    "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-footer/builds.json"
-    },
-    "demos": [
-        {
-            "path": "/demos/footer.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/footer-theme-light.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/simple-footer.html",
-            "expanded": true,
-            "description": ""
-        }
-    ]
+	"description": "Responsive Financial Times page footer",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-footer/issues",
+	"supportStatus": "active",
+	"browserFeatures": {
+		"required": [
+			"html5"
+		],
+		"optional": [
+			"svg",
+			"datauri"
+		]
+	},
+	"ci": {
+		"circle":"https://circleci.com/api/v1/project/Financial-Times/o-footer"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"template": "main.mustache",
+		"data": "demos/src/footer.json",
+		"dependencies": ["o-fonts@^1.4.0"]
+	},
+	"demos": [
+		{
+			"name": "footer",
+			"expanded": true,
+			"description": ""
+		},
+		{
+			"name": "footer-theme-light",
+			"data": {
+				"modifier": ["o-footer--theme-light"]
+			},
+			"expanded": true,
+			"description": ""
+		},
+		{
+			"name": "simple-footer",
+			"data": {
+				"modifier": ["o-footer--theme-light"]
+			},
+			"template": "demos/src/simple-footer.mustache",
+			"expanded": true,
+			"description": ""
+		}
+	]
 }
