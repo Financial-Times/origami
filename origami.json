@@ -3,5 +3,18 @@
 	"origamiType": "module",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-big-number/issues",
-	"supportStatus": "experimental"
+	"supportStatus": "experimental",
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"dependencies": "o-fonts@^1.6.3"
+	},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-big-number"
+	},
+	"demos": [
+		{
+			"name": "simple",
+			"template": "demos/src/simple.mustache"
+		}
+	]
 }
