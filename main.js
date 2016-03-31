@@ -40,7 +40,7 @@ const inSeconds = {
 	week: 7 * 24 * 60 * 60,
 	month: (365 * 24 * 60 * 60) / 12,
 	year: 365 * 24 * 60 * 60
-}
+};
 
 let interval;
 
