@@ -18,29 +18,25 @@
 	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
-		"template": "main.mustache",
-		"data": "demos/src/footer.json",
 		"dependencies": ["o-fonts@^1.4.0"]
 	},
 	"demos": [
 		{
 			"name": "footer",
+			"template": "demos/src/footer.mustache",
+			"data": "demos/src/footer.json",
 			"expanded": true,
 			"description": ""
 		},
 		{
-			"name": "footer-theme-light",
-			"data": {
-				"modifier": ["o-footer--theme-light"]
-			},
+			"name": "footer-light",
+			"template": "demos/src/footer-light.mustache",
+			"data": "demos/src/footer-light.json",
 			"expanded": true,
 			"description": ""
 		},
 		{
 			"name": "simple-footer",
-			"data": {
-				"modifier": ["o-footer--theme-light"]
-			},
 			"template": "demos/src/simple-footer.mustache",
 			"expanded": true,
 			"description": ""
