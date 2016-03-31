@@ -34,6 +34,14 @@ const formatReplacementsMap = {
 	a: '(date.getHours() >= 12 ? "pm" : "am")' // pm
 };
 
+const inSeconds = {
+	hour: 60 * 60,
+	day: 24 * 60 * 60,
+	week: 7 * 24 * 60 * 60,
+	month: (365 * 24 * 60 * 60) / 12,
+	year: 365 * 24 * 60 * 60
+}
+
 let interval;
 
 function ODate(rootEl) {
@@ -158,28 +166,28 @@ ODate.timeAgo = function(date, interval) {
 	if (!date) return;
 
 	interval = interval || Math.round(((new Date()) - date) / 1000);
-	if (interval < 45) {
+	if (interval < 60) {
 		return interval + ' seconds ago';
-	} else if (interval < 90) {
+	} else if (interval < 2 * 60) {
 		return 'a minute ago';
-	} else if (interval < 45 * 60) {
-		return Math.round(interval / 60) + ' minutes ago';
-	} else if (interval < 90 * 60) {
+	} else if (interval < inSeconds.hour) {
+		return Math.floor(interval / 60) + ' minutes ago';
+	} else if (interval < 2 * inSeconds.hour) {
 		return 'an hour ago';
-	} else if (interval < 22 * 60 * 60) {
-		return Math.round(interval / (60 * 60)) + ' hours ago';
-	} else if (interval < 36 * 60 * 60) {
+	} else if (interval < inSeconds.day) {
+		return Math.floor(interval / (inSeconds.hour)) + ' hours ago';
+	} else if (interval < 2 * inSeconds.day) {
 		return 'a day ago';
-	} else if (interval < 25 * 60 * 60 * 24) {
-		return Math.round(interval / (60 * 60 * 24)) + ' days ago';
-	} else if (interval < 45 * 60 * 60 * 24) {
+	} else if (interval < inSeconds.month) {
+		return Math.floor(interval / (inSeconds.day)) + ' days ago';
+	} else if (interval < 2 * inSeconds.month) {
 		return 'a month ago';
-	} else if (interval < 345 * 60 * 60 * 24) {
-		return Math.round(interval / (60 * 60 * 24 * 30)) + ' months ago';
-	} else if (interval < 547 * 60 * 60 * 24) {
+	} else if (interval < inSeconds.year) {
+		return Math.floor(interval / (inSeconds.month)) + ' months ago';
+	} else if (interval < 2 * inSeconds.year) {
 		return 'a year ago';
 	} else {
-		return Math.max(2, Math.round(interval / (60 * 60 * 24 * 365))) + ' years ago';
+		return Math.max(2, Math.floor(interval / (inSeconds.year))) + ' years ago';
 	}
 };
 
