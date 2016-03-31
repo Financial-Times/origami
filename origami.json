@@ -30,7 +30,7 @@
 		},
 		{
 			"name": "footer-light",
-			"template": "demos/src/footer-light.mustache",
+			"template": "demos/src/footer.mustache",
 			"data": "demos/src/footer-light.json",
 			"expanded": true,
 			"description": ""
