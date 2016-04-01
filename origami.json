@@ -16,21 +16,29 @@
 		]
 	},
 	"ci": {
-		"travis": "https://api.travis-ci.org/repos/Financial-Times/o-tabs/builds.json"
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-tabs"
+	},
+	"demosDefaults": {
+		"js": "demos/src/demo.js",
+		"sass": "demos/src/demo.scss",
+		"documentClasses": "o-hoverable-on"
 	},
 	"demos": [
 		{
-			"path": "/demos/base-style.html",
+			"name": "base-style",
+			"template": "demos/src/base-style.mustache",
 			"expanded": true,
 			"description": ""
 		},
 		{
-			"path": "/demos/buttontabs.html",
+			"name": "buttontabs",
+			"template": "demos/src/buttontabs.mustache",
 			"expanded": false,
 			"description": ""
 		},
 		{
-			"path": "/demos/buttontabs-big.html",
+			"name": "buttontabs-big",
+			"template": "demos/src/buttontabs-big.mustache",
 			"expanded": false,
 			"description": ""
 		}
