@@ -238,7 +238,7 @@ describe("oErrors", function() {
 				expect(error).to.be.an(Error);
 				expect(error.message).to.be("Test");
 				expect(context).to.be.an('object');
-				expect(context.context).to.equal('object');
+				expect(context.extra.context).to.equal('object');
 				done();
 			};
 
@@ -268,7 +268,7 @@ describe("oErrors", function() {
 			mockRavenClient.captureException = function(error, context) {
 				expect(error).to.be.an(Error);
 				expect(error.message).to.be("Test");
-				expect(context).to.eql({ errormessage: "Test" });
+				expect(context).to.eql({ errormessage: "Test", extra: {} });
 				done();
 			};
 
@@ -353,19 +353,19 @@ describe("oErrors", function() {
 		it("should buffer any errors reported before the module has been initialised", function(done) {
 			const errors = new Errors();
 
-			errors.report(new Error("My test error"), { additional: "info" });
-
 			mockRavenClient.captureException = function(error, context) {
 				expect(error).to.be.an(Error);
 				expect(error.message).to.be("My test error");
 				expect(context).to.be.an('object');
-				expect(context.additional).to.equal('info');
+				expect(context.extra.additional).to.equal('info');
 				done();
 			};
 
 			errors.init({
 				sentryEndpoint: "http://app.getsentry.com/123",
 			}, mockRavenClient);
+
+			errors.report(new Error("My test error"), { additional: "info" });
 		});
 	});
 
@@ -373,7 +373,7 @@ describe("oErrors", function() {
 		mockRavenClient.captureException = function(error, context) {
 			expect(error).to.be.an(Error);
 			expect(context).to.be.an('object');
-			expect(context.info.additional).to.equal('info');
+			expect(context.extra.info.additional).to.equal('info');
 			done();
 		};
 
