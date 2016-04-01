@@ -1,0 +1,139 @@
+{
+	"theme": "o-footer--theme-light",
+	"sections": [
+		{
+			"text": "Home",
+			"href": "//www.ft.com"
+		},
+		{
+			"text": "UK",
+			"href": "//www.ft.com/world/uk"
+		},
+		{
+			"text": "World",
+			"href": "//www.ft.com/world"
+		},
+		{
+			"text": "Companies",
+			"href": "//www.ft.com/companies"
+		},
+		{
+			"text": "Markets",
+			"href": "//www.ft.com/markets"
+		},
+		{
+			"text": "Global Economy",
+			"href": "//www.ft.com/global-economy"
+		},
+		{
+			"text": "Lex",
+			"href": "//www.ft.com/lex"
+		},
+		{
+			"text": "Comment",
+			"href": "//www.ft.com/comment"
+		},
+		{
+			"text": "Management",
+			"href": "//www.ft.com/management"
+		},
+		{
+			"text": "Personal Finance",
+			"href": "//www.ft.com/personal-finance"
+		},
+		{
+			"text": "Life & Arts",
+			"href": "//www.ft.com/life-arts"
+		}
+	],
+	"link_sections": [
+		{
+			"title": "Services",
+			"items": [
+				{
+					"text": "Corporate subscriptions",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Syndication",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Conferences",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Corporate subscriptions",
+					"href": "//ft.com"
+				}
+			]
+		},
+		{
+			"items": [
+				{
+					"text": "Syndication",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Conferences",
+					"href": "//ft.com"
+				},
+				{
+					"text": "FT Collection",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Jobs",
+					"href": "//ft.com"
+				}
+			]
+		},
+		{
+			"title": "Support",
+			"items": [
+				{
+					"text": "Help",
+					"href": "//ft.com"
+				},
+				{
+					"text": "About us",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Site tour",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Contact us",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Sitemap",
+					"href": "//ft.com"
+				}
+			]
+		},
+		{
+			"title": "Legal & Advertising",
+			"items": [
+				{
+					"text": "Advertise with the FT",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Terms &amp; conditions",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Cookie & privacy policy",
+					"href": "//ft.com"
+				},
+				{
+					"text": "Copyright",
+					"href": "//ft.com"
+				}
+			]
+		}
+	],
+	"copyrightYear": "2016"
+}
