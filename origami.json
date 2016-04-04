@@ -5,7 +5,7 @@
 	"support": "https://github.com/Financial-Times/o-table/issues",
 	"supportStatus": "active",
 	"ci": {
-		"travis": "https://api.travis-ci.org/repos/Financial-Times/o-table/builds.json"
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-table"
 	},
 	"browserFeatures": {
 		"required": [
