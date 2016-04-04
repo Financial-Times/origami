@@ -247,7 +247,8 @@
 	text-transform: none;
 
 	// Makes the underline only appear under the span and not slightly to its left
-	&:hover {
+	&:hover,
+	&:focus {
 		text-decoration: none;
 		& > .o-header__meganav-toggle {
 			text-decoration: underline;
