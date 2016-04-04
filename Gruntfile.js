@@ -56,6 +56,22 @@ module.exports = function(grunt) {
 		});
 	});
 
+	grunt.registerTask('svgDemo', function(){
+		// Read svg directory for list of icons to pass to demo template
+		const fs = require('fs');
+		const files = fs.readdirSync('svg').filter(function(file) {
+			return file.indexOf(".svg") > -1;
+		});
+
+		const icons = files.map(function(file) {
+			return { name: file.slice(0, -4) };
+		});
+
+		const done = this.async();
+			fs.writeFileSync('demos/src/svg.json', JSON.stringify({ icons: icons }), { encoding: 'utf-8' });
+	});
+
+
 	grunt.registerTask('default', ["demo"]);
 
 };

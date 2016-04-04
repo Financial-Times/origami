@@ -8,16 +8,24 @@
 		"required": [
 			"fontface"
 			]
-		},
-		"ci": {
-			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-ft-icons"
-		},
-		"demos": [
-			{
+	},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-ft-icons"
+	},
+	"demos": [
+		{
 			"name": "main",
 			"template": "demos/src/demo.mustache",
 			"sass": "demos/src/demo.scss",
 			"data": "demos/src/data.json",
+			"expanded": true,
+			"description": ""
+		},
+		{
+			"name": "svg",
+			"template": "demos/src/svg.mustache",
+			"sass": "demos/src/demo.scss",
+			"data": "demos/src/svg.json",
 			"expanded": true,
 			"description": ""
 		}
