@@ -1,4 +1,4 @@
-# o-labels [![build status](https://travis-ci.org/Financial-Times/o-labels.svg)](https://travis-ci.org/Financial-Times/o-labels)
+# o-labels [![Build Status](https://circleci.com/gh/Financial-Times/o-labels.png?style=shield&circle-token=baf3bd7fe9625dfc5c7e24a5451253b348cd9102)](https://circleci.com/gh/Financial-Times/o-labels)
 
 Standard labels
 
