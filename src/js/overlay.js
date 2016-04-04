@@ -339,7 +339,10 @@ Overlay.prototype.broadcast = function(eventType, namespace, detail) {
 	const target = namespace === 'oLayers' ? this.context : this.wrapper || document.body;
 
 	detail = detail || {};
-	detail.el = this;
+
+	if (namespace !== 'oTracking') {
+		detail.el = this;
+	}
 
 	target.dispatchEvent(new CustomEvent(namespace + '.' + eventType, {
 		detail: detail,
