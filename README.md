@@ -1,4 +1,4 @@
-# o-table [![Build Status](https://travis-ci.org/Financial-Times/o-table.png?branch=master)](https://travis-ci.org/Financial-Times/o-table)
+# o-table [![Build Status](https://circleci.com/gh/Financial-Times/o-table.png?style=shield&circle-token=6c1d4241aefb825cb3870d5294e09dd370240c64)](https://circleci.com/gh/Financial-Times/o-table)
 
 Styling for tables.
 
@@ -155,7 +155,7 @@ const OTable = require('o-table');
 oTable = new OTable(document.body);
 ```
 
-Sorting numbers works if the column has been declared as a numeric column via `data-o-table-data-type="numeric"`. 
+Sorting numbers works if the column has been declared as a numeric column via `data-o-table-data-type="numeric"`.
 
 #### Sorting declaratively
 If you are wanting to sort by a custom pattern, you can apply the sorting values to each row as a data attribute:
@@ -189,7 +189,7 @@ If you are wanting to sort by a custom pattern, you can apply the sorting values
 
 ### Markup changes
 
-- Wrap the headings in `thead`	
+- Wrap the headings in `thead`
 - Add `data-o-component="o-table"` to the `table` element of any o-table components which require JS.
 
 ----
