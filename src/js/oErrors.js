@@ -230,7 +230,15 @@ Errors.prototype._flushBufferedErrors = function() {
  */
 Errors.prototype.report = function(error, context) {
 	const _context = context || {};
-	let reportObject = { error: error, context: _context };
+	let reportObject = {
+		error: error,
+		context: {
+			// The extra key tells Sentry to put this information
+			// in the Additional Data section, otherwise, it doesn't
+			// understand the context and ignores it
+			extra: _context
+		}
+	};
 
 	if (!this.initialised) {
 		this._errorBuffer.push(reportObject);
