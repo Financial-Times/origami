@@ -67,8 +67,7 @@ module.exports = function(grunt) {
 			return { name: file.slice(0, -4) };
 		});
 
-		const done = this.async();
-			fs.writeFileSync('demos/src/svg.json', JSON.stringify({ icons: icons }), { encoding: 'utf-8' });
+		fs.writeFileSync('demos/src/svg.json', JSON.stringify({ icons: icons }), { encoding: 'utf-8' });
 	});
 
 
