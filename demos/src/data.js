@@ -379,7 +379,7 @@ module.exports = function () {
 				]
 			},
 			{
-				name: 'Work & Career',
+				name: 'Work & Careers',
 				meganavSectionItems: [
 					{
 						name: 'All Work & Career',
