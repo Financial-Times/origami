@@ -1,25 +1,35 @@
 {
-	"description": "Financial Times icons",
-	"origamiType": "module",
-	"origamiVersion": 1,
-	"support": "https://github.com/Financial-Times/o-ft-icons/issues",
-	"supportStatus": "active",
-	"browserFeatures": {
-		"required": [
-			"fontface"
-			]
-		},
-		"ci": {
-			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-ft-icons"
-		},
-		"demos": [
-			{
-			"name": "main",
-			"template": "demos/src/demo.mustache",
-			"sass": "demos/src/demo.scss",
-			"data": "demos/src/data.json",
-			"expanded": true,
-			"description": ""
-		}
-	]
+    "description": "Financial Times icons",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "https://github.com/Financial-Times/o-ft-icons/issues",
+    "supportStatus": "active",
+    "browserFeatures": {
+        "required": [
+            "fontface"
+        ]
+    },
+    "ci": {
+        "circle": "https://circleci.com/api/v1/project/Financial-Times/o-ft-icons"
+    },
+    "demos": [
+        {
+            "name": "main",
+            "template": "demos/src/demo.mustache",
+            "sass": "demos/src/demo.scss",
+            "data": "demos/src/data.json",
+            "expanded": true,
+            "description": "",
+            "path": "/demos/main.html"
+        },
+        {
+            "name": "svg",
+            "template": "demos/src/svg.mustache",
+            "sass": "demos/src/demo.scss",
+            "data": "demos/src/svg.json",
+            "expanded": false,
+            "description": "",
+            "path": "/demos/svg.html"
+        }
+    ]
 }
