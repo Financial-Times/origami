@@ -189,9 +189,9 @@
 		span:after {
 			@include oFtIconsGetSvg(arrow-right, oColorsGetColorFor(o-header, text), 10);
 			content: '';
-			padding-left: 1.3em;
-			margin-bottom: -0.05em;
-			margin-right: -1em;
+			padding-left: 1em;
+			margin-bottom: 0.05em;
+			margin-right: -1.1em;
 		}
 	}
 
