@@ -251,7 +251,7 @@ Overlay.prototype.show = function() {
 	// Give the overlay focus
 	this.wrapper.setAttribute('tabindex', '0');
 	this.wrapper.style.outline = 0;
-	this.wrapper.focus();
+
 
 	// Renders content after overlay has been added so css is applied before that
 	// Thay way if an element has autofocus, the window won't scroll to the bottom
@@ -270,6 +270,7 @@ Overlay.prototype.show = function() {
 		overlay.height = overlay.getHeight();
 		overlay.respondToWindow(viewport.getSize());
 		overlay.visible = true;
+		overlay.wrapper.focus();
 		overlay.broadcast('ready');
 
 		// Add o-tracking integration
