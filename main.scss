@@ -10,6 +10,7 @@
 @import 'scss/helpers';
 @import 'scss/variables';
 @import 'scss/type_matrix';
+@import 'scss/progressive-font';
 
 @import 'scss/body_common';
 @import 'scss/body_general';
@@ -69,7 +70,7 @@
 		@include oTypographyLead;
 	}
 	.o-typography-lead--small {
-		@include oTypographyLeadSmall;	
+		@include oTypographyLeadSmall;
 	}
 	.o-typography-block {
 		@include oTypographyBodyBlock;

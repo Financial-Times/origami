@@ -1,0 +1,34 @@
+$_o-typography-progressive-font-fallbacks: (
+	sans: (
+		font: $o-typography-sans,
+		fallback: sans
+	),
+	serif: (
+		font: $o-typography-serif,
+		fallback: serif
+	),
+	serif-display: (
+		font: $o-typography-serif-display,
+		fallback: serif
+	)
+);
+
+@mixin oTypographyProgressiveFont($font, $weight) {
+	$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
+	$progressive-font: map-get($o-typography-progressive-fonts, $font);
+	$is-progressive: if(
+		$progressive-font,
+		index($progressive-font, $weight),
+		null
+	);
+
+	@if $is-progressive {
+		font-family: map-get($font-config, 'fallback');
+
+		.loaded-#{$font}-#{$weight} & {
+			font-family: map-get($font-config, 'font');
+		}
+	} @else {
+		font-family: map-get($font-config, 'font');
+	}
+}
