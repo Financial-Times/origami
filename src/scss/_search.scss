@@ -16,9 +16,19 @@
 	box-sizing: border-box;
 	z-index: $o-header-z-index;
 
+	@include oGridRespondTo($until: M) {
+		margin-right: -10px;
+		padding: 0 17px 2px 4px;
+		z-index: $o-header-z-index * 6;
+	}
+
 	&:after {
 		@include oFtIconsGetSvg(search, oColorsGetColorFor(o-header, text), 20);
 		content: '';
+
+		@include oGridRespondTo($until: M) {
+			margin-left: 14px;
+		}
 	}
 
 	&[aria-pressed=true]:after {

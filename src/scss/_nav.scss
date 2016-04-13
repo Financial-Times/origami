@@ -83,6 +83,11 @@
 	line-height: 43px;
 	text-transform: uppercase;
 
+	@include oGridRespondTo($until: M) {
+		margin-left: -10px;
+		padding: 0 4px 2px 17px;
+	}
+
 	&:hover,
 	&:focus {
 		text-decoration: underline;
@@ -260,6 +265,10 @@
 		content: '';
 		position: relative;
 		margin-right: 9px;
+
+		@include oGridRespondTo($until: M) {
+			margin-right: 14px;
+		}
 	}
 
 	&.o--if-no-js {
