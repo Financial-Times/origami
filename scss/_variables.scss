@@ -95,15 +95,13 @@ $o-typography-font-scale: (
 	)
 );
 
-/**
- * Configure which fonts/weights are progressively loaded, e.g.
- *
- * $o-typography-progressive-fonts: (
- *   serif: ('light'),
- *   serif-display: ('regular'),
- * 	 sans: ('regular' 'semibold')
- * );
- */
+// Configure which fonts/weights are progressively loaded, e.g.
+//
+// $o-typography-progressive-fonts: (
+//   serif: ('light'),
+//    serif-display: ('regular'),
+// 	  sans: ('regular' 'semibold')
+// );
 $o-typography-progressive-fonts: () !default;
 
 // Previously, $o-typography-font-scale was called $font-scale. In order to not
