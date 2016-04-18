@@ -17,8 +17,14 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySansSize($level) {
-	@include font-size(get-font-size(sans, $level), get-line-height(sans, $level));
+@mixin oTypographySansSize($level, $with-progressive-size: false) {
+	$font-size: convert-to-px(get-font-size(sans, $level));
+	line-height: convert-to-px(get-line-height(sans, $level));
+	@if $with-progressive-size {
+		@include oTypographyFallbackFontSize(sans, $font-size);
+	} @else {
+		font-size: $font-size;
+	}
 }
 
 ///
@@ -53,8 +59,14 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySansBoldSize($level) {
-	@include font-size(get-font-size(sansBold, $level), get-line-height(sansBold, $level));
+@mixin oTypographySansBoldSize($level, $with-progressive-size: false) {
+	$font-size: convert-to-px(get-font-size(sansBold, $level));
+	line-height: convert-to-px(get-line-height(sansBold, $level));
+	@if $with-progressive-size {
+		@include oTypographyFallbackFontSize(sansBold, $font-size);
+	} @else {
+		font-size: $font-size;
+	}
 }
 
 ///
@@ -89,8 +101,14 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySansDataSize($level) {
-	@include font-size(get-font-size(sansData, $level), get-line-height(sansData, $level));
+@mixin oTypographySansDataSize($level, $with-progressive-size: false) {
+	$font-size: convert-to-px(get-font-size(sansData, $level));
+	line-height: convert-to-px(get-line-height(sansData, $level));
+	@if $with-progressive-size {
+		@include oTypographyFallbackFontSize(sansData, $font-size);
+	} @else {
+		font-size: $font-size;
+	}
 }
 
 ///
@@ -125,8 +143,14 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySansDataBoldSize($level) {
-	@include font-size(get-font-size(sansDataBold, $level), get-line-height(sansDataBold, $level));
+@mixin oTypographySansDataBoldSize($level, $with-progressive-size: false) {
+	$font-size: convert-to-px(get-font-size(sansDataBold, $level));
+	line-height: convert-to-px(get-line-height(sansDataBold, $level));
+	@if $with-progressive-size {
+		@include oTypographyFallbackFontSize(sansDataBold, $font-size);
+	} @else {
+		font-size: $font-size;
+	}
 }
 
 ///
@@ -161,8 +185,14 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySansDataItalicSize($level) {
-	@include font-size(get-font-size(sansDataItalic, $level), get-line-height(sansDataItalic, $level));
+@mixin oTypographySansDataItalicSize($level, $with-progressive-size: false) {
+	$font-size: convert-to-px(get-font-size(sansDataItalic, $level));
+	line-height: convert-to-px(get-line-height(sansDataItalic, $level));
+	@if $with-progressive-size {
+		@include oTypographyFallbackFontSize(sansDataItalic, $font-size);
+	} @else {
+		font-size: $font-size;
+	}
 }
 
 ///
@@ -199,8 +229,14 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySerifSize($level) {
-	@include font-size(get-font-size(serif, $level), get-line-height(serif, $level));
+@mixin oTypographySerifSize($level, $with-progressive-size: false) {
+	$font-size: convert-to-px(get-font-size(serif, $level));
+	line-height: convert-to-px(get-line-height(serif, $level));
+	@if $with-progressive-size {
+		@include oTypographyFallbackFontSize(serif, $font-size);
+	} @else {
+		font-size: $font-size;
+	}
 }
 
 ///
@@ -235,8 +271,14 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySerifBoldSize($level) {
-	@include font-size(get-font-size(serifBold, $level), get-line-height(serifBold, $level));
+@mixin oTypographySerifBoldSize($level, $with-progressive-size: false) {
+	$font-size: convert-to-px(get-font-size(serifBold, $level));
+	line-height: convert-to-px(get-line-height(serifBold, $level));
+	@if $with-progressive-size {
+		@include oTypographyFallbackFontSize(serifBold, $font-size);
+	} @else {
+		font-size: $font-size;
+	}
 }
 
 ///
@@ -271,8 +313,14 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySerifItalicSize($level) {
-	@include font-size(get-font-size(serifItalic, $level), get-line-height(serifItalic, $level));
+@mixin oTypographySerifItalicSize($level, $with-progressive-size: false) {
+	$font-size: convert-to-px(get-font-size(serifItalic, $level));
+	line-height: convert-to-px(get-line-height(serifItalic, $level));
+	@if $with-progressive-size {
+		@include oTypographyFallbackFontSize(serifItalic, $font-size);
+	} @else {
+		font-size: $font-size;
+	}
 }
 
 ///
@@ -308,8 +356,14 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySerifDisplaySize($level) {
-	@include font-size(get-font-size(serifDisplay, $level), get-line-height(serifDisplay, $level));
+@mixin oTypographySerifDisplaySize($level, $with-progressive-size: false) {
+	$font-size: convert-to-px(get-font-size(serifDisplay, $level));
+	line-height: convert-to-px(get-line-height(serifDisplay, $level));
+	@if $with-progressive-size {
+		@include oTypographyFallbackFontSize(serifDisplay, $font-size);
+	} @else {
+		font-size: $font-size;
+	}
 }
 
 ///
@@ -344,8 +398,14 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySerifDisplayBoldSize($level) {
-	@include font-size(get-font-size(serifDisplayBold, $level), get-line-height(serifDisplayBold, $level));
+@mixin oTypographySerifDisplayBoldSize($level, $with-progressive-size: false) {
+	$font-size: convert-to-px(get-font-size(serifDisplayBold, $level));
+	line-height: convert-to-px(get-line-height(serifDisplayBold, $level));
+	@if $with-progressive-size {
+		@include oTypographyFallbackFontSize(serifDisplayBold, $font-size);
+	} @else {
+		font-size: $font-size;
+	}
 }
 
 ///
@@ -380,8 +440,14 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySerifDisplayItalicSize($level) {
-	@include font-size(get-font-size(serifDisplayItalic, $level), get-line-height(serifDisplayItalic, $level));
+@mixin oTypographySerifDisplayItalicSize($level, $with-progressive-size: false) {
+	$font-size: convert-to-px(get-font-size(serifDisplayItalic, $level));
+	line-height: convert-to-px(get-line-height(serifDisplayItalic, $level));
+	@if $with-progressive-size {
+		@include oTypographyFallbackFontSize(serifDisplayItalic, $font-size);
+	} @else {
+		font-size: $font-size;
+	}
 }
 
 ///

@@ -68,6 +68,13 @@ $_o-typography-progressive-font-fallbacks: (
 		weight: 'semibold',
 		type: serif-display,
 		fallback-scale: 0.9
+	),
+	serifDisplayItalic: (
+		font: $o-typography-serif-display,
+		fallback: serif,
+		weight: 'regular',
+		type: serif-display,
+		fallback-scale: 0.9
 	)
 );
 
