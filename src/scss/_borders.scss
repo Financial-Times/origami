@@ -11,7 +11,7 @@
 	border-bottom: 1px solid oColorsGetColorFor(o-table-row, border);
 
 	th:not([scope=row]) {
-		border-top: 2px solid oColorsGetColorFor(o-table-header-row, border);
+		border-top: 1px solid oColorsGetColorFor(o-table-header-row, border);
 	}
 }
 
@@ -21,6 +21,6 @@
 	border-right: 1px solid oColorsGetColorFor(o-table-row, border);
 
 	th[scope=row] {
-		border-left: 2px solid oColorsGetColorFor(o-table-header-row, border);
+		border-left: 1px solid oColorsGetColorFor(o-table-header-row, border);
 	}
 }
