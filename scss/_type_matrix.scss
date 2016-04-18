@@ -32,11 +32,11 @@
 /// @requires {mixin} oTypographySansSize
 ///
 @mixin oTypographySans($level, $load-progressively: false) {
-	@include oTypographySansSize($level);
 	@if $load-progressively {
-		@include oTypographyProgressiveFont('sans', 'light');
+		@include oTypographyProgressiveFont(sans, $level);
 	} @else {
 		font-family: $o-typography-sans;
+		@include oTypographySansSize($level);
 	}
 	font-weight: oFontsWeight(light);
 }
@@ -68,11 +68,11 @@
 /// @requires {mixin} oTypographySansBoldSize
 ///
 @mixin oTypographySansBold($level, $load-progressively: false) {
-	@include oTypographySansBoldSize($level);
 	@if $load-progressively {
-		@include oTypographyProgressiveFont('sans', 'semibold');
+		@include oTypographyProgressiveFont(sansBold, $level);
 	} @else {
 		font-family: $o-typography-sans;
+		@include oTypographySansBoldSize($level);
 	}
 	font-weight: oFontsWeight(semibold);
 }
@@ -104,11 +104,11 @@
 /// @requires {mixin} oTypographySansDataSize
 ///
 @mixin oTypographySansData($level, $load-progressively: false) {
-	@include oTypographySansDataSize($level);
 	@if $load-progressively {
-		@include oTypographyProgressiveFont('sans', 'regular');
+		@include oTypographyProgressiveFont(sansData, $level);
 	} @else {
 		font-family: $o-typography-sans;
+		@include oTypographySansDataSize($level);
 	}
 	font-weight: oFontsWeight(regular);
 }
@@ -140,11 +140,11 @@
 /// @requires {mixin} oTypographySansDataBoldSize
 ///
 @mixin oTypographySansDataBold($level, $load-progressively: false) {
-	@include oTypographySansDataBoldSize($level);
 	@if $load-progressively {
-		@include oTypographyProgressiveFont('sans', 'semibold');
+		@include oTypographyProgressiveFont(sansDataBold, $level);
 	} @else {
 		font-family: $o-typography-sans;
+		@include oTypographySansDataBoldSize($level);
 	}
 	font-weight: oFontsWeight(semibold);
 }
@@ -176,11 +176,11 @@
 /// @requires {mixin} oTypographySansDataItalicSize
 ///
 @mixin oTypographySansDataItalic($level, $load-progressively: false) {
-	@include oTypographySansDataItalicSize($level);
 	@if $load-progressively {
-		@include oTypographyProgressiveFont('sans', 'regular');
+		@include oTypographyProgressiveFont(sansDataItalic, $level);
 	} @else {
 		font-family: $o-typography-sans;
+		@include oTypographySansDataItalicSize($level);
 	}
 	font-weight: oFontsWeight(regular);
 	font-style: italic;
@@ -214,11 +214,11 @@
 /// @requires {mixin} oTypographySerifSize
 ///
 @mixin oTypographySerif($level, $load-progressively: false) {
-	@include oTypographySerifSize($level);
 	@if $load-progressively {
-		@include oTypographyProgressiveFont('serif', 'regular');
+		@include oTypographyProgressiveFont(serif, $level);
 	} @else {
 		font-family: $o-typography-serif;
+		@include oTypographySerifSize($level);
 	}
 	font-weight: oFontsWeight(regular);
 }
@@ -250,11 +250,11 @@
 /// @requires {mixin} oTypographySerifBoldSize
 ///
 @mixin oTypographySerifBold($level, $load-progressively: false) {
-	@include oTypographySerifBoldSize($level);
 	@if $load-progressively {
-		@include oTypographyProgressiveFont('serif', 'bold');
+		@include oTypographyProgressiveFont(serifBold, $level);
 	} @else {
 		font-family: $o-typography-serif;
+		@include oTypographySerifBoldSize($level);
 	}
 	font-weight: oFontsWeight(bold);
 }
@@ -286,11 +286,11 @@
 /// @requires {mixin} oTypographySerifItalicSize
 ///
 @mixin oTypographySerifItalic($level, $load-progressively: false) {
-	@include oTypographySerifItalicSize($level);
 	@if $load-progressively {
-		@include oTypographyProgressiveFont('serif', 'light');
+		@include oTypographyProgressiveFont(serifItalic, $level);
 	} @else {
 		font-family: $o-typography-serif;
+		@include oTypographySerifItalicSize($level);
 	}
 	font-style: italic;
 	font-weight: oFontsWeight(light);
@@ -323,11 +323,11 @@
 /// @requires {mixin} oTypographySerifDisplaySize
 ///
 @mixin oTypographySerifDisplay($level, $load-progressively: false) {
-	@include oTypographySerifDisplaySize($level);
 	@if $load-progressively {
-		@include oTypographyProgressiveFont('serif-display', 'regular');
+		@include oTypographyProgressiveFont(serifDisplay, $level);
 	} @else {
 		font-family: $o-typography-serif-display;
+		@include oTypographySerifDisplaySize($level);
 	}
 	font-weight: oFontsWeight(regular);
 }
@@ -359,11 +359,11 @@
 /// @requires {mixin} oTypographySerifDisplayBoldSize
 ///
 @mixin oTypographySerifDisplayBold($level, $load-progressively: false) {
-	@include oTypographySerifDisplayBoldSize($level);
 	@if $load-progressively {
-		@include oTypographyProgressiveFont('serif-display', 'bold');
+		@include oTypographyProgressiveFont(serifDisplayBold, $level);
 	} @else {
 		font-family: $o-typography-serif-display;
+		@include oTypographySerifDisplayBoldSize($level);
 	}
 	font-weight: oFontsWeight(bold);
 }
@@ -395,11 +395,11 @@
 /// @requires {mixin} oTypographySerifDisplayItalicSize
 ///
 @mixin oTypographySerifDisplayItalic($level, $load-progressively: false) {
-	@include oTypographySerifDisplayItalicSize($level);
 	@if $load-progressively {
-		@include oTypographyProgressiveFont('serif-display', 'light');
+		@include oTypographyProgressiveFont(serifDisplayItalic, $level);
 	} @else {
 		font-family: $o-typography-serif-display;
+		@include oTypographySerifDisplayItalicSize($level);
 	}
 	font-style: italic;
 	font-weight: oFontsWeight(light);
