@@ -39,9 +39,9 @@
 		text-align: right;
 	}
 
-	th[scope=row] {
-		// border-right: 1px solid oColorsGetColorFor(o-table-header-row, border);
-	}
+	// th[scope=row] {
+	// 	border-right: 1px solid oColorsGetColorFor(o-table-header-row, border);
+	// }
 
 	th:not([scope=row]) {
 		// border-bottom: 1px solid oColorsGetColorFor(o-table-header-row, border);
