@@ -49,5 +49,17 @@
 		}
 	}
 
+	.subhead {
+		@include oTypographySubhead;
+	}
+
+	.subhead--crosshead {
+		@include oTypographySubheadCrosshead;
+	}
+
+	.subhead--standard {
+		@include oTypographySubheadStandard;
+	}
+
 	@include oTypographyCommonWrappedBodyStyles;
 }

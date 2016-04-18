@@ -45,3 +45,17 @@
 		border-bottom: 1px dotted;
 	}
 }
+
+@mixin oTypographySubhead {
+	@include oTypographySansBold(l);
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+@mixin oTypographySubheadStandard {
+	@include oTypographySansBold(m);
+}
+
+@mixin oTypographySubheadCrosshead {
+	border-bottom: 1px solid oColorsGetPaletteColor('black');
+}
