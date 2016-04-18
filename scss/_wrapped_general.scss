@@ -38,9 +38,15 @@
 	ul {
 		@include oTypographyList;
 	}
-	
+
 	footer {
 		@include oTypographyFooter;
+	}
+
+	blockquote {
+		p {
+			@include oTypographyBlockquotePara;
+		}
 	}
 
 	@include oTypographyCommonWrappedBodyStyles;
