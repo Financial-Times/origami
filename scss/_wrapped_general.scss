@@ -38,6 +38,10 @@
 	ul {
 		@include oTypographyList;
 	}
+	
+	footer {
+		@include oTypographyFooter;
+	}
 
 	@include oTypographyCommonWrappedBodyStyles;
 }

@@ -45,3 +45,8 @@
 @mixin oTypographyListUnordered {
 	list-style-type: disc;
 }
+
+/// Style for <footer> tags
+@mixin oTypographyFooter {
+	@include oTypographySans(s);
+}
