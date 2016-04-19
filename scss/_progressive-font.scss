@@ -2,96 +2,69 @@ $_o-typography-progressive-font-fallbacks: (
 	sans: (
 		font: $o-typography-sans,
 		fallback: sans-serif,
-		weight: 'light',
-		type: sans,
 		fallback-scale: 0.87
 	),
 	sansBold: (
 		font: $o-typography-sans,
 		fallback: sans-serif,
-		weight: 'semibold',
-		type: sans,
 		fallback-scale: 0.83
 	),
 	sansData: (
 		font: $o-typography-sans,
 		fallback: sans-serif,
-		weight: 'regular',
-		type: sans,
 		fallback-scale: 0.87
 	),
 	sansDataBold: (
 		font: $o-typography-sans,
 		fallback: sans-serif,
-		weight: 'semibold',
-		type: sans,
 		fallback-scale: 0.83
 	),
 	sansDataItalic: (
 		font: $o-typography-sans,
 		fallback: sans-serif,
-		weight: 'regular',
-		type: sans,
 		fallback-scale: 0.87
 	),
 	serif: (
 		font: $o-typography-serif,
 		fallback: serif,
-		weight: 'regular',
-		type: serif,
 		fallback-scale: 0.84
 	),
 	serifBold: (
 		font: $o-typography-serif,
 		fallback: serif,
-		weight: 'medium',
-		type: serif,
 		fallback-scale: 0.84
 	),
 	serifItalic: (
 		font: $o-typography-serif,
 		fallback: serif,
-		weight: 'regular',
-		type: serif,
 		fallback-scale: 0.84
 	),
 	serifDisplay: (
 		font: $o-typography-serif-display,
 		fallback: serif,
-		weight: 'regular',
-		type: serif-display,
 		fallback-scale: 0.9
 	),
 	serifDisplayBold: (
 		font: $o-typography-serif-display,
 		fallback: serif,
-		weight: 'semibold',
-		type: serif-display,
 		fallback-scale: 0.9
 	),
 	serifDisplayItalic: (
 		font: $o-typography-serif-display,
 		fallback: serif,
-		weight: 'regular',
-		type: serif-display,
 		fallback-scale: 0.9
 	)
 );
 
 @mixin oTypographyProgressiveFont($font, $level) {
 	$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
-	$progressive-font: map-get($o-typography-progressive-fonts, map-get($font-config, 'type'));
-	$is-progressive: if(
-		$progressive-font,
-		index($progressive-font, map-get($font-config, 'weight')),
-		null
-	);
+	$is-progressive: index($o-typography-progressive-fonts, $font);
 
 	@if $is-progressive {
 		font-family: map-get($font-config, 'fallback');
 		@include font-size(get-font-size($font, $level, $is-fallback-font: true), get-line-height($font, $level));
 
-		.loaded-#{map-get($font-config, 'type')}-#{map-get($font-config, 'weight')} & {
+		.loaded-#{$font} & {
 			font-family: map-get($font-config, 'font');
 			font-size: get-font-size($font, $level);
 		}
@@ -105,7 +78,7 @@ $_o-typography-progressive-font-fallbacks: (
 	$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
 	font-size: scale-fallback-font-size($font, $size);
 
-	.loaded-#{map-get($font-config, 'type')}-#{map-get($font-config, 'weight')} & {
+	.loaded-#{$font} & {
 		font-size: $size;
 	}
 }
