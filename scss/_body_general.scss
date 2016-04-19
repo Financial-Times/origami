@@ -56,3 +56,10 @@
 	@include oTypographySerif(m);
 	@include oColorsSetUseCase(blockquote, text, 'grey-tint4');
 }
+
+/// Style for .big-number class
+@mixin oTypographyBigNumber {
+	@include oTypographySerifDisplayBold(xl);
+	font-size: 3em;
+	line-height: 1em;
+}
