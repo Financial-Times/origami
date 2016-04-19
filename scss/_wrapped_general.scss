@@ -49,6 +49,31 @@
 		}
 	}
 
+	aside {
+		.title {
+			@include oTypographyBold;
+			a {
+				@include oColorsSetUseCase(aside-title, text, 'cold-1');
+				border-bottom: 0;
+				text-decoration: none;
+			}
+		}
+		.headline {
+			@include oTypographyAsideHeadline;
+		}
+	}
+
+	aside,
+	blockquote {
+		footer {
+			@include oTypographyBold;
+		}
+	}
+
+	.big-number {
+		@include oTypographyBigNumber;
+	}
+
 	.subhead {
 		@include oTypographySubhead;
 	}

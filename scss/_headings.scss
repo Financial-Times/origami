@@ -46,16 +46,27 @@
 	}
 }
 
+
+/// Style for <aside> headline
+@mixin oTypographyAsideHeadline {
+	@include oTypographySansDataBold(l);
+	font-size: 26px;
+	line-height: 27px;
+}
+
+/// Style for subhead class
 @mixin oTypographySubhead {
 	@include oTypographySansDataBold(xl);
 	margin-top: 50px;
 	margin-bottom: 20px;
 }
 
+/// Style for subhead standard class
 @mixin oTypographySubheadStandard {
 	@include oTypographySansDataBold(l);
 }
 
+/// Style for subhead crosshead class
 @mixin oTypographySubheadCrosshead {
 	border-bottom: 1px solid oColorsGetPaletteColor('black');
 }
