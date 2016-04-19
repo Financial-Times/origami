@@ -48,18 +48,19 @@
 
 /// Style for <footer> tags
 @mixin oTypographyFooter {
-	@include oTypographySans(s);
+	@include oTypographySansData(m);
 }
 
 /// Style for <blockquote> tags
 @mixin oTypographyBlockquotePara {
-	@include oTypographySerif(m);
+	@include oTypographySerifDisplay(m);
 	@include oColorsSetUseCase(blockquote, text, 'grey-tint4');
 }
 
 /// Style for .big-number class
 @mixin oTypographyBigNumber {
-	@include oTypographySerifDisplayBold(xl);
+	@include oTypographySerifDisplay(xl);
+	font-weight: 700;
 	font-size: 3em;
 	line-height: 1em;
 }
