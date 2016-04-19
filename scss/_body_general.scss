@@ -16,8 +16,8 @@
 
 /// General body text (apply to body tag)
 @mixin oTypographyBody {
-	@include oTypographySans(m);
 	@include oColorsFor(body, text);
+	font: 18px/1.4 Georgia, serif;
 	margin: 0.3em 0 0.8em;
 }
 
