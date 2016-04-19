@@ -47,13 +47,13 @@
 }
 
 @mixin oTypographySubhead {
-	@include oTypographySansBold(l);
+	@include oTypographySansDataBold(xl);
 	margin-top: 50px;
 	margin-bottom: 20px;
 }
 
 @mixin oTypographySubheadStandard {
-	@include oTypographySansBold(m);
+	@include oTypographySansDataBold(l);
 }
 
 @mixin oTypographySubheadCrosshead {

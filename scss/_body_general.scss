@@ -60,7 +60,7 @@
 /// Style for .big-number class
 @mixin oTypographyBigNumber {
 	@include oTypographySerifDisplay(xl);
-	font-weight: 700;
+	@include oTypographyBold;
 	font-size: 3em;
 	line-height: 1em;
 }
