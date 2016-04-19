@@ -20,11 +20,13 @@
 	}
 	
 	th {
-		color: oColorsGetColorFor(o-table-header, color);
+		@include oTypographySansBold(s);
+		@include oColorsFor(o-table-header, color);
 	}
 	
 	td {
-		color: oColorsGetColorFor(o-table-data, color);
+		@include oTypographySans(s);
+		@include oColorsFor(o-table-data, color);
 	}
 
 	th,
@@ -39,12 +41,7 @@
 		text-align: right;
 	}
 
-	// th[scope=row] {
-	// 	border-right: 1px solid oColorsGetColorFor(o-table-header-row, border);
-	// }
-
 	th:not([scope=row]) {
-		// border-bottom: 1px solid oColorsGetColorFor(o-table-header-row, border);
 		vertical-align: bottom;
 	}
 }
