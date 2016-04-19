@@ -46,14 +46,6 @@
 	}
 }
 
-
-/// Style for <aside> headline
-@mixin oTypographyAsideHeadline {
-	@include oTypographySansDataBold(l);
-	font-size: 26px;
-	line-height: 27px;
-}
-
 /// Style for subhead class
 @mixin oTypographySubhead {
 	@include oTypographySansDataBold(xl);

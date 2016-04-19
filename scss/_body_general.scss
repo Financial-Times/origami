@@ -52,7 +52,7 @@
 }
 
 /// Style for <blockquote> tags
-@mixin oTypographyBlockquotePara {
+@mixin oTypographyBlockquote {
 	@include oTypographySerifDisplay(m);
 	@include oColorsSetUseCase(blockquote, text, 'grey-tint4');
 }
@@ -63,4 +63,11 @@
 	@include oTypographyBold;
 	font-size: 3em;
 	line-height: 1em;
+}
+
+/// Style for <aside> headline
+@mixin oTypographyAsideHeadline {
+	@include oTypographySansDataBold(l);
+	font-size: 26px;
+	line-height: 27px;
 }

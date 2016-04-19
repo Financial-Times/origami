@@ -38,6 +38,15 @@
 	.o-typography-heading5 {
 		@include oTypographyHeading5;
 	}
+	.o-typography-subhead {
+		@include oTypographySubhead;
+	}
+	.o-typography-subhead--crosshead {
+		@include oTypographySubheadCrosshead;
+	}
+	.o-typography-subhead--standard {
+		@include oTypographySubheadStandard;
+	}
 
 	// Body copy - common
 	.o-typography-bold {
@@ -83,6 +92,18 @@
 	}
 	.o-typography-list--unordered {
 		@include oTypographyListUnordered;
+	}
+	.o-typography-footer {
+		@include oTypographyFooter;
+	}
+	.o-typography-blockquote {
+		@include oTypographyBlockquote;
+	}
+	.o-typography-big-number {
+		@include oTypographyBigNumber;
+	}
+	.o-typography-aside__headline {
+		@include oTypographyAsideHeadline;
 	}
 
 	// Body wrapper
