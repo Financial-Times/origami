@@ -1,0 +1,24 @@
+////
+/// @group Use cases
+/// @link http://registry.origami.ft.com/components/o-typography
+////
+
+/// General typography
+/// Apply to a wrapper to style all text inside it
+///
+/// @example scss
+/// article { @include oTypographyBodyWrapper; }
+@mixin oTypographyAsideWrapper {
+	h3 {
+		@include oTypographyAsideTitle;
+	}
+	h4 {
+		@include oTypographyAsideHeadline;
+	}
+	p {
+		@include oTypographyAsideBody;
+	}
+	footer {
+		@include oTypographyBold;
+	}
+}

@@ -1,0 +1,68 @@
+/// Style for big-numbers
+@mixin oTypographyBigNumber {
+	@include oTypographySerifDisplay(xl);
+	@include oTypographyBold;
+	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+	font-size: 3em;
+	line-height: 1em;
+}
+
+/// Style for <aside> title
+@mixin oTypographyAsideTitle {
+	@include oTypographyHeading3;
+	@include oTypographyBold;
+	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+	a {
+		@include oColorsSetUseCase(aside, text, 'grey-tint4');
+		border-bottom: 0;
+		text-decoration: none;
+	}
+}
+
+/// Style for <aside> title large variant
+@mixin oTypographyAsideTitleLarge {
+	@include oTypographyHeading2;
+	@include oTypographyBold;
+	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+	a {
+		@include oColorsSetUseCase(aside, text, 'grey-tint4');
+		border-bottom: 0;
+		text-decoration: none;
+	}
+}
+
+/// Style for <aside> headline
+@mixin oTypographyAsideHeadline {
+	@include oTypographySerifDisplay(m);
+	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+	font-size: 26px;
+	line-height: 27px;
+}
+
+/// Style for <aside> headline small variant
+@mixin oTypographyAsideHeadlineSmall {
+	@include oTypographySerifDisplay(m);
+	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+}
+
+/// Style for <aside> headline small variant
+@mixin oTypographyAsideHeadlineLarge {
+	@include oTypographySerifDisplay(m);
+	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+	font-size: 30px;
+	line-height: 31px;
+}
+
+///Style for <aside> body (<p>)
+@mixin oTypographyAsideBody {
+	@include oTypographySansData(l);
+	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+	font-size: 18px;
+	line-height: 20px;
+}
+
+///Style for <aside> body (<p>) small varaint
+@mixin oTypographyAsideBody {
+	@include oTypographySansData(m);
+	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+}

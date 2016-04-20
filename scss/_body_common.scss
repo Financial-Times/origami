@@ -43,5 +43,6 @@
 // Caption
 @mixin oTypographyCaption {
 	@include oTypographySansData(m);
+	@include oTypographyItalic;
 	@include oTypographyBodyBlock;
 }

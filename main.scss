@@ -102,13 +102,33 @@
 	.o-typography-aside__title {
 		@include oTypographyAsideTitle;
 	}
+	.o-typography-aside__title--large {
+		@include oTypographyAsideTitleLarge;
+	}
 	.o-typography-aside__headline {
 		@include oTypographyAsideHeadline;
+	}
+	.o-typography-aside__headline--small {
+		@include oTypographyAsideHeadlineSmall;
+	}
+	.o-typography-aside__headline--large {
+		@include oTypographyAsideHeadlineSmall;
+	}
+	.o-typography-aside__body {
+		@include oTypographyAsideBody;
+	}
+	.o-typography-aside__body--small {
+		@include oTypographyAsideBodySmall;
 	}
 
 	// Body wrapper
 	.o-typography-body-wrapper {
 		@include oTypographyBodyWrapper;
+	}
+
+	// Aside wrapper
+	.o-typography-aside-wrapper {
+		@include oTypographyAsideWrapper;
 	}
 
 	// Don't output twice
