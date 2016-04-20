@@ -282,6 +282,87 @@ When running in silent mode, o-typography does not load web fonts, products shou
 
 When running in non-silent mode, o-typography loads all web fonts which are used.
 
+### Progressively loading web fonts
+
+**Note: this functionality is not available when using the build service**
+
+One of the drawbacks of using web fonts is some browsers hide the text while the font is downloading (Flash of Invisible Text, aka FOIT). A common pattern for avoiding this is to initially use a system fallback font, and once we know the web font has loaded, add a class to the `html` element and use this to 'upgrade' to the web font, e.g.
+
+```
+.text {
+    font-family: serif;
+}
+
+.font-loaded-serif .text {
+    font-family: FinancierDisplayWeb,serif;
+}
+```
+
+In this case we added a `font-loaded-serif` class to the `html` element once we were sure the web font `FinancierDisplayWeb` was downloaded.
+
+To help with this pattern, each `oTypographyXDisplayItalic` mixin takes a second argument, `$load-progressively`, which, if set to `true`, outputs css in the above format.
+
+Initially we need to set which fonts we want to follow this pattern, by setting the `$o-typography-progressive-fonts` variable
+
+We can also override what the 'loaded' class is prefixed with; `$o-typography-loaded-prefix` (default is `o-typography--loaded`)
+
+A further thing to note is the fallback fonts are generally of a different size to the webfont, so we also scale the font, e.g.
+
+```
+.text {
+    font-family: serif;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.font-loaded-serif .text {
+    font-family: FinancierDisplayWeb,serif;
+    font-size: 20px
+}
+```
+
+When using the `oTypographyXDisplayItalicSize` mixin, a second argument `$with-progressive-size` can be supplied to scale fonts
+
+
+So as a full example,
+
+```
+$o-typography-progressive-fonts: sansData, serifDisplay;
+$o-typography-loaded-prefix: 'loaded-font';
+
+.foo {
+    @include oTypographySansData(m, $load-progressively: true);
+}
+
+.bar {
+    @include oTypographySerifDisplayItalic(m, $load-progressively: true);
+}
+```
+
+compiles to
+
+```
+.foo {
+    font-family: sans-serif;
+    font-size: 12.18px;
+    line-height: 16px;
+    font-weight: 400;
+}
+
+.loaded-font-sansData .foo {
+    font-family: MetricWeb,sans-serif;
+    font-size: 14px;
+}
+
+.bar {
+    font-family: FinancierDisplayWeb,serif;
+    font-size: 20px;
+    line-height: 22px;
+    font-style: italic;
+    font-weight: 200;
+}
+```
+
 ----
 
 ## License
