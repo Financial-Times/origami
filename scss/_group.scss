@@ -14,7 +14,7 @@
 ///
 /// @param {String} ($o-buttons-class) $buttonClass
 ///
-/// @link http://build-origami.ft.com/v2/files/o-buttons/demos/grouped.html
+/// @link https://origami-build.ft.com/v2/files/o-buttons/demos/grouped.html
 @mixin oButtonsGroup($buttonClass: $o-buttons-class) {
 	> .#{$buttonClass} {
 		position: relative;
