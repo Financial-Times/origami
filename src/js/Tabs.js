@@ -1,14 +1,13 @@
 /*global module, require*/
 const oDom = require('o-dom');
 
-function Tabs(rootEl) {
+function Tabs(rootEl, config) {
 
 	const tabsObj = this;
 	let tabEls;
 	let tabpanelEls;
 	let updateUrl = (rootEl.getAttribute('data-o-tabs-update-url') !== null);
 	let selectedTabIndex = -1;
-	const myself = this;
 
 	function getTabTargetId(tabEl) {
 		const aEls = tabEl.getElementsByTagName('a');
@@ -145,7 +144,7 @@ function Tabs(rootEl) {
 
 	function updateCurrentTab(tabEl){
 		const i = getTabIndexFromElement(tabEl);
-		myself.selectTab(i);
+		tabsObj.selectTab(i);
 		dispatchCustomEvent('event', {
 			category: 'tabs',
 			action: 'click',
@@ -168,7 +167,7 @@ function Tabs(rootEl) {
 			tabs: tabsObj
 		});
 
-		myself.selectTab(getSelectedTabIndex());
+		tabsObj.selectTab(getSelectedTabIndex(), config.disableFocus);
 	}
 
 	function destroy() {
@@ -186,7 +185,7 @@ function Tabs(rootEl) {
 	init();
 }
 
-Tabs.init = function(el) {
+Tabs.init = function(el, config) {
 	const tabs = [];
 	let tEls;
 	let c;
@@ -200,7 +199,7 @@ Tabs.init = function(el) {
 		tEls = el.querySelectorAll('[data-o-component=o-tabs]');
 		for (c = 0, l = tEls.length; c < l; c++) {
 			if (!tEls[c].matches('[data-o-tabs-autoconstruct=false]') && !tEls[c].hasAttribute('data-o-tabs--js')) {
-				tabs.push(new Tabs(tEls[c]));
+				tabs.push(new Tabs(tEls[c], config));
 			}
 		}
 	}

@@ -84,19 +84,23 @@ Auto-construction can be disabled for a specific element via another data attrib
 Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), the event could be polyfilled, or construction can be manually invoked:
 
 ```javascript
-var Tabs = require('o-tabs');
-var tabsObjects = Tabs.init();
+const Tabs = require('o-tabs');
+const tabsObjects = Tabs.init({
+	disableFocus: false
+});
 ```
 
 An array of any constructed Tabs objects will be returned.
 
-`Tabs.init()` will not create Tabs objects for elements that already have Tabs objects constructed on them, therefore it's safe to call more than once on the same page region.
+`Tabs.init(config)` will not create Tabs objects for elements that already have Tabs objects constructed on them, therefore it's safe to call more than once on the same page region.
 
 ### Imperative
 
 ```javascript
-var Tabs = require('o-tabs');
-var myTabs = new Tabs(document.getElementById('myTabsRootElement'));
+const Tabs = require('o-tabs');
+const myTabs = new Tabs(document.getElementById('myTabsRootElement'), {
+	disableFocus: false
+});
 ```
 
 ## Styles
@@ -156,8 +160,9 @@ Tabs are indexed starting from 0.
 
 The following API methods are provided:
 
-* `init()`: Set attributes/classes, bind events. Called automatically on construction. Does nothing if already been called.
-* `selectTab(idx)`: Select tab `idx`. Does nothing if tab `idx` does not exist or is already selected.
+* `init(config)`: Set attributes/classes, bind events. Called automatically on construction. Does nothing if already been called. `config` object accepts:
+	- `disableFocus`: If set to `true`, it will stop the aria-selected tab from receiving focus.
+* `selectTab(idx, disableFocus)`: Select tab `idx`. Does nothing if tab `idx` does not exist or is already selected. If `disableFocus` is set to `true`, it will stop the aria-selected tab from receiving focus.
 * `destroy()`: Unbind events, remove `o-tabs--js` class. After calling this, `init()` can be called again to re-initialise the tabs.
 
 ----
