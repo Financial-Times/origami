@@ -25,11 +25,37 @@ class Utils {
 			selectableEl.addEventListener('click', this.selectableHandler);
 		}
 
-		const subNavToggle = this.headerEl.querySelector('[data-o-header-togglable-nav]');
-		this.subNavToggleHandler = this.subNavToggleHandler.bind(this);
-		if (subNavToggle) {
-			this.listeners.push([subNavToggle, this.subNavToggleHandler]);
-			subNavToggle.addEventListener('click', this.subNavToggleHandler);
+		const megaNavToggle = this.headerEl.querySelector('[data-o-header-togglable-nav]');
+		if (megaNavToggle) {
+			this.megaNavToggleHandler = this.megaNavToggleHandler.bind(this);
+			this.listeners.push([megaNavToggle, this.megaNavToggleHandler]);
+			megaNavToggle.addEventListener('click', this.megaNavToggleHandler);
+
+			// Applies 'clear: both;' to the first element in each row
+			// in the meganav so columns stay aligned. We want to
+			// apply it to desktop only columns, which isn't possible
+			// via CSS
+			const megaNavSections = this.headerEl.querySelectorAll('.o-header__meganav-section');
+			let megaNavSectionPosition = 1;
+			for (let megaNavSection of megaNavSections) {
+				if (!megaNavSection.classList.contains('o-header__meganav-section--mobile')) {
+					// If it's the first element in the row, add 'clear: both;' and move to next column
+					// If it's the last element in the row, reset for next row
+					// If otherwise, move to next columnd
+					switch (megaNavSectionPosition) {
+						case 1:
+							megaNavSection.style.clear = 'both';
+							megaNavSectionPosition++;
+							break;
+						case 4:
+							megaNavSectionPosition = 1;
+							break
+						default:
+							megaNavSectionPosition++;
+							break;
+					}
+				}
+			}
 		}
 
 		const toggleEls = this.headerEl.querySelectorAll('[data-o-header-togglable]');
@@ -47,7 +73,7 @@ class Utils {
 		ev.currentTarget.setAttribute('aria-selected', 'true');
 	}
 
-	subNavToggleHandler() {
+	megaNavToggleHandler() {
 		document.documentElement.classList.toggle(this.navOpenClass);
 		document.body.classList.toggle(this.navOpenClass);
 	}
@@ -68,7 +94,7 @@ class Utils {
 		delete this.listeners;
 		delete this.navOpenClass;
 		delete this.headerEl;
-		delete this.subNavToggleHandler;
+		delete this.megaNavToggleHandler;
 		delete this.selectableHandler;
 	}
 
