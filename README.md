@@ -284,6 +284,8 @@ When running in non-silent mode, o-typography loads all web fonts which are used
 
 ### Progressively loading web fonts
 
+**Note: this functionality is not available when using the build service**
+
 One of the drawbacks of using web fonts is some browsers hide the text while the font is downloading (Flash of Invisible Text, aka FOIT). A common pattern for avoiding this is to initially use a system fallback font, and once we know the web font has loaded, add a class to the `html` element and use this to 'upgrade' to the web font, e.g.
 
 ```
@@ -302,7 +304,7 @@ To help with this pattern, each `oTypographyXDisplayItalic` mixin takes a second
 
 Initially we need to set which fonts we want to follow this pattern, by setting the `$o-typography-progressive-fonts` variable
 
-We can also override what the 'loaded' class is prefixed with; `$o-typography-loaded-prefix` (default is `o-typography-loaded`)
+We can also override what the 'loaded' class is prefixed with; `$o-typography-loaded-prefix` (default is `o-typography--loaded`)
 
 A further thing to note is the fallback fonts are generally of a different size to the webfont, so we also scale the font, e.g.
 
@@ -360,7 +362,6 @@ compiles to
     font-weight: 200;
 }
 ```
-
 
 ----
 
