@@ -19,8 +19,8 @@ describe('Utils API', () => {
 		expect(Utils.prototype.selectableHandler).to.be.a('function');
 	});
 
-	it('has a subNavToggleHandler instance method', () => {
-		expect(Utils.prototype.subNavToggleHandler).to.be.a('function');
+	it('has a megaNavToggleHandler instance method', () => {
+		expect(Utils.prototype.megaNavToggleHandler).to.be.a('function');
 	});
 
 	it('has a toggleHandler instance method', () => {
@@ -128,7 +128,7 @@ describe('Utils instance', () => {
 		});
 	});
 
-	describe('subNavToggle', () => {
+	describe('megaNavToggle', () => {
 		let navEl;
 
 		beforeEach(() => {
@@ -156,7 +156,7 @@ describe('Utils instance', () => {
 
 			const navEventAndHandler = addEventListenerSpy.args[0];
 			expect(navEventAndHandler[0]).to.be('click');
-			expect(navEventAndHandler[1]).to.be(utils.subNavToggleHandler);
+			expect(navEventAndHandler[1]).to.be(utils.megaNavToggleHandler);
 
 			// Removing
 			const realRemoveEventListener = Element.prototype.removeEventListener;
@@ -174,12 +174,12 @@ describe('Utils instance', () => {
 			Element.prototype.removeEventListener = realRemoveEventListener;
 		});
 
-		it('#subNavToggleHandler', () => {
+		it('#megaNavToggleHandler', () => {
 			const utils = new Utils(containerEl);
 			expect(document.documentElement.classList.contains('o-header--mega-nav-open')).to.be(false);
 			expect(document.body.classList.contains('o-header--mega-nav-open')).to.be(false);
 
-			utils.subNavToggleHandler();
+			utils.megaNavToggleHandler();
 			expect(document.documentElement.classList.contains('o-header--mega-nav-open')).to.be(true);
 			expect(document.body.classList.contains('o-header--mega-nav-open')).to.be(true);
 		});
