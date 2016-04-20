@@ -50,15 +50,10 @@
 	}
 
 	aside {
-		.title {
-			@include oTypographyBold;
-			a {
-				@include oColorsSetUseCase(aside-title, text, 'cold-1');
-				border-bottom: 0;
-				text-decoration: none;
-			}
+		h3 {
+			@include oTypographyAsideTitle;
 		}
-		.headline {
+		h4 {
 			@include oTypographyAsideHeadline;
 		}
 	}
@@ -68,22 +63,6 @@
 		footer {
 			@include oTypographyBold;
 		}
-	}
-
-	.big-number {
-		@include oTypographyBigNumber;
-	}
-
-	.subhead {
-		@include oTypographySubhead;
-	}
-
-	.subhead--crosshead {
-		@include oTypographySubheadCrosshead;
-	}
-
-	.subhead--standard {
-		@include oTypographySubheadStandard;
 	}
 
 	@include oTypographyCommonWrappedBodyStyles;

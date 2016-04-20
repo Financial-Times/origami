@@ -44,9 +44,6 @@
 	.o-typography-subhead--crosshead {
 		@include oTypographySubheadCrosshead;
 	}
-	.o-typography-subhead--standard {
-		@include oTypographySubheadStandard;
-	}
 
 	// Body copy - common
 	.o-typography-bold {
@@ -101,6 +98,9 @@
 	}
 	.o-typography-big-number {
 		@include oTypographyBigNumber;
+	}
+	.o-typography-aside__title {
+		@include oTypographyAsideTitle;
 	}
 	.o-typography-aside__headline {
 		@include oTypographyAsideHeadline;

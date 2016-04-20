@@ -57,7 +57,7 @@
 	@include oColorsSetUseCase(blockquote, text, 'grey-tint4');
 }
 
-/// Style for .big-number class
+/// Style for big-numbers
 @mixin oTypographyBigNumber {
 	@include oTypographySerifDisplay(xl);
 	@include oTypographyBold;
@@ -65,9 +65,26 @@
 	line-height: 1em;
 }
 
+/// Style for <aside> title
+@mixin oTypographyAsideTitle {
+	@include oTypographyHeading3;
+	@include oTypographyBold;
+	a {
+		@include oColorsSetUseCase(aside-title, text, 'cold-1');
+		border-bottom: 0;
+		text-decoration: none;
+	}
+	@include oTypographySerifDisplay(m);
+}
+
 /// Style for <aside> headline
 @mixin oTypographyAsideHeadline {
-	@include oTypographySansDataBold(l);
+	@include oTypographySerifDisplay(m);
+}
+
+/// Style for <aside> headline large variant
+@mixin oTypographyAsideHeadlineLarge {
+	@include oTypographySerifDisplay(m);
 	font-size: 26px;
 	line-height: 27px;
 }
