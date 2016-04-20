@@ -9,7 +9,7 @@
 /// Adjust size of sans
 ///
 /// @param {String} $level - Accepts xl, l, m, s, xs
-/// @param {Boolean} $with-progressive-size [false] - Should it output the fallback font's scaled size
+/// @param {Bool} $with-progressive-size [false] - Should it output the fallback font's scaled size
 ///
 /// @example
 ///  @include oTypographySansSize(xl, $with-progressive-size: true);
@@ -33,7 +33,7 @@
 /// Adjust the font to sans and set the size / line-height
 ///
 /// @param {String} $level - Accepts xl, l, m, s, xs
-/// @param {Boolean} $load-progressively [false] - Should it load the font progressively
+/// @param {Bool} $load-progressively [false] - Should it load the font progressively
 ///
 /// @example
 ///  @include oTypographySans(xl, $load-progressively: true);
@@ -56,7 +56,7 @@
 /// Adjust size of sansBold
 ///
 /// @param {String} $level - Accepts xl, l, m, s, xs
-/// @param {Boolean} $with-progressive-size [false] - Should it output the fallback font's scaled size
+/// @param {Bool} $with-progressive-size [false] - Should it output the fallback font's scaled size
 ///
 /// @example
 ///  @include oTypographySansBoldSize(xl, $with-progressive-size: true);
@@ -78,7 +78,7 @@
 
 ///
 /// Adjust the font to sansBold and set the size / line-height
-/// @param {Boolean} $load-progressively [false] - Should it load the font progressively
+/// @param {Bool} $load-progressively [false] - Should it load the font progressively
 ///
 /// @example
 ///  @include oTypographySansBold(xl, $load-progressively: true);
@@ -101,7 +101,7 @@
 /// Adjust size of sansData
 ///
 /// @param {String} $level - Accepts xl, l, m, s, xs
-/// @param {Boolean} $with-progressive-size [false] - Should it output the fallback font's scaled size
+/// @param {Bool} $with-progressive-size [false] - Should it output the fallback font's scaled size
 ///
 /// @example
 ///  @include oTypographySansDataSize(xl, $with-progressive-size: true);
@@ -123,7 +123,7 @@
 
 ///
 /// Adjust the font to sansData and set the size / line-height
-/// @param {Boolean} $load-progressively [false] - Should it load the font progressively
+/// @param {Bool} $load-progressively [false] - Should it load the font progressively
 ///
 /// @example
 ///  @include oTypographySansData(xl, $load-progressively: true);
@@ -146,7 +146,7 @@
 /// Adjust size of sansDataBold
 ///
 /// @param {String} $level - Accepts xl, l, m, s, xs
-/// @param {Boolean} $with-progressive-size [false] - Should it output the fallback font's scaled size
+/// @param {Bool} $with-progressive-size [false] - Should it output the fallback font's scaled size
 ///
 /// @example
 ///  @include oTypographySansDataBoldSize(xl, $with-progressive-size: true);
@@ -168,7 +168,7 @@
 
 ///
 /// Adjust the font to sansDataBold and set the size / line-height
-/// @param {Boolean} $load-progressively [false] - Should it load the font progressively
+/// @param {Bool} $load-progressively [false] - Should it load the font progressively
 ///
 /// @example
 ///  @include oTypographySansDataBold(xl, $load-progressively: true);
@@ -191,7 +191,7 @@
 /// Adjust size of sansDataItalic
 ///
 /// @param {String} $level - Accepts xl, l, m, s, xs
-/// @param {Boolean} $with-progressive-size [false] - Should it output the fallback font's scaled size
+/// @param {Bool} $with-progressive-size [false] - Should it output the fallback font's scaled size
 ///
 /// @example
 ///  @include oTypographySansDataItalicSize(xl, $with-progressive-size: true);
@@ -213,7 +213,7 @@
 
 ///
 /// Adjust the font to sansDataItalic and set the size / line-height
-/// @param {Boolean} $load-progressively [false] - Should it load the font progressively
+/// @param {Bool} $load-progressively [false] - Should it load the font progressively
 ///
 /// @example
 ///  @include oTypographySansDataItalic(xl, $load-progressively: true);
@@ -238,7 +238,7 @@
 /// Adjust size of serif
 ///
 /// @param {String} $level - Accepts xl, l, m, s, xs
-/// @param {Boolean} $with-progressive-size [false] - Should it output the fallback font's scaled size
+/// @param {Bool} $with-progressive-size [false] - Should it output the fallback font's scaled size
 ///
 /// @example
 ///  @include oTypographySerifSize(xl, $with-progressive-size: true);
@@ -260,7 +260,7 @@
 
 ///
 /// Adjust the font to serif and set the size / line-height
-/// @param {Boolean} $load-progressively [false] - Should it load the font progressively
+/// @param {Bool} $load-progressively [false] - Should it load the font progressively
 ///
 /// @example
 ///  @include oTypographySerif(xl, $load-progressively: true);
@@ -283,7 +283,7 @@
 /// Adjust size of serifBold
 ///
 /// @param {String} $level - Accepts xl, l, m, s, xs
-/// @param {Boolean} $with-progressive-size [false] - Should it output the fallback font's scaled size
+/// @param {Bool} $with-progressive-size [false] - Should it output the fallback font's scaled size
 ///
 /// @example
 ///  @include oTypographySerifBoldSize(xl, $with-progressive-size: true);
@@ -305,7 +305,7 @@
 
 ///
 /// Adjust the font to serifBold and set the size / line-height
-/// @param {Boolean} $load-progressively [false] - Should it load the font progressively
+/// @param {Bool} $load-progressively [false] - Should it load the font progressively
 ///
 /// @example
 ///  @include oTypographySerifBold(xl, $load-progressively: true);
@@ -328,7 +328,7 @@
 /// Adjust size of serifItalic
 ///
 /// @param {String} $level - Accepts xl, l, m, s, xs
-/// @param {Boolean} $with-progressive-size [false] - Should it output the fallback font's scaled size
+/// @param {Bool} $with-progressive-size [false] - Should it output the fallback font's scaled size
 ///
 /// @example
 ///  @include oTypographySerifItalicSize(xl, $with-progressive-size: true);
@@ -350,7 +350,7 @@
 
 ///
 /// Adjust the font to serifItalic and set the size / line-height
-/// @param {Boolean} $load-progressively [false] - Should it load the font progressively
+/// @param {Bool} $load-progressively [false] - Should it load the font progressively
 ///
 /// @example
 ///  @include oTypographySerifItalic(xl, $load-progressively: true);
@@ -374,7 +374,7 @@
 /// Adjust size of serifDisplay
 ///
 /// @param {String} $level - Accepts xl, l, m, s, xs
-/// @param {Boolean} $with-progressive-size [false] - Should it output the fallback font's scaled size
+/// @param {Bool} $with-progressive-size [false] - Should it output the fallback font's scaled size
 ///
 /// @example
 ///  @include oTypographySerifDisplaySize(xl, $with-progressive-size: true);
@@ -396,7 +396,7 @@
 
 ///
 /// Adjust the font to serifDisplay and set the size / line-height
-/// @param {Boolean} $load-progressively [false] - Should it load the font progressively
+/// @param {Bool} $load-progressively [false] - Should it load the font progressively
 ///
 /// @example
 ///  @include oTypographySerifDisplay(xl, $load-progressively: true);
@@ -419,7 +419,7 @@
 /// Adjust size of serifDisplayBold
 ///
 /// @param {String} $level - Accepts xl, l, m, s, xs
-/// @param {Boolean} $with-progressive-size [false] - Should it output the fallback font's scaled size
+/// @param {Bool} $with-progressive-size [false] - Should it output the fallback font's scaled size
 ///
 /// @example
 ///  @include oTypographySerifDisplayBoldSize(xl, $with-progressive-size: true);
@@ -441,7 +441,7 @@
 
 ///
 /// Adjust the font to serifDisplayBold and set the size / line-height
-/// @param {Boolean} $load-progressively [false] - Should it load the font progressively
+/// @param {Bool} $load-progressively [false] - Should it load the font progressively
 ///
 /// @example
 ///  @include oTypographySerifDisplayBold(xl, $load-progressively: true);
@@ -464,7 +464,7 @@
 /// Adjust size of serifDisplayItalic
 ///
 /// @param {String} $level - Accepts xl, l, m, s, xs
-/// @param {Boolean} $with-progressive-size [false] - Should it output the fallback font's scaled size
+/// @param {Bool} $with-progressive-size [false] - Should it output the fallback font's scaled size
 ///
 /// @example
 ///  @include oTypographySerifDisplayItalicSize(xl, $with-progressive-size: true);
@@ -486,7 +486,7 @@
 
 ///
 /// Adjust the font to serifDisplayItalic and set the size / line-height
-/// @param {Boolean} $load-progressively [false] - Should it load the font progressively
+/// @param {Bool} $load-progressively [false] - Should it load the font progressively
 ///
 /// @example
 ///  @include oTypographySerifDisplayItalic(xl, $load-progressively: true);

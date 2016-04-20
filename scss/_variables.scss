@@ -101,6 +101,10 @@ $o-typography-font-scale: (
 //
 $o-typography-progressive-fonts: () !default;
 
+// Sets the prefix used for the 'web fonts loaded' class
+//
+$o-typography-loaded-prefix: 'o-typography-loaded' !default;
+
 // Previously, $o-typography-font-scale was called $font-scale. In order to not
 // make this rename a breaking change, check if anything is overriding
 // $font-scale and if it is, set $o-typography-font-scale to that value.

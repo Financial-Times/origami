@@ -78,7 +78,7 @@ $_o-typography-progressive-font-fallbacks: (
 		font-family: map-get($font-config, 'fallback');
 		@include font-size(get-font-size($font, $level, $is-fallback-font: true), get-line-height($font, $level));
 
-		.loaded-#{$font} & {
+		.#{$o-typography-loaded-prefix}-#{$font} & {
 			font-family: map-get($font-config, 'font');
 			font-size: get-font-size($font, $level);
 		}
@@ -103,7 +103,7 @@ $_o-typography-progressive-font-fallbacks: (
 	$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
 	font-size: scale-fallback-font-size($font, $size);
 
-	.loaded-#{$font} & {
+	.#{$o-typography-loaded-prefix}-#{$font} & {
 		font-size: $size;
 	}
 }
