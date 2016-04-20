@@ -35,13 +35,13 @@ class Utils {
 			// in the meganav so columns stay aligned. We want to
 			// apply it to desktop only columns, which isn't possible
 			// via CSS
-			const megaNavSections = this.headerEl.querySelectorAll('.o-header__meganav-section');
+			const megaNavSections = this.headerEl.querySelectorAll(`.${config.headerClassName}__meganav-section`);
 			let megaNavSectionPosition = 1;
 			for (let megaNavSection of megaNavSections) {
-				if (!megaNavSection.classList.contains('o-header__meganav-section--mobile')) {
+				if (!megaNavSection.classList.contains(`${config.headerClassName}__meganav-section--mobile`)) {
 					// If it's the first element in the row, add 'clear: both;' and move to next column
 					// If it's the last element in the row, reset for next row
-					// If otherwise, move to next columnd
+					// If otherwise, move to next column
 					switch (megaNavSectionPosition) {
 						case 1:
 							megaNavSection.style.clear = 'both';
@@ -49,7 +49,7 @@ class Utils {
 							break;
 						case 4:
 							megaNavSectionPosition = 1;
-							break
+							break;
 						default:
 							megaNavSectionPosition++;
 							break;
