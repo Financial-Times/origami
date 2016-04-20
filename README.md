@@ -11,7 +11,7 @@ o-buttons is a collection of Sass files to allow you to create FT branded button
 
 ## Requirements
 
-Origami module code can be used in projects either via a `<link>` tag to the [build service](http://build.origami.ft.com/v2/), or, if you use bower, by adding the component as a dependency.
+Origami module code can be used in projects either via a `<link>` tag to the [build service](https://origami-build.ft.com/v2/), or, if you use bower, by adding the component as a dependency.
 
 For the quick start guide to getting o-buttons into your project, see the [o-buttons registry page](http://registry.origami.ft.com/components/o-buttons#section-usage).
 
@@ -56,7 +56,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 
 #### Default button
 
-[View demo](http://build.origami.ft.com/v2/demos/o-buttons/individual)
+[View demo](https://origami-build.ft.com/v2/demos/o-buttons/individual)
 
 ```html
 <button class="o-buttons">Standard</button>
@@ -79,7 +79,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 
 #### Grouped buttons
 
-[View demo](http://build.origami.ft.com/v2/demos/o-buttons/grouped)
+[View demo](https://origami-build.ft.com/v2/demos/o-buttons/grouped)
 
 ```html
 <div class="o-buttons-group">
@@ -110,7 +110,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 
 #### Pagination buttons
 
-[View demo](http://build.origami.ft.com/v2/demos/o-buttons/pagination)
+[View demo](https://origami-build.ft.com/v2/demos/o-buttons/pagination)
 
 ```html
 <div class="o-buttons-pagination">
@@ -171,9 +171,9 @@ Or, using Sass:
 
 View demos:
 
-- [standout](http://build.origami.ft.com/v2/demos/o-buttons/individual-standout)
-- [uncolored](http://build.origami.ft.com/v2/demos/o-buttons/individual-uncolored)
-- [inverse](http://build.origami.ft.com/v2/demos/o-buttons/individual-inverse)
+- [standout](https://origami-build.ft.com/v2/demos/o-buttons/individual-standout)
+- [uncolored](https://origami-build.ft.com/v2/demos/o-buttons/individual-uncolored)
+- [inverse](https://origami-build.ft.com/v2/demos/o-buttons/individual-inverse)
 
 ```html
 <button class="o-buttons o-buttons--standout">Standout button</button>
@@ -204,7 +204,7 @@ Or, using Sass:
 ```
 
 #### Icons
-[View demo](http://build.origami.ft.com/demos/o-buttons/icons)
+[View demo](https://origami-build.ft.com/demos/o-buttons/icons)
 
 o-buttons uses [o-ft-icons](https://github.com/Financial-Times/o-ft-icons/) for its icon-buttons.
 
