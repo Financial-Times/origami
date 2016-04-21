@@ -10,19 +10,20 @@
 /// article { @include oTypographyBodyWrapper; }
 @mixin oTypographyBodyWrapper {
 	h1 {
+		// Article headline
 		@include oTypographyHeading1;
 	}
-
 	h2 {
-		@include oTypographyHeading2;
+		// In article body subheads
+		@include oTypographySubhead;
 	}
-
 	h3 {
-		@include oTypographyHeading3;
+		// Headings for complementary sections / asides
+		@include oTypographyAsideTitle;
 	}
-
 	h4 {
-		@include oTypographyHeading4;
+		// Headlines for other articles referenced
+		@include oTypographyAsideHeadline;
 	}
 
 	a {

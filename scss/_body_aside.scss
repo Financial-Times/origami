@@ -37,6 +37,7 @@
 	@include oColorsSetUseCase(aside, text, 'grey-tint4');
 	font-size: 26px;
 	line-height: 27px;
+	word-wrap: break-word;
 }
 
 /// Style for <aside> headline small variant
@@ -45,12 +46,13 @@
 	@include oColorsSetUseCase(aside, text, 'grey-tint4');
 }
 
-/// Style for <aside> headline small variant
+/// Style for <aside> headline large variant
 @mixin oTypographyAsideHeadlineLarge {
 	@include oTypographySerifDisplay(m);
 	@include oColorsSetUseCase(aside, text, 'grey-tint4');
 	font-size: 30px;
 	line-height: 31px;
+	word-wrap: break-word;
 }
 
 ///Style for <aside> body (<p>)
