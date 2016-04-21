@@ -242,7 +242,7 @@ describe("smoke-tests (./overlay.js)", () => {
 
 	it('should be able to inject content from a url', done => {
 		const mod = new Overlay('testOverlay', {
-			src: 'http://build.origami.ft.com/files/o-tweet@0.2.5/demos/demo.html',
+			src: 'https://origami-build.ft.com/files/o-tweet@0.2.5/demos/demo.html',
 			trigger: document.querySelector('.o-overlay-trigger')
 		});
 
