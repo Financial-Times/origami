@@ -5,17 +5,18 @@
 @import "src/scss/colors";
 @import "src/scss/vars_mixins";
 
-@if $o-header-is-silent == false {
-	@import "src/scss/base";
-	@import "src/scss/edition-switch";
-	@import "src/scss/masthead";
-	@import "src/scss/nav";
-	@import "src/scss/print";
-	@import "src/scss/search";
-	@import "src/scss/tools";
-	@import "src/scss/themes/light";
-	@import "src/scss/themes/minimal";
+@import "src/scss/base";
+@import "src/scss/edition-switch";
+@import "src/scss/masthead";
+@import "src/scss/nav";
+@import "src/scss/print";
+@import "src/scss/search";
+@import "src/scss/tools";
+@import "src/scss/themes/light";
+@import "src/scss/themes/minimal";
 
-	// Turn silent mode back on to avoid outputting the header twice
-	$o-header-is-silent: true;
+@if $o-header-is-silent == false {
+
+	// Silent mode is only partially implemented at this point.
+	$o-header-is-silent: false;
 }
