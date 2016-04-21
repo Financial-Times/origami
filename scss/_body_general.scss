@@ -54,5 +54,5 @@
 /// Style for <blockquote> tags
 @mixin oTypographyBlockquote {
 	@include oTypographySerifDisplay(m);
-	@include oColorsSetUseCase(blockquote, text, 'grey-tint4');
+	@include oColorsGetPaletteColor('grey-tint4');
 }

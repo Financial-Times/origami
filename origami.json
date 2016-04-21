@@ -52,6 +52,12 @@
 			"template": "demos/src/manage-account.mustache",
 			"expanded": true,
 			"description": ""
+		},
+		{
+			"name": "asides",
+			"template": "demos/src/aside.mustache",
+			"expanded": true,
+			"description": ""
 		}
 	]
 }

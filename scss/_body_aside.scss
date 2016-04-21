@@ -2,7 +2,7 @@
 @mixin oTypographyBigNumber {
 	@include oTypographySerifDisplay(xl);
 	@include oTypographyBold;
-	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+	@include oColorsGetPaletteColor('grey-tint4');
 	font-size: 3em;
 	line-height: 1em;
 }
@@ -11,9 +11,9 @@
 @mixin oTypographyAsideTitle {
 	@include oTypographyHeading3;
 	@include oTypographyBold;
-	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+	@include oColorsGetPaletteColor('grey-tint4');
 	a {
-		@include oColorsSetUseCase(aside, text, 'grey-tint4');
+		@include oColorsGetPaletteColor('grey-tint4');
 		border-bottom: 0;
 		text-decoration: none;
 	}
@@ -23,9 +23,9 @@
 @mixin oTypographyAsideTitleLarge {
 	@include oTypographyHeading2;
 	@include oTypographyBold;
-	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+	@include oColorsGetPaletteColor('grey-tint4');
 	a {
-		@include oColorsSetUseCase(aside, text, 'grey-tint4');
+		@include oColorsGetPaletteColor('grey-tint4');
 		border-bottom: 0;
 		text-decoration: none;
 	}
@@ -34,7 +34,7 @@
 /// Style for <aside> headline
 @mixin oTypographyAsideHeadline {
 	@include oTypographySerifDisplay(m);
-	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+	@include oColorsGetPaletteColor('grey-tint4');
 	font-size: 26px;
 	line-height: 27px;
 	word-wrap: break-word;
@@ -43,13 +43,13 @@
 /// Style for <aside> headline small variant
 @mixin oTypographyAsideHeadlineSmall {
 	@include oTypographySerifDisplay(m);
-	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+	@include oColorsGetPaletteColor('grey-tint4');
 }
 
 /// Style for <aside> headline large variant
 @mixin oTypographyAsideHeadlineLarge {
 	@include oTypographySerifDisplay(m);
-	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+	@include oColorsGetPaletteColor('grey-tint4');
 	font-size: 30px;
 	line-height: 31px;
 	word-wrap: break-word;
@@ -58,13 +58,13 @@
 ///Style for <aside> body (<p>)
 @mixin oTypographyAsideBody {
 	@include oTypographySansData(l);
-	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+	@include oColorsGetPaletteColor('grey-tint4');
 	font-size: 18px;
 	line-height: 20px;
 }
 
 ///Style for <aside> body (<p>) small varaint
-@mixin oTypographyAsideBody {
+@mixin oTypographyAsideBodySmall {
 	@include oTypographySansData(m);
-	@include oColorsSetUseCase(aside, text, 'grey-tint4');
+	@include oColorsGetPaletteColor('grey-tint4');
 }
