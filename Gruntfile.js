@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 				destCss: 'scss/',
 				options: {
 					engine: "fontforge",
-					font: "ft-icons",
+					font: "o-icons",
 					types: "eot,woff,ttf",
 					hashes: true,
 					stylesheet: "scss",
