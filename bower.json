@@ -1,5 +1,5 @@
 {
-	"name": "o-ft-icons",
+	"name": "o-icons",
 	"main": ["main.scss"],
 	"ignore": [
 		"Gruntfile.js",

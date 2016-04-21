@@ -1,5 +1,5 @@
 {
-	"name": "o-ft-icons",
+	"name": "o-icons",
 	"private": true,
 	"devDependencies": {
 		"grunt": "~0.4.4",
