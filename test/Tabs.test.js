@@ -9,7 +9,7 @@ let tabContentEl1;
 let tabContentEl2;
 let tabContentEl3;
 
-describe("tabs behaviour", () => {
+describe('tabs behaviour', () => {
 
 	beforeEach(() => {
 		fixtures.insertSimple();
@@ -30,12 +30,12 @@ describe("tabs behaviour", () => {
 		fixtures.reset();
 	});
 
-	it("is defined", () => {
+	it('is defined', () => {
 		expect(Tabs).toBeDefined();
 		expect(Tabs.init).toBeDefined();
 	});
 
-	it("is has correct initial dom changes", () => {
+	it('is has correct initial dom changes', () => {
 		expect(tabsEl.hasAttribute('data-o-tabs--js')).toBe(true);
 		expect(tabsEl.querySelectorAll('li')[0].getAttribute('aria-controls')).toBe('tabContent1');
 		expect(tabsEl.querySelectorAll('li')[1].getAttribute('aria-controls')).toBe('tabContent2');
@@ -54,7 +54,7 @@ describe("tabs behaviour", () => {
 		});
 	});
 
-	it("has correct initial state", () => {
+	it('has correct initial state', () => {
 		expect(tabsEl.querySelectorAll('li')[0].getAttribute('aria-selected')).toBe('true');
 		expect(tabsEl.querySelectorAll('li')[1].getAttribute('aria-selected')).toBe('false');
 		expect(tabsEl.querySelectorAll('li')[2].getAttribute('aria-selected')).toBe('false');
@@ -66,7 +66,11 @@ describe("tabs behaviour", () => {
 		expect(tabContentEl3.getAttribute('aria-hidden')).toBe('true');
 	});
 
-	it("selectTab(1)", () => {
+	it('can set the config declaratively', () => {
+		expect(testTabs.config.disablefocus).toBe(true);
+	});
+
+	it('selectTab(1)', () => {
 		testTabs.selectTab(1);
 		expect(tabsEl.querySelectorAll('li')[0].getAttribute('aria-selected')).toBe('false');
 		expect(tabsEl.querySelectorAll('li')[1].getAttribute('aria-selected')).toBe('true');
@@ -79,7 +83,7 @@ describe("tabs behaviour", () => {
 		expect(tabContentEl3.getAttribute('aria-hidden')).toBe('true');
 	});
 
-	it("click tab", () => {
+	it('click tab', () => {
 		spyOn(testTabs, 'selectTab');
 		const clickEvent = document.createEvent('Event');
 		clickEvent.initEvent('click', true, true);
@@ -95,7 +99,7 @@ describe("tabs behaviour", () => {
 
 	});
 
-	it("destroy()", () => {
+	it('destroy()', () => {
 		testTabs.destroy();
 
 		expect(tabsEl.classList.contains('o-tabs--js')).toBe(false);
@@ -116,7 +120,7 @@ describe("tabs behaviour", () => {
 
 	});
 
-	it("does not auto initialise when 'data-o-tabs-autoconstruct=false' is set", () => {
+	it('does not auto initialise when "data-o-tabs-autoconstruct=false" is set', () => {
 		fixtures.reset();
 
 		fixtures.insertSimple();
