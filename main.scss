@@ -1,3 +1,5 @@
+$_n-video_applied: false !default;
+
 @if (not $_n-video_applied) {
 	@import "o-ft-icons/main";
 
