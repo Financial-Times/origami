@@ -67,7 +67,7 @@ function Tabs(rootEl, config) {
 		panelEl.setAttribute('aria-hidden', 'true');
 	}
 
-	function showPanel(panelEl) {
+	function showPanel(panelEl, disableFocus) {
 		// update the url to match the selected tab
 		if(panelEl.id && updateUrl){
 			location.href = '#' + panelEl.id;
