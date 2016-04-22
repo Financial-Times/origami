@@ -8,7 +8,7 @@
   ],
   "dependencies": {
     "n-jsonp": "^2.0.0",
-    "o-ft-icons": "https://github.com/roland-vachter/o-ft-icons.git#master",
+    "o-icons": "#add_video_play_icon",
     "o-colors": "^3.3.0"
   },
   "devDependencies": {
