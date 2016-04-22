@@ -8,7 +8,7 @@
   ],
   "dependencies": {
     "n-jsonp": "^2.0.0",
-    "o-icons": "#add_video_play_icon",
+    "o-ft-icons": "^3.5.0",
     "o-colors": "^3.3.0"
   },
   "devDependencies": {
