@@ -161,13 +161,13 @@ Tabs are indexed starting from 0.
 The following API methods are provided:
 
 * `init(config)`: Set attributes/classes, bind events. Called automatically on construction. Does nothing if already been called. `config` object accepts:
-	- `disableFocus`: If set to `true`, it will stop the aria-selected tab from receiving focus.
+	- `disablefocus`: If set to `true`, it will stop the aria-selected tab from receiving focus.
 * `selectTab(idx)`: Select tab `idx`. Does nothing if tab `idx` does not exist or is already selected.
 * `destroy()`: Unbind events, remove `o-tabs--js` class. After calling this, `init()` can be called again to re-initialise the tabs.
 
 ## Config
 
-You can also set config options declaratively by using `[data-o-tabs-]` prefixed data attributes. For example: `[data-o-tabs-disableFocus="true"`.
+You can also set config options declaratively by using `[data-o-tabs-]` prefixed data attributes. For example: `[data-o-tabs-disablefocus="true"`.
 
 ----
 

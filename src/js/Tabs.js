@@ -79,7 +79,7 @@ function Tabs(rootEl, config) {
 		// Remove the focus ring for sighted users
 		panelEl.style.outline = 0;
 
-		if(disableFocus){
+		if (disableFocus){
 			return;
 		}
 		// Get current scroll position
@@ -108,7 +108,7 @@ function Tabs(rootEl, config) {
 			for (c = 0, l = tabEls.length; c < l; c++) {
 				if (i === c) {
 					tabEls[c].setAttribute('aria-selected', 'true');
-					showPanel(tabpanelEls[c], tabsObj.config.disableFocus);
+					showPanel(tabpanelEls[c], tabsObj.config.disablefocus);
 				} else {
 					tabEls[c].setAttribute('aria-selected', 'false');
 					hidePanel(tabpanelEls[c]);
