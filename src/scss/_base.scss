@@ -18,6 +18,16 @@
 		margin: 0;
 		padding: 0;
 	}
+	
+	th {
+		@include oTypographySansBold(s);
+		@include oColorsFor(o-table-header, color);
+	}
+	
+	td {
+		@include oTypographySans(s);
+		@include oColorsFor(o-table-data, color);
+	}
 
 	th,
 	td {
@@ -26,17 +36,22 @@
 		text-align: left;
 		vertical-align: top;
 	}
+	
+	.primary-data {
+		@include oTypographySans(s);
+		display: block;
+	}
+	
+	.secondary-data {
+		@include oTypographySans(xs);
+		display: block;
+	}
 
 	[data-o-table-data-type=numeric] {
 		text-align: right;
 	}
 
-	th[scope=row] {
-		border-right: 2px solid oColorsGetColorFor(o-table-header-row, border);
-	}
-
 	th:not([scope=row]) {
-		border-bottom: 2px solid oColorsGetColorFor(o-table-header-row, border);
 		vertical-align: bottom;
 	}
 }
