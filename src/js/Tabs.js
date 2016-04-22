@@ -1,14 +1,13 @@
 /*global module, require*/
 const oDom = require('o-dom');
 
-function Tabs(rootEl) {
+function Tabs(rootEl, config) {
 
 	const tabsObj = this;
 	let tabEls;
 	let tabpanelEls;
 	let updateUrl = (rootEl.getAttribute('data-o-tabs-update-url') !== null);
 	let selectedTabIndex = -1;
-	const myself = this;
 
 	function getTabTargetId(tabEl) {
 		const aEls = tabEl.getElementsByTagName('a');
@@ -102,14 +101,14 @@ function Tabs(rootEl) {
 		}));
 	}
 
-	function selectTab(i, disableFocus) {
+	function selectTab(i) {
 		let c;
 		let l;
 		if (isValidTab(i) && i !== selectedTabIndex) {
 			for (c = 0, l = tabEls.length; c < l; c++) {
 				if (i === c) {
 					tabEls[c].setAttribute('aria-selected', 'true');
-					showPanel(tabpanelEls[c], disableFocus);
+					showPanel(tabpanelEls[c], tabsObj.config.disableFocus);
 				} else {
 					tabEls[c].setAttribute('aria-selected', 'false');
 					hidePanel(tabpanelEls[c]);
@@ -145,7 +144,7 @@ function Tabs(rootEl) {
 
 	function updateCurrentTab(tabEl){
 		const i = getTabIndexFromElement(tabEl);
-		myself.selectTab(i);
+		tabsObj.selectTab(i);
 		dispatchCustomEvent('event', {
 			category: 'tabs',
 			action: 'click',
@@ -162,18 +161,36 @@ function Tabs(rootEl) {
 		tabEls = rootEl.querySelectorAll('[role=tab]');
 		tabpanelEls = getTabPanelEls(tabEls);
 		rootEl.setAttribute('data-o-tabs--js', '');
-		rootEl.addEventListener("click", clickHandler, false);
+		rootEl.addEventListener('click', clickHandler, false);
 		window.addEventListener('hashchange', hashChangeHandler, false);
+
+		if (!config) {
+			config = {};
+			Array.prototype.forEach.call(rootEl.attributes, function(attr) {
+				if (attr.name.indexOf('data-o-tabs') === 0) {
+					// Remove the unnecessary part of the string the first time this is run for each attribute
+					const key = attr.name.replace('data-o-tabs-', '');
+					try {
+						// If it's a JSON, a boolean or a number, we want it stored like that, and not as a string
+						// We also replace all ' with " so JSON strings are parsed correctly
+						config[key] = JSON.parse(attr.value.replace(/\'/g, '"'));
+					} catch (e) {
+						config[key] = attr.value;
+					}
+				}
+			});
+		}
+
+		tabsObj.config = config;
 		dispatchCustomEvent('ready', {
 			tabs: tabsObj
 		});
-
-		myself.selectTab(getSelectedTabIndex());
+		tabsObj.selectTab(getSelectedTabIndex());
 	}
 
 	function destroy() {
-		rootEl.removeEventListener("click", clickHandler, false);
-		window.removeEventListener("hashchange", hashChangeHandler, false);
+		rootEl.removeEventListener('click', clickHandler, false);
+		window.removeEventListener('hashchange', hashChangeHandler, false);
 		rootEl.removeAttribute('data-o-tabs--js');
 		for (let c = 0, l = tabpanelEls.length; c < l; c++) {
 			showPanel(tabpanelEls[c]);
@@ -186,7 +203,7 @@ function Tabs(rootEl) {
 	init();
 }
 
-Tabs.init = function(el) {
+Tabs.init = function(el, config) {
 	const tabs = [];
 	let tEls;
 	let c;
@@ -200,7 +217,7 @@ Tabs.init = function(el) {
 		tEls = el.querySelectorAll('[data-o-component=o-tabs]');
 		for (c = 0, l = tEls.length; c < l; c++) {
 			if (!tEls[c].matches('[data-o-tabs-autoconstruct=false]') && !tEls[c].hasAttribute('data-o-tabs--js')) {
-				tabs.push(new Tabs(tEls[c]));
+				tabs.push(new Tabs(tEls[c], config));
 			}
 		}
 	}
