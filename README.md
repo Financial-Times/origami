@@ -1,4 +1,4 @@
-# o-ft-icons [![Build Status](https://circleci.com/gh/Financial-Times/o-ft-icons.png?style=shield&circle-token=bd79f68bf3b7af081ef39c62e493e737d56d2958)](https://circleci.com/gh/Financial-Times/o-ft-icons)
+# o-icons [![Build Status](https://circleci.com/gh/Financial-Times/o-icons.png?style=shield&circle-token=bd79f68bf3b7af081ef39c62e493e737d56d2958)](https://circleci.com/gh/Financial-Times/o-icons)
 
 Icon font with helper classes, and resolution-independent SVG icons to load via the [responsive image service](http://image.webservices.ft.com).
 
@@ -6,13 +6,13 @@ Icon font with helper classes, and resolution-independent SVG icons to load via 
 
 ```html
 <!-- Load web fonts with @font-face declarations  -->
-<link rel="stylesheet" href="//build.origami.ft.com/v2/bundles/css?modules=o-ft-icons@^2.0.0" />
+<link rel="stylesheet" href="//build.origami.ft.com/v2/bundles/css?modules=o-icons@^2.0.0" />
 
 <!-- In your markup, use the helper classes, such as: -->
-<i class="o-ft-icons-icon o-ft-icons-icon--arrow-down"></i>
+<i class="o-icons-icon o-icons-icon--arrow-down"></i>
 ```
 
-[Complete list of available icons](http://build.origami.ft.com/v2/files/o-ft-icons@latest/demos/main.html)
+[Complete list of available icons](http://build.origami.ft.com/v2/files/o-icons@latest/demos/main.html)
 
 ## Advanced usage
 
@@ -27,13 +27,13 @@ There are multiple ways to use the icons:
 ```scss
 // public/bundle.scss
 
-$o-ft-icons-is-silent: false;
-@import "o-ft-icons/main";
+$o-icons-is-silent: false;
+@import "o-icons/main";
 ```
 
 ```html
 <!-- In your markup, use the helper classes, such as: -->
-<i class="o-ft-icons-icon o-ft-icons-icon--columnists"><i>
+<i class="o-icons-icon o-icons-icon--columnists"><i>
 ```
 
 ### 2. Extending the predefined Sass placeholders into your own CSS classes
@@ -41,17 +41,17 @@ $o-ft-icons-is-silent: false;
 ```scss
 // public/bundle.scss
 
-@import "o-ft-icons/main";
+@import "o-icons/main";
 
 // Load the webfont that contains all icons as glyphs
-@include oFtIconsFontFace();
+@include oIconsFontFace();
 
 .icon-columnists {
 	// Base icon styles
-	@include oFtIconsBaseIconStyles();
+	@include oIconsBaseIconStyles();
 
 	// Extend icon styles
-	@extend %o-ft-icons-icon--columnists;
+	@extend %o-icons-icon--columnists;
 }
 ```
 
@@ -79,7 +79,7 @@ element {
 }
 ```
 
-We provide a mixin to make this easier which is documented in Sassdoc [http://registry.origami.ft.com/components/o-ft-icons#docs-css](http://registry.origami.ft.com/components/o-ft-icons#docs-css).
+We provide a mixin to make this easier which is documented in Sassdoc [http://registry.origami.ft.com/components/o-icons#docs-css](http://registry.origami.ft.com/components/o-icons#docs-css).
 
 ----
 
@@ -95,8 +95,8 @@ We provide a mixin to make this easier which is documented in Sassdoc [http://re
 
 2. Clone the repository and install dependencies:
 
-		git clone https://github.com/Financial-Times/o-ft-icons.git
-		cd o-ft-icons
+		git clone https://github.com/Financial-Times/o-icons.git
+		cd o-icons
 		obt install
 
 3. Add or edit an SVG file to the `svg` folder (see [SVG file naming rules](#svg-file-naming-rules)).
