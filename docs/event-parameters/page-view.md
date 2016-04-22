@@ -1,4 +1,4 @@
-# Page:view
+# page:view
 
 A page view event is sent when a large proportion of the visible window changes.
 Usually, this is easily determined as it matches when a URL changes in a browser.
@@ -16,7 +16,8 @@ These are the documented parameters for a page:view event.
 - Key: `context.product`
 - Required: **yes**
 - Default: none
-- o-tracking automatic: **no** 
+- o-tracking automatic: **no**
+- spoor pipeline automatic: **no**
 
 system_product should be used as a way to identify the high-level product, for example: ft.com, next, FT app etc.
 These are not technical or application names, they are business concepts.
@@ -37,6 +38,7 @@ oTracking.init({
 - Required: **yes**
 - Default: none
 - o-tracking automatic: yes
+- spoor pipeline automatic: **no**
 
 system_source is a technical parameter to identify the source of the requests. If using o-tracking this is filled in for you. Otherwise it could be the name of the application generating the request.
 
@@ -56,6 +58,7 @@ oTracking.init({
 - Required: **yes**
 - Default: none
 - o-tracking automatic: yes
+- spoor pipeline automatic: **no**
 
 system_version is a technical parameter to identify the version of the application sending the requests. If using o-tracking this is filled in for you. It should be in the format of semver.
 
@@ -75,10 +78,12 @@ oTracking.init({
 - Required: **yes**
 - Default: `document.URL`
 - o-tracking automatic: yes
+- spoor pipeline automatic: yes
 
 The url of the current page. (Remember the definition of "page" at the top of this file.)
 
-If using o-tracking, it is picked up for you using `document.URL`, if this isn't a suitable value, then it's usually sent with each page. e.g.
+If using o-tracking, it is picked up for you using `document.URL`. The pipeline will also make an attempt using it's referrer, but this is a last resort.
+For most reliability, it should be sent with each page. e.g.
 
 ```js
 oTracking.page({
@@ -92,6 +97,7 @@ oTracking.page({
 - Required: **yes**
 - Default: none
 - o-tracking automatic: **no**
+- spoor pipeline automatic: **no**
 
 The asset type of the current page. (Remember the definition of "page" at the top of this file.)
 
@@ -122,12 +128,31 @@ oTracking.page({
 
 ## Page
 
+### referrer
+
+- Key: `context.referrer`
+- Required: no
+- Default: `document.referrer`
+- o-tracking automatic: yes
+- spoor pipeline automatic: no
+
+The referrer of the current page. o-tracking will pick this up automatically for you, using `document.referrer`. If this will give the wrong value, set on the page event e.g.
+
+```js
+oTracking.page({
+  referrer: "http://www.example.com"
+});
+```
+
+## Content
+
 ### content_counted
 
 - Key: `context.content.counted`
 - Required: no
 - Default: none
 - o-tracking automatic: no
+- spoor pipeline automatic: yes
 
 Flag identifying if the page being viewed should be counted. Note, we will automatically determine this from the content's UUID, and that is the preferred method. This parameter is available for cases where there is no uuid.
 
@@ -141,29 +166,15 @@ oTracking.page({
 });
 ```
 
-### referrer
-
-- Key: `context.referrer`
-- Required: no
-- Default: `document.referrer`
-- o-tracking automatic: yes
-
-The referrer of the current page. o-tracking will pick this up automatically for you, using `document.referrer`. If this will give the wrong value, set on the page event e.g.
-
-```js
-oTracking.page({
-  referrer: "http://www.example.com"
-});
-```
-
 ### content_barrier
 
 - Key: `context.content.barrier`
-- Required: no
+- Required: no **yes, if a barrier**
 - Default: none
 - o-tracking automatic: no
+- spoor pipeline automatic: no
 
-Set if a barrier is shown, stopping the user accessing the content. The value is a string and should be the name of the barrier.
+Set if a barrier is shown, a barrier which is stopping the user accessing the content. The value is a string and should be the name of the barrier. This is important to set as is used in the counted content calculation. 
 
 Set on a page e.g.
 
@@ -181,6 +192,7 @@ oTracking.page({
 - Required: no
 - Default: none
 - o-tracking automatic: no
+- spoor pipeline automatic: no
 
 Similar to `barrier` above, but the older style hurdle. The value is a string and should be the name of the hurdle.
 
@@ -200,8 +212,18 @@ oTracking.page({
 - Required: no
 - Default: none
 - o-tracking automatic: no
+- spoor pipeline automatic: yes
 
-content_section
+The primary section of the page. Normally we calculate this from the content's UUID. If that isn't possible, set it here as part of the page event e.g.
+
+```js
+oTracking.page({
+  content: {
+    sitemap: "World"
+  }
+});
+```
+
 
 ### content_title
 
@@ -209,8 +231,17 @@ content_section
 - Required: no
 - Default: none
 - o-tracking automatic: no
+- spoor pipeline automatic: yes
 
-content_title
+The title of the page. Normally we calculate this from the content's UUID. If that isn't possible, set it here as part of the page event e.g.
+
+```js
+oTracking.page({
+  content: {
+    title: "An article about something"
+  }
+});
+```
 
 ## Device
 
@@ -220,6 +251,7 @@ content_title
 - Required: no
 - Default: `headers.fastly-client-ip`
 - o-tracking automatic: no
+- spoor pipeline automatic: yes
 
 This is the IP address of the device. We will attempt to pick this up automatically from headers, but if this is not possible, set it here, normally at init. e.g.
  
@@ -237,6 +269,7 @@ oTracking.init({
 - Required: no
 - Default: none
 - o-tracking automatic: no
+- spoor pipeline automatic: no
 
 Boolean flag to signify if the device is currently offline. This is normally set at init e.g.
 
@@ -254,6 +287,7 @@ oTracking.init({
 - Required: no
 - Default: none
 - o-tracking automatic: yes
+- spoor pipeline automatic: yes
 
 The user agent of the device. This is normally resolved using headers, but if this isn't possible then set in init e.g.
 
@@ -275,8 +309,9 @@ oTracking.init({
 - Required: no **yes, if available**
 - Default: *FTSession cookie*
 - o-tracking automatic: yes
+- spoor pipeline automatic: yes
 
-The user's current session from membership's session API. If using o-tracking, this will be collected for you when available. Otherwise you can set it on init e.g.
+The user's current session from membership's session API. If using o-tracking, this will be collected for you when available. The pipeline will also make an attempt to collect it from cookies. Otherwise you can set it on init e.g.
 
 ```js
 oTracking.init({
@@ -292,6 +327,7 @@ oTracking.init({
 - Required: no
 - Default: none
 - o-tracking automatic: no
+- spoor pipeline automatic: no
 
 If unable to use the `user.ft_session` value above, and can only send the user's GUID, then do that here. Set on init e.g. 
 
@@ -305,14 +341,41 @@ oTracking.init({
 
 ## Marketing
 
+### marketing_segment_id
+
+- Key: `context.marketing.segmentid`
+- Required: no
+- Default: `url.querystring.segmentid`
+- o-tracking automatic: no
+- spoor pipeline automatic: no
+
+The segment ID parameter. We will try to pick this up automatically from the URL querystring. If that won't give the correct result, it can be set for a page view.
+
+```js
+oTracking.page({
+  marketing: {
+    segmentid: "level1/level2/level3/level4/level5/level6"
+  }
+});
+```
+
 ### marketing_ftcamp
 
 - Key: `context.marketing.ftcamp`
 - Required: no
 - Default: `url.querystring.ftcamp`
 - o-tracking automatic: no
+- spoor pipeline automatic: no
 
-marketing_ftcamp
+The ftcamp parameter. We will try to pick this up automatically from the URL querystring. If that won't give the correct result, it can be set for a page view.
+
+```js
+oTracking.page({
+  marketing: {
+    ftcamp: "level1/level2/level3/level4/level5/level6"
+  }
+});
+```
 
 ### marketing_segid
 
@@ -320,17 +383,17 @@ marketing_ftcamp
 - Required: no
 - Default: `url.querystring.segid`
 - o-tracking automatic: no
+- spoor pipeline automatic: no
 
-marketing_segid
+The segID parameter. We will try to pick this up automatically from the URL querystring. If that won't give the correct result, it can be set for a page view.
 
-### marketing_segment_id
-
-- Key: `context.marketing.segmentid`
-- Required: no
-- Default: `url.querystring.segmentid`
-- o-tracking automatic: no
-
-marketing_segment_id
+```js
+oTracking.page({
+  marketing: {
+    segid: "level1/level2/level3/level4/level5/level6"
+  }
+});
+```
 
 ## Funnels
 
@@ -340,8 +403,17 @@ marketing_segment_id
 - Required: no
 - Default: none
 - o-tracking automatic: no
+- spoor pipeline automatic: no
 
-funnel_name
+The name of the funnel. e.g. "Premium sign-up"
+
+```js
+oTracking.page({
+  funnel: {
+    funnel_name: "Premium sign-up"
+  }
+});
+```
 
 ### funnel_steps
 
@@ -349,8 +421,17 @@ funnel_name
 - Required: no
 - Default: none
 - o-tracking automatic: no
+- spoor pipeline automatic: no
 
-funnel_steps
+The total number of steps in the funnel. e.g. 3
+
+```js
+oTracking.page({
+  funnel: {
+    funnel_steps: 3
+  }
+});
+```
 
 ### funnel_step_name
 
@@ -358,8 +439,17 @@ funnel_steps
 - Required: no
 - Default: none
 - o-tracking automatic: no
+- spoor pipeline automatic: no
 
-funnel_step_name
+The name of the current step in the funnel. e.g. "start" or "billing details"
+
+```js
+oTracking.page({
+  funnel: {
+    step_name: "start"
+  }
+});
+```
 
 ### funnel_step_number
 
@@ -367,8 +457,17 @@ funnel_step_name
 - Required: no
 - Default: none
 - o-tracking automatic: no
+- spoor pipeline automatic: no
 
-funnel_step_number
+The 1-based-index of the current step in the funnel. e.g. 1 or 2 or 3. This is compared to the total funnel_steps above to calculate completed funnels.
+
+```js
+oTracking.page({
+  funnel: {
+    step_number: 3
+  }
+});
+```
 
 ## System
 
@@ -378,8 +477,13 @@ funnel_step_number
 - Required: **yes**
 - Default: `page`
 - o-tracking automatic: yes
+- spoor pipeline automatic: no
 
-system_category  
+The category of the event. A noun. For page views, this is always "page" and is set for you by o-tracking.
+
+```js
+oTracking.page();
+```
 
 ### system_action
 
@@ -387,8 +491,13 @@ system_category
 - Required: **yes**
 - Default: `view`
 - o-tracking automatic: yes
+- spoor pipeline automatic: no
 
-system_action
+The action of the event. A verb. For page views, this is always "view" and is set for you by o-tracking.
+
+```js
+oTracking.page();
+```
 
 ### system_environment
 
@@ -396,6 +505,7 @@ system_action
 - Required: no
 - Default: none
 - o-tracking automatic: no
+- spoor pipeline automatic: no
 
 A name for the product's environment e.g. production, prod, p, live, test etc.
 
@@ -415,6 +525,7 @@ oTracking.init({
 - Required: no
 - Default: true
 - o-tracking automatic: no
+- spoor pipeline automatic: no
 
 A boolean value identifying the live system. As we can't work out all the possible values from `system.environment` above, we use this boolean to filter out test traffic.
 
@@ -434,6 +545,7 @@ oTracking.init({
 - Required: no
 - Default: none
 - o-tracking automatic: no
+- spoor pipeline automatic: no
 
 system_ticket
 
@@ -443,6 +555,7 @@ system_ticket
 - Required: no
 - Default: none
 - o-tracking automatic: yes
+- spoor pipeline automatic: no
 
 device_spoor_id
 
@@ -452,6 +565,7 @@ device_spoor_id
 - Required: no
 - Default: none
 - o-tracking automatic: yes
+- spoor pipeline automatic: no
 
 event_id
 
@@ -461,6 +575,7 @@ event_id
 - Required: no
 - Default: none
 - o-tracking automatic: yes
+- spoor pipeline automatic: no
 
 event_root_id
 
