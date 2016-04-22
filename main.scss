@@ -38,7 +38,6 @@ $_n-video_applied: false !default;
 		padding: 8px;
 		background-color: rgba(oColorsGetPaletteColor('grey-tint4'), 0.9);
 		color: oColorsGetPaletteColor('white');
-		z-index: 2;
 	}
 
 	.n-video__play-button {
@@ -51,7 +50,6 @@ $_n-video_applied: false !default;
 		background-color: transparent;
 		cursor: pointer;
 		border: 0;
-		z-index: 1;
 
 		.n-video__play-button-text {
 			text-indent: -9999px;
