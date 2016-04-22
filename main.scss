@@ -1,77 +1,81 @@
-@import "o-ft-icons/main";
+@if (not $_n-video_applied) {
+	@import "o-ft-icons/main";
 
-// Load the webfont that contains all icons as glyphs
-@include oFtIconsFontFace();
+	// Load the webfont that contains all icons as glyphs
+	@include oFtIconsFontFace();
 
-@import "o-colors/main";
+	@import "o-colors/main";
 
 
-.n-video--card {
-	position: relative;
-	cursor: pointer;
-	width: 100%;
-
-	&:before {
-		content: '';
-		display: block;
+	.n-video--card {
+		position: relative;
+		cursor: pointer;
 		width: 100%;
-		padding: 56.25% 0 0;
+
+		&:before {
+			content: '';
+			display: block;
+			width: 100%;
+			padding: 56.25% 0 0;
+		}
+
+		.n-video__video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
 	}
 
-	.n-video__video {
+
+	.n-video__title {
 		position: absolute;
 		top: 0;
 		left: 0;
+		padding: 8px;
+		background-color: rgba(oColorsGetPaletteColor('grey-tint4'), 0.9);
+		color: oColorsGetPaletteColor('white');
+		z-index: 2;
+	}
+
+	.n-video__play-button {
+		position: absolute;
 		width: 100%;
 		height: 100%;
+		top: 0;
+		left: 0;
+		padding: 0;
+		background-color: transparent;
+		cursor: pointer;
+		border: 0;
+		z-index: 1;
+
+		.n-video__play-button-text {
+			text-indent: -9999px;
+		}
+
+		.n-video__play-button-icon {
+			@extend %o-ft-icons-icon--play;
+			@include oFtIconsBaseIconStyles();
+			color: oColorsGetPaletteColor('white');
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -20px;
+			margin-left: -20px;
+			opacity: 1;
+			transition: opacity 0.1s;
+			background-color: oColorsGetPaletteColor('black');
+			background-color: rgba(oColorsGetPaletteColor('black'), 0.5);
+			border-radius: 20px;
+			font-size: 40px;
+			line-height: 1;
+		}
+		&:hover .n-video__play-button-icon {
+			opacity: 0.5;
+		}
 	}
-}
 
-
-.n-video__title {
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 8px;
-	background-color: rgba(oColorsGetPaletteColor('grey-tint4'), 0.9);
-	color: oColorsGetPaletteColor('white');
-	z-index: 2;
-}
-
-.n-video__play-button {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	padding: 0;
-	background-color: transparent;
-	cursor: pointer;
-	border: 0;
-	z-index: 1;
-
-	.n-video__play-button-text {
-		text-indent: -9999px;
-	}
-
-	.n-video__play-button-icon {
-		@extend %o-ft-icons-icon--play;
-		@include oFtIconsBaseIconStyles();
-		color: oColorsGetPaletteColor('white');
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		margin-top: -20px;
-		margin-left: -20px;
-		opacity: 1;
-		transition: opacity 0.1s;
-		background-color: oColorsGetPaletteColor('black');
-		background-color: rgba(oColorsGetPaletteColor('black'), 0.5);
-		border-radius: 20px;
-		font-size: 40px;
-		line-height: 1;
-	}
-	&:hover .n-video__play-button-icon {
-		opacity: 0.5;
-	}
+	$_n-video_applied: true !global;
 }
