@@ -5,28 +5,28 @@
 
 /// Silent mode
 /// @type Bool
-$o-ft-icons-is-silent: true !default;
+$o-icons-is-silent: true !default;
 
 /// Whether SVG icon mixin should use the image service or serve
 /// local assets
 ///
 /// @type Bool
-$o-ft-icons-use-local-assets: false !default;
+$o-icons-use-local-assets: false !default;
 
 /// Font-family
 ///
 /// @access private
 /// @type String
-$_o-ft-icons-font-name: 'o-icons';
+$_o-icons-font-name: 'o-icons';
 
 /// Has the font-face declaration already been output?
 ///
 /// @access private
 /// @type Bool
-$_o-ft-icons-font-face-already-output: false;
+$_o-icons-font-face-already-output: false;
 
 /// Have the base styles already been output?
 ///
 /// @access private
 /// @type Bool
-$_o-ft-icons-base-styles-already-output: false !default;
+$_o-icons-base-styles-already-output: false !default;

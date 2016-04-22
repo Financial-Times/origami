@@ -6,34 +6,34 @@
 /// Generate an aggregated list of selectors for an icon
 ///
 /// @param {String} icon
-@function oFtIconsGetSelectors($icon) {
+@function oIconsGetSelectors($icon) {
 	$aggregated-selector: ();
-	$aggregated-selector: append($aggregated-selector, unquote('%o-ft-icons-#{$icon}'), comma);
-	@if ($o-ft-icons-is-silent == false) {
-		$aggregated-selector: append($aggregated-selector, unquote('.o-ft-icons-#{$icon}'), comma);
+	$aggregated-selector: append($aggregated-selector, unquote('%o-icons-#{$icon}'), comma);
+	@if ($o-icons-is-silent == false) {
+		$aggregated-selector: append($aggregated-selector, unquote('.o-icons-#{$icon}'), comma);
 	}
 	@return $aggregated-selector;
 }
 
 /// Get an SVG icon with PNG fallback for ie6-8
 ///
-/// @param {String} $icon-name - this should be a reference to an icon included in o-ft-icons eg arrow-down
+/// @param {String} $icon-name - this should be a reference to an icon included in o-icons eg arrow-down
 /// @param {String} $color - this should be a hex colour value. Used to color the icon. We suggest using an o-colors an o-colors function.
 /// @param {String} $container-width - this is the width to set the icon containing element to. Defaults to 20px. This value is also used to request a PNG fallback of the right size from the image service.
 /// @param {String} $container-height - this is the height to set the icon containing element to. Defaults to null, and will use the value of $container-width
 /// @param {Bool} $apply-base-styles - defaults to true. If true, will output style rules for the container. If false will only output the background-image property
 /// @param {Bool} $use-local-assets - defaults to true, if true will look for the SVGs to use locally rather than via the image service. Doesn't apply to the fallback which will always be requested from the image service.
 
-@mixin oFtIconsGetSvg($icon-name, $color: null, $container-width: 20, $container-height: null, $apply-base-styles: true) {
+@mixin oIconsGetSvg($icon-name, $color: null, $container-width: 20, $container-height: null, $apply-base-styles: true) {
 	$service-url: "https://image.webservices.ft.com/v1/images/raw/fticon:#{$icon-name}";
-	$query: "?source=ofticons";
+	$query: "?source=oicons";
 
 	@if $color != null {
 		$color: str-slice(ie-hex-str($color), 4);
 		$query: $query + "&tint=%23#{$color},%23#{$color}";
 	}
 
-	@if ($o-ft-icons-use-local-assets == true and $color == null) {
+	@if ($o-icons-use-local-assets == true and $color == null) {
 		background-image: url(oAssetsResolve("svg/#{$icon-name}.svg", o-icons));
 	} @else {
 		background-image: url($service-url + $query + "&format=svg");
@@ -63,16 +63,16 @@
 }
 
 /// Outputs font family and source
-@mixin oFtIconsFontFace() {
-	@if ($_o-ft-icons-font-face-already-output == false) {
-		$_o-ft-icons-font-face-already-output: true !global;
+@mixin oIconsFontFace() {
+	@if ($_o-icons-font-face-already-output == false) {
+		$_o-icons-font-face-already-output: true !global;
 
 		@font-face {
-			font-family: $_o-ft-icons-font-name;
-			src: url(oAssetsResolve($_o-ft-icons-font-file-name + ".eot", o-icons));
-			src: url(oAssetsResolve($_o-ft-icons-font-file-name + ".eot?#iefix", o-icons)) format("embedded-opentype"),
-				url(oAssetsResolve($_o-ft-icons-font-file-name + ".woff", o-icons)) format("woff"),
-				url(oAssetsResolve($_o-ft-icons-font-file-name + ".ttf", o-icons)) format("truetype");
+			font-family: $_o-icons-font-name;
+			src: url(oAssetsResolve($_o-icons-font-file-name + ".eot", o-icons));
+			src: url(oAssetsResolve($_o-icons-font-file-name + ".eot?#iefix", o-icons)) format("embedded-opentype"),
+				url(oAssetsResolve($_o-icons-font-file-name + ".woff", o-icons)) format("woff"),
+				url(oAssetsResolve($_o-icons-font-file-name + ".ttf", o-icons)) format("truetype");
 			font-weight: normal;
 			font-style: normal;
 		}
@@ -80,8 +80,8 @@
 }
 
 /// Base styles for all icons
-@mixin oFtIconsBaseIconStyles() {
-	font-family: $_o-ft-icons-font-name;
+@mixin oIconsBaseIconStyles() {
+	font-family: $_o-icons-font-name;
 	display: inline-block;
 	vertical-align: middle;
 	// These are marked as !important as the icon font is not designed to be used with faux bold or faux italic styles
@@ -105,8 +105,8 @@
 /// @param {String} $icon-class
 /// @param {String} $character-code - Unicode character code (e.g. f101)
 /// @param {String} $placement [before] - before|after
-@mixin _oFtIconsStandardsIcon($icon-class, $character-code, $placement: 'before') {
-	$icon-selectors: oFtIconsGetSelectors("#{$icon-class}:#{$placement}");
+@mixin _oIconsStandardsIcon($icon-class, $character-code, $placement: 'before') {
+	$icon-selectors: oIconsGetSelectors("#{$icon-class}:#{$placement}");
 	#{$icon-selectors} {
 		// Escaping in Sass is a bit of a mess…
 		// https://github.com/sass/sass/issues/659
@@ -131,8 +131,8 @@
 ///
 /// @param {String} icon-class
 /// @param {String} character-code - Unicode character code (e.g. f101)
-@mixin _oFtIconsIe7Icon($icon-class, $character-code) {
-	$icon-selectors: oFtIconsGetSelectors($icon-class);
+@mixin _oIconsIe7Icon($icon-class, $character-code) {
+	$icon-selectors: oIconsGetSelectors($icon-class);
 	#{$icon-selectors} {
 		// Weird way of writing this so that Libsass can read it…
 		#{unquote('*') + zoom}: unquote("expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = ") + "'&#x#{$character-code};&nbsp;'" + unquote(")");
@@ -143,8 +143,8 @@
 ///
 /// @param {String} icon-name
 /// @param {String} character-code - Unicode character code (e.g. f101)
-@mixin oFtIconsIcon($icon-name, $character-code) {
-	@include _oFtIconsIe7Icon(icon--#{$icon-name}, $character-code);
-	@include _oFtIconsStandardsIcon(icon--#{$icon-name}, $character-code);
-	@include _oFtIconsStandardsIcon(icon--#{$icon-name}--after, $character-code, after);
+@mixin oIconsIcon($icon-name, $character-code) {
+	@include _oIconsIe7Icon(icon--#{$icon-name}, $character-code);
+	@include _oIconsStandardsIcon(icon--#{$icon-name}, $character-code);
+	@include _oIconsStandardsIcon(icon--#{$icon-name}--after, $character-code, after);
 }
