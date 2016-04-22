@@ -54,5 +54,5 @@
 /// Style for <blockquote> tags
 @mixin oTypographyBlockquote {
 	@include oTypographySerifDisplay(m);
-	@include oColorsFor(aside-text, text);
+	@include oColorsFor(o-typography-aside-text, text);
 }
