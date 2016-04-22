@@ -19,11 +19,11 @@
 	}
 	h3 {
 		// Headings for complementary sections / asides
-		@include oTypographyAsideTitle;
+		@include oTypographyHeading3;
 	}
 	h4 {
 		// Headlines for other articles referenced
-		@include oTypographyAsideHeadline;
+		@include oTypographyHeading4;
 	}
 
 	a {
@@ -48,25 +48,13 @@
 		p {
 			@include oTypographyBlockquote;
 		}
-	}
-
-	aside {
-		h3 {
-			@include oTypographyAsideTitle;
-		}
-		h4 {
-			@include oTypographyAsideHeadline;
-		}
-		p {
-			@include oTypographyAsideBody;
-		}
-	}
-
-	aside,
-	blockquote {
 		footer {
 			@include oTypographyBold;
 		}
+	}
+
+	aside {
+		@include oTypographyAsideWrapper;
 	}
 
 	@include oTypographyCommonWrappedBodyStyles;
