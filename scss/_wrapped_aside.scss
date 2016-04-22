@@ -7,7 +7,7 @@
 /// Apply to a wrapper to style all text inside it
 ///
 /// @example scss
-/// article { @include oTypographyBodyWrapper; }
+/// article { @include oTypographyAsideWrapper; }
 @mixin oTypographyAsideWrapper {
 	h3 {
 		@include oTypographyAsideTitle;
