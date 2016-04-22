@@ -168,6 +168,7 @@ The following API methods are provided:
 ## Config
 
 You can also set config options declaratively by using `[data-o-tabs-]` prefixed data attributes. For example: `[data-o-tabs-disableFocus="true"`.
+
 ----
 
 ## Licence
