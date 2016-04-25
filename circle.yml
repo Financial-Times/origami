@@ -1,0 +1,19 @@
+machine:
+  node:
+    version: 4.2.2
+  post:
+    - npm install -g Financial-Times/origami-build-tools#node4
+dependencies:
+  pre:
+    # get Firefox Release (45.0.2)
+    - mkdir ../ff-release
+    - wget -O ff-release.tar.bz2 'https://archive.mozilla.org/pub/firefox/releases/45.0.2/linux-x86_64/en-US/firefox-45.0.2.tar.bz2' && tar xjf ff-release.tar.bz2:
+        pwd: ../ff-release
+  override:
+    - obt install
+  cache_directories:
+    - "node_modules"
+test:
+  override:
+    - obt test
+    - obt verify
