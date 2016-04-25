@@ -35,7 +35,7 @@ Use an onload handler to check when o-tracking has loaded and then init.
 if (cutsTheMustard) {
     var o = document.createElement('script');
     o.async = o.defer = true;
-    o.src = 'https://build.origami.ft.com/bundles/js?modules=o-tracking';
+    o.src = 'https://origami-build.ft.com/bundles/js?modules=o-tracking';
     var s = document.getElementsByTagName('script')[0];
     if (o.hasOwnProperty('onreadystatechange')) {
         o.onreadystatechange = function() {
@@ -133,7 +133,7 @@ if (cutsTheMustard) {
         if (cutsTheMustard) {
             var o = document.createElement('script');
             o.async = o.defer = true;
-            o.src = 'https://build.origami.ft.com/bundles/js?modules=o-tracking%401.0.5';
+            o.src = 'https://origami-build.ft.com/bundles/js?modules=o-tracking%401.0.5';
             var s = document.getElementsByTagName('script')[0];
             if (o.hasOwnProperty('onreadystatechange')) {
                 o.onreadystatechange = function() {
