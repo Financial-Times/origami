@@ -15,10 +15,10 @@
 
 		> a {
 			@include oHeaderLogoLink;
-			@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header, text), 336);
+			@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header, text), 337);
 			display: block;
 			margin: 17px auto;
-			height: 27px;
+			height: 28px;
 		}
 	}
 
@@ -46,9 +46,9 @@
 			margin: 0 auto;
 
 			@include oGridRespondTo(S) {
-				@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header, text), 265);
+				@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header, text), 262);
 				display: block;
-				height: 21px;
+				height: 22px;
 			}
 		}
 	}
