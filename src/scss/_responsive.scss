@@ -1,0 +1,69 @@
+////
+/// @group o-table
+/// @link http://registry.origami.ft.com/components/o-table
+////
+
+/// Make a table 'responsive'
+@mixin oTableResponsive {
+
+	*,
+	*:before, 
+	*:after {
+		box-sizing: border-box;
+	}
+
+	display: block;
+	float: left;
+	width: 100%;
+	
+	@include oGridRespondTo(S) {
+		display: table;
+	}
+	
+  td {
+		padding: 8px;
+		width: 50%;
+
+		@include oGridRespondTo(S) {
+			border-right: 1px solid oColorsGetColorFor(o-table-row-right, border-right);
+			display: table-cell;
+		}
+
+	} // td
+
+	thead th {
+		display: none;
+		padding: 8px;
+		
+		@include oGridRespondTo(S) {
+			border-right: 1px solid oColorsGetColorFor(o-table-row-right, border-right);
+			display: table-cell;
+		}
+
+	} // thead th
+	
+	tr {
+		display: flex;
+		flex-flow: row wrap;
+		width: 100%;
+		
+		@include oGridRespondTo(S) {
+			display: table-row;
+		}
+
+	} // tr
+	
+	tbody tr th {
+		border-right: 1px solid oColorsGetColorFor(o-table-row-right, border-right);
+		display: block;
+		float: left;
+		padding: 8px;
+		width: 50%;
+		
+		@include oGridRespondTo(S) {
+			display: none;
+		}
+	
+	} // td th
+	
+} // mixin

@@ -53,4 +53,7 @@
 	.#{$classname}--compact {
 		@include oTableCompact;
 	}
+	.#{$classname}--responsive {
+		@include oTableResponsive;
+	}
 }

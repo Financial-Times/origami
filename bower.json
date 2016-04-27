@@ -2,6 +2,7 @@
     "name": "o-table",
     "dependencies": {
         "o-colors": ">=2.5.0 <4",
+        "o-grid": "^4.0.6",
         "o-typography": ">=2.0.0 <4"
     },
     "main": [
