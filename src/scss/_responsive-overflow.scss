@@ -1,0 +1,14 @@
+////
+/// @group o-table
+/// @link http://registry.origami.ft.com/components/o-table
+////
+
+/// Make a table 'responsive-overflow'
+@mixin oTableResponsive-overflow {
+
+	margin: 0;
+	min-width: 500px;
+	overflow: auto;
+	width: 100%;
+
+} // mixin
