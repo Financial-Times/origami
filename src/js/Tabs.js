@@ -68,11 +68,6 @@ function Tabs(rootEl, config) {
 	}
 
 	function showPanel(panelEl, disableFocus) {
-		// update the url to match the selected tab
-		if(panelEl.id && updateUrl){
-			location.href = '#' + panelEl.id;
-		}
-
 		panelEl.setAttribute('aria-expanded', 'true');
 		panelEl.setAttribute('aria-hidden', 'false');
 
@@ -82,6 +77,12 @@ function Tabs(rootEl, config) {
 		if (disableFocus){
 			return;
 		}
+
+		// update the url to match the selected tab
+		if(panelEl.id && updateUrl){
+			location.href = '#' + panelEl.id;
+		}
+
 		// Get current scroll position
 		const x = window.scrollX || window.pageXOffset;
 		const y = window.scrollY || window.pageYOffset;
