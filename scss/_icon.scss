@@ -34,6 +34,7 @@
 
   &.#{$buttonClass}-icon--#{$icon-name} {
 
+    $theme-selector: null;
     @if $theme == 'standard' {
       $theme-selector: '&';
     } @else {
