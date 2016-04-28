@@ -1,4 +1,4 @@
-const oTableEl = document.querySelector('.o-table--responsive');
+const oTableEl = document.querySelector('.o-table--responsive-flat');
 const heads = oTableEl.querySelectorAll('thead tr th');
 const rows = oTableEl.getElementsByTagName('tr');
 

@@ -3,8 +3,8 @@
 /// @link http://registry.origami.ft.com/components/o-table
 ////
 
-/// Make a table 'responsive'
-@mixin oTableResponsive {
+/// Make a table 'responsive-flat'
+@mixin oTableResponsive-flat {
 
 	*,
 	*:before, 
@@ -20,7 +20,7 @@
 		display: table;
 	}
 	
-  td {
+	td {
 		padding: 8px;
 		width: 50%;
 
