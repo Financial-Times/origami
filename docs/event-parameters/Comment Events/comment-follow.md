@@ -1,4 +1,4 @@
-# comment:unfollow
+# comment:follow
 
 A comment:follow event is sent on any click that would result in the following a comment.
 
