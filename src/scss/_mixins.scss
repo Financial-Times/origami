@@ -13,7 +13,6 @@
 	}
 	.#{$classname} {
 		@include oTableBase;
-
 		.#{$classname}__caption,
 		// Todo: remove these
 		.#{$classname}__caption--top,

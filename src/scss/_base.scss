@@ -7,16 +7,16 @@
 @mixin oTableBase {
 	// scss-lint:disable QualifyingElement
 	@include oTypographyBody;
-	margin: 0 0 20px;
-	border-spacing: 0;
-	border-collapse: collapse;
-	width: 100%;
 	background-color: oColorsGetColorFor(o-table page, background);
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0 0 20px;
+	width: 100%;
 
 	caption {
-		width: 100%;
 		margin: 0;
 		padding: 0;
+		width: 100%;
 	}
 
 	th {
@@ -31,8 +31,8 @@
 
 	th,
 	td {
-		padding: 8px;
 		line-height: 1.428571429;
+		padding: 8px;
 		text-align: left;
 		vertical-align: top;
 	}
@@ -40,10 +40,11 @@
 	th:not([scope=row]) {
 		vertical-align: bottom;
 	}
+
 }
 
 /// Add to table's wrapper element (if there is one)
 @mixin oTableWrapper {
-	width: 100%;
 	overflow: auto;
+	width: 100%;
 }
