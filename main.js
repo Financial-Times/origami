@@ -39,7 +39,7 @@ const inSeconds = {
 	hour: 60 * 60,
 	day: 24 * 60 * 60,
 	week: 7 * 24 * 60 * 60,
-	month: (365 * 24 * 60 * 60) / 12,
+	month: 60 * 60 * 24 * 30,
 	year: 365 * 24 * 60 * 60
 };
 
@@ -171,21 +171,21 @@ ODate.timeAgo = function(date, interval) {
 		return interval + ' seconds ago';
 	} else if (interval < (2 * inSeconds.minute)) {
 		return 'a minute ago';
-	} else if (interval < inSeconds.hour) {
-		return Math.floor(interval / 60) + ' minutes ago';
-	} else if (interval < (2 * inSeconds.hour)) {
+	} else if (interval < inSeconds.hour ) {
+		return Math.floor(interval / inSeconds.minute) + ' minutes ago';
+	} else if (interval < (1.5 * inSeconds.hour)) {
 		return 'an hour ago';
-	} else if (interval < inSeconds.day) {
-		return Math.floor(interval / inSeconds.hour) + ' hours ago';
-	} else if (interval < (2 * inSeconds.day)) {
+	} else if (interval < 22 * inSeconds.hour) {
+		return Math.round(interval / inSeconds.hour) + ' hours ago';
+	} else if (interval < (1.5 * inSeconds.day)) {
 		return 'a day ago';
-	} else if (interval < inSeconds.month) {
-		return Math.floor(interval / inSeconds.day) + ' days ago';
-	} else if (interval < (2 * inSeconds.month)) {
+	} else if (interval < 25 * inSeconds.day) {
+		return Math.round(interval / inSeconds.day) + ' days ago';
+	} else if (interval < (45 * inSeconds.day)) {
 		return 'a month ago';
-	} else if (interval < inSeconds.year) {
-		return Math.floor(interval / inSeconds.month) + ' months ago';
-	} else if (interval < (2 * inSeconds.year)) {
+	} else if (interval < 345 * inSeconds.day) {
+		return Math.round(interval / inSeconds.month) + ' months ago';
+	} else if (interval < (547 * inSeconds.day)) {
 		return 'a year ago';
 	} else {
 		return Math.max(2, Math.floor(interval / inSeconds.year)) + ' years ago';
