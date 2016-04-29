@@ -64,32 +64,6 @@ describe('date', function() {
 			'a year ago': (547 * 60 * 60 * 24) - 1,
 		};
 
-		// const formatsLow = {
-		// 	'2 seconds ago': 2,
-		// 	'a minute ago': 1 * 60,
-		// 	'2 minutes ago': 2 * 60,
-		// 	'an hour ago': 1 * 60 * 60,
-		// 	'2 hours ago': 2 * 60 * 60,
-		// 	'a day ago': 24 * 60 * 60,
-		// 	'2 days ago': 48 * 60 * 60,
-		// 	'a month ago': (365 * 24 * 60 * 60) / 12,
-		// 	'2 months ago': 2 * ((365 * 24 * 60 * 60) / 12),
-		// 	'a year ago': 365 * 24 * 60 * 60,
-		// 	'2 years ago': 2 * 365 * 24 * 60 * 60,
-		// };
-		// const formatsHigh = {
-		// 	'59 seconds ago': (1 * 60) - 1,
-		// 	'a minute ago': (2 * 60) - 1,
-		// 	'59 minutes ago': (1 * 60 * 60) - 1,
-		// 	'an hour ago': (2 * 60 * 60) - 1,
-		// 	'23 hours ago': (24 * 60 * 60) - 1,
-		// 	'a day ago': (48 * 60 * 60) - 1,
-		// 	'30 days ago': ((365 * 24 * 60 * 60) / 12) - 1,
-		// 	'a month ago': (2 * ((365 * 24 * 60 * 60) / 12)) - 1,
-		// 	'11 months ago': (365 * 24 * 60 * 60) - 1,
-		// 	'a year ago': (2 * 365 * 24 * 60 * 60) - 1,
-		// };
-
 		Object.keys(formatsLow).forEach(function (format) {
 			let date = new Date();
 			date = date - (formatsLow[format] * 1000);
