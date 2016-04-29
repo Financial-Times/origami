@@ -136,6 +136,7 @@ describe('tabs behaviour', () => {
 			fixtures.reset();
 			fixtures.insertSimple();
 			withUpdateUrl && tabsEl.setAttribute('data-o-tabs-update-url', '');
+			tabsEl.setAttribute('data-o-tabs-disablefocus', 'false');
 			testTabs.destroy();
 			testTabs = new Tabs(tabsEl);
 		};
