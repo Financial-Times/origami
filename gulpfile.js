@@ -2,11 +2,14 @@
 
 const gulp = require('gulp');
 const fs = require('fs');
+const deprecatedIcons = require('./_deprecated.js');
 
 // Read svg directory for list of icons to pass to demo template
 const files = fs.readdirSync('svg').filter((file) => {
-	return file.indexOf(".svg") > -1;
+	// File is an SVG and not deprecated
+	return file.indexOf(".svg") > -1 && deprecatedIcons.indexOf(file.slice(0, -4)) === -1;
 }).map((file) => {
+	// Removes .svg extension
 	return file.slice(0, -4);
 });
 

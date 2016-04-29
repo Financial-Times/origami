@@ -1,6 +1,9 @@
 {
   "name": "o-icons",
   "private": true,
+  "engines": {
+  	"node": "^6.0.0"
+  },
   "devDependencies": {
     "gulp": "^3.9.1"
   }

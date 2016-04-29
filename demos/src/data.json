@@ -22,18 +22,6 @@
 			"name": "arrow-upwards"
 		},
 		{
-			"name": "brand-ft-logo-square"
-		},
-		{
-			"name": "brand-ft-masthead"
-		},
-		{
-			"name": "brand-ft"
-		},
-		{
-			"name": "clippings"
-		},
-		{
 			"name": "comment"
 		},
 		{
@@ -47,9 +35,6 @@
 		},
 		{
 			"name": "hamburger"
-		},
-		{
-			"name": "more"
 		},
 		{
 			"name": "padlock"
@@ -70,40 +55,7 @@
 			"name": "pullquote"
 		},
 		{
-			"name": "refresh"
-		},
-		{
 			"name": "search"
-		},
-		{
-			"name": "section-arts"
-		},
-		{
-			"name": "section-blogs"
-		},
-		{
-			"name": "section-business-education"
-		},
-		{
-			"name": "section-business-life"
-		},
-		{
-			"name": "section-companies"
-		},
-		{
-			"name": "section-ftfm"
-		},
-		{
-			"name": "section-magazine"
-		},
-		{
-			"name": "section-markets"
-		},
-		{
-			"name": "section-special-report"
-		},
-		{
-			"name": "section-world"
 		},
 		{
 			"name": "settings"
@@ -112,31 +64,10 @@
 			"name": "share"
 		},
 		{
-			"name": "sign-in"
-		},
-		{
-			"name": "sign-out"
-		},
-		{
 			"name": "single-quote"
 		},
 		{
-			"name": "social-email"
-		},
-		{
-			"name": "social-facebook"
-		},
-		{
-			"name": "social-linkedin"
-		},
-		{
-			"name": "social-twitter"
-		},
-		{
 			"name": "speechbubble"
-		},
-		{
-			"name": "subscribe"
 		},
 		{
 			"name": "thumb-up"
