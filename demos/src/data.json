@@ -28,6 +28,9 @@
 			"name": "copy-link"
 		},
 		{
+			"name": "cross-disk"
+		},
+		{
 			"name": "cross"
 		},
 		{
@@ -35,6 +38,9 @@
 		},
 		{
 			"name": "hamburger"
+		},
+		{
+			"name": "minus"
 		},
 		{
 			"name": "padlock"

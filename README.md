@@ -163,7 +163,47 @@ Where you can change _section-world_ for the icon you're looking for.
 
 The list of icons that are deprecated and will be removed in the next major release can be found [here](_deprecated.js)
 
-## 
+## How to upgrade from v3.x.x to v4.x.x?
+
+### Important changes
+
+* `o-ft-icons` has been renamed to `o-icons`
+* Icon font has been removed, now it's SVGs all the way
+* Many icons have been removed, and as mentioned above, others have been deprecated. The list of deleted icons is:
+	- brand-always-learning
+	- brand-fast-ft
+	- brand-fast
+	- brand-myft
+	- brand-pearson
+	- eye
+	- font-size
+	- gift
+	- section-columnists
+	- section-house-and-home
+	- section-leader-and-letters
+	- section-lex
+	- section-markets-data
+	- section-money
+	- section-uk
+
+### Markup changes
+
+CSS now doesn't add any pseudoclasses, so all the styling is applied directly on the element
+
+### CSS Changes
+
+Class prefixes need to be renamed from `o-ft-icons- to `o-icons`
+
+e.g.
+
+`o-ft-icons-icon` to `o-icons-icon`
+`o-ft-icons-icon--arrow-down` to `o-icons-icon--arrow-down`
+
+### Sass Changes
+
+* All icon font related mixins have been removed
+* `oFtIconsBaseIconStyles` has been renamed to `oIconsBaseStyles`
+* `oFtIconsGetSvg` has been renamed to `oIconsGetIcon`
 
 ## Licence
 
