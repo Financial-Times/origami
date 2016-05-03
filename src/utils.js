@@ -15,18 +15,18 @@ function broadcast(eventType, data, target) {
 	}));
 }
 
-function getHeight() {
-	return Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+function getHeight(ignoreScrollbars) {
+	return ignoreScrollbars ? document.documentElement.clientHeight : Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 }
 
-function getWidth() {
-	return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+function getWidth(ignoreScrollbars) {
+	return ignoreScrollbars ? document.documentElement.clientWidth : Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 }
 
-function getSize() {
+function getSize(ignoreScrollbars) {
 	return {
-		height: getHeight(),
-		width: getWidth()
+		height: getHeight(ignoreScrollbars),
+		width: getWidth(ignoreScrollbars)
 	};
 }
 

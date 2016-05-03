@@ -80,6 +80,22 @@ describe('o-viewport', function() {
 		expect(typeof viewportSize.height).to.be('number');
 	});
 
+	it('should get size the size of the viewport without scrollbars', function() {
+		document.body.insertAdjacentHTML('afterend', '<div class="test-box" style="height:2000px; width:300px;"></div>');
+		const viewportSize = oViewport.getSize();
+		const viewportSizeNoScrollbars = oViewport.getSize(true);
+		expect(typeof viewportSize.width).to.be('number');
+		expect(typeof viewportSize.height).to.be('number');
+		expect(typeof viewportSizeNoScrollbars.width).to.be('number');
+		expect(typeof viewportSizeNoScrollbars.height).to.be('number');
+		expect(viewportSize.width).to.not.be(viewportSizeNoScrollbars.width);
+		expect(viewportSize.height).to.not.be(viewportSizeNoScrollbars.height);
+
+		let testBoxElement = document.querySelector('.test-box');
+		testBoxElement.parentNode.removeChild(testBoxElement);
+
+	});
+
 	it('should get the orientation of the viewport', function() {
 		expect(oViewport.getOrientation() === 'portrait' || oViewport.getOrientation() === 'landscape').to.be(true);
 	});
