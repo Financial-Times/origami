@@ -8,7 +8,7 @@
   ],
   "dependencies": {
     "n-jsonp": "^2.0.0",
-    "next-sass-setup": "^7.0.0"
+    "next-sass-setup": "^8.0.2"
   },
   "devDependencies": {
     "isomorphic-fetch": "^2.1.0",
