@@ -61,6 +61,7 @@
 		{
 			"name": "responsive-overflow",
 			"template": "demos/src/responsive-overflow.mustache",
+			"js": "demos/src/demo.js",
 			"data": {
 				"modifierClass": "o-table--responsive-overflow"
 			},
