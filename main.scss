@@ -1,4 +1,4 @@
-$next-sass-setup-is-silent: false;
+$next-sass-setup-is-silent: false !default;
 @import "next-sass-setup/main";
 
 @keyframes load-notice {
