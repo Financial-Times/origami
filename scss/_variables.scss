@@ -12,21 +12,3 @@ $o-icons-is-silent: true !default;
 ///
 /// @type Bool
 $o-icons-use-local-assets: false !default;
-
-/// Font-family
-///
-/// @access private
-/// @type String
-$_o-icons-font-name: 'o-icons';
-
-/// Has the font-face declaration already been output?
-///
-/// @access private
-/// @type Bool
-$_o-icons-font-face-already-output: false;
-
-/// Have the base styles already been output?
-///
-/// @access private
-/// @type Bool
-$_o-icons-base-styles-already-output: false !default;

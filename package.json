@@ -1,9 +1,10 @@
 {
-	"name": "o-icons",
-	"private": true,
-	"devDependencies": {
-		"grunt": "~0.4.4",
-		"grunt-webfont": "~0.4.2",
-		"grunt-contrib-watch": "~0.5.3"
-	}
+  "name": "o-icons",
+  "private": true,
+  "engines": {
+  	"node": "^4.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }

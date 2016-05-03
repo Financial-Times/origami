@@ -2,6 +2,6 @@
 .idea/
 bower_components/
 node_modules/
-origami-templates/
 demos/local
+build/
 .DS_Store
