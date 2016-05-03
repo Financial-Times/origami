@@ -1,118 +1,145 @@
-# o-ft-icons [![Build Status](https://circleci.com/gh/Financial-Times/o-ft-icons.png?style=shield&circle-token=bd79f68bf3b7af081ef39c62e493e737d56d2958)](https://circleci.com/gh/Financial-Times/o-ft-icons)
+# o-icons [![Build Status](https://circleci.com/gh/Financial-Times/o-icons.png?style=shield&circle-token=bd79f68bf3b7af081ef39c62e493e737d56d2958)](https://circleci.com/gh/Financial-Times/o-icons)
 
-Icon font with helper classes, and resolution-independent SVG icons to load via the [responsive image service](http://image.webservices.ft.com).
+SVG icon set with helper mixins and classes
 
 ## Quick start
 
 ```html
-<!-- Load web fonts with @font-face declarations  -->
-<link rel="stylesheet" href="//build.origami.ft.com/v2/bundles/css?modules=o-ft-icons@^2.0.0" />
+<!-- Loads the CSS for o-icons  -->
+<link rel="stylesheet" href="//origami-build.ft.com/v2/bundles/css?modules=o-icons@^2.0.0" />
 
 <!-- In your markup, use the helper classes, such as: -->
-<i class="o-ft-icons-icon o-ft-icons-icon--arrow-down"></i>
+<i class="o-icons-icon o-icons-icon--arrow-down"></i>
 ```
 
-[Complete list of available icons](http://build.origami.ft.com/v2/files/o-ft-icons@latest/demos/main.html)
+[Complete list of available icons](http://origami-build.ft.com/v2/files/o-icons@latest/demos/all-icons.html)
 
 ## Advanced usage
 
 There are multiple ways to use the icons:
 
 1. Using the CSS helper classes
-1. Extending the predefined Sass placeholders into your own CSS classes
-1. Resolution independent SVGs, using the [responsive image service](http://image.webservices.ft.com/)
+1. Including the predefined Sass mixins into your own CSS classes
+1. Manually using the [responsive image service](https://image.webservices.ft.com)
 
 ### 1. Using the CSS helper classes
 
 ```scss
 // public/bundle.scss
 
-$o-ft-icons-is-silent: false;
-@import "o-ft-icons/main";
+$o-icons-is-silent: false;
+@import "o-icons/main";
 ```
 
 ```html
 <!-- In your markup, use the helper classes, such as: -->
-<i class="o-ft-icons-icon o-ft-icons-icon--columnists"><i>
+<i class="o-icons-icon o-icons-icon--plus"><i>
 ```
 
-### 2. Extending the predefined Sass placeholders into your own CSS classes
+When using CSS classes, it isn't possible to set a colour for the icon or to specify a size for the PNG fallback. The defaults are 'black' for the icon colour and '128px' for the width and height.
+
+### 2. Including the predefined Sass mixins into your own CSS classes
+
+This option has the added flexibility of supporting coloured icons and PNG fallbacks of any size.
 
 ```scss
 // public/bundle.scss
 
-@import "o-ft-icons/main";
+@import "o-icons/main";
+@import "o-colors/main"; // So you can use colors from the Origami palette, but mixin accepts hex codes
 
-// Load the webfont that contains all icons as glyphs
-@include oFtIconsFontFace();
-
-.icon-columnists {
-	// Base icon styles
-	@include oFtIconsBaseIconStyles();
-
-	// Extend icon styles
-	@extend %o-ft-icons-icon--columnists;
+.icon-plus {
+	@include oIconsGetIcon('plus', oColorsGetPaletteColor('cold-1'), 32);
 }
 ```
 
 ```html
-<i class="icon-columnists"></i>
+<i class="icon-plus"></i>
 ```
 
-### 3. Resolution independent SVGs, using the image service
-
-The [responsive image service](https://image.webservices.ft.com/) helps serving resolution-independent SVG icons with a resized PNG fallback:
+The [responsive image service](https://image.webservices.ft.com/) helps serving resolution-independent SVG icons with a resized PNG fallback. Using the mixin from above, you'll get the following output:
 
 ```scss
-element {
-	display: inline-block;
-	width: 100px;
-	height: 100px;
-
-	// Older browsers: PNG fallback (resized to 100px wide)
-	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:tick?width=100&format=png&source=my-product');
-
+.icon-plus {
+	// Older browsers: PNG fallback (resized to 32px wide)
+	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:plus?width=32&format=png&source=o-icons');
 	// Modern browsers: SVG covering the whole size of the element
 	// we declare multiple backgrounds so that only modern browsers read this property
-	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:tick?format=svg&source=my-product'), none;
-	background-size: cover;
+	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:plus?format=svg&source=o-icons'), none;
+
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50%;
+	background-color: transparent;
+	vertical-align: middle;
 }
 ```
 
-We provide a mixin to make this easier which is documented in Sassdoc [http://registry.origami.ft.com/components/o-ft-icons#docs-css](http://registry.origami.ft.com/components/o-ft-icons#docs-css).
+There's also a separate mixin to output just the base styles for an icon:
 
-----
+```scss
+.icon {
+	@include oIconsBaseStyles;
+}
+```
 
-## Add / edit icons, build the web font and demo page
+Which outputs:
 
-**warning** Fontforge is notoriously flaky at the moment. We are planning to deprecate its use shortly so if you need to make a minor amendment and these steps don't work for you first time, it might be worth getting someone who has fontforge working on their machine already to make the change. If you really want to try and get this running on your machine and it's giving you trouble, a gist of the steps I tried is here: https://gist.github.com/alicebartlett/1e785aa6a9baa8876d3f
+```scss
+.icon {
+	display: inline-block;
+	width: 128px;
+	height: 128px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50%;
+	background-color: transparent;
+	vertical-align: middle;
+}
+```
 
-1. Install the following:
+### 3. Manually using the [responsive image service](https://image.webservices.ft.com)
 
-	* [fontforge](http://fontforge.org/)
-	* [ttfautohint](http://www.freetype.org/ttfautohint/#download)
-	* [X11](http://support.apple.com/kb/ht5293) (Mac only)
+If you can't use the mixins, and you need to see a custom size or colour, you can also use the [responsive image service](https://image.webservices.ft.com) to fetch the icons in a very similar way as to how the mixin works:
 
-2. Clone the repository and install dependencies:
+```scss
+element {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
 
-		git clone https://github.com/Financial-Times/o-ft-icons.git
-		cd o-ft-icons
+    // Older browsers: PNG fallback (resized to 100px wide)
+    background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:tick?width=100&format=png&source=my-product');
+
+    // Modern browsers: SVG covering the whole size of the element
+    // we declare multiple backgrounds so that only modern browsers read this property
+    background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:tick?format=svg&source=my-product'), none;
+    background-size: cover;
+}
+```
+
+## Add / edit icons, build the  demo page
+
+1. Clone the repository and install dependencies:
+
+		git clone https://github.com/Financial-Times/o-icons.git 
+		cd o-icons
 		obt install
 
-3. Add or edit an SVG file to the `svg` folder (see [SVG file naming rules](#svg-file-naming-rules)).
-4. Generate the web font from the SVG sources:
+1. Add or edit an SVG file to the `svg` folder (see [SVG file naming rules](#svg-file-naming-rules)).
+1. The `_icon-list.scss` file anf he `data.json` file used for demos are generated by a Gulp task. When adding a new icon, these files need to be rebuilt. You just need to run:
 
-		grunt
+		gulp
 
-5. Check the rendering locally (on http://localhost:8080/demos/local):
+1. Check the rendering locally (on [http://localhost:8080/demos/local](http://localhost:8080/demos/local)):
 
 		obt demo --runServer
 
-6. Before publishing your work, generate the component's demos:
-
-		obt demo
-
 ### SVG version
+
 The icons module uses SVG version 1.1. Files can be created in any vector graphics software. In Adobe Illustrator use the "save as" function and set to version 1.1
 
 ### SVG file naming rules
@@ -126,11 +153,57 @@ The file must be named according to the following rules:
 Good: `columnists.svg`, `back-arrow.svg`
 Bad: `RightArrow.svg`, `linked_in.svg`, `yahoo!.svg`
 
-### IE7 support
+## Deprecation process
 
-IE7 support is handled by an IE7 CSS expression hack, which is bundled into the main icons mixin.
+Icon sets can't be versioned so, when removing an icon, make sure that it isn't used anywhere. To find out if they're being used, search on [Splunk](http://splunk.internal.ft.com). An example search:
 
-----
+> (host="ftweb61759-law1b-eu-p" OR host="ftweb61758-law1a-eu-p") source="/var/log/httpd/access_log" fticon:section-world| top limit=120 referer
+
+Where you can change _section-world_ for the icon you're looking for.
+
+The list of icons that are deprecated and will be removed in the next major release can be found [here](_deprecated.js)
+
+## How to upgrade from v3.x.x to v4.x.x?
+
+### Important changes
+
+* `o-ft-icons` has been renamed to `o-icons`
+* Icon font has been removed, now it's SVGs all the way
+* Many icons have been removed, and as mentioned above, others have been deprecated. The list of deleted icons is:
+	- brand-always-learning
+	- brand-fast-ft
+	- brand-fast
+	- brand-myft
+	- brand-pearson
+	- eye
+	- font-size
+	- gift
+	- section-columnists
+	- section-house-and-home
+	- section-leader-and-letters
+	- section-lex
+	- section-markets-data
+	- section-money
+	- section-uk
+
+### Markup changes
+
+CSS now doesn't add any pseudoclasses, so all the styling is applied directly on the element
+
+### CSS Changes
+
+Class prefixes need to be renamed from `o-ft-icons- to `o-icons`
+
+e.g.
+
+`o-ft-icons-icon` to `o-icons-icon`
+`o-ft-icons-icon--arrow-down` to `o-icons-icon--arrow-down`
+
+### Sass Changes
+
+* All icon font related mixins have been removed
+* `oFtIconsBaseIconStyles` has been renamed to `oIconsBaseStyles`
+* `oFtIconsGetSvg` has been renamed to `oIconsGetIcon`
 
 ## Licence
 

@@ -1,9 +1,7 @@
 {
-	"name": "o-ft-icons",
+	"name": "o-icons",
 	"main": ["main.scss"],
 	"ignore": [
-		"Gruntfile.js",
-		"grunt-webfont-templates",
 		"node_modules"
 	],
 	"dependencies": {
