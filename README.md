@@ -40,6 +40,8 @@ When using CSS classes, it isn't possible to set a colour for the icon or to spe
 
 ### 2. Including the predefined Sass mixins into your own CSS classes
 
+This option has the added flexibility of supporting coloured icons and PNG fallbacks of any size.
+
 ```scss
 // public/bundle.scss
 
