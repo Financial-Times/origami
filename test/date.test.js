@@ -40,9 +40,9 @@ describe('date', function() {
 	it('getting time ago', function() {
 		const formatsLow = {
 			'2 seconds ago': 2,
-			'a minute ago': 45,
-			'2 minutes ago': 90,
-			'an hour ago': 45 * 60,
+			'a minute ago': 60,
+			'2 minutes ago': 120,
+			'an hour ago': 60 * 60,
 			'2 hours ago': 90 * 60,
 			'a day ago': 22 * 60 * 60,
 			'2 days ago': 36 * 60 * 60,
@@ -52,9 +52,9 @@ describe('date', function() {
 			'2 years ago': 547 * 60 * 60 * 24,
 		};
 		const formatsHigh = {
-			'44 seconds ago': (45) - 1,
-			'a minute ago': (90) - 1,
-			'45 minutes ago': (45 * 60) - 1,
+			'59 seconds ago': (60) - 1,
+			'a minute ago': (120) - 1,
+			'59 minutes ago': (60 * 60) - 1,
 			'an hour ago': (90 * 60) - 1,
 			'22 hours ago': (22 * 60 * 60) - 1,
 			'a day ago': (36 * 60 * 60) - 1,

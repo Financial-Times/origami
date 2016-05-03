@@ -34,6 +34,15 @@ const formatReplacementsMap = {
 	a: '(date.getHours() >= 12 ? "pm" : "am")' // pm
 };
 
+const inSeconds = {
+	minute: 60,
+	hour: 60 * 60,
+	day: 24 * 60 * 60,
+	week: 7 * 24 * 60 * 60,
+	month: 60 * 60 * 24 * 30,
+	year: 365 * 24 * 60 * 60
+};
+
 let interval;
 
 function ODate(rootEl) {
@@ -158,28 +167,28 @@ ODate.timeAgo = function(date, interval) {
 	if (!date) return;
 
 	interval = interval || Math.round(((new Date()) - date) / 1000);
-	if (interval < 45) {
+	if (interval < inSeconds.minute) {
 		return interval + ' seconds ago';
-	} else if (interval < 90) {
+	} else if (interval < (2 * inSeconds.minute)) {
 		return 'a minute ago';
-	} else if (interval < 45 * 60) {
-		return Math.round(interval / 60) + ' minutes ago';
-	} else if (interval < 90 * 60) {
+	} else if (interval < inSeconds.hour ) {
+		return Math.floor(interval / inSeconds.minute) + ' minutes ago';
+	} else if (interval < (1.5 * inSeconds.hour)) {
 		return 'an hour ago';
-	} else if (interval < 22 * 60 * 60) {
-		return Math.round(interval / (60 * 60)) + ' hours ago';
-	} else if (interval < 36 * 60 * 60) {
+	} else if (interval < 22 * inSeconds.hour) {
+		return Math.round(interval / inSeconds.hour) + ' hours ago';
+	} else if (interval < (1.5 * inSeconds.day)) {
 		return 'a day ago';
-	} else if (interval < 25 * 60 * 60 * 24) {
-		return Math.round(interval / (60 * 60 * 24)) + ' days ago';
-	} else if (interval < 45 * 60 * 60 * 24) {
+	} else if (interval < 25 * inSeconds.day) {
+		return Math.round(interval / inSeconds.day) + ' days ago';
+	} else if (interval < (45 * inSeconds.day)) {
 		return 'a month ago';
-	} else if (interval < 345 * 60 * 60 * 24) {
-		return Math.round(interval / (60 * 60 * 24 * 30)) + ' months ago';
-	} else if (interval < 547 * 60 * 60 * 24) {
+	} else if (interval < 345 * inSeconds.day) {
+		return Math.round(interval / inSeconds.month) + ' months ago';
+	} else if (interval < (547 * inSeconds.day)) {
 		return 'a year ago';
 	} else {
-		return Math.max(2, Math.round(interval / (60 * 60 * 24 * 365))) + ' years ago';
+		return Math.max(2, Math.floor(interval / inSeconds.year)) + ' years ago';
 	}
 };
 
