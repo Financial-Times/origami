@@ -169,10 +169,10 @@ ODate.timeAgo = function(date, interval) {
 	interval = interval || Math.round(((new Date()) - date) / 1000);
 	if (interval < inSeconds.minute) {
 		return interval + ' seconds ago';
-	} else if (interval < (2 * inSeconds.minute)) {
+	} else if (interval < (1.5 * inSeconds.minute)) {
 		return 'a minute ago';
-	} else if (interval < inSeconds.hour ) {
-		return Math.floor(interval / inSeconds.minute) + ' minutes ago';
+	} else if (interval < (59 * inSeconds.minute) ) {
+		return Math.round(interval / inSeconds.minute) + ' minutes ago';
 	} else if (interval < (1.5 * inSeconds.hour)) {
 		return 'an hour ago';
 	} else if (interval < 22 * inSeconds.hour) {
