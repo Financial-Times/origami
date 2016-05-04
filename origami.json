@@ -51,7 +51,7 @@
 		{
 			"name": "responsive-flat",
 			"template": "demos/src/responsive-flat.mustache",
-			"js": "demos/src/responsive-flat.js",
+			"js": "src/js/responsive-flat.js",
 			"data": {
 				"modifierClass": "o-table--responsive-flat"
 			},
@@ -66,7 +66,7 @@
 				"modifierClass": "o-table--responsive-overflow"
 			},
 			"expanded": false,
-			"description": "This is a overflow responsive version"
+			"description": "This is an overflow responsive version"
 		},
 		{
 			"name": "responsive-scroll",
