@@ -138,7 +138,15 @@ class Brightcove extends Video {
 			const playButtonEl = document.createElement('button');
 			playButtonEl.className = 'n-video__play-button';
 			playButtonEl.setAttribute('data-trackable', 'play button');
-			playButtonEl.textContent = 'Play video';
+
+			const playButtonTextEl = document.createElement('dd');
+			playButtonTextEl.className = 'n-video__play-button-text';
+			playButtonTextEl.textContent = 'Play video';
+			playButtonEl.appendChild(playButtonTextEl);
+
+			const playIconEl = document.createElement('i');
+			playIconEl.className = 'n-video__play-button-icon';
+			playButtonEl.appendChild(playIconEl);
 
 			this.containerEl.appendChild(playButtonEl);
 

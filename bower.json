@@ -8,7 +8,8 @@
   ],
   "dependencies": {
     "n-jsonp": "^2.0.0",
-    "next-sass-setup": "^8.0.2"
+    "o-ft-icons": "^3.5.0",
+    "o-colors": "^3.3.0"
   },
   "devDependencies": {
     "isomorphic-fetch": "^2.1.0",
