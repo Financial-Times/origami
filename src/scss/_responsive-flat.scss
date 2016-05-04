@@ -5,15 +5,15 @@
 
 /// Make a table 'responsive-flat'
 @mixin oTableResponsive-flat {
+	display: block;
+	float: left;
+	width: 100%;
+	
 	*,
 	*:before, 
 	*:after {
 		box-sizing: border-box;
 	}
-
-	display: block;
-	float: left;
-	width: 100%;
 
 	@include oGridRespondTo(S) {
 		display: table;
@@ -51,7 +51,6 @@
 
 	tbody tr th {
 		border-right: 1px solid oColorsGetColorFor(o-table-row-right, border-right);
-		display: block;
 		float: left;
 		padding: 8px;
 		width: 50%;
