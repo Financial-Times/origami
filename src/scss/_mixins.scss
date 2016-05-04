@@ -53,12 +53,12 @@
 		@include oTableCompact;
 	}
 	.#{$classname}--responsive-flat {
-		@include oTableResponsive-flat;
+		@include oTableResponsiveFlat;
 	}
 	.#{$classname}--responsive-overflow {
-		@include oTableResponsive-overflow;
+		@include oTableResponsiveOverflow;
 	}
 	.#{$classname}--responsive-scroll {
-		@include oTableResponsive-scroll;
+		@include oTableResponsiveScroll;
 	}
 }
