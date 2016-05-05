@@ -1,7 +1,7 @@
 // scss-lint:disable NestingDepth, QualifyingElement, SelectorDepth, ImportantRule
 
-$o-comments-link-color: oColorsGetPaletteColor("blue");
-$o-comments-link-color-hover: oColorsGetPaletteColor("black");
+$o-comments-link-color: oColorsGetPaletteColor('blue');
+$o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 @mixin borderRadiusClear {
 	border-radius: 0;
@@ -21,8 +21,8 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 }
 
 @mixin overlayClose {
-	@include oFtIconsBaseIconStyles();
-	@extend %o-ft-icons-icon--cross;
+	@include oIconsGetIcon('cross', oColorsGetPaletteColor('white'), 18);
+
 	width: 18px;
 	height: 18px;
 	font-size: 10px;
@@ -30,7 +30,6 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 	border: 1px solid oColorsGetPaletteColor("pink-tint5");
 	border-radius: 50%;
 	background: oColorsGetPaletteColor("pink-tint5");
-	color: oColorsGetPaletteColor("white");
 	text-align: center;
 }
 
