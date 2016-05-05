@@ -1171,9 +1171,16 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 	}
 
 	.comment-header {
-		@include oTypographyHeading2;
-
+		margin: 0 0 16px;
 		padding: 3px 0;
+		border-top: 4px solid oColorsGetPaletteColor('pink-tint4');
+		border-bottom: 1px dotted oColorsGetPaletteColor('pink-tint4');
+		font-family: BentonSans,sans-serif;
+		font-weight: 700;
+		text-transform: uppercase;
+		font-size: 13px;
+		line-height: 20px;
+		color: oColorsGetPaletteColor('black');
 	}
 
 
