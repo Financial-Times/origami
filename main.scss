@@ -89,4 +89,7 @@
 	.o-typography-body-wrapper {
 		@include oTypographyBodyWrapper;
 	}
+
+	// Don't output twice
+	$o-typography-is-silent: true !global;
 }
