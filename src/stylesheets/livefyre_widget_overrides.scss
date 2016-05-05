@@ -1173,7 +1173,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor("black");
 	}
 
 	.comment-header {
-		@extend %o-typography-heading2;
+		@include oTypographyHeading2;
 
 		padding: 3px 0;
 	}
