@@ -253,7 +253,7 @@ function WidgetUi (widgetContainer, config) {
 				}
 			}
 		});
-	}
+	};
 
 	let __superDestroy = this.destroy;
 	this.destroy = function () {

@@ -34,7 +34,7 @@ module.exports = Widget;
  */
 module.exports.setConfig = function () {
 	config.set.apply(this, arguments);
-}
+};
 
 module.exports.init = function (el) {
 	return oCommentUtilities.initDomConstruct({
