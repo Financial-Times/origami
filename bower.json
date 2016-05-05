@@ -11,7 +11,7 @@
     "o-typography": "^3.2.0",
     "o-fonts": "^2.1.2",
     "o-colors": ">=2.4.7 <4",
-    "o-assets": "^3.0.0"
+    "o-assets": ">=2.0.0 <4"
   },
   "ignore": [
     "node_modules",
