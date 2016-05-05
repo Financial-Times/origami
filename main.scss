@@ -62,4 +62,7 @@ $o-expander-is-silent: true !default;
 	.o-expander__toggle {
 		@include oExpanderToggle;
 	}
+
+	// Don't output twice
+	$o-expander-is-silent: true !global;
 }
