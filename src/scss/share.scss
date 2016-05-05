@@ -29,12 +29,14 @@
 			height: $o-share-icon-size;
 			text-indent: $o-share-icon-size;
 			overflow: hidden;
+			border-radius: $o-share-icon-size;
 		}
 
 		a {
-			text-decoration: none;
-			padding: 6px;
 			display: block;
+			width: $o-share-icon-size;
+			padding: 6px;
+			text-decoration: none;
 			overflow: hidden;
 
 			&:focus i {
@@ -45,6 +47,7 @@
 				opacity: 0.8;
 			}
 		}
+
 		&:first-child a {
 			padding-left: 0;
 		}
