@@ -1,5 +1,3 @@
-'use strict';
-
 const deprecatedIcons = [
 	'brand-ft-logo-square',
 	'brand-ft-masthead',
