@@ -168,7 +168,7 @@ The list of icons that are deprecated and will be removed in the next major rele
 ### Important changes
 
 * `o-ft-icons` has been renamed to `o-icons`
-* Icon font has been removed, now it's SVGs all the way
+* Icon font has been removed, now it's SVGs all the way. This changes the behaviour for silent mode turned off users which includes Build Service users
 * Many icons have been removed, and as mentioned above, others have been deprecated. The list of deleted icons is:
 	- brand-always-learning
 	- brand-fast-ft
@@ -192,18 +192,27 @@ CSS now doesn't add any pseudoclasses, so all the styling is applied directly on
 
 ### CSS Changes
 
-Class prefixes need to be renamed from `o-ft-icons- to `o-icons`
+* Class prefixes need to be renamed from `o-ft-icons- to `o-icons`
 
-e.g.
+	e.g.
 
-`o-ft-icons-icon` to `o-icons-icon`
-`o-ft-icons-icon--arrow-down` to `o-icons-icon--arrow-down`
+	`o-ft-icons-icon` to `o-icons-icon`
+	`o-ft-icons-icon--arrow-down` to `o-icons-icon--arrow-down`
+
+* As it's an SVG instead of a font, size is now set using the CSS properties `width` and `height`
 
 ### Sass Changes
 
 * All icon font related mixins have been removed
 * `oFtIconsBaseIconStyles` has been renamed to `oIconsBaseStyles`
 * `oFtIconsGetSvg` has been renamed to `oIconsGetIcon`
+
+### Silent mode off Changes
+
+When using the [Build Service](https://origami-build.ft.com), you're using this module with silent mode turned off. Due to the removal of the icon font, there are a couple things to keep in mind in the new implementation:
+
+* There is a PNG fallback, and when using the default CSS classess, the size of the image served is _128px_ so it can be resized down, but not up
+* The colour of the icon served is _black_. This cannot be changed. If you need a custom colour (or even a custom size), [option 3](#3-manually-using-the-responsive-image-service) of the suggested ways of using this module is the way to go
 
 ## Licence
 
