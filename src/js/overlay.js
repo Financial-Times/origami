@@ -187,9 +187,6 @@ Overlay.prototype.render = function() {
 		button.setAttribute('href', '#void');
 		button.setAttribute('aria-label', 'Close');
 		button.setAttribute('title', 'Close');
-		const buttonIcon = document.createElement('span');
-		buttonIcon.className = 'o-overlay__close-icon';
-		button.appendChild(buttonIcon);
 
 		const title = document.createElement('span');
 		title.setAttribute('role', 'heading');
