@@ -1,55 +1,11 @@
 // scss-lint:disable NestingDepth, QualifyingElement, SelectorDepth, ImportantRule
 
-$o-comments-link-color: oColorsGetPaletteColor('blue');
-$o-comments-link-color-hover: oColorsGetPaletteColor('black');
-
-@mixin borderRadiusClear {
-	border-radius: 0;
-}
-
-@mixin boxShadowClear {
-	box-shadow: none;
-}
-
-@mixin textShadowClear {
-	text-shadow: none;
-}
-
-@mixin gradientClear {
-	background-image: none;
-	filter: none;
-}
-
-@mixin overlayClose {
-	@include oIconsGetIcon('cross', oColorsGetPaletteColor('white'), 10);
-
-	width: 18px;
-	height: 18px;
-	line-height: 19px;
-	border: 1px solid oColorsGetPaletteColor("pink-tint5");
-	border-radius: 50%;
-	background: oColorsGetPaletteColor("pink-tint5");
-	text-align: center;
-}
-
-@mixin tag {
-	display: inline-block;
-	border: 0;
-	font-weight: normal;
-	height: auto;
-	width: auto;
-
-	color: oColorsGetPaletteColor("pink");
-	padding: 3px 10px;
-	font-size: 13px;
-	line-height: 15px;
-	font-family: $o-comments-font-family;
-	border-radius: 10px;
-}
+@import './variables';
+@import './mixins';
 
 .o-comments.o-comments--lf-overrides.o-comments--comment-type-livecomments {
 	clear: both;
-	color: oColorsGetPaletteColor("grey-tint5");
+	color: oColorsGetPaletteColor('grey-tint5');
 	font-family: $o-comments-font-family;
 
 	.fyre {
@@ -59,7 +15,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			color: $o-comments-link-color;
 
 			&:hover {
-				color: oColorsGetPaletteColor("black");
+				color: oColorsGetPaletteColor('black');
 			}
 		}
 
@@ -79,7 +35,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 		}
 
 		.fyre-stream-stats {
-			color: oColorsGetPaletteColor("grey-tint5");
+			color: oColorsGetPaletteColor('grey-tint5');
 			float: right;
 			margin: 0;
 
@@ -99,15 +55,15 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 		}
 
 		.fyre-mention {
-			color: oColorsGetPaletteColor("grey-tint5");
+			color: oColorsGetPaletteColor('grey-tint5');
 			cursor: text;
 		}
 
 		.fyre-stream-sort {
 			font: 14px/24px $o-comments-font-family;
-			border-bottom: 1px solid oColorsGetPaletteColor("pink-tint2");
+			border-bottom: 1px solid oColorsGetPaletteColor('pink-tint2');
 			padding: 10px 0;
-			color: oColorsGetPaletteColor("black") !important;
+			color: oColorsGetPaletteColor('black') !important;
 			margin: 20px 0 10px;
 
 			a {
@@ -135,7 +91,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 		}
 
 		.fyre-comment-stream {
-			color: oColorsGetPaletteColor("grey-tint5");
+			color: oColorsGetPaletteColor('grey-tint5');
 			font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
 			margin: 0;
 		}
@@ -150,7 +106,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 				top: 0;
 				right: 0;
 
-				background-color: oColorsGetPaletteColor("red");
+				background-color: oColorsGetPaletteColor('red');
 				border-radius: 15px;
 				color: white;
 				font-size: 12px;
@@ -165,18 +121,18 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			.fyre-comment-deleted {
 				font-family: $o-comments-font-family;
 				font-size: 13px;
-				color: oColorsGetPaletteColor("grey-tint4");
+				color: oColorsGetPaletteColor('grey-tint4');
 
 				p {
 					font-style: italic;
-					color: oColorsGetPaletteColor("grey-tint4");
+					color: oColorsGetPaletteColor('grey-tint4');
 					padding-bottom: 10px;
 				}
 			}
 		}
 
 		.fyre-comment-date {
-			color: oColorsGetPaletteColor("grey-tint3");
+			color: oColorsGetPaletteColor('grey-tint3');
 		}
 
 		.fyre-login-bar {
@@ -186,7 +142,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			width: auto;
 			height: auto;
 			line-height: 25px;
-			white-space: nowrap\9; /* IE8 and below */
+			white-space: nowrap\9; // IE8 and below
 
 			a.fyre-user-loggedout {
 				color: $o-comments-link-color;
@@ -228,8 +184,8 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 			&:hover,
 			&.fyre-box-mobile-touch {
-				@include boxShadowClear;
-				@include borderRadiusClear;
+				@include oCommentsBoxShadowClear;
+				@include oCommentsBorderRadiusClear;
 
 				// commented version for rollover enabled
 				background: inherit;
@@ -247,7 +203,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			}
 
 			a.fyre-user-profile-link {
-				color: oColorsGetPaletteColor("black");
+				color: oColorsGetPaletteColor('black');
 				font-size: 14px;
 				padding: 0;
 				cursor: default;
@@ -255,7 +211,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			}
 
 			a:hover {
-				color: oColorsGetPaletteColor("black");
+				color: oColorsGetPaletteColor('black');
 			}
 
 			.fyre-user-drop {
@@ -274,15 +230,15 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 				left: 0;
 				z-index: 1000;
 				border: 0;
-				border-top: 1px solid oColorsGetPaletteColor("pink-tint4");
-				border-bottom: 1px solid oColorsGetPaletteColor("pink-tint4");
+				border-top: 1px solid oColorsGetPaletteColor('pink-tint4');
+				border-bottom: 1px solid oColorsGetPaletteColor('pink-tint4');
 
 				li {
-					background: oColorsGetPaletteColor("white");
+					background: oColorsGetPaletteColor('white');
 					white-space: nowrap;
 
-					border-left: 1px solid oColorsGetPaletteColor("pink-tint4");
-					border-right: 1px solid oColorsGetPaletteColor("pink-tint4");
+					border-left: 1px solid oColorsGetPaletteColor('pink-tint4');
+					border-right: 1px solid oColorsGetPaletteColor('pink-tint4');
 				}
 			}
 
@@ -347,7 +303,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 		}
 
 		a.fyre-comment-username {
-			color: oColorsGetPaletteColor("grey-tint5");
+			color: oColorsGetPaletteColor('grey-tint5');
 			font-weight: bold;
 			margin-left: 0;
 
@@ -371,7 +327,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			}
 
 			> div.fyre-comment-divider {
-				background: oColorsGetPaletteColor("pink-tint2");
+				background: oColorsGetPaletteColor('pink-tint2');
 				margin: 0;
 			}
 		}
@@ -402,16 +358,13 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 		}
 
 
-		@mixin showMoreCommentsCommon {
-			background: url(oAssetsResolve('src/images/comment_reply_arrows.png', o-comments)) no-repeat;
-			width: 11px;
-		};
+
 
 		.fyre-comment-source-13 > .fyre-comment-divider.fyre-divider-active > a,
 		.fyre-comment-source-13 > .fyre-comment-divider.fyre-comment-collapse > a,
 		.fyre-comment-divider.fyre-divider-active > a,
 		.fyre-comment-divider.fyre-comment-collapse > a {
-			@include showMoreCommentsCommon;
+			@include oCommentsShowMoreCommentsCommon;
 			background-position: 0px 0px;
 			height: 8px;
 			top: -3px;
@@ -420,7 +373,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 		.fyre-comment-source-13 > .fyre-comment-divider.fyre-comment-expand > a,
 		.fyre-comment-divider.fyre-comment-expand > a {
-			@include showMoreCommentsCommon;
+			@include oCommentsShowMoreCommentsCommon;
 			background-position: 0px -8px;
 			height: 11px;
 			top: -5px;
@@ -428,7 +381,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 
 		.fyre-comment-action-button {
-			@include gradientClear;
+			@include oCommentsGradientClear;
 
 			color: $o-comments-link-color !important;
 			border: 0;
@@ -443,13 +396,13 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 		}
 
 		.fyre-comment-reply {
-			@include borderRadiusClear;
+			@include oCommentsBorderRadiusClear;
 
 			font-size: 13px;
 			top: 0;
 			padding: 0 0 0 7px;
 			margin: 0 0 0 7px;
-			border-left: 1px solid oColorsGetPaletteColor("pink-tint2");
+			border-left: 1px solid oColorsGetPaletteColor('pink-tint2');
 		}
 
 		.fyre-comment-like {
@@ -466,7 +419,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 		.fyre-comment-like-count {
 			font-size: 13px;
 			padding: 0 5px;
-			color: oColorsGetPaletteColor("grey-tint5");
+			color: oColorsGetPaletteColor('grey-tint5');
 		}
 
 		.fyre-comment-like-btn {
@@ -510,7 +463,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			}
 
 			&:after {
-				@include showMoreCommentsCommon;
+				@include oCommentsShowMoreCommentsCommon;
 
 				left: 50px;
 				background-position: 0 0;
@@ -525,7 +478,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 		.fyre-comment-source,
 		.fyre-twitter-footer a,
 		.fyre-comment-edit {
-			color: oColorsGetPaletteColor("grey-tint3");
+			color: oColorsGetPaletteColor('grey-tint3');
 		}
 
 
@@ -533,7 +486,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 		.fyre-comment-author-tag,
 		.fyre-comment-tag.fyre-featured,
 		.fyre-pending {
-			@include tag;
+			@include oCommentsTag;
 			padding-bottom: 4px;
 		}
 
@@ -541,14 +494,14 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 		.fyre-comment-author-tag,
 		.fyre-comment-tag.fyre-featured {
 			margin: 0 10px;
-			background: oColorsGetPaletteColor("pink-tint4");
+			background: oColorsGetPaletteColor('pink-tint4');
 		}
 		.fyre-moderator {
 			display: none;
 		}
 
 		.fyre-comment-author-tag[data-fyre-author-tag="FT"] {
-			background: oColorsGetPaletteColor("claret");
+			background: oColorsGetPaletteColor('claret');
 		}
 
 		.fyre-comment-premod {
@@ -563,7 +516,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 			.fyre-pending {
 				display: block;
-				background: oColorsGetPaletteColor("orange");
+				background: oColorsGetPaletteColor('orange');
 			}
 
 			.fyre-mod-deny,
@@ -591,7 +544,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 				font-size: 12px;
 				line-height: 15px;
 				font-weight: bold;
-				color: oColorsGetPaletteColor("grey-tint4");
+				color: oColorsGetPaletteColor('grey-tint4');
 				display: block;
 			}
 
@@ -606,7 +559,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			.fyre-featured-text {
 				display: none;
 
-				color: oColorsGetPaletteColor("pink");
+				color: oColorsGetPaletteColor('pink');
 				font-size: 13px;
 				line-height: 16px;
 				font-family: $o-comments-font-family;
@@ -625,7 +578,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 
 		.fyre-notifier-container {
-			@include borderRadiusClear;
+			@include oCommentsBorderRadiusClear;
 
 			background: rgba(206, 198, 185, 0.8);
 			padding: 8px 8px 0;
@@ -641,27 +594,27 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 				.fyre-notification {
 					.fyre-notifier-banner {
-						@include gradientClear;
-						@include borderRadiusClear;
-						@include boxShadowClear;
+						@include oCommentsGradientClear;
+						@include oCommentsBorderRadiusClear;
+						@include oCommentsBoxShadowClear;
 
 						width: 200px;
 						height: 36px;
 
-						background: oColorsGetPaletteColor("white");
-						border: 1px solid oColorsGetPaletteColor("pink-tint2");
+						background: oColorsGetPaletteColor('white');
+						border: 1px solid oColorsGetPaletteColor('pink-tint2');
 
 						.fyre-notifier-avatar-container {
 							display: none;
 						}
 
 						.fyre-notifier-message-container {
-							@include textShadowClear;
-							@include borderRadiusClear;
-							@include boxShadowClear;
+							@include oCommentsTextShadowClear;
+							@include oCommentsBorderRadiusClear;
+							@include oCommentsBoxShadowClear;
 
 							width: 200px;
-							background: oColorsGetPaletteColor("white");
+							background: oColorsGetPaletteColor('white');
 
 
 							.fyre-notifier-message {
@@ -669,7 +622,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 								font-family: BentonSans, Helvetica,  Arial,  sans-serif;
 								font-size: 13px;
 								line-height: 26px;
-								color: oColorsGetPaletteColor("grey-tint4");
+								color: oColorsGetPaletteColor('grey-tint4');
 							}
 						}
 					}
@@ -677,35 +630,35 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			}
 
 			.fyre-notifier-base-shadow {
-				@include gradientClear;
-				@include borderRadiusClear;
-				@include boxShadowClear;
+				@include oCommentsGradientClear;
+				@include oCommentsBorderRadiusClear;
+				@include oCommentsBoxShadowClear;
 
-				background: oColorsGetPaletteColor("white");
+				background: oColorsGetPaletteColor('white');
 				padding: 0;
 				bottom: 0;
-				border: 1px solid oColorsGetPaletteColor("pink-tint2");
+				border: 1px solid oColorsGetPaletteColor('pink-tint2');
 				height: 34px;
 
 
 				.fyre-notifier-base {
-					@include gradientClear;
-					@include borderRadiusClear;
-					@include boxShadowClear;
+					@include oCommentsGradientClear;
+					@include oCommentsBorderRadiusClear;
+					@include oCommentsBoxShadowClear;
 
 
 					.fyre-notifier-counter {
-						@include gradientClear;
-						@include textShadowClear;
-						@include borderRadiusClear;
-						@include boxShadowClear;
+						@include oCommentsGradientClear;
+						@include oCommentsTextShadowClear;
+						@include oCommentsBorderRadiusClear;
+						@include oCommentsBoxShadowClear;
 
 						font-weight: bold;
 						font-size: 13px;
 						font-family: $o-comments-font-family;
 						line-height: 21px;
 						border: 0;
-						background: oColorsGetPaletteColor("red");
+						background: oColorsGetPaletteColor('red');
 						margin: 6px;
 						height: 20px;
 						padding: 0px 7px;
@@ -718,7 +671,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 					}
 
 					.fyre-notifier-base-close {
-						@include overlayClose;
+						@include oCommentsOverlayClose;
 
 						top: 6px;
 					}
@@ -728,10 +681,10 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 
 		.fyre-featured-content-wrapper {
-			color: oColorsGetPaletteColor("grey-tint4");
+			color: oColorsGetPaletteColor('grey-tint4');
 			font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
 			margin: 0 0 20px;
-			background: oColorsGetPaletteColor("pink-tint1");
+			background: oColorsGetPaletteColor('pink-tint1');
 
 			.fyre-featured-body {
 				margin-bottom: 23px;
@@ -764,7 +717,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			}
 
 			.fyre-featured-authored-by {
-				color: oColorsGetPaletteColor("grey-tint4");
+				color: oColorsGetPaletteColor('grey-tint4');
 				font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
 				margin: 0;
 				font-weight: bold;
@@ -787,7 +740,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 				background: #e7dece;
 
 				.fyre-featured-title {
-					color: oColorsGetPaletteColor("grey-tint4");
+					color: oColorsGetPaletteColor('grey-tint4');
 					padding: 0;
 					text-transform: uppercase;
 					font-size: 12px;
@@ -819,7 +772,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			}
 
 			.fyre-comment-divider {
-				background: oColorsGetPaletteColor("pink-tint3");
+				background: oColorsGetPaletteColor('pink-tint3');
 				margin: 23px 0;
 			}
 		}
@@ -831,15 +784,15 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			position: relative;
 
 			.fyre-stream-more-container {
-				@include gradientClear;
+				@include oCommentsGradientClear;
 
 				border: 0;
 				background: #406e9f;
-				color: oColorsGetPaletteColor("white");
+				color: oColorsGetPaletteColor('white');
 				height: 22px;
 
 				.fyre-text {
-					color: oColorsGetPaletteColor("white");
+					color: oColorsGetPaletteColor('white');
 					line-height: 22px;
 				}
 
@@ -852,7 +805,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 		.fyre-stream-content-not-found {
 			font-family: $o-comments-font-family;
 			font-size: 16px;
-			color: oColorsGetPaletteColor("grey-tint4") !important;
+			color: oColorsGetPaletteColor('grey-tint4') !important;
 
 			a.fyre-stream-refresh {
 				font-family: $o-comments-font-family;
@@ -885,10 +838,10 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 		.fyre-mobile-menu {
 			border: 4px solid #d9cdbf;
-			background: oColorsGetPaletteColor("white");
+			background: oColorsGetPaletteColor('white');
 
 			.fyre-flag-menu-item {
-				@include gradientClear;
+				@include oCommentsGradientClear;
 
 				border: 0;
 
@@ -913,11 +866,11 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 		.fyre-editor-container {
 			.fyre-editor-editable {
-				@include borderRadiusClear;
-				@include boxShadowClear;
+				@include oCommentsBorderRadiusClear;
+				@include oCommentsBoxShadowClear;
 
-				background-color: oColorsGetPaletteColor("white");
-				border: 1px solid oColorsGetPaletteColor("pink-tint2");
+				background-color: oColorsGetPaletteColor('white');
+				border: 1px solid oColorsGetPaletteColor('pink-tint2');
 				font-family: $o-comments-font-family;
 				font-size: 14px;
 				line-height: 16px;
@@ -925,7 +878,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			}
 
 			.fyre-editor-editable.editable {
-				color: oColorsGetPaletteColor("grey-tint5");
+				color: oColorsGetPaletteColor('grey-tint5');
 			}
 
 			.fyre-editor-editable p {
@@ -935,7 +888,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 			.fyre-editor-editable p *,
 			.fyre-editor-editable p .fyre-mention {
-				color: oColorsGetPaletteColor("grey-tint5");
+				color: oColorsGetPaletteColor('grey-tint5');
 				font-family: $o-comments-font-family;
 				font-size: 14px;
 			}
@@ -948,43 +901,43 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 		.fyre-editor-toolbar {
 			.goog-toolbar {
 				> div {
-					@include gradientClear;
+					@include oCommentsGradientClear;
 
-					background-color: oColorsGetPaletteColor("pink-tint1");
-					border-bottom: 1px solid oColorsGetPaletteColor("pink-tint2");
-					border-right: 1px solid oColorsGetPaletteColor("pink-tint3");
+					background-color: oColorsGetPaletteColor('pink-tint1');
+					border-bottom: 1px solid oColorsGetPaletteColor('pink-tint2');
+					border-right: 1px solid oColorsGetPaletteColor('pink-tint3');
 					font: normal 12px $o-comments-font-family;
 				}
 
 				> div.goog-toolbar-separator {
-					@include borderRadiusClear;
+					@include oCommentsBorderRadiusClear;
 
-					border-bottom: 1px solid oColorsGetPaletteColor("pink-tint2");
+					border-bottom: 1px solid oColorsGetPaletteColor('pink-tint2');
 				}
 
 				> div.fyre-button-left .fyre-button-left-outer-box .fyre-button-left-inner-box {
-					@include textShadowClear;
+					@include oCommentsTextShadowClear;
 
 					color: $o-comments-link-color;
 				}
 
 				> div.fyre-button-left.fyre-format-button {
-					border-left: 1px solid oColorsGetPaletteColor("pink-tint2");
+					border-left: 1px solid oColorsGetPaletteColor('pink-tint2');
 				}
 
 				> div.fyre-button-left:nth-child(2) {
-					@include borderRadiusClear;
+					@include oCommentsBorderRadiusClear;
 
-					border-bottom: 1px solid oColorsGetPaletteColor("pink-tint2");
+					border-bottom: 1px solid oColorsGetPaletteColor('pink-tint2');
 				}
 
 				> div.fyre-button-right {
-					border-left: 1px solid oColorsGetPaletteColor("pink-tint3");
+					border-left: 1px solid oColorsGetPaletteColor('pink-tint3');
 					border-right: 0;
 				}
 
 				> div.fyre-button-right.fyre-post-button {
-					@include borderRadiusClear;
+					@include oCommentsBorderRadiusClear;
 
 					border-right: 0;
 					background-color: #549ccf;
@@ -998,34 +951,34 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 				}
 
 				> div.fyre-button-right.fyre-post-button .fyre-button-right-outer-box .fyre-button-right-inner-box {
-					@include textShadowClear;
+					@include oCommentsTextShadowClear;
 
-					color: oColorsGetPaletteColor("white");
+					color: oColorsGetPaletteColor('white');
 					font-weight: normal;
 				}
 
 				> div.fyre-button-right:last-child {
-					border-right: 1px solid oColorsGetPaletteColor("pink-tint3");
-					border-bottom: 1px solid oColorsGetPaletteColor("pink-tint3");
+					border-right: 1px solid oColorsGetPaletteColor('pink-tint3');
+					border-bottom: 1px solid oColorsGetPaletteColor('pink-tint3');
 				}
 
 				> div.fyre-button-left-hover,
 				> div.fyre-button-right-hover {
-					@include gradientClear;
+					@include oCommentsGradientClear;
 
-					background-color: oColorsGetPaletteColor("pink-tint2");
-					color: oColorsGetPaletteColor("black");
+					background-color: oColorsGetPaletteColor('pink-tint2');
+					color: oColorsGetPaletteColor('black');
 				}
 
 				> div.fyre-button-left-active ,
 				> div.fyre-button-right-active {
-					@include gradientClear;
+					@include oCommentsGradientClear;
 
-					background-color: oColorsGetPaletteColor("pink-tint2");
+					background-color: oColorsGetPaletteColor('pink-tint2');
 				}
 
 				> div.fyre-button-left .fyre-button-left-outer-box .fyre-button-left-inner-box:hover {
-					color: oColorsGetPaletteColor("black");
+					color: oColorsGetPaletteColor('black');
 				}
 
 				.fyre-raw-button {
@@ -1034,7 +987,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 				.fyre-mention-button {
 					display: none;
-					border-left: 1px solid oColorsGetPaletteColor("pink-tint2");
+					border-left: 1px solid oColorsGetPaletteColor('pink-tint2');
 				}
 			}
 
@@ -1047,20 +1000,20 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			.fyre-share-button.fyre-button-left-open ,
 			.fyre-share-button.fyre-button-right-open ,
 			.fyre-share-button.fyre-button-right-active {
-				background: oColorsGetPaletteColor("pink-tint1");
+				background: oColorsGetPaletteColor('pink-tint1');
 			}
 
 			.fyre-share-button.fyre-button-left-open:hover ,
 			.fyre-share-button.fyre-button-right-open:hover ,
 			.fyre-share-button.fyre-button-right-active:hover {
-				background: oColorsGetPaletteColor("pink-tint2");
+				background: oColorsGetPaletteColor('pink-tint2');
 			}
 
 			.fyre-share-container {
-				@include borderRadiusClear;
+				@include oCommentsBorderRadiusClear;
 
-				background-color: oColorsGetPaletteColor("pink-tint1");
-				border: 1px solid oColorsGetPaletteColor("pink-tint3");
+				background-color: oColorsGetPaletteColor('pink-tint1');
+				border: 1px solid oColorsGetPaletteColor('pink-tint3');
 				width: auto;
 			}
 
@@ -1069,7 +1022,7 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 			}
 
 			.fyre-share-container > span>a {
-				color: oColorsGetPaletteColor("grey-tint5");
+				color: oColorsGetPaletteColor('grey-tint5');
 				font-family: BentonSans, Helvetica, Arial, sans-serif;
 				padding: 8px 15px;
 			}
@@ -1080,17 +1033,17 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 			.fyre-share-container > span > a:hover {
 				color: $o-comments-link-color;
-				background-color: oColorsGetPaletteColor("pink-tint2");
+				background-color: oColorsGetPaletteColor('pink-tint2');
 			}
 		}
 
 
 		.fyre-editor-disabled {
-			@include borderRadiusClear;
+			@include oCommentsBorderRadiusClear;
 
-			background: oColorsGetPaletteColor("white");
+			background: oColorsGetPaletteColor('white');
 			border: 1px solid #b2b2b2;
-			color: oColorsGetPaletteColor("grey-tint4");
+			color: oColorsGetPaletteColor('grey-tint4');
 			font-family: $o-comments-font-family;
 			font-size: 13px;
 			margin-top: 20px;
@@ -1110,21 +1063,21 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 		padding-bottom: 0;
 	}
 	.fyre-mention-menu {
-		@include borderRadiusClear;
+		@include oCommentsBorderRadiusClear;
 
 		display: none; // for now, could be enabled later, that's why there are styles for them
-		border: 1px solid oColorsGetPaletteColor("pink-tint1");
+		border: 1px solid oColorsGetPaletteColor('pink-tint1');
 		left: 0;
 		margin-left: 0;
-		color: oColorsGetPaletteColor("grey-tint4");
+		color: oColorsGetPaletteColor('grey-tint4');
 
 		> .fyre-provider-connections {
-			border-color: oColorsGetPaletteColor("pink-tint1");
+			border-color: oColorsGetPaletteColor('pink-tint1');
 			display: none;
 		}
 
 		.fyre-mention-item-display-name {
-			color: oColorsGetPaletteColor("grey-tint4");
+			color: oColorsGetPaletteColor('grey-tint4');
 		}
 
 		> .fyre-provider-connections > a.fyre-provider-facebook_connect_url,
@@ -1142,13 +1095,13 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 	}
 
 	.fyre-editor-error {
-		@include gradientClear;
-		@include textShadowClear;
-		@include borderRadiusClear;
-		@include boxShadowClear;
+		@include oCommentsGradientClear;
+		@include oCommentsTextShadowClear;
+		@include oCommentsBorderRadiusClear;
+		@include oCommentsBoxShadowClear;
 
-		background-color: oColorsGetPaletteColor("red");
-		border: 1px solid oColorsGetPaletteColor("red");
+		background-color: oColorsGetPaletteColor('red');
+		border: 1px solid oColorsGetPaletteColor('red');
 		padding: 7px 25px 7px 7px;
 		line-height: 14px;
 
@@ -1160,8 +1113,8 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 		.fyre-editor-error-close,
 		.fyre-editor-error-close:hover {
-			@include borderRadiusClear;
-			@include boxShadowClear;
+			@include oCommentsBorderRadiusClear;
+			@include oCommentsBoxShadowClear;
 
 			background: url(oAssetsResolve('src/images/comment_error_close.png', o-comments)) no-repeat;
 			width: 12px;
@@ -1355,12 +1308,12 @@ $o-comments-link-color-hover: oColorsGetPaletteColor('black');
 
 body {
 	.fyre-hovercard-body {
-		@include gradientClear;
-		@include borderRadiusClear;
-		@include boxShadowClear;
+		@include oCommentsGradientClear;
+		@include oCommentsBorderRadiusClear;
+		@include oCommentsBoxShadowClear;
 
-		background-color: oColorsGetPaletteColor("white");
-		color: oColorsGetPaletteColor("grey-tint3");
+		background-color: oColorsGetPaletteColor('white');
+		color: oColorsGetPaletteColor('grey-tint3');
 		font: 14px/16px BentonSans, Arial, Helvetica, sans-serif;
 	}
 
@@ -1369,38 +1322,38 @@ body {
 	}
 
 	.fyre-hovercard-button {
-		@include gradientClear;
-		@include borderRadiusClear;
-		@include boxShadowClear;
-		@include textShadowClear;
+		@include oCommentsGradientClear;
+		@include oCommentsBorderRadiusClear;
+		@include oCommentsBoxShadowClear;
+		@include oCommentsTextShadowClear;
 
 		background-color: $o-comments-link-color;
-		color: oColorsGetPaletteColor("white");
+		color: oColorsGetPaletteColor('white');
 	}
 
 	.fyre-hovercard-button:hover {
-		@include gradientClear;
+		@include oCommentsGradientClear;
 
 		background-color: #549ccf;
-		color: oColorsGetPaletteColor("white");
+		color: oColorsGetPaletteColor('white');
 	}
 
 
 	.fyre-modal-alert {
-		@include gradientClear;
-		@include textShadowClear;
-		@include boxShadowClear;
+		@include oCommentsGradientClear;
+		@include oCommentsTextShadowClear;
+		@include oCommentsBoxShadowClear;
 
-		background-color: oColorsGetPaletteColor("white");
+		background-color: oColorsGetPaletteColor('white');
 		border: 2px solid #74736c;
 		padding: 2px;
-		color: oColorsGetPaletteColor("grey-tint3");
+		color: oColorsGetPaletteColor('grey-tint3');
 		font-size: 13px;
 		font-family: $o-comments-font-family;
 
 		.fyre-modal-alert-title-close,
 		.fyre-modal-alert-title-close:active {
-			@include overlayClose;
+			@include oCommentsOverlayClose;
 
 			top: 4px;
 			right: 3px;
@@ -1408,11 +1361,11 @@ body {
 	}
 
 	.fyre-modal {
-		@include boxShadowClear;
+		@include oCommentsBoxShadowClear;
 
 		border: 2px solid #74736c;
 		outline: none;
-		background-color: oColorsGetPaletteColor("white");
+		background-color: oColorsGetPaletteColor('white');
 
 		.fyre-modal-header,
 		.fyre-modal-title {
@@ -1420,7 +1373,7 @@ body {
 			padding-left: 14px;
 			padding-top: 9px;
 			border-bottom: 0;
-			color: oColorsGetPaletteColor("grey-tint5");
+			color: oColorsGetPaletteColor('grey-tint5');
 			font-family: $o-comments-font-family;
 			font-size: 16px;
 			line-height: 20px;
@@ -1430,7 +1383,7 @@ body {
 		.fyre-modal-close:active,
 		.fyre-modal-title-close,
 		.fyre-modal-title-close:active {
-			@include overlayClose;
+			@include oCommentsOverlayClose;
 
 			left: auto;
 			right: 10px;
@@ -1438,7 +1391,7 @@ body {
 
 		.fyre-modal-subtitle,
 		.fyre-modal-subtitle-u {
-			color: oColorsGetPaletteColor("black");
+			color: oColorsGetPaletteColor('black');
 			font-size: 13px;
 			font-family: $o-comments-font-family;
 			font-weight: normal;
@@ -1467,13 +1420,13 @@ body {
 
 		textarea.fyre-modal-textfield,
 		.fyre-modal-textfield {
-			@include boxShadowClear;
-			@include borderRadiusClear;
+			@include oCommentsBoxShadowClear;
+			@include oCommentsBorderRadiusClear;
 
 			font-family: $o-comments-font-family;
 			font-size: 14px;
 			line-height: 16px;
-			color: oColorsGetPaletteColor("grey-tint3");
+			color: oColorsGetPaletteColor('grey-tint3');
 			border-color: #b3b0a8;
 			padding: 4px;
 		}
@@ -1494,19 +1447,19 @@ body {
 
 		.fyre-modal-buttons {
 			> button {
-				@include gradientClear;
-				@include boxShadowClear;
+				@include oCommentsGradientClear;
+				@include oCommentsBoxShadowClear;
 
 				outline: none;
 				background: $o-comments-link-color;
 				border: 0;
-				color: oColorsGetPaletteColor("white");
+				color: oColorsGetPaletteColor('white');
 				font-family: $o-comments-font-family;
 				font-weight: normal;
 			}
 
 			> button[name="cancel"] {
-				@include gradientClear;
+				@include oCommentsGradientClear;
 
 				background: none;
 				border: 0;
@@ -1515,7 +1468,7 @@ body {
 				font-size: 14px;
 
 				&:active {
-					@include boxShadowClear;
+					@include oCommentsBoxShadowClear;
 				}
 
 				&:hover {
