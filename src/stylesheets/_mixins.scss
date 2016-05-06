@@ -39,8 +39,8 @@
 
 
 @mixin oCommentsOverlayClose {
-	width: 18px;
-	height: 18px;
+	width: 17px;
+	height: 17px;
 	font-size: 10px;
 	line-height: 19px;
 	border: 1px solid oColorsGetPaletteColor('pink-tint5');
@@ -48,17 +48,18 @@
 	background: oColorsGetPaletteColor('pink-tint5');
 	color: oColorsGetPaletteColor('white');
 	text-align: center;
+	line-height: 15px;
 
 	&:after {
 		content: '';
-		@include oIconsGetIcon('cross', oColorsGetPaletteColor('white'), 12);
+		@include oIconsGetIcon('cross', oColorsGetPaletteColor('white'), 11);
 	}
 
 	&:hover {
 		background: oColorsGetPaletteColor('white');
 
 		&:after {
-			@include oIconsGetIcon('cross', oColorsGetPaletteColor('pink-tint5'), 12);
+			@include oIconsGetIcon('cross', oColorsGetPaletteColor('pink-tint5'), 11);
 		}
 	}
 }
