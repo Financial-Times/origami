@@ -211,7 +211,7 @@ CSS now doesn't add any pseudoclasses, so all the styling is applied directly on
 
 When using the [Build Service](https://origami-build.ft.com), you're using this module with silent mode turned off. Due to the removal of the icon font, there are a couple things to keep in mind in the new implementation:
 
-* There is a PNG fallback, and when using the default CSS classess, the size of the image served is _128px_ so it can be resized down, but not up
+* There is a PNG fallback, and when using the default CSS classes, the size of the image served is _128px_ so it can be resized down, but not up
 * The colour of the icon served is _black_. This cannot be changed. If you need a custom colour (or even a custom size), [option 3](#3-manually-using-the-responsive-image-service) of the suggested ways of using this module is the way to go
 
 ## Licence
