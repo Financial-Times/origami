@@ -1,3 +1,5 @@
+'use strict'; //eslint-disable-line
+
 const gulp = require('gulp');
 const fs = require('fs');
 const deprecatedIcons = require('./_deprecated.js');
@@ -23,7 +25,7 @@ gulp.task('demoConfig', () => {
 });
 
 gulp.task('svgSassList', () => {
-	const iconList = `$o-icons-list: (${files.toString()});\n`;
+	const iconList = `$o-icons-list: (\n${files.join(',\n')}\n);\n`;
 	fs.writeFileSync('scss/_icon-list.scss', iconList, { encoding: 'utf-8' });
 });
 
