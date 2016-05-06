@@ -1,5 +1,3 @@
-'use strict'; //eslint-disable-line
-
 const gulp = require('gulp');
 const fs = require('fs');
 const deprecatedIcons = require('./_deprecated.js');
