@@ -50,6 +50,7 @@
 	text-align: center;
 
 	&:after {
+		content: '';
 		@include oIconsGetIcon('cross', oColorsGetPaletteColor('white'), 12);
 	}
 
