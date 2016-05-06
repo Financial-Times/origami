@@ -49,6 +49,7 @@
 	color: oColorsGetPaletteColor('white');
 	text-align: center;
 	line-height: 15px;
+	outline: 0;
 
 	&:after {
 		content: '';
