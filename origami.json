@@ -55,7 +55,7 @@
 		},
 		{
 			"name": "asides",
-			"template": "demos/src/aside.mustache",
+			"template": "demos/src/asides.mustache",
 			"expanded": true,
 			"description": ""
 		}

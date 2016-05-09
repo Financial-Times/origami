@@ -304,11 +304,11 @@ One of the drawbacks of using web fonts is some browsers hide the text while the
 
 ```
 .text {
-		font-family: serif;
+	font-family: serif;
 }
 
 .font-loaded-serif .text {
-		font-family: FinancierDisplayWeb,serif;
+	font-family: FinancierDisplayWeb,serif;
 }
 ```
 
@@ -324,14 +324,14 @@ A further thing to note is the fallback fonts are generally of a different size 
 
 ```
 .text {
-		font-family: serif;
-		font-size: 18px;
-		line-height: 24px;
+	font-family: serif;
+	font-size: 18px;
+	line-height: 24px;
 }
 
 .font-loaded-serif .text {
-		font-family: FinancierDisplayWeb,serif;
-		font-size: 20px
+	font-family: FinancierDisplayWeb,serif;
+	font-size: 20px
 }
 ```
 
@@ -345,11 +345,11 @@ $o-typography-progressive-fonts: sansData, serifDisplay;
 $o-typography-loaded-prefix: 'loaded-font';
 
 .foo {
-		@include oTypographySansData(m, $load-progressively: true);
+	@include oTypographySansData(m, $load-progressively: true);
 }
 
 .bar {
-		@include oTypographySerifDisplayItalic(m, $load-progressively: true);
+	@include oTypographySerifDisplayItalic(m, $load-progressively: true);
 }
 ```
 
@@ -357,23 +357,23 @@ compiles to
 
 ```
 .foo {
-		font-family: sans-serif;
-		font-size: 12.18px;
-		line-height: 16px;
-		font-weight: 400;
+	font-family: sans-serif;
+	font-size: 12.18px;
+	line-height: 16px;
+	font-weight: 400;
 }
 
 .loaded-font-sansData .foo {
-		font-family: MetricWeb,sans-serif;
-		font-size: 14px;
+	font-family: MetricWeb,sans-serif;
+	font-size: 14px;
 }
 
 .bar {
-		font-family: FinancierDisplayWeb,serif;
-		font-size: 20px;
-		line-height: 22px;
-		font-style: italic;
-		font-weight: 200;
+	font-family: FinancierDisplayWeb,serif;
+	font-size: 20px;
+	line-height: 22px;
+	font-style: italic;
+	font-weight: 200;
 }
 ```
 
