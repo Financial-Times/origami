@@ -192,7 +192,7 @@ CSS now doesn't add any pseudoclasses, so all the styling is applied directly on
 
 ### CSS Changes
 
-* Class prefixes need to be renamed from `o-ft-icons- to `o-icons`
+* Class prefixes need to be renamed from `o-ft-icons` to `o-icons`
 
 	e.g.
 
