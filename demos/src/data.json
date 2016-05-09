@@ -64,9 +64,6 @@
 			"name": "pullquote"
 		},
 		{
-			"name": "quote-marks-patterned"
-		},
-		{
 			"name": "search"
 		},
 		{
@@ -74,6 +71,9 @@
 		},
 		{
 			"name": "share"
+		},
+		{
+			"name": "single-quote-patterned"
 		},
 		{
 			"name": "single-quote"
