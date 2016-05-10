@@ -16,8 +16,8 @@
 
 /// General body text (apply to body tag)
 @mixin oTypographyBody {
+	@include oTypographySans(m);
 	@include oColorsFor(body, text);
-	font: 18px/1.4 Georgia, serif;
 	margin: 0.3em 0 0.8em;
 }
 
@@ -44,15 +44,4 @@
 /// Styles for <ul> tags
 @mixin oTypographyListUnordered {
 	list-style-type: disc;
-}
-
-/// Style for <footer> tags
-@mixin oTypographyFooter {
-	@include oTypographySansData(m);
-}
-
-/// Style for <blockquote> tags
-@mixin oTypographyBlockquote {
-	@include oTypographySerifDisplay(m);
-	@include oColorsFor(o-typography-aside-text, text);
 }
