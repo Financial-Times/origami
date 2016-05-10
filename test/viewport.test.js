@@ -1,8 +1,11 @@
 /*global describe, it, before, after*/
 
 const expect = require('expect.js');
+import sinon from 'imports?define=>false,require=>false!sinon/pkg/sinon.js';
+
 
 const oViewport = require('./../main.js');
+const utils = require('./../src/utils.js');
 
 function isPhantom() {
 	return /PhantomJS/.test(navigator.userAgent);
@@ -78,6 +81,33 @@ describe('o-viewport', function() {
 		const viewportSize = oViewport.getSize();
 		expect(typeof viewportSize.width).to.be('number');
 		expect(typeof viewportSize.height).to.be('number');
+	});
+
+	it('should pass the flag to get width of the viewport without srollbars', function() {
+		let widthSpy = sinon.spy(utils, 'getWidth');
+		let heightSpy = sinon.spy(utils, 'getHeight');
+
+		const viewportSizeNoScrollbars = oViewport.getSize(true);
+		expect(typeof viewportSizeNoScrollbars.width).to.be('number');
+		expect(typeof viewportSizeNoScrollbars.height).to.be('number');
+		expect(widthSpy.calledWith(true)).to.be(true);
+		expect(heightSpy.calledWith(true)).to.be(true);
+		expect(widthSpy.calledWith(undefined)).to.be(false);
+		expect(heightSpy.calledWith(undefined)).to.be(false)
+		expect(widthSpy.callCount).to.be(1);
+		expect(heightSpy.callCount).to.be(1);
+
+		const viewportSize = oViewport.getSize();
+		expect(typeof viewportSize.width).to.be('number');
+		expect(typeof viewportSize.height).to.be('number');
+		expect(widthSpy.calledWith(undefined)).to.be(true);
+		expect(heightSpy.calledWith(undefined)).to.be(true)
+		expect(widthSpy.callCount).to.be(2);
+		expect(heightSpy.callCount).to.be(2);
+
+
+		widthSpy.restore();
+		heightSpy.restore();
 	});
 
 	it('should get the orientation of the viewport', function() {
