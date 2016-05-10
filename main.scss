@@ -7,15 +7,18 @@
 @import 'o-hoverable/main';
 @import 'o-fonts/main';
 
+@import "scss/color_use_cases";
 @import 'scss/helpers';
 @import 'scss/variables';
 @import 'scss/type_matrix';
 @import 'scss/progressive-font';
 
+@import 'scss/body_aside';
 @import 'scss/body_common';
 @import 'scss/body_general';
 @import 'scss/headings';
 
+@import 'scss/wrapped_aside';
 @import 'scss/wrapped_common';
 @import 'scss/wrapped_general';
 
@@ -37,6 +40,12 @@
 	}
 	.o-typography-heading5 {
 		@include oTypographyHeading5;
+	}
+	.o-typography-subhead {
+		@include oTypographySubhead;
+	}
+	.o-typography-subhead--crosshead {
+		@include oTypographySubheadCrosshead;
 	}
 
 	// Body copy - common
@@ -84,10 +93,45 @@
 	.o-typography-list--unordered {
 		@include oTypographyListUnordered;
 	}
+	.o-typography-footer {
+		@include oTypographyFooter;
+	}
+	.o-typography-blockquote {
+		@include oTypographyBlockquote;
+	}
+	.o-typography-big-number {
+		@include oTypographyBigNumber;
+	}
+	.o-typography-aside__title {
+		@include oTypographyAsideTitle;
+	}
+	.o-typography-aside__title--large {
+		@include oTypographyAsideTitleLarge;
+	}
+	.o-typography-aside__headline {
+		@include oTypographyAsideHeadline;
+	}
+	.o-typography-aside__headline--small {
+		@include oTypographyAsideHeadlineSmall;
+	}
+	.o-typography-aside__headline--large {
+		@include oTypographyAsideHeadlineLarge;
+	}
+	.o-typography-aside__body {
+		@include oTypographyAsideBody;
+	}
+	.o-typography-aside__body--small {
+		@include oTypographyAsideBodySmall;
+	}
 
 	// Body wrapper
 	.o-typography-body-wrapper {
 		@include oTypographyBodyWrapper;
+	}
+
+	// Aside wrapper
+	.o-typography-aside-wrapper {
+		@include oTypographyAsideWrapper;
 	}
 
 	// Don't output twice

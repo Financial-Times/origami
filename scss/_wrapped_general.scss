@@ -10,18 +10,19 @@
 /// article { @include oTypographyBodyWrapper; }
 @mixin oTypographyBodyWrapper {
 	h1 {
+		// Article headline
 		@include oTypographyHeading1;
 	}
-
 	h2 {
-		@include oTypographyHeading2;
+		// In article body subheads
+		@include oTypographySubhead;
 	}
-
 	h3 {
+		// Headings for complementary sections / asides
 		@include oTypographyHeading3;
 	}
-
 	h4 {
+		// Headlines for other articles referenced
 		@include oTypographyHeading4;
 	}
 
@@ -37,6 +38,23 @@
 	ol,
 	ul {
 		@include oTypographyList;
+	}
+
+	footer {
+		@include oTypographyFooter;
+	}
+
+	blockquote {
+		p {
+			@include oTypographyBlockquote;
+		}
+		footer {
+			@include oTypographyBold;
+		}
+	}
+
+	aside {
+		@include oTypographyAsideWrapper;
 	}
 
 	@include oTypographyCommonWrappedBodyStyles;
