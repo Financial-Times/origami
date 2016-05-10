@@ -1054,6 +1054,7 @@
 			.fyre-editor-locked {
 				@include oIconsGetIcon('padlock', oColorsGetPaletteColor("grey-tint4"), 15);
 
+				vertical-align: inherit;
 				margin-right: 0;
 			}
 		}
