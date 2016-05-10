@@ -1052,7 +1052,8 @@
 			height: auto;
 
 			.fyre-editor-locked {
-				background-image: url(oAssetsResolve('src/images/comment_locked.png', o-comment-ui));
+				@include oIconsGetIcon('padlock', oColorsGetPaletteColor("grey-tint4"), 15);
+
 				margin-right: 0;
 			}
 		}
