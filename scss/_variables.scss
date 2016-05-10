@@ -12,3 +12,10 @@ $o-icons-is-silent: true !default;
 ///
 /// @type Bool
 $o-icons-use-local-assets: false !default;
+
+
+/// Option to change the base of the image service url, i.e. `/v1/images/raw/...`
+/// will be appended to this
+///
+/// @type String
+$o-icons-service-base-url: "https://image.webservices.ft.com" !default;

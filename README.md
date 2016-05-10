@@ -78,6 +78,14 @@ The [responsive image service](https://image.webservices.ft.com/) helps serving 
 }
 ```
 
+The 'base' of the service url can be set with the `$o-icons-service-base-url` variable. e.g. setting
+
+```
+$o-icons-service-base-url: "https://my.image.service/foo";
+```
+
+will output an image service url in the format `https://my.image.service/foo/v1/images/raw/...`.
+
 There's also a separate mixin to output just the base styles for an icon:
 
 ```scss
@@ -125,7 +133,7 @@ element {
 
 1. Clone the repository and install dependencies:
 
-		git clone https://github.com/Financial-Times/o-icons.git 
+		git clone https://github.com/Financial-Times/o-icons.git
 		cd o-icons
 		obt install
 
