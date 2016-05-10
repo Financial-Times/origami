@@ -55,25 +55,25 @@
 
 		// Masthead
 		.o-header__masthead > a {
-			@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header--light, text), 336, $apply-base-styles: false);
+			@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header--light, text), 336, $apply-base-styles: false);
 		}
 
 		.o-header__masthead-mobile > a {
-			@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header--light, text), 138, $apply-base-styles: false);
+			@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header--light, text), 138, $apply-base-styles: false);
 
 			@include oGridRespondTo(S) {
-				@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header--light, text), 265, $apply-base-styles: false);
+				@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header--light, text), 265, $apply-base-styles: false);
 			}
 		}
 
 		// Search
 		.o-header__search-toggle {
 			&:after {
-				@include oFtIconsGetSvg(search, oColorsGetColorFor(o-header--light, text), 20, $apply-base-styles: false);
+				@include oIconsGetIcon(search, oColorsGetColorFor(o-header--light, text), 20, $apply-base-styles: false);
 			}
 
 			&[aria-pressed=true]:after {
-				@include oFtIconsGetSvg(cross, oColorsGetColorFor(o-header--light, text), 20, $apply-base-styles: false);
+				@include oIconsGetIcon(cross, oColorsGetColorFor(o-header--light, text), 20, $apply-base-styles: false);
 			}
 		}
 
@@ -85,7 +85,7 @@
 			@include oColorsFor(o-header--light, background);
 
 			span {
-				@include oFtIconsGetSvg(search, oColorsGetColorFor(o-header--light, text), 20, $apply-base-styles: false);
+				@include oIconsGetIcon(search, oColorsGetColorFor(o-header--light, text), 20, $apply-base-styles: false);
 			}
 		}
 
@@ -97,7 +97,7 @@
 			@include oColorsFor(o-header--light, background text);
 
 			&:after {
-				@include oFtIconsGetSvg(arrow-right, oColorsGetColorFor(o-header--light, text), 14, $apply-base-styles: false);
+				@include oIconsGetIcon(arrow-right, oColorsGetColorFor(o-header--light, text), 14, $apply-base-styles: false);
 			}
 		}
 
@@ -121,11 +121,11 @@
 		}
 
 		.o-header__nav-link--toggle:before {
-			@include oFtIconsGetSvg(hamburger, oColorsGetColorFor(o-header--light, text), 20, $apply-base-styles: false);
+			@include oIconsGetIcon(hamburger, oColorsGetColorFor(o-header--light, text), 20, $apply-base-styles: false);
 		}
 
 		.o-header__nav-link--toggle[aria-pressed=true]:before {
-			@include oFtIconsGetSvg(cross, oColorsGetColorFor(o-header--light, text), 20, $apply-base-styles: false);
+			@include oIconsGetIcon(cross, oColorsGetColorFor(o-header--light, text), 20, $apply-base-styles: false);
 		}
 
 		.o-header__meganav-toggle--open {

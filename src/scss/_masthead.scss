@@ -15,7 +15,7 @@
 
 		> a {
 			@include oHeaderLogoLink;
-			@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header, text), 337);
+			@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header, text), 337);
 			display: block;
 			margin: 17px auto;
 			height: 28px;
@@ -40,13 +40,13 @@
 
 		> a {
 			@include oHeaderLogoLink;
-			@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header, text), 138);
+			@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header, text), 138);
 			display: block;
 			height: 11px;
 			margin: 0 auto;
 
 			@include oGridRespondTo(S) {
-				@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header, text), 262);
+				@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header, text), 262);
 				display: block;
 				height: 22px;
 			}
