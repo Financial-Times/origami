@@ -23,9 +23,9 @@ Provides a reasonably reliable way (more so than `window.orientation`) of obtain
 Provides a reasonably reliable way of obtaining the current visibility of the viewport.
 
 ### `o-viewport#getSize(ignoreScrollbars)`
-Provides a reliable way of obtaining the current dimensions of the browser window. returns an object with the properties `width` and `height`.
+Provides a reliable way of obtaining the current dimensions of the browser window. Returns an object with the properties `width` and `height`.
 
-By default or if no parameters are passed the method will return the size of the viewport inclusive of the scrollbars. However in certain vases (e.g. adverts) you may want to get the size of the viewport without the scroll bars. In such case pass `true` to the method in order to ignore the scrollbars.
+By default or if no parameters are passed the method will return the size of the viewport inclusive of the scrollbars. However in certain cases (e.g. adverts) you may want to get the size of the viewport without the scroll bars. In such case pass `true` to the method in order to ignore the scrollbars.
 
 
 ### `o-viewport#getScrollPosition()`
