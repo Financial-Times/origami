@@ -22,7 +22,7 @@ Sans or SansBold are the common fonts for the site. SansData, SansDataBold and S
 <th>Sans</th>
 <th>SansBold</th>
 <th>SansData</th>
-<th>SansDataBold</th>
+<th>SansDataBlod</th>
 <th>SansDataItalic</th>
 </tr>
 </thead><tbody>
@@ -195,8 +195,8 @@ The classes do not depend on any specific HTML element, but appropriate semantic
 
 See the [demos](http://registry.origami.ft.com/components/o-typography) for a full list of the classes provided and their effects.
 
-#### Wrappers
-In addition to applying classes individual to elements, body styles can be applied to an HTML element and descendent `h2, h3, h4, p, a, blockquote, footer, aside, strong, em, small, sup, sub, ul, ol, li` elements will have typographic styling applied.
+#### Wrapper
+In addition to applying classes individual to elements, body styles can be applied to an HTML element and descendent `h2, h3, p, a, strong, em, small, sup, sub, ul, ol, li` elements will have styling applied.
 
 ```html
 <div class="o-typography-body-wrapper">
@@ -206,20 +206,6 @@ In addition to applying classes individual to elements, body styles can be appli
 	<p>Body block with <em>styled inline text</em>.</p>
 </div>
 ```
-
-```html
-<aside class="o-typography-aside-wrapper">
-	<h3>Aside Title</h3>
-	<article>
-		<h4><a>Example Headline</a></h4>
-	</article>
-	<div>
-		<p>Some explanatory text would go here</p>
-	</div>
-</aside>
-```
-
-More detailed examples of the wrappers can be found in the demos.
 
 Pre-defined classes are not available to module developers. Module developers are required to use the mixins.
 
@@ -231,18 +217,18 @@ If you don't want to include the pre-defined classes in your HTML (or are a modu
 
 The font system is a matrix which defines small building blocks that can used as a base for typographic elements. Having a small subset of sizes and styles allows for greater consistency.
 
-Type name					| Standard mixin																	| Size/Line-height only mixin
+Type name          | Standard mixin                                  | Size/Line-height only mixin
 -------------------| ----------------------------------------------- | -----------------------------------
-Sans							 | `@include oTypographySans([xl-xs])`							 | `@include oTypographySansSize([xl-xs])`
-SansBold					 | `@include oTypographySansBold([xl-xs])`					 | `@include oTypographySansBoldSize([xl-xs])`
-SansData					 | `@include oTypographySansData([xl-xs])`					 | `@include oTypographySansDataSize([xl-xs])`
-SansDataBold			 | `@include oTypographySansDataBold([xl-xs])`			 | `@include oTypographySansDataBoldSize([xl-xs])`
-SansDataItalic		 | `@include oTypographySansDataItalic([xl-xs])`		 | `@include oTypographySansDataItalicSize([xl-xs])`
-Serif							| `@include oTypographySerif([xl-xs])`							| `@include oTypographySerifSize([xl-xs])`
-SerifBold					| `@include oTypographySerifBold([xl-xs])`					| `@include oTypographySerifBoldSize([xl-xs])`
-SerifItalic				| `@include oTypographySerifItalic([xl-xs])`				| `@include oTypographySerifItalicSize([xl-xs])`
-SerifDisplay			 | `@include oTypographySerifDisplay([xl-xs])`			 | `@include oTypographySerifDisplaySize([xl-xs])`
-SerifDisplayBold	 | `@include oTypographySerifDisplayBold([xl-xs])`	 | `@include oTypographySerifDisplayBoldSize([xl-xs])`
+Sans               | `@include oTypographySans([xl-xs])`               | `@include oTypographySansSize([xl-xs])`
+SansBold           | `@include oTypographySansBold([xl-xs])`           | `@include oTypographySansBoldSize([xl-xs])`
+SansData           | `@include oTypographySansData([xl-xs])`           | `@include oTypographySansDataSize([xl-xs])`
+SansDataBold       | `@include oTypographySansDataBold([xl-xs])`       | `@include oTypographySansDataBoldSize([xl-xs])`
+SansDataItalic     | `@include oTypographySansDataItalic([xl-xs])`     | `@include oTypographySansDataItalicSize([xl-xs])`
+Serif              | `@include oTypographySerif([xl-xs])`              | `@include oTypographySerifSize([xl-xs])`
+SerifBold          | `@include oTypographySerifBold([xl-xs])`          | `@include oTypographySerifBoldSize([xl-xs])`
+SerifItalic        | `@include oTypographySerifItalic([xl-xs])`        | `@include oTypographySerifItalicSize([xl-xs])`
+SerifDisplay       | `@include oTypographySerifDisplay([xl-xs])`       | `@include oTypographySerifDisplaySize([xl-xs])`
+SerifDisplayBold   | `@include oTypographySerifDisplayBold([xl-xs])`   | `@include oTypographySerifDisplayBoldSize([xl-xs])`
 SerifDisplayItalic | `@include oTypographySerifDisplayItalic([xl-xs])` | `@include oTypographySerifDisplayItalicSize([xl-xs])`
 
 Example, using the font system in Sass
@@ -304,11 +290,11 @@ One of the drawbacks of using web fonts is some browsers hide the text while the
 
 ```
 .text {
-	font-family: serif;
+    font-family: serif;
 }
 
 .font-loaded-serif .text {
-	font-family: FinancierDisplayWeb,serif;
+    font-family: FinancierDisplayWeb,serif;
 }
 ```
 
@@ -324,14 +310,14 @@ A further thing to note is the fallback fonts are generally of a different size 
 
 ```
 .text {
-	font-family: serif;
-	font-size: 18px;
-	line-height: 24px;
+    font-family: serif;
+    font-size: 18px;
+    line-height: 24px;
 }
 
 .font-loaded-serif .text {
-	font-family: FinancierDisplayWeb,serif;
-	font-size: 20px
+    font-family: FinancierDisplayWeb,serif;
+    font-size: 20px
 }
 ```
 
@@ -345,11 +331,11 @@ $o-typography-progressive-fonts: sansData, serifDisplay;
 $o-typography-loaded-prefix: 'loaded-font';
 
 .foo {
-	@include oTypographySansData(m, $load-progressively: true);
+    @include oTypographySansData(m, $load-progressively: true);
 }
 
 .bar {
-	@include oTypographySerifDisplayItalic(m, $load-progressively: true);
+    @include oTypographySerifDisplayItalic(m, $load-progressively: true);
 }
 ```
 
@@ -357,23 +343,23 @@ compiles to
 
 ```
 .foo {
-	font-family: sans-serif;
-	font-size: 12.18px;
-	line-height: 16px;
-	font-weight: 400;
+    font-family: sans-serif;
+    font-size: 12.18px;
+    line-height: 16px;
+    font-weight: 400;
 }
 
 .loaded-font-sansData .foo {
-	font-family: MetricWeb,sans-serif;
-	font-size: 14px;
+    font-family: MetricWeb,sans-serif;
+    font-size: 14px;
 }
 
 .bar {
-	font-family: FinancierDisplayWeb,serif;
-	font-size: 20px;
-	line-height: 22px;
-	font-style: italic;
-	font-weight: 200;
+    font-family: FinancierDisplayWeb,serif;
+    font-size: 20px;
+    line-height: 22px;
+    font-style: italic;
+    font-weight: 200;
 }
 ```
 
