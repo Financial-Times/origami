@@ -49,7 +49,7 @@
 		font-family: $o-typography-sans;
 		@include oTypographySansSize($level);
 	}
-	font-weight: oFontsWeight(light);
+	font-weight: oFontsWeight(regular);
 }
 
 ///
