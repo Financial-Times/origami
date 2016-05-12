@@ -1,0 +1,34 @@
+////
+/// @group Use cases
+/// @link http://registry.origami.ft.com/components/o-typography
+////
+
+/// Aside typography
+/// Apply to an aside wrapper to style all text inside it
+///
+/// @example scss
+/// article { @include oTypographyAsideWrapper; }
+@mixin oTypographyAsideWrapper {
+	h3 {
+		@include oTypographyAsideTitle;
+	}
+	h4 {
+		@include oTypographyAsideHeadline;
+	}
+	div {
+		p {
+			@include oTypographyAsideBody;
+		}
+	}
+	footer {
+		@include oTypographyBold;
+	}
+	blockquote {
+		p {
+			@include oTypographyBlockquote;
+		}
+	}
+	p {
+		margin: 5px 0 0;
+	}
+}

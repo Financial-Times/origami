@@ -1,0 +1,80 @@
+/// Style for big-numbers
+@mixin oTypographyBigNumber {
+	@include oTypographySerifDisplay(xl);
+	@include oTypographyBold;
+	@include oColorsFor(o-typography-aside-text, text);
+	font-size: 3em;
+	line-height: 1em;
+}
+
+// Helper mixin to DRY out variants
+@mixin oTypographyAsideTitleBase {
+	@include oTypographyBold;
+	@include oColorsFor(o-typography-aside-text, text);
+	a {
+		@include oColorsFor(o-typography-aside-text, text);
+		border-bottom: 0;
+		text-decoration: none;
+	}
+}
+
+
+/// Style for <aside> title
+@mixin oTypographyAsideTitle {
+	@include oTypographyAsideTitleBase;
+	@include oTypographyHeading3;
+}
+
+/// Style for <aside> title large variant
+@mixin oTypographyAsideTitleLarge {
+	@include oTypographyAsideTitleBase;
+	@include oTypographyHeading2;
+}
+
+// Helper mixin to DRY out variants
+@mixin oTypographyAsideHeadlineBase {
+	@include oColorsFor(o-typography-aside-text, text);
+	word-wrap: break-word;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	p {
+		margin: 0;
+	}
+}
+
+/// Style for <aside> headline
+@mixin oTypographyAsideHeadline {
+	@include oTypographyAsideHeadlineBase;
+	@include oTypographySerifDisplay(m);
+	font-size: 26px;
+	line-height: 27px;
+}
+
+/// Style for <aside> headline small variant
+@mixin oTypographyAsideHeadlineSmall {
+	@include oTypographyAsideHeadlineBase;
+	@include oTypographySerifDisplay(m);
+}
+
+/// Style for <aside> headline large variant
+@mixin oTypographyAsideHeadlineLarge {
+	@include oTypographyAsideHeadlineBase;
+	@include oTypographySerifDisplay(m);
+	font-size: 30px;
+	line-height: 31px;
+}
+
+///Style for <aside> body (<p>)
+@mixin oTypographyAsideBody {
+	@include oColorsFor(o-typography-aside-text, text);
+	font-size: 18px;
+	line-height: 20px;
+	margin: 5px 0 0;
+}
+
+///Style for <aside> body (<p>) small varaint
+@mixin oTypographyAsideBodySmall {
+	@include oTypographySansData(m);
+	@include oColorsFor(o-typography-aside-text, text);
+	margin: 5px 0 0;
+}
