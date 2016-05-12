@@ -14,6 +14,7 @@
 
 /// Base overlay close style
 @mixin oOverlayClose {
+	@include _oOverlayCloseIcon(oColorsGetColorFor(o-overlay-close, text));
 	box-sizing: content-box;
 	float: right;
 	position: relative;
@@ -30,7 +31,6 @@
 	font-size: 8px;
 	line-height: 1;
 	user-select: none;
-	color: oColorsGetColorFor(o-overlay-close, text);
 	border: 1px solid oColorsGetColorFor(o-overlay-close, border);
 	background-color: oColorsGetColorFor(o-overlay-close, background);
 	outline: none; // Remove focus ring (focus state is set below)
@@ -45,17 +45,39 @@
 		bottom: -10px;
 	}
 
+	// Preload the hover-state cross preventing FOIC by putting it as a background
+	// for the :beforepsuedo element
+	&:before {
+		@include _oOverlayCloseIcon(oColorsGetColorFor(o-overlay-close-shaded, text));
+		content: '';
+	}
+
 	&:focus,
 	#{$o-hoverable-if-hover-enabled} &:hover {
+		@include _oOverlayCloseIcon(oColorsGetColorFor(o-overlay-close-shaded, text));
 		background: oColorsGetColorFor(o-overlay-close-shaded, background);
-		color: oColorsGetColorFor(o-overlay-close-shaded, text);
-
-		> span:after,
-		> span:before {
-			background-color: oColorsGetColorFor(o-overlay-close-shaded, text);
-			border-color: oColorsGetColorFor(o-overlay-close-shaded, text);
-		}
 	}
+}
+
+/// Base overlay close icon style
+// To avoid introducing a dependency on o-icons, which would make this a major
+// release, this code uses nearly the same code as found in o-icons'
+// oFtIconsGetSvg mixin. When a major release is due, this should also be updated
+// to use the o-icons dependency
+@mixin _oOverlayCloseIcon($color) {
+	$service-url: "https://image.webservices.ft.com/v1/images/raw/fticon:cross-disk";
+	$query: "?source=ooverlay";
+
+	$color: str-slice(ie-hex-str($color), 4);
+	$query: $query + "&tint=%23#{$color},%23#{$color}";
+
+
+	background-image: url($service-url + $query + "&format=svg");
+
+	// ie7/8 fallback. Uses the `\9` selector hack to target ie6-8.
+	// Hack is documented here: http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
+	background-image: url($service-url + $query + "&format=png&width=20")\9;
+	background-size: contain;
 }
 
 /// Base overlay close icon style

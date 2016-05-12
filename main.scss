@@ -56,10 +56,6 @@
 		@include oOverlayClose;
 	}
 
-	.#{$classname}__close-icon {
-		@include oOverlayCloseIcon;
-	}
-
 	.#{$classname}__heading--shaded {
 		@include oOverlayHeadingShaded;
 
