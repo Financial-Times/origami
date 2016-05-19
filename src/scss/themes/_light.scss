@@ -55,14 +55,14 @@
 
 		// Masthead
 		.o-header__masthead > a {
-			@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header--light, text), 336, $apply-base-styles: false);
+			@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header--light, text), 336, 28, $apply-base-styles: false);
 		}
 
 		.o-header__masthead-mobile > a {
-			@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header--light, text), 138, $apply-base-styles: false);
+			@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header--light, text), 138, 11, $apply-base-styles: false);
 
 			@include oGridRespondTo(S) {
-				@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header--light, text), 265, $apply-base-styles: false);
+				@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header--light, text), 265, 22, $apply-base-styles: false);
 			}
 		}
 
