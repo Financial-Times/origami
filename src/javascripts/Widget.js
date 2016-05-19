@@ -70,6 +70,8 @@ function Widget () {
 	 */
 	this.config.livefyre.disableThirdPartyAnalytics = typeof this.config.livefyre.disableThirdPartyAnalytics === 'boolean' ? this.config.livefyre.disableThirdPartyAnalytics : true;
 
+	this.config.livefyre.replyShowMoreInitial = this.config.livefyre.replyShowMoreInitial ? parseInt(this.config.livefyre.replyShowMoreInitial, 10) : 3;
+
 
 	if (this.getWidgetEl().className.indexOf('o-comments') === -1) {
 		this.getWidgetEl().className += ' o-comments';
