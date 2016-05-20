@@ -7,6 +7,16 @@
 /// @type Bool
 $o-typography-is-silent: true !default;
 
+
+////
+/// @group o-typography
+/// @link http://registry.origami.ft.com/components/o-typography
+////
+
+/// When true, webfonts will be downloaded
+/// @type Bool
+$o-typography-load-fonts: true !default;
+
 // serifDisplayBoldItalic is deprecated and will be removed
 $o-typography-font-scale: (
 	sans: (

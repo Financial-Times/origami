@@ -290,6 +290,15 @@ $o-typography-is-silent: false;
 @import 'o-typography/main';
 ```
 
+By default, when unsilenced, o-typography will download a number of webfonts. To suppress this use `$o-typography-load-fonts`
+
+```scss
+$o-typography-is-silent: false;
+$o-typography-load-fonts: false;
+
+@import 'o-typography/main';
+```
+
 ### Web fonts
 
 When running in silent mode, o-typography does not load web fonts, products should load web fonts themselves. **Load FT's custom web fonts using [o-fonts](https://github.com/financial-times/o-fonts).**
