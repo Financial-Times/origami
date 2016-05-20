@@ -11,5 +11,8 @@
 		"optional": [
 			"matchmedia"
 		]
+	},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-viewport"
 	}
 }

@@ -93,7 +93,7 @@ describe('o-viewport', function() {
 		expect(widthSpy.calledWith(true)).to.be(true);
 		expect(heightSpy.calledWith(true)).to.be(true);
 		expect(widthSpy.calledWith(undefined)).to.be(false);
-		expect(heightSpy.calledWith(undefined)).to.be(false)
+		expect(heightSpy.calledWith(undefined)).to.be(false);
 		expect(widthSpy.callCount).to.be(1);
 		expect(heightSpy.callCount).to.be(1);
 
@@ -101,7 +101,7 @@ describe('o-viewport', function() {
 		expect(typeof viewportSize.width).to.be('number');
 		expect(typeof viewportSize.height).to.be('number');
 		expect(widthSpy.calledWith(undefined)).to.be(true);
-		expect(heightSpy.calledWith(undefined)).to.be(true)
+		expect(heightSpy.calledWith(undefined)).to.be(true);
 		expect(widthSpy.callCount).to.be(2);
 		expect(heightSpy.callCount).to.be(2);
 
