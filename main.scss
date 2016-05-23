@@ -64,7 +64,7 @@ $next-sass-setup-is-silent: false !default;
 
 .n-notification__close {
 	@include nextIcon(
-	$icon-name: cross_disk,
+	$icon-name: cross-disk,
 	$size: 20,
 	$color: getColor('cold-2')
 	);
@@ -98,7 +98,7 @@ $next-sass-setup-is-silent: false !default;
 	}
 	.n-notification__close {
 		@include nextIcon(
-		$icon-name: cross_disk,
+		$icon-name: cross-disk,
 		$size: 20,
 		$color: getColor('white')
 		);
