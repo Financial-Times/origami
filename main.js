@@ -1,7 +1,7 @@
 // let debug;
 const utils = require('./src/utils');
-const throttle = require('lodash/function/throttle');
-const debounce = require('lodash/function/debounce');
+const throttle = utils.throttle;
+const debounce = utils.debounce;
 
 const listeners = {};
 const intervals = {
