@@ -24,7 +24,7 @@
 		}
 
 		&:after {
-			@include oFtIconsGetSvg(search, oColorsGetColorFor(o-header, text), 20);
+			@include oIconsGetIcon(search, oColorsGetColorFor(o-header, text), 20);
 			content: '';
 
 			@include oGridRespondTo($until: M) {
@@ -33,7 +33,7 @@
 		}
 
 		&[aria-pressed=true]:after {
-			@include oFtIconsGetSvg(cross, oColorsGetColorFor(o-header, text), 20);
+			@include oIconsGetIcon(cross, oColorsGetColorFor(o-header, text), 20);
 		}
 	}
 
@@ -116,7 +116,7 @@
 		}
 
 		span {
-			@include oFtIconsGetSvg(search, oColorsGetColorFor(o-header, text), 20);
+			@include oIconsGetIcon(search, oColorsGetColorFor(o-header, text), 20);
 			display: block;
 			margin: 8px 8px 8px 14px;
 			background-position: center;

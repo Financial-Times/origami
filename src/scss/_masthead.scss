@@ -15,10 +15,9 @@
 
 		> a {
 			@include oHeaderLogoLink;
-			@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header, text), 337);
+			@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header, text), 337, 28);
 			display: block;
 			margin: 17px auto;
-			height: 28px;
 		}
 	}
 
@@ -40,15 +39,13 @@
 
 		> a {
 			@include oHeaderLogoLink;
-			@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header, text), 138);
+			@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header, text), 138, 11);
 			display: block;
-			height: 11px;
 			margin: 0 auto;
 
 			@include oGridRespondTo(S) {
-				@include oFtIconsGetSvg(brand-ft-masthead, oColorsGetColorFor(o-header, text), 262);
+				@include oIconsGetIcon(brand-ft-masthead, oColorsGetColorFor(o-header, text), 262, 22);
 				display: block;
-				height: 22px;
 			}
 		}
 	}
