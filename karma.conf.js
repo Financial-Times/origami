@@ -74,9 +74,6 @@ module.exports = function(config) {
 							'imports?define=>false'
 						]
 					}
-				],
-				noParse: [
-					/\/sinon\.js/,
 				]
 			},
 			resolve: {
