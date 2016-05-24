@@ -43,7 +43,13 @@
 			"name": "hamburger"
 		},
 		{
+			"name": "ipad-portrait"
+		},
+		{
 			"name": "minus"
+		},
+		{
+			"name": "newspaper"
 		},
 		{
 			"name": "padlock"
@@ -68,6 +74,12 @@
 		},
 		{
 			"name": "search"
+		},
+		{
+			"name": "section-business-life"
+		},
+		{
+			"name": "section-magazine",
 		},
 		{
 			"name": "settings"
