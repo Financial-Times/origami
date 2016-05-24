@@ -33,6 +33,14 @@ describe('o-viewport utils', function () {
 		clock.tick(1);
 		expect(callback.callCount).to.be(1);
 
+		throttled();
+
+		clock.tick(99);
+		expect(callback.callCount).to.be(1);
+
+		clock.tick(1);
+		expect(callback.callCount).to.be(2);
+
 		done();
 	});
 
