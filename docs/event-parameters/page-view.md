@@ -120,6 +120,9 @@ Asset type is meant to describe the main purpose of the page, for example "story
 - `epaper` - all epaper pages
 - `rankings` - A rankings page for schools and courses (i.e. on rankings.ft.com). Not the section's hub page
 - `markets` - Any market, bond, commoditity, stock, currency 'tearsheet' (usually has "/tearsheet/" in URL)
+- `myft` - All MyFT pages
+- `account` - All account pages
+- `membership` - All membership pages
 - `page` - anything else, not above.
 
 If using o-tracking, it's usually sent with each page. e.g.
