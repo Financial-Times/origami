@@ -12,22 +12,19 @@
 
 /// Add to the close icon for a shaded overlay
 @mixin oOverlayHeadingShadedClose {
+	@include _oOverlayCloseIcon(oColorsGetColorFor(o-overlay-close-shaded, text));
 	@include oColorsFor(o-overlay-close-shaded);
 
-	> span:after,
-	> span:before {
-		background-color: oColorsGetColorFor(o-overlay-close-shaded, text);
-		border-color: oColorsGetColorFor(o-overlay-close-shaded, text);
+	// Preload the hover-state cross preventing FOIC by putting it as a background
+	// for the :before psuedo element
+	&:before {
+		@include _oOverlayCloseIcon(oColorsGetColorFor(o-overlay-close, text));
+		content: '';
 	}
 
+	&:focus,
 	#{$o-hoverable-if-hover-enabled} &:hover {
-		background: oColorsGetColorFor(o-overlay-close, background);
-		color: oColorsGetColorFor(o-overlay-close, text);
-
-		> span:after,
-		> span:before {
-			background-color: oColorsGetColorFor(o-overlay-close, text);
-			border-color: oColorsGetColorFor(o-overlay-close, text);
-		}
+		@include _oOverlayCloseIcon(oColorsGetColorFor(o-overlay-close, text));
+		background-color: oColorsGetColorFor(o-overlay-close, background);
 	}
 }
