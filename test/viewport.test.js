@@ -26,20 +26,13 @@ describe('o-viewport utils', function () {
 		const throttled = utils.throttle(callback, 100);
 
 		throttled();
+		throttled();
 
 		clock.tick(99);
 		expect(callback.callCount).to.be(0);
 
 		clock.tick(1);
 		expect(callback.callCount).to.be(1);
-
-		throttled();
-
-		clock.tick(99);
-		expect(callback.callCount).to.be(1);
-
-		clock.tick(1);
-		expect(callback.callCount).to.be(2);
 
 		done();
 	});
