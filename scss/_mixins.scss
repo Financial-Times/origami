@@ -10,8 +10,8 @@
 /// @param {String} $container-width - this is the width to set the icon containing element to. Defaults to 20px. This value is also used to request a PNG fallback of the right size from the image service.
 /// @param {String} $container-height - this is the height to set the icon containing element to. Defaults to null, and will use the value of $container-width
 /// @param {Bool} $apply-base-styles - defaults to true. If true, will output style rules for the container. If false will only output the background-image property
-/// @param {Bool} $use-local-assets - defaults to true, if true will look for the SVGs to use locally rather than via the image service. Doesn't apply to the fallback which will always be requested from the image service.
-@mixin oIconsGetIcon($icon-name, $color: null, $container-width: 128, $container-height: null, $apply-base-styles: true) {
+/// @param {Bool} $apply-width-height - defaults to true. If true, will output the styles for the container width and height.
+@mixin oIconsGetIcon($icon-name, $color: null, $container-width: 128, $container-height: null, $apply-base-styles: true, $apply-width-height: true) {
 	$service-url: $o-icons-service-base-url + "/v1/images/raw/fticon:#{$icon-name}";
 	$query: "?source=o-icons";
 
@@ -31,11 +31,16 @@
 	// It still needs to use the build service  <-- what does this comment mean?
 	background-image: url($service-url + $query + "&format=png&width=#{$container-width}")\9;
 
-	width: $container-width + 0px;
-	@if ($container-height == null) {
-		$container-height: $container-width;
+	// Prevents dimension styles being output by default.
+	// Resolves issue where previous component `o-ft-icons` the mixin this replaces,
+	// dimension styles were included within the $apply-base-styles block as well.
+	@if ($apply-width-height == true) {
+		width: $container-width + 0px;
+		@if ($container-height == null) {
+			$container-height: $container-width;
+		}
+		height: $container-height + 0px;
 	}
-	height: $container-height + 0px;
 
 	@if ($apply-base-styles == true) {
 		@include oIconsBaseStyles;
