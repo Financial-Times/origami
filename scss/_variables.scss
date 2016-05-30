@@ -7,6 +7,10 @@
 /// @type Bool
 $o-typography-is-silent: true !default;
 
+/// When true, webfonts will be downloaded
+/// @type Bool
+$o-typography-load-fonts: true !default;
+
 // serifDisplayBoldItalic is deprecated and will be removed
 $o-typography-font-scale: (
 	sans: (

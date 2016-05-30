@@ -23,7 +23,10 @@
 @import 'scss/wrapped_general';
 
 @if $o-typography-is-silent == false {
-	@include oFontsIncludeAll();
+
+	@if $o-typography-load-fonts == true {
+		@include oFontsIncludeAll();
+	}
 
 	// Headings
 	.o-typography-heading1 {
