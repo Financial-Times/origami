@@ -26,6 +26,10 @@
 		.#{$classname}__caption--bottom {
 			@include oTableCaptionBottom;
 		}
+
+		.#{$classname}__cell--numeric {
+			@include oTableCellNumeric;
+		}
 	}
 	.#{$classname}--row-stripes {
 		@include oTableRowStripes;
