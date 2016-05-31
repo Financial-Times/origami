@@ -31,12 +31,12 @@
 			@include oTableCellNumeric;
 		}
 
-		.#{$classname}__cell--primary {
-			@include oTableCellPrimary;
+		.#{$classname}__cell--content-primary {
+			@include oTableCellContentPrimary;
 		}
 
-		.#{$classname}__cell--secondary {
-			@include oTableCellSecondary;
+		.#{$classname}__cell--content-secondary {
+			@include oTableCellContentSecondary;
 		}
 	}
 	.#{$classname}--row-stripes {

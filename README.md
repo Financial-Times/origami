@@ -25,29 +25,29 @@ Simply add an `o-table` class to any table you wish to apply the styles to:
 </table>
 ```
 
-Where a `td` contains numeric data, or a `th` is for cells containing numeric data, also add a `data-type="numeric"` attribute:
+Where a `td` contains numeric data, or a `th` is for cells containing numeric data, also add the class `.o-table__cell--numeric` and a `data-o-table-data-o-table-data-type="numeric"` attribute (the latter allows the column to be sorted correctly):
 
 ```html
 <table class="o-table">
 	<tr>
 		<th>Index</th>
-		<th data-type="numeric">Value</th>
+		<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Value</th>
 	</tr>
 	<tr>
 		<td>FTSE 100</td>
-		<td data-type="numeric">6685.52</td>
+		<td data-o-table-data-type="numeric" class="o-table__cell--numeric">6685.52</td>
 	</tr>
 	...
 </table>
 ```
 
-Where table headings (`th`) are used as row headings, ` scope="row"` attributes must be set on the `th`:
+Where table headings (`th`) are used as row headings, `scope="row"` attributes must be set on the `th`:
 
 ```html
 <table class="o-table">
 	<tr>
 		<th scope="row">FTSE 100</th>
-		<td data-type="numeric">6685.52</td>
+		<td data-o-table-data-type="numeric" class="o-table__cell--numeric">6685.52</td>
 	</tr>
 	...
 </table>
@@ -60,13 +60,13 @@ When they're are not present, browsers will implicitly wrap table contents in `t
 	<thead>
 		<tr>
 			<th>Index</th>
-			<th data-type="numeric">Value</th>
+			<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Value</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td>FTSE 100</td>
-			<td data-type="numeric">6685.52</td>
+			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">6685.52</td>
 		</tr>
 		...
 	</tbody>
@@ -120,6 +120,16 @@ If using __o-table__ in silent mode, use the mixin `oTableBase' in your table st
 
 Additional classes may be added to the table root element to also apply the following styling options. They can be combined as required.
 
+### Content styles
+
+Class: `o-table__cell--content-primary`, Mixin: `oTableCellContentPrimary`
+
+Add to an element containing text in your table cell to make the text larger type.
+
+Class: `o-table__cell--content-secondary`, Mixin: `oTableCellContentSecondary`
+
+
+
 ### Row stripes
 
 Class: `o-table--row-stripes`, Mixin: `oTableRowStripes`
@@ -155,7 +165,7 @@ const OTable = require('o-table');
 oTable = new OTable(document.body);
 ```
 
-Sorting numbers works if the column has been declared as a numeric column via `data-o-table-data-type="numeric"`.
+Sorting numbers works if the column has been declared as a numeric column via `data-o-table-data-o-table-data-type="numeric" class="o-table__cell--numeric"`.
 
 #### Sorting declaratively
 If you are wanting to sort by a custom pattern, you can apply the sorting values to each row as a data attribute:
