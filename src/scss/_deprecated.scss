@@ -1,3 +1,19 @@
-[data-o-table-data-type=numeric] {
-	@include oTableCellNumeric;
+@if ($o-table-is-silent == false) {
+	.o-table {
+
+		.primary-data {
+			@include oTypographySans(s);
+			display: block;
+		}
+
+		.secondary-data {
+			@include oTypographySans(xs);
+			display: block;
+		}
+
+		[data-o-table-data-type=numeric] {
+			@include oTableCellNumeric;
+		}
+	}
+
 }

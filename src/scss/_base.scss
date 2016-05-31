@@ -37,16 +37,6 @@
 		vertical-align: top;
 	}
 
-	.primary-data {
-		@include oTypographySans(s);
-		display: block;
-	}
-
-	.secondary-data {
-		@include oTypographySans(xs);
-		display: block;
-	}
-
 	th:not([scope=row]) {
 		vertical-align: bottom;
 	}

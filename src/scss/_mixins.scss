@@ -30,6 +30,14 @@
 		.#{$classname}__cell--numeric {
 			@include oTableCellNumeric;
 		}
+
+		.#{$classname}__cell--primary {
+			@include oTableCellPrimary;
+		}
+
+		.#{$classname}__cell--secondary {
+			@include oTableCellSecondary;
+		}
 	}
 	.#{$classname}--row-stripes {
 		@include oTableRowStripes;

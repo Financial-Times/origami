@@ -7,3 +7,15 @@
 @mixin oTableCellNumeric {
 	text-align: right;
 }
+
+///
+@mixin oTableCellPrimary {
+	@include oTypographySans(s);
+	display: block;
+}
+
+///
+@mixin oTableCellSecondary {
+	@include oTypographySans(xs);
+	display: block;
+}
