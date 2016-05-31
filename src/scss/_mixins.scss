@@ -27,6 +27,7 @@
 			@include oTableCaptionBottom;
 		}
 
+		[data-o-table-data-type=numeric], // Note: remove data styling for next major release.
 		.#{$classname}__cell--numeric {
 			@include oTableCellNumeric;
 		}
