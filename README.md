@@ -122,13 +122,9 @@ Additional classes may be added to the table root element to also apply the foll
 
 ### Content styles
 
-Class: `o-table__cell--content-primary`, Mixin: `oTableCellContentPrimary`
-
-Add to an element containing text in your table cell to make the text larger type.
-
 Class: `o-table__cell--content-secondary`, Mixin: `oTableCellContentSecondary`
 
-
+Reduce the size of some text in a cell and display block to start a new line. The class should be applied to a `<span>` or `<div>` element inside of the table cell.
 
 ### Row stripes
 

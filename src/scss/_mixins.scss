@@ -31,10 +31,6 @@
 			@include oTableCellNumeric;
 		}
 
-		.#{$classname}__cell--content-primary {
-			@include oTableCellContentPrimary;
-		}
-
 		.#{$classname}__cell--content-secondary {
 			@include oTableCellContentSecondary;
 		}

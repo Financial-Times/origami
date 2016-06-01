@@ -1,3 +1,8 @@
+/// Adds block to primary content of a cell
+@mixin oTableCellContentPrimary {
+	display: block;
+}
+
 @if ($o-table-is-silent == false) {
 	.o-table {
 
