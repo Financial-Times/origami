@@ -1,14 +1,9 @@
 $_n-video_applied: false !default;
 
+@import "o-icons/main";
+@import "o-colors/main";
+
 @if (not $_n-video_applied) {
-	@import "o-ft-icons/main";
-
-	// Load the webfont that contains all icons as glyphs
-	@include oFtIconsFontFace();
-
-	@import "o-colors/main";
-
-
 	.n-video--card {
 		position: relative;
 		cursor: pointer;
@@ -56,9 +51,8 @@ $_n-video_applied: false !default;
 		}
 
 		.n-video__play-button-icon {
-			@extend %o-ft-icons-icon--play;
-			@include oFtIconsBaseIconStyles();
-			color: oColorsGetPaletteColor('white');
+			@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 40);
+			@include oIconsBaseStyles;
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -66,11 +60,7 @@ $_n-video_applied: false !default;
 			margin-left: -20px;
 			opacity: 1;
 			transition: opacity 0.1s;
-			background-color: oColorsGetPaletteColor('black');
-			background-color: rgba(oColorsGetPaletteColor('black'), 0.5);
 			border-radius: 20px;
-			font-size: 40px;
-			line-height: 1;
 		}
 		&:hover .n-video__play-button-icon {
 			opacity: 0.5;

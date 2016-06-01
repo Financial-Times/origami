@@ -1,24 +1,33 @@
 {
-    "description": "Experimental Financial Times video component",
-    "origamiVersion": 1,
-    "origamiType": "module",
-    "demos": [
-        {
-            "path": "/demos/brightcove.html",
-            "expanded": true,
-            "description": "Brightcove"
-        },
-        {
-            "path": "/demos/brightcove-player.html",
-            "expanded": true,
-            "description": "Brightcove Player"
-        },
-        {
-            "path": "/demos/placeholder.html",
-            "expanded": true,
-            "description": "Placeholder"
-        }
-    ],
-    "supportStatus": "experimental",
-    "support": "next.team@ft.com"
+	"description": "Financial Times video component",
+	"origamiVersion": 1,
+	"origamiType": "module",
+	"supportStatus": "active",
+	"support": "github.com/Financial-Times/o-video/issues",
+	"demosDefaults": {
+		"sass": "demos/src/main.scss"
+	},
+	"demos": [
+		{
+			"name": "brightcove",
+			"template": "demos/src/brightcove.mustache",
+			"description": "Brightcove",
+			"expanded": true,
+			"js": "demos/src/brightcove.js"
+		},
+		{
+			"name": "brightcove-player",
+			"template": "demos/src/brightcove-player.mustache",
+			"description": "Brightcove Player",
+			"expanded": true,
+			"js": "demos/src/brightcove-player.js"
+		},
+		{
+			"name": "placeholder",
+			"template": "demos/src/brightcove.mustache",
+			"description": "Placeholder",
+			"expanded": true,
+			"js": "demos/src/placeholder.js"
+		}
+	]
 }

@@ -1,18 +1,14 @@
 {
-  "name": "n-video",
-  "description": "Video player for next",
+  "name": "o-video",
+  "description": "Video player for the FT",
   "license": "MIT",
   "main": [
     "main.js",
     "main.scss"
   ],
   "dependencies": {
-    "n-jsonp": "^2.0.0",
-    "o-ft-icons": "^3.5.0",
-    "o-colors": "^3.3.0"
-  },
-  "devDependencies": {
-    "isomorphic-fetch": "^2.1.0",
-    "es6-promise": "^2.1.0"
+    "o-icons": "^4.0.0",
+    "o-colors": "^3.3.0",
+    "o-fetch-jsonp": "^1.0.0"
   }
 }

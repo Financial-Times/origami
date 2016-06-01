@@ -1,5 +1,8 @@
-// Karma configuration
-// Generated on Thu May 28 2015 16:29:05 GMT+0100 (BST)
+/*eslint-env node*/
+
+const BowerPlugin = require('bower-webpack-plugin');
+const path = require('path');
+const cwd = process.cwd();
 
 module.exports = function(config) {
 	config.set({
@@ -10,12 +13,23 @@ module.exports = function(config) {
 
 		// frameworks to use
 		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-		frameworks: ['browserify', 'mocha', 'sinon', 'chai-as-promised', 'chai'],
+		frameworks: ['mocha', 'sinon', 'chai-as-promised', 'chai'],
+
+
+		plugins: [
+			'karma-mocha',
+			'karma-sinon',
+			'karma-chai-as-promised',
+			'karma-chai',
+			'karma-phantomjs2-launcher',
+			'karma-webpack'
+		],
 
 
 		// list of files / patterns to load in the browser
 		files: [
-			'**/*.spec.js'
+			'http://cdn.polyfill.io/v2/polyfill.js?features=fetch&flags=gated',
+			'test/**/*.test.js'
 		],
 
 
@@ -27,12 +41,9 @@ module.exports = function(config) {
 		// preprocess matching files before serving them to the browser
 		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 		preprocessors: {
-			'**/*.spec.js': [ 'browserify' ]
+			'test/**/*.test.js': ['webpack']
 		},
 
-		browserify: {
-			transform: [ 'babelify', 'debowerify' ]
-		},
 
 		// test results reporter to use
 		// possible values: 'dots', 'progress'
@@ -54,16 +65,53 @@ module.exports = function(config) {
 
 
 		// enable / disable watching file and executing tests whenever any file changes
-		autoWatch: true,
+		autoWatch: false,
 
 
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: ['Firefox'],
+		browsers: ['PhantomJS2'],
 
 
 		// Continuous Integration mode
 		// if true, Karma captures browsers, runs the tests and exits
-		singleRun: true
+		singleRun: true,
+
+		webpack: {
+			quiet: true,
+			module: {
+				loaders: [
+					{
+						test: /\.js$/,
+						exclude: /node_modules/,
+						loaders: [
+							'babel?optional[]=runtime',
+							'imports?define=>false'
+						]
+					},
+					{
+						test: /\.json$/,
+						loader: 'json'
+					}
+				],
+				noParse: [
+					/\/sinon\.js/,
+				]
+			},
+			resolve: {
+				root: [path.join(cwd, 'bower_components')]
+			},
+			plugins: [
+				new BowerPlugin({
+					includes:  /\.js$/
+				})
+			]
+		},
+
+		// Hide webpack output logging
+		webpackMiddleware: {
+			noInfo: true
+		}
+
 	});
 };

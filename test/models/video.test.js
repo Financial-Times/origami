@@ -1,4 +1,4 @@
-/* global describe, it, beforeEach, afterEach */
+/* global describe, xit, beforeEach, afterEach */
 const Video = require('../../src/models/video');
 
 describe('Video', () => {
@@ -16,23 +16,23 @@ describe('Video', () => {
 		document.body.removeChild(containerEl);
 	});
 
-	it('should exist', () => {
+	xit('should exist', () => {
 		Video.should.exist;
 	});
 
-	it('should be able to instantiate', () => {
+	xit('should be able to instantiate', () => {
 		const video = new Video(containerEl);
 		video.should.exist;
 		video.domPathTokens.should.eql(['video']);
 		video.domPath.should.equal('video');
 	});
 
-	it('should an a `data-n-video-js` attribute', () => {
+	xit('should an a `data-n-video-js` attribute', () => {
 		new Video(containerEl);
 		containerEl.getAttribute('data-n-video-js').should.exists;
 	});
 
-	it('should return a Promise on init', () => {
+	xit('should return a Promise on init', () => {
 		const video = new Video(containerEl);
 		video.init().should.be.an.instanceOf(Promise);
 	});

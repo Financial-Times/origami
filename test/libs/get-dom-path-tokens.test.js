@@ -1,4 +1,4 @@
-/* global describe, it, beforeEach, afterEach */
+/* global describe, xit, beforeEach, afterEach */
 const getDomPathTokens = require('../../src/libs/get-dom-path-tokens');
 
 describe('Get DOM Path Tokens', () => {
@@ -15,15 +15,15 @@ describe('Get DOM Path Tokens', () => {
 		document.body.removeChild(el);
 	});
 
-	it('should exist', () => {
+	xit('should exist', () => {
 		getDomPathTokens.should.exist;
 	});
 
-	it('should get correct token', () => {
+	xit('should get correct token', () => {
 		getDomPathTokens(el).should.eql(['parent']);
 	});
 
-	it('should get correct tokens', () => {
+	xit('should get correct tokens', () => {
 		const childEl = document.createElement('div');
 		childEl.setAttribute('data-trackable', 'child');
 		el.appendChild(childEl);

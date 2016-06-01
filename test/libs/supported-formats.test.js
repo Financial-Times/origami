@@ -1,9 +1,9 @@
-/* global describe, it */
+/* global describe, xit */
 const supportedFormats = require('../../src/libs/supported-formats');
 
 describe('Supported Formats', () => {
 
-	it('should exist', () => {
+	xit('should exist', () => {
 		supportedFormats.should.exist;
 	});
 

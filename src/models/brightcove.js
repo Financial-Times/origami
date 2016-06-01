@@ -1,5 +1,5 @@
 /* global fetch */
-const crossDomainFetch = require('n-jsonp').crossDomainFetch;
+const crossDomainFetch = require('o-fetch-jsonp').crossDomainFetch;
 const Video = require('./video');
 const getAppropriateRendition = require('../libs/get-appropriate-rendition');
 
@@ -45,7 +45,7 @@ const addEvents = (video, events) => {
 
 // use the image resizing service, if width supplied
 const updatePosterUrl = (posterImage, width) => {
-	let url = `https://next-geebee.ft.com/image/v1/images/raw/${encodeURIComponent(posterImage)}?source=next`;
+	let url = `https://image.webservices.ft.com/v1/images/raw/${encodeURIComponent(posterImage)}?source=o-video`;
 	if (width) {
 		url += `&fit=scale-down&width=${width}`;
 	}
@@ -111,6 +111,7 @@ class Brightcove extends Video {
 		this.el.setAttribute('src', this.rendition.url);
 		this.el.className = Array.isArray(this.classes) ? this.classes.join(' ') : this.classes;
 		this.containerEl.classList.add('n-video--player');
+		console.log(this.el);
 		this.containerEl.appendChild(this.el);
 		addEvents(this, ['play', 'pause', 'ended']);
 		this.el.addEventListener('playing', () => pauseOtherVideos(this.el));

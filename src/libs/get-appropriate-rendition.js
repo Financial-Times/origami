@@ -15,6 +15,7 @@ module.exports = (renditions, options) => {
 			return renditionOne.frameWidth - renditionTwo.frameWidth;
 		});
 
+	console.log(orderedRenditions);
 	// if no width supplied, get largest
 	if (!width) {
 		return orderedRenditions.pop();
@@ -28,5 +29,6 @@ module.exports = (renditions, options) => {
 		return false;
 	});
 
+	console.log(appropriateRendition);
 	return appropriateRendition || orderedRenditions.shift();
 };

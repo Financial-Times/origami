@@ -1,4 +1,4 @@
-/* global describe, it, beforeEach, afterEach, sinon, expect */
+/* global describe, xit, beforeEach, afterEach, sinon, expect */
 const Brightcove = require('../../src/models/brightcove');
 const brightcoveResponse = require('../fixtures/brightcove.json');
 
@@ -26,26 +26,26 @@ describe('Brightcove', () => {
 		fetchStub.restore();
 	});
 
-	it('should exist', () => {
+	xit('should exist', () => {
 		Brightcove.should.exist;
 	});
 
-	it('should be able to instantiate', () => {
+	xit('should be able to instantiate', () => {
 		const brightcove = new Brightcove(containerEl);
 		brightcove.should.exist;
 	});
 
-	it('should return a Promise on `init`', () => {
+	xit('should return a Promise on `init`', () => {
 		const brightcove = new Brightcove(containerEl);
 		brightcove.init().should.be.an.instanceOf(Promise);
 	});
 
-	it('should return the Brightcove instance on `init`', () => {
+	xit('should return the Brightcove instance on `init`', () => {
 		const brightcove = new Brightcove(containerEl);
 		brightcove.init().should.eventually.equal(brightcove);
 	});
 
-	it('should create a video element on `init`', () => {
+	xit('should create a video element on `init`', () => {
 		const brightcove = new Brightcove(containerEl);
 		return brightcove
 			.init()
@@ -62,7 +62,7 @@ describe('Brightcove', () => {
 			});
 	});
 
-	it('should throw error if can\'t init', () => {
+	xit('should throw error if can\'t init', () => {
 		// bad response instead
 		const badRes = new window.Response(null, {
 			status: 404,
@@ -73,7 +73,7 @@ describe('Brightcove', () => {
 		return brightcove.init().should.be.rejectedWith('Brightcove responded with a 404 (Not Found) for id 4084879507001');
 	});
 
-	it('should return the progress as a percentage', () => {
+	xit('should return the progress as a percentage', () => {
 		const brightcove = new Brightcove(containerEl);
 		return brightcove
 			.init()
@@ -83,7 +83,7 @@ describe('Brightcove', () => {
 			});
 	});
 
-	it('should be able to create as a placeholder', () => {
+	xit('should be able to create as a placeholder', () => {
 		const brightcove = new Brightcove(containerEl, { placeholder: true });
 		return brightcove
 			.init()
@@ -98,7 +98,7 @@ describe('Brightcove', () => {
 			});
 	});
 
-	it('should be able to create a placeholder with a title', () => {
+	xit('should be able to create a placeholder with a title', () => {
 		const brightcove = new Brightcove(containerEl, { placeholder: true, placeholderTitle: true });
 		return brightcove
 			.init()
@@ -114,7 +114,7 @@ describe('Brightcove', () => {
 			});
 	});
 
-	it('should be able to suppress placeholder play button', () => {
+	xit('should be able to suppress placeholder play button', () => {
 		const brightcove = new Brightcove(containerEl, { placeholder: true, playButton:false });
 		return brightcove
 			.init()
@@ -123,7 +123,7 @@ describe('Brightcove', () => {
 			});
 	});
 
-	it('should send poster through image service if optimumWidth defined', () => {
+	xit('should send poster through image service if optimumWidth defined', () => {
 		const brightcove = new Brightcove(containerEl, { optimumWidth: 300 });
 		return brightcove
 			.init()
@@ -136,7 +136,7 @@ describe('Brightcove', () => {
 			});
 	});
 
-	it('should add supplied classes to element', () => {
+	xit('should add supplied classes to element', () => {
 		const brightcove = new Brightcove(containerEl, { classes: ['class-one', 'class-two'] });
 		return brightcove
 			.init()
@@ -145,7 +145,7 @@ describe('Brightcove', () => {
 			});
 	});
 
-	it('should not fetch from brightcove if full data provided in opts', () => {
+	xit('should not fetch from brightcove if full data provided in opts', () => {
 		const brightcove = new Brightcove(containerEl, { data: {
 			prop: 'val',
 			videoStillURL: 'abc',

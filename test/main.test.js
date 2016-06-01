@@ -1,6 +1,5 @@
-/* global describe, it, beforeEach, afterEach, sinon */
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
+/* global describe, xit, beforeEach, afterEach */
+const sinon = require('sinon/pkg/sinon');
 const main = require('../main.js');
 const Brightcove = require('../src/models/brightcove');
 const brightcoveResponse = require('./fixtures/brightcove.json');
@@ -31,11 +30,11 @@ describe('Main', () => {
 		fetchStub.restore();
 	});
 
-	it('should exits', () => {
+	xit('should exits', () => {
 		main.should.exist;
 	});
 
-	it('should have an init property', () => {
+	xit('should have an init property', () => {
 		main.should.have.property('init');
 	});
 
@@ -43,11 +42,12 @@ describe('Main', () => {
 		return main.init().then(videos => {
 			videos.should.have.length(1);
 			videos[0].should.be.an.instanceOf(Brightcove);
+			console.log(containerEl.outerHTML);
 			containerEl.children[0].should.eql(videos[0].el);
 		});
 	});
 
-	it('should create Video objects only once', () => {
+	xit('should create Video objects only once', () => {
 		return main.init().then(() => {
 			main.init().then(videos => {
 				videos.should.be.empty;
@@ -55,7 +55,7 @@ describe('Main', () => {
 		});
 	});
 
-	it('should allow setting the selector Video objects only once', () => {
+	xit('should allow setting the selector Video objects only once', () => {
 		const className = 'js-video';
 
 		return main.init({ selector: '.' + className }).then(videos => {
@@ -67,7 +67,7 @@ describe('Main', () => {
 		});
 	});
 
-	it('should allow setting options through attribute', () => {
+	xit('should allow setting options through attribute', () => {
 		containerEl.setAttribute('data-n-video-opts-optimum-width', 300);
 		containerEl.setAttribute('data-n-video-opts-placeholder', true);
 		containerEl.setAttribute('data-n-video-opts-classes', 'a-class another-class');
