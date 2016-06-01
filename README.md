@@ -1,4 +1,4 @@
-# o-header [![Circle CI](https://circleci.com/gh/Financial-Times/o-header.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-header)
+# o-header [![CircleCI](https://circleci.com/gh/Financial-Times/o-header.png?style=shield&circle-token=41f2b7b7e669f2d4adb55ad97cf755d3ed4b93c3)](https://circleci.com/gh/Financial-Times/o-header)
 
 Responsive header for FT branded sites
 
