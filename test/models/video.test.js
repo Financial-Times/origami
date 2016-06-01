@@ -7,7 +7,7 @@ describe('Video', () => {
 
 	beforeEach(() => {
 		containerEl = document.createElement('div');
-		containerEl.setAttribute('data-n-video-id', '1234567890');
+		containerEl.setAttribute('data-o-video-id', '1234567890');
 		containerEl.setAttribute('data-trackable', 'video');
 		document.body.appendChild(containerEl);
 	});
@@ -27,9 +27,9 @@ describe('Video', () => {
 		video.domPath.should.equal('video');
 	});
 
-	xit('should an a `data-n-video-js` attribute', () => {
+	xit('should an a `data-o-video-js` attribute', () => {
 		new Video(containerEl);
-		containerEl.getAttribute('data-n-video-js').should.exists;
+		containerEl.getAttribute('data-o-video-js').should.exists;
 	});
 
 	xit('should return a Promise on init', () => {

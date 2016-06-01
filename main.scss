@@ -1,10 +1,10 @@
-$_n-video_applied: false !default;
+$_o-video_applied: false !default;
 
 @import "o-icons/main";
 @import "o-colors/main";
 
-@if (not $_n-video_applied) {
-	.n-video--card {
+@if (not $_o-video_applied) {
+	.o-video--card {
 		position: relative;
 		cursor: pointer;
 		width: 100%;
@@ -16,7 +16,7 @@ $_n-video_applied: false !default;
 			padding: 56.25% 0 0;
 		}
 
-		.n-video__video {
+		.o-video__video {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -26,7 +26,7 @@ $_n-video_applied: false !default;
 	}
 
 
-	.n-video__title {
+	.o-video__title {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -35,7 +35,7 @@ $_n-video_applied: false !default;
 		color: oColorsGetPaletteColor('white');
 	}
 
-	.n-video__play-button {
+	.o-video__play-button {
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -46,11 +46,11 @@ $_n-video_applied: false !default;
 		cursor: pointer;
 		border: 0;
 
-		.n-video__play-button-text {
+		.o-video__play-button-text {
 			text-indent: -9999px;
 		}
 
-		.n-video__play-button-icon {
+		.o-video__play-button-icon {
 			@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 40);
 			@include oIconsBaseStyles;
 			position: absolute;
@@ -62,10 +62,10 @@ $_n-video_applied: false !default;
 			transition: opacity 0.1s;
 			border-radius: 20px;
 		}
-		&:hover .n-video__play-button-icon {
+		&:hover .o-video__play-button-icon {
 			opacity: 0.5;
 		}
 	}
 
-	$_n-video_applied: true !global;
+	$_o-video_applied: true !global;
 }

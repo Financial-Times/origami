@@ -1,2 +1,2 @@
-const nVideo = require('../../main');
-nVideo.init({ placeholder: true });
+const oVideo = require('../../main');
+oVideo.init({ placeholder: true });

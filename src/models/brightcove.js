@@ -110,7 +110,7 @@ class Brightcove extends Video {
 		this.el.setAttribute('poster', this.posterImage);
 		this.el.setAttribute('src', this.rendition.url);
 		this.el.className = Array.isArray(this.classes) ? this.classes.join(' ') : this.classes;
-		this.containerEl.classList.add('n-video--player');
+		this.containerEl.classList.add('o-video--player');
 		console.log(this.el);
 		this.containerEl.appendChild(this.el);
 		addEvents(this, ['play', 'pause', 'ended']);
@@ -123,13 +123,13 @@ class Brightcove extends Video {
 		this.placeholderEl = document.createElement('img');
 		this.placeholderEl.setAttribute('src', this.posterImage);
 		this.placeholderEl.className = Array.isArray(this.classes) ? this.classes.join(' ') : this.classes;
-		this.containerEl.classList.add('n-video--placeholder');
+		this.containerEl.classList.add('o-video--placeholder');
 		this.containerEl.appendChild(this.placeholderEl);
 
 		let titleEl;
 		if (this.opts.placeholderTitle) {
 			titleEl = document.createElement('div');
-			titleEl.className = 'n-video__title';
+			titleEl.className = 'o-video__title';
 			titleEl.textContent = this.brightcoveData.name;
 			this.containerEl.appendChild(titleEl);
 		}
@@ -137,16 +137,16 @@ class Brightcove extends Video {
 		if (this.opts.playButton) {
 
 			const playButtonEl = document.createElement('button');
-			playButtonEl.className = 'n-video__play-button';
+			playButtonEl.className = 'o-video__play-button';
 			playButtonEl.setAttribute('data-trackable', 'play button');
 
 			const playButtonTextEl = document.createElement('dd');
-			playButtonTextEl.className = 'n-video__play-button-text';
+			playButtonTextEl.className = 'o-video__play-button-text';
 			playButtonTextEl.textContent = 'Play video';
 			playButtonEl.appendChild(playButtonTextEl);
 
 			const playIconEl = document.createElement('i');
-			playIconEl.className = 'n-video__play-button-icon';
+			playIconEl.className = 'o-video__play-button-icon';
 			playButtonEl.appendChild(playIconEl);
 
 			this.containerEl.appendChild(playButtonEl);
@@ -165,7 +165,7 @@ class Brightcove extends Video {
 	}
 
 	removePlaceholder() {
-		this.containerEl.classList.remove('n-video--placeholder');
+		this.containerEl.classList.remove('o-video--placeholder');
 		this.containerEl.removeChild(this.placeholderEl);
 	}
 

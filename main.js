@@ -11,7 +11,7 @@ const init = opts => {
 		}
 	}
 	const context = options.context instanceof HTMLElement ? options.context : document.querySelector(opts.context);
-	const videoPromises = [].map.call(context.querySelectorAll(options.selector + ':not([data-n-video-js])[data-n-component~="n-video"]'), videoEl => {
+	const videoPromises = [].map.call(context.querySelectorAll(options.selector + ':not([data-o-video-js])[data-o-component~="o-video"]'), videoEl => {
 		return factory(videoEl, options)
 			.init()
 			// don't fail all if a video errors

@@ -9,7 +9,7 @@ describe('Brightcove', () => {
 
 	beforeEach(() => {
 		containerEl = document.createElement('div');
-		containerEl.setAttribute('data-n-video-id', '4084879507001');
+		containerEl.setAttribute('data-o-video-id', '4084879507001');
 		document.body.appendChild(containerEl);
 		fetchStub = sinon.stub(window, 'fetch');
 		const res = new window.Response(JSON.stringify(brightcoveResponse), {
@@ -52,9 +52,9 @@ describe('Brightcove', () => {
 			.then(() => {
 				const videoEl = containerEl.querySelector('video');
 				videoEl.getAttribute('poster').should.equal(
-					'https://next-geebee.ft.com/image/v1/images/raw/' +
+					'https://image.webservices.ft.com/v1/images/raw/' +
 					'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201502%2F2470%2F47628783001_4085962850001_MAS-VIDEO-AuthersNote-stock-market.jpg%3FpubId%3D47628783001' +
-					'?source=next'
+					'?source=o-video'
 				);
 				videoEl.getAttribute('src').should.equal(
 					'http://brightcove.vo.llnwd.net/v1/uds/pd/47628783001/201502/3842/47628783001_4085577922001_A-hated-rally.mp4'
@@ -90,11 +90,11 @@ describe('Brightcove', () => {
 			.then(() => {
 				const placholderEl = containerEl.querySelector('img');
 				placholderEl.getAttribute('src').should.equal(
-					'https://next-geebee.ft.com/image/v1/images/raw/' +
+					'https://image.webservices.ft.com/v1/images/raw/' +
 					'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201502%2F2470%2F47628783001_4085962850001_MAS-VIDEO-AuthersNote-stock-market.jpg%3FpubId%3D47628783001' +
-					'?source=next'
+					'?source=o-video'
 				);
-				containerEl.querySelector('.n-video__play-button').should.exist;
+				containerEl.querySelector('.o-video__play-button').should.exist;
 			});
 	});
 
@@ -105,12 +105,12 @@ describe('Brightcove', () => {
 			.then(() => {
 				const placholderEl = containerEl.querySelector('img');
 				placholderEl.getAttribute('src').should.equal(
-					'https://next-geebee.ft.com/image/v1/images/raw/' +
+					'https://image.webservices.ft.com/v1/images/raw/' +
 					'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201502%2F2470%2F47628783001_4085962850001_MAS-VIDEO-AuthersNote-stock-market.jpg%3FpubId%3D47628783001' +
-					'?source=next'
+					'?source=o-video'
 				);
-				containerEl.querySelector('.n-video__play-button').should.exist;
-				containerEl.querySelector('.n-video__title').textContent.should.equal('A hated rally');
+				containerEl.querySelector('.o-video__play-button').should.exist;
+				containerEl.querySelector('.o-video__title').textContent.should.equal('A hated rally');
 			});
 	});
 
@@ -119,7 +119,7 @@ describe('Brightcove', () => {
 		return brightcove
 			.init()
 			.then(() => {
-				expect(containerEl.querySelector('.n-video__play-button')).to.be.null;
+				expect(containerEl.querySelector('.o-video__play-button')).to.be.null;
 			});
 	});
 
@@ -129,9 +129,9 @@ describe('Brightcove', () => {
 			.init()
 			.then(() => {
 				containerEl.querySelector('video').getAttribute('poster').should.equal(
-					'https://next-geebee.ft.com/image/v1/images/raw/' +
+					'https://image.webservices.ft.com/v1/images/raw/' +
 					'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201502%2F2470%2F47628783001_4085962850001_MAS-VIDEO-AuthersNote-stock-market.jpg%3FpubId%3D47628783001' +
-					'?source=next&fit=scale-down&width=300'
+					'?source=o-video&fit=scale-down&width=300'
 				);
 			});
 	});
@@ -141,7 +141,7 @@ describe('Brightcove', () => {
 		return brightcove
 			.init()
 			.then(() => {
-				containerEl.querySelector('video').className.should.equal('class-one class-two n-video__video');
+				containerEl.querySelector('video').className.should.equal('class-one class-two o-video__video');
 			});
 	});
 

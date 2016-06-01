@@ -10,7 +10,7 @@ describe('Video Factory', () => {
 
 	beforeEach(() => {
 		containerEl = document.createElement('div');
-		containerEl.setAttribute('data-n-video-id', '1234567890');
+		containerEl.setAttribute('data-o-video-id', '1234567890');
 		document.body.appendChild(containerEl);
 	});
 
@@ -23,17 +23,12 @@ describe('Video Factory', () => {
 	});
 
 	xit('should create a Brightcove object if source is \'brightcove\'', () => {
-		containerEl.setAttribute('data-n-video-source', 'brightcove');
+		containerEl.setAttribute('data-o-video-source', 'brightcove');
 		videoFactory(containerEl).should.be.a.instanceof(Brightcove);
 	});
 
-	xit('should create a YouTube object if source is \'youtube\'', () => {
-		containerEl.setAttribute('data-n-video-source', 'youtube');
-		videoFactory(containerEl).should.be.an.instanceOf(YouTube);
-	});
-
 	xit('should create a standard Video object if unknown source', () => {
-		containerEl.setAttribute('data-n-video-source', 'other');
+		containerEl.setAttribute('data-o-video-source', 'other');
 		videoFactory(containerEl).should.be.an.instanceOf(Video);
 	});
 

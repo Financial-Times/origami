@@ -11,9 +11,9 @@ describe('Main', () => {
 
 	beforeEach(() => {
 		containerEl = document.createElement('div');
-		containerEl.setAttribute('data-n-component', 'n-video');
-		containerEl.setAttribute('data-n-video-id', '4084879507001');
-		containerEl.setAttribute('data-n-video-source', 'Brightcove');
+		containerEl.setAttribute('data-o-component', 'o-video');
+		containerEl.setAttribute('data-o-video-id', '4084879507001');
+		containerEl.setAttribute('data-o-video-source', 'Brightcove');
 		document.body.appendChild(containerEl);
 		fetchStub = sinon.stub(window, 'fetch');
 		const res = new window.Response(JSON.stringify(brightcoveResponse), {
@@ -68,14 +68,14 @@ describe('Main', () => {
 	});
 
 	xit('should allow setting options through attribute', () => {
-		containerEl.setAttribute('data-n-video-opts-optimum-width', 300);
-		containerEl.setAttribute('data-n-video-opts-placeholder', true);
-		containerEl.setAttribute('data-n-video-opts-classes', 'a-class another-class');
+		containerEl.setAttribute('data-o-video-opts-optimum-width', 300);
+		containerEl.setAttribute('data-o-video-opts-placeholder', true);
+		containerEl.setAttribute('data-o-video-opts-classes', 'a-class another-class');
 
 		return main.init().then(videos => {
 			videos.should.have.length(1);
 			const placeholderEl = videos[0].containerEl.querySelector('img');
-			placeholderEl.className.should.equal('a-class another-class n-video__video');
+			placeholderEl.className.should.equal('a-class another-class o-video__video');
 			placeholderEl.getAttribute('src').should.contain('width=300');
 		});
 	});

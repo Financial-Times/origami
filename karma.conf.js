@@ -21,7 +21,7 @@ module.exports = function(config) {
 			'karma-sinon',
 			'karma-chai-as-promised',
 			'karma-chai',
-			'karma-phantomjs2-launcher',
+			'karma-phantomjs-launcher',
 			'karma-webpack'
 		],
 
@@ -70,7 +70,7 @@ module.exports = function(config) {
 
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: ['PhantomJS2'],
+		browsers: ['PhantomJS'],
 
 
 		// Continuous Integration mode
