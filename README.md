@@ -25,7 +25,7 @@ Simply add an `o-table` class to any table you wish to apply the styles to:
 </table>
 ```
 
-Where a `td` contains numeric data, or a `th` is for cells containing numeric data, also add the class `.o-table__cell--numeric` and a `data-o-table-data-o-table-data-type="numeric"` attribute (the latter allows the column to be sorted correctly):
+Where a `td` contains numeric data, or a `th` is for cells containing numeric data, also add the class `.o-table__cell--numeric` and a `data-o-table-data-type="numeric"` attribute (the latter allows the column to be sorted correctly):
 
 ```html
 <table class="o-table">
@@ -161,7 +161,7 @@ const OTable = require('o-table');
 oTable = new OTable(document.body);
 ```
 
-Sorting numbers works if the column has been declared as a numeric column via `data-o-table-data-o-table-data-type="numeric" class="o-table__cell--numeric"`.
+Sorting numbers works if the column has been declared as a numeric column via `data-o-table-data-type="numeric" class="o-table__cell--numeric"`.
 
 #### Sorting declaratively
 If you are wanting to sort by a custom pattern, you can apply the sorting values to each row as a data attribute:
