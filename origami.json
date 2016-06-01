@@ -5,53 +5,80 @@
     "support": "https://github.com/Financial-Times/o-forms/issues",
     "supportStatus": "active",
     "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-forms/builds.json"
+        "circle": "https://circleci.com/api/v1/project/Financial-Times/o-forms"
     },
     "demos": [
         {
-            "path": "/demos/text-inputs.html",
+            "name": "real-life",
+            "template": "demos/src/real-life.mustache",
+            "bodyClasses": "o-colors-page-background demo-real-life",
+            "dependencies": [
+                "o-colors@^2.4.7",
+                "o-fonts@^1.4.0",
+                "o-tabs@^1.4.2",
+                "o-buttons@^2.0.4",
+                "o-footer@^4.0.0",
+                "o-grid@^4.0.0"
+            ],
             "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/select-boxes.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/textareas.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/radios.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/checkboxes.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/prefix-suffix.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/messages.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/wrappers.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "path": "/demos/real-life.html",
-            "expanded": false,
             "description": "Real life example of forms usage"
+        },
+        {
+            "name": "text-inputs",
+            "template": "/demos/src/text-inputs.mustache",
+            "expanded": false,
+            "description": ""
+        },
+        {
+            "name": "select-boxes",
+            "template": "/demos/src/select-boxes.mustache",
+            "expanded": false,
+            "description": ""
+        },
+        {
+            "name": "textareas",
+            "template": "/demos/src/textareas.mustache",
+            "expanded": false,
+            "description": ""
+        },
+        {
+            "name": "radios",
+            "template": "/demos/src/radios.mustache",
+            "expanded": false,
+            "description": ""
+        },
+        {
+            "name": "checkboxes",
+            "template": "/demos/src/checkboxes.mustache",
+            "expanded": false,
+            "description": ""
+        },
+        {
+            "name": "prefix-suffix",
+            "template": "/demos/src/prefix-suffix.mustache",
+            "expanded": false,
+            "description": "",
+            "dependencies": [
+                "o-buttons@^2.0.4"
+            ]
+        },
+        {
+            "name": "messages",
+            "template": "/demos/src/messages.mustache",
+            "expanded": false,
+            "description": ""
+        },
+        {
+            "name": "wrappers",
+            "template": "/demos/src/wrappers.mustache",
+            "expanded": false,
+            "description": ""
         }
-    ]
+    ],
+    "demosDefaults": {
+        "sass": "demos/src/demo.scss",
+        "dependencies": [
+            "o-fonts@^1.4.0"
+        ]
+    }
 }
