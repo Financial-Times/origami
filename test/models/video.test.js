@@ -1,4 +1,4 @@
-/* global describe, xit, beforeEach, afterEach */
+/* global describe, it, beforeEach, afterEach */
 const Video = require('../../src/models/video');
 
 describe('Video', () => {
@@ -8,7 +8,6 @@ describe('Video', () => {
 	beforeEach(() => {
 		containerEl = document.createElement('div');
 		containerEl.setAttribute('data-o-video-id', '1234567890');
-		containerEl.setAttribute('data-trackable', 'video');
 		document.body.appendChild(containerEl);
 	});
 
@@ -16,23 +15,21 @@ describe('Video', () => {
 		document.body.removeChild(containerEl);
 	});
 
-	xit('should exist', () => {
+	it('should exist', () => {
 		Video.should.exist;
 	});
 
-	xit('should be able to instantiate', () => {
+	it('should be able to instantiate', () => {
 		const video = new Video(containerEl);
 		video.should.exist;
-		video.domPathTokens.should.eql(['video']);
-		video.domPath.should.equal('video');
 	});
 
-	xit('should an a `data-o-video-js` attribute', () => {
+	it('should an a `data-o-video-js` attribute', () => {
 		new Video(containerEl);
 		containerEl.getAttribute('data-o-video-js').should.exists;
 	});
 
-	xit('should return a Promise on init', () => {
+	it('should return a Promise on init', () => {
 		const video = new Video(containerEl);
 		video.init().should.be.an.instanceOf(Promise);
 	});

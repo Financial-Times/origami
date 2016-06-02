@@ -111,7 +111,6 @@ class Brightcove extends Video {
 		this.el.setAttribute('src', this.rendition.url);
 		this.el.className = Array.isArray(this.classes) ? this.classes.join(' ') : this.classes;
 		this.containerEl.classList.add('o-video--player');
-		console.log(this.el);
 		this.containerEl.appendChild(this.el);
 		addEvents(this, ['play', 'pause', 'ended']);
 		this.el.addEventListener('playing', () => pauseOtherVideos(this.el));

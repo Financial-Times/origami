@@ -1,4 +1,4 @@
-/* global describe, xit, beforeEach, afterEach */
+/* global describe, it, beforeEach, afterEach */
 const sinon = require('sinon/pkg/sinon');
 const main = require('../main.js');
 const Brightcove = require('../src/models/brightcove');
@@ -30,11 +30,11 @@ describe('Main', () => {
 		fetchStub.restore();
 	});
 
-	xit('should exits', () => {
+	it('should exits', () => {
 		main.should.exist;
 	});
 
-	xit('should have an init property', () => {
+	it('should have an init property', () => {
 		main.should.have.property('init');
 	});
 
@@ -42,12 +42,11 @@ describe('Main', () => {
 		return main.init().then(videos => {
 			videos.should.have.length(1);
 			videos[0].should.be.an.instanceOf(Brightcove);
-			console.log(containerEl.outerHTML);
 			containerEl.children[0].should.eql(videos[0].el);
 		});
 	});
 
-	xit('should create Video objects only once', () => {
+	it('should create Video objects only once', () => {
 		return main.init().then(() => {
 			main.init().then(videos => {
 				videos.should.be.empty;
@@ -55,7 +54,7 @@ describe('Main', () => {
 		});
 	});
 
-	xit('should allow setting the selector Video objects only once', () => {
+	it('should allow setting the selector Video objects only once', () => {
 		const className = 'js-video';
 
 		return main.init({ selector: '.' + className }).then(videos => {
@@ -67,7 +66,7 @@ describe('Main', () => {
 		});
 	});
 
-	xit('should allow setting options through attribute', () => {
+	it('should allow setting options through attribute', () => {
 		containerEl.setAttribute('data-o-video-opts-optimum-width', 300);
 		containerEl.setAttribute('data-o-video-opts-placeholder', true);
 		containerEl.setAttribute('data-o-video-opts-classes', 'a-class another-class');

@@ -1,7 +1,6 @@
-/* global describe, xit, beforeEach, afterEach */
+/* global describe, it, beforeEach, afterEach */
 const videoFactory = require('../../src/models/video-factory');
 const Brightcove = require('../../src/models/brightcove');
-const YouTube = require('../../src/models/you-tube');
 const Video = require('../../src/models/video');
 
 describe('Video Factory', () => {
@@ -18,16 +17,16 @@ describe('Video Factory', () => {
 		document.body.removeChild(containerEl);
 	});
 
-	xit('should exist', () => {
+	it('should exist', () => {
 		videoFactory.should.exist;
 	});
 
-	xit('should create a Brightcove object if source is \'brightcove\'', () => {
+	it('should create a Brightcove object if source is \'brightcove\'', () => {
 		containerEl.setAttribute('data-o-video-source', 'brightcove');
 		videoFactory(containerEl).should.be.a.instanceof(Brightcove);
 	});
 
-	xit('should create a standard Video object if unknown source', () => {
+	it('should create a standard Video object if unknown source', () => {
 		containerEl.setAttribute('data-o-video-source', 'other');
 		videoFactory(containerEl).should.be.an.instanceOf(Video);
 	});
