@@ -1,0 +1,14 @@
+{
+  "name": "o-video",
+  "description": "Video player for the FT",
+  "license": "MIT",
+  "main": [
+    "main.js",
+    "main.scss"
+  ],
+  "dependencies": {
+    "o-icons": "^4.0.0",
+    "o-colors": "^3.3.0",
+    "o-fetch-jsonp": "^1.0.0"
+  }
+}

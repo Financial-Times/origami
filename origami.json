@@ -1,14 +1,25 @@
 {
-	"description": "Standard video player and controls",
-	"origamiType": "module",
+	"description": "Financial Times video component",
 	"origamiVersion": 1,
-	"support": "https://github.com/Financial-Times/o-video/issues",
-	"supportStatus": "experimental",
+	"origamiType": "module",
+	"supportStatus": "active",
+	"support": "github.com/Financial-Times/o-video/issues",
+	"demosDefaults": {
+		"sass": "demos/src/main.scss",
+		"template": "demos/src/video.mustache"
+	},
 	"demos": [
 		{
-			"path": "/demos/demo.html",
+			"name": "brightcove",
+			"description": "Brightcove",
 			"expanded": true,
-			"description": ""
+			"js": "demos/src/brightcove.js"
+		},
+		{
+			"name": "placeholder",
+			"description": "Placeholder",
+			"expanded": true,
+			"js": "demos/src/placeholder.js"
 		}
 	]
 }

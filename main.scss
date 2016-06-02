@@ -1,0 +1,71 @@
+$_o-video_applied: false !default;
+
+@import "o-icons/main";
+@import "o-colors/main";
+
+@if (not $_o-video_applied) {
+	.o-video--card {
+		position: relative;
+		cursor: pointer;
+		width: 100%;
+
+		&:before {
+			content: '';
+			display: block;
+			width: 100%;
+			padding: 56.25% 0 0;
+		}
+
+		.o-video__video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+
+	.o-video__title {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 8px;
+		background-color: rgba(oColorsGetPaletteColor('grey-tint4'), 0.9);
+		color: oColorsGetPaletteColor('white');
+	}
+
+	.o-video__play-button {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		padding: 0;
+		background-color: transparent;
+		cursor: pointer;
+		border: 0;
+
+		.o-video__play-button-text {
+			text-indent: -9999px;
+		}
+
+		.o-video__play-button-icon {
+			@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 40);
+			@include oIconsBaseStyles;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -20px;
+			margin-left: -20px;
+			opacity: 1;
+			transition: opacity 0.1s;
+			border-radius: 20px;
+		}
+		&:hover .o-video__play-button-icon {
+			opacity: 0.5;
+		}
+	}
+
+	$_o-video_applied: true !global;
+}
