@@ -67,5 +67,9 @@ $_o-video_applied: false !default;
 		}
 	}
 
+	[data-o-video-player="videojs"] .o-video--videojs {
+		position: absolute;
+	}
+
 	$_o-video_applied: true !global;
 }
