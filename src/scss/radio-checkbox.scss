@@ -38,9 +38,9 @@
 	}
 
 	#{$checkbox}--align-right + #{$label},
-	#{$radio}--align-right + #{$label}  {
+	#{$radio}--align-right + #{$label} {
 		margin-left: 0;
-		padding-left:0;
+		padding-left: 0;
 		margin-right: 15px;
 		padding-right: $_o-forms-radiocheckbox-default-size + 10px;
 	}
@@ -74,7 +74,7 @@
 
 	#{$checkbox}--align-right + #{$label}::before,
 	#{$radio}--align-right + #{$label}::before {
-		left:auto;
+		left: auto;
 		right: 0;
 	}
 
