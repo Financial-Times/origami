@@ -18,16 +18,30 @@ function OTable(rootEl) {
 
 	if (this.rootEl !== undefined) {
 		this.listeners = [];
-		// Adding a class to the component to indicate that the JS has been loaded
+		this.isResponsive = false;
 		this.rootEl.setAttribute('data-o-table--js', '');
 
+		if (this.rootEl.getAttribute('data-o-table-responsive') === 'flat') {
+			this.isResponsive = true;
+		}
+
 		const tableHeaders = Array.from(this.rootEl.querySelectorAll('thead th'));
+		const tableRows = Array.from(this.rootEl.getElementsByTagName('tr'));
 
 		tableHeaders.forEach((th, columnIndex) => {
 			const listener = this._sortByColumn(columnIndex);
 			this.listeners.push(listener);
 			th.addEventListener('click', listener);
 		});
+
+		if (this.isResponsive) {
+			tableRows.forEach((row) => {
+				const data = Array.from(row.getElementsByTagName('td'));
+				data.forEach((td, dataIndex) => {
+					td.parentNode.insertBefore(tableHeaders[dataIndex].cloneNode(true), td);
+				});
+			});
+		}
 
 		this.dispatch('ready', {
 			oTable: this
