@@ -51,10 +51,7 @@
 		{
 			"name": "responsive-flat",
 			"template": "demos/src/responsive-flat.mustache",
-			"js": "demos/src/demo-responsive-flat.js",
-			"data": {
-				"modifierClass": "o-table--responsive-flat"
-			},
+			"js": "demos/src/demo.js",
 			"expanded": false,
 			"description": "This is a flat responsive version"
 		},
