@@ -146,13 +146,15 @@ Thin lines will be rendered to the left and right of each `td` element giving th
 
 ## Responsive
 
-In the fifth version of `o-table`, there are responsive options that can be used for displaying data in a table. 
+There is three responsive options available for displaying data in a table.
 
 ### Flat
 
 Class: `o-table--responsive-flat`, Mixin: `oTableResponsiveFlat`
 
 Using the Responsive Flat version will render the table to change at narrow viewpoints into a row-based table with each row having a duplicate of the table headers on the left side. This uses JavaScript (`responsive-flat.js`) to inject the headers into each row.
+
+Please note that this option will not work with *Core* experience.
 
 ### Scroll
 
