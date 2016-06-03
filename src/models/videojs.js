@@ -209,9 +209,11 @@ class VideoJsPlayer extends Video {
 
 			const playButtonEl = document.createElement('button');
 			playButtonEl.className = 'o-video__play-button';
-			playButtonEl.textContent = 'Play video';
-
 			this.containerEl.appendChild(playButtonEl);
+
+			const playIconEl = document.createElement('i');
+			playIconEl.className = 'o-video__play-button-icon';
+			playButtonEl.appendChild(playIconEl);
 
 			playButtonEl.addEventListener('click', () => {
 				this.containerEl.removeChild(playButtonEl);
