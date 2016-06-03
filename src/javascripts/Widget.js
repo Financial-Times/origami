@@ -10,7 +10,6 @@ const oCommentUi = require('o-comment-ui');
 const oCommentApi = require('o-comment-api');
 const resourceLoader = require('./resourceLoader.js');
 const oTrackingIntegration = require('./oTrackingIntegration');
-const oErrorsIntegration = require('./oErrorsIntegration');
 
 /* global Livefyre */
 
@@ -338,8 +337,6 @@ function Widget () {
 
 		if (typeof err === 'object'&& err.unclassifiedArticle !== true && err.notAllowedToCreateCollection !== true) {
 			self.ui.addNotAvailableMessage();
-
-			oErrorsIntegration.trigger(self.getWidgetEl(), err);
 		}
 	};
 
@@ -379,7 +376,6 @@ function Widget () {
 				if (!err && currentAuthData) {
 					userDialogs.showSettingsDialog(currentAuthData, function (err, newAuthData) {
 						if (err) {
-							oErrorsIntegration.trigger(self.getWidgetEl(), err);
 							return;
 						}
 
@@ -396,7 +392,6 @@ function Widget () {
 				if (!err && currentAuthData) {
 					userDialogs.showChangePseudonymDialog(currentAuthData.displayName, function (err, newAuthData) {
 						if (err) {
-							oErrorsIntegration.trigger(self.getWidgetEl(), err);
 							return;
 						}
 
