@@ -22,6 +22,8 @@ class Notice {
 		if(options.duration !== 0){
 			this.timeout = setTimeout(this.hide.bind(this), options.duration || timeoutDuration);
 		}
+
+		this.optionsContent = options.content;
 	}
 
 	hide() {
@@ -41,7 +43,13 @@ class Notice {
 
 function show (options) {
 	if (!isInstantiated) {init();}
-	stack.push(new Notice(options));
+	if (stack.length > 0 && stack[stack.length - 1].optionsContent === options.content) {
+		let lastNotice = stack[stack.length - 1];
+		clearTimeout(lastNotice.timeout);
+		lastNotice.timeout = setTimeout(lastNotice.hide.bind(lastNotice), timeoutDuration);
+	} else {
+		stack.push(new Notice(options));
+	}
 }
 
 function init (){
