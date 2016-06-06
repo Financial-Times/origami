@@ -144,6 +144,30 @@ Class: `o-table--vertical-lines`, Mixin : `oTableVerticalLines`
 
 Thin lines will be rendered to the left and right of each `td` element giving the appearance of lines between columns.
 
+## Responsive
+
+There are three responsive options available for displaying data in a table.
+
+### Flat
+
+Class: `o-table--responsive-flat`, Mixin: `oTableResponsiveFlat`
+
+Using the Responsive Flat version will render the table to change at narrow viewpoints into a row-based table with each row having a duplicate of the table headers on the left side. This uses JavaScript to inject the headers into each row.
+
+Please note that this option will not work in *Core* experience.
+
+### Scroll
+
+Class: `o-table--responsive-scroll`, Mixin: `oTableResponsiveScroll`
+
+On a narrow viewpoint the Responsive Scroll version will move the headers to the right hand side of the table, and be fixed. This allows the data to be displayed in a column format which would allow the user to swipe left or right going through the data.
+
+### Overflow
+
+Class: `o-table--responsive-overflow`, Mixin: `oTableResponsiveOverflow`
+
+On a narrow viewpoint, all this does is add an overflow which would allow the user to scroll through the data in a horizontal way. This is identical to the `oTableWrapper` behaviour.
+
 ## Sorting
 Sorting table rows requires the JS part of this component, you can grab this via OBT or the Build Service.
 

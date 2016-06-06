@@ -5,14 +5,14 @@
 
 /// Base styles for caption element - add this to any <caption> you use
 @mixin oTableCaption {
-	border-top: 2px solid oColorsGetColorFor(o-table-header-row, border);
 	border-bottom: 2px solid oColorsGetColorFor(o-table-header-row, border);
-	padding: 9px 0;
+	border-top: 2px solid oColorsGetColorFor(o-table-header-row, border);
 	font-size: 14px;
-	line-height: 18px;
 	font-weight: bold;
-	text-transform: uppercase;
+	line-height: 18px;
+	padding: 9px 0;
 	text-align: center;
+	text-transform: uppercase;
 }
 
 /// Add this to a caption element at the top of a table

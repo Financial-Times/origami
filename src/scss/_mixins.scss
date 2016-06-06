@@ -13,7 +13,6 @@
 	}
 	.#{$classname} {
 		@include oTableBase;
-
 		.#{$classname}__caption,
 		// Todo: remove these
 		.#{$classname}__caption--top,
@@ -52,5 +51,14 @@
 	}
 	.#{$classname}--compact {
 		@include oTableCompact;
+	}
+	.#{$classname}--responsive-flat {
+		@include oTableResponsiveFlat;
+	}
+	.#{$classname}--responsive-overflow {
+		@include oTableResponsiveOverflow;
+	}
+	.#{$classname}--responsive-scroll {
+		@include oTableResponsiveScroll;
 	}
 }

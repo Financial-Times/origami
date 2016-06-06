@@ -162,6 +162,36 @@ describe('An oTable instance', () => {
 		testOTable = new OTable(oTableEl);
 		expect(oTableEl.hasAttribute('data-o-table--js')).to.be.true;
 	});
+	
+	it('has an `isResponsive` property set to `false`', () => {
+		testOTable = new OTable(oTableEl);
+		expect(testOTable.isResponsive).to.be.false;
+	});
+	
+	describe('when the table has data-o-table-responsive="flat"', () => {
+		
+		beforeEach(() => {
+			oTableEl.setAttribute('data-o-table-responsive','flat');
+		});
+		
+		it('has an `isResponsive` property set to `true`', () => {
+			testOTable = new OTable(oTableEl);
+			expect(testOTable.isResponsive).to.be.true;
+		});
+		
+		it('should clone any `<th>` elements into all of the rows in the `<tbody>`', () => {
+			testOTable = new OTable(oTableEl);
+
+			const allBodyTableHeads = oTableEl.querySelectorAll('tbody th');
+			expect(allBodyTableHeads).to.have.lengthOf(3);
+			
+			const firstRow = oTableEl.querySelectorAll('tbody tr')[0];
+			const firstRowTableHeads = firstRow.querySelectorAll('th');
+			expect(firstRowTableHeads).to.have.lengthOf(1);
+
+		});
+		
+	});
 
 	it('fires an "oTable.ready" event when the JS for the component has executed', done => {
 		testOTable = new OTable(oTableEl);

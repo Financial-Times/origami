@@ -1,0 +1,54 @@
+////
+/// @group o-table
+/// @link http://registry.origami.ft.com/components/o-table
+////
+
+/// Make a table 'ResponsiveScroll'
+@mixin oTableResponsiveScroll {
+	display: flex;
+	overflow: hidden;
+
+	@include oGridRespondTo(S) {
+		display: table;
+	}
+
+	thead {
+		display: flex;
+		flex-shrink: 0;
+
+		@include oGridRespondTo(S) {
+			display: table-header-group;
+		}
+	}
+
+	tbody {
+		display: flex;
+		overflow-x: auto;
+		overflow-y: hidden;
+		position: relative;
+
+		@include oGridRespondTo(S) {
+			display: table-row-group;
+		}
+	}
+
+	tr {
+		display: flex;
+		flex-direction: column;
+		flex-shrink: 0;
+
+		@include oGridRespondTo(S) {
+			display: table-row;
+		}
+	}
+
+	th,
+	td {
+		display: block;
+
+		@include oGridRespondTo(S) {
+			display: table-cell;
+		}
+	}
+
+} // mixin
