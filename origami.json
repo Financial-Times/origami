@@ -13,6 +13,7 @@
 		]
 	},
 	"demosDefaults": {
+		"js": "demos/src/demo.js",
 		"sass": "demos/src/demo.scss",
 		"dependencies": ["o-fonts@^2.0.0"]
 	},
@@ -20,14 +21,12 @@
 		{
 			"name": "basic",
 			"template": "demos/src/basic.mustache",
-			"js": "demos/src/demo.js",
 			"expanded": true,
 			"description": ""
 		},
 		{
 			"name": "compact",
 			"template": "demos/src/basic.mustache",
-			"js": "demos/src/demo.js",
 			"data": {
 				"modifierClass": "o-table--compact"
 			},
@@ -37,28 +36,18 @@
 		{
 			"name": "captions",
 			"template": "demos/src/captions.mustache",
-			"js": "demos/src/demo.js",
-			"expanded": false,
-			"description": ""
-		},
-		{
-			"name": "modifiers",
-			"template": "demos/src/modifiers.mustache",
-			"js": "demos/src/demo.js",
 			"expanded": false,
 			"description": ""
 		},
 		{
 			"name": "responsive-flat",
 			"template": "demos/src/responsive-flat.mustache",
-			"js": "demos/src/demo.js",
 			"expanded": false,
 			"description": "This is a flat responsive version"
 		},
 		{
 			"name": "responsive-overflow",
 			"template": "demos/src/responsive-overflow.mustache",
-			"js": "demos/src/demo.js",
 			"data": {
 				"modifierClass": "o-table--responsive-overflow"
 			},
