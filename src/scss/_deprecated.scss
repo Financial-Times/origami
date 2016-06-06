@@ -1,0 +1,22 @@
+/// Adds block to primary content of a cell
+@mixin oTableCellContentPrimary {
+	display: block;
+}
+
+@if ($o-table-is-silent == false) {
+	.o-table {
+
+		.primary-data {
+			@include oTableCellContentPrimary;
+		}
+
+		.secondary-data {
+			@include oTableCellContentSecondary;
+		}
+
+		[data-o-table-data-type=numeric] {
+			@include oTableCellNumeric;
+		}
+	}
+
+}

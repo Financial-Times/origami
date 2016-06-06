@@ -18,12 +18,12 @@
 		margin: 0;
 		padding: 0;
 	}
-	
+
 	th {
 		@include oTypographySansBold(s);
 		@include oColorsFor(o-table-header, color);
 	}
-	
+
 	td {
 		@include oTypographySans(s);
 		@include oColorsFor(o-table-data, color);
@@ -35,20 +35,6 @@
 		line-height: 1.428571429;
 		text-align: left;
 		vertical-align: top;
-	}
-	
-	.primary-data {
-		@include oTypographySans(s);
-		display: block;
-	}
-	
-	.secondary-data {
-		@include oTypographySans(xs);
-		display: block;
-	}
-
-	[data-o-table-data-type=numeric] {
-		text-align: right;
 	}
 
 	th:not([scope=row]) {
