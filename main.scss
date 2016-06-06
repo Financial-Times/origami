@@ -51,8 +51,8 @@ $o-footer-spacing-unit: 20px;
 	text-transform: uppercase;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	font-weight: bold;
-	font-size: 1em;
+	font-weight: 600;
+	font-size: 1.1em;
 	color: oColorsGetColorFor(o-footer-item, text);
 
 	// Make the white text look crisper and less bold on dark backgrounds
