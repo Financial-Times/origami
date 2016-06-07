@@ -1,0 +1,54 @@
+.headline {
+	@include oTypographySerifDisplay(l, $load-progressively: true);
+	margin: 0;
+	@include oGridRespondTo(M) {
+		@include oTypographySerifDisplaySize(xl, $with-progressive-size: true);
+	}
+}
+
+.standfirst {
+	@include oTypographySansData(l, $load-progressively: true);
+	@include oTypographyFallbackFontSize(sansData, 20px);
+
+	line-height: 1.2;
+  margin: 0 0 $vspace / 4;
+  font-style: normal;
+  font-weight: 400;
+
+	@include oGridRespondTo(L) {
+		@include oTypographySansDataSize(xl, $with-progressive-size: true);
+		@include oTypographyFallbackFontSize(sansData, 26px);
+		line-height: 1.1;
+	}
+}
+
+.flyline {
+  @include oTypographyFlyline;
+  @include oTypographySansBold(s);
+  font-size: 18px;
+  text-transform: none;
+
+  @include oGridRespondTo(M) {
+    font-size: 20px;
+  }
+
+  &__link {
+    @include content-tag-link;
+  }
+
+}
+
+.byline {
+	@include oTypographySans(s);
+	display: inline-block;
+
+  a {
+    @include content-tag-link;
+  }
+}
+
+.timestamp {
+	@include oTypographySans(xs);
+	color: oColorsGetColorFor(timestamp, text);
+	text-transform: uppercase;
+}

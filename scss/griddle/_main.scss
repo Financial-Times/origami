@@ -1,0 +1,85 @@
+$griddle-line-a: 1px solid #cec6b9;
+$griddle-line-b: 4px solid #777777;
+
+@mixin griddle-rule($name) {
+  [data-o-griddle~="#{$name}"] {
+    @content;
+  }
+}
+
+@mixin griddle-vspace($edge, $multiple:0) {
+  margin-#{$edge}: $vspace * $multiple;
+}
+
+@mixin griddle-hspace($edge, $multiple:0) {
+  padding-#{$edge}: $hspace * $multiple;
+}
+
+@mixin griddle-vspace-rules($multiple) {
+  @include griddle-rule(v#{$multiple}t) {
+    @include griddle-vspace(top, $multiple);
+  }
+  @include griddle-rule(v#{$multiple}b) {
+    @include griddle-vspace(bottom, $multiple);
+  }
+  @include griddle-rule(v#{$multiple}) {
+    @include griddle-vspace(top, $multiple);
+    @include griddle-vspace(bottom, $multiple);
+  }
+}
+
+@mixin griddle-hspace-rules($multiple) {
+  @include griddle-rule(h#{$multiple}l) {
+    @include griddle-hspace(left, $multiple);
+  }
+  @include griddle-rule(h#{$multiple}r) {
+    @include griddle-hspace(right, $multiple);
+  }
+  @include griddle-rule(h#{$multiple}) {
+    @include griddle-hspace(left, $multiple);
+    @include griddle-hspace(right, $multiple);
+  }
+}
+
+@include griddle-rule(lt) {
+  border-top: $griddle-line-a;
+  &[data-o-griddle~="lt-heavy"] {
+    border-top: 4px solid red;
+  }
+  & > :first-child {
+    margin-top: 0;
+  }
+  &:before {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: $vspace;
+    @include oGridRespondTo($until:M) {
+      height: $vspace / 2;
+    }
+  }
+}
+
+@include griddle-rule(lb) {
+  border-bottom: $griddle-line-a;
+  &[data-o-griddle~="lb-heavy"] {
+    border-bottom: 4px solid red;
+  }
+  & > :last-child {
+    margin-bottom: 0;
+  }
+  &:after {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: $vspace;
+    @include oGridRespondTo($until:M) {
+      height: $vspace / 2;
+    }
+  }
+}
+
+@for $step from 0 through 5 {
+  @include griddle-vspace-rules($step);
+  @include griddle-hspace-rules($step);
+}

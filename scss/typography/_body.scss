@@ -1,0 +1,78 @@
+.body {
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include oTypographyBodyBlockOverride;
+  }
+
+  p {
+    @include oTypographyBody;
+    @include oTypographyBodyBlockOverride;
+  }
+
+  a {
+    @include oTypographyLink;
+  }
+
+  ol,
+  ul {
+    @include oTypographyList;
+  }
+
+  ol {
+    @include oTypographyListOrdered;
+  }
+
+  ul {
+    @include oTypographyListUnordered;
+  }
+
+  li {
+    margin-left: $vspace;
+    padding-left: $vspace / 4;
+  }
+
+  footer {
+    @include oTypographyFooter;
+  }
+
+  strong {
+		@include oTypographyBold;
+	}
+
+	em {
+		@include oTypographyItalic;
+	}
+
+	sup {
+		@include oTypographySuper;
+	}
+
+	sub {
+		@include oTypographySub;
+	}
+
+	figcaption {
+		@include oTypographyCaption;
+	}
+
+  blockquote {
+    p {
+      @include oTypographyBlockquote;
+    }
+    footer {
+      @include oTypographyBold;
+    }
+  }
+
+
+}
+
+.crosshead {
+  @include oTypographySerifDisplayBold(m);
+  padding-top: $font-height / 4;
+  line-height: 1.1;
+}

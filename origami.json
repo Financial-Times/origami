@@ -1,0 +1,20 @@
+{
+	"description": "IG audio player styles/scripts",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/ig-audio/issues",
+	"supportStatus": "experimental",
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"dependencies": ["o-fonts@^2", "o-grid@^4"]
+	},
+	"demos": [
+		{
+			"name": "audio",
+			"template": "demos/src/index.html",
+			"expanded": true,
+			"description": ""
+		}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "ig-audio",
+  "main": ["main.js", "main.scss"],
+  "ignore": [
+    ".travis.yml",
+    "circle.yml"
+  ],
+  "dependencies": {
+    "o-typography": "^4",
+    "o-date": "^2.3.3",
+    "o-grid": "^4",
+    "o-share": "^2"
+  }
+}

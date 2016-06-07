@@ -1,0 +1,13 @@
+@include oColorsSetColor('claret-inverse', #ff7f8a);
+@include oColorsSetColor('link-1', oColorsGetPaletteColor('teal-1'));
+@include oColorsSetColor('link-2', oColorsGetPaletteColor('teal-2'));
+@include oColorsSetUseCase(topic, text, 'claret');
+@include oColorsSetUseCase(topic-inversed, text, 'claret-inverse');
+@include oColorsSetUseCase(topic-block, background, 'claret');
+@include oColorsSetUseCase(topic-block, text, 'white');
+@include oColorsSetUseCase(link, text, 'teal-1');
+@include oColorsSetUseCase(link-hover, text, 'cold-1');
+@include oColorsSetUseCase(link-inversed, text, 'teal-2');
+@include oColorsSetUseCase(link-inversed-hover, text, 'warm-2');
+@include oColorsSetUseCase(timestamp, text, 'warm-6');
+$color-sectionlinks: #9e2f50;

@@ -1,0 +1,4 @@
+body {
+  @include oColorsFor(page, background);
+  font-family: $o-typography-sans;
+}

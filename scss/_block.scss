@@ -1,0 +1,22 @@
+.block {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+
+  @for $step from 0 through 4 {
+    &--b#{$step} {
+      max-width: $line-length + ($o-grid-min-width * $step);
+    }
+    &--pad.block--b#{$step} {
+      @media(max-width: $line-length + ($o-grid-min-width * $step) + $vspace) {
+        margin-left: oGridGutter();
+        margin-right: oGridGutter();
+        width: auto;
+      }
+    }
+  }
+
+}

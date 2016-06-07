@@ -1,0 +1,278 @@
+// scss-lint:disable all
+
+$_ig-normalize_applied: false !default;
+
+@if $_ig-normalize_applied == false {
+
+	/**
+	 * Prevent adjustments of font size after orientation changes in IE and iOS.
+	 */
+
+	html {
+		-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+	}
+
+	/**
+	 * Remove the margin in all browsers (opinionated).
+	 */
+
+	body {
+		margin: 0;
+		border: 0;
+	}
+
+		/**
+	 * Add the correct display in IE 9-.
+	 * 1. Add the correct display in Edge, IE, and Firefox.
+	 * 2. Add the correct display in IE.
+	 */
+
+	article,
+	aside,
+	details, /* 1 */
+	figcaption,
+	figure,
+	footer,
+	header,
+	main, /* 2 */
+	menu,
+	nav,
+	section,
+	summary { /* 1 */
+	  display: block;
+	}
+
+	/**
+	 * Add the correct display in IE 9-.
+	 */
+
+	audio,
+	canvas,
+	progress,
+	video {
+	  display: inline-block;
+	}
+
+
+	/* Links
+	   ===================================================================== */
+
+	/**
+	 * Remove the gray background on active links in IE 10.
+	 */
+
+	a {
+		background-color: transparent;
+	}
+
+	/**
+	 * Remove the outline on focused links when they are also active or hovered
+	 * in all browsers (opinionated).
+	 */
+
+	a:active,
+	a:hover {
+		outline-width: 0;
+	}
+
+	/* Text-level semantics
+	   ===================================================================== */
+
+	/**
+	 * 1. Remove the bottom border in Firefox 39-.
+	 * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+	 */
+
+	abbr[title] {
+		border-bottom: none; /* 1 */
+		text-decoration: underline; /* 2 */
+		text-decoration: underline dotted; /* 2 */
+	}
+
+	/**
+	 * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+	 */
+
+	b,
+	strong {
+		font-weight: inherit;
+	}
+
+	/**
+	 * Add the correct font weight in Chrome, Edge, and Safari.
+	 */
+
+	b,
+	strong {
+		font-weight: bolder;
+	}
+
+	/**
+	 * Add the correct font style in Android 4.3-.
+	 */
+
+	dfn {
+		font-style: italic;
+	}
+
+	/**
+	 * Prevent `sub` and `sup` elements from affecting the line height in
+	 * all browsers.
+	 */
+
+	sub,
+	sup {
+		font-size: 75%;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+	}
+
+	sub {
+		bottom: -0.25em;
+	}
+
+	sup {
+		top: -0.5em;
+	}
+
+	/* Embedded content
+	   ===================================================================== */
+
+	/**
+	 * Remove the border on images inside links in IE 10-.
+	 */
+
+	img {
+		border-style: none;
+	}
+
+	/* Forms
+	   ===================================================================== */
+
+	/**
+	 * Change font properties to `inherit` in all browsers (opinionated).
+	 */
+
+	button,
+	input,
+	select,
+	textarea {
+		font: inherit;
+	}
+
+	/**
+	 * Restore the font weight unset by the previous rule.
+	 */
+
+	optgroup {
+		font-weight: bold;
+	}
+
+	/**
+	 * Show the overflow in IE.
+	 * 1. Show the overflow in Edge.
+	 * 2. Show the overflow in Edge, Firefox, and IE.
+	 */
+
+	button,
+	input, /* 1 */
+	select { /* 2 */
+		overflow: visible;
+	}
+
+	/**
+	 * Remove the margin in Safari.
+	 * 1. Remove the margin in Firefox and Safari.
+	 */
+
+	button,
+	input,
+	select,
+	textarea { /* 1 */
+		margin: 0;
+	}
+
+	/**
+	 * Remove the inheritance of text transform in Edge, Firefox, and IE.
+	 * 1. Remove the inheritance of text transform in Firefox.
+	 */
+
+	button,
+	select { /* 1 */
+		text-transform: none;
+	}
+
+	/**
+	 * Change the cursor in all browsers (opinionated).
+	 */
+
+	button,
+	[type="button"],
+	[type="reset"],
+	[type="submit"] {
+		cursor: pointer;
+	}
+
+	/**
+	 * Restore the default cursor to disabled elements unset by the previous rule.
+	 */
+
+	[disabled] {
+		cursor: default;
+	}
+
+	/**
+	 * Remove the inner border and padding in Firefox.
+	 */
+
+	button::-moz-focus-inner,
+	input::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+
+	/**
+	 * Remove the default vertical scrollbar in IE.
+	 */
+
+	textarea {
+		overflow: auto;
+	}
+
+	/**
+	 * Remove UA preference for figure margin
+	 */
+
+	figure {
+		margin: unset;
+	}
+
+	/**
+	 * Give <main>s the proper display value in IE.
+	 */
+
+	main {
+		display: block;
+	}
+
+	/* Next specific stuff
+	   ===================================================================== */
+
+	/**
+	 * Standardise outline styles
+	 */
+
+	:focus {
+		outline: thin dotted;
+		outline-offset: 1px;
+	}
+
+	$_ig-normalize_applied: true;
+
+} @else {
+	@warn "ig-article/normalize should only be imported once.";
+}
+
+// scss-lint:enable all

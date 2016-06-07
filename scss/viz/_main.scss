@@ -1,0 +1,64 @@
+$aspect-square: 100%;
+$aspect-master: 56.25%;
+$aspect-wide: 42.55319%;
+$aspect-letterbox: 27.5%;
+
+.viz {
+
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &--square {
+    padding-top: $aspect-square;
+  }
+
+  &--master {
+    padding-top: $aspect-master;
+  }
+
+  &--wide {
+    padding-top: $aspect-wide;
+  }
+
+  &--letterbox {
+    padding-top: $aspect-letterbox;
+  }
+
+  img,
+  svg,
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: block;
+  }
+
+  img {
+    background-color: red;
+  }
+
+  &--square &--offsetmaster {
+      top: percentage(($aspect-master - $aspect-square) / (2 * $aspect-square) * -1);
+      // top: ($aspect-master - $aspect-square) * -0.5;
+  }
+
+  &--wide &--offsetmaster {
+      top: percentage(($aspect-master - $aspect-wide) / (2 * $aspect-wide) * -1);
+      // top: ($aspect-master - $aspect-wide) * -0.5;
+  }
+
+  &--letterbox &--offsetmaster {
+      top: percentage(($aspect-master - $aspect-letterbox) / (2 * $aspect-letterbox) * -1);
+      // top: ($aspect-master - $aspect-letterbox) * -0.5;
+  }
+}
+
+@import "picture";
+@import "graphic";
+@import "table";

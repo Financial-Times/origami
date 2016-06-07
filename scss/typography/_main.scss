@@ -1,0 +1,19 @@
+@mixin content-tag-link() {
+  color: $color-sectionlinks;
+  font-weight: 600;
+  text-decoration: none;
+  font-style: normal;
+  &:focus,
+  &:hover {
+    border-bottom-color: #4f1828;
+    color: #4f1828;
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+  }
+}
+
+@import "o-typography/main";
+@import "../origami-overrides/o-typography";
+@import "head";
+@import "body";
+@import "aside";

@@ -1,0 +1,16 @@
+logs
+*.log
+npm-debug.log*
+pids
+*.pid
+*.seed
+.lock-wscript
+.npm
+.node_repl_history
+.idea
+.sass-cache
+bower_components
+node_modules
+build
+demos/local
+.bowerrc
