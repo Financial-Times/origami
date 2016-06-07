@@ -193,7 +193,7 @@ class VideoJsPlayer extends Video {
 		if(!this.brightcoveData.tags || this.brightcoveData.tags.length === 0) {
 			return false;
 		} else {
-			let filtered = this.brightcoveData.tags.filter(val => val.indexOf('brand:') !== -1 || val.indexOf('Brand:') !== -1);
+			let filtered = this.brightcoveData.tags.filter(val => val.toLowerCase().indexOf('brand:') !== -1);
 			if(filtered.length > 0) {
 				try {
 					 return filtered.pop().substring(6);
