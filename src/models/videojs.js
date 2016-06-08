@@ -196,6 +196,7 @@ class VideoJsPlayer extends Video {
 			let filtered = this.brightcoveData.tags.filter(val => val.toLowerCase().indexOf('brand:') !== -1);
 			if(filtered.length > 0) {
 				try {
+						// when we target the value in the ad server, we only want to target actual brand name, so we strip out "brand:" part of the string
 					 return filtered.pop().substring(6);
 				}
 				catch (e) {
@@ -208,6 +209,8 @@ class VideoJsPlayer extends Video {
 	}
 
 	advertising(player, videoIdProperty) {
+		// ad server request call that contains ad server details such as: site(iu), sizes(sz), position(pos), video id(ttid) and branding(brand) if onw is available
+		// this key values are then used on ad server to target pre roll advertising
 		let advertisingUrl = `http://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast2&iu=${this.targeting.site}&sz=${this.targeting.sizes}&unviewed_position_start=1&scp=pos%3D${this.targeting.position}&ttid=${this.targeting.videoId}`;
 		if(this.targeting.brand) {
 			advertisingUrl += `&brand=${encodeURIComponent(this.targeting.brand)}`;
