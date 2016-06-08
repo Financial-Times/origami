@@ -9,7 +9,7 @@
     "o-comment-ui": "^3.0.0",
     "o-comment-utilities": "^2.2.1",
     "o-fonts": "^2.1.2",
-    "o-colors": ">=2.4.7 <4",
+    "o-colors": ">=2.0.0 <4",
     "o-assets": ">=2.0.0 <4",
     "o-icons": "^4.0.0"
   },
