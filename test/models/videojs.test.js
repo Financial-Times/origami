@@ -173,6 +173,7 @@ describe('VideoJS', () => {
 			.then(() => {
 				const checkSdkIsLoaded = checkGoogleVideoSdkLoaded();
 				checkSdkIsLoaded.should.equal(true);
+				videojsPlayer.targeting.brand.should.equal('Authers Note');
 				done();
 			});
 	});
