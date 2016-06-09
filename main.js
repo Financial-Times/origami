@@ -1,10 +1,6 @@
-import oShare from 'o-share';
-import oDate from 'o-date';
 import igAudio from './js/index';
 
 const constructAll = () => {
-	oShare.init();
-	oDate.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 

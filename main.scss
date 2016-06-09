@@ -1,30 +1,5 @@
 $ig-article-is-silent: true !default;
 
-@if not $ig-article-is-silent {
-@import "o-colors/main";
-
-@import "scss/core/normalize";
-@import "scss/core/units";
-@import "scss/core/colors";
-
-@import "o-grid/main";
-
-@import "scss/typography/main";
-@import "scss/share/main";
-
-@import "scss/block";
-@import "scss/section/main";
-@import "scss/viz/main";
-@import "scss/griddle/main";
-
-// Don't depend on o-header or o-footer, use the build service.
-@import "scss/origami-overrides/o-header";
-@import "scss/origami-overrides/o-footer";
-
-@import "scss/core/page";
-
-}
-
 article {
 	font-size: 1.2rem;
 	line-height: 1.5rem;

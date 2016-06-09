@@ -7,7 +7,7 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
-		"dependencies": ["o-fonts@^2", "o-grid@^4"]
+		"dependencies": []
 	},
 	"demos": [
 		{
