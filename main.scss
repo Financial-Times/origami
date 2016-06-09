@@ -22,7 +22,7 @@ article {
 	border-radius: 6px;
 	cursor: pointer;
 	vertical-align: top;
-	margin-right: 5px;
+	margin: 0 5px;
 
 	&:before {
 		font-family: 'IcoMoon';
@@ -42,7 +42,7 @@ article {
 		width: 100%;
 		border-radius: initial;
 		padding: 10px 15px;
-		margin-right: initial;
+		margin: 0;
 	}
 
 	&.block:before {
