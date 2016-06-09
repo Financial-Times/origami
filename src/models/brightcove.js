@@ -1,4 +1,4 @@
-/* global fetch */
+/* global fetch, google */
 const crossDomainFetch = require('o-fetch-jsonp').crossDomainFetch;
 const Video = require('./video');
 const getAppropriateRendition = require('../libs/get-appropriate-rendition');
@@ -23,7 +23,7 @@ const clearCurrentlyPlaying = () => {
 
 
 const eventListener = (video, ev) => {
-	var event = new CustomEvent('oTracking.event', {
+	const event = new CustomEvent('oTracking.event', {
 		detail: {
 			action: 'media',
 			ads: false,
@@ -247,7 +247,7 @@ class Brightcove extends Video {
 			this.el.play();
 		}
 
-		this.el.removeEventListener('play', this.playAdEventHandler)
+		this.el.removeEventListener('play', this.playAdEventHandler);
 	}
 
 	adsManagerLoadedHandler(adsManagerLoadedEvent) {
@@ -291,7 +291,8 @@ class Brightcove extends Video {
 					// For a linear ad, a timer can be started to poll for
 					// the remaining time.
 					intervalTimer = setInterval(() => {
-						const remainingTime = this.adsManager.getRemainingTime();
+						// Currently not used
+						// const remainingTime = this.adsManager.getRemainingTime();
 					}, 300); // every 300ms
 				}
 				break;
@@ -304,9 +305,9 @@ class Brightcove extends Video {
 		}
 	}
 
-	adErrorHandler(adErrorEvent) {
+	adErrorHandler() {
 		// Handle the error logging.
-		adsManager.destroy();
+		this.adsManager.destroy();
 	}
 
 	contentPauseRequestHandler() {

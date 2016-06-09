@@ -30,7 +30,7 @@ function loadVideos(options) {
 	return Promise.all(videoPromises);
 }
 
-const init = opts => {
+function init(opts) {
 	const options = opts || {};
 	const defaultOpts = {
 		context: document.body,
@@ -44,17 +44,18 @@ const init = opts => {
 	}
 
 	const librariesLoaded = options.ads ? loadAdsLibrary() : Promise.resolve();
-	options.context = options.context instanceof HTMLElement ? options.context : document.querySelector(opts.context)
+	options.context = options.context instanceof HTMLElement ? options.context : document.querySelector(opts.context);
 
 	return librariesLoaded.then(() => {
-		loadVideos(options);
+		return loadVideos(options);
 	}, () => {
 		options.ads = false;
-		loadVideos(options);
+		return loadVideos(options);
 	});
-}
+};
 
 module.exports = {
 	init,
-	factory
+	factory,
+	_loadAdsLibrary: loadAdsLibrary
 };

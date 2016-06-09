@@ -1,18 +1,18 @@
 /* global describe, it, beforeEach, afterEach, sinon, expect */
 let VideoJS = require('../../src/models/videojs');
+const oVideo = require('../../main');
 const brightcoveResponse = require('../fixtures/brightcove.json');
 
 const checkGoogleVideoSdkLoaded = function() {
 	return [].slice.call(document.getElementsByTagName('script'))
-		.some(function (s) {
+		.some(function(s) {
 			if(s.src.indexOf('//imasdk.googleapis.com/js/sdkloader/ima3.js') > -1) {
 				return true;
 			} else {
 				return false;
 			}
 		});
-}
-
+};
 
 describe('VideoJS', () => {
 
@@ -37,7 +37,7 @@ describe('VideoJS', () => {
 	afterEach(() => {
 		document.body.removeChild(containerEl);
 		fetchStub.restore();
-		VideoJS - false;
+		VideoJS = null;
 	});
 
 	it('should exist', () => {
@@ -167,15 +167,17 @@ describe('VideoJS', () => {
 	});
 
 	it('should add the video advertising script if the configuration parameter is passed', (done) => {
-		const videojsPlayer = new VideoJS(containerEl, {advertising: true});
-		return videojsPlayer
-			.init()
-			.then(() => {
-				const checkSdkIsLoaded = checkGoogleVideoSdkLoaded();
-				checkSdkIsLoaded.should.equal(true);
-				videojsPlayer.targeting.brand.should.equal('Authers Note');
-				done();
-			});
+		const videojsPlayer = new VideoJS(containerEl, {ads: true});
+		return oVideo._loadAdsLibrary().then(() => {
+			videojsPlayer
+				.init()
+				.then(() => {
+					const checkSdkIsLoaded = checkGoogleVideoSdkLoaded();
+					checkSdkIsLoaded.should.equal(true);
+					videojsPlayer.targeting.brand.should.equal('Authers Note');
+					done();
+				});
+		});
 	});
 
 });
