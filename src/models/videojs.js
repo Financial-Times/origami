@@ -99,6 +99,12 @@ class VideoJsPlayer extends Video {
 		advertising = opts && opts['ads'] ? true : false;
 		ensureAllScriptsAreLoaded();
 		super(el, opts);
+		this.targeting = {
+			site: '/5887/ft.com',
+			position: 'video',
+			sizes: '592x333|400x225',
+			videoId: this.id
+		};
 	}
 
 	getData() {
@@ -115,6 +121,7 @@ class VideoJsPlayer extends Video {
 			this.brightcoveData = data;
 			this.posterImage = updatePosterUrl(data.videoStillURL, this.opts.optimumWidth);
 			this.rendition = getAppropriateRendition(data.renditions);
+			this.targeting.brand = this.getVideoBrand();
 		});
 	}
 
@@ -149,6 +156,7 @@ class VideoJsPlayer extends Video {
 		};
 	}
 
+
 	addVideo() {
 		let videoIdProperty = 'test-video-' + videoElementIdOrder++;
 		this.el = document.createElement('video');
@@ -168,10 +176,36 @@ class VideoJsPlayer extends Video {
 			});
 	}
 
+	getVideoBrand() {
+		if(!this.brightcoveData.tags || this.brightcoveData.tags.length === 0) {
+			return false;
+		} else {
+			let filtered = this.brightcoveData.tags.filter(val => val.toLowerCase().indexOf('brand:') !== -1);
+			if(filtered.length > 0) {
+				try {					
+					 // when we target the value in the ad server, we only want to target actual brand name, so we strip out "brand:" part of the string
+					 return filtered.pop().substring(6);
+				}
+				catch (e) {
+					 return false;
+				}
+			} else {
+				return false;
+			}
+		}
+	}
+
 	advertising(player, videoIdProperty) {
+		// ad server request call that contains ad server details such as: site(iu), sizes(sz), position(pos), video id(ttid) and branding(brand) if it is available
+		// these key values are then used on ad server to target pre roll advertising
+		let advertisingUrl = `http://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast2&iu=${this.targeting.site}&sz=${this.targeting.sizes}&unviewed_position_start=1&scp=pos%3D${this.targeting.position}&ttid=${this.targeting.videoId}`;
+		if(this.targeting.brand) {
+			advertisingUrl += `&brand=${encodeURIComponent(this.targeting.brand)}`;
+		}
+
 		player.ima({
 			id: videoIdProperty,
-			adTagUrl: 'http://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast2&iu=/5887/ft.com&sz=592x333|400x225&unviewed_position_start=1&scp=pos%3Dvideo'
+			adTagUrl: advertisingUrl
 		});
 		player.ima.requestAds();
 	}
@@ -196,9 +230,11 @@ class VideoJsPlayer extends Video {
 
 			const playButtonEl = document.createElement('button');
 			playButtonEl.className = 'o-video__play-button';
-			playButtonEl.textContent = 'Play video';
-
 			this.containerEl.appendChild(playButtonEl);
+
+			const playIconEl = document.createElement('i');
+			playIconEl.className = 'o-video__play-button-icon';
+			playButtonEl.appendChild(playIconEl);
 
 			playButtonEl.addEventListener('click', () => {
 				this.containerEl.removeChild(playButtonEl);

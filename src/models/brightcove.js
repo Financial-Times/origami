@@ -56,6 +56,12 @@ const updatePosterUrl = (posterImage, width) => {
 class Brightcove extends Video {
 	constructor(el, opts) {
 		super(el, opts);
+		this.targeting = {
+			site: '/5887/ft.com',
+			position: 'video',
+			sizes: '592x333|400x225',
+			videoId: this.id
+		};
 	}
 
 	getData() {
@@ -136,10 +142,16 @@ class Brightcove extends Video {
 
 		// Request video ads.
 		const adsRequest = new google.ima.AdsRequest();
-		adsRequest.adTagUrl = 'https://pubads.g.doubleclick.net/gampad/ads?' +
-		'sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&' +
-		'impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&' +
-		'cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=';
+		let advertisingUrl = `http://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast2&iu=${this.targeting.site}&sz=${this.targeting.sizes}&unviewed_position_start=1&scp=pos%3D${this.targeting.position}&ttid=${this.targeting.videoId}`;
+		if(this.targeting.brand) {
+			advertisingUrl += `&brand=${encodeURIComponent(this.targeting.brand)}`;
+		}
+
+		adsRequest.adTagUrl = advertisingUrl;
+		// adsRequest.adTagUrl = 'https://pubads.g.doubleclick.net/gampad/ads?' +
+		// 'sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&' +
+		// 'impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&' +
+		// 'cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=';
 
 		// Specify the linear and nonlinear slot sizes. This helps the SDK to
 		// select the correct creative if multiple are returned.
