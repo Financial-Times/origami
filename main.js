@@ -15,14 +15,10 @@ class IGAudio {
 		this.targetObject = targetObject;
 		this.audioURL = audioURL;
 		this.audio = this.targetObject.getElementsByTagName("audio")[0];
-		this.init();
-	}
-
-	init() {
-		console.log("initing here", this.audioURL)
 
 		IGAudioObjects.push(this); // keep track of igaudio objects
 
+		this.targetObject.classList.add("initialized") // turns on audio player styles
 		this.targetObject.getElementsByTagName("audio")[0].removeAttribute("controls"); // hide HTML audio player controls
 		this.targetObject.getElementsByTagName("audio")[0].style.display = "none";
 	}
