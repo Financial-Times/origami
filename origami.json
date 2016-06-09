@@ -6,13 +6,12 @@
 	"supportStatus": "experimental",
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
-		"js": "demos/src/demo.js",
-		"dependencies": []
+		"js": "demos/src/demo.js"
 	},
 	"demos": [
 		{
 			"name": "audio",
-			"template": "demos/src/index.html",
+			"template": "demos/src/index.mustache",
 			"expanded": true,
 			"description": ""
 		}
