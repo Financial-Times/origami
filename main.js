@@ -21,6 +21,9 @@ class IGAudio {
 		this.targetObject.classList.add("initialized") // turns on audio player styles
 		this.targetObject.getElementsByTagName("audio")[0].removeAttribute("controls"); // hide HTML audio player controls
 		this.targetObject.getElementsByTagName("audio")[0].style.display = "none";
+
+		this.targetObject.addEventListener("click", this.toggleAudioHandler.bind(this), false) // play/pause on click
+		this.audio.addEventListener("ended", this.toggleAudioHandler.bind(this), false) // toggle back to off after clip ends
 	}
 
 	toggleAudio() {
@@ -63,7 +66,4 @@ var audio_components = document.getElementsByClassName("ig-audio");
 for (var a of audio_components) {
 	const audioURL = a.getAttribute('data-audiourl')
 	const igaudio = new IGAudio(a, audioURL)
-
-	a.addEventListener("click", igaudio.toggleAudioHandler.bind(igaudio), false) // play/pause on click
-	igaudio.audio.addEventListener("ended", igaudio.toggleAudioHandler.bind(igaudio), false) // toggle back to off after clip ends
 }
