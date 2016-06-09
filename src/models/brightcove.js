@@ -147,10 +147,10 @@ class Brightcove extends Video {
 
 		// Specify the linear and nonlinear slot sizes. This helps the SDK to
 		// select the correct creative if multiple are returned.
-		adsRequest.linearAdSlotWidth = 640;
-		adsRequest.linearAdSlotHeight = 400;
+		adsRequest.linearAdSlotWidth = 592;
+		adsRequest.linearAdSlotHeight = 333;
 
-		adsRequest.nonLinearAdSlotWidth = 640;
+		adsRequest.nonLinearAdSlotWidth = 592;
 		adsRequest.nonLinearAdSlotHeight = 150;
 
 		this.adsLoader.requestAds(adsRequest);
@@ -238,7 +238,7 @@ class Brightcove extends Video {
 
 		try {
 			// Initialize the ads manager. Ad rules playlist will start at this time.
-			this.adsManager.init(640, 360, google.ima.ViewMode.NORMAL);
+			this.adsManager.init(this.el.clientWidth, this.el.clientHeight, google.ima.ViewMode.NORMAL);
 			// Call play to start showing the ad. Single video and overlay ads will
 			// start at this time; the call will be ignored for ad rules.
 			this.adsManager.start();
