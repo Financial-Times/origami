@@ -171,9 +171,6 @@ class Brightcove extends Video {
 
 		if (this.opts.advertising) {
 			this.setUpAds();
-
-			this.playAdEventHandler = this.playAdEventHandler.bind(this);
-			this.el.addEventListener('play', this.playAdEventHandler);
 		}
 	}
 
@@ -251,6 +248,10 @@ class Brightcove extends Video {
 	}
 
 	adsManagerLoadedHandler(adsManagerLoadedEvent) {
+		// If the video has started before the ad loaded, don't load the ad
+		if (this.el.played.length > 0) {
+			return;
+		}
 		// Get the ads manager.
 		const adsRenderingSettings = new google.ima.AdsRenderingSettings();
 		adsRenderingSettings.restoreCustomPlaybackStateOnAdBreakComplete = true;
@@ -266,6 +267,9 @@ class Brightcove extends Video {
 		this.adsManager.addEventListener(google.ima.AdEvent.Type.LOADED, this.adEventHandler);
 		this.adsManager.addEventListener(google.ima.AdEvent.Type.STARTED, this.adEventHandler);
 		this.adsManager.addEventListener(google.ima.AdEvent.Type.COMPLETE, this.adEventHandler);
+
+		this.playAdEventHandler = this.playAdEventHandler.bind(this);
+		this.el.addEventListener('play', this.playAdEventHandler);
 	}
 
 	adEventHandler(adEvent) {
@@ -315,8 +319,8 @@ class Brightcove extends Video {
 	}
 
 	contentResumeRequestHandler() {
+		this.containerEl.removeChild(this.adContainerEl);
 		this.el.play();
-
 	}
 }
 
