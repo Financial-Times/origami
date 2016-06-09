@@ -167,7 +167,7 @@ describe('VideoJS', () => {
 	});
 
 	it('should add the video advertising script if the configuration parameter is passed', (done) => {
-		const videojsPlayer = new VideoJS(containerEl, {ads: true});
+		const videojsPlayer = new VideoJS(containerEl, {advertising: true});
 		return oVideo._loadAdsLibrary().then(() => {
 			videojsPlayer
 				.init()

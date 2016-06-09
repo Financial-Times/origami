@@ -96,7 +96,7 @@ const updatePosterUrl = (posterImage, width) => {
 
 class VideoJsPlayer extends Video {
 	constructor(el, opts) {
-		advertising = opts && opts['ads'] ? true : false;
+		advertising = opts && opts['advertising'] ? true : false;
 		ensureAllScriptsAreLoaded();
 		super(el, opts);
 		this.targeting = {

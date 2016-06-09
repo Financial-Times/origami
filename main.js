@@ -43,7 +43,7 @@ function init(opts) {
 		}
 	}
 
-	const librariesLoaded = options.ads ? loadAdsLibrary() : Promise.resolve();
+	const librariesLoaded = options.advertising ? loadAdsLibrary() : Promise.resolve();
 	options.context = options.context instanceof HTMLElement ? options.context : document.querySelector(opts.context);
 
 	return librariesLoaded.then(() => {

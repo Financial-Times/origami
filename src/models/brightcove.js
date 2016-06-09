@@ -26,7 +26,7 @@ const eventListener = (video, ev) => {
 	const event = new CustomEvent('oTracking.event', {
 		detail: {
 			action: 'media',
-			ads: false,
+			advertising: video.opts.advertising,
 			category: 'video',
 			event: ev.type,
 			mediaType: 'video',
@@ -169,7 +169,7 @@ class Brightcove extends Video {
 		this.el.addEventListener('suspend', clearCurrentlyPlaying);
 		this.el.addEventListener('ended', clearCurrentlyPlaying);
 
-		if (this.opts.ads) {
+		if (this.opts.advertising) {
 			this.setUpAds();
 
 			this.playAdEventHandler = this.playAdEventHandler.bind(this);
