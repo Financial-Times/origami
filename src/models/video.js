@@ -2,6 +2,7 @@ class Video {
 	constructor(el, opts) {
 		this.containerEl = el;
 		const defaultOpts = {
+			ads: false,
 			classes: [],
 			optimumWidth: null,
 			placeholder: false,

@@ -53,19 +53,6 @@ const ensureVideoJsPluginsAreLoaded = () => {
 	}
 
 	if(advertising) {
-		const googleSdkScript = document.createElement('script');
-		googleSdkScript.setAttribute('type', 'text/javascript');
-		googleSdkScript.setAttribute('src', `//imasdk.googleapis.com/js/sdkloader/ima3.js`);
-		googleSdkScript.setAttribute('async', true);
-		googleSdkScript.setAttribute('defer', true);
-		document.getElementsByTagName("head")[0].appendChild(googleSdkScript);
-
-		let googleSdkScriptPromise = new Promise(sdkLoaded => {
-			googleSdkScript.addEventListener('load', () => {
-				sdkLoaded();
-			});
-		});
-
 		const videoJsAdPluginsScript = document.createElement('script');
 		videoJsAdPluginsScript.setAttribute('type', 'text/javascript');
 		videoJsAdPluginsScript.setAttribute('src', `https://next-geebee.ft.com/assets/videojs/videojs-plugins.min.js`);
@@ -84,7 +71,7 @@ const ensureVideoJsPluginsAreLoaded = () => {
 		videoJsAdPluginStyles.setAttribute('type', 'text/css')
 		videoJsAdPluginStyles.setAttribute('href', 'https://next-geebee.ft.com/assets/videojs/videojs-plugins.min.css')
 		document.getElementsByTagName('head')[0].appendChild(videoJsAdPluginStyles);
-		videoJsPluginsPromise = Promise.all([googleSdkScriptPromise, videoJsAdPluginsScriptPromise]);
+		videoJsPluginsPromise = Promise.all([videoJsAdPluginsScriptPromise]);
 		return videoJsPluginsPromise;
 	} else {
 		return Promise.resolve();
@@ -109,7 +96,7 @@ const updatePosterUrl = (posterImage, width) => {
 
 class VideoJsPlayer extends Video {
 	constructor(el, opts) {
-		advertising = opts && opts['advertising'] ? true : false;
+		advertising = opts && opts['ads'] ? true : false;
 		ensureAllScriptsAreLoaded();
 		super(el, opts);
 	}
