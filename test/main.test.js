@@ -74,7 +74,7 @@ describe('Main', () => {
 		return main.init().then(videos => {
 			videos.should.have.length(1);
 			const placeholderEl = videos[0].containerEl.querySelector('img');
-			placeholderEl.className.should.equal('a-class another-class o-video__video');
+			placeholderEl.className.should.equal('o-video__placeholder');
 			placeholderEl.getAttribute('src').should.contain('width=300');
 		});
 	});

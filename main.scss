@@ -4,7 +4,7 @@ $_o-video_applied: false !default;
 @import "o-colors/main";
 
 @if (not $_o-video_applied) {
-	.o-video--card {
+	.o-video {
 		position: relative;
 		cursor: pointer;
 		width: 100%;
@@ -15,16 +15,17 @@ $_o-video_applied: false !default;
 			width: 100%;
 			padding: 56.25% 0 0;
 		}
-
-		.o-video__video {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
 	}
 
+	.o-video__video,
+	.o-video__placeholder,
+	.o-video__ad {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 
 	.o-video__title {
 		position: absolute;
@@ -67,7 +68,8 @@ $_o-video_applied: false !default;
 		}
 	}
 
-	.video-js {
+	// Videojs stuff
+	.o-video--videojs {
 		width: 100%;
 		height: 100%;
 		border: 0;
@@ -77,6 +79,10 @@ $_o-video_applied: false !default;
 		bottom: 0;
 		left: 0;
 		right: 0;
+	}
+
+	[data-o-video-player="videojs"] .o-video--videojs {
+		position: absolute;
 	}
 
 	// HACK: Liberal use of `!important` to override videojs styling.
@@ -104,7 +110,7 @@ $_o-video_applied: false !default;
 			margin-left: -20px;
 			opacity: 1;
 			transition: opacity 0.1s;
-			background-color: #000000;
+			background: #000000;
 			background-color: rgba(0, 0, 0, 0.5);
 			border-radius: 20px;
 		}
@@ -112,10 +118,6 @@ $_o-video_applied: false !default;
 		&:hover:after {
 			opacity: 0.5;
 		}
-	}
-
-	[data-o-video-player="videojs"] .o-video--videojs {
-		position: absolute;
 	}
 
 	$_o-video_applied: true !global;

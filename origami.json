@@ -6,20 +6,26 @@
 	"support": "github.com/Financial-Times/o-video/issues",
 	"demosDefaults": {
 		"sass": "demos/src/main.scss",
+		"js": "demos/src/demo.js",
 		"template": "demos/src/video.mustache"
 	},
 	"demos": [
 		{
-			"name": "brightcove",
-			"description": "Brightcove",
-			"expanded": true,
-			"js": "demos/src/brightcove.js"
+			"name": "native",
+			"description": "Native",
+			"expanded": true
 		},
 		{
 			"name": "placeholder",
 			"description": "Placeholder",
 			"expanded": true,
 			"js": "demos/src/placeholder.js"
+		},
+		{
+			"name": "videojs",
+			"description": "Video.js",
+			"expanded": true,
+			"template": "demos/src/videojs.mustache"
 		}
 	]
 }

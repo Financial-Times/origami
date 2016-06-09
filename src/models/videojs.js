@@ -32,10 +32,10 @@ const ensureVideoJsLibraryLoaded = () => {
 	videojsScript.setAttribute('defer', true);
 	document.getElementsByTagName("head")[0].appendChild(videojsScript);
 
-	const videojsStyles = document.createElement('link')
-	videojsStyles.setAttribute('rel', 'stylesheet')
-	videojsStyles.setAttribute('type', 'text/css')
-	videojsStyles.setAttribute('href', '//vjs.zencdn.net/5.9.2/video-js.min.css')
+	const videojsStyles = document.createElement('link');
+	videojsStyles.setAttribute('rel', 'stylesheet');
+	videojsStyles.setAttribute('type', 'text/css');
+	videojsStyles.setAttribute('href', '//vjs.zencdn.net/5.9.2/video-js.min.css');
 	document.getElementsByTagName('head')[0].appendChild(videojsStyles);
 
 	videoJsPromise = new Promise(resolve => {
@@ -45,7 +45,7 @@ const ensureVideoJsLibraryLoaded = () => {
 	});
 
 	return videoJsPromise;
-}
+};
 
 const ensureVideoJsPluginsAreLoaded = () => {
 	if(videoJsPluginsPromise) {
@@ -53,19 +53,6 @@ const ensureVideoJsPluginsAreLoaded = () => {
 	}
 
 	if(advertising) {
-		const googleSdkScript = document.createElement('script');
-		googleSdkScript.setAttribute('type', 'text/javascript');
-		googleSdkScript.setAttribute('src', `//imasdk.googleapis.com/js/sdkloader/ima3.js`);
-		googleSdkScript.setAttribute('async', true);
-		googleSdkScript.setAttribute('defer', true);
-		document.getElementsByTagName("head")[0].appendChild(googleSdkScript);
-
-		let googleSdkScriptPromise = new Promise(sdkLoaded => {
-			googleSdkScript.addEventListener('load', () => {
-				sdkLoaded();
-			});
-		});
-
 		const videoJsAdPluginsScript = document.createElement('script');
 		videoJsAdPluginsScript.setAttribute('type', 'text/javascript');
 		videoJsAdPluginsScript.setAttribute('src', `https://next-geebee.ft.com/assets/videojs/videojs-plugins.min.js`);
@@ -79,17 +66,17 @@ const ensureVideoJsPluginsAreLoaded = () => {
 			});
 		});
 
-		const videoJsAdPluginStyles = document.createElement('link')
-		videoJsAdPluginStyles.setAttribute('rel', 'stylesheet')
-		videoJsAdPluginStyles.setAttribute('type', 'text/css')
-		videoJsAdPluginStyles.setAttribute('href', 'https://next-geebee.ft.com/assets/videojs/videojs-plugins.min.css')
+		const videoJsAdPluginStyles = document.createElement('link');
+		videoJsAdPluginStyles.setAttribute('rel', 'stylesheet');
+		videoJsAdPluginStyles.setAttribute('type', 'text/css');
+		videoJsAdPluginStyles.setAttribute('href', 'https://next-geebee.ft.com/assets/videojs/videojs-plugins.min.css');
 		document.getElementsByTagName('head')[0].appendChild(videoJsAdPluginStyles);
-		videoJsPluginsPromise = Promise.all([googleSdkScriptPromise, videoJsAdPluginsScriptPromise]);
+		videoJsPluginsPromise = Promise.all([videoJsAdPluginsScriptPromise]);
 		return videoJsPluginsPromise;
 	} else {
 		return Promise.resolve();
 	}
-}
+};
 
 const ensureAllScriptsAreLoaded = () => {
 	return ensureVideoJsLibraryLoaded().then(() => {
@@ -195,7 +182,7 @@ class VideoJsPlayer extends Video {
 		} else {
 			let filtered = this.brightcoveData.tags.filter(val => val.toLowerCase().indexOf('brand:') !== -1);
 			if(filtered.length > 0) {
-				try {					
+				try {
 					 // when we target the value in the ad server, we only want to target actual brand name, so we strip out "brand:" part of the string
 					 return filtered.pop().substring(6);
 				}
