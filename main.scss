@@ -1,5 +1,4 @@
-$next-sass-setup-is-silent: false !default;
-@import "next-sass-setup/main";
+@import 'n-ui/env';
 
 @keyframes load-notice {
 	0% {
