@@ -85,7 +85,7 @@ Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), the eve
 
 ```javascript
 const Tabs = require('o-tabs');
-const tabsObjects = Tabs.init({
+const tabsObjects = Tabs.init(document.body, {
 	disableFocus: false
 });
 ```
