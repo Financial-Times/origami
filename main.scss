@@ -16,8 +16,7 @@ article {
 }
 
 .ig-audio.initialized {
-	background: #3f4245;
-	color: white;
+	background:rgba(24, 80, 131,.15);
 	padding: 3px 5px;
 	border-radius: 6px;
 	cursor: pointer;
@@ -29,6 +28,7 @@ article {
 		content: "\f04b";
 		margin-right: 5px;
 		font-size: 0.8em;
+		color: #185083
 	}
 
 	&.pause:before {

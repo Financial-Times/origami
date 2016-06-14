@@ -22,8 +22,9 @@ class IGAudio {
 		this.targetObject.getElementsByTagName("audio")[0].removeAttribute("controls"); // hide HTML audio player controls
 		this.targetObject.getElementsByTagName("audio")[0].style.display = "none";
 
-		this.targetObject.addEventListener("click", this.toggleAudio.bind(this), false) // play/pause on click
-		this.audio.addEventListener("ended", this.toggleAudio.bind(this), false) // toggle back to off after clip ends
+		this.targetObject.addEventListener("click", () => this.toggleAudio(), false) // play/pause on click
+		this.audio.addEventListener("ended", () => this.toggleAudio(), false) // toggle back to off after clip ends
+		this.audio.addEventListener("timeupdate", () => this.adjustProgressBar(), false)
 	}
 
 	toggleAudio() {
@@ -53,6 +54,19 @@ class IGAudio {
 
 	destroy() {
 		return this.targetObject.getElementsByTagName("audio").destroy();
+	}
+
+	adjustProgressBar() {
+		const timeStamp = this.audio.currentTime;
+		const totalDuration = this.audio.duration;
+
+		const percentPlayed = timeStamp*100 / totalDuration;
+		console.log(timeStamp, totalDuration, percentPlayed)
+
+		const left = 'rgba(24, 80, 131,.35)';
+        const right = 'rgba(24, 80, 131,.15)';
+        this.targetObject.setAttribute("style",
+            "background: linear-gradient(to right, "+left+" "+percentPlayed+"%, "+right+" "+(percentPlayed+1)+"%");
 	}
 
 }
