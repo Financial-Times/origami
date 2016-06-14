@@ -1,6 +1,6 @@
 # How to contribute to o-icons
 
-Thank you for your interest in contributing to o-icons! As our icons are used by a lot of different applications, we have a few constraints for new ones. If you aren't sure if your new icon meets any of these, please raise an issue](http://github.com/financial-times/o-icons/issues), or ask in the #ft-origami slack channel.
+Thank you for your interest in contributing to o-icons! As our icons are used by a lot of different applications, we have a few constraints for new ones. If you aren't sure if your new icon meets any of these, please [raise an issue](http://github.com/financial-times/o-icons/issues), or ask in the #ft-origami slack channel.
 Thank you!
 
 ## Adding or updating an icon
@@ -41,7 +41,7 @@ If your icon meets the design and technical criteria please follow the following
 		obt install
 
 1. Add or edit an SVG file to the `svg` folder.
-1. Rebuild the demos so people can see the new icon over on http://registry.origami.com/components/o-icons. To do this, to run:
+1. Rebuild the demos so people can see the new icon over on http://registry.origami.com/components/o-icons. To do this run:
 
 		gulp
 
@@ -56,8 +56,8 @@ A lot of people use o-icons in many different ways. To remove an icon completely
 
 ## How to test an icon with the Image Service
 
-The Image Service provides the ability to convert and SVG to a PNG. This is useful as a fallback for browsers that don't support SVGs.
+The Image Service provides the ability to convert an SVG to a PNG. This is useful as a fallback for browsers that don't support SVGs.
 
-The Image Service doesn't support clipPaths, so any SVG that has a clipPath in it may not render correctly. To check if your SVG works, upload it somewhere (eg dropbox, or gh-pages) and then run its public url through thes Image Service with `format=png` as a parameter. ie:
+The Image Service doesn't support clipPaths, so any SVG that has a clipPath in it may not render correctly. To check if your SVG works, upload it somewhere (eg dropbox, or gh-pages) and then run its public url through the Image Service with `format=png` as a parameter. ie:
 
 `https://image.webservices.ft.com/v1/images/raw/{http://path-to-image.svg}?source=test&format=png`
