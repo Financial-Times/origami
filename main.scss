@@ -28,7 +28,6 @@ article {
 	cursor: pointer;
 	vertical-align: top;
 	margin: 0 5px;
-	overflow: hidden;
 
 	// inline player
 
@@ -51,7 +50,7 @@ article {
 		font-family: 'IcoMoon';
 		content: "\f04c";
 		margin: 0 $igaudio-horz-padding-inline;
-		font-size: 0.8em;
+		font-size: 0.73em;
 	}
 
 	.ig-audio-content {
