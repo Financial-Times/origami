@@ -6,7 +6,7 @@
 
 	.o-header__nav--mobile {
 		white-space: nowrap;
-		background-color: oColorsGetPaletteColor('warm-5');
+		background-color: oColorsGetColorFor('o-header-nav', 'background');
 
 		@include oGridRespondTo('L') {
 			display: none;
@@ -70,7 +70,7 @@
 	.o-header__nav-link--utility {}
 
 	.o-header__nav-button {
-		@include oButtons($theme: 'standout');
+		@include oButtons($theme: $_o-header-buttons-theme);
 	}
 
 }

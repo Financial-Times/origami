@@ -70,13 +70,13 @@
 		&:before {
 			// container size (24) is only included for the fallback image.
 			// IE8 has a static stylesheet generated for the L breakpoint.
-			@include oIconsGetIcon('hamburger', oColorsGetPaletteColor('cold-1'), 24, $apply-base-styles: false, $apply-width-height: false);
+			@include oIconsGetIcon('hamburger', oColorsGetColorFor('o-header-icon'), 24, $apply-base-styles: false, $apply-width-height: false);
 		}
 	}
 
 	.o-header__top-link--search {
 		&:before {
-			@include oIconsGetIcon('search', oColorsGetPaletteColor('cold-1'), 24, $apply-base-styles: false, $apply-width-height: false);
+			@include oIconsGetIcon('search', oColorsGetColorFor('o-header-icon'), 24, $apply-base-styles: false, $apply-width-height: false);
 		}
 
 		// when used in tandem with the drawer, hide this on smaller screen sizes
@@ -89,7 +89,7 @@
 
 	.o-header__top-link--myft {
 		&:before {
-			@include oIconsGetIcon('brand-myft', oColorsGetPaletteColor('cold-1'), 52, $apply-base-styles: false, $apply-width-height: false);
+			@include oIconsGetIcon('brand-myft', oColorsGetColorFor('o-header-icon'), 52, $apply-base-styles: false, $apply-width-height: false);
 			// this is not a very square icon
 			width: 35px;
 
@@ -114,7 +114,7 @@
 
 	.o-header__top-logo {
 		// container size is only for the fallback png
-		@include oIconsGetIcon('brand-ft-masthead', oColorsGetPaletteColor('cold-1'), 490, $apply-width-height: false);
+		@include oIconsGetIcon('brand-ft-masthead', oColorsGetColorFor('o-header-icon'), 490, $apply-width-height: false);
 		display: block;
 		border: 0;
 		height: 16px;

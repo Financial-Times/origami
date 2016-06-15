@@ -1,12 +1,18 @@
-@import "o-buttons/main";
-@import "o-colors/main";
-@import "o-icons/main";
-@import "o-grid/main";
-@import "o-typography/main";
+@import 'o-buttons/main';
+@import 'o-colors/main';
+@import 'o-icons/main';
+@import 'o-grid/main';
+@import 'o-typography/main';
 
-@import "src/scss/variables";
-@import "src/scss/mixins";
-@import "src/scss/header";
+@import 'src/scss/variables';
+@import 'src/scss/mixins';
+@import 'src/scss/colors';
+
+@import 'src/scss/header';
+@import 'src/scss/rows/anon';
+@import 'src/scss/rows/top';
+@import 'src/scss/rows/search';
+@import 'src/scss/rows/nav';
 
 @if $o-header-is-silent == false {
 	$o-header-is-silent: true;

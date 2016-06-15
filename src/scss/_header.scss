@@ -1,11 +1,11 @@
 @if $o-header-is-silent == false {
 
 	.o-header {
-		// color: oColorsGetPaletteColor('grey-tint4');
+		color: oColorsGetColorFor('o-header', 'text');
 	}
 
 	.o-header__row {
-		border-bottom: 1px solid oColorsGetPaletteColor('warm-3');
+		border-bottom: 1px solid oColorsGetColorFor('o-header', 'border');
 	}
 
 	.o-header__container {
@@ -34,8 +34,3 @@
 	}
 
 }
-
-@import 'rows/anon';
-@import 'rows/top';
-@import 'rows/search';
-@import 'rows/nav';

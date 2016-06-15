@@ -1,0 +1,16 @@
+@include oColorsSetUseCase('o-header', 'text', 'cold-1');
+@include oColorsSetUseCase('o-header', 'border', 'warm-3');
+
+@include oColorsSetUseCase('o-header-link', 'text', inherit);
+@include oColorsSetUseCase('o-header-link', 'background', none);
+@include oColorsSetUseCase('o-header-link-hover', 'text', 'grey-tint5');
+@include oColorsSetUseCase('o-header-link-hover', 'background', 'grey-tint2');
+@include oColorsSetUseCase('o-header-link-highlight', 'text', 'teal-1');
+@include oColorsSetUseCase('o-header-link-highlight', 'background', 'teal-1');
+
+@include oColorsSetUseCase('o-header-icon', 'all', 'cold-1');
+
+@include oColorsSetUseCase('o-header-nav', 'background', 'warm-5');
+
+@include oColorsSetUseCase('o-header-search', 'border', 'teal-2');
+@include oColorsSetUseCase('o-header-search', 'background', 'pink-tint3');
