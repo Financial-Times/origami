@@ -1,4 +1,4 @@
-$n-notification-silent-mode: true !default;
+$n-notification-is-silent: true !default;
 
 @import 'n-ui/env';
 
@@ -11,7 +11,7 @@ $n-notification-silent-mode: true !default;
 	}
 }
 
-@if $n-notification-silent-mode == false {
+@if $n-notification-is-silent == false {
 	.n-notification {
 		@include zIndexFor(notification);
 		position: fixed;
