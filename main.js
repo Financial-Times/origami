@@ -18,10 +18,19 @@ class IGAudio {
 
 		IGAudioObjects.push(this); // keep track of igaudio objects
 
+		// initialize player
 		this.targetObject.classList.add("initialized") // turns on audio player styles
+		this.targetObject.innerHTML = "<span class='ig-audio-content'>" + this.targetObject.innerHTML + "</span>";
 		this.targetObject.getElementsByTagName("audio")[0].removeAttribute("controls"); // hide HTML audio player controls
 		this.targetObject.getElementsByTagName("audio")[0].style.display = "none";
 
+		// create play button + progress bar divs
+		var playButton = document.createElement('span')
+			playButton.classList.add("playButton");
+		var innerContent = this.targetObject.getElementsByClassName("ig-audio-content")[0]
+		targetObject.insertBefore(playButton, innerContent);
+
+		// event handlers
 		this.targetObject.addEventListener("click", () => this.toggleAudio(), false) // play/pause on click
 		this.audio.addEventListener("ended", () => this.toggleAudio(), false) // toggle back to off after clip ends
 		this.audio.addEventListener("timeupdate", () => this.adjustProgressBar(), false)
@@ -65,7 +74,7 @@ class IGAudio {
 
 		const left = 'rgba(24, 80, 131,.35)';
         const right = 'rgba(24, 80, 131,.15)';
-        this.targetObject.setAttribute("style",
+        this.targetObject.getElementsByClassName("ig-audio-content")[0].setAttribute("style",
             "background: linear-gradient(to right, "+left+" "+percentPlayed+"%, "+right+" "+(percentPlayed+1)+"%");
 	}
 

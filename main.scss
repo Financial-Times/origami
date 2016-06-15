@@ -1,5 +1,11 @@
 $ig-article-is-silent: true !default;
 
+$igaudio-horz-padding-inline: 5px;
+$igaudio-vert-padding-inline: 3px;
+
+$igaudio-horz-padding-block: 15px;
+$igaudio-vert-padding-block: 10px;
+
 article {
 	font-size: 1.2rem;
 	line-height: 1.5rem;
@@ -17,36 +23,62 @@ article {
 
 .ig-audio.initialized {
 	background:rgba(24, 80, 131,.15);
-	padding: 3px 5px;
+	padding: 0 $igaudio-horz-padding-inline 0 0;
 	border-radius: 6px;
 	cursor: pointer;
 	vertical-align: top;
 	margin: 0 5px;
+	overflow: hidden;
 
-	&:before {
+	// inline player
+
+	.playButton {
+		border-right: 2px solid white;
+		background: #FC0;
+		padding-left: $igaudio-horz-padding-inline;
+		border-radius: 6px 0 0 6px;
+		color: #185083;
+	}
+
+	.playButton:before {
 		font-family: 'IcoMoon';
 		content: "\f04b";
-		margin-right: 5px;
+		margin: 0 $igaudio-horz-padding-inline;
 		font-size: 0.8em;
-		color: #185083
 	}
 
-	&.pause:before {
+	&.pause .playButton:before {
 		font-family: 'IcoMoon';
 		content: "\f04c";
-		margin-right: 5px;
+		margin: 0 $igaudio-horz-padding-inline;
 		font-size: 0.8em;
 	}
+
+	.ig-audio-content {
+		padding: 0 $igaudio-horz-padding-inline;
+	}
+
+
+	// block player
 
 	&.block {
 		width: 100%;
-		border-radius: initial;
-		padding: 10px 15px;
+		border-radius: 0;
 		margin: 0;
+		padding: $igaudio-vert-padding-block 0;
 	}
 
-	&.block:before {
-		margin-right: 15px;
+	&.block .playButton {
+		border-right: 2px solid white;
+		background: #FC0;
+		padding-left: $igaudio-horz-padding-inline;
+		border-radius: 0;
+		color: #185083;
+		padding: $igaudio-vert-padding-block $igaudio-horz-padding-block;
+	}
+
+	&.block .ig-audio-content {
+		padding: $igaudio-vert-padding-block $igaudio-horz-padding-block;		
 	}
 
 }
