@@ -1,4 +1,4 @@
-import oHeader from './src/js/header';
+import oHeader from './src/js';
 
 const constructAll = () => {
 	oHeader.init();

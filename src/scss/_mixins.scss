@@ -1,0 +1,93 @@
+/// Pinstripe background
+/// @param {Color} $background
+/// @param {Color} $foreground
+/// @param {String} $style - 'tight' or 'loose'
+/// @output A repeating linear gradient background
+@mixin nUiPinstripeBG($background: gray, $foreground: rgba(0, 0, 0, 0.2), $style: 'tight') {
+	background-color: $background;
+
+	// complex: these values are throughly tested to check for strobing.
+	// complex: setting the bg size avoids rounding errors that cause odd strobing.
+	@if $style == 'tight' {
+		background-image: repeating-linear-gradient(
+			135deg,
+			$foreground 0,
+			$foreground 1.5px,
+			transparent 1.5px,
+			transparent 3px
+		);
+		background-size: 4px 4px;
+	}
+
+	@if $style == 'loose' {
+		background-image: repeating-linear-gradient(
+			135deg,
+			transparent 0,
+			transparent 1px,
+			$foreground 1px,
+			$foreground 2px,
+			transparent 2px,
+			transparent 5px
+		);
+		background-size: 7px 7px;
+	}
+}
+
+@mixin oHeaderLink() {
+	color: oColorsGetPaletteColor('cold-1');
+	text-decoration: none;
+	border: 0;
+
+	&:hover {
+		color: oColorsGetPaletteColor('grey-tint5');
+	}
+
+	&--highlight,
+	&[aria-selected="true"] {
+		color: oColorsGetPaletteColor('teal-1');
+	}
+}
+
+@mixin oHeaderFancyLink() {
+	position: relative;
+	display: block;
+	padding: $_o-header-padding-y 0;
+
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 3px;
+	}
+
+	&:hover:after {
+		@include nUiPinstripeBG(transparent, oColorsGetPaletteColor('grey-tint2'));
+	}
+
+	&--highlight:after,
+	&[aria-selected="true"]:after {
+		$teal: oColorsGetPaletteColor('teal-1');
+		@include nUiPinstripeBG(mix($teal, white, 50%), $teal);
+	}
+}
+
+@mixin oHeaderItemSeparator() {
+	$border-width: 1px;
+
+	& + & {
+		position: relative;
+		margin-left: $_o-header-padding-x - $border-width;
+		padding-left: $_o-header-padding-x;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 15%;
+			left: 0;
+			height: 70%;
+			border-left: $border-width solid oColorsGetPaletteColor('warm-3');
+		}
+	}
+}

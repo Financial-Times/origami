@@ -1,0 +1,26 @@
+@if $o-header-is-silent == false {
+
+	.o-header__anon {
+		text-align: center;
+
+		@include oGridRespondTo('L') {
+			display: none;
+		}
+	}
+
+	.o-header__anon-list {
+		margin: 0;
+		padding: 0;
+	}
+
+	.o-header__anon-item {
+		@include oHeaderItemSeparator();
+		display: inline-block;
+	}
+
+	.o-header__anon-link {
+		@include oHeaderLink();
+		@include oHeaderFancyLink();
+	}
+
+}

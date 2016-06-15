@@ -1,0 +1,139 @@
+@if $o-header-is-silent == false {
+
+	.o-header__top {}
+
+	.o-header__top-wrapper {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+	}
+
+	.o-header__top-column {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.o-header__top-column--left,
+	.o-header__top-column--right {
+		// to keep the logo horizontally centered relative to the page these columns must be equal...
+		// I think this is easier than removing them from layout with absolute positioning etc.
+		// anyway, it's rock solid.
+		width: 0;
+		white-space: nowrap;
+	}
+
+	.o-header__top-column--left {
+		text-align: left;
+	}
+
+	.o-header__top-column--right {
+		text-align: right;
+		direction: rtl;
+	}
+
+	.o-header__top-column--center {
+		text-align: center;
+	}
+
+	.o-header__top-link {
+		@include oHeaderLink();
+		display: inline-block;
+		margin-left: 10px;
+		text-transform: uppercase;
+		font-size: 0.6em;
+		text-align: center;
+
+		&:before {
+			@include oIconsBaseStyles();
+			content: ' ';
+			width: 20px;
+			height: 20px;
+		}
+
+		@include oGridRespondTo('L') {
+			margin-left: 20px;
+			font-size: 0.8em;
+
+			&:before {
+				width: 24px;
+				height: 24px;
+			}
+		}
+
+		// first child for old IE
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+
+	.o-header__top-link--menu {
+		&:before {
+			// container size (24) is only included for the fallback image.
+			// IE8 has a static stylesheet generated for the L breakpoint.
+			@include oIconsGetIcon('hamburger', oColorsGetPaletteColor('cold-1'), 24, $apply-base-styles: false, $apply-width-height: false);
+		}
+	}
+
+	.o-header__top-link--search {
+		&:before {
+			@include oIconsGetIcon('search', oColorsGetPaletteColor('cold-1'), 24, $apply-base-styles: false, $apply-width-height: false);
+		}
+
+		// when used in tandem with the drawer, hide this on smaller screen sizes
+		.o-header__top-link--menu + & {
+			@include oGridRespondTo($until: 'L') {
+				display: none;
+			}
+		}
+	}
+
+	.o-header__top-link--myft {
+		&:before {
+			@include oIconsGetIcon('brand-myft', oColorsGetPaletteColor('cold-1'), 52, $apply-base-styles: false, $apply-width-height: false);
+			// this is not a very square icon
+			width: 35px;
+
+			@include oGridRespondTo('M') {
+				width: 44px;
+			}
+
+			@include oGridRespondTo('L') {
+				width: 52px;
+			}
+		}
+	}
+
+	.o-header__top-link-label {
+		display: block;
+		margin-top: 2px;
+
+		@include oGridRespondTo('L') {
+			margin-top: 4px;
+		}
+	}
+
+	.o-header__top-logo {
+		// container size is only for the fallback png
+		@include oIconsGetIcon('brand-ft-masthead', oColorsGetPaletteColor('cold-1'), 490, $apply-width-height: false);
+		display: block;
+		border: 0;
+		height: 16px;
+		margin: 16px 0;
+
+		@include oGridRespondTo('S') {
+			height: 21px;
+			margin: 18px 0;
+		}
+
+		@include oGridRespondTo('M') {
+			height: 25px;
+			margin: 24px 0;
+		}
+
+		@include oGridRespondTo('L') {
+			height: 40px;
+			margin: 30px 0;
+		}
+	}
+
+}

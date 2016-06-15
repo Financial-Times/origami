@@ -1,0 +1,67 @@
+@if $o-header-is-silent == false {
+
+	.o-header__search {
+		padding: $_o-header-padding-y 0;
+		background: oColorsGetPaletteColor('pink-tint3');
+
+		.enhanced & {
+			display: none;
+		}
+
+		&[aria-hidden="false"] {
+			display: block;
+		}
+	}
+
+	.o-header__search-form {
+		display: flex;
+		align-items: center;
+		max-width: 640px;
+		margin: 0 auto;
+	}
+
+	.o-header__search-term,
+	.o-header__search-submit {
+		// This is mostly for IE9, flexbox should deal with everything else
+		line-height: normal;
+		box-sizing: border-box;
+		height: 32px;
+		vertical-align: middle;
+	}
+
+	.o-header__search-term {
+		// match o-buttons
+		@include oButtonsSize('medium');
+		border-radius: $_o-buttons-border-radius;
+		// normalize
+		background: oColorsGetPaletteColor('white');
+		border-style: solid;
+		border-color: transparent;
+		// oh, webkit...
+		box-shadow: none;
+		// fill!
+		flex-grow: 1;
+
+		&:focus {
+			outline: none;
+			border-color: oColorsGetPaletteColor('teal-2');
+			box-shadow: inset 0 0 2px 1px oColorsGetPaletteColor('teal-2');
+		}
+	}
+
+	.o-header__search-submit {
+		@include oButtons($theme: 'standout');
+		margin-left: $_o-header-padding-x;
+	}
+
+	.o-header__search-close {
+		@include oIconsGetIcon('cross', oColorsGetPaletteColor('white'), 20);
+		border: 0;
+		margin-left: $_o-header-padding-x * 2;
+
+		.core & {
+			display: none;
+		}
+	}
+
+}
