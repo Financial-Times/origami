@@ -1,3 +1,5 @@
+$n-notification-silent-mode: true !default;
+
 @import 'n-ui/env';
 
 @keyframes load-notice {
@@ -9,90 +11,61 @@
 	}
 }
 
-.n-notification {
-	@include zIndexFor(notification);
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-}
-
-.n-notification__item {
-	position: relative;
-	background-color: rgba(getColor('pink'), 0.95);
-	border-bottom: 3px solid getColor('cold-2');
-	color: getColor('cold-2');
-	box-sizing: border-box;
-	margin: 0;
-	padding: 14px 0;
-	overflow: hidden;
-	animation: load-notice 200ms forwards;
-}
-
-.n-notification__content-wrapper {
-	margin: 0 auto;
-	width: 100%;
-	position: relative;
-	text-align: center;
-	padding: 0 30px;
-	box-sizing: border-box;
-}
-
-.n-notification__title {
-	@include oTypographySansBold(m);
-	display: inline-block;
-	padding-right: 10px;
-	margin: 0;
-}
-
-.n-notification__content {
-	@include oTypographySans(m);
-	display: inline-block;
-	margin: 0;
-
-	b,
-	strong {
-		@include oTypographySansBold(m);
+@if $n-notification-silent-mode == false {
+	.n-notification {
+		@include zIndexFor(notification);
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
 	}
 
-	a {
+	.n-notification__item {
+		position: relative;
+		background-color: rgba(getColor('pink'), 0.95);
+		border-bottom: 3px solid getColor('cold-2');
 		color: getColor('cold-2');
-		border-bottom-color: getColor('cold-2');
+		box-sizing: border-box;
+		margin: 0;
+		padding: 14px 0;
+		overflow: hidden;
+		animation: load-notice 200ms forwards;
 	}
-}
 
-.n-notification__close {
-	@include oIconsGetIcon('cross-disk', getColor('cold-2'), 20);
-	position: absolute;
-	right: 0;
-	top: 0;
-	border: 0;
-	cursor: pointer;
-	background-size: 20px;
-	background-position: 50%;
-	margin-top: 5px;
-	width: 40px;
-	height: 40px;
-	text-indent: -999em;
-}
+	.n-notification__content-wrapper {
+		margin: 0 auto;
+		width: 100%;
+		position: relative;
+		text-align: center;
+		padding: 0 30px;
+		box-sizing: border-box;
+	}
 
-.n-notification .myft-ui__icon {
-	@include nGetImage('logo', 'brand-myft', getColor('cold-2'), 20);
-	margin: 0 3px -5px;
-	width: 34px;
-}
+	.n-notification__title {
+		@include oTypographySansBold(m);
+		display: inline-block;
+		padding-right: 10px;
+		margin: 0;
+	}
 
-.n-notification--error,
-.n-notification--success {
-	color: getColor('white');
 	.n-notification__content {
+		@include oTypographySans(m);
+		display: inline-block;
+		margin: 0;
+
+		b,
+		strong {
+			@include oTypographySansBold(m);
+		}
+
 		a {
-			color: getColor('white');
-			border-bottom-color: getColor('white');
+			color: getColor('cold-2');
+			border-bottom-color: getColor('cold-2');
 		}
 	}
+
 	.n-notification__close {
-		@include oIconsGetIcon('cross-disk', getColor('white'), 20);
+		@include oIconsGetIcon('cross-disk', getColor('cold-2'), 20);
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -105,15 +78,46 @@
 		height: 40px;
 		text-indent: -999em;
 	}
-	.myft-ui__icon {
-		@include nGetImage('logo', 'brand-myft', getColor('white'), 20);
+
+	.n-notification .myft-ui__icon {
+		@include nGetImage('logo', 'brand-myft', getColor('cold-2'), 20);
+		margin: 0 3px -5px;
+		width: 34px;
 	}
-}
 
-.n-notification--error {
-	background-color: rgba(getColor('red-tint2'), 0.95);
-}
+	.n-notification--error,
+	.n-notification--success {
+		color: getColor('white');
+		.n-notification__content {
+			a {
+				color: getColor('white');
+				border-bottom-color: getColor('white');
+			}
+		}
+		.n-notification__close {
+			@include oIconsGetIcon('cross-disk', getColor('white'), 20);
+			position: absolute;
+			right: 0;
+			top: 0;
+			border: 0;
+			cursor: pointer;
+			background-size: 20px;
+			background-position: 50%;
+			margin-top: 5px;
+			width: 40px;
+			height: 40px;
+			text-indent: -999em;
+		}
+		.myft-ui__icon {
+			@include nGetImage('logo', 'brand-myft', getColor('white'), 20);
+		}
+	}
 
-.n-notification--success {
-	background-color: rgba(getColor('green-tint1'), 0.95);
+	.n-notification--error {
+		background-color: rgba(getColor('red-tint2'), 0.95);
+	}
+
+	.n-notification--success {
+		background-color: rgba(getColor('green-tint1'), 0.95);
+	}
 }
