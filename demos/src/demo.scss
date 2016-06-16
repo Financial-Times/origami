@@ -1,0 +1,41 @@
+@import '../../main';
+
+$card-size: 160px;
+
+.card {
+	display: inline-block;
+	background: white;
+	width: $card-size;
+	height: $card-size;
+	margin: 20px;
+}
+
+.card-label {
+	display: table-cell;
+	width: $card-size;
+	height: $card-size;
+	text-align: center;
+	vertical-align: middle;
+}
+
+// backgrounds
+.backgrounds-pin-stripe--dense {
+	@include oEffectsBackgroundsPinStripe($style: 'dense');
+}
+
+.backgrounds-pin-stripe--sparse {
+	@include oEffectsBackgroundsPinStripe($style: 'sparse');
+}
+
+// shadows
+.shadows-elevation--low {
+	@include oEffectsShadowsElevation('low');
+}
+
+.shadows-elevation--mid {
+	@include oEffectsShadowsElevation('mid');
+}
+
+.shadows-elevation--high {
+	@include oEffectsShadowsElevation('high');
+}

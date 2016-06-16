@@ -1,0 +1,29 @@
+{
+	"description": "Sass mixins to use CSS visual effects",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-effects/issues",
+	"supportStatus": "active",
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"documentClasses": "o-techdocs-content",
+		"dependencies": ["o-techdocs@^4.0.0"]
+	},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-effects"
+	},
+	"demos": [
+		{
+			"name": "shadows",
+			"template": "demos/src/shadows.mustache",
+			"expanded": true,
+			"description": ""
+		},
+		{
+			"name": "backgrounds",
+			"template": "demos/src/backgrounds.mustache",
+			"expanded": true,
+			"description": ""
+		}
+	]
+}

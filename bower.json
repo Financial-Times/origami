@@ -1,0 +1,12 @@
+{
+  "name": "o-visual-effects",
+  "main": [
+    "main.scss"
+  ],
+  "ignore": [
+    "demo"
+  ],
+  "dependencies": {
+    "o-colors": "^3.3.2"
+  }
+}
