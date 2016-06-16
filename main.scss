@@ -2,16 +2,16 @@ $n-notification-is-silent: true !default;
 
 @import 'n-ui/env';
 
-@keyframes load-notice {
-	0% {
-		max-height: 0;
-	}
-	100% {
-		max-height: 200px;
-	}
-}
-
 @if $n-notification-is-silent == false {
+	@keyframes load-notice {
+		0% {
+			max-height: 0;
+		}
+		100% {
+			max-height: 200px;
+		}
+	}
+
 	.n-notification {
 		@include zIndexFor(notification);
 		position: fixed;
