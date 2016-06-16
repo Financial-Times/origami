@@ -1,40 +1,5 @@
-/// Pinstripe background
-/// @param {Color} $background
-/// @param {Color} $foreground
-/// @param {String} $style - 'tight' or 'loose'
-/// @output A repeating linear gradient background
-@mixin nUiPinstripeBG($background: gray, $foreground: rgba(0, 0, 0, 0.2), $style: 'tight') {
-	background-color: $background;
-
-	// complex: these values are throughly tested to check for strobing.
-	// complex: setting the bg size avoids rounding errors that cause odd strobing.
-	@if $style == 'tight' {
-		background-image: repeating-linear-gradient(
-			135deg,
-			$foreground 0,
-			$foreground 1.5px,
-			transparent 1.5px,
-			transparent 3px
-		);
-		background-size: 4px 4px;
-	}
-
-	@if $style == 'loose' {
-		background-image: repeating-linear-gradient(
-			135deg,
-			transparent 0,
-			transparent 1px,
-			$foreground 1px,
-			$foreground 2px,
-			transparent 2px,
-			transparent 5px
-		);
-		background-size: 7px 7px;
-	}
-}
-
 @mixin oHeaderLink() {
-	color: oColorsGetColorFor('o-header-link', 'text');
+	color: inherit;
 	text-decoration: none;
 	border: 0;
 
@@ -64,13 +29,13 @@
 
 	&:hover:after {
 		$bg: oColorsGetColorFor('o-header-link-hover', 'background');
-		@include nUiPinstripeBG(transparent, $bg);
+		@include oEffectsBackgroundsPinStripe(transparent, $bg);
 	}
 
 	&--highlight:after,
 	&[aria-selected="true"]:after {
 		$bg: oColorsGetColorFor('o-header-link-highlight', 'background');
-		@include nUiPinstripeBG(mix($bg, white, 50%), $bg);
+		@include oEffectsBackgroundsPinStripe(mix($bg, white, 50%), $bg);
 	}
 }
 
