@@ -1,0 +1,21 @@
+////
+/// @group o-effects shadows
+////
+
+/// Elevation
+/// @param {String} $elevation - 'low', 'mid' or 'high'
+/// @param {Color} $color
+/// @output A repeating linear gradient background
+@mixin oEffectsShadowsElevation($elevation: 'low', $color: oColorsGetColorFor('o-effects-shadows-elevation')) {
+	@if $elevation == 'low' {
+		box-shadow: 0 10px 20px rgba($color, 0.18), 0 6px 6px rgba($color, 0.22);
+	}
+
+	@if $elevation == 'mid' {
+		box-shadow: 0 14px 28px rgba($color, 0.25), 0 10px 10px rgba($color, 0.22);
+	}
+
+	@if $elevation == 'high' {
+		box-shadow: 0 19px 38px rgba($color, 0.30), 0 15px 12px rgba($color, 0.22);
+	}
+}
