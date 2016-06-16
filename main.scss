@@ -15,6 +15,10 @@
 @import 'src/scss/rows/search';
 @import 'src/scss/rows/nav';
 
+@import 'src/scss/mega/menu';
+@import 'src/scss/mega/articles';
+@import 'src/scss/mega/subsections';
+
 @if $o-header-is-silent == false {
 	$o-header-is-silent: true;
 }

@@ -1,0 +1,13 @@
+.o-header__mega-content--subsections {
+
+	.o-header__mega-list {
+		columns: 2;
+	}
+
+	.o-header__mega-item {
+		&:first-child {
+			font-weight: bold;
+		}
+	}
+
+}

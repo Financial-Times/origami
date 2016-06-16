@@ -22,7 +22,7 @@
 
 	.o-header__search-term,
 	.o-header__search-submit {
-		// This is mostly for IE9, flexbox should deal with everything else
+		// This is mostly for <= IE9, flexbox should deal with everything else
 		line-height: normal;
 		box-sizing: border-box;
 		height: 32px;
