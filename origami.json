@@ -13,7 +13,6 @@
             "template": "demos/src/real-life.mustache",
             "bodyClasses": "o-colors-page-background demo-real-life",
             "dependencies": [
-                "o-colors@^2.4.7",
                 "o-fonts@^1.4.0",
                 "o-tabs@^1.4.2",
                 "o-buttons@^2.0.4",
