@@ -1,5 +1,14 @@
 @if $o-header-is-silent == false {
 
+	@keyframes o-header-mega {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
 	.o-header__mega {
 		@include oTypographySansSize('s');
 		@include oEffectsShadowsElevation('low');
@@ -12,18 +21,15 @@
 		width: 100%;
 		padding: $_o-header-mega-padding-y $_o-header-mega-padding-x;
 		border-top: 1px solid oColorsGetColorFor('o-header', 'border');
-		background-color: oColorsGetColorFor('o-header', 'background');
+		background-color: oColorsGetColorFor('o-header-mega', 'background');
 
-		// full screen width regardless of the container width...
-		.enhanced & {
-			left: 50%;
-			width: 100vw;
-			transform: translateX(-50%);
+		.core :hover > &,
+		&[aria-expanded="true"] {
+			display: block;
 		}
 
-		// to be enhanced with JS in future
-		:hover > & {
-			display: block;
+		&.has-animation {
+			animation: o-header-mega 0.5s ease-out;
 		}
 	}
 

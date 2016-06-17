@@ -14,7 +14,7 @@
 		<ul class="o-header__nav-list o-header__nav-list--left">
 			{{#desktop}}
 			<li class="o-header__nav-item js-nav-item">
-				<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" aria-selected="{{selected}}">{{name}}</a>
+				<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" aria-selected="{{selected}}" id="o-header-link-{{index}}" {{#hasMega}}aria-controls="o-header-mega-{{index}}"{{/hasMega}}>{{name}}</a>
 				{{#hasMega}}
 					{{>../../../src/templates/mega/menu.mustache}}
 				{{/hasMega}}

@@ -244,7 +244,9 @@ module.exports = function () {
 		]
 	};
 
-	data.nav.desktop.forEach(function (item) {
+	data.nav.desktop.forEach(function (item, i) {
+		item.index = i;
+
 		if (subsections.hasOwnProperty(item.name)) {
 			item.hasMega = true;
 			item.subsections = subsections[item.name];

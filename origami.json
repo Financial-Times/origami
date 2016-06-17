@@ -14,12 +14,12 @@
     },
     "demosDefaults": {
         "dependencies": ["o-fonts@^2.0.0"],
-        "sass": "demos/src/main.scss"
+        "sass": "demos/src/main.scss",
+        "js": "demos/src/main.js"
     },
     "demos": [
         {
             "name": "header",
-            "js": "demos/src/main.js",
             "data": "demos/src/header.js",
             "template": "demos/src/header.mustache",
             "expanded": true,
