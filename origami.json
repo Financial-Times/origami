@@ -1,0 +1,21 @@
+{
+    "description": "Accessible toggles",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "https://github.com/Financial-Times/o-toggle/issues",
+    "supportStatus": "active",
+    "ci": {
+        "circle": "https://circleci.com/api/v1/project/Financial-Times/o-toggle"
+    },
+    "demosDefaults": {
+        "js": "demos/src/demo.js"
+    },
+    "demos": [
+        {
+            "name": "toggles",
+            "template": "demos/src/demo.mustache",
+            "expanded": true,
+            "description": ""
+        }
+    ]
+}
