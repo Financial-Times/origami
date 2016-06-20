@@ -61,4 +61,4 @@ function init () {
 	parents.forEach((parent, i) => addEvents(parent, menus[i]));
 }
 
-module.exports = { init };
+export default { init };
