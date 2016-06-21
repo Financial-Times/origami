@@ -244,11 +244,35 @@ module.exports = function () {
 		]
 	};
 
+	const articles = [
+		{
+			title: 'The UK expats voting for Brexit no matter what the cost',
+			url: '#'
+		},
+		{
+			title: 'Lunch with the FT: Adair Turner',
+			url: '#'
+		},
+		{
+			title: 'English carpenter who makes beehives that sell across the world',
+			url: '#'
+		},
+		{
+			title: 'French ambassador urges UK to help shape a ‘reformed Europe’',
+			url: '#'
+		},
+		{
+			title: 'Where do politicians live? How MPs across the world find city digs',
+			url: '#'
+		}
+	];
+
 	data.nav.desktop.forEach(function (item, i) {
 		item.index = i;
 
 		if (subsections.hasOwnProperty(item.name)) {
 			item.hasMega = true;
+			item.articles = articles;
 			item.subsections = subsections[item.name];
 		}
 	});

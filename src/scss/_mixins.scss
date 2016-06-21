@@ -60,7 +60,7 @@
 
 @mixin oHeaderLogoSize($breakpoint) {
 	$image-aspect-ratio: 25 / 2;
-	$logo-heights: ( 'XS': 16, 'S': 20, 'M': 24, 'L': 40 );
+	$logo-heights: ('XS': 16, 'S': 20, 'M': 24, 'L': 40);
 
 	width: map-get($logo-heights, $breakpoint) * $image-aspect-ratio + 0px;
 	height: map-get($logo-heights, $breakpoint) + 0px;

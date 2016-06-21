@@ -1,3 +1,83 @@
 <header class="o-header" data-o-component="o-header">
-	{{>../../../demos/src/templates/rows/nav}}
+	{{#nav}}
+	<nav id="mobile-nav" class="o-header__row o-header__nav o-header__nav--mobile" role="navigation">
+		<ul class="o-header__nav-list">
+			{{#mobile}}
+			<li class="o-header__nav-item">
+				<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" aria-selected="{{selected}}">{{name}}</a>
+			</li>
+			{{/mobile}}
+		</ul>
+	</nav>
+
+	<nav id="primary-nav" class="o-header__row o-header__nav o-header__nav--desktop js-navbar" role="navigation">
+		<div class="o-header__container">
+			<ul class="o-header__nav-list o-header__nav-list--left">
+				{{#desktop}}
+				<li class="o-header__nav-item js-nav-item">
+					<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" aria-selected="{{selected}}" id="o-header-link-{{index}}" {{#hasMega}}aria-controls="o-header-mega-{{index}}"{{/hasMega}}>{{name}}</a>
+					{{#hasMega}}
+					<div class="o-header__mega" id="o-header-mega-{{index}}" role="group" aria-labelledby="o-header-link-{{index}}" data-o-component="o-header-mega">
+						<div class="o-header__container">
+							<div class="o-header__mega-wrapper">
+								<div class="o-header__mega-column o-header__mega-column--subsections">
+									<h3 class="o-header__mega-heading">
+										Sub-sections
+									</h3>
+									<div class="o-header__mega-content">
+										<ul class="o-header__mega-list">
+											{{#subsections}}
+											<li class="o-header__mega-item">
+												<a class="o-header__mega-link" href="{{href}}" aria-selected="{{selected}}">
+													{{name}}
+												</a>
+											</li>
+											{{/subsections}}
+										</ul>
+									</div>
+								</div>
+								<div class="o-header__mega-column o-header__mega-column--articles">
+									<h3 class="o-header__mega-heading">
+										Top Stories
+									</h3>
+									<div class="o-header__mega-content">
+										<ul class="o-header__mega-list">
+											{{#articles}}
+											<li class="o-header__mega-item">
+												<a class="o-header__mega-link" href="{{href}}">
+													{{title}}
+												</a>
+											</li>
+											{{/articles}}
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{{/hasMega}}
+				</li>
+				{{/desktop}}
+			</ul>
+			<ul class="o-header__nav-list o-header__nav-list--right">
+				{{#isSignedIn}}
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--utility" href="https://markets.ft.com/data/portfolio/dashboard">Portfolio</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--utility" href="https://registration.ft.com/registration/selfcare/">My Account</a>
+					</li>
+				{{/isSignedIn}}
+				{{^isSignedIn}}
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--utility" href="/login">Sign In</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-button" href="/products">Subscribe</a>
+					</li>
+				{{/isSignedIn}}
+			</ul>
+		</div>
+	</nav>
+	{{/nav}}
 </header>
