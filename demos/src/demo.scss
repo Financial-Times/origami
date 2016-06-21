@@ -5,12 +5,7 @@ $o-typography-is-silent: false;
 html {
 	@include oColorsFor(page);
 	overflow-y: scroll;
-
 	font-family: $o-typography-sans;
-	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
-	text-rendering: optimizeSpeed;
-	-webkit-font-smoothing: antialiased;
 }
 
 .demo {
@@ -31,7 +26,7 @@ html {
 }
 
 .demo-article {
-	margin: 10px 0;	
+	margin: 10px 0;
 }
 
 .demo-article__body {
