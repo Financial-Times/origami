@@ -1,14 +1,18 @@
-.o-header__mega-column--subsections {
-	width: 30%;
+@if $o-header-is-silent == false {
 
-	.o-header__mega-list {
-		columns: 2;
-	}
+	.o-header__mega-column--subsections {
+		width: 30%;
 
-	.o-header__mega-item {
-		&:first-child {
-			font-weight: bold;
+		.o-header__mega-list {
+			columns: 2;
 		}
+
+		.o-header__mega-item {
+			&:first-child {
+				font-weight: bold;
+			}
+		}
+
 	}
 
 }
