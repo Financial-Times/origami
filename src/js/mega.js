@@ -49,8 +49,8 @@ function hide (menu) {
 	expanded.splice(expanded.indexOf(menu), 1);
 }
 
-function init () {
-	const menus = Array.from(document.querySelectorAll('[data-o-component="o-header-mega"]'));
+function init (headerEl) {
+	const menus = Array.from(headerEl.querySelectorAll('[data-o-component="o-header-mega"]'));
 	const parents = menus.map(menu => menu.parentNode);
 
 	menus.forEach(menu => {
