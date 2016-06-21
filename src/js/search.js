@@ -1,20 +1,29 @@
-import toggle from './toggle';
+import Toggle from 'o-toggle';
 
 function init () {
-	const opening = [];
-	const search = document.getElementById('o-header-search');
-	const controls = search && document.querySelectorAll(`[aria-controls="${search.id}"]`);
+	const target = document.getElementById('o-header-search');
+	const controls = target && document.querySelectorAll(`[aria-controls="${target.id}"]`);
 
-	controls && toggle(controls, search, function (e, state) {
+	if (controls === null || controls.length === 0) {
+		return;
+	}
+
+	const opening = [];
+
+	const callback = function (state, e) {
 		if (state === 'open') {
 			// record the opening control
 			opening.push(e.currentTarget);
-			search.querySelector('[name="q"]').focus();
+			target.querySelector('[name="q"]').focus();
 		} else {
 			// re-focus opening control
 			opening.length && opening.pop().focus();
 		}
-	});
+	};
+
+	for (let i = 0, len = controls.length; i < len; i++) {
+		new Toggle(controls[i], { target, callback });
+	}
 }
 
 export default { init };

@@ -6,7 +6,8 @@
     "o-grid": "^4.2.0",
     "o-icons": "^4.2.0",
     "o-typography": "^4.1.0",
-    "o-visual-effects": "^0.1.0"
+    "o-visual-effects": "^0.1.0",
+    "o-toggle": "*"
   },
   "main": [
     "main.scss",
