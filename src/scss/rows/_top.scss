@@ -115,24 +115,27 @@
 	.o-header__top-logo {
 		// container size is only for the fallback png
 		@include oIconsGetIcon('brand-ft-masthead', oColorsGetColorFor('o-header-icon'), 490, $apply-width-height: false);
+		@include oHeaderLogoSize('XS');
 		display: block;
 		border: 0;
-		height: 16px;
-		margin: 16px 0;
+		margin: 16px auto;
 
 		@include oGridRespondTo('S') {
-			height: 21px;
-			margin: 18px 0;
+			@include oHeaderLogoSize('S');
+			margin-top: 18px;
+			margin-bottom: 18px;
 		}
 
 		@include oGridRespondTo('M') {
-			height: 25px;
-			margin: 24px 0;
+			@include oHeaderLogoSize('M');
+			margin-top: 24px;
+			margin-bottom: 24px;
 		}
 
 		@include oGridRespondTo('L') {
-			height: 40px;
-			margin: 30px 0;
+			@include oHeaderLogoSize('L');
+			margin-top: 30px;
+			margin-bottom: 30px;
 		}
 	}
 
