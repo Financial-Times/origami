@@ -29,7 +29,7 @@
 
 	&:hover:after {
 		$bg: oColorsGetColorFor('o-header-link-hover', 'background');
-		@include oEffectsBackgroundsPinStripe(transparent, $bg);
+		@include oEffectsBackgroundsPinStripe(mix($bg, white, 30%), $bg);
 	}
 
 	&--highlight:after,
@@ -59,7 +59,7 @@
 }
 
 @mixin oHeaderLogoSize($breakpoint) {
-	$image-aspect-ratio: 25/2;
+	$image-aspect-ratio: 25 / 2;
 	$logo-heights: ( 'XS': 16, 'S': 20, 'M': 24, 'L': 40 );
 
 	width: map-get($logo-heights, $breakpoint) * $image-aspect-ratio + 0px;

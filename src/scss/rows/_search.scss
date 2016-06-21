@@ -2,6 +2,7 @@
 
 	.o-header__search {
 		padding: $_o-header-padding-y 0;
+		text-align: center;
 		background: oColorsGetColorFor('o-header-search', 'background');
 
 		.enhanced & {
@@ -40,6 +41,7 @@
 		// oh, webkit...
 		box-shadow: none;
 		// fill!
+		min-width: 50%;
 		flex-grow: 1;
 
 		&:focus {
@@ -57,6 +59,10 @@
 		@include oIconsGetIcon('cross', white, 20);
 		border: 0;
 		margin-left: $_o-header-padding-x * 2;
+
+		@include oGridRespondTo($until: 'M') {
+			display: none;
+		}
 
 		.core & {
 			display: none;
