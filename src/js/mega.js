@@ -38,6 +38,8 @@ function show (menu, animate) {
 	menu.setAttribute('aria-hidden', 'false');
 	menu.setAttribute('aria-expanded', 'true');
 
+	menu.dispatchEvent(new CustomEvent('oHeader.MegaMenuShow', { bubbles: true }));
+
 	expanded.push(menu);
 }
 
@@ -45,6 +47,8 @@ function hide (menu) {
 	menu.classList.remove('no-animation', 'has-animation');
 	menu.setAttribute('aria-hidden', 'true');
 	menu.setAttribute('aria-expanded', 'false');
+
+	menu.dispatchEvent(new CustomEvent('oHeader.MegaMenuHide', { bubbles: true }));
 
 	expanded.splice(expanded.indexOf(menu), 1);
 }
@@ -61,4 +65,4 @@ function init (headerEl) {
 	parents.forEach((parent, i) => addEvents(parent, menus[i]));
 }
 
-export default { init };
+export default { init, show, hide };
