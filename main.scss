@@ -70,8 +70,14 @@
 	.o-typography-caption {
 		@include oTypographyCaption;
 	}
+
+	/// DEPRECATE THIS
 	.o-typography-flyline {
 		@include oTypographyFlyline;
+	}
+
+	.o-typography-tag-link {
+		@include oTypographyTagLink;
 	}
 
 	// Body copy - general

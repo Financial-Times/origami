@@ -32,6 +32,8 @@
 	@include oTypographySerifDisplay(xs);
 }
 
+
+// DEPRECATE THIS
 @mixin oTypographyFlyline {
 	@include oTypographySansBold(s);
 	text-transform: uppercase;
@@ -44,6 +46,20 @@
 	&__link:hover {
 		border-bottom: 1px dotted;
 	}
+}
+
+@mixin oTypographyTagLink {
+	@include oTypographySansBold(s);
+	@include oColorsFor(tag-link, text);
+	text-decoration: none;
+	
+	&:hover {
+		@include oColorsFor(tag-link-hover, text);
+	}
+}
+@mixin oTypographyTagLinkMedium {
+	@include oTypographyTagLink;
+	@include oTypographySansBold(m);
 }
 
 /// Style for subhead class
