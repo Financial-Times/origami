@@ -89,7 +89,7 @@
 
 	.o-header__top-link--myft {
 		&:before {
-			@include oIconsGetIcon('brand-myft', oColorsGetColorFor('o-header-icon'), 52, $apply-base-styles: false, $apply-width-height: false);
+			@include oHeaderBrandImage('brand-myft', oColorsGetColorFor('o-header-icon'), 52);
 			// this is not a very square icon
 			width: 35px;
 
@@ -114,11 +114,14 @@
 
 	.o-header__top-logo {
 		// container size is only for the fallback png
-		@include oIconsGetIcon('brand-ft-masthead', oColorsGetColorFor('o-header-icon'), 490, $apply-width-height: false);
+		@include oHeaderBrandImage('brand-ft-masthead', oColorsGetColorFor('o-header-icon'), 500);
 		@include oHeaderLogoSize('XS');
 		display: block;
 		border: 0;
 		margin: 16px auto;
+		background-size: contain;
+		background-position: 50%;
+		background-repeat: no-repeat;
 
 		@include oGridRespondTo('S') {
 			@include oHeaderLogoSize('S');
