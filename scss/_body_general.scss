@@ -10,7 +10,7 @@
 }
 
 @mixin oTypographyLeadSmall {
-	@include oTypographySerifDisplayItalic(m);
+	@include oTypographySans(m);
 	margin: 0;
 }
 
