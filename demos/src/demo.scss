@@ -19,10 +19,6 @@ html {
 		margin-right: 0;
 		margin-left: 0;
 	}
-
-	a {
-		@include oColorsFor(link);
-	}
 }
 
 .demo-article {
