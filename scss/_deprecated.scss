@@ -1,0 +1,13 @@
+@mixin oTypographyFlyline {
+	@include oTypographySansBold(s);
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	letter-spacing: 1px;
+
+	&__link {
+		text-decoration: none;
+	}
+	&__link:hover {
+		border-bottom: 1px dotted;
+	}
+}

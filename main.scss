@@ -22,6 +22,8 @@
 @import 'scss/wrapped_common';
 @import 'scss/wrapped_general';
 
+@import 'scss/_deprecated.scss';
+
 @if $o-typography-is-silent == false {
 
 	@if $o-typography-load-fonts == true {
@@ -71,11 +73,10 @@
 		@include oTypographyCaption;
 	}
 
-	/// DEPRECATE THIS
+	/// DEPRECATE THIS IN V5
 	.o-typography-flyline {
 		@include oTypographyFlyline;
 	}
-
 	.o-typography-tag-link {
 		@include oTypographyTagLink;
 	}
