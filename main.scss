@@ -49,6 +49,9 @@
 	.o-typography-subhead {
 		@include oTypographySubhead;
 	}
+	.o-typography-subhead--standard {
+		@include oTypographySubheadStandard;
+	}
 	.o-typography-subhead--crosshead {
 		@include oTypographySubheadCrosshead;
 	}
