@@ -61,9 +61,10 @@ article {
 	// block player
 
 	&.block {
+		display: block;
 		width: 100%;
 		border-radius: 0;
-		margin: 0;
+		margin: 1em 0;
 		padding: $igaudio-vert-padding-block 0;
 	}
 

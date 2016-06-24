@@ -15,6 +15,7 @@ class IGAudio {
 		this.targetObject = targetObject;
 		this.audioURL = audioURL;
 		this.audio = this.targetObject.getElementsByTagName("audio")[0];
+		this.audioLength = undefined;
 
 		IGAudioObjects.push(this); // keep track of igaudio objects
 
@@ -30,10 +31,17 @@ class IGAudio {
 		var innerContent = this.targetObject.getElementsByClassName("ig-audio-content")[0]
 		targetObject.insertBefore(playButton, innerContent);
 
-		// event handlers
+		// event handlers to check for loaded metadata
+		this.audio.addEventListener("loadedmetadata", () => this.loadMetadata(), false) // load length into data objects
+	}
+
+	loadMetadata() {
+		this.audioLength = this.audio.duration;
+
+		// set event handlers for everything else after metadata loaded
 		this.targetObject.addEventListener("click", () => this.toggleAudio(), false) // play/pause on click
 		this.audio.addEventListener("ended", () => this.toggleAudio(), false) // toggle back to off after clip ends
-		this.audio.addEventListener("timeupdate", () => this.adjustProgressBar(), false)
+		this.audio.addEventListener("timeupdate", () => this.adjustProgressBar(), false) // adjust progress bar
 	}
 
 	toggleAudio() {
@@ -46,12 +54,13 @@ class IGAudio {
 		}
 	}
 
-	play() {
+	play(startTime=0) {
 		for (var igaudio of IGAudioObjects) { // stop all other audio instances from playing (pause)
 			igaudio.pause()
 		}
-		this.audio.play()
 
+		this.audio.currentTime = startTime; 
+		this.audio.play()
 		this.targetObject.classList.add("pause")
 	}
 
@@ -67,7 +76,7 @@ class IGAudio {
 
 	adjustProgressBar() {
 		const timeStamp = this.audio.currentTime;
-		const totalDuration = this.audio.duration;
+		const totalDuration = this.audioLength
 
 		const percentPlayed = timeStamp*100 / totalDuration;
 		console.log(timeStamp, totalDuration, percentPlayed)
