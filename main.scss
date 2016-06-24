@@ -22,7 +22,7 @@ article {
 }
 
 .ig-audio.initialized {
-	background:rgba(24, 80, 131,.15);
+	background:rgba(175, 81, 108,.35);
 	padding: 0 $igaudio-horz-padding-inline 0 0;
 	border-radius: 6px;
 	cursor: pointer;
@@ -33,10 +33,10 @@ article {
 
 	.playButton {
 		border-right: 2px solid white;
-		background: #FC0;
+		background: #9e2f50;
 		padding-left: $igaudio-horz-padding-inline;
 		border-radius: 6px 0 0 6px;
-		color: #185083;
+		color: #ecafaf;
 	}
 
 	.playButton:before {
@@ -69,10 +69,10 @@ article {
 
 	&.block .playButton {
 		border-right: 2px solid white;
-		background: #FC0;
+		background: #9e2f50;
 		padding-left: $igaudio-horz-padding-inline;
 		border-radius: 0;
-		color: #185083;
+		color: #ecafaf;
 		padding: $igaudio-vert-padding-block $igaudio-horz-padding-block;
 	}
 

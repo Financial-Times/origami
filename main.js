@@ -72,8 +72,8 @@ class IGAudio {
 		const percentPlayed = timeStamp*100 / totalDuration;
 		console.log(timeStamp, totalDuration, percentPlayed)
 
-		const left = 'rgba(24, 80, 131,.35)';
-        const right = 'rgba(24, 80, 131,.15)';
+		const left = 'rgba(175, 81, 108,.35)';
+        const right = 'rgba(175, 81, 108,.15)';
         this.targetObject.getElementsByClassName("ig-audio-content")[0].setAttribute("style",
             "background: linear-gradient(to right, "+left+" "+percentPlayed+"%, "+right+" "+(percentPlayed+1)+"%");
 	}
