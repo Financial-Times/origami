@@ -23,8 +23,9 @@
 		border-top: 1px solid oColorsGetColorFor('o-header', 'border');
 		background-color: oColorsGetColorFor('o-header-mega', 'background');
 
-		.core :hover > &,
-		&[aria-expanded="true"] {
+		&[aria-expanded="true"],
+		// core experience fallback
+		[data-o-header--no-js] :hover > & {
 			display: block;
 		}
 
