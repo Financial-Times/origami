@@ -14,6 +14,9 @@
     "tests"
   ],
   "dependencies": {
-    "n-ui": "^1.11.4"
+    "n-ui": "^2.0.0"
+  },
+  "resolutions": {
+    "n-ui": "^2.0.0"
   }
 }
