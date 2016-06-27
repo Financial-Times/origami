@@ -75,7 +75,10 @@ function ODate(rootEl) {
 
 ODate.prototype.update = function() {
 	let el = this.el;
+
 	let date = el.getAttribute('datetime');
+	let format = el.getAttribute('data-o-date-format');
+
 	const printer = el.querySelector('.o-date__printer') || el;
 	const hasTextNode = printer.firstChild && printer.firstChild.nodeType === 3;
 
@@ -88,7 +91,13 @@ ODate.prototype.update = function() {
 
 	if (!date) return;
 
-	const dateString = ODate.ftTime(date);
+	let dateString;
+
+	if (format === 'today-or-yesterday-or-nothing') {
+		 dateString = ODate.asTodayOrYesterdayOrNothing(date);
+	} else {
+		 dateString = ODate.ftTime(date);
+	}
 
 	// To avoid triggering a parent live region unnecessarily
 	// <https://github.com/Financial-Times/o-date/pull/43>
@@ -192,6 +201,27 @@ ODate.timeAgo = function(date, interval) {
 	}
 };
 
+ODate.asTodayOrYesterdayOrNothing = function(date){
+
+	if (!date) return;
+
+	const now = new Date();
+	const interval = Math.round((now - date) / 1000); // Time since `date` in seconds
+
+	let dateString;
+
+	// If this was less than a day ago
+	if (interval < inSeconds.day && now.getDay() === date.getDay()) {
+		dateString = 'today';
+	} else if (interval < (inSeconds.day * 2) && (now.getDay() === date.getDay() + 1)) {
+		dateString = 'yesterday';
+	} else {
+		dateString = '';
+	}
+
+	return dateString;
+};
+
 ODate.init = function(el) {
 	if (!el) {
 		el = document.body;
@@ -199,9 +229,13 @@ ODate.init = function(el) {
 	if (!(el instanceof HTMLElement)) {
 		el = document.querySelector(el);
 	}
+	/* If el's data-o-component has \bo-date\b in it, ie it is itself a date,
+	 return a new o-date */
 	if (/\bo-date\b/.test(el.getAttribute('data-o-component'))) {
 		return new ODate(el);
 	}
+
+	// If el contains date components, return o-dates
 	const dateEls = el.querySelectorAll('[data-o-component~="o-date"]');
 	return [].map.call(dateEls, function(el) {
 		return new ODate(el);

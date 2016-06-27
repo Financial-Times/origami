@@ -40,7 +40,7 @@ Returns a date formatted as a string
      - 'datetime': formats the date in the standard FT long format, including the time e.g. May 15, 2014 8:10 am
      - 'date': formats the date in the standard FT long format e.g. May 15, 2014
      - Any other string using [widespread conventions](http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html) for time/date placeholders, which will be replaced with values extracted from the date provided. See './main.js' for an up to date list of supported formats.
-     To avoid e.g. the 'mm' in 'common' being replaced with the month prefix with a double backslash 'co\\mmon' i.e. *In most cases custom date formats should not be used, in favour of the standard FT date and datetime formats'
+     To avoid e.g. the 'mm' in 'common' being replaced with the month prefix with a double backslash 'co\\mmon' i.e. *In most cases custom date formats should not be used, in favour of the standard FT date and datetime formats'*
 
 ### o-date#timeAgo(date)
 
@@ -49,6 +49,12 @@ Returns the relative time since the given date, formatted as a human readable st
 ### o-date#ftTime(date)
 
 Returns relative time or timestamp for a given date, in accordance with FT date formatting conventions.
+
+* `date` A javascript `Date` object or a valid string to pass to the `Date` constructor
+
+### o-date#ftTime(date)
+
+Returns ["yesterday"|"today"|""] for a given date. You can request this formatting for `o-date` components by adding `data-o-date-format="today-or-yesterday-or-nothing"`.
 
 * `date` A javascript `Date` object or a valid string to pass to the `Date` constructor
 
