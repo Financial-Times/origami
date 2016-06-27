@@ -5,7 +5,7 @@ module.exports = function () {
 
 		// Top bar
 		top: {
-			hasDrawer: false,
+			hasMenu: false,
 			hasMyFT: true
 		},
 

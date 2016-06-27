@@ -79,7 +79,7 @@
 			@include oIconsGetIcon('search', oColorsGetColorFor('o-header-icon'), 24, $apply-base-styles: false, $apply-width-height: false);
 		}
 
-		// when used in tandem with the drawer, hide this on smaller screen sizes
+		// when used in tandem with the menu toggle, hide this on smaller screen sizes
 		.o-header__top-link--menu + & {
 			@include oGridRespondTo($until: 'L') {
 				display: none;
