@@ -45,7 +45,7 @@
 	{{/top}}
 
 	{{#search}}
-	<div id="o-header-search" class="o-header__row o-header__search" role="search">
+	<div id="o-header-search" class="o-header__row o-header__search o--if-no-js" role="search">
 		<div class="o-header__container">
 			<form class="o-header__search-form" action="/search" role="search" aria-label="Site search">
 				<label class="o-header__visually-hidden" for="o-header-search-term">Search the <abbr title="Financial Times">FT</abbr></label>
@@ -53,7 +53,7 @@
 				<button class="o-header__search-submit" type="submit">
 					Search
 				</button>
-				<button class="o-header__search-close" type="button" aria-controls="o-header-search">
+				<button class="o-header__search-close o--if-js" type="button" aria-controls="o-header-search">
 					<span class="o-header__visually-hidden">Close</span>
 				</button>
 			</form>

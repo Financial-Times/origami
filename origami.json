@@ -15,7 +15,8 @@
     "demosDefaults": {
         "dependencies": ["o-fonts@^2.0.0"],
         "sass": "demos/src/main.scss",
-        "js": "demos/src/main.js"
+        "js": "demos/src/main.js",
+        "documentClasses": "core"
     },
     "demos": [
         {
@@ -23,16 +24,14 @@
             "data": "demos/src/header.js",
             "template": "demos/src/header.mustache",
             "expanded": true,
-            "description": "",
-            "documentClasses": "enhanced"
+            "description": ""
         },
         {
             "name": "mega-menu",
             "data": "demos/src/mega-menu.js",
             "template": "demos/src/mega-menu.mustache",
             "expanded": true,
-            "description": "",
-            "documentClasses": "enhanced"
+            "description": ""
         }
     ]
 }
