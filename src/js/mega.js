@@ -34,7 +34,10 @@ function isOpen (menu) {
 }
 
 function show (menu, animate) {
-	menu.classList.add(`${animate ? 'has' : 'no'}-animation`);
+	if (animate) {
+		menu.classList.add('o-header__mega--animation');
+	}
+
 	menu.setAttribute('aria-hidden', 'false');
 	menu.setAttribute('aria-expanded', 'true');
 
@@ -44,7 +47,7 @@ function show (menu, animate) {
 }
 
 function hide (menu) {
-	menu.classList.remove('no-animation', 'has-animation');
+	menu.classList.remove('o-header__mega--animation');
 	menu.setAttribute('aria-hidden', 'true');
 	menu.setAttribute('aria-expanded', 'false');
 
@@ -54,7 +57,7 @@ function hide (menu) {
 }
 
 function init (headerEl) {
-	const menus = Array.from(headerEl.querySelectorAll('[data-o-component="o-header-mega"]'));
+	const menus = Array.from(headerEl.querySelectorAll('[data-o-header-mega]'));
 	const parents = menus.map(menu => menu.parentNode);
 
 	menus.forEach(menu => {

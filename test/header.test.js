@@ -1,7 +1,7 @@
 /*global describe, it, beforeEach, afterEach*/
 
 const expect = require('expect.js');
-const Header = require('./../src/js/');
+const Header = require('./../src/js/header');
 
 describe('Header API', () => {
 	it('is defined', () => {

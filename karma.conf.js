@@ -18,14 +18,14 @@ module.exports = function(config) {
 
 		plugins: [
 			'karma-mocha',
-			'karma-phantomjs2-launcher',
+			'karma-phantomjs-launcher',
 			'karma-webpack'
 		],
 
 
 		// list of files / patterns to load in the browser
 		files: [
-			'http://polyfill.webservices.ft.com/v1/polyfill.js?flags=gated',
+			'http://polyfill.webservices.ft.com/v2/polyfill.js?flags=gated',
 			'test/*.test.js'
 		],
 
@@ -67,7 +67,7 @@ module.exports = function(config) {
 
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: ['PhantomJS2'],
+		browsers: ['PhantomJS'],
 
 
 		// Continuous Integration mode

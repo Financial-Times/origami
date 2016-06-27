@@ -27,10 +27,10 @@
 		&[aria-expanded="true"] {
 			display: block;
 		}
+	}
 
-		&.has-animation {
-			animation: o-header-mega 0.5s ease-out;
-		}
+	.o-header__mega--animation {
+		animation: o-header-mega 0.5s ease-out;
 	}
 
 	.o-header__mega-wrapper {

@@ -1,7 +1,7 @@
 /*global describe, it, beforeEach, afterEach*/
 
 const expect = require('expect.js');
-const subject = require('./../src/js/mega');
+const mega = require('./../src/js/mega');
 
 function dispatch (target, type) {
 	target.dispatchEvent(new Event(type, { bubbles: true }));
@@ -24,17 +24,17 @@ describe('Mega', () => {
 			<ul>
 				<li>
 					<a href="#">Link 1</a>
-					<div data-o-component="o-header-mega"></div>
+					<div data-o-header-mega></div>
 				</li>
 				<li>
 					<a href="#">Link 2</a>
-					<div data-o-component="o-header-mega"></div>
+					<div data-o-header-mega></div>
 				</li>
 			</ul>
 		`;
 
 		document.body.appendChild(containerEl);
-		subject.init(containerEl);
+		mega.init(containerEl);
 	});
 
 	afterEach(() => {
@@ -51,7 +51,7 @@ describe('Mega', () => {
 		return waitFor(containerEl, [ 'oHeader.MegaMenuShow' ]).then(() => {
 			expect(menu.getAttribute('aria-hidden')).to.equal('false');
 			expect(menu.getAttribute('aria-expanded')).to.equal('true');
-			expect(menu.classList.contains('has-animation')).to.be(true);
+			expect(menu.classList.contains('o-header__mega--animation')).to.be(true);
 		});
 	});
 
@@ -59,14 +59,14 @@ describe('Mega', () => {
 		const parent = containerEl.querySelector('li');
 		const menu = containerEl.querySelector('div');
 
-		subject.show(menu, true);
+		mega.show(menu, true);
 		dispatch(parent, 'mouseleave');
 
 		return waitFor(containerEl, [ 'oHeader.MegaMenuHide' ]).then(() => {
 			expect(menu.getAttribute('aria-hidden')).to.equal('true');
 			expect(menu.getAttribute('aria-expanded')).to.equal('false');
 
-			expect(menu.classList.contains('has-animation')).to.be(false);
+			expect(menu.classList.contains('o-header__mega--animation')).to.be(false);
 		});
 	});
 
@@ -74,13 +74,13 @@ describe('Mega', () => {
 		const parents = containerEl.querySelectorAll('li');
 		const menus = containerEl.querySelectorAll('div');
 
-		subject.show(menus[0]);
+		mega.show(menus[0]);
 
 		dispatch(parents[0], 'mouseleave');
 		dispatch(parents[1], 'mouseenter');
 
 		return waitFor(containerEl, [ 'oHeader.MegaMenuShow', 'oHeader.MegaMenuHide' ]).then(() => {
-			expect(menus[1].classList.contains('no-animation')).to.be(true);
+			expect(menus[1].classList.contains('o-header__mega--animation')).to.be(false);
 		});
 	});
 });
