@@ -89,13 +89,7 @@
 
 	.o-header__top-link--myft {
 		&:before {
-			$myft-logo-url: "https://image.webservices.ft.com/v1/images/raw/ftlogo:brand-myft?source=o-header";
-			$myft-logo-width: 52;
-			$myft-logo-color: str-slice(ie-hex-str(oColorsGetColorFor('o-header-icon')), 4);
-			$myft-logo-url: $myft-logo-url + "&tint=%23#{$myft-logo-color},%23#{$myft-logo-color}";
-
-			background-image: url($myft-logo-url + "&format=svg");
-			background-image: url($myft-logo-url + "&format=png&width=#{$myft-logo-width}")\9;
+			@include oHeaderBrandImage('brand-myft', oColorsGetColorFor('o-header-icon'), 52);
 			// this is not a very square icon
 			width: 35px;
 
@@ -119,18 +113,15 @@
 	}
 
 	.o-header__top-logo {
-		$masthead-logo-url: "https://image.webservices.ft.com/v1/images/raw/ftlogo:brand-ft-masthead?source=o-header";
-		$masthead-logo-width: 490;
-		$masthead-logo-color: str-slice(ie-hex-str(oColorsGetColorFor('o-header-icon')), 4);
-		$masthead-logo-url: $masthead-logo-url + "&tint=%23#{$masthead-logo-color},%23#{$masthead-logo-color}";
-
-		background-image: url($masthead-logo-url + "&format=svg");
-		background-image: url($masthead-logo-url + "&format=png&width=#{$masthead-logo-width}")\9;
+		@include oHeaderBrandImage('brand-ft-masthead', oColorsGetColorFor('o-header-icon'), 500);
 		@include oHeaderLogoSize('XS');
 
 		display: block;
 		border: 0;
 		margin: 16px auto;
+		background-size: contain;
+		background-position: 50%;
+		background-repeat: no-repeat;
 
 		@include oGridRespondTo('S') {
 			@include oHeaderLogoSize('S');

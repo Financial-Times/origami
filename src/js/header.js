@@ -15,6 +15,7 @@ class Header {
 		search.init(headerEl, config);
 		mega.init(headerEl, config);
 
+		headerEl.removeAttribute('data-o-header--no-js');
 		headerEl.setAttribute('data-o-header--js', '');
 	}
 

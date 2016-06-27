@@ -1,4 +1,4 @@
-<header class="o-header" data-o-component="o-header">
+<header class="o-header" data-o-component="o-header" data-o-header--no-js>
 
 	{{#anon}}
 	<div class="o-header__row o-header__anon">
@@ -45,7 +45,7 @@
 	{{/top}}
 
 	{{#search}}
-	<div id="o-header-search" class="o-header__row o-header__search" role="search">
+	<div id="o-header-search" class="o-header__row o-header__search o--if-no-js" role="search">
 		<div class="o-header__container">
 			<form class="o-header__search-form" action="/search" role="search" aria-label="Site search">
 				<label class="o-header__visually-hidden" for="o-header-search-term">Search the <abbr title="Financial Times">FT</abbr></label>
@@ -53,7 +53,7 @@
 				<button class="o-header__search-submit" type="submit">
 					Search
 				</button>
-				<button class="o-header__search-close" type="button" aria-controls="o-header-search">
+				<button class="o-header__search-close o--if-js" type="button" aria-controls="o-header-search">
 					<span class="o-header__visually-hidden">Close</span>
 				</button>
 			</form>
@@ -62,7 +62,7 @@
 	{{/search}}
 
 	{{#nav}}
-	<nav id="mobile-nav" class="o-header__row o-header__nav o-header__nav--mobile" role="navigation">
+	<nav id="o-header-nav-mobile" class="o-header__row o-header__nav o-header__nav--mobile" role="navigation">
 		<ul class="o-header__nav-list">
 			{{#mobile}}
 			<li class="o-header__nav-item">
@@ -72,11 +72,11 @@
 		</ul>
 	</nav>
 
-	<nav id="primary-nav" class="o-header__row o-header__nav o-header__nav--desktop js-navbar" role="navigation">
+	<nav id="o-header-nav-desktop" class="o-header__row o-header__nav o-header__nav--desktop" role="navigation">
 		<div class="o-header__container">
 			<ul class="o-header__nav-list o-header__nav-list--left">
 				{{#desktop}}
-				<li class="o-header__nav-item js-nav-item">
+				<li class="o-header__nav-item">
 					<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" aria-selected="{{selected}}" id="o-header-link-{{index}}" {{#hasMega}}aria-controls="o-header-mega-{{index}}"{{/hasMega}}>{{name}}</a>
 				</li>
 				{{/desktop}}

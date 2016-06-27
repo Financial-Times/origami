@@ -1,6 +1,6 @@
-<header class="o-header" data-o-component="o-header">
+<header class="o-header" data-o-component="o-header" data-o-header--no-js>
 	{{#nav}}
-	<nav id="mobile-nav" class="o-header__row o-header__nav o-header__nav--mobile" role="navigation">
+	<nav id="o-header-nav-mobile" class="o-header__row o-header__nav o-header__nav--mobile" role="navigation">
 		<ul class="o-header__nav-list">
 			{{#mobile}}
 			<li class="o-header__nav-item">
@@ -10,11 +10,11 @@
 		</ul>
 	</nav>
 
-	<nav id="primary-nav" class="o-header__row o-header__nav o-header__nav--desktop js-navbar" role="navigation">
+	<nav id="o-header-nav-desktop" class="o-header__row o-header__nav o-header__nav--desktop" role="navigation">
 		<div class="o-header__container">
 			<ul class="o-header__nav-list o-header__nav-list--left">
 				{{#desktop}}
-				<li class="o-header__nav-item js-nav-item">
+				<li class="o-header__nav-item">
 					<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" aria-selected="{{selected}}" id="o-header-link-{{index}}" {{#hasMega}}aria-controls="o-header-mega-{{index}}"{{/hasMega}}>{{name}}</a>
 					{{#hasMega}}
 					<div class="o-header__mega" id="o-header-mega-{{index}}" role="group" aria-labelledby="o-header-link-{{index}}" data-o-header-mega>
