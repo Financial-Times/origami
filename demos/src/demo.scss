@@ -2,6 +2,19 @@
 
 $card-size: 160px;
 
+.demo-canvas {
+	position: relative;
+	overflow: hidden;
+	padding: 20px;
+	border: 3px solid lightgray;
+}
+
+.demo-toggle {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
 .demo-card {
 	display: inline-block;
 	background: white;
@@ -38,4 +51,45 @@ $card-size: 160px;
 
 .demo-shadows-elevation--high {
 	@include oEffectsShadowsElevation('high');
+}
+
+// transitions
+.demo-transitions--slide {
+	background: slateblue;
+	transition: all 0.5s $o-visual-effects-transition-slide;
+
+	.demo-off & {
+		transform: translateY(0);
+	}
+
+	.demo-on & {
+		transform: translateY(100%);
+	}
+}
+
+.demo-transitions--expand {
+	overflow: hidden;
+	background: darkseagreen;
+	transition: all 0.5s $o-visual-effects-transition-expand;
+
+	.demo-off & {
+		max-height: $card-size;
+	}
+
+	.demo-on & {
+		max-height: 0;
+	}
+}
+
+.demo-transitions--fade {
+	background: tomato;
+	transition: all 0.5s $o-visual-effects-transition-fade;
+
+	.demo-off & {
+		opacity: 1;
+	}
+
+	.demo-on & {
+		opacity: 0;
+	}
 }
