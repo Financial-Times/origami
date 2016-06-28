@@ -1,8 +1,8 @@
 import Toggle from 'o-toggle';
 
-function init () {
-	const target = document.getElementById('o-header-search');
-	const controls = target && document.querySelectorAll(`[aria-controls="${target.id}"]`);
+function init (headerEl) {
+	const target = headerEl.querySelector('#o-header-search');
+	const controls = target && headerEl.querySelectorAll(`[aria-controls="${target.id}"]`);
 
 	if (controls === null || controls.length === 0) {
 		return;

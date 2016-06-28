@@ -3,7 +3,7 @@ import mega from './mega';
 
 class Header {
 
-	constructor (headerEl, config) {
+	constructor (headerEl) {
 		if (!headerEl) {
 			headerEl = document.querySelector('[data-o-component="o-header"]');
 		} else if (typeof headerEl === 'string') {
@@ -12,14 +12,14 @@ class Header {
 
 		this.headerEl = headerEl;
 
-		search.init(headerEl, config);
-		mega.init(headerEl, config);
+		search.init(this.headerEl);
+		mega.init(this.headerEl);
 
-		headerEl.removeAttribute('data-o-header--no-js');
-		headerEl.setAttribute('data-o-header--js', '');
+		this.headerEl.removeAttribute('data-o-header--no-js');
+		this.headerEl.setAttribute('data-o-header--js', '');
 	}
 
-	static init (rootEl, config) {
+	static init (rootEl) {
 		if (!rootEl) {
 			rootEl = document.body;
 		} else if (typeof rootEl === 'string') {
@@ -27,7 +27,7 @@ class Header {
 		}
 
 		const headerEl = rootEl.querySelector('[data-o-component="o-header"]');
-		return new Header(headerEl, config);
+		return new Header(headerEl);
 	}
 
 }
