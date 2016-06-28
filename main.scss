@@ -1,22 +1,24 @@
-@import "o-forms/main";
-@import "o-grid/main";
-@import "o-icons/main";
+@import 'o-buttons/main';
+@import 'o-colors/main';
+@import 'o-icons/main';
+@import 'o-grid/main';
+@import 'o-typography/main';
+@import 'o-visual-effects/main';
 
-@import "src/scss/colors";
-@import "src/scss/vars_mixins";
+@import 'src/scss/variables';
+@import 'src/scss/mixins';
+@import 'src/scss/colors';
 
-@import "src/scss/base";
-@import "src/scss/edition-switch";
-@import "src/scss/masthead";
-@import "src/scss/nav";
-@import "src/scss/print";
-@import "src/scss/search";
-@import "src/scss/tools";
-@import "src/scss/themes/light";
-@import "src/scss/themes/minimal";
+@import 'src/scss/header';
+@import 'src/scss/rows/anon';
+@import 'src/scss/rows/top';
+@import 'src/scss/rows/search';
+@import 'src/scss/rows/nav';
+
+@import 'src/scss/mega/menu';
+@import 'src/scss/mega/articles';
+@import 'src/scss/mega/subsections';
 
 @if $o-header-is-silent == false {
-
-	// Silent mode is only partially implemented at this point.
-	$o-header-is-silent: false;
+	$o-header-is-silent: true;
 }

@@ -1,0 +1,18 @@
+@if $o-header-is-silent == false {
+
+	.o-header__mega-column--articles {
+
+		.o-header__mega-item {
+			&:before {
+				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('claret-1'), 10);
+				content: '';
+			}
+		}
+
+		.o-header__mega-link {
+			white-space: none;
+		}
+
+	}
+
+}

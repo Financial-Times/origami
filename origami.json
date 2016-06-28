@@ -6,39 +6,32 @@
     "supportStatus": "active",
     "browserFeatures": {
         "required": [
-            "classList",
-            "customevent"        ]
+            "customevent"
+        ]
     },
     "ci": {
         "circle": "https://circleci.com/api/v1/project/Financial-Times/o-header"
     },
     "demosDefaults": {
         "dependencies": ["o-fonts@^2.0.0"],
-        "js": "demos/src/main.js",
         "sass": "demos/src/main.scss",
-        "data": "demos/src/data.js"
+        "js": "demos/src/main.js",
+        "documentClasses": "core"
     },
     "demos": [
         {
             "name": "header",
+            "data": "demos/src/header.js",
             "template": "demos/src/header.mustache",
             "expanded": true,
-            "description": "",
-            "documentClasses": "enhanced"
+            "description": ""
         },
         {
-            "name": "header-minimal",
-            "template": "demos/src/header-minimal.mustache",
-            "expanded": false,
-            "description": "",
-            "documentClasses": "enhanced"
-        },
-        {
-            "name": "header-light",
-            "template": "demos/src/header-light.mustache",
-            "expanded": false,
-            "description": "",
-            "documentClasses": "enhanced"
+            "name": "mega-menu",
+            "data": "demos/src/mega-menu.js",
+            "template": "demos/src/mega-menu.mustache",
+            "expanded": true,
+            "description": ""
         }
     ]
 }

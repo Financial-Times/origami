@@ -1,45 +1,35 @@
-import Search from './search';
-import Utils from './utils';
-import EditionSwitch from './editionSwitch';
+import search from './search';
+import mega from './mega';
 
 class Header {
-	constructor(headerEl, config) {
+
+	constructor (headerEl) {
 		if (!headerEl) {
-			headerEl = document.body;
-		} else if (!(headerEl instanceof HTMLElement)) {
+			headerEl = document.querySelector('[data-o-component="o-header"]');
+		} else if (typeof headerEl === 'string') {
 			headerEl = document.querySelector(headerEl);
 		}
 
 		this.headerEl = headerEl;
-		this.utils = new Utils(this.headerEl, config);
-		this.search = new Search(this.headerEl, config);
-		this.editionSwitch = new EditionSwitch(this.headerEl, config);
+
+		search.init(this.headerEl);
+		mega.init(this.headerEl);
+
+		this.headerEl.removeAttribute('data-o-header--no-js');
 		this.headerEl.setAttribute('data-o-header--js', '');
 	}
 
-	destroy() {
-		this.utils.destroy();
-		this.search.destroy();
-		this.editionSwitch.destroy();
-		this.headerEl.removeAttribute('data-o-header--js');
-		delete this.headerEl;
+	static init (rootEl) {
+		if (!rootEl) {
+			rootEl = document.body;
+		} else if (typeof rootEl === 'string') {
+			rootEl = document.querySelector(rootEl);
+		}
+
+		const headerEl = rootEl.querySelector('[data-o-component="o-header"]');
+		return new Header(headerEl);
 	}
 
-	static init(el, config) {
-		if (!el) {
-			el = document.body;
-		} else if (!(el instanceof HTMLElement)) {
-			el = document.querySelector(el);
-		}
-		const headerEls = el.querySelectorAll('[data-o-component="o-header"]');
-		const headers = [];
-		for (let headerEl of headerEls) {
-			if (!headerEl.hasAttribute('data-o-header--js')) {
-				headers.push(new Header(headerEl, config));
-			}
-		}
-		return headers;
-	}
 }
 
 export default Header;

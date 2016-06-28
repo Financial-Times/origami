@@ -1,10 +1,10 @@
-import oHeader from './src/js/header';
+import Header from './src/js/header';
 
 const constructAll = () => {
-	oHeader.init();
+	Header.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-export default oHeader;
+export default Header;
