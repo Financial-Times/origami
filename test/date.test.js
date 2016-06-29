@@ -132,6 +132,19 @@ describe('date', function() {
 		expect(oDate.format(date, 'HH')).to.be('23');
 
 	});
+	it('returns today for today, yestereday for yesterday, nothing for further back', function() {
+		const today = new Date(new Date().getTime() - 10000);
+		const yesterday = new Date(new Date().getTime() - (1000 * 60 * 60 * 24));
+		const aboutToHappen = new Date(new Date().getTime() + 60000);
+		const future = new Date(new Date().getTime() + (20000));
+		const tomorrow = new Date(new Date().getTime() + (1000 * 60 * 60 * 24));
+		const dayBeforeYesterday = new Date(new Date().getTime() - (1000 * 60 * 60 * 48));
+
+		expect(oDate.asTodayOrYesterdayOrNothing(today)).to.be('today');
+		expect(oDate.asTodayOrYesterdayOrNothing(yesterday)).to.be('yesterday');
+		expect(oDate.asTodayOrYesterdayOrNothing(aboutToHappen)).to.be('today');
+		expect(oDate.asTodayOrYesterdayOrNothing(future)).to.be('today');
+		expect(oDate.asTodayOrYesterdayOrNothing(tomorrow)).to.be('');
+		expect(oDate.asTodayOrYesterdayOrNothing(dayBeforeYesterday)).to.be('');
+	});
 });
-
-
