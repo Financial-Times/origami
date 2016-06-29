@@ -52,7 +52,7 @@ Returns relative time or timestamp for a given date, in accordance with FT date 
 
 * `date` A javascript `Date` object or a valid string to pass to the `Date` constructor
 
-### o-date#ftTime(date)
+### o-date#asTodayOrYesterdayOrNothing(date)
 
 Returns ["yesterday"|"today"|""] for a given date. You can request this formatting for `o-date` components by adding `data-o-date-format="today-or-yesterday-or-nothing"`.
 
