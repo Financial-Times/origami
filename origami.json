@@ -24,14 +24,14 @@
 		{
 			"name": "footer",
 			"template": "demos/src/footer.mustache",
-			"data": "demos/src/footer.json",
+			"data": "demos/src/footer.js",
 			"expanded": true,
 			"description": ""
 		},
 		{
 			"name": "footer-light",
 			"template": "demos/src/footer.mustache",
-			"data": "demos/src/footer-light.json",
+			"data": "demos/src/footer-light.js",
 			"expanded": true,
 			"description": ""
 		},

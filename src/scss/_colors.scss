@@ -1,0 +1,15 @@
+@include oColorsSetUseCase('o-footer--theme-dark', 'text', 'white');
+@include oColorsSetUseCase('o-footer--theme-dark', 'border', 'teal-1');
+@include oColorsSetUseCase('o-footer--theme-dark', 'background', 'grey-tint5');
+@include oColorsSetUseCase('o-footer--theme-dark__link', 'text', 'grey-tint1');
+@include oColorsSetUseCase('o-footer--theme-dark__link-hover', 'text', 'white');
+@include oColorsSetUseCase('o-footer--theme-dark__brand', 'background', 'grey-tint4');
+@include oColorsSetUseCase('o-footer--theme-dark__copyright', 'text', 'grey-tint2');
+
+@include oColorsSetUseCase('o-footer--theme-light', 'text', 'grey-tint5');
+@include oColorsSetUseCase('o-footer--theme-light', 'border', 'claret');
+@include oColorsSetUseCase('o-footer--theme-light', 'background', 'pink-tint1');
+@include oColorsSetUseCase('o-footer--theme-light__link', 'text', 'grey-tint4');
+@include oColorsSetUseCase('o-footer--theme-light__link-hover', 'text', 'grey-tint5');
+@include oColorsSetUseCase('o-footer--theme-light__brand', 'background', 'pink-tint4');
+@include oColorsSetUseCase('o-footer--theme-light__copyright', 'text', 'grey-tint3');

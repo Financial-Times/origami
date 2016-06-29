@@ -8,6 +8,7 @@
     "o-colors": ">=2.5.0 <4",
     "o-grid": "^4.0.0",
     "o-assets": ">=0.4.1 <4",
-    "o-hoverable": ">=0.1.1 <4"
+    "o-toggle": "^1.0.0",
+    "o-typography": "^4.1.0"
   }
 }

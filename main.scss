@@ -1,123 +1,89 @@
 @import "o-assets/main";
 @import "o-colors/main";
 @import "o-grid/main";
-@import "o-hoverable/main";
+@import "o-typography/main";
 
-/// Footer spacing unit
-/// @type Number
-$o-footer-spacing-unit: 20px;
-
-@include oColorsSetUseCase(o-footer, background, 'grey-tint5');
-@include oColorsSetUseCase(o-footer, text, 'white');
-@include oColorsSetUseCase(o-footer, border, 'teal-1');
-@include oColorsSetUseCase(o-footer__brand, background, 'grey-tint4');
-@include oColorsSetUseCase(o-footer__divider, border, 'grey-tint3');
-@include oColorsSetUseCase(o-footer__item, text, 'grey-tint1');
-@include oColorsSetUseCase(o-footer__item--hover, text, 'white');
-@include oColorsSetUseCase(o-footer__copyright, text, 'grey-tint2');
-
-@include oColorsSetUseCase(o-footer--theme-light, background, 'pink-tint1');
-@include oColorsSetUseCase(o-footer--theme-light, text, 'grey-tint5');
-@include oColorsSetUseCase(o-footer--theme-light__brand, background, 'pink-tint4');
-@include oColorsSetUseCase(o-footer--theme-light__divider, border, 'pink-tint3');
-@include oColorsSetUseCase(o-footer--theme-light__item, text, 'grey-tint3');
-@include oColorsSetUseCase(o-footer--theme-light__item--hover, text, 'grey-tint5');
-@include oColorsSetUseCase(o-footer--theme-light__copyright, text, 'grey-tint3');
+@import "src/scss/variables";
+@import "src/scss/colors";
 
 .o-footer {
-	@include oColorsFor(o-footer, text background);
-	font-size: 15px;
+	@include oTypographySansSize('s');
 	margin-top: (2 * $o-footer-spacing-unit);
 	padding: 0;
-	border-top: 10px solid oColorsGetColorFor(o-footer, border);
+	border-top: 10px solid;
 	line-height: $o-footer-spacing-unit;
+}
 
-	ul {
-		list-style-type: none;
-		padding: 0;
-		margin-top: 0;
-		margin-bottom: 0;
-	}
+.o-footer--theme-dark {
+	@include oColorsFor('o-footer--theme-dark', 'text' 'background');
+	border-color: oColorsGetColorFor('o-footer--theme-dark', 'border');
 }
 
 .o-footer--theme-light {
-	@include oColorsFor(o-footer--theme-light, text background);
-	// Same colour as the divider
-	border-top-color: oColorsGetColorFor(o-footer--theme-light__divider, border);
+	@include oColorsFor('o-footer--theme-light', 'text' 'background');
+	border-color: oColorsGetColorFor('o-footer--theme-light', 'border');
+}
+
+.o-footer__title,
+.o-footer__link > a {
+	font-size: inherit;
+	line-height: inherit;
+	overflow: hidden;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .o-footer__title {
-	overflow: hidden;
-	width: 100%;
-	margin-top: 0;
-	margin-bottom: $o-footer-spacing-unit / 2;
-	text-transform: uppercase;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+	margin: 0 0 $o-footer-spacing-unit / 2;
 	font-weight: 600;
-	font-size: inherit;
 
 	// Make the white text look crisper and less bold on dark backgrounds
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
+// TODO: just apply the class name to the element?
 .o-footer__link {
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-
 	> a {
-		display: block; // Make links easier to tap by increasing their hitzone
+		display: block;
+		padding: 4px 0;
 		text-decoration: none;
-		padding: 5px 0;
-		color: oColorsGetColorFor(o-footer__item, text);
 
-		.o-footer--theme-light & {
-			color: oColorsGetColorFor(o-footer--theme-light__item, text);
+		.o-footer--theme-dark & {
+			color: oColorsGetColorFor('o-footer--theme-dark__link', 'text');
 
-			#{$o-hoverable-if-hover-enabled} &:hover,
+			&:hover,
 			&:focus {
-				color: oColorsGetColorFor(o-footer--theme-light__item--hover, text);
+				color: oColorsGetColorFor('o-footer--theme-dark__link-hover', 'text');
 			}
 		}
 
-		#{$o-hoverable-if-hover-enabled} &:hover,
-		&:focus {
-			color: oColorsGetColorFor(o-footer__item--hover, text);
+		.o-footer--theme-light & {
+			color: oColorsGetColorFor('o-footer--theme-light__link', 'text');
+
+			&:hover,
+			&:focus {
+				color: oColorsGetColorFor('o-footer--theme-light__link-hover', 'text');
+			}
 		}
-	}
-}
-
-.o-footer__section-link > a {
-	text-transform: uppercase;
-}
-
-.o-footer__nav {
-	margin-top: $o-footer-spacing-unit;
-	margin-bottom: $o-footer-spacing-unit;
-}
-
-.o-footer__divider {
-	$_o-footer-compensate-line-height: 3px;
-	margin-top: $o-footer-spacing-unit - $_o-footer-compensate-line-height;
-	border-bottom: oColorsGetColorFor(o-footer__divider, border) dotted 1px;
-
-	.o-footer--theme-light & {
-		border-bottom-color: oColorsGetColorFor(o-footer--theme-light__divider, border);
 	}
 }
 
 .o-footer__link-lists {
-	margin-top: $o-footer-spacing-unit;
+	padding-top: $o-footer-spacing-unit;
 }
+
 .o-footer__link-list {
 	padding-top: (2 * $o-footer-spacing-unit);
 	margin-bottom: (1 * $o-footer-spacing-unit);
 
 	> ul {
 		margin: 0;
+		padding: 0;
+		list-style: none;
 	}
+
 	> .o-footer__title {
 		margin-top: (-2 * $o-footer-spacing-unit);
 	}
@@ -126,12 +92,15 @@ $o-footer-spacing-unit: 20px;
 .o-footer__container {
 	@include oGridContainer;
 }
+
 .o-footer__row {
 	@include oGridRow;
 }
+
 .o-footer__col {
 	@include oGridColspan((default: 12, S: 6, M: 4, L: 3, XL: 2));
 }
+
 .o-footer__col--full-width {
 	@include oGridColspan(full-width, $width-only: true);
 }
@@ -139,52 +108,40 @@ $o-footer-spacing-unit: 20px;
 .o-footer__copyright {
 	margin-top: $o-footer-spacing-unit;
 	margin-bottom: $o-footer-spacing-unit;
-	line-height: 1.3;
-	color: oColorsGetColorFor(o-footer__copyright, text);
 
-	span {
-		display: inline-block;
+	.o-footer--theme-dark & {
+		color: oColorsGetColorFor('o-footer--theme-dark__copyright', 'text');
 	}
 
 	.o-footer--theme-light & {
-		color: oColorsGetColorFor(o-footer--theme-light__copyright, text);
+		color: oColorsGetColorFor('o-footer--theme-light__copyright', 'text');
 	}
 }
 
-.o-footer__pearson, // deprecated
 .o-footer__brand {
-	background-color: oColorsGetColorFor(o-footer__brand o-footer, background);
 	padding-top: $o-footer-spacing-unit - 5;
 	padding-bottom: $o-footer-spacing-unit - 5;
-	color: oColorsGetColorFor(o-footer__brand o-footer, text);
+
+	.o-footer--theme-dark & {
+		background-color: oColorsGetColorFor('o-footer--theme-dark__brand', 'background');
+		color: oColorsGetColorFor('o-footer--theme-dark', 'text');
+	}
 
 	.o-footer--theme-light & {
-		background-color: oColorsGetColorFor(o-footer--theme-light__brand o-footer, background);
-		color: oColorsGetColorFor(o-footer--theme-light__brand o-footer, text);
+		background-color: oColorsGetColorFor('o-footer--theme-light__brand', 'background');
+		color: oColorsGetColorFor('o-footer--theme-light', 'text');
 	}
 }
 
-.o-footer__pearson-tagline, // deprecated
-.o-footer__pearson-logo, // deprecated
 .o-footer__brand-logo {
-	height: 19px;
-	background-image: url(oAssetsResolve("img/nikkei_logo.png", o-footer));
+	height: 20px;
+
+	// The weird value for rgba is to prevent Sass converting rgba(0,0,0,0) to 'transparent'
+	// which would cause the following line to be understood by IE7/8 and the svg to be downloaded
+	background: url(oAssetsResolve("img/nikkei_logo.png", o-footer));
+	background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/nikkei_logo.svg", o-footer));
 	background-repeat: no-repeat;
-	white-space: nowrap;
-
-	// The weird value for rgba is to prevent Sass converting rgba(0,0,0,0) to 'transparent', which would cause the following line of css to be understood by IE7/8 and the svg to be downloaded
-	background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/nikkei_logo.svg", o-footer)) no-repeat;
-}
-
-.o-footer__pearson-tagline { // deprecated
-	display: none;
-}
-
-.o-footer__pearson-logo, // deprecated
-.o-footer__brand-logo {
-	float: right;
-	width: 162px;
-	background-position: right 0;
+	background-position: right;
 }
 
 @include oGridRespondTo($until: S) {
