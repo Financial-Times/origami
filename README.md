@@ -50,7 +50,7 @@ The different options are:
 The different social networks are (in the order suggested by the design team):
 
 * Twitter
-* Facebook
+* Facebook (note: if Facebook isn't picking up the meta-data for your article properly [the Facebook debugging tool is very helpful](https://developers.facebook.com/tools/debug/sharing/))
 * Linkedin
 * Whatsapp (note: this link does nothing if Whatsapp is not installed)
 
