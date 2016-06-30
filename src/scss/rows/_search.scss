@@ -10,6 +10,10 @@
 		}
 	}
 
+	[data-o-header-search] {
+		display: none;
+	}
+
 	.o-header__search-form {
 		display: flex;
 		align-items: center;

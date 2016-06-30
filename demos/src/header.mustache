@@ -45,6 +45,8 @@
 	{{/top}}
 
 	{{#search}}
+	<!-- To support both core and enhanced, duplicating the search row is necessary to avoid it flashing in enhanced -->
+	<!-- Pick only one of the two <div> if you don't need to support both core and enhanced -->
 	<div id="o-header-search" class="o-header__row o-header__search o--if-no-js" role="search">
 		<div class="o-header__container">
 			<form class="o-header__search-form" action="/search" role="search" aria-label="Site search">
@@ -53,7 +55,18 @@
 				<button class="o-header__search-submit" type="submit">
 					Search
 				</button>
-				<button class="o-header__search-close o--if-js" type="button" aria-controls="o-header-search">
+			</form>
+		</div>
+	</div>
+	<div id="o-header-search-js" class="o-header__row o-header__search" role="search" data-o-header-search>
+		<div class="o-header__container">
+			<form class="o-header__search-form" action="/search" role="search" aria-label="Site search">
+				<label class="o-header__visually-hidden" for="o-header-search-term-js">Search the <abbr title="Financial Times">FT</abbr></label>
+				<input class="o-header__search-term" id="o-header-search-term-js" name="q" type="text" placeholder="Search the FT">
+				<button class="o-header__search-submit" type="submit">
+					Search
+				</button>
+				<button class="o-header__search-close" type="button" aria-controls="o-header-search">
 					<span class="o-header__visually-hidden">Close</span>
 				</button>
 			</form>
