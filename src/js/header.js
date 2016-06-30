@@ -9,6 +9,10 @@ class Header {
 		} else if (typeof headerEl === 'string') {
 			headerEl = document.querySelector(headerEl);
 		}
+		
+		if (headerEl.hasAttribute('data-o-header--js')) {
+			return;
+		}
 
 		this.headerEl = headerEl;
 
@@ -27,7 +31,10 @@ class Header {
 		}
 
 		const headerEl = rootEl.querySelector('[data-o-component="o-header"]');
-		return new Header(headerEl);
+		if (!headerEl.hasAttribute('data-o-header--js')) {
+			return new Header(headerEl);
+		}
+		
 	}
 
 }
