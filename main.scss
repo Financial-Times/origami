@@ -80,8 +80,13 @@
 	.o-typography-flyline {
 		@include oTypographyFlyline;
 	}
-	.o-typography-tag-link {
-		@include oTypographyTagLink;
+
+	.o-typography-link-topic {
+		@include oTypographyLinkTopic;
+	}
+
+	.o-typography-link-topic--medium {
+		@include oTypographyLinkTopicMedium;
 	}
 
 	// Body copy - general

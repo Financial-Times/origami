@@ -32,7 +32,7 @@
 	@include oTypographySerifDisplay(xs);
 }
 
-@mixin oTypographyTagLink {
+@mixin oTypographyLinkTopic {
 	@include oTypographySansBold(s);
 	@include oColorsFor(tag-link, text);
 	text-decoration: none;
@@ -41,8 +41,8 @@
 		@include oColorsFor(tag-link-hover, text);
 	}
 }
-@mixin oTypographyTagLinkMedium {
-	@include oTypographyTagLink;
+@mixin oTypographyLinkTopicMedium {
+	@include oTypographyLinkTopic;
 	@include oTypographySansBold(m);
 }
 
