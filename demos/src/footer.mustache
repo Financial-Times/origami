@@ -5,17 +5,15 @@
 		<div class="o-footer__row">
 			<nav class="o-footer__matrix" role="navigation" aria-label="Useful links">
 				{{#.}}
-					<div class="o-footer__matrix-column">
-						{{#title}}
-						<h6 class="o-footer__matrix-title" id="o-footer-matrix-{{titleId}}">
+					<div class="o-footer__matrix-column o-footer__matrix-column--{{size}}">
+						<h6 class="o-footer__matrix-title" o-footer-collapsible="{{collapsible}}">
 							{{{title}}}
 						</h6>
-						{{/title}}
-						<ul class="o-footer__matrix-list" aria-labelledby="o-footer-matrix-{{titleId}}">
+						<ul class="o-footer__matrix-list">
 							{{#items}}
-							<li class="o-footer__matrix-item">
-								<a class="o-footer__matrix-link" href="{{href}}">{{{text}}}</a>
-							</li>
+								<li class="o-footer__matrix-item">
+									<a class="o-footer__matrix-link" href="{{href}}">{{{text}}}</a>
+								</li>
 							{{/items}}
 						</ul>
 					</div>
