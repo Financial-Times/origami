@@ -1,23 +1,36 @@
 <footer class="o-footer o-footer--{{theme}}" data-o-component="o-footer" data-o-footer--no-js>
 	<div class="o-footer__container">
-		<div class="o-footer__row o-footer__link-lists">
-			{{#link_sections}}
-			<nav class="o-footer__col o-footer__link-list">
-				{{#title}}<h6 class="o-footer__title">{{{title}}}</h6>{{/title}}
-				<ul>
-					{{#items}}
-						<li class="o-footer__link"><a href="{{href}}">{{{text}}}</a></li>
-					{{/items}}
-				</ul>
+
+		{{#matrix}}
+		<div class="o-footer__row">
+			<nav class="o-footer__matrix" role="navigation" aria-label="Useful links">
+				{{#.}}
+					<div class="o-footer__matrix-column">
+						{{#title}}
+						<h6 class="o-footer__matrix-title" id="o-footer-matrix-{{titleId}}">
+							{{{title}}}
+						</h6>
+						{{/title}}
+						<ul class="o-footer__matrix-list" aria-labelledby="o-footer-matrix-{{titleId}}">
+							{{#items}}
+							<li class="o-footer__matrix-item">
+								<a class="o-footer__matrix-link" href="{{href}}">{{{text}}}</a>
+							</li>
+							{{/items}}
+						</ul>
+					</div>
+				{{/.}}
 			</nav>
-			{{/link_sections}}
 		</div>
-		<div class="o-footer__copyright">
+		{{/matrix}}
+
+		<div class="o-footer__copyright" role="contentinfo">
 			<small>
 				&#169; THE FINANCIAL TIMES LTD {{copyrightYear}}.
 				<abbr title="Financial Times">FT</abbr> and ‘Financial Times’ are trademarks of The Financial Times Ltd.
 			</small>
 		</div>
+
 	</div>
 	<div class="o-footer__brand">
 		<div class="o-footer__container">

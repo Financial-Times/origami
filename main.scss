@@ -9,7 +9,6 @@
 .o-footer {
 	@include oTypographySansSize('s');
 	margin-top: (2 * $o-footer-spacing-unit);
-	padding: 0;
 	border-top: 10px solid;
 	line-height: $o-footer-spacing-unit;
 }
@@ -17,6 +16,10 @@
 .o-footer--theme-dark {
 	@include oColorsFor('o-footer--theme-dark', 'text' 'background');
 	border-color: oColorsGetColorFor('o-footer--theme-dark', 'border');
+
+	// Make the white text look crisper and less bold on dark backgrounds
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .o-footer--theme-light {
@@ -24,85 +27,81 @@
 	border-color: oColorsGetColorFor('o-footer--theme-light', 'border');
 }
 
-.o-footer__title,
-.o-footer__link > a {
-	font-size: inherit;
-	line-height: inherit;
-	overflow: hidden;
-	width: 100%;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
-
-.o-footer__title {
-	margin: 0 0 $o-footer-spacing-unit / 2;
-	font-weight: 600;
-
-	// Make the white text look crisper and less bold on dark backgrounds
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-// TODO: just apply the class name to the element?
-.o-footer__link {
-	> a {
-		display: block;
-		padding: 4px 0;
-		text-decoration: none;
-
-		.o-footer--theme-dark & {
-			color: oColorsGetColorFor('o-footer--theme-dark__link', 'text');
-
-			&:hover,
-			&:focus {
-				color: oColorsGetColorFor('o-footer--theme-dark__link-hover', 'text');
-			}
-		}
-
-		.o-footer--theme-light & {
-			color: oColorsGetColorFor('o-footer--theme-light__link', 'text');
-
-			&:hover,
-			&:focus {
-				color: oColorsGetColorFor('o-footer--theme-light__link-hover', 'text');
-			}
-		}
-	}
-}
-
-.o-footer__link-lists {
-	padding-top: $o-footer-spacing-unit;
-}
-
-.o-footer__link-list {
-	padding-top: (2 * $o-footer-spacing-unit);
-	margin-bottom: (1 * $o-footer-spacing-unit);
-
-	> ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-
-	> .o-footer__title {
-		margin-top: (-2 * $o-footer-spacing-unit);
-	}
-}
-
 .o-footer__container {
 	@include oGridContainer;
 }
 
 .o-footer__row {
+	margin-top: $o-footer-spacing-unit;
+}
+
+.o-footer__matrix {
 	@include oGridRow;
+	position: relative;
 }
 
-.o-footer__col {
-	@include oGridColspan((default: 12, S: 6, M: 4, L: 3, XL: 2));
+.o-footer__matrix-title,
+.o-footer__matrix-link {
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
-.o-footer__col--full-width {
-	@include oGridColspan(full-width, $width-only: true);
+.o-footer__matrix-title {
+	margin: $o-footer-spacing-unit 0;
+	line-height: inherit;
+	font-size: inherit;
+	font-weight: 600;
+
+	@include oGridRespondTo('M') {
+		margin-top: 0;
+	}
+}
+
+.o-footer__matrix-column {
+	@include oGridColspan(('default': 12, 'M': 6, 'L': 3, 'XL': 2));
+}
+
+.o-footer__matrix-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	@include oGridRespondTo('M') {
+		margin-top: $o-footer-spacing-unit * 2;
+		margin-bottom: $o-footer-spacing-unit;
+	}
+
+	.o-footer__matrix-title + & {
+		margin-top: 0;
+	}
+}
+
+.o-footer__matrix-item {}
+
+.o-footer__matrix-link {
+	display: block;
+	padding: 4px 0;
+	text-decoration: none;
+
+	.o-footer--theme-dark & {
+		color: oColorsGetColorFor('o-footer--theme-dark__link', 'text');
+
+		&:hover,
+		&:focus {
+			color: oColorsGetColorFor('o-footer--theme-dark__link-hover', 'text');
+		}
+	}
+
+	.o-footer--theme-light & {
+		color: oColorsGetColorFor('o-footer--theme-light__link', 'text');
+
+		&:hover,
+		&:focus {
+			color: oColorsGetColorFor('o-footer--theme-light__link-hover', 'text');
+		}
+	}
 }
 
 .o-footer__copyright {
@@ -142,29 +141,4 @@
 	background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/nikkei_logo.svg", o-footer));
 	background-repeat: no-repeat;
 	background-position: right;
-}
-
-@include oGridRespondTo($until: S) {
-	.o-footer__link-lists {
-		margin-top: 0;
-		margin-bottom: 2 * $o-footer-spacing-unit;
-	}
-	.o-footer__link-list {
-		margin-bottom: 0;
-		padding-top: 0;
-
-		> ul {
-			margin-top: 0;
-		}
-		> .o-footer__title {
-			position: static;
-			margin-top: 0;
-			margin-bottom: $o-footer-spacing-unit / 2;
-		}
-		+ .o-footer__link-list {
-			> .o-footer__title {
-				margin-top: $o-footer-spacing-unit;
-			}
-		}
-	}
 }
