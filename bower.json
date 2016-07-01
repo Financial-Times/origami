@@ -9,6 +9,8 @@
     "o-grid": "^4.0.0",
     "o-assets": ">=0.4.1 <4",
     "o-toggle": "^1.0.0",
-    "o-typography": "^4.1.0"
+    "o-typography": "^4.1.0",
+    "o-viewport": "^2.2.0",
+    "o-icons": "^4.2.0"
   }
 }

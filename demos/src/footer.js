@@ -3,7 +3,6 @@
 const data = {
 	"theme": "theme-dark",
 	"matrix": [
-		[
 			{
 				"title": "Support",
 				"items": [
@@ -48,9 +47,7 @@ const data = {
 					{ "text": "Currency Converter", "href": "#" },
 					{ "text": "Ebooks", "href": "#" }
 				]
-			}
-		],
-		[
+			},
 			{
 				"title": "More from FT Group",
 				"items": [
@@ -84,7 +81,6 @@ const data = {
 					{ "text": "This is Africa", "href": "#" }
 				]
 			}
-		]
 	],
 	"copyrightYear": "2016",
 };
@@ -92,10 +88,9 @@ const data = {
 module.exports = function () {
 	const ITEMS_PER_COLUMN = 5;
 
-	data.matrix.forEach(row => {
-		row.forEach(column => {
-			column.size = Math.ceil(column.items.length / ITEMS_PER_COLUMN);
-		});
+	data.matrix.forEach((column, i) => {
+		column.size = Math.ceil(column.items.length / ITEMS_PER_COLUMN);
+		column.listId = column.size > 1 ? `o-footer-matrix-list-${i}` : null;
 	});
 
 	return data;

@@ -2,9 +2,13 @@
 @import "o-colors/main";
 @import "o-grid/main";
 @import "o-typography/main";
+@import "o-icons/main";
 
 @import "src/scss/variables";
 @import "src/scss/colors";
+
+// maybe not good if o-grid should be in silent mode?
+@include oGridSurfaceCurrentLayout();
 
 .o-footer {
 	@include oTypographySansSize('s');
@@ -53,25 +57,65 @@
 	line-height: inherit;
 	font-size: inherit;
 	font-weight: 600;
+
+	&[aria-expanded] {
+		$icon-size: 14;
+		$line-height: $o-footer-spacing-unit * 2;
+
+		position: relative;
+		// collapse borders between collapsed columns
+		margin-bottom: -1px;
+		border-top: 1px dotted;
+		border-bottom: 1px dotted;
+		line-height: $line-height;
+		cursor: pointer;
+
+		&:after {
+
+			content: ' ';
+			position: absolute;
+			right: 0;
+			top: ($line-height - $icon-size) / 2;
+
+			.o-footer--theme-dark & {
+				@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer--theme-dark', 'text'), 14);
+			}
+
+			.o-footer--theme-light & {
+				@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer--theme-light', 'text'), 14);
+			}
+		}
+
+	}
+
+	&[aria-expanded="true"] {
+		margin-bottom: $o-footer-spacing-unit / 2;
+
+		&:after {
+			// don't download another icon...
+			transform: rotate(180deg);
+		}
+	}
 }
 
 .o-footer__matrix-column {
+	@include oGridColspan();
 }
 
 .o-footer__matrix-column--1 {
-	@include oGridColspan(('default': 12, 'M': 6, 'L': 3, 'XL': 2));
+	@include oGridColspan(('default': 6, 'M': 3, 'L': 3, 'XL': 2), $width-only: true);
 }
 
 .o-footer__matrix-column--2 {
-	@include oGridColspan(('default': 12, 'M': 6, 'L': 6, 'XL': 4));
+	@include oGridColspan(('default': 12, 'M': 6, 'L': 6, 'XL': 4), $width-only: true);
 }
 
 .o-footer__matrix-column--4 {
-	@include oGridColspan(('default': 12, 'XL': 8));
+	@include oGridColspan(('default': 12, 'XL': 8), $width-only: true);
 }
 
 .o-footer__matrix-column--6 {
-	@include oGridColspan(('default': 12));
+	@include oGridColspan(('default': 12), $width-only: true);
 }
 
 .o-footer__matrix-list {
@@ -79,34 +123,35 @@
 	padding: 0;
 	list-style: none;
 
-	@include oGridRespondTo('M') {
+	@include oGridRespondTo('S') {
+		column-gap: oGridGutter('S');
 
+		.o-footer__matrix-column--2 &,
+		.o-footer__matrix-column--4 &,
 		.o-footer__matrix-column--6 & {
 			column-count: 2;
 		}
-
 	}
 
-	@include oGridRespondTo('L') {
-		column-gap: oGridGutter('L');
-
-		.o-footer__matrix-column--2 & {
-			column-count: 2;
-		}
+	@include oGridRespondTo('M') {
+		column-gap: oGridGutter('M');
 
 		.o-footer__matrix-column--4 &,
 		.o-footer__matrix-column--6 & {
 			column-count: 4;
 		}
-
 	}
 
 	@include oGridRespondTo('XL') {
+		column-gap: oGridGutter('XL');
 
 		.o-footer__matrix-column--6 & {
 			column-count: 6;
 		}
+	}
 
+	&[aria-hidden="true"] {
+		display: none;
 	}
 }
 
