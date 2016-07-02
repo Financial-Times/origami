@@ -4,17 +4,19 @@
 		<div class="o-footer__row">
 			<nav class="o-footer__matrix" role="navigation" aria-label="Useful links">
 				{{#matrix}}
-				<div class="o-footer__matrix-column o-footer__matrix-column--{{size}}">
-					<h6 class="o-footer__matrix-title" {{#listId}}aria-controls="{{listId}}"{{/listId}}>
+				<div class="o-footer__matrix-group o-footer__matrix-group--{{layout}}">
+					<h6 class="o-footer__matrix-title" {{#collapsible}}aria-controls="o-footer-section-{{index}}"{{/collapsible}}>
 						{{{title}}}
 					</h6>
-					<ul class="o-footer__matrix-list" {{#listId}}id="{{listId}}"{{/listId}}>
-						{{#items}}
-							<li class="o-footer__matrix-item">
-								<a class="o-footer__matrix-link" href="{{href}}">{{{text}}}</a>
-							</li>
-						{{/items}}
-					</ul>
+					<div class="o-footer__matrix-content" id="o-footer-section-{{index}}">
+						{{#columns}}
+							<div class="o-footer__matrix-column">
+								{{#.}}
+									<a class="o-footer__matrix-link" href="{{href}}">{{{text}}}</a>
+								{{/.}}
+							</div>
+						{{/columns}}
+					</div>
 				</div>
 				{{/matrix}}
 			</nav>

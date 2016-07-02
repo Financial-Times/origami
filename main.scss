@@ -1,13 +1,14 @@
 @import "o-assets/main";
 @import "o-colors/main";
-@import "o-grid/main";
 @import "o-typography/main";
 @import "o-icons/main";
+@import "o-grid/main";
 
 @import "src/scss/variables";
 @import "src/scss/colors";
 
 // maybe not good if o-grid should be in silent mode?
+// required by o-grid JS helper
 @include oGridSurfaceCurrentLayout();
 
 .o-footer {
@@ -32,65 +33,72 @@
 }
 
 .o-footer__container {
-	@include oGridContainer;
+	@include oGridContainer();
 }
 
 .o-footer__row {
 	margin-top: $o-footer-spacing-unit;
 }
 
-.o-footer__matrix {
-	@include oGridRow;
-	position: relative;
+.o-footer__matrix,
+.o-footer__matrix-content {
+	@include oGridRow();
+}
+
+.o-footer__matrix-group,
+.o-footer__matrix-column {
+	@include oGridColspan();
+}
+
+@each $key, $value in $o-footer-matrix {
+	.o-footer__matrix-group--#{$key} {
+		@include oGridColspan(map-get($value, 'group'), $width-only: true);
+
+		.o-footer__matrix-column {
+			@include oGridColspan(map-get($value, 'columns'), $width-only: true);
+		}
+	}
 }
 
 .o-footer__matrix-title,
 .o-footer__matrix-link {
-	width: 100%;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
 
 .o-footer__matrix-title {
-	margin: 0 0 $o-footer-spacing-unit;
+	margin: 0;
 	line-height: inherit;
 	font-size: inherit;
 	font-weight: 600;
 
 	&[aria-expanded] {
 		$icon-size: 14;
-		$line-height: $o-footer-spacing-unit * 2;
+		$line-size: $o-footer-spacing-unit * 2;
 
 		position: relative;
-		// collapse borders between collapsed columns
-		margin-bottom: -1px;
 		border-top: 1px dotted;
-		border-bottom: 1px dotted;
-		line-height: $line-height;
+		line-height: $line-size;
 		cursor: pointer;
 
 		&:after {
-
 			content: ' ';
 			position: absolute;
 			right: 0;
-			top: ($line-height - $icon-size) / 2;
+			top: ($line-size - $icon-size) / 2;
 
 			.o-footer--theme-dark & {
-				@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer--theme-dark', 'text'), 14);
+				@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer--theme-dark', 'text'), $icon-size);
 			}
 
 			.o-footer--theme-light & {
-				@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer--theme-light', 'text'), 14);
+				@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer--theme-light', 'text'), $icon-size);
 			}
 		}
-
 	}
 
 	&[aria-expanded="true"] {
-		margin-bottom: $o-footer-spacing-unit / 2;
-
 		&:after {
 			// don't download another icon...
 			transform: rotate(180deg);
@@ -98,64 +106,16 @@
 	}
 }
 
-.o-footer__matrix-column {
-	@include oGridColspan();
-}
-
-.o-footer__matrix-column--1 {
-	@include oGridColspan(('default': 6, 'M': 3, 'L': 3, 'XL': 2), $width-only: true);
-}
-
-.o-footer__matrix-column--2 {
-	@include oGridColspan(('default': 12, 'M': 6, 'L': 6, 'XL': 4), $width-only: true);
-}
-
-.o-footer__matrix-column--4 {
-	@include oGridColspan(('default': 12, 'XL': 8), $width-only: true);
-}
-
-.o-footer__matrix-column--6 {
-	@include oGridColspan(('default': 12), $width-only: true);
-}
-
-.o-footer__matrix-list {
-	margin: 0 0 $o-footer-spacing-unit;
-	padding: 0;
-	list-style: none;
-
-	@include oGridRespondTo('S') {
-		column-gap: oGridGutter('S');
-
-		.o-footer__matrix-column--2 &,
-		.o-footer__matrix-column--4 &,
-		.o-footer__matrix-column--6 & {
-			column-count: 2;
-		}
-	}
-
-	@include oGridRespondTo('M') {
-		column-gap: oGridGutter('M');
-
-		.o-footer__matrix-column--4 &,
-		.o-footer__matrix-column--6 & {
-			column-count: 4;
-		}
-	}
-
-	@include oGridRespondTo('XL') {
-		column-gap: oGridGutter('XL');
-
-		.o-footer__matrix-column--6 & {
-			column-count: 6;
-		}
-	}
-
+.o-footer__matrix-content {
 	&[aria-hidden="true"] {
 		display: none;
 	}
 }
 
-.o-footer__matrix-item {}
+.o-footer__matrix-column {
+	margin-top: $o-footer-spacing-unit / 2;
+	margin-bottom: $o-footer-spacing-unit / 2;
+}
 
 .o-footer__matrix-link {
 	display: block;
