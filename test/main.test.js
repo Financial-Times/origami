@@ -31,7 +31,7 @@ describe('Toggle', () => {
 		toggleEl = null;
 		targetEl = null;
 		callbackFunc = null;
-		Toggle._toggles = {};
+		Toggle._toggles = new Map();
 	});
 
 	it('constructor', () => {
@@ -44,7 +44,7 @@ describe('Toggle', () => {
 		expect(testToggle.toggleEl).to.be(toggleEl);
 		expect(testToggle.callback).to.be(callbackFunc);
 
-		expect(Toggle._toggles[targetEl]).to.contain(testToggle);
+		expect(Toggle._toggles.get(targetEl)).to.contain(testToggle);
 		expect(toggleEl.hasAttribute('data-o-toggle--js')).to.be(true);
 		expect(toggleEl.getAttribute('role')).to.not.be('button');
 		expect(toggleEl.getAttribute('aria-expanded')).to.be('false');
@@ -68,8 +68,8 @@ describe('Toggle', () => {
 			target: targetEl
 		});
 
-		expect(Toggle._toggles[targetEl]).to.contain(testToggle);
-		expect(Toggle._toggles[targetEl].length).to.be(3);
+		expect(Toggle._toggles.get(targetEl)).to.contain(testToggle);
+		expect(Toggle._toggles.get(targetEl).length).to.be(3);
 
 		document.body.removeChild(contextEl);
 	});
@@ -122,7 +122,27 @@ describe('Toggle', () => {
 		expect(testToggle.targetEl).to.be(undefined);
 		expect(testToggle.toggleEl).to.be(undefined);
 		expect(testToggle.callback).to.be(undefined);
-		expect(Toggle._toggles[targetEl]).to.not.contain(testToggle);
+		expect(Toggle._toggles.get(targetEl)).to.not.contain(testToggle);
+	});
+
+	it('should support unique targets in the toggle map', () => {
+		const targetEl2 = document.createElement('div');
+		const toggleEl2 = document.createElement('button');
+		toggleEl2.setAttribute('data-o-component', 'o-toggle');
+		document.body.appendChild(targetEl2);
+		document.body.appendChild(toggleEl2);
+
+		const testToggle2 = new Toggle(toggleEl2, {
+			target: targetEl2
+		});
+
+		expect(Toggle._toggles.get(targetEl)).to.contain(testToggle);
+		expect(Toggle._toggles.get(targetEl).length).to.be(1);
+		expect(Toggle._toggles.get(targetEl2)).to.contain(testToggle2);
+		expect(Toggle._toggles.get(targetEl2).length).to.be(1);
+
+		document.body.removeChild(targetEl2);
+		document.body.removeChild(toggleEl2);
 	});
 
 	it('can instantiate declaratively', () => {
