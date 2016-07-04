@@ -9,24 +9,27 @@ $o-footer-spacing-unit: 20px;
 
 @include oColorsSetUseCase(o-footer, background, 'grey-tint5');
 @include oColorsSetUseCase(o-footer, text, 'white');
+@include oColorsSetUseCase(o-footer, border, 'teal-1');
 @include oColorsSetUseCase(o-footer__brand, background, 'grey-tint4');
 @include oColorsSetUseCase(o-footer__divider, border, 'grey-tint3');
-@include oColorsSetUseCase(o-footer-item, text, 'white');
+@include oColorsSetUseCase(o-footer__item, text, 'grey-tint1');
+@include oColorsSetUseCase(o-footer__item--hover, text, 'white');
 @include oColorsSetUseCase(o-footer__copyright, text, 'grey-tint2');
 
 @include oColorsSetUseCase(o-footer--theme-light, background, 'pink-tint1');
 @include oColorsSetUseCase(o-footer--theme-light, text, 'grey-tint5');
 @include oColorsSetUseCase(o-footer--theme-light__brand, background, 'pink-tint4');
 @include oColorsSetUseCase(o-footer--theme-light__divider, border, 'pink-tint3');
-@include oColorsSetUseCase(o-footer--theme-light-item, text, 'grey-tint5');
+@include oColorsSetUseCase(o-footer--theme-light__item, text, 'grey-tint3');
+@include oColorsSetUseCase(o-footer--theme-light__item--hover, text, 'grey-tint5');
 @include oColorsSetUseCase(o-footer--theme-light__copyright, text, 'grey-tint3');
 
 .o-footer {
 	@include oColorsFor(o-footer, text background);
-	font-size: 16px;
+	font-size: 15px;
 	margin-top: (2 * $o-footer-spacing-unit);
 	padding: 0;
-	border-top: 5px solid oColorsGetColorFor(o-footer-brand product-brand, background);
+	border-top: 10px solid oColorsGetColorFor(o-footer, border);
 	line-height: $o-footer-spacing-unit;
 
 	ul {
@@ -52,16 +55,11 @@ $o-footer-spacing-unit: 20px;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	font-weight: 600;
-	font-size: 1.1em;
-	color: oColorsGetColorFor(o-footer-item, text);
+	font-size: inherit;
 
 	// Make the white text look crisper and less bold on dark backgrounds
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-
-	.o-footer--theme-light & {
-		color: oColorsGetColorFor(o-footer--theme-light-item, text);
-	}
 }
 
 .o-footer__link {
@@ -73,15 +71,20 @@ $o-footer-spacing-unit: 20px;
 		display: block; // Make links easier to tap by increasing their hitzone
 		text-decoration: none;
 		padding: 5px 0;
-		color: oColorsGetColorFor(o-footer-item, text);
+		color: oColorsGetColorFor(o-footer__item, text);
 
 		.o-footer--theme-light & {
-			color: oColorsGetColorFor(o-footer--theme-light-item, text);
+			color: oColorsGetColorFor(o-footer--theme-light__item, text);
+
+			#{$o-hoverable-if-hover-enabled} &:hover,
+			&:focus {
+				color: oColorsGetColorFor(o-footer--theme-light__item--hover, text);
+			}
 		}
 
 		#{$o-hoverable-if-hover-enabled} &:hover,
 		&:focus {
-			color: oColorsGetColorFor(link-title-hover, text);
+			color: oColorsGetColorFor(o-footer__item--hover, text);
 		}
 	}
 }
