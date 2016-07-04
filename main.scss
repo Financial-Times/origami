@@ -20,5 +20,5 @@
 @import 'src/scss/mega/subsections';
 
 @if $o-header-is-silent == false {
-	$o-header-is-silent: true;
+	$o-header-is-silent: true !global;
 }
