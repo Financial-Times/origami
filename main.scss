@@ -7,175 +7,180 @@
 @import "src/scss/variables";
 @import "src/scss/colors";
 
-// maybe not good if o-grid should be in silent mode?
-// required by o-grid JS helper
-@include oGridSurfaceCurrentLayout();
+@if $o-footer-is-silent == false {
 
-.o-footer {
-	@include oTypographySansSize('s');
-	margin-top: (2 * $o-footer-spacing-unit);
-	border-top: 10px solid;
-	line-height: $o-footer-spacing-unit;
-}
+	// maybe not good if o-grid should be in silent mode?
+	// required by o-grid JS helper
+	@include oGridSurfaceCurrentLayout();
 
-.o-footer--theme-dark {
-	@include oColorsFor('o-footer--theme-dark', 'text' 'background');
-	border-color: oColorsGetColorFor('o-footer--theme-dark', 'border');
-
-	// Make the white text look crisper and less bold on dark backgrounds
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-
-	a {
-		color: oColorsGetColorFor('o-footer--theme-dark__link', 'text');
-
-		&:hover,
-		&:focus {
-			color: oColorsGetColorFor('o-footer--theme-dark__link-hover', 'text');
-		}
+	.o-footer {
+		@include oTypographySansSize('s');
+		margin-top: (2 * $o-footer-spacing-unit);
+		border-top: 10px solid;
+		line-height: $o-footer-spacing-unit;
 	}
-}
 
-.o-footer--theme-light {
-	@include oColorsFor('o-footer--theme-light', 'text' 'background');
-	border-color: oColorsGetColorFor('o-footer--theme-light', 'border');
+	.o-footer--theme-dark {
+		@include oColorsFor('o-footer--theme-dark', 'text' 'background');
+		border-color: oColorsGetColorFor('o-footer--theme-dark', 'border');
 
-	a {
-		color: oColorsGetColorFor('o-footer--theme-light__link', 'text');
+		// Make the white text look crisper and less bold on dark backgrounds
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 
-		&:hover,
-		&:focus {
-			color: oColorsGetColorFor('o-footer--theme-light__link-hover', 'text');
-		}
-	}
-}
+		a {
+			color: oColorsGetColorFor('o-footer--theme-dark__link', 'text');
 
-.o-footer__container {
-	@include oGridContainer();
-}
-
-.o-footer__row {
-	margin-top: $o-footer-spacing-unit;
-}
-
-.o-footer__matrix,
-.o-footer__matrix-content {
-	@include oGridRow();
-}
-
-.o-footer__matrix-group,
-.o-footer__matrix-column {
-	@include oGridColspan();
-}
-
-@each $key, $value in $o-footer-matrix {
-	.o-footer__matrix-group--#{$key} {
-		@include oGridColspan(map-get($value, 'group'), $width-only: true);
-
-		.o-footer__matrix-column {
-			@include oGridColspan(map-get($value, 'columns'), $width-only: true);
-		}
-	}
-}
-
-.o-footer__matrix-title,
-.o-footer__matrix-link {
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
-
-.o-footer__matrix-title {
-	margin: 0;
-	line-height: inherit;
-	font-size: inherit;
-	font-weight: 600;
-
-	&[aria-expanded] {
-		$icon-size: 14;
-		$line-size: $o-footer-spacing-unit * 2;
-
-		position: relative;
-		border-top: 1px dotted;
-		line-height: $line-size;
-		cursor: pointer;
-
-		&:after {
-			content: ' ';
-			position: absolute;
-			right: 0;
-			top: ($line-size - $icon-size) / 2;
-
-			.o-footer--theme-dark & {
-				@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer--theme-dark', 'text'), $icon-size);
-			}
-
-			.o-footer--theme-light & {
-				@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer--theme-light', 'text'), $icon-size);
+			&:hover,
+			&:focus {
+				color: oColorsGetColorFor('o-footer--theme-dark__link-hover', 'text');
 			}
 		}
 	}
 
-	&[aria-expanded="true"] {
-		&:after {
-			// don't download another icon...
-			transform: rotate(180deg);
+	.o-footer--theme-light {
+		@include oColorsFor('o-footer--theme-light', 'text' 'background');
+		border-color: oColorsGetColorFor('o-footer--theme-light', 'border');
+
+		a {
+			color: oColorsGetColorFor('o-footer--theme-light__link', 'text');
+
+			&:hover,
+			&:focus {
+				color: oColorsGetColorFor('o-footer--theme-light__link-hover', 'text');
+			}
 		}
 	}
-}
 
-.o-footer__matrix-content {
-	&[aria-hidden="true"] {
-		display: none;
-	}
-}
-
-.o-footer__matrix-column {
-	margin-top: $o-footer-spacing-unit / 2;
-	margin-bottom: $o-footer-spacing-unit / 2;
-}
-
-.o-footer__matrix-link {
-	display: block;
-	padding: 4px 0;
-	text-decoration: none;
-}
-
-.o-footer__copyright {
-	margin-top: $o-footer-spacing-unit;
-	margin-bottom: $o-footer-spacing-unit;
-
-	.o-footer--theme-dark & {
-		color: oColorsGetColorFor('o-footer--theme-dark__copyright', 'text');
+	.o-footer__container {
+		@include oGridContainer();
 	}
 
-	.o-footer--theme-light & {
-		color: oColorsGetColorFor('o-footer--theme-light__copyright', 'text');
-	}
-}
-
-.o-footer__brand {
-	padding-top: $o-footer-spacing-unit - 5;
-	padding-bottom: $o-footer-spacing-unit - 5;
-
-	.o-footer--theme-dark & {
-		background-color: oColorsGetColorFor('o-footer--theme-dark__brand', 'background');
-		color: oColorsGetColorFor('o-footer--theme-dark', 'text');
+	.o-footer__row {
+		margin-top: $o-footer-spacing-unit;
 	}
 
-	.o-footer--theme-light & {
-		background-color: oColorsGetColorFor('o-footer--theme-light__brand', 'background');
-		color: oColorsGetColorFor('o-footer--theme-light', 'text');
+	.o-footer__matrix,
+	.o-footer__matrix-content {
+		@include oGridRow();
 	}
-}
 
-.o-footer__brand-logo {
-	height: 20px;
+	.o-footer__matrix-group,
+	.o-footer__matrix-column {
+		@include oGridColspan();
+	}
 
-	// The weird value for rgba is to prevent Sass converting rgba(0,0,0,0) to 'transparent'
-	// which would cause the following line to be understood by IE7/8 and the svg to be downloaded
-	background: url(oAssetsResolve("img/nikkei_logo.png", o-footer));
-	background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/nikkei_logo.svg", o-footer));
-	background-repeat: no-repeat;
-	background-position: right;
+	@each $key, $value in $o-footer-matrix {
+		.o-footer__matrix-group--#{$key} {
+			@include oGridColspan(map-get($value, 'group'), $width-only: true);
+
+			.o-footer__matrix-column {
+				@include oGridColspan(map-get($value, 'columns'), $width-only: true);
+			}
+		}
+	}
+
+	.o-footer__matrix-title,
+	.o-footer__matrix-link {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	.o-footer__matrix-title {
+		margin: 0;
+		line-height: inherit;
+		font-size: inherit;
+		font-weight: 600;
+
+		&[aria-expanded] {
+			$icon-size: 14;
+			$line-size: $o-footer-spacing-unit * 2;
+
+			position: relative;
+			border-top: 1px dotted;
+			line-height: $line-size;
+			cursor: pointer;
+
+			&:after {
+				content: ' ';
+				position: absolute;
+				right: 0;
+				top: ($line-size - $icon-size) / 2;
+
+				.o-footer--theme-dark & {
+					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer--theme-dark', 'text'), $icon-size);
+				}
+
+				.o-footer--theme-light & {
+					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer--theme-light', 'text'), $icon-size);
+				}
+			}
+		}
+
+		&[aria-expanded="true"] {
+			&:after {
+				// don't download another icon...
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	.o-footer__matrix-content {
+		&[aria-hidden="true"] {
+			display: none;
+		}
+	}
+
+	.o-footer__matrix-column {
+		margin-top: $o-footer-spacing-unit / 2;
+		margin-bottom: $o-footer-spacing-unit / 2;
+	}
+
+	.o-footer__matrix-link {
+		display: block;
+		padding: 4px 0;
+		text-decoration: none;
+	}
+
+	.o-footer__copyright {
+		margin-top: $o-footer-spacing-unit;
+		margin-bottom: $o-footer-spacing-unit;
+
+		.o-footer--theme-dark & {
+			color: oColorsGetColorFor('o-footer--theme-dark__copyright', 'text');
+		}
+
+		.o-footer--theme-light & {
+			color: oColorsGetColorFor('o-footer--theme-light__copyright', 'text');
+		}
+	}
+
+	.o-footer__brand {
+		padding-top: $o-footer-spacing-unit - 5;
+		padding-bottom: $o-footer-spacing-unit - 5;
+
+		.o-footer--theme-dark & {
+			background-color: oColorsGetColorFor('o-footer--theme-dark__brand', 'background');
+			color: oColorsGetColorFor('o-footer--theme-dark', 'text');
+		}
+
+		.o-footer--theme-light & {
+			background-color: oColorsGetColorFor('o-footer--theme-light__brand', 'background');
+			color: oColorsGetColorFor('o-footer--theme-light', 'text');
+		}
+	}
+
+	.o-footer__brand-logo {
+		height: 20px;
+
+		// The weird value for rgba is to prevent Sass converting rgba(0,0,0,0) to 'transparent'
+		// which would cause the following line to be understood by IE7/8 and the svg to be downloaded
+		background: url(oAssetsResolve("img/nikkei_logo.png", o-footer));
+		background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/nikkei_logo.svg", o-footer));
+		background-repeat: no-repeat;
+		background-position: right;
+	}
+
+	$o-footer-is-silent: true !global;
 }
