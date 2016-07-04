@@ -35,12 +35,13 @@ class Toggle {
 			this.targetEl = document.querySelector(this.targetEl);
 		}
 
+		this.targetElSymbol = Symbol(this.targetEl);
 		this.toggleEl = toggleEl;
 
-		if (typeof Toggle._toggles[this.targetEl] === 'undefined') {
-			Toggle._toggles[this.targetEl] = [this];
+		if (typeof Toggle._toggles.get(this.targetEl) === 'undefined') {
+			Toggle._toggles.set(this.targetEl, [this]);
 		} else {
-			Toggle._toggles[this.targetEl].push(this);
+			Toggle._toggles.get(this.targetEl).push(this);
 		}
 
 		if (this.toggleEl.nodeName === 'A') {
@@ -59,7 +60,7 @@ class Toggle {
 		// Toggle returns true if class is not present and needs to be added
 		const state = this.targetEl.classList.toggle('o-toggle--active');
 
-		Toggle._toggles[this.targetEl].forEach((toggle) => {
+		Toggle._toggles.get(this.targetEl).forEach((toggle) => {
 			toggle.toggleEl.setAttribute('aria-expanded', state);
 		});
 
@@ -76,11 +77,12 @@ class Toggle {
 		this.toggleEl.removeAttribute('data-o-toggle--js');
 		this.targetEl.removeAttribute('aria-hidden');
 
-		const targetArray = Toggle._toggles[this.targetEl];
+		const targetArray = Toggle._toggles.get(this.targetEl);
 		const togglePosition = targetArray.indexOf(this);
 		// Generates a new array removing the current toggle from the list
-		Toggle._toggles[this.targetEl] = targetArray.slice(0, togglePosition)
-													.join(targetArray.slice(togglePosition + 1));
+		Toggle._toggles.set(this.targetEl,
+							targetArray.slice(0, togglePosition)
+										.join(targetArray.slice(togglePosition + 1)));
 
 		this.targetEl = undefined;
 		this.toggleEl = undefined;
@@ -104,7 +106,7 @@ class Toggle {
 	}
 };
 
-Toggle._toggles = {};
+Toggle._toggles = new Map();
 
 const constructAll = () => {
 	Toggle.init();
