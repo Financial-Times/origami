@@ -33,7 +33,7 @@ class Footer {
 
 		const toggleEls = this.footerEl.querySelectorAll('[aria-controls]');
 
-		Array.prototype.forEach.call(toggleEls, (toggleEl, i) => {
+		Array.prototype.forEach.call(toggleEls, toggleEl => {
 			const target = document.getElementById(toggleEl.getAttribute('aria-controls'));
 			toggleEl.setAttribute('role', 'button');
 			this._toggles.push(new Toggle(toggleEl, { target }));

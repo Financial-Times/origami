@@ -1,5 +1,3 @@
-'use strict';
-
 const data = {
 	"theme": "theme-dark",
 	"matrix": [
@@ -82,7 +80,7 @@ const data = {
 			]
 		}
 	],
-	"copyrightYear": "2016",
+	"copyrightYear": (new Date()).getUTCFullYear(),
 };
 
 module.exports = function () {
