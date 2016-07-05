@@ -9,19 +9,19 @@ $o-footer-spacing-unit: 20px;
 /// @type Map
 $o-footer-matrix: (
 	1: (
-		group: (default: 6, M: 3, L: 3, XL: 2),
+		group: (default: 6, M: 3, L: 2),
 		columns: (default: 12)
 	),
 	2: (
-		group: (default: 12, M: 6, L: 6, XL: 4),
+		group: (default: 12, M: 6, L: 4),
 		columns: (default: 6)
 	),
 	4: (
-		group: (default: 12, XL: 8),
+		group: (default: 12, L: 8),
 		columns: (default: 6, M: 3)
 	),
 	6: (
 		group: (default: 12),
-		columns: (default: 6, M: 3, XL: 2)
+		columns: (default: 6, M: 3, L: 2)
 	)
 );
