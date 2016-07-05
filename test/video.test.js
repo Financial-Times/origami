@@ -1,0 +1,259 @@
+/* global describe, xit, beforeEach, afterEach, expect, google */
+const Video = require('./../src/video');
+const brightcoveResponse = require('./fixtures/brightcove.json');
+const sinon = require('sinon/pkg/sinon');
+
+describe('Video', () => {
+
+	let containerEl;
+
+	beforeEach(() => {
+		containerEl = document.createElement('div');
+		containerEl.setAttribute('data-o-component', 'o-video');
+		containerEl.setAttribute('data-o-video-id', '4084879507001');
+		containerEl.setAttribute('data-o-video-source', 'Brightcove');
+		document.body.appendChild(containerEl);
+	});
+
+	afterEach(() => {
+		document.body.removeChild(containerEl);
+	});
+
+	describe('constructor', () => {
+		it('should be able to instantiate', () => {
+			const video = new Video(containerEl);
+			video.should.be.an.instanceOf(Video);
+
+			video.opts.should.exist;
+			video.opts.id.should.eql(4084879507001);
+
+			video.targeting.should.exist;
+			video.targeting.site.should.eql('/5887/ft.com');
+			video.targeting.position.should.eql('video');
+			video.targeting.sizes.should.eql('592x333|400x225');
+			video.targeting.videoId.should.eql(4084879507001);
+
+			video.containerEl.should.eql(containerEl);
+			video.containerEl.hasAttribute('data-o-video-js').should.be.true;
+		});
+
+		it('should set default options', () => {
+			const video = new Video(containerEl);
+
+			video.opts.advertising.should.eql(false);
+			video.opts.autorender.should.eql(true);
+			video.opts.classes.should.be.an.instanceOf(Array);
+			video.opts.classes.should.contain('o-video__video');
+			should.equal(video.opts.optimumwidth, null);
+			video.opts.placeholder.should.eql(false);
+			video.opts.playButton.should.eql(true);
+			should.equal(video.opts.data, null);
+		});
+
+		it('should allow setting options through attribute', () => {
+			containerEl.setAttribute('data-o-video-optimumwidth', 300);
+			containerEl.setAttribute('data-o-video-placeholder', true);
+			containerEl.setAttribute('data-o-video-classes', 'a-class another-class');
+
+			const video = new Video(containerEl);
+			video.opts.optimumwidth.should.eql(300);
+			video.opts.placeholder.should.eql(true);
+			video.opts.classes.should.contain('a-class');
+			video.opts.classes.should.contain('another-class');
+		});
+	});
+
+	describe('#init', () => {
+		it('should return an array of video instances', () => {
+			const videos = Video.init();
+			videos.length.should.eql(1);
+			videos[0].should.be.an.instanceOf(Video);
+		});
+
+		it('should create Video objects only once', () => {
+			const videos = Video.init();
+			videos.length.should.eql(1);
+			const videos2 = new Video.init();
+			videos2.length.should.eql(0);
+		});
+	});
+
+	describe('#addVideo', () => {
+		it('should add a video element', () => {
+			const video = new Video(containerEl);
+			video.rendition = {
+				url: 'http://url.mock'
+			};
+			video.posterImage = 'mockimage';
+			video.addVideo();
+
+			video.videoEl.should.be.an.instanceOf(HTMLElement);
+			video.videoEl.parentElement.should.equal(containerEl);
+			video.videoEl.getAttribute('poster').should.equal('mockimage');
+			video.videoEl.getAttribute('src').should.equal('http://url.mock');
+			video.videoEl.getAttribute('controls').should.equal('true');
+		});
+
+		it('should add supplied classes to element', () => {
+			const video = new Video(containerEl, { classes: ['class-one', 'class-two'] });
+			video.addVideo();
+			video.videoEl.className.should.equal('class-one class-two o-video__video');
+		});
+
+		it('should set event handlers', () => {
+			const video = new Video(containerEl);
+			const realAddEventListener = Element.prototype.addEventListener;
+			const addEventListenerSpy = sinon.spy();
+			Element.prototype.addEventListener = addEventListenerSpy;
+
+			video.addVideo();
+			addEventListenerSpy.callCount.should.equal(6);
+			addEventListenerSpy.alwaysCalledOn(video.videoEl).should.equal(true);
+			addEventListenerSpy.calledWith('playing', video.pauseOtherVideos);
+			addEventListenerSpy.calledWith('suspend', video.clearCurrentlyPlaying);
+			addEventListenerSpy.calledWith('ended', video.clearCurrentlyPlaying);
+			addEventListenerSpy.calledWith('play');
+			addEventListenerSpy.calledWith('pause');
+			addEventListenerSpy.calledWith('ended');
+
+			Element.prototype.addEventListener = realAddEventListener;
+		});
+	});
+
+	describe('#addPlaceholder', () => {
+
+		const realAddVideo = Video.prototype.addVideo;
+		let addVideoSpy = sinon.spy();
+
+		beforeEach(() => {
+			Video.prototype.addVideo = addVideoSpy;
+		});
+
+		afterEach(() => {
+			Video.prototype.addVideo = realAddVideo;
+		});
+
+		it('should be able to create as a placeholder', () => {
+			const video = new Video(containerEl, { placeholder: true });
+			video.posterImage = 'mockimage';
+			video.addPlaceholder();
+
+			video.placeholderEl.should.be.an.instanceOf(HTMLElement);
+			video.placeholderEl.parentElement.should.equal(containerEl);
+			video.placeholderEl.classList.contains('o-video__placeholder').should.equal(true);
+			video.placeholderEl.getAttribute('src').should.equal('mockimage');
+			containerEl.querySelector('.o-video__play-button').should.exist;
+
+			Video.prototype.addVideo.called.should.equal(true);
+		});
+
+		it('should be able to create a placeholder with a title', () => {
+			const video = new Video(containerEl, { placeholder: true, placeholdertitle: true });
+			video.videoData = { name: 'A hated rally' };
+			video.addPlaceholder();
+			const titleEl = containerEl.querySelector('.o-video__title');
+
+			titleEl.should.exist;
+			titleEl.textContent.should.equal('A hated rally');
+		});
+
+		it('should add a play button', () => {
+			const realAddEventListener = Element.prototype.addEventListener;
+			const addEventListenerSpy = sinon.spy();
+			Element.prototype.addEventListener = addEventListenerSpy;
+
+			const video = new Video(containerEl, { placeholder: true, placeholdertitle: true });
+			video.addPlaceholder();
+			const playButtonEl = containerEl.querySelector('.o-video__play-button');
+			const playButtonTextEl = playButtonEl.querySelector('.o-video__play-button-text');
+			const playIconEl = playButtonEl.querySelector('.o-video__play-button-icon');
+
+			playButtonEl.should.exist;
+			playButtonTextEl.should.exist;
+			playIconEl.should.exist;
+			addEventListenerSpy.called.should.equal(true);
+			addEventListenerSpy.calledWith('click').should.equal(true);
+			addEventListenerSpy.calledOn(playButtonEl);
+
+			Element.prototype.addEventListener = realAddEventListener;
+		});
+
+		it('should be able to suppress placeholder play button', () => {
+			const video = new Video(containerEl, { placeholder: true, playButton: false });
+
+			expect(containerEl.querySelector('.o-video__play-button')).to.be.null;
+		});
+	});
+
+	describe('#getProgress', () => {
+		let video;
+
+		beforeEach(() => {
+			video = new Video(containerEl);
+			video.videoEl = {};
+		});
+
+		afterEach(() => {
+			video = undefined;
+		});
+
+		it('should return 0 if duration is not set', () => {
+			video.getProgress().should.equal(0);
+		});
+
+		it('should return the progress of the video as a percentage', () => {
+			video.videoEl.duration = 100;
+			video.videoEl.currentTime = 30;
+			video.getProgress().should.equal(30);
+		});
+
+	});
+
+	describe('#getData', () => {
+
+		let fetchStub;
+
+		before(() => {
+			fetchStub = sinon.stub(window, 'fetch');
+			const res = new window.Response(JSON.stringify(brightcoveResponse), {
+				status: 200,
+				headers: {
+					'Content-type': 'application/json'
+				}
+			});
+			fetchStub.returns(Promise.resolve(res));
+		});
+
+		after(() => {
+			fetchStub.restore();
+		});
+
+		it('should send poster through image service if optimumwidth defined', () => {
+			containerEl.setAttribute('data-o-video-optimumwidth', '300');
+			const video = new Video(containerEl);
+			return video.getData()
+				.then(() => {
+					video.posterImage.should.equal(
+						'https://image.webservices.ft.com/v1/images/raw/' +
+						'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201502%2F2470%2F47628783001_4085962850001_MAS-VIDEO-AuthersNote-stock-market.jpg%3FpubId%3D47628783001' +
+						'?source=o-video&fit=scale-down&width=300'
+					);
+				});
+		});
+
+		it('should not fetch from video if full data provided in opts', () => {
+			const video = new Video(containerEl, { data: {
+				prop: 'val',
+				videoStillUrl: 'abc',
+				renditions: []
+			}});
+			return video
+				.getData()
+				.then(() => {
+					video.videoData.prop.should.equal('val');
+					video.videoData.videoStillUrl.should.equal('abc');
+					video.videoData.renditions.length.should.equal(0);
+				});
+		});
+	});
+});

@@ -1,5 +1,6 @@
 /* global console */
-const oVideo = require('../../main');
-oVideo.init({
-	advertising: true
+import Video from './../../main.js';
+
+document.addEventListener("DOMContentLoaded", function() {
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });

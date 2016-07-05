@@ -19,13 +19,7 @@
 			"name": "placeholder",
 			"description": "Placeholder",
 			"expanded": true,
-			"js": "demos/src/placeholder.js"
-		},
-		{
-			"name": "videojs",
-			"description": "Video.js",
-			"expanded": true,
-			"template": "demos/src/videojs.mustache"
+			"template": "demos/src/placeholder.mustache"
 		}
 	]
 }

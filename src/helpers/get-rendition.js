@@ -1,6 +1,6 @@
-const supportedFormats = require('../libs/supported-formats');
+import supportedFormats from './supported-formats';
 
-module.exports = (renditions, options) => {
+function getRendition(renditions, options) {
 	// allow mocking of supported formats module
 	const opts = options || {};
 	const width = opts.width;
@@ -30,3 +30,5 @@ module.exports = (renditions, options) => {
 
 	return appropriateRendition || orderedRenditions.shift();
 };
+
+export default getRendition;

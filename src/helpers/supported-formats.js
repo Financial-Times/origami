@@ -23,4 +23,4 @@ if (testEl.canPlayType) {
 	} catch(e) { }
 }
 
-module.exports = supportedFormats;
+export default supportedFormats;
