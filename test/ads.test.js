@@ -1,4 +1,4 @@
-/* global describe, xit, beforeEach, afterEach, expect, google */
+/* global describe, it, beforeEach, afterEach, google */
 const Ads = require('./../src/ads');
 const sinon = require('sinon/pkg/sinon');
 

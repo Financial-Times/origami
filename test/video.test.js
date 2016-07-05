@@ -1,4 +1,4 @@
-/* global describe, xit, beforeEach, afterEach, expect, google */
+/* global describe, it, beforeEach, afterEach, before, after, should */
 const Video = require('./../src/video');
 const brightcoveResponse = require('./fixtures/brightcove.json');
 const sinon = require('sinon/pkg/sinon');
@@ -73,7 +73,7 @@ describe('Video', () => {
 		it('should create Video objects only once', () => {
 			const videos = Video.init();
 			videos.length.should.eql(1);
-			const videos2 = new Video.init();
+			const videos2 = Video.init();
 			videos2.length.should.eql(0);
 		});
 	});
@@ -179,9 +179,9 @@ describe('Video', () => {
 		});
 
 		it('should be able to suppress placeholder play button', () => {
-			const video = new Video(containerEl, { placeholder: true, playButton: false });
+			new Video(containerEl, { placeholder: true, playButton: false });
 
-			expect(containerEl.querySelector('.o-video__play-button')).to.be.null;
+			should.equal(containerEl.querySelector('.o-video__play-button'), null);
 		});
 	});
 
