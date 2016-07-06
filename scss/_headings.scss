@@ -32,18 +32,18 @@
 	@include oTypographySerifDisplay(xs);
 }
 
-@mixin oTypographyFlyline {
+@mixin oTypographyLinkTopic {
 	@include oTypographySansBold(s);
-	text-transform: uppercase;
-	margin-bottom: 5px;
-	letter-spacing: 1px;
+	@include oColorsFor(tag-link, text);
+	text-decoration: none;
 
-	&__link {
-		text-decoration: none;
+	&:hover {
+		@include oColorsFor(tag-link-hover, text);
 	}
-	&__link:hover {
-		border-bottom: 1px dotted;
-	}
+}
+@mixin oTypographyLinkTopicMedium {
+	@include oTypographyLinkTopic;
+	@include oTypographySansBold(m);
 }
 
 /// Style for subhead class
@@ -51,6 +51,12 @@
 	@include oTypographySansBold(l);
 	margin-top: 50px;
 	margin-bottom: 20px;
+}
+
+/// Style for subhead standard
+@mixin oTypographySubheadStandard {
+	@include oTypographySubhead;
+	@include oTypographySansBold(m);
 }
 
 /// Style for subhead crosshead class

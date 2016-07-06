@@ -5,12 +5,12 @@
 
 /// General leader styles
 @mixin oTypographyLead {
-	@include oTypographySerifDisplayItalic(l);
+	@include oTypographySans(l);
 	margin: 0;
 }
 
 @mixin oTypographyLeadSmall {
-	@include oTypographySerifDisplayItalic(m);
+	@include oTypographySans(m);
 	margin: 0;
 }
 

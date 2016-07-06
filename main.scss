@@ -18,9 +18,13 @@
 @import 'scss/body_general';
 @import 'scss/headings';
 
+@import 'scss/timestamps';
+
 @import 'scss/wrapped_aside';
 @import 'scss/wrapped_common';
 @import 'scss/wrapped_general';
+
+@import 'scss/_deprecated.scss';
 
 @if $o-typography-is-silent == false {
 
@@ -47,6 +51,9 @@
 	.o-typography-subhead {
 		@include oTypographySubhead;
 	}
+	.o-typography-subhead--standard {
+		@include oTypographySubheadStandard;
+	}
 	.o-typography-subhead--crosshead {
 		@include oTypographySubheadCrosshead;
 	}
@@ -70,8 +77,18 @@
 	.o-typography-caption {
 		@include oTypographyCaption;
 	}
+
+	/// DEPRECATE THIS IN V5
 	.o-typography-flyline {
 		@include oTypographyFlyline;
+	}
+
+	.o-typography-link-topic {
+		@include oTypographyLinkTopic;
+	}
+
+	.o-typography-link-topic--medium {
+		@include oTypographyLinkTopicMedium;
 	}
 
 	// Body copy - general
@@ -125,6 +142,11 @@
 	}
 	.o-typography-aside__body--small {
 		@include oTypographyAsideBodySmall;
+	}
+
+	// Timestamps usecase
+	.o-typography-timestamp {
+		@include oTypographyTimestamp;
 	}
 
 	// Body wrapper
