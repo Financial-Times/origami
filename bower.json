@@ -1,0 +1,14 @@
+{
+	"name": "o-utils",
+	"main": [
+		"main.js"
+	],
+	"ignore": [
+		".gitignore",
+		".travis.yml",
+		"karma.conf.js",
+		"package.json",
+		"test"
+	],
+	"dependencies": {}
+}

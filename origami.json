@@ -1,0 +1,10 @@
+{
+	"description": "JS helper functions",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-utils/issues",
+	"supportStatus": "active",
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-utils"
+	}
+}
