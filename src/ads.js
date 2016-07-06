@@ -161,6 +161,7 @@ class VideoAds {
 				if (ad.isLinear()) {
 					// For a linear ad, a timer can be started to poll for
 					// the remaining time.
+					// TODO: We could use this to add a skip ad button
 					intervalTimer = setInterval(() => {
 						// Currently not used
 						// const remainingTime = this.adsManager.getRemainingTime();

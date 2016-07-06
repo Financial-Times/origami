@@ -202,9 +202,9 @@ describe('Video', () => {
 		});
 
 		it('should return the progress of the video as a percentage', () => {
-			video.videoEl.duration = 100;
-			video.videoEl.currentTime = 30;
-			video.getProgress().should.equal(30);
+			video.videoEl.duration = 200;
+			video.videoEl.currentTime = 50;
+			video.getProgress().should.equal(25);
 		});
 
 	});
