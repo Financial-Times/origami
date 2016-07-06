@@ -18,6 +18,10 @@
 		margin-top: (2 * $o-footer-spacing-unit);
 		border-top: 10px solid;
 		line-height: $o-footer-spacing-unit;
+
+		a {
+			border-bottom: 0;
+		}
 	}
 
 	.o-footer--theme-dark {
