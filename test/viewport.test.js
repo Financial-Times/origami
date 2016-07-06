@@ -10,54 +10,6 @@ function isPhantom() {
 	return /PhantomJS/.test(navigator.userAgent);
 }
 
-describe('o-viewport utils', function () {
-	let clock;
-
-	before(function() {
-		clock = sinon.useFakeTimers();
-	});
-
-	after(function() {
-		clock.restore();
-	});
-
-	it('should throttle callback to every 100ms', function(done) {
-		const callback = sinon.spy();
-		const throttled = utils.throttle(callback, 100);
-
-		throttled();
-		throttled();
-
-		clock.tick(99);
-		expect(callback.callCount).to.be(0);
-
-		clock.tick(1);
-		expect(callback.callCount).to.be(1);
-
-		done();
-	});
-
-	it('should debounce callback by 100ms', function(done) {
-		const callback = sinon.spy();
-		const debounced = utils.debounce(callback, 100);
-
-		debounced();
-
-		clock.tick(99);
-		expect(callback.callCount).to.be(0);
-
-		debounced();
-
-		clock.tick(99);
-		expect(callback.callCount).to.be(0);
-
-		clock.tick(1);
-		expect(callback.callCount).to.be(1);
-
-		done();
-	});
-});
-
 describe('o-viewport', function() {
 
 	before(function() {
