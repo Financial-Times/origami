@@ -26,8 +26,8 @@ const data = {
 				{ "text": "Contracts & Tenders", "href": "//www.businessesforsale.com/ft2/notices" },
 				{ "text": "Analysts Research", "href": "//commerce.uk.reuters.com/purchase/mostPopular.do?rpc&#x3D;471" },
 				{ "text": "Executive Job Search", "href": "//www.exec-appointments.com/" },
-				{ "text": "Advertise with the FT", "href": "//fttoolkit.co.uk/d/" },
-				{ "text": "Follow the FT on Twitter", "href": "//twitter.com/ft" }
+				{ "text": "Advertise with the FT", "href": "//fttoolkit.co.uk/d/", "aria-label": "Advertise with the F T" },
+				{ "text": "Follow the FT on Twitter", "href": "//twitter.com/ft", "aria-label": "Follow the F T on Twitter" }
 			]
 		},
 		{
@@ -39,10 +39,9 @@ const data = {
 				{ "text": "Lexicon", "href": "//lexicon.ft.com/" },
 				{ "text": "MBA Rankings", "href": "//rankings.ft.com/businessschoolrankings/global-mba-ranking-2016" },
 				{ "text": "Economic Calendar", "href": "//markets.ft.com/Research/Economic-Calendar" },
-				{ "text": "Newsfeed", "href": "#" },
 				{ "text": "Newsletters", "href": "//nbe.ft.com/nbe/profile.cfm" },
 				{ "text": "Currency Converter", "href": "//markets.ft.com/research/Markets/Currencies?segid&#x3D;70113" },
-				{ "text": "Ebooks", "href": "#" }
+				{ "text": "Ebooks", "href": "//www.ft.com/ebooks", "aria-label": "E-books" }
 			]
 		},
 		{
@@ -56,10 +55,10 @@ const data = {
 				{ "text": "ExecSense", "href": "//www.execsense.com/" },
 				{ "text": "FDI Intelligence", "href": "//www.fdiintelligence.com/" },
 				{ "text": "Financial Advisor IQ", "href": "//financialadvisoriq.com/" },
-				{ "text": "FT Chinese", "href": "//www.ftchinese.com/" },
-				{ "text": "FT Live", "href": "//live.ft.com/" },
-				{ "text": "FT Property Listings", "href": "//propertylistings.ft.com/" },
-				{ "text": "FT Advisor", "href": "//www.ftadviser.com/" },
+				{ "text": "FT Chinese", "href": "//www.ftchinese.com/", "aria-label": "F T Chinese" },
+				{ "text": "FT Live", "href": "//live.ft.com/", "aria-label": "F T Live" },
+				{ "text": "FT Property Listings", "href": "//propertylistings.ft.com/", "aria-label": "F T Property Listings" },
+				{ "text": "FT Advisor", "href": "//www.ftadviser.com/", "aria-label": "F T Advisor" },
 				{ "text": "Fund Fire", "href": "//www.fundfire.com/" },
 				{ "text": "Global Risk Regulator", "href": "//www.globalriskregulator.com/" },
 				{ "text": "How to Spend It", "href": "//howtospendit.ft.com/" },
