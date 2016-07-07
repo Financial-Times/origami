@@ -4,79 +4,78 @@ const data = {
 		{
 			"title": "Support",
 			"items": [
-				{ "text": "Help", "href": "#" },
-				{ "text": "About Us", "href": "#" }
+				{ "text": "Help", "href": "//www.ft.com/help" },
+				{ "text": "About Us", "href": "//www.ft.com/aboutus" }
 			]
 		},
 		{
 			"title": "Legal & Privacy",
 			"items": [
-				{ "text": "Terms & Conditions", "href": "#" },
-				{ "text": "Privacy", "href": "#" },
-				{ "text": "Cookies", "href": "#" },
-				{ "text": "Copyright", "href": "#" }
+				{ "text": "Terms & Conditions", "href": "//www.ft.com/servicestools/help/terms" },
+				{ "text": "Privacy", "href": "//www.ft.com/servicestools/help/privacy" },
+				{ "text": "Cookies", "href": "//www.ft.com/cookiepolicy" },
+				{ "text": "Copyright", "href": "//www.ft.com/servicestools/help/copyright" }
 			]
 		},
 		{
 			"title": "Services",
 			"items": [
-				{ "text": "Conferences & Events", "href": "#" },
-				{ "text": "Individual Subscriptions", "href": "#" },
-				{ "text": "Group Subscriptions", "href": "#" },
-				{ "text": "Republishing", "href": "#" },
-				{ "text": "Contracts & Tenders", "href": "#" },
-				{ "text": "Analyst Research", "href": "#" },
-				{ "text": "Executive Job Search", "href": "#" },
-				{ "text": "Advertise with the FT", "href": "#" },
-				{ "text": "Follow the FT on Twitter", "href": "#" }
+				{ "text": "Individual Subscriptions", "href": "//sub.ft.com/spa_5" },
+				{ "text": "Group Subscriptions", "href": "//enterprise.ft.com/en-gb/services/group-subscriptions/" },
+				{ "text": "Republishing", "href": "//enterprise.ft.com/en-gb/services/republishing/" },
+				{ "text": "Contracts & Tenders", "href": "//www.businessesforsale.com/ft2/notices" },
+				{ "text": "Analysts Research", "href": "//commerce.uk.reuters.com/purchase/mostPopular.do?rpc&#x3D;471" },
+				{ "text": "Executive Job Search", "href": "//www.exec-appointments.com/" },
+				{ "text": "Advertise with the FT", "href": "//fttoolkit.co.uk/d/" },
+				{ "text": "Follow the FT on Twitter", "href": "//twitter.com/ft" }
 			]
 		},
 		{
 			"title": "Tools",
 			"items": [
-				{ "text": "Portfolio", "href": "#" },
-				{ "text": "Today's Paper", "href": "#" },
-				{ "text": "Alerts Hub", "href": "#" },
-				{ "text": "Lexicon", "href": "#" },
-				{ "text": "MBA Rankings", "href": "#" },
-				{ "text": "Economic Calendar", "href": "#" },
+				{ "text": "Portfolio", "href": "//markets.ft.com/data/portfolio/dashboard" },
+				{ "text": "Today's Paper", "href": "//ftepaper.ft.com" },
+				{ "text": "Alerts Hub", "href": "//markets.ft.com/data/alerts/" },
+				{ "text": "Lexicon", "href": "//lexicon.ft.com/" },
+				{ "text": "MBA Rankings", "href": "//rankings.ft.com/businessschoolrankings/global-mba-ranking-2016" },
+				{ "text": "Economic Calendar", "href": "//markets.ft.com/Research/Economic-Calendar" },
 				{ "text": "Newsfeed", "href": "#" },
-				{ "text": "Newsletters", "href": "#" },
-				{ "text": "Currency Converter", "href": "#" },
+				{ "text": "Newsletters", "href": "//nbe.ft.com/nbe/profile.cfm" },
+				{ "text": "Currency Converter", "href": "//markets.ft.com/research/Markets/Currencies?segid&#x3D;70113" },
 				{ "text": "Ebooks", "href": "#" }
 			]
 		},
 		{
 			"title": "More from FT Group",
 			"items": [
-				{ "text": "Agenda", "href": "#" },
-				{ "text": "Analyse Africa", "href": "#" },
-				{ "text": "Board IQ", "href": "#" },
-				{ "text": "Corporate Learning Alliance", "href": "#" },
-				{ "text": "DPN: Deutsche Pensions & Investment Nachrichten", "href": "#" },
-				{ "text": "ExecSense", "href": "#" },
-				{ "text": "FDI Intelligence", "href": "#" },
-				{ "text": "Financial Advisor IQ", "href": "#" },
-				{ "text": "FT Chinese", "href": "#" },
-				{ "text": "FT Live", "href": "#" },
-				{ "text": "FT Property Listings", "href": "#" },
-				{ "text": "FT Advisor", "href": "#" },
-				{ "text": "Fund Fire", "href": "#" },
-				{ "text": "Global Risk Regulator", "href": "#" },
-				{ "text": "How to Spend It", "href": "#" },
-				{ "text": "Ignites", "href": "#" },
-				{ "text": "Ignites Asia", "href": "#" },
-				{ "text": "Ignites Europe", "href": "#" },
-				{ "text": "Investors Chronicle", "href": "#" },
-				{ "text": "Mandate Wire", "href": "#" },
-				{ "text": "New York Insitute of Finance", "href": "#" },
-				{ "text": "Non Executive Directors Club", "href": "#" },
-				{ "text": "Pensions Expert", "href": "#" },
-				{ "text": "Professional Wealth Management", "href": "#" },
-				{ "text": "125 Club", "href": "#" },
-				{ "text": "The Banker", "href": "#" },
-				{ "text": "The Banker Database", "href": "#" },
-				{ "text": "This is Africa", "href": "#" }
+				{ "text": "Agenda", "href": "//www.agendaweek.com/" },
+				{ "text": "Analyse Africa", "href": "//www.analyseafrica.com/" },
+				{ "text": "Board IQ", "href": "//www.boardiq.com/" },
+				{ "text": "Corporate Learning Alliance", "href": "//www.ftiecla.com/" },
+				{ "text": "DPN: Deutsche Pensions & Investment Nachrichten", "href": "//www.dpn-online.com/" },
+				{ "text": "ExecSense", "href": "//www.execsense.com/" },
+				{ "text": "FDI Intelligence", "href": "//www.fdiintelligence.com/" },
+				{ "text": "Financial Advisor IQ", "href": "//financialadvisoriq.com/" },
+				{ "text": "FT Chinese", "href": "//www.ftchinese.com/" },
+				{ "text": "FT Live", "href": "//live.ft.com/" },
+				{ "text": "FT Property Listings", "href": "//propertylistings.ft.com/" },
+				{ "text": "FT Advisor", "href": "//www.ftadviser.com/" },
+				{ "text": "Fund Fire", "href": "//www.fundfire.com/" },
+				{ "text": "Global Risk Regulator", "href": "//www.globalriskregulator.com/" },
+				{ "text": "How to Spend It", "href": "//howtospendit.ft.com/" },
+				{ "text": "Ignites", "href": "//www.ignites.com/" },
+				{ "text": "Ignites Asia", "href": "//www.ignitesasia.com/" },
+				{ "text": "Ignites Europe", "href": "//www.igniteseurope.com/" },
+				{ "text": "Investors Chronicle", "href": "//www.investorschronicle.co.uk/" },
+				{ "text": "Mandate Wire", "href": "//www.mandatewire.com/" },
+				{ "text": "New York Insitute of Finance", "href": "//www.nyif.com/" },
+				{ "text": "Non Executive Directors Club", "href": "//www.non-execs.com/" },
+				{ "text": "Pensions Expert", "href": "//www.pensions-expert.com/" },
+				{ "text": "Professional Wealth Management", "href": "//www.pwmnet.com/" },
+				{ "text": "125 Club", "href": "//the125.ft.com/" },
+				{ "text": "The Banker", "href": "//www.thebanker.com/" },
+				{ "text": "The Banker Database", "href": "//www.thebankerdatabase.com/" },
+				{ "text": "This is Africa", "href": "//www.thisisafricaonline.com/" }
 			]
 		}
 	],
