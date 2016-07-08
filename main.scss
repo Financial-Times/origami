@@ -9,7 +9,6 @@
 
 @if $o-footer-is-silent == false {
 
-	// maybe not good if o-grid should be in silent mode?
 	// required by o-grid JS helper
 	@include oGridSurfaceCurrentLayout();
 
@@ -21,37 +20,36 @@
 
 		a {
 			border-bottom: 0;
+			text-decoration: none;
 		}
 	}
 
 	.o-footer--theme-dark {
-		@include oColorsFor('o-footer--theme-dark', 'text' 'background');
-		border-color: oColorsGetColorFor('o-footer--theme-dark', 'border');
+		@include oColorsFor('o-footer-dark', 'text' 'background' 'border');
 
 		// Make the white text look crisper and less bold on dark backgrounds
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 
 		a {
-			color: oColorsGetColorFor('o-footer--theme-dark__link', 'text');
+			color: oColorsGetColorFor('o-footer-dark-link', 'text');
 
 			&:hover,
 			&:focus {
-				color: oColorsGetColorFor('o-footer--theme-dark__link-hover', 'text');
+				color: oColorsGetColorFor('o-footer-dark-link-hover', 'text');
 			}
 		}
 	}
 
 	.o-footer--theme-light {
-		@include oColorsFor('o-footer--theme-light', 'text' 'background');
-		border-color: oColorsGetColorFor('o-footer--theme-light', 'border');
+		@include oColorsFor('o-footer-light', 'text' 'background' 'border');
 
 		a {
-			color: oColorsGetColorFor('o-footer--theme-light__link', 'text');
+			color: oColorsGetColorFor('o-footer-light-link', 'text');
 
 			&:hover,
 			&:focus {
-				color: oColorsGetColorFor('o-footer--theme-light__link-hover', 'text');
+				color: oColorsGetColorFor('o-footer-light-link-hover', 'text');
 			}
 		}
 	}
@@ -113,11 +111,11 @@
 				top: ($line-size - $icon-size) / 2;
 
 				.o-footer--theme-dark & {
-					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer--theme-dark', 'text'), $icon-size);
+					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer-dark', 'text'), $icon-size);
 				}
 
 				.o-footer--theme-light & {
-					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer--theme-light', 'text'), $icon-size);
+					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer-light', 'text'), $icon-size);
 				}
 			}
 		}
@@ -144,7 +142,6 @@
 	.o-footer__matrix-link {
 		display: block;
 		padding: 4px 0;
-		text-decoration: none;
 	}
 
 	.o-footer__copyright {
@@ -152,11 +149,15 @@
 		margin-bottom: $o-footer-spacing-unit;
 
 		.o-footer--theme-dark & {
-			color: oColorsGetColorFor('o-footer--theme-dark__copyright', 'text');
+			color: oColorsGetColorFor('o-footer-dark-copyright', 'text');
 		}
 
 		.o-footer--theme-light & {
-			color: oColorsGetColorFor('o-footer--theme-light__copyright', 'text');
+			color: oColorsGetColorFor('o-footer-light-copyright', 'text');
+		}
+
+		a {
+			text-decoration: underline;
 		}
 	}
 
@@ -165,13 +166,13 @@
 		padding-bottom: $o-footer-spacing-unit - 5;
 
 		.o-footer--theme-dark & {
-			background-color: oColorsGetColorFor('o-footer--theme-dark__brand', 'background');
-			color: oColorsGetColorFor('o-footer--theme-dark', 'text');
+			@include oColorsFor('o-footer-dark', 'text');
+			background-color: oColorsGetColorFor('o-footer-dark-brand', 'background');
 		}
 
 		.o-footer--theme-light & {
-			background-color: oColorsGetColorFor('o-footer--theme-light__brand', 'background');
-			color: oColorsGetColorFor('o-footer--theme-light', 'text');
+			@include oColorsFor('o-footer-light', 'text');
+			background-color: oColorsGetColorFor('o-footer-light-brand', 'background');
 		}
 	}
 
