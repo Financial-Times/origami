@@ -80,7 +80,7 @@ class VideoAds {
 			targeting += `&brand=${brand}`;
 		}
 
-		let advertisingUrl = `http://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast2&iu=${this.video.targeting.site}&sz=${this.video.targeting.sizes}&unviewed_position_start=1&scp=${encodeURIComponent(targeting)}`
+		let advertisingUrl = `http://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast2&iu=${this.video.targeting.site}&sz=${this.video.targeting.sizes}&unviewed_position_start=1&scp=${encodeURIComponent(targeting)}`;
 
 		adsRequest.adTagUrl = advertisingUrl;
 
