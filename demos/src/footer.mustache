@@ -1,42 +1,39 @@
-<footer class="o-footer{{#theme}} {{theme}}{{/theme}}" data-o-component="o-footer">
+<footer class="o-footer o-footer--{{theme}}" data-o-component="o-footer" data-o-footer--no-js>
 	<div class="o-footer__container">
-		<nav class="o-footer__row o-footer__nav">
-			<div class="o-footer__col o-footer__col--full-width">
-				<h3 class="o-footer__title">Sections</h3>
-				<ul class="o-footer__row o-footer__section-list">
-				{{#sections}}
-					<li class="o-footer__link o-footer__section-link o-footer__col"><a href="{{href}}">{{{text}}}</a></li>
-				{{/sections}}
-				</ul>
-				<div class="o-footer__divider"></div>
-			</div>
-		</nav>
-		<div class="o-footer__row o-footer__link-lists">
-			{{#link_sections}}
-			<nav class="o-footer__col o-footer__link-list">
-				{{#title}}<h3 class="o-footer__title">{{{title}}}</h3>{{/title}}
-				<ul>
-					{{#items}}
-						<li class="o-footer__link"><a href="{{href}}">{{{text}}}</a></li>
-					{{/items}}
-				</ul>
+
+		<div class="o-footer__row">
+			<nav class="o-footer__matrix" role="navigation" aria-label="Useful links">
+				{{#matrix}}
+				<div class="o-footer__matrix-group o-footer__matrix-group--{{layout}}">
+					<h6 class="o-footer__matrix-title" {{#collapsible}}aria-controls="o-footer-section-{{index}}"{{/collapsible}}>
+						{{{title}}}
+					</h6>
+					<div class="o-footer__matrix-content" id="o-footer-section-{{index}}">
+						{{#columns}}
+							<div class="o-footer__matrix-column">
+								{{#.}}
+									<a class="o-footer__matrix-link" {{#aria-label}}aria-label="{{aria-label}}"{{/aria-label}} href="{{href}}">{{{text}}}</a>
+								{{/.}}
+							</div>
+						{{/columns}}
+					</div>
+				</div>
+				{{/matrix}}
 			</nav>
-			{{/link_sections}}
 		</div>
-		<div class="o-footer__row o-footer__copyright">
-			<div class="o-footer__col o-footer__col--full-width">
-				<span>&#169; THE FINANCIAL TIMES LTD {{copyrightYear}}.</span>
-				<span><abbr title="Financial Times">FT</abbr> and ‘Financial Times’ are trademarks of The Financial Times Ltd.</span>
-			</div>
+
+		<div class="o-footer__copyright" role="contentinfo">
+			<small>
+				Markets data delayed by at least 15 minutes. &#169; THE FINANCIAL TIMES LTD {{copyrightYear}}.
+				<abbr title="Financial Times" aria-label="F T">FT</abbr> and ‘Financial Times’ are trademarks of The Financial Times Ltd.<br>
+				The Financial Times and its journalism are subject to a self-regulation regime under the <a href="http://www.ft.com/editorialcode" aria-label="F T Editorial Code of Practice">FT Editorial Code of Practice</a>.
+			</small>
 		</div>
+
 	</div>
 	<div class="o-footer__brand">
 		<div class="o-footer__container">
-			<div class="o-footer__row">
-				<div class="o-footer__col o-footer__col--full-width">
-					<div class="o-footer__brand-logo" aria-label="A Nikkei Company"></div>
-				</div>
-			</div>
+			<div class="o-footer__brand-logo"></div>
 		</div>
 	</div>
 </footer>

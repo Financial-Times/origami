@@ -17,6 +17,7 @@
 		"circle":"https://circleci.com/api/v1/project/Financial-Times/o-footer"
 	},
 	"demosDefaults": {
+		"js": "demos/src/demo.js",
 		"sass": "demos/src/demo.scss",
 		"dependencies": ["o-fonts@^1.4.0"]
 	},
@@ -24,14 +25,14 @@
 		{
 			"name": "footer",
 			"template": "demos/src/footer.mustache",
-			"data": "demos/src/footer.json",
+			"data": "demos/src/footer.js",
 			"expanded": true,
 			"description": ""
 		},
 		{
 			"name": "footer-light",
 			"template": "demos/src/footer.mustache",
-			"data": "demos/src/footer-light.json",
+			"data": "demos/src/footer-light.js",
 			"expanded": true,
 			"description": ""
 		},

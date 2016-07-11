@@ -1,0 +1,15 @@
+@include oColorsSetUseCase('o-footer-dark', 'text', 'white');
+@include oColorsSetUseCase('o-footer-dark', 'border', 'teal-1');
+@include oColorsSetUseCase('o-footer-dark', 'background', 'grey-tint5');
+@include oColorsSetUseCase('o-footer-dark-link', 'text', 'grey-tint1');
+@include oColorsSetUseCase('o-footer-dark-link-hover', 'text', 'white');
+@include oColorsSetUseCase('o-footer-dark-brand', 'background', 'grey-tint4');
+@include oColorsSetUseCase('o-footer-dark-copyright', 'text', 'grey-tint1');
+
+@include oColorsSetUseCase('o-footer-light', 'text', 'grey-tint5');
+@include oColorsSetUseCase('o-footer-light', 'border', 'claret');
+@include oColorsSetUseCase('o-footer-light', 'background', 'pink-tint1');
+@include oColorsSetUseCase('o-footer-light-link', 'text', 'grey-tint4');
+@include oColorsSetUseCase('o-footer-light-link-hover', 'text', 'grey-tint5');
+@include oColorsSetUseCase('o-footer-light-brand', 'background', 'pink-tint4');
+@include oColorsSetUseCase('o-footer-light-copyright', 'text', 'grey-tint4');
