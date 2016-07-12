@@ -32,6 +32,13 @@
             "template": "demos/src/mega-menu.mustache",
             "expanded": true,
             "description": ""
+        },
+        {
+            "name": "drawer",
+            "data": "demos/src/drawer.js",
+            "template": "demos/src/drawer.mustache",
+            "expanded": true,
+            "description": ""
         }
     ]
 }

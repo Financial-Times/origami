@@ -1,5 +1,6 @@
 import search from './search';
 import mega from './mega';
+import drawer from './drawer';
 
 class Header {
 
@@ -9,7 +10,7 @@ class Header {
 		} else if (typeof headerEl === 'string') {
 			headerEl = document.querySelector(headerEl);
 		}
-		
+
 		if (headerEl.hasAttribute('data-o-header--js')) {
 			return;
 		}
@@ -18,6 +19,7 @@ class Header {
 
 		search.init(this.headerEl);
 		mega.init(this.headerEl);
+		drawer.init(this.headerEl);
 
 		this.headerEl.removeAttribute('data-o-header--no-js');
 		this.headerEl.setAttribute('data-o-header--js', '');
@@ -34,7 +36,7 @@ class Header {
 		if (!headerEl.hasAttribute('data-o-header--js')) {
 			return new Header(headerEl);
 		}
-		
+
 	}
 
 }
