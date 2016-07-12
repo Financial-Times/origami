@@ -1,0 +1,91 @@
+<div class="o-header">
+	<div class="o-header__light o-header__light--mobile">
+		<div class="o-header__container">
+			<div class="o-header__light-column o-header__light-column--left">
+				<!-- MENU -->
+				{{#hasMenu}}
+					<a href="#menu" class="o-header__top-link o-header__top-link--menu" aria-controls="menu">
+						<span class="o-header__top-link-label">Menu</span>
+					</a>
+				{{/hasMenu}}
+
+			</div>
+
+			<div class="o-header__light-column o-header__light-column--center">
+				<!-- LOGO -->
+				<a class="o-header__top-logo o-header__top-logo-light" href="/" title="Go to Financial Times homepage">
+					<span class="o-header__visually-hidden">Financial Times</span>
+				</a>
+
+			</div>
+
+			<div class="o-header__light-column o-header__light-column--right">
+				<!-- MyFT -->
+				{{#hasMyFT}}
+					<a class="o-header__top-link o-header__top-link--myft" href="/myft">
+						<span class="o-header__visually-hidden">myFT</span>
+					</a>
+				{{/hasMyFT}}
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="o-header__light o-header__light--desktop">
+		<div class="o-header__container">
+			<div class="o-header__light-column o-header__light-column--left">
+				<!-- MENU -->
+				{{#hasMenu}}
+					<a href="#menu" class="o-header__top-link o-header__top-link--menu" aria-controls="menu">
+						<span class="o-header__top-link-label">Menu</span>
+					</a>
+				{{/hasMenu}}
+
+				<!-- SEARCH -->
+				{{#search}}
+					<a href="#n-header-search" class="n-header-top__link n-header-top__link--search" aria-controls="n-header-search" data-trackable="search-toggle">
+						<span class="n-header-top__link-label">Search</span>
+					</a>
+				{{/search}}
+
+			</div>
+
+			<div class="o-header__light-column o-header__light-column--center">
+				<!-- LIST -->
+				{{#nav}}
+				<ul class="o-header__light-list">
+					{{#desktop}}
+						<li class="o-header__light-list-item">
+							<a class="o-header__light-link o-header__light-link--primary" href="{{href}}" aria-selected="{{selected}}" id="o-header-link-{{index}}" {{#hasMega}} aria-controls="o-header-mega-{{index}}" {{/hasMega}}>{{name}}</a>
+						</li>
+					{{/desktop}}
+				</ul>
+				{{/nav}}
+
+			</div>
+			<div class="o-header__light-column o-header__light-column--right">
+				<ul class="o-header__light-list o-header__light-list--right">
+
+					<!-- SIGN IN/UP -->
+					{{^isSignedIn}}
+					<li class="o-header__light-list-item">
+						<a class="o-header__light-link o-header__light-link--utility" href="/login">Sign In</a>
+					</li>
+					<li class="o-header__light-list-item">
+						<a class="o-header__light-button" href="/products">Subscribe</a>
+					</li>
+					{{/isSignedIn}}
+
+					<!-- MyFT -->
+					{{#hasMyFT}}
+						<a class="o-header__light-link o-header__light-link--myft" href="/myft">
+							<span class="o-header__visually-hidden">myFT</span>
+						</a>
+					{{/hasMyFT}}
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</div>

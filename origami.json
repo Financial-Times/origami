@@ -32,6 +32,13 @@
             "template": "demos/src/mega-menu.mustache",
             "expanded": true,
             "description": ""
+        },
+        {
+            "name": "light-header",
+            "data": "demos/src/light-header.js",
+            "template": "demos/src/light-header.mustache",
+            "expanded": true,
+            "description": ""
         }
     ]
 }

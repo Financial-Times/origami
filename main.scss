@@ -19,6 +19,8 @@
 @import 'src/scss/mega/articles';
 @import 'src/scss/mega/subsections';
 
+@import 'src/scss/light-header/light-header';
+
 @if $o-header-is-silent == false {
 	$o-header-is-silent: true !global;
 }
