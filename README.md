@@ -60,6 +60,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
 Currently, only non silent mode is supported.
 
+
+The 'base' of the image url can be set with the `$o-header-image-base-url` variable. e.g. setting
+
+```
+$o-header-image-base-url: 'https://my.image.service/foo';
+```
+
+will output an image logo url in the format `https://my.image.service/foo/v1/images/raw/ftlogo:....`
+
 ### Markup
 
 _There are intentionally no classes to switch between logged in and out as we don't want to do that in the client side. This is left up to the product._
