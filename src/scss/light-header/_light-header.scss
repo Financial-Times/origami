@@ -1,158 +1,52 @@
-.o-header__light {
-
+.o-header__light-column {
+  @extend .o-header__top-column;
 }
 
-.o-header__light--mobile {
-  white-space: nowrap;
-  background-color: oColorsGetColorFor('o-header-nav', 'background');
+.o-header__light-column--left,
+.o-header__light-column--right {
+  @extend .o-header__top-column--left,
+          .o-header__top-column--right;
+}
+
+.o-header__light-column--left {
+  @extend .o-header__top-column--left;
+}
+.o-header__light-column--right {
+  @extend .o-header__top-column--right;
+}
+
+.o-header__light-column--center {
+  @extend .o-header__top-column--center;
+}
+
+.o-header__light-logo {
+  @extend .o-header__top-logo;
 
   @include oGridRespondTo('L') {
     display: none;
   }
 }
 
-.o-header__light--desktop {
-  display: none;
+.o-header__light-list {
+  @extend .o-header__nav-list;
 
-  @include oGridRespondTo('L') {
-    display: block;
-  }
-
-  @include oGridRespondTo('XL') {
-    font-size: 18px;
-  }
-}
-
-.o-header__light-column {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-// .o-header__light-column--left,
-// .o-header__light-column--right {
-//   // to keep the logo horizontally centered relative to the page these columns must be equal...
-//   // I think this is easier than removing them from layout with absolute positioning etc.
-//   // anyway, it's rock solid.
-//   width: 0;
-//   white-space: nowrap;
-// }
-
-.o-header__top-column--left {
-  text-align: left;
-}
-
-.o-header__top-column--right {
-  text-align: right;
-  direction: rtl;
-}
-
-.o-header__top-column--center {
-  text-align: center;
-}
-
-.o-header__light-link {
-  @include oHeaderLink();
-  display: inline-block;
-  margin-left: 10px;
-  text-transform: uppercase;
-  font-size: 0.6em;
-  text-align: center;
-
-  &:before {
-    @include oIconsBaseStyles();
-    content: ' ';
-    width: 20px;
-    height: 20px;
-  }
-
-  @include oGridRespondTo('L') {
-    margin-left: 20px;
-    font-size: 0.8em;
-
-    &:before {
-      width: 24px;
-      height: 24px;
-    }
-  }
-
-  // first child for old IE
-  &:first-child {
-    margin-left: 0;
-  }
-}
-
-.o-header__light-link--menu {
-  &:before {
-    // container size (24) is only included for the fallback image.
-    // IE8 has a static stylesheet generated for the L breakpoint.
-    @include oIconsGetIcon('hamburger', oColorsGetColorFor('o-header-icon'), 24, $apply-base-styles: false, $apply-width-height: false);
-  }
-}
-
-.o-header__light-link--search {
-  &:before {
-    @include oIconsGetIcon('search', oColorsGetColorFor('o-header-icon'), 24, $apply-base-styles: false, $apply-width-height: false);
-  }
-
-  // when used in tandem with the menu toggle, hide this on smaller screen sizes
-  .o-header__light-link--menu + & {
-    @include oGridRespondTo($until: 'L') {
-      display: none;
-    }
-  }
-}
-
-.o-header__light-logo {
-  @include oHeaderBrandImage('brand-ft-masthead', oColorsGetColorFor('o-header-icon'), 500);
-  @include oHeaderLogoSize('XS');
-
-  display: block;
-  border: 0;
-  margin: 16px auto;
-  background-size: contain;
-  background-position: 50%;
-  background-repeat: no-repeat;
-
-  @include oGridRespondTo('S') {
-    @include oHeaderLogoSize('S');
-    margin-top: 18px;
-    margin-bottom: 18px;
-  }
-
-  @include oGridRespondTo('M') {
-    @include oHeaderLogoSize('M');
-    margin-top: 24px;
-    margin-bottom: 24px;
-  }
-
-  @include oGridRespondTo('L') {
-    @include oHeaderLogoSize('L');
-    margin-top: 30px;
-    margin-bottom: 30px;
+  @include oGridRespondTo($until: 'L') {
+    display: none;
   }
 }
 
 .o-header__light-list {
-  display: table;
-  margin: 0 auto;
-  padding: 0;
+  @extend .o-header__nav-list;
 }
 
 .o-header__light-list-item {
-  display: table-cell;
-  vertical-align: middle;
-  padding-left: $_o-header-padding-x;
-
-  &:first-child {
-    padding-left: 0 !important;
-  }
+  @extend .o-header__nav-item;
 }
 
 .o-header__light-link {
-  @include oHeaderLink();
-  @include oHeaderFancyLink();
+  @extend .o-header__nav-link;
 }
 
 .o-header__light-button {
-  @include oButtons($theme: $_o-header-buttons-theme);
+  @extend .o-header__nav-button;
 }
