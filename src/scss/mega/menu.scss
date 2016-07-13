@@ -10,7 +10,7 @@
 	}
 
 	.o-header__mega {
-		@include oTypographySansSize('s');
+		@include oTypographySansSize('s', $with-progressive-size: true);
 		@include oEffectsShadowsElevation('low');
 		display: none;
 		position: absolute;

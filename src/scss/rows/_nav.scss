@@ -1,7 +1,7 @@
 @if $o-header-is-silent == false {
 
 	.o-header__nav {
-		@include oTypographySans('s');
+		@include oTypographySans('s', $load-progressively: true);
 	}
 
 	.o-header__nav--mobile {
@@ -21,7 +21,7 @@
 		}
 
 		@include oGridRespondTo('XL') {
-			font-size: 18px;
+			@include oTypographyFallbackFontSize('sans', 18px);
 		}
 	}
 
