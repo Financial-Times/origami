@@ -13,7 +13,7 @@ bower install --S o-header
 Load the JS:
 
 ```js
-var oHeader = require('o-header');
+const oHeader = require('o-header');
 
 oHeader.init();
 ```
@@ -42,9 +42,9 @@ Copy the markup from [one of the demos](http://registry.origami.ft.com/component
 An o-header object must be constructed for every `<header>` you have on your page that uses this module.
 
 ```js
-var Header = require('o-header');
-var headerEl = document.querySelector('.o-header');
-var header = new oHeader(headerEl);
+const Header = require('o-header');
+const headerEl = document.querySelector('.o-header');
+const header = new oHeader(headerEl);
 ```
 
 Alternatively, a `o.DOMContentLoaded` event can be dispatched on the document to auto-construct an o-header object for each element with a `data-o-component="o-header"` attribute:
@@ -78,6 +78,8 @@ Some elements inside the header require specific data attributes so the JavaScri
 * data-o-header--no-js: Applied to the root element. This data attribute is removed when the JavaScript initialises
 * data-o-header-mega: Applied to the root `<div>` of the mega menu
 * data-o-header-search: Applied to the root `<div>` of the _enhanced_ search row. There are two search rows, one for enhanced, another for core
+* data-o-header-subnav: Applied to the root `div` of the subnav menu
+* data-o-header-subnav-wrapper: Applied to the inner wrapper `div` of the subnav menu so the JS can handle the scrolling
 
 ### Events
 

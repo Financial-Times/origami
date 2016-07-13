@@ -15,3 +15,10 @@
 @include oColorsSetUseCase('o-header-search', 'background', 'pink-tint3');
 
 @include oColorsSetUseCase('o-header-mega', 'background', 'warm-5');
+
+@include oColorsSetUseCase('o-header-subnav', 'background', 'warm-5');
+@include oColorsSetUseCase('o-header-subnav', 'border', 'warm-3');
+@include oColorsSetUseCase('o-header-subnav-link', 'text', 'grey-tint4');
+@include oColorsSetUseCase('o-header-subnav-button', 'text', 'cold-1');
+@include oColorsSetUseCase('o-header-subnav-button', 'background', 'pink-tint2');
+@include oColorsSetUseCase('o-header-subnav-button-hover', 'background', 'pink-tint3');
