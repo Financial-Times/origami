@@ -89,7 +89,7 @@ $_o-typography-progressive-font-fallbacks: (
 }
 
 ///
-/// Scale the font size to the fallback font, if the font is progresively loaded
+/// Scale the font size of the fallback font, if the font is progresively loaded
 ///
 /// @param {String} $font - Accepts sans, sansBold, sansData, sansDataBold, etc.
 /// @param {String} $size - Font size, e.g. 12px
