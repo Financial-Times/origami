@@ -13,7 +13,7 @@ bower install --S o-header
 Load the JS:
 
 ```js
-var oHeader = require('o-header');
+const oHeader = require('o-header');
 
 oHeader.init();
 ```
@@ -42,9 +42,9 @@ Copy the markup from [one of the demos](http://registry.origami.ft.com/component
 An o-header object must be constructed for every `<header>` you have on your page that uses this module.
 
 ```js
-var Header = require('o-header');
-var headerEl = document.querySelector('.o-header');
-var header = new oHeader(headerEl);
+const Header = require('o-header');
+const headerEl = document.querySelector('.o-header');
+const header = new oHeader(headerEl);
 ```
 
 Alternatively, a `o.DOMContentLoaded` event can be dispatched on the document to auto-construct an o-header object for each element with a `data-o-component="o-header"` attribute:
@@ -60,6 +60,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
 Currently, only non silent mode is supported.
 
+
+The 'base' of the image url can be set with the `$o-header-image-base-url` variable. e.g. setting
+
+```
+$o-header-image-base-url: 'https://my.image.service/foo';
+```
+
+will output an image logo url in the format `https://my.image.service/foo/v1/images/raw/ftlogo:....`
+
 ### Markup
 
 _There are intentionally no classes to switch between logged in and out as we don't want to do that in the client side. This is left up to the product._
@@ -71,6 +80,8 @@ Some elements inside the header require specific data attributes so the JavaScri
 * data-o-header-search: Applied to the root `<div>` of the _enhanced_ search row. There are two search rows, one for enhanced, another for core
 * data-o-header-drawer: Applied to the root `<div>` of the drawer
 * data-o-header-drawer-user-email: Applied to the `<span>` inside of the drawer that will host the user's email
+* data-o-header-subnav: Applied to the root `div` of the subnav menu
+* data-o-header-subnav-wrapper: Applied to the inner wrapper `div` of the subnav menu so the JS can handle the scrolling
 
 ### Events
 
