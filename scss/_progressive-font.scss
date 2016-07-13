@@ -89,7 +89,7 @@ $_o-typography-progressive-font-fallbacks: (
 }
 
 ///
-/// Sets the font's size / line-height, adjust the fallback font's size appropriately
+/// Scale the font size of the fallback font, if the font is progresively loaded
 ///
 /// @param {String} $font - Accepts sans, sansBold, sansData, sansDataBold, etc.
 /// @param {String} $size - Font size, e.g. 12px
@@ -101,9 +101,15 @@ $_o-typography-progressive-font-fallbacks: (
 ///
 @mixin oTypographyFallbackFontSize($font, $size) {
 	$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
-	font-size: scale-fallback-font-size($font, $size);
+	$is-progressive: index($o-typography-progressive-fonts, $font);
 
-	.#{$o-typography-loaded-prefix}-#{$font} & {
+	@if $is-progressive {
+		font-size: scale-fallback-font-size($font, $size);
+
+		.#{$o-typography-loaded-prefix}-#{$font} & {
+			font-size: $size;
+		}
+	} @else {
 		font-size: $size;
 	}
 }
