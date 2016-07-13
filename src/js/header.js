@@ -1,10 +1,7 @@
 import search from './search';
 import mega from './mega';
-<<<<<<< HEAD
 import drawer from './drawer';
-=======
 import subnav from './subnav';
->>>>>>> fcc8ad386752d4bbc0036ca388fe97e10e9424af
 
 class Header {
 
