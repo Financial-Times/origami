@@ -6,13 +6,13 @@ const INTENT_DELAY = 1000;
 function handleCloseEvents (scope, callback) {
 	let timeout;
 
-	const handleKeydown = (e) =>  {
+	const handleKeydown = (e) => {
 		if (e.keyCode === 27) {
 			callback();
 		}
 	};
 
-	const handleClick = (e) =>  {
+	const handleClick = (e) => {
 		if (!scope.contains(e.target)) {
 			console.log('callbacking');
 			callback();
@@ -56,7 +56,7 @@ function addDrawerToggles (headerEl, drawerEl) {
 	controls.push(...drawerEl.querySelectorAll(`[aria-controls="${drawerEl.id}"]`));
 
 	let handleClose;
-	function toggleCallback(state, e) {
+	function toggleCallback(state) {
 		if (state === 'close') {
 			handleClose.removeEvents();
 		} else {
@@ -94,7 +94,7 @@ function addSubmenuToggles (drawerEl) {
 
 		new Toggle(button, {
 			target: submenu,
-			callback: (state, e) => {
+			callback: (state) => {
 				button.textContent = button.textContent.replace(/fewer|more/, state === 'open' ? 'fewer' : 'more');
 			}
 		});
@@ -109,7 +109,7 @@ function appendUserDetail (target) {
 		if (response.ok) {
 			return response.json();
 		} else {
-			return response.text().then((err) => { throw new Error(err) });
+			return response.text().then((err) => { throw new Error(err); });
 		}
 	})
 	.then((data) => {
@@ -119,6 +119,9 @@ function appendUserDetail (target) {
 
 function init (headerEl) {
 	const drawerEl = document.body.querySelector('[data-o-header-drawer]');
+	if (!drawerEl) {
+		return;
+	}
 	addSubmenuToggles(drawerEl);
 	addDrawerToggles(headerEl, drawerEl);
 

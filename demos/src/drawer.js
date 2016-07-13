@@ -14,7 +14,7 @@ module.exports = function () {
 				id: 'international'
 			}
 		]
-	}
+	};
 
 	const navData = [
 		{
@@ -387,7 +387,7 @@ module.exports = function () {
 	const userData = {
 		isSignedIn: false,
 		name: 'User\'s name'
-	}
+	};
 
 	data.drawer = {
 		nav: navData,
