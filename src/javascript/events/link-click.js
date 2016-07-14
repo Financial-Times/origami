@@ -161,7 +161,7 @@ function track(element, click_config) {
 				node_name: element.tagName,
 				source_id: Core.getRootID(),
 				destination: element.href,
-				text: (['INPUT', 'SELECT'].indexOf(element.tagName) > -1 ? element.name : element.text).toString().strip(),
+				text: (['INPUT', 'SELECT'].indexOf(element.tagName) > -1 ? element.name : element.text).toString().trim(),
 				is_internal: isInternal(element.href)
 			}, click_config)
 		}
