@@ -134,7 +134,7 @@ function createLinkID(link) {
 	// Remove slashes as final outcome is slash delimited
 	name = (name.length > 1 ? name.slice(0, 2).join('-') : name[0]).toLowerCase();
 
-	return parents.map(function (p) { return p.tagName.toLowerCase() + (p.id || p.className); }).filter(function (e, i, arr) { return arr.lastIndexOf(e) === i; }).reverse().concat([name]);
+	return parents.map(function (p) { return p.tagName.toLowerCase() + ((p.id ? '#' + p.id : '') || (p.className ? '.' + p.className.split(' ')[0] : '')); }).filter(function (e, i, arr) { return arr.lastIndexOf(e) === i; }).reverse().concat([name]);
 }
 
 /**
@@ -161,7 +161,7 @@ function track(element, click_config) {
 				node_name: element.tagName,
 				source_id: Core.getRootID(),
 				destination: element.href,
-				text: ['INPUT', 'SELECT'].indexOf(element.tagName) > -1 ? element.name : element.text,
+				text: (['INPUT', 'SELECT'].indexOf(element.tagName) > -1 ? element.name : element.text).toString().strip(),
 				is_internal: isInternal(element.href)
 			}, click_config)
 		}
