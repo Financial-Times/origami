@@ -1,16 +1,12 @@
 module.exports = function () {
 	return {
 		hasMenu: true,
-		search: true,
 		hasMyFT: true,
+		isSignedIn: true,
+
+
+
 		nav: {
-			mobile: [
-				{
-					name: 'Home',
-					url: '#',
-					selected: true
-				}
-			],
 			desktop: [
 				{
 					name: 'Home',
@@ -45,8 +41,8 @@ module.exports = function () {
 					name: 'Life & Arts',
 					url: '#'
 				}
-			],
-			isSignedIn: false
+			]
+
 		}
 	};
 };

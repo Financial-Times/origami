@@ -34,9 +34,9 @@
             "description": ""
         },
         {
-            "name": "light-header",
-            "data": "demos/src/light-header.js",
-            "template": "demos/src/light-header.mustache",
+            "name": "simple-header",
+            "data": "demos/src/simple-header.js",
+            "template": "demos/src/simple-header.mustache",
             "expanded": true,
             "description": ""
         }
