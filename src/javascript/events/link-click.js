@@ -134,28 +134,38 @@ function createLinkID(link) {
 	// Remove slashes as final outcome is slash delimited
 	name = (name.length > 1 ? name.slice(0, 2).join('-') : name[0]).toLowerCase();
 
-	return parents.map(function (p) { return p.tagName.toLowerCase(); }).filter(function (e, i, arr) { return arr.lastIndexOf(e) === i; }).reverse().join('/') + '/' + name;
+	return parents.map(function (p) { return p.tagName.toLowerCase() + (p.id || p.className); }).filter(function (e, i, arr) { return arr.lastIndexOf(e) === i; }).reverse().concat([name]);
 }
 
 /**
  * Track the link.
  *
  * @param {Element} element - The element being tracked.
+ * @param {Object} click_config - Supplementary config.
  *
  * @return {Object|boolean} - If synscronous, returns when the tracking event is sent, if async, returns true immediately.
  */
-function track(element) {
-	const linkID = createLinkID(element);
+function track(element, click_config) {
+	if (utils.isUndefined(click_config)) {
+		click_config = {};
+	}
+
+	const identifier = createLinkID(element);
+
 	const config = utils.merge(defaultLinkConfig(), {
-					context: {
-						link: {
-							id: linkID,
-							source_id: Core.getRootID(),
-							href: element.href,
-							title: element.text
-						}
-					}
-				});
+		category: ['BUTTON', 'INPUT', 'SELECT'].indexOf(element.tagName) > -1 ? element.tagName.toLowerCase() : 'link',
+		context: {
+			link: utils.merge({
+				dom_path: identifier.join(' | '),
+				dom_path_tokens: identifier,
+				node_name: element.tagName,
+				source_id: Core.getRootID(),
+				destination: element.href,
+				text: ['INPUT', 'SELECT'].indexOf(element.tagName) > -1 ? element.name : element.text,
+				is_internal: isInternal(element.href)
+			}, click_config)
+		}
+	});
 
 	if (isExternal(element.href) || isFile(element.href)) {
 		// Send now

@@ -22,7 +22,7 @@ let queue;
 /**
  * Consistent check to see if we should use sendBeacon or not.
  *
- * @return {boolean}
+ * @return {boolean} Should we use sendBeacon?
  */
 function should_use_sendBeacon() {
 	return (navigator.sendBeacon && Promise && (settings.get('config') || {}).useSendBeacon);
