@@ -110,6 +110,7 @@ function parentTree(element) {
  */
 function createLinkID(link) {
 	const parents = parentTree(link);
+	/*
 	let name = link.href || link.text || link.name || link.id;
 
 	name = name.replace(/^http:\/\/[\w\.\:]+/, '') // Remove http://[something].
@@ -133,8 +134,13 @@ function createLinkID(link) {
 
 	// Remove slashes as final outcome is slash delimited
 	name = (name.length > 1 ? name.slice(0, 2).join('-') : name[0]).toLowerCase();
+	*/
+	return parents.map(function (p) {
+		return p.getAttribute('data-trackable') || p.tagName.toLowerCase() + ((p.id ? '#' + p.id : '') || (p.className ? '.' + p.className.split(' ')[0] : ''));
+	}).filter(function (e, i, arr) {
+		return arr.lastIndexOf(e) === i;
+	}).reverse();
 
-	return parents.map(function (p) { return p.tagName.toLowerCase() + ((p.id ? '#' + p.id : '') || (p.className ? '.' + p.className.split(' ')[0] : '')); }).filter(function (e, i, arr) { return arr.lastIndexOf(e) === i; }).reverse().concat([name]);
 }
 
 /**
