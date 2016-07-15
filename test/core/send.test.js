@@ -209,7 +209,10 @@ describe('Core.Send', function () {
 			Send.addAndRun(request);
 			server.respond();
 
-			assert.ok(new Queue('requests').last().queueTime);
+            console.log((new Queue('requests')).storage.storage._type);
+            console.log((new Queue('requests')).all());
+
+			assert.ok((new Queue('requests')).last().queueTime);
 			navigator.sendBeacon = b;
 			server.restore();
 		});
