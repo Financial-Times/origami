@@ -12,7 +12,7 @@
       }
     }
 
-    @include oGridRespondTo($until:L){
+    @include oGridRespondTo($until:L) {
       .o-header__nav {
         display: none;
       }
