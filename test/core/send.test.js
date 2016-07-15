@@ -207,9 +207,12 @@ describe('Core.Send', function () {
 			server.respondWith([500, { "Content-Type": "plain/text", "Content-Length": 5 }, "NOT OK"]);
 
 			Send.addAndRun(request);
+
+			console.log((new Queue('requests')).storage.storage._type);
+            console.log((new Queue('requests')).all());
+
 			server.respond();
 
-            console.log((new Queue('requests')).storage.storage._type);
             console.log((new Queue('requests')).all());
 
 			assert.ok((new Queue('requests')).last().queueTime);
