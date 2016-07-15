@@ -195,8 +195,7 @@ describe('Core.Send', function () {
 			}, 100);
 		});
 
-		it('should remember offline lag if a request fails.', function () {
-
+		it('should remember offline lag if a request fails.', function (done) {
 			const server = sinon.fakeServer.create(); // Catch AJAX requests
 
 			(new Queue('requests')).replace([]);
@@ -209,15 +208,18 @@ describe('Core.Send', function () {
 			Send.addAndRun(request);
 
 			console.log((new Queue('requests')).storage.storage._type);
-            console.log((new Queue('requests')).all());
 
 			server.respond();
 
-            console.log((new Queue('requests')).all());
+			// Wait for localStorage
+			setTimeout(() => {
+				console.log((new Queue('requests')).all());
 
-			assert.ok((new Queue('requests')).last().queueTime);
-			navigator.sendBeacon = b;
-			server.restore();
+				assert.ok((new Queue('requests')).last().queueTime);
+				navigator.sendBeacon = b;
+				server.restore();
+				done();
+			}, 100);
 		});
 	});
 
