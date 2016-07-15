@@ -1,10 +1,6 @@
 @if $o-header-is-silent == false {
   .o-header--simple {
 
-    .o-header__nav {
-      display: none;
-    }
-
     .o-header__top-column--right {
       .o-header__nav-item {
         display: none;
@@ -16,14 +12,16 @@
       }
     }
 
+    @include oGridRespondTo($until:L){
+      .o-header__nav {
+        display: none;
+      }
+    }
+
 
     @include oGridRespondTo(L) {
       .o-header__top-logo {
         display: none;
-      }
-
-      .o-header__nav {
-        display: table;
       }
 
       .o-header__top-wrapper {
@@ -47,7 +45,7 @@
         width: auto;
         display: block;
         float: left;
-        margin-left: 20px;
+        margin-left: 40px;
       }
 
       .o-header__nav-list {
