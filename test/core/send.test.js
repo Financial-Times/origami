@@ -72,7 +72,7 @@ describe('Core.Send', function () {
 			};
 			window.XMLHttpRequest = function () {
 				return dummyXHR;
-			}
+			};
 			Send.addAndRun(request);
 			setTimeout(() => {
 				assert.equal(typeof dummyXHR.onerror, 'function');
@@ -88,7 +88,7 @@ describe('Core.Send', function () {
 					delete navigator.sendBeacon;
 				}
 				done();
-			}, 100)
+			}, 100);
 		});
 
 		if (navigator.sendBeacon) {
@@ -102,7 +102,7 @@ describe('Core.Send', function () {
 					navigator.sendBeacon.restore();
 					settings.destroy('config');
 					done();
-				}, 100)
+				}, 100);
 			});
 		}
 
@@ -122,7 +122,7 @@ describe('Core.Send', function () {
 			};
 			window.XMLHttpRequest = function () {
 				return dummyXHR;
-			}
+			};
 			Send.addAndRun(request);
 			setTimeout(() => {
 				assert.equal(typeof dummyXHR.onerror, 'function');
@@ -137,7 +137,7 @@ describe('Core.Send', function () {
 				navigator.sendBeacon = b;
 				settings.destroy('config');
 				done();
-			}, 100)
+			}, 100);
 		});
 
 		it('fallback to image when xhr withCredentials and sendBeacon not supported', function (done) {
@@ -148,7 +148,7 @@ describe('Core.Send', function () {
 			const xhr = window.XMLHttpRequest;
 			window.XMLHttpRequest = function () {
 				return {};
-			}
+			};
 			const dummyImage = {
 				addEventListener: sinon.stub()
 			};
@@ -165,7 +165,7 @@ describe('Core.Send', function () {
 				window.Image = i;
 				navigator.sendBeacon = b;
 				done();
-			}, 100)
+			}, 100);
 		});
 
 		it('fallback to image with attachEvent() when user is living in the past', function (done) {
@@ -175,7 +175,7 @@ describe('Core.Send', function () {
 			const xhr = window.XMLHttpRequest;
 			window.XMLHttpRequest = function () {
 				return {};
-			}
+			};
 			const dummyImage = {
 				attachEvent: sinon.stub()
 			};
@@ -192,7 +192,7 @@ describe('Core.Send', function () {
 				window.Image = i;
 				navigator.sendBeacon = b;
 				done();
-			}, 100)
+			}, 100);
 		});
 
 		it('should remember offline lag if a request fails.', function () {
@@ -213,7 +213,6 @@ describe('Core.Send', function () {
 			navigator.sendBeacon = b;
 			server.restore();
 		});
-	})
-
+	});
 
 });
