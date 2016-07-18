@@ -120,7 +120,7 @@ function init () {
 	addSubmenuToggles(drawerEl);
 	addDrawerToggles(drawerEl);
 
-	const emailEl = document.body.querySelector('[data-o-header-drawer-user-email]');
+	const emailEl = drawerEl.querySelector('[data-o-header-drawer-user-email]');
 
 	// if the browser doesn't support CORS then bail
 	if (emailEl && ('withCredentials' in new XMLHttpRequest())) {
