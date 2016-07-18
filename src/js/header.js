@@ -1,5 +1,6 @@
 import search from './search';
 import mega from './mega';
+import drawer from './drawer';
 import subnav from './subnav';
 
 class Header {
@@ -19,6 +20,7 @@ class Header {
 
 		search.init(this.headerEl);
 		mega.init(this.headerEl);
+		drawer.init(this.headerEl);
 		subnav.init(this.headerEl);
 
 		this.headerEl.removeAttribute('data-o-header--no-js');

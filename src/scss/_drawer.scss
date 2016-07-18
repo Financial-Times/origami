@@ -1,0 +1,345 @@
+@if $o-header-is-silent == false {
+
+	// added to the document element, see n-ui/layout
+	.o-header__drawer {
+		@include oColorsFor(o-header-drawer, background);
+
+		&[data-o-header-drawer--js] {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			z-index: $_o-header-drawer-z-index;
+			width: 100%;
+			border-right: 1px solid oColorsGetColorFor(o-header-drawer, border);
+			// use a 2D transform because 3D are unsupported by IE9
+			transform: translateX(-100%);
+			transform: translate3d(-100%, 0, 0);
+
+			// this is literally the spec example for will-change
+			will-change: transform;
+
+			@include oGridRespondTo('M') {
+				width: $_o-header-drawer-width;
+			}
+
+			&[aria-hidden] {
+				@include oEffectsShadowsElevation('low');
+
+				// because the transition is slightly bouncy it will reveal some of the background
+				border-left: 30px solid transparent;
+				margin-left: -30px;
+			}
+
+			&[aria-hidden="false"] {
+				// use a 2D transform because 3D are unsupported by IE9
+				transform: translateX(0);
+				transform: translate3d(0, 0, 0);
+			}
+		}
+	}
+
+	// Supports different transitions for opening and closing
+	.o-header__drawer--opening,
+	.o-header__drawer--closing {
+		transition: transform 0.5s cubic-bezier(1, 0, 0.50, 1.2);
+	}
+
+	.o-header__drawer-inner {
+		[data-o-header-drawer--js] & {
+			height: 100%;
+			overflow-y: auto;
+			// intertial scrolling for iOS Safari
+			-webkit-overflow-scrolling: touch;
+			// working draft
+			scroll-behavior: smooth;
+			// Windows 8+
+			-ms-overflow-style: -ms-autohiding-scrollbar;
+
+			// (╯°□°）╯︵ ┻━┻
+			&::-webkit-scrollbar {
+				width: 12px;
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background: oColorsGetPaletteColor('pink-tint4');
+				// you can't set the dimensions so use a border as a margin...
+				background-clip: content-box;
+				border: 4px solid transparent;
+			}
+		}
+	}
+
+	//
+	// Tools
+	//
+	.o-header__drawer-tools {
+		overflow: hidden;
+		padding: ($_o-header-drawer-padding-y * 1.5) $_o-header-drawer-padding-x $_o-header-drawer-padding-y;
+	}
+
+	.o-header__drawer-tools-logo {
+		@include oIconsBaseStyles;
+		@include oHeaderBrandImage('brand-ft-masthead', oColorsGetPaletteColor('cold-1'), 210);
+		width: 210px;
+		height: 18px;
+		border-bottom: 0;
+	}
+
+	.o-header__drawer-tools-close {
+		// dividing by 1px removes the unit
+		@include oIconsGetIcon('cross', oColorsGetPaletteColor('grey-tint4'), 18);
+		float: right;
+		border: 0;
+		opacity: 0.75;
+		cursor: pointer;
+
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
+
+		[data-o-header-drawer--no-js] & {
+			display: none;
+		}
+	}
+
+	//
+	// Editions
+	//
+	.o-header__drawer-editions {
+		padding: 0 $_o-header-drawer-padding-x;
+	}
+
+	.o-header__drawer-editions-link {
+		@include oColorsFor(o-header-drawer-editions-link, text);
+		display: inline-block;
+		padding: $_o-header-drawer-padding-y/2 0 8px;
+		margin-left: 0.5em;
+		border-bottom: 0;
+		font-size: 18px;
+		text-decoration: none;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&[aria-selected="true"] {
+			text-decoration: underline;
+		}
+
+		&:hover,
+		&:focus,
+		&[aria-selected="true"] {
+			@include oColorsFor(o-header-drawer-editions-link-highlight, text);
+		}
+	}
+
+	//
+	// Search
+	//
+	.o-header__drawer-search {
+		padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
+
+		@include oGridRespondTo('L') {
+			display: none;
+		}
+	}
+
+	.o-header__drawer-search-form {
+		display: flex;
+	}
+
+	.o-header__drawer-search-term,
+	.o-header__drawer-search-submit {
+		box-sizing: border-box;
+		// ಥ_ಥ
+		height: 32px;
+		padding: ($_o-header-drawer-padding-y / 2) ($_o-header-drawer-padding-x / 2);
+		border: 1px solid;
+		// prevent zoom on focus
+		font-size: 100%;
+	}
+
+	.o-header__drawer-search-term {
+		@include oColorsFor(o-header-drawer-search-term);
+		flex-grow: 1;
+
+		&:focus {
+			@include oColorsFor(o-header-drawer-search-term-highlight);
+		}
+	}
+
+	.o-header__drawer-search-submit {
+		@include oColorsFor(o-header-drawer-search-submit);
+
+		&:after {
+			@include oIconsGetIcon('search', oColorsGetPaletteColor('white'), 16);
+			content: '';
+		}
+	}
+
+	//
+	// Lists
+	//
+	.o-header__drawer-menu {
+		@include oColorsFor(o-header-drawer-menu);
+	}
+
+	.o-header__drawer-menu--user {
+		@include oColorsFor(o-header-drawer-menu-user, background);
+		padding-bottom: $_o-header-drawer-padding-y;
+		border-top: 1px solid oColorsGetColorFor(o-header-drawer-menu-user, border);
+	}
+
+	.o-header__drawer-menu-list {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+	}
+
+	.o-header__drawer-menu-list--child {
+		[data-o-header-drawer--no-js] & {
+			display: none;
+		}
+
+		[data-o-header-drawer--js] & {
+			// hide from the off to avoid any transition on page load
+			max-height: 0;
+			transition: max-height 0.25s ease-out;
+
+			&[aria-hidden="false"] {
+				@include oColorsFor(o-header-drawer-menu-list, background);
+				// magic number... you can't transition between 0 and unknown
+				// but as long as this is larger than the content it will do
+				max-height: 600px;
+				// a border would create some flickery layout
+				box-shadow: inset 0 -1px 0 oColorsGetColorFor(o-header-drawer-menu, border), inset 0 1px 0 oColorsGetColorFor(o-header-drawer-menu, border);
+			}
+		}
+	}
+
+	.o-header__drawer-menu-item {
+		margin-top: 1px;
+	}
+
+	.o-header__drawer-menu-item--divide {
+		border-top: 2px solid oColorsGetColorFor(o-header-drawer-menu, border);
+	}
+
+	.o-header__drawer-menu-item--heading {
+		@include oColorsFor(o-header-drawer-menu-item);
+		padding: ($_o-header-drawer-padding-x / 2) $_o-header-drawer-padding-x;
+		font-weight: bold;
+	}
+
+	//
+	// Toggles
+	//
+	.o-header__drawer-menu-toggle-wrapper {
+		position: relative;
+	}
+
+	.o-header__drawer-menu-toggle {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 42px;
+		// normalize the button
+		padding: 0;
+		text-align: left;
+		border: 0;
+		cursor: pointer;
+		// visually hide text... so ghetto
+		font-size: 0;
+
+		&:before {
+			content: ' ';
+			margin-left: 14px;
+		}
+
+		&[aria-expanded="true"] {
+			&:before {
+				// don't download another icon...
+				transform: rotate(180deg);
+			}
+		}
+
+		&:hover {
+			// hide focus outline on hover
+			outline: 0;
+		}
+
+		[data-o-header-drawer--no-js] & {
+			display: none;
+		}
+	}
+
+	.o-header__drawer-menu-toggle--selected {
+		background: rgba(oColorsGetColorFor(o-header-drawer-toggle-selected, background), 0.25);
+
+		&:before {
+			@include oIconsGetIcon('arrow-down', oColorsGetColorFor(o-header-drawer-toggle-selected, text), 14);
+		}
+	}
+
+	.o-header__drawer-menu-toggle--unselected {
+		background: rgba(oColorsGetColorFor(o-header-drawer-toggle-unselected, background), 0.85);
+
+		&:before {
+			@include oIconsGetIcon('arrow-down', oColorsGetColorFor(o-header-drawer-toggle-unselected, text), 14);
+		}
+	}
+
+	//
+	// Links
+	//
+	.o-header__drawer-menu-link {
+		@include oColorsFor(o-header-drawer-menu-link, text);
+		display: block;
+		padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
+		border-bottom: 0;
+		font-size: 18px;
+		text-decoration: none;
+
+		&:hover {
+			@include oColorsFor(o-header-drawer-menu-link-hover, text);
+			color: getColor('teal-1');
+		}
+
+		[aria-expanded="true"] + & {
+			@include oColorsFor(o-header-drawer-menu-link, background);
+		}
+	}
+
+	.o-header__drawer-menu-link--selected {
+		@include oColorsFor(o-header-drawer-menu-link-selected);
+
+		&:hover {
+			@include oColorsFor(o-header-drawer-menu-link-hover-selected, text);
+		}
+
+		[aria-expanded="true"] + & {
+			// speceficity
+			@include oColorsFor(o-header-drawer-menu-link-selected, background);
+		}
+	}
+
+	.o-header__drawer-menu-link--parent {}
+
+	.o-header__drawer-menu-link--child {
+		padding-left: 40px;
+	}
+
+	.o-header__drawer-menu-link--secondary {
+		font-weight: bold;
+	}
+
+	.o-header__drawer-menu-link-detail {
+		display: block;
+		margin-top: 0.25em;
+		font-size: 14px;
+	}
+}

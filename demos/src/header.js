@@ -1,3 +1,5 @@
+const drawer = require('./drawer');
+
 module.exports = function () {
 	return {
 		// Anonymous bar
@@ -5,7 +7,7 @@ module.exports = function () {
 
 		// Top bar
 		top: {
-			hasMenu: false,
+			hasMenu: true,
 			hasMyFT: true
 		},
 
@@ -65,6 +67,9 @@ module.exports = function () {
 				}
 			],
 			isSignedIn: false
-		}
+		},
+
+		// Drawer
+		drawer: drawer()
 	};
 };
