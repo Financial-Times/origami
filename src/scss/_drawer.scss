@@ -9,7 +9,7 @@
 			top: 0;
 			bottom: 0;
 			left: 0;
-			z-index: $_o-header__drawer-z-index;
+			z-index: $_o-header-drawer-z-index;
 			width: 100%;
 			border-right: 1px solid oColorsGetColorFor(o-header-drawer, border);
 			// use a 2D transform because 3D are unsupported by IE9
@@ -20,7 +20,7 @@
 			will-change: transform;
 
 			@include oGridRespondTo('M') {
-				width: $_o-header__drawer-width;
+				width: $_o-header-drawer-width;
 			}
 
 			&[aria-hidden] {
@@ -75,7 +75,7 @@
 	//
 	.o-header__drawer-tools {
 		overflow: hidden;
-		padding: ($_o-header__drawer-padding-y * 1.5) $_o-header__drawer-padding-x $_o-header__drawer-padding-y;
+		padding: ($_o-header-drawer-padding-y * 1.5) $_o-header-drawer-padding-x $_o-header-drawer-padding-y;
 	}
 
 	.o-header__drawer-tools-logo {
@@ -108,13 +108,13 @@
 	// Editions
 	//
 	.o-header__drawer-editions {
-		padding: 0 $_o-header__drawer-padding-x;
+		padding: 0 $_o-header-drawer-padding-x;
 	}
 
 	.o-header__drawer-editions-link {
 		@include oColorsFor(o-header-drawer-editions-link, text);
 		display: inline-block;
-		padding: $_o-header__drawer-padding-y/2 0 8px;
+		padding: $_o-header-drawer-padding-y/2 0 8px;
 		margin-left: 0.5em;
 		border-bottom: 0;
 		font-size: 18px;
@@ -139,7 +139,7 @@
 	// Search
 	//
 	.o-header__drawer-search {
-		padding: $_o-header__drawer-padding-y $_o-header__drawer-padding-x;
+		padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
 
 		@include oGridRespondTo('L') {
 			display: none;
@@ -155,7 +155,7 @@
 		box-sizing: border-box;
 		// ಥ_ಥ
 		height: 32px;
-		padding: ($_o-header__drawer-padding-y / 2) ($_o-header__drawer-padding-x / 2);
+		padding: ($_o-header-drawer-padding-y / 2) ($_o-header-drawer-padding-x / 2);
 		border: 1px solid;
 		// prevent zoom on focus
 		font-size: 100%;
@@ -188,7 +188,7 @@
 
 	.o-header__drawer-menu--user {
 		@include oColorsFor(o-header-drawer-menu-user, background);
-		padding-bottom: $_o-header__drawer-padding-y;
+		padding-bottom: $_o-header-drawer-padding-y;
 		border-top: 1px solid oColorsGetColorFor(o-header-drawer-menu-user, border);
 	}
 
@@ -230,7 +230,7 @@
 
 	.o-header__drawer-menu-item--heading {
 		@include oColorsFor(o-header-drawer-menu-item);
-		padding: ($_o-header__drawer-padding-x / 2) $_o-header__drawer-padding-x;
+		padding: ($_o-header-drawer-padding-x / 2) $_o-header-drawer-padding-x;
 		font-weight: bold;
 	}
 
@@ -299,7 +299,7 @@
 	.o-header__drawer-menu-link {
 		@include oColorsFor(o-header-drawer-menu-link, text);
 		display: block;
-		padding: $_o-header__drawer-padding-y $_o-header__drawer-padding-x;
+		padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
 		border-bottom: 0;
 		font-size: 18px;
 		text-decoration: none;
@@ -342,11 +342,4 @@
 		margin-top: 0.25em;
 		font-size: 14px;
 	}
-
-	.o-header__drawer-menu-optout {
-		@include oButtons('medium', 'standout');
-		display: block;
-		margin: $_o-header__drawer-padding-x;
-	}
-
 }

@@ -1,8 +1,4 @@
-const header = require('./header');
-
 module.exports = function () {
-	const data = header();
-
 	const editionsData = {
 		current: {
 			name: 'UK',
@@ -389,12 +385,11 @@ module.exports = function () {
 		name: 'User\'s name'
 	};
 
-	data.drawer = {
+	const drawer = {
 		nav: navData,
 		editions: editionsData,
 		user: userData
 	};
-	data.top.hasMenu = true;
 
-	return data;
+	return drawer;
 };

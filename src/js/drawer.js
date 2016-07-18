@@ -14,7 +14,6 @@ function handleCloseEvents (scope, callback) {
 
 	const handleClick = (e) => {
 		if (!scope.contains(e.target)) {
-			console.log('callbacking');
 			callback();
 		}
 	};
@@ -28,7 +27,6 @@ function handleCloseEvents (scope, callback) {
 	};
 
 	const removeEvents = () => {
-		console.log('removing events');
 		clearTimeout(timeout);
 
 		scope.removeEventListener('mouseenter', handleMouseenter);
@@ -39,7 +37,6 @@ function handleCloseEvents (scope, callback) {
 	};
 
 	const addEvents = () => {
-		console.log('adding events');
 		scope.addEventListener('mouseenter', handleMouseenter);
 		scope.addEventListener('mouseleave', handleMouseleave);
 		document.addEventListener('click', handleClick);

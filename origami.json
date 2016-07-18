@@ -39,13 +39,6 @@
             "template": "demos/src/subnav.mustache",
             "expanded": false,
             "description": ""
-        },
-        {
-            "name": "drawer",
-            "data": "demos/src/drawer.js",
-            "template": "demos/src/drawer.mustache",
-            "expanded": true,
-            "description": ""
         }
     ]
 }
