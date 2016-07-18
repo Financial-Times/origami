@@ -83,7 +83,7 @@ ODate.prototype.update = function() {
 	const hasTextNode = printer.firstChild && printer.firstChild.nodeType === 3;
 
 	if (date) {
-		date = toDate(date);
+		date = ODate.toDate(date);
 	} else if (hasTextNode) {
 		// Only define new date if printer is empty
 		date = new Date();
@@ -129,7 +129,7 @@ function compile(format) {
 	return (compiledTemplates[format] = new Function('date', funcString));  // jshint ignore:line
 }
 
-function toDate(date) {
+ODate.toDate = function(date) {
 	date = date instanceof Date ? date : new Date(date);
 	if (date.toString() !== 'Invalid Date') {
 		return date;
@@ -139,13 +139,17 @@ function toDate(date) {
 ODate.format = function(date, dateFormat) {
 	dateFormat = dateFormat || 'datetime';
 	const tpl = compiledTemplates[dateFormat] || compile(dateFormat);
-	date = toDate(date);
+	date = ODate.toDate(date);
 	return date && tpl(date);
 };
 
+ODate.getIntervalBetween = function(now, dateObject) {
+	return Math.round((now - dateObject) / 1000);
+}
+
 ODate.ftTime = function(dateObj) {
 	const now = new Date();
-	const interval = Math.round((now - dateObj) / 1000);
+	const interval = ODate.getIntervalBetween(now, dateObj);
 	let dateString;
 
 	// if date has not yet passed
@@ -172,7 +176,7 @@ ODate.ftTime = function(dateObj) {
 
 ODate.timeAgo = function(date, interval) {
 
-	date = toDate(date);
+	date = ODate.toDate(date);
 	if (!date) return;
 
 	interval = interval || Math.round(((new Date()) - date) / 1000);
