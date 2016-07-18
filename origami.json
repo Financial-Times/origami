@@ -30,7 +30,14 @@
             "name": "mega-menu",
             "data": "demos/src/mega-menu.js",
             "template": "demos/src/mega-menu.mustache",
-            "expanded": true,
+            "expanded": false,
+            "description": ""
+        },
+        {
+            "name": "subnav",
+            "data": "demos/src/subnav.js",
+            "template": "demos/src/subnav.mustache",
+            "expanded": false,
             "description": ""
         },
         {

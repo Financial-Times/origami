@@ -1,4 +1,5 @@
 $o-header-is-silent: true !default;
+$o-header-image-base-url: 'https://image.webservices.ft.com' !default;
 
 $_o-header-padding-x: 12px;
 $_o-header-padding-y: 12px;
@@ -6,3 +7,8 @@ $_o-header-buttons-theme: 'standout';
 $_o-header-mega-padding-x: 24px;
 $_o-header-mega-padding-y: 18px;
 $_o-header-mega-z-index: 1;
+$_o-header-drawer-z-index: 100;
+$_o-header-drawer-width: 320px;
+$_o-header-drawer-divide-height: 40px;
+$_o-header-drawer-padding-x: 16px;
+$_o-header-drawer-padding-y: 12px;

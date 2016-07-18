@@ -83,7 +83,7 @@
 /// @param {Color} $color
 /// @param {Number} $fallback-width
 @mixin oHeaderBrandImage($logo-name, $color, $fallback-width) {
-	$base-url: 'https://image.webservices.ft.com/v1/images/raw/ftlogo:';
+	$base-url: '#{$o-header-image-base-url}/v1/images/raw/ftlogo:';
 	$color: str-slice(ie-hex-str($color), 4);
 
 	background-image: url($base-url + $logo-name + "?source=o-header&tint=%23#{$color},%23#{$color}&format=svg");

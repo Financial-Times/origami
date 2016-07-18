@@ -15,3 +15,36 @@
 @include oColorsSetUseCase('o-header-search', 'background', 'pink-tint3');
 
 @include oColorsSetUseCase('o-header-mega', 'background', 'warm-5');
+
+@include oColorsSetUseCase('o-header-drawer', 'background', 'pink');
+@include oColorsSetUseCase('o-header-drawer', 'border', 'warm-3');
+@include oColorsSetUseCase('o-header-drawer-editions-link', 'text', 'grey-tint5');
+@include oColorsSetUseCase('o-header-drawer-editions-link-highlight', 'text', 'teal-1');
+@include oColorsSetUseCase('o-header-drawer-search-term', 'background', 'white');
+@include oColorsSetUseCase('o-header-drawer-search-term', 'border', 'pink-tint3');
+@include oColorsSetUseCase('o-header-drawer-search-term-highlight', 'border', 'teal-1');
+@include oColorsSetUseCase('o-header-drawer-search-submit', 'background', 'teal-1');
+@include oColorsSetUseCase('o-header-drawer-search-submit', 'border', 'transparent');
+@include oColorsSetUseCase('o-header-drawer-menu', 'text', 'grey-tint4');
+@include oColorsSetUseCase('o-header-drawer-menu', 'border', 'pink-tint2');
+@include oColorsSetUseCase('o-header-drawer-menu-user', 'background', 'pink-tint2');
+@include oColorsSetUseCase('o-header-drawer-menu-user', 'border', 'pink-tint3');
+@include oColorsSetUseCase('o-header-drawer-menu-list', 'background', 'warm-5');
+@include oColorsSetUseCase('o-header-drawer-menu-item', 'background', 'pink-tint2');
+@include oColorsSetUseCase('o-header-drawer-toggle-selected', 'background', 'white');
+@include oColorsSetUseCase('o-header-drawer-toggle-selected', 'text', 'white');
+@include oColorsSetUseCase('o-header-drawer-toggle-unselected', 'background', 'pink-tint2');
+@include oColorsSetUseCase('o-header-drawer-toggle-unselected', 'text', 'teal-1');
+@include oColorsSetUseCase('o-header-drawer-menu-link', 'text', 'inherit');
+@include oColorsSetUseCase('o-header-drawer-menu-link', 'background', 'warm-5');
+@include oColorsSetUseCase('o-header-drawer-menu-link-hover', 'text', 'teal-1');
+@include oColorsSetUseCase('o-header-drawer-menu-link-selected', 'text', 'white');
+@include oColorsSetUseCase('o-header-drawer-menu-link-selected', 'background', 'teal-1');
+@include oColorsSetUseCase('o-header-drawer-menu-link-hover-selected', 'text', 'warm-5');
+
+@include oColorsSetUseCase('o-header-subnav', 'background', 'warm-5');
+@include oColorsSetUseCase('o-header-subnav', 'border', 'warm-3');
+@include oColorsSetUseCase('o-header-subnav-link', 'text', 'grey-tint4');
+@include oColorsSetUseCase('o-header-subnav-button', 'text', 'cold-1');
+@include oColorsSetUseCase('o-header-subnav-button', 'background', 'pink-tint2');
+@include oColorsSetUseCase('o-header-subnav-button-hover', 'background', 'pink-tint3');
