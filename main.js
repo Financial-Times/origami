@@ -143,36 +143,53 @@ ODate.format = function(date, dateFormat) {
 	return date && tpl(date);
 };
 
-ODate.getIntervalBetween = function(now, dateObject) {
-	return Math.round((now - dateObject) / 1000);
+ODate.getSecondsBetween = function(time, otherTime) {
+	return Math.round((time - otherTime) / 1000);
 }
 
 ODate.ftTime = function(dateObj) {
 	const now = new Date();
-	const interval = ODate.getIntervalBetween(now, dateObj);
+	const interval = ODate.getSecondsBetween(now, dateObj);
 	let dateString;
 
-	// if date has not yet passed
-	if (interval < 0) {
-		// if date will occur within the next 5 minutes allow for reasonable difference in machine clocks
-		if (interval > -300) {
-			dateString = 'just now';
-		// if beyond the next 5 minutes fall back to printing the full date - the machine clock could be way out
-		} else {
-			dateString = ODate.format(dateObj, 'date');
-		}
-	// Within 24 hours, and if not crossing in to yesterday, show relative time
-	} else if (interval < 24 * 60 * 60 && now.getDay() === dateObj.getDay()) {
-		dateString = ODate.timeAgo(dateObj, interval);
-	// Within 48 hours, if the day is yesterday show 'yesterday'
-	} else if (interval < 48 * 60 * 60 && (now.getDay() === dateObj.getDay() + 1)) {
+	if (ODate.isNearFuture(interval)) {
+		dateString = 'just now';
+
+	} else if (ODate.isFarFuture(interval)) {
+		dateString = ODate.format(dateObj, 'date');
+
+	} else if (ODate.isToday(dateObj, now, interval)) {
+		dateString = ODate.timeAgo(dateObj, now, interval);
+
+	} else if (ODate.isYesterday(dateObj, now, interval)) {
 		dateString = 'yesterday';
-	// Otherwise print the date
+
 	} else {
 		dateString = ODate.format(dateObj, 'date');
 	}
+
 	return dateString;
+}
+
+ODate.isNearFuture = function(interval) {
+	// If the interval within the next 5 minutes
+	return (interval < 0 && interval > -(5 * inSeconds.minute));
 };
+
+ODate.isFarFuture = function(interval) {
+	// If the interval is further in the future than 5 minutes
+	return interval < -(5 * inSeconds.minute);
+}
+
+ODate.isToday = function(dateObj, now, interval) {
+	// If the interval is within the 24 hours and the same day
+	return (interval < inSeconds.day && now.getDay() === date.getDay());
+}
+
+ODate.isYesterday = function(dateObj, now, interval) {
+	// If the interval is within the last 48 hours and 1 day less
+	return (interval < 2 * inSeconds.day && now.getDay() === date.getDay() - 1);
+}
 
 ODate.timeAgo = function(date, interval) {
 
