@@ -1,3 +1,5 @@
+const drawer = require('./drawer');
+
 module.exports = function () {
 	return {
 		hasMenu: true,
@@ -43,6 +45,8 @@ module.exports = function () {
 				}
 			]
 
-		}
+		},
+
+		drawer: drawer()
 	};
 };
