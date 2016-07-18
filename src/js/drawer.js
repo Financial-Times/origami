@@ -47,10 +47,8 @@ function handleCloseEvents (scope, callback) {
 	return { addEvents, removeEvents };
 }
 
-function addDrawerToggles (headerEl, drawerEl) {
-	const controls = [];
-	controls.push(...headerEl.querySelectorAll(`[aria-controls="${drawerEl.id}"]`));
-	controls.push(...drawerEl.querySelectorAll(`[aria-controls="${drawerEl.id}"]`));
+function addDrawerToggles (drawerEl) {
+	const controls = [...document.body.querySelectorAll(`[aria-controls="${drawerEl.id}"]`)];
 
 	let handleClose;
 	function toggleCallback(state) {
@@ -114,15 +112,15 @@ function appendUserDetail (target) {
 	});
 }
 
-function init (headerEl) {
+function init () {
 	const drawerEl = document.body.querySelector('[data-o-header-drawer]');
 	if (!drawerEl) {
 		return;
 	}
 	addSubmenuToggles(drawerEl);
-	addDrawerToggles(headerEl, drawerEl);
+	addDrawerToggles(drawerEl);
 
-	const emailEl = headerEl.querySelector('[data-o-header-drawer-user-email]');
+	const emailEl = document.body.querySelector('[data-o-header-drawer-user-email]');
 
 	// if the browser doesn't support CORS then bail
 	if (emailEl && ('withCredentials' in new XMLHttpRequest())) {
