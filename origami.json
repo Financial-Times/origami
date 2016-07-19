@@ -39,6 +39,13 @@
             "template": "demos/src/subnav.mustache",
             "expanded": false,
             "description": ""
+        },
+        {
+            "name": "simple-header",
+            "data": "demos/src/simple-header.js",
+            "template": "demos/src/simple-header.mustache",
+            "expanded": true,
+            "description": ""
         }
     ]
 }

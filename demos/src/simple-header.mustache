@@ -1,0 +1,157 @@
+<header class="o-header o-header--simple" data-o-component="o-header" data-o-header--no-js>
+    <div class="o-header__row o-header__top">
+        <div class="o-header__container">
+            <div class="o-header__top-wrapper">
+                <div class="o-header__top-column o-header__top-column--left">
+                    {{#hasMenu}}
+                        <a href="#o-header-drawer" class="o-header__top-link o-header__top-link--menu" aria-controls="o-header-drawer">
+                            <span class="o-header__top-link-label">Menu</span>
+                        </a>
+                    {{/hasMenu}}
+                    <a href="#o-header-search" class="o-header__top-link o-header__top-link--search" aria-controls="o-header-search-js">
+                        <span class="o-header__top-link-label">Search</span>
+                    </a>
+                </div>
+                <div class="o-header__top-column o-header__top-column--center">
+                    <a class="o-header__top-logo" href="/" title="Go to Financial Times homepage">
+                        <span class="o-header__visually-hidden">Financial Times</span>
+                    </a>
+                    {{#nav}}
+                        <nav id="o-header-nav-desktop" class="o-header__nav o-header__nav--desktop" role="navigation">
+                                <ul class="o-header__nav-list o-header__nav-list--left">
+                                    {{#desktop}}
+                                        <li class="o-header__nav-item">
+                                            <a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" aria-selected="{{selected}}" id="o-header-link-{{index}}" {{#hasMega}}aria-controls="o-header-mega-{{index}}"{{/hasMega}}>{{name}}</a>
+                                        </li>
+                                    {{/desktop}}
+                                </ul>
+                        </nav>
+                    {{/nav}}
+
+                </div>
+                <div class="o-header__top-column o-header__top-column--right" role="navigation" aria-label="Account and personalisation links">
+                    <ul class="o-header__nav-list o-header__nav-list--right">
+                        {{#isSignedIn}}
+                            <li class="o-header__nav-item">
+                                <a class="o-header__nav-link o-header__nav-link--utility" href="https://markets.ft.com/data/portfolio/dashboard">Portfolio</a>
+                            </li>
+                            <li class="o-header__nav-item">
+                                <a class="o-header__nav-link o-header__nav-link--utility" href="https://registration.ft.com/registration/selfcare/">My Account</a>
+                            </li>
+                        {{/isSignedIn}}
+                        {{^isSignedIn}}
+                            <li class="o-header__nav-item">
+                                <a class="o-header__nav-link o-header__nav-link--utility" href="/login">Sign In</a>
+                            </li>
+                            <li class="o-header__nav-item">
+                                <a class="o-header__nav-button" href="/products">Subscribe</a>
+                            </li>
+                        {{/isSignedIn}}
+                        {{#hasMyFT}}
+                            <li class="o-header__nav-item o-header__nav-item--myft">
+                                <a class="o-header__top-link o-header__top-link--myft" href="/myft">
+                                    <span class="o-header__visually-hidden">myFT</span>
+                                </a>
+                            </li>
+                        {{/hasMyFT}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{{#drawer}}
+    <div class="o-header__drawer" id="o-header-drawer" data-o-header-drawer data-o-header-drawer--no-js>
+        <div class="o-header__drawer-inner">
+
+            <div class="o-header__drawer-tools">
+                <a class="o-header__drawer-tools-logo" href="/">
+                    <span class="o-header__visually-hidden">Financial Times</span>
+                </a>
+                <button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer">
+                    <span class="o-header__visually-hidden">Close</span>
+                </button>
+            </div>
+
+            {{#editions}}
+                <nav class="o-header__drawer-editions" role="navigation" aria-label="Edition switcher">
+                    {{#editions.current}}
+                        <a class="o-header__drawer-editions-link" href="/{{id}}?edition={{id}}" aria-selected="true">{{name}} Edition</a>
+                    {{/editions.current}}
+                    {{#editions.others}}
+                        <a class="o-header__drawer-editions-link" href="/{{id}}?edition={{id}}">{{name}} Edition</a>
+                    {{/editions.others}}
+                </nav>
+            {{/editions}}
+
+            <div class="o-header__drawer-search">
+                <form class="o-header__drawer-search-form" action="/search" role="search" aria-label="Site search">
+                    <label class="o-header__visually-hidden" for="o-header-drawer-search-term">Search the <abbr title="Financial Times">FT</abbr></label>
+                    <input class="o-header__drawer-search-term" id="o-header-drawer-search-term" name="q" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the FT">
+                    <button class="o-header__drawer-search-submit" type="submit">
+                        <span class="o-header__visually-hidden">Search</span>
+                    </button>
+                </form>
+            </div>
+
+            <nav class="o-header__drawer-menu o-header__drawer-menu--primary" role="navigation" aria-label="Primary navigation">
+                <ul class="o-header__drawer-menu-list">
+                    {{#nav}}
+                        {{#heading}}
+                            <li class="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{{name}}</li>
+                        {{/heading}}
+                        {{#items}}
+                            <li class="o-header__drawer-menu-item {{#divide}}o-header__drawer-menu-item--divide{{/divide}}">
+                                {{#hasChildren}}
+                                    <div class="o-header__drawer-menu-toggle-wrapper">
+                                        <button class="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" aria-controls="o-header-drawer-child-{{index}}">
+                                            Show more {{name}} links
+                                        </button>
+                                        <a class="o-header__drawer-menu-link o-header__drawer-menu-link--parent o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" aria-label="{{#selected}}Current page{{/selected}}{{^selected}}Go to {{name}}{{/selected}}">{{name}}</a>
+                                    </div>
+                                    <ul class="o-header__drawer-menu-list o-header__drawer-menu-list--child" id="o-header-drawer-child-{{index}}">
+                                        {{#children}}
+                                            <li class="o-header__drawer-menu-item">
+                                                <a class="o-header__drawer-menu-link o-header__drawer-menu-link--child o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" aria-label="{{#selected}}Current page{{/selected}}{{^selected}}Go to {{name}}{{/selected}}">{{name}}</a>
+                                            </li>
+                                        {{/children}}
+                                    </ul>
+                                {{/hasChildren}}
+                                {{^hasChildren}}
+                                    <a class="o-header__drawer-menu-link o-header__drawer-menu-link--{{variation}} o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" aria-label="{{#selected}}Current page{{/selected}}{{^selected}}Go to {{name}}{{/selected}}">{{name}}</a>
+                                {{/hasChildren}}
+                            </li>
+                        {{/items}}
+                    {{/nav}}
+                </ul>
+            </nav>
+
+            <nav class="o-header__drawer-menu o-header__drawer-menu--user" role="navigation" aria-label="User navigation">
+                <ul class="o-header__drawer-menu-list">
+                    {{^user.isSignedIn}}
+                        <li class="o-header__drawer-menu-item">
+                            <a class="o-header__drawer-menu-link" href="/products?segID=400863&amp;segmentID=190b4443-dc03-bd53-e79b-b4b6fbd04e64">Subscribe</a>
+                        </li>
+                        <li class="o-header__drawer-menu-item">
+                            <a class="o-header__drawer-menu-link" href="/login">Sign In</a>
+                        </li>
+                    {{/user.isSignedIn}}
+                    {{#user.isSignedIn}}
+                        <li class="o-header__drawer-menu-item">
+                            <a class="o-header__drawer-menu-link" href="https://registration.ft.com/registration/selfcare/">
+                                {{user.name}}
+                                <span class="o-header__drawer-menu-link-detail" data-o-header-drawer-user-email></span>
+                            </a>
+                        </li>
+                        <li class="o-header__drawer-menu-item">
+                            <a class="o-header__drawer-menu-link" href="/logout">Sign Out</a>
+                        </li>
+                    {{/user.isSignedIn}}
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+{{/drawer}}
+

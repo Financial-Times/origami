@@ -1,0 +1,64 @@
+@if $o-header-is-silent == false {
+  .o-header--simple {
+
+    .o-header__top-column--right {
+      .o-header__nav-item {
+        display: none;
+      }
+
+      .o-header__nav-item--myft {
+        display: table-cell;
+        padding-left: 0;
+      }
+    }
+
+    @include oGridRespondTo($until:L) {
+      .o-header__nav {
+        display: none;
+      }
+    }
+
+
+    @include oGridRespondTo(L) {
+      .o-header__top-logo {
+        display: none;
+      }
+
+      .o-header__top-wrapper {
+        padding: 10px 0;
+      }
+
+      .o-header__top-column--left {
+        width: auto;
+        display: block;
+        float: left;
+      }
+
+      .o-header__top-column--right {
+        width: auto;
+        display: block;
+        float: right;
+        direction: ltr;
+      }
+
+      .o-header__top-column--center {
+        width: auto;
+        display: block;
+        float: left;
+        margin-left: 40px;
+      }
+
+      .o-header__nav-list {
+        display: table-cell;
+        float: none;
+      }
+
+      .o-header__nav-list--right .o-header__nav-item {
+        display: table-cell;
+        padding-left: 14px;
+      }
+    }
+  }
+}
+
+
