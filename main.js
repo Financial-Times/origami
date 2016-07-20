@@ -83,7 +83,7 @@ ODate.prototype.update = function() {
 	const hasTextNode = printer.firstChild && printer.firstChild.nodeType === 3;
 
 	if (date) {
-		date = toDate(date);
+		date = ODate.toDate(date);
 	} else if (hasTextNode) {
 		// Only define new date if printer is empty
 		date = new Date();
@@ -131,50 +131,80 @@ function compile(format) {
 	return (compiledTemplates[format] = new Function('date', funcString));  // jshint ignore:line
 }
 
-function toDate(date) {
+ODate.toDate = function(date) {
 	date = date instanceof Date ? date : new Date(date);
 	if (date.toString() !== 'Invalid Date') {
 		return date;
 	}
-}
+};
 
 ODate.format = function(date, dateFormat) {
 	dateFormat = dateFormat || 'datetime';
 	const tpl = compiledTemplates[dateFormat] || compile(dateFormat);
-	date = toDate(date);
+	date = ODate.toDate(date);
 	return date && tpl(date);
+};
+
+ODate.getSecondsBetween = function(time, otherTime) {
+	return Math.round((time - otherTime) / 1000);
 };
 
 ODate.ftTime = function(dateObj) {
 	const now = new Date();
-	const interval = Math.round((now - dateObj) / 1000);
+	const interval = ODate.getSecondsBetween(now, dateObj);
 	let dateString;
 
-	// if date has not yet passed
-	if (interval < 0) {
-		// if date will occur within the next 5 minutes allow for reasonable difference in machine clocks
-		if (interval > -300) {
-			dateString = 'just now';
-		// if beyond the next 5 minutes fall back to printing the full date - the machine clock could be way out
-		} else {
-			dateString = ODate.format(dateObj, 'date');
-		}
-	// Within 24 hours, and if not crossing in to yesterday, show relative time
-	} else if (interval < 24 * 60 * 60 && now.getDay() === dateObj.getDay()) {
-		dateString = ODate.timeAgo(dateObj, interval);
-	// Within 48 hours, if the day is yesterday show 'yesterday'
-	} else if (interval < 48 * 60 * 60 && (now.getDay() === dateObj.getDay() + 1)) {
+	// If the date will occur in the next 5 minutes. This check is to allow for
+	// reasonably differences in machine clocks.
+	if (ODate.isNearFuture(interval)) {
+		dateString = 'just now';
+
+	// If it's beyond 5 minutes, fall back to printing the whole date, the machine
+	// clock could be way out.
+	} else if (ODate.isFarFuture(interval)) {
+		dateString = ODate.format(dateObj, 'date');
+
+	// Relative times for today
+	} else if (ODate.isToday(dateObj, now, interval)) {
+		dateString = ODate.timeAgo(dateObj, now, interval);
+
+	// 'Yesterday' for dates that occurred yesterday
+	} else if (ODate.isYesterday(dateObj, now, interval)) {
 		dateString = 'yesterday';
-	// Otherwise print the date
+
+	// Else print the date
 	} else {
 		dateString = ODate.format(dateObj, 'date');
 	}
+
 	return dateString;
+};
+
+ODate.isNearFuture = function(interval) {
+	// If the interval within the next 5 minutes
+	return (interval < 0 && interval > -(5 * inSeconds.minute));
+};
+
+ODate.isFarFuture = function(interval) {
+	// If the interval is further in the future than 5 minutes
+	return interval < -(5 * inSeconds.minute);
+};
+
+ODate.isToday = function(date, now, interval) {
+	const within24Hours = interval < inSeconds.day;
+	const sameDayOfWeek = now.getDay() === date.getDay();
+	return (within24Hours && sameDayOfWeek);
+};
+
+ODate.isYesterday = function(date, now, interval) {
+	const within48Hours = interval < 2 * inSeconds.day;
+	const consecutiveDaysOfTheWeek = now.getDay() === date.getDay()+1;
+	return (within48Hours && consecutiveDaysOfTheWeek);
 };
 
 ODate.timeAgo = function(date, interval) {
 
-	date = toDate(date);
+	date = ODate.toDate(date);
 	if (!date) return;
 
 	interval = interval || Math.round(((new Date()) - date) / 1000);
@@ -208,14 +238,14 @@ ODate.asTodayOrYesterdayOrNothing = function(date){
 	if (!date) return;
 
 	const now = new Date();
-	const interval = Math.round((now - date) / 1000); // Time since `date` in seconds
+	const interval = ODate.getSecondsBetween(now, date);
 
 	let dateString;
 
 	// If this was less than a day ago
-	if (interval < inSeconds.day && now.getDay() === date.getDay()) {
+	if (ODate.isToday(date, now, interval)) {
 		dateString = 'today';
-	} else if (interval < (inSeconds.day * 2) && (now.getDay() === date.getDay() + 1)) {
+	} else if (ODate.isYesterday(date, now, interval)) {
 		dateString = 'yesterday';
 	} else {
 		dateString = '';
