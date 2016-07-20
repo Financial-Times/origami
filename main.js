@@ -152,18 +152,25 @@ ODate.ftTime = function(dateObj) {
 	const interval = ODate.getSecondsBetween(now, dateObj);
 	let dateString;
 
+	// If the date will occur in the next 5 minutes. This check is to allow for
+	// reasonably differences in machine clocks.
 	if (ODate.isNearFuture(interval)) {
 		dateString = 'just now';
 
+	// If it's beyond 5 minutes, fall back to printing the whole date, the machine
+	// clock could be way out.
 	} else if (ODate.isFarFuture(interval)) {
 		dateString = ODate.format(dateObj, 'date');
 
+	// Relative times for today
 	} else if (ODate.isToday(dateObj, now, interval)) {
 		dateString = ODate.timeAgo(dateObj, now, interval);
 
+	// 'Yesterday' for dates that occurred yesterday
 	} else if (ODate.isYesterday(dateObj, now, interval)) {
 		dateString = 'yesterday';
 
+	// Else print the date
 	} else {
 		dateString = ODate.format(dateObj, 'date');
 	}
