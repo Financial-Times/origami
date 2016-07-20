@@ -134,7 +134,7 @@ ODate.toDate = function(date) {
 	if (date.toString() !== 'Invalid Date') {
 		return date;
 	}
-}
+};
 
 ODate.format = function(date, dateFormat) {
 	dateFormat = dateFormat || 'datetime';
@@ -145,7 +145,7 @@ ODate.format = function(date, dateFormat) {
 
 ODate.getSecondsBetween = function(time, otherTime) {
 	return Math.round((time - otherTime) / 1000);
-}
+};
 
 ODate.ftTime = function(dateObj) {
 	const now = new Date();
@@ -169,7 +169,7 @@ ODate.ftTime = function(dateObj) {
 	}
 
 	return dateString;
-}
+};
 
 ODate.isNearFuture = function(interval) {
 	// If the interval within the next 5 minutes
@@ -179,19 +179,19 @@ ODate.isNearFuture = function(interval) {
 ODate.isFarFuture = function(interval) {
 	// If the interval is further in the future than 5 minutes
 	return interval < -(5 * inSeconds.minute);
-}
+};
 
 ODate.isToday = function(date, now, interval) {
 	const within24Hours = interval < inSeconds.day;
 	const sameDayOfWeek = now.getDay() === date.getDay();
 	return (within24Hours && sameDayOfWeek);
-}
+};
 
 ODate.isYesterday = function(date, now, interval) {
 	const within48Hours = interval < 2 * inSeconds.day;
 	const consecutiveDaysOfTheWeek = now.getDay() === date.getDay()+1;
 	return (within48Hours && consecutiveDaysOfTheWeek);
-}
+};
 
 ODate.timeAgo = function(date, interval) {
 
