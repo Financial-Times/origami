@@ -46,7 +46,8 @@
             "data": "demos/src/simple-header.js",
             "template": "demos/src/simple-header.mustache",
             "expanded": true,
-            "description": ""
+            "description": "",
+            "documentClasses": "demo-sticky"
         }
     ]
 }

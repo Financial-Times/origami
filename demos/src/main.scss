@@ -5,4 +5,21 @@ $o-header-is-silent: false;
 body {
 	font-family: 'MetricWeb';
 	background: #fff1e0;
+	background: linear-gradient(to bottom, tomato, blueviolet 25%, slateblue 75%, darkslateblue 100%);
+}
+
+.demo-sticky {
+	height: 2999px;
+}
+
+.demo-sticky-scroll {
+	margin: 50px 0;
+	text-align: center;
+	font-size: 24px;
+
+	&:before, &:after {
+		content: '▼';
+		padding: 0 1em;
+		font-size: 75%;
+	}
 }

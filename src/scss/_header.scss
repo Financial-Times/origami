@@ -1,7 +1,7 @@
 @if $o-header-is-silent == false {
 
 	.o-header {
-		color: oColorsGetColorFor('o-header', 'text');
+		@include oColorsFor('o-header', 'text' 'background');
 	}
 
 	.o-header__row {

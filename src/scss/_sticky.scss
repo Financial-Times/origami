@@ -1,0 +1,29 @@
+@if $o-header-is-silent == false {
+
+	.o-header--sticky {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: $_o-header-sticky-z-index;
+		transform: translateY(-100%);
+		transition: transform 0.35s $o-visual-effects-transition-slide;
+
+		@media print {
+			display: none;
+		}
+	}
+
+	.o-header--sticky-active {
+		@include oGridRespondTo($until: 'L') {
+			&.o-header--sticky-scroll-up {
+				transform: translateY(0);
+			}
+		}
+
+		@include oGridRespondTo($from: 'L') {
+			transform: translateY(0);
+		}
+	}
+
+}
