@@ -1,6 +1,8 @@
 @if $o-header-is-silent == false {
 
-	.o-header__top {}
+	.o-header__top {
+		padding: 8px 0;
+	}
 
 	.o-header__top-wrapper {
 		display: table;
@@ -33,6 +35,49 @@
 
 	.o-header__top-column--center {
 		text-align: center;
+	}
+
+	// takeovers will hide all subsequent columns
+	.o-header__top-column--takeover {
+		padding-left: 40px;
+
+		@include oGridRespondTo($from: 'M') {
+			padding-left: 60px;
+		}
+
+		@include oGridRespondTo($from: 'L') {
+			padding-left: 100px;
+		}
+
+		@include oGridRespondTo($from: 'XL') {
+			padding-left: 120px;
+		}
+	}
+
+	.o-header__top-column--takeover-tablet {
+		@include oGridRespondTo($until: 'M') {
+			display: none;
+		}
+
+		@include oGridRespondTo($from: 'M') {
+			// hide other columns
+			& ~ .o-header__top-column {
+				display: none;
+			}
+		}
+	}
+
+	.o-header__top-column--takeover-desktop {
+		@include oGridRespondTo($until: 'L') {
+			display: none;
+		}
+
+		@include oGridRespondTo($from: 'L') {
+			// hide other columns
+			& ~ .o-header__top-column {
+				display: none;
+			}
+		}
 	}
 
 	.o-header__top-link {
@@ -106,10 +151,6 @@
 	.o-header__top-link-label {
 		display: block;
 		margin-top: 2px;
-
-		@include oGridRespondTo('L') {
-			margin-top: 4px;
-		}
 	}
 
 	.o-header__top-logo {
@@ -118,27 +159,27 @@
 
 		display: block;
 		border: 0;
-		margin: 16px auto;
+		margin: 0 auto;
 		background-size: contain;
 		background-position: 50%;
 		background-repeat: no-repeat;
 
 		@include oGridRespondTo('S') {
 			@include oHeaderLogoSize('S');
-			margin-top: 18px;
-			margin-bottom: 18px;
+			// margin-top: 18px;
+			// margin-bottom: 18px;
 		}
 
 		@include oGridRespondTo('M') {
 			@include oHeaderLogoSize('M');
-			margin-top: 24px;
-			margin-bottom: 24px;
+			margin-top: 16px;
+			margin-bottom: 16px;
 		}
 
 		@include oGridRespondTo('L') {
 			@include oHeaderLogoSize('L');
-			margin-top: 30px;
-			margin-bottom: 30px;
+			margin-top: 24px;
+			margin-bottom: 24px;
 		}
 	}
 

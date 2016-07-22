@@ -21,8 +21,6 @@
 @import 'src/scss/mega/articles';
 @import 'src/scss/mega/subsections';
 
-@import 'src/scss/simple-header/simple-header';
-
 @if $o-header-is-silent == false {
 	$o-header-is-silent: true !global;
 }
