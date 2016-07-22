@@ -1,0 +1,10 @@
+$header-background: #282729;
+$white: #fff;
+$grey: #505050;
+$accent-color--tools: #4e96eb;
+$accent-color__lighter--tools: #99c6fb;
+$accent-color__darker--tools: #3a70af;
+
+@include oColorsSetUseCase('o-header-subbrand--level-1', 'background', 'cold-3');
+@include oColorsSetUseCase('o-header-subbrand--level-1', 'text', 'white');
+@include oColorsSetUseCase('o-header-subbrand-drawer', 'background', 'cold-3');

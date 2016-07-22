@@ -1,0 +1,13 @@
+{
+  "name": "o-header-subbrand",
+  "dependencies": {
+    "o-header": "^6.0.0",
+    "o-colors": "^3.3.2",
+    "o-grid": "^4.2.0",
+    "o-typography": "^4.0.0"
+  },
+  "main": [
+    "main.scss",
+    "main.js"
+  ]
+}
