@@ -136,7 +136,7 @@ class Video {
 			loadAdsLibraryPromise = this.videoAds.loadAdsLibrary();
 		}
 		return loadAdsLibraryPromise
-					.then(() => this.getData(), (e) => {
+					.then(() => this.getData(), () => {
 						// If ad doesn't load for some reason, load video as normal
 						this.opts.advertising = false;
 						return this.getData();
@@ -166,17 +166,17 @@ class Video {
 	addPlaceholder() {
 		this.placeholderEl = document.createElement('div');
 		this.placeholderEl.classList.add('o-video__placeholder');
-		this.placeholderImageEl = document.createElement('img');
-		this.placeholderImageEl.classList.add('o-video__placeholder-image');
-		this.placeholderImageEl.setAttribute('src', this.posterImage);
-		this.placeholderEl.appendChild(this.placeholderImageEl);
+		const placeholderImageEl = document.createElement('img');
+		placeholderImageEl.classList.add('o-video__placeholder-image');
+		placeholderImageEl.setAttribute('src', this.posterImage);
+		this.placeholderEl.appendChild(placeholderImageEl);
 
 		let titleEl;
 		if (this.opts.placeholdertitle) {
 			titleEl = document.createElement('div');
 			titleEl.className = 'o-video__title';
 			titleEl.textContent = this.videoData && this.videoData.name;
-			this.placeholder.appendChild(titleEl);
+			this.placeholderEl.appendChild(titleEl);
 		}
 
 		const playButtonEl = document.createElement('button');

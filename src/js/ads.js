@@ -1,6 +1,6 @@
 /* global google */
 
-function createVideoOverlayElement(containerEl) {
+function createVideoOverlayElement() {
 	const overlayEl = document.createElement('div');
 	overlayEl.classList.add('o-video__overlay');
 	return overlayEl;
@@ -12,8 +12,8 @@ class VideoAds {
 		this.adsLoaded = false;
 		this.videoLoad = false;
 
-		if (!this.video.opts.placeholder) {
-			this.overlayEl = createVideoOverlayElement(this.video.containerEl);
+		if (!this.video.placeholderEl) {
+			this.overlayEl = createVideoOverlayElement();
 			this.video.containerEl.appendChild(this.overlayEl);
 		}
 	}
@@ -207,7 +207,7 @@ class VideoAds {
 		}
 	}
 
-	adErrorHandler(error) {
+	adErrorHandler() {
 		this.adsManager && this.adsManager.destroy();
 		this.video.videoEl.play();
 	}
