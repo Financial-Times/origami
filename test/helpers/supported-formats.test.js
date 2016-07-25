@@ -1,5 +1,5 @@
 /* global describe, it */
-const supportedFormats = require('./../../src/helpers/supported-formats');
+const supportedFormats = require('./../../src/js/helpers/supported-formats');
 
 describe('Supported Formats', () => {
 

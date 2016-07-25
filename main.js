@@ -1,4 +1,4 @@
-import Video from './src/video.js';
+import Video from './src/js/video.js';
 
 const constructAll = () => {
 	Video.init();

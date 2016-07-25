@@ -62,7 +62,6 @@ const defaultOpts = {
 	optimumwidth: null,
 	placeholder: false,
 	placeholdertitle: false,
-	playButton: true,
 	data: null
 };
 
@@ -137,7 +136,11 @@ class Video {
 			loadAdsLibraryPromise = this.videoAds.loadAdsLibrary();
 		}
 		return loadAdsLibraryPromise
-					.then(() => this.getData())
+					.then(() => this.getData(), () => {
+						// If ad doesn't load for some reason, load video as normal
+						this.opts.advertising = false;
+						return this.getData();
+					})
 					.then(() => this.renderVideo());
 	}
 
@@ -161,47 +164,43 @@ class Video {
 	}
 
 	addPlaceholder() {
-		this.placeholderEl = document.createElement('img');
-		this.placeholderEl.setAttribute('src', this.posterImage);
+		this.placeholderEl = document.createElement('div');
 		this.placeholderEl.classList.add('o-video__placeholder');
-		this.containerEl.appendChild(this.placeholderEl);
+		const placeholderImageEl = document.createElement('img');
+		placeholderImageEl.classList.add('o-video__placeholder-image');
+		placeholderImageEl.setAttribute('src', this.posterImage);
+		this.placeholderEl.appendChild(placeholderImageEl);
 
 		let titleEl;
 		if (this.opts.placeholdertitle) {
 			titleEl = document.createElement('div');
 			titleEl.className = 'o-video__title';
 			titleEl.textContent = this.videoData && this.videoData.name;
-			this.containerEl.appendChild(titleEl);
+			this.placeholderEl.appendChild(titleEl);
 		}
 
-		if (this.opts.playButton) {
-			const playButtonEl = document.createElement('button');
-			playButtonEl.className = 'o-video__play-button';
+		const playButtonEl = document.createElement('button');
+		playButtonEl.className = 'o-video__play-button';
 
-			const playButtonTextEl = document.createElement('dd');
-			playButtonTextEl.className = 'o-video__play-button-text';
-			playButtonTextEl.textContent = 'Play video';
-			playButtonEl.appendChild(playButtonTextEl);
+		const playButtonTextEl = document.createElement('span');
+		playButtonTextEl.className = 'o-video__play-button-text';
+		playButtonTextEl.textContent = 'Play video';
+		playButtonEl.appendChild(playButtonTextEl);
 
-			const playIconEl = document.createElement('i');
-			playIconEl.className = 'o-video__play-button-icon';
-			playButtonEl.appendChild(playIconEl);
+		const playIconEl = document.createElement('i');
+		playIconEl.className = 'o-video__play-button-icon';
+		playButtonEl.appendChild(playIconEl);
 
-			this.containerEl.appendChild(playButtonEl);
+		this.placeholderEl.appendChild(playButtonEl);
 
-			playButtonEl.addEventListener('click', () => {
-				this.containerEl.removeChild(playButtonEl);
-				if (titleEl) {
-					this.containerEl.removeChild(titleEl);
-				}
-				this.containerEl.removeChild(this.placeholderEl);
+		this.placeholderEl.addEventListener('click', () => {
+			this.containerEl.removeChild(this.placeholderEl);
 
-				this.videoEl.style.display = 'block';
-				this.videoEl.play();
-				this.videoEl.focus();
-			});
-		}
+			this.videoEl.style.display = 'block';
+			this.videoEl.focus();
+		});
 
+		this.containerEl.appendChild(this.placeholderEl);
 		// Adds video soon so ads can start loading
 		this.addVideo();
 		// Hide it so it doesn't flash until the placeholder image loads

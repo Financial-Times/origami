@@ -1,5 +1,5 @@
 /* global describe, it, beforeEach, afterEach, before, after, should */
-const Video = require('./../src/video');
+const Video = require('./../src/js/video');
 const brightcoveResponse = require('./fixtures/brightcove.json');
 const sinon = require('sinon/pkg/sinon');
 
@@ -46,7 +46,6 @@ describe('Video', () => {
 			video.opts.classes.should.contain('o-video__video');
 			should.equal(video.opts.optimumwidth, null);
 			video.opts.placeholder.should.eql(false);
-			video.opts.playButton.should.eql(true);
 			should.equal(video.opts.data, null);
 		});
 
@@ -133,7 +132,7 @@ describe('Video', () => {
 			Video.prototype.addVideo = realAddVideo;
 		});
 
-		it('should be able to create as a placeholder', () => {
+		it('should be able to create a placeholder', () => {
 			const video = new Video(containerEl, { placeholder: true });
 			video.posterImage = 'mockimage';
 			video.addPlaceholder();
@@ -141,8 +140,11 @@ describe('Video', () => {
 			video.placeholderEl.should.be.an.instanceOf(HTMLElement);
 			video.placeholderEl.parentElement.should.equal(containerEl);
 			video.placeholderEl.classList.contains('o-video__placeholder').should.equal(true);
-			video.placeholderEl.getAttribute('src').should.equal('mockimage');
-			containerEl.querySelector('.o-video__play-button').should.exist;
+
+			const placeholderImageEl = video.placeholderEl.querySelector('.o-video__placeholder-image');
+			placeholderImageEl.should.exist;
+			placeholderImageEl.getAttribute('src').should.equal('mockimage');
+			video.placeholderEl.querySelector('.o-video__play-button').should.exist;
 
 			Video.prototype.addVideo.called.should.equal(true);
 		});
@@ -151,7 +153,7 @@ describe('Video', () => {
 			const video = new Video(containerEl, { placeholder: true, placeholdertitle: true });
 			video.videoData = { name: 'A hated rally' };
 			video.addPlaceholder();
-			const titleEl = containerEl.querySelector('.o-video__title');
+			const titleEl = video.placeholderEl.querySelector('.o-video__title');
 
 			titleEl.should.exist;
 			titleEl.textContent.should.equal('A hated rally');
@@ -164,7 +166,7 @@ describe('Video', () => {
 
 			const video = new Video(containerEl, { placeholder: true, placeholdertitle: true });
 			video.addPlaceholder();
-			const playButtonEl = containerEl.querySelector('.o-video__play-button');
+			const playButtonEl = video.placeholderEl.querySelector('.o-video__play-button');
 			const playButtonTextEl = playButtonEl.querySelector('.o-video__play-button-text');
 			const playIconEl = playButtonEl.querySelector('.o-video__play-button-icon');
 
@@ -176,12 +178,6 @@ describe('Video', () => {
 			addEventListenerSpy.calledOn(playButtonEl);
 
 			Element.prototype.addEventListener = realAddEventListener;
-		});
-
-		it('should be able to suppress placeholder play button', () => {
-			new Video(containerEl, { placeholder: true, playButton: false });
-
-			should.equal(containerEl.querySelector('.o-video__play-button'), null);
 		});
 	});
 
