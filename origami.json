@@ -46,7 +46,14 @@
             "data": "demos/src/header.js",
             "template": "demos/src/simple-header.mustache",
             "expanded": true,
-            "description": "",
+            "description": ""
+        },
+        {
+            "name": "sticky-header",
+            "data": "demos/src/header.js",
+            "template": "demos/src/sticky-header.mustache",
+            "expanded": true,
+            "description": "Sticky variation of the simple header",
             "documentClasses": "demo-sticky"
         }
     ]

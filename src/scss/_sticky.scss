@@ -16,27 +16,7 @@
 		@media print {
 			display: none;
 		}
-
-		// fix heights
-		.o-header__top-wrapper {
-			height: $_o-header-sticky-height;
-		}
-
-		.o-header__top-logo {
-			margin-top: 0;
-			margin-bottom: 0;
-
-			// limit the logo size
-			@include oGridRespondTo('L') {
-				@include oHeaderLogoSize('M');
-			}
-		}
-
-		.o-header__nav-link {
-			line-height: $_o-header-sticky-height - ($_o-header-padding-y * 2);
-		}
 	}
-
 
 	.o-header--sticky-active {
 		@include oGridRespondTo($until: 'L') {
