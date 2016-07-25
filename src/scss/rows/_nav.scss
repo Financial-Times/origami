@@ -19,10 +19,6 @@
 		@include oGridRespondTo('L') {
 			display: block;
 		}
-
-		@include oGridRespondTo('XL') {
-			@include oTypographyFallbackFontSize('sans', 18px);
-		}
 	}
 
 	.o-header__nav-list {

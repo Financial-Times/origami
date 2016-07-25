@@ -43,7 +43,7 @@
         },
         {
             "name": "simple-header",
-            "data": "demos/src/simple-header.js",
+            "data": "demos/src/header.js",
             "template": "demos/src/simple-header.mustache",
             "expanded": true,
             "description": "",

@@ -1,12 +1,9 @@
 @if $o-header-is-silent == false {
 
-	.o-header__top {
-		padding: 8px 0;
-	}
+	.o-header__top {}
 
 	.o-header__top-wrapper {
 		display: table;
-		table-layout: fixed;
 		width: 100%;
 	}
 
@@ -18,9 +15,8 @@
 	.o-header__top-column--left,
 	.o-header__top-column--right {
 		// to keep the logo horizontally centered relative to the page these columns must be equal...
-		// I think this is easier than removing them from layout with absolute positioning etc.
-		// anyway, it's rock solid.
-		width: 0;
+		// ... can be removed from layout by fixing table layout and setting width to zero.
+		width: 12.5%;
 		white-space: nowrap;
 	}
 
@@ -30,6 +26,7 @@
 
 	.o-header__top-column--right {
 		text-align: right;
+		// the column has 0 width so we need it to flow this way
 		direction: rtl;
 	}
 
@@ -37,55 +34,12 @@
 		text-align: center;
 	}
 
-	// takeovers will hide all subsequent columns
-	.o-header__top-column--takeover {
-		padding-left: 40px;
-
-		@include oGridRespondTo($from: 'M') {
-			padding-left: 60px;
-		}
-
-		@include oGridRespondTo($from: 'L') {
-			padding-left: 100px;
-		}
-
-		@include oGridRespondTo($from: 'XL') {
-			padding-left: 120px;
-		}
-	}
-
-	.o-header__top-column--takeover-tablet {
-		@include oGridRespondTo($until: 'M') {
-			display: none;
-		}
-
-		@include oGridRespondTo($from: 'M') {
-			// hide other columns
-			& ~ .o-header__top-column {
-				display: none;
-			}
-		}
-	}
-
-	.o-header__top-column--takeover-desktop {
-		@include oGridRespondTo($until: 'L') {
-			display: none;
-		}
-
-		@include oGridRespondTo($from: 'L') {
-			// hide other columns
-			& ~ .o-header__top-column {
-				display: none;
-			}
-		}
-	}
-
 	.o-header__top-link {
 		@include oHeaderLink();
 		display: inline-block;
 		margin-left: 10px;
 		text-transform: uppercase;
-		font-size: 0.6em;
+		font-size: 10px;
 		text-align: center;
 
 		&:before {
@@ -97,12 +51,6 @@
 
 		@include oGridRespondTo('L') {
 			margin-left: 20px;
-			font-size: 0.8em;
-
-			&:before {
-				width: 24px;
-				height: 24px;
-			}
 		}
 
 		// first child for old IE
@@ -159,27 +107,25 @@
 
 		display: block;
 		border: 0;
-		margin: 0 auto;
+		margin: 16px auto;
 		background-size: contain;
 		background-position: 50%;
 		background-repeat: no-repeat;
 
 		@include oGridRespondTo('S') {
 			@include oHeaderLogoSize('S');
-			// margin-top: 18px;
-			// margin-bottom: 18px;
 		}
 
 		@include oGridRespondTo('M') {
 			@include oHeaderLogoSize('M');
-			margin-top: 16px;
-			margin-bottom: 16px;
+			margin-top: 24px;
+			margin-bottom: 24px;
 		}
 
 		@include oGridRespondTo('L') {
 			@include oHeaderLogoSize('L');
-			margin-top: 24px;
-			margin-bottom: 24px;
+			margin-top: 30px;
+			margin-bottom: 30px;
 		}
 	}
 

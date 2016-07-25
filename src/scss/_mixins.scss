@@ -24,6 +24,7 @@
 	position: relative;
 	display: block;
 	padding: $_o-header-padding-y 0;
+	white-space: nowrap;
 
 	&:after {
 		content: '';
