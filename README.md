@@ -7,7 +7,7 @@ Easily include FT web fonts in products.
 
 ```html
 <!-- Load web fonts with @font-face declarations  -->
-<link rel="stylesheet" href="//origami-build.ft.com/v2/bundles/css?modules=o-fonts@^1" />
+<link rel="stylesheet" href="//origami-build.ft.com/v2/bundles/css?modules=o-fonts@^2" />
 
 <!-- Set font families -->
 <style>
