@@ -182,7 +182,7 @@ class Video {
 		const playButtonEl = document.createElement('button');
 		playButtonEl.className = 'o-video__play-button';
 
-		const playButtonTextEl = document.createElement('dd');
+		const playButtonTextEl = document.createElement('span');
 		playButtonTextEl.className = 'o-video__play-button-text';
 		playButtonTextEl.textContent = 'Play video';
 		playButtonEl.appendChild(playButtonTextEl);
