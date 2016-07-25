@@ -1,8 +1,21 @@
 /* global google */
 
+function createVideoOverlayElement(containerEl) {
+	const overlayEl = document.createElement('div');
+	overlayEl.classList.add('o-video__overlay');
+	return overlayEl;
+}
+
 class VideoAds {
 	constructor(video) {
 		this.video = video;
+		this.adsLoaded = false;
+		this.videoLoad = false;
+
+		if (!this.video.opts.placeholder) {
+			this.overlayEl = createVideoOverlayElement(this.video.containerEl);
+			this.video.containerEl.appendChild(this.overlayEl);
+		}
 	}
 
 	loadAdsLibrary() {
@@ -21,8 +34,8 @@ class VideoAds {
 				resolve();
 			});
 
-			googleSdkScript.addEventListener('error', () => {
-				reject();
+			googleSdkScript.addEventListener('error', (e) => {
+				reject(e);
 			});
 		});
 	}
@@ -71,6 +84,14 @@ class VideoAds {
 			this.adErrorHandler,
 			false);
 
+		this.requestAds();
+
+		this.playAdEventHandler = this.playAdEventHandler.bind(this);
+		this.overlayEl && this.overlayEl.addEventListener('click', this.playAdEventHandler);
+		this.video.placeholderEl && this.video.placeholderEl.addEventListener('click', this.playAdEventHandler);
+	}
+
+	requestAds() {
 		// Request video ads.
 		const adsRequest = new google.ima.AdsRequest();
 		let advertisingUrl = `http://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast2&iu=${this.video.targeting.site}&sz=${this.video.targeting.sizes}&unviewed_position_start=1&scp=pos%3D${this.video.targeting.position}&ttid=${this.video.targeting.videoId}`;
@@ -82,7 +103,7 @@ class VideoAds {
 
 		adsRequest.adTagUrl = advertisingUrl;
 
-		// Specify the linear and nonlinear slot sizes. This helps the SDK to
+		// Specify the linear and nonlinear slot sizes. This helps the SDK
 		// select the correct creative if multiple are returned.
 		adsRequest.linearAdSlotWidth = 592;
 		adsRequest.linearAdSlotHeight = 333;
@@ -94,10 +115,6 @@ class VideoAds {
 	}
 
 	adsManagerLoadedHandler(adsManagerLoadedEvent) {
-		// If the video has started before the ad loaded, don't load the ad
-		if (this.video.videoEl.played.length > 0) {
-			return;
-		}
 		// Get the ads manager.
 		const adsRenderingSettings = new google.ima.AdsRenderingSettings();
 		adsRenderingSettings.restoreCustomPlaybackStateOnAdBreakComplete = true;
@@ -114,17 +131,13 @@ class VideoAds {
 		this.adsManager.addEventListener(google.ima.AdEvent.Type.STARTED, this.adEventHandler);
 		this.adsManager.addEventListener(google.ima.AdEvent.Type.COMPLETE, this.adEventHandler);
 
-		this.playAdEventHandler = this.playAdEventHandler.bind(this);
-		this.video.videoEl.addEventListener('play', this.playAdEventHandler);
+		this.adsLoaded = true;
+		if (this.videoLoaded) {
+			this.startAds();
+		}
 	}
 
-	playAdEventHandler() {
-		// Sets the styling now so the ad occupies the space of the video
-		this.adContainerEl.classList.add('o-video__ad');
-		// Initialize the video. Must be done via a user action on mobile devices.
-		this.video.videoEl.load();
-		this.adDisplayContainer.initialize();
-
+	startAds() {
 		try {
 			// Initialize the ads manager. Ad rules playlist will start at this time.
 			this.adsManager.init(this.video.videoEl.clientWidth, this.video.videoEl.clientHeight, google.ima.ViewMode.NORMAL);
@@ -135,15 +148,32 @@ class VideoAds {
 			// An error may be thrown if there was a problem with the VAST response.
 			this.video.videoEl.play();
 		}
+	}
 
-		this.video.videoEl.removeEventListener('play', this.playAdEventHandler);
+	playAdEventHandler() {
+		// Sets the styling now so the ad occupies the space of the video
+		this.adContainerEl.classList.add('o-video__ad');
+
+		this.adDisplayContainer.initialize();
+		this.video.videoEl.addEventListener('loadedmetadata', () => {
+			this.videoLoaded = true;
+			if (this.adsLoaded) {
+				this.startAds();
+			}
+		});
+
+		// Initialize the video. Must be done via a user action on mobile devices.
+		this.video.videoEl.load();
+
+		this.overlayEl && this.overlayEl.removeEventListener('click', this.playAdEventHandler);
+		this.overlayEl && this.video.containerEl.removeChild(this.overlayEl);
+		this.video.placeholderEl && this.video.placeholderEl.removeEventListener('click', this.playAdEventHandler);
 	}
 
 	adEventHandler(adEvent) {
 		// Retrieve the ad from the event. Some events (e.g. ALL_ADS_COMPLETED)
 		// don't have ad object associated.
 		const ad = adEvent.getAd();
-		let intervalTimer;
 		switch (adEvent.type) {
 			case google.ima.AdEvent.Type.LOADED:
 				// This is the first event sent for an ad - it is possible to
@@ -162,24 +192,22 @@ class VideoAds {
 					// For a linear ad, a timer can be started to poll for
 					// the remaining time.
 					// TODO: We could use this to add a skip ad button
-					intervalTimer = setInterval(() => {
-						// Currently not used
-						// const remainingTime = this.adsManager.getRemainingTime();
-					}, 300); // every 300ms
+					// Currently not used, could be used in an interval
+					// const remainingTime = this.adsManager.getRemainingTime();
 				}
 				break;
 			case google.ima.AdEvent.Type.COMPLETE:
 				this.adContainerEl.style.display = 'none';
 				if (ad.isLinear()) {
-					clearInterval(intervalTimer);
+					// Would be used to clear the interval
 				}
 				break;
 		}
 	}
 
-	adErrorHandler() {
-		// Todo: Handle the error logging.
-		this.adsManager.destroy();
+	adErrorHandler(error) {
+		this.adsManager && this.adsManager.destroy();
+		this.video.videoEl.play();
 	}
 
 	contentPauseRequestHandler() {

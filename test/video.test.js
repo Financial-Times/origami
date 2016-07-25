@@ -1,5 +1,5 @@
 /* global describe, it, beforeEach, afterEach, before, after, should */
-const Video = require('./../src/video');
+const Video = require('./../src/js/video');
 const brightcoveResponse = require('./fixtures/brightcove.json');
 const sinon = require('sinon/pkg/sinon');
 

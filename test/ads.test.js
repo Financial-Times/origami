@@ -1,5 +1,5 @@
 /* global describe, it, beforeEach, afterEach, google */
-const Ads = require('./../src/ads');
+const Ads = require('./../src/js/ads');
 const sinon = require('sinon/pkg/sinon');
 
 describe('Ads', () => {
