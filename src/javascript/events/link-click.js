@@ -136,7 +136,7 @@ function createLinkID(link) {
 	name = (name.length > 1 ? name.slice(0, 2).join('-') : name[0]).toLowerCase();
 	*/
 	return parents.map(function (p) {
-		return p.getAttribute('data-trackable') || p.tagName.toLowerCase() + ((p.id ? '#' + p.id : '') || (p.className ? '.' + p.className.split(' ')[0] : ''));
+		return p.getAttribute('data-position') || p.getAttribute('data-trackable') || p.tagName.toLowerCase() + ((p.id ? '#' + p.id : '') || (p.className ? '.' + p.className.split(' ')[0] : ''));
 	}).filter(function (e, i, arr) {
 		return arr.lastIndexOf(e) === i;
 	}).reverse();
