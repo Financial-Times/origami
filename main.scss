@@ -10,35 +10,29 @@
 @import 'src/scss/primary_nav';
 
 
-.o-header-subbrand__container {
-  @include oGridContainer;
-  @include oGridRespondTo($until: M) {
-    padding: 0;
+@mixin oHeaderSubbrand {
+  .o-header-subbrand {
+    background-color: oColorsGetColorFor('o-header-subbrand--level-1', 'background');
   }
 
-  &:before,
-	&:after {
-		content: '';
-		display: table;
-	}
+  .o-header-subbrand__container {
+    @include oGridContainer;
+    @include oGridRespondTo($until: M) {
+      padding: 0;
+    }
 
-	&:after {
-		clear: both;
-	}
+    &:before,
+  	&:after {
+  		content: '';
+  		display: table;
+  	}
+
+  	&:after {
+  		clear: both;
+  	}
+  }
 }
 
-.o-header-subbrand {
-  background-color: oColorsGetColorFor('o-header-subbrand--level-1', 'background');
-}
-
-.o-header-subbrand__drawer {
-  background-color: oColorsGetColorFor('o-header-subbrand--level-1', 'background');
-}
-
-.o-header-subbrand__drawer-tools {
-  padding: $_o-header-subbrand-padding-x $_o-header-subbrand-padding-y;
-}
-
-.o-header__drawer-menu-link {
-  @include oTypographySans(s);
+@if $o-header-subbrand-is-silent == false {
+  @include oHeaderSubbrand();
 }

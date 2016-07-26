@@ -1,47 +1,50 @@
-.o-header-subbrand__primary-nav {
-  background-color: $accent-color--tools;
-  zoom: 1;
-  overflow: hidden;
-}
+@if $o-header-subbrand-is-silent == false {
 
-.o-header-subbrand__nav-list {
-  margin: 0;
-  padding: 0;
-}
-
-.o-header-subbrand__nav-item {
-  @include oGridRespondTo($until: M) {
-    display:none;
+  .o-header-subbrand__primary-nav {
+    background-color: $accent-color--tools;
+    zoom: 1;
+    overflow: hidden;
   }
 
-  display: inline-block;
-
-  //http://browserhacks.com/#hack-aff8d8f6c5ce6a560158ada7b9007854
-  *display: inline;
-  zoom: 1;
-
-  &:first-child {
-    margin-left: -$_o-header-subbrand-padding-x*2;
+  .o-header-subbrand__nav-list {
+    margin: 0;
+    padding: 0;
   }
 
-  &--selected {
-    background-color: $accent-color__darker--tools;
-  }
+  .o-header-subbrand__nav-item {
+    @include oGridRespondTo($until: M) {
+      display:none;
+    }
 
-  a {
-    @include oTypographySans(s);
-    color: $white;
-    text-transform: uppercase;
-    text-decoration: none;
     display: inline-block;
 
     //http://browserhacks.com/#hack-aff8d8f6c5ce6a560158ada7b9007854
     *display: inline;
     zoom: 1;
-    margin: 0;
-    padding: $_o-header-subbrand-padding-y $_o-header-subbrand-padding-x*2;
-    &:hover{
+
+    &:first-child {
+      margin-left: -$_o-header-subbrand-padding-x*2;
+    }
+
+    &--selected {
       background-color: $accent-color__darker--tools;
+    }
+
+    a {
+      @include oTypographySans(s);
+      color: $white;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+
+      //http://browserhacks.com/#hack-aff8d8f6c5ce6a560158ada7b9007854
+      *display: inline;
+      zoom: 1;
+      margin: 0;
+      padding: $_o-header-subbrand-padding-y $_o-header-subbrand-padding-x*2;
+      &:hover{
+        background-color: $accent-color__darker--tools;
+      }
     }
   }
 }

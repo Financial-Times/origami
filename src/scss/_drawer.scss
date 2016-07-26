@@ -1,6 +1,9 @@
-@include oHeaderDrawer();
+@if $o-header-subbrand-is-silent == false {
 
-// Override some styles here for the drawer
-.o-header-drawer--subbrand {
+  @include oHeaderDrawer();
 
+  // Override some styles here for the drawer
+  .o-header-drawer--subbrand {
+
+  }
 }
