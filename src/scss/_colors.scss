@@ -1,17 +1,20 @@
-$header-background: #282729;
-$white: #fff;
-$grey: #505050;
-$accent-color--tools: #4e96eb; // add to o-colors
-$accent-color__lighter--tools: #99c6fb; // add to o-colors
-$accent-color__darker--tools: #3a70af; // add to o-colors
 
-$drawer-background: #505050;
-$drawer-item: #99c6fb;
+$accent-color--b2b: #4e96eb; // add to o-colors
+$accent-color__lighter--b2b: #99c6fb; // add to o-colors
+$accent-color__darker--b2b: #3a70af; // add to o-colors
 
+@include oColorsSetUseCase('o-header-services-top', 'background', 'cold-3');
+@include oColorsSetUseCase('o-header-services-top', 'text', 'white');
 
-@include oColorsSetUseCase('o-header-services--level-1', 'background', 'cold-3');
-@include oColorsSetUseCase('o-header-services--level-1', 'text', 'white');
-@include oColorsSetUseCase('o-header-services-drawer', 'background', 'cold-3');
+// blue is a stand in until the b2b b2c colors get added to o-colors
+@include oColorsSetUseCase('o-header-services-top-title', 'text', 'blue');
 
-// override usecases for o-header colors
-@include oColorsSetUseCase('o-header--level-1', 'background', 'cold-3');
+// blue is a stand in until the b2b b2c colors get added to o-colors
+@include oColorsSetUseCase('o-header-services-primary-nav', 'background', 'blue');
+@include oColorsSetUseCase('o-header-services-primary-nav', 'text', 'white');
+
+// blue is a stand in until the b2b b2c colors get added to o-colors
+@include oColorsSetUseCase('o-header-services-primary-nav-item--hover', 'background', 'blue');
+
+// override usecases for o-header-drawer colors eg
+//@include oColorsSetUseCase('o-header-color-thing', 'background', 'cold-3');

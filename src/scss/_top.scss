@@ -2,10 +2,10 @@
 
   .o-header-services__top {
     @include oTypographySans(s);
-    color: oColorsGetColorFor('o-header-services--level-1', 'text');
+    color: oColorsGetColorFor('o-header-services-top', 'text');
+    background-color: oColorsGetColorFor('o-header-services-top', 'background');
     overflow: hidden;
     display:block;
-    background-color: oColorsGetColorFor('o-header-services--level-1', 'background');
   }
 
   .o-header-services__ftlogo {
@@ -32,11 +32,12 @@
     height: $_o-header-services-top-bar-y--small;
     width: $_o-header-services-top-bar-y--small;
     float: left;
-    background-color: $accent-color--tools;
+    background-color: oColorsGetColorFor('o-header-services-primary-nav', 'background');
+
     display:inline-block;
 
     .o-header-services__hamburger-link {
-      @include oIconsGetIcon('hamburger', $white, 21, $apply-base-styles: false, $apply-width-height: false);
+      @include oIconsGetIcon('hamburger', oColorsGetColorFor('o-header-services-top', text), 21, $apply-base-styles: false, $apply-width-height: false);
       display: block;
       background-size: 21px 21px;
       background-position: 50% 50%;
@@ -63,7 +64,7 @@
       font-weight: 600;
     }
     font-weight: 600;
-    color: $accent-color__lighter--tools;
+    color: oColorsGetColorFor('o-header-services-top-title', text);
     display: inline-block;
     margin: 0;
     -webkit-font-smoothing: antialiased;
@@ -78,6 +79,7 @@
     text-transform: uppercase;
     margin-left: $_o-header-services-padding-x;
     -webkit-font-smoothing: antialiased;
+
     // Default behaviour for when there's not enough space because we don't know the
     // width of the tagline
     text-overflow: ellipsis;
@@ -97,12 +99,12 @@
     > a {
       text-decoration: none;
       display: inline-block;
-      color: $white;
+      color: oColorsGetColorFor('o-header-services-top', text);
       margin: 0 $_o-header-services-padding-x;
       font-weight: 600;
 
       &:visited {
-        color: $white;
+        color: oColorsGetColorFor('o-header-services-top', text);
       }
 
       &:hover {

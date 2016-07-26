@@ -12,7 +12,7 @@
 
 @mixin oHeaderServices {
   .o-header-services {
-    background-color: oColorsGetColorFor('o-header-services--level-1', 'background');
+    background-color: oColorsGetColorFor('o-header-services-top', 'background');
   }
 
   .o-header-services__container {
