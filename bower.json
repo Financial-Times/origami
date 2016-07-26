@@ -1,5 +1,5 @@
 {
-  "name": "o-header-subbrand",
+  "name": "o-header-services",
   "dependencies": {
     "o-header": "^6.4.0",
     "o-colors": "^3.3.2",

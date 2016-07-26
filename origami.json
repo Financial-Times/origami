@@ -2,7 +2,7 @@
     "description": "Responsive page header for sub-brands",
     "origamiType": "module",
     "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-header-subbrand/issues",
+    "support": "https://github.com/Financial-Times/o-header-services/issues",
     "supportStatus": "active",
     "browserFeatures": {
         "required": [
@@ -10,7 +10,7 @@
         ]
     },
     "ci": {
-        "circle": "https://circleci.com/api/v1/project/Financial-Times/o-header-subbrand"
+        "circle": "https://circleci.com/api/v1/project/Financial-Times/o-header-services"
     },
     "demosDefaults": {
         "dependencies": ["o-fonts@^2.0.0"],

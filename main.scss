@@ -10,12 +10,12 @@
 @import 'src/scss/primary_nav';
 
 
-@mixin oHeaderSubbrand {
-  .o-header-subbrand {
-    background-color: oColorsGetColorFor('o-header-subbrand--level-1', 'background');
+@mixin oHeaderServices {
+  .o-header-services {
+    background-color: oColorsGetColorFor('o-header-services--level-1', 'background');
   }
 
-  .o-header-subbrand__container {
+  .o-header-services__container {
     @include oGridContainer;
     @include oGridRespondTo($until: M) {
       padding: 0;
@@ -33,6 +33,6 @@
   }
 }
 
-@if $o-header-subbrand-is-silent == false {
-  @include oHeaderSubbrand();
+@if $o-header-services-is-silent == false {
+  @include oHeaderServices();
 }

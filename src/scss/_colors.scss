@@ -9,9 +9,9 @@ $drawer-background: #505050;
 $drawer-item: #99c6fb;
 
 
-@include oColorsSetUseCase('o-header-subbrand--level-1', 'background', 'cold-3');
-@include oColorsSetUseCase('o-header-subbrand--level-1', 'text', 'white');
-@include oColorsSetUseCase('o-header-subbrand-drawer', 'background', 'cold-3');
+@include oColorsSetUseCase('o-header-services--level-1', 'background', 'cold-3');
+@include oColorsSetUseCase('o-header-services--level-1', 'text', 'white');
+@include oColorsSetUseCase('o-header-services-drawer', 'background', 'cold-3');
 
 // override usecases for o-header colors
 @include oColorsSetUseCase('o-header--level-1', 'background', 'cold-3');
