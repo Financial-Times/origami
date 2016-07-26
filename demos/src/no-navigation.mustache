@@ -37,68 +37,23 @@
     </div>
   </div>
 </header>
-<div class="o-header-subbrand__drawer o-header__drawer o--if-js" id="o-header-drawer" data-o-header-drawer data-o-header-drawer--no-js>
+<div class="o-header__drawer--subbrand o-header__drawer o--if-js" id="o-header-drawer" data-o-header-drawer data-o-header-drawer--no-js>
   <div class="o-header__drawer-inner">
-    <div class="o-header__drawer-tools o-header-subbrand__drawer-tools">
-      <span class='o-header-subbrand__product-name'>Tool or Service name</span>
+    <div class="o-header__drawer-tools">
+      <span>Tool or Service name</span>
       <button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer">
-        <span class="o-header_visually-hidden o-header-subbrand_visually-hidden">Close</span>
+        <span class="o-header_visually-hidden">Close</span>
       </button>
     </div>
-    <nav class="o-header__drawer-menu o-header__drawer-menu--primary" role="navigation" aria-label="Primary navigation">
+    <nav class="o-header__drawer-menu o-header__drawer-menu--user" role="navigation" aria-label="User navigation">
       <ul class="o-header__drawer-menu-list">
-        {{#nav}}
-          {{#heading}}
-            <li class="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{{name}}</li>
-          {{/heading}}
-          {{#items}}
-            <li class="o-header__drawer-menu-item {{#divide}}o-header__drawer-menu-item--divide{{/divide}}">
-            {{#hasChildren}}
-              <div class="o-header__drawer-menu-toggle-wrapper">
-                <button class="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" aria-controls="o-header-drawer-child-{{index}}">
-                  Show more {{name}} links
-                </button>
-                <a class="o-header__drawer-menu-link o-header__drawer-menu-link--parent o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" aria-label="{{#selected}}Current page{{/selected}}{{^selected}}Go to {{name}}{{/selected}}">{{name}}</a>
-              </div>
-              <ul class="o-header__drawer-menu-list o-header__drawer-menu-list--child" id="o-header-drawer-child-{{index}}">
-                {{#children}}
-                <li class="o-header__drawer-menu-item">
-                  <a class="o-header__drawer-menu-link o-header__drawer-menu-link--child o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" aria-label="{{#selected}}Current page{{/selected}}{{^selected}}Go to {{name}}{{/selected}}">{{name}}</a>
-                </li>
-                {{/children}}
-              </ul>
-            {{/hasChildren}}
-            {{^hasChildren}}
-              <a class="o-header__drawer-menu-link o-header__drawer-menu-link--{{variation}} o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" aria-label="{{#selected}}Current page{{/selected}}{{^selected}}Go to {{name}}{{/selected}}">{{name}}</a>
-            {{/hasChildren}}
-          </li>
-          {{/items}}
-      {{/nav}}
-    </ul>
-  </nav>
-
-  <nav class="o-header__drawer-menu o-header__drawer-menu--user" role="navigation" aria-label="User navigation">
-    <ul class="o-header__drawer-menu-list">
-      {{^user.isSignedIn}}
-          <li class="o-header__drawer-menu-item">
-            <a class="o-header__drawer-menu-link" href="#">XXXX</a>
-          </li>
-          <li class="o-header__drawer-menu-item">
-            <a class="o-header__drawer-menu-link" href="#">Sign in</a>
-          </li>
-      {{/user.isSignedIn}}
-      {{#user.isSignedIn}}
-          <li class="o-header__drawer-menu-item">
-            <a class="o-header__drawer-menu-link" href="https://registration.ft.com/registration/selfcare/">
-              {{user.name}}
-              <span class="o-header__drawer-menu-link-detail" data-o-header-subbrand-drawer-user-email></span>
-            </a>
-          </li>
-          <li class="o-header__drawer-menu-item">
-            <a class="o-header__drawer-menu-link" href="/logout">Sign Out</a>
-          </li>
-      {{/user.isSignedIn}}
-    </ul>
-  </nav>
+        <li class="o-header__drawer-menu-item">
+          <a class="o-header__drawer-menu-link" href="#">XXXX</a>
+        </li>
+        <li class="o-header__drawer-menu-item">
+          <a class="o-header__drawer-menu-link" href="#">Sign in</a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
