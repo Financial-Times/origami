@@ -1,4 +1,4 @@
-@if $o-header-is-silent == false {
+@mixin oHeaderDrawer() {
 
 	// added to the document element, see n-ui/layout
 	.o-header__drawer {
@@ -342,4 +342,8 @@
 		margin-top: 0.25em;
 		font-size: 14px;
 	}
+}
+
+@if $o-header-is-silent == false {
+	@include oHeaderDrawer();
 }
