@@ -22,6 +22,78 @@ describe('click', function () {
 		settings.destroy('config');  // Empty settings.
 	});
 
+	describe('internal links', function () {
+		let aLink;
+
+		before(function () {
+			aLink = document.createElement('a');
+			aLink.href = location.origin + '/url';
+			aLink.text = "A link to Google's website";
+		});
+
+		it('should store an event for an internal link', function (done) {
+			const event = document.createEvent('HTMLEvents');
+			const callback = sinon.spy();
+			link.init({
+				links: [aLink],
+				event: 'testClick',
+				callback: callback
+			});
+
+			event.initEvent('testClick', true, true);
+			aLink.dispatchEvent(event, true);
+			setTimeout(() => {
+				assert.ok(!callback.called, 'Callback called.');
+				const storedEvent = JSON.parse(localStorage.getItem('o-tracking_links'))[0];
+
+				assert.equal(typeof storedEvent.created_at, 'number');
+				assert.equal(storedEvent.item.category, "link");
+				assert.equal(storedEvent.item.action, "click");
+
+				// Link
+				assert.equal(storedEvent.item.context.link.node_name, "A");
+				assert.equal(storedEvent.item.context.link.dom_path, "a");
+				assert.deepEqual(storedEvent.item.context.link.dom_path_tokens, ["a"]);
+				assert.equal(storedEvent.item.context.link.source_id, "page_id");
+				assert.equal(storedEvent.item.context.link.destination, aLink.href);
+				assert.equal(storedEvent.item.context.link.text, aLink.text);
+				assert.equal(storedEvent.item.context.link.is_internal, true);
+				done();
+			}, 10);
+
+		});
+
+		it('should send event for an internal link on new page load', function (done) {
+
+			sinon.stub(core, 'track');
+			// simulates loading of a new page
+			link.init({});
+
+			setTimeout(() => {
+				assert.equal(localStorage.getItem('o-tracking_links'), '[]');
+				assert.ok(core.track.called, 'Callback not called.');
+
+				const sent_data = core.track.getCall(0).args[0];
+
+				// Type
+				assert.equal(sent_data.category, "link");
+				assert.equal(sent_data.action, "click");
+
+				// Link
+				assert.equal(sent_data.context.link.node_name, "A");
+				assert.equal(sent_data.context.link.dom_path, "a");
+				assert.deepEqual(sent_data.context.link.dom_path_tokens, ["a"]);
+				assert.equal(sent_data.context.link.source_id, "page_id");
+				assert.equal(sent_data.context.link.destination, aLink.href);
+				assert.equal(sent_data.context.link.text, aLink.text);
+				assert.equal(sent_data.context.link.is_internal, true);
+				core.track.restore();
+				done();
+			}, 10);
+
+		});
+	});
+
 	it('should track an external link', function (done) {
 
 		const callback = sinon.spy();
@@ -55,78 +127,15 @@ describe('click', function () {
 			assert.equal(sent_data.context.root_id, "page_id");
 
 			// Link
-			assert.equal(sent_data.context.link.id, "a/www.google.com");
+			assert.equal(sent_data.context.link.node_name, "A");
+			assert.equal(sent_data.context.link.dom_path, "a");
+			assert.deepEqual(sent_data.context.link.dom_path_tokens, ["a"]);
 			assert.equal(sent_data.context.link.source_id, "page_id");
-			assert.equal(sent_data.context.link.href, aLink.href);
-			assert.equal(sent_data.context.link.title, aLink.text);
+			assert.equal(sent_data.context.link.destination, aLink.href);
+			assert.equal(sent_data.context.link.text, aLink.text);
+			assert.equal(sent_data.context.link.is_internal, false);
 			done();
-		}, 10)
+		}, 10);
 
 	});
-	describe('internal links', function () {
-		let aLink;
-
-		before(function () {
-			aLink = document.createElement('a');
-			aLink.href = location.origin + '/url';
-			aLink.text = "A link to Google's website";
-		});
-
-		it('should store an event for an internal link', function (done) {
-			const event = document.createEvent('HTMLEvents');
-			const callback = sinon.spy();
-			link.init({
-				links: [aLink],
-				event: 'testClick',
-				callback: callback
-			});
-
-			event.initEvent('testClick', true, true);
-			aLink.dispatchEvent(event, true);
-			setTimeout(() => {
-				assert.ok(!callback.called, 'Callback called.');
-				const storedEvent = JSON.parse(localStorage.getItem('o-tracking_links'))[0];
-
-				assert.equal(typeof storedEvent.created_at, 'number')
-				assert.equal(storedEvent.item.category, "link");
-				assert.equal(storedEvent.item.action, "click");
-
-				// Link
-				assert.equal(storedEvent.item.context.link.id, "a/url");
-				assert.equal(storedEvent.item.context.link.source_id, "page_id");
-				assert.equal(storedEvent.item.context.link.href, aLink.href);
-				assert.equal(storedEvent.item.context.link.title, aLink.text);
-				done();
-			}, 10)
-
-		});
-
-		it('should send event for an internal link on new page load', function (done) {
-
-			sinon.stub(core, 'track')
-			// simulates loading of a new page
-			link.init({});
-
-			setTimeout(() => {
-				assert.equal(localStorage.getItem('o-tracking_links'), '[]');
-				assert.ok(core.track.called, 'Callback not called.');
-
-				const sent_data = core.track.getCall(0).args[0];
-
-				// Type
-				assert.equal(sent_data.category, "link");
-				assert.equal(sent_data.action, "click");
-
-				// Link
-				assert.equal(sent_data.context.link.id, "a/url");
-				assert.equal(sent_data.context.link.source_id, "page_id");
-				assert.equal(sent_data.context.link.href, aLink.href);
-				assert.equal(sent_data.context.link.title, aLink.text);
-				core.track.restore();
-				done();
-			}, 10)
-
-		});
-	})
-
 });

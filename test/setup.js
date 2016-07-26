@@ -16,7 +16,7 @@ module.exports.mockTransport = function () {
 				}
 			}
 		};
-	}
+	};
 };
 
 module.exports.unmockTransport = function () {
@@ -25,7 +25,7 @@ module.exports.unmockTransport = function () {
 
 module.exports.errorNextSend = function () {
 	willError = true;
-}
+};
 
 // for the vast majority of tests we want to use a mock transport
 // so we setup the mock globally here

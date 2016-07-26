@@ -5,4 +5,4 @@ module.exports = {
 	get: function (name) {
 		return this.mock || this[name];
 	}
-}
+};
