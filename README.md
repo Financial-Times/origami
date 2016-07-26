@@ -49,6 +49,9 @@ The simplest header, appropriate for single page applications with no navigation
 
 o-header-subbrand supports related content (eg Sign in or licence numbers). At large screen widths these appear to the far right of the header. At smaller screens these collapse down to a `drawer` which is behind a hamburger menu.
 
+#### Core experience of the drawer
+Small screen users should still be able to access the contents of the drawer even if their browser doesn't cut the mustard or the JavaScript has failed to load. In this case we recommend you have the contents of the drawer at the bottom of the page in a footer that is only visible if the body has a `.core` class. In core experience the hamburger menu links to an anchor at the bottom of the page.
+
 To add support for related content, add the following to your markup:
 
 ```diff
