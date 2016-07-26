@@ -114,4 +114,13 @@ $o-colors-palette: map-merge((
 	'claret-2':              #ff7f8a,
 	'claret-inverse':        #4f1828,
 
+	// FT organisation colours
+	'org-b2c':               #4e96eb,
+	'org-b2c-dark':          #3a70af,
+	'org-b2c-light':         #99c6fb,
+
+	'org-b2b':               #f6801a,
+	'org-b2b-dark':          #c85f04,
+	'org-b2b-light':         #f29d53,
+
 ), $o-colors-palette);
