@@ -1,7 +1,7 @@
 import { debounce } from 'o-utils';
 
 function init (headerEl) {
-	if (!headerEl.matches('.o-header--sticky')) {
+	if (!headerEl.hasAttribute('data-o-header--sticky')) {
 		return;
 	}
 
@@ -27,7 +27,7 @@ function init (headerEl) {
 	}
 
 	function startLoop () {
-		lastAnimationFrame = window.requestAnimationFrame(function () {
+		lastAnimationFrame = window.requestAnimationFrame(() => {
 			handleFrame();
 			startLoop();
 		});

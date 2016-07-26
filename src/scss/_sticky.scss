@@ -8,6 +8,7 @@
 		z-index: $_o-header-sticky-z-index;
 		transform: translateY(-100%);
 		transition: transform 0.35s $o-visual-effects-transition-slide;
+		will-change: transform;
 
 		// because the transition is slightly bouncy it will reveal some of the background
 		border-top: 30px solid transparent;

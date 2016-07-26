@@ -76,6 +76,7 @@ _There are intentionally no classes to switch between logged in and out as we do
 Some elements inside the header require specific data attributes so the JavaScript can add some behaviour correctly. These are:
 
 * data-o-header--no-js: Applied to the root element. This data attribute is removed when the JavaScript initialises
+* data-o-header--sticky: Applied to the sticky variation of the header
 * data-o-header-mega: Applied to the root `<div>` of the mega menu
 * data-o-header-search: Applied to the root `<div>` of the _enhanced_ search row. There are two search rows, one for enhanced, another for core
 * data-o-header-drawer: Applied to the root `<div>` of the drawer
