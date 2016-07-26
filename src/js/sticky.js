@@ -16,7 +16,8 @@ function init (headerEl) {
 
 		headerEl.classList.toggle('o-header--sticky-active', isActive);
 
-		if (Math.abs(scrollDepth - lastScrollDepth) > 10) {
+		// allow a little wiggling room so we don't get too hasty toggling up/down state
+		if (Math.abs(scrollDepth - lastScrollDepth) > 20) {
 			const isScrollingDown = lastScrollDepth < scrollDepth;
 			headerEl.classList.toggle('o-header--sticky-scroll-down', isActive && isScrollingDown);
 			headerEl.classList.toggle('o-header--sticky-scroll-up', isActive && !isScrollingDown);
@@ -51,6 +52,8 @@ function init (headerEl) {
 	const debouncedScrollEnd = debounce(scrollEnd, 300);
 
 	window.addEventListener('scroll', scrollStart);
+
+	handleFrame();
 };
 
 export default { init };
