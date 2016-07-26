@@ -4,12 +4,12 @@ const DomDelegate = require('ftdomdelegate');
 const TextCopyHelper = require('./TextCopyHelper');
 
 const socialUrls = {
-	twitter: "https://twitter.com/intent/tweet?url={{url}}&amp;text={{title}}&amp;related={{relatedTwitterAccounts}}&amp;via=FT",
-	facebook: "http://www.facebook.com/sharer.php?u={{url}}&amp;t={{title}}+|+{{titleExtra}}",
-	linkedin: "http://www.linkedin.com/shareArticle?mini=true&amp;url={{url}}&amp;title={{title}}+|+{{titleExtra}}&amp;summary={{summary}}&amp;source=Financial+Times",
+	twitter: "https://twitter.com/intent/tweet?url={{url}}&text={{title}}&related={{relatedTwitterAccounts}}&via=FT",
+	facebook: "http://www.facebook.com/sharer.php?u={{url}}&t={{title}}+|+{{titleExtra}}",
+	linkedin: "http://www.linkedin.com/shareArticle?mini=true&url={{url}}&title={{title}}+|+{{titleExtra}}&summary={{summary}}&source=Financial+Times",
 	googleplus: "https://plus.google.com/share?url={{url}}",
-	reddit: "http://reddit.com/submit?url={{url}}&amp;title={{title}}",
-	pinterest: "http://www.pinterest.com/pin/create/button/?url={{url}}&amp;description={{title}}",
+	reddit: "http://reddit.com/submit?url={{url}}&title={{title}}",
+	pinterest: "http://www.pinterest.com/pin/create/button/?url={{url}}&description={{title}}",
 	url: "{{url}}"
 };
 
