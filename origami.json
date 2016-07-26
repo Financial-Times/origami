@@ -1,6 +1,7 @@
 {
 	"description": "FT brand colours: Sass variables and helpers to use and define them",
 	"origamiType": "module",
+	"origamiGroup": "primitives",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-colors/issues",
 	"supportStatus": "active",
