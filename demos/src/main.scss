@@ -1,5 +1,7 @@
 @import '../../main';
 
+.core .o--if-js,
+.enhanced .o--if-no-js { display: none !important; }
 
 .demo-notes {
   font-family: arial;
