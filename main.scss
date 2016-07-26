@@ -7,102 +7,39 @@ $o-header-is-silent: false;
 @import 'src/scss/colors';
 @import 'src/scss/variables';
 @import 'src/scss/drawer';
+@import 'src/scss/top';
+@import 'src/scss/primary_nav';
 
-$gutter: oGridGutter();
+
+.o-header-subbrand__container {
+  @include oGridContainer;
+  @include oGridRespondTo($until: M) {
+    padding: 0;
+  }
+
+  &:before,
+	&:after {
+		content: '';
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
 
 .o-header-subbrand {
   background-color: oColorsGetColorFor('o-header-subbrand--level-1', 'background');
 }
 
-.o-header-subbrand__container {
-  @include oGridContainer;
+.o-header-subbrand__drawer {
+  background-color: oColorsGetColorFor('o-header-subbrand--level-1', 'background');
+}
+
+.o-header-subbrand__drawer-tools {
+  padding: $_o-header-subbrand-padding-x $_o-header-subbrand-padding-y;
+}
+
+.o-header__drawer-menu-link {
   @include oTypographySans(s);
-  @include oGridRespondTo($until: M) {
-    padding: 0;
-  }
-  color: oColorsGetColorFor('o-header-subbrand--level-1', 'text');
-  -webkit-font-smoothing: antialiased;
-  overflow:hidden;
-}
-
-.o-header-subbrand__ftlogo {
-  float: left;
-  width: 47px;
-  height: 47px;
-  display: inline-block;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 0;
-  background-image: (url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxsaW5lYXJHcmFkaWVudCBpZD0iYSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxMjcuOTk5IiB4Mj0iMTI3Ljk5OSIgeTI9IjI1NiI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkZFOENGIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRkZEREI5Ii8+PC9saW5lYXJHcmFkaWVudD48cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNMCAwaDI1NnYyNTZoLTI1NnoiLz48cGF0aCBmaWxsPSIjMzMzIiBkPSJNNjUuNDcxIDEzMy42MDNjMCAxMi4wODEgMy4yMjUgMTMuNDM5IDE3LjAwMSAxMy45NTJ2NC40MjFoLTU0Ljc1NHYtNC40MjFjMTEuMzkzLS41MTMgMTQuNjIxLTEuODcxIDE0LjYyMS0xMy45NTJ2LTc4Ljg4OGMwLTEyLjA5Mi0zLjIyOS0xMy40NDktMTQuMjgxLTEzLjk1NHYtNC40MjJoOTYuNThsLjY4OCAyNS41MDVoLTQuNzYyYy00LjA4My0xMi45MjQtOC41MDctMTctMzEuMTIzLTE3aC0xNy41MTljLTUuMjYyIDAtNi40NTEgMS4xODMtNi40NTEgNS45NXYzNi41NjVoOC42MjhjMTguMDI5IDAgMjEuOTQyLTMuMjQgMjQuMTUtMTUuMzE1aDQuNDJ2NDAuODE0aC00LjQyYy0yLjM3OC0xMy42MDQtOS4xODQtMTcuMDAyLTI0LjE1LTE3LjAwMmgtOC42Mjh2MzcuNzQ3ek0yMzQuMDA3IDM2LjMzOWgtMTAxLjM0OGwtMi4zNTQgMjUuNTE0aDUuODFjMy43MTMtMTIuNDk3IDkuMTctMTcuMDA4IDIxLjM2OS0xNy4wMDhoMTQuMjg0djg4Ljc1OGMwIDEyLjA4MS0zLjIzIDEzLjQzOS0xNi4zMjMgMTMuOTUydjQuNDIxaDU1Ljc3OXYtNC40MjFjLTEzLjA5Ni0uNTEzLTE2LjMyNy0xLjg3MS0xNi4zMjctMTMuOTUydi04OC43NTloMTQuMjc4YzEyLjIwNiAwIDE3LjY2OSA0LjUxMiAyMS4zNzMgMTcuMDA4aDUuODFsLTIuMzUxLTI1LjUxM3oiLz48L3N2Zz4=), none);
-}
-
-.o-header-subbrand__hamburger {
-  @include oGridRespondTo(M) {
-    display:none;
-  }
-  float: left;
-  background-color: $accent-color--tools;
-  width: 47px;
-  height: 47px;
-  display:inline-block;
-
-  .o-header-subbrand__hamburger__link {
-    @include oIconsGetIcon('hamburger', #ffffff, 21, $apply-base-styles: false, $apply-width-height: false);
-    display: block;
-    background-size: 21px 21px;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    height: 47px;
-  }
-}
-
-.o-header-subbrand__title {
-  display: inline-block;
-  float: left;
-}
-
-.o-header-subbrand__product-name {
-  @include oTypographySans(l);
-  @include oGridRespondTo($until: M) {
-    @include oTypographySans(m);
-    font-weight: 600;
-  }
-  font-weight: 600;
-  color: $accent-color__lighter--tools;
-  display: inline-block;
-  margin: 0;
-  padding: $gutter;
-}
-
-.o-header-subrand__product-tagline {
-  text-transform: uppercase;
-  @include oTypographySans(m);
-  @include oGridRespondTo($until: L) {
-    display:none;
-  }
-}
-
-.o-header-subbrand__related-content {
-  float: right;
-  padding: $gutter;
-
-  @include oGridRespondTo($until: M) {
-    display:none;
-  }
-}
-
-.o-header-subbrand__link {
-  text-decoration: none;
-  display: inline-block;
-  color: $white;
-  margin: $gutter/2;
-  font-weight: 600;
-
-  &:visited {
-    color: $white;
-  }
-
-  &:hover {
-    border-bottom: dotted white 1px;
-  }
 }

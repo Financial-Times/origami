@@ -1,5 +1,7 @@
-<!--<div class='demo-notes'>
+<!--
+<div class='demo-notes'>
   The simplest version of the subbrand header is a single bar with the FT square logo and the title.
+  At smaller screen sizes any items at the far right will collapse down into a hamburger positioned to the left of the logo which opens a 'drawer'.
   <p><strong>Required:</strong></p>
   <ul>
     <li>
@@ -19,30 +21,26 @@
 </div>
 -->
 <header id='o-header-subbrand' class='o-header-subbrand' data-o-component='o-header'>
-  <div class='o-header-subbrand__container'>
-    <div class='o-header-subbrand__inner'>
-      <div class='o-header-subbrand__hamburger'>
-        <a class='o-header-subbrand__hamburger__link' href="#o-header-drawer"  aria-controls="o-header-drawer"></a>
-      </div>
-      <div class='o-header-subbrand__ftlogo'></div>
-      <div class='o-header-subbrand__title'>
-        <h1 class='o-header-subbrand__product-name'>Tool or Service name</h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
-      </div>
-      <div class='o-header-subbrand__related-content'>
-        <a class='o-header-subbrand__link' href='#'>XXXX</a>
-        <a class='o-header-subbrand__link' href='#'>Sign in</a>
-      </div>
+  <div class='o-header-subbrand__top o-header-subbrand__container'>
+    <div class='o-header-subbrand__hamburger'>
+      <a class='o-header-subbrand__hamburger-link' href="#o-header-drawer"  aria-controls="o-header-drawer"></a>
+    </div>
+    <div class='o-header-subbrand__ftlogo'></div>
+    <div class='o-header-subbrand__title'>
+      <h1 class='o-header-subbrand__product-name'>Tool or Service name</h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
+    </div>
+    <div class='o-header-subbrand__related-content'>
+      <a href='#'>XXXX</a>
+      <a href='#'>Sign in</a>
     </div>
   </div>
 </header>
-<div class="o-header__drawer" id="o-header-drawer" data-o-header-drawer data-o-header-drawer--no-js>
+<div class="o-header-subbrand__drawer o-header__drawer" id="o-header-drawer" data-o-header-drawer data-o-header-drawer--no-js>
   <div class="o-header__drawer-inner">
-    <div class="o-header__drawer-tools">
-      <a class="o-header__drawer-tools-logo" href="/">
-        <span class="o-header_visually-hidden">Financial Times</span>
-      </a>
-      <button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-subbrand-drawer">
-        <span class="o-header_visually-hidden">Close</span>
+    <div class="o-header__drawer-tools o-header-subbrand__drawer-tools">
+      <span class='o-header-subbrand__product-name'>Tool or Service name</span>
+      <button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer">
+        <span class="o-header_visually-hidden o-header-subbrand_visually-hidden">Close</span>
       </button>
     </div>
     <nav class="o-header__drawer-menu o-header__drawer-menu--primary" role="navigation" aria-label="Primary navigation">
@@ -81,10 +79,10 @@
     <ul class="o-header__drawer-menu-list">
       {{^user.isSignedIn}}
           <li class="o-header__drawer-menu-item">
-            <a class="o-header__drawer-menu-link" href="/products?segID=400863&amp;segmentID=190b4443-dc03-bd53-e79b-b4b6fbd04e64">Subscribe</a>
+            <a class="o-header__drawer-menu-link" href="#">XXXX</a>
           </li>
           <li class="o-header__drawer-menu-item">
-            <a class="o-header__drawer-menu-link" href="/login">Sign In</a>
+            <a class="o-header__drawer-menu-link" href="#">Sign in</a>
           </li>
       {{/user.isSignedIn}}
       {{#user.isSignedIn}}

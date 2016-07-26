@@ -1,0 +1,38 @@
+.o-header-subbrand__primary-nav {
+  background-color: $accent-color--tools;
+}
+
+.o-header-subbrand__nav-list {
+  margin: 0;
+  padding: 0;
+}
+
+.o-header-subbrand__nav-item {
+  @include oGridRespondTo($until: M) {
+    display:none;
+  }
+  display: inline-block;
+
+  &:first-child {
+    margin-left: -$_o-header-subbrand-padding-x*2;
+  }
+
+  &--selected {
+    background-color: $accent-color__darker--tools;
+  }
+
+  a {
+    @include oTypographySans(s);
+    color: $white;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 0;
+    padding: $_o-header-subbrand-padding-y $_o-header-subbrand-padding-x*2;
+    display: inline-block;
+
+    &:hover{
+      background-color: $accent-color__darker--tools;
+
+    }
+  }
+}

@@ -1,14 +1,6 @@
-$o-header-is-silent: true !default;
-$o-header-image-base-url: 'https://image.webservices.ft.com' !default;
+$_o-header-subbrand-padding-x: oGridGutter();
+$_o-header-subbrand-padding-y: oGridGutter();;
 
-$_o-header-subbrand-padding-x: 12px;
-$_o-header-subbrand-padding-y: 12px;
-$_o-header-subbrand-buttons-theme: 'standout';
-$_o-header-subbrand-mega-padding-x: 24px;
-$_o-header-subbrand-mega-padding-y: 18px;
-$_o-header-subbrand-mega-z-index: 1;
-$_o-header-subbrand-drawer-z-index: 100;
-$_o-header-subbrand-drawer-width: 320px;
-$_o-header-subbrand-drawer-divide-height: 40px;
-$_o-header-subbrand-drawer-padding-x: 16px;
-$_o-header-subbrand-drawer-padding-y: 12px;
+$_o-header-subbrand-top-bar-y: 55px;
+$_o-header-subbrand-top-bar-y--small: 45px;
+$_o-header-subbrand-primary-nav-y: 35px;
