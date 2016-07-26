@@ -1,6 +1,7 @@
 {
 	"description": "Utility for formatting and updating dates",
 	"origamiType": "module",
+	"origamiGroup": "utilities",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-date/issues",
 	"supportStatus": "active",
