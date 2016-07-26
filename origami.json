@@ -20,6 +20,12 @@
     },
     "demos": [
         {
+            "name": "very simple",
+            "template": "demos/src/very-simple.mustache",
+            "expanded": true,
+            "description": ""
+        },
+        {
             "name": "no levels of navigation",
             "template": "demos/src/no-navigation.mustache",
             "expanded": true,
