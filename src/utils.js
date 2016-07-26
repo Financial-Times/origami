@@ -88,35 +88,6 @@ function getVisibility() {
 	return document[hiddenName];
 }
 
-function debounce (func, wait) {
-	let timeout;
-	return function () {
-		const args = arguments;
-		const later = () => {
-			timeout = null;
-			func.apply(this, args);
-		};
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-	};
-};
-
-function throttle (func, wait) {
-	let timeout;
-	return function () {
-		if (timeout) {
-			return;
-		}
-		const args = arguments;
-		const later = () => {
-			timeout = null;
-			func.apply(this, args);
-		};
-
-		timeout = setTimeout(later, wait);
-	};
-};
-
 module.exports = {
 	debug: function() {
 		debug = true;
@@ -128,7 +99,5 @@ module.exports = {
 	getScrollPosition: getScrollPosition,
 	getVisibility: getVisibility,
 	getOrientation: getOrientation,
-	detectVisiblityAPI: detectVisiblityAPI,
-	throttle: throttle,
-	debounce: debounce
+	detectVisiblityAPI: detectVisiblityAPI
 };

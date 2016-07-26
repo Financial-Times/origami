@@ -2,5 +2,7 @@
 	"name": "o-viewport",
 	"description": "Utility for moderating listeners for browser events on window",
 	"main": "main.js",
-	"dependencies": {}
+	"dependencies": {
+		"o-utils": "^1.0.0"
+	}
 }
