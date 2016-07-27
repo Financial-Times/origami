@@ -25,26 +25,26 @@
     &:first-child {
       margin-left: -$_o-header-services-padding-x*2;
     }
+  }
+  .o-header-services__nav-link {
+    @include oTypographySans(s);
+    color: oColorsGetColorFor(o-header-services-primary-nav, text);
 
-    &--selected {
-      background-color: oColorsGetColorFor('o-header-services-primary-nav-item--hover', background);
-    }
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
 
-    a {
-      @include oTypographySans(s);
-      color: oColorsGetColorFor('o-header-services-primary-nav', text);
-      text-transform: uppercase;
-      text-decoration: none;
-      display: inline-block;
+    //http://browserhacks.com/#hack-aff8d8f6c5ce6a560158ada7b9007854
+    *display: inline;
+    zoom: 1;
+    margin: 0;
+    padding: $_o-header-services-padding-y $_o-header-services-padding-x*2;
 
-      //http://browserhacks.com/#hack-aff8d8f6c5ce6a560158ada7b9007854
-      *display: inline;
-      zoom: 1;
-      margin: 0;
-      padding: $_o-header-services-padding-y $_o-header-services-padding-x*2;
-      &:hover {
-        background-color: oColorsGetColorFor('o-header-services-primary-nav-item--hover', background);
-      }
+    &:hover,
+    &--selected,
+    &[aria-selected=true] {
+      @include oColorsFor(o-header-services-primary-nav-item--hover, background text);
     }
   }
+
 }

@@ -1,20 +1,25 @@
-
-$accent-color--b2b: #4e96eb; // add to o-colors
-$accent-color__lighter--b2b: #99c6fb; // add to o-colors
-$accent-color__darker--b2b: #3a70af; // add to o-colors
-
 @include oColorsSetUseCase('o-header-services-top', 'background', 'cold-3');
 @include oColorsSetUseCase('o-header-services-top', 'text', 'white');
 
-// blue is a stand in until the b2b b2c colors get added to o-colors
-@include oColorsSetUseCase('o-header-services-top-title', 'text', 'blue');
+// default theme
+@include oColorsSetUseCase('o-header-services-top-title', 'text', 'white');
+@include oColorsSetUseCase('o-header-services-primary-nav', 'background', 'pink-tint4');
+@include oColorsSetUseCase('o-header-services-primary-nav', 'text', 'black');
+@include oColorsSetUseCase('o-header-services-primary-nav-item--hover', 'background', 'pink-tint5');
+@include oColorsSetUseCase('o-header-services-primary-nav-item--hover', 'text', 'white');
 
-// blue is a stand in until the b2b b2c colors get added to o-colors
-@include oColorsSetUseCase('o-header-services-primary-nav', 'background', 'blue');
-@include oColorsSetUseCase('o-header-services-primary-nav', 'text', 'white');
+// B2C theme
+@include oColorsSetUseCase('o-header-services-b2c-top-title', 'text', 'org-b2c-light');
+@include oColorsSetUseCase('o-header-services-b2c-primary-nav', 'background', 'org-b2c');
+@include oColorsSetUseCase('o-header-services-b2c-primary-nav', 'text', 'white');
+@include oColorsSetUseCase('o-header-services-b2c-primary-nav-item--hover', 'background', 'org-b2c-dark');
 
-// blue is a stand in until the b2b b2c colors get added to o-colors
-@include oColorsSetUseCase('o-header-services-primary-nav-item--hover', 'background', 'blue');
+// B2B theme
+@include oColorsSetUseCase('o-header-services-b2b-top-title', 'text', 'org-b2b-light');
+@include oColorsSetUseCase('o-header-services-b2b-primary-nav', 'background', 'org-b2b');
+@include oColorsSetUseCase('o-header-services-b2b-primary-nav', 'text', 'white');
+@include oColorsSetUseCase('o-header-services-b2b-primary-nav-item--hover', 'background', 'org-b2b-dark');
+
 
 // override usecases for o-header-drawer colors eg
 //@include oColorsSetUseCase('o-header-color-thing', 'background', 'cold-3');

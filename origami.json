@@ -20,8 +20,14 @@
     },
     "demos": [
         {
-            "name": "very simple",
+            "name": "very-simple",
             "template": "demos/src/very-simple.mustache",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "name": "themes",
+            "template": "demos/src/themes.mustache",
             "expanded": true,
             "description": ""
         },
