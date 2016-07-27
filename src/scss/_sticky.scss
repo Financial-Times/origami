@@ -20,6 +20,8 @@
 	}
 
 	.o-header--sticky-active {
+		@include oEffectsShadowsElevation('mid');
+
 		@include oGridRespondTo($until: 'L') {
 			&.o-header--sticky-scroll-up {
 				transform: translateY(0);

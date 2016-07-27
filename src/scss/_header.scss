@@ -33,18 +33,4 @@
 		height: 1px;
 	}
 
-	@each $breakpoint in ('M', 'L', 'XL') {
-		.o-header__show--#{$breakpoint} {
-			@include oGridRespondTo($until: $breakpoint) {
-				display: none !important;
-			}
-		}
-
-		.o-header__hide--#{$breakpoint} {
-			@include oGridRespondTo($from: $breakpoint) {
-				display: none !important;
-			}
-		}
-	}
-
 }

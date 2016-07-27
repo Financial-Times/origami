@@ -9,18 +9,20 @@
 						<span class="o-header__top-link-label">Menu</span>
 					</a>
 					{{/top.hasMenu}}
-					<a href="#o-header-search" class="o-header__top-link o-header__top-link--search" aria-controls="o-header-search-sticky">
+					<a href="#o-header-search" class="o-header__top-link o-header__top-link--search" aria-controls="o-header-search">
 						<span class="o-header__top-link-label">Search</span>
 					</a>
 				</div>
 
 				<div class="o-header__top-column o-header__top-column--center">
+					<!--<div class="o-header__top-takeover"></div>-->
 					<a class="o-header__top-logo" href="/" title="Go to Financial Times homepage">
 						<span class="o-header__visually-hidden">Financial Times</span>
 					</a>
 				</div>
 
 				<div class="o-header__top-column o-header__top-column--right">
+					<!--<div class="o-header__top-takeover"></div>-->
 					{{#top.hasMyFT}}
 					<a class="o-header__top-link o-header__top-link--myft" href="/myft">
 						<span class="o-header__visually-hidden">myFT</span>
@@ -31,7 +33,7 @@
 		</div>
 	</div>
 
-	<div id="o-header-search-sticky" class="o-header__row o-header__search o--if-js" role="search" data-o-header-search>
+	<div id="o-header-search" class="o-header__row o-header__search o--if-js" role="search" data-o-header-search>
 		<div class="o-header__container">
 			<form class="o-header__search-form" action="/search" role="search" aria-label="Site search">
 				<label class="o-header__visually-hidden" for="o-header-search-term-js">Search the <abbr title="Financial Times">FT</abbr></label>
@@ -39,7 +41,7 @@
 				<button class="o-header__search-submit" type="submit">
 					Search
 				</button>
-				<button class="o-header__search-close" type="button" aria-controls="o-header-search-sticky">
+				<button class="o-header__search-close" type="button" aria-controls="o-header-search">
 					<span class="o-header__visually-hidden">Close</span>
 				</button>
 			</form>

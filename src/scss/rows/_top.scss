@@ -26,11 +26,22 @@
 
 	.o-header__top-column--right {
 		text-align: right;
-		direction: rtl;
 	}
 
 	.o-header__top-column--center {
 		text-align: center;
+	}
+
+	.o-header__top-takeover {
+		display: none;
+
+		@include oGridRespondTo('L') {
+			display: block;
+
+			& ~ * {
+				display: none !important;
+			}
+		}
 	}
 
 	.o-header__top-link {
