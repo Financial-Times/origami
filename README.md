@@ -1,8 +1,5 @@
 # Still to do:
-- Rename, this component is a services it's something else
-- Fix the drawer, it's hacked in, it should be properly inlcuded from o-header
-- Silent mode
-- Themes (tools/services)
+- Style the drawer
 - check it works with the build service
 - no-js
 - README
@@ -34,15 +31,28 @@ The simplest header, appropriate for single page applications with no navigation
   <div class='o-header-services__top o-header-services__container'>
     <div class='o-header-services__ftlogo'></div>
     <div class='o-header-services__title'>
-      <h1 class='o-header-services__product-name'>
-        Tool or Service name
-      </h1>
-      <span class='o-header-subrand__product-tagline'>
-        Tagline to explain the product here
-      </span>
+      <h1 class='o-header-services__product-name'>Tool or Service name</h1>
+      <span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
     </div>
   </div>
-</div>
+</header>
+```
+
+### Themes
+There are themes available for b2b products and b2c products. If you want a theme but aren't building a b2 or b2c product please get in touch.
+
+To add a theme to the header, add the appropriate class to a wrapping element. For example, for b2b that would be:
+```
++<header id='o-header-services' class='o-header-services o-header-services--b2b' data-o-component='o-header'>
+-<header id='o-header-services' class='o-header-services' data-o-component='o-header'>
+  <div class='o-header-services__top o-header-services__container'>
+    <div class='o-header-services__ftlogo'></div>
+    <div class='o-header-services__title'>
+      <h1 class='o-header-services__product-name'>Tool or Service name</h1>
+      <span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
+    </div>
+  </div>
+</header>
 ```
 
 ### Related links and the drawer
