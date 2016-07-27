@@ -1,6 +1,7 @@
 {
     "description": "Accessible toggles",
     "origamiType": "module",
+    "origamiCategory": "components",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-toggle/issues",
     "supportStatus": "active",
