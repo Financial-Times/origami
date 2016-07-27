@@ -57,6 +57,7 @@ $_o-video_applied: false !default;
 
 		.o-video__play-button-text {
 			text-indent: -9999px;
+			display: block;
 		}
 
 		.o-video__play-button-icon {
