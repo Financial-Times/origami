@@ -1,6 +1,7 @@
 {
 	"description": "Web font loader",
 	"origamiType": "module",
+	"origamiCategory": "primitives",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-fonts/issues",
 	"supportStatus": "active",
