@@ -1,7 +1,7 @@
 {
     "description": "Buttons module",
     "origamiType": "module",
-    "origamiGroup": "component",
+    "origamiCategory": "components",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-buttons/issues",
     "supportStatus": "active",
