@@ -28,7 +28,7 @@ The header has the following features:
 - The FT logo
 - The product title. This should be present and the same on all of your pages
 
-** Optional **
+**Optional**
 - A product tagline. If used, this should be a concise description of your product. The tagline is only visible at the widest screen size
 - At wide screen sizes, the right of the nav may be used for content like a "Sign in" link. At narrower screen widths this content goes behind a hamburger menu on the right of the FT logo
 - If there is a "Sign in" option in the related content it should always appear on the far right. For consistency with other FT products, use "Sign in" over "Log in" or "Login"
