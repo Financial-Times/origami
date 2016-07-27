@@ -1,6 +1,7 @@
 {
 	"description": "JS helper functions",
 	"origamiType": "module",
+	"origamiCategory": "utilities",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-utils/issues",
 	"supportStatus": "active",
