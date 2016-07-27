@@ -18,25 +18,33 @@ class VideoAds {
 		}
 	}
 
+
 	loadAdsLibrary() {
 		return new Promise((resolve, reject) => {
-			if (document.querySelector('[src="//imasdk.googleapis.com/js/sdkloader/ima3.js"]')) {
-				resolve();
+			let googleSdkScript = document.querySelector('[src="//imasdk.googleapis.com/js/sdkloader/ima3.js"]');
+
+			if(!googleSdkScript) {
+				googleSdkScript = document.createElement('script');
+				googleSdkScript.setAttribute('type', 'text/javascript');
+				googleSdkScript.setAttribute('src', `//imasdk.googleapis.com/js/sdkloader/ima3.js`);
+				googleSdkScript.setAttribute('async', true);
+				googleSdkScript.setAttribute('defer', true);
+				document.getElementsByTagName("head")[0].appendChild(googleSdkScript);
 			}
-			const googleSdkScript = document.createElement('script');
-			googleSdkScript.setAttribute('type', 'text/javascript');
-			googleSdkScript.setAttribute('src', `//imasdk.googleapis.com/js/sdkloader/ima3.js`);
-			googleSdkScript.setAttribute('async', true);
-			googleSdkScript.setAttribute('defer', true);
-			document.getElementsByTagName("head")[0].appendChild(googleSdkScript);
 
-			googleSdkScript.addEventListener('load', () => {
+			if(googleSdkScript.hasAttribute('data-o-video-script-loaded')) {
 				resolve();
-			});
+			} else {
 
-			googleSdkScript.addEventListener('error', (e) => {
-				reject(e);
-			});
+				googleSdkScript.addEventListener('load', () => {
+					googleSdkScript.setAttribute('data-o-video-script-loaded', true);
+					resolve();
+				});
+
+				googleSdkScript.addEventListener('error', (e) => {
+					reject(e);
+				});
+			}
 		});
 	}
 
