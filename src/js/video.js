@@ -197,6 +197,9 @@ class Video {
 			this.containerEl.removeChild(this.placeholderEl);
 
 			this.videoEl.style.display = 'block';
+			if (!this.opts.advertising) {
+				this.videoEl.load();
+			}
 			this.videoEl.focus();
 		});
 
