@@ -11,6 +11,7 @@ class VideoAds {
 		this.video = video;
 		this.adsLoaded = false;
 		this.videoLoad = false;
+		this.sdkScriptLoaded = false;
 
 		if (!this.video.placeholderEl) {
 			this.overlayEl = createVideoOverlayElement();
@@ -18,12 +19,11 @@ class VideoAds {
 		}
 	}
 
-
 	loadAdsLibrary() {
 		return new Promise((resolve, reject) => {
 			let googleSdkScript = document.querySelector('[src="//imasdk.googleapis.com/js/sdkloader/ima3.js"]');
 
-			if(!googleSdkScript) {
+			if (!googleSdkScript) {
 				googleSdkScript = document.createElement('script');
 				googleSdkScript.setAttribute('type', 'text/javascript');
 				googleSdkScript.setAttribute('src', `//imasdk.googleapis.com/js/sdkloader/ima3.js`);
@@ -32,12 +32,12 @@ class VideoAds {
 				document.getElementsByTagName("head")[0].appendChild(googleSdkScript);
 			}
 
-			if(googleSdkScript.hasAttribute('data-o-video-script-loaded')) {
+			if (this.sdkScriptLoaded) {
 				resolve();
 			} else {
 
 				googleSdkScript.addEventListener('load', () => {
-					googleSdkScript.setAttribute('data-o-video-script-loaded', true);
+					this.sdkScriptLoaded = true;
 					resolve();
 				});
 
