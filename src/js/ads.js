@@ -1,5 +1,7 @@
 /* global google */
 
+let sdkScriptLoaded = false;
+
 function createVideoOverlayElement() {
 	const overlayEl = document.createElement('div');
 	overlayEl.classList.add('o-video__overlay');
@@ -11,7 +13,6 @@ class VideoAds {
 		this.video = video;
 		this.adsLoaded = false;
 		this.videoLoad = false;
-		this.sdkScriptLoaded = false;
 
 		if (!this.video.placeholderEl) {
 			this.overlayEl = createVideoOverlayElement();
@@ -32,12 +33,12 @@ class VideoAds {
 				document.getElementsByTagName("head")[0].appendChild(googleSdkScript);
 			}
 
-			if (this.sdkScriptLoaded) {
+			if (sdkScriptLoaded) {
 				resolve();
 			} else {
 
 				googleSdkScript.addEventListener('load', () => {
-					this.sdkScriptLoaded = true;
+					sdkScriptLoaded = true;
 					resolve();
 				});
 
