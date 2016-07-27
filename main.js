@@ -7,6 +7,10 @@ class Toggle {
 			toggleEl = document.querySelector(toggleEl);
 		}
 
+			if (toggleEl.hasAttribute('data-o-toggle--js')) {
+				return;
+			}
+
 		if (!config) {
 			config = {};
 			// Try to get config set declaratively on the element
@@ -35,7 +39,6 @@ class Toggle {
 			this.targetEl = document.querySelector(this.targetEl);
 		}
 
-		this.targetElSymbol = Symbol(this.targetEl);
 		this.toggleEl = toggleEl;
 
 		if (typeof Toggle._toggles.get(this.targetEl) === 'undefined') {
