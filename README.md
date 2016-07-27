@@ -54,7 +54,7 @@ The simplest header, appropriate for single page applications with no navigation
 ```
 
 ### Themes
-There are themes available for b2b products and b2c products. If you want a theme but aren't building a b2 or b2c product please get in touch.
+There are themes available for b2b products and b2c products. If you want a theme but aren't building a b2b or b2c product please [please raise an issue](../../issues).
 
 To add a theme to the header, add the appropriate class to a wrapping element. For example, for b2b that would be:
 
@@ -144,7 +144,7 @@ This requires the drawer code, as seen above, and the following addition:
 +    </ul>
 +  </div>
 +</nav>
-<!-- Drawer code as above -->
+<!-- Drawer HTML as above -->
 <!-- those nav items again -->
 ```
 
