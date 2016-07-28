@@ -20,14 +20,14 @@ describe('o-date', function() {
 		});
 
 		it('returns a date object if the date passed in is valid', function() {
-			const valid_dates = [
+			const validDates = [
 				'03/11/16',
 				'2016-07-15T16:18:12+00:00',
 				new Date(2000, 5, 15, 6, 37, 22, 499),
 			];
 
-			for (let i = 0; i < valid_dates.length; i++) {
-				let testDate = oDate.toDate(valid_dates[i]);
+			for (let i = 0; i < validDates.length; i++) {
+				let testDate = oDate.toDate(validDates[i]);
 				let testDateAsDate = new Date(testDate);
 
 				expect(testDate instanceof Date).toBe(true); // It should be a Date object
