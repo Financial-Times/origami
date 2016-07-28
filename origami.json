@@ -1,6 +1,7 @@
 {
     "description": "Financial Times icons",
     "origamiType": "module",
+    "origamiCategory": "primitives",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-icons/issues",
     "supportStatus": "active",
