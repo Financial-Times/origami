@@ -2,7 +2,7 @@
 /*eslint-env jasmine */
 const oDate = require('../main');
 
-describe('o-date', () =>  {
+describe('o-date', () => {
 
 	const inSeconds = {
 		second: 1,
@@ -14,12 +14,12 @@ describe('o-date', () =>  {
 		year: 365 * 24 * 60 * 60,
 	};
 
-	describe('toDate', () =>  {
+	describe('toDate', () => {
 		it('returns `undefined` if the passed in argument isnt a date', () => {
 			expect(oDate.toDate('hello')).toBe(undefined);
 		});
 
-		it('returns a date object if the date passed in is valid', () =>  {
+		it('returns a date object if the date passed in is valid', () => {
 			const validDates = [
 				'03/11/16',
 				'2016-07-15T16:18:12+00:00',
@@ -36,7 +36,7 @@ describe('o-date', () =>  {
 		});
 	});
 
-	describe('ODate.format', () =>  {
+	describe('ODate.format', () => {
 		const someDate = new Date("Mon Jul 18 2016 23:12:11");
 
 		const someTimes = {
@@ -48,28 +48,28 @@ describe('o-date', () =>  {
 			"11pm":	 new Date("Monday July 18 23:00"),
 		};
 
-		it('calls ODate.toDate() with the date argument passed in', () =>  {
+		it('calls ODate.toDate() with the date argument passed in', () => {
 			spyOn(oDate, 'toDate');
 			oDate.format(someDate);
 			expect(oDate.toDate).toHaveBeenCalledWith(someDate);
 		});
 
-		it('returns a date if "date" is passed in as a second argument', () =>  {
+		it('returns a date if "date" is passed in as a second argument', () => {
 			expect(oDate.format(someDate, "date")).toBe('July 18, 2016');
 		});
 
-		it('returns a datetime if "datetime" is passed in as a second argument', () =>  {
+		it('returns a datetime if "datetime" is passed in as a second argument', () => {
 			expect(oDate.format(someDate, "datetime")).toBe('July 18, 2016 11:12 pm');
 		});
 
-		it('doesnt zero pad single digit hours', () =>  {
+		it('doesnt zero pad single digit hours', () => {
 			const someDate = new Date("Mon Jul 18 2016 06:12:11");
 			expect(oDate.format(someDate, "datetime")).toBe('July 18, 2016 6:12 am');
 		});
 
 		// This is a bit of a cop-out really as what we're testing here is oDate's
 		// compile() and tpl() functions
-		it('accepts date formatting functions', () =>  {
+		it('accepts date formatting functions', () => {
 			const date = new Date(2000, 1, 5, 6, 7, 22, 499);
 
 			expect(oDate.format(date, 'yyyy yy')).toBe('2000 00');
@@ -82,7 +82,7 @@ describe('o-date', () =>  {
 			expect(oDate.format(date, 'This is \\a co\\mmon string mm')).toBe('This is a common string 07');
 		});
 
-		it('returns an unpadded 12hour clock value for `h` format', () =>  {
+		it('returns an unpadded 12hour clock value for `h` format', () => {
 			expect(oDate.format(someTimes["midnight"], 'h')).toBe('12');
 			expect(oDate.format(someTimes["1am"], 'h')).toBe('1');
 			expect(oDate.format(someTimes["10am"], 'h')).toBe('10');
@@ -91,7 +91,7 @@ describe('o-date', () =>  {
 			expect(oDate.format(someTimes["11pm"], 'h')).toBe('11');
 		});
 
-		it('returns a padded 12hour clock value for `hh` format', () =>  {
+		it('returns a padded 12hour clock value for `hh` format', () => {
 			expect(oDate.format(someTimes["midnight"], 'hh')).toBe('12');
 			expect(oDate.format(someTimes["1am"], 'hh')).toBe('01');
 			expect(oDate.format(someTimes["10am"], 'hh')).toBe('10');
@@ -100,7 +100,7 @@ describe('o-date', () =>  {
 			expect(oDate.format(someTimes["11pm"], 'hh')).toBe('11');
 		});
 
-		it('returns an unpadded 24hour clock value for `H` format', () =>  {
+		it('returns an unpadded 24hour clock value for `H` format', () => {
 			expect(oDate.format(someTimes["midnight"], 'H')).toBe('0');
 			expect(oDate.format(someTimes["1am"], 'H')).toBe('1');
 			expect(oDate.format(someTimes["10am"], 'H')).toBe('10');
@@ -109,7 +109,7 @@ describe('o-date', () =>  {
 			expect(oDate.format(someTimes["11pm"], 'H')).toBe('23');
 		});
 
-		it('returns an padded 24hour clock value for `HH` format', () =>  {
+		it('returns an padded 24hour clock value for `HH` format', () => {
 			expect(oDate.format(someTimes["midnight"], 'HH')).toBe('00');
 			expect(oDate.format(someTimes["1am"], 'HH')).toBe('01');
 			expect(oDate.format(someTimes["10am"], 'HH')).toBe('10');
@@ -119,7 +119,7 @@ describe('o-date', () =>  {
 		});
 	});
 
-	describe('ODate.ftTime', () =>  {
+	describe('ODate.ftTime', () => {
 
 		const someDate = new Date("Jul 13 2016 00:02:00");
 
@@ -183,7 +183,7 @@ describe('o-date', () =>  {
 		});
 	});
 
-	describe('isNearFuture', () =>  {
+	describe('isNearFuture', () => {
 		it('returns true if the interval is less than 5 mins in the future', () => {
 			expect(oDate.isNearFuture(- inSeconds.minute)).toEqual(true);
 			expect(oDate.isNearFuture(- inSeconds.second)).toEqual(true);
@@ -202,7 +202,7 @@ describe('o-date', () =>  {
 		});
 	});
 
-	describe('isFarFuture', () =>  {
+	describe('isFarFuture', () => {
 		it('returns true if the interval ismore than 5 mins in the future', () => {
 			expect(oDate.isFarFuture(- 100 * inSeconds.hour)).toEqual(true);
 			expect(oDate.isFarFuture(- inSeconds.hour)).toEqual(true);
@@ -273,7 +273,7 @@ describe('o-date', () =>  {
 		});
 	});
 
-	describe('ODate.timeAgo', () =>  {
+	describe('ODate.timeAgo', () => {
 		beforeEach(() => {
 			// Since these tests use now(), stub the time so that it's not possible
 			// for these tests to pass at some times of day but fail at others.
@@ -286,7 +286,7 @@ describe('o-date', () =>  {
 			jasmine.clock().uninstall();
 		});
 
-		it('accepts a value in seconds and returns a corresponding string', () =>  {
+		it('accepts a value in seconds and returns a corresponding string', () => {
 			const formatsLow = {
 				'2 seconds ago': 2 * inSeconds.second,
 				'a minute ago':	inSeconds.minute,
@@ -331,7 +331,7 @@ describe('o-date', () =>  {
 		});
 	});
 
-	describe('ODate.asTodayOrYesterdayOrNothing', () =>  {
+	describe('ODate.asTodayOrYesterdayOrNothing', () => {
 		beforeEach(() => {
 			// Since these tests use now(), stub the time so that it's not possible
 			// for these tests to pass at some times of day but fail at others.
