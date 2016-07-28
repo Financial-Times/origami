@@ -1,6 +1,7 @@
 {
 	"description": "FT brand typographic styles",
 	"origamiType": "module",
+	"origamiCategory": "primitives",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-typography/issues",
 	"supportStatus": "active",
