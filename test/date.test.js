@@ -171,7 +171,7 @@ describe('o-date', () => {
 					new Date("Jul 13 2016 22:02:49"),
 					new Date("Jul 13 2016 21:02:49"),
 					new Date("Jul 13 2016 20:02:50")
-				]
+				];
 
 			let fakeNow = new Date("Jul 14 2016 00:02:49");
 			jasmine.clock().mockDate(fakeNow);
@@ -194,7 +194,7 @@ describe('o-date', () => {
 					new Date("Jul 13 2016 18:02:49"),
 					new Date("Jul 13 2016 17:02:49"),
 					new Date("Jul 13 2016 00:02:50")
-				]
+				];
 
 			let fakeNow = new Date("Jul 14 2016 00:02:49");
 			jasmine.clock().mockDate(fakeNow);
