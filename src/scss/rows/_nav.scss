@@ -19,10 +19,6 @@
 		@include oGridRespondTo('L') {
 			display: block;
 		}
-
-		@include oGridRespondTo('XL') {
-			@include oTypographyFallbackFontSize('sans', 18px);
-		}
 	}
 
 	.o-header__nav-list {
@@ -42,6 +38,7 @@
 	.o-header__nav-item {
 		display: table-cell;
 		vertical-align: middle;
+		padding-left: $_o-header-padding-x;
 
 		&:first-child {
 			padding-left: 0 !important;
@@ -49,10 +46,6 @@
 
 		.o-header__nav--mobile & {
 			padding-left: $_o-header-padding-x * 2;
-		}
-
-		.o-header__nav--desktop & {
-			padding-left: $_o-header-padding-x;
 		}
 	}
 

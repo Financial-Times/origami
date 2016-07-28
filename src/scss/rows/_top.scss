@@ -4,7 +4,6 @@
 
 	.o-header__top-wrapper {
 		display: table;
-		table-layout: fixed;
 		width: 100%;
 	}
 
@@ -16,9 +15,8 @@
 	.o-header__top-column--left,
 	.o-header__top-column--right {
 		// to keep the logo horizontally centered relative to the page these columns must be equal...
-		// I think this is easier than removing them from layout with absolute positioning etc.
-		// anyway, it's rock solid.
-		width: 0;
+		// ... can be removed from layout by fixing table layout and setting width to zero.
+		width: 12.5%;
 		white-space: nowrap;
 	}
 
@@ -28,11 +26,22 @@
 
 	.o-header__top-column--right {
 		text-align: right;
-		direction: rtl;
 	}
 
 	.o-header__top-column--center {
 		text-align: center;
+	}
+
+	.o-header__top-takeover {
+		display: none;
+
+		@include oGridRespondTo('L') {
+			display: block;
+
+			& ~ * {
+				display: none !important;
+			}
+		}
 	}
 
 	.o-header__top-link {
@@ -40,7 +49,7 @@
 		display: inline-block;
 		margin-left: 10px;
 		text-transform: uppercase;
-		font-size: 0.6em;
+		font-size: 10px;
 		text-align: center;
 
 		&:before {
@@ -52,12 +61,6 @@
 
 		@include oGridRespondTo('L') {
 			margin-left: 20px;
-			font-size: 0.8em;
-
-			&:before {
-				width: 24px;
-				height: 24px;
-			}
 		}
 
 		// first child for old IE
@@ -106,10 +109,6 @@
 	.o-header__top-link-label {
 		display: block;
 		margin-top: 2px;
-
-		@include oGridRespondTo('L') {
-			margin-top: 4px;
-		}
 	}
 
 	.o-header__top-logo {
@@ -125,8 +124,6 @@
 
 		@include oGridRespondTo('S') {
 			@include oHeaderLogoSize('S');
-			margin-top: 18px;
-			margin-bottom: 18px;
 		}
 
 		@include oGridRespondTo('M') {
