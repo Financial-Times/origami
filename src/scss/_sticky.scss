@@ -21,16 +21,7 @@
 
 	.o-header--sticky-active {
 		@include oEffectsShadowsElevation('mid');
-
-		@include oGridRespondTo($until: 'L') {
-			&.o-header--sticky-scroll-up {
-				transform: translateY(0);
-			}
-		}
-
-		@include oGridRespondTo($from: 'L') {
-			transform: translateY(0);
-		}
+		transform: translateY(0);
 	}
 
 }
