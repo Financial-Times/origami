@@ -1,6 +1,7 @@
 {
 	"description": "Accessible, content-aware widget for expanding and collapsing content",
 	"origamiVersion": 1,
+	"origamiCategory": "components",
 	"origamiType": "module",
 	"browserFeatures": {
 		"required": [
