@@ -2,7 +2,7 @@
 /*eslint-env jasmine */
 const oDate = require('../main');
 
-describe('o-date', function() {
+describe('o-date', () =>  {
 
 	const inSeconds = {
 		second: 1,
@@ -14,12 +14,12 @@ describe('o-date', function() {
 		year: 365 * 24 * 60 * 60,
 	};
 
-	describe('toDate', function() {
-		it('returns `undefined` if the passed in argument isnt a date', function() {
+	describe('toDate', () =>  {
+		it('returns `undefined` if the passed in argument isnt a date', () => {
 			expect(oDate.toDate('hello')).toBe(undefined);
 		});
 
-		it('returns a date object if the date passed in is valid', function() {
+		it('returns a date object if the date passed in is valid', () =>  {
 			const validDates = [
 				'03/11/16',
 				'2016-07-15T16:18:12+00:00',
@@ -36,7 +36,7 @@ describe('o-date', function() {
 		});
 	});
 
-	describe('ODate.format', function() {
+	describe('ODate.format', () =>  {
 		const someDate = new Date("Mon Jul 18 2016 23:12:11");
 
 		const someTimes = {
@@ -48,28 +48,28 @@ describe('o-date', function() {
 			"11pm":	 new Date("Monday July 18 23:00"),
 		};
 
-		it('calls ODate.toDate() with the date argument passed in', function() {
+		it('calls ODate.toDate() with the date argument passed in', () =>  {
 			spyOn(oDate, 'toDate');
 			oDate.format(someDate);
 			expect(oDate.toDate).toHaveBeenCalledWith(someDate);
 		});
 
-		it('returns a date if "date" is passed in as a second argument', function() {
+		it('returns a date if "date" is passed in as a second argument', () =>  {
 			expect(oDate.format(someDate, "date")).toBe('July 18, 2016');
 		});
 
-		it('returns a datetime if "datetime" is passed in as a second argument', function() {
+		it('returns a datetime if "datetime" is passed in as a second argument', () =>  {
 			expect(oDate.format(someDate, "datetime")).toBe('July 18, 2016 11:12 pm');
 		});
 
-		it('doesnt zero pad single digit hours', function() {
+		it('doesnt zero pad single digit hours', () =>  {
 			const someDate = new Date("Mon Jul 18 2016 06:12:11");
 			expect(oDate.format(someDate, "datetime")).toBe('July 18, 2016 6:12 am');
 		});
 
 		// This is a bit of a cop-out really as what we're testing here is oDate's
 		// compile() and tpl() functions
-		it('accepts date formatting functions', function() {
+		it('accepts date formatting functions', () =>  {
 			const date = new Date(2000, 1, 5, 6, 7, 22, 499);
 
 			expect(oDate.format(date, 'yyyy yy')).toBe('2000 00');
@@ -82,7 +82,7 @@ describe('o-date', function() {
 			expect(oDate.format(date, 'This is \\a co\\mmon string mm')).toBe('This is a common string 07');
 		});
 
-		it('returns an unpadded 12hour clock value for `h` format', function() {
+		it('returns an unpadded 12hour clock value for `h` format', () =>  {
 			expect(oDate.format(someTimes["midnight"], 'h')).toBe('12');
 			expect(oDate.format(someTimes["1am"], 'h')).toBe('1');
 			expect(oDate.format(someTimes["10am"], 'h')).toBe('10');
@@ -91,7 +91,7 @@ describe('o-date', function() {
 			expect(oDate.format(someTimes["11pm"], 'h')).toBe('11');
 		});
 
-		it('returns a padded 12hour clock value for `hh` format', function() {
+		it('returns a padded 12hour clock value for `hh` format', () =>  {
 			expect(oDate.format(someTimes["midnight"], 'hh')).toBe('12');
 			expect(oDate.format(someTimes["1am"], 'hh')).toBe('01');
 			expect(oDate.format(someTimes["10am"], 'hh')).toBe('10');
@@ -100,7 +100,7 @@ describe('o-date', function() {
 			expect(oDate.format(someTimes["11pm"], 'hh')).toBe('11');
 		});
 
-		it('returns an unpadded 24hour clock value for `H` format', function() {
+		it('returns an unpadded 24hour clock value for `H` format', () =>  {
 			expect(oDate.format(someTimes["midnight"], 'H')).toBe('0');
 			expect(oDate.format(someTimes["1am"], 'H')).toBe('1');
 			expect(oDate.format(someTimes["10am"], 'H')).toBe('10');
@@ -109,7 +109,7 @@ describe('o-date', function() {
 			expect(oDate.format(someTimes["11pm"], 'H')).toBe('23');
 		});
 
-		it('returns an padded 24hour clock value for `HH` format', function() {
+		it('returns an padded 24hour clock value for `HH` format', () =>  {
 			expect(oDate.format(someTimes["midnight"], 'HH')).toBe('00');
 			expect(oDate.format(someTimes["1am"], 'HH')).toBe('01');
 			expect(oDate.format(someTimes["10am"], 'HH')).toBe('10');
@@ -119,29 +119,29 @@ describe('o-date', function() {
 		});
 	});
 
-	describe('ODate.ftTime', function() {
+	describe('ODate.ftTime', () =>  {
 
 		const someDate = new Date("Jul 13 2016 00:02:00");
 
-		beforeEach(function(){
+		beforeEach(() => {
 			jasmine.clock().install();
 		});
 
-		afterEach(function(){
+		afterEach(() => {
 			jasmine.clock().uninstall();
 		});
 
-		it('returns "just now" if ODate.isNearFuture returns true', function(){
+		it('returns "just now" if ODate.isNearFuture returns true', () => {
 			spyOn(oDate, 'isNearFuture').and.returnValue(true);
 			expect(oDate.ftTime(someDate)).toEqual('just now');
 		});
 
-		it('doesnt return just now if ODate.isNearFuture returns false', function(){
+		it('doesnt return just now if ODate.isNearFuture returns false', () => {
 			spyOn(oDate, 'isNearFuture').and.returnValue(false);
 			expect(oDate.ftTime(someDate)).not.toEqual('just now');
 		});
 
-		it('returns a result from ODate.format if ODate.isFarFuture returns true', function(){
+		it('returns a result from ODate.format if ODate.isFarFuture returns true', () => {
 			const oDateFormatReturn = "spy return value";
 			spyOn(oDate, 'isNearFuture').and.returnValue(false);
 			spyOn(oDate, 'isFarFuture').and.returnValue(true);
@@ -151,7 +151,7 @@ describe('o-date', function() {
 			expect(oDate.format).toHaveBeenCalledWith(someDate, 'date');
 		});
 
-		it('returns a result from ODate.timeAgo if ODate.isToday returns true', function(){
+		it('returns a result from ODate.timeAgo if ODate.isToday returns true', () => {
 			const oDateFormatReturn = "mocked timeAgo date";
 			spyOn(oDate, 'isNearFuture').and.returnValue(false);
 			spyOn(oDate, 'isFarFuture').and.returnValue(false);
@@ -163,7 +163,7 @@ describe('o-date', function() {
 			expect(oDate.timeAgo).toHaveBeenCalledWith(someDate, jasmine.any(Date), jasmine.any(Number));
 		});
 
-		it('returns a result from "yesterday" if ODate.isYesterday returns true', function(){
+		it('returns a result from "yesterday" if ODate.isYesterday returns true', () => {
 			spyOn(oDate, 'isNearFuture').and.returnValue(false);
 			spyOn(oDate, 'isFarFuture').and.returnValue(false);
 			spyOn(oDate, 'isToday').and.returnValue(false);
@@ -172,7 +172,7 @@ describe('o-date', function() {
 			expect(oDate.ftTime(someDate)).toBe('yesterday');
 		});
 
-		it('returns the result of ODate.format if none of the date matchers return true', function(){
+		it('returns the result of ODate.format if none of the date matchers return true', () => {
 			spyOn(oDate, 'isNearFuture').and.returnValue(false);
 			spyOn(oDate, 'isFarFuture').and.returnValue(false);
 			spyOn(oDate, 'isToday').and.returnValue(false);
@@ -183,8 +183,8 @@ describe('o-date', function() {
 		});
 	});
 
-	describe('isNearFuture', function() {
-		it('returns true if interval less than 5 minutes, false otherwise', function(){
+	describe('isNearFuture', () =>  {
+		it('returns true if interval less than 5 minutes, false otherwise', () => {
 			expect(oDate.isNearFuture(- inSeconds.hour)).toEqual(false);
 			expect(oDate.isNearFuture(- 10 * inSeconds.minute)).toEqual(false);
 			expect(oDate.isNearFuture(- 5 * inSeconds.minute)).toEqual(false);
@@ -199,8 +199,8 @@ describe('o-date', function() {
 		});
 	});
 
-	describe('isFarFuture', function() {
-		it('returns true if the interval imore than 5 mins in the future', function(){
+	describe('isFarFuture', () =>  {
+		it('returns true if the interval imore than 5 mins in the future', () => {
 			expect(oDate.isFarFuture(- inSeconds.hour)).toEqual(true);
 			expect(oDate.isFarFuture(- 10 * inSeconds.minute)).toEqual(true);
 			expect(oDate.isFarFuture(- 5 * inSeconds.minute)).toEqual(false);
@@ -215,20 +215,20 @@ describe('o-date', function() {
 		});
 	});
 
-	describe('isToday', function(){
-		it('returns true if the dates passed in are the same day', function(){
+	describe('isToday', () => {
+		it('returns true if the dates passed in are the same day', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.hour;
 			const now = new Date(publishDate.getTime() + (interval*1000));
 			expect(oDate.isToday(publishDate, now, interval)).toEqual(true);
 		});
-		it('returns false if the dates passed in are not same day', function(){
+		it('returns false if the dates passed in are not same day', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.day;
 			const now = new Date(publishDate.getTime() + (interval*1000));
 			expect(oDate.isToday(publishDate, now, interval)).toEqual(false);
 		});
-		it('returns false if the dates are both tuesday but more than 24h apart', function(){
+		it('returns false if the dates are both tuesday but more than 24h apart', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.week;
 			const now = new Date(publishDate.getTime() + (interval*1000));
@@ -239,22 +239,22 @@ describe('o-date', function() {
 		});
 	});
 
-	describe('isYesterday', function(){
-		it('returns true if the date passed in is yesterday', function(){
+	describe('isYesterday', () => {
+		it('returns true if the date passed in is yesterday', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.day;
 			const now = new Date(publishDate.getTime() + (interval*1000));
 			expect(oDate.isYesterday(publishDate, now, interval)).toEqual(true);
 		});
 
-		it('returns false if the dates passed are the same day', function(){
+		it('returns false if the dates passed are the same day', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.hour;
 			const now = new Date(publishDate.getTime() + (interval*1000));
 			expect(oDate.isYesterday(publishDate, now, interval)).toEqual(false);
 		});
 
-		it('returns false if the weekdays are 1 apart but more than 24h apart', function(){
+		it('returns false if the weekdays are 1 apart but more than 24h apart', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.week + inSeconds.day;
 			const now = new Date(publishDate.getTime() + (interval*1000));
@@ -266,8 +266,8 @@ describe('o-date', function() {
 		});
 	});
 
-	describe('ODate.timeAgo', function() {
-		beforeEach(function(){
+	describe('ODate.timeAgo', () =>  {
+		beforeEach(() => {
 			// Since these tests use now(), stub the time so that it's not possible
 			// for these tests to pass at some times of day but fail at others.
 			const fakeNow = new Date("Jul 13 2016 10:02:49");
@@ -275,11 +275,11 @@ describe('o-date', function() {
 			jasmine.clock().mockDate(fakeNow);
 		});
 
-		afterEach(function(){
+		afterEach(() => {
 			jasmine.clock().uninstall();
 		});
 
-		it('accepts a value in seconds and returns a corresponding string', function() {
+		it('accepts a value in seconds and returns a corresponding string', () =>  {
 			const formatsLow = {
 				'2 seconds ago': 2 * inSeconds.second,
 				'a minute ago':	inSeconds.minute,
@@ -319,13 +319,13 @@ describe('o-date', function() {
 			});
 		});
 
-		it('returns `undefined` if the param passed in is not a date', function(){
+		it('returns `undefined` if the param passed in is not a date', () => {
 			expect(oDate.timeAgo('not a date')).toBe(undefined);
 		});
 	});
 
-	describe('ODate.asTodayOrYesterdayOrNothing', function() {
-		beforeEach(function(){
+	describe('ODate.asTodayOrYesterdayOrNothing', () =>  {
+		beforeEach(() => {
 			// Since these tests use now(), stub the time so that it's not possible
 			// for these tests to pass at some times of day but fail at others.
 			const fakeNow = new Date("Jul 13 2016 10:02:49");
@@ -333,11 +333,11 @@ describe('o-date', function() {
 			jasmine.clock().mockDate(fakeNow);
 		});
 
-		afterEach(function(){
+		afterEach(() => {
 			jasmine.clock().uninstall();
 		});
 
-		it('returns "today" if isToday returns true', function(){
+		it('returns "today" if isToday returns true', () => {
 			spyOn(oDate, 'isToday').and.returnValue(true);
 			spyOn(oDate, 'isYesterday');
 
@@ -349,7 +349,7 @@ describe('o-date', function() {
 
 		});
 
-		it('returns "yesterday" if isYesterday returns true AND isToday is false', function(){
+		it('returns "yesterday" if isYesterday returns true AND isToday is false', () => {
 			 spyOn(oDate, 'isToday').and.returnValue(false);
 			 spyOn(oDate, 'isYesterday').and.returnValue(true);
 
@@ -360,7 +360,7 @@ describe('o-date', function() {
 			 expect(oDate.isYesterday).toHaveBeenCalledWith(mockDate, jasmine.any(Date), jasmine.any(Number));
 		});
 
-		it("returns '' if isToday and isYesterday are both false", function(){
+		it("returns '' if isToday and isYesterday are both false", () => {
 			spyOn(oDate, 'isToday').and.returnValue(false);
 			spyOn(oDate, 'isYesterday').and.returnValue(false);
 
