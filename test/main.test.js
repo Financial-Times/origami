@@ -8,11 +8,11 @@ describe("getIndex()", function() {
 
 	let clock;
 
-	before(function() {
+	beforeEach(function() {
 		clock = sinon.useFakeTimers();
 	});
 
-	after(function() {
+	afterEach(function() {
 		clock.restore();
 	});
 
