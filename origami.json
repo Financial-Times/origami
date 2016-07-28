@@ -1,6 +1,7 @@
 {
     "description": "Module for tracking FT",
     "origamiType": "module",
+    "origamiCategory": "components",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-tracking/issues",
     "supportStatus": "active",
