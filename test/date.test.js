@@ -26,8 +26,8 @@ describe('o-date', function() {
 				new Date(2000, 5, 15, 6, 37, 22, 499),
 			];
 
-			for (let i = 0; i < validDates.length; i++) {
-				let testDate = oDate.toDate(validDates[i]);
+			for (let date of validDates) {
+				let testDate = oDate.toDate(date);
 				let testDateAsDate = new Date(testDate);
 
 				expect(testDate instanceof Date).toBe(true); // It should be a Date object
