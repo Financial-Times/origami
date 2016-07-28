@@ -38,7 +38,7 @@
     *display: inline;
     zoom: 1;
     margin: 0;
-    padding: $_o-header-services-padding-y $_o-header-services-padding-x*2;
+    padding: $_o-header-services-padding-y/2 $_o-header-services-padding-x;
 
     &:hover,
     &--selected,
