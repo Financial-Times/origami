@@ -5,6 +5,7 @@ function init (headerEl) {
 		return;
 	}
 
+	let viewportOffset;
 	let lastScrollDepth;
 	let lastAnimationFrame;
 
@@ -12,7 +13,7 @@ function init (headerEl) {
 		// sticky el will appear when scrolled down from page top to
 		// (arbitrarily) > half the viewport height
 		const scrollDepth = window.pageYOffset || window.scrollY;
-		const isActive = scrollDepth > (window.innerHeight / 2);
+		const isActive = scrollDepth > viewportOffset;
 
 		headerEl.classList.toggle('o-header--sticky-active', isActive);
 
@@ -27,6 +28,8 @@ function init (headerEl) {
 	}
 
 	function startLoop () {
+		viewportOffset = window.innerHeight / 2;
+
 		lastAnimationFrame = window.requestAnimationFrame(() => {
 			handleFrame();
 			startLoop();

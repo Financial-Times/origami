@@ -8,18 +8,36 @@ body {
 }
 
 .demo-sticky {
-	height: 2999px;
+	height: 240px;
+	overflow: auto;
 }
 
-.demo-sticky-scroll {
+.demo-sticky-message {
 	margin: 50px 0;
 	text-align: center;
 	font-size: 24px;
 
 	&:before,
 	&:after {
-		content: '▼';
 		padding: 0 1em;
 		font-size: 75%;
+	}
+}
+
+.demo-sticky-message--popout {
+	&:before {
+		content: '◀';
+	}
+	&:after {
+		content: '▶';
+	}
+}
+
+.demo-sticky-message--scroll {
+	margin-bottom: 1999px;
+
+	&:before,
+	&:after {
+		content: '▼';
 	}
 }
