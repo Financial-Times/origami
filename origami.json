@@ -1,6 +1,7 @@
 {
 	"description": "Responsive Financial Times page footer",
 	"origamiType": "module",
+	"origamiCategory": "components",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-footer/issues",
 	"supportStatus": "active",
