@@ -8,7 +8,7 @@
 
 # o-header-services [![CircleCI](https://circleci.com/gh/Financial-Times/o-header.png?style=shield&circle-token=41f2b7b7e669f2d4adb55ad97cf755d3ed4b93c3)](https://circleci.com/gh/Financial-Times/o-header-services)
 
-This header is for tools and services built by the Financial Times. If you would like to contribute, please read our [contributing guide]
+This header is for tools and services built by the Financial Times. If you would like to contribute, please read our [contributing guide](contributing.md)
 
 ## Index
 - [Design](#design)
@@ -19,6 +19,21 @@ This header is for tools and services built by the Financial Times. If you would
 
 ## Design
 `o-header-services` is a very simple responsive header. It has support for up to three levels of navigation making it appropriate for anything from a single page application to a multi-layer application.
+
+It has themes for b2b and b2c products. If you're building something and need a theme, [please raise an issue](../../issues).
+
+The header has the following features:
+
+**Required**
+- The FT logo
+- The product title. This should be present and the same on all of your pages
+
+**Optional**
+- A product tagline. If used, this should be a concise description of your product. The tagline is only visible at the widest screen size
+- At wide screen sizes, the right of the nav may be used for content like a "Sign in" link. At narrower screen widths this content goes behind a hamburger menu on the right of the FT logo
+- If there is a "Sign in" option in the related content it should always appear on the far right. For consistency with other FT products, use "Sign in" over "Log in" or "Login"
+- Primary navigation
+- Secondary navigation (TODO)
 
 
 ## Quick start
@@ -39,10 +54,11 @@ The simplest header, appropriate for single page applications with no navigation
 ```
 
 ### Themes
-There are themes available for b2b products and b2c products. If you want a theme but aren't building a b2 or b2c product please get in touch.
+There are themes available for b2b products and b2c products. If you want a theme but aren't building a b2b or b2c product please [please raise an issue](../../issues).
 
 To add a theme to the header, add the appropriate class to a wrapping element. For example, for b2b that would be:
-```
+
+```diff
 +<header id='o-header-services' class='o-header-services o-header-services--b2b' data-o-component='o-header'>
 -<header id='o-header-services' class='o-header-services' data-o-component='o-header'>
   <div class='o-header-services__top o-header-services__container'>
@@ -66,29 +82,26 @@ To add support for related content, add the following to your markup:
 
 ```diff
 <header id='o-header-services' class='o-header-services' data-o-component='o-header'>
-  <div class='o-header-services__top o-header-services__container'>
-+   <div class='o-header-services__hamburger'>
-+    <a class='o-header-services__hamburger-link' href="#o-header-drawer"  aria-controls="o-header-drawer"></a>
-+   </div>
-    <div class='o-header-services__ftlogo'></div>
-    <div class='o-header-services__title'>
-      <h1 class='o-header-services__product-name'>
-        Tool or Service name
-      </h1>
-      <span class='o-header-subrand__product-tagline'>
-        Tagline to explain the product here
-      </span>
+  <div class='o-header-services__top'>
+    <div class='o-header-services__container'>
++      <div class='o--if-js o-header-services__hamburger'>
++        <a class='o-header-services__hamburger-icon' href="#o-header-drawer"  aria-controls="o-header-drawer"></a>
++      </div>
+      <div class='o-header-services__ftlogo'></div>
+      <div class='o-header-services__title'>
+        <h1 class='o-header-services__product-name'>Tool or Service name</h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
+      </div>
+      <div class='o-header-services__related-content'>
+        <a href='#'>XXXX</a>
+        <a href='#'>Sign in</a>
+      </div>
     </div>
-+    <div class='o-header-services__related-content'>
-+      <a href='#'>XXXX</a>
-+      <a href='#'>Sign in</a>
-+    </div>
   </div>
-</div>
-<!-- Drawer design/html tbc from sue -->
+</header>
+<!-- Drawer HTML -->
 ```
 
-Related content also needs some JavaScript to operate the drawer. If you are using the Build Service this will just work. If you are using a manual build process you should have the following somewhere in your code ([what's this?](http://origami.ft.com/docs/developer-guide/modules/initialising-modules/)):
+Related content also needs some JavaScript to operate the drawer. If you are using the Build Service this will just work. If you're using a manual build process you should have the following somewhere in your code ([what's this?](http://origami.ft.com/docs/developer-guide/modules/initialising-modules/)):
 
 ```
 document.addEventListener("DOMContentLoaded", function() {
@@ -100,23 +113,25 @@ document.addEventListener("DOMContentLoaded", function() {
 ### Primary navigation
 If your application has more than one page you may want to add the primary navigation bar.
 This requires the drawer code, as seen above, and the following addition:
+
 ```diff
 <header id='o-header-services' class='o-header-services' data-o-component='o-header'>
-  <div class='o-header-services__top o-header-services__container'>
-    <div class='o-header-services__hamburger'>
-      <a class='o-header-services__hamburger-link' href="#o-header-drawer"  aria-controls="o-header-drawer"></a>
-    </div>
-    <div class='o-header-services__ftlogo'></div>
-    <div class='o-header-services__title'>
-      <h1 class='o-header-services__product-name'>
-        Tool or Service name
-      </h1>
-      <span class='o-header-subrand__product-tagline'>
-        Tagline to explain the product here
-      </span>
+  <div class='o-header-services__top'>
+    <div class='o-header-services__container'>
+      <div class='o--if-js o-header-services__hamburger'>
+        <a class='o-header-services__hamburger-icon' href="#o-header-drawer"  aria-controls="o-header-drawer"></a>
+      </div>
+      <div class='o-header-services__ftlogo'></div>
+      <div class='o-header-services__title'>
+        <h1 class='o-header-services__product-name'>Tool or Service name</h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
+      </div>
+      <div class='o-header-services__related-content'>
+        <a href='#'>XXXX</a>
+        <a href='#'>Sign in</a>
+      </div>
     </div>
   </div>
-</div>
+</header>
 +<nav class='o-header-services__primary-nav'>
 + <div class='o-header-services__container'>
 +   <ul class='o-header-services__nav-list'>
@@ -129,7 +144,7 @@ This requires the drawer code, as seen above, and the following addition:
 +    </ul>
 +  </div>
 +</nav>
-<!-- Drawer code as above -->
+<!-- Drawer HTML as above -->
 <!-- those nav items again -->
 ```
 
