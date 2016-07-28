@@ -1,6 +1,7 @@
 {
 	"description": "FT-branded tables",
 	"origamiType": "module",
+	"origamiCategory": "components",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-table/issues",
 	"supportStatus": "active",
