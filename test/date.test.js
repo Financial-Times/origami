@@ -184,14 +184,17 @@ describe('o-date', () =>  {
 	});
 
 	describe('isNearFuture', () =>  {
-		it('returns true if interval less than 5 minutes, false otherwise', () => {
-			expect(oDate.isNearFuture(- inSeconds.hour)).toEqual(false);
-			expect(oDate.isNearFuture(- 10 * inSeconds.minute)).toEqual(false);
-			expect(oDate.isNearFuture(- 5 * inSeconds.minute)).toEqual(false);
+		it('returns true if the interval is less than 5 mins in the future', () => {
 			expect(oDate.isNearFuture(- inSeconds.minute)).toEqual(true);
 			expect(oDate.isNearFuture(- inSeconds.second)).toEqual(true);
+		});
+		it('returns false if the interval is more than 5 mins in the future', () => {
+			expect(oDate.isNearFuture(- 100 * inSeconds.hour)).toEqual(false);
+			expect(oDate.isNearFuture(- inSeconds.hour)).toEqual(false);
+			expect(oDate.isNearFuture(- 10 * inSeconds.minute)).toEqual(false);
 
-			// Times in the past
+		});
+		it('returns false if the interval in the past', () => {
 			expect(oDate.isNearFuture(inSeconds.hour)).toEqual(false);
 			expect(oDate.isNearFuture(10 * inSeconds.minute)).toEqual(false);
 			expect(oDate.isNearFuture(5 * inSeconds.minute)).toEqual(false);
@@ -200,14 +203,18 @@ describe('o-date', () =>  {
 	});
 
 	describe('isFarFuture', () =>  {
-		it('returns true if the interval imore than 5 mins in the future', () => {
+		it('returns true if the interval ismore than 5 mins in the future', () => {
+			expect(oDate.isFarFuture(- 100 * inSeconds.hour)).toEqual(true);
 			expect(oDate.isFarFuture(- inSeconds.hour)).toEqual(true);
 			expect(oDate.isFarFuture(- 10 * inSeconds.minute)).toEqual(true);
+		});
+		it('returns false if the interval is less than 5 mins in the future', () => {
 			expect(oDate.isFarFuture(- 5 * inSeconds.minute)).toEqual(false);
 			expect(oDate.isFarFuture(- inSeconds.minute)).toEqual(false);
 			expect(oDate.isFarFuture(- inSeconds.second)).toEqual(false);
 
-			// Times in the past
+		});
+		it('returns false if the interval in the past', () => {
 			expect(oDate.isFarFuture(inSeconds.hour)).toEqual(false);
 			expect(oDate.isFarFuture(10 * inSeconds.minute)).toEqual(false);
 			expect(oDate.isFarFuture(5 * inSeconds.minute)).toEqual(false);
