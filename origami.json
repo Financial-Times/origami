@@ -40,6 +40,12 @@
 			"template": "demos/src/simple-footer.mustache",
 			"expanded": true,
 			"description": ""
+		},
+		{
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"expanded": true,
+			"description": ""
 		}
 	]
 }

@@ -35,9 +35,22 @@
 			color: oColorsGetColorFor('o-footer-dark-link', 'text');
 
 			&:hover,
-			&:focus {
+			&:focus, {
 				color: oColorsGetColorFor('o-footer-dark-link-hover', 'text');
 			}
+		}
+	}
+
+	.o-footer--theme-dark-hover {
+		@include oColorsFor('o-footer-dark', 'text' 'background' 'border');
+
+		// Make the white text look crisper and less bold on dark backgrounds
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+
+		color: oColorsGetColorFor('o-footer-dark-link', 'text');
+		a {
+			color: oColorsGetColorFor('o-footer-dark-link-hover', 'text');
 		}
 	}
 
@@ -52,6 +65,15 @@
 				color: oColorsGetColorFor('o-footer-light-link-hover', 'text');
 			}
 		}
+	}
+
+	.o-footer--theme-light-hover {
+		@include oColorsFor('o-footer-light', 'text' 'background' 'border');
+
+		color: oColorsGetColorFor('o-footer-light-link', 'text');
+		a {
+			color: oColorsGetColorFor('o-footer-light-link-hover', 'text');
+			}
 	}
 
 	.o-footer__container {
@@ -165,12 +187,14 @@
 		padding-top: $o-footer-spacing-unit - 5;
 		padding-bottom: $o-footer-spacing-unit - 5;
 
-		.o-footer--theme-dark & {
+		.o-footer--theme-dark &,
+		.o-footer--theme-dark-hover {
 			@include oColorsFor('o-footer-dark', 'text');
 			background-color: oColorsGetColorFor('o-footer-dark-brand', 'background');
 		}
 
-		.o-footer--theme-light & {
+		.o-footer--theme-light &,
+		.o-footer--theme-light-hover {
 			@include oColorsFor('o-footer-light', 'text');
 			background-color: oColorsGetColorFor('o-footer-light-brand', 'background');
 		}
