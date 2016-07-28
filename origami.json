@@ -1,6 +1,7 @@
 {
     "description": "FT branded form elements: text inputs, checkboxes, radio controls, select boxes, error and warning messages…",
     "origamiType": "module",
+    "origamiCategory": "components",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-forms/issues",
     "supportStatus": "active",
