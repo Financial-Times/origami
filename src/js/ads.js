@@ -218,7 +218,9 @@ class VideoAds {
 
 	adErrorHandler() {
 		this.adsManager && this.adsManager.destroy();
-		this.video.videoEl.play();
+		this.video.containerEl.removeChild(this.adContainerEl);
+		this.video.placeholderEl && this.video.placeholderEl.removeEventListener('click', this.playAdEventHandler);
+		this.video.opts.advertising = false;
 	}
 
 	contentPauseRequestHandler() {
