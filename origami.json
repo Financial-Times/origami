@@ -1,6 +1,7 @@
 {
 	"description": "Sass mixins to use CSS visual effects",
 	"origamiType": "module",
+	"origamiCategory": "primitives",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-effects/issues",
 	"supportStatus": "active",
