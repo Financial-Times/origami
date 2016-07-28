@@ -2,6 +2,7 @@
 	"description": "Financial Times video component",
 	"origamiVersion": 1,
 	"origamiType": "module",
+	"origamiCategory": "components",
 	"supportStatus": "active",
 	"support": "github.com/Financial-Times/o-video/issues",
 	"demosDefaults": {
