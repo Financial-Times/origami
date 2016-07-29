@@ -1,9 +1,9 @@
 @if $o-header-services-is-silent == false {
 
-  @include oHeaderDrawer();
+	@include oHeaderDrawer();
 
-  // Override some styles here for the drawer
-  .o-header-drawer--services {
+	// Override some styles here for the drawer
+	.o-header-drawer--services {
 
-  }
+	}
 }

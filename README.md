@@ -43,13 +43,13 @@ The simplest header, appropriate for single page applications with no navigation
 
 ```
 <header id='o-header-services' class='o-header-services' data-o-component='o-header'>
-  <div class='o-header-services__top o-header-services__container'>
-    <div class='o-header-services__ftlogo'></div>
-    <div class='o-header-services__title'>
-      <h1 class='o-header-services__product-name'>Tool or Service name</h1>
-      <span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
-    </div>
-  </div>
+	<div class='o-header-services__top o-header-services__container'>
+		<div class='o-header-services__ftlogo'></div>
+		<div class='o-header-services__title'>
+			<h1 class='o-header-services__product-name'>Tool or Service name</h1>
+			<span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
+		</div>
+	</div>
 </header>
 ```
 
@@ -61,13 +61,13 @@ To add a theme to the header, add the appropriate class to a wrapping element. F
 ```diff
 +<header id='o-header-services' class='o-header-services o-header-services--b2b' data-o-component='o-header'>
 -<header id='o-header-services' class='o-header-services' data-o-component='o-header'>
-  <div class='o-header-services__top o-header-services__container'>
-    <div class='o-header-services__ftlogo'></div>
-    <div class='o-header-services__title'>
-      <h1 class='o-header-services__product-name'>Tool or Service name</h1>
-      <span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
-    </div>
-  </div>
+	<div class='o-header-services__top o-header-services__container'>
+		<div class='o-header-services__ftlogo'></div>
+		<div class='o-header-services__title'>
+			<h1 class='o-header-services__product-name'>Tool or Service name</h1>
+			<span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
+		</div>
+	</div>
 </header>
 ```
 
@@ -82,21 +82,21 @@ To add support for related content, add the following to your markup:
 
 ```diff
 <header id='o-header-services' class='o-header-services' data-o-component='o-header'>
-  <div class='o-header-services__top'>
-    <div class='o-header-services__container'>
-+      <div class='o--if-js o-header-services__hamburger'>
-+        <a class='o-header-services__hamburger-icon' href="#o-header-drawer"  aria-controls="o-header-drawer"></a>
-+      </div>
-      <div class='o-header-services__ftlogo'></div>
-      <div class='o-header-services__title'>
-        <h1 class='o-header-services__product-name'>Tool or Service name</h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
-      </div>
-      <div class='o-header-services__related-content'>
-        <a href='#'>XXXX</a>
-        <a href='#'>Sign in</a>
-      </div>
-    </div>
-  </div>
+	<div class='o-header-services__top'>
+		<div class='o-header-services__container'>
++			<div class='o--if-js o-header-services__hamburger'>
++				<a class='o-header-services__hamburger-icon' href="#o-header-drawer"	aria-controls="o-header-drawer"></a>
++			</div>
+			<div class='o-header-services__ftlogo'></div>
+			<div class='o-header-services__title'>
+				<h1 class='o-header-services__product-name'>Tool or Service name</h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
+			</div>
+			<div class='o-header-services__related-content'>
+				<a href='#'>XXXX</a>
+				<a href='#'>Sign in</a>
+			</div>
+		</div>
+	</div>
 </header>
 <!-- Drawer HTML -->
 ```
@@ -116,33 +116,33 @@ This requires the drawer code, as seen above, and the following addition:
 
 ```diff
 <header id='o-header-services' class='o-header-services' data-o-component='o-header'>
-  <div class='o-header-services__top'>
-    <div class='o-header-services__container'>
-      <div class='o--if-js o-header-services__hamburger'>
-        <a class='o-header-services__hamburger-icon' href="#o-header-drawer"  aria-controls="o-header-drawer"></a>
-      </div>
-      <div class='o-header-services__ftlogo'></div>
-      <div class='o-header-services__title'>
-        <h1 class='o-header-services__product-name'>Tool or Service name</h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
-      </div>
-      <div class='o-header-services__related-content'>
-        <a href='#'>XXXX</a>
-        <a href='#'>Sign in</a>
-      </div>
-    </div>
-  </div>
+	<div class='o-header-services__top'>
+		<div class='o-header-services__container'>
+			<div class='o--if-js o-header-services__hamburger'>
+				<a class='o-header-services__hamburger-icon' href="#o-header-drawer"	aria-controls="o-header-drawer"></a>
+			</div>
+			<div class='o-header-services__ftlogo'></div>
+			<div class='o-header-services__title'>
+				<h1 class='o-header-services__product-name'>Tool or Service name</h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
+			</div>
+			<div class='o-header-services__related-content'>
+				<a href='#'>XXXX</a>
+				<a href='#'>Sign in</a>
+			</div>
+		</div>
+	</div>
 </header>
 +<nav class='o-header-services__primary-nav'>
 + <div class='o-header-services__container'>
-+   <ul class='o-header-services__nav-list'>
-+     <li class='o-header-services__nav-item o-header-services__nav-item--selected'>
-+       <a href='#'>
-+         Nav item title
-+       </a>
-+      </li>
-+      <!-- more nav items -->
-+    </ul>
-+  </div>
++	 <ul class='o-header-services__nav-list'>
++		 <li class='o-header-services__nav-item o-header-services__nav-item--selected'>
++			 <a href='#'>
++				 Nav item title
++			 </a>
++			</li>
++			<!-- more nav items -->
++		</ul>
++	</div>
 +</nav>
 <!-- Drawer HTML as above -->
 <!-- those nav items again -->

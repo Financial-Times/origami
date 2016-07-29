@@ -1,116 +1,116 @@
 @if $o-header-services-is-silent == false {
 
-  .o-header-services__top {
-    @include oTypographySans(s);
-    @include oColorsFor(o-header-services-top, text background);
-    overflow: hidden;
-    display: block;
-  }
+	.o-header-services__top {
+		@include oTypographySans(s);
+		@include oColorsFor(o-header-services-top, text background);
+		overflow: hidden;
+		display: block;
+	}
 
-  .o-header-services__ftlogo {
-    width: $_o-header-services-top-bar-y;
-    height: $_o-header-services-top-bar-y;
-    float: left;
-    display: inline-block;
-    background: url(oAssetsResolve('img/ft-logo-40.png', o-services-header)) no-repeat;
-  	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxsaW5lYXJHcmFkaWVudCBpZD0iYSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxMjcuOTk5IiB4Mj0iMTI3Ljk5OSIgeTI9IjI1NiI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkZFOENGIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRkZEREI5Ii8+PC9saW5lYXJHcmFkaWVudD48cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNMCAwaDI1NnYyNTZoLTI1NnoiLz48cGF0aCBmaWxsPSIjMzMzIiBkPSJNNjUuNDcxIDEzMy42MDNjMCAxMi4wODEgMy4yMjUgMTMuNDM5IDE3LjAwMSAxMy45NTJ2NC40MjFoLTU0Ljc1NHYtNC40MjFjMTEuMzkzLS41MTMgMTQuNjIxLTEuODcxIDE0LjYyMS0xMy45NTJ2LTc4Ljg4OGMwLTEyLjA5Mi0zLjIyOS0xMy40NDktMTQuMjgxLTEzLjk1NHYtNC40MjJoOTYuNThsLjY4OCAyNS41MDVoLTQuNzYyYy00LjA4My0xMi45MjQtOC41MDctMTctMzEuMTIzLTE3aC0xNy41MTljLTUuMjYyIDAtNi40NTEgMS4xODMtNi40NTEgNS45NXYzNi41NjVoOC42MjhjMTguMDI5IDAgMjEuOTQyLTMuMjQgMjQuMTUtMTUuMzE1aDQuNDJ2NDAuODE0aC00LjQyYy0yLjM3OC0xMy42MDQtOS4xODQtMTcuMDAyLTI0LjE1LTE3LjAwMmgtOC42Mjh2MzcuNzQ3ek0yMzQuMDA3IDM2LjMzOWgtMTAxLjM0OGwtMi4zNTQgMjUuNTE0aDUuODFjMy43MTMtMTIuNDk3IDkuMTctMTcuMDA4IDIxLjM2OS0xNy4wMDhoMTQuMjg0djg4Ljc1OGMwIDEyLjA4MS0zLjIzIDEzLjQzOS0xNi4zMjMgMTMuOTUydjQuNDIxaDU1Ljc3OXYtNC40MjFjLTEzLjA5Ni0uNTEzLTE2LjMyNy0xLjg3MS0xNi4zMjctMTMuOTUydi04OC43NTloMTQuMjc4YzEyLjIwNiAwIDE3LjY2OSA0LjUxMiAyMS4zNzMgMTcuMDA4aDUuODFsLTIuMzUxLTI1LjUxM3oiLz48L3N2Zz4='), none;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: 0;
-    @include oGridRespondTo($until: M) {
-      width: $_o-header-services-top-bar-y--small;
-      height: $_o-header-services-top-bar-y--small;
-    }
-  }
+	.o-header-services__ftlogo {
+		width: $_o-header-services-top-bar-y;
+		height: $_o-header-services-top-bar-y;
+		float: left;
+		display: inline-block;
+		background: url(oAssetsResolve('img/ft-logo-40.png', o-services-header)) no-repeat;
+		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxsaW5lYXJHcmFkaWVudCBpZD0iYSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxMjcuOTk5IiB4Mj0iMTI3Ljk5OSIgeTI9IjI1NiI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkZFOENGIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRkZEREI5Ii8+PC9saW5lYXJHcmFkaWVudD48cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNMCAwaDI1NnYyNTZoLTI1NnoiLz48cGF0aCBmaWxsPSIjMzMzIiBkPSJNNjUuNDcxIDEzMy42MDNjMCAxMi4wODEgMy4yMjUgMTMuNDM5IDE3LjAwMSAxMy45NTJ2NC40MjFoLTU0Ljc1NHYtNC40MjFjMTEuMzkzLS41MTMgMTQuNjIxLTEuODcxIDE0LjYyMS0xMy45NTJ2LTc4Ljg4OGMwLTEyLjA5Mi0zLjIyOS0xMy40NDktMTQuMjgxLTEzLjk1NHYtNC40MjJoOTYuNThsLjY4OCAyNS41MDVoLTQuNzYyYy00LjA4My0xMi45MjQtOC41MDctMTctMzEuMTIzLTE3aC0xNy41MTljLTUuMjYyIDAtNi40NTEgMS4xODMtNi40NTEgNS45NXYzNi41NjVoOC42MjhjMTguMDI5IDAgMjEuOTQyLTMuMjQgMjQuMTUtMTUuMzE1aDQuNDJ2NDAuODE0aC00LjQyYy0yLjM3OC0xMy42MDQtOS4xODQtMTcuMDAyLTI0LjE1LTE3LjAwMmgtOC42Mjh2MzcuNzQ3ek0yMzQuMDA3IDM2LjMzOWgtMTAxLjM0OGwtMi4zNTQgMjUuNTE0aDUuODFjMy43MTMtMTIuNDk3IDkuMTctMTcuMDA4IDIxLjM2OS0xNy4wMDhoMTQuMjg0djg4Ljc1OGMwIDEyLjA4MS0zLjIzIDEzLjQzOS0xNi4zMjMgMTMuOTUydjQuNDIxaDU1Ljc3OXYtNC40MjFjLTEzLjA5Ni0uNTEzLTE2LjMyNy0xLjg3MS0xNi4zMjctMTMuOTUydi04OC43NTloMTQuMjc4YzEyLjIwNiAwIDE3LjY2OSA0LjUxMiAyMS4zNzMgMTcuMDA4aDUuODFsLTIuMzUxLTI1LjUxM3oiLz48L3N2Zz4='), none;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: 0;
+		@include oGridRespondTo($until: M) {
+			width: $_o-header-services-top-bar-y--small;
+			height: $_o-header-services-top-bar-y--small;
+		}
+	}
 
 
-  .o-header-services__hamburger {
-    height: $_o-header-services-top-bar-y--small;
-    width: $_o-header-services-top-bar-y--small;
-    float: left;
-    background-color: oColorsGetColorFor(o-header-services-primary-nav, background);
-    display: inline-block;
+	.o-header-services__hamburger {
+		height: $_o-header-services-top-bar-y--small;
+		width: $_o-header-services-top-bar-y--small;
+		float: left;
+		background-color: oColorsGetColorFor(o-header-services-primary-nav, background);
+		display: inline-block;
 
-    @include oGridRespondTo(M) {
-      display: none;
-    }
-  }
+		@include oGridRespondTo(M) {
+			display: none;
+		}
+	}
 
-  .o-header-services__hamburger-icon {
-    @include oIconsGetIcon('hamburger', white, 21, $apply-base-styles: false, $apply-width-height: false);
-    display: block;
-    background-size: 21px 21px;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    height: $_o-header-services-top-bar-y--small;
-    width: $_o-header-services-top-bar-y--small;
-  }
+	.o-header-services__hamburger-icon {
+		@include oIconsGetIcon('hamburger', white, 21, $apply-base-styles: false, $apply-width-height: false);
+		display: block;
+		background-size: 21px 21px;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		height: $_o-header-services-top-bar-y--small;
+		width: $_o-header-services-top-bar-y--small;
+	}
 
-  .o-header-services__title {
-    margin: 4px 0; // magic number to make the container height add up to 55px
-    padding: $_o-header-services-padding-y $_o-header-services-padding-x;
-    display: inline-block;
-    float: left;
-    @include oGridRespondTo($until: M) {
-      margin: 0;
-    }
-  }
+	.o-header-services__title {
+		margin: 4px 0; // magic number to make the container height add up to 55px
+		padding: $_o-header-services-padding-y $_o-header-services-padding-x;
+		display: inline-block;
+		float: left;
+		@include oGridRespondTo($until: M) {
+			margin: 0;
+		}
+	}
 
-  .o-header-services__product-name {
-    @include oTypographySans(l);
+	.o-header-services__product-name {
+		@include oTypographySans(l);
 
-    font-weight: 600;
-    color: oColorsGetColorFor('o-header-services-top-title', text);
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    display: inline;
+		font-weight: 600;
+		color: oColorsGetColorFor('o-header-services-top-title', text);
+		margin: 0;
+		-webkit-font-smoothing: antialiased;
+		display: inline;
 
-    @include oGridRespondTo($until: M) {
-      @include oTypographySans(m);
-      font-weight: 600;
-    }
-  }
+		@include oGridRespondTo($until: M) {
+			@include oTypographySans(m);
+			font-weight: 600;
+		}
+	}
 
-  .o-header-subrand__product-tagline {
-    @include oTypographySans(m);
-    text-transform: uppercase;
-    margin-left: $_o-header-services-padding-x;
-    -webkit-font-smoothing: antialiased;
+	.o-header-subrand__product-tagline {
+		@include oTypographySans(m);
+		text-transform: uppercase;
+		margin-left: $_o-header-services-padding-x;
+		-webkit-font-smoothing: antialiased;
 
-    // Default behaviour for when there's not enough space because we don't know the
-    // width of the tagline
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: inline;
+		// Default behaviour for when there's not enough space because we don't know the
+		// width of the tagline
+		text-overflow: ellipsis;
+		overflow: hidden;
+		display: inline;
 
-    @include oGridRespondTo($until: L) {
-      display: none;
-    }
-  }
+		@include oGridRespondTo($until: L) {
+			display: none;
+		}
+	}
 
-  .o-header-services__related-content {
-    float: right;
-    padding: 18px $_o-header-services-padding-x;
-    -webkit-font-smoothing: antialiased;
+	.o-header-services__related-content {
+		float: right;
+		padding: 18px $_o-header-services-padding-x;
+		-webkit-font-smoothing: antialiased;
 
-    @include oGridRespondTo($until: M) {
-      display: none;
-    }
+		@include oGridRespondTo($until: M) {
+			display: none;
+		}
 
-    > a {
-      text-decoration: none;
-      display: inline-block;
-      color: oColorsGetColorFor('o-header-services-top', text);
-      margin: 0 $_o-header-services-padding-x;
-      font-weight: 600;
+		> a {
+			text-decoration: none;
+			display: inline-block;
+			color: oColorsGetColorFor('o-header-services-top', text);
+			margin: 0 $_o-header-services-padding-x;
+			font-weight: 600;
 
-      &:visited {
-        color: oColorsGetColorFor('o-header-services-top', text);
-      }
+			&:visited {
+				color: oColorsGetColorFor('o-header-services-top', text);
+			}
 
-      &:hover {
-        border-bottom: dotted white 1px;
-      }
-    }
-  }
+			&:hover {
+				border-bottom: dotted white 1px;
+			}
+		}
+	}
 }

@@ -1,59 +1,59 @@
 {
-    "description": "Responsive page header for sub-brands",
-    "origamiType": "module",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-header-services/issues",
-    "supportStatus": "active",
-    "browserFeatures": {
-        "required": [
-            "customevent"
-        ]
-    },
-    "ci": {
-        "circle": "https://circleci.com/api/v1/project/Financial-Times/o-header-services"
-    },
-    "demosDefaults": {
-        "dependencies": ["o-fonts@^2.0.0"],
-        "sass": "demos/src/main.scss",
-        "js": "demos/src/main.js",
-        "documentClasses": "core"
-    },
-    "demos": [
-        {
-            "name": "very-simple",
-            "template": "demos/src/very-simple.mustache",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "name": "themes",
-            "template": "demos/src/themes.mustache",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "name": "no levels of navigation",
-            "template": "demos/src/no-navigation.mustache",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "name": "1 level of navigation",
-            "template": "demos/src/one-navigation.mustache",
-            "expanded": true,
-            "description": ""
-        },
-        {
-            "name": "2 levels of navigation",
-            "template": "demos/src/2-navigation.mustache",
-            "expanded": false,
-            "description": ""
-        },
-        {
-            "name": "2 levels of navigation and the drawer",
-            "template": "demos/src/2-navigation-and-drawer.mustache",
-            "expanded": false,
-            "description": ""
-        }
-    ]
+		"description": "Responsive page header for sub-brands",
+		"origamiType": "module",
+		"origamiVersion": 1,
+		"support": "https://github.com/Financial-Times/o-header-services/issues",
+		"supportStatus": "active",
+		"browserFeatures": {
+				"required": [
+						"customevent"
+				]
+		},
+		"ci": {
+				"circle": "https://circleci.com/api/v1/project/Financial-Times/o-header-services"
+		},
+		"demosDefaults": {
+				"dependencies": ["o-fonts@^2.0.0"],
+				"sass": "demos/src/main.scss",
+				"js": "demos/src/main.js",
+				"documentClasses": "core"
+		},
+		"demos": [
+				{
+						"name": "very-simple",
+						"template": "demos/src/very-simple.mustache",
+						"expanded": true,
+						"description": ""
+				},
+				{
+						"name": "themes",
+						"template": "demos/src/themes.mustache",
+						"expanded": true,
+						"description": ""
+				},
+				{
+						"name": "no levels of navigation",
+						"template": "demos/src/no-navigation.mustache",
+						"expanded": true,
+						"description": ""
+				},
+				{
+						"name": "1 level of navigation",
+						"template": "demos/src/one-navigation.mustache",
+						"expanded": true,
+						"description": ""
+				},
+				{
+						"name": "2 levels of navigation",
+						"template": "demos/src/2-navigation.mustache",
+						"expanded": false,
+						"description": ""
+				},
+				{
+						"name": "2 levels of navigation and the drawer",
+						"template": "demos/src/2-navigation-and-drawer.mustache",
+						"expanded": false,
+						"description": ""
+				}
+		]
 }
