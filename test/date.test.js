@@ -166,14 +166,14 @@ describe('o-date', () => {
 			const oDateTimeAgoReturn = "mocked timeAgo date";
 			spyOn(oDate, 'timeAgo').and.returnValue(oDateTimeAgoReturn);
 
-			let publishDatesInTheLast4Hours =
-				[ new Date("Jul 13 2016 23:02:49"),
-					new Date("Jul 13 2016 22:02:49"),
-					new Date("Jul 13 2016 21:02:49"),
-					new Date("Jul 13 2016 20:02:50")
-				];
+			const publishDatesInTheLast4Hours = [
+				new Date("Jul 13 2016 23:02:49"),
+				new Date("Jul 13 2016 22:02:49"),
+				new Date("Jul 13 2016 21:02:49"),
+				new Date("Jul 13 2016 20:02:50")
+			];
 
-			let fakeNow = new Date("Jul 14 2016 00:02:49");
+			const fakeNow = new Date("Jul 14 2016 00:02:49");
 			jasmine.clock().mockDate(fakeNow);
 			for (let date of publishDatesInTheLast4Hours) {
 				expect(oDate.ftTime(date)).toBe(oDateTimeAgoReturn);
@@ -189,14 +189,14 @@ describe('o-date', () => {
 			spyOn(oDate, 'isFarFuture').and.returnValue(false);
 			spyOn(oDate, 'isToday').and.returnValue(false);
 
-			let publishDatesInTheLast4Hours =
-				[ new Date("Jul 13 2016 19:02:49"),
-					new Date("Jul 13 2016 18:02:49"),
-					new Date("Jul 13 2016 17:02:49"),
-					new Date("Jul 13 2016 00:02:50")
-				];
+			const publishDatesInTheLast4Hours = [
+				new Date("Jul 13 2016 19:02:49"),
+				new Date("Jul 13 2016 18:02:49"),
+				new Date("Jul 13 2016 17:02:49"),
+				new Date("Jul 13 2016 00:02:50")
+			];
 
-			let fakeNow = new Date("Jul 14 2016 00:02:49");
+			const fakeNow = new Date("Jul 14 2016 00:02:49");
 			jasmine.clock().mockDate(fakeNow);
 			for (let date of publishDatesInTheLast4Hours) {
 				expect(oDate.ftTime(date)).not.toBe(oDateTimeAgoReturn);

@@ -94,7 +94,7 @@ ODate.prototype.update = function() {
 	let dateString;
 
 	if (format === 'today-or-yesterday-or-nothing') {
-		 dateString = ODate.asTodayOrYesterdayOrNothing(date);
+		dateString = ODate.asTodayOrYesterdayOrNothing(date);
 	} else if (format === 'date-only') {
 		dateString = ODate.format(date, 'date');
 	} else {
