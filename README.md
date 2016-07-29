@@ -1,6 +1,6 @@
 # Visual Effects
 
-This is an [Origami](http://origami.ft.com/) module that provides CSS visual effects via a set of Sass variables mixins. For installation instructions, see the [registry page](http://registry.origami.ft.com/components/o-effects).
+This is an [Origami](http://origami.ft.com/) module that provides CSS visual effects via a set of Sass variables mixins. For installation instructions, see the [registry page](http://registry.origami.ft.com/components/o-visual-effects@0.1.2).
 
 ## Usage
 

@@ -41,6 +41,10 @@ $card-size: 160px;
 }
 
 // shadows
+.demo-shadows-elevation--ultralow {
+	@include oEffectsShadowsElevation('ultralow');
+}
+
 .demo-shadows-elevation--low {
 	@include oEffectsShadowsElevation('low');
 }
