@@ -207,7 +207,8 @@ ODate.timeAgo = function(date, interval) {
 	date = ODate.toDate(date);
 	if (!date) return;
 
-	interval = interval || Math.round(((new Date()) - date) / 1000);
+	interval = interval || ODate.getSecondsBetween(new Date(), date);
+
 	if (interval < inSeconds.minute) {
 		return interval + ' seconds ago';
 	} else if (interval < (1.5 * inSeconds.minute)) {
