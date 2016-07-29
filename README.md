@@ -1,7 +1,6 @@
 # Still to do:
 - Style the drawer
 - check it works with the build service
-- no-js
 - README
 
 
@@ -15,7 +14,7 @@ This header is for tools and services built by the Financial Times. If you would
 - [Quick start](#quick-start)
 - [Migration guide](#migration-guide)
 - [Trouble shooting](#trouble-shooting)
-- [Licence](#licence)
+- [License](#license)
 
 ## Design
 `o-header-services` is a very simple responsive header. It has support for up to three levels of navigation making it appropriate for anything from a single page application to a multi-layer application.
@@ -42,7 +41,7 @@ The header has the following features:
 The simplest header, appropriate for single page applications with no navigation is available with the following code:
 
 ```
-<header id='o-header-services' class='o-header-services' data-o-component='o-header'>
+<header class='o-header-services' data-o-component='o-header'>
 	<div class='o-header-services__top o-header-services__container'>
 		<div class='o-header-services__ftlogo'></div>
 		<div class='o-header-services__title'>
@@ -59,8 +58,8 @@ There are themes available for b2b products and b2c products. If you want a them
 To add a theme to the header, add the appropriate class to a wrapping element. For example, for b2b that would be:
 
 ```diff
-+<header id='o-header-services' class='o-header-services o-header-services--b2b' data-o-component='o-header'>
--<header id='o-header-services' class='o-header-services' data-o-component='o-header'>
++<header class='o-header-services o-header-services--b2b' data-o-component='o-header'>
+-<header class='o-header-services' data-o-component='o-header'>
 	<div class='o-header-services__top o-header-services__container'>
 		<div class='o-header-services__ftlogo'></div>
 		<div class='o-header-services__title'>
@@ -81,7 +80,7 @@ Small screen users should still be able to access the contents of the drawer eve
 To add support for related content, add the following to your markup:
 
 ```diff
-<header id='o-header-services' class='o-header-services' data-o-component='o-header'>
+<header class='o-header-services' data-o-component='o-header'>
 	<div class='o-header-services__top'>
 		<div class='o-header-services__container'>
 +			<div class='o--if-js o-header-services__hamburger'>
@@ -98,7 +97,7 @@ To add support for related content, add the following to your markup:
 		</div>
 	</div>
 </header>
-<!-- Drawer HTML -->
+<!-- Drawer HTML from o-header which should include the links from related content. -->
 ```
 
 Related content also needs some JavaScript to operate the drawer. If you are using the Build Service this will just work. If you're using a manual build process you should have the following somewhere in your code ([what's this?](http://origami.ft.com/docs/developer-guide/modules/initialising-modules/)):
@@ -115,7 +114,7 @@ If your application has more than one page you may want to add the primary navig
 This requires the drawer code, as seen above, and the following addition:
 
 ```diff
-<header id='o-header-services' class='o-header-services' data-o-component='o-header'>
+<header class='o-header-services' data-o-component='o-header'>
 	<div class='o-header-services__top'>
 		<div class='o-header-services__container'>
 			<div class='o--if-js o-header-services__hamburger'>
@@ -144,11 +143,16 @@ This requires the drawer code, as seen above, and the following addition:
 +		</ul>
 +	</div>
 +</nav>
-<!-- Drawer HTML as above -->
-<!-- those nav items again -->
+<!-- Drawer HTML as above this should include related content links (if any) and nav items-->
 ```
 
 ## Migration guide
 ## Trouble shooting
 ### Contact info
-## Licence
+Please raise an issue, or Internal FT users can contact us via #ft-origami in Slack. 
+
+## License
+
+Copyright (c) 2016 Financial Times Ltd. All rights reserved.
+
+This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
