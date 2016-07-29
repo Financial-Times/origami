@@ -42,18 +42,6 @@
 						"template": "demos/src/one-navigation.mustache",
 						"expanded": true,
 						"description": ""
-				},
-				{
-						"name": "2 levels of navigation",
-						"template": "demos/src/2-navigation.mustache",
-						"expanded": false,
-						"description": ""
-				},
-				{
-						"name": "2 levels of navigation and the drawer",
-						"template": "demos/src/2-navigation-and-drawer.mustache",
-						"expanded": false,
-						"description": ""
 				}
 		]
 }
