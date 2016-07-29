@@ -143,12 +143,14 @@ class VideoAds {
 		this.adsManager.addEventListener(google.ima.AdEvent.Type.COMPLETE, this.adEventHandler);
 
 		this.adsLoaded = true;
-		if (this.videoLoaded) {
-			this.startAds();
-		}
+		this.startAds();
 	}
 
 	startAds() {
+		if (!this.adsLoaded || !this.videoLoaded) {
+			return;
+		}
+
 		try {
 			// Initialize the ads manager. Ad rules playlist will start at this time.
 			this.adsManager.init(this.video.videoEl.clientWidth, this.video.videoEl.clientHeight, google.ima.ViewMode.NORMAL);
@@ -166,18 +168,20 @@ class VideoAds {
 		this.adContainerEl.classList.add('o-video__ad');
 
 		this.adDisplayContainer.initialize();
-		this.video.videoEl.addEventListener('loadedmetadata', () => {
+
+		const loadedmetadataHandler = () => {
 			this.videoLoaded = true;
-			if (this.adsLoaded) {
-				this.startAds();
-			}
-		});
+			this.startAds();
+			this.video.videoEl.removeEventListener('loadedmetadata', loadedmetadataHandler);
+		};
+		this.video.videoEl.addEventListener('loadedmetadata', loadedmetadataHandler);
 
 		// Initialize the video. Must be done via a user action on mobile devices.
 		this.video.videoEl.load();
 
 		this.overlayEl && this.overlayEl.removeEventListener('click', this.playAdEventHandler);
 		this.overlayEl && this.video.containerEl.removeChild(this.overlayEl);
+		delete this.overlayEl;
 		this.video.placeholderEl && this.video.placeholderEl.removeEventListener('click', this.playAdEventHandler);
 	}
 
@@ -208,7 +212,6 @@ class VideoAds {
 				}
 				break;
 			case google.ima.AdEvent.Type.COMPLETE:
-				this.adContainerEl.style.display = 'none';
 				if (ad.isLinear()) {
 					// Would be used to clear the interval
 				}
@@ -219,9 +222,10 @@ class VideoAds {
 	adErrorHandler() {
 		this.adsManager && this.adsManager.destroy();
 		this.video.containerEl.removeChild(this.adContainerEl);
-		if(this.overlayEl) {
+		if (this.overlayEl) {
 			this.overlayEl.removeEventListener('click', this.playAdEventHandler);
 			this.video.containerEl.removeChild(this.overlayEl);
+			delete this.overlayEl;
 		}
 		this.video.placeholderEl && this.video.placeholderEl.removeEventListener('click', this.playAdEventHandler);
 		this.video.opts.advertising = false;
