@@ -94,7 +94,7 @@ ODate.prototype.update = function() {
 	let dateString;
 
 	if (format === 'today-or-yesterday-or-nothing') {
-		 dateString = ODate.asTodayOrYesterdayOrNothing(date);
+		dateString = ODate.asTodayOrYesterdayOrNothing(date);
 	} else if (format === 'date-only') {
 		dateString = ODate.format(date, 'date');
 	} else {
@@ -164,8 +164,8 @@ ODate.ftTime = function(dateObj) {
 	} else if (ODate.isFarFuture(interval)) {
 		dateString = ODate.format(dateObj, 'date');
 
-	// Relative times for today
-	} else if (ODate.isToday(dateObj, now, interval)) {
+	// Relative times for today or within the last 4 hours
+	} else if (ODate.isToday(dateObj, now, interval) || (interval < (4 * inSeconds.hour))) {
 		dateString = ODate.timeAgo(dateObj, now, interval);
 
 	// 'Yesterday' for dates that occurred yesterday

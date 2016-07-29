@@ -122,7 +122,6 @@ describe('o-date', () => {
 	describe('ODate.ftTime', () => {
 
 		const someDate = new Date("Jul 13 2016 00:02:00");
-
 		beforeEach(() => {
 			jasmine.clock().install();
 		});
@@ -152,15 +151,57 @@ describe('o-date', () => {
 		});
 
 		it('returns a result from ODate.timeAgo if ODate.isToday returns true', () => {
-			const oDateFormatReturn = "mocked timeAgo date";
+			const oDateTimeAgoReturn = "mocked timeAgo date";
 			spyOn(oDate, 'isNearFuture').and.returnValue(false);
 			spyOn(oDate, 'isFarFuture').and.returnValue(false);
 			spyOn(oDate, 'isToday').and.returnValue(true);
 
-			spyOn(oDate, 'timeAgo').and.returnValue(oDateFormatReturn);
+			spyOn(oDate, 'timeAgo').and.returnValue(oDateTimeAgoReturn);
 
-			expect(oDate.ftTime(someDate)).toBe(oDateFormatReturn);
+			expect(oDate.ftTime(someDate)).toBe(oDateTimeAgoReturn);
 			expect(oDate.timeAgo).toHaveBeenCalledWith(someDate, jasmine.any(Date), jasmine.any(Number));
+		});
+
+		it('returns a result from timeAgo if the publish date is less than 4 hours ago even if that date is also yesterday', ()=>{
+			const oDateTimeAgoReturn = "mocked timeAgo date";
+			spyOn(oDate, 'timeAgo').and.returnValue(oDateTimeAgoReturn);
+
+			const publishDatesInTheLast4Hours = [
+				new Date("Jul 13 2016 23:02:49"),
+				new Date("Jul 13 2016 22:02:49"),
+				new Date("Jul 13 2016 21:02:49"),
+				new Date("Jul 13 2016 20:02:50")
+			];
+
+			const fakeNow = new Date("Jul 14 2016 00:02:49");
+			jasmine.clock().mockDate(fakeNow);
+			for (let date of publishDatesInTheLast4Hours) {
+				expect(oDate.ftTime(date)).toBe(oDateTimeAgoReturn);
+				expect(oDate.timeAgo).toHaveBeenCalledWith(date, jasmine.any(Date), jasmine.any(Number));
+			}
+		});
+
+		it('doesnt return a result from timeAgo if the publish date is more than 4 hours ago and isToday is false', ()=>{
+			const oDateTimeAgoReturn = "mocked timeAgo date";
+			spyOn(oDate, 'timeAgo').and.returnValue(oDateTimeAgoReturn);
+
+			spyOn(oDate, 'isNearFuture').and.returnValue(false);
+			spyOn(oDate, 'isFarFuture').and.returnValue(false);
+			spyOn(oDate, 'isToday').and.returnValue(false);
+
+			const publishDatesInTheLast4Hours = [
+				new Date("Jul 13 2016 19:02:49"),
+				new Date("Jul 13 2016 18:02:49"),
+				new Date("Jul 13 2016 17:02:49"),
+				new Date("Jul 13 2016 00:02:50")
+			];
+
+			const fakeNow = new Date("Jul 14 2016 00:02:49");
+			jasmine.clock().mockDate(fakeNow);
+			for (let date of publishDatesInTheLast4Hours) {
+				expect(oDate.ftTime(date)).not.toBe(oDateTimeAgoReturn);
+				expect(oDate.timeAgo).not.toHaveBeenCalledWith(date, jasmine.any(Date), jasmine.any(Number));
+			}
 		});
 
 		it('returns a result from "yesterday" if ODate.isYesterday returns true', () => {
