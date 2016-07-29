@@ -97,6 +97,8 @@ ODate.prototype.update = function() {
 		dateString = ODate.asTodayOrYesterdayOrNothing(date);
 	} else if (format === 'date-only') {
 		dateString = ODate.format(date, 'date');
+	} else if (format === 'time-ago-limit-4-hours'){
+		dateString = ODate.timeAgo(date, { limit: 4*inSeconds.hour });
 	} else {
 		 dateString = ODate.ftTime(date);
 	}
@@ -202,12 +204,21 @@ ODate.isYesterday = function(date, now, interval) {
 	return (within48Hours && consecutiveDaysOfTheWeek);
 };
 
-ODate.timeAgo = function(date, interval) {
+ODate.timeAgo = function(date, options) {
 
 	date = ODate.toDate(date);
 	if (!date) return;
 
-	interval = interval || ODate.getSecondsBetween(new Date(), date);
+	// If a limit has been supplied and the interval is longer ago than that limit
+	if (options && (options.limit > 0) && (interval > options.limit)) {
+		return '';
+	}
+
+	if (options && options.interval) {
+		interval = options.interval;
+	} else {
+		interval = ODate.getSecondsBetween(new Date(), date);
+	}
 
 	if (interval < inSeconds.minute) {
 		return interval + ' seconds ago';
