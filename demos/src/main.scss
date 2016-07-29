@@ -2,9 +2,6 @@ $o-header-services-is-silent: false;
 
 @import '../../main';
 
-.core .o--if-js,
-.enhanced .o--if-no-js { display: none !important; }
-
 body {
 	font-family: arial;
 }
