@@ -166,7 +166,7 @@ ODate.ftTime = function(dateObj) {
 
 	// Relative times for today or within the last 4 hours
 	} else if (ODate.isToday(dateObj, now, interval) || (interval < (4 * inSeconds.hour))) {
-		dateString = ODate.timeAgo(dateObj, now, interval);
+		dateString = ODate.timeAgo(dateObj, {interval: interval});
 
 	// 'Yesterday' for dates that occurred yesterday
 	} else if (ODate.isYesterday(dateObj, now, interval)) {

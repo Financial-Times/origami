@@ -159,7 +159,7 @@ describe('o-date', () => {
 			spyOn(oDate, 'timeAgo').and.returnValue(oDateTimeAgoReturn);
 
 			expect(oDate.ftTime(someDate)).toBe(oDateTimeAgoReturn);
-			expect(oDate.timeAgo).toHaveBeenCalledWith(someDate, jasmine.any(Date), jasmine.any(Number));
+			expect(oDate.timeAgo).toHaveBeenCalledWith(someDate, jasmine.any(Object));
 		});
 
 		it('returns a result from timeAgo if the publish date is less than 4 hours ago even if that date is also yesterday', ()=>{
@@ -177,7 +177,7 @@ describe('o-date', () => {
 			jasmine.clock().mockDate(fakeNow);
 			for (let date of publishDatesInTheLast4Hours) {
 				expect(oDate.ftTime(date)).toBe(oDateTimeAgoReturn);
-				expect(oDate.timeAgo).toHaveBeenCalledWith(date, jasmine.any(Date), jasmine.any(Number));
+				expect(oDate.timeAgo).toHaveBeenCalledWith(date, jasmine.any(Object));
 			}
 		});
 
@@ -200,7 +200,7 @@ describe('o-date', () => {
 			jasmine.clock().mockDate(fakeNow);
 			for (let date of publishDatesInTheLast4Hours) {
 				expect(oDate.ftTime(date)).not.toBe(oDateTimeAgoReturn);
-				expect(oDate.timeAgo).not.toHaveBeenCalledWith(date, jasmine.any(Date), jasmine.any(Number));
+				expect(oDate.timeAgo).not.toHaveBeenCalledWith(date, jasmine.any(Object));
 			}
 		});
 
