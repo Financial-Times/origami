@@ -187,5 +187,11 @@
 		background-position: right;
 	}
 
+	@media print {
+		.o-footer {
+			display: none;
+		}
+	}
+
 	$o-footer-is-silent: true !global;
 }
