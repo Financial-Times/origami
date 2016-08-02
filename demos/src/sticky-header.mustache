@@ -1,15 +1,15 @@
-<header class="o-header o-header--simple o-header--sticky o--if-js" data-o-component="o-header" data-o-header--sticky>
+<header class="o-header o-header--simple o-header--sticky o--if-js" aria-hidden="true" role="presentation" data-o-component="o-header" data-o-header--sticky>
 	<div class="o-header__row o-header__top">
 		<div class="o-header__container">
 			<div class="o-header__top-wrapper">
 
 				<div class="o-header__top-column o-header__top-column--left">
 					{{#top.hasMenu}}
-					<a href="#o-header-drawer" class="o-header__top-link o-header__top-link--menu" aria-controls="o-header-drawer">
+					<a href="#o-header-drawer" class="o-header__top-link o-header__top-link--menu" aria-controls="o-header-drawer" tabindex="-1">
 						<span class="o-header__top-link-label">Menu</span>
 					</a>
 					{{/top.hasMenu}}
-					<a href="#o-header-search-sticky" class="o-header__top-link o-header__top-link--search" aria-controls="o-header-search-sticky">
+					<a href="#o-header-search-sticky" class="o-header__top-link o-header__top-link--search" aria-controls="o-header-search-sticky" tabindex="-1">
 						<span class="o-header__top-link-label">Search</span>
 					</a>
 				</div>
@@ -23,7 +23,7 @@
 							<ul class="o-header__nav-list o-header__nav-list--left">
 								{{#desktop}}
 								<li class="o-header__nav-item">
-									<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" aria-selected="{{selected}}" id="o-header-link-{{index}}" {{#hasMega}}aria-controls="o-header-mega-{{index}}"{{/hasMega}}>{{name}}</a>
+									<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" aria-selected="{{selected}}" tabindex="-1">{{name}}</a>
 								</li>
 								{{/desktop}}
 							</ul>
@@ -31,7 +31,7 @@
 						</div>
 					</div>
 
-					<a class="o-header__top-logo" href="/" title="Go to Financial Times homepage">
+					<a class="o-header__top-logo" href="/" title="Go to Financial Times homepage" tabindex="-1">
 						<span class="o-header__visually-hidden">Financial Times</span>
 					</a>
 
@@ -45,10 +45,10 @@
 						<div class="o-header__nav">
 							<ul class="o-header__nav-list o-header__nav-list--right">
 								<li class="o-header__nav-item">
-									<a class="o-header__nav-link o-header__nav-link--utility" href="/login">Sign In</a>
+									<a class="o-header__nav-link o-header__nav-link--utility" href="/login" tabindex="-1">Sign In</a>
 								</li>
 								<li class="o-header__nav-item">
-									<a class="o-header__nav-button" href="/products">Subscribe</a>
+									<a class="o-header__nav-button" href="/products" tabindex="-1">Subscribe</a>
 								</li>
 							</ul>
 						</div>
@@ -56,7 +56,7 @@
 					{{/isSignedIn}}
 
 					{{#top.hasMyFT}}
-					<a class="o-header__top-link o-header__top-link--myft" href="/myft">
+					<a class="o-header__top-link o-header__top-link--myft" href="/myft" tabindex="-1">
 						<span class="o-header__visually-hidden">myFT</span>
 					</a>
 					{{/top.hasMyFT}}
