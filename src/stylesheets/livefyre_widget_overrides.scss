@@ -92,12 +92,12 @@
 
 		.fyre-comment-stream {
 			color: oColorsGetPaletteColor('grey-tint5');
-			font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
+			font: 14px/22px $o-comments-font-family;
 			margin: 0;
 		}
 
 		.fyre-comment-article {
-			font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
+			font: 14px/22px $o-comments-font-family;
 			margin: 10px 0 0;
 			position: relative;
 
@@ -632,7 +632,7 @@
 
 							.fyre-notifier-message {
 								width: 193px;
-								font-family: BentonSans, Helvetica,  Arial,  sans-serif;
+								font-family: $o-comments-font-family;
 								font-size: 13px;
 								line-height: 26px;
 								color: oColorsGetPaletteColor('grey-tint4');
@@ -680,7 +680,7 @@
 					.fyre-notifier-caption {
 						font-size: 13px;
 						line-height: 32px;
-						font-family: BentonSans, Helvetica,  Arial,  sans-serif;
+						font-family: $o-comments-font-family;
 					}
 
 					.fyre-notifier-base-close {
@@ -695,7 +695,7 @@
 
 		.fyre-featured-content-wrapper {
 			color: oColorsGetPaletteColor('grey-tint4');
-			font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
+			font: 14px/22px $o-comments-font-family;
 			margin: 0 0 20px;
 			background: oColorsGetPaletteColor('pink-tint1');
 
@@ -731,7 +731,7 @@
 
 			.fyre-featured-authored-by {
 				color: oColorsGetPaletteColor('grey-tint4');
-				font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
+				font: 14px/22px $o-comments-font-family;
 				margin: 0;
 				font-weight: bold;
 			}
@@ -1036,7 +1036,7 @@
 
 			.fyre-share-container > span>a {
 				color: oColorsGetPaletteColor('grey-tint5');
-				font-family: BentonSans, Helvetica, Arial, sans-serif;
+				font-family: $o-comments-font-family;
 				padding: 8px 15px;
 			}
 
@@ -1143,7 +1143,7 @@
 		padding: 3px 0;
 		border-top: 4px solid oColorsGetPaletteColor('pink-tint4');
 		border-bottom: 1px dotted oColorsGetPaletteColor('pink-tint4');
-		font-family: BentonSans,sans-serif;
+		font-family: $o-comments-font-family;
 		font-weight: 700;
 		text-transform: uppercase;
 		font-size: 13px;
@@ -1329,11 +1329,11 @@ body {
 
 		background-color: oColorsGetPaletteColor('white');
 		color: oColorsGetPaletteColor('grey-tint3');
-		font: 14px/16px BentonSans, Arial, Helvetica, sans-serif;
+		font: 14px/16px $o-comments-font-family;
 	}
 
 	.fyre-hovercard-display-name {
-		font: bold 14px/16px BentonSans ,Arial,Helvetica,Geneva,sans-serif;
+		font: bold 14px/16px $o-comments-font-family;
 	}
 
 	.fyre-hovercard-button {
