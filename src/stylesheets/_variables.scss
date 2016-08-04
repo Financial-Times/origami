@@ -1,4 +1,4 @@
-$o-comments-include-fonts: true default;
+$o-comments-include-fonts: true !default;
 $o-comments-font-family: oFontsGetFontFamilyWithFallbacks(BentonSans) !default;
 
 $o-comments-link-color: oColorsGetPaletteColor('blue');
