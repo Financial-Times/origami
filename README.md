@@ -25,23 +25,23 @@ A fully featured commenting client integrated with FT's membership systems. If y
 
 * You must be on an FT.com domain or sub-domain for authentication to work
 
-## <div id="product"></div> Adding comments to your product 
-### <div id="decl"></div> Declaratively 
+## <div id="product"></div> Adding comments to your product
+### <div id="decl"></div> Declaratively
 Use the following markup to enable comments:
 
 ```html
 <div data-o-component="o-comments"
-    id="{idOfTheElement}" 
-    data-o-comments-auto-init="true|false" 
-    data-o-comments-config-title="{article-title}" 
-    data-o-comments-config-url="{page-url}" 
+    id="{idOfTheElement}"
+    data-o-comments-auto-init="true|false"
+    data-o-comments-config-title="{article-title}"
+    data-o-comments-config-url="{page-url}"
     data-o-comments-config-article-id="{article-id}">
 
         <div class="o--if-no-js">To participate in this chat, you need to upgrade to a newer web browser. <a href="http://help.ft.com/tools-services/browser-compatibility/">Learn more.</a></div>
 </div>
 ```
 
- 
+
  * `data-o-comments-config-title` the title of your article/post/thing
  * `data-o-comments-config-article-id` a unique id for your content, ideally a UUID for FT content
  * `data-o-comments-config-url` The canonical URL for your article/page/thing
@@ -62,7 +62,7 @@ oComments.init();
 
 The init function may take an optional parameter: a context (this could be DOM element or a valid selector). The search would be performed only inside of this context element. If none is specified, it defaults to document.body.
 
-### <div id="imper"></div> Imperatively 
+### <div id="imper"></div> Imperatively
 Create an instance of the component with the parameters that are available:
 
 ```javascript
@@ -93,7 +93,7 @@ The configuration object which is passed to the contructor can/should have the f
  - articleId: ID of the article, any string
  - url: canonical URL of the page
  - title: Title of the page
-    
+
 ###### Optional fields:
 
  - stream_type: livecomments, livechat, liveblog
@@ -103,7 +103,7 @@ The configuration object which is passed to the contructor can/should have the f
  - tags: Tags which will be added to the collection (term used by Livefyre to articles) in Livefyre
  - autoInit: if this is set to false, the object will be created, but it will not be initialized automatically (the DOM will not be populated, call to backend services will not be made). In this case you should call the `init` method on the instance when you want to initialize it.
 
-## <div id="login"></div> Login integration 
+## <div id="login"></div> Login integration
 Users need to have a valid FT session in order to post comments. The default behavior for a user without a valid session is to redirect to the FT's login page (https://registration.ft.com). However you may wish to integrate with your product's authentication process for a slicker UX in which case you can override the default behaviour.
 
  1. Override the `auth.loginRequiredDefaultBehavior` function
@@ -147,7 +147,7 @@ oComments.on('auth.loginRequired', function (evt) {
 
 ## <div id="events"></div> Events
 ### Local events
-These events are triggered on the instance's DOM element. 
+These events are triggered on the instance's DOM element.
 All events have a payload of data which helps getting the ID of the instance and the instance object itself:
 
 ```javascript
@@ -446,7 +446,13 @@ In order to override the default font, set a value for the following variable:
 $o-comments-font-family: font1, font2;
 ```
 
-## <div id="browser"></div> Browser support 
+In order to suppress downloading the web fonts set the following variable
+
+```scss
+$o-comments-include-fonts: false;
+```
+
+## <div id="browser"></div> Browser support
 Works in accordance with our [support policy](https://docs.google.com/a/ft.com/document/d/1dX92MPm9ZNY2jqFidWf_E6V4S6pLkydjcPmk5F989YI/edit)
 
 ## <div id="core"></div> Core/Enhanced Experience
