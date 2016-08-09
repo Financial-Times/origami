@@ -194,9 +194,11 @@ class Video {
 		this.placeholderEl.appendChild(playButtonEl);
 
 		this.placeholderEl.addEventListener('click', () => {
+			// Adds video soon so ads can start loading
+			this.addVideo();
+
 			this.containerEl.removeChild(this.placeholderEl);
 
-			this.videoEl.style.display = 'block';
 			if (!this.opts.advertising) {
 				this.videoEl.play();
 			}
@@ -204,12 +206,6 @@ class Video {
 		});
 
 		this.containerEl.appendChild(this.placeholderEl);
-		// Adds video soon so ads can start loading
-		this.addVideo();
-		// Hide it so it doesn't flash until the placeholder image loads
-		if (this.videoEl) {
-			this.videoEl.style.display = 'none';
-		}
 	}
 
 	getProgress() {
