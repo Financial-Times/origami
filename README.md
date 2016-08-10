@@ -30,10 +30,10 @@ Where `opts` is an optional object with properties
 
  * `id` [`Number`] Source's ID of the video
  * `source` [`String`] Source of the video (currently only accepts `brightcove`)
- * `optimumwidth` [`Number`] The optimum width of the video, used when there are multiple video renditions available to
- decide which to display (the smallest one that's at least as large as this width, if it exists)
+ * `optimumWidth` [`Number`] The optimum width of the video, used when there are multiple video renditions available to
+ decide which to display (the smallest one that's at least as large as this width, if it exists) (becomes `optimum-width` if used as a data attribute)
  * `placeholder` [`Boolean`] Show just the poster image, load (and play) video on click
- * `placeholderTitle` [`Boolean`] Show just the title as an overlay on the placeholder
+ * `placeholderTitle` [`Boolean`] Show just the title as an overlay on the placeholder (becomes `placeholder-title` if used as a data attribute)
  * `classes` [`Array`] Classes to add to the video (and placeholder) element
 
 The config options can also be set as data attribute to instantiate the module declaratively:
@@ -42,8 +42,10 @@ The config options can also be set as data attribute to instantiate the module d
     <div data-o-component="o-video"
             data-o-video-id="4165329773001"
             data-o-video-source="brightcove"
-            data-o-video-optimumwidth="710"></div>
+            data-o-video-opts-optimum-width="710"
+            data-o-video-opts-placeholder-title="true"></div>
 ```
+**Note**: `optimum-width`, `placeholder`, `placeholder-title` and `classes` are prefixed with `-opts-` when being used as data-attributes
 
 ## Testing
 
