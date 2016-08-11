@@ -51,6 +51,8 @@ function Share(rootEl, config) {
 
 		if (oShare.rootEl.contains(actionEl) && actionEl.querySelector('a[href]')) {
 			ev.preventDefault();
+			ev.stopPropagation();
+
 			const url = actionEl.querySelector('a[href]').href;
 
 			dispatchCustomEvent('event', {
