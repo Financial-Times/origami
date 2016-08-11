@@ -145,8 +145,6 @@ describe('Video', () => {
 			placeholderImageEl.should.exist;
 			placeholderImageEl.getAttribute('src').should.equal('mockimage');
 			video.placeholderEl.querySelector('.o-video__play-button').should.exist;
-
-			Video.prototype.addVideo.called.should.equal(true);
 		});
 
 		it('should be able to create a placeholder with a title', () => {

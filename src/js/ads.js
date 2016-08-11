@@ -14,7 +14,7 @@ class VideoAds {
 		this.adsLoaded = false;
 		this.videoLoad = false;
 
-		if (!this.video.placeholderEl) {
+		if (!this.video.opts.placeholder) {
 			this.overlayEl = createVideoOverlayElement();
 			this.video.containerEl.appendChild(this.overlayEl);
 		}
@@ -36,7 +36,6 @@ class VideoAds {
 			if (sdkScriptLoaded) {
 				resolve();
 			} else {
-
 				googleSdkScript.addEventListener('load', () => {
 					sdkScriptLoaded = true;
 					resolve();
@@ -96,8 +95,11 @@ class VideoAds {
 		this.requestAds();
 
 		this.playAdEventHandler = this.playAdEventHandler.bind(this);
-		this.overlayEl && this.overlayEl.addEventListener('click', this.playAdEventHandler);
-		this.video.placeholderEl && this.video.placeholderEl.addEventListener('click', this.playAdEventHandler);
+		if (this.video.opts.placeholder) {
+			this.playAdEventHandler();
+		} else {
+			this.overlayEl && this.overlayEl.addEventListener('click', this.playAdEventHandler);
+		}
 	}
 
 	requestAds() {
@@ -182,7 +184,6 @@ class VideoAds {
 		this.overlayEl && this.overlayEl.removeEventListener('click', this.playAdEventHandler);
 		this.overlayEl && this.video.containerEl.removeChild(this.overlayEl);
 		delete this.overlayEl;
-		this.video.placeholderEl && this.video.placeholderEl.removeEventListener('click', this.playAdEventHandler);
 	}
 
 	adEventHandler(adEvent) {
