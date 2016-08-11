@@ -1,0 +1,18 @@
+{
+  "name": "o-component-boilerplate",
+  "description": "Component description",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main": [
+    "main.scss",
+		"main.js"
+  ],
+  "dependencies": {
+    "o-colors": "^3.3.0"
+  }
+}

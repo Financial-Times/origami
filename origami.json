@@ -1,0 +1,18 @@
+{
+    "description": "Component description",
+    "origamiType": "module",
+    "origamiCategory": "components",
+    "origamiVersion": 1,
+    "support": "https://github.com/Financial-Times/o-component-boilerplate/issues",
+    "supportStatus": "active",
+    "browserFeatures": {},
+    "ci": {
+        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-component-boilerplate/builds.json"
+    },
+    "demosDefaults": {
+        "sass": "demos/src/main.scss",
+        "documentClasses": "",
+        "dependencies": ""
+    },
+    "demos": []
+	}
