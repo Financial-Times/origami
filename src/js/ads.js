@@ -100,8 +100,6 @@ class VideoAds {
 		} else {
 			this.overlayEl && this.overlayEl.addEventListener('click', this.playAdEventHandler);
 		}
-
-		// this.video.placeholderEl && this.video.placeholderEl.addEventListener('click', this.playAdEventHandler);
 	}
 
 	requestAds() {
@@ -186,7 +184,6 @@ class VideoAds {
 		this.overlayEl && this.overlayEl.removeEventListener('click', this.playAdEventHandler);
 		this.overlayEl && this.video.containerEl.removeChild(this.overlayEl);
 		delete this.overlayEl;
-		// this.video.placeholderEl && this.video.placeholderEl.removeEventListener('click', this.playAdEventHandler);
 	}
 
 	adEventHandler(adEvent) {

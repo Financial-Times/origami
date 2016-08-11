@@ -15,6 +15,7 @@ describe('Ads', () => {
 		const video = {
 			containerEl,
 			videoEl,
+			opts: {},
 			targeting: {}
 		};
 		ads = new Ads(video);
