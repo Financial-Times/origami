@@ -1,6 +1,7 @@
 /* global describe, it, beforeEach, afterEach, before, after, should */
 const Video = require('./../src/js/video');
-const brightcoveResponse = require('./fixtures/brightcove.json');
+const brightcoveResponse1 = require('./fixtures/brightcove-1.json');
+const brightcoveResponse2 = require('./fixtures/brightcove-2.json');
 const sinon = require('sinon/pkg/sinon');
 
 describe('Video', () => {
@@ -12,6 +13,7 @@ describe('Video', () => {
 		containerEl.setAttribute('data-o-component', 'o-video');
 		containerEl.setAttribute('data-o-video-id', '4084879507001');
 		containerEl.setAttribute('data-o-video-source', 'Brightcove');
+		containerEl.setAttribute('data-o-video-autorender', 'false');
 		document.body.appendChild(containerEl);
 	});
 
@@ -41,7 +43,6 @@ describe('Video', () => {
 			const video = new Video(containerEl);
 
 			video.opts.advertising.should.eql(false);
-			video.opts.autorender.should.eql(true);
 			video.opts.classes.should.be.an.instanceOf(Array);
 			video.opts.classes.should.contain('o-video__video');
 			should.equal(video.opts.optimumwidth, null);
@@ -94,7 +95,11 @@ describe('Video', () => {
 		});
 
 		it('should add supplied classes to element', () => {
-			const video = new Video(containerEl, { classes: ['class-one', 'class-two'] });
+			const video = new Video(containerEl, {
+				classes: ['class-one', 'class-two'],
+				autorender: false
+			});
+
 			video.addVideo();
 			video.videoEl.className.should.equal('class-one class-two o-video__video');
 		});
@@ -133,7 +138,11 @@ describe('Video', () => {
 		});
 
 		it('should be able to create a placeholder', () => {
-			const video = new Video(containerEl, { placeholder: true });
+			const video = new Video(containerEl, {
+				autorender: false,
+				placeholder: true
+			});
+
 			video.posterImage = 'mockimage';
 			video.addPlaceholder();
 
@@ -148,7 +157,12 @@ describe('Video', () => {
 		});
 
 		it('should be able to create a placeholder with a title', () => {
-			const video = new Video(containerEl, { placeholder: true, placeholdertitle: true });
+			const video = new Video(containerEl, {
+				autorender: false,
+				placeholder: true,
+				placeholdertitle: true
+			});
+
 			video.videoData = { name: 'A hated rally' };
 			video.addPlaceholder();
 			const titleEl = video.placeholderEl.querySelector('.o-video__title');
@@ -162,7 +176,12 @@ describe('Video', () => {
 			const addEventListenerSpy = sinon.spy();
 			Element.prototype.addEventListener = addEventListenerSpy;
 
-			const video = new Video(containerEl, { placeholder: true, placeholdertitle: true });
+			const video = new Video(containerEl, {
+				autorender: false,
+				placeholder: true,
+				placeholdertitle: true
+			});
+
 			video.addPlaceholder();
 			const playButtonEl = video.placeholderEl.querySelector('.o-video__play-button');
 			const playButtonTextEl = playButtonEl.querySelector('.o-video__play-button-text');
@@ -176,6 +195,86 @@ describe('Video', () => {
 			addEventListenerSpy.calledOn(playButtonEl);
 
 			Element.prototype.addEventListener = realAddEventListener;
+		});
+	});
+
+	describe('#update', () => {
+		beforeEach(() => {
+			const res1 = new window.Response(JSON.stringify(brightcoveResponse1), {
+				status: 200,
+				headers: { 'Content-type': 'application/json' }
+			});
+
+			const res2 = new window.Response(JSON.stringify(brightcoveResponse2), {
+				status: 200,
+				headers: { 'Content-type': 'application/json' }
+			});
+
+			sinon.stub(window, 'fetch');
+
+			window.fetch.onFirstCall().returns(Promise.resolve(res1));
+			window.fetch.onSecondCall().returns(Promise.resolve(res2));
+		});
+
+		afterEach(() => {
+			window.fetch.restore();
+		});
+
+		context('when placeholder is present', () => {
+			let video;
+
+			beforeEach(() => {
+				video = new Video(containerEl, {
+					prop: 'old prop',
+					id: '4084879507001',
+					autorender: false,
+					placeholder: true,
+					placeholdertitle: true
+				});
+
+				return video.init();
+			});
+
+			it('replaces old options with the new', () => {
+				const newOpts = { prop: 'new prop', id: '4907997821001' };
+
+				return video.update(newOpts).then(() => {
+					expect(video.opts.prop).to.equal(newOpts.prop);
+					expect(video.opts.id).to.equal(newOpts.id);
+				});
+			});
+
+			it('updates the placeholder image and title', () => {
+				const newOpts = { prop: 'new prop', id: '4907997821001' };
+
+				return video.update(newOpts).then(() => {
+					expect(video.placeholderImageEl.src).to.include('World-Norbert-Hofer.jpg');
+					expect(video.placeholderTitleEl.textContent).to.equal(brightcoveResponse2.name);
+				});
+			});
+		});
+
+		context('when video is present', () => {
+			let video;
+
+			beforeEach(() => {
+				video = new Video(containerEl, {
+					id: '4084879507001',
+					autorender: false,
+					placeholder: false,
+				});
+
+				return video.init();
+			});
+
+			it('updates the video source and poster', () => {
+				const newOpts = { id: '4907997821001' };
+
+				return video.update(newOpts).then(() => {
+					expect(video.videoEl.poster).to.include('World-Norbert-Hofer.jpg');
+					expect(video.videoEl.src).to.include(brightcoveResponse2.id);
+				});
+			});
 		});
 	});
 
@@ -209,7 +308,7 @@ describe('Video', () => {
 
 		before(() => {
 			fetchStub = sinon.stub(window, 'fetch');
-			const res = new window.Response(JSON.stringify(brightcoveResponse), {
+			const res = new window.Response(JSON.stringify(brightcoveResponse1), {
 				status: 200,
 				headers: {
 					'Content-type': 'application/json'
@@ -236,11 +335,15 @@ describe('Video', () => {
 		});
 
 		it('should not fetch from video if full data provided in opts', () => {
-			const video = new Video(containerEl, { data: {
-				prop: 'val',
-				videoStillUrl: 'abc',
-				renditions: []
-			}});
+			const video = new Video(containerEl, {
+				data: {
+					prop: 'val',
+					videoStillUrl: 'abc',
+					renditions: []
+				},
+				autorender: false
+			});
+
 			return video
 				.getData()
 				.then(() => {
