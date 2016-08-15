@@ -1,4 +1,4 @@
-/* global describe, it, beforeEach, afterEach, before, after, should */
+/* global describe, context, it, beforeEach, afterEach, before, after, should */
 const Video = require('./../src/js/video');
 const brightcoveResponse1 = require('./fixtures/brightcove-1.json');
 const brightcoveResponse2 = require('./fixtures/brightcove-2.json');
@@ -236,20 +236,23 @@ describe('Video', () => {
 			});
 
 			it('replaces old options with the new', () => {
-				const newOpts = { prop: 'new prop', id: '4907997821001' };
+				const newOpts = { prop: 'new prop', id: brightcoveResponse2.id };
 
 				return video.update(newOpts).then(() => {
-					expect(video.opts.prop).to.equal(newOpts.prop);
-					expect(video.opts.id).to.equal(newOpts.id);
+					video.opts.prop.should.equal(newOpts.prop);
+					video.opts.id.should.equal(newOpts.id);
 				});
 			});
 
 			it('updates the placeholder image and title', () => {
-				const newOpts = { prop: 'new prop', id: '4907997821001' };
+				const newOpts = { id: brightcoveResponse2.id };
+
+				video.placeholderImageEl.src.should.include('AuthersNote-stock-market.jpg');
+				video.placeholderTitleEl.textContent.should.equal(brightcoveResponse1.name);
 
 				return video.update(newOpts).then(() => {
-					expect(video.placeholderImageEl.src).to.include('World-Norbert-Hofer.jpg');
-					expect(video.placeholderTitleEl.textContent).to.equal(brightcoveResponse2.name);
+					video.placeholderImageEl.src.should.include('World-Norbert-Hofer.jpg');
+					video.placeholderTitleEl.textContent.should.equal(brightcoveResponse2.name);
 				});
 			});
 		});
@@ -259,20 +262,23 @@ describe('Video', () => {
 
 			beforeEach(() => {
 				video = new Video(containerEl, {
-					id: '4084879507001',
+					id: brightcoveResponse1.id,
 					autorender: false,
-					placeholder: false,
+					placeholder: false
 				});
 
 				return video.init();
 			});
 
 			it('updates the video source and poster', () => {
-				const newOpts = { id: '4907997821001' };
+				const newOpts = { id: brightcoveResponse2.id };
+
+				video.videoEl.poster.should.include('AuthersNote-stock-market.jpg');
+				video.videoEl.src.should.include('A-hated-rally.mp4');
 
 				return video.update(newOpts).then(() => {
-					expect(video.videoEl.poster).to.include('World-Norbert-Hofer.jpg');
-					expect(video.videoEl.src).to.include(brightcoveResponse2.id);
+					video.videoEl.poster.should.include('World-Norbert-Hofer.jpg');
+					video.videoEl.src.should.include(brightcoveResponse2.id + '.mp4');
 				});
 			});
 		});
