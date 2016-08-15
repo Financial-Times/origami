@@ -2,8 +2,6 @@
 import OVideo from '../../src/js/video';
 
 document.addEventListener("DOMContentLoaded", function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-
 	const video = new OVideo(document.querySelector('[data-o-component="o-video"]'));
 
 	const select = document.querySelector('select');
