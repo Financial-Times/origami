@@ -18,8 +18,8 @@
 
 @include oColorsSetUseCase('o-header-drawer', 'background', 'pink');
 @include oColorsSetUseCase('o-header-drawer', 'border', 'warm-3');
-@include oColorsSetUseCase('o-header-drawer-editions-link', 'text', 'grey-tint5');
-@include oColorsSetUseCase('o-header-drawer-editions-link-highlight', 'text', 'teal-1');
+@include oColorsSetUseCase('o-header-drawer-editions-link', 'text', 'teal-1');
+@include oColorsSetUseCase('o-header-drawer-editions-link-highlight', 'text', 'cold-1');
 @include oColorsSetUseCase('o-header-drawer-search-term', 'background', 'white');
 @include oColorsSetUseCase('o-header-drawer-search-term', 'border', 'pink-tint3');
 @include oColorsSetUseCase('o-header-drawer-search-term-highlight', 'border', 'teal-1');
