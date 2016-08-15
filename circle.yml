@@ -4,6 +4,8 @@ machine:
   post:
     - npm install -g Financial-Times/origami-build-tools#node4
 dependencies:
+  pre:
+    - sudo apt-get update; sudo apt-get install libpango1.0-0 && sudo apt-get install firefox
   override:
     - obt install
   cache_directories:
