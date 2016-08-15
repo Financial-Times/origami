@@ -9,6 +9,6 @@
   "dependencies": {
     "o-icons": "^4.0.0",
     "o-colors": "^3.3.0",
-    "o-fetch-jsonp": "^1.0.0"
+    "o-fetch-jsonp": "^2.0.0"
   }
 }
