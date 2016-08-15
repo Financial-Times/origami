@@ -1,5 +1,3 @@
-const testEl = document.createElement('video');
-
 const formats = {
 	mpeg4: [
 		'video/mp4; codecs="mp4v.20.8"'
@@ -16,11 +14,17 @@ const formats = {
 	]
 };
 
-let supportedFormats = [];
-if (testEl.canPlayType) {
+function supportedFormats () {
+	const testEl = document.createElement('video');
+	const supported = [];
+
 	try {
-		supportedFormats = Object.keys(formats).filter(format => formats[format].some(type => testEl.canPlayType(type)));
+		Object.keys(formats).filter(format => {
+			formats[format].some(type => testEl.canPlayType(type)) && supported.push(format);
+		});
 	} catch(e) { }
+
+	return supported;
 }
 
 export default supportedFormats;

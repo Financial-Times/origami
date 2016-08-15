@@ -214,10 +214,14 @@ describe('Video', () => {
 
 			window.fetch.onFirstCall().returns(Promise.resolve(res1));
 			window.fetch.onSecondCall().returns(Promise.resolve(res2));
+
+			// FF on Linux doesn't always support H264 so to avoid going 💥 on CI, stub
+			sinon.stub(HTMLVideoElement.prototype, 'canPlayType').returns('maybe');
 		});
 
 		afterEach(() => {
 			window.fetch.restore();
+			HTMLVideoElement.prototype.canPlayType.restore();
 		});
 
 		context('when placeholder is present', () => {
