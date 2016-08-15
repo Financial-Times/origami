@@ -7,10 +7,10 @@
     "supportStatus": "active",
     "browserFeatures": {},
     "ci": {
-        "travis": "https://api.travis-ci.org/repos/Financial-Times/o-component-boilerplate/builds.json"
+        "circle": "https://api.travis-ci.org/repos/Financial-Times/o-component-boilerplate/builds.json"
     },
     "demosDefaults": {
-        "sass": "demos/src/main.scss",
+        "sass": "demos/src/demo.scss",
         "documentClasses": "",
         "dependencies": ""
     },
