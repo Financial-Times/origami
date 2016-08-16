@@ -7,7 +7,8 @@
     "supportStatus": "active",
     "browserFeatures": {},
     "ci": {
-        "circle": "https://api.travis-ci.org/repos/Financial-Times/o-component-boilerplate/builds.json"
+        "circle": "https://circleci.com/api/v1/project/Financial-Times/o-component-boilerplate"
+
     },
     "demosDefaults": {
         "sass": "demos/src/demo.scss",

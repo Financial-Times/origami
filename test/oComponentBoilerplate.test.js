@@ -1,7 +1,9 @@
-const oComponentBoilerplate = require('./../main');
+import expect from 'expect.js';
+
+const oComponentBoilerplate = require('./../src/js/componentBoilerplate');
 
 describe("oComponentBoilerplate", () => {
-	it("is defined", () => {
-		expect(voidFunction()).not.to.be(undefined);
+	it('is defined', () => {
+		expect(oComponentBoilerplate).to.be.a('function');
 	});
 });

@@ -1,5 +1,6 @@
 const oComponentBoilerplate = require('./src/js/componentBoilerplate');
 
-const voidFunction = function() {};
-
+document.addEventListener("DOMContentLoaded", function() {
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});
 module.exports = oComponentBoilerplate;
