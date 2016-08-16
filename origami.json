@@ -1,19 +1,26 @@
 {
-    "description": "Component description",
-    "origamiType": "module",
-    "origamiCategory": "components",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-component-boilerplate/issues",
-    "supportStatus": "active",
-    "browserFeatures": {},
-    "ci": {
-        "circle": "https://circleci.com/api/v1/project/Financial-Times/o-component-boilerplate"
-
-    },
-    "demosDefaults": {
-        "sass": "demos/src/demo.scss",
-        "documentClasses": "",
-        "dependencies": ""
-    },
-    "demos": []
+		"description": "Component description",
+		"origamiType": "module",
+		"origamiCategory": "components",
+		"origamiVersion": 1,
+		"support": "https://github.com/Financial-Times/o-component-boilerplate/issues",
+		"supportStatus": "active",
+		"browserFeatures": {},
+		"ci": {
+			"travis": "https://api.travis-ci.org/repos/Financial-Times/o-component-boilerplate/builds.json"
+		},
+		"demosDefaults": {
+			"sass": "demos/src/main.scss",
+			"documentClasses": "",
+			"dependencies": ""
+		},
+		"demos": [
+			{
+				"name": "demo",
+				"data": "demos/src/demo.js",
+				"template": "demos/src/demo.mustache",
+				"hidden": true,
+				"description": ""
+			}
+		]
 	}

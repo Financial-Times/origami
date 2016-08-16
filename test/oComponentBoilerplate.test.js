@@ -1,9 +1,13 @@
+/*global describe, it */
 import expect from 'expect.js';
 
-const oComponentBoilerplate = require('./../src/js/componentBoilerplate');
+const ComponentBoilerplate = require('./../src/js/componentBoilerplate');
 
-describe("oComponentBoilerplate", () => {
+describe("ComponentBoilerplate", () => {
 	it('is defined', () => {
-		expect(oComponentBoilerplate).to.be.a('function');
+		expect(ComponentBoilerplate).to.be.a('function');
+	});
+	it('has a static init method', () => {
+		expect(ComponentBoilerplate.init).to.be.a('function');
 	});
 });

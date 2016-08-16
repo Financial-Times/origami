@@ -1,6 +1,10 @@
-const oComponentBoilerplate = require('./src/js/componentBoilerplate');
+import oComponentBoilerplate from './src/js/componentBoilerplate';
 
-document.addEventListener("DOMContentLoaded", function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-});
-module.exports = oComponentBoilerplate;
+const constructAll = function() {
+	oComponentBoilerplate.init();
+	document.removeEventListener('o.DOMContentLoaded', constructAll);
+};
+
+document.addEventListener('o.DOMContentLoaded', constructAll);
+
+export default oComponentBoilerplate;
