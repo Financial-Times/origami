@@ -1,7 +1,7 @@
-o-component-boilerplate [![Circle CI](https://circleci.com/gh/Financial-Times/o-component-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-component-boilerplate/tree/master)
+o-cookie-message [![Circle CI](https://circleci.com/gh/Financial-Times/o-cookie-message/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-cookie-message/tree/master)
 =================
 
-Origami component boilerplate.
+Origami Cookie Message.
 
 ----
 

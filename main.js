@@ -1,6 +1,10 @@
-const oComponentBoilerplate = require('./src/js/componentBoilerplate');
+import oCookieMessage from './src/js/cookie';
 
-document.addEventListener("DOMContentLoaded", function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-});
-module.exports = oComponentBoilerplate;
+const constructAll = function() {
+	oCookieMessage.init();
+	document.removeEventListener('o.DOMContentLoaded', constructAll);
+};
+
+document.addEventListener('o.DOMContentLoaded', constructAll);
+
+export default oCookieMessage;
