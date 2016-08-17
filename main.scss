@@ -1,1 +1,10 @@
 @import "o-colors/main";
+
+@if ($o-cookie-message-is-silent == false) {
+	.o-cookie-message {
+		display: block;
+	}
+
+	// Set to silent again to avoid being output twice
+	$o-cookie-message-is-silent: true !global;
+}
