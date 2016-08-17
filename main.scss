@@ -8,3 +8,116 @@
 	// Set to silent again to avoid being output twice
 	$o-cookie-message-is-silent: true !global;
 }
+
+/*------------------------------------*\
+        #BLOCK-DESKTOP
+\*------------------------------------*/
+
+.cookie-message {
+    position: relative;
+    background-color: #fff1de;
+    border-bottom: 1px solid #d0c6b8;
+    padding: 5px 15px;
+}
+
+.cookie-message__container {
+    position: relative;
+    padding-right: 25px;
+}
+
+.cookie-message__close-btn-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.cookie-message__close-btn {
+    position: relative;
+    border-radius: 50%;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    //border: 1px solid getColor('grey-tint5');
+    background: none;
+    cursor: pointer;
+    opacity: 0.75;
+
+    &:before {
+        //@include oIconsGetIcon(cross, getColor('grey-tint4'), 12);
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 5px;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.cookie-message__close-btn-label {
+}
+
+.cookie-message__title {
+    //@include oTypographySansBold(l);
+    margin: 0;
+    color: #4a4a4a;
+    font-size: 18px;
+}
+
+.cookie-message__description {
+    //@include oTypographySans(m);
+    margin: 0;
+    font-size: 18px;
+    color: #4a4a4a;
+}
+
+.cookie-message__link {
+    text-decoration: none;
+    color: #27757b;
+    margin-left: 5px;
+}
+
+/*------------------------------------*\
+        #BLOCK-MODIFIERS
+\*------------------------------------*/
+
+.cookie-message--hidden {
+    display: none;
+}
+
+/**
+    * The `--banner-centric` modifier center aligns the content so that it will
+    * align with a 728px width banner that is position beneath the message,
+    * as will be the case on next.ft.com
+    */
+.cookie-message.cookie-message--banner-centric {
+
+    .cookie-message__container {
+        max-width: 728px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/*------------------------------------*\
+        #BLOCK-TRANSITIONS
+\*------------------------------------*/
+
+/* always present */
+.t-cookie-message-transition {
+    transition: all 0.3s ease;
+    transition-delay: 1s;
+    max-height: 120px;
+    overflow: hidden;
+}
+
+/* .t-cookie-message-enter defines the starting state for entering */
+/* .t-cookie-message-leave defines the ending state for leaving */
+.t-cookie-message-enter,
+.t-cookie-message-leave {
+    transition-delay: 0s;
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+}
