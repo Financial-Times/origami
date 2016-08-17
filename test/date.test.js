@@ -370,6 +370,61 @@ describe('o-date', () => {
 		it('returns `undefined` if the param passed in is not a date', () => {
 			expect(oDate.timeAgo('not a date')).toBe(undefined);
 		});
+
+		it('returns nothing if a limit is provided and the timeago is longer than that limit', () => {
+			const publishDate = new Date('Jul 13 2016 10:02:49');
+			const datesWithinLimit = [
+				new Date('Jul 13 2016 11:02:48'),
+				new Date('Jul 13 2016 10:02:49')
+			];
+
+			for (let date of datesWithinLimit) {
+				jasmine.clock().mockDate(date);
+				expect(oDate.timeAgo(publishDate, {limit: inSeconds.hour})).toBe('');
+			}
+		});
+
+		it('returns the timeAgo up to a limit if a limit value is provided', () => {
+			const publishDate = new Date('Jul 13 2016 10:02:49');
+			const datesWithinLimit = [
+				new Date('Jul 13 2016 11:02:51'),
+				new Date('Jul 13 2016 23:02:52'),
+				new Date('Jul 14 2016 10:02:49')
+			];
+
+			for (let date of datesWithinLimit) {
+				jasmine.clock().mockDate(date);
+				expect(oDate.timeAgo(publishDate, {limit: inSeconds.hour})).toBe('');
+			}
+		});
+
+		it('accepts an interval option', () => {
+			const publishDate = new Date('Jul 13 2016 10:02:49');
+			const dates = [
+				new Date('Jul 13 2016 11:02:51'),
+				new Date('Jul 13 2016 23:02:52'),
+				new Date('Jul 14 2016 10:02:49')
+			];
+
+			for (let date of dates) {
+				jasmine.clock().mockDate(date);
+				expect(oDate.timeAgo(publishDate, {interval: 5})).toBe('5 seconds ago');
+			}
+		});
+
+		it('accepts the interval option as a second argument for backwards compatibility', () => {
+			const publishDate = new Date('Jul 13 2016 10:02:49');
+			const dates = [
+				new Date('Jul 13 2016 11:02:51'),
+				new Date('Jul 13 2016 23:02:52'),
+				new Date('Jul 14 2016 10:02:49')
+			];
+
+			for (let date of dates) {
+				jasmine.clock().mockDate(date);
+				expect(oDate.timeAgo(publishDate, 5)).toBe('5 seconds ago');
+			}
+		});
 	});
 
 	describe('ODate.asTodayOrYesterdayOrNothing', () => {
@@ -417,7 +472,6 @@ describe('o-date', () => {
 
 			expect(oDate.isToday).toHaveBeenCalledWith(mockDate, jasmine.any(Date), jasmine.any(Number));
 			expect(oDate.isYesterday).toHaveBeenCalledWith(mockDate, jasmine.any(Date), jasmine.any(Number));
-
 		});
 	});
 });
