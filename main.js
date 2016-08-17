@@ -1,10 +1,10 @@
-import oCookieMessage from './src/js/cookie';
+import CookieMessage from './src/js/cookieMessage';
 
 const constructAll = function() {
-	oCookieMessage.init();
+	CookieMessage.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-export default oCookieMessage;
+export default CookieMessage;
