@@ -1,5 +1,6 @@
 {
 	"description": "Utility for formatting and updating dates",
+	"keywords": "datetime time timestamp",
 	"origamiType": "module",
 	"origamiCategory": "utilities",
 	"origamiVersion": 1,
