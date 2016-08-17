@@ -204,19 +204,24 @@ ODate.isYesterday = function(date, now, interval) {
 	return (within48Hours && consecutiveDaysOfTheWeek);
 };
 
-ODate.timeAgo = function(date, options) {
+ODate.timeAgo = function(date, interval, options) {
 
 	date = ODate.toDate(date);
 	if (!date) return;
 
+	// Accept an interval argument for backwards compatibility
+	if (arguments.length === 2 && typeof interval === 'object') {
+		options = interval;
+		interval = options.interval;
+	}
+
 	// If a limit has been supplied and the interval is longer ago than that limit
-	if (options && (options.limit > 0) && (interval > options.limit)) {
+	if (options && options.limit > 0 && (!interval || interval > options.limit)) {
 		return '';
 	}
 
-	if (options && options.interval) {
-		interval = options.interval;
-	} else {
+	// Default the interval option to the time since the given date
+	if (!interval) {
 		interval = ODate.getSecondsBetween(new Date(), date);
 	}
 

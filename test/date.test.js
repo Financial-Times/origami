@@ -397,6 +397,34 @@ describe('o-date', () => {
 				expect(oDate.timeAgo(publishDate, {limit: inSeconds.hour})).toBe('');
 			}
 		});
+
+		it('accepts an interval option', () => {
+			const publishDate = new Date('Jul 13 2016 10:02:49');
+			const dates = [
+				new Date('Jul 13 2016 11:02:51'),
+				new Date('Jul 13 2016 23:02:52'),
+				new Date('Jul 14 2016 10:02:49')
+			];
+
+			for (let date of dates) {
+				jasmine.clock().mockDate(date);
+				expect(oDate.timeAgo(publishDate, {interval: 5})).toBe('5 seconds ago');
+			}
+		});
+
+		it('accepts the interval option as a second argument for backwards compatibility', () => {
+			const publishDate = new Date('Jul 13 2016 10:02:49');
+			const dates = [
+				new Date('Jul 13 2016 11:02:51'),
+				new Date('Jul 13 2016 23:02:52'),
+				new Date('Jul 14 2016 10:02:49')
+			];
+
+			for (let date of dates) {
+				jasmine.clock().mockDate(date);
+				expect(oDate.timeAgo(publishDate, 5)).toBe('5 seconds ago');
+			}
+		});
 	});
 
 	describe('ODate.asTodayOrYesterdayOrNothing', () => {
