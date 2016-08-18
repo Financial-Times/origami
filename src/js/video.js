@@ -2,6 +2,7 @@
 import crossDomainFetch from 'o-fetch-jsonp';
 import getRendition from './helpers/get-rendition';
 import VideoAds from './ads';
+import Playlist from './playlist';
 
 function eventListener(video, ev) {
 	const event = new CustomEvent('oTracking.event', {
@@ -235,6 +236,10 @@ class Video {
 
 		this.opts = Object.assign(this.opts, { data: null }, newOpts);
 
+		if (!this.videoEl || !this.placeholderEl) {
+			return this.init();
+		}
+
 		return this.getData().then(() => {
 			if (this.placeholderEl) {
 				this.updatePlaceholder();
@@ -279,5 +284,7 @@ class Video {
 		return videos;
 	}
 }
+
+Video.Playlist = Playlist;
 
 export default Video;

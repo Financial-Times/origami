@@ -1,5 +1,3 @@
-import Player from './video';
-
 class Playlist {
 	constructor (opts) {
 		this.opts = opts;

@@ -41,9 +41,29 @@ The config options can also be set as data attribute to instantiate the module d
 ```html
     <div data-o-component="o-video"
             data-o-video-id="4165329773001"
-            data-o-video-source="brightcove"
             data-o-video-optimumwidth="710"></div>
 ```
+
+### With a playlist
+
+Playlists can take a queue of videos and play them one after another.
+
+```js
+const OVideo = require('o-video');
+
+const queue = [
+    '4165329773001',
+    '4907997821001',
+    '4165329773001'
+];
+
+const player = new OVideo(document.body, { autorender: false });
+const playlist = new OVideo.Playlist({ player, queue });
+
+document.querySelector('.next-btn').onclick = () => playlist.next();
+document.querySelector('.prev-btn').onclick = () => playlist.prev();
+```
+
 
 ## Testing
 
