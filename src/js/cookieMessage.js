@@ -3,22 +3,22 @@ class CookieMessage {
 	constructor (CookieMessageEl) {
 		this.CookieMessageEl = CookieMessageEl;
 
-        return this.setup();
+		return this.setup();
 	}
 
 	setup () {
-        const message = document.querySelector('.o-cookie-message');
+		const message = document.querySelector('.o-cookie-message');
 
 		if (userHasConsentedToCookies()) {
-		    hideMessage();
+			hideMessage();
 			return;
 		}
 
-        setupMessage();
+		setupMessage();
 
-        function setupMessage () {
-            document.querySelector('.cookie-message__close-btn').addEventListener('click', flagUserAsConsentingToCookies);
-        }
+		function setupMessage () {
+			document.querySelector('.cookie-message__close-btn').addEventListener('click', flagUserAsConsentingToCookies);
+		}
 
 		function hideMessage () {
 			message.classList.add('cookie-message--hidden');
@@ -30,7 +30,7 @@ class CookieMessage {
 		}
 
 		function userHasConsentedToCookies () {
-			if (sessionStorage.getItem('COOKIE_CONSENT') == 1) {
+			if (sessionStorage.getItem('COOKIE_CONSENT') === '1') {
 				return true;
 			}
 

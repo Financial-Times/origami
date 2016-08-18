@@ -1,4 +1,7 @@
-@import "o-colors/main";
+@import
+"o-colors/main",
+"o-typography/main",
+"o-icons/main";
 
 @if ($o-cookie-message-is-silent == false) {
 	.o-cookie-message {
@@ -37,13 +40,13 @@
     padding: 0;
     width: 24px;
     height: 24px;
-    //border: 1px solid getColor('grey-tint5');
+    border: 1px solid getColor('grey-tint5');
     background: none;
     cursor: pointer;
     opacity: 0.75;
 
     &:before {
-        //@include oIconsGetIcon(cross, getColor('grey-tint4'), 12);
+        @include oIconsGetIcon(cross, getColor('grey-tint4'), 12);
         content: '';
         position: absolute;
         top: 5px;
@@ -59,14 +62,14 @@
 }
 
 .cookie-message__title {
-    //@include oTypographySansBold(l);
+    @include oTypographySansBold(l);
     margin: 0;
     color: #4a4a4a;
     font-size: 18px;
 }
 
 .cookie-message__description {
-    //@include oTypographySans(m);
+    @include oTypographySans(m);
     margin: 0;
     font-size: 18px;
     color: #4a4a4a;
