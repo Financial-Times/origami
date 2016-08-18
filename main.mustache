@@ -2,42 +2,42 @@
 	<ul>
 		{{#o-share.withTwitter}}
 		<li class="o-share__action o-share__action--twitter">
-			<a href="https://twitter.com/intent/tweet?url={{o-share.url}}&amp;text={{o-share.title}}&amp;related={{o-share.relatedTwitterAccounts}}&amp;via=FT"><i>Twitter</i></a>
+			<a href="https://twitter.com/intent/tweet?url={{o-share.url}}&amp;text={{o-share.title}}&amp;related={{o-share.relatedTwitterAccounts}}&amp;via=FT" rel="noopener"><i>Twitter</i></a>
 		</li>
 		{{/o-share.withTwitter}}
 		{{#o-share.withFacebook}}
 		<li class="o-share__action o-share__action--facebook">
-			<a href="http://www.facebook.com/sharer.php?u={{o-share.url}}&amp;t={{o-share.title}}+|+{{o-share.titleExtra}}"><i>Facebook</i></a>
+			<a href="http://www.facebook.com/sharer.php?u={{o-share.url}}&amp;t={{o-share.title}}+|+{{o-share.titleExtra}}" rel="noopener"><i>Facebook</i></a>
 		</li>
 		{{/o-share.withFacebook}}
 		{{#o-share.withLinkedin}}
 		<li class="o-share__action o-share__action--linkedin">
-			<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{o-share.url}}&amp;title={{o-share.title}}+|+{{o-share.titleExtra}}&amp;summary={{o-share.summary}}&amp;source=Financial+Times"><i>LinkedIn</i></a>
+			<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{o-share.url}}&amp;title={{o-share.title}}+|+{{o-share.titleExtra}}&amp;summary={{o-share.summary}}&amp;source=Financial+Times" rel="noopener"><i>LinkedIn</i></a>
 		</li>
 		{{/o-share.withLinkedin}}
 		{{#o-share.withWhatsapp}}
 		<li class="o-share__action o-share__action--whatsapp">
-			<a target="_blank" href="whatsapp://send?text={{o-share.title}}%20-%20{{o-share.url}}" data-trackable="whatsapp"><i>Whatsapp</i></a>
+			<a target="_blank" href="whatsapp://send?text={{o-share.title}}%20-%20{{o-share.url}}" data-trackable="whatsapp" rel="noopener"><i>Whatsapp</i></a>
 		</li>
 		{{/o-share.withWhatsapp}}
 		{{#o-share.withGoogleplus}}
 		<li class="o-share__action o-share__action--googleplus">
-			<a href="https://plus.google.com/share?url={{o-share.url}}"><i>Google+</i></a>
+			<a href="https://plus.google.com/share?url={{o-share.url}}" rel="noopener"><i>Google+</i></a>
 		</li>
 		{{/o-share.withGoogleplus}}
 		{{#o-share.withReddit}}
 		<li class="o-share__action o-share__action--reddit">
-			<a href="http://reddit.com/submit?url={{o-share.url}}&amp;title={{o-share.title}}"><i>Reddit</i></a>
+			<a href="http://reddit.com/submit?url={{o-share.url}}&amp;title={{o-share.title}}" rel="noopener"><i>Reddit</i></a>
 		</li>
 		{{/o-share.withReddit}}
 		{{#o-share.withPinterest}}
 		<li class="o-share__action o-share__action--pinterest">
-			<a href="http://www.pinterest.com/pin/create/button/?url={{o-share.url}}&amp;description={{o-share.title}}"><i>Pinterest</i></a>
+			<a href="http://www.pinterest.com/pin/create/button/?url={{o-share.url}}&amp;description={{o-share.title}}" rel="noopener"><i>Pinterest</i></a>
 		</li>
 		{{/o-share.withPinterest}}
 		{{#o-share.withLink}}
 		<li class="o-share__action o-share__action--url">
-			<a href="{{{o-share.url}}}"><i>URL</i></a>
+			<a href="{{{o-share.url}}}" rel="noopener"><i>URL</i></a>
 		</li>
 		{{/o-share.withLink}}
 
