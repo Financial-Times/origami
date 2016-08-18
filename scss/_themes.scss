@@ -14,7 +14,7 @@
 @include oColorsSetUseCase(o-buttons-standard-active,   text,       'cold-3');
 @include oColorsSetUseCase(o-buttons-standard-active,   border,     'warm-2');
 @include oColorsSetUseCase(o-buttons-standard-pressedselected, background, 'teal-2');
-@include oColorsSetUseCase(o-buttons-standard-pressedselected, border,     'teal-2');
+@include oColorsSetUseCase(o-buttons-standard-pressedselected, border,     'teal-1');
 @include oColorsSetUseCase(o-buttons-standard-pressedselected, text,       'teal-1');
 /// Theme: Standard
 ///
@@ -63,7 +63,7 @@ $o-buttons-themes__standout: (
 	),
 	hover: (
 		color: oColorsGetColorFor(o-buttons-standout-normal, text),
-		background-color: lighten(oColorsGetColorFor(o-buttons-standout-normal, background), 3.7%),
+		background-color: lighten(oColorsGetColorFor(o-buttons-standout-normal, background), 0.8),
 		border-color: oColorsGetColorFor(o-buttons-standout-hover, border),
 	),
 	pressedselected: (
