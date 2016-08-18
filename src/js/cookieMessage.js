@@ -17,11 +17,11 @@ class CookieMessage {
 		setupMessage();
 
 		function setupMessage () {
-			document.querySelector('.cookie-message__close-btn').addEventListener('click', flagUserAsConsentingToCookies);
+			document.querySelector('.o-cookie-message__close-btn').addEventListener('click', flagUserAsConsentingToCookies);
 		}
 
 		function hideMessage () {
-			message.classList.add('cookie-message--hidden');
+			message.classList.add('o-cookie-message--hidden');
 		}
 
 		function flagUserAsConsentingToCookies () {
