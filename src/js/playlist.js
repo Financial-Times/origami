@@ -8,6 +8,8 @@ class Playlist {
 
 		this.opts.player.containerEl.addEventListener('ended', this.next.bind(this), true);
 
+		this.cache = {};
+
 		if (this.currentIndex === -1) {
 			this.next();
 		}
@@ -30,10 +32,22 @@ class Playlist {
 			this.currentIndex = index;
 		}
 
-		return this.opts.player.update({ id: this.opts.queue[this.currentIndex] }).then(() => {
-			if (this.opts.player.videoEl) {
-				this.opts.player.videoEl.play();
-			}
+		// store the current data for quick access later
+		const currentVideoId = this.opts.player.videoData && this.opts.player.videoData.id;
+
+		if (currentVideoId && !this.cache[currentVideoId]) {
+			this.cache[currentVideoId] = this.opts.player.videoData;
+		}
+
+		const nextVideoId = this.opts.queue[this.currentIndex];
+
+		const nextVideoOpts = {
+			id: nextVideoId,
+			data: this.cache[nextVideoId]
+		};
+
+		return this.opts.player.update(nextVideoOpts).then(() => {
+			this.opts.player.videoEl && this.opts.player.videoEl.play();
 		});
 	}
 }

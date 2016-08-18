@@ -46,10 +46,10 @@ The config options can also be set as data attribute to instantiate the module d
 
 ### With a playlist
 
-Playlists can take a queue of videos and play them one after another.
+Playlists may take a queue of videos and play them one after another.
 
 ```js
-const OVideo = require('o-video');
+const Video = require('o-video');
 
 const queue = [
     '4165329773001',
@@ -57,13 +57,14 @@ const queue = [
     '4165329773001'
 ];
 
-const player = new OVideo(document.body, { autorender: false });
-const playlist = new OVideo.Playlist({ player, queue });
+const player = new Video(document.body, { autorender: false });
+const playlist = new Video.Playlist({ player, queue });
 
 document.querySelector('.next-btn').onclick = () => playlist.next();
 document.querySelector('.prev-btn').onclick = () => playlist.prev();
 ```
 
+The queue is an `array` containing Brightcove video ID strings.
 
 ## Testing
 
