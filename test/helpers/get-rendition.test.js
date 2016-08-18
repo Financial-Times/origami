@@ -1,6 +1,6 @@
 /* global describe, it */
 const getRendition = require('./../../src/js/helpers/get-rendition');
-const renditions = require('./../fixtures/brightcove.json').renditions;
+const renditions = require('./../fixtures/brightcove-1.json').renditions;
 
 describe('Get Appropriate Renditions', () => {
 

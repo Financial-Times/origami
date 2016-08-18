@@ -147,10 +147,11 @@ class Video {
 	addVideo() {
 		this.videoEl = document.createElement('video');
 		this.videoEl.setAttribute('controls', true);
-		this.videoEl.setAttribute('poster', this.posterImage);
-		this.videoEl.setAttribute('src', this.rendition && this.rendition.url);
 		this.videoEl.className = Array.isArray(this.opts.classes) ? this.opts.classes.join(' ') : this.opts.classes;
 		this.containerEl.classList.add('o-video--player');
+
+		this.updateVideo();
+
 		this.containerEl.appendChild(this.videoEl);
 
 		addEvents(this, ['play', 'pause', 'ended']);
@@ -163,21 +164,29 @@ class Video {
 		}
 	}
 
+	updateVideo() {
+		this.videoEl.poster = this.posterImage;
+		this.videoEl.src = this.rendition && this.rendition.url;
+	}
+
 	addPlaceholder() {
 		this.placeholderEl = document.createElement('div');
 		this.placeholderEl.classList.add('o-video__placeholder');
-		const placeholderImageEl = document.createElement('img');
-		placeholderImageEl.classList.add('o-video__placeholder-image');
-		placeholderImageEl.setAttribute('src', this.posterImage);
-		this.placeholderEl.appendChild(placeholderImageEl);
 
-		let titleEl;
+		this.placeholderImageEl = document.createElement('img');
+		this.placeholderImageEl.classList.add('o-video__placeholder-image');
+		this.placeholderImageEl.setAttribute('role', 'presentation');
+		this.placeholderImageEl.setAttribute('alt', '');
+
+		this.placeholderEl.appendChild(this.placeholderImageEl);
+
 		if (this.opts.placeholdertitle) {
-			titleEl = document.createElement('div');
-			titleEl.className = 'o-video__title';
-			titleEl.textContent = this.videoData && this.videoData.name;
-			this.placeholderEl.appendChild(titleEl);
+			this.placeholderTitleEl = document.createElement('div');
+			this.placeholderTitleEl.className = 'o-video__title';
+			this.placeholderEl.appendChild(this.placeholderTitleEl);
 		}
+
+		this.updatePlaceholder();
 
 		const playButtonEl = document.createElement('button');
 		playButtonEl.className = 'o-video__play-button';
@@ -199,6 +208,10 @@ class Video {
 
 			this.containerEl.removeChild(this.placeholderEl);
 
+			this.placeholderEl = null;
+			this.placeholderImageEl = null;
+			this.placeholderTitleEl = null;
+
 			if (!this.opts.advertising) {
 				this.videoEl.play();
 			}
@@ -206,6 +219,29 @@ class Video {
 		});
 
 		this.containerEl.appendChild(this.placeholderEl);
+	}
+
+	updatePlaceholder() {
+		this.placeholderImageEl.src = this.posterImage;
+
+		if (this.placeholderTitleEl) {
+			this.placeholderTitleEl.textContent = this.videoData && this.videoData.name;
+		}
+	}
+
+	update(newOpts) {
+		this.videoEl && this.videoEl.pause();
+		this.clearCurrentlyPlaying();
+
+		this.opts = Object.assign(this.opts, { data: null }, newOpts);
+
+		return this.getData().then(() => {
+			if (this.placeholderEl) {
+				this.updatePlaceholder();
+			} else {
+				this.updateVideo();
+			}
+		});
 	}
 
 	getProgress() {
