@@ -1,4 +1,4 @@
-/* global describe, context, it, beforeEach, afterEach, before, after, should */
+/* global describe, it, beforeEach */
 const Player = require('../src/js/video');
 const Subject = require('../src/js/playlist');
 const sinon = require('sinon/pkg/sinon');
@@ -13,7 +13,7 @@ function createPlayer () {
 	return stub;
 }
 
-describe.only('Playlist', () => {
+describe('Playlist', () => {
 	let player;
 	const queue = ['foo', 'bar', 'baz', 'qux'];
 
@@ -49,7 +49,7 @@ describe.only('Playlist', () => {
 		it('listens for the video to end to trigger the next in the queue', () => {
 			player.videoData = { id: 'bar' };
 
-			const instance = new Subject({ player, queue });
+			new Subject({ player, queue });
 
 			// no DOM so trigger this on the listener directly
 			player.containerEl.dispatchEvent(new CustomEvent('ended', { bubbles: false }));

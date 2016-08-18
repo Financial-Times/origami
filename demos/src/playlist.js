@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	const playlist = new Video.Playlist({ player, queue });
 
-	const buttons = Array.from(document.querySelectorAll('button')).forEach(button => {
-		button.onclick = function () {
-			playlist[this.name]()
-		};
+	const buttons = Array.from(document.querySelectorAll('button'));
+
+	buttons.forEach(button => {
+		button.onclick = (e) => playlist[e.target.name]();
 	});
 
 	player.containerEl.addEventListener('play', () => {
