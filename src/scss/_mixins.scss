@@ -91,6 +91,8 @@
 	background-image: url($base-url + $logo-name + "?source=o-header&tint=%23#{$color},%23#{$color}&format=png&width=#{$fallback-width}") \9;
 }
 
+/// Applies styles to hide an element accessibly,
+/// allowing the content to be read by screenreaders.
 @mixin oHeaderVisuallyHidden() {
 	position: absolute;
 	clip: rect(0 0 0 0);
