@@ -90,3 +90,14 @@
 	background-image: url($base-url + $logo-name + "?source=o-header&tint=%23#{$color},%23#{$color}&format=svg");
 	background-image: url($base-url + $logo-name + "?source=o-header&tint=%23#{$color},%23#{$color}&format=png&width=#{$fallback-width}") \9;
 }
+
+@mixin oHeaderVisuallyHidden() {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	margin: -1px;
+	border: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+}
