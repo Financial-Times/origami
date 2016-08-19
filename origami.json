@@ -21,6 +21,13 @@
 			"description": "Placeholder",
 			"expanded": true,
 			"template": "demos/src/placeholder.mustache"
+		},
+		{
+			"name": "playlist",
+			"description": "Wrap a player with a playlist",
+			"expanded": true,
+			"template": "demos/src/playlist.mustache",
+			"js": "demos/src/playlist.js"
 		}
 	]
 }

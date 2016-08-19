@@ -286,6 +286,26 @@ describe('Video', () => {
 				});
 			});
 		});
+
+		context('forces initialisation', () => {
+			let video;
+
+			beforeEach(() => {
+				video = new Video(containerEl, {
+					autorender: false
+				});
+			});
+
+			it('will initialise if it hasn\'t done so already', () => {
+				const newOpts = { id: brightcoveResponse1.id };
+
+				sinon.spy(video, 'init');
+
+				return video.update(newOpts).then(() => {
+					sinon.assert.calledOnce(video.init);
+				});
+			});
+		});
 	});
 
 	describe('#getProgress', () => {
