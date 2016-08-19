@@ -6,4 +6,4 @@ deployment:
     tag: /v.*/
     owner: Financial-Times
     commands:
-      - make dist
+      - make npm-publish
