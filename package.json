@@ -1,5 +1,5 @@
 {
-  "name": "n-notification",
+  "name": "@financial-times/n-notification",
   "version": "0.0.0",
   "description": "Component for showing notifications to users",
   "main": "main.js",
@@ -23,6 +23,7 @@
     "karma-phantomjs-launcher": "0.1.2",
     "lolex": "^1.4.0",
     "mocha": "^2.1.0",
+    "npm-prepublish": "^1.2.1",
     "origami-build-tools": "^4.0.0",
     "textrequireify": "^2.1.0"
   }

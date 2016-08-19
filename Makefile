@@ -1,4 +1,4 @@
-.PHONY: test
+include n.Makefile
 
 install:
 	obt install --verbose
