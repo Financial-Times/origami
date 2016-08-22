@@ -371,25 +371,25 @@ describe('o-date', () => {
 			expect(oDate.timeAgo('not a date')).toBe(undefined);
 		});
 
-		it('returns nothing if a limit is provided and the timeago is longer than that limit', () => {
+		it('returns the timeAgo up to a limit if a limit value is provided', () => {
 			const publishDate = new Date('Jul 13 2016 10:02:49');
 			const datesWithinLimit = [
-				new Date('Jul 13 2016 11:02:48'),
-				new Date('Jul 13 2016 10:02:49')
+				new Date('Jul 13 2016 11:02:48'), // 59 minutes and 59 seconds later
+				new Date('Jul 13 2016 10:02:50')  // 1 second later
 			];
 
 			for (let date of datesWithinLimit) {
 				jasmine.clock().mockDate(date);
-				expect(oDate.timeAgo(publishDate, {limit: inSeconds.hour})).toBe('');
+				expect(oDate.timeAgo(publishDate, {limit: inSeconds.hour})).not.toBe('');
 			}
 		});
 
-		it('returns the timeAgo up to a limit if a limit value is provided', () => {
+		it('returns nothing if a limit is provided and the timeAgo is longer than that limit', () => {
 			const publishDate = new Date('Jul 13 2016 10:02:49');
 			const datesWithinLimit = [
-				new Date('Jul 13 2016 11:02:51'),
-				new Date('Jul 13 2016 23:02:52'),
-				new Date('Jul 14 2016 10:02:49')
+				new Date('Jul 13 2016 11:02:51'), // 60 minutes, 2 seconds later
+				new Date('Jul 13 2016 23:02:52'), // 12 hours, 3 seconds later
+				new Date('Jul 14 2016 10:02:49')  // the next day
 			];
 
 			for (let date of datesWithinLimit) {
