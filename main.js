@@ -215,14 +215,14 @@ ODate.timeAgo = function(date, interval, options) {
 		interval = options.interval;
 	}
 
-	// If a limit has been supplied and the interval is longer ago than that limit
-	if (options && options.limit > 0 && (!interval || interval > options.limit)) {
-		return '';
-	}
-
 	// Default the interval option to the time since the given date
 	if (!interval) {
 		interval = ODate.getSecondsBetween(new Date(), date);
+	}
+
+	// If a limit has been supplied and the interval is longer ago than that limit
+	if (options && options.limit > 0 && (!interval || interval > options.limit)) {
+		return '';
 	}
 
 	if (interval < inSeconds.minute) {
