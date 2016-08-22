@@ -118,20 +118,17 @@
 		margin-left: 0.5em;
 		border-bottom: 0;
 		font-size: 18px;
-		text-decoration: none;
+		text-decoration: underline;
 
 		&:first-child {
 			margin-left: 0;
 		}
 
 		&[aria-selected="true"] {
-			text-decoration: underline;
-		}
-
-		&:hover,
-		&:focus,
-		&[aria-selected="true"] {
 			@include oColorsFor(o-header-drawer-editions-link-highlight, text);
+			font-weight: 600;
+			text-decoration: none;
+			pointer-events: none;
 		}
 	}
 
