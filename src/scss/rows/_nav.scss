@@ -49,6 +49,12 @@
 		}
 	}
 
+	.o-header__nav-item--expanded {
+		@include oGridRespondTo($until: 'M') {
+			display: none;
+		}
+	}
+
 	.o-header__nav-link {
 		@include oHeaderLink();
 		@include oHeaderFancyLink();
