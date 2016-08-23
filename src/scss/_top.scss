@@ -47,7 +47,7 @@
 	}
 
 	.o-header-services__title {
-		margin: 4px 0; // magic number to make the container height add up to 55px
+		margin: 3px 0; // magic number to make the container height add up to 55px
 		padding: $_o-header-services-padding-y $_o-header-services-padding-x;
 		display: inline-block;
 		float: left;
@@ -57,7 +57,9 @@
 	}
 
 	.o-header-services__product-name {
-		@include oTypographySans(l);
+		font-family: MetricWeb, sans-serif;
+		line-height: 28px;
+    font-size: 28px;
 
 		font-weight: 600;
 		color: oColorsGetColorFor('o-header-services-top-title', text);
