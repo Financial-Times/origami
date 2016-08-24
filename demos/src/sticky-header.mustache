@@ -39,27 +39,25 @@
 
 				<div class="o-header__top-column o-header__top-column--right">
 
-					<!-- takeover content will show at the L breakpoint and hide all following siblings -->
-					{{^isSignedIn}}
-					<div class="o-header__top-takeover">
-						<div class="o-header__nav">
-							<ul class="o-header__nav-list o-header__nav-list--right">
-								<li class="o-header__nav-item">
-									<a class="o-header__nav-link o-header__nav-link--utility" href="/login" tabindex="-1">Sign In</a>
-								</li>
-								<li class="o-header__nav-item">
-									<a class="o-header__nav-button" href="/products" tabindex="-1">Subscribe</a>
-								</li>
-							</ul>
-						</div>
+					{{^nav.isSignedIn}}
+					<div class="o-header__nav">
+						<ul class="o-header__nav-list o-header__nav-list--right">
+							<li class="o-header__nav-item">
+								<a class="o-header__nav-link o-header__nav-link--utility" href="/login" tabindex="-1">Sign In</a>
+							</li>
+							<li class="o-header__nav-item o-header__nav-item--expanded">
+								<a class="o-header__nav-button" href="/products" tabindex="-1">Subscribe</a>
+							</li>
+						</ul>
 					</div>
-					{{/isSignedIn}}
+					{{/nav.isSignedIn}}
 
-					{{#top.hasMyFT}}
+					{{#nav.isSignedIn}}
 					<a class="o-header__top-link o-header__top-link--myft" href="/myft" tabindex="-1">
 						<span class="o-header__visually-hidden">myFT</span>
 					</a>
-					{{/top.hasMyFT}}
+					{{/nav.isSignedIn}}
+
 				</div>
 			</div>
 
