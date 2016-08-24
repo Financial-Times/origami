@@ -236,7 +236,7 @@ class Video {
 
 		this.opts = Object.assign(this.opts, { data: null }, newOpts);
 
-		if (!this.videoEl || !this.placeholderEl) {
+		if (!this.videoEl && !this.placeholderEl) {
 			return this.init();
 		}
 
