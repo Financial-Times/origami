@@ -16,12 +16,12 @@ describe('Get Appropriate Renditions', () => {
 	});
 
 	it('should get rendition of at least the width supplied', () => {
-		getRendition(renditions, { supportedFormats: supportedFormats, width: 410 })
+		getRendition(renditions, { supportedFormats: supportedFormats, optimumwidth: 410 })
 			.should.have.property('id', 4085577902001);
 	});
 
 	it('should get smallest rendition if width is small', () => {
-		getRendition(renditions, { supportedFormats: supportedFormats, width: 390 })
+		getRendition(renditions, { supportedFormats: supportedFormats, optimumwidth: 390 })
 			.should.have.property('id', 4085577899001);
 	});
 

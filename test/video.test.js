@@ -336,7 +336,7 @@ describe('Video', () => {
 
 		let fetchStub;
 
-		before(() => {
+		beforeEach(() => {
 			fetchStub = sinon.stub(window, 'fetch');
 			const res = new window.Response(JSON.stringify(brightcoveResponse1), {
 				status: 200,
@@ -347,7 +347,7 @@ describe('Video', () => {
 			fetchStub.returns(Promise.resolve(res));
 		});
 
-		after(() => {
+		afterEach(() => {
 			fetchStub.restore();
 		});
 
@@ -361,6 +361,14 @@ describe('Video', () => {
 						'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201502%2F2470%2F47628783001_4085962850001_MAS-VIDEO-AuthersNote-stock-market.jpg%3FpubId%3D47628783001' +
 						'?source=o-video&fit=scale-down&width=300'
 					);
+				});
+		});
+		it('should request an optimised rendition if optimumwidth defined', () => {
+			containerEl.setAttribute('data-o-video-optimumwidth', '300');
+			const video = new Video(containerEl);
+			return video.getData()
+				.then(() => {
+					video.rendition.frameWidth.should.equal(400);
 				});
 		});
 

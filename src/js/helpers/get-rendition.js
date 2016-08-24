@@ -3,7 +3,7 @@ import supportedFormats from './supported-formats';
 function getRendition(renditions, options) {
 	// allow mocking of supported formats module
 	const opts = options || {};
-	const width = opts.width;
+	const width = opts.optimumwidth;
 	const formats = opts.supportedFormats || supportedFormats();
 	let appropriateRendition;
 	// order smallest to largest

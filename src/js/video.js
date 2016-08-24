@@ -117,7 +117,7 @@ class Video {
 		return dataPromise.then(data => {
 			this.videoData = data;
 			this.posterImage = updatePosterUrl(data.videoStillURL, this.opts.optimumwidth);
-			this.rendition = getRendition(data.renditions);
+			this.rendition = getRendition(data.renditions, this.opts);
 		});
 	}
 
