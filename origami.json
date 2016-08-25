@@ -32,13 +32,13 @@
 						"description": ""
 				},
 				{
-						"name": "no levels of navigation",
+						"name": "no-levels-of-navigation",
 						"template": "demos/src/no-navigation.mustache",
 						"expanded": true,
 						"description": ""
 				},
 				{
-						"name": "1 level of navigation",
+						"name": "one-level-of-navigation",
 						"template": "demos/src/one-navigation.mustache",
 						"expanded": true,
 						"description": ""
