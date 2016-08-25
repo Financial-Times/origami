@@ -363,8 +363,8 @@ describe('Video', () => {
 					);
 				});
 		});
-		it('should request an optimised rendition if optimumwidth defined', () => {
-			containerEl.setAttribute('data-o-video-optimumwidth', '300');
+		it('should request an optimised rendition if optimumvideowidth defined', () => {
+			containerEl.setAttribute('data-o-video-optimumvideowidth', '300');
 			const video = new Video(containerEl);
 			return video.getData()
 				.then(() => {

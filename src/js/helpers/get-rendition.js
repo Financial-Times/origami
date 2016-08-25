@@ -3,7 +3,7 @@ import supportedFormats from './supported-formats';
 function getRendition(renditions, options) {
 	// allow mocking of supported formats module
 	const opts = options || {};
-	const width = opts.optimumwidth;
+	const width = opts.optimumvideowidth;
 	const formats = opts.supportedFormats || supportedFormats();
 	let appropriateRendition;
 	// order smallest to largest
@@ -28,7 +28,7 @@ function getRendition(renditions, options) {
 		return false;
 	});
 
-	return appropriateRendition || orderedRenditions.shift();
+	return appropriateRendition || orderedRenditions.pop();
 };
 
 export default getRendition;
