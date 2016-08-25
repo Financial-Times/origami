@@ -14,7 +14,7 @@ class CookieMessage {
 
 	setup () {
 		if (!CookieMessage.userHasConsentedToCookies()) {
-			CookieMessage.showMessage();
+			this.CookieMessageEl.classList.add('o-cookie-message--active');
 			CookieMessage.setupMessage();
 			return;
 		}
@@ -26,12 +26,7 @@ class CookieMessage {
 
 	static hideMessage () {
 		const message = document.querySelector('[data-o-component="o-cookie-message"]');
-		message.classList.add('o-cookie-message--hidden');
-	}
-
-	static showMessage () {
-		const message = document.querySelector('[data-o-component="o-cookie-message"]');
-		message.classList.remove('o-cookie-message--hidden');
+		message.classList.remove('o-cookie-message--active');
 	}
 
 	static flagUserAsConsentingToCookies () {

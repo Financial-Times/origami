@@ -8,6 +8,7 @@
     \*------------------------------------*/
 
     .o-cookie-message {
+        display: none;
         position: relative;
         background-color: #fff1de;
         border-bottom: 1px solid #d0c6b8;
@@ -84,8 +85,8 @@
             #BLOCK-MODIFIERS
     \*------------------------------------*/
 
-    .o-cookie-message--hidden {
-        display: none;
+    .o-cookie-message--active {
+        display: block;
     }
 
     /**
