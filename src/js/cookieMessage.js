@@ -13,12 +13,11 @@ class CookieMessage {
 	}
 
 	setup () {
-		if (CookieMessage.userHasConsentedToCookies()) {
-			CookieMessage.hideMessage();
+		if (!CookieMessage.userHasConsentedToCookies()) {
+			CookieMessage.showMessage();
+			CookieMessage.setupMessage();
 			return;
 		}
-
-		CookieMessage.setupMessage();
 	}
 
 	static setupMessage () {
@@ -28,6 +27,11 @@ class CookieMessage {
 	static hideMessage () {
 		const message = document.querySelector('[data-o-component="o-cookie-message"]');
 		message.classList.add('o-cookie-message--hidden');
+	}
+
+	static showMessage () {
+		const message = document.querySelector('[data-o-component="o-cookie-message"]');
+		message.classList.remove('o-cookie-message--hidden');
 	}
 
 	static flagUserAsConsentingToCookies () {
