@@ -1,4 +1,4 @@
-/* global describe, context, it, beforeEach, afterEach, before, after, should */
+/* global describe, context, it, beforeEach, afterEach, should */
 const Video = require('./../src/js/video');
 const brightcoveResponse1 = require('./fixtures/brightcove-1.json');
 const brightcoveResponse2 = require('./fixtures/brightcove-2.json');
