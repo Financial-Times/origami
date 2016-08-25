@@ -26,24 +26,26 @@
 			margin-left: -$_o-header-services-padding-x*2;
 		}
 	}
+	
 	.o-header-services__nav-link {
-		@include oTypographySans(s);
+		@include oTypographySansBold(s);
 		color: oColorsGetColorFor(o-header-services-primary-nav, text);
 
 		text-transform: uppercase;
 		text-decoration: none;
 		display: inline-block;
+		-webkit-font-smoothing: antialiased;
 
 		//http://browserhacks.com/#hack-aff8d8f6c5ce6a560158ada7b9007854
 		*display: inline;
 		zoom: 1;
 		margin: 0;
-		padding: $_o-header-services-padding-y/2 $_o-header-services-padding-x;
+		padding: $_o-header-services-padding-y $_o-header-services-padding-x*2;
 
 		&:hover,
 		&--selected,
 		&[aria-selected=true] {
-			@include oColorsFor(o-header-services-primary-nav-item--hover, background text);
+			@include oColorsFor(o-header-services-primary-nav-item-hover, background text);
 		}
 	}
 
