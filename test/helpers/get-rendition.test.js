@@ -16,13 +16,19 @@ describe('Get Appropriate Renditions', () => {
 	});
 
 	it('should get rendition of at least the width supplied', () => {
-		getRendition(renditions, { supportedFormats: supportedFormats, width: 410 })
+		getRendition(renditions, { supportedFormats: supportedFormats, optimumvideowidth: 410 })
 			.should.have.property('id', 4085577902001);
 	});
 
 	it('should get smallest rendition if width is small', () => {
-		getRendition(renditions, { supportedFormats: supportedFormats, width: 390 })
+		getRendition(renditions, { supportedFormats: supportedFormats, optimumvideowidth: 390 })
 			.should.have.property('id', 4085577899001);
+	});
+
+
+	it('should get largest rendition if width is bigger than any renditions', () => {
+		getRendition(renditions, { supportedFormats: supportedFormats, optimumvideowidth: 2048 })
+			.should.have.property('id', 4085577922001);
 	});
 
 });

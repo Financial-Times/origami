@@ -30,7 +30,8 @@ Where `opts` is an optional object with properties
 
  * `id` [`Number`] Source's ID of the video
  * `source` [`String`] Source of the video (currently only accepts `brightcove`)
- * `optimumwidth` [`Number`] The optimum width of the video, used when there are multiple video renditions available to
+ * `optimumwidth` [`Number`] The optimum width of the video placeholder image
+ * `optimumvideowidth` [`Number`] The optimum width of the video itself, used when there are multiple video renditions available to
  decide which to display (the smallest one that's at least as large as this width, if it exists)
  * `placeholder` [`Boolean`] Show just the poster image, load (and play) video on click
  * `placeholdertitle` [`Boolean`] Show just the title as an overlay on the placeholder
