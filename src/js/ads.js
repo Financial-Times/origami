@@ -149,8 +149,10 @@ class VideoAds {
 	}
 
 	startAds() {
-		if (!this.adsLoaded || !this.videoLoaded) {
+		if (!this.videoLoaded) {
 			return;
+		} else if (!this.adsLoaded) {
+			return this.video.videoEl.play();
 		}
 
 		try {
