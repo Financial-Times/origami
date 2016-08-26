@@ -149,7 +149,20 @@ class VideoAds {
 	}
 
 	startAds() {
-		if (!this.adsLoaded || !this.videoLoaded) {
+
+		// For ads to play correctly both the video and the advert video need to be ready to
+		// play; this function needs to be called after the two flags in adsManagerLoadedHandler()
+		// and playAdEventHandler() have been set.
+		// So if the video hasn't loaded yet, wait until it has.
+		if (!this.videoLoaded) {
+			return;
+		}
+
+		// If ads have failed to load, which resets the advertising support flag, play the video
+		// instead; otherwise, wait until the ads have loaded.
+		if (!this.video.opts.advertising) {
+			this.video.videoEl.play();
+		} else if (!this.adsLoaded) {
 			return;
 		}
 
@@ -230,6 +243,7 @@ class VideoAds {
 		}
 		this.video.placeholderEl && this.video.placeholderEl.removeEventListener('click', this.playAdEventHandler);
 		this.video.opts.advertising = false;
+		this.startAds();
 	}
 
 	contentPauseRequestHandler() {
