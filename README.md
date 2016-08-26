@@ -45,7 +45,7 @@ The simplest header, appropriate for single page applications with no navigation
 	<div class='o-header-services__top o-header-services__container'>
 		<div class='o-header-services__ftlogo'></div>
 		<div class='o-header-services__title'>
-			<h1 class='o-header-services__product-name'>Tool or Service name</h1>
+			<h1 class='o-header-services__product-name'><a href='/'>Tool or Service name</a></h1>
 			<span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
 		</div>
 	</div>
@@ -63,7 +63,7 @@ To add a theme to the header, add the appropriate class to a wrapping element. F
 	<div class='o-header-services__top o-header-services__container'>
 		<div class='o-header-services__ftlogo'></div>
 		<div class='o-header-services__title'>
-			<h1 class='o-header-services__product-name'>Tool or Service name</h1>
+			<h1 class='o-header-services__product-name'><a href='/'>Tool or Service name</a></h1>
 			<span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
 		</div>
 	</div>
@@ -84,11 +84,11 @@ To add support for related content, add the following to your markup:
 	<div class='o-header-services__top'>
 		<div class='o-header-services__container'>
 +			<div class='o--if-js o-header-services__hamburger'>
-+				<a class='o-header-services__hamburger-icon' href="#o-header-drawer"	aria-controls="o-header-drawer"></a>
++				<a class='o-header-services__hamburger-icon' href="#o-header-drawer"	aria-controls="o-header-drawer"><span class="o-header__visually-hidden">Menu</span></a>
 +			</div>
 			<div class='o-header-services__ftlogo'></div>
 			<div class='o-header-services__title'>
-				<h1 class='o-header-services__product-name'>Tool or Service name</h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
+				<h1 class='o-header-services__product-name'><a href=''>Tool or Service name</a></h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
 			</div>
 			<div class='o-header-services__related-content'>
 				<a href='#'>XXXX</a>
@@ -118,11 +118,11 @@ This requires the drawer code, as seen above, and the following addition:
 	<div class='o-header-services__top'>
 		<div class='o-header-services__container'>
 			<div class='o--if-js o-header-services__hamburger'>
-				<a class='o-header-services__hamburger-icon' href="#o-header-drawer"	aria-controls="o-header-drawer"></a>
+				<a class='o-header-services__hamburger-icon' href="#o-header-drawer"	aria-controls="o-header-drawer"><span class="o-header__visually-hidden">Menu</span></a>
 			</div>
 			<div class='o-header-services__ftlogo'></div>
 			<div class='o-header-services__title'>
-				<h1 class='o-header-services__product-name'>Tool or Service name</h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
+				<h1 class='o-header-services__product-name'><a href=''>Tool or Service name</a></h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
 			</div>
 			<div class='o-header-services__related-content'>
 				<a href='#'>XXXX</a>
@@ -149,7 +149,7 @@ This requires the drawer code, as seen above, and the following addition:
 ## Migration guide
 ## Trouble shooting
 ### Contact info
-Please raise an issue, or Internal FT users can contact us via #ft-origami in Slack. 
+Please raise an issue, or Internal FT users can contact us via #ft-origami in Slack.
 
 ## License
 

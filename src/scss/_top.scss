@@ -51,6 +51,7 @@
 		padding: $_o-header-services-padding-y $_o-header-services-padding-x;
 		display: inline-block;
 		float: left;
+
 		@include oGridRespondTo($until: M) {
 			margin: 0;
 		}
@@ -70,6 +71,11 @@
 		@include oGridRespondTo($until: M) {
 			@include oTypographySans(m);
 			font-weight: 600;
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
 		}
 	}
 
