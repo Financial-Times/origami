@@ -2,6 +2,7 @@
 	"description": "FT brand colours: Sass variables and helpers to use and define them",
 	"origamiType": "module",
 	"origamiCategory": "primitives",
+	"keywords": "colours, themes, schemes, pink, salmon, background, palette",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-colors/issues",
 	"supportStatus": "active",
