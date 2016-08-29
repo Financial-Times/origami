@@ -49,6 +49,17 @@ $igaudio-vert-padding-block: 10px;
 	.ig-audio-content {
 		padding: 0 $igaudio-horz-padding-inline;
 		display: inline;
+		position: relative;
+
+		.ig-audio-content-progressBar {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			background: #9e2f50;
+			opacity: 0.3;
+			pointer-events: none;
+		}
 	}
 
 
@@ -73,7 +84,7 @@ $igaudio-vert-padding-block: 10px;
 
 	&.block .ig-audio-content {
 		padding: $igaudio-vert-padding-block $igaudio-horz-padding-block;	
-		width: 100%;
+		// width: 100%;
 	}
 
 }

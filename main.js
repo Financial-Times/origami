@@ -32,6 +32,11 @@ class IGAudio {
 		const innerContent = this.targetObject.getElementsByClassName("ig-audio-content")[0]
 		targetObject.insertBefore(playButton, innerContent);
 
+		// create progress bar
+		const progressBar = document.createElement('span')
+		progressBar.classList.add('ig-audio-content-progressBar');
+		innerContent.appendChild(progressBar);
+
 		// event handlers to check for loaded metadata
 		this.audio.addEventListener("loadedmetadata", () => this.loadMetadata(), false) // load length into data objects
 	}
@@ -99,12 +104,10 @@ class IGAudio {
 		const totalDuration = this.audioLength
 
 		const percentPlayed = timeStamp*100 / totalDuration;
-		// console.log(timeStamp, totalDuration, percentPlayed)
+		console.log(timeStamp, totalDuration, percentPlayed)
 
-		const left = 'rgba(175, 81, 108,.35)';
-        const right = 'rgba(175, 81, 108,.15)';
-        this.targetObject.getElementsByClassName("ig-audio-content")[0].setAttribute("style",
-            "background: linear-gradient(to right, "+left+" "+percentPlayed+"%, "+right+" "+(percentPlayed+1)+"%");
+		const progressBar = this.targetObject.getElementsByClassName("ig-audio-content-progressBar")[0];
+		progressBar.setAttribute('style', `width: ${percentPlayed}%`);
 	}
 
 }
