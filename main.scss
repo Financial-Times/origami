@@ -22,7 +22,7 @@ article {
 }
 
 .ig-audio.initialized {
-	background:rgba(175, 81, 108,.35);
+	background:rgba(175, 81, 108,.15);
 	padding: 0 $igaudio-horz-padding-inline 0 0;
 	border-radius: 6px;
 	cursor: pointer;
@@ -36,7 +36,7 @@ article {
 		background: #9e2f50;
 		padding-left: $igaudio-horz-padding-inline;
 		border-radius: 6px 0 0 6px;
-		color: #ecafaf;
+		color: #f6e9d8;
 	}
 
 	.playButton:before {
@@ -55,6 +55,7 @@ article {
 
 	.ig-audio-content {
 		padding: 0 $igaudio-horz-padding-inline;
+		display: inline;
 	}
 
 
@@ -73,12 +74,13 @@ article {
 		background: #9e2f50;
 		padding-left: $igaudio-horz-padding-inline;
 		border-radius: 0;
-		color: #ecafaf;
+		color: #f6e9d8;
 		padding: $igaudio-vert-padding-block $igaudio-horz-padding-block;
 	}
 
 	&.block .ig-audio-content {
-		padding: $igaudio-vert-padding-block $igaudio-horz-padding-block;		
+		padding: $igaudio-vert-padding-block $igaudio-horz-padding-block;	
+		width: 100%;
 	}
 
 }

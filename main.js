@@ -16,6 +16,7 @@ class IGAudio {
 		this.audioURL = audioURL;
 		this.audio = this.targetObject.getElementsByTagName("audio")[0];
 		this.audioLength = undefined;
+		this.playStart = 0;
 
 		IGAudioObjects.push(this); // keep track of igaudio objects
 
@@ -26,9 +27,9 @@ class IGAudio {
 		this.targetObject.getElementsByTagName("audio")[0].style.display = "none";
 
 		// create play button + progress bar divs
-		var playButton = document.createElement('span')
-			playButton.classList.add("playButton");
-		var innerContent = this.targetObject.getElementsByClassName("ig-audio-content")[0]
+		const playButton = document.createElement('span')
+		playButton.classList.add("playButton");
+		const innerContent = this.targetObject.getElementsByClassName("ig-audio-content")[0]
 		targetObject.insertBefore(playButton, innerContent);
 
 		// event handlers to check for loaded metadata
@@ -39,12 +40,13 @@ class IGAudio {
 		this.audioLength = this.audio.duration;
 
 		// set event handlers for everything else after metadata loaded
-		this.targetObject.addEventListener("click", () => this.toggleAudio(), false) // play/pause on click
+		this.targetObject.getElementsByClassName('playButton')[0].addEventListener("click", () => this.toggleAudio(), false) // play/pause on click
 		this.audio.addEventListener("ended", () => this.toggleAudio(), false) // toggle back to off after clip ends
+		this.targetObject.getElementsByClassName('ig-audio-content')[0].addEventListener("click", (e) => this.jumpTo(e), false) // skip on click
 		this.audio.addEventListener("timeupdate", () => this.adjustProgressBar(), false) // adjust progress bar
 	}
 
-	toggleAudio() {
+	toggleAudio() {	
 		if (this.targetObject.classList.contains("pause")) {
 			// console.log("go to pause")
 			this.pause()
@@ -54,18 +56,36 @@ class IGAudio {
 		}
 	}
 
-	play(startTime=0) {
+	jumpTo(e) {
+		const clickedPosition = e.pageX - this.targetObject.getElementsByClassName('ig-audio-content')[0].offsetLeft;
+		const totalWidth = this.targetObject.getElementsByClassName('ig-audio-content')[0].offsetWidth;
+		const percentClickedThrough = clickedPosition / totalWidth;
+
+		const totalDuration = this.audioLength
+		const goTo = totalDuration * percentClickedThrough;
+		this.playStart = goTo;
+
+		this.play(goTo);
+	}
+
+	play(playStart=this.playStart) {
 		for (var igaudio of IGAudioObjects) { // stop all other audio instances from playing (pause)
 			igaudio.pause()
 		}
 
-		this.audio.currentTime = startTime; 
+		this.audio.currentTime = playStart;
 		this.audio.play()
 		this.targetObject.classList.add("pause")
 	}
 
 	pause() {
 		this.audio.pause()
+
+		if (this.audio.currentTime >= this.audioLength) { // if at the end, then reset play start to 0
+			this.playStart = 0
+		} else { // otherwise, keep track of when we paused
+			this.playStart = this.audio.currentTime;
+		}
 
 		this.targetObject.classList.remove("pause")
 	}
@@ -79,7 +99,7 @@ class IGAudio {
 		const totalDuration = this.audioLength
 
 		const percentPlayed = timeStamp*100 / totalDuration;
-		console.log(timeStamp, totalDuration, percentPlayed)
+		// console.log(timeStamp, totalDuration, percentPlayed)
 
 		const left = 'rgba(175, 81, 108,.35)';
         const right = 'rgba(175, 81, 108,.15)';
