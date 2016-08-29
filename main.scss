@@ -14,7 +14,6 @@ $igaudio-vert-padding-block: 10px;
 }
 
 .ig-audio.initialized {
-	background:rgba(175, 81, 108,.15);
 	padding: 0 $igaudio-horz-padding-inline 0 0;
 	border-radius: 6px;
 	cursor: pointer;
@@ -24,8 +23,8 @@ $igaudio-vert-padding-block: 10px;
 	// inline player
 
 	.playButton {
-		border-right: 2px solid white;
 		background: #9e2f50;
+		margin-right: 2px;
 		padding-left: $igaudio-horz-padding-inline;
 		padding-right: $igaudio-horz-padding-inline/2;
 		border-radius: 6px 0 0 6px;
@@ -50,6 +49,7 @@ $igaudio-vert-padding-block: 10px;
 		padding: 0 $igaudio-horz-padding-inline;
 		display: inline;
 		position: relative;
+		background:rgba(175, 81, 108,.15);
 
 		.ig-audio-content-progressBar {
 			position: absolute;
@@ -74,7 +74,6 @@ $igaudio-vert-padding-block: 10px;
 	}
 
 	&.block .playButton {
-		border-right: 2px solid white;
 		background: #9e2f50;
 		padding-left: $igaudio-horz-padding-inline;
 		border-radius: 0;
