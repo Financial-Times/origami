@@ -6,14 +6,6 @@ $igaudio-vert-padding-inline: 3px;
 $igaudio-horz-padding-block: 15px;
 $igaudio-vert-padding-block: 10px;
 
-article {
-	font-size: 1.2rem;
-	line-height: 1.5rem;
-	margin: 0.75em auto;
-	font-weight: 200;
-	color: rgba(0,0,0,.9);
-}
-
 @font-face {
 	font-family: 'IcoMoon';
 
@@ -35,6 +27,7 @@ article {
 		border-right: 2px solid white;
 		background: #9e2f50;
 		padding-left: $igaudio-horz-padding-inline;
+		padding-right: $igaudio-horz-padding-inline/2;
 		border-radius: 6px 0 0 6px;
 		color: #f6e9d8;
 	}
