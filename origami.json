@@ -19,19 +19,11 @@
 		{
 			"name": "palette",
 			"template": "demos/src/palette.mustache",
-			"expanded": true,
 			"description": ""
 		},
 		{
 			"name": "use-cases",
 			"template": "demos/src/use-cases.mustache",
-			"expanded": true,
-			"description": ""
-		},
-		{
-			"name": "sass-usage",
-			"template": "demos/src/sass-usage.mustache",
-			"expanded": false,
 			"description": ""
 		}
 	]
