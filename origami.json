@@ -28,19 +28,17 @@
 		{
 			"name": "base-style",
 			"template": "demos/src/base-style.mustache",
-			"expanded": true,
+			"hidden": true,
 			"description": ""
 		},
 		{
 			"name": "buttontabs",
 			"template": "demos/src/buttontabs.mustache",
-			"expanded": false,
 			"description": ""
 		},
 		{
 			"name": "buttontabs-big",
 			"template": "demos/src/buttontabs-big.mustache",
-			"expanded": false,
 			"description": ""
 		}
 	]
