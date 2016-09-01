@@ -29,20 +29,18 @@
 			"name": "horizontal",
 			"template": "main.mustache",
 			"data": "demos/src/data.json",
-			"expanded": true,
 			"description": "horizontal"
 		},
 		{
 			"name": "vertical",
 			"template": "main.mustache",
 			"data": "demos/src/data-vertical.json",
-			"expanded": true,
 			"description": "vertical"
 		},
 		{
 			"name": "web-component",
 			"template": "demos/src/webcomponent.mustache",
-			"expanded": true,
+			"hidden": true,
 			"description": "web component"
 		}
 	]
