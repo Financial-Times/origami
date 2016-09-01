@@ -24,7 +24,6 @@
 			"description": "Simple use cases",
 			"template": "demos/src/simple.mustache",
 			"js": "demos/src/demo.js",
-			"expanded": true,
 			"description": "Simple use cases"
 		},
 		{
@@ -32,7 +31,7 @@
 			"description": "More advanced configurations of the module",
 			"template": "demos/src/variants.mustache",
 			"js": "demos/src/variants.js",
-			"expanded": false,
+			"hidden": true,
 			"description": "More advanced configurations of the module"
 		}
 	]
