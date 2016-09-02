@@ -153,7 +153,7 @@ class Video {
 
 		this.containerEl.appendChild(this.videoEl);
 
-		addEvents(this, ['play', 'pause', 'ended']);
+		addEvents(this, ['play', 'playing', 'pause', 'ended']);
 		this.videoEl.addEventListener('playing', this.pauseOtherVideos);
 		this.videoEl.addEventListener('suspend', this.clearCurrentlyPlaying);
 		this.videoEl.addEventListener('ended', this.clearCurrentlyPlaying);
