@@ -57,6 +57,7 @@
 
 	.o-header__search-close {
 		@include oIconsGetIcon('cross', white, 20);
+		vertical-align: middle;
 		border: 0;
 		margin-left: $_o-header-padding-x * 2;
 
