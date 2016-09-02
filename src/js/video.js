@@ -130,17 +130,13 @@ class Video {
 	}
 
 	init() {
-		let loadAdsLibraryPromise = Promise.resolve();
-		if (this.opts.advertising) {
-			loadAdsLibraryPromise = this.videoAds.loadAdsLibrary();
-		}
-		return loadAdsLibraryPromise
-					.then(() => this.getData(), () => {
-						// If ad doesn't load for some reason, load video as normal
-						this.opts.advertising = false;
-						return this.getData();
-					})
-					.then(() => this.renderVideo());
+		return (this.opts.advertising ? this.videoAds.loadAdsLibrary() : Promise.resolve())
+			.catch(() => {
+				// If ad doesn't load for some reason, load video as normal
+				this.opts.advertising = false;
+			})
+			.then(() => this.getData())
+			.then(() => this.renderVideo());
 	}
 
 	addVideo() {
@@ -150,6 +146,10 @@ class Video {
 		this.containerEl.classList.add('o-video--player');
 
 		this.updateVideo();
+
+		if (this.placeholderEl && !this.opts.advertising) {
+			this.videoEl.autoplay = this.videoEl.autostart = true;
+		}
 
 		this.containerEl.appendChild(this.videoEl);
 
@@ -185,8 +185,6 @@ class Video {
 			this.placeholderEl.appendChild(this.placeholderTitleEl);
 		}
 
-		this.updatePlaceholder();
-
 		const playButtonEl = document.createElement('button');
 		playButtonEl.className = 'o-video__play-button';
 
@@ -204,18 +202,17 @@ class Video {
 		this.placeholderEl.addEventListener('click', () => {
 			// Adds video soon so ads can start loading
 			this.addVideo();
+			this.videoEl.focus();
+			this.videoEl.paused && this.videoEl.play();
 
 			this.containerEl.removeChild(this.placeholderEl);
 
 			this.placeholderEl = null;
 			this.placeholderImageEl = null;
 			this.placeholderTitleEl = null;
-
-			if (!this.opts.advertising) {
-				this.videoEl.play();
-			}
-			this.videoEl.focus();
 		});
+
+		this.updatePlaceholder();
 
 		this.containerEl.appendChild(this.placeholderEl);
 	}
