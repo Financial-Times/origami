@@ -26,7 +26,7 @@ function addEvents(video, events) {
 
 // use the image resizing service, if width supplied
 function updatePosterUrl(posterImage, width) {
-	let url = `https://image.webservices.ft.com/v1/images/raw/${encodeURIComponent(posterImage)}?source=o-video`;
+	let url = `https://image.webservices.ft.com/v1/images/raw/${encodeURIComponent(posterImage)}?source=o-video&quality=low`;
 	if (width) {
 		url += `&fit=scale-down&width=${width}`;
 	}
