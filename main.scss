@@ -1,9 +1,9 @@
-$_o-video_applied: false !default;
+$o-video-is-silent: true !default;
 
 @import "o-icons/main";
 @import "o-colors/main";
 
-@if (not $_o-video_applied) {
+@if $o-video-is-silent == false {
 	.o-video {
 		position: relative;
 		width: 100%;
@@ -78,5 +78,5 @@ $_o-video_applied: false !default;
 		}
 	}
 
-	$_o-video_applied: true !global;
+	$o-video-is-silent: true !global;
 }
