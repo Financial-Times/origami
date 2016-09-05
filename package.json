@@ -1,0 +1,14 @@
+{
+  "name": "eslint-config-origami-component",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test.js"
+  },
+  "author": "Jake Champion",
+  "license": "MIT",
+  "devDependencies": {
+    "proclaim": "^3.4.2"
+  }
+}
