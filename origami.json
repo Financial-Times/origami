@@ -20,13 +20,13 @@
 			"name": "palette",
 			"template": "demos/src/palette.mustache",
 			"description": "",
-			"display_html": "false"
+			"display_html": false
 		},
 		{
 			"name": "use-cases",
 			"template": "demos/src/use-cases.mustache",
 			"description": "",
-			"display_html": "false"
+			"display_html": false
 		}
 	]
 }
