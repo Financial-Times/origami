@@ -8,13 +8,14 @@
 @include oColorsSetUseCase(o-buttons-standard-normal,   text,       'teal-1');
 @include oColorsSetUseCase(o-buttons-standard-normal,   background, 'white');
 @include oColorsSetUseCase(o-buttons-standard-normal,   border,     'teal-1');
-@include oColorsSetUseCase(o-buttons-standard-hover,    background, 'teal-1');
+@include oColorsSetUseCase(o-buttons-standard-hover,    background, 'teal-2');
 @include oColorsSetUseCase(o-buttons-standard-hover,    border,     'teal-1');
 @include oColorsSetUseCase(o-buttons-standard-active,   background, 'warm-2');
-@include oColorsSetUseCase(o-buttons-standard-active,   text,       'cold-3');
+@include oColorsSetUseCase(o-buttons-standard-active,   text,       'teal-1');
 @include oColorsSetUseCase(o-buttons-standard-active,   border,     'warm-2');
-@include oColorsSetUseCase(o-buttons-standard-pressedselected, background, 'teal-1');
+@include oColorsSetUseCase(o-buttons-standard-pressedselected, background, 'teal-2');
 @include oColorsSetUseCase(o-buttons-standard-pressedselected, border,     'teal-1');
+@include oColorsSetUseCase(o-buttons-standard-pressedselected, text,       'teal-1');
 
 /// Theme: Standard
 ///
@@ -29,16 +30,17 @@ $o-buttons-themes__standard: (
 		box-shadow: inset 0 0 0 1px rgba(oColorsGetColorFor(o-buttons-standard-hover, border), 0.5),
 	),
 	active: (
-		color: oColorsGetColorFor(o-buttons-standard-active, text),
+		color: darken(oColorsGetColorFor(o-buttons-standard-active, text), 13%),
 		border-color: oColorsGetColorFor(o-buttons-standard-active, border),
 	),
 	hover: (
-		background-color: rgba(oColorsGetColorFor(o-buttons-standard-hover, background), 0.08),
-		border-color: rgba(oColorsGetColorFor(o-buttons-standard-hover, border), 0.3),
+		background-color: rgba(oColorsGetColorFor(o-buttons-standard-hover, background), 0.1),
+		border-color: rgba(oColorsGetColorFor(o-buttons-standard-hover, border), 0.5),
 	),
 	pressedselected: (
-		background-color: rgba(oColorsGetColorFor(o-buttons-standard-pressedselected, background), 0.2) !important,
-		border-color: rgba(oColorsGetColorFor(o-buttons-standard-pressedselected, border), 0.2),
+		color: darken(oColorsGetColorFor(o-buttons-standard-active, text), 13%),
+		background-color: rgba(oColorsGetColorFor(o-buttons-standard-pressedselected, background), 0.4) !important,
+		border-color: rgba(oColorsGetColorFor(o-buttons-standard-pressedselected, border), 0.5),
 	)
 ) !default;
 
@@ -56,14 +58,13 @@ $o-buttons-themes__standout: (
 		color: oColorsGetColorFor(o-buttons-standout-normal, text),
 		background-color: oColorsGetColorFor(o-buttons-standout-normal, background),
 		border-color: oColorsGetColorFor(o-buttons-standout-normal, background),
-		text-transform: uppercase,
 	),
 	active: (
 		color: darken(oColorsGetColorFor(o-buttons-standout-normal, text), 20%),
 	),
 	hover: (
 		color: oColorsGetColorFor(o-buttons-standout-normal, text),
-		background-color: lighten(oColorsGetColorFor(o-buttons-standout-normal, background), 3.7%),
+		background-color: lighten(oColorsGetColorFor(o-buttons-standout-normal, background), 0.8),
 		border-color: oColorsGetColorFor(o-buttons-standout-hover, border),
 	),
 	pressedselected: (
@@ -113,9 +114,12 @@ $o-buttons-themes__inverse: (
 	)
 ) !default;
 
-@include oColorsSetUseCase(o-buttons-uncolored-normal, text,       'pink-tint5');
+@include oColorsSetUseCase(o-buttons-uncolored-normal, text,       'cold-1');
 @include oColorsSetUseCase(o-buttons-uncolored-normal, background, 'transparent');
 @include oColorsSetUseCase(o-buttons-uncolored-normal, border,     'pink-tint5');
+@include oColorsSetUseCase(o-buttons-uncolored-hover, background, 'teal-2');
+@include oColorsSetUseCase(o-buttons-uncolored-hover, border, 'teal-1');
+@include oColorsSetUseCase(o-buttons-uncolored-pressedselected, background, 'teal-2');
 
 /// Theme: Uncolored
 ///
@@ -125,5 +129,12 @@ $o-buttons-themes__uncolored: (
 		color: oColorsGetColorFor(o-buttons-uncolored-normal, text),
 		background-color: oColorsGetColorFor(o-buttons-uncolored-normal, background),
 		border-color: oColorsGetColorFor(o-buttons-uncolored-normal, border),
+	),
+	hover: (
+		background-color: rgba(oColorsGetColorFor(o-buttons-uncolored-hover, background), 0.1),
+		border-color: rgba(oColorsGetColorFor(o-buttons-uncolored-hover, border), 0.5),
+	),
+	pressedselected: (
+		background-color: rgba(oColorsGetColorFor(o-buttons-uncolored-pressedselected, background), 0.2),
 	)
 ) !default;
