@@ -5,6 +5,9 @@
 	"origamiCategory": "components",
 	"supportStatus": "active",
 	"support": "github.com/Financial-Times/o-video/issues",
+	"browserFeatures": {
+		"required": ["fetch"]
+	},
 	"demosDefaults": {
 		"sass": "demos/src/main.scss",
 		"js": "demos/src/demo.js",
