@@ -1,21 +1,27 @@
-.o-header__subbrand {
-	height: 55px - ($_o-header-padding-y*2);
-	background-color: #443C47;
-	padding: $_o-header-padding-y 0;
-	display: table;
-	width: 100%;
+@mixin oHeaderSubbrand($_o-header-subbrand-bg-color: #443C47) {
+	.o-header__subbrand {
+		height: 55px - ($_o-header-padding-y*2);
+		background-color: $_o-header-subbrand-bg-color;
+		padding: $_o-header-padding-y 0;
+		display: table;
+		width: 100%;
 
-	@include oGridRespondTo(M){
-		height: 80px - ($_o-header-padding-y*2);
+		@include oGridRespondTo(M){
+			height: 80px - ($_o-header-padding-y*2);
+		}
+	}
+
+	.o-header__subbrand-logo {
+		display: table-cell;
+		vertical-align: middle;
+		border: 0;
+		margin: 16px auto;
+		background-size: contain;
+		background-position: 50%;
+		background-repeat: no-repeat;
 	}
 }
 
-.o-header__subbrand-logo {
-	display: table-cell;
-	vertical-align: middle;
-	border: 0;
-	margin: 16px auto;
-	background-size: contain;
-	background-position: 50%;
-	background-repeat: no-repeat;
+@if $o-header-is-silent == false {
+	@include oHeaderSubbrand();
 }
