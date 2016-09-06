@@ -58,9 +58,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 ### Sass
 
-Currently, only non silent mode is supported.
-
-
 The 'base' of the image url can be set with the `$o-header-image-base-url` variable. e.g. setting
 
 ```
@@ -68,6 +65,28 @@ $o-header-image-base-url: 'https://my.image.service/foo';
 ```
 
 will output an image logo url in the format `https://my.image.service/foo/v1/images/raw/ftlogo:....`
+
+#### Silent mode ([docs](http://origami.ft.com/docs/syntax/scss/#silent-styles))
+
+When using `o-header` in silent mode, you can use the `oHeader` mixin to define the styles for the header you're creating. The `oHeader` mixin will output the base styles for the header and accepts a list of the row styles it should output. By default the mixin will output all the row styles if no list is specified.
+
+```sass
+@import 'o-header/main';
+
+@include oHeader;
+```
+
+The available row styles that can be output are: `top`, `nav`, `anon`, `search`, and `subnav`. To specify the rows for the standard header for example you would use:
+
+```sass
+@include oHeader(('top', 'anon', 'search', 'nav'));
+```
+
+There are other features of the header like the drawer, meganav menu, and different themes that require the use of their own specific mixins, for example to include the drawer styles:
+
+```sass
+@include oHeaderDrawer;
+```
 
 ### Markup
 
