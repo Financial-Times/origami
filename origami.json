@@ -55,6 +55,13 @@
             "expanded": true,
             "description": "Sticky variation of the simple header",
             "documentClasses": "demo-sticky"
+        },
+        {
+            "name": "Subbranded header",
+            "data": "demos/src/subbrand.js",
+            "template": "demos/src/subbrand.mustache",
+            "expanded": true,
+            "description": "For Subbrands of the FT, eg Alphaville or Life&Arts, a subheader can be added to mark out their subbrandness."
         }
     ]
 }
