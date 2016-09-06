@@ -19,3 +19,11 @@ $_o-header-sticky-height: 55px;
 $_o-header-icon-size-large: 40;
 $_o-header-icon-size: 25;
 $_o-header-icon-size-small: 15;
+
+$_o-header-row-mixins: (
+	'top': 'oHeaderRowTop',
+	'subnav': 'oHeaderRowSubnav',
+	'search': 'oHeaderRowSearch',
+	'nav': 'oHeaderRowNav',
+	'anon': 'oHeaderRowAnon'
+);

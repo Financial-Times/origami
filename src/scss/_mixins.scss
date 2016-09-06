@@ -3,6 +3,25 @@
 /// @link http://registry.origami.ft.com/components/o-header
 ////
 
+/// Includes the correct mixin based on the row passed
+@mixin _oHeaderGetRowMixin($row) {
+	@if $row == 'top' {
+		@include oHeaderRowTop;
+	}
+	@else if $row == 'anon' {
+		@include oHeaderRowAnon;
+	}
+	@else if $row == 'subnav' {
+		@include oHeaderRowSubnav;
+	}
+	@else if $row == 'search' {
+		@include oHeaderRowSearch;
+	}
+	@else if $row == 'nav' {
+		@include oHeaderRowNav;
+	}
+}
+
 /// Base styles for header links
 @mixin oHeaderLink() {
 	color: inherit;

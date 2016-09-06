@@ -9,7 +9,7 @@
 @import 'src/scss/mixins';
 @import 'src/scss/colors';
 
-@import 'src/scss/header';
+@import 'src/scss/base';
 @import 'src/scss/simple';
 @import 'src/scss/sticky';
 @import 'src/scss/drawer';
@@ -20,6 +20,7 @@
 @import 'src/scss/rows/subnav';
 @import 'src/scss/mega/menu';
 @import 'src/scss/subbrand';
+@import 'src/scss/header';
 
 @if $o-header-is-silent == false {
 	$o-header-is-silent: true !global;
