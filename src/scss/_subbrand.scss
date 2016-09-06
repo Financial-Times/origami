@@ -6,7 +6,7 @@
 		display: table;
 		width: 100%;
 
-		@include oGridRespondTo(M){
+		@include oGridRespondTo(M) {
 			height: 80px - ($_o-header-padding-y*2);
 		}
 	}
