@@ -18,11 +18,8 @@
 @import 'src/scss/rows/search';
 @import 'src/scss/rows/nav';
 @import 'src/scss/rows/subnav';
-@import 'src/scss/subbrand';
-
 @import 'src/scss/mega/menu';
-@import 'src/scss/mega/articles';
-@import 'src/scss/mega/subsections';
+@import 'src/scss/subbrand';
 
 @if $o-header-is-silent == false {
 	$o-header-is-silent: true !global;
