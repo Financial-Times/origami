@@ -8,16 +8,16 @@
 
 	// By default, output all rows
 	@if $rows == '' {
-		@each $row in map-keys($_o-header-row-mixins) {
+		@each $row in $_o-header-rows {
 			@include _oHeaderGetRowMixin($row);
 		}
 	} @else {
 		@each $row in $rows {
-			@if map-has-key($_o-header-row-mixins, $row) {
+			@if index($_o-header-rows, $row) != null {
 				@include _oHeaderGetRowMixin($row);
 			} @else {
 				@warn "There is no row '#{$row}' available in o-header please use one of "
-				+ "the following: #{map-keys($_o-header-row-mixins)}";
+				+ "the following: #{$_o-header-rows}";
 			}
 		}
 	}
