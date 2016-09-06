@@ -154,9 +154,9 @@ class Video {
 		this.containerEl.appendChild(this.videoEl);
 
 		addEvents(this, ['play', 'playing', 'pause', 'ended']);
-		this.videoEl.addEventListener('playing', this.pauseOtherVideos);
-		this.videoEl.addEventListener('suspend', this.clearCurrentlyPlaying);
-		this.videoEl.addEventListener('ended', this.clearCurrentlyPlaying);
+		this.videoEl.addEventListener('playing', this.pauseOtherVideos.bind(this));
+		this.videoEl.addEventListener('suspend', this.clearCurrentlyPlaying.bind(this));
+		this.videoEl.addEventListener('ended', this.clearCurrentlyPlaying.bind(this));
 
 		if (this.opts.advertising) {
 			this.videoAds.setUpAds();
