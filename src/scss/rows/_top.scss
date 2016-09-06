@@ -55,8 +55,9 @@
 		&:before {
 			@include oIconsBaseStyles();
 			content: ' ';
-			width: 20px;
-			height: 20px;
+			margin-top: -7px;
+			width: #{$_o-header-icon-size-large}px;
+			height: #{$_o-header-icon-size-large}px;
 		}
 
 		@include oGridRespondTo('L') {
@@ -73,13 +74,13 @@
 		&:before {
 			// container size (24) is only included for the fallback image.
 			// IE8 has a static stylesheet generated for the L breakpoint.
-			@include oIconsGetIcon('hamburger', oColorsGetColorFor('o-header-icon'), 24, $apply-base-styles: false, $apply-width-height: false);
+			@include oIconsGetIcon('hamburger', oColorsGetColorFor('o-header-icon'), $_o-header-icon-size-large, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
 		}
 	}
 
 	.o-header__top-link--search {
 		&:before {
-			@include oIconsGetIcon('search', oColorsGetColorFor('o-header-icon'), 24, $apply-base-styles: false, $apply-width-height: false);
+			@include oIconsGetIcon('search', oColorsGetColorFor('o-header-icon'), $_o-header-icon-size-large, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
 		}
 
 		// when used in tandem with the menu toggle, hide this on smaller screen sizes
@@ -108,7 +109,7 @@
 
 	.o-header__top-link-label {
 		display: block;
-		margin-top: 2px;
+		margin-top: -7px;
 	}
 
 	.o-header__top-logo {

@@ -56,10 +56,9 @@
 	}
 
 	.o-header__search-close {
-		@include oIconsGetIcon('cross', white, 20);
-		vertical-align: middle;
+		@include oIconsGetIcon('cross', white, $_o-header-icon-size-large, $iconset-version: 1);
 		border: 0;
-		margin-left: $_o-header-padding-x * 2;
+		margin-left: $_o-header-padding-x;
 
 		@include oGridRespondTo($until: 'M') {
 			display: none;
