@@ -1,5 +1,4 @@
-@if $o-header-is-silent == false {
-
+@mixin oHeaderBase() {
 	.o-header {
 		@include oColorsFor('o-header', 'text' 'background');
 	}
@@ -25,5 +24,8 @@
 	.o-header__visually-hidden {
 		@include oHeaderVisuallyHidden;
 	}
+}
 
+@if $o-header-is-silent == false {
+	@include oHeaderBase;
 }
