@@ -23,5 +23,7 @@
 @import 'src/scss/header';
 
 @if $o-header-is-silent == false {
+	@include oHeader;
+
 	$o-header-is-silent: true !global;
 }

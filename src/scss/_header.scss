@@ -3,7 +3,6 @@
 /// By default, will output all row styles.
 ///
 /// @param {List} $rows
-
 @mixin oHeader($rows: '') {
 	@include oHeaderBase;
 

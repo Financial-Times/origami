@@ -71,7 +71,3 @@
 		@include oButtons($theme: $_o-header-buttons-theme);
 	}
 }
-
-@if $o-header-is-silent == false {
-	@include oHeaderRowNav;
-}

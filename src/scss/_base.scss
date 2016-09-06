@@ -25,7 +25,3 @@
 		@include oHeaderVisuallyHidden;
 	}
 }
-
-@if $o-header-is-silent == false {
-	@include oHeaderBase;
-}

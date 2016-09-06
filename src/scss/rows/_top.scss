@@ -139,7 +139,3 @@
 		}
 	}
 }
-
-@if $o-header-is-silent == false {
-	@include oHeaderRowTop;
-}

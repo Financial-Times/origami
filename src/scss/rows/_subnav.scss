@@ -127,7 +127,3 @@
 		transform: rotate(180deg);
 	}
 }
-
-@if $o-header-is-silent == false {
-	@include oHeaderRowSubnav;
-}
