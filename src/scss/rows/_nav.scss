@@ -1,5 +1,4 @@
-@if $o-header-is-silent == false {
-
+@mixin oHeaderRowNav() {
 	.o-header__nav {
 		@include oTypographySans('s', $load-progressively: true);
 	}
@@ -71,5 +70,8 @@
 	.o-header__nav-button {
 		@include oButtons($theme: $_o-header-buttons-theme);
 	}
+}
 
+@if $o-header-is-silent == false {
+	@include oHeaderRowNav;
 }

@@ -1,5 +1,4 @@
-@if $o-header-is-silent == false {
-
+@mixin oHeaderRowSubnav() {
 	.o-header__subnav {
 		@include oTypographySans('xs');
 		@include oColorsFor(o-header-subnav, background);
@@ -127,5 +126,8 @@
 		// don't download another icon...
 		transform: rotate(180deg);
 	}
+}
 
+@if $o-header-is-silent == false {
+	@include oHeaderRowSubnav;
 }

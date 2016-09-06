@@ -1,5 +1,4 @@
-@if $o-header-is-silent == false {
-
+@mixin oHeaderRowSearch() {
 	.o-header__search {
 		padding: $_o-header-padding-y 0;
 		text-align: center;
@@ -65,5 +64,8 @@
 			display: none;
 		}
 	}
+}
 
+@if $o-header-is-silent == false {
+	@include oHeaderRowSearch;
 }

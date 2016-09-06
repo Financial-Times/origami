@@ -1,5 +1,4 @@
-@if $o-header-is-silent == false {
-
+@mixin oHeaderRowAnon() {
 	.o-header__anon {
 		text-align: center;
 
@@ -22,5 +21,8 @@
 		@include oHeaderLink();
 		@include oHeaderFancyLink();
 	}
+}
 
+@if $o-header-is-silent == false {
+	@include oHeaderRowAnon;
 }

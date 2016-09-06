@@ -1,7 +1,4 @@
-@if $o-header-is-silent == false {
-
-	.o-header__top {}
-
+@mixin oHeaderRowTop() {
 	.o-header__top-wrapper {
 		display: table;
 		width: 100%;
@@ -141,5 +138,8 @@
 			margin-bottom: 30px;
 		}
 	}
+}
 
+@if $o-header-is-silent == false {
+	@include oHeaderRowTop;
 }
