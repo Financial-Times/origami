@@ -73,11 +73,13 @@ Tracking.prototype.toString = function() {
 	return 'oTracking version ' + version;
 };
 
-Tracking.prototype.page = require('./src/javascript/events/page-view');
-
 Tracking.prototype.event = require('./src/javascript/events/custom');
 
-Tracking.prototype.link = require('./src/javascript/events/link-click');
+Tracking.prototype.page = require('./src/javascript/events/page-view');
+//Tracking.prototype.view = require('./src/javascript/events/view');
+
+//Tracking.prototype.link = require('./src/javascript/events/link-click');
+Tracking.prototype.click = require('./src/javascript/events/click');
 
 Tracking.prototype.utils = require('./src/javascript/utils');
 
