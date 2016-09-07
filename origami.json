@@ -22,6 +22,7 @@
     "demos": [
         {
             "name": "header",
+            "title": "Header",
             "data": "demos/src/header.js",
             "template": "demos/src/header.mustache",
             "expanded": true,
@@ -29,6 +30,7 @@
         },
         {
             "name": "mega-menu",
+            "title": "Mega menu",
             "data": "demos/src/mega-menu.js",
             "template": "demos/src/mega-menu.mustache",
             "expanded": false,
@@ -36,6 +38,7 @@
         },
         {
             "name": "subnav",
+            "title": "Header with subnav",
             "data": "demos/src/subnav.js",
             "template": "demos/src/subnav.mustache",
             "expanded": false,
@@ -43,6 +46,7 @@
         },
         {
             "name": "simple-header",
+            "title": "Simple Header",
             "data": "demos/src/header.js",
             "template": "demos/src/simple-header.mustache",
             "expanded": true,
@@ -50,6 +54,7 @@
         },
         {
             "name": "sticky-header",
+            "title": "Sticky Header",
             "data": "demos/src/header.js",
             "template": "demos/src/sticky-header.mustache",
             "expanded": true,
@@ -58,6 +63,7 @@
         },
         {
             "name": "subbranded-header",
+            "title": "Subbranded header",
             "data": "demos/src/subbrand.js",
             "template": "demos/src/subbrand.mustache",
             "expanded": true,
