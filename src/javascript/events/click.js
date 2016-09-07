@@ -4,49 +4,9 @@
 const Delegate = require('ftdomdelegate');
 const Queue = require('../core/queue');
 const Core = require('../core');
-
 let context = {};
-let collectedProperties = {};
-const propertiesToCollect = [
-	"ctrlKey",
-	"altKey",
-	"shiftKey",
-	"metaKey",
-	"timeStamp",
-	{
-		parent: "target",
-		properties: [
-			"href",
-			"text",
-			"nodeName",
-		]
-	},
-	{
-		name: "domPath",
-		parent: "path",
-		properties: [
-			"nodeName",
-			"text",
-			{
-				parent: "attributes",
-				properties: [
-					"href",
-					"id",
-					"class",
-					"role",
-					"aria-controls",
-					"aria-expanded",
-					"data-trackable",
-					"data-o-toggle--js",
-					"data-original-title",
-					"title",
-				]
-			}
-		]
-	},
-];
 
-// Trigger the actual event tracking
+// Trigger the event tracking
 const track = _ => {
 
 	console.log("collectedProperties",collectedProperties);
@@ -72,33 +32,84 @@ const track = _ => {
 	}
 }
 
-const getProperties = (object, properties) => {
-	properties.forEach(property => {
-		if (typeof property === 'object') {
-			if (Array.isArray(object)) {
-				object.forEach(row => {
-					return getProperties(row, property.properties);
-				});
-			}
-			if (property.parent && object[property.parent]) {
-				return getProperties(object[property.parent], property.properties);
-			}
+const sanitise = property => {
+	return (typeof property === 'string') ? property.trim().toLowerCase() : property;
+}
+
+const getElementProperties = el => {
+
+	// Todo: Consider capturing all properties that begin with "data-o-",
+	// in case it's useful to see how origami components are being utilised
+	const elementPropertiesToCollect = [
+		"nodeName",
+		"className",
+		"id",
+		"href",
+		"text",
+		"title",
+		"role",
+		"aria-controls",
+		"aria-expanded",
+		"data-trackable",
+		"data-trackable-terminate",
+		"data-o-component",
+		"data-original-title",
+	];
+	let elementProperties = elementPropertiesToCollect.reduce((returnObject, property) => {
+		if (el[property]) {
+			returnObject[property] = sanitise(el[property]);
 		}
-		else if (typeof property === 'string' && object[property]) {
-			collectedProperties[property] = object[property].toString().trim();
+		else if (el.getAttribute(property)) {
+			returnObject[property] = sanitise(el.getAttribute(property));
 		}
-	});
-	return(collectedProperties);
+		else if (el.hasAttribute(property)) {
+			returnObject[property] = el.hasAttribute(property);
+		}
+		return returnObject;
+	},{});
+	return elementProperties;
+};
+
+const getTrace = el => {
+	const rootEl = document;
+	let trace = [];
+	let elementProperties;
+	let siblings;
+	while (el && el !== rootEl) {
+		elementProperties = getElementProperties(el);
+		trace.push(elementProperties);
+		el = el.parentNode;
+	}
+	return trace;
+};
+
+// Get properties for the event
+const getEventProperties = event => {
+	event.preventDefault();
+	const eventPropertiesToCollect = [
+		"ctrlKey",
+		"altKey",
+		"shiftKey",
+		"metaKey",
+		"timeStamp",
+	]
+	let eventProperties = eventPropertiesToCollect.reduce((returnObject, property) => {
+		try {
+			if (event[property]) returnObject[property] = sanitise(event[property]);
+		}
+		catch (e) {
+			console.log(e);
+		}
+		return returnObject;
+	},{});
 }
 
 // Controller for handling click events
-const handleClickEvent = (clickEvent) => {
-	console.log("clickEvent", clickEvent);
-
-	// Todo: Promisify?
-	getProperties(clickEvent, propertiesToCollect);
-
-	track();
+const handleClickEvent = clickEvent => {
+	// const eventProperties = getEventProperties(clickEvent);
+	const trace = getTrace(clickEvent.target);
+	console.log(trace);
+	// track(collectedProperties);
 }
 
 const init = (category, elementsToTrack) => {
