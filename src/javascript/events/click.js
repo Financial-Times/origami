@@ -4,14 +4,13 @@
 const Delegate = require('ftdomdelegate');
 const Queue = require('../core/queue');
 const Core = require('../core');
+const utils = require('../utils');
+
+// Note: `context` is the term o-tracking uses for the data that is sent to spoor
 let context = {};
 
 // Trigger the event tracking
 const track = _ => {
-
-	console.log("collectedProperties",collectedProperties);
-
-
 	if (!context.domPath || !context.domPath.length > 0) return false;
 
 	var href = context.domPath[0].href || '';
@@ -19,12 +18,10 @@ const track = _ => {
 
 	if (isInternal) {
 		console.log('Queue the event and send it on the next page load',context);
-		debugger;
-		// internalQueue.add(context).save();
+		internalQueue.add(context).save();
 	}
 	else {
-		console.log('Send now, before leaving this page',collectedProperties);
-
+		console.log('Send now, before leaving this page',context);
 		Core.track({
 			async: false,
 			context: context
@@ -32,28 +29,39 @@ const track = _ => {
 	}
 }
 
+// Utility for trimming strings
 const sanitise = property => {
 	return (typeof property === 'string') ? property.trim().toLowerCase() : property;
 }
 
-const getElementProperties = el => {
+// For a given container element, get the number of elements that match the
+// clicked element (siblings); and the index of the clicked element (position).
+const getSiblingsAndPosition = (el, clickedEl, dataTrackable) => {
+	const siblings = Array.from(el.querySelectorAll(`[data-trackable="${dataTrackable}"]`));
+	const position = siblings.findIndex(item => item === clickedEl);
+	if(position === -1) return;
+	return {
+		siblings: siblings.length,
+		position,
+	};
+}
 
-	// Todo: Consider capturing all properties that begin with "data-o-",
-	// in case it's useful to see how origami components are being utilised
+// Get some properties of a given element.
+// Todo: Consider capturing all properties that begin with "data-o-",
+// in case it's useful to see how origami components are being utilised
+const getElementProperties = el => {
 	const elementPropertiesToCollect = [
 		"nodeName",
 		"className",
 		"id",
 		"href",
 		"text",
-		"title",
 		"role",
 		"aria-controls",
 		"aria-expanded",
 		"data-trackable",
 		"data-trackable-terminate",
 		"data-o-component",
-		"data-original-title",
 	];
 	let elementProperties = elementPropertiesToCollect.reduce((returnObject, property) => {
 		if (el[property]) {
@@ -70,22 +78,31 @@ const getElementProperties = el => {
 	return elementProperties;
 };
 
+// Trace the clicked element and all of its parents, collecting properties as we go
 const getTrace = el => {
 	const rootEl = document;
+	const clickedEl = el;
 	let trace = [];
-	let elementProperties;
-	let siblings;
 	while (el && el !== rootEl) {
-		elementProperties = getElementProperties(el);
+		let elementProperties = getElementProperties(el);
+
+		// If the element happens to have a data-trackable attribute, get the siblings
+		// and position of the clicked element (relative to the current element).
+		if (elementProperties["data-trackable"]) {
+			elementProperties = Object.assign (
+				elementProperties,
+				getSiblingsAndPosition(el, clickedEl, elementProperties["data-trackable"])
+			);
+		}
 		trace.push(elementProperties);
 		el = el.parentNode;
 	}
 	return trace;
 };
 
-// Get properties for the event
+// Get properties for the event (as opposed to properties of the clicked element)
+// Available properties include mouse x- and y co-ordinates, for example.
 const getEventProperties = event => {
-	event.preventDefault();
 	const eventPropertiesToCollect = [
 		"ctrlKey",
 		"altKey",
@@ -102,34 +119,50 @@ const getEventProperties = event => {
 		}
 		return returnObject;
 	},{});
+	return eventProperties;
 }
 
 // Controller for handling click events
 const handleClickEvent = clickEvent => {
-	// const eventProperties = getEventProperties(clickEvent);
-	const trace = getTrace(clickEvent.target);
-	console.log(trace);
-	// track(collectedProperties);
+	context = Object.assign (context, getEventProperties(clickEvent));
+	context.domPath = getTrace(clickEvent.target);
+	track();
+}
+
+/**
+ * If there are any requests queued, attempts to send the next one
+ * Otherwise, does nothing
+ * @return {undefined}
+ */
+const runQueue = _ => {
+	const next = _ => { runQueue(); callback(); };
+	const nextLink = internalQueue.shift();
+	if (nextLink) {
+		Core.track(nextLink, next);
+	}
 }
 
 const init = (category, elementsToTrack) => {
-
-	// Defaults for standard o-tracking.
-	category = category || 'o-tracking';
+	context.action = 'click';
+	context.category = category || 'o-tracking';
 	elementsToTrack = elementsToTrack || 'a, button, input'; // See https://github.com/ftlabs/ftdomdelegate#selector-string
+
+	// Activte the click event listener
+	let delegate = new Delegate(document.body);
+	delegate.on('click', elementsToTrack, handleClickEvent, true);
+
+	// Track any queued events
+	internalQueue = new Queue('clicks');
+	runQueue();
+
+	// Listen for page requests. If this is a single page app, we can send link requests now.
+	utils.onPage(runQueue);
+
 
 	// Development debug info
 	// console.log(`Now tracking click events. Category: ${category}`);
 	// console.log(`Elements to track: ${elementsToTrack}`);
 	// console.log(`Attributes to collect: ${theAttributesToCollect}`);
-
-	// Note: `context` is the term o-tracking uses for the actual data that is sent to spoor.
-	context.action = 'click';
-	context.category = category;
-
-	// Activte the click event listener
-	let delegate = new Delegate(document.body);
-	delegate.on('click', elementsToTrack, handleClickEvent, true);
 }
 
 module.exports = {
