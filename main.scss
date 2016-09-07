@@ -10,16 +10,17 @@
 @import 'src/scss/colors';
 
 @import 'src/scss/base';
-@import 'src/scss/simple';
-@import 'src/scss/sticky';
-@import 'src/scss/drawer';
 @import 'src/scss/rows/anon';
 @import 'src/scss/rows/top';
 @import 'src/scss/rows/search';
 @import 'src/scss/rows/nav';
 @import 'src/scss/rows/subnav';
 @import 'src/scss/mega/menu';
-@import 'src/scss/subbrand';
+@import 'src/scss/themes/subbrand';
+@import 'src/scss/themes/simple';
+@import 'src/scss/themes/sticky';
+
+@import 'src/scss/drawer';
 @import 'src/scss/header';
 
 @if $o-header-is-silent == false {

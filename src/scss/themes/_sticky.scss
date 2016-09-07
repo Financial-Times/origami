@@ -1,4 +1,4 @@
-@mixin oHeaderSticky() {
+@mixin oHeaderThemeSticky() {
 	.o-header--sticky {
 		position: fixed;
 		top: 0;
@@ -25,5 +25,5 @@
 }
 
 @if $o-header-is-silent == false {
-	@include oHeaderSticky;
+	@include oHeaderThemeSticky;
 }

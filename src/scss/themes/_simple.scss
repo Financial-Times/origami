@@ -1,4 +1,4 @@
-@mixin oHeaderSimple() {
+@mixin oHeaderThemeSimple() {
 	.o-header--simple {
 		// fix heights
 		.o-header__top-wrapper {
@@ -22,5 +22,5 @@
 }
 
 @if $o-header-is-silent == false {
-	@include oHeaderSimple;
+	@include oHeaderThemeSimple;
 }
