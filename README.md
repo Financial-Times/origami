@@ -68,11 +68,15 @@ will output an image logo url in the format `https://my.image.service/foo/v1/ima
 
 #### Silent mode ([docs](http://origami.ft.com/docs/syntax/scss/#silent-styles))
 
-When using `o-header` in silent mode, you can use the `oHeader` mixin to define the styles for the header you're creating. The `oHeader` mixin will output the base styles for the header and accepts a list of the row styles it should output. By default the mixin will output all the row styles if no list is specified.
+When using `o-header` in silent mode, we offer a series of helper mixins to output styles for different parts of the header. The header is made up of various rows (e.g. `Top`, `Nav`, and `Search`), has different themes like `sticky` and `simple` and can be combined with additional features, such as the `drawer` and `megamenu`.
+
+##### oHeader
+
+To get the default header, use the `oHeader` mixin. The `oHeader` mixin will output the base styles for the header and accepts a list of the row styles it should also output. By default the mixin will output all the row styles if no list is specified.
 
 ```sass
 @import 'o-header/main';
-
+// Outputs all base styles and row styles
 @include oHeader;
 ```
 
@@ -82,10 +86,25 @@ The available row styles that can be output are: `top`, `nav`, `anon`, `search`,
 @include oHeader(('top', 'anon', 'search', 'nav'));
 ```
 
-There are other features of the header like the drawer, meganav menu, and different themes that require the use of their own specific mixins, for example to include the drawer styles:
+##### Themes
+
+The header supports the following themes: `sticky`, `subbrand`, and `simple`. To output a theme you can use one of the following theme mixins:
+
+```sass
+@include oHeaderSticky;
+@include oHeaderSimple;
+@include oHeaderSubbrand;
+```
+
+These mixins can be used standalone and will also call the `oHeader` mixin with the correct rows based on the theme being output.
+
+##### Additional features
+
+Each additional feature of the header also has their own mixin. Below are the mixins required for the drawer and megamenu features.
 
 ```sass
 @include oHeaderDrawer;
+@include oHeaderMegaMenu;
 ```
 
 ### Markup
