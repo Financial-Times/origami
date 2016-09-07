@@ -11,8 +11,17 @@
 /// @param {String} $container-height - this is the height to set the icon containing element to. Defaults to null, and will use the value of $container-width
 /// @param {Bool} $apply-base-styles - defaults to true. If true, will output style rules for the container. If false will only output the background-image property
 /// @param {Bool} $apply-width-height - defaults to true. If true, will output the styles for the container width and height.
-@mixin oIconsGetIcon($icon-name, $color: null, $container-width: 128, $container-height: null, $apply-base-styles: true, $apply-width-height: true) {
-	$service-url: $o-icons-service-base-url + "/v1/images/raw/fticon:#{$icon-name}";
+/// @param {Integer} $iconset-version - defaults to 0. If present will set the iconset version to the version passed in. Support for version 0 will be deprecated in the next major release.
+
+@mixin oIconsGetIcon($icon-name, $color: null, $container-width: 128, $container-height: null, $apply-base-styles: true, $apply-width-height: true, $iconset-version: 0) {
+	$scheme: "fticon";
+	@if ($iconset-version == 0) {
+		$scheme: "fticon";
+	} @else {
+		$scheme: "fticon-v"+#{$iconset-version};
+	}
+
+	$service-url: $o-icons-service-base-url + "/v1/images/raw/#{$scheme}:#{$icon-name}";
 	$query: "?source=o-icons";
 
 	@if $color != null {
