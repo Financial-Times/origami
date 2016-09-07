@@ -8,6 +8,7 @@ const utils = require('../utils');
 
 // Note: `context` is the term o-tracking uses for the data that is sent to spoor
 let context = {};
+let internalQueue;
 
 // Trigger the event tracking
 const track = _ => {
@@ -17,11 +18,11 @@ const track = _ => {
 	var isInternal = href.indexOf(window.document.location.hostname) > -1;
 
 	if (isInternal) {
-		console.log('Queue the event and send it on the next page load',context);
+		// console.log('Queue the event and send it on the next page load',context);
 		internalQueue.add(context).save();
 	}
 	else {
-		console.log('Send now, before leaving this page',context);
+		// console.log('Send now, before leaving this page',context);
 		Core.track({
 			async: false,
 			context: context
@@ -36,8 +37,8 @@ const sanitise = property => {
 
 // For a given container element, get the number of elements that match the
 // clicked element (siblings); and the index of the clicked element (position).
-const getSiblingsAndPosition = (el, clickedEl, dataTrackable) => {
-	const siblings = Array.from(el.querySelectorAll(`[data-trackable="${dataTrackable}"]`));
+const getSiblingsAndPosition = (el, clickedEl) => {
+	const siblings = Array.from(el.querySelectorAll(clickedEl.nodeName));
 	const position = siblings.findIndex(item => item === clickedEl);
 	if(position === -1) return;
 	return {
@@ -91,7 +92,7 @@ const getTrace = el => {
 		if (elementProperties["data-trackable"]) {
 			elementProperties = Object.assign (
 				elementProperties,
-				getSiblingsAndPosition(el, clickedEl, elementProperties["data-trackable"])
+				getSiblingsAndPosition(el, clickedEl)
 			);
 		}
 		trace.push(elementProperties);
@@ -157,7 +158,6 @@ const init = (category, elementsToTrack) => {
 
 	// Listen for page requests. If this is a single page app, we can send link requests now.
 	utils.onPage(runQueue);
-
 
 	// Development debug info
 	// console.log(`Now tracking click events. Category: ${category}`);
