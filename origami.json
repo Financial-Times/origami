@@ -57,7 +57,7 @@
             "documentClasses": "demo-sticky"
         },
         {
-            "name": "Subbranded header",
+            "name": "subbranded-header",
             "data": "demos/src/subbrand.js",
             "template": "demos/src/subbrand.mustache",
             "expanded": true,
