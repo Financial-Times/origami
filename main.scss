@@ -12,7 +12,7 @@
 
  	@each $icon in $o-icons-list {
  		.o-icons-icon--#{$icon} {
- 			@include oIconsGetIcon($icon, $apply-base-styles: false);
+ 			@include oIconsGetIcon($icon, $color: #ff00ff, $apply-base-styles: false);
  		}
  	}
 

@@ -10,12 +10,12 @@
     },
     "demos": [
         {
-            "name": "all-icons",
-            "template": "demos/src/demo.mustache",
+            "name": "test",
+            "template": "demos/src/test.mustache",
             "sass": "demos/src/demo.scss",
             "data": "demos/src/data.json",
-            "hidden": false,
-            "description": "Set of all icons"
+            "hidden": true,
+            "description": "Test demo to run to test changes made to o-icons"
         }
     ]
 }

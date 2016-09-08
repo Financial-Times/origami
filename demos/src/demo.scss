@@ -5,6 +5,7 @@ $o-icons-use-local-assets: true;
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
+	padding: 1em;
 	overflow: auto;
 }
 
@@ -14,7 +15,6 @@ body {
 }
 
 .demo-examples {
-	clear: both;
 	margin: 20px 0;
 	padding: 0;
 	list-style-type: none;
@@ -39,10 +39,19 @@ body {
 .demo-icon {
 	display: inline-block;
 	border: 1px dotted #333333;
-	width: 98px;
-	height: 98px;
-	font-size: 80px;
-	line-height: 100px;
 	text-align: center;
 	color: #000000;
+	width: 30px;
+	height: 30px;
+}
+
+.demo-icon-special {
+	@include oIconsGetIcon('lock');
+}
+.demo-icon-special--coloured {
+	@include oIconsGetIcon('lock', $color: #0000FF);
+}
+
+.demo-icon-special--coloured--resized {
+	@include oIconsGetIcon('lock', #0000FF, 40);
 }
