@@ -4,40 +4,25 @@
 			"name": "arrow-down"
 		},
 		{
-			"name": "arrow-downwards"
-		},
-		{
 			"name": "arrow-left"
 		},
 		{
 			"name": "arrow-right"
 		},
 		{
-			"name": "arrow-up-down"
-		},
-		{
 			"name": "arrow-up"
 		},
 		{
-			"name": "arrow-upwards"
+			"name": "arrows-left-right"
 		},
 		{
-			"name": "bell"
+			"name": "arrows-up-down"
 		},
 		{
-			"name": "comment"
-		},
-		{
-			"name": "copy-link"
-		},
-		{
-			"name": "cross-disk"
+			"name": "book"
 		},
 		{
 			"name": "cross"
-		},
-		{
-			"name": "email"
 		},
 		{
 			"name": "gift"
@@ -49,19 +34,37 @@
 			"name": "hamburger"
 		},
 		{
-			"name": "ipad-portrait"
+			"name": "ipad"
+		},
+		{
+			"name": "link"
+		},
+		{
+			"name": "list"
+		},
+		{
+			"name": "lock"
+		},
+		{
+			"name": "mail"
 		},
 		{
 			"name": "minus"
 		},
 		{
+			"name": "more"
+		},
+		{
 			"name": "newspaper"
 		},
 		{
-			"name": "padlock"
+			"name": "notifications"
 		},
 		{
-			"name": "pinterest"
+			"name": "pause"
+		},
+		{
+			"name": "phone"
 		},
 		{
 			"name": "play"
@@ -70,22 +73,10 @@
 			"name": "plus"
 		},
 		{
-			"name": "printer"
-		},
-		{
-			"name": "profile"
-		},
-		{
-			"name": "pullquote"
+			"name": "print"
 		},
 		{
 			"name": "search"
-		},
-		{
-			"name": "section-business-life"
-		},
-		{
-			"name": "section-magazine"
 		},
 		{
 			"name": "settings"
@@ -94,22 +85,25 @@
 			"name": "share"
 		},
 		{
-			"name": "single-quote-patterned"
+			"name": "speech-left"
 		},
 		{
-			"name": "single-quote"
+			"name": "speech-right"
 		},
 		{
-			"name": "speechbubble"
+			"name": "speech"
 		},
 		{
-			"name": "thumb-up"
-		},
-		{
-			"name": "tick-thin"
+			"name": "stop"
 		},
 		{
 			"name": "tick"
+		},
+		{
+			"name": "user"
+		},
+		{
+			"name": "users"
 		},
 		{
 			"name": "warning"
