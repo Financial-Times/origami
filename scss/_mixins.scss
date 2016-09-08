@@ -13,10 +13,10 @@
 /// @param {Bool} $apply-width-height - defaults to true. If true, will output the styles for the container width and height.
 /// @param {Integer} $iconset-version - defaults to 0. If present will set the iconset version to the version passed in. Support for version 0 will be deprecated in the next major release.
 
-@mixin oIconsGetIcon($icon-name, $color: null, $container-width: 128, $container-height: null, $apply-base-styles: true, $apply-width-height: true, $iconset-version: 0) {
+@mixin oIconsGetIcon($icon-name, $color: null, $container-width: 128, $container-height: null, $apply-base-styles: true, $apply-width-height: true, $iconset-version: 1) {
 	$scheme: "fticon";
 	@if ($iconset-version == 0) {
-		$scheme: "fticon";
+		@error "Icon set version 0 is not supported with this version of o-icons. Please use version 1.";
 	} @else {
 		$scheme: "fticon-v#{$iconset-version}";
 	}
