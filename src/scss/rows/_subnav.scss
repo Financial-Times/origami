@@ -94,15 +94,14 @@
 	}
 
 	.o-header__subnav-button {
-		@include oIconsGetIcon('arrow-left', oColorsGetColorFor(o-header-subnav-button, text), $_o-header-icon-size-small, $apply-width-height: false, $iconset-version: 1);
+		@include oIconsGetIcon('arrow-left', oColorsGetColorFor(o-header-subnav-button, text), $_o-header-icon-size, $apply-width-height: false, $iconset-version: 1);
 		@include oColorsFor(o-header-subnav-button, background);
 		position: absolute;
 		top: 0;
-		width: #{$_o-header-icon-size-small}px;
+		width: #{$_o-header-icon-size}px;
 		height: 100%;
 		padding: 0;
 		border: 0;
-		background-size: 30px;
 		transition: 0.25s opacity 0.5s;
 
 		&:hover {
