@@ -32,15 +32,21 @@ class Header {
 	static init (rootEl) {
 		if (!rootEl) {
 			rootEl = document.body;
-		} else if (typeof rootEl === 'string') {
+		}
+		if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
-
-		const headerEl = rootEl.querySelector('[data-o-component="o-header"]');
-		if (!headerEl.hasAttribute('data-o-header--js')) {
-			return new Header(headerEl);
+		if (/\bo-header\b/.test(rootEl.getAttribute('data-o-component'))) {
+			return new Header(rootEl);
 		}
 
+		return [].map.call(rootEl.querySelectorAll('[data-o-component="o-header"]'), el => {
+			if (!el.hasAttribute('data-o-header--js')) {
+				return new Header(el);
+			}
+		}).filter((header) => {
+			return header !== undefined;
+		});
 	}
 
 }

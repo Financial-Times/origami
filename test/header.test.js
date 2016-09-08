@@ -7,10 +7,6 @@ describe('Header API', () => {
 	it('is defined', () => {
 		expect(Header).to.be.a('function');
 	});
-
-	it('has a static init method', () => {
-		expect(Header.init).to.be.a('function');
-	});
 });
 
 describe('Header instance', () => {
@@ -34,13 +30,6 @@ describe('Header instance', () => {
 
 	it('constructor', () => {
 		const header = new Header(headerEl);
-		expect(header).to.be.a(Header);
-		expect(header.headerEl).to.equal(headerEl);
-		expect(headerEl.getAttribute('data-o-header--js')).to.not.be(null);
-	});
-
-	it('#init()', () => {
-		const header = Header.init();
 		expect(header).to.be.a(Header);
 		expect(header.headerEl).to.equal(headerEl);
 		expect(headerEl.getAttribute('data-o-header--js')).to.not.be(null);

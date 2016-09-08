@@ -12,10 +12,11 @@
     "karma": "^0.13.0",
     "karma-mocha": "^0.2.0",
     "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sinon": "^1.0.5",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.1.0",
     "origami-build-tools": "^5.0.0",
-    "sinon": "1.14.1",
+    "sinon": "^1.17.5",
     "webpack": "^1.12.2"
   }
 }
