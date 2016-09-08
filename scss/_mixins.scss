@@ -30,7 +30,7 @@
 	}
 
 	@if ($o-icons-use-local-assets == true and $color == null) {
-		background-image: url(oAssetsResolve("svg/#{$icon-name}.svg", o-icons));
+		background-image: url(oAssetsResolve("bower_components/fticons/svg/#{$icon-name}.svg", o-icons));
 	} @else {
 		background-image: url($service-url + $query + "&format=svg");
 	}
