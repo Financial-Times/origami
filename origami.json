@@ -1,7 +1,7 @@
 {
     "description": "Helper Sass for using the FT's icons. For a full list of available icons, see the <a href='http://registry.origami.ft.com/components/fticons'>fticons image set</a>",
     "origamiType": "module",
-    "origamiCategory": "primitives",
+    "origamiCategory": "utilities",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-icons/issues",
     "supportStatus": "active",
