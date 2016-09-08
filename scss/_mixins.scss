@@ -18,7 +18,7 @@
 	@if ($iconset-version == 0) {
 		$scheme: "fticon";
 	} @else {
-		$scheme: "fticon-v"+#{$iconset-version};
+		$scheme: "fticon-v#{$iconset-version}";
 	}
 
 	$service-url: $o-icons-service-base-url + "/v1/images/raw/#{$scheme}:#{$icon-name}";
