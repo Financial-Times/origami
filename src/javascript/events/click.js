@@ -12,12 +12,7 @@ let internalQueue;
 
 // Trigger the event tracking
 const track = _ => {
-	if (!context.domPath || !context.domPath.length > 0) return false;
-
-	var href = context.domPath[0].href || '';
-	var isInternal = href.indexOf(window.document.location.hostname) > -1;
-
-	if (isInternal) {
+	if (context.isInternal) {
 		// console.log('Queue the event and send it on the next page load',context);
 		internalQueue.add(context).save();
 	}
@@ -95,6 +90,8 @@ const getTrace = el => {
 				getSiblingsAndPosition(el, clickedEl)
 			);
 		}
+
+		// TODO: Infer element role
 		trace.push(elementProperties);
 		el = el.parentNode;
 	}
@@ -126,7 +123,20 @@ const getEventProperties = event => {
 // Controller for handling click events
 const handleClickEvent = clickEvent => {
 	context = Object.assign (context, getEventProperties(clickEvent));
-	context.domPath = getTrace(clickEvent.target);
+
+	// Dompath
+	context.domPathTokens = getTrace(clickEvent.target);
+	context.dataTrackableTokens = context.domPathTokens.filter(token => token['data-trackable']);
+	context.dataTrackablePath = context.dataTrackableTokens.map(token => token['data-trackable']).reverse().join(" | ");
+	context.domPath = context.dataTrackablePath; // getDompath(context.domPathTokens);
+
+	// Other
+	context.url = window.document.location.href;
+	context.href = context.domPathTokens[0].href || '';
+	context.isInternal = context.href.indexOf(window.document.location.hostname) > -1;
+	context.isExternal = context.href.length > 0 && context.href.indexOf(window.document.location.hostname) === -1;
+
+	// Send or queue tracking event
 	track();
 }
 
