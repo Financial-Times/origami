@@ -12,7 +12,6 @@ describe('Video', () => {
 		containerEl = document.createElement('div');
 		containerEl.setAttribute('data-o-component', 'o-video');
 		containerEl.setAttribute('data-o-video-id', '4084879507001');
-		containerEl.setAttribute('data-o-video-source', 'Brightcove');
 		containerEl.setAttribute('data-o-video-autorender', 'false');
 		document.body.appendChild(containerEl);
 	});
@@ -89,9 +88,9 @@ describe('Video', () => {
 
 			video.videoEl.should.be.an.instanceOf(HTMLElement);
 			video.videoEl.parentElement.should.equal(containerEl);
-			video.videoEl.getAttribute('poster').should.equal('mockimage');
-			video.videoEl.getAttribute('src').should.equal('http://url.mock');
-			video.videoEl.getAttribute('controls').should.equal('true');
+			video.videoEl.poster.should.include('mockimage');
+			video.videoEl.src.should.equal('http://url.mock/');
+			video.videoEl.controls.should.equal(true);
 		});
 
 		it('should add supplied classes to element', () => {
@@ -145,6 +144,7 @@ describe('Video', () => {
 				placeholder: true
 			});
 
+			video.videoData = {};
 			video.posterImage = 'mockimage';
 			video.addPlaceholder();
 
@@ -158,19 +158,18 @@ describe('Video', () => {
 			video.placeholderEl.querySelector('.o-video__play-button').should.exist;
 		});
 
-		it('should be able to create a placeholder with a title', () => {
+		it('should be able to create a placeholder with an info panel', () => {
 			const video = new Video(containerEl, {
 				autorender: false,
 				placeholder: true,
-				placeholdertitle: true
+				placeholderInfo: ['title' ]
 			});
 
 			video.videoData = { name: 'A hated rally' };
 			video.addPlaceholder();
-			const titleEl = video.placeholderEl.querySelector('.o-video__title');
 
-			titleEl.should.exist;
-			titleEl.textContent.should.equal('A hated rally');
+			video.infoPanel.should.exist;
+			video.infoPanel.titleEl.textContent.should.equal('A hated rally');
 		});
 
 		it('should add a play button', () => {
@@ -181,10 +180,12 @@ describe('Video', () => {
 			const video = new Video(containerEl, {
 				autorender: false,
 				placeholder: true,
-				placeholdertitle: true
+				placeholdertitle: true,
 			});
 
+			video.videoData = {};
 			video.addPlaceholder();
+
 			const playButtonEl = video.placeholderEl.querySelector('.o-video__play-button');
 			const playButtonTextEl = playButtonEl.querySelector('.o-video__play-button-text');
 			const playIconEl = playButtonEl.querySelector('.o-video__play-button-icon');
@@ -235,7 +236,7 @@ describe('Video', () => {
 					id: '4084879507001',
 					autorender: false,
 					placeholder: true,
-					placeholdertitle: true
+					placeholderInfo: ['title']
 				});
 
 				return video.init();
@@ -254,11 +255,11 @@ describe('Video', () => {
 				const newOpts = { id: brightcoveResponse2.id };
 
 				video.placeholderImageEl.src.should.include('AuthersNote-stock-market.jpg');
-				video.placeholderTitleEl.textContent.should.equal(brightcoveResponse1.name);
+				video.infoPanel.titleEl.textContent.should.equal(brightcoveResponse1.name);
 
 				return video.update(newOpts).then(() => {
 					video.placeholderImageEl.src.should.include('World-Norbert-Hofer.jpg');
-					video.placeholderTitleEl.textContent.should.equal(brightcoveResponse2.name);
+					video.infoPanel.titleEl.textContent.should.equal(brightcoveResponse2.name);
 				});
 			});
 		});

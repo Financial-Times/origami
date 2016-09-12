@@ -16,7 +16,6 @@ In JS
     const OVideo = require('o-video');
     const opts = {
         id: 4165329773001,
-        source: "brightcove",
         optimumwidth: 710,
         placeholder: true,
         classes: ['video']
@@ -34,7 +33,7 @@ Where `opts` is an optional object with properties
  * `optimumvideowidth` [`Number`] The optimum width of the video itself, used when there are multiple video renditions available to
  decide which to display (the smallest one that's at least as large as this width, if it exists)
  * `placeholder` [`Boolean`] Show just the poster image, load (and play) video on click
- * `placeholderFeatures` [`Array`] A list of extra information to display on the placeholder (Available: title, description, brand, duration)
+ * `placeholderInfo` [`Array`] A list of extra information to display on the placeholder (Available: title, description, brand, duration)
  * `classes` [`Array`] Classes to add to the video (and placeholder) element
 
 The config options can also be set as data attribute to instantiate the module declaratively:

@@ -17,7 +17,7 @@ class VideoInfo {
 	constructor (video) {
 		this.video = video;
 
-		this.opts = this.video.opts.placeholderFeatures.reduce((map, key) => {
+		this.opts = this.video.opts.placeholderInfo.reduce((map, key) => {
 			map[key] = true;
 			return map;
 		}, {});
@@ -75,10 +75,10 @@ class VideoInfo {
 	teardown () {
 		this.video.placeholderEl.removeChild(this.infoEl);
 
-		delete this.infoPanel;
+		delete this.infoEl;
 		delete this.brandEl;
-		delete this.durationEl;
 		delete this.titleEl;
+		delete this.durationEl;
 		delete this.descriptionEl;
 	}
 }

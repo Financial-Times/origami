@@ -70,8 +70,8 @@ const defaultOpts = {
 	autorender: true,
 	classes: [],
 	optimumwidth: null,
-	placeholder: null,
-	placeholderFeatures: ['title'],
+	placeholder: false,
+	placeholderInfo: ['title'],
 	data: null
 };
 
@@ -188,7 +188,7 @@ class Video {
 		this.placeholderEl.appendChild(this.placeholderImageEl);
 
 		// info panel
-		if (this.opts.placeholderFeatures.length) {
+		if (this.opts.placeholderInfo.length) {
 			this.infoPanel = new VideoInfo(this);
 		}
 
