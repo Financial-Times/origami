@@ -1,6 +1,7 @@
 {
 	"description": "Responsive, configurable overlays that support modal and non-modal centered overlays and overlays with arrows",
 	"origamiType": "module",
+	"origamiCategory": "components",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-overlay/issues",
 	"supportStatus": "active",
