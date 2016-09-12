@@ -19,49 +19,49 @@
         {
             "name": "individual",
             "template": "/demos/src/individual.mustache",
-            "expanded": true,
             "description": ""
         },
         {
             "name": "individual-standout",
             "template": "/demos/src/individual-standout.mustache",
-            "expanded": true,
             "description": ""
         },
         {
             "name": "individual-uncolored",
             "template": "/demos/src/individual-uncolored.mustache",
-            "expanded": true,
             "description": ""
         },
         {
             "name": "individual-inverse",
             "template": "/demos/src/individual-inverse.mustache",
-            "expanded": true,
             "description": ""
         },
         {
             "name": "pagination",
             "template": "/demos/src/pagination.mustache",
-            "expanded": true,
             "description": ""
         },
         {
             "name": "grouped",
             "template": "/demos/src/grouped.mustache",
-            "expanded": true,
             "description": ""
         },
         {
             "name": "icons",
             "template": "/demos/src/icons.mustache",
-            "expanded": false,
+            "hidden": true,
             "description": ""
         },
         {
             "name": "test",
             "template": "/demos/src/test.mustache",
-            "expanded": false,
+            "hidden": true,
+            "description": ""
+        },
+        {
+            "name": "pa11y",
+            "template": "/demos/src/pa11y.mustache",
+            "hidden": true,
             "description": ""
         }
     ]
