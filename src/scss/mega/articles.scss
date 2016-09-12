@@ -4,7 +4,8 @@
 
 		.o-header__mega-item {
 			&:before {
-				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('claret-1'), 10);
+				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('claret-1'), $_o-header-icon-size-small, $iconset-version: 1);
+				vertical-align: text-top;
 				content: '';
 			}
 		}

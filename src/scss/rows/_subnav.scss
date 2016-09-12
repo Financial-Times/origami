@@ -62,7 +62,7 @@
 
 		.o-header__subnav-list--breadcrumb & {
 			&:before {
-				@include oIconsGetIcon('arrow-right', oColorsGetColorFor(o-header-link-highlight, text), 13);
+				@include oIconsGetIcon('arrow-right', oColorsGetColorFor(o-header-link-highlight, text), $_o-header-icon-size-small, $iconset-version: 1);
 				content: '';
 				position: relative;
 				top: 0.125em;
@@ -94,15 +94,14 @@
 	}
 
 	.o-header__subnav-button {
-		@include oIconsGetIcon('arrow-left', oColorsGetColorFor(o-header-subnav-button, text), $apply-width-height: false);
+		@include oIconsGetIcon('arrow-left', oColorsGetColorFor(o-header-subnav-button, text), $_o-header-icon-size, $apply-width-height: false, $iconset-version: 1);
 		@include oColorsFor(o-header-subnav-button, background);
 		position: absolute;
 		top: 0;
-		width: 24px;
+		width: #{$_o-header-icon-size}px;
 		height: 100%;
 		padding: 0;
 		border: 0;
-		background-size: 12px;
 		transition: 0.25s opacity 0.5s;
 
 		&:hover {
