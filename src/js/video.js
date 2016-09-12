@@ -216,12 +216,8 @@ class Video {
 			this.containerEl.removeChild(this.placeholderEl);
 			this.infoPanel && this.infoPanel.teardown();
 
-			this.placeholderEl = null;
-			this.placeholderImageEl = null;
-			this.placeholderBrandEl = null;
-			this.placeholderDurationEl = null;
-			this.placeholderTitleEl = null;
-			this.placeholderDescriptionEl = null;
+			delete this.placeholderEl;
+			delete this.placeholderImageEl;
 		});
 
 		this.updatePlaceholder();
