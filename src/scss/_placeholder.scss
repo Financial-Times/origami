@@ -1,6 +1,5 @@
 @if $o-video-is-silent == false {
 
-	.o-video__info,
 	.o-video__placeholder,
 	.o-video__placeholder-image {
 		position: absolute;
@@ -51,34 +50,6 @@
 		margin: auto;
 		border-radius: 100%;
 		background-color: rgba(oColorsGetPaletteColor('black'), 0.5);
-	}
-
-	.o-video__info {
-		box-sizing: border-box;
-		padding: 0 10px;
-		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0) 50%);
-	}
-
-	.o-video__info-brand {
-		background-color: oColorsGetPaletteColor('claret-1');
-		color: oColorsGetPaletteColor('white');
-		display: inline-block;
-		padding: 2px 10px;
-		vertical-align: top;
-	}
-
-	.o-video__info-duration {
-		display: inline-block;
-		color: oColorsGetPaletteColor('white');
-		vertical-align: top;
-		position: relative;
-		top: 2px;
-		margin-left: 10px;
-	}
-
-	.o-video__info-title,
-	.o-video__info-description {
-		margin: 10px 0;
 	}
 
 }

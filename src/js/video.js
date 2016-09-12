@@ -2,6 +2,7 @@
 import crossDomainFetch from 'o-fetch-jsonp';
 import getRendition from './helpers/get-rendition';
 import VideoAds from './ads';
+import VideoInfo from './info';
 import Playlist from './playlist';
 
 function eventListener(video, ev) {
@@ -38,21 +39,6 @@ function updatePosterUrl(posterImage, width) {
 	}
 
 	return url;
-}
-
-function formatBrand (tags) {
-	const regex = /brand:/i;
-	const tag = tags && tags.find(tag => regex.test(tag));
-
-	return tag && tag.replace(regex, '');
-}
-
-function formatDuration (lengthInMs) {
-	const lengthInSeconds = Math.ceil(lengthInMs / 1000);
-	const minutes = '' + Math.floor(lengthInSeconds / 60);
-	const seconds = '' + (lengthInSeconds % 60);
-
-	return `${minutes}:${seconds.length === 1 ? '0' + seconds : seconds}`;
 }
 
 // converts data-o-video attributes to an options object
@@ -201,6 +187,11 @@ class Video {
 
 		this.placeholderEl.appendChild(this.placeholderImageEl);
 
+		// info panel
+		if (this.opts.placeholderFeatures.length) {
+			this.infoPanel = new VideoInfo(this);
+		}
+
 		// play button
 		const playButtonEl = document.createElement('button');
 		playButtonEl.className = 'o-video__play-button';
@@ -216,35 +207,6 @@ class Video {
 
 		this.placeholderEl.appendChild(playButtonEl);
 
-		// info panel
-		const infoEl = document.createElement('div');
-		infoEl.className = 'o-video__info';
-		this.placeholderEl.appendChild(infoEl);
-
-		if (this.opts.placeholderFeatures.indexOf('brand') > -1) {
-			this.placeholderBrandEl = document.createElement('span');
-			this.placeholderBrandEl.className = 'o-video__info-brand';
-			infoEl.appendChild(this.placeholderBrandEl);
-		}
-
-		if (this.opts.placeholderFeatures.indexOf('duration') > -1) {
-			this.placeholderDurationEl = document.createElement('span');
-			this.placeholderDurationEl.className = 'o-video__info-duration';
-			infoEl.appendChild(this.placeholderDurationEl);
-		}
-
-		if (this.opts.placeholderFeatures.indexOf('title') > -1) {
-			this.placeholderTitleEl = document.createElement('h4');
-			this.placeholderTitleEl.className = 'o-video__info-title';
-			infoEl.appendChild(this.placeholderTitleEl);
-		}
-
-		if (this.opts.placeholderFeatures.indexOf('description') > -1) {
-			this.placeholderDescriptionEl = document.createElement('p');
-			this.placeholderDescriptionEl.className = 'o-video__info-description';
-			infoEl.appendChild(this.placeholderDescriptionEl);
-		}
-
 		this.placeholderEl.addEventListener('click', () => {
 			// Adds video soon so ads can start loading
 			this.addVideo();
@@ -252,6 +214,7 @@ class Video {
 			this.videoEl.paused && this.videoEl.play();
 
 			this.containerEl.removeChild(this.placeholderEl);
+			this.infoPanel && this.infoPanel.teardown();
 
 			this.placeholderEl = null;
 			this.placeholderImageEl = null;
@@ -268,22 +231,7 @@ class Video {
 
 	updatePlaceholder() {
 		this.placeholderImageEl.src = this.posterImage;
-
-		if (this.placeholderBrandEl) {
-			this.placeholderBrandEl.textContent = formatBrand(this.videoData.tags);
-		}
-
-		if (this.placeholderDurationEl) {
-			this.placeholderDurationEl.textContent = formatDuration(this.videoData.length);
-		}
-
-		if (this.placeholderTitleEl) {
-			this.placeholderTitleEl.textContent = this.videoData.name;
-		}
-
-		if (this.placeholderDescriptionEl) {
-			this.placeholderDescriptionEl.textContent = this.videoData.shortDescription;
-		}
+		this.infoPanel && this.infoPanel.update();
 	}
 
 	update(newOpts) {
