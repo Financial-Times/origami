@@ -11,13 +11,14 @@
 	"demosDefaults": {
 		"sass": "demos/src/main.scss",
 		"js": "demos/src/demo.js",
-		"template": "demos/src/video.mustache"
+		"dependencies": "o-fonts@^2.1.0"
 	},
 	"demos": [
 		{
 			"name": "native",
 			"description": "Native",
-			"expanded": true
+			"expanded": true,
+			"template": "demos/src/video.mustache"
 		},
 		{
 			"name": "placeholder",
