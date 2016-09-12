@@ -6,8 +6,8 @@ import Playlist from './playlist';
 
 function eventListener(video, ev) {
 
-	// Dispatch progress event only at 25%, 50% and 75%
-	if (ev.type === 'progress' && (video.getProgress() % 25 !== 0 || video.getProgress() % 100 === 0)) {
+	// Dispatch progress event at start, 25%, 50%, 75% and 100%
+	if (ev.type === 'progress' && video.getProgress() % 25 !== 0) {
 		return;
 	}
 
