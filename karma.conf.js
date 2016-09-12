@@ -90,7 +90,7 @@ module.exports = function(config) {
 					},
 					{
 						test: /\.json$/,
-						loader: 'json'
+						loader: 'json-loader'
 					}
 				],
 				noParse: [
