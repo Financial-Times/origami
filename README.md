@@ -4,8 +4,8 @@ This module provides a decoupled events-based mechanism for modules to report er
 
 ## Requirements
 
-Error tracking in a product requires a project to be configured with
-[Sentry](//getsentry.com) as `o-errors` uses the service to report errors.
+Error tracking requires a project to be configured with
+[Sentry](//getsentry.com) as `o-errors` reports errors to this service.
 
 See the [Sentry documentation](https://app.getsentry.com/docs/platforms/) for
 setup specifics.
@@ -26,26 +26,35 @@ configuring the Sentry [DSN specific to your application](https://app.getsentry.
 </script>
 ```
 
-This will automatically configure `o-errors` and any uncaught errors will be
-reported.
+This will automatically configure `o-errors` on the `o.DOMContentLoaded` event and
+any uncaught errors will be reported.
 
 ## Usage
 
-`o-errors` can be configured declaratively by including a `<script>`
-tag with the data attribute `data-o-errors-config` and some 'JSON', or
-it can be initialised as a library to better integrate error tracking into a product.
-
 Components that are included on the page might throw uncaught exceptions or
 emit an `oErrors.log` `CustomEvent`.  `o-errors` listens on the `document`
-root for this event and logs errors appropriately.
+root for this event and aggregates errors to the configured Sentry endpoint.
 
-Component developers should ensure that `{ bubbles: true }` is used when
+Component developers should ensure that `{ bubbles: true }` is set when
 constructing the `CustomEvent` and should dispatch it on the component's owned DOM.
 
 Uncaught errors are handled by a `window.onerror` function
 installed on initialisation. *Note* uncaught errors will not be reported
-if they occur _before_ initialisation, although any errors reported using the
+automatically if they occur _before_ initialisation, although any errors reported using the
 `o-errors` API _will_ be buffered and reported once initialised.
+
+### Reporting errors
+
+Report errors using the [`oErrors.report`](http://codedocs.webservices.ft.com/v1/jsdoc/o-errors/Errors.html#report) method.
+
+```JS
+var oErrors = require('o-errors');
+
+oErrors.report(new Error("My error"));
+```
+
+If the module has not been initialised, these errors are buffered and sent
+once initialised.  Following initialisation uncaught errors are automatically recorded.
 
 ### Configuration
 
@@ -93,18 +102,21 @@ the Sentry interface.
 
 ##### logLevel     - optional
 
-Control the operation of the `oErrors.log`, `oErrors.warn` and `oErrors.error` API.
+`o-errors` provides a logging API specific to logging console messages.  These
+messages are recorded so that additional contextual information can be added
+to any reported errors.  Calling one of these functions does not report
+anything.
 
-Could be one of the following options:
+The log level could be one of the following options:
 
 `off` - Turns off all logging by turning the logging API into
 a no-operation. This is the default and is reccommended for most production
-scenarios as most environments will optimise the no-operation away.
+scenarios as most javascript environments will optimise the no-operation away.
 
 `contextonly` - Turns on log context tracking, `oErrors.log`, `oErrors.warn`, and `oErrors.error`
-will store the last 10 log messages in a fast circular buffer, when an error
+will store the last 10 log messages in a fast circular buffer. When an error
 is reported, these log lines are attached to the error as additional context
-in the `context:log` field.  This can be particularly useful when
+in the `context:log` field and can be viewed in the Sentry interface.  This can be particularly useful when
 understanding what the state of the application was before an error occurs.
 While this has a very low overhead it can increase the size of the error
 payload so is not the default.
@@ -112,7 +124,8 @@ payload so is not the default.
 `debug` - Turns on context tracking and outputs the messages through
 `console.warn`, `console.log`, and `console.error` for `oErrors.warn`,
 `oErrors.log`, and `oErrors.error`
-respectively.  This should not be used in production.
+respectively.  This should not be used in production as it will call the
+native `console` APIs.
 
 `consoleonly` - Turns on console only logging. This will stop the Raven client from
 being initialised and reporting errors to sentry. Messages will be output through
@@ -251,12 +264,11 @@ oErrors.init({
 
 ### Product usage
 
-
 This section outlines some typical use cases when integrating `oErrors` into a
 product.
 
 Due to the nature of the `Raven` Sentry client, `o-errors` is a singleton.
-This means when you `require` it using browserify you'll get the same instance.
+This means when you `require` it using browserify you'll always get the same instance.
 
 #### Wrapping functions in an error handler
 
@@ -301,7 +313,8 @@ executing the function are caught and reported.
 Instead of logging to the console however, if the `logLevel` configuration
 option is set to `contextonly`, the last few log lines are kept in
 memory.  Then, when an uncaught error is logged to the error aggregator, the
-log lines are included as additional context.
+log lines are included as additional context.  Calling these APIs does not
+report anything to the aggregator by themselves.
 
 In this example, a message is logged before calling `exampleSyncData`.  If
 `exampleSyncData` errors, then `"Syncing data to APIs"` would be attached to
@@ -325,7 +338,7 @@ engines.
 ## Events
 
 Events are primarily useful for reporting errors from components.  If a
-component fires an `oErrors.log` event, if `o-errors` is configured the error
+component fires an `oErrors.log` event, if `o-errors` is configured, the error
 can be reported.
 
 ### `oErrors.log`
