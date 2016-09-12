@@ -5,6 +5,7 @@ const constructAll = function() {
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
-document.addEventListener('o.DOMContentLoaded', constructAll);
-
+if (typeof window !== 'undefined') {
+	document.addEventListener('o.DOMContentLoaded', constructAll);
+}
 export default oComponentBoilerplate;

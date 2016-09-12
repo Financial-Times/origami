@@ -1,6 +1,10 @@
 /*global require*/
 import './../../main.js';
 
-document.addEventListener('DOMContentLoaded', function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-});
+function initDemos() {
+	document.addEventListener('DOMContentLoaded', function() {
+		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+	});
+}
+
+initDemos();
