@@ -32,6 +32,13 @@
 			"expanded": true,
 			"template": "demos/src/playlist.mustache",
 			"js": "demos/src/playlist.js"
+		},
+		{
+			"name": "size variations",
+			"description": "Display the video at preset sizes",
+			"expanded": true,
+			"template": "demos/src/sizes.mustache",
+			"js": "demos/src/sizes.js"
 		}
 	]
 }
