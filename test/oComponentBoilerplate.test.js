@@ -14,14 +14,6 @@ describe("ComponentBoilerplate", () => {
 		proclaim.equal(typeof ComponentBoilerplate.init, 'function');
 	});
 
-	it("should create a new component when initialized", () => {
-		fixtures.htmlCode();
-		document.querySelector('[data-o-component="o-component-boilerplate"]');
-		const boilerplate = ComponentBoilerplate.init();
-		proclaim.equal(boilerplate instanceof ComponentBoilerplate, true);
-		fixtures.reset();
-	});
-
 	it("should autoinitialize", (done) => {
 		const initSpy = sinon.spy(ComponentBoilerplate, 'init');
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
@@ -35,5 +27,26 @@ describe("ComponentBoilerplate", () => {
 	it("should not autoinitialize when the event is not dispached", () => {
 		const initSpy = sinon.spy(ComponentBoilerplate, 'init');
 		proclaim.equal(initSpy.called, false);
+	});
+
+	describe("should create a new", () => {
+		beforeEach(() => {
+				fixtures.htmlCode();
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+		});
+
+		it("component array when initialized", () => {
+			const boilerplate = ComponentBoilerplate.init();
+			proclaim.equal(boilerplate instanceof Array, true);
+			proclaim.equal(boilerplate[0] instanceof ComponentBoilerplate, true);
+		});
+
+		it("single component when initialized with a root element", () => {
+			const boilerplate = ComponentBoilerplate.init('#element');
+			proclaim.equal(boilerplate instanceof ComponentBoilerplate, true);
+		});
 	});
 });
