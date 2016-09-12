@@ -174,7 +174,6 @@
 			@include oIconsGetIcon('search', oColorsGetPaletteColor('white'), $_o-header-icon-size, $iconset-version: 1);
 			content: '';
 			margin-top: -($_o-header-drawer-padding-y / 2);
-
 		}
 	}
 
