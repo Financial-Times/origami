@@ -9,17 +9,3 @@ html {
 body {
 	margin: oGridGutter();
 }
-
-.demo-real-life {
-	padding: 0;
-
-	body {
-		margin: 0;
-	}
-
-	h2,
-	h3 {
-		@include oFormsGroup; // Indent
-		margin-bottom: 1em; // Set smaller margin
-	}
-}
