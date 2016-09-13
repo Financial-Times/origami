@@ -35,7 +35,7 @@ $o-buttons-sizes: (
 		background-size: 12px,
 		font-size: 12px,
 		min-height: 22px,
-		min-width: 12px,
+		min-width: 22px,
 		padding-left: 7px,
 		padding-right: 7px,
 		border-width: 1px,
@@ -79,9 +79,9 @@ $o-buttons-themes: (
 
 /// List of icons to generate classes for icon buttons.
 /// Build service users will only be able to use these icons, but there is
-/// a mixin for people using this via Sass, meaning any icon in 'o-ft-icons' is
+/// a mixin for people using this via Sass, meaning any icon in 'fticons' is
 /// available to those users.
-/// Icon names as used in o-ft-icons
+/// Icon names as used in fticons
 ///
 /// @type List
 $o-buttons-icons: "arrow-left", "arrow-right" !default;

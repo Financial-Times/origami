@@ -91,7 +91,7 @@
     $properties: map-get($state-list, $state);
     $icon-color: map-get($properties, color); // Icon color-should match the text color
     @if $icon-color != null {
-      @include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: $icon-color);
+      @include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: $icon-color, $iconset-version: 1);
     }
   }
 }
