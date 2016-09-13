@@ -31,16 +31,6 @@
 	}
 }
 
-/// Common field styles: small
-@mixin oFormsCommonSmall {
-	height: $_o-forms-field-small-height;
-	padding-top: 0;
-	padding-bottom: 0;
-	background-size: $_o-forms-select-small-iconsize;
-	font-size: $_o-forms-field-small-font-size;
-	line-height: $_o-forms-field-small-height - ($_o-forms-field-border-width * 2);
-}
-
 /// Common field styles: focused state only
 @mixin oFormsCommonFieldFocus {
 	@include oColorsFor(o-forms-field-focus);

@@ -30,9 +30,4 @@
 	@include oFormsTextarea;
 }
 
-.o-forms-text--small,
-.o-forms-select--small {
-	@include oFormsCommonSmall;
-}
-
 } // /Silent mode
