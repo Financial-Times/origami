@@ -71,3 +71,54 @@ The queue is an `array` containing Brightcove video ID strings.
     $ npm test
 
 (Requires Firefox)
+
+
+## Migration Guide
+
+Migrating from 1.0 to 2.0
+-------------------------
+
+### Configuration
+
+The `placeholdertitle` property no longer exists, it has been replaced by `placeholder-info` which accepts an array containing one or more of `'title'`, `'description'`, `'brand'`, `'duration'`.
+
+```diff
+<div class="video-container">
+    <div class="o-video" data-o-component="o-video"
+        data-o-video-source="Brightcove"
+        data-o-component="o-video"
+        data-o-video-id="4165329773001"
+        data-o-video-advertising="true"
+        data-o-video-placeholder="true"
+-        data-o-video-placeholdertitle="true"
++        data-o-video-placeholder-info="['title']"
+    ></div>
+</div>
+```
+
+The `optimumwidth` property is no longer used for the video width, it is now only used for the poster image width. To choose an optimum video width you can use the new property `optimumvideowidth`.
+
+
+```diff
+<div class="video-container">
+    <div class="o-video" data-o-component="o-video"
+        data-o-video-source="Brightcove"
+        data-o-component="o-video"
+        data-o-video-id="4165329773001"
+        data-o-video-advertising="true"
+        data-o-video-placeholder="true"
+        data-o-video-placeholder-info="['title']"
+        data-o-video-optimumwidth="400"
++        data-o-video-optimumvideowidth="400"
+    ></div>
+</div>
+```
+
+### Sass
+
+The silent flag `_o-video_applied` variable has been renamed to `o-video-is-silent` and has had it's default value changed from `false` to `true`. If you want to include the component with the styles please look at the code diff below.
+
+```diff
++ $o-video-silent-mode: false;
+@import 'o-video/main';
+```
