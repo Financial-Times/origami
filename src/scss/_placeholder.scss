@@ -10,12 +10,19 @@
 	}
 
 	.o-video__placeholder {
+        background: oColorsGetPaletteColor('claret');
 		color: oColorsGetPaletteColor('white');
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
 
 	.o-video__placeholder-image {
+        transition: opacity 0.25s;
+
+        // saves messing with z-indexes!
+        :hover > & {
+            opacity: 0.35;
+        }
 	}
 
 	.o-video__play-button {
