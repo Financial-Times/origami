@@ -2,10 +2,10 @@
 import crossDomainFetch from 'o-fetch-jsonp';
 import getRendition from './helpers/get-rendition';
 import VideoAds from './ads';
+import VideoInfo from './info';
 import Playlist from './playlist';
 
 function eventListener(video, ev) {
-
 	// Dispatch progress event at start, 25%, 50%, 75% and 100%
 	if (ev.type === 'progress' && video.getProgress() % 25 !== 0) {
 		return;
@@ -22,22 +22,24 @@ function eventListener(video, ev) {
 		bubbles: true
 	});
 	document.body.dispatchEvent(event);
-};
+}
 
 function addEvents(video, events) {
 	events.forEach(event => {
 		video.videoEl.addEventListener(event, eventListener.bind(this, video));
 	});
-};
+}
 
 // use the image resizing service, if width supplied
 function updatePosterUrl(posterImage, width) {
 	let url = `https://image.webservices.ft.com/v1/images/raw/${encodeURIComponent(posterImage)}?source=o-video`;
+
 	if (width) {
 		url += `&fit=scale-down&width=${width}`;
 	}
+
 	return url;
-};
+}
 
 // converts data-o-video attributes to an options object
 function getOptionsFromDataAttributes(attributes) {
@@ -45,8 +47,11 @@ function getOptionsFromDataAttributes(attributes) {
 	// Try to get config set declaratively on the element
 	Array.prototype.forEach.call(attributes, (attr) => {
 		if (attr.name.indexOf('data-o-video') === 0) {
-			// Remove the prefix part of the data attribute name
-			const key = attr.name.replace('data-o-video-', '');
+			// Remove the prefix part of the data attribute name and hyphen-case to camelCase
+			const key = attr.name.replace('data-o-video-', '').replace(/-([a-z])/g, (m, w) => {
+				return w.toUpperCase();
+			});
+
 			try {
 				// If it's a JSON, a boolean or a number, we want it stored like that, and not as a string
 				// We also replace all ' with " so JSON strings are parsed correctly
@@ -66,7 +71,7 @@ const defaultOpts = {
 	classes: [],
 	optimumwidth: null,
 	placeholder: false,
-	placeholdertitle: false,
+	placeholderInfo: ['title'],
 	data: null
 };
 
@@ -74,18 +79,15 @@ class Video {
 	constructor(el, opts) {
 		this.containerEl = el;
 
-		this.opts = opts || getOptionsFromDataAttributes(this.containerEl.attributes);
-
-		Object.keys(defaultOpts).forEach(optionName => {
-			if (typeof this.opts[optionName] === 'undefined') {
-				this.opts[optionName] = defaultOpts[optionName];
-			}
-		});
+		this.opts = Object.assign({}, defaultOpts, opts, getOptionsFromDataAttributes(this.containerEl.attributes));
 
 		if (typeof this.opts.classes === 'string') {
 			this.opts.classes = this.opts.classes.split(' ');
 		}
-		this.opts.classes.push('o-video__video');
+
+		if (this.opts.classes.indexOf('o-video__video') === -1) {
+			this.opts.classes.push('o-video__video');
+		}
 
 		this.targeting = {
 			site: '/5887/ft.com',
@@ -147,7 +149,7 @@ class Video {
 
 	addVideo() {
 		this.videoEl = document.createElement('video');
-		this.videoEl.setAttribute('controls', true);
+		this.videoEl.controls = true;
 		this.videoEl.className = Array.isArray(this.opts.classes) ? this.opts.classes.join(' ') : this.opts.classes;
 		this.containerEl.classList.add('o-video--player');
 
@@ -176,21 +178,21 @@ class Video {
 
 	addPlaceholder() {
 		this.placeholderEl = document.createElement('div');
-		this.placeholderEl.classList.add('o-video__placeholder');
+		this.placeholderEl.className = 'o-video__placeholder';
 
 		this.placeholderImageEl = document.createElement('img');
-		this.placeholderImageEl.classList.add('o-video__placeholder-image');
+		this.placeholderImageEl.className = 'o-video__placeholder-image';
 		this.placeholderImageEl.setAttribute('role', 'presentation');
 		this.placeholderImageEl.setAttribute('alt', '');
 
 		this.placeholderEl.appendChild(this.placeholderImageEl);
 
-		if (this.opts.placeholdertitle) {
-			this.placeholderTitleEl = document.createElement('div');
-			this.placeholderTitleEl.className = 'o-video__title';
-			this.placeholderEl.appendChild(this.placeholderTitleEl);
+		// info panel
+		if (this.opts.placeholderInfo.length) {
+			this.infoPanel = new VideoInfo(this);
 		}
 
+		// play button
 		const playButtonEl = document.createElement('button');
 		playButtonEl.className = 'o-video__play-button';
 
@@ -199,9 +201,9 @@ class Video {
 		playButtonTextEl.textContent = 'Play video';
 		playButtonEl.appendChild(playButtonTextEl);
 
-		const playIconEl = document.createElement('i');
-		playIconEl.className = 'o-video__play-button-icon';
-		playButtonEl.appendChild(playIconEl);
+		const playButtonIconEl = document.createElement('i');
+		playButtonIconEl.className = 'o-video__play-button-icon';
+		playButtonEl.appendChild(playButtonIconEl);
 
 		this.placeholderEl.appendChild(playButtonEl);
 
@@ -212,10 +214,10 @@ class Video {
 			this.videoEl.paused && this.videoEl.play();
 
 			this.containerEl.removeChild(this.placeholderEl);
+			this.infoPanel && this.infoPanel.teardown();
 
-			this.placeholderEl = null;
-			this.placeholderImageEl = null;
-			this.placeholderTitleEl = null;
+			delete this.placeholderEl;
+			delete this.placeholderImageEl;
 		});
 
 		this.updatePlaceholder();
@@ -225,10 +227,7 @@ class Video {
 
 	updatePlaceholder() {
 		this.placeholderImageEl.src = this.posterImage;
-
-		if (this.placeholderTitleEl) {
-			this.placeholderTitleEl.textContent = this.videoData && this.videoData.name;
-		}
+		this.infoPanel && this.infoPanel.update();
 	}
 
 	update(newOpts) {

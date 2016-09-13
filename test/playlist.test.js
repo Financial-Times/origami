@@ -40,7 +40,7 @@ describe('Playlist', () => {
 		});
 
 		it('starts the playlist if the current video does not match', () => {
-			const instance = new Subject({ player, queue });
+			const instance = new Subject({ player, queue, autoplay: true });
 
 			instance.currentIndex.should.equal(0);
 			sinon.assert.calledOnce(player.update);
@@ -61,7 +61,7 @@ describe('Playlist', () => {
 
 	describe('#next', () => {
 		it('calls the next in the queue', () => {
-			const instance = new Subject({ player, queue });
+			const instance = new Subject({ player, queue, autoplay: true });
 
 			instance.currentIndex.should.equal(0);
 			instance.next();
@@ -71,7 +71,7 @@ describe('Playlist', () => {
 
 	describe('#prev', () => {
 		it('calls the previous in the queue', () => {
-			const instance = new Subject({ player, queue });
+			const instance = new Subject({ player, queue, autoplay: true });
 
 			instance.currentIndex.should.equal(0);
 			instance.prev();
