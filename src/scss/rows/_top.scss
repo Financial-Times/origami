@@ -96,6 +96,8 @@
 			@include oHeaderBrandImage('brand-myft', oColorsGetColorFor('o-header-icon'), 52);
 			// this is not a very square icon
 			width: 35px;
+			// Remove the negative margin added for new icons which have additional padding
+			margin-top: 0;
 
 			@include oGridRespondTo('M') {
 				width: 44px;
