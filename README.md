@@ -72,23 +72,23 @@ When using `o-header` in silent mode, we offer a series of helper mixins to outp
 
 ##### oHeader
 
-To get the default header, use the `oHeader` mixin. The `oHeader` mixin will output the base styles for the header and accepts a list of the row styles it should also output. By default the mixin will output all the row styles if no list is specified.
+To get the default header, use the `oHeader` mixin. The `oHeader` mixin will output the base styles for the header and accepts a list of the feature styles it should also output. By default the mixin will output all the feature styles if no list is specified.
 
 ```sass
 @import 'o-header/main';
-// Outputs all base styles and row styles
+// Outputs all base styles and feature styles
 @include oHeader;
 ```
 
-The available row styles that can be output are: `top`, `nav`, `anon`, `search`, and `subnav`. To specify the rows for the standard header for example you would use:
+The available feature styles that can be output are: `nav`, `anon`, `search`, and `subnav`. To specify the features for the standard header for example you would use:
 
 ```sass
-@include oHeader(('top', 'anon', 'search', 'nav'));
+@include oHeader(('anon', 'search', 'nav'));
 ```
 
-##### Themes
+##### Header configurations
 
-The header supports the following themes: `sticky`, `subbrand`, and `simple`. To output a theme you can use one of the following theme mixins:
+The header supports the following configurations: `sticky`, `subbrand`, and `simple`. To output a particular configuration you can use one of the following mixins:
 
 ```sass
 @include oHeaderSticky;
@@ -96,7 +96,7 @@ The header supports the following themes: `sticky`, `subbrand`, and `simple`. To
 @include oHeaderSubbrand;
 ```
 
-These mixins can be used standalone and will also call the `oHeader` mixin with the correct rows based on the theme being output.
+These mixins can be used standalone and will also call the `oHeader` mixin with the correct features based on the configuration requested.
 
 ##### Additional features
 
