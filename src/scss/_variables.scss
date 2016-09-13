@@ -13,11 +13,11 @@ $o-forms-is-silent: true !default;
 /// since `<input>`, `<textarea>`, `<select>`… don't inherit global font styles
 ///
 /// @type String
-$o-forms-font-family: BentonSans, sans-serif !default;
+$o-forms-font-family: MetricWeb, sans-serif !default;
 
 $_o-forms-fieldborder-width: 1px;
 $_o-forms-fieldborder: $_o-forms-fieldborder-width solid oColorsGetColorFor(o-forms-field-standard, border);
-$_o-forms-field-borderradius: 5px;
+$_o-forms-field-borderradius: 2px;
 
 $_o-forms-field-small-fontsize: 14px;
 $_o-forms-field-default-fontsize: 16px;
