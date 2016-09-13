@@ -68,7 +68,7 @@ will output an image logo url in the format `https://my.image.service/foo/v1/ima
 
 #### Silent mode ([docs](http://origami.ft.com/docs/syntax/scss/#silent-styles))
 
-When using `o-header` in silent mode, we offer a series of helper mixins to output styles for different parts of the header. The header is made up of various rows (e.g. `Top`, `Nav`, and `Search`), has different themes like `sticky` and `simple` and can be combined with additional features, such as the `drawer` and `megamenu`.
+When using `o-header` in silent mode, we offer a series of helper mixins to output styles for different parts of the header. The header is made up of various features (e.g. `Nav` and `Search`), has different configurations like `sticky` and `simple` and can be combined with additional features, such as the `drawer` and `megamenu`.
 
 ##### oHeader
 
