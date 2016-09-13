@@ -11,44 +11,62 @@
     "demos": [
         {
             "name": "text-inputs",
+            "title": "Text input",
             "template": "/demos/src/text-inputs.mustache",
-            "expanded": false,
+            "description": ""
+        },
+        {
+            "name": "text-inputs-with-icons",
+            "title": "Text input with icon",
+            "template": "/demos/src/text-inputs.mustache",
             "description": ""
         },
         {
             "name": "select-boxes",
+            "title": "Select box",
             "template": "/demos/src/select-boxes.mustache",
-            "expanded": false,
             "description": ""
         },
         {
             "name": "textareas",
+            "title": "Textarea",
             "template": "/demos/src/textareas.mustache",
-            "expanded": false,
             "description": ""
         },
         {
             "name": "radios",
+            "title": "Radio buttons",
             "template": "/demos/src/radios.mustache",
-            "expanded": false,
             "description": ""
         },
         {
             "name": "checkboxes",
+            "title": "Checkboxes",
             "template": "/demos/src/checkboxes.mustache",
-            "expanded": false,
+            "description": ""
+        },
+        {
+            "name": "checkbox-long-text",
+            "title": "Checkboxes with long text",
+            "template": "/demos/src/checkboxes.mustache",
             "description": ""
         },
         {
             "name": "messages",
+            "title": "Global messages",
             "template": "/demos/src/messages.mustache",
-            "expanded": false,
             "description": ""
         },
         {
             "name": "wrappers",
+            "title": "Wrappers",
             "template": "/demos/src/wrappers.mustache",
-            "expanded": false,
+            "description": ""
+        },
+        {
+            "name": "pa11y",
+            "template": "/demos/src/pa11y.mustache",
+            "hidden": true,
             "description": ""
         }
     ],
