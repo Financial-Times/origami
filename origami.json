@@ -40,15 +40,6 @@
             "description": ""
         },
         {
-            "name": "prefix-suffix",
-            "template": "/demos/src/prefix-suffix.mustache",
-            "expanded": false,
-            "description": "",
-            "dependencies": [
-                "o-buttons@^2.0.4"
-            ]
-        },
-        {
             "name": "messages",
             "template": "/demos/src/messages.mustache",
             "expanded": false,

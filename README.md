@@ -134,24 +134,6 @@ You can wrap a group of fields to highlight it or show it is not valid:
 
 [Messages examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/messages.html)
 
-### Prefixes and suffixes
-
-Prefixes and suffixes are used for prepending or appending static text to a form control. The form control should be wrapped in a block-level element with a class of `.o-forms-affix-wrapper`. Prefixes (defined by `.o-forms-prefix`) and suffixes (defined by `.o-forms-suffix`) can then be prepended/appended to this wrapper element.
-
-```html
-<div class="o-forms-group">
-	<div class="o-forms-affix-wrapper">
-		<span class="o-forms-prefix">http://</span>
-		<input type="text" class="o-forms-text" />
-		<div class="o-forms-suffix">
-			<button type="button" class="o-buttons">Go</button>
-		</div>
-	</div>
-</div>
-```
-
-[Prefixes and suffixes examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/prefix-suffix.html)
-
 ### "unskin" a form element
 
 Add the class `o-forms-unskin` to a text field to reset its appearance while keeping its vertical structure and other field properties (editable, focusable).
