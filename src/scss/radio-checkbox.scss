@@ -49,7 +49,7 @@
 	#{$radio}--small + #{$label} {
 		padding-left: $_o-forms-radiocheckbox-small-size + 5px;
 		line-height: $_o-forms-radiocheckbox-small-size + 2px;
-		font-size: $_o-forms-field-small-fontsize;
+		font-size: $_o-forms-field-small-font-size;
 	}
 
 	#{$checkbox}--small#{$checkbox}--align-right  + #{$label},

@@ -8,19 +8,20 @@
 	box-sizing: border-box;
 	-moz-appearance: none;
 	-webkit-appearance: none;
-	margin: 0;
-	height: $_o-forms-field-default-height;
-	border: $_o-forms-fieldborder;
-	border-radius: $_o-forms-field-borderradius;
-	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
 	width: 100%;
+	max-width: $_o-forms-field-max-width;
+	height: $_o-forms-field-default-height;
+	margin: 0;
+	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
+	border: $_o-forms-field-border;
+	border-radius: $_o-forms-field-border-radius;
 	background-color: oColorsGetColorFor(o-forms-field-standard, background);
+	background-clip: padding-box;
 	color: oColorsGetColorFor(o-forms-field-standard, text);
 	font-family: $o-forms-font-family;
-	font-size: $_o-forms-field-default-fontsize;
+	font-size: $_o-forms-field-default-font-size;
 	outline: none;
 	transition: 0.15s box-shadow ease-in;
-	background-clip: padding-box;
 
 	&:focus {
 		@include oFormsCommonFieldFocus;
@@ -32,12 +33,12 @@
 
 /// Common field styles: small
 @mixin oFormsCommonSmall {
-	font-size: $_o-forms-field-small-fontsize;
+	height: $_o-forms-field-small-height;
 	padding-top: 0;
 	padding-bottom: 0;
 	background-size: $_o-forms-select-small-iconsize;
-	height: $_o-forms-field-small-height;
-	line-height: $_o-forms-field-small-height - ($_o-forms-fieldborder-width * 2);
+	font-size: $_o-forms-field-small-font-size;
+	line-height: $_o-forms-field-small-height - ($_o-forms-field-border-width * 2);
 }
 
 /// Common field styles: focused state only
@@ -139,7 +140,7 @@
 /// Label styles
 @mixin oFormsLabel {
 	display: block;
-	margin-bottom: $_o-forms-label-marginbottom;
+	margin-bottom: $_o-forms-label-margin-bottom;
 	font-size: 16px;
 	line-height: 19px;
 	font-weight: bold;
@@ -195,7 +196,7 @@
 	padding-left: $_o-forms-group-padding;
 
 	@include _oFormsBreakpoint {
-		border-radius: $_o-forms-field-borderradius;
+		border-radius: $_o-forms-field-border-radius;
 		margin-right: 0;
 		margin-left: 0;
 		padding-left: 0;

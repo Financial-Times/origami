@@ -11,7 +11,7 @@
 	margin-right: $_o-forms-group-padding * -1;
 
 	@include _oFormsBreakpoint {
-		border-radius: $_o-forms-field-borderradius;
+		border-radius: $_o-forms-field-border-radius;
 		margin-right: 0;
 		margin-left: 0;
 	}
