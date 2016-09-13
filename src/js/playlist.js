@@ -10,7 +10,7 @@ class Playlist {
 
 		this.cache = {};
 
-		if (this.currentIndex === -1) {
+		if (this.opts.autoplay && this.currentIndex === -1) {
 			this.next();
 		}
 	}

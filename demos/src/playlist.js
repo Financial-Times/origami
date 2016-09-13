@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		autorender: false
 	});
 
-	const playlist = new Video.Playlist({ player, queue });
+	const playlist = new Video.Playlist({ player, queue, autoplay: true });
 
 	const buttons = Array.from(document.querySelectorAll('button'));
 
