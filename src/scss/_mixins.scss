@@ -59,23 +59,6 @@
 	border-color: oColorsGetColorFor(o-forms-field-valid, border);
 }
 
-/// Unskin a field entirely, but keep its structure intact
-@mixin oFormsUnskin {
-	// scss-lint:disable ImportantRule
-	-moz-appearance: none !important;
-	-webkit-appearance: none !important;
-	border: 0 !important;
-	background-color: transparent !important;
-	padding-left: 0 !important;
-	padding-right: 0 !important;
-	box-shadow: none !important;
-
-	// for iOS
-	-webkit-text-fill-color: #333333 !important;
-	opacity: 1 !important;
-	border-radius: 0 !important;
-}
-
 /// Select styles
 ///
 /// To be used in combination with oFormsCommonField
