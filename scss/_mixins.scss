@@ -115,7 +115,7 @@
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	user-select: none;
-	background-clip: padding-box;
+	background-clip: border-box;
 	// Prevent fat white type on a dark background
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
