@@ -152,27 +152,42 @@ describe('Video', () => {
 			video.placeholderEl.parentElement.should.equal(containerEl);
 			video.placeholderEl.classList.contains('o-video__placeholder').should.equal(true);
 
-			const placeholderImageEl = video.placeholderEl.querySelector('.o-video__placeholder-image');
-			placeholderImageEl.should.exist;
-			placeholderImageEl.getAttribute('src').should.equal('mockimage');
-			video.placeholderEl.querySelector('.o-video__play-button').should.exist;
+			video.placeholderImageEl.should.be.an.instanceOf(HTMLImageElement);
+			video.placeholderImageEl.parentElement.should.equal(video.placeholderEl);
+			video.placeholderImageEl.src.should.include('mockimage');
+			video.placeholderImageEl.classList.contains('o-video__placeholder-image').should.equal(true);
 		});
 
 		it('should be able to create a placeholder with an info panel', () => {
 			const video = new Video(containerEl, {
 				autorender: false,
 				placeholder: true,
-				placeholderInfo: ['title' ]
+				placeholderInfo: ['title', 'description', 'duration', 'brand']
 			});
 
-			video.videoData = { name: 'A hated rally' };
+			video.videoData = brightcoveResponse1;
 			video.addPlaceholder();
 
 			video.infoPanel.should.exist;
+
+			video.infoPanel.infoEl.parentElement.should.equal(video.placeholderEl);
+
 			video.infoPanel.titleEl.textContent.should.equal('A hated rally');
+			video.infoPanel.titleEl.parentElement.should.equal(video.infoPanel.infoEl);
+
+			video.infoPanel.descriptionEl.textContent.should.contain('John Authers explains');
+			video.infoPanel.descriptionEl.parentElement.should.equal(video.infoPanel.infoEl);
+
+			// can extract `brand:` prefixed tag
+			video.infoPanel.brandEl.textContent.should.equal('Authers Note');
+			video.infoPanel.brandEl.parentElement.should.equal(video.infoPanel.infoEl);
+
+			// can format video duration (ms) in m:ss
+			video.infoPanel.durationEl.textContent.should.equal('4:59');
+			video.infoPanel.durationEl.parentElement.should.equal(video.infoPanel.infoEl);
 		});
 
-		it('should add a play button', () => {
+		it('should be able to create a placeholder with a play button', () => {
 			const realAddEventListener = Element.prototype.addEventListener;
 			const addEventListenerSpy = sinon.spy();
 			Element.prototype.addEventListener = addEventListenerSpy;
