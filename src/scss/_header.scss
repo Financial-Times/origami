@@ -5,6 +5,7 @@
 /// @param {List} $rows
 @mixin oHeader($rows: '') {
 	@include oHeaderBase;
+	@include oHeaderTop;
 
 	// By default, output all rows
 	@if $rows == '' {
@@ -25,19 +26,19 @@
 
 /// Outputs all the styles required for a sticky nav
 @mixin oHeaderSticky() {
-	@include oHeader(('top', 'search', 'nav'));
+	@include oHeader(('search', 'nav'));
 	@include oHeaderThemeSticky;
 }
 
 /// Outputs all the styles required for a simple nav
 @mixin oHeaderSimple() {
-	@include oHeader(('top', 'search'));
+	@include oHeader(('search'));
 	@include oHeaderThemeSimple;
 }
 
 /// Outputs all the styles required for a subbrand nav
 @mixin oHeaderSubbrand() {
-	@include oHeader(('top', 'search', 'subnav'));
+	@include oHeader(('search', 'subnav'));
 	@include oHeaderThemeSubbrand;
 }
 
