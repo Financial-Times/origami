@@ -7,7 +7,7 @@ Creates a video player and attaches analytics. Also supports pre roll ads.
 Create an element of the format e.g.
 
 ```html
-    <div data-o-component="o-video"></div>
+    <div data-o-component="o-video o-video--large"></div>
 ```
 
 In JS
@@ -39,7 +39,7 @@ Where `opts` is an optional object with properties
 The config options can also be set as data attribute to instantiate the module declaratively:
 
 ```html
-    <div data-o-component="o-video"
+    <div data-o-component="o-video o-video--large"
             data-o-video-id="4165329773001"
             data-o-video-optimumwidth="710"></div>
 ```

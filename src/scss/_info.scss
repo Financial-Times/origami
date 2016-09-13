@@ -12,19 +12,25 @@
 		display: inline-block;
 	}
 
+	.o-video__info-title,
+	.o-video__info-description {
+		margin: 6px 0;
+	}
+
 	.o-video__info-description {
 		display: block;
 	}
 }
 
 @mixin oVideoInfoLarge {
+	.o-video__info-title,
+	.o-video__info-description {
+		margin: 10px 0;
+	}
+
 	.o-video__info-title {
 		font-size: 24px;
 		line-height: 26px;
-	}
-
-	.o-video__info-description {
-		display: block;
 	}
 }
 
@@ -55,11 +61,6 @@
 		&:empty {
 			display: none;
 		}
-	}
-
-	.o-video__info-title,
-	.o-video__info-description {
-		margin: 10px 0;
 	}
 
 	.o-video__info-title {
