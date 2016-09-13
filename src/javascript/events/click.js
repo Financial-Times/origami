@@ -10,7 +10,8 @@ let internalQueue;
 
 // Trigger the event tracking
 const track = context => {
-	let isInternal = context.href && context.href.indexOf(window.document.location.hostname) > -1;
+	const href = context.domPathTokens[0].href || null;
+	const isInternal = href && href.indexOf(window.document.location.hostname) > -1;
 
 	if (isInternal) {
 		// console.log('Queue the event and send it on the next page load',context);
