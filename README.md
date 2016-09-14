@@ -68,44 +68,30 @@ will output an image logo url in the format `https://my.image.service/foo/v1/ima
 
 #### Silent mode ([docs](http://origami.ft.com/docs/syntax/scss/#silent-styles))
 
-When using `o-header` in silent mode, we offer a series of helper mixins to output styles for different parts of the header. The header is made up of various features (e.g. `Nav` and `Search`), has different configurations like `sticky` and `simple` and can be combined with additional features, such as the `drawer` and `megamenu`.
+When using `o-header` in silent mode, we offer a series of helper mixins to output styles for different parts of the header.
 
 ##### oHeader
 
-To get the default header, use the `oHeader` mixin. The `oHeader` mixin will output the base styles for the header and accepts a list of the feature styles it should also output. By default the mixin will output all the feature styles if no list is specified.
+The header is made up of various features (e.g. `Nav`, `Search`, and `Drawer`). To get everything, use the `oHeader()` mixin without arguments. To get only the stuff you need, you can pass in a list of features.
 
-```sass
-@import 'o-header/main';
-// Outputs all base styles and feature styles
-@include oHeader;
+The list of features is as follows:
+
+`nav`: The primary nav, this is the nav that sits directly under the top section of the header.
+`search`: The search bar that appears when a user presses the search icon.
+`anon`: Styles for the row that appears when a user is not logged in
+`sticky`: Styles that make the header stick to the top of the page when scrolling down.
+`simple`: Styles for the reduced slimmer header for article pages and subbrand pages.
+`subbrand`: Styles for the subbranded section of the header (eg Life&Arts)
+`megaMenu`: Styles for the mega-menu that appears when users hover over a nav item.
+
+###### Example
+
+To get all of the CSS needed for the FT homepage you would call:
+
+```
+oHeader('top', 'anon', 'search', 'nav', 'megamenu')
 ```
 
-The available feature styles that can be output are: `nav`, `anon`, `search`, and `subnav`. To specify the features for the standard header for example you would use:
-
-```sass
-@include oHeader(('anon', 'search', 'nav'));
-```
-
-##### Header configurations
-
-The header supports the following configurations: `sticky`, `subbrand`, and `simple`. To output a particular configuration you can use one of the following mixins:
-
-```sass
-@include oHeaderSticky;
-@include oHeaderSimple;
-@include oHeaderSubbrand;
-```
-
-These mixins can be used standalone and will also call the `oHeader` mixin with the correct features based on the configuration requested.
-
-##### Additional features
-
-Each additional feature of the header also has their own mixin. Below are the mixins required for the drawer and megamenu features.
-
-```sass
-@include oHeaderDrawer;
-@include oHeaderMegaMenu;
-```
 
 ### Markup
 
