@@ -16,12 +16,6 @@
             "description": ""
         },
         {
-            "name": "text-inputs-with-icons",
-            "title": "Text input with icon",
-            "template": "/demos/src/text-inputs.mustache",
-            "description": ""
-        },
-        {
             "name": "select-boxes",
             "title": "Select box",
             "template": "/demos/src/select-boxes.mustache",
