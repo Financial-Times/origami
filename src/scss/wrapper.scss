@@ -1,5 +1,6 @@
 /// Zone wrapper
 @mixin oFormsWrapper {
+	max-width: $_o-forms-field-max-width;
 	margin-bottom: 20px;
 	margin-right: $_o-forms-group-padding * -1;
 	margin-left: $_o-forms-group-padding * -1;
@@ -30,9 +31,7 @@
 		background-color: oColorsGetColorFor(o-forms-wrapper-highlight, background);
 	}
 	&--error {
-		// scss-lint:disable DuplicateProperty
-		background-color: oColorsGetColorFor(o-forms-message-error-fallback, background);
-		background-color: rgba(oColorsGetColorFor(o-forms-message-error, background), 0.15);
+		background-color: #f8d9d9;
 	}
 }
 
