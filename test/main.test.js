@@ -166,23 +166,4 @@ describe('main', function () {
 		assert.equal(sent_data.system.environment, "prod");
 		assert.equal(sent_data.system.is_live, true);
 	});
-
-	it('should cope with a huge queue as a bug from a previous version', function () {
-		oTracking.destroy();
-
-		let queue = new Queue('requests');
-
-		for (let i=0; i<201; i++) {
-			queue.add({});
-		}
-
-		queue.save();
-
-		oTracking.init({ system: { environment: 'prod', is_live: true } });
-
-		// Refresh our queue as it's kept in memory
-		queue = new Queue('requests');
-
-		assert.equal(queue.all().length, 0);
-	});
 });
