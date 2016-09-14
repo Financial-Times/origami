@@ -8,8 +8,6 @@
 $o-expander-is-silent: true !default;
 
 @mixin oExpanderContent {
-	overflow: hidden;
-
 	&[aria-hidden="true"] {
 		display: none;
 	}
