@@ -96,7 +96,7 @@
 		font-weight: 600;
 
 		&[aria-expanded] {
-			$icon-size: 14;
+			$icon-size: 15;
 			$line-size: $o-footer-spacing-unit * 2;
 
 			position: relative;
@@ -111,11 +111,11 @@
 				top: ($line-size - $icon-size) / 2;
 
 				.o-footer--theme-dark & {
-					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer-dark', 'text'), $icon-size);
+					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer-dark', 'text'), $icon-size, $iconset-version: 1);
 				}
 
 				.o-footer--theme-light & {
-					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer-light', 'text'), $icon-size);
+					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer-light', 'text'), $icon-size, $iconset-version: 1);
 				}
 			}
 		}
