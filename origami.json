@@ -42,7 +42,7 @@
         {
             "name": "checkbox-long-text",
             "title": "Checkboxes with long text",
-            "template": "/demos/src/checkboxes.mustache",
+            "template": "/demos/src/checkboxes-long-text.mustache",
             "description": ""
         },
         {
