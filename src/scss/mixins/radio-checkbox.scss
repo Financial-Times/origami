@@ -105,11 +105,11 @@
 	}
 
 	#{$checkbox} + #{$label}::after {
-		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NCIgaGVpZ2h0PSI0NiI+PHBhdGggZmlsbD0iIzUwNTA1MCIgZD0iTTQzLjM5MSAxLjU1N2wtMjMuMDkyIDIzLjA4OS05Ljc3LTkuNzc0LTkuNjM1IDkuNjQ0IDE5LjM5NSAxOS4zOTcuMDEtLjAyNy4wMzMuMDI3IDMyLjY5My0zMi43Mjl6Ii8+PC9zdmc+');
+		background-image: url("https://image.webservices.ft.com/v1/images/raw/fticon-v1:tick?source=o-icons&tint=%23333333,%23333333&format=svg");
 		background-repeat: no-repeat;
 		height: $_o-forms-radiocheckbox-default-size;
 		width: $_o-forms-radiocheckbox-default-size;
-		background-size: ceil($_o-forms-radiocheckbox-default-size * 3/4);
+		background-size: $_o-forms-radiocheckbox-default-size;
 		background-position: 50% 50%;
 	}
 
