@@ -1,17 +1,14 @@
 <div class="o-forms-group">
-	<label class="o-forms-label">Textarea</label>
-	<textarea placeholder="placeholder" class="o-forms-textarea"></textarea>
-</div>
-<div class="o-forms-group">
-	<label class="o-forms-label">Textarea disabled</label>
-	<textarea placeholder="placeholder" class="o-forms-textarea" disabled="disabled"></textarea>
-</div>
-<div class="o-forms-group o-forms--valid">
-	<label class="o-forms-label">Textarea (valid)</label>
-	<textarea placeholder="placeholder" class="o-forms-textarea"></textarea>
+	<label for="o-forms-textarea" class="o-forms-label">Textarea</label>
+	<small class="o-forms-additional-info">Optional prompt text goes here</small>
+	<textarea placeholder="Placeholder" id="o-forms-textarea" class="o-forms-textarea"></textarea>
 </div>
 <div class="o-forms-group o-forms--error">
-	<label class="o-forms-label">Textarea (error)</label>
-	<textarea placeholder="placeholder" class="o-forms-textarea"></textarea>
+	<label for="o-forms-textarea-invalid" class="o-forms-label">Textarea (error)</label>
+	<textarea placeholder="Placeholder" id="o-forms-textarea-invalid" class="o-forms-textarea"></textarea>
 	<div class="o-forms-errortext">Invalid entry</div>
+</div>
+<div class="o-forms-group">
+	<label for="o-forms-textarea-disabled" class="o-forms-label">Textarea disabled</label>
+	<textarea placeholder="Placeholder" id="o-forms-textarea-disabled" class="o-forms-textarea" disabled="disabled"></textarea>
 </div>
