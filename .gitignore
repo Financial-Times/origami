@@ -2,3 +2,4 @@
 /build
 /.sass-cache
 /demos/local
+/node_modules
