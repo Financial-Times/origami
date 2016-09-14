@@ -10,17 +10,17 @@
 @import 'src/scss/colors';
 
 @import 'src/scss/base';
-@import 'src/scss/rows/anon';
-@import 'src/scss/rows/top';
-@import 'src/scss/rows/search';
-@import 'src/scss/rows/nav';
-@import 'src/scss/rows/subnav';
-@import 'src/scss/mega/menu';
-@import 'src/scss/themes/subbrand';
-@import 'src/scss/themes/simple';
-@import 'src/scss/themes/sticky';
+@import 'src/scss/features/anon';
+@import 'src/scss/features/top';
+@import 'src/scss/features/search';
+@import 'src/scss/features/nav';
+@import 'src/scss/features/subnav';
+@import 'src/scss/features/megamenu';
+@import 'src/scss/features/subbrand';
+@import 'src/scss/features/simple';
+@import 'src/scss/features/sticky';
+@import 'src/scss/features/drawer';
 
-@import 'src/scss/drawer';
 @import 'src/scss/header';
 
 @if $o-header-is-silent == false {

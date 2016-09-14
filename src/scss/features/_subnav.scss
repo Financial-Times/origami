@@ -1,4 +1,4 @@
-@mixin oHeaderRowSubnav() {
+@mixin oHeaderSubnav() {
 	.o-header__subnav {
 		@include oTypographySans('xs');
 		@include oColorsFor(o-header-subnav, background);

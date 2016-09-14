@@ -1,4 +1,4 @@
-@mixin oHeaderThemeSimple() {
+@mixin oHeaderSimple() {
 	.o-header--simple {
 		// fix heights
 		.o-header__top-wrapper {
@@ -19,8 +19,4 @@
 			line-height: $_o-header-sticky-height;
 		}
 	}
-}
-
-@if $o-header-is-silent == false {
-	@include oHeaderThemeSimple;
 }

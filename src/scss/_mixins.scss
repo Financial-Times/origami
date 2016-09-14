@@ -4,21 +4,34 @@
 ////
 
 /// Includes the correct mixin based on the row passed
-@mixin _oHeaderGetRowMixin($row) {
-	@if $row == 'top' {
-		@include oHeaderRowTop;
+@mixin _oHeaderGetFeatureMixin($feature) {
+
+	@if $feature == 'anon' {
+		@include oHeaderAnon;
 	}
-	@else if $row == 'anon' {
-		@include oHeaderRowAnon;
+	@else if $feature == 'subnav' {
+		@include oHeaderSubnav;
 	}
-	@else if $row == 'subnav' {
-		@include oHeaderRowSubnav;
+	@else if $feature == 'search' {
+		@include oHeaderSearch;
 	}
-	@else if $row == 'search' {
-		@include oHeaderRowSearch;
+	@else if $feature == 'nav' {
+		@include oHeaderNav;
 	}
-	@else if $row == 'nav' {
-		@include oHeaderRowNav;
+	@else if $feature == 'drawer' {
+		@include oHeaderDrawer;
+	}
+	@else if $feature == 'megamenu' {
+		@include oHeaderMegaMenu;
+	}
+	@else if $feature == 'sticky' {
+		@include oHeaderSticky;
+	}
+	@else if $feature == 'simple' {
+		@include oHeaderSimple;
+	}
+	@else if $feature == 'subbrand' {
+		@include oHeaderSubbrand;
 	}
 }
 

@@ -1,4 +1,4 @@
-@mixin oHeaderRowNav() {
+@mixin oHeaderNav() {
 	.o-header__nav {
 		@include oTypographySans('s', $load-progressively: true);
 	}

@@ -2,43 +2,24 @@
 /// Can be passed a list of one or more rows to output.
 /// By default, will output all row styles.
 ///
-/// @param {List} $rows
-@mixin oHeader($rows: '') {
+/// @param {List} $features
+@mixin oHeader($features: '') {
 	@include oHeaderBase;
 	@include oHeaderTop;
 
 	// By default, output all rows
-	@if $rows == '' {
-		@each $row in $_o-header-rows {
-			@include _oHeaderGetRowMixin($row);
+	@if $features == '' {
+		@each $feature in $_o-header-features {
+			@include _oHeaderGetFeatureMixin($feature);
 		}
 	} @else {
-		@each $row in $rows {
-			@if index($_o-header-rows, $row) != null {
-				@include _oHeaderGetRowMixin($row);
+		@each $feature in $features {
+			@if index($_o-header-features, $feature) != null {
+				@include _oHeaderGetFeatureMixin($feature);
 			} @else {
-				@warn "There is no row '#{$row}' available in o-header please use one of "
-				+ "the following: #{$_o-header-rows}";
+				@warn "There is no row '#{$feature}' available in o-header please use one of "
+				+ "the following: #{$_o-header-features}";
 			}
 		}
 	}
 }
-
-/// Outputs all the styles required for a sticky nav
-@mixin oHeaderSticky() {
-	@include oHeader(('search', 'nav'));
-	@include oHeaderThemeSticky;
-}
-
-/// Outputs all the styles required for a simple nav
-@mixin oHeaderSimple() {
-	@include oHeader(('search'));
-	@include oHeaderThemeSimple;
-}
-
-/// Outputs all the styles required for a subbrand nav
-@mixin oHeaderSubbrand() {
-	@include oHeader(('search', 'subnav'));
-	@include oHeaderThemeSubbrand;
-}
-
