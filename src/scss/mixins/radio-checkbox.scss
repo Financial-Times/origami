@@ -25,24 +25,18 @@
 	#{$checkbox} + #{$label},
 	#{$radio} + #{$label} {
 		display: inline-block;
+		margin-top: $_o-forms-label-margin-bottom; // double the spacing between labels and radio/checkboxes
 		margin-right: 15px;
-		padding-left: $_o-forms-radiocheckbox-default-size + 10px;
+		padding-left: $_o-forms-radiocheckbox-default-size + 5px;
 		position: relative;
 		cursor: pointer;
+		font-size: 14px;
 		font-weight: 400;
 		line-height: $_o-forms-radiocheckbox-default-size + 1px;
 		// scss-lint:disable VendorPrefixes VendorPrefix
 		-moz-user-select: none;
 		-webkit-user-select: none;
 		-ms-user-select: none;
-	}
-
-	#{$checkbox}--align-right + #{$label},
-	#{$radio}--align-right + #{$label} {
-		margin-left: 0;
-		padding-left: 0;
-		margin-right: 15px;
-		padding-right: $_o-forms-radiocheckbox-default-size + 10px;
 	}
 
 	#{$checkbox} + #{$label}::before,
@@ -57,12 +51,6 @@
 		content: '';
 		background-color: oColorsGetColorFor(o-forms-field-standard, background);
 		transition: all 0.1s ease-in;
-	}
-
-	#{$checkbox}--align-right + #{$label}::before,
-	#{$radio}--align-right + #{$label}::before {
-		left: auto;
-		right: 0;
 	}
 
 	#{$checkbox} + #{$label}::before,
