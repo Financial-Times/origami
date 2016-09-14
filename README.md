@@ -32,7 +32,7 @@ All the following can be passed in an options object in the second parameter of 
 * `expandedToggleText` [`'less|fewer'`]: Text to show on toggle button when expanded (defaults to fewer when in count mode, or less when in height mode). Accepts empty strings
 * `collapsedToggleText` [`'more'`]: Text to show on toggle button when collapsed. Accepts empty strings
 * `toggleSelector`[`'button.o-expander__toggle'`]: Selector for expand/collapse toggle button. When using the default selector some styling, with an arrow icon, will come for free. If the selector matches more than one element they will all have the ability to expand/collapse the expander
-* `toggleState`[`'all|aria|none'`]: Do you want the epxander to update the button's text and `aria-pressed` attribute, just the aria attribute or neither (defaults to `all`)
+* `toggleState`[`'all|aria|none'`]: Do you want the expander to update the button's text and `aria-pressed` attribute, just the aria attribute or neither (defaults to `all`)
 * `rootClassName` [`'o-expander'`]: Class name used in the root element of the component
 * `contentClassName` [`'o-expander__content'`]: Class name used in the content element of the component
 * `toggleClassName` [`'o-expander__toggle'`]: Class name used in the toggle element of the component
