@@ -2,8 +2,8 @@
 @mixin oFormsLabel {
 	display: block;
 	margin-bottom: $_o-forms-label-margin-bottom;
-	font-size: 16px;
-	line-height: 19px;
+	font-size: 18px;
+	line-height: 22px;
 	font-weight: 600;
 	color: oColorsGetColorFor(o-forms-field-label body, text);
 
@@ -19,6 +19,7 @@
 /// Group styles
 @mixin oFormsGroup {
 	position: relative;
+	max-width: $_o-forms-field-max-width;
 	margin-bottom: 20px;
 
 	@include _oFormsBreakpoint {
@@ -33,8 +34,8 @@
 	margin-top: -2px;
 	margin-bottom: 4px;
 	color: oColorsGetColorFor(o-forms-field-additional-info body, text);
-	font-size: 12px;
-	line-height: 15px;
+	font-size: 14px;
+	line-height: 18px;
 }
 
 /// Error text
