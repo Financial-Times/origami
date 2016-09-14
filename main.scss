@@ -36,19 +36,15 @@ $o-expander-is-silent: true !default;
 	border: 0;
 
 	i {
-		@include oIconsGetIcon('arrow-down', oColorsGetColorFor(expander-icon, text), 12, 12);
-		display: inline-block;
-		padding: 0 6px;
-
-		// Preload active icons
-		&:before {
-			@include oIconsGetIcon('arrow-up', oColorsGetColorFor(expander-icon, text), 12, $apply-base-styles:false);
-			content: '';
-		}
+		@include oIconsGetIcon('arrow-down', oColorsGetColorFor(expander-icon, text), 15, 15, $iconset-version: 1);
+		padding: 0 3px;
+		vertical-align: middle;
 	}
 
 	&[aria-expanded="true"] i {
-		@include oIconsGetIcon('arrow-up', oColorsGetColorFor(expander-icon, text), 12, $apply-base-styles:false);
+		// Rotate the icon rather than downloading another one
+		// I call this the "Matt Hinchliffe manouvre"
+		transform: rotate(180deg);
 	}
 
 	&:hover {
