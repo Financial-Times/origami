@@ -9,20 +9,18 @@ const utils = require('../utils');
 let internalQueue;
 
 // Trigger the event tracking
-const track = context => {
-	const href = context.domPathTokens[0].href || null;
+const track = eventData => {
+	const href = eventData.context.domPathTokens[0].href || null;
 	const isInternal = href && href.indexOf(window.document.location.hostname) > -1;
 
 	if (isInternal) {
 		// console.log('Queue the event and send it on the next page load',context);
-		internalQueue.add(context).save();
+		internalQueue.add(eventData).save();
 	}
 	else {
 		// console.log('Send now, before leaving this page',context);
-		Core.track({
-			async: false,
-			context: context
-		});
+		eventData.async = false;
+		Core.track(eventData);
 	}
 }
 
@@ -122,13 +120,14 @@ const getEventProperties = event => {
 }
 
 // Controller for handling click events
-const handleClickEvent = context => clickEvent => {
-	context = Object.assign (context, getEventProperties(clickEvent));
+const handleClickEvent = eventData => clickEvent => {
+	const context = getEventProperties(clickEvent);
 	context.domPathTokens = getTrace(clickEvent.target);
 	context.url = window.document.location.href || null;
+	eventData.context = context;
 
 	// Send or queue tracking event
-	track(context);
+	track(eventData);
 }
 
 /**
@@ -148,14 +147,14 @@ const init = (category, elementsToTrack) => {
 	elementsToTrack = elementsToTrack || 'a, button, input'; // See https://github.com/ftlabs/ftdomdelegate#selector-string
 
 	// Note: `context` is the term o-tracking uses for the data that is sent to spoor
-	let context = {
+	let eventData = {
 		action: 'click',
 		category: category || 'o-tracking'
 	};
 
 	// Activte the click event listener
 	let delegate = new Delegate(document.body);
-	delegate.on('click', elementsToTrack, handleClickEvent(context), true);
+	delegate.on('click', elementsToTrack, handleClickEvent(eventData), true);
 
 	// Track any queued events
 	internalQueue = new Queue('clicks');
