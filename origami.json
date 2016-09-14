@@ -26,20 +26,23 @@
 			"name": "footer",
 			"template": "demos/src/footer.mustache",
 			"data": "demos/src/footer.js",
-			"expanded": true,
 			"description": ""
 		},
 		{
 			"name": "footer-light",
 			"template": "demos/src/footer.mustache",
 			"data": "demos/src/footer-light.js",
-			"expanded": true,
 			"description": ""
 		},
 		{
 			"name": "simple-footer",
 			"template": "demos/src/simple-footer.mustache",
-			"expanded": true,
+			"description": ""
+		},
+		{
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
 			"description": ""
 		}
 	]
