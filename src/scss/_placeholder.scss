@@ -47,7 +47,7 @@
 	}
 
 	.o-video__play-button-icon {
-		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 40);
+		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 60, $iconset-version: 1);
 		@include oIconsBaseStyles;
 		position: absolute;
 		top: 0;
