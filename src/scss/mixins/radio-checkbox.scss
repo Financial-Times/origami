@@ -160,7 +160,3 @@
 		}
 	}
 }
-
-@if not $o-forms-is-silent {
-	@include oFormsRadioCheckbox;
-}

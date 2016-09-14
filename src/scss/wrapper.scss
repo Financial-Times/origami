@@ -1,18 +1,56 @@
-@if not $o-forms-is-silent {
+/// Zone wrapper
+@mixin oFormsWrapper {
+	margin-bottom: 20px;
+	margin-right: $_o-forms-group-padding * -1;
+	margin-left: $_o-forms-group-padding * -1;
+	padding-right: $_o-forms-group-padding;
+	padding-left: $_o-forms-group-padding;
 
-// Block style with a different background
-.o-forms-wrapper {
-	@include oFormsWrapper;
-
-	.o-forms-message {
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
-		margin-bottom: 12px;
+	@include _oFormsBreakpoint {
+		border-radius: $_o-forms-field-border-radius;
+		margin-right: 0;
+		margin-left: 0;
+		padding-left: 0;
+		padding-right: 0;
 	}
-	.o-forms-group {
-		margin-top: 12px;
-		margin-bottom: 12px;
+
+	// Clearfix
+	zoom: 1;
+
+	&:before,
+	&:after {
+		content: ' ';
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+
+	&--highlight {
+		background-color: oColorsGetColorFor(o-forms-wrapper-highlight, background);
+	}
+	&--error {
+		// scss-lint:disable DuplicateProperty
+		background-color: oColorsGetColorFor(o-forms-message-error-fallback, background);
+		background-color: rgba(oColorsGetColorFor(o-forms-message-error, background), 0.15);
 	}
 }
+
+@if $o-forms-is-silent == false {
+
+	// Block style with a different background
+	.o-forms-wrapper {
+		@include oFormsWrapper;
+
+		.o-forms-message {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+			margin-bottom: 12px;
+		}
+		.o-forms-group {
+			margin-top: 12px;
+			margin-bottom: 12px;
+		}
+	}
 
 } // /Silent mode

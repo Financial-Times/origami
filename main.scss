@@ -3,12 +3,18 @@
 
 @import "src/scss/color-use-cases";
 @import "src/scss/variables";
-@import "src/scss/mixins";
 
-@import "src/scss/fields";
-@import "src/scss/radio-checkbox";
-@import "src/scss/field-errors";
-@import "src/scss/field-valid";
+@import "src/scss/mixins/common";
+@import "src/scss/mixins/textarea";
+@import "src/scss/mixins/select";
+@import "src/scss/mixins/radio-checkbox";
+
+@import "src/scss/base";
+@import "src/scss/labels";
 @import "src/scss/message";
 @import "src/scss/wrapper";
 @import "src/scss/unskin";
+
+@if $o-forms-is-silent == false {
+	$o-forms-is-silent: true !global;
+}

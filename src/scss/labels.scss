@@ -1,0 +1,67 @@
+/// Label styles
+@mixin oFormsLabel {
+	display: block;
+	margin-bottom: $_o-forms-label-margin-bottom;
+	font-size: 16px;
+	line-height: 19px;
+	font-weight: 600;
+	color: oColorsGetColorFor(o-forms-field-label body, text);
+
+	p {
+		margin-top: 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+/// Group styles
+@mixin oFormsGroup {
+	position: relative;
+	margin-bottom: 20px;
+
+	@include _oFormsBreakpoint {
+		padding-right: $_o-forms-group-padding;
+		padding-left: $_o-forms-group-padding;
+	}
+}
+
+/// Additional info
+@mixin oFormsAdditionalInfo {
+	display: block;
+	margin-top: -2px;
+	margin-bottom: 4px;
+	color: oColorsGetColorFor(o-forms-field-additional-info body, text);
+	font-size: 12px;
+	line-height: 15px;
+}
+
+/// Error text
+@mixin oFormsErrorText {
+	clear: both;
+	display: block;
+	margin-top: -1px;
+	padding: 3px 5px;
+	font-family: $o-forms-font-family;
+	font-size: 14px;
+	color: oColorsGetColorFor(o-forms-field-invalid, text);
+}
+
+@if $o-forms-is-silent == false {
+	.o-forms-group {
+		@include oFormsGroup;
+	}
+
+	.o-forms-additional-info {
+		@include oFormsAdditionalInfo;
+	}
+
+	.o-forms-label {
+		@include oFormsLabel;
+	}
+
+	.o-forms-errortext {
+		@include oFormsErrorText;
+	}
+}

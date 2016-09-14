@@ -1,5 +1,5 @@
 {
-    "description": "FT branded form elements: text inputs, checkboxes, radio controls, select boxes, error and warning messages…",
+    "description": "These components are used as the building blocks for creating all types of forms. These forms should be able to be used on all devices ie desktop, mobile and tablet.",
     "origamiType": "module",
     "origamiCategory": "components",
     "origamiVersion": 1,
