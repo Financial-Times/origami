@@ -4,12 +4,9 @@
 
 @include oColorsSetUseCase(o-forms-wrapper-highlight, background, 'pink-tint1');
 
-@include oColorsSetUseCase(o-forms-radiocheckbox-highlight-checked, background, 'green');
-@include oColorsSetUseCase(o-forms-radiocheckbox-highlight-checked, border, 'green');
+@include oColorsSetUseCase(o-forms-field-label, text, 'grey-tint4');
 
-@include oColorsSetUseCase(o-forms-field-label, text, 'grey-tint5');
-
-@include oColorsSetUseCase(o-forms-field-additional-info, text, 'grey-tint4');
+@include oColorsSetUseCase(o-forms-field-additional-info, text, 'grey-tint5');
 
 @include oColorsSetUseCase(o-forms-field-standard, text, 'grey-tint5');
 @include oColorsSetUseCase(o-forms-field-standard, border, 'pink-tint3');
