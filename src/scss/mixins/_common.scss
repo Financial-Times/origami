@@ -34,7 +34,7 @@
 /// Common field styles: focused state only
 @mixin oFormsCommonFieldFocus {
 	@include oColorsFor(o-forms-field-focus);
-	box-shadow: inset 0 0 4px 1px oColorsGetColorFor(o-forms-focus-ring, border);
+	box-shadow: inset 0 0 4px 1px rgba(oColorsGetColorFor(o-forms-focus-ring, border), 0.7);
 }
 
 /// Common field styles: disabled state
@@ -56,6 +56,21 @@
 /// Common field styles: valid state
 @mixin oFormsCommonFieldValid {
 	border-color: oColorsGetColorFor(o-forms-field-valid, border);
+}
+
+/// Group styles
+@mixin oFormsGroup {
+	position: relative;
+	max-width: $_o-forms-field-max-width;
+	margin: 0 0 20px; // Reset top and side margins for fieldset usage
+	// reset <fieldset> defaults
+	padding: 0;
+	border: 0;
+
+	@include _oFormsBreakpoint {
+		padding-right: $_o-forms-group-padding;
+		padding-left: $_o-forms-group-padding;
+	}
 }
 
 /// Target styles at Internet Explorer 8 only

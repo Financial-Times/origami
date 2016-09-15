@@ -1,29 +1,49 @@
-@if $o-forms-is-silent == false {
-	.o-forms-text,
-	.o-forms-select,
-	.o-forms-textarea {
+@mixin oForms($class: 'o-forms') {
+	.#{$class}-text,
+	.#{$class}-select,
+	.#{$class}-textarea {
 		@include oFormsCommonFieldBase;
 	}
 
-	.o-forms-select {
+	.#{$class}-select {
 		@include oFormsSelect;
 	}
 
-	.o-forms-textarea {
+	.#{$class}-textarea {
 		@include oFormsTextarea;
 	}
 
-	@include oFormsRadioCheckbox;
+	@include oFormsRadioCheckbox((radio: '.#{$class}-radio', checkbox: '.#{$class}-checkbox', label: '.#{$class}-label'));
 
-	.o-forms--error .o-forms-text,
-	.o-forms--error .o-forms-select,
-	.o-forms--error .o-forms-textarea {
+	.#{$class}--error .#{$class}-text,
+	.#{$class}--error .#{$class}-select,
+	.#{$class}--error .#{$class}-textarea {
 		@include oFormsCommonFieldInvalid;
 	}
 
-	.o-forms--valid .o-forms-text,
-	.o-forms--valid .o-forms-select,
-	.o-forms--valid .o-forms-textarea {
+	.#{$class}--valid .#{$class}-text,
+	.#{$class}--valid .#{$class}-select,
+	.#{$class}--valid .#{$class}-textarea {
 		@include oFormsCommonFieldValid;
 	}
+
+	.#{$class}-group {
+		@include oFormsGroup;
+	}
+
+	.#{$class}-additional-info {
+		@include oFormsAdditionalInfo;
+	}
+
+	.#{$class}-label {
+		@include oFormsLabel;
+	}
+
+	.#{$class}-errortext {
+		@include oFormsErrorText;
+	}
+}
+
+@if $o-forms-is-silent == false {
+	@include oForms;
 }

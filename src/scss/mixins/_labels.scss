@@ -17,21 +17,6 @@
 	}
 }
 
-/// Group styles
-@mixin oFormsGroup {
-	position: relative;
-	max-width: $_o-forms-field-max-width;
-	margin: 0 0 20px; // Reset top and side margins for fieldset usage
-	// reset <fieldset> defaults
-	padding: 0;
-	border: 0;
-
-	@include _oFormsBreakpoint {
-		padding-right: $_o-forms-group-padding;
-		padding-left: $_o-forms-group-padding;
-	}
-}
-
 /// Additional info
 @mixin oFormsAdditionalInfo {
 	display: block;
@@ -51,22 +36,4 @@
 	font-family: $o-forms-font-family;
 	font-size: 14px;
 	color: oColorsGetColorFor(o-forms-field-invalid, text);
-}
-
-@if $o-forms-is-silent == false {
-	.o-forms-group {
-		@include oFormsGroup;
-	}
-
-	.o-forms-additional-info {
-		@include oFormsAdditionalInfo;
-	}
-
-	.o-forms-label {
-		@include oFormsLabel;
-	}
-
-	.o-forms-errortext {
-		@include oFormsErrorText;
-	}
 }

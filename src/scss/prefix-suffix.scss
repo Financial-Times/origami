@@ -1,32 +1,32 @@
-@mixin oFormsAffixWrapper() {
-	.o-forms-affix-wrapper {
+@mixin oFormsAffixWrapper($class: 'o-forms') {
+	.#{$class}-affix-wrapper {
 		display: table;
 		width: 100%;
 		box-sizing: border-box;
 	}
 
-	.o-forms-affix-wrapper .o-forms-text,
-	.o-forms-affix-wrapper .o-forms-select {
+	.#{$class}-affix-wrapper .#{$class}-text,
+	.#{$class}-affix-wrapper .#{$class}-select {
 		display: table-cell;
 		border-radius: 0;
 	}
 
-	.o-forms-affix-wrapper .o-forms-text:first-child,
-	.o-forms-affix-wrapper .o-forms-select:first-child {
+	.#{$class}-affix-wrapper .#{$class}-text:first-child,
+	.#{$class}-affix-wrapper .#{$class}-select:first-child {
 		border-top-left-radius: $_o-forms-field-border-radius;
 		border-bottom-left-radius: $_o-forms-field-border-radius;
 	}
 
-	.o-forms-affix-wrapper .o-forms-text:last-child,
-	.o-forms-affix-wrapper .o-forms-select:last-child {
+	.#{$class}-affix-wrapper .#{$class}-text:last-child,
+	.#{$class}-affix-wrapper .#{$class}-select:last-child {
 		border-top-right-radius: $_o-forms-field-border-radius;
 		border-bottom-right-radius: $_o-forms-field-border-radius;
 	}
 }
 
-@mixin oFormsAffixButton() {
-	.o-forms-prefix button,
-	.o-forms-suffix button {
+@mixin oFormsAffixButton($class: 'o-forms') {
+	.#{$class}-prefix button,
+	.#{$class}-suffix button {
 		border-width: 0;
 		margin: $_o-forms-field-default-padding-top * -1 $_o-forms-field-default-padding-leftright * -1 $_o-forms-field-default-padding-bottom * -1;
 		padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
@@ -47,22 +47,22 @@
 		}
 	}
 
-	.o-forms-prefix button {
+	.#{$class}-prefix button {
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 	}
 
-	.o-forms-suffix button {
+	.#{$class}-suffix button {
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}
 }
 
-@mixin oFormsPrefixSuffix($support-button: true) {
-	@include oFormsAffixWrapper;
+@mixin oFormsPrefixSuffix($class: 'o-forms', $support-button: true) {
+	@include oFormsAffixWrapper($class);
 
-	.o-forms-prefix,
-	.o-forms-suffix {
+	.#{$class}-prefix,
+	.#{$class}-suffix {
 		display: table-cell;
 		vertical-align: top;
 		box-sizing: border-box;
@@ -82,32 +82,32 @@
 		-ms-user-select: none;
 	}
 
-	.o-forms-prefix {
+	.#{$class}-prefix {
 		border-left: $_o-forms-field-border;
 		border-right: 0;
 		border-top-left-radius: $_o-forms-field-border-radius;
 		border-bottom-left-radius: $_o-forms-field-border-radius;
 	}
 
-	.o-forms-suffix {
+	.#{$class}-suffix {
 		border-right: $_o-forms-field-border;
 		border-left: 0;
 		border-top-right-radius: $_o-forms-field-border-radius;
 		border-bottom-right-radius: $_o-forms-field-border-radius;
 	}
 
-	.o-forms--error .o-forms-prefix,
-	.o-forms--error .o-forms-suffix {
+	.#{$class}--error .#{$class}-prefix,
+	.#{$class}--error .#{$class}-suffix {
 		@include oColorsFor(o-forms-field-invalid, border text);
 	}
 
-	.o-forms--valid .o-forms-prefix,
-	.o-forms--valid .o-forms-suffix {
+	.#{$class}--valid .#{$class}-prefix,
+	.#{$class}--valid .#{$class}-suffix {
 		@include oColorsFor(o-forms-field-valid, border text);
 	}
 
 	@if $support-button {
-		@include oFormsAffixButton;
+		@include oFormsAffixButton($class);
 	}
 }
 
