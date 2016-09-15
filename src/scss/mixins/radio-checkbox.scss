@@ -37,6 +37,15 @@
 		-moz-user-select: none;
 		-webkit-user-select: none;
 		-ms-user-select: none;
+		// scss-lint:enable VendorPrefixes VendorPrefix
+
+		// When in a prefix/suffix, clear the margins
+		// and reduce the font size
+		.o-forms-prefix &,
+		.o-forms-suffix & {
+			margin: 0;
+			font-size: 12px;
+		}
 	}
 
 	#{$checkbox} + #{$label}::before,
