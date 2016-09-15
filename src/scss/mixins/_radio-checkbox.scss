@@ -11,7 +11,7 @@
 /// so that IE 8 doesn't get enhanced checkboxes (which it wouldn't render correctly anyway)
 ///
 /// @param {map} $selectors [(radio: '.o-forms-radio', checkbox: '.o-forms-checkbox', label: '.o-forms-label')]
-@mixin oFormsRadioCheckbox($selectors: (radio: '.o-forms-radio', checkbox: '.o-forms-checkbox', label: '.o-forms-label')) {
+@mixin oFormsRadioCheckbox($selectors: (radio: '.o-forms__radio', checkbox: '.o-forms__checkbox', label: '.o-forms__label')) {
 	$checkbox: unquote(map-get($selectors, checkbox));
 	$radio: unquote(map-get($selectors, radio));
 	$label: unquote(map-get($selectors, label));
@@ -41,8 +41,8 @@
 
 		// When in a prefix/suffix, clear the margins
 		// and reduce the font size
-		.o-forms-prefix &,
-		.o-forms-suffix & {
+		.o-forms__prefix &,
+		.o-forms__suffix & {
 			margin: 0;
 			font-size: 12px;
 		}
@@ -106,11 +106,6 @@
 		width: $_o-forms-radio-internal-default-size;
 		left: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
 		top: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
-	}
-
-	#{$radio}--align-right + #{$label}::after {
-		right: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
-		left: auto;
 	}
 
 	#{$checkbox} + #{$label}::after {

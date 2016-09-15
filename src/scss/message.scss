@@ -33,7 +33,7 @@
 }
 
 @if $o-forms-is-silent == false {
-	.o-forms-message {
+	.o-forms__message {
 		@include oFormsMessage;
 	}
 }

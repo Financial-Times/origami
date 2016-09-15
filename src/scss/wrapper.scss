@@ -38,17 +38,17 @@
 @if $o-forms-is-silent == false {
 
 	// Block style with a different background
-	.o-forms-wrapper {
+	.o-forms__wrapper {
 		@include oFormsWrapper;
 
-		.o-forms-message {
-			border-bottom-left-radius: 0;
-			border-bottom-right-radius: 0;
+		.o-forms {
+			margin-top: 12px;
 			margin-bottom: 12px;
 		}
 
-		.o-forms-group {
-			margin-top: 12px;
+		.o-forms__message {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
 			margin-bottom: 12px;
 		}
 	}

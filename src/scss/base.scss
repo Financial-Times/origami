@@ -1,45 +1,45 @@
 @mixin oForms($class: 'o-forms') {
-	.#{$class}-text,
-	.#{$class}-select,
-	.#{$class}-textarea {
-		@include oFormsCommonFieldBase;
-	}
-
-	.#{$class}-select {
-		@include oFormsSelect;
-	}
-
-	.#{$class}-textarea {
-		@include oFormsTextarea;
-	}
-
-	@include oFormsRadioCheckbox((radio: '.#{$class}-radio', checkbox: '.#{$class}-checkbox', label: '.#{$class}-label'));
-
-	.#{$class}--error .#{$class}-text,
-	.#{$class}--error .#{$class}-select,
-	.#{$class}--error .#{$class}-textarea {
-		@include oFormsCommonFieldInvalid;
-	}
-
-	.#{$class}--valid .#{$class}-text,
-	.#{$class}--valid .#{$class}-select,
-	.#{$class}--valid .#{$class}-textarea {
-		@include oFormsCommonFieldValid;
-	}
-
-	.#{$class}-group {
+	.#{$class} {
 		@include oFormsGroup;
 	}
 
-	.#{$class}-additional-info {
+	.#{$class}__text,
+	.#{$class}__select,
+	.#{$class}__textarea {
+		@include oFormsCommonFieldBase;
+	}
+
+	.#{$class}__select {
+		@include oFormsSelect;
+	}
+
+	.#{$class}__textarea {
+		@include oFormsTextarea;
+	}
+
+	@include oFormsRadioCheckbox((radio: '.#{$class}__radio', checkbox: '.#{$class}__checkbox', label: '.#{$class}__label'));
+
+	.#{$class}--error .#{$class}__text,
+	.#{$class}--error .#{$class}__select,
+	.#{$class}--error .#{$class}__textarea {
+		@include oFormsCommonFieldInvalid;
+	}
+
+	.#{$class}--valid .#{$class}__text,
+	.#{$class}--valid .#{$class}__select,
+	.#{$class}--valid .#{$class}__textarea {
+		@include oFormsCommonFieldValid;
+	}
+
+	.#{$class}__additional-info {
 		@include oFormsAdditionalInfo;
 	}
 
-	.#{$class}-label {
+	.#{$class}__label {
 		@include oFormsLabel;
 	}
 
-	.#{$class}-errortext {
+	.#{$class}__errortext {
 		@include oFormsErrorText;
 	}
 }
