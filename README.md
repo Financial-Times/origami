@@ -6,7 +6,7 @@ Accessible, content-aware widget for expanding and collapsing content
 ```html
 <div data-o-component="o-expander" class="o-expander">
     <div class="o-expander__content"></div>
-    <button class="o-expander__toggle o--if-js"></button>
+    <a class="o-expander__toggle o--if-js"></a>
 </div>
 ```
 `o-expander__toggle` and `o-expander__content` can be put anywhere within `o-expander` as long as `o-expander__toggle` is not contained within `o-expander__content`. There are no restrictions on sibling markup.
@@ -16,7 +16,7 @@ Accessible, content-aware widget for expanding and collapsing content
 ### Static methods
 
 #### `init(el, opts)`
-This generally sticks to the [usual origami convention](http://origami.ft.com/docs/syntax/js/#initialisation). If el is an HTMLElement with the attribute `data-o-component="o-expander"` a single instance will be created for that element and returned, otherwise an expander will be created for each `o-expander` element found within `el`, and an array of instances returned.
+This generally sticks to the [usual origami convention](http://origami.ft.com/docs/syntax/js/#initialisation). If `el` is an HTMLElement with the attribute `data-o-component="o-expander"` a single instance will be created for that element and returned, otherwise an expander will be created for each `o-expander` element found within `el`, and an array of instances returned.
 
 ### Instance methods
 
@@ -29,10 +29,10 @@ All the following can be passed in an options object in the second parameter of 
 
 * `shrinkTo` [`'height'`]: A non-negative integer, indicating the number of items to show when collapsed, or the string `'height'`, which will collapse to a max-height defined in the CSS, or `'hidden'` which will use `aria-hidden` (rather than `aria-expanded`) to completely hide the content when collapsed
 * `countSelector` [`'.o-expander__content > li'`]: Selector for identifying items to count, relative to `.o-expander`
-* `expandedToggleText` [`'less|fewer'`]: Text to show on toggle button when expanded (defaults to fewer when in count mode, or less when in height mode). Accepts empty strings
-* `collapsedToggleText` [`'more'`]: Text to show on toggle button when collapsed. Accepts empty strings
-* `toggleSelector`[`'button.o-expander__toggle'`]: Selector for expand/collapse toggle button. When using the default selector some styling, with an arrow icon, will come for free. If the selector matches more than one element they will all have the ability to expand/collapse the expander
-* `toggleState`[`'all|aria|none'`]: Do you want the expander to update the button's text and `aria-pressed` attribute, just the aria attribute or neither (defaults to `all`)
+* `expandedToggleText` [`'less|fewer'`]: Text to show on toggle link when expanded (defaults to fewer when in count mode, or less when in height mode). Accepts empty strings
+* `collapsedToggleText` [`'more'`]: Text to show on toggle link when collapsed. Accepts empty strings
+* `toggleSelector`[`'a.o-expander__toggle'`]: Selector for expand/collapse toggle link. When using the default selector some styling, with an arrow icon, will come for free. If the selector matches more than one element they will all have the ability to expand/collapse the expander
+* `toggleState`[`'all|aria|none'`]: Do you want the expander to update the link's text and `aria-pressed` attribute, just the aria attribute or neither (defaults to `all`)
 * `rootClassName` [`'o-expander'`]: Class name used in the root element of the component
 * `contentClassName` [`'o-expander__content'`]: Class name used in the content element of the component
 * `toggleClassName` [`'o-expander__toggle'`]: Class name used in the toggle element of the component

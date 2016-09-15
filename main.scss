@@ -26,12 +26,13 @@ $o-expander-is-silent: true !default;
 @mixin oExpanderToggle($root-class-name: o-expander) {
 	@include oColorsFor(expander-text, text);
 	font-weight: normal;
-	font-size: 12px;
+	font-size: 16px;
 	margin: 0;
 	padding: 0;
 	background: none;
 	cursor: pointer;
 	border: 0;
+	text-decoration: none;
 
 	i {
 		@include oIconsGetIcon('arrow-down', oColorsGetColorFor(expander-icon, text), 15, 15, $iconset-version: 1);
