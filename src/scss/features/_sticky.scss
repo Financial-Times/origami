@@ -1,5 +1,4 @@
-@if $o-header-is-silent == false {
-
+@mixin oHeaderSticky() {
 	.o-header--sticky {
 		position: fixed;
 		top: 0;
@@ -23,5 +22,4 @@
 		@include oEffectsShadowsElevation('mid');
 		transform: translateY(0);
 	}
-
 }

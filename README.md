@@ -58,9 +58,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 ### Sass
 
-Currently, only non silent mode is supported.
-
-
 The 'base' of the image url can be set with the `$o-header-image-base-url` variable. e.g. setting
 
 ```
@@ -68,6 +65,33 @@ $o-header-image-base-url: 'https://my.image.service/foo';
 ```
 
 will output an image logo url in the format `https://my.image.service/foo/v1/images/raw/ftlogo:....`
+
+#### Silent mode ([docs](http://origami.ft.com/docs/syntax/scss/#silent-styles))
+
+When using `o-header` in silent mode, we offer a series of helper mixins to output styles for different parts of the header.
+
+##### oHeader
+
+The header is made up of various features (e.g. `nav`, `search`, and `drawer`). To get everything, use the `oHeader()` mixin without arguments. To get only the stuff you need, you can pass in a list of features.
+
+The list of features is as follows:
+
+`nav`: The primary nav, this is the nav that sits directly under the top section of the header.
+`search`: The search bar that appears when a user presses the search icon.
+`anon`: Styles for the row that appears when a user is not logged in.
+`sticky`: Styles that make the header stick to the top of the page when scrolling down.
+`simple`: Styles for the reduced slimmer header for article pages and subbrand pages.
+`subbrand`: Styles for the subbranded section of the header (eg Life&Arts).
+`megamenu`: Styles for the mega-menu that appears when users hover over a nav item.
+
+###### Example
+
+To get all of the CSS needed for the FT homepage you would call:
+
+```
+oHeader(('top', 'anon', 'search', 'nav', 'megamenu'));
+```
+
 
 ### Markup
 

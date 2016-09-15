@@ -1,29 +1,25 @@
-@if $o-header-is-silent == false {
+/// Output the styles for the header.
+/// Can be passed a list of one or more rows to output.
+/// By default, will output all row styles.
+///
+/// @param {List} $features
+@mixin oHeader($features: '') {
+	@include oHeaderBase;
+	@include oHeaderTop;
 
-	.o-header {
-		@include oColorsFor('o-header', 'text' 'background');
-	}
-
-	.o-header__row {
-		border-bottom: 1px solid oColorsGetColorFor('o-header', 'border');
-	}
-
-	.o-header__container {
-		@include oGridContainer();
-
-		&:before,
-		&:after {
-			content: '';
-			display: table;
+	// By default, output all rows
+	@if $features == '' {
+		@each $feature in $_o-header-features {
+			@include _oHeaderGetFeatureMixin($feature);
 		}
-
-		&:after {
-			clear: both;
+	} @else {
+		@each $feature in $features {
+			@if index($_o-header-features, $feature) != null {
+				@include _oHeaderGetFeatureMixin($feature);
+			} @else {
+				@error "There is no feature '#{$feature}' available in o-header please use one of "
+				+ "the following: #{$_o-header-features}";
+			}
 		}
 	}
-
-	.o-header__visually-hidden {
-		@include oHeaderVisuallyHidden;
-	}
-
 }

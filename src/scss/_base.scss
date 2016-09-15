@@ -1,0 +1,27 @@
+@mixin oHeaderBase() {
+	.o-header {
+		@include oColorsFor('o-header', 'text' 'background');
+	}
+
+	.o-header__row {
+		border-bottom: 1px solid oColorsGetColorFor('o-header', 'border');
+	}
+
+	.o-header__container {
+		@include oGridContainer();
+
+		&:before,
+		&:after {
+			content: '';
+			display: table;
+		}
+
+		&:after {
+			clear: both;
+		}
+	}
+
+	.o-header__visually-hidden {
+		@include oHeaderVisuallyHidden;
+	}
+}

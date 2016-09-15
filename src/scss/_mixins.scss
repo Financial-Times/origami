@@ -3,6 +3,30 @@
 /// @link http://registry.origami.ft.com/components/o-header
 ////
 
+/// Includes the correct mixin based on the row passed
+@mixin _oHeaderGetFeatureMixin($feature) {
+
+	@if $feature == 'anon' {
+		@include oHeaderAnon;
+	} @else if $feature == 'subnav' {
+		@include oHeaderSubnav;
+	} @else if $feature == 'search' {
+		@include oHeaderSearch;
+	} @else if $feature == 'nav' {
+		@include oHeaderNav;
+	} @else if $feature == 'drawer' {
+		@include oHeaderDrawer;
+	} @else if $feature == 'megamenu' {
+		@include oHeaderMegaMenu;
+	} @else if $feature == 'sticky' {
+		@include oHeaderSticky;
+	} @else if $feature == 'simple' {
+		@include oHeaderSimple;
+	} @else if $feature == 'subbrand' {
+		@include oHeaderSubbrand;
+	}
+}
+
 /// Base styles for header links
 @mixin oHeaderLink() {
 	color: inherit;
@@ -86,9 +110,10 @@
 @mixin oHeaderBrandImage($logo-name, $color, $fallback-width) {
 	$base-url: '#{$o-header-image-base-url}/v1/images/raw/ftlogo:';
 	$color: str-slice(ie-hex-str($color), 4);
-
+	// scss-lint:disable DuplicateProperty
 	background-image: url($base-url + $logo-name + "?source=o-header&tint=%23#{$color},%23#{$color}&format=svg");
 	background-image: url($base-url + $logo-name + "?source=o-header&tint=%23#{$color},%23#{$color}&format=png&width=#{$fallback-width}") \9;
+	// scss-lint:enable DuplicateProperty
 }
 
 /// Applies styles to hide an element accessibly,

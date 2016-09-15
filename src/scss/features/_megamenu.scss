@@ -1,5 +1,4 @@
-@if $o-header-is-silent == false {
-
+@mixin oHeaderMegaMenu() {
 	@keyframes o-header-mega {
 		0% {
 			opacity: 0;
@@ -54,13 +53,40 @@
 		}
 	}
 
+	.o-header__mega-column--articles {
+
+		.o-header__mega-item {
+			&:before {
+				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('claret-1'), $_o-header-icon-size-small, $iconset-version: 1);
+				vertical-align: text-top;
+				content: '';
+			}
+		}
+
+		.o-header__mega-link {
+			white-space: none;
+		}
+	}
+
+	.o-header__mega-column--subsections {
+		width: 30%;
+
+		.o-header__mega-list {
+			columns: 2;
+		}
+
+		.o-header__mega-item {
+			&:first-child {
+				font-weight: bold;
+			}
+		}
+	}
+
 	.o-header__mega-heading {
 		margin: 0 0 $_o-header-padding-y;
 		font-size: inherit;
 		text-transform: uppercase;
 	}
-
-	.o-header__mega-content {}
 
 	.o-header__mega-list {
 		margin: 0;
@@ -79,5 +105,4 @@
 			text-decoration: underline;
 		}
 	}
-
 }
