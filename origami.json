@@ -5,29 +5,36 @@
 	"origamiCategory": "components",
 	"supportStatus": "active",
 	"support": "github.com/Financial-Times/o-video/issues",
+	"browserFeatures": {
+		"required": ["fetch", "Array.prototype.find", "Object.assign"]
+	},
 	"demosDefaults": {
 		"sass": "demos/src/main.scss",
 		"js": "demos/src/demo.js",
-		"template": "demos/src/video.mustache"
+		"dependencies": "o-fonts@^2.1.0"
 	},
 	"demos": [
 		{
 			"name": "native",
 			"description": "Native",
-			"expanded": true
+			"template": "demos/src/video.mustache"
 		},
 		{
 			"name": "placeholder",
 			"description": "Placeholder",
-			"expanded": true,
 			"template": "demos/src/placeholder.mustache"
 		},
 		{
 			"name": "playlist",
 			"description": "Wrap a player with a playlist",
-			"expanded": true,
 			"template": "demos/src/playlist.mustache",
 			"js": "demos/src/playlist.js"
+		},
+		{
+			"name": "size variations",
+			"description": "Display the video at preset sizes",
+			"template": "demos/src/sizes.mustache",
+			"js": "demos/src/sizes.js"
 		}
 	]
 }

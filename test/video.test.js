@@ -12,7 +12,6 @@ describe('Video', () => {
 		containerEl = document.createElement('div');
 		containerEl.setAttribute('data-o-component', 'o-video');
 		containerEl.setAttribute('data-o-video-id', '4084879507001');
-		containerEl.setAttribute('data-o-video-source', 'Brightcove');
 		containerEl.setAttribute('data-o-video-autorender', 'false');
 		document.body.appendChild(containerEl);
 	});
@@ -89,9 +88,9 @@ describe('Video', () => {
 
 			video.videoEl.should.be.an.instanceOf(HTMLElement);
 			video.videoEl.parentElement.should.equal(containerEl);
-			video.videoEl.getAttribute('poster').should.equal('mockimage');
-			video.videoEl.getAttribute('src').should.equal('http://url.mock');
-			video.videoEl.getAttribute('controls').should.equal('true');
+			video.videoEl.poster.should.include('mockimage');
+			video.videoEl.src.should.equal('http://url.mock/');
+			video.videoEl.controls.should.equal(true);
 		});
 
 		it('should add supplied classes to element', () => {
@@ -111,7 +110,7 @@ describe('Video', () => {
 			Element.prototype.addEventListener = addEventListenerSpy;
 
 			video.addVideo();
-			addEventListenerSpy.callCount.should.equal(7);
+			addEventListenerSpy.callCount.should.equal(8);
 			addEventListenerSpy.alwaysCalledOn(video.videoEl).should.equal(true);
 			addEventListenerSpy.calledWith('playing', video.pauseOtherVideos);
 			addEventListenerSpy.calledWith('suspend', video.clearCurrentlyPlaying);
@@ -120,6 +119,7 @@ describe('Video', () => {
 			addEventListenerSpy.calledWith('playing');
 			addEventListenerSpy.calledWith('pause');
 			addEventListenerSpy.calledWith('ended');
+			addEventListenerSpy.calledWith('progress');
 
 			Element.prototype.addEventListener = realAddEventListener;
 		});
@@ -144,6 +144,7 @@ describe('Video', () => {
 				placeholder: true
 			});
 
+			video.videoData = {};
 			video.posterImage = 'mockimage';
 			video.addPlaceholder();
 
@@ -151,28 +152,42 @@ describe('Video', () => {
 			video.placeholderEl.parentElement.should.equal(containerEl);
 			video.placeholderEl.classList.contains('o-video__placeholder').should.equal(true);
 
-			const placeholderImageEl = video.placeholderEl.querySelector('.o-video__placeholder-image');
-			placeholderImageEl.should.exist;
-			placeholderImageEl.getAttribute('src').should.equal('mockimage');
-			video.placeholderEl.querySelector('.o-video__play-button').should.exist;
+			video.placeholderImageEl.should.be.an.instanceOf(HTMLImageElement);
+			video.placeholderImageEl.parentElement.should.equal(video.placeholderEl);
+			video.placeholderImageEl.src.should.include('mockimage');
+			video.placeholderImageEl.classList.contains('o-video__placeholder-image').should.equal(true);
 		});
 
-		it('should be able to create a placeholder with a title', () => {
+		it('should be able to create a placeholder with an info panel', () => {
 			const video = new Video(containerEl, {
 				autorender: false,
 				placeholder: true,
-				placeholdertitle: true
+				placeholderInfo: ['title', 'description', 'duration', 'brand']
 			});
 
-			video.videoData = { name: 'A hated rally' };
+			video.videoData = brightcoveResponse1;
 			video.addPlaceholder();
-			const titleEl = video.placeholderEl.querySelector('.o-video__title');
 
-			titleEl.should.exist;
-			titleEl.textContent.should.equal('A hated rally');
+			video.infoPanel.should.exist;
+
+			video.infoPanel.infoEl.parentElement.should.equal(video.placeholderEl);
+
+			video.infoPanel.titleEl.textContent.should.equal('A hated rally');
+			video.infoPanel.titleEl.parentElement.should.equal(video.infoPanel.infoEl);
+
+			video.infoPanel.descriptionEl.textContent.should.contain('John Authers explains');
+			video.infoPanel.descriptionEl.parentElement.should.equal(video.infoPanel.infoEl);
+
+			// can extract `brand:` prefixed tag
+			video.infoPanel.brandEl.textContent.should.equal('Authers Note');
+			video.infoPanel.brandEl.parentElement.should.equal(video.infoPanel.infoEl);
+
+			// can format video duration (ms) in m:ss
+			video.infoPanel.durationEl.textContent.should.equal('4:59');
+			video.infoPanel.durationEl.parentElement.should.equal(video.infoPanel.infoEl);
 		});
 
-		it('should add a play button', () => {
+		it('should be able to create a placeholder with a play button', () => {
 			const realAddEventListener = Element.prototype.addEventListener;
 			const addEventListenerSpy = sinon.spy();
 			Element.prototype.addEventListener = addEventListenerSpy;
@@ -180,10 +195,12 @@ describe('Video', () => {
 			const video = new Video(containerEl, {
 				autorender: false,
 				placeholder: true,
-				placeholdertitle: true
+				placeholdertitle: true,
 			});
 
+			video.videoData = {};
 			video.addPlaceholder();
+
 			const playButtonEl = video.placeholderEl.querySelector('.o-video__play-button');
 			const playButtonTextEl = playButtonEl.querySelector('.o-video__play-button-text');
 			const playIconEl = playButtonEl.querySelector('.o-video__play-button-icon');
@@ -234,7 +251,7 @@ describe('Video', () => {
 					id: '4084879507001',
 					autorender: false,
 					placeholder: true,
-					placeholdertitle: true
+					placeholderInfo: ['title']
 				});
 
 				return video.init();
@@ -253,11 +270,11 @@ describe('Video', () => {
 				const newOpts = { id: brightcoveResponse2.id };
 
 				video.placeholderImageEl.src.should.include('AuthersNote-stock-market.jpg');
-				video.placeholderTitleEl.textContent.should.equal(brightcoveResponse1.name);
+				video.infoPanel.titleEl.textContent.should.equal(brightcoveResponse1.name);
 
 				return video.update(newOpts).then(() => {
 					video.placeholderImageEl.src.should.include('World-Norbert-Hofer.jpg');
-					video.placeholderTitleEl.textContent.should.equal(brightcoveResponse2.name);
+					video.infoPanel.titleEl.textContent.should.equal(brightcoveResponse2.name);
 				});
 			});
 		});

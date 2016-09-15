@@ -6,12 +6,14 @@ class Playlist {
 		const currentId = opts.player.videoData ? opts.player.videoData.id : opts.player.opts.id;
 		this.currentIndex = currentId ? opts.queue.indexOf(currentId.toString()) : -1;
 
-		this.opts.player.containerEl.addEventListener('ended', this.next.bind(this), true);
-
 		this.cache = {};
 
-		if (this.currentIndex === -1) {
-			this.next();
+		if (this.opts.autoplay) {
+			this.opts.player.containerEl.addEventListener('ended', this.next.bind(this), true);
+
+			if ( this.currentIndex === -1) {
+				this.next();
+			}
 		}
 	}
 
