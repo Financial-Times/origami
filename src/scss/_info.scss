@@ -58,7 +58,7 @@
 		font-weight: 600;
 
 		&:empty {
-			display: none;
+			display: none !important;
 		}
 	}
 

@@ -46,16 +46,26 @@ describe('Playlist', () => {
 			sinon.assert.calledOnce(player.update);
 		});
 
-		it('listens for the video to end to trigger the next in the queue', () => {
+		it('listens for the video to end to trigger the next in the queue when autoplay is set', () => {
 			player.videoData = { id: 'bar' };
 
-			new Subject({ player, queue });
+			new Subject({ player, queue, autoplay: true });
 
 			// no DOM so trigger this on the listener directly
 			player.containerEl.dispatchEvent(new CustomEvent('ended', { bubbles: false }));
 
 			sinon.assert.calledOnce(player.update);
 			sinon.assert.calledWith(player.update, sinon.match({ id: 'baz' }));
+		});
+
+		it('doesn\'t listen for the video to end when autoplay is not set', () => {
+			player.videoData = { id: 'bar' };
+
+			new Subject({ player, queue, autoplay: false });
+
+			player.containerEl.dispatchEvent(new CustomEvent('ended', { bubbles: false }));
+
+			sinon.assert.notCalled(player.update);
 		});
 	});
 
