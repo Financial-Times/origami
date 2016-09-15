@@ -49,7 +49,7 @@ describe('Playlist', () => {
 		it('listens for the video to end to trigger the next in the queue', () => {
 			player.videoData = { id: 'bar' };
 
-			new Subject({ player, queue });
+			new Subject({ player, queue, autoplay: true });
 
 			// no DOM so trigger this on the listener directly
 			player.containerEl.dispatchEvent(new CustomEvent('ended', { bubbles: false }));
