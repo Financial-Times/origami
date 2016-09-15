@@ -11,15 +11,18 @@
 /// @param {String} $container-height - this is the height to set the icon containing element to. Defaults to null, and will use the value of $container-width
 /// @param {Bool} $apply-base-styles - defaults to true. If true, will output style rules for the container. If false will only output the background-image property
 /// @param {Bool} $apply-width-height - defaults to true. If true, will output the styles for the container width and height.
-/// @param {Integer} $iconset-version - defaults to 0. If present will set the iconset version to the version passed in. Support for version 0 will be deprecated in the next major release.
+/// @param {Integer} $iconset-version - defaults to 1. At present only 1 version of the icon set is available.
 
 @mixin oIconsGetIcon($icon-name, $color: null, $container-width: 128, $container-height: null, $apply-base-styles: true, $apply-width-height: true, $iconset-version: 1) {
-	$scheme: "fticon";
-	@if ($iconset-version == 0) {
+
+	// Currently the only supported version of fticons is version 1.
+	@if $iconset-version == 0 {
 		@error "Icon set version 0 is not supported with this version of o-icons. Please use version 1.";
-	} @else {
-		$scheme: "fticon-v#{$iconset-version}";
+	} @else if $iconset-version > 1 {
+		@error "Icon set version #{$iconset-version} does not exist. Please use version 1.";
 	}
+
+	$scheme: "fticon-v#{$iconset-version}";
 
 	$service-url: $o-icons-service-base-url + "/v1/images/raw/#{$scheme}:#{$icon-name}";
 	$query: "?source=o-icons";
