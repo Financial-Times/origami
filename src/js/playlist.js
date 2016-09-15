@@ -10,7 +10,10 @@ class Playlist {
 
 		if (this.opts.autoplay) {
 			this.opts.player.containerEl.addEventListener('ended', this.next.bind(this), true);
-			this.currentIndex === -1 && this.next();
+
+			if ( this.currentIndex === -1) {
+				this.next();
+			}
 		}
 	}
 
