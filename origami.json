@@ -25,7 +25,6 @@
             "title": "Header",
             "data": "demos/src/header.js",
             "template": "demos/src/header.mustache",
-            "expanded": true,
             "description": ""
         },
         {
@@ -33,7 +32,6 @@
             "title": "Mega menu",
             "data": "demos/src/mega-menu.js",
             "template": "demos/src/mega-menu.mustache",
-            "expanded": false,
             "description": ""
         },
         {
@@ -41,7 +39,6 @@
             "title": "Header with subnav",
             "data": "demos/src/subnav.js",
             "template": "demos/src/subnav.mustache",
-            "expanded": false,
             "description": ""
         },
         {
@@ -49,7 +46,6 @@
             "title": "Simple Header",
             "data": "demos/src/header.js",
             "template": "demos/src/simple-header.mustache",
-            "expanded": true,
             "description": ""
         },
         {
@@ -57,7 +53,6 @@
             "title": "Sticky Header",
             "data": "demos/src/header.js",
             "template": "demos/src/sticky-header.mustache",
-            "expanded": true,
             "description": "Sticky variation of the simple header",
             "documentClasses": "demo-sticky"
         },
@@ -66,7 +61,6 @@
             "title": "Subbranded header",
             "data": "demos/src/subbrand.js",
             "template": "demos/src/subbrand.mustache",
-            "expanded": true,
             "description": "For Subbrands of the FT, eg Alphaville or Life&Arts, a subheader can be added to mark out their subbrandness."
         }
     ]
