@@ -51,7 +51,7 @@
             "expanded": false,
             "description": "",
             "dependencies": [
-                "o-buttons@^2.0.4"
+                "o-buttons@^4.3.0"
             ]
         },
         {
