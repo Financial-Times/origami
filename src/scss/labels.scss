@@ -2,6 +2,7 @@
 @mixin oFormsLabel {
 	display: block;
 	margin-bottom: $_o-forms-label-margin-bottom;
+	padding: 0; // Reset legend default styling
 	font-size: 18px;
 	line-height: 22px;
 	font-weight: 600;
@@ -20,7 +21,10 @@
 @mixin oFormsGroup {
 	position: relative;
 	max-width: $_o-forms-field-max-width;
-	margin-bottom: 20px;
+	margin: 0 0 20px; // Reset top and side margins for fieldset usage
+	// reset <fieldset> defaults
+	padding: 0;
+	border: 0;
 
 	@include _oFormsBreakpoint {
 		padding-right: $_o-forms-group-padding;
