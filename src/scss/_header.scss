@@ -17,7 +17,7 @@
 			@if index($_o-header-features, $feature) != null {
 				@include _oHeaderGetFeatureMixin($feature);
 			} @else {
-				@warn "There is no row '#{$feature}' available in o-header please use one of "
+				@error "There is no feature '#{$feature}' available in o-header please use one of "
 				+ "the following: #{$_o-header-features}";
 			}
 		}
