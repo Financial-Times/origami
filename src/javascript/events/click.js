@@ -31,8 +31,8 @@ const sanitise = property => {
 
 // For a given container element, get the number of elements that match the
 // clicked element (siblings); and the index of the clicked element (position).
-const getSiblingsAndPosition = (el, clickedEl) => {
-	const siblings = Array.from(el.querySelectorAll(clickedEl.nodeName));
+const getSiblingsAndPosition = (el, clickedEl, selector) => {
+	const siblings = Array.from(el.querySelectorAll(selector));
 	const position = siblings.findIndex(item => item === clickedEl);
 	if(position === -1) return;
 	return {
@@ -54,6 +54,7 @@ const getElementProperties = el => {
 		"role",
 		"aria-controls",
 		"aria-expanded",
+		"aria-pressed",
 		"data-trackable",
 		"data-trackable-terminate",
 		"data-o-component",
@@ -84,9 +85,10 @@ const getTrace = el => {
 		// If the element happens to have a data-trackable attribute, get the siblings
 		// and position of the clicked element (relative to the current element).
 		if (elementProperties["data-trackable"]) {
+			const selector = clickedEl.getAttribute('data-trackable') ? `[data-trackable="${clickedEl.getAttribute('data-trackable')}"]` : clickedEl.nodeName;
 			elementProperties = Object.assign (
 				elementProperties,
-				getSiblingsAndPosition(el, clickedEl)
+				getSiblingsAndPosition(el, clickedEl, selector)
 			);
 		}
 
