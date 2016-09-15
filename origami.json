@@ -43,14 +43,14 @@
         },
         {
             "name": "simple-header",
-            "title": "Simple Header",
+            "title": "Simple header",
             "data": "demos/src/header.js",
             "template": "demos/src/simple-header.mustache",
             "description": ""
         },
         {
             "name": "sticky-header",
-            "title": "Sticky Header",
+            "title": "Sticky header",
             "data": "demos/src/header.js",
             "template": "demos/src/sticky-header.mustache",
             "description": "Sticky variation of the simple header",
