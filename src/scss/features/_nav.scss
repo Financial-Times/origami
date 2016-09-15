@@ -40,7 +40,7 @@
 		padding-left: $_o-header-padding-x;
 
 		&:first-child {
-			padding-left: 0 !important;
+			padding-left: 0;
 		}
 
 		.o-header__nav--mobile & {

@@ -36,18 +36,24 @@
 			display: block;
 
 			& ~ * {
+				// scss-lint:disable ImportantRule
 				display: none !important;
+				// scss-lint:enable ImportantRule
 			}
 		}
 	}
 
 	.o-header__top-link {
-		@include oHeaderLink();
+		@include oHeaderLink;
 		display: inline-block;
 		margin-left: 10px;
 		text-transform: uppercase;
 		font-size: 10px;
 		text-align: center;
+
+		@include oGridRespondTo('L') {
+			margin-left: 20px;
+		}
 
 		&:before {
 			@include oIconsBaseStyles();
@@ -55,10 +61,6 @@
 			margin-top: -7px;
 			width: #{$_o-header-icon-size-large}px;
 			height: #{$_o-header-icon-size-large}px;
-		}
-
-		@include oGridRespondTo('L') {
-			margin-left: 20px;
 		}
 
 		// first child for old IE
