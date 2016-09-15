@@ -48,7 +48,6 @@
         {
             "name": "prefix-suffix",
             "template": "/demos/src/prefix-suffix.mustache",
-            "expanded": false,
             "description": "",
             "dependencies": [
                 "o-buttons@^4.3.0"
