@@ -1,6 +1,9 @@
 class Toggle {
 
 	constructor(toggleEl, config) {
+		if (!Toggle._toggles) {
+			Toggle._toggles = new Map();
+		}
 		if (!toggleEl) {
 			return;
 		} else if (!(toggleEl instanceof HTMLElement)) {
@@ -93,7 +96,6 @@ class Toggle {
 	}
 
 	static init(el, config) {
-		Toggle._toggles = new Map();
 		if (!el) {
 			el = document.body;
 		} else if (!(el instanceof HTMLElement)) {
