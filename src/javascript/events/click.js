@@ -107,7 +107,6 @@ const getEventProperties = event => {
 		"altKey",
 		"shiftKey",
 		"metaKey",
-		"timeStamp",
 	]
 	let eventProperties = eventPropertiesToCollect.reduce((returnObject, property) => {
 		try {
@@ -118,6 +117,7 @@ const getEventProperties = event => {
 		}
 		return returnObject;
 	},{});
+	eventProperties.timeStamp = new Date().toISOString();
 	return eventProperties;
 }
 
