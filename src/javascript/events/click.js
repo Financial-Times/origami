@@ -122,9 +122,9 @@ const getEventProperties = event => {
 }
 
 // Controller for handling click events
-const handleClickEvent = eventData => clickEvent => {
+const handleClickEvent = eventData => (clickEvent, clickElement) => {
 	const context = getEventProperties(clickEvent);
-	context.domPathTokens = getTrace(clickEvent.target);
+	context.domPathTokens = getTrace(clickElement);
 	context.url = window.document.location.href || null;
 	eventData.context = context;
 
