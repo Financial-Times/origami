@@ -93,6 +93,7 @@ class Toggle {
 	}
 
 	static init(el, config) {
+		Toggle._toggles = new Map();
 		if (!el) {
 			el = document.body;
 		} else if (!(el instanceof HTMLElement)) {
@@ -108,8 +109,6 @@ class Toggle {
 		return toggles;
 	}
 };
-
-Toggle._toggles = new Map();
 
 const constructAll = () => {
 	Toggle.init();
