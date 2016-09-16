@@ -1,15 +1,18 @@
 class Toggle {
 
 	constructor(toggleEl, config) {
+		if (!Toggle._toggles) {
+			Toggle._toggles = new Map();
+		}
 		if (!toggleEl) {
 			return;
 		} else if (!(toggleEl instanceof HTMLElement)) {
 			toggleEl = document.querySelector(toggleEl);
 		}
 
-			if (toggleEl.hasAttribute('data-o-toggle--js')) {
-				return;
-			}
+		if (toggleEl.hasAttribute('data-o-toggle--js')) {
+			return;
+		}
 
 		if (!config) {
 			config = {};
@@ -108,8 +111,6 @@ class Toggle {
 		return toggles;
 	}
 };
-
-Toggle._toggles = new Map();
 
 const constructAll = () => {
 	Toggle.init();
