@@ -162,7 +162,34 @@ Properties of the `o-forms--unskin` class:
 
 ### Silent mode
 
-All form styles are available in silent mode. [Browse the SassDoc documentation of the module](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms).
+In silent mode `o-forms` provides mixins for each set of form fields as well as some mixins to output basic form styles in one large chunk.
+
+#### oForms mixin
+
+The `oForms` mixin will output styles for the `o-forms` block, as well as all basic input styles supported by `o-forms` (`text`, `select`, `textarea`, `checkboxes` and `radio` buttons) as well as `labels`, valid and error states and, error text and helper text.
+
+```sass
+@import 'o-forms/main';
+
+@include oForms;
+```
+
+The `oForms` mixin also allows customisation of the base classname:
+
+```sass
+@include oForms('my-forms');
+```
+
+### Additional features
+
+`o-forms` provides some additional features that can be included separately using their own mixins.
+
+- `oFormsWrapper` - an area around the form, which can be coloured.
+- `oFormsMessage` - styles for global form messages.
+- `oFormsPrefixSuffix` - adds ability to affix information/buttons to form fields.
+- `oFormsUnskin` - removes all default styling from a field.
+
+For more details on specific mixins [browse the SassDoc documentation of the module](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms).
 
 ## Known issues:
 
@@ -178,6 +205,14 @@ There are a number of inconsistencies in how browsers handle form events, valida
 
 ## Upgrading from v1.x.x
 
+The main change in `v2` is that classes provided by `o-forms` now conform more strictly to the [BEM naming convention][bem]. All form field classes now follow the element convention, so `o-forms-text` is now `o-forms__text`.
+
+There is also now a main block class of `o-forms` which replaces the previous `o-forms-group` class. Full class changes are below:
+
+- `o-forms-group` becomes `o-forms`
+- Search templates for `o-forms-xxxxx` and replace with `o-forms__xxxxx`
+
+Any modifier classes like `o-forms--error` have remained the same.
 
 ----
 
@@ -247,3 +282,5 @@ If using placeholder classes or extending styles using `oFormsClass` and `oForms
 Copyright (c) 2016 Financial Times Ltd. All rights reserved.
 
 This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
+
+[bem](http://getbem.com/naming/)
