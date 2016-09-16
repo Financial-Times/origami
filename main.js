@@ -10,9 +10,9 @@ class Toggle {
 			toggleEl = document.querySelector(toggleEl);
 		}
 
-			if (toggleEl.hasAttribute('data-o-toggle--js')) {
-				return;
-			}
+		if (toggleEl.hasAttribute('data-o-toggle--js')) {
+			return;
+		}
 
 		if (!config) {
 			config = {};
