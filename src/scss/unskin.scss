@@ -1,22 +1,22 @@
 /// Unskin a field entirely, but keep its structure intact
-@mixin oFormsUnskin {
-	// scss-lint:disable ImportantRule
-	-moz-appearance: none !important;
-	-webkit-appearance: none !important;
-	border: 0 !important;
-	background-color: transparent !important;
-	padding-left: 0 !important;
-	padding-right: 0 !important;
-	box-shadow: none !important;
+@mixin oFormsUnskin($class: 'o-forms') {
+	.#{$class}--unskin {
+		// scss-lint:disable ImportantRule
+		-moz-appearance: none !important;
+		-webkit-appearance: none !important;
+		border: 0 !important;
+		background-color: transparent !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		box-shadow: none !important;
 
-	// for iOS
-	-webkit-text-fill-color: #333333 !important;
-	opacity: 1 !important;
-	border-radius: 0 !important;
+		// for iOS
+		-webkit-text-fill-color: #333333 !important;
+		opacity: 1 !important;
+		border-radius: 0 !important;
+	}
 }
 
 @if not $o-forms-is-silent {
-	.o-forms--unskin {
-		@include oFormsUnskin;
-	}
+	@include oFormsUnskin;
 } // /Silent mode

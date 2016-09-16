@@ -4,36 +4,36 @@
 ////
 
 /// Messages styles
-@mixin oFormsMessage {
-	max-width: $_o-forms-field-max-width;
-	padding: 0 $_o-forms-group-padding;
-	margin-bottom: 16px;
-	margin-left: $_o-forms-group-padding * -1;
-	margin-right: $_o-forms-group-padding * -1;
-	color: oColorGetColorFor('o-forms-message-default', text);
-	font-size: 18px;
-	background-color: oColorsGetColorFor(o-forms-wrapper-highlight, background);
+@mixin oFormsMessage($class: 'o-forms') {
+	.#{$class}__message {
+		max-width: $_o-forms-field-max-width;
+		padding: 0 $_o-forms-group-padding;
+		margin-bottom: 16px;
+		margin-left: $_o-forms-group-padding * -1;
+		margin-right: $_o-forms-group-padding * -1;
+		color: oColorGetColorFor('o-forms-message-default', text);
+		font-size: 18px;
+		background-color: oColorsGetColorFor(o-forms-wrapper-highlight, background);
 
-	@include _oFormsBreakpoint {
-		border-radius: $_o-forms-field-border-radius;
-		margin-right: 0;
-		margin-left: 0;
-	}
+		@include _oFormsBreakpoint {
+			border-radius: $_o-forms-field-border-radius;
+			margin-right: 0;
+			margin-left: 0;
+		}
 
-	p {
-		padding: 8px 0;
-		margin: 0;
-		font-family: $o-forms-font-family;
-	}
+		p {
+			padding: 8px 0;
+			margin: 0;
+			font-family: $o-forms-font-family;
+		}
 
-	&--error {
-		background-color: oColorsGetColorFor(o-forms-message-error, background);
-		color: oColorsGetColorFor(o-forms-message-error, text);
+		&--error {
+			background-color: oColorsGetColorFor(o-forms-message-error, background);
+			color: oColorsGetColorFor(o-forms-message-error, text);
+		}
 	}
 }
 
 @if $o-forms-is-silent == false {
-	.o-forms__message {
-		@include oFormsMessage;
-	}
+	@include oFormsMessage;
 }
