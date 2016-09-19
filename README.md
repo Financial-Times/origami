@@ -1,4 +1,4 @@
-# Footer module [![Build Status](https://circleci.com/gh/Financial-Times/o-footer.png?style=shield&circle-token=e3626fa5fcb3e2f16bbf587ee697d441b93a6aa2)](https://circleci.com/gh/Financial-Times/o-footer)
+# o-footer [![Build Status](https://circleci.com/gh/Financial-Times/o-footer.png?style=shield&circle-token=e3626fa5fcb3e2f16bbf587ee697d441b93a6aa2)](https://circleci.com/gh/Financial-Times/o-footer)
 
 Origami module for the responsive FT page footer.
 
@@ -6,16 +6,22 @@ Origami module for the responsive FT page footer.
 
 For convenience a JSON file with an example of footer links has been provided (`footer.json`).  It's anticipated that in a future version of the footer, this data will be the canonical footer content that should appear in most uses of the footer.  For the moment, it is just sample data.
 
-## Browser support
+## Silent mode ([docs](http://origami.ft.com/docs/syntax/scss/#silent-styles))
 
-Tested and working on:
+When using `o-footer` in silent mode, the `oFooter` mixin can be used to output the styles for all supported types of footer.
 
-|  Browsers  |           |
-|:----------:|:---------:|
-|   Chrome   |    35+    |
-|   Firefox  |    20+    |
-|   Safari   |    7+     |
-|   IE       |    8+     |
+```sass
+// Output standard o-footer with dark theme and navigation matrix styles
+@include oFooter;
+
+// Output the footer with the light theme
+@include oFooter($theme: 'light');
+
+// Output the simple footer, with the dark theme.
+// Use the method above for a light themed simple footer
+@include oFooter($simple: true);
+```
+
 
 ## Upgrading from 4.x.x to 5.x.x
 Version 5 has significant markup changes compared to version 4. If you want to upgrade, the best option is to look at the demos: [footer](https://github.com/Financial-Times/o-footer/blob/master/demos/src/footer.mustache) and [simple footer](https://github.com/Financial-Times/o-footer/blob/master/demos/src/simple-footer.mustache).
