@@ -1,0 +1,53 @@
+/// Styles for the dark theme
+@mixin oFooterThemeDark() {
+	.o-footer--theme-dark {
+		@include oColorsFor('o-footer-dark', 'text' 'background' 'border');
+
+		// Make the white text look crisper and less bold on dark backgrounds
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+
+		a {
+			color: oColorsGetColorFor('o-footer-dark-link', 'text');
+
+			&:hover,
+			&:focus {
+				color: oColorsGetColorFor('o-footer-dark-link-hover', 'text');
+			}
+		}
+
+		.o-footer__copyright {
+			color: oColorsGetColorFor('o-footer-dark-copyright', 'text');
+		}
+
+		.o-footer__brand {
+			@include oColorsFor('o-footer-dark', 'text');
+			background-color: oColorsGetColorFor('o-footer-dark-brand', 'background');
+		}
+	}
+}
+
+/// Styles for the light theme
+@mixin oFooterThemeLight() {
+	.o-footer--theme-light {
+		@include oColorsFor('o-footer-light', 'text' 'background' 'border');
+
+		a {
+			color: oColorsGetColorFor('o-footer-light-link', 'text');
+
+			&:hover,
+			&:focus {
+				color: oColorsGetColorFor('o-footer-light-link-hover', 'text');
+			}
+		}
+
+		.o-footer__copyright {
+			color: oColorsGetColorFor('o-footer-light-copyright', 'text');
+		}
+
+		.o-footer__brand {
+			@include oColorsFor('o-footer-light', 'text');
+			background-color: oColorsGetColorFor('o-footer-light-brand', 'background');
+		}
+	}
+}

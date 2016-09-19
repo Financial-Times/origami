@@ -1,0 +1,73 @@
+/// Output the general footer styles including a theme and the navigation matrix
+///
+/// @param {string} $theme ['dark'] - the theme of the footer styles requested
+/// @param {boolean} $simple [false] - whether to only output the default footer styles
+@mixin oFooter($theme: 'dark', $simple: false) {
+		// required by o-grid JS helper
+	@include oGridSurfaceCurrentLayout();
+
+	.o-footer {
+		@include oTypographySansSize('s');
+		margin-top: (2 * $o-footer-spacing-unit);
+		border-top: 10px solid;
+		line-height: $o-footer-spacing-unit;
+
+		a {
+			border-bottom: 0;
+			text-decoration: none;
+		}
+	}
+
+	.o-footer__container {
+		@include oGridContainer();
+	}
+
+	.o-footer__row {
+		margin-top: $o-footer-spacing-unit;
+	}
+
+	.o-footer__copyright {
+		margin-top: $o-footer-spacing-unit;
+		margin-bottom: $o-footer-spacing-unit;
+
+		a {
+			text-decoration: underline;
+		}
+	}
+
+	.o-footer__brand {
+		padding-top: $o-footer-spacing-unit - 5;
+		padding-bottom: $o-footer-spacing-unit - 5;
+	}
+
+	.o-footer__brand-logo {
+		height: 20px;
+
+		// The weird value for rgba is to prevent Sass converting rgba(0,0,0,0) to 'transparent'
+		// which would cause the following line to be understood by IE7/8 and the svg to be downloaded
+		background: url(oAssetsResolve("img/nikkei_logo.png", o-footer));
+		background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/nikkei_logo.svg", o-footer));
+		background-repeat: no-repeat;
+		background-position: right;
+	}
+
+	@media print {
+		.o-footer {
+			display: none;
+		}
+	}
+
+	// Include the matrix styles if simple has not been set
+	@if $simple != true {
+		@include oFooterMatrix;
+	}
+
+	// Include the theme, default dark
+	@if $theme == 'light' {
+		@include oFooterThemeLight;
+	} @else if $theme == 'dark' {
+		@include oFooterThemeDark;
+	} @else {
+		@error "No theme: '#{$theme}' exists. Please use either 'dark' or 'light' as the theme.";
+	}
+}
