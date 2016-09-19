@@ -2,8 +2,9 @@
 ///
 /// To be used in combination with oFormsCommonField
 @mixin oFormsSelect {
+	$icon-color: oColorsGetPaletteColor('grey-tint5');
 	cursor: pointer;
-	background-image: url("https://image.webservices.ft.com/v1/images/raw/fticon-v1:arrows-up-down?source=o-icons&tint=%23333333,%23333333&format=svg");
+	background-image: url("https://image.webservices.ft.com/v1/images/raw/fticon-v1:arrows-up-down?source=o-icons&tint=%23#{$icon-color},%23#{$icon-color}&format=svg");
 	background-position: right center;
 	background-repeat: no-repeat;
 	background-origin: border-box;
@@ -33,7 +34,6 @@
 	// Hide stock browser arrow in IE 10+
 	&::-ms-expand {
 		display: none;
-		color: #ffffff;
-
+		color: oColorsGetPaletteColor('white');
 	}
 }

@@ -78,7 +78,7 @@ Couple the checkboxes and radio controls with a label to obtain the desired styl
 
 ### Validation states
 
-Validation styles are applied by adding `.o-forms--error` or `.o-forms--valid` to the field's containing element (typically, `.o-forms`). Child `.o-forms__label`, `.o-forms__text`, `.o-forms__select`, `.o-forms__checbox`, `.o-forms__radio`, `.o-forms__textarea` elements will be styled appropriately.
+Validation styles are applied by adding `.o-forms--error` or `.o-forms--valid` to the field's containing element (typically, `.o-forms`). Child `.o-forms__label`, `.o-forms__text`, `.o-forms__select`, `.o-forms__checkbox`, `.o-forms__radio`, `.o-forms__textarea` elements will be styled appropriately.
 
 An error message, defined with `.o-forms__errortext`, can be appended to the containing element.
 
@@ -211,6 +211,25 @@ There is also now a main block class of `o-forms` which replaces the previous `o
 
 - `o-forms-group` becomes `o-forms`
 - Search templates for `o-forms-xxxxx` and replace with `o-forms__xxxxx`
+
+An example of the changes should be:
+
+```diff
+-<div class="o-forms-group">
++<div class="o-forms">
+
+-<label class="o-forms-label"></label>
++<label class="o-forms__label"></label>
+
+-<input type="radio" class="o-forms-radio" />
++<input type="radio" class="o-forms__radio" />
+
+-<input type="checkbox" class="o-forms-checkbox" />
++<input type="checkbox" class="o-forms__checkbox" />
+
+-<input type="text" class="o-forms-text" />
++<input type="text" class="o-forms__text" />
+```
 
 Any modifier classes like `o-forms--error` have remained the same.
 

@@ -109,7 +109,8 @@
 	}
 
 	#{$checkbox} + #{$label}::after {
-		background-image: url("https://image.webservices.ft.com/v1/images/raw/fticon-v1:tick?source=o-icons&tint=%23333333,%23333333&format=svg");
+		$check-color: oColorsGetPaletteColor('grey-tint5');
+		background-image: url("https://image.webservices.ft.com/v1/images/raw/fticon-v1:tick?source=o-icons&tint=%23#{$check-color},%23#{$check-color}&format=svg");
 		background-repeat: no-repeat;
 		height: $_o-forms-radiocheckbox-default-size;
 		width: $_o-forms-radiocheckbox-default-size;
