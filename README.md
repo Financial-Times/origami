@@ -33,7 +33,7 @@ $o-icons-is-silent: false;
 
 ```html
 <!-- In your markup, use the helper classes, such as: -->
-<i class="o-icons-icon o-icons-icon--plus"><i>
+<i class="o-icons-icon o-icons-icon--plus"></i>
 ```
 
 When using CSS classes, it isn't possible to set a colour for the icon or to specify a size for the PNG fallback. The defaults are 'black' for the icon colour and '128px' for the width and height.
