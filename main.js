@@ -75,10 +75,12 @@ Tracking.prototype.toString = function() {
 
 Tracking.prototype.event = require('./src/javascript/events/custom');
 
-// TODO: Change this to: './src/javascript/events/view';
 Tracking.prototype.page = require('./src/javascript/events/page-view');
 
 Tracking.prototype.click = require('./src/javascript/events/click');
+
+// Previously, the click handler was initialised as "link"
+Tracking.prototype.link = { init: _ => Tracking.prototype.click.init('link') };
 
 Tracking.prototype.utils = require('./src/javascript/utils');
 
