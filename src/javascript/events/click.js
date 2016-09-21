@@ -52,12 +52,6 @@ const getElementProperties = el => {
 		"href",
 		"text",
 		"role",
-		"aria-controls",
-		"aria-expanded",
-		"aria-pressed",
-		"data-trackable",
-		"data-trackable-terminate",
-		"data-o-component",
 	];
 	let elementProperties = elementPropertiesToCollect.reduce((returnObject, property) => {
 		if (el[property]) {
@@ -70,7 +64,13 @@ const getElementProperties = el => {
 			returnObject[property] = el.hasAttribute(property);
 		}
 		return returnObject;
-	},{});
+	}, {});
+
+	// Collect any attribute that matches given strings.
+	let moreThings = Array.from(el.attributes)
+		.filter(attribute => attribute.name.match(/^data-trackable|^data-o-|^aria-/i))
+		.forEach(attribute => elementProperties[attribute.name] = attribute.value);
+
 	return elementProperties;
 };
 
@@ -78,6 +78,7 @@ const getElementProperties = el => {
 const getTrace = el => {
 	const rootEl = document;
 	const clickedEl = el;
+	const selector = clickedEl.getAttribute('data-trackable') ? `[data-trackable="${clickedEl.getAttribute('data-trackable')}"]` : clickedEl.nodeName;
 	let trace = [];
 	while (el && el !== rootEl) {
 		let elementProperties = getElementProperties(el);
@@ -85,7 +86,6 @@ const getTrace = el => {
 		// If the element happens to have a data-trackable attribute, get the siblings
 		// and position of the clicked element (relative to the current element).
 		if (elementProperties["data-trackable"]) {
-			const selector = clickedEl.getAttribute('data-trackable') ? `[data-trackable="${clickedEl.getAttribute('data-trackable')}"]` : clickedEl.nodeName;
 			elementProperties = Object.assign (
 				elementProperties,
 				getSiblingsAndPosition(el, clickedEl, selector)
@@ -116,8 +116,7 @@ const getEventProperties = event => {
 			console.log(e);
 		}
 		return returnObject;
-	},{});
-	eventProperties.timeStamp = new Date().toISOString();
+	}, {});
 	return eventProperties;
 }
 
