@@ -15,6 +15,7 @@ const track = eventData => {
 
 	if (isInternal) {
 		// console.log('Queue the event and send it on the next page load',context);
+		eventData.context.source_id = Core.getRootID();
 		internalQueue.add(eventData).save();
 	}
 	else {
