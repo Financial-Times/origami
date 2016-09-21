@@ -14,12 +14,12 @@ const track = eventData => {
 	const isInternal = href && href.indexOf(window.document.location.hostname) > -1;
 
 	if (isInternal) {
-		// console.log('Queue the event and send it on the next page load',context);
+		// Queue the event and send it on the next page load
 		eventData.context.source_id = Core.getRootID();
 		internalQueue.add(eventData).save();
 	}
 	else {
-		// console.log('Send now, before leaving this page',context);
+		// Send now, before leaving this page
 		eventData.async = false;
 		Core.track(eventData);
 	}
@@ -164,11 +164,6 @@ const init = (category, elementsToTrack) => {
 
 	// Listen for page requests. If this is a single page app, we can send link requests now.
 	utils.onPage(runQueue);
-
-	// Development debug info
-	// console.log(`Now tracking click events. Category: ${category}`);
-	// console.log(`Elements to track: ${elementsToTrack}`);
-	// console.log(`Attributes to collect: ${theAttributesToCollect}`);
 }
 
 module.exports = {
