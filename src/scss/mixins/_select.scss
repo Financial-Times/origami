@@ -41,3 +41,20 @@
 		color: oColorsGetPaletteColor('white');
 	}
 }
+
+@mixin oFormsSelectMulti() {
+	cursor: pointer;
+	// Reset the height to auto after the common field styles are applied
+	height: auto;
+	// Remove the background image set in the regular select box styles
+	background-image: none;
+	// Reset the padding to the default field padding
+	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
+
+	// Normalise line-height across browsers,
+	// which makes sure bottom of glyps are visible in Firefox in particular
+	line-height: 110%;
+
+	// Improve readability of descending glpys in old IE
+	padding-bottom: #{$_o-forms-field-default-padding-bottom - 2px}\9;
+}
