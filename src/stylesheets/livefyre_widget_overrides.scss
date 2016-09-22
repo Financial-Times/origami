@@ -592,7 +592,7 @@
 
 		.fyre-notifier-container {
 			@include oCommentsBorderRadiusClear;
-
+			z-index: 200;
 			background: rgba(206, 198, 185, 0.8);
 			padding: 8px 8px 0;
 
