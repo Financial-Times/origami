@@ -71,6 +71,7 @@ const defaultOpts = {
 	optimumwidth: null,
 	placeholder: false,
 	placeholderInfo: ['title'],
+	playsinline: false,
 	data: null
 };
 
@@ -151,6 +152,11 @@ class Video {
 		this.videoEl.controls = true;
 		this.videoEl.className = Array.isArray(this.opts.classes) ? this.opts.classes.join(' ') : this.opts.classes;
 		this.containerEl.classList.add('o-video--player');
+
+		if (this.opts.playsinline) {
+			this.videoEl.setAttribute('playsinline', 'true');
+			this.videoEl.setAttribute('webkit-playsinline', 'true');
+		}
 
 		this.updateVideo();
 
