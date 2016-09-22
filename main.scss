@@ -36,6 +36,17 @@ $o-video-is-silent: true !default;
 		cursor: pointer;
 	}
 
-	$o-video-is-silent: true !global;
+	// The Google IMA ads SDK sets the size of the advert explicitly based on initial load size
+	// (https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.AdsManager.init)
+	// which can result in broken-looking ads if the viewport is resized or rotated while
+	// the advert is present.  Override the advert div and frame sizes to full size to "fix".
+	.o-video__ad {
+		> div,
+		> div > iframe {
+			width: 100% !important;
+			height: 100% !important;
+		}
+	}
 
+	$o-video-is-silent: true !global;
 }
