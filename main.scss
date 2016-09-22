@@ -32,6 +32,7 @@ $o-expander-is-silent: true !default;
 	background: none;
 	cursor: pointer;
 	border: 0;
+	text-decoration: none;
 
 	i {
 		@include oIconsGetIcon('arrow-down', oColorsGetColorFor(expander-icon, text), 15, 15, $iconset-version: 1);

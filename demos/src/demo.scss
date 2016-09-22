@@ -46,6 +46,7 @@ $o-expander-is-silent: false;
 // imposed by using extend. Eventually with mixins it won't be needed
 [data-o-expander-js] .custom-toggle {
 	background: green;
+	color: white;
 	i:after {
 		content: ' (open)';
 	}

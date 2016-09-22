@@ -29,7 +29,7 @@ function simple () {
 			<li>item</li>
 			<li>item</li>
 		</ul>
-		<button class="o-expander__toggle o--if-js click-for-testing"></button>
+		<a href='#' class="o-expander__toggle o--if-js click-for-testing"></a>
 	</div>
 
 	<div data-o-component="o-expander" class="o-expander height" data-o-expander-shrink-to="height">
@@ -37,7 +37,7 @@ function simple () {
 		<div class="o-expander__content">
 			word word word word word word word word word word word word word word word word word word word word word word
 		</div>
-		<button class="o-expander__toggle o--if-js"></button>
+		<a href='#' class="o-expander__toggle o--if-js"></a>
 	</div>
 
 
@@ -46,7 +46,7 @@ function simple () {
 		<div class="o-expander__content">
 			word word word word word word word word word word word word word word word word word word word word word word
 		</div>
-		<button class="o-expander__toggle o--if-js"></button>
+		<a href='#' class="o-expander__toggle o--if-js"></a>
 	</div>
 
 	`;
