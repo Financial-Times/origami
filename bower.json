@@ -1,11 +1,16 @@
 {
   "name": "o-tracking",
-  "main": ["main.js"],
+  "main": [
+    "main.js"
+  ],
   "ignore": [
     "node_modules",
     "resources",
     "test",
     ".idea"
   ],
-  "description": "Origami module for FT tracking."
+  "description": "Origami module for FT tracking.",
+  "dependencies": {
+    "ftdomdelegate": "~2.0.3"
+  }
 }
