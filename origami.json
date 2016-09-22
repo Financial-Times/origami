@@ -13,37 +13,37 @@
             "name": "text-inputs",
             "title": "Text input",
             "template": "/demos/src/text-inputs.mustache",
-            "description": ""
+            "description": "<strong>Usercase:</strong> This is the generic text input box for most use cases to build any type of form."
         },
         {
             "name": "select-boxes",
             "title": "Select box",
             "template": "/demos/src/select-boxes.mustache",
-            "description": ""
+            "description": "<strong>Usercase:</strong> This is the generic select box for most use cases that can be used to build any type of form on all devices."
         },
         {
             "name": "textareas",
             "title": "Textarea",
             "template": "/demos/src/textareas.mustache",
-            "description": ""
+            "description": "<strong>Usercase:</strong> This is the generic text area box for most use cases."
         },
         {
             "name": "radios",
             "title": "Radio buttons",
             "template": "/demos/src/radios.mustache",
-            "description": ""
+            "description": "<strong>Usercase:</strong> These are the generic radio buttons for most use cases."
         },
         {
             "name": "checkboxes",
             "title": "Checkboxes",
             "template": "/demos/src/checkboxes.mustache",
-            "description": ""
+            "description": "<strong>Usercase:</strong> These are the generic check boxes for most use cases."
         },
         {
             "name": "checkbox-long-text",
             "title": "Checkboxes with long text",
             "template": "/demos/src/checkboxes-long-text.mustache",
-            "description": ""
+            "description": "<strong>Usercase:</strong> This is for a check box with longer copy. NB Width should not extend text input box components."
         },
         {
             "name": "prefix-suffix",
@@ -57,13 +57,13 @@
             "name": "messages",
             "title": "Global messages",
             "template": "/demos/src/messages.mustache",
-            "description": ""
+            "description": "<strong>Usercase:</strong> These are generic global messages for most use cases."
         },
         {
             "name": "wrappers",
             "title": "Wrappers",
             "template": "/demos/src/wrappers.mustache",
-            "description": ""
+            "description": "<strong>Usercase:</strong> These are generic wrappers for most use cases."
         },
         {
             "name": "pa11y",
