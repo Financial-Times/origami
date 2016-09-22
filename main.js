@@ -77,7 +77,11 @@ const Expander = function (el, opts) {
 	this.configure('countSelector', '.' + this.contentClassName + ' > li');
 	this.configure('expandedToggleText', this.opts.shrinkTo === 'hidden' ? 'hide' : this.opts.shrinkTo === 'height' ? 'less' : 'fewer');
 	this.configure('collapsedToggleText', this.opts.shrinkTo === 'hidden' ? 'show' : 'more');
-	this.configure('toggleSelector', 'a.' + this.toggleClassName);
+	if (this.el.querySelector('a.' + this.toggleClassName)) {
+		this.configure('toggleSelector', 'a.' + this.toggleClassName);
+	} else {
+		this.configure('toggleSelector', 'button.' + this.toggleClassName);
+	}
 	this.configure('toggleState', 'all');
 
 
@@ -100,7 +104,7 @@ const Expander = function (el, opts) {
 	this.toggles = [].slice.apply(this.el.querySelectorAll(this.opts.toggleSelector));
 
 	if (!this.toggles.length) {
-		throw new Error('o-expander needs a toggle link (use a link not a button)');
+		throw new Error('o-expander needs a toggle link or button');
 	}
 	this.ariaToggles();
 
