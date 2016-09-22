@@ -2,7 +2,7 @@
 
 FT-branded styles for commonly used form elements.
 
-Upgrading from v1.x.x? [Follow these instructions](#upgrade-to-v2).
+Upgrading from v1.x.x or v2.x.x? [Follow these instructions](#upgrade-to-v3).
 Upgrading from v0.x.x? [Follow these instructions](#upgrade-to-v1).
 
 ## Usage
@@ -201,9 +201,9 @@ There are a number of inconsistencies in how browsers handle form events, valida
 
 ----
 
-<a name="upgrade-to-v2"></a>
+<a name="upgrade-to-v3"></a>
 
-## Upgrading from v1.x.x
+## Upgrading from v1.x.x or v2.x.x
 
 The main change in `v2` is that classes provided by `o-forms` now conform more strictly to the [BEM naming convention][bem]. All form field classes now follow the element convention, so `o-forms-text` is now `o-forms__text`.
 
@@ -302,4 +302,4 @@ Copyright (c) 2016 Financial Times Ltd. All rights reserved.
 
 This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
 
-[bem](http://getbem.com/naming/)
+[bem]: http://getbem.com/naming/

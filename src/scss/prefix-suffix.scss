@@ -28,12 +28,11 @@
 	.#{$class}__prefix button,
 	.#{$class}__suffix button {
 		border-width: 0;
+		border-radius: 2px; // Match the new border radius of forms
 		margin: $_o-forms-field-default-padding-top * -1 $_o-forms-field-default-padding-leftright * -1 $_o-forms-field-default-padding-bottom * -1;
 		padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
-		background-color: transparent;
 		cursor: pointer;
 		font: inherit;
-		color: inherit;
 		// scss-lint:disable VendorPrefixes VendorPrefix
 		-moz-appearance: none;
 		-webkit-appearance: none;
@@ -70,7 +69,7 @@
 		white-space: nowrap;
 		border-top: $_o-forms-field-border;
 		border-bottom: $_o-forms-field-border;
-		padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom - 2px;
+		padding: $_o-forms-field-default-padding-top - 1px $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom - 2px;
 		font-family: $o-forms-font-family;
 		font-size: $_o-forms-field-default-font-size;
 		text-align: center;
