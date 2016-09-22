@@ -22,6 +22,11 @@
             "description": ""
         },
         {
+            "name": "B2C",
+            "template": "/demos/src/individual-b2c.mustache",
+            "description": ""
+        },
+        {
             "name": "individual-standout",
             "template": "/demos/src/individual-standout.mustache",
             "description": ""

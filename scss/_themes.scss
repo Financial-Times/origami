@@ -138,3 +138,44 @@ $o-buttons-themes__uncolored: (
 		background-color: rgba(oColorsGetColorFor(o-buttons-uncolored-pressedselected, background), 0.2),
 	)
 ) !default;
+
+@include oColorsSetUseCase(o-buttons-b2c-normal, text,       'white');
+@include oColorsSetUseCase(o-buttons-b2c-normal, background, 'org-b2c');
+@include oColorsSetUseCase(o-buttons-b2c-normal, border,     'org-b2c');
+@include oColorsSetUseCase(o-buttons-b2c-hover, background, 'org-b2c');
+@include oColorsSetUseCase(o-buttons-b2c-hover, border, 'org-b2c');
+@include oColorsSetUseCase(o-buttons-b2c-pressedselected, background, 'org-b2c-light');
+@include oColorsSetUseCase(o-buttons-b2c-pressedselected, border, 'org-b2c-light');
+@include oColorsSetUseCase(o-buttons-b2c-pressedselected, text, 'warm-4');
+@include oColorsSetUseCase(o-buttons-b2c-disabled, background, 'white');
+@include oColorsSetUseCase(o-buttons-b2c-disabled, text, 'org-b2c');
+
+
+/// Theme: B2C
+///
+/// @type Map
+
+$o-buttons-themes__b2c: (
+	normal: (
+		color: oColorsGetColorFor(o-buttons-b2c-normal, text),
+		background-color: oColorsGetColorFor(o-buttons-b2c-normal, background),
+		border-color: oColorsGetColorFor(o-buttons-b2c-normal, border),
+	),
+	active: (
+		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
+		border-color: oColorsGetColorFor(o-buttons-b2c-pressedselected, border),
+	),
+	hover: (
+		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-hover, background), 0.8),
+		border-color: oColorsGetColorFor(o-buttons-b2c-hover, border),
+	),
+	pressedselected: (
+		background-color: oColorsGetColorFor(o-buttons-b2c-pressedselected, background) !important,
+		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
+		border-color: oColorsGetColorFor(o-buttons-b2c-pressedselected, border),
+	),
+	disabled: (
+		color: oColorsGetColorFor(o-buttons-b2c-disabled, text),
+		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-disabled, background), 0.4),
+	)
+) !default;
