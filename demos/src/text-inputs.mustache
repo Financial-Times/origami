@@ -1,27 +1,20 @@
-<div class="o-forms-group">
-	<label class="o-forms-label">Text input</label>
-	<small class="o-forms-additional-info">Prompt text (e.g.: Must contain at least 6 characters. Please use letters and numbers only.)</small>
-	<input type="text" placeholder="placeholder" class="o-forms-text" />
+<div class="o-forms">
+	<label for="o-forms-standard" class="o-forms__label">Text input</label>
+	<small class="o-forms__additional-info">Optional prompt text goes here</small>
+	<input type="text" id="o-forms-standard" placeholder="placeholder" class="o-forms__text" />
 </div>
-<div class="o-forms-group o-forms--valid">
-	<label class="o-forms-label">Text input with valid entry</label>
-	<input type="text" placeholder="placeholder" class="o-forms-text o-forms-text--valid" value="Field value" />
+<div class="o-forms o-forms--valid">
+	<label for="o-forms-valid" class="o-forms__label">Text input with valid entry</label>
+	<input type="text" placeholder="placeholder" id="o-forms-valid" class="o-forms__text o-forms__text--valid" value="Field value" />
 </div>
-<div class="o-forms-group o-forms--error">
-	<label class="o-forms-label">URL input :invalid</label>
-	<input type="url" placeholder="placeholder" class="o-forms-text" value="hp://invalid.com" />
-	<div class="o-forms-errortext">Please enter a valid url</div>
+<div class="o-forms o-forms--error">
+	<label for="o-forms-invalid" class="o-forms__label">URL input :invalid</label>
+	<small class="o-forms__additional-info">Optional prompt text goes here</small>
+	<input type="url" placeholder="placeholder" id="o-forms-invalid" class="o-forms__text" value="hp://invalid.com" />
+	<div class="o-forms__errortext">Please enter a valid url</div>
 </div>
-<div class="o-forms-group">
-	<label class="o-forms-label">Text input disabled</label>
-	<input type="text" placeholder="placeholder" class="o-forms-text o-forms-text--valid" value="Field value" disabled="disabled" />
-</div>
-<div class="o-forms-group o-forms--error">
-	<label class="o-forms-label">Text input (error)</label>
-	<input type="text" placeholder="placeholder" class="o-forms-text" value="Field value" />
-	<div class="o-forms-errortext">Invalid entry</div>
-</div>
-<div class="o-forms-group">
-	<label class="o-forms-label">Small text field</label>
-	<input type="text" placeholder="placeholder" class="o-forms-text o-forms-text--small" value="Low chars: jpqy (should be visible)" />
+<div class="o-forms">
+	<label for="o-forms-disabled" class="o-forms__label">Text input disabled</label>
+	<small class="o-forms__additional-info">Optional prompt text goes here</small>
+	<input type="text" placeholder="placeholder" id="o-forms-disabled" class="o-forms__text o-forms__text--valid" value="Field value" disabled="disabled" />
 </div>

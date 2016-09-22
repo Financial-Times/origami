@@ -1,0 +1,49 @@
+@mixin oForms($class: 'o-forms') {
+	.#{$class} {
+		@include oFormsGroup;
+	}
+
+	.#{$class}__text,
+	.#{$class}__select,
+	.#{$class}__textarea {
+		@include oFormsCommonFieldBase;
+	}
+
+	.#{$class}__select {
+		@include oFormsSelect;
+	}
+
+	.#{$class}__textarea {
+		@include oFormsTextarea;
+	}
+
+	@include oFormsRadioCheckbox((radio: '.#{$class}__radio', checkbox: '.#{$class}__checkbox', label: '.#{$class}__label'));
+
+	.#{$class}--error .#{$class}__text,
+	.#{$class}--error .#{$class}__select,
+	.#{$class}--error .#{$class}__textarea {
+		@include oFormsCommonFieldInvalid;
+	}
+
+	.#{$class}--valid .#{$class}__text,
+	.#{$class}--valid .#{$class}__select,
+	.#{$class}--valid .#{$class}__textarea {
+		@include oFormsCommonFieldValid;
+	}
+
+	.#{$class}__additional-info {
+		@include oFormsAdditionalInfo;
+	}
+
+	.#{$class}__label {
+		@include oFormsLabel;
+	}
+
+	.#{$class}__errortext {
+		@include oFormsErrorText;
+	}
+}
+
+@if $o-forms-is-silent == false {
+	@include oForms;
+}

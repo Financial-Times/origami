@@ -11,7 +11,7 @@
 /// so that IE 8 doesn't get enhanced checkboxes (which it wouldn't render correctly anyway)
 ///
 /// @param {map} $selectors [(radio: '.o-forms-radio', checkbox: '.o-forms-checkbox', label: '.o-forms-label')]
-@mixin oFormsRadioCheckbox($selectors: (radio: '.o-forms-radio', checkbox: '.o-forms-checkbox', label: '.o-forms-label')) {
+@mixin oFormsRadioCheckbox($selectors: (radio: '.o-forms__radio', checkbox: '.o-forms__checkbox', label: '.o-forms__label')) {
 	$checkbox: unquote(map-get($selectors, checkbox));
 	$radio: unquote(map-get($selectors, radio));
 	$label: unquote(map-get($selectors, label));
@@ -25,37 +25,27 @@
 	#{$checkbox} + #{$label},
 	#{$radio} + #{$label} {
 		display: inline-block;
+		margin-top: $_o-forms-label-margin-bottom; // double the spacing between labels and radio/checkboxes
 		margin-right: 15px;
-		padding-left: $_o-forms-radiocheckbox-default-size + 10px;
+		padding-left: $_o-forms-radiocheckbox-default-size + 5px;
 		position: relative;
 		cursor: pointer;
-		font-weight: normal;
+		font-size: 14px;
+		font-weight: 400;
 		line-height: $_o-forms-radiocheckbox-default-size + 1px;
 		// scss-lint:disable VendorPrefixes VendorPrefix
 		-moz-user-select: none;
 		-webkit-user-select: none;
 		-ms-user-select: none;
-	}
+		// scss-lint:enable VendorPrefixes VendorPrefix
 
-	#{$checkbox}--align-right + #{$label},
-	#{$radio}--align-right + #{$label} {
-		margin-left: 0;
-		padding-left: 0;
-		margin-right: 15px;
-		padding-right: $_o-forms-radiocheckbox-default-size + 10px;
-	}
-
-	#{$checkbox}--small + #{$label},
-	#{$radio}--small + #{$label} {
-		padding-left: $_o-forms-radiocheckbox-small-size + 5px;
-		line-height: $_o-forms-radiocheckbox-small-size + 2px;
-		font-size: $_o-forms-field-small-fontsize;
-	}
-
-	#{$checkbox}--small#{$checkbox}--align-right  + #{$label},
-	#{$radio}--small#{$radio}--align-right  + #{$label} {
-		padding-right: $_o-forms-radiocheckbox-small-size + 5px;
-		padding-left: 0;
+		// When in a prefix/suffix, clear the margins
+		// and reduce the font size
+		.o-forms__prefix &,
+		.o-forms__suffix & {
+			margin: 0;
+			font-size: 12px;
+		}
 	}
 
 	#{$checkbox} + #{$label}::before,
@@ -72,12 +62,6 @@
 		transition: all 0.1s ease-in;
 	}
 
-	#{$checkbox}--align-right + #{$label}::before,
-	#{$radio}--align-right + #{$label}::before {
-		left: auto;
-		right: 0;
-	}
-
 	#{$checkbox} + #{$label}::before,
 	#{$checkbox} + #{$label}::after {
 		border-radius: 3px;
@@ -92,18 +76,6 @@
 	#{$radio} + #{$label}::before {
 		// Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
 		border-radius: 9999px;
-	}
-
-
-	#{$checkbox}--highlight:checked + #{$label}::before {
-		background-color: oColorsGetColorFor(o-forms-radiocheckbox-highlight-checked, background);
-		border-color: oColorsGetColorFor(o-forms-radiocheckbox-highlight-checked, border);
-	}
-
-	#{$checkbox}--small + #{$label}::before,
-	#{$radio}--small + #{$label}::before {
-		width: $_o-forms-radiocheckbox-small-size;
-		height: $_o-forms-radiocheckbox-small-size;
 	}
 
 	#{$radio} + #{$label}::after,
@@ -136,44 +108,14 @@
 		top: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
 	}
 
-	#{$radio}--align-right + #{$label}::after {
-		right: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
-		left: auto;
-	}
-
-	#{$radio}--highlight + #{$label}::after {
-		background-color: oColorsGetColorFor(o-forms-radiocheckbox-highlight-checked, background);
-	}
-
-	#{$radio}--small + #{$label}::after {
-		height: $_o-forms-radio-internal-small-size;
-		width: $_o-forms-radio-internal-small-size;
-		left: ($_o-forms-radiocheckbox-small-size - $_o-forms-radio-internal-small-size) / 2;
-		top: ($_o-forms-radiocheckbox-small-size - $_o-forms-radio-internal-small-size) / 2;
-	}
-
-	#{$radio}--small#{$radio}--align-right + #{$label}::after {
-		right: ($_o-forms-radiocheckbox-small-size - $_o-forms-radio-internal-small-size) / 2;
-		left: auto;
-	}
-
 	#{$checkbox} + #{$label}::after {
-		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NCIgaGVpZ2h0PSI0NiI+PHBhdGggZmlsbD0iIzUwNTA1MCIgZD0iTTQzLjM5MSAxLjU1N2wtMjMuMDkyIDIzLjA4OS05Ljc3LTkuNzc0LTkuNjM1IDkuNjQ0IDE5LjM5NSAxOS4zOTcuMDEtLjAyNy4wMzMuMDI3IDMyLjY5My0zMi43Mjl6Ii8+PC9zdmc+');
+		$check-color: oColorsGetPaletteColor('grey-tint5');
+		background-image: url("https://image.webservices.ft.com/v1/images/raw/fticon-v1:tick?source=o-icons&tint=%23#{$check-color},%23#{$check-color}&format=svg");
 		background-repeat: no-repeat;
 		height: $_o-forms-radiocheckbox-default-size;
 		width: $_o-forms-radiocheckbox-default-size;
-		background-size: ceil($_o-forms-radiocheckbox-default-size * 3/4);
+		background-size: $_o-forms-radiocheckbox-default-size;
 		background-position: 50% 50%;
-	}
-
-	#{$checkbox}--highlight + #{$label}::after {
-		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NCIgaGVpZ2h0PSI0NiI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTQzLjM5MSAxLjU1N2wtMjMuMDkyIDIzLjA4OS05Ljc3LTkuNzc0LTkuNjM1IDkuNjQ0IDE5LjM5NSAxOS4zOTcuMDEtLjAyNy4wMzMuMDI3IDMyLjY5My0zMi43Mjl6Ii8+PC9zdmc+');
-	}
-
-	#{$checkbox}--small + #{$label}::after {
-		height: $_o-forms-radiocheckbox-small-size;
-		width: $_o-forms-radiocheckbox-small-size;
-		background-size: ceil($_o-forms-radiocheckbox-small-size * 3/4);
 	}
 
 	#{$checkbox}:disabled + #{$label},
@@ -191,19 +133,9 @@
 			top: 2px;
 			vertical-align: top;
 		}
-		#{$checkbox}--small,
-		#{$radio}--small {
-			top: 0;
-		}
 		#{$checkbox} + #{$label},
-		#{$checkbox}--small + #{$label},
-		#{$radio} + #{$label},
-		#{$radio}--small + #{$label} {
+		#{$radio} + #{$label} {
 			padding-left: 0;
 		}
 	}
-}
-
-@if not $o-forms-is-silent {
-	@include oFormsRadioCheckbox;
 }

@@ -1,0 +1,43 @@
+/// Select styles
+///
+/// To be used in combination with oFormsCommonField
+@mixin oFormsSelect {
+	$icon-color: oColorsGetPaletteColor('grey-tint5');
+	cursor: pointer;
+	background-image: url("https://image.webservices.ft.com/v1/images/raw/fticon-v1:arrows-up-down?source=o-icons&tint=%23#{$icon-color},%23#{$icon-color}&format=svg");
+	// For iOS 6 that doesn't support 4-value background-position
+	// scss-lint:disable DuplicateProperty
+	background-position: right center;
+	background-position: $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-leftright center;
+	// scss-lint:enable DuplicateProperty
+	background-repeat: no-repeat;
+	background-origin: border-box;
+	background-size: $_o-forms-select-iconsize;
+	padding-right: $_o-forms-select-iconsize;
+	padding-top: $_o-forms-field-default-padding-bottom - 2px;
+
+	// Normalise line-height across browsers,
+	// which makes sure bottom of glyps are visible in Firefox in particular
+	line-height: 110%;
+
+	// Improve readability of descending glpys in old IE
+	padding-bottom: #{$_o-forms-field-default-padding-bottom - 2px}\9;
+
+	// In old IE, since we can't hide the stock browser arrow, we'll just keep it:
+	// 1. Remove additional padding
+	// 2. Remove the custom arrow
+	// scss-lint:disable DuplicateProperty
+	padding-right: #{$_o-forms-field-default-padding-leftright}\9; // [1]
+	background-image: none\9; // [2]
+	// scss-lint:enable DuplicateProperty
+
+	// Hide stock browser select arrow in Firefox
+	text-indent: 0.01px;
+	text-overflow: '';
+
+	// Hide stock browser arrow in IE 10+
+	&::-ms-expand {
+		display: none;
+		color: oColorsGetPaletteColor('white');
+	}
+}

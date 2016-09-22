@@ -1,5 +1,5 @@
 {
-    "description": "FT branded form elements: text inputs, checkboxes, radio controls, select boxes, error and warning messages…",
+    "description": "These components are used as the building blocks for creating all types of forms. These forms should be able to be used on all devices ie desktop, mobile and tablet.",
     "origamiType": "module",
     "origamiCategory": "components",
     "origamiVersion": 1,
@@ -10,68 +10,65 @@
     },
     "demos": [
         {
-            "name": "real-life",
-            "template": "demos/src/real-life.mustache",
-            "bodyClasses": "o-colors-page-background demo-real-life",
-            "dependencies": [
-                "o-fonts@^1.4.0",
-                "o-tabs@^1.4.2",
-                "o-buttons@^2.0.4",
-                "o-footer@^4.0.0",
-                "o-grid@^4.0.0"
-            ],
-            "expanded": true,
-            "description": "Real life example of forms usage"
-        },
-        {
             "name": "text-inputs",
+            "title": "Text input",
             "template": "/demos/src/text-inputs.mustache",
-            "expanded": false,
             "description": ""
         },
         {
             "name": "select-boxes",
+            "title": "Select box",
             "template": "/demos/src/select-boxes.mustache",
-            "expanded": false,
             "description": ""
         },
         {
             "name": "textareas",
+            "title": "Textarea",
             "template": "/demos/src/textareas.mustache",
-            "expanded": false,
             "description": ""
         },
         {
             "name": "radios",
+            "title": "Radio buttons",
             "template": "/demos/src/radios.mustache",
-            "expanded": false,
             "description": ""
         },
         {
             "name": "checkboxes",
+            "title": "Checkboxes",
             "template": "/demos/src/checkboxes.mustache",
-            "expanded": false,
+            "description": ""
+        },
+        {
+            "name": "checkbox-long-text",
+            "title": "Checkboxes with long text",
+            "template": "/demos/src/checkboxes-long-text.mustache",
             "description": ""
         },
         {
             "name": "prefix-suffix",
             "template": "/demos/src/prefix-suffix.mustache",
-            "expanded": false,
             "description": "",
             "dependencies": [
-                "o-buttons@^2.0.4"
+                "o-buttons@^4.3.0"
             ]
         },
         {
             "name": "messages",
+            "title": "Global messages",
             "template": "/demos/src/messages.mustache",
-            "expanded": false,
             "description": ""
         },
         {
             "name": "wrappers",
+            "title": "Wrappers",
             "template": "/demos/src/wrappers.mustache",
-            "expanded": false,
+            "description": ""
+        },
+        {
+            "name": "pa11y",
+            "template": "/demos/src/pa11y.mustache",
+            "hidden": true,
             "description": ""
         }
     ],

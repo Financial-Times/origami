@@ -1,103 +1,115 @@
-@if not $o-forms-is-silent {
+@mixin oFormsAffixWrapper($class: 'o-forms') {
+	.#{$class}__affix-wrapper {
+		display: table;
+		width: 100%;
+		box-sizing: border-box;
+	}
 
-.o-forms-affix-wrapper {
-	display: table;
-	width: 100%;
-	box-sizing: border-box;
-}
+	.#{$class}__affix-wrapper .#{$class}__text,
+	.#{$class}__affix-wrapper .#{$class}__select {
+		display: table-cell;
+		border-radius: 0;
+	}
 
-.o-forms-affix-wrapper .o-forms-text,
-.o-forms-affix-wrapper .o-forms-select {
-	display: table-cell;
-	border-radius: 0;
-}
+	.#{$class}__affix-wrapper .#{$class}__text:first-child,
+	.#{$class}__affix-wrapper .#{$class}__select:first-child {
+		border-top-left-radius: $_o-forms-field-border-radius;
+		border-bottom-left-radius: $_o-forms-field-border-radius;
+	}
 
-.o-forms-affix-wrapper .o-forms-text:first-child,
-.o-forms-affix-wrapper .o-forms-select:first-child {
-	border-top-left-radius: $_o-forms-field-borderradius;
-	border-bottom-left-radius: $_o-forms-field-borderradius;
-}
-
-.o-forms-affix-wrapper .o-forms-text:last-child,
-.o-forms-affix-wrapper .o-forms-select:last-child {
-	border-top-right-radius: $_o-forms-field-borderradius;
-	border-bottom-right-radius: $_o-forms-field-borderradius;
-}
-
-.o-forms-prefix,
-.o-forms-suffix {
-	display: table-cell;
-	vertical-align: top;
-	box-sizing: border-box;
-	width: 1%;
-	white-space: nowrap;
-	border-top: $_o-forms-fieldborder;
-	border-bottom: $_o-forms-fieldborder;
-	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom - 2px;
-	font-family: $o-forms-font-family;
-	font-size: $_o-forms-field-default-fontsize;
-	text-align: center;
-	background-color: oColorsGetColorFor(o-forms-prefixsuffix, background);
-	color: oColorsGetColorFor(o-forms--prefixsuffix o-forms-field-standard, text);
-	// scss-lint:disable VendorPrefixes VendorPrefix
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-}
-
-.o-forms-prefix {
-	border-left: $_o-forms-fieldborder;
-	border-right: 0;
-	border-top-left-radius: $_o-forms-field-borderradius;
-	border-bottom-left-radius: $_o-forms-field-borderradius;
-}
-
-.o-forms-suffix {
-	border-right: $_o-forms-fieldborder;
-	border-left: 0;
-	border-top-right-radius: $_o-forms-field-borderradius;
-	border-bottom-right-radius: $_o-forms-field-borderradius;
-}
-
-.o-forms--error .o-forms-prefix,
-.o-forms--error .o-forms-suffix {
-	@include oColorsFor(o-forms-field-invalid, border text);
-}
-
-.o-forms--valid .o-forms-prefix,
-.o-forms--valid .o-forms-suffix {
-	@include oColorsFor(o-forms-field-valid, border text);
-}
-
-.o-forms-prefix button,
-.o-forms-suffix button {
-	border-width: 0;
-	margin: $_o-forms-field-default-padding-top * -1 $_o-forms-field-default-padding-leftright * -1 $_o-forms-field-default-padding-bottom * -1;
-	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
-	background-color: transparent;
-	cursor: pointer;
-	font: inherit;
-	color: inherit;
-	// scss-lint:disable VendorPrefixes VendorPrefix
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-
-	&::-moz-focus-inner {
-		border: 0;
-		padding: 0;
+	.#{$class}__affix-wrapper .#{$class}__text:last-child,
+	.#{$class}__affix-wrapper .#{$class}__select:last-child {
+		border-top-right-radius: $_o-forms-field-border-radius;
+		border-bottom-right-radius: $_o-forms-field-border-radius;
 	}
 }
 
-.o-forms-prefix button {
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
-}
-.o-forms-suffix button {
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
+@mixin oFormsAffixButton($class: 'o-forms') {
+	.#{$class}__prefix button,
+	.#{$class}__suffix button {
+		border-width: 0;
+		border-radius: 2px; // Match the new border radius of forms
+		margin: $_o-forms-field-default-padding-top * -1 $_o-forms-field-default-padding-leftright * -1 $_o-forms-field-default-padding-bottom * -1;
+		padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
+		cursor: pointer;
+		font: inherit;
+		// scss-lint:disable VendorPrefixes VendorPrefix
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+
+		&::-moz-focus-inner {
+			border: 0;
+			padding: 0;
+		}
+	}
+
+	.#{$class}__prefix button {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.#{$class}__suffix button {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
 }
 
+@mixin oFormsPrefixSuffix($class: 'o-forms', $support-button: true) {
+	@include oFormsAffixWrapper($class);
+
+	.#{$class}__prefix,
+	.#{$class}__suffix {
+		display: table-cell;
+		vertical-align: top;
+		box-sizing: border-box;
+		width: 1%;
+		white-space: nowrap;
+		border-top: $_o-forms-field-border;
+		border-bottom: $_o-forms-field-border;
+		padding: $_o-forms-field-default-padding-top - 1px $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom - 2px;
+		font-family: $o-forms-font-family;
+		font-size: $_o-forms-field-default-font-size;
+		text-align: center;
+		background-color: oColorsGetColorFor(o-forms-prefixsuffix, background);
+		color: oColorsGetColorFor(o-forms--prefixsuffix o-forms-field-standard, text);
+		// scss-lint:disable VendorPrefixes VendorPrefix
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+
+	.#{$class}__prefix {
+		border-left: $_o-forms-field-border;
+		border-right: 0;
+		border-top-left-radius: $_o-forms-field-border-radius;
+		border-bottom-left-radius: $_o-forms-field-border-radius;
+	}
+
+	.#{$class}__suffix {
+		border-right: $_o-forms-field-border;
+		border-left: 0;
+		border-top-right-radius: $_o-forms-field-border-radius;
+		border-bottom-right-radius: $_o-forms-field-border-radius;
+	}
+
+	.#{$class}--error .#{$class}__prefix,
+	.#{$class}--error .#{$class}__suffix {
+		@include oColorsFor(o-forms-field-invalid, border text);
+	}
+
+	.#{$class}--valid .#{$class}__prefix,
+	.#{$class}--valid .#{$class}__suffix {
+		@include oColorsFor(o-forms-field-valid, border text);
+	}
+
+	@if $support-button {
+		@include oFormsAffixButton($class);
+	}
+}
+
+@if not $o-forms-is-silent {
+	@include oFormsPrefixSuffix;
 } // /Silent mode

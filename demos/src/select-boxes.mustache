@@ -1,47 +1,36 @@
-<div class="o-forms-group">
-	<label class="o-forms-label">Select box</label>
-	<select class="o-forms-select">
-		<option value="option1">Option 1</option>
+<div class="o-forms">
+	<label for="o-forms__select-standard" class="o-forms__label">Select box</label>
+	<small class="o-forms__additional-info">Optional prompt text goes here</small>
+	<select id="o-forms__select-standard" class="o-forms__select">
+		<option value="option1" selected>Option 1</option>
 		<option value="option2">Option 2</option>
 		<option value="option3">Option 3</option>
 		<option value="option4">Option 4</option>
 	</select>
 </div>
-<div class="o-forms-group o-forms--valid">
-	<label class="o-forms-label">Select box (valid)</label>
-	<select class="o-forms-select">
-		<option value="option1">Option 1 (low chars: jpqy)</option>
+<div class="o-forms o-forms--valid">
+	<label for="o-forms__select-valid" class="o-forms__label">Select box (valid)</label>
+	<select id="o-forms__select-valid" class="o-forms__select">
+		<option value="option1" selected>Option 1 (low chars: jpqy)</option>
 		<option value="option2">Option 2</option>
 		<option value="option3">Option 3</option>
 		<option value="option4">Option 4</option>
 	</select>
 </div>
-</div>
-<div data-o-grid-colspan="12 M6">
-<div class="o-forms-group">
-	<label class="o-forms-label">Select box</label>
-	<select class="o-forms-select" disabled="disabled">
-		<option value="option1">Option 1</option>
+<div class="o-forms o-forms--error">
+	<label for="o-forms__select-invalid" class="o-forms__label">Select box (error)</label>
+	<select id="o-forms__select-invalid" class="o-forms__select">
+		<option value="option1" selected>Option 1</option>
 		<option value="option2">Option 2</option>
 		<option value="option3">Option 3</option>
 		<option value="option4">Option 4</option>
 	</select>
+	<div class="o-forms__errortext">Invalid entry</div>
 </div>
-<div class="o-forms-group o-forms--error">
-	<label class="o-forms-label">Select box (error)</label>
-	<select class="o-forms-select">
-		<option value="option1">Option 1</option>
-		<option value="option2">Option 2</option>
-		<option value="option3">Option 3</option>
-		<option value="option4">Option 4</option>
-	</select>
-	<div class="o-forms-errortext">Invalid entry</div>
-</div>
-<div class="o-forms-group">
-	<label class="o-forms-label">Small select box</label>
-	<select class="o-forms-select o-forms-select--small">
-		{{! Low glyphs should be visible }}
-		<option value="option1">Option 1 (low chars: jpqy)</option>
+<div class="o-forms">
+	<label for="o-forms__select-disabled" class="o-forms__label">Select box disabled</label>
+	<select id="o-forms__select-disabled" class="o-forms__select" disabled="disabled">
+		<option value="option1" selected>Option 1</option>
 		<option value="option2">Option 2</option>
 		<option value="option3">Option 3</option>
 		<option value="option4">Option 4</option>

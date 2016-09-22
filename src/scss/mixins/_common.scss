@@ -1,0 +1,92 @@
+////
+/// @group o-forms
+/// @link http://registry.origami.ft.com/components/o-forms
+////
+
+/// Common field styles
+@mixin oFormsCommonFieldBase {
+	box-sizing: border-box;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	width: 100%;
+	max-width: $_o-forms-field-max-width;
+	height: $_o-forms-field-default-height;
+	margin: 0;
+	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
+	border: $_o-forms-field-border;
+	border-radius: $_o-forms-field-border-radius;
+	background-color: oColorsGetColorFor(o-forms-field-standard, background);
+	background-clip: padding-box;
+	color: oColorsGetColorFor(o-forms-field-standard, text);
+	font-family: $o-forms-font-family;
+	font-size: $_o-forms-field-default-font-size;
+	outline: none;
+	transition: 0.15s box-shadow ease-in;
+
+	&:focus {
+		@include oFormsCommonFieldFocus;
+	}
+	&:disabled {
+		@include oFormsCommonFieldDisabled;
+	}
+}
+
+/// Common field styles: focused state only
+@mixin oFormsCommonFieldFocus {
+	@include oColorsFor(o-forms-field-focus);
+	box-shadow: inset 0 0 4px 1px rgba(oColorsGetColorFor(o-forms-focus-ring, border), 0.7);
+}
+
+/// Common field styles: disabled state
+@mixin oFormsCommonFieldDisabled {
+	@include oColorsFor(o-forms-field-disabled);
+	cursor: default;
+	color: #afafaf;
+}
+
+/// Common field styles: invalid state
+@mixin oFormsCommonFieldInvalid {
+	@include oColorsFor(o-forms-field-invalid);
+
+	&:focus {
+		box-shadow: inset 0 0 4px 1px rgba(oColorsGetColorFor(o-forms-field-invalid, border), 0.3);
+	}
+}
+
+/// Common field styles: valid state
+@mixin oFormsCommonFieldValid {
+	border-color: oColorsGetColorFor(o-forms-field-valid, border);
+}
+
+/// Group styles
+@mixin oFormsGroup {
+	position: relative;
+	max-width: $_o-forms-field-max-width;
+	margin: 0 0 20px; // Reset top and side margins for fieldset usage
+	// reset <fieldset> defaults
+	padding: 0;
+	border: 0;
+
+	@include _oFormsBreakpoint {
+		padding-right: $_o-forms-group-padding;
+		padding-left: $_o-forms-group-padding;
+	}
+}
+
+/// Target styles at Internet Explorer 8 only
+@mixin _oFormsTargetIE8 {
+	@media \0screen {
+		@content;
+	}
+}
+
+/// Target both IE8 and modern browsers at the breakpoint
+/// Useful for layout changes at the Small breakpoint
+@mixin _oFormsBreakpoint {
+	@include oGridRespondTo(S) {
+		@content;
+	}
+	@include oGridTargetIE8 {
+		@content;
+	}
+}
