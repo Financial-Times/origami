@@ -29,10 +29,10 @@ All the following can be passed in an options object in the second parameter of 
 
 * `shrinkTo` [`'height'`]: A non-negative integer, indicating the number of items to show when collapsed, or the string `'height'`, which will collapse to a max-height defined in the CSS, or `'hidden'` which will use `aria-hidden` (rather than `aria-expanded`) to completely hide the content when collapsed
 * `countSelector` [`'.o-expander__content > li'`]: Selector for identifying items to count, relative to `.o-expander`
-* `expandedToggleText` [`'less|fewer'`]: Text to show on toggle link when expanded (defaults to fewer when in count mode, or less when in height mode). Accepts empty strings
-* `collapsedToggleText` [`'more'`]: Text to show on toggle link when collapsed. Accepts empty strings
-* `toggleSelector`[`'a.o-expander__toggle'`]: Selector for expand/collapse toggle link. When using the default selector some styling, with an arrow icon, will come for free. If the selector matches more than one element they will all have the ability to expand/collapse the expander
-* `toggleState`[`'all|aria|none'`]: Do you want the expander to update the link's text and `aria-pressed` attribute, just the aria attribute or neither (defaults to `all`)
+* `expandedToggleText` [`'less|fewer'`]: Text to show on toggle link or button when expanded (defaults to fewer when in count mode, or less when in height mode). Accepts empty strings
+* `collapsedToggleText` [`'more'`]: Text to show on toggle link or button when collapsed. Accepts empty strings
+* `toggleSelector`[`'a.o-expander__toggle'`]: Selector for expand/collapse toggle link or button. When using the default selector some styling, with an arrow icon, will come for free. If the selector matches more than one element they will all have the ability to expand/collapse the expander
+* `toggleState`[`'all|aria|none'`]: Do you want the expander to update the link or button's text and `aria-pressed` attribute, just the aria attribute or neither (defaults to `all`)
 * `rootClassName` [`'o-expander'`]: Class name used in the root element of the component
 * `contentClassName` [`'o-expander__content'`]: Class name used in the content element of the component
 * `toggleClassName` [`'o-expander__toggle'`]: Class name used in the toggle element of the component
