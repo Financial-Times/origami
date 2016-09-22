@@ -77,11 +77,7 @@ const Expander = function (el, opts) {
 	this.configure('countSelector', '.' + this.contentClassName + ' > li');
 	this.configure('expandedToggleText', this.opts.shrinkTo === 'hidden' ? 'hide' : this.opts.shrinkTo === 'height' ? 'less' : 'fewer');
 	this.configure('collapsedToggleText', this.opts.shrinkTo === 'hidden' ? 'show' : 'more');
-	if (this.el.querySelector('a.' + this.toggleClassName)) {
-		this.configure('toggleSelector', 'a.' + this.toggleClassName);
-	} else {
-		this.configure('toggleSelector', 'button.' + this.toggleClassName);
-	}
+	this.configure('toggleSelector', '.' + this.toggleClassName);
 	this.configure('toggleState', 'all');
 
 
