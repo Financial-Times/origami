@@ -14,8 +14,9 @@ const track = eventData => {
 	const isInternal = href && href.indexOf(window.document.location.hostname) > -1;
 
 	if (isInternal) {
-		// Queue the event and send it on the next page load
 		eventData.context.source_id = Core.getRootID();
+
+		// Queue the event and send it on the next page load
 		internalQueue.add(eventData).save();
 	}
 	else {
@@ -23,12 +24,12 @@ const track = eventData => {
 		eventData.async = false;
 		Core.track(eventData);
 	}
-}
+};
 
 // Utility for trimming strings
 const sanitise = property => {
-	return (typeof property === 'string') ? property.trim().toLowerCase() : property;
-}
+	return (typeof property === 'string') ? property.trim() : property;
+};
 
 // For a given container element, get the number of elements that match the
 // clicked element (siblings); and the index of the clicked element (position).
@@ -40,11 +41,9 @@ const getSiblingsAndPosition = (el, clickedEl, selector) => {
 		siblings: siblings.length,
 		position,
 	};
-}
+};
 
 // Get some properties of a given element.
-// Todo: Consider capturing all properties that begin with "data-o-",
-// in case it's useful to see how origami components are being utilised
 const getElementProperties = el => {
 	const elementPropertiesToCollect = [
 		"nodeName",
@@ -68,7 +67,7 @@ const getElementProperties = el => {
 	}, {});
 
 	// Collect any attribute that matches given strings.
-	let moreThings = Array.from(el.attributes)
+	Array.from(el.attributes)
 		.filter(attribute => attribute.name.match(/^data-trackable|^data-o-|^aria-/i))
 		.forEach(attribute => elementProperties[attribute.name] = attribute.value);
 
@@ -92,8 +91,6 @@ const getTrace = el => {
 				getSiblingsAndPosition(el, clickedEl, selector)
 			);
 		}
-
-		// TODO: Infer element role
 		trace.push(elementProperties);
 		el = el.parentNode;
 	}
@@ -108,7 +105,7 @@ const getEventProperties = event => {
 		"altKey",
 		"shiftKey",
 		"metaKey",
-	]
+	];
 	let eventProperties = eventPropertiesToCollect.reduce((returnObject, property) => {
 		try {
 			if (event[property]) returnObject[property] = sanitise(event[property]);
@@ -119,7 +116,7 @@ const getEventProperties = event => {
 		return returnObject;
 	}, {});
 	return eventProperties;
-}
+};
 
 // Controller for handling click events
 const handleClickEvent = eventData => (clickEvent, clickElement) => {
@@ -130,20 +127,22 @@ const handleClickEvent = eventData => (clickEvent, clickElement) => {
 
 	// Send or queue tracking event
 	track(eventData);
-}
+};
 
 /**
  * If there are any requests queued, attempts to send the next one
  * Otherwise, does nothing
  * @return {undefined}
  */
+/*eslint-disable no-unused-vars*/
 const runQueue = _ => {
-	const next = _ => { runQueue(); callback(); };
+	const next = _ => { runQueue(); };
 	const nextLink = internalQueue.shift();
 	if (nextLink) {
 		Core.track(nextLink, next);
 	}
-}
+};
+/*eslint-enable no-unused-vars*/
 
 const init = (category, elementsToTrack) => {
 	elementsToTrack = elementsToTrack || 'a, button, input'; // See https://github.com/ftlabs/ftdomdelegate#selector-string
@@ -164,7 +163,7 @@ const init = (category, elementsToTrack) => {
 
 	// Listen for page requests. If this is a single page app, we can send link requests now.
 	utils.onPage(runQueue);
-}
+};
 
 module.exports = {
 	init: init

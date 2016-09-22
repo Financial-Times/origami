@@ -1,7 +1,5 @@
 /*global require, module */
-/*eslint-disable*/
-'use strict';
-/*eslint-enable*/
+'use strict';  // eslint-disable-line strict
 
 const settings = require('./src/javascript/core/settings');
 const user = require('./src/javascript/core/user');
@@ -80,7 +78,7 @@ Tracking.prototype.page = require('./src/javascript/events/page-view');
 Tracking.prototype.click = require('./src/javascript/events/click');
 
 // Previously, the click handler was initialised as "link"
-Tracking.prototype.link = { init: _ => Tracking.prototype.click.init('link') };
+Tracking.prototype.link = { init: _ => Tracking.prototype.click.init('link') }; // eslint-disable-line no-unused-vars
 
 Tracking.prototype.utils = require('./src/javascript/utils');
 
