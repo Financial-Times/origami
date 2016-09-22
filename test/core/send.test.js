@@ -207,13 +207,13 @@ describe('Core.Send', function () {
 
 			Send.addAndRun(request);
 
-			console.log((new Queue('requests')).storage.storage._type);
+			// console.log((new Queue('requests')).storage.storage._type);
 
 			server.respond();
 
 			// Wait for localStorage
 			setTimeout(() => {
-				console.log((new Queue('requests')).all());
+				// console.log((new Queue('requests')).all());
 
 				assert.ok((new Queue('requests')).last().queueTime);
 				navigator.sendBeacon = b;
@@ -222,5 +222,40 @@ describe('Core.Send', function () {
 			}, 100);
 		});
 	});
+
+    it('should cope with the huge queue bug', function (done) {
+        const server = sinon.fakeServer.create(); // Catch AJAX requests
+        let queue = new Queue('requests');
+
+        queue.replace([]);
+
+        for (let i=0; i<201; i++) {
+            queue.add({});
+        }
+
+        queue.save();
+
+        // console.log(queue.all().length);
+
+        server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+
+        // Run the queue
+        Send.init();
+
+        server.respond();
+
+        // Wait for localStorage
+        setTimeout(() => {
+            // Refresh our queue as it's kept in memory
+            queue = new Queue('requests');
+
+            // Event added for the debugging info
+            assert.equal(queue.all().length, 0);
+
+            // console.log(queue.all());
+            server.restore();
+            done();
+        }, 200);
+    });
 
 });
