@@ -120,6 +120,6 @@ The `optimumwidth` property is no longer used for the video width, it is now onl
 The silent flag `_o-video_applied` variable has been renamed to `o-video-is-silent` and has had it's default value changed from `false` to `true`. If you want to include the component with the styles please look at the code diff below.
 
 ```diff
-+ $o-video-silent-mode: false;
++ $o-video-is-silent: false;
 @import 'o-video/main';
 ```
