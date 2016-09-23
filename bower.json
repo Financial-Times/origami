@@ -4,7 +4,7 @@
     "main.scss"
   ],
   "dependencies": {
-    "o-colors": "^3.1.0",
+    "o-colors": "^3.5.2",
     "o-hoverable": ">=0.1.1 <4",
     "o-icons": "^4.4.2"
   }
