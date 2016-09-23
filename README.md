@@ -104,7 +104,7 @@ The configuration object which is passed to the contructor can/should have the f
  - autoInit: if this is set to false, the object will be created, but it will not be initialized automatically (the DOM will not be populated, call to backend services will not be made). In this case you should call the `init` method on the instance when you want to initialize it.
 
 ## <div id="login"></div> Login integration
-Users need to have a valid FT session in order to post comments. The default behavior for a user without a valid session is to redirect to the FT's login page (https://registration.ft.com). However you may wish to integrate with your product's authentication process for a slicker UX in which case you can override the default behaviour.
+Users need to have a valid FT session in order to post comments. The default behavior for a user without a valid session is to redirect to the FT's login page (https://accounts.ft.com/login). However you may wish to integrate with your product's authentication process for a slicker UX in which case you can override the default behaviour.
 
  1. Override the `auth.loginRequiredDefaultBehavior` function
 
