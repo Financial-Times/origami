@@ -63,8 +63,7 @@
 @mixin oIconsBaseStyles() {
 	display: inline-block;
 	background-repeat: no-repeat;
-	// Doesn't work in ie8/7/6 in these cases the icon will fill the available space,
-	// which is fine if the containing box is the same shape as the icon (which they mostly will be)
+	// Doesn't work in ie8/7/6 in these cases the icon will fill the available space
 	background-size: contain;
 	background-position: 50%;
 	background-color: transparent;

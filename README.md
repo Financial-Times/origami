@@ -21,6 +21,8 @@ There are a few ways to use o-icons to get fticons:
 1. [Using the CSS helper classes](#using-the-CSS-helper-classes)
 1. [Using the Sass mixins with your own CSS](#using-the-sass-miins-with-your-own-css)
 
+You can also request the icon directly from the Image Service (without using o-icons at all). See the [fticons](http://registry.origami.ft.com/components/fticons) for how to do this.
+
 ### Using the CSS helper classes
 
 ```scss
@@ -45,7 +47,7 @@ This option has the added flexibility of supporting coloured icons and PNG fallb
 // public/bundle.scss
 
 @import "o-icons/main";
-@import "o-colors/main"; // So you can use colors from the Origami palette, but mixin accepts hex codes
+@import "o-colors/main"; // So you can use colors from the Origami palette, the mixin only accepts hex values
 
 .icon-plus {
 	@include oIconsGetIcon('plus', oColorsGetPaletteColor('cold-1'), 32);
@@ -110,11 +112,11 @@ Which outputs:
 
 ## Adding / editing icons
 
-`o-icons` is a set of Sass mixins and helpers for using the fticon image set. To add a new icon, you need to add it to the fticon set. There are instructions in the [fticon README](http://github.com/financial-times/fticon).
+`o-icons` is some Sass mixins and helpers for using the fticons image set. To add a new icon you need to add it to the fticons set. There are instructions in the [fticons README](http://github.com/financial-times/fticon).
 
 ## How to upgrade from v4.x.x to v5.x.x?
 
-The jump from 4 to 5 introduces an entirely new icon set. Using these icons should be a lot easier as they have a uniform amount of white-space around them, so you don't need to individually size icons to work in your application harmoniously.
+The jump from 4 to 5 introduces an entirely new set of icons. Using these icons should be a lot easier as they have a uniform amount of white-space around them, so you don't need to individually size icons to work in your application harmoniously.
 
 That said, because the icons have all changed, you will need to adjust the sizing and alignment of them in your application as things that aligned before may be out of whack now.
 
@@ -123,7 +125,7 @@ That said, because the icons have all changed, you will need to adjust the sizin
 The new icon set has deprecated some icons, added some, and renamed some others. For a full list of these icons please see the [fticon README](http://github.com/financial-times/fticon).
 
 ### Logos and Mastheads
-The logos and mastheads that were deprecated in version 4 have now moved completely. Please use the [Logo Images set(http://github.com/financial-times/logo-images) via the image service for these.
+The logos and masthead that were deprecated in version 4 have now moved completely. Please use the [Logo Images set](http://github.com/financial-times/logo-images) via the image service for these.
 
 ## How to upgrade from v3.x.x to v4.x.x?
 
