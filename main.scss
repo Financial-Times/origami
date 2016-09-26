@@ -1,6 +1,7 @@
 @import "o-colors/main";
 @import "o-typography/main";
 @import "o-icons/main";
+@import "src/scss/variables";
 
 @if ($o-cookie-message-is-silent == false) {
     /*------------------------------------*\
