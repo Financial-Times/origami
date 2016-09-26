@@ -1,7 +1,7 @@
 {
     "description": "Helper Sass for using the FT's icons. For a full list of available icons please see the fticons image set(http://registry.origami.ft.com/components/fticons)",
     "origamiType": "module",
-    "origamiCategory": "primitives",
+    "origamiCategory": "utilities",
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-icons/issues",
     "supportStatus": "active",
@@ -10,12 +10,12 @@
     },
     "demos": [
         {
-            "name": "all-icons",
-            "template": "demos/src/demo.mustache",
+            "name": "test",
+            "template": "demos/src/test.mustache",
             "sass": "demos/src/demo.scss",
             "data": "demos/src/data.json",
-            "hidden": false,
-            "description": "Set of all icons"
+            "hidden": true,
+            "description": "Test demo to run to test changes made to o-icons"
         }
     ]
 }

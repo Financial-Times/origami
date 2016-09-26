@@ -1,28 +1,29 @@
 # o-icons [![CircleCI](https://circleci.com/gh/Financial-Times/o-icons.svg?style=shield&circle-token=cf2a28827a03270506ee12ca8dfd0c233709b1a7)](https://circleci.com/gh/Financial-Times/o-icons)
 
-SVG icon set with helper mixins and classes
+Helper Sass for the [fticons](http://registry.origami.ft.com/components/fticons) image set.
 
 ## Quick start
 
 ```html
 <!-- Loads the CSS for o-icons  -->
-<link rel="stylesheet" href="//origami-build.ft.com/v2/bundles/css?modules=o-icons@^2.0.0" />
+<link rel="stylesheet" href="//origami-build.ft.com/v2/bundles/css?modules=o-icons@^5.0.0" />
 
 <!-- In your markup, use the helper classes, such as: -->
 <i class="o-icons-icon o-icons-icon--arrow-down"></i>
 ```
 
-[Complete list of available icons](http://registry.origami.ft.com/components/o-icons)
+[Complete list of available icons](http://registry.origami.ft.com/components/fticons)
 
 ## Advanced usage
 
-There are multiple ways to use the icons:
+There are a few ways to use o-icons to get fticons:
 
-1. [Using the CSS helper classes](#1-using-the-css-helper-classes)
-1. [Including the predefined Sass mixins into your own CSS classes](#2-including-the-predefined-sass-mixins)
-1. [Manually using the Responsive Image Service](#3-manually-using-the-responsive-image-service)
+1. [Using the CSS helper classes](#using-the-CSS-helper-classes)
+1. [Using the Sass mixins with your own CSS](#using-the-sass-miins-with-your-own-css)
 
-### 1. Using the CSS helper classes
+You can also request the icon directly from the Image Service (without using o-icons at all). See the [fticons](http://registry.origami.ft.com/components/fticons) for how to do this.
+
+### Using the CSS helper classes
 
 ```scss
 // public/bundle.scss
@@ -38,7 +39,7 @@ $o-icons-is-silent: false;
 
 When using CSS classes, it isn't possible to set a colour for the icon or to specify a size for the PNG fallback. The defaults are 'black' for the icon colour and '128px' for the width and height.
 
-### 2. Including the predefined Sass mixins
+### Using the Sass mixins with your own CSS
 
 This option has the added flexibility of supporting coloured icons and PNG fallbacks of any size.
 
@@ -46,7 +47,7 @@ This option has the added flexibility of supporting coloured icons and PNG fallb
 // public/bundle.scss
 
 @import "o-icons/main";
-@import "o-colors/main"; // So you can use colors from the Origami palette, but mixin accepts hex codes
+@import "o-colors/main"; // So you can use colors from the Origami palette, the mixin only accepts hex values
 
 .icon-plus {
 	@include oIconsGetIcon('plus', oColorsGetPaletteColor('cold-1'), 32);
@@ -65,7 +66,7 @@ The [Responsive Image Service](https://image.webservices.ft.com/) helps serving 
 	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:plus?width=32&format=png&source=o-icons');
 	// Modern browsers: SVG covering the whole size of the element
 	// we declare multiple backgrounds so that only modern browsers read this property
-	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:plus?format=svg&source=o-icons'), none;
+	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon-v1:plus?format=svg&source=o-icons'), none;
 
 	display: inline-block;
 	width: 32px;
@@ -109,39 +110,22 @@ Which outputs:
 }
 ```
 
-### 3. Manually using the Responsive Image Service
+## Adding / editing icons
 
-If you can't use the mixins, and you need to see a custom size or colour, you can also use the [Responsive Image Service](https://image.webservices.ft.com) to fetch the icons in a very similar way as to how the mixin works:
+`o-icons` is some Sass mixins and helpers for using the fticons image set. To add a new icon you need to add it to the fticons set. There are instructions in the [fticons README](http://github.com/financial-times/fticon).
 
-```scss
-element {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
+## How to upgrade from v4.x.x to v5.x.x?
 
-    // Older browsers: PNG fallback (resized to 100px wide)
-    background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:tick?width=100&format=png&source=my-product');
+The jump from 4 to 5 introduces an entirely new set of icons. Using these icons should be a lot easier as they have a uniform amount of white-space around them, so you don't need to individually size icons to work in your application harmoniously.
 
-    // Modern browsers: SVG covering the whole size of the element
-    // we declare multiple backgrounds so that only modern browsers read this property
-    background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:tick?format=svg&source=my-product'), none;
-    background-size: cover;
-}
-```
+That said, because the icons have all changed, you will need to adjust the sizing and alignment of them in your application as things that aligned before may be out of whack now.
 
-## How to add or edit icons
 
-Please see our [contributing.md](/contributing.md) for guidelines on how to add an icon to o-icons.
+### Deprecated icons
+The new icon set has deprecated some icons, added some, and renamed some others. For a full list of these icons please see the [fticon README](http://github.com/financial-times/fticon).
 
-## Deprecation process
-
-Icon sets can't be versioned so, when removing an icon, make sure that it isn't used anywhere. To find out if an icon is being used search on [Splunk](http://splunk.internal.ft.com). An example search:
-
-> (host="ftweb61759-law1b-eu-p" OR host="ftweb61758-law1a-eu-p") source="/var/log/httpd/access_log" fticon:section-world| top limit=120 referer
-
-Where you can change _section-world_ to the icon you're looking for.
-
-The list of icons that are deprecated and will be removed in the next major release can be found [here](_deprecated.js).
+### Logos and Mastheads
+The logos and masthead that were deprecated in version 4 have now moved completely. Please use the [Logo Images set](http://github.com/financial-times/logo-images) via the image service for these.
 
 ## How to upgrade from v3.x.x to v4.x.x?
 
