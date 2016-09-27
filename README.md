@@ -1,6 +1,9 @@
 # o-icons [![CircleCI](https://circleci.com/gh/Financial-Times/o-icons.svg?style=shield&circle-token=cf2a28827a03270506ee12ca8dfd0c233709b1a7)](https://circleci.com/gh/Financial-Times/o-icons)
 
 Helper Sass for the [fticons](http://registry.origami.ft.com/components/fticons) image set.
+[Complete list of available icons](http://registry.origami.ft.com/components/fticons)
+
+Though you can use these icons at any size, they render best at 40px.
 
 ## Quick start
 
@@ -11,8 +14,6 @@ Helper Sass for the [fticons](http://registry.origami.ft.com/components/fticons)
 <!-- In your markup, use the helper classes, such as: -->
 <i class="o-icons-icon o-icons-icon--arrow-down"></i>
 ```
-
-[Complete list of available icons](http://registry.origami.ft.com/components/fticons)
 
 ## Advanced usage
 
@@ -62,15 +63,15 @@ The [Responsive Image Service](https://image.webservices.ft.com/) helps serving 
 
 ```scss
 .icon-plus {
-	// Older browsers: PNG fallback (resized to 32px wide)
-	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:plus?width=32&format=png&source=o-icons');
+	// Older browsers: PNG fallback (resized to 40px wide)
+	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:plus?width=40&format=png&source=o-icons');
 	// Modern browsers: SVG covering the whole size of the element
 	// we declare multiple backgrounds so that only modern browsers read this property
 	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon-v1:plus?format=svg&source=o-icons'), none;
 
 	display: inline-block;
-	width: 32px;
-	height: 32px;
+	width: 40px;
+	height: 40px;
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: 50%;
