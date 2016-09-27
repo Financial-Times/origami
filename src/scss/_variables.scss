@@ -1,7 +1,13 @@
 $o-loading-is-silent: true !default;
 $o-loading-animation: false !default;
+
+$o-loading-colors: (
+	'light': oColorsGetPaletteColor('white'),
+	'dark': oColorsGetPaletteColor('grey-tint5')
+);
+
 $o-loading-sizes: (
-    'small': 22px,
-    'medium': 30px,
-    'large': 36px
+	'small': 22px,
+	'medium': 30px,
+	'large': 36px
 );

@@ -43,22 +43,32 @@
 
 /// Color variation for a loading indicator
 ///
-/// @param {Color} $color
+/// @param {String|Color} $color
 @mixin oLoadingColor($color) {
+	@if type-of($color) == 'string' {
+		$color: map-get($o-loading-colors, $color);
+
+		@if not $color {
+			@warn "Color not found for o-loading";
+		}
+	}
+
 	border: 4px solid rgba($color, 0.25);
 	border-top-color: $color;
 }
 
 /// Size variation for a loading indicator
 ///
-/// @param {String} $size
+/// @param {String|Number} $size
 @mixin oLoadingSize($size) {
-    $px: map-get($o-loading-sizes, $size);
+	@if type-of($size) == 'string' {
+		$size: map-get($o-loading-sizes, $size);
 
-    @if $px {
-        width: $px;
-		height: $px;
-    } @else {
-        @warn "Size '#{$size}' not found for o-loading";
-    }
+		@if not $size {
+			@warn "Size not found for o-loading";
+		}
+	}
+
+	width: $size;
+	height: $size;
 }

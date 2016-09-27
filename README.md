@@ -15,6 +15,35 @@ And the following sizes:
 - medium
 - large
 
+### Mixins, silent mode and classes
+
+> Mixins and silent mode are only available if you're including o-loading in your project using Bower. If you're using o-loading via the build service, you must use the o-loading classes instead. Both are documented below.
+
+[Full documentation of mixins and variables](http://sassdoc.webservices.ft.com/v1/sassdoc/o-loading)
+
+#### Default loading indicator
+
+```html
+<div class="o-loading o-loading--light o-loading--small"></div>
+```
+
+```scss
+$o-loading-is-silent: false;
+@import 'o-loading/main';
+```
+
+#### Custom loading indicator
+
+```scss
+@import 'o-loading/main';
+
+.my-custom-indicator {
+    @include oLoading();
+    @include oLoadingSize('small');
+    @include oLoadingColor('light');
+}
+```
+
 ----
 
 ## Licence
