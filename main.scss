@@ -1,6 +1,7 @@
 @import "o-colors/main";
 @import "o-typography/main";
 @import "o-icons/main";
+@import "src/scss/variables";
 
 @if ($o-cookie-message-is-silent == false) {
     /*------------------------------------*\
@@ -10,8 +11,8 @@
     .o-cookie-message {
         display: none;
         position: relative;
-        background-color: #fff1de;
-        border-bottom: 1px solid #d0c6b8;
+        background-color: oColorsGetColorFor(box, background);
+        border-bottom: 1px solid oColorsGetPaletteColor('pink-tint3');
         padding: 5px 15px;
 
         &__container {
@@ -27,21 +28,18 @@
 
         &__close-btn {
             position: relative;
-            border-radius: 50%;
             padding: 0;
-            width: 24px;
-            height: 24px;
-            border: 1px solid oColorsGetPaletteColor('grey-tint5');
+            width: 25px;
+            height: 25px;
+            border: 0;
             background: none;
             cursor: pointer;
-            opacity: 0.75;
+            opacity: 0.8;
 
             &:before {
-                @include oIconsGetIcon(cross, oColorsGetPaletteColor('grey-tint4'), 12);
+                @include oIconsGetIcon(cross, oColorsGetColorFor(page, text), 25, $iconset-version: 1);
                 content: '';
-                position: absolute;
-                top: 5px;
-                left: 5px;
+
             }
 
             &:hover {
@@ -50,20 +48,21 @@
         }
 
         &__close-btn-label {
+            /* For more info: https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
             margin: -1px;
             padding: 0;
             width: 1px;
             height: 1px;
             overflow: hidden;
-            clip: rect(0 0 0 0);
+            clip: rect(0 0 0 0); /* IE6, IE7 */
             clip: rect(0, 0, 0, 0);
             position: absolute;
         }
 
         &__title {
             @include oTypographySansBold(l);
+            color: oColorsGetColorFor(page, text);
             margin: 0;
-            color: #4a4a4a;
             font-size: 18px;
         }
 
@@ -71,13 +70,12 @@
             @include oTypographySans(m);
             margin: 0;
             font-size: 18px;
-            color: #4a4a4a;
+            color: oColorsGetColorFor(page, text);
         }
 
         &__link {
             text-decoration: none;
-            color: #27757b;
-            margin-left: 5px;
+            color: oColorsGetColorFor(link, text);
         }
     }
 
