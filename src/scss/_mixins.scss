@@ -1,0 +1,36 @@
+@mixin oLoadingAnimation {
+	@keyframes o-loading-spinner {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+}
+
+@mixin oLoading($size: 30px) {
+
+	// the keyframes must be defined _before_ first use
+	@if not $o-loading-animation {
+		@at-root {
+			@include oLoadingAnimation();
+		}
+
+		$o-loading-animation: true !global;
+	}
+
+	// HACK: creates a new selector to output rules _after_ keyframes
+	& {
+		display: inline-block;
+		width: $size;
+		height: $size;
+		border-radius: 50%;
+		animation: o-loading-spinner 1s infinite linear;
+	}
+}
+
+@mixin oLoadingColor($color) {
+	border: 4px solid rgba($color, 0.25);
+	border-top-color: $color;
+}

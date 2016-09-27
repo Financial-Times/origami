@@ -1,0 +1,16 @@
+@if $o-loading-is-silent == false {
+
+	.o-loading {
+		@include oLoading();
+	}
+
+	.o-loading--light {
+		@include oLoadingColor(oColorsGetColorFor('o-loading-light', 'border'));
+	}
+
+	.o-loading--dark {
+		@include oLoadingColor(oColorsGetColorFor('o-loading-dark', 'border'));
+	}
+
+	$o-loading-is-silent: true !global;
+}

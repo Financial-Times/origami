@@ -1,0 +1,23 @@
+{
+	"description": "A visual loading indicator",
+	"origamiType": "module",
+	"origamiCategory": "primitives",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-loading/issues",
+	"supportStatus": "active",
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"documentClasses": "o-techdocs-content",
+		"dependencies": ["o-techdocs@^4.0.0"]
+	},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-loading"
+	},
+	"demos": [
+		{
+			"name": "basic",
+			"template": "demos/src/basic.mustache",
+			"description": ""
+		}
+	]
+}
