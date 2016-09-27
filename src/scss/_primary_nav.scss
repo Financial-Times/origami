@@ -21,12 +21,8 @@
 		@include oGridRespondTo($until: M) {
 			display: none;
 		}
-
-		&:first-child {
-			margin-left: -$_o-header-services-padding-x*2;
-		}
 	}
-	
+
 	.o-header-services__nav-link {
 		@include oTypographySansBold(s);
 		color: oColorsGetColorFor(o-header-services-primary-nav, text);
