@@ -102,16 +102,16 @@
 		> a {
 			text-decoration: none;
 			display: inline-block;
-			color: oColorsGetColorFor('o-header-services-top', text);
+			color: oColorsGetColorFor('o-header-services-top-link', text);
 			margin: 0 $_o-header-services-padding-x;
 			font-weight: 600;
 
 			&:visited {
-				color: oColorsGetColorFor('o-header-services-top', text);
+				color: oColorsGetColorFor('o-header-services-top-link', text);
 			}
 
 			&:hover {
-				border-bottom: dotted white 1px;
+				color: oColorsGetColorFor('o-header-services-top-link-hover', text);
 			}
 		}
 	}

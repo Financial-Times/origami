@@ -1,5 +1,7 @@
 @include oColorsSetUseCase('o-header-services-top', 'background', 'cold-3');
 @include oColorsSetUseCase('o-header-services-top', 'text', 'white');
+@include oColorsSetUseCase('o-header-services-top-link', 'text', 'white');
+@include oColorsSetUseCase('o-header-services-top-link-hover', 'text', 'grey-tint2');
 
 // default theme
 @include oColorsSetUseCase('o-header-services-top-title', 'text', 'white');
