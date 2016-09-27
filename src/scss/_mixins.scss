@@ -18,9 +18,7 @@
 }
 
 /// Base styles for a loading indicator
-///
-/// @param {Number} $size
-@mixin oLoading($size: 30px) {
+@mixin oLoading() {
 
 	// the keyframes must be defined _before_ first use
 	@if not $o-loading-animation {
@@ -34,8 +32,6 @@
 	// HACK: creates a new selector to output the rules _after_ keyframes
 	& {
 		display: inline-block;
-		width: $size;
-		height: $size;
 		border-radius: 50%;
 		animation: o-loading-spinner 1s infinite linear;
 	}

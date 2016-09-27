@@ -1,11 +1,30 @@
+////
+/// @group o-loading
+/// @link http://registry.origami.ft.com/components/o-loading
+////
+
+/// Silent mode: on (true) or off (false)
+/// Set to false to output default button classes
+///
+/// @type Boolean
 $o-loading-is-silent: true !default;
+
+/// Keyframe animation flag
+/// @private
+/// @type Boolean
 $o-loading-animation: false !default;
 
+/// Predefined color themes
+///
+/// @type Map
 $o-loading-colors: (
 	'light': oColorsGetPaletteColor('white'),
 	'dark': oColorsGetPaletteColor('grey-tint5')
 );
 
+/// Predefined sizes
+///
+/// @type Map
 $o-loading-sizes: (
 	'small': 22px,
 	'medium': 30px,

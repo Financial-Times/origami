@@ -4,24 +4,16 @@
 		@include oLoading();
 	}
 
-	.o-loading--light {
-		@include oLoadingColor('light');
+	@each $key, $value in $o-loading-colors {
+		.o-loading--#{$key} {
+			@include oLoadingColor($value);
+		}
 	}
 
-	.o-loading--dark {
-		@include oLoadingColor('dark');
-	}
-
-	.o-loading--small {
-		@include oLoadingSize('small');
-	}
-
-	.o-loading--medium {
-		@include oLoadingSize('medium');
-	}
-
-	.o-loading--large {
-		@include oLoadingSize('large');
+	@each $key, $value in $o-loading-sizes {
+		.o-loading--#{$key} {
+			@include oLoadingSize($value);
+		}
 	}
 
 	$o-loading-is-silent: true !global;
