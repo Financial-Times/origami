@@ -12,7 +12,7 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
-		"dependencies": ""
+		"dependencies": "o-fonts"
 	},
 	"demos": [
 		{
