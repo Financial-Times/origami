@@ -12,5 +12,17 @@
 		@include oLoadingColor(oColorsGetColorFor('o-loading-dark', 'border'));
 	}
 
+    .o-loading--small {
+        @include oLoadingSize('small');
+    }
+
+    .o-loading--medium {
+        @include oLoadingSize('medium');
+    }
+
+    .o-loading--large {
+        @include oLoadingSize('large');
+    }
+
 	$o-loading-is-silent: true !global;
 }

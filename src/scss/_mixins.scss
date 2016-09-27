@@ -48,3 +48,17 @@
 	border: 4px solid rgba($color, 0.25);
 	border-top-color: $color;
 }
+
+/// Size variation for a loading indicator
+///
+/// @param {String} $size
+@mixin oLoadingSize($size) {
+    $px: map-get($o-loading-sizes, $size);
+
+    @if $px {
+        width: $px;
+		height: $px;
+    } @else {
+        @warn "Size '#{$size}' not found for o-loading";
+    }
+}

@@ -1,2 +1,7 @@
 $o-loading-is-silent: true !default;
 $o-loading-animation: false !default;
+$o-loading-sizes: (
+    'small': 22px,
+    'medium': 30px,
+    'large': 36px
+);

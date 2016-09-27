@@ -4,7 +4,16 @@ This is an [Origami](http://origami.ft.com/) module that provides a visual loadi
 
 ## Usage
 
-All mixins require you to import the module into your own build. This module is not currently compatible with the build service.
+Loading indicators come in the following themes:
+
+- light
+- dark
+
+And the following sizes:
+
+- small
+- medium
+- large
 
 ----
 
