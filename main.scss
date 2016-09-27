@@ -1,6 +1,7 @@
 @import "o-colors/main";
 @import "o-typography/main";
 @import "o-icons/main";
+@import "o-grid/main";
 @import "src/scss/variables";
 
 @if ($o-cookie-message-is-silent == false) {
@@ -27,6 +28,7 @@
         }
 
         &__close-btn {
+            margin-top: -3px; /* magic number to get the button to line up with the text */
             position: relative;
             padding: 0;
             width: 25px;
@@ -67,13 +69,12 @@
         }
 
         &__description {
-            @include oTypographySans(m);
+            @include oTypographySans(s);
             margin: 0;
-            font-size: 18px;
             color: oColorsGetColorFor(page, text);
         }
 
-        &__link {
+        a {
             text-decoration: none;
             color: oColorsGetColorFor(link, text);
         }
@@ -95,7 +96,7 @@
     .o-cookie-message.o-cookie-message--banner-centric {
 
         .o-cookie-message__container {
-            max-width: 728px;
+            @include oGridContainer();
             margin-left: auto;
             margin-right: auto;
         }
