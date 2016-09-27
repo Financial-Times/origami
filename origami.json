@@ -1,26 +1,26 @@
 {
-		"description": "Component description",
-		"origamiType": "module",
-		"origamiCategory": "components",
-		"origamiVersion": 1,
-		"support": "https://github.com/Financial-Times/o-cookie-message/issues",
-		"supportStatus": "active",
-		"browserFeatures": {},
-		"ci": {
-			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-cookie-message"
-		},
-		"demosDefaults": {
-			"sass": "demos/src/demo.scss",
-			"documentClasses": "",
-			"dependencies": ""
-		},
-		"demos": [
-			{
-				"name": "demo",
-				"js": "demos/src/demo.js",
-				"template": "demos/src/demo.mustache",
-				"hidden": true,
-				"description": ""
-			}
-		]
-	}
+	"description": "Component description",
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-cookie-message/issues",
+	"supportStatus": "active",
+	"browserFeatures": {},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-cookie-message"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"documentClasses": "",
+		"dependencies": ""
+	},
+	"demos": [
+		{
+			"name": "demo",
+			"js": "demos/src/demo.js",
+			"template": "demos/src/demo.mustache",
+			"hidden": true,
+			"description": ""
+		}
+	]
+}
