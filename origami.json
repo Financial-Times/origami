@@ -18,6 +18,12 @@
 			"name": "basic",
 			"template": "demos/src/basic.mustache",
 			"description": ""
+		},
+		{
+			"name": "accessible",
+			"template": "demos/src/accessible.mustache",
+			"js": "demos/src/accessible.js",
+			"description": ""
 		}
 	]
 }

@@ -18,3 +18,11 @@ $o-loading-is-silent: false;
 .demo-card--dark {
 	background: #333333;
 }
+
+.demo-toggle {
+	margin: 20px;
+
+	&:not([disabled]) ~ .o-loading {
+		display: none;
+	}
+}
