@@ -207,9 +207,6 @@ describe('Video', () => {
 			video.infoPanel.brandEl.textContent.should.equal('Authers Note');
 			video.infoPanel.brandEl.parentElement.should.equal(video.infoPanel.infoEl);
 
-			// can format video duration (ms) in m:ss
-			video.infoPanel.durationEl.textContent.should.equal('4:59');
-			video.infoPanel.durationEl.parentElement.should.equal(video.infoPanel.infoEl);
 		});
 
 		it('should be able to create a placeholder with a play button', () => {

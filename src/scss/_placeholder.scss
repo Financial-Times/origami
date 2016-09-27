@@ -10,19 +10,19 @@
 	}
 
 	.o-video__placeholder {
-        background: oColorsGetPaletteColor('claret');
+		background: oColorsGetPaletteColor('claret');
 		color: oColorsGetPaletteColor('white');
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
 
 	.o-video__placeholder-image {
-        transition: opacity 0.25s;
+		transition: opacity 0.25s;
 
-        // saves messing with z-indexes!
-        :hover > & {
-            opacity: 0.35;
-        }
+		// saves messing with z-indexes!
+		:hover > & {
+			opacity: 0.35;
+		}
 	}
 
 	.o-video__play-button {
@@ -47,16 +47,13 @@
 	}
 
 	.o-video__play-button-icon {
-		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 60, $iconset-version: 1);
+		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 40, $iconset-version: 1);
 		@include oIconsBaseStyles;
 		position: absolute;
-		top: 0;
-		right: 0;
 		bottom: 0;
 		left: 0;
 		margin: auto;
-		border-radius: 100%;
-		background-color: rgba(oColorsGetPaletteColor('black'), 0.5);
+		background-color: oColorsGetPaletteColor('black');
 	}
 
 }

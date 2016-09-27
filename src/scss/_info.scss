@@ -1,14 +1,15 @@
 @mixin oVideoInfoSmall {
-	.o-video__info-brand,
-	.o-video__info-duration,
 	.o-video__info-description {
 		display: none;
+	}
+	.o-video__info-title {
+		@include oTypographySansBold(s);
+		margin: 6px 0;
 	}
 }
 
 @mixin oVideoInfoMedium {
-	.o-video__info-brand,
-	.o-video__info-duration {
+	.o-video__info-brand {
 		display: inline-block;
 	}
 
@@ -24,12 +25,20 @@
 	}
 
 	.o-video__info-title {
-		font-size: 24px;
-		line-height: 26px;
+		@include oTypographySansBold(l);
+		font-size: 28px;
+		line-height: 30px;
 	}
 
 	.o-video__info-description {
+		@include oTypographySans(m);
+		line-height: 20px;
 		display: block;
+	}
+
+	.o-video__play-button-icon {
+		width: 60px;
+		height: 60px;
 	}
 }
 
@@ -47,24 +56,19 @@
 		color: oColorsGetPaletteColor('white');
 	}
 
-	.o-video__info-brand,
-	.o-video__info-duration {
+	.o-video__info-brand {
+		@include oTypographyLinkTopic;
 		display: inline-block;
 		padding: 3px 10px;
-	}
-
-	.o-video__info-brand {
 		background-color: oColorsGetPaletteColor('claret-1');
-		font-weight: 600;
-
+		color: white;
 		&:empty {
 			display: none !important;
 		}
 	}
 
 	.o-video__info-title {
-		font-weight: 600;
-		font-size: 16px;
+		@include oTypographySansBold(m);
 		line-height: 18px;
 	}
 
