@@ -3,17 +3,21 @@
 /// @link http://registry.origami.ft.com/components/o-loading
 ////
 
-/// Output the keyframe definition for the loading indicator
+/// Output the keyframe animation definition
 ///
 /// @private
-@mixin _oLoadingAnimation {
-	@keyframes o-loading-spinner {
-		0% {
-			transform: rotate(0deg);
+@mixin _oLoadingAnimationKeyframes {
+	@if not $o-loading-animation-keyframes {
+		@keyframes o-loading-spinner {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
 		}
-		100% {
-			transform: rotate(360deg);
-		}
+
+		$o-loading-animation-keyframes: true !global;
 	}
 }
 
@@ -21,12 +25,8 @@
 @mixin oLoading() {
 
 	// the keyframes must be defined _before_ first use
-	@if not $o-loading-animation {
-		@at-root {
-			@include _oLoadingAnimation();
-		}
-
-		$o-loading-animation: true !global;
+	@at-root {
+		@include _oLoadingAnimationKeyframes();
 	}
 
 	// HACK: creates a new selector to output the rules _after_ keyframes

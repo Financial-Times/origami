@@ -9,10 +9,10 @@
 /// @type Boolean
 $o-loading-is-silent: true !default;
 
-/// Keyframe animation flag
+/// Keyframe animation output once flag
 /// @private
 /// @type Boolean
-$o-loading-animation: false !default;
+$o-loading-animation-keyframes: false !default;
 
 /// Predefined color themes
 ///
