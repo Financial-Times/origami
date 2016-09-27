@@ -28,21 +28,16 @@
 
         &__close-btn {
             position: relative;
-            border-radius: 50%;
             padding: 0;
-            width: 24px;
-            height: 24px;
-            border: 1px solid oColorsGetPaletteColor('grey-tint5');
+            width: 25px;
+            height: 25px;
+            border: none;
             background: none;
             cursor: pointer;
-            opacity: 0.75;
 
             &:before {
-                @include oIconsGetIcon(cross, oColorsGetPaletteColor('grey-tint4'), 12);
+                @include oIconsGetIcon(cross, oColorsGetPaletteColor('grey-tint4'), 25, $iconset-version: 1);
                 content: '';
-                position: absolute;
-                top: 5px;
-                left: 5px;
             }
 
             &:hover {
