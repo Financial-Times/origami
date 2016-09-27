@@ -13,6 +13,10 @@
 		@include oFormsSelect;
 	}
 
+	.#{$class}__select[multiple] {
+		@include oFormsSelectMulti;
+	}
+
 	.#{$class}__textarea {
 		@include oFormsTextarea;
 	}
