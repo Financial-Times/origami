@@ -3,7 +3,7 @@
 	"origamiType": "module",
 	"origamiCategory": "primitives",
 	"origamiVersion": 1,
-	"support": "https://github.com/Financial-Times/o-effects/issues",
+	"support": "https://github.com/Financial-Times/o-visual-effects/issues",
 	"supportStatus": "active",
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
@@ -12,7 +12,7 @@
 		"dependencies": ["o-techdocs@^4.0.0"]
 	},
 	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-effects"
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-visual-effects"
 	},
 	"demos": [
 		{
