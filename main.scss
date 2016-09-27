@@ -46,12 +46,13 @@
         }
 
         &__close-btn-label {
+            /* For more info: https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
             margin: -1px;
             padding: 0;
             width: 1px;
             height: 1px;
             overflow: hidden;
-            clip: rect(0 0 0 0);
+            clip: rect(0 0 0 0); /* IE6, IE7 */
             clip: rect(0, 0, 0, 0);
             position: absolute;
         }
