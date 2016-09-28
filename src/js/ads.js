@@ -13,11 +13,6 @@ class VideoAds {
 		this.video = video;
 		this.adsLoaded = false;
 		this.videoLoad = false;
-
-		if (!this.video.opts.placeholder) {
-			this.overlayEl = createVideoOverlayElement();
-			this.video.containerEl.appendChild(this.overlayEl);
-		}
 	}
 
 	loadAdsLibrary() {
@@ -98,7 +93,9 @@ class VideoAds {
 		if (this.video.opts.placeholder) {
 			this.playAdEventHandler();
 		} else {
-			this.overlayEl && this.overlayEl.addEventListener('click', this.playAdEventHandler);
+			this.overlayEl = createVideoOverlayElement();
+			this.video.containerEl.appendChild(this.overlayEl);
+			this.overlayEl.addEventListener('click', this.playAdEventHandler);
 		}
 	}
 
