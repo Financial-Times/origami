@@ -5,6 +5,7 @@ const Delegate = require('ftdomdelegate');
 const Queue = require('../core/queue');
 const Core = require('../core');
 const utils = require('../utils');
+const settings = require('../core/settings');
 
 let internalQueue;
 
@@ -125,8 +126,9 @@ const handleClickEvent = eventData => (clickEvent, clickElement) => {
 	context.url = window.document.location.href || null;
 	eventData.context = context;
 
-	// Send or queue tracking event
-	track(eventData);
+	// Merge the event data into the "parent" config data
+	const config = utils.merge(settings.get('config'), eventData);
+	track(config);
 };
 
 /**
