@@ -10,7 +10,7 @@
   ],
   "main": [
     "main.scss",
-		"main.js"
+    "main.js"
   ],
   "dependencies": {
     "o-colors": "^3.5.0",
