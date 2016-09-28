@@ -35,6 +35,12 @@
 		@include oFormsCommonFieldValid;
 	}
 
+	.#{$class}--wide .#{$class}__text,
+	.#{$class}--wide .#{$class}__select,
+	.#{$class}--wide .#{$class}__textarea {
+		@include oFormsFullWidth;
+	}
+
 	.#{$class}__additional-info {
 		@include oFormsAdditionalInfo;
 	}

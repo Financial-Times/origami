@@ -31,6 +31,10 @@
 			background-color: oColorsGetColorFor(o-forms-message-error, background);
 			color: oColorsGetColorFor(o-forms-message-error, text);
 		}
+
+		&--wide {
+			@include oFormsFullWidth;
+		}
 	}
 }
 
