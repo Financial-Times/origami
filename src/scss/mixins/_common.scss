@@ -71,6 +71,16 @@
 		padding-right: $_o-forms-group-padding;
 		padding-left: $_o-forms-group-padding;
 	}
+
+	&--wide {
+		@include oFormsFullWidth;
+	}
+}
+
+/// All the field to extend to the full width
+/// of the container
+@mixin oFormsFullWidth() {
+	max-width: none !important;
 }
 
 /// Target styles at Internet Explorer 8 only

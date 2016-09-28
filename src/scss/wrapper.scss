@@ -35,6 +35,10 @@
 			background-color: #f8d9d9;
 		}
 
+		&--wide {
+			@include oFormsFullWidth;
+		}
+
 		.#{$class} {
 			margin-top: 12px;
 			margin-bottom: 12px;
