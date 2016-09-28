@@ -101,7 +101,7 @@ module.exports = function(config) {
 			},
 			plugins: [
 				new BowerPlugin({
-					includes:  /\.js$/
+					includes: /\.js$/
 				})
 			]
 		},
