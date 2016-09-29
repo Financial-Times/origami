@@ -36,6 +36,8 @@ Where `opts` is an optional object with properties
  * `placeholderInfo` [`Array`] A list of extra information to display on the placeholder (Available: title, description, brand)
  * `playsinline` [`Boolean`] Whether to play the [video inline](https://webkit.org/blog/6784/new-video-policies-for-ios/) on iOS smallscreen (defaults to fullscreen)
  * `classes` [`Array`] Classes to add to the video (and placeholder) element
+ * `advertising` [`Boolean`] whether or not to show ads on the video
+ * `allProgress` [`Boolean`] set to true to send all native video progress events to spoor (defaults to sending at 25%/50%/75%)
 
 The config options can also be set as data attribute to instantiate the module declaratively:
 

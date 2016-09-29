@@ -6,8 +6,10 @@ import VideoInfo from './info';
 import Playlist from './playlist';
 
 function eventListener(video, ev) {
+
 	// Dispatch progress event at start, 25%, 50%, 75% and 100%
-	if (ev.type === 'progress' && video.getProgress() % 25 !== 0) {
+	// If allProgress is set to true, then we send spoor events for every native video progress event (every 5 sec)
+	if (!video.opts.allProgress && ev.type === 'progress' && video.getProgress() % 25 !== 0) {
 		return;
 	}
 
@@ -66,6 +68,7 @@ function getOptionsFromDataAttributes(attributes) {
 
 const defaultOpts = {
 	advertising: false,
+	allProgress: false,
 	autorender: true,
 	classes: [],
 	optimumwidth: null,
@@ -166,7 +169,7 @@ class Video {
 
 		this.containerEl.appendChild(this.videoEl);
 
-		addEvents(this, ['play', 'playing', 'pause', 'ended', 'progress']);
+		addEvents(this, ['playing', 'pause', 'ended', 'progress', 'seeked']);
 		this.videoEl.addEventListener('playing', this.pauseOtherVideos.bind(this));
 		this.videoEl.addEventListener('suspend', this.clearCurrentlyPlaying.bind(this));
 		this.videoEl.addEventListener('ended', this.clearCurrentlyPlaying.bind(this));
