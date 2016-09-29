@@ -20,6 +20,20 @@ class CookieMessage {
 		}
 	}
 
+	static cookieHTML () {
+		return `
+			<div class="o-cookie-message__container">
+					<p class="o-cookie-message__description">
+						By continuing to use this site you consent to the use of cookies on your device as described in our <a href="http://help.ft.com/tools-services/how-the-ft-manages-cookies-on-its-websites/">cookie policy</a> unless you have disabled them. You can change your cookie settings at any time but parts of our site will not function correctly without them.
+					</p>
+					<div class="o-cookie-message__close-btn-container">
+							<button class="o-cookie-message__close-btn" data-o-component="o-cookie-message-close">
+									<span class="o-cookie-message__close-btn-label">Close</span>
+							</button>
+					</div>
+			</div>`;
+	}
+
 	static setupMessage () {
 		document.querySelector('[data-o-component="o-cookie-message-close"]').addEventListener('click', this.flagUserAsConsentingToCookies);
 	}
@@ -55,7 +69,15 @@ class CookieMessage {
 		}
 
 		const CookieMessageEl = rootEl.querySelector('[data-o-component="o-cookie-message"]');
+
+		/* If the cookie message hasn't already been initialised */
 		if (!CookieMessageEl.hasAttribute('data-o-cookie-message--js')) {
+
+			/* If the cookie message hasn't specified that it has custom internal HTML
+			 add the legal-approved cookie message */
+			if (!CookieMessageEl.hasAttribute('data-o-cookie-message-use-custom-html')) {
+				CookieMessageEl.innerHTML = CookieMessage.cookieHTML();
+			}
 			return new CookieMessage(CookieMessageEl);
 		}
 	}

@@ -16,9 +16,16 @@
 	},
 	"demos": [
 		{
-			"name": "demo",
+			"name": "Approved cookie banner",
 			"js": "demos/src/demo.js",
-			"template": "demos/src/demo.mustache",
+			"template": "demos/src/default.mustache",
+			"hidden": false,
+			"description": "This cookie banner should be used across all FT products and contains links back to the FT's cookie policy. The copy in the banner has been approved by the FT's legal team."
+		},
+		{
+			"name": "Custom HTML",
+			"js": "demos/src/demo.js",
+			"template": "demos/src/customHTML.mustache",
 			"hidden": true,
 			"description": ""
 		}
