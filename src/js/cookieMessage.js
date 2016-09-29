@@ -44,12 +44,15 @@ class CookieMessage {
 	}
 
 	static flagUserAsConsentingToCookies () {
-		localStorage.setItem('COOKIE_CONSENT', 1);
+		let now = Date.now();
+		localStorage.setItem('COOKIE_CONSENT', now);
 		CookieMessage.hideMessage();
 	}
 
 	static userHasConsentedToCookies () {
+		// Update user to new cookie format, which reappears after three months
 		if (localStorage.getItem('COOKIE_CONSENT') === '1') {
+			this.flagUserAsConsentingToCookies();
 			return true;
 		}
 
@@ -58,7 +61,23 @@ class CookieMessage {
 			this.flagUserAsConsentingToCookies();
 			return true;
 		}
+
+
+		if (localStorage.getItem('COOKIE_CONSENT')) {
+
+			const consentDate = parseInt(localStorage.getItem('COOKIE_CONSENT'));
+
+			if (this.dateIsWithinLastThreeMonths(consentDate)) {
+				return true;
+			}
+		}
 		return false;
+	}
+
+	static dateIsWithinLastThreeMonths(startTime) {
+		const now = Date.now();
+		const threeMonthsInSeconds = 1000 * 60 * 60 * 24 * 90;
+		return (startTime > (now - threeMonthsInSeconds));
 	}
 
 	static init (rootEl) {
