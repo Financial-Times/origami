@@ -219,7 +219,6 @@ class Video {
 			// Adds video soon so ads can start loading
 			this.addVideo();
 			this.videoEl.focus();
-			this.videoEl.paused && this.videoEl.play();
 
 			this.containerEl.removeChild(this.placeholderEl);
 			this.infoPanel && this.infoPanel.teardown();
