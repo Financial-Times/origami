@@ -1,4 +1,4 @@
-/*global require, describe, it, before, after, sinon */
+/*global require, describe, it, before, beforeEach, after, sinon */
 
 const assert = require("assert");
 const settings = require("../../src/javascript/core/settings");
@@ -6,9 +6,13 @@ const send = require("../../src/javascript/core/send");
 const session = require("../../src/javascript/core/session");
 const Queue = require("../../src/javascript/core/queue");
 const page = require("../../src/javascript/events/page-view.js");
+const event = require("../../src/javascript/events/custom.js");
 
 describe('page', function () {
 
+    beforeEach(function () {
+        settings.destroy('page_viewed');  // Empty settings.
+    });
 
 	before(function () {
 		session.init();
@@ -49,11 +53,12 @@ describe('page', function () {
 	});
 
 	it('should assign a unique root_id for each page', function () {
-
 		const callback = sinon.spy();
 		const callback2 = sinon.spy();
+		const callback3 = sinon.spy();
 		let page1_root_id;
 		let page2_root_id;
+		let page3_root_id;
 
 		page({
 			url: "http://www.ft.com/home/uk"
@@ -68,6 +73,41 @@ describe('page', function () {
 		assert.ok(callback2.called, 'Callback not called.');
 
 		page2_root_id = callback2.getCall(0).thisValue.context.root_id;
+
+		page({
+			url: "http://www.ft.com/home/uk"
+		}, callback3);
+		assert.ok(callback3.called, 'Callback not called.');
+
+		page3_root_id = callback3.getCall(0).thisValue.context.root_id;
+
 		assert.notEqual(page1_root_id, page2_root_id, 'root_id is not unique');
+		assert.notEqual(page2_root_id, page3_root_id, 'root_id is not unique');
+		assert.notEqual(page1_root_id, page3_root_id, 'root_id is not unique');
+	});
+
+	it('should have an event sent before a PV attached to the next PV sent', function () {
+		const callback = sinon.spy();
+		const callback2 = sinon.spy();
+		let event_root_id;
+		let page_root_id;
+
+		event(new CustomEvent('oTracking.event', {
+			detail: {
+				category: 'link',
+				action: 'click'
+			}
+		}), callback);
+		assert.ok(callback.called, 'Callback not called.');
+
+		event_root_id = callback.getCall(0).thisValue.context.root_id;
+
+		page({
+			url: "http://www.ft.com/home/uk"
+		}, callback2);
+		assert.ok(callback2.called, 'Callback not called.');
+
+		page_root_id = callback2.getCall(0).thisValue.context.root_id;
+		assert.equal(event_root_id, page_root_id, 'root_id should match: ' + event_root_id + '===' + page_root_id);
 	});
 });

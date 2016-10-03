@@ -5,6 +5,9 @@
 
 const Core = require('../core');
 const utils = require('../utils');
+const settings = require('../core/settings');
+
+settings.set('page_viewed', false);
 
 /**
  * Default properties for page tracking requests.
@@ -36,11 +39,15 @@ function page(config, callback) {
 		context: config
 	});
 
-	// New PageID for a new Page.
-	Core.setRootID();
+	// New PageID for a new Page... Unless... It's the first pageview, and some events may have been sent before this.
+	if(settings.get('page_viewed')) {
+		Core.setRootID();
+	}
+
 	Core.track(config, callback);
 
 	// Alert internally that a new page has been tracked - for single page apps for example.
+	settings.set('page_viewed', true);
 	utils.triggerPage();
 }
 
