@@ -1,0 +1,15 @@
+machine:
+  node:
+    version: 6
+  post:
+    - npm install -g origami-build-tools
+dependencies:
+  override:
+    - obt install
+  cache_directories:
+    - "node_modules"
+    - "ff-release"
+test:
+  override:
+    - obt test
+    - obt verify

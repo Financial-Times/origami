@@ -195,8 +195,7 @@ describe('Core.Send', function () {
 			}, 100);
 		});
 
-		it('should remember offline lag if a request fails.', function () {
-
+		it('should remember offline lag if a request fails.', function (done) {
 			const server = sinon.fakeServer.create(); // Catch AJAX requests
 
 			(new Queue('requests')).replace([]);
@@ -207,13 +206,56 @@ describe('Core.Send', function () {
 			server.respondWith([500, { "Content-Type": "plain/text", "Content-Length": 5 }, "NOT OK"]);
 
 			Send.addAndRun(request);
+
+			// console.log((new Queue('requests')).storage.storage._type);
+
 			server.respond();
 
-			assert.ok(new Queue('requests').last().queueTime);
-			navigator.sendBeacon = b;
-			server.restore();
+			// Wait for localStorage
+			setTimeout(() => {
+				// console.log((new Queue('requests')).all());
+
+				assert.ok((new Queue('requests')).last().queueTime);
+				navigator.sendBeacon = b;
+				server.restore();
+				done();
+			}, 100);
 		});
 	});
 
+    it('should cope with the huge queue bug', function (done) {
+        const server = sinon.fakeServer.create(); // Catch AJAX requests
+        let queue = new Queue('requests');
+
+        queue.replace([]);
+
+        for (let i=0; i<201; i++) {
+            queue.add({});
+        }
+
+        queue.save();
+
+        // console.log(queue.all().length);
+
+        server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+
+        // Run the queue
+        Send.init();
+
+        server.respond();
+
+        // Wait for localStorage
+        setTimeout(() => {
+            // Refresh our queue as it's kept in memory
+            queue = new Queue('requests');
+
+            // Event added for the debugging info
+            assert.equal(queue.all().length, 0);
+
+            // console.log(queue.all());
+            server.restore();
+            done();
+        }, 200);
+    });
 
 });

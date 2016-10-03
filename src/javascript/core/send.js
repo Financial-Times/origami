@@ -22,7 +22,7 @@ let queue;
 /**
  * Consistent check to see if we should use sendBeacon or not.
  *
- * @return {boolean}
+ * @return {boolean} Should we use sendBeacon?
  */
 function should_use_sendBeacon() {
 	return (navigator.sendBeacon && Promise && (settings.get('config') || {}).useSendBeacon);
@@ -123,6 +123,37 @@ function run(callback) {
 	if (utils.isUndefined(callback)) {
 		callback = function () {};
 	}
+
+    // Investigate queue lengths bug
+    // https://jira.ft.com/browse/DTP-330
+    const all_events = queue.all();
+
+    if (all_events.length > 200) {
+        const counts = {};
+
+        all_events.forEach(function (event) {
+            const label = [event.category, event.action].join(':');
+
+            if (!counts.hasOwnProperty(label)) {
+                counts[label] = 0;
+            }
+
+            counts[label] += 1;
+        });
+
+        queue.replace([]);
+
+        queue.add({
+            category: 'o-tracking',
+            action: 'queue-bug',
+            context: {
+                url: document.url,
+                queue_length: all_events.length,
+                counts: counts,
+                storage: queue.storage.storage._type
+            }
+        });
+    }
 
 	const next = function () {
 		run();
