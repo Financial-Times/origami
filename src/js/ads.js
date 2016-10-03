@@ -229,6 +229,20 @@ class VideoAds {
 		// Retrieve the ad from the event. Some events (e.g. ALL_ADS_COMPLETED)
 		// don't have ad object associated.
 		const ad = adEvent.getAd();
+
+		const options = {
+			detail: {
+				advertising: true,
+				category: 'video',
+				contentId: this.video.opts.id,
+				progress: 0,
+				adDuration: ad.getDuration(),
+				adMinDuration: ad.getMinSuggestedDuration(),
+				adTitle: ad.getTitle()
+			},
+			bubbles: true
+		};
+
 		switch (adEvent.type) {
 			case google.ima.AdEvent.Type.LOADED:
 				// This is the first event sent for an ad - it is possible to
@@ -243,6 +257,10 @@ class VideoAds {
 				// This event indicates the ad has started - the video player
 				// can adjust the UI, for example display a pause button and
 				// remaining time.
+				options.detail.action = 'adStart';
+				const startEvent = new CustomEvent('oTracking.event', options);
+				document.body.dispatchEvent(startEvent);
+
 				if (ad.isLinear()) {
 					// For a linear ad, a timer can be started to poll for
 					// the remaining time.
@@ -252,6 +270,11 @@ class VideoAds {
 				}
 				break;
 			case google.ima.AdEvent.Type.COMPLETE:
+
+				options.detail.action = 'adComplete';
+				const endEvent = new CustomEvent('oTracking.event', options);
+				document.body.dispatchEvent(endEvent);
+
 				if (ad.isLinear()) {
 					// Would be used to clear the interval
 				}
