@@ -61,6 +61,7 @@
 		line-height: 15px;
 		display: inline-block;
 		padding: 2px 10px 3px;
+		text-transform: capitalize;
 		background-color: oColorsGetPaletteColor('claret-1');
 		color: white;
 		&:empty {
