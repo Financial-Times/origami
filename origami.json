@@ -6,7 +6,7 @@
 	"supportStatus": "active",
 	"support": "github.com/Financial-Times/o-video/issues",
 	"browserFeatures": {
-		"required": ["fetch", "Array.prototype.find", "Object.assign"]
+		"required": ["fetch", "Array.prototype.find", "Array.prototype.includes", "Object.assign"]
 	},
 	"demosDefaults": {
 		"sass": "demos/src/main.scss",
