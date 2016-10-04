@@ -16,6 +16,9 @@ class VideoAds {
 		this.adsLoaded = false;
 		this.videoLoaded = false;
 		this.loadingStateDisplayed = false;
+
+		// record when the advert has completed
+		this.adsCompleted = false;
 	}
 
 	loadAdsLibrary() {
@@ -135,8 +138,14 @@ class VideoAds {
 
 		// Add listeners to the required events.
 		this.adsManager.addEventListener(google.ima.AdErrorEvent.Type.AD_ERROR, this.adErrorHandler);
+
+		// "Fired when content should be paused. This usually happens right before an ad is about to cover the content"
 		this.adsManager.addEventListener(google.ima.AdEvent.Type.CONTENT_PAUSE_REQUESTED, this.contentPauseRequestHandler);
+
+		// "Fired when content should be resumed. This usually happens when an ad finishes or collapses"
 		this.adsManager.addEventListener(google.ima.AdEvent.Type.CONTENT_RESUME_REQUESTED, this.contentResumeRequestHandler);
+
+		// "Fired when the ads manager is done playing all the ads"
 		this.adsManager.addEventListener(google.ima.AdEvent.Type.ALL_ADS_COMPLETED, this.adEventHandler);
 
 		// Listen to any additional events, if necessary.
@@ -301,6 +310,7 @@ class VideoAds {
 
 	contentResumeRequestHandler() {
 		this.video.containerEl.removeChild(this.adContainerEl);
+		this.adsCompleted = true;
 		this.video.videoEl.play();
 	}
 }
