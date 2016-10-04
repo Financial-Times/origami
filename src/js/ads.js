@@ -305,6 +305,7 @@ class VideoAds {
 	}
 
 	contentPauseRequestHandler() {
+		this.adsCompleted = false;
 		this.video.videoEl.pause();
 	}
 
