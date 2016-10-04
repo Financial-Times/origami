@@ -7,6 +7,16 @@ import Playlist from './playlist';
 
 function eventListener(video, ev) {
 
+	// On some platforms (eg iOS), the Google advert library will use the main <video> element
+	// used by o-video to also play a pre-roll advert; as the advert plays, this will trigger
+	// the normal <video> event listeners.  Discard events that we can identify as coming
+	// from the pre-roll rather than the main content.
+	// To do this, check whether advertising is still enabled (it'll be disabled on any error),
+	// and for the video ads load and completed flags.
+	if (video.opts.advertising && video.videoAds && video.videoAds.adsLoaded && !video.videoAds.adsCompleted) {
+		return;
+	}
+
 	// Dispatch progress event at around 25%, 50%, 75% and 100%
 	// If allProgress is set to true, then we send spoor events for every native video progress event (every 5 sec)
 	if (!video.opts.allProgress && ev.type === 'progress' && !shouldDispatch(video.getProgress())) {
