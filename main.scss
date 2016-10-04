@@ -14,7 +14,7 @@
 		position: relative;
 		background-color: oColorsGetColorFor(box, background);
 		border-bottom: 1px solid oColorsGetPaletteColor('pink-tint3');
-		padding: 5px 15px;
+		padding: 5px 0;
 
 		&__container {
 			position: relative;
@@ -22,10 +22,10 @@
 		}
 
 		&__close-btn-container {
-			margin-top: -3px; // Magic number to make cross line up with top line of copy
+			margin-top: -4px; // Magic number to make cross line up with top line of copy
 			position: absolute;
 			top: 0;
-			right: 0;
+			right: -$_o-cookie-message-icon-size/3 +0px;
 		}
 
 		&__close-btn {
@@ -72,7 +72,7 @@
 			@include oTypographySans(xs);
 			font-size: 13px; // override these values
 			line-height: 15px;
-			padding-right: 30px;
+			padding-right: 15px;
 			margin: 0;
 			color: oColorsGetColorFor(page, text);
 		}
@@ -100,8 +100,9 @@
 
 		.o-cookie-message__container {
 			@include oGridContainer();
-			margin-left: auto;
-			margin-right: auto;
+			> div {
+				position: relative;
+			}
 		}
 	}
 
