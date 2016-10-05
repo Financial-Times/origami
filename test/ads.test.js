@@ -115,6 +115,8 @@ describe('Ads', () => {
 
 	describe('#adLoadAndCompletionState', () => {
 		it('should set state correctly at different phases', () => {
+			const realAddEventListener = google.ima.AdsLoader.prototype.addEventListener;
+
 			ads.adsLoaded.should.equal(false);
 			ads.adsCompleted.should.equal(false);
 
@@ -160,6 +162,9 @@ describe('Ads', () => {
 
 			ads.adsLoaded.should.equal(true);
 			ads.adsCompleted.should.equal(false);
+
+			// Restore the original event listener
+			google.ima.AdsLoader.prototype.addEventListener = realAddEventListener;
 		});
 	});
 });
