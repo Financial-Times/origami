@@ -67,9 +67,7 @@ describe('Ads', () => {
 	describe('#adsManagerLoadedHandler', () => {
 		it('should set up adsManager', () => {
 			const adsManagerLoadedEvent = {
-				getAdsManager: sinon.stub().returns({
-					addEventListener: () => {}
-				})
+				getAdsManager: sinon.stub().returns(getAdsManagerMock())
 			};
 
 			ads.video.videoEl = {
@@ -114,4 +112,68 @@ describe('Ads', () => {
 			ads.getVideoBrand().should.equal('Authers Note');
 		});
 	});
+
+	describe('#adLoadAndCompletionState', () => {
+		it('should set state correctly at different phases', () => {
+			ads.adsLoaded.should.equal(false);
+			ads.adsCompleted.should.equal(false);
+
+			// Substitute in a mock addEventListener into the AdsLoader which captures
+			// listeners so they can be fed fake events
+			const realAddEventListener = google.ima.AdsLoader.prototype.addEventListener;
+			const registeredEventListeners = {};
+			const addEventListenerSpy = (eventName, handler) => {
+				if (!registeredEventListeners[eventName]) {
+					registeredEventListeners[eventName] = [];
+				}
+				registeredEventListeners[eventName].push(handler);
+			};
+			google.ima.AdsLoader.prototype.addEventListener = addEventListenerSpy;
+
+			ads.setUpAds();
+
+			// Set up a mock adsManager which will also capture event listeners
+			const mockAdsManager = getAdsManagerMock();
+			const adsManagerLoadedEvent = {
+				getAdsManager: () => mockAdsManager,
+			};
+
+			// Trigger the ads loader loaded listeners, which should set the internal loaded state
+			for (const handler of registeredEventListeners[google.ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED]) {
+				handler(adsManagerLoadedEvent);
+			}
+
+			ads.adsLoaded.should.equal(true);
+			ads.adsCompleted.should.equal(false);
+
+			// Trigger the ads manager all-playing-done listener
+			for (const handler of mockAdsManager.eventListeners[google.ima.AdEvent.Type.CONTENT_RESUME_REQUESTED]) {
+				handler();
+			}
+
+			ads.adsLoaded.should.equal(true);
+			ads.adsCompleted.should.equal(true);
+
+			 // Trigger the ads manager another-ad-is-playing listener
+			for (const handler of mockAdsManager.eventListeners[google.ima.AdEvent.Type.CONTENT_PAUSE_REQUESTED]) {
+				handler();
+			}
+
+			ads.adsLoaded.should.equal(true);
+			ads.adsCompleted.should.equal(false);
+		});
+	});
 });
+
+function getAdsManagerMock() {
+	const eventListeners = {};
+	return {
+		eventListeners,
+		addEventListener: (eventName, handler) => {
+			if (!eventListeners[eventName]) {
+				eventListeners[eventName] = [];
+			}
+			eventListeners[eventName].push(handler);
+		}
+	};
+}
