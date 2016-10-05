@@ -27,7 +27,7 @@ Use the following HTML to get a full width banner with the legal approved cookie
 
 No code will run automatically unless you are using the Build Service.
 
-You must either construct an `o-cookie-message` object or fire the `oDomContentLoaded` event, which oCookieMessage listens for.
+You must either construct an `o-cookie-message` object or fire the `o.DOMContentLoaded` event, which oCookieMessage listens for.
 
 #### Constructing an o-cookie-message
 ```
