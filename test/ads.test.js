@@ -120,7 +120,6 @@ describe('Ads', () => {
 
 			// Substitute in a mock addEventListener into the AdsLoader which captures
 			// listeners so they can be fed fake events
-			const realAddEventListener = google.ima.AdsLoader.prototype.addEventListener;
 			const registeredEventListeners = {};
 			const addEventListenerSpy = (eventName, handler) => {
 				if (!registeredEventListeners[eventName]) {
