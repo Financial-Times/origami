@@ -26,6 +26,7 @@ class CookieMessage {
 	static cookieHTML () {
 		return `
 			<div class="o-cookie-message__container">
+				<div>
 					<p class="o-cookie-message__description">
 						By continuing to use this site you consent to the use of cookies on your device as described in our <a href="http://help.ft.com/tools-services/how-the-ft-manages-cookies-on-its-websites/">cookie policy</a> unless you have disabled them. You can change your <a href="http://help.ft.com/help/legal-privacy/cookies/how-to-manage-cookies/">cookie settings</a> at any time but parts of our site will not function correctly without them.
 					</p>
@@ -34,6 +35,7 @@ class CookieMessage {
 									<span class="o-cookie-message__close-btn-label">Close</span>
 							</button>
 					</div>
+				</div>
 			</div>`;
 	}
 
