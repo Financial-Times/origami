@@ -18,7 +18,8 @@ All FT websites must have a cookie message. Using o-cookie-message will ensure y
 ### Markup
 
 Use the following HTML to get a full width banner with the legal approved cookie message.
-```
+
+```html
 <div data-o-component="o-cookie-message" class='o-cookie-message o-cookie-message--banner-centric'>
 </div>
 ```
@@ -30,14 +31,16 @@ No code will run automatically unless you are using the Build Service.
 You must either construct an `o-cookie-message` object or fire the `o.DOMContentLoaded` event, which oCookieMessage listens for.
 
 #### Constructing an o-cookie-message
-```
+
+```js
 const oCookieMessage = require('o-cookie-message');
 
 const cookieMessage = new oCookieMessage();
 ```
 
 #### Firing an oDomContentLoaded event
-```
+
+```js
 document.addEventListener('DOMContentLoaded', function() {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
@@ -55,8 +58,10 @@ The default behaviour for this component is to populate any div with a `data-o-c
 If you need a different message, you can instruct the o-cookie-message JavaScript NOT to populate the o-cookie-message div, and instead you can put in any HTML you like.
 To prevent o-cookie-message from messing with the inner HTML of your o-cookie-message div, add a second data attribute:
 
-```
-<div data-o-component="o-cookie-message" data-o-cookie-message-use-custom-html="true" class='o-cookie-message o-cookie-message--banner-centric'>
+```html
+<div data-o-component="o-cookie-message" 
+	data-o-cookie-message-use-custom-html="true" 
+	class='o-cookie-message o-cookie-message--banner-centric'>
 	<p class="o-cookie-message__description">
 		Exciting custom cookie message!
 	</p>
@@ -88,7 +93,8 @@ The 2.0.0 release changes the default behaviour of o-cookie-message. Instead of 
 ```
 
 So all you need now is:
-```
+
+```html
 <div data-o-component="o-cookie-message" class='o-cookie-message o-cookie-message--banner-centric'>
 </div>
 ```
