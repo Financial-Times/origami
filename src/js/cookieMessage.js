@@ -10,6 +10,9 @@ class CookieMessage {
 		this.CookieMessageEl = CookieMessageEl;
 
 		this.setup();
+		let e = new CustomEvent('oCookieMessage.ready', { bubbles: true });
+
+		this.CookieMessageEl.dispatchEvent(e);
 	}
 
 	setup () {
