@@ -1,6 +1,6 @@
 {
-  "name": "o-component-boilerplate",
-  "description": "Component description",
+  "name": "o-teaser",
+  "description": "Article teaser component - shows a teaser of an article, requires a link through to the full article",
   "ignore": [
     "**/.*",
     "node_modules",

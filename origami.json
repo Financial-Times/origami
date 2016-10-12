@@ -1,14 +1,14 @@
 {
-		"description": "Component description",
-		"keywords": "component, keywords, for, the, registry, search",
+		"description": "Article teaser component - shows a teaser of an article, requires a link through to the full article",
+		"keywords": "article, teaser, card, link",
 		"origamiType": "module",
 		"origamiCategory": "components",
 		"origamiVersion": 1,
-		"support": "https://github.com/Financial-Times/o-component-boilerplate/issues",
+		"support": "https://github.com/Financial-Times/o-teaser/issues",
 		"supportStatus": "active",
 		"browserFeatures": {},
 		"ci": {
-			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-component-boilerplate"
+			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-teaser"
 		},
 		"demosDefaults": {
 			"sass": "demos/src/demo.scss",
