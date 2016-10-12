@@ -18,7 +18,7 @@
 		"demos": [
 			{
 				"name": "standard",
-				"description": "Standard card",
+				"description": "Standard teaser",
 				"template": "demos/src/demo.mustache",
 				"data": {
 					"article-timestamp": "2016-02-29T12:35:48Z",
@@ -27,7 +27,7 @@
 			},
 			{
 				"name": "standout",
-				"description": "Card with vertically aligned image",
+				"description": "Teaser with vertically aligned image",
 				"template": "demos/src/demo.mustache",
 				"data": {
 					"article-image-url": "https://image.webservices.ft.com/v1/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?source=o-teaser-demo",
@@ -38,7 +38,7 @@
 			},
 			{
 				"name": "opinion",
-				"description": "Opinion card with no image",
+				"description": "Opinion teaser with no image",
 				"template": "demos/src/demo.mustache",
 				"data": {
 					"article-meta-image": "http://image.webservices.ft.com/v1/images/raw/fthead:mrs-moneypenny?source=origami&width=60",
@@ -49,7 +49,7 @@
 			},
 			{
 				"name": "image-horizontal",
-				"description": "Card with horizontally aligned image",
+				"description": "Teaser with horizontally aligned image",
 				"template": "demos/src/demo.mustache",
 				"data": {
 					"article-image-url": "https://image.webservices.ft.com/v1/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?source=o-teaser-demo",
@@ -61,7 +61,7 @@
 			},
 			{
 				"name": "image-horizontal-right",
-				"description": "Card with horizontally aligned image",
+				"description": "Teaser with horizontally aligned image",
 				"template": "demos/src/demo.mustache",
 				"data": {
 					"article-image-url": "https://image.webservices.ft.com/v1/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?source=o-teaser-demo",
@@ -78,7 +78,7 @@
 			},
 			{
 				"name": "horizontal",
-				"description": "Horizontally aligned card",
+				"description": "Horizontally aligned teaser",
 				"template": "demos/src/demo.mustache",
 				"data": {
 					"article-modifier": "landscape",
@@ -89,7 +89,7 @@
 			},
 			{
 				"name": "full-content-image-top",
-				"description": "Large Card with all content examples",
+				"description": "Large teaser with all content examples",
 				"template": "demos/src/demo.mustache",
 				"data": {
 					"article-image-url": "https://image.webservices.ft.com/v1/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?source=o-teaser-demo",
