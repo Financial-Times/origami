@@ -1,2 +1,15 @@
-$o-component-boilerplate-is-silent: false;
+$o-teaser-is-silent: false;
 @import '../../main';
+
+.demo-container {
+	padding: 20px;
+	width: 200px;
+}
+
+.demo-container--large {
+	width: 300px;
+}
+
+.demo-container--landscape {
+	width: 350px;
+}
