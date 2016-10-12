@@ -104,7 +104,6 @@ Some elements inside the header require specific data attributes so the JavaScri
 * data-o-header-mega: Applied to the root `<div>` of the mega menu
 * data-o-header-search: Applied to the root `<div>` of the _enhanced_ search row. There are two search rows, one for enhanced, another for core
 * data-o-header-drawer: Applied to the root `<div>` of the drawer
-* data-o-header-drawer-user-email: Applied to the `<span>` inside of the drawer that will host the user's email
 * data-o-header-subnav: Applied to the root `div` of the subnav menu
 * data-o-header-subnav-wrapper: Applied to the inner wrapper `div` of the subnav menu so the JS can handle the scrolling
 
