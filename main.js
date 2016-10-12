@@ -1,10 +1,10 @@
-import oComponentBoilerplate from './src/js/componentBoilerplate';
+import oTeaser from './src/js/teaser';
 
 const constructAll = function() {
-	oComponentBoilerplate.init();
+	oTeaser.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-export default oComponentBoilerplate;
+export default oTeaser;

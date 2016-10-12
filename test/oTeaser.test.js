@@ -3,19 +3,19 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 
-const ComponentBoilerplate = require('./../main');
+const Teaser = require('./../main');
 
-describe("ComponentBoilerplate", () => {
+describe("Teaser", () => {
 	it('is defined', () => {
-		proclaim.equal(typeof ComponentBoilerplate, 'function');
+		proclaim.equal(typeof Teaser, 'function');
 	});
 
 	it('has a static init method', () => {
-		proclaim.equal(typeof ComponentBoilerplate.init, 'function');
+		proclaim.equal(typeof Teaser.init, 'function');
 	});
 
 	it("should autoinitialize", (done) => {
-		const initSpy = sinon.spy(ComponentBoilerplate, 'init');
+		const initSpy = sinon.spy(Teaser, 'init');
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 		setTimeout(function(){
 			proclaim.equal(initSpy.called, true);
@@ -25,7 +25,7 @@ describe("ComponentBoilerplate", () => {
 	});
 
 	it("should not autoinitialize when the event is not dispached", () => {
-		const initSpy = sinon.spy(ComponentBoilerplate, 'init');
+		const initSpy = sinon.spy(Teaser, 'init');
 		proclaim.equal(initSpy.called, false);
 	});
 
@@ -39,14 +39,14 @@ describe("ComponentBoilerplate", () => {
 		});
 
 		it("component array when initialized", () => {
-			const boilerplate = ComponentBoilerplate.init();
-			proclaim.equal(boilerplate instanceof Array, true);
-			proclaim.equal(boilerplate[0] instanceof ComponentBoilerplate, true);
+			const teaser = Teaser.init();
+			proclaim.equal(teaser instanceof Array, true);
+			proclaim.equal(teaser[0] instanceof Teaser, true);
 		});
 
 		it("single component when initialized with a root element", () => {
-			const boilerplate = ComponentBoilerplate.init('#element');
-			proclaim.equal(boilerplate instanceof ComponentBoilerplate, true);
+			const teaser = Teaser.init('#element');
+			proclaim.equal(teaser instanceof Teaser, true);
 		});
 	});
 });

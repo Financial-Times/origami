@@ -23,7 +23,7 @@ function insert(html) {
 function htmlCode () {
 	const html = `<div>
 		<h1>Basic Demo</h1>
-			<div class="o-component-boilerplate" data-o-component="o-component-boilerplate" id="element"></div>
+		<div class="o-teaser" data-o-component="o-teaser" id="element"></div>
 	</div>
 	`;
 	insert(html);

@@ -1,10 +1,12 @@
 @import "o-colors/main";
 
-@if ($o-component-boilerplate-is-silent == false) {
-	 .o-component-boilerplate {
+
+@if ($o-teaser-is-silent == false) {
+
+	.o-teaser {
 		display: block;
 	}
 
 	// Set to silent again to avoid being output twice
-	$o-component-boilerplate-is-silent: true !global;
+	$o-teaser-is-silent: true !global;
 }
