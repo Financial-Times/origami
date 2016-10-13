@@ -45,6 +45,10 @@
 
 		.o-header__nav--mobile & {
 			padding-left: $_o-header-padding-x * 2;
+
+			&:first-child {
+				padding-left: 0;
+			}
 		}
 	}
 
