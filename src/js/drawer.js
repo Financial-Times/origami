@@ -96,22 +96,6 @@ function addSubmenuToggles (drawerEl) {
 	});
 }
 
-function appendUserDetail (target) {
-	return fetch('https://session-next.ft.com/', {
-		credentials: 'include'
-	})
-	.then((response) => {
-		if (response.ok) {
-			return response.json();
-		} else {
-			return response.text().then((err) => { throw new Error(err); });
-		}
-	})
-	.then((data) => {
-		target.innerText = data.emailAddress;
-	});
-}
-
 function init () {
 	const drawerEl = document.body.querySelector('[data-o-header-drawer]');
 	if (!drawerEl) {
@@ -119,13 +103,6 @@ function init () {
 	}
 	addSubmenuToggles(drawerEl);
 	addDrawerToggles(drawerEl);
-
-	const emailEl = drawerEl.querySelector('[data-o-header-drawer-user-email]');
-
-	// if the browser doesn't support CORS then bail
-	if (emailEl && ('withCredentials' in new XMLHttpRequest())) {
-		appendUserDetail(emailEl);
-	}
 
 	drawerEl.removeAttribute('data-o-header-drawer--no-js');
 	drawerEl.setAttribute('data-o-header-drawer--js', 'true');
