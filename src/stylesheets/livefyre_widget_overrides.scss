@@ -1382,6 +1382,10 @@ body {
 		outline: none;
 		background-color: oColorsGetPaletteColor('white');
 
+		.fyre-modal-shares {
+			display: none;
+		}
+
 		.fyre-modal-header,
 		.fyre-modal-title {
 			text-align: left;
