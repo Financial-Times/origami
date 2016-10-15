@@ -30,7 +30,7 @@ function eventListener(video, ev) {
 			category: 'video',
 			contentId: video.opts.id,
 			progress: video.getProgress(),
-			duration: video.duration
+			duration: video.videoEl.duration
 		},
 		bubbles: true
 	});
