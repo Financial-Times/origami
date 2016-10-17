@@ -1,0 +1,19 @@
+@mixin nTeaserTag {
+	color: getColor('cold-2');
+	font: 16px/1.5 $o-typography-sans;
+}
+
+@mixin nTeaserHeading {
+	color: getColor('cold-2');
+	font: 24px/2.3 $o-typography-sans;
+}
+
+@mixin nTeaserStandfirst {
+	color: getColor('cold-2');
+	font: 16px/3 $o-typography-sans;
+}
+
+@mixin nTeaserTimestamp {
+	color: getColor('cold-1');
+	font: 14px/1.7 $o-typography-sans;
+}
