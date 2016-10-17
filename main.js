@@ -99,6 +99,8 @@ ODate.prototype.update = function() {
 		dateString = ODate.format(date, 'date');
 	} else if (format === 'time-ago-limit-4-hours'){
 		dateString = ODate.timeAgo(date, { limit: 4*inSeconds.hour });
+	} else if (format !== '') {
+		dateString = ODate.format(date, format);
 	} else {
 		 dateString = ODate.ftTime(date);
 	}
