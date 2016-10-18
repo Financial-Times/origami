@@ -10,7 +10,7 @@ const transports = require('./transports');
 /**
  * Default collection server.
  */
-let domain = 'http://test.spoor-api.ft.com';
+let domain = 'https://spoor-api.ft.com/px.gif';
 
 /**
  * Queue queue.
