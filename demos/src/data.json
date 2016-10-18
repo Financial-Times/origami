@@ -22,7 +22,13 @@
 			"name": "book"
 		},
 		{
+			"name": "corporate"
+		},
+		{
 			"name": "cross"
+		},
+		{
+			"name": "download"
 		},
 		{
 			"name": "gift"
@@ -59,6 +65,9 @@
 		},
 		{
 			"name": "notifications"
+		},
+		{
+			"name": "outside-page"
 		},
 		{
 			"name": "pause"
