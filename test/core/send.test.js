@@ -80,7 +80,7 @@ describe('Core.Send', function () {
 				// assert.equal(dummyXHR.onerror.length, 1) // it will get passed the error
 				// assert.equal(dummyXHR.onload.length, 0) // it will not get passed an error
 				assert.ok(dummyXHR.withCredentials);
-				assert.ok(dummyXHR.open.calledWith("POST", "http://test.spoor-api.ft.com", true));
+				assert.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/px.gif", true));
 				assert.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'));
 				assert.ok(dummyXHR.send.calledOnce);
 				window.XMLHttpRequest = xhr;
@@ -130,7 +130,7 @@ describe('Core.Send', function () {
 				// assert.equal(dummyXHR.onerror.length, 1) // it will get passed the error
 				// assert.equal(dummyXHR.onload.length, 0) // it will not get passed an error
 				assert.ok(dummyXHR.withCredentials, 'withCredentials');
-				assert.ok(dummyXHR.open.calledWith("POST", "http://test.spoor-api.ft.com", true), 'is POST');
+				assert.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/px.gif", true), 'is POST');
 				assert.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'), 'is application/json');
 				assert.ok(dummyXHR.send.calledOnce, 'calledOnce');
 				window.XMLHttpRequest = xhr;
@@ -156,7 +156,7 @@ describe('Core.Send', function () {
 			window.Image = sinon.stub().returns(dummyImage);
 			Send.addAndRun(request);
 			setTimeout(() => {
-				assert.ok(dummyImage.src, 'http://test.spoor-api.ft.com?data=%7B%22system%22%…1.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
+				assert.ok(dummyImage.src, 'https://spoor-api.ft.com/px.gif?data=%7B%22system%22%…1.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
 				assert.equal(dummyImage.addEventListener.args[0][0], 'error');
 				assert.equal(dummyImage.addEventListener.args[0][1].length, 1);// it will get passed the error
 				assert.equal(dummyImage.addEventListener.args[1][0], 'load');
@@ -183,7 +183,7 @@ describe('Core.Send', function () {
 			window.Image = sinon.stub().returns(dummyImage);
 			Send.addAndRun(request);
 			setTimeout(() => {
-				assert.ok(dummyImage.src, 'http://test.spoor-api.ft.com?data=%7B%22system%22%…1.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
+				assert.ok(dummyImage.src, 'https://spoor-api.ft.com/px.gif?data=%7B%22system%22%…1.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
 				assert.equal(dummyImage.attachEvent.args[0][0], 'onerror');
 				assert.equal(dummyImage.attachEvent.args[0][1].length, 1);// it will get passed the error
 				assert.equal(dummyImage.attachEvent.args[1][0], 'onload');
