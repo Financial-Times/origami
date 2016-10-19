@@ -1,10 +1,12 @@
 @import "o-colors/main";
+@import "src/scss/variables";
+@import "src/scss/mixins";
 
-@if ($o-component-boilerplate-is-silent == false) {
-	 .o-component-boilerplate {
+@if ($o-teaser-collection-is-silent == false) {
+	 .o-teaser-collection {
 		display: block;
 	}
 
 	// Set to silent again to avoid being output twice
-	$o-component-boilerplate-is-silent: true !global;
+	$o-teaser-collection-is-silent: true !global;
 }

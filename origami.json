@@ -1,14 +1,14 @@
 {
-		"description": "Component description",
-		"keywords": "component, keywords, for, the, registry, search",
+		"description": "A collection of article teasers, collated by subject.",
+		"keywords": "article, teaser, list, collection",
 		"origamiType": "module",
 		"origamiCategory": "components",
 		"origamiVersion": 1,
-		"support": "https://github.com/Financial-Times/o-component-boilerplate/issues",
+		"support": "https://github.com/Financial-Times/o-teaser-collection/issues",
 		"supportStatus": "active",
 		"browserFeatures": {},
 		"ci": {
-			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-component-boilerplate"
+			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-teaser-collection"
 		},
 		"demosDefaults": {
 			"sass": "demos/src/demo.scss",
@@ -17,10 +17,9 @@
 		},
 		"demos": [
 			{
-				"name": "demo",
-				"js": "demos/src/demo.js",
-				"template": "demos/src/demo.mustache",
-				"description": "Description of the demo"
+				"name": "standard",
+				"description": "Standard teaser collection",
+				"template": "demos/src/demo.mustache"
 			},
 			{
 				"name": "pa11y",

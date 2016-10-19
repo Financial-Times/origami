@@ -1,6 +1,6 @@
 {
-  "name": "o-component-boilerplate",
-  "description": "Component description",
+  "name": "o-teaser-collection",
+		"description": "A collection of article teasers, collated by subject.",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -9,8 +9,7 @@
     "tests"
   ],
   "main": [
-    "main.scss",
-		"main.js"
+    "main.scss"
   ],
   "dependencies": {
     "o-colors": "^3.3.0"
