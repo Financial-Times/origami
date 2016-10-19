@@ -8,19 +8,39 @@
 	}
 
 	.o-teaser__tag {
-		@include nTeaserTag;
+		@include oTeaserTag;
 	}
 
 	.o-teaser__heading {
-		@include nTeaserHeading;
+		@include oTeaserHeading;
 	}
 
+	.o-teaser__heading-link {
+		@include oTeaserHeadingLink;
+	}
+
+
 	.o-teaser__standfirst {
-		@include nTeaserStandfirst;
+		@include oTeaserStandfirst;
 	}
 
 	.o-teaser__timestamp {
-		@include nTeaserTimestamp;
+		@include oTeaserTimestamp;
+	}
+
+	.o-teaser--large {
+		.o-teaser__content {
+			@include oTeaserContentLarge;
+		}
+		.o-teaser__heading {
+			@include oTeaserHeadingLarge;
+		}
+		.o-teaser__standfirst {
+			@include oTeaserStandfirstLarge;
+		}
+		.o-teaser__image-container {
+			@include oTeaserImageContainerLarge;
+		}
 	}
 
 	// Set to silent again to avoid being output twice

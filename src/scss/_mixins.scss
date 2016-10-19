@@ -1,19 +1,60 @@
-@mixin nTeaserTag {
-	color: getColor('cold-2');
-	font: 16px/1.5 $o-typography-sans;
+// Avoiding the abstraction of values until things settle
+// Also sorry for using Next’s getColor for now. Not sure if you want o-colors as a dependency, or just hard-code hex colors
+// Spacing observations so far: maybe multiples of 7 would work?
+
+@mixin oTeaserContentLarge {
+	border: 1px solid getColor('warm-3');
+	// 79 = Half the height of a 16:9 image at 280 width
+padding: 21px 21px 79px;
 }
 
-@mixin nTeaserHeading {
-	color: getColor('cold-2');
-	font: 24px/2.3 $o-typography-sans;
+@mixin oTeaserTag {
+	border: 0;
+	color: getColor('claret');
+	display: block;
+	font: bold 16px/1 $o-typography-sans;
+	margin-bottom: 7px;
 }
 
-@mixin nTeaserStandfirst {
+@mixin oTeaserHeading {
 	color: getColor('cold-2');
-	font: 16px/3 $o-typography-sans;
+	font: bold 24px/28px $o-typography-serif-display;
+	margin: 0;
 }
 
-@mixin nTeaserTimestamp {
+@mixin oTeaserHeadingLarge {
+	font: normal 38px/40px $o-typography-sans;
+}
+
+@mixin oTeaserHeadingLink {
+	border: 0;
+	color: getColor('cold-2');
+}
+
+@mixin oTeaserStandfirst {
 	color: getColor('cold-1');
-	font: 14px/1.7 $o-typography-sans;
+	font: 16px/24px $o-typography-sans;
+	margin: 7px 0;
+}
+
+@mixin oTeaserStandfirstLarge {
+	font-size: 22px;
+	line-height: 28px;
+}
+
+@mixin oTeaserTimestamp {
+	color: getColor('cold-2');
+	font: 14px/22px $o-typography-sans;
+}
+
+@mixin oTeaserImageContainerLarge {
+	// 79 = Half the height of a 16:9 image at 280 width
+	margin-top: -79px;
+	position: relative;
+	text-align: right;
+
+	// Temp until we integrate n-image
+	img {
+		width: 280px;
+	}
 }
