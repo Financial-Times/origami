@@ -10,9 +10,10 @@
   ],
   "main": [
     "main.scss",
-	"main.js"
+    "main.js"
   ],
   "dependencies": {
-    "o-colors": "^3.3.0"
+    "o-colors": "^3.5.2",
+    "o-typography": "^4.3.1"
   }
 }
