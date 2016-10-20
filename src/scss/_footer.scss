@@ -35,14 +35,14 @@
 			list-style: none;
 			display: inline-block;
 
-		&:before {
-			content: '\2022';
-			padding-left: 1px;
-			padding-right: 4px;
-		}
-		&:first-child:before {
-			content: '';
-			padding: 0;
+			&:before {
+				content: '\2022';
+				padding-left: 1px;
+				padding-right: 4px;
+			}
+			&:first-child:before {
+				content: '';
+				padding: 0;
 			}
 		}
 	}
