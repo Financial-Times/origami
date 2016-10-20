@@ -1,0 +1,11 @@
+// Text
+@include oColorsSetUseCase(o-teaser-timestamp, text, 'cold-1');
+@include oColorsSetUseCase(o-teaser-standfirst, text, 'cold-1');
+// Tags
+@include oColorsSetUseCase(o-teaser-tag, text, 'claret-1');
+@include oColorsSetUseCase(o-teaser-opinion-tag, text, 'blue');
+
+// Themes
+@include oColorsSetUseCase(o-teaser-theme-opinion, background, 'blue-tint5');
+@include oColorsSetUseCase(o-teaser-theme-special, background, 'claret-1');
+@include oColorsSetUseCase(o-teaser-theme-special, text, 'white');

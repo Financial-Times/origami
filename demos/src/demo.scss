@@ -1,15 +1,11 @@
 $o-teaser-is-silent: false;
 @import '../../main';
 
+body {
+	background-color: oColorsGetPaletteColor('pink');
+}
+
 .demo-container {
 	padding: 20px;
-	width: 200px;
-}
-
-.demo-container--large {
-	width: 300px;
-}
-
-.demo-container--landscape {
-	width: 350px;
+	width: 500px;
 }

@@ -1,48 +1,84 @@
 @import "o-colors/main";
+@import "o-grid/main";
+@import "o-typography/main";
 
+@import "src/scss/variables";
 @import "src/scss/color-use-cases";
-@import "src/scss/mixins";
+// @import "src/scss/mixins";
 
 @if ($o-teaser-is-silent == false) {
 
 	.o-teaser {
-		display: block;
+		display: flex;
+		padding-bottom: 15px;
+		font-family: $o-typography-sans;
+		border-bottom: 1px solid $_o-teaser-color-border;
+
+		&.o-teaser--small {
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+		}
+	}
+
+	.o-teaser__content {
+	}
+
+	.o-teaser__image {
+		img {
+			display: block;
+			margin: 0;
+		}
+
+		.o-teaser--small & {
+			padding-top: 4px; // to line up with tag cap-height
+			padding-right: oGridGutter(M);
+		}
 	}
 
 	.o-teaser__tag {
-		@include oTeaserTag;
+		@include font-size(18, 22);
+		@include oColorsFor('o-teaser-tag', 'text')
+		margin: 0;
+		font-weight: oFontsWeight(semibold);
+		text-decoration: none;
+		border: 0;
 	}
 
 	.o-teaser__heading {
-		@include oTeaserHeading;
-	}
+		@include font-size(24, 28);
+		margin: 0;
+		font-family: $o-typography-serif-display;
+		font-weight: oFontsWeight(normal);
+		color: $_o-teaser-color-title;
 
-	.o-teaser__heading-link {
-		@include oTeaserHeadingLink;
-	}
+		a {
+			color: inherit;
+			text-decoration: none;
+			border: 0;
+		}
 
+		.o-teaser--large & {
+			@include font-size(38, 40);
+			font-family: $o-typography-sans;
+		}
+	}
 
 	.o-teaser__standfirst {
-		@include oTeaserStandfirst;
+		@include font-size(16, 22);
+		margin-top: 6px;
+		color: $_o-teaser-color-standfirst;
+
+		.o-teaser--large & {
+			@include font-size(22, 28);
+		}
 	}
 
 	.o-teaser__timestamp {
-		@include oTeaserTimestamp;
-	}
-
-	.o-teaser--large {
-		.o-teaser__content {
-			@include oTeaserContentLarge;
-		}
-		.o-teaser__heading {
-			@include oTeaserHeadingLarge;
-		}
-		.o-teaser__standfirst {
-			@include oTeaserStandfirstLarge;
-		}
-		.o-teaser__image-container {
-			@include oTeaserImageContainerLarge;
-		}
+		@include font-size(14, 24);
+		@include oColorsFor('o-teaser-timestamp', text);
+		display: block;
+		margin-top: 6px;
 	}
 
 	// Set to silent again to avoid being output twice

@@ -1,20 +1,14 @@
-<div class="demo-container demo-container--{{article-modifier}}">
-	<div class="o-teaser o-teaser--{{article-modifier}} o-teaser--image-{{article-image-alignment}}" data-o-component="o-teaser">
+<div class="demo-container">
+
+
+	<div class="o-teaser o-teaser--small o-teaser--{{article-modifier}}" data-o-component="o-teaser">
 		{{#article-image-url}}
-			<div class="o-teaser__image o-teaser__image--{{article-image-alignment}}">
+			<div class="o-teaser__image">
 				<img src="{{article-image-url}}" alt="demo image"/>
 			</div>
 		{{/article-image-url}}
-
 		<div class="o-teaser__content">
-			<div class="o-teaser__meta">
-				{{#article-meta-image}}
-					<div class="o-teaser__meta-image o-teaser__meta-image--rounded">
-						<img src="{{article-meta-image}}" alt=" ">
-					</div>
-				{{/article-meta-image}}
-				<a href="#" class="o-teaser__tag">Mrs Moneypenny</a>
-			</div>
+			<a href="#" class="o-teaser__tag">Mrs Moneypenny</a>
 
 			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
 
@@ -26,13 +20,9 @@
 				<time data-o-component="o-date" class="o-date o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
 			{{/article-timestamp}}
 		</div>
-
-		{{#article-related-content.length}}
-			<ul class="o-teaser__related-content">
-				{{#article-related-content}}
-					<li class="o-teaser__related-content-item"><a href="#">{{link}}</a></li>
-				{{/article-related-content}}
-			</ul>
-		{{/article-related-content.length}}
 	</div>
+
+
+
+
 </div>
