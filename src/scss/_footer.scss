@@ -26,6 +26,27 @@
 		margin-top: $o-footer-spacing-unit;
 	}
 
+	.o-footer__legal-links {
+
+		padding-left: 0px;
+
+		li {
+			@include oTypographySansSize('s');
+			list-style: none;
+			display: inline-block;
+
+		&:before {
+			content: '\2022';
+			padding-left: 1px;
+			padding-right: 4px;
+		}
+		&:first-child:before {
+			content: '';
+			padding: 0;
+			}
+		}
+	}
+
 	.o-footer__copyright {
 		margin-top: $o-footer-spacing-unit;
 		margin-bottom: $o-footer-spacing-unit;
