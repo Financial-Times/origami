@@ -8,9 +8,10 @@
 
 @if ($o-teaser-is-silent == false) {
 
+	@include oFontsIncludeAll();
+
 	.o-teaser {
 		position: relative;
-
 		font-family: $o-typography-sans;
 
 		&.o-teaser--small {
@@ -18,7 +19,7 @@
 			flex-direction: row;
 			flex-wrap: nowrap;
 			justify-content: space-between;
-			padding-bottom: 15px;
+			padding-bottom: 10px;
 			border-bottom: 1px solid $_o-teaser-color-border;
 		}
 	}
@@ -55,7 +56,7 @@
 		}
 
 		.o-teaser--small & {
-			padding-top: 4px; // to line up with tag cap-height
+			padding-top: 5px; // to line up with tag cap-height
 			padding-right: oGridGutter(M);
 		}
 
@@ -68,12 +69,16 @@
 	}
 
 	.o-teaser__tag {
-		@include font-size(18, 22);
+		@include font-size(18, 20);
 		@include oColorsFor('o-teaser-tag', 'text')
 		margin: 0;
 		font-weight: oFontsWeight(semibold);
 		text-decoration: none;
 		border: 0;
+
+		&:hover {
+			color: #777;
+		}
 
 		.o-teaser--opinion & {
 			@include oColorsFor('o-teaser-opinion-tag', 'text');
@@ -92,10 +97,14 @@
 
 	.o-teaser__heading {
 		@include font-size(24, 28);
-		margin: 0;
+		margin: 0 0 10px;
 		font-family: $o-typography-serif-display;
 		font-weight: oFontsWeight(normal);
 		color: $_o-teaser-color-title;
+
+		&:hover {
+			color: #777;
+		}
 
 		a {
 			color: inherit;
@@ -105,7 +114,6 @@
 
 		.o-teaser--large & {
 			@include font-size(38, 40);
-			margin-top: 4px;
 			font-family: $o-typography-sans;
 		}
 
@@ -116,8 +124,7 @@
 
 	.o-teaser__standfirst {
 		@include font-size(16, 22);
-		margin-top: 6px;
-		margin-bottom: 0;
+		margin: 0;
 		color: $_o-teaser-color-standfirst;
 
 		.o-teaser--large & {
@@ -131,13 +138,17 @@
 	}
 
 	.o-teaser__timestamp {
-		@include font-size(14, 24);
+		@include font-size(12, 16);
 		@include oColorsFor('o-teaser-timestamp', text);
 		display: block;
-		margin-top: 6px;
+		text-transform: uppercase;
 
 		.o-teaser--special & {
 			color: oColorsGetPaletteColor('white');
+		}
+
+		.o-teaser--large & {
+			margin-top: 10px;
 		}
 	}
 
