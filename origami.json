@@ -19,7 +19,8 @@
 	},
 	"demosDefaults": {
 		"js": "demos/src/demo.js",
-		"sass": "demos/src/demo.scss"
+		"sass": "demos/src/demo.scss",
+		"dependencies": "o-fonts"
 	},
 	"demos": [
 		{
@@ -37,7 +38,7 @@
 		{
 			"name": "simple-footer",
 			"template": "demos/src/simple-footer.mustache",
-			"description": ""
+			"description": "Simple footer for shorter stand-alone pages. The links in this demo must be included at the request of the FT's legal team."
 		},
 		{
 			"name": "pa11y",
