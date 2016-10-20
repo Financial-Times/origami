@@ -10,15 +10,34 @@
 
 	.o-teaser {
 		position: relative;
-		display: flex;
-		padding-bottom: 15px;
+
 		font-family: $o-typography-sans;
-		border-bottom: 1px solid $_o-teaser-color-border;
 
 		&.o-teaser--small {
+			display: flex;
 			flex-direction: row;
 			flex-wrap: nowrap;
 			justify-content: space-between;
+			padding-bottom: 15px;
+			border-bottom: 1px solid $_o-teaser-color-border;
+		}
+	}
+
+	.o-teaser--large {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		padding: oGridGutter(M);
+		box-shadow: inset 0 0 0 1px $_o-teaser-color-border;
+
+		&.o-teaser--opinion {
+			@include oColorsFor('o-teaser-theme-opinion');
+			box-shadow: none;
+		}
+
+		&.o-teaser--special {
+			@include oColorsFor('o-teaser-theme-special');
+			box-shadow: none;
 		}
 	}
 
@@ -31,13 +50,20 @@
 
 	.o-teaser__image {
 		img {
-			display: block;
+			display: inline-block;
 			margin: 0;
 		}
 
 		.o-teaser--small & {
 			padding-top: 4px; // to line up with tag cap-height
 			padding-right: oGridGutter(M);
+		}
+
+		.o-teaser--large & {
+			margin-top: -80px;
+			margin-right: -20px;
+			text-align: right;
+			transform: translateY(calc(50% + 20px));
 		}
 	}
 
@@ -51,6 +77,10 @@
 
 		.o-teaser--opinion & {
 			@include oColorsFor('o-teaser-opinion-tag', 'text');
+		}
+
+		.o-teaser--special & {
+			color: oColorsGetPaletteColor('white');
 		}
 	}
 
@@ -75,17 +105,28 @@
 
 		.o-teaser--large & {
 			@include font-size(38, 40);
+			margin-top: 4px;
 			font-family: $o-typography-sans;
+		}
+
+		.o-teaser--special & {
+			color: oColorsGetPaletteColor('white');
 		}
 	}
 
 	.o-teaser__standfirst {
 		@include font-size(16, 22);
 		margin-top: 6px;
+		margin-bottom: 0;
 		color: $_o-teaser-color-standfirst;
 
 		.o-teaser--large & {
 			@include font-size(22, 28);
+			margin-top: 25px;
+		}
+
+		.o-teaser--special & {
+			color: rgba(oColorsGetPaletteColor('white'), 0.7);
 		}
 	}
 
@@ -94,6 +135,10 @@
 		@include oColorsFor('o-teaser-timestamp', text);
 		display: block;
 		margin-top: 6px;
+
+		.o-teaser--special & {
+			color: oColorsGetPaletteColor('white');
+		}
 	}
 
 	// Set to silent again to avoid being output twice
