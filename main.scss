@@ -9,6 +9,7 @@
 @if ($o-teaser-is-silent == false) {
 
 	.o-teaser {
+		position: relative;
 		display: flex;
 		padding-bottom: 15px;
 		font-family: $o-typography-sans;
@@ -22,6 +23,10 @@
 	}
 
 	.o-teaser__content {
+
+		.o-teaser--has-headshot & {
+			padding-right: 95px;
+		}
 	}
 
 	.o-teaser__image {
@@ -43,6 +48,16 @@
 		font-weight: oFontsWeight(semibold);
 		text-decoration: none;
 		border: 0;
+
+		.o-teaser--opinion & {
+			@include oColorsFor('o-teaser-opinion-tag', 'text');
+		}
+	}
+
+	.o-teaser__headshot {
+		position: absolute;
+		bottom: 0;
+		right: 0;
 	}
 
 	.o-teaser__heading {
