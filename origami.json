@@ -19,7 +19,8 @@
 	},
 	"demosDefaults": {
 		"js": "demos/src/demo.js",
-		"sass": "demos/src/demo.scss"
+		"sass": "demos/src/demo.scss",
+		"dependencies": "o-fonts"
 	},
 	"demos": [
 		{
