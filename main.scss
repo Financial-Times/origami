@@ -26,7 +26,6 @@
 		flex-direction: column;
 		flex-wrap: nowrap;
 		justify-content: space-between;
-		padding: oGridGutter(M);
 		box-shadow: inset 0 0 0 1px $_o-teaser-color-border;
 
 		&.o-teaser--opinion {
@@ -41,17 +40,25 @@
 	}
 
 	.o-teaser__content {
-
 		.o-teaser--has-headshot & {
 			padding-right: 95px;
+		}
+
+		.o-teaser--large & {
+			padding: oGridGutter(M);
 		}
 	}
 
 	.o-teaser__image {
 		img {
-			display: inline-block;
+			display: block;
 			width: 100%;
 			margin: 0;
+
+			.o-teaser--large & {
+				position: relative;
+				z-index: 1;
+			}
 		}
 
 		.o-teaser--small & {
@@ -60,10 +67,26 @@
 		}
 
 		.o-teaser--large & {
-			margin-top: -80px;
-			margin-right: -20px;
+			position: relative;
 			padding-left: 25%;
-			transform: translateY(calc(50% + 20px));
+
+			&:after {
+				display: block;
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 50%;
+				background-color: oColorsGetPaletteColor('pink');
+				z-index: 0;
+				border-top: 1px solid $_o-teaser-color-border;
+			}
+		}
+
+		.o-teaser--opinion.o-teaser--large &:after,
+		.o-teaser--special.o-teaser--large &:after {
+			border-top: 0;
 		}
 	}
 
