@@ -47,6 +47,22 @@
 		}
 	}
 
+	.o-footer__external-link {
+		border-top: 1px dotted;
+		border-bottom: 1px dotted;
+
+		a {
+			display: block;
+			padding: $o-footer-spacing-unit/2 0;
+
+			&:after {
+				@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-dark-title', 'text'), $icon-size, $iconset-version: 1);
+				vertical-align: middle;
+				content: ' ';
+			}
+		}
+	}
+
 	.o-footer__copyright {
 		margin-top: $o-footer-spacing-unit;
 		margin-bottom: $o-footer-spacing-unit;
