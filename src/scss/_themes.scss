@@ -7,6 +7,10 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 
+		.o-footer__matrix-title a {
+			color: oColorsGetColorFor('o-footer-dark-title', 'text');
+		}
+
 		a {
 			color: oColorsGetColorFor('o-footer-dark-link', 'text');
 
@@ -14,6 +18,10 @@
 			&:focus {
 				color: oColorsGetColorFor('o-footer-dark-link-hover', 'text');
 			}
+		}
+
+		.o-footer__external-link a:after {
+			@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-dark-title', 'text'), $icon-size, $apply-base-styles: false, $iconset-version: 1);
 		}
 
 		.o-footer__copyright {
@@ -32,6 +40,10 @@
 	.o-footer--theme-light {
 		@include oColorsFor('o-footer-light', 'text' 'background' 'border');
 
+		.o-footer__title {
+			color: oColorsGetColorFor('o-footer-light-title', 'text');
+		}
+
 		a {
 			color: oColorsGetColorFor('o-footer-light-link', 'text');
 
@@ -48,6 +60,10 @@
 		.o-footer__brand {
 			@include oColorsFor('o-footer-light', 'text');
 			background-color: oColorsGetColorFor('o-footer-light-brand', 'background');
+		}
+
+		.o-footer__external-link a:after {
+			@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-light-title', 'text'), $icon-size, $apply-base-styles: false, $iconset-version: 1);
 		}
 	}
 }

@@ -43,39 +43,6 @@ const data = {
 				{ "text": "Currency Converter", "href": "//markets.ft.com/research/Markets/Currencies?segid&#x3D;70113" },
 				{ "text": "Ebooks", "href": "//www.ft.com/ebooks", "aria-label": "E-books" }
 			]
-		},
-		{
-			"title": "More from FT Group",
-			"items": [
-				{ "text": "Agenda", "href": "//www.agendaweek.com/" },
-				{ "text": "Analyse Africa", "href": "//www.analyseafrica.com/" },
-				{ "text": "Board IQ", "href": "//www.boardiq.com/" },
-				{ "text": "Corporate Learning Alliance", "href": "//www.ftiecla.com/" },
-				{ "text": "DPN: Deutsche Pensions & Investment Nachrichten", "href": "//www.dpn-online.com/" },
-				{ "text": "ExecSense", "href": "//www.execsense.com/" },
-				{ "text": "FDI Intelligence", "href": "//www.fdiintelligence.com/" },
-				{ "text": "Financial Advisor IQ", "href": "//financialadvisoriq.com/" },
-				{ "text": "FT Chinese", "href": "//www.ftchinese.com/", "aria-label": "F T Chinese" },
-				{ "text": "FT Live", "href": "//live.ft.com/", "aria-label": "F T Live" },
-				{ "text": "FT Property Listings", "href": "//propertylistings.ft.com/", "aria-label": "F T Property Listings" },
-				{ "text": "FT Advisor", "href": "//www.ftadviser.com/", "aria-label": "F T Advisor" },
-				{ "text": "Fund Fire", "href": "//www.fundfire.com/" },
-				{ "text": "Global Risk Regulator", "href": "//www.globalriskregulator.com/" },
-				{ "text": "How to Spend It", "href": "//howtospendit.ft.com/" },
-				{ "text": "Ignites", "href": "//www.ignites.com/" },
-				{ "text": "Ignites Asia", "href": "//www.ignitesasia.com/" },
-				{ "text": "Ignites Europe", "href": "//www.igniteseurope.com/" },
-				{ "text": "Investors Chronicle", "href": "//www.investorschronicle.co.uk/" },
-				{ "text": "Mandate Wire", "href": "//www.mandatewire.com/" },
-				{ "text": "New York Insitute of Finance", "href": "//www.nyif.com/" },
-				{ "text": "Non Executive Directors Club", "href": "//www.non-execs.com/" },
-				{ "text": "Pensions Expert", "href": "//www.pensions-expert.com/" },
-				{ "text": "Professional Wealth Management", "href": "//www.pwmnet.com/" },
-				{ "text": "125 Club", "href": "//the125.ft.com/" },
-				{ "text": "The Banker", "href": "//www.thebanker.com/" },
-				{ "text": "The Banker Database", "href": "//www.thebankerdatabase.com/" },
-				{ "text": "This is Africa", "href": "//www.thisisafricaonline.com/" }
-			]
 		}
 	],
 	"copyrightYear": (new Date()).getUTCFullYear(),
