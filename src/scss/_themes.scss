@@ -62,7 +62,7 @@
 			background-color: oColorsGetColorFor('o-footer-light-brand', 'background');
 		}
 
-		.o-footer__external-link a:after{
+		.o-footer__external-link a:after {
 			@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-light-title', 'text'), $icon-size, $apply-base-styles: false, $iconset-version: 1);
 		}
 	}
