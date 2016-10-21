@@ -1,15 +1,18 @@
 $o-teaser-is-silent: false;
 @import '../../main';
 
+@include oFontsIncludeAll();
+
 body {
 	background-color: oColorsGetPaletteColor('pink');
 }
 
 .demo-container {
+	@include oGridColspan((default: 6, L: 4));
+	width: 100%;
 	padding: 20px;
-	max-width: 500px;
-}
 
-.demo-container--large {
-	max-width: 380px;
+	&--large {
+		@include oGridColspan((default: 12, L: 4));
+	}
 }

@@ -8,8 +8,6 @@
 
 @if ($o-teaser-is-silent == false) {
 
-	@include oFontsIncludeAll();
-
 	.o-teaser {
 		position: relative;
 		font-family: $o-typography-sans;
@@ -52,6 +50,7 @@
 	.o-teaser__image {
 		img {
 			display: inline-block;
+			width: 100%;
 			margin: 0;
 		}
 
@@ -63,7 +62,7 @@
 		.o-teaser--large & {
 			margin-top: -80px;
 			margin-right: -20px;
-			text-align: right;
+			padding-left: 25%;
 			transform: translateY(calc(50% + 20px));
 		}
 	}
