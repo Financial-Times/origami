@@ -4,28 +4,47 @@
 /// @link http://registry.origami.ft.com/components/o-labels
 ////
 
-@include oColorsSetUseCase(o-labels-normal, text,       'white');
-@include oColorsSetUseCase(o-labels-normal, background, 'blue');
-@include oColorsSetUseCase(o-labels-active, text,       'white');
-@include oColorsSetUseCase(o-labels-active, background, 'green');
-@include oColorsSetUseCase(o-labels-error,  text,       'white');
-@include oColorsSetUseCase(o-labels-error,  background, 'red');
-
 /// States for normal/active/error and associated styles.
 /// Add to this map for more states.
 ///
 /// @type Map
 $o-labels-states: (
 	normal: (
-		color: oColorsGetColorFor(o-labels-normal, text),
-		background: oColorsGetColorFor(o-labels-normal, background)
+		text: 'white',
+		background: 'blue'
 	),
 	active: (
-		color: oColorsGetColorFor(o-labels-active, text),
-		background: oColorsGetColorFor(o-labels-active, background)
+		text: 'white',
+		background: 'green'
 	),
 	error: (
-		color: oColorsGetColorFor(o-labels-error, text),
-		background: oColorsGetColorFor(o-labels-error, background)
+		text: 'white',
+		background: 'red-tint1'
+	),
+	pending: (
+		text: 'white',
+		background: 'org-b2b'
+	),
+	live: (
+		text: 'white',
+		background: 'red'
+	),
+	closed: (
+		text: 'white',
+		background: 'grey-tint4'
+	),
+	premium: (
+		text: 'white',
+		background: 'black'
+	),
+	brand: (
+		text: 'white',
+		background: 'claret'
 	)
 ) !default;
+
+@each $state, $colors in $o-labels-states {
+	@each $usecase, $palette in $colors {
+		@include oColorsSetUseCase(o-labels-#{$state}, $usecase, $palette);
+	}
+}

@@ -22,10 +22,14 @@
 	},
 	"demos": [
 		{
-			"name": "label",
-			"template": "/demos/src/label.mustache",
-			"expanded": true,
+			"name": "States",
+			"template": "/demos/src/states.mustache",
 			"description": ""
+		},
+		{
+			"name": "Typography",
+			"template": "/demos/src/typography.mustache",
+			"description": "use with o-typography"
 		}
 	]
 }

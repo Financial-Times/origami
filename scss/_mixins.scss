@@ -1,3 +1,6 @@
+$_o-labels-warned-size: false;
+
+
 ////
 /// @group o-labels
 /// @link http://registry.origami.ft.com/components/o-labels
@@ -13,6 +16,11 @@
 ///
 /// @param {String} $size
 @mixin oLabelsSize($size) {
+	@if not $_o-labels-warned-size and ($size == 'medium' or $size == 'big') {
+		@warn 'oLabelsSize and .#{$o-labels-class}--\#{$size} are deprecated. Use o-typography sizing instead.';
+		$_o-labels-warned-size: true !global;
+	}
+
 	$label-dimensions: map-get($o-labels-sizes, $size);
 
 	padding-left: map-get($label-dimensions, padding-left);
@@ -31,9 +39,7 @@
 ///
 /// @param {String} $theme
 @mixin oLabelsState($state) {
-	@each $property, $value in map-get($o-labels-states, $state) {
-		#{$property}: #{$value};
-	}
+	@include oColorsFor(o-labels-#{$state}, text background);
 }
 
 /// Label construct
@@ -53,17 +59,20 @@
 /// 	@include oLabels(big);
 /// }
 ///
-/// @param {String} $size (medium)
 /// @param {String} $state (normal)
-@mixin oLabels($size: medium, $state: normal) {
+/// @param {String} $size (false)
+@mixin oLabels($state: normal, $size: false) {
 	display: inline-block;
 	box-sizing: border-box;
-	vertical-align: middle;
+	vertical-align: 1px;
 	margin: 0;
-	border-radius: 3px;
 	text-align: center;
 	text-decoration: none;
+	padding: 0.2em 0.6em;
 
-	@include oLabelsSize($size);
+	@if $size {
+		@include oLabelsSize($size);
+	}
+
 	@include oLabelsState($state);
 }

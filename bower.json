@@ -4,6 +4,7 @@
     "main.scss"
   ],
   "dependencies": {
-    "o-colors": ">=2.5.0 <4"
+    "o-colors": ">=2.5.0 <4",
+    "o-typography": "^4.3.1"
   }
 }

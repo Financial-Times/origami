@@ -1,8 +1,20 @@
 $o-labels-is-silent: false;
 
 @import "../../main";
+@import "o-typography/main";
 
 body {
-	font-family: BentonSans, sans-serif;
 	margin: 1em;
+}
+
+.o-labels {
+	@include oTypographySansBold(xs);
+}
+
+.demo-paragraph {
+	@include oTypographySans(m);
+
+	.o-labels {
+		@include oTypographySansBold(s);
+	}
 }

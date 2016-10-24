@@ -15,9 +15,11 @@
 		}
 	}
 
-	@each $state, $properties in map-remove($o-labels-states, normal) {
-		.#{$o-labels-class}--#{$state} {
-			@include oLabelsState($state);
+	@each $state, $colors in $o-labels-states {
+		@if $state != normal {
+			.#{$o-labels-class}--#{$state} {
+				@include oLabelsState($state);
+			}
 		}
 	}
 
