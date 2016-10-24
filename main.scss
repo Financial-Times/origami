@@ -17,6 +17,7 @@
 			flex-direction: row;
 			flex-wrap: nowrap;
 			justify-content: space-between;
+			margin-bottom: 10px;
 			padding-bottom: 10px;
 			border-bottom: 1px solid $_o-teaser-color-border;
 		}
@@ -119,7 +120,7 @@
 
 	.o-teaser__heading {
 		@include font-size(24, 28);
-		margin: 0 0 10px;
+		margin: 0;
 		font-family: $o-typography-serif-display;
 		font-weight: oFontsWeight(normal);
 		color: $_o-teaser-color-title;
@@ -157,6 +158,10 @@
 		.o-teaser--special & {
 			color: rgba(oColorsGetPaletteColor('white'), 0.7);
 		}
+
+		.o-teaser__heading + & {
+			margin-top: 10px;
+		}
 	}
 
 	.o-teaser__timestamp {
@@ -170,6 +175,10 @@
 		}
 
 		.o-teaser--large & {
+			margin-top: 10px;
+		}
+
+		.o-teaser__heading + & {
 			margin-top: 10px;
 		}
 	}
