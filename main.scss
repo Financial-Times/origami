@@ -178,7 +178,7 @@
 			margin-top: 10px;
 		}
 
-		.o-teaser__heading + & {
+		.o-teaser__heading + &:not(:empty) {
 			margin-top: 10px;
 		}
 	}
