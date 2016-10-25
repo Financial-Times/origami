@@ -82,10 +82,16 @@
 			"name": "plus"
 		},
 		{
+			"name": "podcast"
+		},
+		{
 			"name": "print"
 		},
 		{
 			"name": "search"
+		},
+		{
+			"name": "series"
 		},
 		{
 			"name": "settings"
