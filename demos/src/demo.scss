@@ -8,7 +8,7 @@ body {
 }
 
 .demo-container {
-	@include oGridColspan((default: 6, L: 4));
+	@include oGridColspan((default: 12, S: 6, L: 4));
 	width: 100%;
 	padding: 20px;
 

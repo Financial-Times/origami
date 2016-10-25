@@ -127,6 +127,10 @@
 			color: #777;
 		}
 
+		strong {
+			font-weight: normal;
+		}
+
 		.o-teaser--opinion & {
 			@include oColorsFor('o-teaser-opinion-tag', 'text');
 		}
@@ -232,6 +236,30 @@
 
 		.o-teaser__heading + &:not(:empty) {
 			margin-top: 10px;
+		}
+	}
+
+	.o-teaser--large.o-teaser--genre {
+		.o-teaser__image,
+		.o-teaser__image-timestamp {
+			padding-left: 40%;
+
+			@include oGridRespondTo(S, L) {
+				position: relative;
+				float: none;
+				width: 100%;
+				padding-left: 40%;
+
+				&:after {
+
+				}
+			}
+		}
+
+		.o-teaser__image:after,
+		.o-teaser__image-timestamp:after {
+			top: auto;
+			bottom: 0;
 		}
 	}
 
