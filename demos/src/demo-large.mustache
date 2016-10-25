@@ -15,8 +15,34 @@
 				<time data-o-component="o-date" class="o-date o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
 			{{/article-timestamp}}
 		</div>
-		{{#article-image-url}}<div class="o-teaser__image"><img src="{{article-image-url}}" alt="demo image"/></div>{{/article-image-url}}
+		{{#article-image-url}}
+			<div class="o-teaser__image">
+				<img src="{{article-image-url}}" alt="demo image"/>
+			</div>
+		{{/article-image-url}}
+
 	</div>
 
+	<div class="o-teaser o-teaser--large o-teaser--large-full o-teaser--{{article-modifier}}" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst">{{article-standfirst}}</p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-date o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+		{{#article-image-url}}
+			<div class="o-teaser__image-timestamp">
+				<img src="{{article-image-url}}" alt="demo image"/>
+			</div>
+		{{/article-image-url}}
+
+	</div>
 
 </div>

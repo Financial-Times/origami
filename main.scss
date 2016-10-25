@@ -9,34 +9,25 @@
 @if ($o-teaser-is-silent == false) {
 
 	.o-teaser {
+		box-sizing: border-box;
 		position: relative;
+		clear: both;
+		margin-bottom: 10px;
 		font-family: $o-typography-sans;
+
+		& *,
+		& *:before,
+		& *:after {
+			box-sizing: inherit;
+		}
 
 		&.o-teaser--small {
 			display: flex;
 			flex-direction: row;
 			flex-wrap: nowrap;
 			justify-content: space-between;
-			margin-bottom: 10px;
 			padding-bottom: 10px;
 			border-bottom: 1px solid $_o-teaser-color-border;
-		}
-	}
-
-	.o-teaser--large {
-		flex-direction: column;
-		flex-wrap: nowrap;
-		justify-content: space-between;
-		box-shadow: inset 0 0 0 1px $_o-teaser-color-border;
-
-		&.o-teaser--opinion {
-			@include oColorsFor('o-teaser-theme-opinion');
-			box-shadow: none;
-		}
-
-		&.o-teaser--special {
-			@include oColorsFor('o-teaser-theme-special');
-			box-shadow: none;
 		}
 	}
 
@@ -50,7 +41,15 @@
 		}
 	}
 
-	.o-teaser__image {
+	.o-teaser--large {
+		.o-teaser__content {
+			border: 1px solid $_o-teaser-color-border;
+			border-bottom: 0;
+		}
+	}
+
+	.o-teaser__image,
+	.o-teaser__image-timestamp {
 		img {
 			display: block;
 			width: 100%;
@@ -61,6 +60,10 @@
 				z-index: 1;
 			}
 		}
+	}
+
+	.o-teaser__image,
+	.o-teaser__image-timestamp {
 
 		.o-teaser--small & {
 			padding-top: 5px; // to line up with tag cap-height
@@ -69,30 +72,51 @@
 
 		.o-teaser--large & {
 			position: relative;
+			float: none;
+			width: 100%;
+			margin-top: -1px;
 			padding-left: 25%;
 
 			&:after {
-				display: block;
-				content: '';
 				position: absolute;
-				bottom: 0;
+				top: 0;
 				left: 0;
+				content: '';
+				display: block;
 				width: 100%;
 				height: 50%;
-				background-color: oColorsGetPaletteColor('pink');
-				z-index: 0;
-				border-top: 1px solid $_o-teaser-color-border;
+				border-left: 1px solid $_o-teaser-color-border;
+				border-bottom: 1px solid $_o-teaser-color-border;
+			}
+
+			@include oGridRespondTo(S, L) {
+				position: static;
+				float: right;
+				width: 40%;
+				padding-left: 0;
+
+				&:after {
+					top: 100%;
+				}
 			}
 		}
+	}
 
-		.o-teaser--opinion.o-teaser--large &:after,
-		.o-teaser--special.o-teaser--large &:after {
-			border-top: 0;
+	.o-teaser--large .o-teaser__image-timestamp {
+		@include oGridRespondTo(S, L) {
+			width: 45%;
+			margin-top: -35px;
+
+			&:after {
+				bottom: -35px;
+				top: auto;
+				height: 35px;
+			}
 		}
 	}
 
 	.o-teaser__tag {
-		@include font-size(18, 20);
+		@include font-size(16, 18);
 		@include oColorsFor('o-teaser-tag', 'text')
 		margin: 0;
 		font-weight: oFontsWeight(semibold);
@@ -109,6 +133,10 @@
 
 		.o-teaser--special & {
 			color: oColorsGetPaletteColor('white');
+		}
+
+		.o-teaser--large & {
+			@include font-size(18, 20);
 		}
 	}
 
@@ -136,8 +164,12 @@
 		}
 
 		.o-teaser--large & {
-			@include font-size(38, 40);
+			@include font-size(34, 36);
 			font-family: $o-typography-sans;
+
+			@include oGridRespondTo(S) {
+				@include font-size(38, 40);
+			}
 		}
 
 		.o-teaser--special & {
@@ -151,8 +183,20 @@
 		color: $_o-teaser-color-standfirst;
 
 		.o-teaser--large & {
-			@include font-size(22, 28);
+			@include font-size(18, 24);
 			margin-top: 25px;
+
+			@include oGridRespondTo(S) {
+				@include font-size(22, 28);
+			}
+
+			@include oGridRespondTo(M, L) {
+				width: 60%;
+			}
+		}
+
+		.o-teaser--large.o-teaser--large-full & {
+			width: 100%;
 		}
 
 		.o-teaser--special & {
@@ -176,10 +220,36 @@
 
 		.o-teaser--large & {
 			margin-top: 10px;
+
+			@include oGridRespondTo(M, L) {
+				width: 60%;
+			}
+		}
+
+		.o-teaser--large.o-teaser--large-full & {
+			width: 100%;
 		}
 
 		.o-teaser__heading + &:not(:empty) {
 			margin-top: 10px;
+		}
+	}
+
+	.o-teaser--large.o-teaser--opinion {
+		.o-teaser__content,
+		.o-teaser__image:after,
+		.o-teaser__image-timestamp:after {
+			@include oColorsFor('o-teaser-theme-opinion');
+			border: 0;
+		}
+	}
+
+	.o-teaser--large.o-teaser--special {
+		.o-teaser__content,
+		.o-teaser__image:after,
+		.o-teaser__image-timestamp:after {
+			@include oColorsFor('o-teaser-theme-special');
+			border: 0;
 		}
 	}
 
