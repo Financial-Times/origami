@@ -1,10 +1,48 @@
 @import "o-colors/main";
+@import "o-typography/main";
+@import "o-icons/main";
+@import "o-grid/main";
+
 @import "src/scss/variables";
 @import "src/scss/mixins";
 
 @if ($o-teaser-collection-is-silent == false) {
+
 	 .o-teaser-collection {
-		display: block;
+	 	width: 100%;
+		border-top: 8px solid rgba(#000, 0.05);
+	}
+
+	.o-teaser-collection__heading {
+		@include font-size(32, 32);
+		width: 100%;
+		margin: -8px 0 0;
+		padding: 8px 0 20px;
+		font-family: $o-typography-sans;
+		font-weight: normal;
+		border-top: 8px solid oColorsGetPaletteColor('black');
+
+		@include oGridRespondTo(M) {
+			width: 50%;
+		}
+
+		@include oGridRespondTo(L) {
+			width: 33.333%;
+		}
+
+		&--alignright {
+			text-align: right;
+		}
+
+		&:after {
+			@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('black'), 40);
+			content: '';
+			display: inline-block;
+			position: relative;
+			top: 10px;
+			right: -13px;
+			margin-left: -13px;
+		}
 	}
 
 	// Set to silent again to avoid being output twice

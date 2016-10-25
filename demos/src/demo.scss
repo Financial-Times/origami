@@ -1,2 +1,14 @@
 $o-component-boilerplate-is-silent: false;
+
 @import '../../main';
+
+@include oFontsIncludeAll();
+
+body {
+	background-color: oColorsGetPaletteColor('pink');
+}
+
+.demo-container {
+	@include oGridContainer();
+	margin-top: 10px;
+}
