@@ -206,7 +206,7 @@
 			@include font-size(34, 36);
 			font-family: $o-typography-sans;
 
-			@include oGridRespondTo(S) {
+			@include oGridRespondTo(L) {
 				@include font-size(38, 40);
 			}
 		}
@@ -225,7 +225,7 @@
 			@include font-size(18, 24);
 			margin-top: 25px;
 
-			@include oGridRespondTo(S) {
+			@include oGridRespondTo(L) {
 				@include font-size(22, 28);
 			}
 		}
