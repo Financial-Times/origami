@@ -46,6 +46,28 @@
 			border: 1px solid $_o-teaser-color-border;
 			border-bottom: 0;
 		}
+
+		&.o-teaser--large-right .o-teaser__content {
+			@include oGridRespondTo(S, L) {
+				position: relative;
+				float: left;
+				width: 60%;
+				border-bottom: 1px solid $_o-teaser-color-border;
+				border-right: 0;
+
+				&:after {
+					content: '';
+					position: absolute;
+					top: 1px;
+					right: -25%;
+					height: 100%;
+					width: 25%;
+					display: block;
+					border: 1px solid $_o-teaser-color-border;
+					border-left: 0;
+				}
+			}
+		}
 	}
 
 	.o-teaser__image,
@@ -97,6 +119,19 @@
 
 				&:after {
 					top: 100%;
+				}
+			}
+		}
+
+		.o-teaser--large-right & {
+			@include oGridRespondTo(S, L) {
+				float: right;
+				width: 40%;
+				margin-top: 0;
+				padding-left: 0;
+
+				&:after {
+					display: none;
 				}
 			}
 		}
@@ -193,14 +228,6 @@
 			@include oGridRespondTo(S) {
 				@include font-size(22, 28);
 			}
-
-			@include oGridRespondTo(M, L) {
-				width: 60%;
-			}
-		}
-
-		.o-teaser--large.o-teaser--large-full & {
-			width: 100%;
 		}
 
 		.o-teaser--special & {
@@ -224,14 +251,6 @@
 
 		.o-teaser--large & {
 			margin-top: 10px;
-
-			@include oGridRespondTo(M, L) {
-				width: 60%;
-			}
-		}
-
-		.o-teaser--large.o-teaser--large-full & {
-			width: 100%;
 		}
 
 		.o-teaser__heading + &:not(:empty) {
@@ -263,21 +282,39 @@
 		}
 	}
 
-	.o-teaser--large.o-teaser--opinion {
+	.o-teaser--large.o-teaser--opinion,
+	.o-teaser--large-right.o-teaser--opinion {
 		.o-teaser__content,
 		.o-teaser__image:after,
 		.o-teaser__image-timestamp:after {
 			@include oColorsFor('o-teaser-theme-opinion');
 			border: 0;
 		}
+
+		.o-teaser__content:after {
+			@include oGridRespondTo(S, L) {
+				@include oColorsFor('o-teaser-theme-opinion');
+				top: 0;
+				border: 0;
+			}
+		}
 	}
 
-	.o-teaser--large.o-teaser--special {
+	.o-teaser--large.o-teaser--special,
+	.o-teaser--large-right.o-teaser--special {
 		.o-teaser__content,
 		.o-teaser__image:after,
 		.o-teaser__image-timestamp:after {
 			@include oColorsFor('o-teaser-theme-special');
 			border: 0;
+		}
+
+		.o-teaser__content:after {
+			@include oGridRespondTo(S, L) {
+				@include oColorsFor('o-teaser-theme-special');
+				top: 0;
+				border: 0;
+			}
 		}
 	}
 
