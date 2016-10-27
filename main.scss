@@ -236,8 +236,26 @@
 	}
 
 	.o-teaser--large.o-teaser--genre {
+		display: flex;
+		flex-flow: column nowrap;
+
+		.o-teaser__content {
+			@include oGridRespondTo(S, L) {
+				width: 100%;
+
+				&:after {
+					display: none;
+				}
+			}
+		}
+
 		.o-teaser__image-container {
+			order: -1;
 			padding-left: 40%;
+
+			&:after {
+				top: 50%;
+			}
 
 			@include oGridRespondTo(S, L) {
 				position: relative;
@@ -246,7 +264,7 @@
 				padding-left: 40%;
 
 				&:after {
-
+					display: block;
 				}
 			}
 		}
