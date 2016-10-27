@@ -1,11 +1,6 @@
 <div class="demo-container">
 
 	<div class="o-teaser o-teaser--small o-teaser--{{article-modifier}}" data-o-component="o-teaser">
-		{{#article-image-url}}
-			<div class="o-teaser__image">
-				<img src="{{article-image-url}}" alt="demo image"/>
-			</div>
-		{{/article-image-url}}
 		<div class="o-teaser__content">
 			<a href="#" class="o-teaser__tag">{{article-tag}}</a>
 
@@ -23,6 +18,11 @@
 				<img src="{{article-headshot}}" alt=" " class="o-teaser__headshot">
 			{{/article-headshot}}
 		</div>
+		{{#article-image-url}}
+			<div class="o-teaser__image">
+				<img src="{{article-image-url}}" alt="demo image"/>
+			</div>
+		{{/article-image-url}}
 	</div>
 
 </div>

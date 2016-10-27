@@ -36,6 +36,10 @@
 			padding-right: 95px;
 		}
 
+		.o-teaser--small & {
+			order: 2;
+		}
+
 		.o-teaser--large & {
 			padding: oGridGutter(M);
 		}
