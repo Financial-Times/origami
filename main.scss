@@ -3,6 +3,9 @@
 @import "o-icons/main";
 @import "o-grid/main";
 
+$o-teaser-is-silent: false;
+@import "o-teaser/main";
+
 @import "src/scss/variables";
 @import "src/scss/mixins";
 
@@ -10,6 +13,7 @@
 
 	 .o-teaser-collection {
 	 	width: 100%;
+	 	margin-bottom: 20px;
 		border-top: 8px solid rgba(#000, 0.05);
 	}
 
@@ -43,6 +47,16 @@
 			right: -13px;
 			margin-left: -13px;
 		}
+	}
+
+	.o-teaser-collection__items {
+		list-style: none;
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: flex-start;
+		width: 100%;
+		margin: 0;
+		padding: 0;
 	}
 
 	// Set to silent again to avoid being output twice

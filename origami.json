@@ -5,7 +5,7 @@
 		"origamiCategory": "components",
 		"origamiVersion": 1,
 		"support": "https://github.com/Financial-Times/o-teaser-collection/issues",
-		"supportStatus": "active",
+		"supportStatus": "experimental",
 		"browserFeatures": {},
 		"ci": {
 			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-teaser-collection"
@@ -13,7 +13,7 @@
 		"demosDefaults": {
 			"sass": "demos/src/demo.scss",
 			"documentClasses": "",
-			"dependencies": ""
+			"dependencies": "o-date@^2.2.1,o-teaser@design-debt"
 		},
 		"demos": [
 			{
