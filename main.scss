@@ -49,9 +49,7 @@
 		.o-teaser__content {
 			border: 1px solid $_o-teaser-color-border;
 			border-bottom: 0;
-		}
 
-		&.o-teaser--large-right .o-teaser__content {
 			@include oGridRespondTo(S, L) {
 				position: relative;
 				float: left;
@@ -74,9 +72,11 @@
 		}
 	}
 
-	.o-teaser__image,
-	.o-teaser__image-timestamp {
-		img {
+	.o-teaser__image-container {
+		.o-teaser__image {
+			position: absolute;
+			top: 0;
+			left: 0;
 			display: block;
 			width: 100%;
 			margin: 0;
@@ -88,8 +88,7 @@
 		}
 	}
 
-	.o-teaser__image,
-	.o-teaser__image-timestamp {
+	.o-teaser__image-container {
 
 		.o-teaser--small & {
 			padding-top: 5px; // to line up with tag cap-height
@@ -116,19 +115,6 @@
 			}
 
 			@include oGridRespondTo(S, L) {
-				position: static;
-				float: right;
-				width: 40%;
-				padding-left: 0;
-
-				&:after {
-					top: 100%;
-				}
-			}
-		}
-
-		.o-teaser--large-right & {
-			@include oGridRespondTo(S, L) {
 				float: right;
 				width: 40%;
 				margin-top: 0;
@@ -137,19 +123,6 @@
 				&:after {
 					display: none;
 				}
-			}
-		}
-	}
-
-	.o-teaser--large .o-teaser__image-timestamp {
-		@include oGridRespondTo(S, L) {
-			width: 45%;
-			margin-top: -35px;
-
-			&:after {
-				bottom: -35px;
-				top: auto;
-				height: 35px;
 			}
 		}
 	}
@@ -263,8 +236,7 @@
 	}
 
 	.o-teaser--large.o-teaser--genre {
-		.o-teaser__image,
-		.o-teaser__image-timestamp {
+		.o-teaser__image-container {
 			padding-left: 40%;
 
 			@include oGridRespondTo(S, L) {
@@ -286,11 +258,9 @@
 		}
 	}
 
-	.o-teaser--large.o-teaser--opinion,
-	.o-teaser--large-right.o-teaser--opinion {
+	.o-teaser--large.o-teaser--opinion {
 		.o-teaser__content,
-		.o-teaser__image:after,
-		.o-teaser__image-timestamp:after {
+		.o-teaser__image-container:after {
 			@include oColorsFor('o-teaser-theme-opinion');
 			border: 0;
 		}
@@ -304,11 +274,9 @@
 		}
 	}
 
-	.o-teaser--large.o-teaser--special,
-	.o-teaser--large-right.o-teaser--special {
+	.o-teaser--large.o-teaser--special {
 		.o-teaser__content,
-		.o-teaser__image:after,
-		.o-teaser__image-timestamp:after {
+		.o-teaser__image-container:after {
 			@include oColorsFor('o-teaser-theme-special');
 			border: 0;
 		}

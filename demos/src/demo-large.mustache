@@ -1,6 +1,6 @@
 <div class="demo-container demo-container--large">
 
-	<div class="o-teaser o-teaser--large o-teaser--large-right o-teaser--{{article-modifier}}" data-o-component="o-teaser">
+	<div class="o-teaser o-teaser--large o-teaser--{{article-modifier}}" data-o-component="o-teaser">
 		<div class="o-teaser__content">
 			<a href="#" class="o-teaser__tag">{{article-tag}}</a>
 
@@ -14,9 +14,12 @@
 				<time data-o-component="o-date" class="o-date o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
 			{{/article-timestamp}}
 		</div>
+
 		{{#article-image-url}}
-			<div class="o-teaser__image">
-				<img src="{{article-image-url}}" alt="demo image"/>
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
 			</div>
 		{{/article-image-url}}
 	</div>
