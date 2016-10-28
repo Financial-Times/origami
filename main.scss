@@ -38,6 +38,10 @@ $o-teaser-is-silent: false;
 			text-align: right;
 		}
 
+		&--full-width {
+			width: 100%;
+		}
+
 		&:after {
 			@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('black'), 40);
 			content: '';
