@@ -1,0 +1,101 @@
+
+@mixin oTeaserOpinion {
+	.o-teaser__tag {
+		@include oColorsFor('o-teaser-opinion-tag', 'text');
+	}
+
+	.o-teaser__standfirst,
+	.o-teaser__timestamp {
+		color: mix(#000, oColorsGetPaletteColor('blue-tint5'), 60%);
+	}
+
+	&.o-teaser--large {
+		.o-teaser__content,
+		.o-teaser__image-container:after {
+			@include oColorsFor('o-teaser-theme-opinion');
+			border: 0;
+		}
+
+		.o-teaser__content:after {
+			@include oGridRespondTo(S, L) {
+				@include oColorsFor('o-teaser-theme-opinion');
+				top: 0;
+				border: 0;
+			}
+		}
+	}
+
+}
+
+@mixin oTeaserSpecial {
+	.o-teaser__tag {
+		color: oColorsGetPaletteColor('white');
+	}
+
+	.o-teaser__heading {
+		color: oColorsGetPaletteColor('white');
+	}
+
+	.o-teaser__standfirst,
+	.o-teaser__timestamp {
+		color: mix(#fff, oColorsGetPaletteColor('claret-1'), 80%);
+	}
+
+	&.o-teaser--large {
+		.o-teaser__content,
+		.o-teaser__image-container:after {
+			@include oColorsFor('o-teaser-theme-special');
+			border: 0;
+		}
+
+		.o-teaser__content:after {
+			@include oGridRespondTo(S, L) {
+				@include oColorsFor('o-teaser-theme-special');
+				top: 0;
+				border: 0;
+			}
+		}
+	}
+}
+
+@mixin oTeaserGenre {
+	&.o-teaser--large {
+		display: flex;
+		flex-flow: column nowrap;
+
+		.o-teaser__content {
+			@include oGridRespondTo(S, L) {
+				width: 100%;
+
+				&:after {
+					display: none;
+				}
+			}
+		}
+
+		.o-teaser__image-container {
+			order: -1;
+			padding-left: 40%;
+
+			&:after {
+				top: 50%;
+			}
+
+			@include oGridRespondTo(S, L) {
+				position: relative;
+				float: none;
+				width: 100%;
+				padding-left: 40%;
+
+				&:after {
+					display: block;
+				}
+			}
+		}
+
+		.o-teaser__image:after {
+			top: auto;
+			bottom: 0;
+		}
+	}
+}

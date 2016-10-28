@@ -6,54 +6,200 @@
 // @include font-size($size, $line-height: $size)
 
 @mixin oTeaserBase {
+	box-sizing: border-box;
+	position: relative;
+	margin-bottom: 10px;
 	font-family: $o-typography-sans;
+
+	& *,
+	& *:before,
+	& *:after {
+		box-sizing: inherit;
+	}
 }
 
-@mixin oTeaserSmallHeading {
-	font-family: $o-typography-serif-display;
+@mixin oTeaserContent {
+	.o-teaser--has-headshot & {
+		padding-right: 95px;
+	}
 }
 
-@mixin oTeaserContentLarge {
-	border: 1px solid getColor('warm-3');
-	padding: 21px 21px 79px;
+@mixin oTeaserSmall {
+	display: flex;
+	flex-flex: row nowrap;
+	justify-content: space-between;
+	padding-bottom: 10px;
+	border-bottom: 1px solid $_o-teaser-color-border;
+
+	.o-teaser__content {
+		order: 2;
+	}
+
+	.o-teaser__image-container {
+		flex: 1 0 30%;
+		padding-top: 5px; // to line up with tag cap-height
+		padding-right: oGridGutter(M);
+	}
 }
 
-@mixin oTeaserTag {
-	color: getColor('claret');
+@mixin oTeaserLarge {
+
+	.o-teaser__content {
+		padding: oGridGutter(M);
+		border: 1px solid $_o-teaser-color-border;
+		border-bottom: 0;
+
+		@include oGridRespondTo(S, L) {
+			position: relative;
+			float: left;
+			width: 60%;
+			border-bottom: 1px solid $_o-teaser-color-border;
+			border-right: 0;
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: 1px;
+				right: -25%;
+				height: 100%;
+				width: 25%;
+				display: block;
+				border: 1px solid $_o-teaser-color-border;
+				border-left: 0;
+			}
+		}
+	}
+
+	.o-teaser__tag {
+		@include font-size(18, 20);
+	}
+
+	.o-teaser__heading {
+		@include font-size(34, 36);
+		font-family: $o-typography-sans;
+
+		@include oGridRespondTo(L) {
+			@include font-size(38, 40);
+		}
+	}
+
+	.o-teaser__timestamp {
+		margin-top: 10px;
+	}
+
+	.o-teaser__standfirst {
+		@include font-size(18, 24);
+		margin-top: 25px;
+
+		@include oGridRespondTo(L) {
+			@include font-size(22, 28);
+		}
+	}
+
+	.o-teaser__image {
+		position: relative;
+		z-index: 1;
+	}
+
+	.o-teaser__image-container {
+		position: relative;
+		float: none;
+		width: 100%;
+		margin-top: -1px;
+		padding-left: 25%;
+
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			display: block;
+			width: 100%;
+			height: 50%;
+			border-left: 1px solid $_o-teaser-color-border;
+			border-bottom: 1px solid $_o-teaser-color-border;
+		}
+
+		@include oGridRespondTo(S, L) {
+			float: right;
+			width: 40%;
+			margin-top: 0;
+			padding-left: 0;
+
+			&:after {
+				display: none;
+			}
+		}
+	}
+}
+
+@mixin oTeaserImage {
+	position: absolute;
+	top: 0;
+	left: 0;
 	display: block;
-	margin-bottom: 7px;
+	width: 100%;
+	margin: 0;
 }
 
 @mixin oTeaserHeading {
+	@include font-size(24, 28);
 	margin: 0;
-	color: $_o-teaser-color-title;
+	font-family: $o-typography-serif-display;
+	font-weight: oFontsWeight(normal);
+	color: mix(#000, #fff1e0, 80%);
+
+	&:hover {
+		color: #777;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+		border: 0;
+	}
 }
 
-@mixin oTeaserHeadingLink {
-	color: inherit;
+@mixin oTeaserTag {
+	@include font-size(16, 18);
+	@include oColorsFor('o-teaser-tag', 'text')
+	margin: 0;
+	font-weight: oFontsWeight(semibold);
 	text-decoration: none;
 	border: 0;
+
+	&:hover {
+		color: #777;
+	}
+
+	strong {
+		font-weight: normal;
+	}
+}
+
+@mixin oTeaserHeadshot {
+	position: absolute;
+	bottom: 0;
+	right: 0;
 }
 
 @mixin oTeaserStandfirst {
-}
+	@include font-size(16, 22);
+	margin: 0;
+	color: mix(#000, #fff1e0, 60%);
 
-@mixin oTeaserStandfirstLarge {
+	.o-teaser__heading + & {
+		margin-top: 10px;
+	}
 }
 
 @mixin oTeaserTimestamp {
-	@include oColorsFor('o-teaser-timestamp', 'text');
-	// font: 14px/22px $o-typography-sans;
-}
+	@include font-size(12, 16);
+	display: block;
+	color: mix(#000, #fff1e0, 60%);
+	text-transform: uppercase;
 
-@mixin oTeaserImageContainerLarge {
-	// 79 = Half the height of a 16:9 image at 280 width
-	margin-top: -79px;
-	position: relative;
-	text-align: right;
-
-	// Temp until we integrate n-image
-	img {
-		width: 280px;
+	.o-teaser__heading + &:not(:empty) {
+		margin-top: 10px;
 	}
 }

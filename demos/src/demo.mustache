@@ -19,8 +19,10 @@
 			{{/article-headshot}}
 		</div>
 		{{#article-image-url}}
-			<div class="o-teaser__image">
-				<img src="{{article-image-url}}" alt="demo image"/>
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
 			</div>
 		{{/article-image-url}}
 	</div>
