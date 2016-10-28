@@ -1,0 +1,20 @@
+@mixin oTeaserCollectionNumbered() {
+	.o-teaser-collection__items {
+		counter: o-teaser-collection-items;
+	}
+
+	.o-teaser-collection__item {
+		counter-increment: o-teaser-collection-items;
+		padding-left: 32px;
+		position: relative;
+		&:before {
+			@include font-size(42, 42);
+			font-family: $o-typography-serif-display;
+			content: counter(o-teaser-collection-items);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+
+}

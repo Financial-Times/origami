@@ -15,6 +15,9 @@ $o-teaser-is-silent: false;
 	 	width: 100%;
 	 	margin-bottom: 20px;
 		border-top: 8px solid rgba(#000, 0.05);
+		&--numbered {
+			@include oTeaserCollectionNumbered();
+		}
 	}
 
 	.o-teaser-collection__heading {
@@ -62,6 +65,8 @@ $o-teaser-is-silent: false;
 		margin: 0;
 		padding: 0;
 	}
+
+	
 
 	// Set to silent again to avoid being output twice
 	$o-teaser-collection-is-silent: true !global;
