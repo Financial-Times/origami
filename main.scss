@@ -18,6 +18,9 @@ $o-teaser-is-silent: false;
 		&--numbered {
 			@include oTeaserCollectionNumbered();
 		}
+		&--special {
+			@include oTeaserCollectionSpecial();
+		}
 	}
 
 	.o-teaser-collection__heading {
