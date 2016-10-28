@@ -469,6 +469,9 @@
 		}
 
 		.fyre-comment-flag-mobile-btn {
+			
+			min-width: 100px;
+			
 			&:before {
 				content: "Report";
 				font-size: 13px;
