@@ -10,8 +10,8 @@ $o-teaser-is-silent: false;
 @import "src/scss/mixins";
 
 @if ($o-teaser-collection-is-silent == false) {
-
-	 .o-teaser-collection {
+	
+	.o-teaser-collection {
 	 	width: 100%;
 	 	margin-bottom: 20px;
 		border-top: 8px solid rgba(#000, 0.05);
@@ -20,6 +20,9 @@ $o-teaser-is-silent: false;
 		}
 		&--special {
 			@include oTeaserCollectionSpecial();
+		}
+		&--no-border {
+			border-top: none;
 		}
 	}
 
