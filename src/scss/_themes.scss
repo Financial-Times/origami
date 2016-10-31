@@ -128,3 +128,21 @@
 		}
 	}
 }
+
+@mixin oTeaserHeroCentre {
+	.o-teaser__content {
+		text-align: center;
+	}
+
+	.o-teaser__tag:after {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@mixin oTeaserHeroCentreImage {
+	.o-teaser__image-container {
+		padding-left: 15%;
+		padding-right: 15%;
+	}
+}

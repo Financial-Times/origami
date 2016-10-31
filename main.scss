@@ -34,7 +34,15 @@
 
 			&.o-teaser--has-image {
 				@include oTeaserHeroImage;
+
+				&.o-teaser--centre {
+					@include oTeaserHeroCentreImage;
+				}
 			}
+		}
+
+		&.o-teaser--centre {
+			@include oTeaserHeroCentre;
 		}
 
 		&.o-teaser--highlight,
