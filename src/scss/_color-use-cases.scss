@@ -7,5 +7,4 @@
 
 // Themes
 @include oColorsSetUseCase(o-teaser-theme-opinion, background, 'blue-tint5');
-@include oColorsSetUseCase(o-teaser-theme-special, background, 'claret-1');
-@include oColorsSetUseCase(o-teaser-theme-special, text, 'white');
+@include oColorsSetUseCase(o-teaser-theme-hero, background, 'claret-1');
