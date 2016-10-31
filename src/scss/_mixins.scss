@@ -26,48 +26,35 @@
 
 @mixin oTeaserSmall {
 	display: flex;
-	flex-flex: row nowrap;
+	flex-flow: row wrap;
 	justify-content: space-between;
 	padding-bottom: 10px;
 	border-bottom: 1px solid $_o-teaser-color-border;
+
+	@include oGridRespondTo(S) {
+		flex-wrap: nowrap;
+	}
 
 	.o-teaser__content {
 		order: 2;
 	}
 
 	.o-teaser__image-container {
-		flex: 1 0 30%;
-		padding-top: 5px; // to line up with tag cap-height
-		padding-right: oGridGutter(M);
+		width: 60%;
+		margin-bottom: 10px;
+
+		@include oGridRespondTo(S) {
+			flex: 1 0 30%;
+			padding-top: 5px; // to line up with tag cap-height
+			padding-right: oGridGutter(M);
+		}
 	}
 }
 
 @mixin oTeaserLarge {
-
 	.o-teaser__content {
 		padding: oGridGutter(M);
 		border: 1px solid $_o-teaser-color-border;
-		border-bottom: 0;
-
-		@include oGridRespondTo(S, L) {
-			position: relative;
-			float: left;
-			width: 60%;
-			border-bottom: 1px solid $_o-teaser-color-border;
-			border-right: 0;
-
-			&:after {
-				content: '';
-				position: absolute;
-				top: 1px;
-				right: -25%;
-				height: 100%;
-				width: 25%;
-				display: block;
-				border: 1px solid $_o-teaser-color-border;
-				border-left: 0;
-			}
-		}
 	}
 
 	.o-teaser__tag {
@@ -95,7 +82,40 @@
 			@include font-size(22, 28);
 		}
 	}
+}
 
+@mixin oTeaserLargeWithImage {
+	.o-teaser__content {
+		@include oGridRespondTo($until: S) {
+			border-bottom: 0;
+		}
+
+		@include oGridRespondTo(L) {
+			border-bottom: 0;
+		}
+
+		@include oGridRespondTo(S, L) {
+			position: relative;
+			float: left;
+			width: 60%;
+			border-right: 0;
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: 1px;
+				right: -25%;
+				height: 100%;
+				width: 25%;
+				display: block;
+				border: 1px solid $_o-teaser-color-border;
+				border-left: 0;
+			}
+		}
+	}
+}
+
+@mixin oTeaserImageContainer {
 	.o-teaser__image {
 		position: relative;
 		z-index: 1;

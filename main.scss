@@ -16,16 +16,42 @@
 			@include oTeaserSmall;
 		}
 
-		&.o-teaser--large {
+		&.o-teaser--large,
+		&.o-teaser--hero {
 			@include oTeaserLarge;
+
+			&.o-teaser--has-image {
+				@include oTeaserImageContainer;
+			}
+		}
+
+		&.o-teaser--large.o-teaser--has-image {
+			@include oTeaserLargeWithImage;
+		}
+
+		&.o-teaser--hero {
+			@include oTeaserHero;
+
+			&.o-teaser--has-image {
+				@include oTeaserHeroImage;
+			}
+		}
+
+		&.o-teaser--highlight,
+		&.o-teaser--opinion.o-teaser--hero {
+			@include oTeaserHeroThemeBase;
+		}
+
+		&.o-teaser--highlight {
+			@include oTeaserHighlight;
 		}
 
 		&.o-teaser--opinion {
 			@include oTeaserOpinion;
-		}
 
-		&.o-teaser--special {
-			@include oTeaserSpecial;
+			&.o-teaser--hero {
+				@include oTeaserHeroOpinion;
+			}
 		}
 	}
 
@@ -55,10 +81,6 @@
 
 	.o-teaser__timestamp {
 		@include oTeaserTimestamp;
-	}
-
-	.o-teaser--genre {
-		@include oTeaserGenre;
 	}
 
 	// Set to silent again to avoid being output twice

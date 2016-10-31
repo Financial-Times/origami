@@ -27,7 +27,47 @@
 
 }
 
-@mixin oTeaserSpecial {
+@mixin oTeaserHighlight {
+	.o-teaser__standfirst,
+	.o-teaser__timestamp {
+		color: mix(#fff, oColorsGetPaletteColor('claret-1'), 80%);
+	}
+
+	&.o-teaser--hero {
+		.o-teaser__content,
+		.o-teaser__image-container:after {
+			@include oColorsFor('o-teaser-theme-hero');
+		}
+
+		.o-teaser__content:after {
+			@include oGridRespondTo(S, L) {
+				@include oColorsFor('o-teaser-theme-hero');
+			}
+		}
+	}
+}
+
+@mixin oTeaserHeroOpinion {
+	.o-teaser__standfirst,
+	.o-teaser__timestamp {
+		color: mix(#fff, #275C85, 80%);
+	}
+
+	&.o-teaser--hero {
+		.o-teaser__content,
+		.o-teaser__image-container:after {
+			background-color: #275C85;
+		}
+
+		.o-teaser__content:after {
+			@include oGridRespondTo(S, L) {
+				background-color: #275C85;
+			}
+		}
+	}
+}
+
+@mixin oTeaserHeroThemeBase {
 	.o-teaser__tag {
 		color: oColorsGetPaletteColor('white');
 	}
@@ -36,21 +76,18 @@
 		color: oColorsGetPaletteColor('white');
 	}
 
-	.o-teaser__standfirst,
-	.o-teaser__timestamp {
-		color: mix(#fff, oColorsGetPaletteColor('claret-1'), 80%);
-	}
+	&.o-teaser--hero {
+		.o-teaser__tag:after {
+			border-bottom-color: oColorsGetPaletteColor('white');
+		}
 
-	&.o-teaser--large {
 		.o-teaser__content,
 		.o-teaser__image-container:after {
-			@include oColorsFor('o-teaser-theme-special');
 			border: 0;
 		}
 
 		.o-teaser__content:after {
 			@include oGridRespondTo(S, L) {
-				@include oColorsFor('o-teaser-theme-special');
 				top: 0;
 				border: 0;
 			}
@@ -58,44 +95,36 @@
 	}
 }
 
-@mixin oTeaserGenre {
-	&.o-teaser--large {
-		display: flex;
-		flex-flow: column nowrap;
+@mixin oTeaserHero {
+	display: flex;
+	flex-flow: column nowrap;
 
-		.o-teaser__content {
-			@include oGridRespondTo(S, L) {
-				width: 100%;
+	.o-teaser__content {
+		border: 0;
+		background-color: #FADBCB;
+	}
 
-				&:after {
-					display: none;
-				}
-			}
-		}
+	.o-teaser__tag:after {
+		content: '';
+		display: block;
+		width: 60px;
+		margin-top: 5px;
+		margin-bottom: 10px;
+		border-bottom: 4px solid oColorsGetPaletteColor('claret-1');
+	}
+}
 
-		.o-teaser__image-container {
-			order: -1;
-			padding-left: 40%;
+@mixin oTeaserHeroImage {
+	.o-teaser__image-container {
+		order: -1;
+		width: 100%;
+		padding-left: 30%;
 
-			&:after {
-				top: 50%;
-			}
-
-			@include oGridRespondTo(S, L) {
-				position: relative;
-				float: none;
-				width: 100%;
-				padding-left: 40%;
-
-				&:after {
-					display: block;
-				}
-			}
-		}
-
-		.o-teaser__image:after {
-			top: auto;
-			bottom: 0;
+		&:after {
+			display: block;
+			top: 50%;
+			border: 0;
+			background-color: #FADBCB;
 		}
 	}
 }
