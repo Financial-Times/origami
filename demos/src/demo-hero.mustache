@@ -1,8 +1,8 @@
 <div class="demo-container demo-container--large">
 
-	<div class="o-teaser o-teaser--large o-teaser--genre o-teaser--{{article-modifier}}" data-o-component="o-teaser">
+	<div class="o-teaser o-teaser--hero {{#article-modifier}}o-teaser--{{article-modifier}}{{/article-modifier}} {{#article-image-url}}o-teaser--has-image{{/article-image-url}}" data-o-component="o-teaser">
 		<div class="o-teaser__content">
-			<p href="#" class="o-teaser__tag"><strong>Analysis</strong> {{article-tag}}</p>
+			<a href="#" class="o-teaser__tag">{{article-tag}}</a>
 
 			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
 
@@ -13,10 +13,6 @@
 			{{#article-timestamp}}
 				<time data-o-component="o-date" class="o-date o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
 			{{/article-timestamp}}
-
-			{{#article-headshot}}
-				<img src="{{article-headshot}}" alt=" " class="o-teaser__headshot">
-			{{/article-headshot}}
 		</div>
 
 		{{#article-image-url}}
