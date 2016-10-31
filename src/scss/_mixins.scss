@@ -54,6 +54,23 @@
 	}
 }
 
+@mixin oTeaserSmallStacked {
+	@include oGridRespondTo(S) {
+		flex-wrap: wrap;
+	}
+
+	.o-teaser__image-container {
+		width: 100%;
+		margin-bottom: 10px;
+
+		@include oGridRespondTo(S) {
+			flex: 1 0 100%;
+			padding-top: 0;
+			padding-right: 0;
+		}
+	}
+}
+
 @mixin oTeaserLarge {
 	.o-teaser__content {
 		padding: oGridGutter(M);
