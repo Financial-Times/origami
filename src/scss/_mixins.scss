@@ -10,6 +10,9 @@
 	position: relative;
 	margin-bottom: 10px;
 	font-family: $o-typography-sans;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
 	& *,
 	& *:before,
