@@ -42,6 +42,10 @@
 				&.o-teaser--centre {
 					@include oTeaserHeroCentreImage;
 				}
+
+				&.o-teaser--standalone {
+					@include oTeaserHeroStandalone;
+				}
 			}
 		}
 

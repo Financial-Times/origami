@@ -146,3 +146,14 @@
 		padding-right: 15%;
 	}
 }
+
+@mixin oTeaserHeroStandalone {
+	.o-teaser__image-container {
+		padding-left: 20%;
+
+		&:after {
+			top: 25%;
+			height: 75%;
+		}
+	}
+}
