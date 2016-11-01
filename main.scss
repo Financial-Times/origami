@@ -29,7 +29,7 @@
 
 	.o-teaser--large,
 	.o-teaser--hero {
-		.o-teaser--has-image {
+		&.o-teaser--has-image {
 			@include oTeaserImageContainer;
 		}
 	}
