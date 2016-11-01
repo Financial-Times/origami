@@ -78,13 +78,19 @@
 	.o-teaser--top-story {
 		@include oTeaserTopStoryBase;
 
-		&.o-teaser--standalone,
-		&.o-teaser--landscape {
+
+		&.o-teaser--landscape,
+		&.o-teaser--standalone {
 			@include oTeaserTopStoryStandalone;
 		}
 
-		&.o-teaser--landscape {
+		&.o-teaser--landscape,
+		&.o-teaser--big-story {
 			@include oTeaserTopStoryLandscape;
+		}
+
+		&.o-teaser--big-story {
+			@include oTeaserTopStoryBigStory;
 		}
 	}
 

@@ -15,7 +15,7 @@ body {
 	&--large {
 		@include oGridColspan((default: 12, L: 4));
 
-		&.demo-container--landscape {
+		&.demo-container--top-story {
 			@include oGridColspan((default: 12, L: 12));
 		}
 	}
