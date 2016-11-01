@@ -171,6 +171,22 @@
 				}
 			},
 			{
+				"name": "top-story-standalone",
+				"description": "Top story teaser standalone theme",
+				"template": "demos/src/demo-top-story.mustache",
+				"data": {
+					"article-modifier": "standalone",
+					"article-tag": "Brexit",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money",
+					"article-related-links": [
+						{"article-link": "Related story number one"},
+						{"article-link": "Related story number two with long title"},
+						{"article-link": "Final related story"}
+					]
+				}
+			},
+			{
 				"name": "pa11y",
 				"js": "demos/src/demo.js",
 				"template": "demos/src/pa11y.mustache",

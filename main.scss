@@ -11,63 +11,72 @@
 
 	.o-teaser {
 		@include oTeaserBase;
+	}
 
-		&.o-teaser--small {
-			@include oTeaserSmall;
+	.o-teaser--small {
+		@include oTeaserSmall;
 
-			&.o-teaser--stacked {
-				@include oTeaserSmallStacked;
-			}
+		&.o-teaser--stacked {
+			@include oTeaserSmallStacked;
+		}
+	}
+
+	.o-teaser--large,
+	.o-teaser--hero,
+	.o-teaser--top-story {
+		@include oTeaserLarge;
+	}
+
+	.o-teaser--has-image {
+		@include oTeaserImageContainer;
+	}
+
+	.o-teaser--large.o-teaser--has-image {
+		@include oTeaserLargeWithImage;
+	}
+
+	.o-teaser--hero {
+		@include oTeaserHero;
+
+		&.o-teaser--has-image {
+			@include oTeaserHeroImage;
 		}
 
-		&.o-teaser--large,
+		&.o-teaser--standalone {
+			@include oTeaserHeroStandalone;
+		}
+	}
+
+	.o-teaser--centre {
+		@include oTeaserHeroCentre;
+
+		&.o-teaser--has-image {
+			@include oTeaserHeroCentreImage;
+		}
+	}
+
+	.o-teaser--highlight,
+	.o-teaser--opinion.o-teaser--hero {
+		@include oTeaserHeroThemeBase;
+	}
+
+	.o-teaser--highlight {
+		@include oTeaserHighlight;
+	}
+
+	.o-teaser--opinion {
+		@include oTeaserOpinion;
+
 		&.o-teaser--hero {
-			@include oTeaserLarge;
-
-			&.o-teaser--has-image {
-				@include oTeaserImageContainer;
-			}
+			@include oTeaserHeroOpinion;
 		}
+	}
 
-		&.o-teaser--large.o-teaser--has-image {
-			@include oTeaserLargeWithImage;
-		}
+	.o-teaser--top-story {
+		@include oTeaserTopStoryBase;
 
-		&.o-teaser--hero {
-			@include oTeaserHero;
-
-			&.o-teaser--has-image {
-				@include oTeaserHeroImage;
-
-				&.o-teaser--centre {
-					@include oTeaserHeroCentreImage;
-				}
-
-				&.o-teaser--standalone {
-					@include oTeaserHeroStandalone;
-				}
-			}
-		}
-
-		&.o-teaser--centre {
-			@include oTeaserHeroCentre;
-		}
-
-		&.o-teaser--highlight,
-		&.o-teaser--opinion.o-teaser--hero {
-			@include oTeaserHeroThemeBase;
-		}
-
-		&.o-teaser--highlight {
-			@include oTeaserHighlight;
-		}
-
-		&.o-teaser--opinion {
-			@include oTeaserOpinion;
-
-			&.o-teaser--hero {
-				@include oTeaserHeroOpinion;
-			}
+		&.o-teaser--standalone {
+			@include oTeaserTopStoryStandalone
 		}
 	}
 
@@ -97,6 +106,24 @@
 
 	.o-teaser__timestamp {
 		@include oTeaserTimestamp;
+	}
+
+	.o-teaser__related {
+		list-style: disc outside;
+		padding-left: 40px;
+		margin: 0 0 20px;
+		border-left: 1px solid mix(#000, #fff1e0, 50%);
+	}
+
+	.o-teaser__related-item {
+		@include font-size(16, 24);
+		font-weight: oFontsWeight(semibold);
+		color: mix(#000, #fff1e0, 80%);
+
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
 	}
 
 	// Set to silent again to avoid being output twice

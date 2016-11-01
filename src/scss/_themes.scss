@@ -148,6 +148,10 @@
 }
 
 @mixin oTeaserHeroStandalone {
+	.o-teaser__heading {
+		@include font-size(38, 40);
+	}
+
 	.o-teaser__image-container {
 		padding-left: 20%;
 
@@ -155,5 +159,25 @@
 			top: 25%;
 			height: 75%;
 		}
+	}
+}
+
+@mixin oTeaserTopStoryBase {
+	border-bottom: 8px solid oColorsGetPaletteColor('black');
+}
+
+@mixin oTeaserTopStoryStandalone {
+	.o-teaser__content {
+		padding: 0 0 30px;
+		border: 0;
+	}
+
+	.o-teaser__heading {
+		@include font-size(56, 58);
+		font-family: $o-typography-serif-display;
+	}
+
+	.o-teaser__standfirst {
+		@include font-size(22, 24);
 	}
 }

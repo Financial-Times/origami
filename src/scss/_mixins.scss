@@ -39,6 +39,7 @@
 	}
 
 	.o-teaser__content {
+		flex: 1 0 70%;
 		order: 2;
 	}
 
@@ -47,7 +48,7 @@
 		margin-bottom: 10px;
 
 		@include oGridRespondTo(S) {
-			flex: 1 0 30%;
+			flex: 0 0 30%;
 			padding-top: 5px; // to line up with tag cap-height
 			padding-right: oGridGutter(M);
 		}
