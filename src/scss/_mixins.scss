@@ -244,3 +244,17 @@
 		margin-top: 10px;
 	}
 }
+
+@mixin oTeaserClearfix {
+	zoom: 1;
+
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+		display: flex;
+	}
+	&:after {
+		clear: both;
+	}
+}

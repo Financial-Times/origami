@@ -27,8 +27,11 @@
 		@include oTeaserLarge;
 	}
 
-	.o-teaser--has-image {
-		@include oTeaserImageContainer;
+	.o-teaser--large,
+	.o-teaser--hero {
+		.o-teaser--has-image {
+			@include oTeaserImageContainer;
+		}
 	}
 
 	.o-teaser--large.o-teaser--has-image {
@@ -75,8 +78,13 @@
 	.o-teaser--top-story {
 		@include oTeaserTopStoryBase;
 
-		&.o-teaser--standalone {
-			@include oTeaserTopStoryStandalone
+		&.o-teaser--standalone,
+		&.o-teaser--landscape {
+			@include oTeaserTopStoryStandalone;
+		}
+
+		&.o-teaser--landscape {
+			@include oTeaserTopStoryLandscape;
 		}
 	}
 
