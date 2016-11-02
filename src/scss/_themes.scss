@@ -1,3 +1,23 @@
+@mixin oTeaserInverse {
+	.o-teaser__tag {
+		color: oColorsGetPaletteColor('white');
+	}
+
+	.o-teaser__heading {
+		color: oColorsGetPaletteColor('white');
+	}
+
+	.o-teaser__standfirst,
+	.o-teaser__timestamp {
+		color: mix(#fff, oColorsGetPaletteColor('black'), 70%);
+	}
+
+	&.o-teaser--hero {
+		.o-teaser__tag:after {
+			border-bottom-color: oColorsGetPaletteColor('white');
+		}
+	}
+}
 
 @mixin oTeaserOpinion {
 	.o-teaser__tag {
@@ -68,19 +88,9 @@
 }
 
 @mixin oTeaserHeroThemeBase {
-	.o-teaser__tag {
-		color: oColorsGetPaletteColor('white');
-	}
-
-	.o-teaser__heading {
-		color: oColorsGetPaletteColor('white');
-	}
+	@include oTeaserInverse;
 
 	&.o-teaser--hero {
-		.o-teaser__tag:after {
-			border-bottom-color: oColorsGetPaletteColor('white');
-		}
-
 		.o-teaser__content,
 		.o-teaser__image-container:after {
 			border: 0;

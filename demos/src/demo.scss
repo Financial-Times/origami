@@ -19,6 +19,10 @@ body {
 			@include oGridColspan((default: 12, L: 12));
 		}
 	}
+
+	&--inverse {
+		background-color: oColorsGetPaletteColor('black');
+	}
 }
 
 .image-placeholder {
