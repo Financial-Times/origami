@@ -112,6 +112,10 @@
 		}
 	}
 
+	.o-teaser__image-placeholder {
+		@include oTeaserImagePlaceholder;
+	}
+
 	.o-teaser__image {
 		@include oTeaserImage;
 	}
