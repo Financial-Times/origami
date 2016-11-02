@@ -8,7 +8,7 @@
 @mixin oTeaserBase {
 	box-sizing: border-box;
 	position: relative;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 	font-family: $o-typography-sans;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -31,7 +31,7 @@
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-between;
-	padding-bottom: 10px;
+	padding-bottom: 15px;
 	border-bottom: 1px solid $_o-teaser-color-border;
 
 	@include oGridRespondTo(S) {
@@ -45,7 +45,7 @@
 
 	.o-teaser__image-container {
 		width: 60%;
-		margin-bottom: 10px;
+		margin-bottom: 15px;
 
 		@include oGridRespondTo(S) {
 			flex: 0 0 30%;
@@ -62,7 +62,6 @@
 
 	.o-teaser__image-container {
 		width: 100%;
-		margin-bottom: 10px;
 
 		@include oGridRespondTo(S) {
 			flex: 1 0 100%;
@@ -73,6 +72,8 @@
 }
 
 @mixin oTeaserLarge {
+	@include oTeaserClearfix;
+
 	.o-teaser__content {
 		padding: oGridGutter(M);
 		border: 1px solid $_o-teaser-color-border;
@@ -92,7 +93,7 @@
 	}
 
 	.o-teaser__timestamp {
-		margin-top: 10px;
+		margin-top: 5px;
 	}
 
 	.o-teaser__standfirst {
@@ -118,7 +119,6 @@
 		@include oGridRespondTo(S, L) {
 			position: relative;
 			float: left;
-			width: 60%;
 			border-right: 0;
 
 			&:after {
@@ -133,6 +133,14 @@
 				border-left: 0;
 			}
 		}
+
+		@include oGridRespondTo(S, M) {
+			width: 60%;
+		}
+
+		@include oGridRespondTo(M, L) {
+			width: 70%;
+		}
 	}
 }
 
@@ -140,6 +148,10 @@
 	.o-teaser__image {
 		position: relative;
 		z-index: 1;
+
+		@include oGridRespondTo(M, L) {
+			max-width: 220px;
+		}
 	}
 
 	.o-teaser__image-container {
@@ -163,13 +175,20 @@
 
 		@include oGridRespondTo(S, L) {
 			float: right;
-			width: 40%;
 			margin-top: 0;
 			padding-left: 0;
 
 			&:after {
 				display: none;
 			}
+		}
+
+		@include oGridRespondTo(S, M) {
+			width: 40%;
+		}
+
+		@include oGridRespondTo(M, L) {
+			width: 30%;
 		}
 	}
 }
@@ -241,7 +260,7 @@
 	text-transform: uppercase;
 
 	.o-teaser__heading + &:not(:empty) {
-		margin-top: 10px;
+		margin-top: 5px;
 	}
 }
 
