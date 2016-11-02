@@ -34,7 +34,7 @@ class VideoAds {
 				document.getElementsByTagName("head")[0].appendChild(googleSdkScript);
 			}
 
-			if (sdkScriptLoaded) {
+			if (sdkScriptLoaded || (window.google && window.google.ima)) {
 				resolve();
 			} else {
 				googleSdkScript.addEventListener('load', () => {
