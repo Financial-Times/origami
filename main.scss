@@ -34,6 +34,26 @@ $o-teaser-is-silent: false;
 		padding: 20px 0;
 		font-family: $o-typography-sans;
 		font-weight: normal;
+
+		a {
+			&:hover {
+				color: #777;
+			}
+			color: inherit;
+			text-decoration: none;
+			border: 0;
+			&:after {
+				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('black'), 40, $iconset-version: 1);
+				content: '';
+				display: inline-block;
+				position: relative;
+				top: 10px;
+				right: -13px;
+				margin-left: -13px;
+				margin-top: -12px;
+				}
+		}
+
 		&:before {
 			content: '';
 			position: absolute;
@@ -48,18 +68,6 @@ $o-teaser-is-silent: false;
 			}
 		}
 
-		&:after {
-			@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('black'), 40);
-			content: '';
-			display: inline-block;
-			position: relative;
-			top: 10px;
-			right: -13px;
-			margin-left: -13px;
-			margin-top: -12px;
-		}
-
-
 		&--full-width:before {
 			width: 100%;
 		}
@@ -67,21 +75,20 @@ $o-teaser-is-silent: false;
 		&--small {
 			@include font-size(24,26);
 			margin-bottom: 20px;
-			padding: 8px 0;
-			border-bottom: 8px solid oColorsGetPaletteColor('black');
+			padding: 20px 0 10px;
+			border-bottom: 1px solid $_o-teaser-collection-color-bottom-border;
 
 			&:before {
 				width: 100%;
 			}
 
-			&:after {
-				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('black'), 32);
+			a:after {
+				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('black'), 32, $iconset-version: 1);
 				margin-top: -12px;
 			}
 		}
 
 	}
-
 	.o-teaser-collection__items {
 		list-style: none;
 		display: flex;
