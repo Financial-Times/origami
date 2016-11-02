@@ -23,6 +23,12 @@ body {
 	&--inverse {
 		background-color: oColorsGetPaletteColor('black');
 	}
+
+	&--big-story {
+		margin: 20px 0;
+		padding: 0 40px;
+		background-color: #FADBCB;
+	}
 }
 
 .image-placeholder {
