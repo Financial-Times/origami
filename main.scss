@@ -28,27 +28,24 @@ $o-teaser-is-silent: false;
 
 	.o-teaser-collection__heading {
 		@include font-size(32, 32);
+		position: relative;
 		width: 100%;
 		margin: -8px 0 0;
-		padding: 8px 0 20px;
+		padding: 20px 0;
 		font-family: $o-typography-sans;
 		font-weight: normal;
-		border-top: 8px solid oColorsGetPaletteColor('black');
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			border-top: 8px solid oColorsGetPaletteColor('black');
+			@include oGridRespondTo(M) {
+				width: 50%;
+			}
 
-		@include oGridRespondTo(M) {
-			width: 50%;
-		}
-
-		@include oGridRespondTo(L) {
-			width: 33.333%;
-		}
-
-		&--alignright {
-			text-align: right;
-		}
-
-		&--full-width {
-			width: 100%;
+			@include oGridRespondTo(L) {
+				width: 33.333%;
+			}
 		}
 
 		&:after {
@@ -59,7 +56,30 @@ $o-teaser-is-silent: false;
 			top: 10px;
 			right: -13px;
 			margin-left: -13px;
+			margin-top: -12px;
 		}
+
+
+		&--full-width:before {
+			width: 100%;
+		}
+
+		&--small {
+			@include font-size(24,26);
+			margin-bottom: 20px;
+			padding: 8px 0;
+			border-bottom: 8px solid oColorsGetPaletteColor('black');
+
+			&:before {
+				width: 100%;
+			}
+
+			&:after {
+				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('black'), 32);
+				margin-top: -12px;
+			}
+		}
+
 	}
 
 	.o-teaser-collection__items {
