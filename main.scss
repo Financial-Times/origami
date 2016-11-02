@@ -38,6 +38,16 @@
 		@include oTeaserLargeWithImage;
 	}
 
+	.o-teaser--large-portrait {
+		@include oTeaserLarge;
+		@include oTeaserLargeImagePortrait;
+	}
+
+	.o-teaser--large-landscape {
+		@include oTeaserLarge;
+		@include oTeaserLargeImageLandscape;
+	}
+
 	.o-teaser--hero {
 		@include oTeaserHero;
 
