@@ -58,6 +58,10 @@
 		}
 	}
 
+	.o-teaser--stretched {
+		@include oTeaserStretched;
+	}
+
 	.o-teaser--highlight,
 	.o-teaser--opinion.o-teaser--hero {
 		@include oTeaserHeroThemeBase;

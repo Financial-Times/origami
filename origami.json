@@ -160,6 +160,18 @@
 				}
 			},
 			{
+				"name": "hero-stretched",
+				"description": "Hero teaser default theme stretched",
+				"template": "demos/src/demo-hero.mustache",
+				"data": {
+					"article-modifier": "stretched o-teaser--opinion",
+					"article-tag": "Brexit",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
 				"name": "top-story-hero",
 				"description": "Top story teaser hero standalone theme",
 				"template": "demos/src/demo-hero.mustache",

@@ -24,6 +24,11 @@ body {
 		background-color: oColorsGetPaletteColor('black');
 	}
 
+	&--stretched {
+		display: flex;
+		height: 400px;
+	}
+
 	&--big-story {
 		margin: 20px 0;
 		padding: 0 40px;

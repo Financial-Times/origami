@@ -19,6 +19,20 @@
 	}
 }
 
+@mixin oTeaserStretched {
+	display: flex;
+
+	.o-teaser__content {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	.o-teaser__heading {
+		flex: 1;
+	}
+}
+
 @mixin oTeaserOpinion {
 	.o-teaser__tag {
 		@include oColorsFor('o-teaser-opinion-tag', 'text');
