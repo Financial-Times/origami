@@ -284,10 +284,10 @@
 	margin: 0;
 	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(normal);
-	color: mix(#000, #fff1e0, 80%);
+	color: oTeaserTextColor($percent: 80);
 
 	&:hover {
-		color: #777;
+		color: oTeaserTextColor($percent: 50);
 	}
 
 	a {
@@ -306,7 +306,7 @@
 	border: 0;
 
 	&:hover {
-		color: #777;
+		color: oTeaserTextColor($percent: 50);
 	}
 
 	strong {
@@ -323,7 +323,7 @@
 @mixin oTeaserStandfirst {
 	@include font-size(16, 22);
 	margin: 0;
-	color: mix(#000, #fff1e0, 60%);
+	color: oTeaserTextColor();
 
 	.o-teaser__heading + & {
 		margin-top: 10px;
@@ -333,24 +333,10 @@
 @mixin oTeaserTimestamp {
 	@include font-size(12, 16);
 	display: block;
-	color: mix(#000, #fff1e0, 60%);
+	color: oTeaserTextColor();
 	text-transform: uppercase;
 
 	.o-teaser__heading + &:not(:empty) {
 		margin-top: 5px;
-	}
-}
-
-@mixin oTeaserClearfix {
-	zoom: 1;
-
-	&:before,
-	&:after {
-		content: '';
-		display: table;
-		display: flex;
-	}
-	&:after {
-		clear: both;
 	}
 }

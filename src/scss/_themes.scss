@@ -1,4 +1,9 @@
 @mixin oTeaserInverse {
+	.o-teaser__heading:hover,
+	.o-teaser__tag:hover {
+		color: oTeaserTextColor(#fff, oColorsGetPaletteColor('black'), 60);
+	}
+
 	.o-teaser__tag {
 		color: oColorsGetPaletteColor('white');
 	}
@@ -9,7 +14,7 @@
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: mix(#fff, oColorsGetPaletteColor('black'), 70%);
+		color: oTeaserTextColor(#fff, oColorsGetPaletteColor('black'), 70);
 	}
 
 	&.o-teaser--hero {
@@ -40,7 +45,7 @@
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: mix(#000, oColorsGetPaletteColor('blue-tint5'), 60%);
+		color: oTeaserTextColor($background: oColorsGetPaletteColor('blue-tint5'));
 	}
 
 	&.o-teaser--large {
@@ -62,9 +67,14 @@
 }
 
 @mixin oTeaserHighlight {
+	.o-teaser__heading:hover,
+	.o-teaser__tag:hover {
+		color: oTeaserTextColor(#fff, oColorsGetPaletteColor('claret-1'), 60);
+	}
+
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: mix(#fff, oColorsGetPaletteColor('claret-1'), 80%);
+		color: oTeaserTextColor(#fff, oColorsGetPaletteColor('claret-1'), 80);
 	}
 
 	&.o-teaser--hero {
@@ -82,20 +92,25 @@
 }
 
 @mixin oTeaserHeroOpinion {
+	.o-teaser__heading:hover,
+	.o-teaser__tag:hover {
+		color: oTeaserTextColor(#fff, $_o-teaser-color-hero-opinion-background, 60);
+	}
+
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: mix(#fff, #275C85, 80%);
+		color: oTeaserTextColor(#fff, $_o-teaser-color-hero-opinion-background, 80);
 	}
 
 	&.o-teaser--hero {
 		.o-teaser__content,
 		.o-teaser__image-container:after {
-			background-color: #275C85;
+			background-color: $_o-teaser-color-hero-opinion-background;
 		}
 
 		.o-teaser__content:after {
 			@include oGridRespondTo(S, L) {
-				background-color: #275C85;
+				background-color: $_o-teaser-color-hero-opinion-background;
 			}
 		}
 	}
@@ -125,7 +140,7 @@
 
 	.o-teaser__content {
 		border: 0;
-		background-color: #FADBCB;
+		background-color: $_o-teaser-color-hero-background;
 	}
 
 	.o-teaser__tag:after {
@@ -148,7 +163,7 @@
 			display: block;
 			top: 50%;
 			border: 0;
-			background-color: #FADBCB;
+			background-color: $_o-teaser-color-hero-background;
 		}
 	}
 }

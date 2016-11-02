@@ -3,6 +3,7 @@
 @import "o-typography/main";
 
 @import "src/scss/variables";
+@import "src/scss/helpers";
 @import "src/scss/color-use-cases";
 @import "src/scss/mixins";
 @import "src/scss/themes";
@@ -155,6 +156,10 @@
 		@include font-size(16, 24);
 		font-weight: oFontsWeight(semibold);
 		color: mix(#000, #fff1e0, 80%);
+
+		&:hover {
+			color: mix(#000, #fff1e0, 60%);
+		}
 
 		a {
 			text-decoration: none;
