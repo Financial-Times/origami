@@ -64,10 +64,10 @@ The [Responsive Image Service](https://image.webservices.ft.com/) helps serving 
 ```scss
 .icon-plus {
 	// Older browsers: PNG fallback (resized to 40px wide)
-	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:plus?width=40&format=png&source=o-icons');
+	background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon:plus?width=40&format=png&source=o-icons');
 	// Modern browsers: SVG covering the whole size of the element
 	// we declare multiple backgrounds so that only modern browsers read this property
-	background-image: url('//image.webservices.ft.com/v1/images/raw/fticon-v1:plus?format=svg&source=o-icons'), none;
+	background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?format=svg&source=o-icons'), none;
 
 	display: inline-block;
 	width: 40px;
@@ -84,6 +84,14 @@ The 'base' of the service url can be set with the `$o-icons-service-base-url` va
 
 ```
 $o-icons-service-base-url: "https://my.image.service/foo";
+```
+
+will output an image service url in the format `https://my.image.service/foo/v2/images/raw/...`.
+
+The 'version' of the service url can be set with the `$o-icons-service-version` variable. e.g. setting
+
+```
+$o-icons-service-version: "1";
 ```
 
 will output an image service url in the format `https://my.image.service/foo/v1/images/raw/...`.
