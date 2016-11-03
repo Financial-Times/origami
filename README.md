@@ -64,7 +64,15 @@ The 'base' of the image url can be set with the `$o-header-image-base-url` varia
 $o-header-image-base-url: 'https://my.image.service/foo';
 ```
 
-will output an image logo url in the format `https://my.image.service/foo/v1/images/raw/ftlogo:....`
+will output an image logo url in the format `https://my.image.service/foo/v2/images/raw/ftlogo:....`
+
+The 'version' of the image url can be set with the `$o-header-image-service-version` variable. e.g. setting
+
+```
+$o-header-image-service-version: "v1";
+```
+
+will output an image logo url in the format `https://my.image.service/foo/v1/images/raw/ftlogo:...`.
 
 #### Silent mode ([docs](http://origami.ft.com/docs/syntax/scss/#silent-styles))
 

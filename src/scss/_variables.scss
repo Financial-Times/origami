@@ -1,5 +1,14 @@
 $o-header-is-silent: true !default;
-$o-header-image-base-url: 'https://image.webservices.ft.com' !default;
+/// Option to change the base of the image service url
+///
+/// @type String
+$o-header-image-base-url: "https://www.ft.com/__origami/service/image" !default;
+
+/// Option to change the version of the image service url
+///
+/// @type String
+$o-header-image-service-version: "v2" !default;
+
 
 $_o-header-padding-x: 12px;
 $_o-header-padding-y: 12px;
