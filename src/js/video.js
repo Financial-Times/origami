@@ -56,7 +56,7 @@ function addEvents(video, events) {
 
 // use the image resizing service, if width supplied
 function updatePosterUrl(posterImage, width) {
-	let url = `https://image.webservices.ft.com/v1/images/raw/${encodeURIComponent(posterImage)}?source=o-video&quality=low`;
+	let url = `https://www.ft.com/__origami/service/image/v2/images/raw/${encodeURIComponent(posterImage)}?source=o-video&quality=low`;
 	if (width) {
 		url += `&fit=scale-down&width=${width}`;
 	}

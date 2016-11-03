@@ -398,7 +398,7 @@ describe('Video', () => {
 			return video.getData()
 				.then(() => {
 					video.posterImage.should.equal(
-						'https://image.webservices.ft.com/v1/images/raw/' +
+						'https://www.ft.com/__origami/service/image/v2/images/raw/' +
 						'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201502%2F2470%2F47628783001_4085962850001_MAS-VIDEO-AuthersNote-stock-market.jpg%3FpubId%3D47628783001' +
 						'?source=o-video&quality=low&fit=scale-down&width=300'
 					);
