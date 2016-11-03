@@ -90,6 +90,14 @@
 		}
 	}
 
+	.o-teaser--paid-post {
+		@include oTeaserPaidPost;
+	}
+
+	.o-teaser--promoted-content {
+		@include oTeaserPromotedContent;
+	}
+
 	.o-teaser--inverse {
 		@include oTeaserInverse;
 	}
@@ -127,6 +135,14 @@
 
 	.o-teaser__tag {
 		@include oTeaserTag;
+	}
+
+	.o-teaser__promoted-prefix {
+		@include oTeaserPromotedPrefix;
+	}
+
+	.o-teaser__promoted-by {
+		@include oTeaserPromotedBy;
 	}
 
 	.o-teaser__headshot {

@@ -314,6 +314,18 @@
 	}
 }
 
+@mixin oTeaserPromotedPrefix {
+	@include font-size(16, 18);
+	@include oColorsFor('o-teaser-promoted-prefix', 'text');
+	font-weight: oFontsWeight(semibold);
+}
+
+@mixin oTeaserPromotedBy {
+	@include font-size(16, 18);
+	@include oColorsFor('o-teaser-promoted-by', 'text');
+	font-weight: oFontsWeight(semibold);
+}
+
 @mixin oTeaserHeadshot {
 	position: absolute;
 	bottom: 0;
