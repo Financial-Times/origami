@@ -65,7 +65,7 @@
 // oFtIconsGetSvg mixin. When a major release is due, this should also be updated
 // to use the o-icons dependency
 @mixin _oOverlayCloseIcon($color) {
-	$service-url: "https://image.webservices.ft.com/v1/images/raw/fticon:cross-disk";
+	$service-url: "https://www.ft.com/__origami/service/image/v2/images/raw/fticon:cross-disk";
 	$query: "?source=ooverlay";
 
 	$color: str-slice(ie-hex-str($color), 4);
