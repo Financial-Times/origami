@@ -11,11 +11,15 @@ $o-share-is-silent: true !default;
 /// @type Number
 $o-share-icon-size: 24px !default;
 
-/// Option to change the base of the image service url, i.e. `/v1/images/raw/...`
-/// will be appended to this
+/// Option to change the base of the image service url
 ///
 /// @type String
-$o-icons-image-service-base-url: "//image.webservices.ft.com" !default;
+$o-icons-image-service-base-url: "https://www.ft.com/__origami/service/image" !default;
+
+/// Option to change the version of the image service url
+///
+/// @type String
+$o-icons-image-service-version: "v2" !default;
 
 /// List of accepted social network icons, and the version
 /// @type map
