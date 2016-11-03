@@ -24,7 +24,7 @@
 
 	$scheme: "fticon-v#{$iconset-version}";
 
-	$service-url: $o-icons-service-base-url + $o-icons-service-version + "/images/raw/#{$scheme}:#{$icon-name}";
+	$service-url: "#{$o-icons-service-base-url}/#{$o-icons-service-version}/images/raw/#{$scheme}:#{$icon-name}";
 	$query: "?source=o-icons";
 
 	@if $color != null {

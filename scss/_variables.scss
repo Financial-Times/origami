@@ -17,9 +17,9 @@ $o-icons-use-local-assets: false !default;
 /// Option to change the base of the image service url
 ///
 /// @type String
-$o-icons-service-base-url: "https://www.ft.com/__origami/service/image/v" !default;
+$o-icons-service-base-url: "https://www.ft.com/__origami/service/image" !default;
 
 /// Option to change the version of the image service url
 ///
 /// @type String
-$o-icons-service-version: "2" !default;
+$o-icons-service-version: "v2" !default;

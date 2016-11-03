@@ -91,7 +91,7 @@ will output an image service url in the format `https://my.image.service/foo/v2/
 The 'version' of the service url can be set with the `$o-icons-service-version` variable. e.g. setting
 
 ```
-$o-icons-service-version: "1";
+$o-icons-service-version: "v1";
 ```
 
 will output an image service url in the format `https://my.image.service/foo/v1/images/raw/...`.
