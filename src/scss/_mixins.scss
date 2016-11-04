@@ -84,12 +84,14 @@
 	}
 
 	.o-teaser__heading {
-		@include font-size(34, 36);
+		@include font-size(30, 32);
 		font-family: $o-typography-sans;
 
-		@include oGridRespondTo(L) {
-			@include font-size(38, 40);
-		}
+		// review small breakpoint for font size
+
+		// @include oGridRespondTo(L) {
+		// 	@include font-size(38, 40);
+		// }
 	}
 
 	.o-teaser__timestamp {
@@ -101,7 +103,7 @@
 		margin-top: 25px;
 
 		@include oGridRespondTo(L) {
-			@include font-size(22, 28);
+			@include font-size(20, 24);
 		}
 	}
 }
@@ -280,7 +282,7 @@
 }
 
 @mixin oTeaserHeading {
-	@include font-size(24, 28);
+	@include font-size(22, 26);
 	margin: 0;
 	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(normal);
@@ -333,7 +335,7 @@
 }
 
 @mixin oTeaserStandfirst {
-	@include font-size(16, 22);
+	@include font-size(16, 20);
 	margin: 0;
 	color: oTeaserTextColor();
 
@@ -343,7 +345,7 @@
 }
 
 @mixin oTeaserTimestamp {
-	@include font-size(12, 16);
+	@include font-size(12, 18);
 	display: block;
 	color: oTeaserTextColor();
 	text-transform: uppercase;
