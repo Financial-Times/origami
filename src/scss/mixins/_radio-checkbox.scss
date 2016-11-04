@@ -10,7 +10,7 @@
 /// IE 8: in this mixin we're using ::before and ::after (instead of :before and :after)
 /// so that IE 8 doesn't get enhanced checkboxes (which it wouldn't render correctly anyway)
 ///
-/// @param {map} $selectors [(radio: '.o-forms-radio', checkbox: '.o-forms-checkbox', label: '.o-forms-label')]
+/// @param {map} $selectors [(radio: '.o-forms__radio', checkbox: '.o-forms__checkbox', label: '.o-forms__label')]
 @mixin oFormsRadioCheckbox($selectors: (radio: '.o-forms__radio', checkbox: '.o-forms__checkbox', label: '.o-forms__label')) {
 	$checkbox: unquote(map-get($selectors, checkbox));
 	$radio: unquote(map-get($selectors, radio));
@@ -25,14 +25,14 @@
 	#{$checkbox} + #{$label},
 	#{$radio} + #{$label} {
 		display: inline-block;
-		margin-top: $_o-forms-label-margin-bottom; // double the spacing between labels and radio/checkboxes
+		margin-top: $_o-forms__label-margin-bottom; // double the spacing between labels and radio/checkboxes
 		margin-right: 15px;
-		padding-left: $_o-forms-radiocheckbox-default-size + 5px;
+		padding-left: $_o-forms__radiocheckbox-default-size + 5px;
 		position: relative;
 		cursor: pointer;
 		font-size: 14px;
 		font-weight: 400;
-		line-height: $_o-forms-radiocheckbox-default-size + 1px;
+		line-height: $_o-forms__radiocheckbox-default-size + 1px;
 		// scss-lint:disable VendorPrefixes VendorPrefix
 		-moz-user-select: none;
 		-webkit-user-select: none;
@@ -53,8 +53,8 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: $_o-forms-radiocheckbox-default-size;
-		height: $_o-forms-radiocheckbox-default-size;
+		width: $_o-forms__radiocheckbox-default-size;
+		height: $_o-forms__radiocheckbox-default-size;
 		border: 1px solid oColorsGetColorFor(o-forms-field-standard, border);
 		box-sizing: border-box;
 		content: '';
@@ -102,19 +102,19 @@
 	#{$radio} + #{$label}::after {
 		background-color: oColorsGetPaletteColor('grey-tint4');
 		border-radius: 50%;
-		height: $_o-forms-radio-internal-default-size;
-		width: $_o-forms-radio-internal-default-size;
-		left: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
-		top: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
+		height: $_o-forms__radio-internal-default-size;
+		width: $_o-forms__radio-internal-default-size;
+		left: ($_o-forms__radiocheckbox-default-size - $_o-forms__radio-internal-default-size) / 2;
+		top: ($_o-forms__radiocheckbox-default-size - $_o-forms__radio-internal-default-size) / 2;
 	}
 
 	#{$checkbox} + #{$label}::after {
 		$check-color: oColorsGetPaletteColor('grey-tint5');
 		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=o-icons&tint=%23#{$check-color},%23#{$check-color}&format=svg");
 		background-repeat: no-repeat;
-		height: $_o-forms-radiocheckbox-default-size;
-		width: $_o-forms-radiocheckbox-default-size;
-		background-size: $_o-forms-radiocheckbox-default-size;
+		height: $_o-forms__radiocheckbox-default-size;
+		width: $_o-forms__radiocheckbox-default-size;
+		background-size: $_o-forms__radiocheckbox-default-size;
 		background-position: 50% 50%;
 	}
 

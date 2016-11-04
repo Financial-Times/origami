@@ -11,9 +11,9 @@
 		margin-bottom: 16px;
 		margin-left: $_o-forms-padding * -1;
 		margin-right: $_o-forms-padding * -1;
-		color: oColorGetColorFor('o-forms-message-default', text);
+		color: oColorGetColorFor('o-forms__message-default', text);
 		font-size: 18px;
-		background-color: oColorsGetColorFor(o-forms-wrapper-highlight, background);
+		background-color: oColorsGetColorFor(o-forms__wrapper-highlight, background);
 
 		@include _oFormsBreakpoint {
 			border-radius: $_o-forms-field-border-radius;
@@ -28,8 +28,8 @@
 		}
 
 		&--error {
-			background-color: oColorsGetColorFor(o-forms-message-error, background);
-			color: oColorsGetColorFor(o-forms-message-error, text);
+			background-color: oColorsGetColorFor(o-forms__message-error, background);
+			color: oColorsGetColorFor(o-forms__message-error, text);
 		}
 
 		&--wide {

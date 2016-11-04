@@ -1,16 +1,16 @@
-@include oColorsSetUseCase(o-forms-message-default, text, 'grey-tint5');
-@include oColorsSetUseCase(o-forms-message-error, background, 'red');
-@include oColorsSetUseCase(o-forms-message-error, text, 'white');
-@include oColorsSetUseCase(o-forms-message-error-fallback, background, 'red-tint5');
+@include oColorsSetUseCase(o-forms__message-default, text, 'grey-tint5');
+@include oColorsSetUseCase(o-forms__message-error, background, 'red');
+@include oColorsSetUseCase(o-forms__message-error, text, 'white');
+@include oColorsSetUseCase(o-forms__message-error-fallback, background, 'red-tint5');
 
-@include oColorsSetUseCase(o-forms-wrapper-highlight, background, 'pink-tint2');
+@include oColorsSetUseCase(o-forms__wrapper-highlight, background, 'pink-tint2');
 
 @include oColorsSetUseCase(o-forms-field-label, text, 'grey-tint4');
 
 @include oColorsSetUseCase(o-forms-field-additional-info, text, 'grey-tint5');
 
-@include oColorsSetUseCase(o-forms-prefixsuffix, background, 'pink-tint1');
-@include oColorsSetUseCase(o-forms-prefixsuffix, text, 'pink-tint5');
+@include oColorsSetUseCase(o-forms__prefixsuffix, background, 'pink-tint1');
+@include oColorsSetUseCase(o-forms__prefixsuffix, text, 'pink-tint5');
 
 @include oColorsSetUseCase(o-forms-field-standard, text, 'grey-tint5');
 @include oColorsSetUseCase(o-forms-field-standard, border, 'pink-tint3');
