@@ -4,6 +4,11 @@
 		<div class="o-teaser__content">
 			<a href="#" class="o-teaser__tag">{{article-tag}}</a>
 
+			{{#article-promoted-by}}
+				<span class="o-teaser__promoted-prefix">{{article-promoted-prefix}}</span>
+				BY <span class="o-teaser__promoted-by">{{article-promoted-by}}</span>
+			{{/article-promoted-by}}
+
 			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
 
 			{{#article-standfirst}}

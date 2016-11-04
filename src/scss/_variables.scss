@@ -2,6 +2,6 @@
 $o-teaser-is-silent: true !default;
 
 // Colors not in o-colors
-$_o-teaser-color-border: mix(#000, oColorsGetPaletteColor('pink'), 20%); // #D1C6B7;
-$_o-teaser-color-hero-background: #FADBCB;
-$_o-teaser-color-hero-opinion-background: #275C85;
+$_o-teaser-color-border: mix(#000000, oColorsGetPaletteColor('pink'), 20%); // #D1C6B7;
+$_o-teaser-color-hero-background: #fadbcb;
+$_o-teaser-color-hero-opinion-background: #275c85;

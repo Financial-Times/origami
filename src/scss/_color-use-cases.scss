@@ -4,7 +4,11 @@
 // Tags
 @include oColorsSetUseCase(o-teaser-tag, text, 'claret-1');
 @include oColorsSetUseCase(o-teaser-opinion-tag, text, 'blue');
+@include oColorsSetUseCase(o-teaser-promoted-by, text, 'black');
+@include oColorsSetUseCase(o-teaser-promoted-prefix, text, 'teal-2');
 
 // Themes
 @include oColorsSetUseCase(o-teaser-theme-opinion, background, 'blue-tint5');
 @include oColorsSetUseCase(o-teaser-theme-hero, background, 'claret-1');
+@include oColorsSetUseCase(o-teaser-theme-paid-post, background, 'white');
+@include oColorsSetUseCase(o-teaser-theme-promoted-content, background, 'white');

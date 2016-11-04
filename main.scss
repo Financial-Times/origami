@@ -90,6 +90,14 @@
 		}
 	}
 
+	.o-teaser--paid-post {
+		@include oTeaserPaidPost;
+	}
+
+	.o-teaser--promoted-content {
+		@include oTeaserPromotedContent;
+	}
+
 	.o-teaser--inverse {
 		@include oTeaserInverse;
 	}
@@ -129,6 +137,14 @@
 		@include oTeaserTag;
 	}
 
+	.o-teaser__promoted-prefix {
+		@include oTeaserPromotedPrefix;
+	}
+
+	.o-teaser__promoted-by {
+		@include oTeaserPromotedBy;
+	}
+
 	.o-teaser__headshot {
 		@include oTeaserHeadshot;
 	}
@@ -149,16 +165,16 @@
 		list-style: disc outside;
 		padding-left: 40px;
 		margin: 0 0 20px;
-		border-left: 1px solid mix(#000, #fff1e0, 50%);
+		border-left: 1px solid mix(#000000, #fff1e0, 50%);
 	}
 
 	.o-teaser__related-item {
 		@include font-size(16, 24);
 		font-weight: oFontsWeight(semibold);
-		color: mix(#000, #fff1e0, 80%);
+		color: mix(#000000, #fff1e0, 80%);
 
 		&:hover {
-			color: mix(#000, #fff1e0, 60%);
+			color: mix(#000000, #fff1e0, 60%);
 		}
 
 		a {

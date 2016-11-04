@@ -299,7 +299,7 @@
 
 @mixin oTeaserTag {
 	@include font-size(16, 18);
-	@include oColorsFor('o-teaser-tag', 'text')
+	@include oColorsFor('o-teaser-tag', 'text');
 	margin: 0;
 	font-weight: oFontsWeight(semibold);
 	text-decoration: none;
@@ -312,6 +312,18 @@
 	strong {
 		font-weight: normal;
 	}
+}
+
+@mixin oTeaserPromotedPrefix {
+	@include font-size(16, 18);
+	@include oColorsFor('o-teaser-promoted-prefix', 'text');
+	font-weight: oFontsWeight(semibold);
+}
+
+@mixin oTeaserPromotedBy {
+	@include font-size(16, 18);
+	@include oColorsFor('o-teaser-promoted-by', 'text');
+	font-weight: oFontsWeight(semibold);
 }
 
 @mixin oTeaserHeadshot {
