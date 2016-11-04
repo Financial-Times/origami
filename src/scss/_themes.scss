@@ -1,7 +1,7 @@
 @mixin oTeaserInverse {
 	.o-teaser__heading:hover,
 	.o-teaser__tag:hover {
-		color: oTeaserTextColor(#fff, oColorsGetPaletteColor('black'), 60);
+		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('black'), 60);
 	}
 
 	.o-teaser__tag {
@@ -14,7 +14,7 @@
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: oTeaserTextColor(#fff, oColorsGetPaletteColor('black'), 70);
+		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('black'), 70);
 	}
 
 	&.o-teaser--hero {
@@ -69,12 +69,12 @@
 @mixin oTeaserHighlight {
 	.o-teaser__heading:hover,
 	.o-teaser__tag:hover {
-		color: oTeaserTextColor(#fff, oColorsGetPaletteColor('claret-1'), 60);
+		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('claret-1'), 60);
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: oTeaserTextColor(#fff, oColorsGetPaletteColor('claret-1'), 80);
+		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('claret-1'), 80);
 	}
 
 	&.o-teaser--hero {
@@ -94,12 +94,12 @@
 @mixin oTeaserHeroOpinion {
 	.o-teaser__heading:hover,
 	.o-teaser__tag:hover {
-		color: oTeaserTextColor(#fff, $_o-teaser-color-hero-opinion-background, 60);
+		color: oTeaserTextColor(#ffffff, $_o-teaser-color-hero-opinion-background, 60);
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: oTeaserTextColor(#fff, $_o-teaser-color-hero-opinion-background, 80);
+		color: oTeaserTextColor(#ffffff, $_o-teaser-color-hero-opinion-background, 80);
 	}
 
 	&.o-teaser--hero {

@@ -12,7 +12,7 @@
 	}
 }
 
-@function oTeaserTextColor($color: #000, $background: #fff1e0, $percent: 60) {
+@function oTeaserTextColor($color: #000000, $background: #fff1e0, $percent: 60) {
 	$percent: $percent * 1%;
 
 	@return mix($color, $background, $percent);
