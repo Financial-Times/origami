@@ -26,6 +26,7 @@
 
 @mixin oTeaserStretched {
 	display: flex;
+	flex: 1;
 
 	.o-teaser__content {
 		display: flex;
