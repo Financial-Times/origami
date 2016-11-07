@@ -97,8 +97,10 @@ ODate.prototype.update = function() {
 		dateString = ODate.asTodayOrYesterdayOrNothing(date);
 	} else if (format === 'date-only') {
 		dateString = ODate.format(date, 'date');
-	} else if (format === 'time-ago-limit-4-hours'){
+	} else if (format === 'time-ago-limit-4-hours') {
 		dateString = ODate.timeAgo(date, { limit: 4*inSeconds.hour });
+	} else if (format === 'time-ago-abbreviated-limit-4-hours') {
+		dateString = ODate.timeAgo(date, { abbreviated: true, limit: 4*inSeconds.hour });
 	} else if (format !== null) {
 		dateString = ODate.format(date, format);
 	} else {
@@ -227,28 +229,30 @@ ODate.timeAgo = function(date, interval, options) {
 		return '';
 	}
 
+	const abbreviated = options ? options.abbreviated : false;	
+
 	if (interval < inSeconds.minute) {
-		return interval + ' seconds ago';
+		return `${abbreviated ? interval + 's' : interval + ' seconds'} ago`;
 	} else if (interval < (1.5 * inSeconds.minute)) {
-		return 'a minute ago';
+		return `${abbreviated ? '1m' : 'a minute'} ago`;
 	} else if (interval < (59 * inSeconds.minute) ) {
-		return Math.round(interval / inSeconds.minute) + ' minutes ago';
+		return `${Math.round(interval / inSeconds.minute)}${abbreviated ? 'm' : ' minutes'} ago`;
 	} else if (interval < (1.5 * inSeconds.hour)) {
-		return 'an hour ago';
+		return `${abbreviated ? '1h' : 'an hour'} ago`;
 	} else if (interval < 22 * inSeconds.hour) {
-		return Math.round(interval / inSeconds.hour) + ' hours ago';
+		return `${Math.round(interval / inSeconds.hour)}${abbreviated ? 'h' : ' hours'} ago`;
 	} else if (interval < (1.5 * inSeconds.day)) {
-		return 'a day ago';
+		return `${abbreviated ? '1d' : 'a day'} ago`;
 	} else if (interval < 25 * inSeconds.day) {
-		return Math.round(interval / inSeconds.day) + ' days ago';
+		return `${Math.round(interval / inSeconds.day)}${abbreviated ? 'd' : ' days'} ago`;
 	} else if (interval < (45 * inSeconds.day)) {
-		return 'a month ago';
+		return `${abbreviated ? '1mth' : 'a month'} ago`;
 	} else if (interval < 345 * inSeconds.day) {
-		return Math.round(interval / inSeconds.month) + ' months ago';
+		return `${Math.round(interval / inSeconds.month)}${abbreviated ? 'mth' : ' months'} ago`;
 	} else if (interval < (547 * inSeconds.day)) {
-		return 'a year ago';
+		return `${abbreviated ? '1y' : 'a year'} ago`;
 	} else {
-		return Math.max(2, Math.floor(interval / inSeconds.year)) + ' years ago';
+		return `${ Math.max(2, Math.floor(interval / inSeconds.year))}${abbreviated ? 'y' : ' years'} ago`;
 	}
 };
 

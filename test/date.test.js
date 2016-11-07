@@ -425,6 +425,28 @@ describe('o-date', () => {
 				expect(oDate.timeAgo(publishDate, 5)).toBe('5 seconds ago');
 			}
 		});
+		
+		it('returns abbreviations if the abbreviated option is provided', () => {
+			const abbreviations = {
+				'2s ago': 2 * inSeconds.second,
+				'1m ago': inSeconds.minute,
+				'2m ago': 90 * inSeconds.second,
+				'1h ago': inSeconds.hour,
+				'2h ago': 90 * inSeconds.minute,
+				'1d ago': 22 * inSeconds.hour,
+				'2d ago': 36 * inSeconds.hour,
+				'1mth ago': 25 * inSeconds.day,
+				'2mth ago': 45 * inSeconds.day,
+				'1y ago': 345 * inSeconds.day,
+				'2y ago': 547 * inSeconds.day
+			};
+			
+			Object.keys(abbreviations).forEach(function (abbreviation) {
+				let date = new Date();
+				date = date - (abbreviations[abbreviation] * 1000);
+				expect(oDate.timeAgo(date, { abbreviated: true })).toBe(abbreviation);
+			});
+		});
 	});
 
 	describe('ODate.asTodayOrYesterdayOrNothing', () => {
