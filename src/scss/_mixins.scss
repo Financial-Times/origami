@@ -56,6 +56,8 @@
 }
 
 @mixin oTeaserSmallStacked {
+	border-bottom: none;
+
 	@include oGridRespondTo(S) {
 		flex-wrap: wrap;
 	}
@@ -80,7 +82,7 @@
 	}
 
 	.o-teaser__tag {
-		@include font-size(18, 20);
+		@include font-size(16, 18);
 	}
 
 	.o-teaser__heading {
