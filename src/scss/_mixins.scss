@@ -48,6 +48,7 @@
 		margin-bottom: 15px;
 
 		@include oGridRespondTo(S) {
+			display: none;
 			flex: 0 0 30%;
 			padding-top: 5px; // to line up with tag cap-height
 			padding-right: oGridGutter(M);
@@ -63,8 +64,7 @@
 	}
 
 	.o-teaser__image-container {
-		width: 100%;
-
+		display: block;
 		@include oGridRespondTo(S) {
 			flex: 1 0 100%;
 			padding-top: 0;
