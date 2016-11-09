@@ -109,6 +109,10 @@ $o-teaser-is-silent: false;
 		.o-teaser__content {
 			flex-grow: 1;
 		}
+
+		.o-teaser__related {
+			margin: 0;
+		}
 	}
 
 	// Set to silent again to avoid being output twice
