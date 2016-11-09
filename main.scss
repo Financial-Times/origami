@@ -100,6 +100,15 @@ $o-teaser-is-silent: false;
 
 	.o-teaser-collection--top-stories {
 		border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
+
+		.o-teaser {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.o-teaser__content {
+			flex-grow: 1;
+		}
 	}
 
 	// Set to silent again to avoid being output twice
