@@ -235,8 +235,11 @@
 
 @mixin oTeaserTopStoryLandscape {
 	@include oTeaserClearfix;
+	background: $_o-teaser-color-hero-background;
 
 	@include oGridRespondTo(M) {
+		padding: 20px 0 0 20px;
+
 		.o-teaser__content {
 			float: left;
 			width: 45%;
