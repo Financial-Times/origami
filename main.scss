@@ -10,7 +10,7 @@ $o-teaser-is-silent: false;
 @import "src/scss/mixins";
 
 @if ($o-teaser-collection-is-silent == false) {
-	
+
 	.o-teaser-collection {
 	 	width: 100%;
 	 	margin-bottom: 20px;
@@ -59,12 +59,9 @@ $o-teaser-is-silent: false;
 			position: absolute;
 			top: 0;
 			border-top: 8px solid oColorsGetPaletteColor('black');
-			@include oGridRespondTo(M) {
-				width: 50%;
-			}
 
-			@include oGridRespondTo(L) {
-				width: 33.333%;
+			@include oGridRespondTo() {
+				width: 32.5%;
 			}
 		}
 
@@ -99,7 +96,7 @@ $o-teaser-is-silent: false;
 		padding: 0;
 	}
 
-	
+
 
 	// Set to silent again to avoid being output twice
 	$o-teaser-collection-is-silent: true !global;
