@@ -62,11 +62,11 @@ $o-teaser-is-silent: false;
 			width: 100%;
 
 			@include oGridRespondTo(M) {
-				width: 50%;
+				width: 49%;
 			}
 
 			@include oGridRespondTo(L) {
-				width: 33.333%;
+				width: 32.333%;
 			}
 		}
 
