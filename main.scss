@@ -51,7 +51,7 @@ $o-teaser-is-silent: false;
 				right: -13px;
 				margin-left: -13px;
 				margin-top: -10px;
-				}
+			}
 		}
 
 		&:before {
@@ -60,6 +60,7 @@ $o-teaser-is-silent: false;
 			top: 0;
 			border-top: 8px solid oColorsGetPaletteColor('black');
 			width: 100%;
+
 			@include oGridRespondTo(M) {
 				width: 50%;
 			}
