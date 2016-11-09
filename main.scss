@@ -98,6 +98,10 @@ $o-teaser-is-silent: false;
 		display: flex;
 	}
 
+	.o-teaser-collection--top-stories {
+		border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
+	}
+
 	// Set to silent again to avoid being output twice
 	$o-teaser-collection-is-silent: true !global;
 }
