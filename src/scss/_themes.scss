@@ -194,7 +194,7 @@
 
 @mixin oTeaserHeroStandalone {
 	.o-teaser__heading {
-		@include font-size(30, 32);
+		@include font-size(30, 30);
 	}
 
 	.o-teaser__image-container {
@@ -214,10 +214,10 @@
 	}
 
 	.o-teaser__heading {
-		@include font-size(30, 32);
+		@include font-size(34, 34);
 		font-family: $o-typography-serif-display;
 
-		@include oGridRespondTo(M) {
+		@include oGridRespondTo(L) {
 			@include font-size(52, 52);
 		}
 	}
