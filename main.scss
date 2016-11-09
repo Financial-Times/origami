@@ -27,7 +27,7 @@ $o-teaser-is-silent: false;
 	}
 
 	.o-teaser-collection__heading {
-		@include font-size(32, 32);
+		@include font-size(26, 26);
 		position: relative;
 		width: 100%;
 		margin: -8px 0 0;
@@ -43,14 +43,14 @@ $o-teaser-is-silent: false;
 			text-decoration: none;
 			border: 0;
 			&:after {
-				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('black'), 40, $iconset-version: 1);
+				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('black'), 30, $iconset-version: 1);
 				content: '';
 				display: inline-block;
 				position: relative;
-				top: 10px;
+				top: 8px;
 				right: -13px;
 				margin-left: -13px;
-				margin-top: -12px;
+				margin-top: -10px;
 				}
 		}
 
@@ -74,18 +74,12 @@ $o-teaser-is-silent: false;
 		}
 
 		&--small {
-			@include font-size(24,26);
 			margin-bottom: 20px;
 			padding: 20px 0 10px;
 			border-bottom: 1px solid $_o-teaser-collection-color-bottom-border;
 
 			&:before {
 				width: 100%;
-			}
-
-			a:after {
-				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('black'), 32, $iconset-version: 1);
-				margin-top: -12px;
 			}
 		}
 
