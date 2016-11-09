@@ -26,6 +26,7 @@
 
 @mixin oTeaserStretched {
 	display: flex;
+	flex: 1;
 
 	.o-teaser__content {
 		display: flex;
@@ -165,6 +166,10 @@
 			border: 0;
 			background-color: $_o-teaser-color-hero-background;
 		}
+	}
+
+	.o-teaser__image {
+		max-width: 100%;
 	}
 }
 
