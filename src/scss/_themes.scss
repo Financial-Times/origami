@@ -228,8 +228,6 @@
 }
 
 @mixin oTeaserTopStoryStandalone {
-	border-bottom: 8px solid oColorsGetPaletteColor('black');
-
 	.o-teaser__image-container {
 		margin-bottom: 20px;
 	}
