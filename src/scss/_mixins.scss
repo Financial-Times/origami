@@ -34,7 +34,7 @@
 	padding-bottom: 15px;
 	border-bottom: 1px solid $_o-teaser-color-border;
 
-	@include oGridRespondTo(S) {
+	@include oGridRespondTo(S) {  // ADAM DOES THIS DO ANYTHING? --Alice
 		flex-wrap: nowrap;
 	}
 
@@ -44,14 +44,12 @@
 	}
 
 	.o-teaser__image-container {
-		width: 60%;
-		margin-bottom: 15px;
+		flex: 0 0 30%;
+		padding-top: 5px; // to line up with tag cap-height
+		padding-right: oGridGutter(M);
 
-		@include oGridRespondTo(S) {
+		@include oGridRespondTo($until: M) { // Mobile screens only
 			display: none;
-			flex: 0 0 30%;
-			padding-top: 5px; // to line up with tag cap-height
-			padding-right: oGridGutter(M);
 		}
 	}
 }
@@ -65,7 +63,11 @@
 
 	.o-teaser__image-container {
 		display: block;
-		@include oGridRespondTo(S) {
+		flex: 0 0 60%;
+		margin-bottom: 15px;
+
+
+		@include oGridRespondTo(M) {
 			flex: 1 0 100%;
 			padding-top: 0;
 			padding-right: 0;
