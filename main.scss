@@ -119,6 +119,13 @@ $o-teaser-is-silent: false;
 		}
 	}
 
+	// Sorry, not a great name
+	.o-teaser-collection--mid-slice {
+		border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
+		border-top: 1px solid $_o-teaser-collection-color-thin-border;
+		padding: 20px 0 5px;
+	}
+
 	// Set to silent again to avoid being output twice
 	$o-teaser-collection-is-silent: true !global;
 }
