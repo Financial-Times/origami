@@ -59,17 +59,17 @@
 @mixin oTeaserSmallStacked {
 	border-bottom: none;
 
-	@include oGridRespondTo(S) {
+	@include oGridRespondTo(L) {
 		flex-wrap: wrap;
 	}
 
 	.o-teaser__image-container {
 		display: block;
-		flex: 0 0 60%;
+		flex: 0 0 30	%;
 		margin-bottom: 15px;
 
 
-		@include oGridRespondTo(M) {
+		@include oGridRespondTo(L) {
 			flex: 1 0 100%;
 			padding-top: 0;
 			padding-right: 0;
