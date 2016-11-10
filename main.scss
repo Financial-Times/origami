@@ -169,6 +169,11 @@
 		padding-left: 30px;
 		margin: 0 0 20px;
 		border-left: 1px solid mix(#000000, #fff1e0, 50%);
+
+		@include oGridRespondTo($until: S) {
+			display: none;
+		}
+
 	}
 
 	.o-teaser__related-item {
