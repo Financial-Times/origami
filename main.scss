@@ -59,10 +59,7 @@ $o-teaser-is-silent: false;
 			position: absolute;
 			top: 0;
 			border-top: 8px solid oColorsGetPaletteColor('black');
-
-			@include oGridRespondTo() {
-				width: 32.5%;
-			}
+			width: 32.5%;
 		}
 
 		&--full-width:before {
