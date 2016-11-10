@@ -89,7 +89,7 @@
 			@include oTeaserHeroOpinion;
 		}
 		&.o-teaser--opinion-background {
-			@include oTeaserOpinionBackground
+			@include oTeaserOpinionBackground;
 		}
 	}
 
@@ -181,8 +181,8 @@
 		font-weight: oFontsWeight(semibold);
 		color: mix(#000000, #fff1e0, 80%);
 
-			@include oGridRespondTo(L){
-				@include font-size(16,24)
+			@include oGridRespondTo(L) {
+				@include font-size(16, 24);
 			}
 
 		&:hover {
