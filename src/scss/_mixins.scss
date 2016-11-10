@@ -5,10 +5,10 @@
 
 	.o-teaser-collection__item {
 		counter-increment: o-teaser-collection-items;
-		padding-left: 32px;
+		padding-left: 28px;
 		position: relative;
 		&:before {
-			@include font-size(42, 42);
+			@include font-size(34, 34);
 			font-family: $o-typography-serif-display;
 			content: counter(o-teaser-collection-items);
 			position: absolute;
