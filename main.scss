@@ -13,7 +13,7 @@ $o-teaser-is-silent: false;
 	
 	.o-teaser-collection {
 	 	width: 100%;
-	 	margin-bottom: 20px;
+	 	margin-bottom: 50px;
 		border-top: 8px solid rgba(#000, 0.05);
 		&--numbered {
 			@include oTeaserCollectionNumbered();
@@ -80,7 +80,6 @@ $o-teaser-is-silent: false;
 
 		&--small {
 			margin-bottom: 20px;
-			padding: 20px 0 10px;
 			border-bottom: 1px solid $_o-teaser-collection-color-bottom-border;
 
 			&:before {
