@@ -25,6 +25,7 @@
 @mixin oTeaserContent {
 	.o-teaser--has-headshot & {
 		padding-right: 95px;
+		min-height: 60px;
 	}
 }
 
