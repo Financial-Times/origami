@@ -88,6 +88,9 @@
 		&.o-teaser--hero {
 			@include oTeaserHeroOpinion;
 		}
+		&.o-teaser--opinion-background {
+			@include oTeaserOpinionBackground
+		}
 	}
 
 	.o-teaser--paid-post {
