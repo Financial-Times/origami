@@ -221,6 +221,10 @@
 		@include oGridRespondTo(L) {
 			@include font-size(52, 52);
 		}
+
+		@include oGridRespondTo(XL) {
+			@include font-size(56, 56);
+		}
 	}
 
 	.o-teaser__standfirst {
