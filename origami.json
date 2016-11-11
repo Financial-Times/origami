@@ -1,6 +1,7 @@
 {
 		"description": "Responsive page header for sub-brands",
 		"origamiType": "module",
+		"origamiCategory": "components",
 		"origamiVersion": 1,
 		"support": "https://github.com/Financial-Times/o-header-services/issues",
 		"supportStatus": "active",
