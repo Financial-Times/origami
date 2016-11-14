@@ -12,10 +12,10 @@ Easily include FT web fonts in products.
 <!-- Set font families -->
 <style>
 	html {
-		font-family: BentonSans, sans-serif;
+		font-family: FinancierDisplayWeb, sans-serif;
 	}
 	h1 {
-		font-family: MillerDisplay, serif;
+		font-family: MetricWeb, serif;
 	}
 </style>
 ```
@@ -33,15 +33,15 @@ WOFF is supported in IE 9+, Chrome, Firefox, iOS 5+, Android 4.4+.
 
 ## Font families, weights and styles
 
-| Weight   | BentonSans | MillerDisplay | FinancierDisplayWeb | FinancierTextWeb | MetricWeb |
-|----------|:----------:|:-------------:|:-------------------:|:----------------:|:---------:|
-| thin     |            |               |                     |                  |     ✓     |
-| light    |      ✓     |               |         *i*         |                  |   ✓ *i*   |
-| regular  |      ✓     |       ✓       |        ✓ *i*        |       ✓ *i*      |   ✓ *i*   |
-| medium   |            |               |         *i*         |                  |     ✓     |
-| semibold |            |               |         *i*         |                  |     ✓     |
-| bold     |      ✓     |       ✓       |                     |                  |   ✓ *i*   |
-| black    |            |       ✓       |                     |                  |           |
+| Weight   | FinancierDisplayWeb | MetricWeb |
+|----------|:-------------------:|:---------:|
+| thin     |                     |     ✓     |
+| light    |         *i*         |   ✓ *i*   |
+| regular  |        ✓ *i*        |   ✓ *i*   |
+| medium   |         *i*         |     ✓     |
+| semibold |         *i*         |     ✓     |
+| bold     |                     |   ✓ *i*   |
+| black    |                     |           |
 
 *i*: italic available (if not, faux-italic will be displayed)
 
@@ -67,9 +67,9 @@ or
 @import 'o-fonts/main';
 
 // @font-face declarations for all Benton Sans weights
-@include oFontsInclude(BentonSans, light);
-@include oFontsInclude(BentonSans, regular);
-@include oFontsInclude(BentonSans, bold);
+@include oFontsInclude(FinancierDisplayWeb, light);
+@include oFontsInclude(FinancierDisplayWeb, regular);
+@include oFontsInclude(FinancierDisplayWeb, bold);
 
 // @font-face declarations for Metric regular / italic
 @include oFontsInclude(MetricWeb, $weight: regular, $style: italic);
@@ -81,7 +81,7 @@ or
 
 ```scss
 .my-class {
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
 }
 ```
 
@@ -89,7 +89,7 @@ Compiles to:
 
 ```css
 .my-class {
-	font-family: BentonSans, sans-serif;
+	font-family: FinancierDisplayWeb, sans-serif;
 }
 ```
 
@@ -156,7 +156,5 @@ And a new entry in `demos/src/demo.scss`:
 ----
 
 ## License
-
-Copyright (c) 2016 Financial Times Ltd. All rights reserved.
 
 This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
