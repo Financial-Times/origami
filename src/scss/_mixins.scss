@@ -19,6 +19,17 @@
 	@if $family == 'Clarion' {
 		@warn "Clarion has been removed, no font will be included. Use Georgia instead";
 	}
+
+	@if $family == 'Benton' {
+		@warn "Benton is deprecated. It will be removed in the next major version (v3). Please use Metric instead.";
+	}
+	@if $family == 'Miller' {
+		@warn "Miller is deprecated. It will be removed in the next major version (v3). Please use Financier instead.";
+	}
+	@if $family == 'FinancierTextWeb' {
+		@warn "FinancierTextWeb is deprecated. It will be removed in the next major version (v3). Please use Georgia instead";
+	}
+
 	@if $weight == normal {
 		$weight: regular;
 	}
