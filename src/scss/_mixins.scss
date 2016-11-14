@@ -58,10 +58,13 @@
 
 @mixin oTeaserSmallStacked {
 	flex-wrap: wrap;
-
+	
+	@include oGridRespondTo(M) {
+		border-bottom: none;
+		padding-bottom: 0px;
+	}
 	.o-teaser__image-container {
 		margin-bottom: 15px;
-		border-bottom: none;
 
 		@include oGridRespondTo(M) {
 			flex: 1 0 100%;
