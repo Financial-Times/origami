@@ -1,5 +1,5 @@
 {
-	"description": "Web font loader",
+	"description": "Webfont loader for the FT's fonts.",
 	"origamiType": "module",
 	"origamiCategory": "primitives",
 	"origamiVersion": 1,
@@ -14,28 +14,13 @@
 	},
 	"demos": [
 		{
-			"name": "bentonsans",
-			"data": {
-				"font": "bentonsans"
-			},
-			"expanded": true,
-			"description": ""
-		},
-		{
-			"name": "millerdisplay",
-			"data": {
-				"font": "millerdisplay"
-			},
-			"expanded": true,
-			"description": ""
-		},
-		{
 			"name": "metricweb",
 			"data": {
 				"font": "metricweb"
 			},
 			"expanded": true,
-			"description": ""
+			"description": "Metric is used for utility text, eg categories, tags and navigation",
+			"display_html": false
 		},
 		{
 			"name": "financierdisplayweb",
@@ -43,15 +28,8 @@
 				"font": "financierdisplayweb"
 			},
 			"expanded": true,
-			"description": ""
-		},
-		{
-			"name": "financiertextweb",
-			"data": {
-				"font": "financiertextweb"
-			},
-			"expanded": true,
-			"description": ""
+			"description": "Financier Display is used for headlines and editorial content at large sizes.",
+			"display_html": false
 		}
 	]
 }

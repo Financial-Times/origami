@@ -52,6 +52,18 @@
 		@warn "Clarion has been removed, use Georgia instead";
 		@return $o-fonts-serif;
 	}
+
+	@if $family == 'Benton' {
+		@warn "Benton is deprecated. It will be removed in the next major version (v3). Please use Metric instead.";
+	}
+	@if $family == 'Miller' {
+		@warn "Miller is deprecated. It will be removed in the next major version (v3). Please use Financier instead.";
+	}
+	@if $family == 'FinancierTextWeb' {
+		@warn "FinancierTextWeb is deprecated. It will be removed in the next major version (v3). Please use Georgia instead";
+	}
+
+
 	@if map-has-key($o-fonts-families, $family) {
 		$properties: map-get($o-fonts-families, $family);
 		@return unquote(map-get($properties, font-family));
