@@ -68,8 +68,8 @@
 	border: 0;
 
 	@include _oFormsBreakpoint {
-		padding-right: $_o-forms-group-padding;
-		padding-left: $_o-forms-group-padding;
+		padding-right: $_o-forms-padding;
+		padding-left: $_o-forms-padding;
 	}
 
 	&--wide {

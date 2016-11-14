@@ -3,10 +3,10 @@
 	.#{$class}__wrapper {
 		max-width: $_o-forms-field-max-width;
 		margin-bottom: 20px;
-		margin-right: $_o-forms-group-padding * -1;
-		margin-left: $_o-forms-group-padding * -1;
-		padding-right: $_o-forms-group-padding;
-		padding-left: $_o-forms-group-padding;
+		margin-right: $_o-forms-padding * -1;
+		margin-left: $_o-forms-padding * -1;
+		padding-right: $_o-forms-padding;
+		padding-left: $_o-forms-padding;
 
 		@include _oFormsBreakpoint {
 			border-radius: $_o-forms-field-border-radius;
@@ -29,7 +29,7 @@
 		}
 
 		&--highlight {
-			background-color: oColorsGetColorFor(o-forms-wrapper-highlight, background);
+			background-color: oColorsGetColorFor(o-forms__wrapper-highlight, background);
 		}
 		&--error {
 			background-color: #f8d9d9;

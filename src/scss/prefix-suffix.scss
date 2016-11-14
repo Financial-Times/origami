@@ -73,7 +73,7 @@
 		font-family: $o-forms-font-family;
 		font-size: $_o-forms-field-default-font-size;
 		text-align: center;
-		background-color: oColorsGetColorFor(o-forms-prefixsuffix, background);
+		background-color: oColorsGetColorFor(o-forms__prefixsuffix, background);
 		color: oColorsGetColorFor(o-forms--prefixsuffix o-forms-field-standard, text);
 		// scss-lint:disable VendorPrefixes VendorPrefix
 		-moz-user-select: none;

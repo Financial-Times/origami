@@ -1,7 +1,7 @@
 /// Label styles
 @mixin oFormsLabel {
 	display: block;
-	margin-bottom: $_o-forms-label-margin-bottom;
+	margin-bottom: $_o-forms__label-margin-bottom;
 	padding: 0; // Reset legend default styling
 	font-size: 18px;
 	line-height: 22px;

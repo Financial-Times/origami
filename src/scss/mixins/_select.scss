@@ -13,8 +13,8 @@
 	// scss-lint:enable DuplicateProperty
 	background-repeat: no-repeat;
 	background-origin: border-box;
-	background-size: $_o-forms-select-iconsize;
-	padding-right: $_o-forms-select-iconsize;
+	background-size: $_o-forms__select-iconsize;
+	padding-right: $_o-forms__select-iconsize;
 	padding-top: $_o-forms-field-default-padding-bottom - 2px;
 
 	// Normalise line-height across browsers,
