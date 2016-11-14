@@ -13,7 +13,7 @@ $o-teaser-is-silent: false;
 
 	.o-teaser-collection {
 	 	width: 100%;
-	 	margin-bottom: 50px;
+	 	margin-bottom: 20px;
 		border-top: 8px solid rgba(#000, 0.05);
 		&--numbered {
 			@include oTeaserCollectionNumbered();
@@ -70,7 +70,9 @@ $o-teaser-is-silent: false;
 		}
 
 		&--half-width:before {
-			width: 100%;
+			@include oGridRespondTo(L){
+				width: 49%;
+			}
 		}
 
 		&--small {
