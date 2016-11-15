@@ -70,7 +70,7 @@ $o-teaser-is-silent: false;
 		}
 
 		&--half-width:before {
-			@include oGridRespondTo(M){
+			@include oGridRespondTo(L){
 				width: 49%;
 			}
 		}
