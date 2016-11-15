@@ -41,7 +41,10 @@
 
 	.o-teaser--large-portrait {
 		@include oTeaserLarge;
-		@include oTeaserLargeImagePortrait;
+
+		&.o-teaser--has-image {
+			@include oTeaserLargeImagePortrait;
+		}
 	}
 
 	.o-teaser--large-landscape {
