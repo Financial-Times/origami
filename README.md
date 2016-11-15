@@ -86,7 +86,7 @@ Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), the eve
 ```javascript
 const Tabs = require('o-tabs');
 const tabsObjects = Tabs.init(document.body, {
-	disableFocus: false
+	disablefocus: false
 });
 ```
 
@@ -99,7 +99,7 @@ An array of any constructed Tabs objects will be returned.
 ```javascript
 const Tabs = require('o-tabs');
 const myTabs = new Tabs(document.getElementById('myTabsRootElement'), {
-	disableFocus: false
+	disablefocus: false
 });
 ```
 
