@@ -7,13 +7,13 @@ import * as fixtures from './helpers/fixtures';
 const oCookieMessage = require('./../main');
 
 describe("oCookieMessage", () => {
-  beforeEach(() => {
-    fixtures.htmlCode();
-  });
+	beforeEach(() => {
+		fixtures.htmlCode();
+	});
 
-  afterEach(() => {
-    fixtures.reset();
-  });
+	afterEach(() => {
+		fixtures.reset();
+	});
 
 	it('is defined', () => {
 		proclaim.isFunction(oCookieMessage);
@@ -40,7 +40,7 @@ describe("oCookieMessage", () => {
 
 	describe("init", () => {
 		beforeEach(() => {
-      fixtures.htmlCode();
+			fixtures.htmlCode();
 		});
 
 		afterEach(() => {
