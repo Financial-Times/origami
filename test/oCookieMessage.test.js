@@ -1,14 +1,14 @@
-/*global describe, it, mocha, sinon */
-import expect from 'expect.js';
+/*global mocha, proclaim, sinon */
 import sinon from 'sinon/pkg/sinon';
+import proclaim from 'proclaim';
 
 import CookieMessage from './../src/js/cookieMessage';
 
 describe("CookieMessage", () => {
 	it('is defined', () => {
-		expect(CookieMessage).to.be.a('function');
+		proclaim.isFunction(CookieMessage);
 	});
 	it('has a static init method', () => {
-		expect(CookieMessage.init).to.be.a('function');
+		proclaim.isFunction(CookieMessage.init);
 	});
 });
