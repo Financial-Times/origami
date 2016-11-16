@@ -1,9 +1,9 @@
 /* eslint-env mocha, proclaim, sinon */
 
 //import sinon from 'sinon/pkg/sinon';
-import proclaim from 'proclaim';
+//import proclaim from 'proclaim';
 
-import CookieMessage from './../src/js/cookieMessage';
+//import CookieMessage from './../src/js/cookieMessage';
 
 describe("CookieMessage", () => {
 	it("injects the FT legal cookie message into itself");
@@ -19,7 +19,7 @@ describe("CookieMessage", () => {
 		it("checks the value of COOKIE_CONSENT is within the last three months");
 		it("returns false if there is nothing in COOKIE_CONSENT");
 		it("returns true if dateIsWithinLastThreeMonths(COOKIE_CONSENT) returns true");
-		it("returns false if dateIsWithinLastThreeMonths(COOKIE_CONSENT) returns false")
+		it("returns false if dateIsWithinLastThreeMonths(COOKIE_CONSENT) returns false");
 	});
 
 	describe("flagUserAsConsentingToCookies", () => {
