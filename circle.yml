@@ -5,10 +5,10 @@ machine:
     version: 6
 dependencies:
   override:
-    - ./nodes/modules/.bin/obt install
+    - ./node_modules/.bin/obt install
   cache_directories:
     - "node_modules"
 test:
   override:
-    - ./nodes/modules/.bin/obt test
-    - ./nodes/modules/.bin/obt verify
+    - ./node_modules/.bin/obt test
+    - ./node_modules/.bin/obt verify
