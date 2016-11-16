@@ -32,8 +32,22 @@ describe("CookieMessage", () => {
 	});
 
 	describe("dateIsWithinLastThreeMonths", () => {
-		it("returns true if the date passed in is within the last 3 months");
-		it("returns false if the date passed in is longer than the last three months");
+		it("returns true if the date passed in is within the last 3 months", () => {
+			const now = Date.now();
+			const twoMonthsInSeconds = 1000 * 60 * 60 * 24 * 30 * 2;
+
+			// Stub Date.now
+			proclaim.isTrue(oCookieMessage.dateIsWithinLastThreeMonths(now));
+			proclaim.isTrue(oCookieMessage.dateIsWithinLastThreeMonths(now - twoMonthsInSeconds));
+
+		});
+
+		it("returns false if the date passed in is longer than the last three months", () => {
+			const now = Date.now();
+			const threeMonthsInSeconds = 1000 * 60 * 60 * 24 * 30 * 3;
+
+			proclaim.isFalse(oCookieMessage.dateIsWithinLastThreeMonths(now - (threeMonthsInSeconds + 1)));
+		});
 	});
 
 	describe("userHasConsentedToCookies", () => {
