@@ -1,4 +1,4 @@
-/*global describe, it, sinon */
+/*global describe, it, mocha, sinon */
 import expect from 'expect.js';
 import sinon from 'sinon/pkg/sinon';
 
