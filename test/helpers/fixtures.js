@@ -22,7 +22,7 @@ function insert(html) {
 
 function htmlCode () {
 	const html = `<div class="cookie-message-container"><div data-o-component="o-cookie-message" class='o-cookie-message o-cookie-message--banner-centric'>
-  </div></div>`;
+		</div></div>`;
 	insert(html);
 }
 
