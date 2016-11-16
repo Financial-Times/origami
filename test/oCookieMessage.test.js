@@ -1,5 +1,6 @@
-/*global mocha, proclaim, sinon */
-import sinon from 'sinon/pkg/sinon';
+/* eslint-env mocha, proclaim, sinon */
+
+//import sinon from 'sinon/pkg/sinon';
 import proclaim from 'proclaim';
 
 import CookieMessage from './../src/js/cookieMessage';
