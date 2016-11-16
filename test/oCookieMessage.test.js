@@ -1,5 +1,6 @@
-/*global describe, it */
+/*global describe, it, sinon */
 import expect from 'expect.js';
+import sinon from 'sinon/pkg/sinon';
 
 import CookieMessage from './../src/js/cookieMessage';
 
