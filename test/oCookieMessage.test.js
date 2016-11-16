@@ -1,13 +1,35 @@
 /* eslint-env mocha, proclaim, sinon */
 
 //import sinon from 'sinon/pkg/sinon';
-//import proclaim from 'proclaim';
+import proclaim from 'proclaim';
 
-//import CookieMessage from './../src/js/cookieMessage';
+import * as fixtures from './helpers/fixtures';
+
+const oCookieMessage = require('./../main');
 
 describe("CookieMessage", () => {
-	it("injects the FT legal cookie message into itself");
-	it("does not inject the FT legal cookie message if data-o-cookie-message-use-custom-html is present");
+	beforeEach(() => {
+		fixtures.standardCookieMessage();
+	});
+
+	afterEach(() => {
+		fixtures.reset();
+	});
+
+	it("injects the FT legal cookie message into itself", () => {
+		const cookiemessage = oCookieMessage.init();
+
+		proclaim.equal(cookiemessage.CookieMessageEl.innerHTML, oCookieMessage.cookieHTML());
+	});
+
+	it("does not inject the FT legal cookie message if data-o-cookie-message-use-custom-html is present", () => {
+		/* remove the standard fixture and use the customCookieMessage fixture */
+		fixtures.reset();
+		fixtures.customCookieMessage();
+
+		const cookiemessage = oCookieMessage.init();
+		proclaim.notEqual(cookiemessage.CookieMessageEl.innerHTML, oCookieMessage.cookieHTML());
+	});
 
 	describe("dateIsWithinLastThreeMonths", () => {
 		it("returns true if the date passed in is within the last 3 months");

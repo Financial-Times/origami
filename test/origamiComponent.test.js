@@ -8,7 +8,7 @@ const oCookieMessage = require('./../main');
 
 describe("oCookieMessage", () => {
 	beforeEach(() => {
-		fixtures.htmlCode();
+		fixtures.standardCookieMessage();
 	});
 
 	afterEach(() => {
@@ -39,13 +39,6 @@ describe("oCookieMessage", () => {
 	});
 
 	describe("init", () => {
-		beforeEach(() => {
-			fixtures.htmlCode();
-		});
-
-		afterEach(() => {
-			fixtures.reset();
-		});
 
 		it("should create a sinlge oCookieMessage when no element is passed in", () => {
 			const cookiemessage = oCookieMessage.init();
