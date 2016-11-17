@@ -8,6 +8,7 @@ $o-teaser-is-silent: false;
 
 @import "src/scss/variables";
 @import "src/scss/mixins";
+@import "src/scss/themes";
 
 @if ($o-teaser-collection-is-silent == false) {
 
@@ -18,6 +19,10 @@ $o-teaser-is-silent: false;
 		}
 		&--special {
 			@include oTeaserCollectionSpecial();
+		}
+		&--big-story {
+			@include oTeaserCollectionSpecial();
+			@include oTeaserCollectionBigStory();
 		}
 	}
 
@@ -116,6 +121,7 @@ $o-teaser-is-silent: false;
 		.o-teaser__related {
 			margin: 0;
 		}
+
 	}
 
 	// Sorry, not a great name

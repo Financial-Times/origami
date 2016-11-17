@@ -1,0 +1,57 @@
+@mixin oTeaserCollectionNumbered() {
+	.o-teaser-collection__items {
+		counter: o-teaser-collection-items;
+	}
+
+	.o-teaser-collection__item {
+		counter-increment: o-teaser-collection-items;
+		padding-left: 28px;
+		position: relative;
+		&:before {
+			@include font-size(34, 34);
+			font-family: $o-typography-serif-display;
+			content: counter(o-teaser-collection-items);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+
+}
+
+@mixin oTeaserCollectionSpecial() {
+	position: relative;
+	border-top: 0;
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0px;
+		left: 50%;
+		z-index: -1;
+		width: 100vw;
+		height: 100%;
+		background: $_o-teaser-collection-color-special-bg;
+		transform: translateX(-50%);
+	}
+}
+
+@mixin oTeaserCollectionBigStory() {
+	.o-teaser-collection__heading {
+		z-index: 1;
+		position: absolute;
+		@include oGridRespondTo(L) {
+			width: 32.5%;
+		}
+		&:before {
+			display: none;
+		}
+		&:after {
+			width: 100%:	
+		}
+	}
+
+	.o-teaser-collection__related {
+		margin: 20px 0;
+	}
+}
+
