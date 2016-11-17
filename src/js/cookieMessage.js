@@ -1,3 +1,5 @@
+const store = require('superstore-sync');
+
 class CookieMessage {
 
 	constructor (CookieMessageEl) {
@@ -50,13 +52,13 @@ class CookieMessage {
 
 	static flagUserAsConsentingToCookies () {
 		let now = Date.now();
-		localStorage.setItem('COOKIE_CONSENT', now);
+		store.local.set('COOKIE_CONSENT', now);
 		CookieMessage.hideMessage();
 	}
 
 	static userHasConsentedToCookies () {
 		// Update user to new cookie format, which reappears after three months
-		if (localStorage.getItem('COOKIE_CONSENT') === '1') {
+		if (store.local.get('COOKIE_CONSENT') === '1') {
 			this.flagUserAsConsentingToCookies();
 			return true;
 		}
@@ -68,9 +70,9 @@ class CookieMessage {
 		}
 
 
-		if (localStorage.getItem('COOKIE_CONSENT')) {
+		if (store.local.get('COOKIE_CONSENT')) {
 
-			const consentDate = parseInt(localStorage.getItem('COOKIE_CONSENT'));
+			const consentDate = parseInt(store.local.get('COOKIE_CONSENT'));
 
 			if (this.dateIsWithinLastThreeMonths(consentDate)) {
 				return true;
