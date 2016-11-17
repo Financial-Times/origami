@@ -2,8 +2,10 @@
 
 import sinon from 'sinon/pkg/sinon';
 import proclaim from 'proclaim';
+import store from 'superstore-sync';
 
 import * as fixtures from './helpers/fixtures';
+
 
 const oCookieMessage = require('./../main');
 
@@ -59,13 +61,13 @@ describe("CookieMessage", () => {
 		afterEach(() => {
 			oCookieMessage.dateIsWithinLastThreeMonths.restore();
 			oCookieMessage.flagUserAsConsentingToCookies.restore();
-			localStorage.getItem.restore();
+			store.local.get.restore();
 		});
 
 
 		it("calls flagUserAsConsentingToCookies if they have consented using the old o-cookies way", () => {
 			/* 1 is the value of the old cookie consent */
-			sinon.stub(localStorage, "getItem").returns("1");
+			sinon.stub(store.local, "get").returns("1");
 
 			oCookieMessage.userHasConsentedToCookies();
 			proclaim.isTrue(oCookieMessage.flagUserAsConsentingToCookies.calledOnce);
@@ -74,7 +76,7 @@ describe("CookieMessage", () => {
 
 		it("does not call flagUserAsConsentingToCookies the user has never consented", () => {
 			/* null means the cookie message consent has never been set */
-			sinon.stub(localStorage, "getItem").returns(null);
+			sinon.stub(store.local, "get").returns(null);
 
 			oCookieMessage.userHasConsentedToCookies();
 			proclaim.isFalse(oCookieMessage.flagUserAsConsentingToCookies.calledOnce);
@@ -82,26 +84,26 @@ describe("CookieMessage", () => {
 
 		it("does not call flagUserAsConsentingToCookies the user has consented recently", () => {
 			/* set it to 50 seconds ago */
-			sinon.stub(localStorage, "getItem").returns(Date.now()-50);
+			sinon.stub(store.local, "get").returns(Date.now()-50);
 
 			oCookieMessage.userHasConsentedToCookies();
 			proclaim.isFalse(oCookieMessage.flagUserAsConsentingToCookies.calledOnce);
 		});
 
 		it("returns false if there is nothing in COOKIE_CONSENT", () => {
-		 	sinon.stub(localStorage, "getItem").returns(null);
+		 	sinon.stub(store.local, "get").returns(null);
 
 		 	proclaim.isFalse(oCookieMessage.userHasConsentedToCookies());
 		});
 
 		 it("returns true if dateIsWithinLastThreeMonths(COOKIE_CONSENT) returns true", () => {
-			sinon.stub(localStorage, "getItem").returns("123");
+			sinon.stub(store.local, "get").returns("123");
 
 			proclaim.isTrue(oCookieMessage.userHasConsentedToCookies());
 		});
 
 		it("returns false if dateIsWithinLastThreeMonths(COOKIE_CONSENT) returns false", () => {
-			sinon.stub(localStorage, "getItem").returns("123");
+			sinon.stub(store.local, "get").returns("123");
 
 			oCookieMessage.dateIsWithinLastThreeMonths.restore();
 			sinon.stub(oCookieMessage, "dateIsWithinLastThreeMonths").returns(false);
@@ -113,18 +115,18 @@ describe("CookieMessage", () => {
 
 	describe("flagUserAsConsentingToCookies", () => {
 		beforeEach(() => {
-			sinon.spy(localStorage, "setItem");
+			sinon.spy(store.local, "set");
 		});
 
 		afterEach(() => {
-			localStorage.setItem.restore();
+			store.local.set.restore();
 		});
 
 
 		it("sets a value in localStorage called COOKIE_CONSENT to the result of Date.now", () => {
 			sinon.stub(Date, "now").returns(12345);
 			oCookieMessage.flagUserAsConsentingToCookies();
-			proclaim.isTrue(localStorage.setItem.calledWith('COOKIE_CONSENT', 12345));
+			proclaim.isTrue(store.local.set.calledWith('COOKIE_CONSENT', 12345));
 		});
 
 		it("calls hideMessage", () => {
