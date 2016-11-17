@@ -1,6 +1,6 @@
 /* eslint-env mocha, proclaim, sinon */
 
-//import sinon from 'sinon/pkg/sinon';
+import sinon from 'sinon/pkg/sinon';
 import proclaim from 'proclaim';
 
 import * as fixtures from './helpers/fixtures';
@@ -51,11 +51,64 @@ describe("CookieMessage", () => {
 	});
 
 	describe("userHasConsentedToCookies", () => {
-		it("calls flagUserAsConsentingToCookies if they have consented using the old o-cookies way");
-		it("checks the value of COOKIE_CONSENT is within the last three months");
-		it("returns false if there is nothing in COOKIE_CONSENT");
-		it("returns true if dateIsWithinLastThreeMonths(COOKIE_CONSENT) returns true");
-		it("returns false if dateIsWithinLastThreeMonths(COOKIE_CONSENT) returns false");
+		beforeEach(() => {
+			sinon.spy(oCookieMessage, 'flagUserAsConsentingToCookies');
+			sinon.stub(oCookieMessage, "dateIsWithinLastThreeMonths").returns(true);
+		});
+
+		afterEach(() => {
+			oCookieMessage.dateIsWithinLastThreeMonths.restore();
+			oCookieMessage.flagUserAsConsentingToCookies.restore();
+			localStorage.getItem.restore();
+		});
+
+
+		it("calls flagUserAsConsentingToCookies if they have consented using the old o-cookies way", () => {
+			/* 1 is the value of the old cookie consent */
+			sinon.stub(localStorage, "getItem").returns("1");
+
+			oCookieMessage.userHasConsentedToCookies();
+			proclaim.isTrue(oCookieMessage.flagUserAsConsentingToCookies.calledOnce);
+
+		});
+
+		it("does not call flagUserAsConsentingToCookies the user has never consented", () => {
+			/* null means the cookie message consent has never been set */
+			sinon.stub(localStorage, "getItem").returns(null);
+
+			oCookieMessage.userHasConsentedToCookies();
+			proclaim.isFalse(oCookieMessage.flagUserAsConsentingToCookies.calledOnce);
+		});
+
+		it("does not call flagUserAsConsentingToCookies the user has consented recently", () => {
+			/* set it to 50 seconds ago */
+			sinon.stub(localStorage, "getItem").returns(Date.now()-50);
+
+			oCookieMessage.userHasConsentedToCookies();
+			proclaim.isFalse(oCookieMessage.flagUserAsConsentingToCookies.calledOnce);
+		});
+
+		it("returns false if there is nothing in COOKIE_CONSENT", () => {
+		 	sinon.stub(localStorage, "getItem").returns(null);
+
+		 	proclaim.isFalse(oCookieMessage.userHasConsentedToCookies());
+		});
+
+		 it("returns true if dateIsWithinLastThreeMonths(COOKIE_CONSENT) returns true", () => {
+			sinon.stub(localStorage, "getItem").returns("123");
+
+			proclaim.isTrue(oCookieMessage.userHasConsentedToCookies());
+		});
+
+		it("returns false if dateIsWithinLastThreeMonths(COOKIE_CONSENT) returns false", () => {
+			sinon.stub(localStorage, "getItem").returns("123");
+
+			oCookieMessage.dateIsWithinLastThreeMonths.restore();
+			sinon.stub(oCookieMessage, "dateIsWithinLastThreeMonths").returns(false);
+
+			proclaim.isFalse(oCookieMessage.userHasConsentedToCookies());
+		});
+
 	});
 
 	describe("flagUserAsConsentingToCookies", () => {
