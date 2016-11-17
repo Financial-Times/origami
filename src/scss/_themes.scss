@@ -26,6 +26,7 @@
 
 @mixin oTeaserStretched {
 	display: flex;
+	flex: 1;
 
 	.o-teaser__content {
 		display: flex;
@@ -40,8 +41,12 @@
 
 @mixin oTeaserOpinion {
 	.o-teaser__tag {
-		@include oColorsFor('o-teaser-opinion-tag', 'text');
+		// @include oColorsFor('o-teaser-opinion-tag', 'text'); --The new color isn't in the palette yet.
+		color: $_o-teaser-color-opinion-tag;
 	}
+}
+
+@mixin oTeaserOpinionBackground {
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
@@ -63,9 +68,7 @@
 			}
 		}
 	}
-
 }
-
 @mixin oTeaserHighlight {
 	.o-teaser__heading:hover,
 	.o-teaser__tag:hover {
@@ -166,6 +169,10 @@
 			background-color: $_o-teaser-color-hero-background;
 		}
 	}
+
+	.o-teaser__image {
+		max-width: 100%;
+	}
 }
 
 @mixin oTeaserHeroCentre {
@@ -188,7 +195,7 @@
 
 @mixin oTeaserHeroStandalone {
 	.o-teaser__heading {
-		@include font-size(38, 40);
+		@include font-size(30, 30);
 	}
 
 	.o-teaser__image-container {
@@ -208,22 +215,24 @@
 	}
 
 	.o-teaser__heading {
-		@include font-size(38, 40);
+		@include font-size(34, 34);
 		font-family: $o-typography-serif-display;
 
-		@include oGridRespondTo(M) {
-			@include font-size(56, 58);
+		@include oGridRespondTo(L) {
+			@include font-size(52, 52);
+		}
+
+		@include oGridRespondTo(XL) {
+			@include font-size(56, 56);
 		}
 	}
 
 	.o-teaser__standfirst {
-		@include font-size(22, 24);
+		@include font-size(20, 24);
 	}
 }
 
 @mixin oTeaserTopStoryStandalone {
-	border-bottom: 8px solid oColorsGetPaletteColor('black');
-
 	.o-teaser__image-container {
 		margin-bottom: 20px;
 	}
@@ -231,8 +240,11 @@
 
 @mixin oTeaserTopStoryLandscape {
 	@include oTeaserClearfix;
+	background: $_o-teaser-color-hero-background;
 
 	@include oGridRespondTo(M) {
+		padding: 20px 0 0 20px;
+
 		.o-teaser__content {
 			float: left;
 			width: 45%;
@@ -250,14 +262,42 @@
 @mixin oTeaserTopStoryBigStory {
 	margin-bottom: 0;
 
-	.o-teaser__content {
-		padding-top: 40px;
-		padding-bottom: 0;
+	.o-teaser__image-container {
+		width: 55%;
 	}
 
 	.o-teaser__image-placeholder {
 		padding-bottom: 100%;
 	}
+
+	.o-teaser__content {
+		padding: 60px 0 0 0;
+	}
+
+	@include oGridRespondTo(M) {
+		padding: 0;
+
+		.o-teaser__content {
+			float: left;
+			width: 45%;
+			padding-right: 20px;
+		}
+
+		.o-teaser__image-container {
+			width: 55%;
+			float: right;
+		}
+	}
+
+	@include oGridRespondTo(L) {
+		.o-teaser__content {
+			width: 55%;
+		}
+		.o-teaser__image-container {
+			width: 45%;	
+		}
+	}
+
 }
 
 @mixin oTeaserPromotedContent {
