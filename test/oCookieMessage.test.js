@@ -112,11 +112,39 @@ describe("CookieMessage", () => {
 	});
 
 	describe("flagUserAsConsentingToCookies", () => {
-		it("sets a value in localStorage called COOKIE_CONSENT to the result of Date.now");
-		it("calls hideMessage");
+		beforeEach(() => {
+			sinon.spy(localStorage, "setItem");
+		});
+
+		afterEach(() => {
+			localStorage.setItem.restore();
+		});
+
+
+		it("sets a value in localStorage called COOKIE_CONSENT to the result of Date.now", () => {
+			sinon.stub(Date, "now").returns(12345);
+			oCookieMessage.flagUserAsConsentingToCookies();
+			proclaim.isTrue(localStorage.setItem.calledWith('COOKIE_CONSENT', 12345));
+		});
+
+		it("calls hideMessage", () => {
+			sinon.spy(oCookieMessage, "hideMessage");
+			oCookieMessage.flagUserAsConsentingToCookies();
+			proclaim.isTrue(oCookieMessage.hideMessage.calledOnce);
+		});
 	});
 
 	describe("hideMessage", () => {
-		it("removes the o-cookie-message--active class from the CookieMessageEl");
+		it("removes the o-cookie-message--active class from the CookieMessageEl", () => {
+			const cookiemessage = oCookieMessage.init();
+
+			/* Ensure the cookie message is visible */
+			cookiemessage.CookieMessageEl.classList.add('o-cookie-message--active');
+			proclaim.isTrue(cookiemessage.CookieMessageEl.classList.contains('o-cookie-message--active'));
+
+			oCookieMessage.hideMessage();
+
+			proclaim.isFalse(cookiemessage.CookieMessageEl.classList.contains('o-cookie-message--active'));
+		});
 	});
 });
