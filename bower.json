@@ -17,6 +17,6 @@
     "o-typography": "^4.3.1",
     "o-grid": "^4.2.3",
     "o-icons": ">=4.4.2 <6",
-    "superstore-sync": "^2.0.0"
+    "superstore-sync": "git@github.com:alicebartlett/superstore-sync.git#b29aa99"
   }
 }
