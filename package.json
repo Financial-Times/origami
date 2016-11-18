@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "test": "karma start karma.conf.js"
+    "test": "./node_modules/karma/bin/karma start karma.conf.js"
   },
   "devDependencies": {
     "babel-loader": "^5.3.2",
