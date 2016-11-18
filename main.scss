@@ -7,6 +7,7 @@
 @import "src/scss/color-use-cases";
 @import "src/scss/mixins";
 @import "src/scss/themes";
+@import "src/scss/timestamp";
 
 @if ($o-teaser-is-silent == false) {
 
@@ -91,7 +92,7 @@
 		&.o-teaser--hero {
 			@include oTeaserHeroOpinion;
 		}
-		
+
 		&.o-teaser--opinion-background {
 			@include oTeaserOpinionBackground;
 		}

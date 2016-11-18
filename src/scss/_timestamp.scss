@@ -1,0 +1,69 @@
+@keyframes live-blog-pulse {
+	0% {
+		transform: scale(1.5);
+	}
+	50% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(1.5);
+	}
+}
+
+.o-teaser__timestamp-icon:before,
+.o-teaser__timestamp--in-progress:before {
+	content: '';
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	margin-right: 5px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: oColorsGetColorFor('fast-ft', 'text');
+}
+
+.o-teaser__timestamp--live-blog .o-teaser__timestamp-icon:before {
+	margin-right: 7px;
+}
+
+.o-teaser__timestamp--in-progress {
+	position: relative;
+
+	&:before {
+		position: absolute;
+		top: 4px;
+		opacity: 0.2;
+		transform: scale(1.5);
+		animation: live-blog-pulse 1.7s ease infinite;
+	}
+}
+
+.o-teaser__timestamp {
+
+	.o-teaser__timestamp-prefix {
+		color: inherit;
+	}
+
+	&.o-teaser__timestamp--new,
+	&.o-teaser__timestamp--updated,
+	&.o-teaser__timestamp--in-progress {
+		@include oColorsFor('fast-ft', 'text');
+	}
+
+	&.o-teaser__timestamp--coming-soon {
+		color: oColorsGetPaletteColor('live-blog-coming-soon');
+
+		.o-teaser__timestamp-icon:before {
+			background-color: oColorsGetPaletteColor('live-blog-coming-soon');
+		}
+	}
+
+	&.o-teaser__timestamp--closed {
+		color: oColorsGetPaletteColor('live-blog-closed');
+
+		.o-teaser__timestamp-icon:before {
+			background-color: oColorsGetPaletteColor('live-blog-closed');
+		}
+	}
+}

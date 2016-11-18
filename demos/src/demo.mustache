@@ -16,7 +16,10 @@
 			{{/article-standfirst}}
 
 			{{#article-timestamp}}
-				<time data-o-component="o-date" class="o-date o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+				<div class="o-teaser__timestamp o-teaser__timestamp--in-progress">
+					<span class="o-teaser__timestamp-prefix o-teaser__timestamp-icon">New</span>
+					<time data-o-component="o-date" class="o-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+				</div>
 			{{/article-timestamp}}
 
 			{{#article-headshot}}
