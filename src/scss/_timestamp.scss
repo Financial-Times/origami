@@ -10,8 +10,8 @@
 	}
 }
 
-.o-teaser__timestamp-icon:before,
-.o-teaser__timestamp--in-progress:before {
+.o-teaser__timestamp-prefix:before,
+.o-teaser__timestamp--inprogress:before {
 	content: '';
 	position: relative;
 	top: 1px;
@@ -23,11 +23,11 @@
 	background-color: oColorsGetColorFor('fast-ft', 'text');
 }
 
-.o-teaser__timestamp--live-blog .o-teaser__timestamp-icon:before {
+.o-teaser__timestamp--inprogress.o-teaser__timestamp-prefix:before {
 	margin-right: 7px;
 }
 
-.o-teaser__timestamp--in-progress {
+.o-teaser__timestamp--inprogress {
 	position: relative;
 
 	&:before {
@@ -47,14 +47,14 @@
 
 	&.o-teaser__timestamp--new,
 	&.o-teaser__timestamp--updated,
-	&.o-teaser__timestamp--in-progress {
+	&.o-teaser__timestamp--inprogress {
 		@include oColorsFor('fast-ft', 'text');
 	}
 
-	&.o-teaser__timestamp--coming-soon {
+	&.o-teaser__timestamp--comingsoon {
 		color: oColorsGetPaletteColor('live-blog-coming-soon');
 
-		.o-teaser__timestamp-icon:before {
+		.o-teaser__timestamp-prefix:before {
 			background-color: oColorsGetPaletteColor('live-blog-coming-soon');
 		}
 	}
@@ -62,7 +62,7 @@
 	&.o-teaser__timestamp--closed {
 		color: oColorsGetPaletteColor('live-blog-closed');
 
-		.o-teaser__timestamp-icon:before {
+		.o-teaser__timestamp-prefix:before {
 			background-color: oColorsGetPaletteColor('live-blog-closed');
 		}
 	}
