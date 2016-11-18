@@ -57,8 +57,11 @@ class CookieMessage {
 	}
 
 	static userHasConsentedToCookies () {
+
+		const cookieConsent = store.local.get('COOKIE_CONSENT');
+
 		// Update user to new cookie format, which reappears after three months
-		if (store.local.get('COOKIE_CONSENT') === '1') {
+		if (cookieConsent === '1') {
 			this.flagUserAsConsentingToCookies();
 			return true;
 		}
@@ -70,9 +73,9 @@ class CookieMessage {
 		}
 
 
-		if (store.local.get('COOKIE_CONSENT')) {
+		if (cookieConsent) {
 
-			const consentDate = parseInt(store.local.get('COOKIE_CONSENT'));
+			const consentDate = parseInt(cookieConsent);
 
 			if (this.dateIsWithinLastThreeMonths(consentDate)) {
 				return true;
