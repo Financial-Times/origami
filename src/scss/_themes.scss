@@ -22,6 +22,7 @@
 @mixin oTeaserCollectionSpecial() {
 	position: relative;
 	border-top: 0;
+	margin-bottom: 50px;
 	&:after {
 		content: '';
 		position: absolute;

@@ -13,7 +13,7 @@ $o-teaser-is-silent: false;
 @if ($o-teaser-collection-is-silent == false) {
 
 	.o-teaser-collection {
-	 	margin-bottom: 20px;
+	 	margin-bottom: 35px;
 		&--numbered {
 			@include oTeaserCollectionNumbered();
 		}
