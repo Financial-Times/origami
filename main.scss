@@ -131,6 +131,27 @@ $o-teaser-is-silent: false;
 		padding: 20px 0 0;
 	}
 
+	.o-teaser-collection--stream {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		.o-teaser-collection__item {
+			position: relative;
+		}
+
+		//TODO: decouple collection from teaser
+		.o-teaser__content {
+			padding-right: 50px;
+		}
+
+		.o-teaser__action {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+	}
+
 	// Set to silent again to avoid being output twice
 	$o-teaser-collection-is-silent: true !global;
 }
