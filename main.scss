@@ -77,12 +77,12 @@
 		@include oTeaserStretched;
 	}
 
-	.o-teaser--highlight,
+	.o-teaser--highlight.o-teaser--hero,
 	.o-teaser--opinion.o-teaser--hero {
 		@include oTeaserHeroThemeBase;
 	}
 
-	.o-teaser--highlight {
+	.o-teaser--highlight.o-teaser--hero {
 		@include oTeaserHighlight;
 	}
 
