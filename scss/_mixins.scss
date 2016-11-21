@@ -74,5 +74,5 @@ $_o-labels-warned-size: false;
 		@include oLabelsSize($size);
 	}
 
-	@include oLabelsState($state);
+	@include oLabelsState($state); // sass-lint:disable-line mixins-before-declarations
 }
