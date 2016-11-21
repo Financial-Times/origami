@@ -11,8 +11,10 @@ body {
 	@include oColorsFor('o-footer-dark', 'text');
 
 	// Make the white text look crisper and less bold on dark backgrounds
+	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	// sass-lint:enable no-vendor-prefixes
 
 	color: oColorsGetColorFor('o-footer-dark-link', 'text');
 	a {
