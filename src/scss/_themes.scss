@@ -4,8 +4,10 @@
 		@include oColorsFor('o-footer-dark', 'text' 'background' 'border');
 
 		// Make the white text look crisper and less bold on dark backgrounds
+		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+		// sass-lint:enable no-vendor-prefixes
 
 		.o-footer__matrix-title a {
 			color: oColorsGetColorFor('o-footer-dark-title', 'text');

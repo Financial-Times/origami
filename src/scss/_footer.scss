@@ -3,7 +3,7 @@
 /// @param {string} $theme ['dark'] - the theme of the footer styles requested
 /// @param {boolean} $simple [false] - whether to only output the default footer styles
 @mixin oFooter($theme: 'dark', $simple: false) {
-		// required by o-grid JS helper
+	// required by o-grid JS helper
 	@include oGridSurfaceCurrentLayout();
 
 	.o-footer {
@@ -83,7 +83,7 @@
 		// The weird value for rgba is to prevent Sass converting rgba(0,0,0,0) to 'transparent'
 		// which would cause the following line to be understood by IE7/8 and the svg to be downloaded
 		background: url(oAssetsResolve("img/nikkei_logo.png", o-footer));
-		background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/nikkei_logo.svg", o-footer));
+		background: rgba(0, 0, 0, 0.001) url(oAssetsResolve("img/nikkei_logo.svg", o-footer)); // sass-lint:disable-line no-duplicate-properties
 		background-repeat: no-repeat;
 		background-position: right;
 	}
