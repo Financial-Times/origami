@@ -27,21 +27,18 @@
 		{
 			"name": "modal",
 			"description": "Modal shaded overlay",
-			"template": "/demos/src/modal.mustache",
-			"expanded": true
+			"template": "/demos/src/modal.mustache"
 		},
 		{
 			"name": "centered-overlay",
 			"template": "/demos/src/centered-overlay.mustache",
-			"description": "Non-modal non-shaded centered overlay",
-			"expanded": false
+			"description": "Non-modal non-shaded centered overlay"
 		},
 		{
 			"name": "overlay-with-arrow",
 			"template": "/demos/src/overlay-with-arrow.mustache",
 			"description": "Non-modal overlay with an arrow that points to a target",
-			"sass": "demos/src/overlay-with-arrow.scss",
-			"expanded": false
+			"sass": "demos/src/overlay-with-arrow.scss"
 		}
 	]
 }
