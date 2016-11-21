@@ -12,7 +12,7 @@ These components are used as the building blocks for creating all types of forms
 
 **Error message** - Notify the user as soon as an error has occured. Validation message - Only valid at key points so as not to frustrate the user.
 
-## Form layout:
+## Form layout:
 
 **Columns** - Forms fields should only ever consist of a single column.
 
