@@ -32,15 +32,13 @@
 		{
 			"name": "centered-overlay",
 			"template": "/demos/src/centered-overlay.mustache",
-			"description": "Non-modal non-shaded centered overlay",
-			"hidden": true
+			"description": "Non-modal non-shaded centered overlay"
 		},
 		{
 			"name": "overlay-with-arrow",
 			"template": "/demos/src/overlay-with-arrow.mustache",
 			"description": "Non-modal overlay with an arrow that points to a target",
-			"sass": "demos/src/overlay-with-arrow.scss",
-			"hidden": true
+			"sass": "demos/src/overlay-with-arrow.scss"
 		}
 	]
 }
