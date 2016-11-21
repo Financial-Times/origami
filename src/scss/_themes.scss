@@ -220,11 +220,11 @@
 		font-family: $o-typography-serif-display;
 
 		@include oGridRespondTo(L) {
-			@include font-size(52, 52);
+			@include font-size(48, 48);
 		}
 
 		@include oGridRespondTo(XL) {
-			@include font-size(56, 56);
+			@include font-size(48, 48);
 		}
 	}
 
