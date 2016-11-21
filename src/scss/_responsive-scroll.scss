@@ -8,7 +8,7 @@
 	display: flex;
 	overflow: hidden;
 
-	@include oGridRespondTo(S) {
+	@include oGridRespondTo(S) { // sass-lint:disable-line mixins-before-declarations
 		display: table;
 	}
 
@@ -16,7 +16,7 @@
 		display: flex;
 		flex-shrink: 0;
 
-		@include oGridRespondTo(S) {
+		@include oGridRespondTo(S) { // sass-lint:disable-line mixins-before-declarations
 			display: table-header-group;
 		}
 	}
@@ -27,7 +27,7 @@
 		overflow-y: hidden;
 		position: relative;
 
-		@include oGridRespondTo(S) {
+		@include oGridRespondTo(S) { // sass-lint:disable-line mixins-before-declarations
 			display: table-row-group;
 		}
 	}
@@ -37,7 +37,7 @@
 		flex-direction: column;
 		flex-shrink: 0;
 
-		@include oGridRespondTo(S) {
+		@include oGridRespondTo(S) { // sass-lint:disable-line mixins-before-declarations
 			display: table-row;
 		}
 	}
@@ -46,7 +46,8 @@
 	td {
 		display: block;
 
-		@include oGridRespondTo(S) {
+
+		@include oGridRespondTo(S) { // sass-lint:disable-line mixins-before-declarations
 			display: table-cell;
 		}
 	}

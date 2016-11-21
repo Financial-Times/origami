@@ -5,7 +5,6 @@
 
 /// Base tables styles - add to <table>
 @mixin oTableBase {
-	// scss-lint:disable QualifyingElement
 	@include oTypographyBody;
 	background-color: oColorsGetColorFor(o-table page, background);
 	border-collapse: collapse;
