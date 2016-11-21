@@ -76,7 +76,7 @@
 			box-shadow: 0 0 3px oColorsGetPaletteColor('grey-tint5');
 
 			// Removes the cross the clears the input in IE 10+
-			&::-ms-clear {
+			&::-ms-clear { // sass-lint:disable-line no-vendor-prefixes
 				display: none;
 			}
 		}
