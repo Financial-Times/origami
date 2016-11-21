@@ -1,4 +1,4 @@
-// scss-lint:disable NestingDepth, QualifyingElement, SelectorDepth, ImportantRule
+// sass-lint:disable nesting-depth, no-qualifying-elements, SelectorDepth, no-important
 
 @import './variables';
 @import './mixins';
@@ -469,9 +469,9 @@
 		}
 
 		.fyre-comment-flag-mobile-btn {
-			
+
 			min-width: 100px;
-			
+
 			&:before {
 				content: "Report";
 				font-size: 13px;
@@ -1146,7 +1146,7 @@
 		padding: 3px 0;
 		border-top: 4px solid oColorsGetPaletteColor('pink-tint4');
 		border-bottom: 1px dotted oColorsGetPaletteColor('pink-tint4');
-		font-family: BentonSans,sans-serif;
+		font-family: BentonSans, sans-serif;
 		font-weight: 700;
 		text-transform: uppercase;
 		font-size: 13px;
@@ -1336,7 +1336,7 @@ body {
 	}
 
 	.fyre-hovercard-display-name {
-		font: bold 14px/16px BentonSans ,Arial,Helvetica,Geneva,sans-serif;
+		font: bold 14px/16px BentonSans, Arial, Helvetica, Geneva, sans-serif;
 	}
 
 	.fyre-hovercard-button {
@@ -1529,4 +1529,4 @@ body {
 		}
 	}
 }
-// scss-lint:enable NestingDepth, QualifyingElement, SelectorDepth
+// sass-lint:enable NestingDepth, QualifyingElement, SelectorDepth

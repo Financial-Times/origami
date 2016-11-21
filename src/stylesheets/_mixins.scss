@@ -40,7 +40,7 @@
 
 @mixin oCommentsOverlayClose {
 	background: none;
-	@include oOverlayClose;
+	@include oOverlayClose; // sass-lint:disable-line mixins-before-declarations
 	position: absolute;
 	margin: 0;
 }

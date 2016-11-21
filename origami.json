@@ -12,7 +12,6 @@
 	"demos": [
 		{
 			"path": "/demos/main.html",
-			"expanded": true,
 			"description": ""
 		}
 	]
