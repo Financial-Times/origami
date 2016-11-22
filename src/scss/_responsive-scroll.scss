@@ -46,6 +46,7 @@
 	td {
 		display: block;
 
+
 		@include oGridRespondTo(S) {
 			display: table-cell;
 		}

@@ -22,7 +22,6 @@
 		{
 			"name": "basic",
 			"template": "demos/src/basic.mustache",
-			"expanded": true,
 			"description": ""
 		},
 		{
@@ -31,19 +30,16 @@
 			"data": {
 				"modifierClass": "o-table--compact"
 			},
-			"expanded": false,
 			"description": ""
 		},
 		{
 			"name": "captions",
 			"template": "demos/src/captions.mustache",
-			"expanded": false,
 			"description": ""
 		},
 		{
 			"name": "responsive-flat",
 			"template": "demos/src/responsive-flat.mustache",
-			"expanded": false,
 			"description": "This is a flat responsive version"
 		},
 		{
@@ -52,7 +48,6 @@
 			"data": {
 				"modifierClass": "o-table--responsive-overflow"
 			},
-			"expanded": false,
 			"description": "This is an overflow responsive version"
 		},
 		{
@@ -61,7 +56,6 @@
 			"data": {
 				"modifierClass": "o-table--responsive-scroll"
 			},
-			"expanded": false,
 			"description": "This is a scrolling responsive version"
 		}
 	]
