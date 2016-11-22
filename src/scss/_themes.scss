@@ -189,8 +189,12 @@
 
 @mixin oTeaserHeroCentreImage {
 	.o-teaser__image-container {
-		padding-left: 15%;
-		padding-right: 15%;
+		padding-left: 30%;
+		padding-right: 30%;
+		@include oGridRespondTo(L) {
+			padding-left: 15%;
+			padding-right: 15%;	
+		}
 	}
 }
 
@@ -267,6 +271,7 @@
 
 @mixin oTeaserTopStoryBigStory {
 	margin-bottom: 0;
+	padding: 0;
 
 	.o-teaser__image-container {
 		width: 55%;
@@ -277,16 +282,15 @@
 	}
 
 	.o-teaser__content {
-		padding: 60px 0 0;
+		padding: 60px 0 10px;
 	}
 
 	@include oGridRespondTo(M) {
-		padding: 0;
 
 		.o-teaser__content {
 			float: left;
 			width: 50%;
-			padding-right: 20px;
+			padding: 60px 20px 10px 0;
 		}
 
 		.o-teaser__image-container {
@@ -296,11 +300,8 @@
 	}
 
 	@include oGridRespondTo(L) {
-		.o-teaser__content {
-			width: 55%;
-		}
 		.o-teaser__image-container {
-			width: 45%;	
+			margin-bottom: 0;
 		}
 	}
 
