@@ -97,7 +97,7 @@ The list of features is as follows:
 To get all of the CSS needed for the FT homepage you would call:
 
 ```
-oHeader(('top', 'anon', 'search', 'nav', 'megamenu'));
+oHeader(('sticky', 'simple', 'anon', 'search', 'nav', 'megamenu'));
 ```
 
 
