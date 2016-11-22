@@ -1,12 +1,10 @@
 /*global describe,beforeEach,afterEach,it*/
 
-const sandbox = require('./helpers/sandbox');
-const OTable = require('./../main');
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon';
 
-const chai = require('chai');
-chai.use(require('chai-dom'));
-const expect = chai.expect;
-const sinon = require('sinon/pkg/sinon');
+const sandbox =  require('./helpers/sandbox');
+const OTable = require('./../main');
 
 describe("wrap()", () => {
 
@@ -19,7 +17,7 @@ describe("wrap()", () => {
 	});
 
 	it("is defined", () => {
-		expect(OTable.wrap).not.to.be.undefined;
+		proclaim.isDefined(OTable.wrap);
 	});
 
 });
@@ -37,21 +35,21 @@ describe("wrap() - default classes", () => {
 	});
 
 	it("wraps table matching selector", () => {
-		expect(document.getElementById("initiallyUnwrappedTable").parentNode.classList.contains("o-table-wrapper")).to.be.true;
+		proclaim.isTrue(document.getElementById("initiallyUnwrappedTable").parentNode.classList.contains("o-table-wrapper"));
 	});
 
 	it("preserves position in DOM", () => {
-		expect(document.querySelector(".sandbox").childNodes[1].classList.contains("o-table-wrapper")).to.be.true;
-		expect(document.querySelector(".sandbox").childNodes[1].querySelector('.o-table')).to.equal(document.getElementById("initiallyUnwrappedTable"));
+		proclaim.isTrue(document.querySelector(".sandbox").childNodes[1].classList.contains("o-table-wrapper"));
+		proclaim.equal(document.querySelector(".sandbox").childNodes[1].querySelector('.o-table'), document.getElementById("initiallyUnwrappedTable"));
 	});
 
 	it("doesn't wrap already-wrapped tables", () => {
-		expect(document.getElementById("initiallyWrappedTable").parentNode.parentNode.classList.contains("o-table-wrapper")).to.be.false;
+		proclaim.isFalse(document.getElementById("initiallyWrappedTable").parentNode.parentNode.classList.contains("o-table-wrapper"));
 	});
 
 	it("doesn't re-wrap tables", () => {
 		OTable.wrap();
-		expect(document.getElementById("initiallyUnwrappedTable").parentNode.parentNode.classList.contains("o-table-wrapper")).to.be.false;
+		proclaim.isFalse(document.getElementById("initiallyUnwrappedTable").parentNode.parentNode.classList.contains("o-table-wrapper"));
 	});
 
 });
@@ -69,20 +67,20 @@ describe("wrap() - custom classes", () => {
 	});
 
 	it("wraps table matching selector", () => {
-		expect(document.getElementById("initiallyUnwrappedTable").parentNode.classList.contains("test-wrapper")).to.be.true;
+		proclaim.isTrue(document.getElementById("initiallyUnwrappedTable").parentNode.classList.contains("test-wrapper"));
 	});
 
 	it("doesn't wrap tables that don't match selector", () => {
-		expect(document.getElementById("tableNotToWrap").parentNode.classList.contains("test-wrapper")).to.be.false;
+		proclaim.isFalse(document.getElementById("tableNotToWrap").parentNode.classList.contains("test-wrapper"));
 	});
 
 	it("doesn't wrap already-wrapped tables", () => {
-		expect(document.getElementById("initiallyWrappedTable").parentNode.parentNode.classList.contains("test-wrapper")).to.be.false;
+		proclaim.isFalse(document.getElementById("initiallyWrappedTable").parentNode.parentNode.classList.contains("test-wrapper"));
 	});
 
 	it("doesn't re-wrap tables", () => {
 		OTable.wrap(".test-container table", "test-wrapper");
-		expect(document.getElementById("initiallyUnwrappedTable").parentNode.parentNode.classList.contains("test-wrapper")).to.be.false;
+		proclaim.isFalse(document.getElementById("initiallyUnwrappedTable").parentNode.parentNode.classList.contains("test-wrapper"));
 	});
 
 });
@@ -90,27 +88,27 @@ describe("wrap() - custom classes", () => {
 describe("oTable API", () => {
 
 	it("is defined", () => {
-		expect(OTable).to.be.a('function');
+		proclaim.isFunction(OTable);
 	});
 
 	it('has a static init method', () => {
-		expect(OTable.init).to.be.a('function');
+		proclaim.isFunction(OTable.init);
 	});
 
 	it('has a destroy instance method', () => {
-		expect(OTable.prototype.destroy).to.be.a('function');
+		proclaim.isFunction(OTable.prototype.destroy);
 	});
 
 	it('has a removeEventListeners instance method', () => {
-		expect(OTable.prototype.removeEventListeners).to.be.a('function');
+		proclaim.isFunction(OTable.prototype.removeEventListeners);
 	});
 
 	it('has a sortRowsByColumn instance method', () => {
-		expect(OTable.prototype.sortRowsByColumn).to.be.a('function');
+		proclaim.isFunction(OTable.prototype.sortRowsByColumn);
 	});
 
 	it('has a dispatch instance method', () => {
-		expect(OTable.prototype.dispatch).to.be.a('function');
+		proclaim.isFunction(OTable.prototype.dispatch);
 	});
 
 });
@@ -150,22 +148,22 @@ describe('An oTable instance', () => {
 
 	it('is defined', () => {
 		testOTable = new OTable(oTableEl);
-		expect(testOTable).to.be.a('object');
+		proclaim.isObject(testOTable);
 	});
 
 	it('has the correct prototype', () => {
 		testOTable = new OTable(oTableEl);
-		expect(Object.getPrototypeOf(testOTable)).to.equal(OTable.prototype);
+		proclaim.isInstanceOf(testOTable, OTable);
 	});
 
 	it('sets a data attribute on the root element of the component to indicate the JS has executed', () => {
 		testOTable = new OTable(oTableEl);
-		expect(oTableEl.hasAttribute('data-o-table--js')).to.be.true;
+		proclaim.isTrue(oTableEl.hasAttribute('data-o-table--js'));
 	});
 	
 	it('has an `isResponsive` property set to `false`', () => {
 		testOTable = new OTable(oTableEl);
-		expect(testOTable.isResponsive).to.be.false;
+		proclaim.isFalse(testOTable.isResponsive);
 	});
 	
 	describe('when the table has data-o-table-responsive="flat"', () => {
@@ -176,18 +174,18 @@ describe('An oTable instance', () => {
 		
 		it('has an `isResponsive` property set to `true`', () => {
 			testOTable = new OTable(oTableEl);
-			expect(testOTable.isResponsive).to.be.true;
+			proclaim.isTrue(testOTable.isResponsive);
 		});
 		
 		it('should clone any `<th>` elements into all of the rows in the `<tbody>`', () => {
 			testOTable = new OTable(oTableEl);
 
 			const allBodyTableHeads = oTableEl.querySelectorAll('tbody th');
-			expect(allBodyTableHeads).to.have.lengthOf(3);
+			proclaim.lengthEquals(allBodyTableHeads, 3);
 			
 			const firstRow = oTableEl.querySelectorAll('tbody tr')[0];
 			const firstRowTableHeads = firstRow.querySelectorAll('th');
-			expect(firstRowTableHeads).to.have.lengthOf(1);
+			proclaim.lengthEquals(firstRowTableHeads, 1);
 
 		});
 		
@@ -209,9 +207,9 @@ describe('An oTable instance', () => {
 		oTableEl.querySelector('thead th').dispatchEvent(click);
 		oTableEl.addEventListener('oTable.sorted', () => {
 			const rows = oTableEl.querySelectorAll('tbody tr td');
-			expect(rows[0]).to.have.text('cheddar');
-			expect(rows[1]).to.have.text('red leicester');
-			expect(rows[2]).to.have.text('stilton');
+			proclaim.equal(rows[0].textContent, 'cheddar');
+			proclaim.equal(rows[1].textContent, 'red leicester');
+			proclaim.equal(rows[2].textContent, 'stilton');
 			done();
 		});
 	});
@@ -224,7 +222,7 @@ describe('An oTable instance', () => {
 			0, 0, 0, 0, 0, false, false, false, false, 0, null);
 		oTableEl.querySelector('thead th').dispatchEvent(click);
 		oTableEl.addEventListener('oTable.sorted', () => {
-			expect(oTableEl).to.have.attribute('data-o-table-order', 'ASC');
+			proclaim.equal(oTableEl.getAttribute('data-o-table-order'), 'ASC');
 			done();
 		});
 	});
@@ -238,11 +236,11 @@ describe('An oTable instance', () => {
 		oTableEl.querySelector('thead th').dispatchEvent(click);
 		oTableEl.querySelector('thead th').dispatchEvent(click);
 		oTableEl.addEventListener('oTable.sorted', () => {
-			expect(oTableEl).to.have.attribute('data-o-table-order', 'DES');
+			proclaim.equal(oTableEl.getAttribute('data-o-table-order'), 'DES');
 			const rows = oTableEl.querySelectorAll('tbody tr td');
-			expect(rows[0]).to.have.text('stilton');
-			expect(rows[1]).to.have.text('red leicester');
-			expect(rows[2]).to.have.text('cheddar');
+			proclaim.equal(rows[0].textContent, 'stilton');
+			proclaim.equal(rows[1].textContent, 'red leicester');
+			proclaim.equal(rows[2].textContent, 'cheddar');
 			done();
 		});
 	});
@@ -256,10 +254,10 @@ describe('An oTable instance', () => {
 		oTableEl.querySelector('thead th').dispatchEvent(click);
 		oTableEl.addEventListener('oTable.sorted', () => {
 			const rows = oTableEl.querySelectorAll('tbody tr td');
-			expect(rows[0]).to.have.text('cheddar');
-			expect(rows[1]).to.have.text('red leicester');
-			expect(rows[2]).to.have.text('stilton');
-			expect(oTableEl).to.have.attribute('data-o-table-order', 'ASC');
+			proclaim.equal(rows[0].textContent, 'cheddar');
+			proclaim.equal(rows[1].textContent, 'red leicester');
+			proclaim.equal(rows[2].textContent, 'stilton');
+			proclaim.equal(oTableEl.getAttribute('data-o-table-order'), 'ASC');
 			done();
 		});
 	});
@@ -294,10 +292,10 @@ describe('An oTable instance', () => {
 		oTableEl.querySelector('thead th').dispatchEvent(click);
 		oTableEl.addEventListener('oTable.sorted', () => {
 			const rows = oTableEl.querySelectorAll('tbody tr td'); 
-			expect(rows[0]).to.have.text('1.2');
-			expect(rows[1]).to.have.text('3');
-			expect(rows[2]).to.have.text('12.03');
-			expect(oTableEl).to.have.attribute('data-o-table-order', 'ASC');
+			proclaim.equal(rows[0].textContent, '1.2');
+			proclaim.equal(rows[1].textContent, '3');
+			proclaim.equal(rows[2].textContent, '12.03');
+			proclaim.equal(oTableEl.getAttribute('data-o-table-order'), 'ASC');
 			done();
 		});
 	});
@@ -332,10 +330,10 @@ describe('An oTable instance', () => {
 		oTableEl.querySelector('thead th').dispatchEvent(click);
 		oTableEl.addEventListener('oTable.sorted', () => {
 			const rows = oTableEl.querySelectorAll('tbody tr td');
-			expect(rows[0]).to.have.text('pangea');
-			expect(rows[1]).to.have.text('snowman');
-			expect(rows[2]).to.have.text('42');
-			expect(oTableEl).to.have.attribute('data-o-table-order', 'ASC');
+			proclaim.equal(rows[0].textContent, 'pangea');
+			proclaim.equal(rows[1].textContent, 'snowman');
+			proclaim.equal(rows[2].textContent, '42');
+			proclaim.equal(oTableEl.getAttribute('data-o-table-order'), 'ASC');
 			done();
 		});
 	});
@@ -407,7 +405,7 @@ describe('Init', () => {
 		const oTables = OTable.init();
 		const tables = oTables.map(oTable => oTable.rootEl);
 		tables.forEach(table => {
-			expect(table.hasAttribute('data-o-table--js')).to.be.true;
+			proclaim.isTrue(table.hasAttribute('data-o-table--js'));
 		});
 	});
 });
@@ -453,8 +451,8 @@ describe('Destroying an oTable instance', () => {
 		testOTable = new OTable(oTableEl);
 		
 		const columnHead = document.querySelector('th');
-		expect(addEventListenerSpy.calledOn(columnHead)).to.be.true;
-		expect(addEventListenerSpy.calledOnce).to.be.true;
+		proclaim.isTrue(addEventListenerSpy.calledOn(columnHead));
+		proclaim.isTrue(addEventListenerSpy.calledOnce);
 		
 		const columnHeadEventAndHandler = addEventListenerSpy.args[0];
 		
@@ -464,10 +462,10 @@ describe('Destroying an oTable instance', () => {
 		
 		testOTable.destroy();
 		
-		expect(removeEventListenerSpy.calledOn(columnHead)).to.be.true;
-		expect(removeEventListenerSpy.calledOnce).to.be.true;
+		proclaim.isTrue(removeEventListenerSpy.calledOn(columnHead));
+		proclaim.isTrue(removeEventListenerSpy.calledOnce);
 		
-		expect(removeEventListenerSpy.calledWith(...columnHeadEventAndHandler)).to.be.true;
+		proclaim.isTrue(removeEventListenerSpy.calledWith(...columnHeadEventAndHandler));
 		
 		Element.prototype.addEventListener = realAddEventListener;
 		Element.prototype.removeEventListener = realRemoveEventListener;
@@ -476,12 +474,12 @@ describe('Destroying an oTable instance', () => {
 	it('when destroyed, removes the rootEl property from the object', () => {
 		testOTable = new OTable(oTableEl);
 		testOTable.destroy();
-		expect(testOTable.rootEl).to.be.undefined;
+		proclaim.isUndefined(testOTable.rootEl);
 	});
 
 	it('when destroyed, removes the data attribute which was added during JS initialisation', () => {
 		testOTable = new OTable(oTableEl);
 		testOTable.destroy();
-		expect(oTableEl.hasAttribute('data-o-table--js')).to.be.false;
+		proclaim.isFalse(oTableEl.hasAttribute('data-o-table--js'));
 	});
 });
