@@ -22,7 +22,7 @@
 		padding: 8px;
 		width: 50%;
 
-		@include oGridRespondTo(S) { // sass-lint:disable-line mixins-before-declarations
+		@include oGridRespondTo(S) {
 			border-right: 1px solid oColorsGetColorFor(o-table-row-right, border-right);
 			display: table-cell;
 		}
@@ -32,7 +32,7 @@
 		display: none;
 		padding: 8px;
 
-		@include oGridRespondTo(S) { // sass-lint:disable-line mixins-before-declarations
+		@include oGridRespondTo(S) {
 			border-right: 1px solid oColorsGetColorFor(o-table-row-right, border-right);
 			display: table-cell;
 		}
@@ -43,7 +43,7 @@
 		flex-flow: row wrap;
 		width: 100%;
 
-		@include oGridRespondTo(S) { // sass-lint:disable-line mixins-before-declarations
+		@include oGridRespondTo(S) {
 			display: table-row;
 		}
 	} // tr
@@ -54,7 +54,7 @@
 		padding: 8px;
 		width: 50%;
 
-		@include oGridRespondTo(S) { // sass-lint:disable-line mixins-before-declarations
+		@include oGridRespondTo(S) {
 			display: none;
 		}
 	} // td th
