@@ -42,11 +42,15 @@
 
 	.o-teaser__content {
 		flex: 1 0 70%;
+		width: 70%;
+		float: right;
 		order: 2;
 	}
 
 	.o-teaser__image-container {
 		flex: 0 0 30%;
+		width: 30%;
+		float: left;
 		padding-top: 5px; // to line up with tag cap-height
 		padding-right: oGridGutter(M);
 
@@ -84,11 +88,11 @@
 	}
 
 	.o-teaser__tag {
-		@include font-size(16, 18);
+		@include font-size(18, 20);
 	}
 
 	.o-teaser__heading {
-		@include font-size(30, 32);
+		@include font-size(28, 30);
 		font-family: $o-typography-sans;
 
 		// review small breakpoint for font size
