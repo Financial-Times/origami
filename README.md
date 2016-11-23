@@ -1,5 +1,4 @@
-## g-audio
----
+# g-audio
 
 This is an origami component to help create styled audio players for IG pages. 
 
@@ -14,15 +13,17 @@ This is an origami component to help create styled audio players for IG pages.
 
 To create an audio player inline with text: 
 
-```<span class="ig-audio" data-audiourl="demo.mp3">Bring to the table win-win survival<audio controls><source src="demo.mp3" type="audio/mpeg"></audio></span>```
+```html
+<span class="ig-audio" data-audiourl="demo.mp3">Bring to the table win-win survival<audio controls><source src="demo.mp3" type="audio/mpeg"></audio></span>
+```
 
 To create an audio player between paragraphs of text (in development): 
 
-```<span class="ig-audio block" data-audiourl="demo2.mp3">Podcasting operational change management<audio controls><source src="demo2.mp3" type="audio/mpeg"></audio></span>```
+```html
+<span class="ig-audio block" data-audiourl="demo2.mp3">Podcasting operational change management<audio controls><source src="demo2.mp3" type="audio/mpeg"></audio></span>
+```
 
-----
-
-## License
+### License
 
 Copyright (c) 2016 Financial Times Ltd. All rights reserved.
 
