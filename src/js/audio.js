@@ -7,15 +7,18 @@ class IGAudio {
     this.playStart = 0;
 
     // initialize player
-    this.targetObject.classList.add("initialized") // turns on audio player styles
+    // turns on audio player styles
+    this.targetObject.classList.add("initialized");
     this.targetObject.innerHTML = "<span class='ig-audio-content'>" + this.targetObject.innerHTML + "</span>";
-    this.targetObject.getElementsByTagName("audio")[0].removeAttribute("controls"); // hide HTML audio player controls
+    
+    // hide HTML audio player controls
+    this.targetObject.getElementsByTagName("audio")[0].removeAttribute("controls");
     this.targetObject.getElementsByTagName("audio")[0].style.display = "none";
 
     // create play button + progress bar divs
-    var playButton = document.createElement('span')
+    var playButton = document.createElement('span');
     playButton.classList.add("ig-audio--playbutton");
-    var innerContent = this.targetObject.getElementsByClassName("ig-audio-content")[0]
+    var innerContent = this.targetObject.getElementsByClassName("ig-audio-content")[0];
     targetObject.insertBefore(playButton, innerContent);
 
     // create progress bar
@@ -24,17 +27,25 @@ class IGAudio {
     innerContent.appendChild(progressBar);
 
     // event handlers to check for loaded metadata
-    this.audio.addEventListener("loadedmetadata", () => this.loadMetadata(), false) // load length into data objects
+    // load length into data objects
+    this.audio.addEventListener("loadedmetadata", () => this.loadMetadata(), false);
   }
 
   loadMetadata() {
     this.audioLength = this.audio.duration;
 
     // set event handlers for everything else after metadata loaded
-    this.targetObject.getElementsByClassName('ig-audio--playbutton')[0].addEventListener("click", () => this.toggleAudio(), false) // play/pause on click
-    this.audio.addEventListener("ended", () => this.toggleAudio(), false) // toggle back to off after clip ends
-    this.targetObject.getElementsByClassName('ig-audio-content')[0].addEventListener("click", (e) => this.jumpTo(e), false) // skip on click
-    this.audio.addEventListener("timeupdate", () => this.adjustProgressBar(), false) // adjust progress bar
+    // play/pause on click
+    this.targetObject.getElementsByClassName('ig-audio--playbutton')[0].addEventListener("click", () => this.toggleAudio(), false);
+
+    // toggle back to off after clip ends
+    this.audio.addEventListener("ended", () => this.toggleAudio(), false);
+
+    // skip on click
+    this.targetObject.getElementsByClassName('ig-audio-content')[0].addEventListener("click", (e) => this.jumpTo(e), false);
+
+    // adjust progress bar
+    this.audio.addEventListener("timeupdate", () => this.adjustProgressBar(), false);
   }
 
   toggleAudio() { 
@@ -73,7 +84,8 @@ class IGAudio {
   pause() {
     this.audio.pause()
 
-    if (this.audio.currentTime >= this.audioLength) { // if at the end, then reset play start to 0
+    // if at the end, then reset play start to 0
+    if (this.audio.currentTime >= this.audioLength) {
       this.playStart = 0
     } else { // otherwise, keep track of when we paused
       this.playStart = this.audio.currentTime;

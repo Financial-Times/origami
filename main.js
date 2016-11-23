@@ -10,7 +10,8 @@ const constructAll = () => {
     var audioURL = a.getElementsByTagName('source')[0].getAttribute('src');
     var igaudio = new IGAudio(a, audioURL);
 
-    IGAudioObjects.push(igaudio); // keep track of igaudio objects
+    // keep track of igaudio objects
+    IGAudioObjects.push(igaudio);
   }
 
   document.removeEventListener('o.DOMContentLoaded', constructAll);
