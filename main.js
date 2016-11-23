@@ -113,9 +113,10 @@ class IGAudio {
 }
 
 
-var audio_components = document.getElementsByClassName("ig-audio");
+const audio_components = document.getElementsByClassName("ig-audio");
+console.log(audio_components);
 
-for (var a of audio_components) {
-	const audioURL = a.getAttribute('data-audiourl')
+for (let a of audio_components) {
+	const audioURL = a.getElementsByTagName('source')[0].getAttribute('src')
 	const igaudio = new IGAudio(a, audioURL)
 }
