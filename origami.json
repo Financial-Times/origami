@@ -1,8 +1,10 @@
 {
-	"description": "IG audio player styles/scripts",
+	"description": "IG audio player module",
 	"origamiType": "module",
 	"origamiVersion": 1,
-	"support": "https://github.com/Financial-Times/ig-audio/issues",
+	"keywords": "audio, graphics, multimedia",
+	"origamiCategory": "components",
+	"support": "https://github.com/Financial-Times/g-audio/issues",
 	"supportStatus": "experimental",
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
