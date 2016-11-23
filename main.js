@@ -1,14 +1,14 @@
 import IGAudio from './src/js/audio';
 
 const constructAll = () => {
-  var IGAudioObjects = [];
+  const IGAudioObjects = [];
 
-  var audio_components = document.getElementsByClassName("ig-audio");
+  const audio_components = document.getElementsByClassName("ig-audio");
 
-  for (var i = 0; i < audio_components.length; i++) {
-    var a = audio_components[i];
-    var audioURL = a.getElementsByTagName('source')[0].getAttribute('src');
-    var igaudio = new IGAudio(a, audioURL);
+  for (let i = 0; i < audio_components.length; i++) {
+    const a = audio_components[i];
+    const audioURL = a.getElementsByTagName('source')[0].getAttribute('src');
+    const igaudio = new IGAudio(a, audioURL);
 
     // keep track of igaudio objects
     IGAudioObjects.push(igaudio);

@@ -16,13 +16,13 @@ class IGAudio {
     this.targetObject.getElementsByTagName("audio")[0].style.display = "none";
 
     // create play button + progress bar divs
-    var playButton = document.createElement('span');
+    const playButton = document.createElement('span');
     playButton.classList.add("ig-audio--playbutton");
-    var innerContent = this.targetObject.getElementsByClassName("ig-audio-content")[0];
+    const innerContent = this.targetObject.getElementsByClassName("ig-audio-content")[0];
     targetObject.insertBefore(playButton, innerContent);
 
     // create progress bar
-    var progressBar = document.createElement('span')
+    const progressBar = document.createElement('span')
     progressBar.classList.add('ig-audio-content-progressbar');
     innerContent.appendChild(progressBar);
 
@@ -59,12 +59,12 @@ class IGAudio {
   }
 
   jumpTo(e) {
-    var clickedPosition = e.pageX - this.targetObject.getElementsByClassName('ig-audio-content')[0].offsetLeft;
-    var totalWidth = this.targetObject.getElementsByClassName('ig-audio-content')[0].offsetWidth;
-    var percentClickedThrough = clickedPosition / totalWidth;
+    const clickedPosition = e.pageX - this.targetObject.getElementsByClassName('ig-audio-content')[0].offsetLeft;
+    const totalWidth = this.targetObject.getElementsByClassName('ig-audio-content')[0].offsetWidth;
+    const percentClickedThrough = clickedPosition / totalWidth;
 
-    var totalDuration = this.audioLength
-    var goTo = totalDuration * percentClickedThrough;
+    const totalDuration = this.audioLength
+    const goTo = totalDuration * percentClickedThrough;
     this.playStart = goTo;
 
     this.play(goTo);
@@ -72,7 +72,7 @@ class IGAudio {
 
   play(playStart=this.playStart) {
     // @TODO: Figure out how to do this
-    // for (var igaudio of IGAudioObjects) { // stop all other audio instances from playing (pause)
+    // for (let igaudio of IGAudioObjects) { // stop all other audio instances from playing (pause)
     //   igaudio.pause()
     // }
 
@@ -99,13 +99,13 @@ class IGAudio {
   }
 
   adjustProgressBar() {
-    var timeStamp = this.audio.currentTime;
-    var totalDuration = this.audioLength
+    const timeStamp = this.audio.currentTime;
+    const totalDuration = this.audioLength
 
-    var percentPlayed = Math.ceil(timeStamp*100 / totalDuration);
+    const percentPlayed = Math.ceil(timeStamp*100 / totalDuration);
     // console.log(timeStamp, totalDuration, percentPlayed)
 
-    var progressBar = this.targetObject.getElementsByClassName("ig-audio-content-progressbar")[0];
+    const progressBar = this.targetObject.getElementsByClassName("ig-audio-content-progressbar")[0];
     progressBar.setAttribute('style', `width: ${percentPlayed}%`);
   }
 
