@@ -103,8 +103,8 @@ class IGAudio {
 		const timeStamp = this.audio.currentTime;
 		const totalDuration = this.audioLength
 
-		const percentPlayed = timeStamp*100 / totalDuration;
-		console.log(timeStamp, totalDuration, percentPlayed)
+		const percentPlayed = Math.ceil(timeStamp*100 / totalDuration);
+		// console.log(timeStamp, totalDuration, percentPlayed)
 
 		const progressBar = this.targetObject.getElementsByClassName("ig-audio-content-progressBar")[0];
 		progressBar.setAttribute('style', `width: ${percentPlayed}%`);
