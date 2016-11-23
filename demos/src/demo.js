@@ -4,6 +4,5 @@
 
 	const oTable = require('./../../main');
 	oTable.wrap();
-	oTable.init();
 
 }());
