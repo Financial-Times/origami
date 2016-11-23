@@ -2,23 +2,23 @@ class IGAudio {
   constructor(targetObject, audioURL) {
     this.targetObject = targetObject;
     this.audioURL = audioURL;
-    this.audio = this.targetObject.getElementsByTagName("audio")[0];
+    this.audio = this.targetObject.getElementsByTagName('audio')[0];
     this.audioLength = undefined;
     this.playStart = 0;
 
     // initialize player
     // turns on audio player styles
-    this.targetObject.classList.add("initialized");
-    this.targetObject.innerHTML = "<span class='ig-audio-content'>" + this.targetObject.innerHTML + "</span>";
+    this.targetObject.classList.add('ig-audio--initialized');
+    this.targetObject.innerHTML = `<span class='ig-audio-content'>${this.targetObject.innerHTML}</span>`;
     
     // hide HTML audio player controls
-    this.targetObject.getElementsByTagName("audio")[0].removeAttribute("controls");
-    this.targetObject.getElementsByTagName("audio")[0].style.display = "none";
+    this.targetObject.getElementsByTagName('audio')[0].removeAttribute('controls');
+    this.targetObject.getElementsByTagName('audio')[0].style.display = 'none';
 
     // create play button + progress bar divs
     const playButton = document.createElement('span');
-    playButton.classList.add("ig-audio--playbutton");
-    const innerContent = this.targetObject.getElementsByClassName("ig-audio-content")[0];
+    playButton.classList.add('ig-audio--playbutton');
+    const innerContent = this.targetObject.getElementsByClassName('ig-audio-content')[0];
     targetObject.insertBefore(playButton, innerContent);
 
     // create progress bar
@@ -28,7 +28,7 @@ class IGAudio {
 
     // event handlers to check for loaded metadata
     // load length into data objects
-    this.audio.addEventListener("loadedmetadata", () => this.loadMetadata(), false);
+    this.audio.addEventListener('loadedmetadata', () => this.loadMetadata(), false);
   }
 
   loadMetadata() {
@@ -36,24 +36,24 @@ class IGAudio {
 
     // set event handlers for everything else after metadata loaded
     // play/pause on click
-    this.targetObject.getElementsByClassName('ig-audio--playbutton')[0].addEventListener("click", () => this.toggleAudio(), false);
+    this.targetObject.getElementsByClassName('ig-audio--playbutton')[0].addEventListener('click', () => this.toggleAudio(), false);
 
     // toggle back to off after clip ends
-    this.audio.addEventListener("ended", () => this.toggleAudio(), false);
+    this.audio.addEventListener('ended', () => this.toggleAudio(), false);
 
     // skip on click
-    this.targetObject.getElementsByClassName('ig-audio-content')[0].addEventListener("click", (e) => this.jumpTo(e), false);
+    this.targetObject.getElementsByClassName('ig-audio-content')[0].addEventListener('click', (e) => this.jumpTo(e), false);
 
     // adjust progress bar
-    this.audio.addEventListener("timeupdate", () => this.adjustProgressBar(), false);
+    this.audio.addEventListener('timeupdate', () => this.adjustProgressBar(), false);
   }
 
   toggleAudio() { 
-    if (this.targetObject.classList.contains("pause")) {
-      // console.log("go to pause")
+    if (this.targetObject.classList.contains('pause')) {
+      // console.log('go to pause')
       this.pause();
     } else {
-      // console.log("go to play")
+      // console.log('go to play')
       this.play();
     }
   }
@@ -78,7 +78,7 @@ class IGAudio {
 
     this.audio.currentTime = playStart;
     this.audio.play();
-    this.targetObject.classList.add("pause");
+    this.targetObject.classList.add('pause');
   }
 
   pause() {
@@ -91,11 +91,11 @@ class IGAudio {
       this.playStart = this.audio.currentTime;
     }
 
-    this.targetObject.classList.remove("pause");
+    this.targetObject.classList.remove('pause');
   }
 
   destroy() {
-    return this.targetObject.getElementsByTagName("audio").destroy();
+    return this.targetObject.getElementsByTagName('audio').destroy();
   }
 
   adjustProgressBar() {
@@ -105,7 +105,7 @@ class IGAudio {
     const percentPlayed = Math.ceil(timeStamp*100 / totalDuration);
     // console.log(timeStamp, totalDuration, percentPlayed)
 
-    const progressBar = this.targetObject.getElementsByClassName("ig-audio-content-progressbar")[0];
+    const progressBar = this.targetObject.getElementsByClassName('ig-audio-content-progressbar')[0];
     progressBar.setAttribute('style', `width: ${percentPlayed}%`);
   }
 
