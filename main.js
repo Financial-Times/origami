@@ -28,13 +28,13 @@ class IGAudio {
 
 		// create play button + progress bar divs
 		const playButton = document.createElement('span')
-		playButton.classList.add("playButton");
+		playButton.classList.add("ig-audio--playbutton");
 		const innerContent = this.targetObject.getElementsByClassName("ig-audio-content")[0]
 		targetObject.insertBefore(playButton, innerContent);
 
 		// create progress bar
 		const progressBar = document.createElement('span')
-		progressBar.classList.add('ig-audio-content-progressBar');
+		progressBar.classList.add('ig-audio-content-progressbar');
 		innerContent.appendChild(progressBar);
 
 		// event handlers to check for loaded metadata
@@ -45,7 +45,7 @@ class IGAudio {
 		this.audioLength = this.audio.duration;
 
 		// set event handlers for everything else after metadata loaded
-		this.targetObject.getElementsByClassName('playButton')[0].addEventListener("click", () => this.toggleAudio(), false) // play/pause on click
+		this.targetObject.getElementsByClassName('ig-audio--playbutton')[0].addEventListener("click", () => this.toggleAudio(), false) // play/pause on click
 		this.audio.addEventListener("ended", () => this.toggleAudio(), false) // toggle back to off after clip ends
 		this.targetObject.getElementsByClassName('ig-audio-content')[0].addEventListener("click", (e) => this.jumpTo(e), false) // skip on click
 		this.audio.addEventListener("timeupdate", () => this.adjustProgressBar(), false) // adjust progress bar
@@ -106,7 +106,7 @@ class IGAudio {
 		const percentPlayed = Math.ceil(timeStamp*100 / totalDuration);
 		// console.log(timeStamp, totalDuration, percentPlayed)
 
-		const progressBar = this.targetObject.getElementsByClassName("ig-audio-content-progressBar")[0];
+		const progressBar = this.targetObject.getElementsByClassName("ig-audio-content-progressbar")[0];
 		progressBar.setAttribute('style', `width: ${percentPlayed}%`);
 	}
 
