@@ -189,8 +189,12 @@
 
 @mixin oTeaserHeroCentreImage {
 	.o-teaser__image-container {
-		padding-left: 30%;
-		padding-right: 30%;
+		padding-left: 15%;
+		padding-right: 15%;
+		@include oGridRespondTo(M) {
+			padding-left: 30%;
+			padding-right: 30%;
+		}
 		@include oGridRespondTo(L) {
 			padding-left: 15%;
 			padding-right: 15%;	
