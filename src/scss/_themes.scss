@@ -52,7 +52,16 @@
 	}
 
 	.o-teaser-collection__related {
-		margin: 20px 0 0;
+		margin: 10px 0 0;
+		//remove the related teaser borders when stacked
+		.o-teaser {
+			@include oGridRespondTo(M) {
+				border-bottom-width: 0;
+			}
+			@include oGridRespondTo(L) {
+				border-bottom-width: 1px;
+			}
+		}
 	}
 }
 
