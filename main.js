@@ -3,7 +3,7 @@ import IGAudio from './src/js/audio';
 const constructAll = () => {
   const IGAudioObjects = [];
 
-  const audio_components = document.getElementsByClassName("ig-audio");
+  const audio_components = document.querySelectorAll('.ig-audio');
 
   for (let i = 0; i < audio_components.length; i++) {
     const a = audio_components[i];
