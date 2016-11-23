@@ -65,7 +65,7 @@ $igaudio-vert-padding-block: 10px;
 
 	// block player
 
-	&.block {
+	&.ig-audio--block {
 		display: block;
 		width: 100%;
 		border-radius: 0;
@@ -73,7 +73,7 @@ $igaudio-vert-padding-block: 10px;
 		padding: $igaudio-vert-padding-block 0;
 	}
 
-	&.block .playButton {
+	&.ig-audio--block .playButton {
 		background: #9e2f50;
 		padding-left: $igaudio-horz-padding-inline;
 		border-radius: 0;
@@ -81,7 +81,7 @@ $igaudio-vert-padding-block: 10px;
 		padding: $igaudio-vert-padding-block $igaudio-horz-padding-block;
 	}
 
-	&.block .ig-audio-content {
+	&.ig-audio--block .ig-audio-content {
 		padding: $igaudio-vert-padding-block $igaudio-horz-padding-block;	
 		// width: 100%;
 	}

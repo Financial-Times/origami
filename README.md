@@ -25,7 +25,7 @@ To create an audio player inline with text:
 To create an audio player between paragraphs of text (in development): 
 
 ```html
-<span class="ig-audio block">
+<span class="ig-audio ig-audio--block">
   Podcasting operational change management
   <audio controls>
     <source src="demo2.mp3" type="audio/mpeg">
