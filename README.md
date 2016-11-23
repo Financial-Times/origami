@@ -1,23 +1,22 @@
 # o-table [![Build Status](https://circleci.com/gh/Financial-Times/o-table.png?style=shield&circle-token=6c1d4241aefb825cb3870d5294e09dd370240c64)](https://circleci.com/gh/Financial-Times/o-table)
+=================
 
 Styling for tables.
 
-## Browser support
-|  Browsers  | Primary Experience | Core Experience |
-|:----------:|:------------------:|:---------------:|
-|   Chrome   |        35+         |       35+       |
-|   Firefox  |        30+         |       30+       |
-|   Safari   |        7+          |       7+        |
-|   IE       |        9+          |       8+        |
+- [Usage](#usage)
+	- [Markup](#markup)
+	- [Sass](#sass)
+	- [JavaScript](#javascript)
+- [Troubleshooting](#troubleshooting)
+- [Migration guide](#migration-guide)
+- [Contact](#contact)
+- [Licence](#licence)
 
-Known issues:
+## Usage
 
-* IE10 or below need the [polyfill service](http://polyfill.webservices.ft.com/)
-* IE8 doesn't support the `wrap` function
+### Markup
 
-## Markup
-
-Simply add an `o-table` class to any table you wish to apply the styles to:
+Add an `o-table` class to any table you wish to apply the styles to:
 
 ```html
 <table class="o-table">
@@ -73,7 +72,7 @@ When they're are not present, browsers will implicitly wrap table contents in `t
 </table>
 ```
 
-## Small screen rendering
+#### Small screen rendering
 
 Where there is not enough horizontal space for a table to fit, it can be made horizontally scrollable by wrapping it in an element with a class of `o-table-wrapper`:
 
@@ -106,7 +105,9 @@ oTable.wrap('.content-zone .o-table', 'o-table-custom-wrapper');
 
 Note that tables matching the selector will not be wrapped, if they already have a parent node that has the wrapper class.
 
-## Silent mode
+### Sass
+
+#### Silent mode
 
 If using __o-table__ in silent mode, use the mixin `oTableBase' in your table styles:
 
@@ -116,39 +117,39 @@ If using __o-table__ in silent mode, use the mixin `oTableBase' in your table st
 }
 ```
 
-## Variant classes and placeholders
+#### Variant classes and placeholders
 
 Additional classes may be added to the table root element to also apply the following styling options. They can be combined as required.
 
-### Content styles
+#### Content styles
 
 Class: `o-table__cell--content-secondary`, Mixin: `oTableCellContentSecondary`
 
 Reduce the size of some text in a cell and display block to start a new line. The class should be applied to a `<span>` or `<div>` element inside of the table cell.
 
-### Row stripes
+#### Row stripes
 
 Class: `o-table--row-stripes`, Mixin: `oTableRowStripes`
 
 A background colour will be set on the whole table, and alternate rows within the `tbody` will have their background colour set to a pink tint.
 
-### Horizontal lines
+#### Horizontal lines
 
 Class: `o-table--horizontal-lines`, Mixin: `oTableHorizontalLines`
 
 Thin lines will be rendered under each `td` element giving the appearance of lines between rows.
 
-### Vertical lines
+#### Vertical lines
 
 Class: `o-table--vertical-lines`, Mixin : `oTableVerticalLines`
 
 Thin lines will be rendered to the left and right of each `td` element giving the appearance of lines between columns.
 
-## Responsive
+#### Responsive
 
 There are three responsive options available for displaying data in a table.
 
-### Flat
+##### Flat
 
 Class: `o-table--responsive-flat`, Mixin: `oTableResponsiveFlat`
 
@@ -156,19 +157,22 @@ Using the Responsive Flat version will render the table to change at narrow view
 
 Please note that this option will not work in *Core* experience.
 
-### Scroll
+##### Scroll
 
 Class: `o-table--responsive-scroll`, Mixin: `oTableResponsiveScroll`
 
 On a narrow viewpoint the Responsive Scroll version will move the headers to the right hand side of the table, and be fixed. This allows the data to be displayed in a column format which would allow the user to swipe left or right going through the data.
 
-### Overflow
+##### Overflow
 
 Class: `o-table--responsive-overflow`, Mixin: `oTableResponsiveOverflow`
 
 On a narrow viewpoint, all this does is add an overflow which would allow the user to scroll through the data in a horizontal way. This is identical to the `oTableWrapper` behaviour.
 
-## Sorting
+### JavaScript
+
+#### Sorting
+
 Sorting table rows requires the JS part of this component, you can grab this via OBT or the Build Service.
 
 Instantiating an o-table JS component will add click events on the columns to trigger sorting.
@@ -187,7 +191,7 @@ oTable = new OTable(document.body);
 
 Sorting numbers works if the column has been declared as a numeric column via `data-o-table-data-type="numeric" class="o-table__cell--numeric"`.
 
-#### Sorting declaratively
+##### Sorting declaratively
 If you are wanting to sort by a custom pattern, you can apply the sorting values to each row as a data attribute:
 `data-o-table-order=${sort-position}`
 
@@ -210,17 +214,33 @@ If you are wanting to sort by a custom pattern, you can apply the sorting values
 </table>
 ```
 
-## How to upgrade from v3.x.x to v4.x.x?
+## Troubleshooting
 
-### Important Changes
+Known issues:
+
+* IE10 or below need the [polyfill service](http://polyfill.webservices.ft.com/)
+* IE8 doesn't support the `wrap` function
+
+
+## Migration guide
+
+### How to upgrade from v3.x.x to v4.x.x?
+
+#### Important Changes
 
 - In order to have sorting work correctly, tables need `thead` and `tbody` elements
 - The Javascript module now returns an o-table constructor
 
-### Markup changes
+#### Markup changes
 
 - Wrap the headings in `thead`
 - Add `data-o-component="o-table"` to the `table` element of any o-table components which require JS.
+
+---
+
+## Contact
+
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-table/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
 ----
 
