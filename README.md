@@ -1,4 +1,4 @@
-## ig-audio
+## g-audio
 ---
 
 > Styles/scripts for IG audio players.

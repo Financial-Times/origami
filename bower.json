@@ -1,5 +1,5 @@
 {
-  "name": "ig-audio",
+  "name": "g-audio",
   "main": ["main.js", "main.scss"],
   "ignore": [
     ".travis.yml",
