@@ -40,6 +40,12 @@
 						"template": "demos/src/themes.mustache",
 						"expanded": true,
 						"description": "This component is themable. The current available themes are B2B and B2C. If you're creating a product that isn't within B2B or B2C please contact Origami."
+				},
+				{
+					"name": "pa11y",
+					"template": "demos/src/pa11y.mustache",
+					"hidden": true,
+					"description": "Accessibility test will be run against this demo"
 				}
 		]
 }
