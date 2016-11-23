@@ -40,9 +40,9 @@
 	}
 
 	.o-header-services__hamburger-icon {
-		@include oIconsGetIcon('hamburger', white, 21, $apply-base-styles: false, $apply-width-height: false);
+		@include oIconsGetIcon('hamburger', white, 40, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
 		display: block;
-		background-size: 21px 21px;
+		background-size: 40px 40px;
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
 		height: $_o-header-services-top-bar-y-small;
