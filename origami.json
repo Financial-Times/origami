@@ -57,6 +57,11 @@
 				"modifierClass": "o-table--responsive-scroll"
 			},
 			"description": "This is a scrolling responsive version"
+		},
+		{
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true
 		}
 	]
 }
