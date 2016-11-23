@@ -1,7 +1,7 @@
 import igAudio from './js/index';
 
 const constructAll = () => {
-	document.removeEventListener('o.DOMContentLoaded', constructAll);
+  document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
@@ -11,112 +11,112 @@ export default igAudio;
 var IGAudioObjects = [];
 
 class IGAudio {
-	constructor(targetObject, audioURL) {
-		this.targetObject = targetObject;
-		this.audioURL = audioURL;
-		this.audio = this.targetObject.getElementsByTagName("audio")[0];
-		this.audioLength = undefined;
-		this.playStart = 0;
+  constructor(targetObject, audioURL) {
+    this.targetObject = targetObject;
+    this.audioURL = audioURL;
+    this.audio = this.targetObject.getElementsByTagName("audio")[0];
+    this.audioLength = undefined;
+    this.playStart = 0;
 
-		IGAudioObjects.push(this); // keep track of igaudio objects
+    IGAudioObjects.push(this); // keep track of igaudio objects
 
-		// initialize player
-		this.targetObject.classList.add("initialized") // turns on audio player styles
-		this.targetObject.innerHTML = "<span class='ig-audio-content'>" + this.targetObject.innerHTML + "</span>";
-		this.targetObject.getElementsByTagName("audio")[0].removeAttribute("controls"); // hide HTML audio player controls
-		this.targetObject.getElementsByTagName("audio")[0].style.display = "none";
+    // initialize player
+    this.targetObject.classList.add("initialized") // turns on audio player styles
+    this.targetObject.innerHTML = "<span class='ig-audio-content'>" + this.targetObject.innerHTML + "</span>";
+    this.targetObject.getElementsByTagName("audio")[0].removeAttribute("controls"); // hide HTML audio player controls
+    this.targetObject.getElementsByTagName("audio")[0].style.display = "none";
 
-		// create play button + progress bar divs
-		const playButton = document.createElement('span')
-		playButton.classList.add("ig-audio--playbutton");
-		const innerContent = this.targetObject.getElementsByClassName("ig-audio-content")[0]
-		targetObject.insertBefore(playButton, innerContent);
+    // create play button + progress bar divs
+    var playButton = document.createElement('span')
+    playButton.classList.add("ig-audio--playbutton");
+    var innerContent = this.targetObject.getElementsByClassName("ig-audio-content")[0]
+    targetObject.insertBefore(playButton, innerContent);
 
-		// create progress bar
-		const progressBar = document.createElement('span')
-		progressBar.classList.add('ig-audio-content-progressbar');
-		innerContent.appendChild(progressBar);
+    // create progress bar
+    var progressBar = document.createElement('span')
+    progressBar.classList.add('ig-audio-content-progressbar');
+    innerContent.appendChild(progressBar);
 
-		// event handlers to check for loaded metadata
-		this.audio.addEventListener("loadedmetadata", () => this.loadMetadata(), false) // load length into data objects
-	}
+    // event handlers to check for loaded metadata
+    this.audio.addEventListener("loadedmetadata", () => this.loadMetadata(), false) // load length into data objects
+  }
 
-	loadMetadata() {
-		this.audioLength = this.audio.duration;
+  loadMetadata() {
+    this.audioLength = this.audio.duration;
 
-		// set event handlers for everything else after metadata loaded
-		this.targetObject.getElementsByClassName('ig-audio--playbutton')[0].addEventListener("click", () => this.toggleAudio(), false) // play/pause on click
-		this.audio.addEventListener("ended", () => this.toggleAudio(), false) // toggle back to off after clip ends
-		this.targetObject.getElementsByClassName('ig-audio-content')[0].addEventListener("click", (e) => this.jumpTo(e), false) // skip on click
-		this.audio.addEventListener("timeupdate", () => this.adjustProgressBar(), false) // adjust progress bar
-	}
+    // set event handlers for everything else after metadata loaded
+    this.targetObject.getElementsByClassName('ig-audio--playbutton')[0].addEventListener("click", () => this.toggleAudio(), false) // play/pause on click
+    this.audio.addEventListener("ended", () => this.toggleAudio(), false) // toggle back to off after clip ends
+    this.targetObject.getElementsByClassName('ig-audio-content')[0].addEventListener("click", (e) => this.jumpTo(e), false) // skip on click
+    this.audio.addEventListener("timeupdate", () => this.adjustProgressBar(), false) // adjust progress bar
+  }
 
-	toggleAudio() {	
-		if (this.targetObject.classList.contains("pause")) {
-			// console.log("go to pause")
-			this.pause()
-		} else {
-			// console.log("go to play")
-			this.play()
-		}
-	}
+  toggleAudio() { 
+    if (this.targetObject.classList.contains("pause")) {
+      // console.log("go to pause")
+      this.pause()
+    } else {
+      // console.log("go to play")
+      this.play()
+    }
+  }
 
-	jumpTo(e) {
-		const clickedPosition = e.pageX - this.targetObject.getElementsByClassName('ig-audio-content')[0].offsetLeft;
-		const totalWidth = this.targetObject.getElementsByClassName('ig-audio-content')[0].offsetWidth;
-		const percentClickedThrough = clickedPosition / totalWidth;
+  jumpTo(e) {
+    var clickedPosition = e.pageX - this.targetObject.getElementsByClassName('ig-audio-content')[0].offsetLeft;
+    var totalWidth = this.targetObject.getElementsByClassName('ig-audio-content')[0].offsetWidth;
+    var percentClickedThrough = clickedPosition / totalWidth;
 
-		const totalDuration = this.audioLength
-		const goTo = totalDuration * percentClickedThrough;
-		this.playStart = goTo;
+    var totalDuration = this.audioLength
+    var goTo = totalDuration * percentClickedThrough;
+    this.playStart = goTo;
 
-		this.play(goTo);
-	}
+    this.play(goTo);
+  }
 
-	play(playStart=this.playStart) {
-		for (var igaudio of IGAudioObjects) { // stop all other audio instances from playing (pause)
-			igaudio.pause()
-		}
+  play(playStart=this.playStart) {
+    for (var igaudio of IGAudioObjects) { // stop all other audio instances from playing (pause)
+      igaudio.pause()
+    }
 
-		this.audio.currentTime = playStart;
-		this.audio.play()
-		this.targetObject.classList.add("pause")
-	}
+    this.audio.currentTime = playStart;
+    this.audio.play()
+    this.targetObject.classList.add("pause")
+  }
 
-	pause() {
-		this.audio.pause()
+  pause() {
+    this.audio.pause()
 
-		if (this.audio.currentTime >= this.audioLength) { // if at the end, then reset play start to 0
-			this.playStart = 0
-		} else { // otherwise, keep track of when we paused
-			this.playStart = this.audio.currentTime;
-		}
+    if (this.audio.currentTime >= this.audioLength) { // if at the end, then reset play start to 0
+      this.playStart = 0
+    } else { // otherwise, keep track of when we paused
+      this.playStart = this.audio.currentTime;
+    }
 
-		this.targetObject.classList.remove("pause")
-	}
+    this.targetObject.classList.remove("pause")
+  }
 
-	destroy() {
-		return this.targetObject.getElementsByTagName("audio").destroy();
-	}
+  destroy() {
+    return this.targetObject.getElementsByTagName("audio").destroy();
+  }
 
-	adjustProgressBar() {
-		const timeStamp = this.audio.currentTime;
-		const totalDuration = this.audioLength
+  adjustProgressBar() {
+    var timeStamp = this.audio.currentTime;
+    var totalDuration = this.audioLength
 
-		const percentPlayed = Math.ceil(timeStamp*100 / totalDuration);
-		// console.log(timeStamp, totalDuration, percentPlayed)
+    var percentPlayed = Math.ceil(timeStamp*100 / totalDuration);
+    // console.log(timeStamp, totalDuration, percentPlayed)
 
-		const progressBar = this.targetObject.getElementsByClassName("ig-audio-content-progressbar")[0];
-		progressBar.setAttribute('style', `width: ${percentPlayed}%`);
-	}
+    var progressBar = this.targetObject.getElementsByClassName("ig-audio-content-progressbar")[0];
+    progressBar.setAttribute('style', `width: ${percentPlayed}%`);
+  }
 
 }
 
 
-const audio_components = document.getElementsByClassName("ig-audio");
-console.log(audio_components);
+var audio_components = document.getElementsByClassName("ig-audio");
 
-for (let a of audio_components) {
-	const audioURL = a.getElementsByTagName('source')[0].getAttribute('src')
-	const igaudio = new IGAudio(a, audioURL)
+for (var i = 0; i < audio_components.length; i++) {
+  var a = audio_components[i];
+  var audioURL = a.getElementsByTagName('source')[0].getAttribute('src')
+  var igaudio = new IGAudio(a, audioURL)
 }
