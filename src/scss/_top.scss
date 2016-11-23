@@ -12,8 +12,11 @@
 		height: $_o-header-services-top-bar-y;
 		float: left;
 		display: inline-block;
-		background: url(oAssetsResolve('img/ft-logo-40.png', o-services-header)) no-repeat;
-		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxsaW5lYXJHcmFkaWVudCBpZD0iYSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxMjcuOTk5IiB4Mj0iMTI3Ljk5OSIgeTI9IjI1NiI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkZFOENGIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRkZEREI5Ii8+PC9saW5lYXJHcmFkaWVudD48cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNMCAwaDI1NnYyNTZoLTI1NnoiLz48cGF0aCBmaWxsPSIjMzMzIiBkPSJNNjUuNDcxIDEzMy42MDNjMCAxMi4wODEgMy4yMjUgMTMuNDM5IDE3LjAwMSAxMy45NTJ2NC40MjFoLTU0Ljc1NHYtNC40MjFjMTEuMzkzLS41MTMgMTQuNjIxLTEuODcxIDE0LjYyMS0xMy45NTJ2LTc4Ljg4OGMwLTEyLjA5Mi0zLjIyOS0xMy40NDktMTQuMjgxLTEzLjk1NHYtNC40MjJoOTYuNThsLjY4OCAyNS41MDVoLTQuNzYyYy00LjA4My0xMi45MjQtOC41MDctMTctMzEuMTIzLTE3aC0xNy41MTljLTUuMjYyIDAtNi40NTEgMS4xODMtNi40NTEgNS45NXYzNi41NjVoOC42MjhjMTguMDI5IDAgMjEuOTQyLTMuMjQgMjQuMTUtMTUuMzE1aDQuNDJ2NDAuODE0aC00LjQyYy0yLjM3OC0xMy42MDQtOS4xODQtMTcuMDAyLTI0LjE1LTE3LjAwMmgtOC42Mjh2MzcuNzQ3ek0yMzQuMDA3IDM2LjMzOWgtMTAxLjM0OGwtMi4zNTQgMjUuNTE0aDUuODFjMy43MTMtMTIuNDk3IDkuMTctMTcuMDA4IDIxLjM2OS0xNy4wMDhoMTQuMjg0djg4Ljc1OGMwIDEyLjA4MS0zLjIzIDEzLjQzOS0xNi4zMjMgMTMuOTUydjQuNDIxaDU1Ljc3OXYtNC40MjFjLTEzLjA5Ni0uNTEzLTE2LjMyNy0xLjg3MS0xNi4zMjctMTMuOTUydi04OC43NTloMTQuMjc4YzEyLjIwNiAwIDE3LjY2OSA0LjUxMiAyMS4zNzMgMTcuMDA4aDUuODFsLTIuMzUxLTI1LjUxM3oiLz48L3N2Zz4='), none;
+		background: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:brand-ft-logo-square-coloured?source=o-header-services&format=svg&width=55') no-repeat;
+
+		// ie7/8 fallback. Uses the `\9` selector hack to target ie6-8.
+		// Hack is documented here: http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
+		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:brand-ft-logo-square-coloured?source=o-header-services&format=png&width=55')\9;
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: 0;
@@ -37,9 +40,9 @@
 	}
 
 	.o-header-services__hamburger-icon {
-		@include oIconsGetIcon('hamburger', white, 21, $apply-base-styles: false, $apply-width-height: false);
+		@include oIconsGetIcon('hamburger', white, 40, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
 		display: block;
-		background-size: 21px 21px;
+		background-size: 40px 40px;
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
 		height: $_o-header-services-top-bar-y-small;
