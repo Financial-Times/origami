@@ -35,12 +35,7 @@ function OTable(rootEl) {
 		});
 
 		if (this.isResponsive) {
-			tableRows.forEach((row) => {
-				const data = Array.from(row.getElementsByTagName('td'));
-				data.forEach((td, dataIndex) => {
-					td.parentNode.insertBefore(tableHeaders[dataIndex].cloneNode(true), td);
-				});
-			});
+			this._duplicateHeaders(tableRows, tableHeaders);
 		}
 
 		this.dispatch('ready', {
@@ -64,6 +59,22 @@ OTable.prototype._sortByColumn = function _sortByColumn (columnIndex) {
 		this.sortRowsByColumn(columnIndex, this.rootEl.getAttribute('data-o-table-order') === "ASC", event.currentTarget.getAttribute('data-o-table-data-type') === 'numeric');
 	}.bind(this);
 };
+
+/**
+ * Duplicate the table headers into each row
+ * For use with responsive tables
+ *
+ * @private
+ * @param  {array} rows Table rows
+ */
+OTable.prototype._duplicateHeaders = function _duplicateHeaders (rows, headers) {
+	rows.forEach((row) => {
+		const data = Array.from(row.getElementsByTagName('td'));
+		data.forEach((td, dataIndex) => {
+			td.parentNode.insertBefore(headers[dataIndex].cloneNode(true), td);
+		});
+	});
+}
 
 /**
  * Helper function to dispatch namespaced events, namespace defaults to oTable
