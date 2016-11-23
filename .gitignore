@@ -16,3 +16,4 @@ demos/local
 .bowerrc
 .DS_Store
 .scss-lint.yml
+.eslintrc
