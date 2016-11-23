@@ -1,7 +1,7 @@
 ## g-audio
 ---
 
-> Styles/scripts for IG audio players.
+This is an origami component to help create styled audio players for IG pages. 
 
 ### How to setup the project
 
@@ -9,6 +9,16 @@
 - install origami-build tools: `npm i -g origami-build-tools`
 - `obt install`
 - to run: `obt demo --watch --runServer`
+
+### Quick start
+
+To create an audio player inline with text: 
+
+```<span class="ig-audio" data-audiourl="demo.mp3">Bring to the table win-win survival<audio controls><source src="demo.mp3" type="audio/mpeg"></audio></span>```
+
+To create an audio player between paragraphs of text (in development): 
+
+```<span class="ig-audio block" data-audiourl="demo2.mp3">Podcasting operational change management<audio controls><source src="demo2.mp3" type="audio/mpeg"></audio></span>```
 
 ----
 
