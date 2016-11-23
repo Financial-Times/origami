@@ -13,7 +13,7 @@
 	"demos": [
 		{
 			"name": "audio",
-			"template": "demos/src/index.mustache",
+			"template": "demos/src/main.mustache",
 			"expanded": true,
 			"description": ""
 		}
