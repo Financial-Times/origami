@@ -22,7 +22,7 @@ class IGAudio {
     targetObject.insertBefore(playButton, innerContent);
 
     // create progress bar
-    const progressBar = document.createElement('span')
+    const progressBar = document.createElement('span');
     progressBar.classList.add('ig-audio-content-progressbar');
     innerContent.appendChild(progressBar);
 
@@ -51,10 +51,10 @@ class IGAudio {
   toggleAudio() { 
     if (this.targetObject.classList.contains("pause")) {
       // console.log("go to pause")
-      this.pause()
+      this.pause();
     } else {
       // console.log("go to play")
-      this.play()
+      this.play();
     }
   }
 
@@ -63,7 +63,7 @@ class IGAudio {
     const totalWidth = this.targetObject.getElementsByClassName('ig-audio-content')[0].offsetWidth;
     const percentClickedThrough = clickedPosition / totalWidth;
 
-    const totalDuration = this.audioLength
+    const totalDuration = this.audioLength;
     const goTo = totalDuration * percentClickedThrough;
     this.playStart = goTo;
 
@@ -77,21 +77,21 @@ class IGAudio {
     // }
 
     this.audio.currentTime = playStart;
-    this.audio.play()
-    this.targetObject.classList.add("pause")
+    this.audio.play();
+    this.targetObject.classList.add("pause");
   }
 
   pause() {
-    this.audio.pause()
+    this.audio.pause();
 
     // if at the end, then reset play start to 0
     if (this.audio.currentTime >= this.audioLength) {
-      this.playStart = 0
+      this.playStart = 0;
     } else { // otherwise, keep track of when we paused
       this.playStart = this.audio.currentTime;
     }
 
-    this.targetObject.classList.remove("pause")
+    this.targetObject.classList.remove("pause");
   }
 
   destroy() {
@@ -100,7 +100,7 @@ class IGAudio {
 
   adjustProgressBar() {
     const timeStamp = this.audio.currentTime;
-    const totalDuration = this.audioLength
+    const totalDuration = this.audioLength;
 
     const percentPlayed = Math.ceil(timeStamp*100 / totalDuration);
     // console.log(timeStamp, totalDuration, percentPlayed)
