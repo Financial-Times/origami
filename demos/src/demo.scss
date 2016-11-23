@@ -1,9 +1,10 @@
 $ig-article-is-silent: false;
+$ig-ftpink: #fff1e0;
 @import '../../main';
 
 body {
-	background: #fff1e0;
-	width: 600px;
-	margin: 1em auto;
-	// font-family: 'MetricWeb', 'Metric', sans-serif;
+  background: $ig-ftpink;
+  margin: 1em auto;
+  width: 600px;
+  // font-family: 'MetricWeb', 'Metric', sans-serif;
 }
