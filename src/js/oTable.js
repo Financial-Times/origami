@@ -74,7 +74,7 @@ OTable.prototype._duplicateHeaders = function _duplicateHeaders (rows, headers) 
 			td.parentNode.insertBefore(headers[dataIndex].cloneNode(true), td);
 		});
 	});
-}
+};
 
 /**
  * Helper function to dispatch namespaced events, namespace defaults to oTable

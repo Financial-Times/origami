@@ -1,5 +1,5 @@
+/* eslint-env mocha, proclaim */
 import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
 
 const sandbox = require('./helpers/sandbox');
 const OTable = require('./../main');
@@ -35,6 +35,11 @@ describe('oTable sorting', () => {
 		testOTable = undefined;
 		sandbox.reset();
 		oTableEl = undefined;
+	});
+
+	it('is defined', () => {
+		testOTable = new OTable(oTableEl);
+		proclaim.isObject(testOTable);
 	});
 
 	it('sorts by ascending order first if not told otherwise', done => {
@@ -130,7 +135,7 @@ describe('oTable sorting', () => {
 			0, 0, 0, 0, 0, false, false, false, false, 0, null);
 		oTableEl.querySelector('thead th').dispatchEvent(click);
 		oTableEl.addEventListener('oTable.sorted', () => {
-			const rows = oTableEl.querySelectorAll('tbody tr td'); 
+			const rows = oTableEl.querySelectorAll('tbody tr td');
 			proclaim.equal(rows[0].textContent, '1.2');
 			proclaim.equal(rows[1].textContent, '3');
 			proclaim.equal(rows[2].textContent, '12.03');
