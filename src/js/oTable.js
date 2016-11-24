@@ -34,7 +34,7 @@ function OTable(rootEl) {
 		// `<thead>` block containing the table headers. If there are no headers
 		// available, the `responsive-flat` class needs to be removed to prevent
 		// headings being hidden.
-		if (this.rootEl.getAttribute('data-o-table-responsive') === 'flat' && tableHeaders.length > 0) {
+		if (this.rootEl.getAttribute('data-o-table-responsive') === 'flat' && this.tableHeaders.length > 0) {
 			this.isResponsive = true;
 		} else {
 			this.rootEl.classList.remove('o-table--responsive-flat');
