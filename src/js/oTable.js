@@ -21,10 +21,10 @@ function OTable(rootEl) {
 		this.isResponsive = false;
 		this.rootEl.setAttribute('data-o-table--js', '');
 
-		const tableHeaders = Array.from(this.rootEl.querySelectorAll('thead th'));
+		this.tableHeaders = Array.from(this.rootEl.querySelectorAll('thead th'));
 		const tableRows = Array.from(this.rootEl.getElementsByTagName('tr'));
 
-		tableHeaders.forEach((th, columnIndex) => {
+		this.tableHeaders.forEach((th, columnIndex) => {
 			const listener = this._sortByColumn(columnIndex);
 			this.listeners.push(listener);
 			th.addEventListener('click', listener);
@@ -34,14 +34,14 @@ function OTable(rootEl) {
 		// `<thead>` block containing the table headers. If there are no headers
 		// available, the `responsive-flat` class needs to be removed to prevent
 		// headings being hidden.
-		if (this.rootEl.getAttribute('data-o-table-responsive') === 'flat' && tableHeaders.length > 0) {
+		if (this.rootEl.getAttribute('data-o-table-responsive') === 'flat' && this.tableHeaders.length > 0) {
 			this.isResponsive = true;
 		} else {
 			this.rootEl.classList.remove('o-table--responsive-flat');
 		}
 
 		if (this.isResponsive) {
-			this._duplicateHeaders(tableRows, tableHeaders);
+			this._duplicateHeaders(tableRows, this.tableHeaders);
 		}
 
 		this.dispatch('ready', {
@@ -57,10 +57,16 @@ function OTable(rootEl) {
  */
 OTable.prototype._sortByColumn = function _sortByColumn (columnIndex) {
 	return function (event) {
+		this.tableHeaders.forEach((header) => {
+			header.setAttribute('aria-sort', 'none');
+		});
+
 		if (this.rootEl.getAttribute('data-o-table-order') === null || this.rootEl.getAttribute('data-o-table-order') === "DES") {
 			this.rootEl.setAttribute('data-o-table-order', 'ASC');
+			event.currentTarget.setAttribute('aria-sort', 'ascending');
 		} else {
 			this.rootEl.setAttribute('data-o-table-order', 'DES');
+			event.currentTarget.setAttribute('aria-sort', 'descending');
 		}
 		this.sortRowsByColumn(columnIndex, this.rootEl.getAttribute('data-o-table-order') === "ASC", event.currentTarget.getAttribute('data-o-table-data-type') === 'numeric');
 	}.bind(this);

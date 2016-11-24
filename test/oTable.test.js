@@ -160,35 +160,35 @@ describe('An oTable instance', () => {
 		testOTable = new OTable(oTableEl);
 		proclaim.isTrue(oTableEl.hasAttribute('data-o-table--js'));
 	});
-	
+
 	it('has an `isResponsive` property set to `false`', () => {
 		testOTable = new OTable(oTableEl);
 		proclaim.isFalse(testOTable.isResponsive);
 	});
-	
+
 	describe('when the table has data-o-table-responsive="flat"', () => {
-		
+
 		beforeEach(() => {
 			oTableEl.setAttribute('data-o-table-responsive','flat');
 		});
-		
+
 		it('has an `isResponsive` property set to `true`', () => {
 			testOTable = new OTable(oTableEl);
 			proclaim.isTrue(testOTable.isResponsive);
 		});
-		
+
 		it('should clone any `<th>` elements into all of the rows in the `<tbody>`', () => {
 			testOTable = new OTable(oTableEl);
 
 			const allBodyTableHeads = oTableEl.querySelectorAll('tbody th');
 			proclaim.lengthEquals(allBodyTableHeads, 3);
-			
+
 			const firstRow = oTableEl.querySelectorAll('tbody tr')[0];
 			const firstRowTableHeads = firstRow.querySelectorAll('th');
 			proclaim.lengthEquals(firstRowTableHeads, 1);
 
 		});
-		
+
 	});
 
 	it('fires an "oTable.ready" event when the JS for the component has executed', done => {
@@ -197,6 +197,7 @@ describe('An oTable instance', () => {
 			done();
 		});
 	});
+
 });
 
 describe('Init', () => {
@@ -307,26 +308,26 @@ describe('Destroying an oTable instance', () => {
 		const realAddEventListener = Element.prototype.addEventListener;
 		const addEventListenerSpy = sinon.spy();
 		Element.prototype.addEventListener = addEventListenerSpy;
-		
+
 		testOTable = new OTable(oTableEl);
-		
+
 		const columnHead = document.querySelector('th');
 		proclaim.isTrue(addEventListenerSpy.calledOn(columnHead));
 		proclaim.isTrue(addEventListenerSpy.calledOnce);
-		
+
 		const columnHeadEventAndHandler = addEventListenerSpy.args[0];
-		
+
 		const realRemoveEventListener = Element.prototype.removeEventListener;
 		const removeEventListenerSpy = sinon.spy();
 		Element.prototype.removeEventListener = removeEventListenerSpy;
-		
+
 		testOTable.destroy();
-		
+
 		proclaim.isTrue(removeEventListenerSpy.calledOn(columnHead));
 		proclaim.isTrue(removeEventListenerSpy.calledOnce);
-		
+
 		proclaim.isTrue(removeEventListenerSpy.calledWith(...columnHeadEventAndHandler));
-		
+
 		Element.prototype.addEventListener = realAddEventListener;
 		Element.prototype.removeEventListener = realRemoveEventListener;
 	});
