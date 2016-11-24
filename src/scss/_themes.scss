@@ -26,17 +26,12 @@
 
 @mixin oTeaserStretched {
 	display: flex;
-	flex: 1;
+	flex-grow: 1;
 
 	.o-teaser__content {
 		display: flex;
 		flex-direction: column;
-		flex: 1;
-		height: 100%;
-	}
-
-	.o-teaser__heading {
-		flex: 1;
+		flex-grow: 1;
 	}
 }
 
