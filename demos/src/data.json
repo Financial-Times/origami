@@ -115,6 +115,9 @@
 			"name": "tick"
 		},
 		{
+			"name": "upload"
+		},
+		{
 			"name": "user"
 		},
 		{
@@ -122,6 +125,9 @@
 		},
 		{
 			"name": "warning"
+		},
+		{
+			"name": "written-text"
 		}
 	]
 }
