@@ -21,10 +21,6 @@ function OTable(rootEl) {
 		this.isResponsive = false;
 		this.rootEl.setAttribute('data-o-table--js', '');
 
-		if (this.rootEl.getAttribute('data-o-table-responsive') === 'flat') {
-			this.isResponsive = true;
-		}
-
 		const tableHeaders = Array.from(this.rootEl.querySelectorAll('thead th'));
 		const tableRows = Array.from(this.rootEl.getElementsByTagName('tr'));
 
@@ -33,6 +29,16 @@ function OTable(rootEl) {
 			this.listeners.push(listener);
 			th.addEventListener('click', listener);
 		});
+
+		// "o-table--responsive-flat" configuration only works when there is a
+		// `<thead>` block containing the table headers. If there are no headers
+		// available, the `responsive-flat` class needs to be removed to prevent
+		// headings being hidden.
+		if (this.rootEl.getAttribute('data-o-table-responsive') === 'flat' && tableHeaders.length > 0) {
+			this.isResponsive = true;
+		} else {
+			this.rootEl.classList.remove('o-table--responsive-flat');
+		}
 
 		if (this.isResponsive) {
 			tableRows.forEach((row) => {
