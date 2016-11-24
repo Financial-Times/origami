@@ -152,6 +152,8 @@ class VideoAds {
 		this.adsManager.addEventListener(google.ima.AdEvent.Type.LOADED, this.adEventHandler);
 		this.adsManager.addEventListener(google.ima.AdEvent.Type.STARTED, this.adEventHandler);
 		this.adsManager.addEventListener(google.ima.AdEvent.Type.COMPLETE, this.adEventHandler);
+		this.adsManager.addEventListener(google.ima.AdEvent.Type.SKIPPED, this.adEventHandler);
+		this.adsManager.addEventListener(google.ima.AdEvent.Type.SKIPPABLE_STATE_CHANGED, this.adEventHandler);
 
 		this.adsLoaded = true;
 		this.startAds();
@@ -247,7 +249,8 @@ class VideoAds {
 				progress: 0,
 				adDuration: ad.getDuration(),
 				adMinDuration: ad.getMinSuggestedDuration(),
-				adTitle: ad.getTitle()
+				adTitle: ad.getTitle(),
+				adProgress: this.video.getProgress()
 			},
 			bubbles: true
 		};
@@ -287,6 +290,18 @@ class VideoAds {
 				if (ad.isLinear()) {
 					// Would be used to clear the interval
 				}
+				break;
+
+			// Add tracking for when an advert becomes skippable, and whether it's skipped
+			case google.ima.AdEvent.Type.SKIPPABLE_STATE_CHANGED:
+				options.detail.action = 'adSkippable';
+				const skippableEvent = new CustomEvent('oTracking.event', options);
+				document.body.dispatchEvent(skippableEvent);
+				break;
+			case google.ima.AdEvent.Type.SKIPPED:
+				options.detail.action = 'adSkip';
+				const skipEvent = new CustomEvent('oTracking.event', options);
+				document.body.dispatchEvent(skipEvent);
 				break;
 		}
 	}
