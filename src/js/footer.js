@@ -53,7 +53,10 @@ class Footer {
 		}
 
 		const footerEl = rootEl.querySelector('[data-o-component="o-footer"]');
-		return new Footer(footerEl);
+
+		if (footerEl) {
+			return new Footer(footerEl);
+		}
 	}
 
 }
