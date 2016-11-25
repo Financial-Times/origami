@@ -92,7 +92,7 @@ function WidgetUi (widgetContainer, config) {
 		const authContainer = self.widgetContainer.querySelector('.fyre-auth');
 
 		if (authContainer) {
-			authContainer.appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.authUnavailableTemplate()));
+			authContainer.appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.authUnavailableTemplate.render()));
 		}
 	};
 
@@ -110,7 +110,7 @@ function WidgetUi (widgetContainer, config) {
 				editorContainers[i]
 					.parentNode
 					.insertBefore(
-						oCommentUi.utils.toDOM(oCommentUi.templates.termsAndGuidelinesTemplate()),
+						oCommentUi.utils.toDOM(oCommentUi.templates.termsAndGuidelinesTemplate.render()),
 						editorContainers[i].nextSibling
 					);
 			}
@@ -149,7 +149,7 @@ function WidgetUi (widgetContainer, config) {
 							commentingSettingsLinkConfig.label = 'Edit pseudonym';
 						}
 
-						loginBarContainer.appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.commentingSettingsLink(commentingSettingsLinkConfig)));
+						loginBarContainer.appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.commentingSettingsLink.render(commentingSettingsLinkConfig)));
 					}
 
 					const settingsLink = self.widgetContainer.querySelector('.fyre-auth .fyre-login-bar .o-comment-ui--settings-text');
