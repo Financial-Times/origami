@@ -11,7 +11,7 @@
 	},
 	"demos": [
 		{
-			"name": "Main comment widget",
+			"name": "main-comment-widget",
 			"template": "/demos/src/demo.mustache",
 			"data": "/demos/src/data.json",
 			"js": "/demos/src/demo.js",
