@@ -52,8 +52,10 @@ class Footer {
 			rootEl = document.querySelector(rootEl);
 		}
 
-		const footerEl = rootEl.querySelector('[data-o-component="o-footer"]');
-		return new Footer(footerEl);
+		if (rootEl instanceof HTMLElement && /\bo-footer\b/.test(rootEl.getAttribute('data-o-component'))) {
+			const footerEl = rootEl.querySelector('[data-o-component="o-footer"]');
+			return new Footer(footerEl);
+		}
 	}
 
 }
