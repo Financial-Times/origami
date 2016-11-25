@@ -33,6 +33,10 @@
 		flex-direction: column;
 		flex-grow: 1;
 	}
+
+	.o-teaser__heading {
+		flex-grow: 1;
+	}
 }
 
 @mixin oTeaserOpinion {
