@@ -11,8 +11,11 @@
 	},
 	"demos": [
 		{
-			"path": "/demos/main.html",
-			"description": ""
+			"name": "Main comment widget",
+			"template": "/demos/src/demo.mustache",
+			"data": "/demos/src/data.json",
+			"js": "/demos/src/demo.js",
+			"sass": "/demos/src/demo.scss"
 		}
 	]
 }
