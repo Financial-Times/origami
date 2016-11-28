@@ -15,6 +15,15 @@ body {
 	@include oColorsFor(page);
 }
 
+.faux-inline-block {
+	display: inline-block;
+}
+
+.inverse {
+	background: oColorsGetPaletteColor('grey-tint5');
+}
+
+/*
 .demo-block {
 	margin-left: -1rem;
 	margin-right: -1rem;
@@ -32,9 +41,7 @@ body {
 	background: oColorsGetPaletteColor('grey-tint5');
 }
 
-.faux-inline-block {
-	display: inline-block;
-}
+
 
 h2 {
 	border-top: 8px solid oColorsGetPaletteColor('pink-tint2');
@@ -47,3 +54,4 @@ h2 {
 h3 {
 	margin-bottom: 0.5em;
 }
+*/
