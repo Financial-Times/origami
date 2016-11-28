@@ -19,19 +19,19 @@
 		{
 			"name": "shadows",
 			"template": "demos/src/shadows.mustache",
-			"expanded": true,
+			"hidden": false,
 			"description": ""
 		},
 		{
 			"name": "backgrounds",
 			"template": "demos/src/backgrounds.mustache",
-			"expanded": true,
+			"hidden": false,
 			"description": ""
 		},
 		{
 			"name": "transitions",
 			"template": "demos/src/transitions.mustache",
-			"expanded": true,
+			"hidden": false,
 			"description": ""
 		}
 	]
