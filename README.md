@@ -1,6 +1,10 @@
-# Loading
+# o-loading [![CircleCI](https://circleci.com/gh/Financial-Times/o-loading.png?style=shield&circle-token=c3d55d3f5d2edbde5999e6cf3f542d288bdae302)](https://circleci.com/gh/Financial-Times/o-loading)
 
-This is an [Origami](http://origami.ft.com/) module that provides a visual loading indicator. For installation instructions, see the [registry page](http://registry.origami.ft.com/components/o-loading).
+This is an [Origami](http://origami.ft.com/) component that provides a visual loading indicator.
+
+- [Usage](#usage)
+- [Contact](#contact)
+- [Licence](#licence)
 
 ## Usage
 
@@ -44,7 +48,13 @@ $o-loading-is-silent: false;
 }
 ```
 
-----
+---
+
+## Contact
+
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-buttons/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
+
+---
 
 ## Licence
 
