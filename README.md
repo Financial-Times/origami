@@ -1,58 +1,44 @@
 # o-buttons [![CircleCI](https://circleci.com/gh/Financial-Times/o-buttons.png?style=shield&circle-token=c3d55d3f5d2edbde5999e6cf3f542d288bdae302)](https://circleci.com/gh/Financial-Times/o-buttons)
 
-o-buttons is a collection of Sass files to allow you to create FT branded buttons.
+o-buttons provides Sass mixins and variables to create buttons.
 
-## Table of contents
+- [Quick start](#quick-start)
+- [Usage](#usage)
+	- [Markup](#markup)
+	- [Sass](#sass)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [Migration guide](#migration-guide)
+- [Contact](#contact)
+- [Licence](#licence)
 
-* [Requirements](#requirements)
-* [Usage](#usage)
-* [Browser support](#browser-support)
-* [Licence](#licence)
 
-## Requirements
+## Quick start
 
-Origami module code can be used in projects either via a `<link>` tag to the [build service](https://origami-build.ft.com/v2/), or, if you use bower, by adding the component as a dependency.
+o-buttons provides styling for:
 
-For the quick start guide to getting o-buttons into your project, see the [o-buttons registry page](http://registry.origami.ft.com/components/o-buttons#section-usage).
+- **Themes**: `o-buttons--{standard|standout|inverse|uncolored|b2c}` or `@include oButtonsTheme($theme)``
+- **Sizes**: `o-buttons--{small|medium|big}` or `@include oButtonsSize($size);`
+- **Grouped buttons**: `o-buttons-group` or `@include oButtonsGroup;`
+- **Pagination buttons**: `o-buttons-pagination` or `@include oButtonsPagination;`
+- **Icon buttons**: `o-buttons-icon o-buttons-icon--{arrow-left| arrow-right}` or `@include oButtonsGetButtonForIconAndTheme($icon-name, $theme);`
 
-For more information about using Origami modules in a project, see the [Origami developer guide](http://origami.ft.com/docs/developer-guide/)
-
-----
+You can combine these styles.
 
 ## Usage
 
-Buttons come in the following themes ([documentation](#theme-modifiers)):
+For design guidelines, see the [registry](http://registry.origami.ft.com/components/o-buttons)
+For detailed instruction on this component's mixins, see the [Sassdoc](http://codedocs.webservices.ft.com/v1/sassdoc/o-buttons)
 
-* __default__: teal outline
-* __standout__: solid teal
-* __uncolored__: monochrome
-* __inverse__: for use on dark backgrounds
+### Markup
 
-and the following sizes ([documentation](#size-modifiers)):
+The button CSS will work on `<button>` or `<a>` elements. It is important for accessibility that if you intent to style an `<a>` as a button, you give it the correct [aria role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role).
 
-* __small__: 22px high
-* __default__: 26px high
-* __big__: 36px high
-
-and have the following states:
-
-* __standard__: without any interaction
-* __hover__: when the mouse pointer is over
-* __focus__: it's the current target of keyboard input
-* __active__: the pointer is pushing / tapping / clicking the button
-* __selected__: marked as chosen
-* __disabled__: when clicking it will have no effect
-* __pressed__: for toggleable buttons that are currently activated
-
-Button width is determined by its content.
+### Sass
 
 ### Mixins, silent mode and classes
 
-> Mixins and silent mode are only available if you're including o-buttons in your project using bower. If you're using o-buttons via the build service, you must use the o-buttons classes instead. Both are documented below.
-
-Various Sass mixins are provided to obtain styles for buttons in all their states and variants. When `$o-buttons-is-silent: false;`, all classes for every combinatorial variation of theme and size will be generated.
-
-[Full documentation of mixins and variables](http://sassdoc.webservices.ft.com/v1/sassdoc/o-buttons)
+> Mixins and [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) are only available if you're including o-buttons in your project using bower or OBT. If you're using o-buttons via the Build Service, you must use the o-buttons classes instead. Both are documented below.
 
 #### Default button
 
@@ -62,11 +48,18 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 <button class="o-buttons">Standard</button>
 ```
 
+Or, using Sass:
+
 ```scss
 .my-button-class {
 	@include oButtons();
 }
 ```
+
+```html
+<button class="my-button-class">Standard</button>
+```
+
 
 #### States
 
@@ -90,7 +83,7 @@ Various Sass mixins are provided to obtain styles for buttons in all their state
 </div>
 ```
 
- Or, using Sass:
+Or, using Sass:
 
 ```scss
 .my-button-group-class {
@@ -174,6 +167,8 @@ View demos:
 - [standout](https://origami-build.ft.com/v2/demos/o-buttons/individual-standout)
 - [uncolored](https://origami-build.ft.com/v2/demos/o-buttons/individual-uncolored)
 - [inverse](https://origami-build.ft.com/v2/demos/o-buttons/individual-inverse)
+- [b2c](https://origami-build.ft.com/v2/demos/o-buttons/b2c)
+- [standard](https://origami-build.ft.com/v2/demos/o-buttons/standard)
 
 ```html
 <button class="o-buttons o-buttons--standout">Standout button</button>
@@ -233,20 +228,32 @@ Or, using Sass:
 }
 
 .my-button-class--icon-star {
-	// icon here can be *any* icon tag (eg arrow-left) in o-ft-icons
+	// icon here can be *any* icon tag (eg arrow-left) in o-icons
 	@include oButtonsGetButtonForIconAndTheme(star, standout);
 }
+
+.my-button-class-icon__label {
+	@include oButtonsIconButtonLabel;
+}
 ```
-----
 
-## Browser support
+```html
+// Icon and text button.
+<button class="my-button-class my-button-class--icon my-button-class--icon-star">star</button>
 
-The following browser features are used but will degrade gracefully:
 
-* __CSS negation pseudo-class__: (`not()`) is used for the hover states. Buttons will not have hover states in IE8 and earlier.
-* __sibling CSS selectors__: spacing between tabs or button groups may be incorrect on very old browsers
-* __border-radius__: older browsers will show square corners
-* __SVG__: for icon buttons, the background-image property is used with an SVG for ie9+ with a PNG fallback for browsers that do not support SVG. For IE6, a text fallback is used because of the IE6 [multiple class bug](http://www.paulirish.com/2008/the-two-css-selector-bugs-in-ie6/).
+// Icon only button
+<button class="my-button-class my-button-class--icon my-button-class--icon-star">
+	// accessible text fallback for the button. Not visible, only required for icon only buttons.
+	<span class="my-button-class-icon__label">star</span>
+</button>
+```
+
+---
+
+## Contact
+
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-buttons/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
 ----
 
