@@ -1,73 +1,76 @@
 {
-    "description": "Buttons module",
-    "origamiType": "module",
-    "origamiCategory": "components",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-buttons/issues",
-    "supportStatus": "active",
-    "ci": {
-        "circle": "https://circleci.com/api/v1/project/Financial-Times/o-buttons"
-    },
-    "demosDefaults": {
-      "sass": "demos/src/demo.scss",
-      "js": "demos/src/demo.js",
-      "dependencies": [
-        "o-fonts@^1.4.0"
-      ]
-    },
-    "demos": [
-        {
-            "name": "individual",
-            "template": "/demos/src/individual.mustache",
-            "description": ""
-        },
-        {
-            "name": "B2C",
-            "template": "/demos/src/individual-b2c.mustache",
-            "description": ""
-        },
-        {
-            "name": "individual-standout",
-            "template": "/demos/src/individual-standout.mustache",
-            "description": ""
-        },
-        {
-            "name": "individual-uncolored",
-            "template": "/demos/src/individual-uncolored.mustache",
-            "description": ""
-        },
-        {
-            "name": "individual-inverse",
-            "template": "/demos/src/individual-inverse.mustache",
-            "description": ""
-        },
-        {
-            "name": "pagination",
-            "template": "/demos/src/pagination.mustache",
-            "description": ""
-        },
-        {
-            "name": "grouped",
-            "template": "/demos/src/grouped.mustache",
-            "description": ""
-        },
-        {
-            "name": "icons",
-            "template": "/demos/src/icons.mustache",
-            "hidden": true,
-            "description": ""
-        },
-        {
-            "name": "test",
-            "template": "/demos/src/test.mustache",
-            "hidden": true,
-            "description": ""
-        },
-        {
-            "name": "pa11y",
-            "template": "/demos/src/pa11y.mustache",
-            "hidden": true,
-            "description": ""
-        }
+  "description": "Buttons module",
+  "origamiType": "module",
+  "origamiCategory": "components",
+  "origamiVersion": 1,
+  "support": "https://github.com/Financial-Times/o-buttons/issues",
+  "supportStatus": "active",
+  "keywords": "pagination",
+  "ci": {
+      "circle": "https://circleci.com/api/v1/project/Financial-Times/o-buttons"
+  },
+  "demosDefaults": {
+    "sass": "demos/src/demo.scss",
+    "js": "demos/src/demo.js",
+    "dependencies": [
+      "o-fonts@^1.4.0"
     ]
+  },
+  "demos": [
+    {
+      "name": "standard",
+      "title": "Masterbrand standard theme",
+      "template": "/demos/src/standard.mustache",
+      "description": "Standard theme for masterbrand buttons. This is the defaul theme."
+    },
+    {
+      "name": "standout",
+      "title": "Masterbrand stanout theme",
+      "template": "/demos/src/standout.mustache",
+      "description": "Standout buttons should be used for primary actions."
+    },
+    {
+      "name": "inverse",
+      "title": "Masterbrand inverse theme",
+      "template": "/demos/src/inverse.mustache",
+      "bodyClasses": "inverse",
+      "description": "Inverse buttons for use on dark backgrounds."
+    },
+    {
+      "name": "B2C",
+      "title": "B2C theme",
+      "template": "/demos/src/b2c.mustache",
+      "description": "B2C themed buttons should be used in Customer facing non-editorial products eg Help or About Us."
+    },
+    {
+      "name": "pagination",
+      "title": "Pagination layout",
+      "template": "/demos/src/pagination.mustache",
+      "description": "For pagination layouts. This layout can be combined with a theme for example o-buttons--standout."
+    },
+    {
+      "name": "grouped",
+      "title": "Grouped layout",
+      "template": "/demos/src/grouped.mustache",
+      "description": "For button layouts were there is a choice of related options. This layout can be combined with themes for example o-buttons--b2c."
+    },
+    {
+      "name": "test",
+      "template": "/demos/src/test.mustache",
+      "hidden": true,
+      "description": "Really big page of demos for all buttons for testing"
+    },
+    {
+      "name": "pa11y",
+      "template": "/demos/src/pa11y.mustache",
+      "hidden": true,
+      "description": "Pa11y test for accesibility"
+    },
+    {
+      "name": "uncolored",
+      "template": "/demos/src/uncolored.mustache",
+      "hidden": true,
+      "description": "An uncolored theme for people who need a different theme to those supported by o-buttons (Masterbrand and b2c)"
+    }
+  ]
 }
