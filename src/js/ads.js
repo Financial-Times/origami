@@ -82,6 +82,7 @@ class VideoAds {
 		this.adEventHandler = this.adEventHandler.bind(this);
 		this.contentPauseRequestHandler = this.contentPauseRequestHandler.bind(this);
 		this.contentResumeRequestHandler = this.contentResumeRequestHandler.bind(this);
+		this.getAdProgress = this.getAdProgress.bind(this);
 
 		// Listen and respond to ads loaded and error events.
 		this.adsLoader.addEventListener(
@@ -250,7 +251,7 @@ class VideoAds {
 				adDuration: ad.getDuration(),
 				adMinDuration: ad.getMinSuggestedDuration(),
 				adTitle: ad.getTitle(),
-				adProgress: this.video.getProgress()
+				adProgress: this.getAdProgress()
 			},
 			bubbles: true
 		};
@@ -328,6 +329,15 @@ class VideoAds {
 		this.video.containerEl.removeChild(this.adContainerEl);
 		this.adsCompleted = true;
 		this.video.videoEl.play();
+	}
+
+	getAdProgress() {
+		if (!this.adsManager || !this.adsManager.getCurrentAd()) {
+			return 0;
+		}
+		const duration = this.adsManager.getCurrentAd().getDuration();
+		const remainingTime = this.adsManager.getRemainingTime();
+		return parseInt(100 * (duration - remainingTime) / duration, 10);
 	}
 }
 
