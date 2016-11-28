@@ -219,7 +219,7 @@ Or, using Sass:
 }
 
 .my-button-class--icon-star {
-	// icon here can be *any* icon tag (eg arrow-left) in o-icons
+	// icon here can be *any* icon tag (eg arrow-left) in fticons
 	@include oButtonsGetButtonForIconAndTheme(star, standout);
 }
 
