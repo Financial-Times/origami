@@ -6,9 +6,6 @@ o-buttons provides Sass mixins and variables to create buttons.
 - [Usage](#usage)
 	- [Markup](#markup)
 	- [Sass](#sass)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -27,8 +24,9 @@ You can combine these styles.
 
 ## Usage
 
-For design guidelines, see the [registry](http://registry.origami.ft.com/components/o-buttons)
-For detailed instruction on this component's mixins, see the [Sassdoc](http://codedocs.webservices.ft.com/v1/sassdoc/o-buttons)
+For design guidelines, see the [registry](http://registry.origami.ft.com/components/o-buttons).
+
+For detailed documentation on this component's mixins, see the [Sassdoc](http://codedocs.webservices.ft.com/v1/sassdoc/o-buttons)
 
 ### Markup
 
@@ -36,13 +34,11 @@ The button CSS will work on `<button>` or `<a>` elements. It is important for ac
 
 ### Sass
 
-### Mixins, silent mode and classes
-
 > Mixins and [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) are only available if you're including o-buttons in your project using bower or OBT. If you're using o-buttons via the Build Service, you must use the o-buttons classes instead. Both are documented below.
 
 #### Default button
 
-[View demo](https://origami-build.ft.com/v2/demos/o-buttons/individual)
+[View demos](http://registry.origami.ft.com/components/o-buttons)
 
 ```html
 <button class="o-buttons">Standard</button>
@@ -72,7 +68,7 @@ Or, using Sass:
 
 #### Grouped buttons
 
-[View demo](https://origami-build.ft.com/v2/demos/o-buttons/grouped)
+[View demos](http://registry.origami.ft.com/components/o-buttons)
 
 ```html
 <div class="o-buttons-group">
@@ -103,7 +99,7 @@ Or, using Sass:
 
 #### Pagination buttons
 
-[View demo](https://origami-build.ft.com/v2/demos/o-buttons/pagination)
+[View demos](http://registry.origami.ft.com/components/o-buttons)
 
 ```html
 <div class="o-buttons-pagination">
@@ -161,19 +157,14 @@ Or, using Sass:
 ```
 
 #### Theme modifiers
-
-View demos:
-
-- [standout](https://origami-build.ft.com/v2/demos/o-buttons/individual-standout)
-- [uncolored](https://origami-build.ft.com/v2/demos/o-buttons/individual-uncolored)
-- [inverse](https://origami-build.ft.com/v2/demos/o-buttons/individual-inverse)
-- [b2c](https://origami-build.ft.com/v2/demos/o-buttons/b2c)
-- [standard](https://origami-build.ft.com/v2/demos/o-buttons/standard)
+[View demos](http://registry.origami.ft.com/components/o-buttons)
 
 ```html
 <button class="o-buttons o-buttons--standout">Standout button</button>
 <button class="o-buttons o-buttons--uncolored">Uncolored button</button>
 <button class="o-buttons o-buttons--inverse">Inverse button</button>
+<button class="o-buttons o-buttons--b2c">B2C button</button>
+
 ```
 
 Or, using Sass:
@@ -201,7 +192,7 @@ Or, using Sass:
 #### Icons
 [View demo](https://origami-build.ft.com/demos/o-buttons/icons)
 
-o-buttons uses [o-ft-icons](https://github.com/Financial-Times/o-ft-icons/) for its icon-buttons.
+o-buttons uses [o-icons](https://github.com/Financial-Times/o-icons/) for its icon-buttons.
 
 ```html
 // Icon and text button.
