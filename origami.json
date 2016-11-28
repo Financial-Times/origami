@@ -16,14 +16,16 @@
 	"demos": [
 		{
 			"name": "basic",
+			"title": "Standard loading spinner",
 			"template": "demos/src/basic.mustache",
-			"description": ""
+			"description": "The basic spinner is available in a light or dark theme in three sizes."
 		},
 		{
 			"name": "accessible",
+			"title": "Accessible markup demonstration",
 			"template": "demos/src/accessible.mustache",
 			"js": "demos/src/accessible.js",
-			"description": ""
+			"description": "To see this working, open this demo in a new window."
 		}
 	]
 }
