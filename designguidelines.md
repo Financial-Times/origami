@@ -4,9 +4,9 @@
 * __standout__: solid teal
 * __uncolored__: monochrome
 * __inverse__: for use on dark backgrounds
-* __b2c__: A theme for b2c products eg http://help.ft.com
+* __b2c__: A theme for b2c products eg [http://help.ft.com](http://help.ft.com)
 
-and the following sizes ([documentation](#size-modifiers)):
+and the following sizes:
 
 #### Sizes
 

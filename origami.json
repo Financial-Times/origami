@@ -21,11 +21,11 @@
       "name": "standard",
       "title": "Masterbrand standard theme",
       "template": "/demos/src/standard.mustache",
-      "description": "Standard theme for masterbrand buttons. This is the defaul theme."
+      "description": "Standard theme for masterbrand buttons. This is the default theme."
     },
     {
       "name": "standout",
-      "title": "Masterbrand stanout theme",
+      "title": "Masterbrand standout theme",
       "template": "/demos/src/standout.mustache",
       "description": "Standout buttons should be used for primary actions."
     },

@@ -192,7 +192,7 @@ Or, using Sass:
 #### Icons
 [View demo](https://origami-build.ft.com/demos/o-buttons/icons)
 
-o-buttons uses [o-icons](https://github.com/Financial-Times/o-icons/) for its icon-buttons.
+o-buttons uses [fticons](https://registry.origami.ft.com/components/fticons/) via the [o-icons](https://github.com/Financial-Times/o-icons/) mixins for its icon-buttons.
 
 ```html
 // Icon and text button.
