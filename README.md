@@ -1,14 +1,31 @@
 # o-footer [![Build Status](https://circleci.com/gh/Financial-Times/o-footer.png?style=shield&circle-token=e3626fa5fcb3e2f16bbf587ee697d441b93a6aa2)](https://circleci.com/gh/Financial-Times/o-footer)
 
-Origami module for the responsive FT page footer.
+FT page footer component
 
-## Data
+- [Usage](#usage)
+  - [Data](#data)
+	- [Markup](#markup)
+	- [Styles](#sass)
+	- [JavaScript](#javascript)
+- [Migration guide](#migration-guide)
+- [Contact](#contact)
+- [Licence](#licence)
 
-For convenience a JSON file with an example of footer links has been provided (`footer.json`).  It's anticipated that in a future version of the footer, this data will be the canonical footer content that should appear in most uses of the footer.  For the moment, it is just sample data.
 
-## Silent mode ([docs](http://origami.ft.com/docs/syntax/scss/#silent-styles))
+## Usage
+### Data
 
-When using `o-footer` in silent mode, the `oFooter` mixin can be used to output the styles for all supported types of footer.
+For convenience a JSON file with footer links has been provided (`footer.js`).
+
+### Markup
+
+As this is a big component, the markup for it is quite complex. There are full examples in demos/src which you can copy and paste into your project to get started.
+
+### Styles
+
+If you're using the Build Service, there's not much to do except make sure the classes in your markup match up with those in the demos.
+
+If you're not using the build service then you'll need to be aware of silent mode. As with all Origami components, o-footer has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-component-boilerplate-is-silent : false;` in your Sass after you've imported the o-footer Sass.
 
 ```sass
 // Output standard o-footer with dark theme and navigation matrix styles
@@ -22,17 +39,39 @@ When using `o-footer` in silent mode, the `oFooter` mixin can be used to output 
 @include oFooter($simple: true);
 ```
 
+### JavaScript
 
-## Upgrading from 4.x.x to 5.x.x
+No code will run automatically unless you are using the Build Service.
+You must either construct an `o-footer` object or fire the `o.DOMContentLoaded` event, which oFooter listens for.
+
+#### Constructing an o-footer
+
+```js
+const oComponentBoilerplate = require('o-component-boilerplate');
+
+const ofooter = new oFooter();
+```
+
+#### Firing an oDomContentLoaded event
+
+```js
+document.addEventListener('DOMContentLoaded', function() {
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});
+```
+
+## Migration guide
+
+### Upgrading from 4.x.x to 5.x.x
 Version 5 has significant markup changes compared to version 4. If you want to upgrade, the best option is to look at the demos: [footer](https://github.com/Financial-Times/o-footer/blob/master/demos/src/footer.mustache) and [simple footer](https://github.com/Financial-Times/o-footer/blob/master/demos/src/simple-footer.mustache).
 If you don't want to upgrade, some superficial visual changes have been back-ported to a minor version on 4.x.x.
 
 
-## Upgrading from 3.x.x to 4.x.x
+### Upgrading from 3.x.x to 4.x.x
 
 Note that o-footer v4 relies on o-grid v4.
 
-### Markup changes
+#### Markup changes
 
 ```diff
  <nav class="o-footer__row o-footer__nav">
@@ -43,10 +82,14 @@ Note that o-footer v4 relies on o-grid v4.
  </nav>
 ```
 
-----
+---
 
-## License
+## Contact
 
-Copyright (c) 2016 Financial Times Ltd. All rights reserved.
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-footer/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
-This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
+---
+
+## Licence
+
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
