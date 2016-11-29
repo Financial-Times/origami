@@ -11,22 +11,22 @@ describe("oFooter", () => {
 	});
 
 	it('has a static init method', () => {
-		//proclaim.equal(typeof ComponentBoilerplate.init, 'function');
+		proclaim.equal(typeof oFooter.init, 'function');
 	});
 
-	it("should autoinitialize", (/*done*/) => {
-		// const initSpy = sinon.spy(ComponentBoilerplate, 'init');
-		// document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-		// setTimeout(function(){
-		// 	proclaim.equal(initSpy.called, true);
-		// 	initSpy.restore();
-		// 	done();
-		// }, 100);
+	it("should autoinitialize", (done) => {
+		const initSpy = sinon.spy(oFooter, 'init');
+		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+		setTimeout(function(){
+			proclaim.equal(initSpy.called, true);
+			initSpy.restore();
+			done();
+		}, 100);
 	});
 
 	it("should not autoinitialize when the event is not dispached", () => {
-//		const initSpy = sinon.spy(ComponentBoilerplate, 'init');
-//		proclaim.equal(initSpy.called, false);
+		const initSpy = sinon.spy(oFooter, 'init');
+		proclaim.equal(initSpy.called, false);
 	});
 
 	describe("should create a new", () => {
@@ -39,14 +39,14 @@ describe("oFooter", () => {
 		});
 
 		it("component array when initialized", () => {
-			// const boilerplate = ComponentBoilerplate.init();
-			// proclaim.equal(boilerplate instanceof Array, true);
-			// proclaim.equal(boilerplate[0] instanceof ComponentBoilerplate, true);
+		//	const footer = oFooter.init();
+		//	proclaim.equal(footer instanceof Array, true);
+		//	proclaim.equal(footer[0] instanceof oFooter, true);
 		});
 
 		it("single component when initialized with a root element", () => {
-			// const boilerplate = ComponentBoilerplate.init('#element');
-			// proclaim.equal(boilerplate instanceof ComponentBoilerplate, true);
+		//	const footer = oFooter.init('#element');
+		//	proclaim.equal(footer instanceof oFooter, true);
 		});
 	});
 });
