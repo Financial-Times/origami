@@ -25,7 +25,7 @@
 		}
 
 		&__logo {
-			@include oFtAffiliateRibbonBrandImage(219);
+			@include oFtAffiliateRibbonBrandImage('brand-ft-masthead', oColorsGetColorFor('ribbon-logo', 'text'), 219);
 			display: inline-block;
 			background-size: contain;
 			background-repeat: no-repeat;
