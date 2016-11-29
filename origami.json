@@ -5,7 +5,7 @@
 		"origamiCategory": "components",
 		"origamiVersion": 1,
 		"support": "https://github.com/Financial-Times/o-teaser/issues",
-		"supportStatus": "experimental",
+		"supportStatus": "active",
 		"browserFeatures": {},
 		"ci": {
 			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-teaser"
