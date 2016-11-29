@@ -1,0 +1,19 @@
+{
+  "name": "o-ft-affiliate-ribbon",
+  "description": "FT affiliation ribbon",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main": [
+    "main.scss"
+  ],
+  "dependencies": {
+    "o-colors": "^3.3.0",
+    "o-grid": "^4.3.0",
+    "o-typography": "^4.3.2"
+  }
+}

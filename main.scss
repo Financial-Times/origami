@@ -1,0 +1,13 @@
+@import "o-colors/main";
+@import "o-grid/main";
+@import "o-typography/main";
+@import "src/scss/variables";
+@import "src/scss/mixins";
+@import "src/scss/colors";
+@import "src/scss/affiliate-ribbon"; 
+
+@if ($o-ft-affiliate-ribbon-is-silent == false) {
+	@include oFtAffiliateRibbon;
+
+	$o-ft-affiliate-ribbon-is-silent: true !global;
+}

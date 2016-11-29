@@ -1,0 +1,39 @@
+{
+		"description": "FT affiliation ribbon",
+		"keywords": "footer, ribbon, ft affiliation",
+		"origamiType": "module",
+		"origamiCategory": "components",
+		"origamiVersion": 1,
+		"support": "https://github.com/Financial-Times/o-ft-affiliate-ribbon/issues",
+		"supportStatus": "active",
+		"browserFeatures": {
+			"required": [
+				"html5"
+			],
+			"optional": [
+				"svg",
+				"datauri"
+			]
+		},
+		"ci": {
+			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-component-boilerplate"
+		},
+		"demosDefaults": {
+			"sass": "demos/src/demo.scss",
+			"documentClasses": "",
+			"dependencies": ""
+		},
+		"demos": [
+			{
+				"name": "demo",
+				"template": "demos/src/demo.mustache",
+				"description": "Simple ribbon example"
+			},
+			{
+				"name": "pa11y",
+				"template": "demos/src/pa11y.mustache",
+				"hidden": true,
+				"description": "Accessibility test"
+			}
+		]
+	}

@@ -1,0 +1,38 @@
+@mixin oFtAffiliateRibbon() {
+
+	.o-ft-affiliate-ribbon {
+
+		@include oColorsFor('ribbon-background', 'background');
+		padding: 15px 0;
+		text-align: right;
+
+		&__container {
+			@include oGridContainer($grid-mode: 'fluid');
+		}
+
+		&__row {
+			@include oGridRowCompact();
+		}
+
+		&__text {
+			@include oColorsFor('ribbon-text', 'text');
+			@include oTypographySans(xs);
+			padding-right: 6px;
+		}
+
+		&__visually-hidden {
+			@include oFtAffiliateRibbonVisuallyHidden();
+		}
+
+		&__logo {
+			@include oFtAffiliateRibbonBrandImage(219);
+			display: inline-block;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: right;
+			width: 219px;
+			height: 18px;
+		}
+	}
+
+}
