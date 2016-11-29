@@ -25,20 +25,23 @@
 	"demos": [
 		{
 			"name": "footer",
+			"title": "Dark theme",
 			"template": "demos/src/footer.mustache",
 			"data": "demos/src/footer.js",
-			"description": ""
+			"description": "This is the standard masterbrand footer used on most pages."
 		},
 		{
 			"name": "footer-light",
+			"title": "Light theme",
 			"template": "demos/src/footer.mustache",
 			"data": "demos/src/footer-light.js",
-			"description": ""
+			"description": "A light theme masterbrand footer"
 		},
 		{
 			"name": "simple-footer",
+			"title": "Short footer",
 			"template": "demos/src/simple-footer.mustache",
-			"description": "Simple footer for shorter stand-alone pages. The links in this demo must be included at the request of the FT's legal team."
+			"description": "Simple footer for shorter stand-alone pages."
 		},
 		{
 			"name": "pa11y",
