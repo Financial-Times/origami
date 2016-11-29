@@ -9,8 +9,7 @@
     "tests"
   ],
   "main": [
-    "main.scss",
-    "main.js"
+    "main.scss"
   ],
   "dependencies": {
     "o-colors": "^3.5.2",
