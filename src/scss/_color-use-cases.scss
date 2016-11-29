@@ -6,9 +6,8 @@
 @include oColorsSetUseCase(o-teaser-standfirst, text, 'cold-1');
 // Tags
 @include oColorsSetUseCase(o-teaser-tag, text, 'claret-1');
-// @include oColorsSetUseCase(o-teaser-opinion-tag, text, 'blue'); color not in palette
 @include oColorsSetUseCase(o-teaser-promoted-by, text, 'black');
-@include oColorsSetUseCase(o-teaser-promoted-prefix, text, 'teal-2');
+@include oColorsSetUseCase(o-teaser-promoted-prefix, text, 'teal-1');
 
 // Themes
 @include oColorsSetUseCase(o-teaser-theme-opinion, background, 'blue-tint5');
