@@ -34,7 +34,7 @@ class CookieMessage {
 					</p>
 					<div class="o-cookie-message__close-btn-container">
 							<button class="o-cookie-message__close-btn" data-o-component="o-cookie-message-close">
-									<span class="o-cookie-message__close-btn-label">Close</span>
+									<span class="o-cookie-message__close-btn-label">Dismiss cookie message</span>
 							</button>
 					</div>
 				</div>
