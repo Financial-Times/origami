@@ -255,14 +255,6 @@
 			<a href="#" class="o-teaser__tag">{{article-tag}}</a>
 
 			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
-
-			{{#article-standfirst}}
-				<p class="o-teaser__standfirst">{{article-standfirst}}</p>
-			{{/article-standfirst}}
-
-			{{#article-timestamp}}
-				<time data-o-component="o-date" class="o-date o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
-			{{/article-timestamp}}
 		</div>
 
 		{{#article-image-url}}
@@ -272,6 +264,19 @@
 				</div>
 			</div>
 		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--hero o-teaser--has-image o-teaser--hero-image" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+		</div>
+
+		<div class="o-teaser__image-container demo-image">
+			<div class="o-teaser__image-placeholder image-placeholder">
+			</div>
+		</div>
 	</div>
 
 	<div class="o-teaser o-teaser--hero o-teaser--has-image o-teaser--opinion o-teaser--stretched" data-o-component="o-teaser">
