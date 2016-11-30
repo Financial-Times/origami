@@ -48,7 +48,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Sass
 
-As with all Origami components, o-cookie-message has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) set `$o-cookie-message-is-silent : false;` in your Sass after you've imported the o-cookie-message Sass.
+As with all Origami components, o-cookie-message has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) set `$o-cookie-message-is-silent : false;` in your Sass before you import the o-cookie-message Sass:
+
+```sass
+$o-cookie-message-is-silent: false;
+@import 'o-cookie-message/main';
+```
 
 
 ### Customising o-cookie-message HTML
