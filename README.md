@@ -1,10 +1,7 @@
 o-ft-affiliate-ribbon [![Circle CI](https://circleci.com/gh/Financial-Times/o-ft-affiliate-ribbon/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-ft-affiliate-ribbon/tree/master)
 =================
 
-A ribbon denoting affiliation with the Financial Times, for use in off-brand products. 
-
-[![Demo](https://raw.githubusercontent.com/Financial-Times/o-ft-affiliate-ribbon/master/img/demo.png)](https://raw.githubusercontent.com/Financial-Times/o-ft-affiliate-ribbon/master/img/demo.png)
-
+A ribbon denoting affiliation with the Financial Times. This ribbon should be used in products that are owned by the Financial Times but have a separate brand identity to the Financial Times.
 
 - [Usage](#usage)
 	- [Markup](#markup)
@@ -12,11 +9,11 @@ A ribbon denoting affiliation with the Financial Times, for use in off-brand pro
 - [Contact](#contact)
 - [Licence](#licence)
 
-## Usage 
+## Usage
 
 ### Markup
 
-Use the following HTML to get a full-width FT affiliation ribbon.  Ideally this should be placed beneath a footer.
+Use the following HTML to get a full-width FT affiliation ribbon. This should be placed beneath a footer.
 
 ```html
 <div class="o-ft-affiliate-ribbon">
@@ -26,14 +23,19 @@ Use the following HTML to get a full-width FT affiliation ribbon.  Ideally this 
 			<a class="o-ft-affiliate-ribbon__logo" href="https://www.ft.com/" title="The Financial Times" target="_blank">
 				<span class="o-ft-affiliate-ribbon__visually-hidden">Financial Times</span>
 			</a>
-		</div>	
+		</div>
 	</div>
 </div>
 ```
 
 ### Sass
 
-As with all Origami components, o-ft-affiliate-ribbon has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-ft-affiliate-ribbon-is-silent : false;` in your Sass after you've imported the o-ft-affiliate-ribbon Sass.
+As with all Origami components, o-ft-affiliate-ribbon has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-ft-affiliate-ribbon-is-silent : false;` in your Sass after you've imported the o-ft-affiliate-ribbon Sass:
+
+```sass
+	$o-ft-affiliate-ribbon-is-silent: false;
+	@import 'o-ft-affiliate-ribbon/main';
+```
 
 ## Contact
 
