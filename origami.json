@@ -1,5 +1,5 @@
 {
-		"description": "FT affiliation ribbon",
+		"description": "FT affiliation ribbon for Specialist Titles",
 		"keywords": "footer, ribbon, ft affiliation",
 		"origamiType": "module",
 		"origamiCategory": "components",
@@ -19,9 +19,7 @@
 			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-ft-affiliate-ribbon"
 		},
 		"demosDefaults": {
-			"sass": "demos/src/demo.scss",
-			"documentClasses": "",
-			"dependencies": ""
+			"sass": "demos/src/demo.scss"
 		},
 		"demos": [
 			{
