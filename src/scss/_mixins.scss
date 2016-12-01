@@ -17,7 +17,7 @@
 /// @param {Color} $color
 /// @param {Number} $fallback-width
 @mixin oFtAffiliateRibbonBrandImage($logo-name, $color, $fallback-width) {
-	$base-url: "#{$o-ft-affiliate-ribbon-image-base-url}/#{$o-ft-affiliate-ribbon-image-service-version}/images/raw/ftlogo:";
+	$base-url: "#{$o-ft-affiliate-ribbon-image-base-url}/#{$o-ft-affiliate-ribbon-image-service-version}/images/raw/ftlogo-v1:";
 	$color: str-slice(ie-hex-str($color), 4);
 	// scss-lint:disable DuplicateProperty
 	background-image: url($base-url + $logo-name + "?source=o-ft-affiliate-ribbon&tint=%23#{$color},%23#{$color}&format=svg");
