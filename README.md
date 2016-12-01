@@ -30,7 +30,7 @@ Use the following HTML to get a full-width FT affiliation ribbon. This should be
 
 ### Sass
 
-As with all Origami components, o-ft-affiliate-ribbon has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-ft-affiliate-ribbon-is-silent : false;` in your Sass after you've imported the o-ft-affiliate-ribbon Sass:
+As with all Origami components, o-ft-affiliate-ribbon has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-ft-affiliate-ribbon-is-silent : false;` and then import the o-ft-affiliate-ribbon Sass:
 
 ```sass
 	$o-ft-affiliate-ribbon-is-silent: false;
