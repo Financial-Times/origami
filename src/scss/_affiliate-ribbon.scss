@@ -4,6 +4,7 @@
 
 		@include oColorsFor('ribbon-background', 'background');
 		padding: 15px 0;
+		height: 18px;
 		text-align: right;
 
 		&__container {
@@ -16,7 +17,10 @@
 
 		&__text {
 			@include oColorsFor('ribbon-text', 'text');
-			@include oTypographySans(xs);
+			font-family: Helvetica, Arial, sans-serif;
+			font-size: 12px;
+			line-height: 12px;
+			font-weight: 400px;
 			padding-right: 6px;
 		}
 
