@@ -14,4 +14,5 @@ const constructAll = () => {
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
+export { constructAll as init };
 export default IGAudio;
