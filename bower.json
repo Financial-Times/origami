@@ -1,6 +1,6 @@
 {
   "name": "o-teaser",
-  "description": "Article teaser component - shows a teaser of an article, requires a link through to the full article",
+  "description": "Teasers which link through to articles",
   "ignore": [
     "**/.*",
     "node_modules",

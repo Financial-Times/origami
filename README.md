@@ -1,7 +1,7 @@
 o-teaser [![Circle CI](https://circleci.com/gh/Financial-Times/o-teaser/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-teaser/tree/master)
 =================
 
-Article teaser component - shows a teaser of an article, requires a link through to the full article.
+This component is for displaying teasers which link through to articles.
 
 - [Usage](#usage)
 	- [Markup](#markup)
@@ -14,7 +14,7 @@ Article teaser component - shows a teaser of an article, requires a link through
 
 ### Markup
 
-The basic markup structure for a teaser will look something like the below example:
+The basic markup structure for a teaser will look something like this:
 
 ```html
 <div class="o-teaser o-teaser--small">
@@ -28,7 +28,7 @@ The basic markup structure for a teaser will look something like the below examp
 </div>
 ```
 
-Teasers support a wide array of [elements](#supported-elements) and can be customised using several [themes](#themes) and should be used as required. For a full list of examples including example markup, see the [o-teaser in the Registry](http://registry.origami.ft.com/components/o-teaser).
+Teasers support a wide array of [elements](#supported-elements) and can be customised using several [themes](#themes) and should be used as required. For a full list of examples including example markup, see [o-teaser in the Registry](http://registry.origami.ft.com/components/o-teaser).
 
 
 #### Images
@@ -81,6 +81,8 @@ $o-teaser-is-silent: false;
 #### Using Sass mixins (todo)
 
 The `o-teaser` styles will be made available via mixins in the future. For now the best solution is to use the styles with silent mode set to false, as above.
+
+This todo is recorded as [an issue](https://github.com/Financial-Times/o-teaser/issues/12).
 
 
 #### Themes

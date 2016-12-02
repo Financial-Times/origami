@@ -41,7 +41,6 @@
 
 @mixin oTeaserOpinion {
 	.o-teaser__tag {
-		// @include oColorsFor('o-teaser-opinion-tag', 'text'); --The new color isn't in the palette yet.
 		color: $_o-teaser-color-opinion-tag;
 	}
 }
