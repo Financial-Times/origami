@@ -10,7 +10,7 @@ class IGAudio {
     // turns on audio player styles
     this.targetObject.classList.add('ig-audio--initialized');
     this.targetObject.innerHTML = `<span class='ig-audio-content'>${this.targetObject.innerHTML}</span>`;
-    
+
     // hide HTML audio player controls
     this.targetObject.getElementsByTagName('audio')[0].removeAttribute('controls');
     this.targetObject.getElementsByTagName('audio')[0].style.display = 'none';
@@ -29,6 +29,9 @@ class IGAudio {
     // event handlers to check for loaded metadata
     // load length into data objects
     this.audio.addEventListener('loadedmetadata', () => this.loadMetadata(), false);
+
+    // add event handler to document for pausing all players
+    document.addEventListener('g-audio.pauseAllPlayers', this.pause);
   }
 
   loadMetadata() {
@@ -48,7 +51,7 @@ class IGAudio {
     this.audio.addEventListener('timeupdate', () => this.adjustProgressBar(), false);
   }
 
-  toggleAudio() { 
+  toggleAudio() {
     if (this.targetObject.classList.contains('pause')) {
       // console.log('go to pause')
       this.pause();
@@ -71,10 +74,8 @@ class IGAudio {
   }
 
   play(playStart=this.playStart) {
-    // @TODO: Figure out how to do this
-    // for (let igaudio of IGAudioObjects) { // stop all other audio instances from playing (pause)
-    //   igaudio.pause()
-    // }
+    // stop all other audio instances from playing (pause)
+    document.dispatchEvent(new CustomEvent('g-audio.pauseAllPlayers'));
 
     this.audio.currentTime = playStart;
     this.audio.play();
