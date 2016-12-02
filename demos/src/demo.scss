@@ -1,2 +1,43 @@
-$o-component-boilerplate-is-silent: false;
+$o-teaser-is-silent: false;
 @import '../../main';
+
+@include oFontsIncludeAll();
+
+body {
+	background-color: oColorsGetPaletteColor('pink');
+}
+
+.demo-container {
+	@include oGridColspan((default: 12, M: 6, XL: 4));
+	width: 100%;
+	padding: 20px;
+
+	&--large {
+		@include oGridColspan((default: 12, L: 4));
+
+		&.demo-container--top-story {
+			@include oGridColspan((default: 12, L: 12));
+		}
+	}
+
+	&--inverse {
+		background-color: oColorsGetPaletteColor('black');
+	}
+
+	&--stretched {
+		display: flex;
+		height: 400px;
+	}
+
+	&--big-story {
+		margin: 20px 0;
+		padding: 0 40px;
+		background-color: #fadbcb;
+	}
+}
+
+.image-placeholder {
+	position: relative;
+	height: 0;
+	padding-bottom: 56.25%;
+}

@@ -1,26 +1,297 @@
 {
-		"description": "Component description",
-		"keywords": "component, keywords, for, the, registry, search",
+		"description": "Teasers which link through to articles",
+		"keywords": "article, teaser, card, link",
 		"origamiType": "module",
 		"origamiCategory": "components",
 		"origamiVersion": 1,
-		"support": "https://github.com/Financial-Times/o-component-boilerplate/issues",
+		"support": "https://github.com/Financial-Times/o-teaser/issues",
 		"supportStatus": "active",
 		"browserFeatures": {},
 		"ci": {
-			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-component-boilerplate"
+			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-teaser"
 		},
 		"demosDefaults": {
 			"sass": "demos/src/demo.scss",
 			"documentClasses": "",
-			"dependencies": ""
+			"dependencies": "o-date@^2.2.1"
 		},
 		"demos": [
 			{
-				"name": "demo",
-				"js": "demos/src/demo.js",
+				"name": "small",
+				"description": "Small teaser",
 				"template": "demos/src/demo.mustache",
-				"description": "Description of the demo"
+				"data": {
+					"article-tag": "World",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-timestamp": "2016-02-29T12:35:48Z"
+				}
+			},
+			{
+				"name": "small-full-fat",
+				"description": "Small (full-fat) teaser",
+				"template": "demos/src/demo.mustache",
+				"data": {
+					"article-tag": "World",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "small-image",
+				"description": "Small teaser with image",
+				"template": "demos/src/demo.mustache",
+				"data": {
+					"article-tag": "World",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=180&source=o-teaser-demo",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "small-image-stacked",
+				"description": "Small teaser with stacked image",
+				"template": "demos/src/demo.mustache",
+				"data": {
+					"article-tag": "World",
+					"article-modifier": "stacked",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=180&source=o-teaser-demo",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "opinion",
+				"description": "Opinion teaser with no image",
+				"template": "demos/src/demo.mustache",
+				"data": {
+					"article-headshot": "https://www.ft.com/__origami/service/image/v2/images/raw/fthead:martin-wolf?source=origami&width=75&tint=054593,fff1e0",
+					"article-modifier": "opinion o-teaser--has-headshot",
+					"article-tag": "Mrs Moneypenny",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds"
+				}
+			},
+			{
+				"name": "large",
+				"description": "Large teaser default theme",
+				"template": "demos/src/demo-large.mustache",
+				"data": {
+					"article-tag": "World",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "large-image",
+				"description": "Large teaser default theme with image",
+				"template": "demos/src/demo-large.mustache",
+				"data": {
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-tag": "World",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "large-opinion",
+				"description": "Large teaser opinion theme",
+				"template": "demos/src/demo-large.mustache",
+				"data": {
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-modifier": "opinion",
+					"article-tag": "World",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "hero",
+				"description": "Hero teaser default theme",
+				"template": "demos/src/demo-hero.mustache",
+				"data": {
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-modifier": "",
+					"article-tag": "World",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "hero-highlight",
+				"description": "Hero teaser highlight theme",
+				"template": "demos/src/demo-hero.mustache",
+				"data": {
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-modifier": "highlight",
+					"article-tag": "Brexit",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "hero-opinion",
+				"description": "Hero teaser opinion theme",
+				"template": "demos/src/demo-hero.mustache",
+				"data": {
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-modifier": "opinion",
+					"article-tag": "Brexit",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "hero-centred",
+				"description": "Hero teaser default theme centred",
+				"template": "demos/src/demo-hero.mustache",
+				"data": {
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-modifier": "centre",
+					"article-tag": "Brexit",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "hero-stretched",
+				"description": "Hero teaser default theme stretched",
+				"template": "demos/src/demo-hero.mustache",
+				"data": {
+					"article-modifier": "stretched o-teaser--opinion",
+					"article-tag": "Brexit",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "top-story-hero",
+				"description": "Top story teaser hero standalone theme",
+				"template": "demos/src/demo-hero.mustache",
+				"data": {
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-modifier": "standalone",
+					"article-tag": "Brexit",
+					"article-heading": "Japan sells negative yield 10-year bonds"
+				}
+			},
+			{
+				"name": "top-story-standalone",
+				"description": "Top story teaser standalone theme",
+				"template": "demos/src/demo-top-story.mustache",
+				"data": {
+					"article-modifier": "standalone",
+					"article-tag": "Brexit",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money",
+					"article-related-links": [
+						{"article-link": "Related story number one"},
+						{"article-link": "Related story number two with long title"},
+						{"article-link": "Final related story"}
+					]
+				}
+			},
+			{
+				"name": "top-story-landscape",
+				"description": "Top story teaser landscape theme",
+				"template": "demos/src/demo-top-story.mustache",
+				"data": {
+					"article-modifier": "landscape",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-tag": "Brexit",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money",
+					"article-related-links": [
+						{"article-link": "Related story number one"},
+						{"article-link": "Related story number two with long title"},
+						{"article-link": "Final related story"}
+					]
+				}
+			},
+			{
+				"name": "top-story-big-story",
+				"description": "Top story teaser big story theme",
+				"template": "demos/src/demo-top-story.mustache",
+				"data": {
+					"article-modifier": "big-story",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?url=http%253A%252F%252Fim.ft-static.com%252Fcontent%252Fimages%252Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img&source=o-teaser-demo&width=400&height=400&fit=cover&format=auto&quality=medium",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "inverse",
+				"description": "Top story teaser big story theme",
+				"template": "demos/src/demo-large.mustache",
+				"data": {
+					"article-modifier": "inverse",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "large-image-portrait",
+				"description": "Large teaser default theme with image",
+				"template": "demos/src/demo-large-modifiers.mustache",
+				"hidden": true,
+				"data": {
+					"article-modifier": "large-portrait",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-tag": "World",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "large-image-landscape",
+				"description": "Large teaser default theme with image",
+				"template": "demos/src/demo-large-modifiers.mustache",
+				"hidden": true,
+				"data": {
+					"article-modifier": "large-landscape",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-tag": "World",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "paid-post",
+				"description": "Paid Post teaser",
+				"template": "demos/src/demo.mustache",
+				"data": {
+					"article-modifier": "paid-post",
+					"article-promoted-prefix": "Paid Post",
+					"article-promoted-by": "E.on",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=180&source=o-teaser-demo",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "promoted-content",
+				"description": "Small teaser for content by external advertisers",
+				"template": "demos/src/demo.mustache",
+				"data": {
+					"article-modifier": "promoted-content",
+					"article-promoted-prefix": "Promoted content",
+					"article-promoted-by": "E.on",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
 			},
 			{
 				"name": "pa11y",

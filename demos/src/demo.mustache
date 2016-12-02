@@ -1,4 +1,38 @@
-<div>
-	<h1>Basic Demo</h1>
-	<div class="o-component-boilerplate" data-o-component="o-component-boilerplate"></div>
+<div class="demo-container {{#article-modifier}}demo-container--{{article-modifier}}{{/article-modifier}}">
+
+	<div class="o-teaser o-teaser--small {{#article-modifier}}o-teaser--{{article-modifier}}{{/article-modifier}} " data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+
+			{{#article-promoted-by}}
+				<span class="o-teaser__promoted-prefix">{{article-promoted-prefix}}</span>
+				BY <span class="o-teaser__promoted-by">{{article-promoted-by}}</span>
+			{{/article-promoted-by}}
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst">{{article-standfirst}}</p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<div class="o-teaser__timestamp o-teaser__timestamp--inprogress">
+					<span class="o-teaser__timestamp-prefix">Live</span>
+					<time data-o-component="o-date" class="o-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+				</div>
+			{{/article-timestamp}}
+
+			{{#article-headshot}}
+				<img src="{{article-headshot}}" alt=" " class="o-teaser__headshot">
+			{{/article-headshot}}
+		</div>
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
 </div>

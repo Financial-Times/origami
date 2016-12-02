@@ -1,0 +1,341 @@
+@mixin oTeaserBase {
+	box-sizing: border-box;
+	position: relative;
+	margin-bottom: 15px;
+	font-family: $o-typography-sans;
+	text-rendering: optimizeLegibility;
+	width: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	& *,
+	& *:before,
+	& *:after {
+		box-sizing: inherit;
+	}
+}
+
+@mixin oTeaserContent {
+	.o-teaser--has-headshot & {
+		padding-right: 95px;
+		min-height: 60px;
+	}
+}
+
+@mixin oTeaserSmall {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	padding-bottom: 15px;
+	border-bottom: 1px solid $_o-teaser-color-border;
+
+	.o-teaser__content {
+		flex: 1 0 70%;
+		order: 2;
+	}
+
+	.o-teaser__image-container {
+		flex: 0 0 30%;
+		width: 30%;
+		padding-top: 5px; // to line up with tag cap-height
+		padding-right: oGridGutter(M);
+
+		@include oGridRespondTo($until: M) { // Mobile screens only
+			display: none;
+		}
+	}
+}
+
+@mixin oTeaserSmallStacked {
+	flex-wrap: wrap;
+
+	@include oGridRespondTo(M) {
+		border-bottom: 0;
+		padding-bottom: 0px;
+	}
+	.o-teaser__image-container {
+		margin-bottom: 15px;
+
+		@include oGridRespondTo(M) {
+			flex: 1 0 100%;
+			padding-top: 0;
+			padding-right: 0;
+		}
+	}
+}
+
+
+@mixin oTeaserLarge {
+	@include oTeaserClearfix;
+
+	.o-teaser__content {
+		padding: oGridGutter(M);
+		border: 1px solid $_o-teaser-color-border;
+	}
+
+	.o-teaser__heading {
+		@include font-size(28, 30);
+		font-family: $o-typography-sans;
+	}
+
+	.o-teaser__timestamp {
+		margin-top: 5px;
+	}
+
+	.o-teaser__standfirst {
+		@include font-size(18, 24);
+		margin-top: 25px;
+
+		@include oGridRespondTo(L) {
+			@include font-size(20, 24);
+		}
+	}
+}
+
+@mixin oTeaserLargeWithImage {
+	.o-teaser__content {
+		@include oGridRespondTo($until: S) {
+			border-bottom: 0;
+		}
+
+		@include oGridRespondTo(L) {
+			border-bottom: 0;
+		}
+
+		@include oGridRespondTo(S, L) {
+			position: relative;
+			float: left;
+			border-right: 0;
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: 1px;
+				right: -25%;
+				height: 100%;
+				width: 25%;
+				display: block;
+				border: 1px solid $_o-teaser-color-border;
+				border-left: 0;
+			}
+		}
+
+		@include oGridRespondTo(S, M) {
+			width: 60%;
+		}
+
+		@include oGridRespondTo(M, L) {
+			width: 70%;
+		}
+	}
+}
+
+@mixin oTeaserLargeImagePortrait {
+	.o-teaser__content {
+		border-bottom: 0;
+	}
+
+	.o-teaser__image {
+		position: relative;
+		z-index: 1;
+	}
+
+	.o-teaser__image-container {
+		position: relative;
+		float: none;
+		width: 100%;
+		margin-top: -1px;
+		padding-left: 25%;
+
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			display: block;
+			width: 100%;
+			height: 50%;
+			border-left: 1px solid $_o-teaser-color-border;
+			border-bottom: 1px solid $_o-teaser-color-border;
+		}
+	}
+}
+
+@mixin oTeaserLargeImageLandscape {
+	.o-teaser__content {
+		position: relative;
+		float: left;
+		width: 60%;
+		border-right: 0;
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 1px;
+			right: -25%;
+			height: 100%;
+			width: 25%;
+			display: block;
+			border: 1px solid $_o-teaser-color-border;
+			border-left: 0;
+		}
+	}
+
+	.o-teaser__image {
+		position: relative;
+		max-width: 220px;
+		z-index: 1;
+	}
+
+	.o-teaser__image-container {
+		position: relative;
+		float: right;
+		width: 40%;
+		margin-top: 0;
+		padding-left: 0;
+
+		&:after {
+			display: none;
+		}
+	}
+
+}
+
+@mixin oTeaserImageContainer {
+	.o-teaser__image {
+		position: relative;
+		z-index: 1;
+
+		@include oGridRespondTo(M, L) {
+			max-width: 220px;
+		}
+	}
+
+	.o-teaser__image-container {
+		position: relative;
+		float: none;
+		width: 100%;
+		margin-top: -1px;
+		padding-left: 25%;
+
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			display: block;
+			width: 100%;
+			height: 50%;
+			border-left: 1px solid $_o-teaser-color-border;
+			border-bottom: 1px solid $_o-teaser-color-border;
+		}
+
+		@include oGridRespondTo(S, L) {
+			float: right;
+			margin-top: 0;
+			padding-left: 0;
+
+			&:after {
+				display: none;
+			}
+		}
+
+		@include oGridRespondTo(S, M) {
+			width: 40%;
+		}
+
+		@include oGridRespondTo(M, L) {
+			width: 30%;
+		}
+	}
+}
+
+@mixin oTeaserImage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	margin: 0;
+}
+
+@mixin oTeaserImagePlaceholder {
+	position: relative;
+	height: 0;
+	padding-bottom: 56.25%;
+	z-index: 1;
+}
+
+@mixin oTeaserHeading {
+	@include font-size(22, 26);
+	margin: 0;
+	font-family: $o-typography-serif-display;
+	font-weight: oFontsWeight(normal);
+	color: oTeaserTextColor($percent: 80);
+
+	&:hover {
+		color: oTeaserTextColor($percent: 50);
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+		border: 0;
+	}
+}
+
+@mixin oTeaserTag {
+	@include font-size(16, 18);
+	@include oColorsFor('o-teaser-tag', 'text');
+	margin: 0;
+	font-weight: oFontsWeight(semibold);
+	text-decoration: none;
+	border: 0;
+
+	&:hover {
+		color: oTeaserTextColor($percent: 50);
+	}
+
+	strong {
+		font-weight: normal;
+	}
+}
+
+@mixin oTeaserPromotedPrefix {
+	@include font-size(16, 18);
+	@include oColorsFor('o-teaser-promoted-prefix', 'text');
+	font-weight: oFontsWeight(semibold);
+}
+
+@mixin oTeaserPromotedBy {
+	@include font-size(16, 18);
+	@include oColorsFor('o-teaser-promoted-by', 'text');
+	font-weight: oFontsWeight(semibold);
+}
+
+@mixin oTeaserHeadshot {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+@mixin oTeaserStandfirst {
+	@include font-size(16, 20);
+	margin: 0;
+	color: oTeaserTextColor();
+
+	.o-teaser__heading + & {
+		margin-top: 10px;
+	}
+}
+
+@mixin oTeaserTimestamp {
+	@include font-size(12, 18);
+	display: block;
+	color: oTeaserTextColor();
+	text-transform: uppercase;
+
+	.o-teaser__heading + &:not(:empty) {
+		margin-top: 5px;
+	}
+}

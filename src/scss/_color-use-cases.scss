@@ -1,0 +1,25 @@
+@include oColorsSetColor('fastft-brand', #cf191d);
+@include oColorsSetColor('fastft-highlight', #f5dfd9);
+
+// Text
+@include oColorsSetUseCase(o-teaser-timestamp, text, 'cold-1');
+@include oColorsSetUseCase(o-teaser-standfirst, text, 'cold-1');
+// Tags
+@include oColorsSetUseCase(o-teaser-tag, text, 'claret-1');
+@include oColorsSetUseCase(o-teaser-promoted-by, text, 'black');
+@include oColorsSetUseCase(o-teaser-promoted-prefix, text, 'teal-2');
+
+// Themes
+@include oColorsSetUseCase(o-teaser-theme-opinion, background, 'blue-tint5');
+@include oColorsSetUseCase(o-teaser-theme-hero, background, 'claret-1');
+@include oColorsSetUseCase(o-teaser-theme-paid-post, background, 'white');
+@include oColorsSetUseCase(o-teaser-theme-promoted-content, background, 'white');
+
+// Timestamp - Live blog
+@include oColorsSetColor(live-blog-closed, oColorsGetPaletteColor('grey-tint4'));
+@include oColorsSetColor(live-blog-coming-soon, #fd9d00);
+@include oColorsSetColor(live-blog-in-progress, oColorsGetPaletteColor('red'));
+
+@include oColorsSetUseCase(fast-ft, text, 'fastft-brand');
+@include oColorsSetUseCase(fast-ft, border, 'fastft-brand');
+@include oColorsSetUseCase(fast-ft, background, 'fastft-highlight');
