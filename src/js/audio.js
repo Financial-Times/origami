@@ -31,7 +31,7 @@ class IGAudio {
     this.audio.addEventListener('loadedmetadata', () => this.loadMetadata(), false);
 
     // add event handler to document for pausing all players
-    document.addEventListener('g-audio.pauseAllPlayers', this.pause);
+    document.addEventListener('g-audio.pauseAllPlayers', this.pause.bind(this));
   }
 
   loadMetadata() {
