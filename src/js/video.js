@@ -237,7 +237,16 @@ class Video {
 
 		this.placeholderEl.appendChild(playButtonEl);
 
-		this.placeholderEl.addEventListener('click', () => {
+		this.placeholderEl.addEventListener('click', this.play);
+
+		this.updatePlaceholder();
+
+		this.containerEl.appendChild(this.placeholderEl);
+	}
+
+	play() {
+		if (this.placeholderEl) {
+
 			// Adds video soon so ads can start loading
 			this.addVideo();
 			this.videoEl.focus();
@@ -247,11 +256,9 @@ class Video {
 
 			delete this.placeholderEl;
 			delete this.placeholderImageEl;
-		});
-
-		this.updatePlaceholder();
-
-		this.containerEl.appendChild(this.placeholderEl);
+		} else {
+			this.videoEl.play();
+		}
 	}
 
 	updatePlaceholder() {
