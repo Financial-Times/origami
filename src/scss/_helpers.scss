@@ -4,8 +4,10 @@
 	&:before,
 	&:after {
 		content: '';
+		// sass-lint:disable no-duplicate-properties
 		display: table;
 		display: flex;
+		// sass-lint:enable no-duplicate-properties
 	}
 	&:after {
 		clear: both;

@@ -12,8 +12,10 @@
 	font-family: $o-typography-sans;
 	text-rendering: optimizeLegibility;
 	width: 100%;
+	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	// sass-lint:enable no-vendor-prefixes
 
 	& *,
 	& *:before,
