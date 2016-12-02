@@ -1,3 +1,5 @@
-@include oColorsSetUseCase('ribbon-background', 'background', 'black');
-@include oColorsSetUseCase('ribbon-text', 'text', 'grey-tint1');
+@include oColorsSetColor('affiliate-ribbon-text', #c7c7c7);
+
+@include oColorsSetUseCase('ribbon-background', 'background', 'grey-tint4');
+@include oColorsSetUseCase('ribbon-text', 'text', 'affiliate-ribbon-text');
 @include oColorsSetUseCase('ribbon-logo', 'text', 'white');

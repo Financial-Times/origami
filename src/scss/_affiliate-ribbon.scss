@@ -1,7 +1,6 @@
 @mixin oFtAffiliateRibbon() {
 
 	.o-ft-affiliate-ribbon {
-
 		@include oColorsFor('ribbon-background', 'background');
 		padding: 15px 0;
 		height: 18px;
