@@ -237,7 +237,7 @@ class Video {
 
 		this.placeholderEl.appendChild(playButtonEl);
 
-		this.placeholderEl.addEventListener('click', this.play);
+		this.placeholderEl.addEventListener('click', this.play.bind(this));
 
 		this.updatePlaceholder();
 
