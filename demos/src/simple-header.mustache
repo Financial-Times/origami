@@ -5,11 +5,11 @@
 
 				<div class="o-header__top-column o-header__top-column--left">
 					{{#top.hasMenu}}
-					<a href="#o-header-drawer" class="o-header__top-link o-header__top-link--menu" aria-controls="o-header-drawer">
+					<a href="#o-header-drawer" class="o-header__top-link o-header__top-link--menu" aria-controls="o-header-drawer" title="Open drawer menu">
 						<span class="o-header__top-link-label">Menu</span>
 					</a>
 					{{/top.hasMenu}}
-					<a href="#o-header-search" class="o-header__top-link o-header__top-link--search" aria-controls="o-header-search">
+					<a href="#o-header-search" class="o-header__top-link o-header__top-link--search" aria-controls="o-header-search" title="Open search bar">
 						<span class="o-header__top-link-label">Search</span>
 					</a>
 				</div>
@@ -24,7 +24,7 @@
 				<div class="o-header__top-column o-header__top-column--right">
 					<!--<div class="o-header__top-takeover"></div>-->
 					{{#top.hasMyFT}}
-					<a class="o-header__top-link o-header__top-link--myft" href="/myft">
+					<a class="o-header__top-link o-header__top-link--myft" href="/myft" aria-label="My F T">
 						<span class="o-header__visually-hidden">myFT</span>
 					</a>
 					{{/top.hasMyFT}}
@@ -41,7 +41,7 @@
 				<button class="o-header__search-submit" type="submit">
 					Search
 				</button>
-				<button class="o-header__search-close" type="button" aria-controls="o-header-search">
+				<button class="o-header__search-close" type="button" aria-controls="o-header-search" title="Close search bar">
 					<span class="o-header__visually-hidden">Close</span>
 				</button>
 			</form>
@@ -58,7 +58,7 @@
 				<a class="o-header__drawer-tools-logo" href="/">
 					<span class="o-header__visually-hidden">Financial Times</span>
 				</a>
-				<button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer">
+				<button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer" title="Close drawer menu">
 					<span class="o-header__visually-hidden">Close</span>
 				</button>
 			</div>
@@ -66,7 +66,7 @@
 			{{#editions}}
 				<nav class="o-header__drawer-editions" role="navigation" aria-label="Edition switcher">
 					{{#editions.current}}
-						<a class="o-header__drawer-editions-link" href="/{{id}}?edition={{id}}" aria-selected="true">{{name}} Edition</a>
+						<a class="o-header__drawer-editions-link" href="/{{id}}?edition={{id}}" aria-label="Current edition" aria-selected="true">{{name}} Edition</a>
 					{{/editions.current}}
 					{{#editions.others}}
 						<a class="o-header__drawer-editions-link" href="/{{id}}?edition={{id}}">{{name}} Edition</a>
@@ -94,21 +94,21 @@
 							<li class="o-header__drawer-menu-item {{#divide}}o-header__drawer-menu-item--divide{{/divide}}">
 								{{#hasChildren}}
 									<div class="o-header__drawer-menu-toggle-wrapper">
+										<a class="o-header__drawer-menu-link o-header__drawer-menu-link--parent o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="Current page" aria-selected="true"{{/selected}}>{{name}}</a>
 										<button class="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" aria-controls="o-header-drawer-child-{{index}}">
 											Show more {{name}} links
 										</button>
-										<a class="o-header__drawer-menu-link o-header__drawer-menu-link--parent o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" aria-label="{{#selected}}Current page{{/selected}}{{^selected}}Go to {{name}}{{/selected}}">{{name}}</a>
 									</div>
 									<ul class="o-header__drawer-menu-list o-header__drawer-menu-list--child" id="o-header-drawer-child-{{index}}">
 										{{#children}}
 											<li class="o-header__drawer-menu-item">
-												<a class="o-header__drawer-menu-link o-header__drawer-menu-link--child o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" aria-label="{{#selected}}Current page{{/selected}}{{^selected}}Go to {{name}}{{/selected}}">{{name}}</a>
+												<a class="o-header__drawer-menu-link o-header__drawer-menu-link--child o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="Current page" aria-selected="true"{{/selected}}>{{name}}</a>
 											</li>
 										{{/children}}
 									</ul>
 								{{/hasChildren}}
 								{{^hasChildren}}
-									<a class="o-header__drawer-menu-link o-header__drawer-menu-link--{{variation}} o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" aria-label="{{#selected}}Current page{{/selected}}{{^selected}}Go to {{name}}{{/selected}}">{{name}}</a>
+									<a class="o-header__drawer-menu-link o-header__drawer-menu-link--{{variation}} o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="Current page" aria-selected="true"{{/selected}}>{{name}}</a>
 								{{/hasChildren}}
 							</li>
 						{{/items}}
