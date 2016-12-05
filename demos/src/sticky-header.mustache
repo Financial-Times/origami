@@ -82,82 +82,82 @@
 </header>
 
 {{#drawer}}
-	<div class="o-header__drawer" id="o-header-drawer" data-o-header-drawer data-o-header-drawer--no-js>
-		<div class="o-header__drawer-inner">
+<div class="o-header__drawer" id="o-header-drawer" role="navigation" aria-label="Drawer menu" data-o-header-drawer data-o-header-drawer--no-js>
+	<div class="o-header__drawer-inner">
 
-			<div class="o-header__drawer-tools">
-				<a class="o-header__drawer-tools-logo" href="/">
-					<span class="o-header__visually-hidden">Financial Times</span>
-				</a>
-				<button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer">
-					<span class="o-header__visually-hidden">Close</span>
+		<div class="o-header__drawer-tools">
+			<a class="o-header__drawer-tools-logo" href="/">
+				<span class="o-header__visually-hidden">Financial Times</span>
+			</a>
+			<button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer" title="Close drawer menu">
+				<span class="o-header__visually-hidden">Close</span>
+			</button>
+		</div>
+
+		{{#editions}}
+		<nav class="o-header__drawer-editions" aria-label="Edition switcher">
+			{{#editions.current}}
+			<a class="o-header__drawer-editions-link" href="/{{id}}?edition={{id}}" aria-label="Current edition" aria-selected="true">{{name}} Edition</a>
+			{{/editions.current}}
+			{{#editions.others}}
+			<a class="o-header__drawer-editions-link" href="/{{id}}?edition={{id}}">{{name}} Edition</a>
+			{{/editions.others}}
+		</nav>
+		{{/editions}}
+
+		<div class="o-header__drawer-search">
+			<form class="o-header__drawer-search-form" action="/search" role="search" aria-label="Site search">
+				<label class="o-header__visually-hidden" for="o-header-drawer-search-term">Search the <abbr title="Financial Times">FT</abbr></label>
+				<input class="o-header__drawer-search-term" id="o-header-drawer-search-term" name="q" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the FT">
+				<button class="o-header__drawer-search-submit" type="submit">
+					<span class="o-header__visually-hidden">Search</span>
 				</button>
-			</div>
+			</form>
+		</div>
 
-			{{#editions}}
-				<nav class="o-header__drawer-editions" role="navigation" aria-label="Edition switcher">
-					{{#editions.current}}
-						<a class="o-header__drawer-editions-link" href="/{{id}}?edition={{id}}" aria-label="Current edition" aria-selected="true">{{name}} Edition</a>
-					{{/editions.current}}
-					{{#editions.others}}
-						<a class="o-header__drawer-editions-link" href="/{{id}}?edition={{id}}">{{name}} Edition</a>
-					{{/editions.others}}
-				</nav>
-			{{/editions}}
-
-			<div class="o-header__drawer-search">
-				<form class="o-header__drawer-search-form" action="/search" role="search" aria-label="Site search">
-					<label class="o-header__visually-hidden" for="o-header-drawer-search-term">Search the <abbr title="Financial Times">FT</abbr></label>
-					<input class="o-header__drawer-search-term" id="o-header-drawer-search-term" name="q" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the FT">
-					<button class="o-header__drawer-search-submit" type="submit">
-						<span class="o-header__visually-hidden">Search</span>
-					</button>
-				</form>
-			</div>
-
-			<nav class="o-header__drawer-menu o-header__drawer-menu--primary" role="navigation" aria-label="Primary navigation">
-				<ul class="o-header__drawer-menu-list">
-					{{#nav}}
+		<nav class="o-header__drawer-menu o-header__drawer-menu--primary">
+			<ul class="o-header__drawer-menu-list">
+				{{#nav}}
 						{{#heading}}
-							<li class="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{{name}}</li>
+						<li class="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{{name}}</li>
 						{{/heading}}
 						{{#items}}
-							<li class="o-header__drawer-menu-item {{#divide}}o-header__drawer-menu-item--divide{{/divide}}">
-								{{#hasChildren}}
-									<div class="o-header__drawer-menu-toggle-wrapper">
-										<button class="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" aria-controls="o-header-drawer-child-{{index}}">
-											Show more {{name}} links
-										</button>
-										<a class="o-header__drawer-menu-link o-header__drawer-menu-link--parent o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="Current page" aria-selected="true"{{/selected}}>{{name}}</a>
-									</div>
-									<ul class="o-header__drawer-menu-list o-header__drawer-menu-list--child" id="o-header-drawer-child-{{index}}">
-										{{#children}}
-											<li class="o-header__drawer-menu-item">
-												<a class="o-header__drawer-menu-link o-header__drawer-menu-link--child o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="Current page" aria-selected="true"{{/selected}}>{{name}}</a>
-											</li>
-										{{/children}}
-									</ul>
-								{{/hasChildren}}
-								{{^hasChildren}}
-									<a class="o-header__drawer-menu-link o-header__drawer-menu-link--{{variation}} o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="Current page" aria-selected="true"{{/selected}}>{{name}}</a>
-								{{/hasChildren}}
-							</li>
+						<li class="o-header__drawer-menu-item {{#divide}}o-header__drawer-menu-item--divide{{/divide}}">
+							{{#hasChildren}}
+								<div class="o-header__drawer-menu-toggle-wrapper">
+									<a class="o-header__drawer-menu-link o-header__drawer-menu-link--parent o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="Current page" aria-selected="true"{{/selected}}>{{name}}</a>
+									<button class="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" aria-controls="o-header-drawer-child-{{index}}">
+										Show more {{name}} links
+									</button>
+								</div>
+								<ul class="o-header__drawer-menu-list o-header__drawer-menu-list--child" id="o-header-drawer-child-{{index}}">
+									{{#children}}
+									<li class="o-header__drawer-menu-item">
+										<a class="o-header__drawer-menu-link o-header__drawer-menu-link--child o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="Current page" aria-selected="true"{{/selected}}>{{name}}</a>
+									</li>
+									{{/children}}
+								</ul>
+							{{/hasChildren}}
+							{{^hasChildren}}
+								<a class="o-header__drawer-menu-link o-header__drawer-menu-link--{{variation}} o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="Current page" aria-selected="true"{{/selected}}>{{name}}</a>
+							{{/hasChildren}}
+						</li>
 						{{/items}}
-					{{/nav}}
-				</ul>
-			</nav>
+				{{/nav}}
+			</ul>
+		</nav>
 
-			<nav class="o-header__drawer-menu o-header__drawer-menu--user" role="navigation" aria-label="User navigation">
-				<ul class="o-header__drawer-menu-list">
-					{{^user.isSignedIn}}
+		<nav class="o-header__drawer-menu o-header__drawer-menu--user">
+			<ul class="o-header__drawer-menu-list">
+				{{^user.isSignedIn}}
 						<li class="o-header__drawer-menu-item">
 							<a class="o-header__drawer-menu-link" href="/products?segID=400863&amp;segmentID=190b4443-dc03-bd53-e79b-b4b6fbd04e64">Subscribe</a>
 						</li>
 						<li class="o-header__drawer-menu-item">
 							<a class="o-header__drawer-menu-link" href="/login">Sign In</a>
 						</li>
-					{{/user.isSignedIn}}
-					{{#user.isSignedIn}}
+				{{/user.isSignedIn}}
+				{{#user.isSignedIn}}
 						<li class="o-header__drawer-menu-item">
 							<a class="o-header__drawer-menu-link" href="https://myaccount.ft.com/details/core/view">
 								{{user.name}}
@@ -166,10 +166,10 @@
 						<li class="o-header__drawer-menu-item">
 							<a class="o-header__drawer-menu-link" href="/logout">Sign Out</a>
 						</li>
-					{{/user.isSignedIn}}
-				</ul>
-			</nav>
+				{{/user.isSignedIn}}
+			</ul>
+		</nav>
 
-		</div>
 	</div>
+</div>
 {{/drawer}}

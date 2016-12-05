@@ -118,22 +118,21 @@
 
 </header>
 
-
 {{#drawer}}
-<div class="o-header__drawer" id="o-header-drawer" data-o-header-drawer data-o-header-drawer--no-js>
+<div class="o-header__drawer" id="o-header-drawer" role="navigation" aria-label="Drawer menu" data-o-header-drawer data-o-header-drawer--no-js>
 	<div class="o-header__drawer-inner">
 
 		<div class="o-header__drawer-tools">
 			<a class="o-header__drawer-tools-logo" href="/">
 				<span class="o-header__visually-hidden">Financial Times</span>
 			</a>
-			<button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer">
+			<button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer" title="Close drawer menu">
 				<span class="o-header__visually-hidden">Close</span>
 			</button>
 		</div>
 
 		{{#editions}}
-		<nav class="o-header__drawer-editions" role="navigation" aria-label="Edition switcher">
+		<nav class="o-header__drawer-editions" aria-label="Edition switcher">
 			{{#editions.current}}
 			<a class="o-header__drawer-editions-link" href="/{{id}}?edition={{id}}" aria-label="Current edition" aria-selected="true">{{name}} Edition</a>
 			{{/editions.current}}
@@ -153,7 +152,7 @@
 			</form>
 		</div>
 
-		<nav class="o-header__drawer-menu o-header__drawer-menu--primary" role="navigation" aria-label="Primary navigation">
+		<nav class="o-header__drawer-menu o-header__drawer-menu--primary">
 			<ul class="o-header__drawer-menu-list">
 				{{#nav}}
 						{{#heading}}
@@ -163,10 +162,10 @@
 						<li class="o-header__drawer-menu-item {{#divide}}o-header__drawer-menu-item--divide{{/divide}}">
 							{{#hasChildren}}
 								<div class="o-header__drawer-menu-toggle-wrapper">
+									<a class="o-header__drawer-menu-link o-header__drawer-menu-link--parent o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="Current page" aria-selected="true"{{/selected}}>{{name}}</a>
 									<button class="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" aria-controls="o-header-drawer-child-{{index}}">
 										Show more {{name}} links
 									</button>
-									<a class="o-header__drawer-menu-link o-header__drawer-menu-link--parent o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="Current page" aria-selected="true"{{/selected}}>{{name}}</a>
 								</div>
 								<ul class="o-header__drawer-menu-list o-header__drawer-menu-list--child" id="o-header-drawer-child-{{index}}">
 									{{#children}}
@@ -185,7 +184,7 @@
 			</ul>
 		</nav>
 
-		<nav class="o-header__drawer-menu o-header__drawer-menu--user" role="navigation" aria-label="User navigation">
+		<nav class="o-header__drawer-menu o-header__drawer-menu--user">
 			<ul class="o-header__drawer-menu-list">
 				{{^user.isSignedIn}}
 						<li class="o-header__drawer-menu-item">
