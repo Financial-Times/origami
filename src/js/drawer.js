@@ -51,13 +51,24 @@ function addDrawerToggles (drawerEl) {
 	const controls = [...document.body.querySelectorAll(`[aria-controls="${drawerEl.id}"]`)];
 
 	let handleClose;
-	function toggleCallback(state) {
+	let openingControl;
+
+	function toggleCallback (state, e) {
 		if (state === 'close') {
 			handleClose.removeEvents();
+
+			openingControl.focus();
 		} else {
 			// don't capture the initial click or accidental double taps etc.
 			// we could use transitionend but scoping is tricky and it needs prefixing and...
 			setTimeout(handleClose.addEvents, LISTEN_DELAY);
+
+			// record the opening control so we can send focus back to it when closing the drawer
+			openingControl = e.currentTarget;
+
+			// aria-controls is only supported by JAWS.
+			// In a setTimeout callback to avoid flickering transitions in Chrome (v54)
+			setTimeout(() => drawerEl.querySelector('a').focus());
 		}
 
 		drawerEl.classList.toggle('o-header__drawer--closing', state === 'close');
