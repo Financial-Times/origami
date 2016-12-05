@@ -19,8 +19,8 @@ Though you can use these icons at any size, they render best at 40px.
 
 There are a few ways to use o-icons to get fticons:
 
-1. [Using the CSS helper classes](#using-the-CSS-helper-classes)
-1. [Using the Sass mixins with your own CSS](#using-the-sass-miins-with-your-own-css)
+1. [Using the CSS helper classes](#using-the-css-helper-classes)
+2. [Using the Sass mixins with your own CSS](#using-the-sass-mixins-with-your-own-css)
 
 You can also request the icon directly from the Image Service (without using o-icons at all). See the [fticons](http://registry.origami.ft.com/components/fticons) for how to do this.
 
