@@ -57,6 +57,10 @@
 		@include oTeaserHero;
 
 		&.o-teaser--has-image {
+			@include oTeaserHeroImageContainer;
+		}
+
+		&.o-teaser--has-image.o-teaser--hero-image {
 			@include oTeaserHeroImage;
 		}
 
@@ -112,7 +116,6 @@
 
 	.o-teaser--top-story {
 		@include oTeaserTopStoryBase;
-
 
 		&.o-teaser--landscape,
 		&.o-teaser--standalone {
@@ -178,7 +181,6 @@
 		@include oGridRespondTo($until: M) {
 			display: none;
 		}
-
 	}
 
 	.o-teaser__related-item {
