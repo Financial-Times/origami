@@ -19,15 +19,17 @@ For convenience a JSON file with footer links has been provided (`footer.js`).
 
 ### Markup
 
-As this is a big component, the markup for it is quite complex. There are full examples in demos/src which you can copy and paste into your project to get started.
+There are full HTML examples in demos/src which you can copy and paste into your project to get started.
 
 ### Styles
 
 If you're using the Build Service, there's not much to do except make sure the classes in your markup match up with those in the demos.
 
-If you're not using the build service then you'll need to be aware of silent mode. As with all Origami components, o-footer has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-component-boilerplate-is-silent : false;` in your Sass after you've imported the o-footer Sass.
+If you're not using the build service then you'll need to be aware of silent mode. As with all Origami components, o-footer has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-component-boilerplate-is-silent : false;` in your Sass before you import the o-footer Sass.
 
 ```sass
+$o-footer-is-silent: false;
+
 // Output standard o-footer with dark theme and navigation matrix styles
 @include oFooter;
 
@@ -41,13 +43,13 @@ If you're not using the build service then you'll need to be aware of silent mod
 
 ### JavaScript
 
-No code will run automatically unless you are using the Build Service.
+Unless you're using the Build Service no JS will run automatically.
 You must either construct an `o-footer` object or fire the `o.DOMContentLoaded` event, which oFooter listens for.
 
 #### Constructing an o-footer
 
 ```js
-const oComponentBoilerplate = require('o-component-boilerplate');
+const oFooter = require('o-footer');
 
 const ofooter = new oFooter();
 ```
