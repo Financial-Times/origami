@@ -1,12 +1,12 @@
-import IGAudio from './src/js/audio';
+import AudioPlayer from './src/js/audio';
 
 const constructAll = () => {
-  const audio_components = document.querySelectorAll('.ig-audio');
+  const audio_components = document.querySelectorAll('.g-audio');
 
   for (let i = 0; i < audio_components.length; i++) {
     const a = audio_components[i];
     const audioURL = a.getElementsByTagName('source')[0].getAttribute('src');
-    new IGAudio(a, audioURL);
+    new AudioPlayer(a, audioURL);
   }
 
   document.removeEventListener('o.DOMContentLoaded', constructAll);
@@ -15,4 +15,4 @@ const constructAll = () => {
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
 export { constructAll as init };
-export default IGAudio;
+export default AudioPlayer;
