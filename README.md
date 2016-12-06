@@ -3,7 +3,7 @@
 FT page footer component
 
 - [Usage](#usage)
-  - [Data](#data)
+	- [Data](#data)
 	- [Markup](#markup)
 	- [Styles](#sass)
 	- [JavaScript](#javascript)
