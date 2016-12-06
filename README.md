@@ -1,4 +1,4 @@
-# o-loading [![CircleCI](https://circleci.com/gh/Financial-Times/o-loading.png?style=shield&circle-token=c3d55d3f5d2edbde5999e6cf3f542d288bdae302)](https://circleci.com/gh/Financial-Times/o-loading)
+# o-loading [![CircleCI](https://circleci.com/gh/Financial-Times/o-loading.png?style=shield&circle-token=03cae109ceaa7cf8e0c0df732ee0db6a42f61fb7)](https://circleci.com/gh/Financial-Times/o-loading)
 
 This is an [Origami](http://origami.ft.com/) component that provides a visual loading indicator.
 
