@@ -301,6 +301,10 @@
 	strong {
 		font-weight: normal;
 	}
+	
+	span {
+		display: inline-block;
+	}
 }
 
 @mixin oTeaserPromotedPrefix {
