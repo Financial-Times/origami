@@ -29,7 +29,7 @@ describe("oFooter", () => {
 		proclaim.equal(initSpy.called, false);
 	});
 
-	describe("should create a new", () => {
+	describe("initialisation", () => {
 		beforeEach(() => {
 				fixtures.htmlCode();
 		});
@@ -38,15 +38,14 @@ describe("oFooter", () => {
 			fixtures.reset();
 		});
 
-		it("component array when initialized", () => {
-		//	const footer = oFooter.init();
-		//	proclaim.equal(footer instanceof Array, true);
-		//	proclaim.equal(footer[0] instanceof oFooter, true);
+		it("creates an instance of oFooter when passed no arguments", () => {
+			const footer = oFooter.init();
+			proclaim.equal(footer instanceof oFooter, true);
 		});
 
-		it("single component when initialized with a root element", () => {
-		//	const footer = oFooter.init('#element');
-		//	proclaim.equal(footer instanceof oFooter, true);
+		it("creates an instance of oFooter when passed a selector", () => {
+			const footer = oFooter.init('#my-footer');
+			proclaim.equal(footer instanceof oFooter, true);
 		});
 	});
 });
