@@ -1,11 +1,11 @@
 {
-		"description": "A collection of article teasers, collated by subject.",
+		"description": "A collection of article teasers.",
 		"keywords": "article, teaser, list, collection",
 		"origamiType": "module",
 		"origamiCategory": "components",
 		"origamiVersion": 1,
 		"support": "https://github.com/Financial-Times/o-teaser-collection/issues",
-		"supportStatus": "experimental",
+		"supportStatus": "active",
 		"browserFeatures": {},
 		"ci": {
 			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-teaser-collection"
