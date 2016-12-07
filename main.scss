@@ -144,6 +144,10 @@
 		@include oTeaserContent;
 	}
 
+	.o-teaser__meta {
+		@include oTeaserMeta;
+	}
+
 	.o-teaser__tag {
 		@include oTeaserTag;
 	}
