@@ -2,7 +2,8 @@
   "name": "g-audio",
   "main": ["main.js", "main.scss"],
   "ignore": [
-    ".travis.yml",
+    "tests",
+    ".gitignore",
     "circle.yml"
   ],
   "dependencies": {
