@@ -14,13 +14,11 @@
 		{
 			"name": "inline",
 			"template": "demos/src/inline.mustache",
-			"expanded": true,
 			"description": "Demo of inline audio player"
 		},
 		{
 			"name": "block",
 			"template": "demos/src/block.mustache",
-			"expanded": true,
 			"description": "Demo of block audio player"
 		}
   ]
