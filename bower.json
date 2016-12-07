@@ -4,6 +4,7 @@
   "ignore": [
     "tests",
     ".gitignore",
+    ".travis.yml",
     "circle.yml"
   ],
   "dependencies": {
