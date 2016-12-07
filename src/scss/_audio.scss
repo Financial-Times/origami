@@ -36,19 +36,19 @@ $gaudio-button-color: #f6e9d8;
   .g-audio--playbutton:before {
     content: '\f04b';
     font-family: 'IcoMoon';
-    font-size: .8em;
+    font-size: 0.8em;
     margin: 0 $gaudio-horz-padding-inline;
   }
 
   &.pause .g-audio--playbutton:before {
     content: '\f04c';
     font-family: 'IcoMoon';
-    font-size: .73em;
+    font-size: 0.73em;
     margin: 0 $gaudio-horz-padding-inline;
   }
 
   .g-audio-content {
-    background: rgba(175, 81, 108, .15);
+    background: rgba(175, 81, 108, 0.15);
     display: inline;
     padding: 0 $gaudio-horz-padding-inline;
     position: relative;
@@ -57,7 +57,7 @@ $gaudio-button-color: #f6e9d8;
       background: $gaudio-button-background;
       height: 100%;
       left: 0;
-      opacity: .3;
+      opacity: 0.3;
       pointer-events: none;
       position: absolute;
       top: 0;
