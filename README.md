@@ -2,14 +2,29 @@
 
 This is an origami component to help create styled audio players for IG pages.
 
-### How to setup the project
+### Getting started
 
-- Use the latest node
-- install origami-build tools: `npm i -g origami-build-tools`
-- `obt install`
-- to run: `obt demo --watch --runServer`
+Install the module:
 
-### Quick start
+```
+bower install --S g-audio
+```
+
+Load the JS:
+
+```js
+const GAudio = require('g-audio');
+
+GAudio.init();
+```
+
+Load the CSS:
+
+```scss
+@import 'g-audio/main';
+```
+
+Copy markup from one of the following demos:
 
 To create an audio player inline with text:
 
