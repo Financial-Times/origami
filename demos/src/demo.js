@@ -5,3 +5,5 @@ function initDemos() {
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 	});
 }
+
+initDemos();
