@@ -49,7 +49,7 @@
 		&.o-teaser__timestamp--new,
 		&.o-teaser__timestamp--updated,
 		&.o-teaser__timestamp--inprogress {
-			@include oColorsFor('fast-ft', 'text');
+			color: oColorsGetPaletteColor('red');
 		}
 
 		&.o-teaser__timestamp--comingsoon {
