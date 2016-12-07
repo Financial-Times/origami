@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "devDependencies": {
+    "expect": "^1.20.2"
+  }
+}
