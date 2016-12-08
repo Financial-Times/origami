@@ -1,6 +1,6 @@
 # g-audio
 
-This is an origami component to help create styled audio players for IG pages.
+This is an [origami](http://origami.ft.com/) component to help create styled audio players for IG pages. This is currently **experimental**.
 
 ### Getting started
 
