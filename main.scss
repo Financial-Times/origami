@@ -132,6 +132,10 @@
 		}
 	}
 
+	.o-teaser--video {
+		@include oTeaserVideo;
+	}
+
 	.o-teaser__image-placeholder {
 		@include oTeaserImagePlaceholder;
 	}
