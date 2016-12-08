@@ -5,7 +5,8 @@
     "tests",
     ".gitignore",
     ".travis.yml",
-    "circle.yml"
+    "circle.yml",
+    "karma.conf.js"
   ],
   "dependencies": {
   }
