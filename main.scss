@@ -1,5 +1,6 @@
 @import "o-colors/main";
 @import "o-grid/main";
+@import "o-icons/main";
 @import "o-typography/main";
 
 @import "src/scss/variables";
@@ -130,6 +131,10 @@
 		&.o-teaser--big-story {
 			@include oTeaserTopStoryBigStory;
 		}
+	}
+
+	.o-teaser--video {
+		@include oTeaserVideo;
 	}
 
 	.o-teaser__image-placeholder {
