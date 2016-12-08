@@ -293,7 +293,7 @@
 }
 
 @mixin oTeaserTag {
-	@include oColorsFor('o-teaser-tag', 'text');
+	color: inherit;
 	font-weight: oFontsWeight(semibold);
 	text-decoration: none;
 	border: 0;

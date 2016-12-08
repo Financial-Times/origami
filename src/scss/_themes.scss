@@ -4,7 +4,6 @@
 		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('black'), 60);
 	}
 
-	.o-teaser__tag,
 	.o-teaser__meta {
 		color: oColorsGetPaletteColor('white');
 	}
@@ -41,7 +40,6 @@
 }
 
 @mixin oTeaserOpinion {
-	.o-teaser__tag,
 	.o-teaser__meta {
 		color: $_o-teaser-color-opinion-tag;
 	}
@@ -211,7 +209,6 @@
 	}
 
 	.o-teaser__heading,
-	.o-teaser__tag,
 	.o-teaser__meta,
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
