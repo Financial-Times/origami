@@ -157,6 +157,10 @@
 		@include oTeaserTag;
 	}
 
+	.o-teaser__duration {
+		@include oTeaserDuration;
+	}
+
 	.o-teaser__promoted-prefix {
 		@include oTeaserPromotedPrefix;
 	}

@@ -307,6 +307,17 @@
 	}
 }
 
+@mixin oTeaserDuration {
+	font-size: 14px;
+	color: #656059;
+	display: inline-block;
+	margin: 0 0 0 10px;
+
+	&:first-child {
+		margin-left: 0;
+	}
+}
+
 @mixin oTeaserPromotedPrefix {
 	@include font-size(16, 18);
 	@include oColorsFor('o-teaser-promoted-prefix', 'text');
