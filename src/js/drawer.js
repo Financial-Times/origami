@@ -26,6 +26,14 @@ function handleCloseEvents (scope, callback) {
 		timeout = setTimeout(callback, INTENT_DELAY);
 	};
 
+	const handleFocus = (e) => {
+		const target = e.relatedTarget || e.target;
+
+		if (!scope.contains(target)) {
+			scope.focus();
+		}
+	};
+
 	const removeEvents = () => {
 		clearTimeout(timeout);
 
@@ -34,6 +42,8 @@ function handleCloseEvents (scope, callback) {
 		document.removeEventListener('click', handleClick);
 		document.removeEventListener('touchstart', handleClick);
 		document.removeEventListener('keydown', handleKeydown);
+		document.removeEventListener('focusin', handleFocus);
+		document.removeEventListener('focusout', handleFocus);
 	};
 
 	const addEvents = () => {
@@ -42,6 +52,11 @@ function handleCloseEvents (scope, callback) {
 		document.addEventListener('click', handleClick);
 		document.addEventListener('touchstart', handleClick);
 		document.addEventListener('keydown', handleKeydown);
+
+		// Firefox doesn't support focusin or focusout
+		// https://bugzilla.mozilla.org/show_bug.cgi?id=687787
+		document.addEventListener('focusin', handleFocus);
+		document.addEventListener('focusout', handleFocus);
 	};
 
 	return { addEvents, removeEvents };
@@ -51,13 +66,24 @@ function addDrawerToggles (drawerEl) {
 	const controls = [...document.body.querySelectorAll(`[aria-controls="${drawerEl.id}"]`)];
 
 	let handleClose;
-	function toggleCallback(state) {
+	let openingControl;
+
+	function toggleCallback (state, e) {
 		if (state === 'close') {
 			handleClose.removeEvents();
+
+			openingControl.focus();
 		} else {
 			// don't capture the initial click or accidental double taps etc.
 			// we could use transitionend but scoping is tricky and it needs prefixing and...
 			setTimeout(handleClose.addEvents, LISTEN_DELAY);
+
+			// record the opening control so we can send focus back to it when closing the drawer
+			openingControl = e.currentTarget;
+
+			// aria-controls is only supported by JAWS.
+			// In a setTimeout callback to avoid flickering transitions in Chrome (v54)
+			setTimeout(() => drawerEl.focus());
 		}
 
 		drawerEl.classList.toggle('o-header__drawer--closing', state === 'close');
@@ -77,6 +103,9 @@ function addDrawerToggles (drawerEl) {
 			handleClose = handleCloseEvents(drawerEl, drawerToggle.toggle);
 		}
 	});
+
+	// make the drawer programmatically focusable
+	drawerEl.tabIndex = -1;
 }
 
 function addSubmenuToggles (drawerEl) {
