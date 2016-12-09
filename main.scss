@@ -6,17 +6,21 @@
 @import "src/scss/variables";
 @import "src/scss/mixins";
 @import "src/scss/themes";
+@import "src/scss/deprecated";
 
 @if ($o-teaser-collection-is-silent == false) {
 
 	.o-teaser-collection {
-	 	margin-bottom: 35px;
+	 	@include oTeaserCollection;
+
 		&--numbered {
 			@include oTeaserCollectionNumbered();
 		}
+
 		&--special {
 			@include oTeaserCollectionSpecial();
 		}
+
 		&--big-story {
 			@include oTeaserCollectionSpecial();
 			@include oTeaserCollectionBigStory();
@@ -24,135 +28,27 @@
 	}
 
 	.o-teaser-collection__heading {
-		@include font-size(26, 26);
-		position: relative;
-		width: 100%;
-		margin: 0;
-		padding: 20px 0;
-		font-family: $o-typography-sans;
-		font-weight: normal;
-
-		a {
-			color: inherit;
-			text-decoration: none;
-			border: 0;
-
-			&:hover {
-				color: #777777;
-			}
-
-			&:after {
-				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('black'), 30, $iconset-version: 1);
-				content: '';
-				display: inline-block;
-				position: relative;
-				top: 8px;
-				right: -13px;
-				margin-left: -13px;
-				margin-top: -10px;
-			}
-		}
-
-		&:before,
-		&:after {
-			border-top: 8px solid rgba(oColorsGetPaletteColor('black'), 0.05);
-			content: '';
-			left: 0;
-			top: 0;
-			position: absolute;
-			width: 100%;
-		}
-
-		&:after {
-			border-top-color: oColorsGetPaletteColor('black');
-
-			@include oGridRespondTo(L) {
-				width: 32.5%;
-			}
-		}
-
-		&--full-width:after {
-			width: 100%;
-		}
-
-		&--half-width:after {
-			@include oGridRespondTo(L) {
-				width: 49%;
-			}
-		}
-
-		&--small {
-			margin-bottom: 20px;
-			border-bottom: 1px solid $_o-teaser-collection-color-bottom-border;
-
-			&:after {
-				width: 100%;
-			}
-		}
-
+		@include oTeaserCollectionHeading;
 	}
+
 	.o-teaser-collection__items {
-		list-style: none;
-		display: flex;
-		flex-flow: column wrap;
-		justify-content: flex-start;
-		width: 100%;
-		margin: 0;
-		padding: 0;
+		@include oTeaserCollectionItems;
 	}
 
 	.o-teaser-collection__item--stretched {
-		display: flex;
+		@include oTeaserCollectionItemStretched;
 	}
 
 	.o-teaser-collection--top-top-stories {
-		border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
-
-		.o-teaser {
-			display: flex;
-			flex-direction: column;
-		}
-
-		.o-teaser__content {
-			flex-grow: 1;
-		}
-
-		.o-teaser__related {
-			margin: 0;
-		}
-
+		@include oTeaserCollectionTopSlice;
 	}
 
-	// Sorry, not a great name
 	.o-teaser-collection--mid-slice {
-		border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
-		border-top: 1px solid $_o-teaser-collection-color-thin-border;
-		padding: 20px 0 0;
+		@include oTeaserCollectionMidSlice;
 	}
 
 	.o-teaser-collection--stream {
-		margin: 20px 0 50px;
-
-		.o-teaser-collection__list {
-			list-style: none;
-			margin: 20px 0 0;
-			padding: 0;
-		}
-
-		.o-teaser-collection__item {
-			position: relative;
-		}
-
-		//TODO: decouple collection from teaser
-		.o-teaser__content {
-			padding-right: 50px;
-		}
-
-		.o-teaser__action {
-			position: absolute;
-			right: 0;
-			top: 0;
-		}
+		@include oTeaserCollectionStream;
 	}
 
 	// Set to silent again to avoid being output twice

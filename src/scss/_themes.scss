@@ -65,3 +65,45 @@
 	}
 }
 
+@mixin oTeaserCollectionMidSlice {
+	border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
+	border-top: 1px solid $_o-teaser-collection-color-thin-border;
+	padding: 20px 0 0;
+}
+
+@mixin oTeaserCollectionTopSlice {
+	border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
+
+	.o-teaser {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.o-teaser__content {
+		flex-grow: 1;
+	}
+
+	.o-teaser__related {
+		margin: 0;
+	}
+}
+
+@mixin oTeaserCollectionStream {
+	margin: 20px 0 50px;
+
+	.o-teaser-collection__list {
+		list-style: none;
+		margin: 20px 0 0;
+		padding: 0;
+	}
+
+	.o-teaser-collection__item {
+		position: relative;
+	}
+
+
+	//TODO: decouple collection from teaser
+	.o-teaser__content {
+		padding-right: 50px;
+	}
+}
