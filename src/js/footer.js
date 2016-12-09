@@ -1,6 +1,7 @@
 import Toggle from 'o-toggle';
 import layout from './layout';
 
+
 const COLLAPSIBLE_BREAKPOINTS = ['default', 'XS', 'S'];
 
 class Footer {
@@ -15,11 +16,13 @@ class Footer {
 		this.footerEl = footerEl;
 
 		layout(breakpoint => {
-			if (COLLAPSIBLE_BREAKPOINTS.indexOf(breakpoint) !== -1 && !this._toggles) {
+			const shouldCollapse = Footer.shouldCollapse(breakpoint);
+
+			if (shouldCollapse && !this._toggles) {
 				return this.setup();
 			}
 
-			if (COLLAPSIBLE_BREAKPOINTS.indexOf(breakpoint) === -1 && this._toggles) {
+			if (!shouldCollapse && this._toggles) {
 				return this.destroy();
 			}
 		});
@@ -45,6 +48,14 @@ class Footer {
 		this._toggles = null;
 	}
 
+	static get collapsibleBreakpoints(){
+		return COLLAPSIBLE_BREAKPOINTS;
+	}
+
+	static shouldCollapse(breakpoint) {
+		return COLLAPSIBLE_BREAKPOINTS.indexOf(breakpoint) !== -1
+	}
+
 	static init (rootEl) {
 		if (!rootEl) {
 			rootEl = document.body;
@@ -58,7 +69,6 @@ class Footer {
 			return new Footer(footerEl);
 		}
 	}
-
 }
 
 export default Footer;
