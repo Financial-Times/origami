@@ -7,8 +7,9 @@
 		counter-increment: o-teaser-collection-items;
 		padding-left: 28px;
 		position: relative;
+
 		&:before {
-			@include font-size(34, 34);
+			@include font-size(28, 28);
 			font-family: $o-typography-serif-display;
 			content: counter(o-teaser-collection-items);
 			position: absolute;
@@ -16,13 +17,13 @@
 			left: 0;
 		}
 	}
-
 }
 
 @mixin oTeaserCollectionSpecial() {
 	position: relative;
 	border-top: 0;
 	margin-bottom: 50px;
+
 	&:after {
 		content: '';
 		position: absolute;
