@@ -13,7 +13,7 @@ deployment:
         if [ ! "$(git status --porcelain)" == "" ]; then
           git config --global user.email "origami.support@ft.com";
           git config --global user.name "origamiserviceuser [bot]";
-          git commit imageList.json -m 'Updating imageList.json [ci skip]';
+          git commit scss/_icon-list.scss -m 'Updating Sass list of icons [ci skip]';
           git push origin master;
         fi
 dependencies:
