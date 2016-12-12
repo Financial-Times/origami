@@ -198,7 +198,6 @@
 
 	.o-teaser__related-item {
 		@include font-size(14, 22);
-		font-weight: oFontsWeight(semibold);
 		color: mix(#000000, #fff1e0, 80%);
 
 			@include oGridRespondTo(L) {
