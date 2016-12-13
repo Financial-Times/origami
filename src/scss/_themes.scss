@@ -375,7 +375,14 @@
 }
 
 @mixin oTeaserVideo {
-	.o-teaser__image-container {
+	.o-teaser__heading:after {
+		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 15);
+		content: '';
+		background-color: oColorsGetPaletteColor('black');
+		margin-left: 5px;
+	}
+
+	.o-teaser__image-placeholder {
 		position: relative;
 
 		&:after {
