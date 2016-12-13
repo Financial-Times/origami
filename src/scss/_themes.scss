@@ -380,6 +380,18 @@
 		content: '';
 		background-color: oColorsGetPaletteColor('black');
 		margin-left: 5px;
+
+		.o-teaser--has-image.o-teaser--small & {
+			@include oGridRespondTo(M) {
+				display: none;
+			}
+		}
+
+		.o-teaser--has-image.o-teaser--large &,
+		.o-teaser--has-image.o-teaser--hero &,
+		.o-teaser--has-image.o-teaser--top-story & {
+			display: none;
+		}
 	}
 
 	.o-teaser__image-placeholder {

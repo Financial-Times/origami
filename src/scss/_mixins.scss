@@ -38,12 +38,6 @@
 }
 
 @mixin oTeaserSmallWithImage {
-	.o-teaser__heading:after {
-		@include oGridRespondTo(M) {
-			display: none;
-		}
-	}
-
 	.o-teaser__image-container {
 		flex: 0 0 30%;
 		width: 30%;
@@ -209,12 +203,6 @@
 		}
 	}
 
-}
-
-@mixin oTeaserWithImage {
-	.o-teaser__heading:after {
-		display: none;
-	}
 }
 
 @mixin oTeaserImageContainer {

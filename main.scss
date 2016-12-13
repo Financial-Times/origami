@@ -32,10 +32,6 @@
 	.o-teaser--hero,
 	.o-teaser--top-story {
 		@include oTeaserLarge;
-
-		&.o-teaser--has-image {
-			@include oTeaserWithImage
-		}
 	}
 
 	.o-teaser--large,
