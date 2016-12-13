@@ -1,3 +1,5 @@
+/// Clearfix helper styles
+/// Outputs clearfix styles on the current element
 @mixin oTeaserClearfix {
 	zoom: 1;
 
@@ -14,6 +16,12 @@
 	}
 }
 
+/// Get the text colour for a teaser content
+/// based on the background of the teaser
+///
+/// @param {hex} $color [#000000] - the main colour for the text
+/// @param {hex} $background [#fff1e0] - the background the text will appear on
+/// @param {int} $percent [60] - the percentage the main colour should be mixed with the background
 @function oTeaserTextColor($color: #000000, $background: #fff1e0, $percent: 60) {
 	$percent: $percent * 1%;
 
