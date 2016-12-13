@@ -6,50 +6,14 @@
 @import "src/scss/variables";
 @import "src/scss/mixins";
 @import "src/scss/themes";
+@import "src/scss/teaser-collection";
 @import "src/scss/deprecated";
 
 @if ($o-teaser-collection-is-silent == false) {
+ 	@include oTeaserCollection;
 
-	.o-teaser-collection {
-	 	@include oTeaserCollection;
-
-		&--numbered {
-			@include oTeaserCollectionNumbered();
-		}
-
-		&--special {
-			@include oTeaserCollectionSpecial();
-		}
-
-		&--big-story {
-			@include oTeaserCollectionSpecial();
-			@include oTeaserCollectionBigStory();
-		}
-	}
-
-	.o-teaser-collection__heading {
-		@include oTeaserCollectionHeading;
-	}
-
-	.o-teaser-collection__items {
-		@include oTeaserCollectionItems;
-	}
-
-	.o-teaser-collection__item--stretched {
-		@include oTeaserCollectionItemStretched;
-	}
-
-	.o-teaser-collection--top-standalone {
-		@include oTeaserCollectionTopStandalone;
-	}
-
-	.o-teaser-collection--mid-slice {
-		@include oTeaserCollectionMidSlice;
-	}
-
-	.o-teaser-collection--stream {
-		@include oTeaserCollectionStream;
-	}
+	@include oTeaserCollectionStream;
+	@include oTeaserCollectionFrontPage;
 
 	// Set to silent again to avoid being output twice
 	$o-teaser-collection-is-silent: true !global;

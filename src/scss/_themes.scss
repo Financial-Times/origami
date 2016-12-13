@@ -94,20 +94,37 @@
 }
 
 @mixin oTeaserCollectionStream {
-	margin: 20px 0 50px;
+	.o-teaser-collection--stream {
+		margin: 20px 0 50px;
 
-	.o-teaser-collection__list {
-		list-style: none;
-		margin: 20px 0 0;
-		padding: 0;
+		.o-teaser-collection__list {
+			list-style: none;
+			margin: 20px 0 0;
+			padding: 0;
+		}
+
+		.o-teaser-collection__item {
+			position: relative;
+		}
+
+		// Modify o-teaser
+		.o-teaser__content {
+			padding-right: 50px;
+		}
+	}
+}
+
+@mixin oTeaserCollectionFrontPage {
+	.o-teaser-collection--top-standalone {
+		@include oTeaserCollectionTopStandalone;
 	}
 
-	.o-teaser-collection__item {
-		position: relative;
+	.o-teaser-collection--big-story {
+		@include oTeaserCollectionSpecial();
+		@include oTeaserCollectionBigStory();
 	}
 
-	// Modify o-teaser
-	.o-teaser__content {
-		padding-right: 50px;
+	.o-teaser-collection--mid-slice {
+		@include oTeaserCollectionMidSlice;
 	}
 }

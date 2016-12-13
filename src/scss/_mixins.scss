@@ -1,7 +1,3 @@
-@mixin oTeaserCollection {
-	margin-bottom: 35px;
-}
-
 @mixin oTeaserCollectionHeading {
 	@include font-size(26, 26);
 	position: relative;
