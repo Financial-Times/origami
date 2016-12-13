@@ -65,7 +65,7 @@ $n-notification-is-silent: true !default;
 	}
 
 	.n-notification__close {
-		@include oIconsGetIcon('cross-disk', getColor('cold-2'), 20);
+		@include oIconsGetIcon('cross', getColor('cold-2'), 40);
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -95,7 +95,7 @@ $n-notification-is-silent: true !default;
 			}
 		}
 		.n-notification__close {
-			@include oIconsGetIcon('cross-disk', getColor('white'), 20);
+			@include oIconsGetIcon('cross', getColor('white'), 40);
 			position: absolute;
 			right: 0;
 			top: 0;
