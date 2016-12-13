@@ -15,8 +15,33 @@ This component is for displaying collections of teasers.
 
 The basic markup structure for a teaser collection will look something like this:
 
+```html
+<div class="o-teaser-collection">
+	<h2 class="o-teaser-collection__heading">
+		<a class="o-teaser-collection__heading-link" href="#">UK</a>
+	</h2>
 
+	<!-- Content goes here -->
+</div>
+```
 
+Content for teaser collections can be arranged using [o-grid](http://registry.origami.ft.com/components/o-grid), or by using the `o-teaser-collection__items` and `o-teaser-collection__item` classes. These classes are designed to work on list elements, as seen in the `o-teaser-collection--numbered` example:
+
+```html
+<div class="o-teaser-collection o-teaser-collection--numbered">
+	<h2 class="o-teaser-collection__heading o-teaser-collection__heading--full-width">Most read</h2>
+	<ol class="o-teaser-collection__items">
+		<li class="o-teaser-collection__item">
+			teaser goes here
+		</li>
+		<li class="o-teaser-collection__item">
+			teaser goes here
+		</li>
+	</ol>
+</div>
+```
+
+Teaser Collections can be customised using several [themes](#themes), for a full list of examples including example markup, see [o-teaser-collection in the Registry](http://registry.origami.ft.com/components/o-teaser-collection).
 
 ### Sass:
 
