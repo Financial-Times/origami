@@ -52,7 +52,7 @@ describe("oFooter", () => {
 			});
 		});
 
-		describe ("at a desktop-width screen", () => {
+		describe ("at a desktop width screen", () => {
 			beforeEach(() => {
 				sinon.stub(oFooter, 'shouldCollapse').returns(false);
 			});
