@@ -51,7 +51,6 @@
 			width: 100%;
 		}
 	}
-
 }
 
 @mixin oTeaserCollectionHeadingLink {
@@ -75,7 +74,7 @@
 	}
 }
 
-@include oTeaserCollectionItems {
+@mixin oTeaserCollectionItems {
 	list-style: none;
 	display: flex;
 	flex-flow: column wrap;
