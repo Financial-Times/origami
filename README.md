@@ -54,14 +54,26 @@ $o-teaser-collection-is-silent: false;
 
 #### Using Sass mixins
 
-The `o-teaser-collection` styles are also available via Sass mixins.
+The `o-teaser-collection` styles are also available via Sass mixins. To include all styles for teaser collections, you can do:
 
+```sass
+@include oTeaserCollection;
+```
+
+By default the `oTeaserCollection` mixin includes both [themes](#themes), to include a single theme or no themes you can pass an argument to the mixin:
+
+```sass
+@include oTeaserCollection('');
+@include oTeaserCollection('numbered');
+```
 
 #### Themes
 
-`o-teaser-collection` has a selection of themes to...
+`o-teaser-collection` has two themes along with the standard collections styles.
 
+Use `o-teaser-collection--numbered` to number the list of teasers in the collection, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection#demo-numbered).
 
+Use `o-teaser-collection--special` to add a darker background across the full width of the containing relative element, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection#demo-special).
 
 ----
 
