@@ -956,9 +956,9 @@
 					@include oCommentsBorderRadiusClear;
 
 					border-right: 0;
-					background-color: #549ccf;
-					background-image: linear-gradient(#549ccf, #4781aa);
-					filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#549ccf,  endColorstr=#4781aa);
+					background-color: #2c6d9c;
+					background-image: linear-gradient(#2c6d9c, #255b82);
+					filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#2c6d9c,  endColorstr=#255b82);
 				}
 
 				> div.fyre-button-right.fyre-post-button .fyre-button-right-outer-box {
@@ -1352,7 +1352,7 @@ body {
 	.fyre-hovercard-button:hover {
 		@include oCommentsGradientClear;
 
-		background-color: #549ccf;
+		background-color: #2c6d9c;
 		color: oColorsGetPaletteColor('white');
 	}
 
