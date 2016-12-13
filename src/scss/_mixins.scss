@@ -139,10 +139,6 @@
 			width: 70%;
 		}
 	}
-
-	.o-teaser__heading:after {
-		display: none;
-	}
 }
 
 @mixin oTeaserLargeImagePortrait {
@@ -216,7 +212,7 @@
 
 }
 
-@mixin oTeaserHeroWithImage {
+@mixin oTeaserWithImage {
 	.o-teaser__heading:after {
 		display: none;
 	}
