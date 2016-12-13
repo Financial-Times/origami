@@ -19,10 +19,6 @@
 	.o-teaser--small {
 		@include oTeaserSmall;
 
-		&.o-teaser--has-image {
-			@include oTeaserSmallWithImage;
-		}
-
 		&.o-teaser--stacked {
 			@include oTeaserSmallStacked;
 		}
