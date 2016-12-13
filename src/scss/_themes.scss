@@ -41,20 +41,23 @@
 	.o-teaser-collection__heading {
 		z-index: 1;
 		position: absolute;
-		@include oGridRespondTo(L) {
-			width: 32.5%;
-		}
+
 		&:before {
 			display: none;
 		}
 		&:after {
 			width: 100%;
 		}
+
+		@include oGridRespondTo(L) {
+			width: 32.5%;
+		}
 	}
 
 	.o-teaser-collection__related {
 		margin: 10px 0 0;
-		//remove the related teaser borders when stacked
+
+		// Modify o-teaser: remove the related teaser borders when stacked
 		.o-teaser {
 			@include oGridRespondTo(M) {
 				border-bottom-width: 0;
@@ -72,9 +75,10 @@
 	padding: 20px 0 0;
 }
 
-@mixin oTeaserCollectionTopSlice {
+@mixin oTeaserCollectionTopStandalone {
 	border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
 
+	// Modify o-teaser elements
 	.o-teaser {
 		display: flex;
 		flex-direction: column;
@@ -102,8 +106,7 @@
 		position: relative;
 	}
 
-
-	//TODO: decouple collection from teaser
+	// Modify o-teaser
 	.o-teaser__content {
 		padding-right: 50px;
 	}

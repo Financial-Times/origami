@@ -39,8 +39,8 @@
 		@include oTeaserCollectionItemStretched;
 	}
 
-	.o-teaser-collection--top-top-stories {
-		@include oTeaserCollectionTopSlice;
+	.o-teaser-collection--top-standalone {
+		@include oTeaserCollectionTopStandalone;
 	}
 
 	.o-teaser-collection--mid-slice {
