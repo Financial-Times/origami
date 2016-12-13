@@ -88,7 +88,7 @@ class Toggle {
 		// Generates a new array removing the current toggle from the list
 		Toggle._toggles.set(this.targetEl,
 							targetArray.slice(0, togglePosition)
-										.join(targetArray.slice(togglePosition + 1)));
+										.concat(targetArray.slice(togglePosition + 1)));
 
 		this.targetEl = undefined;
 		this.toggleEl = undefined;

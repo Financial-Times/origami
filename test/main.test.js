@@ -158,4 +158,40 @@ describe('Toggle', () => {
 
 		document.body.removeChild(toggleEl2);
 	});
+
+	describe("destroy", () => {
+		it("should remove itself but not remove anything else from the global target->toggles Map", () => {
+			const toggleEl2 = document.createElement('button');
+			toggleEl2.setAttribute('data-o-toggle-target', 'div');
+			toggleEl2.setAttribute('data-o-toggle-callback', 'console.log("test");');
+			document.body.appendChild(toggleEl2);
+
+			const testToggle2 = new Toggle(toggleEl2);
+
+			/* create another toggle that targets the same element */
+			const toggleEl3 = document.createElement('button');
+			toggleEl3.setAttribute('data-o-toggle-target', 'div');
+			toggleEl3.setAttribute('data-o-toggle-callback', 'console.log("test");');
+			document.body.appendChild(toggleEl3);
+
+			const testToggle3 = new Toggle(toggleEl3);
+
+			const testToggle2TargetEl = testToggle2.targetEl;
+
+			// These two toggles both affect the same target.
+			expect(testToggle2.targetEl).to.equal(testToggle3.targetEl);
+			expect(Toggle._toggles.has(testToggle2TargetEl)).to.be(true);
+			expect(Toggle._toggles.get(testToggle2TargetEl)).to.contain(testToggle2);
+			expect(Toggle._toggles.get(testToggle2TargetEl)).to.contain(testToggle3);
+
+
+			testToggle2.destroy();
+
+			expect(Toggle._toggles.has(testToggle2TargetEl)).to.be(true);
+			expect(Toggle._toggles.get(testToggle2TargetEl)).to.not.contain(testToggle2);
+			expect(Toggle._toggles.get(testToggle2TargetEl)).to.contain(testToggle3);
+
+
+		});
+	});
 });
