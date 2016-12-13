@@ -22,6 +22,21 @@
 				"template": "demos/src/demo.mustache"
 			},
 			{
+				"name": "special",
+				"description": "Special teaser collection with highlighted background",
+				"template": "demos/src/demo-special.mustache"
+			},
+			{
+				"name": "numbered",
+				"description": "Numbered teaser collection",
+				"template": "demos/src/demo-numbered.mustache"
+			},
+			{
+				"name": "narrow",
+				"description": "Standard teaser at narrow width collection",
+				"template": "demos/src/demo-slim.mustache"
+			},
+			{
 				"name": "pa11y",
 				"js": "demos/src/demo.js",
 				"template": "demos/src/pa11y.mustache",
