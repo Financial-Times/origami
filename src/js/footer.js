@@ -53,7 +53,7 @@ class Footer {
 	}
 
 	static shouldCollapse(breakpoint) {
-		return COLLAPSIBLE_BREAKPOINTS.indexOf(breakpoint) !== -1
+		return COLLAPSIBLE_BREAKPOINTS.indexOf(breakpoint) !== -1;
 	}
 
 	static init (rootEl) {

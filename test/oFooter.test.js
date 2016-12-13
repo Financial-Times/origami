@@ -42,12 +42,12 @@ describe("oFooter", () => {
 			});
 
 			it("does not call ofooter.destroy if shouldCollapse is true", () => {
-				const footer = oFooter.init();
+				oFooter.init();
 				proclaim.equal(destroySpy.called, false);
 			});
 
 			it("calls ofooter.setup if shouldCollapse returns true", () => {
-				const footer = oFooter.init();
+				oFooter.init();
 				proclaim.equal(setupSpy.called, true);
 			});
 		});
@@ -62,17 +62,15 @@ describe("oFooter", () => {
 			});
 
 			it("does not call ofooter.destroy if shouldCollapse is false", () => {
-				const footer = oFooter.init();
 				proclaim.equal(destroySpy.called, false);
 			});
 
 			it("does not call ofooter.setup if shouldCollapse returns false", () => {
-				const footer = oFooter.init();
 				proclaim.equal(setupSpy.called, false);
 			});
 		});
 
-		describe("shouldCollapse", () =>  {
+		describe("shouldCollapse", () => {
 			it("returns true if the breakpoint passed in is in the COLLAPSIBLE_BREAKPOINTS array", () => {
 				Array.prototype.forEach.call(oFooter.collapsibleBreakpoints, breakpoint => {
 					proclaim.equal(oFooter.shouldCollapse(breakpoint), true);
