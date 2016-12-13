@@ -499,16 +499,16 @@ describe('o-date', () => {
 
 	describe('ODate.timeAgoNoSeconds', () => {
 		it('returns \'Less than a minute ago\' if time was less than a minute ago', () => {
-			let date
-			date = new Date() - (2 * inSeconds.second * 1000) // 1 second ago
+			let date;
+			date = new Date() - (2 * inSeconds.second * 1000); // 1 second ago
 			expect(oDate.timeAgoNoSeconds(date)).toBe('Less than a minute ago');
 
-			date = new Date() - (59 * inSeconds.second * 1000) // 59 seconds ago
+			date = new Date() - (59 * inSeconds.second * 1000); // 59 seconds ago
 			expect(oDate.timeAgoNoSeconds(date)).toBe('Less than a minute ago');
 
-			date = new Date() - (60 * inSeconds.second * 1000) // 1 minute ago
+			date = new Date() - (60 * inSeconds.second * 1000); // 1 minute ago
 			spyOn(oDate, 'timeAgo');
-			oDate.timeAgoNoSeconds(date)
+			oDate.timeAgoNoSeconds(date);
 			expect(expect(oDate.timeAgo).toHaveBeenCalledWith(date));
 		});
 	});
