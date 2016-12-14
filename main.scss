@@ -16,6 +16,8 @@
 		@include oTeaserBase;
 	}
 
+	// Small teasers
+
 	.o-teaser--small {
 		@include oTeaserSmall;
 
@@ -24,9 +26,13 @@
 		}
 	}
 
+	// Large teasers
+
 	.o-teaser--large,
 	.o-teaser--hero,
-	.o-teaser--top-story {
+	.o-teaser--top-story,
+	.o-teaser--large-portrait,
+	.o-teaser--large-landscape {
 		@include oTeaserLarge;
 	}
 
@@ -42,27 +48,24 @@
 	}
 
 	.o-teaser--large-portrait {
-		@include oTeaserLarge;
-
-		&.o-teaser--has-image {
-			@include oTeaserLargeImagePortrait;
-		}
+		@include oTeaserLargeImagePortrait;
 	}
 
 	.o-teaser--large-landscape {
-		@include oTeaserLarge;
 		@include oTeaserLargeImageLandscape;
 	}
+
+	// Hero theme teaser
 
 	.o-teaser--hero {
 		@include oTeaserHero;
 
 		&.o-teaser--has-image {
 			@include oTeaserHeroImageContainer;
-		}
 
-		&.o-teaser--has-image.o-teaser--hero-image {
-			@include oTeaserHeroImage;
+			&.o-teaser--hero-image {
+				@include oTeaserHeroImage;
+			}
 		}
 
 		&.o-teaser--standalone {
@@ -85,6 +88,7 @@
 	.o-teaser--highlight.o-teaser--hero,
 	.o-teaser--opinion.o-teaser--hero {
 		@include oTeaserHeroThemeBase;
+		@include oTeaserHeroOpinion;
 	}
 
 	.o-teaser--highlight.o-teaser--hero {
@@ -94,24 +98,12 @@
 	.o-teaser--opinion {
 		@include oTeaserOpinion;
 
-		&.o-teaser--hero {
-			@include oTeaserHeroOpinion;
-		}
-
 		&.o-teaser--opinion-background {
 			@include oTeaserOpinionBackground;
 		}
 	}
 
-	.o-teaser--paid-post {
-		@include oTeaserPaidPost;
-	}
-
-	.o-teaser--promoted-content {
-		@include oTeaserPromotedContent;
-	}
-
-
+	// Top story themes
 
 	.o-teaser--top-story {
 		@include oTeaserTopStoryBase;
@@ -130,6 +122,8 @@
 			@include oTeaserTopStoryBigStory;
 		}
 	}
+
+	// Standard elements
 
 	.o-teaser--video {
 		@include oTeaserVideo;
@@ -167,8 +161,6 @@
 		@include oTeaserTimestamp;
 	}
 
-	@include oTeaserTimestampVariants;
-
 	.o-teaser__related {
 		@include oTeaserRelated;
 	}
@@ -177,7 +169,17 @@
 		@include oTeaserRelatedItem;
 	}
 
+	// Additional features and elements
+	@include oTeaserTimestampVariants;
 	@include oTeaserHeadshot;
+
+	.o-teaser--paid-post {
+		@include oTeaserPaidPost;
+	}
+
+	.o-teaser--promoted-content {
+		@include oTeaserPromotedContent;
+	}
 
 	.o-teaser__promoted-prefix {
 		@include oTeaserPromotedPrefix;
