@@ -380,19 +380,22 @@
 		content: '';
 		background-color: oColorsGetPaletteColor('black');
 		margin-left: 5px;
+	}
 
-		.o-teaser--has-image.o-teaser--small & {
+	&.o-teaser--has-image {
+		&.o-teaser--small .o-teaser__heading:after {
 			@include oGridRespondTo(M) {
 				display: none;
 			}
 		}
 
-		.o-teaser--has-image.o-teaser--large &,
-		.o-teaser--has-image.o-teaser--hero &,
-		.o-teaser--has-image.o-teaser--top-story & {
+		&.o-teaser--large .o-teaser__heading:after,
+		&.o-teaser--hero .o-teaser__heading:after,
+		&.o-teaser--top-story .o-teaser__heading:after {
 			display: none;
 		}
 	}
+
 
 	.o-teaser__image-placeholder {
 		position: relative;
