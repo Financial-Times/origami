@@ -101,10 +101,12 @@ ODate.prototype.update = function() {
 		dateString = ODate.timeAgo(date, { limit: 4*inSeconds.hour });
 	} else if (format === 'time-ago-abbreviated-limit-4-hours') {
 		dateString = ODate.timeAgo(date, { abbreviated: true, limit: 4*inSeconds.hour });
+	} else if (format === 'time-ago-no-seconds') {
+		dateString = ODate.timeAgoNoSeconds(date);
 	} else if (format !== null) {
 		dateString = ODate.format(date, format);
 	} else {
-		 dateString = ODate.ftTime(date);
+		dateString = ODate.ftTime(date);
 	}
 
 	// To avoid triggering a parent live region unnecessarily
@@ -229,7 +231,7 @@ ODate.timeAgo = function(date, interval, options) {
 		return '';
 	}
 
-	const abbreviated = options ? options.abbreviated : false;	
+	const abbreviated = options ? options.abbreviated : false;
 
 	if (interval < inSeconds.minute) {
 		return `${abbreviated ? interval + 's' : interval + ' seconds'} ago`;
@@ -275,6 +277,20 @@ ODate.asTodayOrYesterdayOrNothing = function(date){
 	}
 
 	return dateString;
+};
+
+ODate.timeAgoNoSeconds = function(date){
+
+	if (!date) return;
+
+	const now = new Date();
+	const interval = ODate.getSecondsBetween(now, date);
+
+	// If this was less than a minute ago
+	if (interval < 60) {
+		return 'Less than a minute ago';
+	}
+	return ODate.timeAgo(date);
 };
 
 ODate.init = function(el) {
