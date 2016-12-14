@@ -2,6 +2,7 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
+import Toggle from 'o-toggle';
 
 const oFooter = require('./../main');
 
@@ -70,7 +71,35 @@ describe("oFooter", () => {
 			});
 		});
 
-		describe("shouldCollapse", () => {
+		describe("setup()", () => {
+			it("creates a new toggles for every toggle target on the page", () => {
+				const footer = oFooter.init();
+
+				proclaim.equal(typeof footer._toggles, 'undefined');
+
+				footer.setup();
+
+				proclaim.equal(typeof footer._toggles, 'object');
+				proclaim.equal(footer._toggles.length, 2);
+			});
+		});
+		describe("destroy()", () => {
+			it("calls destroy on things found in _toggles and then sets _toggles to null", () => {
+				const footer = oFooter.init();
+				const toggle = new Toggle();
+				const toggleSpy = sinon.stub(toggle, "destroy").returns(true);
+
+				footer._toggles = [toggle];
+
+				footer.destroy();
+
+				proclaim.equal(toggleSpy.called, true);
+				proclaim.equal(footer._toggles, null);
+
+			});
+		});
+
+		describe("the shouldCollapse method", () => {
 			it("returns true if the breakpoint passed in is in the COLLAPSIBLE_BREAKPOINTS array", () => {
 				Array.prototype.forEach.call(oFooter.collapsibleBreakpoints, breakpoint => {
 					proclaim.equal(oFooter.shouldCollapse(breakpoint), true);
