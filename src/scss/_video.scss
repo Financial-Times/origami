@@ -1,0 +1,38 @@
+@mixin oTeaserVideo {
+	.o-teaser__heading:after {
+		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 15);
+		content: '';
+		background-color: oColorsGetPaletteColor('black');
+		margin-left: 5px;
+
+		&.o-teaser--has-image {
+			&.o-teaser--small .o-teaser__heading:after {
+				@include oGridRespondTo(M) {
+					display: none;
+				}
+			}
+
+			&.o-teaser--large .o-teaser__heading:after,
+			&.o-teaser--hero .o-teaser__heading:after,
+			&.o-teaser--top-story .o-teaser__heading:after {
+				display: none;
+			}
+		}
+	}
+
+	.o-teaser__image-placeholder {
+		position: relative;
+
+		&:after {
+			@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), $apply-width-height: false);
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			background-color: oColorsGetPaletteColor('black');
+			width: 15%;
+			padding-top: 15%;
+			z-index: 1;
+		}
+	}
+}

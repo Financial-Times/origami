@@ -6,9 +6,20 @@
 @import "src/scss/variables";
 @import "src/scss/helpers";
 @import "src/scss/color-use-cases";
-@import "src/scss/mixins";
-@import "src/scss/themes";
+
+@import "src/scss/elements";
+@import "src/scss/additions";
 @import "src/scss/timestamp";
+
+@import "src/scss/small";
+@import "src/scss/large";
+@import "src/scss/video";
+
+@import "src/scss/themes/standard";
+@import "src/scss/themes/hero";
+@import "src/scss/themes/top-stories";
+
+@import "src/scss/teaser";
 
 @if ($o-teaser-is-silent == false) {
 
@@ -170,6 +181,7 @@
 	}
 
 	// Additional features and elements
+
 	@include oTeaserTimestampVariants;
 	@include oTeaserHeadshot;
 
