@@ -111,9 +111,7 @@
 		@include oTeaserPromotedContent;
 	}
 
-	.o-teaser--inverse {
-		@include oTeaserInverse;
-	}
+
 
 	.o-teaser--top-story {
 		@include oTeaserTopStoryBase;
@@ -145,10 +143,6 @@
 		@include oTeaserImage;
 	}
 
-	.o-teaser__content {
-		@include oTeaserContent;
-	}
-
 	.o-teaser__meta {
 		@include oTeaserMeta;
 	}
@@ -159,18 +153,6 @@
 
 	.o-teaser__duration {
 		@include oTeaserDuration;
-	}
-
-	.o-teaser__promoted-prefix {
-		@include oTeaserPromotedPrefix;
-	}
-
-	.o-teaser__promoted-by {
-		@include oTeaserPromotedBy;
-	}
-
-	.o-teaser__headshot {
-		@include oTeaserHeadshot;
 	}
 
 	.o-teaser__heading {
@@ -185,12 +167,28 @@
 		@include oTeaserTimestamp;
 	}
 
+	@include oTeaserTimestampVariants;
+
 	.o-teaser__related {
 		@include oTeaserRelated;
 	}
 
 	.o-teaser__related-item {
 		@include oTeaserRelatedItem;
+	}
+
+	@include oTeaserHeadshot;
+
+	.o-teaser__promoted-prefix {
+		@include oTeaserPromotedPrefix;
+	}
+
+	.o-teaser__promoted-by {
+		@include oTeaserPromotedBy;
+	}
+
+	.o-teaser--inverse {
+		@include oTeaserInverse;
 	}
 
 	// Set to silent again to avoid being output twice

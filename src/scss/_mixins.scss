@@ -1,3 +1,5 @@
+/// Base styles for a teaser
+/// sets the font and basic display properties
 @mixin oTeaserBase {
 	box-sizing: border-box;
 	position: relative;
@@ -17,12 +19,6 @@
 	}
 }
 
-@mixin oTeaserContent {
-	.o-teaser--has-headshot & {
-		padding-right: 95px;
-		min-height: 60px;
-	}
-}
 
 @mixin oTeaserSmall {
 	display: flex;
@@ -100,10 +96,6 @@
 			border-bottom: 0;
 		}
 
-		@include oGridRespondTo(L) {
-			border-bottom: 0;
-		}
-
 		@include oGridRespondTo(S, L) {
 			position: relative;
 			float: left;
@@ -128,6 +120,10 @@
 
 		@include oGridRespondTo(M, L) {
 			width: 70%;
+		}
+
+		@include oGridRespondTo(L) {
+			border-bottom: 0;
 		}
 	}
 }
@@ -200,7 +196,6 @@
 			display: none;
 		}
 	}
-
 }
 
 @mixin oTeaserImageContainer {
@@ -253,9 +248,6 @@
 }
 
 @mixin oTeaserImage {
-	position: absolute;
-	top: 0;
-	left: 0;
 	display: block;
 	width: 100%;
 	margin: 0;
@@ -266,6 +258,12 @@
 	height: 0;
 	padding-bottom: 56.25%;
 	z-index: 1;
+
+	.o-teaser__image {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 }
 
 @mixin oTeaserHeading {
@@ -331,9 +329,16 @@
 }
 
 @mixin oTeaserHeadshot {
-	position: absolute;
-	bottom: 0;
-	right: 0;
+	.o-teaser--has-headshot .o-teaser__content {
+		padding-right: 95px;
+		min-height: 60px;
+	}
+
+	.o-teaser__headshot {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
 }
 
 @mixin oTeaserStandfirst {
@@ -343,17 +348,6 @@
 
 	.o-teaser__heading + & {
 		margin-top: 10px;
-	}
-}
-
-@mixin oTeaserTimestamp {
-	@include font-size(12, 18);
-	display: block;
-	color: oTeaserTextColor();
-	text-transform: uppercase;
-
-	.o-teaser__heading + &:not(:empty) {
-		margin-top: 5px;
 	}
 }
 
