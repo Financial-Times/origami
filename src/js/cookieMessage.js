@@ -48,6 +48,7 @@ class CookieMessage {
 	static hideMessage () {
 		const message = document.querySelector('[data-o-component="o-cookie-message"]');
 		message.classList.remove('o-cookie-message--active');
+		message.setAttribute('tabindex', '-1');
 	}
 
 	static flagUserAsConsentingToCookies () {
