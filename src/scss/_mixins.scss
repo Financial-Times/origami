@@ -1,10 +1,10 @@
 /// Base styles for a teaser
 /// sets the font and basic display properties
 @mixin oTeaserBase {
+	@include oTypographyProgressiveFont(sans, m);
 	box-sizing: border-box;
 	position: relative;
 	margin-bottom: 15px;
-	font-family: $o-typography-sans;
 	text-rendering: optimizeLegibility;
 	width: 100%;
 	// sass-lint:disable no-vendor-prefixes
@@ -72,8 +72,8 @@
 	}
 
 	.o-teaser__heading {
+		@include oTypographyProgressiveFont(sans, l);
 		@include font-size(28, 30);
-		font-family: $o-typography-sans;
 	}
 
 	.o-teaser__timestamp {
@@ -267,9 +267,9 @@
 }
 
 @mixin oTeaserHeading {
+	@include oTypographyProgressiveFont(serifDisplay, m);
 	@include font-size(22, 26);
 	margin: 0;
-	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(normal);
 	color: oTeaserTextColor($percent: 80);
 

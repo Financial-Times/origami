@@ -44,7 +44,6 @@
 }
 
 @mixin oTeaserOpinionBackground {
-
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
 		color: oTeaserTextColor($background: oColorsGetPaletteColor('blue-tint5'));
@@ -266,8 +265,8 @@
 	}
 
 	.o-teaser__heading {
+		@include oTypographyProgressiveFont(serifDisplay, l);
 		@include font-size(34, 34);
-		font-family: $o-typography-serif-display;
 
 		@include oGridRespondTo(L) {
 			@include font-size(48, 48);
