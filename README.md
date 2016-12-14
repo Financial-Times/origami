@@ -1,7 +1,7 @@
 o-teaser-collection [![Circle CI](https://circleci.com/gh/Financial-Times/o-teaser-collection/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-teaser-collection/tree/master)
 =================
 
-This component is for displaying collections of teasers.
+This component is for displaying collections of [o-teasers](http://registry.origami.ft.com/components/o-teaser).
 
 - [Usage](#usage)
 	- [Markup](#markup)
