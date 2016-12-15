@@ -26,9 +26,6 @@ $o-buttons-themes__standard: (
 		background-color: rgba(oColorsGetColorFor(o-buttons-standard-normal, background), 0.4),
 		border-color: rgba(oColorsGetColorFor(o-buttons-standard-normal, border), 0.15),
 	),
-	focus: (
-		box-shadow: inset 0 0 0 1px rgba(oColorsGetColorFor(o-buttons-standard-hover, border), 0.5),
-	),
 	active: (
 		color: darken(oColorsGetColorFor(o-buttons-standard-active, text), 13%),
 		border-color: oColorsGetColorFor(o-buttons-standard-active, border),
@@ -47,8 +44,9 @@ $o-buttons-themes__standard: (
 @include oColorsSetUseCase(o-buttons-standout-normal,   text,              'white');
 @include oColorsSetUseCase(o-buttons-standout-normal,   background,        'teal-1');
 @include oColorsSetUseCase(o-buttons-standout-hover,    border,            'teal-2');
+@include oColorsSetUseCase(o-buttons-standout-hover,    background,        'teal-2');
 @include oColorsSetUseCase(o-buttons-standout-pressedselected, background, 'teal-2');
-@include oColorsSetUseCase(o-buttons-standout-pressedselected, text,       'cold-3');
+@include oColorsSetUseCase(o-buttons-standout-pressedselected, text,       'white');
 
 /// Theme: Standout
 ///
@@ -64,8 +62,8 @@ $o-buttons-themes__standout: (
 	),
 	hover: (
 		color: oColorsGetColorFor(o-buttons-standout-normal, text),
-		background-color: lighten(oColorsGetColorFor(o-buttons-standout-normal, background), 0.8),
-		border-color: oColorsGetColorFor(o-buttons-standout-hover, border),
+		background-color: darken(oColorsGetColorFor(o-buttons-standout-normal, background), 10%),
+		border-color: darken(oColorsGetColorFor(o-buttons-standout-normal, background), 10%),
 	),
 	pressedselected: (
 		color: oColorsGetColorFor(o-buttons-standout-pressedselected, text),
