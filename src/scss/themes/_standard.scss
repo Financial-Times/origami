@@ -16,10 +16,8 @@
 		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('black'), 70);
 	}
 
-	&.o-teaser--hero {
-		.o-teaser__meta:after {
-			border-bottom-color: oColorsGetPaletteColor('white');
-		}
+	&.o-teaser--hero .o-teaser__meta:after {
+		border-bottom-color: oColorsGetPaletteColor('white');
 	}
 }
 
