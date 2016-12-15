@@ -65,8 +65,8 @@ The following elements are supported by default:
 .o-teaser__image       				// An image for the teaser
 .o-teaser__headshot					// Author's headshot image
 .o-teaser__timestamp 				// A styled timestamp for the teaser
-.o-teaser__related-content 		 	// A list of related content links
-.o-teaser__related-content-item 	// A single item of a related content list
+.o-teaser__related 				 	// A list of related content links
+.o-teaser__related-item 			// A single item of a related content list
 ```
 
 
@@ -128,7 +128,7 @@ Additional modifiers:
 
 ## Migration guide
 
-From `o-card` to `o-teaser`.
+### From `o-card` to `o-teaser`.
 
 In most cases, migrating to `o-teaser` from `o-card` will be possible by simply replacing the `o-card` class prefix to `o-teaser`, i.e. `o-card__heading` becomes `o-teaser__heading`. However, there are some additional updates you will need to do, particularly around images and themes.
 

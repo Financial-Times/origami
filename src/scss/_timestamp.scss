@@ -1,4 +1,19 @@
-@if ($o-teaser-is-silent == false) {
+/// Timestamp base styles
+@mixin oTeaserTimestamp {
+	@include font-size(12, 18);
+	display: block;
+	color: oTeaserTextColor();
+	text-transform: uppercase;
+
+	.o-teaser__heading + &:not(:empty) {
+		margin-top: 5px;
+	}
+}
+
+/// Timestamp variant styles adding coloured prefixes.
+/// Includes keyframe declaration so must be used outside of
+/// a selector
+@mixin oTeaserTimestampVariants {
 	@keyframes live-blog-pulse {
 		0% {
 			transform: scale(1.5);
@@ -11,11 +26,15 @@
 		}
 	}
 
+	.o-teaser__timestamp--new,
+	.o-teaser__timestamp--updated,
+	.o-teaser__timestamp--inprogress {
+		color: oColorsGetPaletteColor('red');
+	}
+
 	.o-teaser__timestamp-prefix:before,
 	.o-teaser__timestamp--inprogress:before {
 		content: '';
-		position: relative;
-		top: 1px;
 		display: inline-block;
 		margin-right: 5px;
 		width: 10px;
@@ -24,8 +43,9 @@
 		background-color: oColorsGetColorFor('fast-ft', 'text');
 	}
 
-	.o-teaser__timestamp--inprogress.o-teaser__timestamp-prefix:before {
-		margin-right: 7px;
+	.o-teaser__timestamp-prefix:before {
+		position: relative;
+		top: 1px;
 	}
 
 	.o-teaser__timestamp--inprogress {
@@ -40,32 +60,27 @@
 		}
 	}
 
-	.o-teaser__timestamp {
+	.o-teaser__timestamp-prefix {
+		color: inherit;
+	}
 
-		.o-teaser__timestamp-prefix {
-			color: inherit;
+	.o-teaser__timestamp--inprogress.o-teaser__timestamp-prefix:before {
+		margin-right: 7px;
+	}
+
+	.o-teaser__timestamp--comingsoon {
+		color: oColorsGetPaletteColor('live-blog-coming-soon');
+
+		.o-teaser__timestamp-prefix:before {
+			background-color: oColorsGetPaletteColor('live-blog-coming-soon');
 		}
+	}
 
-		&.o-teaser__timestamp--new,
-		&.o-teaser__timestamp--updated,
-		&.o-teaser__timestamp--inprogress {
-			color: oColorsGetPaletteColor('red');
-		}
+	.o-teaser__timestamp--closed {
+		color: oColorsGetPaletteColor('live-blog-closed');
 
-		&.o-teaser__timestamp--comingsoon {
-			color: oColorsGetPaletteColor('live-blog-coming-soon');
-
-			.o-teaser__timestamp-prefix:before {
-				background-color: oColorsGetPaletteColor('live-blog-coming-soon');
-			}
-		}
-
-		&.o-teaser__timestamp--closed {
-			color: oColorsGetPaletteColor('live-blog-closed');
-
-			.o-teaser__timestamp-prefix:before {
-				background-color: oColorsGetPaletteColor('live-blog-closed');
-			}
+		.o-teaser__timestamp-prefix:before {
+			background-color: oColorsGetPaletteColor('live-blog-closed');
 		}
 	}
 }

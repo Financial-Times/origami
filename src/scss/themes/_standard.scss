@@ -1,0 +1,102 @@
+/// Inverse theme styles - base all text content on white
+@mixin oTeaserInverse {
+	.o-teaser__heading:hover,
+	.o-teaser__tag:hover {
+		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('black'), 60);
+	}
+
+	.o-teaser__meta,
+	.o-teaser__duration,
+	.o-teaser__heading {
+		color: oColorsGetPaletteColor('white');
+	}
+
+	.o-teaser__standfirst,
+	.o-teaser__timestamp {
+		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('black'), 70);
+	}
+
+	&.o-teaser--hero .o-teaser__meta:after {
+		border-bottom-color: oColorsGetPaletteColor('white');
+	}
+}
+
+/// Make a teaser fill the full height of it's container
+/// (if the container is flex) and stretch the heading to
+/// move standfirst and timestamp to card footer
+@mixin oTeaserStretched {
+	display: flex;
+	flex-grow: 1;
+
+	.o-teaser__content {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+	}
+
+	.o-teaser__heading {
+		flex-grow: 1;
+	}
+}
+
+/// General opinion theme teaser - turns tag content blue
+@mixin oTeaserOpinion {
+	.o-teaser__meta {
+		color: $_o-teaser-color-opinion-tag;
+	}
+}
+
+/// Opinion background theme - colours background blue and adjust text
+@mixin oTeaserOpinionBackground {
+	.o-teaser__standfirst,
+	.o-teaser__timestamp {
+		color: oTeaserTextColor($background: oColorsGetPaletteColor('blue-tint5'));
+	}
+
+	&.o-teaser--large {
+		.o-teaser__content,
+		.o-teaser__image-container:after {
+			@include oColorsFor('o-teaser-theme-opinion');
+			border: 0;
+		}
+
+		.o-teaser__content:after {
+			@include oGridRespondTo(S, L) {
+				@include oColorsFor('o-teaser-theme-opinion');
+				top: 0;
+				border: 0;
+			}
+		}
+	}
+}
+
+/// Highlight theme - colours background claret and adjust text colours
+@mixin oTeaserHighlight {
+	.o-teaser__heading:hover,
+	.o-teaser__tag:hover {
+		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('claret-1'), 60);
+	}
+
+	.o-teaser__standfirst,
+	.o-teaser__timestamp,
+	.o-teaser__timestamp-prefix:before {
+		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('claret-1'), 80);
+	}
+
+	.o-teaser__timestamp-prefix:before {
+		background-color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('claret-1'), 80);
+	}
+
+	&.o-teaser--hero {
+		.o-teaser__content,
+		.o-teaser__image-container:after {
+			@include oColorsFor('o-teaser-theme-hero');
+		}
+
+		.o-teaser__content:after {
+			@include oGridRespondTo(S, L) {
+				@include oColorsFor('o-teaser-theme-hero');
+			}
+		}
+	}
+}
