@@ -128,7 +128,7 @@ Additional modifiers:
 
 ## Migration guide
 
-From `o-card` to `o-teaser`.
+### From `o-card` to `o-teaser`.
 
 In most cases, migrating to `o-teaser` from `o-card` will be possible by simply replacing the `o-card` class prefix to `o-teaser`, i.e. `o-card__heading` becomes `o-teaser__heading`. However, there are some additional updates you will need to do, particularly around images and themes.
 
