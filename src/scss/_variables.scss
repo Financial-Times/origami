@@ -1,1 +1,5 @@
-$o-teaser-collection-is-silent: true !default;
+$o-teaser-collection-is-silent: false !default;
+
+$_o-teaser-collection-color-bottom-border: #d1c6b7;
+$_o-teaser-collection-color-special-bg: #f3dec8;
+$_o-teaser-collection-color-thin-border: mix(#000000, oColorsGetPaletteColor('pink'), 20%);

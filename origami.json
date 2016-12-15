@@ -1,5 +1,5 @@
 {
-		"description": "A collection of article teasers, collated by subject.",
+		"description": "A collection of article teasers.",
 		"keywords": "article, teaser, list, collection",
 		"origamiType": "module",
 		"origamiCategory": "components",
@@ -13,13 +13,28 @@
 		"demosDefaults": {
 			"sass": "demos/src/demo.scss",
 			"documentClasses": "",
-			"dependencies": ""
+			"dependencies": "o-date@^2.2.1,o-teaser@^1.0.0"
 		},
 		"demos": [
 			{
 				"name": "standard",
 				"description": "Standard teaser collection",
 				"template": "demos/src/demo.mustache"
+			},
+			{
+				"name": "special",
+				"description": "Special teaser collection with highlighted background",
+				"template": "demos/src/demo-special.mustache"
+			},
+			{
+				"name": "numbered",
+				"description": "Numbered teaser collection",
+				"template": "demos/src/demo-numbered.mustache"
+			},
+			{
+				"name": "narrow",
+				"description": "Standard teaser at narrow width collection",
+				"template": "demos/src/demo-slim.mustache"
 			},
 			{
 				"name": "pa11y",

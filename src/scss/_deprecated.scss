@@ -1,0 +1,11 @@
+@if ($o-teaser-collection-is-silent == false) {
+	.o-teaser-collection--stream .o-teaser__action {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.o-teaser-collection--top-top-stories {
+		@include oTeaserCollectionTopStandalone;
+	}
+}

@@ -1,11 +1,19 @@
 @import "o-colors/main";
+@import "o-typography/main";
+@import "o-icons/main";
+@import "o-grid/main";
+
 @import "src/scss/variables";
 @import "src/scss/mixins";
+@import "src/scss/themes";
+@import "src/scss/teaser-collection";
+@import "src/scss/deprecated";
 
 @if ($o-teaser-collection-is-silent == false) {
-	 .o-teaser-collection {
-		display: block;
-	}
+ 	@include oTeaserCollection;
+
+	@include oTeaserCollectionStream;
+	@include oTeaserCollectionFrontPage;
 
 	// Set to silent again to avoid being output twice
 	$o-teaser-collection-is-silent: true !global;
