@@ -6,6 +6,7 @@ This component is for displaying collections of [o-teasers](http://registry.orig
 - [Usage](#usage)
 	- [Markup](#markup)
 	- [Sass](#sass)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -74,6 +75,22 @@ By default the `oTeaserCollection` mixin includes both [themes](#themes), to inc
 Use `o-teaser-collection--numbered` to number the list of teasers in the collection, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection#demo-numbered).
 
 Use `o-teaser-collection--special` to add a darker background across the full width of the containing relative element, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection#demo-special).
+
+
+## Migration guide
+
+The classname `.o-teaser-collection--top-top-stories` is deprecated and will be removed in v2, please use `.o-teaser-collection--top-standalone` instead.
+
+The following styles are also deprecated and will be removed in v2:
+
+```sass
+.o-teaser-collection--stream .o-teaser__action {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+```
+
 
 ----
 
