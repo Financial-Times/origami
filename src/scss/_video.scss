@@ -4,19 +4,19 @@
 		content: '';
 		background-color: oColorsGetPaletteColor('black');
 		margin-left: 5px;
+	}
 
-		&.o-teaser--has-image {
-			&.o-teaser--small .o-teaser__heading:after {
-				@include oGridRespondTo(M) {
-					display: none;
-				}
-			}
-
-			&.o-teaser--large .o-teaser__heading:after,
-			&.o-teaser--hero .o-teaser__heading:after,
-			&.o-teaser--top-story .o-teaser__heading:after {
+	&.o-teaser--has-image {
+		&.o-teaser--small .o-teaser__heading:after {
+			@include oGridRespondTo(M) {
 				display: none;
 			}
+		}
+
+		&.o-teaser--large .o-teaser__heading:after,
+		&.o-teaser--hero .o-teaser__heading:after,
+		&.o-teaser--top-story .o-teaser__heading:after {
+			display: none;
 		}
 	}
 
