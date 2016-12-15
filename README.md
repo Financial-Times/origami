@@ -65,8 +65,8 @@ The following elements are supported by default:
 .o-teaser__image       				// An image for the teaser
 .o-teaser__headshot					// Author's headshot image
 .o-teaser__timestamp 				// A styled timestamp for the teaser
-.o-teaser__related-content 		 	// A list of related content links
-.o-teaser__related-content-item 	// A single item of a related content list
+.o-teaser__related 				 	// A list of related content links
+.o-teaser__related-item 			// A single item of a related content list
 ```
 
 
