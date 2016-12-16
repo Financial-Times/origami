@@ -2,10 +2,11 @@
 
 ## Elements of n-teaser
 
-  Teasers can make use of a defined range of elements. The logic of when an element is included into the teaser is defined by its collection, page type, breakpoint and by its own logic (e.g. timestamp). The headline is the only mandatory element.
--Tags   
--Labels
--Headline (mandatory)
--Standfirst
--Image 
--Timestamp    
+Teasers can make use of a defined range of elements. The logic of when an element is included into the teaser is defined by its collection, page type, breakpoint and by its own logic (e.g. timestamp). The headline is the only mandatory element.
+
+* Tags
+* Labels
+* Headline (mandatory)
+* Standfirst
+* Image 
+* Timestamp    
