@@ -23,6 +23,7 @@
 /// Including link and hover styling.
 @mixin oTeaserHeading {
 	@include oTypographyProgressiveFont(serifDisplay, m);
+	@include oTypographyFallbackFontSize(serifDisplay, 22px);
 	@include font-size(22, 26);
 	margin: 0;
 	font-weight: oFontsWeight(normal);

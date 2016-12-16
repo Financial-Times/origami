@@ -7,10 +7,12 @@
 
 	.o-teaser__heading {
 		@include oTypographyProgressiveFont(serifDisplay, l);
+		@include oTypographyFallbackFontSize(serifDisplay, 34px);
 		@include font-size(34, 34);
 
 		@include oGridRespondTo(L) {
 			@include font-size(48, 48);
+			@include oTypographyFallbackFontSize(serifDisplay, 48px);
 		}
 	}
 
