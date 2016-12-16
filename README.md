@@ -1,4 +1,4 @@
-# o-toggle [![CircleCI](https://circleci.com/gh/Financial-Times/o-toggle.png?style=shield&circle-token=41f2b7b7e669f2d4adb55ad97cf755d3ed4b93c3)](https://circleci.com/gh/Financial-Times/o-toggle)
+# o-toggle [![CircleCI](https://circleci.com/gh/Financial-Times/o-toggle.png?style=shield)](https://circleci.com/gh/Financial-Times/o-toggle)
 
 Module to add toggle behaviour to a `<button>` or `<a>` tag. It supports multiple toggles for one target element. A click event listener is added to the toggles with the `#toggle` function as the handler.
 
