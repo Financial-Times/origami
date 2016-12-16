@@ -1,5 +1,5 @@
 {
-  "description": "Accessible toggles",
+  "description": "Accessible show/hide behaviour",
   "origamiType": "module",
   "origamiCategory": "utilities",
   "origamiVersion": 1,
@@ -17,7 +17,7 @@
       "template": "demos/src/demo.mustache",
       "sass": "demos/src/demo.scss",
       "hidden": false,
-      "description": ""
+      "description": "The toggle button updates aria attributes on the targets and adds a class."
     }
   ]
 }
