@@ -84,7 +84,7 @@ $o-buttons-themes__standout: (
 @include oColorsSetUseCase(o-buttons-inverse-active,   text,       'white');
 @include oColorsSetUseCase(o-buttons-inverse-active,   border,     'teal-2');
 @include oColorsSetUseCase(o-buttons-inverse-hover,    background, 'black');
-@include oColorsSetUseCase(o-buttons-inverse-hover,    border,     'teal-2');
+@include oColorsSetUseCase(o-buttons-inverse-hover,    border,     'white');
 @include oColorsSetUseCase(o-buttons-inverse-pressedselected, background, 'black');
 @include oColorsSetUseCase(o-buttons-inverse-pressedselected, border, 'teal-1');
 @include oColorsSetUseCase(o-buttons-inverse-pressedselected, text, 'white');
@@ -96,14 +96,14 @@ $o-buttons-themes__inverse: (
 	normal: (
 		color: oColorsGetColorFor(o-buttons-inverse-normal, text),
 		background-color: rgba(oColorsGetColorFor(o-buttons-inverse-normal, background), 0.15),
-		border-color: rgba(oColorsGetColorFor(o-buttons-inverse-normal, border), .625),
+		border-color: rgba(oColorsGetColorFor(o-buttons-inverse-normal, border), 0.625),
 	),
 	active: (
 		color: oColorsGetColorFor(o-buttons-inverse-active, text),
 	),
 	hover: (
 		background-color: oColorsGetColorFor(o-buttons-inverse-hover, background),
-		border-color: rgba(oColorsGetColorFor(o-buttons-inverse-hover, border), 0.6),
+		border-color: oColorsGetColorFor(o-buttons-inverse-hover, border),
 	),
 	pressedselected: (
 		color: oColorsGetColorFor(o-buttons-inverse-pressedselected, text),
