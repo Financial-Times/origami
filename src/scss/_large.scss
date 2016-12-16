@@ -10,6 +10,7 @@
 
 	.o-teaser__heading {
 		@include oTypographyProgressiveFont(sans, l);
+		@include oTypographyFallbackFontSize(sans, 28px);
 		@include font-size(28, 30);
 	}
 
