@@ -16,7 +16,7 @@
             "name": "toggles",
             "template": "demos/src/demo.mustache",
             "sass": "demos/src/demo.scss",
-            "expanded": true,
+            "hidden": false,
             "description": ""
         }
     ]
