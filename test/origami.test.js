@@ -31,7 +31,7 @@ describe("oToggle", () => {
 
 	describe("initialisation", () => {
 		beforeEach(() => {
-			fixtures.htmlCode();
+			fixtures.declarativeMarkup();
 		});
 
 		afterEach(() => {
@@ -46,12 +46,11 @@ describe("oToggle", () => {
 		});
 
 		it("creates an array of Toggles limited to the selector when a selector is passed in", () => {
-			const toggles = oToggle.init('.toggle');
+			const toggles = oToggle.init('.declarativeToggleContainer');
 			for (let toggle of toggles) {
 				proclaim.equal(toggle instanceof oToggle, true);
 			}
-
-			proclaim.equal(toggles.length, document.querySelector('.toggle').querySelectorAll('[data-o-component="o-toggle"]').length);
+			proclaim.equal(toggles.length, document.querySelector('.declarativeToggleContainer').querySelectorAll('[data-o-component="o-toggle"]').length);
 		});
 	});
 });
