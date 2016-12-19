@@ -7,14 +7,15 @@
 @import "src/scss/helpers";
 @import "src/scss/color-use-cases";
 
-@import "src/scss/elements";
-@import "src/scss/additions";
-@import "src/scss/timestamp";
+@import "src/scss/elements/default";
+@import "src/scss/elements/images";
+@import "src/scss/elements/promoted";
+@import "src/scss/elements/related-items";
+@import "src/scss/elements/timestamp";
 
-@import "src/scss/small";
-@import "src/scss/large";
-@import "src/scss/video";
-
+@import "src/scss/themes/small";
+@import "src/scss/themes/large";
+@import "src/scss/themes/video";
 @import "src/scss/themes/standard";
 @import "src/scss/themes/hero";
 @import "src/scss/themes/top-stories";

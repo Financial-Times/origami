@@ -1,0 +1,40 @@
+/// Related content list styles
+@mixin oTeaserRelated {
+	list-style: disc outside;
+	padding-left: 30px;
+	margin: 0 0 20px;
+	border-left: 1px solid mix(#000000, #fff1e0, 50%);
+
+	@include oGridRespondTo($until: M) {
+		display: none;
+	}
+}
+
+/// Single related content item styles
+@mixin oTeaserRelatedItem {
+	@include font-size(14, 22);
+	color: oTeaserTextColor($percent: 60);
+
+	@include oGridRespondTo(L) {
+		@include font-size(16, 24);
+	}
+
+	&:hover {
+		color: oTeaserTextColor();
+	}
+
+	a {
+		border-bottom: 0;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	&.o-teaser__related-item--video a:after {
+		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 13);
+		content: '';
+		position: relative;
+		top: 1px;
+		background-color: oColorsGetPaletteColor('black');
+		margin-left: 5px;
+	}
+}
