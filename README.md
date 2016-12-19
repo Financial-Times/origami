@@ -79,11 +79,30 @@ $o-teaser-is-silent: false;
 @import 'o-teaser/main';
 ```
 
-#### Using Sass mixins (todo)
+#### Using Sass mixins
 
-The `o-teaser` styles will be made available via mixins in the future. For now the best solution is to use the styles with silent mode set to false, as above.
+Teasers are made up of various elements (e.g. heading, standfirst, timestamp) and a series of themes (e.g. small, large, video). To get everything, use the `oTeaser()` mixin without arguments. To get only the stuff you need, you can pass in a list of elements and a list of themes:
 
-This todo is recorded as [an issue](https://github.com/Financial-Times/o-teaser/issues/12).
+```scss
+oTeaser(('default', 'images'), ('small', 'large', 'video'));
+```
+
+The elements can be specified via groups:
+
+- `default` - all basic text elements, including: heading, standfirst, meta, and tag.
+- `images` - all image element styles
+- `promoted` - promoted by and paid post element styles
+- `related-items` - styling for the related items elements
+- `timestamp` - styles for the timestamp and live post styles
+
+[Themes](#themes) are configurable using the second argument of `oTeaser` and can be any combination of:
+
+- `small` - styling for [small teasers](#small-teasers)
+- `large` - styling for [large teasers](#large-teasers)
+- `standard` - outputs the opinion and inverse themes
+- `video` - outputs the [video teaser](#video-teasers) styles
+- `top-stories` - outputs all top stories teaser styles and variations
+- `hero` - outputs all [hero](#hero-teasers) teaser styles and variations
 
 
 #### Themes
@@ -125,6 +144,11 @@ Additional modifiers:
 - `highlight`: adds a claret background
 - `stretched`: makes the teaser take up the full height of the available space and anchors the standout and timestamp content to the bottom of the teaser.
 
+##### Video teasers
+
+Uses the `o-teaser--video` modifier.
+
+[View example on the Registry](http://registry.origami.ft.com/components/o-teaser#demo-video)
 
 ## Migration guide
 
