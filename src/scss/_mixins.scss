@@ -1,0 +1,230 @@
+/// Includes the correct mixin for elements
+/// based on the group name passed
+///
+/// @param {String} $group
+@mixin _oTeaserGetElementsMixin($group) {
+	@if $group == 'default' {
+		@include oTeaserElementsDefault;
+	} @else if $group == 'images' {
+		@include oTeaserElementsImages;
+	} @else if $group == 'timestamp' {
+		@include oTeaserElementsTimestamp;
+	} @else if $group == 'promoted' {
+		@include oTeaserElementsPromoted;
+	} @else if $group == 'related-items' {
+		@include oTeaserElementsRelatedItems;
+	}
+}
+
+/// Includes the correct mixin for themes
+/// based on the theme name passed
+///
+/// @param {String} $theme
+@mixin _oTeaserGetThemeMixin($theme) {
+	@if $theme == 'small' {
+		@include oTeaserThemeSmall;
+	} @else if $theme == 'large' {
+		@include oTeaserThemeLarge;
+	} @else if $theme == 'standard' {
+		@include oTeaserThemeStandard;
+	} @else if $theme == 'hero' {
+		@include oTeaserThemeHero;
+	} @else if $theme == 'top-stories' {
+		@include oTeaserThemeTopStories;
+	} @else if $theme == 'video' {
+		@include oTeaserThemeVideo;
+	}
+}
+
+@mixin oTeaserElementsDefault {
+	.o-teaser__meta {
+		@include oTeaserMeta;
+	}
+
+	.o-teaser__tag {
+		@include oTeaserTag;
+	}
+
+	.o-teaser__heading {
+		@include oTeaserHeading;
+	}
+
+	.o-teaser__standfirst {
+		@include oTeaserStandfirst;
+	}
+}
+
+@mixin oTeaserElementsImages {
+	.o-teaser__image-placeholder {
+		@include oTeaserImagePlaceholder;
+	}
+
+	.o-teaser__image {
+		@include oTeaserImage;
+	}
+
+	@include oTeaserHeadshot;
+}
+
+@mixin oTeaserElementsTimestamp {
+	.o-teaser__timestamp {
+		@include oTeaserTimestamp;
+	}
+
+	@include oTeaserTimestampVariants;
+}
+
+@mixin oTeaserElementsPromoted {
+	.o-teaser--paid-post {
+		@include oTeaserPaidPost;
+	}
+
+	.o-teaser--promoted-content {
+		@include oTeaserPromotedContent;
+	}
+
+	.o-teaser__promoted-prefix {
+		@include oTeaserPromotedPrefix;
+	}
+
+	.o-teaser__promoted-by {
+		@include oTeaserPromotedBy;
+	}
+}
+
+@mixin oTeaserElementsRelatedItems {
+	.o-teaser__related {
+		@include oTeaserRelated;
+	}
+
+	.o-teaser__related-item {
+		@include oTeaserRelatedItem;
+	}
+}
+
+@mixin oTeaserThemeStandard {
+	.o-teaser--opinion {
+		@include oTeaserOpinion;
+
+		&.o-teaser--opinion-background {
+			@include oTeaserOpinionBackground;
+		}
+	}
+
+	.o-teaser--inverse {
+		@include oTeaserInverse;
+	}
+}
+
+@mixin oTeaserThemeSmall {
+	.o-teaser--small {
+		@include oTeaserSmall;
+
+		&.o-teaser--stacked {
+			@include oTeaserSmallStacked;
+		}
+
+		&.o-teaser--image-position-right {
+			@include oTeaserSmallImagePositionRight;
+		}
+	}
+}
+
+@mixin oTeaserThemeLarge {
+	.o-teaser--large,
+	.o-teaser--hero,
+	.o-teaser--top-story,
+	.o-teaser--large-portrait,
+	.o-teaser--large-landscape {
+		@include oTeaserLarge;
+	}
+
+	.o-teaser--large,
+	.o-teaser--hero {
+		&.o-teaser--has-image {
+			@include oTeaserImageContainer;
+		}
+	}
+
+	.o-teaser--large.o-teaser--has-image {
+		@include oTeaserLargeWithImage;
+	}
+
+	.o-teaser--large-portrait {
+		@include oTeaserLargeImagePortrait;
+	}
+
+	.o-teaser--large-landscape {
+		@include oTeaserLargeImageLandscape;
+	}
+}
+
+@mixin oTeaserThemeHero {
+	.o-teaser--hero {
+		@include oTeaserHero;
+
+		&.o-teaser--has-image {
+			@include oTeaserHeroImageContainer;
+
+			&.o-teaser--hero-image {
+				@include oTeaserHeroImage;
+			}
+		}
+
+		&.o-teaser--standalone {
+			@include oTeaserHeroStandalone;
+		}
+	}
+
+	.o-teaser--centre {
+		@include oTeaserHeroCentre;
+
+		&.o-teaser--has-image {
+			@include oTeaserHeroCentreImage;
+		}
+	}
+
+	.o-teaser--stretched {
+		@include oTeaserStretched;
+	}
+
+	.o-teaser--highlight.o-teaser--hero,
+	.o-teaser--opinion.o-teaser--hero {
+		@include oTeaserHeroThemeBase;
+		@include oTeaserHeroOpinion;
+	}
+
+	.o-teaser--highlight.o-teaser--hero {
+		@include oTeaserHighlight;
+	}
+}
+
+@mixin oTeaserThemeTopStories {
+	.o-teaser--top-story {
+		@include oTeaserTopStoryBase;
+
+		&.o-teaser--landscape,
+		&.o-teaser--standalone {
+			@include oTeaserTopStoryStandalone;
+		}
+
+		&.o-teaser--landscape,
+		&.o-teaser--big-story {
+			@include oTeaserTopStoryLandscape;
+		}
+
+		&.o-teaser--big-story {
+			@include oTeaserTopStoryBigStory;
+		}
+	}
+}
+
+@mixin oTeaserThemeVideo {
+	.o-teaser--video {
+		@include oTeaserVideo;
+	}
+
+	.o-teaser__duration {
+		@include oTeaserDuration;
+	}
+}
