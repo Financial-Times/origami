@@ -54,12 +54,17 @@ class Toggle {
 			this.toggleEl.setAttribute('role', 'button');
 		}
 
-		this.toggleEl.setAttribute('aria-expanded', 'false');
 		this.toggle = this.toggle.bind(this);
 		this.toggleEl.addEventListener('click', this.toggle);
 
-		this.targetEl.setAttribute('aria-hidden', 'true');
 		this.toggleEl.setAttribute('data-o-toggle--js', 'true');
+
+		this.close();
+	}
+
+	close(){
+		this.toggleEl.setAttribute('aria-expanded', 'false');
+		this.targetEl.setAttribute('aria-hidden', 'true');
 	}
 
 	toggle(e) {
