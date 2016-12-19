@@ -5,6 +5,7 @@
     "origamiVersion": 1,
     "support": "https://github.com/Financial-Times/o-forms/issues",
     "supportStatus": "active",
+    "keywords": "tickbox radio input checkbox error",
     "ci": {
         "circle": "https://circleci.com/api/v1/project/Financial-Times/o-forms"
     },
