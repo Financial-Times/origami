@@ -69,7 +69,6 @@ describe('links', () => {
 });
 
 describe('component', () => {
-	let twitterLinkEl;
 	let spy;
 
 	beforeEach(() => {
