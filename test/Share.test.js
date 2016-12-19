@@ -116,6 +116,17 @@ describe('component', () => {
 	});
 });
 
+describe('data normalisation', () => {
+	it('converts relative urls to absolute urls before sharing them', () => {
+		fixtures.insertRelativeShareComponent();
+		shareEl = document.querySelector('[data-o-component=o-share]');
+		new Share(shareEl);
+
+		const twitterLinkElement = document.querySelector('.o-share__action--twitter a');
+		expect(twitterLinkElement.getAttribute('href')).to.match(/url=https?:\/\/localhost:[\d]+\/content\/test/);
+	});
+});
+
 function newWindowSpy() {
 	const self = {
 		callCount: 0,

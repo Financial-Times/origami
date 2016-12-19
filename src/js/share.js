@@ -150,6 +150,8 @@ function Share(rootEl, config) {
 	  * @private
 	  */
 	function render() {
+		normaliseConfig();
+
 		const ulElement = document.createElement('ul');
 		for (let i = 0; i < config.links.length; i++) {
 			const liElement = document.createElement('li');
@@ -161,6 +163,18 @@ function Share(rootEl, config) {
 			ulElement.appendChild(liElement);
 		}
 		oShare.rootEl.appendChild(ulElement);
+	}
+
+	/**
+	  * Normalises any data in the configuration, converting relative URLs to ready-to-share
+	  * absolute versions
+	  *
+	  * @private
+	  */
+	function normaliseConfig() {
+		const link = document.createElement('a');
+		link.href = config.url;
+		config.url = link.protocol + '//' + link.host + link.pathname + link.search + link.hash;
 	}
 
 	/**

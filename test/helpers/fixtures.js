@@ -49,8 +49,23 @@ function insertShareComponent() {
 	insert(html);
 }
 
+function insertRelativeShareComponent() {
+	const html = `
+		<div data-o-component="o-share"
+			class="o-share"
+			data-o-share-links="twitter facebook linkedin whatsapp googleplus reddit pinterest url"
+			data-o-share-url="/content/test"
+			data-o-share-title="Test Article"
+			data-o-share-titleExtra="Extra"
+			data-o-share-summary="Testing...">
+		</div>
+		`;
+	insert(html);
+}
+
 export {
 	insertShareLinks,
 	insertShareComponent,
+	insertRelativeShareComponent,
 	reset
 };
