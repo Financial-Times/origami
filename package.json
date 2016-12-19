@@ -8,7 +8,6 @@
     "karma-mocha": "^1.1.1",
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-webpack": "^1.7.0",
-    "mocha": "^2.5.3",
     "sinon": "^2.0.0-pre",
     "webpack": "^1.12.2",
     "istanbul-instrumenter-loader": "^1.0.0",
