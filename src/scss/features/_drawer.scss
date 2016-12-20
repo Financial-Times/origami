@@ -321,8 +321,10 @@
 	.o-header__drawer-menu-link--selected {
 		@include oColorsFor(o-header-drawer-menu-link-selected);
 
-		&:hover {
+		&:hover,
+		&:focus {
 			@include oColorsFor(o-header-drawer-menu-link-hover-selected, text);
+			outline-color: oColorsGetColorFor('o-header-drawer-menu', 'text');
 		}
 
 		[aria-expanded="true"] + & {
