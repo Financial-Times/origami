@@ -11,12 +11,12 @@
     "sinon": "^2.0.0-pre",
     "webpack": "^1.12.2",
     "istanbul-instrumenter-loader": "^1.0.0",
-	"karma": "^0.13.22",
-	"karma-coverage": "^1.1.1",
-	"karma-sinon": "^1.0.5",
-	"mocha": "^3.0.2",
-	"origami-build-tools": "^5.5.0",
-	"proclaim": "^3.4.1"
+    "karma": "^0.13.22",
+    "karma-coverage": "^1.1.1",
+    "karma-sinon": "^1.0.5",
+    "mocha": "^3.0.2",
+    "origami-build-tools": "^5.5.0",
+    "proclaim": "^3.4.1"
   },
   "private": true,
   "scripts": {
