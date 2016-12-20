@@ -24,10 +24,10 @@ describe("getIndex()", function() {
 		throttled();
 
 		clock.tick(99);
-		proclaim.equal(callback.callCount, 0);
+		proclaim.strictEqual(callback.callCount, 0);
 
 		clock.tick(1);
-		proclaim.equal(callback.callCount, 1);
+		proclaim.strictEqual(callback.callCount, 1);
 
 		done();
 	});
@@ -39,15 +39,15 @@ describe("getIndex()", function() {
 		debounced();
 
 		clock.tick(99);
-		proclaim.equal(callback.callCount, 0);
+		proclaim.strictEqual(callback.callCount, 0);
 
 		debounced();
 
 		clock.tick(99);
-		proclaim.equal(callback.callCount, 0);
+		proclaim.strictEqual(callback.callCount, 0);
 
 		clock.tick(1);
-		proclaim.equal(callback.callCount, 1);
+		proclaim.strictEqual(callback.callCount, 1);
 
 		done();
 	});
