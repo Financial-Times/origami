@@ -2,7 +2,7 @@
 
 import * as Utils from './../main';
 import sinon from 'sinon/pkg/sinon';
-import expect from 'expect.js';
+import proclaim from 'proclaim';
 
 describe("getIndex()", function() {
 
@@ -24,10 +24,10 @@ describe("getIndex()", function() {
 		throttled();
 
 		clock.tick(99);
-		expect(callback.callCount).to.be(0);
+		proclaim.strictEqual(callback.callCount, 0);
 
 		clock.tick(1);
-		expect(callback.callCount).to.be(1);
+		proclaim.strictEqual(callback.callCount, 1);
 
 		done();
 	});
@@ -39,15 +39,15 @@ describe("getIndex()", function() {
 		debounced();
 
 		clock.tick(99);
-		expect(callback.callCount).to.be(0);
+		proclaim.strictEqual(callback.callCount, 0);
 
 		debounced();
 
 		clock.tick(99);
-		expect(callback.callCount).to.be(0);
+		proclaim.strictEqual(callback.callCount, 0);
 
 		clock.tick(1);
-		expect(callback.callCount).to.be(1);
+		proclaim.strictEqual(callback.callCount, 1);
 
 		done();
 	});
