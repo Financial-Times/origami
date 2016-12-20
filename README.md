@@ -17,7 +17,7 @@ Concurrent notifications are stacked, most recent at the top.
 
 ## Custom Events
 
--	require('n-notification').init();
+	require('n-notification').init();
 
 	const event = new CustomEvent('nNotification.show', {detail: { content: 'Title' }});
 	document.dispatchEvent(event);
