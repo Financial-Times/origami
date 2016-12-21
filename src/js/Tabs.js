@@ -132,6 +132,15 @@ function Tabs(rootEl, config) {
 		}
 	}
 
+	function keyPressHandler(ev) {
+		ev.preventDefault();
+		const tabEl = oDom.getClosestMatch(ev.target, '[role=tab]');
+		// Only update if key pressed is enter key
+		if (tabEl && ev.keyCode === 13) {
+			updateCurrentTab(tabEl);
+		}
+	}
+
 	function hashChangeHandler() {
 		if(!updateUrl){
 			return;
@@ -163,6 +172,7 @@ function Tabs(rootEl, config) {
 		tabpanelEls = getTabPanelEls(tabEls);
 		rootEl.setAttribute('data-o-tabs--js', '');
 		rootEl.addEventListener('click', clickHandler, false);
+		rootEl.addEventListener('keypress', keyPressHandler, false);
 		window.addEventListener('hashchange', hashChangeHandler, false);
 
 		if (!config) {

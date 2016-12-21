@@ -99,6 +99,22 @@ describe('tabs behaviour', () => {
 
 	});
 
+	it('enter key press tab', () => {
+		spyOn(testTabs, 'selectTab');
+		const keyPressEvent = document.createEvent('Event');
+		keyPressEvent.keyCode = 13;
+		keyPressEvent.initEvent('keypress', true, true);
+
+		tabsEl.querySelectorAll('li a')[2].dispatchEvent(keyPressEvent);
+		expect(testTabs.selectTab).toHaveBeenCalledWith(2);
+
+		tabsEl.querySelectorAll('li a')[1].dispatchEvent(keyPressEvent);
+		expect(testTabs.selectTab).toHaveBeenCalledWith(1);
+
+		tabsEl.querySelectorAll('li a')[0].dispatchEvent(keyPressEvent);
+		expect(testTabs.selectTab).toHaveBeenCalledWith(0);
+	});
+
 	it('destroy()', () => {
 		testTabs.destroy();
 
