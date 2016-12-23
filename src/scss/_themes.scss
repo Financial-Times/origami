@@ -69,6 +69,23 @@
 	}
 }
 
+@mixin oTeaserCollectionHorizontal() {
+
+	// Change flex direction from column
+	.o-teaser-collection__items {
+		flex-direction: row;
+	}
+
+	// Change positioning of numbers to be on top
+	&.o-teaser-collection--numbered {
+		.o-teaser-collection__item {
+			padding-left: inherit;
+			padding-top: 28px;
+			padding-right: 16px;
+		}
+	}
+}
+
 @mixin oTeaserCollectionMidSlice {
 	border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
 	border-top: 1px solid $_o-teaser-collection-color-thin-border;

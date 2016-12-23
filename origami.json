@@ -32,6 +32,16 @@
 				"template": "demos/src/demo-numbered.mustache"
 			},
 			{
+				"name": "horizontal",
+				"description": "Teasers in horizontal rather than standard column layout",
+				"template": "demos/src/demo-horizontal.mustache"
+			},
+			{
+				"name": "horizontal numbered",
+				"description": "Numbered teasers in horizontal rather than standard column layout",
+				"template": "demos/src/demo-horizontal-numbered.mustache"
+			},
+			{
 				"name": "narrow",
 				"description": "Standard teaser at narrow width collection",
 				"template": "demos/src/demo-slim.mustache"

@@ -1,4 +1,4 @@
-@mixin oTeaserCollection($themes: ('numbered', 'special')) {
+@mixin oTeaserCollection($themes: ('numbered', 'special', 'horizontal')) {
 
 	.o-teaser-collection {
 		margin-bottom: 35px;
@@ -14,8 +14,12 @@
 				.o-teaser-collection--special {
 					@include oTeaserCollectionSpecial();
 				}
+			} @elseif ($theme == 'horizontal') {
+				.o-teaser-collection--horizontal {
+					@include oTeaserCollectionHorizontal();
+				}
 			} @else {
-				@error "There is no theme '#{$theme}' available in o-teaser-collection please use either 'numbered' or 'special' themes only.";
+				@error "There is no theme '#{$theme}' available in o-teaser-collection please use 'numbered', 'special' or 'horizontal' themes only.";
 			}
 		}
 	}
