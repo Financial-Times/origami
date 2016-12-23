@@ -43,3 +43,16 @@
 		}
 	}
 }
+
+@mixin oTeaserSmallImagePositionRight {
+
+	&.o-teaser--has-image {
+
+		.o-teaser__image-container {
+			order: 2;
+			padding-left: oGridGutter(M);
+			padding-right: inherit;
+		}
+
+	}
+}
