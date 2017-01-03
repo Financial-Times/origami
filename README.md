@@ -5,7 +5,17 @@ Helper Sass for the [fticons](http://registry.origami.ft.com/components/fticons)
 
 Though you can use these icons at any size, they render best at 40px.
 
-## Quick start
+- [Usage](#usage)
+	- [Markup](#markup)
+	- [Sass](#sass)
+- [Contributing](#contributing)
+- [Migration guide](#migration-guide)
+- [Contact](#contact)
+- [Licence](#licence)
+
+## Usage
+
+### Markup
 
 ```html
 <!-- Loads the CSS for o-icons  -->
@@ -15,7 +25,7 @@ Though you can use these icons at any size, they render best at 40px.
 <i class="o-icons-icon o-icons-icon--arrow-down"></i>
 ```
 
-## Advanced usage
+### Sass
 
 There are a few ways to use o-icons to get fticons:
 
@@ -24,7 +34,7 @@ There are a few ways to use o-icons to get fticons:
 
 You can also request the icon directly from the Image Service (without using o-icons at all). See the [fticons](http://registry.origami.ft.com/components/fticons) for how to do this.
 
-### Using the CSS helper classes
+#### Using the CSS helper classes
 
 ```scss
 // public/bundle.scss
@@ -40,7 +50,7 @@ $o-icons-is-silent: false;
 
 When using CSS classes, it isn't possible to set a colour for the icon or to specify a size for the PNG fallback. The defaults are 'black' for the icon colour and '128px' for the width and height.
 
-### Using the Sass mixins with your own CSS
+#### Using the Sass mixins with your own CSS
 
 This option has the added flexibility of supporting coloured icons and PNG fallbacks of any size.
 
@@ -119,26 +129,28 @@ Which outputs:
 }
 ```
 
-## Adding / editing icons
+## Contributing
 
 `o-icons` is some Sass mixins and helpers for using the fticons image set. To add a new icon you need to add it to the fticons set. There are instructions in the [fticons README](http://github.com/financial-times/fticon).
 
-## How to upgrade from v4.x.x to v5.x.x?
+## Migration guide
+
+### How to upgrade from v4.x.x to v5.x.x?
 
 The jump from 4 to 5 introduces an entirely new set of icons. Using these icons should be a lot easier as they have a uniform amount of white-space around them, so you don't need to individually size icons to work in your application harmoniously.
 
 That said, because the icons have all changed, you will need to adjust the sizing and alignment of them in your application as things that aligned before may be out of whack now.
 
 
-### Deprecated icons
+#### Deprecated icons
 The new icon set has deprecated some icons, added some, and renamed some others. For a full list of these icons please see the [fticon README](http://github.com/financial-times/fticon).
 
-### Logos and Mastheads
+#### Logos and Mastheads
 The logos and masthead that were deprecated in version 4 have now moved completely. Please use the [Logo Images set](http://github.com/financial-times/logo-images) via the image service for these.
 
-## How to upgrade from v3.x.x to v4.x.x?
+### How to upgrade from v3.x.x to v4.x.x?
 
-### Important changes
+#### Important changes
 
 * `o-ft-icons` has been renamed to `o-icons`
 * Icon font has been removed, now it's SVGs all the way. This changes the behaviour for silent mode turned off users which includes Build Service users
@@ -159,11 +171,11 @@ The logos and masthead that were deprecated in version 4 have now moved complete
 	- section-money
 	- section-uk
 
-### Markup changes
+#### Markup changes
 
 CSS now doesn't add any pseudoclasses, so all the styling is applied directly on the element
 
-### CSS Changes
+#### CSS Changes
 
 * Class prefixes need to be renamed from `o-ft-icons` to `o-icons`
 
@@ -174,18 +186,28 @@ CSS now doesn't add any pseudoclasses, so all the styling is applied directly on
 
 * As it's an SVG instead of a font, size is now set using the CSS properties `width` and `height`
 
-### Sass Changes
+#### Sass Changes
 
 * All icon font related mixins have been removed
 * `oFtIconsBaseIconStyles` has been renamed to `oIconsBaseStyles`
 * `oFtIconsGetSvg` has been renamed to `oIconsGetIcon`
 
-### Silent mode off Changes
+#### Silent mode off Changes
 
 When using the [Build Service](https://origami-build.ft.com), you're using this module with silent mode turned off. Due to the removal of the icon font, there are a couple things to keep in mind in the new implementation:
 
 * There is a PNG fallback, and when using the default CSS classes, the size of the image served is _128px_ so it can be resized down, but not up
 * The colour of the icon served is _black_. This cannot be changed. If you need a custom colour (or even a custom size), [option 3](#3-manually-using-the-responsive-image-service) of the suggested ways of using this module is the way to go
+
+
+----
+
+## Contact
+
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-icons/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
+
+
+----
 
 ## Licence
 
