@@ -1,10 +1,14 @@
 {
   "name": "o-date",
+  "description": "Utility for formatting and updating dates",
   "main": [
     "main.js"
   ],
   "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
     "test",
-    "package.json"
+    "tests"
   ]
 }
