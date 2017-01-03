@@ -1,5 +1,8 @@
-/bower_components
-/build
-/.sass-cache
+.DS_Store
+.env
+/.sass-cache/
+/bower_components/
+/node_modules/
+/build/
+.idea/
 /demos/local
-/node_modules

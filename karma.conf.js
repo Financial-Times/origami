@@ -15,13 +15,12 @@ module.exports = function(config) {
 		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
 		frameworks: ['mocha', 'sinon'],
 
-
-
 		plugins: [
 			'karma-mocha',
 			'karma-phantomjs-launcher',
 			'karma-webpack',
-			'karma-sinon'
+			'karma-sinon',
+			'karma-coverage'
 		],
 
 
@@ -45,10 +44,13 @@ module.exports = function(config) {
 
 
 		// test results reporter to use
-		// possible values: 'dots', 'progress'
+		// possible values: 'dots', 'progress', 'coverage'
 		// available reporters: https://npmjs.org/browse/keyword/karma-reporter
-		reporters: ['progress'],
+		reporters: ['progress', 'coverage'],
 
+		coverageReporter: {
+			type : 'text-summary'
+		},
 
 		// web server port
 		port: 9876,
@@ -91,6 +93,13 @@ module.exports = function(config) {
 					{
 						test: /\.json$/,
 						loader: 'json'
+					}
+				],
+				postLoaders: [
+					{ //delays coverage til after tests are run, fixing transpiled source coverage error
+						test: /\.js$/,
+						exclude: /(test|node_modules|bower_components)\//,
+						loader: 'istanbul-instrumenter'
 					}
 				],
 				noParse: [
