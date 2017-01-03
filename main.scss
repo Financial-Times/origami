@@ -35,6 +35,10 @@
 		&.o-teaser--stacked {
 			@include oTeaserSmallStacked;
 		}
+
+		&.o-teaser--image-position-right {
+			@include oTeaserSmallImagePositionRight;
+		}
 	}
 
 	// Large teasers
