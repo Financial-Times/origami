@@ -9,15 +9,17 @@
     "bower-webpack-plugin": "^0.1.8",
     "expect.js": "^0.3.1",
     "imports-loader": "^0.6.4",
+    "istanbul-instrumenter-loader": "^1.0.0",
     "karma": "^0.13.0",
+    "karma-coverage": "^1.1.1",
     "karma-mocha": "^0.2.0",
     "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sinon": "^1.0.5",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.1.0",
     "origami-build-tools": "^5.0.0",
+    "proclaim": "^3.4.1",
+    "sinon": "^1.17.5",
     "webpack": "^1.12.2"
-  },
-  "dependencies": {
-    "sinon": "^1.17.3"
   }
 }

@@ -72,8 +72,14 @@ class Toggle {
 
 		this.targetEl.setAttribute('aria-hidden', !state);
 
-		e && e.preventDefault();
-		this.callback && this.callback(state ? 'open' : 'close', e);
+		if(e) {
+			e.preventDefault();
+		}
+
+		if (this.callback){
+			let stateName = (state ? 'open' : 'close');
+			this.callback(stateName, e);
+		}
 	}
 
 	destroy() {
