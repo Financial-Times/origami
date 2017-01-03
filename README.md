@@ -1,4 +1,4 @@
-# o-utils [![Build Status](https://circleci.com/gh/Financial-Times/o-utils.png?style=shield&circle-token=6ec89d992032f3ccbe4a85e6e5359857bf732502)](https://circleci.com/gh/Financial-Times/o-utils)
+# o-utils [![Build Status](https://circleci.com/gh/Financial-Times/o-utils.png?style=shield)](https://circleci.com/gh/Financial-Times/o-utils)
 
 Origami JS helpers.
 
