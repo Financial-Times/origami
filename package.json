@@ -19,8 +19,7 @@
     "karma-sinon": "^1.0.4",
     "mocha": "^2.2.1",
     "nock": "^1.2.1",
-    "sinon": "^1.14.1",
-    "whitesource": "^0.3.3"
+    "sinon": "^1.14.1"
   },
   "repository": {
     "type": "git",
