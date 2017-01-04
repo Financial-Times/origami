@@ -58,8 +58,24 @@ class AudioPlayer {
   }
 
   jumpTo(e) {
-    const clickedPosition = e.pageX - this.targetObject.getElementsByClassName('g-audio-content')[0].offsetLeft;
-    const totalWidth = this.targetObject.getElementsByClassName('g-audio-content')[0].offsetWidth;
+    const contentElement = this.targetObject.getElementsByClassName('g-audio-content')[0];
+    const playButtonElement = this.targetObject.getElementsByClassName('g-audio--playbutton')[0];
+
+    // playButtonHeight equals height of one line
+    const playButtonHeight = playButtonElement.offsetHeight;
+
+    // clicked position relative to contentElement top left corner
+    const clickedPositionX = e.pageX - contentElement.offsetLeft;
+    const clickedPositionY = e.pageY - contentElement.offsetTop;
+
+    // determine which line of text it's in
+    const lineOfText = Math.floor(clickedPositionY / playButtonHeight);
+
+    // determine totalWidth
+    const totalWidth = contentElement.offsetWidth * Math.floor(contentElement.offsetHeight / playButtonHeight) - contentElement.offsetLeft;
+
+    const clickedPosition = (contentElement.offsetWidth - contentElement.offsetLeft) + clickedPositionX + (contentElement.offsetWidth * (lineOfText - 1));
+
     const percentClickedThrough = clickedPosition / totalWidth;
 
     const totalDuration = this.audioLength;
