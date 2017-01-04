@@ -23,6 +23,7 @@ class AudioPlayer {
 
     // event handlers to check for loaded metadata
     // load length into data objects
+    this.audio.load();
     this.audio.addEventListener('loadedmetadata', () => this.loadMetadata(), false);
 
     // add event handler to document for pausing all players
