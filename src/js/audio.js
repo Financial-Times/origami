@@ -15,16 +15,11 @@ class AudioPlayer {
     this.targetObject.getElementsByTagName('audio')[0].removeAttribute('controls');
     this.targetObject.getElementsByTagName('audio')[0].style.display = 'none';
 
-    // create play button + progress bar divs
+    // create play button
     const playButton = document.createElement('span');
     playButton.classList.add('g-audio--playbutton');
     const innerContent = this.targetObject.getElementsByClassName('g-audio-content')[0];
     targetObject.insertBefore(playButton, innerContent);
-
-    // create progress bar
-    const progressBar = document.createElement('span');
-    progressBar.classList.add('g-audio-content-progressbar');
-    innerContent.appendChild(progressBar);
 
     // event handlers to check for loaded metadata
     // load length into data objects
@@ -106,8 +101,8 @@ class AudioPlayer {
     const percentPlayed = Math.ceil(timeStamp*100 / totalDuration);
     // console.log(timeStamp, totalDuration, percentPlayed)
 
-    const progressBar = this.targetObject.getElementsByClassName('g-audio-content-progressbar')[0];
-    progressBar.setAttribute('style', `width: ${percentPlayed}%`);
+    const progressBar = this.targetObject.getElementsByClassName('g-audio-content')[0];
+    progressBar.setAttribute('style', `background : linear-gradient(to right, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); background : -webkit-linear-gradient(left, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); `);
   }
 
 }
