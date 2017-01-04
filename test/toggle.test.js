@@ -278,4 +278,34 @@ describe("oToggle", () => {
 			proclaim.isFalse(callbackSpy.called);
 		});
 	});
+
+	describe("open", () => {
+		it("sets aria-expanded to true", () => {
+			fixtures.declarativeMarkup();
+			let toggleEl = document.querySelector('[data-o-component="o-toggle"]');
+			const testToggle = new OToggle(toggleEl);
+			testToggle.toggleEl.setAttribute('aria-expanded', 'false');
+
+			proclaim.isTrue(testToggle.toggleEl.hasAttribute("aria-expanded"));
+			proclaim.equal(testToggle.toggleEl.getAttribute("aria-expanded"), 'false');
+			testToggle.open();
+			proclaim.isTrue(testToggle.toggleEl.hasAttribute("aria-expanded"));
+			proclaim.equal(testToggle.toggleEl.getAttribute("aria-expanded"), 'true');
+		});
+	});
+
+	describe("close", () => {
+		it("sets aria-expanded to false", () => {
+			fixtures.declarativeMarkup();
+			let toggleEl = document.querySelector('[data-o-component="o-toggle"]');
+			const testToggle = new OToggle(toggleEl);
+
+			testToggle.toggleEl.setAttribute('aria-expanded', 'true');
+			proclaim.isTrue(testToggle.toggleEl.hasAttribute("aria-expanded"));
+			proclaim.equal(testToggle.toggleEl.getAttribute("aria-expanded"), 'true');
+
+			testToggle.close();
+			proclaim.equal(testToggle.toggleEl.getAttribute("aria-expanded"), 'false');
+		});
+	});
 });
