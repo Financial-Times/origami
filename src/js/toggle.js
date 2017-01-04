@@ -67,6 +67,14 @@ class Toggle {
 		this.target.close();
 	}
 
+	open() {
+		this.toggleEl.setAttribute('aria-expanded', 'true');
+	}
+
+	close() {
+		this.toggleEl.setAttribute('aria-expanded', 'false');
+	}
+
 	toggle(e) {
 
 		this.target.toggle();
