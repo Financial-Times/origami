@@ -15,22 +15,22 @@ Each event comes with extra detail.
 
 ```js
 detail: {
-				advertising: true,
-				category: 'video',
-				contentId: this.video.opts.id,
-				progress: 0,
-				adDuration: ad.getDuration(),
-				adMinDuration: ad.getMinSuggestedDuration(),
-				adTitle: ad.getTitle(),
-				adProgress: this.getAdProgress()
+	advertising: true,
+	category: 'video',
+	contentId: this.video.opts.id,
+	progress: 0,
+	adDuration: ad.getDuration(),
+	adMinDuration: ad.getMinSuggestedDuration(),
+	adTitle: ad.getTitle(),
+	adProgress: this.getAdProgress()
 }
 ```
 
-More details of the `ad` API calls are in the [IMA SDK](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis).
+More details of the `ad.*` API calls are in the [IMA SDK](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis).
 
 ## Video events
 
-The video events are fired as part of the (native HTML Media Events API)[https://developer.mozilla.org/en/docs/Web/Guide/Events/Media_events].
+The video events are fired as part of the [native HTML Media Events API](https://developer.mozilla.org/en/docs/Web/Guide/Events/Media_events).
 
 - playing - The video started playing.
 - progress - The video played through to a particular waypoint, defaults to firing events at ~25/50/75/100% progress.
@@ -42,11 +42,11 @@ Each event has the following additional properties,
 
 ```js
 detail: {
-  action: ev.type,
-  advertising: video.opts.advertising,
-  category: 'video',
-  contentId: video.opts.id,
-  progress: video.getProgress(),
-  duration: video.videoEl.duration
+	action: ev.type,
+	advertising: video.opts.advertising,
+	category: 'video',
+ 	contentId: video.opts.id,
+	progress: video.getProgress(),
+	duration: video.videoEl.duration
 }
 ```
