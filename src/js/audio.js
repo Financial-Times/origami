@@ -102,7 +102,7 @@ class AudioPlayer {
     // console.log(timeStamp, totalDuration, percentPlayed)
 
     const progressBar = this.targetObject.getElementsByClassName('g-audio-content')[0];
-    progressBar.setAttribute('style', `background : linear-gradient(to right, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); background : -webkit-linear-gradient(left, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); `);
+    progressBar.setAttribute('style', `background : -webkit-linear-gradient(left, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); background : -moz-linear-gradient(left, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); background : -o-linear-gradient(left, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); background : linear-gradient(to right, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); `);
   }
 
 }
