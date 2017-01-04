@@ -5,8 +5,8 @@ const TextCopyHelper = require('./TextCopyHelper');
 
 const socialUrls = {
 	twitter: "https://twitter.com/intent/tweet?url={{url}}&text={{title}}&related={{relatedTwitterAccounts}}&via=FT",
-	facebook: "http://www.facebook.com/sharer.php?u={{url}}&t={{title}}+|+{{titleExtra}}",
-	linkedin: "http://www.linkedin.com/shareArticle?mini=true&url={{url}}&title={{title}}+|+{{titleExtra}}&summary={{summary}}&source=Financial+Times",
+	facebook: "http://www.facebook.com/sharer.php?u={{url}}&t={{title}}+%7C+{{titleExtra}}",
+	linkedin: "http://www.linkedin.com/shareArticle?mini=true&url={{url}}&title={{title}}+%7C+{{titleExtra}}&summary={{summary}}&source=Financial+Times",
 	googleplus: "https://plus.google.com/share?url={{url}}",
 	reddit: "http://reddit.com/submit?url={{url}}&title={{title}}",
 	pinterest: "http://www.pinterest.com/pin/create/button/?url={{url}}&description={{title}}",
