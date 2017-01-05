@@ -1,4 +1,8 @@
 {
+  "name": "o-tracking",
+  "description": "This module should be included on your product to make sending tracking requests to the Spoor API easy.",
+  "version": "1.1.15",
+  "main": "main.js",
   "private": true,
   "scripts": {
     "test": "./node_modules/karma/bin/karma start karma.conf.js"
@@ -16,5 +20,14 @@
     "mocha": "^2.2.1",
     "nock": "^1.2.1",
     "sinon": "^1.14.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Financial-Times/o-tracking"
+  },
+  "author": "Financial-Times",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/o-tracking/issues"
+  },
+  "homepage": "https://github.com/Financial-Times/o-tracking"
 }
