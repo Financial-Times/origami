@@ -74,7 +74,7 @@
 
 		// first child for old IE
 		&:first-child {
-			margin-left: 0;
+			margin-left: -10px; // -10px to remove the padding that the icon image has around it when used at a size of 40px.
 		}
 	}
 
