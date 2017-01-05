@@ -18,6 +18,7 @@ class AudioPlayer {
     // create play button
     const playButton = document.createElement('span');
     playButton.classList.add('g-audio--playbutton');
+    playButton.setAttribute('tabindex', 0);
     const innerContent = this.targetObject.getElementsByClassName('g-audio-content')[0];
     targetObject.insertBefore(playButton, innerContent);
 
@@ -34,8 +35,13 @@ class AudioPlayer {
     this.audioLength = this.audio.duration;
 
     // set event handlers for everything else after metadata loaded
-    // play/pause on click
+    // play/pause on click or enter
     this.targetObject.getElementsByClassName('g-audio--playbutton')[0].addEventListener('click', () => this.toggleAudio(), false);
+    this.targetObject.getElementsByClassName('g-audio--playbutton')[0].addEventListener('keypress', (e) => {
+      if (e.which === 13 || e.keyCode === 13) {
+        return this.toggleAudio();
+      }
+    }, false);
 
     // toggle back to off after clip ends
     this.audio.addEventListener('ended', () => this.toggleAudio(), false);
