@@ -39,6 +39,21 @@
 
 /// Hero opinion theme - blue background white based text
 @mixin oTeaserHeroOpinion {
+	.o-teaser__heading:hover,
+	.o-teaser__tag:hover {
+		color: oTeaserTextColor(#ffffff, $_o-teaser-color-hero-opinion-background, 60);
+	}
+
+	.o-teaser__standfirst,
+	.o-teaser__timestamp,
+	.o-teaser__timestamp-prefix:before {
+		color: oTeaserTextColor(#ffffff, $_o-teaser-color-hero-opinion-background, 80);
+	}
+
+	.o-teaser__timestamp-prefix:before {
+		background-color: oTeaserTextColor(#ffffff, $_o-teaser-color-hero-opinion-background, 80);
+	}
+
 	&.o-teaser--hero {
 		.o-teaser__content,
 		.o-teaser__image-container:after {
@@ -138,10 +153,12 @@
 	.o-teaser__image-container {
 		padding-left: 15%;
 		padding-right: 15%;
+
 		@include oGridRespondTo(M) {
 			padding-left: 30%;
 			padding-right: 30%;
 		}
+
 		@include oGridRespondTo(L) {
 			padding-left: 15%;
 			padding-right: 15%;
