@@ -37,20 +37,3 @@
 		background-size: 35px;
 	}
 }
-
-/// Headshot styles and modification of content to accomodate
-/// the headshot. Should be used outside of a selector
-@mixin oTeaserHeadshot {
-	.o-teaser--has-headshot .o-teaser__content {
-		padding-right: 95px;
-		min-height: 60px;
-	}
-
-	.o-teaser__headshot {
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		height: 75px;
-		width: 75px;
-	}
-}
