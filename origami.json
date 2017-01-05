@@ -62,6 +62,13 @@
             "data": "demos/src/subbrand.js",
             "template": "demos/src/subbrand.mustache",
             "description": "For Subbrands of the FT, eg Alphaville or Life&Arts, a subheader can be added to mark out their subbrandness."
+        },
+        {
+            "name": "grid-demo",
+            "title": "Grid demo",
+            "template": "demos/src/grid-demo.mustache",
+            "hidden": "true",
+            "description": "A bug we keep having is things (eg the hamburger) not lining up with the grid padding. This demo adds a grid demo below the header to make it easy to quickly check alignment"
         }
     ]
 }
