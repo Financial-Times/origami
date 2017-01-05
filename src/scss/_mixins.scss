@@ -56,18 +56,16 @@
 		bottom: 0;
 		left: 0;
 		width: 100%;
-		height: 3px;
+		height: 4px;
 	}
 
 	&:hover:after {
-		$bg: oColorsGetColorFor('o-header-link-hover', 'background');
-		@include oEffectsBackgroundsPinStripe(mix($bg, white, 30%), $bg);
+		background-color: oColorsGetColorFor('o-header-link-hover', 'text');
 	}
 
 	&--highlight:after,
 	&[aria-selected="true"]:after {
-		$bg: oColorsGetColorFor('o-header-link-highlight', 'background');
-		@include oEffectsBackgroundsPinStripe(mix($bg, white, 50%), $bg);
+		background-color: oColorsGetColorFor('o-header-link-highlight', 'text');
 	}
 }
 
