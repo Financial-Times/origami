@@ -30,7 +30,7 @@ function eventListener(video, ev) {
 			category: 'video',
 			contentId: video.opts.id,
 			progress: video.getProgress(),
-			duration: video.videoEl.duration
+			duration: video.getDuration()
 		},
 		bubbles: true
 	});
@@ -287,6 +287,10 @@ class Video {
 
 	getProgress() {
 		return this.videoEl.duration ? parseInt(100 * this.videoEl.currentTime / this.videoEl.duration, 10) : 0;
+	}
+
+	getDuration() {
+		return this.videoEl.duration ? parseInt(this.videoEl.duration, 10) : 0;
 	}
 
 	pauseOtherVideos() {

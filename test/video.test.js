@@ -373,6 +373,29 @@ describe('Video', () => {
 
 	});
 
+	describe('#getDuration', () => {
+		let video;
+
+		beforeEach(() => {
+			video = new Video(containerEl);
+			video.videoEl = {};
+		});
+
+		afterEach(() => {
+			video = undefined;
+		});
+
+		it('should return 0 if duration is not set', () => {
+			video.getDuration().should.equal(0);
+		});
+
+		it('should return the duration of the video as a integer', () => {
+			video.videoEl.duration = 22.46324646;
+			video.getDuration().should.equal(22);
+		});
+
+	});
+
 	describe('#getData', () => {
 
 		let fetchStub;
