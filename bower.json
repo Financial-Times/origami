@@ -9,5 +9,6 @@
     "karma.conf.js"
   ],
   "dependencies": {
+    "o-icons": "^5.2.1"
   }
 }
