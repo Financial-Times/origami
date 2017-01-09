@@ -23,7 +23,13 @@ function handleCloseEvents (scope, callback) {
 	};
 
 	const handleMouseleave = () => {
-		timeout = setTimeout(callback, INTENT_DELAY);
+		// IE 11 mobile fires a mouseleave event when the search box gets focus. This means when the user tries
+		// to use the search box, it disappears because the drawer closes.
+		// Mouseout events should only occur when the drawer takes up less than 100% of the window, so we can ignore
+		// any events triggered if the width of the drawer is equal to or bigger than the window.innerwidth
+		if (window.innerWidth >= scope.offsetWidth) {
+			timeout = setTimeout(callback, INTENT_DELAY);
+		}
 	};
 
 	const handleFocus = (e) => {
@@ -59,7 +65,7 @@ function handleCloseEvents (scope, callback) {
 		document.addEventListener('focusout', handleFocus);
 	};
 
-	return { addEvents, removeEvents };
+	return { addEvents, removeEvents, handleMouseleave };
 }
 
 function addDrawerToggles (drawerEl) {
@@ -137,4 +143,4 @@ function init () {
 	drawerEl.setAttribute('data-o-header-drawer--js', 'true');
 }
 
-export default { init };
+export default { init, handleCloseEvents };
