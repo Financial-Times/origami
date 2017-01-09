@@ -1,5 +1,4 @@
 .o-teaser__syndication-indicator {
-
 	@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), 20);
 	background-color: oColorsGetPaletteColor('green');
 	border-radius: 50%;
