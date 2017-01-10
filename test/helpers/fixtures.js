@@ -20,17 +20,39 @@ function insert(html) {
 }
 
 
-function htmlCode () {
+function declarativeMarkup () {
 
-	const html = `<button class='toggle' data-o-component="o-toggle"
-			data-o-toggle-target=".target"
-			data-o-toggle-callback="document.querySelector('.target').classList.toggle('hidden');">Toggle</button>
+	const html = `<div class='declarativeToggleContainer'><button data-o-component="o-toggle"
+			data-o-toggle-target=".declarativeTestTarget"
+			data-o-toggle-callback="document.querySelector('.declarativeTestTarget').classList.toggle('hidden');">Toggle</button>
+			<div class="declarativeTestTarget">Target of the toggle</div></div>`;
+	insert(html);
+}
 
-	<div class="target">Target of the toggle</div>`;
+function imperativeMarkup () {
+	const html = `<button data-o-component="o-toggle">Toggle</button>
+			<div class="imperativeTestTarget">Target of the toggle</div>`;
+	insert(html);
+}
+
+function twoTogglesOneTarget () {
+	const html = `<button id="testToggle1" data-o-component="o-toggle" data-o-toggle-target=".twoTogglesTarget">Toggle</button>
+		<button id="testToggle2" data-o-component="o-toggle" data-o-toggle-target=".twoTogglesTarget">Toggle</button>
+
+		<div class="twoTogglesTarget">Target of the toggle</div>`;
+	insert(html);
+}
+
+function toggleAsALink () {
+	const html = `<a id="linkToggle" data-o-component="o-toggle" data-o-toggle-target=".linkTogglesTarget">Toggle</a>
+		<div class="linkTogglesTarget">Target of the toggle</div>`;
 	insert(html);
 }
 
 export {
-	htmlCode,
+	imperativeMarkup,
+	declarativeMarkup,
+	twoTogglesOneTarget,
+	toggleAsALink,
 	reset
 };
