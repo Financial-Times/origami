@@ -14,7 +14,12 @@
 				BY <span class="o-teaser__promoted-by">{{article-promoted-by}}</span>
 			{{/article-promoted-by}}
 
-			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+			<h2 class="o-teaser__heading">
+				{{#article-canBeSyndicated}}
+					<a href="#" class="o-teaser__syndication-indicator"><span>Syndication allowed</span></a>
+				{{/article-canBeSyndicated}}
+				<a href="#">{{article-heading}}</a>
+			</h2>
 
 			{{#article-standfirst}}
 				<p class="o-teaser__standfirst">{{article-standfirst}}</p>

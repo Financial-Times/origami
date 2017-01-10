@@ -13,6 +13,8 @@
 		@include oTeaserElementsPromoted;
 	} @else if $group == 'related-items' {
 		@include oTeaserElementsRelatedItems;
+	} @else if $group == 'syndication' {
+		@include oTeaserSyndicationIndicator;
 	}
 }
 
