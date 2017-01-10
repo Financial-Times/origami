@@ -75,6 +75,7 @@ class Toggle {
 		this.toggleEl.setAttribute('aria-expanded', 'false');
 	}
 
+	// toggle is bound to the Toggle instance in the constructor
 	toggle(e) {
 
 		this.target.toggle();

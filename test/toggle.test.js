@@ -263,6 +263,24 @@ describe("oToggle", () => {
 			proclaim.isTrue(callbackSpy.withArgs('open', event).called);
 		});
 
+		it("calls the callback with `this` bound to the correct context (the toggle not the event)", () => {
+			let target = new OToggle.Target(testToggle);
+			testToggle.target = target;
+			testToggle.callback = () => {};
+
+			sinon.stub(target, "isOpen").returns(true);
+
+			let callbackSpy = sinon.spy(testToggle, "callback");
+			let toggleSpy = sinon.spy(testToggle, "toggle");
+
+			testToggle.toggleEl.addEventListener('customEvent', testToggle.toggle);
+			testToggle.toggleEl.dispatchEvent(new CustomEvent('customEvent'));
+
+			proclaim.isTrue(toggleSpy.calledOnce);
+			proclaim.isTrue(callbackSpy.calledOnce);
+
+		});
+
 		it("calls the callback if defined with the value 'close' if the target.isOpen is false", () => {
 			let event = new Event;
 			let target = new OToggle.Target(testToggle);
