@@ -198,6 +198,18 @@ Overlay.prototype.render = function() {
 		wrapperEl.appendChild(heading);
 	}
 
+	if (this.opts.tooltip) {
+		const button = document.createElement('a');
+		button.className = 'o-overlay__close';
+		button.setAttribute('role', 'button');
+		button.setAttribute('tabindex', '0');
+		button.setAttribute('href', '#void');
+		button.setAttribute('aria-label', 'Close');
+		button.setAttribute('title', 'Close');
+		wrapperEl.appendChild(button);
+		wrapperEl.classList.add('o-overlay--compact');
+	}
+
 	const content = document.createElement('section');
 	content.className = 'o-overlay__content';
 	wrapperEl.appendChild(content);
@@ -230,7 +242,7 @@ Overlay.prototype.show = function() {
 	this.closeOnNewLayerHandler = this.closeOnNewLayer.bind(this);
 	this.delegates.context.on('oLayers.new', this.closeOnNewLayerHandler);
 
-	if (this.opts.heading) {
+	if (this.opts.heading || this.opts.tooltip) {
 		this.delegates.wrap.on('click', '.o-overlay__close', this.closeHandler);
 		this.delegates.wrap.on('touchend', '.o-overlay__close', this.closeHandler);
 	}
