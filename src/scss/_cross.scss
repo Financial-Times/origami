@@ -44,75 +44,12 @@
 	}
 }
 
-/// Base overlay close icon style
-// To avoid introducing a dependency on o-icons, which would make this a major
-// release, this code uses nearly the same code as found in o-icons'
-// oFtIconsGetSvg mixin. When a major release is due, this should also be updated
-// to use the o-icons dependency
 @mixin _oOverlayCloseIcon($color) {
-	$service-url: "https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross";
-	$query: "?source=ooverlay";
-
-	$color: str-slice(ie-hex-str($color), 4);
-	$query: $query + "&tint=%23#{$color},%23#{$color}";
-
-
-	background-image: url($service-url + $query + "&format=svg");
-
-	// ie7/8 fallback. Uses the `\9` selector hack to target ie6-8.
-	// Hack is documented here: http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
-	background-image: url($service-url + $query + "&format=png&width=20")\9;
+	@include oIconsGetIcon('cross', $color, $container-width: 20, $iconset-version: 1);
 	background-size: contain;
 }
 
 /// Base overlay close icon style
 @mixin oOverlayCloseIcon {
-	display: block;
-	height: 100%;
-	width: 100%;
-	position: relative;
-	// Rotate and center the cross icon in the circle
-	transform: rotate(45deg);
 
-	@include _oOverlayTargetIE8 {
-		top: -0.1em;
-		left: -0.25em;
-		// scss-lint:disable VendorPrefix
-		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865474, M12=-0.7071067811865477, M21=0.7071067811865477, M22=0.7071067811865474, SizingMethod='auto expand')";
-	}
-
-	// Each branch of the cross is a pseudo-element
-	// We use borders to draw them so that the rotation
-	// origins at the center of the blocks
-	&:after,
-	&:before {
-		content: '';
-		display: block;
-		position: absolute;
-		overflow: visible;
-		box-sizing: content-box;
-		width: 0;
-		height: 0;
-		border: 0.13em solid oColorsGetColorFor(o-overlay-close, text);
-		background-color: oColorsGetColorFor(o-overlay-close, text);
-		// Center both branches
-		transform: translate(-50%, -50%) translate(0.75em, 0.75em);
-	}
-	// Give dimensions to the branches and center them in the box
-	&:before {
-		width: 1em;
-
-		@include _oOverlayTargetIE8 {
-			// Re-align in IE 8
-			top: 0.47em;
-		}
-	}
-	&:after {
-		height: 1em;
-
-		@include _oOverlayTargetIE8 {
-			// Re-align in IE 8
-			left: 0.47em;
-		}
-	}
 }
