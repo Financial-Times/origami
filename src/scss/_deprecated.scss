@@ -39,6 +39,8 @@ o-tooltip component';
 	&:after {
 		border-width: $size;
 	}
+
+	@include oEffectsShadowsElevation($elevation: 'high');
 }
 
 /// Base top/bottom arrow styling
