@@ -95,11 +95,11 @@
 	}
 
 	.#{$classname}--tool-tip {
+		@include oOverlayCompactContent;
+
 		.#{$classname}__close {
 			@include oOverlayClose;
 		}
-		
-		@include oOverlayCompactContent;
 	}
 }
 
