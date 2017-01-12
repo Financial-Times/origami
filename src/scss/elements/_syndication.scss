@@ -1,8 +1,6 @@
 
 @mixin oTeaserSyndicationIndicator {
 	.o-teaser__syndication-indicator {
-		@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), 20);
-		background-color: oColorsGetPaletteColor('green');
 		border-radius: 50%;
 
 		span {
@@ -14,6 +12,16 @@
 			width: 1px;
 			overflow: hidden;
 		}
+	}
+
+	.o-teaser__syndication-indicator--yes {
+		@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), 20);
+		background-color: oColorsGetPaletteColor('green');
+	}
+
+	.o-teaser__syndication-indicator--no {
+		@include oIconsGetIcon('minus', oColorsGetPaletteColor('white'), 20);
+		background-color: oColorsGetPaletteColor('red');
 	}
 }
 
