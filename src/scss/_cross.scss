@@ -48,8 +48,3 @@
 	@include oIconsGetIcon('cross', $color, $container-width: 20, $iconset-version: 1);
 	background-size: contain;
 }
-
-/// Base overlay close icon style
-@mixin oOverlayCloseIcon {
-
-}

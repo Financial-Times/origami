@@ -30,22 +30,6 @@
 		@include oOverlayShadow;
 	}
 
-	.#{$classname}__arrow-top {
-		@include oOverlayArrow($direction: top); // Deprecated, remove in V2
-	}
-
-	.#{$classname}__arrow-bottom {
-		@include oOverlayArrow($direction: bottom); // Deprecated, remove in V2
-	}
-
-	.#{$classname}__arrow-left {
-		@include oOverlayArrow($direction: left); // Deprecated, remove in V2
-	}
-
-	.#{$classname}__arrow-right {
-		@include oOverlayArrow($direction: right); // Deprecated, remove in V2
-	}
-
 	.#{$classname}__heading {
 		@include oOverlayHeading;
 	}
@@ -96,13 +80,6 @@
 		@include oOverlayFullscreen($fill: 'height');
 	}
 
-	.#{$classname}--tool-tip { // Deprecated, remove in V2
-		@include oOverlayCompactContent;
-
-		.#{$classname}__close {
-			@include oOverlayClose;
-		}
-	}
 }
 
 @if ($o-overlay-is-silent == false) {
