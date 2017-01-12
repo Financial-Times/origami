@@ -22,8 +22,8 @@
 	margin-right: 10px; // Same right spacing as the top one
 	margin-left: 10px;
 	margin-bottom: 10px;
-	width: 1.5em;
-	height: 1.5em;
+	width: 20px;
+	height: 20px;
 	padding: 0.25em;
 	// Equivalent to `50%`, but avoids a rendering bug in old WebKit
 	border-radius: 9999px;
@@ -31,8 +31,6 @@
 	font-size: 8px;
 	line-height: 1;
 	user-select: none;
-	border: 1px solid oColorsGetColorFor(o-overlay-close, border);
-	background-color: oColorsGetColorFor(o-overlay-close, background);
 	outline: none; // Remove focus ring (focus state is set below)
 
 	// Increase hit zone of the button around it for better usability
@@ -44,19 +42,6 @@
 		left: -10px;
 		bottom: -10px;
 	}
-
-	// Preload the hover-state cross preventing FOIC by putting it as a background
-	// for the :beforepsuedo element
-	&:before {
-		@include _oOverlayCloseIcon(oColorsGetColorFor(o-overlay-close-shaded, text));
-		content: '';
-	}
-
-	&:focus,
-	#{$o-hoverable-if-hover-enabled} &:hover {
-		@include _oOverlayCloseIcon(oColorsGetColorFor(o-overlay-close-shaded, text));
-		background-color: oColorsGetColorFor(o-overlay-close-shaded, background);
-	}
 }
 
 /// Base overlay close icon style
@@ -65,7 +50,7 @@
 // oFtIconsGetSvg mixin. When a major release is due, this should also be updated
 // to use the o-icons dependency
 @mixin _oOverlayCloseIcon($color) {
-	$service-url: "https://www.ft.com/__origami/service/image/v2/images/raw/fticon:cross-disk";
+	$service-url: "https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross";
 	$query: "?source=ooverlay";
 
 	$color: str-slice(ie-hex-str($color), 4);

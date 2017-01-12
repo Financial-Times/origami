@@ -93,6 +93,14 @@
 	.#{$classname}--full-height {
 		@include oOverlayFullscreen($fill: 'height');
 	}
+
+	.#{$classname}--tool-tip {
+		@include oOverlayCompactContent;
+
+		.#{$classname}__close {
+			@include oOverlayClose;
+		}
+	}
 }
 
 @if ($o-overlay-is-silent == false) {
