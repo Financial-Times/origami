@@ -20,7 +20,7 @@
 @include oColorsSetUseCase('o-header-services-b2b-top-title', 'text', 'white');
 @include oColorsSetUseCase('o-header-services-b2b-primary-nav', 'background', 'claret-1');
 @include oColorsSetUseCase('o-header-services-b2b-primary-nav', 'text', 'white');
-@include oColorsSetUseCase('o-header-services-b2b-primary-nav-item-hover', 'background', 'claret-2');
+@include oColorsSetUseCase('o-header-services-b2b-primary-nav-item-hover', 'background', 'claret-inverse');
 
 
 // override usecases for o-header-drawer colors eg
