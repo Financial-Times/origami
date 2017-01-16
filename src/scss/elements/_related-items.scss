@@ -20,7 +20,7 @@
 	}
 
 	&:hover {
-		color: oTeaserTextColor();
+		color: oTeaserTextColor($percent: 55);
 	}
 
 	a {
