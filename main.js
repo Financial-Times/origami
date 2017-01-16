@@ -1,10 +1,10 @@
-import oTooltip from './src/js/oTooltip';
+import Tooltip from './src/js/tooltip';
 
 const constructAll = function() {
-	oTooltip.init();
+	Tooltip.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-export default oTooltip;
+export default Tooltip;

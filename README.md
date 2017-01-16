@@ -36,7 +36,8 @@ TBC
 A full list of data attributes:
 
 zIndex
-tooltip-arrow-position
+arrowPosition
+target (not optional)
 TBC
 
 ### JavaScript
