@@ -1,0 +1,165 @@
+@import "o-overlay/main";
+@import "o-visual-effects/main";
+
+@import "src/scss/variables";
+
+/// Base tooltip style. Inherits from oOverlay.
+@mixin oTooltip {
+	@include oOverlay();
+	@include oEffectsShadowsElevation($elevation: 'high');
+}
+
+/// Base tooltip content style. Inherits from oOverlay.
+@mixin oTooltipContent {
+	@include oOverlayContent;
+	// Override padding provided for o-overlay which is too big
+	padding: 10px;
+}
+
+
+/// Base arrow styling
+///
+/// @access private
+///
+/// @param {Number} size [10px] - Size of arrow
+@mixin _oTooltipArrow($size: 10px) {
+	// :before for the outer arrow that has the bordered colour,
+	// and :after for the inner arrow with the white background colour
+	&:before,
+	&:after {
+		content: "";
+		position: absolute;
+		border: solid transparent;
+	}
+	&:before {
+		// 1px offset so it appears properly
+		border-width: $size + $_o-overlay-border-width + 1;
+	}
+	&:after {
+		border-width: $size;
+	}
+}
+
+
+/// Base top/bottom arrow styling
+///
+/// @access private
+///
+/// @param {Number} size [10px] - Size of arrow
+@mixin _oTooltipVerticalArrow($size: 10px) {
+	@include _oTooltipArrow;
+
+	&:before,
+	&:after {
+		left: 50%;
+	}
+	&:before {
+		// 1px offset so it appears properly
+		margin-left: -$size - $_o-overlay-border-width - 1;
+	}
+	&:after {
+		margin-left: -$size;
+	}
+}
+
+/// Top arrow styling
+///
+/// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
+@mixin oTooltipUpArrow($color: oColorsGetColorFor(o-overlay, border)) {
+	@include _oTooltipVerticalArrow;
+
+	&:before,
+	&:after {
+		bottom: 100%;
+		border-top-width: 0;
+	}
+	&:before {
+		border-bottom-color: $color;
+	}
+	&:after {
+		border-bottom-color: oColorsGetColorFor(o-overlay, background);
+	}
+}
+
+/// Bottom arrow styling
+///
+/// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
+@mixin oTooltipDownArrow($color: oColorsGetColorFor(o-overlay, border)) {
+	@include _oTooltipVerticalArrow;
+
+	&:before,
+	&:after {
+		top: 100%;
+		border-bottom-width: 0;
+	}
+	&:before {
+		border-top-color: $color;
+	}
+	&:after {
+		border-top-color: oColorsGetColorFor(o-overlay, background);
+	}
+}
+
+/// Base left/right arrow styling
+///
+/// @access private
+///
+/// @param {Number} size [10px] - Size of arrow
+@mixin _oTooltipHorizontalArrow($size: 10px) {
+	@include _oTooltipVerticalArrow;
+
+	&:before,
+	&:after {
+		top: 50%;
+	}
+	&:before {
+		// 1px offset so it appears properly
+		margin-top: -$size - $_o-overlay-border-width - 1;
+	}
+	&:after {
+		margin-top: -$size;
+	}
+}
+
+/// Left arrow styling
+///
+/// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
+@mixin oTooltipLeftArrow($color: oColorsGetColorFor(o-overlay, border)) {
+	@include _oTooltipHorizontalArrow;
+
+	&:before,
+	&:after {
+		right: 100%;
+		border-left-width: 0;
+	}
+	&:before {
+		border-right-color: $color;
+	}
+	&:after {
+		border-right-color: oColorsGetColorFor(o-overlay, background);
+	}
+}
+
+/// Right arrow styling
+///
+/// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
+@mixin oTooltipRightArrow($color: oColorsGetColorFor(o-overlay, border)) {
+	@include _oTooltipHorizontalArrow;
+
+	&:before,
+	&:after {
+		left: 100%;
+		border-right-width: 0;
+	}
+	&:before {
+		border-left-color: $color;
+	}
+	&:after {
+		border-left-color: oColorsGetColorFor(o-overlay, background);
+	}
+}
+
+@mixin oTooltipClose {
+	@include oOverlayClose;
+	padding: 0px; // override padding of overlay close button
+}
