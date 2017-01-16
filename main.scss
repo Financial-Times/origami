@@ -1,0 +1,31 @@
+@import "src/scss/tooltip";
+
+
+@if ($o-tooltip-is-silent == false) {
+	 .o-tooltip {
+		@include oTooltip;
+	}
+
+	.o-tooltip-content {
+		@include oTooltipContent;
+	}
+
+	.o-tooltip--arrow-left {
+		@include oTooltipLeftArrow;
+	}
+	.o-tooltip--arrow-right {
+		@include oTooltipRightArrow;
+	}
+	.o-tooltip--arrow-top {
+		@include oTooltipUpArrow;
+	}
+	.o-tooltip--arrow-bottom {
+		@include oTooltipDownArrow;
+	}
+
+	.o-tooltip-close {
+		@include oTooltipClose;
+	}
+	// Set to silent again to avoid being output twice
+	$o-tooltip-is-silent: true !global;
+}

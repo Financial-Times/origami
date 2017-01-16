@@ -1,0 +1,16 @@
+machine:
+  pre:
+    - sudo curl --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-2.1.1
+  node:
+    version: 6
+  post:
+    - npm install -g origami-build-tools
+dependencies:
+  override:
+    - obt install
+  cache_directories:
+    - "node_modules"
+test:
+  override:
+    - obt test
+    - obt verify
