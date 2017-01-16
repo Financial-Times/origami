@@ -45,3 +45,23 @@ body {
 .demo-image {
 	background-color: #ffffff;
 }
+
+.demo-hover {
+	&.o-teaser--small a {
+		color: oTeaserTextColor($percent: 55);
+	}
+
+	&.o-teaser--opinion a {
+		color: oTeaserTextColor(#ffffff, $_o-teaser-color-hero-opinion-background, 73);
+	}
+
+	&.o-teaser--highlight a {
+		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('claret-1'), 73);
+	}
+
+	&.o-teaser--inverse a {
+		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('black'), 60);
+	}
+}
+
+
