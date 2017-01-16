@@ -74,7 +74,7 @@
 @mixin oTeaserHighlight {
 	.o-teaser__heading:hover,
 	.o-teaser__tag:hover {
-		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('claret-1'), 60);
+		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('claret-1'), 73);
 	}
 
 	.o-teaser__standfirst,
