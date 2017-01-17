@@ -31,7 +31,7 @@ describe("Tooltip", () => {
 
 	describe("should create a new", () => {
 		beforeEach(() => {
-				fixtures.declarativeCode();
+			fixtures.declarativeCode();
 		});
 
 		afterEach(() => {
