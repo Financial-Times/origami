@@ -42,6 +42,7 @@
 				"name": "small-syndicatable",
 				"description": "Small teaser",
 				"template": "demos/src/demo.mustache",
+				"hidden": true,
 				"data": {
 					"article-tag": "World",
 					"article-heading": "Japan sells negative yield 10-year bonds",
@@ -53,6 +54,7 @@
 				"name": "small-not-syndicatable",
 				"description": "Small teaser",
 				"template": "demos/src/demo.mustache",
+				"hidden": true,
 				"data": {
 					"article-tag": "World",
 					"article-heading": "Japan sells negative yield 10-year bonds",
@@ -372,7 +374,7 @@
 				"name": "paid-post",
 				"description": "Paid Post teaser",
 				"template": "demos/src/demo.mustache",
-				"hidden": true,
+				"hidden": false,
 				"data": {
 					"article-modifier": "paid-post",
 					"article-promoted-prefix": "Paid Post",
@@ -387,7 +389,7 @@
 				"name": "promoted-content",
 				"description": "Small teaser for content by external advertisers",
 				"template": "demos/src/demo.mustache",
-				"hidden": true,
+				"hidden": false,
 				"data": {
 					"article-modifier": "promoted-content",
 					"article-promoted-prefix": "Promoted content",
