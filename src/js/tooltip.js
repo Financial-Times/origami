@@ -1,13 +1,27 @@
 class Tooltip {
 
-	constructor (TooltipEl, opts) {
-		this.opts = opts || this.getOptions(TooltipEl);
+	constructor (tooltipEl, opts) {
+		this.opts = opts || this.getOptions(tooltipEl);
 
+		this.opts = this.checkOptions(this.opts);
 		this.delegates = {
 			//doc: new Delegate(),
 			//wrap: new Delegate(),
 			//context: new Delegate()
 		}
+
+		this.render();
+	};
+
+	getOptions(tooltipEl) {
+		let opts = {};
+		if (tooltipEl.hasAttribute('data-o-tooltip-arrow-position')) {
+			opts.arrowPosition = tooltipEl.getAttribute('data-o-tooltip-arrow-position');
+		}
+		if (tooltipEl.hasAttribute('data-o-tooltip-target')) {
+			opts.target = tooltipEl.getAttribute('data-o-tooltip-target');
+		}
+		return opts;
 	};
 
 	// Check the options passed in
@@ -18,21 +32,15 @@ class Tooltip {
 		}
 
 		// Check that the value of arrow position is valid. Default to up.
-		if (!opts.arrowPosition) {
-			if (!validArrowPositions.contains(opts.arrowPosition)) {
+		if (opts.arrowPosition) {
+			const validArrowPositions = ["top", "bottom", "left", "right"];
+			if (validArrowPositions.indexOf(opts.arrowPosition) === -1) {
 				Tooltip.throwError("Invalid value for arrow position. Valid values are:" + validArrowPositions.toString() +" or nothing which will default to a value of `top`");
 			}
 		} else {
 			opts.arrowPosition = "top";
 		}
 
-		return opts;
-	};
-
-	getOptions(tooltipEl) {
-		let opts = {};
-		opts.arrowPosition = tooltipEl.getAttribute('o-tooltip-arrow-position');
-		opts.target = tooltipEl.getAttribute('o-tooltip-target');
 		return opts;
 	};
 
@@ -89,7 +97,7 @@ class Tooltip {
 
 
 	static throwError(message) {
-		throw new Error('"o-tooltip error":'+ message);
+		throw new Error('"o-tooltip error": '+ message);
 	};
 
 	static init (rootEl, opts) {
