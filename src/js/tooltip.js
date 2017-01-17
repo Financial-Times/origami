@@ -8,7 +8,7 @@ class Tooltip {
 			//doc: new Delegate(),
 			//wrap: new Delegate(),
 			//context: new Delegate()
-		}
+		};
 
 
 		// Do you render as soon as possible?

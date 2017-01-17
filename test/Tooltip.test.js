@@ -37,14 +37,14 @@ describe("Tooltip", () => {
 			const stubEl = "stubEL";
 			const stubOpts = sinon.stub();
 
-			const testTooltip = new Tooltip(stubEl, stubOpts);
+			new Tooltip(stubEl, stubOpts);
 
 			proclaim.isFalse(getOptionsStub.called);
 		});
 
 		it("calls getOptions if no options were passed in", () => {
 			const stubEl = "stubEL";
-			const testTooltip = new Tooltip(stubEl);
+			testTooltip = new Tooltip(stubEl);
 
 			proclaim.isTrue(getOptionsStub.calledWith(stubEl));
 		});
@@ -53,15 +53,15 @@ describe("Tooltip", () => {
 			const stubOpts = sinon.stub();
 			const stubEl = "stubEL";
 
-			const testTooltip = new Tooltip(stubEl, stubOpts);
+			testTooltip = new Tooltip(stubEl, stubOpts);
 
 			proclaim.isTrue(checkOptionsStub.calledWith(stubOpts));
 
 		});
 
-		it("calls checkOptions with the return valuse of getOptions if no options were passed in", () => {
-			const testTooltip = new Tooltip(stubEl);
+		it("calls checkOptions with the return values of getOptions if no options were passed in", () => {
 			const stubEl = "stubEL";
+			new Tooltip(stubEl);
 
 			proclaim.isTrue(checkOptionsStub.calledWith(getOptionsReturnStub));
 		});
@@ -193,7 +193,7 @@ describe("Tooltip", () => {
 		it("sets the z-index if a z-index was set in the opts", () => {
 			const tooltip = Tooltip.init('#tooltip-demo');
 			const fakeZ = "4";
-			tooltip.opts.zindex = fakeZ
+			tooltip.opts.zindex = fakeZ;
 
 			tooltip.render();
 			proclaim.strictEqual(tooltipEl.style.zIndex, fakeZ);
