@@ -2,7 +2,7 @@ class Tooltip {
 
 	constructor (tooltipEl, opts) {
 		this.opts = opts || this.getOptions(tooltipEl);
-
+		this.tooltipEl = tooltipEl;
 		this.opts = this.checkOptions(this.opts);
 		this.delegates = {
 			//doc: new Delegate(),
@@ -10,7 +10,13 @@ class Tooltip {
 			//context: new Delegate()
 		}
 
-		this.render();
+
+		// Do you render as soon as possible?
+		if (this.opts.renderOnConstruction){
+			this.render();
+			this.show();
+		}
+
 	};
 
 	getOptions(tooltipEl) {
@@ -46,14 +52,12 @@ class Tooltip {
 
 	// Build the tooltip
 	render() {
-		const wrapperEl = document.createElement('div');
-		wrapperEl.className = 'o-tooltip';
-		wrapperEl.setAttribute('role', 'tooltip');
+
+		this.tooltipEl.setAttribute('role', 'tooltip');
 
 		if (this.opts.zindex) {
-			wrapperEl.style.zIndex = this.opts.zindex;
+			this.tooltipEl.style.zIndex = this.opts.zindex;
 		}
-		this.wrapper = wrapperEl;
 
 		// Build and append the close button
 		const button = document.createElement('a');
@@ -63,29 +67,16 @@ class Tooltip {
 		button.setAttribute('href', '#void');
 		button.setAttribute('aria-label', 'Close');
 		button.setAttribute('title', 'Close');
-		wrapperEl.appendChild(button);
+		this.tooltipEl.appendChild(button);
 
 		// Build and append content
 		const content = document.createElement('section');
 		content.className = 'o-tooltip__content';
-		wrapperEl.appendChild(content);
+		this.tooltipEl.appendChild(content);
 
 		// Build arrow
-		if(this.opts.arrow.position) {
-			if (this.opts.arrow.position == "top") {
-				wrapperEl.classList.add('o-tooltip--arrow-top');
-			} else if (this.opts.arrow.position == "left") {
-				wrapperEl.classList.add('o-tooltip--arrow-left');
-			} else if (this.opts.arrow.position == "bottom") {
-				wrapperEl.classList.add('o-tooltip--arrow-bottom');
-			} else if (this.opts.arrow.position == "right") {
-				wrapperEl.classList.add('o-tooltip--arrow-right');
-			} else {
-				throw new Error('"o-tooltip error": Invalid value for arrow position. Valid values are: top, bottom, left, right');
-			}
-		} else {
-			// default to a top arrow
-			wrapperEl.classList.add('o-tooltip--arrow-top');
+		if(this.opts.arrowPosition) {
+			this.tooltipEl.classList.add('o-tooltip--arrow-'+this.opts.arrowPosition);
 		}
 	};
 

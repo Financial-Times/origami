@@ -26,7 +26,6 @@ function declarativeCode () {
 		</div>
 
 		<div id='tooltip-demo' data-o-component="o-tooltip"
-		data-o-tooltip-arrow-position="top"
 		data-o-tooltip-target='demo-tooltip-target'>
 			Tooltip content
 		</div>

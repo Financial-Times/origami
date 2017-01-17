@@ -12,17 +12,25 @@ describe("Tooltip", () => {
 		let getOptionsReturnStub;
 		let checkOptionsStub;
 		let checkOptsReturnStub;
+		let renderStub;
+		let showStub;
 
 		beforeEach(() => {
 			getOptionsReturnStub = {};
 			getOptionsStub = sinon.stub(Tooltip.prototype, 'getOptions').returns(getOptionsReturnStub);
 			checkOptsReturnStub = {};
 			checkOptionsStub = sinon.stub(Tooltip.prototype, 'checkOptions').returns(checkOptsReturnStub);
+			renderStub = sinon.stub(Tooltip.prototype, 'render');
+			showStub = sinon.stub(Tooltip.prototype, 'show');
+
 		});
 
 		afterEach(() => {
 			getOptionsStub.restore();
 			checkOptionsStub.restore();
+			renderStub.restore();
+			showStub.restore();
+
 		});
 
 		it("doesn't call getOptions if options are passed in", () => {
@@ -141,20 +149,64 @@ describe("Tooltip", () => {
 
 	describe("render", () => {
 
+		let tooltipEl;
+		let renderSpy;
+
 		beforeEach(() => {
+			fixtures.declarativeCode();
+			renderSpy = sinon.spy(Tooltip.prototype, 'render');
+			tooltipEl = document.getElementById('tooltip-demo');
 		});
 
 		afterEach(() => {
-			
+			fixtures.reset();
+			renderSpy.restore();
 		});
 
 		it("adds a class for the arrow direction", () => {
+			const tooltip = Tooltip.init('#tooltip-demo');
+			tooltip.render();
 
+			proclaim.isTrue(renderSpy.called);
+			proclaim.isTrue(tooltipEl.classList.contains('o-tooltip--arrow-top'));
 		});
-		it("defaults to an up-arrow");
-		it("creates a div for the tooltip and adds it to the dom");
-		it("gives the tooltip the aria-role `tooltip`");
-		it("sets the z-index if a z-index was set in the opts");
-		it("adds a close button with an aria label and a role");
+
+		it("sets the arrowPosition based on the value in opts.arrowPosition", () => {
+			["top", "left", "right", "bottom"].forEach((value)=>{
+				const tooltip = Tooltip.init('#tooltip-demo', {"target": "#el", "arrowPosition": value});
+				tooltip.render();
+				proclaim.isTrue(tooltipEl.classList.contains('o-tooltip--arrow-'+value));
+				tooltipEl.classList.remove('o-tooltip--arrow-'+value); // tidy up since we're in a loop
+			});
+		});
+
+		it("gives the tooltip the role `tooltip`", () => {
+			const tooltip = Tooltip.init('#tooltip-demo');
+			proclaim.isFalse(tooltipEl.hasAttribute('role'));
+
+			tooltip.render();
+
+			proclaim.isTrue(tooltipEl.hasAttribute('role'));
+			proclaim.strictEqual(tooltipEl.getAttribute('role'), 'tooltip');
+		});
+
+		it("sets the z-index if a z-index was set in the opts", () => {
+			const tooltip = Tooltip.init('#tooltip-demo');
+			const fakeZ = "4";
+			tooltip.opts.zindex = fakeZ
+
+			tooltip.render();
+			proclaim.strictEqual(tooltipEl.style.zIndex, fakeZ);
+		});
+
+		it("adds a close button with an aria label, role and title", () => {
+			const tooltip = Tooltip.init('#tooltip-demo');
+			tooltip.render();
+			const buttonEl = tooltipEl.querySelector('.o-tooltip__close');
+			proclaim.isDefined(buttonEl);
+			proclaim.isTrue(buttonEl.hasAttribute('aria-label'));
+			proclaim.isTrue(buttonEl.hasAttribute('title'));
+			proclaim.isTrue(buttonEl.hasAttribute('role'));
+		});
 	});
 });
