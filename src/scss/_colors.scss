@@ -17,10 +17,10 @@
 @include oColorsSetUseCase('o-header-services-b2c-primary-nav-item-hover', 'background', 'org-b2c-dark');
 
 // B2B theme
-@include oColorsSetUseCase('o-header-services-b2b-top-title', 'text', 'org-b2b-light');
-@include oColorsSetUseCase('o-header-services-b2b-primary-nav', 'background', 'org-b2b');
+@include oColorsSetUseCase('o-header-services-b2b-top-title', 'text', 'white');
+@include oColorsSetUseCase('o-header-services-b2b-primary-nav', 'background', 'claret-1');
 @include oColorsSetUseCase('o-header-services-b2b-primary-nav', 'text', 'white');
-@include oColorsSetUseCase('o-header-services-b2b-primary-nav-item-hover', 'background', 'org-b2b-dark');
+@include oColorsSetUseCase('o-header-services-b2b-primary-nav-item-hover', 'background', 'claret-inverse');
 
 
 // override usecases for o-header-drawer colors eg
