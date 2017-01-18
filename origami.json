@@ -71,6 +71,12 @@
             "template": "/demos/src/pa11y.mustache",
             "hidden": true,
             "description": ""
+        },
+        {
+            "name": "js-validation",
+            "title": "Validate inputs",
+            "template": "/demos/src/validation.mustache",
+            "hidden": true
         }
     ],
     "demosDefaults": {
