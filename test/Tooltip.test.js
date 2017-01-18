@@ -221,4 +221,12 @@ describe("Tooltip", () => {
 			proclaim.isTrue(buttonEl.hasAttribute('role'));
 		});
 	});
+
+	describe("show", () => {
+		it('sets up a touchend and click handler for the body');
+		it('sets up a touchend and click handler for the tooltip');
+		it('sets up a close handler tooltip-close button');
+		it('sets up a viewport resize handler');
+
+	});
 });

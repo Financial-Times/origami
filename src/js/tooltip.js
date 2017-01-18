@@ -1,3 +1,7 @@
+import Delegate from 'ftdomdelegate';
+import viewport from 'o-viewport';
+
+
 class Tooltip {
 
 	constructor (tooltipEl, opts) {
@@ -5,9 +9,8 @@ class Tooltip {
 		this.tooltipEl = tooltipEl;
 		this.opts = this.checkOptions(this.opts);
 		this.delegates = {
-			//doc: new Delegate(),
-			//wrap: new Delegate(),
-			//context: new Delegate()
+			doc: new Delegate(),
+			tooltip: new Delegate(),
 		};
 		// Do you render as soon as possible?
 		if (this.opts.renderOnConstruction) {
@@ -84,11 +87,44 @@ class Tooltip {
 	};
 
 	show() {
+		// event handlers
+		this.delegates.doc.root(document.body);
+		this.delegates.tooltip.root(this.tooltipEl);
+
+		/* Set up all the ways to close the tooltip */
+		this.closeHandler = this.close.bind(this);
+		this.delegates.tooltip.on('click', '.o-tooltip-close', this.closeHandler);
+		this.delegates.tooltip.on('touchend', '.o-tooltip-close', this.closeHandler);
+
+		this.resizeListenerHandler = this.resizeListener.bind(this);
+		this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
+
+
+		this.closeOnExternalClickHandler = this.closeOnExternalClick.bind(this);
+		this.delegates.doc.on('click', 'body', this.closeOnExternalClickHandler);
+		this.delegates.doc.on('touchend', 'body', this.closeOnExternalClickHandler);
+
+		this.closeOnEscapePressHandler = this.closeOnEscapePress.bind(this);
+		this.delegates.doc.on('keyup', this.closeOnEscapePressHandler);
+
+
+		// Calculate and position the overlay + arrow
 	};
 
 	destroy() {
 	};
 
+	close() {
+	}
+
+	closeOnExternalClick() {
+	}
+
+	closeOnEscapePress() {
+	}
+
+	resizeListener() {
+	}
 
 	static throwError(message) {
 		throw new Error('"o-tooltip error": '+ message);
