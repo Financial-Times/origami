@@ -11,32 +11,33 @@ class Forms {
 			HTMLTextAreaElement
 		];
 
-		console.log('hello forms!');
-
-		// Find the closest <form> element unless
-		// the constructed element is a <form> element already
-		this.ParentForm = (this.FormEl instanceof HTMLFormElement) ? this.FormEl : this.FormEl.closest('form');
+		// o-forms should only be registered against a <form>
+		// element. If not, return to prevent errors
+		if (! this.FormEl instanceof HTMLFormElement) {
+			return;
+		}
 
 		// Add the event listeners
 		this.listeners();
 	}
 
-	// element.closest(form) - to find the form element
-	// Events: blur or submit
-
 	listeners() {
 		if (this.opts.testEvent === 'submit') {
-			this.ParentForm.addEventListener('submit', this.checkAllInputs, false);
-			return;
-		}
+			// Safari reports the validity state, but doesn't
+			// prevent form submits, so this listens to submits and
+			// checks the inputs are valid before submission.
+			this.FormEl.addEventListener('submit', this.checkAllInputs.bind(this), false);
 
-		// If the constructed element is a form element add
-		// a listener on blur. Otherwise find any child inputs
-		if (this.isValidFormElement()) {
-			this.FormEl.addEventListener('blur', this.checkSingleInput, false);
+			// All other browsers will report each item invalid on
+			// submit and prevent a form submission.
+			this.findInputs(this.FormEl).map(input => {
+				input.addEventListener('invalid', this.invalidInput, false);
+			});
+
+			return;
 		} else {
 			this.findInputs().map((input) => {
-				input.addEventListener('blur', this.checkSingleInput, false);
+				input.addEventListener('blur', this.checkInputValidity.bind(this), false);
 			});
 		}
 	}
@@ -44,19 +45,34 @@ class Forms {
 	checkAllInputs(event) {
 		event.preventDefault();
 
-		console.log('hello');
+		const checkedInputs = this.findInputs(this.FormEl).map(input => this.checkInputValidity(input));
+
+		if (checkedInputs.includes(false)) {
+			return;
+		}
+
+		// Complete the form submission
+		event.target.submit();
 	}
 
-	checkSingleInput(event) {
-		console.log('hello single');
-	}
-
-	checkInputValidity(input) {
-		console.log("input validity", input);
+	invalidInput(event) {
+		const input = event.target;
+		input.closest('.o-forms').classList.add('o-forms--error');
 	}
 
 	isValidFormElement() {
-		return this.validFormEls.some((element) => this.FormEl instanceof element);
+		return this.validFormEls.some(element => this.FormEl instanceof element);
+	}
+
+	checkInputValidity(event) {
+		const input = event.target;
+
+		if (input.checkValidity() === false) {
+			this.invalidInput(event);
+			return false;
+		}
+
+		return true;
 	}
 
 	findInputs() {
