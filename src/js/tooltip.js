@@ -9,10 +9,8 @@ class Tooltip {
 			//wrap: new Delegate(),
 			//context: new Delegate()
 		};
-
-
 		// Do you render as soon as possible?
-		if (this.opts.renderOnConstruction){
+		if (this.opts.renderOnConstruction) {
 			this.render();
 			this.show();
 		}
@@ -26,6 +24,10 @@ class Tooltip {
 		}
 		if (tooltipEl.hasAttribute('data-o-tooltip-target')) {
 			opts.target = tooltipEl.getAttribute('data-o-tooltip-target');
+		}
+
+		if (tooltipEl.hasAttribute('data-o-tooltip-render-on-construction')){
+			opts.renderOnConstruction = true;
 		}
 		return opts;
 	};

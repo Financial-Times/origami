@@ -11,15 +11,13 @@ describe("Tooltip", () => {
 		let getOptionsStub;
 		let getOptionsReturnStub;
 		let checkOptionsStub;
-		let checkOptsReturnStub;
 		let renderStub;
 		let showStub;
 
 		beforeEach(() => {
 			getOptionsReturnStub = {};
 			getOptionsStub = sinon.stub(Tooltip.prototype, 'getOptions').returns(getOptionsReturnStub);
-			checkOptsReturnStub = {};
-			checkOptionsStub = sinon.stub(Tooltip.prototype, 'checkOptions').returns(checkOptsReturnStub);
+			checkOptionsStub = sinon.stub(Tooltip.prototype, 'checkOptions').returnsArg(0);
 			renderStub = sinon.stub(Tooltip.prototype, 'render');
 			showStub = sinon.stub(Tooltip.prototype, 'show');
 
@@ -35,7 +33,7 @@ describe("Tooltip", () => {
 
 		it("doesn't call getOptions if options are passed in", () => {
 			const stubEl = "stubEL";
-			const stubOpts = sinon.stub();
+			const stubOpts = {};
 
 			new Tooltip(stubEl, stubOpts);
 
@@ -44,16 +42,16 @@ describe("Tooltip", () => {
 
 		it("calls getOptions if no options were passed in", () => {
 			const stubEl = "stubEL";
-			testTooltip = new Tooltip(stubEl);
+			new Tooltip(stubEl);
 
 			proclaim.isTrue(getOptionsStub.calledWith(stubEl));
 		});
 
 		it("calls checkOptions with the options passed in if some options were passed in", () => {
-			const stubOpts = sinon.stub();
+			const stubOpts = {};
 			const stubEl = "stubEL";
 
-			testTooltip = new Tooltip(stubEl, stubOpts);
+			new Tooltip(stubEl, stubOpts);
 
 			proclaim.isTrue(checkOptionsStub.calledWith(stubOpts));
 
@@ -64,6 +62,12 @@ describe("Tooltip", () => {
 			new Tooltip(stubEl);
 
 			proclaim.isTrue(checkOptionsStub.calledWith(getOptionsReturnStub));
+		});
+
+		it("calls render if opts.renderOnConstruction is set to true", () => {
+			const stubEl = "stubEL";
+			new Tooltip(stubEl, {"renderOnConstruction": true});
+			proclaim.isTrue(renderStub.called);
 		});
 	});
 
@@ -99,6 +103,14 @@ describe("Tooltip", () => {
 
 			const options = Tooltip.prototype.getOptions(el);
 			proclaim.equal(options.arrowPosition, stubPosition);
+		});
+
+		it("extracts renderOnConstruction if it's set on the el passed in", () => {
+			const el = document.createElement('div');
+			el.setAttribute('data-o-tooltip-render-on-construction', true);
+
+			const options = Tooltip.prototype.getOptions(el);
+			proclaim.isTrue(options.renderOnConstruction);
 		});
 	});
 
