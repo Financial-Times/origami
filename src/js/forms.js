@@ -13,7 +13,8 @@ class Forms {
 
 		// o-forms should only be registered against a <form>
 		// element. If not, return to prevent errors
-		if (! this.FormEl instanceof HTMLFormElement) {
+		if (!(this.FormEl instanceof HTMLFormElement)) {
+			this.destroy();
 			return;
 		}
 
@@ -26,7 +27,7 @@ class Forms {
 			// Safari reports the validity state, but doesn't
 			// prevent form submits, so this listens to submits and
 			// checks the inputs are valid before submission.
-			this.FormEl.addEventListener('submit', this.checkAllInputs.bind(this), false);
+			this.FormEl.addEventListener('submit', this.validateForm.bind(this), false);
 
 			// All other browsers will report each item invalid on
 			// submit and prevent a form submission.
@@ -37,15 +38,15 @@ class Forms {
 			return;
 		} else {
 			this.findInputs().map((input) => {
-				input.addEventListener('blur', this.checkInputValidity.bind(this), false);
+				input.addEventListener('blur', this.validateInput.bind(this), false);
 			});
 		}
 	}
 
-	checkAllInputs(event) {
+	validateForm(event) {
 		event.preventDefault();
 
-		const checkedInputs = this.findInputs(this.FormEl).map(input => this.checkInputValidity(input));
+		const checkedInputs = this.findInputs(this.FormEl).map(input => this.validateInput(input));
 
 		if (checkedInputs.includes(false)) {
 			return;
@@ -60,11 +61,7 @@ class Forms {
 		input.closest('.o-forms').classList.add('o-forms--error');
 	}
 
-	isValidFormElement() {
-		return this.validFormEls.some(element => this.FormEl instanceof element);
-	}
-
-	checkInputValidity(event) {
+	validateInput(event) {
 		const input = event.target;
 
 		if (input.checkValidity() === false) {
@@ -77,6 +74,18 @@ class Forms {
 
 	findInputs() {
 		return Array.from(this.FormEl.querySelectorAll('input, select, textarea, button, form'));
+	}
+
+	destroy() {
+		this.FormEl.removeEventListener('submit', this.validateForm.bind(this));
+		this.findInputs(this.FormEl).map(input => {
+			input.removeEventListener('invalid', this.invalidInput);
+			input.removeEventListener('blur', this.validateInput.bind(this));
+		});
+
+		this.opts = undefined;
+		this.validFormEls = undefined;
+		this.FormEl = undefined;
 	}
 
 	static init (rootEl, opts) {
