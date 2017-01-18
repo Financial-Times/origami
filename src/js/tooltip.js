@@ -27,7 +27,7 @@ class Tooltip {
 		}
 
 		if (tooltipEl.hasAttribute('data-o-tooltip-render-on-construction')){
-			opts.renderOnConstruction = true;
+			opts.renderOnConstruction = (tooltipEl.getAttribute('data-o-tooltip-render-on-construction') === 'true');
 		}
 		return opts;
 	};
@@ -56,6 +56,7 @@ class Tooltip {
 	render() {
 
 		this.tooltipEl.setAttribute('role', 'tooltip');
+		this.tooltipEl.classList.add('o-tooltip');
 
 		if (this.opts.zindex) {
 			this.tooltipEl.style.zIndex = this.opts.zindex;
@@ -63,7 +64,7 @@ class Tooltip {
 
 		// Build and append the close button
 		const button = document.createElement('a');
-		button.className = 'o-tooltip__close';
+		button.className = 'o-tooltip-close';
 		button.setAttribute('role', 'button');
 		//button.setAttribute('tabindex', '0');
 		button.setAttribute('href', '#void');
@@ -73,7 +74,7 @@ class Tooltip {
 
 		// Build and append content
 		const content = document.createElement('section');
-		content.className = 'o-tooltip__content';
+		content.className = 'o-tooltip-content';
 		this.tooltipEl.appendChild(content);
 
 		// Build arrow
