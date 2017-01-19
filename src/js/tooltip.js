@@ -1,6 +1,6 @@
 import Delegate from 'ftdomdelegate';
 import viewport from 'o-viewport';
-
+import Target from './target';
 
 class Tooltip {
 
@@ -10,24 +10,27 @@ class Tooltip {
 		this.opts = opts || this.getOptions(tooltipEl);
 		this.opts = this.checkOptions(this.opts);
 
-		this.targetEl = document.getElementById(this.opts.target);
+		this.target = new Target(document.getElementById(this.opts.target));
+		this.tooltipPosition = this.opts.position;
+
+		this.tooltipAlignment = (this.tooltipPosition == 'above' || this.tooltipPosition == 'below') ? 'vertical' : 'horizontal';
 
 		this.delegates = {
 			doc: new Delegate(),
 			tooltip: new Delegate(),
 		};
+
 		// Do you render as soon as possible?
 		if (this.opts.renderOnConstruction) {
 			this.render();
 			this.show();
 		}
-
 	};
 
 	getOptions(tooltipEl) {
 		let opts = {};
-		if (tooltipEl.hasAttribute('data-o-tooltip-arrow-position')) {
-			opts.arrowPosition = tooltipEl.getAttribute('data-o-tooltip-arrow-position');
+		if (tooltipEl.hasAttribute('data-o-tooltip-position')) {
+			opts.position = tooltipEl.getAttribute('data-o-tooltip-position');
 		}
 		if (tooltipEl.hasAttribute('data-o-tooltip-target')) {
 			opts.target = tooltipEl.getAttribute('data-o-tooltip-target');
@@ -46,14 +49,14 @@ class Tooltip {
 			Tooltip.throwError("tooltip.target is not set. An target for the tooltip to point at must be provided");
 		}
 
-		// Check that the value of arrow position is valid. Default to up.
-		if (opts.arrowPosition) {
-			const validArrowPositions = ["top", "bottom", "left", "right"];
-			if (validArrowPositions.indexOf(opts.arrowPosition) === -1) {
-				Tooltip.throwError("Invalid value for arrow position. Valid values are:" + validArrowPositions.toString() +" or nothing which will default to a value of `top`");
+		// Check that the value of tooltip position is valid. Default to below.
+		if (opts.tooltipPosition) {
+			const validTooltipPositions = ["above", "below", "left", "right"];
+			if (validTooltipPositions.indexOf(opts.tooltipPosition) === -1) {
+				Tooltip.throwError("Invalid value for tooltip position. Valid values are:" + validTooltipPositions.toString() +" or nothing which will default to a value of `below`");
 			}
 		} else {
-			opts.arrowPosition = "top";
+			opts.tooltipPosition = "below";
 		}
 
 		return opts;
@@ -85,9 +88,7 @@ class Tooltip {
 		this.tooltipEl.appendChild(content);
 
 		// Build arrow
-		if(this.opts.arrowPosition) {
-			this.tooltipEl.classList.add('o-tooltip--arrow-'+this.opts.arrowPosition);
-		}
+		this.setArrow(this.tooltipPosition);
 	};
 
 	show() {
@@ -114,14 +115,12 @@ class Tooltip {
 
 		// Calculate and position the overlay + arrow
 		this.setContainerPosition();
-		//setArrowPosition(x);
 	};
 
 	destroy() {
 	};
 
 	close(e) {
-		console.log('close');
 		e.preventDefault();
 	};
 
@@ -135,53 +134,137 @@ class Tooltip {
 	};
 
 	setContainerPosition(){
-		let arrowDepth = 10;
 
-		let targetHeight = this.targetEl.offsetHeight;
-		let targetOffsetTop = this.targetEl.offsetTop
-		let targetWidth = this.targetEl.offsetWidth;
-		let targetOffsetLeft = this.targetEl.offsetLeft;
-		let targetMiddleX = (targetWidth/2 + targetOffsetLeft);
-
+		// render the tooltip so we know how big it is
 		this.tooltipEl.style.display = 'block';
 
-		// First pass. Position the tooltip to the [top, bottom, left, right] and then centre align on other axis
-		switch (this.opts.arrowPosition) {
-			case 'top':
+		// First pass at positioning the tooltip...
+		this.positionTooltip(this.tooltipPosition);
 
-				this.tooltipEl.style.top =  arrowDepth + targetHeight + targetOffsetTop + 'px';
-				this.tooltipEl.style.left = targetMiddleX - this.tooltipEl.offsetWidth/2 + 'px';
+		// The arrow is at 'top' but there is no room under the target to render it!
+		if (this.tooltipPosition == 'below'){
+			if (this.tooltipEl.offsetTop + this.tooltipEl.offsetHeight > document.body.offsetHeight) {
+				this.setTooltipPosition('above');
+			}
+		}
+
+		// the arrow is 'bottom' but there is no room above it to render it!
+		if (this.tooltipPosition == 'above'){
+			if (this.tooltipEl.offsetTop < 0) {
+				this.setTooltipPosition('below');
+			}
+		}
+
+		// the arrow is 'left' but there is no room at the right it to render it!
+		if (this.tooltipPosition == 'right'){
+			if (this.tooltipEl.offsetLeft + this.tooltipEl.offsetWidth > document.body.offsetWidth) {
+				this.setTooltipPosition('left');
+			}
+		}
+
+		// the arrow is 'left' but there is no room at the right it to render it!
+		if (this.tooltipPosition == 'left'){
+			if (this.tooltipEl.offsetLeft < 0) {
+				this.setTooltipPosition('right');
+			}
+		}
+
+		/* Now that the box probably occupies enough space, fix the alignment of the arrow */
+
+		if (this.tooltipAlignment == 'horizontal') {
+			if (this.tooltipEl.offsetTop < 0) {
+				this.alignWithTarget('top');
+			}
+			if ((this.tooltipEl.offsetTop + this.tooltipEl.offsetHeight) > document.body.offsetHeight) {
+				this.alignWithTarget('bottom');
+			}
+		}
+
+		if (this.tooltipAlignment == 'vertical') {
+			if (this.tooltipEl.offsetLeft < 0) {
+				this.alignWithTarget('left');
+			}
+			if (this.tooltipEl.offsetLeft + this.tooltipEl.offsetwidth > document.body.offsetHeight) {
+				this.alignWithTarget('right');
+			}
+		}
+
+	};
+
+	setTooltipPosition(newPosition){
+		this.positionTooltip(newPosition);
+		this.setArrow(newPosition);
+		this.tooltipPosition = newPosition;
+	}
+
+	positionTooltip(position) {
+		let arrowDepth = 10;
+
+		switch (position) {
+			case 'below':
+				this.tooltipEl.style.top =  arrowDepth + this.target.lowerLimit + 'px';
+				this.tooltipEl.style.left = this.target.centreX - (this.tooltipEl.offsetWidth/2) + 'px';
 				break;
 
-			case 'bottom':
-				this.tooltipEl.style.top =  targetOffsetTop - (this.tooltipEl.offsetHeight + arrowDepth) + 'px';
-				this.tooltipEl.style.left = targetMiddleX - (this.tooltipEl.offsetWidth/2) + 'px';
-				break;
-
-			case 'left':
-				this.tooltipEl.style.top =  targetOffsetTop + this.tooltipEl.offsetHeight/2 + 'px';
-				this.tooltipEl.style.left = targetWidth + targetOffsetLeft + arrowDepth + 'px';
+			case 'above':
+				this.tooltipEl.style.top =  this.target.upperLimit - (this.tooltipEl.offsetHeight + arrowDepth) + 'px';
+				this.tooltipEl.style.left = this.target.centreX - (this.tooltipEl.offsetWidth/2) + 'px';
 				break;
 
 			case 'right':
-				this.tooltipEl.style.top =  targetOffsetTop + this.tooltipEl.offsetHeight/2 + 'px';
-				this.tooltipEl.style.left = targetOffsetLeft - (this.tooltipEl.offsetWidth + arrowDepth) + 'px';
+				this.tooltipEl.style.top =  this.target.upperLimit + this.tooltipEl.offsetHeight/2 + 'px';
+				this.tooltipEl.style.left = this.target.rightLimit + arrowDepth + 'px';
+				break;
+
+			case 'left':
+				this.tooltipEl.style.top =  this.target.upperLimit + this.tooltipEl.offsetHeight/2 + 'px';
+				this.tooltipEl.style.left = this.target.leftLimit - (this.tooltipEl.offsetWidth + arrowDepth) + 'px';
 				break;
 		}
-		console.log(this.tooltipEl.style.top);
-		console.log(this.tooltipEl.style.left);
-		console.log(this.tooltipEl.style.bottom);
-		console.log(this.tooltipEl.style.right);
+	}
 
-		if (this.tooltipEl.style.top < 0) {
-			this.tooltipEl.style.top = "0px";
+	setArrow(tooltipPosition) {
+		this.tooltipEl.classList.remove('o-tooltip--arrow-down');
+		this.tooltipEl.classList.remove('o-tooltip--arrow-up');
+		this.tooltipEl.classList.remove('o-tooltip--arrow-left');
+		this.tooltipEl.classList.remove('o-tooltip--arrow-right');
+
+		switch (tooltipPosition) {
+			case "above":
+				this.tooltipEl.classList.add('o-tooltip--arrow-down');
+				break;
+			case "below":
+				this.tooltipEl.classList.add('o-tooltip--arrow-up');
+				break;
+			case "left":
+				this.tooltipEl.classList.add('o-tooltip--arrow-right');
+				break;
+			case "right":
+				this.tooltipEl.classList.add('o-tooltip--arrow-left');
+				break;
 		}
+	}
 
-		// this might have made our tooltip be offscreen!
-		// if this is the case, try and redraw with a different arrow position
-
-
-	};
+	alignWithTarget(alignment) {
+		switch (alignment) {
+			case "top":
+				this.tooltipEl.style.top = this.target.upperLimit +'px';
+				this.tooltipEl.classList.add('extreme--top');
+				break;
+			case "bottom":
+				this.tooltipEl.style.top = this.target.lowerlimit +'px';
+				this.tooltipEl.classList.add('extreme--bottom');
+				break;
+			case "left":
+				this.tooltipEl.style.left = this.target.leftLimit +'px';
+				this.tooltipEl.classList.add('extreme--left');
+				break;
+			case "right":
+				this.tooltipEl.style.left = this.target.rightlimit +'px';
+				this.tooltipEl.classList.add('extreme--right');
+				break;
+		}
+	}
 
 	static throwError(message) {
 		throw new Error('"o-tooltip error": '+ message);

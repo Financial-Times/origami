@@ -7,7 +7,7 @@
 @mixin oTooltip {
 	@include oOverlay();
 	@include oEffectsShadowsElevation($elevation: 'high');
-
+	position: absolute;
 	display: none;
 }
 
@@ -50,6 +50,16 @@
 /// @param {Number} size [10px] - Size of arrow
 @mixin _oTooltipVerticalArrow($size: 10px) {
 	@include _oTooltipArrow;
+
+	&.extreme--left:before,
+	&.extreme--left:after {
+		left: 10%;
+	}
+
+	&.extreme--right:before,
+	&.extreme--right:after {
+		left: 90%;
+	}
 
 	&:before,
 	&:after {
@@ -110,6 +120,17 @@
 @mixin _oTooltipHorizontalArrow($size: 10px) {
 	@include _oTooltipArrow;
 
+	&.extreme--left:before,
+	&.extreme--left:after {
+		left: 10%;
+	}
+
+	&.extreme--right:before,
+	&.extreme--right:after {
+		left: 90%;
+	}
+
+
 	&:before,
 	&:after {
 		top: 50%;
@@ -160,6 +181,7 @@
 		border-left-color: oColorsGetColorFor(o-overlay, background);
 	}
 }
+
 
 @mixin oTooltipClose {
 	@include oOverlayClose;
