@@ -2,7 +2,6 @@ class Forms {
 
 	constructor (FormEl, opts) {
 		this.FormEl = FormEl;
-		this.opts = opts || { testEvent: "blur" };
 		this.validFormEls = [
 			HTMLFormElement,
 			HTMLInputElement,
@@ -10,6 +9,14 @@ class Forms {
 			HTMLButtonElement,
 			HTMLTextAreaElement
 		];
+
+		const declaredTestEvent = this.FormEl.getAttribute('data-o-forms-test-event');
+
+		if (declaredTestEvent) {
+			opts = { testEvent: declaredTestEvent };
+		}
+
+		this.opts = opts || { testEvent: "blur" };
 
 		// o-forms should only be registered against a <form>
 		// element. If not, return to prevent errors
