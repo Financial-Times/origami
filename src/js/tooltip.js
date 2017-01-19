@@ -104,8 +104,8 @@ class Tooltip {
 		this.delegates.doc.on('click', 'body', this.closeOnExternalClickHandler);
 		this.delegates.doc.on('touchend', 'body', this.closeOnExternalClickHandler);
 
-		this.closeOnEscapePressHandler = this.closeOnEscapePress.bind(this);
-		this.delegates.doc.on('keyup', this.closeOnEscapePressHandler);
+		this.closeOnKeyUpHandler = this.closeOnKeyUp.bind(this);
+		this.delegates.doc.on('keyup', this.closeOnKeyUpHandler);
 
 
 		// Calculate and position the overlay + arrow
@@ -114,13 +114,15 @@ class Tooltip {
 	destroy() {
 	};
 
-	close() {
+	close(e) {
+		console.log('close');
+		e.preventDefault();
 	}
 
 	closeOnExternalClick() {
 	}
 
-	closeOnEscapePress() {
+	closeOnKeyUp() {
 	}
 
 	resizeListener() {
