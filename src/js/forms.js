@@ -39,13 +39,13 @@ class Forms {
 			// All other browsers will report each item invalid on
 			// submit and prevent a form submission.
 			this.findInputs(this.FormEl).map(input => {
-				input.addEventListener('invalid', this.invalidInput, false);
+				input.addEventListener('invalid', this.handleInvalidEvent.bind(this), false);
 			});
 
 			return;
 		} else {
 			this.findInputs().map((input) => {
-				input.addEventListener('blur', this.validateInput.bind(this), false);
+				input.addEventListener('blur', this.handleBlurEvent.bind(this), false);
 			});
 		}
 	}
@@ -55,7 +55,7 @@ class Forms {
 
 		const checkedInputs = this.findInputs(this.FormEl).map(input => this.validateInput(input));
 
-		if (checkedInputs.includes(false)) {
+		if (checkedInputs.some((val) => val === false)) {
 			return;
 		}
 
@@ -63,16 +63,25 @@ class Forms {
 		event.target.submit();
 	}
 
-	invalidInput(event) {
-		const input = event.target;
+	invalidInput(input) {
 		input.closest('.o-forms').classList.add('o-forms--error');
 	}
 
-	validateInput(event) {
+	handleInvalidEvent(event) {
 		const input = event.target;
 
+		this.invalidInput(input);
+	}
+
+	handleBlurEvent(event) {
+		const input = event.target;
+
+		this.validateInput(input);
+	}
+
+	validateInput(input) {
 		if (input.checkValidity() === false) {
-			this.invalidInput(event);
+			this.invalidInput(input);
 			return false;
 		}
 
