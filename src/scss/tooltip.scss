@@ -7,6 +7,8 @@
 @mixin oTooltip {
 	@include oOverlay();
 	@include oEffectsShadowsElevation($elevation: 'high');
+
+	display: none;
 }
 
 /// Base tooltip content style. Inherits from oOverlay.
@@ -106,7 +108,7 @@
 ///
 /// @param {Number} size [10px] - Size of arrow
 @mixin _oTooltipHorizontalArrow($size: 10px) {
-	@include _oTooltipVerticalArrow;
+	@include _oTooltipArrow;
 
 	&:before,
 	&:after {

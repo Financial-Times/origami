@@ -12,8 +12,18 @@ body {
 }
 
 .demo-tooltip-container {
-	border: 1px solid black;
+	border: 1px dotted black;
 	height: 100px;
 	width: 200px;
 	display: inline-block;
+	margin: 30px;
+}
+
+.demo-tooltip-target {
+	border: 1px solid hotpink;
+	width: 50px;
+}
+
+[data-o-component="o-tooltip"] {
+	display: none;
 }

@@ -5,9 +5,13 @@ import viewport from 'o-viewport';
 class Tooltip {
 
 	constructor (tooltipEl, opts) {
-		this.opts = opts || this.getOptions(tooltipEl);
 		this.tooltipEl = tooltipEl;
+
+		this.opts = opts || this.getOptions(tooltipEl);
 		this.opts = this.checkOptions(this.opts);
+
+		this.targetEl = document.getElementById(this.opts.target);
+
 		this.delegates = {
 			doc: new Delegate(),
 			tooltip: new Delegate(),
@@ -109,6 +113,8 @@ class Tooltip {
 
 
 		// Calculate and position the overlay + arrow
+		this.setContainerPosition();
+		//setArrowPosition(x);
 	};
 
 	destroy() {
@@ -117,16 +123,57 @@ class Tooltip {
 	close(e) {
 		console.log('close');
 		e.preventDefault();
-	}
+	};
 
 	closeOnExternalClick() {
-	}
+	};
 
 	closeOnKeyUp() {
-	}
+	};
 
 	resizeListener() {
-	}
+	};
+
+	setContainerPosition(){
+		let arrowDepth = 10;
+
+		let targetHeight = this.targetEl.offsetHeight;
+		let targetOffsetTop = this.targetEl.offsetTop
+		let targetWidth = this.targetEl.offsetWidth;
+		let targetOffsetLeft = this.targetEl.offsetLeft;
+		let targetMiddleX = (targetWidth/2 + targetOffsetLeft);
+
+
+		this.tooltipEl.style.display = 'block';
+
+		switch (this.opts.arrowPosition) {
+			case 'top':
+
+				this.tooltipEl.style.top =  arrowDepth + targetHeight + targetOffsetTop + 'px';
+				this.tooltipEl.style.left = targetMiddleX - this.tooltipEl.offsetWidth/2 + 'px';
+				break;
+
+			case 'bottom':
+				this.tooltipEl.style.top =  targetOffsetTop - (this.tooltipEl.offsetHeight + arrowDepth) + 'px';
+				this.tooltipEl.style.left = targetMiddleX - (this.tooltipEl.offsetWidth/2) + 'px';
+				break;
+
+			case 'left':
+				this.tooltipEl.style.top =  targetOffsetTop + this.tooltipEl.offsetHeight/2 + 'px';
+				this.tooltipEl.style.left = targetWidth + targetOffsetLeft + arrowDepth + 'px';
+				break;
+
+			case 'right':
+				this.tooltipEl.style.top =  targetOffsetTop + this.tooltipEl.offsetHeight/2 + 'px';
+				this.tooltipEl.style.left = targetOffsetLeft - (this.tooltipEl.offsetWidth + arrowDepth) + 'px';
+				break;
+		}
+
+
+
+		// Calculate y
+
+	};
 
 	static throwError(message) {
 		throw new Error('"o-tooltip error": '+ message);
