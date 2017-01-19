@@ -143,9 +143,9 @@ class Tooltip {
 		let targetOffsetLeft = this.targetEl.offsetLeft;
 		let targetMiddleX = (targetWidth/2 + targetOffsetLeft);
 
-
 		this.tooltipEl.style.display = 'block';
 
+		// First pass. Position the tooltip to the [top, bottom, left, right] and then centre align on other axis
 		switch (this.opts.arrowPosition) {
 			case 'top':
 
@@ -168,10 +168,18 @@ class Tooltip {
 				this.tooltipEl.style.left = targetOffsetLeft - (this.tooltipEl.offsetWidth + arrowDepth) + 'px';
 				break;
 		}
+		console.log(this.tooltipEl.style.top);
+		console.log(this.tooltipEl.style.left);
+		console.log(this.tooltipEl.style.bottom);
+		console.log(this.tooltipEl.style.right);
 
+		if (this.tooltipEl.style.top < 0) {
+			this.tooltipEl.style.top = "0px";
+		}
 
+		// this might have made our tooltip be offscreen!
+		// if this is the case, try and redraw with a different arrow position
 
-		// Calculate y
 
 	};
 
