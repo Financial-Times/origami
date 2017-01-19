@@ -1,4 +1,5 @@
 /* eslint-env mocha, sinon, proclaim */
+
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
@@ -21,7 +22,7 @@ describe("Forms", () => {
 		proclaim.equal(testForms.opts.testEvent, 'blur');
 	});
 
-	it('sets testEvent to correct options when constructed with options', () => {
+	it('sets testEvent to correct options when constructed manually', () => {
 		fixtures.htmlCode();
 
 		const formEl = document.querySelector('[data-o-component="o-forms"]');
@@ -39,6 +40,49 @@ describe("Forms", () => {
 		const testForms = new Forms(formEl);
 
 		proclaim.equal(testForms.opts.testEvent, 'submit');
+	});
+
+	describe("handles invalid element", () => {
+		it('adds the error class to the form when an input is invalid on blur', () => {
+			fixtures.htmlCode();
+
+			const formEl = document.querySelector('[data-o-component="o-forms"]');
+			const testForms = new Forms(formEl);
+
+			const input = document.querySelector('#required-input');
+			const oFormsEl = input.closest('.o-forms');
+
+			proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
+
+			input.focus();
+			input.value = '';
+			input.blur();
+
+			proclaim.isTrue(oFormsEl.classList.contains('o-forms--error'));
+		});
+
+		it('adds the error class to the form when an input is invalid on submit', (done) => {
+			fixtures.htmlCode();
+
+			const formEl = document.querySelector('[data-o-component="o-forms"]');
+			const testForms = new Forms(formEl, {testEvent: 'submit'});
+
+			const input = document.querySelector('#required-input');
+			const oFormsEl = input.closest('.o-forms');
+
+			const submitButton = document.querySelector('input[type="submit"]');
+
+			proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
+
+			formEl.addEventListener('submit', (event) => {
+				event.preventDefault();
+
+				proclaim.isTrue(oFormsEl.classList.contains('o-forms--error'));
+				done();
+			}, false);
+
+			submitButton.click();
+		});
 	});
 
 	describe("destroy method", () => {

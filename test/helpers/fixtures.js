@@ -21,17 +21,18 @@ function insert(html) {
 
 function htmlCode () {
 	const html = `<div>
-		<h1>Basic Demo</h1>
 		<form data-o-component="o-forms" id="element">
 			<div class="o-forms">
 				<label for="o-forms-standard" class="o-forms__label">Text input</label>
-				<input type="text" id="o-forms-standard" placeholder="placeholder" class="o-forms__text" />
+				<input type="text" id="required-input" placeholder="placeholder" class="o-forms__text" required />
 			</div>
 
 			<div class="o-forms">
 				<label for="o-forms-standard" class="o-forms__label">Text input</label>
-				<input type="email" id="o-forms-standard" placeholder="placeholder" class="o-forms__text" />
+				<input type="email" id="standard-input" placeholder="placeholder" class="o-forms__text" />
 			</div>
+
+			<input type="submit">
 		</form>
 	</div>
 	`;
