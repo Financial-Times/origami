@@ -19,7 +19,6 @@ function insert(html) {
 	sandboxEl.innerHTML = html;
 }
 
-
 function htmlCode () {
 	const html = `<div>
 		<h1>Basic Demo</h1>
