@@ -7,12 +7,6 @@ import * as fixtures from './helpers/fixtures';
 const Forms = require('./../main');
 
 describe("Forms", () => {
-	// beforeEach(() => {
-	// });
-
-	// afterEach(() => {
-	// });
-
 	describe("configuration", () => {
 		it('sets default testEvent to blur', () => {
 			fixtures.htmlCode();
@@ -59,14 +53,14 @@ describe("Forms", () => {
 		});
 
 		afterEach(() => {
-			fixtures.reset();
-
 			formEl.removeEventListener('submit');
 			formEl = undefined;
 
+			oFormsEl = undefined;
 			input = undefined;
-			oFormsEl = input.closest('.o-forms');
 			testForms = undefined;
+
+			fixtures.reset();
 		});
 
 		it('adds the error class to the form when an input is invalid on blur', () => {
@@ -138,6 +132,23 @@ describe("Forms", () => {
 			const inputEls = testForms.findInputs();
 
 			proclaim.lengthEquals(inputEls, 7);
+		});
+
+		it('adds a class to the ancestor o-forms element', () => {
+			const html = `<div class="o-forms"><input type="text" /></div>`;
+			fixtures.insert(html);
+
+			const formEl = document.createElement('div');
+			formEl.setAttribute('data-o-component', 'o-forms');
+
+			const testForms = new Forms(formEl);
+			const input = document.querySelector('input');
+			const oFormsEl = input.closest('.o-forms');
+
+			proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
+
+			testForms.invalidInput(input);
+			proclaim.isTrue(oFormsEl.classList.contains('o-forms--error'));
 		});
 	});
 
