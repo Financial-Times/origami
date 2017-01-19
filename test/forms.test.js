@@ -13,44 +13,64 @@ describe("Forms", () => {
 	// afterEach(() => {
 	// });
 
-	it('sets default testEvent to blur', () => {
-		fixtures.htmlCode();
-
-		const formEl = document.querySelector('[data-o-component="o-forms"]');
-		const testForms = new Forms(formEl);
-
-		proclaim.equal(testForms.opts.testEvent, 'blur');
-	});
-
-	it('sets testEvent to correct options when constructed manually', () => {
-		fixtures.htmlCode();
-
-		const formEl = document.querySelector('[data-o-component="o-forms"]');
-		const opts = { testEvent: 'submit' };
-		const testForms = new Forms(formEl, opts);
-
-		proclaim.equal(testForms.opts.testEvent, 'submit');
-	});
-
-	it('sets testEvent to correct options when constructed from data attr', () => {
-		const html = `<form data-o-component="o-forms" data-o-forms-test-event="submit"><input type="text" /></form>`;
-		fixtures.insert(html);
-
-		const formEl = document.querySelector('[data-o-component="o-forms"]');
-		const testForms = new Forms(formEl);
-
-		proclaim.equal(testForms.opts.testEvent, 'submit');
-	});
-
-	describe("handles invalid element", () => {
-		it('adds the error class to the form when an input is invalid on blur', () => {
+	describe("configuration", () => {
+		it('sets default testEvent to blur', () => {
 			fixtures.htmlCode();
 
 			const formEl = document.querySelector('[data-o-component="o-forms"]');
 			const testForms = new Forms(formEl);
 
-			const input = document.querySelector('#required-input');
-			const oFormsEl = input.closest('.o-forms');
+			proclaim.equal(testForms.opts.testEvent, 'blur');
+		});
+
+		it('sets testEvent to correct options when constructed manually', () => {
+			fixtures.htmlCode();
+
+			const formEl = document.querySelector('[data-o-component="o-forms"]');
+			const opts = { testEvent: 'submit' };
+			const testForms = new Forms(formEl, opts);
+
+			proclaim.equal(testForms.opts.testEvent, 'submit');
+		});
+
+		it('sets testEvent to correct options when constructed from data attr', () => {
+			const html = `<form data-o-component="o-forms" data-o-forms-test-event="submit"><input type="text" /></form>`;
+			fixtures.insert(html);
+
+			const formEl = document.querySelector('[data-o-component="o-forms"]');
+			const testForms = new Forms(formEl);
+
+			proclaim.equal(testForms.opts.testEvent, 'submit');
+		});
+	});
+
+	describe("handles inputs", () => {
+		let formEl;
+		let testForms;
+		let input;
+		let oFormsEl;
+
+		beforeEach(() => {
+			fixtures.htmlCode();
+			formEl = document.querySelector('[data-o-component="o-forms"]');
+
+			input = document.querySelector('#required-input');
+			oFormsEl = input.closest('.o-forms');
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+
+			formEl.removeEventListener('submit');
+			formEl = undefined;
+
+			input = undefined;
+			oFormsEl = input.closest('.o-forms');
+			testForms = undefined;
+		});
+
+		it('adds the error class to the form when an input is invalid on blur', () => {
+			testForms = new Forms(formEl);
 
 			proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
 
@@ -62,15 +82,8 @@ describe("Forms", () => {
 		});
 
 		it('adds the error class to the form when an input is invalid on submit', (done) => {
-			fixtures.htmlCode();
-
-			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			const testForms = new Forms(formEl, {testEvent: 'submit'});
-
-			const input = document.querySelector('#required-input');
-			const oFormsEl = input.closest('.o-forms');
-
 			const submitButton = document.querySelector('input[type="submit"]');
+			testForms = new Forms(formEl, { testEvent: 'submit' });
 
 			proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
 
@@ -82,6 +95,49 @@ describe("Forms", () => {
 			}, false);
 
 			submitButton.click();
+		});
+
+		describe("handles valid inputs", () => {
+			beforeEach(() => {
+				testForms = new Forms(formEl);
+			});
+
+			it('submits form when inputs are valid', (done) => {
+				const submitButton = document.querySelector('input[type="submit"]');
+
+				oFormsEl.value = 'some input';
+
+				formEl.addEventListener('submit', (event) => {
+					event.preventDefault();
+
+					done();
+				}, false);
+
+				submitButton.click();
+			});
+
+			it('removes error class when input is valid', () => {
+				oFormsEl.classList.add('o-forms--error');
+
+				input.focus();
+				input.value = 'some input';
+				input.blur();
+
+				proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
+			});
+		});
+	});
+
+	describe("methods", () => {
+		it('selects all form control elements in a form', () => {
+			fixtures.allInputsHtmlCode();
+
+			const formEl = document.querySelector('[data-o-component="o-forms"]');
+			const testForms = new Forms(formEl);
+
+			const inputEls = testForms.findInputs();
+
+			proclaim.lengthEquals(inputEls, 7);
 		});
 	});
 

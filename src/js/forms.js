@@ -63,6 +63,21 @@ class Forms {
 		event.target.submit();
 	}
 
+	validateInput(input) {
+		if (input.checkValidity() === false) {
+			this.invalidInput(input);
+			return false;
+		}
+
+		const oFormsEl = input.closest('.o-forms');
+
+		if ((oFormsEl instanceof HTMLElement) && oFormsEl.classList.contains('o-forms--error')) {
+			oFormsEl.classList.remove('o-forms--error');
+		}
+
+		return true;
+	}
+
 	invalidInput(input) {
 		input.closest('.o-forms').classList.add('o-forms--error');
 	}
@@ -79,24 +94,15 @@ class Forms {
 		this.validateInput(input);
 	}
 
-	validateInput(input) {
-		if (input.checkValidity() === false) {
-			this.invalidInput(input);
-			return false;
-		}
-
-		return true;
-	}
-
 	findInputs() {
-		return Array.from(this.FormEl.querySelectorAll('input, select, textarea, button, form'));
+		return Array.from(this.FormEl.querySelectorAll('input, select, textarea, button'));
 	}
 
 	destroy() {
 		this.FormEl.removeEventListener('submit', this.validateForm.bind(this));
 		this.findInputs(this.FormEl).map(input => {
-			input.removeEventListener('invalid', this.invalidInput);
-			input.removeEventListener('blur', this.validateInput.bind(this));
+			input.removeEventListener('invalid', this.handleInvalidEvent.bind(this));
+			input.removeEventListener('blur', this.handleBlurEvent.bind(this));
 		});
 
 		this.opts = undefined;

@@ -39,8 +39,28 @@ function htmlCode () {
 	insert(html);
 }
 
+function allInputsHtmlCode () {
+	const html = `<div>
+		<form data-o-component="o-forms" id="element">
+			<input type="text" id="required-input" placeholder="placeholder" class="o-forms__text" required />
+			<input type="email" id="standard-input" placeholder="placeholder" class="o-forms__text" />
+			<select class="o-forms__select">
+				<option>test</option>
+			</select>
+			<input type="checkbox">
+			<textarea></textarea>
+			<button>Reset</button>
+
+			<input type="submit">
+		</form>
+	</div>
+	`;
+	insert(html);
+}
+
 export {
 	insert,
 	htmlCode,
+	allInputsHtmlCode,
 	reset
  };
