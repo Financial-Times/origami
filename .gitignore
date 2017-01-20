@@ -2,9 +2,11 @@
 .sass-cache/
 bower_components/
 build/
+coverage/
 demos/local/
 node_modules/
 /bin
 /.classpath
 /.project
 .DS_Store
+
