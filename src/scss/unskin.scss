@@ -1,7 +1,7 @@
 /// Unskin a field entirely, but keep its structure intact
 @mixin oFormsUnskin($class: 'o-forms') {
 	.#{$class}--unskin {
-		// scss-lint:disable ImportantRule
+		// sass-lint:disable no-vendor-prefixes no-important
 		-moz-appearance: none !important;
 		-webkit-appearance: none !important;
 		border: 0 !important;
@@ -14,6 +14,7 @@
 		-webkit-text-fill-color: oColorsGetPaletteColor('grey-tint5') !important;
 		opacity: 1 !important;
 		border-radius: 0 !important;
+		// sass-lint:disable no-vendor-prefixes no-important
 	}
 }
 
