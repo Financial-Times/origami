@@ -199,26 +199,25 @@ class Tooltip {
 
 	positionTooltip(position) {
 		let arrowDepth = 10;
-
 		switch (position) {
 			case 'below':
-				this.tooltipEl.style.top =  arrowDepth + this.target.lowerLimit + 'px';
-				this.tooltipEl.style.left = this.target.centreX - (this.tooltipEl.offsetWidth/2) + 'px';
+				this.tooltipEl.style.top =  arrowDepth + this.target.bottom + 'px';
+				this.tooltipEl.style.left = this.target.centrePoint.x - (this.tooltipEl.offsetWidth/2) + 'px';
 				break;
 
 			case 'above':
-				this.tooltipEl.style.top =  this.target.upperLimit - (this.tooltipEl.offsetHeight + arrowDepth) + 'px';
-				this.tooltipEl.style.left = this.target.centreX - (this.tooltipEl.offsetWidth/2) + 'px';
+				this.tooltipEl.style.top =  this.target.top - (this.tooltipEl.offsetHeight + arrowDepth) + 'px';
+				this.tooltipEl.style.left = this.target.centrePoint.x - (this.tooltipEl.offsetWidth/2) + 'px';
 				break;
 
 			case 'right':
-				this.tooltipEl.style.top =  this.target.upperLimit + this.tooltipEl.offsetHeight/2 + 'px';
-				this.tooltipEl.style.left = this.target.rightLimit + arrowDepth + 'px';
+				this.tooltipEl.style.top =  this.target.centrePoint.y - this.tooltipEl.offsetHeight/2 + 'px';
+				this.tooltipEl.style.left = this.target.right + arrowDepth + 'px';
 				break;
 
 			case 'left':
-				this.tooltipEl.style.top =  this.target.upperLimit + this.tooltipEl.offsetHeight/2 + 'px';
-				this.tooltipEl.style.left = this.target.leftLimit - (this.tooltipEl.offsetWidth + arrowDepth) + 'px';
+				this.tooltipEl.style.top =  this.target.centrePoint.y - this.tooltipEl.offsetHeight/2 + 'px';
+				this.tooltipEl.style.left = this.target.left - (this.tooltipEl.offsetWidth + arrowDepth) + 'px';
 				break;
 		}
 	}
@@ -248,19 +247,19 @@ class Tooltip {
 	alignWithTarget(alignment) {
 		switch (alignment) {
 			case "top":
-				this.tooltipEl.style.top = this.target.upperLimit +'px';
+				this.tooltipEl.style.top = this.target.top +'px';
 				this.tooltipEl.classList.add('extreme--top');
 				break;
 			case "bottom":
-				this.tooltipEl.style.top = this.target.lowerlimit +'px';
+				this.tooltipEl.style.top = this.target.bottom +'px';
 				this.tooltipEl.classList.add('extreme--bottom');
 				break;
 			case "left":
-				this.tooltipEl.style.left = this.target.leftLimit +'px';
+				this.tooltipEl.style.left = this.target.left +'px';
 				this.tooltipEl.classList.add('extreme--left');
 				break;
 			case "right":
-				this.tooltipEl.style.left = this.target.rightlimit +'px';
+				this.tooltipEl.style.left = this.target.right +'px';
 				this.tooltipEl.classList.add('extreme--right');
 				break;
 		}

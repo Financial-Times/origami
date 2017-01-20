@@ -2,30 +2,35 @@ class Target {
 
 	constructor(targetEl) {
 		this.targetEl = targetEl;
+		this.rectObject = targetEl.getBoundingClientRect();
 	}
 
-	get leftLimit() {
-		return this.targetEl.offsetLeft;
+	get left() {
+		return this.rectObject.left;
 	}
 
-	get rightLimit() {
-		return this.targetEl.offsetLeft + this.targetEl.offsetWidth;
+	get right() {
+		return this.rectObject.right;
 	}
 
-	get upperLimit() {
-		return this.targetEl.offsetTop;
+	get top() {
+		return this.rectObject.top;
 	}
 
-	get lowerLimit() {
-		return this.targetEl.offsetTop + this.targetEl.offsetHeight;
+	get bottom() {
+		return this.rectObject.bottom;
 	}
 
-	get centreX(){
-		return this.leftLimit + (this.targetEl.offsetWidth/2);
+	get width() {
+		return this.rectObject.width;
 	}
 
-	get centreY(){
-		return this.topLimit + (this.targetEl.offsetHeight/2);
+	get height() {
+		return this.rectObject.height;
+	}
+
+	get centrePoint(){
+		return { x: this.left + (this.width/2), y: this.top + (this.height/2)};
 	}
 }
 
