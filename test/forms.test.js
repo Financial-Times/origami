@@ -162,6 +162,22 @@ describe("Forms", () => {
 			proclaim.lengthEquals(inputEls, 7);
 		});
 
+		it('validate forms method', () => {
+			const html = `<div data-o-component="o-forms" class="o-forms o-forms--error"><input type="text" /></div>`;
+			fixtures.insert(html);
+
+			const formEl = document.querySelector('[data-o-component="o-forms"]');
+			const testForms = new Forms(formEl);
+
+			const input = document.querySelector('input');
+
+			const validateResult = testForms.validateInput(input);
+
+			proclaim.isTrue(validateResult);
+
+			proclaim.isFalse(formEl.classList.contains('o-forms--error'));
+		});
+
 		it('adds a class to the ancestor o-forms element', () => {
 			const html = `<div class="o-forms"><input type="text" /></div>`;
 			fixtures.insert(html);
