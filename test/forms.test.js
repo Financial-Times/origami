@@ -165,5 +165,39 @@ describe("Forms", () => {
 			proclaim.isUndefined(testForms.validFormEls);
 		});
 
+		it("removes the event listeners from the FormEl on submit", () => {
+			fixtures.htmlCode();
+
+			const formEl = document.querySelector('[data-o-component="o-forms"]');
+			const testForms = new Forms(formEl);
+
+			let elSpy = sinon.spy(formEl, 'removeEventListener');
+			testForms.destroy();
+
+			proclaim.isTrue(elSpy.calledOnce);
+		});
+
+		it("removes the event listeners from the FormEl inputs", (done) => {
+			fixtures.htmlCode();
+
+			const formEl = document.querySelector('[data-o-component="o-forms"]');
+			const testForms = new Forms(formEl);
+
+			const spys = [];
+			const inputs = Array.from(formEl.querySelectorAll('input, select, textarea, button'));
+
+			inputs.map((input) => {
+				spys.push(sinon.spy(input, 'removeEventListener'));
+			});
+
+			testForms.destroy();
+
+			spys.map((spy) => {
+				proclaim.isTrue(spy.calledTwice);
+			});
+
+			done();
+		});
+
 	});
 });
