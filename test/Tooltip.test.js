@@ -223,7 +223,6 @@ describe("Tooltip", () => {
 	});
 
 	describe("show", () => {
-		let testTooltip;
 		let checkOptionsStub;
 		let getOptionsStub;
 		beforeEach(() => {
@@ -240,12 +239,11 @@ describe("Tooltip", () => {
 
 		it('sets up a touchend and click handler for the body', () => {
 			const closeOnExternalClickSpy = sinon.spy(Tooltip.prototype, 'closeOnExternalClick');
-			const tooltipEl = document.getElementById('tooltip-demo');
-			const testTooltip = new Tooltip('#tooltip-demo');
+			let testTooltip = new Tooltip('#tooltip-demo');
 
 			document.body.click();
 
-			var e = new Event('touchend');
+			const e = new Event('touchend');
 			document.body.dispatchEvent(e);
 
 			proclaim.isFalse(closeOnExternalClickSpy.called);
@@ -267,7 +265,7 @@ describe("Tooltip", () => {
 
 			tooltipCloseEl.click();
 
-			var e = new Event('touchend');
+			const e = new Event('touchend');
 			tooltipCloseEl.dispatchEvent(e);
 
 			proclaim.isFalse(closeSpy.called);
@@ -290,7 +288,7 @@ describe("Tooltip", () => {
 
 			testTooltip.render();
 
-			var resizeEvent = new Event('oViewport.resize');
+			const resizeEvent = new Event('oViewport.resize');
 			document.body.dispatchEvent(resizeEvent);
 
 			proclaim.isFalse(resizeSpy.called);
@@ -309,7 +307,7 @@ describe("Tooltip", () => {
 
 			testTooltip.render();
 
-			var keyEvent = new Event('keyup');
+			const keyEvent = new Event('keyup');
 			document.body.dispatchEvent(keyEvent);
 
 			proclaim.isFalse(keyUpListenerSpy.called);
