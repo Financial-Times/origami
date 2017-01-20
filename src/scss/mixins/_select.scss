@@ -7,10 +7,10 @@
 	color: oColorsGetPaletteColor('grey-tint5');
 	background-image: url(str-replace("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrows-up-down?source=o-icons&tint=%23#{$icon-color}&format=svg", "#", ""));
 	// For iOS 6 that doesn't support 4-value background-position
-	// scss-lint:disable DuplicateProperty
+	// sass-lint:disable no-duplicate-properties
 	background-position: right center;
 	background-position: $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-leftright center;
-	// scss-lint:enable DuplicateProperty
+	// sass-lint:enable no-duplicate-properties
 	background-repeat: no-repeat;
 	background-origin: border-box;
 	background-size: $_o-forms__select-iconsize;
@@ -27,20 +27,22 @@
 	// In old IE, since we can't hide the stock browser arrow, we'll just keep it:
 	// 1. Remove additional padding
 	// 2. Remove the custom arrow
-	// scss-lint:disable DuplicateProperty
+	// sass-lint:disable no-duplicate-properties
 	padding-right: #{$_o-forms-field-default-padding-leftright}\9; // [1]
 	background-image: none\9; // [2]
-	// scss-lint:enable DuplicateProperty
+	// sass-lint:enable no-duplicate-properties
 
 	// Hide stock browser select arrow in Firefox
 	text-indent: 0.01px;
 	text-overflow: '';
 
 	// Hide stock browser arrow in IE 10+
+	// sass-lint:disable no-vendor-prefixes
 	&::-ms-expand {
 		display: none;
 		color: oColorsGetPaletteColor('white');
 	}
+	// sass-lint:enable no-vendor-prefixes
 }
 
 @mixin oFormsSelectMulti() {

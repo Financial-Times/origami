@@ -6,8 +6,6 @@
 /// Common field styles
 @mixin oFormsCommonFieldBase {
 	box-sizing: border-box;
-	-moz-appearance: none;
-	-webkit-appearance: none;
 	width: 100%;
 	max-width: $_o-forms-field-max-width;
 	height: $_o-forms-field-default-height;
@@ -23,9 +21,15 @@
 	outline: none;
 	transition: 0.15s box-shadow ease-in;
 
+	// sass-lint:disable no-vendor-prefixes
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	// sass-lint:enable no-vendor-prefixes
+
 	&:focus {
 		@include oFormsCommonFieldFocus;
 	}
+
 	&:disabled {
 		@include oFormsCommonFieldDisabled;
 	}
@@ -67,10 +71,12 @@
 	padding: 0;
 	border: 0;
 
+	// sass-lint:disable mixins-before-declarations
 	@include _oFormsBreakpoint {
 		padding-right: $_o-forms-padding;
 		padding-left: $_o-forms-padding;
 	}
+	// sass-lint:enable mixins-before-declarations
 
 	&--wide {
 		@include oFormsFullWidth;
@@ -80,7 +86,9 @@
 /// All the field to extend to the full width
 /// of the container
 @mixin oFormsFullWidth() {
+	// sass-lint:disable no-important
 	max-width: none !important;
+	// sass-lint:enable no-important
 }
 
 /// Target styles at Internet Explorer 8 only
