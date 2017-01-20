@@ -8,11 +8,18 @@ const Forms = require('./../main');
 
 describe("Forms", () => {
 	describe("configuration", () => {
+		let testForms;
+
+		afterEach(() => {
+			fixtures.reset();
+			testForms.destroy();
+		});
+
 		it('sets default testEvent to blur', () => {
 			fixtures.htmlCode();
 
 			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			const testForms = new Forms(formEl);
+			testForms = new Forms(formEl);
 
 			proclaim.equal(testForms.opts.testEvent, 'blur');
 		});
@@ -25,7 +32,7 @@ describe("Forms", () => {
 			const input = formEl.querySelector('input');
 			const inputSpy = sinon.spy(input, 'addEventListener');
 
-			const testForms = new Forms(formEl);
+			testForms = new Forms(formEl);
 
 			proclaim.isTrue(inputSpy.calledOnce);
 		});
@@ -35,7 +42,7 @@ describe("Forms", () => {
 
 			const formEl = document.querySelector('[data-o-component="o-forms"]');
 			const opts = { testEvent: 'submit' };
-			const testForms = new Forms(formEl, opts);
+			testForms = new Forms(formEl, opts);
 
 			proclaim.equal(testForms.opts.testEvent, 'submit');
 		});
@@ -45,7 +52,7 @@ describe("Forms", () => {
 			fixtures.insert(html);
 
 			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			const testForms = new Forms(formEl);
+			testForms = new Forms(formEl);
 
 			proclaim.equal(testForms.opts.testEvent, 'submit');
 		});
@@ -59,7 +66,7 @@ describe("Forms", () => {
 			const input = formEl.querySelector('input');
 			const inputSpy = sinon.spy(input, 'addEventListener');
 
-			const testForms = new Forms(formEl);
+			testForms = new Forms(formEl);
 
 			proclaim.isTrue(inputSpy.calledOnce);
 			proclaim.isTrue(formSpy.calledOnce);
@@ -68,9 +75,9 @@ describe("Forms", () => {
 
 	describe("handles inputs", () => {
 		let formEl;
-		let testForms;
 		let input;
 		let oFormsEl;
+		let testForms;
 
 		beforeEach(() => {
 			fixtures.htmlCode();
@@ -86,7 +93,7 @@ describe("Forms", () => {
 
 			oFormsEl = undefined;
 			input = undefined;
-			testForms = undefined;
+			testForms.destroy();
 
 			fixtures.reset();
 		});
