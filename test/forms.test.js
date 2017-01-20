@@ -17,6 +17,19 @@ describe("Forms", () => {
 			proclaim.equal(testForms.opts.testEvent, 'blur');
 		});
 
+		it('adds correct event listeners to form and inputs for blur config', () => {
+			const html = `<form data-o-component="o-forms"><input type="text" /></form>`;
+			fixtures.insert(html);
+
+			const formEl = document.querySelector('[data-o-component="o-forms"]');
+			const input = formEl.querySelector('input');
+			const inputSpy = sinon.spy(input, 'addEventListener');
+
+			const testForms = new Forms(formEl);
+
+			proclaim.isTrue(inputSpy.calledOnce);
+		});
+
 		it('sets testEvent to correct options when constructed manually', () => {
 			fixtures.htmlCode();
 
@@ -35,6 +48,21 @@ describe("Forms", () => {
 			const testForms = new Forms(formEl);
 
 			proclaim.equal(testForms.opts.testEvent, 'submit');
+		});
+
+		it('adds correct event listeners to form and inputs for submit config', () => {
+			const html = `<form data-o-component="o-forms" data-o-forms-test-event="submit"><input type="text" /></form>`;
+			fixtures.insert(html);
+
+			const formEl = document.querySelector('[data-o-component="o-forms"]');
+			const formSpy = sinon.spy(formEl, 'addEventListener');
+			const input = formEl.querySelector('input');
+			const inputSpy = sinon.spy(input, 'addEventListener');
+
+			const testForms = new Forms(formEl);
+
+			proclaim.isTrue(inputSpy.calledOnce);
+			proclaim.isTrue(formSpy.calledOnce);
 		});
 	});
 
