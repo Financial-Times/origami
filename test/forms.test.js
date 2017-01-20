@@ -88,7 +88,6 @@ describe("Forms", () => {
 		});
 
 		afterEach(() => {
-			formEl.removeEventListener('submit');
 			formEl = undefined;
 
 			oFormsEl = undefined;
