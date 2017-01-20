@@ -5,6 +5,7 @@ FT-branded styles for form elements.
 - [Usage](#usage)
 	- [Markup](#markup)
 	- [Sass](#sass)
+	- [JavaScript](#javascript)
 - [Troubleshooting](#troubleshooting)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
@@ -200,6 +201,50 @@ The `oForms` mixin also allows customisation of the base classname:
 
 For more details on specific mixins [browse the SassDoc documentation of the module](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms).
 
+### JavaScript
+
+`o-forms` provides some JavaScript to help with validating form inputs. The validation works with the browsers built-in validation API to add the appropriate `o-forms` classes when a user is completing or submitting a form.
+
+By default, `o-forms` listens to the `blur` event of an input field, when a user leaves a field, the input will be validated and if an invalid input is found, the error class will be added to the input.
+
+#### Constructing
+
+An o-forms object must be constructed for every `<form>` element you have on your page that you want to validate with this module. You can do this for explicit elements like so:
+
+```js
+const OForms = require('o-forms');
+const formsEl = document.querySelector('#form-element');
+
+const forms = new OForms(formsEl);
+```
+
+Alternatively, an o.DOMContentLoaded event can be dispatched on the document to auto-construct an o-forms object for each element with a `data-o-component="o-forms"` attribute:
+
+```js
+require('o-forms');
+document.addEventListener("DOMContentLoaded", function() {
+    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});
+```
+
+#### Validate on form submit
+
+By default `o-forms` tests inputs on the `blur` event for each input. To defer the validation to the `submit` event of the form, you can pass an config object to set the `testEvent` when constructing `o-forms`:
+
+```js
+const OForms = require('o-forms');
+const formsEl = document.querySelector('#form-element');
+
+const forms = new OForms(formsEl, { testEvent: 'submit' });
+```
+
+Or you can set an attribute on the `<form>` element to declaratively set the test event:
+
+```html
+<form data-o-component="o-forms" data-o-forms-test-event="submit">
+	[...]
+</form>
+```
 
 ## Troubleshooting:
 
