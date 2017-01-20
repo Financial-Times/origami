@@ -5,15 +5,15 @@ import Target from './target';
 class Tooltip {
 
 	constructor (tooltipEl, opts) {
+
 		this.tooltipEl = tooltipEl;
 
 		this.opts = opts || this.getOptions(tooltipEl);
 		this.opts = this.checkOptions(this.opts);
 
-		this.target = new Target(document.getElementById(this.opts.target));
+		this.target = new Tooltip.Target(document.getElementById(this.opts.target));
 		this.tooltipPosition = this.opts.position;
-
-		this.tooltipAlignment = (this.tooltipPosition == 'above' || this.tooltipPosition == 'below') ? 'vertical' : 'horizontal';
+		this.tooltipAlignment = "middle";
 
 		this.delegates = {
 			doc: new Delegate(),
@@ -51,9 +51,8 @@ class Tooltip {
 
 		// Check that the value of tooltip position is valid. Default to below.
 		if (opts.tooltipPosition) {
-			const validTooltipPositions = ["above", "below", "left", "right"];
-			if (validTooltipPositions.indexOf(opts.tooltipPosition) === -1) {
-				Tooltip.throwError("Invalid value for tooltip position. Valid values are:" + validTooltipPositions.toString() +" or nothing which will default to a value of `below`");
+			if (Tooltip.validTooltipPositions.indexOf(opts.tooltipPosition) === -1) {
+				Tooltip.throwError("Invalid value for tooltip position. Valid values are:" + Tooltip.validTooltipPositions.toString() +" or nothing which will default to a value of `below`");
 			}
 		} else {
 			opts.tooltipPosition = "below";
@@ -87,8 +86,6 @@ class Tooltip {
 		content.className = 'o-tooltip-content';
 		this.tooltipEl.appendChild(content);
 
-		// Build arrow
-		this.setArrow(this.tooltipPosition);
 	};
 
 	show() {
@@ -114,7 +111,7 @@ class Tooltip {
 
 
 		// Calculate and position the overlay + arrow
-		this.setContainerPosition();
+		this.drawTooltip();
 	};
 
 	destroy() {
@@ -133,136 +130,151 @@ class Tooltip {
 	resizeListener() {
 	};
 
-	setContainerPosition(){
+	drawTooltip(){
 
 		// render the tooltip so we know how big it is
 		this.tooltipEl.style.display = 'block';
 
 		// First pass at positioning the tooltip...
-		this.positionTooltip(this.tooltipPosition);
+		let tooltipRect = this.calculateTooltipRect();
 
-		// The arrow is at 'top' but there is no room under the target to render it!
-		if (this.tooltipPosition == 'below'){
-			if (this.tooltipEl.offsetTop + this.tooltipEl.offsetHeight > document.body.offsetHeight) {
-				this.setTooltipPosition('above');
+		// Check there's enough room above / below / to the left / right to draw the tooltip
+		if (this.tooltipPosition === 'above' || this.tooltipPosition === 'below') {
+			if ((Tooltip._isOutOfBounds(tooltipRect.top, "y") || Tooltip._isOutOfBounds(tooltipRect.bottom, "y"))) {
+				this.tooltipPosition = Tooltip._flipOrientation(this.tooltipPosition);
+				tooltipRect = this.calculateTooltipRect();
 			}
 		}
 
-		// the arrow is 'bottom' but there is no room above it to render it!
-		if (this.tooltipPosition == 'above'){
-			if (this.tooltipEl.offsetTop < 0) {
-				this.setTooltipPosition('below');
+		if (this.tooltipPosition === 'left' || this.tooltipPosition === 'right') {
+			if ((Tooltip._isOutOfBounds(tooltipRect.left, "x") || Tooltip._isOutOfBounds(tooltipRect.right, "x"))) {
+				this.tooltipPosition = Tooltip._flipOrientation(this.tooltipPosition);
+				tooltipRect = this.calculateTooltipRect();
 			}
 		}
 
-		// the arrow is 'left' but there is no room at the right it to render it!
-		if (this.tooltipPosition == 'right'){
-			if (this.tooltipEl.offsetLeft + this.tooltipEl.offsetWidth > document.body.offsetWidth) {
-				this.setTooltipPosition('left');
+		// Now align the tooltip to the left | right | top | bottom if there's not enough room for it to be centre aligned
+		if (this.tooltipPosition === 'left' || this.tooltipPosition === 'right') {
+			if (Tooltip._isOutOfBounds(tooltipRect.top, 'y')) {
+				tooltipRect.top = this._getEdgeLimitFor('top');
+				this.tooltipAlignment = 'top';
+			}
+			if (Tooltip._isOutOfBounds(tooltipRect.bottom, 'y')) {
+				tooltipRect.top = this._getEdgeLimitFor('bottom');
+				this.tooltipAlignment = 'bottom';
 			}
 		}
 
-		// the arrow is 'left' but there is no room at the right it to render it!
-		if (this.tooltipPosition == 'left'){
-			if (this.tooltipEl.offsetLeft < 0) {
-				this.setTooltipPosition('right');
+		if (this.tooltipPosition === 'above' || this.tooltipPosition === 'below') {
+			if (Tooltip._isOutOfBounds(tooltipRect.left, 'x')) {
+				tooltipRect.left = this._getEdgeLimitFor('left');
+				this.tooltipAlignment = 'left';
+			}
+			if (Tooltip._isOutOfBounds(tooltipRect.right, 'x')) {
+				tooltipRect.left = this._getEdgeLimitFor('right');
+				this.tooltipAlignment = 'right';
 			}
 		}
 
-		/* Now that the box probably occupies enough space, fix the alignment of the arrow */
-
-		if (this.tooltipAlignment == 'horizontal') {
-			if (this.tooltipEl.offsetTop < 0) {
-				this.alignWithTarget('top');
-			}
-			if ((this.tooltipEl.offsetTop + this.tooltipEl.offsetHeight) > document.body.offsetHeight) {
-				this.alignWithTarget('bottom');
-			}
-		}
-
-		if (this.tooltipAlignment == 'vertical') {
-			if (this.tooltipEl.offsetLeft < 0) {
-				this.alignWithTarget('left');
-			}
-			if (this.tooltipEl.offsetLeft + this.tooltipEl.offsetwidth > document.body.offsetHeight) {
-				this.alignWithTarget('right');
-			}
-		}
-
+		this._drawTooltip(tooltipRect);
+		this._setArrow();
 	};
 
-	setTooltipPosition(newPosition){
-		this.positionTooltip(newPosition);
-		this.setArrow(newPosition);
-		this.tooltipPosition = newPosition;
-	}
+	calculateTooltipRect() {
+		const arrowDepth = 10;
+		const rect = {};
+		const width = this.tooltipEl.offsetWidth;
+		const height = this.tooltipEl.offsetHeight;
 
-	positionTooltip(position) {
-		let arrowDepth = 10;
-		switch (position) {
-			case 'below':
-				this.tooltipEl.style.top =  arrowDepth + this.target.bottom + 'px';
-				this.tooltipEl.style.left = this.target.centrePoint.x - (this.tooltipEl.offsetWidth/2) + 'px';
-				break;
-
+		switch (this.tooltipPosition) {
 			case 'above':
-				this.tooltipEl.style.top =  this.target.top - (this.tooltipEl.offsetHeight + arrowDepth) + 'px';
-				this.tooltipEl.style.left = this.target.centrePoint.x - (this.tooltipEl.offsetWidth/2) + 'px';
+				rect.top = this.target.top - (height + arrowDepth);
+				rect.left = this._getEdgeLimitFor('middle', 'x');
 				break;
+
+			case 'below':
+				rect.top = this.target.bottom + arrowDepth;
+				rect.left = this._getEdgeLimitFor('middle', 'x');
+				break;
+
 
 			case 'right':
-				this.tooltipEl.style.top =  this.target.centrePoint.y - this.tooltipEl.offsetHeight/2 + 'px';
-				this.tooltipEl.style.left = this.target.right + arrowDepth + 'px';
+				rect.left = this.target.right + arrowDepth;
+				rect.top = this._getEdgeLimitFor('middle', 'y');
 				break;
 
 			case 'left':
-				this.tooltipEl.style.top =  this.target.centrePoint.y - this.tooltipEl.offsetHeight/2 + 'px';
-				this.tooltipEl.style.left = this.target.left - (this.tooltipEl.offsetWidth + arrowDepth) + 'px';
+				rect.left = this.target.left - (width + arrowDepth);
+				rect.top = this._getEdgeLimitFor('middle', 'y');
 				break;
 		}
+		rect.right = rect.left + width;
+		rect.bottom = rect.top + height;
+
+		return rect;
 	}
 
-	setArrow(tooltipPosition) {
-		this.tooltipEl.classList.remove('o-tooltip--arrow-down');
-		this.tooltipEl.classList.remove('o-tooltip--arrow-up');
-		this.tooltipEl.classList.remove('o-tooltip--arrow-left');
-		this.tooltipEl.classList.remove('o-tooltip--arrow-right');
-
-		switch (tooltipPosition) {
-			case "above":
-				this.tooltipEl.classList.add('o-tooltip--arrow-down');
-				break;
-			case "below":
-				this.tooltipEl.classList.add('o-tooltip--arrow-up');
-				break;
-			case "left":
-				this.tooltipEl.classList.add('o-tooltip--arrow-right');
-				break;
-			case "right":
-				this.tooltipEl.classList.add('o-tooltip--arrow-left');
-				break;
+	_getEdgeLimitFor(alignment, axis) {
+		let value;
+		if (alignment === "middle") {
+			if (axis === 'x') {
+				value = this.target.centrePoint.x - this.tooltipEl.offsetWidth/2;
+			} else if (axis === 'y') {
+				value = this.target.centrePoint.y - this.tooltipEl.offsetHeight/2;
+			}
+		} else {
+			value = this.target.getEdge(alignment);
 		}
+		return value;
 	}
 
-	alignWithTarget(alignment) {
-		switch (alignment) {
-			case "top":
-				this.tooltipEl.style.top = this.target.top +'px';
-				this.tooltipEl.classList.add('extreme--top');
-				break;
-			case "bottom":
-				this.tooltipEl.style.top = this.target.bottom +'px';
-				this.tooltipEl.classList.add('extreme--bottom');
-				break;
-			case "left":
-				this.tooltipEl.style.left = this.target.left +'px';
-				this.tooltipEl.classList.add('extreme--left');
-				break;
-			case "right":
-				this.tooltipEl.style.left = this.target.right +'px';
-				this.tooltipEl.classList.add('extreme--right');
-				break;
+	_setArrow() {
+		const arrowClassRoot = 'o-tooltip--arrow-';
+		const alignmentClassRoot = 'o-tooltip-arrow--align-';
+		const arrowDirection = {"above": "down",
+														"below": "up",
+														"left": "right",
+														"right": "left" };
+
+		for (const modifier of Object.values(arrowDirection)) {
+			this.tooltipEl.classList.remove(arrowClassRoot + modifier);
+		};
+
+		Tooltip.validTooltipPositions.forEach((position)=> {
+			this.tooltipEl.classList.remove(alignmentClassRoot + position);
+		});
+
+		this.tooltipEl.classList.add(arrowClassRoot + arrowDirection[this.tooltipPosition]);
+		this.tooltipEl.classList.add(alignmentClassRoot + this.tooltipAlignment);
+	};
+
+	_drawTooltip(rect) {
+		this.tooltipEl.style.top = rect.top + 'px';
+		this.tooltipEl.style.left = rect.left + 'px';
+	};
+
+
+	static _isOutOfBounds(point, axis) {
+		if (point < 0) {
+			return true;
 		}
+		if (axis === 'y' && point > document.body.offsetHeight) {
+			return true;
+		} else if (axis === 'x' && point > document.body.offsetWidth) {
+			return true;
+		}
+		return false;
+	}
+
+	static _flipOrientation(orientation) {
+		const flip = {
+			"above": "below",
+			"below": "above",
+			"left": "right",
+			"right": "left"
+		};
+
+		return flip[orientation];
 	}
 
 	static throwError(message) {
@@ -289,5 +301,8 @@ class Tooltip {
 		return [].map.call(rootEl.querySelectorAll('[data-o-component="o-tooltip"]'), rootEl => new Tooltip(rootEl, opts));
 	};
 }
+
+Tooltip.validTooltipPositions = ["above", "below", "left", "right"];
+Tooltip.Target = Target;
 
 export default Tooltip;

@@ -13,6 +13,7 @@ describe("Tooltip", () => {
 		let checkOptionsStub;
 		let renderStub;
 		let showStub;
+		let targetStub;
 
 		beforeEach(() => {
 			getOptionsReturnStub = {};
@@ -20,7 +21,7 @@ describe("Tooltip", () => {
 			checkOptionsStub = sinon.stub(Tooltip.prototype, 'checkOptions').returnsArg(0);
 			renderStub = sinon.stub(Tooltip.prototype, 'render');
 			showStub = sinon.stub(Tooltip.prototype, 'show');
-
+			targetStub = sinon.stub(Tooltip, "Target");
 		});
 
 		afterEach(() => {
@@ -28,7 +29,7 @@ describe("Tooltip", () => {
 			checkOptionsStub.restore();
 			renderStub.restore();
 			showStub.restore();
-
+			targetStub.restore();
 		});
 
 		it("doesn't call getOptions if options are passed in", () => {
@@ -99,10 +100,10 @@ describe("Tooltip", () => {
 		it("extracts arrowPosition if it's set on the el passed in", () => {
 			const el = document.createElement('div');
 			let stubPosition = 'someValue';
-			el.setAttribute('data-o-tooltip-arrow-position', stubPosition);
+			el.setAttribute('data-o-tooltip-position', stubPosition);
 
 			const options = Tooltip.prototype.getOptions(el);
-			proclaim.equal(options.arrowPosition, stubPosition);
+			proclaim.equal(options.position, stubPosition);
 		});
 
 		it("extracts renderOnConstruction if it's set on the el passed in", () => {
@@ -131,26 +132,22 @@ describe("Tooltip", () => {
 			proclaim.isTrue(throwStub.called);
 		});
 
-		it("calls throwError if arrowDirection is not one of `top`, `bottom`, `left`, `right` or falsey", () => {
-			Tooltip.prototype.checkOptions({"target": "#el", "arrowPosition": "side"});
+		it("calls throwError if position is not one of `above`, `below`, `left`, `right` or falsey", () => {
+			Tooltip.prototype.checkOptions({"target": "#el", "tooltipPosition": "side"});
 			proclaim.isTrue(throwStub.called);
 		});
 
-		it("sets opts.arrowPosition to up if no arrow position was specified", ()=>{
-			Tooltip.prototype.checkOptions({"target": "#el", "arrowPosition": "side"});
-			proclaim.isTrue(throwStub.called);
+		it("sets opts.tooltipPosition to below if no position was specified", ()=>{
+			let opts = Tooltip.prototype.checkOptions({"target": "#el"});
+			proclaim.isFalse(throwStub.called);
+			proclaim.strictEqual(opts.tooltipPosition, 'below');
 		});
 
-		it("does not error if arrowPosition is `top`, `bottom`, `left`, `right` or falsey", () => {
-			["top", "left", "right", "bottom", undefined].forEach((value) => {
-				Tooltip.prototype.checkOptions({"target": "#el", "arrowPosition": value});
+		it("does not error if tooltipPosition is `top`, `bottom`, `left`, `right` or falsey", () => {
+			["above", "left", "right", "below", undefined].forEach((value) => {
+				Tooltip.prototype.checkOptions({"target": "#el", "tooltipPosition": value});
 				proclaim.isFalse(throwStub.called);
 			});
-		});
-
-		it("sets arrowPosition to 'top' if none is specified", () => {
-			let opts = Tooltip.prototype.checkOptions({"target": "#el"});
-			proclaim.strictEqual(opts.arrowPosition, "top");
 		});
 
 		it("returns the opts object", () => {
@@ -173,23 +170,6 @@ describe("Tooltip", () => {
 		afterEach(() => {
 			fixtures.reset();
 			renderSpy.restore();
-		});
-
-		it("adds a class for the arrow direction", () => {
-			const tooltip = Tooltip.init('#tooltip-demo');
-			tooltip.render();
-
-			proclaim.isTrue(renderSpy.called);
-			proclaim.isTrue(tooltipEl.classList.contains('o-tooltip--arrow-top'));
-		});
-
-		it("sets the arrowPosition based on the value in opts.arrowPosition", () => {
-			["top", "left", "right", "bottom"].forEach((value)=>{
-				const tooltip = Tooltip.init('#tooltip-demo', {"target": "#el", "arrowPosition": value});
-				tooltip.render();
-				proclaim.isTrue(tooltipEl.classList.contains('o-tooltip--arrow-'+value));
-				tooltipEl.classList.remove('o-tooltip--arrow-'+value); // tidy up since we're in a loop
-			});
 		});
 
 		it("gives the tooltip the role `tooltip`", () => {
@@ -225,15 +205,24 @@ describe("Tooltip", () => {
 	describe("show", () => {
 		let checkOptionsStub;
 		let getOptionsStub;
+		let drawTooltipSpy;
+		let targetStub;
+
 		beforeEach(() => {
 			getOptionsStub = sinon.stub(Tooltip.prototype, 'getOptions').returns({});
 			checkOptionsStub = sinon.stub(Tooltip.prototype, 'checkOptions').returnsArg(0);
+			drawTooltipSpy = sinon.stub(Tooltip.prototype, 'drawTooltip');
+			targetStub = sinon.stub(Tooltip, "Target");
+
 			fixtures.declarativeCode();
 		});
 
 		afterEach(() => {
 			getOptionsStub.restore();
 			checkOptionsStub.restore();
+			drawTooltipSpy.restore();
+			targetStub.restore();
+
 			fixtures.reset();
 		});
 
@@ -318,5 +307,19 @@ describe("Tooltip", () => {
 
 			proclaim.isTrue(keyUpListenerSpy.called);
 		});
+
+		it('calls drawTooltip', () => {
+			const tooltipEl = document.getElementById('tooltip-demo');
+			const testTooltip = new Tooltip(tooltipEl);
+
+			testTooltip.show();
+			proclaim.isTrue(drawTooltipSpy.called);
+		});
 	});
+
+	describe("drawTooltip", () => {
+		it("calls getOrigin");
+		it("calls checkOrigin with the result of getOrigin");
+	});
+
 });

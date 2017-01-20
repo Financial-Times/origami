@@ -51,13 +51,13 @@
 @mixin _oTooltipVerticalArrow($size: 10px) {
 	@include _oTooltipArrow;
 
-	&.extreme--left:before,
-	&.extreme--left:after {
+	&.o-tooltip-arrow--align-left:before,
+	&.o-tooltip-arrow--align-left:after {
 		left: 10%;
 	}
 
-	&.extreme--right:before,
-	&.extreme--right:after {
+	&.arrow--align-right:before,
+	&.arrow--align-right:after {
 		left: 90%;
 	}
 
@@ -120,13 +120,13 @@
 @mixin _oTooltipHorizontalArrow($size: 10px) {
 	@include _oTooltipArrow;
 
-	&.extreme--left:before,
-	&.extreme--left:after {
+	&.arrow--align-top:before,
+	&.arrow--align-top:after {
 		left: 10%;
 	}
 
-	&.extreme--right:before,
-	&.extreme--right:after {
+	&.arrow--align-bottom:before,
+	&.arrow--align-bottom:after {
 		left: 90%;
 	}
 
