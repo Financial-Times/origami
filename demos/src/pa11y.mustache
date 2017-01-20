@@ -129,25 +129,25 @@
 	<p>This is a global message</p>
 </div>
 <div class="o-forms">
-	<label class="o-forms__label">Field label</label>
+	<label class="o-forms__label" for="text-input-global-message">Field label</label>
 	<small class="o-forms__additional-info">Additional field information</small>
-	<input type="text" placeholder="placeholder" class="o-forms__text" />
+	<input type="text" placeholder="placeholder" id="text-input-global-message" class="o-forms__text" />
 </div>
 
 <div class="o-forms__message o-forms__message--error">
 	<p>This is a global error message</p>
 </div>
 <div class="o-forms">
-	<label class="o-forms__label">Field label</label>
+	<label class="o-forms__label" for="text-input-global-message-2">Field label</label>
 	<small class="o-forms__additional-info">Additional field information</small>
-	<input type="text" placeholder="placeholder" class="o-forms__text" />
+	<input type="text" placeholder="placeholder" id="text-input-global-message-2" class="o-forms__text" />
 </div>
 
 <div class="o-forms__wrapper o-forms__wrapper--highlight">
 	<div class="o-forms">
-		<label for="o-text-default" class="o-forms__label">Label</label>
+		<label for="o-text-default-2" class="o-forms__label">Label</label>
 		<small class="o-forms__additional-info">Additional field information</small>
-		<input type="text" placeholder="placeholder" id="o-text-default" class="o-forms__text" />
+		<input type="text" placeholder="placeholder" id="o-text-default-2" class="o-forms__text" />
 	</div>
 </div>
 <div class="o-forms__wrapper o-forms__wrapper--error">
@@ -161,33 +161,33 @@
 	</div>
 </div>
 <div class="o-forms">
-	<label class="o-forms__label">Text input with prefix label</label>
+	<label class="o-forms__label" for="o-text-prefixed">Text input with prefix label</label>
 	<small class="o-forms__additional-info">Optional prompt text goes here</small>
 	<div class="o-forms__affix-wrapper">
 		<span class="o-forms__prefix">http://</span>
-		<input type="text" placeholder="placeholder" class="o-forms__text" />
+		<input type="text" placeholder="placeholder" id="o-text-prefixed" class="o-forms__text" />
 	</div>
 </div>
 <div class="o-forms">
-	<label class="o-forms__label">Text input with suffix label</label>
+	<label class="o-forms__label" for="o-text-suffixed">Text input with suffix label</label>
 	<div class="o-forms__affix-wrapper">
-		<input type="text" placeholder="placeholder" class="o-forms__text o-forms__text--suffixed" />
+		<input type="text" placeholder="placeholder" id="o-text-suffixed" class="o-forms__text o-forms__text--suffixed" />
 		<span class="o-forms__suffix">.com</span>
 	</div>
 </div>
 <div class="o-forms o-forms--error">
-	<label class="o-forms__label">Text input with prefix label (error)</label>
+	<label class="o-forms__label" for="o-text-prefixed-error">Text input with prefix label (error)</label>
 	<div class="o-forms__affix-wrapper">
 		<span class="o-forms__prefix">http://</span>
-		<input type="text" placeholder="placeholder" class="o-forms__text" />
+		<input type="text" placeholder="placeholder" id="o-text-prefixed-error" class="o-forms__text" />
 	</div>
 	<div class="o-forms__errortext">Invalid entry</div>
 </div>
 <div class="o-forms">
-	<label class="o-forms__label">Select box with prefix label</label>
+	<label class="o-forms__label" for="o-select-prefixed">Select box with prefix label</label>
 	<div class="o-forms__affix-wrapper">
 		<span class="o-forms__prefix">Choose:</span>
-		<select class="o-forms__select">
+		<select class="o-forms__select" id="o-select-prefixed">
 			<option value="option1">Option 1</option>
 			<option value="option2">Option 2</option>
 			<option value="option3">Option 3</option>
@@ -197,27 +197,27 @@
 </div>
 
 <div class="o-forms">
-	<label class="o-forms__label">Text input with suffix button</label>
+	<label class="o-forms__label" for="o-text-suffix-button">Text input with suffix button</label>
 	<div class="o-forms__affix-wrapper">
-		<input type="text" placeholder="placeholder" class="o-forms__text" />
+		<input type="text" placeholder="placeholder" id="o-text-suffix-button" class="o-forms__text" />
 		<div class="o-forms__suffix">
 			<button type="button" class="o-buttons">Go</button>
 		</div>
 	</div>
 </div>
 <div class="o-forms">
-	<label class="o-forms__label">Text input with prefix button</label>
+	<label class="o-forms__label" for="o-text-prefix-button">Text input with prefix button</label>
 	<div class="o-forms__affix-wrapper">
 		<div class="o-forms__prefix">
 			<button type="button" class="o-buttons">Go</button>
 		</div>
-		<input type="text" placeholder="placeholder" class="o-forms__text" />
+		<input type="text" placeholder="placeholder" id="o-text-prefix-button" class="o-forms__text" />
 	</div>
 </div>
 <div class="o-forms">
-	<label class="o-forms__label">Select box with suffix button</label>
+	<label class="o-forms__label" for="o-select-suffix-button">Select box with suffix button</label>
 	<div class="o-forms__affix-wrapper">
-		<select class="o-forms__select">
+		<select class="o-forms__select" id="o-select-suffix-button">
 			<option value="option1">Option 1</option>
 			<option value="option2">Option 2</option>
 			<option value="option3">Option 3</option>
@@ -229,19 +229,19 @@
 	</div>
 </div>
 <div class="o-forms">
-	<label class="o-forms__label">Text input with prefix label and suffix button</label>
+	<label class="o-forms__label" for="o-text-prefix-suffix">Text input with prefix label and suffix button</label>
 	<div class="o-forms__affix-wrapper">
 		<span class="o-forms__prefix">http://</span>
-		<input type="text" placeholder="placeholder" class="o-forms__text" />
+		<input type="text" placeholder="placeholder" id="o-text-prefix-suffix" class="o-forms__text" />
 		<div class="o-forms__suffix">
 			<button type="button" class="o-buttons">Go</button>
 		</div>
 	</div>
 </div>
 <div class="o-forms">
-	<label class="o-forms__label">Text input with suffix checkbox</label>
+	<label class="o-forms__label" for="o-text-suffix-checkbox">Text input with suffix checkbox</label>
 	<div class="o-forms__affix-wrapper">
-		<input type="text" placeholder="placeholder" class="o-forms__text o-forms__text--suffixed" />
+		<input type="text" placeholder="placeholder" id="o-text-suffix-checkbox" class="o-forms__text o-forms__text--suffixed" />
 		<div class="o-forms__suffix">
 			<input type="checkbox" name="checkbox" value="2" class="o-forms__checkbox" id="checkbox99" />
 			<label for="checkbox99" class="o-forms__label">Checkbox 2</label>
@@ -271,10 +271,10 @@
 </div>
 
 <div class="o-forms o-forms--wide">
-	<label class="o-forms__label">Text input with prefix label and suffix button (wide)</label>
+	<label class="o-forms__label" for="o-test-prefix-suffix-button">Text input with prefix label and suffix button (wide)</label>
 	<div class="o-forms__affix-wrapper">
 		<span class="o-forms__prefix">http://</span>
-		<input type="text" placeholder="placeholder" class="o-forms__text" />
+		<input type="text" placeholder="placeholder" id="o-test-prefix-suffix-button" class="o-forms__text" />
 		<div class="o-forms__suffix">
 			<button type="button" class="o-buttons">Go</button>
 		</div>
@@ -285,9 +285,9 @@
 	<p>This is a global error message (wide)</p>
 </div>
 <div class="o-forms o-forms--wide">
-	<label class="o-forms__label">Field label</label>
+	<label class="o-forms__label" for="o-test-global-message-wide">Field label</label>
 	<small class="o-forms__additional-info">Additional field information</small>
-	<input type="text" placeholder="placeholder" class="o-forms__text" />
+	<input type="text" placeholder="placeholder" id="o-test-global-message-wide" class="o-forms__text" />
 </div>
 
 <fieldset class="o-forms o-forms--wide">
@@ -303,7 +303,7 @@
 </div>
 
 <div class="o-forms o-forms--wide">
-	<label for="o-forms__textarea" class="o-forms__label">Textarea (wide)</label>
+	<label for="o-forms__textarea-wide" class="o-forms__label">Textarea (wide)</label>
 	<small class="o-forms__additional-info">Optional prompt text goes here</small>
-	<textarea placeholder="Placeholder" id="o-forms__textarea" class="o-forms__textarea"></textarea>
+	<textarea placeholder="Placeholder" id="o-forms__textarea-wide" class="o-forms__textarea"></textarea>
 </div>
