@@ -2,7 +2,15 @@
 
 Standard labels
 
-----
+- [Usage](#usage)
+	- [Markup](#markup)
+	- [Sass](#sass)
+- [Contact](#contact)
+- [Licence](#licence)
+
+## Usage
+
+### Markup
 
 Labels can have one of several states:
 
@@ -28,6 +36,52 @@ Labels can have one of several states:
 
 Use [o-typography](https://registry.origami.ft.com/components/o-typography) to control the sizing of labels. Use a label one size smaller than surrounding text, e.g. an `s` label with `m` text.
 
+### Sass:
+
+As with all Origami components, o-labels has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) set `$o-labels-is-silent : false;` in your Sass before you import the o-labels Sass:
+
+```sass
+$o-labels-is-silent: false;
+@import 'o-labels/main';
+```
+
+#### Using Sass mixins
+
+The `oLabels` mixin can be used to create a label by passing in the desired `state` and `size`:
+
+```sass
+.my-label {
+	@include oLabels('premium', 'big');
+}
+```
+
+Along with the main `oLabels` mixins there are two additional Sass mixins: `oLabelsSize` and `oLabelsState`. Using these along with the main `oLabels` mixin will allow you to include a range of labels in your project:
+
+```sass
+.label {
+	@include oLabels;
+}
+
+.label--big {
+	@include oLabelsSize('big');
+}
+
+.label--error {
+	@include oLabelsState('error');
+}
+```
+
+
+---
+
+## Contact
+
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-component-boilerplate/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
+
+----
+
 ## Licence
 
 This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
+
+[bem]: http://getbem.com/naming/
