@@ -11,6 +11,10 @@ body {
 
 .o-labels {
 	@include oTypographySansBold(s);
+
+	&--medium {
+		@include oTypographySansBold(m);
+	}
 }
 
 .demo-paragraph {
