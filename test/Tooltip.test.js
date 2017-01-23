@@ -318,8 +318,19 @@ describe("Tooltip", () => {
 	});
 
 	describe("drawTooltip", () => {
-		it("calls getOrigin");
-		it("calls checkOrigin with the result of getOrigin");
+		it("calls calculateTooltipRect");
+
+		describe("when the tooltip is positioned above the target", () => {
+			it("calls _isOutOfBounds with the top value returned from calculateTooltipRect");
+			it("calls _flipOrientation and calculateTooltipRect again if _isOutOfBounds is true");
+			it("calls _isOutOfBounds with the left value");
+
+			describe ("when the tooltip is sligtly off the left of the screen", () => {
+				it("sets tooltip.alignment to 'left' or 'right'");
+				it("sets aligns the tooltip with the left or right of the target");
+			})
+
+		});
 	});
 
 });

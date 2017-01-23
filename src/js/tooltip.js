@@ -1,12 +1,18 @@
 import Delegate from 'ftdomdelegate';
-import viewport from 'o-viewport';
+import Viewport from 'o-viewport';
+
 import Target from './target';
 
 class Tooltip {
 
 	constructor (tooltipEl, opts) {
 
+		if (!Tooltip._tooltips) {
+			Tooltip._tooltips = new Map();
+		}
+
 		this.tooltipEl = tooltipEl;
+		Tooltip._tooltips.set(this.tooltipEl, this);
 
 		this.opts = opts || this.getOptions(tooltipEl);
 		this.opts = this.checkOptions(this.opts);
@@ -19,6 +25,9 @@ class Tooltip {
 			doc: new Delegate(),
 			tooltip: new Delegate(),
 		};
+
+		Viewport.listenTo('resize');
+
 
 		// Do you render as soon as possible?
 		if (this.opts.renderOnConstruction) {
@@ -128,6 +137,15 @@ class Tooltip {
 	};
 
 	resizeListener() {
+		console.log(this.target.rectObject)
+		console.log(this.target.targetEl.getBoundingClientRect())
+
+		if (this.target.rectObject != this.target.targetEl.getBoundingClientRect()) {
+			console.log("bang")
+			this.target.rectObject =this.target.targetEl.getBoundingClientRect();
+			this.drawTooltip();
+
+		}
 	};
 
 	drawTooltip(){
@@ -153,6 +171,17 @@ class Tooltip {
 			}
 		}
 
+		if (this.tooltipPosition === 'above' || this.tooltipPosition === 'below') {
+			if (Tooltip._isOutOfBounds(tooltipRect.left, 'x')) {
+				tooltipRect.left = this._getEdgeLimitFor('left');
+				this.tooltipAlignment = 'left';
+			}
+			if (Tooltip._isOutOfBounds(tooltipRect.right, 'x')) {
+				tooltipRect.left = this._getEdgeLimitFor('right');
+				this.tooltipAlignment = 'right';
+			}
+		}
+
 		// Now align the tooltip to the left | right | top | bottom if there's not enough room for it to be centre aligned
 		if (this.tooltipPosition === 'left' || this.tooltipPosition === 'right') {
 			if (Tooltip._isOutOfBounds(tooltipRect.top, 'y')) {
@@ -162,17 +191,6 @@ class Tooltip {
 			if (Tooltip._isOutOfBounds(tooltipRect.bottom, 'y')) {
 				tooltipRect.top = this._getEdgeLimitFor('bottom');
 				this.tooltipAlignment = 'bottom';
-			}
-		}
-
-		if (this.tooltipPosition === 'above' || this.tooltipPosition === 'below') {
-			if (Tooltip._isOutOfBounds(tooltipRect.left, 'x')) {
-				tooltipRect.left = this._getEdgeLimitFor('left');
-				this.tooltipAlignment = 'left';
-			}
-			if (Tooltip._isOutOfBounds(tooltipRect.right, 'x')) {
-				tooltipRect.left = this._getEdgeLimitFor('right');
-				this.tooltipAlignment = 'right';
 			}
 		}
 
