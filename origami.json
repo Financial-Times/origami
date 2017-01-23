@@ -30,6 +30,11 @@
 			"name": "Typography",
 			"template": "/demos/src/typography.mustache",
 			"description": "use with o-typography"
+		},
+		{
+			"name": "pa11y",
+			"template": "/demos/src/pa11y.mustache",
+			"hidden": true
 		}
 	]
 }
