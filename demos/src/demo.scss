@@ -3,12 +3,18 @@ $o-labels-is-silent: false;
 @import "../../main";
 @import "o-typography/main";
 
+@include oFontsIncludeAll();
+
 body {
 	margin: 1em;
 }
 
 .o-labels {
-	@include oTypographySansBold(xs);
+	@include oTypographySansBold(s);
+
+	&--medium {
+		@include oTypographySansBold(m);
+	}
 }
 
 .demo-paragraph {
