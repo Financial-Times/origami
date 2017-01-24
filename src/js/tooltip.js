@@ -136,10 +136,10 @@ class Tooltip {
 	};
 
 	resizeListener() {
-		if (this.target.rectObject.left != this.target.targetEl.getBoundingClientRect().left &&
-				this.target.rectObject.right != this.target.targetEl.getBoundingClientRect().right &&
-				this.target.rectObject.top != this.target.targetEl.getBoundingClientRect().top &&
-				this.target.rectObject.right != this.target.targetEl.getBoundingClientRect().right) {
+		if (this.target.rectObject.left !== this.target.targetEl.getBoundingClientRect().left &&
+				this.target.rectObject.right !== this.target.targetEl.getBoundingClientRect().right &&
+				this.target.rectObject.top !== this.target.targetEl.getBoundingClientRect().top &&
+				this.target.rectObject.right !== this.target.targetEl.getBoundingClientRect().right) {
 
 			this.target.refreshRect();
 			this.drawTooltip();
@@ -261,7 +261,7 @@ class Tooltip {
 		"o-tooltip-arrow--align-top",
 		"o-tooltip-arrow--align-bottom",
 		"o-tooltip-arrow--align-left",
-		"o-tooltip-arrow--align-right"]
+		"o-tooltip-arrow--align-right"];
 
 		this.tooltipEl.classList.remove(...classesToRemove);
 		this.tooltipEl.classList.add(arrowClassRoot + Tooltip.positionToArrowPositionMap[this.tooltipPosition]);
