@@ -131,10 +131,9 @@ class VideoAds {
 		// Temporary fix to verify DFP behaviour
 		const options = {
 			category: 'video',
-			action: 'adRequested', {
-				detail: {
-					contentId: this.video.opts.id
-				}
+			action: 'adRequested',
+			detail: {
+				contentId: this.video.opts.id
 			}
 		};
 		const requestedEvent = new CustomEvent('oTracking.event', options);
