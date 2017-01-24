@@ -12,7 +12,7 @@ class Tooltip {
 		}
 
 		this.tooltipEl = tooltipEl;
-		Tooltip._tooltips.set(this.tooltipEl, this);
+		Tooltip._tooltips.set(this.tooltipEl, this); //TODO test this
 
 		this.opts = opts || this.getOptions(tooltipEl);
 		this.opts = this.checkOptions(this.opts);

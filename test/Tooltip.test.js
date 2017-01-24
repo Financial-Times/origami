@@ -205,13 +205,16 @@ describe("Tooltip", () => {
 	describe("show", () => {
 		let checkOptionsStub;
 		let getOptionsStub;
-		let drawTooltipSpy;
+		let drawTooltipStub;
+		let resizeListenerStub;
 		let targetStub;
 
 		beforeEach(() => {
 			getOptionsStub = sinon.stub(Tooltip.prototype, 'getOptions').returns({});
 			checkOptionsStub = sinon.stub(Tooltip.prototype, 'checkOptions').returnsArg(0);
-			drawTooltipSpy = sinon.stub(Tooltip.prototype, 'drawTooltip');
+			drawTooltipStub = sinon.stub(Tooltip.prototype, 'drawTooltip');
+			resizeListenerStub = sinon.stub(Tooltip.prototype, 'resizeListener');
+
 			targetStub = sinon.stub(Tooltip, "Target");
 
 			fixtures.declarativeCode();
@@ -220,7 +223,9 @@ describe("Tooltip", () => {
 		afterEach(() => {
 			getOptionsStub.restore();
 			checkOptionsStub.restore();
-			drawTooltipSpy.restore();
+			drawTooltipStub.restore();
+			resizeListenerStub.restore();
+
 			targetStub.restore();
 
 			fixtures.reset();
@@ -271,7 +276,7 @@ describe("Tooltip", () => {
 		});
 
 		it('sets up a viewport resize handler', () => {
-			const resizeSpy = sinon.spy(Tooltip.prototype, 'resizeListener');
+
 			const tooltipEl = document.getElementById('tooltip-demo');
 			const testTooltip = new Tooltip(tooltipEl);
 
@@ -280,13 +285,13 @@ describe("Tooltip", () => {
 			const resizeEvent = new Event('oViewport.resize');
 			document.body.dispatchEvent(resizeEvent);
 
-			proclaim.isFalse(resizeSpy.called);
+			proclaim.isFalse(resizeListenerStub.called);
 
 			testTooltip.show();
 
 			document.body.dispatchEvent(resizeEvent);
 
-			proclaim.isTrue(resizeSpy.called);
+			proclaim.isTrue(resizeListenerStub.called);
 		});
 
 		it('sets up a key listener to handle esc key', () => {
@@ -313,17 +318,61 @@ describe("Tooltip", () => {
 			const testTooltip = new Tooltip(tooltipEl);
 
 			testTooltip.show();
-			proclaim.isTrue(drawTooltipSpy.called);
+			proclaim.isTrue(drawTooltipStub.called);
 		});
 	});
 
 	describe("drawTooltip", () => {
-		it("calls calculateTooltipRect");
+
+		let testTooltip;
+		let checkStub;
+		let getStub;
+		let targetStub;
+		let drawStub;
+		let setArrowStub;
+
+		beforeEach(() => {
+			checkStub = sinon.stub(Tooltip.prototype, 'getOptions');
+			getStub = sinon.stub(Tooltip.prototype, 'checkOptions').returns({'position': 'top'});
+			targetStub = sinon.stub(Tooltip, 'Target');
+			drawStub = sinon.spy(Tooltip.prototype, '_drawTooltip');
+			setArrowStub = sinon.stub(Tooltip.prototype, '_setArrow');
+			let stubEl = document.createElement('div');
+			testTooltip = new Tooltip(stubEl);
+		});
+
+		beforeEach(() => {
+			checkStub.restore();
+			getStub.restore();
+			targetStub.restore();
+			drawStub.restore();
+			setArrowStub.restore();
+		});
 
 		// Happy path
-		it("sets tooltipAlignment to 'middle'");
-		it("calls calculateTooltipRect");
-		it("calls _drawTooltip with the result of calculateTooltipRect");
+		it("sets tooltipAlignment to 'middle'", () => {
+			testTooltip.tooltipAlignment = 'someValue';
+			proclaim.notStrictEqual(testTooltip.tooltipAlignment, 'middle');
+			testTooltip.drawTooltip();
+			proclaim.strictEqual(testTooltip.tooltipAlignment, 'middle');
+		});
+
+		it("calls calculateTooltipRect", () => {
+			const tooltipRect = {left: 1, right: 1, top: 1, bottom: 1};
+			const calculateTooltipRectStub = sinon.stub(Tooltip.prototype, 'calculateTooltipRect').returns(tooltipRect);
+			testTooltip.drawTooltip();
+			proclaim.isTrue(calculateTooltipRectStub.called);
+			calculateTooltipRectStub.restore();
+		});
+
+		it("calls _drawTooltip with the result of calculateTooltipRect", () => {
+			const tooltipRect = {left: 1, right: 1, top: 1, bottom: 1};
+			const calculateTooltipRectStub = sinon.stub(Tooltip.prototype, 'calculateTooltipRect').returns(tooltipRect);
+			testTooltip.drawTooltip();
+			proclaim.isTrue(drawStub.called);
+		//	proclaim.strictEqual(drawStub.args[0], tooltipRect);
+		});
+
 		it("calls _setArrow");
 
 		// Do this for all four orientations
