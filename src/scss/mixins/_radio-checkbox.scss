@@ -33,11 +33,11 @@
 		font-size: 14px;
 		font-weight: 400;
 		line-height: $_o-forms__radiocheckbox-default-size + 1px;
-		// scss-lint:disable VendorPrefixes VendorPrefix
+		// sass-lint:disable no-vendor-prefixes
 		-moz-user-select: none;
 		-webkit-user-select: none;
 		-ms-user-select: none;
-		// scss-lint:enable VendorPrefixes VendorPrefix
+		// sass-lint:enable no-vendor-prefixes
 
 		// When in a prefix/suffix, clear the margins
 		// and reduce the font size
@@ -88,8 +88,13 @@
 		transition: 0.1s opacity ease-in;
 	}
 
-	#{$radio}--align-right + #{$label}::after,
-	#{$checkbox}--align-right + #{$label}::after {
+	// AO: Hack to make sass-lint pass, it doesn't like
+	// interpolation of selectors like #{$radio}--align-right
+	// and throws a Fatal error, this however, works!
+	$align-right: '--align-right';
+
+	#{$radio}#{$align-right} + #{$label}::after,
+	#{$checkbox}#{$align-right} + #{$label}::after {
 		right: 0;
 		left: auto;
 	}
@@ -133,6 +138,7 @@
 			top: 2px;
 			vertical-align: top;
 		}
+
 		#{$checkbox} + #{$label},
 		#{$radio} + #{$label} {
 			padding-left: 0;

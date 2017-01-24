@@ -7,15 +7,6 @@
 		margin-left: $_o-forms-padding * -1;
 		padding-right: $_o-forms-padding;
 		padding-left: $_o-forms-padding;
-
-		@include _oFormsBreakpoint {
-			border-radius: $_o-forms-field-border-radius;
-			margin-right: 0;
-			margin-left: 0;
-			padding-left: 0;
-			padding-right: 0;
-		}
-
 		// Clearfix
 		zoom: 1;
 
@@ -26,6 +17,14 @@
 		}
 		&:after {
 			clear: both;
+		}
+
+		@include _oFormsBreakpoint {
+			border-radius: $_o-forms-field-border-radius;
+			margin-right: 0;
+			margin-left: 0;
+			padding-left: 0;
+			padding-right: 0;
 		}
 
 		&--highlight {

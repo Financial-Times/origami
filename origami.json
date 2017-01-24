@@ -71,10 +71,17 @@
             "template": "/demos/src/pa11y.mustache",
             "hidden": true,
             "description": ""
+        },
+        {
+            "name": "js-validation",
+            "title": "Validate inputs",
+            "template": "/demos/src/validation.mustache",
+            "hidden": true
         }
     ],
     "demosDefaults": {
         "sass": "demos/src/demo.scss",
+        "js": "demos/src/demo.js",
         "dependencies": [
             "o-fonts@^1.4.0"
         ]

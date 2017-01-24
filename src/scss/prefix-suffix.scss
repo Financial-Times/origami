@@ -33,7 +33,8 @@
 		padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
 		cursor: pointer;
 		font: inherit;
-		// scss-lint:disable VendorPrefixes VendorPrefix
+
+		// sass-lint:disable no-vendor-prefixes
 		-moz-appearance: none;
 		-webkit-appearance: none;
 		-moz-user-select: none;
@@ -44,6 +45,7 @@
 			border: 0;
 			padding: 0;
 		}
+		// sass-lint:enable no-vendor-prefixes
 	}
 
 	.#{$class}__prefix button {
@@ -75,10 +77,11 @@
 		text-align: center;
 		background-color: oColorsGetColorFor(o-forms__prefixsuffix, background);
 		color: oColorsGetColorFor(o-forms--prefixsuffix o-forms-field-standard, text);
-		// scss-lint:disable VendorPrefixes VendorPrefix
+		// sass-lint:disable no-vendor-prefixes
 		-moz-user-select: none;
 		-webkit-user-select: none;
 		-ms-user-select: none;
+		// sass-lint:enable no-vendor-prefixes
 	}
 
 	.#{$class}__prefix {

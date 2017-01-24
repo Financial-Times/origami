@@ -15,11 +15,13 @@
 		font-size: 18px;
 		background-color: oColorsGetColorFor(o-forms__wrapper-highlight, background);
 
+		// sass-lint:disable mixins-before-declarations
 		@include _oFormsBreakpoint {
 			border-radius: $_o-forms-field-border-radius;
 			margin-right: 0;
 			margin-left: 0;
 		}
+		// sass-lint:enable no-vendor-prefixes
 
 		p {
 			padding: 8px 0;

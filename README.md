@@ -1,13 +1,20 @@
 # o-forms [![CircleCI](https://circleci.com/gh/Financial-Times/o-forms.png?style=shield&circle-token=8d39afee1e3c3b1f586770034db9673b791cb4f8)](https://circleci.com/gh/Financial-Times/o-forms)
 
-FT-branded styles for commonly used form elements.
+FT-branded styles for form elements.
 
-Upgrading from v1.x.x or v2.x.x? [Follow these instructions](#upgrade-to-v3).
-Upgrading from v0.x.x? [Follow these instructions](#upgrade-to-v1).
+- [Usage](#usage)
+	- [Markup](#markup)
+	- [Sass](#sass)
+	- [JavaScript](#javascript)
+- [Troubleshooting](#troubleshooting)
+- [Migration guide](#migration-guide)
+- [Contact](#contact)
+- [Licence](#licence)
+
 
 ## Usage
 
-### Basic form field structure
+### Markup
 
 Each form field is made up of at least 3 elements:
 
@@ -24,7 +31,7 @@ Each form field is made up of at least 3 elements:
 
 [Text input examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/text-inputs.html)
 
-### Select boxes
+#### Select boxes
 
 ```html
 <div class="o-forms">
@@ -40,7 +47,7 @@ Each form field is made up of at least 3 elements:
 
 [Select boxes examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/select-boxes.html)
 
-### Textareas
+#### Textareas
 
 ```html
 <div class="o-forms">
@@ -51,7 +58,7 @@ Each form field is made up of at least 3 elements:
 
 [Textarea examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/textareas.html)
 
-### Checkboxes and radio controls
+#### Checkboxes and radio controls
 
 Couple the checkboxes and radio controls with a label to obtain the desired styles:
 
@@ -76,7 +83,7 @@ Couple the checkboxes and radio controls with a label to obtain the desired styl
 [Radio control examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/radios.html)
 [Checkbox examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/checkboxes.html)
 
-### Validation states
+#### Validation states
 
 Validation styles are applied by adding `.o-forms--error` or `.o-forms--valid` to the field's containing element (typically, `.o-forms`). Child `.o-forms__label`, `.o-forms__text`, `.o-forms__select`, `.o-forms__checkbox`, `.o-forms__radio`, `.o-forms__textarea` elements will be styled appropriately.
 
@@ -91,7 +98,7 @@ Example HTML:
 </div>
 ```
 
-### Wrappers
+#### Wrappers
 
 You can wrap a group of fields to highlight it or show it is not valid:
 
@@ -110,7 +117,7 @@ You can wrap a group of fields to highlight it or show it is not valid:
 
 [Wrapper examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/wrappers.html)
 
-### Messages
+#### Messages
 
 ```html
 <div class="o-forms__message">
@@ -124,7 +131,7 @@ You can wrap a group of fields to highlight it or show it is not valid:
 
 [Messages examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/messages.html)
 
-### Prefixes and suffixes
+#### Prefixes and suffixes
 
 Prefixes and suffixes are used for prepending or appending static text to a form control. The form control should be wrapped in a block-level element with a class of `.o-forms__affix-wrapper`. Prefixes (defined by `.o-forms__prefix`) and suffixes (defined by `.o-forms__suffix`) can then be prepended/appended to this wrapper element.
 
@@ -142,7 +149,7 @@ Prefixes and suffixes are used for prepending or appending static text to a form
 
 [Prefixes and suffixes examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/prefix-suffix.html)
 
-### "unskin" a form element
+#### "unskin" a form element
 
 Add the class `o-forms--unskin` to a text field to reset its appearance while keeping its vertical structure and other field properties (editable, focusable).
 
@@ -160,7 +167,10 @@ Properties of the `o-forms--unskin` class:
 - editable
 - focusable
 
-### Silent mode
+
+### Sass
+
+#### Silent mode
 
 In silent mode `o-forms` provides mixins for each set of form fields as well as some mixins to output basic form styles in one large chunk.
 
@@ -180,7 +190,7 @@ The `oForms` mixin also allows customisation of the base classname:
 @include oForms('my-forms');
 ```
 
-### Additional features
+#### Additional features
 
 `o-forms` provides some additional features that can be included separately using their own mixins.
 
@@ -191,7 +201,52 @@ The `oForms` mixin also allows customisation of the base classname:
 
 For more details on specific mixins [browse the SassDoc documentation of the module](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms).
 
-## Known issues:
+### JavaScript
+
+`o-forms` provides some JavaScript to help with validating form inputs. The validation works with the browsers built-in validation API to add the appropriate `o-forms` classes when a user is completing or submitting a form.
+
+By default, `o-forms` listens to the `blur` event of an input field, when a user leaves a field, the input will be validated and if an invalid input is found, the error class will be added to the input.
+
+#### Constructing
+
+An o-forms object must be constructed for every `<form>` element you have on your page that you want to validate with this module. You can do this for explicit elements like so:
+
+```js
+const OForms = require('o-forms');
+const formsEl = document.querySelector('#form-element');
+
+const forms = new OForms(formsEl);
+```
+
+Alternatively, an o.DOMContentLoaded event can be dispatched on the document to auto-construct an o-forms object for each element with a `data-o-component="o-forms"` attribute:
+
+```js
+require('o-forms');
+document.addEventListener("DOMContentLoaded", function() {
+    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});
+```
+
+#### Validate on form submit
+
+By default `o-forms` tests inputs on the `blur` event for each input. To defer the validation to the `submit` event of the form, you can pass an config object to set the `testEvent` when constructing `o-forms`:
+
+```js
+const OForms = require('o-forms');
+const formsEl = document.querySelector('#form-element');
+
+const forms = new OForms(formsEl, { testEvent: 'submit' });
+```
+
+Or you can set an attribute on the `<form>` element to declaratively set the test event:
+
+```html
+<form data-o-component="o-forms" data-o-forms-test-event="submit">
+	[...]
+</form>
+```
+
+## Troubleshooting:
 
 * Checkboxes and radio controls will not receive custom styling in IE =< 8, though they'll still receive default browser styling
 * In older versions of Firefox and depending on the version of the operating system, the select dropdowns might a default system arrow *and* a decorated arrow
@@ -199,7 +254,13 @@ For more details on specific mixins [browse the SassDoc documentation of the mod
 
 There are a number of inconsistencies in how browsers handle form events, validation and auto-fill. The Membership team has [documented the quirks](https://sites.google.com/a/ft.com/membership-subscriptions/sign-up-registration/technical-documentation/front-end-development-notes/browser-inconsistencies) it ran into during the development of the Sign Up app.
 
+
 ----
+
+## Migration Guide
+
+Upgrading from v1.x.x or v2.x.x? [Follow these instructions](#upgrade-to-v3).
+Upgrading from v0.x.x? [Follow these instructions](#upgrade-to-v1).
 
 <a name="upgrade-to-v3"></a>
 
@@ -232,6 +293,7 @@ An example of the changes should be:
 ```
 
 Any modifier classes like `o-forms--error` have remained the same.
+
 
 ----
 
@@ -266,6 +328,7 @@ Solution: products must load webfonts themselves (tipically, with [o-fonts](http
 </style>
 ```
 
+
 ### 3. Helper classes name changes
 
 The most important change is with input elements, that now have their own classes:
@@ -294,12 +357,17 @@ The most important change is with input elements, that now have their own classe
 
 If using placeholder classes or extending styles using `oFormsClass` and `oFormsPlaceholderOptionalSelector`, use normal selectors, and include the matching mixins, documented in the [SassDoc documentation of the module](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms).
 
+
+---
+
+## Contact
+
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-component-boilerplate/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
+
 ----
 
-## License
+## Licence
 
-Copyright (c) 2016 Financial Times Ltd. All rights reserved.
-
-This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
 
 [bem]: http://getbem.com/naming/
