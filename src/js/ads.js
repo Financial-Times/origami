@@ -130,11 +130,12 @@ class VideoAds {
 
 		// Temporary fix to verify DFP behaviour
 		const options = {
-			category: 'video',
-			action: 'adRequested',
 			detail: {
+				category: 'video',
+				action: 'adRequested',
 				contentId: this.video.opts.id
-			}
+			},
+			bubbles: true
 		};
 		const requestedEvent = new CustomEvent('oTracking.event', options);
 		document.body.dispatchEvent(requestedEvent);
