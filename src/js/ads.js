@@ -128,6 +128,17 @@ class VideoAds {
 		adsRequest.nonLinearAdSlotWidth = 592;
 		adsRequest.nonLinearAdSlotHeight = 150;
 
+		// Temporary fix to verify DFP behaviour
+		const options = {
+			category: 'video',
+			action: 'adRequested', {
+				detail: {
+					contentId: this.video.opts.id
+			}
+		}
+		const requestedEvent = new CustomEvent('oTracking.event', options);
+		document.body.dispatchEvent(requestedEvent);
+
 		this.adsLoader.requestAds(adsRequest);
 	}
 
