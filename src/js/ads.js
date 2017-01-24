@@ -134,8 +134,9 @@ class VideoAds {
 			action: 'adRequested', {
 				detail: {
 					contentId: this.video.opts.id
+				}
 			}
-		}
+		};
 		const requestedEvent = new CustomEvent('oTracking.event', options);
 		document.body.dispatchEvent(requestedEvent);
 
