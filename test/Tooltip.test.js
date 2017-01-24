@@ -320,17 +320,31 @@ describe("Tooltip", () => {
 	describe("drawTooltip", () => {
 		it("calls calculateTooltipRect");
 
-		describe("when the tooltip is positioned above the target", () => {
-			it("calls _isOutOfBounds with the top value returned from calculateTooltipRect");
-			it("calls _flipOrientation and calculateTooltipRect again if _isOutOfBounds is true");
-			it("calls _isOutOfBounds with the left value");
+		// Happy path
+		it("sets tooltipAlignment to 'middle'");
+		it("calls calculateTooltipRect");
+		it("calls _drawTooltip with the result of calculateTooltipRect");
+		it("calls _setArrow");
 
-			describe ("when the tooltip is sligtly off the left of the screen", () => {
-				it("sets tooltip.alignment to 'left' or 'right'");
-				it("sets aligns the tooltip with the left or right of the target");
-			})
+		// Do this for all four orientations
+		describe("when the tooltip is positioned above the target and there isn't room for it", () => {
+			it("sets the tooltipPosition to the return value of _flipOrientation");
+			it("calls calculateTooltipRect again");
+			it("draws the tooltip with the new rect");
+		});
 
+		describe("when the tooltip positioned above but its left side is off screen", () => {
+			it("sets tooltipRect.left to the result of getEdge");
+			it("sets tooltipAlignment to left");
+			it("draws tooltip rect with the new rect");
 		});
 	});
 
+	describe("calculateTooltipRect", () => {
+		describe("when position is above", () => {
+			it("calls get edge");
+			it("returns a rect with the expected values");
+		});
+		// repeat 4 times
+	});
 });

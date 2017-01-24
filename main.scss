@@ -16,10 +16,10 @@
 	.o-tooltip--arrow-right {
 		@include oTooltipRightArrow;
 	}
-	.o-tooltip--arrow-up {
+	.o-tooltip--arrow-above {
 		@include oTooltipUpArrow;
 	}
-	.o-tooltip--arrow-down {
+	.o-tooltip--arrow-below {
 		@include oTooltipDownArrow;
 	}
 

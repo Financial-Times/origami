@@ -5,6 +5,10 @@ class Target {
 		this.rectObject = targetEl.getBoundingClientRect();
 	}
 
+	refreshRect() {
+		this.rectObject = this.targetEl.getBoundingClientRect();
+	}
+
 	getEdge(edge){
 		const edges = {"top": this.top, "bottom": this.bottom, "right": this.right, "left": this.left};
 		return edges[edge];
