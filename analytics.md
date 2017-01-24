@@ -6,6 +6,7 @@ An overview of the o-video analytics.
 
 The advert events are fired by the [Google IMA SDK](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.AdEvent.Type).
 
+- adRequested - The request to the ad server has been made.
 - adStart - The advert started.
 - adComplete - The advert finished (i.e. played through to the end).
 - adSkippable - The advert is skippable, fired when the state changes to skippable.
