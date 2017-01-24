@@ -332,16 +332,16 @@ describe("Tooltip", () => {
 		let setArrowStub;
 
 		beforeEach(() => {
-			checkStub = sinon.stub(Tooltip.prototype, 'getOptions');
-			getStub = sinon.stub(Tooltip.prototype, 'checkOptions').returns({'position': 'top'});
+			getStub = sinon.stub(Tooltip.prototype, 'getOptions');
+			checkStub = sinon.stub(Tooltip.prototype, 'checkOptions').returns({'position': 'top'});
 			targetStub = sinon.stub(Tooltip, 'Target');
-			drawStub = sinon.spy(Tooltip.prototype, '_drawTooltip');
+			drawStub = sinon.stub(Tooltip.prototype, '_drawTooltip');
 			setArrowStub = sinon.stub(Tooltip.prototype, '_setArrow');
 			let stubEl = document.createElement('div');
 			testTooltip = new Tooltip(stubEl);
 		});
 
-		beforeEach(() => {
+		afterEach(() => {
 			checkStub.restore();
 			getStub.restore();
 			targetStub.restore();
@@ -370,18 +370,173 @@ describe("Tooltip", () => {
 			const calculateTooltipRectStub = sinon.stub(Tooltip.prototype, 'calculateTooltipRect').returns(tooltipRect);
 			testTooltip.drawTooltip();
 			proclaim.isTrue(drawStub.called);
-		//	proclaim.strictEqual(drawStub.args[0], tooltipRect);
+			proclaim.strictEqual(drawStub.firstCall.args[0], tooltipRect);
+			calculateTooltipRectStub.restore();
 		});
 
-		it("calls _setArrow");
-
-		// Do this for all four orientations
-		describe("when the tooltip is positioned above the target and there isn't room for it", () => {
-			it("sets the tooltipPosition to the return value of _flipOrientation");
-			it("calls calculateTooltipRect again");
-			it("draws the tooltip with the new rect");
+		it("calls _setArrow", () => {
+			testTooltip.drawTooltip();
+			proclaim.isTrue(setArrowStub.called);
 		});
 
+		// Repeat the same set up and tear down for the four tooltip positions
+		describe("flips the tooltip", () => {
+			let secondTooltipRect;
+			let calculateTooltipRectStub;
+			let outOfBoundsStub;
+			let tooltipRect;
+
+			beforeEach(() => {
+				tooltipRect = {top: 1, bottom: 2, left: 3, right: 4}; // we don't actually read these values
+				secondTooltipRect = {top: 5, bottom: 6, left: 7, right: 8}; // we don't actually read these values
+				calculateTooltipRectStub = sinon.stub(Tooltip.prototype, 'calculateTooltipRect');
+				calculateTooltipRectStub.onFirstCall().returns(tooltipRect);
+				calculateTooltipRectStub.onSecondCall().returns(secondTooltipRect);
+
+				outOfBoundsStub = sinon.stub(Tooltip, '_isOutOfBounds');
+			});
+
+			afterEach(() => {
+				calculateTooltipRectStub.restore();
+				outOfBoundsStub.restore();
+			});
+
+			describe("when the tooltip is positioned above the target and there isn't room", () => {
+				beforeEach(() => {
+					// Set the tooltip postition to above, but the tooltip top to off screen
+					testTooltip.tooltipPosition = "above";
+
+					outOfBoundsStub.withArgs(tooltipRect.top, 'y').returns(true);
+					outOfBoundsStub.withArgs(tooltipRect.bottom, 'y').returns(false);
+				});
+
+				it("sets the tooltipPosition to the return value of _flipOrientation", () => {
+					let originalTooltipPosition = testTooltip.tooltipPosition;
+
+					const flipResultStub = "flipResultStub";
+					const flipStub = sinon.stub(Tooltip, '_flipOrientation').returns(flipResultStub);
+
+					testTooltip.drawTooltip();
+
+					proclaim.strictEqual(flipStub.firstCall.args[0], originalTooltipPosition);
+					proclaim.strictEqual(testTooltip.tooltipPosition, flipResultStub);
+					flipStub.restore();
+
+				});
+
+				it("calls calculateTooltipRect again", () => {
+					testTooltip.drawTooltip();
+					proclaim.isTrue(calculateTooltipRectStub.calledTwice);
+				});
+
+				it("draws the tooltip with the new rect", () => {
+					testTooltip.drawTooltip();
+					proclaim.isTrue(calculateTooltipRectStub.calledTwice);
+					proclaim.strictEqual(drawStub.firstCall.args[0], secondTooltipRect);
+				});
+			});
+
+			describe("when the tooltip is positioned below the target and there isn't room", () => {
+				beforeEach(() => {
+					// Set the tooltip postition to above, but the tooltip top to off screen
+					testTooltip.tooltipPosition = "below";
+
+					outOfBoundsStub.withArgs(tooltipRect.top, 'y').returns(false);
+					outOfBoundsStub.withArgs(tooltipRect.bottom, 'y').returns(true);
+				});
+
+				it("sets the tooltipPosition to the return value of _flipOrientation", () => {
+					let originalTooltipPosition = testTooltip.tooltipPosition;
+
+					const flipResultStub = "flipResultStub";
+					const flipStub = sinon.stub(Tooltip, '_flipOrientation').returns(flipResultStub);
+
+					testTooltip.drawTooltip();
+
+					proclaim.strictEqual(flipStub.firstCall.args[0], originalTooltipPosition);
+					proclaim.strictEqual(testTooltip.tooltipPosition, flipResultStub);
+					flipStub.restore();
+				});
+
+				it("calls calculateTooltipRect again", () => {
+					testTooltip.drawTooltip();
+					proclaim.isTrue(calculateTooltipRectStub.calledTwice);
+				});
+
+				it("draws the tooltip with the new rect", () => {
+					testTooltip.drawTooltip();
+					proclaim.isTrue(calculateTooltipRectStub.calledTwice);
+					proclaim.strictEqual(drawStub.firstCall.args[0], secondTooltipRect);
+				});
+			});
+
+			describe("when the tooltip is positioned left of the target and there isn't room", () => {
+				beforeEach(() => {
+					// Set the tooltip postition to above, but the tooltip top to off screen
+					testTooltip.tooltipPosition = "left";
+					outOfBoundsStub.withArgs(tooltipRect.left, 'x').returns(true);
+					outOfBoundsStub.withArgs(tooltipRect.right, 'x').returns(false);
+				});
+
+				it("sets the tooltipPosition to the return value of _flipOrientation", () => {
+					let originalTooltipPosition = testTooltip.tooltipPosition;
+
+					const flipResultStub = "flipResultStub";
+					const flipStub = sinon.stub(Tooltip, '_flipOrientation').returns(flipResultStub);
+
+					testTooltip.drawTooltip();
+
+					proclaim.strictEqual(flipStub.firstCall.args[0], originalTooltipPosition);
+					proclaim.strictEqual(testTooltip.tooltipPosition, flipResultStub);
+					flipStub.restore();
+				});
+
+				it("calls calculateTooltipRect again", () => {
+					testTooltip.drawTooltip();
+					proclaim.isTrue(calculateTooltipRectStub.calledTwice);
+				});
+
+				it("draws the tooltip with the new rect", () => {
+					testTooltip.drawTooltip();
+					proclaim.isTrue(calculateTooltipRectStub.calledTwice);
+					proclaim.strictEqual(drawStub.firstCall.args[0], secondTooltipRect);
+				});
+			});
+
+			describe("when the tooltip is positioned right of the target and there isn't room", () => {
+				beforeEach(() => {
+					// Set the tooltip postition to above, but the tooltip top to off screen
+					testTooltip.tooltipPosition = "right";
+
+					outOfBoundsStub.withArgs(tooltipRect.left, 'x').returns(false);
+					outOfBoundsStub.withArgs(tooltipRect.right, 'x').returns(true);
+				});
+
+				it("sets the tooltipPosition to the return value of _flipOrientation", () => {
+					let originalTooltipPosition = testTooltip.tooltipPosition;
+
+					const flipResultStub = "flipResultStub";
+					const flipStub = sinon.stub(Tooltip, '_flipOrientation').returns(flipResultStub);
+
+					testTooltip.drawTooltip();
+
+					proclaim.strictEqual(flipStub.firstCall.args[0], originalTooltipPosition);
+					proclaim.strictEqual(testTooltip.tooltipPosition, flipResultStub);
+					flipStub.restore();
+				});
+
+				it("calls calculateTooltipRect again", () => {
+					testTooltip.drawTooltip();
+					proclaim.isTrue(calculateTooltipRectStub.calledTwice);
+				});
+
+				it("draws the tooltip with the new rect", () => {
+					testTooltip.drawTooltip();
+					proclaim.isTrue(calculateTooltipRectStub.calledTwice);
+					proclaim.strictEqual(drawStub.firstCall.args[0], secondTooltipRect);
+				});
+			});
+		});
 		describe("when the tooltip positioned above but its left side is off screen", () => {
 			it("sets tooltipRect.left to the result of getEdge");
 			it("sets tooltipAlignment to left");
