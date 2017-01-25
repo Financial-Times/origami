@@ -379,7 +379,8 @@ describe("Tooltip", () => {
 			proclaim.isTrue(setArrowStub.called);
 		});
 
-		/* Unhappy path */
+		/* Unhappy path: tests for every position that if there isn't room for the tooltip
+		it flips the tooltip. So "top" becomes "bottom" etc */
 		describe("flips the tooltip", () => {
 			let secondTooltipRect;
 			let calculateTooltipRectStub;
@@ -538,6 +539,9 @@ describe("Tooltip", () => {
 			});
 		});
 
+		/* Unhappy path: If the tooltip is slightly offscreen when it is middle aligned, then it aligns
+		the tooltip with an extremity of the target (whichever is results in the tooltip
+		being entirely within document.body)*/
 		describe("aligns the tooltip with the target", () => {
 			let outOfBoundsStub;
 			let edgeStubValue;
