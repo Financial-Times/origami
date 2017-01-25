@@ -55,8 +55,8 @@ const checkOptions = function(opts) {
 		}
 
 		// Prevent closing is only available with modal
-		if (opts.preventClosing && !opts.modal) {
-			opst.preventClosing = false;
+		if (opts.preventclosing && !opts.modal) {
+			opts.preventclosing = false;
 		}
 	}
 
@@ -185,7 +185,7 @@ Overlay.prototype.render = function() {
 			heading.classList.add('o-overlay__heading--shaded');
 		}
 
-		if (!this.opts.preventClosing) {
+		if (!this.opts.preventclosing) {
 			const button = document.createElement('a');
 			button.className = 'o-overlay__close';
 			button.setAttribute('role', 'button');
@@ -334,7 +334,7 @@ Overlay.prototype.closeOnExternalClick = function(ev) {
 };
 
 Overlay.prototype.closeOnEscapePress = function(ev) {
-	if (!this.opts.preventClosing && ev.keyCode === 27) {
+	if (!this.opts.preventclosing && ev.keyCode === 27) {
 		this.close();
 	}
 };
