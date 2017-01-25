@@ -53,6 +53,11 @@ const checkOptions = function(opts) {
 		} else if (!(opts.arrow.target instanceof HTMLElement)) {
 			opts.arrow.target = document.querySelector(opts.arrow.target);
 		}
+
+		// Prevent closing is only available with modal
+		if (opts.preventClosing && !opts.modal) {
+			opst.preventClosing = false;
+		}
 	}
 
 	return opts;
@@ -180,20 +185,22 @@ Overlay.prototype.render = function() {
 			heading.classList.add('o-overlay__heading--shaded');
 		}
 
-		const button = document.createElement('a');
-		button.className = 'o-overlay__close';
-		button.setAttribute('role', 'button');
-		button.setAttribute('tabindex', '0');
-		button.setAttribute('href', '#void');
-		button.setAttribute('aria-label', 'Close');
-		button.setAttribute('title', 'Close');
+		if (!this.opts.preventClosing) {
+			const button = document.createElement('a');
+			button.className = 'o-overlay__close';
+			button.setAttribute('role', 'button');
+			button.setAttribute('tabindex', '0');
+			button.setAttribute('href', '#void');
+			button.setAttribute('aria-label', 'Close');
+			button.setAttribute('title', 'Close');
+			heading.appendChild(button);
+		}
 
 		const title = document.createElement('span');
 		title.setAttribute('role', 'heading');
 		title.className = 'o-overlay__title';
 		title.innerHTML = this.opts.heading.title;
 
-		heading.appendChild(button);
 		heading.appendChild(title);
 		wrapperEl.appendChild(heading);
 	}
@@ -327,7 +334,7 @@ Overlay.prototype.closeOnExternalClick = function(ev) {
 };
 
 Overlay.prototype.closeOnEscapePress = function(ev) {
-	if (ev.keyCode === 27) {
+	if (!this.opts.preventClosing && ev.keyCode === 27) {
 		this.close();
 	}
 };
