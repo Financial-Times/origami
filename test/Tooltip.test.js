@@ -349,7 +349,7 @@ describe("Tooltip", () => {
 			setArrowStub.restore();
 		});
 
-		// Happy path
+		/* Happy path */
 		it("sets tooltipAlignment to 'middle'", () => {
 			testTooltip.tooltipAlignment = 'someValue';
 			proclaim.notStrictEqual(testTooltip.tooltipAlignment, 'middle');
@@ -379,7 +379,7 @@ describe("Tooltip", () => {
 			proclaim.isTrue(setArrowStub.called);
 		});
 
-		// Repeat the same set up and tear down for the four tooltip positions
+		/* Unhappy path */
 		describe("flips the tooltip", () => {
 			let secondTooltipRect;
 			let calculateTooltipRectStub;
@@ -537,10 +537,192 @@ describe("Tooltip", () => {
 				});
 			});
 		});
-		describe("when the tooltip positioned above but its left side is off screen", () => {
-			it("sets tooltipRect.left to the result of getEdge");
-			it("sets tooltipAlignment to left");
-			it("draws tooltip rect with the new rect");
+
+		describe("aligns the tooltip with the target", () => {
+			let outOfBoundsStub;
+			let edgeStubValue;
+			let tooltipRect;
+			let calculateTooltipRectStub;
+			let getEdgeStub;
+
+			beforeEach(() => {
+				tooltipRect = {top: 1, bottom: 2, left: 3, right: 4}; // we don't actually read these values
+				calculateTooltipRectStub = sinon.stub(Tooltip.prototype, 'calculateTooltipRect').returns(tooltipRect);
+				edgeStubValue = 'someEdge';
+				getEdgeStub = sinon.stub(Tooltip.prototype, '_getEdge').returns(edgeStubValue);
+
+				outOfBoundsStub = sinon.stub(Tooltip, '_isOutOfBounds');
+			});
+
+			afterEach(() => {
+				outOfBoundsStub.restore();
+				calculateTooltipRectStub.restore();
+				getEdgeStub.restore();
+			});
+
+			describe("when the tootip is positioned above", ()=> {
+				beforeEach(() => {
+					testTooltip.tooltipPosition = "above";
+				});
+
+				describe("and its left side is off screen", () => {
+					beforeEach(() => {
+						outOfBoundsStub.withArgs(tooltipRect.left, 'x').returns(true);
+						outOfBoundsStub.withArgs(tooltipRect.right, 'x').returns(false);
+					});
+
+					it("sets calls _drawTooltip with a rect with a left value from _getEdge", () => {
+						testTooltip.drawTooltip();
+						proclaim.isTrue(getEdgeStub.calledWith('left'));
+						proclaim.strictEqual(drawStub.firstCall.args[0].left, edgeStubValue);
+					});
+					it("sets tooltipAlignment to left", () => {
+						testTooltip.drawTooltip();
+						proclaim.strictEqual(testTooltip.tooltipAlignment, 'left');
+					});
+				});
+
+				describe("and its right side is off screen", () => {
+					beforeEach(() => {
+						outOfBoundsStub.withArgs(tooltipRect.left, 'x').returns(false);
+						outOfBoundsStub.withArgs(tooltipRect.right, 'x').returns(true);
+					});
+
+					it("sets calls _drawTooltip with a rect with a left value from _getEdge", () => {
+						testTooltip.drawTooltip();
+						proclaim.isTrue(getEdgeStub.calledWith('right'));
+						proclaim.strictEqual(drawStub.firstCall.args[0].left, edgeStubValue);
+					});
+
+					it("sets tooltipAlignment to right", () => {
+						testTooltip.drawTooltip();
+						proclaim.strictEqual(testTooltip.tooltipAlignment, 'right');
+					});
+				});
+			});
+
+			describe("when the tootip is positioned below", ()=> {
+				beforeEach(() => {
+					testTooltip.tooltipPosition = "below";
+				});
+
+				describe("and its left side is off screen", () => {
+					beforeEach(() => {
+						outOfBoundsStub.withArgs(tooltipRect.left, 'x').returns(true);
+						outOfBoundsStub.withArgs(tooltipRect.right, 'x').returns(false);
+					});
+
+					it("sets calls _drawTooltip with a rect with a left value from _getEdge", () => {
+						testTooltip.drawTooltip();
+						proclaim.isTrue(getEdgeStub.calledWith('left'));
+						proclaim.strictEqual(drawStub.firstCall.args[0].left, edgeStubValue);
+					});
+					it("sets tooltipAlignment to left", () => {
+						testTooltip.drawTooltip();
+						proclaim.strictEqual(testTooltip.tooltipAlignment, 'left');
+					});
+				});
+
+				describe("and its right side is off screen", () => {
+					beforeEach(() => {
+						outOfBoundsStub.withArgs(tooltipRect.left, 'x').returns(false);
+						outOfBoundsStub.withArgs(tooltipRect.right, 'x').returns(true);
+					});
+
+					it("sets calls _drawTooltip with a rect with a left value from _getEdge", () => {
+						testTooltip.drawTooltip();
+						proclaim.isTrue(getEdgeStub.calledWith('right'));
+						proclaim.strictEqual(drawStub.firstCall.args[0].left, edgeStubValue);
+					});
+
+					it("sets tooltipAlignment to right", () => {
+						testTooltip.drawTooltip();
+						proclaim.strictEqual(testTooltip.tooltipAlignment, 'right');
+					});
+				});
+			});
+
+			describe("when the tootip is positioned left", ()=> {
+				beforeEach(() => {
+					testTooltip.tooltipPosition = "left";
+				});
+
+				describe("and its top is off screen", () => {
+					beforeEach(() => {
+						outOfBoundsStub.withArgs(tooltipRect.top, 'y').returns(true);
+						outOfBoundsStub.withArgs(tooltipRect.bottom, 'y').returns(false);
+					});
+
+					it("sets calls _drawTooltip with a rect with a top value from _getEdge", () => {
+						testTooltip.drawTooltip();
+						proclaim.isTrue(getEdgeStub.calledWith('top'));
+						proclaim.strictEqual(drawStub.firstCall.args[0].top, edgeStubValue);
+					});
+					it("sets tooltipAlignment to top", () => {
+						testTooltip.drawTooltip();
+						proclaim.strictEqual(testTooltip.tooltipAlignment, 'top');
+					});
+				});
+
+				describe("and its bottom side is off screen", () => {
+					beforeEach(() => {
+						outOfBoundsStub.withArgs(tooltipRect.top, 'y').returns(false);
+						outOfBoundsStub.withArgs(tooltipRect.bottom, 'y').returns(true);
+					});
+
+					it("sets calls _drawTooltip with a rect with a left value from _getEdge", () => {
+						testTooltip.drawTooltip();
+						proclaim.isTrue(getEdgeStub.calledWith('bottom'));
+						proclaim.strictEqual(drawStub.firstCall.args[0].top, edgeStubValue);
+					});
+
+					it("sets tooltipAlignment to bottom", () => {
+						testTooltip.drawTooltip();
+						proclaim.strictEqual(testTooltip.tooltipAlignment, 'bottom');
+					});
+				});
+			});
+
+			describe("when the tootip is positioned right", ()=> {
+				beforeEach(() => {
+					testTooltip.tooltipPosition = "right";
+				});
+
+				describe("and its top is off screen", () => {
+					beforeEach(() => {
+						outOfBoundsStub.withArgs(tooltipRect.top, 'y').returns(true);
+						outOfBoundsStub.withArgs(tooltipRect.bottom, 'y').returns(false);
+					});
+
+					it("sets calls _drawTooltip with a rect with a top value from _getEdge", () => {
+						testTooltip.drawTooltip();
+						proclaim.isTrue(getEdgeStub.calledWith('top'));
+						proclaim.strictEqual(drawStub.firstCall.args[0].top, edgeStubValue);
+					});
+					it("sets tooltipAlignment to top", () => {
+						testTooltip.drawTooltip();
+						proclaim.strictEqual(testTooltip.tooltipAlignment, 'top');
+					});
+				});
+
+				describe("and its bottom side is off screen", () => {
+					beforeEach(() => {
+						outOfBoundsStub.withArgs(tooltipRect.top, 'y').returns(false);
+						outOfBoundsStub.withArgs(tooltipRect.bottom, 'y').returns(true);
+					});
+
+					it("sets calls _drawTooltip with a rect with a left value from _getEdge", () => {
+						testTooltip.drawTooltip();
+						proclaim.isTrue(getEdgeStub.calledWith('bottom'));
+						proclaim.strictEqual(drawStub.firstCall.args[0].top, edgeStubValue);
+					});
+
+					it("sets tooltipAlignment to bottom", () => {
+						testTooltip.drawTooltip();
+						proclaim.strictEqual(testTooltip.tooltipAlignment, 'bottom');
+					});
+				});
+			});
 		});
 	});
 

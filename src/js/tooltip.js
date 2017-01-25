@@ -173,9 +173,9 @@ class Tooltip {
 		}
 
 		/* Now align the tooltip to the left | right | top | bottom  of the target
-		 if there's not enough room for it to aligned to the middle of the target
-		 NB once tooltipRect.top is set, tooltipRect.bottom is no longer correct and should be
-		 recalculated before use */
+			if there's not enough room for it to aligned to the middle of the target
+			NB once tooltipRect.top is set, tooltipRect.bottom is no longer correct and should be
+			recalculated before use */
 		if (this.tooltipPosition === 'above' || this.tooltipPosition === 'below') {
 			if (Tooltip._isOutOfBounds(tooltipRect.left, 'x')) {
 				tooltipRect.left = this._getEdge('left');
@@ -245,7 +245,7 @@ class Tooltip {
 				value = this.target.centrePoint.y - this.tooltipEl.offsetHeight/2;
 			}
 		} else {
-			value = this.target.getEdge(alignment);
+			value = this.target.getEdge(alignment); // this is not correct
 		}
 		return value;
 	}
