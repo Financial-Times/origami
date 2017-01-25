@@ -43,6 +43,7 @@ class VideoAds {
 				});
 
 				googleSdkScript.addEventListener('error', (e) => {
+					reportError(e);
 					reject(e);
 				});
 			}
@@ -207,6 +208,7 @@ class VideoAds {
 			this.adsManager.start();
 		} catch (adError) {
 			// An error may be thrown if there was a problem with the VAST response.
+			reportError(adError);
 			this.video.videoEl.play();
 		}
 	}
@@ -318,7 +320,16 @@ class VideoAds {
 		}
 	}
 
-	adErrorHandler() {
+	reportError(error) {
+		document.body.dispatchEvent(new CustomEvent('oErrors.log', { bubbles: true, detail: { error: error } }));
+	}
+
+	adErrorHandler(adError) {
+
+		// convert the Google Ad error to a JS one
+		const message = `${adError.getErrorCode()}, ${adError.getType()}, ${adError.getMessage()}, ${adError.getVastErrorCode()}`;
+		reportError(new Error(message));
+
 		this.adsManager && this.adsManager.destroy();
 		this.video.containerEl.removeChild(this.adContainerEl);
 		if (this.overlayEl) {
