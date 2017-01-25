@@ -202,30 +202,37 @@ class Tooltip {
 		this._setArrow();
 	};
 
+	width() {
+		return this.tooltipEl.offsetWidth;
+	}
+
+	height() {
+		return this.tooltipEl.offsetHeight;
+	}
+
 	calculateTooltipRect() {
-		const arrowDepth = 10;
 		const rect = {};
-		const width = this.tooltipEl.offsetWidth;
-		const height = this.tooltipEl.offsetHeight;
+		const width = this.width();
+		const height = this.height();
 
 		switch (this.tooltipPosition) {
 			case 'above':
-				rect.top = this.target.top - (height + arrowDepth);
+				rect.top = this.target.top - (height + Tooltip.arrowDepth);
 				rect.left = this._getEdge('middle', 'x');
 				break;
 
 			case 'below':
-				rect.top = this.target.bottom + arrowDepth;
+				rect.top = this.target.bottom + Tooltip.arrowDepth;
 				rect.left = this._getEdge('middle', 'x');
 				break;
 
 			case 'right':
-				rect.left = this.target.right + arrowDepth;
+				rect.left = this.target.right + Tooltip.arrowDepth;
 				rect.top = this._getEdge('middle', 'y');
 				break;
 
 			case 'left':
-				rect.left = this.target.left - (width + arrowDepth);
+				rect.left = this.target.left - (width + Tooltip.arrowDepth);
 				rect.top = this._getEdge('middle', 'y');
 				break;
 		};
@@ -320,7 +327,7 @@ class Tooltip {
 		return [].map.call(rootEl.querySelectorAll('[data-o-component="o-tooltip"]'), rootEl => new Tooltip(rootEl, opts));
 	};
 }
-
+Tooltip.arrowDepth = 10;
 Tooltip.positionToArrowPositionMap = {"above": "below",
 																			"below": "above",
 																			"left": "right",

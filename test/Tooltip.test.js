@@ -731,38 +731,123 @@ describe("Tooltip", () => {
 	});
 
 	describe("calculateTooltipRect", () => {
+		let testTooltip;
+		let getStub;
+		let checkStub;
+		let getEdgeStub;
+		let targetStub;
+
+		beforeEach(() => {
+			getStub = sinon.stub(Tooltip.prototype, 'getOptions');
+			checkStub = sinon.stub(Tooltip.prototype, 'checkOptions').returns({target: 'testValue'});
+
+			getEdgeStub = sinon.stub(Tooltip.prototype, '_getEdge').returns(100);
+
+			let tooltipElStub = {offsetWidth: 10, offsetHeight: 10};
+			targetStub = sinon.stub(Tooltip, 'Target').returns({top: 1, left: 1, right: 1, bottom: 1});
+
+			const stubEl = document.createElement('div');
+			testTooltip = new Tooltip(stubEl);
+
+			testTooltip.tooltipEl = tooltipElStub;
+		});
+
+		afterEach(()=>{
+			getStub.restore();
+			checkStub.restore();
+			getEdgeStub.restore();
+			targetStub.restore();
+		});
+
 		describe("when position is above", () => {
-			let testTooltip;
-			let getStub;
-			let checkStub;
-
 			beforeEach(()=>{
-				const stubEl = document.createElement('div');
-				const getStub = sinon.stub(Tooltip.prototype, 'getOptions');
-				const checkStub = sinon.stub(Tooltip.prototype, 'checkOptions').returns({'position': 'top'});
-				const targetStub = sinon.stub(Tooltip, 'Target');
-
-				testTooltip = new Tooltip();
+				testTooltip.tooltipPosition = 'above';
 			});
-
-			afterEach(()=>{
-				getStub.restore();
-				checkStub.restore();
-			});
-
 
 			it("calls get edge", () => {
-				getEdgeStub = sinon.stub(Tooltip.prototype, '_getEdge');
 				testTooltip.calculateTooltipRect();
 				proclaim.isTrue(getEdgeStub.calledWith('middle', 'x'));
-				getEdgeStub.restore();
 			});
-			it("returns a rect with the expected values", () => {
-				//let expectedValues = {left: 1, right: 1, top: 1, bottom: 1};
-				//testTooltip.calculateTooltipRect();
 
+			it("returns a rect with the expected values", () => {
+				let expectedLeft = testTooltip._getEdge();
+				let expectedRight = expectedLeft + testTooltip.width();
+				let expectedTop =  testTooltip.target.top - (testTooltip.height() + Tooltip.arrowDepth);
+				let expectedBottom =  expectedTop + testTooltip.height();
+
+				let expectedValue = {left: expectedLeft, right: expectedRight, top: expectedTop, bottom: expectedBottom};
+				let returnValue = testTooltip.calculateTooltipRect();
+				proclaim.deepEqual(expectedValue, returnValue);
 			});
 		});
-		// repeat 4 times
+
+		describe("when position is below", () => {
+			beforeEach(()=>{
+				testTooltip.tooltipPosition = 'below';
+			});
+
+			it("calls get edge", () => {
+				testTooltip.calculateTooltipRect();
+				proclaim.isTrue(getEdgeStub.calledWith('middle', 'x'));
+			});
+
+			it("returns a rect with the expected values", () => {
+				let expectedLeft = testTooltip._getEdge();
+				let expectedRight = expectedLeft + testTooltip.width();
+
+				let expectedTop =  testTooltip.target.bottom + Tooltip.arrowDepth;
+				let expectedBottom =  expectedTop + testTooltip.height();
+
+				let expectedValue = {left: expectedLeft, right: expectedRight, top: expectedTop, bottom: expectedBottom};
+				let returnValue = testTooltip.calculateTooltipRect();
+				proclaim.deepEqual(expectedValue, returnValue);
+			});
+		});
+
+		describe("when position is left", () => {
+			beforeEach(()=>{
+				testTooltip.tooltipPosition = 'left';
+			});
+
+			it("calls get edge", () => {
+				testTooltip.calculateTooltipRect();
+				proclaim.isTrue(getEdgeStub.calledWith('middle', 'y'));
+			});
+
+			it("returns a rect with the expected values", () => {
+				let expectedLeft = testTooltip.target.left - (testTooltip.width() + Tooltip.arrowDepth);
+				let expectedRight = expectedLeft + testTooltip.width();
+
+				let expectedTop =  testTooltip._getEdge();
+				let expectedBottom =  expectedTop + testTooltip.height();
+
+				let expectedValue = {left: expectedLeft, right: expectedRight, top: expectedTop, bottom: expectedBottom};
+				let returnValue = testTooltip.calculateTooltipRect();
+				proclaim.deepEqual(expectedValue, returnValue);
+			});
+		});
+
+		describe("when position is right", () => {
+			beforeEach(() => {
+				testTooltip.tooltipPosition = 'right';
+			});
+
+			it("calls get edge", () => {
+				testTooltip.calculateTooltipRect();
+				proclaim.isTrue(getEdgeStub.calledWith('middle', 'y'));
+			});
+
+			it("returns a rect with the expected values", () => {
+				let expectedLeft = testTooltip.target.right + Tooltip.arrowDepth;
+				let expectedRight = expectedLeft + testTooltip.width();
+
+				let expectedTop =  testTooltip._getEdge();
+				let expectedBottom =  expectedTop + testTooltip.height();
+
+				let expectedValue = {left: expectedLeft, right: expectedRight, top: expectedTop, bottom: expectedBottom};
+				let returnValue = testTooltip.calculateTooltipRect();
+				proclaim.deepEqual(expectedValue, returnValue);
+			});
+		});
 	});
 });
