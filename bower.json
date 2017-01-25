@@ -14,10 +14,6 @@
     "tests"
   ],
   "dependencies": {
-    "n-ui": "^2.0.0",
-    "o-icons": "^5.2.0"
-  },
-  "resolutions": {
-    "o-icons": "^5.2.0"
+    "n-ui": ">=2.0.0 <4.0.0"
   }
 }
