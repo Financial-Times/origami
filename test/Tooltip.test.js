@@ -732,8 +732,36 @@ describe("Tooltip", () => {
 
 	describe("calculateTooltipRect", () => {
 		describe("when position is above", () => {
-			it("calls get edge");
-			it("returns a rect with the expected values");
+			let testTooltip;
+			let getStub;
+			let checkStub;
+
+			beforeEach(()=>{
+				const stubEl = document.createElement('div');
+				const getStub = sinon.stub(Tooltip.prototype, 'getOptions');
+				const checkStub = sinon.stub(Tooltip.prototype, 'checkOptions').returns({'position': 'top'});
+				const targetStub = sinon.stub(Tooltip, 'Target');
+
+				testTooltip = new Tooltip();
+			});
+
+			afterEach(()=>{
+				getStub.restore();
+				checkStub.restore();
+			});
+
+
+			it("calls get edge", () => {
+				getEdgeStub = sinon.stub(Tooltip.prototype, '_getEdge');
+				testTooltip.calculateTooltipRect();
+				proclaim.isTrue(getEdgeStub.calledWith('middle', 'x'));
+				getEdgeStub.restore();
+			});
+			it("returns a rect with the expected values", () => {
+				//let expectedValues = {left: 1, right: 1, top: 1, bottom: 1};
+				//testTooltip.calculateTooltipRect();
+
+			});
 		});
 		// repeat 4 times
 	});
