@@ -30,7 +30,7 @@
 	}
 
 	&.o-teaser__related-item--video a:after {
-		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 13);
+		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 13, $iconset-version: 1);
 		content: '';
 		position: relative;
 		top: 1px;

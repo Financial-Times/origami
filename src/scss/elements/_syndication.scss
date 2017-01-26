@@ -15,13 +15,12 @@
 	}
 
 	.o-teaser__syndication-indicator--yes {
-		@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), 20);
+		@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), 20, $iconset-version: 1);
 		background-color: oColorsGetPaletteColor('green');
 	}
 
 	.o-teaser__syndication-indicator--no {
-		@include oIconsGetIcon('minus', oColorsGetPaletteColor('white'), 20);
+		@include oIconsGetIcon('minus', oColorsGetPaletteColor('white'), 20, $iconset-version: 1);
 		background-color: oColorsGetPaletteColor('red');
 	}
 }
-
