@@ -8,7 +8,7 @@ const expect = require('expect.js');
 
 const sinon = require('sinon/pkg/sinon');
 
-describe("smoke-tests (./overlay.js)", () => {
+describe("smoke-tests (./overlay.js)", function() {
 
 	afterEach(() => {
 		Overlay.destroy();
@@ -81,8 +81,6 @@ describe("smoke-tests (./overlay.js)", () => {
 			const overlays = Overlay.init();
 			const currentOverlay = overlays[0];
 
-			o.fireEvent(trigger, 'click');
-
 			function overlayReadyHandler() {
 				o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
 				o.fireEvent(document.body, 'click');
@@ -90,7 +88,6 @@ describe("smoke-tests (./overlay.js)", () => {
 					keyCode: 27
 				});
 				o.fireCustomEvent(document.body, 'oLayers.new');
-
 				expect(Overlay.prototype.close.callCount).to.be(3);
 
 				Overlay.prototype.close = realCloseFunction;
@@ -101,7 +98,50 @@ describe("smoke-tests (./overlay.js)", () => {
 			}
 
 			document.body.addEventListener('oOverlay.ready', overlayReadyHandler);
+			o.fireEvent(trigger, 'click');
+
 		});
+
+		it('modal with prevent closing should not be closable with esc key, close button, but can with new layer ', done => {
+
+			const realCloseFunction = Overlay.prototype.close;
+			const stubbedCloseFunction = sinon.stub();
+			Overlay.prototype.close = stubbedCloseFunction;
+
+			const trigger = document.querySelector('.o-overlay-trigger');
+			trigger.setAttribute('data-o-overlay-preventclosing', true);
+
+			const overlays = Overlay.init();
+			const currentOverlay = overlays[0];
+
+			function overlayReadyHandler() {
+				const overlayClose = document.querySelector('.o-overlay__close');
+				if (overlayClose) {
+					o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
+				}
+				o.fireEvent(document.body, 'click');
+				o.fireEvent(document.body, 'keyup', {
+					keyCode: 27
+				});
+
+				expect(Overlay.prototype.close.callCount).to.be(0);
+
+				o.fireCustomEvent(document.body, 'oLayers.new');
+
+				expect(Overlay.prototype.close.callCount).to.be(1);
+
+				Overlay.prototype.close = realCloseFunction;
+				currentOverlay.close();
+
+				document.body.removeEventListener('oOverlay.ready', overlayReadyHandler);
+				done();
+			}
+
+			document.body.addEventListener('oOverlay.ready', overlayReadyHandler);
+			o.fireEvent(trigger, 'click');
+
+		});
+
 
 		it('non-modal should be closable in different ways', function() {
 			const realCloseFunction = Overlay.prototype.close;
@@ -115,7 +155,6 @@ describe("smoke-tests (./overlay.js)", () => {
 			const currentOverlay = overlays[0];
 
 			o.fireEvent(trigger, 'click');
-
 			o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
 			o.fireEvent(document.body, 'click');
 			o.fireEvent(document.body, 'keyup', {
@@ -241,8 +280,11 @@ describe("smoke-tests (./overlay.js)", () => {
 	});
 
 	it('should be able to inject content from a url', done => {
+		// Increase the timeout of this function to allow for the fetching of the url
+		this.timeout(10000);
+
 		const mod = new Overlay('testOverlay', {
-			src: 'https://origami-build.ft.com/files/o-card@2.2.3/demos/standard.html',
+			src: 'https://www.ft.com/__origami/service/build/v2/files/o-card@2.2.3/demos/standard.html',
 			trigger: document.querySelector('.o-overlay-trigger')
 		});
 
