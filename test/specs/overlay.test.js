@@ -8,7 +8,7 @@ const expect = require('expect.js');
 
 const sinon = require('sinon/pkg/sinon');
 
-describe("smoke-tests (./overlay.js)", () => {
+describe("smoke-tests (./overlay.js)", function() {
 
 	afterEach(() => {
 		Overlay.destroy();
