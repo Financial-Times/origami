@@ -1,0 +1,14 @@
+@if ($o-normalise-is-silent == false) {
+	@include oNormaliseHTML;
+
+	.o-normalise-clearfix {
+		@include oNormaliseClearfix;
+	}
+
+	.o-normalise-visually-hidden {
+		@include oNormaliseVisuallyHidden;
+	}
+
+	// Set to silent again to avoid being output twice
+	$o-normalise-is-silent: true !global;
+}

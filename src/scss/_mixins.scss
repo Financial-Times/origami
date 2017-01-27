@@ -1,0 +1,72 @@
+/// Visually hide an element while still
+/// allowing it to be read by a screenreader
+@mixin oNormaliseVisuallyHidden {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	margin: -1px;
+	border: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	white-space: nowrap;
+}
+
+/// Clearfix helper styles
+/// Outputs clearfix styles on the current element
+@mixin oNormaliseClearfix {
+	zoom: 1;
+
+	&:before,
+	&:after {
+		content: '';
+		// sass-lint:disable no-duplicate-properties
+		display: table;
+		display: flex;
+		// sass-lint:enable no-duplicate-properties
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+/// Adds box sizing to current and all child elements
+@mixin oNormaliseBoxSizing {
+	// sass-lint:disable no-vendor-prefixes
+	/*autoprefixer: off*/
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	// sass-lint:enable no-vendor-prefixes
+
+	& *,
+	& *:before,
+	& *:after {
+		// sass-lint:disable no-vendor-prefixes
+		/*autoprefixer: off*/
+		-webkit-box-sizing: inherit;
+		-moz-box-sizing: inherit;
+		box-sizing: inherit;
+		// sass-lint:enable no-vendor-prefixes
+	}
+}
+
+/// Adds normalising styles to the html and body elements
+@mixin oNormaliseHTML($font-smoothing: true, $box-sizing: true) {
+	html,
+	body {
+		margin: 0;
+		text-rendering: optimizeLegibility;
+
+		@if $font-smoothing {
+			// sass-lint:disable no-vendor-prefixes
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			// sass-lint:enable no-vendor-prefixes
+		}
+
+		@if $box-sizing {
+			@include oNormaliseBoxSizing;
+		}
+	}
+}
