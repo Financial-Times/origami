@@ -280,6 +280,9 @@ describe("smoke-tests (./overlay.js)", () => {
 	});
 
 	it('should be able to inject content from a url', done => {
+		// Increase the timeout of this function to allow for the fetching of the url
+		this.timeout(10000);
+
 		const mod = new Overlay('testOverlay', {
 			src: 'https://www.ft.com/__origami/service/build/v2/files/o-card@2.2.3/demos/standard.html',
 			trigger: document.querySelector('.o-overlay-trigger')
