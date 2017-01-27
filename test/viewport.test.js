@@ -114,6 +114,10 @@ describe('o-viewport', function() {
 		expect(oViewport.getOrientation() === 'portrait' || oViewport.getOrientation() === 'landscape').to.be(true);
 	});
 
+	it('should be able to get the visibility of the viewport', function() {
+		expect(oViewport.getVisibility()).to.be.a('boolean');
+	});
+
 	it('should stop listening to scroll event', function(done) {
 		oViewport.stopListeningTo('scroll');
 		document.body.addEventListener('oViewport.scroll', function() {
