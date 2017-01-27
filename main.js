@@ -150,5 +150,6 @@ module.exports = {
 	setThrottleInterval: setThrottleInterval,
 	getOrientation: utils.getOrientation,
 	getSize: utils.getSize,
-	getScrollPosition: utils.getScrollPosition
+	getScrollPosition: utils.getScrollPosition,
+	getVisibility: utils.getVisibility
 };
