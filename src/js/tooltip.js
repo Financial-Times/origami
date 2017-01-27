@@ -136,12 +136,13 @@ class Tooltip {
 	};
 
 	resizeListener() {
-		if (this.target.rectObject.left !== this.target.targetEl.getBoundingClientRect().left &&
-				this.target.rectObject.right !== this.target.targetEl.getBoundingClientRect().right &&
-				this.target.rectObject.top !== this.target.targetEl.getBoundingClientRect().top &&
-				this.target.rectObject.right !== this.target.targetEl.getBoundingClientRect().right) {
 
+		if (this.target.rectObject.left !== this.target.targetEl.getBoundingClientRect().left ||
+				this.target.rectObject.right !== this.target.targetEl.getBoundingClientRect().right ||
+				this.target.rectObject.top !== this.target.targetEl.getBoundingClientRect().top ||
+				this.target.rectObject.right !== this.target.targetEl.getBoundingClientRect().right) {
 			this.target.refreshRect();
+			window.requestAnimationFrame(() => {this.target.refreshRect();this.drawTooltip();});
 			this.drawTooltip();
 		}
 	};
@@ -178,22 +179,22 @@ class Tooltip {
 			recalculated before use */
 		if (this.tooltipPosition === 'above' || this.tooltipPosition === 'below') {
 			if (Tooltip._isOutOfBounds(tooltipRect.left, 'x')) {
-				tooltipRect.left = this._getEdge('left');
+				tooltipRect.left = this._getLeftFor('left');
 				this.tooltipAlignment = 'left';
 			}
 			if (Tooltip._isOutOfBounds(tooltipRect.right, 'x')) {
-				tooltipRect.left = this._getEdge('right');
+				tooltipRect.left = this._getLeftFor('right');
 				this.tooltipAlignment = 'right';
 			}
 		}
 
 		if (this.tooltipPosition === 'left' || this.tooltipPosition === 'right') {
 			if (Tooltip._isOutOfBounds(tooltipRect.top, 'y')) {
-				tooltipRect.top = this._getEdge('top');
+				tooltipRect.top = this._getTopFor('top');
 				this.tooltipAlignment = 'top';
 			}
 			if (Tooltip._isOutOfBounds(tooltipRect.bottom, 'y')) {
-				tooltipRect.top = this._getEdge('bottom');
+				tooltipRect.top = this._getTopFor('bottom');
 				this.tooltipAlignment = 'bottom';
 			}
 		}
@@ -218,22 +219,22 @@ class Tooltip {
 		switch (this.tooltipPosition) {
 			case 'above':
 				rect.top = this.target.top - (height + Tooltip.arrowDepth);
-				rect.left = this._getEdge('middle', 'x');
+				rect.left = this._getLeftFor('middle');
 				break;
 
 			case 'below':
 				rect.top = this.target.bottom + Tooltip.arrowDepth;
-				rect.left = this._getEdge('middle', 'x');
+				rect.left = this._getLeftFor('middle');
 				break;
 
 			case 'right':
 				rect.left = this.target.right + Tooltip.arrowDepth;
-				rect.top = this._getEdge('middle', 'y');
+				rect.top = this._getTopFor('middle');
 				break;
 
 			case 'left':
 				rect.left = this.target.left - (width + Tooltip.arrowDepth);
-				rect.top = this._getEdge('middle', 'y');
+				rect.top = this._getTopFor('middle');
 				break;
 		};
 
@@ -243,18 +244,24 @@ class Tooltip {
 		return rect;
 	}
 
-	_getEdge(alignment, axis) {
-		let value;
+	_getLeftFor(alignment) {
 		if (alignment === "middle") {
-			if (axis === 'x') {
-				value = this.target.centrePoint.x - this.tooltipEl.offsetWidth/2;
-			} else if (axis === 'y') {
-				value = this.target.centrePoint.y - this.tooltipEl.offsetHeight/2;
-			}
-		} else {
-			value = this.target.getEdge(alignment); // this is not correct
+			return this.target.centrePoint.x - this.width()/2;
+		} else if (alignment === "left") {
+			return this.target.left;
+		} else if (alignment === "right") {
+			return this.target.right - this.width();
 		}
-		return value;
+	};
+
+	_getTopFor(alignment) {
+		if (alignment === "middle") {
+			return this.target.centrePoint.y - this.height()/2;
+		} else if (alignment === "top") {
+			return this.target.top;
+		} else if (alignment === "bottom") {
+			return this.target.bottom - this.height();
+		}
 	}
 
 	_setArrow() {

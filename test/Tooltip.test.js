@@ -547,13 +547,15 @@ describe("Tooltip", () => {
 			let edgeStubValue;
 			let tooltipRect;
 			let calculateTooltipRectStub;
-			let getEdgeStub;
+			let getLeftStub;
+			let getTopStub;
 
 			beforeEach(() => {
 				tooltipRect = {top: 1, bottom: 2, left: 3, right: 4}; // we don't actually read these values
 				calculateTooltipRectStub = sinon.stub(Tooltip.prototype, 'calculateTooltipRect').returns(tooltipRect);
 				edgeStubValue = 'someEdge';
-				getEdgeStub = sinon.stub(Tooltip.prototype, '_getEdge').returns(edgeStubValue);
+				getLeftStub = sinon.stub(Tooltip.prototype, '_getLeftFor').returns(edgeStubValue);
+				getTopStub = sinon.stub(Tooltip.prototype, '_getTopFor').returns(edgeStubValue);
 
 				outOfBoundsStub = sinon.stub(Tooltip, '_isOutOfBounds');
 			});
@@ -561,7 +563,9 @@ describe("Tooltip", () => {
 			afterEach(() => {
 				outOfBoundsStub.restore();
 				calculateTooltipRectStub.restore();
-				getEdgeStub.restore();
+				getTopStub.restore();
+				getLeftStub.restore();
+
 			});
 
 			describe("when the tootip is positioned above", ()=> {
@@ -575,9 +579,9 @@ describe("Tooltip", () => {
 						outOfBoundsStub.withArgs(tooltipRect.right, 'x').returns(false);
 					});
 
-					it("sets calls _drawTooltip with a rect with a left value from _getEdge", () => {
+					it("sets calls _drawTooltip with a rect with a left value from _getLeftFor", () => {
 						testTooltip.drawTooltip();
-						proclaim.isTrue(getEdgeStub.calledWith('left'));
+						proclaim.isTrue(getLeftStub.calledWith('left'));
 						proclaim.strictEqual(drawStub.firstCall.args[0].left, edgeStubValue);
 					});
 					it("sets tooltipAlignment to left", () => {
@@ -592,9 +596,9 @@ describe("Tooltip", () => {
 						outOfBoundsStub.withArgs(tooltipRect.right, 'x').returns(true);
 					});
 
-					it("sets calls _drawTooltip with a rect with a left value from _getEdge", () => {
+					it("sets calls _drawTooltip with a rect with a left value from _getLeftFor", () => {
 						testTooltip.drawTooltip();
-						proclaim.isTrue(getEdgeStub.calledWith('right'));
+						proclaim.isTrue(getLeftStub.calledWith('right'));
 						proclaim.strictEqual(drawStub.firstCall.args[0].left, edgeStubValue);
 					});
 
@@ -616,9 +620,9 @@ describe("Tooltip", () => {
 						outOfBoundsStub.withArgs(tooltipRect.right, 'x').returns(false);
 					});
 
-					it("sets calls _drawTooltip with a rect with a left value from _getEdge", () => {
+					it("sets calls _drawTooltip with a rect with a left value from _getleft", () => {
 						testTooltip.drawTooltip();
-						proclaim.isTrue(getEdgeStub.calledWith('left'));
+						proclaim.isTrue(getLeftStub.calledWith('left'));
 						proclaim.strictEqual(drawStub.firstCall.args[0].left, edgeStubValue);
 					});
 					it("sets tooltipAlignment to left", () => {
@@ -633,9 +637,9 @@ describe("Tooltip", () => {
 						outOfBoundsStub.withArgs(tooltipRect.right, 'x').returns(true);
 					});
 
-					it("sets calls _drawTooltip with a rect with a left value from _getEdge", () => {
+					it("sets calls _drawTooltip with a rect with a left value from _getLeft", () => {
 						testTooltip.drawTooltip();
-						proclaim.isTrue(getEdgeStub.calledWith('right'));
+						proclaim.isTrue(getLeftStub.calledWith('right'));
 						proclaim.strictEqual(drawStub.firstCall.args[0].left, edgeStubValue);
 					});
 
@@ -657,9 +661,9 @@ describe("Tooltip", () => {
 						outOfBoundsStub.withArgs(tooltipRect.bottom, 'y').returns(false);
 					});
 
-					it("sets calls _drawTooltip with a rect with a top value from _getEdge", () => {
+					it("sets calls _drawTooltip with a rect with a top value from _getTopFor", () => {
 						testTooltip.drawTooltip();
-						proclaim.isTrue(getEdgeStub.calledWith('top'));
+						proclaim.isTrue(getTopStub.calledWith('top'));
 						proclaim.strictEqual(drawStub.firstCall.args[0].top, edgeStubValue);
 					});
 					it("sets tooltipAlignment to top", () => {
@@ -674,9 +678,9 @@ describe("Tooltip", () => {
 						outOfBoundsStub.withArgs(tooltipRect.bottom, 'y').returns(true);
 					});
 
-					it("sets calls _drawTooltip with a rect with a left value from _getEdge", () => {
+					it("sets calls _drawTooltip with a rect with a left value from _getTop", () => {
 						testTooltip.drawTooltip();
-						proclaim.isTrue(getEdgeStub.calledWith('bottom'));
+						proclaim.isTrue(getTopStub.calledWith('bottom'));
 						proclaim.strictEqual(drawStub.firstCall.args[0].top, edgeStubValue);
 					});
 
@@ -698,9 +702,9 @@ describe("Tooltip", () => {
 						outOfBoundsStub.withArgs(tooltipRect.bottom, 'y').returns(false);
 					});
 
-					it("sets calls _drawTooltip with a rect with a top value from _getEdge", () => {
+					it("sets calls _drawTooltip with a rect with a top value from _getTop", () => {
 						testTooltip.drawTooltip();
-						proclaim.isTrue(getEdgeStub.calledWith('top'));
+						proclaim.isTrue(getTopStub.calledWith('top'));
 						proclaim.strictEqual(drawStub.firstCall.args[0].top, edgeStubValue);
 					});
 					it("sets tooltipAlignment to top", () => {
@@ -715,9 +719,9 @@ describe("Tooltip", () => {
 						outOfBoundsStub.withArgs(tooltipRect.bottom, 'y').returns(true);
 					});
 
-					it("sets calls _drawTooltip with a rect with a left value from _getEdge", () => {
+					it("sets calls _drawTooltip with a rect with a left value from _getTop", () => {
 						testTooltip.drawTooltip();
-						proclaim.isTrue(getEdgeStub.calledWith('bottom'));
+						proclaim.isTrue(getTopStub.calledWith('bottom'));
 						proclaim.strictEqual(drawStub.firstCall.args[0].top, edgeStubValue);
 					});
 
@@ -734,14 +738,16 @@ describe("Tooltip", () => {
 		let testTooltip;
 		let getStub;
 		let checkStub;
-		let getEdgeStub;
+		let getLeftStub;
+		let getTopStub;
 		let targetStub;
 
 		beforeEach(() => {
 			getStub = sinon.stub(Tooltip.prototype, 'getOptions');
 			checkStub = sinon.stub(Tooltip.prototype, 'checkOptions').returns({target: 'testValue'});
 
-			getEdgeStub = sinon.stub(Tooltip.prototype, '_getEdge').returns(100);
+			getLeftStub = sinon.stub(Tooltip.prototype, '_getLeftFor').returns(100);
+			getTopStub = sinon.stub(Tooltip.prototype, '_getTopFor').returns(100);
 
 			let tooltipElStub = {offsetWidth: 10, offsetHeight: 10};
 			targetStub = sinon.stub(Tooltip, 'Target').returns({top: 1, left: 1, right: 1, bottom: 1});
@@ -755,7 +761,8 @@ describe("Tooltip", () => {
 		afterEach(()=>{
 			getStub.restore();
 			checkStub.restore();
-			getEdgeStub.restore();
+			getLeftStub.restore();
+			getTopStub.restore();
 			targetStub.restore();
 		});
 
@@ -766,14 +773,14 @@ describe("Tooltip", () => {
 
 			it("calls get edge", () => {
 				testTooltip.calculateTooltipRect();
-				proclaim.isTrue(getEdgeStub.calledWith('middle', 'x'));
+				proclaim.isTrue(getLeftStub.calledWith('middle'));
 			});
 
 			it("returns a rect with the expected values", () => {
-				let expectedLeft = testTooltip._getEdge();
+				let expectedLeft = testTooltip._getLeftFor();
 				let expectedRight = expectedLeft + testTooltip.width();
-				let expectedTop =  testTooltip.target.top - (testTooltip.height() + Tooltip.arrowDepth);
-				let expectedBottom =  expectedTop + testTooltip.height();
+				let expectedTop = testTooltip.target.top - (testTooltip.height() + Tooltip.arrowDepth);
+				let expectedBottom = expectedTop + testTooltip.height();
 
 				let expectedValue = {left: expectedLeft, right: expectedRight, top: expectedTop, bottom: expectedBottom};
 				let returnValue = testTooltip.calculateTooltipRect();
@@ -788,15 +795,15 @@ describe("Tooltip", () => {
 
 			it("calls get edge", () => {
 				testTooltip.calculateTooltipRect();
-				proclaim.isTrue(getEdgeStub.calledWith('middle', 'x'));
+				proclaim.isTrue(getLeftStub.calledWith('middle'));
 			});
 
 			it("returns a rect with the expected values", () => {
-				let expectedLeft = testTooltip._getEdge();
+				let expectedLeft = testTooltip._getLeftFor();
 				let expectedRight = expectedLeft + testTooltip.width();
 
-				let expectedTop =  testTooltip.target.bottom + Tooltip.arrowDepth;
-				let expectedBottom =  expectedTop + testTooltip.height();
+				let expectedTop = testTooltip.target.bottom + Tooltip.arrowDepth;
+				let expectedBottom = expectedTop + testTooltip.height();
 
 				let expectedValue = {left: expectedLeft, right: expectedRight, top: expectedTop, bottom: expectedBottom};
 				let returnValue = testTooltip.calculateTooltipRect();
@@ -811,15 +818,15 @@ describe("Tooltip", () => {
 
 			it("calls get edge", () => {
 				testTooltip.calculateTooltipRect();
-				proclaim.isTrue(getEdgeStub.calledWith('middle', 'y'));
+				proclaim.isTrue(getTopStub.calledWith('middle'));
 			});
 
 			it("returns a rect with the expected values", () => {
 				let expectedLeft = testTooltip.target.left - (testTooltip.width() + Tooltip.arrowDepth);
 				let expectedRight = expectedLeft + testTooltip.width();
 
-				let expectedTop =  testTooltip._getEdge();
-				let expectedBottom =  expectedTop + testTooltip.height();
+				let expectedTop = testTooltip._getTopFor();
+				let expectedBottom = expectedTop + testTooltip.height();
 
 				let expectedValue = {left: expectedLeft, right: expectedRight, top: expectedTop, bottom: expectedBottom};
 				let returnValue = testTooltip.calculateTooltipRect();
@@ -834,15 +841,15 @@ describe("Tooltip", () => {
 
 			it("calls get edge", () => {
 				testTooltip.calculateTooltipRect();
-				proclaim.isTrue(getEdgeStub.calledWith('middle', 'y'));
+				proclaim.isTrue(getTopStub.calledWith('middle'));
 			});
 
 			it("returns a rect with the expected values", () => {
 				let expectedLeft = testTooltip.target.right + Tooltip.arrowDepth;
 				let expectedRight = expectedLeft + testTooltip.width();
 
-				let expectedTop =  testTooltip._getEdge();
-				let expectedBottom =  expectedTop + testTooltip.height();
+				let expectedTop = testTooltip._getTopFor();
+				let expectedBottom = expectedTop + testTooltip.height();
 
 				let expectedValue = {left: expectedLeft, right: expectedRight, top: expectedTop, bottom: expectedBottom};
 				let returnValue = testTooltip.calculateTooltipRect();
@@ -850,4 +857,61 @@ describe("Tooltip", () => {
 			});
 		});
 	});
+
+	describe("_getLeftFor", () => {
+		let checkStub;
+		let getStub;
+		let targetStub;
+		let widthStub;
+		let heightStub;
+
+		let testTooltip;
+
+		beforeEach(() => {
+
+			getStub = sinon.stub(Tooltip.prototype, 'getOptions');
+			checkStub = sinon.stub(Tooltip.prototype, 'checkOptions').returns({'position': 'top'});
+			targetStub = sinon.stub(Tooltip, 'Target').returns({left: 'someLeftValue', right: 7, top: 'someTopValue', bottom: 9});
+			let stubEl = document.createElement('div');
+			widthStub = sinon.stub(Tooltip.prototype, 'width').returns(100);
+			heightStub = sinon.stub(Tooltip.prototype, 'height').returns(500);
+			testTooltip = new Tooltip(stubEl);
+		});
+
+		afterEach(() => {
+			getStub.restore();
+			setStub.restore();
+			checkStub.restore();
+			targetStub.restore();
+			heightStub.restore();
+			widthStub.restore();
+		});
+
+		it("returns target left for 'left'", () => {
+			proclaim.strictEqual(testTooltip._getLeftFor('left'), "someLeftValue");
+		});
+		it("returns target (right - target width) for 'right'", () => {
+			testTooltip._getLeftFor('right');
+			proclaim.isTrue(widthStub.called);
+			proclaim.strictEqual(testTooltip._getLeftFor('right'), targetStub.right - testTooltip.width());
+		});
+		it("returns target left + width/2 for 'middle'", () => {
+
+		});
+	});
+
+	describe("_getTopFor", () => {
+		it("returns target top for 'top'");
+		it("returns target (bottom - target height) for 'bottom'");
+		it("returns target top + height/2 for 'middle'");
+	});
+
+	describe("_setArrow", () => {/* todo */});
+	describe("_drawTooltip", () => {/* todo */});
+	describe("_isOutOfBounds", () => {/* todo */});
+	describe("_flipOrientation", () => {/* todo */});
+	describe("throwError", () => {/* todo */});
+
+
+
 });
