@@ -1,4 +1,4 @@
-$closeCrossColor: oColorsGetPaletteColor('pink-tint5') !default;
+$closeCrossColor: 'pink-tint5' !default;
 
 @include oColorsSetUseCase(o-overlay, background, 'white');
 @include oColorsSetUseCase(o-overlay, border, 'pink-tint3');
