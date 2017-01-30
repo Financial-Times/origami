@@ -18,10 +18,19 @@ As with all Origami components, o-normalise has a [silent mode](http://origami.f
 
 #### Available mixins
 
-- `oNormaliseVisuallyHidden` - provides styles to visually hide an element while remaining accessible to screen readers
-- `oNormaliseClearfix` - adds clearfix styles to an element
-- `oNormaliseBoxSizing` - adds `box-sizing: border-box` to the current and all descending elements
-- `oNormaliseHTML` - adds general normalising styles to `html` and `body` elements
+- `oNormaliseVisuallyHidden` - provides styles to [visually hide an element while remaining accessible to screen reader](https://snook.ca/archives/html_and_css/hiding-content-for-accessibility).
+- `oNormaliseClearfix` - adds clearfix styles to the element. See [this Sitepoint article for more on clearfixes - we use a variation on method 3.](https://www.sitepoint.com/clearing-floats-overview-different-clearfix-methods/)
+- `oNormaliseBoxSizing` - adds `box-sizing: border-box` to the current and all descending elements, see [this article by Paul Irish for a full explanation](https://www.paulirish.com/2012/box-sizing-border-box-ftw/).
+
+##### Normalising styles
+
+The following mixins apply normalising styles to groups of HTML elements, these aim to fix browser inconsistencies and any potential side-effects caused by browser default styles.
+
+- `oNormaliseHTML` - effects `html`, `body`, `main` elements and defaults `:focus` state
+- `oNormaliseLinks` - effects `a` tags and `:hover` & `:active` states
+- `oNormaliseText` - effects text related elements
+- `oNormaliseImages` - effects the `img` element
+- `oNormaliseForms` - effects form related elements
 
 #### Available variables
 
