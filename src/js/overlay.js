@@ -9,11 +9,6 @@ const checkOptions = function(opts) {
 		opts.trigger = document.querySelector(opts.trigger);
 	}
 
-	// There can't be a heading with an empty title
-	if (opts.heading && (!opts.heading.title || !opts.heading.title.trim())) {
-		throw new Error('"o-overlay error": To have a heading, a non-empty title needs to be set');
-	}
-
 	// Overlays that don't point at anything should be modal by default
 	if (!opts.arrow && typeof opts.modal === 'undefined') {
 		opts.modal = true;
@@ -176,10 +171,18 @@ Overlay.prototype.render = function() {
 
 	if (this.opts.heading) {
 		const heading = document.createElement('header');
-		const headingId = this.opts.heading.title.replace(' ', '-').toLowerCase();
 		heading.classList.add('o-overlay__heading');
-		heading.setAttribute('id', headingId);
-		wrapperEl.setAttribute('aria-labelledby', headingId);
+
+		if (this.opts.heading.title && this.opts.heading.title.trim()) {
+			const headingId = this.opts.heading.title.replace(' ', '-').toLowerCase();
+			heading.setAttribute('id', headingId);
+			wrapperEl.setAttribute('aria-labelledby', headingId);
+			const title = document.createElement('span');
+			title.setAttribute('role', 'heading');
+			title.className = 'o-overlay__title';
+			title.innerHTML = this.opts.heading.title;
+			heading.appendChild(title);
+		}
 
 		if (this.opts.heading.shaded) {
 			heading.classList.add('o-overlay__heading--shaded');
@@ -196,12 +199,6 @@ Overlay.prototype.render = function() {
 			heading.appendChild(button);
 		}
 
-		const title = document.createElement('span');
-		title.setAttribute('role', 'heading');
-		title.className = 'o-overlay__title';
-		title.innerHTML = this.opts.heading.title;
-
-		heading.appendChild(title);
 		wrapperEl.appendChild(heading);
 	}
 
