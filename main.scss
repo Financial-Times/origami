@@ -1,6 +1,12 @@
 @if ($o-normalise-is-silent == false) {
+	// Output all Normalising styles
 	@include oNormaliseHTML;
+	@include oNormaliseLinks;
+	@include oNormaliseText;
+	@include oNormaliseImages;
+	@include oNormaliseForms;
 
+	// Output helper classes
 	.o-normalise-clearfix {
 		@include oNormaliseClearfix;
 	}
