@@ -21,7 +21,7 @@
     "karma-webpack": "^1.7.0",
     "mocha": "^3.0.2",
     "origami-build-tools": "^5.0.0",
-    "sinon": "^1.17.5",
+    "sinon": "^2.0.0-pre.5",
     "webpack": "^1.12.2"
   }
 }

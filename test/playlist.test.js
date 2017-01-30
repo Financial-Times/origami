@@ -9,6 +9,8 @@ function createPlayer () {
 	stub.containerEl = document.createElement('div');
 	stub.videoEl = document.createElement('video');
 	stub.update.returns(Promise.resolve());
+	stub.fireWatchedEvent = sinon.spy();
+	stub.resetAmountWatched = sinon.spy();
 
 	return stub;
 }
@@ -120,6 +122,20 @@ describe('Playlist', () => {
 			instance.goto(0);
 
 			sinon.assert.calledWith(player.update, sinon.match({ data: instance.cache.foo }));
+		});
+
+		it('fires off watched event data', () => {
+			const instance = new Subject({ player, queue });
+			instance.goto(0);
+
+			sinon.assert.called(player.fireWatchedEvent);
+		});
+
+		it('resets amount watched', () => {
+			const instance = new Subject({ player, queue });
+			instance.goto(0);
+
+			sinon.assert.called(player.resetAmountWatched);
 		});
 	});
 });

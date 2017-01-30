@@ -41,6 +41,10 @@ class Playlist {
 			this.cache[currentVideoId] = this.opts.player.videoData;
 		}
 
+		// fire off any current watched data
+		this.opts.player.fireWatchedEvent();
+		this.opts.player.resetAmountWatched();
+
 		const nextVideoId = this.opts.queue[this.currentIndex];
 
 		const nextVideoOpts = {
