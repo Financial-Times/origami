@@ -1,0 +1,26 @@
+{
+	"description": "Foundation styles and standardised utilities",
+	"keywords": "normalise, clearfix, box-sizing, html, visually hidden",
+	"origamiType": "module",
+	"origamiCategory": "utilities",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-normalise/issues",
+	"supportStatus": "experimental",
+	"browserFeatures": {},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-normalise"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"documentClasses": "",
+		"dependencies": ""
+	},
+	"demos": [
+		{
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
+			"description": "Accessibility test will be run against this demo"
+		}
+	]
+}

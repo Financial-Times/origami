@@ -1,0 +1,225 @@
+/// Visually hide an element while still
+/// allowing it to be read by a screenreader
+@mixin oNormaliseVisuallyHidden {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	margin: -1px;
+	border: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	white-space: nowrap;
+}
+
+/// Clearfix helper styles
+/// Outputs clearfix styles on the current element
+@mixin oNormaliseClearfix {
+	zoom: 1;
+
+	&:before,
+	&:after {
+		content: '';
+		// sass-lint:disable no-duplicate-properties
+		display: table;
+		display: flex;
+		// sass-lint:enable no-duplicate-properties
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+/// Adds box sizing to current and all child elements
+@mixin oNormaliseBoxSizing {
+	// sass-lint:disable no-vendor-prefixes
+	/*autoprefixer: off*/
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	// sass-lint:enable no-vendor-prefixes
+
+	& *,
+	& *:before,
+	& *:after {
+		// sass-lint:disable no-vendor-prefixes
+		/*autoprefixer: off*/
+		-webkit-box-sizing: inherit;
+		-moz-box-sizing: inherit;
+		box-sizing: inherit;
+		// sass-lint:enable no-vendor-prefixes
+	}
+}
+
+/// Adds normalising styles to general html elements
+/// effects: <html>, <body>, <main>, and :focus state
+@mixin oNormaliseHTML($font-smoothing: true, $box-sizing: true) {
+	html,
+	body {
+		margin: 0;
+		text-rendering: optimizeLegibility;
+		// sass-lint:disable no-vendor-prefixes
+		-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+		// sass-lint:enable no-vendor-prefixes
+
+		@if $font-smoothing {
+			// sass-lint:disable no-vendor-prefixes
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			// sass-lint:enable no-vendor-prefixes
+		}
+
+		@if $box-sizing {
+			@include oNormaliseBoxSizing;
+		}
+	}
+
+	// Give <main>s the proper display value in IE.
+	main {
+		display: block;
+	}
+
+	// Standardise outline styles
+	:focus {
+		outline: thin dotted;
+		outline-offset: 1px;
+	}
+}
+
+/// Adds normalising styles to link elements
+@mixin oNormaliseLinks {
+
+	// Remove the grey background on active links in IE 10.
+	a {
+		background-color: transparent;
+	}
+
+	// Remove the outline on focused links when they are
+	// also active or hovered in all browsers (opinionated).
+	a:active,
+	a:hover {
+		outline-width: 0;
+	}
+}
+
+/// Adds normalising styles to text related elements
+@mixin oNormaliseText {
+
+	// 1. Remove the bottom border in Firefox 39-.
+	// 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+	// sass-lint:disable no-qualifying-elements
+	abbr[title] {
+		border-bottom: 0; // [1]
+		// sass-lint:disable no-duplicate-properties
+		text-decoration: underline; // [2]
+		text-decoration: underline dotted; // [2]
+		// sass-lint:enable no-duplicate-properties
+	}
+	// sass-lint:enable no-qualifying-elements
+
+	// Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+	b,
+	strong {
+		font-weight: inherit;
+	}
+
+	// Add the correct font weight in Chrome, Edge, and Safari.
+	b,
+	strong {
+		font-weight: bolder;
+	}
+
+	// Add the correct font style in Android 4.3-.
+	dfn {
+		font-style: italic;
+	}
+
+	// Prevent `sub` and `sup` elements from affecting the line height in
+	// all browsers.
+	sub,
+	sup {
+		font-size: 75%;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+	}
+
+	sub {
+		bottom: -0.25em;
+	}
+
+	sup {
+		top: -0.5em;
+	}
+}
+
+/// Adds normalising styles to the image element
+@mixin oNormaliseImages {
+
+	// Remove the border on images inside links in IE 10-.
+	img {
+		border-style: none;
+	}
+}
+
+/// Adds normalising styles to form elements
+@mixin oNormaliseForms {
+
+	// Restore the font weight unset by the previous rule.
+	optgroup {
+		font-weight: bold;
+	}
+
+	// Show the overflow in IE.
+	// 1. Show the overflow in Edge.
+	// 2. Show the overflow in Edge, Firefox, and IE.
+	button,
+	input,   // [1]
+	select { // [2]
+		overflow: visible;
+	}
+
+	// Remove the margin in Safari.
+	// 1. Remove the margin in Firefox and Safari.
+	button,
+	input,
+	select,
+	textarea { // [1]
+		margin: 0;
+	}
+
+	// Remove the inheritance of text transform in Edge, Firefox, and IE.
+	// 1. Remove the inheritance of text transform in Firefox.
+	button,
+	select { // [1]
+		text-transform: none;
+	}
+
+	// Change the cursor in all browsers (opinionated).
+	button,
+	[type="button"],
+	[type="reset"],
+	[type="submit"] {
+		cursor: pointer;
+	}
+
+	// Restore the default cursor to disabled elements unset by the previous rule.
+	[disabled] {
+		cursor: default;
+	}
+
+	// Remove the inner border and padding in Firefox.
+	// sass-lint:disable no-vendor-prefixes
+	button::-moz-focus-inner,
+	input::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+	// sass-lint:enable no-vendor-prefixes
+
+	// Remove the default vertical scrollbar in IE.
+	textarea {
+		overflow: auto;
+	}
+}

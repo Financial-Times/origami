@@ -1,0 +1,13 @@
+/// Silent mode variable
+$o-normalise-is-silent: true !default;
+
+/// Grid Gutter sizes
+///
+/// @type Map
+$o-normalise-grid-gutters: (
+	default: 10px,
+	M:       20px,
+) !default;
+
+/// Standardised border radius
+$o-normalise-border-radius: 2px;

@@ -1,0 +1,23 @@
+@import 'src/scss/variables';
+@import 'src/scss/mixins';
+
+@if ($o-normalise-is-silent == false) {
+	// Output all Normalising styles
+	@include oNormaliseHTML;
+	@include oNormaliseLinks;
+	@include oNormaliseText;
+	@include oNormaliseImages;
+	@include oNormaliseForms;
+
+	// Output helper classes
+	.o-normalise-clearfix {
+		@include oNormaliseClearfix;
+	}
+
+	.o-normalise-visually-hidden {
+		@include oNormaliseVisuallyHidden;
+	}
+
+	// Set to silent again to avoid being output twice
+	$o-normalise-is-silent: true !global;
+}

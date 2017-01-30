@@ -1,0 +1,15 @@
+{
+  "name": "o-normalise",
+  "description": "Foundation styles and standardised utilities",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main": [
+    "main.scss",
+	"main.js"
+  ]
+}
