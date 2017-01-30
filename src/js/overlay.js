@@ -9,11 +9,6 @@ const checkOptions = function(opts) {
 		opts.trigger = document.querySelector(opts.trigger);
 	}
 
-	// There can't be a heading with an empty title
-	if (opts.heading && (!opts.heading.title || !opts.heading.title.trim())) {
-		throw new Error('"o-overlay error": To have a heading, a non-empty title needs to be set');
-	}
-
 	// Overlays that don't point at anything should be modal by default
 	if (!opts.arrow && typeof opts.modal === 'undefined') {
 		opts.modal = true;
