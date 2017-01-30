@@ -1,3 +1,6 @@
+@import 'src/scss/variables';
+@import 'src/scss/mixins';
+
 @if ($o-normalise-is-silent == false) {
 	// Output all Normalising styles
 	@include oNormaliseHTML;
