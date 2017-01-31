@@ -11,7 +11,7 @@
     "o-assets": ">=0.4.1 <4",
     "o-toggle": "^1.1.4",
     "o-typography": "^4.1.0",
-    "o-viewport": "^2.2.0",
+    "o-viewport": ">=2.2.0 < 4",
     "o-icons": ">=4.4.2 <6"
   }
 }
