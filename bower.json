@@ -1,6 +1,6 @@
 {
-  "name": "o-component-boilerplate",
-  "description": "Component description",
+  "name": "o-tooltip",
+  "description": "Used for annotating or highlighting bits of user interfaces",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -16,6 +16,6 @@
     "ftdomdelegate": "^2.1.0",
     "o-overlay": "^1.0.0",
     "o-visual-effects": "^1.0.0",
-		"o-viewport": "^3.0.1"
+    "o-viewport": "^3.0.1"
   }
 }
