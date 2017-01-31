@@ -921,12 +921,12 @@ describe("Tooltip", () => {
 			proclaim.strictEqual(testTooltip._getLeftFor('left'), "someLeftValue");
 		});
 		it("returns the target right, offset by the tooltip width", () => {
-			let leftValue = testTooltip._getLeftFor('right')
+			let leftValue = testTooltip._getLeftFor('right');
 			proclaim.isTrue(widthStub.called);
 			proclaim.strictEqual(leftValue, testTooltip.target.right - testTooltip.width());
 		});
 		it("returns the middle of the target offset by half the tooltip width", () => {
-			let leftValue = testTooltip._getLeftFor('middle')
+			let leftValue = testTooltip._getLeftFor('middle');
 			proclaim.isTrue(widthStub.called);
 			proclaim.strictEqual(leftValue, testTooltip.target.centrePoint.x - testTooltip.width()/2);
 		});
@@ -964,12 +964,12 @@ describe("Tooltip", () => {
 			proclaim.strictEqual(testTooltip._getTopFor('top'), "someTopValue");
 		});
 		it("returns the target bottom, offset by the tooltip height for 'bottom'", () => {
-			let topValue = testTooltip._getTopFor('bottom')
+			let topValue = testTooltip._getTopFor('bottom');
 			proclaim.isTrue(heightStub.called);
 			proclaim.strictEqual(topValue, testTooltip.target.bottom - testTooltip.height());
 		});
 		it("returns the middle of the target offset by half the tooltip height for 'middle'", () => {
-			let topValue = testTooltip._getTopFor('middle')
+			let topValue = testTooltip._getTopFor('middle');
 			proclaim.isTrue(heightStub.called);
 			proclaim.strictEqual(topValue, testTooltip.target.centrePoint.y - testTooltip.height()/2);
 		});
@@ -1058,7 +1058,7 @@ describe("Tooltip", () => {
 	describe("_isOutOfBounds", () => {
 		it('returns true if the value passed in is less than 0', () => {
 			proclaim.isTrue(Tooltip._isOutOfBounds(-1));
-		})
+		});
 
 		it('returns true if the value passed in is greater than document.body.offsetHeight and the axis is y', () => {
 			proclaim.isTrue(Tooltip._isOutOfBounds(document.body.offsetHeight+1, 'y'));
@@ -1116,6 +1116,8 @@ describe("Tooltip", () => {
 			proclaim.isTrue(hasMovedStub.called);
 			//proclaim.isTrue(refreshStub.called);
 			//proclaim.isTrue(drawTooltipStub.called);
+			refreshStub.restore();
+			drawTooltipStub.restore();
 		});
 	});
 
@@ -1133,7 +1135,7 @@ describe("Tooltip", () => {
 	});
 
 	describe("#destroy", () => {
-		it("calls close if tooltip.visible is true")
-		it("deletes the tooltip from the tooltip map")
+		it("calls close if tooltip.visible is true");
+		it("deletes the tooltip from the tooltip map");
 	});
 });

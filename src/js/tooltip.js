@@ -135,7 +135,7 @@ class Tooltip {
 		delete Tooltip._tooltips[this.tooltipEl];
 	};
 
-	close(e) {
+	close() {
 		this.delegates.doc.destroy();
 		this.delegates.tooltip.destroy();
 
@@ -145,7 +145,7 @@ class Tooltip {
 		return false;
 	};
 
-	closeOnExternalClick(ev) {
+	closeOnExternalClick() {
 		if (false /*!this.tooltip.contains(ev.target)*/){
 			this.close();
 		}
