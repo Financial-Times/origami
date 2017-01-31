@@ -10,6 +10,17 @@ function isPhantom() {
 	return /PhantomJS/.test(navigator.userAgent);
 }
 
+describe('o-viewport utils', function () {
+
+	it('throttle should be exposed', function() {
+		expect(utils.throttle).to.be.a('function');
+	});
+
+	it('debounce should be exposed', function() {
+		expect(utils.debounce).to.be.a('function');
+	});
+});
+
 describe('o-viewport', function() {
 
 	before(function() {
