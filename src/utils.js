@@ -1,4 +1,5 @@
 /* jshint devel: true */
+const oUtils = require('o-utils');
 
 let debug;
 
@@ -99,5 +100,7 @@ module.exports = {
 	getScrollPosition: getScrollPosition,
 	getVisibility: getVisibility,
 	getOrientation: getOrientation,
-	detectVisiblityAPI: detectVisiblityAPI
+	detectVisiblityAPI: detectVisiblityAPI,
+	debounce: oUtils.debounce,
+	throttle: oUtils.throttle
 };

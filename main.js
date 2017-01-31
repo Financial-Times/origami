@@ -1,8 +1,7 @@
 // let debug;
 const utils = require('./src/utils');
-const oUtils = require('o-utils');
-const throttle = oUtils.throttle;
-const debounce = oUtils.debounce;
+const throttle = utils.throttle;
+const debounce = utils.debounce;
 
 const listeners = {};
 const intervals = {
