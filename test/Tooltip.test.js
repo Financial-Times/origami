@@ -2,7 +2,7 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
-
+import createMockRaf from 'mock-raf';
 const Tooltip = require('./../main');
 
 describe("Tooltip", () => {
@@ -1111,11 +1111,17 @@ describe("Tooltip", () => {
 
 			const testTooltip = Tooltip.init('#tooltip-demo');
 
+			const mockRaf = createMockRaf();
+
+			sinon.stub(window, 'requestAnimationFrame', mockRaf.raf);
+
 			testTooltip.resizeListener();
+			mockRaf.step({ count: 1 });
 
 			proclaim.isTrue(hasMovedStub.called);
-			//proclaim.isTrue(refreshStub.called);
-			//proclaim.isTrue(drawTooltipStub.called);
+
+			proclaim.isTrue(refreshStub.called);
+			proclaim.isTrue(drawTooltipStub.called);
 			refreshStub.restore();
 			drawTooltipStub.restore();
 		});

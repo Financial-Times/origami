@@ -1,6 +1,6 @@
 {
-  "name": "o-component-boilerplate",
-  "description": "Component description",
+  "name": "o-tooltip",
+  "description": "Used for annotating or highlighting bits of user interfaces",
   "ignore": [
     "**/.*",
     "node_modules",

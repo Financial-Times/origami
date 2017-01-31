@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Sass
 
-As with all Origami components, o-component-boilerplate has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-tooltip-is-silent : false;` in your Sass after you've imported the o-tooltip Sass.
+As with all Origami components, o-tooltip has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-tooltip-is-silent : false;` in your Sass after you've imported the o-tooltip Sass.
 
 
 ## Migration guide
