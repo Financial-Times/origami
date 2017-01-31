@@ -20,6 +20,7 @@ class Tooltip {
 		this.target = new Tooltip.Target(document.getElementById(this.opts.target));
 		this.tooltipPosition = this.opts.position;
 		this.tooltipAlignment = null;
+		this.visible = false;
 
 		this.delegates = {
 			doc: new Delegate(),
@@ -27,7 +28,6 @@ class Tooltip {
 		};
 
 		Viewport.listenTo('resize');
-
 		// Do you render as soon as possible?
 		if (this.opts.renderOnConstruction) {
 			this.render();
@@ -120,30 +120,53 @@ class Tooltip {
 
 		// Calculate and position the overlay + arrow
 		this.drawTooltip();
+		this.visible = true;
 	};
 
 	destroy() {
+		if (this.visible === true) {
+			this.close();
+		}
+
+		//if (this.opts.trigger) {
+		//	this.opts.trigger.removeEventListener('click', triggerClickHandler);
+		//}
+
+		delete Tooltip._tooltips[this.tooltipEl];
 	};
 
 	close(e) {
-		e.preventDefault();
+		this.delegates.doc.destroy();
+		this.delegates.tooltip.destroy();
+
+		//Viewport.stopListeningTo('resize');
+		this.visible = false;
+		this.tooltipEl.style.display = 'none';
+		return false;
 	};
 
-	closeOnExternalClick() {
+	closeOnExternalClick(ev) {
+		if (false /*!this.tooltip.contains(ev.target)*/){
+			this.close();
+		}
 	};
 
-	closeOnKeyUp() {
+	closeOnKeyUp(ev) {
+
+		/* keyCode 27 is the escape key */
+		if (ev.keyCode === 27) {
+			this.close();
+		}
 	};
 
 	resizeListener() {
-
-		if (this.target.rectObject.left !== this.target.targetEl.getBoundingClientRect().left ||
-				this.target.rectObject.right !== this.target.targetEl.getBoundingClientRect().right ||
-				this.target.rectObject.top !== this.target.targetEl.getBoundingClientRect().top ||
-				this.target.rectObject.right !== this.target.targetEl.getBoundingClientRect().right) {
-			this.target.refreshRect();
-			window.requestAnimationFrame(() => {this.target.refreshRect();this.drawTooltip();});
-			this.drawTooltip();
+		/* There are a few optimisations to make here, getRect is being called by the target
+		 more than once. We're checking edge positions we don't care about, and moving based on them... */
+		if (this.target.hasMoved()) {
+			window.requestAnimationFrame(() => {
+				this.target.refreshRect();
+				this.drawTooltip();
+			});
 		}
 	};
 
@@ -334,11 +357,12 @@ class Tooltip {
 		return [].map.call(rootEl.querySelectorAll('[data-o-component="o-tooltip"]'), rootEl => new Tooltip(rootEl, opts));
 	};
 }
+
 Tooltip.arrowDepth = 10;
 Tooltip.positionToArrowPositionMap = {"above": "below",
 																			"below": "above",
 																			"left": "right",
-																			"right": "left" };
+																			"right": "left"};
 
 Tooltip.validArrowAlignments = ["top", "bottom", "left", "right"];
 Tooltip.validTooltipPositions = ["above", "below", "left", "right"];
