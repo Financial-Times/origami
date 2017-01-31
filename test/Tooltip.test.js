@@ -1103,7 +1103,7 @@ describe("Tooltip", () => {
 			fixtures.reset();
 		});
 
-		it("only redraws if the target has moved", () => {
+		it("redraws if the target has moved", () => {
 			const refreshStub = sinon.stub(Tooltip.Target.prototype, 'refreshRect');
 			const hasMovedStub = sinon.stub(Tooltip.Target.prototype, 'hasMoved').returns(true);
 
@@ -1122,6 +1122,29 @@ describe("Tooltip", () => {
 
 			proclaim.isTrue(refreshStub.called);
 			proclaim.isTrue(drawTooltipStub.called);
+			refreshStub.restore();
+			drawTooltipStub.restore();
+		});
+
+		it("doesn't redraw if the target hasn't moved", () => {
+			const refreshStub = sinon.stub(Tooltip.Target.prototype, 'refreshRect');
+			const hasMovedStub = sinon.stub(Tooltip.Target.prototype, 'hasMoved').returns(false);
+
+			const drawTooltipStub = sinon.stub(Tooltip.prototype, 'drawTooltip');
+
+			const testTooltip = Tooltip.init('#tooltip-demo');
+
+			const mockRaf = createMockRaf();
+
+			sinon.stub(window, 'requestAnimationFrame', mockRaf.raf);
+
+			testTooltip.resizeListener();
+			mockRaf.step({ count: 1 });
+
+			proclaim.isTrue(hasMovedStub.called);
+
+			proclaim.isFalse(refreshStub.called);
+			proclaim.isFalse(drawTooltipStub.called);
 			refreshStub.restore();
 			drawTooltipStub.restore();
 		});
