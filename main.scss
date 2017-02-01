@@ -3,7 +3,7 @@
 
 @if ($o-normalise-is-silent == false) {
 	// Output all Normalising styles
-	@include oNormaliseHTML;
+	@include oNormaliseHTML($box-sizing: false);
 	@include oNormaliseLinks;
 	@include oNormaliseText;
 	@include oNormaliseImages;
