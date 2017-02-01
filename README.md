@@ -5,6 +5,7 @@ This header is for tools and services built by the Financial Times.
 ## Index
 - [Design](#design)
 - [Quick start](#quick-start)
+- [Contact](#contact)
 - [License](#license)
 
 ## Design
