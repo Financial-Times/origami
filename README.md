@@ -1,12 +1,11 @@
 # o-header-services [![CircleCI](https://circleci.com/gh/Financial-Times/o-header.png?style=shield&circle-token=41f2b7b7e669f2d4adb55ad97cf755d3ed4b93c3)](https://circleci.com/gh/Financial-Times/o-header-services)
 
-This header is for tools and services built by the Financial Times. If you would like to contribute, please read our [contributing guide](contributing.md)
+This header is for tools and services built by the Financial Times.
 
 ## Index
 - [Design](#design)
 - [Quick start](#quick-start)
-- [Migration guide](#migration-guide)
-- [Trouble shooting](#trouble-shooting)
+- [Contact](#contact)
 - [License](#license)
 
 ## Design
@@ -25,7 +24,7 @@ The header has the following features:
 - At wide screen sizes, the right of the nav may be used for content like a "Sign in" link. At narrower screen widths this content goes behind a hamburger menu on the right of the FT logo
 - If there is a "Sign in" option in the related content it should always appear on the far right. For consistency with other FT products, use "Sign in" over "Log in" or "Login"
 - Primary navigation
-- Secondary navigation (TODO)
+- Secondary navigation
 
 
 ## Quick start
@@ -46,7 +45,7 @@ The simplest header, appropriate for single page applications with no navigation
 ```
 
 ### Themes
-There are themes available for b2b products and b2c products. If you want a theme but aren't building a b2b or b2c product please [please raise an issue](../../issues).
+There is a default theme, which is appropriate for most sites, and there are specific themes available for b2b products and b2c products. If you want a new theme but aren't building a b2b or b2c product please [please raise an issue](../../issues).
 
 To add a theme to the header, add the appropriate class to a wrapping element. For example, for b2b that would be:
 
@@ -103,7 +102,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 ```
 
-### Primary navigation
+### Primary navigation
+
 If your application has more than one page you may want to add the primary navigation bar.
 This requires the drawer code, as seen above, and the following addition:
 
@@ -140,11 +140,81 @@ This requires the drawer code, as seen above, and the following addition:
 <!-- Drawer HTML as above this should include related content links (if any) and nav items-->
 ```
 
+### Secondary navigation
+
+If your application is more complicated still, you may want to use a secondary navigation.
+The secondary nav allows for breadcrumbs for many addition levels of navigation.
+
+To use the secondary navigation, use the primary navigation (with the drawer) and add the following code:
+
+```diff
+<header class='o-header-services' data-o-component='o-header'>
+	<div class='o-header-services__top'>
+		<div class='o-header-services__container'>
+			<div class='o--if-js o-header-services__hamburger'>
+				<a class='o-header-services__hamburger-icon' href="#o-header-drawer"	aria-controls="o-header-drawer"><span class="o-header__visually-hidden">Menu</span></a>
+			</div>
+			<div class='o-header-services__ftlogo'></div>
+			<div class='o-header-services__title'>
+				<h1 class='o-header-services__product-name'><a href=''>Tool or Service name</a></h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
+			</div>
+			<div class='o-header-services__related-content'>
+				<a href='#'>XXXX</a>
+				<a href='#'>Sign in</a>
+			</div>
+		</div>
+	</div>
+</header>
+<nav class='o-header-services__primary-nav'>
+ <div class='o-header-services__container'>
+	 <ul class='o-header-services__nav-list'>
+		 <li class='o-header-services__nav-item o-header-services__nav-item--selected'>
+			 <a href='#'>
+				 Nav item title
+			 </a>
+			</li>
+			<!-- more nav items -->
+		</ul>
+	</div>
+</nav>
+<!-- note that these are o-header classes, because this component inherits directly from o-header and overrides a few styles -->
++<nav class="o-header__subnav" role="navigation" aria-label="Sub navigation" data-o-header-subnav>
++	<div class="o-header-services__container">
++		<div class="o-header__subnav-wrap-outside">
++			<div class="o-header__subnav-wrap-inside" data-o-header-subnav-wrapper>
++				<div class="o-header__subnav-content">
++					<ol class="o-header__subnav-list o-header__subnav-list--breadcrumb" aria-label="Breadcrumb">
++						<li class="o-header__subnav-item">
++							<a class="o-header__subnav-link" href="#">
++								ancestor section
++							</a>
++						</li>
++						<!-- other breadcrumb links -->
++					</ol>
++					<ul class="o-header__subnav-list o-header__subnav-list--children" aria-label="Subsections">
++						<li class="o-header__subnav-item">
++							<a class="o-header__subnav-link" href="{{href}}">
++								child page
++							</a>
++						</li>
++						<!-- More links to child pages -->
++					</ul>
++				</div>
++			</div>
++			<button class="o-header__subnav-button o-header__subnav-button--left" title="scroll left" aria-hidden="true" disabled></button>
++			<button class="o-header__subnav-button o-header__subnav-button--right" title="scroll right" aria-hidden="true" disabled></button>
++		</div>
++	</div>
++</nav>
+
+<!-- Drawer HTML as above this should include related content links (if any) and nav items-->
+
+```
 ----
 
 ## Contact
 
-If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-cookie-message/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-header-services/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
 ----
 

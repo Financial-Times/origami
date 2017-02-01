@@ -9,6 +9,7 @@
 @include oColorsSetUseCase('o-header-services-primary-nav', 'text', 'black');
 @include oColorsSetUseCase('o-header-services-primary-nav-item-hover', 'background', 'pink-tint5');
 @include oColorsSetUseCase('o-header-services-primary-nav-item-hover', 'text', 'white');
+@include oColorsSetUseCase('o-header-services-secondary-nav', 'text', 'grey-tint5');
 
 // B2C theme
 @include oColorsSetUseCase('o-header-services-b2c-top-title', 'text', 'org-b2c-light');

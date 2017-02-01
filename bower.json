@@ -2,7 +2,7 @@
 	"name": "o-header-services",
 	"dependencies": {
 		"o-assets": "^3.0.2",
-		"o-header": "^6.12.0",
+		"o-header": "^6.13.1",
 		"o-icons": "^5.1.4",
 		"o-colors": "^3.5.0",
 		"o-grid": "^4.2.0",

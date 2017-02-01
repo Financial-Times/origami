@@ -33,6 +33,12 @@
 						"description": "For sites with a few pages, there is a navigation style available. These nav items collapse into a drawer at narrow screen widths."
 				},
 				{
+						"name": "two-levels-of-navigation",
+						"title": "Header with a primary and secondary navigation",
+						"template": "demos/src/two-navigation.mustache",
+						"description": "For sites with more than a few sections, a secondary navigation is also available"
+				},
+				{
 						"name": "themes",
 						"title": "Product themes",
 						"template": "demos/src/themes.mustache",
