@@ -1,0 +1,31 @@
+////
+/// @group o-colors
+/// @link http://registry.origami.ft.com/components/o-colors
+////
+
+$o-colors-usecases-v2: () !default;
+
+/// Colour use cases v2
+///
+/// These mappings define what we use our colours for.
+///
+/// Use case:           Must be a single word comprising just letters, numbers, and dashes.
+/// Properties:         A Sass map of properties (must be 'border', 'text', 'background', or 'all')
+///                     against palette colours (must be an exact match for a name of a colour defined
+///                     in palette.scss).
+///
+/// Special properties: You can use the following special properties to mark use cases:
+///
+///                     _deprecated: <msg>  Emits <msg> as a warning if referenced, but still works
+///
+/// @type map
+$o-colors-usecases-v2: map-merge((
+
+//	<use case>                <properties>
+
+	page:                     (background: 'pink'),
+	link:                     (text: 'teal'),
+	tag-link:                 (text: 'claret'),
+	product-brand:            (background: 'claret'),
+
+), $o-colors-usecases-v2);

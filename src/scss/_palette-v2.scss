@@ -1,0 +1,26 @@
+////
+/// @group o-colors
+/// @link http://registry.origami.ft.com/components/o-colors
+////
+
+$o-colors-palette-v2: () !default;
+
+/// Colour palette
+///
+/// These are the colours that make up the new FT palette.
+/// @type map
+$o-colors-palette-v2: map-merge((
+	// Non-colour CSS values
+	'transparent':           transparent,
+	'inherit':               inherit,
+
+	// Primary Palette
+	'pink':                  #fff1e0,
+	'black':                 #000000,
+	'white':                 #ffffff,
+
+	'teal':                  #007780,
+	'blue':                  #12509B,
+	'claret':                #A51043,
+
+), $o-colors-palette-v2);
