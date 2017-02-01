@@ -5,8 +5,6 @@ This header is for tools and services built by the Financial Times.
 ## Index
 - [Design](#design)
 - [Quick start](#quick-start)
-- [Migration guide](#migration-guide)
-- [Trouble shooting](#trouble-shooting)
 - [License](#license)
 
 ## Design
