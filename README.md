@@ -25,7 +25,7 @@ The header has the following features:
 - At wide screen sizes, the right of the nav may be used for content like a "Sign in" link. At narrower screen widths this content goes behind a hamburger menu on the right of the FT logo
 - If there is a "Sign in" option in the related content it should always appear on the far right. For consistency with other FT products, use "Sign in" over "Log in" or "Login"
 - Primary navigation
-- Secondary navigation (TODO)
+- Secondary navigation
 
 
 ## Quick start
