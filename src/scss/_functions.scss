@@ -87,3 +87,17 @@
 
 	@return oColorsGetPaletteColor($color);
 }
+
+@function _oColorsSetVersion() {
+	@if $o-colors-version == 1 {
+		$o-colors-palette: map-merge($o-colors-palette-v1, $o-colors-palette) !global;
+		$o-colors-usecases: map-merge($o-colors-usecases-v1, $o-colors-usecases) !global;
+	} @else if $o-colors-version == 2 {
+		$o-colors-palette: map-merge($o-colors-palette-v2, $o-colors-palette) !global;
+		$o-colors-usecases: map-merge($o-colors-usecases-v2, $o-colors-usecases) !global;
+	} @else {
+		@return false;
+	}
+
+	@return true;
+}

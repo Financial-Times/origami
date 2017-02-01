@@ -3,8 +3,6 @@
 /// @link http://registry.origami.ft.com/components/o-colors
 ////
 
-$o-colors-usecases-v2: () !default;
-
 /// Colour use cases v2
 ///
 /// These mappings define what we use our colours for.
@@ -19,7 +17,7 @@ $o-colors-usecases-v2: () !default;
 ///                     _deprecated: <msg>  Emits <msg> as a warning if referenced, but still works
 ///
 /// @type map
-$o-colors-usecases-v2: map-merge((
+$o-colors-usecases-v2: (
 
 //	<use case>                <properties>
 
@@ -28,4 +26,4 @@ $o-colors-usecases-v2: map-merge((
 	tag-link:                 (text: 'claret'),
 	product-brand:            (background: 'claret'),
 
-), $o-colors-usecases-v2);
+);

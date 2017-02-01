@@ -12,6 +12,7 @@
 /// @param {color} $color - Color (rgb, hex, hsl…)
 @mixin oColorsSetColor($name, $color) {
 	$newcolor: ($name: $color);
+
 	$o-colors-palette: map-merge($o-colors-palette, $newcolor) !global;
 }
 
