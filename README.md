@@ -200,8 +200,8 @@ To use the secondary navigation, use the primary navigation (with the drawer) an
 +					</ul>
 +				</div>
 +			</div>
-+			<button class="o-header__subnav-button o-header__subnav-button--left" aria-hidden="true" disabled></button>
-+			<button class="o-header__subnav-button o-header__subnav-button--right" aria-hidden="true" disabled></button>
++			<button class="o-header__subnav-button o-header__subnav-button--left" title="scroll left" aria-hidden="true" disabled></button>
++			<button class="o-header__subnav-button o-header__subnav-button--right" title="scroll right" aria-hidden="true" disabled></button>
 +		</div>
 +	</div>
 +</nav>
