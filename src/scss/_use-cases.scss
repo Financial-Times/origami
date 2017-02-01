@@ -21,7 +21,7 @@ $o-colors-usecases: () !default;
 /// @type map
 $o-colors-usecases: map-merge((
 
-//<use case>                <properties>
+//	<use case>                <properties>
 
 	page:                     (background: 'pink', text: 'grey-tint5'),
 	box:                      (background: 'pink-tint1'),
