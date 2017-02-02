@@ -36,19 +36,20 @@ $o-buttons-themes__standard: (
 	),
 	pressedselected: (
 		color: darken(oColorsGetColorFor(o-buttons-standard-active, text), 13%),
-		background-color: rgba(oColorsGetColorFor(o-buttons-standard-pressedselected, background), 0.4) !important,
+		background-color: rgba(oColorsGetColorFor(o-buttons-standard-pressedselected, background), 0.4),
 		border-color: rgba(oColorsGetColorFor(o-buttons-standard-pressedselected, border), 0.5),
 	)
 ) !default;
 
-@include oColorsSetColor('o-buttons-dark-green', #0A2F33);
+@include oColorsSetColor('o-buttons-standout-teal-3', #17484C);
+@include oColorsSetColor('o-buttons-standout-teal-4', #0A2F33);
 
 @include oColorsSetUseCase(o-buttons-standout-normal,   text,              'white');
 @include oColorsSetUseCase(o-buttons-standout-normal,   background,        'teal-1');
 @include oColorsSetUseCase(o-buttons-standout-hover,    border,            'teal-2');
-@include oColorsSetUseCase(o-buttons-standout-hover,    background,        'teal-2');
+@include oColorsSetUseCase(o-buttons-standout-hover,    background,        'o-buttons-standout-teal-3');
 @include oColorsSetUseCase(o-buttons-standout-pressedselected, background, 'teal-2');
-@include oColorsSetUseCase(o-buttons-standout-pressedselected, text,       'o-buttons-dark-green');
+@include oColorsSetUseCase(o-buttons-standout-pressedselected, text,       'o-buttons-standout-teal-4');
 
 /// Theme: Standout
 ///
@@ -64,13 +65,13 @@ $o-buttons-themes__standout: (
 	),
 	hover: (
 		color: oColorsGetColorFor(o-buttons-standout-normal, text),
-		background-color: darken(oColorsGetColorFor(o-buttons-standout-normal, background), 10%),
+		background-color: darken(oColorsGetColorFor(o-buttons-standout-normal, background), 10%) !important,
 		border-color: darken(oColorsGetColorFor(o-buttons-standout-normal, background), 10%),
 	),
 	pressedselected: (
 		color: oColorsGetColorFor(o-buttons-standout-pressedselected, text),
-		background-color: oColorsGetColorFor(o-buttons-standout-pressedselected, background) !important,
-		border-color: oColorsGetColorFor(o-buttons-standout-pressedselected, background) !important,
+		background-color: oColorsGetColorFor(o-buttons-standout-pressedselected, background),
+		border-color: oColorsGetColorFor(o-buttons-standout-pressedselected, background),
 	),
 	disabled: (
 		// Looks like a standard disabled button
@@ -84,12 +85,11 @@ $o-buttons-themes__standout: (
 @include oColorsSetUseCase(o-buttons-inverse-normal,   background, 'transparent');
 @include oColorsSetUseCase(o-buttons-inverse-normal,   border,     'white');
 @include oColorsSetUseCase(o-buttons-inverse-active,   text,       'white');
-@include oColorsSetUseCase(o-buttons-inverse-active,   border,     'teal-2');
 @include oColorsSetUseCase(o-buttons-inverse-hover,    background, 'black');
 @include oColorsSetUseCase(o-buttons-inverse-hover,    border,     'white');
-@include oColorsSetUseCase(o-buttons-inverse-pressedselected, background, 'black');
-@include oColorsSetUseCase(o-buttons-inverse-pressedselected, border, 'teal-1');
-@include oColorsSetUseCase(o-buttons-inverse-pressedselected, text, 'white');
+@include oColorsSetUseCase(o-buttons-inverse-pressedselected, background, 'white');
+@include oColorsSetUseCase(o-buttons-inverse-pressedselected, border, 'white');
+@include oColorsSetUseCase(o-buttons-inverse-pressedselected, text, 'black');
 
 /// Theme: Inverse
 ///
@@ -98,19 +98,20 @@ $o-buttons-themes__inverse: (
 	normal: (
 		color: oColorsGetColorFor(o-buttons-inverse-normal, text),
 		background-color: oColorsGetColorFor(o-buttons-inverse-normal, background),
-		border-color: rgba(oColorsGetColorFor(o-buttons-inverse-normal, border), 0.625),
+		border-color: rgba(oColorsGetColorFor(o-buttons-inverse-normal, border), 0.5),
 	),
 	active: (
 		color: oColorsGetColorFor(o-buttons-inverse-active, text),
 	),
 	hover: (
-		background-color: oColorsGetColorFor(o-buttons-inverse-hover, background),
-		border-color: oColorsGetColorFor(o-buttons-inverse-hover, border),
+		color: oColorsGetColorFor(o-buttons-inverse-active, text),
+		background-color: rgba(oColorsGetColorFor(o-buttons-inverse-hover, background), 0.4),
+		border-color: rgba(oColorsGetColorFor(o-buttons-inverse-hover, border), 0.5),
 	),
 	pressedselected: (
 		color: oColorsGetColorFor(o-buttons-inverse-pressedselected, text),
 		background-color: oColorsGetColorFor(o-buttons-inverse-pressedselected, background),
-		border-color: rgba(oColorsGetColorFor(o-buttons-inverse-pressedselected, border), 0.8),
+		border-color: oColorsGetColorFor(o-buttons-inverse-pressedselected, border),
 	)
 ) !default;
 
