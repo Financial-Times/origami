@@ -41,12 +41,14 @@ $o-buttons-themes__standard: (
 	)
 ) !default;
 
+@include oColorsSetColor('o-buttons-dark-green', #0A2F33);
+
 @include oColorsSetUseCase(o-buttons-standout-normal,   text,              'white');
 @include oColorsSetUseCase(o-buttons-standout-normal,   background,        'teal-1');
 @include oColorsSetUseCase(o-buttons-standout-hover,    border,            'teal-2');
 @include oColorsSetUseCase(o-buttons-standout-hover,    background,        'teal-2');
 @include oColorsSetUseCase(o-buttons-standout-pressedselected, background, 'teal-2');
-@include oColorsSetUseCase(o-buttons-standout-pressedselected, text,       'white');
+@include oColorsSetUseCase(o-buttons-standout-pressedselected, text,       'o-buttons-dark-green');
 
 /// Theme: Standout
 ///
@@ -68,7 +70,7 @@ $o-buttons-themes__standout: (
 	pressedselected: (
 		color: oColorsGetColorFor(o-buttons-standout-pressedselected, text),
 		background-color: oColorsGetColorFor(o-buttons-standout-pressedselected, background) !important,
-		border-color: oColorsGetColorFor(o-buttons-standout-pressedselected, background),
+		border-color: oColorsGetColorFor(o-buttons-standout-pressedselected, background) !important,
 	),
 	disabled: (
 		// Looks like a standard disabled button
