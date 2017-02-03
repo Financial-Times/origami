@@ -1,7 +1,7 @@
 {
   "name": "o-header",
   "dependencies": {
-    "o-buttons": "^4.0.1",
+    "o-buttons": "^4.5.1",
     "o-colors": "^3.3.2",
     "o-grid": "^4.2.0",
     "o-icons": ">=4.4.2 <6",
