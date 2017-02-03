@@ -31,7 +31,7 @@ $o-buttons-themes__standard: (
 		border-color: oColorsGetColorFor(o-buttons-standard-active, border),
 	),
 	hover: (
-		background-color: rgba(oColorsGetColorFor(o-buttons-standard-hover, background), 0.1),
+		background-color: rgba(oColorsGetColorFor(o-buttons-standard-hover, background), 0.08),
 		border-color: rgba(oColorsGetColorFor(o-buttons-standard-hover, border), 0.5),
 	),
 	pressedselected: (
@@ -62,6 +62,7 @@ $o-buttons-themes__standout: (
 	),
 	active: (
 		color: darken(oColorsGetColorFor(o-buttons-standout-normal, text), 20%),
+		background-color: darken(oColorsGetColorFor(o-buttons-standout-normal, background), 10%) !important,
 	),
 	hover: (
 		color: oColorsGetColorFor(o-buttons-standout-normal, text),
@@ -164,10 +165,13 @@ $o-buttons-themes__b2c: (
 	),
 	active: (
 		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
+		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-hover, background), 0.8),
 		border-color: oColorsGetColorFor(o-buttons-b2c-pressedselected, border),
 	),
 	hover: (
+		// background-color: darken(oColorsGetColorFor(o-buttons-b2c-hover, background), 14),
 		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-hover, background), 0.8),
+		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
 		border-color: oColorsGetColorFor(o-buttons-b2c-hover, border),
 	),
 	pressedselected: (
