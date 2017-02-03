@@ -42,3 +42,18 @@ body {
 	background: oColorsGetPaletteColor('grey-tint5');
 }
 
+// Set the backgrounds for hover states as actual hex values using mix()
+// because Pa11y isn't liking the transparent backgrounds that are set in our colours
+//
+.o-buttons.o-buttons--uncolored.hover {
+	background: mix(oColorsGetColorFor(o-buttons-uncolored-hover, background), #fff1e0, 10);
+}
+
+.o-buttons.o-buttons--standard.hover {
+	background: mix(oColorsGetColorFor(o-buttons-standard-hover, background), #fff1e0, 8);
+}
+
+.o-buttons.o-buttons--b2c.hover {
+	// background: darken(oColorsGetColorFor(o-buttons-b2c-hover, background), 14);
+	background: mix(oColorsGetColorFor(o-buttons-b2c-hover, background), #fff1e0, 80);
+}

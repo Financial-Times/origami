@@ -5,8 +5,11 @@
 
 /// scss-lint:disable SpaceAfterComma
 
-@include oColorsSetUseCase(o-buttons-standard-normal,   text,       'teal-1');
-@include oColorsSetUseCase(o-buttons-standard-normal,   background, 'transparent');
+@include oColorsSetColor('o-buttons-teal-3', #17484C);
+@include oColorsSetColor('o-buttons-teal-4', #0A2F33);
+
+
+@include oColorsSetUseCase(o-buttons-standard-normal,   text,       'o-buttons-teal-3');
 @include oColorsSetUseCase(o-buttons-standard-normal,   border,     'teal-1');
 @include oColorsSetUseCase(o-buttons-standard-hover,    background, 'teal-2');
 @include oColorsSetUseCase(o-buttons-standard-hover,    border,     'teal-1');
@@ -23,7 +26,6 @@
 $o-buttons-themes__standard: (
 	normal: (
 		color: oColorsGetColorFor(o-buttons-standard-normal, text),
-		background-color: oColorsGetColorFor(o-buttons-standard-normal, background),
 		border-color: rgba(oColorsGetColorFor(o-buttons-standard-normal, border), 0.15),
 	),
 	active: (
@@ -31,7 +33,7 @@ $o-buttons-themes__standard: (
 		border-color: oColorsGetColorFor(o-buttons-standard-active, border),
 	),
 	hover: (
-		background-color: rgba(oColorsGetColorFor(o-buttons-standard-hover, background), 0.1),
+		background-color: rgba(oColorsGetColorFor(o-buttons-standard-hover, background), 0.08),
 		border-color: rgba(oColorsGetColorFor(o-buttons-standard-hover, border), 0.5),
 	),
 	pressedselected: (
@@ -41,15 +43,12 @@ $o-buttons-themes__standard: (
 	)
 ) !default;
 
-@include oColorsSetColor('o-buttons-standout-teal-3', #17484C);
-@include oColorsSetColor('o-buttons-standout-teal-4', #0A2F33);
-
 @include oColorsSetUseCase(o-buttons-standout-normal,   text,              'white');
 @include oColorsSetUseCase(o-buttons-standout-normal,   background,        'teal-1');
 @include oColorsSetUseCase(o-buttons-standout-hover,    border,            'teal-2');
-@include oColorsSetUseCase(o-buttons-standout-hover,    background,        'o-buttons-standout-teal-3');
+@include oColorsSetUseCase(o-buttons-standout-hover,    background,        'o-buttons-teal-3');
 @include oColorsSetUseCase(o-buttons-standout-pressedselected, background, 'teal-2');
-@include oColorsSetUseCase(o-buttons-standout-pressedselected, text,       'o-buttons-standout-teal-4');
+@include oColorsSetUseCase(o-buttons-standout-pressedselected, text,       'o-buttons-teal-4');
 
 /// Theme: Standout
 ///
@@ -62,6 +61,7 @@ $o-buttons-themes__standout: (
 	),
 	active: (
 		color: darken(oColorsGetColorFor(o-buttons-standout-normal, text), 20%),
+		background-color: darken(oColorsGetColorFor(o-buttons-standout-normal, background), 10%) !important,
 	),
 	hover: (
 		color: oColorsGetColorFor(o-buttons-standout-normal, text),
@@ -76,7 +76,6 @@ $o-buttons-themes__standout: (
 	disabled: (
 		// Looks like a standard disabled button
 		color: oColorsGetColorFor(o-buttons-standard-normal, text),
-		background-color: oColorsGetColorFor(o-buttons-standard-normal, background),
 		border-color: oColorsGetColorFor(o-buttons-standard-normal, border),
 	)
 ) !default;
@@ -97,7 +96,7 @@ $o-buttons-themes__standout: (
 $o-buttons-themes__inverse: (
 	normal: (
 		color: oColorsGetColorFor(o-buttons-inverse-normal, text),
-		background-color: oColorsGetColorFor(o-buttons-inverse-normal, background),
+		background: oColorsGetColorFor(o-buttons-inverse-normal, background),
 		border-color: rgba(oColorsGetColorFor(o-buttons-inverse-normal, border), 0.5),
 	),
 	active: (
@@ -115,30 +114,46 @@ $o-buttons-themes__inverse: (
 	)
 ) !default;
 
-@include oColorsSetUseCase(o-buttons-uncolored-normal, text,       'cold-1');
+@include oColorsSetUseCase(o-buttons-uncolored-normal, text,       'black');
 @include oColorsSetUseCase(o-buttons-uncolored-normal, background, 'transparent');
-@include oColorsSetUseCase(o-buttons-uncolored-normal, border,     'pink-tint5');
-@include oColorsSetUseCase(o-buttons-uncolored-hover, background, 'teal-2');
-@include oColorsSetUseCase(o-buttons-uncolored-hover, border, 'teal-1');
-@include oColorsSetUseCase(o-buttons-uncolored-pressedselected, background, 'teal-2');
+@include oColorsSetUseCase(o-buttons-uncolored-normal, border,     'black');
+@include oColorsSetUseCase(o-buttons-uncolored-hover, background, 'black');
+@include oColorsSetUseCase(o-buttons-uncolored-pressedselected, background, 'black');
+@include oColorsSetUseCase(o-buttons-uncolored-pressedselected, border, 'black');
+@include oColorsSetUseCase(o-buttons-uncolored-pressedselected, text, 'white');
+@include oColorsSetUseCase(o-buttons-uncolored-disabled, background, 'transparent');
+@include oColorsSetUseCase(o-buttons-uncolored-disabled, text, 'black');
+@include oColorsSetUseCase(o-buttons-uncolored-disabled, border, 'black');
 
-/// Theme: Uncolored
+
+/// Theme: B2C
 ///
 /// @type Map
+
 $o-buttons-themes__uncolored: (
 	normal: (
 		color: oColorsGetColorFor(o-buttons-uncolored-normal, text),
 		background-color: oColorsGetColorFor(o-buttons-uncolored-normal, background),
-		border-color: oColorsGetColorFor(o-buttons-uncolored-normal, border),
+		border-color: rgba(oColorsGetColorFor(o-buttons-uncolored-normal, border), 0.5),
+	),
+	active: (
+		border-color: oColorsGetColorFor(o-buttons-uncolored-pressedselected, border),
 	),
 	hover: (
 		background-color: rgba(oColorsGetColorFor(o-buttons-uncolored-hover, background), 0.1),
-		border-color: rgba(oColorsGetColorFor(o-buttons-uncolored-hover, border), 0.5),
+		border-color: rgba(oColorsGetColorFor(o-buttons-uncolored-normal, border), 0.5),
 	),
 	pressedselected: (
-		background-color: rgba(oColorsGetColorFor(o-buttons-uncolored-pressedselected, background), 0.2),
+		background-color: oColorsGetColorFor(o-buttons-uncolored-pressedselected, background) !important,
+		color: oColorsGetColorFor(o-buttons-uncolored-pressedselected, text),
+		border-color: oColorsGetColorFor(o-buttons-uncolored-pressedselected, border),
+	),
+	disabled: (
+		color: rgba(oColorsGetColorFor(o-buttons-uncolored-disabled, text), 0.4),
+		border-color: rgba(oColorsGetColorFor(o-buttons-uncolored-disabled, background), 0.2),
 	)
 ) !default;
+
 
 @include oColorsSetUseCase(o-buttons-b2c-normal, text,       'white');
 @include oColorsSetUseCase(o-buttons-b2c-normal, background, 'org-b2c-dark');
@@ -164,10 +179,13 @@ $o-buttons-themes__b2c: (
 	),
 	active: (
 		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
+		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-hover, background), 0.8),
 		border-color: oColorsGetColorFor(o-buttons-b2c-pressedselected, border),
 	),
 	hover: (
+		// background-color: darken(oColorsGetColorFor(o-buttons-b2c-hover, background), 14),
 		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-hover, background), 0.8),
+		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
 		border-color: oColorsGetColorFor(o-buttons-b2c-hover, border),
 	),
 	pressedselected: (
