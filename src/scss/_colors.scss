@@ -7,6 +7,12 @@
 
 @include oColorsSetUseCase('o-header-icon', 'all', 'cold-1');
 
+@include oColorsSetUseCase('o-header-transparent-icon', 'all', 'white');
+@include oColorsSetUseCase('o-header-transparent', 'text', 'white');
+@include oColorsSetUseCase('o-header-transparent', 'border', 'white');
+@include oColorsSetUseCase('o-header-transparent-link-hover', 'text', 'white');
+@include oColorsSetUseCase('o-header-transparent-link-highlight', 'text', 'white');
+
 @include oColorsSetUseCase('o-header-nav', 'background', 'warm-5');
 
 @include oColorsSetUseCase('o-header-search', 'border', 'teal-1');
