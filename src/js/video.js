@@ -91,7 +91,6 @@ function getOptionsFromDataAttributes(attributes) {
 			}
 		}
 	});
-
 	return opts;
 }
 
@@ -219,6 +218,19 @@ class Video {
 		if (this.placeholderEl && !this.opts.advertising) {
 			this.videoEl.autoplay = this.videoEl.autostart = true;
 		}
+
+		if (this.opts.captionsUrl) {
+			// FIXME this is all hardcoded as English captions at the moment
+			const trackEl = document.createElement('track');
+			trackEl.setAttribute('label', 'English');
+			trackEl.setAttribute('kind', 'captions');
+			trackEl.setAttribute('srclang', 'en');
+			trackEl.setAttribute('src', this.opts.captionsUrl);
+			trackEl.setAttribute('crossorigin', 'true');
+			this.videoEl.setAttribute('crossorigin', 'true');
+			this.videoEl.appendChild(trackEl);
+		}
+
 
 		this.containerEl.appendChild(this.videoEl);
 

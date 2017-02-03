@@ -55,12 +55,14 @@ describe('Video', () => {
 			containerEl.setAttribute('data-o-video-optimumwidth', 300);
 			containerEl.setAttribute('data-o-video-placeholder', true);
 			containerEl.setAttribute('data-o-video-classes', 'a-class another-class');
+			containerEl.setAttribute('data-o-video-captions-url', 'https://foo.com/a.vtt');
 
 			const video = new Video(containerEl);
 			video.opts.optimumwidth.should.eql(300);
 			video.opts.placeholder.should.eql(true);
 			video.opts.classes.should.contain('a-class');
 			video.opts.classes.should.contain('another-class');
+			video.opts.captionsUrl.should.eql('https://foo.com/a.vtt');
 		});
 	});
 
@@ -150,6 +152,14 @@ describe('Video', () => {
 			addEventListenerSpy.calledWith('progress');
 
 			Element.prototype.addEventListener = realAddEventListener;
+		});
+
+		it('should add a track element', () => {
+			containerEl.setAttribute('data-o-video-captions-url', 'https://foo.com/a.vtt');
+			const video = new Video(containerEl);
+			video.addVideo();
+			containerEl.querySelector('video > track').getAttribute('kind').should.equal('captions');
+			containerEl.querySelector('video > track').getAttribute('src').should.equal('https://foo.com/a.vtt');
 		});
 
 		describe('`watched` Event', () => {
