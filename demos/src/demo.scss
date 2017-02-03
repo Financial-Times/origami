@@ -2,6 +2,25 @@ $o-buttons-is-silent: false;
 
 @import "../../main";
 
+
+@mixin _oButtonsStatesAsClasses($theme) {
+	&.hover {
+		@include _oButtonsPropertiesForState($theme, hover);
+	}
+	&.active {
+		@include _oButtonsPropertiesForState($theme, active);
+	}
+	&.focus {
+		@include _oButtonsPropertiesForState($theme, focus);
+	}
+}
+
+@each $theme, $properties in $o-buttons-themes {
+	.#{$o-buttons-class}--#{$theme} {
+		@include _oButtonsStatesAsClasses($theme);
+	}
+}
+
 html {
 	@include oColorsFor(page);
 }
@@ -23,35 +42,3 @@ body {
 	background: oColorsGetPaletteColor('grey-tint5');
 }
 
-/*
-.demo-block {
-	margin-left: -1rem;
-	margin-right: -1rem;
-	padding-left: 1rem;
-	padding-right: 1rem;
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-}
-
-.white {
-	background: #ffffff;
-}
-
-.inverse {
-	background: oColorsGetPaletteColor('grey-tint5');
-}
-
-
-
-h2 {
-	border-top: 8px solid oColorsGetPaletteColor('pink-tint2');
-	padding-top: 0.25em;
-	margin-left: -1rem;
-	margin-right: -1rem;
-	padding-left: 1rem;
-	padding-right: 1rem;
-}
-h3 {
-	margin-bottom: 0.5em;
-}
-*/

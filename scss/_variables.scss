@@ -63,7 +63,7 @@ $o-buttons-sizes: (
 /// Border-radius
 ///
 /// @type Number
-$_o-buttons-border-radius: 3px;
+$_o-buttons-border-radius: $o-normalise-border-radius;
 
 /// Button themes, with their respective states
 /// Each state is a Map of CSS properties, find
