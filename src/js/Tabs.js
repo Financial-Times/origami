@@ -214,23 +214,31 @@ function Tabs(rootEl, config) {
 	init();
 }
 
-Tabs.init = function(el, config) {
+Tabs.init = function(rootEl, config) {
 	const tabs = [];
-	let tEls;
-	let c;
-	let l;
-	if (!el) {
-		el = document.body;
-	} else if (!(el instanceof HTMLElement)) {
-		el = document.querySelector(el);
+	let tabEls;
+
+	if (!rootEl) {
+		rootEl = document.body;
 	}
-	if (el.querySelectorAll) {
-		tEls = el.querySelectorAll('[data-o-component=o-tabs]');
-		for (c = 0, l = tEls.length; c < l; c++) {
-			if (!tEls[c].matches('[data-o-tabs-autoconstruct=false]') && !tEls[c].hasAttribute('data-o-tabs--js')) {
-				tabs.push(new Tabs(tEls[c], config));
-			}
+	if (!(rootEl instanceof HTMLElement)) {
+		rootEl = document.querySelector(rootEl);
+	}
+
+	if (rootEl instanceof HTMLElement && /\bo-tabs\b/.test(rootEl.getAttribute('data-o-component'))) {
+		if (!rootEl.matches('[data-o-tabs-autoconstruct=false]') && !rootEl.hasAttribute('data-o-tabs--js')) {
+			return new Tabs(rootEl, config);
 		}
+	}
+
+	if (rootEl.querySelectorAll) {
+		tabEls = Array.from(rootEl.querySelectorAll('[data-o-component=o-tabs]'));
+
+		tabEls.filter(tabEl => {
+			if (!tabEl.matches('[data-o-tabs-autoconstruct=false]') && !tabEl.hasAttribute('data-o-tabs--js')) {
+				tabs.push(new Tabs(tabEl, config));
+			}
+		});
 	}
 	return tabs;
 };
