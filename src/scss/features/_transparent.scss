@@ -24,6 +24,10 @@
 			@include oHeaderBrandImage('brand-ft-masthead', oColorsGetColorFor('o-header-transparent-icon'), 500);
 		}
 
+		.o-header__nav-button {
+			@include oButtons($theme: 'inverse');
+		}
+
 		.o-header__nav-link,
 		.o-header__anon-link {
 			&:hover {
