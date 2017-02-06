@@ -62,6 +62,16 @@
 	border-color: oColorsGetColorFor(o-forms-field-valid, border);
 }
 
+/// Common field styles: small
+@mixin oFormsCommonSmall {
+	height: $_o-forms-field-small-height;
+	padding-top: 0;
+	padding-bottom: 0;
+	background-size: $_o-forms-select-small-iconsize;
+	line-height: $_o-forms-field-small-height - ($_o-forms-field-border-width * 2);
+}
+
+
 /// Group styles
 @mixin oFormsGroup {
 	position: relative;

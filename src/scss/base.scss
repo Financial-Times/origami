@@ -21,6 +21,11 @@
 		@include oFormsTextarea;
 	}
 
+	.#{$class}__text--small,
+	.#{$class}__select--small {
+		@include oFormsCommonSmall;
+	}
+
 	@include oFormsRadioCheckbox((radio: '.#{$class}__radio', checkbox: '.#{$class}__checkbox', label: '.#{$class}__label'));
 
 	.#{$class}--error .#{$class}__text,

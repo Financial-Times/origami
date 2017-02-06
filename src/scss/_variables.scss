@@ -25,6 +25,10 @@ $_o-forms-field-default-padding-leftright: 5px;
 $_o-forms-field-default-padding-top: 10px;
 $_o-forms-field-default-padding-bottom: 10px;
 $_o-forms-field-default-height: 38px;
+
+$_o-forms-field-small-height: 24px;
+$_o-forms-field-small-padding-topbottom: 3px;
+
 $_o-forms-field-max-width: 400px;
 
 $_o-forms-padding: oGridGutter();
@@ -38,3 +42,5 @@ $_o-forms__radio-internal-default-size: 6px;
 $_o-forms__label-margin-bottom: 4px;
 
 $_o-forms__select-iconsize: 28px;
+
+$_o-forms-select-small-iconsize: 16px;
