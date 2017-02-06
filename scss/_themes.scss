@@ -104,7 +104,7 @@ $o-buttons-themes__inverse: (
 	),
 	hover: (
 		color: oColorsGetColorFor(o-buttons-inverse-active, text),
-		background-color: rgba(oColorsGetColorFor(o-buttons-inverse-hover, background), 0.4),
+		background-color: rgba(oColorsGetColorFor(o-buttons-inverse-hover, background), 0.4) !important,
 		border-color: rgba(oColorsGetColorFor(o-buttons-inverse-hover, border), 0.5),
 	),
 	pressedselected: (
