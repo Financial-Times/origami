@@ -27,7 +27,8 @@ function eventListener(video, ev) {
 
 	fireEvent(ev.type, video, {
 		progress: video.getProgress(),
-		duration: video.getDuration()
+		duration: video.getDuration(),
+		textTrackMode: video.getTrackMode()
 	});
 }
 
@@ -342,6 +343,10 @@ class Video {
 
 	getDuration() {
 		return this.videoEl.duration ? parseInt(this.videoEl.duration, 10) : 0;
+	}
+
+	getTrackMode() {
+		return this.videoEl.textTracks && this.videoEl.textTracks[0] ? this.videoEl.textTracks[0].mode : undefined;
 	}
 
 	getAmountWatched(decimalPoints) {
