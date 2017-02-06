@@ -38,7 +38,8 @@
 	font-weight: oFontsWeight(normal);
 	color: oTeaserTextColor($percent: 80);
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: oTeaserTextColor($percent: 55);
 	}
 
@@ -64,7 +65,8 @@
 	text-decoration: none;
 	border: 0;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: oTeaserTextColor($percent: 55);
 	}
 

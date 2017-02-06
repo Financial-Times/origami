@@ -40,7 +40,9 @@
 /// Hero opinion theme - blue background white based text
 @mixin oTeaserHeroOpinion {
 	.o-teaser__heading:hover,
-	.o-teaser__tag:hover {
+	.o-teaser__heading:focus,
+	.o-teaser__tag:hover,
+	.o-teaser__tag:focus {
 		color: oTeaserTextColor(#ffffff, $_o-teaser-color-hero-opinion-background, 73);
 	}
 

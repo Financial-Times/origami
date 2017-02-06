@@ -19,7 +19,8 @@
 		@include font-size(16, 24);
 	}
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: oTeaserTextColor($percent: 55);
 	}
 
