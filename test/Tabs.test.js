@@ -1,4 +1,4 @@
-/*global describe,beforeEach,afterEach,it,expect,spyOn*/
+/* eslint-env mocha, sinon, proclaim */
 
 import * as fixtures from './helpers/fixtures';
 import proclaim from 'proclaim';
