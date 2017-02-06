@@ -169,11 +169,39 @@ class VideoAds {
 		this.adsManager.addEventListener(google.ima.AdEvent.Type.SKIPPED, this.adEventHandler);
 		this.adsManager.addEventListener(google.ima.AdEvent.Type.SKIPPABLE_STATE_CHANGED, this.adEventHandler);
 
+		// Temporary fix to verify DFP behaviour
+		const options = {
+			detail: {
+				category: 'video',
+				action: 'adLoaded',
+				contentId: this.video.opts.id
+			},
+			bubbles: true
+		};
+		const adsLoadedEvent = new CustomEvent('oTracking.event', options);
+		document.body.dispatchEvent(adsLoadedEvent);
+
 		this.adsLoaded = true;
 		this.startAds();
 	}
 
 	startAds() {
+
+		// Temporary fix to verify DFP behaviour
+		const options = {
+			detail: {
+				category: 'video',
+				action: 'adAttemptToPlay',
+				contentId: this.video.opts.id,
+				videoLoaded: this.videoLoaded,
+				loadingStateDisplayed: this.loadingStateDisplayed,
+				advertising: this.video.opts.advertising,
+				adsLoaded: this.adsLoaded
+			},
+			bubbles: true
+		};
+		const requestedEvent = new CustomEvent('oTracking.event', options);
+		document.body.dispatchEvent(requestedEvent);
 
 		// For ads to play correctly both the video and the advert video need to be ready to
 		// play; this function needs to be called after the two flags in adsManagerLoadedHandler()
@@ -233,14 +261,40 @@ class VideoAds {
 		// display the loading state for a minimum of 2 seconds to avoid flickering
 		setTimeout(() => {
 			this.loadingStateDisplayed = true;
+
+			// Temporary fix to verify DFP behaviour
+			const options = {
+				detail: {
+					category: 'video',
+					action: 'adLoadingState',
+					contentId: this.video.opts.id
+				},
+				bubbles: true
+			};
+			const timeoutEvent = new CustomEvent('oTracking.event', options);
+			document.body.dispatchEvent(timeoutEvent);
+
 			this.startAds();
 		}, 1000 * 2);
 
 		const loadedmetadataHandler = () => {
 			this.videoLoaded = true;
+
+			const options = {
+				detail: {
+					category: 'video',
+					action: 'loaded',
+					contentId: this.video.opts.id
+				},
+				bubbles: true
+			};
+			const videoLoadedEvent = new CustomEvent('oTracking.event', options);
+			document.body.dispatchEvent(videoLoadedEvent);
+
 			this.startAds();
 			this.video.videoEl.removeEventListener('loadedmetadata', loadedmetadataHandler);
 		};
+
 		this.video.videoEl.addEventListener('loadedmetadata', loadedmetadataHandler);
 
 		// Initialize the video. Must be done via a user action on mobile devices.
@@ -322,6 +376,19 @@ class VideoAds {
 	}
 
 	reportError(error) {
+
+		// Temporary fix to verify DFP behaviour
+		const options = {
+			detail: {
+				category: 'video',
+				action: 'adError',
+				error: error ? error.message : undefined
+			},
+			bubbles: true
+		};
+		const errorEvent = new CustomEvent('oTracking.event', options);
+		document.body.dispatchEvent(errorEvent);
+
 		document.body.dispatchEvent(new CustomEvent('oErrors.log', { bubbles: true, detail: { error: error } }));
 	}
 
