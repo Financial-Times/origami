@@ -17,7 +17,7 @@ $o-forms-font-family: MetricWeb, sans-serif !default;
 
 $_o-forms-field-border-width: 1px;
 $_o-forms-field-border: $_o-forms-field-border-width solid oColorsGetColorFor(o-forms-field-standard, border);
-$_o-forms-field-border-radius: 2px;
+$_o-forms-field-border-radius: $o-normalise-border-radius;
 
 $_o-forms-field-default-font-size: 14px;
 
