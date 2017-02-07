@@ -19,6 +19,7 @@ function Tabs(rootEl, config) {
 		let targetEl;
 		let c;
 		let l;
+
 		for (c = 0, l = tabEls.length; c < l; c++) {
 			const tabTargetId = getTabTargetId(tabEls[c]);
 			targetEl = document.getElementById(tabTargetId);
@@ -37,6 +38,7 @@ function Tabs(rootEl, config) {
 				els[c] = targetEl;
 			}
 		}
+
 		return els;
 	}
 
@@ -215,9 +217,6 @@ function Tabs(rootEl, config) {
 }
 
 Tabs.init = function(rootEl, config) {
-	const tabs = [];
-	let tabEls;
-
 	if (!rootEl) {
 		rootEl = document.body;
 	}
@@ -232,15 +231,17 @@ Tabs.init = function(rootEl, config) {
 	}
 
 	if (rootEl.querySelectorAll) {
-		tabEls = Array.from(rootEl.querySelectorAll('[data-o-component=o-tabs]'));
+		let tabs = [];
+		const tabEls = Array.from(rootEl.querySelectorAll('[data-o-component=o-tabs]'));
 
-		tabEls.filter(tabEl => {
+		tabEls.forEach(tabEl => {
 			if (!tabEl.matches('[data-o-tabs-autoconstruct=false]') && !tabEl.hasAttribute('data-o-tabs--js')) {
 				tabs.push(new Tabs(tabEl, config));
 			}
 		});
+
+		return tabs;
 	}
-	return tabs;
 };
 
 module.exports = Tabs;
