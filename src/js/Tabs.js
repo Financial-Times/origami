@@ -57,8 +57,8 @@ function Tabs(rootEl, config) {
 		return selectedTabElement ? getTabIndexFromElement(selectedTabElement) : 0;
 	}
 
-	function isValidTab(i) {
-		return (!isNaN(i) && i >= 0 && i < tabEls.length);
+	function isValidTab(index) {
+		return (!isNaN(index) && index >= 0 && index < tabEls.length);
 	}
 
 	function hidePanel(panelEl) {
@@ -73,12 +73,12 @@ function Tabs(rootEl, config) {
 		// Remove the focus ring for sighted users
 		panelEl.style.outline = 0;
 
-		if (disableFocus){
+		if (disableFocus) {
 			return;
 		}
 
 		// update the url to match the selected tab
-		if(panelEl.id && updateUrl){
+		if (panelEl.id && updateUrl) {
 			location.href = '#' + panelEl.id;
 		}
 
@@ -101,25 +101,25 @@ function Tabs(rootEl, config) {
 		}));
 	}
 
-	function selectTab(i) {
-		let c;
-		let l;
-		if (isValidTab(i) && i !== selectedTabIndex) {
-			for (c = 0, l = tabEls.length; c < l; c++) {
-				if (i === c) {
-					tabEls[c].setAttribute('aria-selected', 'true');
-					showPanel(tabpanelEls[c], tabsObj.config.disablefocus);
+	function selectTab(newIndex) {
+		if (isValidTab(newIndex) && newIndex !== selectedTabIndex) {
+			for (let i = 0; i < tabEls.length; i++) {
+				if (newIndex === i) {
+					tabEls[i].setAttribute('aria-selected', 'true');
+					showPanel(tabpanelEls[i], tabsObj.config.disablefocus);
 				} else {
-					tabEls[c].setAttribute('aria-selected', 'false');
-					hidePanel(tabpanelEls[c]);
+					tabEls[i].setAttribute('aria-selected', 'false');
+					hidePanel(tabpanelEls[i]);
 				}
 			}
+
 			dispatchCustomEvent('tabSelect', {
 				tabs: tabsObj,
-				selected: i,
+				selected: newIndex,
 				lastSelected: selectedTabIndex
 			});
-			selectedTabIndex = i;
+
+			selectedTabIndex = newIndex;
 		}
 	}
 
@@ -141,19 +141,20 @@ function Tabs(rootEl, config) {
 	}
 
 	function hashChangeHandler() {
-		if(!updateUrl){
+		if (!updateUrl) {
 			return;
 		}
 
 		const tabEl = getTabElementFromHash();
-		if(tabEl){
+
+		if (tabEl) {
 			updateCurrentTab(tabEl);
 		}
 	}
 
 	function updateCurrentTab(tabEl){
-		const i = getTabIndexFromElement(tabEl);
-		tabsObj.selectTab(i);
+		const index = getTabIndexFromElement(tabEl);
+		tabsObj.selectTab(index);
 		dispatchCustomEvent('event', {
 			category: 'tabs',
 			action: 'click',
