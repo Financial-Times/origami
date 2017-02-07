@@ -19,6 +19,7 @@ function Tabs(rootEl, config) {
 		let targetEl;
 		let c;
 		let l;
+
 		for (c = 0, l = tabEls.length; c < l; c++) {
 			const tabTargetId = getTabTargetId(tabEls[c]);
 			targetEl = document.getElementById(tabTargetId);
@@ -37,6 +38,7 @@ function Tabs(rootEl, config) {
 				els[c] = targetEl;
 			}
 		}
+
 		return els;
 	}
 
@@ -214,25 +216,29 @@ function Tabs(rootEl, config) {
 	init();
 }
 
-Tabs.init = function(el, config) {
-	const tabs = [];
-	let tEls;
-	let c;
-	let l;
-	if (!el) {
-		el = document.body;
-	} else if (!(el instanceof HTMLElement)) {
-		el = document.querySelector(el);
+Tabs.init = function(rootEl, config) {
+	if (!rootEl) {
+		rootEl = document.body;
 	}
-	if (el.querySelectorAll) {
-		tEls = el.querySelectorAll('[data-o-component=o-tabs]');
-		for (c = 0, l = tEls.length; c < l; c++) {
-			if (!tEls[c].matches('[data-o-tabs-autoconstruct=false]') && !tEls[c].hasAttribute('data-o-tabs--js')) {
-				tabs.push(new Tabs(tEls[c], config));
-			}
+	if (!(rootEl instanceof HTMLElement)) {
+		rootEl = document.querySelector(rootEl);
+	}
+
+	if (rootEl instanceof HTMLElement && /\bo-tabs\b/.test(rootEl.getAttribute('data-o-component'))) {
+		if (!rootEl.matches('[data-o-tabs-autoconstruct=false]') && !rootEl.hasAttribute('data-o-tabs--js')) {
+			return new Tabs(rootEl, config);
 		}
 	}
-	return tabs;
+
+	if (rootEl.querySelectorAll) {
+		const tabElements = rootEl.querySelectorAll(
+			'[data-o-component=o-tabs]:not([data-o-tabs-autoconstruct=false]):not([data-o-tabs--js])'
+		);
+
+		return Array.from(tabElements, (tabEl) => {
+			return new Tabs(tabEl, config);
+		});
+	}
 };
 
 module.exports = Tabs;

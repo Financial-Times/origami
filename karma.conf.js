@@ -1,8 +1,5 @@
 /*eslint-env node*/
 
-// Karma configuration
-// Generated on Mon Apr 14 2014 12:27:18 GMT+0100 (BST)
-
 const BowerPlugin = require('bower-webpack-plugin');
 const path = require('path');
 const cwd = process.cwd();
@@ -16,19 +13,20 @@ module.exports = function(config) {
 
 		// frameworks to use
 		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-		frameworks: ['jasmine'],
-
+		frameworks: ['sinon', 'mocha'],
 
 		plugins: [
-			'karma-jasmine',
+			'karma-mocha',
 			'karma-phantomjs-launcher',
-			'karma-webpack'
+			'karma-webpack',
+			'karma-sinon',
+			'karma-coverage'
 		],
 
 
 		// list of files / patterns to load in the browser
 		files: [
-			'https://polyfill.io/v2/polyfill.js?ua=safari/4&flags=gated',
+			'https://cdn.polyfill.io/v2/polyfill.js?flags=gated&ua=safari/4&features=default',
 			'test/*.test.js'
 		],
 
@@ -41,15 +39,21 @@ module.exports = function(config) {
 		// preprocess matching files before serving them to the browser
 		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 		preprocessors: {
-			'test/*.test.js': ['webpack']
+			'test/**/*.test.js': ['webpack']
 		},
 
 
 		// test results reporter to use
-		// possible values: 'dots', 'progress'
+		// possible values: 'dots', 'progress', 'coverage'
 		// available reporters: https://npmjs.org/browse/keyword/karma-reporter
-		reporters: ['progress'],
+		reporters: ['progress', 'coverage'],
 
+		coverageReporter: {
+			reporters: [
+				{ type : 'html' },
+				{ type : 'text-summary' }
+			]
+		},
 
 		// web server port
 		port: 9876,
@@ -88,7 +92,21 @@ module.exports = function(config) {
 							'babel?optional[]=runtime',
 							'imports?define=>false'
 						]
+					},
+					{
+						test: /\.json$/,
+						loader: 'json'
 					}
+				],
+				postLoaders: [
+					{ //delays coverage til after tests are run, fixing transpiled source coverage error
+						test: /\.js$/,
+						exclude: /(test|node_modules|bower_components)\//,
+						loader: 'istanbul-instrumenter'
+					}
+				],
+				noParse: [
+					/\/sinon\.js/,
 				]
 			},
 			resolve: {
