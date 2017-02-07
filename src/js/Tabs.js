@@ -202,8 +202,9 @@ function Tabs(rootEl, config) {
 		rootEl.removeEventListener('click', clickHandler, false);
 		window.removeEventListener('hashchange', hashChangeHandler, false);
 		rootEl.removeAttribute('data-o-tabs--js');
-		for (let c = 0, l = tabpanelEls.length; c < l; c++) {
-			showPanel(tabpanelEls[c]);
+
+		for (let tabPanelEl of tabpanelEls) {
+			showPanel(tabPanelEl);
 		}
 	}
 
