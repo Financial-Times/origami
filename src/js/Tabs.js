@@ -231,16 +231,13 @@ Tabs.init = function(rootEl, config) {
 	}
 
 	if (rootEl.querySelectorAll) {
-		let tabs = [];
-		const tabEls = Array.from(rootEl.querySelectorAll('[data-o-component=o-tabs]'));
+		const tabElements = rootEl.querySelectorAll(
+			'[data-o-component=o-tabs]:not([data-o-tabs-autoconstruct=false]):not([data-o-tabs--js])'
+		);
 
-		tabEls.forEach(tabEl => {
-			if (!tabEl.matches('[data-o-tabs-autoconstruct=false]') && !tabEl.hasAttribute('data-o-tabs--js')) {
-				tabs.push(new Tabs(tabEl, config));
-			}
+		return Array.from(tabElements, (tabEl) => {
+			return new Tabs(tabEl, config);
 		});
-
-		return tabs;
 	}
 };
 
