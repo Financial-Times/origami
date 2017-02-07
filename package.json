@@ -10,8 +10,6 @@
     "babel-runtime": "^5.8.25",
     "bower-webpack-plugin": "^0.1.8",
     "imports-loader": "^0.6.4",
-    "jasmine-core": "^2.5.1",
-    "karma-jasmine": "^0.3.5",
     "karma-webpack": "^1.7.0",
     "webpack": "^1.12.2",
     "istanbul-instrumenter-loader": "^1.0.0",
