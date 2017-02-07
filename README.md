@@ -1,24 +1,17 @@
 # o-tabs [![Build Status](https://circleci.com/gh/Financial-Times/o-tabs.png?style=shield&circle-token=a2788d79ccb1fe983aa41c739f4e4129ed81a3f4)](https://circleci.com/gh/Financial-Times/o-tabs)
 
-A single content area with multiple panels, each associated with a header in a list.
+Tabs component for dividing content into meaningful sections.
 
-## Browser Support
+- [Usage](#usage)
+	- [Markup](#markup)
+	- [JavaScript](#javascript)
+	- [Sass](#sass)
+- [Contact](#contact)
+- [Licence](#licence)
 
-Tested and working on:
+## Usage
 
-|  Browsers  | Primary Experience | Core Experience |
-|:----------:|:------------------:|:---------------:|
-|   Chrome   |        35+         |       35+       |
-|   Firefox  |        30+         |       30+       |
-|   Safari   |        7+          |       7+        |
-|   IE       |        8+          |       8+        |
-
-Known issues:
-
-* IE8+ need the polyfill for `CustomEvent`
-* IE8 also needs the polyfill for `addEventListener`
-
-## Markup
+### Markup
 
 The _tablist_, _tabs_ and _tabpanels_ must be identified by [ARIA](http://www.w3.org/TR/wai-aria/) `role` attributes.
 
@@ -48,7 +41,12 @@ This is an example of an HTML structure that __o-tabs__ will accept:
 
 To set the initially selected tab, add an `aria-selected="true"` attribute to a tab element, otherwise the first tab will be selected automatically.
 
-### Core experience
+#### Config
+
+You can also set config options declaratively by using `[data-o-tabs-]` prefixed data attributes. For example: `[data-o-tabs-disablefocus="true"`.
+
+
+#### Core experience
 
 Without the accompanying JavaScript, the _tabs_ will receive no styling, and all _tabpanels_ will remain visible. It's recommended that the default styling is to have each of the _tabpanels_ displayed one below the other.
 
@@ -59,17 +57,23 @@ A product may choose to hide the tabs like this:
 .o-tabs--js { display: block; }
 ```
 
-### Primary experience
+#### ARIA
 
-The _primary experience_ will show as functional tabs, and only the _tabpanel_ for the selected tab will be shown.
+ARIA attributes will be set on elements as follows:
 
-The JavaScript will add `role="tabpanel"` attributes to each _tabpanel_. These will be used in conjunction with the `aria-hidden="true"` attributes, to hide _tabpanels_ as appropriate. This means that without JS, all _tabpanels_ will remain visible.
+__On init__, `aria-controls` is added to each tab element, with value being the ID of the associated tabpanel.
 
-If the heights of the _tabpanels_ vary, then any content below will move up and down as the user switches between tabs. If this is not desired, it is the responsibility of the consumer to address this.
+__On init and selected tab change__ these attributes are set and updated as appropriate:
 
-## Construction
+* `aria-selected` is set on the tab elements
+* `aria-hidden` and `aria-expanded` are set on the tabpanels
 
-### Declarative
+These state attributes are used by the __o-tabs__ CSS.
+
+
+### JavaScript
+
+#### Declarative
 
 A `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct a __o-tabs__ object for each element with a `data-o-component="o-tabs"` attribute:
 
@@ -94,7 +98,7 @@ An array of any constructed Tabs objects will be returned.
 
 `Tabs.init(config)` will not create Tabs objects for elements that already have Tabs objects constructed on them, therefore it's safe to call more than once on the same page region.
 
-### Imperative
+#### Imperative
 
 ```javascript
 const Tabs = require('o-tabs');
@@ -103,7 +107,29 @@ const myTabs = new Tabs(document.getElementById('myTabsRootElement'), {
 });
 ```
 
-## Styles
+#### Events
+
+The following events will be dispatched on the Tabs' root DOM element:
+
+* `oTabs.ready`: The Tabs object has initialised. Event detail:
+	* `tabs`: The __o-tabs__ object.
+* `oTabs.tabSelect`: A tab has been selected. Event detail:
+	* `tabs`: The __o-tabs__ object.
+	* `selected`: The index of the selected tab.
+	* `lastSelected`: The index of the last selected tab.
+
+#### API
+
+Tabs are indexed starting from 0.
+
+The following API methods are provided:
+
+* `init(config)`: Set attributes/classes, bind events. Called automatically on construction. Does nothing if already been called. `config` object accepts:
+	- `disablefocus`: If set to `true`, it will stop the aria-selected tab from receiving focus.
+* `selectTab(idx)`: Select tab `idx`. Does nothing if tab `idx` does not exist or is already selected.
+* `destroy()`: Unbind events, remove `o-tabs--js` class. After calling this, `init()` can be called again to re-initialise the tabs.
+
+### Sass
 
 __o-tabs__ comes with either _base styling_, which is just the minimum to be functional or _full styling_ (called __buttontabs__ as it's based on the buttons from [o-ft-buttons](https://github.com/Financial-Times/o-ft-buttons)).
 
@@ -130,44 +156,12 @@ __Options__
 * __Align right__: Add `o-tabs--alignright` to the root element.
 * __Big__: Add `o-tabs--big` to the root element.
 
-## ARIA
 
-ARIA attributes will be set on elements as follows:
+---
 
-__On init__, `aria-controls` is added to each tab element, with value being the ID of the associated tabpanel.
+## Contact
 
-__On init and selected tab change__ these attributes are set and updated as appropriate:
-
-* `aria-selected` is set on the tab elements
-* `aria-hidden` and `aria-expanded` are set on the tabpanels
-
-These state attributes are used by the __o-tabs__ CSS.
-
-## Events
-
-The following events will be dispatched on the Tabs' root DOM element:
-
-* `oTabs.ready`: The Tabs object has initialised. Event detail:
-	* `tabs`: The __o-tabs__ object.
-* `oTabs.tabSelect`: A tab has been selected. Event detail:
-	* `tabs`: The __o-tabs__ object.
-	* `selected`: The index of the selected tab.
-	* `lastSelected`: The index of the last selected tab.
-
-## API
-
-Tabs are indexed starting from 0.
-
-The following API methods are provided:
-
-* `init(config)`: Set attributes/classes, bind events. Called automatically on construction. Does nothing if already been called. `config` object accepts:
-	- `disablefocus`: If set to `true`, it will stop the aria-selected tab from receiving focus.
-* `selectTab(idx)`: Select tab `idx`. Does nothing if tab `idx` does not exist or is already selected.
-* `destroy()`: Unbind events, remove `o-tabs--js` class. After calling this, `init()` can be called again to re-initialise the tabs.
-
-## Config
-
-You can also set config options declaratively by using `[data-o-tabs-]` prefixed data attributes. For example: `[data-o-tabs-disablefocus="true"`.
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-tabs/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
 ----
 
