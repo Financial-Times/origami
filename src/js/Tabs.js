@@ -10,36 +10,33 @@ function Tabs(rootEl, config) {
 	let selectedTabIndex = -1;
 
 	function getTabTargetId(tabEl) {
-		const aEls = tabEl.getElementsByTagName('a');
-		return (aEls && aEls[0]) ? aEls[0].getAttribute('href').replace('#','') : '';
+		const linkEls = tabEl.getElementsByTagName('a');
+		return (linkEls && linkEls[0]) ? linkEls[0].getAttribute('href').replace('#','') : '';
 	}
 
 	function getTabPanelEls(tabEls) {
-		const els = [];
-		let targetEl;
-		let c;
-		let l;
+		const panelEls = [];
 
-		for (c = 0, l = tabEls.length; c < l; c++) {
-			const tabTargetId = getTabTargetId(tabEls[c]);
-			targetEl = document.getElementById(tabTargetId);
+		for (let tab of tabEls) {
+			const tabTargetId = getTabTargetId(tab);
+			let targetEl = document.getElementById(tabTargetId);
 
 			if (targetEl) {
-				tabEls[c].setAttribute('aria-controls', tabTargetId);
-				tabEls[c].setAttribute('tabindex', '0');
+				tab.setAttribute('aria-controls', tabTargetId);
+				tab.setAttribute('tabindex', '0');
 
-				const label = tabEls[c].getElementsByTagName('a')[0];
+				const label = tab.getElementsByTagName('a')[0];
 				const labelId = tabTargetId + '-label';
 				label.setAttribute('tabindex', '-1');
 				label.id = labelId;
 				targetEl.setAttribute('aria-labelledby', labelId);
 				targetEl.setAttribute('role', 'tabpanel');
 				targetEl.setAttribute('tabindex', '0');
-				els[c] = targetEl;
+				panelEls.push(targetEl);
 			}
 		}
 
-		return els;
+		return panelEls;
 	}
 
 	function getTabElementFromHash(){
