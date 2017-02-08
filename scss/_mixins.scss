@@ -112,16 +112,20 @@
 	border-radius: $_o-buttons-border-radius;
 	cursor: pointer;
 	transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
-	-moz-appearance: none;
-	-webkit-appearance: none;
 	user-select: none;
 	background-clip: border-box;
 	// Prevent fat white type on a dark background
+	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	// sass-lint:enable no-vendor-prefixes
 
+	// sass-lint:disable mixins-before-declarations
 	@include oButtonsSize($size);
 	@include oButtonsTheme($theme);
+	// sass-lint:enable mixins-before-declarations
 
 	// Same as aria-disabled:
 	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-disabled
@@ -133,8 +137,10 @@
 	}
 
 	// Remove extra padding in Firefox
+	// sass-lint:disable no-vendor-prefixes
 	&::-moz-focus-inner {
 		border: 0;
 		padding: 0;
 	}
+	// sass-lint:enable no-vendor-prefixes
 }
