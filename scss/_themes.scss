@@ -11,6 +11,7 @@
 
 @include oColorsSetUseCase(o-buttons-standard-normal,   text,       'o-buttons-teal-3');
 @include oColorsSetUseCase(o-buttons-standard-normal,   border,     'teal-1');
+@include oColorsSetUseCase(o-buttons-standard-normal,   background,     'transparent');
 @include oColorsSetUseCase(o-buttons-standard-hover,    background, 'teal-2');
 @include oColorsSetUseCase(o-buttons-standard-hover,    border,     'teal-1');
 @include oColorsSetUseCase(o-buttons-standard-active,   background, 'warm-2');
@@ -26,6 +27,7 @@
 $o-buttons-themes__standard: (
 	normal: (
 		color: oColorsGetColorFor(o-buttons-standard-normal, text),
+		background-color: oColorsGetColorFor(o-buttons-standard-normal, background),
 		border-color: rgba(oColorsGetColorFor(o-buttons-standard-normal, border), 0.15),
 	),
 	active: (
