@@ -235,7 +235,7 @@
 	.o-header__drawer-menu-item--heading {
 		@include oColorsFor(o-header-drawer-menu-item);
 		padding: ($_o-header-drawer-padding-x / 2) $_o-header-drawer-padding-x;
-		font-weight: bold;
+		font-weight: 600;
 	}
 
 	//
@@ -340,7 +340,7 @@
 	}
 
 	.o-header__drawer-menu-link--secondary {
-		font-weight: bold;
+		font-weight: 600;
 	}
 
 	.o-header__drawer-menu-link-detail {

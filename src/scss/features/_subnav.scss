@@ -88,7 +88,7 @@
 		.o-header__subnav-list--breadcrumb & {
 			@include oColorsFor(o-header-link-highlight, text);
 			text-transform: uppercase;
-			font-weight: bold;
+			font-weight: 600;
 		}
 	}
 
