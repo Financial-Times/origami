@@ -50,7 +50,6 @@ module.exports = function(config) {
 
 		coverageReporter: {
 			reporters: [
-				{ type : 'html' },
 				{ type : 'text-summary' }
 			]
 		},

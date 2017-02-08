@@ -10,36 +10,33 @@ function Tabs(rootEl, config) {
 	let selectedTabIndex = -1;
 
 	function getTabTargetId(tabEl) {
-		const aEls = tabEl.getElementsByTagName('a');
-		return (aEls && aEls[0]) ? aEls[0].getAttribute('href').replace('#','') : '';
+		const linkEls = tabEl.getElementsByTagName('a');
+		return (linkEls && linkEls[0]) ? linkEls[0].getAttribute('href').replace('#','') : '';
 	}
 
 	function getTabPanelEls(tabEls) {
-		const els = [];
-		let targetEl;
-		let c;
-		let l;
+		const panelEls = [];
 
-		for (c = 0, l = tabEls.length; c < l; c++) {
-			const tabTargetId = getTabTargetId(tabEls[c]);
-			targetEl = document.getElementById(tabTargetId);
+		for (let tab of tabEls) {
+			const tabTargetId = getTabTargetId(tab);
+			let targetEl = document.getElementById(tabTargetId);
 
 			if (targetEl) {
-				tabEls[c].setAttribute('aria-controls', tabTargetId);
-				tabEls[c].setAttribute('tabindex', '0');
+				tab.setAttribute('aria-controls', tabTargetId);
+				tab.setAttribute('tabindex', '0');
 
-				const label = tabEls[c].getElementsByTagName('a')[0];
+				const label = tab.getElementsByTagName('a')[0];
 				const labelId = tabTargetId + '-label';
 				label.setAttribute('tabindex', '-1');
 				label.id = labelId;
 				targetEl.setAttribute('aria-labelledby', labelId);
 				targetEl.setAttribute('role', 'tabpanel');
 				targetEl.setAttribute('tabindex', '0');
-				els[c] = targetEl;
+				panelEls.push(targetEl);
 			}
 		}
 
-		return els;
+		return panelEls;
 	}
 
 	function getTabElementFromHash(){
@@ -60,8 +57,8 @@ function Tabs(rootEl, config) {
 		return selectedTabElement ? getTabIndexFromElement(selectedTabElement) : 0;
 	}
 
-	function isValidTab(i) {
-		return (!isNaN(i) && i >= 0 && i < tabEls.length);
+	function isValidTab(index) {
+		return (!isNaN(index) && index >= 0 && index < tabEls.length);
 	}
 
 	function hidePanel(panelEl) {
@@ -76,12 +73,12 @@ function Tabs(rootEl, config) {
 		// Remove the focus ring for sighted users
 		panelEl.style.outline = 0;
 
-		if (disableFocus){
+		if (disableFocus) {
 			return;
 		}
 
 		// update the url to match the selected tab
-		if(panelEl.id && updateUrl){
+		if (panelEl.id && updateUrl) {
 			location.href = '#' + panelEl.id;
 		}
 
@@ -104,25 +101,25 @@ function Tabs(rootEl, config) {
 		}));
 	}
 
-	function selectTab(i) {
-		let c;
-		let l;
-		if (isValidTab(i) && i !== selectedTabIndex) {
-			for (c = 0, l = tabEls.length; c < l; c++) {
-				if (i === c) {
-					tabEls[c].setAttribute('aria-selected', 'true');
-					showPanel(tabpanelEls[c], tabsObj.config.disablefocus);
+	function selectTab(newIndex) {
+		if (isValidTab(newIndex) && newIndex !== selectedTabIndex) {
+			for (let i = 0; i < tabEls.length; i++) {
+				if (newIndex === i) {
+					tabEls[i].setAttribute('aria-selected', 'true');
+					showPanel(tabpanelEls[i], tabsObj.config.disablefocus);
 				} else {
-					tabEls[c].setAttribute('aria-selected', 'false');
-					hidePanel(tabpanelEls[c]);
+					tabEls[i].setAttribute('aria-selected', 'false');
+					hidePanel(tabpanelEls[i]);
 				}
 			}
+
 			dispatchCustomEvent('tabSelect', {
 				tabs: tabsObj,
-				selected: i,
+				selected: newIndex,
 				lastSelected: selectedTabIndex
 			});
-			selectedTabIndex = i;
+
+			selectedTabIndex = newIndex;
 		}
 	}
 
@@ -144,19 +141,20 @@ function Tabs(rootEl, config) {
 	}
 
 	function hashChangeHandler() {
-		if(!updateUrl){
+		if (!updateUrl) {
 			return;
 		}
 
 		const tabEl = getTabElementFromHash();
-		if(tabEl){
+
+		if (tabEl) {
 			updateCurrentTab(tabEl);
 		}
 	}
 
 	function updateCurrentTab(tabEl){
-		const i = getTabIndexFromElement(tabEl);
-		tabsObj.selectTab(i);
+		const index = getTabIndexFromElement(tabEl);
+		tabsObj.selectTab(index);
 		dispatchCustomEvent('event', {
 			category: 'tabs',
 			action: 'click',
@@ -205,8 +203,9 @@ function Tabs(rootEl, config) {
 		rootEl.removeEventListener('click', clickHandler, false);
 		window.removeEventListener('hashchange', hashChangeHandler, false);
 		rootEl.removeAttribute('data-o-tabs--js');
-		for (let c = 0, l = tabpanelEls.length; c < l; c++) {
-			showPanel(tabpanelEls[c]);
+
+		for (let tabPanelEl of tabpanelEls) {
+			showPanel(tabPanelEl);
 		}
 	}
 
