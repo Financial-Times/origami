@@ -40,6 +40,12 @@
 			"name": "buttontabs-big",
 			"template": "demos/src/buttontabs-big.mustache",
 			"description": ""
+		},
+		{
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"description": "",
+			"hidden": true
 		}
 	]
 }
