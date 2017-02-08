@@ -43,7 +43,7 @@ To set the initially selected tab, add an `aria-selected="true"` attribute to a 
 
 #### Config
 
-You can also set config options declaratively by using `[data-o-tabs-]` prefixed data attributes. For example: `[data-o-tabs-disablefocus="true"`.
+You can also set config options declaratively by using `[data-o-tabs-]` prefixed data attributes. For example: `data-o-tabs-disablefocus="true"`.
 
 
 #### Core experience
