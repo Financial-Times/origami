@@ -36,7 +36,8 @@
 	cursor: pointer;
 	border-bottom: 1px dotted oColorsGetColorFor(link, text);
 
-	#{$o-hoverable-if-hover-enabled} &:hover {
+	#{$o-hoverable-if-hover-enabled} &:hover,
+	&:focus {
 		@include oColorsFor(link-hover, text);
 		border-bottom-color: transparent;
 	}
