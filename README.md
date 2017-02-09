@@ -22,6 +22,7 @@ Labels can have one of several states:
 - `closed`: old closed content state, default grey
 - `premium`: premium content state, default black
 - `brand`: FT brand label state, default claret
+- `commercial-content`: commercially promoted content (eg. native ads), default ?tbc?
 
 ```html
 <span class="o-labels">Label</span>
@@ -32,6 +33,7 @@ Labels can have one of several states:
 <span class="o-labels o-labels--closed">Closed</span>
 <span class="o-labels o-labels--premium">Premium</span>
 <span class="o-labels o-labels--brand">Brand</span>
+<span class="o-labels o-labels--commercial-content">Commercial Content</span>
 ```
 
 Use [o-typography](https://registry.origami.ft.com/components/o-typography) to control the sizing of labels. Use a label one size smaller than surrounding text, e.g. an `s` label with `m` text.
