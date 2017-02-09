@@ -28,6 +28,8 @@
 	}
 
 	.o-teaser__promoted-prefix {
+		@include oLabels;
 		@include oLabelsState('active');
+		@include font-size(14, 16);
 	}
 }
