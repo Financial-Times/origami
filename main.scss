@@ -2,13 +2,11 @@
 @import 'o-hoverable/main';
 @import 'o-buttons/main';
 
-// Switch deprecation warnings off
-$_o-tabs-deprecation-warnings: false;
-
 @import 'src/scss/variables';
-@import 'src/scss/deprecated';
-@import 'src/scss/base';
+@import 'src/scss/mixins';
 @import 'src/scss/buttontabs';
 
-// Switch deprecation warnings back on
-$_o-tabs-deprecation-warnings: true;
+@if $o-tabs-is-silent == false {
+	@include oTabs;
+	@include oTabsButtonTabs;
+}

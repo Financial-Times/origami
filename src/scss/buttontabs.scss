@@ -1,17 +1,29 @@
-@include oTabsSelectors(o-tabs--buttontabs) {
-	&[data-o-tabs--js] {
+@mixin oTabsButtonTabs() {
+	.o-tabs--buttontabs[data-o-tabs--js] {
 		&[role=tablist] {
 			border-bottom: 1px solid oColorsGetColorFor(o-buttons-standard-normal, border);
-			font-size: 0;
+			font-size: 0; // Hack to remove the spacing between tabs when using <li>'s
 		}
 
 		[role=tab] {
 			@include oButtons;
-			border-radius: 0;
-			border-bottom-width: 0;
 
 			a {
 				pointer-events: none;
+			}
+		}
+
+		&.o-tabs--big [role=tab] {
+			@include oButtonsSize('big');
+		}
+
+		[role=tab],
+		&.o-tabs--big [role=tab] {
+			border-bottom-width: 0;
+
+			& + [role=tab] {
+				margin-left: 0;
+				border-left-width: 0;
 			}
 
 			&[aria-selected=true] a {
@@ -19,27 +31,8 @@
 			}
 
 			&:first-child {
-				border-top-left-radius: 5px;
 				border-left-width: 1px;
 			}
-
-			&:last-child {
-				border-top-right-radius: 5px;
-			}
-		}
-
-		[role=tab] + [role=tab] {
-			margin-left: 0;
-			border-left-width: 0;
-		}
-
-		&.o-tabs--big [role=tab] {
-			padding-left: 18px;
-			padding-right: 18px;
-			font-size: 16px;
-			line-height: 34px;
-			text-decoration: none;
-			text-align: center;
 		}
 	}
 }
