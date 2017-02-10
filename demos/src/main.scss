@@ -4,6 +4,9 @@ $o-grid-is-silent: false;
 @import 'o-grid/main';
 @import '../../main';
 
+@include oFontsInclude(MetricWeb, $weight: regular);
+@include oFontsInclude(MetricWeb, $weight: semibold);
+
 body {
 	font-family: 'MetricWeb';
 	background: #fff1e0;
