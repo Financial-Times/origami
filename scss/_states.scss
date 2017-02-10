@@ -3,6 +3,8 @@
 /// @link http://registry.origami.ft.com/components/o-labels
 ////
 
+@include oColorsSetColor('o-labels-commercial-content', #00884A);
+
 /// States for normal/active/error and associated styles.
 /// Add to this map for more states.
 ///
@@ -46,7 +48,7 @@ $o-labels-states: (
 	),
 	commercial-content: (
 		text: 'white',
-		background: 'section-green'
+		background: 'o-labels-commercial-content'
 	)
 ) !default;
 
