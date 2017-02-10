@@ -84,14 +84,6 @@
 	.o-teaser--promoted-content {
 		@include oTeaserPromotedContent;
 	}
-
-	.o-teaser__promoted-prefix {
-		@include oTeaserPromotedPrefix;
-	}
-
-	.o-teaser__promoted-by {
-		@include oTeaserPromotedBy;
-	}
 }
 
 @mixin oTeaserElementsRelatedItems {

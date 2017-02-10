@@ -1,21 +1,16 @@
-/// Styles for a promoted content prefix in the meta area
-@mixin oTeaserPromotedPrefix {
-	@include font-size(16, 18);
-	@include oColorsFor('o-teaser-promoted-prefix', 'text');
-	font-weight: oFontsWeight(semibold);
-}
-
-/// Styles for promoted by text
-@mixin oTeaserPromotedBy {
-	@include font-size(16, 18);
-	@include oColorsFor('o-teaser-promoted-by', 'text');
-	font-weight: oFontsWeight(semibold);
-}
-
 /// Promoted content theme
 @mixin oTeaserPromotedContent {
 	@include oColorsFor('o-teaser-theme-promoted-content');
 	padding: 10px;
+
+	.o-teaser__meta {
+		font-weight: oFontsWeight(semibold);
+		color: oColorsGetPaletteColor('black');
+	}
+
+	.o-teaser__promoted-prefix {
+		@include oColorsFor('o-teaser-promoted-prefix', 'text');
+	}
 }
 
 /// Paid post theme
@@ -24,12 +19,14 @@
 	padding: 10px;
 
 	.o-teaser__meta {
-		color: #333333;
+		font-weight: oFontsWeight(semibold);
+		color: oColorsGetPaletteColor('black');
 	}
 
 	.o-teaser__promoted-prefix {
 		@include oLabels;
+		// HACK set to active until o-labels PR done
 		@include oLabelsState('active');
-		@include font-size(14, 16);
+		@include font-size(12, 12);
 	}
 }

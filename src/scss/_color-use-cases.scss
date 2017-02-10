@@ -1,5 +1,6 @@
 @include oColorsSetColor('fastft-brand', #cf191d);
 @include oColorsSetColor('fastft-highlight', #f5dfd9);
+@include oColorsSetColor('commercial-content', #00884a);
 
 // Text
 @include oColorsSetUseCase(o-teaser-timestamp, text, 'cold-1');
@@ -7,7 +8,7 @@
 // Tags
 @include oColorsSetUseCase(o-teaser-tag, text, 'claret-1');
 @include oColorsSetUseCase(o-teaser-promoted-by, text, 'black');
-@include oColorsSetUseCase(o-teaser-promoted-prefix, text, 'teal-1');
+@include oColorsSetUseCase(o-teaser-promoted-prefix, text, 'commercial-content');
 
 // Themes
 @include oColorsSetUseCase(o-teaser-theme-opinion, background, 'blue-tint5');
