@@ -25,8 +25,7 @@
 
 	.o-teaser__promoted-prefix {
 		@include oLabels;
-		// HACK set to active until o-labels PR done
-		@include oLabelsState('active');
+		@include oLabelsState('commercial-content');
 		@include font-size(12, 12);
 	}
 }
