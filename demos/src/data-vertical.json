@@ -10,7 +10,7 @@
         "withLinkedin": true,
         "withWhatsapp": true,
         "withGoogleplus": true,
-        "withReddit": true,
+        "withMail": true,
         "withPinterest": true,
         "withLink": true,
         "isVertical": true
