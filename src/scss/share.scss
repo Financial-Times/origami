@@ -20,6 +20,7 @@
 		margin: 0 5px 0 0;
 		list-style-type: none;
 		line-height: $o-share-icon-size;
+		border: 1px solid #000000;
 		cursor: pointer;
 
 		i {
@@ -29,23 +30,13 @@
 			height: $o-share-icon-size;
 			text-indent: $o-share-icon-size;
 			overflow: hidden;
-			border-radius: $o-share-icon-size;
 		}
 
 		a {
 			display: block;
 			width: $o-share-icon-size;
-			padding: 6px;
 			text-decoration: none;
 			overflow: hidden;
-
-			&:focus i {
-				box-shadow: 0 0 2px oColorsGetPaletteColor('black');
-			}
-
-			&:hover i {
-				opacity: 0.8;
-			}
 		}
 
 		&:first-child a {
@@ -57,18 +48,13 @@
 /// Action link styles
 /// @param {String} $classname [o-share] - base class name
 @mixin oShareActionLink($classname: o-share) {
-	.#{$classname}__action--url {
+	.#{$classname}__action--link {
 		display: none;
-
-		i {
-			background-image: url(_oShareGetIconUrl(link));
-		}
 
 		input {
 			display: block;
-			margin: 6px;
+			margin: 8px;
 			border: 0;
-			border-radius: 2px;
 			padding: 5px 8px;
 			width: 140px;
 			font-size: 12px;
@@ -82,12 +68,13 @@
 		}
 	}
 
-	[data-o-share--js] .#{$classname}__action--url {
+	[data-o-share--js] .#{$classname}__action--link {
 		display: block;
 	}
 
-	.#{$classname}__action--url[aria-selected=true] {
+	.#{$classname}__action--link[aria-selected=true] {
 		position: relative;
+
 		a {
 			display: none;
 		}
@@ -98,22 +85,46 @@
 ///
 /// @param {String} $name - Name of the icon
 /// @param {String} $classname [o-share] - base class name
-@mixin oShareActionIcon($name, $classname: o-share) {
-	.#{$classname}__action--#{$name} i {
-		background-image: url(_oShareGetIconUrl($name, $format: png) + "&width=" + _oShareStripUnits($o-share-icon-size));
-		// The weird value for rgba is to prevent Sass converting rgba(0,0,0,0) to 'transparent',
-		// which would cause the following line of css to be understood by ie7/8 and the svg to be downloaded
-		background: rgba(0, 0, 0, 0.0001) url(_oShareGetIconUrl($name)) center/100% no-repeat;
+@mixin oShareActionIcon($icon-name, $classname: o-share) {
+	$scheme: "ftsocial-v#{$o-share-social-icons-version}";
+
+	@if ($icon-name == 'mail' or $icon-name == 'link') {
+		$scheme: "fticon-v#{$o-share-ft-icons-version}";
+	}
+
+	$service-url: "#{$o-share-image-service-base-url}/#{$o-share-image-service-version}/images/raw/#{$scheme}:#{$icon-name}";
+	$query: "?source=o-share";
+	$tint: "&tint=#ffffff,#ffffff";
+
+	.#{$classname}__action--#{$icon-name} i {
+		background-image: url($service-url + $query + "&format=svg");
+
+		// ie7/8 fallback. Uses the `\9` selector hack to target ie6-8.
+		// Hack is documented here: http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
+		// It still needs to use the build service  <-- what does this comment mean?
+		background-image: url($service-url + $query + "&format=png&width=#{$o-share-icon-size}")\9;
+
+		&:after {
+			content: '';
+			background-image: url($service-url + $query + "&format=svg#{$tint}");
+			background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
+		}
+	}
+
+	.#{$classname}__action--#{$icon-name}:hover {
+		border-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
+		background-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
+
+		i {
+			background-image: url($service-url + $query + "&format=svg#{$tint}");
+			background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
+		}
 	}
 }
 
 @mixin oShareVertical($classname: o-share) {
 	.#{$classname}__action {
 		float: none;
-		margin: 0 0 5px;
-		&:first-child a {
-			padding-left: 6px;
-			padding-top: 0;
-		}
+		margin-bottom: 5px;
 	}
 }

@@ -61,7 +61,7 @@ function Share(rootEl, config) {
 				button: actionEl.textContent.trim().toLowerCase()
 			}, 'oTracking');
 
-			if (actionEl.classList.contains('o-share__action--url')) {
+			if (actionEl.classList.contains('o-share__action--link')) {
 				copyLink(url, actionEl);
 			} else {
 				shareSocial(url);
