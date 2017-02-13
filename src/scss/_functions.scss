@@ -18,12 +18,3 @@
 
 	@return $number;
 }
-
-/// Generate the URL of the  icon
-@function _oShareGetIconUrl($name, $format: svg) {
-	@if(index($_o-share-icons, $name) != false) {
-		@return "#{$o-icons-image-service-base-url}/#{$o-icons-image-service-version}/images/raw/ftsocial:#{$name}?source=o-share&format=#{$format}";
-	} @else {
-		@return "none";
-	}
-}
