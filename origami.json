@@ -42,6 +42,18 @@
 			"description": ""
 		},
 		{
+			"name": "buttontabs-standout",
+			"template": "demos/src/buttontabs-standout.mustache",
+			"description": "",
+			"hidden": true
+		},
+		{
+			"name": "buttontabs-inverse",
+			"template": "demos/src/buttontabs-inverse.mustache",
+			"description": "",
+			"hidden": true
+		},
+		{
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
 			"description": "",
