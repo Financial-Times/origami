@@ -131,12 +131,18 @@ The following API methods are provided:
 
 ### Sass
 
-__o-tabs__ comes with either _base styling_, which is just the minimum to be functional or _full styling_ (called __buttontabs__ as it's based on the buttons from [o-ft-buttons](https://github.com/Financial-Times/o-ft-buttons)).
+__o-tabs__ comes with either _base styling_, which should be used as a base for you to add your own styling. Or _full styling_ called __buttontabs__; based on the buttons from [o-buttons](https://github.com/Financial-Times/o-buttons)).
 
 To apply the __buttontabs__ styling, add a `o-tabs--buttontabs` class to the root element:
 
 ```html
 <ul data-o-component="o-tabs" class="o-tabs o-tabs--buttontabs" role="tablist">
+```
+
+or use the mixin:
+
+```sass
+@include oTabsButtonTabs;
 ```
 
 The __buttontabs__ style comes in two sizes:
@@ -147,14 +153,23 @@ The __buttontabs__ style comes in two sizes:
 
 #### "Big"
 
+Larger buttons can be acheived by using the class `o-tabs--big`.
+
 ![tab buttons big](https://raw.githubusercontent.com/Financial-Times/o-tabs/master/files/tab-buttons-big.png)
 
-These examples show "John" as the selected tab. The horizontal line extends to the full width of its container.
-
-__Options__
+#### Options
 
 * __Align right__: Add `o-tabs--alignright` to the root element.
-* __Big__: Add `o-tabs--big` to the root element.
+
+#### Mixins
+
+o-tabs styles are also available via mixins. The base styles and buttontabs styles are available using the `oTabs` and `oTabsButtonTabs` mixins.
+
+If you're using the Sass mixins, you can also theme o-tabs using the `oTabsButtonTabsTheme` mixin, which can be set to any of the [`o-buttons` themes](https://github.com/Financial-Times/o-buttons#quick-start) by passing the name as a parameter:
+
+```sass
+@include oTabsButtonTabsTheme('inverse');
+```
 
 
 ---
