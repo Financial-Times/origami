@@ -8,7 +8,6 @@ const socialUrls = {
 	facebook: "http://www.facebook.com/sharer.php?u={{url}}&t={{title}}+%7C+{{titleExtra}}",
 	linkedin: "http://www.linkedin.com/shareArticle?mini=true&url={{url}}&title={{title}}+%7C+{{titleExtra}}&summary={{summary}}&source=Financial+Times",
 	googleplus: "https://plus.google.com/share?url={{url}}",
-	reddit: "http://reddit.com/submit?url={{url}}&title={{title}}",
 	pinterest: "http://www.pinterest.com/pin/create/button/?url={{url}}&description={{title}}",
 	whatsapp: "whatsapp://send?text={{title}}%20({{titleExtra}})%20-%20{{url}}",
 	url: "{{url}}"
@@ -250,16 +249,5 @@ Share.init = function(rootEl) {
 	}
 	return Array.from(rootEl.querySelectorAll('[data-o-component=o-share]'), rootEl => new Share(rootEl) );
 };
-
-const OSharePrototype = Object.create(HTMLElement.prototype);
-
-/**
-  * If it supports custom elements, it will return an instance of the <o-share> HTMLElement
-  *
-  * @returns {(HTMLElement|undefined)}
-  */
-Share.Element = document.registerElement ? document.registerElement('o-share', {
-	prototype: OSharePrototype
-}) : undefined;
 
 module.exports = Share;
