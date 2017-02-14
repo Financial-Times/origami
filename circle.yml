@@ -3,8 +3,9 @@ machine:
     - sudo curl --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-2.1.1
   node:
     version: 6
+# use OBT v5 until https://github.com/sasstools/sass-lint/pull/957 is merged
   post:
-    - npm install -g origami-build-tools
+    - npm install -g origami-build-tools@^5
 dependencies:
   override:
     - obt install

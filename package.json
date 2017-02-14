@@ -16,7 +16,7 @@
     "karma-coverage": "^1.1.1",
     "karma-sinon": "^1.0.5",
     "karma-webpack": "^1.7.0",
-    "origami-build-tools": "^6.0.0",
+    "origami-build-tools": "^5.5.5",
     "proclaim": "^3.4.1",
     "sinon": "^1.17.5"
   }
