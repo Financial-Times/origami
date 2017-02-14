@@ -94,7 +94,11 @@
 
 	$service-url: "#{$o-share-image-service-base-url}/#{$o-share-image-service-version}/images/raw/#{$scheme}:#{$icon-name}";
 	$query: "?source=o-share";
-	$tint: "&tint=#ffffff,#ffffff";
+
+	$hover-color: #ffffff;
+
+	$hover-color: str-slice(ie-hex-str($hover-color), 4);
+	$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
 
 	.#{$classname}__action--#{$icon-name} i {
 		background-image: url($service-url + $query + "&format=svg");
