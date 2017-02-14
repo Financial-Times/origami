@@ -16,11 +16,12 @@
 	}
 
 	.#{$classname}__action {
+		@include oColorsFor('o-share-button-default');
 		float: left;
 		margin: 0 5px 0 0;
 		list-style-type: none;
 		line-height: $o-share-icon-size;
-		border: 1px solid oColorsGetPaletteColor('black');
+		border: 1px solid;
 		border-radius: $o-normalise-border-radius;
 		cursor: pointer;
 
@@ -97,7 +98,7 @@
 	$service-url: "#{$o-share-image-service-base-url}/#{$o-share-image-service-version}/images/raw/#{$scheme}:#{$icon-name}";
 	$query: "?source=o-share";
 
-	$hover-color: oColorsGetPaletteColor('white');
+	$hover-color: oColorsGetColorFor('o-share-button-hover', background);
 
 	$hover-color: str-slice(ie-hex-str($hover-color), 4);
 	$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
