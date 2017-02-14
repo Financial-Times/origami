@@ -20,7 +20,7 @@
 		margin: 0 5px 0 0;
 		list-style-type: none;
 		line-height: $o-share-icon-size;
-		border: 1px solid #000000;
+		border: 1px solid oColorsGetPaletteColor('black');
 		border-radius: $o-normalise-border-radius;
 		cursor: pointer;
 
