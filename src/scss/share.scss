@@ -89,6 +89,7 @@
 /// @param {String} $name - Name of the icon
 /// @param {String} $classname [o-share] - base class name
 @mixin oShareActionIcon($icon-name, $classname: o-share) {
+	// sass-lint:disable-all
 	$scheme: "ftsocial-v#{$o-share-social-icons-version}";
 
 	@if ($icon-name == 'mail' or $icon-name == 'link') {
@@ -103,6 +104,7 @@
 	$hover-color: str-slice(ie-hex-str($hover-color), 4);
 	$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
 
+	// scss-lint:disable DuplicateProperty
 	.#{$classname}__action--#{$icon-name} i {
 		background-image: url($service-url + $query + "&format=svg");
 
@@ -127,6 +129,7 @@
 			background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
 		}
 	}
+	// scss-lint:enable DuplicateProperty
 }
 
 @mixin oShareVertical($classname: o-share) {

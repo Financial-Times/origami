@@ -22,8 +22,10 @@
 		line-height: 14px;
 		text-align: center;
 		white-space: nowrap;
+		// scss-lint:disable DuplicateProperty
 		background-color: oColorsGetColorFor(tooltip, background);
-		background-color: $_o-share-tooltip-bg; // sass-lint:disable-line no-duplicate-properties
+		background-color: $_o-share-tooltip-bg;
+		// scss-lint:enable DuplicateProperty
 		border-radius: $o-normalise-border-radius;
 		text-shadow: 0 0 1px oColorsGetPaletteColor('black');
 	}
