@@ -238,24 +238,17 @@ Share.prototype.destroy = function() {
   * @param {(HTMLElement|string)} [el=document.body] - Element where to search for o-share components. You can pass an HTMLElement or a selector string
   * @returns {Array} - An array of Share instances
   */
-Share.init = function(el) {
-	const shareInstances = [];
-
-	if (!el) {
-		el = document.body;
-	} else if (!(el instanceof HTMLElement)) {
-		el = document.querySelector(el);
+Share.init = function(rootEl) {
+	if (!rootEl) {
+		rootEl = document.body;
 	}
-
-	const shareElements = el.querySelectorAll('[data-o-component=o-share]');
-
-	for (let i = 0; i < shareElements.length; i++) {
-		if (!shareElements[i].hasAttribute('data-o-header--js')) {
-			shareInstances.push(new Share(shareElements[i]));
-		}
+	if (!(rootEl instanceof HTMLElement)) {
+		rootEl = document.querySelector(rootEl);
 	}
-
-	return shareInstances;
+	if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-share]')) {
+		return new Share(rootEl);
+	}
+	return Array.from(rootEl.querySelectorAll('[data-o-component=o-share]'), rootEl => new Share(rootEl) );
 };
 
 const OSharePrototype = Object.create(HTMLElement.prototype);

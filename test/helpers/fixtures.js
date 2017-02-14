@@ -21,7 +21,7 @@ function insert(html) {
 
 function insertShareLinks() {
 	const html = `
-		<div data-o-component="o-share" class="o-share">
+		<div data-o-component="o-share" class="o-share" id="element">
 			<ul>
 				<li class="o-share__action o-share__action--url">
 					<a href="http://on.ft.com/1mUdgA2"><i>URL</i></a>
