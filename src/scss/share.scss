@@ -21,6 +21,7 @@
 		list-style-type: none;
 		line-height: $o-share-icon-size;
 		border: 1px solid #000000;
+		border-radius: $o-normalise-border-radius;
 		cursor: pointer;
 
 		i {
@@ -59,6 +60,7 @@
 			width: 140px;
 			font-size: 12px;
 			line-height: 14px;
+			border-radius: $o-normalise-border-radius;
 			box-shadow: 0 0 3px oColorsGetPaletteColor('grey-tint5');
 
 			// Removes the cross the clears the input in IE 10+
