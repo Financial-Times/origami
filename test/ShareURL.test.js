@@ -1,5 +1,6 @@
 /* eslint-env mocha, sinon, proclaim */
 
+import proclaim from 'proclaim';
 import * as fixtures from './helpers/fixtures';
 import Share from './../main';
 
