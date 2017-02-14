@@ -92,9 +92,9 @@ describe('component', () => {
 		proclaim.instanceOf(document.querySelector('.o-share__action--linkedin'), HTMLElement);
 		proclaim.instanceOf(document.querySelector('.o-share__action--whatsapp'), HTMLElement);
 		proclaim.instanceOf(document.querySelector('.o-share__action--googleplus'), HTMLElement);
-		proclaim.instanceOf(document.querySelector('.o-share__action--reddit'), HTMLElement);
 		proclaim.instanceOf(document.querySelector('.o-share__action--pinterest'), HTMLElement);
-		proclaim.instanceOf(document.querySelector('.o-share__action--url'), HTMLElement);
+		proclaim.instanceOf(document.querySelector('.o-share__action--link'), HTMLElement);
+		proclaim.instanceOf(document.querySelector('.o-share__action--mail'), HTMLElement);
 	});
 
 	it('responds correctly to twitter clicks in the component', () => {
@@ -113,13 +113,13 @@ describe('component', () => {
 	it('responds correctly to url clicks in the component', () => {
 		proclaim.isNull(document.querySelector('.o-share-tooltip'));
 
-		const urlLinkElement = document.querySelector('.o-share__action--url a');
+		const urlLinkElement = document.querySelector('.o-share__action--link a');
 		const event = document.createEvent('Event');
 		event.initEvent('click', true, true);
 		urlLinkElement.dispatchEvent(event);
 
 		proclaim.instanceOf(document.querySelector('.o-share-tooltip'), HTMLElement);
-		proclaim.equal(document.querySelector('.o-share__action--url input').value, 'https://www.ft.com/content/test');
+		proclaim.equal(document.querySelector('.o-share__action--link input').value, 'https://www.ft.com/content/test');
 	});
 });
 
