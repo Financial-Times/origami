@@ -1,9 +1,8 @@
-/*global describe,beforeEach,afterEach,it*/
-
-import expect from 'expect.js';
+/* eslint-env mocha, sinon, proclaim */
 
 import * as fixtures from './helpers/fixtures';
 import Share from './../main';
+
 let testShare;
 let shareEl;
 
@@ -25,15 +24,15 @@ describe('share url behaviour', function() {
 	});
 
 	it('share URL tool - opens', function() {
-		expect(shareEl.querySelector('.o-share__action--url').getAttribute('aria-selected')).to.be('true');
-		expect(shareEl.querySelectorAll('.o-share__action--url input').length).to.be(1);
-		expect(shareEl.querySelector('.o-share__action--url input').value).to.be(shareEl.querySelector('.o-share__action--url a').href);
-		expect(shareEl.querySelectorAll('.o-share__action--url .o-share-tooltip').length).to.be(1);
+		proclaim.equal(shareEl.querySelector('.o-share__action--url').getAttribute('aria-selected'), 'true');
+		proclaim.lengthEquals(shareEl.querySelectorAll('.o-share__action--url input'), 1);
+		proclaim.equal(shareEl.querySelector('.o-share__action--url input').value, shareEl.querySelector('.o-share__action--url a').href);
+		proclaim.lengthEquals(shareEl.querySelectorAll('.o-share__action--url .o-share-tooltip'), 1);
 	});
 
 	it('share URL tool - copied notification', function() {
 		shareEl.querySelector('.o-share__action--url input').dispatchEvent(new Event('copy'));
-		expect(shareEl.querySelector('.o-share__action--url .o-share-tooltip__text').innerText).to.be('Copied!');
+		proclaim.equal(shareEl.querySelector('.o-share__action--url .o-share-tooltip__text').innerText, 'Copied!');
 	});
 
 	it('share URL tool - closes on pressing escape', function() {
@@ -41,9 +40,10 @@ describe('share url behaviour', function() {
 		ev.initEvent('keydown', true, true);
 		ev.keyCode = 27;
 		shareEl.querySelector('.o-share__action--url input').dispatchEvent(ev);
-		expect(shareEl.querySelector('.o-share__action--url').hasAttribute('aria-selected')).to.be(false);
-		expect(shareEl.querySelectorAll('.o-share__action--url input').length).to.be(0);
-		expect(shareEl.querySelectorAll('.o-share__action--url .o-share-tooltip').length).to.be(0);
+
+		proclaim.equal(shareEl.querySelector('.o-share__action--url').hasAttribute('aria-selected'), false);
+		proclaim.lengthEquals(shareEl.querySelectorAll('.o-share__action--url input'), 0);
+		proclaim.lengthEquals(shareEl.querySelectorAll('.o-share__action--url .o-share-tooltip'), 0);
 	});
 
 	it('share URL tool - closes on pressing tab', function() {
@@ -51,9 +51,9 @@ describe('share url behaviour', function() {
 		ev.initEvent('keydown', true, true);
 		ev.keyCode = 9;
 		shareEl.querySelector('.o-share__action--url input').dispatchEvent(ev);
-		expect(shareEl.querySelector('.o-share__action--url').hasAttribute('aria-selected')).to.be(false);
-		expect(shareEl.querySelectorAll('.o-share__action--url input').length).to.be(0);
-		expect(shareEl.querySelectorAll('.o-share__action--url .o-share-tooltip').length).to.be(0);
+		proclaim.equal(shareEl.querySelector('.o-share__action--url').hasAttribute('aria-selected'), false);
+		proclaim.lengthEquals(shareEl.querySelectorAll('.o-share__action--url input'), 0);
+		proclaim.lengthEquals(shareEl.querySelectorAll('.o-share__action--url .o-share-tooltip'), 0);
 	});
 
 });
