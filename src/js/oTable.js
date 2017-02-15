@@ -148,9 +148,14 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
 	rows.sort(function (a, b) {
 		let aCol = a.children[index];
 		let bCol = b.children[index];
-		if (!isNaN(parseInt(aCol.getAttribute('data-o-table-order')))) {
-			aCol = parseInt(aCol.getAttribute('data-o-table-order'));
-			bCol = parseInt(bCol.getAttribute('data-o-table-order'));
+
+		if (aCol.getAttribute('data-o-table-order') !== null) {
+			aCol = aCol.getAttribute('data-o-table-order');
+			bCol = bCol.getAttribute('data-o-table-order');
+			if (!isNaN(parseInt(aCol))) {
+				aCol = parseInt(aCol);
+				bCol = parseInt(bCol);
+			}
 		} else {
 			aCol = aCol.textContent;
 			bCol = bCol.textContent;
