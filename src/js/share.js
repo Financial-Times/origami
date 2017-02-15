@@ -10,8 +10,7 @@ const socialUrls = {
 	googleplus: "https://plus.google.com/share?url={{url}}",
 	pinterest: "http://www.pinterest.com/pin/create/button/?url={{url}}&description={{title}}",
 	whatsapp: "whatsapp://send?text={{title}}%20({{titleExtra}})%20-%20{{url}}",
-	link: "{{url}}",
-	mail: "{{url}}"
+	link: "{{url}}"
 };
 
 /**
