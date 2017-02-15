@@ -16,12 +16,11 @@
 	}
 
 	.#{$classname}__action {
-		@include oColorsFor('o-share-button-default');
 		float: left;
 		margin: 0 5px 0 0;
 		list-style-type: none;
 		line-height: $o-share-icon-size;
-		border: 1px solid;
+		border: 1px solid rgba(oColorsGetColorFor('o-share-button-default', 'border'), 0.2);
 		border-radius: $o-normalise-border-radius;
 		cursor: pointer;
 
@@ -120,7 +119,8 @@
 		}
 	}
 
-	.#{$classname}__action--#{$icon-name}:hover {
+	.#{$classname}__action--#{$icon-name}:hover,
+	.#{$classname}__action--#{$icon-name}:focus {
 		border-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
 		background-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
 
