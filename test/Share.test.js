@@ -94,7 +94,6 @@ describe('component', () => {
 		proclaim.instanceOf(document.querySelector('.o-share__action--googleplus'), HTMLElement);
 		proclaim.instanceOf(document.querySelector('.o-share__action--pinterest'), HTMLElement);
 		proclaim.instanceOf(document.querySelector('.o-share__action--link'), HTMLElement);
-		proclaim.instanceOf(document.querySelector('.o-share__action--mail'), HTMLElement);
 	});
 
 	it('responds correctly to twitter clicks in the component', () => {
