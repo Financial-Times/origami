@@ -26,11 +26,11 @@ As with all Origami components, o-normalise has a [silent mode](http://origami.f
 
 The following mixins apply normalising styles to groups of HTML elements, these aim to fix browser inconsistencies and any potential side-effects caused by browser default styles.
 
-- `oNormaliseHTML` - effects `html`, `body`, `main` elements and defaults `:focus` state
-- `oNormaliseLinks` - effects `a` tags and `:hover` & `:active` states
-- `oNormaliseText` - effects text related elements
-- `oNormaliseImages` - effects the `img` element
-- `oNormaliseForms` - effects form related elements
+- `oNormaliseHTML` - affects `html`, `body`, `main` elements and defaults `:focus` state
+- `oNormaliseLinks` - affects `a` tags and `:hover` & `:active` states
+- `oNormaliseText` - affects text related elements
+- `oNormaliseImages` - affects the `img` element
+- `oNormaliseForms` - affects form related elements
 
 #### Available variables
 
