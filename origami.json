@@ -48,6 +48,14 @@
             "description": ""
         },
         {
+            "name": "transparent-header",
+            "title": "Transparent header",
+            "data": "demos/src/header.js",
+            "template": "demos/src/transparent-header.mustache",
+            "description": "",
+            "documentClasses": "demo-transparent"
+        },
+        {
             "name": "sticky-header",
             "title": "Sticky header",
             "data": "demos/src/header.js",

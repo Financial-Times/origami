@@ -24,6 +24,8 @@
 		@include oHeaderSimple;
 	} @else if $feature == 'subbrand' {
 		@include oHeaderSubbrand;
+	} @else if $feature == 'transparent' {
+		@include oHeaderTransparent;
 	}
 }
 

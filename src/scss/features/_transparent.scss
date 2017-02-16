@@ -1,0 +1,52 @@
+@mixin oHeaderTransparent() {
+	.o-header--transparent {
+		@include oColorsFor('o-header-transparent', text);
+		border-color: rgba(oColorsGetColorFor('o-header-transparent', border), 0.4);
+		background-color: transparent;
+
+		.o-header__row {
+			border-bottom-color: rgba(oColorsGetColorFor('o-header-transparent', border), 0.4);
+		}
+
+		.o-header__top-link--menu:before {
+			@include oIconsGetIcon('hamburger', oColorsGetColorFor('o-header-transparent-icon'), $_o-header-icon-size-large, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+		}
+
+		.o-header__top-link--search:before {
+			@include oIconsGetIcon('search', oColorsGetColorFor('o-header-transparent-icon'), $_o-header-icon-size-large, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+		}
+
+		.o-header__top-link--myft:before {
+			@include oHeaderBrandImage('brand-myft', oColorsGetColorFor('o-header-transparent-icon'), 52);
+		}
+
+		.o-header__top-logo {
+			@include oHeaderBrandImage('brand-ft-masthead', oColorsGetColorFor('o-header-transparent-icon'), 500);
+		}
+
+		.o-header__nav-button {
+			@include oButtons($theme: 'inverse');
+		}
+
+		.o-header__nav-link,
+		.o-header__anon-link {
+			&:hover {
+				color: oColorsGetColorFor('o-header-transparent-link-hover', 'text');
+			}
+
+			&:hover:after {
+				background-color: oColorsGetColorFor('o-header-transparent-link-hover', 'text');
+			}
+
+			&--highlight,
+			&[aria-selected="true"] {
+				color: oColorsGetColorFor('o-header-transparent-link-highlight', 'text');
+			}
+
+			&--highlight:after,
+			&[aria-selected="true"]:after {
+				background-color: oColorsGetColorFor('o-header-transparent-link-highlight', 'text');
+			}
+		}
+	}
+}
