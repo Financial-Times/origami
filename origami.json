@@ -27,21 +27,15 @@
 	"demos": [
 		{
 			"name": "horizontal",
-			"template": "main.mustache",
+			"template": "demos/src/main.mustache",
 			"data": "demos/src/data.json",
 			"description": "horizontal"
 		},
 		{
 			"name": "vertical",
-			"template": "main.mustache",
+			"template": "demos/src/main.mustache",
 			"data": "demos/src/data-vertical.json",
 			"description": "vertical"
-		},
-		{
-			"name": "web-component",
-			"template": "demos/src/webcomponent.mustache",
-			"hidden": true,
-			"description": "web component"
 		}
 	]
 }

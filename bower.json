@@ -1,11 +1,12 @@
 {
-    "name": "o-share",
-    "dependencies": {
-        "ftdomdelegate": "^2.0.0",
-        "o-colors": ">=2.5.0 <4"
-    },
-    "main": [
-        "main.scss",
-        "main.js"
-    ]
+  "name": "o-share",
+  "dependencies": {
+    "ftdomdelegate": "^2.0.0",
+    "o-colors": "^3.6.0",
+    "o-normalise": "^1.2.0"
+  },
+  "main": [
+    "main.scss",
+    "main.js"
+  ]
 }

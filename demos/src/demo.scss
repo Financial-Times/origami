@@ -3,8 +3,10 @@ $o-share-is-silent: false;
 
 body {
 	margin-top: 50px;
+	padding: 10px;
 	height: 25px;
 	font-family: BentonSans, sans-serif;
+	background-color: oColorsGetPaletteColor('pink');
 }
 
 .o-share--vertical {

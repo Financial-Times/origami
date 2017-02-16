@@ -1,2 +1,13 @@
 @include oColorsSetUseCase(tooltip, text, 'white');
 @include oColorsSetUseCase(tooltip, background, 'grey-tint5');
+
+@include oColorsSetUseCase('o-share-mail-color', background, 'teal-1');
+@include oColorsSetUseCase('o-share-link-color', background, 'teal-1');
+
+@include oColorsSetUseCase('o-share-button-default', border, 'black');
+@include oColorsSetUseCase('o-share-button-hover', background, 'white');
+
+@each $brand, $hex in $o-share-colors {
+	@include oColorsSetColor('o-share-color-#{$brand}', $hex);
+	@include oColorsSetUseCase('o-share-#{$brand}-color', background, 'o-share-color-#{$brand}');
+}

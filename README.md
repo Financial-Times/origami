@@ -7,22 +7,17 @@ Social media and URL sharing buttons.
 - Uses a standard set of social media icons.
 - Provides a copyable representation of a link
 
-## Browser Support
+- [Usage](#usage)
+	- [Markup](#markup)
+	- [JavaScript](#javascript)
+	- [Sass](#sass)
+- [Migration guide](#migration-guide)
+- [Contact](#contact)
+- [Licence](#licence)
 
-Tested and working on:
+## Usage
 
-|  Browsers  | Primary Experience | Core Experience |
-|:----------:|:------------------:|:---------------:|
-|   Chrome   |        35+         |       35+       |
-|   Firefox  |        30+         |       30+       |
-|   Safari   |        7+          |       7+        |
-|   IE       |        8+          |       8+        |
-
-Known issues:
-
-* IE8+ need the [polyfill service](https://github.com/Financial-Times/polyfill/service)
-
-## Getting started
+### Markup
 
 The simplest markup you might need looks like this:
 
@@ -53,18 +48,20 @@ The different social networks are (in the order suggested by the design team):
 * Facebook (note: if Facebook isn't picking up the meta-data for your article properly [the Facebook debugging tool is very helpful](https://developers.facebook.com/tools/debug/sharing/))
 * Linkedin
 * Whatsapp (note: this link does nothing if Whatsapp is not installed)
-
-The following icons are available, but are considered superfluous for most FT products.
 * Google+ (written as 'googleplus' in the `links` config option)
-* Reddit
 * Pinterest
-* Url
+* Link (when clicked displays the URL that can be copied by the user)
 
-You can take a look at an example [here](https://github.com/Financial-Times/o-share/blob/master/demos/src/webcomponent.mustache).
+#### Core experience
 
-### Instantiation
+To support core experience, you need to include the [complete markup](https://github.com/Financial-Times/o-share/blob/master/main.mustache) directly.
 
-#### Javascript
+Social media share buttons will function as plain `<a>` elements (and can be set to `target="_blank"` if the product wishes.
+
+The link share button will not display at all. User can of course still copy the browser URL.
+
+### JavaScript
+
 To instantiate the JavaScript:
 
 ```javascript
@@ -78,7 +75,7 @@ You can also instantiate all instances in your page by running `oShare.init` whi
 
 Alternatively, an `o.DOMContentLoaded` event can be dispatched on the `document` to run `#init()`:
 
-```javascript
+```js
 document.addEventListener("DOMContentLoaded", function() {
     document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
@@ -86,7 +83,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
 Check out the [API docs](http://registry.origami.ft.com/components/o-share#docs-js)
 
-#### Sass
+#### Events
+
+This module will trigger the following events on its root element:
+
+* `oShare.ready` - when a share links behaviour has been initialised
+* `oShare.open` - when a share link has been opened (popup/flyout opened as a result of button click)
+* `oShare.copy` - when the URL has been copied
+
+
+### Sass
 
 ```scss
 @import 'o-share/main';
@@ -102,33 +108,21 @@ If not, you can just use our mixins to set you custom class.
 
 Check out the [API docs](http://registry.origami.ft.com/components/o-share#docs-css)
 
-## Core experience
+## Migration guide
 
-To support core experience, you need to include the [complete markup](https://github.com/Financial-Times/o-share/blob/master/main.mustache) directly.
+### Migrating from v2.x.x to v3.x.x
 
-Social media share buttons will function as plain `<a>` elements (and can be set to `target="_blank"` if the product wishes.
+o-share v3 introduces a few breaking changes that you may need to update in your product:
 
-URL share button will not display at all. User can of course still copy the browser URL.
+- button size has increased from 36px to 40px which might effect the surrounding elements of your design
+- the Reddit share option has been removed
+- the URL share option has been renamed from `o-share__action--url` to `o-share__action--link`
 
-## Custom element
+---
 
-It also registers the custom `<o-share>` element which you can use. And you can use it via JavaScript by using the `#element` attribute like this:
+## Contact
 
-```
-var oShare = require('o-share');
-var oShareElement = new oShare.Element();
-// Set all the data attributes
-document.body.appendChild(oShareElement);
-var oShareInstance = new oShare(oShareElement);
-```
-
-## Events
-
-This module will trigger the following events on its root element:
-
-* `oShare.ready` - when a share links behaviour has been initialised
-* `oShare.open` - when a share link has been opened (popup/flyout opened as a result of button click)
-* `oShare.copy` - when the URL has been copied
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-share/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
 ----
 

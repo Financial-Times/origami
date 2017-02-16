@@ -9,9 +9,8 @@
         "withFacebook": true,
         "withLinkedin": true,
         "withWhatsapp": true,
-        "withGoogleplus": true,
-        "withReddit": true,
-        "withPinterest": true,
-        "withLink": true
+    	"withGoogleplus": true,
+    	"withPinterest": true,
+    	"withLink": true
     }
 }
