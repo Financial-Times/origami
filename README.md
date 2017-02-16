@@ -193,7 +193,7 @@ Sorting numbers works if the column has been declared as a numeric column via `d
 
 ##### Sorting declaratively
 If you are wanting to sort by a custom pattern, you can apply the sorting values to each row as a data attribute:
-`data-o-table-order=${sort-position}`
+`data-o-table-order=${sort-position}`. These values can be strings or integers.
 
 ``` html
 <table class="o-table" data-o-component="o-table">
