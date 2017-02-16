@@ -12,7 +12,8 @@
 	transition: opacity 0.3s ease-in-out;
 	border: $_o-overlay-border-width solid oColorsGetColorFor(o-overlay, border);
 	background: oColorsGetColorFor(o-overlay, background);
-	border-radius: 5px;
+	border-radius: 0px;
+	// border-radius: $o-normalise-border-radius; TODO: Next breaking change add this in
 }
 
 /// Base overlay modal shadow style
