@@ -3,9 +3,12 @@ o-share [![Build Status](https://circleci.com/gh/Financial-Times/o-share.png?sty
 
 Social media and URL sharing buttons.
 
-- Provides the ability to share a URL provided by the product
-- Uses a standard set of social media icons.
-- Provides a copyable representation of a link
+* Provides the ability to share a URL provided by the product
+* Uses a standard set of social media icons.
+* Provides a copyable representation of a link
+
+
+---
 
 - [Usage](#usage)
 	- [Markup](#markup)
