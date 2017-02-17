@@ -1,24 +1,63 @@
 /*global module, require*/
 const oDom = require('o-dom');
 
-function Tabs(rootEl, config) {
+class Tabs {
 
-	const tabsObj = this;
-	let tabEls;
-	let tabpanelEls;
-	let updateUrl = (rootEl.getAttribute('data-o-tabs-update-url') !== null);
-	let selectedTabIndex = -1;
+	constructor(rootEl, config) {
+		this.tabEls;
+		this.tabpanelEls;
+		this.updateUrl = (rootEl.getAttribute('data-o-tabs-update-url') !== null);
+		this.selectedTabIndex = -1;
 
-	function getTabTargetId(tabEl) {
+		if (!rootEl) {
+			this.rootEl = document.body;
+		} else if (!(rootEl instanceof HTMLElement)) {
+			this.rootEl = document.querySelector(rootEl);
+		} else {
+			this.rootEl = rootEl;
+		}
+
+		this.tabEls = this.rootEl.querySelectorAll('[role=tab]');
+		this.tabpanelEls = this.getTabPanelEls(this.tabEls);
+		this.rootEl.setAttribute('data-o-tabs--js', '');
+		this.rootEl.addEventListener('click', this.clickHandler.bind(this), false);
+		this.rootEl.addEventListener('keypress', this.keyPressHandler.bind(this), false);
+		window.addEventListener('hashchange', this.hashChangeHandler.bind(this), false);
+
+		if (!config) {
+			config = {};
+			Array.prototype.forEach.call(this.rootEl.attributes, function(attr) {
+				if (attr.name.indexOf('data-o-tabs') === 0) {
+					// Remove the unnecessary part of the string the first time this is run for each attribute
+					const key = attr.name.replace('data-o-tabs-', '');
+					try {
+						// If it's a JSON, a boolean or a number, we want it stored like that, and not as a string
+						// We also replace all ' with " so JSON strings are parsed correctly
+						config[key] = JSON.parse(attr.value.replace(/\'/g, '"'));
+					} catch (e) {
+						config[key] = attr.value;
+					}
+				}
+			});
+		}
+
+		this.config = config;
+		this.dispatchCustomEvent('ready', {
+			tabs: this
+		});
+		this.selectTab(this.getSelectedTabIndex());
+	};
+
+	getTabTargetId(tabEl) {
 		const linkEls = tabEl.getElementsByTagName('a');
 		return (linkEls && linkEls[0]) ? linkEls[0].getAttribute('href').replace('#','') : '';
-	}
+	};
 
-	function getTabPanelEls(tabEls) {
+	getTabPanelEls(tabEls) {
 		const panelEls = [];
 
 		for (let tab of tabEls) {
-			const tabTargetId = getTabTargetId(tab);
+			const tabTargetId = this.getTabTargetId(tab);
 			let targetEl = document.getElementById(tabTargetId);
 
 			if (targetEl) {
@@ -37,36 +76,36 @@ function Tabs(rootEl, config) {
 		}
 
 		return panelEls;
-	}
+	};
 
-	function getTabElementFromHash(){
-		const tabLink = rootEl.querySelector(`[href="${location.hash}"]`);
+	getTabElementFromHash() {
+		const tabLink = this.rootEl.querySelector(`[href="${location.hash}"]`);
 		return tabLink && tabLink.parentNode ? tabLink.parentNode : null;
-	}
+	};
 
-	function getTabIndexFromElement(el) {
+	getTabIndexFromElement(el) {
 		return oDom.getIndex(el);
-	}
+	};
 
-	function getSelectedTabElement(){
-		return rootEl.querySelector('[aria-selected=true]');
-	}
+	getSelectedTabElement() {
+		return this.rootEl.querySelector('[aria-selected=true]');
+	};
 
-	function getSelectedTabIndex() {
-		const selectedTabElement = updateUrl && location.hash ? getTabElementFromHash() : getSelectedTabElement();
-		return selectedTabElement ? getTabIndexFromElement(selectedTabElement) : 0;
-	}
+	getSelectedTabIndex() {
+		const selectedTabElement = this.updateUrl && location.hash ? this.getTabElementFromHash() : this.getSelectedTabElement();
+		return selectedTabElement ? this.getTabIndexFromElement(selectedTabElement) : 0;
+	};
 
-	function isValidTab(index) {
-		return (!isNaN(index) && index >= 0 && index < tabEls.length);
-	}
+	isValidTab(index) {
+		return (!isNaN(index) && index >= 0 && index < this.tabEls.length);
+	};
 
-	function hidePanel(panelEl) {
+	hidePanel(panelEl) {
 		panelEl.setAttribute('aria-expanded', 'false');
 		panelEl.setAttribute('aria-hidden', 'true');
-	}
+	};
 
-	function showPanel(panelEl, disableFocus) {
+	showPanel(panelEl, disableFocus) {
 		panelEl.setAttribute('aria-expanded', 'true');
 		panelEl.setAttribute('aria-hidden', 'false');
 
@@ -78,7 +117,7 @@ function Tabs(rootEl, config) {
 		}
 
 		// update the url to match the selected tab
-		if (panelEl.id && updateUrl) {
+		if (panelEl.id && this.updateUrl) {
 			location.href = '#' + panelEl.id;
 		}
 
@@ -92,152 +131,119 @@ function Tabs(rootEl, config) {
 
 		// Scroll back to the original position
 		window.scrollTo(x, y);
-	}
+	};
 
-	function dispatchCustomEvent(event, data = {}, namespace = 'oTabs') {
-		rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
+	dispatchCustomEvent(event, data = {}, namespace = 'oTabs') {
+		this.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
 			detail: data,
 			bubbles: true
 		}));
-	}
+	};
 
-	function selectTab(newIndex) {
-		if (isValidTab(newIndex) && newIndex !== selectedTabIndex) {
-			for (let i = 0; i < tabEls.length; i++) {
+	selectTab(newIndex) {
+		if (this.isValidTab(newIndex) && newIndex !== this.selectedTabIndex) {
+			for (let i = 0; i < this.tabEls.length; i++) {
 				if (newIndex === i) {
-					tabEls[i].setAttribute('aria-selected', 'true');
-					showPanel(tabpanelEls[i], tabsObj.config.disablefocus);
+					this.tabEls[i].setAttribute('aria-selected', 'true');
+					this.showPanel(this.tabpanelEls[i], this.config.disablefocus);
 				} else {
-					tabEls[i].setAttribute('aria-selected', 'false');
-					hidePanel(tabpanelEls[i]);
+					this.tabEls[i].setAttribute('aria-selected', 'false');
+					this.hidePanel(this.tabpanelEls[i]);
 				}
 			}
 
-			dispatchCustomEvent('tabSelect', {
-				tabs: tabsObj,
+			this.dispatchCustomEvent('tabSelect', {
+				tabs: this,
 				selected: newIndex,
-				lastSelected: selectedTabIndex
+				lastSelected: this.selectedTabIndex
 			});
 
-			selectedTabIndex = newIndex;
+			this.selectedTabIndex = newIndex;
 		}
-	}
+	};
 
-	function clickHandler(ev) {
+	clickHandler(ev) {
 		ev.preventDefault();
 		const tabEl = oDom.getClosestMatch(ev.target, '[role=tab]');
-		if (tabEl) {
-			updateCurrentTab(tabEl);
-		}
-	}
 
-	function keyPressHandler(ev) {
+		if (tabEl) {
+			this.updateCurrentTab(tabEl);
+		}
+	};
+
+	keyPressHandler(ev) {
 		ev.preventDefault();
 		const tabEl = oDom.getClosestMatch(ev.target, '[role=tab]');
 		// Only update if key pressed is enter key
 		if (tabEl && ev.keyCode === 13) {
-			updateCurrentTab(tabEl);
+			this.updateCurrentTab(tabEl);
 		}
-	}
+	};
 
-	function hashChangeHandler() {
-		if (!updateUrl) {
+	hashChangeHandler() {
+		if (!this.updateUrl) {
 			return;
 		}
 
-		const tabEl = getTabElementFromHash();
+		const tabEl = this.getTabElementFromHash();
 
 		if (tabEl) {
-			updateCurrentTab(tabEl);
+			this.updateCurrentTab(tabEl);
 		}
-	}
+	};
 
-	function updateCurrentTab(tabEl){
-		const index = getTabIndexFromElement(tabEl);
-		tabsObj.selectTab(index);
-		dispatchCustomEvent('event', {
+	updateCurrentTab(tabEl) {
+		const index = this.getTabIndexFromElement(tabEl);
+		this.selectTab(index);
+		this.dispatchCustomEvent('event', {
 			category: 'tabs',
 			action: 'click',
 			tab: tabEl.textContent
 		}, 'oTracking');
-	}
+	};
 
-	function init() {
+	destroy() {
+		this.rootEl.removeEventListener('click', this.clickHandler.bind(this), false);
+		this.rootEl.removeEventListener('keypress', this.keyPressHandler.bind(this), false);
+		window.removeEventListener('hashchange', this.hashChangeHandler.bind(this), false);
+		this.rootEl.removeAttribute('data-o-tabs--js');
+
+		for (let tabPanelEl of this.tabpanelEls) {
+			this.showPanel(tabPanelEl);
+		}
+
+		this.tabEls = undefined;
+		this.tabpanelEls = undefined;
+		this.updateUrl = undefined;
+		this.selectedTabIndex = undefined;
+		this.rootEl = undefined;
+		this.config = undefined;
+	};
+
+	static init(rootEl, config) {
 		if (!rootEl) {
 			rootEl = document.body;
-		} else if (!(rootEl instanceof HTMLElement)) {
+		}
+		if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
-		tabEls = rootEl.querySelectorAll('[role=tab]');
-		tabpanelEls = getTabPanelEls(tabEls);
-		rootEl.setAttribute('data-o-tabs--js', '');
-		rootEl.addEventListener('click', clickHandler, false);
-		rootEl.addEventListener('keypress', keyPressHandler, false);
-		window.addEventListener('hashchange', hashChangeHandler, false);
 
-		if (!config) {
-			config = {};
-			Array.prototype.forEach.call(rootEl.attributes, function(attr) {
-				if (attr.name.indexOf('data-o-tabs') === 0) {
-					// Remove the unnecessary part of the string the first time this is run for each attribute
-					const key = attr.name.replace('data-o-tabs-', '');
-					try {
-						// If it's a JSON, a boolean or a number, we want it stored like that, and not as a string
-						// We also replace all ' with " so JSON strings are parsed correctly
-						config[key] = JSON.parse(attr.value.replace(/\'/g, '"'));
-					} catch (e) {
-						config[key] = attr.value;
-					}
-				}
+		if (rootEl instanceof HTMLElement && /\bo-tabs\b/.test(rootEl.getAttribute('data-o-component'))) {
+			if (!rootEl.matches('[data-o-tabs-autoconstruct=false]') && !rootEl.hasAttribute('data-o-tabs--js')) {
+				return new Tabs(rootEl, config);
+			}
+		}
+
+		if (rootEl.querySelectorAll) {
+			const tabElements = rootEl.querySelectorAll(
+				'[data-o-component=o-tabs]:not([data-o-tabs-autoconstruct=false]):not([data-o-tabs--js])'
+			);
+
+			return Array.from(tabElements, (tabEl) => {
+				return new Tabs(tabEl, config);
 			});
 		}
-
-		tabsObj.config = config;
-		dispatchCustomEvent('ready', {
-			tabs: tabsObj
-		});
-		tabsObj.selectTab(getSelectedTabIndex());
-	}
-
-	function destroy() {
-		rootEl.removeEventListener('click', clickHandler, false);
-		window.removeEventListener('hashchange', hashChangeHandler, false);
-		rootEl.removeAttribute('data-o-tabs--js');
-
-		for (let tabPanelEl of tabpanelEls) {
-			showPanel(tabPanelEl);
-		}
-	}
-
-	this.selectTab = selectTab;
-	this.destroy = destroy;
-
-	init();
+	};
 }
 
-Tabs.init = function(rootEl, config) {
-	if (!rootEl) {
-		rootEl = document.body;
-	}
-	if (!(rootEl instanceof HTMLElement)) {
-		rootEl = document.querySelector(rootEl);
-	}
-
-	if (rootEl instanceof HTMLElement && /\bo-tabs\b/.test(rootEl.getAttribute('data-o-component'))) {
-		if (!rootEl.matches('[data-o-tabs-autoconstruct=false]') && !rootEl.hasAttribute('data-o-tabs--js')) {
-			return new Tabs(rootEl, config);
-		}
-	}
-
-	if (rootEl.querySelectorAll) {
-		const tabElements = rootEl.querySelectorAll(
-			'[data-o-component=o-tabs]:not([data-o-tabs-autoconstruct=false]):not([data-o-tabs--js])'
-		);
-
-		return Array.from(tabElements, (tabEl) => {
-			return new Tabs(tabEl, config);
-		});
-	}
-};
-
-module.exports = Tabs;
+export default Tabs;
