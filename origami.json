@@ -36,6 +36,12 @@
 			"template": "demos/src/main.mustache",
 			"data": "demos/src/data-vertical.json",
 			"description": "vertical"
+		},
+		{
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"data": "demos/src/data.json",
+			"hidden": true
 		}
 	]
 }
