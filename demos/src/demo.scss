@@ -44,6 +44,7 @@
 
 // Remove silent mode for demo so that standard classes can be demoed in palette and use-cases demos
 $o-colors-is-silent: false;
+$o-colors-version: 2;
 
 // You can add custom use cases before importing colors module by defining the use-cases map yourself
 $o-colors-usecases: (

@@ -13,7 +13,7 @@ function loadDemo(showtype) {
 		// Gets the module and version from the url
 		const module = location.pathname.match(/o-colors(.*?)(?=\/)/g);
 		const reqUrl = 'https://origami-build.ft.com/v2/files/';
-		oReq.open('GET', ((location.pathname.indexOf('/local') !== -1) ? '../..' : reqUrl + module[0]) + '/src/scss/_' + type + '.scss', true);
+		oReq.open('GET', ((location.pathname.indexOf('/local') !== -1) ? '../..' : reqUrl + module[0]) + '/src/scss/v2/_' + type + '.scss', true);
 
 		oReq.onload = function() {
 			const src = this.responseText;
