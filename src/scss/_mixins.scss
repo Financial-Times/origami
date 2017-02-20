@@ -69,3 +69,10 @@
 		border-color: oColorsGetColorFor($useCaseList, border, $options: $args);
 	}
 }
+
+/// Set the tint palette colors
+@mixin _oColorsSetTintPalette() {
+	@each $percent in $_o-colors-tint-percentages {
+		@include oColorsSetColor('tint-#{$percent}', oColorsGetNeutralColor($percent));
+	}
+}

@@ -15,6 +15,18 @@
 	}
 }
 
+/// Get a neutral colour based on the background context and base color
+///
+/// @param {Number} $percentage [60] - percentage opacity of the colour over the background
+/// @param {String} $background [pink] - palette name of background color
+/// @param {String} $color [black] - palette name of color
+@function oColorsGetNeutralColor($percentage: 60, $background: 'pink', $color: 'black') {
+	$base: oColorsGetPaletteColor($color);
+	$context: oColorsGetPaletteColor($background);
+
+	@return mix($base, $context, $percentage);
+}
+
 /// Return the defined palette colour name for a use case / property combination
 ///
 /// @access private
@@ -92,6 +104,7 @@
 /// $o-colors-version value.
 @function _oColorsSetVersion() {
 	@if $o-colors-version == 1 {
+		@warn "o-colors version 1 has been deprecated and will be removed in the next major release.";
 		$o-colors-palette: map-merge($o-colors-palette-v1, $o-colors-palette) !global;
 		$o-colors-usecases: map-merge($o-colors-usecases-v1, $o-colors-usecases) !global;
 	} @else if $o-colors-version == 2 {

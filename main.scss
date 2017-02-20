@@ -15,6 +15,10 @@
 	@error "The o-colors version #{$o-colors-version} does not exist. Please use version 2.";
 }
 
+@if $o-colors-version == 2 {
+	@include _oColorsSetTintPalette();
+}
+
 // If noisy, output helper classes for use cases and palette colours
 @if ($o-colors-is-silent == false) {
 	@each $usecase, $props in $o-colors-usecases {
