@@ -1,12 +1,12 @@
 @import 'src/scss/variables';
 
 // Version 1
-@import 'src/scss/palette-v1';
-@import 'src/scss/use-cases-v1';
+@import 'src/scss/v1/palette';
+@import 'src/scss/v1/use-cases';
 
 // Version 2
-@import 'src/scss/palette-v2';
-@import 'src/scss/use-cases-v2';
+@import 'src/scss/v2/palette';
+@import 'src/scss/v2/use-cases';
 
 @import 'src/scss/functions';
 @import 'src/scss/mixins';

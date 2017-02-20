@@ -1,0 +1,41 @@
+////
+/// @group o-colors
+/// @link http://registry.origami.ft.com/components/o-colors
+////
+
+/// colour palette V2
+///
+/// these are the colours that make up the new ft palette.
+/// @type map
+$o-colors-palette-v2: (
+	// non-colour css values
+	'transparent':           transparent,
+	'inherit':               inherit,
+
+	// primary palette
+	'pink':                  #fff1e6,
+	'black':                 #000000,
+	'white':                 #ffffff,
+
+	'blue':                  #0f5499,
+	'claret':                #990f3d,
+	'teal':                  #00757F,
+
+	'turquoise':             #00bbcc,
+
+	'slate':                 #282e33,
+	'dark-blue':             #12509b,
+	'bright-blue':           #1a70d7,
+	'light-blue':            #b3d9ff,
+
+	'merlot':                #660a28,
+	'candy':                 #ff7287,
+	'wheat':                 #f3dec8,
+	'caramel':               #e64c00,
+
+	'orange':                #f58c31,
+	'green':                 #09a25c,
+	'purple':                #92288f,
+	'red':                   #cc0000,
+	'lime':                  #96cc28,
+);
