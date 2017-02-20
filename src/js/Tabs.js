@@ -20,9 +20,12 @@ class Tabs {
 		this.tabEls = this.rootEl.querySelectorAll('[role=tab]');
 		this.tabpanelEls = this.getTabPanelEls(this.tabEls);
 		this.rootEl.setAttribute('data-o-tabs--js', '');
-		this.rootEl.addEventListener('click', this.clickHandler.bind(this), false);
-		this.rootEl.addEventListener('keypress', this.keyPressHandler.bind(this), false);
-		window.addEventListener('hashchange', this.hashChangeHandler.bind(this), false);
+		this.boundClickHandler = this.clickHandler.bind(this);
+		this.rootEl.addEventListener('click', this.boundClickHandler, false);
+		this.boundKeyPressHandler = this.keyPressHandler.bind(this);
+		this.rootEl.addEventListener('keypress', this.boundKeyPressHandler, false);
+		this.boundHashChangeHandler = this.hashChangeHandler.bind(this);
+		window.addEventListener('hashchange', this.boundHashChangeHandler, false);
 
 		if (!config) {
 			config = {};
@@ -203,15 +206,20 @@ class Tabs {
 	};
 
 	destroy() {
-		this.rootEl.removeEventListener('click', this.clickHandler.bind(this), false);
-		this.rootEl.removeEventListener('keypress', this.keyPressHandler.bind(this), false);
-		window.removeEventListener('hashchange', this.hashChangeHandler.bind(this), false);
+		this.rootEl.removeEventListener('click', this.boundClickHandler, false);
+		this.rootEl.removeEventListener('keypress', this.boundKeyPressHandler, false);
+		window.removeEventListener('hashchange', this.boundHashChangeHandler, false);
 		this.rootEl.removeAttribute('data-o-tabs--js');
 
 		for (let tabPanelEl of this.tabpanelEls) {
 			this.showPanel(tabPanelEl);
 		}
 
+		// unset the bound event handlers
+		this.boundClickHandler = undefined;
+		this.boundKeyPressHandler = undefined;
+		this.boundHashChangeHandler = undefined;
+		// Destroy ALL the things!
 		this.tabEls = undefined;
 		this.tabpanelEls = undefined;
 		this.updateUrl = undefined;
