@@ -4,22 +4,17 @@ const oDom = require('o-dom');
 class Tabs {
 
 	constructor(rootEl, config) {
-		this.tabEls;
-		this.tabpanelEls;
+		this.rootEl = rootEl;
+		this.rootEl.setAttribute('data-o-tabs--js', '');
+
 		this.updateUrl = (rootEl.getAttribute('data-o-tabs-update-url') !== null);
 		this.selectedTabIndex = -1;
 
-		if (!rootEl) {
-			this.rootEl = document.body;
-		} else if (!(rootEl instanceof HTMLElement)) {
-			this.rootEl = document.querySelector(rootEl);
-		} else {
-			this.rootEl = rootEl;
-		}
 
 		this.tabEls = this.rootEl.querySelectorAll('[role=tab]');
 		this.tabpanelEls = this.getTabPanelEls(this.tabEls);
-		this.rootEl.setAttribute('data-o-tabs--js', '');
+
+
 		this.boundClickHandler = this.clickHandler.bind(this);
 		this.rootEl.addEventListener('click', this.boundClickHandler, false);
 		this.boundKeyPressHandler = this.keyPressHandler.bind(this);
