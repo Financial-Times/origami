@@ -14,7 +14,6 @@ class Tabs {
 		this.tabEls = this.rootEl.querySelectorAll('[role=tab]');
 		this.tabpanelEls = this.getTabPanelEls(this.tabEls);
 
-
 		this.boundClickHandler = this.clickHandler.bind(this);
 		this.rootEl.addEventListener('click', this.boundClickHandler, false);
 		this.boundKeyPressHandler = this.keyPressHandler.bind(this);
@@ -26,11 +25,14 @@ class Tabs {
 			config = {};
 			Array.prototype.forEach.call(this.rootEl.attributes, function(attr) {
 				if (attr.name.indexOf('data-o-tabs') === 0) {
-					// Remove the unnecessary part of the string the first time this is run for each attribute
+					// Remove the unnecessary part of the string the first
+					// time this is run for each attribute
 					const key = attr.name.replace('data-o-tabs-', '');
+
 					try {
-						// If it's a JSON, a boolean or a number, we want it stored like that, and not as a string
-						// We also replace all ' with " so JSON strings are parsed correctly
+						// If it's a JSON, a boolean or a number, we want it stored like that,
+						// and not as a string. We also replace all ' with " so JSON strings
+						// are parsed correctly
 						config[key] = JSON.parse(attr.value.replace(/\'/g, '"'));
 					} catch (e) {
 						config[key] = attr.value;
