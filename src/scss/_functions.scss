@@ -88,6 +88,8 @@
 	@return oColorsGetPaletteColor($color);
 }
 
+/// Sets the correct color-palette and color-use-cases variables based on the
+/// $o-colors-version value.
 @function _oColorsSetVersion() {
 	@if $o-colors-version == 1 {
 		$o-colors-palette: map-merge($o-colors-palette-v1, $o-colors-palette) !global;
@@ -100,4 +102,23 @@
 	}
 
 	@return true;
+}
+
+/// Returns the web-safe HSLA color based on HSB/HSV values
+///
+/// @access private
+///
+/// @param {Number} $hue - number between 0-360
+/// @param {Number} $saturation - number between 0-100
+/// @param {Number} $brigthness - number between 0-100
+/// @param {Number} $alpha [1] - number between 0-1
+@function _oColorsHSB($hue, $saturation, $brightness, $alpha: 1) {
+	@if $brightness == 0 {
+		@return hsla(0, 0, 0, $alpha);
+	} @else {
+		$hsl-luminance: ($brightness/2) * (2 - ($saturation/100));
+		$hsl-saturation: ($brightness * $saturation) / if($hsl-luminance < 50, $hsl-luminance * 2, 200 - $hsl-luminance * 2);
+
+		@return hsla($hue, $hsl-saturation, $hsl-luminance, $alpha);
+	}
 }
