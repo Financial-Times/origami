@@ -249,7 +249,7 @@ Overlay.prototype.show = function() {
 	this.closeOnNewLayerHandler = this.closeOnNewLayer.bind(this);
 	this.delegates.context.on('oLayers.new', this.closeOnNewLayerHandler);
 
-	if (this.opts.heading || this.opts.tooltip) {
+	if (this.opts.heading || this.opts.tooltip || this.opts.customclose) {
 		this.delegates.wrap.on('click', '.o-overlay__close', this.closeHandler);
 		this.delegates.wrap.on('touchend', '.o-overlay__close', this.closeHandler);
 	}
