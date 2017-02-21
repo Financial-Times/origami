@@ -39,3 +39,42 @@ $o-colors-palette-v2: (
 	'red':                   #cc0000,
 	'lime':                  #96cc28,
 );
+
+$o-colors-shades: (
+	'claret': (
+		hue: 340,
+		shades: (
+			(sat: 90, lum: 30),
+			(sat: 90, lum: 40),
+			(sat: 90, lum: 60),
+			(sat: 90, lum: 80),
+			(sat: 90, lum: 100),
+			(sat: 40, lum: 100),
+			(sat: 20, lum: 100),
+		),
+	),
+	'blue': (
+		hue: 210,
+		shades: (
+			(sat: 90, lum: 30),
+			(sat: 90, lum: 40),
+			(sat: 90, lum: 60),
+			(sat: 90, lum: 80),
+			(sat: 90, lum: 100),
+			(sat: 30, lum: 100),
+			(sat: 20, lum: 100),
+		),
+	),
+	'teal': (
+		hue: 185,
+		shades: (
+			(sat: 100, lum: 20),
+			(sat: 100, lum: 30),
+			(sat: 100, lum: 50),
+			(sat: 100, lum: 80),
+			(sat: 100, lum: 90),
+			(sat: 40, lum: 100),
+			(sat: 10, lum: 100),
+		),
+	),
+);

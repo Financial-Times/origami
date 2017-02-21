@@ -76,3 +76,26 @@
 		@include oColorsSetColor('tint-#{$percent}', oColorsGetNeutralColor($percent));
 	}
 }
+
+@mixin _oColorsSetShadesPalette() {
+	@each $color, $settings in $o-colors-shades {
+		$hue: map-get($settings, 'hue');
+		$shades: map-get($settings, 'shades');
+
+		@each $shade in $shades {
+			$luminosity: map-get($shade, 'lum');
+			$saturation: map-get($shade, 'sat');
+
+			$shade: _oColorsHSB($hue, $saturation, $luminosity);
+			$name: "#{$color}-";
+
+			@if $luminosity < 100 {
+				$name: "#{$name}#{$luminosity}";
+			} @else {
+				$name: "#{$name}#{$luminosity + $saturation}";
+			}
+
+			@include oColorsSetColor($name, $shade);
+		}
+	}
+}
