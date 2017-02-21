@@ -1,3 +1,5 @@
+$closeCrossColor: 'pink-tint5' !default;
+
 @include oColorsSetUseCase(o-overlay, background, 'white');
 @include oColorsSetUseCase(o-overlay, border, 'pink-tint3');
 @include oColorsSetUseCase(o-overlay-heading, background, 'transparent');
@@ -5,7 +7,7 @@
 @include oColorsSetUseCase(o-overlay-heading-shaded, background, 'pink-tint5');
 @include oColorsSetUseCase(o-overlay-heading-shaded, text, 'white');
 @include oColorsSetUseCase(o-overlay-close, background, 'white');
-@include oColorsSetUseCase(o-overlay-close, text, 'pink-tint5');
+@include oColorsSetUseCase(o-overlay-close, text, $closeCrossColor);
 @include oColorsSetUseCase(o-overlay-close, border, 'pink-tint5');
 @include oColorsSetUseCase(o-overlay-close-shaded, background, 'pink-tint5');
 @include oColorsSetUseCase(o-overlay-close-shaded, text, 'white');
