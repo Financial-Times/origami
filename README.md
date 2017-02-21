@@ -218,7 +218,7 @@ If you are wanting to sort by a custom pattern, you can apply the sorting values
 
 Known issues:
 
-* IE10 or below need the [polyfill service](http://polyfill.webservices.ft.com/)
+* IE10 or below need the [polyfill service](https://polyfill.io/)
 * IE8 doesn't support the `wrap` function
 
 
