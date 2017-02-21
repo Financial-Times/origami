@@ -14,6 +14,6 @@
     "tests"
   ],
   "dependencies": {
-    "n-ui": ">=2.0.0 <4.0.0"
+    "n-ui-foundations": "^1.0.0-beta.4"
   }
 }

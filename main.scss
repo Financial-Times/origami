@@ -1,6 +1,6 @@
 $n-notification-is-silent: true !default;
 
-@import 'n-ui/env';
+@import 'n-ui-foundations/main';
 
 @if $n-notification-is-silent == false {
 	@keyframes load-notice {
