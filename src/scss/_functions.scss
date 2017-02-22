@@ -135,3 +135,22 @@
 		@return hsla($hue, $hsl-saturation, $hsl-luminance, $alpha);
 	}
 }
+
+/// Returns a customised version of our shade-able colors defined in
+/// $o-colors-shades
+///
+/// @param {String} $color - the name of the color to be shaded
+/// @param {Number} $saturation - the saturation value of the new color
+/// @param {Number} $brightness - the brightness value of the new color
+@function oColorsGetColorShade($color, $saturation, $brightness) {
+	$hue: null;
+
+	@if(map-has-key($o-colors-shades, $color)) {
+		$hue: map-get(map-get($o-colors-shades, $color), 'hue');
+	} @else {
+		$color-shades: map-keys($o-colors-shades);
+		@error "It is not possible to use a shade of: #{$color}, please use one of: #{$color-shades} instead.";
+	}
+
+	@return _oColorsHSB($hue, $saturation, $brightness)
+}
