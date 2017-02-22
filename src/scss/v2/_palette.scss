@@ -44,37 +44,37 @@ $o-colors-shades: (
 	'claret': (
 		hue: 340,
 		shades: (
-			(sat: 90, lum: 30),
-			(sat: 90, lum: 40),
-			(sat: 90, lum: 60),
-			(sat: 90, lum: 80),
-			(sat: 90, lum: 100),
-			(sat: 40, lum: 100),
-			(sat: 20, lum: 100),
+			100: (sat: 90, lum: 30), // dark
+			90: (sat: 90, lum: 40),
+			80: (sat: 90, lum: 60),
+			60: (sat: 90, lum: 80),
+			40: (sat: 90, lum: 100),
+			20: (sat: 40, lum: 100),
+			10: (sat: 20, lum: 100), // light
 		),
 	),
 	'blue': (
 		hue: 210,
 		shades: (
-			(sat: 90, lum: 30),
-			(sat: 90, lum: 40),
-			(sat: 90, lum: 60),
-			(sat: 90, lum: 80),
-			(sat: 90, lum: 100),
-			(sat: 30, lum: 100),
-			(sat: 20, lum: 100),
+			100: (sat: 90, lum: 30), // dark
+			90: (sat: 90, lum: 40),
+			80: (sat: 90, lum: 60),
+			60: (sat: 90, lum: 80),
+			40: (sat: 90, lum: 100),
+			20: (sat: 30, lum: 100),
+			10: (sat: 20, lum: 100), // light
 		),
 	),
 	'teal': (
 		hue: 185,
 		shades: (
-			(sat: 100, lum: 20),
-			(sat: 100, lum: 30),
-			(sat: 100, lum: 50),
-			(sat: 100, lum: 80),
-			(sat: 100, lum: 90),
-			(sat: 40,  lum: 100),
-			(sat: 10,  lum: 100),
+			100: (sat: 100, lum: 20), // dark
+			90: (sat: 100, lum: 30),
+			80: (sat: 100, lum: 50),
+			60: (sat: 100, lum: 80),
+			40: (sat: 100, lum: 90),
+			20: (sat: 40,  lum: 100),
+			10: (sat: 10,  lum: 100), // light
 		),
 	),
 );
