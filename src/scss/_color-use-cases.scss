@@ -7,6 +7,9 @@
 @include oColorsSetUseCase('o-share-button-default', border, 'black');
 @include oColorsSetUseCase('o-share-button-hover', background, 'white');
 
+@include oColorsSetUseCase('o-share-button-inverse', border, 'white');
+@include oColorsSetUseCase('o-share-button-inverse', background, 'white');
+
 @each $brand, $hex in $o-share-colors {
 	@include oColorsSetColor('o-share-color-#{$brand}', $hex);
 	@include oColorsSetUseCase('o-share-#{$brand}-color', background, 'o-share-color-#{$brand}');

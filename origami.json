@@ -32,6 +32,12 @@
 			"description": "horizontal"
 		},
 		{
+			"name": "inverse",
+			"template": "demos/src/inverse.mustache",
+			"data": "demos/src/data.json",
+			"description": "inverse share icons"
+		},
+		{
 			"name": "vertical",
 			"template": "demos/src/main.mustache",
 			"data": "demos/src/data-vertical.json",

@@ -8,14 +8,17 @@
 @import 'src/scss/tooltip';
 
 @if (not $o-share-is-silent) {
-	@include oShareBase();
+	@include oShareBase;
 
-	@include oShareActionLink();
+	@include oShareActionLink;
+
 	// run through all the different icons available
 	@each $icon in $_o-share-icons {
 		@include oShareActionIcon($icon);
 	}
+
 	@include oShareTooltip;
+	@include oShareInverse;
 
 	.o-share--vertical {
 		@include oShareVertical();
