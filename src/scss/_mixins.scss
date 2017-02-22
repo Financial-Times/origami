@@ -70,13 +70,15 @@
 	}
 }
 
-/// Set the tint palette colors
+/// Set the tint palette colors based on black over default pink
 @mixin _oColorsSetTintPalette() {
 	@each $percent in $_o-colors-tint-percentages {
 		@include oColorsSetColor('tint-#{$percent}', oColorsGetNeutralColor($percent));
 	}
 }
 
+/// Update the color palette with calculated shades of
+/// each color from $o-colors-shades
 @mixin _oColorsSetShadesPalette() {
 	@each $color, $settings in $o-colors-shades {
 		$hue: map-get($settings, 'hue');
