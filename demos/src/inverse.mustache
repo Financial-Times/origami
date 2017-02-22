@@ -1,5 +1,5 @@
-<div class="container">
-	<div data-o-component="o-share" class="o-share{{#o-share.isVertical}} o-share--vertical{{/o-share.isVertical}}">
+<div class="container container--inverse">
+	<div data-o-component="o-share" class="o-share{{#o-share.isVertical}} o-share--vertical{{/o-share.isVertical}} o-share--inverse">
 		<ul>
 			{{#o-share.withTwitter}}
 			<li class="o-share__action o-share__action--twitter">
@@ -36,11 +36,6 @@
 				<a href="{{{o-share.url}}}" rel="noopener"><i>URL</i></a>
 			</li>
 			{{/o-share.withLink}}
-			{{#o-share.withMail}}
-			<li class="o-share__action o-share__action--mail">
-				<a href="#" rel="noopener"><i>Mail</i></a>
-			</li>
-			{{/o-share.withMail}}
 		</ul>
 	</div>
 </div>

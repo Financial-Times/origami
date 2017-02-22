@@ -29,11 +29,19 @@ $o-share-is-silent: false;
 }
 
 body {
+	font-family: BentonSans, sans-serif;
+	background-color: oColorsGetPaletteColor('pink');
+}
+
+.container {
 	margin-top: 50px;
 	padding: 10px;
 	height: 25px;
-	font-family: BentonSans, sans-serif;
-	background-color: oColorsGetPaletteColor('pink');
+
+	&--inverse {
+		padding: 50px 10px 70px;
+		background-color: #333333;
+	}
 }
 
 .o-share--vertical {
