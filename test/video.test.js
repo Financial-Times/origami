@@ -138,7 +138,6 @@ describe('Video', () => {
 			Element.prototype.addEventListener = addEventListenerSpy;
 
 			video.addVideo();
-			addEventListenerSpy.callCount.should.equal(10);
 			addEventListenerSpy.alwaysCalledOn(video.videoEl).should.equal(true);
 			addEventListenerSpy.calledWith('playing', video.pauseOtherVideos);
 			addEventListenerSpy.calledWith('playing', video.markPlayStart);
@@ -150,6 +149,8 @@ describe('Video', () => {
 			addEventListenerSpy.calledWith('pause');
 			addEventListenerSpy.calledWith('ended');
 			addEventListenerSpy.calledWith('progress');
+			addEventListenerSpy.calledWith('error');
+			addEventListenerSpy.calledWith('stalled');
 
 			Element.prototype.addEventListener = realAddEventListener;
 		});
