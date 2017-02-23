@@ -1,3 +1,34 @@
+function fireEvent(action, audioObject, extraDetail = {}) {
+  let playerType = (audioObject.targetObject.classList.contains('g-audio--block') ? 'block' : 'inline');
+
+  const playButtonElement = audioObject.targetObject.getElementsByClassName('g-audio--playbutton')[0];
+  const contentElement = audioObject.targetObject.getElementsByClassName('g-audio-content')[0];
+
+  // playButtonHeight equals height of one line
+  const playButtonHeight = playButtonElement.offsetHeight;
+
+  // check if it overflows
+  const numLinesOfText = Math.floor(contentElement.offsetHeight / playButtonHeight);
+
+  if (numLinesOfText > 1) {
+    playerType = 'inline-multiplelines';
+  }
+
+  const event = new CustomEvent('oTracking.event', {
+    detail: Object.assign({
+      category: 'audio',
+      playerType,
+      action,
+      contentId: audioObject.audioURL,
+      progress: parseInt(100 * audioObject.audio.currentTime / audioObject.audioLength, 10),
+      duration: parseInt(audioObject.audioLength, 10),
+    }, extraDetail),
+    bubbles: true,
+  });
+  // console.log("\n",playerType, action, parseInt(100 * audioObject.audio.currentTime / audioObject.audioLength, 10), parseInt(audioObject.audioLength, 10));
+  document.body.dispatchEvent(event);
+}
+
 class AudioPlayer {
   constructor(targetObject, audioURL) {
     this.targetObject = targetObject;
@@ -28,7 +59,7 @@ class AudioPlayer {
     this.audio.addEventListener('loadedmetadata', () => this.loadMetadata(), false);
 
     // add event handler to document for pausing all players
-    document.addEventListener('g-audio.pauseAllPlayers', this.pause.bind(this));
+    document.addEventListener('g-audio.pauseAllPlayers', this.pause.bind(this, true));
   }
 
   loadMetadata() {
@@ -44,7 +75,7 @@ class AudioPlayer {
     }, false);
 
     // toggle back to off after clip ends
-    this.audio.addEventListener('ended', () => this.toggleAudio(), false);
+    this.audio.addEventListener('ended', () => this.end(), false);
 
     // skip on click
     this.targetObject.getElementsByClassName('g-audio-content')[0].addEventListener('click', (e) => this.jumpTo(e), false);
@@ -64,6 +95,8 @@ class AudioPlayer {
   }
 
   jumpTo(e) {
+    fireEvent('seeked', this);
+
     const contentElement = this.targetObject.getElementsByClassName('g-audio-content')[0];
     const playButtonElement = this.targetObject.getElementsByClassName('g-audio--playbutton')[0];
 
@@ -96,9 +129,11 @@ class AudioPlayer {
     this.audio.currentTime = playStart;
     this.audio.play();
     this.targetObject.classList.add('pause');
+
+    fireEvent('play', this);
   }
 
-  pause() {
+  pause(pauseAllPlayers = false) {
     this.audio.pause();
 
     // if at the end, then reset play start to 0
@@ -109,6 +144,17 @@ class AudioPlayer {
     }
 
     this.targetObject.classList.remove('pause');
+
+    // don't fire pause event if pausing all players automatically
+    // (gets called on all players during play events)
+    if (!pauseAllPlayers) {
+      fireEvent('pause', this);
+    }
+  }
+
+  end () {
+    fireEvent('ended', this);
+    this.toggleAudio();
   }
 
   destroy() {
