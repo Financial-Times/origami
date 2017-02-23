@@ -6,7 +6,7 @@ An overview of __proposed__ g-audio analytics. This has not been implemented yet
 
 The following audio events are fired:
 - play: user played the audio
-- progress: audio played through to a particular waypoint, fires at ~25/50/75/100 progress
+- timeupdate: audio played through to a particular waypoint, fires at ~10/25/50/75/100 progress
 - ended: audio played through to the end
 - seeked: user jumped to a point in the audio
 - pause: user paused the audio

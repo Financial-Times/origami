@@ -1,3 +1,29 @@
+function eventListener(audio, ev) {
+  const progress = parseInt(100 * audio.audio.currentTime / audio.audioLength, 10);
+
+  // Dispatch progress event at around 10%, 25%, 50%, 75% and 100%
+  if (ev.type === 'timeupdate' && !shouldDispatch(progress)) {
+    return;
+  }
+
+  fireEvent(ev.type, audio);
+}
+
+function shouldDispatch(progress) {
+	const relevantProgressPoints = [8, 9, 10, 11, 12,
+                                  23, 24, 25, 26, 27,
+                                  48, 49, 50, 51, 52,
+                                  73, 74, 75, 76, 77,
+                                  100];
+	return relevantProgressPoints.includes(progress);
+}
+
+function addEvents(audio, events) {
+  events.forEach(event => {
+    audio.audio.addEventListener(event, eventListener.bind(this, audio));
+  });
+}
+
 function fireEvent(action, audioObject, extraDetail = {}) {
   let playerType = (audioObject.targetObject.classList.contains('g-audio--block') ? 'block' : 'inline');
 
@@ -25,8 +51,8 @@ function fireEvent(action, audioObject, extraDetail = {}) {
     }, extraDetail),
     bubbles: true,
   });
-  // console.log("\n",playerType, action, parseInt(100 * audioObject.audio.currentTime / audioObject.audioLength, 10), parseInt(audioObject.audioLength, 10));
-  document.body.dispatchEvent(event);
+  console.log(playerType, action, parseInt(100 * audioObject.audio.currentTime / audioObject.audioLength, 10), parseInt(audioObject.audioLength, 10));
+  // document.body.dispatchEvent(event);
 }
 
 class AudioPlayer {
@@ -75,19 +101,22 @@ class AudioPlayer {
     }, false);
 
     // toggle back to off after clip ends
-    this.audio.addEventListener('ended', () => this.end(), false);
+    this.audio.addEventListener('ended', () => this.toggleAudio(true), false);
 
     // skip on click
     this.targetObject.getElementsByClassName('g-audio-content')[0].addEventListener('click', (e) => this.jumpTo(e), false);
 
     // adjust progress bar
     this.audio.addEventListener('timeupdate', () => this.adjustProgressBar(), false);
+
+    // add tracking events
+    addEvents(this, ['ended', 'timeupdate', 'error', 'stalled']);
   }
 
-  toggleAudio() {
+  toggleAudio(stopEvent = false) {
     if (this.targetObject.classList.contains('pause')) {
       // console.log('go to pause')
-      this.pause();
+      this.pause(stopEvent);
     } else {
       // console.log('go to play')
       this.play();
@@ -133,7 +162,7 @@ class AudioPlayer {
     fireEvent('play', this);
   }
 
-  pause(pauseAllPlayers = false) {
+  pause(stopEvent = false) {
     this.audio.pause();
 
     // if at the end, then reset play start to 0
@@ -147,14 +176,9 @@ class AudioPlayer {
 
     // don't fire pause event if pausing all players automatically
     // (gets called on all players during play events)
-    if (!pauseAllPlayers) {
+    if (!stopEvent) {
       fireEvent('pause', this);
     }
-  }
-
-  end () {
-    fireEvent('ended', this);
-    this.toggleAudio();
   }
 
   destroy() {
