@@ -46,3 +46,10 @@
 	// Set silent mode back on to avoid multiple outputs of helper classes
 	$o-colors-is-silent: true;
 }
+
+.text-color-context {
+	/* oColorsFor */
+	@include oColorsFor('page');
+	/* call the function directly */
+	color: oColorsGetContrastedColor(80, 'pink', 'black');
+}

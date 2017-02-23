@@ -20,9 +20,17 @@
 /// @param {Number} $percentage [60] - percentage opacity of the colour over the background
 /// @param {String} $background [pink] - palette name of background color
 /// @param {String} $color [black] - palette name of color
-@function oColorsGetNeutralColor($percentage: 60, $background: 'pink', $color: 'black') {
-	$base: oColorsGetPaletteColor($color);
-	$context: oColorsGetPaletteColor($background);
+@function oColorsGetContrastedColor($percentage: 80, $background: 'pink', $color: 'black') {
+	$context: $background;
+	$base: $color;
+
+	@if type-of($background) != color {
+		$context: oColorsGetPaletteColor($background);
+	}
+
+	@if type-of($color) != color {
+		$base: oColorsGetPaletteColor($color);
+	}
 
 	@return mix($base, $context, $percentage);
 }
@@ -153,4 +161,114 @@
 	}
 
 	@return _oColorsHSB($hue, $saturation, $brightness)
+}
+
+// Brightness maths based on:
+// http://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx
+// Code from: https://gist.github.com/jlong/f06f5843104ee10006fe
+@function sqrt ($r) {
+    $x0: 1;
+    $x1: $x0;
+
+    @for $i from 1 through 10 {
+        $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+        $x0: $x1;
+    }
+
+    @return $x1;
+}
+
+@function oColorsColorBrightness($color) {
+	$red-magic-number: 241;
+	$green-magic-number: 691;
+	$blue-magic-number: 68;
+
+	$brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-number;
+
+	// Extract color components
+	$red-component: red($color);
+	$green-component: green($color);
+	$blue-component: blue($color);
+
+	// Calculate a brightness value in 3d color space between 0 and 255
+	$number: sqrt((($red-component * $red-component * $red-magic-number) + ($green-component * $green-component * $green-magic-number) + ($blue-component * $blue-component * $blue-magic-number)) / $brightness-divisor);
+
+	// Convert to percentage and return
+	@return 100% * ($number / 255);
+}
+
+@function oColorsGetTextLevelPercentage($level, $background: default) {
+	@if map-has-key($_o-colors-text-levels, $background) {
+		@return map-get(map-get($_o-colors-text-levels, $background), $level);
+	} @else {
+		@return map-get(map-get($_o-colors-text-levels, 'default'), $level);
+	}
+}
+
+@function oColorsGetTextBase($color) {
+	@if oColorsColorBrightness($color) < 65% {
+		@return 'white';
+	} @else {
+		@return 'black';
+	}
+}
+
+@function oColorsGetTextColor($background, $level) {
+	$baseColor: oColorsGetTextBase($background);
+	$percentage: oColorsGetTextLevelPercentage($level, $background);
+
+	@return oColorsGetContrastedColor($percentage, $background, $baseColor);
+}
+
+@function oColorsColorLuminance($color) {
+	$colors: (
+		'red': red($color),
+		'green': green($color),
+		'blue': blue($color)
+	);
+
+	@each $name, $value in $colors {
+		$adjusted: 0;
+		$value: $value / 255;
+
+		@if $value < 0.03928 {
+			$value: $value / 12.92;
+		} @else {
+			$value: ($value + .055) / 1.055;
+			$value: pow($value, 2.4);
+		}
+
+		$colors: map-merge($colors, ($name: $value));
+	}
+
+	@return (map-get($colors, 'red') * .2126) + (map-get($colors, 'green') * .7152) + (map-get($colors, 'blue') * .0722);
+}
+
+@function oColorsGetContrastRatio($col1, $col2) {
+	$l1: oColorsColorLuminance($col1) + .05;
+	$l2: oColorsColorLuminance($col2) + .05;
+
+	$ratio: $l1 / $l2;
+
+	@if $l2 > $l1 {
+		$ratio: 1 / $ratio;
+	}
+
+	$ratio: (round($ratio*10)/10);
+
+	@return $ratio;
+}
+
+@function oColorsCheckContrast($col1, $col2) {
+	$ratio: oColorsGetContrastRatio($col1, $col2);
+
+	@if $ratio >= 4.5 {
+		@return true;
+	} @else if $ratio >= 3 {
+		@warn "Caution: When using this colour combination, text should be larger than 18px to pass WCAG color contrast guidelines.";
+	} @else {
+		@warn "This color combination does not pass WCAG color contrast guidelines.";
+	}
+
+	@return false;
 }

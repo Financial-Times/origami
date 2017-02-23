@@ -51,7 +51,7 @@
 ///
 /// @param {String|list} $useCaseList
 /// @param {String|list} $propertyList [all]
-@mixin oColorsFor($useCaseList, $propertyList: all) {
+@mixin oColorsFor($useCaseList, $propertyList: all, $textLevel: 'dark') {
 	// Fail silently when a use case doesn't exist,
 	// taking advantage of how Sass treats the `null` keyword:
 	//
@@ -63,7 +63,14 @@
 		background-color: oColorsGetColorFor($useCaseList, background, $options: $args);
 	}
 	@if ($propertyList == 'all' or index($propertyList, 'text')) {
-		color: oColorsGetColorFor($useCaseList, text, $options: $args);
+		$useCaseTextColor: oColorsGetColorFor($useCaseList, text, $options: $args);
+		$useCaseBackgroundColor: oColorsGetColorFor($useCaseList, background, $options: $args);
+
+		@if $useCaseTextColor == null and $useCaseBackgroundColor != null {
+			$useCaseTextColor: oColorsGetTextColor($useCaseBackgroundColor, $textLevel);
+		}
+
+		color: $useCaseTextColor;
 	}
 	@if ($propertyList == 'all' or index($propertyList, 'border')) {
 		border-color: oColorsGetColorFor($useCaseList, border, $options: $args);
@@ -73,7 +80,7 @@
 /// Set the tint palette colors based on black over default pink
 @mixin _oColorsSetTintPalette() {
 	@each $percent in $_o-colors-tint-percentages {
-		@include oColorsSetColor('tint-#{$percent}', oColorsGetNeutralColor($percent));
+		@include oColorsSetColor('tint-#{$percent}', oColorsGetContrastedColor($percent));
 	}
 }
 
