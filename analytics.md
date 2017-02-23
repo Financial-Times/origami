@@ -16,9 +16,9 @@ Each event has the following additional properties:
 ```js
 detail: {
   category: 'audio',
-  playerType: '[inline|block]',
+  playerType: '[inline|inline-multiplelines|block]',
   action: ev.type,
-  contentId: url-of-audio-file,
+  contentId: 'url-of-audio-file',
   progress: audio.getProgress(),
   duration: audio.getDuration(),
 }
