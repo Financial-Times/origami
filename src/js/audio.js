@@ -51,8 +51,8 @@ function fireEvent(action, audioObject, extraDetail = {}) {
     }, extraDetail),
     bubbles: true,
   });
-  console.log(playerType, action, parseInt(100 * audioObject.audio.currentTime / audioObject.audioLength, 10), parseInt(audioObject.audioLength, 10));
-  // document.body.dispatchEvent(event);
+  // console.log(playerType, action, parseInt(100 * audioObject.audio.currentTime / audioObject.audioLength, 10), parseInt(audioObject.audioLength, 10));
+  document.body.dispatchEvent(event);
 }
 
 class AudioPlayer {
