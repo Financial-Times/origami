@@ -24,6 +24,8 @@
 
 // If noisy, output helper classes for use cases and palette colours
 @if ($o-colors-is-silent == false) {
+	@include _oColorsCSSVariables;
+
 	@each $usecase, $props in $o-colors-usecases {
 		@each $prop, $color in $props {
 			#{'.o-colors-' + $usecase + '-' + $prop} {

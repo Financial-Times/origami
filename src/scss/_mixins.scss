@@ -102,3 +102,12 @@
 		}
 	}
 }
+
+/// Output all palette colors as CSS Variables
+@mixin _oColorsCSSVariables {
+	:root {
+		@each $name, $hex in $o-colors-palette {
+			--o-colors-#{$name}: $hex;
+		}
+	}
+}
