@@ -5,6 +5,8 @@ $o-colors-version: 1 !default;
 $o-colors-palette: () !default;
 $o-colors-usecases: () !default;
 
+$o-colors-tints-classname: 'tint';
+
 $_o-colors-tint-percentages: (5, 10, 20, 40, 60, 80);
 
 $_o-colors-text-levels: (
