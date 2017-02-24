@@ -1,0 +1,14 @@
+// Brightness maths based on:
+// http://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx
+// Code from: https://gist.github.com/jlong/f06f5843104ee10006fe
+@function sqrt ($r) {
+    $x0: 1;
+    $x1: $x0;
+
+    @for $i from 1 through 10 {
+        $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+        $x0: $x1;
+    }
+
+    @return $x1;
+}
