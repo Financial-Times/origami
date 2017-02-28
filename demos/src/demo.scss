@@ -3,3 +3,63 @@ $o-colors-version: 2;
 
 // Import colors module
 @import '../../main';
+
+@function oColorsJSONifyMap($map) {
+	$JSON: '{';
+	$comma: false;
+
+	@each $key, $value in $map {
+		@if $comma {
+			$JSON: '#{$JSON}, ';
+		} @else {
+			$comma: true;
+		}
+
+		$JSON: '#{$JSON}"#{$key}": "#{$value}"';
+	}
+
+	$JSON: '#{$JSON}}';
+
+	@return $JSON;
+}
+
+body {
+	@include oColorsFor('page');
+	content: "#{oColorsJSONifyMap($o-colors-palette)}";
+	box-sizing: border-box;
+	font-family: Helvetica, Arial, sans-serif;
+
+	*, *:before, *:after {
+		box-sizing: inherit;
+	}
+}
+
+.demo-wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: space-between;
+}
+
+.demo-color {
+	flex: 0 0 32%;
+	margin-bottom: 20px;
+}
+
+.swatch {
+	margin-bottom: 5px;
+	border: 1px solid oColorsGetPaletteColor('tint-10');
+
+	h3 {
+		padding: 30px 0;
+		text-transform: capitalize;
+		text-align: center;
+	}
+
+	span {
+		display: block;
+		text-transform: uppercase;
+	}
+}

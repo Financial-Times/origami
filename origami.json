@@ -8,9 +8,7 @@
 	"supportStatus": "active",
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
-		"js": "demos/src/demo.js",
-		"documentClasses": "o-techdocs-content",
-		"dependencies": ["o-techdocs@^4.0.0"]
+		"js": "demos/src/demo.js"
 	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-colors"
@@ -18,6 +16,7 @@
 	"demos": [
 		{
 			"name": "palette",
+			"data": "demos/src/palette.json",
 			"template": "demos/src/palette.mustache",
 			"description": "",
 			"display_html": false

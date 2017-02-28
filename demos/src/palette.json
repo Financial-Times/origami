@@ -1,0 +1,73 @@
+{
+	"primary" : {
+		"description": "Hello world this is a group description",
+		"colors": [
+			{
+				"name": "pink",
+				"description": "hello world"
+			},
+			{
+				"name": "black",
+				"description": "hello world"
+			},
+			{
+				"name": "white",
+				"description": "hello world"
+			},
+			{
+				"name": "claret",
+				"description": "hello world"
+			},
+			{
+				"name": "blue",
+				"description": "hello world"
+			},
+			{
+				"name": "teal",
+				"description": "hello world"
+			}
+		]
+	},
+	"secondary" : {
+		"description": "Hello world this is a group description",
+		"colors": [
+			{
+				"name": "wheat",
+				"description": "hello world"
+			},
+			{
+				"name": "light-blue",
+				"description": "hello world"
+			},
+			{
+				"name": "slate",
+				"description": "hello world"
+			},
+			{
+				"name": "purple",
+				"description": "hello world"
+			},
+			{
+				"name": "orange",
+				"description": "hello world"
+			},
+			{
+				"name": "yellow",
+				"description": "hello world"
+			}
+		]
+	},
+	"tertiary" : {
+		"description": "Hello world this is a group description",
+		"colors": [
+			{
+				"name": "green",
+				"description": "hello world"
+			},
+			{
+				"name": "red",
+				"description": "hello world"
+			}
+		]
+	}
+}

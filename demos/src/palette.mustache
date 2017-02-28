@@ -1,0 +1,64 @@
+<h2 class="demo-title">Palette</h2>
+
+{{#primary}}
+	<div class="demo-header">
+		<h2>Primary</h2>
+		<p>{{description}}</p>
+	</div>
+
+	<div class="demo-wrapper">
+		{{#colors}}
+			<div class="demo-color">
+				<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
+					<h3>
+						{{name}}
+						<span class="hex"></span>
+					</h3>
+				</div>
+				<div class="color-description">{{description}}</div>
+			</div>
+		{{/colors}}
+	</div>
+{{/primary}}
+
+{{#secondary}}
+	<div class="demo-header">
+		<h2>Secondary</h2>
+		<p>{{description}}</p>
+	</div>
+
+	<div class="demo-wrapper">
+		{{#colors}}
+			<div class="demo-color">
+				<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
+					<h3>
+						{{name}}
+						<span class="hex"></span>
+					</h3>
+				</div>
+				<div class="color-description">{{description}}</div>
+			</div>
+		{{/colors}}
+	</div>
+{{/secondary}}
+
+{{#tertiary}}
+	<div class="demo-header">
+		<h2>Tertiary</h2>
+		<p>{{description}}</p>
+	</div>
+
+	<div class="demo-wrapper">
+		{{#colors}}
+			<div class="demo-color">
+				<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
+					<h3>
+						{{name}}
+						<span class="hex"></span>
+					</h3>
+				</div>
+				<div class="color-description">{{description}}</div>
+			</div>
+		{{/colors}}
+	</div>
+{{/tertiary}}

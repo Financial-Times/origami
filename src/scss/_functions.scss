@@ -162,7 +162,11 @@
 
 @function oColorsGetTextColor($background, $level) {
 	$baseColor: oColorsGetTextBase($background);
-	$percentage: oColorsGetTextLevelPercentage($level, $background);
+	$percentage: $level;
+
+	@if type-of($level) == string {
+		$percentage: oColorsGetTextLevelPercentage($level, $background);
+	}
 
 	@return oColorsGetContrastedColor($percentage, $background, $baseColor);
 }

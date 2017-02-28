@@ -18,8 +18,8 @@
 }
 
 @if $o-colors-version == 2 {
-	@include _oColorsSetTintPalette();
-	@include _oColorsSetShadesPalette();
+	@include _oColorsSetTintPalette;
+	@include _oColorsSetShadesPalette;
 }
 
 // If noisy, output helper classes for use cases and palette colours
@@ -41,19 +41,17 @@
 			}
 		}
 	}
+
 	@each $name, $csscolor in $o-colors-palette {
 		#{'.o-colors-palette-' + $name} {
 			background-color: $csscolor;
+
+			@if $csscolor != 'transparent' and $csscolor != 'inherit' {
+				color: oColorsGetTextColor($csscolor, 100);
+			}
 		}
 	}
 
 	// Set silent mode back on to avoid multiple outputs of helper classes
 	$o-colors-is-silent: true;
-}
-
-.text-color-context {
-	/* oColorsFor */
-	@include oColorsFor('page');
-	/* call the function directly */
-	color: oColorsGetContrastedColor(80, 'pink', 'black');
 }
