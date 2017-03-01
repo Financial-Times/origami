@@ -122,9 +122,6 @@ function add(request) {
 function run(callback) {
 	if (utils.isUndefined(callback)) {
 		callback = function () {};
-	} else if (typeof(callback) !== 'function') {
-		utils.log(`o-tracking error: 'callback' is defined, but is not a function.`)
-		callback = function () {};
 	}
 
     // Investigate queue lengths bug
@@ -196,7 +193,9 @@ function init() {
 	}
 
 	// If any tracking calls are made whilst offline, try sending them the next time the device comes online
-	utils.addEvent(window, 'online', run);
+	utils.addEvent(window, 'online', function() {
+		run();
+	});
 
 	// On startup, try sending any requests queued from a previous session.
 	run();
