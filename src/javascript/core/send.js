@@ -122,6 +122,9 @@ function add(request) {
 function run(callback) {
 	if (utils.isUndefined(callback)) {
 		callback = function () {};
+	} else if (typeof(callback) !== 'function') {
+		utils.log(`o-tracking error: 'callback' is defined, but is not a function.`)
+		callback = function () {};
 	}
 
     // Investigate queue lengths bug
