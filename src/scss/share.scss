@@ -153,6 +153,21 @@
 		}
 	}
 
+	// Targets displays using any of Windows’ High Contrast Mode themes:
+	// target all high-contrast themes and force a white icon with black background
+	@media screen and (-ms-high-contrast: active) {
+		$hover-color: oColorsGetColorFor('o-share-button-inverse', background);
+
+		$hover-color: str-slice(ie-hex-str($hover-color), 4);
+		$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
+
+		.#{$classname}__action--#{$icon-name} i {
+			background-color: oColorsGetPaletteColor('black');
+			background-image: url($service-url + $query + "&format=svg#{$tint}");
+			background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
+		}
+	}
+
 	.#{$classname}__action--#{$icon-name}:hover,
 	.#{$classname}__action--#{$icon-name}:focus {
 		border-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
@@ -201,6 +216,11 @@
 				i {
 					background-image: url($service-url + $query + "&format=svg#{$tint}");
 					background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
+
+					// Force the background to be black in high-contrast mode
+					@media screen and (-ms-high-contrast: active) {
+						background-color: oColorsGetPaletteColor('black');
+					}
 				}
 			}
 		}
