@@ -27,6 +27,10 @@
 		border-radius: $o-normalise-border-radius;
 		cursor: pointer;
 
+		@include oGridRespondTo(S) {
+			margin-right: 10px;
+		}
+
 		i {
 			float: left;
 			background-size: 100% 100%;
@@ -37,11 +41,29 @@
 		}
 
 		a {
+			position: relative;
 			display: block;
 			width: $o-share-icon-size;
 			text-decoration: none;
 			border: 0;
-			overflow: hidden;
+
+			// Increase the hit target to improve a11y
+			&:after {
+				position: absolute;
+				display: block;
+				content: '';
+				width: $o-share-icon-size + 5;
+				height: $o-share-icon-size + 5;
+				top: -2px;
+				left: -2px;
+
+				@include oGridRespondTo(S) {
+					width: $o-share-icon-size + 10px;
+					height: $o-share-icon-size + 10px;
+					top: -5px;
+					left: -5px;
+				}
+			}
 		}
 
 		button {
