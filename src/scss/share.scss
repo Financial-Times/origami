@@ -16,7 +16,10 @@
 	}
 
 	.#{$classname}__action {
+		box-sizing: border-box;
 		float: left;
+		width: $o-share-icon-size;
+		height: $o-share-icon-size;
 		margin: 0 5px 0 0;
 		list-style-type: none;
 		line-height: $o-share-icon-size;
@@ -37,7 +40,15 @@
 			display: block;
 			width: $o-share-icon-size;
 			text-decoration: none;
+			border: 0;
 			overflow: hidden;
+		}
+
+		button {
+			display: block;
+			border: 0;
+			padding: 0;
+			background-color: transparent;
 		}
 
 		&:first-child a {
