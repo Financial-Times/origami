@@ -24,7 +24,7 @@ class Tabs {
 		if (!config) {
 			config = {};
 			Array.prototype.forEach.call(this.rootEl.attributes, function(attr) {
-				if (attr.name.indexOf('data-o-tabs') === 0) {
+				if (attr.name.includes('data-o-tabs')) {
 					// Remove the unnecessary part of the string the first
 					// time this is run for each attribute
 					const key = attr.name.replace('data-o-tabs-', '');
