@@ -14,7 +14,7 @@ module.exports = function(karma) {
 
 		// list of files / patterns to load in the browser
 		files: [
-			'http://polyfill.webservices.ft.com/v1/polyfill.js',
+			'https://polyfill.io/v2/polyfill.js',
 			'test/setup.js',
 			'test/**/*.test.js'
 		],
