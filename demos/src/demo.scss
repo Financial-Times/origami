@@ -5,3 +5,14 @@ $o-tabs-is-silent: false;
 body {
 	margin: 10px;
 }
+
+.container-inverse {
+	width: 100%;
+	padding: 20px;
+	color: #ffffff;
+	background: #333333;
+}
+
+// Include for demos of the themeable tabs
+@include oTabsButtonTabsTheme('standout');
+@include oTabsButtonTabsTheme('inverse');

@@ -36,3 +36,20 @@
 		}
 	}
 }
+
+@mixin oTabsButtonTabsTheme($theme) {
+	.o-tabs--#{$theme} {
+		@if map-has-key($o-buttons-themes, $theme) {
+			&.o-tabs--buttontabs.o-tabs--#{$theme} [role=tab] {
+				@include oButtonsTheme($theme);
+			}
+
+			$buttonBackground: oColorsGetColorFor(o-buttons-#{$theme}-normal, background);
+			$border: oColorsGetColorFor(o-buttons-#{$theme}-normal, border, $options: (default: $buttonBackground));
+
+			&.o-tabs--buttontabs[data-o-tabs--js][role=tablist] {
+				border-bottom: 1px solid $border;
+			}
+		}
+	}
+}
