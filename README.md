@@ -149,17 +149,7 @@ or use the mixin:
 @include oTabsButtonTabs;
 ```
 
-The __buttontabs__ style comes in two sizes:
-
-#### Default
-
-![tab buttons](https://raw.githubusercontent.com/Financial-Times/o-tabs/master/files/tab-buttons.png)
-
-#### "Big"
-
-Larger buttons can be acheived by using the class `o-tabs--big`.
-
-![tab buttons big](https://raw.githubusercontent.com/Financial-Times/o-tabs/master/files/tab-buttons-big.png)
+The __buttontabs__ style comes in two sizes that conform to the `o-buttons` sizes: medium and big. Medium is the default size and big can be applied by adding the class `o-tabs--big`.
 
 #### Options
 
