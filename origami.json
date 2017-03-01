@@ -18,13 +18,18 @@
 			"name": "palette",
 			"data": "demos/src/palette.json",
 			"template": "demos/src/palette.mustache",
-			"description": "",
 			"display_html": false
 		},
 		{
 			"name": "use-cases",
 			"template": "demos/src/use-cases.mustache",
-			"description": "",
+			"display_html": false
+		},
+		{
+			"name": "pa11y",
+			"data": "demos/src/palette.json",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
 			"display_html": false
 		}
 	]
