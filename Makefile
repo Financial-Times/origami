@@ -1,3 +1,6 @@
+.PHONY: test
+test:
+	npm test
 
 whitesource.config.json:
 	echo '{ "apiKey": "$(WHITESOURCE_API_KEY)", "checkPolicies":true,"productName":"NGDA","projectName":"o_tracking", "devDep": "false"}' > $@;
