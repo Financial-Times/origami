@@ -43,8 +43,12 @@ To set the initially selected tab, add an `aria-selected="true"` attribute to a 
 
 #### Config
 
-You can also set config options declaratively by using `[data-o-tabs-]` prefixed data attributes. For example: `data-o-tabs-disablefocus="true"`.
+You can set config options declaratively by using `[data-o-tabs-]` prefixed data attributes.
 
+Options consist of:
+
+* `data-o-tabs-disablefocus="true"` - prevent the tabpanel being focused when selected.
+* `data-o-tabs-update-url="true"` - update the URL with the `#` of the selected panel.
 
 #### Core experience
 
