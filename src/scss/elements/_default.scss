@@ -38,7 +38,7 @@
 	font-weight: oFontsWeight(normal);
 	color: oTeaserTextColor($percent: 80);
 
-	&:hover,
+	#{$o-hoverable-if-hover-enabled} &:hover,
 	&:focus {
 		color: oTeaserTextColor($percent: 55);
 	}
@@ -47,6 +47,10 @@
 		color: inherit;
 		text-decoration: none;
 		border: 0;
+
+		#{$o-hoverable-if-hover-enabled} &:hover {
+			color: inherit;
+		}
 	}
 }
 
@@ -65,7 +69,7 @@
 	text-decoration: none;
 	border: 0;
 
-	&:hover,
+	#{$o-hoverable-if-hover-enabled} &:hover,
 	&:focus {
 		color: oTeaserTextColor($percent: 55);
 	}

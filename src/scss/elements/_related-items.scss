@@ -19,7 +19,7 @@
 		@include font-size(16, 24);
 	}
 
-	&:hover,
+	#{$o-hoverable-if-hover-enabled} &:hover,
 	&:focus {
 		color: oTeaserTextColor($percent: 55);
 	}
@@ -28,6 +28,10 @@
 		border-bottom: 0;
 		text-decoration: none;
 		color: inherit;
+
+		#{$o-hoverable-if-hover-enabled} &:hover {
+			color: inherit;
+		}
 	}
 
 	&.o-teaser__related-item--video a:after {
