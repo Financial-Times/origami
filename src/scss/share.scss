@@ -16,13 +16,20 @@
 	}
 
 	.#{$classname}__action {
+		box-sizing: border-box;
 		float: left;
+		width: $o-share-icon-size;
+		height: $o-share-icon-size;
 		margin: 0 5px 0 0;
 		list-style-type: none;
 		line-height: $o-share-icon-size;
 		border: 1px solid rgba(oColorsGetColorFor('o-share-button-default', 'border'), 0.2);
 		border-radius: $o-normalise-border-radius;
 		cursor: pointer;
+
+		@include oGridRespondTo(S) {
+			margin-right: 10px;
+		}
 
 		i {
 			float: left;
@@ -34,10 +41,36 @@
 		}
 
 		a {
+			position: relative;
 			display: block;
 			width: $o-share-icon-size;
 			text-decoration: none;
-			overflow: hidden;
+			border: 0;
+
+			// Increase the hit target to improve a11y
+			&:after {
+				position: absolute;
+				display: block;
+				content: '';
+				width: $o-share-icon-size + 5;
+				height: $o-share-icon-size + 5;
+				top: -2px;
+				left: -2px;
+
+				@include oGridRespondTo(S) {
+					width: $o-share-icon-size + 10px;
+					height: $o-share-icon-size + 10px;
+					top: -5px;
+					left: -5px;
+				}
+			}
+		}
+
+		button {
+			display: block;
+			border: 0;
+			padding: 0;
+			background-color: transparent;
 		}
 
 		&:first-child a {
@@ -120,6 +153,21 @@
 		}
 	}
 
+	// Targets displays using any of Windows’ High Contrast Mode themes:
+	// target all high-contrast themes and force a white icon with black background
+	@media screen and (-ms-high-contrast: active) {
+		$hover-color: oColorsGetColorFor('o-share-button-inverse', background);
+
+		$hover-color: str-slice(ie-hex-str($hover-color), 4);
+		$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
+
+		.#{$classname}__action--#{$icon-name} i {
+			background-color: oColorsGetPaletteColor('black');
+			background-image: url($service-url + $query + "&format=svg#{$tint}");
+			background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
+		}
+	}
+
 	.#{$classname}__action--#{$icon-name}:hover,
 	.#{$classname}__action--#{$icon-name}:focus {
 		border-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
@@ -168,6 +216,11 @@
 				i {
 					background-image: url($service-url + $query + "&format=svg#{$tint}");
 					background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
+
+					// Force the background to be black in high-contrast mode
+					@media screen and (-ms-high-contrast: active) {
+						background-color: oColorsGetPaletteColor('black');
+					}
 				}
 			}
 		}
