@@ -8,7 +8,7 @@ function createSassList() {
 		fs.writeFileSync('demos/src/data.json', data, { encoding: 'utf-8' });
 
 		const imageNames = JSON.parse(data);
-		let names = imageNames["icons"].map((icon)=> {
+		let names = imageNames["images"].map((icon)=> {
 			return icon.name;
 		});
 
