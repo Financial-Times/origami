@@ -20,7 +20,7 @@
 /// @param {Number} $percentage [60] - percentage opacity of the colour over the background
 /// @param {String} $background [pink] - palette name of background color
 /// @param {String} $color [black] - palette name of color
-@function oColorsGetContrastedColor($percentage: 80, $background: 'pink', $color: 'black') {
+@function oColorsGetContrastedColor($percentage: 80, $color: 'black', $background: 'pink') {
 	$context: $background;
 	$base: $color;
 
@@ -168,7 +168,7 @@
 		$percentage: oColorsGetTextLevelPercentage($level, $background);
 	}
 
-	@return oColorsGetContrastedColor($percentage, $background, $baseColor);
+	@return oColorsGetContrastedColor($percentage, $baseColor, $background);
 }
 
 @function oColorsCheckContrast($col1, $col2) {

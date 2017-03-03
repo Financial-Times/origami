@@ -77,28 +77,33 @@
 	}
 }
 
-/// Set the tint palette colors based on black over default pink
-@mixin _oColorsSetTintPalette {
-	@each $percent in $_o-colors-tint-percentages {
-		@include oColorsSetColor('#{$o-colors-tints-classname}-#{$percent}', oColorsGetContrastedColor($percent));
-	}
-}
-
 /// Update the color palette with calculated shades of
 /// each color from $o-colors-shades
-@mixin _oColorsSetShadesPalette {
-	@each $color, $settings in $o-colors-shades {
+@mixin _oColorsSetPaletteTints {
+	@each $color, $settings in $o-colors-tints {
 		$hue: map-get($settings, 'hue');
-		$shades: map-get($settings, 'shades');
+		$tints: map-get($settings, 'tints');
 
-		@each $shade-name, $shade-settings in $shades {
-			$luminosity: map-get($shade-settings, 'lum');
-			$saturation: map-get($shade-settings, 'sat');
+		$saturation: null;
+		$background: null;
 
-			$shade: _oColorsHSB($hue, $saturation, $luminosity);
-			$name: "#{$color}-#{$shade-name}";
+		@if map-has-key($settings, 'saturation') {
+			$saturation: map-get($settings, 'saturation');
+		} @else {
+			$background: map-get($settings, 'mix');
+		}
 
-			@include oColorsSetColor($name, $shade);
+		@each $value in $tints {
+			$name: "#{$color}-tint-#{$value}";
+			$tint: null;
+
+			@if $saturation == null {
+				$tint: oColorsGetContrastedColor($value, $color);
+			} @else {
+				$tint: _oColorsHSB($hue, $saturation, $value);
+			}
+
+			@include oColorsSetColor($name, $tint);
 		}
 	}
 }

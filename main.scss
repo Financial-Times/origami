@@ -18,8 +18,7 @@
 }
 
 @if $o-colors-version == 2 {
-	@include _oColorsSetTintPalette;
-	@include _oColorsSetShadesPalette;
+	@include _oColorsSetPaletteTints;
 }
 
 // If noisy, output helper classes for use cases and palette colours

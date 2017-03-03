@@ -13,68 +13,58 @@ $o-colors-palette-v2: (
 	'inherit':               inherit,
 
 	// primary palette
-	'pink':                  #fff1e6,
+	'pink':                  #fff1e5,
 	'black':                 #000000,
 	'white':                 #ffffff,
 
-	'blue':                  #0f5499,
 	'claret':                #990f3d,
+	'blue':                  #0f5499,
 	'teal':                  #00757f,
 
-	'turquoise':             #00bbcc,
-
-	'slate':                 #282e33,
-	'dark-blue':             #12509b,
-	'bright-blue':           #1a70d7,
-	'light-blue':            #b3d9ff,
-
-	'merlot':                #660a28,
-	'candy':                 #ff7287,
 	'wheat':                 #f3dec8,
-	'caramel':               #e64c00,
+	'sky':                   #b3d9ff,
+	'slate':                 #282e33,
+
+	'velvet':                #593380,
+	'mandarin':              #ff8833,
+	'lemon':                 #ffec1a,
+
+	'candy':                 #ff99bb,
+	'lime':                  #96cc28,
+
+	'green':                 #00b359,
+	'red':                   #cc0000,
 
 	'orange':                #f58c31,
-	'green':                 #09a25c,
 	'purple':                #92288f,
-	'red':                   #cc0000,
-	'lime':                  #96cc28,
+
+	'org-b2c':               #4e96eb,
+	'org-b2c-dark':          #3a70af,
+	'org-b2c-light':         #99c6fb,
 );
 
-$o-colors-shades: (
+$o-colors-tints: (
 	'claret': (
 		hue: 340,
-		shades: (
-			100: (sat: 90, lum: 30), // dark
-			90: (sat: 90, lum: 40),
-			80: (sat: 90, lum: 60),
-			60: (sat: 90, lum: 80),
-			40: (sat: 90, lum: 100),
-			20: (sat: 40, lum: 100),
-			10: (sat: 20, lum: 100), // light
-		),
+		saturation: 90,
+		tints: ( 30, 40, 50, 60, 70, 80, 90, 100 ),
 	),
 	'blue': (
 		hue: 210,
-		shades: (
-			100: (sat: 90, lum: 30), // dark
-			90: (sat: 90, lum: 40),
-			80: (sat: 90, lum: 60),
-			60: (sat: 90, lum: 80),
-			40: (sat: 90, lum: 100),
-			20: (sat: 30, lum: 100),
-			10: (sat: 20, lum: 100), // light
-		),
+		saturation: 90,
+		tints: ( 30, 40, 50, 60, 70, 80, 90, 100 ),
 	),
 	'teal': (
 		hue: 185,
-		shades: (
-			100: (sat: 100, lum: 20), // dark
-			90: (sat: 100, lum: 30),
-			80: (sat: 100, lum: 50),
-			60: (sat: 100, lum: 80),
-			40: (sat: 100, lum: 90),
-			20: (sat: 40,  lum: 100),
-			10: (sat: 10,  lum: 100), // light
-		),
+		saturation: 90,
+		tints: ( 20, 30, 40, 50, 60, 70, 80, 90 ),
 	),
+	'black': (
+		mix: 'pink',
+		tints: (5, 10, 20, 40, 60, 80, 90),
+	),
+	'white': (
+		mix: 'pink',
+		tints: (10, 20, 40, 60, 80),
+	)
 );
