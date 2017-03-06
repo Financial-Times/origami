@@ -4,27 +4,38 @@
 		"colors": [
 			{
 				"name": "pink",
-				"description": "hello world"
+				"description": "hello world",
+				"usage": "backgrounds"
 			},
 			{
 				"name": "black",
-				"description": "hello world"
+				"description": "hello world",
+				"tints": true,
+				"usage": "text, border, backgrounds, buttons, icons"
 			},
 			{
 				"name": "white",
-				"description": "hello world"
+				"description": "hello world",
+				"tints": true,
+				"usage": "text, border, backgrounds, buttons, icons"
 			},
 			{
 				"name": "claret",
-				"description": "hello world"
+				"description": "hello world",
+				"tints": true,
+				"usage": "text, border, backgrounds"
 			},
 			{
 				"name": "blue",
-				"description": "hello world"
+				"description": "hello world",
+				"tints": true,
+				"usage": "text, backgrounds"
 			},
 			{
 				"name": "teal",
-				"description": "hello world"
+				"description": "hello world",
+				"tints": true,
+				"usage": "text, backgrounds, buttons, links"
 			}
 		]
 	},
@@ -33,27 +44,33 @@
 		"colors": [
 			{
 				"name": "wheat",
-				"description": "hello world"
+				"description": "hello world",
+				"usage": "backgrounds"
 			},
 			{
-				"name": "light-blue",
-				"description": "hello world"
+				"name": "sky",
+				"description": "hello world",
+				"usage": "backgrounds"
 			},
 			{
 				"name": "slate",
-				"description": "hello world"
+				"description": "hello world",
+				"usage": "backgrounds"
 			},
 			{
-				"name": "purple",
-				"description": "hello world"
+				"name": "velvet",
+				"description": "hello world",
+				"usage": "backgrounds"
 			},
 			{
-				"name": "orange",
-				"description": "hello world"
+				"name": "mandarin",
+				"description": "hello world",
+				"usage": "backgrounds, text"
 			},
 			{
-				"name": "yellow",
-				"description": "hello world"
+				"name": "lemon",
+				"description": "hello world",
+				"usage": "backgrounds, text"
 			}
 		]
 	},
@@ -62,12 +79,27 @@
 		"colors": [
 			{
 				"name": "green",
-				"description": "hello world"
+				"description": "hello world",
+				"usage": "backgrounds, text"
 			},
 			{
 				"name": "red",
-				"description": "hello world"
+				"description": "hello world",
+				"usage": "backgrounds, text"
+			},
+			{
+				"name": "candy",
+				"description": "hello world",
+				"usage": "backgrounds, text"
+			},
+			{
+				"name": "lime",
+				"description": "hello world",
+				"usage": "backgrounds, text"
 			}
 		]
+	},
+	"tints" : {
+		"description": "Hello world these are some tints",
 	}
 }
