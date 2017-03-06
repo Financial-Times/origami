@@ -121,6 +121,9 @@ const getEventProperties = event => {
 
 // Controller for handling click events
 const handleClickEvent = eventData => (clickEvent, clickElement) => {
+	//we don't want to track clicks to the securedrop anonymous service
+	if (typeof clickElement.href !== "undefined" &&
+			clickElement.href.match(".*ft\.com.*/securedrop")) return;
 	const context = getEventProperties(clickEvent);
 	context.domPathTokens = getTrace(clickElement);
 	context.url = window.document.location.href || null;
