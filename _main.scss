@@ -1,0 +1,183 @@
+@import 'themes';
+
+@include oGridRespondTo($until: S) {
+	@include stackTags;
+	.topper__tags {
+		width: inherit;
+	}
+
+	.topper__text-box {
+		padding: 0 5%;
+	}
+}
+
+// default and only size for the full bleed container
+.topper__slot-1 {
+	width: 100%;
+	height: 50vh;
+	position: relative;
+	min-height: 350px;
+
+	@include oGridRespondTo(S, L) {
+		min-height: 400px;
+	}
+
+	@include oGridRespondTo(XL) {
+		max-height: 800px;
+	}
+}
+
+//default text setting
+.topper__text-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: inherit;
+	min-height: inherit;
+	margin: 0 auto;
+	-webkit-font-smoothing: antialiased;
+}
+
+.topper__headline {
+	@include headlineFontSize(32px);
+	@include oTypographySerifDisplayBold(xl, $load-progressively: true);
+
+	display: flex; // for responsive bottom border
+	position: relative; //so it appears above the full width background
+	flex-direction: column;
+	line-height: 1;
+
+	@include oGridRespondTo(S) {
+		@include headlineFontSize(38px);
+	}
+
+	@include oGridRespondTo(L) {
+		@include headlineFontSize(52px);
+	}
+}
+
+.topper__stand-first {
+	@include oTypographySans(m, $load-progressively: true);
+
+	opacity: 0.8;
+	font-size: round(18px * 0.9);
+	line-height: 1.4;
+
+	@include oGridRespondTo(L) {
+		font-size: round(22px * 0.9);
+		.o-typography--loaded-sans & {
+			font-size: 22px;
+		}
+	}
+
+	.o-typography--loaded-sans & {
+		font-size: 18px;
+		line-height: 1.2;
+	}
+}
+
+//default for all themes
+.topper__background {
+	height: inherit;
+	min-height: inherit;
+	width: 100%;
+
+	@include oGridRespondTo(M) {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+//default size for all themes
+.topper__visual {
+	width: 100%;
+	height: 100vw;
+	float: right;
+	overflow: hidden; //IE9 support
+
+	@include oGridRespondTo(M) {
+		width: 50%;
+	}
+
+	@include oGridRespondTo(S) {
+		height: inherit;
+		min-height: inherit;
+	}
+}
+
+.topper__picture {
+	position: relative;
+}
+
+//IE9 support
+.topper__image {
+	position: relative;
+	width: 100%;
+}
+
+.topper__credits {
+	font-style: italic;
+	font-size: 13px;
+	margin-top: 15px;
+	opacity: 0.6;
+}
+
+//IE9 support
+.topper__text-wrapper {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.topper__text {
+	width: 100%;
+	@include oGridRespondTo(M) {
+		width: 45%;
+	}
+}
+
+.topper__brand {
+	font-weight: 400;
+}
+
+.topper__tags {
+	display: flex;
+	padding-bottom: 5px;
+
+	@include oGridRespondTo(M) {
+		width: 45%;
+	};
+
+	.n-content-tag {
+		color: inherit;
+		font-size: 16px;
+
+		&:hover {
+			border-bottom-color: inherit;
+		}
+	}
+}
+
+
+@supports (object-fit: cover) {
+	.topper__slot-1 {
+		@include oGridRespondTo(L) {
+			min-height: 600px;
+		}
+	}
+
+	.topper__text-wrapper {
+		margin-top: 0;
+	}
+
+	.topper__visual {
+		overflow: none;
+	}
+
+	.topper__image {
+		position: static;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}

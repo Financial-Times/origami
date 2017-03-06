@@ -1,0 +1,111 @@
+// scss-lint:disable SelectorFormat
+
+@mixin colorBorder($color) {
+	.topper__headline::after {
+		border-bottom: 6px solid $color;
+		@include oGridRespondTo($from: L) {
+			border-bottom-width: 8px;
+		}
+	}
+}
+
+$colors: 'white', 'black', 'claret', 'blue', 'pink', 'slate';
+@each $color in $colors {
+	[data-textbox-background~='#{$color}'] {
+		$text-color: black;
+		$contrast: lightness(oColorsGetPaletteColor($color));
+		@if $contrast <= 50% {
+			$text-color: white;
+		}
+		@include colorBorder($text-color);
+		background-color: oColorsGetPaletteColor('#{$color}');
+		color: $text-color;
+		@if $color == 'pink' {
+			.topper__tags {
+				color: oColorsGetPaletteColor('claret');
+			}
+		}
+	}
+}
+
+@mixin alignText($position) {
+	$value: ("left": flex-start, "center": center, "right": flex-end);
+	.topper__headline::after {
+		content: '';
+		align-self: map-get($value, #{$position});
+		width: 120px;
+		margin: 20px 0 30px;
+		@include oGridRespondTo(S) {
+			width: 150px;
+			margin: 20px 0 40px;
+		};
+	}
+
+	.topper__text-wrapper {
+		text-align: $position;
+		align-self: map-get($value, #{$position});
+	}
+
+	.topper__tags {
+		justify-content: map-get($value, #{$position});
+	}
+}
+
+@mixin resizeTextbox {
+	.topper__text-wrapper {
+		width: 100%;
+		padding: 0;
+	}
+
+	.topper__headline {
+		margin-top: 20px;
+	}
+
+	.topper__stand-first {
+		@include oGridRespondTo(M) {
+			width: 50%;
+			margin: 0 auto;
+		}
+	}
+}
+
+@mixin overlayText {
+	.topper__background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: inherit;
+		min-height: inherit;
+		width: 100%;
+	}
+}
+
+@mixin headlineFontSize($size) {
+	font-size: $size;
+	.o-typography--loaded-serifDisplayBold & {
+		font-size: $size * 1.077;
+	}
+}
+
+@mixin fullBleedImage {
+	.topper__text-box {
+		background: transparent;
+	}
+	.topper__visual {
+		width: 100%;
+	}
+	.topper__text-wrapper {
+		z-index: 1;
+	}
+}
+
+@mixin stackTags {
+	.topper__tags {
+		flex-direction: column;
+		justify-content: center;
+		padding-bottom: 15px;
+		.n-content-tag {
+			padding-bottom: 5px;
+		}
+	}
+}

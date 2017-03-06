@@ -1,0 +1,24 @@
+// scss-lint:disable SelectorFormat
+.topper--full-bleed-text {
+	@include alignText(center);
+	@include resizeTextbox;
+
+	.topper__visual {
+		display: none;
+	}
+
+	.topper__tags,
+	.topper__text {
+		width: inherit;
+	}
+
+	.topper__headline {
+		@include oGridRespondTo(M, L) {
+			@include headlineFontSize(52px);
+		}
+
+		@include oGridRespondTo(L) {
+			@include headlineFontSize(84px);
+		}
+	}
+}

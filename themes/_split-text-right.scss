@@ -1,0 +1,11 @@
+.topper--split-text-right {
+	@include alignText(left);
+
+	@include oGridRespondTo(S) {
+		@include alignText(right);
+	}
+
+	@include oGridRespondTo(M, L) {
+		@include stackTags;
+	}
+}

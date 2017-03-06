@@ -1,0 +1,14 @@
+.topper--full-bleed-image-center {
+	@include alignText(left);
+	@include oGridRespondTo(S) {
+		@include alignText(center);
+		@include fullBleedImage;
+		@include overlayText;
+		@include resizeTextbox;
+	}
+
+	.topper__tags,
+	.topper__text {
+		width: inherit;
+	}
+}
