@@ -7,7 +7,6 @@ const send = require("../../src/javascript/core/send");
 const core = require("../../src/javascript/core");
 const click = require("../../src/javascript/events/click");
 const session = require("../../src/javascript/core/session");
-const utils = require("../../src/javascript/utils");
 
 describe('click', function () {
 
@@ -49,7 +48,7 @@ describe('click', function () {
 			e.preventDefault();
 		}); //we don't want the browser to follow click in test
 
-		var event = new MouseEvent('click', {
+		let event = new MouseEvent('click', {
 			'view': window,
 			'bubbles': true,
 			'cancelable': true
@@ -85,7 +84,7 @@ describe('click', function () {
 			e.preventDefault();
 		}); //we don't want the browser to follow click in test
 
-		var event = new MouseEvent('click', {
+		let event = new MouseEvent('click', {
 			'view': window,
 			'bubbles': true,
 			'cancelable': true
