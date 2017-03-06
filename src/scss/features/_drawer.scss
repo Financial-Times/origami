@@ -83,7 +83,7 @@
 
 	.o-header__drawer-tools-logo {
 		@include oIconsBaseStyles;
-		@include oHeaderBrandImage('brand-ft-masthead', oColorsGetPaletteColor('cold-1'), 210);
+		@include oHeaderBrandImage('brand-ft-masthead', oColorsGetPaletteColor('cold-2'), 210);
 		width: 210px;
 		height: 18px;
 		border-bottom: 0;
@@ -91,7 +91,7 @@
 
 	.o-header__drawer-tools-close {
 		// dividing by 1px removes the unit
-		@include oIconsGetIcon('cross', oColorsGetPaletteColor('grey-tint4'), $_o-header-icon-size-large, $iconset-version: 1);
+		@include oIconsGetIcon('cross', oColorsGetPaletteColor('cold-2'), $_o-header-icon-size-large, $iconset-version: 1);
 		float: right;
 		border: 0;
 		opacity: 0.75;
