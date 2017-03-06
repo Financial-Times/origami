@@ -37,14 +37,17 @@ describe('click', function () {
 
 		sinon.spy(core, 'track');
 
-		click.init("blah", "div");
+		click.init("blah");
 
-		const aDiv = document.createElement('div');
-		//const event = document.createEvent('HTMLEvents');
+		const aLinkToGoogle = document.createElement('a');
 
-		aDiv.href = "http://www.google.com";
-		aDiv.text = "A link to Google's website";
-		aDiv.id = "anchor";
+		aLinkToGoogle.href = "http://www.google.com";
+		aLinkToGoogle.text = "A link to Google's website";
+		aLinkToGoogle.id = "anchorA";
+
+		aLinkToGoogle.addEventListener('click', function(e){
+			e.preventDefault();
+		}); //we don't want the browser to follow click in test
 
 		var event = new MouseEvent('click', {
 			'view': window,
@@ -52,8 +55,8 @@ describe('click', function () {
 			'cancelable': true
 		});
 
-		document.body.appendChild(aDiv);
-		aDiv.dispatchEvent(event, true);
+		document.body.appendChild(aLinkToGoogle);
+		aLinkToGoogle.dispatchEvent(event, true);
 
 		setTimeout(() => {
 
@@ -62,7 +65,7 @@ describe('click', function () {
 			core.track.restore();
 			done();
 
-		}, 100);
+		}, 10);
 
 	});
 
@@ -70,13 +73,17 @@ describe('click', function () {
 
 		sinon.spy(core, 'track');
 
-		click.init("blah","div");
+		click.init("blah");
 
-		const aDiv = document.createElement('div');
+		const aLinkToSecuredrop = document.createElement('a');
 
-		aDiv.href = "https://www.ft.com/securedrop";
-		aDiv.text = "A link to securedrop";
-		aDiv.id = "anchor";
+		aLinkToSecuredrop.href = "https://www.ft.com/securedrop";
+		aLinkToSecuredrop.text = "A link to securedrop";
+		aLinkToSecuredrop.id = "anchor";
+
+		aLinkToSecuredrop.addEventListener('click', function(e){
+			e.preventDefault();
+		}); //we don't want the browser to follow click in test
 
 		var event = new MouseEvent('click', {
 			'view': window,
@@ -84,8 +91,8 @@ describe('click', function () {
 			'cancelable': true
 		});
 
-		document.body.appendChild(aDiv);
-		aDiv.dispatchEvent(event, true);
+		document.body.appendChild(aLinkToSecuredrop);
+		aLinkToSecuredrop.dispatchEvent(event, true);
 
 		setTimeout(() => {
 
@@ -94,7 +101,7 @@ describe('click', function () {
 			core.track.restore();
 			done();
 
-		}, 100);
+		}, 10);
 
 	});
 
