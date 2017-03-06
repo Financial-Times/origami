@@ -38,6 +38,11 @@
 	font-size: round(18px * 0.9);
 	line-height: 1.4;
 
+	.o-typography--loaded-sans & {
+		font-size: 18px;
+		line-height: 1.2;
+	}
+
 	@include oGridRespondTo(L) {
 		font-size: round(22px * 0.9);
 		.o-typography--loaded-sans & {
@@ -45,10 +50,6 @@
 		}
 	}
 
-	.o-typography--loaded-sans & {
-		font-size: 18px;
-		line-height: 1.2;
-	}
 }
 
 @include oGridRespondTo($until: S) {
