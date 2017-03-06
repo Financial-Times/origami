@@ -1,5 +1,56 @@
 @import 'themes';
 
+.topper {
+	margin-top: 10px;
+}
+
+.topper__headline {
+	@include oTypographySerifDisplay('l', $load-progressively: true);
+	margin: 0 0 20px;
+
+	@include oGridRespondTo(L) {
+		@include oTypographySerifDisplaySize('xl', $with-progressive-size: true);
+	}
+
+	&--large {
+		@include headlineFontSize(32px);
+		@include oTypographySerifDisplayBold(xl, $load-progressively: true);
+
+		display: flex; // for responsive bottom border
+		position: relative; //so it appears above the full width background
+		flex-direction: column;
+		line-height: 1;
+		margin: 0;
+
+		@include oGridRespondTo(S) {
+			@include headlineFontSize(38px);
+		}
+
+		@include oGridRespondTo(L) {
+			@include headlineFontSize(52px);
+		}
+	}
+}
+
+.topper__standfirst {
+	@include oTypographySans(m, $load-progressively: true);
+	opacity: 0.8;
+	font-size: round(18px * 0.9);
+	line-height: 1.4;
+
+	@include oGridRespondTo(L) {
+		font-size: round(22px * 0.9);
+		.o-typography--loaded-sans & {
+			font-size: 22px;
+		}
+	}
+
+	.o-typography--loaded-sans & {
+		font-size: 18px;
+		line-height: 1.2;
+	}
+}
+
 @include oGridRespondTo($until: S) {
 	@include stackTags;
 	.topper__tags {
@@ -36,44 +87,6 @@
 	min-height: inherit;
 	margin: 0 auto;
 	-webkit-font-smoothing: antialiased;
-}
-
-.topper__headline {
-	@include headlineFontSize(32px);
-	@include oTypographySerifDisplayBold(xl, $load-progressively: true);
-
-	display: flex; // for responsive bottom border
-	position: relative; //so it appears above the full width background
-	flex-direction: column;
-	line-height: 1;
-
-	@include oGridRespondTo(S) {
-		@include headlineFontSize(38px);
-	}
-
-	@include oGridRespondTo(L) {
-		@include headlineFontSize(52px);
-	}
-}
-
-.topper__stand-first {
-	@include oTypographySans(m, $load-progressively: true);
-
-	opacity: 0.8;
-	font-size: round(18px * 0.9);
-	line-height: 1.4;
-
-	@include oGridRespondTo(L) {
-		font-size: round(22px * 0.9);
-		.o-typography--loaded-sans & {
-			font-size: 22px;
-		}
-	}
-
-	.o-typography--loaded-sans & {
-		font-size: 18px;
-		line-height: 1.2;
-	}
 }
 
 //default for all themes
@@ -156,6 +169,23 @@
 			border-bottom-color: inherit;
 		}
 	}
+}
+
+.topper__headshot {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 100px;
+	overflow: hidden;
+	@include oGridRespondTo(M) {
+		width: 150px;
+	}
+}
+
+.topper__headshot-image {
+	max-width: 100%;
+	display: block;
+	margin-left: 8px;
 }
 
 

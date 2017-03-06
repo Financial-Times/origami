@@ -61,7 +61,7 @@ $colors: 'white', 'black', 'claret', 'blue', 'pink', 'slate';
 		margin-top: 20px;
 	}
 
-	.topper__stand-first {
+	.topper__standfirst {
 		@include oGridRespondTo(M) {
 			width: 50%;
 			margin: 0 auto;
