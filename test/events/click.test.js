@@ -78,7 +78,8 @@ describe('click', function () {
 
 		aLinkToSecuredrop.href = "https://www.ft.com/securedrop";
 		aLinkToSecuredrop.text = "A link to securedrop";
-		aLinkToSecuredrop.id = "anchor";
+		aLinkToSecuredrop.id = "anchorB";
+		aLinkToSecuredrop.setAttribute("data-o-tracking-do-not-track", "true");
 
 		aLinkToSecuredrop.addEventListener('click', function(e){
 			e.preventDefault();
