@@ -1,13 +1,17 @@
 /// Styles for the dark theme
 @mixin oFooterThemeDark() {
 	.o-footer--theme-dark {
-		@include oColorsFor('o-footer-dark', 'text' 'background' 'border');
+		@include oColorsFor('o-footer-dark', 'text' 'background');
 
 		// Make the white text look crisper and less bold on dark backgrounds
 		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		// sass-lint:enable no-vendor-prefixes
+
+		.o-footer__matrix-title {
+			border-color: oColorsGetColorFor('o-footer-dark-copyright', 'text');
+		}
 
 		.o-footer__matrix-title a {
 			color: oColorsGetColorFor('o-footer-dark-title', 'text');
@@ -40,10 +44,14 @@
 /// Styles for the light theme
 @mixin oFooterThemeLight() {
 	.o-footer--theme-light {
-		@include oColorsFor('o-footer-light', 'text' 'background' 'border');
+		@include oColorsFor('o-footer-light', 'text' 'background');
 
 		.o-footer__title {
 			color: oColorsGetColorFor('o-footer-light-title', 'text');
+		}
+
+		.o-footer__matrix-title {
+			border-color: oColorsGetColorFor('o-footer-light-copyright', 'text');
 		}
 
 		a {

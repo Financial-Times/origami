@@ -9,7 +9,6 @@
 	.o-footer {
 		@include oTypographySansSize('s');
 		margin-top: (2 * $o-footer-spacing-unit);
-		border-top: 10px solid;
 		line-height: $o-footer-spacing-unit;
 
 		a {
@@ -20,6 +19,8 @@
 
 	.o-footer__container {
 		@include oGridContainer();
+		/* hack to stop the margins collapsing */
+		padding-top: 0.1px;
 	}
 
 	.o-footer__row {
