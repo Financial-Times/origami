@@ -1098,23 +1098,31 @@ describe("Tooltip", () => {
 
 	describe("#resizeListener", () => {
 
+		let refreshStub;
+		let hasMovedStub;
+		let drawTooltipStub;
+		let mockRaf;
+
 		beforeEach(() => {
+			refreshStub = sinon.stub(Tooltip.Target.prototype, 'refreshRect');
+			hasMovedStub = sinon.stub(Tooltip.Target.prototype, 'hasMoved').returns(true);
+			drawTooltipStub = sinon.stub(Tooltip.prototype, 'drawTooltip');
+
+			mockRaf = createMockRaf();
+
 			fixtures.declarativeCode();
 		});
 
 		afterEach(() => {
+			refreshStub.restore();
+			drawTooltipStub.restore();
+			hasMovedStub.restore();
 			fixtures.reset();
+			window.requestAnimationFrame.restore();
 		});
 
 		it("redraws if the target has moved", () => {
-			const refreshStub = sinon.stub(Tooltip.Target.prototype, 'refreshRect');
-			const hasMovedStub = sinon.stub(Tooltip.Target.prototype, 'hasMoved').returns(true);
-
-			const drawTooltipStub = sinon.stub(Tooltip.prototype, 'drawTooltip');
-
 			const testTooltip = Tooltip.init('#tooltip-demo');
-
-			const mockRaf = createMockRaf();
 
 			sinon.stub(window, 'requestAnimationFrame', mockRaf.raf);
 
@@ -1125,19 +1133,12 @@ describe("Tooltip", () => {
 
 			proclaim.isTrue(refreshStub.called);
 			proclaim.isTrue(drawTooltipStub.called);
-			refreshStub.restore();
-			drawTooltipStub.restore();
 		});
 
 		it("doesn't redraw if the target hasn't moved", () => {
-			const refreshStub = sinon.stub(Tooltip.Target.prototype, 'refreshRect');
-			const hasMovedStub = sinon.stub(Tooltip.Target.prototype, 'hasMoved').returns(false);
-
-			const drawTooltipStub = sinon.stub(Tooltip.prototype, 'drawTooltip');
+			hasMovedStub.returns(false);
 
 			const testTooltip = Tooltip.init('#tooltip-demo');
-
-			const mockRaf = createMockRaf();
 
 			sinon.stub(window, 'requestAnimationFrame', mockRaf.raf);
 
@@ -1148,8 +1149,6 @@ describe("Tooltip", () => {
 
 			proclaim.isFalse(refreshStub.called);
 			proclaim.isFalse(drawTooltipStub.called);
-			refreshStub.restore();
-			drawTooltipStub.restore();
 		});
 	});
 
