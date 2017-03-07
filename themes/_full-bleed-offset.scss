@@ -1,6 +1,7 @@
 .topper--full-bleed-offset {
 
-	padding: 0;
+	padding-top: 0;
+	padding-bottom: 0;
 
 	@include alignText(left);
 	@include fullBleedImage;
@@ -46,12 +47,20 @@
 			content: '';
 			position: absolute;
 			left: 50%;
-			width: 150vw; //go extra wide to ensure its always covered
-			margin-left: -55vw; //compensate for the offset on Xl
+			width: 100vw; //go extra wide to ensure its always covered
+			margin-left: -50vw; //compensate for the offset on Xl
 			background: inherit;
 			top: 45px;
 			height: calc(100% - 45px);
+			@include oGridRespondTo(L) {
+				left: 74.1%;
+			}
+
+			@include oGridRespondTo(XL) {
+				left: 70.666%;
+			}
 		}
+
 	}
 
 	@include oGridRespondTo($from: M) {
