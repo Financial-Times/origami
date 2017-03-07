@@ -1,3 +1,9 @@
+/// Checks the contrast ratio and returns the WCAG
+/// rating, either AAA, AA, or AA18 meaning text should
+/// be at least 18px
+///
+/// @param {Color} $col1 - first colour to compare
+/// @param {Color} $col2 - second colour to compare
 @function oColorsGetWCAGRating($col1, $col2) {
 	$ratio: oColorsGetContrastRatio($col1, $col2);
 	$WCAG-rating: 'fail';

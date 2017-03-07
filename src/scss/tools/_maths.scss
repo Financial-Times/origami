@@ -1,5 +1,6 @@
-// Brightness maths based on:
-// http://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx
+// Square root maths function
+//
+// @param {Number} $r - Number to find the square root of
 // Code from: https://gist.github.com/jlong/f06f5843104ee10006fe
 @function sqrt ($r) {
     $x0: 1;
@@ -13,13 +14,21 @@
     @return $x1;
 }
 
-
+/// Power of maths function
+///
+/// @param {Number} $number - Number
+/// @param {Number} $exponent - Exponent
+/// From: https://css-tricks.com/snippets/sass/power-function/
 @function pow($number, $exponent) {
   $value: 1;
 
   @if $exponent > 0 {
     @for $i from 1 through $exponent {
       $value: $value * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number;
     }
   }
 
