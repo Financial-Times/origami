@@ -1,6 +1,7 @@
 @import 'src/scss/variables';
 @import 'src/scss/tools/color';
 @import 'src/scss/tools/maths';
+@import 'src/scss/tools/a11y';
 
 // Version 1
 @import 'src/scss/v1/palette';
@@ -42,13 +43,21 @@
 	}
 
 	@each $name, $csscolor in $o-colors-palette {
-		#{'.o-colors-palette-' + $name} {
+		.o-colors-palette-#{$name} {
 			background-color: $csscolor;
 
 			@if $csscolor != 'transparent' and $csscolor != 'inherit' {
 				color: oColorsGetTextColor($csscolor, 100);
 			}
 		}
+	}
+
+	.test-tint {
+		background: oColorsGetTint('white', 90);
+	}
+
+	.test-text-background {
+		@include oColorsFor('page', text, 50);
 	}
 
 	// Set silent mode back on to avoid multiple outputs of helper classes

@@ -1,65 +1,66 @@
-<h2 class="demo-title">Palette</h2>
+<div class="container">
+	<h2 class="demo-title">Palette</h2>
 
-{{#primary}}
-	<div class="demo-header">
-		<h2>Primary</h2>
-		<p>{{description}}</p>
-	</div>
+	{{#primary}}
+		<div class="demo-header">
+			<h2>Primary</h2>
+			<p>{{description}}</p>
+		</div>
 
-	<div class="demo-wrapper">
-		{{#colors}}
-			<div class="demo-color">
-				<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
-					<h3>
-						{{name}}
-						<span class="hex"></span>
-					</h3>
-					{{#tints}}<a href="#{{name}}-tints" class="o-buttons o-buttons--small o-buttons--standout">View tints</a>{{/tints}}
+		<div class="demo-wrapper">
+			{{#colors}}
+				<div class="demo-color">
+					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
+						<h3>
+							{{name}}
+							<span class="hex"></span>
+						</h3>
+					</div>
+					<div class="use-cases">{{usage}}</div>
 				</div>
-				<div class="color-description">{{description}}</div>
-			</div>
-		{{/colors}}
-	</div>
-{{/primary}}
+			{{/colors}}
+		</div>
+	{{/primary}}
 
-{{#secondary}}
-	<div class="demo-header">
-		<h2>Secondary</h2>
-		<p>{{description}}</p>
-	</div>
+	{{#secondary}}
+		<div class="demo-header">
+			<h2>Secondary</h2>
+			<p>{{description}}</p>
+		</div>
 
-	<div class="demo-wrapper">
-		{{#colors}}
-			<div class="demo-color">
-				<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
-					<h3>
-						{{name}}
-						<span class="hex"></span>
-					</h3>
+		<div class="demo-wrapper">
+			{{#colors}}
+				<div class="demo-color">
+					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
+						<h3>
+							{{name}}
+							<span class="hex"></span>
+						</h3>
+					</div>
+					<div class="use-cases">{{usage}}</div>
 				</div>
-				<div class="color-description">{{description}}</div>
-			</div>
-		{{/colors}}
-	</div>
-{{/secondary}}
+			{{/colors}}
+		</div>
+	{{/secondary}}
 
-{{#tertiary}}
-	<div class="demo-header">
-		<h2>Tertiary</h2>
-		<p>{{description}}</p>
-	</div>
+	{{#tertiary}}
+		<div class="demo-header">
+			<h2>Tertiary</h2>
+			<p>{{description}}</p>
+		</div>
 
-	<div class="demo-wrapper">
-		{{#colors}}
-			<div class="demo-color">
-				<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
-					<h3>
-						{{name}}
-						<span class="hex"></span>
-					</h3>
+		<div class="demo-wrapper">
+			{{#colors}}
+				<div class="demo-color">
+					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
+						<h3>
+							{{name}}
+							<span class="hex"></span>
+						</h3>
+					</div>
+					<div class="use-cases">{{usage}}</div>
 				</div>
-				<div class="color-description">{{description}}</div>
-			</div>
-		{{/colors}}
-	</div>
-{{/tertiary}}
+			{{/colors}}
+		</div>
+	{{/tertiary}}
+</div>

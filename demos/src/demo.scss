@@ -24,7 +24,6 @@ $o-colors-version: 2;
 }
 
 body {
-	@include oColorsFor('page');
 	content: "#{oColorsJSONifyMap($o-colors-palette)}";
 	box-sizing: border-box;
 	font-family: Helvetica, Arial, sans-serif;
@@ -34,28 +33,59 @@ body {
 	}
 }
 
+@each $name, $csscolor in $o-colors-palette-v2 {
+	@if $csscolor != 'transparent' and $csscolor != 'inherit' and $name != 'org-b2c' {
+		.o-colors-palette-#{$name} span {
+			@if $name == 'green' {
+				color: oColorsGetTextColor($csscolor, 95);
+			} @else {
+				color: oColorsGetTextColor($csscolor, 80);
+			}
+		}
+	}
+}
+
+.container {
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
 .demo-wrapper {
 	width: 100%;
 	display: flex;
+	margin-left: -10px;
+	margin-right: -10px;
 	justify-content: flex-start;
 	flex-direction: row;
 	flex-wrap: wrap;
 	align-content: space-between;
 }
 
+.use-cases-fade-out .demo-color { opacity: 0.37; }
+.use-cases-fade-out .demo-color.use-case-active { opacity: 1; }
+
 .demo-color {
-	flex: 0 0 32%;
-	margin-bottom: 20px;
+	flex: 0 0 30%;
+	margin: 0 10px 20px;
+	transition: opacity 0.3s ease-out;
+
+	.o-buttons {
+		margin-right: 5px;
+	}
 }
 
 .swatch {
-	margin-bottom: 5px;
-	border: 1px solid oColorsGetPaletteColor('tint-10');
+	position: relative;
+	margin-bottom: 10px;
+	border: 1px solid oColorsGetPaletteColor('black-tint-10');
 
 	h3 {
 		padding: 30px 0;
 		text-transform: capitalize;
 		text-align: center;
+		font-weight: normal;
+		font-size: 18px;
 	}
 
 	span {
