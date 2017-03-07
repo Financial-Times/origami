@@ -6,6 +6,11 @@
 /// Base tooltip style. Inherits from oOverlay.
 @mixin oTooltip {
 	@include oOverlay();
+
+	// Override border until it's updated in o-overlay
+	border-radius: $o-normalise-border-radius;
+	border: none;
+
 	@include oEffectsShadowsElevation($elevation: 'high');
 	position: absolute;
 	display: none;
@@ -14,8 +19,10 @@
 /// Base tooltip content style. Inherits from oOverlay.
 @mixin oTooltipContent {
 	@include oOverlayContent;
+
 	// Override padding provided for o-overlay which is too big
-	padding: 10px;
+	padding: 15px 0 15px 10px;
+	float: left;
 }
 
 
@@ -77,7 +84,7 @@
 /// Top arrow styling
 ///
 /// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
-@mixin oTooltipUpArrow($color: oColorsGetColorFor(o-overlay, border)) {
+@mixin oTooltipUpArrow($color: rgba(0, 0, 0, 0.05)) {
 	@include _oTooltipVerticalArrow;
 
 	&:before,
@@ -96,7 +103,7 @@
 /// Bottom arrow styling
 ///
 /// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
-@mixin oTooltipDownArrow($color: oColorsGetColorFor(o-overlay, border)) {
+@mixin oTooltipDownArrow($color: rgba(0, 0, 0, 0.05)) {
 	@include _oTooltipVerticalArrow;
 
 	&:before,
@@ -147,7 +154,7 @@
 /// Left arrow styling
 ///
 /// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
-@mixin oTooltipLeftArrow($color: oColorsGetColorFor(o-overlay, border)) {
+@mixin oTooltipLeftArrow($color: rgba(0, 0, 0, 0.05)) {
 	@include _oTooltipHorizontalArrow;
 
 	&:before,
@@ -166,7 +173,7 @@
 /// Right arrow styling
 ///
 /// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
-@mixin oTooltipRightArrow($color: oColorsGetColorFor(o-overlay, border)) {
+@mixin oTooltipRightArrow($color: rgba(0, 0, 0, 0.05)) {
 	@include _oTooltipHorizontalArrow;
 
 	&:before,
@@ -185,5 +192,5 @@
 
 @mixin oTooltipClose {
 	@include oOverlayClose;
-	padding: 0px; // override padding of overlay close button
+	padding: 0;
 }

@@ -14,8 +14,9 @@
   ],
   "dependencies": {
     "ftdomdelegate": "^2.1.0",
+    "o-normalise": "^1.0.0",
     "o-overlay": "^1.0.0",
-    "o-visual-effects": "^1.0.0",
-    "o-viewport": "^3.0.1"
+    "o-viewport": "^3.0.1",
+    "o-visual-effects": "^1.0.0"
   }
 }

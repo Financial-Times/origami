@@ -89,11 +89,6 @@ class Tooltip {
 		button.setAttribute('title', 'Close');
 		this.tooltipEl.appendChild(button);
 
-		// Build and append content
-		const content = document.createElement('section');
-		content.className = 'o-tooltip-content';
-		this.tooltipEl.appendChild(content);
-
 	};
 
 	show() {

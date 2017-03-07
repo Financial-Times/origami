@@ -16,7 +16,7 @@
     "karma-sinon": "^1.0.5",
     "karma-webpack": "^1.7.0",
     "mocha": "^3.0.2",
-		"mock-raf": "^1.0.0",
+    "mock-raf": "^1.0.0",
     "origami-build-tools": "^5.5.0",
     "proclaim": "^3.4.1",
     "sinon": "^1.17.5"
