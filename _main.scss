@@ -168,26 +168,7 @@
 	}
 }
 
-.topper--has-headshot .topper__text-wrapper {
-	padding-right: 150px;
-}
 
-.topper__headshot {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	width: 100px;
-	overflow: hidden;
-	@include oGridRespondTo(M) {
-		width: 150px;
-	}
-}
-
-.topper__headshot-image {
-	max-width: 100%;
-	display: block;
-	margin-left: 8px;
-}
 
 
 @supports (object-fit: cover) {

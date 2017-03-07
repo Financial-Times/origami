@@ -1,0 +1,58 @@
+.topper--has-headshot {
+
+	.topper__tags,
+	.topper__brand,
+	.topper__standfirst {
+		padding-right: 100px;
+	}
+
+
+	@include oGridRespondTo(M) {
+
+		.topper__headline,
+		.topper__tags,
+		.topper__brand,
+		.topper__standfirst {
+			padding-right: 150px;
+		}
+	}
+}
+
+.topper__headshot {
+	position: absolute;
+	bottom: -10px;
+	right: 0;
+	width: 100px;
+	overflow: hidden;
+	@include oGridRespondTo(M) {
+		width: 150px;
+	}
+}
+
+.topper__headshot-image {
+	max-width: 100%;
+	display: block;
+	margin-left: 8px;
+}
+
+.topper__brand {
+	position: relative;
+	margin-top: 8px;
+	@media screen {
+		&:before {
+			@include oIconsGetIcon('speech-left', getColor('claret'), 44, $iconset-version: 1);
+			content: '';
+			position: absolute;
+			top: -7px;
+			left: -9px;
+		}
+	}
+	@media print {
+		text-indent: -30px;
+	}
+}
+
+.topper__brand-title {
+	@include oTypographySerifDisplay(l, $load-progressively: true);
+	margin-left: 30px;
+}
