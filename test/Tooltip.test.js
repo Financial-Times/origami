@@ -1165,6 +1165,12 @@ describe("Tooltip", () => {
 	describe("#closeOnKeyUp", () => {
 	});
 
+	describe('throwError', () => {
+	});
+	describe('width', () => {
+	});
+	describe('height', () => {
+	});
 	describe("#destroy", () => {
 		it("calls close if tooltip.visible is true");
 		it("deletes the tooltip from the tooltip map");
