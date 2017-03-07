@@ -1033,6 +1033,7 @@ describe("Tooltip", () => {
 		});
 
 	});
+
 	describe("_drawTooltip", () => {
 		let testTooltip;
 
@@ -1055,6 +1056,7 @@ describe("Tooltip", () => {
 			proclaim.strictEqual(testTooltip.tooltipEl.style.left, "456px");
 		});
 	});
+
 	describe("_isOutOfBounds", () => {
 		it('returns true if the value passed in is less than 0', () => {
 			proclaim.isTrue(Tooltip._isOutOfBounds(-1));
@@ -1078,6 +1080,7 @@ describe("Tooltip", () => {
 			proclaim.isFalse(Tooltip._isOutOfBounds(document.body.offsetHeight-1, 'y'));
 		});
 	});
+
 	describe("_flipOrientation", () => {
 		it("returns above if you pass in below", () => {
 			proclaim.strictEqual(Tooltip._flipOrientation("above"), "below");
@@ -1157,7 +1160,6 @@ describe("Tooltip", () => {
 	});
 
 	describe("#closeOnExternalClick", () => {
-
 	});
 
 	describe("#closeOnKeyUp", () => {
