@@ -2,7 +2,7 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
-
+import createMockRaf from 'mock-raf';
 const Tooltip = require('./../main');
 
 describe("Tooltip", () => {
@@ -208,12 +208,14 @@ describe("Tooltip", () => {
 		let drawTooltipStub;
 		let resizeListenerStub;
 		let targetStub;
+		let closeStub;
 
 		beforeEach(() => {
 			getOptionsStub = sinon.stub(Tooltip.prototype, 'getOptions').returns({});
 			checkOptionsStub = sinon.stub(Tooltip.prototype, 'checkOptions').returnsArg(0);
 			drawTooltipStub = sinon.stub(Tooltip.prototype, 'drawTooltip');
 			resizeListenerStub = sinon.stub(Tooltip.prototype, 'resizeListener');
+			closeStub = sinon.stub(Tooltip.prototype, 'close');
 
 			targetStub = sinon.stub(Tooltip, "Target");
 
@@ -225,17 +227,17 @@ describe("Tooltip", () => {
 			checkOptionsStub.restore();
 			drawTooltipStub.restore();
 			resizeListenerStub.restore();
+			closeStub.restore();
 
 			targetStub.restore();
 
 			fixtures.reset();
 		});
 
-		it('sets up a touchend and click handler for the body', () => {
-			const closeOnExternalClickSpy = sinon.spy(Tooltip.prototype, 'closeOnExternalClick');
+		it('sets up a touchend handler for the body', () => {
+			const closeOnExternalClickSpy = sinon.stub(Tooltip.prototype, 'closeOnExternalClick');
 			let testTooltip = new Tooltip('#tooltip-demo');
 
-			document.body.click();
 
 			const e = new Event('touchend');
 			document.body.dispatchEvent(e);
@@ -243,36 +245,65 @@ describe("Tooltip", () => {
 			proclaim.isFalse(closeOnExternalClickSpy.called);
 
 			testTooltip.show();
-
-			document.body.click();
 			document.body.dispatchEvent(e);
 
-			proclaim.isTrue(closeOnExternalClickSpy.calledTwice);
+			proclaim.isTrue(closeOnExternalClickSpy.called);
+			closeOnExternalClickSpy.restore();
 		});
 
-		it('sets up a close handler tooltip-close button', () => {
-			const closeSpy = sinon.spy(Tooltip.prototype, 'close');
+		it('sets up a click handler for the body', () => {
+			const closeOnExternalClickSpy = sinon.stub(Tooltip.prototype, 'closeOnExternalClick');
+			let testTooltip = new Tooltip('#tooltip-demo');
+
+			document.body.click();
+
+			proclaim.isFalse(closeOnExternalClickSpy.called);
+
+			testTooltip.show();
+
+			document.body.click();
+
+			proclaim.isTrue(closeOnExternalClickSpy.called);
+			closeOnExternalClickSpy.restore();
+		});
+
+		it('sets up a close handler for touch on the tooltip-close button', () => {
+			const tooltipEl = document.getElementById('tooltip-demo');
+			const testTooltip = new Tooltip(tooltipEl);
+			testTooltip.render();
+
+			const tooltipCloseEl = tooltipEl.querySelector('.o-tooltip-close');
+			tooltipCloseEl.style.height = '20px';
+			tooltipCloseEl.style.width = '20px';
+
+			const e = new Event('touchend');
+			tooltipCloseEl.dispatchEvent(e);
+
+			proclaim.isFalse(closeStub.called);
+
+			testTooltip.show();
+
+			tooltipCloseEl.dispatchEvent(e);
+			/* this fails, idk why */
+			//proclaim.isTrue(closeStub.called);
+		});
+
+		it('sets up a close handler for a click on the tooltip-close button', () => {
 			const tooltipEl = document.getElementById('tooltip-demo');
 			const testTooltip = new Tooltip(tooltipEl);
 			testTooltip.render();
 			const tooltipCloseEl = tooltipEl.querySelector('.o-tooltip-close');
 
+			proclaim.isFalse(closeStub.called);
+
 			tooltipCloseEl.click();
 
-			const e = new Event('touchend');
-			tooltipCloseEl.dispatchEvent(e);
-
-			proclaim.isFalse(closeSpy.called);
+			proclaim.isFalse(closeStub.called);
 
 			testTooltip.show();
 
 			tooltipCloseEl.click();
-			tooltipCloseEl.dispatchEvent(e);
-			/* this fails because the touchend doesn't trigger. Don't know why,
-				works irl, previous test's touchend faking also works */
-			//proclaim.isTrue(closeSpy.calledTwice);
-
-			proclaim.isTrue(closeSpy.called);
+			proclaim.isTrue(closeStub.called);
 		});
 
 		it('sets up a viewport resize handler', () => {
@@ -890,12 +921,12 @@ describe("Tooltip", () => {
 			proclaim.strictEqual(testTooltip._getLeftFor('left'), "someLeftValue");
 		});
 		it("returns the target right, offset by the tooltip width", () => {
-			let leftValue = testTooltip._getLeftFor('right')
+			let leftValue = testTooltip._getLeftFor('right');
 			proclaim.isTrue(widthStub.called);
 			proclaim.strictEqual(leftValue, testTooltip.target.right - testTooltip.width());
 		});
 		it("returns the middle of the target offset by half the tooltip width", () => {
-			let leftValue = testTooltip._getLeftFor('middle')
+			let leftValue = testTooltip._getLeftFor('middle');
 			proclaim.isTrue(widthStub.called);
 			proclaim.strictEqual(leftValue, testTooltip.target.centrePoint.x - testTooltip.width()/2);
 		});
@@ -933,12 +964,12 @@ describe("Tooltip", () => {
 			proclaim.strictEqual(testTooltip._getTopFor('top'), "someTopValue");
 		});
 		it("returns the target bottom, offset by the tooltip height for 'bottom'", () => {
-			let topValue = testTooltip._getTopFor('bottom')
+			let topValue = testTooltip._getTopFor('bottom');
 			proclaim.isTrue(heightStub.called);
 			proclaim.strictEqual(topValue, testTooltip.target.bottom - testTooltip.height());
 		});
 		it("returns the middle of the target offset by half the tooltip height for 'middle'", () => {
-			let topValue = testTooltip._getTopFor('middle')
+			let topValue = testTooltip._getTopFor('middle');
 			proclaim.isTrue(heightStub.called);
 			proclaim.strictEqual(topValue, testTooltip.target.centrePoint.y - testTooltip.height()/2);
 		});
@@ -1027,7 +1058,7 @@ describe("Tooltip", () => {
 	describe("_isOutOfBounds", () => {
 		it('returns true if the value passed in is less than 0', () => {
 			proclaim.isTrue(Tooltip._isOutOfBounds(-1));
-		})
+		});
 
 		it('returns true if the value passed in is greater than document.body.offsetHeight and the axis is y', () => {
 			proclaim.isTrue(Tooltip._isOutOfBounds(document.body.offsetHeight+1, 'y'));
@@ -1060,5 +1091,80 @@ describe("Tooltip", () => {
 		it("returns left if you pass in right", () => {
 			proclaim.strictEqual(Tooltip._flipOrientation("right"), "left");
 		});
+	});
+
+	describe("#resizeListener", () => {
+
+		beforeEach(() => {
+			fixtures.declarativeCode();
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+		});
+
+		it("redraws if the target has moved", () => {
+			const refreshStub = sinon.stub(Tooltip.Target.prototype, 'refreshRect');
+			const hasMovedStub = sinon.stub(Tooltip.Target.prototype, 'hasMoved').returns(true);
+
+			const drawTooltipStub = sinon.stub(Tooltip.prototype, 'drawTooltip');
+
+			const testTooltip = Tooltip.init('#tooltip-demo');
+
+			const mockRaf = createMockRaf();
+
+			sinon.stub(window, 'requestAnimationFrame', mockRaf.raf);
+
+			testTooltip.resizeListener();
+			mockRaf.step({ count: 1 });
+
+			proclaim.isTrue(hasMovedStub.called);
+
+			proclaim.isTrue(refreshStub.called);
+			proclaim.isTrue(drawTooltipStub.called);
+			refreshStub.restore();
+			drawTooltipStub.restore();
+		});
+
+		it("doesn't redraw if the target hasn't moved", () => {
+			const refreshStub = sinon.stub(Tooltip.Target.prototype, 'refreshRect');
+			const hasMovedStub = sinon.stub(Tooltip.Target.prototype, 'hasMoved').returns(false);
+
+			const drawTooltipStub = sinon.stub(Tooltip.prototype, 'drawTooltip');
+
+			const testTooltip = Tooltip.init('#tooltip-demo');
+
+			const mockRaf = createMockRaf();
+
+			sinon.stub(window, 'requestAnimationFrame', mockRaf.raf);
+
+			testTooltip.resizeListener();
+			mockRaf.step({ count: 1 });
+
+			proclaim.isTrue(hasMovedStub.called);
+
+			proclaim.isFalse(refreshStub.called);
+			proclaim.isFalse(drawTooltipStub.called);
+			refreshStub.restore();
+			drawTooltipStub.restore();
+		});
+	});
+
+	describe("#close", () => {
+		it("stops listening to resize events if this is the last tooltip");
+		it("sets tooltip.visible to false");
+		it("sets display none on the tooltip");
+	});
+
+	describe("#closeOnExternalClick", () => {
+
+	});
+
+	describe("#closeOnKeyUp", () => {
+	});
+
+	describe("#destroy", () => {
+		it("calls close if tooltip.visible is true");
+		it("deletes the tooltip from the tooltip map");
 	});
 });

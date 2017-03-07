@@ -9,6 +9,14 @@ class Target {
 		this.rectObject = this.targetEl.getBoundingClientRect();
 	}
 
+	hasMoved(){
+		let newRect = this.targetEl.getBoundingClientRect();
+		return (this.top !== newRect.top ||
+			this.bottom !== newRect.bottom ||
+			this.left !== newRect.left ||
+			this.right !== newRect.right);
+	}
+
 	getEdge(edge){
 		const edges = {"top": this.top, "bottom": this.bottom, "right": this.right, "left": this.left};
 		return edges[edge];
