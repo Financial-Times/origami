@@ -13,15 +13,23 @@
 	@return $WCAG-rating;
 }
 
+/// Checks the constrast of two colours and reports based on
+/// WCAG guidelines for colour contrast
+///
+/// @param {Color} $col1 - first colour to compare
+/// @param {Color} $col2 - second colour to compare
+/// @param {Boolean} $warnings - whether this function should throw warnings/errors or just return
 @function oColorsCheckContrast($col1, $col2, $warnings: true) {
 	$ratio: oColorsGetContrastRatio($col1, $col2);
 
 	@if $ratio >= 4.5 {
-		@return true;
+		@return 'pass';
 	} @else if $ratio >= 3 {
-		@warn "Caution: When using the combination of #{$col1} with #{$col2}, text should be larger than 18px to pass WCAG color contrast guidelines.";
-		@return true;
-	} @else {
+		@if $warnings { @warn "Caution: When using the combination of #{$col1} with #{$col2}, text should be larger than 18px to pass WCAG color contrast guidelines."; }
+		@return 'large';
+	}
+
+	@if $warnings {
 		@error "This combination of #{$col1} with #{$col2} does not pass WCAG color contrast guidelines.";
 	}
 

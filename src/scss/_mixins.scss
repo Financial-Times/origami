@@ -66,6 +66,7 @@
 		$useCaseTextColor: oColorsGetColorFor($useCaseList, text, $options: $args);
 		$useCaseBackgroundColor: oColorsGetColorFor($useCaseList, background, $options: $args);
 
+		// If no text colour is defined but there is a background colour for the use case
 		@if $useCaseTextColor == null and $useCaseBackgroundColor != null {
 			$useCaseTextColor: oColorsGetTextColor($useCaseBackgroundColor, $textLevel);
 		}
@@ -77,7 +78,7 @@
 	}
 }
 
-/// Update the color palette with calculated tints of
+/// Update the palette with calculated tints of
 /// each color from $o-colors-tints
 @mixin _oColorsSetPaletteTints {
 	@each $color, $settings in $o-colors-tints {

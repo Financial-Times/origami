@@ -175,9 +175,14 @@
 	$percentage: $opacity;
 
 	$textColor: oColorsMixColor($percentage, $baseColor, $background);
+	$testContrast: oColorsCheckContrast($textColor, $background, false);
 
-	@if oColorsCheckContrast($textColor, $background) {
-		@return $textColor;
+	@if not $testContrast {
+		@error "The combination of #{$opacity}% #{$baseColor} on #{$background} does not pass WCAG guidelines for color contrast.";
+	} @else if $testContrast == 'large' {
+		@warn "When using this combination (#{$opacity}% #{$baseColor} on #{$background}) please use a font size larger than 18px.";
 	}
+
+	@return $textColor;
 }
 
