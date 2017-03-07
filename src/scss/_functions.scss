@@ -15,12 +15,13 @@
 	}
 }
 
-/// Get a neutral colour based on the background context and base color
+/// Returns a colour based on the background context and base color
+/// at the supplied percentage
 ///
 /// @param {Number} $percentage [60] - percentage opacity of the colour over the background
 /// @param {String} $background [pink] - palette name of background color
 /// @param {String} $color [black] - palette name of color
-@function oColorsGetContrastedColor($percentage: 80, $color: 'black', $background: 'pink') {
+@function oColorsMixColor($percentage: 80, $color: 'black', $background: 'pink') {
 	$context: $background;
 	$base: $color;
 
@@ -126,33 +127,37 @@
 }
 
 /// Returns a customised version of our shade-able colors defined in
-/// $o-colors-shades
+/// $o-colors-tints
 ///
 /// @param {String} $color - the name of the color to be shaded
-/// @param {Number} $saturation - the saturation value of the new color
 /// @param {Number} $brightness - the brightness value of the new color
-@function oColorsGetColorShade($color, $saturation, $brightness) {
+@function oColorsGetTint($color, $brightness) {
 	$hue: null;
+	$saturation: null;
+	$mix: null;
+	$newcolor: null;
 
-	@if(map-has-key($o-colors-shades, $color)) {
-		$hue: map-get(map-get($o-colors-shades, $color), 'hue');
-	} @else {
-		$color-shades: map-keys($o-colors-shades);
-		@error "It is not possible to use a shade of: #{$color}, please use one of: #{$color-shades} instead.";
+	@if not (map-has-key($o-colors-tints, $color)) {
+		$color-tints: map-keys($o-colors-tints);
+		@error "It is not possible to use a tint of: #{$color}, please use one of: #{$color-tints} instead.";
 	}
 
-	@return _oColorsHSB($hue, $saturation, $brightness)
-}
-
-@function oColorsGetTextLevelPercentage($level, $background: default) {
-	@if map-has-key($_o-colors-text-levels, $background) {
-		@return map-get(map-get($_o-colors-text-levels, $background), $level);
+	@if (map-has-key(map-get($o-colors-tints, $color), 'hue')) {
+		$hue: map-get(map-get($o-colors-tints, $color), 'hue');
+		$saturation: map-get(map-get($o-colors-tints, $color), 'saturation');
+		$newcolor: _oColorsHSB($hue, $saturation, $brightness)
 	} @else {
-		@return map-get(map-get($_o-colors-text-levels, 'default'), $level);
+		$newcolor: oColorsMixColor($brightness, $color);
 	}
+
+	@return $newcolor;
 }
 
-@function oColorsGetTextBase($color) {
+/// Return either white or black for the text base
+/// depending on the background colour
+///
+/// @param {String} $color - the name of the background colour being used
+@function _oColorsGetTextBase($color) {
 	@if oColorsColorBrightness($color) < 65% {
 		@return 'white';
 	} @else {
@@ -160,42 +165,19 @@
 	}
 }
 
-@function oColorsGetTextColor($background, $level) {
-	$baseColor: oColorsGetTextBase($background);
-	$percentage: $level;
+/// Returns a text colour based on the background and
+/// an opacity percentage the colour should appear at
+///
+/// @param {Color} $background - the hex color of the background the text will appear on
+/// @param {Number} $opacity [100] - the opacity percentage the text colour should appear at
+@function oColorsGetTextColor($background, $opacity: 90) {
+	$baseColor: _oColorsGetTextBase($background);
+	$percentage: $opacity;
 
-	@if type-of($level) == string {
-		$percentage: oColorsGetTextLevelPercentage($level, $background);
+	$textColor: oColorsMixColor($percentage, $baseColor, $background);
+
+	@if oColorsCheckContrast($textColor, $background) {
+		@return $textColor;
 	}
-
-	@return oColorsGetContrastedColor($percentage, $baseColor, $background);
 }
 
-@function oColorsCheckContrast($col1, $col2) {
-	$ratio: oColorsGetContrastRatio($col1, $col2);
-
-	@if $ratio >= 4.5 {
-		@return true;
-	} @else if $ratio >= 3 {
-		@warn "Caution: When using this colour combination, text should be larger than 18px to pass WCAG color contrast guidelines.";
-	} @else {
-		@warn "This color combination does not pass WCAG color contrast guidelines.";
-	}
-
-	@return false;
-}
-
-@function oColorsGetWCAGRating($col1, $col2) {
-	$ratio: oColorsGetContrastRatio($col1, $col2);
-	$WCAG-rating: 'fail';
-
-	@if $ratio >= 7 {
-		$WCAG-rating: 'AAA';
-	} @else if $ratio >= 4.5 {
-		$WCAG-rating: 'AA';
-	} @else if $ratio >= 3 {
-		$WCAG-rating: 'AA18';
-	}
-
-	@return $WCAG-rating;
-}

@@ -4,14 +4,3 @@ $o-colors-version: 1 !default;
 
 $o-colors-palette: () !default;
 $o-colors-usecases: () !default;
-
-$_o-colors-text-levels: (
-	'default': (
-		'light': 60,
-		'dark': 80,
-	),
-	'white': (
-		'light': 70,
-		'dark': 80
-	),
-);

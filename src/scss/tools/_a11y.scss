@@ -1,0 +1,29 @@
+@function oColorsGetWCAGRating($col1, $col2) {
+	$ratio: oColorsGetContrastRatio($col1, $col2);
+	$WCAG-rating: 'fail';
+
+	@if $ratio >= 7 {
+		$WCAG-rating: 'AAA';
+	} @else if $ratio >= 4.5 {
+		$WCAG-rating: 'AA';
+	} @else if $ratio >= 3 {
+		$WCAG-rating: 'AA18';
+	}
+
+	@return $WCAG-rating;
+}
+
+@function oColorsCheckContrast($col1, $col2, $warnings: true) {
+	$ratio: oColorsGetContrastRatio($col1, $col2);
+
+	@if $ratio >= 4.5 {
+		@return true;
+	} @else if $ratio >= 3 {
+		@warn "Caution: When using the combination of #{$col1} with #{$col2}, text should be larger than 18px to pass WCAG color contrast guidelines.";
+		@return true;
+	} @else {
+		@error "This combination of #{$col1} with #{$col2} does not pass WCAG color contrast guidelines.";
+	}
+
+	@return false;
+}
