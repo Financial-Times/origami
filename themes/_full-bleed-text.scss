@@ -1,7 +1,7 @@
 // scss-lint:disable SelectorFormat
 .topper--full-bleed-text {
 
-	margin-top: 0;
+	padding: 0;
 
 	@include alignText(center);
 	@include resizeTextbox;

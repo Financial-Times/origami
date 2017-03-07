@@ -1,6 +1,6 @@
 .topper--full-bleed-image-right {
 
-	margin-top: 0;
+	padding: 0;
 
 	@include alignText(left);
 	@include oGridRespondTo(S) {
