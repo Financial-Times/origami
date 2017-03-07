@@ -1,7 +1,16 @@
 .topper--split-text-left {
+
+	margin-top: 0;
+
 	@include alignText(left);
 
 	@include oGridRespondTo(M, L) {
 		@include stackTags;
+	}
+
+	@include oGridRespondTo(M) {
+		.topper__tags {
+			width: 45%;
+		}
 	}
 }

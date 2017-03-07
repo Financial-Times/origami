@@ -1,4 +1,7 @@
 .topper--full-bleed-image-right {
+
+	margin-top: 0;
+
 	@include alignText(left);
 	@include oGridRespondTo(S) {
 		@include overlayText;
@@ -17,9 +20,5 @@
 
 	.topper__text-wrapper {
 		float: right;
-	}
-
-	.topper__tags {
-		width: inherit;
 	}
 }

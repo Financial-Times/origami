@@ -1,5 +1,8 @@
 // scss-lint:disable SelectorFormat
 .topper--full-bleed-text {
+
+	margin-top: 0;
+
 	@include alignText(center);
 	@include resizeTextbox;
 
@@ -7,7 +10,6 @@
 		display: none;
 	}
 
-	.topper__tags,
 	.topper__text {
 		width: inherit;
 	}

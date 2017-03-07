@@ -9,7 +9,7 @@
 	}
 }
 
-$colors: 'white', 'black', 'claret', 'blue', 'pink', 'slate';
+$colors: 'white', 'black', 'claret', 'blue', 'pink', 'slate', 'warm-1';
 @each $color in $colors {
 	[data-textbox-background~='#{$color}'] {
 		$text-color: black;
@@ -20,7 +20,7 @@ $colors: 'white', 'black', 'claret', 'blue', 'pink', 'slate';
 		@include colorBorder($text-color);
 		background-color: oColorsGetPaletteColor('#{$color}');
 		color: $text-color;
-		@if $color == 'pink' {
+		@if $color == 'pink' or $color == 'warm-1' {
 			.topper__tags {
 				color: oColorsGetPaletteColor('claret');
 			}

@@ -1,4 +1,7 @@
 .topper--full-bleed-offset {
+
+	margin-top: 0;
+
 	@include alignText(left);
 	@include fullBleedImage;
 
@@ -65,8 +68,4 @@
 		padding: 20px 0;
 	}
 
-	.topper__tags {
-		color: oColorsGetPaletteColor('claret');
-		width: inherit;
-	}
 }

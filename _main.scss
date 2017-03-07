@@ -1,7 +1,7 @@
-@import 'themes';
+@import 'mixins';
 
 .topper {
-	margin-top: 10px;
+	padding-top: 10px;
 }
 
 .topper__headline {
@@ -158,10 +158,6 @@
 	display: flex;
 	padding-bottom: 5px;
 
-	@include oGridRespondTo(M) {
-		width: 45%;
-	};
-
 	.n-content-tag {
 		color: inherit;
 		font-size: 16px;
@@ -170,6 +166,10 @@
 			border-bottom-color: inherit;
 		}
 	}
+}
+
+.topper--has-headshot .topper__text-wrapper {
+	padding-right: 150px;
 }
 
 .topper__headshot {
@@ -212,3 +212,5 @@
 		object-fit: cover;
 	}
 }
+
+@import 'themes';
