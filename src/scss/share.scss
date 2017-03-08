@@ -39,7 +39,7 @@
 			text-indent: $o-share-icon-size;
 			overflow: hidden;
 		}
-		
+
 		a,
 		button {
 			display: block;
@@ -49,7 +49,8 @@
 			width: $o-share-icon-size;
 			height: $o-share-icon-size;
 			border: 0;
-						
+			cursor: pointer;
+
 			// Increase the hit target to improve a11y
 			&:after {
 				position: absolute;
@@ -74,6 +75,7 @@
 		}
 
 		button {
+			padding: 0;
 			background-color: transparent;
 		}
 
