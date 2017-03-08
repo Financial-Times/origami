@@ -52,14 +52,6 @@
 			background: inherit;
 			top: 45px;
 			height: calc(100% - 45px);
-			@include oGridRespondTo(L) {
-				left: 74.1%; //These are magic numbers to compensate for grid offset/widths
-			}
-
-			@include oGridRespondTo(XL) {
-				left: 70.666%; //These are magic numbers to compensate for grid offset/widths
-
-			}
 		}
 
 	}
