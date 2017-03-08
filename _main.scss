@@ -6,6 +6,7 @@
 
 .topper__headline {
 	@include oTypographySerifDisplay('l', $load-progressively: true);
+	-webkit-font-smoothing: antialiased;
 	margin: 0 0 20px;
 
 	@include oGridRespondTo(L) {
@@ -37,6 +38,7 @@
 	opacity: 0.8;
 	font-size: round(18px * 0.9);
 	line-height: 1.4;
+	-webkit-font-smoothing: antialiased;
 
 	.o-typography--loaded-sans & {
 		font-size: 18px;
@@ -151,6 +153,7 @@
 }
 
 .topper__brand {
+	-webkit-font-smoothing: antialiased;
 	font-weight: 400;
 }
 
