@@ -4,26 +4,32 @@
 		"colors": [
 			{
 				"name": "pink",
+				"tints": false,
 				"usage": "backgrounds"
 			},
 			{
 				"name": "black",
+				"tints": true,
 				"usage": "text, border, backgrounds, buttons, icons"
 			},
 			{
 				"name": "white",
+				"tints": true,
 				"usage": "text, border, backgrounds, buttons, icons"
 			},
 			{
 				"name": "claret",
+				"tints": true,
 				"usage": "text, border, backgrounds"
 			},
 			{
 				"name": "blue",
+				"tints": true,
 				"usage": "text, backgrounds"
 			},
 			{
 				"name": "teal",
+				"tints": true,
 				"usage": "text, backgrounds, buttons, links"
 			}
 		]

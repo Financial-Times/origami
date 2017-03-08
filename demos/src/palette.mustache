@@ -1,6 +1,4 @@
 <div class="container">
-	<h2 class="demo-title">Palette</h2>
-
 	{{#primary}}
 		<div class="demo-header">
 			<h2>Primary</h2>
@@ -10,11 +8,10 @@
 		<div class="demo-wrapper">
 			{{#colors}}
 				<div class="demo-color">
+					<h3>{{name}} {{#tints}}<button class="demo-tint-button demo-tint-button--{{name}}">Tints</button>{{/tints}}</h3>
 					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
-						<h3>
-							{{name}}
-							<span class="hex"></span>
-						</h3>
+						<span class="hex"></span>
+						{{#tints}}<div class="demo-tints-container"></div>{{/tints}}
 					</div>
 					<div class="use-cases">{{usage}}</div>
 				</div>
@@ -31,11 +28,9 @@
 		<div class="demo-wrapper">
 			{{#colors}}
 				<div class="demo-color">
+					<h3>{{name}}</h3>
 					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
-						<h3>
-							{{name}}
-							<span class="hex"></span>
-						</h3>
+						<span class="hex"></span>
 					</div>
 					<div class="use-cases">{{usage}}</div>
 				</div>
@@ -52,11 +47,9 @@
 		<div class="demo-wrapper">
 			{{#colors}}
 				<div class="demo-color">
+					<h3>{{name}}</h3>
 					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
-						<h3>
-							{{name}}
-							<span class="hex"></span>
-						</h3>
+						<span class="hex"></span>
 					</div>
 					<div class="use-cases">{{usage}}</div>
 				</div>

@@ -3,7 +3,7 @@ const demoColors = Array.from(document.querySelectorAll('.demo-color'));
 let activeUseCase = '';
 
 function oColorsDemoPalette() {
-	const shadedColors = ['white', 'black', 'claret', 'blue', 'teal'];
+	const colorTints = ['white', 'black', 'claret', 'blue', 'teal'];
 
 	// Get the content property from the body element.
 	// See demo.scss where a JSON-like string is added.
@@ -23,11 +23,7 @@ function oColorsDemoPalette() {
 		hexSpan.innerHTML = palette[oColor];
 	}
 
-	for (let color of shadedColors) {
-		const colorElem = document.querySelector('[data-o-color='+color+']');
-	}
-
-	// const shades = buildShadedArrays(palette, shadedColors);
+	populateTintDemos(palette, colorTints);
 }
 
 
@@ -45,7 +41,7 @@ function oColorsUseCases() {
 			let button = document.createElement('button');
 			button.textContent = use;
 			button.className = 'o-buttons o-buttons--small o-buttons--uncolored';
-			button.addEventListener('click', oColorsShowUseCases);
+			button.addEventListener('click', oColorsShowUseCases, false);
 			elem.appendChild(button);
 		}
 	});
@@ -81,15 +77,35 @@ function oColorsShowUseCases() {
 	activeUseCase = useCase;
 }
 
-// function buildShadedArrays(palette, colors) {
-// 	const shades = colors.map((color) => {
-// 		return Object.keys(palette).filter((palette_color) => {
-// 			return palette_color.startsWith(color + '-');
-// 		});
-// 	});
+function populateTintDemos(palette, colors) {
+	const tints = colors.map((color) => {
+		let tintPalette = {'name': color};
+		tintPalette.tints = Object.keys(palette).filter((palette_color) => {
+			return palette_color.startsWith(color + '-');
+		});
+		return tintPalette;
+	});
 
-// 	return shades;
-// }
+	tints.forEach((color) => {
+		let name = color.name;
+		let colorTints = color.tints;
+		let colorElem = document.querySelector('.swatch.o-colors-palette-' + name + ' .demo-tints-container');
+
+		let tintButton = document.querySelector('.demo-tint-button--' + name);
+		tintButton.addEventListener('click', oColorsShowTints, false);
+
+		colorTints.forEach((tint) => {
+			let tintDiv = document.createElement('div');
+			tintDiv.className = 'demo-tint o-colors-palette-' + tint;
+			colorElem.appendChild(tintDiv);
+		});
+	});
+}
+
+function oColorsShowTints() {
+	let tintContainer = this.closest('.demo-color').querySelector('.demo-tints-container');
+	tintContainer.classList.toggle('show-me');
+}
 
 document.addEventListener('DOMContentLoaded', function() {
 	oColorsDemoPalette();

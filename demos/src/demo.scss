@@ -72,24 +72,78 @@ body {
 
 	.o-buttons {
 		margin-right: 5px;
+		color: oColorsMixColor(70, black, white);
+		border-color: oColorsMixColor(20, black, white);
+	}
+
+	h3 {
+		position: relative;
+		margin: 0;
+		padding: 8px;
+		text-transform: capitalize;
+		font-weight: normal;
+		font-size: 16px;
+		line-height: 24px;
+		border: 1px solid oColorsMixColor(20, black, white);
+		border-bottom: 0;
+	}
+}
+
+.demo-tint-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 40px;
+	padding: 0 10px;
+	background-color: transparent;
+	cursor: pointer;
+	border: 0;
+	border-left: 1px solid oColorsMixColor(20, black, white);
+}
+
+.demo-tints-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-content: stretch;
+	transform: translateY(-100%);
+	transition: transform 0.3s ease-in;
+
+	&.show-me {
+		transform: translateY(0);
+	}
+
+	.demo-tint {
+		flex: 1 0 25%;
+		cursor: pointer;
 	}
 }
 
 .swatch {
 	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 120px;
 	margin-bottom: 10px;
-	border: 1px solid oColorsGetPaletteColor('black-tint-10');
 
-	h3 {
-		padding: 30px 0;
-		text-transform: capitalize;
-		text-align: center;
-		font-weight: normal;
-		font-size: 18px;
+	&.o-colors-palette-white {
+		border: 1px solid oColorsMixColor(20, black, white);
 	}
 
 	span {
 		display: block;
+		text-align: center;
 		text-transform: uppercase;
 	}
 }
