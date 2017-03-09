@@ -5,7 +5,8 @@
   "main": "main.js",
   "private": true,
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start karma.conf.js"
+    "test": "./node_modules/karma/bin/karma start karma.conf.js",
+    "test-watch": "node node_modules/karma/bin/karma start --browsers=Chrome --single-run=false --auto-watch"
   },
   "devDependencies": {
     "babelify": "^6.1.3",
