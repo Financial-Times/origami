@@ -40,20 +40,20 @@ if (cutsTheMustard) {
     if (o.hasOwnProperty('onreadystatechange')) {
         o.onreadystatechange = function() {
             if (o.readyState === "loaded") {
-                otrackinginit();
+                oTrackinginit();
             }
         };
     } else {
-        o.onload = otrackinginit;
+        o.onload = oTrackinginit;
     }
     s.parentNode.insertBefore(o, s);
 }
 ```
 
-The `otrackinginit` function, used above, would have function calls to setup o-tracking and likely send a page view event. e.g.
+The `oTrackinginit` function, used above, would have function calls to setup o-tracking and likely send a page view event. e.g.
 
 ```js
-function otrackinginit() {
+function oTrackinginit() {
     var oTracking = Origami['o-tracking'];
     // Setup
     oTracking.init({...config...});
@@ -109,22 +109,22 @@ if (cutsTheMustard) {
     <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
     <!-- INIT and make a page request -->
     <script>
-        function otrackinginit() {
+        function oTrackinginit() {
+            // oTracking
+            var oTracking = Origami['o-tracking'];
             var config_data = {
                 server: 'https://spoor-api.ft.com/px.gif',
                 context: {
                     product: 'ft.com'
                 },
                 user: {
-                    ft_session: otracking.utils.getValueFromCookie(/FTSession=([^;]+)/)
+                    ft_session: oTracking.utils.getValueFromCookie(/FTSession=([^;]+)/)
                 }
             }
-            // oTracking
-            var oTracking = Origami['o-tracking'];
             // Setup
             oTracking.init(config_data);
             // Page
-            otracking.page({
+            oTracking.page({
                 content: {
                     asset_type: 'page'
                 }
@@ -138,11 +138,11 @@ if (cutsTheMustard) {
             if (o.hasOwnProperty('onreadystatechange')) {
                 o.onreadystatechange = function() {
                     if (o.readyState === "loaded") {
-                        otrackinginit();
+                        oTrackinginit();
                     }
                 };
             } else {
-                o.onload = otrackinginit;
+                o.onload = oTrackinginit;
             }
             s.parentNode.insertBefore(o, s);
         }
