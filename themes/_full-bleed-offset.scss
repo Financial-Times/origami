@@ -30,6 +30,7 @@
 			margin-top: -45px;
 		}
 	}
+
 	.topper__text-box {
 		position: relative;
 		padding: 0;
@@ -43,14 +44,13 @@
 			top: 0;
 			height: 100%;
 		}
+	}
 
 		@include oGridRespondTo(M) {
-			margin-left: -20px;
-			margin-right: -40px;
-			&:before {
-				margin-left: calc(-50vw - 10px);
+			.topper__offset-margin {
+				margin-left: -20px;
+				margin-right: -20px;
 			}
 		}
-	}
 
 }
