@@ -5,7 +5,7 @@
 
 	.o-teaser__content {
 		padding: oGridGutter(M);
-		border: 1px solid $_o-teaser-color-border;
+		border: 1px solid oColorsGetColorFor('o-teaser', border);
 	}
 
 	.o-teaser__heading {
@@ -50,7 +50,7 @@
 				height: 100%;
 				width: 25%;
 				display: block;
-				border: 1px solid $_o-teaser-color-border;
+				border: 1px solid oColorsGetColorFor('o-teaser', border);
 				border-left: 0;
 			}
 		}
@@ -96,8 +96,8 @@
 			display: block;
 			width: 100%;
 			height: 50%;
-			border-left: 1px solid $_o-teaser-color-border;
-			border-bottom: 1px solid $_o-teaser-color-border;
+			border-left: 1px solid oColorsGetColorFor('o-teaser', border);
+			border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
 		}
 
 		@include oGridRespondTo(S, L) {
@@ -147,8 +147,8 @@
 			display: block;
 			width: 100%;
 			height: 50%;
-			border-left: 1px solid $_o-teaser-color-border;
-			border-bottom: 1px solid $_o-teaser-color-border;
+			border-left: 1px solid oColorsGetColorFor('o-teaser', border);
+			border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
 		}
 	}
 }
@@ -170,7 +170,7 @@
 			height: 100%;
 			width: 25%;
 			display: block;
-			border: 1px solid $_o-teaser-color-border;
+			border: 1px solid oColorsGetColorFor('o-teaser', border);
 			border-left: 0;
 		}
 	}

@@ -4,7 +4,7 @@
 	flex-flow: row wrap;
 	justify-content: space-between;
 	padding-bottom: 15px;
-	border-bottom: 1px solid $_o-teaser-color-border;
+	border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
 
 	.o-teaser__content {
 		flex: 1 0 70%;

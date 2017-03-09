@@ -4,8 +4,8 @@
 	flex-flow: column nowrap;
 
 	.o-teaser__content {
+		@include oColorsFor('o-teaser-hero', background);
 		border: 0;
-		background-color: $_o-teaser-color-hero-background;
 	}
 
 	.o-teaser__meta:after {
@@ -14,7 +14,7 @@
 		width: 60px;
 		margin-top: 5px;
 		margin-bottom: 10px;
-		border-bottom: 4px solid oColorsGetPaletteColor('claret-1');
+		border-bottom: 4px solid oColorsGetPaletteColor('claret');
 	}
 }
 
@@ -43,28 +43,28 @@
 	.o-teaser__heading:focus,
 	#{$o-hoverable-if-hover-enabled} .o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oTeaserTextColor(#ffffff, $_o-teaser-color-hero-opinion-background, 73);
+		@include oColorsFor('o-teaser-hero-opinion', text, 73);
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp,
 	.o-teaser__timestamp-prefix:before {
-		color: oTeaserTextColor(#ffffff, $_o-teaser-color-hero-opinion-background, 80);
+		@include oColorsFor('o-teaser-hero-opinion', text, 80);
 	}
 
 	.o-teaser__timestamp-prefix:before {
-		background-color: oTeaserTextColor(#ffffff, $_o-teaser-color-hero-opinion-background, 80);
+		background-color: oColorsMixColor(80, oColorsGetPaletteColor('white'), oColorsGetColorFor('o-teaser-hero-opinion', background));
 	}
 
 	&.o-teaser--hero {
 		.o-teaser__content,
 		.o-teaser__image-container:after {
-			background-color: $_o-teaser-color-hero-opinion-background;
+			@include oColorsFor('o-teaser-hero-opinion', background);
 		}
 
 		.o-teaser__content:after {
 			@include oGridRespondTo(S, L) {
-				background-color: $_o-teaser-color-hero-opinion-background;
+				@include oColorsFor('o-teaser-hero-opinion', background);
 			}
 		}
 	}
@@ -126,10 +126,10 @@
 		padding-left: 30%;
 
 		&:after {
+			@include oColorsFor('o-teaser-hero', background);
 			display: block;
 			top: 50%;
 			border: 0;
-			background-color: $_o-teaser-color-hero-background;
 		}
 	}
 

@@ -34,13 +34,13 @@
 	@include oTypographyProgressiveFont(serifDisplay, m);
 	@include oTypographyFallbackFontSize(serifDisplay, 22px);
 	@include font-size(22, 26);
+	@include oColorsFor('o-teaser', text, 80);
 	margin: 0;
 	font-weight: oFontsWeight(normal);
-	color: oTeaserTextColor($percent: 80);
 
 	#{$o-hoverable-if-hover-enabled} &:hover,
 	&:focus {
-		color: oTeaserTextColor($percent: 55);
+		@include oColorsFor('o-teaser', text, 55);
 	}
 
 	a {
@@ -71,7 +71,7 @@
 
 	#{$o-hoverable-if-hover-enabled} &:hover,
 	&:focus {
-		color: oTeaserTextColor($percent: 55);
+		@include oColorsFor('o-teaser', text, 55);
 	}
 
 	span {
@@ -82,9 +82,9 @@
 /// Video duration styles
 @mixin oTeaserDuration {
 	font-size: 14px;
-	color: #656059;
 	display: inline-block;
 	margin: 0 0 0 10px;
+	color: oColorsGetPaletteColor('black-tint-60');
 
 	&:first-child {
 		margin-left: 0;
@@ -94,8 +94,8 @@
 /// Styles for standfirst element
 @mixin oTeaserStandfirst {
 	@include font-size(16, 20);
+	@include oColorsFor('o-teaser', text, 60);
 	margin: 0;
-	color: oTeaserTextColor();
 
 	.o-teaser__heading + & {
 		margin-top: 10px;

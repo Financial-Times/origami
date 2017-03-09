@@ -1,24 +1,32 @@
+// ??
 @include oColorsSetColor('fastft-brand', #cf191d);
 @include oColorsSetColor('fastft-highlight', #f5dfd9);
 @include oColorsSetColor('commercial-content', #00884a);
 
-// Text
-@include oColorsSetUseCase(o-teaser-timestamp, text, 'cold-1');
-@include oColorsSetUseCase(o-teaser-standfirst, text, 'cold-1');
+@include oColorsSetUseCase(o-teaser, background, 'pink');
+@include oColorsSetUseCase(o-teaser, border, 'black-tint-20');
+
+
+@include oColorsSetUseCase(o-teaser-hero, background, 'wheat');
+@include oColorsSetUseCase(o-teaser-hero-highlight, background, 'claret');
+@include oColorsSetUseCase(o-teaser-hero-opinion, background, 'blue');
+@include oColorsSetUseCase(o-teaser-inverse, background, 'black');
+
 // Tags
-@include oColorsSetUseCase(o-teaser-tag, text, 'claret-1');
+@include oColorsSetUseCase(o-teaser-tag, text, 'claret');
+@include oColorsSetUseCase(o-teaser-opinion-tag, text, 'blue');
 @include oColorsSetUseCase(o-teaser-promoted-by, text, 'black');
 @include oColorsSetUseCase(o-teaser-promoted-prefix, text, 'commercial-content');
 
 // Themes
-@include oColorsSetUseCase(o-teaser-theme-opinion, background, 'blue-tint5');
-@include oColorsSetUseCase(o-teaser-theme-hero, background, 'claret-1');
+@include oColorsSetUseCase(o-teaser-theme-opinion, background, 'sky');
+@include oColorsSetUseCase(o-teaser-theme-hero, background, 'claret');
 @include oColorsSetUseCase(o-teaser-theme-paid-post, background, 'white');
 @include oColorsSetUseCase(o-teaser-theme-promoted-content, background, 'white');
 
 // Timestamp - Live blog
-@include oColorsSetColor(live-blog-closed, oColorsGetPaletteColor('grey-tint4'));
-@include oColorsSetColor(live-blog-coming-soon, #fd9d00);
+@include oColorsSetColor(live-blog-closed, oColorsGetPaletteColor('black-tint-60'));
+@include oColorsSetColor(live-blog-coming-soon, #fd9d00); // ??
 @include oColorsSetColor(live-blog-in-progress, oColorsGetPaletteColor('red'));
 
 @include oColorsSetUseCase(fast-ft, text, 'fastft-brand');
