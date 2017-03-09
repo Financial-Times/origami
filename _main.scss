@@ -37,7 +37,6 @@
 	@include oTypographySans(m, $load-progressively: true);
 	opacity: 0.8;
 	font-size: round(18px * 0.9);
-	@include oTypographyFallbackFontSize('sans', 18px);
 	line-height: 1.4;
 	-webkit-font-smoothing: antialiased;
 
