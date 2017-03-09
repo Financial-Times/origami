@@ -16,11 +16,11 @@
 
 	.topper__headline {
 		@include oGridRespondTo(M, L) {
-			@include headlineFontSize(52px);
+			@include oTypographyFallbackFontSize('serifDisplayBold', 52px);
 		}
 
 		@include oGridRespondTo(L) {
-			@include headlineFontSize(84px);
+			@include oTypographyFallbackFontSize('serifDisplayBold', 84px);
 		}
 	}
 }

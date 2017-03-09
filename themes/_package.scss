@@ -1,0 +1,26 @@
+$pkgYellow: #ffec1a;
+
+.topper--package {
+
+	.topper__headline {
+		@include oTypographySans(xl, $load-progressively: true);
+		@include oTypographyFallbackFontSize('sans', 36px);
+		line-height: 1;
+
+		@include oGridRespondTo(L) {
+			@include oTypographyFallbackFontSize('sans', 64px);
+		}
+
+		&:after {
+			border-bottom-width: 1px;
+		}
+
+	}
+	
+}
+
+.topper--package-extra {
+	.topper__headline {
+		color: $pkgYellow;
+	}
+}
