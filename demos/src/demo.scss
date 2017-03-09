@@ -32,7 +32,7 @@ body {
 	&--big-story {
 		margin: 20px 0;
 		padding: 0 40px;
-		background-color: #fadbcb; // Container for big story? Oli?
+		background-color: oColorsGetPaletteColor('wheat');
 	}
 }
 
