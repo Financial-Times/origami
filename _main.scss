@@ -5,7 +5,7 @@
 }
 
 .topper__headline {
-	@include oTypographySerifDisplayBold('l', $load-progressively: true);
+	@include oTypographySerifDisplay('l', $load-progressively: true);
 	-webkit-font-smoothing: antialiased;
 	margin: 0 0 20px;
 
@@ -15,7 +15,7 @@
 
 	&--large {
 		@include oTypographySerifDisplayBold(xl, $load-progressively: true);
-		@include oTypographyFallbackFontSize('serifDisplayBold', 32px);
+		@include headlineFontSize(32px);
 
 		display: flex; // for responsive bottom border
 		position: relative; //so it appears above the full width background
@@ -24,14 +24,13 @@
 		margin: 0;
 
 		@include oGridRespondTo(S) {
-			@include oTypographyFallbackFontSize('serifDisplayBold', 38px);
+			@include headlineFontSize(38px);
 		}
 
 		@include oGridRespondTo(L) {
-			@include oTypographyFallbackFontSize('serifDisplayBold', 52px);
+			@include headlineFontSize(52px);
 		}
 	}
-
 }
 
 .topper__standfirst {
@@ -52,6 +51,10 @@
 		.o-typography--loaded-sans & {
 			font-size: 22px;
 		}
+	}
+
+	>p {
+		margin: 0;
 	}
 
 }

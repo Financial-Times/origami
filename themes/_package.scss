@@ -4,11 +4,10 @@ $pkgYellow: #ffec1a;
 
 	.topper__headline {
 		@include oTypographySans(xl, $load-progressively: true);
-		@include oTypographyFallbackFontSize('sans', 36px);
 		line-height: 1;
 
 		@include oGridRespondTo(L) {
-			@include oTypographyFallbackFontSize('sans', 64px);
+			@include oTypographyFallbackFontSize('sans', 56px);
 		}
 
 		&:after {
@@ -16,7 +15,7 @@ $pkgYellow: #ffec1a;
 		}
 
 	}
-	
+
 }
 
 .topper--package-extra {
