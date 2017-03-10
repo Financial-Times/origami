@@ -24,7 +24,7 @@ $pkgYellow: #ffec1a;
 
 .topper--package-extra {
 	.topper__package-sequence-id,
-	.topper__headline {
+	&.topper--package .topper__headline {
 		color: $pkgYellow;
 	}
 }
