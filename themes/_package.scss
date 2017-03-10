@@ -19,7 +19,8 @@ $pkgYellow: #ffec1a;
 }
 
 .topper__package-sequence-id {
-	@include oTypographySans(m, $load-progressively: true);
+	@include oTypographySans(s, $load-progressively: true);
+	@include oTypographyFallbackFontSize('sans', 18px);
 }
 
 .topper--package-extra {
