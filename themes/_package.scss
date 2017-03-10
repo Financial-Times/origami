@@ -18,7 +18,12 @@ $pkgYellow: #ffec1a;
 
 }
 
+.topper__package-sequence-id {
+	@include oTypographySans(m, $load-progressively: true);
+}
+
 .topper--package-extra {
+	.topper__package-sequence-id,
 	.topper__headline {
 		color: $pkgYellow;
 	}
