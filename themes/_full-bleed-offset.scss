@@ -1,15 +1,22 @@
 .topper--full-bleed-offset {
+	@include alignText(left);
 
 	padding-top: 0;
 	padding-bottom: 0;
 
-	@include alignText(left);
-	.topper__visual {
-		width: 100%;
-	}
-
 	@include oGridRespondTo(S) {
 		@include overlayText;
+	}
+
+	@include oGridRespondTo(M) {
+		.topper__offset-margin {
+			margin-left: -20px;
+			margin-right: -20px;
+		}
+	}
+
+	.topper__visual {
+		width: 100%;
 	}
 
 	.topper__slot-1 {
@@ -47,11 +54,5 @@
 		}
 	}
 
-		@include oGridRespondTo(M) {
-			.topper__offset-margin {
-				margin-left: -20px;
-				margin-right: -20px;
-			}
-		}
 
 }

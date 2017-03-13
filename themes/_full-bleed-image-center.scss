@@ -1,8 +1,8 @@
 .topper--full-bleed-image-center {
+	@include alignText(left);
 
 	padding: 0;
 
-	@include alignText(left);
 	@include oGridRespondTo(S) {
 		@include alignText(center);
 		@include fullBleedImage;

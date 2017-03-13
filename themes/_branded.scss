@@ -1,21 +1,19 @@
 .topper--has-headshot {
 
-	.topper__tags,
-	.topper__brand,
-	.topper__standfirst {
-		box-sizing: border-box;
-		padding-right: 100px;
-	}
-
-
 	@include oGridRespondTo(M) {
-
 		.topper__headline,
 		.topper__tags,
 		.topper__brand,
 		.topper__standfirst {
 			padding-right: 150px;
 		}
+	}
+
+	.topper__tags,
+	.topper__brand,
+	.topper__standfirst {
+		box-sizing: border-box;
+		padding-right: 100px;
 	}
 }
 
