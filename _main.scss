@@ -47,9 +47,11 @@
 		}
 	}
 
-	.o-typography--loaded-sans & {
-		font-size: 18px;
-		line-height: 1.2;
+	@include oGridRespondTo($until: L) {
+		.o-typography--loaded-sans & {
+			font-size: 18px;
+			line-height: 1.2;
+		}
 	}
 
 	> p {
