@@ -3,10 +3,19 @@ $o-overlay-is-silent: false;
 
 body {
 	font-family: MetricWeb;
+	padding: 10px;
+}
+
+.demo-button {
+	margin-right: 5px;
 }
 
 .demo-overlay-container {
 	height: 220px;
+}
+
+.o-overlay {
+	width: 500px;
 }
 
 strong {
