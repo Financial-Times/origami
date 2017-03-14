@@ -26,12 +26,14 @@
 	"demos": [
 		{
 			"name": "modal",
-			"description": "Modal shaded overlay",
+			"title": "Modal overlay",
+			"description": "Standard modal. Includes a close button in the top left so the user can dismiss the modal.",
 			"template": "/demos/src/modal.mustache"
 		},
 		{
 			"name": "modal-prevent-closure",
-			"description": "Modal shaded overlay with standard closure prevented",
+			"title": "Modal without close button",
+			"description": "Modal close cross removed. This should be used where the user has to make a choice or confirm they've seen something.",
 			"template": "/demos/src/modal-prevent-closure.mustache"
 		},
 		{
@@ -41,8 +43,9 @@
 		},
 		{
 			"name": "tooltip",
-			"template": "/demos/src/tooltip.mustache",
+			"title": "Tooltip",
 			"description": "Tooltip for annotating bits of UI",
+			"template": "/demos/src/tooltip.mustache",
 			"sass": "demos/src/tooltip.scss"
 		}
 	]
