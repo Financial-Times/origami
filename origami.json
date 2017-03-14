@@ -5,6 +5,7 @@
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-overlay/issues",
 	"supportStatus": "active",
+	"keywords": "interstitial messaging modal popover notification hover",
 	"browserFeatures": {
 		"required": [
 			"es5object",
