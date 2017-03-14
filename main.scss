@@ -15,10 +15,10 @@
 @import 'src/scss/mixins';
 
 @if _oColorsSetVersion() != true {
-	@error "The o-colors version #{$o-colors-version} does not exist. Please use version 2.";
+	@error "The o-colors version #{$o-colors-palette-version} does not exist. Please use version 2.";
 }
 
-@if $o-colors-version == 2 {
+@if $o-colors-palette-version == 2 {
 	@include _oColorsSetPaletteTints;
 }
 

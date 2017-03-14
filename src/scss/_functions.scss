@@ -110,13 +110,13 @@
 }
 
 /// Sets the correct color-palette and color-use-cases variables based on the
-/// $o-colors-version value.
+/// $o-colors-palette-version value.
 @function _oColorsSetVersion() {
-	@if $o-colors-version == 1 {
+	@if $o-colors-palette-version == 1 {
 		@warn "o-colors version 1 has been deprecated and will be removed in the next major release.";
 		$o-colors-palette: map-merge($o-colors-palette-v1, $o-colors-palette) !global;
 		$o-colors-usecases: map-merge($o-colors-usecases-v1, $o-colors-usecases) !global;
-	} @else if $o-colors-version == 2 {
+	} @else if $o-colors-palette-version == 2 {
 		$o-colors-palette: map-merge($o-colors-palette-v2, $o-colors-palette) !global;
 		$o-colors-usecases: map-merge($o-colors-usecases-v2, $o-colors-usecases) !global;
 	} @else {
