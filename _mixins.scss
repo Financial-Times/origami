@@ -9,22 +9,35 @@
 	}
 }
 
-$colors: 'white', 'black', 'claret', 'blue', 'pink', 'slate', 'warm-1';
-@each $color in $colors {
-	[data-textbox-background~='#{$color}'] {
+// uses topper background colour to set background and pick contrasting text color
+@mixin setColors($bg-color) {
+	[data-textbox-background~='#{$bg-color}'] {
 		$text-color: black;
-		$contrast: lightness(oColorsGetPaletteColor($color));
+		$contrast: lightness(oColorsGetPaletteColor($bg-color));
 		@if $contrast <= 50% {
 			$text-color: white;
 		}
 		@include colorBorder($text-color);
-		background-color: oColorsGetPaletteColor('#{$color}');
+		background-color: oColorsGetPaletteColor('#{$bg-color}');
 		color: $text-color;
-		@if $color == 'pink' or $color == 'warm-1' {
+		@if $bg-color == 'pink' or $bg-color == 'warm-1' {
 			.topper__tags {
 				color: oColorsGetPaletteColor('claret');
 			}
 		}
+	}
+}
+
+/// @param {list} $colors - colors available to editorial in methode for the background
+/// @param {map} $use-case - tentative options for default
+// default has yet to be determined by type of article (opinion? analysis?) so is pink for now
+$colors: 'white', 'black', 'claret', 'blue', 'pink', 'slate', 'warm-1', 'default';
+@each $color in $colors {
+	@if $color == 'default' {
+		$usecase: ('standard': 'pink', 'analysis': 'claret', 'opinion':'blue');
+		@include setColors(map-get($usecase, 'standard'));
+	} @else {
+		@include setColors($color);
 	}
 }
 
@@ -36,7 +49,7 @@ $colors: 'white', 'black', 'claret', 'blue', 'pink', 'slate', 'warm-1';
 }
 
 @mixin alignText($position) {
-	$value: ("left": flex-start, "center": center, "right": flex-end);
+	$value: ('left': flex-start, 'center': center, 'right': flex-end);
 	.topper__headline::after {
 		content: '';
 		align-self: map-get($value, #{$position});
