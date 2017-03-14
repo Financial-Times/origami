@@ -1,12 +1,35 @@
-# Colours [![Build Status](https://circleci.com/gh/Financial-Times/o-colors.png?style=shield&circle-token=0d3884dacba2fdd8aec8afbd2eaa84c79040ddd5)](https://circleci.com/gh/Financial-Times/o-colors)
+o-colors [![Build Status](https://circleci.com/gh/Financial-Times/o-colors.png?style=shield&circle-token=0d3884dacba2fdd8aec8afbd2eaa84c79040ddd5)](https://circleci.com/gh/Financial-Times/o-colors)
 
-This is an [Origami](http://origami.ft.com/) module that provides variables defining the FT digital colour palette, and helpers to use them in your products.  For installation instructions, see the [registry page](http://registry.origami.ft.com/components/o-colors).
+The color palette for the FT masterbrand and sub-brand products.
+
+- [Usage](#usage)
+	- [Sass](#sass)
+	- [Markup](#markup)
+- [Migration guide](#migration-guide)
+	- [Using palette version 2](#using-palette-version-2)
+- [Contact](#contact)
+- [Licence](#licence)
+
 
 ## Usage
 
-There are a number of ways of using colours in your component or product.  Here they are from most to least preferred.  All mixin and function approaches require you to import the module into your own build, while the final method of using predefined classes is compatible with using the build service.
+There are a number of ways of using colors in your component or product. o-colors can be used via the [Build Service](#), but it is recommended you import the Sass into your project to make use of the many Sass mixins and functions available.
 
-### Use case mixin
+
+### Sass:
+
+As with all Origami components, o-colors has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) set `$o-colors-is-silent : false;` in your Sass before you import the o-colors Sass:
+
+```scss
+$o-colors-is-silent: false;
+@import 'o-colors/main';
+```
+
+#### Mixins and functions
+
+o-colors has a number of mixins and functions for you to access the color palette in your project, here they are listed from the most to least preferred methods of working with o-colors.
+
+##### Use case mixin
 
 Use the `oColorsFor` mixin to add colour-related properties to your ruleset:
 
@@ -50,20 +73,6 @@ If you have a colour use case not covered by those built into the colors module,
 }
 ```
 
-### Predefined classes
-
-By default, o-colors is **silent**, so it outputs **no classes**.  To use helper classes, you must disable silent mode before importing the colors module (if you are using the build service, it will do this for you):
-
-```scss
-$o-colors-is-silent: false;
-```
-
-You can then use predefined classes in your HTML.  All palette colors are available as `.o-colors-palette-[NAME]` (which style just `background-color`) and use cases are available as `.o-colors-[USECASE]-[PROPERTY]` (which style the appropriate property):
-
-```html
-<p class="o-colors-body-text">Article text</p>
-```
-
 ## Defining custom use cases
 
 You can add use cases for your particular component or product. This is done using the `oColorsSetUseCase` mixin:
@@ -79,6 +88,18 @@ It takes three arguments:
 * **Color**: a color from the palette
 
 If you are creating a use case for a component, you *must* namespace your use case name with the name of your component.
+
+### Markup
+
+When using the build service or importing the module with [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) set to false, o-colors provides you with helper classes to access the color palette. All palette colors are available as `.o-colors-palette-[NAME]` (which style just `background-color`) and use cases are available as `.o-colors-[USECASE]-[PROPERTY]` (which style the appropriate property):
+
+```html
+<p class="o-colors-body-text">Article text</p>
+```
+
+## Migration guide
+
+### Using palette version 2.
 
 
 ----
