@@ -5,6 +5,7 @@
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-overlay/issues",
 	"supportStatus": "active",
+	"keywords": "interstitial messaging modal popover notification hover",
 	"browserFeatures": {
 		"required": [
 			"es5object",
@@ -21,35 +22,27 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"bodyClasses": "o-hoverable-on",
-		"dependencies": ["o-fonts@^1.5.0"]
+		"dependencies": ["o-fonts@^1.5.0", "o-buttons@^4.0.0"]
 	},
 	"demos": [
 		{
 			"name": "modal",
-			"description": "Modal shaded overlay",
+			"title": "Modal overlay",
+			"description": "Standard modal. Includes a close button in the top left so the user can dismiss the modal.",
 			"template": "/demos/src/modal.mustache"
 		},
 		{
 			"name": "modal-prevent-closure",
-			"description": "Modal shaded overlay with standard closure prevented",
+			"title": "Modal without close button",
+			"description": "Modal close cross removed. This should be used where the user has to make a choice or confirm they've seen something.",
 			"template": "/demos/src/modal-prevent-closure.mustache"
 		},
 		{
-			"name": "centered-overlay",
-			"template": "/demos/src/centered-overlay.mustache",
-			"description": "Non-modal non-shaded centered overlay"
-		},
-		{
-			"name": "overlay-with-arrow",
-			"template": "/demos/src/overlay-with-arrow.mustache",
-			"description": "Non-modal overlay with an arrow that points to a target",
-			"sass": "demos/src/overlay-with-arrow.scss"
-		},
-		{
 			"name": "tooltip",
-			"template": "/demos/src/tooltip.mustache",
+			"title": "Tooltip",
 			"description": "Tooltip for annotating bits of UI",
-			"sass": "demos/src/overlay-with-arrow.scss"
+			"template": "/demos/src/tooltip.mustache",
+			"sass": "demos/src/tooltip.scss"
 		}
 	]
 }
