@@ -101,6 +101,60 @@ When using the build service or importing the module with [silent mode](http://o
 
 ### Using palette version 2.
 
+o-colors now allows access to the new version of the color palette. The new palette will become default by version `4.0.0` but for now can be accessed by setting the `$o-colors-palette-version` variable to `2` before importing o-colors into your project:
+
+```scss
+$o-colors-palette-version: 2;
+@import 'o-colors/main';
+```
+
+In addition to the functions and mixins already discussed in this documentation, there are some new features available and new abilities added to the existing mixins and functions.
+
+#### Updated: Use case mixin
+
+`oColorsFor` now takes a third argument: `$textLevel`. This sets the opacity (1-100) for the text color based on the background colour of the use case. If a text use case exists already, this will have no effect.
+
+Usage:
+
+```scss
+// For the use case: page: (background: 'pink')
+.body {
+	@include oColorsFor(page, background text, 80);
+}
+```
+
+Will output:
+
+```css
+.body {
+	background-color: #fff1e5;
+	color: #33302e; // black mixed with #fff1e5 at 80%
+}
+```
+
+#### New: Mix colors
+
+`oColorsMix` is a new function that mixes two colors based on a percentage. This gives the impression of the base color appearing at the percentage opacity over the background color.
+`oColorsMix` will accept either a color value or the name of an o-colors palette color as arguments.
+
+Usage:
+
+```scss
+.o-colors-palette-white {
+	border: 1px solid oColorsMix(black, white, 20);
+}
+```
+
+Output:
+
+```css
+.o-colors-palette-white {
+	border: 1px solid #cccccc;
+}
+```
+
+
+
 
 ----
 
