@@ -81,31 +81,12 @@ It takes three arguments:
 If you are creating a use case for a component, you *must* namespace your use case name with the name of your component.
 
 
-## Development
+----
 
-Instructions for maintaining the color palette for non-developers:
+## Contact
 
-### Getting started
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-colors/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
-1. If you don't already have an account on GitHub, get one by filling in the big registration form on the homepage of [GitHub.com](http://github.com).
-1. If you do not already have commit rights on this module, ask one of the FT's GitHub administrators to give you access.
-1. If you haven't already got the GitHub app installed on your computer, download it [for Windows](http://windows.github.com/) or [for mac](http://mac.github.com/).
-1. Run the Github app on your computer and sign in using your GitHub account
-1. Clone the **o-colors** project to your computer (GitHub will ask you where you want to put it on your system; it's a good idea to have a folder in which you keep all your repos, so if in doubt, create a folder called `sandboxes` in your home directory and clone the module there)
-
-### Making a change
-
-1. Open the GitHub app, go into the **o-colors** module and click the 'Branches' tab.
-1. Create a new branch by clicking the `+` icon at the right end of the `master` branch, and name it after your proposed change (using just letters, numbers and underscores) e.g. `forms_use_cases`.
-1. Make sure your new branch is ticked, if not, double click it.
-1. Open the file you want to edit (created by Github on your computer) in a text editor such as [Sublime Text](http://www.sublimetext.com/) or [Brackets](http://brackets.io/) (don't just double click the file unless you've set up one of these editors to open `.scss` files by default)
-	* If you want to add or remove palette colours, the file you want is `src/scss/_palette.scss`
-	* If you want to add or remove use cases for colours, the file you want is `src/scss/_use-cases.scss`
-1. Edit the file, following the instructions in the comments at the top of the file
-1. Switch back to the Github app and click the 'Changes' tab.  Verify that it says 'committing to <your new branch name>' and that the list shows the files with the changes you made.
-1. Type a description of your change, and press 'Commit & Sync'
-1. Load the [GitHub website page for this module](https://github.com/Financial-Times/o-colors).  If you're logged in, there should be a 'You recently pushed branches' label, and a button to 'Compare and pull request'.  Click that button.
-1. Modify your description, if you wish, and click 'Send pull request'.  GitHub will now run automated tests on your commit to ensure that the module still works correctly.  The pull request should not be merged until it shows "All is well — The Travis CI build passed".
 
 ----
 
