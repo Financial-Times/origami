@@ -21,7 +21,7 @@ $o-colors-palette-v2: (
 	'blue':                  #0f5499,
 	'teal':                  #00757f,
 
-	'wheat':                 #f3dec8,
+	'wheat':                 #f2dfce,
 	'sky':                   #cce6ff,
 	'slate':                 #282e33,
 
@@ -29,11 +29,11 @@ $o-colors-palette-v2: (
 	'mandarin':              #ff8833,
 	'lemon':                 #ffec1a,
 
-	'candy':                 #ff99bb,
-	'lime':                  #96cc28,
+	'candy':                 #FF7FAA,
+	'wasabi':                #96CC28,
 
-	'green':                 #00b359,
-	'red':                   #cc0000,
+	'jade':                  #00b359,
+	'crimson':               #cc0000,
 
 	'orange':                #f58c31,
 	'purple':                #92288f,
@@ -44,6 +44,12 @@ $o-colors-palette-v2: (
 );
 
 $o-colors-tints: (
+	'black': (
+		tints: (5, 10, 20, 40, 60, 80, 90),
+	),
+	'white': (
+		tints: (10, 20, 40, 60, 80),
+	),
 	'claret': (
 		hue: 340,
 		saturation: 90,
@@ -59,10 +65,44 @@ $o-colors-tints: (
 		saturation: 90,
 		tints: ( 20, 30, 40, 50, 60, 70, 80, 90 ),
 	),
-	'black': (
-		tints: (5, 10, 20, 40, 60, 80, 90),
+	'wheat': (
+		hue: 28,
+		saturation: 15,
 	),
-	'white': (
-		tints: (10, 20, 40, 60, 80),
+	'sky': (
+		hue: 210,
+		saturation: 20,
+	),
+	'slate': (
+		hue: 210,
+		saturation: 20,
+	),
+	'velvet': (
+		hue: 270,
+		saturation: 60,
+	),
+	'mandarin': (
+		hue: 25,
+		saturation: 80,
+	),
+	'lemon': (
+		hue: 55,
+		saturation: 90,
+	),
+	'candy': (
+		hue: 340,
+		saturation: 50,
+	),
+	'wasabi': (
+		hue: 80,
+		saturation: 80,
+	),
+	'jade': (
+		hue: 150,
+		saturation: 100,
+	),
+	'crimson': (
+		hue: 360,
+		saturation: 100,
 	)
 );

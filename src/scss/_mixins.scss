@@ -91,17 +91,19 @@
 			$saturation: map-get($settings, 'saturation');
 		}
 
-		@each $value in $tints {
-			$name: "#{$color}-tint-#{$value}";
-			$tint: null;
+		@if $tints != null {
+			@each $value in $tints {
+				$name: "#{$color}-#{$value}";
+				$tint: null;
 
-			@if $saturation == null {
-				$tint: oColorsMixColor($value, $color);
-			} @else {
-				$tint: _oColorsHSB($hue, $saturation, $value);
+				@if $saturation == null {
+					$tint: oColorsMix($color, $percentage: $value);
+				} @else {
+					$tint: _oColorsHSB($hue, $saturation, $value);
+				}
+
+				@include oColorsSetColor($name, $tint);
 			}
-
-			@include oColorsSetColor($name, $tint);
 		}
 	}
 }

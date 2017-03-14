@@ -2,7 +2,7 @@
 //
 // @param {Number} $r - Number to find the square root of
 // Code from: https://gist.github.com/jlong/f06f5843104ee10006fe
-@function sqrt ($r) {
+@function sqrt($r) {
     $x0: 1;
     $x1: $x0;
 

@@ -67,11 +67,11 @@
 		"description": "Hello world this is a group description",
 		"colors": [
 			{
-				"name": "green",
+				"name": "jade",
 				"usage": "backgrounds, text"
 			},
 			{
-				"name": "red",
+				"name": "crimson",
 				"usage": "backgrounds, text"
 			},
 			{
@@ -79,7 +79,7 @@
 				"usage": "backgrounds, text"
 			},
 			{
-				"name": "lime",
+				"name": "wasabi",
 				"usage": "backgrounds, text"
 			}
 		]

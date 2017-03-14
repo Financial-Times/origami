@@ -36,7 +36,7 @@ body {
 @each $name, $csscolor in $o-colors-palette-v2 {
 	@if $csscolor != 'transparent' and $csscolor != 'inherit' and $name != 'org-b2c' {
 		.o-colors-palette-#{$name} span {
-			@if $name == 'green' {
+			@if $name == 'jade' {
 				color: oColorsGetTextColor($csscolor, 95);
 			} @else {
 				color: oColorsGetTextColor($csscolor, 80);
@@ -72,8 +72,8 @@ body {
 
 	.o-buttons {
 		margin-right: 5px;
-		color: oColorsMixColor(70, black, white);
-		border-color: oColorsMixColor(20, black, white);
+		color: oColorsMix(black, white, 70);
+		border-color: oColorsMix(black, white, 20);
 	}
 
 	h3 {
@@ -84,7 +84,7 @@ body {
 		font-weight: normal;
 		font-size: 16px;
 		line-height: 24px;
-		border: 1px solid oColorsMixColor(20, black, white);
+		border: 1px solid oColorsMix(black, white, 20);
 		border-bottom: 0;
 	}
 }
@@ -98,7 +98,7 @@ body {
 	background-color: transparent;
 	cursor: pointer;
 	border: 0;
-	border-left: 1px solid oColorsMixColor(20, black, white);
+	border-left: 1px solid oColorsMix(black, white, 20);
 }
 
 .demo-tints-container {
@@ -138,7 +138,7 @@ body {
 	margin-bottom: 10px;
 
 	&.o-colors-palette-white {
-		border: 1px solid oColorsMixColor(20, black, white);
+		border: 1px solid oColorsMix(black, white, 20);
 	}
 
 	span {
@@ -146,4 +146,9 @@ body {
 		text-align: center;
 		text-transform: uppercase;
 	}
+}
+
+
+.o-colors-tinted-color {
+	background-color: oColorsGetTint('blue', 90);
 }

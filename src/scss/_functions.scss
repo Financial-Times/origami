@@ -18,10 +18,10 @@
 /// Returns a colour based on the background context and base color
 /// at the supplied percentage
 ///
-/// @param {Number} $percentage [60] - percentage opacity of the colour over the background
 /// @param {String} $background [pink] - palette name of background color
 /// @param {String} $color [black] - palette name of color
-@function oColorsMixColor($percentage: 80, $color: 'black', $background: 'pink') {
+/// @param {Number} $percentage [60] - percentage opacity of the colour over the background
+@function oColorsMix($color: 'black', $background: 'pink', $percentage: 80) {
 	$context: $background;
 	$base: $color;
 
@@ -147,7 +147,7 @@
 		$saturation: map-get(map-get($o-colors-tints, $color), 'saturation');
 		$newcolor: _oColorsHSB($hue, $saturation, $brightness)
 	} @else {
-		$newcolor: oColorsMixColor($brightness, $color);
+		$newcolor: oColorsMix($color, $percentage: $brightness);
 	}
 
 	@return $newcolor;
@@ -174,7 +174,7 @@
 	$baseColor: _oColorsGetTextBase($background);
 	$percentage: $opacity;
 
-	$textColor: oColorsMixColor($percentage, $baseColor, $background);
+	$textColor: oColorsMix($baseColor, $background, $percentage);
 	$testContrast: oColorsCheckContrast($textColor, $background, false);
 
 	@if not $testContrast {
