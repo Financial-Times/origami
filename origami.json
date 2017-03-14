@@ -40,16 +40,10 @@
 			"description": "Non-modal non-shaded centered overlay"
 		},
 		{
-			"name": "overlay-with-arrow",
-			"template": "/demos/src/overlay-with-arrow.mustache",
-			"description": "Non-modal overlay with an arrow that points to a target",
-			"sass": "demos/src/overlay-with-arrow.scss"
-		},
-		{
 			"name": "tooltip",
 			"template": "/demos/src/tooltip.mustache",
 			"description": "Tooltip for annotating bits of UI",
-			"sass": "demos/src/overlay-with-arrow.scss"
+			"sass": "demos/src/tooltip.scss"
 		}
 	]
 }
