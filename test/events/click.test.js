@@ -11,7 +11,6 @@ const session = require("../../src/javascript/core/session");
 describe('click', function () {
 
 	before(function () {
-		core.setRootID('page_id'); // Fix the click ID to stop it generating one.
 		session.init();
 		send.init(); // Init the sender.
 

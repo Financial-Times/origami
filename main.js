@@ -115,33 +115,21 @@ Tracking.prototype.init = function(config) {
 
 	const hasDeclarativeConfig = !!this._getDeclarativeConfigElement();
 
-	if (!(hasDeclarativeConfig || config)) {
-		return this;
-	}
-
 	config = config || {};
 	if (hasDeclarativeConfig) {
 		config = this._getDeclarativeConfig(config);
 	}
 
-	settings.set('config', config);
 	settings.set('version', this.version);
 	settings.set('source', this.source);
 	settings.set('api_key', this.api_key);
 
 	settings.set('page_sent', false);
 
-	// Developer mode
-	if (config.developer) {
-		this.developer(config.developer);
+	// Set up the user from stored - may later be updated by config
+	user.init();
 
-		if (config.noSend) {
-			settings.set('no_send', true);
-		}
-	}
-
-	// User identifier
-	user.init(config.user ? config.user.user_id : null);
+	this.updateConfig(config);
 
 	// Session
 	session.init(config.session);
@@ -153,6 +141,34 @@ Tracking.prototype.init = function(config) {
 	this.page.init();
 	this.initialised = true;
 	return this;
+};
+
+/**
+ * Update the tracking configuration with any state changes. The supplied
+ * config is merged with any existing config; to unset a value, set it as
+ * null or undefined.
+ *
+ * @param {Object} newConfig The configuration object to merge in - see init()
+ * @return {void}
+ */
+Tracking.prototype.updateConfig = function(newConfig) {
+	let config = settings.get('config') || {};
+
+	config = this.utils.merge(config, newConfig);
+	settings.set('config', config);
+
+	// Developer mode
+	if (config.developer) {
+		this.developer(config.developer);
+
+		if (config.noSend) {
+			settings.set('no_send', true);
+		}
+	}
+
+	if (config.user && config.user.user_id) {
+		user.setUser(config.user.user_id);
+	}
 };
 
 /**

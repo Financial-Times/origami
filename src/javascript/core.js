@@ -6,69 +6,31 @@
 const Send = require('./core/send');
 const User = require('./core/user');
 const Session = require('./core/session');
-
-/**
- * Shared 'internal' scope.
- * @type {Object}
- */
 const settings = require('./core/settings');
 const utils = require('./utils');
 
-/**
- * Default properties for sending a tracking request.
- * @type {Object}
- * @return {Object} - The default settings for the component.
- */
-const defaultConfig = function () {
-	return {
-		async: true,
-		callback: function () {},
-		system: {},
-		context: {},
-		user: {
-			passport_id: utils.getValueFromCookie(/USERID=([0-9]+):/) || utils.getValueFromCookie(/PID=([0-9]+)\_/),
-			ft_session: utils.getValueFromCookie(/FTSession=([^;]+)/)
-		}
-	};
-};
+let rootID;
 
 /**
- * Generate and store a new rootID.
- * @param {string} new_id - Optional rootID, if you want to use your own. Otherwise we'll create one for you.
+ * Generate and store a new rootID, used to mark a new root event that
+ * subsequent events will be linked to.
  * @return {string|*} The rootID.
  */
-function setRootID(new_id) {
-	settings.set('root_id', requestID(new_id));
-	return settings.get('root_id');
+function setRootID() {
+	rootID = utils.guid();
+	return rootID;
 }
 
 /**
- * Get rootID.
+ * Get the current rootID.
  * @return {string|*} The rootID.
  */
 function getRootID() {
-	let root_id = settings.get('root_id');
-
-	if (utils.isUndefined(root_id)) {
-		root_id = setRootID();
+	if (!rootID) {
+		setRootID();
 	}
 
-	return root_id;
-}
-
-/**
- * Create a requestID (unique identifier) for the page impression.
- *
- * @param {string} request_id - Optional RequestID, if you want to use your own. Otherwise will create one for you.
- *
- * @return {string|*} The RequestID.
- */
-function requestID(request_id) {
-	if (utils.isUndefined(request_id)) {
-		request_id = utils.guid();
-	}
-
-	return request_id;
+	return rootID;
 }
 
 /**
@@ -83,35 +45,48 @@ function track(config, callback) {
 	if (utils.isUndefined(callback)) {
 		callback = function () {};
 	}
-
-	const coreContext = settings.get('config') && settings.get('config').context || {};
-	config.context = utils.merge(coreContext, config.context);
-
-	let request = utils.merge(defaultConfig(), utils.merge(config, { callback: callback }));
-
 	const session = Session.session();
 
-	/* Values here are kinda the mandatory ones, so we want to make sure they're possible. */
-	request = utils.merge({
+	// Set up the base request object with some values which should always be sent.
+	let request = {
+		async: true,
+		callback: callback || function() {},
 		context: {
-			id: requestID(request.id), // Keep an ID if it's been set elsewhere.
-			root_id: getRootID()
+			id: config.id || utils.guid(), // Use a supplied id or generate one for this request
+			root_id: getRootID(),
 		},
-
-		user: settings.get('config') ? settings.get('config').user : {},
-
+		user: {
+			passport_id: utils.getValueFromCookie(/USERID=([0-9]+):/) || utils.getValueFromCookie(/PID=([0-9]+)\_/),
+			ft_session: utils.getValueFromCookie(/FTSession=([^;]+)/),
+		},
 		device: {
 			spoor_session: session.id,
 			spoor_session_is_new: session.isNew,
-			spoor_id: User.userID()
-		}
-	}, request);
+			spoor_id: User.userID(),
+		},
+	};
+
+	// Override any context, user, and device values with object-wide settings
+	const settingsConfig = settings.get('config') || {};
+	if (settingsConfig.context) {
+		utils.merge(request.context, settingsConfig.context);
+	}
+	if (settingsConfig.user) {
+		utils.merge(request.user, settingsConfig.user);
+	}
+	if (settingsConfig.device) {
+		utils.merge(request.device, settingsConfig.device);
+	}
+
+	// Update the base config with the parameter-supplied config
+	utils.merge(request, config);
 
 	utils.log('Core.Track', request);
+
 	// Send it.
 	Send.addAndRun(request);
 
-	return request;
+	return config;
 }
 
 module.exports = {

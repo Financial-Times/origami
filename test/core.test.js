@@ -12,13 +12,22 @@ describe('Core', function () {
 	const guid_re = /\w{25}/; // cifnulwv2000030ds4avpbm9f
 
 	describe('root_id', function () {
+		let root_id;
+
 		it('should generate a root_id', function () {
-			const root_id = Core.setRootID();
+			root_id = Core.setRootID();
 			assert.ok(root_id.match(guid_re), "'" + root_id + "'.match(" + guid_re + ")");
 		});
 
-		it('should use the root_id given it', function () {
-			assert.equal(Core.setRootID("myroot_id"), "myroot_id");
+		it('should use the previous root_id for subsequent calls', function () {
+			assert.equal(Core.getRootID(), root_id);
+			assert.equal(Core.getRootID(), root_id);
+		});
+
+		it('should change the root_id on request', function () {
+			const new_root_id = Core.setRootID();
+			assert.equal(Core.getRootID(), new_root_id);
+			assert.notEqual(new_root_id, root_id);
 		});
 	});
 
@@ -41,7 +50,7 @@ describe('Core', function () {
 			const callback = sinon.spy();
 			let sent_data;
 
-			Core.setRootID('root_id');
+			const root_id = Core.setRootID();
 			Core.track({
 				category: 'page',
 				action: 'view',
@@ -62,11 +71,11 @@ describe('Core', function () {
 			// Context
 			assert.deepEqual(Object.keys(sent_data.context), ["id","root_id","url"]);
 			assert.ok(guid_re.test(sent_data.context.id), "Request ID is invalid. " + sent_data.context.id);
-			assert.equal(sent_data.context.root_id, "root_id");
+			assert.equal(sent_data.context.root_id, root_id);
 			assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
 
 			// User
-			assert.deepEqual(Object.keys(sent_data.user), ["user_id"]);
+			assert.deepEqual(Object.keys(sent_data.user), ["passport_id","ft_session","user_id"]);
 			assert.equal(sent_data.user.user_id, "userID");
 
 			// Device

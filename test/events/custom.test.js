@@ -13,8 +13,6 @@ describe('event', function () {
 	before(function () {
 		session.init();
 		send.init(); // Init the sender.
-
-		//require("../../src/javascript/core").setRootID('rootID'); // Fix the click ID to stop it generating one.
 	});
 
 	after(function () {
