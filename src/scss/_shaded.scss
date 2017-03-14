@@ -8,6 +8,7 @@
 	background: oColorsGetColorFor(o-overlay-heading-shaded, background);
 	color: oColorsGetColorFor(o-overlay-heading-shaded, text);
 	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
 }
 
 /// Add to the close icon for a shaded overlay

@@ -14,6 +14,10 @@
 	background: oColorsGetColorFor(o-overlay, background);
 	border-radius: 0px;
 	// border-radius: $o-normalise-border-radius; TODO: Next breaking change add this in
+
+	// Replace with style in o-visual-effects in next breaking release (v2)
+	// @include oEffectsShadowsElevation($elevation: 'high');
+	box-shadow: 0 1px 4px rgba(#505050, 0.15), 0 8px 14px rgba(#505050, 0.2);
 }
 
 /// Base overlay modal shadow style
@@ -33,19 +37,18 @@
 
 /// Base overlay heading style
 @mixin oOverlayHeading {
-	font-size: 16px;
+	font-size: 20px;
 	margin: 0;
 	overflow: hidden;
 	background: oColorsGetColorFor(o-overlay-heading, background);
 	color: oColorsGetColorFor(o-overlay-heading, text);
-	font-weight: bold;
 }
 
 /// Base overlay title style
 @mixin oOverlayTitle {
 	margin: 10px 10px 10px 20px;
 	display: block;
-	line-height: 20px;
+	line-height: 25px;
 	overflow: auto;
 }
 
