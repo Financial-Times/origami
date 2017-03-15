@@ -10,7 +10,7 @@ const defaultUserConfig = {
 	name: 'spoor-id',
 	nameOverride: 'spoor-id',
 	value: null,
-	domain: location.hostname.match(/^(?:.+\.)ft\.com$/) ? 'ft.com' : null,
+	domain: location.hostname.match(/^(?:.+\.)?ft\.com$/) ? 'ft.com' : null,
 };
 
 const utils = require('../utils');
