@@ -10,6 +10,8 @@ const defaultUserConfig = {
 	name: 'spoor-id',
 	nameOverride: 'spoor-id',
 	value: null,
+
+	// Set the store cookie domain to .ft.com for ft.com and all its subdomains
 	domain: location.hostname.match(/^(?:.+\.)?ft\.com$/) ? 'ft.com' : null,
 };
 
