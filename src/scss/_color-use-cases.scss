@@ -4,7 +4,7 @@
 @include oColorsSetColor('commercial-content', #00884a);
 
 @include oColorsSetUseCase(o-teaser, background, 'pink');
-@include oColorsSetUseCase(o-teaser, border, 'black-tint-20');
+@include oColorsSetUseCase(o-teaser, border, 'black-20');
 
 
 @include oColorsSetUseCase(o-teaser-hero, background, 'wheat');
@@ -25,9 +25,9 @@
 @include oColorsSetUseCase(o-teaser-theme-promoted-content, background, 'white');
 
 // Timestamp - Live blog
-@include oColorsSetColor(live-blog-closed, oColorsGetPaletteColor('black-tint-60'));
+@include oColorsSetColor(live-blog-closed, oColorsGetPaletteColor('black-60'));
 @include oColorsSetColor(live-blog-coming-soon, #fd9d00); // ??
-@include oColorsSetColor(live-blog-in-progress, oColorsGetPaletteColor('red'));
+@include oColorsSetColor(live-blog-in-progress, oColorsGetPaletteColor('crimson'));
 
 @include oColorsSetUseCase(fast-ft, text, 'fastft-brand');
 @include oColorsSetUseCase(fast-ft, border, 'fastft-brand');

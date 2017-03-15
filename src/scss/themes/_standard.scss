@@ -88,7 +88,7 @@
 	}
 
 	.o-teaser__timestamp-prefix:before {
-		background-color: oColorsMixColor(80, oColorsGetPaletteColor('white'), oColorsGetColorFor('o-teaser-hero-highlight', background));
+		background-color: oColorsMix(oColorsGetPaletteColor('white'), oColorsGetColorFor('o-teaser-hero-highlight', background), 80);
 	}
 
 	&.o-teaser--hero {
