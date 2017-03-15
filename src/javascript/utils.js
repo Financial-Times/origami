@@ -49,7 +49,7 @@ function is(variable, type) {
 }
 
 /**
- * Merge objects together. Will remove 'falsy' values.
+ * Merge objects together. Will remove undefined and null values.
  *
  * @param {Object} target - The original object to merge in to.
  * @param {Object} options - The object to merge into the target. If omitted, will merge target into a new empty Object.

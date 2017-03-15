@@ -8,6 +8,7 @@ let store;
 const defaultUserConfig = {
 	storage: 'cookie',
 	name: 'spoor-id',
+	nameOverride: 'spoor-id',
 	value: null,
 	domain: (document.URL.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i)[1].indexOf('ft.com') > -1 ? 'ft.com' : null)
 };
@@ -63,44 +64,51 @@ function migrate_across_domains(store, user_id) {
 /**
  * Init
  *
- * @param {String|Object} value The value of a userID to use or configuration object.
- * @return {String} - The user ID.
+ * @param {String} value The value of a userID to use if one is not stored
+ * @return {String} - The user ID if present, or a generated UID if not
  */
 function init(value) {
-	const config = utils.merge(defaultUserConfig, { value: value });
+	store = new Store(defaultUserConfig.name, defaultUserConfig);
 
-	// config.name is important here, means the user has specifically asked for a cookie name.
-	if (config.storage === 'cookie' && config.name) {
-		config.nameOverride = config.name;
+	let id = store.read();
+	if (!id) {
+		id = value;
 	}
 
-	store = new Store(config.name, config);
+	return setUser(id); // Refresh cookies and update state
+}
 
-	userID = store.read();
-
-	if (userID) {
-		userID = migrate_across_domains(store, userID);
-	}
-
-	if (!userID) {
-		userID = config.value;
-	}
+/**
+ * setUser
+ *
+ * @param {String} id The userID to set.
+ * @return {String} - The user ID if present, or a generated UID if not
+ */
+function setUser(id) {
+	userID = id;
 
 	if (!userID) {
 		userID = utils.guid();
 	}
+
+	userID = migrate_across_domains(store, userID);
 
 	store.write(userID); // Refreshes the cookie...
 
 	return userID;
 }
 
+/**
+ * Delete the current user data.
+ * @return {void}
+ */
 function destroy() {
 	store.destroy();
 }
 
 module.exports = {
 	init: init,
+	setUser: setUser,
 	userID: function () { return userID; },
 	destroy: destroy
 };

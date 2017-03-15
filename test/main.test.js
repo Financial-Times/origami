@@ -166,4 +166,88 @@ describe('main', function () {
 		assert.equal(sent_data.system.environment, "prod");
 		assert.equal(sent_data.system.is_live, true);
 	});
+
+	it('should allow config to be updated after init', function () {
+		oTracking.destroy();
+		oTracking.init({
+			device: {
+				orientation: "landscape",
+				is_offline: true,
+			},
+			context: {
+				marketing: {
+					segid: '1234',
+				},
+				region: 'europe',
+			},
+			user: {
+				user_id: 'c2nb134j8hz2p'
+			}
+		});
+
+		const callback = sinon.spy();
+
+		oTracking.event(new CustomEvent('oTracking.event', {
+			detail: { category: 'video', action: 'play', component_id: '12345' }
+		}), callback);
+
+		assert.ok(callback.called, 'Callback not called.');
+
+		const data_one = callback.getCall(0).thisValue;
+		assert.equal(data_one.context.component_id, '12345');
+		assert.equal(data_one.context.marketing.segid, '1234');
+		assert.equal(data_one.device.orientation, 'landscape');
+		assert.equal(data_one.device.is_offline, true);
+		assert.equal(data_one.user.user_id, 'c2nb134j8hz2p');
+
+		oTracking.updateConfig({
+			device: {
+				orientation: "portrait",
+			},
+			context: {
+				marketing: {
+					banner_closed: true,
+				},
+			},
+			user: {
+				user_id: 'cjw30zh3bxei6'
+			}
+		});
+
+		oTracking.event(new CustomEvent('oTracking.event', {
+			detail: { category: 'video', action: 'play', component_id: '12346' }
+		}), callback);
+
+		assert.ok(callback.called, 'Callback not called.');
+
+		const data_two = callback.getCall(1).thisValue;
+		assert.equal(data_two.context.component_id, '12346');
+		assert.equal(data_two.context.marketing.segid, '1234');
+		assert.equal(data_two.context.marketing.banner_closed, true);
+		assert.equal(data_two.device.orientation, 'portrait');
+		assert.equal(data_two.device.is_offline, true);
+		assert.equal(data_two.user.user_id, 'cjw30zh3bxei6');
+	});
+
+	it('should override core configuration with individual calls', function () {
+		const callback = sinon.spy();
+
+		oTracking.event(new CustomEvent('oTracking.event', {
+			detail: {
+				category: 'video',
+				action: 'play',
+				component_id: '12349',
+				marketing: {
+					segid: '4321',
+				},
+			}
+		}), callback);
+
+		assert.ok(callback.called, 'Callback not called.');
+
+		const data = callback.getCall(0).thisValue;
+		assert.equal(data.context.component_id, '12349');
+		assert.equal(data.context.marketing.banner_closed, true);
+		assert.equal(data.context.marketing.segid, '4321');
+	});
 });

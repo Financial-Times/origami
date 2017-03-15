@@ -184,6 +184,8 @@ o-tracking will
 * Automatically pickup ftsession from cookies for you.
 * Page events automatically pick up the url and the referrer.
 
+Events are decorated with config values you pass in via `init()` or `updateConfig()` if they are part of `context`, `user`, or `device` objects. Values passed in as `context` to individual events will override context values from init.
+
 ### Init
 ```js
 {
@@ -193,6 +195,18 @@ o-tracking will
     },
     user: {
         ft_session: "..."
+    },
+    device: {
+        orientation: "..."
+    }
+}
+```
+
+### Updating core configuration
+```js
+{
+    device: {
+        orientation: "..."
     }
 }
 ```
@@ -212,7 +226,7 @@ o-tracking will
 
 ### Event
 
-__Important__: To decide how to name the category and action fields, consider this sentance (square brackets denote that part is optional):
+__Important__: To decide how to name the category and action fields, consider this sentence (square brackets denote that part is optional):
 
 #### A user can {action} a {category}[ with/having a {context}[ to {destination}]]
 
