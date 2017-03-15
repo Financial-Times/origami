@@ -70,10 +70,10 @@
 		@if $useCaseTextColor == null and $useCaseBackgroundColor != null {
 			// New functions should not work with the v1 palette
 			@if $o-colors-palette-version == 1 {
-				@return null;
+				$useCaseTextColor: null;
+			} @else {
+				$useCaseTextColor: oColorsGetTextColor($useCaseBackgroundColor, $textLevel);
 			}
-
-			$useCaseTextColor: oColorsGetTextColor($useCaseBackgroundColor, $textLevel);
 		}
 
 		color: $useCaseTextColor;
