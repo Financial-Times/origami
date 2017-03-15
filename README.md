@@ -153,8 +153,48 @@ Output:
 }
 ```
 
+#### New: Tint colors
 
+`oColorsGetTint` function will return a tinted palette color based on a specified brightness.
+The function takes the name of a palette color and a brightness value between 0-100.
 
+Usage:
+
+```scss
+.o-colors-tinted-color {
+	background-color: oColorsGetTint('blue', 90);
+}
+```
+
+Output:
+
+```css
+.o-colors-tinted-color {
+	background-color: #177ee6;
+}
+```
+
+#### New: Generated text colors
+
+`oColorsGetTextColor` will return a text color based on the background and an opacity specified. The base of the text color is either black or white depending on the brightness of the background color and then mixed with the background at the specified opacity using `oColorsMix`.
+
+_Warning_: if the combination of background and text colour created by the function would not pass WCAG AA level, o-colors will throw an error.
+
+Usage:
+
+```scss
+.o-colors-palette-teal {
+	color: oColorsGetTextColor(oColorsGetPaletteColor('teal'), 80);
+}
+```
+
+Output:
+
+```css
+.o-colors-palette-teal {
+	color: #cce3e5;
+}
+```
 
 ----
 
