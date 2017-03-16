@@ -28,7 +28,7 @@ Sans or SansBold are the common fonts for the site. SansData, SansDataBold and S
 </thead><tbody>
 <tr>
 <td><strong>Font name</strong></td>
-<td>Metric light</td>
+<td>Metric regular</td>
 <td>Metric semibold</td>
 <td>Metric regular</td>
 <td>Metric semibold</td>
@@ -36,7 +36,7 @@ Sans or SansBold are the common fonts for the site. SansData, SansDataBold and S
 </tr>
 <tr>
 <td><strong>CSS font-family (weight)</strong></td>
-<td>MetricWeb (200)</td>
+<td>MetricWeb (400)</td>
 <td>MetricWeb (600)</td>
 <td>MetricWeb (400)</td>
 <td>MetricWeb (600)</td>
