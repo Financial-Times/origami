@@ -3,7 +3,7 @@
 /// @link http://registry.origami.ft.com/components/o-colors
 ////
 
-/// Colour use cases v2
+/// Colour use cases
 ///
 /// These mappings define what we use our colours for.
 ///
@@ -17,7 +17,7 @@
 ///                     _deprecated: <msg>  Emits <msg> as a warning if referenced, but still works
 ///
 /// @type map
-$o-colors-usecases-v2: (
+$o-colors-usecases: map-merge((
 
 //	<use case>                <properties>
 
@@ -44,4 +44,4 @@ $o-colors-usecases-v2: (
 	section-money:            (all: 'red'),
 	section-money-alt:        (all: 'white'),
 
-);
+), $o-colors-usecases);

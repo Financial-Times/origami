@@ -1,3 +1,15 @@
+/// Return either white or black for the text base
+/// depending on the background colour
+///
+/// @param {String} $color - the name of the background colour being used
+@function _oColorsGetTextBase($color) {
+	@if oColorsColorBrightness($color) < 65% {
+		@return 'white';
+	} @else {
+		@return 'black';
+	}
+}
+
 /// Checks the contrast ratio and returns the WCAG
 /// rating, either AAA, AA, or AA18 meaning text should
 /// be at least 18px

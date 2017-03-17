@@ -1,5 +1,4 @@
 $o-colors-is-silent: false;
-$o-colors-palette-version: 2;
 
 // Import colors module
 @import '../../main';
@@ -33,8 +32,8 @@ body {
 	}
 }
 
-@each $name, $csscolor in $o-colors-palette-v2 {
-	@if $csscolor != 'transparent' and $csscolor != 'inherit' and $name != 'org-b2c' {
+@each $name, $csscolor in $o-colors-palette {
+	@if $csscolor != 'transparent' and $csscolor != 'inherit'  and not str-index($name, '-') {
 		.o-colors-palette-#{$name} span {
 			@if $name == 'jade' {
 				color: oColorsGetTextColor($csscolor, 95);

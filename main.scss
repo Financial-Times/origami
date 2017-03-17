@@ -3,24 +3,14 @@
 @import 'src/scss/tools/maths';
 @import 'src/scss/tools/a11y';
 
-// Version 1
-@import 'src/scss/v1/palette';
-@import 'src/scss/v1/use-cases';
-
-// Version 2
-@import 'src/scss/v2/palette';
-@import 'src/scss/v2/use-cases';
+@import 'src/scss/palette';
+@import 'src/scss/use-cases';
 
 @import 'src/scss/functions';
 @import 'src/scss/mixins';
 
-@if _oColorsSetVersion() != true {
-	@error "The o-colors version #{$o-colors-palette-version} does not exist. Please use version 2.";
-}
-
-@if $o-colors-palette-version == 2 {
-	@include _oColorsSetPaletteTints;
-}
+// Set the tint palette colors programatically
+@include _oColorsSetPaletteTints;
 
 // If noisy, output helper classes for use cases and palette colours
 @if ($o-colors-is-silent == false) {
@@ -50,14 +40,6 @@
 				color: oColorsGetTextColor($csscolor, 100);
 			}
 		}
-	}
-
-	.test-tint {
-		background: oColorsGetTint('white', 90);
-	}
-
-	.test-text-background {
-		@include oColorsFor('page', text, 50);
 	}
 
 	// Set silent mode back on to avoid multiple outputs of helper classes

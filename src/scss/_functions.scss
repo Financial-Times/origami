@@ -8,11 +8,6 @@
 /// @param {String} $name
 @function oColorsGetPaletteColor($name) {
 	@if (map-has-key($o-colors-palette, $name)) {
-		// If the palette color is deprecated, warn and suggest a replacement color.
-		@if (map-has-key($o-colors-deprecations, $name)) {
-			@warn "The color: '#{inspect($name)}', is deprecated and will be removed in the next major version. The v2 palette color replacement is: #{map-get($o-colors-deprecations, $name)}.";
-		}
-
 		@return map-get($o-colors-palette, $name);
 	} @else {
 		@warn "Color name '#{inspect($name)}' is not defined in the palette";
@@ -27,12 +22,6 @@
 /// @param {String} $color [black] - palette name of color
 /// @param {Number} $percentage [60] - percentage opacity of the colour over the background
 @function oColorsMix($color: 'black', $background: 'pink', $percentage: 80) {
-	// New functions should not work with the v1 palette
-	@if $o-colors-palette-version == 1 {
-		@warn "The function oColorsGetTint can only be used with the v2 palette";
-		@return null;
-	}
-
 	$context: $background;
 	$base: $color;
 
@@ -120,36 +109,12 @@
 	@return oColorsGetPaletteColor($color);
 }
 
-/// Sets the correct color-palette and color-use-cases variables based on the
-/// $o-colors-palette-version value.
-@function _oColorsSetVersion() {
-	@if $o-colors-palette-version == 1 {
-		@warn "o-colors version 1 has been deprecated and will be removed in the next major release.";
-		$o-colors-palette: map-merge($o-colors-palette-v1, $o-colors-palette) !global;
-		$o-colors-usecases: map-merge($o-colors-usecases-v1, $o-colors-usecases) !global;
-		$o-colors-deprecations: map-merge($o-colors-palette-v1-deprecations, $o-colors-deprecations) !global;
-	} @else if $o-colors-palette-version == 2 {
-		$o-colors-palette: map-merge($o-colors-palette-v2, $o-colors-palette) !global;
-		$o-colors-usecases: map-merge($o-colors-usecases-v2, $o-colors-usecases) !global;
-	} @else {
-		@return false;
-	}
-
-	@return true;
-}
-
 /// Returns a customised version of our shade-able colors defined in
 /// $o-colors-tints
 ///
 /// @param {String} $color - the name of the color to be shaded
 /// @param {Number} $brightness - the brightness value of the new color
 @function oColorsGetTint($color, $brightness) {
-	// New functions should not work with the v1 palette
-	@if $o-colors-palette-version == 1 {
-		@warn "The function oColorsGetTint can only be used with the v2 palette";
-		@return null;
-	}
-
 	$hue: null;
 	$saturation: null;
 	$mix: null;
@@ -171,30 +136,12 @@
 	@return $newcolor;
 }
 
-/// Return either white or black for the text base
-/// depending on the background colour
-///
-/// @param {String} $color - the name of the background colour being used
-@function _oColorsGetTextBase($color) {
-	@if oColorsColorBrightness($color) < 65% {
-		@return 'white';
-	} @else {
-		@return 'black';
-	}
-}
-
 /// Returns a text colour based on the background and
 /// an opacity percentage the colour should appear at
 ///
 /// @param {Color} $background - the hex color of the background the text will appear on
 /// @param {Number} $opacity [100] - the opacity percentage the text colour should appear at
 @function oColorsGetTextColor($background, $opacity: 90) {
-	// New functions should not work with the v1 palette
-	@if $o-colors-palette-version == 1 {
-		@warn "The function oColorsGetTextColor can only be used with the v2 palette";
-		@return null;
-	}
-
 	$baseColor: _oColorsGetTextBase($background);
 	$percentage: $opacity;
 
