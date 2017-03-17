@@ -15,7 +15,7 @@
 			"js": "demos/src/demo.js",
 
 			"documentClasses": "",
-			"dependencies": "o-fonts, o-colors"
+			"dependencies": "o-fonts, o-colors, o-buttons"
 		},
 		"demos": [
 			{
