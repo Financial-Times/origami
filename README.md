@@ -49,7 +49,7 @@ You must either construct an `o-tooltip` object or fire an `o.DOMContentLoaded` 
 
 ```js
 const oTooltip = require('o-tooltip');
-let tooltipEl = Document.getById('myTooltipEl');
+let tooltipEl = Document.getElementById('myTooltipEl');
 const oTooltip = new oTooltip(tooltipEl, '#targetID');
 ```
 
