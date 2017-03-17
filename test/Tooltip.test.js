@@ -81,7 +81,7 @@ describe("Tooltip", () => {
 		it("Adds the tooltip to the global tooltip map", () => {
 			proclaim.strictEqual(Tooltip._tooltips.size, 0);
 
-			let tooltip = new Tooltip("stubEL");
+			new Tooltip("stubEL");
 			proclaim.strictEqual(Tooltip._tooltips.size, 1);
 		});
 	});
@@ -1238,7 +1238,7 @@ describe("Tooltip", () => {
 
 	describe('throwError', () => {
 		it("thows an error", () => {
-			proclaim.throws(() => { Tooltip.throwError('some message') });
+			proclaim.throws(() => { Tooltip.throwError('some message'); });
 		});
 	});
 
