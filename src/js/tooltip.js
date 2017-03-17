@@ -132,10 +132,6 @@ class Tooltip {
 		this.delegates.tooltip.on('click', '.o-tooltip-close', this.closeHandler);
 		this.delegates.tooltip.on('touchend', '.o-tooltip-close', this.closeHandler);
 
-		this.closeOnExternalClickHandler = this.closeOnExternalClick.bind(this);
-		this.delegates.doc.on('click', 'body', this.closeOnExternalClickHandler);
-		this.delegates.doc.on('touchend', 'body', this.closeOnExternalClickHandler);
-
 		this.closeOnKeyUpHandler = this.closeOnKeyUp.bind(this);
 		this.delegates.doc.on('keyup', this.closeOnKeyUpHandler);
 
@@ -172,10 +168,6 @@ class Tooltip {
 		this.visible = false;
 		this.tooltipEl.style.display = 'none';
 		return false;
-	};
-
-	closeOnExternalClick() {
-		// Leave this out for v1. Can add in if people want it.
 	};
 
 	/**
