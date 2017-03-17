@@ -1310,7 +1310,7 @@ describe("Tooltip", () => {
 		});
 		it("deletes the tooltip from the tooltip map", () => {
 			const testTooltip = Tooltip.init('#tooltip-demo');
-			const testTooltip2 = Tooltip.init('#tooltip-demo-2');
+			Tooltip.init('#tooltip-demo-2'); // Init a second tooltip so when the first is destroyed the Tooltip._tooltips is not also destroyed
 
 			const tooltipCount = Tooltip._tooltips.size;
 			testTooltip.destroy();
