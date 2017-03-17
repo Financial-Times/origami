@@ -23,7 +23,8 @@ $pkgYellow: #ffec1a;
 	@include oTypographyFallbackFontSize('sans', 18px);
 }
 
-.topper--package-extra {
+.topper--package-extra,
+.topper--package-extra-wide {
 	.topper__package-sequence-id,
 	&.topper--package .topper__headline {
 		color: $pkgYellow;

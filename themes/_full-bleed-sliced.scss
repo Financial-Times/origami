@@ -1,0 +1,22 @@
+.topper--full-bleed-sliced {
+	@include alignText(left);
+
+	padding: 0;
+
+	.topper__visual {
+		width: 100%;
+	}
+
+	.topper__background {
+		position: relative;
+	}
+
+	.topper__text {
+		width: 100%;
+	}
+
+	.topper__text-box {
+		padding-top: 25px;
+		padding-bottom: 35px;
+	}
+}
