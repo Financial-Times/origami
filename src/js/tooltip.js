@@ -5,6 +5,12 @@ import Target from './target';
 
 class Tooltip {
 
+	/**
+	 * Represents a tooltip.
+	 * @constructor
+	 * @param {HTMLElement} tooltipEl - The tooltip element in the DOM (Required)
+	 * @param {Object} opts - An options object for configuring the tooltip (Optional)
+	*/
 	constructor (tooltipEl, opts) {
 
 		if (!Tooltip._tooltips) {
@@ -12,10 +18,10 @@ class Tooltip {
 		}
 
 		this.tooltipEl = tooltipEl;
-		Tooltip._tooltips.set(this.tooltipEl, this); //TODO test this
+		Tooltip._tooltips.set(this.tooltipEl, this);
 
-		this.opts = opts || this.getOptions(tooltipEl);
-		this.opts = this.checkOptions(this.opts);
+		this.opts = opts || Tooltip.getOptions(tooltipEl);
+		this.opts = Tooltip.checkOptions(this.opts);
 
 		this.target = new Tooltip.Target(document.getElementById(this.opts.target));
 		this.tooltipPosition = this.opts.position;
@@ -28,6 +34,7 @@ class Tooltip {
 		};
 
 		Viewport.listenTo('resize');
+
 		// Do you render as soon as possible?
 		if (this.opts.renderOnConstruction) {
 			this.render();
@@ -35,7 +42,14 @@ class Tooltip {
 		}
 	};
 
-	getOptions(tooltipEl) {
+	/**
+	 * Get the data attributes from the tooltipEl. If the tooltip is being set up
+	 * declaratively, this method is used to extract the data attributes from
+	 * the DOM.
+	 * @param {HTMLElement} tooltipEl - The tooltip element in the DOM (Required)
+	 * @todo - refactor this out to smartly iterate over data attributes
+	*/
+	static getOptions(tooltipEl) {
 		let opts = {};
 		if (tooltipEl.hasAttribute('data-o-tooltip-position')) {
 			opts.position = tooltipEl.getAttribute('data-o-tooltip-position');
@@ -47,11 +61,22 @@ class Tooltip {
 		if (tooltipEl.hasAttribute('data-o-tooltip-render-on-construction')){
 			opts.renderOnConstruction = (tooltipEl.getAttribute('data-o-tooltip-render-on-construction') === 'true');
 		}
+
+		if (tooltipEl.hasAttribute('data-o-tooltip-z-index')){
+			opts.zIndex = tooltipEl.getAttribute('data-o-tooltip-z-index');
+		}
 		return opts;
 	};
 
-	// Check the options passed in
-	checkOptions(opts) {
+	/**
+	 * Check the options passed in are valid, and that the required option
+	 * (target) is present
+	 * @param {Object} opts - An Object with configuration options for the tooltip
+	 * @throws o-tooltip error: opts.target us not set
+	 * @throws o-tooltip error: opts.tooltipPosition is not one of "above", "below"
+	 * "left" or "right"
+	*/
+		static checkOptions(opts) {
 
 		if(!opts.target) {
 			Tooltip.throwError("tooltip.target is not set. An target for the tooltip to point at must be provided");
@@ -69,21 +94,22 @@ class Tooltip {
 		return opts;
 	};
 
-	// Build the tooltip
+	/**
+	 * Render the tooltip. Adds markup and attributes to this.tooltipEl in the DOM
+	*/
 	render() {
 
 		this.tooltipEl.setAttribute('role', 'tooltip');
 		this.tooltipEl.classList.add('o-tooltip');
 
-		if (this.opts.zindex) {
-			this.tooltipEl.style.zIndex = this.opts.zindex;
+		if (this.opts.zIndex) {
+			this.tooltipEl.style.zIndex = this.opts.zIndex;
 		}
 
 		// Build and append the close button
 		const button = document.createElement('a');
 		button.className = 'o-tooltip-close';
 		button.setAttribute('role', 'button');
-		//button.setAttribute('tabindex', '0');
 		button.setAttribute('href', '#void');
 		button.setAttribute('aria-label', 'Close');
 		button.setAttribute('title', 'Close');
@@ -91,19 +117,20 @@ class Tooltip {
 
 	};
 
+	/**
+	 * Show the tooltip. Adds event handlers for clicks, touches, keypresses and
+	 * viewport resizes. Uses FTDomDelegate to implement the event delegate
+	 * pattern. Calls DrawTooltip.
+	*/
 	show() {
-		// event handlers
+		// Delegate pattern
 		this.delegates.doc.root(document.body);
 		this.delegates.tooltip.root(this.tooltipEl);
 
-		/* Set up all the ways to close the tooltip */
+		// Set up all the ways to close the tooltip
 		this.closeHandler = this.close.bind(this);
 		this.delegates.tooltip.on('click', '.o-tooltip-close', this.closeHandler);
 		this.delegates.tooltip.on('touchend', '.o-tooltip-close', this.closeHandler);
-
-		this.resizeListenerHandler = this.resizeListener.bind(this);
-		this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
-
 
 		this.closeOnExternalClickHandler = this.closeOnExternalClick.bind(this);
 		this.delegates.doc.on('click', 'body', this.closeOnExternalClickHandler);
@@ -112,40 +139,48 @@ class Tooltip {
 		this.closeOnKeyUpHandler = this.closeOnKeyUp.bind(this);
 		this.delegates.doc.on('keyup', this.closeOnKeyUpHandler);
 
+		// Resize means we might need to move our tooltip so it is still on screen
+		this.resizeListenerHandler = this.resizeListener.bind(this);
+		this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
 
-		// Calculate and position the overlay + arrow
 		this.drawTooltip();
 		this.visible = true;
 	};
 
+	/**
+	 * Destroy the tooltip.
+	*/
 	destroy() {
 		if (this.visible === true) {
 			this.close();
 		}
 
-		//if (this.opts.trigger) {
-		//	this.opts.trigger.removeEventListener('click', triggerClickHandler);
-		//}
-
-		delete Tooltip._tooltips[this.tooltipEl];
+		Tooltip._tooltips.delete(this.tooltipEl);
+		if (Tooltip._tooltips.size === 1) {
+			delete Tooltip._tooltips;
+		}
 	};
 
+	/**
+	 * Close the tooltip. (Visually hide it and remove event listeners)
+	*/
 	close() {
 		this.delegates.doc.destroy();
 		this.delegates.tooltip.destroy();
 
-		//Viewport.stopListeningTo('resize');
+		//Viewport.stopListeningTo('resize');TODO <- this should only stop listening if it's the only tooltip on the page
 		this.visible = false;
 		this.tooltipEl.style.display = 'none';
 		return false;
 	};
 
 	closeOnExternalClick() {
-		if (false /*!this.tooltip.contains(ev.target)*/){
-			this.close();
-		}
+		// Leave this out for v1. Can add in if people want it.
 	};
 
+	/**
+	 * @param {Event} ev - calls close on the tooltip if the key is Esc
+	*/
 	closeOnKeyUp(ev) {
 
 		/* keyCode 27 is the escape key */
@@ -154,9 +189,13 @@ class Tooltip {
 		}
 	};
 
+	/**
+	 * Respond to resize events. Re-position the tooltip if its target has moved.
+	 * @todo: There are a few optimisations to make here, getRect is being called
+	 * by the target more than once. We're checking edge positions we don't care
+	 * about, and moving based on them
+	*/
 	resizeListener() {
-		/* There are a few optimisations to make here, getRect is being called by the target
-		 more than once. We're checking edge positions we don't care about, and moving based on them... */
 		if (this.target.hasMoved()) {
 			window.requestAnimationFrame(() => {
 				this.target.refreshRect();
@@ -165,6 +204,10 @@ class Tooltip {
 		}
 	};
 
+	/**
+	 * Calculates the best place to position the tooltip based on space around the
+	 * target and a preference set by the user.
+	*/
 	drawTooltip(){
 
 		// render the tooltip so we know how big it is
@@ -221,14 +264,24 @@ class Tooltip {
 		this._setArrow();
 	};
 
+	/**
+	 * @returns: the offset width of the tooltip element
+	*/
 	width() {
 		return this.tooltipEl.offsetWidth;
 	}
 
+	/**
+	 * @returns {Integer}: the offset height of the tooltip element
+	*/
 	height() {
 		return this.tooltipEl.offsetHeight;
 	}
 
+	/**
+	 * @returns {Object} An object with values `left`, `right`, `top` and `bottom`
+	 * representing the bounding box of the tooltip (including the arrow)
+	*/
 	calculateTooltipRect() {
 		const rect = {};
 		const width = this.width();

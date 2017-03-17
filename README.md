@@ -3,52 +3,54 @@ o-tooltip [![Circle CI](https://circleci.com/gh/Financial-Times/o-tooltip/tree/m
 
 o-tooltip is a component usually used for annotating or highlighting bits of user interface.
 
-# TODO // todos here until v1 ships
-- Finish README
-- Tests
-- pa11y demo
-
-
-_A table of contents to help people find things_
-
 - [Usage](#usage)
 	- [Markup](#markup)
 	- [JavaScript](#javascript)
 	- [Sass](#sass)
-- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
 ## Usage
-o-tooltip has styles and JavaScript to show and hide a tooltip.
+o-tooltip has Sass and JavaScript to show and hide a tooltip which points at a target.
 
 ### Markup
 
 This HTML demonstrates the declarative way to instantiate o-tooltip. If you are using the Build Service or firing your own `o.DOMContentLoaded` event, this is all you need to create a tooltip.
 
 ```html
-TBC
+<div class='demo-tooltip-target' id="tooltip-target">
+	A bit of UI to annotate
+</div>
+
+<div data-o-component="o-tooltip"
+  data-o-tooltip-position="below"
+  data-o-tooltip-target='demo-tooltip-target'
+  data-o-tooltip-render-on-construction=true>
+	<div class='o-tooltip-content'>
+		Some text to go in the tooltip
+	</div>
+</div>
 
 ```
 
-A full list of data attributes:
+Attributes can be set declaratively, or passed in on instantiation in an options object. A full list of data attributes:
+- `data-o-tooltip-target`: Required. The target for the tooltip to point at
+- `data-o-tooltip-position`: Optional. The preferred position of the tooltip relative to the target. Can be one of `above`, `below`, `left`, `right`. If there isn't room to render the tooltip where the option passed in would render it, this value is flipped (above becomes below, left becomes right). Defaults to below.
+- `data-o-tooltip-render-on-construction`: Optional. Boolean value. Set to true if you want the tooltip to be rendered immediately after it is constructed. Defaults to false.
+- `data-o-tooltip-z-index`[TODO] : Optional. The z-index for the tooltip
 
-zIndex
-arrowPosition
-target (not optional)
-TBC
 
 ### JavaScript
 
 No code will run automatically unless you are using the Build Service.
-You must either construct an `o-tooltip` object or fire the `o.DOMContentLoaded` event, which oComponent listens for.
+You must either construct an `o-tooltip` object or fire an `o.DOMContentLoaded` event, which oTooltip listens for.
 
 #### Constructing an o-tooltip
 
 ```js
 const oTooltip = require('o-tooltip');
-
-const oTooltip = new oTooltip();
+let tooltipEl = Document.getById('myTooltipEl');
+const oTooltip = new oTooltip(tooltipEl, '#targetID');
 ```
 
 #### Firing an oDomContentLoaded event
@@ -62,12 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
 ### Sass
 
 As with all Origami components, o-tooltip has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-tooltip-is-silent : false;` in your Sass after you've imported the o-tooltip Sass.
-
-
-## Migration guide
-
-### Migrating from o-overlay to o-tooltip
-
 
 ---
 
