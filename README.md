@@ -34,7 +34,7 @@ This HTML demonstrates the declarative way to instantiate o-tooltip. If you are 
 ```
 
 Attributes can be set declaratively, or passed in on instantiation in an options object. A full list of data attributes:
-- `data-o-tooltip-target`: Required. The target for the tooltip to point at
+- `data-o-tooltip-target`: Required. A CSS selector for the target of the tooltip (the thing it points to)
 - `data-o-tooltip-position`: Optional. The preferred position of the tooltip relative to the target. Can be one of `above`, `below`, `left`, `right`. If there isn't room to render the tooltip where the option passed in would render it, this value is flipped (above becomes below, left becomes right). Defaults to below.
 - `data-o-tooltip-render-on-construction`: Optional. Boolean value. Set to true if you want the tooltip to be rendered immediately after it is constructed. Defaults to false.
 - `data-o-tooltip-z-index`[TODO] : Optional. The z-index for the tooltip
