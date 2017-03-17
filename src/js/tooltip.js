@@ -72,11 +72,11 @@ class Tooltip {
 	 * Check the options passed in are valid, and that the required option
 	 * (target) is present
 	 * @param {Object} opts - An Object with configuration options for the tooltip
-	 * @throws o-tooltip error: opts.target us not set
+	 * @throws o-tooltip error: opts.target is not set
 	 * @throws o-tooltip error: opts.tooltipPosition is not one of "above", "below"
 	 * "left" or "right"
 	*/
-		static checkOptions(opts) {
+	static checkOptions(opts) {
 
 		if(!opts.target) {
 			Tooltip.throwError("tooltip.target is not set. An target for the tooltip to point at must be provided");
@@ -156,7 +156,8 @@ class Tooltip {
 		}
 
 		Tooltip._tooltips.delete(this.tooltipEl);
-		if (Tooltip._tooltips.size === 1) {
+		if (Tooltip._tooltips.size === 0) {
+			Viewport.stopListeningTo('resize');
 			delete Tooltip._tooltips;
 		}
 	};
@@ -168,7 +169,6 @@ class Tooltip {
 		this.delegates.doc.destroy();
 		this.delegates.tooltip.destroy();
 
-		//Viewport.stopListeningTo('resize');TODO <- this should only stop listening if it's the only tooltip on the page
 		this.visible = false;
 		this.tooltipEl.style.display = 'none';
 		return false;

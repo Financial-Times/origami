@@ -29,6 +29,14 @@ function declarativeCode () {
 		data-o-tooltip-target='demo-tooltip-target'>
 			Tooltip content
 		</div>
+		<div class='tooltip-target' id="demo-tooltip-target-2">
+				Thing to point the tooltip at.
+			</div>
+
+			<div id='tooltip-demo-2' data-o-component="o-tooltip"
+			data-o-tooltip-target='demo-tooltip-target-2'>
+				Tooltip content
+			</div>
 	`;
 	insert(html);
 }

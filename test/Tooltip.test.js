@@ -4,13 +4,17 @@ import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 import createMockRaf from 'mock-raf';
 const Tooltip = require('./../main');
+import Viewport from 'o-viewport';
+
 
 describe("Tooltip", () => {
 
 	afterEach(() => {
-		Tooltip._tooltips.forEach((tooltip) => {
-			tooltip.destroy();
-		});
+		if (Tooltip._tooltips){
+			Tooltip._tooltips.forEach((tooltip) => {
+				tooltip.destroy();
+			});
+		}
 	});
 
 	describe("constructor", () => {
@@ -79,7 +83,7 @@ describe("Tooltip", () => {
 		});
 
 		it("Adds the tooltip to the global tooltip map", () => {
-			proclaim.strictEqual(Tooltip._tooltips.size, 0);
+			proclaim.isUndefined(Tooltip._tooltips);
 
 			new Tooltip("stubEL");
 			proclaim.strictEqual(Tooltip._tooltips.size, 1);
@@ -403,6 +407,7 @@ describe("Tooltip", () => {
 			targetStub.restore();
 			drawStub.restore();
 			setArrowStub.restore();
+			testTooltip.destroy();
 		});
 
 		/* Happy path */
@@ -808,8 +813,7 @@ describe("Tooltip", () => {
 			let tooltipElStub = {offsetWidth: 10, offsetHeight: 10};
 			targetStub = sinon.stub(Tooltip, 'Target').returns({top: 1, left: 1, right: 1, bottom: 1});
 
-			const stubEl = document.createElement('div');
-			testTooltip = new Tooltip(stubEl);
+			testTooltip = new Tooltip(tooltipElStub);
 
 			testTooltip.tooltipEl = tooltipElStub;
 		});
@@ -820,6 +824,7 @@ describe("Tooltip", () => {
 			getLeftStub.restore();
 			getTopStub.restore();
 			targetStub.restore();
+			testTooltip.destroy();
 		});
 
 		describe("when position is above", () => {
@@ -1186,8 +1191,6 @@ describe("Tooltip", () => {
 			fixtures.reset();
 		});
 
-		it("stops listening to resize events if this is the last tooltip"); // need to implement this
-
 		it("sets tooltip.visible to false", () => {
 			const testTooltip = Tooltip.init('#tooltip-demo');
 			testTooltip.show();
@@ -1281,25 +1284,42 @@ describe("Tooltip", () => {
 	describe('height', () => {
 	});
 	describe("#destroy", () => {
+		let closeStub;
+
 		beforeEach(() => {
 			fixtures.declarativeCode();
+			closeStub = sinon.stub(Tooltip.prototype, 'close');
 		});
 
 		afterEach(() => {
 			fixtures.reset();
+			closeStub.restore();
+		});
+		it("stops listening to resize events if this is the last tooltip", () => {
+			const stopListeningSpy = sinon.spy(Viewport, "stopListeningTo");
+			const testTooltip = Tooltip.init('#tooltip-demo');
+			testTooltip.show();
+			testTooltip.destroy();
+			proclaim.isTrue(stopListeningSpy.called);
 		});
 		it("calls close if tooltip.visible is true", () => {
 			const testTooltip = Tooltip.init('#tooltip-demo');
 			testTooltip.visible = true;
-			let closeStub = sinon.stub(Tooltip.prototype, 'close');
 			testTooltip.destroy();
 			proclaim.isTrue(closeStub.called);
 		});
 		it("deletes the tooltip from the tooltip map", () => {
 			const testTooltip = Tooltip.init('#tooltip-demo');
+			const testTooltip2 = Tooltip.init('#tooltip-demo-2');
+
 			const tooltipCount = Tooltip._tooltips.size;
 			testTooltip.destroy();
 			proclaim.strictEqual(tooltipCount -1, Tooltip._tooltips.size);
+		});
+		it("destroys the tooltip map if this is the last tooltip", () => {
+			const testTooltip = Tooltip.init('#tooltip-demo');
+			testTooltip.destroy();
+			proclaim.isUndefined(Tooltip._tooltips);
 		});
 	});
 });
