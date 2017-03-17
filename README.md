@@ -35,16 +35,26 @@ Use the `oColorsFor` mixin to add colour-related properties to your ruleset:
 
 ```scss
 .my-thing {
-	@include oColorsFor(custom-box box, background border);
+	@include oColorsFor(custom-box box, background text, 80);
 }
 ```
 
-It takes two arguments:
+Will output:
+
+```css
+.my-thing {
+	background-color: #f2dfce;
+	color: #302d29; // black mixed with #f2dfce at 80%
+}
+```
+
+It takes three arguments:
 
 * **Use case list**: a list of colour use cases in order of preference.  The first one that is defined will be returned.
 * **Property list**: a list of all the properties you want the colour applied to (background, border, text). They each correspond to `background-colour`, `border-color` and `color`. Default is _all_ which includes all three properties.
+* **Text Level**: the opacity (1-100) for the text color derived from the background colour of the use case. _If a text use case exists already, this will have no effect_.
 
-In the example above, the background and border colours are set, preferably from the *custom-box* use case, and if either of those properties are not available for that use case, from the *box* use case.
+In the example above, the background and text colours are set, preferably from the *custom-box* use case, and if either of those properties are not available for that use case, from the *box* use case. If the text use case is not set, the function will output a text colour based on either black or white (depending on the brightness of the background) blended with the background colour at the text level specified.
 
 ### Use case function
 
@@ -109,28 +119,6 @@ $o-colors-palette-version: 2;
 ```
 
 In addition to the functions and mixins already discussed in this documentation, there are some new features available and new abilities added to the existing mixins and functions.
-
-#### Updated: Use case mixin
-
-`oColorsFor` now takes a third argument: `$textLevel`. This sets the opacity (1-100) for the text color based on the background colour of the use case. If a text use case exists already, this will have no effect.
-
-Usage:
-
-```scss
-// For the use case: page: (background: 'pink')
-.body {
-	@include oColorsFor(page, background text, 80);
-}
-```
-
-Will output:
-
-```css
-.body {
-	background-color: #fff1e5;
-	color: #33302e; // black mixed with #fff1e5 at 80%
-}
-```
 
 #### New: Mix colors
 

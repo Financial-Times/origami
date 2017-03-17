@@ -147,7 +147,10 @@ body {
 	}
 }
 
+.my-thing {
+	@include oColorsFor(custom-box box, background text, 80);
+}
 
 .o-colors-tinted-color {
-	background-color: oColorsGetTint('blue', 90);
+	background-color: oColorsGetTint('oxford', 90);
 }
