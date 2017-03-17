@@ -1205,13 +1205,6 @@ describe("Tooltip", () => {
 		});
 	});
 
-	describe("#closeOnExternalClick", () => {
-<<<<<<< HEAD
-=======
-		// Leave it off for v1
->>>>>>> faa33bc215859c347a9af4121a774cbb36d2ac95
-	});
-
 	describe("#closeOnKeyUp", () => {
 		beforeEach(() => {
 			fixtures.declarativeCode();
