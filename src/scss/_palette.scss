@@ -34,7 +34,7 @@ $o-colors-palette: map-merge((
 	'white':                 #ffffff,
 
 	'claret':                #990f3d,
-	'blue':                  #0f5499,
+	'oxford':                #0f5499,
 	'teal':                  #00757f,
 
 	'wheat':                 #f2dfce,
@@ -71,7 +71,7 @@ $o-colors-tints: (
 		saturation: 90,
 		tints: ( 30, 40, 50, 60, 70, 80, 90, 100 ),
 	),
-	'blue': (
+	'oxford': (
 		hue: 210,
 		saturation: 90,
 		tints: ( 30, 40, 50, 60, 70, 80, 90, 100 ),

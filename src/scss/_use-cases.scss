@@ -22,11 +22,11 @@ $o-colors-usecases: map-merge((
 //	<use case>                <properties>
 
 	page:                     (background: 'pink'),
-	// box:                      (background: 'pink-tint1'),
+	box:                      (background: 'wheat'),
 	link:                     (text: 'teal'),
 	// link-hover:               (text: 'grey-tint4'),
 	// link-title:               (text: 'grey-tint5'),
-	link-title-hover:         (text: 'blue'),
+	link-title-hover:         (text: 'oxford'),
 	tag-link:                 (text: 'claret'),
 	// tag-link-hover:           (text: 'merlot'),
 	title:                    (text: 'black'),
@@ -37,8 +37,8 @@ $o-colors-usecases: map-merge((
 	// Section colours
 	section-life-arts:        (all: 'purple'),
 	section-life-arts-alt:    (all: 'candy'),
-	section-magazine:         (all: 'blue'),
-	// section-magazine-alt:     (all: 'light-blue'),
+	section-magazine:         (all: 'oxford'),
+	section-magazine-alt:     (all: 'sky'),
 	section-house-home:       (all: 'green'),
 	section-house-home-alt:   (all: 'lime'),
 	section-money:            (all: 'red'),

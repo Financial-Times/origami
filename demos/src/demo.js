@@ -3,7 +3,7 @@ const demoColors = Array.from(document.querySelectorAll('.demo-color'));
 let activeUseCase = '';
 
 function oColorsDemoPalette() {
-	const colorTints = ['white', 'black', 'claret', 'blue', 'teal'];
+	const colorTints = ['white', 'black', 'claret', 'oxford', 'teal'];
 
 	// Get the content property from the body element.
 	// See demo.scss where a JSON-like string is added.
