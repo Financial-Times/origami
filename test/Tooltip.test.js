@@ -202,7 +202,7 @@ describe("Tooltip", () => {
 		});
 
 		it("gives the tooltip the role `tooltip`", () => {
-			const tooltip = Tooltip.init('#tooltip-demo');
+			Tooltip.init('#tooltip-demo');
 
 			proclaim.isTrue(tooltipEl.hasAttribute('role'));
 			proclaim.strictEqual(tooltipEl.getAttribute('role'), 'tooltip');
@@ -218,7 +218,7 @@ describe("Tooltip", () => {
 		});
 
 		it("adds a close button with an aria label, role and title", () => {
-			const tooltip = Tooltip.init('#tooltip-demo');
+			Tooltip.init('#tooltip-demo');
 			const buttonEl = tooltipEl.querySelector('.o-tooltip-close');
 			proclaim.isDefined(buttonEl);
 			proclaim.isTrue(buttonEl.hasAttribute('aria-label'));
