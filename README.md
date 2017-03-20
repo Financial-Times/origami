@@ -5,6 +5,7 @@ The color palette for the FT masterbrand and sub-brand products.
 - [Usage](#usage)
 	- [Sass](#sass)
 	- [Markup](#markup)
+	- [CSS Variables](#css-variables)
 - [Migration guide](#migration-guide)
 	- [Upgrading from v3.x.x to v4.x.x](#upgrading-from-v3.x.x-to-v4.x.x)
 - [Contact](#contact)
@@ -181,6 +182,11 @@ When using the build service or importing the module with [silent mode](http://o
 ```html
 <p class="o-colors-body-text">Article text</p>
 ```
+
+### CSS Variables
+
+When using the build service or importing the module with silent mode set to false, o-colors will output all the palette colors as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables). These will use the format `--o-colors-{name}` (e.g. `--o-colors-black` and `--o-colors-teal`).
+
 
 ## Migration guide
 
