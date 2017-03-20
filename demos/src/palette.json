@@ -86,5 +86,22 @@
 	},
 	"tints" : {
 		"description": "Hello world these are some tints"
+	},
+	"b2c" : {
+		"description": "Hello world this is b2c tints",
+		"colors": [
+			{
+				"name": "org-b2c",
+				"usage": "backgrounds"
+			},
+			{
+				"name": "org-b2c-dark",
+				"usage": "backgrounds"
+			},
+			{
+				"name": "org-b2c-light",
+				"usage": "backgrounds"
+			}
+		]
 	}
 }

@@ -45,6 +45,27 @@ body {
 	}
 }
 
+.o-colors-palette-org-b2c {
+	&:after,
+	.hex {
+		color: oColorsGetTextColor(oColorsGetPaletteColor('org-b2c'), 90);
+	}
+}
+
+.o-colors-palette-org-b2c-light {
+	&:after,
+	.hex {
+		color: oColorsGetTextColor(oColorsGetPaletteColor('org-b2c-light'), 90);
+	}
+}
+
+.o-colors-palette-org-b2c-dark {
+	&:after,
+	.hex {
+		color: oColorsGetTextColor(oColorsGetPaletteColor('org-b2c-dark'), 90);
+	}
+}
+
 .container {
 	width: 100%;
 	max-width: 1100px;
@@ -80,7 +101,6 @@ body {
 		position: relative;
 		margin: 0;
 		padding: 8px;
-		text-transform: capitalize;
 		font-weight: normal;
 		font-size: 16px;
 		line-height: 24px;
@@ -153,7 +173,6 @@ body {
 	.o-copy-true &:hover:after {
 		opacity: 1;
 	}
-
 
 	&.o-colors-palette-white {
 		border: 1px solid oColorsMix(black, white, 20);
