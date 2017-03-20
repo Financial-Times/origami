@@ -234,7 +234,6 @@ describe("Tooltip", () => {
 		let resizeListenerStub;
 		let targetStub;
 		let closeStub;
-		let closeOnExternalClickSpy;
 
 		beforeEach(() => {
 			getOptionsStub = sinon.stub(Tooltip, 'getOptions').returns({});
@@ -242,7 +241,6 @@ describe("Tooltip", () => {
 			drawTooltipStub = sinon.stub(Tooltip.prototype, 'drawTooltip');
 			resizeListenerStub = sinon.stub(Tooltip.prototype, 'resizeListener');
 			closeStub = sinon.stub(Tooltip.prototype, 'close');
-			closeOnExternalClickSpy = sinon.stub(Tooltip.prototype, 'closeOnExternalClick').returns(true);
 
 			targetStub = sinon.stub(Tooltip, "Target");
 
@@ -255,41 +253,11 @@ describe("Tooltip", () => {
 			drawTooltipStub.restore();
 			resizeListenerStub.restore();
 			closeStub.restore();
-			closeOnExternalClickSpy.restore();
 			targetStub.restore();
 
 			fixtures.reset();
 		});
 
-		it('sets up a touchend handler for the body', () => {
-			let testTooltip = new Tooltip('#tooltip-demo');
-
-			const e = new Event('touchend');
-			document.body.dispatchEvent(e);
-
-			proclaim.isFalse(closeOnExternalClickSpy.called);
-
-			testTooltip.show();
-			document.body.dispatchEvent(e);
-
-			proclaim.isTrue(closeOnExternalClickSpy.called);
-			testTooltip.destroy();
-		});
-
-		it('sets up a click handler for the body', () => {
-			let testTooltip = new Tooltip('#tooltip-demo');
-
-			document.body.click();
-
-			proclaim.isFalse(closeOnExternalClickSpy.called);
-
-			testTooltip.show();
-
-			document.body.click();
-
-			proclaim.isTrue(closeOnExternalClickSpy.called);
-			testTooltip.destroy();
-		});
 
 		it('sets up a close handler for touch on the tooltip-close button', () => {
 			const tooltipEl = document.getElementById('tooltip-demo');
