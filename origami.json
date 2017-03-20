@@ -27,12 +27,6 @@
 			"display_html": false
 		},
 		{
-			"name": "deprecations",
-			"template": "demos/src/deprecations.mustache",
-			"hidden": true,
-			"sass": "demos/src/deprecations.scss"
-		},
-		{
 			"name": "pa11y",
 			"data": "demos/src/palette.json",
 			"template": "demos/src/pa11y.mustache",
