@@ -76,9 +76,9 @@ describe("Tooltip", () => {
 			proclaim.isTrue(checkOptionsStub.calledWith(getOptionsReturnStub));
 		});
 
-		it("calls render if opts.renderOnConstruction is set to true", () => {
+		it("calls render if opts.showOnConstruction is set to true", () => {
 			const stubEl = "stubEL";
-			new Tooltip(stubEl, {"renderOnConstruction": true});
+			new Tooltip(stubEl, {"showOnConstruction": true});
 			proclaim.isTrue(renderStub.called);
 		});
 
@@ -131,14 +131,14 @@ describe("Tooltip", () => {
 			proclaim.equal(options.position, stubPosition);
 		});
 
-		it("extracts renderOnConstruction if it's set on the el passed in", () => {
+		it("extracts showOnConstruction if it's set on the el passed in", () => {
 			const el = document.createElement('div');
-			el.setAttribute('data-o-tooltip-render-on-construction', true);
+			el.setAttribute('data-o-tooltip-show-on-construction', true);
 
 			const options = Tooltip.getOptions(el);
-			proclaim.isTrue(options.renderOnConstruction);
+			proclaim.isTrue(options.showOnConstruction);
 		});
-		it("extracts renderOnConstruction if it's set on the el passed in", () => {
+		it("extracts showOnConstruction if it's set on the el passed in", () => {
 			const el = document.createElement('div');
 			el.setAttribute('data-o-tooltip-z-index', "20");
 
@@ -191,24 +191,18 @@ describe("Tooltip", () => {
 	describe("render", () => {
 
 		let tooltipEl;
-		let renderSpy;
 
 		beforeEach(() => {
 			fixtures.declarativeCode();
-			renderSpy = sinon.spy(Tooltip.prototype, 'render');
 			tooltipEl = document.getElementById('tooltip-demo');
 		});
 
 		afterEach(() => {
 			fixtures.reset();
-			renderSpy.restore();
 		});
 
 		it("gives the tooltip the role `tooltip`", () => {
 			const tooltip = Tooltip.init('#tooltip-demo');
-			proclaim.isFalse(tooltipEl.hasAttribute('role'));
-
-			tooltip.render();
 
 			proclaim.isTrue(tooltipEl.hasAttribute('role'));
 			proclaim.strictEqual(tooltipEl.getAttribute('role'), 'tooltip');
@@ -225,7 +219,6 @@ describe("Tooltip", () => {
 
 		it("adds a close button with an aria label, role and title", () => {
 			const tooltip = Tooltip.init('#tooltip-demo');
-			tooltip.render();
 			const buttonEl = tooltipEl.querySelector('.o-tooltip-close');
 			proclaim.isDefined(buttonEl);
 			proclaim.isTrue(buttonEl.hasAttribute('aria-label'));
@@ -802,11 +795,12 @@ describe("Tooltip", () => {
 		let getLeftStub;
 		let getTopStub;
 		let targetStub;
+		let renderStub;
 
 		beforeEach(() => {
 			getStub = sinon.stub(Tooltip, 'getOptions');
 			checkStub = sinon.stub(Tooltip, 'checkOptions').returns({target: 'testValue'});
-
+			renderStub = sinon.stub(Tooltip.prototype, 'render');
 			getLeftStub = sinon.stub(Tooltip.prototype, '_getLeftFor').returns(100);
 			getTopStub = sinon.stub(Tooltip.prototype, '_getTopFor').returns(100);
 
@@ -818,17 +812,18 @@ describe("Tooltip", () => {
 			testTooltip.tooltipEl = tooltipElStub;
 		});
 
-		afterEach(()=>{
+		afterEach(() => {
 			getStub.restore();
 			checkStub.restore();
 			getLeftStub.restore();
 			getTopStub.restore();
 			targetStub.restore();
+			renderStub.restore();
 			testTooltip.destroy();
 		});
 
 		describe("when position is above", () => {
-			beforeEach(()=>{
+			beforeEach(() => {
 				testTooltip.tooltipPosition = 'above';
 			});
 

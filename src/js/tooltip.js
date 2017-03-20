@@ -35,9 +35,10 @@ class Tooltip {
 
 		Viewport.listenTo('resize');
 
+		this.render();
+
 		// Do you render as soon as possible?
-		if (this.opts.renderOnConstruction) {
-			this.render();
+		if (this.opts.showOnConstruction) {
 			this.show();
 		}
 	};
@@ -58,8 +59,8 @@ class Tooltip {
 			opts.target = tooltipEl.getAttribute('data-o-tooltip-target');
 		}
 
-		if (tooltipEl.hasAttribute('data-o-tooltip-render-on-construction')){
-			opts.renderOnConstruction = (tooltipEl.getAttribute('data-o-tooltip-render-on-construction') === 'true');
+		if (tooltipEl.hasAttribute('data-o-tooltip-show-on-construction')){
+			opts.showOnConstruction = (tooltipEl.getAttribute('data-o-tooltip-show-on-construction') === 'true');
 		}
 
 		if (tooltipEl.hasAttribute('data-o-tooltip-z-index')){
