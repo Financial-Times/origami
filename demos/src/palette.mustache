@@ -10,7 +10,7 @@
 				<div class="demo-color">
 					<h3>{{name}} {{#tints}}<button class="demo-tint-button demo-tint-button--{{name}}">Tints</button>{{/tints}}</h3>
 					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
-						<span class="hex"></span>
+						<input type="text" class="hex" value="" readonly>
 						{{#tints}}<div class="demo-tints-container"></div>{{/tints}}
 					</div>
 					<div class="use-cases">{{usage}}</div>
@@ -30,7 +30,7 @@
 				<div class="demo-color">
 					<h3>{{name}}</h3>
 					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
-						<span class="hex"></span>
+						<input type="text" class="hex" value="" readonly>
 					</div>
 					<div class="use-cases">{{usage}}</div>
 				</div>
@@ -49,7 +49,7 @@
 				<div class="demo-color">
 					<h3>{{name}}</h3>
 					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
-						<span class="hex"></span>
+						<input type="text" class="hex" value="" readonly>
 					</div>
 					<div class="use-cases">{{usage}}</div>
 				</div>

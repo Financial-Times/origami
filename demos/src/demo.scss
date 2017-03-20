@@ -34,7 +34,8 @@ body {
 
 @each $name, $csscolor in $o-colors-palette {
 	@if $csscolor != 'transparent' and $csscolor != 'inherit'  and not str-index($name, '-') {
-		.o-colors-palette-#{$name} span {
+		.o-colors-palette-#{$name} .hex,
+		.o-colors-palette-#{$name}:after {
 			@if $name == 'jade' {
 				color: oColorsGetTextColor($csscolor, 95);
 			} @else {
@@ -136,14 +137,38 @@ body {
 	height: 120px;
 	margin-bottom: 10px;
 
+	&:after {
+		position: absolute;
+		content: "Click to copy";
+		bottom: 20px;
+		display: block;
+		opacity: 0;
+		transition: opacity 0.2s ease-in;
+	}
+
+	&.copied:after {
+		content: "Copied!";
+	}
+
+	.o-copy-true &:hover:after {
+		opacity: 1;
+	}
+
+
 	&.o-colors-palette-white {
 		border: 1px solid oColorsMix(black, white, 20);
 	}
 
-	span {
+	.hex {
+		width: 100%;
+		height: 120px;
 		display: block;
 		text-align: center;
 		text-transform: uppercase;
+		border: 0;
+		background: transparent;
+		font-size: 18px;
+		cursor: pointer;
 	}
 }
 
