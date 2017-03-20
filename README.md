@@ -6,14 +6,14 @@ The color palette for the FT masterbrand and sub-brand products.
 	- [Sass](#sass)
 	- [Markup](#markup)
 - [Migration guide](#migration-guide)
-	- [Using palette version 2](#using-palette-version-2)
+	- [Upgrading from v3.x.x to v4.x.x](#upgrading-from-v3.x.x-to-v4.x.x)
 - [Contact](#contact)
 - [Licence](#licence)
 
 
 ## Usage
 
-There are a number of ways of using colors in your component or product. o-colors can be used via the [Build Service](#), but it is recommended you import the Sass into your project to make use of the many Sass mixins and functions available.
+There are a number of ways of using colors in your component or product. o-colors can be used via the [Build Service](https://www.ft.com/__origami/service/build/v2/), but it is recommended you import the Sass into your project to make use of the many Sass mixins and functions available.
 
 
 ### Sass:
@@ -24,6 +24,16 @@ As with all Origami components, o-colors has a [silent mode](http://origami.ft.c
 $o-colors-is-silent: false;
 @import 'o-colors/main';
 ```
+
+#### Colours and accessibility
+
+o-colors has been built to help bridge the gap between design and development by providing functionality to help create colours dynamically from a central palette as well as generate contrasted text colours based on an elements background color.
+
+You can create tints of a color with the [oColorsGetTint](#tint-palette-colors) function. The function takes a palette color name and a brightness value (based on HSB color) to return a tint of the palette color.
+
+To work with text colors the [oColorsFor](#use-case-mixin) mixin and [oColorsGetTextColor](#generated-text-colors) function will output a text color based on the background color, which will be a mix of either black or white with the background at the percentage requested. You can also mix two colours manually using the [oColorsMix](#mix-colors) function, providing two colors (either hex or palette color names) and a percentage at which to mix them.
+
+When working with the `oColorsFor` and `oColorsGetTextColor` features, the Sass will also automatically test the background color with the generated text color to see if the combination passes Web Content Accessibility Guidelines (WCAG). If the combination fails to pass at least WCAG AA you will see an error, if the combination passes AA but only at a larger font size (18px+), there will be a warning.
 
 #### Mixins and functions
 
@@ -73,96 +83,19 @@ The `oColorsGetColorFor` function takes three arguments:
 * **Options**: A Sass *map* of additional options, all of which are optional, and may comprise:
 	* **default**: The name of a palette colour to return if none of the specified use cases are defined for the desired property.  May also be set to `null` or `undefined` to return that instead of the built in default (which is transparent)
 
+_This function will not generate a text color based on the use case like `oColorsFor` to get a text color based on a use case, use `oColorsGetTextColor`_
+
 ### Palette colour function
 
 If you have a colour use case not covered by those built into the colors module, consider defining a custom use case (see below) and then using the use case mixin or function described above.  However, if you need to use a particular colour in one single place only, it may be worth using the `oColorsGetPaletteColor` function, which returns the CSS color for a palette colour name:
 
 ```scss
 .my-thing {
-	color: oColorsGetPaletteColor('pink-tint4');
+	color: oColorsGetPaletteColor('white-50');
 }
 ```
 
-## Defining custom use cases
-
-You can add use cases for your particular component or product. This is done using the `oColorsSetUseCase` mixin:
-
-```scss
-@include oColorsSetUseCase(email, text, 'grey-tint5');
-```
-
-It takes three arguments:
-
-* **Use case**: your particular use case
-* **Property**: the property for which the color should be used for (background, border, or text)
-* **Color**: a color from the palette
-
-If you are creating a use case for a component, you *must* namespace your use case name with the name of your component.
-
-### Markup
-
-When using the build service or importing the module with [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) set to false, o-colors provides you with helper classes to access the color palette. All palette colors are available as `.o-colors-palette-[NAME]` (which style just `background-color`) and use cases are available as `.o-colors-[USECASE]-[PROPERTY]` (which style the appropriate property):
-
-```html
-<p class="o-colors-body-text">Article text</p>
-```
-
-## Migration guide
-
-### Using palette version 2.
-
-o-colors now allows access to the new version of the color palette. The new palette will become default by version `4.0.0` but for now can be accessed by setting the `$o-colors-palette-version` variable to `2` before importing o-colors into your project:
-
-```scss
-$o-colors-palette-version: 2;
-@import 'o-colors/main';
-```
-
-In addition to the functions and mixins already discussed in this documentation, there are some new features available and new abilities added to the existing mixins and functions.
-
-#### New: Mix colors
-
-`oColorsMix` is a new function that mixes two colors based on a percentage. This gives the impression of the base color appearing at the percentage opacity over the background color.
-`oColorsMix` will accept either a color value or the name of an o-colors palette color as arguments.
-
-Usage:
-
-```scss
-.o-colors-palette-white {
-	border: 1px solid oColorsMix(black, white, 20);
-}
-```
-
-Output:
-
-```css
-.o-colors-palette-white {
-	border: 1px solid #cccccc;
-}
-```
-
-#### New: Tint colors
-
-`oColorsGetTint` function will return a tinted palette color based on a specified brightness.
-The function takes the name of a palette color and a brightness value between 0-100.
-
-Usage:
-
-```scss
-.o-colors-tinted-color {
-	background-color: oColorsGetTint('blue', 90);
-}
-```
-
-Output:
-
-```css
-.o-colors-tinted-color {
-	background-color: #177ee6;
-}
-```
-
-#### New: Generated text colors
+#### Generated text colors
 
 `oColorsGetTextColor` will return a text color based on the background and an opacity specified. The base of the text color is either black or white depending on the brightness of the background color and then mixed with the background at the specified opacity using `oColorsMix`.
 
@@ -183,6 +116,76 @@ Output:
 	color: #cce3e5;
 }
 ```
+
+#### Tint palette colors
+
+`oColorsGetTint` will return a tinted palette color based on a specified brightness.
+The function takes the name of a palette color and a brightness value between 0-100.
+
+Usage:
+
+```scss
+.o-colors-tinted-color {
+	background-color: oColorsGetTint('jade', 90);
+}
+```
+
+Output:
+
+```css
+.o-colors-tinted-color {
+	background-color: #177ee6;
+}
+```
+
+#### Mix colors
+
+`oColorsMix` will mix two colors based on a percentage. This gives the impression of the base color appearing at the percentage opacity over the background color. `oColorsMix` will accept either a color value or the name of an o-colors palette color as arguments.
+
+Usage:
+
+```scss
+.o-colors-palette-white {
+	border: 1px solid oColorsMix(black, white, 20);
+}
+```
+
+Output:
+
+```css
+.o-colors-palette-white {
+	border: 1px solid #cccccc;
+}
+```
+
+## Defining custom use cases
+
+You can add use cases for your particular component or product. This is done using the `oColorsSetUseCase` mixin:
+
+```scss
+@include oColorsSetUseCase(email, text, 'black-60');
+```
+
+It takes three arguments:
+
+* **Use case**: your particular use case
+* **Property**: the property for which the color should be used for (background, border, or text)
+* **Color**: a color from the palette
+
+If you are creating a use case for a component, you *must* namespace your use case name with the name of your component.
+
+### Markup
+
+When using the build service or importing the module with [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) set to false, o-colors provides you with helper classes to access the color palette. All palette colors are available as `.o-colors-palette-[NAME]` (which style just `background-color`) and use cases are available as `.o-colors-[USECASE]-[PROPERTY]` (which style the appropriate property):
+
+```html
+<p class="o-colors-body-text">Article text</p>
+```
+
+## Migration guide
+
+### Upgrading from v3.x.x to v4.x.x
+
 
 ----
 
