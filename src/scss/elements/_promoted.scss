@@ -11,6 +11,11 @@
 	.o-teaser__promoted-prefix {
 		@include oColorsFor('o-teaser-promoted-prefix', 'text');
 	}
+
+	.o-teaser__heading a:after {
+			@include oIconsGetIcon('outside-page', oTeaserTextColor($percent: 80), 20);
+			content: '';
+	}
 }
 
 /// Paid post theme
