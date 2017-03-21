@@ -192,6 +192,11 @@ When using the build service or importing the module with silent mode set to fal
 
 ### Upgrading from v3.x.x to v4.x.x
 
+o-colors v4.x.x updates the entire palette of colors and adds a lot more functionality through new mixins and functions. The palette has been reduced from over 60 colors to a base palette of around 20 colors that can be manipulated through the new functionality in v4.x.x.
+
+To migrate from v3.x.x to use v4.x.x you will need to update the palette colors you are requesting using `oColorsFor`, `oColorsSetUseCase`, and `oColorsGetPaletteColor`. To work out which color names your need to update, we've created a [table showing which colors should now be used in place of the old v3.x.x palette colors](migration-guide.md).
+
+The use cases have also been updated to add new use cases for opinion, hero, and highlight branding, but also removes support for the `product-brand` use case.
 
 ----
 
