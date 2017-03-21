@@ -181,6 +181,12 @@ function addAndRun(request) {
 	run();
 }
 
+function setDomain() {
+	if (settings.get('config') && settings.get('config').server) {
+		domain = settings.get('config').server;
+	}
+}
+
 /**
  * Init the queue and send any leftover events.
  * @return {undefined}
@@ -188,9 +194,7 @@ function addAndRun(request) {
 function init() {
 	queue = new Queue('requests');
 
-	if (settings.get('config') && settings.get('config').server) {
-		domain = settings.get('config').server;
-	}
+	setDomain();
 
 	// If any tracking calls are made whilst offline, try sending them the next time the device comes online
 	utils.addEvent(window, 'online', function() {
@@ -205,6 +209,8 @@ function init() {
 
 module.exports = {
 	init: init,
+	setDomain: setDomain,
+	getDomain: function () { return domain;},
 	add: add,
 	run: run,
 	addAndRun: addAndRun

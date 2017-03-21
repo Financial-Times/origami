@@ -3,6 +3,7 @@
 const assert = require("assert");
 const settings = require("../src/javascript/core/settings");
 const Queue = require("../src/javascript/core/queue");
+const Send = require("../src/javascript/core/send");
 
 describe('main', function () {
 
@@ -199,8 +200,10 @@ describe('main', function () {
 		assert.equal(data_one.device.orientation, 'landscape');
 		assert.equal(data_one.device.is_offline, true);
 		assert.equal(data_one.user.user_id, 'c2nb134j8hz2p');
+		assert.equal(Send.getDomain(), 'https://spoor-api.ft.com/px.gif');
 
 		oTracking.updateConfig({
+			server: 'somewhere over the rainbow',
 			device: {
 				orientation: "portrait",
 			},
@@ -227,6 +230,7 @@ describe('main', function () {
 		assert.equal(data_two.device.orientation, 'portrait');
 		assert.equal(data_two.device.is_offline, true);
 		assert.equal(data_two.user.user_id, 'cjw30zh3bxei6');
+		assert.equal(Send.getDomain(), 'somewhere over the rainbow');
 	});
 
 	it('should override core configuration with individual calls', function () {

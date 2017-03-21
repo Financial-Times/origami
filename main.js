@@ -169,6 +169,8 @@ Tracking.prototype.updateConfig = function(newConfig) {
 	if (config.user && config.user.user_id) {
 		user.setUser(config.user.user_id);
 	}
+
+	send.setDomain();
 };
 
 /**
