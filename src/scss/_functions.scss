@@ -128,7 +128,7 @@
 	@if (map-has-key(map-get($o-colors-tints, $color), 'hue')) {
 		$hue: map-get(map-get($o-colors-tints, $color), 'hue');
 		$saturation: map-get(map-get($o-colors-tints, $color), 'saturation');
-		$newcolor: _oColorsHSB($hue, $saturation, $brightness)
+		$newcolor: _oColorsHSB($hue, $saturation, $brightness);
 	} @else {
 		$newcolor: oColorsMix($color, $percentage: $brightness);
 	}

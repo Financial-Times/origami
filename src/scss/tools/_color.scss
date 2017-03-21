@@ -59,14 +59,14 @@
 		@if $value < 0.03928 {
 			$value: $value / 12.92;
 		} @else {
-			$value: ($value + .055) / 1.055;
+			$value: ($value + 0.055) / 1.055;
 			$value: pow($value, 2.4);
 		}
 
 		$colors: map-merge($colors, ($name: $value));
 	}
 
-	@return (map-get($colors, 'red') * .2126) + (map-get($colors, 'green') * .7152) + (map-get($colors, 'blue') * .0722);
+	@return (map-get($colors, 'red') * 0.2126) + (map-get($colors, 'green') * 0.7152) + (map-get($colors, 'blue') * 0.0722);
 }
 
 /// Calculate the contrast ratio between two colors
@@ -75,8 +75,8 @@
 /// @param {Color} $col2 - second colour to compare
 /// Based on the JS in https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/contrast-ratio.js
 @function oColorsGetContrastRatio($col1, $col2) {
-	$l1: oColorsColorLuminance($col1) + .05;
-	$l2: oColorsColorLuminance($col2) + .05;
+	$l1: oColorsColorLuminance($col1) + 0.05;
+	$l2: oColorsColorLuminance($col2) + 0.05;
 
 	$ratio: $l1 / $l2;
 

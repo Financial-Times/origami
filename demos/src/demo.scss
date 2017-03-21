@@ -4,22 +4,22 @@ $o-colors-is-silent: false;
 @import '../../main';
 
 @function oColorsJSONifyMap($map) {
-	$JSON: '{';
+	$json: '{';
 	$comma: false;
 
 	@each $key, $value in $map {
 		@if $comma {
-			$JSON: '#{$JSON}, ';
+			$json: '#{$json}, ';
 		} @else {
 			$comma: true;
 		}
 
-		$JSON: '#{$JSON}"#{$key}": "#{$value}"';
+		$json: '#{$json}"#{$key}": "#{$value}"';
 	}
 
-	$JSON: '#{$JSON}}';
+	$json: '#{$json}}';
 
-	@return $JSON;
+	@return $json;
 }
 
 body {
@@ -27,7 +27,9 @@ body {
 	box-sizing: border-box;
 	font-family: Helvetica, Arial, sans-serif;
 
-	*, *:before, *:after {
+	*,
+	*:before,
+	*:after {
 		box-sizing: inherit;
 	}
 }
@@ -127,7 +129,6 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	display: none;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;

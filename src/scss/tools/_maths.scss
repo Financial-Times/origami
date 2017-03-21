@@ -2,12 +2,12 @@
 //
 // @param {Number} $r - Number to find the square root of
 // Code from: https://gist.github.com/jlong/f06f5843104ee10006fe
-@function sqrt($r) {
+@function sqrt($root) {
     $x0: 1;
     $x1: $x0;
 
-    @for $i from 1 through 10 {
-        $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+    @for $idx from 1 through 10 {
+        $x1: $x0 - ($x0 * $x0 - abs($root)) / (2 * $x0);
         $x0: $x1;
     }
 
@@ -23,11 +23,11 @@
   $value: 1;
 
   @if $exponent > 0 {
-    @for $i from 1 through $exponent {
+    @for $idx from 1 through $exponent {
       $value: $value * $number;
     }
   } @else if $exponent < 0 {
-    @for $i from 1 through -$exponent {
+    @for $idx from 1 through -$exponent {
       $value: $value / $number;
     }
   }

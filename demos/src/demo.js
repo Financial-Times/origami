@@ -35,7 +35,7 @@ function oColorsDemoPalette() {
 function oColorsUseCases() {
 	const useCaseElems = document.querySelectorAll('.use-cases');
 
-	const useCaseGroups = Array.from(useCaseElems, (elem) => {
+	for(let elem of useCaseElems) {
 		const useCases = elem.textContent.split(', ');
 		elem.innerHTML = '';
 
@@ -49,7 +49,7 @@ function oColorsUseCases() {
 			button.addEventListener('click', oColorsShowUseCases, false);
 			elem.appendChild(button);
 		}
-	});
+	};
 }
 
 function oColorsShowUseCases() {
@@ -57,7 +57,7 @@ function oColorsShowUseCases() {
 	const useCaseClass = '.demo-color-for-' + useCase;
 
 	const colors = document.querySelectorAll(useCaseClass);
-	const activeUseCases = document.querySelectorAll('.use-case-active');
+	// const activeUseCases = document.querySelectorAll('.use-case-active');
 
 	demoColors.forEach((color) => {
 		color.classList.remove('use-case-active');
@@ -116,7 +116,7 @@ function oColorsCopy(event) {
 	// find target element
 	let input = event.target.querySelector('.hex');
 	let parent = event.target;
-	if (input == null && event.target.localName === 'input') {
+	if (input === null && event.target.localName === 'input') {
 		input = event.target.parentNode.querySelector('.hex');
 		parent = event.target.parentNode;
 	}
