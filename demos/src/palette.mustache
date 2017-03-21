@@ -8,9 +8,9 @@
 		<div class="demo-wrapper">
 			{{#colors}}
 				<div class="demo-color">
-					<h3>{{name}} {{#tints}}<button class="demo-tint-button demo-tint-button--{{name}}">Tints</button>{{/tints}}</h3>
+					<h3><label for="o-color-input-{{name}}">{{name}}</label> {{#tints}}<button class="demo-tint-button demo-tint-button--{{name}}">Tints</button>{{/tints}}</h3>
 					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
-						<input type="text" class="hex" value="" readonly>
+						<input type="text" class="hex" id="o-color-input-{{name}}" value="" readonly>
 						{{#tints}}<div class="demo-tints-container"></div>{{/tints}}
 					</div>
 					<div class="use-cases">{{usage}}</div>
@@ -28,9 +28,9 @@
 		<div class="demo-wrapper">
 			{{#colors}}
 				<div class="demo-color">
-					<h3>{{name}}</h3>
+					<h3><label for="o-color-input-{{name}}">{{name}}</label></h3>
 					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
-						<input type="text" class="hex" value="" readonly>
+						<input type="text" class="hex" id="o-color-input-{{name}}" value="" readonly>
 					</div>
 					<div class="use-cases">{{usage}}</div>
 				</div>
@@ -47,9 +47,9 @@
 		<div class="demo-wrapper">
 			{{#colors}}
 				<div class="demo-color">
-					<h3>{{name}}</h3>
+					<h3><label for="o-color-input-{{name}}">{{name}}</label></h3>
 					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
-						<input type="text" class="hex" value="" readonly>
+						<input type="text" class="hex" id="o-color-input-{{name}}" value="" readonly>
 					</div>
 					<div class="use-cases">{{usage}}</div>
 				</div>
@@ -66,9 +66,9 @@
 		<div class="demo-wrapper">
 			{{#colors}}
 				<div class="demo-color">
-					<h3>{{name}}</h3>
+					<h3><label for="o-color-input-{{name}}">{{name}}</label></h3>
 					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
-						<input type="text" class="hex" value="" readonly>
+						<input type="text" class="hex" id="o-color-input-{{name}}" value="" readonly>
 					</div>
 					<div class="use-cases">{{usage}}</div>
 				</div>

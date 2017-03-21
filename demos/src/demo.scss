@@ -93,7 +93,7 @@ body {
 
 	.o-buttons {
 		margin-right: 5px;
-		color: oColorsMix(black, white, 70);
+		color: oColorsMix(black, white, 80);
 		border-color: oColorsMix(black, white, 20);
 	}
 
@@ -115,7 +115,7 @@ body {
 	right: 0;
 	height: 40px;
 	padding: 0 10px;
-	background-color: transparent;
+	background-color: oColorsGetPaletteColor('white');
 	cursor: pointer;
 	border: 0;
 	border-left: 1px solid oColorsMix(black, white, 20);
