@@ -1,8 +1,6 @@
 @import "o-overlay/main";
 @import "o-visual-effects/main";
 
-@import "src/scss/variables";
-
 /// Base tooltip style. Inherits from oOverlay.
 @mixin oTooltip {
 	@include oOverlay();
