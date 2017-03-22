@@ -1,7 +1,7 @@
 # Color palette migration table
 
 | Old name              | Switch to                        |
-| --------------------- |:--------------------------------:|
+| --------------------- |----------------------------------|
 | blue                  | oxford                           |
 | dark-blue             | oxford-60                        |
 | orange                | mandarin                         |
