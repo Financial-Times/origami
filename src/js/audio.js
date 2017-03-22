@@ -66,7 +66,7 @@ class AudioPlayer {
     this.audioURL = audioURL;
     this.audio = this.targetObject.getElementsByTagName('audio')[0];
     this.audioLength = undefined;
-    this.playStart = 0;
+    this.playStart = null;
 
     // initialize player
     // turns on audio player styles
@@ -106,7 +106,7 @@ class AudioPlayer {
     }, false);
 
     // toggle back to off after clip ends
-    this.audio.addEventListener('ended', () => this.toggleAudio(true), false);
+    this.audio.addEventListener('ended', () => this.toggleAudio(), false);
 
     // skip on click
     this.targetObject.getElementsByClassName('g-audio-content')[0].addEventListener('click', (e) => this.jumpTo(e), false);
@@ -115,13 +115,13 @@ class AudioPlayer {
     this.audio.addEventListener('timeupdate', () => this.adjustProgressBar(), false);
 
     // add tracking events
-    addEvents(this, ['ended', 'timeupdate', 'error', 'stalled']);
+    addEvents(this, ['playing', 'pause', 'seeked', 'timeupdate', 'ended', 'error', 'stalled']);
   }
 
-  toggleAudio(stopEvent = false) {
+  toggleAudio() {
     if (this.targetObject.classList.contains('pause')) {
       // console.log('go to pause')
-      this.pause(stopEvent);
+      this.pause();
     } else {
       // console.log('go to play')
       this.play();
@@ -129,8 +129,6 @@ class AudioPlayer {
   }
 
   jumpTo(e) {
-    fireEvent('seeked', this);
-
     const contentElement = this.targetObject.getElementsByClassName('g-audio-content')[0];
     const playButtonElement = this.targetObject.getElementsByClassName('g-audio--playbutton')[0];
 
@@ -160,14 +158,14 @@ class AudioPlayer {
     // stop all other audio instances from playing (pause)
     document.dispatchEvent(new CustomEvent('g-audio.pauseAllPlayers'));
 
-    this.audio.currentTime = playStart;
+    if (playStart && this.audio.currentTime !== playStart) {
+      this.audio.currentTime = playStart;
+    }
     this.audio.play();
     this.targetObject.classList.add('pause');
-
-    fireEvent('play', this);
   }
 
-  pause(stopEvent = false) {
+  pause() {
     this.audio.pause();
 
     // if at the end, then reset play start to 0
@@ -178,12 +176,6 @@ class AudioPlayer {
     }
 
     this.targetObject.classList.remove('pause');
-
-    // don't fire pause event if pausing all players automatically
-    // (gets called on all players during play events)
-    if (!stopEvent) {
-      fireEvent('pause', this);
-    }
   }
 
   destroy() {

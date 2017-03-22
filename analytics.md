@@ -4,9 +4,9 @@ An overview of __proposed__ g-audio analytics. This has not been implemented yet
 
 ## Audio events
 
-The following audio events are fired:
-- play: user played the audio
-- timeupdate: audio played through to a particular waypoint, fires at ~10/25/50/75/100 progress
+The following audio events are fired as part of the [native HTML Media Events API](https://developer.mozilla.org/en/docs/Web/Guide/Events/Media_events):
+- playing: user played the audio
+- progress: audio played through to a particular waypoint, fires at ~10/25/50/75/100 progress
 - ended: audio played through to the end
 - seeked: user jumped to a point in the audio
 - pause: user paused the audio
@@ -19,7 +19,7 @@ detail: {
   playerType: '[inline|inline-multiplelines|block]',
   action: ev.type,
   contentId: 'url-of-audio-file',
-  progress: audio.getProgress(),
-  duration: audio.getDuration(),
+  progress: 88, // current time / length (percentage)
+  duration: 14, // audio length in seconds
 }
 ```
