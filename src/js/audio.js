@@ -40,6 +40,11 @@ function fireEvent(action, audioObject, extraDetail = {}) {
     playerType = 'inline-multiplelines';
   }
 
+  // log as progress to keep consistency with o-video
+  if (action === 'timeupdate') {
+    action = 'progress';
+  }
+
   const event = new CustomEvent('oTracking.event', {
     detail: Object.assign({
       category: 'audio',
