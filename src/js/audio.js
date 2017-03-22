@@ -10,12 +10,12 @@ function eventListener(audio, ev) {
 }
 
 function shouldDispatch(progress) {
-	const relevantProgressPoints = [8, 9, 10, 11, 12,
+  const relevantProgressPoints = [8, 9, 10, 11, 12,
                                   23, 24, 25, 26, 27,
                                   48, 49, 50, 51, 52,
                                   73, 74, 75, 76, 77,
                                   100];
-	return relevantProgressPoints.includes(progress);
+  return relevantProgressPoints.includes(progress);
 }
 
 function addEvents(audio, events) {
@@ -60,6 +60,16 @@ function fireEvent(action, audioObject, extraDetail = {}) {
   document.body.dispatchEvent(event);
 }
 
+function unloadListener() {
+  this.updateAmountListened();
+
+  // console.log('amt listened', +(this.amountListened / 1000).toFixed(2), (((this.amountListened / 1000) / (this.audioLength)) * 100).toFixed(2));
+  fireEvent('listened', this, {
+    amount: +(this.amountListened / 1000).toFixed(2),
+    amountPercentage: (((this.amountListened / 1000) / (this.audioLength)) * 100).toFixed(2),
+  });
+}
+
 class AudioPlayer {
   constructor(targetObject, audioURL) {
     this.targetObject = targetObject;
@@ -67,6 +77,9 @@ class AudioPlayer {
     this.audio = this.targetObject.getElementsByTagName('audio')[0];
     this.audioLength = undefined;
     this.playStart = null;
+    // amount of the audio, in milliseconds, that has actually been listened to
+    this.amountListened = 0;
+    this.dateTimePlayStart = undefined;
 
     // initialize player
     // turns on audio player styles
@@ -116,6 +129,10 @@ class AudioPlayer {
 
     // add tracking events
     addEvents(this, ['playing', 'pause', 'seeked', 'timeupdate', 'ended', 'error', 'stalled']);
+
+    // send 'listened' event on page unload
+    const unloadEventName = ('onbeforeunload' in window) ? 'beforeunload' : 'unload';
+    window.addEventListener(unloadEventName, unloadListener.bind(this));
   }
 
   toggleAudio() {
@@ -162,11 +179,13 @@ class AudioPlayer {
       this.audio.currentTime = playStart;
     }
     this.audio.play();
+    this.dateTimePlayStart = Date.now();
     this.targetObject.classList.add('pause');
   }
 
   pause() {
     this.audio.pause();
+    this.updateAmountListened();
 
     // if at the end, then reset play start to 0
     if (this.audio.currentTime >= this.audioLength) {
@@ -191,6 +210,13 @@ class AudioPlayer {
 
     const progressBar = this.targetObject.getElementsByClassName('g-audio-content')[0];
     progressBar.setAttribute('style', `background : -webkit-linear-gradient(left, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); background : -moz-linear-gradient(left, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); background : -o-linear-gradient(left, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); background : linear-gradient(to right, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); `);
+  }
+
+  updateAmountListened() {
+    if (this.dateTimePlayStart !== undefined) {
+      this.amountListened += Date.now() - this.dateTimePlayStart;
+      this.dateTimePlayStart = undefined;
+    }
   }
 
 }

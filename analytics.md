@@ -23,3 +23,14 @@ detail: {
   duration: 14, // audio length in seconds
 }
 ```
+There is also a `listened` event which is fired on page `unload`, which contains how much (in seconds) of the audio was actually played, e.g.
+
+```js
+detail: {
+  category: 'audio',
+  action: 'listened',
+  contentId: 'url-of-audio-file',
+  amount: 83.47, // amount of the audio actually listened to, in seconds
+  amountPercentage: 71.96 // as percentage of the total length of the audio, could be > 100
+}
+```
