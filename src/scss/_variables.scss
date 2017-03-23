@@ -17,22 +17,6 @@ $o-fonts-is-silent: true !default;
 ///
 /// @type Map
 $o-fonts-families: (
-	BentonSans: (
-		font-family: 'BentonSans, sans-serif',
-		variants: (
-			(weight: light, style: normal),
-			(weight: regular, style: normal),
-			(weight: bold, style: normal)
-		)
-	),
-	MillerDisplay: (
-		font-family: 'MillerDisplay, Georgia, serif',
-		variants: (
-			(weight: regular, style: normal),
-			(weight: bold, style: normal),
-			(weight: "black", style: normal)
-		)
-	),
 	MetricWeb: (
 		font-family: 'MetricWeb, sans-serif',
 		variants: (
@@ -57,13 +41,6 @@ $o-fonts-families: (
 			(weight: bold, style: normal)
 		)
 	),
-	FinancierTextWeb: (
-		font-family: 'FinancierTextWeb, serif',
-		variants: (
-			(weight: regular, style: normal),
-			(weight: regular, style: italic)
-		)
-	)
 ) !default;
 
 /// Human-readable Font-weights
