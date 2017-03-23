@@ -3,7 +3,7 @@
 		"description": "Hello world this is a group description",
 		"colors": [
 			{
-				"name": "pink",
+				"name": "paper",
 				"tints": false,
 				"usage": "backgrounds"
 			},
