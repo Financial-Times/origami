@@ -18,6 +18,13 @@ describe('main', function () {
 	after(function () {
 	});
 
+	it('should quit without any config to init with', function() {
+		oTracking.destroy();
+		const tracking = oTracking.init();
+		assert.equal(tracking, null);
+		oTracking.destroy();
+	});
+
 	it('should configure itself from the DOM if no options are present', function() {
 		const confEl = document.createElement('script');
 		confEl.type = 'application/json';
