@@ -2,6 +2,8 @@ $pkgYellow: #ffec1a;
 
 .topper--package {
 
+	margin-bottom: 15px;
+
 	.topper__headline {
 		@include oTypographySans(xl, $load-progressively: true);
 		line-height: 1;

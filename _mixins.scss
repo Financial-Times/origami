@@ -16,6 +16,14 @@
 		$contrast: lightness(oColorsGetPaletteColor($bg-color));
 		@if $contrast <= 50% {
 			$text-color: white;
+			.topper__standfirst a {
+				color: $text-color;
+				border-bottom-color: $text-color;
+				&:hover {
+					color: darken($text-color, 20%);
+					border-bottom-color: darken($text-color, 20%);
+				}
+			}
 		}
 		@include colorBorder($text-color);
 		background-color: oColorsGetPaletteColor('#{$bg-color}');
