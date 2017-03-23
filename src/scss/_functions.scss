@@ -18,10 +18,10 @@
 /// Returns a colour based on the background context and base color
 /// at the supplied percentage
 ///
-/// @param {String} $background [pink] - palette name of background color
+/// @param {String} $background [paper] - palette name of background color
 /// @param {String} $color [black] - palette name of color
 /// @param {Number} $percentage [60] - percentage opacity of the colour over the background
-@function oColorsMix($color: 'black', $background: 'pink', $percentage: 80) {
+@function oColorsMix($color: 'black', $background: 'paper', $percentage: 80) {
 	$context: $background;
 	$base: $color;
 
@@ -77,7 +77,7 @@
 /// .money-headline { color: oColorsGetColorFor(section-money); }
 ///
 /// // Assign a different fallback if the use case doesn't exist
-/// .foo { background-color: oColorsGetColorFor(foo, background, $options: ('default': 'pink-tint-1')); }
+/// .foo { background-color: oColorsGetColorFor(foo, background, $options: ('default': 'black-5')); }
 ///
 /// @param {list} $namelist
 /// @param {String} $property [all]

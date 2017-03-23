@@ -2,6 +2,7 @@
 
 | Old name              | Switch to                        |
 | --------------------- |----------------------------------|
+| pink                  | paper                            |
 | blue                  | oxford                           |
 | dark-blue             | oxford-60                        |
 | orange                | mandarin                         |
