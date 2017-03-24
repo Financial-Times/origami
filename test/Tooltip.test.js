@@ -143,7 +143,7 @@ describe("Tooltip", () => {
 			el.setAttribute('data-o-tooltip-z-index', "20");
 
 			const options = Tooltip.getOptions(el);
-			proclaim.strictEqual(options.zIndex, "20");
+			proclaim.strictEqual(options.zIndex, 20);
 		});
 	});
 

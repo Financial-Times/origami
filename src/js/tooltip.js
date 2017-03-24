@@ -48,25 +48,21 @@ class Tooltip {
 	 * declaratively, this method is used to extract the data attributes from
 	 * the DOM.
 	 * @param {HTMLElement} tooltipEl - The tooltip element in the DOM (Required)
-	 * @todo - refactor this out to smartly iterate over data attributes
 	*/
 	static getOptions(tooltipEl) {
-		let opts = {};
-		if (tooltipEl.hasAttribute('data-o-tooltip-position')) {
-			opts.position = tooltipEl.getAttribute('data-o-tooltip-position');
-		}
-		if (tooltipEl.hasAttribute('data-o-tooltip-target')) {
-			opts.target = tooltipEl.getAttribute('data-o-tooltip-target');
-		}
+		const dataset = tooltipEl.dataset;
+		return Object.keys(dataset).reduce((col, key) => { // Phantom doesn't like Object.entries :sob:
+			if (key === 'oComponent') return col; // Bail on data-o-component
+			const shortKey = key.replace(/^oTooltip(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
 
-		if (tooltipEl.hasAttribute('data-o-tooltip-show-on-construction')){
-			opts.showOnConstruction = (tooltipEl.getAttribute('data-o-tooltip-show-on-construction') === 'true');
-		}
+			try {
+				col[shortKey] = JSON.parse(dataset[key].replace(/\'/g, '"'));
+			} catch (e) {
+				col[shortKey] = dataset[key];
+			}
 
-		if (tooltipEl.hasAttribute('data-o-tooltip-z-index')){
-			opts.zIndex = tooltipEl.getAttribute('data-o-tooltip-z-index');
-		}
-		return opts;
+			return col;
+		}, {});
 	};
 
 	/**
