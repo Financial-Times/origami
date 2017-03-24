@@ -120,6 +120,12 @@ Tracking.prototype.init = function(config) {
 		config = this._getDeclarativeConfig(config);
 	}
 
+	// If there's no config, there is no point initialising!
+	// http://stackoverflow.com/a/32108184
+	if (Object.keys(config).length === 0 && config.constructor === Object) {
+		return null;
+	}
+
 	settings.set('version', this.version);
 	settings.set('source', this.source);
 	settings.set('api_key', this.api_key);
