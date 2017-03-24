@@ -50,7 +50,6 @@
 @function oFontsGetFontFamilyWithFallbacks($family) {
 	@if $family == 'Clarion' or $family == 'Benton' or $family == 'Miller' or $family == 'FinancierTextWeb' {
 		@warn "#{$family} has been removed, no font will be included.";
-		@return $o-fonts-serif;
 	}
 
 
