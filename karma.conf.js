@@ -119,7 +119,10 @@ module.exports = function(config) {
 		// Hide webpack output logging
 		webpackMiddleware: {
 			noInfo: true
-		}
+		},
 
+		client: {
+			captureClient: true
+		}
 	});
 };

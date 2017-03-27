@@ -24,6 +24,16 @@
 				"description": "Basic demo"
 			},
 			{
+				"name": "hover",
+				"template": "demos/src/hover.mustache",
+				"description": "Display on hover demo"
+			},
+			{
+				"name": "click",
+				"template": "demos/src/click.mustache",
+				"description": "Display on click demo"
+			},
+			{
 				"name": "pa11y",
 				"template": "demos/src/pa11y.mustache",
 				"hidden": true,

@@ -21,7 +21,8 @@ function insert(html) {
 
 
 function declarativeCode () {
-	const html = `<div class='tooltip-target' id="demo-tooltip-target">
+	const html = `
+		<div class='tooltip-target' id="demo-tooltip-target">
 			Thing to point the tooltip at.
 		</div>
 
@@ -29,14 +30,37 @@ function declarativeCode () {
 		data-o-tooltip-target='demo-tooltip-target'>
 			Tooltip content
 		</div>
+
 		<div class='tooltip-target' id="demo-tooltip-target-2">
 				Thing to point the tooltip at.
-			</div>
+		</div>
 
-			<div id='tooltip-demo-2' data-o-component="o-tooltip"
+		<div id='tooltip-demo-2' data-o-component="o-tooltip"
 			data-o-tooltip-target='demo-tooltip-target-2'>
 				Tooltip content
-			</div>
+		</div>
+
+		<button class='tooltip-target' id="demo-tooltip-target-3">
+				Thing to point the tooltip at.
+		</button>
+
+		<div id="tooltip-demo-3"
+			data-o-component="o-tooltip"
+			data-o-tooltip-target="demo-tooltip-target-3"
+			data-o-tooltip-show-on-click="true">
+				Tooltip content
+		</div>
+
+		<div class='tooltip-target' id="demo-tooltip-target-4">
+				Thing to point the tooltip at.
+		</div>
+
+		<div id="tooltip-demo-4"
+			data-o-component="o-tooltip"
+			data-o-tooltip-target="demo-tooltip-target-4"
+			data-o-tooltip-show-on-hover="true">
+				Tooltip content
+		</div>
 	`;
 	insert(html);
 }
