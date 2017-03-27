@@ -40,6 +40,7 @@ Attributes can be set declaratively, or passed in on instantiation in an options
 - `data-o-tooltip-show-on-hover`: Optional. Boolean value. Set to true if you want to show and hide the tooltip based on the mouseover and mouseout events (respectively) of the target. Defaults to false.
 - `data-o-tooltip-show-on-click`: Optional. Boolean value. Set to true if you want to show the tooltip upon clicking the target element. Defaults to false.
 - `data-o-tooltip-z-index`: Optional. The z-index for the tooltip.
+- `data-o-tooltip-animation-distance`: Optional. String with `px` suffix. Distance away from target to start and end animation. Defaults to '10px'.
 
 ### JavaScript
 

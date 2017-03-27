@@ -119,7 +119,6 @@ class Tooltip {
 		button.setAttribute('aria-label', 'Close');
 		button.setAttribute('title', 'Close');
 		this.tooltipEl.appendChild(button);
-
 	};
 
 	/**
@@ -131,6 +130,7 @@ class Tooltip {
 		// Delegate pattern
 		this.delegates.doc.root(document.body);
 		this.delegates.tooltip.root(this.tooltipEl);
+		this.tooltipEl.dispatchEvent(new CustomEvent('o.tooltipShown'));
 
 		// Set up all the ways to close the tooltip
 		this.closeHandler = this.close.bind(this);
@@ -146,6 +146,11 @@ class Tooltip {
 
 		this.drawTooltip();
 		this.visible = true;
+
+		// Run show tooltip transition
+		this.tooltipEl.style.display = 'block';
+		this.tooltipEl.style.opacity = 1;
+		this.tooltipEl.classList.add('visible');
 	};
 
 	/**
@@ -167,11 +172,20 @@ class Tooltip {
 	 * Close the tooltip. (Visually hide it and remove event listeners)
 	*/
 	close() {
+		this.tooltipEl.dispatchEvent(new CustomEvent('o.tooltipClosed'));
 		this.delegates.doc.destroy();
 		this.delegates.tooltip.destroy();
 
 		this.visible = false;
-		this.tooltipEl.style.display = 'none';
+
+		// Run close tooltip transition
+		this.tooltipEl.style.opacity = 0;
+		this.tooltipEl.classList.remove('visible');
+
+		// Set `display: none` after animation & remove listener
+		this.tooltipEl.addEventListener('transitionend', () => {
+			this.tooltipEl.style.display = 'none';
+		}, {once: true});
 
 		if (this.opts.showOnClick) {
 			this.delegates.target.on('click', null, this.show.bind(this)); // Re-attach click handler

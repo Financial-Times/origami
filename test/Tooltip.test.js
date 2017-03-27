@@ -69,7 +69,6 @@ describe("Tooltip", () => {
 			new Tooltip(stubEl, stubOpts);
 
 			proclaim.isTrue(checkOptionsStub.calledWith(stubOpts));
-
 		});
 
 		it("calls checkOptions with the return values of getOptions if no options were passed in", () => {
@@ -370,6 +369,15 @@ describe("Tooltip", () => {
 
 			testTooltip.show();
 			proclaim.isTrue(drawTooltipStub.called);
+		});
+
+		it('emits o.tooltipShown event', function(done) {
+			this.timeout(1000);
+			const tooltipEl = document.getElementById('tooltip-demo');
+			const testTooltip = new Tooltip(tooltipEl);
+			testTooltip.delegates.tooltip.on('o.tooltipShown', () => done());
+
+			testTooltip.show();
 		});
 	});
 
@@ -1192,12 +1200,31 @@ describe("Tooltip", () => {
 			proclaim.isFalse(testTooltip.visible);
 		});
 
-		it("sets display none on the tooltip", () => {
+		it("sets display none on the tooltip", done => {
 			const testTooltip = Tooltip.init('#tooltip-demo');
+			testTooltip.tooltipEl.style.transition = 'all .1s linear'; // Needed to fire transitionend
 			testTooltip.show();
 			proclaim.notStrictEqual(testTooltip.tooltipEl.style.display, 'none');
+
+			testTooltip.tooltipEl.addEventListener('transitionend', () => {
+				window.setImmediate(() => { // This is a bit race-y for some reason.
+					proclaim.strictEqual(testTooltip.tooltipEl.style.display, 'none');
+					done();
+				});
+
+			});
+
 			testTooltip.close();
-			proclaim.strictEqual(testTooltip.tooltipEl.style.display, 'none');
+		});
+
+		it('emits o.tooltipClosed event', function(done) {
+			this.timeout(1000);
+			const tooltipEl = document.getElementById('tooltip-demo');
+			const testTooltip = new Tooltip(tooltipEl);
+			testTooltip.delegates.tooltip.on('o.tooltipClosed', () => done());
+
+			testTooltip.show();
+			testTooltip.close();
 		});
 	});
 
