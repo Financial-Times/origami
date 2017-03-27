@@ -116,7 +116,11 @@ const Overlay = function(id, opts) {
 		this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id), false);
 		this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : oLayers.getLayerContext(this.opts.trigger);
 	} else {
-		this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : document.body;
+		if (this.opts.parentNode) {
+			this.context = document.querySelector(this.opts.parentNode);
+		} else {
+			this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : document.body;
+		}
 	}
 
 	this.delegates = {
@@ -244,8 +248,12 @@ Overlay.prototype.show = function() {
 	this.delegates.context.root(this.context);
 
 	this.closeHandler = this.close.bind(this);
-	this.resizeListenerHandler = this.resizeListener.bind(this);
-	this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
+
+	if (!this.opts.nested) {
+		this.resizeListenerHandler = this.resizeListener.bind(this);
+		this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
+	}
+
 	this.closeOnNewLayerHandler = this.closeOnNewLayer.bind(this);
 	this.delegates.context.on('oLayers.new', this.closeOnNewLayerHandler);
 
@@ -284,7 +292,7 @@ Overlay.prototype.show = function() {
 		}
 		overlay.width = overlay.getWidth();
 		overlay.height = overlay.getHeight();
-		overlay.respondToWindow(viewport.getSize());
+		if (!overlay.opts.nested) { overlay.respondToWindow(viewport.getSize()); }
 		overlay.visible = true;
 		overlay.wrapper.focus();
 		overlay.broadcast('ready');
