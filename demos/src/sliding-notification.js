@@ -7,9 +7,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		modal: false,
 		compact: true,
 		preventclosing: false,
-		heading: {title: 'hello'},
-		html: `<p>We're currently experiencing some technical difficulties. Some features may not work while we fix this problem.</p>
-					<button onclick="window.location.reload(true)" class="o-buttons">OK</button>`
+		addCloseBtn: true,
+		heading: { title: "Take a survey", visuallyHideTitle: true },
+		html: `<div class='demo-overlay-content'><span class='title'>How do you rate FT.com?</span><p>Take our short survey and be in with a chance to win £250</p>
+					<button onclick="window.location.reload(true)" class="o-buttons o-buttons--standout">Take survey</button>
+					<p class="small">T&Cs apply</p></div>`
 	});
 
 	myOverlay.open();
