@@ -1,7 +1,7 @@
 import Overlay from '../../main';
 
 document.addEventListener("DOMContentLoaded", function() {
-	let myOverlay = new Overlay('demoOverlay', {
+	let myOverlay = new Overlay('demo-overlay', {
 		nested: 'true',
 		parentNode: '.right-rail',
 		modal: false,
