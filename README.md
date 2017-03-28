@@ -63,7 +63,7 @@ var myOverlay = new Overlay('myOverlay', {
 
 * `heading`: Object. Options for the Overlay header
 	* `.title`: String. Your overlay's title
-	* `.visuallyHideTitle`: Boolean. If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for `aria` labelling)
+	* `.visuallyHideTitle`: Boolean. If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for `aria` labelling) Defaults to false.
 	* `.shaded`: Boolean. Whether to shade the background of the header
 * `arrow`: Object. Options for the arrow
 	* `.position`: String. From which side of the overlay should the arrow protrude. It has to be 'top', 'bottom', 'left' or 'right'. _Default_: 'left'
