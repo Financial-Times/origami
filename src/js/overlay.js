@@ -292,7 +292,11 @@ Overlay.prototype.show = function() {
 		}
 		overlay.width = overlay.getWidth();
 		overlay.height = overlay.getHeight();
-		if (!overlay.opts.nested) { overlay.respondToWindow(viewport.getSize()); }
+
+		// If the overlay is nested within a DOM element don't attach the viewport resize listeners
+		if (!overlay.opts.nested) {
+			overlay.respondToWindow(viewport.getSize());
+		}
 		overlay.visible = true;
 		overlay.wrapper.focus();
 		overlay.broadcast('ready');
