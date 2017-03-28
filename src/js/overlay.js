@@ -111,7 +111,7 @@ const Overlay = function(id, opts) {
 		this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id), false);
 		this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : oLayers.getLayerContext(this.opts.trigger);
 	} else {
-		if (this.opts.parentNode) {
+		if (document.querySelector(this.opts.parentNode)) {
 			this.context = document.querySelector(this.opts.parentNode);
 		} else {
 			this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : document.body;
