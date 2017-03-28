@@ -1,0 +1,45 @@
+$o-overlay-is-silent: false;
+@import "../../main";
+
+body {
+	font-family: MetricWeb;
+	padding: 10px;
+	min-height: 500px;
+}
+.content {
+	margin: auto;
+	max-width: 1200px;
+
+	.left {
+		float: left;
+		width: 60%;
+		padding: 1em;
+		max-width: 900px;
+	}
+	.right-rail {
+		min-width: 200px;
+		width: 30%;
+		float: right;
+		height: 600px;
+	}
+}
+
+.blur {
+	color: transparent;
+	text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.o-overlay--demo-overlay {
+	position: relative;
+	/* Other custom styles for animating can hang on this class */
+	text-align: center;
+}
+
+.demo-overlay-content {
+	padding: 0px 10px;
+	.small {
+		font-size: 12px;
+	}
+	.title {
+		font-weight: 500;
+	}
+}

@@ -43,6 +43,15 @@
 			"description": "Tooltip for annotating bits of UI",
 			"template": "/demos/src/tooltip.mustache",
 			"sass": "demos/src/tooltip.scss"
+		},
+		{
+			"name": "sliding-notification",
+			"title": "An overlay that slides into view",
+			"description": "O-overlay can also be used to create notifications that slide into view.",
+			"template": "/demos/src/sliding-notification.mustache",
+			"sass": "demos/src/sliding-notification.scss",
+			"js": "demos/src/sliding-notification.js"
+
 		}
 	]
 }

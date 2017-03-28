@@ -9,7 +9,6 @@ const checkOptions = function(opts) {
 		opts.trigger = document.querySelector(opts.trigger);
 	}
 
-	// There can't be a heading with an empty title
 	if (opts.heading && (!opts.heading.title || !opts.heading.title.trim())) {
 		throw new Error('"o-overlay error": To have a heading, a non-empty title needs to be set');
 	}
@@ -116,7 +115,11 @@ const Overlay = function(id, opts) {
 		this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id), false);
 		this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : oLayers.getLayerContext(this.opts.trigger);
 	} else {
-		this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : document.body;
+		if (document.querySelector(this.opts.parentNode)) {
+			this.context = document.querySelector(this.opts.parentNode);
+		} else {
+			this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : document.body;
+		}
 	}
 
 	this.delegates = {
@@ -199,7 +202,10 @@ Overlay.prototype.render = function() {
 		const title = document.createElement('span');
 		title.setAttribute('role', 'heading');
 		title.className = 'o-overlay__title';
-		title.innerHTML = this.opts.heading.title;
+
+		if (!this.opts.heading.visuallyHideTitle) {
+			title.innerHTML = this.opts.heading.title;
+		}
 
 		heading.appendChild(title);
 		wrapperEl.appendChild(heading);
@@ -244,8 +250,12 @@ Overlay.prototype.show = function() {
 	this.delegates.context.root(this.context);
 
 	this.closeHandler = this.close.bind(this);
-	this.resizeListenerHandler = this.resizeListener.bind(this);
-	this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
+
+	if (!this.opts.nested) {
+		this.resizeListenerHandler = this.resizeListener.bind(this);
+		this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
+	}
+
 	this.closeOnNewLayerHandler = this.closeOnNewLayer.bind(this);
 	this.delegates.context.on('oLayers.new', this.closeOnNewLayerHandler);
 
@@ -284,7 +294,11 @@ Overlay.prototype.show = function() {
 		}
 		overlay.width = overlay.getWidth();
 		overlay.height = overlay.getHeight();
-		overlay.respondToWindow(viewport.getSize());
+
+		// If the overlay is nested within a DOM element don't attach the viewport resize listeners
+		if (!overlay.opts.nested) {
+			overlay.respondToWindow(viewport.getSize());
+		}
 		overlay.visible = true;
 		overlay.wrapper.focus();
 		overlay.broadcast('ready');
