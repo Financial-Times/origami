@@ -192,10 +192,12 @@ Overlay.prototype.render = function() {
 			const button = document.createElement('a');
 			button.className = 'o-overlay__close';
 			button.setAttribute('role', 'button');
-			button.setAttribute('tabindex', '0');
 			button.setAttribute('href', '#void');
 			button.setAttribute('aria-label', 'Close');
 			button.setAttribute('title', 'Close');
+			if (!this.opts.noFocus) {
+				button.setAttribute('tabindex', '0');
+			}
 			heading.appendChild(button);
 		}
 
@@ -215,10 +217,13 @@ Overlay.prototype.render = function() {
 		const button = document.createElement('a');
 		button.className = 'o-overlay__close';
 		button.setAttribute('role', 'button');
-		button.setAttribute('tabindex', '0');
 		button.setAttribute('href', '#void');
 		button.setAttribute('aria-label', 'Close');
 		button.setAttribute('title', 'Close');
+		if (!this.opts.noFocus) {
+			button.setAttribute('tabindex', '0');
+		}
+
 		wrapperEl.appendChild(button);
 		wrapperEl.classList.add('o-overlay--compact');
 	}
@@ -275,9 +280,10 @@ Overlay.prototype.show = function() {
 	this.context.appendChild(this.wrapper);
 
 	// Give the overlay focus
-	this.wrapper.setAttribute('tabindex', '0');
-	this.wrapper.style.outline = 0;
-
+	if (!this.opts.noFocus) {
+		this.wrapper.setAttribute('tabindex', '0');
+		this.wrapper.style.outline = 0;
+	}
 
 	// Renders content after overlay has been added so css is applied before that
 	// Thay way if an element has autofocus, the window won't scroll to the bottom
