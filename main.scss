@@ -1,10 +1,5 @@
 @import "o-icons/main";
 
-@import "o-colors/main";
-
-@include oColorsSetUseCase(expander-text, text, 'black');
-@include oColorsSetUseCase(expander-icon, text, 'grey-tint2');
-
 $o-expander-is-silent: true !default;
 
 @mixin oExpanderContent {
@@ -23,8 +18,8 @@ $o-expander-is-silent: true !default;
 	}
 }
 
-@mixin oExpanderToggle($root-class-name: o-expander) {
-	@include oColorsFor(expander-text, text);
+@mixin oExpanderToggle($root-class-name: o-expander, $font-color: #000000, $icon-color: #000000) {
+	color: $font-color;
 	font-weight: normal;
 	font-size: 12px;
 	margin: 0;
@@ -35,7 +30,7 @@ $o-expander-is-silent: true !default;
 	text-decoration: none;
 
 	i {
-		@include oIconsGetIcon('arrow-down', oColorsGetColorFor(expander-icon, text), 15, 15, $iconset-version: 1);
+		@include oIconsGetIcon('arrow-down', $icon-color, 15, 15, $iconset-version: 1);
 		padding: 0 3px;
 		vertical-align: middle;
 	}
