@@ -65,7 +65,7 @@ var myOverlay = new Overlay('myOverlay', {
 	* `.title`: String. Your overlay's title
 	* `.visuallyHideTitle`: Boolean. If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for `aria` labelling) _Default_: false.
 	* `.shaded`: Boolean. Whether to shade the background of the header
-* `arrow`: Object. Options for the arrow
+* `arrow`: **Deprecated**. Object. Options for the arrow
 	* `.position`: String. From which side of the overlay should the arrow protrude. It has to be 'top', 'bottom', 'left' or 'right'. _Default_: 'left'
 	* `.target`: String or HTMLElement. What should the arrow point at. It may be different from the trigger, and if the target isn't set, the trigger will be used by default. May be either an element or a querySelector string.
 * `modal`: Boolean. Whether the overlay should have modal behaviour or not. Setting this as true will add a translucent shadow between the page and the overlay
@@ -104,7 +104,8 @@ _o-overlays will throw an error if the options aren't set correctly._
 * `open`: Display the overlay.  Content is loaded every time the overlay is opened.
 * `close`: Close (hide) the overlay.
 
-## Arrows
+## Arrows (deprecated)
+**The arrows setting in o-overlay has been moved to [o-tooltip](http://github.com/financial-times/o-tooltip). Please use that instead**.
 
 Optionally, an overlay can be displayed to be pointing at a target element. The arrow can come out of any of the overlay's four sides and the preferred position is set as a config option. However, if the overlay doesn't fit next to the trigger in the default position, the module will check if it fits in the opposite position and change it if that is the case. This is not a permanent change, it's only until there is space again in the default position.
 
