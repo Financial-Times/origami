@@ -3,19 +3,19 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 
-const ComponentBoilerplate = require('./../main');
+const Typography = require('./../main');
 
-describe("ComponentBoilerplate", () => {
+describe("Typography", () => {
 	it('is defined', () => {
-		proclaim.equal(typeof ComponentBoilerplate, 'function');
+		proclaim.equal(typeof Typography, 'function');
 	});
 
 	it('has a static init method', () => {
-		proclaim.equal(typeof ComponentBoilerplate.init, 'function');
+		proclaim.equal(typeof Typography.init, 'function');
 	});
 
 	it("should autoinitialize", (done) => {
-		const initSpy = sinon.spy(ComponentBoilerplate, 'init');
+		const initSpy = sinon.spy(Typography, 'init');
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 		setTimeout(function(){
 			proclaim.equal(initSpy.called, true);
@@ -25,13 +25,13 @@ describe("ComponentBoilerplate", () => {
 	});
 
 	it("should not autoinitialize when the event is not dispached", () => {
-		const initSpy = sinon.spy(ComponentBoilerplate, 'init');
+		const initSpy = sinon.spy(Typography, 'init');
 		proclaim.equal(initSpy.called, false);
 	});
 
 	describe("should create a new", () => {
 		beforeEach(() => {
-				fixtures.htmlCode();
+			fixtures.htmlCode();
 		});
 
 		afterEach(() => {
@@ -39,14 +39,14 @@ describe("ComponentBoilerplate", () => {
 		});
 
 		it("component array when initialized", () => {
-			const boilerplate = ComponentBoilerplate.init();
-			proclaim.equal(boilerplate instanceof Array, true);
-			proclaim.equal(boilerplate[0] instanceof ComponentBoilerplate, true);
+			const typography = Typography.init();
+			proclaim.equal(typography instanceof Array, true);
+			proclaim.equal(typography[0] instanceof Typography, true);
 		});
 
 		it("single component when initialized with a root element", () => {
-			const boilerplate = ComponentBoilerplate.init('#element');
-			proclaim.equal(boilerplate instanceof ComponentBoilerplate, true);
+			const typography = Typography.init('#element');
+			proclaim.equal(typography instanceof Typography, true);
 		});
 	});
 });
