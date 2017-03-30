@@ -9,7 +9,6 @@
 
 @import 'src/scss/variables';
 @import 'src/scss/color-use-cases';
-@import 'src/scss/arrow';
 @import 'src/scss/cross';
 @import 'src/scss/overlay';
 @import 'src/scss/compact';
@@ -30,19 +29,19 @@
 	}
 
 	.#{$classname}__arrow-top {
-		@include oOverlayArrow($direction: top);
+		@include oOverlayArrow($direction: top); // Deprecated, remove in V2
 	}
 
 	.#{$classname}__arrow-bottom {
-		@include oOverlayArrow($direction: bottom);
+		@include oOverlayArrow($direction: bottom); // Deprecated, remove in V2
 	}
 
 	.#{$classname}__arrow-left {
-		@include oOverlayArrow($direction: left);
+		@include oOverlayArrow($direction: left); // Deprecated, remove in V2
 	}
 
 	.#{$classname}__arrow-right {
-		@include oOverlayArrow($direction: right);
+		@include oOverlayArrow($direction: right); // Deprecated, remove in V2
 	}
 
 	.#{$classname}__heading {
@@ -95,7 +94,7 @@
 		@include oOverlayFullscreen($fill: 'height');
 	}
 
-	.#{$classname}--tool-tip {
+	.#{$classname}--tool-tip { // Deprecated, remove in V2
 		@include oOverlayCompactContent;
 
 		.#{$classname}__close {

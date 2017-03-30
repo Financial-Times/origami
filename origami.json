@@ -38,13 +38,6 @@
 			"template": "/demos/src/modal-prevent-closure.mustache"
 		},
 		{
-			"name": "tooltip",
-			"title": "Tooltip",
-			"description": "Tooltip for annotating bits of UI",
-			"template": "/demos/src/tooltip.mustache",
-			"sass": "demos/src/tooltip.scss"
-		},
-		{
 			"name": "sliding-notification",
 			"title": "An overlay that slides into view",
 			"description": "O-overlay can also be used to create notifications that slide into view.",
