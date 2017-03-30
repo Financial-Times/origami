@@ -28,7 +28,7 @@
 		@include colorBorder($text-color);
 		background-color: oColorsGetPaletteColor('#{$bg-color}');
 		color: $text-color;
-		@if $bg-color == 'pink' or $bg-color == 'warm-1' {
+		@if $bg-color == 'pink' or $bg-color == 'warm-1' or $bg-color == 'wheat' {
 			.topper__tags {
 				color: oColorsGetPaletteColor('claret');
 			}
