@@ -1,5 +1,5 @@
 {
-	"description": "Responsive, configurable overlays that support modal and non-modal centered overlays and overlays with arrows",
+	"description": "Responsive, configurable overlays for displaying notifications to users",
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
