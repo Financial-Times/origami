@@ -28,19 +28,19 @@
 		{
 			"name": "modal",
 			"title": "Modal overlay",
-			"description": "Standard modal. Includes a close button in the top left so the user can dismiss the modal.",
+			"description": "Standard modal. Includes a close button in the top left so the user can dismiss the overlay.",
 			"template": "/demos/src/modal.mustache"
 		},
 		{
 			"name": "modal-prevent-closure",
 			"title": "Modal without close button",
-			"description": "Modal close cross removed. This should be used where the user has to make a choice or confirm they've seen something.",
+			"description": "Modal without a dismiss button in the top right. This should be used where the user has to make a choice or confirm they've seen something.",
 			"template": "/demos/src/modal-prevent-closure.mustache"
 		},
 		{
 			"name": "sliding-notification",
-			"title": "An overlay that slides into view",
-			"description": "O-overlay can also be used to create notifications that slide into view.",
+			"title": "An overlay that is nested in the page",
+			"description": "O-overlay can also be used to create overlays that don't sit in the front centre of the screen but appear in a specific area.",
 			"template": "/demos/src/sliding-notification.mustache",
 			"sass": "demos/src/sliding-notification.scss",
 			"js": "demos/src/sliding-notification.js"
