@@ -1,5 +1,7 @@
 // scss-lint:disable SelectorFormat
 
+@include oColorsSetColor('wheat', #f3dec8);
+
 @mixin colorBorder($color) {
 	.topper__headline::after {
 		border-bottom: 6px solid $color;
@@ -39,7 +41,7 @@
 /// @param {list} $colors - colors available to editorial in methode for the background
 /// @param {map} $use-case - tentative options for default
 // default has yet to be determined by type of article (opinion? analysis?) so is pink for now
-$colors: 'white', 'black', 'claret', 'blue', 'pink', 'slate', 'warm-1', 'default';
+$colors: 'white', 'black', 'claret', 'blue', 'pink', 'slate', 'warm-1', 'wheat', 'default';
 @each $color in $colors {
 	@if $color == 'default' {
 		$usecase: ('standard': 'pink', 'analysis': 'claret', 'opinion':'blue');
