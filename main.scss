@@ -7,24 +7,24 @@
 @import 'o-hoverable/main';
 @import 'o-fonts/main';
 
-@import "scss/color_use_cases";
-@import 'scss/helpers';
-@import 'scss/variables';
-@import 'scss/type_matrix';
-@import 'scss/progressive-font';
+@import 'src/scss/color_use_cases';
+@import 'src/scss/helpers';
+@import 'src/scss/variables';
+@import 'src/scss/type_matrix';
+@import 'src/scss/progressive-font';
 
-@import 'scss/body_aside';
-@import 'scss/body_common';
-@import 'scss/body_general';
-@import 'scss/headings';
+@import 'src/scss/body_aside';
+@import 'src/scss/body_common';
+@import 'src/scss/body_general';
+@import 'src/scss/headings';
 
-@import 'scss/timestamps';
+@import 'src/scss/timestamps';
 
-@import 'scss/wrapped_aside';
-@import 'scss/wrapped_common';
-@import 'scss/wrapped_general';
+@import 'src/scss/wrapped_aside';
+@import 'src/scss/wrapped_common';
+@import 'src/scss/wrapped_general';
 
-@import 'scss/_deprecated.scss';
+@import 'src/scss/_deprecated.scss';
 
 @if $o-typography-is-silent == false {
 
