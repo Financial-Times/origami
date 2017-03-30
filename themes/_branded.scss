@@ -16,6 +16,14 @@
 			padding-right: 150px;
 		}
 	}
+
+	.topper__brand {
+		min-height: 60px;
+
+		@include oGridRespondTo(M) {
+			min-height: 0;
+		}
+	}
 }
 
 .topper__headshot {
