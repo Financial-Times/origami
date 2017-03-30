@@ -19,7 +19,8 @@ module.exports = function(config) {
 		plugins: [
 			'karma-mocha',
 			'karma-phantomjs2-launcher',
-			'karma-webpack'
+			'karma-webpack',
+			'karma-coverage'
 		],
 
 
@@ -45,8 +46,13 @@ module.exports = function(config) {
 		// test results reporter to use
 		// possible values: 'dots', 'progress'
 		// available reporters: https://npmjs.org/browse/keyword/karma-reporter
-		reporters: ['progress'],
+		reporters: ['progress', 'coverage'],
 
+		coverageReporter: {
+			reporters: [
+				{ type : 'text-summary' }
+			]
+		},
 
 		// web server port
 		port: 9876,
@@ -87,7 +93,14 @@ module.exports = function(config) {
 						]
 					}
 				],
-  				noParse: [
+				postLoaders: [
+					{ //delays coverage til after tests are run, fixing transpiled source coverage error
+						test: /\.js$/,
+						exclude: /(test|node_modules|bower_components)\//,
+						loader: 'istanbul-instrumenter'
+					}
+				],
+				noParse: [
 					/\/sinon\.js/,
 				]
 			},
