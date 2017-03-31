@@ -2,34 +2,20 @@
 
 Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens.
 
-## Installation
-
-For installation info please refer to this [module's page](http://registry.origami.ft.com/components/o-overlay#section-usage) in the Origami registry.
-
-## Browser support
-
-Tested and working on:
-
-|  Browsers  | Primary Experience |
-|:----------:|:------------------:|
-|   Chrome   |        35+         |
-|   Firefox  |        30+         |
-|   Safari   |        7+          |
-|     IE     |        8+          |
-|    iOS     |        7+          |
-
-Known issues:
-
-* IE11-IE8 require the [polyfill service](polyfill.webservices.ft.com).
-* IE8 throws an error when closing the Overlay starting on the second time. It works like expected in spite of the error.
-* Safari and Chrome mobile [don't support](http://caniuse.com/#feat=autofocus) the autofocus attribute. In Chrome mobile, you can use the `.focus()` function on an element when `oOverlay.ready` is dispatched to simulate the behaviour.
-* In Safari mobile on iOS8, autofocus is [buggy](http://stackoverflow.com/questions/26146252/in-ios8-using-focus-will-show-virtual-keyboard-and-scroll-page-after-touch) and is triggered after the overlay has loaded and a _touchdown_ event is dispatched after that. That means that if you click anywhere on the page after the page loads, the keyboard will come up which will most likely produce unexpected behaviours. We recommend not using autofocus in iOS 8. These unexpected behaviours only occur the first time an overlay is rendered, after that, autofocus won't be activated.
+- [Usage](#usage)
+	- [Declarative](#declarative)
+	- [Imperative](#imperative)
+	- [Sass](#sass)
+- [API](#api)
+- [Troubleshooting](#troubleshooting)
+- [Contact](#contact)
+- [Licence](#licence)
 
 ## Usage
 
 o-overlay can be instantiated in two ways:
 
-### Declaratively
+### Declarative
 
 Set options as `data-` attributes on any element that has a `o-overlay-trigger` class, to create an overlay and open it when that element is clicked.
 
@@ -45,12 +31,12 @@ To activate overlays declared in markup, you can:
 * Dispatch the `o.DOMContentLoaded` event (which will also initialise all other compatible Origami modules on the page); or
 * Run `o-overlay#init([el])` (optionally pass a parent element to search for trigger elements, which will form its o-layers context.  The default is `document.body`)
 
-### Imperatively
+### Imperative
 
 The constructor function accepts two arguments:
 
-* id: Unique identifer string for the overlay within the page
-* options: JSON object that configures the overlay.
+* id: Unique identifier string for the overlay within the page
+* options: JSON object that configures the overlay
 
 ```js
 var myOverlay = new Overlay('myOverlay', {
@@ -90,6 +76,15 @@ Data- attributes have the same name as in the JSON format, but with dashes. So f
 
 _o-overlays will throw an error if the options aren't set correctly._
 
+### Sass
+
+O-overlay contains styles for the container (eg border and shadow) and layout styles (to place the overlay above the page content). It does not come with typographic styles, background colours, or buttons. Implementing projects should add these.
+
+`o-overlay` supports silent mode, so there are mixins for the different elements. If you want to get all the classes styled by default, you'll need to turn of silent mode:
+
+```scss
+$o-overlay-is-silent: false;
+```
 
 ## API
 
@@ -123,13 +118,13 @@ We also dispatch custom events:
 * `oOverlay.ready`: Dispatched when the overlay is loaded in the DOM
 * `oOverlay.destroy`: Dispatched when the overlay is removed from the DOM
 
-## Sass
 
-`o-overlay` supports silent mode, so there are mixins for the different elements. If you want to get all the classes styled by default, you'll need to turn of silent mode:
+# Troubleshooting
 
-```scss
-$o-overlay-is-silent: false;
-```
+* IE11-IE8 require the [polyfill service](polyfill.webservices.ft.com).
+* IE8 throws an error when closing the Overlay starting on the second time. It works like expected in spite of the error.
+* Safari and Chrome mobile [don't support](http://caniuse.com/#feat=autofocus) the autofocus attribute. In Chrome mobile, you can use the `.focus()` function on an element when `oOverlay.ready` is dispatched to simulate the behaviour.
+* In Safari mobile on iOS8, autofocus is [buggy](http://stackoverflow.com/questions/26146252/in-ios8-using-focus-will-show-virtual-keyboard-and-scroll-page-after-touch) and is triggered after the overlay has loaded and a _touchdown_ event is dispatched after that. That means that if you click anywhere on the page after the page loads, the keyboard will come up which will most likely produce unexpected behaviours. We recommend not using autofocus in iOS 8. These unexpected behaviours only occur the first time an overlay is rendered, after that, autofocus won't be activated.
 
 ## UI Notes
 
@@ -137,3 +132,15 @@ $o-overlay-is-silent: false;
 * Heading titles should be as short as possible, and must not be empty.
 * Overlays should not appear on hover, and if they do there must be a 200ms dwell on the element before the overlay appears, AND it must be possible to also launch the overlay by clicking, to ensure the overlay still works on devices that lack a hoverable pointer.
 * Overlays won't appear in core experience, so should not be used for any critical functionality unless you have a fallback set for it.
+
+---
+
+## Contact
+
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-overlay/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
+
+----
+
+## Licence
+
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
