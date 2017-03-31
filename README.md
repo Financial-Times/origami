@@ -70,8 +70,6 @@ var myOverlay = new Overlay('myOverlay', {
 
 The only option that must be set is either `src` or `html`. The `html` option can't be set as a `data-` attribute, and if you set both, the `html` one will override `src`.
 
-For overlays with arrows, having a shaded heading is incompatible with positions 'top' and 'bottom', because an arrow pointing out of a shaded header looks weird.
-
 For compact overlays, headings can't be shaded as this looks weird too.
 
 Data- attributes have the same name as in the JSON format, but with dashes. So for `src` it will be `data-o-overlay-src` and for the `heading.title` it will be `data-o-overlay-heading-title`.
@@ -100,13 +98,6 @@ $o-overlay-is-silent: false;
 
 * `open`: Display the overlay.  Content is loaded every time the overlay is opened.
 * `close`: Close (hide) the overlay.
-
-## Arrows (deprecated)
-**The arrows setting in o-overlay has been moved to [o-tooltip](http://github.com/financial-times/o-tooltip). Please use that instead**.
-
-Optionally, an overlay can be displayed to be pointing at a target element. The arrow can come out of any of the overlay's four sides and the preferred position is set as a config option. However, if the overlay doesn't fit next to the trigger in the default position, the module will check if it fits in the opposite position and change it if that is the case. This is not a permanent change, it's only until there is space again in the default position.
-
-Overlays with arrows can't be modal.
 
 ## Events
 
