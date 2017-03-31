@@ -5,6 +5,7 @@ Configurable custom overlay box that can be used to show overlay windows. The ov
 - [Usage](#usage)
 	- [Declarative](#declarative)
 	- [Imperative](#imperative)
+	- [Option reference](#option-reference)
 	- [Sass](#sass)
 - [API](#api)
 - [Troubleshooting](#troubleshooting)
