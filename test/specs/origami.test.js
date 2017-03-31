@@ -31,22 +31,26 @@ describe("Overlay", () => {
 
 	describe("should create a new", () => {
 		beforeEach(() => {
-				fixtures.htmlCode();
+			fixtures.htmlCode();
 		});
 
 		afterEach(() => {
 			fixtures.reset();
+			Overlay.destroy();
 		});
 
 		it("component array when initialized", () => {
-			const overlay = Overlay.init();
-			proclaim.equal(overlay instanceof Array, true);
-			proclaim.equal(overlay[0] instanceof Overlay, true);
+			const overlays = Overlay.init();
+			proclaim.equal(overlays instanceof Array, true);
+			proclaim.equal(overlays.length, 2);
+			proclaim.equal(overlays[0] instanceof Overlay, true);
 		});
 
-		it("single component when initialized with a root element", () => {
-			const overlay = Overlay.init('#element');
-			proclaim.equal(overlay instanceof Overlay, true);
+		it("component array of overlays found in the element passed in", () => {
+			const overlays = Overlay.init('#element');
+			proclaim.equal(overlays instanceof Array, true);
+			proclaim.equal(overlays.length, 1);
+			proclaim.equal(overlays[0] instanceof Overlay, true);
 		});
 	});
 });
