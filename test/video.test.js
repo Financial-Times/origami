@@ -208,8 +208,8 @@ describe('Video', () => {
 				window.dispatchEvent(new Event(unloadEventName, { cancelable: true }));
 
 				const eventDetail = trackingSpy.lastCall.args[0].detail;
-				eventDetail.amount.should.equal(1234.57);
-				eventDetail.amountPercentage.should.equal(16.13);
+				eventDetail.amount.should.equal(1235);
+				eventDetail.amountPercentage.should.equal(16);
 			});
 
 			it('should not include time watched if tab isn’t visible (while video playing)', () => {
