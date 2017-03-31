@@ -13,50 +13,13 @@ const checkOptions = function(opts) {
 		throw new Error('"o-overlay error": To have a heading, a non-empty title needs to be set');
 	}
 
-	// Overlays that don't point at anything should be modal by default
-	if (!opts.arrow && typeof opts.modal === 'undefined') {
+	// Overlays should be modal by default
+	if (typeof opts.modal === 'undefined') {
 		opts.modal = true;
 	}
 
 	if (opts.compact && opts.heading && opts.heading.shaded) {
 		throw new Error('"o-overlay error": Compact overlays can\'t have a shaded header');
-	}
-
-	if (opts.arrow) {
-		// Default arrow position is 'left'
-		if (!opts.arrow.position) {
-			opts.arrow.position = 'left';
-		}
-
-		// Overlays with arrows can not be modal
-		if (opts.modal) {
-			opts.modal = false;
-		}
-
-		if (opts.arrow.position !== 'left' && opts.arrow.position !== 'right' && opts.arrow.position !== 'top' && opts.arrow.position !== 'bottom') {
-			throw new Error('"o-overlay error": The position of the arrow has to be either "top", "bottom", "left" or "right".');
-		}
-
-		// If the position of the arrow is 'top' or 'bottom', the heading can't be shaded
-		if ((opts.arrow.position === 'top' || opts.arrow.position === 'bottom') && (opts.heading && opts.heading.shaded)) {
-			throw new Error('"o-overlay error": The position of the arrow can\'t be set to "top" or "bottom" when the shaded heading option is set to true.');
-		}
-
-		// Default target for the arrow will be the trigger
-		if (!opts.arrow.target) {
-			if (opts.trigger) {
-				opts.arrow.target = opts.trigger;
-			} else {
-				throw new Error('"o-overlay error": For overlays with arrows, if you don\'t set a trigger, you do need to set a target for the overlay.');
-			}
-		} else if (!(opts.arrow.target instanceof HTMLElement)) {
-			opts.arrow.target = document.querySelector(opts.arrow.target);
-		}
-
-		// Prevent closing is only available with modal
-		if (opts.preventclosing && !opts.modal) {
-			opts.preventclosing = false;
-		}
 	}
 
 	return opts;
@@ -113,12 +76,12 @@ const Overlay = function(id, opts) {
 	}
 	if (this.opts.trigger) {
 		this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id), false);
-		this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : oLayers.getLayerContext(this.opts.trigger);
+		this.context = oLayers.getLayerContext(this.opts.trigger);
 	} else {
 		if (document.querySelector(this.opts.parentNode)) {
 			this.context = document.querySelector(this.opts.parentNode);
 		} else {
-			this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : document.body;
+			this.context = document.body;
 		}
 	}
 
@@ -422,87 +385,6 @@ Overlay.prototype.realign = function(dimension, size) {
 Overlay.prototype.respondToWindow = function(size) {
 	this.realign('width', size.width);
 	this.realign('height', size.height);
-
-	this.wrapper.classList.remove('o-overlay__arrow-top');
-	this.wrapper.classList.remove('o-overlay__arrow-bottom');
-	this.wrapper.classList.remove('o-overlay__arrow-left');
-	this.wrapper.classList.remove('o-overlay__arrow-right');
-
-	if (this.opts.arrow && !this.fills()) {
-		this.opts.arrow.currentposition = this.getCurrentArrowPosition(this.opts.arrow.position);
-		this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.currentposition);
-
-		const edge = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'left' : 'top';
-		const oppositeEdge = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'top' : 'left';
-		const dimension = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'height' : 'width';
-
-		let offset = 0;
-		// Protrusion distance for the arrow. It's 13 due to the border around it
-		const arrowSize = 13;
-		const targetClientRect = utils.getOffsetRect(this.opts.arrow.target);
-		const dimensionValue = targetClientRect[dimension];
-		switch (this.opts.arrow.currentposition) {
-			case 'left':
-				offset = targetClientRect.left + targetClientRect.width + arrowSize;
-				break;
-			case 'right':
-				offset = targetClientRect.left - this.width - arrowSize;
-				break;
-			case 'top':
-				offset = targetClientRect.top + targetClientRect.height + arrowSize;
-				break;
-			case 'bottom':
-				offset = targetClientRect.top - this.height - arrowSize;
-				break;
-		}
-
-		this.wrapper.style[edge] = offset + 'px';
-		// 1. Get where the element is positioned
-		// 2. Add its width or height divided by two to get its center
-		// 3. Substract the width or height divided by two of the overlay so the arrow, which is in the center, points to the center of the side of the target
-		this.wrapper.style[oppositeEdge] = targetClientRect[oppositeEdge] + (dimensionValue / 2) - (this[dimension] / 2) + 'px';
-	}
-};
-
-Overlay.prototype.getCurrentArrowPosition = function(position) {
-	const targetClientRect = this.opts.arrow.target.getBoundingClientRect();
-	// Protrusion distance for the arrow. It's 13 due to the border around it
-	const arrowSize = 13;
-	const wrapperWidth = this.wrapper.getBoundingClientRect().width + arrowSize;
-	const wrapperHeight = this.wrapper.getBoundingClientRect().height + arrowSize;
-	// Check if the overlay won't fit on the side set in the options and that it will on the opposite side.
-	// In that case, use the opposite side
-	switch (this.opts.arrow.position) {
-		case 'left':
-			if (targetClientRect.right + wrapperWidth >= window.innerWidth &&
-					targetClientRect.left - wrapperWidth > 0) {
-
-				position = 'right';
-			}
-			break;
-		case 'right':
-			if (targetClientRect.left - wrapperWidth <= 0 &&
-					targetClientRect.right + wrapperWidth < window.innerWidth) {
-
-				position = 'left';
-			}
-			break;
-		case 'top':
-			if (targetClientRect.bottom + wrapperHeight >= window.innerHeight &&
-					targetClientRect.top - wrapperHeight + arrowSize > 0) {
-
-				position = 'bottom';
-			}
-			break;
-		case 'bottom':
-			if (targetClientRect.top - wrapperHeight <= 0 &&
-					targetClientRect.bottom + wrapperHeight < window.innerHeight) {
-
-				position = 'top';
-			}
-			break;
-	}
-	return position;
 };
 
 Overlay.prototype.fills = function(dimension) {
