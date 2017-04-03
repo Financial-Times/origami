@@ -19,7 +19,7 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySansSize($level, $with-progressive-size: false) {
+@mixin oTypographySansSize($level, $with-progressive-size: true) {
 	$font-size: convert-to-px(get-font-size(sans, $level));
 	line-height: convert-to-px(get-line-height(sans, $level));
 	@if $with-progressive-size {
@@ -42,7 +42,7 @@
 /// @requires {mixin} oTypographyProgressiveFont
 /// @requires {mixin} oFontsWeight
 ///
-@mixin oTypographySans($level, $load-progressively: false) {
+@mixin oTypographySans($level, $load-progressively: true) {
 	@if $load-progressively {
 		@include oTypographyProgressiveFont(sans, $level);
 	} @else {
@@ -66,7 +66,7 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySansBoldSize($level, $with-progressive-size: false) {
+@mixin oTypographySansBoldSize($level, $with-progressive-size: true) {
 	$font-size: convert-to-px(get-font-size(sansBold, $level));
 	line-height: convert-to-px(get-line-height(sansBold, $level));
 	@if $with-progressive-size {
@@ -87,7 +87,7 @@
 /// @requires {mixin} oTypographyProgressiveFont
 /// @requires {mixin} oFontsWeight
 ///
-@mixin oTypographySansBold($level, $load-progressively: false) {
+@mixin oTypographySansBold($level, $load-progressively: true) {
 	@if $load-progressively {
 		@include oTypographyProgressiveFont(sansBold, $level);
 	} @else {
@@ -111,7 +111,7 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySansDataSize($level, $with-progressive-size: false) {
+@mixin oTypographySansDataSize($level, $with-progressive-size: true) {
 	$font-size: convert-to-px(get-font-size(sansData, $level));
 	line-height: convert-to-px(get-line-height(sansData, $level));
 	@if $with-progressive-size {
@@ -132,7 +132,7 @@
 /// @requires {mixin} oTypographyProgressiveFont
 /// @requires {mixin} oFontsWeight
 ///
-@mixin oTypographySansData($level, $load-progressively: false) {
+@mixin oTypographySansData($level, $load-progressively: true) {
 	@if $load-progressively {
 		@include oTypographyProgressiveFont(sansData, $level);
 	} @else {
@@ -156,7 +156,7 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySansDataBoldSize($level, $with-progressive-size: false) {
+@mixin oTypographySansDataBoldSize($level, $with-progressive-size: true) {
 	$font-size: convert-to-px(get-font-size(sansDataBold, $level));
 	line-height: convert-to-px(get-line-height(sansDataBold, $level));
 	@if $with-progressive-size {
@@ -177,7 +177,7 @@
 /// @requires {mixin} oTypographyProgressiveFont
 /// @requires {mixin} oFontsWeight
 ///
-@mixin oTypographySansDataBold($level, $load-progressively: false) {
+@mixin oTypographySansDataBold($level, $load-progressively: true) {
 	@if $load-progressively {
 		@include oTypographyProgressiveFont(sansDataBold, $level);
 	} @else {
@@ -201,7 +201,7 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySansDataItalicSize($level, $with-progressive-size: false) {
+@mixin oTypographySansDataItalicSize($level, $with-progressive-size: true) {
 	$font-size: convert-to-px(get-font-size(sansDataItalic, $level));
 	line-height: convert-to-px(get-line-height(sansDataItalic, $level));
 	@if $with-progressive-size {
@@ -222,7 +222,7 @@
 /// @requires {mixin} oTypographyProgressiveFont
 /// @requires {mixin} oFontsWeight
 ///
-@mixin oTypographySansDataItalic($level, $load-progressively: false) {
+@mixin oTypographySansDataItalic($level, $load-progressively: true) {
 	@if $load-progressively {
 		@include oTypographyProgressiveFont(sansDataItalic, $level);
 	} @else {
@@ -248,7 +248,7 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySerifSize($level, $with-progressive-size: false) {
+@mixin oTypographySerifSize($level, $with-progressive-size: true) {
 	$font-size: convert-to-px(get-font-size(serif, $level));
 	line-height: convert-to-px(get-line-height(serif, $level));
 	@if $with-progressive-size {
@@ -269,7 +269,7 @@
 /// @requires {mixin} oTypographyProgressiveFont
 /// @requires {mixin} oFontsWeight
 ///
-@mixin oTypographySerif($level, $load-progressively: false) {
+@mixin oTypographySerif($level, $load-progressively: true) {
 	@if $load-progressively {
 		@include oTypographyProgressiveFont(serif, $level);
 	} @else {
@@ -293,7 +293,7 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySerifBoldSize($level, $with-progressive-size: false) {
+@mixin oTypographySerifBoldSize($level, $with-progressive-size: true) {
 	$font-size: convert-to-px(get-font-size(serifBold, $level));
 	line-height: convert-to-px(get-line-height(serifBold, $level));
 	@if $with-progressive-size {
@@ -314,7 +314,7 @@
 /// @requires {mixin} oTypographyProgressiveFont
 /// @requires {mixin} oFontsWeight
 ///
-@mixin oTypographySerifBold($level, $load-progressively: false) {
+@mixin oTypographySerifBold($level, $load-progressively: true) {
 	@if $load-progressively {
 		@include oTypographyProgressiveFont(serifBold, $level);
 	} @else {
@@ -338,7 +338,7 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySerifItalicSize($level, $with-progressive-size: false) {
+@mixin oTypographySerifItalicSize($level, $with-progressive-size: true) {
 	$font-size: convert-to-px(get-font-size(serifItalic, $level));
 	line-height: convert-to-px(get-line-height(serifItalic, $level));
 	@if $with-progressive-size {
@@ -359,7 +359,7 @@
 /// @requires {mixin} oTypographyProgressiveFont
 /// @requires {mixin} oFontsWeight
 ///
-@mixin oTypographySerifItalic($level, $load-progressively: false) {
+@mixin oTypographySerifItalic($level, $load-progressively: true) {
 	@if $load-progressively {
 		@include oTypographyProgressiveFont(serifItalic, $level);
 	} @else {
@@ -384,7 +384,7 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySerifDisplaySize($level, $with-progressive-size: false) {
+@mixin oTypographySerifDisplaySize($level, $with-progressive-size: true) {
 	$font-size: convert-to-px(get-font-size(serifDisplay, $level));
 	line-height: convert-to-px(get-line-height(serifDisplay, $level));
 	@if $with-progressive-size {
@@ -405,7 +405,7 @@
 /// @requires {mixin} oTypographyProgressiveFont
 /// @requires {mixin} oFontsWeight
 ///
-@mixin oTypographySerifDisplay($level, $load-progressively: false) {
+@mixin oTypographySerifDisplay($level, $load-progressively: true) {
 	@if $load-progressively {
 		@include oTypographyProgressiveFont(serifDisplay, $level);
 	} @else {
@@ -429,7 +429,7 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySerifDisplayBoldSize($level, $with-progressive-size: false) {
+@mixin oTypographySerifDisplayBoldSize($level, $with-progressive-size: true) {
 	$font-size: convert-to-px(get-font-size(serifDisplayBold, $level));
 	line-height: convert-to-px(get-line-height(serifDisplayBold, $level));
 	@if $with-progressive-size {
@@ -450,7 +450,7 @@
 /// @requires {mixin} oTypographyProgressiveFont
 /// @requires {mixin} oFontsWeight
 ///
-@mixin oTypographySerifDisplayBold($level, $load-progressively: false) {
+@mixin oTypographySerifDisplayBold($level, $load-progressively: true) {
 	@if $load-progressively {
 		@include oTypographyProgressiveFont(serifDisplayBold, $level);
 	} @else {
@@ -474,7 +474,7 @@
 /// @requires {function} get-font-size
 /// @requires {function} get-line-height
 ///
-@mixin oTypographySerifDisplayItalicSize($level, $with-progressive-size: false) {
+@mixin oTypographySerifDisplayItalicSize($level, $with-progressive-size: true) {
 	$font-size: convert-to-px(get-font-size(serifDisplayItalic, $level));
 	line-height: convert-to-px(get-line-height(serifDisplayItalic, $level));
 	@if $with-progressive-size {
@@ -495,7 +495,7 @@
 /// @requires {mixin} oTypographyProgressiveFont
 /// @requires {mixin} oFontsWeight
 ///
-@mixin oTypographySerifDisplayItalic($level, $load-progressively: false) {
+@mixin oTypographySerifDisplayItalic($level, $load-progressively: true) {
 	@if $load-progressively {
 		@include oTypographyProgressiveFont(serifDisplayItalic, $level);
 	} @else {

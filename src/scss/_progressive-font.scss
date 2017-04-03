@@ -104,10 +104,10 @@ $_o-typography-progressive-font-fallbacks: (
 	$is-progressive: index($o-typography-progressive-fonts, $font);
 
 	@if $is-progressive {
-		font-size: scale-fallback-font-size($font, $size);
+		font-size: $size;
 
-		.#{$o-typography-loaded-prefix}-#{$font} & {
-			font-size: $size;
+		.#{$o-typography-loading-prefix}-#{$font} & {
+			font-size: scale-fallback-font-size($font, $size);
 		}
 	} @else {
 		font-size: $size;
