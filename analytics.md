@@ -1,6 +1,6 @@
 # Audio analytics
 
-An overview of __proposed__ g-audio analytics. This has not been implemented yet.
+An overview of g-audio analytics.
 
 ## Audio events
 
