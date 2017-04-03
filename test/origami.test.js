@@ -38,14 +38,8 @@ describe("Typography", () => {
 			fixtures.reset();
 		});
 
-		it("component array when initialized", () => {
-			const typography = Typography.init();
-			proclaim.equal(typography instanceof Array, true);
-			proclaim.equal(typography[0] instanceof Typography, true);
-		});
-
 		it("single component when initialized with a root element", () => {
-			const typography = Typography.init('#element');
+			const typography = Typography.init('html');
 			proclaim.equal(typography instanceof Typography, true);
 		});
 	});

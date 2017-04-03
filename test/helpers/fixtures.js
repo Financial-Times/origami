@@ -8,6 +8,9 @@ function createSandbox() {
 		sandboxEl.setAttribute('class', 'sandbox');
 		document.body.appendChild(sandboxEl);
 	}
+
+	// oTypography should be run on the HTML element only
+	document.documentElement.setAttribute('data-o-component', 'o-typography');
 }
 
 function reset() {
@@ -18,7 +21,6 @@ function insert(html) {
 	createSandbox();
 	sandboxEl.innerHTML = html;
 }
-
 
 function htmlCode () {
 	const html = `<div>
