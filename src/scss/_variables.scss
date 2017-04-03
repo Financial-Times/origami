@@ -112,7 +112,7 @@ $o-typography-progressive-fonts: () !default;
 //
 // @type String
 //
-$o-typography-loaded-prefix: 'o-typography--loaded' !default;
+$o-typography-loading-prefix: 'o-typography--loading' !default;
 
 // Previously, $o-typography-font-scale was called $font-scale. In order to not
 // make this rename a breaking change, check if anything is overriding

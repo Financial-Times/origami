@@ -75,12 +75,12 @@ $_o-typography-progressive-font-fallbacks: (
 	$is-progressive: index($o-typography-progressive-fonts, $font);
 
 	@if $is-progressive {
-		font-family: map-get($font-config, 'fallback');
-		@include font-size(get-font-size($font, $level, $is-fallback-font: true), get-line-height($font, $level));
+		font-family: map-get($font-config, 'font');
+		font-size: get-font-size($font, $level);
 
-		.#{$o-typography-loaded-prefix}-#{$font} & {
-			font-family: map-get($font-config, 'font');
-			font-size: get-font-size($font, $level);
+		.#{$o-typography-loading-prefix}-#{$font} & {
+			font-family: map-get($font-config, 'fallback');
+			@include font-size(get-font-size($font, $level, $is-fallback-font: true), get-line-height($font, $level));
 		}
 	} @else {
 		font-family: map-get($font-config, 'font');

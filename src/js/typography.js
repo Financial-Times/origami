@@ -6,47 +6,52 @@ class Typography {
 		this.TypographyEl = TypographyEl;
 		this.opts = opts || { values: "default" };
 
-		this.fontLoadedPrefix = 'o-typography--loaded-';
+		this.fontLoadingPrefix = 'o-typography--loading-';
 		this.fontLoadedCookieName = 'o-typography-fonts-loaded';
 		this.fontConfigs = [
 			{
 				family: 'FinancierDisplayWeb',
 				weight: 'normal',
-				labels: ['serifDisplay']
+				label: 'serifDisplay'
 			},
 			{
 				family: 'MetricWeb',
 				weight: 'normal',
-				labels: ['sans']
+				label: 'sans'
 			},
 			{
 				family: 'MetricWeb',
 				weight: 600,
-				labels: ['sansBold']
+				label: 'sansBold'
 			},
 			{
 				family: 'FinancierDisplayWeb',
 				weight: 700,
-				labels: ['serifDisplayBold']
+				label: 'serifDisplayBold'
 			}
 		];
 
 		this.loadFonts();
 	}
 
+	removeLoadingClasses() {
+		this.fontConfigs.forEach((config) => {
+			this.TypographyEl.classList.remove(`${this.fontLoadingPrefix}${config.label}`);
+		});
+	}
+
 	loadFonts() {
 		if (new RegExp(`(^|\\s)${this.fontLoadedCookieName}=1(;|$)`).test(document.cookie)) {
+			this.removeLoadingClasses();
 			return Promise.resolve();
 		}
 
 		const fontPromises = this.fontConfigs.map(fontConfig => {
 			return new FontFaceObserver(fontConfig.family, { weight: fontConfig.weight })
 				.load()
-				.then(() =>
-					this.TypographyEl.className += fontConfig.labels.reduce(
-						(classes, label) => classes += ` ${this.fontLoadedPrefix}${label}`, ''
-					)
-				);
+				.then(() => {
+					this.TypographyEl.classList.remove(`${this.fontLoadingPrefix}${fontConfig.label}`);
+				});
 		});
 
 		return Promise.all(fontPromises)
