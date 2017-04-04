@@ -63,4 +63,56 @@ describe("Typography", () => {
 			proclaim.isTrue(checkOptionsStub.calledWith(getOptionsReturnStub));
 		});
 	});
+
+	describe("getOptions", () => {
+		it("doesn't extract fontLoadedCookieName if none is set", () => {
+			const el = document.createElement('html');
+			const options = Typography.getOptions(el);
+
+			proclaim.isUndefined(options.fontLoadedCookieName);
+		});
+
+		it("doesn't extract fontLoadingPrefix if it's not set", () => {
+			const el = document.querySelector('html');
+			const options = Typography.getOptions(el);
+
+			proclaim.isUndefined(options.fontLoadingPrefix);
+		});
+
+		it("extracts fontLoadingPrefix if it's set on the el passed in", () => {
+			const el = document.querySelector('html');
+			let stubPrefix = 'loading-font-';
+			el.setAttribute('data-o-typography-font-loading-prefix', stubPrefix);
+
+			const options = Typography.getOptions(el);
+			proclaim.equal(options.fontLoadingPrefix, stubPrefix);
+		});
+
+		it("extracts fontLoadedCookieName if it's set on the el passed in", () => {
+			const el = document.querySelector('html');
+			let stubCookieName = 'fonts-loaded';
+			el.setAttribute('data-o-typography-font-loaded-cookie-name', stubCookieName);
+
+			const options = Typography.getOptions(el);
+			proclaim.equal(options.fontLoadedCookieName, stubCookieName);
+		});
+	});
+
+	describe("checkOptions", () => {
+
+		it("sets opts.fontLoadingPrefix to o-typography--loading- if not specified", ()=>{
+			let opts = Typography.checkOptions({});
+			proclaim.strictEqual(opts.fontLoadingPrefix, 'o-typography--loading-');
+		});
+
+		it("sets opts.fontLoadedCookieName to o-typography-fonts-loaded if not specified", ()=>{
+			let opts = Typography.checkOptions({});
+			proclaim.strictEqual(opts.fontLoadedCookieName, 'o-typography-fonts-loaded');
+		});
+
+		it("returns the opts object", () => {
+			let opts = Typography.checkOptions({"fontLoadingPrefix": "o-typography-fonts-loaded"});
+			proclaim.isObject(opts);
+		});
+	});
 });
