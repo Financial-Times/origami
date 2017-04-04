@@ -1,10 +1,85 @@
+function eventListener(audio, ev) {
+  const progress = parseInt(100 * audio.audio.currentTime / audio.audioLength, 10);
+
+  // Dispatch progress event at around 10%, 25%, 50%, 75% and 100%
+  if (ev.type === 'timeupdate' && !shouldDispatch(progress)) {
+    return;
+  }
+
+  fireEvent(ev.type, audio);
+}
+
+function shouldDispatch(progress) {
+  const relevantProgressPoints = [8, 9, 10, 11, 12,
+                                  23, 24, 25, 26, 27,
+                                  48, 49, 50, 51, 52,
+                                  73, 74, 75, 76, 77,
+                                  100];
+  return relevantProgressPoints.includes(progress);
+}
+
+function addEvents(audio, events) {
+  events.forEach(event => {
+    audio.audio.addEventListener(event, eventListener.bind(this, audio));
+  });
+}
+
+function fireEvent(action, audioObject, extraDetail = {}) {
+  let playerType = (audioObject.targetObject.classList.contains('g-audio--block') ? 'block' : 'inline');
+
+  const playButtonElement = audioObject.targetObject.getElementsByClassName('g-audio--playbutton')[0];
+  const contentElement = audioObject.targetObject.getElementsByClassName('g-audio-content')[0];
+
+  // playButtonHeight equals height of one line
+  const playButtonHeight = playButtonElement.offsetHeight;
+
+  // check if it overflows
+  const numLinesOfText = Math.floor(contentElement.offsetHeight / playButtonHeight);
+
+  if (numLinesOfText > 1) {
+    playerType = 'inline-multiplelines';
+  }
+
+  // log as progress to keep consistency with o-video
+  if (action === 'timeupdate') {
+    action = 'progress';
+  }
+
+  const event = new CustomEvent('oTracking.event', {
+    detail: Object.assign({
+      category: 'audio',
+      playerType,
+      action,
+      contentId: audioObject.audioURL,
+      progress: parseInt(100 * audioObject.audio.currentTime / audioObject.audioLength, 10),
+      duration: parseInt(audioObject.audioLength, 10),
+    }, extraDetail),
+    bubbles: true,
+  });
+  // console.log(playerType, action, parseInt(100 * audioObject.audio.currentTime / audioObject.audioLength, 10), parseInt(audioObject.audioLength, 10));
+  document.body.dispatchEvent(event);
+}
+
+function unloadListener() {
+  this.updateAmountListened();
+
+  // console.log('amt listened', +(this.amountListened / 1000).toFixed(2), (((this.amountListened / 1000) / (this.audioLength)) * 100).toFixed(2));
+  fireEvent('listened', this, {
+    amount: +(this.amountListened / 1000).toFixed(2),
+    amountPercentage: (((this.amountListened / 1000) / (this.audioLength)) * 100).toFixed(2),
+  });
+}
+
 class AudioPlayer {
   constructor(targetObject, audioURL) {
     this.targetObject = targetObject;
     this.audioURL = audioURL;
     this.audio = this.targetObject.getElementsByTagName('audio')[0];
     this.audioLength = undefined;
-    this.playStart = 0;
+    this.playStart = null;
+    // amount of the audio, in milliseconds, that has actually been listened to
+    this.amountListened = 0;
+    this.dateTimePlayStart = undefined;
 
     // initialize player
     // turns on audio player styles
@@ -28,7 +103,7 @@ class AudioPlayer {
     this.audio.addEventListener('loadedmetadata', () => this.loadMetadata(), false);
 
     // add event handler to document for pausing all players
-    document.addEventListener('g-audio.pauseAllPlayers', this.pause.bind(this));
+    document.addEventListener('g-audio.pauseAllPlayers', this.pause.bind(this, true));
   }
 
   loadMetadata() {
@@ -51,6 +126,13 @@ class AudioPlayer {
 
     // adjust progress bar
     this.audio.addEventListener('timeupdate', () => this.adjustProgressBar(), false);
+
+    // add tracking events
+    addEvents(this, ['playing', 'pause', 'seeked', 'timeupdate', 'ended', 'error', 'stalled']);
+
+    // send 'listened' event on page unload
+    const unloadEventName = ('onbeforeunload' in window) ? 'beforeunload' : 'unload';
+    window.addEventListener(unloadEventName, unloadListener.bind(this));
   }
 
   toggleAudio() {
@@ -93,13 +175,17 @@ class AudioPlayer {
     // stop all other audio instances from playing (pause)
     document.dispatchEvent(new CustomEvent('g-audio.pauseAllPlayers'));
 
-    this.audio.currentTime = playStart;
+    if (playStart && this.audio.currentTime !== playStart) {
+      this.audio.currentTime = playStart;
+    }
     this.audio.play();
+    this.dateTimePlayStart = Date.now();
     this.targetObject.classList.add('pause');
   }
 
   pause() {
     this.audio.pause();
+    this.updateAmountListened();
 
     // if at the end, then reset play start to 0
     if (this.audio.currentTime >= this.audioLength) {
@@ -124,6 +210,13 @@ class AudioPlayer {
 
     const progressBar = this.targetObject.getElementsByClassName('g-audio-content')[0];
     progressBar.setAttribute('style', `background : -webkit-linear-gradient(left, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); background : -moz-linear-gradient(left, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); background : -o-linear-gradient(left, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); background : linear-gradient(to right, rgba(175, 81, 108, 0.35) ${percentPlayed}%, rgba(175, 81, 108, 0.15) ${percentPlayed + 1}%); `);
+  }
+
+  updateAmountListened() {
+    if (this.dateTimePlayStart !== undefined) {
+      this.amountListened += Date.now() - this.dateTimePlayStart;
+      this.dateTimePlayStart = undefined;
+    }
   }
 
 }
