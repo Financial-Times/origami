@@ -19,5 +19,8 @@
     "origami-build-tools": "^5.5.0",
     "proclaim": "^3.4.1",
     "sinon": "^1.17.5"
+  },
+  "dependencies": {
+    "fontfaceobserver": "^2.0.9"
   }
 }
