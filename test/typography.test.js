@@ -1,34 +1,32 @@
 /* eslint-env mocha, sinon, proclaim */
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
-import * as fixtures from './helpers/fixtures';
 
 const Typography = require('./../main');
 
+const fontLabels = ['serifDisplay', 'sans', 'sansBold', 'serifDisplayBold'];
+const stubPrefix = 'loading-font-';
+const stubCookieName = 'fonts-loaded';
+
 describe("Typography", () => {
-	// beforeEach(() => {
-	// 	fixtures.htmlCode();
-	// });
-
-	afterEach(() => {
-
-	});
-
 	describe("constructor", () => {
 
 		let getOptionsStub;
 		let getOptionsReturnStub;
 		let checkOptionsStub;
+		let loadFontsStub;
 
 		beforeEach(() => {
 			getOptionsReturnStub = {};
 			getOptionsStub = sinon.stub(Typography, 'getOptions').returns(getOptionsReturnStub);
 			checkOptionsStub = sinon.stub(Typography, 'checkOptions').returnsArg(0);
+			loadFontsStub = sinon.stub(Typography.prototype, 'loadFonts');
 		});
 
 		afterEach(() => {
 			getOptionsStub.restore();
 			checkOptionsStub.restore();
+			loadFontsStub.restore();
 		});
 
 		it("doesn't call getOptions if options are passed in", () => {
@@ -62,6 +60,13 @@ describe("Typography", () => {
 
 			proclaim.isTrue(checkOptionsStub.calledWith(getOptionsReturnStub));
 		});
+
+		it("calls loadFonts", () => {
+			const stubEl = "stubEL";
+			new Typography(stubEl);
+
+			proclaim.isTrue(loadFontsStub.called);
+		});
 	});
 
 	describe("getOptions", () => {
@@ -81,7 +86,6 @@ describe("Typography", () => {
 
 		it("extracts fontLoadingPrefix if it's set on the el passed in", () => {
 			const el = document.querySelector('html');
-			let stubPrefix = 'loading-font-';
 			el.setAttribute('data-o-typography-font-loading-prefix', stubPrefix);
 
 			const options = Typography.getOptions(el);
@@ -90,7 +94,6 @@ describe("Typography", () => {
 
 		it("extracts fontLoadedCookieName if it's set on the el passed in", () => {
 			const el = document.querySelector('html');
-			let stubCookieName = 'fonts-loaded';
 			el.setAttribute('data-o-typography-font-loaded-cookie-name', stubCookieName);
 
 			const options = Typography.getOptions(el);
@@ -115,4 +118,21 @@ describe("Typography", () => {
 			proclaim.isObject(opts);
 		});
 	});
+
+	describe("removeLoadingClasses", () => {
+		it("removes all loading classes from typography element", () => {
+			const el = document.querySelector('html');
+
+			fontLabels.forEach((label) => el.classList.add(`${stubPrefix}${label}`) );
+
+			const typography = new Typography(el, {"fontLoadingPrefix": stubPrefix});
+			typography.removeLoadingClasses();
+
+			fontLabels.forEach((label) => {
+				proclaim.isFalse(el.classList.contains(`${stubPrefix}${label}`));
+			});
+
+		});
+	});
+
 });
