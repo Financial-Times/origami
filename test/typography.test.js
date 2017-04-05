@@ -135,4 +135,33 @@ describe("Typography", () => {
 		});
 	});
 
+	describe("loadFonts", () => {
+
+		it("calls removeLoadingClasses if a cookie exists", () => {
+			const el = document.querySelector('html');
+			const typography = new Typography(el, {"fontLoadingPrefix": stubPrefix});
+
+			document.cookie = `${typography.opts.fontLoadedCookieName}=1;path=/;max-age=60`;
+			const removeLoadingClassesStub = sinon.stub(typography, 'removeLoadingClasses');
+
+			return typography.loadFonts().then(() => {
+				proclaim.isTrue(removeLoadingClassesStub.calledOnce);
+				document.cookie = `${typography.opts.fontLoadedCookieName}=1;path=/;expires=${new Date(0)};`;
+			});
+		});
+
+		xit("Removes loading classes when fonts have loaded", () => {
+			const el = document.querySelector('html');
+			fontLabels.forEach((label) => el.classList.add(`${stubPrefix}${label}`) );
+			const typography = new Typography(el, {"fontLoadingPrefix": stubPrefix});
+
+			return typography.loadFonts().then(() => {
+				document.cookie = `${typography.opts.fontLoadedCookieName}=1;path=/;expires=${new Date(0)};`;
+				fontLabels.forEach((label) => {
+					proclaim.isFalse(el.classList.contains(`${stubPrefix}${label}`));
+				});
+			});
+		});
+	});
+
 });

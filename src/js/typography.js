@@ -1,4 +1,4 @@
-let FontFaceObserver = require('fontfaceobserver/fontfaceobserver.standalone.js');
+const FontFaceObserver = require('fontfaceobserver/fontfaceobserver.standalone.js');
 
 class Typography {
 
