@@ -191,6 +191,10 @@
 	.o-teaser--highlight.o-teaser--hero {
 		@include oTeaserHighlight;
 	}
+
+	.o-teaser--midslice.o-teaser--has-image {
+		@include oTeaserHeroMidSlice;
+	}
 }
 
 @mixin oTeaserThemeTopStories {
