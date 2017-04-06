@@ -89,7 +89,18 @@ function addDrawerToggles (drawerEl) {
 
 			// aria-controls is only supported by JAWS.
 			// In a setTimeout callback to avoid flickering transitions in Chrome (v54)
-			setTimeout(() => drawerEl.focus());
+			setTimeout(() => {
+				// Don't focus on the drawer itself or iOS VoiceOver will miss it
+				// Focus on the first focusable element
+				const firstFocusable = drawerEl.querySelector('a, button, input, select');
+
+				if (firstFocusable) {
+					firstFocusable.focus();
+				}
+				else {
+					drawerEl.focus();
+				}
+			});
 		}
 
 		drawerEl.classList.toggle('o-header__drawer--closing', state === 'close');
