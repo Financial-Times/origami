@@ -93,7 +93,13 @@ function addDrawerToggles (drawerEl) {
 				// Don't focus on the drawer itself or iOS VoiceOver will miss it
 				// Focus on the first focusable element
 				const firstFocusable = drawerEl.querySelector('a, button, input, select');
-				firstFocusable && firstFocusable.focus();
+
+				if (firstFocusable) {
+					firstFocusable.focus();
+				}
+				else {
+					drawerEl.focus();
+				}
 			});
 		}
 
