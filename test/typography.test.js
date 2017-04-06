@@ -1,7 +1,8 @@
 /* eslint-env mocha, sinon, proclaim */
 import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
 import superstore from 'superstore-sync';
+import FontFaceObserver from 'fontfaceobserver/fontfaceobserver.standalone.js';
+import sinon from 'sinon/pkg/sinon';
 
 const Typography = require('./../main');
 
@@ -138,12 +139,22 @@ describe("Typography", () => {
 
 	describe("loadFonts", () => {
 
+		beforeEach(() => {
+			sinon.stub(superstore.local, 'set');
+		});
+
+		afterEach(() => {
+			FontFaceObserver.prototype.load.restore();
+			superstore.local.set.restore();
+		});
+
 		it("calls removeLoadingClasses if a cookie exists", () => {
 			const el = document.querySelector('html');
 			const typography = new Typography(el, {"fontLoadingPrefix": stubPrefix});
 
 			sinon.stub(superstore.local, "get").returns("1");
 			const removeLoadingClassesStub = sinon.stub(typography, 'removeLoadingClasses');
+			sinon.stub(FontFaceObserver.prototype, 'load').returns(Promise.resolve());
 
 			return typography.loadFonts().then(() => {
 				proclaim.isTrue(removeLoadingClassesStub.calledOnce);
@@ -151,17 +162,44 @@ describe("Typography", () => {
 			});
 		});
 
-		xit("Removes loading classes when fonts have loaded", () => {
+		it("Removes loading classes when fonts have loaded", () => {
 			const el = document.querySelector('html');
 			fontLabels.forEach((label) => el.classList.add(`${stubPrefix}${label}`) );
 			const typography = new Typography(el, {"fontLoadingPrefix": stubPrefix});
 
+			sinon.stub(superstore.local, "get").returns(null);
+			sinon.stub(FontFaceObserver.prototype, 'load').returns(Promise.resolve());
+
+			fontLabels.forEach((label) => {
+				proclaim.isTrue(el.classList.contains(`${stubPrefix}${label}`));
+			});
+
 			return typography.loadFonts().then(() => {
-				document.cookie = `${typography.opts.fontLoadedStorageName}=1;path=/;expires=${new Date(0)};`;
 				fontLabels.forEach((label) => {
 					proclaim.isFalse(el.classList.contains(`${stubPrefix}${label}`));
 				});
+				superstore.local.get.restore();
 			});
+		});
+
+		it("Adds to local storage when fonts have loaded", () => {
+			const el = document.querySelector('html');
+			const typography = new Typography(el);
+
+			sinon.stub(FontFaceObserver.prototype, 'load').returns(Promise.resolve());
+
+			return typography.loadFonts().then(() => {
+				proclaim.isTrue(superstore.local.set.calledWith(stubStorageName, '1'));
+			});
+		});
+
+		it("still returns when fontfaceobserver load rejects", () => {
+			const el = document.querySelector('html');
+			const typography = new Typography(el);
+
+			sinon.stub(FontFaceObserver.prototype, 'load').returns(Promise.reject());
+
+			return typography.loadFonts();
 		});
 	});
 
