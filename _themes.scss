@@ -1,5 +1,16 @@
 @import 'mixins';
 
+//make the topper tags respect the theme colors
+.topper__tags {
+	.n-content-tag {
+		color: inherit;
+	}
+
+	&:hover {
+		border-bottom-color: inherit;
+	}
+}
+
 @import 'themes/branded';
 @import 'themes/package';
 
