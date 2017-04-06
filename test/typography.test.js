@@ -1,12 +1,13 @@
 /* eslint-env mocha, sinon, proclaim */
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
+import superstore from 'superstore-sync';
 
 const Typography = require('./../main');
 
 const fontLabels = ['serifDisplay', 'sans', 'sansBold', 'serifDisplayBold'];
 const stubPrefix = 'loading-font-';
-const stubCookieName = 'fonts-loaded';
+const stubStorageName = 'fonts-loaded';
 
 describe("Typography", () => {
 	describe("constructor", () => {
@@ -70,11 +71,11 @@ describe("Typography", () => {
 	});
 
 	describe("getOptions", () => {
-		it("doesn't extract fontLoadedCookieName if none is set", () => {
+		it("doesn't extract fontLoadedStorageName if none is set", () => {
 			const el = document.createElement('html');
 			const options = Typography.getOptions(el);
 
-			proclaim.isUndefined(options.fontLoadedCookieName);
+			proclaim.isUndefined(options.fontLoadedStorageName);
 		});
 
 		it("doesn't extract fontLoadingPrefix if it's not set", () => {
@@ -92,12 +93,12 @@ describe("Typography", () => {
 			proclaim.equal(options.fontLoadingPrefix, stubPrefix);
 		});
 
-		it("extracts fontLoadedCookieName if it's set on the el passed in", () => {
+		it("extracts fontLoadedStorageName if it's set on the el passed in", () => {
 			const el = document.querySelector('html');
-			el.setAttribute('data-o-typography-font-loaded-cookie-name', stubCookieName);
+			el.setAttribute('data-o-typography-font-loaded-storage-name', stubStorageName);
 
 			const options = Typography.getOptions(el);
-			proclaim.equal(options.fontLoadedCookieName, stubCookieName);
+			proclaim.equal(options.fontLoadedStorageName, stubStorageName);
 		});
 	});
 
@@ -108,9 +109,9 @@ describe("Typography", () => {
 			proclaim.strictEqual(opts.fontLoadingPrefix, 'o-typography--loading-');
 		});
 
-		it("sets opts.fontLoadedCookieName to o-typography-fonts-loaded if not specified", ()=>{
+		it("sets opts.fontLoadedStorageName to o-typography-fonts-loaded if not specified", ()=>{
 			let opts = Typography.checkOptions({});
-			proclaim.strictEqual(opts.fontLoadedCookieName, 'o-typography-fonts-loaded');
+			proclaim.strictEqual(opts.fontLoadedStorageName, 'o-typography-fonts-loaded');
 		});
 
 		it("returns the opts object", () => {
@@ -141,12 +142,12 @@ describe("Typography", () => {
 			const el = document.querySelector('html');
 			const typography = new Typography(el, {"fontLoadingPrefix": stubPrefix});
 
-			document.cookie = `${typography.opts.fontLoadedCookieName}=1;path=/;max-age=60`;
+			sinon.stub(superstore.local, "get").returns("1");
 			const removeLoadingClassesStub = sinon.stub(typography, 'removeLoadingClasses');
 
 			return typography.loadFonts().then(() => {
 				proclaim.isTrue(removeLoadingClassesStub.calledOnce);
-				document.cookie = `${typography.opts.fontLoadedCookieName}=1;path=/;expires=${new Date(0)};`;
+				superstore.local.get.restore();
 			});
 		});
 
@@ -156,7 +157,7 @@ describe("Typography", () => {
 			const typography = new Typography(el, {"fontLoadingPrefix": stubPrefix});
 
 			return typography.loadFonts().then(() => {
-				document.cookie = `${typography.opts.fontLoadedCookieName}=1;path=/;expires=${new Date(0)};`;
+				document.cookie = `${typography.opts.fontLoadedStorageName}=1;path=/;expires=${new Date(0)};`;
 				fontLabels.forEach((label) => {
 					proclaim.isFalse(el.classList.contains(`${stubPrefix}${label}`));
 				});

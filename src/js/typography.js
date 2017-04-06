@@ -1,4 +1,5 @@
 const FontFaceObserver = require('fontfaceobserver/fontfaceobserver.standalone.js');
+const superstore = require('superstore-sync');
 
 class Typography {
 
@@ -67,8 +68,8 @@ class Typography {
 			opts.fontLoadingPrefix = 'o-typography--loading-';
 		}
 
-		if (!opts.fontLoadedCookieName) {
-			opts.fontLoadedCookieName = 'o-typography-fonts-loaded';
+		if (!opts.fontLoadedStorageName) {
+			opts.fontLoadedStorageName = 'o-typography-fonts-loaded';
 		}
 
 		return opts;
@@ -81,7 +82,7 @@ class Typography {
 	}
 
 	loadFonts() {
-		if (new RegExp(`(^|\\s)${this.opts.fontLoadedCookieName}=1(;|$)`).test(document.cookie)) {
+		if (superstore.local.get(this.opts.fontLoadedStorageName) === '1') {
 			this.removeLoadingClasses();
 			return Promise.resolve();
 		}
@@ -96,8 +97,8 @@ class Typography {
 
 		return Promise.all(fontPromises)
 			.then(() => {
-				// set cookie for subsequent visits
-				document.cookie = `${this.opts.fontLoadedCookieName}=1;path=/;max-age=${60 * 60 * 24 * 7}`;
+				// set value in localstorage for subsequent visits
+				superstore.local.set(this.opts.fontLoadedStorageName, '1');
 			})
 			.catch(() => {});
 	}

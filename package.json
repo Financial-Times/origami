@@ -21,6 +21,7 @@
     "sinon": "^1.17.5"
   },
   "dependencies": {
-    "fontfaceobserver": "^2.0.9"
+    "fontfaceobserver": "^2.0.9",
+    "superstore-sync": "^2.1.0"
   }
 }
