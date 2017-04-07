@@ -86,6 +86,18 @@ is useful for associating errors with releases in the Sentry interface.
 }
 ```
 
+##### environment   - optional
+
+Track the environment name inside Sentry for the product or site on which `o-errors`
+is configured.  This is useful for highlighting new issues in lower environments in the
+Sentry interface.
+
+```JS
+{
+	environment: "production"
+}
+```
+
 ##### tags   - optional
 
 A hash of tags to apply to each error event. This is useful for associating
@@ -208,7 +220,7 @@ declaratively.
 
 An additional `array` of error objects which will be pushed into the internal
 buffer queue to be sent on initialisation. This can be useful if you have
-caught errors inline on your page before oErrors.init() has been ran.  
+caught errors inline on your page before oErrors.init() has been ran.
 Each error in the array should be an `object` with two fields: an `error` field
 which contains the reported `Error`, and a `context` field, which contains any
 additional reported context.
