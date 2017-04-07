@@ -7,6 +7,6 @@
   "description": "Origami Client Side tracking library",
   "main": "main.js",
   "dependencies": {
-    "raven-js": "^3.0.0"
+    "raven-js": "^3.14.0"
   }
 }
