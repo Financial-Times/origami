@@ -37,6 +37,15 @@ describe("oErrors", function() {
 			expect(mockRavenClient.configOptions.release).to.equal("v1.0.0");
 		});
 
+		it("should configure the raven client with the environment if the environment option is configured", function() {
+			new Errors().init({
+				environment: "test",
+				sentryEndpoint: "//app.getsentry.com/123"
+			}, mockRavenClient);
+
+			expect(mockRavenClient.configOptions.environment).to.equal("test");
+		});
+
 		it("should configure the raven client with tags if the tags option is configured", function() {
 			new Errors().init({
 				tags: {

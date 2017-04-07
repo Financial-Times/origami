@@ -59,6 +59,7 @@ function Errors() {
  * @param {Object} options                 - Optional, configuration options object
  * @param {string} options.sentryEndpoint  - Optional if configued via the DOM, Required if not, must be a valid {@link https://app.getsentry.com/docs/platforms/|Sentry DSN}.
  * @param {string} options.siteVersion     - Optional, optionally the version of the code the page is running. This tags each error with the code version
+ * @param {string} options.environment     - Optional, track the environment name inside Sentry.
  * @param {string} options.logLevel        - Optional, see {@link Logger.level} for valid names
  * @param {boolean} options.disabled       - Optional, If `true`, disable o-errors reporting.
  * @param {Array} options.buffer           - Optional, pre-existing buffer of error events to flush.
@@ -174,6 +175,10 @@ Errors.prototype._configureAndInstallRaven = function(options, raven) {
 
 	if (options.siteVersion) {
 		ravenOptions.release = options.siteVersion;
+	}
+
+	if (options.environment) {
+		ravenOptions.environment = options.environment;
 	}
 
 	if (options.tags) {
