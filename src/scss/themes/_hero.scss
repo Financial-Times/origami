@@ -74,8 +74,8 @@
 @mixin oTeaserHeroImage {
 
 	@include oGridRespondTo($until: M) {
-		@include oTeaserHeroCentre
-		@include oTeaserHeroCentreImage
+		@include oTeaserHeroCentre;
+		@include oTeaserHeroCentreImage;
 	}
 
 	@include oGridRespondTo(M) {
@@ -118,6 +118,14 @@
 	}
 }
 
+@mixin oTeaserHeroMidSlice {
+	@include oGridRespondTo(M, $until: L) {
+		.o-teaser__image-container {
+			padding: 0 30%;
+		}
+	}
+}
+
 /// Hero teaser image container - for standard hero teasers
 @mixin oTeaserHeroImageContainer {
 	.o-teaser__image-container {
@@ -153,18 +161,7 @@
 /// Centred hero teaser styles to centre image
 @mixin oTeaserHeroCentreImage {
 	.o-teaser__image-container {
-		padding-left: 15%;
-		padding-right: 15%;
-
-		@include oGridRespondTo(M) {
-			padding-left: 30%;
-			padding-right: 30%;
-		}
-
-		@include oGridRespondTo(L) {
-			padding-left: 15%;
-			padding-right: 15%;
-		}
+		padding: 0 15%;
 	}
 }
 
