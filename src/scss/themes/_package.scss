@@ -35,7 +35,12 @@
 		padding: 20px;
 		margin-top: -50px;
 		width: 100%;
-		color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 60);
+		color: oTeaserTextColor($percent: 80);
+
+		#{$o-hoverable-if-hover-enabled} &:hover,
+		&:focus {
+			color: oTeaserTextColor($percent: 55);
+		}
 	}
 }
 
@@ -62,10 +67,10 @@
 		}
 
 		&__list-item a {
-			color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 60);
+			color: oTeaserTextColor($percent: 80);
 
 			&:hover {
-				color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 30);
+				color: oTeaserTextColor($percent: 55);
 			}
 		}
 
@@ -73,14 +78,14 @@
 			color: $_o-teaser-color-basic-text;
 
 			&:hover {
-				color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 60);
+				color: $_o-teaser-color-basic-hover;
 			}
 
 			&:after {
 				@include oIconsGetIcon('arrow-right', $_o-teaser-color-basic-text, 30);
 				content: '';
 				position: absolute;
-				bottom: 13px;
+				bottom: 14px;
 			}
 		}
 	}
