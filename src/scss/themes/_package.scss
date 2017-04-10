@@ -18,7 +18,7 @@
 		background: inherit;
 		color: $_o-teaser-color-basic-text;
 
-		&::after {
+		&:after {
 			content: "";
 			display: block;
 			margin-top: 5px;
@@ -39,7 +39,7 @@
 	}
 }
 
-@mixin packageTeaserList {
+@mixin oTeaserPackageList {
 	.package-teaser {
 		&__list {
 			margin: -10px 0 0;
@@ -50,9 +50,9 @@
 
 		&__list-item,
 		&__landing-link {
-			font-family: MetricWeb, sans-serif;
-			font-size: 16px;
-			line-height: 1.2;
+			@include oTypographyProgressiveFont(sans, l);
+			@include oTypographyFallbackFontSize(sans, 16px);
+			@include font-size(16, 18);
 			padding: 10px 0;
 
 			> a {
@@ -76,7 +76,7 @@
 				color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 60);
 			}
 
-			&::after {
+			&:after {
 				@include oIconsGetIcon('arrow-right', $_o-teaser-color-basic-text, 30);
 				content: '';
 				position: absolute;
