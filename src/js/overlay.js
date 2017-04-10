@@ -53,6 +53,13 @@ const triggerClickHandler = function(id, ev) {
 	}
 };
 
+
+/**
+ * Represents an Overlay.
+ * @constructor
+ * @param {HTMLElement} id - String. A unique identifier for the overlay within the page. (Required)
+ * @param {Object} opts - An options object for configuring the Overlay. This object MUST have either `src` or `html` set. (Required)
+*/
 const Overlay = function(id, opts) {
 	viewport.listenTo('resize');
 	this.visible = false;
@@ -372,7 +379,7 @@ Overlay.prototype.realign = function(dimension, size) {
 		}
 		this.wrapper.classList.remove('o-overlay--full-' + dimension);
 		this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
-		
+
 		// Set alignment in JavaScript (not via CSS) after all other styles have been applied
 		// so that browsers compute it properly. If it's applied earlier, when the negative
 		// margin is calculated, the overlay might not fit, so it shrinks and the negative
