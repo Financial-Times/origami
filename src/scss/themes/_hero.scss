@@ -184,7 +184,7 @@
 // Hero Package theme — extra
 @mixin oTeaserHeroExtra {
 	#{$o-hoverable-if-hover-enabled} .o-teaser__heading:hover,
-	.o-teaser__heading:focus{
+	.o-teaser__heading:focus {
 		color: $_o-teaser-color-extra-highlights;
 	}
 	#{$o-hoverable-if-hover-enabled} .o-teaser__tag:hover,
@@ -192,39 +192,32 @@
 		color: oTeaserTextColor(#ffffff, $_o-teaser-color-extra-highlights, 73);
 	}
 
-	.o-teaser__tag {
+	.o-teaser__meta {
 		color: $_o-teaser-color-extra-highlights;
-	}
-
-	.o-teaser__meta:after {
-		border-color: $_o-teaser-color-extra-highlights;
+	 	&::after {
+			border-color: $_o-teaser-color-extra-highlights;
+		}
 	}
 
 	.o-teaser__heading {
 		color: #ffffff;
 	}
 
-	.o-teaser__standfirst,
-	.o-teaser__timestamp,
-	.o-teaser__timestamp-prefix:before {
-		color: oTeaserTextColor(#ffffff, $_o-teaser-color-extra-background, 80);
-	}
-
-	.o-teaser__timestamp-prefix:before {
+	.o-teaser__standfirst {
 		background-color: oTeaserTextColor(#ffffff, $_o-teaser-color-extra-background, 80);
 	}
 
 	&.o-teaser--hero {
 		.o-teaser__image-container:after {
 			background-color: $_o-teaser-color-extra-background;
-			border-width: 1px 1px 0 1px;
+			border-width: 1px 1px 0;
 			border-style: solid;
 			border-color: $_o-teaser-color-extra-highlights;
 		}
 
 		.o-teaser__content {
 			background-color: $_o-teaser-color-extra-background;
-			border-width: 0 1px 1px 1px;
+			border-width: 0 1px 1px;
 			border-style: solid;
 			border-color: $_o-teaser-color-extra-highlights;
 		}
