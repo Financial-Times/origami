@@ -371,9 +371,8 @@ Overlay.prototype.realign = function(dimension, size) {
 			this.content.style.height = null;
 		}
 		this.wrapper.classList.remove('o-overlay--full-' + dimension);
-		if (!this.opts.arrow) {
-			this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
-		}
+		this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
+		
 		// Set alignment in JavaScript (not via CSS) after all other styles have been applied
 		// so that browsers compute it properly. If it's applied earlier, when the negative
 		// margin is calculated, the overlay might not fit, so it shrinks and the negative
