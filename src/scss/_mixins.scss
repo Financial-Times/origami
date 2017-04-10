@@ -183,13 +183,22 @@
 	}
 
 	.o-teaser--highlight.o-teaser--hero,
+	.o-teaser--special-report-article.o-teaser--hero,
 	.o-teaser--opinion.o-teaser--hero {
 		@include oTeaserHeroThemeBase;
+	}
+
+	.o-teaser--opinion.o-teaser--hero {
 		@include oTeaserHeroOpinion;
 	}
 
-	.o-teaser--highlight.o-teaser--hero {
+	.o-teaser--highlight.o-teaser--hero,
+	.o-teaser--special-report-article.o-teaser--hero {
 		@include oTeaserHighlight;
+	}
+
+	.o-teaser--extra-article.o-teaser--hero {
+		@include oTeaserHeroExtra;
 	}
 
 	.o-teaser--midslice.o-teaser--has-image {
