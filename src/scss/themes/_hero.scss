@@ -194,7 +194,8 @@
 
 	.o-teaser__meta {
 		color: $_o-teaser-color-extra-highlights;
-	 	&::after {
+
+		&:after {
 			border-color: $_o-teaser-color-extra-highlights;
 		}
 	}
@@ -207,27 +208,23 @@
 		background-color: oTeaserTextColor(#ffffff, $_o-teaser-color-extra-background, 80);
 	}
 
-	&.o-teaser--hero {
-		.o-teaser__image-container:after {
-			background-color: $_o-teaser-color-extra-background;
-			border-width: 1px 1px 0;
-			border-style: solid;
-			border-color: $_o-teaser-color-extra-highlights;
-		}
-
-		.o-teaser__content {
-			background-color: $_o-teaser-color-extra-background;
-			border-width: 0 1px 1px;
-			border-style: solid;
-			border-color: $_o-teaser-color-extra-highlights;
-		}
-
-		.o-teaser__content:after {
-			@include oGridRespondTo(S, L) {
-				background-color: $_o-teaser-color-extra-background;
-
-			}
-		}
+	.o-teaser__image-container:after {
+		background-color: $_o-teaser-color-extra-background;
+		border-width: 1px 1px 0;
+		border-style: solid;
+		border-color: $_o-teaser-color-extra-highlights;
 	}
 
+	.o-teaser__content {
+		background-color: $_o-teaser-color-extra-background;
+		border-width: 0 1px 1px;
+		border-style: solid;
+		border-color: $_o-teaser-color-extra-highlights;
+	}
+
+	.o-teaser__content:after {
+		@include oGridRespondTo(S, L) {
+			background-color: $_o-teaser-color-extra-background;
+		}
+	}
 }

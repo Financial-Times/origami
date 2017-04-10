@@ -194,8 +194,7 @@
 		@include oTeaserHeroOpinion;
 	}
 
-	.o-teaser--highlight.o-teaser--hero,
-	.o-teaser--special-report-article.o-teaser--hero {
+	.o-teaser--highlight.o-teaser--hero {
 		@include oTeaserHighlight;
 	}
 
