@@ -35,15 +35,15 @@
 		padding: 20px;
 		margin-top: -50px;
 		width: 100%;
-		color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 60)
+		color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 60);
 	}
 }
 
 @mixin packageTeaserList {
 	.package-teaser {
 		&__list {
-			margin: -10px 0 0 0;
-			padding: 0 20px 10px 20px;
+			margin: -10px 0 0;
+			padding: 0 20px 10px;
 			background: inherit;
 			list-style: none;
 		}
@@ -61,23 +61,19 @@
 			}
 		}
 
-		&__list-item {
-			> a {
-				color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 60);
+		&__list-item a {
+			color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 60);
 
-				&:hover {
-					color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 30);
-				}
+			&:hover {
+				color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 30);
 			}
 		}
 
-		&__landing-link {
-			> a {
-				color: $_o-teaser-color-basic-text;
+		&__landing-link a {
+			color: $_o-teaser-color-basic-text;
 
-				&:hover {
-					color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 60);
-				}
+			&:hover {
+				color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 60);
 			}
 
 			&::after {
