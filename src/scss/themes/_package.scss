@@ -1,0 +1,91 @@
+@mixin oTeaserPackage {
+	@include oTeaserInverse;
+	width: 100%;
+
+	.o-teaser__image-placeholder {
+		z-index: -1;
+	}
+
+	.o-teaser__content {
+		background: $_o-teaser-color-basic-background;
+	}
+
+	.o-teaser__meta {
+		padding: 15px 0 0 20px;
+		width: calc(100% - 40px);
+		position: relative;
+		top: -50px;
+		background: inherit;
+		color: $_o-teaser-color-basic-text;
+
+		&::after {
+			content: "";
+			display: block;
+			margin-top: 5px;
+			width: 60px;
+			border-bottom: 4px solid oColorsGetPaletteColor('claret');
+		}
+	}
+
+	.o-teaser__heading {
+		@include oTypographyProgressiveFont(sans, l);
+		@include oTypographyFallbackFontSize(sans, 28px);
+		@include font-size(28, 30);
+		background: inherit;
+		padding: 20px;
+		margin-top: -50px;
+		width: 100%;
+		color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 60)
+	}
+}
+
+@mixin packageTeaserList {
+	.package-teaser {
+		&__list {
+			margin: -10px 0 0 0;
+			padding: 0 20px 10px 20px;
+			background: inherit;
+			list-style: none;
+		}
+
+		&__list-item,
+		&__landing-link {
+			font-family: MetricWeb, sans-serif;
+			font-size: 16px;
+			line-height: 1.2;
+			padding: 10px 0;
+
+			> a {
+				text-decoration: none;
+				border: 0;
+			}
+		}
+
+		&__list-item {
+			> a {
+				color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 60);
+
+				&:hover {
+					color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 30);
+				}
+			}
+		}
+
+		&__landing-link {
+			> a {
+				color: $_o-teaser-color-basic-text;
+
+				&:hover {
+					color: oTeaserTextColor(#000000, $_o-teaser-color-basic-text, 60);
+				}
+			}
+
+			&::after {
+				@include oIconsGetIcon('arrow-right', $_o-teaser-color-basic-text, 30);
+				content: '';
+				position: absolute;
+				bottom: 13px;
+			}
+		}
+	}
+}

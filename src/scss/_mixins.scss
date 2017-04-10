@@ -35,6 +35,8 @@
 		@include oTeaserThemeTopStories;
 	} @else if $theme == 'video' {
 		@include oTeaserThemeVideo;
+	} @else if $theme == 'package' {
+		@include oTeaserThemePackage;
 	}
 }
 
@@ -233,5 +235,14 @@
 
 	.o-teaser__duration {
 		@include oTeaserDuration;
+	}
+}
+
+@mixin oTeaserThemePackage {
+	.o-teaser--basic-package,
+	.o-teaser--specia-report-package,
+	.o-teaser--extra-package {
+		@include oTeaserPackage;
+		@include packageTeaserList;
 	}
 }
