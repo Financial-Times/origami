@@ -238,9 +238,14 @@
 
 @mixin oTeaserThemePackage {
 	.o-teaser--basic-package,
-	.o-teaser--specia-report-package,
+	.o-teaser--special-report-package,
 	.o-teaser--extra-package {
 		@include oTeaserPackage;
 		@include oTeaserPackageList;
+	}
+
+	.o-teaser--special-report-package {
+		@include oTeaserSpecialReportPackage;
+		@include oTeaserSpecialReportPackageList;
 	}
 }

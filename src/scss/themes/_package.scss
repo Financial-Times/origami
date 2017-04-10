@@ -23,7 +23,7 @@
 			display: block;
 			margin-top: 5px;
 			width: 60px;
-			border-bottom: 4px solid oColorsGetPaletteColor('claret');
+			border-bottom: 4px solid $_o-teaser-color-basic-text;
 		}
 	}
 
@@ -40,6 +40,29 @@
 		#{$o-hoverable-if-hover-enabled} &:hover,
 		&:focus {
 			color: oTeaserTextColor($percent: 55);
+		}
+	}
+}
+
+@mixin oTeaserSpecialReportPackage {
+	.o-teaser__content {
+		background: $_o-teaser-color-basic-text; //claret 70
+	}
+
+	.o-teaser__meta {
+		color: oColorsGetPaletteColor('white');
+
+		&:after {
+			border-color: oColorsGetPaletteColor('white');
+		}
+	}
+
+	.o-teaser__heading {
+		color: oColorsGetPaletteColor('white');
+
+		#{$o-hoverable-if-hover-enabled} &:hover,
+		&:focus {
+			color: oTeaserTextColor(#ffffff, $_o-teaser-color-basic-text, 73); //claret 70
 		}
 	}
 }
@@ -86,6 +109,30 @@
 				content: '';
 				position: absolute;
 				bottom: 14px;
+			}
+		}
+	}
+}
+
+@mixin oTeaserSpecialReportPackageList {
+	.package-teaser {
+		&__list-item a {
+			color: oColorsGetPaletteColor('white');
+
+			&:hover {
+				color: oTeaserTextColor(#ffffff, $_o-teaser-color-basic-text, 73); //claret 70
+			}
+		}
+
+		&__landing-link a {
+			color: oTeaserTextColor(#ffffff, $_o-teaser-color-basic-text, 80);
+
+			&:hover {
+				color: oTeaserTextColor(#ffffff, $_o-teaser-color-basic-text, 73); //claret 70
+			}
+
+			&:after {
+				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('white'), 30);
 			}
 		}
 	}
