@@ -35,6 +35,8 @@
 		@include oTeaserThemeTopStories;
 	} @else if $theme == 'video' {
 		@include oTeaserThemeVideo;
+	} @else if $theme == 'package' {
+		@include oTeaserThemePackage;
 	}
 }
 
@@ -185,11 +187,18 @@
 	.o-teaser--highlight.o-teaser--hero,
 	.o-teaser--opinion.o-teaser--hero {
 		@include oTeaserHeroThemeBase;
+	}
+
+	.o-teaser--opinion.o-teaser--hero {
 		@include oTeaserHeroOpinion;
 	}
 
 	.o-teaser--highlight.o-teaser--hero {
 		@include oTeaserHighlight;
+	}
+
+	.o-teaser--extra-article.o-teaser--hero {
+		@include oTeaserHeroExtra;
 	}
 
 	.o-teaser--midslice.o-teaser--has-image {
@@ -224,5 +233,21 @@
 
 	.o-teaser__duration {
 		@include oTeaserDuration;
+	}
+}
+
+@mixin oTeaserThemePackage {
+	.o-teaser--basic-package,
+	.o-teaser--special-report-package,
+	.o-teaser--extra-package {
+		@include oTeaserPackage;
+	}
+
+	.o-teaser--special-report-package {
+		@include oTeaserSpecialReportPackage;
+	}
+
+	.o-teaser--extra-package {
+		@include oTeaserExtraPackage;
 	}
 }
