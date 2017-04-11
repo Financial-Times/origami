@@ -5,7 +5,7 @@
 		"node_modules"
 	],
 	"dependencies": {
-		"fticons": "v1.8.0",
+		"fticons": "v1.8.1",
 		"o-assets": ">= 0.4.1 <4"
 	}
 }
