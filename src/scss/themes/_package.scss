@@ -154,7 +154,7 @@
 			color: oTeaserTextColor(#ffffff, $_o-teaser-color-basic-text, 80); //claret 70
 
 			&:hover {
-				color: oTeaserTextColor(#ffffff, $_o-teaser-color-basic-text, 73); //claret 70
+				color: oColorsGetPaletteColor('white');
 			}
 
 			&:after {

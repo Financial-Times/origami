@@ -205,7 +205,7 @@
 	}
 
 	.o-teaser__standfirst {
-		background-color: oTeaserTextColor(#ffffff, $_o-teaser-color-extra-background, 80);
+		color: oTeaserTextColor(#ffffff, $_o-teaser-color-extra-background, 80);
 	}
 
 	.o-teaser__image-container:after {

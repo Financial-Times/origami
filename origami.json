@@ -237,6 +237,19 @@
 				}
 			},
 			{
+				"name": "hero-extra",
+				"description": "Hero teaser extra theme centred",
+				"template": "demos/src/demo-large-modifiers.mustache",
+				"data": {
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-modifier": "centre o-teaser--hero o-teaser--extra-article",
+					"article-tag-prefix": "Review",
+					"article-tag": "World",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
 				"name": "hero-image",
 				"description": "Hero image teaser",
 				"template": "demos/src/demo-hero.mustache",
@@ -400,6 +413,87 @@
 				}
 			},
 			{
+				"name": "basic-package-teaser",
+				"description": "Package teaser without List basic theme",
+				"template": "demos/src/demo-package.mustache",
+				"data": {
+					"article-modifier": "basic-package",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-tag-prefix": "FT Series",
+					"article-heading": "Japan sells negative yield 10-year bonds"
+				}
+			},
+			{
+				"name": "basic-package-teaser-list",
+				"description": "Package teaser with list basic theme",
+				"template": "demos/src/demo-package.mustache",
+				"data": {
+					"article-modifier": "basic-package",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-tag-prefix": "FT Series",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-package-list": [
+						{ "article-title": "1st Article in Package" },
+						{ "article-title": "2nd Article in Package" },
+						{ "article-title": "3rd Article in Package" }
+					]
+				}
+			},
+			{
+				"name": "special-report-package-teaser",
+				"description": "Special Report Package teaser without List",
+				"template": "demos/src/demo-package.mustache",
+				"data": {
+					"article-modifier": "special-report-package",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-tag-prefix": "Special Report",
+					"article-heading": "Japan sells negative yield 10-year bonds"
+				}
+			},
+			{
+				"name": "special-report-package-teaser-list",
+				"description": "Special Report Package teaser with list",
+				"template": "demos/src/demo-package.mustache",
+				"data": {
+					"article-modifier": "special-report-package",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-tag-prefix": "Special Report",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-package-list": [
+						{ "article-title": "1st Article in Package" },
+						{ "article-title": "2nd Article in Package" },
+						{ "article-title": "3rd Article in Package" }
+					]
+				}
+			},
+			{
+				"name": "extra-package-teaser",
+				"description": "Package teaser without List extra theme",
+				"template": "demos/src/demo-package.mustache",
+				"data": {
+					"article-modifier": "extra-package",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-tag-prefix": "FT Series",
+					"article-heading": "Japan sells negative yield 10-year bonds"
+				}
+			},
+			{
+				"name": "extra-package-teaser-list",
+				"description": "Package teaser with list extra theme",
+				"template": "demos/src/demo-package.mustache",
+				"data": {
+					"article-modifier": "extra-package",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-tag-prefix": "FT Series",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-package-list": [
+						{ "article-title": "1st Article in Package" },
+						{ "article-title": "2nd Article in Package" },
+						{ "article-title": "3rd Article in Package" }
+					]
+				}
+			},
+			{
 				"name": "pa11y",
 				"js": "demos/src/demo.js",
 				"template": "demos/src/pa11y.mustache",
@@ -408,6 +502,7 @@
 				"data": {
 					"article-promoted-prefix": "Promoted content",
 					"article-promoted-by": "E.on",
+					"article-tag-prefix": "FT Series",
 					"article-tag": "Brexit",
 					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=180&source=o-teaser-demo",
 					"article-timestamp": "2016-02-29T12:35:48Z",
@@ -418,6 +513,11 @@
 						{"article-link": "Related story number one"},
 						{"article-link": "Related story number two with long title"},
 						{"article-link": "Final related story"}
+					],
+					"article-package-list": [
+						{ "article-title": "1st Article in Package" },
+						{ "article-title": "2nd Article in Package" },
+						{ "article-title": "3rd Article in Package" }
 					]
 				}
 			}
