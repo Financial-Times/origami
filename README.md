@@ -1,11 +1,33 @@
-# Auto initalise Origami components
+# o-autoinit [![Circle CI](https://circleci.com/gh/Financial-Times/o-autoinit/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-autoinit/tree/master)
+
+Auto initalise Origami components
+
+- [Usage](#usage)
+	- [JavaScript](#javascript)
+- [Contact](#contact)
+- [Licence](#licence)
+
+# Usage
 
 This module comprises a standard way of firing the `o.DOMContentLoaded` and `o.load` events when their equivalent browser-native events fire, and will fire the Origami events even if the native ones have already been and gone, making this suitable for bundling with modules that are loaded asyncronously.
 
-Usage is trivial:
+## JavaScript
 
 ```javascript
 require('o-autoinit');
 ```
 
 The `autoinit` module must be imported after all modules that bind to the initialisation events.  If it is required more than once, subsequent requires will not have any effect, and the initialisation events may be emitted as early as the first require point.
+
+
+---
+
+## Contact
+
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-autoinit/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
+
+----
+
+## Licence
+
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
