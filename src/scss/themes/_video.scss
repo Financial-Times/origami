@@ -1,29 +1,80 @@
 @mixin oTeaserVideo {
-	.o-teaser__heading:after {
+	.o-teaser__heading:before {
 		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 15, $apply-width-height: false, $iconset-version: 1);
 		content: '';
-		background-color: oColorsGetPaletteColor('black');
-		margin-left: 5px;
-		width: 0.5em;
-		height: 0.5em;
+		background-color: oColorsGetPaletteColor('slate');
+		margin-right: 0.25em;
+		width: 0.7em;
+		height: 0.7em;
 		min-width: 12px;
 		min-height: 12px;
 	}
 
 	&.o-teaser--has-image {
-		&.o-teaser--small .o-teaser__heading:after {
-			@include oGridRespondTo(M) {
-				display: none;
-			}
-		}
-
-		&.o-teaser--large .o-teaser__heading:after,
-		&.o-teaser--hero .o-teaser__heading:after,
-		&.o-teaser--top-story .o-teaser__heading:after {
-			display: none;
+		.o-teaser__heading:before {
+			content: none;
 		}
 	}
 
+	&.o-teaser--has-image.o-teaser--large,
+	&.o-teaser--has-image.o-teaser--hero {
+		// 1. reorder meta to top
+		// 2. reorder image above content
+		// 3. full-bleed image
+
+		$_o-teaser-content-padding: 20px;
+
+		position: relative; // 1
+
+		display: flex; // 2
+		flex-direction: column; // 2
+
+		.o-teaser__meta {
+			position: absolute; // 1
+			top: $_o-teaser-content-padding; // 1
+		}
+
+		.o-teaser__content {
+			order: 2; // 2
+		}
+
+		.o-teaser__image-container {
+			order: 1; // 2
+			padding: 0 $_o-teaser-content-padding !important; // 3
+		}
+	}
+
+	&.o-teaser--has-image.o-teaser--large {
+		padding-top: 58px; // to allow for meta
+
+		// 1. full-wrap border
+		border: 1px solid $_o-teaser-color-border; // 1
+
+		.o-teaser__content {
+			border: 0; // 1
+		}
+
+		.o-teaser__image-container:after {
+			content: none; // 1
+		}
+	}
+
+	&.o-teaser--has-image.o-teaser--hero {
+		padding-top: 68px; // to allow for meta
+
+		// 1. full fill background color
+		background-color: $_o-teaser-color-hero-background; // 1
+
+		.o-teaser__content {
+			background-color: none; // 1
+		}
+
+		.o-teaser__image-container:after {
+			content: none; // 1
+		}
+	}
+
+	// Add play icon overlay
 	.o-teaser__image-placeholder {
 		position: relative;
 
@@ -33,7 +84,7 @@
 			position: absolute;
 			bottom: 0;
 			left: 0;
-			background-color: oColorsGetPaletteColor('black');
+			background-color: oColorsGetPaletteColor('slate');
 			width: 15%;
 			padding-top: 15%;
 			z-index: 1;
