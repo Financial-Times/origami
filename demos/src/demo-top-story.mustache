@@ -3,6 +3,7 @@
 	<div class="o-teaser o-teaser--top-story {{#article-modifier}} o-teaser--{{.}} {{/article-modifier}} {{#article-image-url}}o-teaser--has-image{{/article-image-url}}" data-o-component="o-teaser">
 		<div class="o-teaser__content">
 			<div class="o-teaser__meta">
+				{{#article-tag-prefix}}<span class="o-teaser__tag-prefix">{{.}}</span>{{/article-tag-prefix}}
 				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
 				{{#article-duration}}
 					<time class="o-teaser__duration" datetime="PT3M07S">3:07min</time>
