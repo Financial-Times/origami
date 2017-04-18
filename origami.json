@@ -101,19 +101,19 @@
 				}
 			},
 			{
-				"name": "opinion",
-				"description": "Opinion teaser with no image",
+				"name": "small-video",
+				"description": "Video teaser with duration",
 				"template": "demos/src/demo.mustache",
 				"data": {
-					"article-headshot": "https://www.ft.com/__origami/service/image/v2/images/raw/fthead:martin-wolf?source=origami&width=75&tint=054593,fff1e0",
-					"article-modifier": "opinion o-teaser--has-headshot",
-					"article-tag": "Mrs Moneypenny",
-					"article-timestamp": "2016-02-29T12:35:48Z",
-					"article-heading": "Japan sells negative yield 10-year bonds"
+					"article-modifier": "video",
+					"article-tag": "New York Minute",
+					"article-duration": "4:15min",
+					"article-heading": "Future energy in Scottish mountains",
+					"article-timestamp": "2016-02-29T12:35:48Z"
 				}
 			},
 			{
-				"name": "video",
+				"name": "small-video-image",
 				"description": "Video teaser with duration",
 				"template": "demos/src/demo.mustache",
 				"data": {
@@ -123,6 +123,31 @@
 					"article-heading": "Future energy in Scottish mountains",
 					"article-timestamp": "2016-02-29T12:35:48Z",
 					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=180&source=o-teaser-demo"
+				}
+			},
+			{
+				"name": "small-video-stacked",
+				"description": "Small teaser with stacked image",
+				"template": "demos/src/demo.mustache",
+				"data": {
+					"article-tag": "World",
+					"article-modifier": ["video", "stacked"],
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
+				}
+			},
+			{
+				"name": "opinion",
+				"description": "Opinion teaser with no image",
+				"template": "demos/src/demo.mustache",
+				"data": {
+					"article-headshot": "https://www.ft.com/__origami/service/image/v2/images/raw/fthead:martin-wolf?source=origami&width=75&tint=054593,fff1e0",
+					"article-modifier": "opinion o-teaser--has-headshot",
+					"article-tag": "Mrs Moneypenny",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds"
 				}
 			},
 			{
@@ -171,7 +196,7 @@
 					"article-duration": "4:15min",
 					"article-heading": "Future energy in Scottish mountains",
 					"article-timestamp": "2016-02-29T12:35:48Z",
-					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=180&source=o-teaser-demo"
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo"
 				}
 			},
 			{
@@ -216,12 +241,12 @@
 				"description": "Hero video teaser with duration",
 				"template": "demos/src/demo-hero.mustache",
 				"data": {
-					"article-modifier": "video",
+					"article-modifier": ["video", "centre"],
 					"article-tag": "New York Minute",
 					"article-duration": "4:15min",
 					"article-heading": "Future energy in Scottish mountains",
 					"article-timestamp": "2016-02-29T12:35:48Z",
-					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=180&source=o-teaser-demo"
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo"
 				}
 			},
 			{

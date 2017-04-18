@@ -1,6 +1,6 @@
-<div class="demo-container {{#article-modifier}}demo-container--{{article-modifier}}{{/article-modifier}}">
+<div class="demo-container {{#article-modifier}} demo-container--{{.}} {{/article-modifier}}">
 
-	<div class="o-teaser o-teaser--small {{#article-modifier}}o-teaser--{{article-modifier}}{{/article-modifier}} {{#article-image-url}}o-teaser--has-image{{/article-image-url}}" data-o-component="o-teaser">
+	<div class="o-teaser o-teaser--small {{#article-modifier}} o-teaser--{{.}} {{/article-modifier}} {{#article-image-url}}o-teaser--has-image{{/article-image-url}}" data-o-component="o-teaser">
 		<div class="o-teaser__content">
 			<div class="o-teaser__meta">
 				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
@@ -17,7 +17,7 @@
 			<h2 class="o-teaser__heading">
 				{{#article-canBeSyndicated}}
 					<a href="#" class="o-teaser__syndication-indicator o-teaser__syndication-indicator--{{article-canBeSyndicated}}"><span>Syndication allowed</span></a>
-                {{/article-canBeSyndicated}}
+				{{/article-canBeSyndicated}}
 				<a href="#">{{article-heading}}</a>
 			</h2>
 
