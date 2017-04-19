@@ -13,8 +13,8 @@ $pkgYellow: #ffec1a;
 	border-bottom-width: 0;
 
 	&:after {
-		content: '';
 		@include oIconsGetIcon('arrow-down', oColorsGetColorFor('link', 'text'), 20);
+		content: '';
 		display: block;
 		position: relative;
 		top: 4px;
