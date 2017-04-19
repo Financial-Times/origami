@@ -144,8 +144,10 @@
 .topper__credits {
 	font-style: italic;
 	font-size: 13px;
-	margin-top: 15px;
 	opacity: 0.6;
+	> span {
+		margin-top: 15px;
+	}
 }
 
 //IE9 support
