@@ -64,23 +64,6 @@
 
 }
 
-.topper__anchor {
-	display: inline-block;
-	margin-top: 10px;
-	padding: 10px;
-	border-top: 1px solid oColorsGetColorFor('link', 'text');
-	border-left: 1px solid oColorsGetColorFor('link', 'text');
-	&:after {
-		content: '';
-		@include oIconsGetIcon(
-			$icon-name: 'arrow-down',
-			$color: oColorsGetColorFor('link', 'text'),
-			$apply-base-styles: false,
-			$apply-width-height: false
-		);
-	}
-}
-
 @include oGridRespondTo($until: S) {
 	@include stackTags;
 	.topper__tags {
