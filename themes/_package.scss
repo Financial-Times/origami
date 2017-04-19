@@ -1,4 +1,4 @@
-$pkgYellow: #ffec1a;
+@import '../../package/colors';
 
 
 .topper__anchor {
@@ -53,20 +53,19 @@ $pkgYellow: #ffec1a;
 .topper--package-extra-wide {
 	.topper__package-sequence-id,
 	&.topper--package .topper__headline {
-		color: $pkgYellow;
+		color: $yellow;
 	}
 
 	.topper__anchor {
-		border-color: $pkgYellow;
+		border-color: $yellow;
 	}
 	.topper__anchor-link {
-		color: $pkgYellow;
+		color: $yellow;
 		&:after {
-			@include oIconsGetIcon('arrow-down', $pkgYellow, 20, null, false, false);
+			@include oIconsGetIcon('arrow-down', $yellow, 20, null, false, false);
 		}
 		&:hover {
-			color: darken($pkgYellow, 20%);
-			border-bottom-color: darken($pkgYellow, 20%);
+			color: darken($yellow, 20%);
 		}
 	}
 }
@@ -82,7 +81,6 @@ $pkgYellow: #ffec1a;
 		}
 		&:hover {
 			color: darken(getColor('white'), 20%);
-			border-bottom-color: darken(getColor('white'), 20%);
 		}
 	}
 }
