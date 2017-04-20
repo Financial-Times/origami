@@ -1,4 +1,24 @@
-$pkgYellow: #ffec1a;
+@import '../../package/colors';
+
+.topper__anchor-link {
+	display: inline-block;
+	margin-top: 10px;
+	padding: 5px 35px 0 10px;
+	border-top: 1px solid oColorsGetColorFor('link', 'text');
+	border-left: 1px solid oColorsGetColorFor('link', 'text');
+	border-bottom-width: 0;
+
+	&:after {
+		@include oIconsGetIcon('arrow-down', oColorsGetColorFor('link', 'text'), 20);
+		content: '';
+		display: block;
+		position: relative;
+		top: 4px;
+		left: -4px;
+		margin-top: -2px;
+	}
+}
+
 
 .topper--package {
 
@@ -27,6 +47,30 @@ $pkgYellow: #ffec1a;
 .topper--package-extra-wide {
 	.topper__package-sequence-id,
 	&.topper--package .topper__headline {
-		color: $pkgYellow;
+		color: $yellow;
+	}
+
+	.topper__anchor-link {
+		color: $yellow;
+		border-color: $yellow;
+		&:after {
+			@include oIconsGetIcon('arrow-down', $yellow, 20, null, false, false);
+		}
+		&:hover {
+			color: darken($yellow, 20%);
+		}
+	}
+}
+
+.topper--package-special-report {
+	.topper__anchor-link {
+		border-color: getColor('white');
+		color: getColor('white');
+		&:after {
+			@include oIconsGetIcon('arrow-down', getColor('white'), 20, null, false, false);
+		}
+		&:hover {
+			color: darken(getColor('white'), 20%);
+		}
 	}
 }
