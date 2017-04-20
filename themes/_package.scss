@@ -1,15 +1,11 @@
 @import '../../package/colors';
 
-
-.topper__anchor {
+.topper__anchor-link {
 	display: inline-block;
 	margin-top: 10px;
 	padding: 5px 35px 0 10px;
 	border-top: 1px solid oColorsGetColorFor('link', 'text');
 	border-left: 1px solid oColorsGetColorFor('link', 'text');
-}
-
-.topper__anchor-link {
 	border-bottom-width: 0;
 
 	&:after {
@@ -56,11 +52,9 @@
 		color: $yellow;
 	}
 
-	.topper__anchor {
-		border-color: $yellow;
-	}
 	.topper__anchor-link {
 		color: $yellow;
+		border-color: $yellow;
 		&:after {
 			@include oIconsGetIcon('arrow-down', $yellow, 20, null, false, false);
 		}
@@ -71,10 +65,8 @@
 }
 
 .topper--package-special-report {
-	.topper__anchor {
-		border-color: getColor('white');
-	}
 	.topper__anchor-link {
+		border-color: getColor('white');
 		color: getColor('white');
 		&:after {
 			@include oIconsGetIcon('arrow-down', getColor('white'), 20, null, false, false);
