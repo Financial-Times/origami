@@ -40,12 +40,12 @@
 	line-height: 1.4;
 	-webkit-font-smoothing: antialiased;
 
-	a {
-		font-size: 16px;
-	}
-
 	@include oGridRespondTo(L) {
 		font-size: round(22px * 0.9);
+	}
+
+	a {
+		font-size: 16px;
 	}
 
 	.o-typography--loaded-sans & {
