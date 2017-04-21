@@ -11,6 +11,10 @@
 	white-space: nowrap;
 	overflow: visible;
 
+	@include oGridRespondTo(S) {
+		width: 140px;
+	}
+
 	&:after {
 		@include oIconsGetIcon('arrow-down', oColorsGetColorFor('link', 'text'), 20);
 		content: '';
@@ -19,10 +23,6 @@
 		top: 4px;
 		left: -4px;
 		margin-top: -2px;
-	}
-
-	@include oGridRespondTo(S) {
-		width: 140px;
 	}
 }
 
