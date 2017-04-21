@@ -2,11 +2,14 @@
 
 .topper__anchor-link {
 	display: inline-block;
-	margin-top: 10px;
-	padding: 5px 35px 0 10px;
+	margin-top: 30px;
+	width: 110px;
+	padding: 5px 0 0 10px;
 	border-top: 1px solid oColorsGetColorFor('link', 'text');
 	border-left: 1px solid oColorsGetColorFor('link', 'text');
 	border-bottom-width: 0;
+	white-space: nowrap;
+	overflow: visible;
 
 	&:after {
 		@include oIconsGetIcon('arrow-down', oColorsGetColorFor('link', 'text'), 20);
@@ -17,7 +20,12 @@
 		left: -4px;
 		margin-top: -2px;
 	}
+
+	@include oGridRespondTo(S) {
+		width: 140px;
+	}
 }
+
 
 
 .topper--package {
