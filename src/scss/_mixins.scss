@@ -228,6 +228,10 @@
 		@include oTeaserVideo;
 	}
 
+	.o-teaser--big-video {
+		@include oTeaserBigVideo;
+	}
+
 	.o-teaser__duration {
 		@include oTeaserDuration;
 	}

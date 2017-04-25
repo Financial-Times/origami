@@ -191,20 +191,6 @@
 				}
 			},
 			{
-				"name": "large-video",
-				"description": "Large video teaser",
-				"template": "demos/src/demo-large.mustache",
-				"data": {
-					"article-modifier": "video",
-					"article-tag-prefix": "Video",
-					"article-tag": "New York Minute",
-					"article-duration": "4:15min",
-					"article-heading": "Future energy in Scottish mountains",
-					"article-timestamp": "2016-02-29T12:35:48Z",
-					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo"
-				}
-			},
-			{
 				"name": "hero",
 				"description": "Hero teaser default theme",
 				"template": "demos/src/demo-hero.mustache",
@@ -239,20 +225,6 @@
 					"article-tag": "Brexit",
 					"article-heading": "Japan sells negative yield 10-year bonds",
 					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
-				}
-			},
-			{
-				"name": "hero-video",
-				"description": "Hero video teaser",
-				"template": "demos/src/demo-hero.mustache",
-				"data": {
-					"article-modifier": "video",
-					"article-tag-prefix": "Video",
-					"article-tag": "New York Minute",
-					"article-duration": "4:15min",
-					"article-heading": "Future energy in Scottish mountains",
-					"article-timestamp": "2016-02-29T12:35:48Z",
-					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo"
 				}
 			},
 			{
@@ -551,6 +523,34 @@
 						{ "article-title": "2nd Article in Package" },
 						{ "article-title": "3rd Article in Package" }
 					]
+				}
+			},
+			{
+				"name": "big-video-large",
+				"description": "Large 'big video' teaser",
+				"template": "demos/src/demo-big-video.mustache",
+				"data": {
+					"article-modifier": "large",
+					"article-tag-prefix": "Video",
+					"article-tag": "New York Minute",
+					"article-duration": "4:15min",
+					"article-heading": "Future energy in Scottish mountains",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo"
+				}
+			},
+			{
+				"name": "big-video-hero",
+				"description": "Hero 'big video' teaser",
+				"template": "demos/src/demo-big-video.mustache",
+				"data": {
+					"article-modifier": "hero",
+					"article-tag-prefix": "Video",
+					"article-tag": "New York Minute",
+					"article-duration": "4:15min",
+					"article-heading": "Future energy in Scottish mountains",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo"
 				}
 			}
 		]

@@ -58,7 +58,6 @@
 @mixin oTeaserMeta {
 	@include oTypographySize(0, 20px);
 	@include oColorsFor('o-teaser-tag', 'text');
-	@include oTypographyMargin($top: 0, $bottom: 0);
 }
 
 /// Tag styling.
