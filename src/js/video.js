@@ -214,6 +214,11 @@ class Video {
 			this.videoEl.setAttribute('webkit-playsinline', 'true');
 		}
 
+		// disable download button in Chrome 58+
+		if (this.videoEl.controlsList) {
+			this.videoEl.controlsList.add('nodownload');
+		}
+
 		this.updateVideo();
 
 		if (this.placeholderEl && !this.opts.advertising) {
