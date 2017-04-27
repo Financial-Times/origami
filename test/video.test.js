@@ -42,7 +42,6 @@ describe('Video', () => {
 			const video = new Video(containerEl);
 
 			video.opts.advertising.should.eql(false);
-			video.opts.allProgress.should.eql(false);
 			video.opts.classes.should.be.an.instanceOf(Array);
 			video.opts.classes.should.contain('o-video__video');
 			should.equal(video.opts.optimumwidth, null);

@@ -20,8 +20,7 @@ function eventListener(video, ev) {
 	}
 
 	// Dispatch progress event at around 25%, 50%, 75% and 100%
-	// If allProgress is set to true, then we send spoor events for every native video progress event (every 5 sec)
-	if (!video.opts.allProgress && ev.type === 'progress' && !shouldDispatch(video.getProgress())) {
+	if (ev.type === 'progress' && !shouldDispatch(video.getProgress())) {
 		return;
 	}
 
