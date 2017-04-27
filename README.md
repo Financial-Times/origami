@@ -27,8 +27,8 @@ const video = new OVideo(document.body, opts);
 
 Where `opts` is an optional object with properties
 
- * `id` [`Number`] Source's ID of the video
- * `source` [`String`] Source of the video (currently only accepts `brightcove`)
+ * `id` [`String`] Source's ID of the video (`brightcoveId` or `uuid`)
+ * `autorender` [`Boolean`] Whether to have the video render automatically. If *false* then you will need to call `init()` when ready
  * `optimumwidth` [`Number`] The optimum width of the video placeholder image
  * `optimumvideowidth` [`Number`] The optimum width of the video itself, used when there are multiple video renditions available to
  decide which to display (the smallest one that's at least as large as this width, if it exists)
@@ -37,6 +37,8 @@ Where `opts` is an optional object with properties
  * `playsinline` [`Boolean`] Whether to play the [video inline](https://webkit.org/blog/6784/new-video-policies-for-ios/) on iOS smallscreen (defaults to fullscreen)
  * `classes` [`Array`] Classes to add to the video (and placeholder) element
  * `advertising` [`Boolean`] whether or not to show ads on the video
+ * `showCaptions` [`Boolean`] whether or not to add captions to the video. Defaults to *true*.
+ * `data` [`Object`] JSON object representing a [response from next-media-api](https://next-media-api.ft.com/v1/eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526). If used, the component will not make a call to the API and use this data instead.
  * `captionsUrl` [`String`] The URL of a [WebVTT](https://w3c.github.io/webvtt/) closed-caption file.
 
 The config options can also be set as data attribute to instantiate the module declaratively:
@@ -74,10 +76,33 @@ The queue is an `array` containing Brightcove video ID strings.
 ```
 $ npm test
 ```
-(Requires Firefox)
+Requires Firefox (v38.0.0 to test with polyfills and mirror CircleCI)
 
 
 ## Migration Guide
+
+Migrating from 2.0 to 3.0
+-------------------------
+
+The `videoSource` and `captionsUrl` options no longer exist. Captions can be toggled on or off by using the `showCaptions` boolean. This defaults to `true`, so if the video data (now gotten from the [next-media-api](https://github.com/Financial-Times/next-media-api)) contains captions, then the component will present them to the user.
+
+Since 3.0, if `showCaptions` is *true*, calling `addVideo()` directly will throw an error. This is due to the fact the component needs to source the `captionsUrl` first. Either leave `autorender` as *true* or call `init()` instead.
+
+In the previous version, the call to the API could be skipped by using the `data` option, passing in a response from `next-video-api`. This option can still be used, but the data will now need to match a `next-media-api` response – [see an example](https://next-media-api.ft.com/v1/eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526).
+
+```diff
+<div class="video-container">
+	<div class="o-video" data-o-component="o-video"
+-		data-o-video-source="Brightcove"
+		data-o-component="o-video"
+		data-o-video-id="4165329773001"
+		data-o-video-advertising="true"
+		data-o-video-placeholder="true"
+- 		data-o-video-captions-url="http://www.path.to/captions.vtt"
++ 		data-o-video-show-captions="true"
+	></div>
+</div>
+```
 
 Migrating from 1.0 to 2.0
 -------------------------

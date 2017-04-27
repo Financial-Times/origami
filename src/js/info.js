@@ -1,10 +1,3 @@
-function formatBrand (tags) {
-	const regex = /brand:/i;
-	const tag = tags && tags.find(tag => regex.test(tag));
-
-	return tag && tag.replace(regex, '');
-}
-
 class VideoInfo {
 	constructor (video) {
 		this.video = video;
@@ -42,15 +35,15 @@ class VideoInfo {
 
 	update () {
 		if (this.brandEl) {
-			this.brandEl.textContent = formatBrand(this.video.videoData.tags);
+			this.brandEl.textContent = this.video.videoData.brand.name;
 		}
 
 		if (this.titleEl) {
-			this.titleEl.textContent = this.video.videoData.name;
+			this.titleEl.textContent = this.video.videoData.title;
 		}
 
 		if (this.descriptionEl) {
-			this.descriptionEl.textContent = this.video.videoData.shortDescription;
+			this.descriptionEl.textContent = this.video.videoData.standfirst;
 		}
 	}
 

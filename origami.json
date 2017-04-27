@@ -20,6 +20,11 @@
 			"template": "demos/src/video.mustache"
 		},
 		{
+			"name": "captions",
+			"description": "With closed captions",
+			"template": "demos/src/captions.mustache"
+		},
+		{
 			"name": "placeholder",
 			"description": "Placeholder",
 			"template": "demos/src/placeholder.mustache"

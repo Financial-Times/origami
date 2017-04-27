@@ -1,7 +1,7 @@
-/* global describe, context, it, beforeEach, afterEach, should */
+/* global describe, context, it, before, beforeEach, afterEach, should */
 const Video = require('./../src/js/video');
-const brightcoveResponse1 = require('./fixtures/brightcove-1.json');
-const brightcoveResponse2 = require('./fixtures/brightcove-2.json');
+const mediaApiResponse1 = require('./fixtures/media-api-1.json');
+const mediaApiResponse2 = require('./fixtures/media-api-2.json');
 const sinon = require('sinon/pkg/sinon');
 
 describe('Video', () => {
@@ -11,8 +11,9 @@ describe('Video', () => {
 	beforeEach(() => {
 		containerEl = document.createElement('div');
 		containerEl.setAttribute('data-o-component', 'o-video');
-		containerEl.setAttribute('data-o-video-id', '4084879507001');
+		containerEl.setAttribute('data-o-video-id', 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
 		containerEl.setAttribute('data-o-video-autorender', 'false');
+		containerEl.setAttribute('data-o-video-show-captions', 'false');
 		document.body.appendChild(containerEl);
 	});
 
@@ -26,13 +27,13 @@ describe('Video', () => {
 			video.should.be.an.instanceOf(Video);
 
 			video.opts.should.exist;
-			video.opts.id.should.eql(4084879507001);
+			video.opts.id.should.eql('eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
 
 			video.targeting.should.exist;
 			video.targeting.site.should.eql('/5887/ft.com');
 			video.targeting.position.should.eql('video');
 			video.targeting.sizes.should.eql('592x333|400x225');
-			video.targeting.videoId.should.eql(4084879507001);
+			video.targeting.videoId.should.eql('eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
 
 			video.containerEl.should.eql(containerEl);
 			video.containerEl.hasAttribute('data-o-video-js').should.be.true;
@@ -54,14 +55,14 @@ describe('Video', () => {
 			containerEl.setAttribute('data-o-video-optimumwidth', 300);
 			containerEl.setAttribute('data-o-video-placeholder', true);
 			containerEl.setAttribute('data-o-video-classes', 'a-class another-class');
-			containerEl.setAttribute('data-o-video-captions-url', 'https://foo.com/a.vtt');
+			containerEl.setAttribute('data-o-video-show-captions', true);
 
 			const video = new Video(containerEl);
 			video.opts.optimumwidth.should.eql(300);
 			video.opts.placeholder.should.eql(true);
 			video.opts.classes.should.contain('a-class');
 			video.opts.classes.should.contain('another-class');
-			video.opts.captionsUrl.should.eql('https://foo.com/a.vtt');
+			video.opts.showCaptions.should.eql(true);
 		});
 	});
 
@@ -77,6 +78,36 @@ describe('Video', () => {
 			videos.length.should.eql(1);
 			const videos2 = Video.init();
 			videos2.length.should.eql(0);
+		});
+	});
+
+	describe('Working with different videoId formats', () => {
+		let originalVideoId;
+
+		before(() => {
+			originalVideoId = containerEl.getAttribute('data-o-video-id');
+		});
+
+		afterEach(() => {
+			containerEl.setAttribute('data-o-video-id', originalVideoId);
+		});
+
+		it('can work with a brightcoveId', () => {
+			containerEl.setAttribute('data-o-video-id', '4084879507001');
+			const video = new Video(containerEl);
+
+			return video.getData().then(() => {
+				video.videoData.id.should.eql('be1ffaec-9a12-3dd7-8114-6b54a8a82ed2');
+			});
+		});
+
+		it('can work with a uuid', () => {
+			containerEl.setAttribute('data-o-video-id', 'be1ffaec-9a12-3dd7-8114-6b54a8a82ed2');
+			const video = new Video(containerEl);
+
+			return video.getData().then(() => {
+				video.videoData.id.should.eql('be1ffaec-9a12-3dd7-8114-6b54a8a82ed2');
+			});
 		});
 	});
 
@@ -154,12 +185,74 @@ describe('Video', () => {
 			Element.prototype.addEventListener = realAddEventListener;
 		});
 
-		it('should add a track element', () => {
-			containerEl.setAttribute('data-o-video-captions-url', 'https://foo.com/a.vtt');
-			const video = new Video(containerEl);
-			video.addVideo();
-			containerEl.querySelector('video > track').getAttribute('kind').should.equal('captions');
-			containerEl.querySelector('video > track').getAttribute('src').should.equal('https://foo.com/a.vtt');
+		describe('captions', () => {
+			let fetchStub;
+
+			beforeEach(() => {
+				const res1 = new window.Response(JSON.stringify(mediaApiResponse1), {
+					status: 200,
+					headers: { 'Content-type': 'application/json' }
+				});
+
+				fetchStub = sinon.stub(window, 'fetch');
+				fetchStub.resolves(res1);
+
+				// FF on Linux doesn't always support H264 so to avoid going 💥 on CI, stub
+				sinon.stub(HTMLVideoElement.prototype, 'canPlayType').returns('maybe');
+			});
+
+			afterEach(() => {
+				fetchStub.restore();
+				HTMLVideoElement.prototype.canPlayType.restore();
+			});
+
+			it('should add a track element by default', () => {
+				containerEl.setAttribute('data-o-component-data', mediaApiResponse1);
+				containerEl.setAttribute('data-o-video-show-captions', 'true');
+				const video = new Video(containerEl);
+
+				return video.init().then(() => {
+					video.addVideo();
+					containerEl.querySelector('video > track').getAttribute('kind').should.equal('captions');
+					containerEl.querySelector('video > track').getAttribute('src').should.equal('https://next-media-api.ft.com/v1/5393611350001.vtt');
+				});
+			});
+
+			it('should throw if captions are added by calling addVideo() directly', () => {
+				containerEl.setAttribute('data-o-component-data', mediaApiResponse1);
+				containerEl.setAttribute('data-o-video-show-captions', 'true');
+				const video = new Video(containerEl);
+
+				video.addVideo.should.throw();
+			});
+
+			it('shouldn‘t add a track element if specified', () => {
+				containerEl.setAttribute('data-o-component-data', mediaApiResponse1);
+				containerEl.setAttribute('data-o-video-show-captions', 'false');
+				const video = new Video(containerEl);
+
+				video.addVideo();
+				should.equal(containerEl.querySelector('video > track'), null);
+			});
+
+			it('should use the captionsUrl from the API if not passed in directly', () => {
+				containerEl.setAttribute('data-o-video-show-captions', 'true');
+				const video = new Video(containerEl);
+
+				return video.init().then(() => {
+					containerEl.querySelector('video > track').getAttribute('kind').should.equal('captions');
+					containerEl.querySelector('video > track').getAttribute('src').should.equal('https://next-media-api.ft.com/v1/5393611350001.vtt');
+				});
+			});
+
+			it('should get the captionsUrl from the API, but not use if specified', () => {
+				containerEl.setAttribute('data-o-video-show-captions', 'false');
+				const video = new Video(containerEl);
+
+				return video.init().then(() => {
+					should.equal(containerEl.querySelector('video > track'), null);
+				});
+			});
 		});
 
 		describe('`watched` Event', () => {
@@ -305,21 +398,21 @@ describe('Video', () => {
 				placeholderInfo: ['title', 'description', 'duration', 'brand']
 			});
 
-			video.videoData = brightcoveResponse1;
+			video.videoData = mediaApiResponse1;
 			video.addPlaceholder();
 
 			video.infoPanel.should.exist;
 
 			video.infoPanel.infoEl.parentElement.should.equal(video.placeholderEl);
 
-			video.infoPanel.titleEl.textContent.should.equal('A hated rally');
+			video.infoPanel.titleEl.textContent.should.equal('Markets cautious, oil eases');
 			video.infoPanel.titleEl.parentElement.should.equal(video.infoPanel.infoEl);
 
-			video.infoPanel.descriptionEl.textContent.should.contain('John Authers explains');
+			video.infoPanel.descriptionEl.textContent.should.contain('Top stories in the markets');
 			video.infoPanel.descriptionEl.parentElement.should.equal(video.infoPanel.infoEl);
 
 			// can extract `brand:` prefixed tag
-			video.infoPanel.brandEl.textContent.should.equal('Authers Note');
+			video.infoPanel.brandEl.textContent.should.equal('Market Minute');
 			video.infoPanel.brandEl.parentElement.should.equal(video.infoPanel.infoEl);
 
 		});
@@ -354,28 +447,30 @@ describe('Video', () => {
 	});
 
 	describe('#update', () => {
+		let fetchStub;
+
 		beforeEach(() => {
-			const res1 = new window.Response(JSON.stringify(brightcoveResponse1), {
+			const res1 = new window.Response(JSON.stringify(mediaApiResponse1), {
 				status: 200,
 				headers: { 'Content-type': 'application/json' }
 			});
 
-			const res2 = new window.Response(JSON.stringify(brightcoveResponse2), {
+			const res2 = new window.Response(JSON.stringify(mediaApiResponse2), {
 				status: 200,
 				headers: { 'Content-type': 'application/json' }
 			});
 
-			sinon.stub(window, 'fetch');
+			fetchStub = sinon.stub(window, 'fetch');
 
-			window.fetch.onFirstCall().returns(Promise.resolve(res1));
-			window.fetch.onSecondCall().returns(Promise.resolve(res2));
+			fetchStub.onFirstCall().returns(Promise.resolve(res1));
+			fetchStub.onSecondCall().returns(Promise.resolve(res2));
 
 			// FF on Linux doesn't always support H264 so to avoid going 💥 on CI, stub
 			sinon.stub(HTMLVideoElement.prototype, 'canPlayType').returns('maybe');
 		});
 
 		afterEach(() => {
-			window.fetch.restore();
+			fetchStub.restore();
 			HTMLVideoElement.prototype.canPlayType.restore();
 		});
 
@@ -385,7 +480,7 @@ describe('Video', () => {
 			beforeEach(() => {
 				video = new Video(containerEl, {
 					prop: 'old prop',
-					id: '4084879507001',
+					id: 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526',
 					autorender: false,
 					placeholder: true,
 					placeholderInfo: ['title']
@@ -395,7 +490,7 @@ describe('Video', () => {
 			});
 
 			it('replaces old options with the new', () => {
-				const newOpts = { prop: 'new prop', id: brightcoveResponse2.id };
+				const newOpts = { prop: 'new prop', id: mediaApiResponse2.id };
 
 				return video.update(newOpts).then(() => {
 					video.opts.prop.should.equal(newOpts.prop);
@@ -404,14 +499,14 @@ describe('Video', () => {
 			});
 
 			it('updates the placeholder image and title', () => {
-				const newOpts = { id: brightcoveResponse2.id };
+				const newOpts = { id: mediaApiResponse2.id };
 
-				video.placeholderImageEl.src.should.include('AuthersNote-stock-market.jpg');
-				video.infoPanel.titleEl.textContent.should.equal(brightcoveResponse1.name);
+				video.placeholderImageEl.src.should.include('5393611350001');
+				video.infoPanel.titleEl.textContent.should.equal(mediaApiResponse1.title);
 
 				return video.update(newOpts).then(() => {
-					video.placeholderImageEl.src.should.include('World-Norbert-Hofer.jpg');
-					video.infoPanel.titleEl.textContent.should.equal(brightcoveResponse2.name);
+					video.placeholderImageEl.src.should.include('5394885102001');
+					video.infoPanel.titleEl.textContent.should.equal(mediaApiResponse2.title);
 				});
 			});
 		});
@@ -421,7 +516,7 @@ describe('Video', () => {
 
 			beforeEach(() => {
 				video = new Video(containerEl, {
-					id: brightcoveResponse1.id,
+					id: mediaApiResponse1.id,
 					autorender: false,
 					placeholder: false
 				});
@@ -430,14 +525,13 @@ describe('Video', () => {
 			});
 
 			it('updates the video source and poster', () => {
-				const newOpts = { id: brightcoveResponse2.id };
-
-				video.videoEl.poster.should.include('AuthersNote-stock-market.jpg');
-				video.videoEl.src.should.include('A-hated-rally.mp4');
+				const newOpts = { id: mediaApiResponse2.id };
+				video.videoEl.poster.should.include('5393611350001');
+				video.videoEl.src.should.include('/34/47628783001/201704/970/47628783001_5393625770001_5393611350001.mp4?pubId=47628783001&videoId=5393611350001');
 
 				return video.update(newOpts).then(() => {
-					video.videoEl.poster.should.include('World-Norbert-Hofer.jpg');
-					video.videoEl.src.should.include(brightcoveResponse2.id + '.mp4');
+					video.videoEl.poster.should.include('5394885102001');
+					video.videoEl.src.should.include('/34/47628783001/201704/873/47628783001_5394886872001_5394885102001.mp4?pubId=47628783001&videoId=5394885102001');
 				});
 			});
 		});
@@ -452,7 +546,7 @@ describe('Video', () => {
 			});
 
 			it('will initialise if it hasn\'t done so already', () => {
-				const newOpts = { id: brightcoveResponse1.id };
+				const newOpts = { id: mediaApiResponse1.id };
 
 				sinon.spy(video, 'init');
 
@@ -488,21 +582,44 @@ describe('Video', () => {
 	});
 
 	describe('#getTrackMode', () => {
+		let fetchStub;
+
+		beforeEach(() => {
+			const res1 = new window.Response(JSON.stringify(mediaApiResponse1), {
+				status: 200,
+				headers: { 'Content-type': 'application/json' }
+			});
+
+			fetchStub = sinon.stub(window, 'fetch');
+			fetchStub.resolves(res1);
+
+			// FF on Linux doesn't always support H264 so to avoid going 💥 on CI, stub
+			sinon.stub(HTMLVideoElement.prototype, 'canPlayType').returns('maybe');
+		});
+
+		afterEach(() => {
+			fetchStub.restore();
+			HTMLVideoElement.prototype.canPlayType.restore();
+		});
 
 		it('should return the state of the video text track', () => {
-			const video = new Video(containerEl, { captionsUrl: 'http://localhost/a.vtt' });
-			video.addVideo();
-			setTimeout(() => {
-				video.getTrackMode().should.equal('disabled');
-			}, 100);
+			containerEl.setAttribute('data-o-video-show-captions', 'true');
+			const video = new Video(containerEl);
+
+			video.getData().then(() => {
+				video.addVideo();
+				video.getTrackMode().should.eventually.equal('disabled');
+			});
 		});
 
 		it('should return undefined if the video has no captions', () => {
-			const video = new Video(containerEl, {});
-			video.addVideo();
-			setTimeout(() => {
-				video.getTrackMode().should.equal(undefined);
-			}, 100);
+			containerEl.setAttribute('data-o-video-show-captions', 'false');
+			const video = new Video(containerEl);
+
+			video.getData().then(() => {
+				video.addVideo();
+				video.getTrackMode().should.eventually.equal(undefined);
+			});
 		});
 
 	});
@@ -536,17 +653,21 @@ describe('Video', () => {
 
 		beforeEach(() => {
 			fetchStub = sinon.stub(window, 'fetch');
-			const res = new window.Response(JSON.stringify(brightcoveResponse1), {
+			const res = new window.Response(JSON.stringify(mediaApiResponse1), {
 				status: 200,
 				headers: {
 					'Content-type': 'application/json'
 				}
 			});
 			fetchStub.returns(Promise.resolve(res));
+
+			// FF on Linux doesn't always support H264 so to avoid going 💥 on CI, stub
+			sinon.stub(HTMLVideoElement.prototype, 'canPlayType').returns('maybe');
 		});
 
 		afterEach(() => {
 			fetchStub.restore();
+			HTMLVideoElement.prototype.canPlayType.restore();
 		});
 
 		it('should send poster through image service if optimumwidth defined', () => {
@@ -556,17 +677,18 @@ describe('Video', () => {
 				.then(() => {
 					video.posterImage.should.equal(
 						'https://www.ft.com/__origami/service/image/v2/images/raw/' +
-						'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201502%2F2470%2F47628783001_4085962850001_MAS-VIDEO-AuthersNote-stock-market.jpg%3FpubId%3D47628783001' +
+						'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201704%2F970%2F47628783001_5393625566001_5393611350001-vs.jpg%3FpubId%3D47628783001%26videoId%3D5393611350001' +
 						'?source=o-video&quality=low&fit=scale-down&width=300'
 					);
 				});
 		});
+
 		it('should request an optimised rendition if optimumvideowidth defined', () => {
 			containerEl.setAttribute('data-o-video-optimumvideowidth', '300');
 			const video = new Video(containerEl);
 			return video.getData()
 				.then(() => {
-					video.rendition.frameWidth.should.equal(400);
+					video.rendition.pixelWidth.should.equal(480);
 				});
 		});
 

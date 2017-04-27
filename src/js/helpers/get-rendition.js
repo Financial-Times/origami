@@ -9,10 +9,10 @@ function getRendition(renditions, options) {
 	// order smallest to largest
 	const orderedRenditions = renditions
 		.filter(rendition => {
-			return formats.indexOf(rendition.videoCodec.toLowerCase()) > -1;
+			return formats.indexOf(rendition.codec.toLowerCase()) > -1;
 		})
 		.sort((renditionOne, renditionTwo) => {
-			return renditionOne.frameWidth - renditionTwo.frameWidth;
+			return renditionOne.pixelWidth - renditionTwo.pixelWidth;
 		});
 
 	// if no width supplied, get largest
@@ -21,7 +21,7 @@ function getRendition(renditions, options) {
 	}
 	// NOTE: rather use find...
 	orderedRenditions.some(rendition => {
-		if (rendition.frameWidth >= width) {
+		if (rendition.pixelWidth >= width) {
 			appropriateRendition = rendition;
 			return true;
 		}

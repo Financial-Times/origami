@@ -51,21 +51,10 @@ class VideoAds {
 	}
 
 	getVideoBrand() {
-		if (!this.video.videoData || !this.video.videoData.tags || this.video.videoData.tags.length === 0) {
+		if (!this.video.videoData || !this.video.videoData.brand || !this.video.videoData.brand.name) {
 			return false;
 		} else {
-			let filtered = this.video.videoData.tags.filter(val => val.toLowerCase().indexOf('brand:') !== -1);
-			if (filtered.length > 0) {
-				try {
-					 // when we target the value in the ad server, we only want to target actual brand name, so we strip out "brand:" part of the string
-					 return filtered.pop().substring(6);
-				}
-				catch (e) {
-					 return false;
-				}
-			} else {
-				return false;
-			}
+			return this.video.videoData.brand.name;
 		}
 	}
 

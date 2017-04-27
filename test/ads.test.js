@@ -107,7 +107,9 @@ describe('Ads', () => {
 	describe('#getVideoBrand', () => {
 		it('should get the brand for targeting', () => {
 			ads.video.videoData = {
-				tags: ['brand:Authers Note']
+				brand: {
+					name: 'Authers Note'
+				}
 			};
 			ads.getVideoBrand().should.equal('Authers Note');
 		});
