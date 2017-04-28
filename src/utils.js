@@ -1,5 +1,5 @@
 /* jshint devel: true */
-const oUtils = require('o-utils');
+import * as oUtils from 'o-utils';
 
 let debug;
 
@@ -26,8 +26,8 @@ function getWidth(ignoreScrollbars) {
 
 function getSize(ignoreScrollbars) {
 	return {
-		height: module.exports.getHeight(ignoreScrollbars),
-		width: module.exports.getWidth(ignoreScrollbars)
+		height: getHeight(ignoreScrollbars),
+		width: getWidth(ignoreScrollbars)
 	};
 }
 
@@ -89,7 +89,7 @@ function getVisibility() {
 	return document[hiddenName];
 }
 
-module.exports = {
+export default {
 	debug: function() {
 		debug = true;
 	},
@@ -103,4 +103,4 @@ module.exports = {
 	detectVisiblityAPI: detectVisiblityAPI,
 	debounce: oUtils.debounce,
 	throttle: oUtils.throttle
-};
+}
