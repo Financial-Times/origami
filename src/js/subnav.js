@@ -57,4 +57,4 @@ function init(headerEl) {
 	scrollable();
 }
 
-module.exports = { init };
+export default { init };
