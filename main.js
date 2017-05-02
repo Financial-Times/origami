@@ -1,5 +1,5 @@
 // let debug;
-import utils from './src/utils';
+const utils = require('./src/utils');
 const throttle = utils.throttle;
 const debounce = utils.debounce;
 
@@ -139,7 +139,7 @@ function stopListeningTo(eventType) {
 	}
 }
 
-export default {
+module.exports = {
 	debug: function() {
 		// debug = true;
 		utils.debug();
@@ -151,4 +151,4 @@ export default {
 	getSize: utils.getSize,
 	getScrollPosition: utils.getScrollPosition,
 	getVisibility: utils.getVisibility
-}
+};
