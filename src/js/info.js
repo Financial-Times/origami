@@ -34,7 +34,7 @@ class VideoInfo {
 	}
 
 	update () {
-		if (this.brandEl) {
+		if (this.brandEl && this.video.videoData.brand && this.video.videoData.brand.name) {
 			this.brandEl.textContent = this.video.videoData.brand.name;
 		}
 

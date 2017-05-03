@@ -1,4 +1,4 @@
-/* global describe, context, it, before, beforeEach, afterEach, should */
+/* global describe, context, it, beforeEach, afterEach, should */
 const Video = require('./../src/js/video');
 const mediaApiResponse1 = require('./fixtures/media-api-1.json');
 const mediaApiResponse2 = require('./fixtures/media-api-2.json');
@@ -82,14 +82,20 @@ describe('Video', () => {
 	});
 
 	describe('Working with different videoId formats', () => {
-		let originalVideoId;
+		let fetchStub;
 
-		before(() => {
-			originalVideoId = containerEl.getAttribute('data-o-video-id');
+		beforeEach(() => {
+			const res1 = new window.Response(JSON.stringify(mediaApiResponse1), {
+				status: 200,
+				headers: { 'Content-type': 'application/json' }
+			});
+
+			fetchStub = sinon.stub(window, 'fetch');
+			fetchStub.resolves(res1);
 		});
 
 		afterEach(() => {
-			containerEl.setAttribute('data-o-video-id', originalVideoId);
+			fetchStub.restore();
 		});
 
 		it('can work with a brightcoveId', () => {
@@ -97,16 +103,18 @@ describe('Video', () => {
 			const video = new Video(containerEl);
 
 			return video.getData().then(() => {
-				video.videoData.id.should.eql('be1ffaec-9a12-3dd7-8114-6b54a8a82ed2');
+				fetchStub.calledWithMatch('4084879507001').should.eql(true);
+				video.videoData.id.should.eql('eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
 			});
 		});
 
 		it('can work with a uuid', () => {
-			containerEl.setAttribute('data-o-video-id', 'be1ffaec-9a12-3dd7-8114-6b54a8a82ed2');
+			containerEl.setAttribute('data-o-video-id', 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
 			const video = new Video(containerEl);
 
 			return video.getData().then(() => {
-				video.videoData.id.should.eql('be1ffaec-9a12-3dd7-8114-6b54a8a82ed2');
+				fetchStub.calledWithMatch('eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526').should.eql(true);
+				video.videoData.id.should.eql('eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
 			});
 		});
 	});
@@ -411,10 +419,21 @@ describe('Video', () => {
 			video.infoPanel.descriptionEl.textContent.should.contain('Top stories in the markets');
 			video.infoPanel.descriptionEl.parentElement.should.equal(video.infoPanel.infoEl);
 
-			// can extract `brand:` prefixed tag
 			video.infoPanel.brandEl.textContent.should.equal('Market Minute');
 			video.infoPanel.brandEl.parentElement.should.equal(video.infoPanel.infoEl);
+		});
 
+		it('should be able to create an info panel when there is no brand name', () => {
+			const video = new Video(containerEl, {
+				autorender: false,
+				placeholder: true,
+				placeholderInfo: ['brand']
+			});
+
+			video.videoData = Object.assign({}, mediaApiResponse1, { brand: null });
+			video.addPlaceholder();
+
+			video.infoPanel.brandEl.textContent.should.equal('');
 		});
 
 		it('should be able to create a placeholder with a play button', () => {
