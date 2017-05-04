@@ -86,9 +86,10 @@
 	/*------------------------------------*\
 			#BLOCK-MODIFIERS
 	\*------------------------------------*/
-
-	.o-cookie-message--active {
-		display: block;
+	@media not print {
+		.o-cookie-message--active {
+			display: block;
+		}
 	}
 
 	/**
