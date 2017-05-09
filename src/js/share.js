@@ -154,7 +154,8 @@ function Share(rootEl, config) {
 		const ulElement = document.createElement('ul');
 		for (let i = 0; i < config.links.length; i++) {
 			const liElement = document.createElement('li');
-			liElement.classList.add('o-share__action', 'o-share__action--'+config.links[i]);
+			liElement.classList.add('o-share__action');
+			liElement.classList.add('o-share__action--'+config.links[i]);
 			const aElement = document.createElement('a');
 			aElement.href = generateSocialUrl(config.links[i]);
 			aElement.appendChild(document.createElement('i'));
