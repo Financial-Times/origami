@@ -12,7 +12,7 @@
 				}
 			} @elseif ($theme == 'special') {
 				.o-teaser-collection--special {
-					@include oTeaserCollectionSpecial();
+					@include oTeaserCollectionSpecial($_o-teaser-collection-color-special-bg);
 				}
 			} @elseif ($theme == 'horizontal') {
 				.o-teaser-collection--horizontal {
@@ -26,6 +26,10 @@
 
 	.o-teaser-collection__heading {
 		@include oTeaserCollectionHeading;
+	}
+
+	.o-teaser-collection__heading--inverse {
+		@include oTeaserCollectionHeadingInverse();
 	}
 
 	.o-teaser-collection__items {

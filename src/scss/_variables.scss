@@ -3,3 +3,7 @@ $o-teaser-collection-is-silent: false !default;
 $_o-teaser-collection-color-bottom-border: #d1c6b7;
 $_o-teaser-collection-color-special-bg: #f3dec8;
 $_o-teaser-collection-color-thin-border: mix(#000000, oColorsGetPaletteColor('pink'), 20%);
+
+//will use o-colors V2
+$_o-teaser-collection-color-assassination-bg: #1c1f26;
+$_o-teaser-collection-color-assassination-heading: rgba(255, 255, 255, 0.9);
