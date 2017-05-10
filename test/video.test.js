@@ -534,6 +534,7 @@ describe('Video', () => {
 			let video;
 
 			beforeEach(() => {
+				containerEl.setAttribute('data-o-video-show-captions', 'true');
 				video = new Video(containerEl, {
 					id: mediaApiResponse1.id,
 					autorender: false,
@@ -551,6 +552,40 @@ describe('Video', () => {
 				return video.update(newOpts).then(() => {
 					video.videoEl.poster.should.include('5394885102001');
 					video.videoEl.src.should.include('/34/47628783001/201704/873/47628783001_5394886872001_5394885102001.mp4?pubId=47628783001&videoId=5394885102001');
+				});
+			});
+
+			it('replaces the previous captions with the new ones', () => {
+				const resWithCaptions = new window.Response(JSON.stringify(mediaApiResponse2), {
+					status: 200,
+					headers: { 'Content-type': 'application/json' }
+				});
+
+				fetchStub.resetBehavior();
+				fetchStub.returns(Promise.resolve(resWithCaptions));
+
+				const newOpts = { id: mediaApiResponse2.id };
+				return video.update(newOpts).then(() => {
+					const tracks = document.querySelectorAll('track');
+					tracks.length.should.equal(1);
+					tracks[0].src.should.equal('https://next-media-api.ft.com/v1/5394885102001.vtt');
+				});
+			});
+
+			it('removes captions if the replacement video doesn`t have any', () => {
+				const mediaApiNoCaptions = Object.assign({}, mediaApiResponse2, { captionsUrl: null });
+				const resNoCaptions = new window.Response(JSON.stringify(mediaApiNoCaptions), {
+					status: 200,
+					headers: { 'Content-type': 'application/json' }
+				});
+
+				fetchStub.resetBehavior();
+				fetchStub.returns(Promise.resolve(resNoCaptions));
+
+				const newOpts = { id: mediaApiResponse2.id };
+				return video.update(newOpts).then(() => {
+					const tracks = document.querySelectorAll('track');
+					tracks.length.should.equal(0);
 				});
 			});
 		});

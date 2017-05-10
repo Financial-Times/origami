@@ -225,10 +225,6 @@ class Video {
 			this.videoEl.autoplay = this.videoEl.autostart = true;
 		}
 
-		if (this.opts.showCaptions === true) {
-			this.addCaptions();
-		}
-
 		this.containerEl.appendChild(this.videoEl);
 
 		addEvents(this, ['playing', 'pause', 'ended', 'progress', 'seeked', 'error', 'stalled']);
@@ -254,6 +250,11 @@ class Video {
 			throw new Error('Please call `getData()` before calling `addCaptions()` directly.');
 		}
 
+		const existingTrackEl = this.videoEl.querySelector('track');
+		if (existingTrackEl) {
+			this.videoEl.removeChild(existingTrackEl);
+		}
+
 		if (this.videoData.captionsUrl) {
 			// FIXME this is all hardcoded as English captions at the moment
 			const trackEl = document.createElement('track');
@@ -270,6 +271,10 @@ class Video {
 	updateVideo() {
 		this.videoEl.poster = this.posterImage;
 		this.videoEl.src = this.rendition && this.rendition.url;
+
+		if (this.opts.showCaptions === true) {
+			this.addCaptions();
+		}
 	}
 
 	addPlaceholder() {
