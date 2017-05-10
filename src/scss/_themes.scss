@@ -27,13 +27,25 @@
 	&:after {
 		content: '';
 		position: absolute;
-		top: 0px;
+		top: 0;
 		left: 50%;
 		z-index: -1;
 		width: 100vw;
 		height: 100%;
 		background: $colour;
 		transform: translateX(-50%);
+	}
+}
+@mixin oTeaserCollectionAssassination {
+
+}
+
+@mixin oTeaserCollectionAssassinationLatest {
+	@include oTeaserCollectionSpecial($_o-teaser-collection-color-assassination-bottom-bg);
+	z-index: 1;
+
+	&:after {
+		left: 52%;
 	}
 }
 
@@ -146,7 +158,12 @@
 	.o-teaser-collection--assassination {
 		@include oTeaserCollectionSpecial($_o-teaser-collection-color-assassination-bg);
 		@include oTeaserCollectionBigStory();
+
+		.o-teaser-collection--assassination-related {
+			@include oTeaserCollectionAssassinationLatest();
+		}
 	}
+
 
 	.o-teaser-collection--mid-slice {
 		@include oTeaserCollectionMidSlice;
