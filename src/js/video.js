@@ -84,8 +84,7 @@ function getOptionsFromDataAttributes(attributes) {
 
 			try {
 				// If it's a JSON, a boolean or a number, we want it stored like that, and not as a string
-				// We also replace all ' with " so JSON strings are parsed correctly
-				opts[key] = JSON.parse(attr.value.replace(/\'/g, '"'));
+				opts[key] = JSON.parse(attr.value);
 			} catch (e) {
 				opts[key] = attr.value;
 			}

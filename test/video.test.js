@@ -764,5 +764,40 @@ describe('Video', () => {
 					video.videoData.renditions.length.should.equal(0);
 				});
 		});
+
+		context('dealing with quotes', () => {
+			const quoteyData = {
+				title: 'Macron - What next?',
+				standfirst: 'President-elect\'s "pro-EU" and trade agenda',
+				description: "Another 'great' \"quote here\"",
+				renditions: []
+			};
+
+			const videoDataShouldMatch = video => {
+				video.videoData.title.should.equal('Macron - What next?');
+				video.videoData.standfirst.should.equal('President-elect\'s "pro-EU" and trade agenda');
+				video.videoData.description.should.equal('Another \'great\' "quote here"');
+				video.videoData.renditions.length.should.equal(0);
+			};
+
+			it('can deal with quotes when data passed via constructor', () => {
+				const video = new Video(containerEl, {
+					data: quoteyData
+				});
+
+				return video
+					.getData()
+					.then(() => videoDataShouldMatch(video));
+			});
+
+			it('can deal with quotes when data passed via attribute', () => {
+				containerEl.setAttribute('data-o-video-data', JSON.stringify(quoteyData));
+				const video = new Video(containerEl);
+
+				return video
+					.getData()
+					.then(() => videoDataShouldMatch(video));
+			});
+		});
 	});
 });
