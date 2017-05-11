@@ -54,12 +54,14 @@ describe('Video', () => {
 		it('should allow setting options through attribute', () => {
 			containerEl.setAttribute('data-o-video-optimumwidth', 300);
 			containerEl.setAttribute('data-o-video-placeholder', true);
+			containerEl.setAttribute('data-o-video-placeholder-info', '[\'title\', \'description\']');
 			containerEl.setAttribute('data-o-video-classes', 'a-class another-class');
 			containerEl.setAttribute('data-o-video-show-captions', true);
 
 			const video = new Video(containerEl);
 			video.opts.optimumwidth.should.eql(300);
 			video.opts.placeholder.should.eql(true);
+			video.opts.placeholderInfo.should.eql(['title', 'description']);
 			video.opts.classes.should.contain('a-class');
 			video.opts.classes.should.contain('another-class');
 			video.opts.showCaptions.should.eql(true);
@@ -502,7 +504,7 @@ describe('Video', () => {
 					id: 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526',
 					autorender: false,
 					placeholder: true,
-					placeholderInfo: ['title']
+					placeholderInfo: ['title', 'brand']
 				});
 
 				return video.init();
@@ -526,6 +528,25 @@ describe('Video', () => {
 				return video.update(newOpts).then(() => {
 					video.placeholderImageEl.src.should.include('5394885102001');
 					video.infoPanel.titleEl.textContent.should.equal(mediaApiResponse2.title);
+				});
+			});
+
+			it('removes previous brand tag', () => {
+				const mediaApiNoBrand = Object.assign({}, mediaApiResponse2, { brand: null });
+				const resNoBrand = new window.Response(JSON.stringify(mediaApiNoBrand), {
+					status: 200,
+					headers: { 'Content-type': 'application/json' }
+				});
+
+				fetchStub.resetBehavior();
+				fetchStub.returns(Promise.resolve(resNoBrand));
+
+				const newOpts = { id: mediaApiResponse2.id };
+
+				video.infoPanel.brandEl.textContent.should.equal('Market Minute');
+
+				return video.update(newOpts).then(() => {
+					video.infoPanel.brandEl.textContent.should.equal('');
 				});
 			});
 		});
@@ -552,6 +573,24 @@ describe('Video', () => {
 				return video.update(newOpts).then(() => {
 					video.videoEl.poster.should.include('5394885102001');
 					video.videoEl.src.should.include('/34/47628783001/201704/873/47628783001_5394886872001_5394885102001.mp4?pubId=47628783001&videoId=5394885102001');
+				});
+			});
+
+			it('removes the poster if not supplied in data', () => {
+				const mediaApiNoPoster = Object.assign({}, mediaApiResponse2, { mainImageUrl: null });
+				const resNoPoster = new window.Response(JSON.stringify(mediaApiNoPoster), {
+					status: 200,
+					headers: { 'Content-type': 'application/json' }
+				});
+
+				fetchStub.resetBehavior();
+				fetchStub.returns(Promise.resolve(resNoPoster));
+
+				video.videoEl.poster.should.include('5393611350001');
+
+				const newOpts = { id: mediaApiResponse2.id };
+				return video.update(newOpts).then(() => {
+					video.videoEl.poster.should.equal('');
 				});
 			});
 

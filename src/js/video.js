@@ -84,7 +84,15 @@ function getOptionsFromDataAttributes(attributes) {
 
 			try {
 				// If it's a JSON, a boolean or a number, we want it stored like that, and not as a string
-				opts[key] = JSON.parse(attr.value);
+
+				// For legacy o-video embeds, we'll need to check for placeHolderInfo attributes
+				// as they typically pass data in with single quotes, which won't parse:
+				// data-o-video-placeholder-info="['title', 'description']"
+				if (key === 'placeholderInfo') {
+					opts[key] = JSON.parse(attr.value.replace(/\'/g, '"'));
+				} else {
+					opts[key] = JSON.parse(attr.value);
+				}
 			} catch (e) {
 				opts[key] = attr.value;
 			}
@@ -177,7 +185,7 @@ class Video {
 
 		return dataPromise.then(data => {
 			this.videoData = data;
-			this.posterImage = updatePosterUrl(data.mainImageUrl, this.opts.optimumwidth);
+			this.posterImage = data.mainImageUrl && updatePosterUrl(data.mainImageUrl, this.opts.optimumwidth);
 			this.rendition = getRendition(data.renditions, this.opts);
 		});
 	}
@@ -268,7 +276,12 @@ class Video {
 	}
 
 	updateVideo() {
-		this.videoEl.poster = this.posterImage;
+		if (this.posterImage) {
+			this.videoEl.poster = this.posterImage;
+		} else {
+			this.videoEl.removeAttribute('poster');
+		}
+
 		this.videoEl.src = this.rendition && this.rendition.url;
 
 		if (this.opts.showCaptions === true) {
@@ -332,7 +345,10 @@ class Video {
 	}
 
 	updatePlaceholder() {
-		this.placeholderImageEl.src = this.posterImage;
+		if (this.posterImage) {
+			this.placeholderImageEl.src = this.posterImage;
+		}
+
 		this.infoPanel && this.infoPanel.update();
 	}
 

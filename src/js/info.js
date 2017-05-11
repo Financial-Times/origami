@@ -34,8 +34,9 @@ class VideoInfo {
 	}
 
 	update () {
-		if (this.brandEl && this.video.videoData.brand && this.video.videoData.brand.name) {
-			this.brandEl.textContent = this.video.videoData.brand.name;
+		if (this.brandEl) {
+			const brandName = this.video.videoData.brand && this.video.videoData.brand.name;
+			this.brandEl.textContent = brandName;
 		}
 
 		if (this.titleEl) {
