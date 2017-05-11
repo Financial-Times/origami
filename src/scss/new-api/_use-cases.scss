@@ -1,0 +1,50 @@
+@mixin oTypographySetUseCase($name, $map) {
+	// Split this out into a 'NormaliseValues' function
+	// making sure to test for all the shorthands we create
+	@each $key, $value in $map {
+		@if $key == scale {
+			$font-size-map: (font-size: oTypographyScale($value));
+			$map: map-merge(map-remove($map, $key), $font-size-map);
+		}
+	}
+
+	$new-usecase: ($name: $map);
+
+	$o-typography-usecases: map-merge($o-typography-usecases, $new-usecase) !global;
+}
+
+@mixin oTypographyFor($usecase) {
+	$map: map-get($o-typography-usecases, $usecase);
+
+	// We could also add the ability for oTypography to store "use case" style
+	// code in mixins which would make the code more readable than in maps,
+	// then test for and include these mixins via a method similar to o-teaser.
+	// That way only small or custom use cases need to be specified in a map
+
+	// Move this into an "OutputValues" mixin to deal with the
+	// MQs and outputting of regular selectors
+	@each $key, $value in $map {
+		@if map-has-key($breakpoints, $key) {
+			@include break($key) {
+				@each $key, $value in $value {
+					#{$key}: #{$value};
+				}
+			}
+		} @else {
+			#{$key}: #{$value};
+		}
+	}
+}
+
+/// USAGE:
+///
+/// $heading-map: (
+///   'scale': 1,
+/// 	'line-height': '28px',
+/// 	s: (
+/// 	  font-size: 40px
+/// 	)
+/// );
+
+/// @include oTypographySetUseCase('heading', $heading-map);
+/// @include oTypographyFor('heading', h1);

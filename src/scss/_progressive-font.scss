@@ -9,35 +9,10 @@ $_o-typography-progressive-font-fallbacks: (
 		fallback: sans-serif,
 		fallback-scale: 0.83
 	),
-	sansData: (
+	sansItalic: (
 		font: $o-typography-sans,
 		fallback: sans-serif,
 		fallback-scale: 0.87
-	),
-	sansDataBold: (
-		font: $o-typography-sans,
-		fallback: sans-serif,
-		fallback-scale: 0.83
-	),
-	sansDataItalic: (
-		font: $o-typography-sans,
-		fallback: sans-serif,
-		fallback-scale: 0.87
-	),
-	serif: (
-		font: $o-typography-serif,
-		fallback: serif,
-		fallback-scale: 0.84
-	),
-	serifBold: (
-		font: $o-typography-serif,
-		fallback: serif,
-		fallback-scale: 0.84
-	),
-	serifItalic: (
-		font: $o-typography-serif,
-		fallback: serif,
-		fallback-scale: 0.84
 	),
 	serifDisplay: (
 		font: $o-typography-serif-display,

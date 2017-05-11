@@ -5,35 +5,39 @@
 
 /// h1 styles
 @mixin oTypographyHeading1 {
-	@include oTypographySerifDisplay(xl);
-	margin: 0 0 8px;
+	@include oTypographyDisplay(7);
+	margin-top: 0;
+	margin-bottom: 8px;
 }
 
 /// h2 styles
 @mixin oTypographyHeading2 {
-	@include oTypographySerifDisplay(l);
-	margin: 0;
+	@include oTypographyDisplay(6);
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 /// h3 styles
 @mixin oTypographyHeading3 {
-	@include oTypographySerifDisplay(m);
-	margin: 0;
+	@include oTypographyDisplay(5);
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 /// h4 styles
 @mixin oTypographyHeading4 {
-	@include oTypographySerifDisplay(s);
-	margin: 0;
+	@include oTypographyDisplay(4);
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 /// h5 styles
 @mixin oTypographyHeading5 {
-	@include oTypographySerifDisplay(xs);
+	@include oTypographyDisplay(3);
 }
 
 @mixin oTypographyLinkTopic {
-	@include oTypographySansBold(s);
+	@include oTypographySansBold(1);
 	@include oColorsFor(tag-link, text);
 	text-decoration: none;
 
@@ -43,20 +47,14 @@
 }
 @mixin oTypographyLinkTopicMedium {
 	@include oTypographyLinkTopic;
-	@include oTypographySansBold(m);
+	@include oTypographySansBold(2);
 }
 
 /// Style for subhead class
 @mixin oTypographySubhead {
-	@include oTypographySansBold(l);
+	@include oTypographySansBold(3);
 	margin-top: 50px;
 	margin-bottom: 20px;
-}
-
-/// Style for subhead standard
-@mixin oTypographySubheadStandard {
-	@include oTypographySubhead;
-	@include oTypographySansBold(m);
 }
 
 /// Style for subhead crosshead class

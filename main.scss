@@ -7,24 +7,31 @@
 @import 'o-hoverable/main';
 @import 'o-fonts/main';
 
-@import 'src/scss/color_use_cases';
-@import 'src/scss/helpers';
-@import 'src/scss/variables';
-@import 'src/scss/type_matrix';
-@import 'src/scss/progressive-font';
+@import 'src/scss/new-api/variables';
+@import 'src/scss/new-api/functions';
+@import 'src/scss/new-api/mixins';
+// @import 'src/scss/new-api/variables';
+// @import 'src/scss/new-api/variables';
 
-@import 'src/scss/body_aside';
-@import 'src/scss/body_common';
-@import 'src/scss/body_general';
-@import 'src/scss/headings';
 
-@import 'src/scss/timestamps';
+// @import 'src/scss/color_use_cases';
+// @import 'src/scss/helpers';
+// @import 'src/scss/variables';
+// @import 'src/scss/type_matrix';
+// @import 'src/scss/progressive-font';
 
-@import 'src/scss/wrapped_aside';
-@import 'src/scss/wrapped_common';
-@import 'src/scss/wrapped_general';
+// @import 'src/scss/body_aside';
+// @import 'src/scss/body_common';
+// @import 'src/scss/body_general';
+@import 'src/scss/use-cases/headings';
 
-@import 'src/scss/_deprecated.scss';
+// @import 'src/scss/timestamps';
+
+// @import 'src/scss/wrapped_aside';
+// @import 'src/scss/wrapped_common';
+// @import 'src/scss/wrapped_general';
+
+// @import 'src/scss/_deprecated.scss';
 
 @if $o-typography-is-silent == false {
 
@@ -36,129 +43,152 @@
 	.o-typography-heading1 {
 		@include oTypographyHeading1;
 	}
+
 	.o-typography-heading2 {
 		@include oTypographyHeading2;
 	}
+
 	.o-typography-heading3 {
 		@include oTypographyHeading3;
 	}
+
 	.o-typography-heading4 {
 		@include oTypographyHeading4;
 	}
+
 	.o-typography-heading5 {
 		@include oTypographyHeading5;
 	}
+
 	.o-typography-subhead {
 		@include oTypographySubhead;
 	}
-	.o-typography-subhead--standard {
-		@include oTypographySubheadStandard;
-	}
+
 	.o-typography-subhead--crosshead {
 		@include oTypographySubheadCrosshead;
 	}
 
-	// Body copy - common
-	.o-typography-bold {
-		@include oTypographyBold;
-	}
-	.o-typography-italic {
-		@include oTypographyItalic;
-	}
-	.o-typography-sup {
-		@include oTypographySuper;
-	}
-	.o-typography-sub {
-		@include oTypographySub;
-	}
-	.o-typography-link {
-		@include oTypographyLink;
-	}
-	.o-typography-caption {
-		@include oTypographyCaption;
-	}
+	// // Body copy - common
+	// .o-typography-bold {
+	// 	@include oTypographyBold;
+	// }
+	// .o-typography-italic {
+	// 	@include oTypographyItalic;
+	// }
+	// .o-typography-sup {
+	// 	@include oTypographySuper;
+	// }
+	// .o-typography-sub {
+	// 	@include oTypographySub;
+	// }
+	// .o-typography-link {
+	// 	@include oTypographyLink;
+	// }
+	// .o-typography-caption {
+	// 	@include oTypographyCaption;
+	// }
 
-	/// DEPRECATE THIS IN V5
-	.o-typography-flyline {
-		@include oTypographyFlyline;
-	}
+	// /// DEPRECATE THIS IN V5
+	// .o-typography-flyline {
+	// 	@include oTypographyFlyline;
+	// }
 
-	.o-typography-link-topic {
-		@include oTypographyLinkTopic;
-	}
+	// .o-typography-link-topic {
+	// 	@include oTypographyLinkTopic;
+	// }
 
-	.o-typography-link-topic--medium {
-		@include oTypographyLinkTopicMedium;
-	}
+	// .o-typography-link-topic--medium {
+	// 	@include oTypographyLinkTopicMedium;
+	// }
 
-	// Body copy - general
-	.o-typography-body {
-		@include oTypographyBody;
-	}
-	.o-typography-lead {
-		@include oTypographyLead;
-	}
-	.o-typography-lead--small {
-		@include oTypographyLeadSmall;
-	}
-	.o-typography-block {
-		@include oTypographyBodyBlock;
-	}
-	.o-typography-list {
-		@include oTypographyList;
-	}
-	.o-typography-list--ordered {
-		@include oTypographyListOrdered;
-	}
-	.o-typography-list--unordered {
-		@include oTypographyListUnordered;
-	}
-	.o-typography-footer {
-		@include oTypographyFooter;
-	}
-	.o-typography-blockquote {
-		@include oTypographyBlockquote;
-	}
-	.o-typography-big-number {
-		@include oTypographyBigNumber;
-	}
-	.o-typography-aside__title {
-		@include oTypographyAsideTitle;
-	}
-	.o-typography-aside__title--large {
-		@include oTypographyAsideTitleLarge;
-	}
-	.o-typography-aside__headline {
-		@include oTypographyAsideHeadline;
-	}
-	.o-typography-aside__headline--small {
-		@include oTypographyAsideHeadlineSmall;
-	}
-	.o-typography-aside__headline--large {
-		@include oTypographyAsideHeadlineLarge;
-	}
-	.o-typography-aside__body {
-		@include oTypographyAsideBody;
-	}
-	.o-typography-aside__body--small {
-		@include oTypographyAsideBodySmall;
-	}
+	// // Body copy - general
+	// .o-typography-body {
+	// 	@include oTypographyBody;
+	// }
+	// .o-typography-lead {
+	// 	@include oTypographyLead;
+	// }
+	// .o-typography-lead--small {
+	// 	@include oTypographyLeadSmall;
+	// }
+	// .o-typography-block {
+	// 	@include oTypographyBodyBlock;
+	// }
+	// .o-typography-list {
+	// 	@include oTypographyList;
+	// }
+	// .o-typography-list--ordered {
+	// 	@include oTypographyListOrdered;
+	// }
+	// .o-typography-list--unordered {
+	// 	@include oTypographyListUnordered;
+	// }
+	// .o-typography-footer {
+	// 	@include oTypographyFooter;
+	// }
+	// .o-typography-blockquote {
+	// 	@include oTypographyBlockquote;
+	// }
+	// .o-typography-big-number {
+	// 	@include oTypographyBigNumber;
+	// }
+	// .o-typography-aside__title {
+	// 	@include oTypographyAsideTitle;
+	// }
+	// .o-typography-aside__title--large {
+	// 	@include oTypographyAsideTitleLarge;
+	// }
+	// .o-typography-aside__headline {
+	// 	@include oTypographyAsideHeadline;
+	// }
+	// .o-typography-aside__headline--small {
+	// 	@include oTypographyAsideHeadlineSmall;
+	// }
+	// .o-typography-aside__headline--large {
+	// 	@include oTypographyAsideHeadlineLarge;
+	// }
+	// .o-typography-aside__body {
+	// 	@include oTypographyAsideBody;
+	// }
+	// .o-typography-aside__body--small {
+	// 	@include oTypographyAsideBodySmall;
+	// }
 
-	// Timestamps usecase
-	.o-typography-timestamp {
-		@include oTypographyTimestamp;
-	}
+	// // Timestamps usecase
+	// .o-typography-timestamp {
+	// 	@include oTypographyTimestamp;
+	// }
 
-	// Body wrapper
-	.o-typography-body-wrapper {
-		@include oTypographyBodyWrapper;
-	}
+	// // Body wrapper
+	// .o-typography-body-wrapper {
+	// 	@include oTypographyBodyWrapper;
+	// }
 
-	// Aside wrapper
-	.o-typography-aside-wrapper {
-		@include oTypographyAsideWrapper;
-	}
+	// // Aside wrapper
+	// .o-typography-aside-wrapper {
+	// 	@include oTypographyAsideWrapper;
+	// }
 
 	// Don't output twice
 	$o-typography-is-silent: true !global;
+}
+
+h1 {
+	@include oTypographyDisplayBold($scale: 8);
+}
+
+p {
+	@include oTypographySans(3);
+
+	strong {
+		@include oTypographySansBold(3);
+	}
+}
+
+.test {
+	@include oTypographySans(1, 22px);
+}
+
+.standfirst {
+	@include oTypographySans((s: 1, m: (2, 100px), l: (3, 300px)));
 }

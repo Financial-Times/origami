@@ -1,0 +1,41 @@
+////
+/// @group o-typography
+/// @link http://registry.origami.ft.com/components/o-typography
+////
+
+/// When silent mode is active, css classes will not be output
+/// @type Bool
+$o-typography-is-silent: true !default;
+
+/// When true, webfonts will be downloaded
+/// @type Bool
+$o-typography-load-fonts: true !default;
+
+///
+$o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;
+$o-typography-serif: oFontsGetFontFamilyWithFallbacks(FinancierTextWeb) !default;
+$o-typography-display: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default;
+
+
+$o-typography-baseline: 4px;
+$o-typography-usecases: () !default;
+
+$o-typography-loading-prefix: 'o-typography--loading' !default;
+
+$breakpoints: (default: 0, xs: 320, s: 460, m: 720, l: 900, xl: 1200);
+
+$o-typography-font-scale: (
+   -2: (12, 12), // 1
+   -1: (14, 16), //
+    0: (16, 24), // 1.25
+    1: (18, 28), // 1.56
+    2: (20, 24), // 1.2
+    3: (24, 28), // 1.27
+    4: (28, 32), // 1.08
+    5: (32, 36), // 1.07
+    6: (40, 40), // 1
+    7: (48, 48), // 1
+    8: (56, 56), // 1
+    9: (72, 72), // 1
+   10: (84, 84), // 1
+);
