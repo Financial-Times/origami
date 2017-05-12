@@ -70,6 +70,20 @@
 	}
 }
 
+@mixin oTeaserCollectionHeadingInverse {
+	@include oTeaserCollectionHeading;
+	color: $_o-teaser-collection-color-assassination-heading;
+
+	&:before,
+	&:after {
+		border: 0;
+	}
+
+	a:after {
+		@include oIconsGetIcon('arrow-right', $_o-teaser-collection-color-assassination-heading, 30, $iconset-version: 1);
+	}
+}
+
 @mixin oTeaserCollectionItems {
 	list-style: none;
 	display: flex;
