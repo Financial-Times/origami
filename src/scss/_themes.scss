@@ -38,7 +38,7 @@
 }
 
 @mixin oTeaserCollectionAssassination {
-	@include oTeaserCollectionBigStory()
+	@include oTeaserCollectionBigStory();
 
 	.o-teaser-collection--assassination-related {
 		@include oTeaserCollectionSpecial($_o-teaser-collection-color-assassination-bottom-bg);
@@ -82,15 +82,16 @@
 		position: absolute;
 		-webkit-font-smoothing: antialiased;
 
+		@include oGridRespondTo(L) {
+			width: 32.5%;
+		}
+
 		&:before {
 			display: none;
 		}
+
 		&:after {
 			width: 100%;
-		}
-
-		@include oGridRespondTo(L) {
-			width: 32.5%;
 		}
 	}
 
