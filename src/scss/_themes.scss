@@ -53,14 +53,13 @@
 		// modifies borders when stacked(S) and horizontal(M+)
 		.o-teaser-collection__item {
 			margin: 0;
-			border-color: rgba(oColorsGetPaletteColor('white'), 0.2);
-			border-style: solid;
-			border-bottom-width: 1px;
+			border-bottom: 1px solid rgba(oColorsGetPaletteColor('white'), 0.2);
 			padding: 15px 0;
 
 			@include oGridRespondTo(M) {
 				margin: 20px 0;
-				border-right-width: 1px;
+				border-right: 1px solid rgba(oColorsGetPaletteColor('white'), 0.2);
+				border-bottom: 0;
 				padding: 0 10px;
 			};
 
