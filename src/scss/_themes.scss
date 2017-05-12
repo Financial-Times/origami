@@ -37,19 +37,42 @@
 	}
 }
 
-@mixin oTeaserCollectionAssassinationLatest {
-	@include oTeaserCollectionSpecial($_o-teaser-collection-color-assassination-bottom-bg);
-	z-index: 1;
+@mixin oTeaserCollectionAssassination {
+	@include oTeaserCollectionBigStory()
 
-	&:after {
-		left: 52%;
+	.o-teaser-collection--assassination-related {
+		@include oTeaserCollectionSpecial($_o-teaser-collection-color-assassination-bottom-bg);
+		z-index: 1;
+		margin-bottom: 0;
+		padding-left: 10px;
+
+		&:after {
+			left: 52%;
+		}
+
+		// modifies borders when stacked(S) and horizontal(M+)
+		.o-teaser-collection__item {
+			margin: 0;
+			border-color: rgba(255, 255, 255, 0.2);
+			border-style: solid;
+			border-width: 0 0 1px;
+			padding: 15px 0;
+
+			@include oGridRespondTo(M) {
+				margin: 20px 0;
+				border-width: 0 1px 0 0;
+				padding: 0 10px;
+			};
+
+			&:nth-child(4) {
+				border: 0;
+			}
+
+			.o-teaser {
+				margin-bottom: 0;
+			}
+		}
 	}
-}
-
-@mixin oTeaserCollectionAssassination() {
-	@include oTeaserCollectionBigStory();
-
-	
 }
 
 @mixin oTeaserCollectionBigStory() {
@@ -161,10 +184,6 @@
 	.o-teaser-collection--assassination {
 		@include oTeaserCollectionSpecial($_o-teaser-collection-color-assassination-bg);
 		@include oTeaserCollectionAssassination();
-
-		.o-teaser-collection--assassination-related {
-			@include oTeaserCollectionAssassinationLatest();
-		}
 	}
 
 
