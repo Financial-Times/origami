@@ -39,8 +39,8 @@
 		$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
 
 		.#{$o-typography-loading-prefix}-#{$font} & {
-			font-family: map-get($font-config, 'fallback');
 			@include _oTypographyFontSize($scale, map-get($font-config, 'fallback-scale'));
+			font-family: map-get($font-config, 'fallback');
 		}
 	}
 }
