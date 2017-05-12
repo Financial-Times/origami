@@ -3,35 +3,25 @@
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
-@import 'o-colors/main';
-@import 'o-hoverable/main';
+@import 'o-grid/main';
 @import 'o-fonts/main';
+@import 'o-colors/main';
 
-@import 'src/scss/new-api/variables';
-@import 'src/scss/new-api/functions';
-@import 'src/scss/new-api/mixins';
-// @import 'src/scss/new-api/variables';
-// @import 'src/scss/new-api/variables';
+@import 'src/scss/variables';
+@import 'src/scss/color_use_cases';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
 
-
-// @import 'src/scss/color_use_cases';
-// @import 'src/scss/helpers';
-// @import 'src/scss/variables';
-// @import 'src/scss/type_matrix';
-// @import 'src/scss/progressive-font';
-
-// @import 'src/scss/body_aside';
-// @import 'src/scss/body_common';
-// @import 'src/scss/body_general';
 @import 'src/scss/use-cases/headings';
+// @import 'src/scss/use-cases/body_aside';
+// @import 'src/scss/use-cases/body_common';
+// @import 'src/scss/use-cases/body_general';
 
-// @import 'src/scss/timestamps';
+// @import 'src/scss/use-cases/timestamps';
 
-// @import 'src/scss/wrapped_aside';
-// @import 'src/scss/wrapped_common';
-// @import 'src/scss/wrapped_general';
-
-// @import 'src/scss/_deprecated.scss';
+// @import 'src/scss/use-cases/wrapped_aside';
+// @import 'src/scss/use-cases/wrapped_common';
+// @import 'src/scss/use-cases/wrapped_general';
 
 @if $o-typography-is-silent == false {
 
@@ -171,24 +161,4 @@
 
 	// Don't output twice
 	$o-typography-is-silent: true !global;
-}
-
-h1 {
-	@include oTypographyDisplayBold($scale: 8);
-}
-
-p {
-	@include oTypographySans(3);
-
-	strong {
-		@include oTypographySansBold(3);
-	}
-}
-
-.test {
-	@include oTypographySans(1, 22px);
-}
-
-.standfirst {
-	@include oTypographySans((s: 1, m: (2, 100px), l: (3, 300px)));
 }

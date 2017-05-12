@@ -39,3 +39,37 @@ $o-typography-font-scale: (
     9: (72, 72), // 1
    10: (84, 84), // 1
 );
+
+
+$_o-typography-progressive-font-fallbacks: (
+	sans: (
+		font: $o-typography-sans,
+		fallback: sans-serif,
+		fallback-scale: 0.87
+	),
+	sansBold: (
+		font: $o-typography-sans,
+		fallback: sans-serif,
+		fallback-scale: 0.83
+	),
+	sansItalic: (
+		font: $o-typography-sans,
+		fallback: sans-serif,
+		fallback-scale: 0.87
+	),
+	display: (
+		font: $o-typography-display,
+		fallback: serif,
+		fallback-scale: 0.9
+	),
+	displayBold: (
+		font: $o-typography-display,
+		fallback: serif,
+		fallback-scale: 0.9
+	),
+	displayItalic: (
+		font: $o-typography-display,
+		fallback: serif,
+		fallback-scale: 0.9
+	)
+);
