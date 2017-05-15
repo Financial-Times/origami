@@ -10,7 +10,7 @@
 	}
 
 	.o-video__placeholder {
-		background: oColorsGetPaletteColor('claret');
+		background: oColorsGetPaletteColor('slate');
 		color: oColorsGetPaletteColor('white');
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
@@ -55,6 +55,11 @@
 		left: 0;
 		margin: auto;
 		background-color: oColorsGetPaletteColor('black');
+
+		:hover > &,
+		:focus > & {
+			background-color: oColorsGetPaletteColor('claret');
+		}
 	}
 
 }
