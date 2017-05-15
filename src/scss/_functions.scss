@@ -1,0 +1,18 @@
+@function oTypographyGetScale($index: 0) {
+	@return map-get($o-typography-font-scale, $index);
+}
+
+@function _oTypographyFontSizeFromScale($scale, $font-adjust) {
+	$settings: oTypographyGetScale($scale);
+	@return (nth($settings, 1) * $font-adjust) * 1px;
+}
+
+@function _oTypographyLineHeightFromScale($scale, $line-height) {
+	$settings: oTypographyGetScale($scale);
+
+	@if $line-height {
+		@return $line-height;
+	} @else {
+		@return nth($settings, 2) * 1px;
+	}
+}

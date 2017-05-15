@@ -1,0 +1,128 @@
+@mixin _oTypographyFontSize($scale, $progressive-font-adjust: 1) {
+	@if type-of($scale) == map {
+		@each $breakpoint, $number in $scale {
+			@include oGridRespondTo($breakpoint) {
+				@if type-of($number) == list {
+					font-size: _oTypographyFontSizeFromScale(nth($number, 1), $progressive-font-adjust);
+				} @else {
+					font-size: _oTypographyFontSizeFromScale($number, $progressive-font-adjust);
+				}
+			}
+		}
+	} @else {
+		font-size: _oTypographyFontSizeFromScale($scale, $progressive-font-adjust);
+	}
+}
+
+@mixin oTypographySize($scale, $line-height: false, $progressive-font-adjust: 1) {
+	@if type-of($scale) == map {
+		@each $breakpoint, $scale in $scale {
+			@include oGridRespondTo($breakpoint) {
+				@if type-of($scale) == list {
+					font-size: _oTypographyFontSizeFromScale(nth($scale, 1), $progressive-font-adjust);
+					line-height: nth($scale, 2);
+				} @else {
+					font-size: _oTypographyFontSizeFromScale($scale, $progressive-font-adjust);
+					line-height: _oTypographyLineHeightFromScale($scale, $line-height);
+				}
+			}
+		}
+	} @else {
+		font-size: _oTypographyFontSizeFromScale($scale, $progressive-font-adjust);
+		line-height: _oTypographyLineHeightFromScale($scale, $line-height);
+	}
+}
+
+@mixin oTypographyProgressiveFontFallback($font, $scale) {
+	@if map-has-key($_o-typography-progressive-font-fallbacks, $font) {
+
+		$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
+
+		.#{$o-typography-loading-prefix}-#{$font} & {
+			@include _oTypographyFontSize($scale, map-get($font-config, 'fallback-scale'));
+			font-family: map-get($font-config, 'fallback');
+		}
+	}
+}
+
+@mixin oTypographyProgressiveFontFallbackSize($font, $scale) {
+	@if map-has-key($_o-typography-progressive-font-fallbacks, $font) {
+		$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
+
+		.#{$o-typography-loading-prefix}-#{$font} & {
+			@include _oTypographyFontSize($scale, map-get($font-config, 'fallback-scale'));
+		}
+	}
+}
+
+@mixin oTypographyBold($family: false) {
+	@if $family == 'sans' {
+		font-weight: 600;
+	} @else {
+		font-weight: 700;
+	}
+}
+
+@mixin oTypographySerif($scale: false, $line-height: false, $progressive: true) {
+	font-family: $o-typography-serif;
+
+	@if $scale {
+		@include oTypographySize($scale, $line-height);
+	}
+
+	@if $progressive {
+		@include oTypographyProgressiveFontFallback('serif', $scale);
+	}
+}
+
+@mixin oTypographyDisplay($scale: false, $line-height: false, $progressive: true) {
+	font-family: $o-typography-display;
+
+	@if $scale {
+		@include oTypographySize($scale, $line-height);
+	}
+
+	@if $progressive {
+		@include oTypographyProgressiveFontFallback('display', $scale);
+	}
+}
+
+@mixin oTypographySans($scale: false, $line-height: false, $progressive: true) {
+	font-family: $o-typography-sans;
+
+	@if $scale {
+		@include oTypographySize($scale, $line-height);
+	}
+
+	@if $progressive {
+		@include oTypographyProgressiveFontFallback('sans', $scale);
+	}
+}
+
+@mixin oTypographyDisplayBold($scale: false, $line-height: false, $progressive: true) {
+	@include oTypographyDisplay($scale, $line-height, false);
+	@include oTypographyBold('display');
+
+	@if $progressive {
+		@include oTypographyProgressiveFontFallback('displayBold', $scale);
+	}
+}
+
+@mixin oTypographySansBold($scale: false, $line-height: false, $progressive: true) {
+	@include oTypographySans($scale, $line-height, false);
+	@include oTypographyBold('sans');
+
+	@if $progressive {
+		@include oTypographyProgressiveFontFallback('sansBold', $scale);
+	}
+}
+
+@mixin oTypographySerifBold($scale: false, $line-height: false, $progressive: true) {
+	@include oTypographySerif($scale, $line-height, false);
+	@include oTypographyBold('serif');
+
+	@if $progressive {
+		@include oTypographyProgressiveFontFallback('serifBold', $scale);
+	}
+}
+
