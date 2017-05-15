@@ -32,6 +32,10 @@
 
 	margin-bottom: 20px;
 
+	.n-myft-ui--follow {
+		margin-bottom: 20px;
+	}
+
 	.topper__tags .n-content-tag,
 	.topper__headline {
 		@include oTypographySans(xl, $load-progressively: true);
