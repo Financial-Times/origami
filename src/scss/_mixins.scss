@@ -1,33 +1,3 @@
-/// Outputs margin-top and/or margin-bottom based on multiples of
-/// the baseline unit passed to the mixin
-///
-/// @param {Bool | Number} $top [false] - multiple of the baseline unit for top margin
-/// @param {Bool | Number} $bottom [false] - multiple of the baseline unit for bottom margin
-@mixin oTypographyMargin($top: false, $bottom: false) {
-	@if $top {
-		margin-top: oTypographySpacingSize($top);
-	}
-
-	@if $bottom {
-		margin-bottom: oTypographySpacingSize($bottom);
-	}
-}
-
-/// Outputs padding-top and/or padding-bottom based on multiples of
-/// the baseline unit passed to the mixin
-///
-/// @param {Bool | Number} $top [false] - multiple of the baseline unit for top padding
-/// @param {Bool | Number} $bottom [false] - multiple of the baseline unit for bottom padding
-@mixin oTypographyPadding($top: false, $bottom: false) {
-	@if $top {
-		padding-top: oTypographySpacingSize($top);
-	}
-
-	@if $bottom {
-		padding-bottom: oTypographySpacingSize($bottom);
-	}
-}
-
 @mixin _oTypographyFontSize($scale, $progressive-font-adjust: 1) {
 	@if type-of($scale) == map {
 		@each $breakpoint, $number in $scale {
@@ -41,6 +11,16 @@
 		}
 	} @else {
 		font-size: _oTypographyFontSizeFromScale($scale, $progressive-font-adjust);
+	}
+}
+
+@mixin _oTypographyProgressiveFontFallbackSize($font, $scale) {
+	@if map-has-key($_o-typography-progressive-font-fallbacks, $font) {
+		$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
+
+		.#{$o-typography-loading-prefix}-#{$font} & {
+			@include _oTypographyFontSize($scale, map-get($font-config, 'fallback-scale'));
+		}
 	}
 }
 
@@ -75,13 +55,33 @@
 	}
 }
 
-@mixin oTypographyProgressiveFontFallbackSize($font, $scale) {
-	@if map-has-key($_o-typography-progressive-font-fallbacks, $font) {
-		$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
+/// Outputs margin-top and/or margin-bottom based on multiples of
+/// the baseline unit passed to the mixin
+///
+/// @param {Bool | Number} $top [false] - multiple of the baseline unit for top margin
+/// @param {Bool | Number} $bottom [false] - multiple of the baseline unit for bottom margin
+@mixin oTypographyMargin($top: false, $bottom: false) {
+	@if $top {
+		margin-top: oTypographySpacingSize($top);
+	}
 
-		.#{$o-typography-loading-prefix}-#{$font} & {
-			@include _oTypographyFontSize($scale, map-get($font-config, 'fallback-scale'));
-		}
+	@if $bottom {
+		margin-bottom: oTypographySpacingSize($bottom);
+	}
+}
+
+/// Outputs padding-top and/or padding-bottom based on multiples of
+/// the baseline unit passed to the mixin
+///
+/// @param {Bool | Number} $top [false] - multiple of the baseline unit for top padding
+/// @param {Bool | Number} $bottom [false] - multiple of the baseline unit for bottom padding
+@mixin oTypographyPadding($top: false, $bottom: false) {
+	@if $top {
+		padding-top: oTypographySpacingSize($top);
+	}
+
+	@if $bottom {
+		padding-bottom: oTypographySpacingSize($bottom);
 	}
 }
 
@@ -92,67 +92,3 @@
 		font-weight: 700;
 	}
 }
-
-@mixin oTypographySerif($scale: false, $line-height: false, $progressive: true) {
-	font-family: $o-typography-serif;
-
-	@if $scale {
-		@include oTypographySize($scale, $line-height);
-	}
-
-	@if $progressive {
-		@include oTypographyProgressiveFontFallback('serif', $scale);
-	}
-}
-
-@mixin oTypographyDisplay($scale: false, $line-height: false, $progressive: true) {
-	font-family: $o-typography-display;
-
-	@if $scale {
-		@include oTypographySize($scale, $line-height);
-	}
-
-	@if $progressive {
-		@include oTypographyProgressiveFontFallback('display', $scale);
-	}
-}
-
-@mixin oTypographySans($scale: false, $line-height: false, $progressive: true) {
-	font-family: $o-typography-sans;
-
-	@if $scale {
-		@include oTypographySize($scale, $line-height);
-	}
-
-	@if $progressive {
-		@include oTypographyProgressiveFontFallback('sans', $scale);
-	}
-}
-
-@mixin oTypographyDisplayBold($scale: false, $line-height: false, $progressive: true) {
-	@include oTypographyDisplay($scale, $line-height, false);
-	@include oTypographyBold('display');
-
-	@if $progressive {
-		@include oTypographyProgressiveFontFallback('displayBold', $scale);
-	}
-}
-
-@mixin oTypographySansBold($scale: false, $line-height: false, $progressive: true) {
-	@include oTypographySans($scale, $line-height, false);
-	@include oTypographyBold('sans');
-
-	@if $progressive {
-		@include oTypographyProgressiveFontFallback('sansBold', $scale);
-	}
-}
-
-@mixin oTypographySerifBold($scale: false, $line-height: false, $progressive: true) {
-	@include oTypographySerif($scale, $line-height, false);
-	@include oTypographyBold('serif');
-
-	@if $progressive {
-		@include oTypographyProgressiveFontFallback('serifBold', $scale);
-	}
-}
-
