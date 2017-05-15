@@ -25,7 +25,7 @@ There are full HTML examples in demos/src which you can copy and paste into your
 
 If you're using the Build Service, there's not much to do except make sure the classes in your markup match up with those in the demos.
 
-If you're not using the build service then you'll need to be aware of silent mode. As with all Origami components, o-footer has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-component-boilerplate-is-silent : false;` in your Sass before you import the o-footer Sass.
+If you're not using the build service then you'll need to be aware of silent mode. As with all Origami components, o-footer has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-footer-is-silent : false;` in your Sass before you import the o-footer Sass.
 
 ```sass
 $o-footer-is-silent: false;
