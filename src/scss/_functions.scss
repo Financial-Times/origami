@@ -16,3 +16,7 @@
 		@return nth($settings, 2) * 1px;
 	}
 }
+
+@function oTypographySpacingSize($units: 1) {
+	@return ($units * $o-typography-baseline-unit) * 1px;
+}

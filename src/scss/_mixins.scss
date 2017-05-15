@@ -1,3 +1,23 @@
+@mixin oTypographyMargin($top: false, $bottom: false) {
+	@if $top {
+		margin-top: oTypographySpacingSize($top);
+	}
+
+	@if $bottom {
+		margin-bottom: oTypographySpacingSize($bottom);
+	}
+}
+
+@mixin oTypographyPadding($top: false, $bottom: false) {
+	@if $top {
+		padding-top: oTypographySpacingSize($top);
+	}
+
+	@if $bottom {
+		padding-bottom: oTypographySpacingSize($bottom);
+	}
+}
+
 @mixin _oTypographyFontSize($scale, $progressive-font-adjust: 1) {
 	@if type-of($scale) == map {
 		@each $breakpoint, $number in $scale {

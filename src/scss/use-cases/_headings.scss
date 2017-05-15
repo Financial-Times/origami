@@ -5,30 +5,26 @@
 
 /// h1 styles
 @mixin oTypographyHeading1 {
-	@include oTypographyDisplay(7);
-	margin-top: 0;
-	margin-bottom: 8px;
+	@include oTypographyDisplay($scale: 7);
+	@include oTypographyMargin($top: 0, $bottom: 2);
 }
 
 /// h2 styles
 @mixin oTypographyHeading2 {
 	@include oTypographyDisplay(6);
-	margin-top: 0;
-	margin-bottom: 0;
+	@include oTypographyMargin($top: 0, $bottom: 0);
 }
 
 /// h3 styles
 @mixin oTypographyHeading3 {
 	@include oTypographyDisplay(5);
-	margin-top: 0;
-	margin-bottom: 0;
+	@include oTypographyMargin($top: 0, $bottom: 0);
 }
 
 /// h4 styles
 @mixin oTypographyHeading4 {
 	@include oTypographyDisplay(4);
-	margin-top: 0;
-	margin-bottom: 0;
+	@include oTypographyMargin($top: 0, $bottom: 0);
 }
 
 /// h5 styles
@@ -53,8 +49,7 @@
 /// Style for subhead class
 @mixin oTypographySubhead {
 	@include oTypographySansBold(3);
-	margin-top: 50px;
-	margin-bottom: 20px;
+	@include oTypographyMargin($top: 12.5, $bottom: 5);
 }
 
 /// Style for subhead crosshead class

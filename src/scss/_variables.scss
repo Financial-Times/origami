@@ -11,17 +11,28 @@ $o-typography-is-silent: true !default;
 /// @type Bool
 $o-typography-load-fonts: true !default;
 
-///
+/// Sans font-family
+/// @type String
 $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;
+
+/// Serif font-family
+/// @type String
 $o-typography-serif: oFontsGetFontFamilyWithFallbacks(FinancierTextWeb) !default;
+
+/// Display font-family
+/// @type String
 $o-typography-display: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default;
 
+/// Unitless size representing the baseline grid
+/// @type Number
+$o-typography-baseline-unit: 4;
 
-$o-typography-baseline: 4px;
-$o-typography-usecases: () !default;
-
+/// Prefix for the class used when loading fonts
+/// @type String
 $o-typography-loading-prefix: 'o-typography--loading' !default;
 
+/// Scale of font-sizes and line-heights for all font-families
+/// @type Map
 $o-typography-font-scale: (
    -2: (12, 12),
    -1: (14, 16),
@@ -38,7 +49,9 @@ $o-typography-font-scale: (
    10: (84, 84),
 );
 
-
+/// Configuration for fallback fonts when loading
+/// fonts progressively
+/// @type Map
 $_o-typography-progressive-font-fallbacks: (
 	sans: (
 		font: $o-typography-sans,
