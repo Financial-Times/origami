@@ -16,7 +16,24 @@ Typographical styles for FT branded sites - font families, weight, colors, sizes
 
 ## Usage
 
-o-typography has Sass and JavaScript
+o-typography uses a single typographic scale for use with all fonts, the scale consists of font-size and line-height combinations.
+
+| Scale | Font size | Line height |
+|------ |---------- |------------ |
+|    -2 |      12px |        12px |
+|    -1 |      14px |        16px |
+|     0 |      16px |        24px |
+|     1 |      18px |        28px |
+|     2 |      20px |        24px |
+|     3 |      24px |        28px |
+|     4 |      28px |        32px |
+|     5 |      32px |        36px |
+|     6 |      40px |        40px |
+|     7 |      48px |        48px |
+|     8 |      56px |        56px |
+|     9 |      72px |        72px |
+|    10 |      84px |        84px |
+
 
 
 ### Markup
@@ -189,9 +206,9 @@ compiles to
 
 ### Migrating from v4 to v5
 
-V5 of o-typography introduces a new typographic scale compared with the type matrix system in the previous version. This effects the [mixins and sizes](#mixins-and-sizes) you will be requesting through the API. V5 also includes changes to the output [CSS classes](#changes-to-css-classes) for certain styles and removes some for others.
+V5 of o-typography introduces a new typographic scale which replaces the type matrix system in the previous version. This affects the [mixins and sizes](#mixins-and-sizes) you will be requesting through the API. V5 also includes changes to the output [CSS classes](#changes-to-css-classes) for certain styles and removes some for others.
 
-o-typography v5 also removes access to the `FinancierText` font-family.
+o-typography v5 removes access to the `FinancierText` font-family.
 
 #### Mixins and sizes
 
