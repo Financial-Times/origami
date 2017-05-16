@@ -75,7 +75,7 @@ As with all Origami components, o-typography has a [silent mode](http://origami.
 
 **Note: Including fonts**
 
-By default, when silent mode is set to `false`, o-typography will download the FT webfonts. To suppress this use `$o-typography-load-fonts`
+By default, when silent mode is set to `false`, o-typography will download the FT webfonts - font styles will be output so they can be [loaded progressively](#progressive-loading-web-fonts). To suppress this use `$o-typography-load-fonts`:
 
 ```sass
 $o-typography-is-silent: false;
@@ -83,6 +83,8 @@ $o-typography-load-fonts: false;
 
 @import 'o-typography/main';
 ```
+
+When silent mode is set to `true`, o-typography does not load web fonts either. Products should load web fonts themselves using **[o-fonts](https://github.com/financial-times/o-fonts).**
 
 #### Use Case mixins
 
@@ -115,12 +117,6 @@ Mixins exist for all the same styles as pre-defined classes, named with a camelC
 
 #### Using default styles
 
-
-#### Web fonts
-
-When running in silent mode, o-typography does not load web fonts, products should load web fonts themselves. **Load FT's custom web fonts using [o-fonts](https://github.com/financial-times/o-fonts).**
-
-When running in non-silent mode, o-typography loads all web fonts used.
 
 ##### Progressive loading web fonts
 
