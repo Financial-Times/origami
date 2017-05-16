@@ -16,3 +16,13 @@
 		@return nth($settings, 2) * 1px;
 	}
 }
+
+/// Returns a spacing size in px based on the baseline unit and number of units
+/// passed to the function
+///
+/// @param {Number} $units [0] - multiple of the baseline unit
+///
+/// @returns {Number} size in px
+@function oTypographySpacingSize($units: 0) {
+	@return ($units * $o-typography-baseline-unit) * 1px;
+}
