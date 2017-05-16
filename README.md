@@ -216,34 +216,22 @@ The following mixins have been renamed:
 ```diff
 - oTypographySerifDisplayBold
 + oTypographyDisplayBold
-```
 
-```diff
 - oTypographySerifDisplay
 + oTypographyDisplay
-```
 
-```diff
 - oTypographySansDataBold
 + oTypographySansBold
-```
 
-```diff
 - oTypographySansData
 + oTypographySans
-```
 
-```diff
 - font-size
 + oTypographyFontSize
-```
 
-```diff
 - oTypographyProgressiveFont
 + oTypographyProgressiveFontFallback
-```
 
-```diff
 - oTypographyFallbackFontSize
 + _oTypographyProgressiveFontFallbackSize
 ```
