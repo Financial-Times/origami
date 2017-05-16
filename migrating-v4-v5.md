@@ -3,7 +3,7 @@
 Use this table to help migrate V4 mixins to the new V5 mixin api. If you are unsure about any of the suggested replacements, either speak to a designer or contact the Origami team.
 
 | V4 Mixin | V4 size | V4 font-size (px) | V4 line-height (px) | V5 mixin | V5 scale size | V5 font-size (px) | V5 line-height (px) |
-|--------- |--------- |--------- |--------- |--------- |--------- |--------- |--------- |
+|--------- |--------- |---------:|---------:|--------- |--------- |---------:|---------:|
 | oTypographySansData | xs	 | 11 | 13 | oTypographySans | -2 | 12 | 12 |
 |  | s	 | 12 | 14 |  | -2 | 12 | 12 |
 |  | m	 | 14 | 16 |  | -1 | 14 | 16 |
