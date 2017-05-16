@@ -41,6 +41,7 @@
 		@include oColorsFor(tag-link-hover, text);
 	}
 }
+
 @mixin oTypographyLinkTopicMedium {
 	@include oTypographyLinkTopic;
 	@include oTypographySansBold(2);
