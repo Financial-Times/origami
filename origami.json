@@ -21,19 +21,10 @@
 	},
 	"demos": [
 		{
-			"name": "headings",
-			"template": "demos/src/headings.mustache",
-			"description": ""
-		},
-		{
-			"name": "leads",
-			"template": "demos/src/leads.mustache",
-			"description": ""
-		},
-		{
-			"name": "body",
-			"template": "demos/src/body.mustache",
-			"description": ""
+			"name": "scale",
+			"template": "demos/src/scale.mustache",
+			"description": "",
+			"display_html": false
 		},
 		{
 			"name": "article",
@@ -41,21 +32,15 @@
 			"description": ""
 		},
 		{
-			"name": "body-wrapper",
-			"template": "demos/src/body-wrapper.mustache",
-			"description": "",
-			"hidden": true
+			"name": "headings",
+			"template": "demos/src/headings.mustache",
+			"description": ""
 		},
 		{
 			"name": "manage-account",
 			"template": "demos/src/manage-account.mustache",
 			"description": "",
 			"hidden": true
-		},
-		{
-			"name": "asides",
-			"template": "demos/src/asides.mustache",
-			"description": ""
 		}
 	]
 }
