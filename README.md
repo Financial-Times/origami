@@ -69,13 +69,11 @@ Example:
 
 ### Sass
 
-The Sass in o-typography provides mixins and functions for use in your project. In the following sections they are in order of most to least preferred method.
-
 As with all Origami components, o-typography has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use it's compiled CSS (rather than using the mixins with your own Sass) set `$o-typography-is-silent : false;` in your Sass before you import the o-typography Sass.
 
 **Note: Including fonts**
 
-By default, when silent mode is set to `false`, o-typography will download the FT webfonts - font styles will be output so they can be [loaded progressively](#progressive-loading-web-fonts). To suppress this use `$o-typography-load-fonts`:
+By default, when silent mode is set to `false`, o-typography will download the FT webfonts. To suppress this use `$o-typography-load-fonts`:
 
 ```sass
 $o-typography-is-silent: false;
@@ -84,11 +82,15 @@ $o-typography-load-fonts: false;
 @import 'o-typography/main';
 ```
 
-When silent mode is set to `true`, o-typography does not load web fonts either. Products should load web fonts themselves using **[o-fonts](https://github.com/financial-times/o-fonts).**
+When silent mode is set to `true`, o-typography does not load web fonts. Products should load web fonts themselves using **[o-fonts](https://github.com/financial-times/o-fonts).**
 
-#### Use Case mixins
+#### Mixins and functions
 
-The module defines a small number of common typographic use cases that can be included as mixins.
+The Sass in o-typography provides mixins and functions for use in your project. In the following sections they are in order of most to least preferred method.
+
+##### Use Case mixins
+
+The module has a small number of common typographic use cases that are available as mixins.
 
 ```scss
 .article {
@@ -99,7 +101,7 @@ The module defines a small number of common typographic use cases that can be in
 }
 ```
 
-For wrappers ([see wrapper section](#wrapper)):
+For wrappers ([see wrapper section](#wrappers)):
 
 ```scss
 .article__body {
@@ -109,16 +111,58 @@ For wrappers ([see wrapper section](#wrapper)):
 
 Mixins exist for all the same styles as pre-defined classes, named with a camelCased version of the class name.
 
-#### Font mixins
+##### Type mixins
+
+If you want to output just the font-family, font-size, and line-height, with no additional styles, this can be done with the type mixins.
+
+Sass:
+
+```sass
+h1 {
+	@include oTypographyDisplay($scale: 7);
+}
+```
+
+Output:
+
+```css
+h1 {
+	font-family: FinancierTextDisplay, serif;
+	font-size: 48px;
+	line-height: 48px;
+}
+
+These mixins take three arguments:
+
+- **scale**: The number on the font scale you want to output.
+- **line-height**: An override value for the line-height.
+- **progressive**: Whether to output progressive font loading styles. `true` by default.
+
+For example, to override the line-height for the serif font at using `1` on the font scale, you would do:
+
+```sass
+.content p {
+	@include oTypographySerif(1, 28px);
+}
+```
+
+Output:
+
+```css
+.content p {
+	font-family: Georgia, serif;
+	font-size: 18px;
+	line-height: 28px;
+}
+```
+
+##### Font Scale mixins
 
 
-#### Font Scale mixins
+##### Using default styles
 
 
-#### Using default styles
-
-
-##### Progressive loading web fonts
+#### Progressive loading web fonts
 
 
 ## Migration guide
