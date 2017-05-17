@@ -20,3 +20,27 @@ html {
 		margin-left: 0;
 	}
 }
+
+.type-scale {
+	margin-bottom: 8px;
+	white-space: nowrap;
+	overflow: hidden;
+
+	&__label {
+		@include oTypographySans(2);
+		padding-left: 10px;
+		padding-right: 15px;
+	}
+
+	&__example {
+		margin-bottom: 12px;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	@each $scale, $values in $o-typography-font-scale {
+		&__example-#{$scale} {
+			@include oTypographySize($scale);
+		}
+	}
+}
