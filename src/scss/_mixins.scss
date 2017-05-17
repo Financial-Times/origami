@@ -41,23 +41,21 @@
 ///
 /// @param {Number} $scale number on scale the sizes are based on
 /// @param {Bool | Number} $line-height size to override the line-height property
-/// @param {Number} $progressive-font-adjust multiplier for font-size adjustments
-/// when adding styles for progressively loaded font
-@mixin oTypographySize($scale, $line-height: false, $progressive-font-adjust: 1) {
+@mixin oTypographySize($scale, $line-height: false) {
 	@if type-of($scale) == map {
 		@each $breakpoint, $scale in $scale {
 			@include oGridRespondTo($breakpoint) {
 				@if type-of($scale) == list {
-					font-size: _oTypographyFontSizeFromScale(nth($scale, 1), $progressive-font-adjust);
+					font-size: _oTypographyFontSizeFromScale(nth($scale, 1));
 					line-height: nth($scale, 2);
 				} @else {
-					font-size: _oTypographyFontSizeFromScale($scale, $progressive-font-adjust);
+					font-size: _oTypographyFontSizeFromScale($scale);
 					line-height: _oTypographyLineHeightFromScale($scale, $line-height);
 				}
 			}
 		}
 	} @else {
-		font-size: _oTypographyFontSizeFromScale($scale, $progressive-font-adjust);
+		font-size: _oTypographyFontSizeFromScale($scale);
 		line-height: _oTypographyLineHeightFromScale($scale, $line-height);
 	}
 }
