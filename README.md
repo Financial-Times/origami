@@ -11,8 +11,6 @@ Typographical styles for FT branded sites - font families, weight, colors, sizes
 		- [Responsive font scales](#responsive-font-scales)
 		- [Progressive loading web fonts](#progressive-loading-web-fonts)
 		- [Baseline grid mixins](#baseline-grid-mixins)
-	- [JavaScript](#javascript)
-- [Troubleshooting](#troubleshooting)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -38,7 +36,7 @@ o-typography uses a single typographic scale for use with all fonts. The scale c
 |     9 |      72px |        72px |
 |    10 |      84px |        84px |
 
-This scale makes up all typographic styles available through o-typography. It is available when using Sass through the [font scale mixins](#font-scale-mixins).
+This scale makes up all typographic styles available through o-typography. It is available when using Sass through the [typography mixins](#mixins).
 
 ### Markup
 
@@ -117,7 +115,7 @@ Mixins exist for all the same styles as pre-defined classes, named with a camelC
 
 ##### Type mixins
 
-If you want to output just the font-family, font-size, and line-height, with no additional styles, this can be done with the type mixins.
+If you want to output only the font-family, font-size, and line-height, with no extra styles, use the type mixins.
 
 Sass:
 
@@ -163,7 +161,7 @@ Output:
 
 ##### Font Scale mixin
 
-If you want to output just the font-size and line-height from the font scale, you can use the `oTypographySize` mixin.
+If you want to output only the font-size and line-height from the font scale, you can use the `oTypographySize` mixin.
 
 Example:
 
@@ -182,11 +180,11 @@ h1 {
 }
 ```
 
-As with the [type mixins](#type-mixins), the `oTypographySize` mixin can also accept a second parameter of `$line-height` in order to override the line-height specified in the font scale.
+As with the [type mixins](#type-mixins), the `oTypographySize` mixin can accept a second parameter of `$line-height` to override the default value from the font scale.
 
 #### Responsive font scales
 
-Sometimes there is a need for font sizes to adapt at different breakpoints. To allow for this, wherever there is a `$scale` argument used in a mixin, you can provide a map of scales for each breakpoint. Breakpoints defined by the [o-grid](https://github.com/Financial-Times/o-grid) breakpoint sizes.
+Sometimes there is a need for font sizes to adapt at different breakpoints. To allow for this, wherever there is a `$scale` argument in a mixin, you can provide a map of scales for each breakpoint. Breakpoints defined by the [o-grid](https://github.com/Financial-Times/o-grid) breakpoint sizes.
 
 For example, to use the Sans font at scale `0` at `default`, then `1` at `medium`, and finally `2` at `x-large` you can do:
 
@@ -256,10 +254,113 @@ p {
 
 #### Progressive loading web fonts
 
+One of the drawbacks of using web fonts is some browsers hide the text while the font is downloading (Flash of Invisible Text, aka FOIT). A common pattern for avoiding this is to use a system fallback font initially. Then, once the web font has loaded, remove a class from the html element used to display the fallback font. The CSS would look a little like this:
 
+```css
+p {
+	font-family: FinancierDisplayWeb, serif;
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.font-loading-serif p {
+	font-family: serif;
+	font-size: 18px;
+}
+```
+
+o-typography provides ways of loading fonts progressively through both the [Build Service](https://www.ft.com/__origami/service/build/v2/) and when building your product manually. In both cases to use the fallback font while the web font is loading, you'll have to add loading classes to your html element:
+
+```html
+<html class="o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-display o-typography--loading-displayBold">
+```
+
+**With the build service:**
+
+Include both the CSS and JavaScript for o-typography in your project. While ensuring you have the loading classes for each font you wish to load on your html element.
+
+**With a manual build process:**
+
+If you build your projects using Sass, styles for progressively loading fonts are output by default when using the [use case mixins](#use-case-mixins) or [type mixins](#type-mixins). If you need to output fallback styles manually, you can do so with the `oTypographyProgressiveFontFallback` mixin.
+
+Example:
+
+```sass
+h1 {
+	@include oTypographySize(1);
+	@include oTypographyProgressiveFontFallback('display', 1);
+}
+```
+
+Output:
+
+```css
+h1 {
+	font-size: 18px;
+	line-height: 28px;
+}
+
+.o-typography--loading-display h1 {
+	font-size: 16.2px;
+	font-family: serif;
+}
+```
+
+To enable loading fonts progressively when manually building your project, you will also need to include the o-typography [JavaScript](#javascript) in your project.
 
 #### Baseline grid mixins
 
+Along with font sizing o-typography provides mixins for working with a baseline grid. The baseline grid defaults to `4px`, stored in `$o-typography-baseline-unit`.
+
+There are 2 mixins and a function provided for working with the baseline grid. Each mixin or function takes arguments used as multipliers of the `$o-typography-baseline-unit` variable.
+
+- `oTypographyMargin($top, $bottom)` - (mixin) output top and bottom margins
+- `oTypographyPadding($top, $bottom)` - (mixin) output top and bottom padding
+- `oTypographySpacingSize($units)` - (function) returns a pixel value
+
+Usage:
+
+```sass
+h1 {
+	@include oTypographyMargin($top: 3, $bottom: 5);
+	@include oTypographyPadding($top: 0, $bottom: 5);
+	border-bottom: oTypographySpacingSize($units: 2) solid #000;
+}
+```
+
+Output:
+
+```css
+h1 {
+	margin-top: 12px;
+	margin-bottom: 20px;
+	padding-top: 0;
+	padding-bottom: 20px;
+	border-bottom: 8px solid #000;
+}
+```
+
+### JavaScript
+
+Unless you're using the Build Service no JS will run automatically. You must either construct an o-typography object or fire the `o.DOMContentLoaded` event, which oTypography listens for.
+
+**Constructing o-typography**
+
+```js
+const oTypography = require('o-typography');
+
+const otypography = new oTypography();
+```
+
+**Firing an oDomContentLoaded event**
+
+```js
+document.addEventListener('DOMContentLoaded', function() {
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});
+```
+
+Both methods will trigger the font loading scripts. This will remove the loading classes from the html enabling [progressive font loading](#progressive-loading-web-fonts).
 
 ## Migration guide
 
@@ -274,22 +375,6 @@ V5 of o-typography is a complete overhaul of the typographic system for master b
 #### Mixins and sizes
 
 To help you migrate from the v4 mixins to the v5 mixins. We have provided a [table recommending the mixins and font scale](migrating-v4-v5.md) you should use when migrating from v4 to v5.
-
-In addition, v5 removes the following mixins:
-
-```diff
-- oTypographySansSize
-- oTypographySansBoldSize
-- oTypographySansDataSize
-- oTypographySansDataBoldSize
-- oTypographySansDataItalicSize
-- oTypographySerifSize
-- oTypographySerifBoldSize
-- oTypographySerifItalicSize
-- oTypographySerifDisplaySize
-- oTypographySerifDisplayBoldSize
-- oTypographySerifDisplayItalicSize
-```
 
 The following mixins are now renamed:
 
@@ -314,6 +399,22 @@ The following mixins are now renamed:
 
 - oTypographyFallbackFontSize
 + _oTypographyProgressiveFontFallbackSize
+```
+
+v5 also removes the following mixins:
+
+```diff
+- oTypographySansSize
+- oTypographySansBoldSize
+- oTypographySansDataSize
+- oTypographySansDataBoldSize
+- oTypographySansDataItalicSize
+- oTypographySerifSize
+- oTypographySerifBoldSize
+- oTypographySerifItalicSize
+- oTypographySerifDisplaySize
+- oTypographySerifDisplayBoldSize
+- oTypographySerifDisplayItalicSize
 ```
 
 #### CSS classes
