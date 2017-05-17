@@ -7,6 +7,10 @@ Typographical styles for FT branded sites - font families, weight, colors, sizes
 - [Usage](#usage)
 	- [Markup](#markup)
 	- [Sass](#sass)
+		- [Mixins](#mixins)
+		- [Responsive font scales](#responsive-font-scales)
+		- [Progressive loading web fonts](#progressive-loading-web-fonts)
+		- [Baseline grid mixins](#baseline-grid-mixins)
 	- [JavaScript](#javascript)
 - [Troubleshooting](#troubleshooting)
 - [Migration guide](#migration-guide)
@@ -84,9 +88,9 @@ $o-typography-load-fonts: false;
 
 When silent mode is set to `true`, o-typography does not load web fonts. Products should load web fonts themselves using **[o-fonts](https://github.com/financial-times/o-fonts).**
 
-#### Mixins and functions
+#### Mixins
 
-The Sass in o-typography provides mixins and functions for use in your project. In the following sections they are in order of most to least preferred method.
+The Sass in o-typography provides several types of mixin for use in your project. In the following sections they are in order of most to least preferred method.
 
 ##### Use Case mixins
 
@@ -134,7 +138,7 @@ h1 {
 
 These mixins take three arguments:
 
-- **scale**: The number on the font scale you want to output.
+- **scale**: The number on the font scale you want to output. Value can be a map to specify [responsive font scales](#responsive-font-scales)
 - **line-height**: An override value for the line-height.
 - **progressive**: Whether to output progressive font loading styles. `true` by default.
 
@@ -142,7 +146,7 @@ For example, to override the line-height for the serif font at using `1` on the 
 
 ```sass
 .content p {
-	@include oTypographySerif(1, 28px);
+	@include oTypographySerif($scale: 1, $line-height: 28px, $progressive: false);
 }
 ```
 
@@ -156,13 +160,104 @@ Output:
 }
 ```
 
-##### Font Scale mixins
+##### Font Scale mixin
 
+If you want to output just the font-size and line-height from the font scale, you can use the `oTypographySize` mixin.
 
-##### Using default styles
+Example:
 
+```sass
+h1 {
+	@include oTypographySize($scale: 8);
+}
+```
+
+Output
+
+```css
+h1 {
+	font-size: 56px;
+	line-height: 56px;
+}
+```
+
+As with the [type mixins](#type-mixins), the `oTypographySize` mixin can also accept a second parameter of `$line-height` in order to override the line-height specified in the font scale.
+
+#### Responsive font scales
+
+Sometimes there is a need for font sizes to adapt at different breakpoints. To allow for this, wherever there is a `$scale` argument used in a mixin, you can provide a map of scales for each breakpoint. Breakpoints defined by the [o-grid](https://github.com/Financial-Times/o-grid) breakpoint sizes.
+
+For example, to use the Sans font at scale `0` at `default`, then `1` at `medium`, and finally `2` at `x-large` you can do:
+
+```sass
+p {
+	@include oTypographySans( $scale: (default: 0, M: 1, XL: 2) );
+}
+```
+
+Output:
+
+```css
+p {
+	font-family: MetricWeb, sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+@media (min-width: 46.25em) {
+	p {
+		font-size: 18px;
+		line-height: 28px;
+	}
+}
+
+@media (min-width: 76.25em) {
+	p {
+		font-size: 20px;
+		line-height: 24px;
+	}
+}
+```
+
+You can also use this method and override line-heights in the scale at the same time. In this case, provide a scale size and line height as a list in the map:
+
+Example:
+
+```sass
+p {
+	@include oTypographySans( $scale: (default: (0, 1em), M: (1, 1em), XL: (2, 1em)) );
+}
+```
+
+Output:
+
+```css
+p {
+	font-family: MetricWeb, sans-serif;
+	font-size: 16px;
+	line-height: 1em;
+}
+
+@media (min-width: 46.25em) {
+	p {
+		font-size: 18px;
+		line-height: 1em;
+	}
+}
+
+@media (min-width: 76.25em) {
+	p {
+		font-size: 20px;
+		line-height: 1em;
+	}
+}
+```
 
 #### Progressive loading web fonts
+
+
+
+#### Baseline grid mixins
 
 
 ## Migration guide
@@ -173,11 +268,13 @@ V5 of o-typography is a complete overhaul of the typographic system for master b
 
 - introducing a **new typographic scale**, replacing the type matrix system in the previous version. This affects the [mixins and sizes](#mixins-and-sizes) provided by the API.
 - new use cases, updated to reflect the latest master brand styles. These are available via new [CSS classes](#css-classes) and mixins.
-- removing access to the `FinancierText` font family.
+- removing access to the `FinancierText` font family and replace serif font with `Georgia`.
 
 #### Mixins and sizes
 
-The following mixins have been removed:
+To help you migrate from the v4 mixins to the v5 mixins. We have provided a [table recommending the mixins and font scale](migrating-v4-v5.md) you should use when migrating from v4 to v5.
+
+In addition, v5 removes the following mixins:
 
 ```diff
 - oTypographySansSize
@@ -193,7 +290,7 @@ The following mixins have been removed:
 - oTypographySerifDisplayItalicSize
 ```
 
-The following mixins have been replaced:
+The following mixins are now renamed:
 
 ```diff
 - oTypographySerifDisplayBold
