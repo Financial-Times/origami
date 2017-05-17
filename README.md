@@ -135,6 +135,7 @@ h1 {
 	font-size: 48px;
 	line-height: 48px;
 }
+```
 
 These mixins take three arguments:
 
