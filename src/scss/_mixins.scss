@@ -7,13 +7,22 @@
 @mixin _oTypographyFontSize($scale, $progressive-font-adjust: 1) {
 	@if type-of($scale) == map {
 		@each $breakpoint, $number in $scale {
-			@include oGridRespondTo($breakpoint) {
+			@if $breakpoint == 'default' {
 				@if type-of($number) == list {
 					font-size: _oTypographyFontSizeFromScale(nth($number, 1), $progressive-font-adjust);
 				} @else {
 					font-size: _oTypographyFontSizeFromScale($number, $progressive-font-adjust);
 				}
+			} @else {
+				@include oGridRespondTo($breakpoint) {
+					@if type-of($number) == list {
+						font-size: _oTypographyFontSizeFromScale(nth($number, 1), $progressive-font-adjust);
+					} @else {
+						font-size: _oTypographyFontSizeFromScale($number, $progressive-font-adjust);
+					}
+				}
 			}
+
 		}
 	} @else {
 		font-size: _oTypographyFontSizeFromScale($scale, $progressive-font-adjust);
@@ -44,13 +53,23 @@
 @mixin oTypographySize($scale, $line-height: false) {
 	@if type-of($scale) == map {
 		@each $breakpoint, $scale in $scale {
-			@include oGridRespondTo($breakpoint) {
+			@if $breakpoint == 'default' {
 				@if type-of($scale) == list {
 					font-size: _oTypographyFontSizeFromScale(nth($scale, 1));
 					line-height: nth($scale, 2);
 				} @else {
 					font-size: _oTypographyFontSizeFromScale($scale);
 					line-height: _oTypographyLineHeightFromScale($scale, $line-height);
+				}
+			} @else {
+				@include oGridRespondTo($breakpoint) {
+					@if type-of($scale) == list {
+						font-size: _oTypographyFontSizeFromScale(nth($scale, 1));
+						line-height: nth($scale, 2);
+					} @else {
+						font-size: _oTypographyFontSizeFromScale($scale);
+						line-height: _oTypographyLineHeightFromScale($scale, $line-height);
+					}
 				}
 			}
 		}
