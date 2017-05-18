@@ -40,3 +40,6 @@
 @include oColorsSetUseCase(fast-ft, text, 'fastft-brand');
 @include oColorsSetUseCase(fast-ft, border, 'fastft-brand');
 @include oColorsSetUseCase(fast-ft, background, 'fastft-highlight');
+
+@include oColorsSetUseCase(o-teaser-video-icon, text, 'white');
+@include oColorsSetUseCase(o-teaser-video-icon, background, 'slate');
