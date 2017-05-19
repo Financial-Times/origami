@@ -1,0 +1,491 @@
+{
+	"anon": true,
+	"top": {
+		"hasMenu": true,
+		"hasMyFT": true
+	},
+	"search": true,
+	"nav": {
+		"mobile": [
+			{
+				"name": "Home",
+				"url": "#",
+				"selected": false
+			},
+			{
+				"name": "FastFT",
+				"url": "#"
+			},
+			{
+				"name": "Markets Data",
+				"url": "#"
+			}
+		],
+		"desktop": [
+			{
+				"name": "Home",
+				"url": "#",
+				"selected": false
+			},
+			{
+				"name": "World",
+				"url": "#",
+				"selected": true
+			},
+			{
+				"name": "UK",
+				"url": "#"
+			},
+			{
+				"name": "Companies",
+				"url": "#"
+			},
+			{
+				"name": "Markets",
+				"url": "#"
+			},
+			{
+				"name": "Opinion",
+				"url": "#"
+			},
+			{
+				"name": "Work & Careers",
+				"url": "#"
+			},
+			{
+				"name": "Life & Arts",
+				"url": "#"
+			}
+		],
+		"isSignedIn": false
+	},
+	"drawer": {
+		"nav": [
+			{
+				"heading": {
+					"name": "Top sections"
+				},
+				"items": [
+					{
+						"name": "Home",
+						"href": "#",
+						"selected": true,
+						"index": 0
+					},
+					{
+						"name": "World",
+						"href": "#",
+						"hasChildren": true,
+						"children": [
+							{
+								"name": "World Economy",
+								"href": "#"
+							},
+							{
+								"name": "UK",
+								"href": "#"
+							},
+							{
+								"name": "US",
+								"href": "#"
+							},
+							{
+								"name": "China",
+								"href": "#"
+							},
+							{
+								"name": "Africa",
+								"href": "#"
+							},
+							{
+								"name": "Asia Pacific",
+								"href": "#"
+							},
+							{
+								"name": "Emerging Markets",
+								"href": "#"
+							},
+							{
+								"name": "Europe",
+								"href": "#"
+							},
+							{
+								"name": "Latin America",
+								"href": "#"
+							},
+							{
+								"name": "Middle East and Africa",
+								"href": "#"
+							}
+						],
+						"index": 1
+					},
+					{
+						"name": "UK",
+						"href": "#",
+						"hasChildren": true,
+						"children": [
+							{
+								"name": "UK Economy",
+								"href": "#"
+							},
+							{
+								"name": "UK Politics & Policy",
+								"href": "#"
+							},
+							{
+								"name": "UK Companies",
+								"href": "#"
+							}
+						],
+						"index": 2
+					},
+					{
+						"name": "Companies",
+						"href": "#",
+						"hasChildren": true,
+						"children": [
+							{
+								"name": "Energy",
+								"href": "#"
+							},
+							{
+								"name": "Financials",
+								"href": "#"
+							},
+							{
+								"name": "Health",
+								"href": "#"
+							},
+							{
+								"name": "Industrials",
+								"href": "#"
+							},
+							{
+								"name": "Media",
+								"href": "#"
+							},
+							{
+								"name": "Retail & Consumer",
+								"href": "#"
+							},
+							{
+								"name": "Technology",
+								"href": "#"
+							},
+							{
+								"name": "Telecoms",
+								"href": "#"
+							},
+							{
+								"name": "Transport",
+								"href": "#"
+							}
+						],
+						"index": 3
+					},
+					{
+						"name": "Markets",
+						"href": "#",
+						"hasChildren": true,
+						"children": [
+							{
+								"name": "Alphaville",
+								"href": "#"
+							},
+							{
+								"name": "Markets Data",
+								"href": "#"
+							},
+							{
+								"name": "Capital Markets",
+								"href": "#"
+							},
+							{
+								"name": "Commodities",
+								"href": "#"
+							},
+							{
+								"name": "Currencies",
+								"href": "#"
+							},
+							{
+								"name": "Equities",
+								"href": "#"
+							},
+							{
+								"name": "Fund Management",
+								"href": "#"
+							},
+							{
+								"name": "Trading",
+								"href": "#"
+							}
+						],
+						"index": 4
+					},
+					{
+						"name": "Opinion",
+						"href": "#",
+						"hasChildren": true,
+						"children": [
+							{
+								"name": "Columnists",
+								"href": "#"
+							},
+							{
+								"name": "FT View",
+								"href": "#"
+							},
+							{
+								"name": "The Big Read",
+								"href": "#"
+							},
+							{
+								"name": "Lex",
+								"href": "#"
+							},
+							{
+								"name": "Alphaville",
+								"href": "#"
+							},
+							{
+								"name": "Obituaries",
+								"href": "#"
+							},
+							{
+								"name": "Letters",
+								"href": "#"
+							}
+						],
+						"index": 5
+					},
+					{
+						"name": "Work & Careers",
+						"href": "#",
+						"hasChildren": true,
+						"children": [
+							{
+								"name": "Business School Rankings",
+								"href": "#"
+							},
+							{
+								"name": "Business Education",
+								"href": "#"
+							},
+							{
+								"name": "Entrepreneurship",
+								"href": "#"
+							},
+							{
+								"name": "Recruitment",
+								"href": "#"
+							},
+							{
+								"name": "Business Books",
+								"href": "#"
+							}
+						],
+						"index": 6
+					},
+					{
+						"name": "Life & Arts",
+						"href": "#",
+						"hasChildren": true,
+						"children": [
+							{
+								"name": "House & Home",
+								"href": "#"
+							},
+							{
+								"name": "Books",
+								"href": "#"
+							},
+							{
+								"name": "Food & Drink",
+								"href": "#"
+							},
+							{
+								"name": "Travel",
+								"href": "#"
+							},
+							{
+								"name": "Style",
+								"href": "#"
+							},
+							{
+								"name": "Arts",
+								"href": "#"
+							},
+							{
+								"name": "Sports",
+								"href": "#"
+							},
+							{
+								"name": "Music",
+								"href": "#"
+							},
+							{
+								"name": "Film, TV & Radio",
+								"href": "#"
+							},
+							{
+								"name": "Magazine",
+								"href": "#"
+							}
+						],
+						"index": 7
+					},
+					{
+						"name": "Personal Finance",
+						"href": "#",
+						"hasChildren": true,
+						"children": [
+							{
+								"name": "Property & Mortgages",
+								"href": "#"
+							},
+							{
+								"name": "Investments",
+								"href": "#"
+							},
+							{
+								"name": "Pensions",
+								"href": "#"
+							},
+							{
+								"name": "Tax",
+								"href": "#"
+							},
+							{
+								"name": "Bankings & Savings",
+								"href": "#"
+							}
+						],
+						"index": 8
+					},
+					{
+						"name": "Science & Environment",
+						"href": "#",
+						"index": 9
+					}
+				]
+			},
+			{
+				"heading": {
+					"name": "FT recommends"
+				},
+				"items": [
+					{
+						"name": "Lex",
+						"href": "#",
+						"index": 0
+					},
+					{
+						"name": "Alphaville",
+						"href": "#",
+						"index": 1
+					},
+					{
+						"name": "Lunch with the FT",
+						"href": "#",
+						"index": 2
+					},
+					{
+						"name": "Video",
+						"href": "#",
+						"index": 3
+					},
+					{
+						"name": "Special Reports",
+						"href": "#",
+						"index": 4
+					},
+					{
+						"name": "News feed",
+						"href": "#",
+						"index": 5
+					},
+					{
+						"name": "Newsletters",
+						"href": "#",
+						"index": 6
+					}
+				]
+			},
+			{
+				"items": [
+					{
+						"name": "My FT",
+						"href": "#",
+						"variation": "secondary",
+						"divide": true,
+						"index": 0
+					},
+					{
+						"name": "Portfolio",
+						"href": "#",
+						"variation": "secondary",
+						"index": 1
+					},
+					{
+						"name": "Today's Paper",
+						"href": "#",
+						"variation": "secondary",
+						"index": 2
+					}
+				]
+			}
+		],
+		"editions": {
+			"current": {
+				"name": "UK",
+				"id": "uk"
+			},
+			"others": [
+				{
+					"name": "International",
+					"id": "international"
+				}
+			]
+		},
+		"user": {
+			"isSignedIn": false,
+			"name": "User's name"
+		}
+	},
+	"subnav": true,
+	"currentNav": {
+		"name": "Life & Arts",
+		"children": [
+			{
+				"name": "House & Home",
+				"href": "#"
+			},
+			{
+				"name": "Books",
+				"href": "#"
+			},
+			{
+				"name": "Food & Drink",
+				"href": "#"
+			},
+			{
+				"name": "Travel",
+				"href": "#"
+			},
+			{
+				"name": "Style",
+				"href": "#"
+			},
+			{
+				"name": "Arts",
+				"href": "#"
+			},
+			{
+				"name": "FT Magazine",
+				"href": "#"
+			}
+		]
+	}
+}

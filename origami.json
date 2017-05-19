@@ -22,35 +22,35 @@
         {
             "name": "header",
             "title": "Header",
-            "data": "demos/src/header.js",
+            "data": "demos/src/header.json",
             "template": "demos/src/header.mustache",
             "description": ""
         },
         {
             "name": "mega-menu",
             "title": "Mega menu",
-            "data": "demos/src/mega-menu.js",
+            "data": "demos/src/mega-menu.json",
             "template": "demos/src/mega-menu.mustache",
             "description": ""
         },
         {
             "name": "subnav",
             "title": "Header with subnav",
-            "data": "demos/src/subnav.js",
+            "data": "demos/src/subnav.json",
             "template": "demos/src/subnav.mustache",
             "description": ""
         },
         {
             "name": "simple-header",
             "title": "Simple header",
-            "data": "demos/src/header.js",
+            "data": "demos/src/header.json",
             "template": "demos/src/simple-header.mustache",
             "description": ""
         },
         {
             "name": "transparent-header",
             "title": "Transparent header",
-            "data": "demos/src/header.js",
+            "data": "demos/src/header.json",
             "template": "demos/src/transparent-header.mustache",
             "description": "",
             "documentClasses": "demo-transparent"
@@ -58,7 +58,7 @@
         {
             "name": "sticky-header",
             "title": "Sticky header",
-            "data": "demos/src/header.js",
+            "data": "demos/src/header.json",
             "template": "demos/src/sticky-header.mustache",
             "description": "Sticky variation of the simple header",
             "documentClasses": "demo-sticky"
@@ -66,7 +66,7 @@
         {
             "name": "subbranded-header",
             "title": "Subbranded header",
-            "data": "demos/src/subbrand.js",
+            "data": "demos/src/subbrand.json",
             "template": "demos/src/subbrand.mustache",
             "description": "For Subbrands of the FT, eg Alphaville or Life&Arts, a subheader can be added to mark out their subbrandness."
         },
