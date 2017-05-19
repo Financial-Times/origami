@@ -32,33 +32,30 @@
 	}
 
 	// Headings
-	.o-typography-heading1 {
-		@include oTypographyHeading1;
+	.o-typography-headline {
+		@include oTypographyHeadline;
 	}
 
-	.o-typography-heading2 {
-		@include oTypographyHeading2;
+	.o-typography-headline--large {
+		@include oTypographyHeadlineLarge;
 	}
 
-	.o-typography-heading3 {
-		@include oTypographyHeading3;
+	.o-typography-heading-level-2 {
+		@include oTypographyHeadingLevel2;
 	}
 
-	.o-typography-heading4 {
-		@include oTypographyHeading4;
+	.o-typography-heading-level-3 {
+		@include oTypographyHeadingLevel3;
 	}
 
-	.o-typography-heading5 {
-		@include oTypographyHeading5;
+	.o-typography-heading-level-4 {
+		@include oTypographyHeadingLevel4;
 	}
 
-	.o-typography-subhead {
-		@include oTypographySubhead;
+	.o-typography-heading-level-5 {
+		@include oTypographyHeadingLevel5;
 	}
 
-	.o-typography-subhead--crosshead {
-		@include oTypographySubheadCrosshead;
-	}
 
 	// // Body copy - common
 	// .o-typography-bold {
