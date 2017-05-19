@@ -66,7 +66,7 @@ function unloadListener() {
   // console.log('amt listened', +(this.amountListened / 1000).toFixed(2), (((this.amountListened / 1000) / (this.audioLength)) * 100).toFixed(2));
   fireEvent('listened', this, {
     amount: +(this.amountListened / 1000).toFixed(2),
-    amountPercentage: (((this.amountListened / 1000) / (this.audioLength)) * 100).toFixed(2),
+    amountPercentage: +(((this.amountListened / 1000) / (this.audioLength)) * 100).toFixed(2),
   });
 }
 
