@@ -27,14 +27,14 @@
 			"name": "footer",
 			"title": "Dark theme",
 			"template": "demos/src/footer.mustache",
-			"data": "demos/src/footer.js",
+			"data": "demos/src/footer.json",
 			"description": "This is the standard masterbrand footer used on most pages."
 		},
 		{
 			"name": "footer-light",
 			"title": "Light theme",
 			"template": "demos/src/footer.mustache",
-			"data": "demos/src/footer-light.js",
+			"data": "demos/src/footer-light.json",
 			"description": "A light theme masterbrand footer"
 		},
 		{
