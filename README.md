@@ -1,4 +1,4 @@
-o-colors [![Build Status](https://circleci.com/gh/Financial-Times/o-colors.png?style=shield&circle-token=0d3884dacba2fdd8aec8afbd2eaa84c79040ddd5)](https://circleci.com/gh/Financial-Times/o-colors)
+# o-colors [![Build Status](https://circleci.com/gh/Financial-Times/o-colors.png?style=shield&circle-token=0d3884dacba2fdd8aec8afbd2eaa84c79040ddd5)](https://circleci.com/gh/Financial-Times/o-colors)
 
 The color palette for the FT masterbrand and sub-brand products.
 
@@ -30,9 +30,9 @@ $o-colors-is-silent: false;
 
 o-colors has been built to help bridge the gap between design and development by providing functionality to help create colours dynamically from a central palette as well as generate contrasted text colours based on an elements background color.
 
-You can create tints of a color with the [oColorsGetTint](#tint-palette-colors) function. The function takes a palette color name and a brightness value (based on HSB color) to return a tint of the palette color.
+You can create tints of a color with the [`oColorsGetTint`](#tint-palette-colors) function. The function takes a palette color name and a brightness value (based on HSB color) to return a tint of the palette color.
 
-To work with text colors the [oColorsFor](#use-case-mixin) mixin and [oColorsGetTextColor](#generated-text-colors) function will output a text color based on the background color, which will be a mix of either black or white with the background at the percentage requested. You can also mix two colours manually using the [oColorsMix](#mix-colors) function, providing two colors (either hex or palette color names) and a percentage at which to mix them.
+To work with text colors the [`oColorsFor`](#use-case-mixin) mixin and [`oColorsGetTextColor`](#generated-text-colors) function will output a text color based on the background color, which will be a mix of either black or white with the background at the percentage requested. You can also mix two colours manually using the [`oColorsMix`](#mix-colors) function, providing two colors (either hex or palette color names) and a percentage at which to mix them.
 
 When working with the `oColorsFor` and `oColorsGetTextColor` features, the Sass will also automatically test the background color with the generated text color to see if the combination passes Web Content Accessibility Guidelines (WCAG). If the combination fails to pass at least WCAG AA you will see an error, if the combination passes AA but only at a larger font size (18px+), there will be a warning.
 
