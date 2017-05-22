@@ -15,15 +15,19 @@
 	@include oTypographyDisplayBold($scale: 8);
 	@include oTypographyMargin($top: 0, $bottom: 7);
 	@include oColorsFor('o-typography-headline');
+	@include oTypographyUnderLine($width: 180px, $padding: 5);
+}
 
+@mixin oTypographyUnderLine($width, $padding) {
 	&:after {
-		@include oTypographyPadding($top: 5, $bottom: 0);
+		@include oTypographyPadding($top: $padding, $bottom: 0);
 		content: '';
 		display: block;
-		width: 180px;
+		width: $width;
 		border-bottom: oTypographySpacingSize($units: 2) solid oColorsGetPaletteColor('black');
 	}
 }
+
 
 /// Level 2 heading styles
 @mixin oTypographyHeadingLevel2 {
