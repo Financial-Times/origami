@@ -1,6 +1,6 @@
 {
 	"primary" : {
-		"description": "Hello world this is a group description",
+		"description": "Colour is a fundamental attribute of the FT visual language. Consistent use of the primary palette across the platform strengthens our brand by evoking familiarity and trust.",
 		"colors": [
 			{
 				"name": "paper",
@@ -35,7 +35,7 @@
 		]
 	},
 	"secondary" : {
-		"description": "Hello world this is a group description",
+		"description": "Secondary colours provide visual hierarchy to differentiate content and are brand identifiers of the FT.",
 		"colors": [
 			{
 				"name": "wheat",
@@ -64,7 +64,7 @@
 		]
 	},
 	"tertiary" : {
-		"description": "Hello world this is a group description",
+		"description": "Used sparingly, these colours provide contrast for highlighting and messaging.",
 		"colors": [
 			{
 				"name": "jade",
@@ -85,7 +85,7 @@
 		]
 	},
 	"tints" : {
-		"description": "Hello world these are some tints",
+		"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs.",
 		"colors": [
 			{
 				"name": "black",
@@ -110,7 +110,7 @@
 		]
 	},
 	"b2c" : {
-		"description": "Hello world this is b2c tints",
+		"description": "These colours are specifically designed for use in B2C products.",
 		"colors": [
 			{
 				"name": "org-b2c",

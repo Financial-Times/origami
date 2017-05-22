@@ -34,12 +34,12 @@ $o-colors-palette: map-merge((
 	'white':                 #ffffff,
 
 	'claret':                #990f3d,
-	'oxford':                #0F5499,
+	'oxford':                #0f5499,
 	'teal':                  #00757f,
 
 	'wheat':                 #f2dfce,
 	'sky':                   #cce6ff,
-	'slate':                 #262A33,
+	'slate':                 #262a33,
 
 	'velvet':                #593380,
 	'mandarin':              #ff8833,
@@ -66,17 +66,17 @@ $o-colors-tints: (
 	'claret': (
 		hue: 340,
 		saturation: 90,
-		tints: ( 30, 40, 50, 60, 70, 80, 90, 100 ),
+		tints: (30, 40, 50, 60, 70, 80, 90, 100),
 	),
 	'oxford': (
 		hue: 210,
 		saturation: 90,
-		tints: ( 30, 40, 50, 60, 70, 80, 90, 100 ),
+		tints: (30, 40, 50, 60, 70, 80, 90, 100),
 	),
 	'teal': (
 		hue: 185,
 		saturation: 90,
-		tints: ( 20, 30, 40, 50, 60, 70, 80, 90, 100 ),
+		tints: (20, 30, 40, 50, 60, 70, 80, 90, 100),
 	),
 	'wheat': (
 		hue: 28,
