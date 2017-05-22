@@ -15,15 +15,8 @@
 @import 'src/scss/type-mixins';
 
 @import 'src/scss/use-cases/headings';
-// @import 'src/scss/use-cases/body_aside';
-// @import 'src/scss/use-cases/body_common';
-// @import 'src/scss/use-cases/body_general';
+@import 'src/scss/use-cases/article';
 
-// @import 'src/scss/use-cases/timestamps';
-
-// @import 'src/scss/use-cases/wrapped_aside';
-// @import 'src/scss/use-cases/wrapped_common';
-// @import 'src/scss/use-cases/wrapped_general';
 
 @if $o-typography-is-silent == false {
 
