@@ -1,0 +1,21 @@
+/// Style for timestamps
+@mixin oTypographyTimestamp {
+  @include oTypographySans($scale: -1);
+  @include oColorsFor(o-typography-timestamp);
+  text-transform: uppercase;
+}
+
+
+/// Body text styles
+@mixin oTypographyBody {
+	@include oTypographySerif($scale: 1, $line-height: 28px);
+	@include oTypographyMargin($top: 0, $bottom: 7);
+	@include oColorsFor('o-typography-body')
+}
+
+/// Standfirst
+@mixin oTypographyStandfirst {
+	@include oTypographySans($scale: 2);
+	@include oTypographyMargin($top: 0, $bottom: 0);
+	@include oColorsFor('o-typography-standfirst');
+}
