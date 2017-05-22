@@ -4,7 +4,8 @@ let activeUseCase = '';
 let clickToCopy = false;
 
 function oColorsDemoPalette() {
-	const colorTints = ['white', 'black', 'claret', 'oxford', 'teal'];
+	// AO: To be used at a later stage to do overlay tints demos
+	// const colorTints = ['white', 'black', 'claret', 'oxford', 'teal'];
 
 	// Get the content property from the body element.
 	// See demo.scss where a JSON-like string is added.
@@ -82,6 +83,7 @@ function oColorsShowUseCases() {
 	activeUseCase = useCase;
 }
 
+/* AO: To be used at a later stage with overlay tint demos
 function populateTintDemos(palette, colors) {
 	const tints = colors.map((color) => {
 		let tintPalette = {'name': color};
@@ -111,6 +113,7 @@ function oColorsShowTints() {
 	let tintContainer = this.closest('.demo-color').querySelector('.demo-tints-container');
 	tintContainer.classList.toggle('show-me');
 }
+*/
 
 function oColorsCopy(event) {
 	// find target element
