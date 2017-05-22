@@ -38,6 +38,8 @@ body {
 	@if $csscolor != 'transparent' and $csscolor != 'inherit' {
 		.o-colors-palette-#{$name} .hex,
 		.o-colors-palette-#{$name}:after {
+			// Text at 90% does not pass contrast tests so increase
+			// the shade to pass
 			@if $name == 'jade' {
 				color: oColorsGetTextColor($csscolor, 95);
 			} @else {
