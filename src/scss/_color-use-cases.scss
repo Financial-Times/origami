@@ -1,4 +1,6 @@
 @include oColorsSetUseCase(o-typography-aside-text, text, 'cold-1');
 @include oColorsSetUseCase(o-typography-timestamp, text, 'warm-6');
 
-@include oColorsSetUseCase(o-typography-headline, text, 'black');
+@include oColorsSetUseCase(o-typography-headline, text, 'black-80');
+@include oColorsSetUseCase(o-typography-body, text, 'black-80');
+@include oColorsSetUseCase(o-typography-standfirst, text, 'black-60');
