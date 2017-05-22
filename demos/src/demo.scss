@@ -34,7 +34,6 @@ body {
 	}
 }
 
-@debug "Palette: #{$o-colors-palette}";
 @each $name, $csscolor in $o-colors-palette {
 	@if $csscolor != 'transparent' and $csscolor != 'inherit' {
 		.o-colors-palette-#{$name} .hex,
@@ -176,7 +175,8 @@ body {
 		opacity: 1;
 	}
 
-	&.o-colors-palette-white {
+	&.o-colors-palette-white,
+	&.o-colors-palette-paper {
 		border: 1px solid oColorsMix(black, white, 20);
 	}
 
