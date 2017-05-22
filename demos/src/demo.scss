@@ -34,14 +34,15 @@ body {
 	}
 }
 
+@debug "Palette: #{$o-colors-palette}";
 @each $name, $csscolor in $o-colors-palette {
-	@if $csscolor != 'transparent' and $csscolor != 'inherit'  and not str-index($name, '-') {
+	@if $csscolor != 'transparent' and $csscolor != 'inherit' {
 		.o-colors-palette-#{$name} .hex,
 		.o-colors-palette-#{$name}:after {
 			@if $name == 'jade' {
 				color: oColorsGetTextColor($csscolor, 95);
 			} @else {
-				color: oColorsGetTextColor($csscolor, 80);
+				color: oColorsGetTextColor($csscolor, 90);
 			}
 		}
 	}
@@ -189,6 +190,45 @@ body {
 		background: transparent;
 		font-size: 18px;
 		cursor: pointer;
+	}
+}
+
+
+.demo-wrapper--tints {
+	justify-content: space-between;
+}
+
+.demo-tint-column {
+	margin: 0 5px;
+	flex: 1 0;
+
+	h3 {
+		text-align: center;
+	}
+
+	.swatch--tint {
+		margin-bottom: 0;
+		height: 100px;
+		padding-top: 0px;
+		padding-bottom: 30px;
+
+		label {
+			width: 100%;
+			padding-left: 10px;
+			text-align: left;
+			padding-top: 10px;
+			margin-bottom: 5px;
+			font-size: 14px;
+		}
+
+		.hex {
+			font-size: 16px;
+		}
+
+		&:after {
+			bottom: 15px;
+			font-size: 12px;
+		}
 	}
 }
 

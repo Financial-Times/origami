@@ -22,6 +22,12 @@
 			"display_html": false
 		},
 		{
+			"name": "tints",
+			"data": "demos/src/palette.json",
+			"template": "demos/src/tints.mustache",
+			"display_html": false
+		},
+		{
 			"name": "use-cases",
 			"template": "demos/src/use-cases.mustache",
 			"display_html": false

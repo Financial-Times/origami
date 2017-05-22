@@ -8,10 +8,15 @@
 		<div class="demo-wrapper">
 			{{#colors}}
 				<div class="demo-color">
-					<h3><label for="o-color-input-{{name}}">{{name}}</label> {{#tints}}<button class="demo-tint-button demo-tint-button--{{name}}">Tints</button>{{/tints}}</h3>
+					<h3>
+						<label for="o-color-input-{{name}}">{{name}}</label>
+						{{! Button to show tints of the colour in the swatch }}
+					<!-- {{#tints}}<button class="demo-tint-button demo-tint-button--{{name}}">Tints</button>{{/tints}} -->
+					</h3>
 					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
 						<input type="text" class="hex" id="o-color-input-{{name}}" value="" readonly>
-						{{#tints}}<div class="demo-tints-container"></div>{{/tints}}
+						{{! Where the tints will display }}
+						<!-- {{#tints}}<div class="demo-tints-container"></div>{{/tints}} -->
 					</div>
 					<div class="use-cases">{{usage}}</div>
 				</div>

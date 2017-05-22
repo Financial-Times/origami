@@ -28,7 +28,7 @@ function oColorsDemoPalette() {
 		}
 	}
 
-	populateTintDemos(palette, colorTints);
+	// populateTintDemos(palette, colorTints);
 }
 
 
