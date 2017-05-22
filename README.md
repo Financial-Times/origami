@@ -36,6 +36,8 @@ To work with text colors the [`oColorsFor`](#use-case-mixin) mixin and [`oColors
 
 When working with the `oColorsFor` and `oColorsGetTextColor` features, the Sass will also automatically test the background color with the generated text color to see if the combination passes Web Content Accessibility Guidelines (WCAG). If the combination fails to pass at least WCAG AA you will see an error, if the combination passes AA but only at a larger font size (18px+), there will be a warning.
 
+For manually testing color contrasts, you can use [Lea Verou's Contrast Ratio tool](http://leaverou.github.io/contrast-ratio/).
+
 #### Mixins and functions
 
 o-colors has a number of mixins and functions for you to access the color palette in your project, here they are listed from the most to least preferred methods of working with o-colors.
