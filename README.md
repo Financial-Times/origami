@@ -66,7 +66,7 @@ or
 ```scss
 @import 'o-fonts/main';
 
-// @font-face declarations for all Benton Sans weights
+// @font-face declarations for all Financier Display weights
 @include oFontsInclude(FinancierDisplayWeb, light);
 @include oFontsInclude(FinancierDisplayWeb, regular);
 @include oFontsInclude(FinancierDisplayWeb, bold);
