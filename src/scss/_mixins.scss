@@ -16,23 +16,14 @@
 /// @param {String} $weight [regular] - one of $_o-fonts-weights
 /// @param {String} $style [normal]
 @mixin oFontsInclude($family, $weight: regular, $style: normal) {
-	@if $family == 'Clarion' {
-		@warn "Clarion has been removed, no font will be included. Use Georgia instead";
-	}
-
-	@if $family == 'Benton' {
-		@warn "Benton is deprecated. It will be removed in the next major version (v3). Please use Metric instead.";
-	}
-	@if $family == 'Miller' {
-		@warn "Miller is deprecated. It will be removed in the next major version (v3). Please use Financier instead.";
-	}
-	@if $family == 'FinancierTextWeb' {
-		@warn "FinancierTextWeb is deprecated. It will be removed in the next major version (v3). Please use Georgia instead";
+	@if $family == 'Clarion' or $family == 'Benton' or $family == 'Miller' or $family == 'FinancierTextWeb' {
+		@error "#{$family} has been removed, no font will be included.";
 	}
 
 	@if $weight == normal {
 		$weight: regular;
 	}
+
 	$font-exists: false;
 	// Check if the font has already been included
 	// If so, no need to output another @font-face declaration

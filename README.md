@@ -66,7 +66,7 @@ or
 ```scss
 @import 'o-fonts/main';
 
-// @font-face declarations for all Benton Sans weights
+// @font-face declarations for all Financier Display weights
 @include oFontsInclude(FinancierDisplayWeb, light);
 @include oFontsInclude(FinancierDisplayWeb, regular);
 @include oFontsInclude(FinancierDisplayWeb, bold);
@@ -126,8 +126,8 @@ Open `src/scss/_variables.scss` in a text editor. Add the font family name (if i
 
 ```scss
 $o-fonts-families: (
-	BentonSans: (
-		font-family: 'BentonSans, sans-serif',
+	MetricWeb: (
+		font-family: 'MetricWeb, sans-serif',
 		variants: (
 			(weight: lighter, style: normal),
 			(weight: normal,  style: normal),
@@ -141,17 +141,24 @@ $o-fonts-families: (
 And then, if it's a new family, add a new entry in `demos/src/config.json`, like so:
 
     "demos": {
-	  "bentonsans": {
-	    "data": { "font": "bentonsans" }
+	  "metricweb": {
+	    "data": { "font": "metricweb" }
 	  },
 
 And a new entry in `demos/src/demo.scss`:
 
 ```css
-.demo-family-bentonsans .demo-example {
-	font-family: oFontsGetFontFamilyWithFallback(BentonSans);
+.demo-family-metricweb .demo-example {
+	font-family: oFontsGetFontFamilyWithFallback(MetricWeb);
 }
 ```
+
+----
+
+## Contact
+
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-fonts/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
+
 
 ----
 
