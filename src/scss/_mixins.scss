@@ -17,7 +17,7 @@
 /// @param {String} $style [normal]
 @mixin oFontsInclude($family, $weight: regular, $style: normal) {
 	@if $family == 'Clarion' or $family == 'Benton' or $family == 'Miller' or $family == 'FinancierTextWeb' {
-		@warn "#{$family} has been removed, no font will be included.";
+		@error "#{$family} has been removed, no font will be included.";
 	}
 
 	@if $weight == normal {
