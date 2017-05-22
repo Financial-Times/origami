@@ -30,7 +30,8 @@
 		{
 			"name": "use-cases",
 			"template": "demos/src/use-cases.mustache",
-			"display_html": false
+			"display_html": false,
+			"hidden": true
 		},
 		{
 			"name": "pa11y",
