@@ -46,6 +46,7 @@
 		margin-bottom: 0;
 		padding-left: 10px;
 
+		// this adapts to fit the screen based on left o-grid-row margins
 		&:after {
 			margin-left: calc(-50vw + 5px);
 			@include oGridRespondTo(M) {
