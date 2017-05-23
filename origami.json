@@ -8,8 +8,7 @@
 	"supportStatus": "active",
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
-		"js": "demos/src/demo.js",
-		"dependencies": "o-buttons@^4.5.4"
+		"js": "demos/src/demo.js"
 	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-colors"
