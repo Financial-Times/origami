@@ -1,12 +1,21 @@
-$o-colors-is-silent: true !default;
+@import 'src/scss/variables';
+@import 'src/scss/tools/color';
+@import 'src/scss/tools/maths';
+@import 'src/scss/tools/a11y';
 
 @import 'src/scss/palette';
 @import 'src/scss/use-cases';
+
 @import 'src/scss/functions';
 @import 'src/scss/mixins';
 
-// If noisy, output helper classes for use cases and palette colours
+// Set the tint palette colors programatically
+@include _oColorsSetPaletteTints;
+
+// If noisy, output helper classes for use cases and palette colors
 @if ($o-colors-is-silent == false) {
+	@include _oColorsCSSVariables;
+
 	@each $usecase, $props in $o-colors-usecases {
 		@each $prop, $color in $props {
 			#{'.o-colors-' + $usecase + '-' + $prop} {
@@ -22,9 +31,14 @@ $o-colors-is-silent: true !default;
 			}
 		}
 	}
+
 	@each $name, $csscolor in $o-colors-palette {
-		#{'.o-colors-palette-' + $name} {
+		.o-colors-palette-#{$name} {
 			background-color: $csscolor;
+
+			@if $csscolor != 'transparent' and $csscolor != 'inherit' {
+				color: oColorsGetTextColor($csscolor, 100);
+			}
 		}
 	}
 

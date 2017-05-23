@@ -9,8 +9,7 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
-		"documentClasses": "o-techdocs-content",
-		"dependencies": ["o-techdocs@^4.0.0"]
+		"dependencies": "o-buttons@^4.5.4"
 	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-colors"
@@ -18,14 +17,27 @@
 	"demos": [
 		{
 			"name": "palette",
+			"data": "demos/src/palette.json",
 			"template": "demos/src/palette.mustache",
-			"description": "",
+			"display_html": false
+		},
+		{
+			"name": "tints",
+			"data": "demos/src/palette.json",
+			"template": "demos/src/tints.mustache",
 			"display_html": false
 		},
 		{
 			"name": "use-cases",
 			"template": "demos/src/use-cases.mustache",
-			"description": "",
+			"display_html": false,
+			"hidden": true
+		},
+		{
+			"name": "pa11y",
+			"data": "demos/src/palette.json",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
 			"display_html": false
 		}
 	]

@@ -1,81 +1,157 @@
-/*global OrigamiRegistry*/
-function loadDemo(showtype) {
-	const palette = {};
-	const roles = ['border', 'background', 'text', 'all'];
-	const el = document.getElementById('results');
-	const paletteExclusions = ['transparent', 'inherit'];
+const wrappers = Array.from(document.querySelectorAll('.demo-wrapper'));
+const demoColors = Array.from(document.querySelectorAll('.demo-color'));
+let activeUseCase = '';
+let clickToCopy = false;
 
-	getData('palette');
+function oColorsDemoPalette() {
+	// AO: To be used at a later stage to do overlay tints demos
+	// const colorTints = ['white', 'black', 'claret', 'oxford', 'teal'];
 
-	function getData(type) {
-		const oReq = new XMLHttpRequest();
+	// Get the content property from the body element.
+	// See demo.scss where a JSON-like string is added.
+	const elem = document.querySelector('body');
+	let CSSContent = window.getComputedStyle(elem, null).getPropertyValue("content");
 
-		// Gets the module and version from the url
-		const module = location.pathname.match(/o-colors(.*?)(?=\/)/g);
-		const reqUrl = 'https://origami-build.ft.com/v2/files/';
-		oReq.open('GET', ((location.pathname.indexOf('/local') !== -1) ? '../..' : reqUrl + module[0]) + '/src/scss/_' + type + '.scss', true);
+	// Remove backslashes and first and last characters (quotes)
+	// from string, then convert to object.
+	CSSContent = CSSContent.replace(/\\/gi, '').slice(1, -1);
+	const palette = JSON.parse(CSSContent);
 
-		oReq.onload = function() {
-			const src = this.responseText;
+	const swatches = document.querySelectorAll('.swatch');
 
-			// Extract the data
-			let m = src.match(/\$[\w\-]+\:\s*(?:map\-merge\()?\(\s*\n([^;]+);/);
+	for (let swatch of swatches) {
+		let oColor = swatch.getAttribute('data-o-color');
+		let hexInput = swatch.querySelector('.hex');
+		hexInput.value = palette[oColor];
 
-			// Split into lines
-			m[1].split('\n').forEach(function(rule) {
-				// Remove comments, quotes, leading and trailing whitespace (and trailing commas)
-				rule = rule.replace(/\/*[\s\S]*?\*\//g, '').replace(/\/\/.*/, '');
-				rule = rule.replace(/^\s+/, '').replace(/[,\s]+$/, '');
-				rule = rule.replace(/"/g, '').replace(/'/g, '');
+		if (clickToCopy) {
+			swatch.addEventListener('click', oColorsCopy, false);
+		}
+	}
 
-				if (type === 'palette') {
-					m = rule.split(/\s*:\s*/);
+	// AO: To be used at a later stage to do overlay tints demos
+	// populateTintDemos(palette, colorTints);
+}
 
-					if (m && m.length === 2) {
-						if (m[0] in palette) { return true; } // Don't output the color if it already has been
 
-						palette[m[0]] = m[1];
+function oColorsUseCases() {
+	const useCaseElems = document.querySelectorAll('.use-cases');
 
-						if (showtype === 'palette' && paletteExclusions.indexOf(m[1]) === -1) {
-							el.innerHTML += '<div data-o-grid-colspan="12 M6 L3" class="demo-sample">' +
-								'<div class="demo-swatch o-colors-palette-'+m[0]+'" title="' + rule + '"></div>' +
-									'<span class="demo-name">'+m[0]+'</span>' +
-									'<span class="demo-descrip">'+m[1]+'</span>' +
-								'</div>';
-						}
-					}
-				} else {
-					m = rule.match(/^([^\:]+)\:\s*\(([^\)]+)\)/);
-					if (m) {
-						if (m[2].match(/_deprecated\s*:/)) return true;
-						let op = '<div data-o-grid-colspan="12 M6 L3" class="demo-sample"><div class="demo-swatch';
-						const tips = [];
-						roles.forEach(function(role) {
-							const rolematch = (new RegExp(role+'\\s*:\\s*([\\w-]+),')).exec(m[2]+',');
-							if (rolematch) {
-								op += ' o-colors-'+m[1]+'-'+role;
-								tips.push(role+': '+rolematch[1]);
-							}
-						});
-						op += '" title="'+tips.join(', ')+'"></div><span class="demo-name">'+m[1]+'</span></div>';
-						el.innerHTML += op;
-					}
-				}
-			});
-			if (type === 'palette' && showtype === 'use-cases') {
-				return getData(showtype);
-			}
-			if (typeof OrigamiRegistry !== 'undefined') {
-				window.addEventListener('resize', OrigamiRegistry.resize, false);
-				OrigamiRegistry.resize();
-			}
-		};
-		oReq.send();
+	for(let elem of useCaseElems) {
+		const useCases = elem.textContent.split(', ');
+		elem.innerHTML = '';
+
+		for (let use of useCases) {
+			let useClass = 'demo-color-for-' + use;
+			elem.parentNode.classList.add(useClass);
+
+			let button = document.createElement('button');
+			button.textContent = use;
+			button.className = 'o-buttons o-buttons--small o-buttons--uncolored';
+			button.addEventListener('click', oColorsShowUseCases, false);
+			elem.appendChild(button);
+		}
+	};
+}
+
+function oColorsShowUseCases() {
+	const useCase = this.textContent;
+	const useCaseClass = '.demo-color-for-' + useCase;
+
+	const colors = document.querySelectorAll(useCaseClass);
+
+	demoColors.forEach((color) => {
+		color.classList.remove('use-case-active');
+	});
+
+	if (activeUseCase === useCase) {
+		wrappers.forEach((wrapper) => {
+			wrapper.classList.remove('use-cases-fade-out');
+		});
+		activeUseCase = '';
+		return;
+	}
+
+	wrappers.forEach((wrapper) => {
+		wrapper.classList.add('use-cases-fade-out');
+	});
+
+	colors.forEach((color) => {
+		color.classList.add('use-case-active');
+	});
+
+	activeUseCase = useCase;
+}
+
+/* AO: To be used at a later stage with overlay tint demos
+function populateTintDemos(palette, colors) {
+	const tints = colors.map((color) => {
+		let tintPalette = {'name': color};
+		tintPalette.tints = Object.keys(palette).filter((palette_color) => {
+			return palette_color.startsWith(color + '-');
+		});
+		return tintPalette;
+	});
+
+	tints.forEach((color) => {
+		let name = color.name;
+		let colorTints = color.tints;
+		let colorElem = document.querySelector('.swatch.o-colors-palette-' + name + ' .demo-tints-container');
+
+		let tintButton = document.querySelector('.demo-tint-button--' + name);
+		tintButton.addEventListener('click', oColorsShowTints, false);
+
+		colorTints.forEach((tint) => {
+			let tintDiv = document.createElement('div');
+			tintDiv.className = 'demo-tint o-colors-palette-' + tint;
+			colorElem.appendChild(tintDiv);
+		});
+	});
+}
+
+function oColorsShowTints() {
+	let tintContainer = this.closest('.demo-color').querySelector('.demo-tints-container');
+	tintContainer.classList.toggle('show-me');
+}
+*/
+
+function oColorsCopy(event) {
+	// find target element
+	let input = event.target.querySelector('.hex');
+	let parent = event.target;
+	if (input === null && event.target.localName === 'input') {
+		input = event.target.parentNode.querySelector('.hex');
+		parent = event.target.parentNode;
+	}
+
+	// is element selectable?
+	if (input && input.select) {
+		// select text
+		input.focus();
+		input.select();
+
+		try {
+			// copy text
+			document.execCommand('copy');
+			input.blur();
+			// Setting the class changes the :after content to read "Copied!"
+			parent.classList.add('copied');
+			// Remove the class after 2s
+			setTimeout(function() {
+				parent.classList.remove('copied');
+			}, 2000);
+
+		} catch (err) {}
 	}
 }
 
-window.addEventListener('DOMContentLoaded', function() {
-	if (document.getElementById('results')) {
-		loadDemo(document.getElementById('results').getAttribute('data-demo'));
+document.addEventListener('DOMContentLoaded', function() {
+	let randomInput = document.querySelectorAll('input')[0];
+	if (randomInput.select && document.execCommand) {
+		document.body.classList.add('o-copy-true');
+		clickToCopy = true;
 	}
-}, false);
+
+	oColorsDemoPalette();
+	oColorsUseCases();
+});

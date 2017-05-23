@@ -12,6 +12,7 @@
 /// @param {color} $color - Color (rgb, hex, hsl…)
 @mixin oColorsSetColor($name, $color) {
 	$newcolor: ($name: $color);
+
 	$o-colors-palette: map-merge($o-colors-palette, $newcolor) !global;
 }
 
@@ -50,7 +51,7 @@
 ///
 /// @param {String|list} $useCaseList
 /// @param {String|list} $propertyList [all]
-@mixin oColorsFor($useCaseList, $propertyList: all) {
+@mixin oColorsFor($useCaseList, $propertyList: all, $textLevel: 100) {
 	// Fail silently when a use case doesn't exist,
 	// taking advantage of how Sass treats the `null` keyword:
 	//
@@ -62,9 +63,56 @@
 		background-color: oColorsGetColorFor($useCaseList, background, $options: $args);
 	}
 	@if ($propertyList == 'all' or index($propertyList, 'text')) {
-		color: oColorsGetColorFor($useCaseList, text, $options: $args);
+		$useCaseTextColor: oColorsGetColorFor($useCaseList, text, $options: $args);
+		$useCaseBackgroundColor: oColorsGetColorFor($useCaseList, background, $options: $args);
+
+		// If no text color is defined but there is a background color for the use case
+		@if $useCaseTextColor == null and $useCaseBackgroundColor != null {
+			$useCaseTextColor: oColorsGetTextColor($useCaseBackgroundColor, $textLevel);
+		}
+
+		color: $useCaseTextColor;
 	}
 	@if ($propertyList == 'all' or index($propertyList, 'border')) {
 		border-color: oColorsGetColorFor($useCaseList, border, $options: $args);
+	}
+}
+
+/// Update the palette with calculated tints of
+/// each color from $o-colors-tints
+@mixin _oColorsSetPaletteTints {
+	@each $color, $settings in $o-colors-tints {
+		$hue: map-get($settings, 'hue');
+		$tints: map-get($settings, 'tints');
+
+		$saturation: null;
+
+		@if map-has-key($settings, 'saturation') {
+			$saturation: map-get($settings, 'saturation');
+		}
+
+		@if $tints != null {
+			@each $value in $tints {
+				$name: "#{$color}-#{$value}";
+				$tint: null;
+
+				@if $saturation == null {
+					$tint: oColorsMix($color, $percentage: $value);
+				} @else {
+					$tint: _oColorsHSB($hue, $saturation, $value);
+				}
+
+				@include oColorsSetColor($name, $tint);
+			}
+		}
+	}
+}
+
+/// Output all palette colors as CSS Variables
+@mixin _oColorsCSSVariables {
+	:root {
+		@each $name, $hex in $o-colors-palette {
+			#{--o-colors-}#{$name}: $hex;
+		}
 	}
 }

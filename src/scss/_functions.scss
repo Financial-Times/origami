@@ -3,7 +3,7 @@
 /// @link http://registry.origami.ft.com/components/o-colors
 ////
 
-/// Return the CSS color for a palette colour name
+/// Return the CSS color for a palette color name
 ///
 /// @param {String} $name
 @function oColorsGetPaletteColor($name) {
@@ -15,7 +15,28 @@
 	}
 }
 
-/// Return the defined palette colour name for a use case / property combination
+/// Returns a color based on the background context and base color
+/// at the supplied percentage
+///
+/// @param {String} $background [paper] - palette name of background color
+/// @param {String} $color [black] - palette name of color
+/// @param {Number} $percentage [60] - percentage opacity of the color over the background
+@function oColorsMix($color: 'black', $background: 'paper', $percentage: 80) {
+	$context: $background;
+	$base: $color;
+
+	@if type-of($background) != color {
+		$context: oColorsGetPaletteColor($background);
+	}
+
+	@if type-of($color) != color {
+		$base: oColorsGetPaletteColor($color);
+	}
+
+	@return mix($base, $context, $percentage);
+}
+
+/// Return the defined palette color name for a use case / property combination
 ///
 /// @access private
 ///
@@ -41,7 +62,7 @@
 	@return $color;
 }
 
-/// Return the CSS colour name of the first defined use case in a prioritised list for a use case / property combination
+/// Return the CSS color name of the first defined use case in a prioritised list for a use case / property combination
 ///
 /// @example scss
 /// // Single use case:
@@ -56,7 +77,7 @@
 /// .money-headline { color: oColorsGetColorFor(section-money); }
 ///
 /// // Assign a different fallback if the use case doesn't exist
-/// .foo { background-color: oColorsGetColorFor(foo, background, $options: ('default': 'pink-tint-1')); }
+/// .foo { background-color: oColorsGetColorFor(foo, background, $options: ('default': 'black-5')); }
 ///
 /// @param {list} $namelist
 /// @param {String} $property [all]
@@ -87,3 +108,52 @@
 
 	@return oColorsGetPaletteColor($color);
 }
+
+/// Returns a customised version of our shade-able colors defined in
+/// $o-colors-tints
+///
+/// @param {String} $color - the name of the color to be shaded
+/// @param {Number} $brightness - the brightness value of the new color
+@function oColorsGetTint($color, $brightness) {
+	$hue: null;
+	$saturation: null;
+	$mix: null;
+	$newcolor: null;
+
+	@if not (map-has-key($o-colors-tints, $color)) {
+		$color-tints: map-keys($o-colors-tints);
+		@error "It is not possible to use a tint of: #{$color}, please use one of: #{$color-tints} instead.";
+	}
+
+	@if (map-has-key(map-get($o-colors-tints, $color), 'hue')) {
+		$hue: map-get(map-get($o-colors-tints, $color), 'hue');
+		$saturation: map-get(map-get($o-colors-tints, $color), 'saturation');
+		$newcolor: _oColorsHSB($hue, $saturation, $brightness);
+	} @else {
+		$newcolor: oColorsMix($color, $percentage: $brightness);
+	}
+
+	@return $newcolor;
+}
+
+/// Returns a text color based on the background and
+/// an opacity percentage the color should appear at
+///
+/// @param {Color} $background - the hex color of the background the text will appear on
+/// @param {Number} $opacity [100] - the opacity percentage the text color should appear at
+@function oColorsGetTextColor($background, $opacity: 90) {
+	$baseColor: _oColorsGetTextBase($background);
+	$percentage: $opacity;
+
+	$textColor: oColorsMix($baseColor, $background, $percentage);
+	$testContrast: oColorsCheckContrast($textColor, $background, false);
+
+	@if not $testContrast {
+		@error "The combination of #{$opacity}% #{$baseColor} on #{$background} does not pass WCAG guidelines for color contrast.";
+	} @else if $testContrast == 'large' {
+		@warn "When using this combination (#{$opacity}% #{$baseColor} on #{$background}) please use a font size larger than 18px.";
+	}
+
+	@return $textColor;
+}
+

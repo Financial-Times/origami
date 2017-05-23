@@ -1,0 +1,129 @@
+{
+	"primary" : {
+		"description": "color is a fundamental attribute of the FT visual language. Consistent use of the primary palette across the platform strengthens our brand by evoking familiarity and trust.",
+		"colors": [
+			{
+				"name": "paper",
+				"tints": false,
+				"usage": "backgrounds"
+			},
+			{
+				"name": "black",
+				"tints": true,
+				"usage": "text, border, backgrounds, buttons, icons"
+			},
+			{
+				"name": "white",
+				"tints": true,
+				"usage": "text, border, backgrounds, buttons, icons"
+			},
+			{
+				"name": "claret",
+				"tints": true,
+				"usage": "text, border, backgrounds"
+			},
+			{
+				"name": "oxford",
+				"tints": true,
+				"usage": "text, backgrounds"
+			},
+			{
+				"name": "teal",
+				"tints": true,
+				"usage": "text, backgrounds, buttons, links"
+			}
+		]
+	},
+	"secondary" : {
+		"description": "Secondary colors provide visual hierarchy to differentiate content and are brand identifiers of the FT.",
+		"colors": [
+			{
+				"name": "wheat",
+				"usage": "backgrounds"
+			},
+			{
+				"name": "sky",
+				"usage": "backgrounds"
+			},
+			{
+				"name": "slate",
+				"usage": "backgrounds"
+			},
+			{
+				"name": "velvet",
+				"usage": "backgrounds"
+			},
+			{
+				"name": "mandarin",
+				"usage": "backgrounds, text"
+			},
+			{
+				"name": "lemon",
+				"usage": "backgrounds, text"
+			}
+		]
+	},
+	"tertiary" : {
+		"description": "Used sparingly, these colors provide contrast for highlighting and messaging.",
+		"colors": [
+			{
+				"name": "jade",
+				"usage": "backgrounds, text"
+			},
+			{
+				"name": "crimson",
+				"usage": "backgrounds, text"
+			},
+			{
+				"name": "candy",
+				"usage": "backgrounds, text"
+			},
+			{
+				"name": "wasabi",
+				"usage": "backgrounds, text"
+			}
+		]
+	},
+	"tints" : {
+		"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs.",
+		"colors": [
+			{
+				"name": "black",
+				"tint-levels": [5, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+			},
+			{
+				"name": "white",
+				"tint-levels": [10, 20, 40, 60, 80]
+			},
+			{
+				"name": "claret",
+				"tint-levels": [30, 40, 50, 60, 70, 80, 90, 100]
+			},
+			{
+				"name": "oxford",
+				"tint-levels": [30, 40, 50, 60, 70, 80, 90, 100]
+			},
+			{
+				"name": "teal",
+				"tint-levels": [20, 30, 40, 50, 60, 70, 80, 90, 100]
+			}
+		]
+	},
+	"b2c" : {
+		"description": "These colors are specifically designed for use in B2C products.",
+		"colors": [
+			{
+				"name": "org-b2c",
+				"usage": "backgrounds"
+			},
+			{
+				"name": "org-b2c-dark",
+				"usage": "backgrounds"
+			},
+			{
+				"name": "org-b2c-light",
+				"usage": "backgrounds"
+			}
+		]
+	}
+}

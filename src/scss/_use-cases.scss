@@ -3,15 +3,13 @@
 /// @link http://registry.origami.ft.com/components/o-colors
 ////
 
-$o-colors-usecases: () !default;
-
-/// Colour use cases
+/// color use cases
 ///
-/// These mappings define what we use our colours for.
+/// These mappings define what we use our colors for.
 ///
 /// Use case:           Must be a single word comprising just letters, numbers, and dashes.
 /// Properties:         A Sass map of properties (must be 'border', 'text', 'background', or 'all')
-///                     against palette colours (must be an exact match for a name of a colour defined
+///                     against palette colors (must be an exact match for a name of a color defined
 ///                     in palette.scss).
 ///
 /// Special properties: You can use the following special properties to mark use cases:
@@ -21,29 +19,34 @@ $o-colors-usecases: () !default;
 /// @type map
 $o-colors-usecases: map-merge((
 
-//<use case>                <properties>
+//	<use case>                <properties>
 
-	page:                     (background: 'pink', text: 'grey-tint5'),
-	box:                      (background: 'pink-tint1'),
-	link:                     (text: 'teal-1'),
-	link-hover:               (text: 'grey-tint4'),
-	link-title:               (text: 'grey-tint5'),
-	link-title-hover:         (text: 'blue'),
+	page:                     (background: 'paper'),
+	box:                      (background: 'wheat'),
+	link:                     (text: 'teal'),
+	link-hover:               (text: 'black-70'),
+	link-title:               (text: 'black-80'),
+	link-title-hover:         (text: 'black-70'),
 	tag-link:                 (text: 'claret'),
-	tag-link-hover:           (text: 'claret-inverse'),
+	tag-link-hover:           (text: 'claret-30'),
+	opinion-tag-link:         (text: 'oxford'),
+	opinion-tag-link-hover:   (text: 'oxford-30'),
 	title:                    (text: 'black'),
-	body:                     (text: 'grey-tint5'),
-	muted:                    (text: 'pink-tint3'),
-	product-brand:            (background: 'claret'),
+	body:                     (text: 'black-80'),
+	muted:                    (text: 'black-20'),
+	opinion:                  (background: 'sky'),
+	hero:                     (background: 'wheat'),
+	hero-opinion:             (background: 'oxford'),
+	hero-highlight:           (background: 'claret'),
 
-	// Section colours
-	section-life-arts:        (all: 'section-purple'),
-	section-life-arts-alt:    (all: 'section-light-purple'),
-	section-magazine:         (all: 'section-blue'),
-	section-magazine-alt:     (all: 'section-light-blue'),
-	section-house-home:       (all: 'section-green'),
-	section-house-home-alt:   (all: 'section-light-green'),
-	section-money:            (all: 'section-red'),
+	// Section colors
+	section-life-arts:        (all: 'velvet'),
+	section-life-arts-alt:    (all: 'candy'),
+	section-magazine:         (all: 'oxford'),
+	section-magazine-alt:     (all: 'sky'),
+	section-house-home:       (all: 'jade'),
+	section-house-home-alt:   (all: 'wasabi'),
+	section-money:            (all: 'crimson'),
 	section-money-alt:        (all: 'white'),
 
 ), $o-colors-usecases);
