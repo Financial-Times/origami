@@ -17,20 +17,19 @@
 }
 
 @mixin oTypographyCollectionHeader {
+	@include oTypographySans($scale: 3);
+	@include oTypographyPadding($top: 2);
+	@include oColorsFor('o-typography-headline');
 	position: relative;
-	padding-top: 8px;
-	font-family: $o-typography-sans;
-	font-size: 26px;
-	line-height: 28px;
-	color: rgba(#000, 0.8);
-	border-top: 8px solid rgba(#000, 0.05);
+	border-top: oTypographySpacingSize(2) solid oColorsMix($percentage: 50);
 
 	&:before {
 		content: '';
 		display: block;
 		position: absolute;
-		top: -8px;
+		top: oTypographySpacingSize(2) * -1;
+		left: 0;
 		width: 50%;
-		border-top: 8px solid #000;
+		border-top: oTypographySpacingSize(2) solid oColorsGetPaletteColor('black');
 	}
 }

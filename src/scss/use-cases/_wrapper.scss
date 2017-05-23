@@ -11,7 +11,7 @@
 @mixin oTypographyWrapper {
 	h1 {
 		// Article headline
-		@include oTypographyHeadLine;
+		@include oTypographyHeadline;
 	}
 
 	h2 {
@@ -48,7 +48,7 @@
 	}
 
 	ol {
-		@include oTypographyOrderedList;
+		@include oTypographyListOrdered;
 	}
 
 	ul {

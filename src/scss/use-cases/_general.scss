@@ -5,10 +5,18 @@
 
 /// Subscript text
 @mixin oTypographySub {
-	@include oTypographySans(s);
+	@include oTypographySans(-2);
 	display: inline-block;
 	margin-bottom: -5px;
 	vertical-align: sub;
+}
+
+/// Superscript text
+@mixin oTypographySuper {
+	@include oTypographySans(-2);
+	display: inline-block;
+	margin-top: -3px;
+	vertical-align: super;
 }
 
 /// Link styles
@@ -16,21 +24,19 @@
 	@include oColorsFor(link, text);
 	text-decoration: none;
 	cursor: pointer;
-	border-bottom: 1px dotted oColorsGetColorFor(link, text);
+	border-bottom: 2px solid oColorsGetColorFor(link, text);
 
-	#{$o-hoverable-if-hover-enabled} &:hover,
+	&:hover,
 	&:focus {
 		@include oColorsFor(link-hover, text);
 		border-bottom-color: transparent;
 	}
-}
 
-/// Superscript text
-@mixin oTypographySuper {
-	@include oTypographySans(s);
-	display: inline-block;
-	margin-top: -3px;
-	vertical-align: super;
+	&:focus {
+        outline: 3px solid oColorsGetTint('teal', 100);
+        outline-offset: 0;
+        background-color: oColorsGetTint('teal', 100);
+    }
 }
 
 /// Make something italic
@@ -40,13 +46,11 @@
 
 /// Styling for <ul> and <ol>
 @mixin oTypographyList {
-	margin-top: 0;
-	margin-bottom: 28px;
+	@include oTypographyMargin($top: 0, $bottom: 7);
 
 	li {
-		margin-top: 0;
-		margin-bottom: 0;
-		line-height: 28px;
+		@include oTypographyMargin($top: 0, $bottom: 0);
+		line-height: oTypographySpacingSize(7);
 	}
 }
 

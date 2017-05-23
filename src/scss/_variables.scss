@@ -17,7 +17,7 @@ $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;
 
 /// Serif font-family
 /// @type String
-$o-typography-serif: oFontsGetFontFamilyWithFallbacks(FinancierTextWeb) !default;
+$o-typography-serif: Georgia, serif !default;
 
 /// Display font-family
 /// @type String

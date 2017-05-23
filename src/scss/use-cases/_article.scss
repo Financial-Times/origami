@@ -45,10 +45,7 @@
 }
 
 @mixin oTypographyCaption {
-	margin-top: 0;
-	margin-bottom: 0;
-	font-family: $o-typography-sans;
-	font-size: 14px;
-	line-height: 16px;
-	color: rgba(#000, 0.6);
+	@include oTypographySans($scale: -1);
+	@include oTypographyMargin($top: 0, $bottom: 0);
+	@include oColorsFor('o-typography-caption');
 }
