@@ -4,27 +4,27 @@
 ////
 
 
-/// Colour palette
+/// color palette
 ///
-/// These are the colours that make up the FT palette.
-/// We don't use these colours directly, but instead assign them to 'use cases',
+/// These are the colors that make up the FT palette.
+/// We don't use these colors directly, but instead assign them to 'use cases',
 /// which are defined in use-cases.scss.
 ///
-/// In the list below, each line contains a colour name and a colour code,
+/// In the list below, each line contains a color name and a color code,
 /// and is finished with a comma:
 ///
-/// 	<colour name>:   <colour code>,
+/// 	<color name>:   <color code>,
 ///
-/// The colour name must be a single word comprising just letters,
+/// The color name must be a single word comprising just letters,
 /// numbers, and dashes.
 ///
-/// You can have as many spaces between the colour name and the colour code
+/// You can have as many spaces between the color name and the color code
 /// as you like (so you can line them up neatly), and you *MUST* finish the
 /// line with a comma.
 ///
 /// @type map
 $o-colors-palette: map-merge((
-	// non-colour css values
+	// non-color css values
 	'transparent':           transparent,
 	'inherit':               inherit,
 

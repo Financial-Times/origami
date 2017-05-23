@@ -1,7 +1,7 @@
 /// Return either white or black for the text base
-/// depending on the background colour
+/// depending on the background color
 ///
-/// @param {String} $color - the name of the background colour being used
+/// @param {String} $color - the name of the background color being used
 @function _oColorsGetTextBase($color) {
 	@if oColorsColorBrightness($color) < 65% {
 		@return 'white';
@@ -14,8 +14,8 @@
 /// rating, either AAA, AA, or AA18 meaning text should
 /// be at least 18px
 ///
-/// @param {Color} $col1 - first colour to compare
-/// @param {Color} $col2 - second colour to compare
+/// @param {Color} $col1 - first color to compare
+/// @param {Color} $col2 - second color to compare
 @function oColorsGetWCAGRating($col1, $col2) {
 	$ratio: oColorsGetContrastRatio($col1, $col2);
 	$wcag-rating: 'fail';
@@ -31,11 +31,11 @@
 	@return $wcag-rating;
 }
 
-/// Checks the constrast of two colours and reports based on
-/// WCAG guidelines for colour contrast
+/// Checks the constrast of two colors and reports based on
+/// WCAG guidelines for color contrast
 ///
-/// @param {Color} $col1 - first colour to compare
-/// @param {Color} $col2 - second colour to compare
+/// @param {Color} $col1 - first color to compare
+/// @param {Color} $col2 - second color to compare
 /// @param {Boolean} $warnings - whether this function should throw warnings/errors or just return
 @function oColorsCheckContrast($col1, $col2, $warnings: true) {
 	$ratio: oColorsGetContrastRatio($col1, $col2);

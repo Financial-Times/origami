@@ -66,7 +66,7 @@
 		$useCaseTextColor: oColorsGetColorFor($useCaseList, text, $options: $args);
 		$useCaseBackgroundColor: oColorsGetColorFor($useCaseList, background, $options: $args);
 
-		// If no text colour is defined but there is a background colour for the use case
+		// If no text color is defined but there is a background color for the use case
 		@if $useCaseTextColor == null and $useCaseBackgroundColor != null {
 			$useCaseTextColor: oColorsGetTextColor($useCaseBackgroundColor, $textLevel);
 		}

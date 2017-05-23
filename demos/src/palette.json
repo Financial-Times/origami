@@ -1,6 +1,6 @@
 {
 	"primary" : {
-		"description": "Colour is a fundamental attribute of the FT visual language. Consistent use of the primary palette across the platform strengthens our brand by evoking familiarity and trust.",
+		"description": "color is a fundamental attribute of the FT visual language. Consistent use of the primary palette across the platform strengthens our brand by evoking familiarity and trust.",
 		"colors": [
 			{
 				"name": "paper",
@@ -35,7 +35,7 @@
 		]
 	},
 	"secondary" : {
-		"description": "Secondary colours provide visual hierarchy to differentiate content and are brand identifiers of the FT.",
+		"description": "Secondary colors provide visual hierarchy to differentiate content and are brand identifiers of the FT.",
 		"colors": [
 			{
 				"name": "wheat",
@@ -64,7 +64,7 @@
 		]
 	},
 	"tertiary" : {
-		"description": "Used sparingly, these colours provide contrast for highlighting and messaging.",
+		"description": "Used sparingly, these colors provide contrast for highlighting and messaging.",
 		"colors": [
 			{
 				"name": "jade",
@@ -110,7 +110,7 @@
 		]
 	},
 	"b2c" : {
-		"description": "These colours are specifically designed for use in B2C products.",
+		"description": "These colors are specifically designed for use in B2C products.",
 		"colors": [
 			{
 				"name": "org-b2c",

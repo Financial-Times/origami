@@ -19,7 +19,7 @@
 
 /// Work out the brightness value in % of a color
 ///
-/// @param {Color} $color - colour value to get brightness from
+/// @param {Color} $color - color value to get brightness from
 /// From: https://gist.github.com/jlong/f06f5843104ee10006fe
 @function oColorsColorBrightness($color) {
 	$red-magic-number: 241;
@@ -71,8 +71,8 @@
 
 /// Calculate the contrast ratio between two colors
 ///
-/// @param {Color} $col1 - first colour to compare
-/// @param {Color} $col2 - second colour to compare
+/// @param {Color} $col1 - first color to compare
+/// @param {Color} $col2 - second color to compare
 /// Based on the JS in https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/contrast-ratio.js
 @function oColorsGetContrastRatio($col1, $col2) {
 	$l1: oColorsColorLuminance($col1) + 0.05;

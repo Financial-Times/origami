@@ -3,7 +3,7 @@
 /// @link http://registry.origami.ft.com/components/o-colors
 ////
 
-/// Return the CSS color for a palette colour name
+/// Return the CSS color for a palette color name
 ///
 /// @param {String} $name
 @function oColorsGetPaletteColor($name) {
@@ -15,12 +15,12 @@
 	}
 }
 
-/// Returns a colour based on the background context and base color
+/// Returns a color based on the background context and base color
 /// at the supplied percentage
 ///
 /// @param {String} $background [paper] - palette name of background color
 /// @param {String} $color [black] - palette name of color
-/// @param {Number} $percentage [60] - percentage opacity of the colour over the background
+/// @param {Number} $percentage [60] - percentage opacity of the color over the background
 @function oColorsMix($color: 'black', $background: 'paper', $percentage: 80) {
 	$context: $background;
 	$base: $color;
@@ -36,7 +36,7 @@
 	@return mix($base, $context, $percentage);
 }
 
-/// Return the defined palette colour name for a use case / property combination
+/// Return the defined palette color name for a use case / property combination
 ///
 /// @access private
 ///
@@ -62,7 +62,7 @@
 	@return $color;
 }
 
-/// Return the CSS colour name of the first defined use case in a prioritised list for a use case / property combination
+/// Return the CSS color name of the first defined use case in a prioritised list for a use case / property combination
 ///
 /// @example scss
 /// // Single use case:
@@ -136,11 +136,11 @@
 	@return $newcolor;
 }
 
-/// Returns a text colour based on the background and
-/// an opacity percentage the colour should appear at
+/// Returns a text color based on the background and
+/// an opacity percentage the color should appear at
 ///
 /// @param {Color} $background - the hex color of the background the text will appear on
-/// @param {Number} $opacity [100] - the opacity percentage the text colour should appear at
+/// @param {Number} $opacity [100] - the opacity percentage the text color should appear at
 @function oColorsGetTextColor($background, $opacity: 90) {
 	$baseColor: _oColorsGetTextBase($background);
 	$percentage: $opacity;

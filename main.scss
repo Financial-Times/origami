@@ -12,7 +12,7 @@
 // Set the tint palette colors programatically
 @include _oColorsSetPaletteTints;
 
-// If noisy, output helper classes for use cases and palette colours
+// If noisy, output helper classes for use cases and palette colors
 @if ($o-colors-is-silent == false) {
 	@include _oColorsCSSVariables;
 

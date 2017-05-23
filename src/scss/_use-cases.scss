@@ -3,13 +3,13 @@
 /// @link http://registry.origami.ft.com/components/o-colors
 ////
 
-/// Colour use cases
+/// color use cases
 ///
-/// These mappings define what we use our colours for.
+/// These mappings define what we use our colors for.
 ///
 /// Use case:           Must be a single word comprising just letters, numbers, and dashes.
 /// Properties:         A Sass map of properties (must be 'border', 'text', 'background', or 'all')
-///                     against palette colours (must be an exact match for a name of a colour defined
+///                     against palette colors (must be an exact match for a name of a color defined
 ///                     in palette.scss).
 ///
 /// Special properties: You can use the following special properties to mark use cases:
@@ -39,7 +39,7 @@ $o-colors-usecases: map-merge((
 	hero-opinion:             (background: 'oxford'),
 	hero-highlight:           (background: 'claret'),
 
-	// Section colours
+	// Section colors
 	section-life-arts:        (all: 'velvet'),
 	section-life-arts-alt:    (all: 'candy'),
 	section-magazine:         (all: 'oxford'),
