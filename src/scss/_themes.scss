@@ -29,11 +29,11 @@
 		position: absolute;
 		top: 0;
 		left: 50%;
+		margin-left: -50vw;
 		z-index: -1;
 		width: 100vw;
 		height: 100%;
 		background-color: $colour;
-		transform: translateX(-50%);
 	}
 }
 
@@ -46,8 +46,12 @@
 		margin-bottom: 0;
 		padding-left: 10px;
 
+		// this adapts to fit the screen based on left o-grid-row margins
 		&:after {
-			left: 52%;
+			margin-left: calc(-50vw + 5px);
+			@include oGridRespondTo(M) {
+				margin-left: calc(-50vw + 10px);
+			};
 		}
 
 		// modifies borders when stacked(S) and horizontal(M+)
@@ -63,7 +67,7 @@
 				padding: 0 10px;
 			};
 
-			&:nth-child(4) {
+			&:last-child {
 				border: 0;
 			}
 
