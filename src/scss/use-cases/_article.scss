@@ -1,11 +1,3 @@
-/// Style for timestamps
-@mixin oTypographyTimestamp {
-  @include oTypographySans($scale: -1);
-  @include oColorsFor(o-typography-timestamp);
-  text-transform: uppercase;
-}
-
-
 /// Body text styles
 @mixin oTypographyBody {
 	@include oTypographySerif($scale: 1, $line-height: 28px);
@@ -13,9 +5,50 @@
 	@include oColorsFor('o-typography-body')
 }
 
-/// Standfirst
+/// Style for timestamps
+@mixin oTypographyTimestamp {
+  @include oTypographySans($scale: -1);
+  @include oColorsFor(o-typography-timestamp);
+  text-transform: uppercase;
+}
+
+/// Article Standfirst styles
 @mixin oTypographyStandfirst {
 	@include oTypographySans($scale: 2);
 	@include oTypographyMargin($top: 0, $bottom: 0);
 	@include oColorsFor('o-typography-standfirst');
+}
+
+/// Article Topic styles
+@mixin oTypographyTopic {
+	@include oTypographySansBold(1);
+	@include oColorsFor(tag-link, text);
+	text-decoration: none;
+	display: inline;
+
+	&:hover {
+		@include oColorsFor(tag-link-hover, text);
+	}
+
+	a {
+		color: inherit;
+		cursor: pointer;
+	}
+
+	span {
+		font-weight: 400;
+	}
+}
+
+/// Style for <footer> tags
+@mixin oTypographyFooter {
+}
+
+@mixin oTypographyCaption {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: $o-typography-sans;
+	font-size: 14px;
+	line-height: 16px;
+	color: rgba(#000, 0.6);
 }

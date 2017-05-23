@@ -1,0 +1,36 @@
+@mixin oTypographyReadNext {
+	@include oTypographySansBold($scale: 1);
+	@include oTypographyMargin($top: 0, $bottom: 2);
+	color: oColorsGetPaletteColor('black');
+
+	&:after {
+		@include oTypographyPadding($top: 1);
+		content: '';
+		display: block;
+		width: 60px;
+		border-bottom: oTypographyGetSpacingSize(1) solid oColorsGetPaletteColor('black');
+	}
+}
+
+/// Style for big-numbers
+@mixin oTypographyBigNumber {
+}
+
+@mixin oTypographyCollectionHeader {
+	position: relative;
+	padding-top: 8px;
+	font-family: $o-typography-sans;
+	font-size: 26px;
+	line-height: 28px;
+	color: rgba(#000, 0.8);
+	border-top: 8px solid rgba(#000, 0.05);
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: -8px;
+		width: 50%;
+		border-top: 8px solid #000;
+	}
+}

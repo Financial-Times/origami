@@ -14,8 +14,11 @@
 
 @import 'src/scss/type-mixins';
 
+@import 'src/scss/use-cases/general';
 @import 'src/scss/use-cases/headings';
 @import 'src/scss/use-cases/article';
+@import 'src/scss/use-cases/asides';
+@import 'src/scss/use-cases/wrapper';
 
 
 @if $o-typography-is-silent == false {
@@ -49,107 +52,75 @@
 		@include oTypographyHeadingLevel5;
 	}
 
-
 	// // Body copy - common
-	// .o-typography-bold {
-	// 	@include oTypographyBold;
-	// }
-	// .o-typography-italic {
-	// 	@include oTypographyItalic;
-	// }
-	// .o-typography-sup {
-	// 	@include oTypographySuper;
-	// }
-	// .o-typography-sub {
-	// 	@include oTypographySub;
-	// }
-	// .o-typography-link {
-	// 	@include oTypographyLink;
-	// }
-	// .o-typography-caption {
-	// 	@include oTypographyCaption;
-	// }
+	.o-typography-bold {
+		@include oTypographyBold;
+	}
 
-	// /// DEPRECATE THIS IN V5
-	// .o-typography-flyline {
-	// 	@include oTypographyFlyline;
-	// }
+	.o-typography-italic {
+		@include oTypographyItalic;
+	}
 
-	// .o-typography-link-topic {
-	// 	@include oTypographyLinkTopic;
-	// }
+	.o-typography-sup {
+		@include oTypographySuper;
+	}
+	.o-typography-sub {
+		@include oTypographySub;
+	}
 
-	// .o-typography-link-topic--medium {
-	// 	@include oTypographyLinkTopicMedium;
-	// }
+	.o-typography-link {
+		@include oTypographyLink;
+	}
 
-	// // Body copy - general
-	// .o-typography-body {
-	// 	@include oTypographyBody;
-	// }
-	// .o-typography-lead {
-	// 	@include oTypographyLead;
-	// }
-	// .o-typography-lead--small {
-	// 	@include oTypographyLeadSmall;
-	// }
-	// .o-typography-block {
-	// 	@include oTypographyBodyBlock;
-	// }
-	// .o-typography-list {
-	// 	@include oTypographyList;
-	// }
-	// .o-typography-list--ordered {
-	// 	@include oTypographyListOrdered;
-	// }
-	// .o-typography-list--unordered {
-	// 	@include oTypographyListUnordered;
-	// }
-	// .o-typography-footer {
-	// 	@include oTypographyFooter;
-	// }
-	// .o-typography-blockquote {
-	// 	@include oTypographyBlockquote;
-	// }
-	// .o-typography-big-number {
-	// 	@include oTypographyBigNumber;
-	// }
-	// .o-typography-aside__title {
-	// 	@include oTypographyAsideTitle;
-	// }
-	// .o-typography-aside__title--large {
-	// 	@include oTypographyAsideTitleLarge;
-	// }
-	// .o-typography-aside__headline {
-	// 	@include oTypographyAsideHeadline;
-	// }
-	// .o-typography-aside__headline--small {
-	// 	@include oTypographyAsideHeadlineSmall;
-	// }
-	// .o-typography-aside__headline--large {
-	// 	@include oTypographyAsideHeadlineLarge;
-	// }
-	// .o-typography-aside__body {
-	// 	@include oTypographyAsideBody;
-	// }
-	// .o-typography-aside__body--small {
-	// 	@include oTypographyAsideBodySmall;
-	// }
+	.o-typography-caption {
+		@include oTypographyCaption;
+	}
 
-	// // Timestamps usecase
-	// .o-typography-timestamp {
-	// 	@include oTypographyTimestamp;
-	// }
+	.o-typography-topic {
+		@include oTypographyTopic;
+	}
 
-	// // Body wrapper
-	// .o-typography-body-wrapper {
-	// 	@include oTypographyBodyWrapper;
-	// }
+	.o-typography-body {
+		@include oTypographyBody;
+	}
 
-	// // Aside wrapper
-	// .o-typography-aside-wrapper {
-	// 	@include oTypographyAsideWrapper;
-	// }
+	.o-typography-standfirst {
+		@include oTypographyStandfirst;
+	}
+
+	.o-typography-list {
+		@include oTypographyList;
+	}
+
+	.o-typography-list--ordered {
+		@include oTypographyListOrdered;
+	}
+
+	.o-typography-list--unordered {
+		@include oTypographyListUnordered;
+	}
+
+	.o-typography-footer {
+		@include oTypographyFooter;
+	}
+
+	.o-typography-blockquote {
+		@include oTypographyBlockquote;
+	}
+
+	.o-typography-big-number {
+		@include oTypographyBigNumber;
+	}
+
+	// Timestamps usecase
+	.o-typography-timestamp {
+		@include oTypographyTimestamp;
+	}
+
+	// Body wrapper
+	.o-typography-wrapper {
+		@include oTypographyWrapper;
+	}
 
 	// Don't output twice
 	$o-typography-is-silent: true !global;
