@@ -29,6 +29,7 @@ function oColorsDemoPalette() {
 		}
 	}
 
+	// AO: To be used at a later stage to do overlay tints demos
 	// populateTintDemos(palette, colorTints);
 }
 
@@ -58,7 +59,6 @@ function oColorsShowUseCases() {
 	const useCaseClass = '.demo-color-for-' + useCase;
 
 	const colors = document.querySelectorAll(useCaseClass);
-	// const activeUseCases = document.querySelectorAll('.use-case-active');
 
 	demoColors.forEach((color) => {
 		color.classList.remove('use-case-active');
