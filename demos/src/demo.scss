@@ -28,7 +28,7 @@ html {
 
 	&__label {
 		@include oTypographySans(1);
-		color: oColorsGetPaletteColor('grey-tint3');
+		color: oColorsGetPaletteColor('black-60');
 		display: inline-block;
 		width: 20px;
 		padding-left: 5px;
