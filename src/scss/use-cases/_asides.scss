@@ -14,6 +14,8 @@
 
 /// Style for big-numbers
 @mixin oTypographyBigNumber {
+	@include oTypographySansBold($scale: 10);
+	@include oColorsFor('o-typography-body');
 }
 
 @mixin oTypographyCollectionHeader {
