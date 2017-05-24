@@ -419,7 +419,53 @@ v5 also removes the following mixins:
 
 #### CSS classes
 
-// Todo
+v5 introduces several changes to the CSS classes that are available. Whether using the build service or Sass with silent mode switch off you will need to update to the new classnames. The following diff shows removed class and what classname you should use instead, if available.
+
+```diff
+- .o-typography-block
++ .o-typography-body
+
+- .o-typography-lead
+- .o-typography-lead--small
++ .o-typography-standfirst
+
+- o-typography-heading1
++ o-typography-headline
+
+- o-typography-heading2
++ o-typography-heading-level-2
+
+- o-typography-heading3
++ o-typography-heading-level-3
+
+- o-typography-heading4
++ o-typography-heading-level-4
+
+- o-typography-heading5
++ o-typography-heading-level-5
+
+- .o-typography-link-topic
+- .o-typography-link-topic--medium
++ .o-typography-topic
+
+- .o-typography-body-wrapper
++ .o-typography-wrapper
+
+
+// The following classnames do not have like-for-like replacements
+- .o-typography-flyline
+- .o-typography-subhead
+- .o-typography-subhead--standard
+- .o-typography-subhead--crosshead
+- .o-typography-aside__title
+- .o-typography-aside__title--large
+- .o-typography-aside__headline
+- .o-typography-aside__headline--small
+- .o-typography-aside__headline--large
+- .o-typography-aside__body
+- .o-typography-aside__body--small
+- .o-typography-aside-wrapper
+```
 
 ---
 
