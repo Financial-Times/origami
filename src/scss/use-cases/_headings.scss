@@ -11,19 +11,17 @@
 	font-weight: 400; // Browser default a h# to bold...
 }
 
+/// Large headline styles with an underline
 @mixin oTypographyHeadlineLarge {
 	@include oTypographyDisplayBold($scale: 8);
 	@include oTypographyMargin($top: 0, $bottom: 7);
 	@include oColorsFor('o-typography-headline');
-	@include oTypographyUnderLine($width: 180px, $padding: 5);
-}
 
-@mixin oTypographyUnderLine($width, $padding) {
 	&:after {
-		@include oTypographyPadding($top: $padding, $bottom: 0);
+		@include oTypographyPadding($top: 5, $bottom: 0);
 		content: '';
 		display: block;
-		width: $width;
+		width: 180px;
 		border-bottom: oTypographySpacingSize($units: 2) solid oColorsGetPaletteColor('black');
 	}
 }
