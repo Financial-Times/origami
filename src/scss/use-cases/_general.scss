@@ -100,7 +100,8 @@
 	}
 }
 
-/// Style for <blockquote> tags
+/// Style for <blockquote> tags including `p`
+/// and `footer` elements
 @mixin oTypographyBlockquote {
 	margin-left: 0;
 	padding-left: oTypographySpacingSize($units: 4);

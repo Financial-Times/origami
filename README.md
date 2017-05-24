@@ -42,26 +42,26 @@ This scale makes up all typographic styles available through o-typography. It is
 
 #### Using CSS classes
 
-The predefined CSS classes in o-typography are available when using the [build service](#) or in [Sass](#sass) when silent-mode is set to `false`.
+The predefined CSS classes in o-typography are available when using the [build service](https://www.ft.com/__origami/service/build/v2/) or in [Sass](#sass) when silent-mode is set to `false`.
 
-All classes provided by o-typography come prefixed with 'o-typography-'; for example `o-typography-heading`. Classes do not depend on specific HTML, but we encourage developers to select semantic elements.
+All classes provided by o-typography come prefixed with 'o-typography-'; for example `o-typography-headline`. Classes do not depend on specific HTML, but we encourage developers to select semantic elements.
 
 Example:
 
 ```html
-<h2 class="o-typography-heading2">Heading medium</h2>
+<h2 class="o-typography-heading-level-2">Heading medium</h2>
 ```
 
-See the [demos]() for a full list of the classes provided and their effects.
+See the [demos](http://registry.origami.ft.com/components/o-typography#section-demos) for a full list of the classes provided and their effects.
 
 #### Wrappers
 
-Wrappers reduce the need for developers to apply styles to specific elements. By using a wrapper, body styles get applied to the HTML element and descendent typographic elements: h1, h2, h3, h4, h5, p, a, blockquote, footer, aside, strong, em, small, sup, sub, ul, ol, li.
+Wrappers reduce the need for developers to apply styles to specific elements. By using a wrapper, body styles get applied to the HTML element and descendent typographic elements: h1, h2, h3, h4, h5, p, a, blockquote, footer, strong, em, small, sup, sub, ul, ol, li.
 
 Example:
 
 ```html
-<div class="o-typography-body-wrapper">
+<div class="o-typography-wrapper">
 	<h2>Heading medium</h2>
 	<p>Body block with <strong>styled inline text</strong>.</p>
 	<h3>Heading small</h3>
@@ -419,7 +419,53 @@ v5 also removes the following mixins:
 
 #### CSS classes
 
-// Todo
+v5 introduces several changes to the CSS classes that are available. Whether using the build service or Sass with silent mode switch off you will need to update to the new classnames. The following diff shows removed class and what classname you should use instead, if available.
+
+```diff
+- .o-typography-block
++ .o-typography-body
+
+- .o-typography-lead
+- .o-typography-lead--small
++ .o-typography-standfirst
+
+- o-typography-heading1
++ o-typography-headline
+
+- o-typography-heading2
++ o-typography-heading-level-2
+
+- o-typography-heading3
++ o-typography-heading-level-3
+
+- o-typography-heading4
++ o-typography-heading-level-4
+
+- o-typography-heading5
++ o-typography-heading-level-5
+
+- .o-typography-link-topic
+- .o-typography-link-topic--medium
++ .o-typography-topic
+
+- .o-typography-body-wrapper
++ .o-typography-wrapper
+
+
+// The following classnames do not have like-for-like replacements
+- .o-typography-flyline
+- .o-typography-subhead
+- .o-typography-subhead--standard
+- .o-typography-subhead--crosshead
+- .o-typography-aside__title
+- .o-typography-aside__title--large
+- .o-typography-aside__headline
+- .o-typography-aside__headline--small
+- .o-typography-aside__headline--large
+- .o-typography-aside__body
+- .o-typography-aside__body--small
+- .o-typography-aside-wrapper
+```
 
 ---
 
