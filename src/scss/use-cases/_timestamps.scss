@@ -1,6 +1,0 @@
-/// Style for timestamps
-@mixin oTypographyTimestamp {
-  @include oTypographySans(xs);
-  @include oColorsFor(o-typography-timestamp);
-  text-transform: uppercase;
-}
