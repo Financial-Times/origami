@@ -33,10 +33,10 @@
 	}
 
 	&:focus {
-        outline: 3px solid oColorsGetTint('teal', 100);
-        outline-offset: 0;
-        background-color: oColorsGetTint('teal', 100);
-    }
+		outline: 3px solid oColorsGetTint('teal', 100);
+		outline-offset: 0;
+		background-color: oColorsGetTint('teal', 100);
+	}
 }
 
 /// Make something italic
@@ -49,17 +49,54 @@
 	@include oTypographyMargin($top: 0, $bottom: 7);
 
 	li {
-		@include oTypographyMargin($top: 0, $bottom: 0);
-		line-height: oTypographySpacingSize(7);
+		@include oTypographyBody;
 	}
 }
 
 /// Styles for <ol> tags
 @mixin oTypographyListOrdered {
+	padding-left: 0;
+
+	// Counter-increment/counter-reset is not supported in
+	// <IE8, so use browserhack to only target supported browsers
+	:root & {
+		counter-reset: item;
+
+		li {
+			display: block;
+
+			&:before {
+				@include oTypographySansBold($scale: 2);
+				@include oColorsFor('o-typography-list-prefix');
+				display: inline-block;
+				width: oTypographySpacingSize($units: 5);
+				margin-right: oTypographySpacingSize($units: 3);
+				content: counter(item);
+				counter-increment: item;
+			}
+		}
+	}
 }
 
 /// Styles for <ul> tags
 @mixin oTypographyListUnordered {
+	padding-left: 0;
+
+	li {
+		display: block;
+		position: relative;
+		padding-left: oTypographySpacingSize($units: 8);
+
+		&:before {
+			@include oColorsFor('o-typography-list-prefix');
+			display: inline-block;
+			position: absolute;
+			content: '\2022';
+			top: -1px;
+			left: 0;
+			font-size: 28px;
+		}
+	}
 }
 
 /// Style for <blockquote> tags
