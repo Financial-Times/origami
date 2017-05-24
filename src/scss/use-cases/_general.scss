@@ -24,18 +24,17 @@
 	@include oColorsFor(link, text);
 	text-decoration: none;
 	cursor: pointer;
-	border-bottom: 2px solid oColorsGetColorFor(link, text);
+	border-bottom: 2px solid oColorsMix($color: oColorsGetColorFor(link, text), $percentage: 20);
 
 	&:hover,
 	&:focus {
-		@include oColorsFor(link-hover, text);
-		border-bottom-color: transparent;
+		color: oColorsGetPaletteColor('teal-30');
+		border-bottom-color: oColorsMix($color: oColorsGetColorFor(link, text), $percentage: 40);
 	}
 
 	&:focus {
-		outline: 3px solid oColorsGetTint('teal', 100);
-		outline-offset: 0;
-		background-color: oColorsGetTint('teal', 100);
+		outline: 3px solid oColorsGetPaletteColor('teal');
+		border-bottom-color: transparent;
 	}
 }
 
@@ -91,10 +90,10 @@
 			@include oColorsFor('o-typography-list-prefix');
 			display: inline-block;
 			position: absolute;
-			content: '\2022';
-			top: -1px;
+			content: '\2022'; // dot character
+			top: -3px; // magic number alignment
 			left: 0;
-			font-size: 28px;
+			font-size: oTypographySpacingSize($units: 10);
 		}
 	}
 }
