@@ -39,7 +39,7 @@
 
 /// Level 3 heading styles
 @mixin oTypographyHeadingLevel3 {
-	@include oTypographyDisplay(4);
+	@include oTypographyDisplay($scale: 4);
 	@include oTypographyMargin($top: 0, $bottom: 0);
 	@include oColorsFor('o-typography-headline');
 	font-weight: 400;
@@ -47,7 +47,7 @@
 
 /// Level 4 heading styles
 @mixin oTypographyHeadingLevel4 {
-	@include oTypographyDisplay(3);
+	@include oTypographyDisplay($scale: 3);
 	@include oTypographyMargin($top: 0, $bottom: 0);
 	@include oColorsFor('o-typography-headline');
 	font-weight: 400;
@@ -55,7 +55,7 @@
 
 /// Level 5 heading styles
 @mixin oTypographyHeadingLevel5 {
-	@include oTypographyDisplay(2);
+	@include oTypographyDisplay($scale: 2);
 	@include oTypographyMargin($top: 0, $bottom: 0);
 	@include oColorsFor('o-typography-headline');
 	font-weight: 400;
