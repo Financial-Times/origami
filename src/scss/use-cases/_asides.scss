@@ -8,7 +8,7 @@
 		content: '';
 		display: block;
 		width: 60px;
-		border-bottom: oTypographyGetSpacingSize(1) solid oColorsGetPaletteColor('black');
+		border-bottom: oTypographySpacingSize(1) solid oColorsGetPaletteColor('black');
 	}
 }
 
@@ -21,7 +21,7 @@
 	@include oTypographyPadding($top: 2);
 	@include oColorsFor('o-typography-headline');
 	position: relative;
-	border-top: oTypographySpacingSize(2) solid oColorsMix($percentage: 50);
+	border-top: oTypographySpacingSize(2) solid oColorsMix($percentage: 20);
 
 	&:before {
 		content: '';

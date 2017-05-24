@@ -52,6 +52,14 @@
 		@include oTypographyHeadingLevel5;
 	}
 
+	.o-typography-read-next {
+		@include oTypographyReadNext;
+	}
+
+	.o-typography-collection-heading {
+		@include oTypographyCollectionHeader;
+	}
+
 	// // Body copy - common
 	.o-typography-bold {
 		@include oTypographyBold;
