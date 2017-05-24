@@ -1,0 +1,117 @@
+////
+/// @group Use cases
+/// @link http://registry.origami.ft.com/components/o-typography
+////
+
+/// Subscript text
+@mixin oTypographySub {
+	@include oTypographySans(-2);
+	display: inline-block;
+	margin-bottom: -5px;
+	vertical-align: sub;
+}
+
+/// Superscript text
+@mixin oTypographySuper {
+	@include oTypographySans(-2);
+	display: inline-block;
+	margin-top: -3px;
+	vertical-align: super;
+}
+
+/// Link styles
+@mixin oTypographyLink {
+	@include oColorsFor(link, text);
+	text-decoration: none;
+	cursor: pointer;
+	border-bottom: 2px solid oColorsMix($color: oColorsGetColorFor(link, text), $percentage: 20);
+
+	&:hover,
+	&:focus {
+		color: oColorsGetPaletteColor('teal-30');
+		border-bottom-color: oColorsMix($color: oColorsGetColorFor(link, text), $percentage: 40);
+	}
+
+	&:focus {
+		outline: 3px solid oColorsGetPaletteColor('teal');
+		border-bottom-color: transparent;
+	}
+}
+
+/// Make something italic
+@mixin oTypographyItalic {
+	font-style: italic;
+}
+
+/// Styling for <ul> and <ol>
+@mixin oTypographyList {
+	@include oTypographyMargin($top: 0, $bottom: 7);
+
+	li {
+		@include oTypographySerif($scale: 1, $line-height: 28px);
+		@include oTypographyMargin($top: 0, $bottom: 0);
+		@include oColorsFor('o-typography-body');
+	}
+}
+
+/// Styles for <ol> tags
+@mixin oTypographyListOrdered {
+	padding-left: 0;
+
+	// Counter-increment/counter-reset is not supported in
+	// <IE8, so use browserhack to only target supported browsers
+	:root & {
+		counter-reset: item;
+
+		li {
+			display: block;
+
+			&:before {
+				@include oTypographySansBold($scale: 2);
+				@include oColorsFor('o-typography-list-prefix');
+				display: inline-block;
+				width: oTypographySpacingSize($units: 5);
+				margin-right: oTypographySpacingSize($units: 3);
+				content: counter(item);
+				counter-increment: item;
+			}
+		}
+	}
+}
+
+/// Styles for <ul> tags
+@mixin oTypographyListUnordered {
+	padding-left: 0;
+
+	li {
+		display: block;
+		position: relative;
+		padding-left: oTypographySpacingSize($units: 8);
+
+		&:before {
+			@include oColorsFor('o-typography-list-prefix');
+			display: inline-block;
+			position: absolute;
+			content: '\2022'; // dot character
+			top: -3px; // magic number alignment
+			left: 0;
+			font-size: oTypographySpacingSize($units: 10);
+		}
+	}
+}
+
+/// Style for <blockquote> tags including `p`
+/// and `footer` elements
+@mixin oTypographyBlockquote {
+	margin-left: 0;
+	padding-left: oTypographySpacingSize($units: 4);
+	border-left: oTypographySpacingSize($units: 1) solid oColorsGetColorFor('o-typography-blockquote', border);
+
+	p {
+		@include oTypographyBody;
+	}
+
+	footer {
+		@include oTypographyFooter;
+	}
+}

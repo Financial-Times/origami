@@ -17,7 +17,7 @@ $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;
 
 /// Serif font-family
 /// @type String
-$o-typography-serif: oFontsGetFontFamilyWithFallbacks(FinancierTextWeb) !default;
+$o-typography-serif: Georgia, serif !default;
 
 /// Display font-family
 /// @type String
@@ -34,14 +34,14 @@ $o-typography-loading-prefix: 'o-typography--loading' !default;
 /// Scale of font-sizes and line-heights for all font-families
 /// @type Map
 $o-typography-font-scale: (
-   -2: (12, 12),
+   -2: (12, 16),
    -1: (14, 16),
-    0: (16, 24),
-    1: (18, 28),
+    0: (16, 20),
+    1: (18, 20),
     2: (20, 24),
     3: (24, 28),
     4: (28, 32),
-    5: (32, 36),
+    5: (32, 32),
     6: (40, 40),
     7: (48, 48),
     8: (56, 56),

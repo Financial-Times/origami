@@ -1,0 +1,91 @@
+////
+/// @group Use cases
+/// @link http://registry.origami.ft.com/components/o-typography
+////
+
+/// General typography
+/// Apply to a wrapper to style all text inside it
+///
+/// @example scss
+/// article { @include oTypographyWrapper; }
+@mixin oTypographyWrapper {
+	h1 {
+		// Article headline
+		@include oTypographyHeadline;
+	}
+
+	h2 {
+		// In article body subheads
+		@include oTypographyHeadingLevel2;
+	}
+
+	h3 {
+		// Headings for complementary sections / asides
+		@include oTypographyHeadingLevel3;
+	}
+
+	h4 {
+		// Headlines for other articles referenced
+		@include oTypographyHeadingLevel4;
+	}
+
+	h5 {
+		// Headlines for other articles referenced
+		@include oTypographyHeadingLevel5;
+	}
+
+	a {
+		@include oTypographyLink;
+	}
+
+	p {
+		@include oTypographyBody;
+	}
+
+	ol,
+	ul {
+		@include oTypographyList;
+	}
+
+	ol {
+		@include oTypographyListOrdered;
+	}
+
+	ul {
+		@include oTypographyListUnordered;
+	}
+
+	footer {
+		@include oTypographyFooter;
+	}
+
+	blockquote {
+		p {
+			@include oTypographyBlockquote;
+		}
+
+		footer {
+			@include oTypographyFooter;
+		}
+	}
+
+	strong {
+		@include oTypographyBold;
+	}
+
+	em {
+		@include oTypographyItalic;
+	}
+
+	sup {
+		@include oTypographySuper;
+	}
+
+	sub {
+		@include oTypographySub;
+	}
+
+	figcaption {
+		@include oTypographyCaption;
+	}
+}

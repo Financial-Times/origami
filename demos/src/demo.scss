@@ -16,81 +16,33 @@ html {
 		display: block;
 	}
 	figure {
-		margin-right: 0;
-		margin-left: 0;
+		margin: 0 0 28px;
 	}
 }
 
-.demo-article {
-	margin: 10px 0;
-}
-
-.demo-article__body {
-	margin: 20px 0;
-}
-
-.section-heading {
-	@include oTypographySans(l);
-	border-bottom: 1px solid oColorsGetPaletteColor('pink-tint3');
-	padding: 0 0 10px;
-	margin: 0 0 0.5em;
-}
-
-.section-sub-heading {
-	@include oTypographySansBold(m);
-	color: oColorsGetPaletteColor('claret');
-	margin: 0;
-}
-
-.left-right-list {
-	@include oTypographyBodyBlock;
+.type-scale {
+	margin-bottom: 8px;
+	white-space: nowrap;
 	overflow: hidden;
-}
 
-.left-right-list__term {
-	@include oTypographySansBold(s);
-
-	//Ideally this would be using oGridRespondTo to get the layout size, but for demo purposes we'll use a normal media query
-	@media (min-width: 600px) {
-		float: left;
-		clear: both;
-		text-align: right;
-		margin-bottom: 5px;
+	&__label {
+		@include oTypographySans(1);
+		color: oColorsGetPaletteColor('black-60');
+		display: inline-block;
+		width: 20px;
+		padding-left: 5px;
+		padding-right: 10px;
 	}
-}
 
-.left-right-list__description {
-	@include oTypographySans(s);
-	@media (min-width: 600px) {
-		float: right;
-		text-align: right;
+	&__example {
+		margin-bottom: 12px;
+		white-space: nowrap;
+		overflow: hidden;
 	}
-}
 
-.key-value-list {
-	display: table;
-	list-style: none;
-	padding: 0;
-}
-
-.key-value-list__item {
-	display: table-row;
-}
-
-.key-value-list__label,
-.key-value-list__value {
-	display: table-cell;
-}
-
-.key-value-list__label {
-	@include oTypographySansBold(m);
-	padding-right: 20px;
-
-	&:after {
-		content: ':';
+	@each $scale, $values in $o-typography-font-scale {
+		&__example-#{$scale} {
+			@include oTypographyDisplay($scale);
+		}
 	}
-}
-
-.key-value-list__value {
-	@include oTypographySans(m);
 }

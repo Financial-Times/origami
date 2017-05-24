@@ -1,0 +1,71 @@
+/// Body text styles
+@mixin oTypographyBody {
+	@include oTypographySerif($scale: 1, $line-height: 28px);
+	@include oTypographyMargin($top: 0, $bottom: 7);
+	@include oColorsFor('o-typography-body');
+}
+
+/// Style for timestamps
+@mixin oTypographyTimestamp {
+  @include oTypographySans($scale: -1);
+  @include oColorsFor(o-typography-timestamp);
+  @include oTypographyMargin($bottom: 4);
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+/// Article Standfirst styles
+@mixin oTypographyStandfirst {
+	@include oTypographySans($scale: 2);
+	@include oTypographyMargin($top: 0, $bottom: 9);
+	@include oColorsFor('o-typography-standfirst');
+}
+
+
+
+/// Common tag styles - not used directly.
+/// Includes styles for `a` and `span` child elements
+@mixin oTypographyTag {
+	@include oColorsFor(tag-link, text);
+	text-decoration: none;
+	display: inline-block;
+
+	&:hover {
+		@include oColorsFor(tag-link-hover, text);
+	}
+
+	a {
+		color: inherit;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	span {
+		font-weight: 400;
+	}
+}
+
+/// Article author styles - inherits from oTypographyTag mixin
+@mixin oTypographyAuthor {
+	@include oTypographyTag;
+	@include oTypographySansBold($scale: -1);
+}
+
+/// Article Topic styles - inherits from oTypographyTag mixin
+@mixin oTypographyTopic {
+	@include oTypographyTag;
+	@include oTypographySansBold($scale: 1);
+}
+
+/// Style for <footer> tags
+@mixin oTypographyFooter {
+	@include oTypographySans($scale: 1, $line-height: 24px);
+	@include oColorsFor('o-typography-body');
+}
+
+/// Styles for photo or video credit/caption
+@mixin oTypographyCaption {
+	@include oTypographySans($scale: -1);
+	@include oTypographyMargin($top: 2, $bottom: 0);
+	@include oColorsFor('o-typography-caption');
+}
