@@ -48,7 +48,9 @@
 	@include oTypographyMargin($top: 0, $bottom: 7);
 
 	li {
-		@include oTypographyBody;
+		@include oTypographySerif($scale: 1, $line-height: 28px);
+		@include oTypographyMargin($top: 0, $bottom: 0);
+		@include oColorsFor('o-typography-body');
 	}
 }
 

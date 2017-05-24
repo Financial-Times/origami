@@ -23,7 +23,7 @@
 	@include oTypographyPadding($top: 2);
 	@include oColorsFor('o-typography-headline');
 	position: relative;
-	border-top: oTypographySpacingSize(2) solid oColorsMix($percentage: 20);
+	border-top: oTypographySpacingSize(2) solid oColorsMix($percentage: 5);
 
 	&:before {
 		content: '';

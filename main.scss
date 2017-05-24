@@ -88,6 +88,10 @@
 		@include oTypographyTopic;
 	}
 
+	.o-typography-author {
+		@include oTypographyAuthor;
+	}
+
 	.o-typography-body {
 		@include oTypographyBody;
 	}

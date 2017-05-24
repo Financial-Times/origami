@@ -2,29 +2,54 @@
 @mixin oTypographyBody {
 	@include oTypographySerif($scale: 1, $line-height: 28px);
 	@include oTypographyMargin($top: 0, $bottom: 7);
-	@include oColorsFor('o-typography-body')
+	@include oColorsFor('o-typography-body');
 }
 
 /// Style for timestamps
 @mixin oTypographyTimestamp {
   @include oTypographySans($scale: -1);
   @include oColorsFor(o-typography-timestamp);
+  @include oTypographyMargin($bottom: 4);
+  display: inline-block;
   text-transform: uppercase;
 }
 
 /// Article Standfirst styles
 @mixin oTypographyStandfirst {
 	@include oTypographySans($scale: 2);
-	@include oTypographyMargin($top: 0, $bottom: 0);
+	@include oTypographyMargin($top: 0, $bottom: 9);
 	@include oColorsFor('o-typography-standfirst');
 }
 
 /// Article Topic styles
 @mixin oTypographyTopic {
-	@include oTypographySansBold(1);
+	@include oTypographySansBold($scale: 1);
+	@include oTypographyMargin($bottom: 2);
 	@include oColorsFor(tag-link, text);
 	text-decoration: none;
-	display: inline;
+	display: inline-block;
+
+	&:hover {
+		@include oColorsFor(tag-link-hover, text);
+	}
+
+	a {
+		color: inherit;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	span {
+		font-weight: 400;
+	}
+}
+
+/// Article Topic styles
+@mixin oTypographyAuthor {
+	@include oTypographySansBold($scale: -1);
+	@include oColorsFor(tag-link, text);
+	text-decoration: none;
+	display: inline-block;
 
 	&:hover {
 		@include oColorsFor(tag-link-hover, text);
@@ -49,6 +74,6 @@
 
 @mixin oTypographyCaption {
 	@include oTypographySans($scale: -1);
-	@include oTypographyMargin($top: 0, $bottom: 0);
+	@include oTypographyMargin($top: 2, $bottom: 0);
 	@include oColorsFor('o-typography-caption');
 }
