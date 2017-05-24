@@ -101,4 +101,15 @@
 
 /// Style for <blockquote> tags
 @mixin oTypographyBlockquote {
+	margin-left: 0;
+	padding-left: oTypographySpacingSize($units: 4);
+	border-left: oTypographySpacingSize($units: 1) solid oColorsGetColorFor('o-typography-blockquote', border);
+
+	p {
+		@include oTypographyBody;
+	}
+
+	footer {
+		@include oTypographyFooter;
+	}
 }
