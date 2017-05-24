@@ -42,6 +42,8 @@
 
 /// Style for <footer> tags
 @mixin oTypographyFooter {
+	@include oTypographySans($scale: 1, $line-height: 24px);
+	@include oColorsFor('o-typography-body');
 }
 
 @mixin oTypographyCaption {
