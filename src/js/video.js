@@ -253,6 +253,10 @@ class Video {
 	}
 
 	addCaptions() {
+		if (this.opts.showCaptions === false) {
+			return;
+		}
+
 		if (typeof this.videoData === 'undefined') {
 			throw new Error('Please call `getData()` before calling `addCaptions()` directly.');
 		}
@@ -284,9 +288,7 @@ class Video {
 
 		this.videoEl.src = this.rendition && this.rendition.url;
 
-		if (this.opts.showCaptions === true) {
-			this.addCaptions();
-		}
+		this.addCaptions();
 	}
 
 	addPlaceholder() {

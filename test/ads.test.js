@@ -16,7 +16,8 @@ describe('Ads', () => {
 			containerEl,
 			videoEl,
 			opts: {},
-			targeting: {}
+			targeting: {},
+			addCaptions: function() {}
 		};
 		ads = new Ads(video);
 	});

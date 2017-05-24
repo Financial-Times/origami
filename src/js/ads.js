@@ -181,7 +181,7 @@ class VideoAds {
 		// If ads have failed to load, which resets the advertising support flag, play the video
 		// instead; otherwise, wait until the ads have loaded.
 		if (!this.video.opts.advertising) {
-			this.video.videoEl.play();
+			this.playUserVideo();
 		} else if (!this.adsLoaded) {
 			return;
 		}
@@ -199,7 +199,7 @@ class VideoAds {
 		} catch (adError) {
 			// An error may be thrown if there was a problem with the VAST response.
 			this.reportError(adError);
-			this.video.videoEl.play();
+			this.playUserVideo();
 		}
 	}
 
@@ -267,7 +267,7 @@ class VideoAds {
 				if (!ad.isLinear()) {
 					// Position AdDisplayContainer correctly for overlay.
 					// Use ad.width and ad.height.
-					this.video.videoEl.play();
+					this.playUserVideo();
 				}
 				break;
 			case google.ima.AdEvent.Type.STARTED:
@@ -343,6 +343,14 @@ class VideoAds {
 	contentResumeRequestHandler() {
 		this.video.containerEl.removeChild(this.adContainerEl);
 		this.adsCompleted = true;
+		this.playUserVideo();
+	}
+
+	playUserVideo() {
+		// Since Firefox 52, the captions need re-adding after the
+		// ad video layer has finished its thing.
+		this.video.addCaptions();
+
 		this.video.videoEl.play();
 	}
 
