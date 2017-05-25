@@ -1,205 +1,67 @@
-# FT Typography [![Build Status](https://circleci.com/gh/Financial-Times/o-typography.png?style=shield&circle-token=9ca314332de2a9b6a80eb8477e097d9acbc96e0b)](https://circleci.com/gh/Financial-Times/o-typography)
+# o-typography [![Build Status](https://circleci.com/gh/Financial-Times/o-typography.png?style=shield&circle-token=9ca314332de2a9b6a80eb8477e097d9acbc96e0b)](https://circleci.com/gh/Financial-Times/o-typography)
 
-Typographical styles for FT branded sites - font families, weight, colors, sizes and vertical rhythm.
+Typographical styles for FT branded sites - font families, weight, colors, sizes and vertical rhythm. The module provides styles for headings, titles, leads and body content.
 
 ----
 
-## Overview
+- [Usage](#usage)
+	- [Markup](#markup)
+	- [Sass](#sass)
+		- [Mixins](#mixins)
+		- [Responsive font scales](#responsive-font-scales)
+		- [Progressive loading web fonts](#progressive-loading-web-fonts)
+		- [Baseline grid mixins](#baseline-grid-mixins)
+- [Migration guide](#migration-guide)
+- [Contact](#contact)
+- [Licence](#licence)
 
-This module provides styles for headings, titles, leads and body content.
-
-### Font system
-
-We’re using a matrix of font variants in order to standardize typography across the site. This provides a common language and helps to avoid inconsistencies across sites.
-
-#### Sans
-
-Sans or SansBold are the common fonts for the site. SansData, SansDataBold and SansDataItalic are included for use in charts and graphics where a heavier weight is needed at smaller sizes.
-
-<table><thead>
-<tr>
-<th>Font label</th>
-<th>Sans</th>
-<th>SansBold</th>
-<th>SansData</th>
-<th>SansDataBold</th>
-<th>SansDataItalic</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Font name</strong></td>
-<td>Metric regular</td>
-<td>Metric semibold</td>
-<td>Metric regular</td>
-<td>Metric semibold</td>
-<td>Metric regular italic</td>
-</tr>
-<tr>
-<td><strong>CSS font-family (weight)</strong></td>
-<td>MetricWeb (400)</td>
-<td>MetricWeb (600)</td>
-<td>MetricWeb (400)</td>
-<td>MetricWeb (600)</td>
-<td>MetricWeb (400)</td>
-</tr>
-<tr>
-<th><strong>Variant</strong></th>
-<th colspan='5'>Size/Line-height (px)</th>
-</tr>
-<tr>
-<td><strong>xl</strong></td>
-<td>40/40</td>
-<td>40/40</td>
-<td>28/32</td>
-<td>28/32</td>
-<td>28/32</td>
-</tr>
-<tr>
-<td><strong>l</strong></td>
-<td>26/27</td>
-<td>26/27</td>
-<td>21/24</td>
-<td>21/24</td>
-<td>21/24</td>
-</tr>
-<tr>
-<td><strong>m</strong></td>
-<td>20/24</td>
-<td>20/24</td>
-<td>14/16</td>
-<td>14/16</td>
-<td>14/16</td>
-</tr>
-<tr>
-<td><strong>s</strong></td>
-<td>15/17</td>
-<td>15/17</td>
-<td>12/14</td>
-<td>12/14</td>
-<td>12/14</td>
-</tr>
-<tr>
-<td><strong>xs</strong></td>
-<td>12/12</td>
-<td>12/12</td>
-<td>11/13</td>
-<td>11/13</td>
-<td>11/13</td>
-</tr>
-</tbody></table>
-
-
-#### Serif
-o-typography contains two variants of Financier; Financier Display and Financier Text. Display fonts are designed to be used at larger sizes whereas text fonts are designed to be legible at smaller sizes. fonts.com has a more detailed run down of the [differences between display and text fonts](http://www.fonts.com/content/learning/fontology/level-1/type-anatomy/text-v-display).
-
-<table><thead>
-<tr>
-<th>Font label</th>
-<th>Serif</th>
-<th>SerifBold</th>
-<th>SerifItalic</th>
-<th>SerifDisplay</th>
-<th>SerifDisplayBold</th>
-<th>SerifDisplayItalic</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Font name</strong></td>
-<td>Financier text regular</td>
-<td>Financier text regular</td>
-<td>Financier text regular italic</td>
-<td>Financier display</td>
-<td>Financier display semibold</td>
-<td>Financier display italic</td>
-</tr>
-<tr>
-<td><strong>CSS font-family (weight)</strong></td>
-<td>FinancierTextWeb (400)</td>
-<td>FinancierTextWeb (500)</td>
-<td>FinancierTextWeb (400)</td>
-<td>FinancierDisplayWeb (400)</td>
-<td>FinancierDisplayWeb (600)</td>
-<td>FinancierDisplayWeb (200)</td>
-</tr>
-<tr>
-<th><strong>Variant</strong></th>
-<th colspan='6'>Size/Line-height (px)</th>
-</tr>
-<tr>
-<td><strong>xl</strong></td>
-<td>40/40</td>
-<td>40/40</td>
-<td>40/40</td>
-<td>40/40</td>
-<td>40/40</td>
-<td>40/40</td>
-</tr>
-<tr>
-<td><strong>l</strong></td>
-<td>26/31</td>
-<td>26/31</td>
-<td>26/27</td>
-<td>26/31</td>
-<td>26/31</td>
-<td>26/27</td>
-</tr>
-<tr>
-<td><strong>m</strong></td>
-<td>20/24</td>
-<td>20/24</td>
-<td>22/22</td>
-<td>20/24</td>
-<td>20/24</td>
-<td>22/22</td>
-</tr>
-<tr>
-<td><strong>s</strong></td>
-<td>16/19</td>
-<td>16/19</td>
-<td>15/17</td>
-<td>16/19</td>
-<td>16/19</td>
-<td>15/17</td>
-</tr>
-<tr>
-<td><strong>xs</strong></td>
-<td>12/12</td>
-<td>12/12</td>
-<td>11/12</td>
-<td>11/12</td>
-<td>11/12</td>
-<td>11/12</td>
-</tr>
-</tbody></table>
 
 ## Usage
 
-There are two ways to use o-typography:
+o-typography uses a single typographic scale for use with all fonts. The scale consists of font-size and line-height combinations, as shown below:
 
-1. Using the predefined CSS classes
-2. Using Sass mixins in your own CSS classes
+| Scale | Font size | Line height |
+|------ |---------- |------------ |
+|    -2 |      12px |        12px |
+|    -1 |      14px |        16px |
+|     0 |      16px |        24px |
+|     1 |      18px |        28px |
+|     2 |      20px |        24px |
+|     3 |      24px |        28px |
+|     4 |      28px |        32px |
+|     5 |      32px |        36px |
+|     6 |      40px |        40px |
+|     7 |      48px |        48px |
+|     8 |      56px |        56px |
+|     9 |      72px |        72px |
+|    10 |      84px |        84px |
 
-If you are using the [Origami Build Service](http://origami.ft.com/docs/developer-guide/build-service/) to add this module's CSS to your page, then only option 1 is available to you.
+This scale makes up all typographic styles available through o-typography. It is available when using Sass through the [typography mixins](#mixins).
 
-### 1. Using the predefined CSS classes
+### Markup
 
-If you're not using the build service, [turn off 'silent mode'](#silentmode).
+#### Using CSS classes
 
-Pre-defined CSS classes are provided and can be used directly in your HTML. All classes are prefixed with 'o-typography-', for example `o-typography-heading1`.
+The predefined CSS classes in o-typography are available when using the [build service](https://www.ft.com/__origami/service/build/v2/) or in [Sass](#sass) when silent-mode is set to `false`.
 
-The classes do not depend on any specific HTML element, but appropriate semantic elements should be chosen.
+All classes provided by o-typography come prefixed with 'o-typography-'; for example `o-typography-headline`. Classes do not depend on specific HTML, but we encourage developers to use semantic elements.
+
+Example:
 
 ```html
-<h2 class="o-typography-heading2">Heading medium</h2>
+<h2 class="o-typography-heading-level-2">Heading medium</h2>
 ```
 
-See the [demos](http://registry.origami.ft.com/components/o-typography) for a full list of the classes provided and their effects.
+See the [demos](http://registry.origami.ft.com/components/o-typography#section-demos) for a full list of the classes provided and their effects.
 
 #### Wrappers
-In addition to applying classes individual to elements, body styles can be applied to an HTML element and descendent `h2, h3, h4, p, a, blockquote, footer, aside, strong, em, small, sup, sub, ul, ol, li` elements will have typographic styling applied.
+
+Wrappers reduce the need for developers to apply styles to specific elements. By using a wrapper, body styles get applied to the HTML element and descendent typographic elements: h1, h2, h3, h4, h5, p, a, blockquote, footer, strong, em, small, sup, sub, ul, ol, li.
+
+Example:
 
 ```html
-<div class="o-typography-body-wrapper">
+<div class="o-typography-wrapper">
 	<h2>Heading medium</h2>
 	<p>Body block with <strong>styled inline text</strong>.</p>
 	<h3>Heading small</h3>
@@ -207,56 +69,30 @@ In addition to applying classes individual to elements, body styles can be appli
 </div>
 ```
 
-```html
-<aside class="o-typography-aside-wrapper">
-	<h3>Aside Title</h3>
-	<article>
-		<h4><a>Example Headline</a></h4>
-	</article>
-	<div>
-		<p>Some explanatory text would go here</p>
-	</div>
-</aside>
+### Sass
+
+As with all Origami components, o-typography has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use it's compiled CSS (rather than using the mixins with your own Sass) set `$o-typography-is-silent : false;` in your Sass before you import the o-typography Sass.
+
+**Note: Including fonts**
+
+By default, when silent mode is set to `false`, o-typography will download the FT webfonts. To suppress this, set `$o-typography-load-fonts` to `false`:
+
+```sass
+$o-typography-is-silent: false;
+$o-typography-load-fonts: false;
+
+@import 'o-typography/main';
 ```
 
-More detailed examples of the wrappers can be found in the demos.
+When silent mode is set to `true`, o-typography does not load web fonts. Products should load web fonts themselves using **[o-fonts](https://github.com/financial-times/o-fonts).**
 
-Pre-defined classes are not available to module developers. Module developers are required to use the mixins.
+#### Mixins
 
-### 2. Using the mixins
+The Sass in o-typography provides several types of mixin for use in your project. In the following sections they are in order of most to least preferred method.
 
-If you don't want to include the pre-defined classes in your HTML (or are a module developer) you may instead use the mixins provided:
+##### Use Case mixins
 
-#### Using the font system
-
-The font system is a matrix which defines small building blocks that can used as a base for typographic elements. Having a small subset of sizes and styles allows for greater consistency.
-
-Type name					| Standard mixin																	| Size/Line-height only mixin
--------------------| ----------------------------------------------- | -----------------------------------
-Sans							 | `@include oTypographySans([xl-xs])`							 | `@include oTypographySansSize([xl-xs])`
-SansBold					 | `@include oTypographySansBold([xl-xs])`					 | `@include oTypographySansBoldSize([xl-xs])`
-SansData					 | `@include oTypographySansData([xl-xs])`					 | `@include oTypographySansDataSize([xl-xs])`
-SansDataBold			 | `@include oTypographySansDataBold([xl-xs])`			 | `@include oTypographySansDataBoldSize([xl-xs])`
-SansDataItalic		 | `@include oTypographySansDataItalic([xl-xs])`		 | `@include oTypographySansDataItalicSize([xl-xs])`
-Serif							| `@include oTypographySerif([xl-xs])`							| `@include oTypographySerifSize([xl-xs])`
-SerifBold					| `@include oTypographySerifBold([xl-xs])`					| `@include oTypographySerifBoldSize([xl-xs])`
-SerifItalic				| `@include oTypographySerifItalic([xl-xs])`				| `@include oTypographySerifItalicSize([xl-xs])`
-SerifDisplay			 | `@include oTypographySerifDisplay([xl-xs])`			 | `@include oTypographySerifDisplaySize([xl-xs])`
-SerifDisplayBold	 | `@include oTypographySerifDisplayBold([xl-xs])`	 | `@include oTypographySerifDisplayBoldSize([xl-xs])`
-SerifDisplayItalic | `@include oTypographySerifDisplayItalic([xl-xs])` | `@include oTypographySerifDisplayItalicSize([xl-xs])`
-
-Example, using the font system in Sass
-
-```scss
-.component__text {
-	@include oTypographySans(m);
-	color: #505050;
-}
-```
-
-#### Using default styles
-
-The module defines a small number of common typographic use cases that can be included as mixins.
+The module has a small number of common typographic use cases that are available as mixins.
 
 ```scss
 .article {
@@ -267,7 +103,7 @@ The module defines a small number of common typographic use cases that can be in
 }
 ```
 
-For wrappers ([see wrapper section](#wrapper)):
+For wrappers ([see wrapper section](#wrappers)):
 
 ```scss
 .article__body {
@@ -277,119 +113,370 @@ For wrappers ([see wrapper section](#wrapper)):
 
 Mixins exist for all the same styles as pre-defined classes, named with a camelCased version of the class name.
 
+##### Type mixins
 
-## Silent mode ([docs](http://origami.ft.com/docs/syntax/scss/#silent-styles)) <a name="silentmode"></a>
+If you want to output only the font-family, font-size, and line-height, with no extra styles, use the type mixins.
 
-When you're not consuming this module via the build service, by default this module is set to 'silent' - meaning its Sass will not output any CSS classes, only Sass mixins.
+Sass:
 
-This can be turned off by setting a variable before you import the Sass:
-
-```scss
-$o-typography-is-silent: false;
-
-@import 'o-typography/main';
-```
-
-By default, when unsilenced, o-typography will download a number of webfonts. To suppress this use `$o-typography-load-fonts`
-
-```scss
-$o-typography-is-silent: false;
-$o-typography-load-fonts: false;
-
-@import 'o-typography/main';
-```
-
-### Web fonts
-
-When running in silent mode, o-typography does not load web fonts, products should load web fonts themselves. **Load FT's custom web fonts using [o-fonts](https://github.com/financial-times/o-fonts).**
-
-When running in non-silent mode, o-typography loads all web fonts which are used.
-
-### Progressively loading web fonts
-
-**Note: this functionality is not available when using the build service**
-
-One of the drawbacks of using web fonts is some browsers hide the text while the font is downloading (Flash of Invisible Text, aka FOIT). A common pattern for avoiding this is to initially use a system fallback font, and once we know the web font has loaded, add a class to the `html` element and use this to 'upgrade' to the web font, e.g.
-
-```
-.text {
-	font-family: serif;
-}
-
-.font-loaded-serif .text {
-	font-family: FinancierDisplayWeb,serif;
+```sass
+h1 {
+	@include oTypographyDisplay($scale: 7);
 }
 ```
 
-In this case we added a `font-loaded-serif` class to the `html` element once we were sure the web font `FinancierDisplayWeb` was downloaded.
+Output:
 
-To help with this pattern, each `oTypographyXDisplayItalic` mixin takes a second argument, `$load-progressively`, which, if set to `true`, outputs css in the above format.
-
-Initially we need to set which fonts we want to follow this pattern, by setting the `$o-typography-progressive-fonts` variable
-
-We can also override what the 'loaded' class is prefixed with; `$o-typography-loaded-prefix` (default is `o-typography--loaded`)
-
-A further thing to note is the fallback fonts are generally of a different size to the webfont, so we also scale the font, e.g.
-
+```css
+h1 {
+	font-family: FinancierTextDisplay, serif;
+	font-size: 48px;
+	line-height: 48px;
+}
 ```
-.text {
-	font-family: serif;
+
+These mixins take three arguments:
+
+- **scale**: The number on the font scale you want to output. Value can be a map to specify [responsive font scales](#responsive-font-scales)
+- **line-height**: An override value for the line-height.
+- **progressive**: Whether to output progressive font loading styles. `true` by default.
+
+For example, to override the line-height for the serif font using `1` on the font scale, you would do:
+
+```sass
+.content p {
+	@include oTypographySerif($scale: 1, $line-height: 28px, $progressive: false);
+}
+```
+
+Output:
+
+```css
+.content p {
+	font-family: Georgia, serif;
 	font-size: 18px;
+	line-height: 28px;
+}
+```
+
+##### Font Scale mixin
+
+If you want to output only the font-size and line-height from the font scale, you can use the `oTypographySize` mixin.
+
+Example:
+
+```sass
+h1 {
+	@include oTypographySize($scale: 8);
+}
+```
+
+Output
+
+```css
+h1 {
+	font-size: 56px;
+	line-height: 56px;
+}
+```
+
+As with the [type mixins](#type-mixins), the `oTypographySize` mixin can accept a second parameter of `$line-height` to override the default value from the font scale.
+
+#### Responsive font scales
+
+Sometimes there is a need for font sizes to adapt at different breakpoints. To allow for this, wherever there is a `$scale` argument in a mixin, you can provide a map of scales for each breakpoint. Breakpoints defined by the [o-grid](https://github.com/Financial-Times/o-grid) breakpoint sizes.
+
+For example, to use the Sans font at scale `0` at `default`, then `1` at `medium`, and finally `2` at `x-large` you can do:
+
+```sass
+p {
+	@include oTypographySans( $scale: (default: 0, M: 1, XL: 2) );
+}
+```
+
+Output:
+
+```css
+p {
+	font-family: MetricWeb, sans-serif;
+	font-size: 16px;
 	line-height: 24px;
 }
 
-.font-loaded-serif .text {
-	font-family: FinancierDisplayWeb,serif;
-	font-size: 20px
+@media (min-width: 46.25em) {
+	p {
+		font-size: 18px;
+		line-height: 28px;
+	}
+}
+
+@media (min-width: 76.25em) {
+	p {
+		font-size: 20px;
+		line-height: 24px;
+	}
 }
 ```
 
-When using the `oTypographyXDisplayItalicSize` mixin, a second argument `$with-progressive-size` can be supplied to scale fonts
+You can also use this method and override line-heights in the scale at the same time. In this case, provide a scale size and line height as a list in the map:
 
+Example:
 
-So as a full example,
-
-```
-$o-typography-progressive-fonts: sansData, serifDisplay;
-$o-typography-loaded-prefix: 'loaded-font';
-
-.foo {
-	@include oTypographySansData(m, $load-progressively: true);
-}
-
-.bar {
-	@include oTypographySerifDisplayItalic(m, $load-progressively: true);
+```sass
+p {
+	@include oTypographySans( $scale: (default: (0, 1em), M: (1, 1em), XL: (2, 1em)) );
 }
 ```
 
-compiles to
+Output:
 
+```css
+p {
+	font-family: MetricWeb, sans-serif;
+	font-size: 16px;
+	line-height: 1em;
+}
+
+@media (min-width: 46.25em) {
+	p {
+		font-size: 18px;
+		line-height: 1em;
+	}
+}
+
+@media (min-width: 76.25em) {
+	p {
+		font-size: 20px;
+		line-height: 1em;
+	}
+}
 ```
-.foo {
-	font-family: sans-serif;
-	font-size: 12.18px;
-	line-height: 16px;
-	font-weight: 400;
-}
 
-.loaded-font-sansData .foo {
-	font-family: MetricWeb,sans-serif;
-	font-size: 14px;
-}
+#### Progressive loading web fonts
 
-.bar {
-	font-family: FinancierDisplayWeb,serif;
+One of the drawbacks of using web fonts is some browsers hide the text while the font is downloading (Flash of Invisible Text, aka FOIT). A common pattern for avoiding this is to use a system fallback font initially. Then, once the web font has loaded, remove a class from the html element used to display the fallback font. The CSS would look a little like this:
+
+```css
+p {
+	font-family: FinancierDisplayWeb, serif;
 	font-size: 20px;
-	line-height: 22px;
-	font-style: italic;
-	font-weight: 200;
+	line-height: 24px;
+}
+
+.font-loading-serif p {
+	font-family: serif;
+	font-size: 18px;
 }
 ```
+
+o-typography provides ways of loading fonts progressively through both the [Build Service](https://www.ft.com/__origami/service/build/v2/) and when building your product manually. In both cases to use the fallback font while the web font is loading, you'll have to add loading classes to your html element:
+
+```html
+<html class="o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-display o-typography--loading-displayBold">
+```
+
+**With the build service:**
+
+Include both the CSS and JavaScript for o-typography in your project. While ensuring you have the loading classes for each font you wish to load on your html element.
+
+**With a manual build process:**
+
+If you build your projects using Sass, styles for progressively loading fonts are output by default when using the [use case mixins](#use-case-mixins) or [type mixins](#type-mixins). If you need to output fallback styles manually, you can do so with the `oTypographyProgressiveFontFallback` mixin.
+
+Example:
+
+```sass
+h1 {
+	@include oTypographySize(1);
+	@include oTypographyProgressiveFontFallback('display', 1);
+}
+```
+
+Output:
+
+```css
+h1 {
+	font-size: 18px;
+	line-height: 28px;
+}
+
+.o-typography--loading-display h1 {
+	font-size: 16.2px;
+	font-family: serif;
+}
+```
+
+To enable loading fonts progressively when manually building your project, you will also need to include the o-typography [JavaScript](#javascript) in your project.
+
+#### Baseline grid mixins
+
+Along with font sizing o-typography provides mixins for working with a baseline grid. The baseline grid defaults to `4px`, stored in `$o-typography-baseline-unit`.
+
+There are 2 mixins and a function provided for working with the baseline grid. Each mixin or function takes arguments used as multipliers of the `$o-typography-baseline-unit` variable.
+
+- `oTypographyMargin($top, $bottom)` - (mixin) output top and bottom margins
+- `oTypographyPadding($top, $bottom)` - (mixin) output top and bottom padding
+- `oTypographySpacingSize($units)` - (function) returns a pixel value
+
+Usage:
+
+```sass
+h1 {
+	@include oTypographyMargin($top: 3, $bottom: 5);
+	@include oTypographyPadding($top: 0, $bottom: 5);
+	border-bottom: oTypographySpacingSize($units: 2) solid #000;
+}
+```
+
+Output:
+
+```css
+h1 {
+	margin-top: 12px;
+	margin-bottom: 20px;
+	padding-top: 0;
+	padding-bottom: 20px;
+	border-bottom: 8px solid #000;
+}
+```
+
+### JavaScript
+
+o-typography uses JavaScript to [progressively load fonts](#progressive-loading-web-fonts) to prevent a flash of invisible content (FOIC) if the web-fonts are taking a long time to load.
+
+Unless you're using the Build Service no JS will run automatically. You must either construct an o-typography object or fire the `o.DOMContentLoaded` event, which oTypography listens for.
+
+**Constructing o-typography**
+
+```js
+const oTypography = require('o-typography');
+
+const otypography = new oTypography();
+```
+
+**Firing an oDomContentLoaded event**
+
+```js
+document.addEventListener('DOMContentLoaded', function() {
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});
+```
+
+Both methods will trigger the font loading scripts. This will remove the loading classes from the html enabling [progressive font loading](#progressive-loading-web-fonts).
+
+## Migration guide
+
+### Migrating from v4 to v5
+
+V5 of o-typography is a complete overhaul of the typographic system for master brand products. The update includes:
+
+- introducing a **new typographic scale**, replacing the type matrix system in the previous version. This affects the [mixins and sizes](#mixins-and-sizes) provided by the API.
+- new use cases, updated to reflect the latest master brand styles. These are available via new [CSS classes](#css-classes) and mixins.
+- removing access to the `FinancierText` font family and replace serif font with `Georgia`.
+
+#### Mixins and sizes
+
+To help you migrate from the v4 mixins to the v5 mixins. We have provided a [table recommending the mixins and font scale](migrating-v4-v5.md) you should use when migrating from v4 to v5.
+
+The following mixins are now renamed:
+
+```diff
+- oTypographySerifDisplayBold
++ oTypographyDisplayBold
+
+- oTypographySerifDisplay
++ oTypographyDisplay
+
+- oTypographySansDataBold
++ oTypographySansBold
+
+- oTypographySansData
++ oTypographySans
+
+- font-size
++ oTypographyFontSize
+
+- oTypographyProgressiveFont
++ oTypographyProgressiveFontFallback
+
+- oTypographyFallbackFontSize
++ _oTypographyProgressiveFontFallbackSize
+```
+
+v5 also removes the following mixins:
+
+```diff
+- oTypographySansSize
+- oTypographySansBoldSize
+- oTypographySansDataSize
+- oTypographySansDataBoldSize
+- oTypographySansDataItalicSize
+- oTypographySerifSize
+- oTypographySerifBoldSize
+- oTypographySerifItalicSize
+- oTypographySerifDisplaySize
+- oTypographySerifDisplayBoldSize
+- oTypographySerifDisplayItalicSize
+```
+
+#### CSS classes
+
+v5 introduces several changes to the CSS classes that are available. Whether using the build service or Sass with silent mode switched off you will need to update to the new classnames. The following diff shows removed class and what classname you should use instead, if available.
+
+```diff
+- .o-typography-block
++ .o-typography-body
+
+- .o-typography-lead
+- .o-typography-lead--small
++ .o-typography-standfirst
+
+- o-typography-heading1
++ o-typography-headline
+
+- o-typography-heading2
++ o-typography-heading-level-2
+
+- o-typography-heading3
++ o-typography-heading-level-3
+
+- o-typography-heading4
++ o-typography-heading-level-4
+
+- o-typography-heading5
++ o-typography-heading-level-5
+
+- .o-typography-link-topic
+- .o-typography-link-topic--medium
++ .o-typography-topic
+
+- .o-typography-body-wrapper
++ .o-typography-wrapper
+
+
+// The following classnames do not have like-for-like replacements
+- .o-typography-flyline
+- .o-typography-subhead
+- .o-typography-subhead--standard
+- .o-typography-subhead--crosshead
+- .o-typography-aside__title
+- .o-typography-aside__title--large
+- .o-typography-aside__headline
+- .o-typography-aside__headline--small
+- .o-typography-aside__headline--large
+- .o-typography-aside__body
+- .o-typography-aside__body--small
+- .o-typography-aside-wrapper
+```
+
+---
+
+## Contact
+
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-typography/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
 ----
 
-## License
+## Licence
 
-Copyright (c) 2016 Financial Times Ltd. All rights reserved.
-
-This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).

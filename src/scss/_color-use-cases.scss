@@ -1,0 +1,7 @@
+@include oColorsSetUseCase(o-typography-timestamp, text, 'black-80');
+@include oColorsSetUseCase(o-typography-headline, text, 'black-80');
+@include oColorsSetUseCase(o-typography-body, text, 'black-80');
+@include oColorsSetUseCase(o-typography-standfirst, text, 'black-60');
+@include oColorsSetUseCase(o-typography-caption, text, 'black-80');
+@include oColorsSetUseCase(o-typography-list-prefix, text, 'claret');
+@include oColorsSetUseCase(o-typography-blockquote, border, 'claret');

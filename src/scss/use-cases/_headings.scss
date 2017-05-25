@@ -1,0 +1,60 @@
+////
+/// @group Use cases
+/// @link http://registry.origami.ft.com/components/o-typography
+////
+
+/// Headline styles
+@mixin oTypographyHeadline {
+	@include oTypographyDisplay($scale: 6);
+	@include oTypographyMargin($top: 0, $bottom: 8);
+	@include oColorsFor('o-typography-headline');
+	font-weight: 400; // Browser default a h# to bold...
+}
+
+/// Large headline styles with an underline
+@mixin oTypographyHeadlineLarge {
+	@include oTypographyDisplayBold($scale: 8);
+	@include oTypographyMargin($top: 0, $bottom: 7);
+	@include oColorsFor('o-typography-headline');
+
+	&:after {
+		@include oTypographyPadding($top: 5, $bottom: 0);
+		content: '';
+		display: block;
+		width: 180px;
+		border-bottom: oTypographySpacingSize($units: 2) solid oColorsGetPaletteColor('black');
+	}
+}
+
+
+/// Level 2 heading styles
+@mixin oTypographyHeadingLevel2 {
+	@include oTypographyDisplay($scale: 5);
+	@include oTypographyMargin($top: 0, $bottom: 5);
+	@include oColorsFor('o-typography-headline');
+	font-weight: 400;
+}
+
+/// Level 3 heading styles
+@mixin oTypographyHeadingLevel3 {
+	@include oTypographyDisplay($scale: 4);
+	@include oTypographyMargin($top: 0, $bottom: 5);
+	@include oColorsFor('o-typography-headline');
+	font-weight: 400;
+}
+
+/// Level 4 heading styles
+@mixin oTypographyHeadingLevel4 {
+	@include oTypographyDisplay($scale: 3);
+	@include oTypographyMargin($top: 0, $bottom: 5);
+	@include oColorsFor('o-typography-headline');
+	font-weight: 400;
+}
+
+/// Level 5 heading styles
+@mixin oTypographyHeadingLevel5 {
+	@include oTypographyDisplay($scale: 2);
+	@include oTypographyMargin($top: 0, $bottom: 5);
+	@include oColorsFor('o-typography-headline');
+	font-weight: 400;
+}

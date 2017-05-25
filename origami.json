@@ -12,26 +12,19 @@
 	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
-		"dependencies": ["o-grid@^4.0.0"]
+		"js": "demos/src/demo.js",
+		"dependencies": ["o-grid@^4.0.0"],
+		"documentClasses": "o-typography--loading-serifDisplay o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-serifDisplayBold"
 	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-typography"
 	},
 	"demos": [
 		{
-			"name": "headings",
-			"template": "demos/src/headings.mustache",
-			"description": ""
-		},
-		{
-			"name": "leads",
-			"template": "demos/src/leads.mustache",
-			"description": ""
-		},
-		{
-			"name": "body",
-			"template": "demos/src/body.mustache",
-			"description": ""
+			"name": "scale",
+			"template": "demos/src/scale.mustache",
+			"description": "",
+			"display_html": false
 		},
 		{
 			"name": "article",
@@ -39,10 +32,9 @@
 			"description": ""
 		},
 		{
-			"name": "body-wrapper",
-			"template": "demos/src/body-wrapper.mustache",
-			"description": "",
-			"hidden": true
+			"name": "headings",
+			"template": "demos/src/headings.mustache",
+			"description": ""
 		},
 		{
 			"name": "manage-account",
@@ -51,9 +43,10 @@
 			"hidden": true
 		},
 		{
-			"name": "asides",
-			"template": "demos/src/asides.mustache",
-			"description": ""
+			"name": "all-styles",
+			"template": "demos/src/all-styles.mustache",
+			"description": "",
+			"hidden": true
 		}
 	]
 }

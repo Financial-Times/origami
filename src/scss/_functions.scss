@@ -1,0 +1,47 @@
+/// Returns a single list on the scale
+///
+/// @param {Number} $index - number of the scale to return
+///
+/// @returns {List} list of the requested scale value
+@function oTypographyGetScale($index: 0) {
+	@return map-get($o-typography-font-scale, $index);
+}
+
+/// Returns the font-size value from the scale passed in
+/// modified by the font-adjust if present
+///
+/// @param {Number} $scale - number of the scale to return
+/// @param {Number} $font-adjust - multiplier if used as a progressive font
+///
+/// @returns {Number} size in px
+@function _oTypographyFontSizeFromScale($scale, $font-adjust: 1) {
+	$settings: oTypographyGetScale($scale);
+	@return (nth($settings, 1) * $font-adjust) * 1px;
+}
+
+/// Returns the line-height value from the scale passed in or
+/// the line-height setting if one is passed
+///
+/// @param {Number} $scale - number of the scale to return
+/// @param {Number} $line-height - size to output if not false
+///
+/// @returns {Number} size in px
+@function _oTypographyLineHeightFromScale($scale, $line-height) {
+	$settings: oTypographyGetScale($scale);
+
+	@if $line-height {
+		@return $line-height;
+	} @else {
+		@return nth($settings, 2) * 1px;
+	}
+}
+
+/// Returns a spacing size in px based on the baseline unit and number of units
+/// passed to the function
+///
+/// @param {Number} $units [0] - multiple of the baseline unit
+///
+/// @returns {Number} size in px
+@function oTypographySpacingSize($units: 0) {
+	@return ($units * $o-typography-baseline-unit) * 1px;
+}

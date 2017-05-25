@@ -1,0 +1,40 @@
+/// Styles for read next aside header
+@mixin oTypographyReadNext {
+	@include oTypographySansBold($scale: 1);
+	@include oTypographyMargin($top: 0, $bottom: 2);
+	color: oColorsGetPaletteColor('black');
+
+	&:after {
+		@include oTypographyPadding($top: 1);
+		content: '';
+		display: block;
+		width: 60px;
+		border-bottom: oTypographySpacingSize(1) solid oColorsGetPaletteColor('black');
+	}
+}
+
+/// Style for big-number aside
+@mixin oTypographyBigNumber {
+	@include oTypographySansBold($scale: 10);
+	@include oColorsFor('o-typography-body');
+}
+
+/// Styles for collection headers including
+/// full-width top border
+@mixin oTypographyCollectionHeader {
+	@include oTypographySans($scale: 3);
+	@include oTypographyPadding($top: 2);
+	@include oColorsFor('o-typography-headline');
+	position: relative;
+	border-top: oTypographySpacingSize(2) solid oColorsMix($percentage: 5);
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: oTypographySpacingSize(2) * -1;
+		left: 0;
+		width: 50%;
+		border-top: oTypographySpacingSize(2) solid oColorsGetPaletteColor('black');
+	}
+}
