@@ -31,15 +31,6 @@ $card-size: 160px;
 	vertical-align: middle;
 }
 
-// backgrounds
-.demo-backgrounds-pin-stripe--dense {
-	@include oEffectsBackgroundsPinStripe($style: 'dense');
-}
-
-.demo-backgrounds-pin-stripe--sparse {
-	@include oEffectsBackgroundsPinStripe($style: 'sparse');
-}
-
 // shadows
 .demo-shadows-elevation--ultralow {
 	@include oEffectsShadowsElevation('ultralow');
