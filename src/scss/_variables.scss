@@ -3,6 +3,8 @@
 /// @link http://registry.origami.ft.com/components/o-visual-effects
 ////
 
+$o-visual-effects-is-silent: true !default;
+
 /// Timing function for elements that slide in and out
 $o-visual-effects-transition-slide: cubic-bezier(1, 0, 0.5, 1.275);
 
