@@ -19,7 +19,7 @@ $o-loading-animation-keyframes: false !default;
 /// @type Map
 $o-loading-colors: (
 	'light': oColorsGetPaletteColor('white'),
-	'dark': oColorsGetPaletteColor('grey-tint5')
+	'dark': oColorsGetPaletteColor('black-80')
 );
 
 /// Predefined sizes
