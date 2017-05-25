@@ -33,19 +33,19 @@ $card-size: 160px;
 
 // shadows
 .demo-shadows-elevation--ultralow {
-	@include oEffectsShadowsElevation('ultralow');
+	@include oVisualEffectsShadowsElevation('ultralow');
 }
 
 .demo-shadows-elevation--low {
-	@include oEffectsShadowsElevation('low');
+	@include oVisualEffectsShadowsElevation('low');
 }
 
 .demo-shadows-elevation--mid {
-	@include oEffectsShadowsElevation('mid');
+	@include oVisualEffectsShadowsElevation('mid');
 }
 
 .demo-shadows-elevation--high {
-	@include oEffectsShadowsElevation('high');
+	@include oVisualEffectsShadowsElevation('high');
 }
 
 // transitions
