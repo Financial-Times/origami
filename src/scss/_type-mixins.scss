@@ -95,8 +95,9 @@
 	@include oTypographySerif($scale, $line-height, false);
 	@include oTypographyBold('serif');
 
-	// AO: This is not a progressive font so won't output anything
-	// is it worth keeping this anyway?
+	// In this mixin $progressive defaults to false for the serif
+	// font because we are using a system font (Georgia).
+	// This will need to change if we move to a webfont for the serif font.
 	@if $progressive {
 		@include oTypographyProgressiveFontFallback('serifBold', $scale);
 	}
