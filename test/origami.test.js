@@ -3,7 +3,7 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 
-const Typography = require('./../main');
+import Typography from './../main';
 
 describe("Typography", () => {
 	it('is defined', () => {

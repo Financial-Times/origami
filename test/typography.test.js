@@ -4,7 +4,7 @@ import superstore from 'superstore-sync';
 import FontFaceObserver from 'fontfaceobserver/fontfaceobserver.standalone.js';
 import sinon from 'sinon/pkg/sinon';
 
-const Typography = require('./../main');
+import Typography from './../main';
 
 const fontLabels = ['serifDisplay', 'sans', 'sansBold', 'serifDisplayBold'];
 const stubPrefix = 'loading-font-';
