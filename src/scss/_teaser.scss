@@ -13,7 +13,7 @@
 		@each $group in $_o-teaser-elements {
 			@include _oTeaserGetElementsMixin($group);
 		}
-	} @else {
+	} @else if $elements != false {
 		@each $group in $elements {
 			@if index($_o-teaser-elements, $group) != null {
 				@include _oTeaserGetElementsMixin($group);
@@ -27,7 +27,7 @@
 		@each $theme in $_o-teaser-themes {
 			@include _oTeaserGetThemeMixin($theme);
 		}
-	} @else {
+	} @else if $themes != false  {
 		@each $theme in $themes {
 			@if index($_o-teaser-themes, $theme) != null {
 				@include _oTeaserGetThemeMixin($theme);
