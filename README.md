@@ -44,7 +44,7 @@ This scale makes up all typographic styles available through o-typography. It is
 
 The predefined CSS classes in o-typography are available when using the [build service](https://www.ft.com/__origami/service/build/v2/) or in [Sass](#sass) when silent-mode is set to `false`.
 
-All classes provided by o-typography come prefixed with 'o-typography-'; for example `o-typography-headline`. Classes do not depend on specific HTML, but we encourage developers to select semantic elements.
+All classes provided by o-typography come prefixed with 'o-typography-'; for example `o-typography-headline`. Classes do not depend on specific HTML, but we encourage developers to use semantic elements.
 
 Example:
 
@@ -75,7 +75,7 @@ As with all Origami components, o-typography has a [silent mode](http://origami.
 
 **Note: Including fonts**
 
-By default, when silent mode is set to `false`, o-typography will download the FT webfonts. To suppress this use `$o-typography-load-fonts`:
+By default, when silent mode is set to `false`, o-typography will download the FT webfonts. To suppress this, set `$o-typography-load-fonts` to `false`:
 
 ```sass
 $o-typography-is-silent: false;
@@ -141,7 +141,7 @@ These mixins take three arguments:
 - **line-height**: An override value for the line-height.
 - **progressive**: Whether to output progressive font loading styles. `true` by default.
 
-For example, to override the line-height for the serif font at using `1` on the font scale, you would do:
+For example, to override the line-height for the serif font using `1` on the font scale, you would do:
 
 ```sass
 .content p {
@@ -419,7 +419,7 @@ v5 also removes the following mixins:
 
 #### CSS classes
 
-v5 introduces several changes to the CSS classes that are available. Whether using the build service or Sass with silent mode switch off you will need to update to the new classnames. The following diff shows removed class and what classname you should use instead, if available.
+v5 introduces several changes to the CSS classes that are available. Whether using the build service or Sass with silent mode switched off you will need to update to the new classnames. The following diff shows removed class and what classname you should use instead, if available.
 
 ```diff
 - .o-typography-block
