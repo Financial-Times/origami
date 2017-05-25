@@ -28,11 +28,13 @@
 	}
 
 	// Headings
-	.o-typography-headline {
+	.o-typography-headline,
+	.o-typography-heading-level-1 {
 		@include oTypographyHeadline;
 	}
 
-	.o-typography-headline--large {
+	.o-typography-headline--large,
+	.o-typography-heading-level-1--large {
 		@include oTypographyHeadlineLarge;
 	}
 
