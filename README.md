@@ -342,6 +342,8 @@ h1 {
 
 ### JavaScript
 
+o-typography uses JavaScript to [progressively load fonts](#progressive-loading-web-fonts) to prevent a flash of invisible content (FOIC) if the web-fonts are taking a long time to load.
+
 Unless you're using the Build Service no JS will run automatically. You must either construct an o-typography object or fire the `o.DOMContentLoaded` event, which oTypography listens for.
 
 **Constructing o-typography**
