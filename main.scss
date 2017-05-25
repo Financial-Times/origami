@@ -1,6 +1,26 @@
 @import 'o-colors/main';
 
 @import 'src/scss/colors';
-@import 'src/scss/backgrounds';
 @import 'src/scss/shadows';
-@import 'src/scss/transitions';
+@import 'src/scss/variables';
+
+@if $o-visual-effects-is-silent == false {
+	.o-visual-effects-shadow {
+		@include oVisualEffectsShadowsElevation;
+
+		&--ultralow {
+			@include oVisualEffectsShadowsElevation('ultralow');
+		}
+
+		&--mid {
+			@include oVisualEffectsShadowsElevation('mid');
+		}
+
+		&--high {
+			@include oVisualEffectsShadowsElevation('high');
+		}
+	}
+
+	// Don't output twice
+	$o-visual-effects-is-silent: true !global;
+}
