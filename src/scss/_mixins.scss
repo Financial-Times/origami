@@ -35,7 +35,7 @@
 /// @param {String} $font font to output fallback styles for
 /// @param {Number} $scale number on scale the sizes are based on
 @mixin _oTypographyProgressiveFontFallbackSize($font, $scale) {
-	@if map-has-key($_o-typography-progressive-font-fallbacks, $font) {
+	@if $scale != false and map-has-key($_o-typography-progressive-font-fallbacks, $font) {
 		$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
 
 		.#{$o-typography-loading-prefix}-#{$font} & {
@@ -85,7 +85,7 @@
 /// @param {String} $font font to output fallback styles for
 /// @param {Number} $scale number on scale the size is based on
 @mixin oTypographyProgressiveFontFallback($font, $scale) {
-	@if map-has-key($_o-typography-progressive-font-fallbacks, $font) {
+	@if $scale != false and map-has-key($_o-typography-progressive-font-fallbacks, $font) {
 		$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
 
 		.#{$o-typography-loading-prefix}-#{$font} & {
