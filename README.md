@@ -64,12 +64,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ## Migration guide
 
+### Upgrading from 5.x.x to 6.x.x
+
+V5 -> V6 introduces the new major of o-colors. Updating to this new version will mean updating any other components that you have which are using o-colors. There are no other breaking changes in this release.
+
 ### Upgrading from 4.x.x to 5.x.x
 Version 5 has significant markup changes compared to version 4. If you want to upgrade, the best option is to look at the demos: [footer](https://github.com/Financial-Times/o-footer/blob/master/demos/src/footer.mustache) and [simple footer](https://github.com/Financial-Times/o-footer/blob/master/demos/src/simple-footer.mustache).
 If you don't want to upgrade, some superficial visual changes have been back-ported to a minor version on 4.x.x.
 
 
 ### Upgrading from 3.x.x to 4.x.x
+
 
 Note that o-footer v4 relies on o-grid v4.
 
