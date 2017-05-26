@@ -5,6 +5,7 @@ Standard labels
 - [Usage](#usage)
 	- [Markup](#markup)
 	- [Sass](#sass)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
