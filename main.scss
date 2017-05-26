@@ -1,4 +1,5 @@
 @import "o-colors/main";
+@import "o-typography/main";
 
 @import "scss/states";
 @import "scss/variables";
@@ -9,9 +10,9 @@
 		@include oLabels;
 	}
 
-	@each $size, $properties in $o-labels-sizes {
+	@each $size, $scale in $o-labels-sizes {
 		.#{$o-labels-class}--#{$size} {
-			@include oLabelsSize($size);
+			@include oTypographySans($scale);
 		}
 	}
 

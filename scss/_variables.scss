@@ -18,12 +18,6 @@ $o-labels-class: o-labels !default;
 ///
 /// @type Map
 $o-labels-sizes: (
-	medium: (
-		font-size: 10px,
-		height: 16px,
-	),
-	big: (
-		font-size: 12px,
-		height: 18px,
-	)
+	medium: -2,
+	big: -1
 ) !default;
