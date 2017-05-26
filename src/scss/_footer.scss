@@ -49,8 +49,33 @@
 	}
 
 	.o-footer__external-link {
-		border-top: 1px dotted;
-		border-bottom: 1px dotted;
+		position: relative;
+
+		// Hack to increase sepcificity to override overflow
+		// set on class used on the same element. Prevents use
+		// of !important
+		&#{&} {
+			overflow: visible;
+		}
+
+		&:after,
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 100vw;
+			left: 50%;
+			margin-left: -50vw;
+			border-top: 1px solid;
+		}
+
+		&:before {
+			top: 0;
+		}
+
+		&:after {
+			bottom: 0;
+		}
 
 		a {
 			display: block;
