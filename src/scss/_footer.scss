@@ -28,7 +28,6 @@
 	}
 
 	.o-footer__legal-links {
-
 		padding-left: 0px;
 
 		li {
@@ -38,8 +37,8 @@
 
 			&:before {
 				content: '\2022';
-				padding-left: 1px;
-				padding-right: 4px;
+				padding-left: oTypographySpacingSize($units: 1);
+				padding-right: oTypographySpacingSize($units: 1);
 			}
 			&:first-child:before {
 				content: '';
