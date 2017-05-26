@@ -10,8 +10,8 @@
 
 @include oColorsSetUseCase('o-footer-light', 'text', 'black-80');
 @include oColorsSetUseCase('o-footer-light', 'background', 'black-5');
-@include oColorsSetUseCase('o-footer-light-title', 'text', 'black-80');
-@include oColorsSetUseCase('o-footer-light-link', 'text', 'black-70');
-@include oColorsSetUseCase('o-footer-light-link-hover', 'text', 'black-80');
-@include oColorsSetUseCase('o-footer-light-brand', 'background', 'black-30');
-@include oColorsSetUseCase('o-footer-light-copyright', 'text', 'black-70');
+@include oColorsSetUseCase('o-footer-light-title', 'text', 'black');
+@include oColorsSetUseCase('o-footer-light-link', 'text', 'black-60');
+@include oColorsSetUseCase('o-footer-light-link-hover', 'text', 'black');
+@include oColorsSetUseCase('o-footer-light-brand', 'background', 'black-20');
+@include oColorsSetUseCase('o-footer-light-copyright', 'text', 'black-60');
