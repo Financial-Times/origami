@@ -7,7 +7,7 @@
 	@include oGridSurfaceCurrentLayout();
 
 	.o-footer {
-		@include oTypographySansSize('s');
+		@include oTypographySans(0, 20px);
 		margin-top: (2 * $o-footer-spacing-unit);
 		line-height: $o-footer-spacing-unit;
 
@@ -32,7 +32,7 @@
 		padding-left: 0px;
 
 		li {
-			@include oTypographySansSize('s');
+			@include oTypographySans(-1);
 			list-style: none;
 			display: inline-block;
 

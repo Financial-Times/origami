@@ -1,17 +1,17 @@
-@include oColorsSetUseCase('o-footer-dark', 'text', 'white');
-@include oColorsSetUseCase('o-footer-dark', 'border', 'teal-1'); // deprecate in next major
-@include oColorsSetUseCase('o-footer-dark', 'background', 'grey-tint5');
-@include oColorsSetUseCase('o-footer-dark-title', 'text', 'white');
-@include oColorsSetUseCase('o-footer-dark-link', 'text', 'grey-tint1');
-@include oColorsSetUseCase('o-footer-dark-link-hover', 'text', 'white');
-@include oColorsSetUseCase('o-footer-dark-brand', 'background', 'grey-tint4');
-@include oColorsSetUseCase('o-footer-dark-copyright', 'text', 'grey-tint1');
+@include oColorsSetColor('o-footer-dark-link-text', oColorsMix('white', 'slate', 60));
 
-@include oColorsSetUseCase('o-footer-light', 'text', 'grey-tint5');
-@include oColorsSetUseCase('o-footer-light', 'border', 'claret'); // deprecate in next major
-@include oColorsSetUseCase('o-footer-light', 'background', 'pink-tint1');
-@include oColorsSetUseCase('o-footer-light-title', 'text', 'grey-tint5');
-@include oColorsSetUseCase('o-footer-light-link', 'text', 'grey-tint4');
-@include oColorsSetUseCase('o-footer-light-link-hover', 'text', 'grey-tint5');
-@include oColorsSetUseCase('o-footer-light-brand', 'background', 'pink-tint4');
-@include oColorsSetUseCase('o-footer-light-copyright', 'text', 'grey-tint4');
+@include oColorsSetUseCase('o-footer-dark', 'text', 'white');
+@include oColorsSetUseCase('o-footer-dark', 'background', 'slate');
+@include oColorsSetUseCase('o-footer-dark-title', 'text', 'white');
+@include oColorsSetUseCase('o-footer-dark-link', 'text', 'o-footer-dark-link-text');
+@include oColorsSetUseCase('o-footer-dark-link-hover', 'text', 'white');
+@include oColorsSetUseCase('o-footer-dark-brand', 'background', 'black');
+@include oColorsSetUseCase('o-footer-dark-copyright', 'text', 'o-footer-dark-link-text');
+
+@include oColorsSetUseCase('o-footer-light', 'text', 'black-80');
+@include oColorsSetUseCase('o-footer-light', 'background', 'black-5');
+@include oColorsSetUseCase('o-footer-light-title', 'text', 'black-80');
+@include oColorsSetUseCase('o-footer-light-link', 'text', 'black-70');
+@include oColorsSetUseCase('o-footer-light-link-hover', 'text', 'black-80');
+@include oColorsSetUseCase('o-footer-light-brand', 'background', 'black-30');
+@include oColorsSetUseCase('o-footer-light-copyright', 'text', 'black-70');
