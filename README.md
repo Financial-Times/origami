@@ -15,14 +15,14 @@ Standard labels
 Labels can have one of several states:
 
 - `normal`: standard blue
-- `active`: active/success state, default green
-- `error`: error/failure state, default red
-- `pending`: an indeterminate state, default orange
-- `live`: current in-progress state, default red
+- `active`: active/success state, default wasabi
+- `error`: error/failure state, default crimson
+- `pending`: an indeterminate state, default mandarin
+- `live`: current in-progress state, default crimson
 - `closed`: old closed content state, default grey
 - `premium`: premium content state, default black
 - `brand`: FT brand label state, default claret
-- `commercial-content`: commercially promoted content (eg. native ads), default ?tbc?
+- `commercial-content`: commercially promoted content (eg. native ads), default jade (50% brightness)
 
 ```html
 <span class="o-labels">Label</span>
@@ -36,7 +36,7 @@ Labels can have one of several states:
 <span class="o-labels o-labels--commercial-content">Commercial Content</span>
 ```
 
-Use [o-typography](https://registry.origami.ft.com/components/o-typography) to control the sizing of labels. Use a label one size smaller than surrounding text, e.g. an `s` label with `m` text.
+Use [o-typography](https://registry.origami.ft.com/components/o-typography) to control the sizing of labels. Use a label one size smaller than surrounding text, e.g. use `-2` label with `-1` text.
 
 ### Sass:
 
@@ -49,30 +49,39 @@ $o-labels-is-silent: false;
 
 #### Using Sass mixins
 
-The `oLabels` mixin can be used to create a label by passing in the desired `state` and `size`:
+The `oLabels` mixin can be used to create a label by passing in the desired `state` and `size` (based on the o-typography scale):
+
 
 ```sass
 .my-label {
-	@include oLabels('premium', 'big');
+	@include oLabels('premium', -1);
 }
 ```
 
-Along with the main `oLabels` mixins there are two additional Sass mixins: `oLabelsSize` and `oLabelsState`. Using these along with the main `oLabels` mixin will allow you to include a range of labels in your project:
+The `oLabelState` mixin is used to output different coloured labels based on the available states ([see markup section for full list](#markup)).
 
 ```sass
-.label {
-	@include oLabels;
-}
-
-.label--big {
-	@include oLabelsSize('big');
-}
-
 .label--error {
 	@include oLabelsState('error');
 }
 ```
 
+#### Controlling label size
+
+To output different sized labels for your project, use the `oTypographySize` mixin to change the size of your label with different modifiers:
+
+```sass
+.label--big {
+	@include oTypographySize(-1);
+}
+```
+
+
+## Migration guide
+
+**Migrating from v2 to v3**
+
+V3 of o-labels removes the `oLabelSize` mixin. To create different sized labels for your product you should use the o-typography mixins as shown in the [controlling label size](#controlling-label-size) section.
 
 ---
 

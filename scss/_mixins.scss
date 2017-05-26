@@ -34,7 +34,7 @@
 /// }
 ///
 /// @param {String} $state [normal] - state (color) of label to create
-/// @param {String} $size [false] - oTypography scale size
+/// @param {String} $size [-2] - oTypography scale size
 @mixin oLabels($state: normal, $size: -2) {
 	@include oLabelsState($state);
 	@include oTypographySansBold($size);
