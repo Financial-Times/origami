@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Upgrading from 5.x.x to 6.x.x
 
-V5 -> V6 introduces the new major of o-colors. Updating to this new version will mean updating any other components that you have which are using o-colors. There are no other breaking changes in this release.
+V5 -> V6 introduces the new majors of o-colors and o-typography. Updating to this new version will mean updating any other components that you have which are using o-colors and o-typography. There are no other breaking changes in this release.
 
 ### Upgrading from 4.x.x to 5.x.x
 Version 5 has significant markup changes compared to version 4. If you want to upgrade, the best option is to look at the demos: [footer](https://github.com/Financial-Times/o-footer/blob/master/demos/src/footer.mustache) and [simple footer](https://github.com/Financial-Times/o-footer/blob/master/demos/src/simple-footer.mustache).
