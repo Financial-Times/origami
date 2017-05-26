@@ -51,8 +51,9 @@
 		position: relative;
 
 		// Hack to increase sepcificity to override overflow
-		// set on class used on the same element. Prevents use
-		// of !important
+		// set on class used on the same element preventing use of !important.
+		// This Sass selector duplicates the class, creating:
+		// .o-footer__external-link.o-footer__external-link
 		&#{&} {
 			overflow: visible;
 		}
