@@ -7,7 +7,7 @@ The color palette for the FT masterbrand and sub-brand products.
 	- [Markup](#markup)
 	- [CSS Variables](#css-variables)
 - [Migration guide](#migration-guide)
-	- [Upgrading from v3.x.x to v4.x.x](#upgrading-from-v3.x.x-to-v4.x.x)
+	- [Upgrading from v3.x.x to v4.x.x](#upgrading-from-v3xx-to-v4xx)
 - [Contact](#contact)
 - [Licence](#licence)
 
