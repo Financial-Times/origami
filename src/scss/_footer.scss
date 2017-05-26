@@ -78,8 +78,8 @@
 		}
 
 		a {
+			@include oTypographyPadding($top: 3, $bottom: 3);
 			display: block;
-			padding: $o-footer-spacing-unit/2 0;
 
 			&:after {
 				@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-dark-title', 'text'), $icon-size, $iconset-version: 1);
@@ -99,15 +99,12 @@
 	}
 
 	.o-footer__brand {
-		padding-top: $o-footer-spacing-unit - 5;
-		padding-bottom: $o-footer-spacing-unit - 5;
+		@include oTypographyPadding($top: 4, $bottom: 4);
 	}
 
 	.o-footer__brand-logo {
 		@include oFooterBrandImage('brand-nikkei-tagline', 200);
-
 		height: 20px;
-
 		background-repeat: no-repeat;
 		background-position: right;
 	}

@@ -72,12 +72,12 @@
 	}
 
 	.o-footer__matrix-column {
-		margin-top: $o-footer-spacing-unit / 2;
-		margin-bottom: $o-footer-spacing-unit / 2;
+		margin-top: oTypographySpacingSize($units: 4);
+		margin-bottom: oTypographySpacingSize($units: 4);
 	}
 
 	.o-footer__matrix-link {
+		@include oTypographyPadding($bottom: 4);
 		display: block;
-		padding: 4px 0;
 	}
 }
