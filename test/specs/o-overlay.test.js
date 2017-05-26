@@ -100,7 +100,7 @@ describe("Overlay", () => {
 	});
 });
 
-/*
+/* Functions to unit test 
 getOptionsFromTrigger
 triggerClickHandler
 Overlay.prototype.open

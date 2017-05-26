@@ -22,7 +22,7 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"bodyClasses": "o-hoverable-on",
-		"dependencies": ["o-fonts@^1.5.0", "o-buttons@^4.0.0"]
+		"dependencies": ["o-fonts@^3.0.0", "o-buttons@^4.0.0"]
 	},
 	"demos": [
 		{
