@@ -1,4 +1,4 @@
-o-ft-affiliate-ribbon [![Circle CI](https://circleci.com/gh/Financial-Times/o-ft-affiliate-ribbon/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-ft-affiliate-ribbon/tree/master)
+# o-ft-affiliate-ribbon [![Circle CI](https://circleci.com/gh/Financial-Times/o-ft-affiliate-ribbon/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-ft-affiliate-ribbon/tree/master)
 =================
 
 A ribbon denoting affiliation with the Financial Times. This ribbon should be used in products that are owned by the Financial Times but have a separate brand identity to the Financial Times.
@@ -36,6 +36,12 @@ As with all Origami components, o-ft-affiliate-ribbon has a [silent mode](http:/
 	$o-ft-affiliate-ribbon-is-silent: false;
 	@import 'o-ft-affiliate-ribbon/main';
 ```
+
+## Migration guide
+
+### Updating from v1 to v2
+
+V1 -> V2 introduces the new major of o-colors. Updating to this new version will mean updating any other components that you have which are using `o-colors`. There are no other breaking changes in this release.
 
 ## Contact
 
