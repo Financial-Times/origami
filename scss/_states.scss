@@ -3,8 +3,6 @@
 /// @link http://registry.origami.ft.com/components/o-labels
 ////
 
-@include oColorsSetColor('o-labels-commercial-content', #00884A);
-
 /// States for normal/active/error and associated styles.
 /// Add to this map for more states.
 ///
@@ -12,27 +10,27 @@
 $o-labels-states: (
 	normal: (
 		text: 'white',
-		background: 'blue'
+		background: 'oxford'
 	),
 	active: (
-		text: 'white',
-		background: 'green'
+		text: 'black',
+		background: 'wasabi'
 	),
 	error: (
 		text: 'white',
-		background: 'red-tint1'
+		background: 'crimson'
 	),
 	pending: (
-		text: 'white',
-		background: 'org-b2b'
+		text: 'black',
+		background: 'mandarin',
 	),
 	live: (
 		text: 'white',
-		background: 'red'
+		background: 'crimson'
 	),
 	closed: (
 		text: 'white',
-		background: 'grey-tint4'
+		background: 'black-70'
 	),
 	premium: (
 		text: 'white',
@@ -48,12 +46,27 @@ $o-labels-states: (
 	),
 	commercial-content: (
 		text: 'white',
-		background: 'o-labels-commercial-content'
+		background: 'jade',
+		background-tint: 50,
 	)
 ) !default;
 
 @each $state, $colors in $o-labels-states {
-	@each $usecase, $palette in $colors {
-		@include oColorsSetUseCase(o-labels-#{$state}, $usecase, $palette);
+	@if map-has-key($colors, 'background-tint') {
+		$text: map-get($colors, 'text');
+		@include oColorsSetUseCase(o-labels-#{$state}, 'text', $text);
+
+		$background-color: map-get($colors, 'background');
+		$tint: map-get($colors, 'background-tint');
+
+		$tint-name: '#{$background-color}-#{$tint}';
+		$tint-color: oColorsGetTint($color: $background-color , $brightness: $tint);
+
+		@include oColorsSetColor($tint-name, $tint-color);
+		@include oColorsSetUseCase(o-labels-#{$state}, 'background', $tint-name);
+	} @else {
+		@each $usecase, $palette in $colors {
+			@include oColorsSetUseCase(o-labels-#{$state}, $usecase, $palette);
+		}
 	}
 }

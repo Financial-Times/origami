@@ -9,18 +9,10 @@ body {
 	margin: 1em;
 }
 
-.o-labels {
-	@include oTypographySansBold(s);
-
-	&--medium {
-		@include oTypographySansBold(m);
-	}
-}
-
 .demo-paragraph {
-	@include oTypographySans(m);
+	@include oTypographySans(-1);
 
 	.o-labels {
-		@include oTypographySansBold(s);
+		@include oTypographySansBold(-2);
 	}
 }

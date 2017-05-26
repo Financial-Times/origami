@@ -1,33 +1,7 @@
-$_o-labels-warned-size: false;
-
-
 ////
 /// @group o-labels
 /// @link http://registry.origami.ft.com/components/o-labels
 ////
-
-/// Label size construct
-/// Ouputs dimensions for a specific label size
-///
-/// @example
-/// .my-label--big {
-/// 	@include oLabelsSize(big);
-/// }
-///
-/// @param {String} $size
-@mixin oLabelsSize($size) {
-	@if not $_o-labels-warned-size and ($size == 'medium' or $size == 'big') {
-		@warn 'oLabelsSize and .#{$o-labels-class}--\#{$size} are deprecated. Use o-typography sizing instead.';
-		$_o-labels-warned-size: true !global;
-	}
-
-	$label-dimensions: map-get($o-labels-sizes, $size);
-
-	padding-left: map-get($label-dimensions, padding-left);
-	padding-right: map-get($label-dimensions, padding-right);
-	font-size: map-get($label-dimensions, font-size);
-	line-height: map-get($label-dimensions, height);
-}
 
 /// Label theme construct
 /// Ouputs styles for a particular label state
@@ -59,9 +33,11 @@ $_o-labels-warned-size: false;
 /// 	@include oLabels(big);
 /// }
 ///
-/// @param {String} $state (normal)
-/// @param {String} $size (false)
-@mixin oLabels($state: normal, $size: false) {
+/// @param {String} $state [normal] - state (color) of label to create
+/// @param {String} $size [-2] - oTypography scale size
+@mixin oLabels($state: normal, $size: -2) {
+	@include oLabelsState($state);
+	@include oTypographySansBold($size);
 	display: inline-block;
 	box-sizing: border-box;
 	vertical-align: 1px;
@@ -69,10 +45,4 @@ $_o-labels-warned-size: false;
 	text-align: center;
 	text-decoration: none;
 	padding: 0.2em 0.6em;
-
-	@if $size {
-		@include oLabelsSize($size);
-	}
-
-	@include oLabelsState($state); // sass-lint:disable-line mixins-before-declarations
 }
