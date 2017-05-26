@@ -23,12 +23,6 @@
 			"description": ""
 		},
 		{
-			"name": "backgrounds",
-			"template": "demos/src/backgrounds.mustache",
-			"hidden": false,
-			"description": ""
-		},
-		{
 			"name": "transitions",
 			"template": "demos/src/transitions.mustache",
 			"hidden": false,
