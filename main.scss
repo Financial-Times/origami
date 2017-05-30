@@ -24,21 +24,19 @@ $_o-buttons-deprecation-warnings: false;
 			@include oButtonsSize($size);
 		}
 	}
+
 	@each $theme, $properties in $o-buttons-themes {
 		.#{$o-buttons-class}--#{$theme} {
 			@include oButtonsTheme($theme);
 		}
 	}
-	.#{$o-buttons-class}__pagination, // Deprecated, invalidates the BEM naming convention
+
 	.#{$o-buttons-class}-pagination {
 		@include oButtonsPagination;
 	}
 
-
 	@include oButtonsIcon;
 
-
-	.#{$o-buttons-class}__group, // Deprecated, invalidates the BEM naming convention
 	.#{$o-buttons-class}-group {
 		@include oButtonsGroup;
 	}
