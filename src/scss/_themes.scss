@@ -9,8 +9,9 @@
 		-moz-osx-font-smoothing: grayscale;
 		// sass-lint:enable no-vendor-prefixes
 
-		.o-footer__matrix-title {
-			border-color: oColorsGetColorFor('o-footer-dark-copyright', 'text');
+		.o-footer__matrix-title:before,
+		.o-footer__matrix-title:after {
+			border-color: oColorsGetColorFor('o-footer-dark', 'border');
 		}
 
 		.o-footer__matrix-title a {
@@ -50,8 +51,9 @@
 			color: oColorsGetColorFor('o-footer-light-title', 'text');
 		}
 
-		.o-footer__matrix-title {
-			border-color: oColorsGetColorFor('o-footer-light-copyright', 'text');
+		.o-footer__matrix-title:before,
+		.o-footer__matrix-title:after {
+			border-color: oColorsGetColorFor('o-footer-light', 'border');
 		}
 
 		a {
@@ -72,8 +74,12 @@
 			background-color: oColorsGetColorFor('o-footer-light-brand', 'background');
 		}
 
-		.o-footer__external-link a:after {
-			@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-light-title', 'text'), $icon-size, $apply-base-styles: false, $iconset-version: 1);
+		.o-footer__external-link a {
+			@include oColorsFor('o-footer-light', 'text');
+
+			&:after {
+				@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-light-title', 'text'), $icon-size, $apply-base-styles: false, $iconset-version: 1);
+			}
 		}
 	}
 }

@@ -7,7 +7,7 @@
 	@include oGridSurfaceCurrentLayout();
 
 	.o-footer {
-		@include oTypographySansSize('s');
+		@include oTypographySans(0, 20px);
 		margin-top: (2 * $o-footer-spacing-unit);
 		line-height: $o-footer-spacing-unit;
 
@@ -28,18 +28,17 @@
 	}
 
 	.o-footer__legal-links {
-
 		padding-left: 0px;
 
 		li {
-			@include oTypographySansSize('s');
+			@include oTypographySans(-1);
 			list-style: none;
 			display: inline-block;
 
 			&:before {
 				content: '\2022';
-				padding-left: 1px;
-				padding-right: 4px;
+				padding-left: oTypographySpacingSize($units: 1);
+				padding-right: oTypographySpacingSize($units: 1);
 			}
 			&:first-child:before {
 				content: '';
@@ -49,12 +48,38 @@
 	}
 
 	.o-footer__external-link {
-		border-top: 1px dotted;
-		border-bottom: 1px dotted;
+		position: relative;
+
+		// Hack to increase sepcificity to override overflow
+		// set on class used on the same element preventing use of !important.
+		// This Sass selector duplicates the class, creating:
+		// .o-footer__external-link.o-footer__external-link
+		&#{&} {
+			overflow: visible;
+		}
+
+		&:after,
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 100vw;
+			left: 50%;
+			margin-left: -50vw;
+			border-top: 1px solid;
+		}
+
+		&:before {
+			top: 0;
+		}
+
+		&:after {
+			bottom: 0;
+		}
 
 		a {
+			@include oTypographyPadding($top: 3, $bottom: 3);
 			display: block;
-			padding: $o-footer-spacing-unit/2 0;
 
 			&:after {
 				@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-dark-title', 'text'), $icon-size, $iconset-version: 1);
@@ -74,15 +99,12 @@
 	}
 
 	.o-footer__brand {
-		padding-top: $o-footer-spacing-unit - 5;
-		padding-bottom: $o-footer-spacing-unit - 5;
+		@include oTypographyPadding($top: 4, $bottom: 4);
 	}
 
 	.o-footer__brand-logo {
 		@include oFooterBrandImage('brand-nikkei-tagline', 200);
-
 		height: 20px;
-
 		background-repeat: no-repeat;
 		background-position: right;
 	}
