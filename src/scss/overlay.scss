@@ -12,12 +12,9 @@
 	transition: opacity 0.3s ease-in-out;
 	border: $_o-overlay-border-width solid oColorsGetColorFor(o-overlay, border);
 	background: oColorsGetColorFor(o-overlay, background);
-	border-radius: 0px;
-	// border-radius: $o-normalise-border-radius; TODO: Next breaking change add this in
+	border-radius: $o-normalise-border-radius;
 
-	// Replace with style in o-visual-effects in next breaking release (v2)
-	// @include oEffectsShadowsElevation($elevation: 'high');
-	box-shadow: 0 1px 4px rgba(#505050, 0.15), 0 8px 14px rgba(#505050, 0.2);
+	@include oEffectsShadowsElevation($elevation: 'high');
 }
 
 /// Base overlay modal shadow style
