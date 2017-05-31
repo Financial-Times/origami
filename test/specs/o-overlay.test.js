@@ -45,9 +45,9 @@ describe("Overlay", () => {
 		});
 
 		it("Throws if a heading is set but not a non empty title", () => {
-			proclaim.throws(() => { new Overlay('myID', {html: 'hello', heading: {title: ''}}) });
-			proclaim.throws(() => { new Overlay('myID', {html: 'hello', heading: {title: ' '}}) });
-			proclaim.throws(() => { new Overlay('myID', {html: 'hello', heading: {title: {}}}) });
+			proclaim.throws(() => { new Overlay('myID', {html: 'hello', heading: {title: ''}}); });
+			proclaim.throws(() => { new Overlay('myID', {html: 'hello', heading: {title: ' '}}); });
+			proclaim.throws(() => { new Overlay('myID', {html: 'hello', heading: {title: {}}}); });
 			proclaim.isTypeOf(new Overlay('myID', {html: 'hello', heading:  {title: 'hello'}}), 'object');
 		});
 
@@ -62,12 +62,12 @@ describe("Overlay", () => {
 		});
 
 		it("Throws if compact and heading and shaded are set", () => {
-			proclaim.throws(() => { new Overlay('myID', {html: 'hello', compact: true, heading: {title: 'hello', shaded: true}}) });
+			proclaim.throws(() => { new Overlay('myID', {html: 'hello', compact: true, heading: {title: 'hello', shaded: true}}); });
 			proclaim.isTypeOf(new Overlay('myID', {html: 'hello', heading: {title: 'hello', shaded: true}}), 'object');
 		});
 
 		it("Throws if no id is passed in", () => {
-			proclaim.throws(() => { new Overlay({html: 'hello', heading: {title: ''}})});
+			proclaim.throws(() => { new Overlay({html: 'hello', heading: {title: ''}}); });
 		});
 
 		it("Adds an event listener to the trigger if one has been set", () => {
@@ -77,7 +77,7 @@ describe("Overlay", () => {
 			proclaim.isFalse(openSpy.called);
 			proclaim.isFalse(closeSpy.called);
 
-			const testOverlay = new Overlay('myID', {html: 'hello', trigger: '#testTrigger'});
+			new Overlay('myID', {html: 'hello', trigger: '#testTrigger'});
 
 			document.getElementById('testTrigger').click();
 			proclaim.isTrue(openSpy.called);
@@ -100,7 +100,7 @@ describe("Overlay", () => {
 	});
 });
 
-/* Functions to unit test 
+/* Functions to unit test
 getOptionsFromTrigger
 triggerClickHandler
 Overlay.prototype.open
