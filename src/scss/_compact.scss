@@ -7,14 +7,12 @@
 @mixin oTableCompact {
 
 	th {
-		font-size: 12px;
-		line-height: 16px;
-		padding: 6px 8px;
+		@include oTypographySize(0);
+		padding: 4px 8px;
 	}
 
 	td {
-		font-size: 11px;
-		line-height: 15px;
-		padding: 6px 8px;
+		@include oTypographySize(0);
+		padding: 4px 8px;
 	}
 }
