@@ -17,11 +17,20 @@
 		@include oTypographySerifDisplayBold(xl, $load-progressively: true);
 		@include headlineFontSize(32px);
 
-		display: flex; // for responsive bottom border
 		position: relative; //so it appears above the full width background
-		flex-direction: column;
 		line-height: 1;
 		margin: 0;
+
+		&:after {
+			content: '';
+			display: block;
+			width: 120px;
+			margin: 20px 0 30px;
+			@include oGridRespondTo(S) {
+				width: 150px;
+				margin: 20px 0 40px;
+			}
+		}
 
 		@include oGridRespondTo(S) {
 			@include headlineFontSize(38px);

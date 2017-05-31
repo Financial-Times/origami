@@ -59,18 +59,14 @@ $colors: 'white', 'black', 'claret', 'blue', 'pink', 'slate', 'warm-1', 'wheat',
 }
 
 @mixin alignText($position) {
+	$mleft: ('left': 0, 'center': auto, 'right': auto);
+	$mright: ('left': auto, 'center': auto, 'right': 0);
 	$value: ('left': flex-start, 'center': center, 'right': flex-end);
-	.topper__headline::after {
-		content: '';
-		align-self: map-get($value, #{$position});
-		width: 120px;
-		margin: 20px 0 30px;
-		@include oGridRespondTo(S) {
-			width: 150px;
-			margin: 20px 0 40px;
-		};
-	}
 
+	.topper__headline--large:after {
+		margin-left: map-get($mleft, #{$position});
+		margin-right: map-get($mright, #{$position});
+	}
 	.topper__text-wrapper {
 		text-align: $position;
 		align-self: map-get($value, #{$position});
