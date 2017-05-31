@@ -224,6 +224,10 @@ Known issues:
 
 ## Migration guide
 
+### How to upgrade from v4.x.x to v5.x.x?
+
+This major takes the new o-colors and o-typography. Some of the colors and typography have changed slightly from v4 to v5. The font size and line heights of the table data has increased to sit in line with the new typography scale. Some of the colors have changed as there isn't an exact mapping from one color to the other in o-colors.
+
 ### How to upgrade from v3.x.x to v4.x.x?
 
 #### Important Changes
