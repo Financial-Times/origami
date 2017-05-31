@@ -19,18 +19,17 @@
 	}
 
 	th {
-		@include oTypographySansBold(s);
+		@include oTypographySansBold(1);
 		@include oColorsFor(o-table-header, color);
 	}
 
 	td {
-		@include oTypographySans(s);
+		@include oTypographySans(1);
 		@include oColorsFor(o-table-data, color);
 	}
 
 	th,
 	td {
-		line-height: 1.428571429;
 		padding: 8px;
 		text-align: left;
 		vertical-align: top;

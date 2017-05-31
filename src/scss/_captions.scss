@@ -7,10 +7,8 @@
 @mixin oTableCaption {
 	border-bottom: 2px solid oColorsGetColorFor(o-table-header-row, border);
 	border-top: 2px solid oColorsGetColorFor(o-table-header-row, border);
-	font-size: 14px;
-	font-weight: bold;
-	line-height: 18px;
-	padding: 9px 0;
+	@include oTypographySansBold(1);
+	padding: 8px 0;
 	text-align: center;
 	text-transform: uppercase;
 }
