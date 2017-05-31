@@ -8,7 +8,7 @@
 	border-bottom: 2px solid oColorsGetColorFor(o-table-header-row, border);
 	border-top: 2px solid oColorsGetColorFor(o-table-header-row, border);
 	@include oTypographySansBold(1);
-	padding: 8px 0;
+	@include oTypographyPadding($top: 2, $bottom: 2)
 	text-align: center;
 	text-transform: uppercase;
 }
