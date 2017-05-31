@@ -22,9 +22,9 @@ $n-notification-is-silent: true !default;
 
 	.n-notification__item {
 		position: relative;
-		background-color: rgba(getColor('pink'), 0.95);
-		border-bottom: 3px solid getColor('cold-2');
-		color: getColor('cold-2');
+		background-color: rgba(getColor('paper'), 0.95);
+		border-bottom: 3px solid getColor('black-80');
+		color: getColor('black-80');
 		box-sizing: border-box;
 		margin: 0;
 		padding: 14px 0;
@@ -59,13 +59,13 @@ $n-notification-is-silent: true !default;
 		}
 
 		a {
-			color: getColor('cold-2');
-			border-bottom-color: getColor('cold-2');
+			color: getColor('black-80');
+			border-bottom-color: getColor('black-80');
 		}
 	}
 
 	.n-notification__close {
-		@include oIconsGetIcon('cross', getColor('cold-2'), 40);
+		@include oIconsGetIcon('cross', getColor('black-80'), 40);
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -80,7 +80,7 @@ $n-notification-is-silent: true !default;
 	}
 
 	.n-notification .myft-ui__icon {
-		@include nGetImage('logo', 'brand-myft', getColor('cold-2'), 20);
+		@include nGetImage('logo', 'brand-myft', getColor('black-80'), 20);
 		margin: 0 3px -5px;
 		width: 34px;
 	}
@@ -114,10 +114,10 @@ $n-notification-is-silent: true !default;
 	}
 
 	.n-notification--error {
-		background-color: rgba(getColor('red-tint2'), 0.95);
+		background-color: rgba(getColor('crimson'), 0.95);
 	}
 
 	.n-notification--success {
-		background-color: rgba(getColor('green-tint1'), 0.95);
+		background-color: rgba(getColor('jade'), 0.95);
 	}
 }
