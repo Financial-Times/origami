@@ -61,7 +61,7 @@ const triggerClickHandler = function(id, ev) {
  * @param {Object} opts - An options object for configuring the Overlay. This object MUST have either `src` or `html` set. (Required)
  * @param {String} opts.heading.title - Your overlay's title
  * @param {Boolean} opts.heading.visuallyHideTitle - If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for aria labelling) Default: false.
- * @param {Shaded} opts.heading.shaded - Whether to shade the background of the header. Default: to false
+ * @param {Boolean} opts.heading.shaded - Whether to shade the background of the header. Default: to false
  * @param {Boolean} opts.modal - Whether the overlay should have modal behaviour or not. Setting this as true will add a translucent shadow between the page and the overlay
  * @param {Boolean} opts.compact - If true, the .o-overlay--compact class will be added to the overlay that reduces heading font-size and paddings in the content.
  * @param {String} opts.src - Either a url from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted.
