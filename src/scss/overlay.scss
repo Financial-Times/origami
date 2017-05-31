@@ -14,7 +14,7 @@
 	background: oColorsGetColorFor(o-overlay, background);
 	border-radius: $o-normalise-border-radius;
 
-	@include oEffectsShadowsElevation($elevation: 'high');
+	@include oVisualEffectsShadowsElevation($elevation: 'high');
 }
 
 /// Base overlay modal shadow style
