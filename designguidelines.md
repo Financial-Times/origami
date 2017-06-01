@@ -1,8 +1,8 @@
 #### Themes
 
-* __default__: teal outline
-* __standout__: solid teal
-* __uncolored__: monochrome
+* __default__/__secondary__: teal outline
+* __primary__: solid teal
+* __mono__: monochrome
 * __inverse__: for use on dark backgrounds
 * __b2c__: A theme for b2c products eg [http://help.ft.com](http://help.ft.com)
 
@@ -10,9 +10,8 @@ and the following sizes:
 
 #### Sizes
 
-* __small__: 22px high
-* __default__: 26px high
-* __big__: 36px high
+* __default__: 28px high
+* __big__: 40px high
 
 and have the following states:
 
