@@ -47,7 +47,7 @@
 | warm-2                | black-5                          |
 | warm-3                | black-20                         |
 | warm-4                | black-90                         |
-| warm-5                | white-50                         |
+| warm-5                | white-60                         |
 | warm-6                | black-80 (_consult a designer_)  |
 | cold-1                | black-70                         |
 | cold-2                | black-80                         |
