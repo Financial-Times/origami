@@ -2,9 +2,6 @@
 @import 'o-colors/main';
 @import 'o-icons/main';
 
-// Switch off component deprecation warnings
-$_o-buttons-deprecation-warnings: false;
-
 @import 'scss/themes';
 @import 'scss/variables';
 @import 'scss/functions';
@@ -44,6 +41,3 @@ $_o-buttons-deprecation-warnings: false;
 	// Set module to silent again
 	$o-buttons-is-silent: true !global;
 }
-
-// Switch deprecation warnings back on
-$_o-buttons-deprecation-warnings: true;
