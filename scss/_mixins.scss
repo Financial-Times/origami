@@ -67,16 +67,12 @@
 	}
 
 	&:not([disabled]) {
-		&:focus:not(:hover),
-		#{$o-hoverable-if-hover-enabled} &:hover {
+		&:hover {
 			@include _oButtonsPropertiesForState($theme, hover);
 		}
 		&:active {
 			@include _oButtonsPropertiesForState($theme, active);
 		}
-	}
-	&:focus:not(:active):not(:hover) {
-		@include _oButtonsPropertiesForState($theme, focus);
 	}
 }
 
@@ -102,7 +98,7 @@
 ///
 /// @param {String} $size (medium)
 /// @param {String} $theme (standard)
-@mixin oButtons($size: medium, $theme: standard) {
+@mixin oButtons($size: default, $theme: primary) {
 	display: inline-block;
 	box-sizing: border-box;
 	vertical-align: middle;
@@ -138,6 +134,12 @@
 		pointer-events: none;
 		opacity: 0.4;
 		cursor: default;
+	}
+
+	&:focus {
+		outline-color: oColorsGetPaletteColor('teal-100');
+		outline-style: solid;
+		outline-width: 2px;
 	}
 
 	// Remove extra padding in Firefox
