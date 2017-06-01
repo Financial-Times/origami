@@ -62,10 +62,6 @@
 		@include _oButtonsPropertiesForState($theme, pressedselected);
 	}
 
-	&[disabled] {
-		@include _oButtonsPropertiesForState($theme, disabled);
-	}
-
 	&:not([disabled]) {
 		&:hover {
 			@include _oButtonsPropertiesForState($theme, hover);
