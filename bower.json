@@ -13,10 +13,11 @@
     "main.js"
   ],
   "dependencies": {
-    "o-colors": "^3.5.4",
-    "o-typography": "^4.3.1",
+    "o-colors": "^4.0.0",
     "o-grid": "^4.2.3",
     "o-icons": ">=4.4.2 <6",
+    "o-normalise": "^1.2.1",
+    "o-typography": "^5.0.0",
     "superstore-sync": "^2.1.1"
   }
 }
