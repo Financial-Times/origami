@@ -394,7 +394,7 @@ The following mixins are now renamed:
 + oTypographySans
 
 - font-size
-+ oTypographyFontSize
++ _oTypographyFontSize
 
 - oTypographyProgressiveFont
 + oTypographyProgressiveFontFallback
