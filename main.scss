@@ -4,9 +4,6 @@
 @import "o-typography/main";
 @import "o-labels/main";
 
-$o-hoverable-if-hover-enabled: '';
-@import 'o-hoverable/main';
-
 @import "src/scss/variables";
 @import "src/scss/helpers";
 @import "src/scss/color-use-cases";
