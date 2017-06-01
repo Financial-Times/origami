@@ -1,19 +1,19 @@
 /// Icon Buttons
 ///
 /// Outputs styles for every icon in o-buttons-icons at every theme in o-buttons-themes
-
+/// @param {String} $buttonClass - class to apply o-buttons styles to
 @mixin oButtonsIcon($buttonClass: $o-buttons-class) {
-  // Browserhack to only apply these styles for IE7 and up. IE6 will get the
-  // text fallback. Hack documented here: http://browserhacks.com/#hack-da690292d4fddd94dc7bdd50e38b5713
-  html > body .#{$buttonClass}-icon {
-    @include oButtonsBaseStyles;
+	// Browserhack to only apply these styles for IE7 and up. IE6 will get the
+	// text fallback. Hack documented here: http://browserhacks.com/#hack-da690292d4fddd94dc7bdd50e38b5713
+	html > body .#{$buttonClass}-icon {
+		@include oButtonsBaseStyles;
 
-    @each $theme, $properties in $o-buttons-themes {
-      @each $icon in $o-buttons-icons {
-        @include oButtonsGetButtonForIconAndTheme($icon, $theme);
-      }
-    }
-  }
+		@each $theme, $properties in $o-buttons-themes {
+			@each $icon in $o-buttons-icons {
+				@include oButtonsGetButtonForIconAndTheme($icon, $theme);
+			}
+		}
+	}
 }
 
 /// Get Button For Icon and Theme
@@ -22,78 +22,88 @@
 /// in that theme's state list
 /// example:
 /// .my-button--left-arrow {
-///   @include oButtonsGetButtonForIconAndTheme(left-arrow, standout);
+///	 @include oButtonsGetButtonForIconAndTheme(left-arrow, standout);
 /// }
 ///
 /// @param {String} $icon-name, any icon name found in o-ft-icons
 /// @param {String} $theme, any theme name as defined in $o-buttons-themes (standard, standout, etc). Defaults to standard.
 /// @param {String} $button-class, defaults to o-buttons ($o-buttons-class' default value)
 ///
+@mixin oButtonsGetButtonForIconAndTheme($icon-name, $theme: primary, $buttonClass: $o-buttons-class) {
 
-@mixin oButtonsGetButtonForIconAndTheme($icon-name, $theme: standard, $buttonClass: $o-buttons-class) {
+	&.#{$buttonClass}-icon--#{$icon-name} {
 
-  &.#{$buttonClass}-icon--#{$icon-name} {
+		$theme-selector: null;
+		@if $theme == 'primary' {
+			$theme-selector: '&';
+		} @else {
+			$theme-selector: '&.#{$buttonClass}--#{$theme}';
+		}
 
-    $theme-selector: null;
-    @if $theme == 'standard' {
-      $theme-selector: '&';
-    } @else {
-      $theme-selector: '&.#{$buttonClass}--#{$theme}';
-    }
+		#{$theme-selector} {
+			@include _oButtonsGetIconForThemeAndState($icon-name, $theme, normal);
 
-    #{$theme-selector} {
-      $state-list: map-get($o-buttons-themes, $theme); // normal, active, hover, focus, pressedselected, disabled
+			// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+			// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+			&[aria-selected=true], // e.g. A selected tab or page number in pagination
+			&[aria-pressed=true] { // e.g. A "follow" button that is pressed
+				@include _oButtonsGetIconForThemeAndState($icon-name, $theme, pressedselected);
+			}
 
-      @include _oButtonsGetIconForThemeAndState($icon-name, $state-list, normal);
+			&[disabled] {
+				@include _oButtonsGetIconForThemeAndState($icon-name, $theme, normal);
+			}
 
-      // http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
-      // http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
-      &[aria-selected=true], // e.g. A selected tab or page number in pagination
-      &[aria-pressed=true] { // e.g. A "follow" button that is pressed
-        @include _oButtonsGetIconForThemeAndState($icon-name, $state-list, pressedselected);
-      }
+			&:not([disabled]) {
+				&:focus:not(:hover),
+				&:hover {
+					@include _oButtonsGetIconForThemeAndState($icon-name, $theme, hover);
+				}
+				&:active {
+					@include _oButtonsGetIconForThemeAndState($icon-name, $theme, active);
+				}
+			}
 
-      &[disabled] {
-        @include _oButtonsGetIconForThemeAndState($icon-name, $state-list, disabled);
-      }
-
-      &:not([disabled]):active {
-        @include _oButtonsGetIconForThemeAndState($icon-name, $state-list, active);
-      }
-
-      // Hack to get the active state colour svg to download to prevent FOIC
-      &:after {
-        @include _oButtonsGetIconForThemeAndState($icon-name, $state-list, active);
-        content: '';
-      }
-    }
-  }
+			// Hack to get the active state colour svg to download to prevent FOIC
+			&:after {
+				@include _oButtonsGetIconForThemeAndState($icon-name, $theme, active);
+				content: '';
+			}
+		}
+	}
 }
 
+/// Base styling for buttons
+///
+/// @param {String} $button-class, defaults to o-buttons ($o-buttons-class' default value)
 @mixin oButtonsBaseStyles($buttonClass: $o-buttons-class) {
-  display: inline-block;
-  background-repeat: no-repeat;
-  background-position: 3px;
-  padding-left: 22px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: 3px;
+	padding-left: 22px;
 
-  &.o-buttons-icon--icon-only {
-    padding-left: 0;
-    background-position: 50%;
-  }
+	&.o-buttons-icon--icon-only {
+		padding-left: 0;
+		background-position: 50%;
+	}
 
-  .#{$buttonClass}-icon__label {
-    @include oButtonsIconButtonLabel;
-  }
+	.#{$buttonClass}-icon__label {
+		@include oButtonsIconButtonLabel;
+	}
 }
 
-@mixin _oButtonsGetIconForThemeAndState($icon-name, $state-list, $state) {
-  @if map-has-key($state-list, $state) {
-    $properties: map-get($state-list, $state);
-    $icon-color: map-get($properties, color); // Icon color-should match the text color
-    @if $icon-color != null {
-      @include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: $icon-color, $iconset-version: 1);
-    }
-  }
+/// Request an icon from o-icons with color based on the o-buttons theme and state
+///
+/// @param {String} $icon-name, icon to request
+/// @param {String} $theme, one of $o-colors-theme
+/// @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
+@mixin _oButtonsGetIconForThemeAndState($icon-name, $theme, $state) {
+	$state-color: 'o-buttons-#{$theme}-#{$state}';
+	$icon-color: oColorsGetColorFor($state-color, text);
+
+	@if $icon-color != null {
+		@include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: $icon-color, $iconset-version: 1);
+	}
 }
 
 /// Icon Button Label
@@ -103,10 +113,9 @@
 /// label. This solution also works well for screen readers.
 /// This mixin outputs the styles for visually hiding the label
 ///
-///
 @mixin oButtonsIconButtonLabel() {
-  font-size: 0;
-  height: 1px;
-  overflow: hidden;
-  display: block;
+	font-size: 0;
+	height: 1px;
+	overflow: hidden;
+	display: block;
 }
