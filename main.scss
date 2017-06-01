@@ -42,20 +42,20 @@ $n-notification-is-silent: true !default;
 	}
 
 	.n-notification__title {
-		@include oTypographySansBold(m);
+		@include oTypographySansBold($scale: 2);
 		display: inline-block;
 		padding-right: 10px;
 		margin: 0;
 	}
 
 	.n-notification__content {
-		@include oTypographySans(m);
+		@include oTypographySans($scale: 2);
 		display: inline-block;
 		margin: 0;
 
 		b,
 		strong {
-			@include oTypographySansBold(m);
+			@include oTypographySansBold($scale: 2);
 		}
 
 		a {
