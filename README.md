@@ -265,7 +265,15 @@ The following changes have been made to the **themes**:
 
 Inverse and B2C themes have remained the same.
 
-Removes deprecated classnames: `o-buttons__pagination` and `o-buttons__group`.
+Removes deprecated classnames:
+
+```diff
+-.o-buttons__pagination
++.o-buttons-pagination
+
+-.o-buttons__group
++.o-buttons-group
+```
 
 ---
 
