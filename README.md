@@ -244,8 +244,21 @@ Or, using Sass:
 
 ## Migration Guide
 
+### Migrating from v4 to v5
 
+This major includes the new o-colors and updates the themes and sizes of buttons.
 
+**Sizes** have been updated to `default` (`28px` min-height), and `big` (`40px` min-height) to correspond to the new baseline sizing introduced in the new o-typography. `Small` button size has been removed.
+
+The following changes have been made to the **themes**:
+
+- `Standard` is now `Secondary` and the default button style: use `o-buttons` or `o-buttons--secondary` classes
+- `Standout` is now `Primary`: use `o-buttons--primary` class
+- `Uncolored` is now `Mono`: use `o-buttons--mono` class
+
+Inverse and B2C themes have remained the same.
+
+Removes deprecated classnames: `o-buttons__pagination` and `o-buttons__group`.
 
 ---
 
