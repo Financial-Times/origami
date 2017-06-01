@@ -6,6 +6,7 @@ o-buttons provides Sass mixins and variables to create buttons.
 - [Usage](#usage)
 	- [Markup](#markup)
 	- [Sass](#sass)
+- [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -14,8 +15,8 @@ o-buttons provides Sass mixins and variables to create buttons.
 
 o-buttons provides styling for:
 
-- **Themes**: `o-buttons--{standard|standout|inverse|uncolored|b2c}` or `@include oButtonsTheme($theme)``
-- **Sizes**: `o-buttons--{small|medium|big}` or `@include oButtonsSize($size);`
+- **Themes**: `o-buttons--{primary|secondary|inverse|mono|b2c}` or `@include oButtonsTheme($theme)``
+- **Sizes**: `o-buttons--{default|big}` or `@include oButtonsSize($size);`
 - **Grouped buttons**: `o-buttons-group` or `@include oButtonsGroup;`
 - **Pagination buttons**: `o-buttons-pagination` or `@include oButtonsPagination;`
 - **Icon buttons**: `o-buttons-icon o-buttons-icon--{arrow-left| arrow-right}` or `@include oButtonsGetButtonForIconAndTheme($icon-name, $theme);`
@@ -34,14 +35,14 @@ The button CSS will work on `<button>` or `<a>` elements. It is important for ac
 
 ### Sass
 
-> Mixins and [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) are only available if you're including o-buttons in your project using bower or OBT. If you're using o-buttons via the Build Service, you must use the o-buttons classes instead. Both are documented below.
+Mixins and [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) are only available if you're including o-buttons in your project using bower or [OBT](https://github.com/Financial-Times/origami-build-tools). If you're using o-buttons via the [Build Service](https://www.ft.com/__origami/service/build/v2/), you must use the o-buttons classes instead. Both are documented below.
 
 #### Default button
 
 [View demos](http://registry.origami.ft.com/components/o-buttons)
 
 ```html
-<button class="o-buttons">Standard</button>
+<button class="o-buttons">Primary</button>
 ```
 
 Or, using Sass:
@@ -53,14 +54,14 @@ Or, using Sass:
 ```
 
 ```html
-<button class="my-button-class">Standard</button>
+<button class="my-button-class">Primary</button>
 ```
 
 
 #### States
 
 ```html
-<button class="o-buttons">Standard</button>
+<button class="o-buttons">Primary</button>
 <button class="o-buttons" aria-selected="true">Selected</button>
 <button class="o-buttons" aria-pressed="true">Pressed</button>
 <button class="o-buttons" disabled>Disabled</button>
@@ -130,7 +131,7 @@ Or, using Sass:
 #### Size modifiers
 
 ```html
-<button class="o-buttons o-buttons--medium">Medium button (default)</button>
+<button class="o-buttons o-buttons">Default button</button>
 <button class="o-buttons o-buttons--big">Big button</button>
 ```
 
@@ -160,8 +161,8 @@ Or, using Sass:
 [View demos](http://registry.origami.ft.com/components/o-buttons)
 
 ```html
-<button class="o-buttons o-buttons--standout">Standout button</button>
-<button class="o-buttons o-buttons--uncolored">Uncolored button</button>
+<button class="o-buttons o-buttons--secondary">Secondary button</button>
+<button class="o-buttons o-buttons--mono">Mono button</button>
 <button class="o-buttons o-buttons--inverse">Inverse button</button>
 <button class="o-buttons o-buttons--b2c">B2C button</button>
 
@@ -173,20 +174,20 @@ Or, using Sass:
 .my-button-class {
 	@include oButtons();
 }
-.my-button-class--standout {
-	@include oButtonsTheme(standout);
+.my-button-class--secondary {
+	@include oButtonsTheme(secondary);
 }
 
 // Or…
-.my-standout-button {
-	@include oButtons($theme: standout);
+.my-secondary-button {
+	@include oButtons($theme: secondary);
 }
 ```
 
 ```html
-<button class="my-button-class my-button-class--standout">Standout button</button>
+<button class="my-button-class my-button-class--secondary">Secondary button</button>
 
-<button class="my-standout-button">Standout button</button>
+<button class="my-secondary-button">Secondary button</button>
 ```
 
 #### Icons
@@ -220,7 +221,7 @@ Or, using Sass:
 
 .my-button-class--icon-star {
 	// icon here can be *any* icon tag (eg arrow-left) in fticons
-	@include oButtonsGetButtonForIconAndTheme(star, standout);
+	@include oButtonsGetButtonForIconAndTheme(star, secondary);
 }
 
 .my-button-class-icon__label {
@@ -239,6 +240,12 @@ Or, using Sass:
 	<span class="my-button-class-icon__label">star</span>
 </button>
 ```
+
+
+## Migration Guide
+
+
+
 
 ---
 
