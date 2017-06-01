@@ -64,8 +64,8 @@ If you need a different message, you can instruct the o-cookie-message JavaScrip
 To prevent o-cookie-message from messing with the inner HTML of your o-cookie-message div, add a second data attribute:
 
 ```html
-<div data-o-component="o-cookie-message" 
-	data-o-cookie-message-use-custom-html="true" 
+<div data-o-component="o-cookie-message"
+	data-o-cookie-message-use-custom-html="true"
 	class='o-cookie-message o-cookie-message--banner-centric'>
 	<p class="o-cookie-message__description">
 		Exciting custom cookie message!
@@ -79,6 +79,9 @@ To prevent o-cookie-message from messing with the inner HTML of your o-cookie-me
 ```
 
 ## Migration guide
+### Migrating from 2.X.X to 3.X.X
+The 3.0.0 introduces the new majors of o-colors and o-typography and a new dependency on o-normalise. Updating to this new version will mean updating any other components that you have which are using o-colors or o-typography.
+There are some design tweaks but no other breaking changes in this release.
 
 ### Migrating from 1.X.X to 2.X.X
 
