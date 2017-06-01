@@ -93,12 +93,12 @@
 ///  }
 /// @example Custom size and theme
 ///  .my-big-standout-button {
-///  	@include oButtons(big, standout);
+///  	@include oButtons(big, primary);
 ///  }
 ///
-/// @param {String} $size (medium)
-/// @param {String} $theme (standard)
-@mixin oButtons($size: default, $theme: primary) {
+/// @param {String} $size (default)
+/// @param {String} $theme (secondary)
+@mixin oButtons($size: default, $theme: secondary) {
 	display: inline-block;
 	box-sizing: border-box;
 	vertical-align: middle;
