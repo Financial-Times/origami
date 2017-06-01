@@ -4,7 +4,11 @@
 /// @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
 @function _oButtonsThemeHasState($theme, $state) {
 	$states: map-get($o-buttons-themes, $theme);
-	@return map-has-key($states, $state);
+	@if type-of($states) == map {
+		@return map-has-key($states, $state);
+	} @else {
+		@return false;
+	}
 }
 
 /// Check if a state has a property
@@ -18,7 +22,13 @@
 @function _oButtonsStateHasProperty($theme, $state, $property) {
 	$states: map-get($o-buttons-themes, $theme);
 	$properties: map-get($states, $state);
-	@return map-has-key($properties, $property);
+
+	@if type-of($properties) == map {
+		@return map-has-key($properties, $property);
+	} @else {
+		@return false;
+	}
+
 }
 
 /// Get the value of a property in a given state
@@ -34,5 +44,9 @@
 @function _oButtonsStateGetProperty($theme, $state, $property) {
 	$states: map-get($o-buttons-themes, $theme);
 	$properties: map-get($states, $state);
-	@return map-get($properties, $property);
+	@if type-of($properties) == map {
+		@return map-get($properties, $property);
+	} @else {
+		@return false;
+	}
 }
