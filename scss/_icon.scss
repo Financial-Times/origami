@@ -29,12 +29,12 @@
 /// @param {String} $theme, any theme name as defined in $o-buttons-themes (standard, standout, etc). Defaults to standard.
 /// @param {String} $button-class, defaults to o-buttons ($o-buttons-class' default value)
 ///
-@mixin oButtonsGetButtonForIconAndTheme($icon-name, $theme: primary, $buttonClass: $o-buttons-class) {
+@mixin oButtonsGetButtonForIconAndTheme($icon-name, $theme: secondary, $buttonClass: $o-buttons-class) {
 
 	&.#{$buttonClass}-icon--#{$icon-name} {
 
 		$theme-selector: null;
-		@if $theme == 'primary' {
+		@if $theme == 'secondary' {
 			$theme-selector: '&';
 		} @else {
 			$theme-selector: '&.#{$buttonClass}--#{$theme}';
