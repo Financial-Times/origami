@@ -6,6 +6,7 @@ o-buttons provides Sass mixins and variables to create buttons.
 - [Usage](#usage)
 	- [Markup](#markup)
 	- [Sass](#sass)
+- [Troubleshooting](#troubleshooting)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -241,6 +242,12 @@ Or, using Sass:
 </button>
 ```
 
+
+## Troubleshooting
+
+In the past we've seen issues where adding styles to the `background` property of buttons with a low specificity selector can overwrite the `background-color` styles added by o-buttons, [see issue #76](https://github.com/Financial-Times/o-buttons/issues/76). This happens because o-buttons styles the `background-color` property on buttons to add color instead of the shorthand property, which allows for icons to be added to buttons using the remaining background properties.
+
+To avoid this, use the `background-color` property instead of the shorthand `background` property if you wish to overwrite a buttons background-color.
 
 ## Migration Guide
 
