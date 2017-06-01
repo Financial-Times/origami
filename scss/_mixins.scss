@@ -28,6 +28,7 @@
 
 // Properties for a state of a given theme
 //
+// @param {String} $theme - One of $o-buttons-themes
 // @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
 @mixin _oButtonsPropertiesForState($theme, $state) {
 	@if _oButtonsThemeHasState($theme, $state) {
@@ -36,6 +37,9 @@
 		@each $property, $value in map-get($states, $state) {
 			#{$property}: #{$value};
 		}
+	} @else {
+		$colorsFor: 'o-buttons-#{$theme}-#{$state}';
+		@include oColorsFor($colorsFor);
 	}
 }
 
