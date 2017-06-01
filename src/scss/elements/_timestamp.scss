@@ -1,6 +1,6 @@
 /// Timestamp base styles
 @mixin oTeaserTimestamp {
-	@include font-size(12, 18);
+	@include oTypographySize(-2, 20px);
 	@include oColorsFor('o-teaser', text, 60);
 	display: block;
 	text-transform: uppercase;

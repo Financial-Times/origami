@@ -9,22 +9,16 @@
 	}
 
 	.o-teaser__heading {
-		@include oTypographyProgressiveFont(sans, l);
-		@include oTypographyFallbackFontSize(sans, 28px);
-		@include font-size(28, 30);
+		@include oTypographySans($scale: 4);
 	}
 
 	.o-teaser__timestamp {
-		margin-top: 5px;
+		@include oTypographyMargin($top: 1);
 	}
 
 	.o-teaser__standfirst {
-		@include font-size(18, 24);
-		margin-top: 25px;
-
-		@include oGridRespondTo(L) {
-			@include font-size(20, 24);
-		}
+		@include oTypographySize($scale: (default: (1, 24px), L: (2, 24px)));
+		@include oTypographyMargin($top: 6);
 	}
 }
 

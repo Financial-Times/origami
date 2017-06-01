@@ -1,10 +1,10 @@
 /// Promoted content theme
 @mixin oTeaserPromotedContent {
 	@include oColorsFor('o-teaser-theme-promoted-content');
-	padding: 10px 32px 10px 10px;
+	padding: 12px 32px 12px 12px;
 
 	.o-teaser__content:after {
-		@include oIconsGetIcon('outside-page', oTeaserTextColor($percent: 80), 32);
+		@include oIconsGetIcon('outside-page', oColorsGetPaletteColor('black-80'), 32);
 		content: '';
 		position: absolute;
 		top: 3px;
@@ -12,7 +12,7 @@
 	}
 
 	.o-teaser__meta {
-		font-weight: oFontsWeight(semibold);
+		@include oTypographyBold('sans');
 		color: oColorsGetPaletteColor('black');
 	}
 
@@ -25,16 +25,16 @@
 /// Paid post theme
 @mixin oTeaserPaidPost {
 	@include oColorsFor('o-teaser-theme-paid-post');
-	padding: 10px;
+	padding: 12px;
 
 	.o-teaser__meta {
-		font-weight: oFontsWeight(semibold);
+		@include oTypographyBold('sans');
 		color: oColorsGetPaletteColor('black');
 	}
 
 	.o-teaser__promoted-prefix {
 		@include oLabels;
 		@include oLabelsState('commercial-content');
-		@include font-size(12, 12);
+		@include oTypographySize(-2);
 	}
 }

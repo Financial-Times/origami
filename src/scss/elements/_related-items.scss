@@ -12,14 +12,10 @@
 
 /// Single related content item styles
 @mixin oTeaserRelatedItem {
-	@include font-size(14, 22);
+	@include oTypographySize($scale: ( default: (-1, 22px), L: (0, 24px) ));
 	@include oColorsFor('o-teaser', text, 60);
 
-	@include oGridRespondTo(L) {
-		@include font-size(16, 24);
-	}
-
-	#{$o-hoverable-if-hover-enabled} &:hover,
+	&:hover,
 	&:focus {
 		@include oColorsFor('o-teaser', text, 55);
 	}
@@ -29,7 +25,7 @@
 		text-decoration: none;
 		color: inherit;
 
-		#{$o-hoverable-if-hover-enabled} &:hover {
+		&:hover {
 			color: inherit;
 		}
 	}

@@ -4,7 +4,7 @@ $o-teaser-is-silent: false;
 @include oFontsIncludeAll();
 
 body {
-	background-color: oColorsGetPaletteColor('pink');
+	background-color: oColorsGetPaletteColor('paper');
 }
 
 .demo-container {
