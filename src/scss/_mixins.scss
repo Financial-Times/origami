@@ -128,22 +128,9 @@
 
 @mixin oTeaserThemeLarge {
 	.o-teaser--large,
-	.o-teaser--hero,
-	.o-teaser--top-story,
 	.o-teaser--large-portrait,
 	.o-teaser--large-landscape {
 		@include oTeaserLarge;
-	}
-
-	.o-teaser--large,
-	.o-teaser--hero {
-		&.o-teaser--has-image {
-			@include oTeaserImageContainer;
-		}
-	}
-
-	.o-teaser--large.o-teaser--has-image {
-		@include oTeaserLargeWithImage;
 	}
 
 	.o-teaser--large-portrait {
@@ -153,13 +140,20 @@
 	.o-teaser--large-landscape {
 		@include oTeaserLargeImageLandscape;
 	}
+
+	.o-teaser--large.o-teaser--has-image {
+		@include oTeaserImageContainer;
+		@include oTeaserLargeWithImage;
+	}
 }
 
 @mixin oTeaserThemeHero {
 	.o-teaser--hero {
+		@include oTeaserLarge;
 		@include oTeaserHero;
 
 		&.o-teaser--has-image {
+			@include oTeaserImageContainer;
 			@include oTeaserHeroImageContainer;
 
 			&.o-teaser--hero-image {
@@ -184,21 +178,23 @@
 		@include oTeaserStretched;
 	}
 
-	.o-teaser--highlight.o-teaser--hero,
-	.o-teaser--opinion.o-teaser--hero {
-		@include oTeaserHeroThemeBase;
-	}
+	.o-teaser--hero {
+		&.o-teaser--highlight,
+		&.o-teaser--opinion {
+			@include oTeaserHeroThemeBase;
+		}
 
-	.o-teaser--opinion.o-teaser--hero {
-		@include oTeaserHeroOpinion;
-	}
+		&.o-teaser--opinion {
+			@include oTeaserHeroOpinion;
+		}
 
-	.o-teaser--highlight.o-teaser--hero {
-		@include oTeaserHighlight;
-	}
+		&.o-teaser--highlight {
+			@include oTeaserHighlight;
+		}
 
-	.o-teaser--extra-article.o-teaser--hero {
-		@include oTeaserHeroExtra;
+		&.o-teaser--extra-article {
+			@include oTeaserHeroExtra;
+		}
 	}
 
 	.o-teaser--midslice.o-teaser--has-image {
@@ -208,6 +204,7 @@
 
 @mixin oTeaserThemeTopStories {
 	.o-teaser--top-story {
+		@include oTeaserLarge;
 		@include oTeaserTopStoryBase;
 
 		&.o-teaser--landscape,
