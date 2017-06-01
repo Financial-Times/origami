@@ -401,6 +401,21 @@ The following mixins are now renamed:
 
 - oTypographyFallbackFontSize
 + _oTypographyProgressiveFontFallbackSize
+
+- oTypographyHeading1
++ oTypographyHeadline
+
+- oTypographyHeading2
++ oTypographyHeadingLevel2
+
+- oTypographyHeading3
++ oTypographyHeadingLevel3
+
+- oTypographyHeading4
++ oTypographyHeadingLevel4
+
+- oTypographyHeading5
++ oTypographyHeadingLevel5
 ```
 
 v5 also removes the following mixins:
