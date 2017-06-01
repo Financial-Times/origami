@@ -36,7 +36,7 @@ The button CSS will work on `<button>` or `<a>` elements. It is important for ac
 
 ### Sass
 
-Mixins and [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) are only available if you're including o-buttons in your project using bower or [OBT](https://github.com/Financial-Times/origami-build-tools). If you're using o-buttons via the [Build Service](https://www.ft.com/__origami/service/build/v2/), you must use the o-buttons classes instead. Both are documented below.
+Mixins and [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) are only available if you're including o-buttons in your project using bower. If you're using o-buttons via the [Build Service](https://www.ft.com/__origami/service/build/v2/), you must use the o-buttons classes instead. Both are documented below.
 
 #### Default button
 
@@ -132,7 +132,7 @@ Or, using Sass:
 #### Size modifiers
 
 ```html
-<button class="o-buttons o-buttons">Default button</button>
+<button class="o-buttons">Default button</button>
 <button class="o-buttons o-buttons--big">Big button</button>
 ```
 
