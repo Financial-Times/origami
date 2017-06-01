@@ -17,7 +17,7 @@
 		display: none;
 		position: relative;
 		background-color: oColorsGetColorFor(o-cookie-message, background);
-		@include oTypographyPadding($top: 4, $bottom: 4)
+		@include oTypographyPadding($top: 4, $bottom: 4);
 
 		&__container {
 			position: relative;
