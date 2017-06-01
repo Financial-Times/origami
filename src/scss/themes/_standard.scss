@@ -4,7 +4,7 @@
 	.o-teaser__heading:focus,
 	#{$o-hoverable-if-hover-enabled} .o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('black'), 60);
+		@include oColorsFor('o-teaser-inverse', text, 60);
 	}
 
 	.o-teaser__meta,
@@ -15,7 +15,7 @@
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('black'), 70);
+		@include oColorsFor('o-teaser-inverse', text, 70);
 	}
 
 	&.o-teaser--hero .o-teaser__meta:after {
@@ -44,7 +44,7 @@
 /// General opinion theme teaser - turns tag content blue
 @mixin oTeaserOpinion {
 	.o-teaser__meta {
-		color: $_o-teaser-color-opinion-tag;
+		@include oColorsFor('o-teaser-opinion-tag', text);
 	}
 }
 
@@ -52,7 +52,7 @@
 @mixin oTeaserOpinionBackground {
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: oTeaserTextColor($background: oColorsGetPaletteColor('blue-tint5'));
+		@include oColorsFor('o-teaser-theme-opinion', text, 60);
 	}
 
 	&.o-teaser--large {
@@ -78,28 +78,28 @@
 	.o-teaser__heading:focus,
 	#{$o-hoverable-if-hover-enabled} .o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('claret-1'), 73);
+		@include oColorsFor('o-teaser-hero-highlight', text, 73);
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp,
 	.o-teaser__timestamp-prefix:before {
-		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('claret-1'), 80);
+		@include oColorsFor('o-teaser-hero-highlight', text, 80);
 	}
 
 	.o-teaser__timestamp-prefix:before {
-		background-color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('claret-1'), 80);
+		background-color: oColorsMix(oColorsGetPaletteColor('white'), oColorsGetColorFor('o-teaser-hero-highlight', background), 80);
 	}
 
 	&.o-teaser--hero {
 		.o-teaser__content,
 		.o-teaser__image-container:after {
-			@include oColorsFor('o-teaser-theme-hero');
+			@include oColorsFor('o-teaser-hero-highlight');
 		}
 
 		.o-teaser__content:after {
 			@include oGridRespondTo(S, L) {
-				@include oColorsFor('o-teaser-theme-hero');
+				@include oColorsFor('o-teaser-hero-highlight');
 			}
 		}
 	}

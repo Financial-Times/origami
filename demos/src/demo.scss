@@ -32,7 +32,7 @@ body {
 	&--big-story {
 		margin: 20px 0;
 		padding: 0 40px;
-		background-color: #fadbcb;
+		background-color: oColorsGetPaletteColor('wheat');
 	}
 }
 
@@ -43,24 +43,24 @@ body {
 }
 
 .demo-image {
-	background-color: #ffffff;
+	background-color: oColorsGetPaletteColor('white');
 }
 
 .demo-hover {
 	&.o-teaser--small a {
-		color: oTeaserTextColor($percent: 55);
+		@include oColorsFor('o-teaser', text, 55);
 	}
 
 	&.o-teaser--opinion a {
-		color: oTeaserTextColor(#ffffff, $_o-teaser-color-hero-opinion-background, 73);
+		@include oColorsFor('o-teaser-hero-opinion', text, 73);
 	}
 
 	&.o-teaser--highlight a {
-		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('claret-1'), 73);
+		@include oColorsFor('o-teaser-hero-highlight', text, 73);
 	}
 
 	&.o-teaser--inverse a {
-		color: oTeaserTextColor(#ffffff, oColorsGetPaletteColor('black'), 60);
+		@include oColorsFor('o-teaser-inverse', text, 60);
 	}
 }
 

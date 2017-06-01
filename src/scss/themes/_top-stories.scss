@@ -31,7 +31,7 @@
 /// Landscape top story theme styles
 @mixin oTeaserTopStoryLandscape {
 	@include oTeaserClearfix;
-	background: $_o-teaser-color-hero-background;
+	@include oColorsFor('o-teaser-hero', background);
 	padding: 10px;
 
 	@include oGridRespondTo(M) {
