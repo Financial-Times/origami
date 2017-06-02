@@ -154,7 +154,7 @@ Uses the `o-teaser--video` modifier.
 
 ### Migrating from v1 to v2
 
-V1 -> V2 introduces the new major of o-colors and o-typography. Updating to this new version will mean updating any other components that you have which are using o-colors and o-typography. There are no other breaking changes in this release.
+V1 -> V2 introduces the new major of o-colors, o-labels, and o-typography. Updating to this new version will mean updating any other components that you have which are using any of the updated major versions. There are no other breaking changes in this release.
 
 ### From `o-card` to `o-teaser`.
 
