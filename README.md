@@ -50,7 +50,7 @@ You can then use the mixins directly in your code:
 
 ## Migrating from v1.x.x to v2.x.x
 
-- V2 brings in the new majors of o-colors and o-typography and introduces a new dependency on o-icons and o-normalise. Some of these components may result in bower conflicts if you're using other Origami components which require different versions. The solution to this is to update your other dependencies.
+- V2 brings in the new majors of o-colors and o-typography and introduces a new dependency on o-icons. Some of these components may result in bower conflicts if you're using other Origami components which require different versions. The solution to this is to update your other dependencies.
 - V2 deletes the extends that were deprecated in v1. If you were using the extends, then you should update your code to the mixins.
 
 

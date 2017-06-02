@@ -7,6 +7,7 @@
 @mixin oQuote {
 	@include oTypographyPadding($top: 10, $bottom: 10);
 
+	// The fonts look quite heavy in Chrome / FF. Add these in to smooth them out.
 	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
