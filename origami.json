@@ -1,5 +1,5 @@
 {
-	"description": "Styling for blockquotes, pull-quotes and any other types of quote",
+	"description": "Styling for block quotes",
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
@@ -7,21 +7,16 @@
 	"supportStatus": "active",
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
-		"dependencies": ["o-fonts@^1.4.0"]
+		"dependencies": ["o-fonts@^3.0.0"]
 	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-overlay"
 	},
 	"demos": [
 		{
-			"name": "base",
-			"template": "demos/src/base.mustache",
-			"expanded": true
-		},
-		{
 			"name": "standard",
 			"template": "demos/src/standard.mustache",
-			"expanded": true
+			"hidden": false
 		}
 	]
 }

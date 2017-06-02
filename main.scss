@@ -9,11 +9,9 @@
 $o-quote-is-silent: true !default;
 
 @import "o-colors/main";
+@import "o-typography/main";
+@import "o-icons/main";
 
 @import "src/color-use-cases";
 @import "src/base";
 @import "src/standard";
-
-@import "src/deprecated/variables";
-@import "src/deprecated/base";
-@import "src/deprecated/standard";
