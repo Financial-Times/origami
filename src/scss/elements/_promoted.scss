@@ -3,6 +3,12 @@
 	@include oColorsFor('o-teaser-theme-promoted-content');
 	padding: 12px 32px 12px 12px;
 
+	// Hack to force a higher specificity than .o-teaser--small which
+	// adds a padding-bottom of 16px
+	&#{&} {
+		padding-bottom: 12px;
+	}
+
 	.o-teaser__content:after {
 		@include oIconsGetIcon('outside-page', oColorsGetPaletteColor('black-80'), 32);
 		content: '';

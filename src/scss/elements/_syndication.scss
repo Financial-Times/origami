@@ -1,6 +1,8 @@
 
 @mixin oTeaserSyndicationIndicator {
 	.o-teaser__syndication-indicator {
+		position: relative;
+		top: oTypographySpacingSize(1);
 		border-radius: 50%;
 
 		span {

@@ -63,7 +63,7 @@
 
 		&:hover,
 		&:focus {
-			color: oColorsFor(o-teaser-package-special-report, text, 73);
+			@include oColorsFor(o-teaser-package-special-report, text, 73);
 		}
 	}
 }
@@ -88,7 +88,7 @@
 
 		&:hover,
 		&:focus {
-			@include oColorsFor(o-teaser-theme-hero-extra-highlight, text);
+			@include oColorsFor('o-teaser-theme-hero-extra-highlight', text);
 		}
 	}
 }
@@ -132,7 +132,7 @@
 				@include oIconsGetIcon('arrow-right', oColorsGetColorFor(o-teaser-package-basic, text), 30);
 				content: '';
 				position: absolute;
-				bottom: 12px;
+				bottom: 18px;
 			}
 		}
 	}
@@ -144,12 +144,12 @@
 			color: oColorsGetPaletteColor('white');
 
 			&:hover {
-				color: oColorsFor(o-teaser-package-special-report, text, 73);
+				@include oColorsFor(o-teaser-package-special-report, text, 73);
 			}
 		}
 
 		&__landing-link a {
-			color: oColorsFor(o-teaser-package-special-report, text, 80);
+			@include oColorsFor(o-teaser-package-special-report, text, 80);
 
 			&:hover {
 				color: oColorsGetPaletteColor('white');

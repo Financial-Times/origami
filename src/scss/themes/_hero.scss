@@ -13,7 +13,7 @@
 		content: '';
 		display: block;
 		width: 60px;
-		border-bottom: oTypogrpahySpacingSize(1) solid oColorsGetPaletteColor('claret');
+		border-bottom: oTypographySpacingSize(1) solid oColorsGetPaletteColor('claret');
 	}
 }
 
@@ -166,7 +166,7 @@
 /// Hero standalone theme styles
 @mixin oTeaserHeroStandalone {
 	.o-teaser__heading {
-		@include oTypographySize(5, 32px);
+		@include oTypographySize(4);
 	}
 
 	.o-teaser__image-container {
