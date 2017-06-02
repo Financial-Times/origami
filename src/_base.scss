@@ -5,29 +5,29 @@
 
 /// Base quote styles
 @mixin oQuote {
+	@include oTypographyPadding($top: 10, $bottom: 10);
+
+	// sass-lint:disable no-vendor-prefixes
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	// sass-lint:enable no-vendor-prefixes
+	
+	padding-left: oTypographySpacingSize($units: 15);
+	padding-right: oTypographySpacingSize($units: 4);
+
 	display: block;
 	margin: 0;
-	padding: 28px;
-	line-height: 21px;
 
 	p {
-		margin: 0 0 14px;
-		padding: 0;
-	}
-
-	// Quote marks
-	p:before {
-		content: "“";
-	}
-	p:after {
-		content: "”";
+		@include oTypographySans($scale: 1);
+		@include oTypographyPadding($bottom: 3)
+		margin: 0;
 	}
 }
 
 /// Base quote cite styles
 @mixin oQuoteCite {
 	display: block;
-	text-align: right;
 }
 
 @if $o-quote-is-silent == false {
