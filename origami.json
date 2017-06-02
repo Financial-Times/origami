@@ -16,7 +16,7 @@
 		{
 			"name": "standard",
 			"template": "demos/src/standard.mustache",
-			"expanded": true
+			"hidden": false
 		}
 	]
 }
