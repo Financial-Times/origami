@@ -368,7 +368,7 @@ Both methods will trigger the font loading scripts. This will remove the loading
 
 ### Migrating from v4 to v5
 
-V5 of o-typography is a complete overhaul of the typographic system for master brand products. The update includes:
+V5 of o-typography is a complete overhaul of the typographic system for FT products. The update includes:
 
 - introducing a **new typographic scale**, replacing the type matrix system in the previous version. This affects the [mixins and sizes](#mixins-and-sizes) provided by the API.
 - new use cases, updated to reflect the latest master brand styles. These are available via new [CSS classes](#css-classes) and mixins.
