@@ -28,6 +28,7 @@
 
 // Properties for a state of a given theme
 //
+// @param {String} $theme - One of $o-buttons-themes
 // @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
 @mixin _oButtonsPropertiesForState($theme, $state) {
 	@if _oButtonsThemeHasState($theme, $state) {
@@ -36,6 +37,9 @@
 		@each $property, $value in map-get($states, $state) {
 			#{$property}: #{$value};
 		}
+	} @else {
+		$colorsFor: 'o-buttons-#{$theme}-#{$state}';
+		@include oColorsFor($colorsFor);
 	}
 }
 
@@ -58,21 +62,13 @@
 		@include _oButtonsPropertiesForState($theme, pressedselected);
 	}
 
-	&[disabled] {
-		@include _oButtonsPropertiesForState($theme, disabled);
-	}
-
 	&:not([disabled]) {
-		&:focus:not(:hover),
-		#{$o-hoverable-if-hover-enabled} &:hover {
+		&:hover {
 			@include _oButtonsPropertiesForState($theme, hover);
 		}
 		&:active {
 			@include _oButtonsPropertiesForState($theme, active);
 		}
-	}
-	&:focus:not(:active):not(:hover) {
-		@include _oButtonsPropertiesForState($theme, focus);
 	}
 }
 
@@ -93,12 +89,12 @@
 ///  }
 /// @example Custom size and theme
 ///  .my-big-standout-button {
-///  	@include oButtons(big, standout);
+///  	@include oButtons(big, primary);
 ///  }
 ///
-/// @param {String} $size (medium)
-/// @param {String} $theme (standard)
-@mixin oButtons($size: medium, $theme: standard) {
+/// @param {String} $size (default)
+/// @param {String} $theme (secondary)
+@mixin oButtons($size: default, $theme: secondary) {
 	display: inline-block;
 	box-sizing: border-box;
 	vertical-align: middle;
@@ -134,6 +130,12 @@
 		pointer-events: none;
 		opacity: 0.4;
 		cursor: default;
+	}
+
+	&:focus {
+		outline-color: oColorsGetPaletteColor('teal-100');
+		outline-style: solid;
+		outline-width: 2px;
 	}
 
 	// Remove extra padding in Firefox

@@ -1,10 +1,6 @@
 @import 'o-normalise/main';
 @import 'o-colors/main';
-@import 'o-hoverable/main';
 @import 'o-icons/main';
-
-// Switch off component deprecation warnings
-$_o-buttons-deprecation-warnings: false;
 
 @import 'scss/themes';
 @import 'scss/variables';
@@ -25,21 +21,19 @@ $_o-buttons-deprecation-warnings: false;
 			@include oButtonsSize($size);
 		}
 	}
+
 	@each $theme, $properties in $o-buttons-themes {
 		.#{$o-buttons-class}--#{$theme} {
 			@include oButtonsTheme($theme);
 		}
 	}
-	.#{$o-buttons-class}__pagination, // Deprecated, invalidates the BEM naming convention
+
 	.#{$o-buttons-class}-pagination {
 		@include oButtonsPagination;
 	}
 
-
 	@include oButtonsIcon;
 
-
-	.#{$o-buttons-class}__group, // Deprecated, invalidates the BEM naming convention
 	.#{$o-buttons-class}-group {
 		@include oButtonsGroup;
 	}
@@ -47,6 +41,3 @@ $_o-buttons-deprecation-warnings: false;
 	// Set module to silent again
 	$o-buttons-is-silent: true !global;
 }
-
-// Switch deprecation warnings back on
-$_o-buttons-deprecation-warnings: true;

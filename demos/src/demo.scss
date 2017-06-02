@@ -2,25 +2,6 @@ $o-buttons-is-silent: false;
 
 @import "../../main";
 
-
-@mixin _oButtonsStatesAsClasses($theme) {
-	&.hover {
-		@include _oButtonsPropertiesForState($theme, hover);
-	}
-	&.active {
-		@include _oButtonsPropertiesForState($theme, active);
-	}
-	&.focus {
-		@include _oButtonsPropertiesForState($theme, focus);
-	}
-}
-
-@each $theme, $properties in $o-buttons-themes {
-	.#{$o-buttons-class}--#{$theme} {
-		@include _oButtonsStatesAsClasses($theme);
-	}
-}
-
 html {
 	@include oColorsFor(page);
 }
@@ -39,21 +20,5 @@ body {
 }
 
 .inverse {
-	background: oColorsGetPaletteColor('grey-tint5');
-}
-
-// Set the backgrounds for hover states as actual hex values using mix()
-// because Pa11y isn't liking the transparent backgrounds that are set in our colours
-//
-.o-buttons.o-buttons--uncolored.hover {
-	background: mix(oColorsGetColorFor(o-buttons-uncolored-hover, background), #fff1e0, 10);
-}
-
-.o-buttons.o-buttons--standard.hover {
-	background: mix(oColorsGetColorFor(o-buttons-standard-hover, background), #fff1e0, 8);
-}
-
-.o-buttons.o-buttons--b2c.hover {
-	// background: darken(oColorsGetColorFor(o-buttons-b2c-hover, background), 14);
-	background: mix(oColorsGetColorFor(o-buttons-b2c-hover, background), #fff1e0, 80);
+	background-color: oColorsGetPaletteColor('slate');
 }

@@ -13,21 +13,21 @@
     "sass": "demos/src/demo.scss",
     "js": "demos/src/demo.js",
     "dependencies": [
-      "o-fonts@^1.4.0"
+      "o-fonts@^3.0.0"
     ]
   },
   "demos": [
     {
-      "name": "standard",
-      "title": "Masterbrand standard theme",
-      "template": "/demos/src/standard.mustache",
-      "description": "Standard theme for masterbrand buttons. This is the default theme."
+      "name": "primary",
+      "title": "Masterbrand primary buttons",
+      "template": "/demos/src/primary.mustache",
+      "description": "Primary theme for masterbrand buttons. This is the default theme."
     },
     {
-      "name": "standout",
-      "title": "Masterbrand standout theme",
-      "template": "/demos/src/standout.mustache",
-      "description": "Standout buttons should be used for primary actions."
+      "name": "secondary",
+      "title": "Masterbrand secondary buttons",
+      "template": "/demos/src/secondary.mustache",
+      "description": "Secondary buttons should be used for primary actions."
     },
     {
       "name": "inverse",
@@ -35,6 +35,12 @@
       "template": "/demos/src/inverse.mustache",
       "bodyClasses": "inverse",
       "description": "Inverse buttons for use on dark backgrounds."
+    },
+    {
+      "name": "mono",
+      "title": "Monochrome buttons",
+      "template": "/demos/src/mono.mustache",
+      "description": "A monochrome theme for people who need a different theme to those supported by o-buttons (Masterbrand and b2c)"
     },
     {
       "name": "B2C",
@@ -65,12 +71,6 @@
       "template": "/demos/src/pa11y.mustache",
       "hidden": true,
       "description": "Pa11y test for accesibility"
-    },
-    {
-      "name": "uncolored",
-      "template": "/demos/src/uncolored.mustache",
-      "hidden": true,
-      "description": "An uncolored theme for people who need a different theme to those supported by o-buttons (Masterbrand and b2c)"
     }
   ]
 }

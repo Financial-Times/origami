@@ -31,31 +31,22 @@ $o-buttons-font-weight: 600 !default; // Semibold
 ///
 /// @type Map
 $o-buttons-sizes: (
-	small: (
-		background-size: 12px,
-		font-size: 12px,
-		min-height: 22px,
-		min-width: 22px,
-		padding-left: 7px,
-		padding-right: 7px,
-		border-width: 1px,
-	),
-	medium: (
+	default: (
 		background-size: 16px,
 		font-size: 14px,
-		min-height: 26px,
-		min-width: 26px,
+		min-height: 28px,
+		min-width: 60px,
 		padding-left: 8px,
 		padding-right: 8px,
 		border-width: 1px,
 	),
 	big: (
-		background-size: 18px,
-		font-size: 18px,
-		min-height: 36px,
-		min-width: 36px,
-		padding-left: 18px,
-		padding-right: 18px,
+		background-size: 20px,
+		font-size: 16px,
+		min-height: 40px,
+		min-width: 80px,
+		padding-left: 20px,
+		padding-right: 20px,
 		border-width: 1px,
 	)
 ) !default;
@@ -71,10 +62,10 @@ $_o-buttons-border-radius: $o-normalise-border-radius;
 ///
 /// @type Map
 $o-buttons-themes: (
-	standard: $o-buttons-themes__standard,
-	standout: $o-buttons-themes__standout,
-	inverse: $o-buttons-themes__inverse,
-	uncolored: $o-buttons-themes__uncolored,
+	primary: 'primary',
+	secondary: 'secondary',
+	inverse: 'inverse',
+	mono: 'mono',
 	b2c: $o-buttons-themes__b2c
 ) !default;
 

@@ -6,6 +6,8 @@ o-buttons provides Sass mixins and variables to create buttons.
 - [Usage](#usage)
 	- [Markup](#markup)
 	- [Sass](#sass)
+- [Troubleshooting](#troubleshooting)
+- [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -14,8 +16,8 @@ o-buttons provides Sass mixins and variables to create buttons.
 
 o-buttons provides styling for:
 
-- **Themes**: `o-buttons--{standard|standout|inverse|uncolored|b2c}` or `@include oButtonsTheme($theme)``
-- **Sizes**: `o-buttons--{small|medium|big}` or `@include oButtonsSize($size);`
+- **Themes**: `o-buttons--{primary|secondary|inverse|mono|b2c}` or `@include oButtonsTheme($theme)``
+- **Sizes**: `o-buttons--{default|big}` or `@include oButtonsSize($size);`
 - **Grouped buttons**: `o-buttons-group` or `@include oButtonsGroup;`
 - **Pagination buttons**: `o-buttons-pagination` or `@include oButtonsPagination;`
 - **Icon buttons**: `o-buttons-icon o-buttons-icon--{arrow-left| arrow-right}` or `@include oButtonsGetButtonForIconAndTheme($icon-name, $theme);`
@@ -34,14 +36,14 @@ The button CSS will work on `<button>` or `<a>` elements. It is important for ac
 
 ### Sass
 
-> Mixins and [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) are only available if you're including o-buttons in your project using bower or OBT. If you're using o-buttons via the Build Service, you must use the o-buttons classes instead. Both are documented below.
+Mixins and [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) are only available if you're including o-buttons in your project using bower. If you're using o-buttons via the [Build Service](https://www.ft.com/__origami/service/build/v2/), you must use the o-buttons classes instead. Both are documented below.
 
 #### Default button
 
 [View demos](http://registry.origami.ft.com/components/o-buttons)
 
 ```html
-<button class="o-buttons">Standard</button>
+<button class="o-buttons">Primary</button>
 ```
 
 Or, using Sass:
@@ -53,14 +55,14 @@ Or, using Sass:
 ```
 
 ```html
-<button class="my-button-class">Standard</button>
+<button class="my-button-class">Primary</button>
 ```
 
 
 #### States
 
 ```html
-<button class="o-buttons">Standard</button>
+<button class="o-buttons">Primary</button>
 <button class="o-buttons" aria-selected="true">Selected</button>
 <button class="o-buttons" aria-pressed="true">Pressed</button>
 <button class="o-buttons" disabled>Disabled</button>
@@ -130,7 +132,7 @@ Or, using Sass:
 #### Size modifiers
 
 ```html
-<button class="o-buttons o-buttons--medium">Medium button (default)</button>
+<button class="o-buttons">Default button</button>
 <button class="o-buttons o-buttons--big">Big button</button>
 ```
 
@@ -160,8 +162,8 @@ Or, using Sass:
 [View demos](http://registry.origami.ft.com/components/o-buttons)
 
 ```html
-<button class="o-buttons o-buttons--standout">Standout button</button>
-<button class="o-buttons o-buttons--uncolored">Uncolored button</button>
+<button class="o-buttons o-buttons--secondary">Secondary button</button>
+<button class="o-buttons o-buttons--mono">Mono button</button>
 <button class="o-buttons o-buttons--inverse">Inverse button</button>
 <button class="o-buttons o-buttons--b2c">B2C button</button>
 
@@ -173,20 +175,20 @@ Or, using Sass:
 .my-button-class {
 	@include oButtons();
 }
-.my-button-class--standout {
-	@include oButtonsTheme(standout);
+.my-button-class--secondary {
+	@include oButtonsTheme(secondary);
 }
 
 // Or…
-.my-standout-button {
-	@include oButtons($theme: standout);
+.my-secondary-button {
+	@include oButtons($theme: secondary);
 }
 ```
 
 ```html
-<button class="my-button-class my-button-class--standout">Standout button</button>
+<button class="my-button-class my-button-class--secondary">Secondary button</button>
 
-<button class="my-standout-button">Standout button</button>
+<button class="my-secondary-button">Secondary button</button>
 ```
 
 #### Icons
@@ -220,7 +222,7 @@ Or, using Sass:
 
 .my-button-class--icon-star {
 	// icon here can be *any* icon tag (eg arrow-left) in fticons
-	@include oButtonsGetButtonForIconAndTheme(star, standout);
+	@include oButtonsGetButtonForIconAndTheme(star, secondary);
 }
 
 .my-button-class-icon__label {
@@ -238,6 +240,39 @@ Or, using Sass:
 	// accessible text fallback for the button. Not visible, only required for icon only buttons.
 	<span class="my-button-class-icon__label">star</span>
 </button>
+```
+
+
+## Troubleshooting
+
+In the past we've seen issues where adding styles to the `background` property of buttons with a low specificity selector can overwrite the `background-color` styles added by o-buttons, [see issue #76](https://github.com/Financial-Times/o-buttons/issues/76). This happens because o-buttons styles the `background-color` property on buttons to add color instead of the shorthand property, which allows for icons to be added to buttons using the remaining background properties.
+
+To avoid this, use the `background-color` property instead of the shorthand `background` property if you wish to overwrite a buttons background-color.
+
+## Migration Guide
+
+### Migrating from v4 to v5
+
+This major includes the new o-colors and updates the themes and sizes of buttons.
+
+**Sizes** have been updated to `default` (`28px` min-height), and `big` (`40px` min-height) to correspond to the new baseline sizing introduced in the new o-typography. `Small` button size has been removed.
+
+The following changes have been made to the **themes**:
+
+- `Standard` is now `Secondary` and the default button style: use `o-buttons` or `o-buttons--secondary` classes
+- `Standout` is now `Primary`: use `o-buttons--primary` class
+- `Uncolored` is now `Mono`: use `o-buttons--mono` class
+
+Inverse and B2C themes have remained the same.
+
+Removes deprecated classnames:
+
+```diff
+-.o-buttons__pagination
++.o-buttons-pagination
+
+-.o-buttons__group
++.o-buttons-group
 ```
 
 ---
