@@ -14,9 +14,6 @@
     "tests"
   ],
   "dependencies": {
-    "n-ui-foundations": "^2.0.0-alpha"
-  },
-  "resolutions": {
-    "o-colors": "^4.0.1"
+    "n-ui-foundations": "^2.0.0-beta"
   }
 }
