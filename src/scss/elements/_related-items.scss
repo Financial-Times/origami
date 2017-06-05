@@ -12,7 +12,7 @@
 
 /// Single related content item styles
 @mixin oTeaserRelatedItem {
-	@include oTypographySize($scale: ( default: (-1, 22px), L: (0, 24px) ));
+	@include oTypographySize($scale: (default: (-1, 22px), L: (0, 24px)));
 	@include oColorsFor('o-teaser', text, 60);
 
 	&:hover,
