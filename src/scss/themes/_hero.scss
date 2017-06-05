@@ -4,17 +4,16 @@
 	flex-flow: column nowrap;
 
 	.o-teaser__content {
+		@include oColorsFor('o-teaser-hero', background);
 		border: 0;
-		background-color: $_o-teaser-color-hero-background;
 	}
 
 	.o-teaser__meta:after {
+		@include oTypographyMargin($top: 1, $bottom: 3);
 		content: '';
 		display: block;
 		width: 60px;
-		margin-top: 5px;
-		margin-bottom: 10px;
-		border-bottom: 4px solid oColorsGetPaletteColor('claret-1');
+		border-bottom: oTypographySpacingSize(1) solid oColorsGetPaletteColor('claret');
 	}
 }
 
@@ -39,32 +38,32 @@
 
 /// Hero opinion theme - blue background white based text
 @mixin oTeaserHeroOpinion {
-	#{$o-hoverable-if-hover-enabled} .o-teaser__heading:hover,
+	.o-teaser__heading:hover,
 	.o-teaser__heading:focus,
-	#{$o-hoverable-if-hover-enabled} .o-teaser__tag:hover,
+	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oTeaserTextColor(#ffffff, $_o-teaser-color-hero-opinion-background, 73);
+		@include oColorsFor('o-teaser-hero-opinion', text, 73);
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp,
 	.o-teaser__timestamp-prefix:before {
-		color: oTeaserTextColor(#ffffff, $_o-teaser-color-hero-opinion-background, 80);
+		@include oColorsFor('o-teaser-hero-opinion', text, 80);
 	}
 
 	.o-teaser__timestamp-prefix:before {
-		background-color: oTeaserTextColor(#ffffff, $_o-teaser-color-hero-opinion-background, 80);
+		background-color: oColorsMix(oColorsGetPaletteColor('white'), oColorsGetColorFor('o-teaser-hero-opinion', background), 80);
 	}
 
 	&.o-teaser--hero {
 		.o-teaser__content,
 		.o-teaser__image-container:after {
-			background-color: $_o-teaser-color-hero-opinion-background;
+			@include oColorsFor('o-teaser-hero-opinion', background);
 		}
 
 		.o-teaser__content:after {
 			@include oGridRespondTo(S, L) {
-				background-color: $_o-teaser-color-hero-opinion-background;
+				@include oColorsFor('o-teaser-hero-opinion', background);
 			}
 		}
 	}
@@ -72,7 +71,6 @@
 
 /// Hero image theme styles - full size image with text overlay
 @mixin oTeaserHeroImage {
-
 	@include oGridRespondTo($until: M) {
 		@include oTeaserHeroCentre;
 		@include oTeaserHeroCentreImage;
@@ -134,10 +132,10 @@
 		padding-left: 30%;
 
 		&:after {
+			@include oColorsFor('o-teaser-hero', background);
 			display: block;
 			top: 50%;
 			border: 0;
-			background-color: $_o-teaser-color-hero-background;
 		}
 	}
 
@@ -168,7 +166,7 @@
 /// Hero standalone theme styles
 @mixin oTeaserHeroStandalone {
 	.o-teaser__heading {
-		@include font-size(30, 30);
+		@include oTypographySize(4);
 	}
 
 	.o-teaser__image-container {
@@ -183,20 +181,21 @@
 
 // Hero Package theme — extra
 @mixin oTeaserHeroExtra {
-	#{$o-hoverable-if-hover-enabled} .o-teaser__heading:hover,
+	.o-teaser__heading:hover,
 	.o-teaser__heading:focus {
-		color: $_o-teaser-color-extra-highlights;
+		@include oColorsFor(o-teaser-theme-hero-extra-highlight, text);
 	}
-	#{$o-hoverable-if-hover-enabled} .o-teaser__tag:hover,
+
+	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oTeaserTextColor(#ffffff, $_o-teaser-color-extra-highlights, 73);
+		color: oColorsMix(oColorsGetPaletteColor('white'), oColorsGetColorFor(o-teaser-theme-hero-extra-highlight, text), 73);
 	}
 
 	.o-teaser__meta {
-		color: $_o-teaser-color-extra-highlights;
+		@include oColorsFor(o-teaser-theme-hero-extra-highlight, text);
 
 		&:after {
-			border-color: $_o-teaser-color-extra-highlights;
+			@include oColorsFor(o-teaser-theme-hero-extra-highlight, border);
 		}
 	}
 
@@ -205,20 +204,17 @@
 	}
 
 	.o-teaser__standfirst {
-		color: oTeaserTextColor(#ffffff, $_o-teaser-color-extra-background, 80);
+		@include oColorsFor(o-teaser-theme-hero-extra, text, 80);
 	}
 
-	.o-teaser__image-container:after {
-		background-color: $_o-teaser-color-extra-background;
-	}
-
+	.o-teaser__image-container:after,
 	.o-teaser__content {
-		background-color: $_o-teaser-color-extra-background;
+		@include oColorsFor(o-teaser-theme-hero-extra, background);
 	}
 
 	.o-teaser__content:after {
 		@include oGridRespondTo(S, L) {
-			background-color: $_o-teaser-color-extra-background;
+			@include oColorsFor(o-teaser-theme-hero-extra, background);
 		}
 	}
 }

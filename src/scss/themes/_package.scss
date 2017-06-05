@@ -8,47 +8,46 @@
 	}
 
 	.o-teaser__content {
-		background: $_o-teaser-color-basic-background;
+		@include oColorsFor(o-teaser-package-basic, background);
 	}
 
 	.o-teaser__meta {
+		@include oColorsFor(o-teaser-package-basic, text);
 		padding: 15px 0 0 20px;
 		width: calc(100% - 40px);
 		position: relative;
 		top: -50px;
 		background: inherit;
-		color: $_o-teaser-color-basic-text;
 
 		&:after {
+			@include oTypographyMargin($top: 1);
 			content: "";
 			display: block;
-			margin-top: 5px;
 			width: 60px;
-			border-bottom: 4px solid $_o-teaser-color-basic-text;
+			border-bottom: oTypographySpacingSize(1) solid oColorsGetColorFor(o-teaser-package-basic, border);
 		}
 	}
 
 	.o-teaser__heading {
-		@include oTypographyProgressiveFont(sans, l);
-		@include oTypographyFallbackFontSize(sans, 28px);
-		@include font-size(28, 30);
+		@include oTypographySans(4);
+		@include oColorsFor('o-teaser', text, 80);
 		background: inherit;
 		padding: 20px;
-		margin-top: -50px;
+		margin-top: -52px;
 		width: 100%;
-		color: oTeaserTextColor($percent: 80);
 
-		#{$o-hoverable-if-hover-enabled} &:hover,
+		&:hover,
 		&:focus {
-			color: oTeaserTextColor($percent: 55);
+			@include oColorsFor('o-teaser', text, 55);
 		}
 	}
 }
 
 @mixin oTeaserSpecialReportPackage {
 	@include oTeaserSpecialReportPackageList;
+
 	.o-teaser__content {
-		background: $_o-teaser-color-basic-text; //claret 70
+		@include oColorsFor(o-teaser-package-special-report, background);
 	}
 
 	.o-teaser__meta {
@@ -62,33 +61,34 @@
 	.o-teaser__heading {
 		color: oColorsGetPaletteColor('white');
 
-		#{$o-hoverable-if-hover-enabled} &:hover,
+		&:hover,
 		&:focus {
-			color: oTeaserTextColor(#ffffff, $_o-teaser-color-basic-text, 73); //claret 70
+			@include oColorsFor(o-teaser-package-special-report, text, 73);
 		}
 	}
 }
 
 @mixin oTeaserExtraPackage {
 	@include oTeaserExtraPackageList;
+
 	.o-teaser__content {
-		background: $_o-teaser-color-extra-background; //slate
+		@include oColorsFor(o-teaser-theme-hero-extra, background);
 	}
 
 	.o-teaser__meta {
-		color: $_o-teaser-color-extra-highlights; //lemon
+		@include oColorsFor(o-teaser-theme-hero-extra-highlight, text);
 
 		&:after {
-			border-color: $_o-teaser-color-extra-highlights; //lemon
+			@include oColorsFor(o-teaser-theme-hero-extra-highlight, border);
 		}
 	}
 
 	.o-teaser__heading {
 		color: oColorsGetPaletteColor('white');
 
-		#{$o-hoverable-if-hover-enabled} &:hover,
+		&:hover,
 		&:focus {
-			color: $_o-teaser-color-extra-highlights; //lemon
+			@include oColorsFor('o-teaser-theme-hero-extra-highlight', text);
 		}
 	}
 }
@@ -96,18 +96,16 @@
 @mixin oTeaserPackageList {
 	.package-teaser {
 		&__list {
-			margin: -10px 0 0;
-			padding: 0 20px 10px;
+			margin: -12px 0 0;
+			padding: 0 20px 12px;
 			background: inherit;
 			list-style: none;
 		}
 
 		&__list-item,
 		&__landing-link {
-			@include oTypographyProgressiveFont(sans, l);
-			@include oTypographyFallbackFontSize(sans, 16px);
-			@include font-size(16, 18);
-			padding: 10px 0;
+			@include oTypographySans(0, 20px);
+			padding: 12px 0;
 
 			> a {
 				text-decoration: none;
@@ -116,25 +114,25 @@
 		}
 
 		&__list-item a {
-			color: oTeaserTextColor($percent: 80);
+			@include oColorsFor('o-teaser', text, 80);
 
 			&:hover {
-				color: oTeaserTextColor($percent: 55);
+				@include oColorsFor('o-teaser', text, 55);
 			}
 		}
 
 		&__landing-link a {
-			color: $_o-teaser-color-basic-text;
+			@include oColorsFor(o-teaser-package-basic, text);
 
 			&:hover {
-				color: $_o-teaser-color-basic-hover;
+				@include oColorsFor(o-teaser-package-basic, text);
 			}
 
 			&:after {
-				@include oIconsGetIcon('arrow-right', $_o-teaser-color-basic-text, 30);
+				@include oIconsGetIcon('arrow-right', oColorsGetColorFor(o-teaser-package-basic, text), 30);
 				content: '';
 				position: absolute;
-				bottom: 14px;
+				bottom: 18px;
 			}
 		}
 	}
@@ -146,12 +144,12 @@
 			color: oColorsGetPaletteColor('white');
 
 			&:hover {
-				color: oTeaserTextColor(#ffffff, $_o-teaser-color-basic-text, 73); //claret 70
+				@include oColorsFor(o-teaser-package-special-report, text, 73);
 			}
 		}
 
 		&__landing-link a {
-			color: oTeaserTextColor(#ffffff, $_o-teaser-color-basic-text, 80); //claret 70
+			@include oColorsFor(o-teaser-package-special-report, text, 80);
 
 			&:hover {
 				color: oColorsGetPaletteColor('white');
@@ -170,19 +168,19 @@
 			color: oColorsGetPaletteColor('white');
 
 			&:hover {
-				color: $_o-teaser-color-extra-highlights; //lemon
+				@include oColorsFor(o-teaser-theme-hero-extra-highlight, text);
 			}
 		}
 
 		&__landing-link a {
-			color: $_o-teaser-color-extra-highlights; //lemon
+			@include oColorsFor(o-teaser-theme-hero-extra-highlight, text);
 
 			&:hover {
-				color: oColorsGetPaletteColor('white'); //claret 70
+				color: oColorsGetPaletteColor('white');
 			}
 
 			&:after {
-				@include oIconsGetIcon('arrow-right', $_o-teaser-color-extra-highlights, 30); //lemon
+				@include oIconsGetIcon('arrow-right', oColorsGetColorFor(o-teaser-theme-hero-extra-highlight, text), 30); //lemon
 			}
 		}
 	}

@@ -3,7 +3,7 @@
 	list-style: disc outside;
 	padding-left: 30px;
 	margin: 0 0 20px;
-	border-left: 1px solid mix(#000000, #fff1e0, 50%);
+	border-left: 1px solid oColorsGetPaletteColor('black-60');
 
 	@include oGridRespondTo($until: M) {
 		display: none;
@@ -12,16 +12,12 @@
 
 /// Single related content item styles
 @mixin oTeaserRelatedItem {
-	@include font-size(14, 22);
-	color: oTeaserTextColor($percent: 60);
+	@include oTypographySize($scale: (default: (-1, 22px), L: (0, 24px)));
+	@include oColorsFor('o-teaser', text, 60);
 
-	@include oGridRespondTo(L) {
-		@include font-size(16, 24);
-	}
-
-	#{$o-hoverable-if-hover-enabled} &:hover,
+	&:hover,
 	&:focus {
-		color: oTeaserTextColor($percent: 55);
+		@include oColorsFor('o-teaser', text, 55);
 	}
 
 	a {
@@ -29,7 +25,7 @@
 		text-decoration: none;
 		color: inherit;
 
-		#{$o-hoverable-if-hover-enabled} &:hover {
+		&:hover {
 			color: inherit;
 		}
 	}

@@ -152,6 +152,10 @@ Uses the `o-teaser--video` modifier.
 
 ## Migration guide
 
+### Migrating from v1 to v2
+
+V1 -> V2 introduces the new major of o-colors, o-labels, and o-typography. Updating to this new version will mean updating any other components that you have which are using any of the updated major versions. There are no other breaking changes in this release.
+
 ### From `o-card` to `o-teaser`.
 
 In most cases, migrating to `o-teaser` from `o-card` will be possible by simply replacing the `o-card` class prefix to `o-teaser`, i.e. `o-card__heading` becomes `o-teaser__heading`. However, there are some additional updates you will need to do, particularly around images and themes.

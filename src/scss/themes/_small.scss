@@ -1,10 +1,10 @@
 /// Small teaser styles
 @mixin oTeaserSmall {
+	@include oTypographyPadding($bottom: 4);
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-between;
-	padding-bottom: 15px;
-	border-bottom: 1px solid $_o-teaser-color-border;
+	border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
 
 	.o-teaser__content {
 		flex: 1 0 70%;
@@ -14,7 +14,7 @@
 	.o-teaser__image-container {
 		flex: 0 0 30%;
 		width: 30%;
-		padding-top: 5px; // to line up with tag cap-height
+		padding-top: 4px; // to line up with tag cap-height
 		padding-right: oGridGutter(M);
 
 		@include oGridRespondTo($until: M) { // Mobile screens only
@@ -34,7 +34,7 @@
 	}
 
 	.o-teaser__image-container {
-		margin-bottom: 15px;
+		margin-bottom: 16px;
 
 		@include oGridRespondTo(M) {
 			flex: 1 0 100%;
@@ -45,14 +45,9 @@
 }
 
 @mixin oTeaserSmallImagePositionRight {
-
-	&.o-teaser--has-image {
-
-		.o-teaser__image-container {
-			order: 2;
-			padding-left: oGridGutter(M);
-			padding-right: inherit;
-		}
-
+	&.o-teaser--has-image .o-teaser__image-container {
+		order: 2;
+		padding-left: oGridGutter(M);
+		padding-right: inherit;
 	}
 }

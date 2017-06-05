@@ -1,20 +1,8 @@
 /// Is silent setting
 $o-teaser-is-silent: true !default;
 
-// Colors not in o-colors
-// TODO: Migrate these to `o-colors`
-$_o-teaser-color-border: mix(#000000, oColorsGetPaletteColor('pink'), 20%); // #D1C6B7;
-$_o-teaser-color-hero-background: #f3dec8;
-$_o-teaser-color-hero-opinion-background: #275c85;
-$_o-teaser-color-opinion-tag: #275c85;
-
-$_o-teaser-color-basic-background: #f2dfce; //wheat
-$_o-teaser-color-basic-text: #b31147; //claret 70
-$_o-teaser-color-basic-hover: #4c071e; //claret 30
-
-$_o-teaser-color-extra-background: #252830; //slate
-$_o-teaser-color-extra-highlights: #ffec1a; //lemon
-
-
+/// List of theme styles available
 $_o-teaser-themes: ('small', 'large', 'standard', 'video', 'hero', 'top-stories', 'package');
+
+/// List of element styles available
 $_o-teaser-elements: ('default', 'images', 'timestamp', 'promoted', 'related-items', 'syndication');

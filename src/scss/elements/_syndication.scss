@@ -1,6 +1,8 @@
 
 @mixin oTeaserSyndicationIndicator {
 	.o-teaser__syndication-indicator {
+		position: relative;
+		top: oTypographySpacingSize(1);
 		border-radius: 50%;
 
 		span {
@@ -16,11 +18,11 @@
 
 	.o-teaser__syndication-indicator--yes {
 		@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), 20, $iconset-version: 1);
-		background-color: oColorsGetPaletteColor('green');
+		background-color: oColorsGetPaletteColor('jade');
 	}
 
 	.o-teaser__syndication-indicator--no {
 		@include oIconsGetIcon('minus', oColorsGetPaletteColor('white'), 20, $iconset-version: 1);
-		background-color: oColorsGetPaletteColor('red');
+		background-color: oColorsGetPaletteColor('crimson');
 	}
 }

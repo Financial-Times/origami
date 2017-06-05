@@ -1,25 +1,41 @@
-@include oColorsSetColor('fastft-brand', #cf191d);
-@include oColorsSetColor('fastft-highlight', #f5dfd9);
-@include oColorsSetColor('commercial-content', #00884a);
+@include oColorsSetColor('fastft-brand', #cf191d); // TODO: Ask a designer what color from the palette this should be
+@include oColorsSetColor('fastft-highlight', #f5dfd9); // TODO: Ask a designer what color from the palette this should be
+@include oColorsSetColor('commercial-content', oColorsGetTint($color: 'jade', $brightness: 50));
 
-// Text
-@include oColorsSetUseCase(o-teaser-timestamp, text, 'cold-1');
-@include oColorsSetUseCase(o-teaser-standfirst, text, 'cold-1');
+@include oColorsSetUseCase(o-teaser, background, 'paper');
+@include oColorsSetUseCase(o-teaser, border, 'black-20');
+
+@include oColorsSetUseCase(o-teaser-hero, background, 'wheat');
+@include oColorsSetUseCase(o-teaser-hero-highlight, background, 'claret');
+@include oColorsSetUseCase(o-teaser-hero-opinion, background, 'oxford');
+@include oColorsSetUseCase(o-teaser-inverse, background, 'black');
+
 // Tags
-@include oColorsSetUseCase(o-teaser-tag, text, 'claret-1');
+@include oColorsSetUseCase(o-teaser-tag, text, 'claret');
+@include oColorsSetUseCase(o-teaser-opinion-tag, text, 'oxford');
 @include oColorsSetUseCase(o-teaser-promoted-by, text, 'black');
 @include oColorsSetUseCase(o-teaser-promoted-prefix, text, 'commercial-content');
 
 // Themes
-@include oColorsSetUseCase(o-teaser-theme-opinion, background, 'blue-tint5');
-@include oColorsSetUseCase(o-teaser-theme-hero, background, 'claret-1');
+@include oColorsSetUseCase(o-teaser-theme-opinion, background, 'sky');
+@include oColorsSetUseCase(o-teaser-theme-hero, background, 'claret');
+@include oColorsSetUseCase(o-teaser-theme-hero-extra, background, 'slate');
+@include oColorsSetUseCase(o-teaser-theme-hero-extra-highlight, border, 'lemon');
+@include oColorsSetUseCase(o-teaser-theme-hero-extra-highlight, text, 'lemon');
 @include oColorsSetUseCase(o-teaser-theme-paid-post, background, 'white');
 @include oColorsSetUseCase(o-teaser-theme-promoted-content, background, 'white');
 
+// Package teasers
+@include oColorsSetUseCase(o-teaser-package-basic, background, 'wheat');
+@include oColorsSetUseCase(o-teaser-package-basic, text, 'claret-70');
+@include oColorsSetUseCase(o-teaser-package-basic, border, 'claret-70');
+@include oColorsSetUseCase(o-teaser-package-basic-hover, text, 'claret-30');
+@include oColorsSetUseCase(o-teaser-package-special-report, background, 'claret-70');
+
 // Timestamp - Live blog
-@include oColorsSetColor(live-blog-closed, oColorsGetPaletteColor('grey-tint4'));
-@include oColorsSetColor(live-blog-coming-soon, #fd9d00);
-@include oColorsSetColor(live-blog-in-progress, oColorsGetPaletteColor('red'));
+@include oColorsSetColor(live-blog-closed, oColorsGetPaletteColor('black-60'));
+@include oColorsSetColor(live-blog-coming-soon, #fd9d00); // TODO: Ask a designer what color from the palette this should be
+@include oColorsSetColor(live-blog-in-progress, oColorsGetPaletteColor('crimson'));
 
 @include oColorsSetUseCase(fast-ft, text, 'fastft-brand');
 @include oColorsSetUseCase(fast-ft, border, 'fastft-brand');

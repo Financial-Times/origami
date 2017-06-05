@@ -1,11 +1,12 @@
 /// Base styles for a teaser
 /// sets the font and basic display properties
 @mixin oTeaserBase {
-	@include oTypographyProgressiveFont(sans, m);
+	@include oTypographySans(-1);
+	@include oTypographyMargin($bottom: 4);
 	position: relative;
-	margin-bottom: 15px;
-	text-rendering: optimizeLegibility;
 	width: 100%;
+	text-rendering: optimizeLegibility;
+
 	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -31,16 +32,14 @@
 /// Teaser heading styles.
 /// Including link and hover styling.
 @mixin oTeaserHeading {
-	@include oTypographyProgressiveFont(serifDisplay, m);
-	@include oTypographyFallbackFontSize(serifDisplay, 22px);
-	@include font-size(22, 26);
-	margin: 0;
+	@include oTypographyDisplay(2);
+	@include oColorsFor('o-teaser', text, 80);
+	@include oTypographyMargin($top: 0, $bottom: 0);
 	font-weight: oFontsWeight(normal);
-	color: oTeaserTextColor($percent: 80);
 
-	#{$o-hoverable-if-hover-enabled} &:hover,
+	&:hover,
 	&:focus {
-		color: oTeaserTextColor($percent: 55);
+		@include oColorsFor('o-teaser', text, 55);
 	}
 
 	a {
@@ -49,7 +48,7 @@
 		text-decoration: none;
 		border: 0;
 
-		#{$o-hoverable-if-hover-enabled} &:hover {
+		&:hover {
 			color: inherit;
 		}
 	}
@@ -57,22 +56,22 @@
 
 /// Meta area and colouring styles
 @mixin oTeaserMeta {
-	@include font-size(16, 18);
+	@include oTypographySize(0, 20px);
 	@include oColorsFor('o-teaser-tag', 'text');
-	margin: 0;
+	@include oTypographyMargin($top: 0, $bottom: 0);
 }
 
 /// Tag styling.
 /// Element should be a link, otherwise use oTeaserMeta
 @mixin oTeaserTag {
+	@include oTypographyBold('sans');
 	color: inherit;
-	font-weight: oFontsWeight(semibold);
 	text-decoration: none;
 	border: 0;
 
-	#{$o-hoverable-if-hover-enabled} &:hover,
+	&:hover,
 	&:focus {
-		color: oTeaserTextColor($percent: 55);
+		@include oColorsFor('o-teaser', text, 55);
 	}
 
 	span {
@@ -82,9 +81,9 @@
 
 /// Video duration styles
 @mixin oTeaserDuration {
-	font-size: 14px;
-	color: #656059;
+	@include _oTypographyFontSize(-1);
 	margin: 0 0 0 0.25em;
+	color: oColorsGetPaletteColor('black-60');
 
 	&:first-child {
 		margin-left: 0;
@@ -93,9 +92,9 @@
 
 /// Styles for standfirst element
 @mixin oTeaserStandfirst {
-	@include font-size(16, 20);
-	margin: 0;
-	color: oTeaserTextColor();
+	@include oTypographySize(0, 20px);
+	@include oTypographyMargin(0, 0);
+	@include oColorsFor('o-teaser', text, 60);
 
 	.o-teaser__heading + & {
 		margin-top: 10px;
