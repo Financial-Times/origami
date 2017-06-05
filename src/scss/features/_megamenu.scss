@@ -9,8 +9,9 @@
 	}
 
 	.o-header__mega {
-		@include oTypographySansSize('s', $with-progressive-size: true);
-		@include oEffectsShadowsElevation('low');
+		@include oTypographySans(0);
+		@include oTypographyProgressiveFontFallback('sans', 0);
+		@include oVisualEffectsShadowsElevation('low');
 		display: none;
 		position: absolute;
 		top: 100%;

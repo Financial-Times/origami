@@ -1,6 +1,6 @@
 @mixin oHeaderSubnav() {
 	.o-header__subnav {
-		@include oTypographySans('xs');
+		@include oTypographySans(0);
 		@include oColorsFor(o-header-subnav, background);
 		line-height: inherit;
 		border-bottom: 1px solid oColorsGetColorFor(o-header-subnav, border);
