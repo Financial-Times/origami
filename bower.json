@@ -5,10 +5,10 @@
     "o-colors": "^3.3.2",
     "o-grid": "^4.2.0",
     "o-icons": ">=4.4.2 <6",
-    "o-typography": "^4.1.0",
-    "o-visual-effects": ">=0.1.0 < 2",
     "o-toggle": "^1.0.0",
-    "o-utils": "^1.0.0"
+    "o-typography": "^4.1.0",
+    "o-utils": "^1.0.0",
+    "o-visual-effects": ">=0.1.0 < 2"
   },
   "main": [
     "main.scss",
