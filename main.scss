@@ -1,20 +1,23 @@
+@import "o-normalise/main";
 @import "o-colors/main";
 @import "o-typography/main";
 @import "o-icons/main";
 @import "o-grid/main";
 @import "src/scss/variables";
+@import "src/scss/color-use-cases";
+
 
 @if ($o-cookie-message-is-silent == false) {
 	/*------------------------------------*\
 			#BLOCK-DESKTOP
 	\*------------------------------------*/
+	@include oNormaliseHTML;
 
 	.o-cookie-message {
 		display: none;
 		position: relative;
-		background-color: oColorsGetColorFor(box, background);
-		border-bottom: 1px solid oColorsGetPaletteColor('pink-tint3');
-		padding: 5px 0;
+		background-color: oColorsGetColorFor(o-cookie-message, background);
+		@include oTypographyPadding($top: 4, $bottom: 4);
 
 		&__container {
 			position: relative;
@@ -39,9 +42,8 @@
 			opacity: 0.8;
 
 			&:before {
-				@include oIconsGetIcon(cross, oColorsGetColorFor(page, text), $_o-cookie-message-icon-size, $iconset-version: 1);
+				@include oIconsGetIcon(cross, oColorsGetColorFor(body, text), $_o-cookie-message-icon-size, $iconset-version: 1);
 				content: '';
-
 			}
 
 			&:hover {
@@ -62,24 +64,21 @@
 		}
 
 		&__title {
-			@include oTypographySansBold(l);
-			color: oColorsGetColorFor(page, text);
+			@include oTypographySansBold($scale: 0);
+			color: oColorsGetColorFor(body, text);
 			margin: 0;
-			font-size: 18px;
 		}
 
 		&__description {
-			@include oTypographySans(xs);
-			font-size: 13px; // override these values
-			line-height: 15px;
+			@include oTypographySans($scale: 0);
 			padding-right: 15px;
 			margin: 0;
-			color: oColorsGetColorFor(page, text);
+			color: oColorsGetColorFor(body, text);
 		}
 
 		a {
 			text-decoration: none;
-			color: oColorsGetColorFor(link, text);
+			@include oTypographyLink;
 		}
 	}
 
