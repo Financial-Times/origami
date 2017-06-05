@@ -94,7 +94,7 @@ If you have a color use case not covered by those built into the colors module, 
 
 ```scss
 .my-thing {
-	color: oColorsGetPaletteColor('white-50');
+	color: oColorsGetPaletteColor('white-60');
 }
 ```
 
