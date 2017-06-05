@@ -1,6 +1,5 @@
-// ??
-@include oColorsSetColor('fastft-brand', #cf191d);
-@include oColorsSetColor('fastft-highlight', #f5dfd9);
+@include oColorsSetColor('fastft-brand', #cf191d); // TODO: Ask a designer what color from the palette this should be
+@include oColorsSetColor('fastft-highlight', #f5dfd9); // TODO: Ask a designer what color from the palette this should be
 @include oColorsSetColor('commercial-content', oColorsGetTint($color: 'jade', $brightness: 50));
 
 @include oColorsSetUseCase(o-teaser, background, 'paper');
@@ -35,7 +34,7 @@
 
 // Timestamp - Live blog
 @include oColorsSetColor(live-blog-closed, oColorsGetPaletteColor('black-60'));
-@include oColorsSetColor(live-blog-coming-soon, #fd9d00); // ??
+@include oColorsSetColor(live-blog-coming-soon, #fd9d00); // TODO: Ask a designer what color from the palette this should be
 @include oColorsSetColor(live-blog-in-progress, oColorsGetPaletteColor('crimson'));
 
 @include oColorsSetUseCase(fast-ft, text, 'fastft-brand');
