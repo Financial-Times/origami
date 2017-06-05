@@ -79,6 +79,12 @@ Use `o-teaser-collection--special` to add a darker background across the full wi
 
 ## Migration guide
 
+### Upgrading from v1.x.x to v2.x.x
+
+- Deprecated classname `.o-teaser-collection--top-top-stories` has now been removed. __Resolution__ Please use `.o-teaser-collection--top-standalone` instead.
+- Styles for `.o-teaser-collection--stream .o-teaser__action` have been removed.
+- The o-colors and o-typography dependencies have been bumped to the latest major. These will create bower conflicts which should be resolved by updating to the newest release of o-colors and o-typography.
+
 ### Deprecated v1 styles
 
 The classname `.o-teaser-collection--top-top-stories` is deprecated and will be removed in v2, please use `.o-teaser-collection--top-standalone` instead.

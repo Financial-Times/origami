@@ -1,5 +1,5 @@
 @mixin oTeaserCollectionHeading {
-	@include font-size(26, 26);
+	@include oTypographySize(3);
 	position: relative;
 	width: 100%;
 	margin: 0;

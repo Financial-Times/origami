@@ -7,7 +7,6 @@
 @import "src/scss/mixins";
 @import "src/scss/themes";
 @import "src/scss/teaser-collection";
-@import "src/scss/deprecated";
 
 @if ($o-teaser-collection-is-silent == false) {
  	@include oTeaserCollection;
