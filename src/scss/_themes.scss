@@ -9,8 +9,8 @@
 		position: relative;
 
 		&:before {
-			@include font-size(28, 28);
-			font-family: $o-typography-serif-display;
+			@include oTypographySize(4);
+			font-family: $o-typography-display;
 			content: counter(o-teaser-collection-items);
 			position: absolute;
 			top: 0;
