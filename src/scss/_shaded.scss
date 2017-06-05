@@ -16,13 +16,6 @@
 	@include _oOverlayCloseIcon(oColorsGetColorFor(o-overlay-close-shaded, text));
 	@include oColorsFor(o-overlay-close-shaded);
 
-	// Preload the hover-state cross preventing FOIC by putting it as a background
-	// for the :before psuedo element
-	&:before {
-		@include _oOverlayCloseIcon(oColorsGetColorFor(o-overlay-close, text));
-		content: '';
-	}
-
 	&:focus,
 	#{$o-hoverable-if-hover-enabled} &:hover {
 		@include _oOverlayCloseIcon(oColorsGetColorFor(o-overlay-close, text));

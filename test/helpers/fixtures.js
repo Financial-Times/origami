@@ -23,7 +23,7 @@ function insert(html) {
 function htmlCode () {
 	const html = `
 	<div id="element">
-		<button class="o-overlay-trigger o-buttons  o-buttons--big" data-o-overlay-id="overlay" data-o-overlay-src="#overlay" data-o-overlay-heading-title="We're having trouble updating" data-o-overlay-heading-shaded="false" data-o-overlay-modal="true" data-o-overlay-preventclosing="false" data-o-overlay-zIndex="20" aria-pressed="false" aria-haspopup="true">
+		<button id='testTrigger' class="o-overlay-trigger o-buttons  o-buttons--big" data-o-overlay-id="overlay" data-o-overlay-src="#overlay" data-o-overlay-heading-title="We're having trouble updating" data-o-overlay-heading-shaded="false" data-o-overlay-modal="true" data-o-overlay-preventclosing="false" data-o-overlay-zIndex="20" aria-pressed="false" aria-haspopup="true">
 			Launch overlay
 		</button>
 	</div>

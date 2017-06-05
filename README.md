@@ -9,6 +9,7 @@ Configurable custom overlay box that can be used to show overlay windows. The ov
 	- [Sass](#sass)
 - [API](#api)
 - [Troubleshooting](#troubleshooting)
+- [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -52,9 +53,6 @@ var myOverlay = new Overlay('myOverlay', {
 	* `.title`: String. Your overlay's title
 	* `.visuallyHideTitle`: Boolean. If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for `aria` labelling) _Default_: false.
 	* `.shaded`: Boolean. Whether to shade the background of the header
-* `arrow`: **Deprecated**. Object. Options for the arrow
-	* `.position`: String. From which side of the overlay should the arrow protrude. It has to be 'top', 'bottom', 'left' or 'right'. _Default_: 'left'
-	* `.target`: String or HTMLElement. What should the arrow point at. It may be different from the trigger, and if the target isn't set, the trigger will be used by default. May be either an element or a querySelector string.
 * `modal`: Boolean. Whether the overlay should have modal behaviour or not. Setting this as true will add a translucent shadow between the page and the overlay
 * `compact`: Boolean. If true, the `.o-overlay--compact` class will be added to the overlay that reduces heading font-size and paddings in the content.
 * `src`: String. Either a _url_ from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted.
@@ -68,8 +66,6 @@ var myOverlay = new Overlay('myOverlay', {
 * `noFocus`: Boolean. If set to true, the tabindex will not be set on the wrapper element. Useful in conjunction with the `nested` and `parentNode` options. _Default_: false.
 
 The only option that must be set is either `src` or `html`. The `html` option can't be set as a `data-` attribute, and if you set both, the `html` one will override `src`.
-
-For overlays with arrows, having a shaded heading is incompatible with positions 'top' and 'bottom', because an arrow pointing out of a shaded header looks weird.
 
 For compact overlays, headings can't be shaded as this looks weird too.
 
@@ -100,13 +96,6 @@ $o-overlay-is-silent: false;
 * `open`: Display the overlay.  Content is loaded every time the overlay is opened.
 * `close`: Close (hide) the overlay.
 
-## Arrows (deprecated)
-**The arrows setting in o-overlay has been moved to [o-tooltip](http://github.com/financial-times/o-tooltip). Please use that instead**.
-
-Optionally, an overlay can be displayed to be pointing at a target element. The arrow can come out of any of the overlay's four sides and the preferred position is set as a config option. However, if the overlay doesn't fit next to the trigger in the default position, the module will check if it fits in the opposite position and change it if that is the case. This is not a permanent change, it's only until there is space again in the default position.
-
-Overlays with arrows can't be modal.
-
 ## Events
 
 We implement [o-layers](https://github.com/Financial-Times/o-layers) events:
@@ -119,7 +108,6 @@ We also dispatch custom events:
 * `oOverlay.ready`: Dispatched when the overlay is loaded in the DOM
 * `oOverlay.destroy`: Dispatched when the overlay is removed from the DOM
 
-
 # Troubleshooting
 
 * IE11-IE8 require the [polyfill service](polyfill.webservices.ft.com).
@@ -127,6 +115,16 @@ We also dispatch custom events:
 * Safari and Chrome mobile [don't support](http://caniuse.com/#feat=autofocus) the autofocus attribute. In Chrome mobile, you can use the `.focus()` function on an element when `oOverlay.ready` is dispatched to simulate the behaviour.
 * In Safari mobile on iOS8, autofocus is [buggy](http://stackoverflow.com/questions/26146252/in-ios8-using-focus-will-show-virtual-keyboard-and-scroll-page-after-touch) and is triggered after the overlay has loaded and a _touchdown_ event is dispatched after that. That means that if you click anywhere on the page after the page loads, the keyboard will come up which will most likely produce unexpected behaviours. We recommend not using autofocus in iOS 8. These unexpected behaviours only occur the first time an overlay is rendered, after that, autofocus won't be activated.
 
+## Migration Guide
+
+## Migrating from 1.X.X to 2.X.X
+- Arrows functionality has now been removed. __Resolution__ If you need an overlay with an arrow, please use [o-tooltip](http://github.com/financial-times/o-tooltip).
+- A dependency on [o-icons](http://github.com/financial-times/o-icons) v4 or v5 has been introduced. This will break any builds that use o-icons <v3. __Resolution__: Ideally you should upgrade to o-icons v5, but if you still need to use the old icon set (in v4) then upgrading to o-icons v4 will also work.
+- A dependency on [o-visual-effects](http://github.com/financial-times/o-visual-effects) v1 has been introduced. This will break any builds that use o-visual-effects <v1. __Resolution__: Update to v1 of o-visual-effects.
+- A dependency on [o-normalise](http://github.com/financial-times/o-normalise) v1 has been introduced. This is not likely to introduce any conflicts as it is only v1.
+- The mixin oOverlayCompactCloseIcon (deprecated in v1.3.0) has been removed. __Resolution__ Use the `@oOverlayCloseIcon` mixin.
+- All extends (deprecated in v1.2.0) have been removed. __Resolution__: Use the mixins instead.
+- The o-colors and o-visual-effects dependencies have been bumped to the latest major. These will create bower conflicts which should be resolved by updating to the newest release of o-colors and o-visual-effects.
 ---
 
 ## Contact

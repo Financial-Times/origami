@@ -13,50 +13,13 @@ const checkOptions = function(opts) {
 		throw new Error('"o-overlay error": To have a heading, a non-empty title needs to be set');
 	}
 
-	// Overlays that don't point at anything should be modal by default
-	if (!opts.arrow && typeof opts.modal === 'undefined') {
+	// Overlays should be modal by default
+	if (typeof opts.modal === 'undefined') {
 		opts.modal = true;
 	}
 
 	if (opts.compact && opts.heading && opts.heading.shaded) {
 		throw new Error('"o-overlay error": Compact overlays can\'t have a shaded header');
-	}
-
-	if (opts.arrow) {
-		// Default arrow position is 'left'
-		if (!opts.arrow.position) {
-			opts.arrow.position = 'left';
-		}
-
-		// Overlays with arrows can not be modal
-		if (opts.modal) {
-			opts.modal = false;
-		}
-
-		if (opts.arrow.position !== 'left' && opts.arrow.position !== 'right' && opts.arrow.position !== 'top' && opts.arrow.position !== 'bottom') {
-			throw new Error('"o-overlay error": The position of the arrow has to be either "top", "bottom", "left" or "right".');
-		}
-
-		// If the position of the arrow is 'top' or 'bottom', the heading can't be shaded
-		if ((opts.arrow.position === 'top' || opts.arrow.position === 'bottom') && (opts.heading && opts.heading.shaded)) {
-			throw new Error('"o-overlay error": The position of the arrow can\'t be set to "top" or "bottom" when the shaded heading option is set to true.');
-		}
-
-		// Default target for the arrow will be the trigger
-		if (!opts.arrow.target) {
-			if (opts.trigger) {
-				opts.arrow.target = opts.trigger;
-			} else {
-				throw new Error('"o-overlay error": For overlays with arrows, if you don\'t set a trigger, you do need to set a target for the overlay.');
-			}
-		} else if (!(opts.arrow.target instanceof HTMLElement)) {
-			opts.arrow.target = document.querySelector(opts.arrow.target);
-		}
-
-		// Prevent closing is only available with modal
-		if (opts.preventclosing && !opts.modal) {
-			opts.preventclosing = false;
-		}
 	}
 
 	return opts;
@@ -90,6 +53,27 @@ const triggerClickHandler = function(id, ev) {
 	}
 };
 
+
+/**
+ * Represents an Overlay.
+ * @constructor
+ * @param {HTMLElement} id - String. A unique identifier for the overlay within the page. (Required)
+ * @param {Object} opts - An options object for configuring the Overlay. This object MUST have either `src` or `html` set. (Required)
+ * @param {String} opts.heading.title - Your overlay's title
+ * @param {Boolean} opts.heading.visuallyHideTitle - If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for aria labelling) Default: false.
+ * @param {Boolean} opts.heading.shaded - Whether to shade the background of the header. Default: to false
+ * @param {Boolean} opts.modal - Whether the overlay should have modal behaviour or not. Setting this as true will add a translucent shadow between the page and the overlay
+ * @param {Boolean} opts.compact - If true, the .o-overlay--compact class will be added to the overlay that reduces heading font-size and paddings in the content.
+ * @param {String} opts.src - Either a url from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted.
+ * @param {String} opts.html - String or HTMLElement. Raw HTML (cannot be set declaratively)
+ * @param {String} opts.trigger - querySelector expression or HTMLElement. When there's a trigger set, a click event handler will be added to it that will open or close the overlay accordingly. (cannot be set declaratively)
+ * @param {String} opts.zindex - Value of the CSS z-index property of the overlay. Default set via CSS: '10'
+ * @param {Boolean} opts.preventclosing - Prevents closure of overlay via standard x button or escape key. For use when you are directing the user to somewhere else. Only valid with modal set to true.
+ * @param {Boolean} opts.customclose - If you do not use the heading, but want to provide a close button in your html / src (with a class of o-overlay__close), setting customclose to true will attach o-overlay's close handler function to that button.
+ * @param {String} opts.parentNode - Should be a query selector for a DOM element. If set, the overlay will be appended as a child of this rather than the document body or target. If multiple nodes are matched, it will use the first. If nothing matches this selector, the body will be used.
+ * @param {Boolean} opts.nested - If set to true, the resize listeners will not be set up. This boolean should be used in conjunction with the parentNode setting to allow an overlay to be positioned within a DOM element rather than overlaid on top of everything. Default: false.
+ * @param {Boolean} opts.noFocus - If set to true, the tabindex will not be set on the wrapper element. Useful in conjunction with the nested and parentNode options. Default: false.
+*/
 const Overlay = function(id, opts) {
 	viewport.listenTo('resize');
 	this.visible = false;
@@ -113,12 +97,12 @@ const Overlay = function(id, opts) {
 	}
 	if (this.opts.trigger) {
 		this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id), false);
-		this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : oLayers.getLayerContext(this.opts.trigger);
+		this.context = oLayers.getLayerContext(this.opts.trigger);
 	} else {
 		if (document.querySelector(this.opts.parentNode)) {
 			this.context = document.querySelector(this.opts.parentNode);
 		} else {
-			this.context = this.opts.arrow ? oLayers.getLayerContext(this.opts.arrow.target) : document.body;
+			this.context = document.body;
 		}
 	}
 
@@ -408,9 +392,8 @@ Overlay.prototype.realign = function(dimension, size) {
 			this.content.style.height = null;
 		}
 		this.wrapper.classList.remove('o-overlay--full-' + dimension);
-		if (!this.opts.arrow) {
-			this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
-		}
+		this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
+
 		// Set alignment in JavaScript (not via CSS) after all other styles have been applied
 		// so that browsers compute it properly. If it's applied earlier, when the negative
 		// margin is calculated, the overlay might not fit, so it shrinks and the negative
@@ -422,87 +405,6 @@ Overlay.prototype.realign = function(dimension, size) {
 Overlay.prototype.respondToWindow = function(size) {
 	this.realign('width', size.width);
 	this.realign('height', size.height);
-
-	this.wrapper.classList.remove('o-overlay__arrow-top');
-	this.wrapper.classList.remove('o-overlay__arrow-bottom');
-	this.wrapper.classList.remove('o-overlay__arrow-left');
-	this.wrapper.classList.remove('o-overlay__arrow-right');
-
-	if (this.opts.arrow && !this.fills()) {
-		this.opts.arrow.currentposition = this.getCurrentArrowPosition(this.opts.arrow.position);
-		this.wrapper.classList.add('o-overlay__arrow-' + this.opts.arrow.currentposition);
-
-		const edge = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'left' : 'top';
-		const oppositeEdge = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'top' : 'left';
-		const dimension = (this.opts.arrow.currentposition === 'left' || this.opts.arrow.currentposition === 'right') ? 'height' : 'width';
-
-		let offset = 0;
-		// Protrusion distance for the arrow. It's 13 due to the border around it
-		const arrowSize = 13;
-		const targetClientRect = utils.getOffsetRect(this.opts.arrow.target);
-		const dimensionValue = targetClientRect[dimension];
-		switch (this.opts.arrow.currentposition) {
-			case 'left':
-				offset = targetClientRect.left + targetClientRect.width + arrowSize;
-				break;
-			case 'right':
-				offset = targetClientRect.left - this.width - arrowSize;
-				break;
-			case 'top':
-				offset = targetClientRect.top + targetClientRect.height + arrowSize;
-				break;
-			case 'bottom':
-				offset = targetClientRect.top - this.height - arrowSize;
-				break;
-		}
-
-		this.wrapper.style[edge] = offset + 'px';
-		// 1. Get where the element is positioned
-		// 2. Add its width or height divided by two to get its center
-		// 3. Substract the width or height divided by two of the overlay so the arrow, which is in the center, points to the center of the side of the target
-		this.wrapper.style[oppositeEdge] = targetClientRect[oppositeEdge] + (dimensionValue / 2) - (this[dimension] / 2) + 'px';
-	}
-};
-
-Overlay.prototype.getCurrentArrowPosition = function(position) {
-	const targetClientRect = this.opts.arrow.target.getBoundingClientRect();
-	// Protrusion distance for the arrow. It's 13 due to the border around it
-	const arrowSize = 13;
-	const wrapperWidth = this.wrapper.getBoundingClientRect().width + arrowSize;
-	const wrapperHeight = this.wrapper.getBoundingClientRect().height + arrowSize;
-	// Check if the overlay won't fit on the side set in the options and that it will on the opposite side.
-	// In that case, use the opposite side
-	switch (this.opts.arrow.position) {
-		case 'left':
-			if (targetClientRect.right + wrapperWidth >= window.innerWidth &&
-					targetClientRect.left - wrapperWidth > 0) {
-
-				position = 'right';
-			}
-			break;
-		case 'right':
-			if (targetClientRect.left - wrapperWidth <= 0 &&
-					targetClientRect.right + wrapperWidth < window.innerWidth) {
-
-				position = 'left';
-			}
-			break;
-		case 'top':
-			if (targetClientRect.bottom + wrapperHeight >= window.innerHeight &&
-					targetClientRect.top - wrapperHeight + arrowSize > 0) {
-
-				position = 'bottom';
-			}
-			break;
-		case 'bottom':
-			if (targetClientRect.top - wrapperHeight <= 0 &&
-					targetClientRect.bottom + wrapperHeight < window.innerHeight) {
-
-				position = 'top';
-			}
-			break;
-	}
-	return position;
 };
 
 Overlay.prototype.fills = function(dimension) {
