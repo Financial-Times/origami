@@ -31,7 +31,7 @@
 
 	.o-header__search-term {
 		// match o-buttons
-		@include oButtonsSize('medium');
+		@include oButtonsSize('default');
 		border-radius: $_o-buttons-border-radius;
 		// normalize
 		background: white;
