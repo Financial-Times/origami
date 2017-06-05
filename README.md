@@ -127,6 +127,10 @@ o-header fires the following event:
 
 We use the [standard](http://origami.ft.com/docs/developer-guide/using-modules/#styles-for-fallbacks-and-enhancements) `o--if-js` and `o--if-no-js` classes to hide elements in enhanced and core experience respectively
 
+## Upgrading from 6.x.x to 7.x.x
+
+V7 introduces new major versions of o-colors, o-typography, o-buttons and o-visual-effects. //TODO write about consequences of this.
+
 ## Upgrading from 5.x.x to 6.x.x
 
 This is a complete change in the markup and usage of the module, so we advise to look at the markup in the demos and go over the readme. If any issues come up, please let us know.
