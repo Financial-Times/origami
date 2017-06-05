@@ -25,7 +25,7 @@
 			}
 
 			&[aria-hidden] {
-				@include oEffectsShadowsElevation('low');
+				@include oVisualEffectsShadowsElevation('low');
 
 				// because the transition is slightly bouncy it will reveal some of the background
 				border-left: 30px solid transparent;
