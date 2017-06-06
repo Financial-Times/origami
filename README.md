@@ -7,6 +7,7 @@ o-tooltip is a component usually used for annotating or highlighting bits of use
 	- [Markup](#markup)
 	- [JavaScript](#javascript)
 	- [Sass](#sass)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -66,6 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
 ### Sass
 
 As with all Origami components, o-tooltip has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-tooltip-is-silent : false;` in your Sass before you've imported the o-tooltip Sass.
+
+## Migration Guide
+
+### Updating from v1 to v2
+
+V1 -> V2 introduces the new majors of `o-overlay` and `o-visual-effects`. Updating to this new version will mean updating any other components that you have which are using `o-overlay` or `o-visual-effects`. There are no other breaking changes in this release.
 
 ---
 

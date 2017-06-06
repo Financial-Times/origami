@@ -1,13 +1,10 @@
 @import "o-overlay/main";
-@import "o-visual-effects/main";
 
 /// Base tooltip style. Inherits from oOverlay.
 @mixin oTooltip {
 	@include oOverlay();
-	@include oEffectsShadowsElevation($elevation: 'high');
 
-	// Override border until it's updated in o-overlay
-	border-radius: $o-normalise-border-radius;
+	// Override border set in o-overlay
 	border: 0;
 
 	position: absolute;
