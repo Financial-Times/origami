@@ -16,8 +16,9 @@
 	$button-dimensions: map-get($o-buttons-sizes, $size);
 	$border-width: map-get($button-dimensions, border-width);
 	$vertical-padding: 1/2 * (map-get($button-dimensions, min-height) - map-get($button-dimensions, font-size)) - $border-width;
+	$background-size: map-get($button-dimensions, background-size);
 
-	background-size: map-get($button-dimensions, background-size);
+	background-size: $background-size $background-size;
 	min-height: map-get($button-dimensions, min-height);
 	min-width: map-get($button-dimensions, min-width);
 	padding: $vertical-padding map-get($button-dimensions, padding-right) $vertical-padding map-get($button-dimensions, padding-left);
