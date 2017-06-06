@@ -1,14 +1,14 @@
 {
   "name": "o-header",
   "dependencies": {
-    "o-buttons": "^4.5.2",
-    "o-colors": "^3.3.2",
+    "o-buttons": "^5.0.0",
+    "o-colors": "^4.0.1",
     "o-grid": "^4.2.0",
     "o-icons": ">=4.4.2 <6",
-    "o-typography": "^4.1.0",
-    "o-visual-effects": ">=0.1.0 < 2",
     "o-toggle": "^1.0.0",
-    "o-utils": "^1.0.0"
+    "o-typography": "^5.0.1",
+    "o-utils": "^1.0.0",
+    "o-visual-effects": "^2.0.0"
   },
   "main": [
     "main.scss",
