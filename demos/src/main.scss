@@ -9,7 +9,7 @@ $o-grid-is-silent: false;
 
 body {
 	font-family: 'MetricWeb';
-	background: #fff1e0;
+	background-color: oColorsGetPaletteColor('paper');
 }
 
 .demo-sticky {
@@ -48,7 +48,7 @@ body {
 }
 
 .demo-transparent body {
-	background: #333333;
+	background: oColorsGetPaletteColor('black-90');
 }
 
 .demo-o-header__subbrand-logo {
