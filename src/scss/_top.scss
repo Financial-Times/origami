@@ -61,10 +61,8 @@
 	}
 
 	.o-header-services__product-name {
-		font-family: MetricWeb, sans-serif;
-		text-overflow: ellipsis;
 		@include oTypographySansBold($scale: 4);
-
+		text-overflow: ellipsis;
 		color: oColorsGetColorFor('o-header-services-top-title', text);
 		margin: 0;
 		-webkit-font-smoothing: antialiased;
