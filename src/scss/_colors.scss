@@ -1,15 +1,16 @@
-@include oColorsSetUseCase('o-header-services-top', 'background', 'cold-3');
+@include oColorsSetUseCase('o-header-services-top', 'background', 'black');
 @include oColorsSetUseCase('o-header-services-top', 'text', 'white');
 @include oColorsSetUseCase('o-header-services-top-link', 'text', 'white');
-@include oColorsSetUseCase('o-header-services-top-link-hover', 'text', 'grey-tint2');
+@include oColorsSetUseCase('o-header-services-top-link-hover', 'text', 'black-40');
 
 // default theme
 @include oColorsSetUseCase('o-header-services-top-title', 'text', 'white');
-@include oColorsSetUseCase('o-header-services-primary-nav', 'background', 'pink-tint4');
+@include oColorsSetUseCase('o-header-services-primary-nav', 'background', 'white-60');
 @include oColorsSetUseCase('o-header-services-primary-nav', 'text', 'black');
-@include oColorsSetUseCase('o-header-services-primary-nav-item-hover', 'background', 'pink-tint5');
-@include oColorsSetUseCase('o-header-services-primary-nav-item-hover', 'text', 'white');
-@include oColorsSetUseCase('o-header-services-secondary-nav', 'text', 'grey-tint5');
+@include oColorsSetUseCase('o-header-services-primary-nav-item-hover', 'background', 'black-10');
+@include oColorsSetUseCase('o-header-services-primary-nav-item-hover', 'text', 'black');
+@include oColorsSetUseCase('o-header-services-secondary-nav', 'text', 'black');
+@include oColorsSetUseCase('o-header-services-secondary-nav', 'background', 'white-40');
 
 // B2C theme
 @include oColorsSetUseCase('o-header-services-b2c-top-title', 'text', 'org-b2c-light');
@@ -19,9 +20,9 @@
 
 // B2B theme
 @include oColorsSetUseCase('o-header-services-b2b-top-title', 'text', 'white');
-@include oColorsSetUseCase('o-header-services-b2b-primary-nav', 'background', 'claret-1');
+@include oColorsSetUseCase('o-header-services-b2b-primary-nav', 'background', 'claret');
 @include oColorsSetUseCase('o-header-services-b2b-primary-nav', 'text', 'white');
-@include oColorsSetUseCase('o-header-services-b2b-primary-nav-item-hover', 'background', 'claret-inverse');
+@include oColorsSetUseCase('o-header-services-b2b-primary-nav-item-hover', 'background', 'claret-30');
 
 
 // override usecases for o-header-drawer colors eg
