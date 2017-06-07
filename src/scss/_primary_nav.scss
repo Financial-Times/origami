@@ -24,7 +24,7 @@
 	}
 
 	.o-header-services__nav-link {
-		@include oTypographySansBold(s);
+		@include oTypographySansBold($scale: 1);
 		color: oColorsGetColorFor(o-header-services-primary-nav, text);
 
 		text-transform: uppercase;

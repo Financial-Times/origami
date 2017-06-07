@@ -1,7 +1,7 @@
 @if $o-header-services-is-silent == false {
 
 	.o-header-services__top {
-		@include oTypographySans(s);
+		@include oTypographySans($scale: 1);
 		@include oColorsFor(o-header-services-top, text background);
 		overflow: hidden;
 		display: block;
@@ -72,7 +72,7 @@
 		display: inline;
 
 		@include oGridRespondTo($until: M) {
-			@include oTypographySans(m);
+			@include oTypographySans($scale: 4);
 			font-weight: 600;
 		}
 
@@ -83,7 +83,7 @@
 	}
 
 	.o-header-subrand__product-tagline {
-		@include oTypographySans(m);
+		@include oTypographySans($scale: 4);
 		text-transform: uppercase;
 		margin-left: $_o-header-services-padding-x;
 		-webkit-font-smoothing: antialiased;
