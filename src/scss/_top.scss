@@ -1,8 +1,9 @@
 @if $o-header-services-is-silent == false {
 
 	.o-header-services__top {
-		@include oTypographySans($scale: 1);
+		@include oTypographySans($scale: 0);
 		@include oColorsFor(o-header-services-top, text background);
+
 		overflow: hidden;
 		display: block;
 	}
@@ -40,7 +41,7 @@
 	}
 
 	.o-header-services__hamburger-icon {
-		@include oIconsGetIcon('hamburger', white, 40, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+		@include oIconsGetIcon('hamburger', black, 40, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
 		display: block;
 		background-size: 40px 40px;
 		background-position: 50% 50%;
@@ -50,7 +51,6 @@
 	}
 
 	.o-header-services__title {
-		margin: 3px 0; // magic number to make the container height add up to 55px
 		padding: $_o-header-services-padding-y $_o-header-services-padding-x;
 		display: inline-block;
 		float: left;
@@ -62,18 +62,16 @@
 
 	.o-header-services__product-name {
 		font-family: MetricWeb, sans-serif;
-		line-height: 28px;
-		font-size: 28px;
+		text-overflow: ellipsis;
+		@include oTypographySansBold($scale: 4);
 
-		font-weight: 600;
 		color: oColorsGetColorFor('o-header-services-top-title', text);
 		margin: 0;
 		-webkit-font-smoothing: antialiased;
 		display: inline;
 
 		@include oGridRespondTo($until: M) {
-			@include oTypographySans($scale: 4);
-			font-weight: 600;
+			@include oTypographySansBold($scale: 2);
 		}
 
 		a {
@@ -83,7 +81,7 @@
 	}
 
 	.o-header-subrand__product-tagline {
-		@include oTypographySans($scale: 4);
+		@include oTypographySans($scale: 3);
 		text-transform: uppercase;
 		margin-left: $_o-header-services-padding-x;
 		-webkit-font-smoothing: antialiased;
@@ -101,7 +99,7 @@
 
 	.o-header-services__related-content {
 		float: right;
-		padding: 18px $_o-header-services-padding-x;
+		padding: 16px $_o-header-services-padding-x;
 		-webkit-font-smoothing: antialiased;
 
 		@include oGridRespondTo($until: M) {
@@ -120,7 +118,7 @@
 			}
 
 			&:hover {
-				color: oColorsGetColorFor('o-header-services-top-link-hover', text);
+				text-decoration: underline;
 			}
 		}
 	}

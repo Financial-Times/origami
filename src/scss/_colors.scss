@@ -1,13 +1,14 @@
 @include oColorsSetUseCase('o-header-services-top', 'background', 'black');
 @include oColorsSetUseCase('o-header-services-top', 'text', 'white');
 @include oColorsSetUseCase('o-header-services-top-link', 'text', 'white');
-@include oColorsSetUseCase('o-header-services-top-link-hover', 'text', 'black-40');
+@include oColorsSetUseCase('o-header-services-top-link-hover', 'text', 'black-20');
 
 // default theme
 @include oColorsSetUseCase('o-header-services-top-title', 'text', 'white');
 @include oColorsSetUseCase('o-header-services-primary-nav', 'background', 'white-60');
 @include oColorsSetUseCase('o-header-services-primary-nav', 'text', 'black');
-@include oColorsSetUseCase('o-header-services-primary-nav-item-hover', 'background', 'black-10');
+@include oColorsSetUseCase('o-header-services-primary-nav', 'border', 'black-20');
+@include oColorsSetUseCase('o-header-services-primary-nav-item-hover', 'background', 'black-5');
 @include oColorsSetUseCase('o-header-services-primary-nav-item-hover', 'text', 'black');
 @include oColorsSetUseCase('o-header-services-secondary-nav', 'text', 'black');
 @include oColorsSetUseCase('o-header-services-secondary-nav', 'background', 'white-40');
