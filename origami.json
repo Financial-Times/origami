@@ -42,8 +42,8 @@
 			"description": ""
 		},
 		{
-			"name": "buttontabs-standout",
-			"template": "demos/src/buttontabs-standout.mustache",
+			"name": "buttontabs-primary",
+			"template": "demos/src/buttontabs-primary.mustache",
 			"description": "",
 			"hidden": true
 		},

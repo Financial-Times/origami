@@ -8,8 +8,8 @@
 		".gitignore"
 	],
 	"dependencies": {
-		"o-colors": ">=2.3.11 <4",
-		"o-buttons": ">=1.8.0 <5",
-		"o-dom": ">=0.3.0 <3"
+		"o-colors": "^4.0.2",
+		"o-buttons": "^5.0.0",
+		"o-dom": "^2.0.3"
 	}
 }

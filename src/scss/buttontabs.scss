@@ -1,7 +1,7 @@
 @mixin oTabsButtonTabs() {
 	.o-tabs--buttontabs[data-o-tabs--js] {
 		&[role=tablist] {
-			border-bottom: 1px solid oColorsGetColorFor(o-buttons-standard-normal, border);
+			border-bottom: 1px solid oColorsGetColorFor(o-buttons-secondary-normal, border);
 			font-size: 0; // Hack to remove the spacing between tabs when using <li>'s
 		}
 

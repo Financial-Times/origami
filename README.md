@@ -6,6 +6,7 @@ Tabs component for dividing content into meaningful sections.
 	- [Markup](#markup)
 	- [JavaScript](#javascript)
 	- [Sass](#sass)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -165,6 +166,16 @@ If you're using the Sass mixins, you can also theme o-tabs using the `oTabsButto
 @include oTabsButtonTabsTheme('inverse');
 ```
 
+## Migration Guide
+
+### Migrating from v3 to v4
+
+This major includes the new o-colors and o-buttons, and updates the themes and sizes of button tabs.
+
+The following changes have been made to the **themes**:
+
+- `Standout` is now `Primary`: use `oTabsButtonTabsTheme('primary')`
+- `Uncolored` is now `Mono`: use `oTabsButtonTabsTheme('mono')`
 
 ---
 
