@@ -1,15 +1,17 @@
 @if $o-header-services-is-silent == false {
 
 	.o-header-services__top {
-		@include oTypographySans(s);
+		@include oTypographySans($scale: 0);
 		@include oColorsFor(o-header-services-top, text background);
+
 		overflow: hidden;
 		display: block;
 	}
 
 	.o-header-services__ftlogo {
-		width: $_o-header-services-top-bar-y;
-		height: $_o-header-services-top-bar-y;
+		width: 40px;
+		height: 40px;
+		margin: 8px 8px 8px 0;
 		float: left;
 		display: inline-block;
 		background: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:brand-ft-logo-square-coloured?source=o-header-services&format=svg&width=55') no-repeat;
@@ -21,6 +23,7 @@
 		background-size: contain;
 		background-position: 0;
 		@include oGridRespondTo($until: M) {
+			margin: 0;
 			width: $_o-header-services-top-bar-y-small;
 			height: $_o-header-services-top-bar-y-small;
 		}
@@ -31,7 +34,7 @@
 		height: $_o-header-services-top-bar-y-small;
 		width: $_o-header-services-top-bar-y-small;
 		float: left;
-		background-color: oColorsGetColorFor(o-header-services-primary-nav, background);
+		background-color: oColorsGetColorFor(o-header-services-top, background);
 		display: inline-block;
 
 		@include oGridRespondTo(M) {
@@ -50,7 +53,6 @@
 	}
 
 	.o-header-services__title {
-		margin: 3px 0; // magic number to make the container height add up to 55px
 		padding: $_o-header-services-padding-y $_o-header-services-padding-x;
 		display: inline-block;
 		float: left;
@@ -61,19 +63,15 @@
 	}
 
 	.o-header-services__product-name {
-		font-family: MetricWeb, sans-serif;
-		line-height: 28px;
-		font-size: 28px;
-
-		font-weight: 600;
+		@include oTypographySansBold($scale: 4);
+		text-overflow: ellipsis;
 		color: oColorsGetColorFor('o-header-services-top-title', text);
 		margin: 0;
 		-webkit-font-smoothing: antialiased;
 		display: inline;
 
 		@include oGridRespondTo($until: M) {
-			@include oTypographySans(m);
-			font-weight: 600;
+			@include oTypographySansBold($scale: 2);
 		}
 
 		a {
@@ -83,7 +81,7 @@
 	}
 
 	.o-header-subrand__product-tagline {
-		@include oTypographySans(m);
+		@include oTypographySans($scale: 3);
 		text-transform: uppercase;
 		margin-left: $_o-header-services-padding-x;
 		-webkit-font-smoothing: antialiased;
@@ -101,7 +99,7 @@
 
 	.o-header-services__related-content {
 		float: right;
-		padding: 18px $_o-header-services-padding-x;
+		padding: 16px $_o-header-services-padding-x;
 		-webkit-font-smoothing: antialiased;
 
 		@include oGridRespondTo($until: M) {
@@ -120,7 +118,7 @@
 			}
 
 			&:hover {
-				color: oColorsGetColorFor('o-header-services-top-link-hover', text);
+				text-decoration: underline;
 			}
 		}
 	}

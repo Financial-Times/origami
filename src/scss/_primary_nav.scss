@@ -2,8 +2,13 @@
 
 	.o-header-services__primary-nav {
 		background-color: oColorsGetColorFor('o-header-services-primary-nav', background);
+		border-bottom: 1px solid oColorsGetColorFor('o-header-services-primary-nav', border);
 		zoom: 1;
 		overflow: hidden;
+
+		@include oGridRespondTo($until: M) {
+			border-bottom: 0;
+		}
 	}
 
 	.o-header-services__nav-list {
@@ -14,8 +19,11 @@
 	.o-header-services__nav-item {
 		display: inline-block;
 
+		// scss-lint:disable PropertySpelling
 		//http://browserhacks.com/#hack-aff8d8f6c5ce6a560158ada7b9007854
 		*display: inline;
+		// scss-lint:enable PropertySpelling
+
 		zoom: 1;
 
 		@include oGridRespondTo($until: M) {
@@ -24,7 +32,7 @@
 	}
 
 	.o-header-services__nav-link {
-		@include oTypographySansBold(s);
+		@include oTypographySansBold($scale: 0);
 		color: oColorsGetColorFor(o-header-services-primary-nav, text);
 
 		text-transform: uppercase;
@@ -32,8 +40,10 @@
 		display: inline-block;
 		-webkit-font-smoothing: antialiased;
 
+		// scss-lint:disable PropertySpelling
 		//http://browserhacks.com/#hack-aff8d8f6c5ce6a560158ada7b9007854
 		*display: inline;
+		// scss-lint:enable PropertySpelling
 		zoom: 1;
 		margin: 0;
 		padding: $_o-header-services-padding-y $_o-header-services-padding-x*2;
