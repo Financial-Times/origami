@@ -23,6 +23,7 @@
 		background-size: contain;
 		background-position: 0;
 		@include oGridRespondTo($until: M) {
+			margin: 0;
 			width: $_o-header-services-top-bar-y-small;
 			height: $_o-header-services-top-bar-y-small;
 		}
@@ -33,7 +34,7 @@
 		height: $_o-header-services-top-bar-y-small;
 		width: $_o-header-services-top-bar-y-small;
 		float: left;
-		background-color: oColorsGetColorFor(o-header-services-primary-nav, background);
+		background-color: oColorsGetColorFor(o-header-services-top, background);
 		display: inline-block;
 
 		@include oGridRespondTo(M) {
@@ -42,7 +43,7 @@
 	}
 
 	.o-header-services__hamburger-icon {
-		@include oIconsGetIcon('hamburger', black, 40, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+		@include oIconsGetIcon('hamburger', white, 40, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
 		display: block;
 		background-size: 40px 40px;
 		background-position: 50% 50%;
