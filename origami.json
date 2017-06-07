@@ -9,7 +9,8 @@
 		"required": [
 			"queryselector",
 			"addeventlistener",
-			"classlist"
+			"classlist",
+			"String.prototype.trim"
 		],
 		"optional": [
 			"domcontentready",

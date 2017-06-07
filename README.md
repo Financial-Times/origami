@@ -177,6 +177,8 @@ The following changes have been made to the **themes**:
 - `Standout` is now `Primary`: use `oTabsButtonTabsTheme('primary')`
 - `Uncolored` is now `Mono`: use `oTabsButtonTabsTheme('mono')`
 
+As well as this, the JavaScript for o-tabs now relies on `String.prototype.trim`. This is present in modern browsers and can be polyfilled in others.
+
 ---
 
 ## Contact

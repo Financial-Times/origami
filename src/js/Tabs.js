@@ -198,7 +198,7 @@ class Tabs {
 		this.dispatchCustomEvent('event', {
 			category: 'tabs',
 			action: 'click',
-			tab: tabEl.textContent
+			tab: tabEl.textContent.trim()
 		}, 'oTracking');
 	};
 
