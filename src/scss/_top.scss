@@ -9,8 +9,9 @@
 	}
 
 	.o-header-services__ftlogo {
-		width: $_o-header-services-top-bar-y;
-		height: $_o-header-services-top-bar-y;
+		width: 40px;
+		height: 40px;
+		margin: 8px 8px 8px 0;
 		float: left;
 		display: inline-block;
 		background: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:brand-ft-logo-square-coloured?source=o-header-services&format=svg&width=55') no-repeat;
