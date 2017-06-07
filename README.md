@@ -416,6 +416,9 @@ The following mixins are now renamed:
 
 - oTypographyHeading5
 + oTypographyHeadingLevel5
+
+- oTypographyLinkTopic
++ oTypographyTopic
 ```
 
 v5 also removes the following mixins:
