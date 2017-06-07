@@ -5,6 +5,7 @@ This header is for tools and services built by the Financial Times.
 ## Index
 - [Design](#design)
 - [Quick start](#quick-start)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [License](#license)
 
@@ -210,6 +211,13 @@ To use the secondary navigation, use the primary navigation (with the drawer) an
 <!-- Drawer HTML as above this should include related content links (if any) and nav items-->
 
 ```
+
+## Migration guide
+
+### Migrating from v1.x.x to v2.x.x
+
+V2 bumps to the new major versions of o-header, o-colors, and o-typography. If you are using any of these components in your projects you will have bower conflicts that you need to resolve by upgrading those components too.
+V2 includes some minor visual changes, but these shouldn't be breaking changes for projects that include them.
 ----
 
 ## Contact
