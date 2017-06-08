@@ -40,7 +40,7 @@
 		line-height: 1;
 
 		@include oGridRespondTo(L) {
-			@include _oTypographyProgressiveFontFallbackSize('sans', 56px);
+			@include _oTypographyProgressiveFontFallbackSize('sans', 8);
 		}
 
 	}
@@ -52,7 +52,7 @@
 
 .topper__package-sequence-id {
 	@include oTypographySans(-2, $progressive: true);
-	@include _oTypographyProgressiveFontFallbackSize('sans', 18px);
+	@include _oTypographyProgressiveFontFallbackSize('sans', 1);
 }
 
 .topper--package-extra,
