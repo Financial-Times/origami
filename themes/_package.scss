@@ -36,11 +36,11 @@
 
 	.topper__tags .n-content-tag,
 	.topper__headline {
-		@include oTypographySans(xl, $load-progressively: true);
+		@include oTypographySans(4, $progressive: true);
 		line-height: 1;
 
 		@include oGridRespondTo(L) {
-			@include oTypographyFallbackFontSize('sans', 56px);
+			@include _oTypographyProgressiveFontFallbackSize('sans', 56px);
 		}
 
 	}
@@ -51,8 +51,8 @@
 }
 
 .topper__package-sequence-id {
-	@include oTypographySans(s, $load-progressively: true);
-	@include oTypographyFallbackFontSize('sans', 18px);
+	@include oTypographySans(-2, $progressive: true);
+	@include _oTypographyProgressiveFontFallbackSize('sans', 18px);
 }
 
 .topper--package-extra,

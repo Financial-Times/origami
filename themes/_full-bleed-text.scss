@@ -15,11 +15,11 @@
 
 	.topper__headline {
 		@include oGridRespondTo(M, L) {
-			@include oTypographyFallbackFontSize('serifDisplayBold', 52px);
+			@include _oTypographyProgressiveFontFallbackSize('serifDisplayBold', 52px);
 		}
 
 		@include oGridRespondTo(L) {
-			@include oTypographyFallbackFontSize('serifDisplayBold', 84px);
+			@include _oTypographyProgressiveFontFallbackSize('serifDisplayBold', 84px);
 		}
 	}
 }
