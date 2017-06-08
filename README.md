@@ -218,6 +218,7 @@ To use the secondary navigation, use the primary navigation (with the drawer) an
 
 V2 bumps to the new major versions of o-header, o-colors, and o-typography. If you are using any of these components in your projects you will have bower conflicts that you need to resolve by upgrading those components too.
 V2 includes some minor visual changes, but these shouldn't be breaking changes for projects that include them.
+
 ----
 
 ## Contact
