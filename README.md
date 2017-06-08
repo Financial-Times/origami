@@ -80,6 +80,11 @@ Requires Firefox (v38.0.0 to test with polyfills and mirror CircleCI)
 
 ## Migration Guide
 
+Migrating from 3.0 to 4.0
+-------------------------
+
+Version 4 introduces the new majors of o-colors, o-loading, and o-typography. Updating to this new version will mean updating any other components that you have which are using o-colors, o-loading, or o-typography. There are no other breaking changes in this release.
+
 Migrating from 2.0 to 3.0
 -------------------------
 
