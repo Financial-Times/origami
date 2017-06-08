@@ -1,5 +1,3 @@
-@import '../../package/colors';
-
 .topper__anchor-link {
 	display: inline-block;
 	margin-top: 30px;
@@ -61,17 +59,17 @@
 .topper--package-extra-wide {
 	.topper__package-sequence-id,
 	&.topper--package .topper__headline {
-		color: $yellow;
+		color: getColor('lemon');
 	}
 
 	.topper__anchor-link {
-		color: $yellow;
-		border-color: $yellow;
+		color: getColor('lemon');
+		border-color: getColor('lemon');
 		&:after {
-			@include oIconsGetIcon('arrow-down', $yellow, 20, null, false, false);
+			@include oIconsGetIcon('arrow-down', getColor('lemon'), 20, null, false, false);
 		}
 		&:hover {
-			color: darken($yellow, 20%);
+			color: darken(getColor('lemon'), 20%);
 		}
 	}
 }
