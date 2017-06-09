@@ -36,8 +36,9 @@
 
 	.topper__tags .n-content-tag,
 	.topper__headline {
-		@include oTypographySans(4, $progressive: true);
+		@include oTypographySans(6, $progressive: true);
 		line-height: 1;
+		font-weight: 400;
 
 		@include oGridRespondTo(L) {
 			@include _oTypographyProgressiveFontFallbackSize('sans', 8);
