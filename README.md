@@ -22,14 +22,14 @@ o-typography uses a single typographic scale for use with all fonts. The scale c
 
 | Scale | Font size | Line height |
 |------ |---------- |------------ |
-|    -2 |      12px |        12px |
+|    -2 |      12px |        16px |
 |    -1 |      14px |        16px |
-|     0 |      16px |        24px |
-|     1 |      18px |        28px |
+|     0 |      16px |        20px |
+|     1 |      18px |        20px |
 |     2 |      20px |        24px |
 |     3 |      24px |        28px |
 |     4 |      28px |        32px |
-|     5 |      32px |        36px |
+|     5 |      32px |        32px |
 |     6 |      40px |        40px |
 |     7 |      48px |        48px |
 |     8 |      56px |        56px |
