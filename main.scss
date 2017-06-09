@@ -6,19 +6,15 @@
 @import 'src/scss/color-use-cases';
 @import 'src/scss/functions';
 @import 'src/scss/share';
-@import 'src/scss/tooltip';
 
 @if (not $o-share-is-silent) {
 	@include oShareBase;
-
-	@include oShareActionLink;
 
 	// run through all the different icons available
 	@each $icon in $_o-share-icons {
 		@include oShareActionIcon($icon);
 	}
 
-	@include oShareTooltip;
 	@include oShareInverse;
 
 	.o-share--vertical {

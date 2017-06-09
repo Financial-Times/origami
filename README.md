@@ -1,11 +1,10 @@
 o-share [![Build Status](https://circleci.com/gh/Financial-Times/o-share.png?style=shield&circle-token=38faae5e0f0b4e39810a511b4004f396aff8718a)](https://circleci.com/gh/Financial-Times/o-share)
 =======
 
-Social media and URL sharing buttons.
+Social media buttons.
 
 * Provides the ability to share a URL provided by the product
 * Uses a standard set of social media icons.
-* Provides a copyable representation of a link
 
 
 ---
@@ -53,15 +52,12 @@ The different social networks are (in the order suggested by the design team):
 * Whatsapp (note: this link does nothing if Whatsapp is not installed)
 * Google+ (written as 'googleplus' in the `links` config option)
 * Pinterest
-* Link (when clicked displays the URL that can be copied by the user)
 
 #### Core experience
 
 To support core experience, you need to include the [complete markup](https://github.com/Financial-Times/o-share/blob/master/main.mustache) directly.
 
 Social media share buttons will function as plain `<a>` elements (and can be set to `target="_blank"` if the product wishes.
-
-The link share button will not display at all. User can of course still copy the browser URL.
 
 ### JavaScript
 
@@ -85,14 +81,6 @@ document.addEventListener("DOMContentLoaded", function() {
 ```
 
 Check out the [API docs](http://registry.origami.ft.com/components/o-share#docs-js)
-
-#### Events
-
-This module will trigger the following events on its root element:
-
-* `oShare.ready` - when a share links behaviour has been initialised
-* `oShare.open` - when a share link has been opened (popup/flyout opened as a result of button click)
-* `oShare.copy` - when the URL has been copied
 
 
 ### Sass

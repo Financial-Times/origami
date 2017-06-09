@@ -1,7 +1,6 @@
 /**global require,module*/
 
 const DomDelegate = require('ftdomdelegate');
-const TextCopyHelper = require('./TextCopyHelper');
 
 const socialUrls = {
 	twitter: "https://twitter.com/intent/tweet?url={{url}}&text={{title}}&related={{relatedTwitterAccounts}}&via=FT",
@@ -9,8 +8,7 @@ const socialUrls = {
 	linkedin: "http://www.linkedin.com/shareArticle?mini=true&url={{url}}&title={{title}}+%7C+{{titleExtra}}&summary={{summary}}&source=Financial+Times",
 	googleplus: "https://plus.google.com/share?url={{url}}",
 	pinterest: "http://www.pinterest.com/pin/create/button/?url={{url}}&description={{title}}",
-	whatsapp: "whatsapp://send?text={{title}}%20({{titleExtra}})%20-%20{{url}}",
-	link: "{{url}}"
+	whatsapp: "whatsapp://send?text={{title}}%20({{titleExtra}})%20-%20{{url}}"
 };
 
 /**
@@ -42,7 +40,7 @@ function Share(rootEl, config) {
 	}
 
 	/**
-	  * Click event handler that checks the event target is an o-share action, and acts depending on if it's a social network or a link
+	  * Click event handler that checks the event target is an o-share action
 	  *
 	  * @private
 	  */
@@ -61,48 +59,8 @@ function Share(rootEl, config) {
 				button: actionEl.textContent.trim().toLowerCase()
 			}, 'oTracking');
 
-			if (actionEl.classList.contains('o-share__action--link')) {
-				copyLink(url, actionEl);
-			} else {
-				shareSocial(url);
-			}
+			shareSocial(url);
 		}
-	}
-
-	/**
-	  * Event handler for the link element. Sets up a {@link TextCopyHelper} and dispatches the 'oShare.open' event
-	  *
-	  * @private
-	  * @param {string} url - URL to be copied
-	  * @param {HTMLElement} parentEl - List element that will contain the {@link TextCopyHelper}
-	  */
-	function copyLink(url, parentEl) {
-		if (!url || !parentEl || parentEl.hasAttribute("aria-selected")) {
-			return;
-		}
-		parentEl.setAttribute('aria-selected', 'true');
-
-		new TextCopyHelper({
-			message: "Copy this link for sharing",
-			text: url,
-			parentEl: parentEl,
-			onCopy: function() {
-				dispatchCustomEvent('copy', {
-					share: oShare,
-					action: "url",
-					url: url
-				});
-			},
-			onDestroy: function() {
-				parentEl.removeAttribute('aria-selected');
-			}
-		});
-
-		dispatchCustomEvent('open', {
-			share: oShare,
-			action: "url",
-			url: url
-		});
 	}
 
 	/**
@@ -131,7 +89,7 @@ function Share(rootEl, config) {
 	  * Transforms the default social urls
 	  *
 	  * @private
-	  * @param {string} socialNetwork - Name of the social network that we support (twitter, facebook, linkedin, googleplus, reddit, pinterest, url)
+	  * @param {string} socialNetwork - Name of the social network that we support (twitter, facebook, linkedin, googleplus, reddit, pinterest)
 	  */
 	function generateSocialUrl(socialNetwork) {
 		let templateUrl = socialUrls[socialNetwork];

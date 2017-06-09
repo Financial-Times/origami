@@ -93,7 +93,6 @@ describe('component', () => {
 		proclaim.instanceOf(document.querySelector('.o-share__action--whatsapp'), HTMLElement);
 		proclaim.instanceOf(document.querySelector('.o-share__action--googleplus'), HTMLElement);
 		proclaim.instanceOf(document.querySelector('.o-share__action--pinterest'), HTMLElement);
-		proclaim.instanceOf(document.querySelector('.o-share__action--link'), HTMLElement);
 	});
 
 	it('responds correctly to twitter clicks in the component', () => {
@@ -107,18 +106,6 @@ describe('component', () => {
 		proclaim.strictEqual(spy.calledWith[1], '');
 		proclaim.strictEqual(spy.calledWith[2], 'width=646,height=436');
 
-	});
-
-	it('responds correctly to url clicks in the component', () => {
-		proclaim.isNull(document.querySelector('.o-share-tooltip'));
-
-		const urlLinkElement = document.querySelector('.o-share__action--link a');
-		const event = document.createEvent('Event');
-		event.initEvent('click', true, true);
-		urlLinkElement.dispatchEvent(event);
-
-		proclaim.instanceOf(document.querySelector('.o-share-tooltip'), HTMLElement);
-		proclaim.equal(document.querySelector('.o-share__action--link input').value, 'https://www.ft.com/content/test');
 	});
 });
 

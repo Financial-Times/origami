@@ -23,8 +23,8 @@ function insertShareLinks() {
 	const html = `
 		<div data-o-component="o-share" class="o-share" id="element">
 			<ul>
-				<li class="o-share__action o-share__action--link">
-					<a href="http://on.ft.com/1mUdgA2"><i>Link</i></a>
+				<li class="o-share__action o-share__action--mail">
+					<button><i>Mail</i></button>
 				</li>
 				<li class="o-share__action o-share__action--twitter">
 					<a href="https://twitter.com/intent/tweet?url=http:&#x2F;&#x2F;on.ft.com&#x2F;1mUdgA2&text=Pfizer+says+its+AstraZeneca+vow+over+big+UK+presence+is+binding&related=ftcompanies&via=FT"><i>Twitter</i></a>
@@ -39,7 +39,7 @@ function insertShareComponent() {
 	const html = `
 		<div data-o-component="o-share"
 			class="o-share"
-			data-o-share-links="twitter facebook linkedin whatsapp googleplus pinterest link"
+			data-o-share-links="twitter facebook linkedin whatsapp googleplus pinterest"
 			data-o-share-url="https://www.ft.com/content/test"
 			data-o-share-title="Test Article"
 			data-o-share-titleExtra="Extra"
@@ -53,7 +53,7 @@ function insertRelativeShareComponent() {
 	const html = `
 		<div data-o-component="o-share"
 			class="o-share"
-			data-o-share-links="twitter facebook linkedin whatsapp googleplus pinterest link"
+			data-o-share-links="twitter facebook linkedin whatsapp googleplus pinterest"
 			data-o-share-url="/content/test"
 			data-o-share-title="Test Article"
 			data-o-share-titleExtra="Extra"
