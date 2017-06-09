@@ -30,7 +30,7 @@ $o-share-is-silent: false;
 
 body {
 	font-family: BentonSans, sans-serif;
-	background-color: oColorsGetPaletteColor('pink');
+	background-color: oColorsGetPaletteColor('paper');
 }
 
 .container {
@@ -56,4 +56,3 @@ body {
 		@include oShareDemoHoverStyles($icon);
 	}
 }
-

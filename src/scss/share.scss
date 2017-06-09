@@ -100,7 +100,7 @@
 			font-size: 12px;
 			line-height: 14px;
 			border-radius: $o-normalise-border-radius;
-			box-shadow: 0 0 3px oColorsGetPaletteColor('grey-tint5');
+			box-shadow: 0 0 3px oColorsGetPaletteColor('black-80');
 
 			// Removes the cross the clears the input in IE 10+
 			&::-ms-clear { // sass-lint:disable-line no-vendor-prefixes
