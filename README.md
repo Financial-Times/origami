@@ -101,13 +101,22 @@ Check out the [API docs](http://registry.origami.ft.com/components/o-share#docs-
 
 ## Migration guide
 
-### Migrating from v2.x.x to v3.x.x
+### Migrating from v3.x.x to v4.x.x
+
+o-share v4 introduces a few breaking changes that you may need to update in your product:
+
+  - V4 introduces the new major version of `o-colors`. Updating to this new version will mean updating any other components that you have which are using `o-colors`
+  - the link share option has been removed
+
+### Migrating from v2.x.x to v3.x.x
 
 o-share v3 introduces a few breaking changes that you may need to update in your product:
 
-- button size has increased from 36px to 40px which might effect the surrounding elements of your design
-- the Reddit share option has been removed
-- the URL share option has been renamed from `o-share__action--url` to `o-share__action--link`
+
+  - button size has increased from 36px to 40px which might effect the surrounding elements of your design
+  - the Reddit share option has been removed
+  - the URL share option has been renamed from `o-share__action--url` to `o-share__action--link`
+
 
 ---
 
