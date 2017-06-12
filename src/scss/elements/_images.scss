@@ -14,9 +14,7 @@
 	z-index: 1;
 
 	.o-teaser__image {
-		position: absolute;
-		top: 0;
-		left: 0;
+		float: left; 
 	}
 }
 
