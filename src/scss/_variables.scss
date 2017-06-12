@@ -21,23 +21,22 @@ $_o-forms-field-border-radius: $o-normalise-border-radius;
 
 $_o-forms-field-default-font-size: 14px;
 
-$_o-forms-field-default-padding-leftright: 5px;
+$_o-forms-field-default-padding-leftright: 8px;
 $_o-forms-field-default-padding-top: 10px;
 $_o-forms-field-default-padding-bottom: 10px;
 $_o-forms-field-default-height: 38px;
 
-$_o-forms-field-small-height: 24px;
-$_o-forms-field-small-padding-topbottom: 3px;
+$_o-forms-field-small-height: 28px; // align it to the regular button size
 
-$_o-forms-field-max-width: 400px;
+$_o-forms-field-max-width: 380px; // This is meant to be 1/3 of the columns in the full grid, should probably be using an o-grid function
 
 $_o-forms-padding: oGridGutter();
 
 // Outer circle / box sizes
-$_o-forms__radiocheckbox-default-size: 14px;
+$_o-forms__radiocheckbox-default-size: 24px;
 
 // Inner circle sizes
-$_o-forms__radio-internal-default-size: 6px;
+$_o-forms__radio-internal-default-size: 12px;
 
 $_o-forms__label-margin-bottom: 4px;
 

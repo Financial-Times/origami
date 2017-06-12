@@ -25,14 +25,14 @@
 	#{$checkbox} + #{$label},
 	#{$radio} + #{$label} {
 		display: inline-block;
-		margin-top: $_o-forms__label-margin-bottom; // double the spacing between labels and radio/checkboxes
+		@include oTypographyMargin($top: 3, $bottom: 3);
 		margin-right: 15px;
-		padding-left: $_o-forms__radiocheckbox-default-size + 5px;
+		padding-left: $_o-forms__radiocheckbox-default-size + 16px; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
 		position: relative;
 		cursor: pointer;
-		font-size: 14px;
+		@include oTypographySans($scale: -1);
 		font-weight: 400;
-		line-height: $_o-forms__radiocheckbox-default-size + 1px;
+		padding-top: 4px; // To align the text with the center of the checkbox/radio
 		// sass-lint:disable no-vendor-prefixes
 		-moz-user-select: none;
 		-webkit-user-select: none;
@@ -55,16 +55,12 @@
 		left: 0;
 		width: $_o-forms__radiocheckbox-default-size;
 		height: $_o-forms__radiocheckbox-default-size;
-		border: 1px solid oColorsGetColorFor(o-forms-field-standard, border);
+		border: 2px solid oColorsGetColorFor(o-forms-field-standard, border);
+		@include oColorsFor(o-forms-field-focus);
 		box-sizing: border-box;
 		content: '';
 		background-color: oColorsGetColorFor(o-forms-field-standard, background);
 		transition: all 0.1s ease-in;
-	}
-
-	#{$checkbox} + #{$label}::before,
-	#{$checkbox} + #{$label}::after {
-		border-radius: 3px;
 	}
 
 	// Apply different border colour to checkboxes and radio labels on focus
@@ -104,8 +100,13 @@
 		opacity: 1;
 	}
 
+	#{$radio}:checked + #{$label}::before {
+		// Outer ring changes to teal when the radio button is checked
+		border: 2px solid oColorsGetPaletteColor('teal');
+	}
+
 	#{$radio} + #{$label}::after {
-		background-color: oColorsGetPaletteColor('grey-tint4');
+		background-color: oColorsGetPaletteColor('teal');
 		border-radius: 50%;
 		height: $_o-forms__radio-internal-default-size;
 		width: $_o-forms__radio-internal-default-size;
@@ -114,9 +115,10 @@
 	}
 
 	#{$checkbox} + #{$label}::after {
-		$check-color: oColorsGetPaletteColor('grey-tint5');
+		$check-color: oColorsGetPaletteColor('white');
 		background-image: url(str-replace("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=o-icons&tint=%23#{$check-color}&format=svg", "#", ""));
 		background-repeat: no-repeat;
+		background-color: oColorsGetPaletteColor('teal');
 		height: $_o-forms__radiocheckbox-default-size;
 		width: $_o-forms__radiocheckbox-default-size;
 		background-size: $_o-forms__radiocheckbox-default-size;

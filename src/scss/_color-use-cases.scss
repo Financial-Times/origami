@@ -1,31 +1,34 @@
-@include oColorsSetUseCase(o-forms__message-default, text, 'grey-tint5');
-@include oColorsSetUseCase(o-forms__message-error, background, 'red');
+@include oColorsSetUseCase(o-forms__message-default, text, 'black-80');
+@include oColorsSetUseCase(o-forms__message-error, background, 'crimson');
 @include oColorsSetUseCase(o-forms__message-error, text, 'white');
-@include oColorsSetUseCase(o-forms__message-error-fallback, background, 'red-tint5');
+@include oColorsSetUseCase(o-forms__message-error-fallback, background, 'crimson-tint5');
 
-@include oColorsSetUseCase(o-forms__wrapper-highlight, background, 'pink-tint2');
+@include oColorsSetUseCase(o-forms__wrapper-highlight, background, 'black-10');
 
-@include oColorsSetUseCase(o-forms-field-label, text, 'grey-tint4');
+@include oColorsSetUseCase(o-forms-field-label, text, 'black-70');
 
-@include oColorsSetUseCase(o-forms-field-additional-info, text, 'grey-tint5');
+@include oColorsSetUseCase(o-forms-field-additional-info, text, 'black-80');
 
-@include oColorsSetUseCase(o-forms__prefixsuffix, background, 'pink-tint1');
-@include oColorsSetUseCase(o-forms__prefixsuffix, text, 'pink-tint5');
+@include oColorsSetUseCase(o-forms__prefixsuffix, background, 'black-5');
+@include oColorsSetUseCase(o-forms__prefixsuffix, text, 'black-50');
 
-@include oColorsSetUseCase(o-forms-field-standard, text, 'grey-tint5');
-@include oColorsSetUseCase(o-forms-field-standard, border, 'pink-tint3');
+@include oColorsSetUseCase(o-forms-field-standard, text, 'black-80');
+@include oColorsSetUseCase(o-forms-field-standard, border, 'black-30');
 @include oColorsSetUseCase(o-forms-field-standard, background, 'white');
 
-@include oColorsSetUseCase(o-forms-field-disabled, border, 'pink-tint2');
-@include oColorsSetUseCase(o-forms-field-disabled, background, 'pink-tint2');
+@include oColorsSetUseCase(o-forms-field-placholder, text, 'black-60');
 
-@include oColorsSetUseCase(o-forms-field-focus, border, 'pink-tint4');
-@include oColorsSetUseCase(o-forms-focus-ring, border, 'teal-2');
+@include oColorsSetUseCase(o-forms-field-disabled, text, 'black-60');
+@include oColorsSetUseCase(o-forms-field-disabled, border, 'black-10');
+@include oColorsSetUseCase(o-forms-field-disabled, background, 'black-10');
 
-@include oColorsSetUseCase(o-forms-field-valid, text, 'grey-tint5');
-@include oColorsSetUseCase(o-forms-field-valid, border, 'green');
-@include oColorsSetUseCase(o-forms-field-valid, background, 'white');
+@include oColorsSetUseCase(o-forms-field-focus, border, 'black-40');
+@include oColorsSetUseCase(o-forms-focus-ring, border, 'teal-80');
 
-@include oColorsSetUseCase(o-forms-field-invalid, text, 'red');
-@include oColorsSetUseCase(o-forms-field-invalid, border, 'red');
+@include oColorsSetUseCase(o-forms-field-valid, text, 'jade');
+@include oColorsSetUseCase(o-forms-field-valid, border, 'jade');
+@include oColorsSetUseCase(o-forms-field-valid, background, 'jade');
+
+@include oColorsSetUseCase(o-forms-field-invalid, text, 'crimson');
+@include oColorsSetUseCase(o-forms-field-invalid, border, 'crimson');
 @include oColorsSetUseCase(o-forms-field-invalid, background, 'white');

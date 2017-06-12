@@ -2,9 +2,9 @@
 ///
 /// To be used in combination with oFormsCommonField
 @mixin oFormsSelect {
-	$icon-color: oColorsGetPaletteColor('grey-tint5');
+	$icon-color: oColorsGetPaletteColor('black-80');
 	cursor: pointer;
-	color: oColorsGetPaletteColor('grey-tint5');
+	color: oColorsGetPaletteColor('black-80');
 	background-image: url(str-replace("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrows-up-down?source=o-icons&tint=%23#{$icon-color}&format=svg", "#", ""));
 	// For iOS 6 that doesn't support 4-value background-position
 	// sass-lint:disable no-duplicate-properties
@@ -43,6 +43,11 @@
 		color: oColorsGetPaletteColor('white');
 	}
 	// sass-lint:enable no-vendor-prefixes
+
+	&:disabled {
+		$icon-color: oColorsGetPaletteColor('black-60');
+		background-image: url(str-replace("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrows-up-down?source=o-icons&tint=%23#{$icon-color}&format=svg", "#", ""));
+	}
 }
 
 @mixin oFormsSelectMulti() {

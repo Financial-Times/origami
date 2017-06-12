@@ -259,10 +259,12 @@ There are a number of inconsistencies in how browsers handle form events, valida
 
 ## Migration Guide
 
-Upgrading from v1.x.x or v2.x.x? [Follow these instructions](#upgrade-to-v3).
-Upgrading from v0.x.x? [Follow these instructions](#upgrade-to-v1).
+## Upgrading from v3.x.x or v4.x.x
+- A dependency on [o-typography](http://github.com/financial-times/o-icons) v5 has been introduced. This will break any builds that use o-typography <v5. __Resolution__: Update to o-typography v5.
+- The o-colors dependency has been updated to `^4`. This could create bower conflicts which should be resolved by updating to the newest release of o-colors.
+- The design for o-forms has changed in v4. This could create issues on your pages which make use of o-forms. Ensure that the updated design does not break the layout on your webpage.
 
-<a name="upgrade-to-v3"></a>
+----
 
 ## Upgrading from v2.x.x or v3.x.x
 
@@ -296,8 +298,6 @@ Any modifier classes like `o-forms--error` have remained the same.
 
 
 ----
-
-<a name="upgrade-to-v1"></a>
 
 ## Upgrading from 0.x.x
 

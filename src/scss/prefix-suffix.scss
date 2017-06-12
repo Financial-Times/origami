@@ -3,6 +3,13 @@
 		display: table;
 		width: 100%;
 		box-sizing: border-box;
+		@include oTypographyMargin($top: 1);
+	}
+
+	.#{$class}__affix-wrapper .#{$class}__text,
+	.#{$class}__affix-wrapper .#{$class}__select,
+	.#{$class}__affix-wrapper .#{$class}__textarea {
+		@include oTypographyMargin($top: 0);
 	}
 
 	.#{$class}__affix-wrapper .#{$class}__text,
@@ -59,14 +66,33 @@
 	}
 }
 
+@mixin oFormsAffixCheckbox($class: 'o-forms') {
+	// .#{$class}__label
+	.#{$class}__prefix .#{$class}__checkbox + .#{$class}__label::before,
+	.#{$class}__suffix .#{$class}__checkbox + .#{$class}__label::before,
+	.#{$class}__prefix .#{$class}__checkbox + .#{$class}__label::after,
+	.#{$class}__suffix .#{$class}__checkbox + .#{$class}__label::after {
+		top: -3px;
+		left: -4px;
+	}
+
+	.#{$class}__prefix .#{$class}__checkbox + .#{$class}__label,
+	.#{$class}__suffix .#{$class}__checkbox + .#{$class}__label {
+		padding-left: 30px;
+		padding-top: 2px;
+	}
+}
+
 @mixin oFormsPrefixSuffix($class: 'o-forms', $support-button: true) {
 	@include oFormsAffixWrapper($class);
+	@include oFormsAffixCheckbox($class);
 
 	.#{$class}__prefix,
 	.#{$class}__suffix {
 		display: table-cell;
 		vertical-align: top;
 		box-sizing: border-box;
+		@include oTypographyMargin($top: 1);
 		width: 1%;
 		white-space: nowrap;
 		border-top: $_o-forms-field-border;
@@ -89,6 +115,7 @@
 		border-right: 0;
 		border-top-left-radius: $_o-forms-field-border-radius;
 		border-bottom-left-radius: $_o-forms-field-border-radius;
+		@include oTypographyMargin($top: 1);
 	}
 
 	.#{$class}__suffix {

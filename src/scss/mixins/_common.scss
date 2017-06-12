@@ -9,7 +9,7 @@
 	width: 100%;
 	max-width: $_o-forms-field-max-width;
 	height: $_o-forms-field-default-height;
-	margin: 0;
+	@include oTypographyMargin($top: 3);
 	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
 	border: $_o-forms-field-border;
 	border-radius: $_o-forms-field-border-radius;
@@ -33,19 +33,22 @@
 	&:disabled {
 		@include oFormsCommonFieldDisabled;
 	}
+
+	&::placeholder {
+		color: oColorsGetColorFor(o-forms-field-placholder, text);
+	}
 }
 
 /// Common field styles: focused state only
 @mixin oFormsCommonFieldFocus {
 	@include oColorsFor(o-forms-field-focus);
-	box-shadow: inset 0 0 4px 1px rgba(oColorsGetColorFor(o-forms-focus-ring, border), 0.7);
+	box-shadow: 0 0 0 2px oColorsGetColorFor(o-forms-focus-ring, border);
 }
 
 /// Common field styles: disabled state
 @mixin oFormsCommonFieldDisabled {
 	@include oColorsFor(o-forms-field-disabled);
 	cursor: default;
-	color: #afafaf;
 }
 
 /// Common field styles: invalid state
@@ -53,20 +56,22 @@
 	@include oColorsFor(o-forms-field-invalid);
 
 	&:focus {
-		box-shadow: inset 0 0 4px 1px rgba(oColorsGetColorFor(o-forms-field-invalid, border), 0.3);
+		box-shadow: 0 0 0 2px oColorsGetColorFor(o-forms-field-invalid, border);
 	}
 }
 
 /// Common field styles: valid state
 @mixin oFormsCommonFieldValid {
 	border-color: oColorsGetColorFor(o-forms-field-valid, border);
+	background-color: rgba(oColorsGetColorFor(o-forms-field-valid, background), 0.05);
+	color: oColorsGetColorFor(o-forms-field-valid, text);
 }
 
 /// Common field styles: small
 @mixin oFormsCommonSmall {
 	height: $_o-forms-field-small-height;
 	padding-top: 0;
-	padding-bottom: 0;
+	padding-bottom: 2px;
 	background-size: $_o-forms-select-small-iconsize;
 	line-height: $_o-forms-field-small-height - ($_o-forms-field-border-width * 2);
 }

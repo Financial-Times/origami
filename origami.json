@@ -49,10 +49,7 @@
         {
             "name": "prefix-suffix",
             "template": "/demos/src/prefix-suffix.mustache",
-            "description": "",
-            "dependencies": [
-                "o-buttons@^4.3.0"
-            ]
+            "description": ""
         },
         {
             "name": "messages",
@@ -83,7 +80,8 @@
         "sass": "demos/src/demo.scss",
         "js": "demos/src/demo.js",
         "dependencies": [
-            "o-fonts@^1.4.0"
+            "o-fonts@^3",
+            "o-buttons@^4.3.0"
         ]
     }
 }

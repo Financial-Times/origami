@@ -1,11 +1,8 @@
 /// Label styles
 @mixin oFormsLabel {
 	display: block;
-	margin-bottom: $_o-forms__label-margin-bottom;
 	padding: 0; // Reset legend default styling
-	font-size: 18px;
-	line-height: 22px;
-	font-weight: 600;
+	@include oTypographySansBold(1);
 	color: oColorsGetColorFor(o-forms-field-label body, text);
 
 	p {
@@ -20,11 +17,8 @@
 /// Additional info
 @mixin oFormsAdditionalInfo {
 	display: block;
-	margin-top: -2px;
-	margin-bottom: 4px;
 	color: oColorsGetColorFor(o-forms-field-additional-info body, text);
-	font-size: 14px;
-	line-height: 18px;
+	@include oTypographySans(0);
 }
 
 /// Error text
