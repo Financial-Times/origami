@@ -31,12 +31,13 @@
 	}
 
 	.o-video__info-description {
-		@include oTypographySans(-1);
+		@include oTypographySans(1);
 		line-height: 20px;
 		display: block;
 	}
 
-	.o-video__play-button-icon {
+	// do not enlarge icons with hints!
+	.o-video__play-button-icon:empty {
 		width: 60px;
 		height: 60px;
 	}

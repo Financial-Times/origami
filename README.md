@@ -33,6 +33,7 @@ Where `opts` is an optional object with properties
  * `optimumvideowidth` [`Number`] The optimum width of the video itself, used when there are multiple video renditions available to
  decide which to display (the smallest one that's at least as large as this width, if it exists)
  * `placeholder` [`Boolean`] Show just the poster image, load (and play) video on click
+ * `placeholderHint` [`String`] An optional hint to display alongside the play icon (defaults to empty)
  * `placeholderInfo` [`Array`] A list of extra information to display on the placeholder (Available: title, description, brand)
  * `playsinline` [`Boolean`] Whether to play the [video inline](https://webkit.org/blog/6784/new-video-policies-for-ios/) on iOS smallscreen (defaults to fullscreen)
  * `classes` [`Array`] Classes to add to the video (and placeholder) element

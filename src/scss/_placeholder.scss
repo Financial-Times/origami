@@ -48,13 +48,26 @@
 	}
 
 	.o-video__play-button-icon {
-		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 40, $iconset-version: 1);
 		@include oIconsBaseStyles;
+		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
 		position: absolute;
-		bottom: 0;
-		left: 0;
-		margin: auto;
+		color: oColorsGetPaletteColor('white');
 		background-color: oColorsGetPaletteColor('black');
+
+		&:empty {
+			bottom: 0;
+			left: 0;
+			width: 40px;
+			height: 40px;
+		}
+
+		&:not(:empty) {
+			@include oTypographySansBold(-1);
+			bottom: 10px;
+			left: 10px;
+			padding: 10px 16px 10px 36px;
+			background-position: left;
+		}
 
 		:hover > &,
 		:focus > & {

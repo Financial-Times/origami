@@ -127,6 +127,7 @@ const defaultOpts = {
 	optimumwidth: null,
 	placeholder: false,
 	placeholderInfo: ['title'],
+	placeholderHint: '',
 	playsinline: false,
 	showCaptions: true,
 	data: null
@@ -316,8 +317,9 @@ class Video {
 		playButtonTextEl.textContent = 'Play video';
 		playButtonEl.appendChild(playButtonTextEl);
 
-		const playButtonIconEl = document.createElement('i');
+		const playButtonIconEl = document.createElement('span');
 		playButtonIconEl.className = 'o-video__play-button-icon';
+		playButtonIconEl.textContent = this.opts.placeholderHint;
 		playButtonEl.appendChild(playButtonIconEl);
 
 		this.placeholderEl.appendChild(playButtonEl);

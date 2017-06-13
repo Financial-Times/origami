@@ -30,6 +30,11 @@
 			"template": "demos/src/placeholder.mustache"
 		},
 		{
+			"name": "placeholder with hint",
+			"description": "Placeholder with custom icon hint",
+			"template": "demos/src/placeholder-icon-hint.mustache"
+		},
+		{
 			"name": "playlist",
 			"description": "Wrap a player with a playlist",
 			"template": "demos/src/playlist.mustache",
