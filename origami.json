@@ -81,7 +81,7 @@
         "js": "demos/src/demo.js",
         "dependencies": [
             "o-fonts@^3",
-            "o-buttons@^4.3.0"
+            "o-buttons@^5"
         ]
     }
 }
