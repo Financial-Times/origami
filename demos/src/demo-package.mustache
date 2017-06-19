@@ -1,6 +1,6 @@
-<div class="demo-container demo-container--large {{#article-modifier}}demo-container--{{article-modifier}}{{/article-modifier}}">
+<div class="demo-container demo-container--large {{#article-modifier}} demo-container--{{.}} {{/article-modifier}}">
 
-	<div class="o-teaser {{#article-modifier}}o-teaser--{{article-modifier}}{{/article-modifier}}" data-o-component="o-teaser">
+	<div class="o-teaser {{#article-modifier}} o-teaser--{{.}} {{/article-modifier}}" data-o-component="o-teaser">
 		{{#article-image-url}}
 			<div class="o-teaser__image-container">
 				<div class="o-teaser__image-placeholder image-placeholder">
