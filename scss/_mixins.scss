@@ -66,6 +66,7 @@
 	&:not([disabled]) {
 		&:hover {
 			@include _oButtonsPropertiesForState($theme, hover);
+			text-decoration: none;
 		}
 		&:active {
 			@include _oButtonsPropertiesForState($theme, active);
