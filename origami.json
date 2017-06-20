@@ -16,7 +16,8 @@
     "demosDefaults": {
         "sass": "demos/src/main.scss",
         "js": "demos/src/main.js",
-        "documentClasses": "core"
+        "documentClasses": "core",
+        "dependencies": "o-colors@^4.0.0"
     },
     "demos": [
         {
