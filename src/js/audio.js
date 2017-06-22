@@ -152,7 +152,7 @@ class AudioPlayer {
     // playButtonHeight equals height of one line
     const playButtonHeight = playButtonElement.offsetHeight;
 
-    const clickedPositionX = e.pageX - contentElement.offsetLeft;
+    const clickedPositionX = e.pageX - contentElement.getBoundingClientRect().left;
 
     // check if it overflows
     const numLinesOfText = Math.floor(contentElement.offsetHeight / playButtonHeight);
