@@ -63,6 +63,18 @@
 				}
 			},
 			{
+				"name": "small-verify-syndicatable",
+				"description": "Small teaser",
+				"template": "demos/src/demo.mustache",
+				"hidden": true,
+				"data": {
+					"article-tag": "World",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-canBeSyndicated": "verify"
+				}
+			},
+			{
 				"name": "small-image",
 				"description": "Small teaser with image",
 				"template": "demos/src/demo.mustache",
