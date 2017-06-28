@@ -437,7 +437,7 @@ Default is 3 (warn).
 
 ## <div id="sassapi"></div> Sass API
 ### <div id="fontfamily"></div> Font-family
-There is a default font-family set for o-comments: `BentonSans, sans-serif`
+There is a default font-family set for o-comments: `MetricWeb, sans-serif`
 *Please note that the font itself is not loaded by this module, this should be done by the product.*
 
 In order to override the default font, set a value for the following variable:

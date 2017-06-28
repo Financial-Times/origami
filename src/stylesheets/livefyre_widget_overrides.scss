@@ -5,7 +5,7 @@
 
 .o-comments.o-comments--lf-overrides.o-comments--comment-type-livecomments {
 	clear: both;
-	color: oColorsGetPaletteColor('grey-tint5');
+	color: oColorsGetPaletteColor('black-80');
 	font-family: $o-comments-font-family;
 
 	.fyre {
@@ -30,18 +30,18 @@
 		.fyre-stream-stats,
 		.fyre-stream-livecount {
 			font-family: $o-comments-font-family;
-			font-size: 14px;
+			font-size: 16px;
 			text-align: left;
 		}
 
 		.fyre-stream-stats {
-			color: oColorsGetPaletteColor('grey-tint5');
+			color: oColorsGetPaletteColor('black-80');
 			float: right;
 			margin: 0;
 
 			.fyre-comment-count {
 				font-weight: normal;
-				font-size: 14px;
+				font-size: 16px;
 			}
 
 			span {
@@ -55,13 +55,13 @@
 		}
 
 		.fyre-mention {
-			color: oColorsGetPaletteColor('grey-tint5');
+			color: oColorsGetPaletteColor('black-80');
 			cursor: text;
 		}
 
 		.fyre-stream-sort {
-			font: 14px/24px $o-comments-font-family;
-			border-bottom: 1px solid oColorsGetPaletteColor('pink-tint2');
+			font: 16px/24px $o-comments-font-family;
+			border-bottom: 1px solid oColorsGetPaletteColor('black-10');
 			padding: 10px 0;
 			color: oColorsGetPaletteColor('black') !important;
 			margin: 20px 0 10px;
@@ -80,7 +80,7 @@
 
 				&.fyre-stream-sort-selected {
 					color: $o-comments-link-color-hover !important;
-					font-weight: bold;
+					font-weight: 600;
 					text-decoration: none;
 				}
 			}
@@ -91,13 +91,13 @@
 		}
 
 		.fyre-comment-stream {
-			color: oColorsGetPaletteColor('grey-tint5');
-			font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
+			color: oColorsGetPaletteColor('black-80');
+			font: 16px/22px MetricWeb, Helvetica, Arial, sans-serif;
 			margin: 0;
 		}
 
 		.fyre-comment-article {
-			font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
+			font: 16px/22px MetricWeb, Helvetica, Arial, sans-serif;
 			margin: 10px 0 0;
 			position: relative;
 
@@ -106,10 +106,10 @@
 				top: 0;
 				right: 0;
 
-				background-color: oColorsGetPaletteColor('red');
-				border-radius: 15px;
+				background-color: oColorsGetPaletteColor('crimson');
+				border-radius: 0;
 				color: white;
-				font-size: 12px;
+				font-size: 14px;
 				padding: 0 7px;
 			}
 
@@ -120,12 +120,12 @@
 
 			.fyre-comment-deleted {
 				font-family: $o-comments-font-family;
-				font-size: 13px;
-				color: oColorsGetPaletteColor('grey-tint4');
+				font-size: 14px;
+				color: oColorsGetPaletteColor('black-70');
 
 				p {
 					font-style: italic;
-					color: oColorsGetPaletteColor('grey-tint4');
+					color: oColorsGetPaletteColor('black-70');
 					padding-bottom: 10px;
 				}
 			}
@@ -145,7 +145,7 @@
 		}
 
 		.fyre-comment-date {
-			color: oColorsGetPaletteColor('grey-tint3');
+			color: oColorsGetPaletteColor('black-50');
 		}
 
 		.fyre-login-bar {
@@ -159,7 +159,7 @@
 
 			a.fyre-user-loggedout {
 				color: $o-comments-link-color;
-				font-size: 14px;
+				font-size: 16px;
 				line-height: 25px;
 				font-weight: normal;
 				margin: 0;
@@ -181,7 +181,7 @@
 			}
 
 			.o-comment-ui--settings {
-				font-size: 14px;
+				font-size: 16px;
 			}
 		}
 
@@ -217,7 +217,7 @@
 
 			a.fyre-user-profile-link {
 				color: oColorsGetPaletteColor('black');
-				font-size: 14px;
+				font-size: 16px;
 				padding: 0;
 				cursor: default;
 				white-space: normal;
@@ -243,15 +243,15 @@
 				left: 0;
 				z-index: 1000;
 				border: 0;
-				border-top: 1px solid oColorsGetPaletteColor('pink-tint4');
-				border-bottom: 1px solid oColorsGetPaletteColor('pink-tint4');
+				border-top: 1px solid oColorsGetPaletteColor('black-30');
+				border-bottom: 1px solid oColorsGetPaletteColor('black-30');
 
 				li {
 					background: oColorsGetPaletteColor('white');
 					white-space: nowrap;
 
-					border-left: 1px solid oColorsGetPaletteColor('pink-tint4');
-					border-right: 1px solid oColorsGetPaletteColor('pink-tint4');
+					border-left: 1px solid oColorsGetPaletteColor('black-30');
+					border-right: 1px solid oColorsGetPaletteColor('black-30');
 				}
 			}
 
@@ -316,8 +316,8 @@
 		}
 
 		a.fyre-comment-username {
-			color: oColorsGetPaletteColor('grey-tint5');
-			font-weight: bold;
+			color: oColorsGetPaletteColor('black-80');
+			font-weight: 600;
 			margin-left: 0;
 
 			&:hover {
@@ -331,7 +331,7 @@
 
 			> span.fyre-comment-reply-wrapper {
 				color: $o-comments-link-color;
-				font-size: 13px;
+				font-size: 15px;
 				top: -9px !important;
 
 				&:hover {
@@ -340,7 +340,7 @@
 			}
 
 			> div.fyre-comment-divider {
-				background: oColorsGetPaletteColor('pink-tint2');
+				background: oColorsGetPaletteColor('black-10');
 				margin: 0;
 			}
 		}
@@ -411,32 +411,32 @@
 		.fyre-comment-reply {
 			@include oCommentsBorderRadiusClear;
 
-			font-size: 13px;
+			font-size: 15px;
 			top: 0;
 			padding: 0 0 0 7px;
 			margin: 0 0 0 7px;
-			border-left: 1px solid oColorsGetPaletteColor('pink-tint2');
+			border-left: 1px solid oColorsGetPaletteColor('black-10');
 		}
 
 		.fyre-comment-like {
-			font-size: 13px;
+			font-size: 15px;
 			height: auto;
 			top: 0;
 			padding: 0;
 		}
 
 		.fyre-comment-removal {
-			font-size: 13px;
+			font-size: 15px;
 		}
 
 		.fyre-comment-like-count {
-			font-size: 13px;
+			font-size: 15px;
 			padding: 0 5px;
-			color: oColorsGetPaletteColor('grey-tint5');
+			color: oColorsGetPaletteColor('black-80');
 		}
 
 		.fyre-comment-like-btn {
-			font-size: 13px;
+			font-size: 15px;
 		}
 
 		.fyre-comment-like-imgs {
@@ -444,7 +444,7 @@
 		}
 
 		.fyre-comment-actions {
-			font-size: 13px;
+			font-size: 15px;
 			margin-top: 0;
 
 			a {
@@ -474,7 +474,7 @@
 
 			&:before {
 				content: "Report";
-				font-size: 13px;
+				font-size: 15px;
 				background: none;
 			}
 
@@ -494,7 +494,7 @@
 		.fyre-comment-source,
 		.fyre-twitter-footer a,
 		.fyre-comment-edit {
-			color: oColorsGetPaletteColor('grey-tint3');
+			color: oColorsGetPaletteColor('black-50');
 		}
 
 
@@ -510,7 +510,7 @@
 		.fyre-comment-author-tag,
 		.fyre-comment-tag.fyre-featured {
 			margin: 0 10px;
-			background: oColorsGetPaletteColor('pink-tint4');
+			background: oColorsGetPaletteColor('black-30');
 		}
 		.fyre-moderator {
 			display: none;
@@ -532,7 +532,7 @@
 
 			.fyre-pending {
 				display: block;
-				background: oColorsGetPaletteColor('orange');
+				background: oColorsGetPaletteColor('mandarin');
 			}
 
 			.fyre-mod-deny,
@@ -557,10 +557,10 @@
 				content: url(oAssetsResolve('src/images/comment_editors_picks_small.png', o-comments)) "Editor's pick";
 				text-align: center;
 				text-transform: uppercase;
-				font-size: 12px;
+				font-size: 14px;
 				line-height: 15px;
-				font-weight: bold;
-				color: oColorsGetPaletteColor('grey-tint4');
+				font-weight: 600;
+				color: oColorsGetPaletteColor('black-70');
 				display: block;
 			}
 
@@ -575,8 +575,8 @@
 			.fyre-featured-text {
 				display: none;
 
-				color: oColorsGetPaletteColor('pink');
-				font-size: 13px;
+				color: oColorsGetPaletteColor('paper');
+				font-size: 15px;
 				line-height: 16px;
 				font-family: $o-comments-font-family;
 				margin: 0;
@@ -618,7 +618,7 @@
 						height: 36px;
 
 						background: oColorsGetPaletteColor('white');
-						border: 1px solid oColorsGetPaletteColor('pink-tint2');
+						border: 1px solid oColorsGetPaletteColor('black-10');
 
 						.fyre-notifier-avatar-container {
 							display: none;
@@ -635,10 +635,10 @@
 
 							.fyre-notifier-message {
 								width: 193px;
-								font-family: BentonSans, Helvetica,  Arial,  sans-serif;
-								font-size: 13px;
+								font-family: MetricWeb, Helvetica,  Arial,  sans-serif;
+								font-size: 15px;
 								line-height: 26px;
-								color: oColorsGetPaletteColor('grey-tint4');
+								color: oColorsGetPaletteColor('black-70');
 							}
 						}
 					}
@@ -653,7 +653,7 @@
 				background: oColorsGetPaletteColor('white');
 				padding: 0;
 				bottom: 0;
-				border: 1px solid oColorsGetPaletteColor('pink-tint2');
+				border: 1px solid oColorsGetPaletteColor('black-10');
 				height: 34px;
 
 
@@ -669,21 +669,21 @@
 						@include oCommentsBorderRadiusClear;
 						@include oCommentsBoxShadowClear;
 
-						font-weight: bold;
-						font-size: 13px;
+						font-weight: 600;
+						font-size: 15px;
 						font-family: $o-comments-font-family;
 						line-height: 21px;
 						border: 0;
-						background: oColorsGetPaletteColor('red');
+						background: oColorsGetPaletteColor('crimson');
 						margin: 6px;
 						height: 20px;
 						padding: 0px 7px;
 					}
 
 					.fyre-notifier-caption {
-						font-size: 13px;
+						font-size: 15px;
 						line-height: 32px;
-						font-family: BentonSans, Helvetica,  Arial,  sans-serif;
+						font-family: MetricWeb, Helvetica,  Arial,  sans-serif;
 					}
 
 					.fyre-notifier-base-close {
@@ -697,10 +697,10 @@
 
 
 		.fyre-featured-content-wrapper {
-			color: oColorsGetPaletteColor('grey-tint4');
-			font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
+			color: oColorsGetPaletteColor('black-70');
+			font: 16px/22px MetricWeb, Helvetica, Arial, sans-serif;
 			margin: 0 0 20px;
-			background: oColorsGetPaletteColor('pink-tint1');
+			background: oColorsGetPaletteColor('black-5');
 
 			.fyre-featured-body {
 				margin-bottom: 23px;
@@ -733,10 +733,10 @@
 			}
 
 			.fyre-featured-authored-by {
-				color: oColorsGetPaletteColor('grey-tint4');
-				font: 14px/22px BentonSans, Helvetica, Arial, sans-serif;
+				color: oColorsGetPaletteColor('black-70');
+				font: 16px/22px MetricWeb, Helvetica, Arial, sans-serif;
 				margin: 0;
-				font-weight: bold;
+				font-weight: 600;
 			}
 
 			.fyre-featured-quote {
@@ -756,10 +756,10 @@
 				background: #e7dece;
 
 				.fyre-featured-title {
-					color: oColorsGetPaletteColor('grey-tint4');
+					color: oColorsGetPaletteColor('black-70');
 					padding: 0;
 					text-transform: uppercase;
-					font-size: 12px;
+					font-size: 14px;
 					line-height: 30px;
 				}
 
@@ -788,7 +788,7 @@
 			}
 
 			.fyre-comment-divider {
-				background: oColorsGetPaletteColor('pink-tint3');
+				background: oColorsGetPaletteColor('black-20');
 				margin: 23px 0;
 			}
 		}
@@ -821,12 +821,12 @@
 		.fyre-stream-content-not-found {
 			font-family: $o-comments-font-family;
 			font-size: 16px;
-			color: oColorsGetPaletteColor('grey-tint4') !important;
+			color: oColorsGetPaletteColor('black-70') !important;
 
 			a.fyre-stream-refresh {
 				font-family: $o-comments-font-family;
 				color: $o-comments-link-color !important;
-				font-size: 13px;
+				font-size: 15px;
 				text-decoration: none;
 				margin-top: 5px;
 
@@ -863,7 +863,7 @@
 
 				a {
 					color: $o-comments-link-color;
-					font-size: 13px;
+					font-size: 15px;
 					font-weight: normal;
 
 					&:hover {
@@ -886,15 +886,15 @@
 				@include oCommentsBoxShadowClear;
 
 				background-color: oColorsGetPaletteColor('white');
-				border: 1px solid oColorsGetPaletteColor('pink-tint2');
+				border: 1px solid oColorsGetPaletteColor('black-10');
 				font-family: $o-comments-font-family;
-				font-size: 14px;
+				font-size: 16px;
 				line-height: 16px;
 				padding: 8px;
 			}
 
 			.fyre-editor-editable.editable {
-				color: oColorsGetPaletteColor('grey-tint5');
+				color: oColorsGetPaletteColor('black-80');
 			}
 
 			.fyre-editor-editable p {
@@ -904,9 +904,9 @@
 
 			.fyre-editor-editable p *,
 			.fyre-editor-editable p .fyre-mention {
-				color: oColorsGetPaletteColor('grey-tint5');
+				color: oColorsGetPaletteColor('black-80');
 				font-family: $o-comments-font-family;
-				font-size: 14px;
+				font-size: 16px;
 			}
 
 			.fyre-editor-editable p a {
@@ -919,16 +919,16 @@
 				> div {
 					@include oCommentsGradientClear;
 
-					background-color: oColorsGetPaletteColor('pink-tint1');
-					border-bottom: 1px solid oColorsGetPaletteColor('pink-tint2');
-					border-right: 1px solid oColorsGetPaletteColor('pink-tint3');
-					font: normal 12px $o-comments-font-family;
+					background-color: oColorsGetPaletteColor('black-5');
+					border-bottom: 1px solid oColorsGetPaletteColor('black-10');
+					border-right: 1px solid oColorsGetPaletteColor('black-20');
+					font: normal 14px $o-comments-font-family;
 				}
 
 				> div.goog-toolbar-separator {
 					@include oCommentsBorderRadiusClear;
 
-					border-bottom: 1px solid oColorsGetPaletteColor('pink-tint2');
+					border-bottom: 1px solid oColorsGetPaletteColor('black-10');
 				}
 
 				> div.fyre-button-left .fyre-button-left-outer-box .fyre-button-left-inner-box {
@@ -938,17 +938,17 @@
 				}
 
 				> div.fyre-button-left.fyre-format-button {
-					border-left: 1px solid oColorsGetPaletteColor('pink-tint2');
+					border-left: 1px solid oColorsGetPaletteColor('black-10');
 				}
 
 				> div.fyre-button-left:nth-child(2) {
 					@include oCommentsBorderRadiusClear;
 
-					border-bottom: 1px solid oColorsGetPaletteColor('pink-tint2');
+					border-bottom: 1px solid oColorsGetPaletteColor('black-10');
 				}
 
 				> div.fyre-button-right {
-					border-left: 1px solid oColorsGetPaletteColor('pink-tint3');
+					border-left: 1px solid oColorsGetPaletteColor('black-20');
 					border-right: 0;
 				}
 
@@ -974,15 +974,15 @@
 				}
 
 				> div.fyre-button-right:last-child {
-					border-right: 1px solid oColorsGetPaletteColor('pink-tint3');
-					border-bottom: 1px solid oColorsGetPaletteColor('pink-tint3');
+					border-right: 1px solid oColorsGetPaletteColor('black-20');
+					border-bottom: 1px solid oColorsGetPaletteColor('black-20');
 				}
 
 				> div.fyre-button-left-hover,
 				> div.fyre-button-right-hover {
 					@include oCommentsGradientClear;
 
-					background-color: oColorsGetPaletteColor('pink-tint2');
+					background-color: oColorsGetPaletteColor('black-10');
 					color: oColorsGetPaletteColor('black');
 				}
 
@@ -990,7 +990,7 @@
 				> div.fyre-button-right-active {
 					@include oCommentsGradientClear;
 
-					background-color: oColorsGetPaletteColor('pink-tint2');
+					background-color: oColorsGetPaletteColor('black-10');
 				}
 
 				> div.fyre-button-left .fyre-button-left-outer-box .fyre-button-left-inner-box:hover {
@@ -1003,7 +1003,7 @@
 
 				.fyre-mention-button {
 					display: none;
-					border-left: 1px solid oColorsGetPaletteColor('pink-tint2');
+					border-left: 1px solid oColorsGetPaletteColor('black-10');
 				}
 			}
 
@@ -1016,20 +1016,20 @@
 			.fyre-share-button.fyre-button-left-open ,
 			.fyre-share-button.fyre-button-right-open ,
 			.fyre-share-button.fyre-button-right-active {
-				background: oColorsGetPaletteColor('pink-tint1');
+				background: oColorsGetPaletteColor('black-5');
 			}
 
 			.fyre-share-button.fyre-button-left-open:hover ,
 			.fyre-share-button.fyre-button-right-open:hover ,
 			.fyre-share-button.fyre-button-right-active:hover {
-				background: oColorsGetPaletteColor('pink-tint2');
+				background: oColorsGetPaletteColor('black-10');
 			}
 
 			.fyre-share-container {
 				@include oCommentsBorderRadiusClear;
 
-				background-color: oColorsGetPaletteColor('pink-tint1');
-				border: 1px solid oColorsGetPaletteColor('pink-tint3');
+				background-color: oColorsGetPaletteColor('black-5');
+				border: 1px solid oColorsGetPaletteColor('black-20');
 				width: auto;
 			}
 
@@ -1038,8 +1038,8 @@
 			}
 
 			.fyre-share-container > span>a {
-				color: oColorsGetPaletteColor('grey-tint5');
-				font-family: BentonSans, Helvetica, Arial, sans-serif;
+				color: oColorsGetPaletteColor('black-80');
+				font-family: $o-comments-font-family;
 				padding: 8px 15px;
 			}
 
@@ -1049,7 +1049,7 @@
 
 			.fyre-share-container > span > a:hover {
 				color: $o-comments-link-color;
-				background-color: oColorsGetPaletteColor('pink-tint2');
+				background-color: oColorsGetPaletteColor('black-10');
 			}
 		}
 
@@ -1059,16 +1059,16 @@
 
 			background: oColorsGetPaletteColor('white');
 			border: 1px solid #b2b2b2;
-			color: oColorsGetPaletteColor('grey-tint4');
+			color: oColorsGetPaletteColor('black-70');
 			font-family: $o-comments-font-family;
-			font-size: 13px;
+			font-size: 15px;
 			margin-top: 20px;
 			float: left;
 			width: 100%;
 			height: auto;
 
 			.fyre-editor-locked {
-				@include oIconsGetIcon('padlock', oColorsGetPaletteColor("grey-tint4"), 15);
+				@include oIconsGetIcon('padlock', oColorsGetPaletteColor("black-70"), 15);
 
 				vertical-align: inherit;
 				margin-right: 0;
@@ -1084,18 +1084,18 @@
 		@include oCommentsBorderRadiusClear;
 
 		display: none; // for now, could be enabled later, that's why there are styles for them
-		border: 1px solid oColorsGetPaletteColor('pink-tint1');
+		border: 1px solid oColorsGetPaletteColor('black-5');
 		left: 0;
 		margin-left: 0;
-		color: oColorsGetPaletteColor('grey-tint4');
+		color: oColorsGetPaletteColor('black-70');
 
 		> .fyre-provider-connections {
-			border-color: oColorsGetPaletteColor('pink-tint1');
+			border-color: oColorsGetPaletteColor('black-5');
 			display: none;
 		}
 
 		.fyre-mention-item-display-name {
-			color: oColorsGetPaletteColor('grey-tint4');
+			color: oColorsGetPaletteColor('black-70');
 		}
 
 		> .fyre-provider-connections > a.fyre-provider-facebook_connect_url,
@@ -1118,13 +1118,13 @@
 		@include oCommentsBorderRadiusClear;
 		@include oCommentsBoxShadowClear;
 
-		background-color: oColorsGetPaletteColor('red');
-		border: 1px solid oColorsGetPaletteColor('red');
+		background-color: oColorsGetPaletteColor('crimson');
+		border: 1px solid oColorsGetPaletteColor('crimson');
 		padding: 7px 25px 7px 7px;
 		line-height: 14px;
 
 		.fyre-editor-error-message {
-			font-size: 12px;
+			font-size: 14px;
 			line-height: 14px;
 			font-family: $o-comments-font-family;
 		}
@@ -1136,7 +1136,7 @@
 
 			background: url(oAssetsResolve('src/images/comment_error_close.png', o-comments)) no-repeat;
 			width: 12px;
-			height: 12px;
+			height: 14px;
 			border: 0;
 		}
 	}
@@ -1144,12 +1144,12 @@
 	.comment-header {
 		margin: 0 0 16px;
 		padding: 3px 0;
-		border-top: 4px solid oColorsGetPaletteColor('pink-tint4');
-		border-bottom: 1px dotted oColorsGetPaletteColor('pink-tint4');
-		font-family: BentonSans, sans-serif;
-		font-weight: 700;
+		border-top: 4px solid oColorsGetPaletteColor('black-30');
+		border-bottom: 1px dotted oColorsGetPaletteColor('black-30');
+		font-family: MetricWeb, sans-serif;
+		font-weight: 600;
 		text-transform: uppercase;
-		font-size: 13px;
+		font-size: 14px;
 		line-height: 20px;
 		color: oColorsGetPaletteColor('black');
 	}
@@ -1169,7 +1169,7 @@
 			.fyre-comment {
 				a.fyre-comment-edit {
 					float: right;
-					font-size: 11px;
+					font-size: 12px;
 				}
 			}
 
@@ -1190,7 +1190,7 @@
 					padding: 5px 0;
 					margin: 10px 0 5px;
 					border-bottom: 1px solid #e9decf;
-					font-size: 12px;
+					font-size: 14px;
 				}
 			}
 
@@ -1202,7 +1202,7 @@
 			}
 
 			a.fyre-comment-username {
-				font-size: 12px;
+				font-size: 14px;
 			}
 
 			.fyre-login-bar,
@@ -1210,7 +1210,7 @@
 			.fyre-login-bar .o-comment-ui--settings .o-comment-ui--settings-text,
 			.fyre-login-bar a.fyre-user-loggedout,
 			.fyre-stream-stats .fyre-comment-count span {
-				font-size: 11px;
+				font-size: 13px;
 				line-height: 25px;
 			}
 
@@ -1226,7 +1226,7 @@
 			.fyre-comment-author-tag,
 			.fyre-comment-tag.fyre-featured,
 			.fyre-pending {
-				font-size: 11px;
+				font-size: 13px;
 				padding: 1px 8px;
 			}
 
@@ -1246,14 +1246,14 @@
 			}
 
 			.fyre-comment-article {
-				font-size: 13px;
+				font-size: 15px;
 				line-height: 16px;
 
 				.o-comments--blocked {
 					position: static;
 					float: left;
 					margin-right: 10px;
-					font-size: 11px;
+					font-size: 13px;
 					padding-bottom: 1px;
 				}
 			}
@@ -1299,7 +1299,7 @@
 				}
 
 				a {
-					font-size: 11px;
+					font-size: 13px;
 				}
 			}
 
@@ -1311,7 +1311,7 @@
 			}
 
 			.fyre-box-list li a {
-				font-size: 10px;
+				font-size: 13px;
 			}
 
 			.fyre-editor .fyre-editor-toolbar .goog-toolbar {
@@ -1331,12 +1331,12 @@ body {
 		@include oCommentsBoxShadowClear;
 
 		background-color: oColorsGetPaletteColor('white');
-		color: oColorsGetPaletteColor('grey-tint3');
-		font: 14px/16px BentonSans, Arial, Helvetica, sans-serif;
+		color: oColorsGetPaletteColor('black-50');
+		font: 14px/16px MetricWeb, Arial, Helvetica, sans-serif;
 	}
 
 	.fyre-hovercard-display-name {
-		font: bold 14px/16px BentonSans, Arial, Helvetica, Geneva, sans-serif;
+		font: bold 16px/18px MetricWeb, Arial, Helvetica, Geneva, sans-serif;
 	}
 
 	.fyre-hovercard-button {
@@ -1363,10 +1363,9 @@ body {
 		@include oCommentsBoxShadowClear;
 
 		background-color: oColorsGetPaletteColor('white');
-		border: 2px solid #74736c;
 		padding: 2px;
-		color: oColorsGetPaletteColor('grey-tint3');
-		font-size: 13px;
+		color: oColorsGetPaletteColor('black-50');
+		font-size: 15px;
 		font-family: $o-comments-font-family;
 
 		.fyre-modal-alert-title-close,
@@ -1380,8 +1379,9 @@ body {
 
 	.fyre-modal {
 		@include oCommentsBoxShadowClear;
-
-		border: 2px solid #74736c;
+		border-radius: 0;
+		border: 1px solid #ccc1b7;
+		box-shadow: 0 1px 4px rgba(77, 72, 69, 0.15), 0 8px 14px rgba(77, 72, 69, 0.2);
 		outline: none;
 		background-color: oColorsGetPaletteColor('white');
 
@@ -1395,9 +1395,9 @@ body {
 			padding-left: 14px;
 			padding-top: 9px;
 			border-bottom: 0;
-			color: oColorsGetPaletteColor('grey-tint5');
+			color: oColorsGetPaletteColor('black-80');
 			font-family: $o-comments-font-family;
-			font-size: 16px;
+			font-size: 18px;
 			line-height: 20px;
 		}
 
@@ -1414,7 +1414,7 @@ body {
 		.fyre-modal-subtitle,
 		.fyre-modal-subtitle-u {
 			color: oColorsGetPaletteColor('black');
-			font-size: 13px;
+			font-size: 15px;
 			font-family: $o-comments-font-family;
 			font-weight: normal;
 		}
@@ -1446,9 +1446,9 @@ body {
 			@include oCommentsBorderRadiusClear;
 
 			font-family: $o-comments-font-family;
-			font-size: 14px;
+			font-size: 16px;
 			line-height: 16px;
-			color: oColorsGetPaletteColor('grey-tint3');
+			color: oColorsGetPaletteColor('black-50');
 			border-color: #b3b0a8;
 			padding: 4px;
 		}
@@ -1488,7 +1488,7 @@ body {
 				border: 0;
 				margin-right: 8px;
 				color: $o-comments-link-color;
-				font-size: 14px;
+				font-size: 16px;
 
 				&:active {
 					@include oCommentsBoxShadowClear;

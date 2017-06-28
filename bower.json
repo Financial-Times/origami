@@ -6,12 +6,12 @@
   ],
   "dependencies": {
     "o-comment-api": "^2.3.0",
-    "o-comment-ui": "^3.0.0",
+    "o-comment-ui": "git+https://github.com/Financial-Times/o-comment-ui.git#update-o-components",
     "o-comment-utilities": "^2.3.0",
-    "o-fonts": "^2.1.2",
-    "o-colors": ">=2.0.0 <4",
+    "o-fonts": "^3.0.0",
+    "o-colors": "^4.0.0",
     "o-assets": ">=2.0.0 <4",
-    "o-icons": "^4.0.0"
+    "o-icons": ">=4.0.0 <6"
   },
   "ignore": [
     "node_modules",

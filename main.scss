@@ -6,9 +6,9 @@
 
 @if $o-comments-include-fonts == true {
 	// @font-face declarations for all Benton Sans weights
-	@include oFontsInclude(BentonSans, light);
-	@include oFontsInclude(BentonSans, regular);
-	@include oFontsInclude(BentonSans, bold);
+	@include oFontsInclude(MetricWeb, light);
+	@include oFontsInclude(MetricWeb, regular);
+	@include oFontsInclude(MetricWeb, bold);
 }
 
 
