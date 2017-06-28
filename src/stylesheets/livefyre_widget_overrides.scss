@@ -137,7 +137,7 @@
 				border-radius: 3px;
 
 				.fyre-comment-collapse {
-					@include oIconsGetIcon('plus', oColorsGetPaletteColor('white'), 8);
+					@include oIconsGetIcon('plus', oColorsGetPaletteColor('white'), 8, $iconset-version: 0);
 					margin: 0 3px;
 					vertical-align: inherit;
 				}
@@ -1068,7 +1068,7 @@
 			height: auto;
 
 			.fyre-editor-locked {
-				@include oIconsGetIcon('padlock', oColorsGetPaletteColor("black-70"), 15);
+				@include oIconsGetIcon('padlock', oColorsGetPaletteColor("black-70"), 15, $iconset-version: 0);
 
 				vertical-align: inherit;
 				margin-right: 0;
