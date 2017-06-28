@@ -1,4 +1,4 @@
-// sass-lint:disable nesting-depth, no-qualifying-elements, SelectorDepth, no-important, QualifyingElement
+// scss-lint:disable nesting-depth, no-qualifying-elements, SelectorDepth, no-important, QualifyingElement
 
 @import './variables';
 @import './mixins';
@@ -1529,4 +1529,4 @@ body {
 		}
 	}
 }
-// sass-lint:enable NestingDepth, QualifyingElement, SelectorDepth
+// scss-lint:enable nesting-depth, no-qualifying-elements, SelectorDepth, no-important, QualifyingElement
