@@ -186,9 +186,9 @@
 .topper__tags {
 	display: flex;
 	padding-bottom: 5px;
+	@include oTypographySize($scale: 0, $line-height: 28px);
 
 	.n-content-tag {
-		font-size: 14px;
 
 		&:hover {
 			border-bottom-color: inherit;
