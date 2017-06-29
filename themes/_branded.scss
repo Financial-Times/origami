@@ -61,6 +61,6 @@
 }
 
 .topper__brand-title {
-	@include oTypographyDisplay(4, $progressive: true);
+	@include oTypographySerif(3, $progressive: true);
 	margin-left: 30px;
 }

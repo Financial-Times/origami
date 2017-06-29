@@ -26,7 +26,11 @@
 			}
 		}
 		@include colorBorder($text-color);
-		background-color: getColor('#{$bg-color}');
+		@if $bg-color == 'wheat' {
+			background-color: oColorsMix($color: 'wheat', $percentage: 40);
+		} @else {
+			background-color: getColor('#{$bg-color}');
+		}
 		color: $text-color;
 		@if $bg-color == 'paper' or $bg-color == 'wheat' {
 			.topper__tags {
