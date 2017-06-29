@@ -11,12 +11,23 @@
 	/*------------------------------------*\
 			#BLOCK-DESKTOP
 	\*------------------------------------*/
-	@include oNormaliseHTML;
 
 	.o-cookie-message {
+		margin: 0;
+
+		text-rendering: optimizeLegibility;
+
+		// sass-lint:disable no-vendor-prefixes
+		-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		// sass-lint:enable no-vendor-prefixes
+
 		display: none;
 		position: relative;
 		background-color: oColorsGetColorFor(o-cookie-message, background);
+		@include oNormaliseBoxSizing;
 		@include oTypographyPadding($top: 4, $bottom: 4);
 
 		&__container {
