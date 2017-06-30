@@ -180,7 +180,10 @@
 
 .topper__brand {
 	-webkit-font-smoothing: antialiased;
-	font-weight: 400 !important;
+
+	.n-content-tag{
+		font-weight: 400;
+	}
 }
 
 .topper__tags {
