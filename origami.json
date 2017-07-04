@@ -18,13 +18,11 @@
 		"demos": [
 			{
 				"name": "demo",
-				"js": "demos/src/demo.js",
 				"template": "demos/src/demo.mustache",
 				"description": "Description of the demo"
 			},
 			{
 				"name": "pa11y",
-				"js": "demos/src/demo.js",
 				"template": "demos/src/pa11y.mustache",
 				"hidden": true,
 				"description": "Accessibility test will be run against this demo"

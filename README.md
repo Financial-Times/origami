@@ -8,7 +8,6 @@ _A table of contents to help people find things_
 
 - [Usage](#usage)
 	- [Markup](#markup)
-	- [JavaScript](#javascript)
 	- [Sass](#sass)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
@@ -28,30 +27,6 @@ _Remember to start your codeblocks with three backticks and "html" so your marku
 ```html
 <div data-o-component="o-component-boilerplate" class='o-component-boilerplate'>
 </div>
-```
-
-### JavaScript
-_Remember to start your codeblocks with three backticks and "js" so your js is syntax highlighted correctly._
-
-_Though it's not practical to repeat every aspect of Origami modules convention for every component, **A LOT** of people get tripped up by modules not auto initialising, so this line (remember to change the `o-component-boilerplate` to your component name) is useful if you have JavaScript:_
-
-No code will run automatically unless you are using the Build Service.
-You must either construct an `o-component-boilerplate` object or fire the `o.DOMContentLoaded` event, which oComponent listens for.
-
-#### Constructing an o-component-boilerplate
-
-```js
-const oComponentBoilerplate = require('o-component-boilerplate');
-
-const oComponentBoilerplate = new oComponentBoilerplate();
-```
-
-#### Firing an oDomContentLoaded event
-
-```js
-document.addEventListener('DOMContentLoaded', function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-});
 ```
 
 ### Sass
