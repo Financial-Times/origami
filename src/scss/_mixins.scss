@@ -17,19 +17,17 @@
 /// @param {Color} $color
 /// @param {Number} $fallback-width
 @mixin oFtAffiliateRibbonBrandImage($logo-name, $fallback-width) {
-	$assetsUrl: '';
 	$url: '';
 	@if ($o-ft-affiliate-ribbon-use-local-assets) {
 		$url: '/src/img/service-from-ft.svg';
 	} @else {
 		$oAssetsUrl: oAssetsResolve("/src/img/service-from-ft.svg", o-ft-affiliate-ribbon);
 		$base-url: "#{$o-ft-affiliate-ribbon-image-base-url}/#{$o-ft-affiliate-ribbon-image-service-version}";
-		$url : $base-url + $assetsUrl;
+		$url : $base-url + $oAssetsUrl;
 	}
 
-	$base-url: "#{$o-ft-affiliate-ribbon-image-base-url}/#{$o-ft-affiliate-ribbon-image-service-version}";
 	// scss-lint:disable DuplicateProperty
 	background-image: url($url + "?source=o-ft-affiliate-ribbon&format=svg");
-	background-image: url($url + "?source=o-ft-affiliate-ribbon&&format=png&width=#{$fallback-width}") \9;
+	background-image: url($url + "?source=o-ft-affiliate-ribbon&&format=png&width=#{$fallback-width}") \9; // Browser hack to get a png fallback for browsers that don't support SVG
 	// scss-lint:enable DuplicateProperty
 }
