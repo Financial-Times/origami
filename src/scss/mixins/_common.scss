@@ -73,6 +73,7 @@
 	padding-top: 0;
 	padding-bottom: 2px;
 	background-size: $_o-forms-select-small-iconsize;
+	background-position-x: 99%; // Make the smaller icon size visually match the padding on the left of the input
 	line-height: $_o-forms-field-small-height - ($_o-forms-field-border-width * 2);
 }
 
