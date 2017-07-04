@@ -16,7 +16,7 @@
 /// @param {String} $logo-name
 /// @param {Color} $color
 /// @param {Number} $fallback-width
-@mixin oFtAffiliateRibbonBrandImage($logo-name, $fallback-width) {
+@mixin oFtAffiliateRibbonBrandImage($fallback-width) {
 	$url: '';
 	@if ($o-ft-affiliate-ribbon-use-local-assets) {
 		$url: '/src/img/service-from-ft.svg';

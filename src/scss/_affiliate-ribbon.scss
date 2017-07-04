@@ -20,7 +20,7 @@
 		}
 
 		&__logo {
-			@include oFtAffiliateRibbonBrandImage('/src/img/service-from-ft.svg', 263px);
+			@include oFtAffiliateRibbonBrandImage(263px);
 
 			display: inline-block;
 			background-size: contain;
