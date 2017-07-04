@@ -1,3 +1,5 @@
+@import '../../package/colors';
+
 .topper__anchor-link {
 	display: inline-block;
 	margin-top: 30px;
@@ -36,12 +38,11 @@
 
 	.topper__tags .n-content-tag,
 	.topper__headline {
-		@include oTypographySans(6, $progressive: true);
+		@include oTypographySans(xl, $load-progressively: true);
 		line-height: 1;
-		font-weight: 400;
 
 		@include oGridRespondTo(L) {
-			@include _oTypographyProgressiveFontFallbackSize('sans', 8);
+			@include oTypographyFallbackFontSize('sans', 56px);
 		}
 
 	}
@@ -52,25 +53,25 @@
 }
 
 .topper__package-sequence-id {
-	@include oTypographySans(-2, $progressive: true);
-	@include _oTypographyProgressiveFontFallbackSize('sans', 1);
+	@include oTypographySans(s, $load-progressively: true);
+	@include oTypographyFallbackFontSize('sans', 18px);
 }
 
 .topper--package-extra,
 .topper--package-extra-wide {
 	.topper__package-sequence-id,
 	&.topper--package .topper__headline {
-		color: getColor('lemon');
+		color: $yellow;
 	}
 
 	.topper__anchor-link {
-		color: getColor('lemon');
-		border-color: getColor('lemon');
+		color: $yellow;
+		border-color: $yellow;
 		&:after {
-			@include oIconsGetIcon('arrow-down', getColor('lemon'), 20, null, false, false);
+			@include oIconsGetIcon('arrow-down', $yellow, 20, null, false, false);
 		}
 		&:hover {
-			color: darken(getColor('lemon'), 20%);
+			color: darken($yellow, 20%);
 		}
 	}
 }

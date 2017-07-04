@@ -60,9 +60,7 @@
 	}
 }
 
-.topper__brand-title,
-.topper__brand-title.n-content-tag {
-	@include oTypographySerif(3, $progressive: true);
+.topper__brand-title {
+	@include oTypographySerifDisplay(l, $load-progressively: true);
 	margin-left: 30px;
-	font-weight: 400;
 }
