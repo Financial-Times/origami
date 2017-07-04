@@ -16,11 +16,20 @@
 /// @param {String} $logo-name
 /// @param {Color} $color
 /// @param {Number} $fallback-width
-@mixin oFtAffiliateRibbonBrandImage($logo-name, $color, $fallback-width) {
-	$base-url: "#{$o-ft-affiliate-ribbon-image-base-url}/#{$o-ft-affiliate-ribbon-image-service-version}/images/raw/ftlogo-v1:";
-	$color: str-slice(ie-hex-str($color), 4);
+@mixin oFtAffiliateRibbonBrandImage($logo-name, $fallback-width) {
+	$assetsUrl: '';
+	$url: '';
+	@if ($o-ft-affiliate-ribbon-use-local-assets) {
+		$url: '/src/img/service-from-ft.svg';
+	} @else {
+		$oAssetsUrl: oAssetsResolve("/src/img/service-from-ft.svg", o-ft-affiliate-ribbon);
+		$base-url: "#{$o-ft-affiliate-ribbon-image-base-url}/#{$o-ft-affiliate-ribbon-image-service-version}";
+		$url : $base-url + $assetsUrl;
+	}
+
+	$base-url: "#{$o-ft-affiliate-ribbon-image-base-url}/#{$o-ft-affiliate-ribbon-image-service-version}";
 	// scss-lint:disable DuplicateProperty
-	background-image: url($base-url + $logo-name + "?source=o-ft-affiliate-ribbon&tint=%23#{$color},%23#{$color}&format=svg");
-	background-image: url($base-url + $logo-name + "?source=o-ft-affiliate-ribbon&tint=%23#{$color},%23#{$color}&format=png&width=#{$fallback-width}") \9;
+	background-image: url($url + "?source=o-ft-affiliate-ribbon&format=svg");
+	background-image: url($url + "?source=o-ft-affiliate-ribbon&&format=png&width=#{$fallback-width}") \9;
 	// scss-lint:enable DuplicateProperty
 }

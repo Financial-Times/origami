@@ -15,27 +15,19 @@
 			@include oGridRowCompact();
 		}
 
-		&__text {
-			@include oColorsFor('ribbon-text', 'text');
-			font-family: Helvetica, Arial, sans-serif;
-			font-size: 12px;
-			line-height: 12px;
-			font-weight: 400px;
-			padding-right: 6px;
-		}
-
 		&__visually-hidden {
 			@include oFtAffiliateRibbonVisuallyHidden();
 		}
 
 		&__logo {
-			@include oFtAffiliateRibbonBrandImage('brand-ft-masthead', oColorsGetColorFor('ribbon-logo', 'text'), 219);
+			@include oFtAffiliateRibbonBrandImage('/src/img/service-from-ft.svg', 263px);
+
 			display: inline-block;
 			background-size: contain;
 			background-repeat: no-repeat;
 			background-position: right;
-			width: 219px;
-			height: 18px;
+			width: 263px;
+			height: 13px;
 		}
 	}
 
