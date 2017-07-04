@@ -1,0 +1,8 @@
+.DS_Store
+.jshintrc
+.sass-cache/
+bower_components/
+build/
+demos/local/
+node_modules/
+npm-debug.log
