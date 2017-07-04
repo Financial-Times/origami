@@ -19,9 +19,8 @@ Use the following HTML to get a full-width FT affiliation ribbon. This should be
 <div class="o-ft-affiliate-ribbon">
 	<div class="o-ft-affiliate-ribbon__container">
 		<div class="o-ft-affiliate-ribbon__row">
-			<span class="o-ft-affiliate-ribbon__text">Published by</span>
 			<a class="o-ft-affiliate-ribbon__logo" href="https://www.ft.com/" title="The Financial Times" target="_blank">
-				<span class="o-ft-affiliate-ribbon__visually-hidden">Financial Times</span>
+				<span class="o-ft-affiliate-ribbon__visually-hidden">A service from the Financial Times</span>
 			</a>
 		</div>
 	</div>
@@ -38,6 +37,24 @@ As with all Origami components, o-ft-affiliate-ribbon has a [silent mode](http:/
 ```
 
 ## Migration guide
+
+### Updating from v2 to v3
+
+V2 -> V3 changes the design to align with the Marketing team's new design for Specialist Titles and services which replaces "Published by FINANCIAL TIMES" with "A service from the Financial Times".
+The markup has changed for this component. To upgrade, make the following change:
+
+```diff
+<div class="o-ft-affiliate-ribbon">
+	<div class="o-ft-affiliate-ribbon__container">
+		<div class="o-ft-affiliate-ribbon__row">
+---			<span class="o-ft-affiliate-ribbon__text">Published by</span>
+			<a class="o-ft-affiliate-ribbon__logo" href="https://www.ft.com/" title="The Financial Times" target="_blank">
++++				<span class="o-ft-affiliate-ribbon__visually-hidden">A service from the Financial Times</span>
+			</a>
+		</div>
+	</div>
+</div>
+```
 
 ### Updating from v1 to v2
 
