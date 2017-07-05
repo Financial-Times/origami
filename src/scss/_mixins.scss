@@ -22,7 +22,7 @@
 		$url: '/src/img/service-from-ft.svg';
 	} @else {
 		$oAssetsUrl: oAssetsResolve("/src/img/service-from-ft.svg", o-ft-affiliate-ribbon);
-		$base-url: "#{$o-ft-affiliate-ribbon-image-base-url}/images/raw/#{$o-ft-affiliate-ribbon-image-service-version}";
+		$base-url: "#{$o-ft-affiliate-ribbon-image-base-url}/#{$o-ft-affiliate-ribbon-image-service-version}/images/raw/";
 		$url : $base-url + $oAssetsUrl;
 	}
 
