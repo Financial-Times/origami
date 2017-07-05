@@ -1,7 +1,5 @@
 // scss-lint:disable SelectorFormat
 
-@include oColorsSetColor('wheat', #f3dec8);
-
 @mixin colorBorder($color) {
 	.topper__headline::after {
 		border-bottom: 6px solid $color;
@@ -15,7 +13,7 @@
 @mixin setColors($bg-color) {
 	[data-textbox-background~='#{$bg-color}'] {
 		$text-color: black;
-		$contrast: lightness(oColorsGetPaletteColor($bg-color));
+		$contrast: lightness(getColor($bg-color));
 		@if $contrast <= 50% {
 			$text-color: white;
 			.topper__standfirst a {
@@ -28,11 +26,15 @@
 			}
 		}
 		@include colorBorder($text-color);
-		background-color: oColorsGetPaletteColor('#{$bg-color}');
+		@if $bg-color == 'wheat' {
+			background-color: oColorsMix($color: 'wheat', $percentage: 40);
+		} @else {
+			background-color: getColor('#{$bg-color}');
+		}
 		color: $text-color;
-		@if $bg-color == 'pink' or $bg-color == 'warm-1' or $bg-color == 'wheat' {
+		@if $bg-color == 'paper' or $bg-color == 'wheat' {
 			.topper__tags {
-				color: oColorsGetPaletteColor('claret');
+				color: getColor('claret');
 			}
 		}
 	}
@@ -41,10 +43,10 @@
 /// @param {list} $colors - colors available to editorial in methode for the background
 /// @param {map} $use-case - tentative options for default
 // default has yet to be determined by type of article (opinion? analysis?) so is pink for now
-$colors: 'white', 'black', 'claret', 'blue', 'pink', 'slate', 'warm-1', 'wheat', 'default';
+$colors: 'white', 'black', 'claret', 'oxford', 'paper', 'slate', 'wheat', 'default';
 @each $color in $colors {
 	@if $color == 'default' {
-		$usecase: ('standard': 'pink', 'analysis': 'claret', 'opinion':'blue');
+		$usecase: ('standard': 'paper', 'analysis': 'claret', 'opinion':'oxford');
 		@include setColors(map-get($usecase, 'standard'));
 	} @else {
 		@include setColors($color);

@@ -5,16 +5,22 @@
 }
 
 .topper__headline {
-	@include oTypographySerifDisplay('l', $load-progressively: true);
+	@include oTypographyDisplay(4, $progressive: true);
 	-webkit-font-smoothing: antialiased;
 	margin: 0 0 20px;
+	font-weight: 400;
+
+	.topper__slot-1 &,
+	.topper__slot-2 & {
+		font-weight: 600;
+	}
 
 	@include oGridRespondTo(L) {
-		@include oTypographySerifDisplaySize('xl', $with-progressive-size: true);
+		@include oTypographySize(6);
 	}
 
 	&--large {
-		@include oTypographySerifDisplayBold(xl, $load-progressively: true);
+		@include oTypographyDisplayBold(6, $progressive: true);
 		@include headlineFontSize(32px);
 
 		position: relative; //so it appears above the full width background
@@ -43,7 +49,7 @@
 }
 
 .topper__standfirst {
-	@include oTypographySans(m, $load-progressively: true);
+	@include oTypographySans(-1, $progressive: true);
 	opacity: 0.8;
 	font-size: round(18px * 0.9);
 	line-height: 1.4;
@@ -174,15 +180,14 @@
 
 .topper__brand {
 	-webkit-font-smoothing: antialiased;
-	font-weight: 400;
 }
 
 .topper__tags {
 	display: flex;
 	padding-bottom: 5px;
+	@include oTypographySize($scale: 0, $line-height: 28px);
 
 	.n-content-tag {
-		font-size: 16px;
 
 		&:hover {
 			border-bottom-color: inherit;
