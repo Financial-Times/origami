@@ -27,11 +27,13 @@
 		background-color: oColorsGetPaletteColor('jade');
 	}
 
+	.o-teaser__syndication-indicator--no,
 	.syndi.o-teaser__syndication-indicator--no {
 		@include oIconsGetIcon('minus', oColorsGetPaletteColor('white'), 20, $iconset-version: 1);
 		background-color: oColorsGetPaletteColor('crimson');
 	}
 
+	.o-teaser__syndication-indicator--verify,
 	.syndi.o-teaser__syndication-indicator--verify {
 		@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), 20, $iconset-version: 1);
 		background-color: oColorsGetPaletteColor('mandarin');
