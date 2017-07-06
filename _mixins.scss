@@ -42,7 +42,7 @@
 
 /// @param {list} $colors - colors available to editorial in methode for the background
 /// @param {map} $use-case - tentative options for default
-// default has yet to be determined by type of article (opinion? analysis?) so is pink for now
+// default has yet to be determined by type of article (opinion? analysis?) so is paper for now
 $colors: 'white', 'black', 'claret', 'oxford', 'paper', 'slate', 'wheat', 'default';
 @each $color in $colors {
 	@if $color == 'default' {
