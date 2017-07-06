@@ -1,5 +1,4 @@
 const FontFaceObserver = require('fontfaceobserver/fontfaceobserver.standalone.js');
-const superstore = require('superstore-sync');
 
 class Typography {
 
@@ -68,11 +67,23 @@ class Typography {
 			opts.fontLoadingPrefix = 'o-typography--loading-';
 		}
 
-		if (!opts.fontLoadedStorageName) {
-			opts.fontLoadedStorageName = 'o-typography-fonts-loaded';
+		if (!opts.fontLoadedCookieName) {
+			// backwards compatibility with old local storage implementation
+			opts.fontLoadedCookieName = opts.fontLoadedStorageName || 'o-typography-fonts-loaded';
 		}
 
 		return opts;
+	}
+
+	checkFontsLoaded() {
+		return new RegExp(`(^|\s)${this.opts.fontLoadedCookieName}=1(;|$)`).test(document.cookie);
+	}
+
+	setCookie() {
+		const domain = /.ft.com$/.test(location.hostname) ? '.ft.com' : location.hostname;
+		// set cookie for a week
+		// TODO - use RUM to work out what a good value for this would actually be
+		document.cookie = `${this.opts.fontLoadedCookieName}=1;domain=${domain};path=/;max-age=${60 * 60 * 24 * 7}`;
 	}
 
 	removeLoadingClasses() {
@@ -82,8 +93,9 @@ class Typography {
 	}
 
 	loadFonts() {
-		if (superstore.local.get(this.opts.fontLoadedStorageName) === '1') {
+		if (this.checkFontsLoaded()) {
 			this.removeLoadingClasses();
+			this.setCookie();
 			return Promise.resolve();
 		}
 
@@ -97,8 +109,8 @@ class Typography {
 
 		return Promise.all(fontPromises)
 			.then(() => {
-				// set value in localstorage for subsequent visits
-				superstore.local.set(this.opts.fontLoadedStorageName, '1');
+				// set value in cookie for subsequent visits
+				this.setCookie();
 			})
 			.catch(() => {});
 	}
