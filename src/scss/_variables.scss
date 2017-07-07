@@ -1,7 +1,7 @@
 $o-teaser-collection-is-silent: false !default;
 
 $_o-teaser-collection-color-bottom-border: #d1c6b7;
-$_o-teaser-collection-color-special-bg: #f3dec8;
+$_o-teaser-collection-color-special-bg: oColorsGetPaletteColor('wheat');
 $_o-teaser-collection-color-thin-border: oColorsMix(oColorsGetPaletteColor('black'), oColorsGetPaletteColor('paper'), 20);
 
 //will use o-colors V2
