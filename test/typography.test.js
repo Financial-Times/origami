@@ -152,7 +152,6 @@ describe("Typography", () => {
 	});
 
 	describe("loadFonts", () => {
-		let typography;
 
 		afterEach(() => {
 			FontFaceObserver.prototype.load.restore();
@@ -255,7 +254,7 @@ describe("Typography", () => {
 							proclaim.isFalse(typography.setCookie.called);
 							typography.setCookie.restore();
 							typography.removeLoadingClasses.restore();
-						})
+						});
 				});
 		});
 
