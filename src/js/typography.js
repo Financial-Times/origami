@@ -6,6 +6,9 @@ class Typography {
 		this.typographyEl = typographyEl;
 
 		this.opts = opts || Typography.getOptions(typographyEl);
+		if (typeof this.opts.loadOnInit === 'undefined') {
+			this.opts.loadOnInit = true;
+		}
 		this.opts = Typography.checkOptions(this.opts);
 		this.hasRun = false;
 
@@ -31,8 +34,9 @@ class Typography {
 				label: 'serifDisplayBold'
 			}
 		];
-
-		this.loadFonts();
+		if (this.opts.loadOnInit) {
+			this.loadFonts();
+		}
 	}
 
 	/**
