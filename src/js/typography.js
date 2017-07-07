@@ -7,6 +7,7 @@ class Typography {
 
 		this.opts = opts || Typography.getOptions(typographyEl);
 		this.opts = Typography.checkOptions(this.opts);
+		this.hasRun = false;
 
 		this.fontConfigs = [
 			{
@@ -93,9 +94,13 @@ class Typography {
 	}
 
 	loadFonts() {
+		if (this.hasRun) {
+			return Promise.resolve();
+		}
 		if (this.checkFontsLoaded()) {
 			this.removeLoadingClasses();
 			this.setCookie();
+			this.hasRun = true;
 			return Promise.resolve();
 		}
 
@@ -111,6 +116,7 @@ class Typography {
 			.then(() => {
 				// set value in cookie for subsequent visits
 				this.setCookie();
+				this.hasRun = true;
 			})
 			.catch(() => {});
 	}
