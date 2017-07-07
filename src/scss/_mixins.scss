@@ -6,6 +6,7 @@
 	padding: 20px 0;
 	font-family: $o-typography-sans;
 	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
 
 	a {
 		@include oTeaserCollectionHeadingLink;
