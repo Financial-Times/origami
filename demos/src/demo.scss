@@ -26,19 +26,8 @@ $o-fonts-is-silent: false;
 	margin: 0 0 30px;
 }
 
-.demo-family-bentonsans .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-}
-
-.demo-family-millerdisplay .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(MillerDisplay);
-}
 .demo-family-financierdisplayweb .demo-example {
 	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
-}
-
-.demo-family-financiertextweb .demo-example {
-	font-family: oFontsGetFontFamilyWithFallbacks(FinancierTextWeb);
 }
 
 .demo-family-metricweb .demo-example {
