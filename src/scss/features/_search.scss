@@ -30,6 +30,7 @@
 	}
 
 	.o-header__search-term {
+		@include oTypographySans();
 		// match o-buttons
 		@include oButtonsSize('default');
 		border-radius: $_o-buttons-border-radius;
