@@ -6,7 +6,11 @@ class Typography {
 		this.typographyEl = typographyEl;
 
 		this.opts = opts || Typography.getOptions(typographyEl);
+		if (typeof this.opts.loadOnInit === 'undefined') {
+			this.opts.loadOnInit = true;
+		}
 		this.opts = Typography.checkOptions(this.opts);
+		this.hasRun = false;
 
 		this.fontConfigs = [
 			{
@@ -30,8 +34,9 @@ class Typography {
 				label: 'serifDisplayBold'
 			}
 		];
-
-		this.loadFonts();
+		if (this.opts.loadOnInit) {
+			this.loadFonts();
+		}
 	}
 
 	/**
@@ -93,9 +98,13 @@ class Typography {
 	}
 
 	loadFonts() {
+		if (this.hasRun) {
+			return Promise.resolve();
+		}
 		if (this.checkFontsLoaded()) {
 			this.removeLoadingClasses();
 			this.setCookie();
+			this.hasRun = true;
 			return Promise.resolve();
 		}
 
@@ -111,6 +120,7 @@ class Typography {
 			.then(() => {
 				// set value in cookie for subsequent visits
 				this.setCookie();
+				this.hasRun = true;
 			})
 			.catch(() => {});
 	}

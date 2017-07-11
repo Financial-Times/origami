@@ -68,6 +68,13 @@ describe("Typography", () => {
 
 			proclaim.isTrue(loadFontsStub.called);
 		});
+
+		it("optionally doesn't call loadFonts", () => {
+			const stubEl = "stubEL";
+			new Typography(stubEl, { loadOnInit: false });
+
+			proclaim.isFalse(loadFontsStub.called);
+		});
 	});
 
 	describe("getOptions", () => {
@@ -154,6 +161,24 @@ describe("Typography", () => {
 		it("calls removeLoadingClasses if a cookie exists", () => {
 			const el = document.querySelector('html');
 			const typography = new Typography(el, {
+				"loadOnInit": false,
+				"fontLoadingPrefix": stubPrefix,
+				"fontLoadedCookieName": stubCookieName
+			});
+
+			document.cookie = `${stubCookieName}=1;path=/;domain=${location.hostname};`;
+			const removeLoadingClassesStub = sinon.stub(typography, 'removeLoadingClasses');
+			sinon.stub(FontFaceObserver.prototype, 'load').returns(Promise.resolve());
+
+			return typography.loadFonts().then(() => {
+				proclaim.isTrue(removeLoadingClassesStub.calledOnce);
+			});
+		});
+
+		it("calls removeLoadingClasses if a cookie exists", () => {
+			const el = document.querySelector('html');
+			const typography = new Typography(el, {
+				"loadOnInit": false,
 				"fontLoadingPrefix": stubPrefix,
 				"fontLoadedCookieName": stubCookieName
 			});
@@ -171,6 +196,7 @@ describe("Typography", () => {
 			const el = document.querySelector('html');
 			fontLabels.forEach((label) => el.classList.add(`${stubPrefix}${label}`) );
 			const typography = new Typography(el, {
+				"loadOnInit": false,
 				"fontLoadingPrefix": stubPrefix,
 				"fontLoadedCookieName": stubCookieName
 			});
@@ -191,6 +217,7 @@ describe("Typography", () => {
 		it("Adds cookie when fonts have loaded", () => {
 			const el = document.querySelector('html');
 			const typography = new Typography(el, {
+				"loadOnInit": false,
 				"fontLoadingPrefix": stubPrefix,
 				"fontLoadedCookieName": stubCookieName
 			});
@@ -204,12 +231,34 @@ describe("Typography", () => {
 
 		it("still returns when fontfaceobserver load rejects", () => {
 			const el = document.querySelector('html');
-			const typography = new Typography(el);
+			const typography = new Typography(el, {"loadOnInit": false});
 
 			sinon.stub(FontFaceObserver.prototype, 'load').returns(Promise.reject());
 
 			return typography.loadFonts();
 		});
+
+		it("is inert if has already run successfully", () => {
+			const el = document.querySelector('html');
+			const typography = new Typography(el, {"loadOnInit": false});
+
+			sinon.stub(FontFaceObserver.prototype, 'load').returns(Promise.resolve());
+
+			return typography.loadFonts()
+				.then(() => {
+					sinon.stub(typography, "removeLoadingClasses");
+					sinon.stub(typography, "setCookie");
+					return typography.loadFonts()
+						.then(() => {
+							proclaim.isFalse(typography.removeLoadingClasses.called);
+							proclaim.isFalse(typography.setCookie.called);
+							typography.setCookie.restore();
+							typography.removeLoadingClasses.restore();
+						});
+				});
+		});
+
+
 	});
 
 });
