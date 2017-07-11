@@ -43,7 +43,8 @@ Mixins and [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) 
 [View demos](http://registry.origami.ft.com/components/o-buttons)
 
 ```html
-<button class="o-buttons">Primary</button>
+<!-- Default/Secondary theme, default size -->
+<button class="o-buttons">Secondary</button>
 ```
 
 Or, using Sass:
@@ -55,14 +56,16 @@ Or, using Sass:
 ```
 
 ```html
-<button class="my-button-class">Primary</button>
+<!-- Default/Secondary theme, default size -->
+<button class="my-button-class">Secondary</button>
 ```
 
 
 #### States
 
 ```html
-<button class="o-buttons">Primary</button>
+<!-- Default/Secondary theme, default size -->
+<button class="o-buttons">Secondary</button>
 <button class="o-buttons" aria-selected="true">Selected</button>
 <button class="o-buttons" aria-pressed="true">Pressed</button>
 <button class="o-buttons" disabled>Disabled</button>
@@ -132,7 +135,7 @@ Or, using Sass:
 #### Size modifiers
 
 ```html
-<button class="o-buttons">Default button</button>
+<button class="o-buttons">Default-sized button</button>
 <button class="o-buttons o-buttons--big">Big button</button>
 ```
 
@@ -162,7 +165,8 @@ Or, using Sass:
 [View demos](http://registry.origami.ft.com/components/o-buttons)
 
 ```html
-<button class="o-buttons o-buttons--secondary">Secondary button</button>
+<button class="o-buttons o-buttons--primary">Primary button</button>
+<button class="o-buttons">Default/Secondary button</button>
 <button class="o-buttons o-buttons--mono">Mono button</button>
 <button class="o-buttons o-buttons--inverse">Inverse button</button>
 <button class="o-buttons o-buttons--b2c">B2C button</button>
