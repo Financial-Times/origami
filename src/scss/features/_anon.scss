@@ -18,6 +18,7 @@
 	}
 
 	.o-header__anon-link {
+		@include oTypographySans(-1);
 		@include oHeaderLink();
 		@include oHeaderFancyLink();
 	}
