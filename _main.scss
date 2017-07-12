@@ -180,6 +180,9 @@
 
 .topper__brand {
 	-webkit-font-smoothing: antialiased;
+	@include oGridRespondTo($until: S) {
+		display: block;
+	}
 }
 
 .topper__tags {
