@@ -123,7 +123,7 @@ Output:
 #### Tint palette colors
 
 `oColorsGetTint` will return a tinted palette color based on a specified brightness.
-The function takes the name of a palette color and a brightness value between 0-100.
+The function takes the name of a palette color and an HSB brightness value between 0-100. For every colour except black, increasing the HSB brightness makes it appear lighter (ie claret becomes much pinker). Increasing the HSB brightness value of black will make it blacker. Take a look at the [registry demo](http://registry.origami.ft.com/components/o-colors) for a visual demo of this.
 
 Usage:
 
