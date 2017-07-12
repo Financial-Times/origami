@@ -1,10 +1,9 @@
 $o-teaser-collection-is-silent: false !default;
 
-$_o-teaser-collection-color-bottom-border: #d1c6b7;
+$_o-teaser-collection-color-bottom-border: oColorsMix(black, paper, 20);
 $_o-teaser-collection-color-special-bg: oColorsGetPaletteColor('wheat');
-$_o-teaser-collection-color-thin-border: oColorsMix(oColorsGetPaletteColor('black'), oColorsGetPaletteColor('paper'), 20);
+$_o-teaser-collection-color-thin-border: oColorsMix(black, paper, 20);
 
-//will use o-colors V2
 $_o-teaser-collection-color-assassination-bg: oColorsGetPaletteColor('slate');
-$_o-teaser-collection-color-assassination-bottom-bg: #2f353f; // lighter slate(?)
-$_o-teaser-collection-color-assassination-heading: rgba(oColorsGetPaletteColor('white'), 0.9);
+$_o-teaser-collection-color-assassination-bottom-bg: oColorsMix(white, slate, 5);
+$_o-teaser-collection-color-assassination-heading: oColorsGetPaletteColor('white');
