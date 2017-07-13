@@ -79,24 +79,6 @@ $colors: 'white', 'black', 'claret', 'oxford', 'paper', 'slate', 'wheat', 'defau
 	}
 }
 
-@mixin resizeTextbox {
-	.topper__text-wrapper {
-		width: 100%;
-		padding: 0;
-	}
-
-	.topper__headline {
-		margin-top: 20px;
-	}
-
-	.topper__standfirst {
-		@include oGridRespondTo(M) {
-			width: 50%;
-			margin: 0 auto;
-		}
-	}
-}
-
 @mixin overlayText {
 	.topper__background {
 		position: absolute;

@@ -1,0 +1,43 @@
+[class*="topper--full-bleed-image"] {
+
+	@include alignText(left);
+
+	padding: 0;
+
+	@include oGridRespondTo(S) {
+		@include fullBleedImage;
+		@include overlayText;
+
+		.topper__text {
+			width: 50%;
+		}
+	}
+}
+
+.topper--full-bleed-image-center {
+
+
+	@include oGridRespondTo(S) {
+		@include alignText(center);
+
+		.topper__text-wrapper {
+			width: 100%;
+			padding: 0;
+		}
+
+		.topper__headline {
+			margin-top: 20px;
+		}
+
+		.topper__standfirst {
+			@include oGridRespondTo(M) {
+				width: 50%;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	.topper__text {
+		width: inherit;
+	}
+}
