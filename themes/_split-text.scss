@@ -1,17 +1,15 @@
 [class*="topper--split-text"] {
-	.topper--split-text-center {
-		@include alignText(left);
+	@include alignText(left);
 
-		padding: 0;
+	padding: 0;
 
-		@include oGridRespondTo(M, L) {
-			@include stackTags;
-		}
+	@include oGridRespondTo(M, L) {
+		@include stackTags;
+	}
 
-		@include oGridRespondTo(M) {
-			.topper__tags {
-				width: 45%;
-			}
+	@include oGridRespondTo(M) {
+		.topper__tags {
+			width: 45%;
 		}
 	}
 }
