@@ -435,6 +435,7 @@ v5 also removes the following mixins:
 - oTypographySerifDisplaySize
 - oTypographySerifDisplayBoldSize
 - oTypographySerifDisplayItalicSize
+- oTypographyLinkTopicMedium
 ```
 
 #### CSS classes
