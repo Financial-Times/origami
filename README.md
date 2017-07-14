@@ -418,6 +418,7 @@ The following mixins are now renamed:
 + oTypographyHeadingLevel5
 
 - oTypographyLinkTopic
+- oTypographyLinkTopicMedium
 + oTypographyTopic
 ```
 
@@ -435,7 +436,6 @@ v5 also removes the following mixins:
 - oTypographySerifDisplaySize
 - oTypographySerifDisplayBoldSize
 - oTypographySerifDisplayItalicSize
-- oTypographyLinkTopicMedium
 ```
 
 #### CSS classes
