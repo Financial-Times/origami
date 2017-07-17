@@ -418,6 +418,7 @@ The following mixins are now renamed:
 + oTypographyHeadingLevel5
 
 - oTypographyLinkTopic
+- oTypographyLinkTopicMedium
 + oTypographyTopic
 ```
 
