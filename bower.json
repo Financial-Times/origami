@@ -1,0 +1,16 @@
+{
+  "name": "o-banner",
+  "description": "Used for product messaging",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main": [
+    "main.scss",
+    "main.js"
+  ],
+  "dependencies": {}
+}

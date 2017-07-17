@@ -1,0 +1,26 @@
+{
+	"description": "Used for product messaging",
+	"keywords": "banner, message, messaging",
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-banner/issues",
+	"supportStatus": "active",
+	"browserFeatures": {},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-banner"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"documentClasses": "",
+		"dependencies": ""
+	},
+	"demos": [
+		{
+			"name": "demo",
+			"template": "demos/src/demo.mustache",
+			"description": "Basic demo"
+		}
+	]
+}
