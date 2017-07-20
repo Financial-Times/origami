@@ -179,6 +179,8 @@
 }
 
 .topper__brand {
+	@include oTypographySans(0);
+	margin-right: 4px;
 	-webkit-font-smoothing: antialiased;
 	@include oGridRespondTo($until: S) {
 		display: block;
