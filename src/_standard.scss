@@ -7,7 +7,7 @@
 	position: absolute;
 	top: oTypographySpacingSize($units: 4);
 	left: oTypographySpacingSize($units: 2);
-	@include oIconsGetIcon('speech-left', oColorsGetPaletteColor('claret-80'), 50);
+	@include oIconsGetIcon('speech-left', oColorsGetPaletteColor('claret-80'), 50, $iconset-version: 1);
 }
 
 /// Add to container for a standard quote
