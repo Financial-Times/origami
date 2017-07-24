@@ -3,15 +3,19 @@
 /// @link http://registry.origami.ft.com/components/o-quote
 ////
 
+@mixin oQuoteStandardIcon {
+	position: absolute;
+	top: oTypographySpacingSize($units: 4);
+	left: oTypographySpacingSize($units: 2);
+	@include oIconsGetIcon('speech-left', oColorsGetPaletteColor('claret-80'), 50);
+}
+
 /// Add to container for a standard quote
 @mixin oQuoteStandard {
 	background-color: oColorsGetColorFor(o-quote, background);
 	position: relative;
 	.o-quote-icon {
-		position: absolute;
-		top: oTypographySpacingSize($units: 4);
-		left: oTypographySpacingSize($units: 2);
-		@include oIconsGetIcon('speech-left', oColorsGetPaletteColor('claret-80'), 50);
+		@include oQuoteStandardIcon;
 	}
 
 	a {
@@ -21,6 +25,16 @@
 	p {
 		color: oColorsGetColorFor(body, text);
 	}
+}
+
+@mixin oQuoteStandardCiteAuthor {
+	text-transform: uppercase;
+	display: block;
+	@include oTypographySansBold($scale: 0);
+}
+
+@mixin oQuoteStandardCiteSource {
+	display: block;
 }
 
 /// Apply this to a <cite> within a standard quote block
@@ -33,12 +47,10 @@
 		@include oTypographyLink;
 	}
 	.o-quote__author {
-		text-transform: uppercase;
-		display: block;
-		@include oTypographySansBold($scale: 0);
+		@include oQuoteStandardCiteAuthor;
 	}
 	.o-quote__source {
-		display: block;
+		@include oQuoteStandardCiteSource;
 	}
 }
 
