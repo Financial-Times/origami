@@ -42,6 +42,13 @@ You can then use the mixins directly in your code:
 .article-container blockquote {
 	@include oQuoteStandard;
 
+	//oQuoteStandard includes styles for a .o-quote-icon element, but without that element you can include the icon in a :before
+	&:before {
+		content: '';
+		display: block;
+		@include oQuoteStandardIcon;
+	}
+
 	cite {
 		@include oQuoteStandardCite;
 	}
