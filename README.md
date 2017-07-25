@@ -123,7 +123,7 @@ o-header fires the following event:
 * `oHeader.MegaMenuShow`: When a mega menu is showed. The target of the event is the menu itself
 * `oHeader.MegaMenuClose`: When a mega menu is closed. The target of the event is the menu itself
 
-## Enhanced/Core expeirence
+## Enhanced/Core experience
 
 We use the [standard](http://origami.ft.com/docs/developer-guide/using-modules/#styles-for-fallbacks-and-enhancements) `o--if-js` and `o--if-no-js` classes to hide elements in enhanced and core experience respectively
 
