@@ -4,7 +4,7 @@
 ////
 
 /// Button size
-/// Ouputs dimensions for a specific button size
+/// Outputs dimensions for a specific button size
 ///
 /// @example
 /// .my-button--big {
@@ -45,7 +45,7 @@
 }
 
 /// Button theme construct
-/// Ouputs styles for all button states
+/// Outputs styles for all button states
 ///
 /// @example
 /// .my-button--standout {
@@ -70,6 +70,54 @@
 		}
 		&:active {
 			@include _oButtonsPropertiesForState($theme, active);
+		}
+	}
+}
+
+
+/// Button custom theme construct
+/// Outputs styles for all button states for custom buttons based on a background color and an accent color
+///
+/// @example
+/// .my-button--custom {
+/// 	@include oButtonsTheme(black, paper);
+/// }
+///
+/// @param {String} $background - The background color of the theme. Must be a color name from o-colors
+/// @param {String} $accent - The accent color of the theme. Must be a color name from o-colors
+/// @param {String} $colorizer - One of primary or secondary (default)
+@mixin oButtonsCustomTheme($background, $accent, $colorizer: secondary) {
+	$testContrast: oColorsCheckContrast(oColorsGetPaletteColor($background), oColorsGetPaletteColor($accent));
+
+	border-color: oColorsGetPaletteColor($accent);
+	@if $colorizer == secondary {
+		color: oColorsGetPaletteColor($accent);
+		background-color: oColorsGetPaletteColor($background);
+	} @else {
+		color: oColorsGetPaletteColor($background);
+		background-color: oColorsGetPaletteColor($accent);
+	}
+
+	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+	&[aria-selected=true], // e.g. A selected tab or page number in pagination
+	&[aria-pressed=true] { // e.g. A "follow" button that is pressed
+		border-color: oColorsGetPaletteColor($accent);
+		background-color: oColorsGetPaletteColor($accent);
+		color: oColorsGetPaletteColor($background);
+	}
+
+	&:not([disabled]) {
+		&:hover {
+			background-color: oColorsMix($background, $accent);
+			text-decoration: none;
+			border-color: oColorsGetPaletteColor($accent);
+			color: oColorsGetPaletteColor($accent);
+
+		}
+		&:active {
+			background-color: oColorsGetPaletteColor($accent);
+			color: oColorsGetPaletteColor($background);
 		}
 	}
 }

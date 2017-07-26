@@ -16,7 +16,8 @@ o-buttons provides Sass mixins and variables to create buttons.
 
 o-buttons provides styling for:
 
-- **Themes**: `o-buttons--{primary|secondary|inverse|mono|b2c}` or `@include oButtonsTheme($theme)``
+- **Themes**: `o-buttons--{primary|secondary|inverse|mono|b2c}` or `@include oButtonsTheme($theme);`
+	- **Custom themes**: [Via mixins only] `@include oButtonsCustomTheme($page-background-color, $accent-color);`
 - **Sizes**: `o-buttons--{default|big}` or `@include oButtonsSize($size);`
 - **Grouped buttons**: `o-buttons-group` or `@include oButtonsGroup;`
 - **Pagination buttons**: `o-buttons-pagination` or `@include oButtonsPagination;`
@@ -194,6 +195,26 @@ Or, using Sass:
 
 <button class="my-secondary-button">Secondary button</button>
 ```
+
+#### Custom themes
+
+You can use the `oButtonsCustomTheme` mixin to create custom coloured buttons using the oColors color variables.
+
+E.g. to create a `lemon` accented button on a `slate` background:
+
+```scss
+@include oButtonsCustomTheme(slate, lemon);
+```
+
+This will output styles for a slate coloured button that has lemon text and border, with a slate/lemon mixed hover state.
+
+To create a `lemon` _filled_ button on a `slate` background, use the `colorizer` parameter and set to `primary`:
+
+```scss
+@include oButtonsCustomTheme(slate, lemon, primary);
+```
+
+This will output styles for a lemon coloured button that has slate text, with a slate/lemon mixed hover state.
 
 #### Icons
 [View demo](https://origami-build.ft.com/demos/o-buttons/icons)

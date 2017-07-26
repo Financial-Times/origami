@@ -71,6 +71,13 @@
       "template": "/demos/src/pa11y.mustache",
       "hidden": true,
       "description": "Pa11y test for accesibility"
-    }
+    },
+		{
+			"name": "custom",
+			"template": "/demos/src/custom.mustache",
+			"hidden": true,
+			"bodyClasses": "custom-button-theme-demo",
+			"description": "Custom theme test"
+		}
   ]
 }
