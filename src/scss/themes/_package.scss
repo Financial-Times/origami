@@ -2,6 +2,7 @@
 	@include oTeaserInverse;
 	@include oTeaserPackageList;
 	width: 100%;
+	flex-flow: column nowrap;
 
 	.o-teaser__image-placeholder {
 		z-index: -1;
@@ -129,7 +130,7 @@
 			}
 
 			&:after {
-				@include oIconsGetIcon('arrow-right', oColorsGetColorFor(o-teaser-package-basic, text), 30);
+				@include oIconsGetIcon('arrow-right', oColorsGetColorFor(o-teaser-package-basic, text), 30, $iconset-version: 1);
 				content: '';
 				position: absolute;
 				bottom: 18px;
@@ -156,7 +157,7 @@
 			}
 
 			&:after {
-				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('white'), 30);
+				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('white'), 30, $iconset-version: 1);
 			}
 		}
 	}
@@ -180,7 +181,7 @@
 			}
 
 			&:after {
-				@include oIconsGetIcon('arrow-right', oColorsGetColorFor(o-teaser-theme-hero-extra-highlight, text), 30); //lemon
+				@include oIconsGetIcon('arrow-right', oColorsGetColorFor(o-teaser-theme-hero-extra-highlight, text), 30, $iconset-version: 1); //lemon
 			}
 		}
 	}
