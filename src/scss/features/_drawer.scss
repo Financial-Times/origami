@@ -2,6 +2,7 @@
 	// added to the document element, see n-ui/layout
 	.o-header__drawer {
 		@include oColorsFor(o-header-drawer, background);
+		font-family: $o-typography-sans;
 
 		&[data-o-header-drawer--js] {
 			position: fixed;
