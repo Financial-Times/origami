@@ -203,7 +203,7 @@ You can use the `oButtonsCustomTheme` mixin to create custom coloured buttons us
 E.g. to create a `lemon` accented button on a `slate` background:
 
 ```scss
-@include oButtonsCustomTheme(slate, lemon);
+@include oButtonsCustomTheme('slate', 'lemon');
 ```
 
 This will output styles for a slate coloured button that has lemon text and border, with a slate/lemon mixed hover state.
@@ -211,7 +211,7 @@ This will output styles for a slate coloured button that has lemon text and bord
 To create a `lemon` _filled_ button on a `slate` background, use the `colorizer` parameter and set to `primary`:
 
 ```scss
-@include oButtonsCustomTheme(slate, lemon, primary);
+@include oButtonsCustomTheme('slate', 'lemon', primary);
 ```
 
 This will output styles for a lemon coloured button that has slate text, with a slate/lemon mixed hover state.

@@ -44,21 +44,20 @@ body {
 }
 
 .demo_custom-theme-button--teal-primary {
-	// @include oButtonsCustomTheme(teal-60, 'white', primary);
-	@include oButtonsCustomTheme(teal-60, 'white', primary);
+	@include oButtonsCustomTheme('teal-60', 'white', primary);
 }
 .demo_custom-theme-button--teal-secondary {
-	@include oButtonsCustomTheme(teal-60, 'white', secondary);
+	@include oButtonsCustomTheme('teal-60', 'white', secondary);
 }
 .demo_custom-theme-button--slate-primary {
-	@include oButtonsCustomTheme(slate, 'white', primary);
+	@include oButtonsCustomTheme('slate', 'white', primary);
 }
 .demo_custom-theme-button--slate-secondary {
-	@include oButtonsCustomTheme(slate, 'white', secondary);
+	@include oButtonsCustomTheme('slate', 'white', secondary);
 }
 .demo_custom-theme-button--lemon-primary {
-	@include oButtonsCustomTheme(slate, lemon, primary);
+	@include oButtonsCustomTheme('slate', 'lemon', primary);
 }
 .demo_custom-theme-button--lemon-secondary {
-	@include oButtonsCustomTheme(slate, lemon, secondary);
+	@include oButtonsCustomTheme('slate', 'lemon', secondary);
 }
