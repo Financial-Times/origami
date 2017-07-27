@@ -87,7 +87,7 @@
 
 	@each $name in $namelist {
 		@if ($color == null) {
-			$color: _oColorsGetUseCase($name, $property);
+			$color: oColorsGetUseCase($name, $property);
 		}
 	}
 
