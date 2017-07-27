@@ -38,11 +38,10 @@
 
 /// Return the defined palette color name for a use case / property combination
 ///
-/// @access private
 ///
 /// @param {String} $usecase
 /// @param {String} $property - 'text', 'background', 'border' or 'all'
-@function _oColorsGetUseCase($usecase, $property) {
+@function oColorsGetUseCase($usecase, $property) {
 	@if (not map-has-key($o-colors-usecases, $usecase)) {
 		@return null;
 	}
@@ -156,4 +155,3 @@
 
 	@return $textColor;
 }
-

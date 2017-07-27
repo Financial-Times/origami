@@ -26,7 +26,7 @@ $o-colors-is-silent: false;
 @import 'o-colors/main';
 ```
 
-#### colors and accessibility
+#### Colors and accessibility
 
 o-colors has been built to help bridge the gap between design and development by providing functionality to help create colors dynamically from a central palette as well as generate contrasted text colors based on an elements background color.
 
@@ -177,6 +177,8 @@ It takes three arguments:
 
 If you are creating a use case for a component, you *must* namespace your use case name with the name of your component.
 
+You can also use `oColorsGetUseCase` to retrieve the palette color name (eg `paper`) defined against a usecase. This can be useful when you need the palette color name to use with another Sass mixin.
+
 ### Markup
 
 When using the build service or importing the module with [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) set to false, o-colors provides you with helper classes to access the color palette. All palette colors are available as `.o-colors-palette-[NAME]` (which style just `background-color`) and use cases are available as `.o-colors-[USECASE]-[PROPERTY]` (which style the appropriate property):
@@ -184,6 +186,7 @@ When using the build service or importing the module with [silent mode](http://o
 ```html
 <p class="o-colors-body-text">Article text</p>
 ```
+
 
 ### CSS Variables
 
