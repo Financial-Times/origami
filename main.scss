@@ -33,6 +33,7 @@
 
 	.o-tooltip-content {
 		@include oTooltipContent;
+		line-height: 1;
 	}
 
 	.o-tooltip--arrow-left {
@@ -50,6 +51,16 @@
 
 	.o-tooltip-close {
 		@include oTooltipClose;
+
+		.o-share__action & {
+			width: 20px;
+			height: 20px;
+
+			&:after {
+				width: 10px;
+				height: 10px;
+			}
+		}
 	}
 	// Set to silent again to avoid being output twice
 	$o-tooltip-is-silent: true !global;

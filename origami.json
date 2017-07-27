@@ -34,6 +34,24 @@
 				"description": "Display on click demo"
 			},
 			{
+				"name": "no-markup",
+				"template": "demos/src/no-markup.mustache",
+				"js": "demos/src/no-markup.js",
+				"description": "Tooltip declared in js, with no markup"
+			},
+			{
+				"name": "scroll-test",
+				"template": "demos/src/scroll-test.mustache",
+				"hidden": true,
+				"description": "Demo testcase for scrolling bug"
+			},
+			{
+				"name": "relative-position-test",
+				"template": "demos/src/relative-position-test.mustache",
+				"hidden": true,
+				"description": "relative parent position testcase"
+			},
+			{
 				"name": "pa11y",
 				"template": "demos/src/pa11y.mustache",
 				"hidden": true,

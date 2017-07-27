@@ -16,12 +16,19 @@ class Tooltip {
 			Tooltip._tooltips = new Map();
 		}
 
-		this.tooltipEl = tooltipEl;
+		if (opts && opts.content) {
+			this.tooltipEl = Tooltip.constructElement(tooltipEl, opts);
+		} else {
+			this.tooltipEl = tooltipEl;
+		}
+
+
 		Tooltip._tooltips.set(this.tooltipEl, this);
 
 		this.opts = opts || Tooltip.getOptions(tooltipEl);
 		this.opts = Tooltip.checkOptions(this.opts);
-		this.target = new Tooltip.Target(document.getElementById(this.opts.target));
+		this.targetNode = document.getElementById(this.opts.target);
+		this.target = new Tooltip.Target(this.targetNode);
 		this.tooltipPosition = this.opts.position;
 		this.tooltipAlignment = null;
 		this.visible = false;
@@ -88,21 +95,37 @@ class Tooltip {
 		}
 
 		// Check that the value of tooltip position is valid. Default to below.
-		if (opts.tooltipPosition) {
-			if (Tooltip.validTooltipPositions.indexOf(opts.tooltipPosition) === -1) {
+		if (opts.position) {
+			if (Tooltip.validTooltipPositions.indexOf(opts.position) === -1) {
 				Tooltip.throwError("Invalid value for tooltip position. Valid values are:" + Tooltip.validTooltipPositions.toString() +" or nothing which will default to a value of `below`");
 			}
 		} else {
-			opts.tooltipPosition = "below";
+			opts.position = "below";
 		}
 
 		return opts;
+	};
+
+	static constructElement(targetEl, opts) {
+		const element = document.createElement('div');
+		element.setAttribute('data-o-component', 'o-tooltip');
+		element.insertAdjacentHTML('afterbegin', `<div class='o-tooltip-content'>${opts.content}</div>`);
+		return element;
 	};
 
 	/**
 	 * Render the tooltip. Adds markup and attributes to this.tooltipEl in the DOM
 	*/
 	render() {
+		// make sure the tooltip is the next sibling of the target and (in the case of generated tooltip el)
+		// is attached to the DOM
+		if (this.targetNode && this.targetNode.nextSibling !== this.tooltipEl) {
+			if (this.targetNode.nextSibling) {
+				this.targetNode.parentNode.insertBefore(this.tooltipEl, this.targetNode.nextSibling);
+			} else {
+				this.targetNode.parentNode.appendChild(this.tooltipEl);
+			}
+		}
 
 		this.tooltipEl.setAttribute('role', 'tooltip');
 		this.tooltipEl.classList.add('o-tooltip');
@@ -206,15 +229,13 @@ class Tooltip {
 	};
 
 	/**
-	 * Respond to resize events. Re-position the tooltip if its target has moved.
-	 * @todo: There are a few optimisations to make here, getRect is being called
-	 * by the target more than once. We're checking edge positions we don't care
-	 * about, and moving based on them
+	 * Respond to resize events. Redraw the tooltip in case the target has moved.
+	 * @todo: There are many optimisations to make here- we're redrawing even if
+	 * the target hasn't moved.
 	*/
 	resizeListener() {
-		if (this.target.hasMoved()) {
+		if (this.visible) {
 			window.requestAnimationFrame(() => {
-				this.target.refreshRect();
 				this.drawTooltip();
 			});
 		}
@@ -225,7 +246,6 @@ class Tooltip {
 	 * target and a preference set by the user.
 	*/
 	drawTooltip(){
-
 		// render the tooltip so we know how big it is
 		this.tooltipEl.style.display = 'block';
 
@@ -305,7 +325,7 @@ class Tooltip {
 
 		switch (this.tooltipPosition) {
 			case 'above':
-				rect.top = this.target.top - (height + Tooltip.arrowDepth);
+				rect.top = this.target.top - height - Tooltip.arrowDepth;
 				rect.left = this._getLeftFor('middle');
 				break;
 
@@ -320,7 +340,7 @@ class Tooltip {
 				break;
 
 			case 'left':
-				rect.left = this.target.left - (width + Tooltip.arrowDepth);
+				rect.left = this.target.left - width - Tooltip.arrowDepth;
 				rect.top = this._getTopFor('middle');
 				break;
 		};
@@ -329,6 +349,13 @@ class Tooltip {
 		rect.bottom = rect.top + height;
 
 		return rect;
+	}
+
+	_getScrollPosition() {
+		return {
+			left: document.body.scrollLeft || document.documentElement.scrollLeft,
+			top: document.body.scrollTop || document.documentElement.scrollTop
+		};
 	}
 
 	_getLeftFor(alignment) {

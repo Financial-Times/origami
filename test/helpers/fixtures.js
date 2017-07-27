@@ -61,6 +61,16 @@ function declarativeCode () {
 			data-o-tooltip-show-on-hover="true">
 				Tooltip content
 		</div>
+		<!-- note lack of whitespace is there to make sure there is no next sibling (otherwise text node :-O) -->
+		<div id="demo-tooltip-insertion-test-1"><div class='tooltip-target' id="demo-tooltip-insertion-test-1-target">Thing to point the tooltip at.</div></div>
+
+		<div id="demo-tooltip-insertion-test-2">
+			<div class='tooltip-target' id="demo-tooltip-insertion-test-2-target">
+				Thing to point the tooltip at.
+			</div>
+			<div></div>
+		</div>
+
 	`;
 	insert(html);
 }
