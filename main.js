@@ -1,7 +1,7 @@
 
 import Banner from './src/js/banner';
 
-const constructAll = function() {
+function constructAll () {
 	Banner.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };

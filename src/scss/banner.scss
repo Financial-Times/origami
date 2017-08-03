@@ -1,6 +1,127 @@
 
-/// Base banner style
-@mixin oBanner {
-	// TODO
-	todo: true;
+@mixin oBannerOuter {
+	@include oColorsFor(o-banner, background text);
+	@include oTypographySans($scale: (default: 1));
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	padding: oTypographySpacingSize($units: 10) 0;
+}
+
+@mixin oBannerClosed {
+	display: none;
+}
+
+@mixin oBannerInner {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: map-get($o-grid-layouts, XL);
+	margin: 0 auto;
+}
+
+@mixin oBannerContent {
+	padding: 0 $o-banner-spacing;
+
+	// Remove margins from typographic elements within
+	// the banner, as these mess with the spacing
+	:first-child {
+		margin-top: 0;
+	}
+	:last-child {
+		margin-bottom: 0;
+	}
+}
+
+@mixin oBannerContentLong {
+	@include oGridRespondTo($until: M) {
+		display: none;
+	}
+}
+
+@mixin oBannerContentShort {
+	@include oGridRespondTo($from: M) {
+		display: none;
+	}
+}
+
+@mixin oBannerActions {
+	display: flex;
+	align-items: center;
+}
+
+@mixin oBannerAction {
+	padding-right: $o-banner-spacing;
+}
+
+@mixin oBannerActionSecondary {
+	text-align: right;
+
+	@include oGridRespondTo($until: S) {
+		display: none;
+	}
+}
+
+@mixin oBannerButton {
+	@include oButtons($size: big);
+	@include oButtonsCustomTheme('teal-60', 'white', primary);
+	white-space: nowrap;
+}
+
+@mixin oBannerLink {
+	@include oColorsFor(o-banner-link, text);
+	@include oTypographySans($scale: (default: 0));
+	white-space: nowrap;
+}
+
+@mixin oBannerCloseButton {
+	$close-button-position: round(($o-banner-spacing - $o-banner-close-button-size) / 2);
+	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-close, text), $o-banner-close-button-size);
+	display: block;
+	position: absolute;
+	right: $close-button-position;
+	top: -($o-banner-spacing - $close-button-position);
+}
+
+@mixin oBanner($class: 'o-banner') {
+	.#{$class} {
+		@include oBannerOuter;
+
+		&--closed {
+			@include oBannerClosed;
+		}
+		&__inner {
+			@include oBannerInner;
+		}
+		&__content {
+			@include oBannerContent;
+		}
+		&__content--long {
+			@include oBannerContentLong;
+		}
+		&__content--short {
+			@include oBannerContentShort;
+		}
+		&__actions {
+			@include oBannerActions;
+		}
+		&__action {
+			@include oBannerAction;
+		}
+		&__action--secondary {
+			@include oBannerActionSecondary;
+		}
+		&__button {
+			@include oBannerButton;
+		}
+		&__link {
+			@include oBannerLink;
+		}
+		&__close {
+			@include oBannerCloseButton;
+		}
+	}
 }

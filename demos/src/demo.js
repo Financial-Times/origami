@@ -1,4 +1,4 @@
-/*global require*/
+
 import './../../main.js';
 
 function initDemos() {

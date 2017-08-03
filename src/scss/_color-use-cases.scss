@@ -1,0 +1,5 @@
+
+@include oColorsSetUseCase(o-banner, background, 'teal');
+@include oColorsSetUseCase(o-banner, text, 'white');
+@include oColorsSetUseCase(o-banner-link, text, 'white');
+@include oColorsSetUseCase(o-banner-close, text, 'white');
