@@ -4,4 +4,9 @@ $o-banner-is-silent: false;
 
 body {
 	font-family: MetricWeb;
+	padding: 20px;
+}
+
+.demo-button {
+	@include oButtons($size: big);
 }

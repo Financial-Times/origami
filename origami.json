@@ -23,6 +23,11 @@
 			"description": "Basic banner"
 		},
 		{
+			"name": "small",
+			"template": "demos/src/small.mustache",
+			"description": "Small banner theme"
+		},
+		{
 			"name": "imperative",
 			"template": "demos/src/imperative.mustache",
 			"description": "Imperative banner",

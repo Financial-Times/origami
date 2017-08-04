@@ -1,0 +1,6 @@
+
+@mixin _oBannerGetThemeMixin($theme, $class) {
+	@if $theme == 'small' {
+		@include oBannerThemeSmall($class);
+	}
+}

@@ -19,6 +19,7 @@ class Banner {
 
 			bannerClass: bannerClass,
 			bannerClosedClass: `${bannerClass}--closed`,
+			outerClass: `${bannerClass}__outer`,
 			innerClass: `${bannerClass}__inner`,
 			contentClass: `${bannerClass}__content`,
 			contentLongClass: `${bannerClass}__content--long`,
@@ -31,12 +32,14 @@ class Banner {
 			closeButtonClass: `${bannerClass}__close`,
 
 			contentLong: '&hellip;',
-			contentShort: '&hellip;',
+			contentShort: null,
 			buttonLabel: 'OK',
 			buttonUrl: '#',
 			linkLabel: 'More info',
 			linkUrl: '#',
-			closeButtonLabel: 'Close'
+			closeButtonLabel: 'Close',
+
+			theme: null
 
 		}, options || Banner.getOptionsFromDom(bannerElement));
 
@@ -90,22 +93,39 @@ class Banner {
 	 */
 	buildBannerElement () {
 		const bannerElement = document.createElement('div');
-		bannerElement.className = this.options.bannerClass;
+		bannerElement.classList.add(this.options.bannerClass);
+		if (this.options.theme) {
+			bannerElement.classList.add(`${this.options.bannerClass}--${this.options.theme}`);
+		}
 		bannerElement.setAttribute('data-o-component', 'o-banner');
-		bannerElement.innerHTML = `
-			<div class="${this.options.innerClass}" data-o-banner-inner="">
+		let contentHtml;
+		if (this.options.contentShort) {
+			contentHtml = `
 				<div class="${this.options.contentClass} ${this.options.contentLongClass}">
 					${this.options.contentLong}
 				</div>
 				<div class="${this.options.contentClass} ${this.options.contentShortClass}">
 					${this.options.contentShort}
 				</div>
-				<div class="${this.options.actionsClass}">
-					<div class="${this.options.actionClass}">
-						<a href="${this.options.buttonUrl}" class="${this.options.buttonClass}">${this.options.buttonLabel}</a>
-					</div>
-					<div class="${this.options.actionClass} ${this.options.actionSecondaryClass}">
-						<a href="${this.options.linkUrl}" class="${this.options.linkClass}">${this.options.linkLabel}</a>
+			`;
+		} else {
+			contentHtml = `
+				<div class="${this.options.contentClass}">
+					${this.options.contentLong}
+				</div>
+			`;
+		}
+		bannerElement.innerHTML = `
+			<div class="${this.options.outerClass}">
+				<div class="${this.options.innerClass}" data-o-banner-inner="">
+					${contentHtml}
+					<div class="${this.options.actionsClass}">
+						<div class="${this.options.actionClass}">
+							<a href="${this.options.buttonUrl}" class="${this.options.buttonClass}">${this.options.buttonLabel}</a>
+						</div>
+						<div class="${this.options.actionClass} ${this.options.actionSecondaryClass}">
+							<a href="${this.options.linkUrl}" class="${this.options.linkClass}">${this.options.linkLabel}</a>
+						</div>
 					</div>
 				</div>
 			</div>

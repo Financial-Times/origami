@@ -1,37 +1,39 @@
 
-@mixin oBannerOuter {
-	@include oColorsFor(o-banner, background text);
-	@include oTypographySans($scale: (default: 1));
+@mixin oBannerBase {
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	display: block;
 	width: 100%;
-	padding: oTypographySpacingSize($units: 10) 0;
 }
 
 @mixin oBannerClosed {
 	display: none;
 }
 
+@mixin oBannerOuter {
+	@include oColorsFor(o-banner, background text);
+}
+
 @mixin oBannerInner {
+	@include oTypographySans($scale: (default: 1));
 	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	max-width: map-get($o-grid-layouts, XL);
 	margin: 0 auto;
+	padding: $_o-banner-spacing 0;
+	box-sizing: border-box;
 }
 
 @mixin oBannerContent {
-	padding: 0 $o-banner-spacing;
+	padding: 0 $_o-banner-spacing;
 
 	// Remove margins from typographic elements within
 	// the banner, as these mess with the spacing
-	:first-child {
+	> * {
 		margin-top: 0;
-	}
-	:last-child {
 		margin-bottom: 0;
 	}
 }
@@ -48,13 +50,18 @@
 	}
 }
 
+@mixin oBannerHeading {
+	@include oTypographySans($scale: (default: 3));
+	-webkit-font-smoothing: antialiased;
+}
+
 @mixin oBannerActions {
 	display: flex;
 	align-items: center;
 }
 
 @mixin oBannerAction {
-	padding-right: $o-banner-spacing;
+	padding-right: $_o-banner-spacing;
 }
 
 @mixin oBannerActionSecondary {
@@ -78,20 +85,26 @@
 }
 
 @mixin oBannerCloseButton {
-	$close-button-position: round(($o-banner-spacing - $o-banner-close-button-size) / 2);
-	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-close, text), $o-banner-close-button-size);
+	$close-button-position: round(($_o-banner-spacing - $_o-banner-close-button-size) / 2);
+	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-close, text), $_o-banner-close-button-size);
 	display: block;
 	position: absolute;
 	right: $close-button-position;
-	top: -($o-banner-spacing - $close-button-position);
+	top: $close-button-position;
 }
 
-@mixin oBanner($class: 'o-banner') {
+@mixin oBanner($class: 'o-banner', $themes: 'all') {
+
+	// Base banner styles
 	.#{$class} {
-		@include oBannerOuter;
+		@include oBannerBase;
 
 		&--closed {
 			@include oBannerClosed;
+		}
+
+		&__outer {
+			@include oBannerOuter;
 		}
 		&__inner {
 			@include oBannerInner;
@@ -104,6 +117,9 @@
 		}
 		&__content--short {
 			@include oBannerContentShort;
+		}
+		&__heading {
+			@include oBannerHeading;
 		}
 		&__actions {
 			@include oBannerActions;
@@ -122,6 +138,21 @@
 		}
 		&__close {
 			@include oBannerCloseButton;
+		}
+	}
+
+	// Theme styles
+	@if $themes == 'all' {
+		@each $theme in $_o-banner-themes {
+			@include _oBannerGetThemeMixin($theme, $class);
+		}
+	} @else if $themes != false  {
+		@each $theme in $themes {
+			@if index($_o-banner-themes, $theme) != null {
+				@include _oBannerGetThemeMixin($theme, $class);
+			} @else {
+				@error "There is no theme '#{$theme}' available in o-banner, please use one of the following: #{$_o-banner-themes}.";
+			}
 		}
 	}
 }
