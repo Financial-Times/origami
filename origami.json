@@ -11,6 +11,7 @@
 			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-component-boilerplate"
 		},
 		"demosDefaults": {
+			"js": "demos/src/demo.js",
 			"sass": "demos/src/demo.scss",
 			"documentClasses": "",
 			"dependencies": "o-fonts@^3.0.0, o-grid@^4.3.3, o-colors@^4.0.0"
@@ -19,7 +20,8 @@
 			{
 				"name": "demo",
 				"template": "demos/src/demo.mustache",
-				"description": "Description of the demo"
+				"description": "Description of the demo",
+				"js": "demos/src/demo.js"
 			},
 			{
 				"name": "pa11y",

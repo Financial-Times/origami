@@ -25,33 +25,45 @@
 	.o-subs-card__copy-title {
 		@include oTypographySansBold(4);
 		margin-bottom: 24px;
-
 	}
+
 	.o-subs-card__top {
 		@include oColorsFor(o-subs-card-top);
 		padding: 20px;
 	}
-	.o-subs-card__copy-pitch {
-		@include oColorsFor(o-subs-card-copy-pitch, background text, 80);
-		text-align: left;
-		padding: 14px;
-	}
+
+	// .o-subs-card__copy-pitch {
+	// 	@include oColorsFor(o-subs-card-copy-pitch, background text, 80);
+	// 	text-align: left;
+	// 	padding: 14px;
+	// }
 
 	.o-subs-card__copy-details {
 		@include oColorsFor(o-subs-card-copy-details, background text, 80);
 		text-align: left;
 	}
+
 	.o-subs-card__read-more {
-		@include oColorsFor(o-subs-card-copy-pitch, background text, 80);
+		@include oColorsFor(o-subs-card-read-more, background text, 80);
+		@include oTypographySansBold(1);
 		padding: 20px;
 		border-top: 1px solid oColorsMix(black, oColorsGetUseCase(o-subs-card-read-more, background), 20);
+
 		@include oGridRespondTo(L) {
-			display:none;
+			display: none;
 		}
+
+		&:after {
+			@include oIconsGetIcon('arrow-down', oColorsGetPaletteColor(oColorsGetUseCase(o-subs-card-read-more, text)), 20);
+			content: '';
+			float: right;
+		}
+
 		.core & {
 			display:none;
 		}
 	}
+
 	.o-subs-card__copy-preamble {
 		@include oTypographySansBold();
 		text-align: center;

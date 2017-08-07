@@ -15,7 +15,7 @@
     "o-buttons": "^5.0.3",
     "o-colors": "^4.1.1",
     "o-grid": "^4.3.3",
-    "o-toggle": "^1.1.6",
+    "o-expander": "^4.3.0",
     "o-typography": "^5.0.0"
   }
 }

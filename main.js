@@ -1,13 +1,10 @@
-const OToggle = require('o-toggle');
-const toggleEl = document.querySelector('.o-toggle');
-const toggle = new OToggle(toggleEl, {
-	// Set target to the nearest 'my-target'
-        target: '.my-target',
-        callback: function(state, event) {
-            if (state === 'open') {
-                console.log('Target opened');
-            } else if (state === 'close') {
-                console.log('Target closed');
-            }
-        }
-    });
+const expanders = document.querySelectorAll('.o-subs-card__read-more')
+
+const oExpander = require('o-expander');
+oExpander.init()
+
+expanders.forEach((expander) => {
+	console.log(expander);
+	expander.addEventListener('oExpander.expand', (e) => { console.log(e)});
+	expander.addEventListener('oExpander.collapse', (e) => { console.log(e)});
+})
