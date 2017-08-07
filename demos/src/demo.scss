@@ -12,7 +12,7 @@ body {
 	@include oGridContainer();
 	margin-top: 20px;
 }
-.demo_subscard-row {
+.demo_subs-card-row {
 	@include oGridRow();
 	align-items: stretch;
 

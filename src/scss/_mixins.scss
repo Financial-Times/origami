@@ -1,6 +1,6 @@
 @mixin oSubsCard {
 	@include oTypographySans(0);
-	@include oColorsFor('o-subs-card-detailed-description', "background");
+	@include oColorsFor('o-subs-card-copy-details', 'background');
 
 	text-align: center;
 	margin-bottom: 12px;
@@ -10,19 +10,19 @@
 	width: 100%;
 
 	// Mobile first
-	.o-subs-card__image {
+	.o-subs-card__copy-image {
 		display: none;
 	}
 
 	// Tablet
 	@include oGridRespondTo(M) {
-		.o-subs-card__image {
+		.o-subs-card__copy-image {
 			display: block;
 			margin: auto;
 		}
 	}
 
-	.o-subs-card__title {
+	.o-subs-card__copy-title {
 		@include oTypographySansBold(4);
 		margin-bottom: 24px;
 
@@ -31,20 +31,20 @@
 		@include oColorsFor(o-subs-card-top);
 		padding: 20px;
 	}
-	.o-subs-card__short-description {
-		@include oColorsFor(o-subs-card-short-description, background text, 80);
+	.o-subs-card__copy-pitch {
+		@include oColorsFor(o-subs-card-copy-pitch, background text, 80);
 		text-align: left;
 		padding: 14px;
 	}
 
-	.o-subs-card__detailed-description {
-		@include oColorsFor(o-subs-card-detailed-description, background text, 80);
+	.o-subs-card__copy-details {
+		@include oColorsFor(o-subs-card-copy-details, background text, 80);
 		text-align: left;
 	}
-	.o-subs-card__detailed-description__show-hide {
-		@include oColorsFor(o-subs-card-short-description, background text, 80);
+	.o-subs-card__read-more {
+		@include oColorsFor(o-subs-card-copy-pitch, background text, 80);
 		padding: 20px;
-		border-top: 1px solid oColorsMix(black, oColorsGetUseCase(o-subs-card-detailed-description-show-hide, background), 20);
+		border-top: 1px solid oColorsMix(black, oColorsGetUseCase(o-subs-card-read-more, background), 20);
 		@include oGridRespondTo(L) {
 			display:none;
 		}
@@ -52,16 +52,16 @@
 			display:none;
 		}
 	}
-	.o-subs-card__detailed-description__title {
+	.o-subs-card__copy-preamble {
 		@include oTypographySansBold();
 		text-align: center;
-		margin-bottom: 24px;
 		padding: 20px;
 	}
 
-	.o-subs-card__detailed-description__list {
+	.o-subs-card__copy-benefits {
 		@include oTypographyListUnordered;
-		padding: 20px;
+		padding: 0 20px;
+		margin: 0;
 
 		/* override a few oTypographyListUnordered styles */
 		li {
