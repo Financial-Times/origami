@@ -34,7 +34,7 @@ _Remember to start your codeblocks with three backticks and "sass" so your marku
 
 _Though it's not practical to repeat every aspect of Origami modules convention for every component, **A LOT** of people get tripped up by silent mode, so this line (remember to change the o-component-boilerplate to your component name) is useful if you have Sass:_
 
-As with all Origami components, o-component-boilerplate has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-component-boilerplate-is-silent : false;` in your Sass before you import the o-component-boilerplate Sass.
+As with all Origami components, o-component-boilerplate has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-subs-card-is-silent : false;` in your Sass before you import the o-component-boilerplate Sass.
 
 ## Troubleshooting
 _This is a good place to put problems that come up repeatedly_

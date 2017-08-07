@@ -1,0 +1,17 @@
+@mixin oSubsCardPremium {
+	.o-subs-card__top {
+		@include oColorsFor(o-subs-card-premium-top);
+	}
+
+	.o-subs-card__select-button {
+		@include oButtonsCustomTheme(oColorsGetUseCase(o-subs-card-premium-top, background), "white");
+	}
+}
+@mixin oSubsCardPremiumPlus {
+	.o-subs-card__top {
+		@include oColorsFor(o-subs-card-premium-plus-top);
+	}
+	.o-subs-card__select-button {
+		@include oButtonsCustomTheme(oColorsGetUseCase(o-subs-card-premium-plus-top, background), "white");
+	}
+}
