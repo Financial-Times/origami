@@ -16,17 +16,17 @@ class Tooltip {
 			Tooltip._tooltips = new Map();
 		}
 
+		this.opts = opts || Tooltip.getOptions(tooltipEl);
+		this.opts = Tooltip.checkOptions(this.opts);
+
 		if (opts && opts.content) {
 			this.tooltipEl = Tooltip.constructElement(tooltipEl, opts);
 		} else {
 			this.tooltipEl = tooltipEl;
 		}
 
-
 		Tooltip._tooltips.set(this.tooltipEl, this);
 
-		this.opts = opts || Tooltip.getOptions(tooltipEl);
-		this.opts = Tooltip.checkOptions(this.opts);
 		this.targetNode = document.getElementById(this.opts.target);
 		this.target = new Tooltip.Target(this.targetNode);
 		this.tooltipPosition = this.opts.position;
@@ -108,6 +108,7 @@ class Tooltip {
 
 	static constructElement(targetEl, opts) {
 		const element = document.createElement('div');
+		targetEl.setAttribute('id', opts.target);
 		element.setAttribute('data-o-component', 'o-tooltip');
 		element.insertAdjacentHTML('afterbegin', `<div class='o-tooltip-content'>${opts.content}</div>`);
 		return element;

@@ -19,19 +19,28 @@ o-tooltip has Sass and JavaScript to show and hide a tooltip which points at a t
 This HTML demonstrates the declarative way to instantiate o-tooltip. If you are using the Build Service or firing your own `o.DOMContentLoaded` event, this is all you need to create a tooltip.
 
 ```html
-<div class='demo-tooltip-target' id="tooltip-target">
+<div class='demo-tooltip-target' id="declarative-tooltip-target">
 	A bit of UI to annotate
 </div>
 
 <div data-o-component="o-tooltip"
   data-o-tooltip-position="below"
   data-o-tooltip-target="demo-tooltip-target"
-  data-o-tooltip-show-on-construction=true>
+  data-o-tooltip-show-on-construction=true
+	id="my-tooltip-element">
 	<div class='o-tooltip-content'>
 		Some text to go in the tooltip
 	</div>
 </div>
+```
 
+This HTML is an example of the imperative alternative:
+```html
+<div class='demo-tooltip-container'>
+	<button class='o-buttons o-buttons--big imperative-tooltip-target'>
+		Button description text/icon
+	</button>
+</div>
 ```
 
 Attributes can be set declaratively, or passed in on instantiation in an options object. A full list of data attributes:
@@ -49,12 +58,31 @@ No code will run automatically unless you are using the Build Service.
 You must either construct an `o-tooltip` object or fire an `o.DOMContentLoaded` event, which oTooltip listens for.
 
 #### Constructing an o-tooltip
+If you have setup your tooltip declaratively, the following applies:
+```js
+const oTooltip = require('o-tooltip');
+let tooltipEl = Document.getElementById('my-tooltip-element');
+const oTooltip = new oTooltip(tooltipEl, '#declarative-tooltip-target');
+```
+
+Alternatively, if you want to construct a tooltip imperatively, you can instantiate o-tooltip by passing in your target element and an options object.
 
 ```js
 const oTooltip = require('o-tooltip');
-let tooltipEl = Document.getElementById('myTooltipEl');
-const oTooltip = new oTooltip(tooltipEl, '#targetID');
+let targetElement = document.querySelector('.imperative-tooltip-target');
+const opts = {
+	target: 'demo-tooltip-target-imperative',
+	content: 'Click to save to somewhere',
+	showOnConstruction: true,
+	position: 'right'
+}
+
+const oTooltip = new Tooltip(targetElement, opts);
 ```
+
+Since this creates the tooltip from scratch, it is important to include any declarative attributes (as listed above) in the options object, in addition to:
+
+- `content`: Required. String. This is the content that will be displayed in the tooltip.
 
 #### Firing an oDomContentLoaded event
 
