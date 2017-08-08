@@ -19,7 +19,7 @@ Social media buttons.
 
 ## Usage
 
-### Markup
+### Markup
 
 The simplest markup you might need looks like this:
 
@@ -101,6 +101,15 @@ Check out the [API docs](http://registry.origami.ft.com/components/o-share#docs-
 
 ## Migration guide
 
+### Migrating from v4.x.x to v5.x.x
+
+o-share v5 introduces a breaking change that you may need to update in your product:
+
+- buttons and anchor elements require an extra class to avoid specificity issues with other components that use `o-icons`
+```diff
++ <a class="o-share__action--icon" href="#"><i>Icon</i></a>
++ <button class="o-share__action--icon"><i>Icon</i></button>
+```
 ### Migrating from v3.x.x to v4.x.x
 
 o-share v4 introduces a few breaking changes that you may need to update in your product:
