@@ -105,10 +105,14 @@ Check out the [API docs](http://registry.origami.ft.com/components/o-share#docs-
 
 o-share v5 introduces a breaking change that you may need to update in your product:
 
-- buttons and anchor elements require an extra class to avoid specificity issues with other components that use `o-icons`
+- buttons and anchor elements require an extra class (`o-share__action--icon`) to avoid specificity issues with other components that use `o-icons`
 ```diff
-+ <a class="o-share__action--icon" href="#"><i>Icon</i></a>
-+ <button class="o-share__action--icon"><i>Icon</i></button>
+<a 
++class="o-share__action--icon"
+href="#"><i>Icon</i></a>
+<button
++class="o-share__action--icon"
+><i>Icon</i></button>
 ```
 ### Migrating from v3.x.x to v4.x.x
 
