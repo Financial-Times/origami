@@ -23,6 +23,9 @@
 		@include oSubsCardPremiumPlus;
 	}
 
+	.o-subs-card--discount {
+		@include oSubsCardDiscount;
+	}
 	// Set to silent again to avoid being output twice
 	$o-subs-card-is-silent: true !global;
 }

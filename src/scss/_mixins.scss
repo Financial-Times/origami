@@ -1,12 +1,33 @@
 @mixin oSubsCard {
 	@include oTypographySans(0);
 	@include oColorsFor('o-subs-card-copy-details', 'background');
+	@include oTypographyMargin($top: 3, $bottom: 3);
 
 	text-align: center;
-	margin-bottom: 12px;
-	margin-top: 12px;
 	align-items: stretch;
 	width: 100%;
+
+	@include oGridRespondTo(L) {
+		height: 100%;
+	}
+
+	.o-subs-card__top {
+		@include oColorsFor(o-subs-card-top);
+	}
+
+	.o-subs-card__copy-offer {
+		@include oTypographySans(2);
+		@include oTypographyPadding($top: 2);
+	}
+
+	.o-subs-card__copy-title {
+		@include oTypographySansBold(3);
+		@include oTypographyMargin($bottom: 6);
+
+		&:first-child {
+			@include oTypographyPadding($top: 6);
+		}
+	}
 
 	// Mobile first
 	.o-subs-card__copy-image {
@@ -21,30 +42,31 @@
 		}
 	}
 
-	.o-subs-card__copy-title {
-		@include oTypographySansBold(4);
-		margin-bottom: 24px;
-	}
-
-	.o-subs-card__top {
-		@include oColorsFor(o-subs-card-top);
-		padding: 20px;
+	.o-subs-card__charge {
+		@include oTypographyPadding($top: 2, $bottom: 5);
+		@include oTypographyMargin($top: 2);
 	}
 
 	.o-subs-card__charge__value {
 		font-weight: 600;
 	}
 
+	.o-subs-card__select-button {
+		@include oButtons('big');
+		@include oButtonsCustomTheme(oColorsGetUseCase(o-subs-card-top, background), "white");
+		@include oTypographyMargin($top: 3);
+		width: calc(100% - 40px);
+	}
+
 	.o-subs-card__copy-pitch {
 		@include oColorsFor(o-subs-card-copy-pitch, background text, 80);
+		border-bottom: 1px solid oColorsMix(black, oColorsGetUseCase(o-subs-card-copy-pitch, background), 20);
+		text-align: left;
+		padding: 14px;
 
 		@include oGridRespondTo(L) {
 			display: none;
 		}
-
-		border-bottom: 1px solid oColorsMix(black, oColorsGetUseCase(o-subs-card-copy-pitch, background), 20);
-		text-align: left;
-		padding: 14px;
 	}
 
 	.o-subs-card__copy-details {
@@ -69,14 +91,11 @@
 			display: none;
 		}
 
-		//doesnt' use oExpanderToggle mixin, because that mixin has a fixed font-size/icon size
+		//doesn't use oExpanderToggle mixin, because that mixin has a fixed font-size/icon size
 		&:after {
 			@include oIconsGetIcon('arrow-down', oColorsGetPaletteColor(oColorsGetUseCase(o-subs-card-read-more, text)), 24);
 			content: '';
 			position: relative;
-			/*this is overrides what is currently aligning to the baseline,
-			which seems to have been implemented over a year ago,
-			before all icons had padding. Issue has been raised in o-icons*/
 			vertical-align: middle;
 		}
 
@@ -99,6 +118,11 @@
 		padding: 0 20px 20px;
 		margin: 0;
 
+		// for the case where there is no o-subs-card__copy-preamble
+		&:first-child {
+			@include oTypographyPadding($top: 5);
+		}
+
 		/* override a few oTypographyListUnordered styles */
 		li {
 			padding-left: 16px;
@@ -107,12 +131,5 @@
 				top: -1px;
 			}
 		}
-	}
-
-	.o-subs-card__select-button {
-		@include oButtons('big');
-		@include oButtonsCustomTheme(oColorsGetUseCase(o-subs-card-top, background), "white");
-		margin-top: 12px;
-		width: 100%;
 	}
 }
