@@ -65,15 +65,22 @@
 
 		li {
 			display: block;
+			position: relative;
+			padding-left: oTypographySpacingSize($units: 6);
+
 
 			&:before {
-				@include oTypographySansBold($scale: 2);
+				@include oTypographySansBold($scale: 0);
 				@include oColorsFor('o-typography-list-prefix');
 				display: inline-block;
 				width: oTypographySpacingSize($units: 5);
-				margin-right: oTypographySpacingSize($units: 3);
+				font-feature-settings: "tnum";
+				margin-right: oTypographySpacingSize($units: -1);
 				content: counter(item);
 				counter-increment: item;
+				position: absolute;
+				left: 0;
+				top: 4px;
 			}
 		}
 	}
@@ -86,7 +93,7 @@
 	li {
 		display: block;
 		position: relative;
-		padding-left: oTypographySpacingSize($units: 8);
+		padding-left: oTypographySpacingSize($units: 6);
 
 		&:before {
 			@include oColorsFor('o-typography-list-prefix');
@@ -94,8 +101,8 @@
 			position: absolute;
 			content: '\2022'; // dot character
 			top: -3px; // magic number alignment
-			left: 0;
-			font-size: oTypographySpacingSize($units: 10);
+			left: -2px;
+			font-size: oTypographySpacingSize($units: 8);
 		}
 	}
 }
