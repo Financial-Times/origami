@@ -25,7 +25,7 @@
 
 /// Make a teaser fill the full height of it's container
 /// (if the container is flex) and stretch the heading to
-/// move standfirst and timestamp to card footer
+/// move standfirst and timestamp to teaser footer
 @mixin oTeaserStretched {
 	display: flex;
 	flex-grow: 1;
