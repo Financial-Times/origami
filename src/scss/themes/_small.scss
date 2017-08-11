@@ -20,6 +20,11 @@
 		@include oGridRespondTo($until: M) { // Mobile screens only
 			display: none;
 		}
+
+		//hack because IE11 and flexbox aren't friends
+		.top-stories__freeform-twocolumns & {
+			max-width: 30%;
+		}
 	}
 }
 
