@@ -34,6 +34,16 @@
 				"description": "Display on click demo"
 			},
 			{
+				"name": "toggle",
+				"template": "demos/src/toggle.mustache",
+				"description": "Toggle on click demo"
+			},
+			{
+				"name": "timeout",
+				"template": "demos/src/timeout.mustache",
+				"description": "Show/Hide Tooltip after timeout demo"
+			},
+			{
 				"name": "no-markup",
 				"template": "demos/src/no-markup.mustache",
 				"js": "demos/src/no-markup.js",

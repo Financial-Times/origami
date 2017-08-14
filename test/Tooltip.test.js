@@ -25,7 +25,9 @@ describe("Tooltip", () => {
 		let renderStub;
 		let constructElementStub;
 		let showStub;
+		let showAfterStub;
 		let closeStub;
+		let closeAfterStub;
 		let targetStub;
 		const stubEl = document.createElement('div');
 
@@ -36,7 +38,9 @@ describe("Tooltip", () => {
 			renderStub = sinon.stub(Tooltip.prototype, 'render');
 			constructElementStub = sinon.stub(Tooltip, 'constructElement').returns(document.createElement('div'));
 			showStub = sinon.stub(Tooltip.prototype, 'show');
+			showAfterStub = sinon.stub(Tooltip.prototype, 'showAfter');
 			closeStub = sinon.stub(Tooltip.prototype, 'close');
+			closeAfterStub = sinon.stub(Tooltip.prototype, 'closeAfter');
 			targetStub = sinon.stub(Tooltip, "Target");
 		});
 
@@ -46,7 +50,9 @@ describe("Tooltip", () => {
 			renderStub.restore();
 			constructElementStub.restore();
 			showStub.restore();
+			showAfterStub.restore();
 			closeStub.restore();
+			closeAfterStub.restore();
 			targetStub.restore();
 		});
 
@@ -91,9 +97,26 @@ describe("Tooltip", () => {
 			proclaim.isTrue(checkOptionsStub.calledWith(getOptionsReturnStub));
 		});
 
-		it("calls render if opts.showOnConstruction is set to true", () => {
-			new Tooltip(stubEl, {"showOnConstruction": true});
-			proclaim.isTrue(renderStub.called);
+		context("opts.showOnConstruction is set to true", () => {
+			it("calls render", () => {
+				new Tooltip(stubEl, {"showOnConstruction": true});
+				proclaim.isTrue(renderStub.called);
+			});
+
+			it("calls the closeAfter() method if closeAfter prop is set", () => {
+				new Tooltip(stubEl, { "showOnConstruction": true, "closeAfter": 3 });
+				proclaim.isTrue(showStub.called);
+				proclaim.isTrue(closeAfterStub.called);
+
+				// If show() is called after closeAfter(), it will clear the timeout.
+				sinon.assert.callOrder(showStub, closeAfterStub);
+			});
+		});
+		context("opts.showOnConstruction is set to false", () => {
+			it("calls the showAfter() method if showAfter prop is set", () => {
+				new Tooltip(stubEl, { "showAfter": 3 });
+				proclaim.isTrue(showAfterStub.called);
+			});
 		});
 
 		it("Adds the tooltip to the global tooltip map", () => {
@@ -426,6 +449,16 @@ describe("Tooltip", () => {
 			testTooltip.delegates.tooltip.on('o.tooltipShown', () => done());
 
 			testTooltip.show();
+		});
+
+		it('clears the showAfter timeout if there is one ongoing', () => {
+			const clearTimeoutStub = sinon.spy(window, 'clearTimeout');
+			const tooltipEl = document.getElementById('tooltip-demo');
+			const testTooltip = new Tooltip(tooltipEl, {target: 'demo-tooltip-target'});
+
+			testTooltip.show();
+			proclaim.isTrue(clearTimeoutStub.calledWith(testTooltip.showTimeout));
+			clearTimeoutStub.restore();
 		});
 	});
 
@@ -1264,6 +1297,16 @@ describe("Tooltip", () => {
 			testTooltip.show();
 			testTooltip.close();
 		});
+
+		it('clears closeAfter timeout if there is one set', () => {
+			const clearTimeoutStub = sinon.spy(window, 'clearTimeout');
+			const tooltipEl = document.getElementById('tooltip-demo');
+			const testTooltip = new Tooltip(tooltipEl, {target: 'demo-tooltip-target'});
+
+			testTooltip.close();
+			proclaim.isTrue(clearTimeoutStub.calledWith(testTooltip.closeTimeout));
+			clearTimeoutStub.restore();
+		});
 	});
 
 	describe("#closeOnKeyUp", () => {
@@ -1295,6 +1338,61 @@ describe("Tooltip", () => {
 			proclaim.isTrue(closeStub.called);
 			closeStub.restore();
 		});
+	});
+
+
+	describe("toggle()", () => {
+		beforeEach(() => {
+			fixtures.declarativeCode();
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+		});
+
+		context('trigger clicked', () => {
+			it('should call show() when not visible', () => {
+				const showStub = sinon.stub(Tooltip.prototype, 'show');
+				const tooltipEl = document.getElementById('tooltip-demo');
+				new Tooltip(tooltipEl,
+					{
+						target: 'demo-tooltip-target',
+						toggleOnClick: true
+					});
+				document.getElementById('demo-tooltip-target').click();
+				proclaim.isTrue(showStub.called);
+				showStub.restore();
+			});
+
+			it('should call close() when visible', () => {
+				const closeStub = sinon.stub(Tooltip.prototype, 'close');
+				const tooltipEl = document.getElementById('tooltip-demo');
+				new Tooltip(tooltipEl, {
+					target: 'demo-tooltip-target',
+					toggleOnClick: true,
+					showOnConstruction: true
+				});
+				document.getElementById('demo-tooltip-target').click();
+				proclaim.isTrue(closeStub.called);
+				closeStub.restore();
+			});
+
+			it('should toggle the visibility of the tooltip', () => {
+				const tooltipEl = document.getElementById('tooltip-demo');
+				const testTooltip = new Tooltip(tooltipEl, {
+					target: 'demo-tooltip-target',
+					toggleOnClick: true
+				});
+
+				proclaim.isFalse(testTooltip.visible);
+				document.getElementById('demo-tooltip-target').click();
+				proclaim.isTrue(testTooltip.visible);
+				document.getElementById('demo-tooltip-target').click();
+				proclaim.isFalse(testTooltip.visible);
+
+			});
+		});
+
 	});
 
 	describe('throwError', () => {

@@ -17,7 +17,7 @@
 
 	// Override padding provided for o-overlay which is too big
 	padding: 15px 0 15px 20px;
-	float: left;
+	margin-right: 40px;
 }
 
 
@@ -189,4 +189,7 @@
 	@include oOverlayClose;
 	padding: 0;
 	margin: 5px 5px 15px 15px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
 }
