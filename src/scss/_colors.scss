@@ -1,0 +1,14 @@
+@include oColorsSetUseCase('o-subs-card-top', 'text', 'white');
+@include oColorsSetUseCase('o-subs-card-top-premium', 'text', 'white');
+@include oColorsSetUseCase('o-subs-card-top-premium-plus', 'text', 'white');
+
+@include oColorsSetUseCase('o-subs-card-top', 'background', 'teal-60');
+@include oColorsSetUseCase('o-subs-card-premium-top', 'background', 'teal-40');
+@include oColorsSetUseCase('o-subs-card-premium-plus-top', 'background', 'teal-20');
+@include oColorsSetUseCase('o-subs-card-discount', 'background', 'claret-80');
+
+@include oColorsSetUseCase('o-subs-card-copy-pitch', 'background', 'wheat');
+@include oColorsSetUseCase('o-subs-card-copy-details', 'background', 'white');
+
+@include oColorsSetUseCase('o-subs-card-read-more', 'background', 'wheat');
+@include oColorsSetUseCase('o-subs-card-read-more', 'text', 'teal-50');

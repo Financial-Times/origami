@@ -1,0 +1,135 @@
+@mixin oSubsCard {
+	@include oTypographySans(0);
+	@include oColorsFor('o-subs-card-copy-details', 'background');
+	@include oTypographyMargin($top: 3, $bottom: 3);
+
+	text-align: center;
+	align-items: stretch;
+	width: 100%;
+
+	@include oGridRespondTo(L) {
+		height: 100%;
+	}
+
+	.o-subs-card__top {
+		@include oColorsFor(o-subs-card-top);
+	}
+
+	.o-subs-card__copy-offer {
+		@include oTypographySans(2);
+		@include oTypographyPadding($top: 2);
+	}
+
+	.o-subs-card__copy-title {
+		@include oTypographySansBold(3);
+		@include oTypographyMargin($bottom: 6);
+
+		&:first-child {
+			@include oTypographyPadding($top: 6);
+		}
+	}
+
+	// Mobile first
+	.o-subs-card__copy-image {
+		display: none;
+	}
+
+	// Tablet
+	@include oGridRespondTo(M) {
+		.o-subs-card__copy-image {
+			display: block;
+			margin: auto;
+		}
+	}
+
+	.o-subs-card__charge {
+		@include oTypographyPadding($top: 2, $bottom: 5);
+		@include oTypographyMargin($top: 2);
+	}
+
+	.o-subs-card__charge__value {
+		font-weight: 600;
+	}
+
+	.o-subs-card__select-button {
+		@include oButtons('big');
+		@include oButtonsCustomTheme(oColorsGetUseCase(o-subs-card-top, background), "white");
+		@include oTypographyMargin($top: 3);
+		width: calc(100% - 40px);
+	}
+
+	.o-subs-card__copy-pitch {
+		@include oColorsFor(o-subs-card-copy-pitch, background text, 80);
+		border-bottom: 1px solid oColorsMix(black, oColorsGetUseCase(o-subs-card-copy-pitch, background), 20);
+		text-align: left;
+		padding: 14px;
+
+		@include oGridRespondTo(L) {
+			display: none;
+		}
+	}
+
+	.o-subs-card__copy-details {
+		@include oExpanderContent();
+		@include oColorsFor(o-subs-card-copy-details, background text, 80);
+		text-align: left;
+
+		@include oGridRespondTo(L) {
+			&[aria-hidden='true'] {
+				display: block;
+			}
+		};
+	}
+
+	.o-subs-card__read-more {
+		@include oColorsFor(o-subs-card-read-more, background text, 80);
+		@include oTypographySansBold(1);
+		padding: 16px;
+		cursor: pointer;
+
+		@include oGridRespondTo(L) {
+			display: none;
+		}
+
+		//doesn't use oExpanderToggle mixin, because that mixin has a fixed font-size/icon size
+		&:after {
+			@include oIconsGetIcon('arrow-down', oColorsGetPaletteColor(oColorsGetUseCase(o-subs-card-read-more, text)), 24);
+			content: '';
+			position: relative;
+			vertical-align: middle;
+		}
+
+		&[aria-expanded='true']:after {
+			transform: rotate(180deg);
+		}
+
+		.core & {
+			display: none;
+		}
+	}
+
+	.o-subs-card__copy-preamble {
+		@include oTypographySansBold();
+		padding: 20px 20px 0;
+	}
+
+	.o-subs-card__copy-benefits {
+		@include oTypographyListUnordered();
+		padding: 0 20px 20px;
+		margin: 0;
+
+		// for the case where there is no o-subs-card__copy-preamble
+		&:first-child {
+			@include oTypographyPadding($top: 5);
+		}
+
+		/* override a few oTypographyListUnordered styles */
+		li {
+			padding-left: 16px;
+			&:before {
+				font-size: 24px;
+				top: -1px;
+			}
+		}
+	}
+}

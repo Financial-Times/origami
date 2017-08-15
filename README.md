@@ -8,7 +8,6 @@ _A table of contents to help people find things_
 
 - [Usage](#usage)
 	- [Markup](#markup)
-	- [JavaScript](#javascript)
 	- [Sass](#sass)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
@@ -30,36 +29,12 @@ _Remember to start your codeblocks with three backticks and "html" so your marku
 </div>
 ```
 
-### JavaScript
-_Remember to start your codeblocks with three backticks and "js" so your js is syntax highlighted correctly._
-
-_Though it's not practical to repeat every aspect of Origami modules convention for every component, **A LOT** of people get tripped up by modules not auto initialising, so this line (remember to change the `o-component-boilerplate` to your component name) is useful if you have JavaScript:_
-
-No code will run automatically unless you are using the Build Service.
-You must either construct an `o-component-boilerplate` object or fire the `o.DOMContentLoaded` event, which oComponent listens for.
-
-#### Constructing an o-component-boilerplate
-
-```js
-const oComponentBoilerplate = require('o-component-boilerplate');
-
-const oComponentBoilerplate = new oComponentBoilerplate();
-```
-
-#### Firing an oDomContentLoaded event
-
-```js
-document.addEventListener('DOMContentLoaded', function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-});
-```
-
 ### Sass
 _Remember to start your codeblocks with three backticks and "sass" so your markup is syntax highlighted correctly._
 
 _Though it's not practical to repeat every aspect of Origami modules convention for every component, **A LOT** of people get tripped up by silent mode, so this line (remember to change the o-component-boilerplate to your component name) is useful if you have Sass:_
 
-As with all Origami components, o-component-boilerplate has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-component-boilerplate-is-silent : false;` in your Sass before you import the o-component-boilerplate Sass.
+As with all Origami components, o-component-boilerplate has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-subs-card-is-silent : false;` in your Sass before you import the o-component-boilerplate Sass.
 
 ## Troubleshooting
 _This is a good place to put problems that come up repeatedly_

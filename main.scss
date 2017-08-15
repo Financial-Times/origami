@@ -1,10 +1,32 @@
+@import "o-buttons/main";
 @import "o-colors/main";
+@import "o-grid/main";
+@import "o-typography/main";
+@import "o-expander/main";
 
-@if ($o-component-boilerplate-is-silent == false) {
-	 .o-component-boilerplate {
-		display: block;
+@import "src/scss/colors.scss";
+@import "src/scss/_variables.scss";
+@import "src/scss/_mixins.scss";
+@import "src/scss/_themes.scss";
+
+
+
+@if ($o-subs-card-is-silent == false) {
+	.o-subs-card {
+		@include oSubsCard;
 	}
 
+	.o-subs-card--premium {
+		@include oSubsCardPremium;
+	}
+	
+	.o-subs-card--premium-plus {
+		@include oSubsCardPremiumPlus;
+	}
+
+	.o-subs-card--discount {
+		@include oSubsCardDiscount;
+	}
 	// Set to silent again to avoid being output twice
-	$o-component-boilerplate-is-silent: true !global;
+	$o-subs-card-is-silent: true !global;
 }

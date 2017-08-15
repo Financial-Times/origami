@@ -1,2 +1,22 @@
-$o-component-boilerplate-is-silent: false;
+$o-subs-card-is-silent: false;
 @import '../../main';
+
+
+body {
+	-webkit-font-smoothing: antialiased;
+	background-color: oColorsGetPaletteColor(paper);
+
+}
+
+.demo_container {
+	@include oGridContainer();
+	margin-top: 20px;
+}
+.demo_subs-card-row {
+	@include oGridRow();
+	align-items: stretch;
+
+	.demo_subs-card-container {
+		@include oGridColspan((default: 12, L: 3));
+	}
+}
