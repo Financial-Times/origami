@@ -4,11 +4,11 @@
 		"origamiType": "module",
 		"origamiCategory": "components",
 		"origamiVersion": 1,
-		"support": "https://github.com/Financial-Times/o-component-boilerplate/issues",
+		"support": "https://github.com/Financial-Times/o-subs-card/issues",
 		"supportStatus": "active",
 		"browserFeatures": {},
 		"ci": {
-			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-component-boilerplate"
+			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-subs-card"
 		},
 		"demosDefaults": {
 			"js": "demos/src/demo.js",
