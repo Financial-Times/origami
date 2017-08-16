@@ -14,16 +14,12 @@
 	.o-teaser__image-container {
 		flex: 0 0 30%;
 		width: 30%;
+		max-width: 30%;
 		padding-top: 4px; // to line up with tag cap-height
 		padding-right: oGridGutter(M);
 
 		@include oGridRespondTo($until: M) { // Mobile screens only
 			display: none;
-		}
-
-		//hack because IE11 and flexbox aren't friends
-		.top-stories__freeform-twocolumns & {
-			max-width: 30%;
 		}
 	}
 }
@@ -40,6 +36,7 @@
 
 	.o-teaser__image-container {
 		margin-bottom: 16px;
+		max-width: 100%;
 
 		@include oGridRespondTo(M) {
 			flex: 1 0 100%;
