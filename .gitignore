@@ -6,3 +6,4 @@ build/
 demos/local/
 node_modules/
 npm-debug.log
+coverage/
