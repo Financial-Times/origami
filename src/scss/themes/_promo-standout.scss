@@ -1,0 +1,40 @@
+
+@mixin oBannerThemePromoStandoutOuter() {
+	@include oColorsFor(o-banner-promo-standout, text);
+}
+
+@mixin oBannerThemePromoStandoutInner() {
+	@include oColorsFor(o-banner-promo-standout, background);
+}
+
+@mixin oBannerThemePromoStandoutButton {
+	@include oButtonsCustomTheme(oColorsGetUseCase(o-banner-promo-standout-button, background), oColorsGetUseCase(o-banner-promo-standout-button, text), primary);
+}
+
+@mixin oBannerThemePromoStandoutLink {
+	@include oColorsFor(o-banner-promo-standout-link, text);
+}
+
+@mixin oBannerThemePromoStandoutCloseButton {
+	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-promo-standout-close, text), $_o-banner-close-button-size);
+}
+
+@mixin oBannerThemePromoStandout($class: 'o-banner') {
+	.#{$class}--promo-standout {
+		.#{$class}__outer {
+			@include oBannerThemePromoStandoutOuter;
+		}
+		.#{$class}__inner {
+			@include oBannerThemePromoStandoutInner;
+		}
+		.#{$class}__button {
+			@include oBannerThemePromoStandoutButton;
+		}
+		.#{$class}__link {
+			@include oBannerThemePromoStandoutLink;
+		}
+		.#{$class}__close {
+			@include oBannerThemePromoStandoutCloseButton;
+		}
+	}
+}

@@ -35,7 +35,7 @@ class Banner {
 			contentShort: null,
 			buttonLabel: 'OK',
 			buttonUrl: '#',
-			linkLabel: 'More info',
+			linkLabel: null,
 			linkUrl: '#',
 			closeButtonLabel: 'Close',
 
@@ -45,6 +45,10 @@ class Banner {
 
 		// Render the banner
 		this.render();
+
+		// There can be only one
+		Banner._bannerInstances.forEach(banner => banner.close());
+		Banner._bannerInstances = [this];
 
 		if (this.options.autoOpen) {
 			this.open();
@@ -94,9 +98,13 @@ class Banner {
 	buildBannerElement () {
 		const bannerElement = document.createElement('div');
 		bannerElement.classList.add(this.options.bannerClass);
+		let themes = [];
 		if (this.options.theme) {
-			bannerElement.classList.add(`${this.options.bannerClass}--${this.options.theme}`);
+			themes = (Array.isArray(this.options.theme) ? this.options.theme : [this.options.theme]);
 		}
+		themes.forEach(theme => {
+			bannerElement.classList.add(`${this.options.bannerClass}--${theme}`);
+		});
 		bannerElement.setAttribute('data-o-component', 'o-banner');
 		let contentHtml;
 		if (this.options.contentShort) {
@@ -115,6 +123,14 @@ class Banner {
 				</div>
 			`;
 		}
+		let secondaryActionHtml = '';
+		if (this.options.linkLabel) {
+			secondaryActionHtml = `
+				<div class="${this.options.actionClass} ${this.options.actionSecondaryClass}">
+					<a href="${this.options.linkUrl}" class="${this.options.linkClass}">${this.options.linkLabel}</a>
+				</div>
+			`;
+		}
 		bannerElement.innerHTML = `
 			<div class="${this.options.outerClass}">
 				<div class="${this.options.innerClass}" data-o-banner-inner="">
@@ -123,9 +139,7 @@ class Banner {
 						<div class="${this.options.actionClass}">
 							<a href="${this.options.buttonUrl}" class="${this.options.buttonClass}">${this.options.buttonLabel}</a>
 						</div>
-						<div class="${this.options.actionClass} ${this.options.actionSecondaryClass}">
-							<a href="${this.options.linkUrl}" class="${this.options.linkClass}">${this.options.linkLabel}</a>
-						</div>
+						${secondaryActionHtml}
 					</div>
 				</div>
 			</div>
@@ -211,6 +225,8 @@ class Banner {
 	}
 
 }
+
+Banner._bannerInstances = [];
 
 // Exports
 export default Banner;

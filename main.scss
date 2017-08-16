@@ -10,7 +10,8 @@
 @import "src/scss/mixins";
 @import "src/scss/banner";
 
-@import "src/scss/themes/small";
+@import "src/scss/themes/promo";
+@import "src/scss/themes/promo-standout";
 
 @if ($o-banner-is-silent == false) {
 

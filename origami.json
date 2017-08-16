@@ -23,9 +23,14 @@
 			"description": "Basic banner"
 		},
 		{
-			"name": "small",
-			"template": "demos/src/small.mustache",
-			"description": "Small banner theme"
+			"name": "promo",
+			"template": "demos/src/promo.mustache",
+			"description": "Promo banner theme"
+		},
+		{
+			"name": "promo-standout",
+			"template": "demos/src/promo-standout.mustache",
+			"description": "Promo standout banner theme"
 		},
 		{
 			"name": "imperative",
