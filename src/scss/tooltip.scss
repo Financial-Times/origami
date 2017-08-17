@@ -14,10 +14,11 @@
 /// Base tooltip content style. Inherits from oOverlay.
 @mixin oTooltipContent {
 	@include oOverlayContent;
-
+	// Breaks long words to fit into smaller screen sizes
+	hyphens: auto;
 	// Override padding provided for o-overlay which is too big
-	padding: 15px 0 15px 20px;
-	margin-right: 40px;
+	padding: 15px 35px 15px 20px;
+	float: left;
 }
 
 
@@ -187,9 +188,9 @@
 
 @mixin oTooltipClose {
 	@include oOverlayClose;
+	position: absolute;
+	top: 0;
+	right: 0;
 	padding: 0;
 	margin: 5px 5px 15px 15px;
-	position: absolute;
-	top: 5px;
-	right: 5px;
 }
