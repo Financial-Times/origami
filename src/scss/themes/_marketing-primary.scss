@@ -1,0 +1,52 @@
+
+@mixin oBannerThemeMarketingPrimaryOuter() {
+	@include oColorsFor(o-banner-marketing-primary, text background);
+}
+
+@mixin oBannerThemeMarketingPrimarySmallOuter() {
+	@include oColorsFor(o-banner-marketing-primary, text);
+	background-color: transparent;
+}
+
+@mixin oBannerThemeMarketingPrimarySmallInner() {
+	@include oColorsFor(o-banner-marketing-primary, background);
+}
+
+@mixin oBannerThemeMarketingPrimaryButton {
+	@include oButtonsCustomTheme(oColorsGetUseCase(o-banner-marketing-primary-button, background), oColorsGetUseCase(o-banner-marketing-primary-button, text), primary);
+}
+
+@mixin oBannerThemeMarketingPrimaryLink {
+	@include oColorsFor(o-banner-marketing-primary-link, text);
+}
+
+@mixin oBannerThemeMarketingPrimaryCloseButton {
+	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-marketing-primary-close, text), $_o-banner-close-button-size);
+}
+
+@mixin oBannerThemeMarketingPrimary($class: 'o-banner') {
+	.#{$class}--marketing-primary {
+		.#{$class}__outer {
+			@include oBannerThemeMarketingPrimaryOuter;
+		}
+		.#{$class}__button {
+			@include oBannerThemeMarketingPrimaryButton;
+		}
+		.#{$class}__link {
+			@include oBannerThemeMarketingPrimaryLink;
+		}
+		.#{$class}__close {
+			@include oBannerThemeMarketingPrimaryCloseButton;
+		}
+
+		// When combined with the "small" theme
+		&.#{$class}--small {
+			.#{$class}__outer {
+				@include oBannerThemeMarketingPrimarySmallOuter;
+			}
+			.#{$class}__inner {
+				@include oBannerThemeMarketingPrimarySmallInner;
+			}
+		}
+	}
+}

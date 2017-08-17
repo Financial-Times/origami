@@ -23,14 +23,19 @@
 			"description": "Basic banner"
 		},
 		{
-			"name": "promo",
-			"template": "demos/src/promo.mustache",
-			"description": "Promo banner theme"
+			"name": "small",
+			"template": "demos/src/small.mustache",
+			"description": "Small banner theme"
 		},
 		{
-			"name": "promo-standout",
-			"template": "demos/src/promo-standout.mustache",
-			"description": "Promo standout banner theme"
+			"name": "marketing-secondary",
+			"template": "demos/src/marketing-secondary.mustache",
+			"description": "Secondary marketing banner theme"
+		},
+		{
+			"name": "marketing-primary",
+			"template": "demos/src/marketing-primary.mustache",
+			"description": "Primary marketing banner theme"
 		},
 		{
 			"name": "imperative",
