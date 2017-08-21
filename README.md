@@ -1,7 +1,7 @@
 
 # o-banner [![Circle CI](https://circleci.com/gh/Financial-Times/o-banner/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-banner/tree/master)
 
-o-banner is a component used for product messaging which could include feature promotion, education, feedback, and legal information.
+o-banner is a component used for product messaging which could include feature promotion, education, feedback, and legal information. **Note: o-banner is currently in beta**
 
 - [Usage](#usage)
   - [Behaviour](#behaviour)
