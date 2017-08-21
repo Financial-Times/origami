@@ -101,7 +101,6 @@ To get all of the CSS needed for the FT homepage you would call:
 oHeader(('sticky', 'simple', 'anon', 'search', 'nav', 'megamenu'));
 ```
 
-
 ### Markup
 
 _There are intentionally no classes to switch between logged in and out as we don't want to do that in the client side. This is left up to the product._
@@ -116,22 +115,23 @@ Some elements inside the header require specific data attributes so the JavaScri
 * data-o-header-subnav: Applied to the root `div` of the subnav menu
 * data-o-header-subnav-wrapper: Applied to the inner wrapper `div` of the subnav menu so the JS can handle the scrolling
 
-### Events
+### Events
 
 o-header fires the following event:
 
 * `oHeader.MegaMenuShow`: When a mega menu is showed. The target of the event is the menu itself
 * `oHeader.MegaMenuClose`: When a mega menu is closed. The target of the event is the menu itself
 
-## Enhanced/Core experience
+## Enhanced/Core experience
 
 We use the [standard](http://origami.ft.com/docs/developer-guide/using-modules/#styles-for-fallbacks-and-enhancements) `o--if-js` and `o--if-no-js` classes to hide elements in enhanced and core experience respectively
 
-## Migrating from 6.x.x to 7.x.x
+## Migrating from 6.x.x to 7.x.x
 
 V7 introduces new major versions of `o-colors`, `o-typography`, `o-buttons` and `o-visual-effects`. Updating to this new version will mean updating any other components that you have which are using `o-colors`, `o-typography`, `o-buttons`, or `o-visual-effects`. There are no other breaking changes in this release.
 
-## Migrating from 5.x.x to 6.x.x
+
+## Migrating from 5.x.x to 6.x.x
 
 This is a complete change in the markup and usage of the module, so we advise to look at the markup in the demos and go over the readme. If any issues come up, please let us know.
 
