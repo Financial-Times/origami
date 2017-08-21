@@ -1,70 +1,84 @@
-o-component-boilerplate [![Circle CI](https://circleci.com/gh/Financial-Times/o-component-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-component-boilerplate/tree/master)
+o-subs-card [![Circle CI](https://circleci.com/gh/Financial-Times/o-subs-card/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-subs-card/tree/master)
 =================
 
-_A short description of what this component does._
+This component is used for showing information about various FT subscription packages.
 
-
-_A table of contents to help people find things_
 
 - [Usage](#usage)
 	- [Markup](#markup)
 	- [Sass](#sass)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [Migration guide](#migration-guide)
+	- [JS](#js)
 - [Contact](#contact)
 - [Licence](#licence)
 
 ## Usage
-_Whatever usage instructions your component has. We've broken this down by Markup, JavaScript and Sass, but it depends how complex your component is._
+
+This component is largely Sass styles, but there is a small amount of JavaScript used to show and hide content at smaller screen widths.
 
 ### Markup
 
-_Common templating can go here, especially if there is only one template, but people can always check the demos for more._
-
-_Remember to start your codeblocks with three backticks and "html" so your markup is syntax highlighted correctly._
+The subs card will expand to fill the width of its containing element, so you will need to build your own container system depending on how you want to arrange your page. An example of several subs packages together in a collection can be seen in the demos on the [registry](http://registry.origami.ft.com/components/o-subs-card)
 
 ```html
-<div data-o-component="o-component-boilerplate" class='o-component-boilerplate'>
+<div class="o-subs-card" data-o-component="o-subs-card">
+	<div class="o-subs-card__top">
+		<div class="o-subs-card__copy-title">Subscription title</div>
+		<img class="o-subs-card__copy-image" src='/demos/src/demo-placeholder.png' alt='photo of FT subscription options'>
+		<div class="o-subs-card__charge">
+			<span class="o-subs-card__charge__value">£XX.XX</span> per week
+			<button class="o-subs-card__select-button">Select</button>
+		</div>
+	</div>
+	<div class="o-subs-card__copy-pitch">Access to FT.com on your desktop, mobile and tablet</div>
+	<div class="o-subs-card__expander">
+		<div class='o-subs-card__read-more'>Read more</div>
+		<div class="o-subs-card__copy-details">
+			<ul class="o-subs-card__copy-benefits">
+				<li>...</li>
+			</ul>
+		</div>
+	</div>
 </div>
 ```
 
 ### Sass
-_Remember to start your codeblocks with three backticks and "sass" so your markup is syntax highlighted correctly._
 
-_Though it's not practical to repeat every aspect of Origami modules convention for every component, **A LOT** of people get tripped up by silent mode, so this line (remember to change the o-component-boilerplate to your component name) is useful if you have Sass:_
+As with all Origami components, o-subs-card has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-subs-card-is-silent : false;` in your Sass before you import the o-subs-card Sass.
 
-As with all Origami components, o-component-boilerplate has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-subs-card-is-silent : false;` in your Sass before you import the o-component-boilerplate Sass.
+#### Themes
 
-## Troubleshooting
-_This is a good place to put problems that come up repeatedly_
+The subs card standard theme is teal. To differentiate amongst different subscription tiers, there are some additional themes which you can use with either the mixin or concrete classes:
+- `oSubsCardPremium` / `o-subs-card--premium`
+- `oSubsCardPremiumPlus` / `o-subs-card--premium-plus`
+- `oSubsCardDiscount` / `o-subs-card--discount`
 
-### The thing with the thing isn't working
-Fix it by turning it off and on again
+### JavaScript
 
-## Contributing
-If your component is particularly complicated (image sets fall into this category) then a contributing section or even a contributing.md might be useful.
+If you're using the [Build Service](https://www.ft.com/__origami/service/build/v2/) to get this component, you won't need to initialise your JavaScript, it should just work.
 
+If you aren't using the Build Service, you'll need to fire an `o.DOMContentLoaded` event (which o-subs-card listens for) or construct an `oSubsCard` object.
 
-## Migration guide
-_Migration guides are very important! Always include one for major releases. To create a codeblock that has diff highligting, use three backticks followed by the word diff_
+Firing an o.DOMContentLoaded event
 
-### Migrating from 1.X.X to 2.X.X
-
-The 2.0.0 release changes the default behaviour of o-component-boilerplate.
-
-```diff
-<div class="o-component-boilerplate__container">
-- remove this line
-+ add this line
-</div>
+```js
+document.addEventListener('DOMContentLoaded', function() {
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});
 ```
+
+Instantiating your own oSubsCard:
+
+```js
+const subsCard = require('o-subs-card');
+subsCard.init();
+```
+This will instantiate all subs-cards within the document. Alternatively you can pass in a HTMLElement, or String to be used as a selector to limit the scope of the instantiated subs cards to only child elements of the passed in scope.
 
 ---
 
 ## Contact
 
-If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-component-boilerplate/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-subs-card/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
 ----
 
