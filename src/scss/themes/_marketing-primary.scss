@@ -17,7 +17,12 @@
 }
 
 @mixin oBannerThemeMarketingPrimaryLink {
-	@include oColorsFor(o-banner-marketing-primary-link, text);
+	@include oTypographyLinkCustom(
+		$baseColor: oColorsGetUseCase(o-banner-marketing-primary-link, text),
+		$hoverColor: oColorsGetUseCase(o-banner-marketing-primary-link, text),
+		$outlineColor: oColorsGetUseCase(o-banner-marketing-primary-link, text),
+		$backgroundColor: oColorsGetUseCase(o-banner-marketing-primary, background)
+	);
 }
 
 @mixin oBannerThemeMarketingPrimaryCloseButton {

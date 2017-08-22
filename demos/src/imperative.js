@@ -28,16 +28,24 @@ function initDemos() {
 		document.getElementById('banner-marketing-secondary').addEventListener('click', () => {
 			new Banner(null, {
 				contentLong: `
-					<p><b>Save 25% today</b> Limited time only.  Resubscribe now and get:</p>
+					<p>
+						<b>You qualify for a 25% subscription discount.</b><br/>
+						Pay just £3.99 per week for annual Standard  Digital access.
+					</p>
 					<ul>
-						<li>Reduced price full Standard FT digital package</li>
-						<li>Access to the FT on your desktop and mobile devices</li>
-						<li>Our 5-year company financials archive</li>
+						<li>Access FT.com on your desktop, tablet &amp; mobile</li>
+						<li>5 year company financials archive</li>
+						<li>Personalised email briefings and market moving news</li>
 					</ul>
 				`,
-				contentShort: '<p><b>Save 25% today</b> Limited time only.</p>',
-				buttonLabel: 'Subscribe now',
-				buttonUrl: '#subscribe-button',
+				contentShort: `
+					<p>
+						<b>You qualify for a 25% subscription discount.</b><br/>
+						Pay just £3.99 per week for annual Standard  Digital access.
+					</p>
+				`,
+				buttonLabel: 'Save 25% now',
+				buttonUrl: '#save-button',
 				theme: ['small', 'marketing-secondary']
 			});
 		});
@@ -45,16 +53,24 @@ function initDemos() {
 		document.getElementById('banner-marketing-primary').addEventListener('click', () => {
 			new Banner(null, {
 				contentLong: `
-					<p><b>Save 25% today</b> Limited time only.  Resubscribe now and get:</p>
+					<p>
+						<b>You qualify for a 25% subscription discount.</b><br/>
+						Pay just £3.99 per week for annual Standard  Digital access.
+					</p>
 					<ul>
-						<li>Reduced price full Standard FT digital package</li>
-						<li>Access to the FT on your desktop and mobile devices</li>
-						<li>Our 5-year company financials archive</li>
+						<li>Access FT.com on your desktop, tablet &amp; mobile</li>
+						<li>5 year company financials archive</li>
+						<li>Personalised email briefings and market moving news</li>
 					</ul>
 				`,
-				contentShort: '<p><b>Save 25% today</b> Limited time only.</p>',
-				buttonLabel: 'Subscribe now',
-				buttonUrl: '#subscribe-button',
+				contentShort: `
+					<p>
+						<b>You qualify for a 25% subscription discount.</b><br/>
+						Pay just £3.99 per week for annual Standard  Digital access.
+					</p>
+				`,
+				buttonLabel: 'Save 25% now',
+				buttonUrl: '#save-button',
 				theme: ['small', 'marketing-primary']
 			});
 		});

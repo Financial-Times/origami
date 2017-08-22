@@ -16,6 +16,7 @@
 	@include oButtonsCustomTheme(oColorsGetUseCase(o-banner-marketing-secondary-button, background), oColorsGetUseCase(o-banner-marketing-secondary-button, text), primary);
 	// This is a hack around the fact that custom buttons do not
 	// support buttons with three colours. TODO: add this to o-buttons
+	// https://github.com/Financial-Times/o-buttons/issues/128
 	&,
 	&:not([disabled]):active {
 		@include oColorsFor(o-banner-marketing-secondary-button-active, text);
@@ -23,7 +24,12 @@
 }
 
 @mixin oBannerThemeMarketingSecondaryLink {
-	@include oColorsFor(o-banner-marketing-secondary-link, text);
+	@include oTypographyLinkCustom(
+		$baseColor: oColorsGetUseCase(o-banner-marketing-secondary-link, text),
+		$hoverColor: oColorsGetUseCase(o-banner-marketing-secondary-link, text),
+		$outlineColor: oColorsGetUseCase(o-banner-marketing-secondary-link, text),
+		$backgroundColor: oColorsGetUseCase(o-banner-marketing-secondary, background)
+	);
 }
 
 @mixin oBannerThemeMarketingSecondaryCloseButton {

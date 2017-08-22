@@ -2,6 +2,7 @@
 @include oColorsSetUseCase(o-banner, background, 'teal');
 @include oColorsSetUseCase(o-banner, text, 'white');
 @include oColorsSetUseCase(o-banner-button, background, 'teal-60');
+@include oColorsSetUseCase(o-banner-button-active, text, 'teal-50');
 @include oColorsSetUseCase(o-banner-button, text, 'white');
 @include oColorsSetUseCase(o-banner-link, text, 'white');
 @include oColorsSetUseCase(o-banner-close, text, 'white');

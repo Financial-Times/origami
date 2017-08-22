@@ -42,15 +42,11 @@
 	}
 	ul {
 		@include oTypographyListUnordered;
-		@include oTypographySans($scale: (default: 2));
+		@include oTypographySans($scale: (default: 1));
 		margin-top: oTypographySpacingSize(2);
 
 		li:before {
 			color: inherit;
-		}
-
-		@include oGridRespondTo($until: M) {
-			@include oTypographySans($scale: (default: 1));
 		}
 	}
 }
@@ -93,10 +89,22 @@
 	@include oButtons($size: big);
 	@include oButtonsCustomTheme(oColorsGetUseCase(o-banner-button, background), oColorsGetUseCase(o-banner-button, text), primary);
 	white-space: nowrap;
+	// This is a hack around the fact that custom buttons do not
+	// support buttons with three colours. TODO: add this to o-buttons
+	// https://github.com/Financial-Times/o-buttons/issues/128
+	&,
+	&:not([disabled]):active {
+		@include oColorsFor(o-banner-button-active, text);
+	}
 }
 
 @mixin oBannerLink {
-	@include oColorsFor(o-banner-link, text);
+	@include oTypographyLinkCustom(
+		$baseColor: oColorsGetUseCase(o-banner-link, text),
+		$hoverColor: oColorsGetUseCase(o-banner-link, text),
+		$outlineColor: oColorsGetUseCase(o-banner-link, text),
+		$backgroundColor: 'teal'
+	);
 	@include oTypographySans($scale: (default: 0));
 	white-space: nowrap;
 }
