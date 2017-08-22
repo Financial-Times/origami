@@ -298,6 +298,7 @@ class Tooltip {
 	/**
 	 * Calculates the best place to position the tooltip based on space around the
 	 * target and a preference set by the user.
+	 * @throws {Error} if Tooltip can't be drawn in the client window
 	*/
 	drawTooltip(){
 		// render the tooltip so we know how big it is
