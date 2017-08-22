@@ -202,6 +202,10 @@
 	.o-tooltip {
 		width: 275px;
 	}
+	.o-tooltip-close {
+		// Override this being set in n-ui-foundations for all links.
+		border-bottom: 0;
+	}
 }
 
 
