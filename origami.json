@@ -47,6 +47,12 @@
 			"template": "demos/src/all-styles.mustache",
 			"description": "",
 			"hidden": true
+		},
+		{
+			"name": "custom-links",
+			"template": "demos/src/custom-links.mustache",
+			"description": "",
+			"hidden": true
 		}
 	]
 }

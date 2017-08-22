@@ -46,3 +46,10 @@ html {
 		}
 	}
 }
+
+.o-typography-link--custom {
+	@include oTypographyLinkCustom(
+		$baseColor: 'claret',
+		$hoverColor: 'claret-30'
+	);
+}

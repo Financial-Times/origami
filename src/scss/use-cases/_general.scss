@@ -19,23 +19,31 @@
 	vertical-align: super;
 }
 
-/// Link styles
-@mixin oTypographyLink {
-	@include oColorsFor(link, text);
+/// Custom link styles
+@mixin oTypographyLinkCustom($baseColor, $hoverColor, $backgroundColor: 'paper', $outlineColor: 'teal') {
+	color: oColorsGetPaletteColor($baseColor);
 	text-decoration: none;
 	cursor: pointer;
-	border-bottom: 2px solid oColorsMix($color: oColorsGetColorFor(link, text), $percentage: 20);
+	border-bottom: 2px solid oColorsMix(oColorsGetPaletteColor($baseColor), oColorsGetPaletteColor($backgroundColor), $percentage: 20);
 
 	&:hover,
 	&:focus {
-		color: oColorsGetPaletteColor('teal-30');
-		border-bottom-color: oColorsMix($color: oColorsGetColorFor(link, text), $percentage: 40);
+		color: oColorsGetPaletteColor($hoverColor);
+		border-bottom-color: oColorsMix(oColorsGetPaletteColor($baseColor), oColorsGetPaletteColor($backgroundColor), $percentage: 40);
 	}
 
 	&:focus {
-		outline: 3px solid oColorsGetPaletteColor('teal');
+		outline: 3px solid oColorsGetPaletteColor($outlineColor);
 		border-bottom-color: transparent;
 	}
+}
+
+/// Standard link styles
+@mixin oTypographyLink {
+	@include oTypographyLinkCustom(
+		$baseColor: oColorsGetUseCase(link, text),
+		$hoverColor: 'teal-30'
+	);
 }
 
 /// Make something italic

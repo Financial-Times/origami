@@ -340,6 +340,36 @@ h1 {
 }
 ```
 
+#### Custom link mixin
+
+Links in o-typography have a custom underline which uses borders. As well as the default link mixin (`oTypographyLink`), we expose `oTypographyLinkCustom` which allows you to output link styles with your own colors.
+
+This mixin accepts four arguments, all of which must be valid o-colors palette colors:
+
+- **baseColor**: The base text color of the link. This is mixed with `backgroundColor` to create the underline color.
+- **hoverColor**: The text color of the link when it's hovered or focused.
+- **backgroundColor**: The color of the background the link will sit on. Defaults to `paper`.
+- **outlineColor**: The outline color of the link when it receives focus. Defaults to `teal`.
+
+Example usage:
+
+```scss
+.my-custom-link {
+	@include oTypographyLinkCustom(
+		$baseColor: 'claret',
+		$hoverColor: 'claret-30'
+	);
+}
+
+.dark-background .my-custom-link {
+	@include oTypographyLinkCustom(
+		$baseColor: 'lemon',
+		$hoverColor: 'lemon-30',
+		$backgroundColor: 'slate'
+	);
+}
+```
+
 ### JavaScript
 
 o-typography uses JavaScript to [progressively load fonts](#progressive-loading-web-fonts) to prevent a flash of invisible content (FOIC) if the web-fonts are taking a long time to load.
