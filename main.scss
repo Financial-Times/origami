@@ -120,4 +120,7 @@ $n-notification-is-silent: true !default;
 	.n-notification--success {
 		background-color: rgba(getColor('jade'), 0.95);
 	}
+	
+	// Set module to silent again
+	$n-notification-is-silent: true !global;
 }
