@@ -14,3 +14,7 @@ body {
 .demo-button {
 	@include oButtons($size: big);
 }
+
+.o-banner--static {
+	position: static !important;
+}

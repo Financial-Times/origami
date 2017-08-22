@@ -42,6 +42,12 @@
 			"template": "demos/src/imperative.mustache",
 			"description": "Imperative banner",
 			"js": "demos/src/imperative.js"
+		},
+		{
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
+			"description": "Accessibility tests will be run against this demo"
 		}
 	]
 }
