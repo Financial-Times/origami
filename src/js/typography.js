@@ -44,9 +44,9 @@ class Typography {
 	 * declaratively, this method is used to extract the data attributes from
 	 * the DOM.
 	 * @param {HTMLElement} typographyEl - The typography element in the DOM (Required)
-	*/
+	 */
 	static getOptions(typographyEl) {
-		const dataset = typographyEl.dataset;
+		const dataset = Object(typographyEl.dataset);
 		return Object.keys(dataset).reduce((col, key) => { // Phantom doesn't like Object.entries :sob:
 			if (key === 'oComponent') return col; // Bail on data-o-component
 			const shortKey = key.replace(/^oTypography(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
@@ -65,7 +65,7 @@ class Typography {
 	 * Check the options passed in are valid, otherwise set defaults
 	 * @param {Object} opts - An Object with configuration options for typography
 	 * @return {Object} opts
-	*/
+	 */
 	static checkOptions(opts) {
 
 		if (!opts.fontLoadingPrefix) {
@@ -121,8 +121,7 @@ class Typography {
 				// set value in cookie for subsequent visits
 				this.setCookie();
 				this.hasRun = true;
-			})
-			.catch(() => {});
+			});
 	}
 
 	static init (rootEl, opts) {
