@@ -1,6 +1,6 @@
 {
-		"description": "Component description",
-		"keywords": "component, keywords, for, the, registry, search",
+		"description": "A card for showing different subscription packages offered by the Financial Times",
+		"keywords": "card, subscription, subs, pack, packages, masterbrand",
 		"origamiType": "module",
 		"origamiCategory": "components",
 		"origamiVersion": 1,
@@ -20,7 +20,7 @@
 			{
 				"name": "demo",
 				"template": "demos/src/demo.mustache",
-				"description": "Description of the demo",
+				"description": "Subs cards using different theme colours",
 				"js": "demos/src/demo.js"
 			},
 			{
