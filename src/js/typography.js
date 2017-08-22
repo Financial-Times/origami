@@ -9,6 +9,9 @@ class Typography {
 		if (typeof this.opts.loadOnInit === 'undefined') {
 			this.opts.loadOnInit = true;
 		}
+		if (typeof this.opts.rejectOnFontLoadFailure === 'undefined') {
+			this.opts.rejectOnFontLoadFailure = false;
+		}
 		this.opts = Typography.checkOptions(this.opts);
 		this.hasRun = false;
 
@@ -121,6 +124,11 @@ class Typography {
 				// set value in cookie for subsequent visits
 				this.setCookie();
 				this.hasRun = true;
+			})
+			.catch(error => {
+				if (this.opts.rejectOnFontLoadFailure) {
+					throw error;
+				}
 			});
 	}
 
