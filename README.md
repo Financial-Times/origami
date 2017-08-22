@@ -11,6 +11,7 @@ Typographical styles for FT branded sites - font families, weight, colors, sizes
 		- [Responsive font scales](#responsive-font-scales)
 		- [Progressive loading web fonts](#progressive-loading-web-fonts)
 		- [Baseline grid mixins](#baseline-grid-mixins)
+- [Troubleshooting](#troubleshooting)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -393,6 +394,15 @@ document.addEventListener('DOMContentLoaded', function() {
 ```
 
 Both methods will trigger the font loading scripts. This will remove the loading classes from the html enabling [progressive font loading](#progressive-loading-web-fonts).
+
+## Troubleshooting
+
+### Fonts not loading in IE11
+This is likely due to a misconfigured `Vary` header. In IE11 if the `Vary` header contains the name of a header which the browser is not aware of E.G. `FT-Site`, then it will cancel downloading the fonts part way through recieving the response yet still report the response as having a 200 HTTP status code. The solution to this is to remove the erroneous `Vary` header values or to remove the `Vary` header altogether. You can read more about how IE handles the `Vary` header on [MSDN](https://blogs.msdn.microsoft.com/ieinternals/2009/06/17/vary-with-care/).
+
+### Fonts not loading in any brower
+This is likely due to the server sending the fonts having misconfigured Cross Origin Resource Sharing (CORS). The solution to this is to set the header `Access-Control-Allow-Origin` with the value `*` for any font requests.
+
 
 ## Migration guide
 
