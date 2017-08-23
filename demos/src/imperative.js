@@ -29,7 +29,7 @@ function initDemos() {
 			new Banner(null, {
 				contentLong: `
 					<p>
-						<b>You qualify for a 25% subscription discount.</b><br/>
+						<b>You qualify for a 25% subscription discount.</b>
 						Pay just £3.99 per week for annual Standard  Digital access.
 					</p>
 					<ul>
@@ -40,7 +40,7 @@ function initDemos() {
 				`,
 				contentShort: `
 					<p>
-						<b>You qualify for a 25% subscription discount.</b><br/>
+						<b>You qualify for a 25% subscription discount.</b>
 						Pay just £3.99 per week for annual Standard  Digital access.
 					</p>
 				`,
@@ -54,7 +54,7 @@ function initDemos() {
 			new Banner(null, {
 				contentLong: `
 					<p>
-						<b>You qualify for a 25% subscription discount.</b><br/>
+						<b>You qualify for a 25% subscription discount.</b>
 						Pay just £3.99 per week for annual Standard  Digital access.
 					</p>
 					<ul>
@@ -65,7 +65,7 @@ function initDemos() {
 				`,
 				contentShort: `
 					<p>
-						<b>You qualify for a 25% subscription discount.</b><br/>
+						<b>You qualify for a 25% subscription discount.</b>
 						Pay just £3.99 per week for annual Standard  Digital access.
 					</p>
 				`,
