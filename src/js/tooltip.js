@@ -260,7 +260,11 @@ class Tooltip {
 
 		// Set `display: none` after animation & remove listener
 		this.tooltipEl.addEventListener('transitionend', () => {
-			this.tooltipEl.style.display = 'none';
+			// Check this is still false and that the tooltip hasn't reappeared
+			// in the transition period
+			if (this.visible === false) {
+				this.tooltipEl.style.display = 'none';
+			}
 		}, {once: true});
 
 		if (this.opts.showOnClick) {
