@@ -66,6 +66,41 @@ describe('click', function () {
 		}, 10);
 
 	});
+	
+	it('should track custom event properties and send through in the context', (done) => {
+
+		sinon.spy(core, 'track');
+
+		click.init("blah");
+
+		const aLinkToGoogle = document.createElement('a');
+
+		aLinkToGoogle.href = "http://www.google.com";
+		aLinkToGoogle.text = "A link to Google's website";
+		aLinkToGoogle.id = "anchorA";
+		aLinkToGoogle.setAttribute('data-trackable-context-foo', 'bar');
+
+		aLinkToGoogle.addEventListener('click', function(e){
+			e.preventDefault();
+		}); //we don't want the browser to follow click in test
+
+		let event = new MouseEvent('click', {
+			'view': window,
+			'bubbles': true,
+			'cancelable': true
+		});
+
+		document.body.appendChild(aLinkToGoogle);
+		aLinkToGoogle.dispatchEvent(event, true);
+
+		setTimeout(() => {
+			assert.equal(core.track.getCall(0).args[0].context.foo, 'bar');
+
+			core.track.restore();
+			done();
+		}, 10);
+		
+	});
 
 	it('should not track an event for a securedrop click', function (done) {
 

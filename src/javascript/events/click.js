@@ -9,6 +9,22 @@ const settings = require('../core/settings');
 
 let internalQueue;
 
+const elementPropertiesToCollect = [
+	"nodeName",
+	"className",
+	"id",
+	"href",
+	"text",
+	"role",
+];
+
+const eventPropertiesToCollect = [
+	"ctrlKey",
+	"altKey",
+	"shiftKey",
+	"metaKey",
+];
+
 // Trigger the event tracking
 const track = eventData => {
 	const href = eventData.context.domPathTokens[0].href || null;
@@ -44,17 +60,9 @@ const getSiblingsAndPosition = (el, clickedEl, selector) => {
 	};
 };
 
-// Get some properties of a given element.
-const getElementProperties = el => {
-	const elementPropertiesToCollect = [
-		"nodeName",
-		"className",
-		"id",
-		"href",
-		"text",
-		"role",
-	];
-	let elementProperties = elementPropertiesToCollect.reduce((returnObject, property) => {
+// Get all (sanitised) properties of a given element.
+const getAllElementProperties = el => {
+	return elementPropertiesToCollect.reduce((returnObject, property) => {
 		if (el[property]) {
 			returnObject[property] = sanitise(el[property]);
 		}
@@ -66,12 +74,29 @@ const getElementProperties = el => {
 		}
 		return returnObject;
 	}, {});
+};
+
+// Get some properties of a given element.
+const getElementProperties = el => {
+	let elementProperties = getAllElementProperties(el);
 
 	// Collect any attribute that matches given strings.
 	Array.from(el.attributes)
 		.filter(attribute => attribute.name.match(/^data-trackable|^data-o-|^aria-/i))
 		.forEach(attribute => elementProperties[attribute.name] = attribute.value);
 
+	return elementProperties;
+};
+
+// Get only the custom data-trackable-context-? properties of a given element
+const getCustomTrackableProperties = el => {
+	let elementProperties = getAllElementProperties(el);
+
+	// Collect any attribute that matches given strings.
+	Array.from(el.attributes)
+		.filter(attribute => attribute.name.match(/^data-trackable-context-/i))
+		.forEach(attribute => elementProperties[attribute.name.replace('data-trackable-context-', '')] = attribute.value);
+	
 	return elementProperties;
 };
 
@@ -101,12 +126,6 @@ const getTrace = el => {
 // Get properties for the event (as opposed to properties of the clicked element)
 // Available properties include mouse x- and y co-ordinates, for example.
 const getEventProperties = event => {
-	const eventPropertiesToCollect = [
-		"ctrlKey",
-		"altKey",
-		"shiftKey",
-		"metaKey",
-	];
 	let eventProperties = eventPropertiesToCollect.reduce((returnObject, property) => {
 		try {
 			if (event[property]) returnObject[property] = sanitise(event[property]);
@@ -124,8 +143,18 @@ const handleClickEvent = eventData => (clickEvent, clickElement) => {
 	//we don't want to track clicks to anonymous services like securedrop
 	if (clickElement.getAttribute("data-o-tracking-do-not-track") === "true") return;
 	const context = getEventProperties(clickEvent);
+	const customTrackableProperties = getCustomTrackableProperties(clickElement);
 	context.domPathTokens = getTrace(clickElement);
 	context.url = window.document.location.href || null;
+	
+	for (let prop in customTrackableProperties) {
+		if (!context[prop]) {
+			context[prop] = customTrackableProperties[prop];
+		} else {
+			console.warn(`You can't set a custom property called ${prop}`);
+		}
+	}
+	
 	eventData.context = context;
 
 	// Merge the event data into the "parent" config data
@@ -157,7 +186,7 @@ const init = (category, elementsToTrack) => {
 		category: category || 'o-tracking'
 	};
 
-	// Activte the click event listener
+	// Activate the click event listener
 	let delegate = new Delegate(document.body);
 	delegate.on('click', elementsToTrack, handleClickEvent(eventData), true);
 
