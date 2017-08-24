@@ -169,7 +169,13 @@ class Tooltip {
 		// Delegate pattern
 		this.delegates.doc.root(document.body);
 		this.delegates.tooltip.root(this.tooltipEl);
+
+		// VVV Deprecated - Remove this in V3. VVV
+		console.warn('The event o.tooltipShown is deprecated and is replaced by the event oTooltip.show');
 		this.tooltipEl.dispatchEvent(new CustomEvent('o.tooltipShown'));
+		// ^^^ Deprecated - Remove this in V3. ^^^
+
+		this.tooltipEl.dispatchEvent(new CustomEvent('oTooltip.show'));
 
 		// Set up all the ways to close the tooltip
 		this.closeHandler = this.close.bind(this);
@@ -247,7 +253,13 @@ class Tooltip {
 	 * Close the tooltip. (Visually hide it and remove event listeners)
 	*/
 	close() {
+
+		// VVV Deprecated - Remove this in V3. VVV
+		console.warn('The event o.tooltipClosed is deprecated and is replaced by the event oTooltip.close');
 		this.tooltipEl.dispatchEvent(new CustomEvent('o.tooltipClosed'));
+		// ^^^ Deprecated - Remove this in V3. ^^^
+
+		this.tooltipEl.dispatchEvent(new CustomEvent('oTooltip.close'));
 		this.delegates.doc.destroy();
 		this.delegates.tooltip.destroy();
 

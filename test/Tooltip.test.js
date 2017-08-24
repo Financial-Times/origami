@@ -424,11 +424,36 @@ describe("Tooltip", () => {
 			proclaim.isTrue(drawTooltipStub.called);
 		});
 
-		it('emits o.tooltipShown event', function(done) {
+		it('emits o.tooltipShown event', function (done) {
 			this.timeout(1000);
+
+			const timer = setTimeout(() => {
+				proclaim.fail('o.tooltipShown event to fire', 'o.tooltipShown event did not fire');
+			}, 500);
+
 			const tooltipEl = document.getElementById('tooltip-demo');
 			const testTooltip = new Tooltip(tooltipEl, {target: 'demo-tooltip-target'});
-			testTooltip.delegates.tooltip.on('o.tooltipShown', () => done());
+			testTooltip.delegates.tooltip.on('o.tooltipShown', () => {
+				clearTimeout(timer);
+				done();
+			});
+
+			testTooltip.show();
+		});
+
+		it('emits oTooltip.show event', function(done) {
+			this.timeout(1000);
+
+			const timer = setTimeout(() => {
+				proclaim.fail('oTooltip.show event to fire', 'oTooltip.show event did not fire');
+			}, 500);
+
+			const tooltipEl = document.getElementById('tooltip-demo');
+			const testTooltip = new Tooltip(tooltipEl, {target: 'demo-tooltip-target'});
+			testTooltip.delegates.tooltip.on('oTooltip.show', () => {
+				clearTimeout(timer);
+				done();
+			});
 
 			testTooltip.show();
 		});
@@ -1284,9 +1309,35 @@ describe("Tooltip", () => {
 
 		it('emits o.tooltipClosed event', function(done) {
 			this.timeout(1000);
+
+			const timer = setTimeout(() => {
+				proclaim.fail('o.tooltipClosed event to fire', 'o.tooltipClosed event did not fire');
+			}, 500);
+
 			const tooltipEl = document.getElementById('tooltip-demo');
 			const testTooltip = new Tooltip(tooltipEl, {target: 'demo-tooltip-target'});
-			testTooltip.delegates.tooltip.on('o.tooltipClosed', () => done());
+			testTooltip.delegates.tooltip.on('o.tooltipClosed', () => {
+				clearTimeout(timer);
+				done();
+			});
+
+			testTooltip.show();
+			testTooltip.close();
+		});
+
+		it('emits oTooltip.close event', function(done) {
+			this.timeout(1000);
+
+			const timer = setTimeout(() => {
+				proclaim.fail('oTooltip.close event to fire', 'oTooltip.close event did not fire');
+			}, 500);
+
+			const tooltipEl = document.getElementById('tooltip-demo');
+			const testTooltip = new Tooltip(tooltipEl, {target: 'demo-tooltip-target'});
+			testTooltip.delegates.tooltip.on('oTooltip.close', () => {
+				clearTimeout(timer);
+				done();
+			});
 
 			testTooltip.show();
 			testTooltip.close();
