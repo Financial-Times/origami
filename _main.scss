@@ -209,8 +209,9 @@
 	}
 }
 
-
-
+.o-tooltip-content {
+	@include oTypographySans($scale: 0);
+}
 
 @supports (object-fit: cover) {
 	.topper__slot-1 {
