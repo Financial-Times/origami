@@ -28,10 +28,8 @@ function initDemos() {
 		document.getElementById('banner-marketing-secondary').addEventListener('click', () => {
 			new Banner(null, {
 				contentLong: `
-					<p>
-						<strong>You qualify for a 25% subscription discount.</strong>
-						Pay just £3.99 per week for annual Standard  Digital access.
-					</p>
+					<h1>You qualify for a 25% subscription discount.</h1>
+					<p>Pay just £3.99 per week for annual Standard  Digital access.</p>
 					<ul>
 						<li>Access FT.com on your desktop, tablet &amp; mobile</li>
 						<li>5 year company financials archive</li>
@@ -39,10 +37,8 @@ function initDemos() {
 					</ul>
 				`,
 				contentShort: `
-					<p>
-						<strong>You qualify for a 25% subscription discount.</strong>
-						Pay just £3.99 per week for annual Standard  Digital access.
-					</p>
+					<h1>You qualify for a 25% subscription discount.</h1>
+					<p>Pay just £3.99 per week for annual Standard  Digital access.</p>
 				`,
 				buttonLabel: 'Save 25% now',
 				buttonUrl: '#save-button',
@@ -53,10 +49,8 @@ function initDemos() {
 		document.getElementById('banner-marketing-primary').addEventListener('click', () => {
 			new Banner(null, {
 				contentLong: `
-					<p>
-						<strong>You qualify for a 25% subscription discount.</strong>
-						Pay just £3.99 per week for annual Standard  Digital access.
-					</p>
+					<h1>You qualify for a 25% subscription discount.</h1>
+					<p>Pay just £3.99 per week for annual Standard  Digital access.</p>
 					<ul>
 						<li>Access FT.com on your desktop, tablet &amp; mobile</li>
 						<li>5 year company financials archive</li>
@@ -64,10 +58,8 @@ function initDemos() {
 					</ul>
 				`,
 				contentShort: `
-					<p>
-						<strong>You qualify for a 25% subscription discount.</strong>
-						Pay just £3.99 per week for annual Standard  Digital access.
-					</p>
+					<h1>You qualify for a 25% subscription discount.</h1>
+					<p>Pay just £3.99 per week for annual Standard  Digital access.</p>
 				`,
 				buttonLabel: 'Save 25% now',
 				buttonUrl: '#save-button',

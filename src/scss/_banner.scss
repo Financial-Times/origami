@@ -16,7 +16,7 @@
 }
 
 @mixin oBannerInner {
-	@include oTypographySans($scale: (default: 2));
+	@include oTypographySans($scale: 2);
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -36,15 +36,27 @@
 		margin-top: 0;
 		margin-bottom: 0;
 	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@include oTypographySans($scale: 3);
+		@include oTypographyBold($font: 'sans');
+		margin-bottom: oTypographySpacingSize(1);
+	}
 	b,
 	strong {
 		@include oTypographyBold($font: 'sans');
 	}
 	ul {
 		@include oTypographyListUnordered;
-		@include oTypographySans($scale: (default: 1));
-		margin-top: oTypographySpacingSize(2);
+		margin-top: oTypographySpacingSize(3);
 
+		li {
+			@include oTypographySans($scale: 2, $line-height: oTypographySpacingSize(7));
+		}
 		li:before {
 			color: inherit;
 		}
@@ -64,7 +76,7 @@
 }
 
 @mixin oBannerHeading {
-	@include oTypographySans($scale: (default: 3));
+	@include oTypographySans($scale: 3);
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -105,7 +117,7 @@
 		$outlineColor: oColorsGetUseCase(o-banner-link, text),
 		$backgroundColor: 'teal'
 	);
-	@include oTypographySans($scale: (default: 0));
+	@include oTypographySans($scale: 0);
 	white-space: nowrap;
 }
 
