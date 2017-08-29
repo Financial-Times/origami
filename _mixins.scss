@@ -55,9 +55,6 @@ $colors: 'white', 'black', 'claret', 'oxford', 'paper', 'slate', 'wheat', 'defau
 
 @mixin headlineFontSize($size) {
 	font-size: $size;
-	.o-typography--loaded-serifDisplayBold & {
-		font-size: $size * 1.077;
-	}
 }
 
 @mixin alignText($position) {
