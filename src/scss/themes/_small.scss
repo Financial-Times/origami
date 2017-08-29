@@ -8,13 +8,14 @@
 
 	.o-teaser__content {
 		flex: 1 0 70%;
+		max-width: 70%; // Because IE cannot calculate correct box-sizing with flex wrap
 		order: 2;
 	}
 
 	.o-teaser__image-container {
 		flex: 0 0 30%;
 		width: 30%;
-		max-width: 30%;
+		max-width: 30%; // Because IE cannot calculate correct box-sizing with flex wrap
 		padding-top: 4px; // to line up with tag cap-height
 		padding-right: oGridGutter(M);
 
