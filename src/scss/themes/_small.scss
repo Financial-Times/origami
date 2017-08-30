@@ -6,7 +6,8 @@
 	border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
 
 	.o-teaser__content {
-		flex: 1;
+		// don't use short hand as IE will apply 0 height as flex basis 😐
+		flex-grow: 1;
 		order: 2;
 	}
 
@@ -34,6 +35,8 @@
 	.o-teaser__image-container {
 		margin-bottom: 16px;
 		width: 100%;
+		// <https://connect.microsoft.com/IE/feedbackdetail/view/891815>
+		min-height: 1px;
 
 		@include oGridRespondTo(M) {
 			padding-top: 0;
