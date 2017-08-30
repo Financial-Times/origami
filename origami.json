@@ -160,6 +160,20 @@
 				}
 			},
 			{
+				"name": "small-headshot",
+				"description": "Small teaser with headshot",
+				"template": "demos/src/demo.mustache",
+				"data": {
+					"article-modifier": "has-headshot",
+					"article-tag-prefix": "The Long View",
+					"article-tag": "John Authers",
+					"article-headshot": "https://www.ft.com/__origami/service/image/v2/images/raw/fthead:john-authers?source=next&width=150&fit=scale-down&compression=best&tint=054593,d6d5d3",
+					"article-timestamp": "2017-08-30T11:05:48Z",
+					"article-heading": "There are better ways to boost an economy than war",
+					"article-standfirst": "The longer a conflict lasts, the heavier the toll on GDP growth"
+				}
+			},
+			{
 				"name": "small-image-stacked",
 				"description": "Small teaser with stacked image",
 				"template": "demos/src/demo.mustache",
