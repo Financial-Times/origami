@@ -2,20 +2,16 @@
 @mixin oTeaserSmall {
 	@include oTypographyPadding($bottom: 4);
 	display: flex;
-	flex-flow: row wrap;
 	justify-content: space-between;
 	border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
 
 	.o-teaser__content {
 		flex: 1 0 70%;
-		max-width: 70%; // Because IE cannot calculate correct box-sizing with flex wrap
 		order: 2;
 	}
 
 	.o-teaser__image-container {
-		flex: 0 0 30%;
 		width: 30%;
-		max-width: 30%; // Because IE cannot calculate correct box-sizing with flex wrap
 		padding-top: 4px; // to line up with tag cap-height
 		padding-right: oGridGutter(M);
 
@@ -28,7 +24,7 @@
 /// Small teaser styles for a stacked image
 /// image will appear 100% width at the top of the teaser
 @mixin oTeaserSmallStacked {
-	flex-wrap: wrap;
+	flex-direction: column;
 
 	@include oGridRespondTo(M) {
 		border-bottom: 0;
@@ -37,10 +33,9 @@
 
 	.o-teaser__image-container {
 		margin-bottom: 16px;
-		max-width: 100%;
+		width: 100%;
 
 		@include oGridRespondTo(M) {
-			flex: 1 0 100%;
 			padding-top: 0;
 			padding-right: 0;
 		}
