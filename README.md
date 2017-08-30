@@ -10,7 +10,6 @@ Add an `o-quote` class to any quote you wish to apply the styles to.
 
 ```html
 <blockquote class="o-quote o-quote--standard">
-	<div class="o-quote-icon"></div>
 		<p>
 			The prize for this century’s worst technology product probably belongs to Google Glass, a pair of spectacles with an inbuilt camera and a tiny lens on which you could browse the internet. Suddenly you could film everybody you met, or silently ignore them and read Wikipedia.
 		</p>
@@ -41,13 +40,6 @@ You can then use the mixins directly in your code:
 ```scss
 .article-container blockquote {
 	@include oQuoteStandard;
-
-	//oQuoteStandard includes styles for a .o-quote-icon element, but without that element you can include the icon in a :before
-	&:before {
-		content: '';
-		display: block;
-		@include oQuoteStandardIcon;
-	}
 
 	cite {
 		@include oQuoteStandardCite;
