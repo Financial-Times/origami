@@ -7,8 +7,17 @@ html {
 }
 
 body {
-	font-family: FinancierDisplayWeb, serif;
+	font-family: Metric, serif;
 	margin: 1em;
+}
+
+h2 {
+	font-weight: 400;
+}
+
+p {
+	max-width: 900px;
+	font-size: 18px;
 }
 
 .test-page {
@@ -17,6 +26,14 @@ body {
 
 .faux-inline-block {
 	display: inline-block;
+}
+
+.theme-box {
+	display: inline-block;
+	padding: 10px;
+	margin-left: -10px;
+	margin-right: 10px;
+
 }
 .inverse {
 	background-color: oColorsGetPaletteColor('slate');
