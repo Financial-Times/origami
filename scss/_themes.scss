@@ -3,8 +3,11 @@
 /// @link http://registry.origami.ft.com/components/o-buttons
 ////
 
-// Set custom color white over slate @ 20%
-@include oColorsSetColor('white-slate-20', oColorsMix($color: 'white', $background: 'slate', $percentage: 20));
+// @deprecated Set custom color white over slate @ 20%. 
+// This originally used black rather than slate, hence the misleading name to avoid a breaking change.
+// Updating this with an abstract name on the next major release will remove ambiguity and be more flexible.
+@include oColorsSetColor('white-black-20', oColorsMix($color: 'white', $background: 'slate', $percentage: 20));
+// @deprecated
 
 // Set custom color translucent teal @ 10%
 @include oColorsSetColor('teal-transparent-10', oColorsMix($color: 'teal', $background: 'transparent', $percentage: 10));
@@ -48,7 +51,7 @@
 @include oColorsSetUseCase(o-buttons-inverse-normal,   background,        'transparent');
 @include oColorsSetUseCase(o-buttons-inverse-hover,    text,              'white');
 @include oColorsSetUseCase(o-buttons-inverse-hover,    border,            'white');
-@include oColorsSetUseCase(o-buttons-inverse-hover,    background,        'white-slate-20');
+@include oColorsSetUseCase(o-buttons-inverse-hover,    background,        'white-black-20');
 @include oColorsSetUseCase(o-buttons-inverse-active,   text,              'black');
 @include oColorsSetUseCase(o-buttons-inverse-active,   border,            'white');
 @include oColorsSetUseCase(o-buttons-inverse-active,   background,        'white');
