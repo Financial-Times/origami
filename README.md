@@ -63,6 +63,6 @@ You can then use the mixins directly in your code:
 
 ----
 
-## License
+## Licence
 
 This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
