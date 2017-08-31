@@ -61,6 +61,13 @@
       "description": "For button layouts were there is a choice of related options. This layout can be combined with themes for example o-buttons--b2c."
     },
     {
+      "name": "icons",
+      "title": "Grouped layout",
+      "template": "/demos/src/icons.mustache",
+      "data": "demos/src/icons.json",
+      "description": "For button layouts were there is a choice of related options. This layout can be combined with themes for example o-buttons--b2c."
+    },
+    {
       "name": "test",
       "template": "/demos/src/test.mustache",
       "hidden": true,

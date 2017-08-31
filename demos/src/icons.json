@@ -1,0 +1,34 @@
+{
+  "icons": [
+    {
+      "name": "plus",
+      "text": "Add to myFT"
+    },
+    {
+      "name": "tick",
+      "text": "Added"
+    },
+    {
+      "name": "arrow-left",
+      "text": "Go forward"
+    },
+    {
+      "name": "arrow-right",
+      "text": "Go back"
+    },
+    {
+      "name": "upload",
+      "text": "Upload"
+    }
+  ],
+  "themes": [
+      {"name": "primary"},
+      {"name": "secondary"},
+      {"name": "mono"},
+      {"name": "inverse"}
+    ],
+  "sizes": [
+      {"name": "small"},
+      {"name": "big"}
+  ]
+}
