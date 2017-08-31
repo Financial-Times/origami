@@ -55,7 +55,6 @@
 			}
 
 			&:not([disabled]) {
-				&:focus:not(:hover),
 				&:hover {
 					@include _oButtonsGetIconForThemeAndState($icon-name, $theme, hover);
 				}
