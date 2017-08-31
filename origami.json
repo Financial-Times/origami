@@ -62,10 +62,10 @@
     },
     {
       "name": "icons",
-      "title": "Grouped layout",
+      "title": "Icon buttons",
       "template": "/demos/src/icons.mustache",
       "data": "demos/src/icons.json",
-      "description": "For button layouts were there is a choice of related options. This layout can be combined with themes for example o-buttons--b2c."
+      "description": "oButtons includes styles for some common icon buttons and the ability to add more using Sass mixins."
     },
     {
       "name": "test",
