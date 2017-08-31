@@ -3,8 +3,14 @@
 /// @link http://registry.origami.ft.com/components/o-buttons
 ////
 
-// Set custom color white over black @ 20%
-@include oColorsSetColor('white-black-20', oColorsMix($color: 'white', $background: 'black', $percentage: 20));
+// @deprecated Set custom color white over slate @ 20%. 
+// This originally used black rather than slate, hence the misleading name to avoid a breaking change.
+// Updating this with an abstract name on the next major release will remove ambiguity and be more flexible.
+@include oColorsSetColor('white-black-20', oColorsMix($color: 'white', $background: 'slate', $percentage: 20));
+// @deprecated
+
+// Set custom color translucent teal @ 10%
+@include oColorsSetColor('teal-transparent-10', oColorsMix($color: 'teal', $background: 'transparent', $percentage: 10));
 
 /// scss-lint:disable SpaceAfterComma
 
@@ -14,29 +20,29 @@
 @include oColorsSetUseCase(o-buttons-primary-normal,   border,            'teal-50');
 @include oColorsSetUseCase(o-buttons-primary-normal,   background,        'teal-50');
 @include oColorsSetUseCase(o-buttons-primary-hover,    text,              'white');
-@include oColorsSetUseCase(o-buttons-primary-hover,    border,            'teal-30');
-@include oColorsSetUseCase(o-buttons-primary-hover,    background,        'teal-30');
-@include oColorsSetUseCase(o-buttons-primary-active,   text,              'teal-30');
-@include oColorsSetUseCase(o-buttons-primary-active,   border,            'teal-80');
-@include oColorsSetUseCase(o-buttons-primary-active,   background,        'teal-80');
-@include oColorsSetUseCase(o-buttons-primary-pressedselected, text,       'teal-30');
-@include oColorsSetUseCase(o-buttons-primary-pressedselected, border,     'teal-80');
-@include oColorsSetUseCase(o-buttons-primary-pressedselected, background, 'teal-80');
+@include oColorsSetUseCase(o-buttons-primary-hover,    border,            'teal-40');
+@include oColorsSetUseCase(o-buttons-primary-hover,    background,        'teal-40');
+@include oColorsSetUseCase(o-buttons-primary-active,   text,              'white');
+@include oColorsSetUseCase(o-buttons-primary-active,   border,            'teal-30');
+@include oColorsSetUseCase(o-buttons-primary-active,   background,        'teal-30');
+@include oColorsSetUseCase(o-buttons-primary-pressedselected, text,       'white');
+@include oColorsSetUseCase(o-buttons-primary-pressedselected, border,     'teal-30');
+@include oColorsSetUseCase(o-buttons-primary-pressedselected, background, 'teal-30');
 
 // Theme: secondary
 
 @include oColorsSetUseCase(o-buttons-secondary-normal,   text,              'teal-50');
 @include oColorsSetUseCase(o-buttons-secondary-normal,   border,            'teal-50');
 @include oColorsSetUseCase(o-buttons-secondary-normal,   background,        'transparent');
-@include oColorsSetUseCase(o-buttons-secondary-hover,    text,              'white');
+@include oColorsSetUseCase(o-buttons-secondary-hover,    text,              'teal-50');
 @include oColorsSetUseCase(o-buttons-secondary-hover,    border,            'teal-50');
-@include oColorsSetUseCase(o-buttons-secondary-hover,    background,        'teal-50');
-@include oColorsSetUseCase(o-buttons-secondary-active,   text,              'teal-30');
-@include oColorsSetUseCase(o-buttons-secondary-active,   border,            'teal-80');
-@include oColorsSetUseCase(o-buttons-secondary-active,   background,        'teal-80');
-@include oColorsSetUseCase(o-buttons-secondary-pressedselected, text,       'teal-30');
-@include oColorsSetUseCase(o-buttons-secondary-pressedselected, border,     'teal-80');
-@include oColorsSetUseCase(o-buttons-secondary-pressedselected, background, 'teal-80');
+@include oColorsSetUseCase(o-buttons-secondary-hover,    background,        'teal-transparent-10');
+@include oColorsSetUseCase(o-buttons-secondary-active,   text,              'white');
+@include oColorsSetUseCase(o-buttons-secondary-active,   border,            'teal-50');
+@include oColorsSetUseCase(o-buttons-secondary-active,   background,        'teal-50');
+@include oColorsSetUseCase(o-buttons-secondary-pressedselected, text,       'white');
+@include oColorsSetUseCase(o-buttons-secondary-pressedselected, border,     'teal-50');
+@include oColorsSetUseCase(o-buttons-secondary-pressedselected, background, 'teal-50');
 
 // Theme: inverse
 
@@ -59,7 +65,7 @@
 @include oColorsSetUseCase(o-buttons-mono-normal,   border,            'black');
 @include oColorsSetUseCase(o-buttons-mono-normal,   background,        'transparent');
 @include oColorsSetUseCase(o-buttons-mono-hover,    text,              'black');
-@include oColorsSetUseCase(o-buttons-mono-hover,    border,            'white');
+@include oColorsSetUseCase(o-buttons-mono-hover,    border,            'black');
 @include oColorsSetUseCase(o-buttons-mono-hover,    background,        'black-10');
 @include oColorsSetUseCase(o-buttons-mono-active,   text,              'white');
 @include oColorsSetUseCase(o-buttons-mono-active,   border,            'black');
