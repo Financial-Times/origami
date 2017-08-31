@@ -59,8 +59,8 @@
 		left: 10%;
 	}
 
-	&.arrow--align-right:before,
-	&.arrow--align-right:after {
+	&.o-tooltip-arrow--align-right:before,
+	&.o-tooltip-arrow--align-right:after {
 		left: 90%;
 	}
 
@@ -123,14 +123,14 @@
 @mixin _oTooltipHorizontalArrow($size: 10px) {
 	@include _oTooltipArrow;
 
-	&.arrow--align-top:before,
-	&.arrow--align-top:after {
-		left: 10%;
+	&.o-tooltip-arrow--align-top:before,
+	&.o-tooltip-arrow--align-top:after {
+		top: 10%;
 	}
 
-	&.arrow--align-bottom:before,
-	&.arrow--align-bottom:after {
-		left: 90%;
+	&.o-tooltip-arrow--align-bottom:before,
+	&.o-tooltip-arrow--align-bottom:after {
+		top: 90%;
 	}
 
 
