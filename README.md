@@ -217,9 +217,10 @@ To create a `lemon` _filled_ button on a `slate` background, use the `colorizer`
 This will output styles for a lemon coloured button that has slate text, with a slate/lemon mixed hover state.
 
 #### Icons
-[View demo](https://origami-build.ft.com/demos/o-buttons/icons)
+o-buttons uses the [fticons](https://registry.origami.ft.com/components/fticons/) set via the [o-icons](https://github.com/Financial-Times/o-icons/) mixins for its icon-buttons.
 
-o-buttons uses [fticons](https://registry.origami.ft.com/components/fticons/) via the [o-icons](https://github.com/Financial-Times/o-icons/) mixins for its icon-buttons.
+If you're using the Build Service, currently supported icons are defined in the `$o-buttons-icons` variable in `scss/_variables.scss`. Limiting the concrete classes keeps the compiled CSS bundle small, but if you need an icon button that we don't currently support then please open an issue.
+If you're using the mixins, all [fticons](https://registry.origami.ft.com/components/fticons/) will work.
 
 ```html
 // Icon and text button.

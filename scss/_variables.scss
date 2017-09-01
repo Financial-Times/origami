@@ -32,7 +32,7 @@ $o-buttons-font-weight: 600 !default; // Semibold
 /// @type Map
 $o-buttons-sizes: (
 	default: (
-		background-size: 16px,
+		background-size: 21px, // Magic number to reduce poor antialiasing on icons at small sizes
 		font-size: 14px,
 		min-height: 28px,
 		min-width: 60px,
@@ -41,7 +41,7 @@ $o-buttons-sizes: (
 		border-width: 1px,
 	),
 	big: (
-		background-size: 20px,
+		background-size: 40px,
 		font-size: 16px,
 		min-height: 40px,
 		min-width: 80px,
@@ -76,4 +76,4 @@ $o-buttons-themes: (
 /// Icon names as used in fticons
 ///
 /// @type List
-$o-buttons-icons: "arrow-left", "arrow-right" !default;
+$o-buttons-icons: "arrow-left", "arrow-right", "upload", "tick", "plus" !default;

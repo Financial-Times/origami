@@ -55,7 +55,6 @@
 			}
 
 			&:not([disabled]) {
-				&:focus:not(:hover),
 				&:hover {
 					@include _oButtonsGetIconForThemeAndState($icon-name, $theme, hover);
 				}
@@ -81,6 +80,10 @@
 	background-repeat: no-repeat;
 	background-position: 3px;
 	padding-left: 22px;
+
+	&.o-buttons--big {
+		padding-left: 40px;
+	}
 
 	&.o-buttons-icon--icon-only {
 		padding-left: 0;
