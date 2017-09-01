@@ -95,10 +95,26 @@
 
 .topper--news-package {
 	padding: 22px 0px 0px;
+	background: oColorsMix('crimson', 'black', 90);
 
-	@media screen and (max-width: 800px) {
-		.o-grid-container {
-			max-width: inherit;
+	.n-image {
+		width: 100%;
+		padding-bottom: 24px;
+	}
+
+	@include oGridRespondTo($until: M) {
+		.o-grid-container,
+		.topper__summary__wrapper {
+			padding: 0;
+			margin: 0;
+		}
+
+		.n-image {
+			padding-bottom: 0px;
+		}
+
+		.topper__headline {
+			padding: 0 10px;
 		}
 	}
 
@@ -113,6 +129,26 @@
 	}
 
 	.topper__headline {
+
+		.article-classifier__gap {
+			position: inherit;
+		}
+
+		position: relative;
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			margin: -22px 0 0 -50vw;
+			width: 100vw;
+			background: getColor('crimson');
+			content: '';
+			height: calc(100% + 40px);
+
+			@include oGridRespondTo(L) {
+				left: calc(100% + 10px);
+			}
+		}
 		@include oTypographyDisplay(6, $progressive: true);
 		@media screen and (max-width: 800px) {
 			font-size: 36px;
@@ -136,10 +172,13 @@
 
 	.topper__summary {
 		&__wrapper {
-			background: oColorsMix('crimson', 'black', 90);
 			display: inline-block; /* fix for ie */
 			display: flex;
 			width: 100%;
+
+			.o-grid-container {
+				width: 100%;
+			}
 
 			@media screen and (max-width: 980px) {
 				.o-grid-container {
