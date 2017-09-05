@@ -1,20 +1,25 @@
 class Target {
 	constructor(targetEl) {
 		this.targetEl = targetEl;
-		this.rectObject = targetEl.getBoundingClientRect();
-	}
 
-	getEdge(edge){
-		const edges = {"top": this.top, "bottom": this.bottom, "right": this.right, "left": this.left};
-		return edges[edge];
-	}
+		// @deprecated This is not used anywhere in the codebase, seems like we don't need it
+        this.rectObject = targetEl.getBoundingClientRect();
+    }
+
+    // @deprecated This is not used anywhere in the codebase, seems like we don't need it
+    getEdge(edge){
+        console.warn('The `getEdge` method is depracated and will be removed in the next major version of o-tooltip');
+        const edges = {"top": this.top, "bottom": this.bottom, "right": this.right, "left": this.left};
+        return edges[edge];
+    }
+    // @deprecated ^^^
 
 	get offsetTop() {
 		return this.targetEl.offsetTop;
 	}
 
 	get left() {
-		return this.targetEl.getBoundingClientRect().left - this.targetEl.offsetParent.getBoundingClientRect().left;
+		return this.targetEl.getBoundingClientRect().left - (this.targetEl.offsetParent && this.targetEl.offsetParent.getBoundingClientRect().left);
 	}
 
 	get right() {
@@ -22,7 +27,7 @@ class Target {
 	}
 
 	get top() {
-		return this.targetEl.getBoundingClientRect().top - this.targetEl.offsetParent.getBoundingClientRect().top;
+		return this.targetEl.getBoundingClientRect().top - (this.targetEl.offsetParent && this.targetEl.offsetParent.getBoundingClientRect().top);
 	}
 
 	get bottom() {
