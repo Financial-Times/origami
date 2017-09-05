@@ -2,7 +2,6 @@
 @mixin oTeaserSmall {
 	@include oTypographyPadding($bottom: 4);
 	display: flex;
-	justify-content: space-between;
 	border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
 
 	.o-teaser__content {
@@ -30,12 +29,12 @@
 	flex-direction: column;
 	
 	.o-teaser__content {
-		flex-basis: auto; // must override original .o-teaser__content flex-basis, and is influenced by flex-direction
+		flex-basis: auto; // must override original .o-teaser__content flex-basis
 	}
 
 	@include oGridRespondTo(M) {
 		border-bottom: 0;
-		padding-bottom: 0px;
+		padding-bottom: 0;
 	}
 
 	.o-teaser__image-container {
@@ -43,11 +42,8 @@
 		width: 100%;
 		// <https://connect.microsoft.com/IE/feedbackdetail/view/891815>
 		min-height: 1px;
-
-		@include oGridRespondTo(M) {
-			padding-top: 0;
-			padding-right: 0;
-		}
+		padding-top: 0;
+		padding-right: 0;
 	}
 }
 
