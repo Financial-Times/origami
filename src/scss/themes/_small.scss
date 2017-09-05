@@ -6,8 +6,8 @@
 	border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
 
 	.o-teaser__content {
-		// don't use short hand as IE will apply 0 height as flex basis 😐
-		flex-grow: 1;
+		// IE needs a unit to apply flex-basis correctly 😐
+		flex: 1 0 0%;
 		order: 2;
 	}
 
@@ -28,6 +28,10 @@
 /// image will appear 100% width at the top of the teaser
 @mixin oTeaserSmallStacked {
 	flex-direction: column;
+	
+	.o-teaser__content {
+		flex-basis: auto; // must override original .o-teaser__content flex-basis, and is influenced by flex-direction
+	}
 
 	@include oGridRespondTo(M) {
 		border-bottom: 0;
