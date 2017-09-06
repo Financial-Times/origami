@@ -2,12 +2,11 @@
 @mixin oTeaserSmall {
 	@include oTypographyPadding($bottom: 4);
 	display: flex;
-	justify-content: space-between;
 	border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
 
 	.o-teaser__content {
-		// don't use short hand as IE will apply 0 height as flex basis 😐
-		flex-grow: 1;
+		// IE needs a unit to apply flex-basis correctly 😐
+		flex: 1 0 0%;
 		order: 2;
 	}
 
@@ -28,10 +27,14 @@
 /// image will appear 100% width at the top of the teaser
 @mixin oTeaserSmallStacked {
 	flex-direction: column;
+	
+	.o-teaser__content {
+		flex-basis: auto; // must override original .o-teaser__content flex-basis
+	}
 
 	@include oGridRespondTo(M) {
 		border-bottom: 0;
-		padding-bottom: 0px;
+		padding-bottom: 0;
 	}
 
 	.o-teaser__image-container {
@@ -39,11 +42,8 @@
 		width: 100%;
 		// <https://connect.microsoft.com/IE/feedbackdetail/view/891815>
 		min-height: 1px;
-
-		@include oGridRespondTo(M) {
-			padding-top: 0;
-			padding-right: 0;
-		}
+		padding-top: 0;
+		padding-right: 0;
 	}
 }
 
