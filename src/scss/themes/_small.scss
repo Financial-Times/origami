@@ -22,6 +22,9 @@
 	padding: $_o-banner-spacing;
 	max-width: oGridColspan(5);
 
+	@include oGridRespondTo($until: L) {
+		max-width: oGridColspan(7);
+	}
 	@include oGridRespondTo($until: M) {
 		max-width: oGridColspan(8);
 	}
