@@ -96,7 +96,6 @@
 
 .topper--news-package {
 	padding: 24px 0px 0px;
-	background: oColorsMix('crimson', 'black', 90);
 
 	.n-image {
 		width: 100%;
@@ -125,21 +124,6 @@
 			position: inherit;
 		}
 
-		position: relative;
-		&:before {
-			position: absolute;
-			top: 0;
-			left: 50%;
-			margin: -24px 0 0 -50vw;
-			width: 100vw;
-			background: getColor('crimson');
-			content: '';
-			height: calc(100% + 40px);
-
-			@include oGridRespondTo(L) {
-				left: calc(100% + 10px);
-			}
-		}
 		@include oTypographyDisplay($scale: (default: 6, S: 4, M: 6, L: 8));
 
 		&--large {
