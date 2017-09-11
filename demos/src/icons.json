@@ -19,6 +19,10 @@
 		{
 			"name": "upload",
 			"text": "Upload"
+		},
+		{
+			"name": "warning",
+			"text": "Danger"
 		}
 	],
 	"themes": [
