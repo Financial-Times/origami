@@ -57,11 +57,11 @@ function OTable(rootEl) {
  */
 OTable.prototype._sortByColumn = function _sortByColumn (columnIndex) {
 	return function (event) {
+		let currentSort = event.currentTarget.getAttribute('aria-sort');
 		this.tableHeaders.forEach((header) => {
 			header.setAttribute('aria-sort', 'none');
 		});
-
-		if (this.rootEl.getAttribute('data-o-table-order') === null || this.rootEl.getAttribute('data-o-table-order') === "DES") {
+		if (this.rootEl.getAttribute('data-o-table-order') === null || currentSort === "none" || currentSort === "descending") {
 			this.rootEl.setAttribute('data-o-table-order', 'ASC');
 			event.currentTarget.setAttribute('aria-sort', 'ascending');
 		} else {
