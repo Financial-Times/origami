@@ -49,15 +49,9 @@
 }
 
 .topper__standfirst {
-	@include oTypographySans(-1, $progressive: true);
+	@include oTypographySans((default: 1, L: 2));
 	opacity: 0.8;
-	font-size: round(18px * 0.9);
-	line-height: 1.4;
 	-webkit-font-smoothing: antialiased;
-
-	@include oGridRespondTo(L) {
-		font-size: round(22px * 0.9);
-	}
 
 	a {
 		font-size: 16px;

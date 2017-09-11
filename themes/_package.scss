@@ -114,7 +114,8 @@
 		}
 
 		.topper__headline {
-			padding: 0 10px;
+
+			padding: 0 oGridGutter();
 		}
 	}
 
@@ -133,11 +134,10 @@
 
 	.topper__description,
 	.topper__standfirst {
-		@include oGridRespondTo($until: L) {
-			padding: 20px;
-		}
-		@include oGridRespondTo($until: S) {
-			padding: 20px 10px;
+		padding: 0 oGridGutter() 20px;
+		opacity: 1;
+		@include oGridRespondTo(M) {
+			padding: 0 20px 20px 0;
 		}
 	}
 
