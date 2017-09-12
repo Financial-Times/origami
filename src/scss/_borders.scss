@@ -19,9 +19,9 @@
 	border-left: 1px solid oColorsGetColorFor(o-table-row, border);
 	border-right: 1px solid oColorsGetColorFor(o-table-row, border);
 
-	// scss-lint:disable QualifyingElement
+	// sass-lint:disable no-qualifying-elements
 	th[scope=row] {
 		border-left: 1px solid oColorsGetColorFor(o-table-header-row, border);
 	}
-	// scss-lint:enable QualifyingElement
+	// sass-lint:enable no-qualifying-elements
 }
