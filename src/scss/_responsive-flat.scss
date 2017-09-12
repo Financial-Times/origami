@@ -18,6 +18,12 @@
 		display: table;
 	}
 
+	@include oGridRespondTo($until: S) {
+		.o-table__cell--numeric {
+			text-align: left;
+		}
+	}
+
 	td {
 		padding: 8px;
 		width: 50%;
