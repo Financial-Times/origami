@@ -12,6 +12,12 @@
 		display: table;
 	}
 
+	@include oGridRespondTo($until: S) {
+		.o-table__cell--numeric {
+			text-align: left;
+		}
+	}
+
 	thead {
 		display: flex;
 		flex-shrink: 0;
