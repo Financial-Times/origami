@@ -5,15 +5,15 @@
 
 /// Headline styles
 @mixin oTypographyHeadline {
-	@include oTypographyDisplay($scale: 6);
-	@include oTypographyMargin($top: 0, $bottom: 8);
+	@include oTypographyDisplay($scale: (default: 4, L: 6));
+	@include oTypographyMargin($top: 0, $bottom: 5);
 	@include oColorsFor('o-typography-headline');
 	font-weight: 400; // Browser default a h# to bold...
 }
 
 /// Large headline styles with an underline
 @mixin oTypographyHeadlineLarge {
-	@include oTypographyDisplayBold($scale: 8);
+	@include oTypographyDisplayBold($scale: (default: 5, S: 6, L: 7));
 	@include oTypographyMargin($top: 0, $bottom: 7);
 	@include oColorsFor('o-typography-headline');
 
@@ -25,7 +25,6 @@
 		border-bottom: oTypographySpacingSize($units: 2) solid oColorsGetPaletteColor('black');
 	}
 }
-
 
 /// Level 2 heading styles
 @mixin oTypographyHeadingLevel2 {
