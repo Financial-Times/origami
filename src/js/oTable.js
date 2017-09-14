@@ -143,8 +143,9 @@ function descendingSort (a, b) {
  * @returns undefined
  */
 OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericValue) {
-	const rows = Array.from(this.rootEl.querySelectorAll('tbody tr'));
 	const tbody = this.rootEl.querySelector('tbody');
+	const rows = Array.from(tbody.querySelectorAll('tr'));
+
 	rows.sort(function (a, b) {
 		let aCol = a.querySelectorAll('td')[index];
 		let bCol = b.querySelectorAll('td')[index];
@@ -173,8 +174,6 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
 		}
 
 	});
-
-	tbody.innerHTML = '';
 
 	rows.forEach(function(row) {
 		tbody.appendChild(row);
