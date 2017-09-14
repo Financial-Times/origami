@@ -20,7 +20,7 @@
 	margin: 0;
 
 	p {
-		@include oTypographyBody;
+		@include oTypographySans($scale: 1);
 		&:last-child {
 			@include oTypographyMargin($bottom: 0);
 		}
