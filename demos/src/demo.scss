@@ -42,3 +42,54 @@ body {
 	position: fixed;
 	top: 0;
 }
+
+
+
+.demo-positioning-container {
+	width: auto;
+	min-height: 300px;
+	height: 100vh;
+	position: relative;
+}
+
+.demo-positioning-explainer {
+	position: absolute;
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	padding-top: 100px;
+	text-align: center;
+}
+
+.position-relative {
+	position: relative;
+}
+.position-absolute {
+	position: absolute;
+	z-index: 100;
+}
+.position-fixed {
+	position: fixed;
+	z-index: 100;
+}
+.position-top {
+	top: 20px;
+}
+.position-bottom {
+	bottom: 20px;
+}
+.position-left {
+	left: 20px;
+}
+.position-right {
+	right: 20px;
+}
+.position-center {
+	left: 50%;
+	margin-left: -100px;
+	width: 200px;
+}
+.position-middle {
+	top: 50%;
+	margin-top: -20px;
+}
