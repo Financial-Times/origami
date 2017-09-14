@@ -245,8 +245,15 @@ Overlay.prototype.show = function() {
 		this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
 	}
 
-	this.closeOnNewLayerHandler = this.closeOnNewLayer.bind(this);
-	this.delegates.context.on('oLayers.new', this.closeOnNewLayerHandler);
+	if (!this.opts.parentNode) {
+		this.closeOnNewLayerHandler = this.closeOnNewLayer.bind(this);
+		this.delegates.context.on('oLayers.new', this.closeOnNewLayerHandler);
+
+		this.broadcast('new', 'oLayers');
+
+		this.closeOnEscapePressHandler = this.closeOnEscapePress.bind(this);
+		this.delegates.doc.on('keyup', this.closeOnEscapePressHandler);
+	}
 
 	if (this.opts.heading || this.opts.tooltip || this.opts.customclose) {
 		this.delegates.wrap.on('click', '.o-overlay__close', this.closeHandler);
@@ -257,10 +264,6 @@ Overlay.prototype.show = function() {
 	this.delegates.doc.on('click', 'body', this.closeOnExternalClickHandler);
 	this.delegates.doc.on('touchend', 'body', this.closeOnExternalClickHandler);
 
-	this.closeOnEscapePressHandler = this.closeOnEscapePress.bind(this);
-	this.delegates.doc.on('keyup', this.closeOnEscapePressHandler);
-
-	this.broadcast('new', 'oLayers');
 	this.context.appendChild(this.wrapper);
 
 	// Give the overlay focus
